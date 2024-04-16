@@ -450,16 +450,18 @@ if.then1.i:                                       ; preds = %land.lhs.true
 
 ossl_provider_up_ref.exit.thread:                 ; preds = %if.then1.i
   call void @ossl_provider_free(ptr noundef nonnull %call.i9)
-  br label %return
+  br label %7
 
 ossl_provider_up_ref.exit:                        ; preds = %land.lhs.true, %if.then1.i
   %.fr = freeze i32 %6
   %tobool23.not = icmp eq i32 %.fr, -1
-  %spec.select = select i1 %tobool23.not, ptr null, ptr %call.i9
+  br i1 %tobool23.not, label %7, label %return
+
+7:                                                ; preds = %ossl_provider_up_ref.exit.thread, %ossl_provider_up_ref.exit
   br label %return
 
-return:                                           ; preds = %ossl_provider_up_ref.exit, %ossl_provider_up_ref.exit.thread, %if.end18.thread, %get_provider_store.exit.thread, %if.end18, %if.end6
-  %retval.0 = phi ptr [ null, %if.end6 ], [ null, %if.end18 ], [ null, %get_provider_store.exit.thread ], [ null, %if.end18.thread ], [ null, %ossl_provider_up_ref.exit.thread ], [ %spec.select, %ossl_provider_up_ref.exit ]
+return:                                           ; preds = %7, %ossl_provider_up_ref.exit, %if.end18.thread, %get_provider_store.exit.thread, %if.end18, %if.end6
+  %retval.0 = phi ptr [ null, %if.end6 ], [ null, %if.end18 ], [ null, %get_provider_store.exit.thread ], [ null, %if.end18.thread ], [ null, %7 ], [ %call.i9, %ossl_provider_up_ref.exit ]
   ret ptr %retval.0
 }
 

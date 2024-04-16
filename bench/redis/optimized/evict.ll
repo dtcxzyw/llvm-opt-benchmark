@@ -169,7 +169,7 @@ if.then12:                                        ; preds = %if.else
   %conv3.i = zext nneg i32 %and.i to i64
   %6 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 320), align 8
   %tobool.not.i = icmp eq i32 %6, 0
-  br i1 %tobool.not.i, label %LFUDecrAndReturn.exit, label %cond.end.i
+  br i1 %tobool.not.i, label %cond.end.thread.i, label %cond.end.i
 
 cond.end.i:                                       ; preds = %if.then12
   %shr.i = lshr i32 %bf.load.i60, 16
@@ -187,11 +187,13 @@ cond.end.i:                                       ; preds = %if.then12
   %tobool5.not.i = icmp ult i64 %retval.0.i.i, %conv4.i
   %cond10.i = call i64 @llvm.usub.sat.i64(i64 %conv3.i, i64 %div.i)
   %cond.fr.i = freeze i1 %tobool5.not.i
-  %spec.select.i = select i1 %cond.fr.i, i64 %conv3.i, i64 %cond10.i
+  br i1 %cond.fr.i, label %cond.end.thread.i, label %LFUDecrAndReturn.exit
+
+cond.end.thread.i:                                ; preds = %cond.end.i, %if.then12
   br label %LFUDecrAndReturn.exit
 
-LFUDecrAndReturn.exit:                            ; preds = %if.then12, %cond.end.i
-  %8 = phi i64 [ %conv3.i, %if.then12 ], [ %spec.select.i, %cond.end.i ]
+LFUDecrAndReturn.exit:                            ; preds = %cond.end.i, %cond.end.thread.i
+  %8 = phi i64 [ %conv3.i, %cond.end.thread.i ], [ %cond10.i, %cond.end.i ]
   %sub = sub nuw nsw i64 255, %8
   br label %if.end22
 
@@ -455,12 +457,14 @@ cond.end:                                         ; preds = %entry
   %tobool5.not = icmp ult i64 %retval.0.i, %conv4
   %cond10 = tail call i64 @llvm.usub.sat.i64(i64 %conv3, i64 %div)
   %cond.fr = freeze i1 %tobool5.not
-  %spec.select = select i1 %cond.fr, i64 %conv3, i64 %cond10
-  br label %cond.end.thread
+  br i1 %cond.fr, label %cond.end.thread, label %2
 
-cond.end.thread:                                  ; preds = %cond.end, %entry
-  %2 = phi i64 [ %conv3, %entry ], [ %spec.select, %cond.end ]
-  ret i64 %2
+cond.end.thread:                                  ; preds = %entry, %cond.end
+  br label %2
+
+2:                                                ; preds = %cond.end, %cond.end.thread
+  %3 = phi i64 [ %conv3, %cond.end.thread ], [ %cond10, %cond.end ]
+  ret i64 %3
 }
 
 declare void @_serverPanic(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1

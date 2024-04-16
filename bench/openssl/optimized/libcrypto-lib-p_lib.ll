@@ -2970,7 +2970,7 @@ EVP_PKEY_get_base_id.exit.thread:                 ; preds = %if.then
   %2 = load ptr, ptr %e.i.i, align 8
   %call1.i.i10 = call i32 @ENGINE_finish(ptr noundef %2) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %e.i.i)
-  br label %return
+  br label %if.end19
 
 EVP_PKEY_get_base_id.exit:                        ; preds = %if.then
   %3 = load i32, ptr %call.i.i, align 8
@@ -3013,17 +3013,17 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   %cond = phi ptr [ %call13, %cond.true ], [ %call15, %cond.false ]
   %call16 = tail call ptr @EVP_SIGNATURE_fetch(ptr noundef %call8, ptr noundef %cond, ptr noundef null) #12
   %cmp17.not = icmp eq ptr %call16, null
-  br i1 %cmp17.not, label %return, label %if.then18
+  br i1 %cmp17.not, label %if.end19, label %if.then18
 
 if.then18:                                        ; preds = %cond.end
   tail call void @EVP_SIGNATURE_free(ptr noundef nonnull %call16) #12
   br label %return
 
-if.end19:                                         ; preds = %EVP_PKEY_get_base_id.exit
+if.end19:                                         ; preds = %EVP_PKEY_get_base_id.exit.thread, %cond.end, %EVP_PKEY_get_base_id.exit
   br label %return
 
-return:                                           ; preds = %EVP_PKEY_get_base_id.exit.thread, %cond.end, %EVP_PKEY_get_base_id.exit, %EVP_PKEY_get_base_id.exit, %EVP_PKEY_get_base_id.exit, %EVP_PKEY_get_base_id.exit, %EVP_PKEY_get_base_id.exit, %if.end19, %if.then18, %sw.bb3
-  %retval.0 = phi i32 [ %call5, %sw.bb3 ], [ 1, %if.then18 ], [ 1, %EVP_PKEY_get_base_id.exit ], [ 1, %EVP_PKEY_get_base_id.exit ], [ 1, %EVP_PKEY_get_base_id.exit ], [ 1, %EVP_PKEY_get_base_id.exit ], [ 1, %EVP_PKEY_get_base_id.exit ], [ 0, %cond.end ], [ 0, %EVP_PKEY_get_base_id.exit.thread ], [ 0, %if.end19 ]
+return:                                           ; preds = %EVP_PKEY_get_base_id.exit, %EVP_PKEY_get_base_id.exit, %EVP_PKEY_get_base_id.exit, %EVP_PKEY_get_base_id.exit, %EVP_PKEY_get_base_id.exit, %if.end19, %if.then18, %sw.bb3
+  %retval.0 = phi i32 [ 0, %if.end19 ], [ %call5, %sw.bb3 ], [ 1, %if.then18 ], [ 1, %EVP_PKEY_get_base_id.exit ], [ 1, %EVP_PKEY_get_base_id.exit ], [ 1, %EVP_PKEY_get_base_id.exit ], [ 1, %EVP_PKEY_get_base_id.exit ], [ 1, %EVP_PKEY_get_base_id.exit ]
   ret i32 %retval.0
 }
 
@@ -3502,23 +3502,25 @@ if.end6:                                          ; preds = %if.end3
   %ameth.i = getelementptr inbounds i8, ptr %pkey, i64 8
   %1 = load ptr, ptr %ameth.i, align 8
   %cmp.i = icmp eq ptr %1, null
-  br i1 %cmp.i, label %return, label %if.end.i
+  br i1 %cmp.i, label %evp_pkey_asn1_ctrl.exit.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end6
   %pkey_ctrl.i = getelementptr inbounds i8, ptr %1, i64 176
   %2 = load ptr, ptr %pkey_ctrl.i, align 8
   %cmp2.i = icmp eq ptr %2, null
-  br i1 %cmp2.i, label %return, label %evp_pkey_asn1_ctrl.exit
+  br i1 %cmp2.i, label %evp_pkey_asn1_ctrl.exit.thread, label %evp_pkey_asn1_ctrl.exit
 
 evp_pkey_asn1_ctrl.exit:                          ; preds = %if.end.i
   %call7.i = tail call i32 %2(ptr noundef nonnull %pkey, i32 noundef 9, i64 noundef %publen, ptr noundef %pub) #12
   %call7.i.fr = freeze i32 %call7.i
-  %cmp8 = icmp sgt i32 %call7.i.fr, 0
-  %spec.select = zext i1 %cmp8 to i32
+  %cmp8 = icmp slt i32 %call7.i.fr, 1
+  br i1 %cmp8, label %evp_pkey_asn1_ctrl.exit.thread, label %return
+
+evp_pkey_asn1_ctrl.exit.thread:                   ; preds = %if.end6, %if.end.i, %evp_pkey_asn1_ctrl.exit
   br label %return
 
-return:                                           ; preds = %evp_pkey_asn1_ctrl.exit, %if.end6, %if.end.i, %if.end3, %entry, %if.then2
-  %retval.0 = phi i32 [ %call, %if.then2 ], [ 0, %entry ], [ 0, %if.end3 ], [ 0, %if.end.i ], [ 0, %if.end6 ], [ %spec.select, %evp_pkey_asn1_ctrl.exit ]
+return:                                           ; preds = %evp_pkey_asn1_ctrl.exit.thread, %evp_pkey_asn1_ctrl.exit, %if.end3, %entry, %if.then2
+  %retval.0 = phi i32 [ %call, %if.then2 ], [ 0, %entry ], [ 0, %if.end3 ], [ 0, %evp_pkey_asn1_ctrl.exit.thread ], [ 1, %evp_pkey_asn1_ctrl.exit ]
   ret i32 %retval.0
 }
 
@@ -3612,23 +3614,26 @@ if.end13:                                         ; preds = %if.end
   %ameth.i = getelementptr inbounds i8, ptr %pkey, i64 8
   %4 = load ptr, ptr %ameth.i, align 8
   %cmp.i = icmp eq ptr %4, null
-  br i1 %cmp.i, label %return, label %if.end.i
+  br i1 %cmp.i, label %evp_pkey_asn1_ctrl.exit.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end13
   %pkey_ctrl.i = getelementptr inbounds i8, ptr %4, i64 176
   %5 = load ptr, ptr %pkey_ctrl.i, align 8
   %cmp2.i = icmp eq ptr %5, null
-  br i1 %cmp2.i, label %return, label %evp_pkey_asn1_ctrl.exit
+  br i1 %cmp2.i, label %evp_pkey_asn1_ctrl.exit.thread, label %evp_pkey_asn1_ctrl.exit
 
 evp_pkey_asn1_ctrl.exit:                          ; preds = %if.end.i
   %call7.i = tail call i32 %5(ptr noundef nonnull %pkey, i32 noundef 10, i64 noundef 0, ptr noundef %ppub) #12
   %call7.i.fr = freeze i32 %call7.i
-  %narrow = tail call i32 @llvm.smax.i32(i32 %call7.i.fr, i32 0)
-  %spec.select = zext nneg i32 %narrow to i64
+  %cmp15 = icmp slt i32 %call7.i.fr, 1
+  %conv = zext nneg i32 %call7.i.fr to i64
+  br i1 %cmp15, label %evp_pkey_asn1_ctrl.exit.thread, label %return
+
+evp_pkey_asn1_ctrl.exit.thread:                   ; preds = %if.end13, %if.end.i, %evp_pkey_asn1_ctrl.exit
   br label %return
 
-return:                                           ; preds = %evp_pkey_asn1_ctrl.exit, %if.end13, %if.end.i, %if.end5, %if.then2, %entry, %if.end12, %if.then11
-  %retval.0 = phi i64 [ %3, %if.end12 ], [ 0, %if.then11 ], [ 0, %entry ], [ 0, %if.then2 ], [ 0, %if.end5 ], [ 0, %if.end.i ], [ 0, %if.end13 ], [ %spec.select, %evp_pkey_asn1_ctrl.exit ]
+return:                                           ; preds = %evp_pkey_asn1_ctrl.exit.thread, %evp_pkey_asn1_ctrl.exit, %if.end5, %if.then2, %entry, %if.end12, %if.then11
+  %retval.0 = phi i64 [ %3, %if.end12 ], [ 0, %if.then11 ], [ 0, %entry ], [ 0, %if.then2 ], [ 0, %if.end5 ], [ 0, %evp_pkey_asn1_ctrl.exit.thread ], [ %conv, %evp_pkey_asn1_ctrl.exit ]
   ret i64 %retval.0
 }
 
@@ -5161,9 +5166,6 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

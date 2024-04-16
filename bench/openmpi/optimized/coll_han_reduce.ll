@@ -1460,7 +1460,7 @@ define i32 @mca_coll_han_reduce_intra_simple(ptr noundef %0, ptr noundef %1, i32
   %.val = load i32, ptr %9, align 4
   %10 = and i32 %.val, 64
   %.not313 = icmp eq i32 %10, 0
-  br i1 %.not313, label %480, label %11
+  br i1 %.not313, label %482, label %11
 
 11:                                               ; preds = %8
   %12 = tail call i32 @mca_coll_han_comm_create(ptr noundef %6, ptr noundef %7) #4
@@ -2043,7 +2043,7 @@ opal_obj_run_destructors.exit297:                 ; preds = %.lr.ph.i294, %341
   %353 = getelementptr inbounds i8, ptr %7, i64 736
   %354 = load ptr, ptr %353, align 8
   %355 = tail call i32 %352(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %354) #4
-  br label %486
+  br label %488
 
 356:                                              ; preds = %11
   %357 = tail call ptr @mca_coll_han_topo_init(ptr noundef %6, ptr noundef %7, i32 noundef 2) #4
@@ -2130,7 +2130,7 @@ opal_obj_run_destructors.exit306:                 ; preds = %.lr.ph.i303, %396
   %407 = getelementptr inbounds i8, ptr %7, i64 736
   %408 = load ptr, ptr %407, align 8
   %409 = tail call i32 %406(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %408) #4
-  br label %486
+  br label %488
 
 410:                                              ; preds = %356
   %411 = getelementptr inbounds i8, ptr %7, i64 608
@@ -2194,7 +2194,7 @@ opal_datatype_span.exit:                          ; preds = %435, %440
   %.0.i307 = phi i64 [ %454, %440 ], [ 0, %435 ]
   %455 = tail call noalias ptr @malloc(i64 noundef %.0.i307) #5
   %456 = icmp eq ptr %455, null
-  br i1 %456, label %486, label %457
+  br i1 %456, label %488, label %457
 
 457:                                              ; preds = %410, %opal_datatype_span.exit
   %.0221 = phi ptr [ %455, %opal_datatype_span.exit ], [ %1, %410 ]
@@ -2209,15 +2209,15 @@ opal_datatype_span.exit:                          ; preds = %435, %440
   br i1 %.not225, label %467, label %465
 
 465:                                              ; preds = %457
-  br i1 %or.cond, label %480, label %466
+  br i1 %or.cond, label %482, label %466
 
 466:                                              ; preds = %465
   tail call void @free(ptr noundef %.0221) #4
-  br label %480
+  br label %482
 
 467:                                              ; preds = %457
   %468 = icmp eq i32 %433, %.val230
-  br i1 %468, label %469, label %486
+  br i1 %468, label %469, label %481
 
 469:                                              ; preds = %467
   %470 = getelementptr inbounds i8, ptr %422, i64 328
@@ -2231,22 +2231,30 @@ opal_datatype_span.exit:                          ; preds = %435, %440
 476:                                              ; preds = %469
   %477 = tail call i32 %473(ptr noundef %.0221, ptr noundef null, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %432, ptr noundef %422, ptr noundef %475) #4
   tail call void @free(ptr noundef %.0221) #4
-  br label %486
+  br label %480
 
 478:                                              ; preds = %469
   %479 = tail call i32 %473(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %.0221, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %432, ptr noundef %422, ptr noundef %475) #4
-  br label %486
+  br label %480
 
-480:                                              ; preds = %465, %466, %8
-  %481 = getelementptr inbounds i8, ptr %7, i64 728
-  %482 = load ptr, ptr %481, align 8
-  %483 = getelementptr inbounds i8, ptr %7, i64 736
+480:                                              ; preds = %478, %476
+  %.0220 = phi i32 [ %477, %476 ], [ %479, %478 ]
+  %.not227 = icmp eq i32 %.0220, 0
+  br i1 %.not227, label %481, label %488
+
+481:                                              ; preds = %480, %467
+  br label %488
+
+482:                                              ; preds = %465, %466, %8
+  %483 = getelementptr inbounds i8, ptr %7, i64 728
   %484 = load ptr, ptr %483, align 8
-  %485 = tail call i32 %482(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %5, ptr noundef %6, ptr noundef %484) #4
-  br label %486
+  %485 = getelementptr inbounds i8, ptr %7, i64 736
+  %486 = load ptr, ptr %485, align 8
+  %487 = tail call i32 %484(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %5, ptr noundef %6, ptr noundef %486) #4
+  br label %488
 
-486:                                              ; preds = %476, %478, %467, %opal_datatype_span.exit, %480, %404, %349
-  %.0 = phi i32 [ %355, %349 ], [ %409, %404 ], [ %485, %480 ], [ -1, %opal_datatype_span.exit ], [ 0, %467 ], [ %477, %476 ], [ %479, %478 ]
+488:                                              ; preds = %480, %opal_datatype_span.exit, %482, %481, %404, %349
+  %.0 = phi i32 [ %355, %349 ], [ %409, %404 ], [ %487, %482 ], [ 0, %481 ], [ -1, %opal_datatype_span.exit ], [ %.0220, %480 ]
   ret i32 %.0
 }
 

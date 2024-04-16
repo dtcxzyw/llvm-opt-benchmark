@@ -227,7 +227,7 @@ define internal i64 @read_mem(ptr nocapture readnone %0, ptr noundef %1, i64 nou
   %14 = phi i64 [ %44, %58 ], [ %5, %8 ]
   %15 = phi i64 [ %46, %58 ], [ 0, %8 ]
   %16 = icmp eq i64 %13, 0
-  br i1 %16, label %.thread7, label %17
+  br i1 %16, label %.thread6, label %17
 
 17:                                               ; preds = %.preheader
   %18 = and i64 %14, 4095
@@ -295,17 +295,17 @@ define internal i64 @read_mem(ptr nocapture readnone %0, ptr noundef %1, i64 nou
   %55 = load volatile i64, ptr %48, align 8
   %56 = and i64 %55, 131072
   %57 = icmp eq i64 %56, 0
-  br i1 %57, label %58, label %.thread7, !prof !13
+  br i1 %57, label %58, label %.thread6, !prof !13
 
 58:                                               ; preds = %54
   %59 = load volatile i64, ptr %48, align 8
-  %.fr8 = freeze i64 %59
-  %60 = and i64 %.fr8, 4
+  %.fr7 = freeze i64 %59
+  %60 = and i64 %.fr7, 4
   %.not = icmp eq i64 %60, 0
-  br i1 %.not, label %.preheader, label %.thread7
+  br i1 %.not, label %.preheader, label %.thread6
 
-.thread7:                                         ; preds = %58, %54, %.preheader
-  %61 = phi i64 [ %15, %.preheader ], [ %46, %54 ], [ %46, %58 ]
+.thread6:                                         ; preds = %54, %58, %.preheader
+  %61 = phi i64 [ %15, %.preheader ], [ %46, %58 ], [ %46, %54 ]
   tail call void @kfree(ptr noundef nonnull %10) #12
   %62 = load i64, ptr %3, align 8
   %63 = add i64 %62, %61
@@ -317,8 +317,8 @@ define internal i64 @read_mem(ptr nocapture readnone %0, ptr noundef %1, i64 nou
   tail call void @kfree(ptr noundef nonnull %10) #12
   br label %64
 
-64:                                               ; preds = %.thread, %.thread7, %8, %4
-  %65 = phi i64 [ %.ph, %.thread ], [ %61, %.thread7 ], [ -14, %4 ], [ -12, %8 ]
+64:                                               ; preds = %.thread, %.thread6, %8, %4
+  %65 = phi i64 [ %.ph, %.thread ], [ %61, %.thread6 ], [ -14, %4 ], [ -12, %8 ]
   ret i64 %65
 }
 
@@ -327,7 +327,7 @@ define internal i64 @write_mem(ptr nocapture readnone %0, ptr noundef %1, i64 no
   %5 = load i64, ptr %3, align 8
   %6 = tail call i32 @valid_phys_addr_range(i64 noundef %5, i64 noundef %2) #12
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %.thread12, label %.preheader
+  br i1 %7, label %.thread6, label %.preheader
 
 .preheader:                                       ; preds = %4, %47
   %8 = phi ptr [ %32, %47 ], [ %1, %4 ]
@@ -335,7 +335,7 @@ define internal i64 @write_mem(ptr nocapture readnone %0, ptr noundef %1, i64 no
   %10 = phi i64 [ %33, %47 ], [ %5, %4 ]
   %11 = phi i64 [ %35, %47 ], [ 0, %4 ]
   %12 = icmp eq i64 %9, 0
-  br i1 %12, label %.thread9, label %13
+  br i1 %12, label %.thread13, label %13
 
 13:                                               ; preds = %.preheader
   %14 = and i64 %10, 4095
@@ -344,7 +344,7 @@ define internal i64 @write_mem(ptr nocapture readnone %0, ptr noundef %1, i64 no
   %17 = lshr i64 %10, 12
   %18 = tail call i32 @devmem_is_allowed(i64 noundef %17) #12
   switch i32 %18, label %31 [
-    i32 0, label %.thread12
+    i32 0, label %.thread6
     i32 1, label %19
   ]
 
@@ -355,7 +355,7 @@ define internal i64 @write_mem(ptr nocapture readnone %0, ptr noundef %1, i64 no
 
 22:                                               ; preds = %19
   %23 = icmp eq i64 %11, 0
-  br i1 %23, label %.thread12, label %.thread9
+  br i1 %23, label %.thread6, label %.thread13
 
 24:                                               ; preds = %19
   %25 = tail call i64 @_copy_from_user(ptr noundef nonnull %20, ptr noundef %8, i64 noundef %16) #12
@@ -367,7 +367,7 @@ define internal i64 @write_mem(ptr nocapture readnone %0, ptr noundef %1, i64 no
   %28 = sub i64 %16, %25
   %29 = add i64 %28, %11
   %30 = icmp eq i64 %29, 0
-  br i1 %30, label %.thread12, label %.thread9
+  br i1 %30, label %.thread6, label %.thread13
 
 31:                                               ; preds = %24, %13
   %32 = getelementptr i8, ptr %8, i64 %16
@@ -389,24 +389,24 @@ define internal i64 @write_mem(ptr nocapture readnone %0, ptr noundef %1, i64 no
   %44 = load volatile i64, ptr %37, align 8
   %45 = and i64 %44, 131072
   %46 = icmp eq i64 %45, 0
-  br i1 %46, label %47, label %.thread9, !prof !13
+  br i1 %46, label %47, label %.thread13, !prof !13
 
 47:                                               ; preds = %43
   %48 = load volatile i64, ptr %37, align 8
-  %.fr13 = freeze i64 %48
-  %49 = and i64 %.fr13, 4
+  %.fr14 = freeze i64 %48
+  %49 = and i64 %.fr14, 4
   %.not = icmp eq i64 %49, 0
-  br i1 %.not, label %.preheader, label %.thread9
+  br i1 %.not, label %.preheader, label %.thread13
 
-.thread9:                                         ; preds = %47, %43, %.preheader, %27, %22
+.thread13:                                        ; preds = %47, %43, %.preheader, %27, %22
   %50 = phi i64 [ %29, %27 ], [ %11, %22 ], [ %35, %47 ], [ %35, %43 ], [ %11, %.preheader ]
   %51 = load i64, ptr %3, align 8
   %52 = add i64 %51, %50
   store i64 %52, ptr %3, align 8
-  br label %.thread12
+  br label %.thread6
 
-.thread12:                                        ; preds = %13, %27, %22, %.thread9, %4
-  %53 = phi i64 [ %50, %.thread9 ], [ -14, %4 ], [ -14, %22 ], [ -14, %27 ], [ -1, %13 ]
+.thread6:                                         ; preds = %13, %27, %22, %.thread13, %4
+  %53 = phi i64 [ %50, %.thread13 ], [ -14, %4 ], [ -14, %22 ], [ -14, %27 ], [ -1, %13 ]
   ret i64 %53
 }
 

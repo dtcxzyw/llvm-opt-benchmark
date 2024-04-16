@@ -9411,13 +9411,13 @@ Kit_DsdCofactoringGetVars.exit:                   ; preds = %.critedge.i
   %or.cond.us = select i1 %83, i1 %84, i1 false
   br i1 %or.cond.us, label %85, label %86
 
-85:                                               ; preds = %82
+85:                                               ; preds = %82, %._crit_edge.us
   br label %86
 
-86:                                               ; preds = %._crit_edge.us, %85, %82
-  %.1151.us = phi i32 [ %.0150250.us, %82 ], [ %127, %._crit_edge.us ], [ %127, %85 ]
-  %.1148.us = phi i32 [ %.0147251.us, %82 ], [ %81, %._crit_edge.us ], [ %81, %85 ]
-  %.1.us = phi i32 [ %.0253.us, %82 ], [ %123, %._crit_edge.us ], [ %123, %85 ]
+86:                                               ; preds = %85, %82
+  %.1151.us = phi i32 [ %127, %85 ], [ %.0150250.us, %82 ]
+  %.1148.us = phi i32 [ %81, %85 ], [ %.0147251.us, %82 ]
+  %.1.us = phi i32 [ %123, %85 ], [ %.0253.us, %82 ]
   %indvars.iv.next282 = add nuw nsw i64 %indvars.iv281, 1
   %exitcond285.not = icmp eq i64 %indvars.iv.next282, %wide.trip.count284
   br i1 %exitcond285.not, label %._crit_edge254, label %.preheader238.us, !llvm.loop !95
@@ -9626,7 +9626,7 @@ Kit_DsdNtkFree.exit199.us:                        ; preds = %165, %162
 
 ._crit_edge.us:                                   ; preds = %Kit_DsdNtkFree.exit199.us
   %166 = icmp sgt i32 %.0253.us, %123
-  br i1 %166, label %86, label %82
+  br i1 %166, label %85, label %82
 
 ._crit_edge254:                                   ; preds = %86, %.preheader239
   %.0147.lcssa = phi i32 [ -1, %.preheader239 ], [ %.1148.us, %86 ]

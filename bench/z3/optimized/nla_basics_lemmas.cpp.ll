@@ -1011,16 +1011,18 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit:            ; preds = %lor.lhs.false.i, %i
 
 if.end:                                           ; preds = %_ZN6vectorIjLb0EjE9push_backERKj.exit, %if.then
   %cmp.i6.not = icmp eq i32 %zero_j.013, -1
-  br i1 %cmp.i6.not, label %for.inc, label %lor.lhs.false
+  br i1 %cmp.i6.not, label %if.then12, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
   %16 = load ptr, ptr %this, align 8
   %call11 = call noundef zeroext i1 @_ZNK3nla4core32zero_is_an_inner_point_of_boundsEj(ptr noundef nonnull align 8 dereferenceable(4720) %16, i32 noundef %3)
-  %spec.select = select i1 %call11, i32 %3, i32 %zero_j.013
+  br i1 %call11, label %if.then12, label %for.inc
+
+if.then12:                                        ; preds = %lor.lhs.false, %if.end
   br label %for.inc
 
-for.inc:                                          ; preds = %lor.lhs.false, %if.end, %_ZN8rationalD2Ev.exit
-  %zero_j.1 = phi i32 [ %zero_j.013, %_ZN8rationalD2Ev.exit ], [ %3, %if.end ], [ %spec.select, %lor.lhs.false ]
+for.inc:                                          ; preds = %_ZN8rationalD2Ev.exit, %if.then12, %lor.lhs.false
+  %zero_j.1 = phi i32 [ %3, %if.then12 ], [ %zero_j.013, %lor.lhs.false ], [ %zero_j.013, %_ZN8rationalD2Ev.exit ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.012, i64 4
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %for.end, label %invoke.cont

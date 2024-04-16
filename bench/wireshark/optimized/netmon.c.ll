@@ -873,7 +873,7 @@ define internal noundef i32 @netmon_read(ptr nocapture noundef readonly %0, ptr 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %24, %28, %.loopexit.loopexit, %15
-  %.0 = phi i32 [ 0, %15 ], [ 0, %28 ], [ 0, %24 ], [ 1, %.loopexit.loopexit ]
+  %.0 = phi i32 [ 0, %15 ], [ 1, %.loopexit.loopexit ], [ 0, %28 ], [ 0, %24 ]
   ret i32 %.0
 }
 

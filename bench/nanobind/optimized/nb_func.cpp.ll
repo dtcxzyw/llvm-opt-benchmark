@@ -535,7 +535,7 @@ define hidden noundef i32 @_ZN8nanobind6detail24nb_bound_method_traverseEP7_obje
 6:                                                ; preds = %3
   %7 = tail call noundef i32 %1(ptr noundef nonnull %5, ptr noundef %2)
   %.not17 = icmp eq i32 %7, 0
-  br i1 %.not17, label %8, label %13
+  br i1 %.not17, label %8, label %14
 
 8:                                                ; preds = %6, %3
   %9 = getelementptr inbounds i8, ptr %0, i64 32
@@ -545,10 +545,14 @@ define hidden noundef i32 @_ZN8nanobind6detail24nb_bound_method_traverseEP7_obje
 
 11:                                               ; preds = %8
   %12 = tail call noundef i32 %1(ptr noundef nonnull %10, ptr noundef %2)
-  br label %13
+  %.not19 = icmp eq i32 %12, 0
+  br i1 %.not19, label %13, label %14
 
-13:                                               ; preds = %11, %8, %6
-  %.0 = phi i32 [ %7, %6 ], [ 0, %8 ], [ %12, %11 ]
+13:                                               ; preds = %8, %11
+  br label %14
+
+14:                                               ; preds = %11, %6, %13
+  %.0 = phi i32 [ 0, %13 ], [ %7, %6 ], [ %12, %11 ]
   ret i32 %.0
 }
 

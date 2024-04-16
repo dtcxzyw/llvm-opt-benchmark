@@ -101,7 +101,7 @@ define dso_local i32 @acpi_enable_subsystem(i32 noundef %0) local_unnamed_addr #
 
 8:                                                ; preds = %4
   tail call void (ptr, i32, ptr, ...) @acpi_warning(ptr noundef nonnull @_acpi_module_name, i32 noundef 135, ptr noundef nonnull @.str.5) #4
-  br label %27
+  br label %29
 
 9:                                                ; preds = %4, %1
   %10 = and i32 %0, 1
@@ -115,7 +115,7 @@ define dso_local i32 @acpi_enable_subsystem(i32 noundef %0) local_unnamed_addr #
 
 15:                                               ; preds = %12
   tail call void (ptr, i32, ptr, ...) @acpi_warning(ptr noundef nonnull @_acpi_module_name, i32 noundef 147, ptr noundef nonnull @.str.6) #4
-  br label %27
+  br label %29
 
 16:                                               ; preds = %12, %9
   %17 = and i32 %0, 8
@@ -125,20 +125,24 @@ define dso_local i32 @acpi_enable_subsystem(i32 noundef %0) local_unnamed_addr #
 19:                                               ; preds = %16
   %20 = tail call i32 @acpi_ev_initialize_events() #4
   %21 = icmp eq i32 %20, 0
-  br i1 %21, label %22, label %27
+  br i1 %21, label %22, label %29
 
 22:                                               ; preds = %19, %16
   %23 = and i32 %0, 16
   %24 = icmp eq i32 %23, 0
-  br i1 %24, label %25, label %27
+  br i1 %24, label %25, label %28
 
 25:                                               ; preds = %22
   %26 = tail call i32 @acpi_ev_install_xrupt_handlers() #4
-  br label %27
+  %27 = icmp eq i32 %26, 0
+  br i1 %27, label %28, label %29
 
-27:                                               ; preds = %25, %22, %19, %15, %8
-  %28 = phi i32 [ %13, %15 ], [ %6, %8 ], [ %20, %19 ], [ 0, %22 ], [ %26, %25 ]
-  ret i32 %28
+28:                                               ; preds = %25, %22
+  br label %29
+
+29:                                               ; preds = %28, %25, %19, %15, %8
+  %30 = phi i32 [ 0, %28 ], [ %13, %15 ], [ %6, %8 ], [ %20, %19 ], [ %26, %25 ]
+  ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid

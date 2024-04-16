@@ -2719,7 +2719,7 @@ define hidden void @zim_DirectoryIterator_isDot(ptr nocapture noundef readonly %
   %8 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
   %9 = icmp ne ptr %8, null
   tail call void @llvm.assume(i1 %9)
-  br label %21
+  br label %22
 
 .critedge:                                        ; preds = %2
   %10 = getelementptr inbounds i8, ptr %4, i64 -312
@@ -2732,7 +2732,7 @@ define hidden void @zim_DirectoryIterator_isDot(ptr nocapture noundef readonly %
   %13 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
   %14 = icmp ne ptr %13, null
   tail call void @llvm.assume(i1 %14)
-  br label %21
+  br label %22
 
 15:                                               ; preds = %.critedge
   %16 = getelementptr inbounds i8, ptr %4, i64 -264
@@ -2744,16 +2744,18 @@ spl_filesystem_is_dot.exit:                       ; preds = %15
   %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(3) @.str.40) #20
   %.fr = freeze i32 %18
   %.not2.i = icmp eq i32 %.fr, 0
-  %spec.select = select i1 %.not2.i, i32 3, i32 2
-  br label %spl_filesystem_is_dot.exit.thread
+  br i1 %.not2.i, label %spl_filesystem_is_dot.exit.thread, label %19
 
-spl_filesystem_is_dot.exit.thread:                ; preds = %spl_filesystem_is_dot.exit, %15
-  %19 = phi i32 [ 3, %15 ], [ %spec.select, %spl_filesystem_is_dot.exit ]
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 %19, ptr %20, align 8
-  br label %21
+spl_filesystem_is_dot.exit.thread:                ; preds = %15, %spl_filesystem_is_dot.exit
+  br label %19
 
-21:                                               ; preds = %spl_filesystem_is_dot.exit.thread, %12, %7
+19:                                               ; preds = %spl_filesystem_is_dot.exit, %spl_filesystem_is_dot.exit.thread
+  %20 = phi i32 [ 3, %spl_filesystem_is_dot.exit.thread ], [ 2, %spl_filesystem_is_dot.exit ]
+  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 %20, ptr %21, align 8
+  br label %22
+
+22:                                               ; preds = %19, %12, %7
   ret void
 }
 

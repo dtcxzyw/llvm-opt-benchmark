@@ -2856,7 +2856,7 @@ if.end:                                           ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %refname, i64 11
   %call1 = call i32 @repo_get_oid(ptr noundef %0, ptr noundef nonnull %add.ptr, ptr noundef nonnull %tmp) #16
   %tobool2.not = icmp eq i32 %call1, 0
-  br i1 %tobool2.not, label %lor.lhs.false, label %if.end6
+  br i1 %tobool2.not, label %lor.lhs.false, label %if.then5
 
 lor.lhs.false:                                    ; preds = %if.end
   %algo.i = getelementptr inbounds i8, ptr %tmp, i64 32
@@ -2893,11 +2893,13 @@ if.end.i.i:                                       ; preds = %if.end.i
 oideq.exit:                                       ; preds = %if.then.i.i, %if.end.i.i
   %retval.0.in.in.i.i = phi i32 [ %bcmp3.i.i, %if.then.i.i ], [ %bcmp.i.i, %if.end.i.i ]
   %retval.0.in.i.i.not = icmp eq i32 %retval.0.in.in.i.i, 0
-  %spec.select = select i1 %retval.0.in.i.i.not, i64 11, i64 5
+  br i1 %retval.0.in.i.i.not, label %if.end6, label %if.then5
+
+if.then5:                                         ; preds = %oideq.exit, %if.end
   br label %if.end6
 
-if.end6:                                          ; preds = %oideq.exit, %if.end
-  %ofs.0 = phi i64 [ 5, %if.end ], [ %spec.select, %oideq.exit ]
+if.end6:                                          ; preds = %if.then5, %oideq.exit
+  %ofs.0 = phi i64 [ 5, %if.then5 ], [ 11, %oideq.exit ]
   %add.ptr8 = getelementptr inbounds i8, ptr %refname, i64 %ofs.0
   call fastcc void @append_ref(ptr noundef nonnull %add.ptr8, ptr noundef %oid, i32 noundef 0)
   br label %return
@@ -3039,7 +3041,7 @@ if.end:                                           ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %refname, i64 13
   %call1 = call i32 @repo_get_oid(ptr noundef %0, ptr noundef nonnull %add.ptr, ptr noundef nonnull %tmp) #16
   %tobool2.not = icmp eq i32 %call1, 0
-  br i1 %tobool2.not, label %lor.lhs.false, label %if.end6
+  br i1 %tobool2.not, label %lor.lhs.false, label %if.then5
 
 lor.lhs.false:                                    ; preds = %if.end
   %algo.i = getelementptr inbounds i8, ptr %tmp, i64 32
@@ -3076,11 +3078,13 @@ if.end.i.i:                                       ; preds = %if.end.i
 oideq.exit:                                       ; preds = %if.then.i.i, %if.end.i.i
   %retval.0.in.in.i.i = phi i32 [ %bcmp3.i.i, %if.then.i.i ], [ %bcmp.i.i, %if.end.i.i ]
   %retval.0.in.i.i.not = icmp eq i32 %retval.0.in.in.i.i, 0
-  %spec.select = select i1 %retval.0.in.i.i.not, i64 13, i64 5
+  br i1 %retval.0.in.i.i.not, label %if.end6, label %if.then5
+
+if.then5:                                         ; preds = %oideq.exit, %if.end
   br label %if.end6
 
-if.end6:                                          ; preds = %oideq.exit, %if.end
-  %ofs.0 = phi i64 [ 5, %if.end ], [ %spec.select, %oideq.exit ]
+if.end6:                                          ; preds = %if.then5, %oideq.exit
+  %ofs.0 = phi i64 [ 5, %if.then5 ], [ 13, %oideq.exit ]
   %add.ptr8 = getelementptr inbounds i8, ptr %refname, i64 %ofs.0
   call fastcc void @append_ref(ptr noundef nonnull %add.ptr8, ptr noundef %oid, i32 noundef 0)
   br label %return

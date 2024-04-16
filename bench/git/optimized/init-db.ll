@@ -516,16 +516,18 @@ if.end6.i:                                        ; preds = %if.end.i
 if.end10.i:                                       ; preds = %if.end6.i
   %call11.i = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %git_dir.1, i32 noundef 47) #16
   %tobool12.not.i = icmp eq ptr %call11.i, null
-  br i1 %tobool12.not.i, label %guess_repository_type.exit, label %land.lhs.true.i
+  br i1 %tobool12.not.i, label %if.end16.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end10.i
   %call13.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call11.i, ptr noundef nonnull dereferenceable(6) @.str.33) #16
-  %tobool14.not.i = icmp ne i32 %call13.i, 0
-  %spec.select.i = zext i1 %tobool14.not.i to i32
+  %tobool14.not.i = icmp eq i32 %call13.i, 0
+  br i1 %tobool14.not.i, label %guess_repository_type.exit, label %if.end16.i
+
+if.end16.i:                                       ; preds = %land.lhs.true.i, %if.end10.i
   br label %guess_repository_type.exit
 
-guess_repository_type.exit:                       ; preds = %if.then221, %if.end.i, %if.end6.i, %if.end10.i, %land.lhs.true.i
-  %retval.0.i44 = phi i32 [ 1, %if.then221 ], [ 1, %if.end.i ], [ 0, %if.end6.i ], [ 1, %if.end10.i ], [ %spec.select.i, %land.lhs.true.i ]
+guess_repository_type.exit:                       ; preds = %if.then221, %if.end.i, %if.end6.i, %land.lhs.true.i, %if.end16.i
+  %retval.0.i44 = phi i32 [ 1, %if.end16.i ], [ 1, %if.then221 ], [ 1, %if.end.i ], [ 0, %if.end6.i ], [ 0, %land.lhs.true.i ]
   store i32 %retval.0.i44, ptr @is_bare_repository_cfg, align 4
   br label %if.end223
 

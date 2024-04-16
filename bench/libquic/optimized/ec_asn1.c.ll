@@ -1377,7 +1377,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @is_unsigned_integer(ptr noundef %cbs) unnamed_addr #0 {
+define internal fastcc noundef i32 @is_unsigned_integer(ptr noundef %cbs) unnamed_addr #0 {
 entry:
   %call = tail call i64 @CBS_len(ptr noundef %cbs) #7
   %cmp = icmp eq i64 %call, 0
@@ -1391,23 +1391,25 @@ if.end:                                           ; preds = %entry
 
 lor.lhs.false:                                    ; preds = %if.end
   %cmp3 = icmp eq i8 %0, 0
-  br i1 %cmp3, label %land.lhs.true, label %return
+  br i1 %cmp3, label %land.lhs.true, label %if.end16
 
 land.lhs.true:                                    ; preds = %lor.lhs.false
   %call5 = tail call i64 @CBS_len(ptr noundef %cbs) #7
   %cmp6 = icmp ugt i64 %call5, 1
-  br i1 %cmp6, label %land.lhs.true8, label %return
+  br i1 %cmp6, label %land.lhs.true8, label %if.end16
 
 land.lhs.true8:                                   ; preds = %land.lhs.true
   %call9 = tail call ptr @CBS_data(ptr noundef %cbs) #7
   %arrayidx10 = getelementptr inbounds i8, ptr %call9, i64 1
   %1 = load i8, ptr %arrayidx10, align 1
-  %.lobit = lshr i8 %1, 7
-  %spec.select = zext nneg i8 %.lobit to i32
+  %cmp13 = icmp sgt i8 %1, -1
+  br i1 %cmp13, label %return, label %if.end16
+
+if.end16:                                         ; preds = %land.lhs.true8, %land.lhs.true, %lor.lhs.false
   br label %return
 
-return:                                           ; preds = %land.lhs.true8, %lor.lhs.false, %land.lhs.true, %if.end, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 0, %if.end ], [ 1, %land.lhs.true ], [ 1, %lor.lhs.false ], [ %spec.select, %land.lhs.true8 ]
+return:                                           ; preds = %if.end, %land.lhs.true8, %entry, %if.end16
+  %retval.0 = phi i32 [ 1, %if.end16 ], [ 0, %entry ], [ 0, %land.lhs.true8 ], [ 0, %if.end ]
   ret i32 %retval.0
 }
 

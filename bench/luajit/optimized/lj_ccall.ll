@@ -61,13 +61,15 @@ if.then24:                                        ; preds = %if.else15, %if.else
 if.else28:                                        ; preds = %if.else15
   %and30 = and i32 %4, -201326592
   %cmp31 = icmp eq i32 %and30, 67108864
-  br i1 %cmp31, label %land.lhs.true, label %return
+  br i1 %cmp31, label %land.lhs.true, label %if.else37
 
 land.lhs.true:                                    ; preds = %if.else28
   %size = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   %5 = load i32, ptr %size, align 4
   %cmp34 = icmp eq i32 %5, 4
-  %spec.select = select i1 %cmp34, i32 14, i32 %conv7
+  br i1 %cmp34, label %return, label %if.else37
+
+if.else37:                                        ; preds = %land.lhs.true, %if.else28
   br label %return
 
 if.then54:                                        ; preds = %if.else, %if.else
@@ -76,8 +78,8 @@ if.then54:                                        ; preds = %if.else, %if.else
 if.else55:                                        ; preds = %if.else
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %if.else, %if.else28, %entry, %if.else55, %if.then54, %if.then24, %if.then11
-  %retval.0 = phi i32 [ %call14, %if.then11 ], [ %call27, %if.then24 ], [ 3, %if.then54 ], [ 17, %if.else55 ], [ 14, %entry ], [ %conv7, %if.else28 ], [ 19, %if.else ], [ %spec.select, %land.lhs.true ]
+return:                                           ; preds = %if.else, %land.lhs.true, %entry, %if.else55, %if.then54, %if.else37, %if.then24, %if.then11
+  %retval.0 = phi i32 [ %call14, %if.then11 ], [ %call27, %if.then24 ], [ %conv7, %if.else37 ], [ 3, %if.then54 ], [ 17, %if.else55 ], [ 14, %entry ], [ 14, %land.lhs.true ], [ 19, %if.else ]
   ret i32 %retval.0
 }
 
@@ -804,7 +806,7 @@ if.end12.i:                                       ; preds = %if.end.i
   %and14.i = and i32 %70, -201326592
   switch i32 %and14.i, label %lor.lhs.false.i [
     i32 872415232, label %if.then16.i
-    i32 67108864, label %ccall_get_results.exit
+    i32 67108864, label %if.then47.i
   ]
 
 if.then16.i:                                      ; preds = %if.end12.i
@@ -831,15 +833,17 @@ if.else.i52:                                      ; preds = %if.then16.i
 lor.lhs.false.i:                                  ; preds = %if.end12.i
   %and44.i = and i32 %70, -134217728
   %cmp45.i = icmp eq i32 %and44.i, 939524096
-  %spec.select = select i1 %cmp45.i, ptr %fpr.i, ptr %gpr.i
+  br i1 %cmp45.i, label %if.then47.i, label %ccall_get_results.exit
+
+if.then47.i:                                      ; preds = %lor.lhs.false.i, %if.end12.i
   br label %ccall_get_results.exit
 
 ccall_get_results.exit.thread:                    ; preds = %ccall_struct_ret.exit.i, %if.then4.i, %if.then16.i, %if.else.i52
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rcl.i42)
   br label %while.body.preheader
 
-ccall_get_results.exit:                           ; preds = %if.end12.i, %lor.lhs.false.i
-  %sp.0.i = phi ptr [ %fpr.i, %if.end12.i ], [ %spec.select, %lor.lhs.false.i ]
+ccall_get_results.exit:                           ; preds = %lor.lhs.false.i, %if.then47.i
+  %sp.0.i = phi ptr [ %fpr.i, %if.then47.i ], [ %gpr.i, %lor.lhs.false.i ]
   %83 = load ptr, ptr %top1.i, align 8
   %add.ptr52.i = getelementptr inbounds i8, ptr %83, i64 -8
   %call53.i = call i32 @lj_cconv_tv_ct(ptr noundef nonnull %3, ptr noundef nonnull %arrayidx.i.i.i, i32 noundef 0, ptr noundef nonnull %add.ptr52.i, ptr noundef nonnull %sp.0.i) #7

@@ -1428,20 +1428,23 @@ lor.lhs.false16:                                  ; preds = %land.lhs.true, %lor
 
 if.end19:                                         ; preds = %lor.lhs.false16
   %call20 = call noundef zeroext i1 @_ZNK11ast_manager5is_eqEPK4exprRPS0_S4_(ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef nonnull %n, ptr noundef nonnull align 8 dereferenceable(8) %e1, ptr noundef nonnull align 8 dereferenceable(8) %e2)
-  br i1 %call20, label %land.lhs.true21, label %return
+  br i1 %call20, label %land.lhs.true21, label %if.end26
 
 land.lhs.true21:                                  ; preds = %if.end19
   %7 = load ptr, ptr %e1, align 8
   %call22 = call noundef zeroext i1 @_ZN6spacer7is_atomER11ast_managerP4expr(ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef %7)
-  br i1 %call22, label %land.lhs.true23, label %return
+  br i1 %call22, label %land.lhs.true23, label %if.end26
 
 land.lhs.true23:                                  ; preds = %land.lhs.true21
   %8 = load ptr, ptr %e2, align 8
   %call24 = call noundef zeroext i1 @_ZN6spacer7is_atomER11ast_managerP4expr(ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef %8)
+  br i1 %call24, label %return, label %if.end26
+
+if.end26:                                         ; preds = %land.lhs.true23, %land.lhs.true21, %if.end19
   br label %return
 
-return:                                           ; preds = %if.end4, %land.lhs.true23, %if.end19, %land.lhs.true21, %land.lhs.true, %lor.lhs.false14, %lor.lhs.false16, %_ZNK3app13get_family_idEv.exit, %if.end, %entry, %lor.lhs.false
-  %retval.0 = phi i1 [ false, %lor.lhs.false ], [ false, %entry ], [ true, %if.end ], [ true, %_ZNK3app13get_family_idEv.exit ], [ true, %lor.lhs.false16 ], [ true, %lor.lhs.false14 ], [ true, %land.lhs.true ], [ false, %land.lhs.true21 ], [ false, %if.end19 ], [ %call24, %land.lhs.true23 ], [ true, %if.end4 ]
+return:                                           ; preds = %if.end4, %land.lhs.true23, %land.lhs.true, %lor.lhs.false14, %lor.lhs.false16, %_ZNK3app13get_family_idEv.exit, %if.end, %entry, %lor.lhs.false, %if.end26
+  %retval.0 = phi i1 [ false, %if.end26 ], [ false, %lor.lhs.false ], [ false, %entry ], [ true, %if.end ], [ true, %_ZNK3app13get_family_idEv.exit ], [ true, %lor.lhs.false16 ], [ true, %lor.lhs.false14 ], [ true, %land.lhs.true ], [ true, %land.lhs.true23 ], [ true, %if.end4 ]
   ret i1 %retval.0
 }
 

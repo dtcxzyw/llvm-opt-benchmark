@@ -761,27 +761,27 @@ define internal fastcc i32 @cuddZddLinearInPlace(ptr noundef %0, i32 noundef %1,
   store i32 %50, ptr %48, align 4
   %51 = load i32, ptr %42, align 8
   %52 = icmp eq i32 %51, %23
-  br i1 %52, label %53, label %61
+  br i1 %52, label %53, label %60
 
 53:                                               ; preds = %38
   %54 = getelementptr inbounds i8, ptr %42, i64 24
   %55 = load ptr, ptr %54, align 8
   %56 = load ptr, ptr @empty, align 8
   %57 = icmp eq ptr %55, %56
-  br i1 %57, label %58, label %61
+  br i1 %57, label %58, label %60
 
 58:                                               ; preds = %53
   %59 = load i32, ptr %47, align 8
   %.not346 = icmp eq i32 %59, %23
   br i1 %.not346, label %60, label %61
 
-60:                                               ; preds = %58
+60:                                               ; preds = %58, %53, %38
   br label %61
 
-61:                                               ; preds = %38, %53, %58, %60
-  %storemerge = phi ptr [ %.1371, %58 ], [ %.1300370, %53 ], [ %.1300370, %38 ], [ %.1300370, %60 ]
-  %.2301 = phi ptr [ %.1300370, %58 ], [ %.0313369, %53 ], [ %.0313369, %38 ], [ %.0313369, %60 ]
-  %.2 = phi ptr [ %.0313369, %58 ], [ %.1371, %53 ], [ %.1371, %38 ], [ %.1371, %60 ]
+61:                                               ; preds = %58, %60
+  %storemerge = phi ptr [ %.1300370, %60 ], [ %.1371, %58 ]
+  %.2301 = phi ptr [ %.0313369, %60 ], [ %.1300370, %58 ]
+  %.2 = phi ptr [ %.1371, %60 ], [ %.0313369, %58 ]
   store ptr %storemerge, ptr %39, align 8
   %.not345 = icmp eq ptr %40, null
   br i1 %.not345, label %.loopexit359, label %38, !llvm.loop !18

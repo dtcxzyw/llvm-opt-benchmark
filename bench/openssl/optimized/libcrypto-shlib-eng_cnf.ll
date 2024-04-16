@@ -277,8 +277,8 @@ if.else99.i:                                      ; preds = %if.then18.i, %if.en
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 38, i32 noundef 102, ptr noundef nonnull @.str.13, ptr noundef %10, ptr noundef %11, ptr noundef %12) #4
   br label %int_engine_configure.exit
 
-int_engine_configure.exit.thread12:               ; preds = %for.end.i, %lor.lhs.false.i46.i, %for.cond.preheader.i
-  %e.368.i.ph = phi ptr [ null, %for.cond.preheader.i ], [ %e.2.i, %lor.lhs.false.i46.i ], [ %e.2.i, %for.end.i ]
+int_engine_configure.exit.thread12:               ; preds = %lor.lhs.false.i46.i, %for.end.i, %for.cond.preheader.i
+  %e.368.i.ph = phi ptr [ null, %for.cond.preheader.i ], [ %e.2.i, %for.end.i ], [ %e.2.i, %lor.lhs.false.i46.i ]
   %call104.i15 = call i32 @ENGINE_free(ptr noundef %e.368.i.ph) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %do_init.i)
   br label %for.inc

@@ -2981,9 +2981,9 @@ define dso_local ptr @DeescapeQuotedString(ptr nocapture noundef readonly %0) lo
   %8 = icmp sgt i32 %5, 0
   br i1 %8, label %.lr.ph72, label %._crit_edge
 
-.lr.ph72:                                         ; preds = %1, %43
-  %.06071 = phi i32 [ %46, %43 ], [ 0, %1 ]
-  %.06170 = phi i32 [ %47, %43 ], [ 0, %1 ]
+.lr.ph72:                                         ; preds = %1, %44
+  %.06071 = phi i32 [ %47, %44 ], [ 0, %1 ]
+  %.06170 = phi i32 [ %48, %44 ], [ 0, %1 ]
   %9 = sext i32 %.06170 to i64
   %10 = getelementptr i8, ptr %4, i64 %9
   %11 = load i8, ptr %10, align 1
@@ -2998,7 +2998,7 @@ define dso_local ptr @DeescapeQuotedString(ptr nocapture noundef readonly %0) lo
   %15 = getelementptr i8, ptr %4, i64 %14
   %16 = load i8, ptr %15, align 1
   switch i8 %16, label %36 [
-    i8 98, label %43
+    i8 98, label %44
     i8 102, label %17
     i8 110, label %18
     i8 114, label %19
@@ -3017,16 +3017,16 @@ define dso_local ptr @DeescapeQuotedString(ptr nocapture noundef readonly %0) lo
   br label %.lr.ph
 
 17:                                               ; preds = %12
-  br label %43
+  br label %44
 
 18:                                               ; preds = %12
-  br label %43
+  br label %44
 
 19:                                               ; preds = %12
-  br label %43
+  br label %44
 
 20:                                               ; preds = %12
-  br label %43
+  br label %44
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %24
   %indvars.iv = phi i64 [ %indvars.iv.next, %24 ], [ 0, %.lr.ph.preheader ]
@@ -3060,10 +3060,10 @@ define dso_local ptr @DeescapeQuotedString(ptr nocapture noundef readonly %0) lo
   %.059.lcssa.ph = phi i32 [ %34, %.critedge.split.loop.exit74 ], [ %27, %24 ]
   %.0.lcssa.ph = phi i8 [ %.065, %.critedge.split.loop.exit74 ], [ %26, %24 ]
   %35 = add i32 %.059.lcssa.ph, %.06170
-  br label %43
+  br label %44
 
 36:                                               ; preds = %12
-  br label %43
+  br label %44
 
 37:                                               ; preds = %.lr.ph72
   %38 = add nsw i32 %.06170, 1
@@ -3071,29 +3071,30 @@ define dso_local ptr @DeescapeQuotedString(ptr nocapture noundef readonly %0) lo
   %40 = getelementptr i8, ptr %4, i64 %39
   %41 = load i8, ptr %40, align 1
   %42 = icmp eq i8 %41, 39
-  %spec.select = select i1 %42, i8 39, i8 %11
-  %spec.select79 = select i1 %42, i32 %38, i32 %.06170
-  br label %43
+  br i1 %42, label %44, label %43
 
-43:                                               ; preds = %37, %.lr.ph72, %12, %17, %18, %19, %20, %.critedge, %36
-  %.sink = phi i8 [ 12, %17 ], [ 10, %18 ], [ 13, %19 ], [ 9, %20 ], [ %.0.lcssa.ph, %.critedge ], [ %16, %36 ], [ 8, %12 ], [ %11, %.lr.ph72 ], [ %spec.select, %37 ]
-  %.1 = phi i32 [ %13, %17 ], [ %13, %18 ], [ %13, %19 ], [ %13, %20 ], [ %35, %.critedge ], [ %13, %36 ], [ %13, %12 ], [ %.06170, %.lr.ph72 ], [ %spec.select79, %37 ]
-  %44 = sext i32 %.06071 to i64
-  %45 = getelementptr i8, ptr %7, i64 %44
-  store i8 %.sink, ptr %45, align 1
-  %46 = add i32 %.06071, 1
-  %47 = add i32 %.1, 1
-  %48 = icmp slt i32 %47, %5
-  br i1 %48, label %.lr.ph72, label %._crit_edge.loopexit, !llvm.loop !20
+43:                                               ; preds = %.lr.ph72, %37
+  br label %44
 
-._crit_edge.loopexit:                             ; preds = %43
-  %49 = sext i32 %.06071 to i64
+44:                                               ; preds = %37, %12, %43, %17, %18, %19, %20, %.critedge, %36
+  %.sink = phi i8 [ %11, %43 ], [ 12, %17 ], [ 10, %18 ], [ 13, %19 ], [ 9, %20 ], [ %.0.lcssa.ph, %.critedge ], [ %16, %36 ], [ 8, %12 ], [ 39, %37 ]
+  %.1 = phi i32 [ %.06170, %43 ], [ %13, %17 ], [ %13, %18 ], [ %13, %19 ], [ %13, %20 ], [ %35, %.critedge ], [ %13, %36 ], [ %13, %12 ], [ %38, %37 ]
+  %45 = sext i32 %.06071 to i64
+  %46 = getelementptr i8, ptr %7, i64 %45
+  store i8 %.sink, ptr %46, align 1
+  %47 = add i32 %.06071, 1
+  %48 = add i32 %.1, 1
+  %49 = icmp slt i32 %48, %5
+  br i1 %49, label %.lr.ph72, label %._crit_edge.loopexit, !llvm.loop !20
+
+._crit_edge.loopexit:                             ; preds = %44
+  %50 = sext i32 %.06071 to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1
-  %.060.lcssa = phi i64 [ -1, %1 ], [ %49, %._crit_edge.loopexit ]
-  %50 = getelementptr i8, ptr %7, i64 %.060.lcssa
-  store i8 0, ptr %50, align 1
+  %.060.lcssa = phi i64 [ -1, %1 ], [ %50, %._crit_edge.loopexit ]
+  %51 = getelementptr i8, ptr %7, i64 %.060.lcssa
+  store i8 0, ptr %51, align 1
   ret ptr %7
 }
 

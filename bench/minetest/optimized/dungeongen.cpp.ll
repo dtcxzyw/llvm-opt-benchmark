@@ -1091,7 +1091,7 @@ if.end228:                                        ; preds = %if.else226, %if.the
   call void @_ZN10DungeonGen12makeCorridorEN3irr4core8vector3dIsEES3_RS3_S4_(ptr noundef nonnull align 8 dereferenceable(152) %this, i48 %agg.tmp229.sroa.0.0.copyload, i48 %agg.tmp230.sroa.0.0.copyload, ptr noundef nonnull align 2 dereferenceable(6) %corridor_end, ptr noundef nonnull align 2 dereferenceable(6) %corridor_end_dir)
   %54 = load i16, ptr %large_room_chance, align 2, !tbaa !111
   %cmp234 = icmp ugt i16 %54, 1
-  br i1 %cmp234, label %land.lhs.true, label %if.end315
+  br i1 %cmp234, label %land.lhs.true, label %if.else278
 
 land.lhs.true:                                    ; preds = %if.end228
   %conv233 = zext i16 %54 to i32
@@ -1099,16 +1099,16 @@ land.lhs.true:                                    ; preds = %if.end228
   %cmp240 = icmp eq i32 %call239, 1
   br i1 %cmp240, label %if.end315, label %if.else278
 
-if.else278:                                       ; preds = %land.lhs.true
+if.else278:                                       ; preds = %land.lhs.true, %if.end228
   br label %if.end315
 
-if.end315:                                        ; preds = %if.end228, %land.lhs.true, %if.else278
-  %.sink41.in = phi ptr [ %Z6, %land.lhs.true ], [ %Z38, %if.end228 ], [ %Z38, %if.else278 ]
-  %conv283.sink.in.in = phi ptr [ %Z, %land.lhs.true ], [ %Z35, %if.end228 ], [ %Z35, %if.else278 ]
-  %.sink581.in = phi ptr [ %Y, %land.lhs.true ], [ %Y46, %if.end228 ], [ %Y46, %if.else278 ]
-  %Y50.sink580 = phi ptr [ %Y17, %land.lhs.true ], [ %Y50, %if.end228 ], [ %Y50, %if.else278 ]
-  %.sink564.in = phi ptr [ %room_size_large_max, %land.lhs.true ], [ %room_size_max, %if.end228 ], [ %room_size_max, %if.else278 ]
-  %conv307.sink.in.in = phi ptr [ %room_size_large_min, %land.lhs.true ], [ %room_size_min, %if.end228 ], [ %room_size_min, %if.else278 ]
+if.end315:                                        ; preds = %land.lhs.true, %if.else278
+  %.sink41.in = phi ptr [ %Z38, %if.else278 ], [ %Z6, %land.lhs.true ]
+  %conv283.sink.in.in = phi ptr [ %Z35, %if.else278 ], [ %Z, %land.lhs.true ]
+  %.sink581.in = phi ptr [ %Y46, %if.else278 ], [ %Y, %land.lhs.true ]
+  %Y50.sink580 = phi ptr [ %Y50, %if.else278 ], [ %Y17, %land.lhs.true ]
+  %.sink564.in = phi ptr [ %room_size_max, %if.else278 ], [ %room_size_large_max, %land.lhs.true ]
+  %conv307.sink.in.in = phi ptr [ %room_size_min, %if.else278 ], [ %room_size_large_min, %land.lhs.true ]
   %conv283.sink.in = load i16, ptr %conv283.sink.in.in, align 2, !tbaa !31
   %conv283.sink = sext i16 %conv283.sink.in to i32
   %.sink41 = load i16, ptr %.sink41.in, align 4, !tbaa !31

@@ -899,18 +899,18 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @adjacent_inner_consistent(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #1 {
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %28, label %5
+  br i1 %.not, label %29, label %5
 
 5:                                                ; preds = %4
   %6 = tail call i32 @range_cmp_bounds(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3) #6
   %7 = getelementptr inbounds i8, ptr %3, i64 10
   %8 = load i8, ptr %7, align 2
   %9 = trunc i8 %8 to i1
-  br i1 %9, label %10, label %20
+  br i1 %9, label %10, label %21
 
 10:                                               ; preds = %5
   %11 = icmp slt i32 %6, 0
-  br i1 %11, label %12, label %adjacent_cmp_bounds.exit
+  br i1 %11, label %12, label %20
 
 12:                                               ; preds = %10
   %13 = load i64, ptr %1, align 8
@@ -920,57 +920,61 @@ define internal fastcc i32 @adjacent_inner_consistent(ptr noundef %0, ptr nounde
   %17 = getelementptr inbounds i8, ptr %3, i64 8
   %18 = load i64, ptr %17, align 8
   %19 = tail call zeroext i1 @bounds_adjacent(ptr noundef %0, i64 %13, i64 %15, i64 %16, i64 %18) #6
-  %spec.select.i = select i1 %19, i32 1, i32 -1
+  br i1 %19, label %20, label %adjacent_cmp_bounds.exit
+
+20:                                               ; preds = %12, %10
   br label %adjacent_cmp_bounds.exit
 
-20:                                               ; preds = %5
-  %21 = icmp slt i32 %6, 1
-  %..i = select i1 %21, i32 -1, i32 1
+21:                                               ; preds = %5
+  %22 = icmp slt i32 %6, 1
+  %..i = select i1 %22, i32 -1, i32 1
   br label %adjacent_cmp_bounds.exit
 
-adjacent_cmp_bounds.exit:                         ; preds = %10, %12, %20
-  %.0.i = phi i32 [ 1, %10 ], [ %..i, %20 ], [ %spec.select.i, %12 ]
-  %22 = tail call i32 @range_cmp_bounds(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %3) #6
-  %23 = icmp slt i32 %.0.i, 0
-  %24 = icmp sgt i32 %22, -1
-  %or.cond = select i1 %23, i1 %24, i1 false
-  br i1 %or.cond, label %adjacent_cmp_bounds.exit21, label %25
+adjacent_cmp_bounds.exit:                         ; preds = %12, %20, %21
+  %.0.i = phi i32 [ 1, %20 ], [ -1, %12 ], [ %..i, %21 ]
+  %23 = tail call i32 @range_cmp_bounds(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %3) #6
+  %24 = icmp slt i32 %.0.i, 0
+  %25 = icmp sgt i32 %23, -1
+  %or.cond = select i1 %24, i1 %25, i1 false
+  br i1 %or.cond, label %adjacent_cmp_bounds.exit20, label %26
 
-25:                                               ; preds = %adjacent_cmp_bounds.exit
-  %26 = icmp sgt i32 %.0.i, 0
-  %27 = icmp slt i32 %22, 0
-  %or.cond3 = select i1 %26, i1 %27, i1 false
-  br i1 %or.cond3, label %adjacent_cmp_bounds.exit21, label %28
+26:                                               ; preds = %adjacent_cmp_bounds.exit
+  %27 = icmp sgt i32 %.0.i, 0
+  %28 = icmp slt i32 %23, 0
+  %or.cond3 = select i1 %27, i1 %28, i1 false
+  br i1 %or.cond3, label %adjacent_cmp_bounds.exit20, label %29
 
-28:                                               ; preds = %25, %4
-  %29 = tail call i32 @range_cmp_bounds(ptr noundef %0, ptr noundef %1, ptr noundef %2) #6
-  %30 = getelementptr inbounds i8, ptr %2, i64 10
-  %31 = load i8, ptr %30, align 2
-  %32 = trunc i8 %31 to i1
-  br i1 %32, label %33, label %43
+29:                                               ; preds = %26, %4
+  %30 = tail call i32 @range_cmp_bounds(ptr noundef %0, ptr noundef %1, ptr noundef %2) #6
+  %31 = getelementptr inbounds i8, ptr %2, i64 10
+  %32 = load i8, ptr %31, align 2
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %34, label %45
 
-33:                                               ; preds = %28
-  %34 = icmp slt i32 %29, 0
-  br i1 %34, label %35, label %adjacent_cmp_bounds.exit21
+34:                                               ; preds = %29
+  %35 = icmp slt i32 %30, 0
+  br i1 %35, label %36, label %44
 
-35:                                               ; preds = %33
-  %36 = load i64, ptr %1, align 8
-  %37 = getelementptr inbounds i8, ptr %1, i64 8
-  %38 = load i64, ptr %37, align 8
-  %39 = load i64, ptr %2, align 8
-  %40 = getelementptr inbounds i8, ptr %2, i64 8
-  %41 = load i64, ptr %40, align 8
-  %42 = tail call zeroext i1 @bounds_adjacent(ptr noundef %0, i64 %36, i64 %38, i64 %39, i64 %41) #6
-  %spec.select.i20 = select i1 %42, i32 1, i32 -1
-  br label %adjacent_cmp_bounds.exit21
+36:                                               ; preds = %34
+  %37 = load i64, ptr %1, align 8
+  %38 = getelementptr inbounds i8, ptr %1, i64 8
+  %39 = load i64, ptr %38, align 8
+  %40 = load i64, ptr %2, align 8
+  %41 = getelementptr inbounds i8, ptr %2, i64 8
+  %42 = load i64, ptr %41, align 8
+  %43 = tail call zeroext i1 @bounds_adjacent(ptr noundef %0, i64 %37, i64 %39, i64 %40, i64 %42) #6
+  br i1 %43, label %44, label %adjacent_cmp_bounds.exit20
 
-43:                                               ; preds = %28
-  %44 = icmp slt i32 %29, 1
-  %..i18 = select i1 %44, i32 -1, i32 1
-  br label %adjacent_cmp_bounds.exit21
+44:                                               ; preds = %36, %34
+  br label %adjacent_cmp_bounds.exit20
 
-adjacent_cmp_bounds.exit21:                       ; preds = %43, %35, %33, %adjacent_cmp_bounds.exit, %25
-  %.0 = phi i32 [ 0, %25 ], [ 0, %adjacent_cmp_bounds.exit ], [ 1, %33 ], [ %..i18, %43 ], [ %spec.select.i20, %35 ]
+45:                                               ; preds = %29
+  %46 = icmp slt i32 %30, 1
+  %..i18 = select i1 %46, i32 -1, i32 1
+  br label %adjacent_cmp_bounds.exit20
+
+adjacent_cmp_bounds.exit20:                       ; preds = %45, %44, %36, %adjacent_cmp_bounds.exit, %26
+  %.0 = phi i32 [ 0, %26 ], [ 0, %adjacent_cmp_bounds.exit ], [ 1, %44 ], [ -1, %36 ], [ %..i18, %45 ]
   ret i32 %.0
 }
 

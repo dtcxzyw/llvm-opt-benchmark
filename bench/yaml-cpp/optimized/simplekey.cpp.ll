@@ -850,16 +850,16 @@ _ZNSt5stackIN4YAML7Scanner9SimpleKeyESt5dequeIS2_SaIS2_EEE3popEv.exit: ; preds =
   %line.i = getelementptr inbounds i8, ptr %this, i64 12
   %14 = load i32, ptr %line.i, align 4
   %cmp9.not = icmp eq i32 %14, %key.sroa.2.0.copyload
-  br i1 %cmp9.not, label %if.end15, label %if.else
+  br i1 %cmp9.not, label %lor.lhs.false, label %if.else
 
-if.end15:                                         ; preds = %_ZNSt5stackIN4YAML7Scanner9SimpleKeyESt5dequeIS2_SaIS2_EEE3popEv.exit
+lor.lhs.false:                                    ; preds = %_ZNSt5stackIN4YAML7Scanner9SimpleKeyESt5dequeIS2_SaIS2_EEE3popEv.exit
   %m_mark.i = getelementptr inbounds i8, ptr %this, i64 8
   %15 = load i32, ptr %m_mark.i, align 8
   %sub = sub nsw i32 %15, %key.sroa.0.0.copyload
-  %cmp13 = icmp slt i32 %sub, 1025
-  br i1 %cmp13, label %if.then16, label %if.else
+  %cmp13 = icmp sgt i32 %sub, 1024
+  br i1 %cmp13, label %if.else, label %if.then16
 
-if.then16:                                        ; preds = %if.end15
+if.then16:                                        ; preds = %lor.lhs.false
   %tobool.not.i = icmp eq ptr %key.sroa.4.0.copyload, null
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -880,7 +880,7 @@ if.end7.i:                                        ; preds = %if.then4.i, %if.end
   %tobool8.not.i = icmp eq ptr %key.sroa.8.0.copyload, null
   br i1 %tobool8.not.i, label %return, label %return.sink.split
 
-if.else:                                          ; preds = %_ZNSt5stackIN4YAML7Scanner9SimpleKeyESt5dequeIS2_SaIS2_EEE3popEv.exit, %if.end15
+if.else:                                          ; preds = %lor.lhs.false, %_ZNSt5stackIN4YAML7Scanner9SimpleKeyESt5dequeIS2_SaIS2_EEE3popEv.exit
   %tobool.not.i9 = icmp eq ptr %key.sroa.4.0.copyload, null
   br i1 %tobool.not.i9, label %if.end.i12, label %if.then.i10
 

@@ -1634,283 +1634,283 @@ define internal i32 @dissect_sapdiag(ptr noundef %0, ptr noundef %1, ptr noundef
   %11 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %10) #2
   %12 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #2
   %13 = icmp sgt i32 %12, 207
-  br i1 %13, label %check_sapdiag_dp.exit, label %check_sapdiag_dp.exit.thread
+  br i1 %13, label %14, label %check_sapdiag_dp.exit.thread
 
-check_sapdiag_dp.exit:                            ; preds = %4
-  %14 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #2
-  %.not = icmp eq i8 %14, -1
-  br i1 %.not, label %15, label %check_sapdiag_dp.exit.thread
+14:                                               ; preds = %4
+  %15 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #2
+  %16 = icmp eq i8 %15, -1
+  br i1 %16, label %check_sapdiag_dp.exit, label %check_sapdiag_dp.exit.thread
 
-15:                                               ; preds = %check_sapdiag_dp.exit
-  %16 = load i32, ptr @hf_sapdiag_dp, align 4
-  %17 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %16, ptr noundef %0, i32 noundef 0, i32 noundef 200, i32 noundef 0) #2
-  %18 = load i32, ptr @ett_sapdiag, align 4
-  %19 = tail call ptr @proto_item_add_subtree(ptr noundef %17, i32 noundef %18) #2
-  %20 = load i32, ptr @hf_sapdiag_dp_request_id, align 4
-  %21 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %20, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #2
-  %22 = load i32, ptr @hf_sapdiag_dp_retcode, align 4
-  %23 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %22, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #2
-  %24 = load i32, ptr @hf_sapdiag_dp_sender_id, align 4
-  %25 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %24, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0) #2
-  %26 = load i32, ptr @hf_sapdiag_dp_action_type, align 4
-  %27 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %26, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef 0) #2
-  %28 = load i32, ptr @hf_sapdiag_dp_req_info, align 4
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %28, ptr noundef %0, i32 noundef 7, i32 noundef 4, i32 noundef 0) #2
-  %30 = load i32, ptr @ett_sapdiag, align 4
-  %31 = tail call ptr @proto_item_add_subtree(ptr noundef %29, i32 noundef %30) #2
-  %32 = load i32, ptr @hf_sapdiag_dp_req_info_LOGIN, align 4
-  %33 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %32, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0) #2
-  %34 = load i32, ptr @hf_sapdiag_dp_req_info_LOGOFF, align 4
-  %35 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %34, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0) #2
-  %36 = load i32, ptr @hf_sapdiag_dp_req_info_SHUTDOWN, align 4
-  %37 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %36, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0) #2
-  %38 = load i32, ptr @hf_sapdiag_dp_req_info_GRAPHIC_TM, align 4
-  %39 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %38, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0) #2
-  %40 = load i32, ptr @hf_sapdiag_dp_req_info_ALPHA_TM, align 4
-  %41 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %40, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0) #2
-  %42 = load i32, ptr @hf_sapdiag_dp_req_info_ERROR_FROM_APPC, align 4
-  %43 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %42, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0) #2
-  %44 = load i32, ptr @hf_sapdiag_dp_req_info_CANCELMODE, align 4
-  %45 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %44, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0) #2
-  %46 = load i32, ptr @hf_sapdiag_dp_req_info_MSG_WITH_REQ_BUF, align 4
-  %47 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %46, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0) #2
-  %48 = load i32, ptr @hf_sapdiag_dp_req_info_MSG_WITH_OH, align 4
-  %49 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %48, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef 0) #2
-  %50 = load i32, ptr @hf_sapdiag_dp_req_info_BUFFER_REFRESH, align 4
-  %51 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %50, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef 0) #2
-  %52 = load i32, ptr @hf_sapdiag_dp_req_info_BTC_SCHEDULER, align 4
-  %53 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %52, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef 0) #2
-  %54 = load i32, ptr @hf_sapdiag_dp_req_info_APPC_SERVER_DOWN, align 4
-  %55 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %54, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef 0) #2
-  %56 = load i32, ptr @hf_sapdiag_dp_req_info_MS_ERROR, align 4
-  %57 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %56, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef 0) #2
-  %58 = load i32, ptr @hf_sapdiag_dp_req_info_SET_SYSTEM_USER, align 4
-  %59 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %58, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef 0) #2
-  %60 = load i32, ptr @hf_sapdiag_dp_req_info_DP_CANT_HANDLE_REQ, align 4
-  %61 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %60, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef 0) #2
-  %62 = load i32, ptr @hf_sapdiag_dp_req_info_DP_AUTO_ABAP, align 4
-  %63 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %62, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef 0) #2
-  %64 = load i32, ptr @hf_sapdiag_dp_req_info_DP_APPL_SERV_INFO, align 4
-  %65 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %64, ptr noundef %0, i32 noundef 9, i32 noundef 1, i32 noundef 0) #2
-  %66 = load i32, ptr @hf_sapdiag_dp_req_info_DP_ADMIN, align 4
-  %67 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %66, ptr noundef %0, i32 noundef 9, i32 noundef 1, i32 noundef 0) #2
-  %68 = load i32, ptr @hf_sapdiag_dp_req_info_DP_SPOOL_ALRM, align 4
-  %69 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %68, ptr noundef %0, i32 noundef 9, i32 noundef 1, i32 noundef 0) #2
-  %70 = load i32, ptr @hf_sapdiag_dp_req_info_DP_HAND_SHAKE, align 4
-  %71 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %70, ptr noundef %0, i32 noundef 9, i32 noundef 1, i32 noundef 0) #2
-  %72 = load i32, ptr @hf_sapdiag_dp_req_info_DP_CANCEL_PRIV, align 4
-  %73 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %72, ptr noundef %0, i32 noundef 9, i32 noundef 1, i32 noundef 0) #2
-  %74 = load i32, ptr @hf_sapdiag_dp_req_info_DP_RAISE_TIMEOUT, align 4
-  %75 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %74, ptr noundef %0, i32 noundef 9, i32 noundef 1, i32 noundef 0) #2
-  %76 = load i32, ptr @hf_sapdiag_dp_req_info_DP_NEW_MODE, align 4
-  %77 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %76, ptr noundef %0, i32 noundef 9, i32 noundef 1, i32 noundef 0) #2
-  %78 = load i32, ptr @hf_sapdiag_dp_req_info_DP_SOFT_CANCEL, align 4
-  %79 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %78, ptr noundef %0, i32 noundef 9, i32 noundef 1, i32 noundef 0) #2
-  %80 = load i32, ptr @hf_sapdiag_dp_req_info_DP_TM_INPUT, align 4
-  %81 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %80, ptr noundef %0, i32 noundef 10, i32 noundef 1, i32 noundef 0) #2
-  %82 = load i32, ptr @hf_sapdiag_dp_req_info_DP_TM_OUTPUT, align 4
-  %83 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %82, ptr noundef %0, i32 noundef 10, i32 noundef 1, i32 noundef 0) #2
-  %84 = load i32, ptr @hf_sapdiag_dp_req_info_DP_ASYNC_RFC, align 4
-  %85 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %84, ptr noundef %0, i32 noundef 10, i32 noundef 1, i32 noundef 0) #2
-  %86 = load i32, ptr @hf_sapdiag_dp_req_info_DP_ICM_EVENT, align 4
-  %87 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %86, ptr noundef %0, i32 noundef 10, i32 noundef 1, i32 noundef 0) #2
-  %88 = load i32, ptr @hf_sapdiag_dp_req_info_DP_AUTO_TH, align 4
-  %89 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %88, ptr noundef %0, i32 noundef 10, i32 noundef 1, i32 noundef 0) #2
-  %90 = load i32, ptr @hf_sapdiag_dp_req_info_DP_RFC_CANCEL, align 4
-  %91 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %90, ptr noundef %0, i32 noundef 10, i32 noundef 1, i32 noundef 0) #2
-  %92 = load i32, ptr @hf_sapdiag_dp_req_info_DP_MS_ADM, align 4
-  %93 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %92, ptr noundef %0, i32 noundef 10, i32 noundef 1, i32 noundef 0) #2
-  %94 = load i32, ptr @hf_sapdiag_dp_tid, align 4
-  %95 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %94, ptr noundef %0, i32 noundef 11, i32 noundef 4, i32 noundef 0) #2
-  %96 = load i32, ptr @hf_sapdiag_dp_uid, align 4
-  %97 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %96, ptr noundef %0, i32 noundef 15, i32 noundef 2, i32 noundef 0) #2
-  %98 = load i32, ptr @hf_sapdiag_dp_mode, align 4
-  %99 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %98, ptr noundef %0, i32 noundef 17, i32 noundef 1, i32 noundef 0) #2
-  %100 = load i32, ptr @hf_sapdiag_dp_wp_id, align 4
-  %101 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %100, ptr noundef %0, i32 noundef 18, i32 noundef 4, i32 noundef 0) #2
-  %102 = load i32, ptr @hf_sapdiag_dp_wp_ca_blk, align 4
-  %103 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %102, ptr noundef %0, i32 noundef 22, i32 noundef 4, i32 noundef 0) #2
-  %104 = load i32, ptr @hf_sapdiag_dp_appc_ca_blk, align 4
-  %105 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %104, ptr noundef %0, i32 noundef 26, i32 noundef 4, i32 noundef 0) #2
-  %106 = load i32, ptr @hf_sapdiag_dp_len, align 4
-  %107 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %106, ptr noundef %0, i32 noundef 30, i32 noundef 4, i32 noundef -2147483648) #2
-  %108 = load i32, ptr @hf_sapdiag_dp_new_stat, align 4
-  %109 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %108, ptr noundef %0, i32 noundef 34, i32 noundef 1, i32 noundef 0) #2
-  %110 = load i32, ptr @hf_sapdiag_dp_rq_id, align 4
-  %111 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %110, ptr noundef %0, i32 noundef 39, i32 noundef 2, i32 noundef 0) #2
-  %112 = load i32, ptr @hf_sapdiag_dp_terminal, align 4
-  %113 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %112, ptr noundef %0, i32 noundef 81, i32 noundef 15, i32 noundef 0) #2
+check_sapdiag_dp.exit:                            ; preds = %14
+  %17 = load i32, ptr @hf_sapdiag_dp, align 4
+  %18 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %17, ptr noundef %0, i32 noundef 0, i32 noundef 200, i32 noundef 0) #2
+  %19 = load i32, ptr @ett_sapdiag, align 4
+  %20 = tail call ptr @proto_item_add_subtree(ptr noundef %18, i32 noundef %19) #2
+  %21 = load i32, ptr @hf_sapdiag_dp_request_id, align 4
+  %22 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %21, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #2
+  %23 = load i32, ptr @hf_sapdiag_dp_retcode, align 4
+  %24 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %23, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #2
+  %25 = load i32, ptr @hf_sapdiag_dp_sender_id, align 4
+  %26 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %25, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0) #2
+  %27 = load i32, ptr @hf_sapdiag_dp_action_type, align 4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %27, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef 0) #2
+  %29 = load i32, ptr @hf_sapdiag_dp_req_info, align 4
+  %30 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %29, ptr noundef %0, i32 noundef 7, i32 noundef 4, i32 noundef 0) #2
+  %31 = load i32, ptr @ett_sapdiag, align 4
+  %32 = tail call ptr @proto_item_add_subtree(ptr noundef %30, i32 noundef %31) #2
+  %33 = load i32, ptr @hf_sapdiag_dp_req_info_LOGIN, align 4
+  %34 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %33, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0) #2
+  %35 = load i32, ptr @hf_sapdiag_dp_req_info_LOGOFF, align 4
+  %36 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %35, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0) #2
+  %37 = load i32, ptr @hf_sapdiag_dp_req_info_SHUTDOWN, align 4
+  %38 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %37, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0) #2
+  %39 = load i32, ptr @hf_sapdiag_dp_req_info_GRAPHIC_TM, align 4
+  %40 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %39, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0) #2
+  %41 = load i32, ptr @hf_sapdiag_dp_req_info_ALPHA_TM, align 4
+  %42 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %41, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0) #2
+  %43 = load i32, ptr @hf_sapdiag_dp_req_info_ERROR_FROM_APPC, align 4
+  %44 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %43, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0) #2
+  %45 = load i32, ptr @hf_sapdiag_dp_req_info_CANCELMODE, align 4
+  %46 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %45, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0) #2
+  %47 = load i32, ptr @hf_sapdiag_dp_req_info_MSG_WITH_REQ_BUF, align 4
+  %48 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %47, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0) #2
+  %49 = load i32, ptr @hf_sapdiag_dp_req_info_MSG_WITH_OH, align 4
+  %50 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %49, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef 0) #2
+  %51 = load i32, ptr @hf_sapdiag_dp_req_info_BUFFER_REFRESH, align 4
+  %52 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %51, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef 0) #2
+  %53 = load i32, ptr @hf_sapdiag_dp_req_info_BTC_SCHEDULER, align 4
+  %54 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %53, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef 0) #2
+  %55 = load i32, ptr @hf_sapdiag_dp_req_info_APPC_SERVER_DOWN, align 4
+  %56 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %55, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef 0) #2
+  %57 = load i32, ptr @hf_sapdiag_dp_req_info_MS_ERROR, align 4
+  %58 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %57, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef 0) #2
+  %59 = load i32, ptr @hf_sapdiag_dp_req_info_SET_SYSTEM_USER, align 4
+  %60 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %59, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef 0) #2
+  %61 = load i32, ptr @hf_sapdiag_dp_req_info_DP_CANT_HANDLE_REQ, align 4
+  %62 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %61, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef 0) #2
+  %63 = load i32, ptr @hf_sapdiag_dp_req_info_DP_AUTO_ABAP, align 4
+  %64 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %63, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef 0) #2
+  %65 = load i32, ptr @hf_sapdiag_dp_req_info_DP_APPL_SERV_INFO, align 4
+  %66 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %65, ptr noundef %0, i32 noundef 9, i32 noundef 1, i32 noundef 0) #2
+  %67 = load i32, ptr @hf_sapdiag_dp_req_info_DP_ADMIN, align 4
+  %68 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %67, ptr noundef %0, i32 noundef 9, i32 noundef 1, i32 noundef 0) #2
+  %69 = load i32, ptr @hf_sapdiag_dp_req_info_DP_SPOOL_ALRM, align 4
+  %70 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %69, ptr noundef %0, i32 noundef 9, i32 noundef 1, i32 noundef 0) #2
+  %71 = load i32, ptr @hf_sapdiag_dp_req_info_DP_HAND_SHAKE, align 4
+  %72 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %71, ptr noundef %0, i32 noundef 9, i32 noundef 1, i32 noundef 0) #2
+  %73 = load i32, ptr @hf_sapdiag_dp_req_info_DP_CANCEL_PRIV, align 4
+  %74 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %73, ptr noundef %0, i32 noundef 9, i32 noundef 1, i32 noundef 0) #2
+  %75 = load i32, ptr @hf_sapdiag_dp_req_info_DP_RAISE_TIMEOUT, align 4
+  %76 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %75, ptr noundef %0, i32 noundef 9, i32 noundef 1, i32 noundef 0) #2
+  %77 = load i32, ptr @hf_sapdiag_dp_req_info_DP_NEW_MODE, align 4
+  %78 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %77, ptr noundef %0, i32 noundef 9, i32 noundef 1, i32 noundef 0) #2
+  %79 = load i32, ptr @hf_sapdiag_dp_req_info_DP_SOFT_CANCEL, align 4
+  %80 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %79, ptr noundef %0, i32 noundef 9, i32 noundef 1, i32 noundef 0) #2
+  %81 = load i32, ptr @hf_sapdiag_dp_req_info_DP_TM_INPUT, align 4
+  %82 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %81, ptr noundef %0, i32 noundef 10, i32 noundef 1, i32 noundef 0) #2
+  %83 = load i32, ptr @hf_sapdiag_dp_req_info_DP_TM_OUTPUT, align 4
+  %84 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %83, ptr noundef %0, i32 noundef 10, i32 noundef 1, i32 noundef 0) #2
+  %85 = load i32, ptr @hf_sapdiag_dp_req_info_DP_ASYNC_RFC, align 4
+  %86 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %85, ptr noundef %0, i32 noundef 10, i32 noundef 1, i32 noundef 0) #2
+  %87 = load i32, ptr @hf_sapdiag_dp_req_info_DP_ICM_EVENT, align 4
+  %88 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %87, ptr noundef %0, i32 noundef 10, i32 noundef 1, i32 noundef 0) #2
+  %89 = load i32, ptr @hf_sapdiag_dp_req_info_DP_AUTO_TH, align 4
+  %90 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %89, ptr noundef %0, i32 noundef 10, i32 noundef 1, i32 noundef 0) #2
+  %91 = load i32, ptr @hf_sapdiag_dp_req_info_DP_RFC_CANCEL, align 4
+  %92 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %91, ptr noundef %0, i32 noundef 10, i32 noundef 1, i32 noundef 0) #2
+  %93 = load i32, ptr @hf_sapdiag_dp_req_info_DP_MS_ADM, align 4
+  %94 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %93, ptr noundef %0, i32 noundef 10, i32 noundef 1, i32 noundef 0) #2
+  %95 = load i32, ptr @hf_sapdiag_dp_tid, align 4
+  %96 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %95, ptr noundef %0, i32 noundef 11, i32 noundef 4, i32 noundef 0) #2
+  %97 = load i32, ptr @hf_sapdiag_dp_uid, align 4
+  %98 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %97, ptr noundef %0, i32 noundef 15, i32 noundef 2, i32 noundef 0) #2
+  %99 = load i32, ptr @hf_sapdiag_dp_mode, align 4
+  %100 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %99, ptr noundef %0, i32 noundef 17, i32 noundef 1, i32 noundef 0) #2
+  %101 = load i32, ptr @hf_sapdiag_dp_wp_id, align 4
+  %102 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %101, ptr noundef %0, i32 noundef 18, i32 noundef 4, i32 noundef 0) #2
+  %103 = load i32, ptr @hf_sapdiag_dp_wp_ca_blk, align 4
+  %104 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %103, ptr noundef %0, i32 noundef 22, i32 noundef 4, i32 noundef 0) #2
+  %105 = load i32, ptr @hf_sapdiag_dp_appc_ca_blk, align 4
+  %106 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %105, ptr noundef %0, i32 noundef 26, i32 noundef 4, i32 noundef 0) #2
+  %107 = load i32, ptr @hf_sapdiag_dp_len, align 4
+  %108 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %107, ptr noundef %0, i32 noundef 30, i32 noundef 4, i32 noundef -2147483648) #2
+  %109 = load i32, ptr @hf_sapdiag_dp_new_stat, align 4
+  %110 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %109, ptr noundef %0, i32 noundef 34, i32 noundef 1, i32 noundef 0) #2
+  %111 = load i32, ptr @hf_sapdiag_dp_rq_id, align 4
+  %112 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %111, ptr noundef %0, i32 noundef 39, i32 noundef 2, i32 noundef 0) #2
+  %113 = load i32, ptr @hf_sapdiag_dp_terminal, align 4
+  %114 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %113, ptr noundef %0, i32 noundef 81, i32 noundef 15, i32 noundef 0) #2
   br label %check_sapdiag_dp.exit.thread
 
-check_sapdiag_dp.exit.thread:                     ; preds = %4, %15, %check_sapdiag_dp.exit
-  %.0131 = phi i32 [ 200, %15 ], [ 0, %check_sapdiag_dp.exit ], [ 0, %4 ]
-  %114 = tail call i32 @tvb_strneql(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @.str.831, i64 noundef 12) #2
-  %115 = icmp eq i32 %114, 0
-  br i1 %115, label %116, label %119
+check_sapdiag_dp.exit.thread:                     ; preds = %14, %4, %check_sapdiag_dp.exit
+  %.0131 = phi i32 [ 200, %check_sapdiag_dp.exit ], [ 0, %4 ], [ 0, %14 ]
+  %115 = tail call i32 @tvb_strneql(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @.str.831, i64 noundef 12) #2
+  %116 = icmp eq i32 %115, 0
+  br i1 %116, label %117, label %120
 
-116:                                              ; preds = %check_sapdiag_dp.exit.thread
-  %117 = load i32, ptr @hf_sapdiag_payload, align 4
-  %118 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %117, ptr noundef %0, i32 noundef %.0131, i32 noundef -1, i32 noundef 0) #2
+117:                                              ; preds = %check_sapdiag_dp.exit.thread
+  %118 = load i32, ptr @hf_sapdiag_payload, align 4
+  %119 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %118, ptr noundef %0, i32 noundef %.0131, i32 noundef -1, i32 noundef 0) #2
   br label %dissect_sapdiag_snc_frame.exit
 
-119:                                              ; preds = %check_sapdiag_dp.exit.thread
-  %120 = tail call i32 @tvb_strneql(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @.str.832, i64 noundef 12) #2
-  %121 = icmp eq i32 %120, 0
-  br i1 %121, label %122, label %125
+120:                                              ; preds = %check_sapdiag_dp.exit.thread
+  %121 = tail call i32 @tvb_strneql(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @.str.832, i64 noundef 12) #2
+  %122 = icmp eq i32 %121, 0
+  br i1 %122, label %123, label %126
 
-122:                                              ; preds = %119
-  %123 = load i32, ptr @hf_sapdiag_payload, align 4
-  %124 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %123, ptr noundef %0, i32 noundef %.0131, i32 noundef -1, i32 noundef 0) #2
+123:                                              ; preds = %120
+  %124 = load i32, ptr @hf_sapdiag_payload, align 4
+  %125 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %124, ptr noundef %0, i32 noundef %.0131, i32 noundef -1, i32 noundef 0) #2
   br label %dissect_sapdiag_snc_frame.exit
 
-125:                                              ; preds = %119
-  %126 = load i32, ptr @hf_sapdiag_header, align 4
-  %127 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %126, ptr noundef %0, i32 noundef %.0131, i32 noundef 8, i32 noundef 0) #2
-  %128 = load i32, ptr @ett_sapdiag, align 4
-  %129 = tail call ptr @proto_item_add_subtree(ptr noundef %127, i32 noundef %128) #2
-  %130 = load i32, ptr @hf_sapdiag_mode, align 4
-  %131 = tail call ptr @proto_tree_add_item(ptr noundef %129, i32 noundef %130, ptr noundef %0, i32 noundef %.0131, i32 noundef 1, i32 noundef 0) #2
-  %132 = or disjoint i32 %.0131, 1
-  %133 = load i32, ptr @hf_sapdiag_com_flag, align 4
-  %134 = tail call ptr @proto_tree_add_item(ptr noundef %129, i32 noundef %133, ptr noundef %0, i32 noundef %132, i32 noundef 1, i32 noundef 0) #2
-  %135 = load i32, ptr @ett_sapdiag, align 4
-  %136 = tail call ptr @proto_item_add_subtree(ptr noundef %134, i32 noundef %135) #2
-  %137 = load i32, ptr @hf_sapdiag_com_flag_TERM_EOS, align 4
-  %138 = tail call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %137, ptr noundef %0, i32 noundef %132, i32 noundef 1, i32 noundef 0) #2
-  %139 = load i32, ptr @hf_sapdiag_com_flag_TERM_EOC, align 4
-  %140 = tail call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %139, ptr noundef %0, i32 noundef %132, i32 noundef 1, i32 noundef 0) #2
-  %141 = load i32, ptr @hf_sapdiag_com_flag_TERM_NOP, align 4
-  %142 = tail call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %141, ptr noundef %0, i32 noundef %132, i32 noundef 1, i32 noundef 0) #2
-  %143 = load i32, ptr @hf_sapdiag_com_flag_TERM_EOP, align 4
-  %144 = tail call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %143, ptr noundef %0, i32 noundef %132, i32 noundef 1, i32 noundef 0) #2
-  %145 = load i32, ptr @hf_sapdiag_com_flag_TERM_INI, align 4
-  %146 = tail call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %145, ptr noundef %0, i32 noundef %132, i32 noundef 1, i32 noundef 0) #2
-  %147 = load i32, ptr @hf_sapdiag_com_flag_TERM_CAS, align 4
-  %148 = tail call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %147, ptr noundef %0, i32 noundef %132, i32 noundef 1, i32 noundef 0) #2
-  %149 = load i32, ptr @hf_sapdiag_com_flag_TERM_NNM, align 4
-  %150 = tail call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %149, ptr noundef %0, i32 noundef %132, i32 noundef 1, i32 noundef 0) #2
-  %151 = load i32, ptr @hf_sapdiag_com_flag_TERM_GRA, align 4
-  %152 = tail call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %151, ptr noundef %0, i32 noundef %132, i32 noundef 1, i32 noundef 0) #2
-  %153 = or disjoint i32 %.0131, 2
-  %154 = load i32, ptr @hf_sapdiag_mode_stat, align 4
-  %155 = tail call ptr @proto_tree_add_item(ptr noundef %129, i32 noundef %154, ptr noundef %0, i32 noundef %153, i32 noundef 1, i32 noundef 0) #2
-  %156 = or disjoint i32 %.0131, 3
-  %157 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %156) #2
-  %158 = load i32, ptr @hf_sapdiag_err_no, align 4
-  %159 = tail call ptr @proto_tree_add_item(ptr noundef %129, i32 noundef %158, ptr noundef %0, i32 noundef %156, i32 noundef 1, i32 noundef 0) #2
-  %160 = or disjoint i32 %.0131, 4
-  %161 = load i32, ptr @hf_sapdiag_msg_type, align 4
-  %162 = tail call ptr @proto_tree_add_item(ptr noundef %129, i32 noundef %161, ptr noundef %0, i32 noundef %160, i32 noundef 1, i32 noundef 0) #2
-  %163 = or disjoint i32 %.0131, 5
-  %164 = load i32, ptr @hf_sapdiag_msg_info, align 4
-  %165 = tail call ptr @proto_tree_add_item(ptr noundef %129, i32 noundef %164, ptr noundef %0, i32 noundef %163, i32 noundef 1, i32 noundef 0) #2
-  %166 = or disjoint i32 %.0131, 6
-  %167 = load i32, ptr @hf_sapdiag_msg_rc, align 4
-  %168 = tail call ptr @proto_tree_add_item(ptr noundef %129, i32 noundef %167, ptr noundef %0, i32 noundef %166, i32 noundef 1, i32 noundef 0) #2
-  %169 = or disjoint i32 %.0131, 7
-  %170 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %169) #2
-  %171 = load i32, ptr @hf_sapdiag_compress, align 4
-  %172 = tail call ptr @proto_tree_add_item(ptr noundef %129, i32 noundef %171, ptr noundef %0, i32 noundef %169, i32 noundef 1, i32 noundef 0) #2
-  %173 = add nuw nsw i32 %.0131, 8
-  %.not132 = icmp eq i8 %157, 0
-  br i1 %.not132, label %185, label %174
+126:                                              ; preds = %120
+  %127 = load i32, ptr @hf_sapdiag_header, align 4
+  %128 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %127, ptr noundef %0, i32 noundef %.0131, i32 noundef 8, i32 noundef 0) #2
+  %129 = load i32, ptr @ett_sapdiag, align 4
+  %130 = tail call ptr @proto_item_add_subtree(ptr noundef %128, i32 noundef %129) #2
+  %131 = load i32, ptr @hf_sapdiag_mode, align 4
+  %132 = tail call ptr @proto_tree_add_item(ptr noundef %130, i32 noundef %131, ptr noundef %0, i32 noundef %.0131, i32 noundef 1, i32 noundef 0) #2
+  %133 = or disjoint i32 %.0131, 1
+  %134 = load i32, ptr @hf_sapdiag_com_flag, align 4
+  %135 = tail call ptr @proto_tree_add_item(ptr noundef %130, i32 noundef %134, ptr noundef %0, i32 noundef %133, i32 noundef 1, i32 noundef 0) #2
+  %136 = load i32, ptr @ett_sapdiag, align 4
+  %137 = tail call ptr @proto_item_add_subtree(ptr noundef %135, i32 noundef %136) #2
+  %138 = load i32, ptr @hf_sapdiag_com_flag_TERM_EOS, align 4
+  %139 = tail call ptr @proto_tree_add_item(ptr noundef %137, i32 noundef %138, ptr noundef %0, i32 noundef %133, i32 noundef 1, i32 noundef 0) #2
+  %140 = load i32, ptr @hf_sapdiag_com_flag_TERM_EOC, align 4
+  %141 = tail call ptr @proto_tree_add_item(ptr noundef %137, i32 noundef %140, ptr noundef %0, i32 noundef %133, i32 noundef 1, i32 noundef 0) #2
+  %142 = load i32, ptr @hf_sapdiag_com_flag_TERM_NOP, align 4
+  %143 = tail call ptr @proto_tree_add_item(ptr noundef %137, i32 noundef %142, ptr noundef %0, i32 noundef %133, i32 noundef 1, i32 noundef 0) #2
+  %144 = load i32, ptr @hf_sapdiag_com_flag_TERM_EOP, align 4
+  %145 = tail call ptr @proto_tree_add_item(ptr noundef %137, i32 noundef %144, ptr noundef %0, i32 noundef %133, i32 noundef 1, i32 noundef 0) #2
+  %146 = load i32, ptr @hf_sapdiag_com_flag_TERM_INI, align 4
+  %147 = tail call ptr @proto_tree_add_item(ptr noundef %137, i32 noundef %146, ptr noundef %0, i32 noundef %133, i32 noundef 1, i32 noundef 0) #2
+  %148 = load i32, ptr @hf_sapdiag_com_flag_TERM_CAS, align 4
+  %149 = tail call ptr @proto_tree_add_item(ptr noundef %137, i32 noundef %148, ptr noundef %0, i32 noundef %133, i32 noundef 1, i32 noundef 0) #2
+  %150 = load i32, ptr @hf_sapdiag_com_flag_TERM_NNM, align 4
+  %151 = tail call ptr @proto_tree_add_item(ptr noundef %137, i32 noundef %150, ptr noundef %0, i32 noundef %133, i32 noundef 1, i32 noundef 0) #2
+  %152 = load i32, ptr @hf_sapdiag_com_flag_TERM_GRA, align 4
+  %153 = tail call ptr @proto_tree_add_item(ptr noundef %137, i32 noundef %152, ptr noundef %0, i32 noundef %133, i32 noundef 1, i32 noundef 0) #2
+  %154 = or disjoint i32 %.0131, 2
+  %155 = load i32, ptr @hf_sapdiag_mode_stat, align 4
+  %156 = tail call ptr @proto_tree_add_item(ptr noundef %130, i32 noundef %155, ptr noundef %0, i32 noundef %154, i32 noundef 1, i32 noundef 0) #2
+  %157 = or disjoint i32 %.0131, 3
+  %158 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %157) #2
+  %159 = load i32, ptr @hf_sapdiag_err_no, align 4
+  %160 = tail call ptr @proto_tree_add_item(ptr noundef %130, i32 noundef %159, ptr noundef %0, i32 noundef %157, i32 noundef 1, i32 noundef 0) #2
+  %161 = or disjoint i32 %.0131, 4
+  %162 = load i32, ptr @hf_sapdiag_msg_type, align 4
+  %163 = tail call ptr @proto_tree_add_item(ptr noundef %130, i32 noundef %162, ptr noundef %0, i32 noundef %161, i32 noundef 1, i32 noundef 0) #2
+  %164 = or disjoint i32 %.0131, 5
+  %165 = load i32, ptr @hf_sapdiag_msg_info, align 4
+  %166 = tail call ptr @proto_tree_add_item(ptr noundef %130, i32 noundef %165, ptr noundef %0, i32 noundef %164, i32 noundef 1, i32 noundef 0) #2
+  %167 = or disjoint i32 %.0131, 6
+  %168 = load i32, ptr @hf_sapdiag_msg_rc, align 4
+  %169 = tail call ptr @proto_tree_add_item(ptr noundef %130, i32 noundef %168, ptr noundef %0, i32 noundef %167, i32 noundef 1, i32 noundef 0) #2
+  %170 = or disjoint i32 %.0131, 7
+  %171 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %170) #2
+  %172 = load i32, ptr @hf_sapdiag_compress, align 4
+  %173 = tail call ptr @proto_tree_add_item(ptr noundef %130, i32 noundef %172, ptr noundef %0, i32 noundef %170, i32 noundef 1, i32 noundef 0) #2
+  %174 = add nuw nsw i32 %.0131, 8
+  %.not132 = icmp eq i8 %158, 0
+  br i1 %.not132, label %186, label %175
 
-174:                                              ; preds = %125
-  %175 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %173) #2
-  %176 = icmp sgt i32 %175, 0
-  br i1 %176, label %177, label %185
+175:                                              ; preds = %126
+  %176 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %174) #2
+  %177 = icmp sgt i32 %176, 0
+  br i1 %177, label %178, label %186
 
-177:                                              ; preds = %174
-  %178 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %173) #2
-  %179 = add i32 %178, -1
-  %180 = getelementptr inbounds i8, ptr %1, i64 408
-  %181 = load ptr, ptr %180, align 8
-  %182 = tail call ptr @tvb_get_string_enc(ptr noundef %181, ptr noundef %0, i32 noundef %173, i32 noundef %179, i32 noundef -2147483644) #2
-  %183 = load i32, ptr @hf_sapdiag_error_message, align 4
-  %184 = tail call ptr @proto_tree_add_string(ptr noundef %11, i32 noundef %183, ptr noundef %0, i32 noundef %173, i32 noundef %179, ptr noundef %182) #2
+178:                                              ; preds = %175
+  %179 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %174) #2
+  %180 = add i32 %179, -1
+  %181 = getelementptr inbounds i8, ptr %1, i64 408
+  %182 = load ptr, ptr %181, align 8
+  %183 = tail call ptr @tvb_get_string_enc(ptr noundef %182, ptr noundef %0, i32 noundef %174, i32 noundef %180, i32 noundef -2147483644) #2
+  %184 = load i32, ptr @hf_sapdiag_error_message, align 4
+  %185 = tail call ptr @proto_tree_add_string(ptr noundef %11, i32 noundef %184, ptr noundef %0, i32 noundef %174, i32 noundef %180, ptr noundef %183) #2
   br label %dissect_sapdiag_snc_frame.exit
 
-185:                                              ; preds = %174, %125
-  %186 = icmp eq i8 %170, 1
-  br i1 %186, label %187, label %191
+186:                                              ; preds = %175, %126
+  %187 = icmp eq i8 %171, 1
+  br i1 %187, label %188, label %192
 
-187:                                              ; preds = %185
-  %188 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %173) #2
-  %189 = icmp sgt i32 %188, 7
-  br i1 %189, label %190, label %.thread
+188:                                              ; preds = %186
+  %189 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %174) #2
+  %190 = icmp sgt i32 %189, 7
+  br i1 %190, label %191, label %.thread
 
-190:                                              ; preds = %187
-  tail call fastcc void @dissect_sapdiag_compressed_payload(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, ptr noundef %9, i32 noundef %173)
+191:                                              ; preds = %188
+  tail call fastcc void @dissect_sapdiag_compressed_payload(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, ptr noundef %9, i32 noundef %174)
   br label %dissect_sapdiag_snc_frame.exit
 
-191:                                              ; preds = %185
-  %192 = and i8 %170, -2
-  %or.cond = icmp eq i8 %192, 2
-  br i1 %or.cond, label %193, label %.thread
+192:                                              ; preds = %186
+  %193 = and i8 %171, -2
+  %or.cond = icmp eq i8 %193, 2
+  br i1 %or.cond, label %194, label %.thread
 
-193:                                              ; preds = %191
-  %194 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %173) #2
-  %195 = icmp sgt i32 %194, 0
-  br i1 %195, label %196, label %.thread
+194:                                              ; preds = %192
+  %195 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %174) #2
+  %196 = icmp sgt i32 %195, 0
+  br i1 %196, label %197, label %.thread
 
-196:                                              ; preds = %193
-  %197 = load i32, ptr @global_sapdiag_snc_dissection, align 4
-  %198 = icmp eq i32 %197, 1
-  br i1 %198, label %199, label %dissect_sapdiag_snc_frame.exit
+197:                                              ; preds = %194
+  %198 = load i32, ptr @global_sapdiag_snc_dissection, align 4
+  %199 = icmp eq i32 %198, 1
+  br i1 %199, label %200, label %dissect_sapdiag_snc_frame.exit
 
-199:                                              ; preds = %196
-  %200 = tail call ptr @dissect_sapsnc_frame(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %173) #2
-  %.not.i = icmp eq ptr %200, null
-  br i1 %.not.i, label %dissect_sapdiag_snc_frame.exit, label %201
+200:                                              ; preds = %197
+  %201 = tail call ptr @dissect_sapsnc_frame(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %174) #2
+  %.not.i = icmp eq ptr %201, null
+  br i1 %.not.i, label %dissect_sapdiag_snc_frame.exit, label %202
 
-201:                                              ; preds = %199
-  tail call void @add_new_data_source(ptr noundef nonnull %1, ptr noundef nonnull %200, ptr noundef nonnull @.str.835) #2
-  %202 = load i32, ptr @hf_sapdiag_payload, align 4
-  %203 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %202, ptr noundef nonnull %200, i32 noundef 0, i32 noundef -1, i32 noundef 0) #2
-  %204 = load i32, ptr @ett_sapdiag, align 4
-  %205 = tail call ptr @proto_item_add_subtree(ptr noundef %203, i32 noundef %204) #2
-  %206 = tail call i32 @tvb_reported_length_remaining(ptr noundef nonnull %200, i32 noundef 0) #2
-  %207 = icmp sgt i32 %206, 7
-  br i1 %207, label %208, label %check_sapdiag_compression.exit.thread.i
+202:                                              ; preds = %200
+  tail call void @add_new_data_source(ptr noundef nonnull %1, ptr noundef nonnull %201, ptr noundef nonnull @.str.835) #2
+  %203 = load i32, ptr @hf_sapdiag_payload, align 4
+  %204 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %203, ptr noundef nonnull %201, i32 noundef 0, i32 noundef -1, i32 noundef 0) #2
+  %205 = load i32, ptr @ett_sapdiag, align 4
+  %206 = tail call ptr @proto_item_add_subtree(ptr noundef %204, i32 noundef %205) #2
+  %207 = tail call i32 @tvb_reported_length_remaining(ptr noundef nonnull %201, i32 noundef 0) #2
+  %208 = icmp sgt i32 %207, 7
+  br i1 %208, label %209, label %218
 
-208:                                              ; preds = %201
-  %209 = tail call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %200, i32 noundef 4) #2
-  %210 = icmp eq i8 %209, 17
-  br i1 %210, label %check_sapdiag_compression.exit.i, label %211
+209:                                              ; preds = %202
+  %210 = tail call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %201, i32 noundef 4) #2
+  %211 = icmp eq i8 %210, 17
+  br i1 %211, label %215, label %212
 
-211:                                              ; preds = %208
-  %212 = tail call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %200, i32 noundef 4) #2
-  %213 = icmp eq i8 %212, 18
-  br i1 %213, label %check_sapdiag_compression.exit.i, label %check_sapdiag_compression.exit.thread.i
+212:                                              ; preds = %209
+  %213 = tail call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %201, i32 noundef 4) #2
+  %214 = icmp eq i8 %213, 18
+  br i1 %214, label %215, label %218
 
-check_sapdiag_compression.exit.i:                 ; preds = %211, %208
-  %214 = tail call zeroext i16 @tvb_get_guint16(ptr noundef nonnull %200, i32 noundef 5, i32 noundef -2147483648) #2
-  %.not21.i = icmp eq i16 %214, -25313
-  br i1 %.not21.i, label %215, label %check_sapdiag_compression.exit.thread.i
+215:                                              ; preds = %212, %209
+  %216 = tail call zeroext i16 @tvb_get_guint16(ptr noundef nonnull %201, i32 noundef 5, i32 noundef -2147483648) #2
+  %217 = icmp eq i16 %216, -25313
+  br i1 %217, label %check_sapdiag_compression.exit.i, label %218
 
-215:                                              ; preds = %check_sapdiag_compression.exit.i
-  tail call fastcc void @dissect_sapdiag_compressed_payload(ptr noundef nonnull %200, ptr noundef nonnull %1, ptr noundef %205, ptr noundef %203, i32 noundef 0)
+check_sapdiag_compression.exit.i:                 ; preds = %215
+  tail call fastcc void @dissect_sapdiag_compressed_payload(ptr noundef nonnull %201, ptr noundef nonnull %1, ptr noundef %206, ptr noundef %204, i32 noundef 0)
   br label %dissect_sapdiag_snc_frame.exit
 
-check_sapdiag_compression.exit.thread.i:          ; preds = %check_sapdiag_compression.exit.i, %211, %201
-  tail call fastcc void @dissect_sapdiag_payload(ptr noundef nonnull %200, ptr noundef nonnull %1, ptr noundef %205, i32 noundef 0)
+218:                                              ; preds = %215, %212, %202
+  tail call fastcc void @dissect_sapdiag_payload(ptr noundef nonnull %201, ptr noundef nonnull %1, ptr noundef %206, i32 noundef 0)
   br label %dissect_sapdiag_snc_frame.exit
 
-.thread:                                          ; preds = %187, %191, %193
-  %216 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %173) #2
-  %217 = icmp sgt i32 %216, 0
-  br i1 %217, label %218, label %dissect_sapdiag_snc_frame.exit
+.thread:                                          ; preds = %188, %192, %194
+  %219 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %174) #2
+  %220 = icmp sgt i32 %219, 0
+  br i1 %220, label %221, label %dissect_sapdiag_snc_frame.exit
 
-218:                                              ; preds = %.thread
-  %219 = load i32, ptr @hf_sapdiag_payload, align 4
-  %220 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %219, ptr noundef %0, i32 noundef %173, i32 noundef -1, i32 noundef 0) #2
-  %221 = load i32, ptr @ett_sapdiag, align 4
-  %222 = tail call ptr @proto_item_add_subtree(ptr noundef %220, i32 noundef %221) #2
-  tail call fastcc void @dissect_sapdiag_payload(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %222, i32 noundef %173)
+221:                                              ; preds = %.thread
+  %222 = load i32, ptr @hf_sapdiag_payload, align 4
+  %223 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %222, ptr noundef %0, i32 noundef %174, i32 noundef -1, i32 noundef 0) #2
+  %224 = load i32, ptr @ett_sapdiag, align 4
+  %225 = tail call ptr @proto_item_add_subtree(ptr noundef %223, i32 noundef %224) #2
+  tail call fastcc void @dissect_sapdiag_payload(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %225, i32 noundef %174)
   br label %dissect_sapdiag_snc_frame.exit
 
-dissect_sapdiag_snc_frame.exit:                   ; preds = %check_sapdiag_compression.exit.thread.i, %215, %199, %196, %177, %218, %.thread, %190, %122, %116
-  %.0 = phi i32 [ %.0131, %116 ], [ %.0131, %122 ], [ %173, %190 ], [ %173, %.thread ], [ %173, %218 ], [ %173, %177 ], [ %173, %196 ], [ %173, %199 ], [ %173, %215 ], [ %173, %check_sapdiag_compression.exit.thread.i ]
+dissect_sapdiag_snc_frame.exit:                   ; preds = %218, %check_sapdiag_compression.exit.i, %200, %197, %178, %221, %.thread, %191, %123, %117
+  %.0 = phi i32 [ %.0131, %117 ], [ %.0131, %123 ], [ %174, %191 ], [ %174, %.thread ], [ %174, %221 ], [ %174, %178 ], [ %174, %197 ], [ %174, %200 ], [ %174, %check_sapdiag_compression.exit.i ], [ %174, %218 ]
   ret i32 %.0
 }
 

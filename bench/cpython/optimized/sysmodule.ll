@@ -3360,7 +3360,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_PySys_UpdateConfig(ptr noundef %tstate) local_unnamed_addr #0 {
+define hidden noundef i32 @_PySys_UpdateConfig(ptr noundef %tstate) local_unnamed_addr #0 {
 entry:
   %interp1 = getelementptr inbounds i8, ptr %tstate, i64 16
   %0 = load ptr, ptr %interp1, align 8
@@ -3376,7 +3376,7 @@ do.body:                                          ; preds = %entry
   %module_search_paths = getelementptr inbounds i8, ptr %call, i64 320
   %call3 = tail call ptr @_PyWideStringList_AsList(ptr noundef nonnull %module_search_paths) #15
   %cmp = icmp eq ptr %call3, null
-  br i1 %cmp, label %return, label %if.end
+  br i1 %cmp, label %err_occurred, label %if.end
 
 if.end:                                           ; preds = %do.body
   %call5 = tail call i32 @PyDict_SetItemString(ptr noundef %1, ptr noundef nonnull @.str.15, ptr noundef nonnull %call3) #15
@@ -3397,7 +3397,7 @@ if.then1.i351:                                    ; preds = %if.end.i348
 
 Py_DECREF.exit353:                                ; preds = %if.end, %if.then1.i351, %if.end.i348
   %cmp6 = icmp slt i32 %call5, 0
-  br i1 %cmp6, label %return, label %if.end9
+  br i1 %cmp6, label %err_occurred, label %if.end9
 
 if.end9:                                          ; preds = %Py_DECREF.exit353, %entry
   %executable = getelementptr inbounds i8, ptr %call, i64 344
@@ -3408,7 +3408,7 @@ if.end9:                                          ; preds = %Py_DECREF.exit353, 
 do.body12:                                        ; preds = %if.end9
   %call15 = tail call ptr @PyUnicode_FromWideChar(ptr noundef nonnull %5, i64 noundef -1) #15
   %cmp16 = icmp eq ptr %call15, null
-  br i1 %cmp16, label %return, label %if.end18
+  br i1 %cmp16, label %err_occurred, label %if.end18
 
 if.end18:                                         ; preds = %do.body12
   %call19 = tail call i32 @PyDict_SetItemString(ptr noundef %1, ptr noundef nonnull @.str.16, ptr noundef nonnull %call15) #15
@@ -3429,7 +3429,7 @@ if.then1.i342:                                    ; preds = %if.end.i339
 
 Py_DECREF.exit344:                                ; preds = %if.end18, %if.then1.i342, %if.end.i339
   %cmp20 = icmp slt i32 %call19, 0
-  br i1 %cmp20, label %return, label %if.end24
+  br i1 %cmp20, label %err_occurred, label %if.end24
 
 if.end24:                                         ; preds = %Py_DECREF.exit344, %if.end9
   %base_executable = getelementptr inbounds i8, ptr %call, i64 352
@@ -3440,7 +3440,7 @@ if.end24:                                         ; preds = %Py_DECREF.exit344, 
 do.body27:                                        ; preds = %if.end24
   %call30 = tail call ptr @PyUnicode_FromWideChar(ptr noundef nonnull %8, i64 noundef -1) #15
   %cmp31 = icmp eq ptr %call30, null
-  br i1 %cmp31, label %return, label %if.end33
+  br i1 %cmp31, label %err_occurred, label %if.end33
 
 if.end33:                                         ; preds = %do.body27
   %call34 = tail call i32 @PyDict_SetItemString(ptr noundef %1, ptr noundef nonnull @.str.17, ptr noundef nonnull %call30) #15
@@ -3461,7 +3461,7 @@ if.then1.i333:                                    ; preds = %if.end.i330
 
 Py_DECREF.exit335:                                ; preds = %if.end33, %if.then1.i333, %if.end.i330
   %cmp35 = icmp slt i32 %call34, 0
-  br i1 %cmp35, label %return, label %if.end39
+  br i1 %cmp35, label %err_occurred, label %if.end39
 
 if.end39:                                         ; preds = %Py_DECREF.exit335, %if.end24
   %prefix = getelementptr inbounds i8, ptr %call, i64 360
@@ -3472,7 +3472,7 @@ if.end39:                                         ; preds = %Py_DECREF.exit335, 
 do.body42:                                        ; preds = %if.end39
   %call45 = tail call ptr @PyUnicode_FromWideChar(ptr noundef nonnull %11, i64 noundef -1) #15
   %cmp46 = icmp eq ptr %call45, null
-  br i1 %cmp46, label %return, label %if.end48
+  br i1 %cmp46, label %err_occurred, label %if.end48
 
 if.end48:                                         ; preds = %do.body42
   %call49 = tail call i32 @PyDict_SetItemString(ptr noundef %1, ptr noundef nonnull @.str.18, ptr noundef nonnull %call45) #15
@@ -3493,7 +3493,7 @@ if.then1.i324:                                    ; preds = %if.end.i321
 
 Py_DECREF.exit326:                                ; preds = %if.end48, %if.then1.i324, %if.end.i321
   %cmp50 = icmp slt i32 %call49, 0
-  br i1 %cmp50, label %return, label %if.end54
+  br i1 %cmp50, label %err_occurred, label %if.end54
 
 if.end54:                                         ; preds = %Py_DECREF.exit326, %if.end39
   %base_prefix = getelementptr inbounds i8, ptr %call, i64 368
@@ -3504,7 +3504,7 @@ if.end54:                                         ; preds = %Py_DECREF.exit326, 
 do.body57:                                        ; preds = %if.end54
   %call60 = tail call ptr @PyUnicode_FromWideChar(ptr noundef nonnull %14, i64 noundef -1) #15
   %cmp61 = icmp eq ptr %call60, null
-  br i1 %cmp61, label %return, label %if.end63
+  br i1 %cmp61, label %err_occurred, label %if.end63
 
 if.end63:                                         ; preds = %do.body57
   %call64 = tail call i32 @PyDict_SetItemString(ptr noundef %1, ptr noundef nonnull @.str.19, ptr noundef nonnull %call60) #15
@@ -3525,7 +3525,7 @@ if.then1.i315:                                    ; preds = %if.end.i312
 
 Py_DECREF.exit317:                                ; preds = %if.end63, %if.then1.i315, %if.end.i312
   %cmp65 = icmp slt i32 %call64, 0
-  br i1 %cmp65, label %return, label %if.end69
+  br i1 %cmp65, label %err_occurred, label %if.end69
 
 if.end69:                                         ; preds = %Py_DECREF.exit317, %if.end54
   %exec_prefix = getelementptr inbounds i8, ptr %call, i64 376
@@ -3536,7 +3536,7 @@ if.end69:                                         ; preds = %Py_DECREF.exit317, 
 do.body72:                                        ; preds = %if.end69
   %call75 = tail call ptr @PyUnicode_FromWideChar(ptr noundef nonnull %17, i64 noundef -1) #15
   %cmp76 = icmp eq ptr %call75, null
-  br i1 %cmp76, label %return, label %if.end78
+  br i1 %cmp76, label %err_occurred, label %if.end78
 
 if.end78:                                         ; preds = %do.body72
   %call79 = tail call i32 @PyDict_SetItemString(ptr noundef %1, ptr noundef nonnull @.str.20, ptr noundef nonnull %call75) #15
@@ -3557,7 +3557,7 @@ if.then1.i306:                                    ; preds = %if.end.i303
 
 Py_DECREF.exit308:                                ; preds = %if.end78, %if.then1.i306, %if.end.i303
   %cmp80 = icmp slt i32 %call79, 0
-  br i1 %cmp80, label %return, label %if.end84
+  br i1 %cmp80, label %err_occurred, label %if.end84
 
 if.end84:                                         ; preds = %Py_DECREF.exit308, %if.end69
   %base_exec_prefix = getelementptr inbounds i8, ptr %call, i64 384
@@ -3568,7 +3568,7 @@ if.end84:                                         ; preds = %Py_DECREF.exit308, 
 do.body87:                                        ; preds = %if.end84
   %call90 = tail call ptr @PyUnicode_FromWideChar(ptr noundef nonnull %20, i64 noundef -1) #15
   %cmp91 = icmp eq ptr %call90, null
-  br i1 %cmp91, label %return, label %if.end93
+  br i1 %cmp91, label %err_occurred, label %if.end93
 
 if.end93:                                         ; preds = %do.body87
   %call94 = tail call i32 @PyDict_SetItemString(ptr noundef %1, ptr noundef nonnull @.str.21, ptr noundef nonnull %call90) #15
@@ -3589,7 +3589,7 @@ if.then1.i297:                                    ; preds = %if.end.i294
 
 Py_DECREF.exit299:                                ; preds = %if.end93, %if.then1.i297, %if.end.i294
   %cmp95 = icmp slt i32 %call94, 0
-  br i1 %cmp95, label %return, label %if.end99
+  br i1 %cmp95, label %err_occurred, label %if.end99
 
 if.end99:                                         ; preds = %Py_DECREF.exit299, %if.end84
   %platlibdir = getelementptr inbounds i8, ptr %call, i64 304
@@ -3600,7 +3600,7 @@ if.end99:                                         ; preds = %Py_DECREF.exit299, 
 do.body102:                                       ; preds = %if.end99
   %call105 = tail call ptr @PyUnicode_FromWideChar(ptr noundef nonnull %23, i64 noundef -1) #15
   %cmp106 = icmp eq ptr %call105, null
-  br i1 %cmp106, label %return, label %if.end108
+  br i1 %cmp106, label %err_occurred, label %if.end108
 
 if.end108:                                        ; preds = %do.body102
   %call109 = tail call i32 @PyDict_SetItemString(ptr noundef %1, ptr noundef nonnull @.str.22, ptr noundef nonnull %call105) #15
@@ -3621,7 +3621,7 @@ if.then1.i288:                                    ; preds = %if.end.i285
 
 Py_DECREF.exit290:                                ; preds = %if.end108, %if.then1.i288, %if.end.i285
   %cmp110 = icmp slt i32 %call109, 0
-  br i1 %cmp110, label %return, label %if.end114
+  br i1 %cmp110, label %err_occurred, label %if.end114
 
 if.end114:                                        ; preds = %Py_DECREF.exit290, %if.end99
   %pycache_prefix = getelementptr inbounds i8, ptr %call, i64 96
@@ -3632,7 +3632,7 @@ if.end114:                                        ; preds = %Py_DECREF.exit290, 
 do.body117:                                       ; preds = %if.end114
   %call120 = tail call ptr @PyUnicode_FromWideChar(ptr noundef nonnull %26, i64 noundef -1) #15
   %cmp121 = icmp eq ptr %call120, null
-  br i1 %cmp121, label %return, label %if.end123
+  br i1 %cmp121, label %err_occurred, label %if.end123
 
 if.end123:                                        ; preds = %do.body117
   %call124 = tail call i32 @PyDict_SetItemString(ptr noundef %1, ptr noundef nonnull @.str.23, ptr noundef nonnull %call120) #15
@@ -3653,7 +3653,7 @@ if.then1.i279:                                    ; preds = %if.end.i276
 
 Py_DECREF.exit281:                                ; preds = %if.end123, %if.then1.i279, %if.end.i276
   %cmp125 = icmp slt i32 %call124, 0
-  br i1 %cmp125, label %return, label %do.body134
+  br i1 %cmp125, label %err_occurred, label %do.body134
 
 if.else:                                          ; preds = %if.end114
   %call129 = tail call i32 @PyDict_SetItemString(ptr noundef %1, ptr noundef nonnull @.str.23, ptr noundef nonnull @_Py_NoneStruct) #15
@@ -3664,7 +3664,7 @@ do.body134:                                       ; preds = %Py_DECREF.exit281, 
   %argv = getelementptr inbounds i8, ptr %call, i64 128
   %call136 = tail call ptr @_PyWideStringList_AsList(ptr noundef nonnull %argv) #15
   %cmp137 = icmp eq ptr %call136, null
-  br i1 %cmp137, label %return, label %if.end139
+  br i1 %cmp137, label %err_occurred, label %if.end139
 
 if.end139:                                        ; preds = %do.body134
   %call140 = tail call i32 @PyDict_SetItemString(ptr noundef %1, ptr noundef nonnull @.str.24, ptr noundef nonnull %call136) #15
@@ -3685,13 +3685,13 @@ if.then1.i270:                                    ; preds = %if.end.i267
 
 Py_DECREF.exit272:                                ; preds = %if.end139, %if.then1.i270, %if.end.i267
   %cmp141 = icmp slt i32 %call140, 0
-  br i1 %cmp141, label %return, label %do.body145
+  br i1 %cmp141, label %err_occurred, label %do.body145
 
 do.body145:                                       ; preds = %Py_DECREF.exit272
   %orig_argv = getelementptr inbounds i8, ptr %call, i64 112
   %call147 = tail call ptr @_PyWideStringList_AsList(ptr noundef nonnull %orig_argv) #15
   %cmp148 = icmp eq ptr %call147, null
-  br i1 %cmp148, label %return, label %if.end150
+  br i1 %cmp148, label %err_occurred, label %if.end150
 
 if.end150:                                        ; preds = %do.body145
   %call151 = tail call i32 @PyDict_SetItemString(ptr noundef %1, ptr noundef nonnull @.str.25, ptr noundef nonnull %call147) #15
@@ -3712,13 +3712,13 @@ if.then1.i261:                                    ; preds = %if.end.i258
 
 Py_DECREF.exit263:                                ; preds = %if.end150, %if.then1.i261, %if.end.i258
   %cmp152 = icmp slt i32 %call151, 0
-  br i1 %cmp152, label %return, label %do.body156
+  br i1 %cmp152, label %err_occurred, label %do.body156
 
 do.body156:                                       ; preds = %Py_DECREF.exit263
   %warnoptions = getelementptr inbounds i8, ptr %call, i64 160
   %call158 = tail call ptr @_PyWideStringList_AsList(ptr noundef nonnull %warnoptions) #15
   %cmp159 = icmp eq ptr %call158, null
-  br i1 %cmp159, label %return, label %if.end161
+  br i1 %cmp159, label %err_occurred, label %if.end161
 
 if.end161:                                        ; preds = %do.body156
   %call162 = tail call i32 @PyDict_SetItemString(ptr noundef %1, ptr noundef nonnull @.str.26, ptr noundef nonnull %call158) #15
@@ -3739,7 +3739,7 @@ if.then1.i252:                                    ; preds = %if.end.i249
 
 Py_DECREF.exit254:                                ; preds = %if.end161, %if.then1.i252, %if.end.i249
   %cmp163 = icmp slt i32 %call162, 0
-  br i1 %cmp163, label %return, label %do.body167
+  br i1 %cmp163, label %err_occurred, label %do.body167
 
 do.body167:                                       ; preds = %Py_DECREF.exit254
   %35 = getelementptr i8, ptr %call, i64 144
@@ -3748,7 +3748,7 @@ do.body167:                                       ; preds = %Py_DECREF.exit254
   %call.val129 = load ptr, ptr %36, align 8
   %call169 = tail call fastcc ptr @sys_create_xoptions_dict(i64 %call.val, ptr %call.val129)
   %cmp170 = icmp eq ptr %call169, null
-  br i1 %cmp170, label %return, label %if.end172
+  br i1 %cmp170, label %err_occurred, label %if.end172
 
 if.end172:                                        ; preds = %do.body167
   %call173 = tail call i32 @PyDict_SetItemString(ptr noundef %1, ptr noundef nonnull @.str.27, ptr noundef nonnull %call169) #15
@@ -3769,7 +3769,7 @@ if.then1.i243:                                    ; preds = %if.end.i240
 
 Py_DECREF.exit245:                                ; preds = %if.end172, %if.then1.i243, %if.end.i240
   %cmp174 = icmp slt i32 %call173, 0
-  br i1 %cmp174, label %return, label %do.end177
+  br i1 %cmp174, label %err_occurred, label %do.end177
 
 do.end177:                                        ; preds = %Py_DECREF.exit245
   %call178 = tail call ptr @_Py_GetStdlibDir() #15
@@ -3779,7 +3779,7 @@ do.end177:                                        ; preds = %Py_DECREF.exit245
 do.body181:                                       ; preds = %do.end177
   %call183 = tail call ptr @PyUnicode_FromWideChar(ptr noundef nonnull %call178, i64 noundef -1) #15
   %cmp184 = icmp eq ptr %call183, null
-  br i1 %cmp184, label %return, label %if.end186
+  br i1 %cmp184, label %err_occurred, label %if.end186
 
 if.end186:                                        ; preds = %do.body181
   %call187 = tail call i32 @PyDict_SetItemString(ptr noundef %1, ptr noundef nonnull @.str.28, ptr noundef nonnull %call183) #15
@@ -3800,7 +3800,7 @@ if.then1.i234:                                    ; preds = %if.end.i231
 
 Py_DECREF.exit236:                                ; preds = %if.end186, %if.then1.i234, %if.end.i231
   %cmp188 = icmp slt i32 %call187, 0
-  br i1 %cmp188, label %return, label %if.end197
+  br i1 %cmp188, label %err_occurred, label %if.end197
 
 if.else192:                                       ; preds = %do.end177
   %call193 = tail call i32 @PyDict_SetItemString(ptr noundef %1, ptr noundef nonnull @.str.28, ptr noundef nonnull @_Py_NoneStruct) #15
@@ -3842,7 +3842,7 @@ do.body210:                                       ; preds = %if.end205
   %conv = zext i1 %tobool212.not to i64
   %call213 = tail call ptr @PyBool_FromLong(i64 noundef %conv) #15
   %cmp214 = icmp eq ptr %call213, null
-  br i1 %cmp214, label %return, label %if.end217
+  br i1 %cmp214, label %err_occurred, label %if.end217
 
 if.end217:                                        ; preds = %do.body210
   %call218 = tail call i32 @PyDict_SetItemString(ptr noundef %1, ptr noundef nonnull @.str.31, ptr noundef nonnull %call213) #15
@@ -3863,23 +3863,25 @@ if.then1.i:                                       ; preds = %if.end.i
 
 Py_DECREF.exit:                                   ; preds = %if.end217, %if.then1.i, %if.end.i
   %cmp219 = icmp slt i32 %call218, 0
-  br i1 %cmp219, label %return, label %do.end223
+  br i1 %cmp219, label %err_occurred, label %do.end223
 
 do.end223:                                        ; preds = %Py_DECREF.exit
   %47 = getelementptr i8, ptr %tstate, i64 104
   %tstate.val = load ptr, ptr %47, align 8
   %cmp.i132 = icmp eq ptr %tstate.val, null
-  br i1 %cmp.i132, label %return, label %if.end.i133
+  br i1 %cmp.i132, label %return, label %_PyErr_Occurred.exit136
 
-if.end.i133:                                      ; preds = %do.end223
+_PyErr_Occurred.exit136:                          ; preds = %do.end223
   %48 = getelementptr i8, ptr %tstate.val, i64 8
   %.val.i134 = load ptr, ptr %48, align 8
-  %49 = icmp ne ptr %.val.i134, null
-  %50 = sext i1 %49 to i32
+  %tobool225.not = icmp eq ptr %.val.i134, null
+  br i1 %tobool225.not, label %return, label %err_occurred
+
+err_occurred:                                     ; preds = %_PyErr_Occurred.exit136, %Py_DECREF.exit, %do.body210, %Py_DECREF.exit236, %do.body181, %Py_DECREF.exit245, %do.body167, %Py_DECREF.exit254, %do.body156, %Py_DECREF.exit263, %do.body145, %Py_DECREF.exit272, %do.body134, %Py_DECREF.exit281, %do.body117, %Py_DECREF.exit290, %do.body102, %Py_DECREF.exit299, %do.body87, %Py_DECREF.exit308, %do.body72, %Py_DECREF.exit317, %do.body57, %Py_DECREF.exit326, %do.body42, %Py_DECREF.exit335, %do.body27, %Py_DECREF.exit344, %do.body12, %Py_DECREF.exit353, %do.body
   br label %return
 
-return:                                           ; preds = %if.end.i133, %do.end223, %do.body, %Py_DECREF.exit353, %do.body12, %Py_DECREF.exit344, %do.body27, %Py_DECREF.exit335, %do.body42, %Py_DECREF.exit326, %do.body57, %Py_DECREF.exit317, %do.body72, %Py_DECREF.exit308, %do.body87, %Py_DECREF.exit299, %do.body102, %Py_DECREF.exit290, %do.body117, %Py_DECREF.exit281, %do.body134, %Py_DECREF.exit272, %do.body145, %Py_DECREF.exit263, %do.body156, %Py_DECREF.exit254, %do.body167, %Py_DECREF.exit245, %do.body181, %Py_DECREF.exit236, %do.body210, %Py_DECREF.exit, %if.end205, %_PyErr_Occurred.exit, %if.then203, %if.else192, %if.else
-  %retval.0 = phi i32 [ -1, %if.else ], [ -1, %if.else192 ], [ -1, %if.then203 ], [ -1, %_PyErr_Occurred.exit ], [ -1, %if.end205 ], [ -1, %Py_DECREF.exit ], [ -1, %do.body210 ], [ -1, %Py_DECREF.exit236 ], [ -1, %do.body181 ], [ -1, %Py_DECREF.exit245 ], [ -1, %do.body167 ], [ -1, %Py_DECREF.exit254 ], [ -1, %do.body156 ], [ -1, %Py_DECREF.exit263 ], [ -1, %do.body145 ], [ -1, %Py_DECREF.exit272 ], [ -1, %do.body134 ], [ -1, %Py_DECREF.exit281 ], [ -1, %do.body117 ], [ -1, %Py_DECREF.exit290 ], [ -1, %do.body102 ], [ -1, %Py_DECREF.exit299 ], [ -1, %do.body87 ], [ -1, %Py_DECREF.exit308 ], [ -1, %do.body72 ], [ -1, %Py_DECREF.exit317 ], [ -1, %do.body57 ], [ -1, %Py_DECREF.exit326 ], [ -1, %do.body42 ], [ -1, %Py_DECREF.exit335 ], [ -1, %do.body27 ], [ -1, %Py_DECREF.exit344 ], [ -1, %do.body12 ], [ -1, %Py_DECREF.exit353 ], [ -1, %do.body ], [ %50, %if.end.i133 ], [ 0, %do.end223 ]
+return:                                           ; preds = %do.end223, %_PyErr_Occurred.exit136, %if.end205, %_PyErr_Occurred.exit, %if.then203, %if.else192, %if.else, %err_occurred
+  %retval.0 = phi i32 [ -1, %err_occurred ], [ -1, %if.else ], [ -1, %if.else192 ], [ -1, %if.then203 ], [ -1, %_PyErr_Occurred.exit ], [ -1, %if.end205 ], [ 0, %_PyErr_Occurred.exit136 ], [ 0, %do.end223 ]
   ret i32 %retval.0
 }
 
@@ -5302,8 +5304,8 @@ _PyErr_Occurred.exit.i:                           ; preds = %do.end328.i
   %tobool.not.i = icmp eq ptr %.val.i.i, null
   br i1 %tobool.not.i, label %if.end28, label %if.then27
 
-if.then27:                                        ; preds = %_PyErr_Occurred.exit.i, %do.end291.i, %do.body252.i, %do.body224.i, %do.end153.i, %Py_DECREF.exit.i29, %do.body318.i, %Py_DECREF.exit345.i, %do.body307.i, %Py_DECREF.exit354.i, %do.body296.i, %Py_DECREF.exit363.i, %do.body281.i, %Py_DECREF.exit372.i, %do.body270.i, %Py_DECREF.exit381.i, %do.body258.i, %Py_DECREF.exit390.i, %do.body241.i, %Py_DECREF.exit399.i, %do.end229.i, %Py_DECREF.exit408.i, %do.body213.i, %Py_DECREF.exit417.i, %do.body202.i, %Py_DECREF.exit426.i, %do.body191.i, %Py_DECREF.exit435.i, %do.body180.i, %Py_DECREF.exit444.i, %do.body169.i, %Py_DECREF.exit453.i, %do.body158.i, %Py_DECREF.exit462.i, %do.body143.i, %Py_DECREF.exit471.i, %do.body132.i, %Py_DECREF.exit480.i, %do.body121.i, %Py_DECREF.exit489.i, %do.body109.i, %Py_DECREF.exit498.i, %do.body97.i, %Py_DECREF.exit507.i, %do.body86.i, %Py_DECREF.exit516.i, %do.body75.i, %Py_DECREF.exit525.i, %do.body62.i, %Py_DECREF.exit534.i, %do.body51.i, %Py_DECREF.exit543.i, %do.body39.i, %Py_DECREF.exit552.i, %do.body28.i, %Py_DECREF.exit561.i, %do.body17.i, %Py_DECREF.exit570.i, %do.body6.i, %Py_DECREF.exit579.i, %if.end24
-  %tmp.sroa.6.0.ph = phi ptr [ @.str.36, %if.end24 ], [ @.str.36, %Py_DECREF.exit579.i ], [ @.str.36, %do.body6.i ], [ @.str.36, %Py_DECREF.exit570.i ], [ @.str.36, %do.body17.i ], [ @.str.36, %Py_DECREF.exit561.i ], [ @.str.36, %do.body28.i ], [ @.str.36, %Py_DECREF.exit552.i ], [ @.str.36, %do.body39.i ], [ @.str.36, %Py_DECREF.exit543.i ], [ @.str.36, %do.body51.i ], [ @.str.36, %Py_DECREF.exit534.i ], [ @.str.36, %do.body62.i ], [ @.str.36, %Py_DECREF.exit525.i ], [ @.str.36, %do.body75.i ], [ @.str.36, %Py_DECREF.exit516.i ], [ @.str.36, %do.body86.i ], [ @.str.36, %Py_DECREF.exit507.i ], [ @.str.36, %do.body97.i ], [ @.str.36, %Py_DECREF.exit498.i ], [ @.str.36, %do.body109.i ], [ @.str.36, %Py_DECREF.exit489.i ], [ @.str.36, %do.body121.i ], [ @.str.36, %Py_DECREF.exit480.i ], [ @.str.36, %do.body132.i ], [ @.str.36, %Py_DECREF.exit471.i ], [ @.str.36, %do.body143.i ], [ @.str.36, %Py_DECREF.exit462.i ], [ @.str.36, %do.body158.i ], [ @.str.36, %Py_DECREF.exit453.i ], [ @.str.36, %do.body169.i ], [ @.str.36, %Py_DECREF.exit444.i ], [ @.str.36, %do.body180.i ], [ @.str.36, %Py_DECREF.exit435.i ], [ @.str.36, %do.body191.i ], [ @.str.36, %Py_DECREF.exit426.i ], [ @.str.36, %do.body202.i ], [ @.str.36, %Py_DECREF.exit417.i ], [ @.str.36, %do.body213.i ], [ @.str.36, %Py_DECREF.exit408.i ], [ @.str.36, %do.end229.i ], [ @.str.36, %Py_DECREF.exit399.i ], [ @.str.36, %do.body241.i ], [ @.str.36, %Py_DECREF.exit390.i ], [ @.str.36, %do.body258.i ], [ @.str.36, %Py_DECREF.exit381.i ], [ @.str.36, %do.body270.i ], [ @.str.36, %Py_DECREF.exit372.i ], [ @.str.36, %do.body281.i ], [ @.str.36, %Py_DECREF.exit363.i ], [ @.str.36, %do.body296.i ], [ @.str.36, %Py_DECREF.exit354.i ], [ @.str.36, %do.body307.i ], [ @.str.36, %Py_DECREF.exit345.i ], [ @.str.36, %do.body318.i ], [ @.str.36, %Py_DECREF.exit.i29 ], [ @.str.169, %do.end153.i ], [ @.str.169, %do.body224.i ], [ @.str.169, %do.body252.i ], [ @.str.169, %do.end291.i ], [ @.str.36, %_PyErr_Occurred.exit.i ]
+if.then27:                                        ; preds = %if.end24, %Py_DECREF.exit579.i, %do.body6.i, %Py_DECREF.exit570.i, %do.body17.i, %Py_DECREF.exit561.i, %do.body28.i, %Py_DECREF.exit552.i, %do.body39.i, %Py_DECREF.exit543.i, %do.body51.i, %Py_DECREF.exit534.i, %do.body62.i, %Py_DECREF.exit525.i, %do.body75.i, %Py_DECREF.exit516.i, %do.body86.i, %Py_DECREF.exit507.i, %do.body97.i, %Py_DECREF.exit498.i, %do.body109.i, %Py_DECREF.exit489.i, %do.body121.i, %Py_DECREF.exit480.i, %do.body132.i, %Py_DECREF.exit471.i, %do.body143.i, %Py_DECREF.exit462.i, %do.body158.i, %Py_DECREF.exit453.i, %do.body169.i, %Py_DECREF.exit444.i, %do.body180.i, %Py_DECREF.exit435.i, %do.body191.i, %Py_DECREF.exit426.i, %do.body202.i, %Py_DECREF.exit417.i, %do.body213.i, %Py_DECREF.exit408.i, %do.end229.i, %Py_DECREF.exit399.i, %do.body241.i, %Py_DECREF.exit390.i, %do.body258.i, %Py_DECREF.exit381.i, %do.body270.i, %Py_DECREF.exit372.i, %do.body281.i, %Py_DECREF.exit363.i, %do.body296.i, %Py_DECREF.exit354.i, %do.body307.i, %Py_DECREF.exit345.i, %do.body318.i, %Py_DECREF.exit.i29, %_PyErr_Occurred.exit.i, %do.end291.i, %do.body252.i, %do.body224.i, %do.end153.i
+  %tmp.sroa.6.0.ph = phi ptr [ @.str.169, %do.end153.i ], [ @.str.169, %do.body224.i ], [ @.str.169, %do.body252.i ], [ @.str.169, %do.end291.i ], [ @.str.36, %_PyErr_Occurred.exit.i ], [ @.str.36, %Py_DECREF.exit.i29 ], [ @.str.36, %do.body318.i ], [ @.str.36, %Py_DECREF.exit345.i ], [ @.str.36, %do.body307.i ], [ @.str.36, %Py_DECREF.exit354.i ], [ @.str.36, %do.body296.i ], [ @.str.36, %Py_DECREF.exit363.i ], [ @.str.36, %do.body281.i ], [ @.str.36, %Py_DECREF.exit372.i ], [ @.str.36, %do.body270.i ], [ @.str.36, %Py_DECREF.exit381.i ], [ @.str.36, %do.body258.i ], [ @.str.36, %Py_DECREF.exit390.i ], [ @.str.36, %do.body241.i ], [ @.str.36, %Py_DECREF.exit399.i ], [ @.str.36, %do.end229.i ], [ @.str.36, %Py_DECREF.exit408.i ], [ @.str.36, %do.body213.i ], [ @.str.36, %Py_DECREF.exit417.i ], [ @.str.36, %do.body202.i ], [ @.str.36, %Py_DECREF.exit426.i ], [ @.str.36, %do.body191.i ], [ @.str.36, %Py_DECREF.exit435.i ], [ @.str.36, %do.body180.i ], [ @.str.36, %Py_DECREF.exit444.i ], [ @.str.36, %do.body169.i ], [ @.str.36, %Py_DECREF.exit453.i ], [ @.str.36, %do.body158.i ], [ @.str.36, %Py_DECREF.exit462.i ], [ @.str.36, %do.body143.i ], [ @.str.36, %Py_DECREF.exit471.i ], [ @.str.36, %do.body132.i ], [ @.str.36, %Py_DECREF.exit480.i ], [ @.str.36, %do.body121.i ], [ @.str.36, %Py_DECREF.exit489.i ], [ @.str.36, %do.body109.i ], [ @.str.36, %Py_DECREF.exit498.i ], [ @.str.36, %do.body97.i ], [ @.str.36, %Py_DECREF.exit507.i ], [ @.str.36, %do.body86.i ], [ @.str.36, %Py_DECREF.exit516.i ], [ @.str.36, %do.body75.i ], [ @.str.36, %Py_DECREF.exit525.i ], [ @.str.36, %do.body62.i ], [ @.str.36, %Py_DECREF.exit534.i ], [ @.str.36, %do.body51.i ], [ @.str.36, %Py_DECREF.exit543.i ], [ @.str.36, %do.body39.i ], [ @.str.36, %Py_DECREF.exit552.i ], [ @.str.36, %do.body28.i ], [ @.str.36, %Py_DECREF.exit561.i ], [ @.str.36, %do.body17.i ], [ @.str.36, %Py_DECREF.exit570.i ], [ @.str.36, %do.body6.i ], [ @.str.36, %Py_DECREF.exit579.i ], [ @.str.36, %if.end24 ]
   store i32 1, ptr %agg.result, align 8
   %status.sroa.7.0.agg.result.sroa_idx40 = getelementptr inbounds i8, ptr %agg.result, i64 4
   store i32 0, ptr %status.sroa.7.0.agg.result.sroa_idx40, align 4

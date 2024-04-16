@@ -3125,19 +3125,19 @@ _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit: ; preds = %_Z
   %and.i.i = and i64 %11, -4
   %12 = inttoptr i64 %and.i.i to ptr
   %tobool.not.i = icmp eq i64 %and.i.i, 0
-  br i1 %tobool.not.i, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit32.sink.split, label %if.end.i, !prof !51
+  br i1 %tobool.not.i, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i30, label %if.end.i, !prof !51
 
 if.end.i:                                         ; preds = %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit
   %externallyShared.i = getelementptr inbounds i8, ptr %12, i64 28
   %13 = load i8, ptr %externallyShared.i, align 4, !tbaa !52, !range !35, !noundef !36
   %tobool4.not.i = icmp eq i8 %13, 0
-  br i1 %tobool4.not.i, label %_ZNK5folly5IOBuf11isSharedOneEv.exit, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit32.sink.split, !prof !58
+  br i1 %tobool4.not.i, label %_ZNK5folly5IOBuf11isSharedOneEv.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i30, !prof !58
 
 _ZNK5folly5IOBuf11isSharedOneEv.exit:             ; preds = %if.end.i
   %refcount.i = getelementptr inbounds i8, ptr %12, i64 24
   %14 = load atomic i32, ptr %refcount.i acquire, align 4
   %cmp.i27 = icmp ugt i32 %14, 1
-  br i1 %cmp.i27, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit32.sink.split, label %land.lhs.true
+  br i1 %cmp.i27, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i30, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %_ZNK5folly5IOBuf11isSharedOneEv.exit
   %cmp.i.not.i = icmp eq ptr %best.sroa.0.072, null
@@ -3149,13 +3149,14 @@ lor.lhs.false:                                    ; preds = %land.lhs.true
   %capacity_.i28 = getelementptr inbounds i8, ptr %best.sroa.0.072, i64 16
   %16 = load i64, ptr %capacity_.i28, align 8, !tbaa !60
   %cmp = icmp ugt i64 %15, %16
-  %spec.select = select i1 %cmp, ptr %best.sroa.0.072, ptr %10
-  %spec.select1 = select i1 %cmp, ptr %10, ptr %best.sroa.0.072
+  br i1 %cmp, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit32.sink.split, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i30
+
+_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i30: ; preds = %lor.lhs.false, %_ZNK5folly5IOBuf11isSharedOneEv.exit, %if.end.i, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit
   br label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit32.sink.split
 
-_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit32.sink.split: ; preds = %lor.lhs.false, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit, %if.end.i, %_ZNK5folly5IOBuf11isSharedOneEv.exit
-  %best.sroa.0.072.sink81 = phi ptr [ %10, %_ZNK5folly5IOBuf11isSharedOneEv.exit ], [ %10, %if.end.i ], [ %10, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit ], [ %spec.select, %lor.lhs.false ]
-  %best.sroa.0.158.ph = phi ptr [ %best.sroa.0.072, %_ZNK5folly5IOBuf11isSharedOneEv.exit ], [ %best.sroa.0.072, %if.end.i ], [ %best.sroa.0.072, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit ], [ %spec.select1, %lor.lhs.false ]
+_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit32.sink.split: ; preds = %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i30, %lor.lhs.false
+  %best.sroa.0.072.sink81 = phi ptr [ %10, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i30 ], [ %best.sroa.0.072, %lor.lhs.false ]
+  %best.sroa.0.158.ph = phi ptr [ %best.sroa.0.072, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i30 ], [ %10, %lor.lhs.false ]
   tail call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %best.sroa.0.072.sink81) #14
   tail call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %best.sroa.0.072.sink81) #14
   br label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit32

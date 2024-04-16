@@ -970,11 +970,11 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %tobool.not = icmp eq i32 %call2, 0
-  br i1 %tobool.not, label %cleanup.thread, label %if.end
+  br i1 %tobool.not, label %if.then, label %if.end
 
-cleanup.thread:                                   ; preds = %invoke.cont
+if.then:                                          ; preds = %invoke.cont
   store ptr null, ptr %out, align 8
-  %not.cmp6.not.not8 = xor i1 %should_succeed, true
+  %not.should_succeed = xor i1 %should_succeed, true
   br label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit
 
 lpad:                                             ; preds = %entry
@@ -1008,26 +1008,28 @@ cleanup:                                          ; preds = %lor.lhs.false, %if.
 
 if.then.i:                                        ; preds = %cleanup
   call void @free(ptr noundef nonnull %.pr) #16
+  %.pre = load ptr, ptr %bio, align 8
   br label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit
 
-_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit:    ; preds = %cleanup.thread, %cleanup, %if.then.i
-  %retval.011 = phi i1 [ %not.cmp6.not.not8, %cleanup.thread ], [ %retval.0, %cleanup ], [ %retval.0, %if.then.i ]
-  %cmp.not.i5 = icmp eq ptr %call, null
+_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit:    ; preds = %if.then, %cleanup, %if.then.i
+  %4 = phi ptr [ %call, %cleanup ], [ %.pre, %if.then.i ], [ %call, %if.then ]
+  %retval.010 = phi i1 [ %retval.0, %cleanup ], [ %retval.0, %if.then.i ], [ %not.should_succeed, %if.then ]
+  %cmp.not.i5 = icmp eq ptr %4, null
   br i1 %cmp.not.i5, label %_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev.exit, label %if.then.i6
 
 if.then.i6:                                       ; preds = %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit
-  invoke void @BIO_vfree(ptr noundef nonnull %call)
+  invoke void @BIO_vfree(ptr noundef nonnull %4)
           to label %_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i6
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  call void @__clang_call_terminate(ptr %5) #19
+  %6 = extractvalue { ptr, i32 } %5, 0
+  call void @__clang_call_terminate(ptr %6) #19
   unreachable
 
 _ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev.exit: ; preds = %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit, %if.then.i6
-  ret i1 %retval.011
+  ret i1 %retval.010
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)

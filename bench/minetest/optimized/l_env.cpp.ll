@@ -15606,7 +15606,7 @@ land.lhs.true.i.i:                                ; preds = %lor.lhs.false.i.i
 
 land.lhs.true18.i.i:                              ; preds = %land.lhs.true.i.i
   %cmp23.i.i = icmp eq i16 %4, %1
-  br i1 %cmp23.i.i, label %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit, label %if.else.thread20
+  br i1 %cmp23.i.i, label %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit, label %if.else.thread17
 
 _ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit: ; preds = %land.lhs.true18.i.i
   %Z.i.i = getelementptr inbounds i8, ptr %__x.094, i64 36
@@ -15614,9 +15614,9 @@ _ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit: ; preds = %land.lhs.true18
   %cmp27.i.i = icmp slt i16 %5, %2
   br i1 %cmp27.i.i, label %if.end19, label %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit53
 
-if.else.thread20:                                 ; preds = %land.lhs.true18.i.i
-  %cmp12.i.i4621 = icmp slt i16 %1, %4
-  br i1 %cmp12.i.i4621, label %if.end19, label %if.else12
+if.else.thread17:                                 ; preds = %land.lhs.true18.i.i
+  %cmp12.i.i4618 = icmp slt i16 %1, %4
+  br i1 %cmp12.i.i4618, label %if.end19, label %if.else12
 
 if.else.thread:                                   ; preds = %lor.lhs.false.i.i
   %cmp.i.i4098 = icmp slt i16 %0, %3
@@ -15628,7 +15628,7 @@ _ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit53: ; preds = %_ZNKSt4lessIN
   %cmp27.i.i52 = icmp slt i16 %2, %6
   br i1 %cmp27.i.i52, label %if.end19, label %if.else12
 
-if.else12:                                        ; preds = %if.else.thread20, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit53, %if.else.thread
+if.else12:                                        ; preds = %if.else.thread17, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit53, %if.else.thread
   %_M_left.i54 = getelementptr inbounds i8, ptr %__x.094, i64 16
   %7 = load ptr, ptr %_M_left.i54, align 8, !tbaa !306
   %_M_right.i55 = getelementptr inbounds i8, ptr %__x.094, i64 24
@@ -15642,7 +15642,7 @@ while.body.i:                                     ; preds = %if.else12, %if.end.
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__x.addr.013.i, i64 32
   %9 = load i16, ptr %_M_storage.i.i.i, align 2, !tbaa !229
   %cmp.i.i.i = icmp slt i16 %9, %0
-  br i1 %cmp.i.i.i, label %if.end.i, label %lor.lhs.false.i.i.i
+  br i1 %cmp.i.i.i, label %if.else.i, label %lor.lhs.false.i.i.i
 
 lor.lhs.false.i.i.i:                              ; preds = %while.body.i
   %cmp8.i.i.i = icmp eq i16 %9, %0
@@ -15652,7 +15652,7 @@ land.lhs.true.i.i.i:                              ; preds = %lor.lhs.false.i.i.i
   %Y.i.i.i = getelementptr inbounds i8, ptr %__x.addr.013.i, i64 34
   %10 = load i16, ptr %Y.i.i.i, align 2, !tbaa !230
   %cmp12.i.i.i = icmp slt i16 %10, %1
-  br i1 %cmp12.i.i.i, label %if.end.i, label %land.lhs.true18.i.i.i
+  br i1 %cmp12.i.i.i, label %if.else.i, label %land.lhs.true18.i.i.i
 
 land.lhs.true18.i.i.i:                            ; preds = %land.lhs.true.i.i.i
   %cmp23.i.i.i = icmp eq i16 %10, %1
@@ -15662,13 +15662,14 @@ _ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i: ; preds = %land.lhs.true
   %Z.i.i.i = getelementptr inbounds i8, ptr %__x.addr.013.i, i64 36
   %11 = load i16, ptr %Z.i.i.i, align 2, !tbaa !231
   %cmp27.i.i.i = icmp slt i16 %11, %2
-  %spec.select = select i1 %cmp27.i.i.i, i64 24, i64 16
-  %spec.select1 = select i1 %cmp27.i.i.i, ptr %__y.addr.012.i, ptr %__x.addr.013.i
+  br i1 %cmp27.i.i.i, label %if.else.i, label %if.end.i
+
+if.else.i:                                        ; preds = %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i, %land.lhs.true.i.i.i, %while.body.i
   br label %if.end.i
 
-if.end.i:                                         ; preds = %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i, %while.body.i, %land.lhs.true.i.i.i, %land.lhs.true18.i.i.i, %lor.lhs.false.i.i.i
-  %.sink.i = phi i64 [ 16, %lor.lhs.false.i.i.i ], [ 16, %land.lhs.true18.i.i.i ], [ 24, %land.lhs.true.i.i.i ], [ 24, %while.body.i ], [ %spec.select, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i ]
-  %__y.addr.1.i = phi ptr [ %__x.addr.013.i, %lor.lhs.false.i.i.i ], [ %__x.addr.013.i, %land.lhs.true18.i.i.i ], [ %__y.addr.012.i, %land.lhs.true.i.i.i ], [ %__y.addr.012.i, %while.body.i ], [ %spec.select1, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i ]
+if.end.i:                                         ; preds = %if.else.i, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i, %land.lhs.true18.i.i.i, %lor.lhs.false.i.i.i
+  %.sink.i = phi i64 [ 24, %if.else.i ], [ 16, %lor.lhs.false.i.i.i ], [ 16, %land.lhs.true18.i.i.i ], [ 16, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i ]
+  %__y.addr.1.i = phi ptr [ %__y.addr.012.i, %if.else.i ], [ %__x.addr.013.i, %lor.lhs.false.i.i.i ], [ %__x.addr.013.i, %land.lhs.true18.i.i.i ], [ %__x.addr.013.i, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i ]
   %_M_right.i.i = getelementptr inbounds i8, ptr %__x.addr.013.i, i64 %.sink.i
   %__x.addr.1.i = load ptr, ptr %_M_right.i.i, align 8, !tbaa !114
   %cmp.not.i = icmp eq ptr %__x.addr.1.i, null
@@ -15689,7 +15690,7 @@ while.body.i60:                                   ; preds = %_ZNSt8_Rb_treeIN3ir
 
 lor.lhs.false.i.i.i65:                            ; preds = %while.body.i60
   %cmp8.i.i.i66 = icmp eq i16 %0, %12
-  br i1 %cmp8.i.i.i66, label %land.lhs.true.i.i.i75, label %if.end.i68
+  br i1 %cmp8.i.i.i66, label %land.lhs.true.i.i.i75, label %if.else.i67
 
 land.lhs.true.i.i.i75:                            ; preds = %lor.lhs.false.i.i.i65
   %Y10.i.i.i76 = getelementptr inbounds i8, ptr %__x.addr.013.i61, i64 34
@@ -15699,27 +15700,28 @@ land.lhs.true.i.i.i75:                            ; preds = %lor.lhs.false.i.i.i
 
 land.lhs.true18.i.i.i78:                          ; preds = %land.lhs.true.i.i.i75
   %cmp23.i.i.i79 = icmp eq i16 %1, %13
-  br i1 %cmp23.i.i.i79, label %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i80, label %if.end.i68
+  br i1 %cmp23.i.i.i79, label %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i80, label %if.else.i67
 
 _ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i80: ; preds = %land.lhs.true18.i.i.i78
   %Z25.i.i.i81 = getelementptr inbounds i8, ptr %__x.addr.013.i61, i64 36
   %14 = load i16, ptr %Z25.i.i.i81, align 2, !tbaa !231
   %cmp27.i.i.i82 = icmp slt i16 %2, %14
-  %spec.select2 = select i1 %cmp27.i.i.i82, i64 16, i64 24
-  %spec.select3 = select i1 %cmp27.i.i.i82, ptr %__x.addr.013.i61, ptr %__y.addr.012.i62
+  br i1 %cmp27.i.i.i82, label %if.end.i68, label %if.else.i67
+
+if.else.i67:                                      ; preds = %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i80, %land.lhs.true18.i.i.i78, %lor.lhs.false.i.i.i65
   br label %if.end.i68
 
-if.end.i68:                                       ; preds = %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i80, %lor.lhs.false.i.i.i65, %land.lhs.true18.i.i.i78, %land.lhs.true.i.i.i75, %while.body.i60
-  %.sink.i69 = phi i64 [ 16, %while.body.i60 ], [ 16, %land.lhs.true.i.i.i75 ], [ 24, %land.lhs.true18.i.i.i78 ], [ 24, %lor.lhs.false.i.i.i65 ], [ %spec.select2, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i80 ]
-  %__y.addr.1.i70 = phi ptr [ %__x.addr.013.i61, %while.body.i60 ], [ %__x.addr.013.i61, %land.lhs.true.i.i.i75 ], [ %__y.addr.012.i62, %land.lhs.true18.i.i.i78 ], [ %__y.addr.012.i62, %lor.lhs.false.i.i.i65 ], [ %spec.select3, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i80 ]
+if.end.i68:                                       ; preds = %if.else.i67, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i80, %land.lhs.true.i.i.i75, %while.body.i60
+  %.sink.i69 = phi i64 [ 24, %if.else.i67 ], [ 16, %while.body.i60 ], [ 16, %land.lhs.true.i.i.i75 ], [ 16, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i80 ]
+  %__y.addr.1.i70 = phi ptr [ %__y.addr.012.i62, %if.else.i67 ], [ %__x.addr.013.i61, %while.body.i60 ], [ %__x.addr.013.i61, %land.lhs.true.i.i.i75 ], [ %__x.addr.013.i61, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i80 ]
   %_M_right.i.i71 = getelementptr inbounds i8, ptr %__x.addr.013.i61, i64 %.sink.i69
   %__x.addr.1.i72 = load ptr, ptr %_M_right.i.i71, align 8, !tbaa !114
   %cmp.not.i73 = icmp eq ptr %__x.addr.1.i72, null
   br i1 %cmp.not.i73, label %cleanup, label %while.body.i60, !llvm.loop !460
 
-if.end19:                                         ; preds = %if.else.thread20, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit53, %if.else.thread, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit, %land.lhs.true.i.i, %while.body
-  %.sink = phi i64 [ 24, %while.body ], [ 24, %land.lhs.true.i.i ], [ 24, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit ], [ 16, %if.else.thread ], [ 16, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit53 ], [ 16, %if.else.thread20 ]
-  %__y.1 = phi ptr [ %__y.093, %while.body ], [ %__y.093, %land.lhs.true.i.i ], [ %__y.093, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit ], [ %__x.094, %if.else.thread ], [ %__x.094, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit53 ], [ %__x.094, %if.else.thread20 ]
+if.end19:                                         ; preds = %if.else.thread17, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit53, %if.else.thread, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit, %land.lhs.true.i.i, %while.body
+  %.sink = phi i64 [ 24, %while.body ], [ 24, %land.lhs.true.i.i ], [ 24, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit ], [ 16, %if.else.thread ], [ 16, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit53 ], [ 16, %if.else.thread17 ]
+  %__y.1 = phi ptr [ %__y.093, %while.body ], [ %__y.093, %land.lhs.true.i.i ], [ %__y.093, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit ], [ %__x.094, %if.else.thread ], [ %__x.094, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit53 ], [ %__x.094, %if.else.thread17 ]
   %_M_left.i = getelementptr inbounds i8, ptr %__x.094, i64 %.sink
   %__x.0 = load ptr, ptr %_M_left.i, align 8, !tbaa !114
   %cmp.not = icmp eq ptr %__x.0, null

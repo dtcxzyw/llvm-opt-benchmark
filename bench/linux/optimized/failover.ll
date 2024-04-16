@@ -137,8 +137,7 @@ define dso_local noundef i32 @failover_slave_unregister(ptr noundef %0) #0 align
 51:                                               ; preds = %45
   %52 = tail call i32 %49(ptr noundef %0, ptr noundef nonnull %20) #6
   %53 = icmp eq i32 %52, 0
-  %spec.select = zext i1 %53 to i32
-  br label %57
+  br i1 %53, label %58, label %57
 
 54:                                               ; preds = %36
   tail call void @netdev_rx_handler_unregister(ptr noundef %0) #6
@@ -148,9 +147,12 @@ define dso_local noundef i32 @failover_slave_unregister(ptr noundef %0) #0 align
   store i64 %56, ptr %0, align 8
   br label %57
 
-57:                                               ; preds = %.thread, %51, %1, %32, %42, %45, %54
-  %58 = phi i32 [ 0, %54 ], [ 0, %45 ], [ 0, %42 ], [ 0, %32 ], [ 0, %1 ], [ %spec.select, %51 ], [ 0, %.thread ]
-  ret i32 %58
+57:                                               ; preds = %.thread, %54, %51, %45, %42, %32, %1
+  br label %58
+
+58:                                               ; preds = %57, %51
+  %59 = phi i32 [ 0, %57 ], [ 1, %51 ]
+  ret i32 %59
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -489,30 +491,30 @@ define internal noundef i32 @failover_event(ptr nocapture readnone %0, i64 nound
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 134217728
   %7 = icmp eq i64 %6, 0
-  br i1 %7, label %8, label %109
+  br i1 %7, label %8, label %111
 
 8:                                                ; preds = %3
-  switch i64 %1, label %109 [
+  switch i64 %1, label %111 [
     i64 5, label %9
     i64 6, label %11
     i64 1, label %13
     i64 2, label %13
     i64 4, label %13
-    i64 11, label %61
+    i64 11, label %62
   ]
 
 9:                                                ; preds = %8
   %10 = tail call fastcc i32 @failover_slave_register(ptr noundef %4), !range !17
-  br label %109
+  br label %111
 
 11:                                               ; preds = %8
   %12 = tail call i32 @failover_slave_unregister(ptr noundef %4), !range !17
-  br label %109
+  br label %111
 
 13:                                               ; preds = %8, %8, %8
   %14 = and i64 %5, 268435456
   %15 = icmp eq i64 %14, 0
-  br i1 %15, label %109, label %16
+  br i1 %15, label %61, label %16
 
 16:                                               ; preds = %13
   %17 = tail call i32 @rtnl_is_locked() #6
@@ -545,7 +547,7 @@ define internal noundef i32 @failover_event(ptr nocapture readnone %0, i64 nound
 
 .thread:                                          ; preds = %25
   tail call void @_raw_spin_unlock(ptr noundef nonnull @failover_lock) #6
-  br label %109
+  br label %61
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds i8, ptr %27, i64 16
@@ -568,7 +570,7 @@ define internal noundef i32 @failover_event(ptr nocapture readnone %0, i64 nound
   %45 = load ptr, ptr %44, align 8
   tail call void @_raw_spin_unlock(ptr noundef nonnull @failover_lock) #6
   %46 = icmp eq ptr %31, null
-  br i1 %46, label %109, label %47
+  br i1 %46, label %61, label %47
 
 47:                                               ; preds = %43
   %48 = getelementptr inbounds i8, ptr %31, i64 352
@@ -577,33 +579,35 @@ define internal noundef i32 @failover_event(ptr nocapture readnone %0, i64 nound
   %51 = icmp ne i64 %50, 0
   %52 = icmp ne ptr %45, null
   %53 = select i1 %51, i1 %52, i1 false
-  br i1 %53, label %54, label %109
+  br i1 %53, label %54, label %61
 
 54:                                               ; preds = %47
   %55 = getelementptr inbounds i8, ptr %45, i64 32
   %56 = load ptr, ptr %55, align 8
   %57 = icmp eq ptr %56, null
-  br i1 %57, label %109, label %58
+  br i1 %57, label %61, label %58
 
 58:                                               ; preds = %54
   %59 = tail call i32 %56(ptr noundef %4, ptr noundef nonnull %31) #6
   %60 = icmp eq i32 %59, 0
-  %spec.select = zext i1 %60 to i32
-  br label %109
+  br i1 %60, label %111, label %61
 
-61:                                               ; preds = %8
-  %62 = and i64 %5, 268435456
-  %63 = icmp eq i64 %62, 0
-  br i1 %63, label %109, label %64
+61:                                               ; preds = %.thread, %58, %54, %47, %43, %13
+  br label %111
 
-64:                                               ; preds = %61
-  %65 = tail call i32 @rtnl_is_locked() #6
-  %66 = icmp ne i32 %65, 0
-  %67 = load i1, ptr @failover_slave_name_change.__already_done, align 1
-  %68 = select i1 %66, i1 true, i1 %67
-  br i1 %68, label %70, label %69, !prof !5
+62:                                               ; preds = %8
+  %63 = and i64 %5, 268435456
+  %64 = icmp eq i64 %63, 0
+  br i1 %64, label %110, label %65
 
-69:                                               ; preds = %64
+65:                                               ; preds = %62
+  %66 = tail call i32 @rtnl_is_locked() #6
+  %67 = icmp ne i32 %66, 0
+  %68 = load i1, ptr @failover_slave_name_change.__already_done, align 1
+  %69 = select i1 %67, i1 true, i1 %68
+  br i1 %69, label %71, label %70, !prof !5
+
+70:                                               ; preds = %65
   store i1 true, ptr @failover_slave_name_change.__already_done, align 1
   tail call void asm sideeffect "545: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 545b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 545) #6, !srcloc !31
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 168) #6
@@ -611,71 +615,73 @@ define internal noundef i32 @failover_event(ptr nocapture readnone %0, i64 nound
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 168, i32 2313, i64 12) #6, !srcloc !33
   tail call void asm sideeffect "547: nop\0A\09.pushsection .discard.instr_end\0A\09.long 547b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 547) #6, !srcloc !34
   tail call void asm sideeffect "548: nop\0A\09.pushsection .discard.instr_end\0A\09.long 548b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 548) #6, !srcloc !35
-  br label %70
+  br label %71
 
-70:                                               ; preds = %69, %64
-  %71 = getelementptr inbounds i8, ptr %4, i64 780
+71:                                               ; preds = %70, %65
+  %72 = getelementptr inbounds i8, ptr %4, i64 780
   tail call void @_raw_spin_lock(ptr noundef nonnull @failover_lock) #6
-  %72 = getelementptr i8, ptr %4, i64 784
-  br label %73
+  %73 = getelementptr i8, ptr %4, i64 784
+  br label %74
 
-73:                                               ; preds = %77, %70
-  %74 = phi ptr [ @failover_list, %70 ], [ %75, %77 ]
-  %75 = load ptr, ptr %74, align 8
-  %76 = icmp eq ptr %75, @failover_list
-  br i1 %76, label %.thread9, label %77
+74:                                               ; preds = %78, %71
+  %75 = phi ptr [ @failover_list, %71 ], [ %76, %78 ]
+  %76 = load ptr, ptr %75, align 8
+  %77 = icmp eq ptr %76, @failover_list
+  br i1 %77, label %.thread8, label %78
 
-.thread9:                                         ; preds = %73
+.thread8:                                         ; preds = %74
   tail call void @_raw_spin_unlock(ptr noundef nonnull @failover_lock) #6
-  br label %109
+  br label %110
 
-77:                                               ; preds = %73
-  %78 = getelementptr inbounds i8, ptr %75, i64 16
-  %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 780
-  %81 = load i32, ptr %80, align 4
-  %82 = load i32, ptr %71, align 4
-  %83 = xor i32 %82, %81
-  %84 = getelementptr i8, ptr %79, i64 784
-  %85 = load i16, ptr %84, align 2
-  %86 = load i16, ptr %72, align 2
-  %87 = xor i16 %86, %85
-  %88 = zext i16 %87 to i32
-  %89 = or i32 %83, %88
-  %90 = icmp eq i32 %89, 0
-  br i1 %90, label %91, label %73, !llvm.loop !11
+78:                                               ; preds = %74
+  %79 = getelementptr inbounds i8, ptr %76, i64 16
+  %80 = load ptr, ptr %79, align 8
+  %81 = getelementptr inbounds i8, ptr %80, i64 780
+  %82 = load i32, ptr %81, align 4
+  %83 = load i32, ptr %72, align 4
+  %84 = xor i32 %83, %82
+  %85 = getelementptr i8, ptr %80, i64 784
+  %86 = load i16, ptr %85, align 2
+  %87 = load i16, ptr %73, align 2
+  %88 = xor i16 %87, %86
+  %89 = zext i16 %88 to i32
+  %90 = or i32 %84, %89
+  %91 = icmp eq i32 %90, 0
+  br i1 %91, label %92, label %74, !llvm.loop !11
 
-91:                                               ; preds = %77
-  %92 = getelementptr inbounds i8, ptr %75, i64 24
-  %93 = load ptr, ptr %92, align 8
+92:                                               ; preds = %78
+  %93 = getelementptr inbounds i8, ptr %76, i64 24
+  %94 = load ptr, ptr %93, align 8
   tail call void @_raw_spin_unlock(ptr noundef nonnull @failover_lock) #6
-  %94 = icmp eq ptr %79, null
-  br i1 %94, label %109, label %95
+  %95 = icmp eq ptr %80, null
+  br i1 %95, label %110, label %96
 
-95:                                               ; preds = %91
-  %96 = getelementptr inbounds i8, ptr %79, i64 352
-  %97 = load volatile i64, ptr %96, align 8
-  %98 = and i64 %97, 1
-  %99 = icmp ne i64 %98, 0
-  %100 = icmp ne ptr %93, null
-  %101 = select i1 %99, i1 %100, i1 false
-  br i1 %101, label %102, label %109
+96:                                               ; preds = %92
+  %97 = getelementptr inbounds i8, ptr %80, i64 352
+  %98 = load volatile i64, ptr %97, align 8
+  %99 = and i64 %98, 1
+  %100 = icmp ne i64 %99, 0
+  %101 = icmp ne ptr %94, null
+  %102 = select i1 %100, i1 %101, i1 false
+  br i1 %102, label %103, label %110
 
-102:                                              ; preds = %95
-  %103 = getelementptr inbounds i8, ptr %93, i64 40
-  %104 = load ptr, ptr %103, align 8
-  %105 = icmp eq ptr %104, null
-  br i1 %105, label %109, label %106
+103:                                              ; preds = %96
+  %104 = getelementptr inbounds i8, ptr %94, i64 40
+  %105 = load ptr, ptr %104, align 8
+  %106 = icmp eq ptr %105, null
+  br i1 %106, label %110, label %107
 
-106:                                              ; preds = %102
-  %107 = tail call i32 %104(ptr noundef %4, ptr noundef nonnull %79) #6
-  %108 = icmp eq i32 %107, 0
-  %spec.select1 = zext i1 %108 to i32
-  br label %109
+107:                                              ; preds = %103
+  %108 = tail call i32 %105(ptr noundef %4, ptr noundef nonnull %80) #6
+  %109 = icmp eq i32 %108, 0
+  br i1 %109, label %111, label %110
 
-109:                                              ; preds = %.thread9, %.thread, %106, %58, %61, %91, %95, %102, %13, %43, %47, %54, %11, %9, %8, %3
-  %110 = phi i32 [ %12, %11 ], [ %10, %9 ], [ 0, %3 ], [ 0, %8 ], [ 0, %54 ], [ 0, %47 ], [ 0, %43 ], [ 0, %13 ], [ 0, %102 ], [ 0, %95 ], [ 0, %91 ], [ 0, %61 ], [ %spec.select, %58 ], [ %spec.select1, %106 ], [ 0, %.thread ], [ 0, %.thread9 ]
-  ret i32 %110
+110:                                              ; preds = %.thread8, %107, %103, %96, %92, %62
+  br label %111
+
+111:                                              ; preds = %110, %107, %61, %58, %11, %9, %8, %3
+  %112 = phi i32 [ %12, %11 ], [ %10, %9 ], [ 0, %3 ], [ 0, %8 ], [ 0, %61 ], [ 1, %58 ], [ 0, %110 ], [ 1, %107 ]
+  ret i32 %112
 }
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }

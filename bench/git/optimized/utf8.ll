@@ -1919,16 +1919,14 @@ for.inc.i.i:                                      ; preds = %if.end5.i.i
 
 for.end.i.i:                                      ; preds = %for.inc.i.i
   %call13.i.i = call fastcc i32 @next_hfs_char(ptr noundef nonnull %path.addr.i.i), !range !7
-  %tobool.not.i.i = icmp eq i32 %call13.i.i, 0
-  br i1 %tobool.not.i.i, label %is_hfs_dot_str.exit, label %land.lhs.true.i.i
-
-land.lhs.true.i.i:                                ; preds = %for.end.i.i
-  %cmp.i.not.i.i = icmp eq i32 %call13.i.i, 47
-  %spec.select.i.i = zext i1 %cmp.i.not.i.i to i32
+  %switch.selectcmp.case1.i.i = icmp eq i32 %call13.i.i, 0
+  %switch.selectcmp.case2.i.i = icmp eq i32 %call13.i.i, 47
+  %switch.selectcmp.i.i = or i1 %switch.selectcmp.case1.i.i, %switch.selectcmp.case2.i.i
+  %5 = zext i1 %switch.selectcmp.i.i to i32
   br label %is_hfs_dot_str.exit
 
-is_hfs_dot_str.exit:                              ; preds = %for.body.i.i, %if.end5.i.i, %entry, %for.end.i.i, %land.lhs.true.i.i
-  %retval.0.i.i = phi i32 [ 0, %entry ], [ 1, %for.end.i.i ], [ %spec.select.i.i, %land.lhs.true.i.i ], [ 0, %if.end5.i.i ], [ 0, %for.body.i.i ]
+is_hfs_dot_str.exit:                              ; preds = %for.body.i.i, %if.end5.i.i, %entry, %for.end.i.i
+  %retval.0.i.i = phi i32 [ 0, %entry ], [ %5, %for.end.i.i ], [ 0, %if.end5.i.i ], [ 0, %for.body.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %path.addr.i.i)
   ret i32 %retval.0.i.i
 }
@@ -1971,16 +1969,14 @@ for.inc.i.i:                                      ; preds = %if.end5.i.i
 
 for.end.i.i:                                      ; preds = %for.inc.i.i
   %call13.i.i = call fastcc i32 @next_hfs_char(ptr noundef nonnull %path.addr.i.i), !range !7
-  %tobool.not.i.i = icmp eq i32 %call13.i.i, 0
-  br i1 %tobool.not.i.i, label %is_hfs_dot_str.exit, label %land.lhs.true.i.i
-
-land.lhs.true.i.i:                                ; preds = %for.end.i.i
-  %cmp.i.not.i.i = icmp eq i32 %call13.i.i, 47
-  %spec.select.i.i = zext i1 %cmp.i.not.i.i to i32
+  %switch.selectcmp.case1.i.i = icmp eq i32 %call13.i.i, 0
+  %switch.selectcmp.case2.i.i = icmp eq i32 %call13.i.i, 47
+  %switch.selectcmp.i.i = or i1 %switch.selectcmp.case1.i.i, %switch.selectcmp.case2.i.i
+  %5 = zext i1 %switch.selectcmp.i.i to i32
   br label %is_hfs_dot_str.exit
 
-is_hfs_dot_str.exit:                              ; preds = %for.body.i.i, %if.end5.i.i, %entry, %for.end.i.i, %land.lhs.true.i.i
-  %retval.0.i.i = phi i32 [ 0, %entry ], [ 1, %for.end.i.i ], [ %spec.select.i.i, %land.lhs.true.i.i ], [ 0, %if.end5.i.i ], [ 0, %for.body.i.i ]
+is_hfs_dot_str.exit:                              ; preds = %for.body.i.i, %if.end5.i.i, %entry, %for.end.i.i
+  %retval.0.i.i = phi i32 [ 0, %entry ], [ %5, %for.end.i.i ], [ 0, %if.end5.i.i ], [ 0, %for.body.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %path.addr.i.i)
   ret i32 %retval.0.i.i
 }
@@ -2023,16 +2019,14 @@ for.inc.i.i:                                      ; preds = %if.end5.i.i
 
 for.end.i.i:                                      ; preds = %for.inc.i.i
   %call13.i.i = call fastcc i32 @next_hfs_char(ptr noundef nonnull %path.addr.i.i), !range !7
-  %tobool.not.i.i = icmp eq i32 %call13.i.i, 0
-  br i1 %tobool.not.i.i, label %is_hfs_dot_str.exit, label %land.lhs.true.i.i
-
-land.lhs.true.i.i:                                ; preds = %for.end.i.i
-  %cmp.i.not.i.i = icmp eq i32 %call13.i.i, 47
-  %spec.select.i.i = zext i1 %cmp.i.not.i.i to i32
+  %switch.selectcmp.case1.i.i = icmp eq i32 %call13.i.i, 0
+  %switch.selectcmp.case2.i.i = icmp eq i32 %call13.i.i, 47
+  %switch.selectcmp.i.i = or i1 %switch.selectcmp.case1.i.i, %switch.selectcmp.case2.i.i
+  %5 = zext i1 %switch.selectcmp.i.i to i32
   br label %is_hfs_dot_str.exit
 
-is_hfs_dot_str.exit:                              ; preds = %for.body.i.i, %if.end5.i.i, %entry, %for.end.i.i, %land.lhs.true.i.i
-  %retval.0.i.i = phi i32 [ 0, %entry ], [ 1, %for.end.i.i ], [ %spec.select.i.i, %land.lhs.true.i.i ], [ 0, %if.end5.i.i ], [ 0, %for.body.i.i ]
+is_hfs_dot_str.exit:                              ; preds = %for.body.i.i, %if.end5.i.i, %entry, %for.end.i.i
+  %retval.0.i.i = phi i32 [ 0, %entry ], [ %5, %for.end.i.i ], [ 0, %if.end5.i.i ], [ 0, %for.body.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %path.addr.i.i)
   ret i32 %retval.0.i.i
 }
@@ -2075,16 +2069,14 @@ for.inc.i.i:                                      ; preds = %if.end5.i.i
 
 for.end.i.i:                                      ; preds = %for.inc.i.i
   %call13.i.i = call fastcc i32 @next_hfs_char(ptr noundef nonnull %path.addr.i.i), !range !7
-  %tobool.not.i.i = icmp eq i32 %call13.i.i, 0
-  br i1 %tobool.not.i.i, label %is_hfs_dot_str.exit, label %land.lhs.true.i.i
-
-land.lhs.true.i.i:                                ; preds = %for.end.i.i
-  %cmp.i.not.i.i = icmp eq i32 %call13.i.i, 47
-  %spec.select.i.i = zext i1 %cmp.i.not.i.i to i32
+  %switch.selectcmp.case1.i.i = icmp eq i32 %call13.i.i, 0
+  %switch.selectcmp.case2.i.i = icmp eq i32 %call13.i.i, 47
+  %switch.selectcmp.i.i = or i1 %switch.selectcmp.case1.i.i, %switch.selectcmp.case2.i.i
+  %5 = zext i1 %switch.selectcmp.i.i to i32
   br label %is_hfs_dot_str.exit
 
-is_hfs_dot_str.exit:                              ; preds = %for.body.i.i, %if.end5.i.i, %entry, %for.end.i.i, %land.lhs.true.i.i
-  %retval.0.i.i = phi i32 [ 0, %entry ], [ 1, %for.end.i.i ], [ %spec.select.i.i, %land.lhs.true.i.i ], [ 0, %if.end5.i.i ], [ 0, %for.body.i.i ]
+is_hfs_dot_str.exit:                              ; preds = %for.body.i.i, %if.end5.i.i, %entry, %for.end.i.i
+  %retval.0.i.i = phi i32 [ 0, %entry ], [ %5, %for.end.i.i ], [ 0, %if.end5.i.i ], [ 0, %for.body.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %path.addr.i.i)
   ret i32 %retval.0.i.i
 }
@@ -2127,16 +2119,14 @@ for.inc.i.i:                                      ; preds = %if.end5.i.i
 
 for.end.i.i:                                      ; preds = %for.inc.i.i
   %call13.i.i = call fastcc i32 @next_hfs_char(ptr noundef nonnull %path.addr.i.i), !range !7
-  %tobool.not.i.i = icmp eq i32 %call13.i.i, 0
-  br i1 %tobool.not.i.i, label %is_hfs_dot_str.exit, label %land.lhs.true.i.i
-
-land.lhs.true.i.i:                                ; preds = %for.end.i.i
-  %cmp.i.not.i.i = icmp eq i32 %call13.i.i, 47
-  %spec.select.i.i = zext i1 %cmp.i.not.i.i to i32
+  %switch.selectcmp.case1.i.i = icmp eq i32 %call13.i.i, 0
+  %switch.selectcmp.case2.i.i = icmp eq i32 %call13.i.i, 47
+  %switch.selectcmp.i.i = or i1 %switch.selectcmp.case1.i.i, %switch.selectcmp.case2.i.i
+  %5 = zext i1 %switch.selectcmp.i.i to i32
   br label %is_hfs_dot_str.exit
 
-is_hfs_dot_str.exit:                              ; preds = %for.body.i.i, %if.end5.i.i, %entry, %for.end.i.i, %land.lhs.true.i.i
-  %retval.0.i.i = phi i32 [ 0, %entry ], [ 1, %for.end.i.i ], [ %spec.select.i.i, %land.lhs.true.i.i ], [ 0, %if.end5.i.i ], [ 0, %for.body.i.i ]
+is_hfs_dot_str.exit:                              ; preds = %for.body.i.i, %if.end5.i.i, %entry, %for.end.i.i
+  %retval.0.i.i = phi i32 [ 0, %entry ], [ %5, %for.end.i.i ], [ 0, %if.end5.i.i ], [ 0, %for.body.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %path.addr.i.i)
   ret i32 %retval.0.i.i
 }

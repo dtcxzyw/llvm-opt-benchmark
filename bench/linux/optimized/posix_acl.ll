@@ -1953,7 +1953,7 @@ define dso_local i32 @posix_acl_listxattr(ptr nocapture noundef readonly %0, ptr
   %7 = load i64, ptr %6, align 16
   %8 = and i64 %7, 65536
   %9 = icmp eq i64 %8, 0
-  br i1 %9, label %23, label %10
+  br i1 %9, label %25, label %10
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1964,21 +1964,25 @@ define dso_local i32 @posix_acl_listxattr(ptr nocapture noundef readonly %0, ptr
 14:                                               ; preds = %10
   %15 = tail call i32 @xattr_list_one(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str) #15
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %23
+  br i1 %16, label %17, label %25
 
 17:                                               ; preds = %14, %10
   %18 = getelementptr inbounds i8, ptr %0, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %23, label %21
+  br i1 %20, label %24, label %21
 
 21:                                               ; preds = %17
   %22 = tail call i32 @xattr_list_one(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.1) #15
-  br label %23
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %24, label %25
 
-23:                                               ; preds = %21, %17, %14, %3
-  %24 = phi i32 [ 0, %3 ], [ %15, %14 ], [ 0, %17 ], [ %22, %21 ]
-  ret i32 %24
+24:                                               ; preds = %21, %17
+  br label %25
+
+25:                                               ; preds = %24, %21, %14, %3
+  %26 = phi i32 [ 0, %24 ], [ 0, %3 ], [ %15, %14 ], [ %22, %21 ]
+  ret i32 %26
 }
 
 ; Function Attrs: null_pointer_is_valid

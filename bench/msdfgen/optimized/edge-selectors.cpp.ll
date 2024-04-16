@@ -2026,7 +2026,7 @@ entry:
   %0 = tail call double @llvm.fabs.f64(double %retval.sroa.0.0.copyload.i1)
   %1 = tail call double @llvm.fabs.f64(double %retval.sroa.0.0.copyload.i)
   %cmp.i = fcmp olt double %0, %1
-  br i1 %cmp.i, label %if.end, label %_ZN7msdfgenltENS_14SignedDistanceES0_.exit
+  br i1 %cmp.i, label %if.then, label %_ZN7msdfgenltENS_14SignedDistanceES0_.exit
 
 _ZN7msdfgenltENS_14SignedDistanceES0_.exit:       ; preds = %entry
   %retval.sroa.2.0.minTrueDistance.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -2036,20 +2036,20 @@ _ZN7msdfgenltENS_14SignedDistanceES0_.exit:       ; preds = %entry
   %2 = select i1 %cmp4.i, i1 %cmp6.i, i1 false
   br i1 %2, label %if.then, label %if.end
 
-if.then:                                          ; preds = %_ZN7msdfgenltENS_14SignedDistanceES0_.exit
+if.then:                                          ; preds = %entry, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit
   br label %if.end
 
-if.end:                                           ; preds = %entry, %if.then, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit
-  %.pre-phi = phi double [ %0, %entry ], [ %0, %if.then ], [ %1, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit ]
-  %retval.sroa.0.0 = phi double [ %retval.sroa.0.0.copyload.i1, %entry ], [ %retval.sroa.0.0.copyload.i1, %if.then ], [ %retval.sroa.0.0.copyload.i, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit ]
-  %retval.sroa.6.0 = phi double [ %retval.sroa.2.0.copyload.i3, %entry ], [ %retval.sroa.2.0.copyload.i3, %if.then ], [ %retval.sroa.2.0.copyload.i, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit ]
+if.end:                                           ; preds = %if.then, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit
+  %.pre-phi = phi double [ %0, %if.then ], [ %1, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit ]
+  %retval.sroa.0.0 = phi double [ %retval.sroa.0.0.copyload.i1, %if.then ], [ %retval.sroa.0.0.copyload.i, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit ]
+  %retval.sroa.6.0 = phi double [ %retval.sroa.2.0.copyload.i3, %if.then ], [ %retval.sroa.2.0.copyload.i, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit ]
   %b = getelementptr inbounds i8, ptr %this, i64 112
   %retval.sroa.0.0.copyload.i11 = load double, ptr %b, align 8
   %retval.sroa.2.0.minTrueDistance.sroa_idx.i12 = getelementptr inbounds i8, ptr %this, i64 120
   %retval.sroa.2.0.copyload.i13 = load double, ptr %retval.sroa.2.0.minTrueDistance.sroa_idx.i12, align 8
   %3 = tail call double @llvm.fabs.f64(double %retval.sroa.0.0.copyload.i11)
   %cmp.i16 = fcmp olt double %3, %.pre-phi
-  br i1 %cmp.i16, label %if.end15, label %_ZN7msdfgenltENS_14SignedDistanceES0_.exit20
+  br i1 %cmp.i16, label %if.then11, label %_ZN7msdfgenltENS_14SignedDistanceES0_.exit20
 
 _ZN7msdfgenltENS_14SignedDistanceES0_.exit20:     ; preds = %if.end
   %cmp4.i18 = fcmp oeq double %3, %.pre-phi
@@ -2057,12 +2057,12 @@ _ZN7msdfgenltENS_14SignedDistanceES0_.exit20:     ; preds = %if.end
   %4 = select i1 %cmp4.i18, i1 %cmp6.i19, i1 false
   br i1 %4, label %if.then11, label %if.end15
 
-if.then11:                                        ; preds = %_ZN7msdfgenltENS_14SignedDistanceES0_.exit20
+if.then11:                                        ; preds = %if.end, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit20
   br label %if.end15
 
-if.end15:                                         ; preds = %if.end, %if.then11, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit20
-  %retval.sroa.0.1 = phi double [ %retval.sroa.0.0, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit20 ], [ %retval.sroa.0.0.copyload.i11, %if.then11 ], [ %retval.sroa.0.0.copyload.i11, %if.end ]
-  %retval.sroa.6.1 = phi double [ %retval.sroa.6.0, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit20 ], [ %retval.sroa.2.0.copyload.i13, %if.then11 ], [ %retval.sroa.2.0.copyload.i13, %if.end ]
+if.end15:                                         ; preds = %if.then11, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit20
+  %retval.sroa.0.1 = phi double [ %retval.sroa.0.0.copyload.i11, %if.then11 ], [ %retval.sroa.0.0, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit20 ]
+  %retval.sroa.6.1 = phi double [ %retval.sroa.2.0.copyload.i13, %if.then11 ], [ %retval.sroa.6.0, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit20 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %retval.sroa.0.1, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %retval.sroa.6.1, 1
   ret { double, double } %.fca.1.insert
@@ -2088,7 +2088,7 @@ entry:
   %2 = tail call double @llvm.fabs.f64(double %retval.sroa.0.0.copyload.i1.i)
   %3 = tail call double @llvm.fabs.f64(double %retval.sroa.0.0.copyload.i.i)
   %cmp.i.i = fcmp olt double %2, %3
-  br i1 %cmp.i.i, label %if.end.i, label %_ZN7msdfgenltENS_14SignedDistanceES0_.exit.i
+  br i1 %cmp.i.i, label %if.then.i, label %_ZN7msdfgenltENS_14SignedDistanceES0_.exit.i
 
 _ZN7msdfgenltENS_14SignedDistanceES0_.exit.i:     ; preds = %entry
   %retval.sroa.2.0.minTrueDistance.sroa_idx.i.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -2098,18 +2098,18 @@ _ZN7msdfgenltENS_14SignedDistanceES0_.exit.i:     ; preds = %entry
   %4 = select i1 %cmp4.i.i, i1 %cmp6.i.i, i1 false
   br i1 %4, label %if.then.i, label %if.end.i
 
-if.then.i:                                        ; preds = %_ZN7msdfgenltENS_14SignedDistanceES0_.exit.i
+if.then.i:                                        ; preds = %_ZN7msdfgenltENS_14SignedDistanceES0_.exit.i, %entry
   br label %if.end.i
 
-if.end.i:                                         ; preds = %if.then.i, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit.i, %entry
-  %.pre-phi.i = phi double [ %2, %entry ], [ %2, %if.then.i ], [ %3, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit.i ]
-  %retval.sroa.0.0.i = phi double [ %retval.sroa.0.0.copyload.i1.i, %entry ], [ %retval.sroa.0.0.copyload.i1.i, %if.then.i ], [ %retval.sroa.0.0.copyload.i.i, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit.i ]
-  %retval.sroa.6.0.i = phi double [ %retval.sroa.2.0.copyload.i3.i, %entry ], [ %retval.sroa.2.0.copyload.i3.i, %if.then.i ], [ %retval.sroa.2.0.copyload.i.i, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit.i ]
+if.end.i:                                         ; preds = %if.then.i, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit.i
+  %.pre-phi.i = phi double [ %2, %if.then.i ], [ %3, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit.i ]
+  %retval.sroa.0.0.i = phi double [ %retval.sroa.0.0.copyload.i1.i, %if.then.i ], [ %retval.sroa.0.0.copyload.i.i, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit.i ]
+  %retval.sroa.6.0.i = phi double [ %retval.sroa.2.0.copyload.i3.i, %if.then.i ], [ %retval.sroa.2.0.copyload.i.i, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit.i ]
   %b.i = getelementptr inbounds i8, ptr %this, i64 112
   %retval.sroa.0.0.copyload.i11.i = load double, ptr %b.i, align 8
   %5 = tail call double @llvm.fabs.f64(double %retval.sroa.0.0.copyload.i11.i)
   %cmp.i16.i = fcmp olt double %5, %.pre-phi.i
-  br i1 %cmp.i16.i, label %_ZNK7msdfgen21MultiDistanceSelector12trueDistanceEv.exit, label %_ZN7msdfgenltENS_14SignedDistanceES0_.exit20.i
+  br i1 %cmp.i16.i, label %if.then11.i, label %_ZN7msdfgenltENS_14SignedDistanceES0_.exit20.i
 
 _ZN7msdfgenltENS_14SignedDistanceES0_.exit20.i:   ; preds = %if.end.i
   %retval.sroa.2.0.minTrueDistance.sroa_idx.i12.i = getelementptr inbounds i8, ptr %this, i64 120
@@ -2119,11 +2119,11 @@ _ZN7msdfgenltENS_14SignedDistanceES0_.exit20.i:   ; preds = %if.end.i
   %6 = select i1 %cmp4.i18.i, i1 %cmp6.i19.i, i1 false
   br i1 %6, label %if.then11.i, label %_ZNK7msdfgen21MultiDistanceSelector12trueDistanceEv.exit
 
-if.then11.i:                                      ; preds = %_ZN7msdfgenltENS_14SignedDistanceES0_.exit20.i
+if.then11.i:                                      ; preds = %_ZN7msdfgenltENS_14SignedDistanceES0_.exit20.i, %if.end.i
   br label %_ZNK7msdfgen21MultiDistanceSelector12trueDistanceEv.exit
 
-_ZNK7msdfgen21MultiDistanceSelector12trueDistanceEv.exit: ; preds = %if.end.i, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit20.i, %if.then11.i
-  %retval.sroa.0.1.i = phi double [ %retval.sroa.0.0.i, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit20.i ], [ %retval.sroa.0.0.copyload.i11.i, %if.then11.i ], [ %retval.sroa.0.0.copyload.i11.i, %if.end.i ]
+_ZNK7msdfgen21MultiDistanceSelector12trueDistanceEv.exit: ; preds = %_ZN7msdfgenltENS_14SignedDistanceES0_.exit20.i, %if.then11.i
+  %retval.sroa.0.1.i = phi double [ %retval.sroa.0.0.copyload.i11.i, %if.then11.i ], [ %retval.sroa.0.0.i, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit20.i ]
   %a = getelementptr inbounds i8, ptr %agg.result, i64 24
   store double %retval.sroa.0.1.i, ptr %a, align 8
   ret void

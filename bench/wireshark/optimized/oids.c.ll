@@ -543,7 +543,7 @@ check_num_oid.exit:                               ; preds = %.preheader.split.us
   br label %.thread
 
 .thread:                                          ; preds = %67, %47, %.thread.loopexit49, %58, %41
-  %.029 = phi i32 [ 0, %58 ], [ 0, %41 ], [ %.012.i, %47 ], [ %.012.i, %67 ], [ 0, %.thread.loopexit49 ]
+  %.029 = phi i32 [ 0, %58 ], [ 0, %41 ], [ 0, %.thread.loopexit49 ], [ %.012.i, %47 ], [ %.012.i, %67 ]
   ret i32 %.029
 }
 
@@ -1901,10 +1901,14 @@ define i32 @oid_string2encoded(ptr noundef %0, ptr noundef %1, ptr nocapture nou
 
 6:                                                ; preds = %3
   %7 = tail call i32 @oid_subid2encoded(ptr noundef %0, i32 noundef %5, ptr noundef %.pre, ptr noundef %2)
-  br label %8
+  %.not7 = icmp eq i32 %7, 0
+  br i1 %.not7, label %8, label %9
 
 8:                                                ; preds = %6, %3
-  %.0 = phi i32 [ 0, %3 ], [ %7, %6 ]
+  br label %9
+
+9:                                                ; preds = %6, %8
+  %.0 = phi i32 [ 0, %8 ], [ %7, %6 ]
   tail call void @wmem_free(ptr noundef null, ptr noundef %.pre) #8
   ret i32 %.0
 }

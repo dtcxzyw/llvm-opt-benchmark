@@ -466,7 +466,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb2, %sw
   br i1 %cmp.not.i, label %do.end.thread.i, label %if.then11.i
 
 do.end.thread.i:                                  ; preds = %sw.epilog
-  %call5140.i = call ptr @_Py_dg_dtoa(double noundef %val, i32 noundef %mode.0, i32 noundef %precision.addr.0, ptr noundef nonnull %decpt_as_int.i, ptr noundef nonnull %sign.i, ptr noundef nonnull %digits_end.i) #13
+  %call5139.i = call ptr @_Py_dg_dtoa(double noundef %val, i32 noundef %mode.0, i32 noundef %precision.addr.0, ptr noundef nonnull %decpt_as_int.i, ptr noundef nonnull %sign.i, ptr noundef nonnull %digits_end.i) #13
   br label %do.end13.i
 
 if.then11.i:                                      ; preds = %sw.epilog
@@ -476,16 +476,16 @@ if.then11.i:                                      ; preds = %sw.epilog
   br label %do.end13.i
 
 do.end13.i:                                       ; preds = %if.then11.i, %do.end.thread.i
-  %call5141.i = phi ptr [ %call5140.i, %do.end.thread.i ], [ %call5.i, %if.then11.i ]
+  %call5140.i = phi ptr [ %call5139.i, %do.end.thread.i ], [ %call5.i, %if.then11.i ]
   %0 = load i32, ptr %decpt_as_int.i, align 4
   %conv14.i = sext i32 %0 to i64
-  %cmp15.i = icmp eq ptr %call5141.i, null
+  %cmp15.i = icmp eq ptr %call5140.i, null
   br i1 %cmp15.i, label %if.end255.i, label %if.end19.i
 
 if.end19.i:                                       ; preds = %do.end13.i
   %1 = load ptr, ptr %digits_end.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %call5141.i to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %call5140.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %tobool.i = icmp ne i32 %and14, 0
   %2 = load i32, ptr %sign.i, align 4
@@ -500,7 +500,7 @@ land.lhs.true22.i:                                ; preds = %if.end19.i
   ]
 
 land.lhs.true27.i:                                ; preds = %land.lhs.true22.i
-  %3 = load i8, ptr %call5141.i, align 1
+  %3 = load i8, ptr %call5140.i, align 1
   %cmp29.i = icmp eq i8 %3, 48
   br i1 %cmp29.i, label %if.then31.i, label %land.lhs.true34.i
 
@@ -513,7 +513,7 @@ if.end32.i:                                       ; preds = %if.then31.i, %if.en
   br i1 %tobool33.not.i, label %if.end103.i, label %land.lhs.true34thread-pre-split.i
 
 land.lhs.true34thread-pre-split.i:                ; preds = %if.end32.i, %land.lhs.true22.i
-  %.pr.i = load i8, ptr %call5141.i, align 1
+  %.pr.i = load i8, ptr %call5140.i, align 1
   br label %land.lhs.true34.i
 
 land.lhs.true34.i:                                ; preds = %land.lhs.true34thread-pre-split.i, %land.lhs.true27.i
@@ -561,7 +561,7 @@ if.end67.sink.split.i:                            ; preds = %if.else.i, %if.end5
 
 if.end67.i:                                       ; preds = %if.end67.sink.split.i, %if.else.i
   %p.0.i = phi ptr [ %call54.i, %if.else.i ], [ %incdec.ptr65.i, %if.end67.sink.split.i ]
-  %7 = load i8, ptr %call5141.i, align 1
+  %7 = load i8, ptr %call5140.i, align 1
   switch i8 %7, label %lor.lhs.false88.i [
     i8 105, label %if.then77.i
     i8 73, label %if.then77.i
@@ -623,18 +623,20 @@ sw.bb109.i:                                       ; preds = %if.end106.i
 
 sw.bb111.i:                                       ; preds = %if.end106.i
   %cmp112.i = icmp slt i32 %0, -3
-  br i1 %cmp112.i, label %if.end120.i, label %lor.lhs.false114.i
+  br i1 %cmp112.i, label %if.then119.i, label %lor.lhs.false114.i
 
 lor.lhs.false114.i:                               ; preds = %sw.bb111.i
   %10 = shl nuw i32 %and12, 30
   %sext = ashr exact i32 %10, 31
   %cond.i = add i32 %precision.addr.0, %sext
   %cmp117.i = icmp sgt i32 %0, %cond.i
-  %spec.select139.i = zext i1 %cmp117.i to i32
+  br i1 %cmp117.i, label %if.then119.i, label %if.end120.i
+
+if.then119.i:                                     ; preds = %lor.lhs.false114.i, %sw.bb111.i
   br label %if.end120.i
 
-if.end120.i:                                      ; preds = %lor.lhs.false114.i, %sw.bb111.i
-  %use_exp.0.i = phi i32 [ 1, %sw.bb111.i ], [ %spec.select139.i, %lor.lhs.false114.i ]
+if.end120.i:                                      ; preds = %if.then119.i, %lor.lhs.false114.i
+  %use_exp.0.i = phi i32 [ 1, %if.then119.i ], [ 0, %lor.lhs.false114.i ]
   %tobool121.not.i = icmp eq i32 %and13, 0
   %conv123.i = sext i32 %precision.addr.0 to i64
   %spec.select.i = select i1 %tobool121.not.i, i64 %sub.ptr.sub.i, i64 %conv123.i
@@ -658,7 +660,7 @@ sw.epilog.i:                                      ; preds = %sw.bb125.i, %if.end
   %spec.select135.i = select i1 %tobool133.not.i, i64 %conv14.i, i64 1
   %cmp138.i = icmp slt i64 %spec.select135.i, 1
   %sub141.neg.i = sub nsw i64 1, %spec.select135.i
-  %cond144.neg169.i = select i1 %cmp138.i, i64 %sub141.neg.i, i64 0
+  %cond144.neg168.i = select i1 %cmp138.i, i64 %sub141.neg.i, i64 0
   %tobool147.i = icmp ne i32 %and12, 0
   %or.cond2.i = and i1 %tobool147.i, %tobool133.not.i
   br i1 %or.cond2.i, label %if.then148.i, label %if.else156.i
@@ -676,7 +678,7 @@ if.else156.i:                                     ; preds = %sw.epilog.i
 if.end163.i:                                      ; preds = %if.else156.i, %if.then148.i
   %vdigits_end.1.i = phi i64 [ %cond155.i, %if.then148.i ], [ %cond162.i, %if.else156.i ]
   %sub164.i = select i1 %tobool133.not.i, i64 3, i64 8
-  %add165.i = add nsw i64 %cond144.neg169.i, %sub164.i
+  %add165.i = add nsw i64 %cond144.neg168.i, %sub164.i
   %add169.i = add i64 %add165.i, %vdigits_end.1.i
   %call170.i = call ptr @PyMem_Malloc(i64 noundef %add169.i) #13
   %cmp171.i = icmp eq ptr %call170.i, null
@@ -696,9 +698,9 @@ if.else180.i:                                     ; preds = %if.end175.i
   br i1 %tobool181.not.i, label %if.end185.i, label %if.end185.sink.split.i
 
 if.end185.sink.split.i:                           ; preds = %if.else180.i, %if.end175.i
-  %.sink170.i = phi i8 [ 45, %if.end175.i ], [ 43, %if.else180.i ]
+  %.sink169.i = phi i8 [ 45, %if.end175.i ], [ 43, %if.else180.i ]
   %incdec.ptr183.i = getelementptr i8, ptr %call170.i, i64 1
-  store i8 %.sink170.i, ptr %call170.i, align 1
+  store i8 %.sink169.i, ptr %call170.i, align 1
   br label %if.end185.i
 
 if.end185.i:                                      ; preds = %if.end185.sink.split.i, %if.else180.i
@@ -713,36 +715,36 @@ if.end200.thread.i:                               ; preds = %if.end185.i
   %sub193.i = sub nsw i64 0, %spec.select135.i
   call void @llvm.memset.p0.i64(ptr align 1 %incdec.ptr192.i, i8 48, i64 %sub193.i, i1 false)
   %add.ptr195.i = getelementptr i8, ptr %incdec.ptr192.i, i64 %sub193.i
-  %cmp204.not146.i = icmp sgt i64 %spec.select135.i, %sub.ptr.sub.i
-  %call218153.i = call ptr @strncpy(ptr noundef %add.ptr195.i, ptr noundef nonnull %call5141.i, i64 noundef %sub.ptr.sub.i) #13
-  %add.ptr219154.i = getelementptr i8, ptr %add.ptr195.i, i64 %sub.ptr.sub.i
-  br i1 %cmp204.not146.i, label %if.then223.i, label %if.else231.i
+  %cmp204.not145.i = icmp sgt i64 %spec.select135.i, %sub.ptr.sub.i
+  %call218152.i = call ptr @strncpy(ptr noundef %add.ptr195.i, ptr noundef nonnull %call5140.i, i64 noundef %sub.ptr.sub.i) #13
+  %add.ptr219153.i = getelementptr i8, ptr %add.ptr195.i, i64 %sub.ptr.sub.i
+  br i1 %cmp204.not145.i, label %if.then223.i, label %if.else231.i
 
 if.end200.i:                                      ; preds = %if.end185.i
   %cmp204.not.i = icmp sgt i64 %spec.select135.i, %sub.ptr.sub.i
   br i1 %cmp204.not.i, label %if.end220.i, label %if.then206.i
 
 if.then206.i:                                     ; preds = %if.end200.i
-  %call208.i = call ptr @strncpy(ptr noundef %p.1.i, ptr noundef nonnull %call5141.i, i64 noundef %spec.select135.i) #13
+  %call208.i = call ptr @strncpy(ptr noundef %p.1.i, ptr noundef nonnull %call5140.i, i64 noundef %spec.select135.i) #13
   %add.ptr210.i = getelementptr i8, ptr %p.1.i, i64 %spec.select135.i
   %incdec.ptr211.i = getelementptr i8, ptr %add.ptr210.i, i64 1
   store i8 46, ptr %add.ptr210.i, align 1
-  %add.ptr212.i = getelementptr i8, ptr %call5141.i, i64 %spec.select135.i
+  %add.ptr212.i = getelementptr i8, ptr %call5140.i, i64 %spec.select135.i
   %sub213.i = sub nsw i64 %sub.ptr.sub.i, %spec.select135.i
   %call214.i = call ptr @strncpy(ptr noundef %incdec.ptr211.i, ptr noundef %add.ptr212.i, i64 noundef %sub213.i) #13
   %add.ptr216.i = getelementptr i8, ptr %incdec.ptr211.i, i64 %sub213.i
   br label %if.else231.i
 
 if.end220.i:                                      ; preds = %if.end200.i
-  %call218.i = call ptr @strncpy(ptr noundef %p.1.i, ptr noundef nonnull %call5141.i, i64 noundef %sub.ptr.sub.i) #13
+  %call218.i = call ptr @strncpy(ptr noundef %p.1.i, ptr noundef nonnull %call5140.i, i64 noundef %sub.ptr.sub.i) #13
   %add.ptr219.i = getelementptr i8, ptr %p.1.i, i64 %sub.ptr.sub.i
   br label %if.then223.i
 
 if.then223.i:                                     ; preds = %if.end220.i, %if.end200.thread.i
-  %p.3151.i = phi ptr [ %add.ptr219.i, %if.end220.i ], [ %add.ptr219154.i, %if.end200.thread.i ]
+  %p.3150.i = phi ptr [ %add.ptr219.i, %if.end220.i ], [ %add.ptr219153.i, %if.end200.thread.i ]
   %sub224.i = sub i64 %spec.select135.i, %sub.ptr.sub.i
-  call void @llvm.memset.p0.i64(ptr align 1 %p.3151.i, i8 48, i64 %sub224.i, i1 false)
-  %add.ptr226.i = getelementptr i8, ptr %p.3151.i, i64 %sub224.i
+  call void @llvm.memset.p0.i64(ptr align 1 %p.3150.i, i8 48, i64 %sub224.i, i1 false)
+  %add.ptr226.i = getelementptr i8, ptr %p.3150.i, i64 %sub224.i
   %incdec.ptr227.i = getelementptr i8, ptr %add.ptr226.i, i64 1
   store i8 46, ptr %add.ptr226.i, align 1
   %sub228.i = sub i64 %vdigits_end.1.i, %spec.select135.i
@@ -751,10 +753,10 @@ if.then223.i:                                     ; preds = %if.end220.i, %if.en
   br label %if.end235.i
 
 if.else231.i:                                     ; preds = %if.then206.i, %if.end200.thread.i
-  %p.3152.i = phi ptr [ %add.ptr216.i, %if.then206.i ], [ %add.ptr219154.i, %if.end200.thread.i ]
+  %p.3151.i = phi ptr [ %add.ptr216.i, %if.then206.i ], [ %add.ptr219153.i, %if.end200.thread.i ]
   %sub232.i = sub i64 %vdigits_end.1.i, %sub.ptr.sub.i
-  call void @llvm.memset.p0.i64(ptr align 1 %p.3152.i, i8 48, i64 %sub232.i, i1 false)
-  %add.ptr234.i = getelementptr i8, ptr %p.3152.i, i64 %sub232.i
+  call void @llvm.memset.p0.i64(ptr align 1 %p.3151.i, i8 48, i64 %sub232.i, i1 false)
+  %add.ptr234.i = getelementptr i8, ptr %p.3151.i, i64 %sub232.i
   br label %if.end235.i
 
 if.end235.i:                                      ; preds = %if.else231.i, %if.then223.i
@@ -789,19 +791,19 @@ if.end255.i:                                      ; preds = %do.end13.i
   br label %format_float_short.exit
 
 if.then257.i:                                     ; preds = %if.then254.i, %if.then173.i, %sw.default.i, %if.then57.i
-  %buf.0163.ph.i = phi ptr [ null, %if.then57.i ], [ null, %if.then173.i ], [ null, %sw.default.i ], [ %buf.0.ph.i, %if.then254.i ]
-  call void @_Py_dg_freedtoa(ptr noundef nonnull %call5141.i) #13
+  %buf.0162.ph.i = phi ptr [ null, %if.then57.i ], [ null, %if.then173.i ], [ null, %sw.default.i ], [ %buf.0.ph.i, %if.then254.i ]
+  call void @_Py_dg_freedtoa(ptr noundef nonnull %call5140.i) #13
   br label %format_float_short.exit
 
 format_float_short.exit:                          ; preds = %if.end255.i, %if.then257.i
-  %buf.0163167.i = phi ptr [ %buf.0163.ph.i, %if.then257.i ], [ null, %if.end255.i ]
+  %buf.0162166.i = phi ptr [ %buf.0162.ph.i, %if.then257.i ], [ null, %if.end255.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %digits_end.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %decpt_as_int.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %sign.i)
   br label %return
 
 return:                                           ; preds = %format_float_short.exit, %sw.default, %if.then10
-  %retval.0 = phi ptr [ null, %sw.default ], [ null, %if.then10 ], [ %buf.0163167.i, %format_float_short.exit ]
+  %retval.0 = phi ptr [ null, %sw.default ], [ null, %if.then10 ], [ %buf.0162166.i, %format_float_short.exit ]
   ret ptr %retval.0
 }
 

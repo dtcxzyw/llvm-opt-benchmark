@@ -202,10 +202,10 @@ define internal i32 @stream_decode(ptr noundef %0, ptr noundef %1, ptr noalias n
 60:                                               ; preds = %58
   %61 = load i64, ptr %14, align 8
   %62 = icmp eq i64 %61, 0
-  br i1 %62, label %63, label %._crit_edge169
+  br i1 %62, label %63, label %._crit_edge170
 
-._crit_edge169:                                   ; preds = %60
-  %.pre170 = load i32, ptr %24, align 4
+._crit_edge170:                                   ; preds = %60
+  %.pre171 = load i32, ptr %24, align 4
   br label %72
 
 63:                                               ; preds = %60
@@ -225,8 +225,8 @@ define internal i32 @stream_decode(ptr noundef %0, ptr noundef %1, ptr noalias n
   store i32 %71, ptr %24, align 4
   br label %72
 
-72:                                               ; preds = %._crit_edge169, %68
-  %73 = phi i32 [ %.pre170, %._crit_edge169 ], [ %71, %68 ]
+72:                                               ; preds = %._crit_edge170, %68
+  %73 = phi i32 [ %.pre171, %._crit_edge170 ], [ %71, %68 ]
   %74 = zext i32 %73 to i64
   %75 = call i64 @lzma_bufcpy(ptr noundef %2, ptr noundef nonnull %3, i64 noundef %4, ptr noundef nonnull %13, ptr noundef nonnull %14, i64 noundef %74) #9
   %76 = load i64, ptr %14, align 8
@@ -266,13 +266,13 @@ define internal i32 @stream_decode(ptr noundef %0, ptr noundef %1, ptr noalias n
   br label %93
 
 93:                                               ; preds = %92, %93
-  %.0127163 = phi i64 [ 0, %92 ], [ %96, %93 ]
-  %94 = getelementptr inbounds [5 x %struct.lzma_filter], ptr %10, i64 0, i64 %.0127163, i32 1
+  %.0127164 = phi i64 [ 0, %92 ], [ %96, %93 ]
+  %94 = getelementptr inbounds [5 x %struct.lzma_filter], ptr %10, i64 0, i64 %.0127164, i32 1
   %95 = load ptr, ptr %94, align 8
   call void @lzma_free(ptr noundef %95, ptr noundef %1) #9
-  %96 = add nuw nsw i64 %.0127163, 1
-  %exitcond168.not = icmp eq i64 %96, 4
-  br i1 %exitcond168.not, label %97, label %93, !llvm.loop !5
+  %96 = add nuw nsw i64 %.0127164, 1
+  %exitcond169.not = icmp eq i64 %96, 4
+  br i1 %exitcond169.not, label %97, label %93, !llvm.loop !5
 
 97:                                               ; preds = %93
   store ptr null, ptr %26, align 8
@@ -357,8 +357,8 @@ define internal i32 @stream_decode(ptr noundef %0, ptr noundef %1, ptr noalias n
 
 134:                                              ; preds = %133, %34
   %.promoted = load i64, ptr %3, align 8
-  %.not145161 = icmp ult i64 %.promoted, %4
-  br i1 %.not145161, label %.lr.ph, label %._crit_edge
+  %.not145162 = icmp ult i64 %.promoted, %4
+  br i1 %.not145162, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %134, %142
   %.not149 = icmp eq i32 %8, 3
@@ -413,8 +413,8 @@ stream_decoder_reset.exit.thread:                 ; preds = %151
   %.be = phi i32 [ 0, %stream_decoder_reset.exit.thread ], [ 1, %108 ], [ 3, %67 ]
   br label %34
 
-stream_decoder_reset.exit:                        ; preds = %45, %151, %34, %130, %128, %124, %115, %111, %109, %103, %99, %97, %80, %72, %58, %55, %53, %40, %36, %42, %._crit_edge, %149, %135, %121
-  %.0 = phi i32 [ %138, %135 ], [ 9, %149 ], [ %123, %121 ], [ 0, %._crit_edge ], [ %spec.select, %42 ], [ 2, %45 ], [ 5, %151 ], [ 11, %34 ], [ 1, %130 ], [ %129, %128 ], [ 9, %124 ], [ 0, %115 ], [ %113, %111 ], [ 0, %109 ], [ %107, %103 ], [ %102, %99 ], [ %.0126, %97 ], [ %81, %80 ], [ 0, %72 ], [ 0, %58 ], [ 4, %55 ], [ 3, %53 ], [ %41, %40 ], [ 0, %36 ]
+stream_decoder_reset.exit:                        ; preds = %45, %151, %34, %130, %128, %124, %115, %111, %109, %103, %99, %97, %80, %72, %58, %55, %53, %36, %40, %42, %._crit_edge, %149, %135, %121
+  %.0 = phi i32 [ %138, %135 ], [ 9, %149 ], [ %123, %121 ], [ 0, %._crit_edge ], [ %spec.select, %42 ], [ %41, %40 ], [ 2, %45 ], [ 5, %151 ], [ 11, %34 ], [ 1, %130 ], [ %129, %128 ], [ 9, %124 ], [ 0, %115 ], [ %113, %111 ], [ 0, %109 ], [ %107, %103 ], [ %102, %99 ], [ %.0126, %97 ], [ %81, %80 ], [ 0, %72 ], [ 0, %58 ], [ 4, %55 ], [ 3, %53 ], [ 0, %36 ]
   ret i32 %.0
 }
 

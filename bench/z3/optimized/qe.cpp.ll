@@ -19430,18 +19430,20 @@ if.end45:                                         ; preds = %invoke.cont38
   %m_nodes.i = getelementptr inbounds i8, ptr %free_vars, i64 8
   %41 = load ptr, ptr %m_nodes.i, align 8
   %cmp.i.i27 = icmp eq ptr %41, null
-  br i1 %cmp.i.i27, label %cleanup, label %invoke.cont46
+  br i1 %cmp.i.i27, label %invoke.cont46.thread, label %invoke.cont46
 
 invoke.cont46:                                    ; preds = %if.end45
   %arrayidx.i.i28 = getelementptr inbounds i8, ptr %41, i64 -4
   %42 = load i32, ptr %arrayidx.i.i28, align 4
   %.fr = freeze i32 %42
   %cmp3.i.i = icmp eq i32 %.fr, 0
-  %spec.select = zext i1 %cmp3.i.i to i32
+  br i1 %cmp3.i.i, label %invoke.cont46.thread, label %cleanup
+
+invoke.cont46.thread:                             ; preds = %if.end45, %invoke.cont46
   br label %cleanup
 
-cleanup:                                          ; preds = %invoke.cont46, %if.end45, %invoke.cont38
-  %retval.0 = phi i32 [ -1, %invoke.cont38 ], [ 1, %if.end45 ], [ %spec.select, %invoke.cont46 ]
+cleanup:                                          ; preds = %invoke.cont46.thread, %invoke.cont46, %invoke.cont38
+  %retval.0 = phi i32 [ -1, %invoke.cont38 ], [ 1, %invoke.cont46.thread ], [ 0, %invoke.cont46 ]
   %43 = load ptr, ptr %th, align 8
   %cmp.i.i29 = icmp eq ptr %43, null
   br i1 %cmp.i.i29, label %_ZN10scoped_ptrIN2qe17quant_elim_pluginEED2Ev.exit, label %if.end.i.i

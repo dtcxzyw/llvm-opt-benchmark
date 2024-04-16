@@ -142,10 +142,10 @@ define dso_local ptr @coerce_to_target_type(ptr noundef %0, ptr noundef %1, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @can_coerce_type(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @can_coerce_type(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = icmp sgt i32 %0, 0
-  br i1 %6, label %.lr.ph.preheader, label %typeIsOfTypedTable.exit.thread
+  br i1 %6, label %.lr.ph.preheader, label %.critedge
 
 .lr.ph.preheader:                                 ; preds = %4
   %wide.trip.count = zext nneg i32 %0 to i64
@@ -259,14 +259,17 @@ typeIsOfTypedTable.exit:                          ; preds = %31
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %46
-  br i1 %.1, label %47, label %typeIsOfTypedTable.exit.thread
+  br i1 %.1, label %47, label %.critedge
 
 47:                                               ; preds = %._crit_edge
   %48 = tail call zeroext i1 @check_generic_type_consistency(ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %0)
+  br i1 %48, label %.critedge, label %typeIsOfTypedTable.exit.thread
+
+.critedge:                                        ; preds = %4, %47, %._crit_edge
   br label %typeIsOfTypedTable.exit.thread
 
-typeIsOfTypedTable.exit.thread:                   ; preds = %29, %typeIsOfTypedTable.exit, %4, %47, %._crit_edge
-  %.0 = phi i1 [ true, %._crit_edge ], [ %48, %47 ], [ true, %4 ], [ false, %typeIsOfTypedTable.exit ], [ false, %29 ]
+typeIsOfTypedTable.exit.thread:                   ; preds = %29, %typeIsOfTypedTable.exit, %47, %.critedge
+  %.0 = phi i1 [ true, %.critedge ], [ false, %47 ], [ false, %typeIsOfTypedTable.exit ], [ false, %29 ]
   ret i1 %.0
 }
 
@@ -1371,11 +1374,11 @@ declare ptr @format_type_be(i32 noundef) local_unnamed_addr #1
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @check_generic_type_consistency(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @check_generic_type_consistency(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca [100 x i32], align 16
   %6 = icmp sgt i32 %2, 0
-  br i1 %6, label %.lr.ph.preheader, label %.loopexit
+  br i1 %6, label %.lr.ph.preheader, label %.thread377
 
 .lr.ph.preheader:                                 ; preds = %3
   %wide.trip.count = zext nneg i32 %2 to i64
@@ -1651,7 +1654,7 @@ define dso_local zeroext i1 @check_generic_type_consistency(ptr nocapture nounde
   %.2154 = phi i32 [ %.1153, %77 ], [ %79, %80 ], [ %.1153, %75 ]
   %.2138 = phi i32 [ %.1137, %77 ], [ %81, %80 ], [ %.1137, %75 ]
   %85 = icmp sgt i32 %.2138, 0
-  br i1 %85, label %86, label %.loopexit
+  br i1 %85, label %86, label %.thread377
 
 86:                                               ; preds = %84
   %87 = call fastcc i32 @select_common_type_from_oids(i32 noundef %.2138, ptr noundef nonnull %5, i1 noundef zeroext true)
@@ -1692,10 +1695,13 @@ verify_common_type_from_oids.exit:                ; preds = %.lr.ph252
   %.not188 = icmp eq i32 %.2154, 0
   %.not189 = icmp eq i32 %.2154, %87
   %or.cond208 = or i1 %.not188, %.not189
+  br i1 %or.cond208, label %.thread377, label %.loopexit
+
+.thread377:                                       ; preds = %3, %93, %84
   br label %.loopexit
 
-.loopexit:                                        ; preds = %48, %47, %40, %39, %32, %25, %21, %17, %14, %3, %verify_common_type_from_oids.exit, %93, %84, %91, %86, %78, %77, %73, %70, %68, %.thread, %64, %62, %59, %57, %54
-  %.0 = phi i1 [ false, %54 ], [ false, %57 ], [ false, %59 ], [ false, %62 ], [ false, %64 ], [ false, %.thread ], [ false, %68 ], [ false, %70 ], [ false, %73 ], [ false, %77 ], [ false, %78 ], [ false, %86 ], [ false, %verify_common_type_from_oids.exit ], [ false, %91 ], [ true, %84 ], [ %or.cond208, %93 ], [ true, %3 ], [ false, %14 ], [ false, %17 ], [ false, %21 ], [ false, %25 ], [ false, %32 ], [ false, %39 ], [ false, %40 ], [ false, %47 ], [ false, %48 ]
+.loopexit:                                        ; preds = %48, %47, %40, %39, %32, %25, %21, %17, %14, %verify_common_type_from_oids.exit, %93, %91, %86, %78, %77, %73, %70, %68, %.thread, %64, %62, %59, %57, %54, %.thread377
+  %.0 = phi i1 [ true, %.thread377 ], [ false, %54 ], [ false, %57 ], [ false, %59 ], [ false, %62 ], [ false, %64 ], [ false, %.thread ], [ false, %68 ], [ false, %70 ], [ false, %73 ], [ false, %77 ], [ false, %78 ], [ false, %86 ], [ false, %verify_common_type_from_oids.exit ], [ false, %91 ], [ false, %93 ], [ false, %14 ], [ false, %17 ], [ false, %21 ], [ false, %25 ], [ false, %32 ], [ false, %39 ], [ false, %40 ], [ false, %47 ], [ false, %48 ]
   ret i1 %.0
 }
 

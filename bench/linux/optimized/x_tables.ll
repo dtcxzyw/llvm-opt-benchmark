@@ -686,12 +686,12 @@ define dso_local noundef i32 @xt_data_to_user(ptr noundef %0, ptr noundef %1, i3
   tail call void asm sideeffect "42: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 42b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 42) #20, !srcloc !15
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.34, i32 249, i32 2307, i64 12) #20, !srcloc !16
   tail call void asm sideeffect "43: nop\0A\09.pushsection .discard.instr_end\0A\09.long 43b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 43) #20, !srcloc !17
-  br label %33
+  br label %34
 
 11:                                               ; preds = %5
   %12 = tail call i64 @_copy_to_user(ptr noundef %0, ptr noundef %1, i64 noundef %8) #20
   %13 = icmp eq i64 %12, 0
-  br i1 %13, label %14, label %33
+  br i1 %13, label %14, label %34
 
 14:                                               ; preds = %11
   %15 = icmp eq i32 %7, %4
@@ -721,12 +721,14 @@ define dso_local noundef i32 @xt_data_to_user(ptr noundef %0, ptr noundef %1, i3
 30:                                               ; preds = %25, %16
   %31 = phi i64 [ %28, %25 ], [ %19, %16 ]
   %32 = icmp eq i64 %31, 0
-  %spec.select = select i1 %32, i32 0, i32 -14
-  br label %33
+  br i1 %32, label %33, label %34
 
-33:                                               ; preds = %30, %14, %11, %10
-  %34 = phi i32 [ -14, %11 ], [ -14, %10 ], [ 0, %14 ], [ %spec.select, %30 ]
-  ret i32 %34
+33:                                               ; preds = %30, %14
+  br label %34
+
+34:                                               ; preds = %33, %30, %11, %10
+  %35 = phi i32 [ 0, %33 ], [ -14, %11 ], [ -14, %30 ], [ -14, %10 ]
+  ret i32 %35
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -747,7 +749,7 @@ define dso_local noundef i32 @xt_match_to_user(ptr noundef %0, ptr noundef %1) #
   tail call void @llvm.write_register.i64(metadata !0, i64 %14)
   %16 = and i64 %15, 4294967295
   %17 = icmp eq i64 %16, 0
-  br i1 %17, label %18, label %71
+  br i1 %17, label %18, label %72
 
 18:                                               ; preds = %2
   %19 = tail call i64 @strlen(ptr noundef %7) #20
@@ -759,12 +761,12 @@ define dso_local noundef i32 @xt_match_to_user(ptr noundef %0, ptr noundef %1) #
   tail call void asm sideeffect "42: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 42b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 42) #20, !srcloc !15
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.34, i32 249, i32 2307, i64 12) #20, !srcloc !16
   tail call void asm sideeffect "43: nop\0A\09.pushsection .discard.instr_end\0A\09.long 43b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 43) #20, !srcloc !17
-  br label %71
+  br label %72
 
 23:                                               ; preds = %18
   %24 = tail call i64 @_copy_to_user(ptr noundef %4, ptr noundef %7, i64 noundef %20) #20
   %25 = icmp eq i64 %24, 0
-  br i1 %25, label %26, label %71
+  br i1 %25, label %26, label %72
 
 26:                                               ; preds = %23
   %27 = tail call i64 @llvm.read_register.i64(metadata !0)
@@ -775,7 +777,7 @@ define dso_local noundef i32 @xt_match_to_user(ptr noundef %0, ptr noundef %1) #
   tail call void @llvm.write_register.i64(metadata !0, i64 %30)
   %32 = and i64 %31, 4294967295
   %33 = icmp eq i64 %32, 0
-  br i1 %33, label %34, label %71
+  br i1 %33, label %34, label %72
 
 34:                                               ; preds = %26
   %35 = getelementptr inbounds i8, ptr %1, i64 32
@@ -796,13 +798,13 @@ define dso_local noundef i32 @xt_match_to_user(ptr noundef %0, ptr noundef %1) #
   tail call void asm sideeffect "42: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 42b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 42) #20, !srcloc !15
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.34, i32 249, i32 2307, i64 12) #20, !srcloc !16
   tail call void asm sideeffect "43: nop\0A\09.pushsection .discard.instr_end\0A\09.long 43b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 43) #20, !srcloc !17
-  br label %71
+  br label %72
 
 48:                                               ; preds = %34
   %49 = getelementptr inbounds i8, ptr %0, i64 32
   %50 = tail call i64 @_copy_to_user(ptr noundef %35, ptr noundef %49, i64 noundef %45) #20
   %51 = icmp eq i64 %50, 0
-  br i1 %51, label %52, label %71
+  br i1 %51, label %52, label %72
 
 52:                                               ; preds = %48
   %53 = icmp eq i32 %44, %42
@@ -831,13 +833,15 @@ define dso_local noundef i32 @xt_match_to_user(ptr noundef %0, ptr noundef %1) #
 
 68:                                               ; preds = %63, %54
   %69 = phi i64 [ %66, %63 ], [ %57, %54 ]
-  %70 = icmp ne i64 %69, 0
-  %spec.select = zext i1 %70 to i32
-  br label %71
+  %70 = icmp eq i64 %69, 0
+  br i1 %70, label %71, label %72
 
-71:                                               ; preds = %68, %52, %48, %47, %26, %23, %22, %2
-  %72 = phi i32 [ 1, %26 ], [ 1, %48 ], [ 1, %47 ], [ 1, %22 ], [ 1, %23 ], [ 1, %2 ], [ 0, %52 ], [ %spec.select, %68 ]
-  ret i32 %72
+71:                                               ; preds = %68, %52
+  br label %72
+
+72:                                               ; preds = %71, %68, %48, %47, %26, %23, %22, %2
+  %73 = phi i32 [ 1, %26 ], [ 0, %71 ], [ 1, %48 ], [ 1, %68 ], [ 1, %47 ], [ 1, %22 ], [ 1, %23 ], [ 1, %2 ]
+  ret i32 %73
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -858,7 +862,7 @@ define dso_local noundef i32 @xt_target_to_user(ptr noundef %0, ptr noundef %1) 
   tail call void @llvm.write_register.i64(metadata !0, i64 %14)
   %16 = and i64 %15, 4294967295
   %17 = icmp eq i64 %16, 0
-  br i1 %17, label %18, label %71
+  br i1 %17, label %18, label %72
 
 18:                                               ; preds = %2
   %19 = tail call i64 @strlen(ptr noundef %7) #20
@@ -870,12 +874,12 @@ define dso_local noundef i32 @xt_target_to_user(ptr noundef %0, ptr noundef %1) 
   tail call void asm sideeffect "42: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 42b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 42) #20, !srcloc !15
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.34, i32 249, i32 2307, i64 12) #20, !srcloc !16
   tail call void asm sideeffect "43: nop\0A\09.pushsection .discard.instr_end\0A\09.long 43b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 43) #20, !srcloc !17
-  br label %71
+  br label %72
 
 23:                                               ; preds = %18
   %24 = tail call i64 @_copy_to_user(ptr noundef %4, ptr noundef %7, i64 noundef %20) #20
   %25 = icmp eq i64 %24, 0
-  br i1 %25, label %26, label %71
+  br i1 %25, label %26, label %72
 
 26:                                               ; preds = %23
   %27 = tail call i64 @llvm.read_register.i64(metadata !0)
@@ -886,7 +890,7 @@ define dso_local noundef i32 @xt_target_to_user(ptr noundef %0, ptr noundef %1) 
   tail call void @llvm.write_register.i64(metadata !0, i64 %30)
   %32 = and i64 %31, 4294967295
   %33 = icmp eq i64 %32, 0
-  br i1 %33, label %34, label %71
+  br i1 %33, label %34, label %72
 
 34:                                               ; preds = %26
   %35 = getelementptr inbounds i8, ptr %1, i64 32
@@ -907,13 +911,13 @@ define dso_local noundef i32 @xt_target_to_user(ptr noundef %0, ptr noundef %1) 
   tail call void asm sideeffect "42: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 42b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 42) #20, !srcloc !15
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.34, i32 249, i32 2307, i64 12) #20, !srcloc !16
   tail call void asm sideeffect "43: nop\0A\09.pushsection .discard.instr_end\0A\09.long 43b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 43) #20, !srcloc !17
-  br label %71
+  br label %72
 
 48:                                               ; preds = %34
   %49 = getelementptr inbounds i8, ptr %0, i64 32
   %50 = tail call i64 @_copy_to_user(ptr noundef %35, ptr noundef %49, i64 noundef %45) #20
   %51 = icmp eq i64 %50, 0
-  br i1 %51, label %52, label %71
+  br i1 %51, label %52, label %72
 
 52:                                               ; preds = %48
   %53 = icmp eq i32 %44, %42
@@ -942,13 +946,15 @@ define dso_local noundef i32 @xt_target_to_user(ptr noundef %0, ptr noundef %1) 
 
 68:                                               ; preds = %63, %54
   %69 = phi i64 [ %66, %63 ], [ %57, %54 ]
-  %70 = icmp ne i64 %69, 0
-  %spec.select = zext i1 %70 to i32
-  br label %71
+  %70 = icmp eq i64 %69, 0
+  br i1 %70, label %71, label %72
 
-71:                                               ; preds = %68, %52, %48, %47, %26, %23, %22, %2
-  %72 = phi i32 [ 1, %26 ], [ 1, %48 ], [ 1, %47 ], [ 1, %22 ], [ 1, %23 ], [ 1, %2 ], [ 0, %52 ], [ %spec.select, %68 ]
-  ret i32 %72
+71:                                               ; preds = %68, %52
+  br label %72
+
+72:                                               ; preds = %71, %68, %48, %47, %26, %23, %22, %2
+  %73 = phi i32 [ 1, %26 ], [ 0, %71 ], [ 1, %48 ], [ 1, %68 ], [ 1, %47 ], [ 1, %22 ], [ 1, %23 ], [ 1, %2 ]
+  ret i32 %73
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1185,7 +1191,7 @@ define dso_local i32 @xt_check_match(ptr noundef %0, i32 noundef %1, i16 noundef
 16:                                               ; preds = %4
   %17 = tail call i32 @___ratelimit(ptr noundef nonnull @xt_check_match._rs, ptr noundef nonnull @__func__.xt_check_match) #20
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %120, label %19
+  br i1 %18, label %121, label %19
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds i8, ptr %0, i64 44
@@ -1203,7 +1209,7 @@ define dso_local i32 @xt_check_match(ptr noundef %0, i32 noundef %1, i16 noundef
   %32 = add i32 %31, 7
   %33 = and i32 %32, -8
   %34 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, ptr noundef %24, ptr noundef %26, i32 noundef %29, i32 noundef %33, i32 noundef %1) #21
-  br label %120
+  br label %121
 
 35:                                               ; preds = %4
   %36 = getelementptr inbounds i8, ptr %8, i64 80
@@ -1221,7 +1227,7 @@ define dso_local i32 @xt_check_match(ptr noundef %0, i32 noundef %1, i16 noundef
 44:                                               ; preds = %39
   %45 = tail call i32 @___ratelimit(ptr noundef nonnull @xt_check_match._rs.4, ptr noundef nonnull @__func__.xt_check_match) #20
   %46 = icmp eq i32 %45, 0
-  br i1 %46, label %120, label %47
+  br i1 %46, label %121, label %47
 
 47:                                               ; preds = %44
   %48 = getelementptr inbounds i8, ptr %0, i64 44
@@ -1235,7 +1241,7 @@ define dso_local i32 @xt_check_match(ptr noundef %0, i32 noundef %1, i16 noundef
   %56 = load ptr, ptr %55, align 8
   %57 = load ptr, ptr %40, align 8
   %58 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.5, ptr noundef %52, ptr noundef %54, ptr noundef %56, ptr noundef %57) #21
-  br label %120
+  br label %121
 
 59:                                               ; preds = %39, %35
   %60 = getelementptr inbounds i8, ptr %8, i64 96
@@ -1281,7 +1287,7 @@ define dso_local i32 @xt_check_match(ptr noundef %0, i32 noundef %1, i16 noundef
 88:                                               ; preds = %72, %69
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #20
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #20
-  br label %120
+  br label %121
 
 89:                                               ; preds = %63, %59
   %90 = getelementptr inbounds i8, ptr %8, i64 100
@@ -1295,7 +1301,7 @@ define dso_local i32 @xt_check_match(ptr noundef %0, i32 noundef %1, i16 noundef
 96:                                               ; preds = %89
   %97 = tail call i32 @___ratelimit(ptr noundef nonnull @xt_check_match._rs.8, ptr noundef nonnull @__func__.xt_check_match) #20
   %98 = icmp eq i32 %97, 0
-  br i1 %98, label %120, label %99
+  br i1 %98, label %121, label %99
 
 99:                                               ; preds = %96
   %100 = getelementptr inbounds i8, ptr %0, i64 44
@@ -1309,7 +1315,7 @@ define dso_local i32 @xt_check_match(ptr noundef %0, i32 noundef %1, i16 noundef
   %108 = load i16, ptr %107, align 4
   %109 = zext i16 %108 to i32
   %110 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.9, ptr noundef %104, ptr noundef %106, i32 noundef %109) #21
-  br label %120
+  br label %121
 
 111:                                              ; preds = %89
   %112 = getelementptr inbounds i8, ptr %8, i64 56
@@ -1320,16 +1326,18 @@ define dso_local i32 @xt_check_match(ptr noundef %0, i32 noundef %1, i16 noundef
 115:                                              ; preds = %111
   %116 = tail call i32 %113(ptr noundef %0) #20
   %117 = icmp slt i32 %116, 0
-  br i1 %117, label %120, label %118
+  br i1 %117, label %121, label %118
 
 118:                                              ; preds = %115
   %119 = icmp eq i32 %116, 0
-  %spec.select = select i1 %119, i32 0, i32 -5
-  br label %120
+  br i1 %119, label %120, label %121
 
-120:                                              ; preds = %118, %111, %115, %99, %96, %88, %47, %44, %19, %16
-  %121 = phi i32 [ -22, %88 ], [ -22, %19 ], [ -22, %16 ], [ -22, %47 ], [ -22, %44 ], [ -22, %99 ], [ -22, %96 ], [ %116, %115 ], [ 0, %111 ], [ %spec.select, %118 ]
-  ret i32 %121
+120:                                              ; preds = %118, %111
+  br label %121
+
+121:                                              ; preds = %120, %118, %115, %99, %96, %88, %47, %44, %19, %16
+  %122 = phi i32 [ -22, %88 ], [ 0, %120 ], [ -22, %19 ], [ -22, %16 ], [ -22, %47 ], [ -22, %44 ], [ -22, %99 ], [ -22, %96 ], [ %116, %115 ], [ -5, %118 ]
+  ret i32 %122
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -1638,7 +1646,7 @@ define dso_local i32 @xt_check_target(ptr noundef %0, i32 noundef %1, i16 nounde
 14:                                               ; preds = %4
   %15 = tail call i32 @___ratelimit(ptr noundef nonnull @xt_check_target._rs, ptr noundef nonnull @__func__.xt_check_target) #20
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %118, label %17
+  br i1 %16, label %119, label %17
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds i8, ptr %0, i64 44
@@ -1656,7 +1664,7 @@ define dso_local i32 @xt_check_target(ptr noundef %0, i32 noundef %1, i16 nounde
   %30 = add i32 %29, 7
   %31 = and i32 %30, -8
   %32 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.17, ptr noundef %22, ptr noundef %24, i32 noundef %27, i32 noundef %31, i32 noundef %1) #21
-  br label %118
+  br label %119
 
 33:                                               ; preds = %4
   %34 = getelementptr inbounds i8, ptr %8, i64 80
@@ -1674,7 +1682,7 @@ define dso_local i32 @xt_check_target(ptr noundef %0, i32 noundef %1, i16 nounde
 42:                                               ; preds = %37
   %43 = tail call i32 @___ratelimit(ptr noundef nonnull @xt_check_target._rs.18, ptr noundef nonnull @__func__.xt_check_target) #20
   %44 = icmp eq i32 %43, 0
-  br i1 %44, label %118, label %45
+  br i1 %44, label %119, label %45
 
 45:                                               ; preds = %42
   %46 = getelementptr inbounds i8, ptr %0, i64 44
@@ -1688,7 +1696,7 @@ define dso_local i32 @xt_check_target(ptr noundef %0, i32 noundef %1, i16 nounde
   %54 = load ptr, ptr %53, align 8
   %55 = load ptr, ptr %38, align 8
   %56 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.19, ptr noundef %50, ptr noundef %52, ptr noundef %54, ptr noundef %55) #21
-  br label %118
+  br label %119
 
 57:                                               ; preds = %37, %33
   %58 = getelementptr inbounds i8, ptr %8, i64 96
@@ -1734,7 +1742,7 @@ define dso_local i32 @xt_check_target(ptr noundef %0, i32 noundef %1, i16 nounde
 86:                                               ; preds = %70, %67
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #20
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #20
-  br label %118
+  br label %119
 
 87:                                               ; preds = %61, %57
   %88 = getelementptr inbounds i8, ptr %8, i64 100
@@ -1748,7 +1756,7 @@ define dso_local i32 @xt_check_target(ptr noundef %0, i32 noundef %1, i16 nounde
 94:                                               ; preds = %87
   %95 = tail call i32 @___ratelimit(ptr noundef nonnull @xt_check_target._rs.22, ptr noundef nonnull @__func__.xt_check_target) #20
   %96 = icmp eq i32 %95, 0
-  br i1 %96, label %118, label %97
+  br i1 %96, label %119, label %97
 
 97:                                               ; preds = %94
   %98 = getelementptr inbounds i8, ptr %0, i64 44
@@ -1762,7 +1770,7 @@ define dso_local i32 @xt_check_target(ptr noundef %0, i32 noundef %1, i16 nounde
   %106 = load i16, ptr %105, align 4
   %107 = zext i16 %106 to i32
   %108 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.23, ptr noundef %102, ptr noundef %104, i32 noundef %107) #21
-  br label %118
+  br label %119
 
 109:                                              ; preds = %87
   %110 = getelementptr inbounds i8, ptr %8, i64 56
@@ -1773,16 +1781,18 @@ define dso_local i32 @xt_check_target(ptr noundef %0, i32 noundef %1, i16 nounde
 113:                                              ; preds = %109
   %114 = tail call i32 %111(ptr noundef %0) #20
   %115 = icmp slt i32 %114, 0
-  br i1 %115, label %118, label %116
+  br i1 %115, label %119, label %116
 
 116:                                              ; preds = %113
   %117 = icmp eq i32 %114, 0
-  %spec.select = select i1 %117, i32 0, i32 -5
-  br label %118
+  br i1 %117, label %118, label %119
 
-118:                                              ; preds = %116, %109, %113, %97, %94, %86, %45, %42, %17, %14
-  %119 = phi i32 [ -22, %86 ], [ -22, %17 ], [ -22, %14 ], [ -22, %45 ], [ -22, %42 ], [ -22, %97 ], [ -22, %94 ], [ %114, %113 ], [ 0, %109 ], [ %spec.select, %116 ]
-  ret i32 %119
+118:                                              ; preds = %116, %109
+  br label %119
+
+119:                                              ; preds = %118, %116, %113, %97, %94, %86, %45, %42, %17, %14
+  %120 = phi i32 [ -22, %86 ], [ 0, %118 ], [ -22, %17 ], [ -22, %14 ], [ -22, %45 ], [ -22, %42 ], [ -22, %97 ], [ -22, %94 ], [ %114, %113 ], [ -5, %116 ]
+  ret i32 %120
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -3164,7 +3174,7 @@ define internal fastcc ptr @xt_mttg_seq_next(ptr %.104.val.168.val.592.val, ptr 
 8:                                                ; preds = %5, %2
   %9 = getelementptr inbounds i8, ptr %.112.val, i64 16
   %10 = load i8, ptr %9, align 8
-  switch i8 %10, label %42 [
+  switch i8 %10, label %43 [
     i8 0, label %11
     i8 1, label %17
     i8 2, label %36
@@ -3218,12 +3228,14 @@ define internal fastcc ptr @xt_mttg_seq_next(ptr %.104.val.168.val.592.val, ptr 
   store ptr %39, ptr %37, align 8
   %40 = load ptr, ptr %.112.val, align 8
   %41 = icmp eq ptr %39, %40
-  %spec.select = select i1 %41, ptr null, ptr %.112.val
-  br label %42
+  br i1 %41, label %43, label %42
 
-42:                                               ; preds = %36, %11, %17, %23, %8
-  %43 = phi ptr [ null, %8 ], [ %.112.val, %23 ], [ %.112.val, %17 ], [ %.112.val, %11 ], [ %spec.select, %36 ]
-  ret ptr %43
+42:                                               ; preds = %36, %23, %17, %11
+  br label %43
+
+43:                                               ; preds = %42, %36, %8
+  %44 = phi ptr [ %.112.val, %42 ], [ null, %36 ], [ null, %8 ]
+  ret ptr %44
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

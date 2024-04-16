@@ -1682,14 +1682,17 @@ land.lhs.true28:                                  ; preds = %if.end25
   br i1 %or.cond55, label %cleanup, label %land.lhs.true41
 
 if.end35:                                         ; preds = %if.end25
-  br i1 %tobool40.not, label %cleanup, label %land.lhs.true41
+  br i1 %tobool40.not, label %if.end46, label %land.lhs.true41
 
 land.lhs.true41:                                  ; preds = %if.end35, %land.lhs.true28
   %vtable.i = load ptr, ptr %10, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %12 = load ptr, ptr %vfn.i, align 8
   %call.i5961 = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(322) %10, ptr noundef nonnull align 8 dereferenceable(322) %11)
-          to label %cleanup unwind label %lpad
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %land.lhs.true41
+  br i1 %call.i5961, label %if.end46, label %cleanup
 
 lpad:                                             ; preds = %land.lhs.true41
   %13 = landingpad { ptr, i32 }
@@ -1707,8 +1710,11 @@ terminate.lpad.i:                                 ; preds = %lpad
 _ZN6icu_755MutexD2Ev.exit:                        ; preds = %lpad
   resume { ptr, i32 } %13
 
-cleanup:                                          ; preds = %land.lhs.true41, %if.end35, %land.lhs.true28
-  %switch = phi i1 [ false, %land.lhs.true28 ], [ true, %if.end35 ], [ %call.i5961, %land.lhs.true41 ]
+if.end46:                                         ; preds = %invoke.cont, %if.end35
+  br label %cleanup
+
+cleanup:                                          ; preds = %invoke.cont, %land.lhs.true28, %if.end46
+  %switch = phi i1 [ true, %if.end46 ], [ false, %land.lhs.true28 ], [ false, %invoke.cont ]
   invoke void @umtx_unlock_75(ptr noundef nonnull @_ZN6icu_75L15gFormatterMutexE)
           to label %_ZN6icu_755MutexD2Ev.exit63 unwind label %terminate.lpad.i62
 
@@ -5790,7 +5796,7 @@ if.end58:                                         ; preds = %if.end58thread-pre-
   %16 = phi i16 [ %.pr, %if.end58thread-pre-split ], [ %12, %invoke.cont36 ]
   %bestSkeleton.addr.0 = phi ptr [ %bestSkeleton.addr.0.ph, %if.end58thread-pre-split ], [ %bestSkeleton, %invoke.cont36 ]
   %cmp.i46 = icmp ugt i16 %16, 31
-  br i1 %cmp.i46, label %if.then62, label %cleanup
+  br i1 %cmp.i46, label %if.then62, label %if.end87
 
 if.then62:                                        ; preds = %invoke.cont, %if.end58
   %bestSkeleton.addr.069 = phi ptr [ %bestSkeleton.addr.0, %if.end58 ], [ %bestSkeleton, %invoke.cont ]
@@ -5851,17 +5857,19 @@ call.i.noexc61:                                   ; preds = %if.else
 
 if.end79:                                         ; preds = %call.i.noexc61, %invoke.cont77
   %tobool80.not = icmp eq ptr %extendedSkeleton, null
-  br i1 %tobool80.not, label %cleanup, label %land.lhs.true81
+  br i1 %tobool80.not, label %if.end87, label %land.lhs.true81
 
 land.lhs.true81:                                  ; preds = %if.end79
   %fUnion.i64 = getelementptr inbounds i8, ptr %extendedSkeleton, i64 8
   %24 = load i16, ptr %fUnion.i64, align 8
   %cmp.i65 = icmp ugt i16 %24, 31
-  %spec.select = zext i1 %cmp.i65 to i8
+  br i1 %cmp.i65, label %cleanup, label %if.end87
+
+if.end87:                                         ; preds = %if.end79, %land.lhs.true81, %if.end58
   br label %cleanup
 
-cleanup:                                          ; preds = %land.lhs.true81, %if.end58, %if.end79, %invoke.cont10, %invoke.cont22, %invoke.cont4
-  %retval.0 = phi i8 [ 0, %invoke.cont4 ], [ 0, %invoke.cont22 ], [ 0, %invoke.cont10 ], [ 0, %if.end79 ], [ 0, %if.end58 ], [ %spec.select, %land.lhs.true81 ]
+cleanup:                                          ; preds = %land.lhs.true81, %invoke.cont10, %invoke.cont22, %invoke.cont4, %if.end87
+  %retval.0 = phi i8 [ 0, %if.end87 ], [ 0, %invoke.cont4 ], [ 0, %invoke.cont22 ], [ 0, %invoke.cont10 ], [ 1, %land.lhs.true81 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %pattern) #16
   ret i8 %retval.0
 

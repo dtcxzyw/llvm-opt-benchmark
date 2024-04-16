@@ -52,7 +52,7 @@ define void @nstime_set_unset(ptr nocapture noundef writeonly %0) local_unnamed_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @nstime_is_unset(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define noundef zeroext i1 @nstime_is_unset(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = load i64, ptr %0, align 8
   %3 = icmp eq i64 %2, 0
   br i1 %3, label %4, label %8
@@ -61,10 +61,13 @@ define zeroext i1 @nstime_is_unset(ptr nocapture noundef readonly %0) local_unna
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 2147483647
-  br label %8
+  br i1 %7, label %9, label %8
 
 8:                                                ; preds = %4, %1
-  %.0 = phi i1 [ false, %1 ], [ %7, %4 ]
+  br label %9
+
+9:                                                ; preds = %4, %8
+  %.0 = phi i1 [ false, %8 ], [ true, %4 ]
   ret i1 %.0
 }
 
@@ -187,57 +190,56 @@ define void @nstime_sum(ptr nocapture noundef writeonly %0, ptr nocapture nounde
 define i32 @nstime_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
   %3 = load i64, ptr %0, align 8
   %4 = icmp eq i64 %3, 0
-  br i1 %4, label %nstime_is_unset.exit, label %nstime_is_unset.exit.thread
+  br i1 %4, label %5, label %nstime_is_unset.exit
 
-nstime_is_unset.exit:                             ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = load i32, ptr %5, align 8
-  %7 = icmp eq i32 %6, 2147483647
-  br i1 %7, label %8, label %nstime_is_unset.exit.thread
+5:                                                ; preds = %2
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = load i32, ptr %6, align 8
+  %8 = icmp eq i32 %7, 2147483647
+  br i1 %8, label %9, label %nstime_is_unset.exit
 
-8:                                                ; preds = %nstime_is_unset.exit
-  %9 = load i64, ptr %1, align 8
-  %10 = icmp eq i64 %9, 0
-  br i1 %10, label %nstime_is_unset.exit12, label %nstime_is_unset.exit12.thread
+9:                                                ; preds = %5
+  %10 = load i64, ptr %1, align 8
+  %11 = icmp eq i64 %10, 0
+  br i1 %11, label %12, label %nstime_is_unset.exit12
 
-nstime_is_unset.exit12:                           ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
-  %12 = load i32, ptr %11, align 8
-  %.fr = freeze i32 %12
-  %13 = icmp ne i32 %.fr, 2147483647
-  %spec.select = sext i1 %13 to i32
-  br label %nstime_is_unset.exit12.thread
+12:                                               ; preds = %9
+  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = load i32, ptr %13, align 8
+  %15 = icmp ne i32 %14, 2147483647
+  %spec.select = sext i1 %15 to i32
+  br label %nstime_is_unset.exit12
 
-nstime_is_unset.exit.thread:                      ; preds = %2, %nstime_is_unset.exit
-  %14 = load i64, ptr %1, align 8
-  %15 = icmp eq i64 %14, 0
-  br i1 %15, label %nstime_is_unset.exit14, label %nstime_is_unset.exit14.thread
+nstime_is_unset.exit:                             ; preds = %5, %2
+  %16 = load i64, ptr %1, align 8
+  %17 = icmp eq i64 %16, 0
+  br i1 %17, label %18, label %nstime_is_unset.exit14
 
-nstime_is_unset.exit14:                           ; preds = %nstime_is_unset.exit.thread
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
-  %17 = load i32, ptr %16, align 8
-  %18 = icmp eq i32 %17, 2147483647
-  br i1 %18, label %nstime_is_unset.exit12.thread, label %nstime_is_unset.exit14.thread
+18:                                               ; preds = %nstime_is_unset.exit
+  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = load i32, ptr %19, align 8
+  %21 = icmp eq i32 %20, 2147483647
+  br i1 %21, label %nstime_is_unset.exit12, label %nstime_is_unset.exit14
 
-nstime_is_unset.exit14.thread:                    ; preds = %nstime_is_unset.exit.thread, %nstime_is_unset.exit14
-  %19 = icmp eq i64 %3, %14
-  br i1 %19, label %20, label %26
+nstime_is_unset.exit14:                           ; preds = %18, %nstime_is_unset.exit
+  %22 = icmp eq i64 %3, %16
+  br i1 %22, label %23, label %29
 
-20:                                               ; preds = %nstime_is_unset.exit14.thread
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
-  %22 = load i32, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
-  %24 = load i32, ptr %23, align 8
-  %25 = sub i32 %22, %24
-  br label %nstime_is_unset.exit12.thread
+23:                                               ; preds = %nstime_is_unset.exit14
+  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = load i32, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %1, i64 8
+  %27 = load i32, ptr %26, align 8
+  %28 = sub i32 %25, %27
+  br label %nstime_is_unset.exit12
 
-26:                                               ; preds = %nstime_is_unset.exit14.thread
-  %27 = sub i64 %3, %14
-  %28 = trunc i64 %27 to i32
-  br label %nstime_is_unset.exit12.thread
+29:                                               ; preds = %nstime_is_unset.exit14
+  %30 = sub i64 %3, %16
+  %31 = trunc i64 %30 to i32
+  br label %nstime_is_unset.exit12
 
-nstime_is_unset.exit12.thread:                    ; preds = %nstime_is_unset.exit12, %8, %nstime_is_unset.exit14, %26, %20
-  %.0 = phi i32 [ %25, %20 ], [ %28, %26 ], [ 1, %nstime_is_unset.exit14 ], [ -1, %8 ], [ %spec.select, %nstime_is_unset.exit12 ]
+nstime_is_unset.exit12:                           ; preds = %12, %18, %9, %29, %23
+  %.0 = phi i32 [ %28, %23 ], [ %31, %29 ], [ -1, %9 ], [ 1, %18 ], [ %spec.select, %12 ]
   ret i32 %.0
 }
 

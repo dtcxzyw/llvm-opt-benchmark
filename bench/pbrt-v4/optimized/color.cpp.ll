@@ -221,23 +221,20 @@ if.end:                                           ; preds = %entry
 
 cond.true:                                        ; preds = %if.end
   %cmp16 = fcmp ogt float %rgb.sroa.0.0.vec.extract, %rgb.coerce1
-  br i1 %cmp16, label %if.end4.i25, label %_ZN4pbrt3RGBixEi.exit27
+  br i1 %cmp16, label %_ZN4pbrt3RGBixEi.exit27, label %if.then3.i22
 
 cond.false:                                       ; preds = %if.end
   %cmp19 = fcmp ogt float %rgb.sroa.0.4.vec.extract, %rgb.coerce1
   br i1 %cmp19, label %_ZN4pbrt3RGBixEi.exit27, label %if.then3.i22
 
-if.then3.i22:                                     ; preds = %cond.false
+if.then3.i22:                                     ; preds = %cond.true, %cond.false
   br label %_ZN4pbrt3RGBixEi.exit27
 
-if.end4.i25:                                      ; preds = %cond.true
-  br label %_ZN4pbrt3RGBixEi.exit27
-
-_ZN4pbrt3RGBixEi.exit27:                          ; preds = %cond.true, %cond.false, %if.then3.i22, %if.end4.i25
-  %rgb.coerce1.sink = phi float [ %rgb.sroa.0.4.vec.extract, %if.end4.i25 ], [ %rgb.coerce1, %cond.false ], [ %rgb.sroa.0.0.vec.extract, %cond.true ], [ %rgb.sroa.0.0.vec.extract, %if.then3.i22 ]
-  %rgb.sroa.0.4.vec.extract.sink = phi float [ %rgb.sroa.0.0.vec.extract, %if.end4.i25 ], [ %rgb.sroa.0.4.vec.extract, %cond.false ], [ %rgb.coerce1, %cond.true ], [ %rgb.coerce1, %if.then3.i22 ]
-  %cond21254262280 = phi i64 [ 0, %if.end4.i25 ], [ 1, %cond.false ], [ 2, %cond.true ], [ 2, %if.then3.i22 ]
-  %retval.0.i24.sroa.speculated = phi float [ %rgb.coerce1, %if.end4.i25 ], [ %rgb.sroa.0.0.vec.extract, %cond.false ], [ %rgb.sroa.0.4.vec.extract, %cond.true ], [ %rgb.sroa.0.4.vec.extract, %if.then3.i22 ]
+_ZN4pbrt3RGBixEi.exit27:                          ; preds = %cond.true, %cond.false, %if.then3.i22
+  %rgb.coerce1.sink = phi float [ %rgb.sroa.0.0.vec.extract, %if.then3.i22 ], [ %rgb.coerce1, %cond.false ], [ %rgb.sroa.0.4.vec.extract, %cond.true ]
+  %rgb.sroa.0.4.vec.extract.sink = phi float [ %rgb.coerce1, %if.then3.i22 ], [ %rgb.sroa.0.4.vec.extract, %cond.false ], [ %rgb.sroa.0.0.vec.extract, %cond.true ]
+  %cond21254262280 = phi i64 [ 2, %if.then3.i22 ], [ 1, %cond.false ], [ 0, %cond.true ]
+  %retval.0.i24.sroa.speculated = phi float [ %rgb.sroa.0.4.vec.extract, %if.then3.i22 ], [ %rgb.sroa.0.0.vec.extract, %cond.false ], [ %rgb.coerce1, %cond.true ]
   %mul24288 = fmul float %rgb.coerce1.sink, 6.300000e+01
   %div25289 = fdiv float %mul24288, %rgb.sroa.0.4.vec.extract.sink
   %mul29 = fmul float %retval.0.i24.sroa.speculated, 6.300000e+01

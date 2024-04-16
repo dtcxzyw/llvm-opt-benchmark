@@ -39,7 +39,7 @@ define dso_local zeroext i1 @efivar_validate(i64 %0, i64 %1, ptr noundef %2, ptr
   %9 = add i64 %8, 1
   %10 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %9, i32 noundef 3264) #16
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %47, label %12
+  br i1 %11, label %49, label %12
 
 12:                                               ; preds = %5
   %13 = tail call i64 @ucs2_as_utf8(ptr noundef nonnull %10, ptr noundef %2, i64 noundef %8) #15
@@ -49,10 +49,10 @@ define dso_local zeroext i1 @efivar_validate(i64 %0, i64 %1, ptr noundef %2, ptr
   %16 = getelementptr inbounds i8, ptr %7, i64 8
   br label %17
 
-17:                                               ; preds = %.thread.thread10, %12
-  %18 = phi i64 [ 0, %12 ], [ %42, %.thread.thread10 ]
-  %19 = phi ptr [ @.str.3, %12 ], [ %45, %.thread.thread10 ]
-  %20 = phi ptr [ @variable_validate, %12 ], [ %43, %.thread.thread10 ]
+17:                                               ; preds = %.thread6, %12
+  %18 = phi i64 [ 0, %12 ], [ %44, %.thread6 ]
+  %19 = phi ptr [ @.str.3, %12 ], [ %47, %.thread6 ]
+  %20 = phi ptr [ @variable_validate, %12 ], [ %45, %.thread6 ]
   %21 = load i64, ptr %20, align 16
   %22 = getelementptr inbounds i8, ptr %20, i64 8
   %23 = load i64, ptr %22, align 8
@@ -66,59 +66,62 @@ define dso_local zeroext i1 @efivar_validate(i64 %0, i64 %1, ptr noundef %2, ptr
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   %25 = icmp eq i32 %24, 0
-  br i1 %25, label %.preheader, label %.thread.thread10
+  br i1 %25, label %.preheader, label %.thread6
 
-.preheader:                                       ; preds = %17, %33
-  %26 = phi i32 [ %37, %33 ], [ 0, %17 ]
+.preheader:                                       ; preds = %17, %36
+  %26 = phi i32 [ %37, %36 ], [ 0, %17 ]
   %27 = sext i32 %26 to i64
   %28 = getelementptr i8, ptr %19, i64 %27
   %29 = load i8, ptr %28, align 1
   switch i8 %29, label %30 [
-    i8 42, label %.thread.thread
-    i8 0, label %.thread
+    i8 42, label %.thread4
+    i8 0, label %38
   ]
 
 30:                                               ; preds = %.preheader
   %31 = icmp ugt i64 %9, %27
-  br i1 %31, label %33, label %.thread.thread10
+  br i1 %31, label %32, label %.thread6
 
-.thread:                                          ; preds = %.preheader
-  %32 = icmp eq i64 %9, %27
-  br i1 %32, label %.thread.thread, label %.thread.thread10
+32:                                               ; preds = %30
+  %33 = getelementptr i8, ptr %10, i64 %27
+  %34 = load i8, ptr %33, align 1
+  %35 = icmp eq i8 %29, %34
+  br i1 %35, label %36, label %.thread6
 
-33:                                               ; preds = %30
-  %34 = getelementptr i8, ptr %10, i64 %27
-  %35 = load i8, ptr %34, align 1
-  %36 = icmp eq i8 %29, %35
+36:                                               ; preds = %32
   %37 = add i32 %26, 1
-  br i1 %36, label %.preheader, label %.thread.thread10, !llvm.loop !5
+  br label %.preheader, !llvm.loop !5
 
-.thread.thread:                                   ; preds = %.thread, %.preheader
-  %38 = getelementptr inbounds i8, ptr %20, i64 24
-  %39 = load ptr, ptr %38, align 8
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %.loopexit, label %.thread8
+38:                                               ; preds = %.preheader
+  %39 = icmp eq i64 %9, %27
+  br i1 %39, label %.thread4, label %.thread6
 
-.thread8:                                         ; preds = %.thread.thread
+.thread4:                                         ; preds = %38, %.preheader
+  %40 = getelementptr inbounds i8, ptr %20, i64 24
+  %41 = load ptr, ptr %40, align 8
+  %42 = icmp eq ptr %41, null
+  br i1 %42, label %.loopexit, label %.thread10
+
+.thread10:                                        ; preds = %.thread4
   tail call void @kfree(ptr noundef nonnull %10) #15
-  %41 = tail call zeroext i1 %39(ptr noundef %2, i32 noundef %26, ptr noundef %3, i64 noundef %4) #15
-  br label %47
+  %43 = tail call zeroext i1 %41(ptr noundef %2, i32 noundef %26, ptr noundef %3, i64 noundef %4) #15
+  br label %49
 
-.thread.thread10:                                 ; preds = %33, %30, %17, %.thread
-  %42 = add nuw nsw i64 %18, 1
-  %43 = getelementptr [17 x %struct.variable_validate], ptr @variable_validate, i64 0, i64 %42
-  %44 = getelementptr inbounds i8, ptr %43, i64 16
-  %45 = load ptr, ptr %44, align 16
-  %46 = icmp eq i64 %42, 16
-  br i1 %46, label %.loopexit, label %17, !llvm.loop !7
+.thread6:                                         ; preds = %32, %30, %17, %38
+  %44 = add nuw nsw i64 %18, 1
+  %45 = getelementptr [17 x %struct.variable_validate], ptr @variable_validate, i64 0, i64 %44
+  %46 = getelementptr inbounds i8, ptr %45, i64 16
+  %47 = load ptr, ptr %46, align 16
+  %48 = icmp eq i64 %44, 16
+  br i1 %48, label %.loopexit, label %17, !llvm.loop !7
 
-.loopexit:                                        ; preds = %.thread.thread10, %.thread.thread
+.loopexit:                                        ; preds = %.thread6, %.thread4
   tail call void @kfree(ptr noundef nonnull %10) #15
-  br label %47
+  br label %49
 
-47:                                               ; preds = %.thread8, %.loopexit, %5
-  %48 = phi i1 [ true, %.loopexit ], [ false, %5 ], [ %41, %.thread8 ]
-  ret i1 %48
+49:                                               ; preds = %.thread10, %.loopexit, %5
+  %50 = phi i1 [ true, %.loopexit ], [ false, %5 ], [ %43, %.thread10 ]
+  ret i1 %50
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -144,11 +147,11 @@ define dso_local zeroext i1 @efivar_variable_is_removable(i64 %0, i64 %1, ptr no
   %8 = getelementptr inbounds i8, ptr %6, i64 8
   br label %9
 
-9:                                                ; preds = %.thread.thread4, %4
-  %10 = phi i64 [ 0, %4 ], [ %31, %.thread.thread4 ]
-  %11 = phi i1 [ true, %4 ], [ %36, %.thread.thread4 ]
-  %12 = phi ptr [ @.str.3, %4 ], [ %34, %.thread.thread4 ]
-  %13 = phi ptr [ @variable_validate, %4 ], [ %32, %.thread.thread4 ]
+9:                                                ; preds = %.thread4, %4
+  %10 = phi i64 [ 0, %4 ], [ %32, %.thread4 ]
+  %11 = phi i1 [ true, %4 ], [ %37, %.thread4 ]
+  %12 = phi ptr [ @.str.3, %4 ], [ %35, %.thread4 ]
+  %13 = phi ptr [ @variable_validate, %4 ], [ %33, %.thread4 ]
   %14 = load i64, ptr %13, align 16
   %15 = getelementptr inbounds i8, ptr %13, i64 8
   %16 = load i64, ptr %15, align 8
@@ -162,46 +165,46 @@ define dso_local zeroext i1 @efivar_variable_is_removable(i64 %0, i64 %1, ptr no
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %.preheader, label %.thread.thread4
+  br i1 %18, label %.preheader, label %.thread4
 
-.preheader:                                       ; preds = %9, %26
-  %19 = phi i32 [ %30, %26 ], [ 0, %9 ]
+.preheader:                                       ; preds = %9, %25
+  %19 = phi i32 [ %29, %25 ], [ 0, %9 ]
   %20 = sext i32 %19 to i64
   %21 = getelementptr i8, ptr %12, i64 %20
   %22 = load i8, ptr %21, align 1
   switch i8 %22, label %23 [
-    i8 42, label %.thread.thread
-    i8 0, label %.thread
+    i8 42, label %.thread2
+    i8 0, label %30
   ]
 
 23:                                               ; preds = %.preheader
   %24 = icmp ult i64 %20, %3
-  br i1 %24, label %26, label %.thread.thread4
+  br i1 %24, label %25, label %.thread4
 
-.thread:                                          ; preds = %.preheader
-  %25 = icmp eq i64 %20, %3
-  br i1 %25, label %.thread.thread, label %.thread.thread4
+25:                                               ; preds = %23
+  %26 = getelementptr i8, ptr %2, i64 %20
+  %27 = load i8, ptr %26, align 1
+  %28 = icmp eq i8 %22, %27
+  %29 = add i32 %19, 1
+  br i1 %28, label %.preheader, label %.thread4, !llvm.loop !5
 
-26:                                               ; preds = %23
-  %27 = getelementptr i8, ptr %2, i64 %20
-  %28 = load i8, ptr %27, align 1
-  %29 = icmp eq i8 %22, %28
-  %30 = add i32 %19, 1
-  br i1 %29, label %.preheader, label %.thread.thread4, !llvm.loop !5
+30:                                               ; preds = %.preheader
+  %31 = icmp eq i64 %20, %3
+  br i1 %31, label %.thread2, label %.thread4
 
-.thread.thread4:                                  ; preds = %26, %23, %.thread, %9
-  %31 = add nuw nsw i64 %10, 1
-  %32 = getelementptr [17 x %struct.variable_validate], ptr @variable_validate, i64 0, i64 %31
-  %33 = getelementptr inbounds i8, ptr %32, i64 16
-  %34 = load ptr, ptr %33, align 16
-  %35 = load i8, ptr %34, align 1
-  %36 = icmp ne i8 %35, 0
-  %37 = icmp eq i64 %31, 16
-  br i1 %37, label %.thread.thread, label %9, !llvm.loop !9
+.thread4:                                         ; preds = %25, %23, %30, %9
+  %32 = add nuw nsw i64 %10, 1
+  %33 = getelementptr [17 x %struct.variable_validate], ptr @variable_validate, i64 0, i64 %32
+  %34 = getelementptr inbounds i8, ptr %33, i64 16
+  %35 = load ptr, ptr %34, align 16
+  %36 = load i8, ptr %35, align 1
+  %37 = icmp ne i8 %36, 0
+  %38 = icmp eq i64 %32, 16
+  br i1 %38, label %.thread2, label %9, !llvm.loop !9
 
-.thread.thread:                                   ; preds = %.thread, %.thread.thread4, %.preheader
-  %38 = phi i1 [ %11, %.preheader ], [ %11, %.thread ], [ %36, %.thread.thread4 ]
-  ret i1 %38
+.thread2:                                         ; preds = %.thread4, %30, %.preheader
+  %39 = phi i1 [ %11, %.preheader ], [ %37, %.thread4 ], [ %11, %30 ]
+  ret i1 %39
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

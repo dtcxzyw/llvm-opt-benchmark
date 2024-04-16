@@ -50,7 +50,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.43 = private unnamed_addr constant [4 x i8] c"Dec\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_print_ex_fp(ptr noundef %fp, ptr noundef %x, i64 noundef %nmflag, i64 noundef %cflag) local_unnamed_addr #0 {
+define hidden noundef i32 @X509_print_ex_fp(ptr noundef %fp, ptr noundef %x, i64 noundef %nmflag, i64 noundef %cflag) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @BIO_s_file() #4
   %call1 = tail call ptr @BIO_new(ptr noundef %call) #4
@@ -81,7 +81,7 @@ declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, 
 declare i32 @BIO_set_fp(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_print_ex(ptr noundef %bp, ptr noundef %x, i64 noundef %nmflags, i64 noundef %cflag) local_unnamed_addr #0 {
+define hidden noundef i32 @X509_print_ex(ptr noundef %bp, ptr noundef %x, i64 noundef %nmflags, i64 noundef %cflag) local_unnamed_addr #0 {
 entry:
   %and = and i64 %nmflags, 983040
   %cmp = icmp eq i64 %and, 262144
@@ -273,7 +273,7 @@ if.end120:                                        ; preds = %if.end115
   ]
 
 if.then.i:                                        ; preds = %if.end120
-  %call.i91 = tail call i32 @ASN1_UTCTIME_print(ptr noundef %bp, ptr noundef nonnull %18), !range !7
+  %call.i90 = tail call i32 @ASN1_UTCTIME_print(ptr noundef %bp, ptr noundef nonnull %18), !range !7
   br label %ASN1_TIME_print.exit
 
 if.then3.i:                                       ; preds = %if.end120
@@ -281,12 +281,12 @@ if.then3.i:                                       ; preds = %if.end120
   br label %ASN1_TIME_print.exit
 
 ASN1_TIME_print.exit.thread:                      ; preds = %if.end120
-  %call6.i92 = tail call i32 @BIO_write(ptr noundef %bp, ptr noundef nonnull @.str.27, i32 noundef 14) #4
+  %call6.i91 = tail call i32 @BIO_write(ptr noundef %bp, ptr noundef nonnull @.str.27, i32 noundef 14) #4
   br label %if.end252
 
 ASN1_TIME_print.exit:                             ; preds = %if.then.i, %if.then3.i
-  %retval.0.i90 = phi i32 [ %call.i91, %if.then.i ], [ %call4.i, %if.then3.i ]
-  %tobool123.not = icmp eq i32 %retval.0.i90, 0
+  %retval.0.i89 = phi i32 [ %call.i90, %if.then.i ], [ %call4.i, %if.then3.i ]
+  %tobool123.not = icmp eq i32 %retval.0.i89, 0
   br i1 %tobool123.not, label %if.end252, label %if.end125
 
 if.end125:                                        ; preds = %ASN1_TIME_print.exit
@@ -441,25 +441,27 @@ if.then233:                                       ; preds = %if.end230
 if.end240:                                        ; preds = %if.then233, %if.end230
   %and241 = and i64 %cflag, 1024
   %tobool242.not = icmp eq i64 %and241, 0
-  br i1 %tobool242.not, label %if.then243, label %if.end252
+  br i1 %tobool242.not, label %if.then243, label %if.end248
 
 if.then243:                                       ; preds = %if.end240
   %aux = getelementptr inbounds i8, ptr %x, i64 168
   %33 = load ptr, ptr %aux, align 8
   %call244 = tail call i32 @X509_CERT_AUX_print(ptr noundef %bp, ptr noundef %33, i32 noundef 0) #4
-  %tobool245.not = icmp ne i32 %call244, 0
-  %spec.select89 = zext i1 %tobool245.not to i32
+  %tobool245.not = icmp eq i32 %call244, 0
+  br i1 %tobool245.not, label %if.end252, label %if.end248
+
+if.end248:                                        ; preds = %if.then243, %if.end240
   br label %if.end252
 
-if.end252:                                        ; preds = %for.body, %land.lhs.true.i, %if.end.i, %if.then80, %ASN1_TIME_print.exit.thread, %if.then243, %if.then5, %if.end8, %if.then16, %if.then26, %if.then40, %if.else51, %X509_signature_print.exit, %if.then89, %if.end95, %if.end101, %if.then110, %if.end115, %ASN1_TIME_print.exit, %if.end125, %if.end130, %if.end136, %if.then145, %if.end151, %if.end157, %if.then166, %if.end171, %if.end176, %if.end181, %if.then200, %if.end205, %if.then213, %if.end218, %if.then233, %if.end240
-  %ret.0 = phi i32 [ 0, %if.then233 ], [ 0, %if.then200 ], [ 0, %if.then213 ], [ 0, %if.end218 ], [ 0, %if.end205 ], [ 0, %if.then166 ], [ 0, %if.end171 ], [ 0, %if.end176 ], [ 0, %if.end181 ], [ 0, %if.then145 ], [ 0, %if.end151 ], [ 0, %if.end157 ], [ 0, %if.then110 ], [ 0, %if.end115 ], [ 0, %if.end125 ], [ 0, %if.end136 ], [ 0, %if.end130 ], [ 0, %ASN1_TIME_print.exit ], [ 0, %if.then89 ], [ 0, %if.end95 ], [ 0, %if.end101 ], [ 0, %X509_signature_print.exit ], [ 0, %if.then26 ], [ 0, %if.then40 ], [ 0, %if.else51 ], [ 0, %if.then16 ], [ 0, %if.then5 ], [ 0, %if.end8 ], [ 1, %if.end240 ], [ %spec.select89, %if.then243 ], [ 0, %ASN1_TIME_print.exit.thread ], [ 0, %if.then80 ], [ 0, %if.end.i ], [ 0, %land.lhs.true.i ], [ 0, %for.body ]
+if.end252:                                        ; preds = %for.body, %land.lhs.true.i, %if.end.i, %if.then80, %ASN1_TIME_print.exit.thread, %if.end248, %if.then5, %if.end8, %if.then16, %if.then26, %if.then40, %if.else51, %X509_signature_print.exit, %if.then89, %if.end95, %if.end101, %if.then110, %if.end115, %ASN1_TIME_print.exit, %if.end125, %if.end130, %if.end136, %if.then145, %if.end151, %if.end157, %if.then166, %if.end171, %if.end176, %if.end181, %if.then200, %if.end205, %if.then213, %if.end218, %if.then233, %if.then243
+  %ret.0 = phi i32 [ 1, %if.end248 ], [ 0, %if.then243 ], [ 0, %if.then233 ], [ 0, %if.then200 ], [ 0, %if.then213 ], [ 0, %if.end218 ], [ 0, %if.end205 ], [ 0, %if.then166 ], [ 0, %if.end171 ], [ 0, %if.end176 ], [ 0, %if.end181 ], [ 0, %if.then145 ], [ 0, %if.end151 ], [ 0, %if.end157 ], [ 0, %if.then110 ], [ 0, %if.end115 ], [ 0, %if.end125 ], [ 0, %if.end136 ], [ 0, %if.end130 ], [ 0, %ASN1_TIME_print.exit ], [ 0, %if.then89 ], [ 0, %if.end95 ], [ 0, %if.end101 ], [ 0, %X509_signature_print.exit ], [ 0, %if.then26 ], [ 0, %if.then40 ], [ 0, %if.else51 ], [ 0, %if.then16 ], [ 0, %if.then5 ], [ 0, %if.end8 ], [ 0, %ASN1_TIME_print.exit.thread ], [ 0, %if.then80 ], [ 0, %if.end.i ], [ 0, %land.lhs.true.i ], [ 0, %for.body ]
   ret i32 %ret.0
 }
 
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_print_fp(ptr noundef %fp, ptr noundef %x) local_unnamed_addr #0 {
+define hidden noundef i32 @X509_print_fp(ptr noundef %fp, ptr noundef %x) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @BIO_s_file() #4
   %call1.i = tail call ptr @BIO_new(ptr noundef %call.i) #4
@@ -482,7 +484,7 @@ X509_print_ex_fp.exit:                            ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_print(ptr noundef %bp, ptr noundef %x) local_unnamed_addr #0 {
+define hidden noundef i32 @X509_print(ptr noundef %bp, ptr noundef %x) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @X509_print_ex(ptr noundef %bp, ptr noundef %x, i64 noundef 0, i64 noundef 0), !range !7
   ret i32 %call
@@ -699,7 +701,7 @@ declare i32 @OBJ_obj2nid(ptr noundef) local_unnamed_addr #1
 declare i32 @x509_print_rsa_pss_params(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ASN1_STRING_print(ptr noundef %bp, ptr noundef readonly %v) local_unnamed_addr #0 {
+define hidden noundef i32 @ASN1_STRING_print(ptr noundef %bp, ptr noundef readonly %v) local_unnamed_addr #0 {
 entry:
   %buf = alloca [80 x i8], align 16
   %cmp = icmp eq ptr %v, null
@@ -710,7 +712,7 @@ if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %data, align 8
   %1 = load i32, ptr %v, align 8
   %cmp122 = icmp sgt i32 %1, 0
-  br i1 %cmp122, label %for.body, label %return
+  br i1 %cmp122, label %for.body, label %if.end46
 
 for.body:                                         ; preds = %if.end, %for.inc
   %2 = phi i32 [ %4, %for.inc ], [ %1, %if.end ]
@@ -761,16 +763,18 @@ for.inc:                                          ; preds = %if.then30.for.inc_c
 
 for.end:                                          ; preds = %for.inc
   %cmp37 = icmp sgt i32 %n.1, 0
-  br i1 %cmp37, label %if.then39, label %return
+  br i1 %cmp37, label %if.then39, label %if.end46
 
 if.then39:                                        ; preds = %for.end
   %call41 = call i32 @BIO_write(ptr noundef %bp, ptr noundef nonnull %buf, i32 noundef %n.1) #4
-  %cmp42 = icmp sgt i32 %call41, 0
-  %spec.select = zext i1 %cmp42 to i32
+  %cmp42 = icmp slt i32 %call41, 1
+  br i1 %cmp42, label %return, label %if.end46
+
+if.end46:                                         ; preds = %if.end, %if.then39, %for.end
   br label %return
 
-return:                                           ; preds = %if.then30, %if.end, %if.then39, %for.end, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 1, %for.end ], [ %spec.select, %if.then39 ], [ 1, %if.end ], [ 0, %if.then30 ]
+return:                                           ; preds = %if.then30, %if.then39, %entry, %if.end46
+  %retval.0 = phi i32 [ 1, %if.end46 ], [ 0, %entry ], [ 0, %if.then39 ], [ 0, %if.then30 ]
   ret i32 %retval.0
 }
 

@@ -8662,14 +8662,17 @@ entry:
   %cmp11.i = icmp ne ptr %1, null
   %2 = select i1 %cmp.i.not, i1 true, i1 %cmp11.i
   tail call void @llvm.assume(i1 %2)
-  br i1 %cmp.i.not, label %return, label %if.then
+  br i1 %cmp.i.not, label %if.end4, label %if.then
 
 if.then:                                          ; preds = %entry
   %call2 = tail call noundef zeroext i1 @_ZNK22protobuf_test_messages6proto218TestAllTypesProto213IsInitializedEv(ptr noundef nonnull align 8 dereferenceable(3152) %1)
+  br i1 %call2, label %if.end4, label %return
+
+if.end4:                                          ; preds = %if.then, %entry
   br label %return
 
-return:                                           ; preds = %if.then, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ %call2, %if.then ]
+return:                                           ; preds = %if.then, %if.end4
+  %retval.0 = phi i1 [ true, %if.end4 ], [ false, %if.then ]
   ret i1 %retval.0
 }
 
@@ -8684,41 +8687,41 @@ entry:
 if.end:                                           ; preds = %entry
   %current_size_.i.i = getelementptr inbounds i8, ptr %this, i64 320
   %0 = load i32, ptr %current_size_.i.i, align 8
-  %cmp.i53 = icmp slt i32 %0, 1
-  br i1 %cmp.i53, label %if.end4, label %for.body.i.lr.ph
+  %cmp.i58 = icmp slt i32 %0, 1
+  br i1 %cmp.i58, label %if.end4, label %for.body.i.lr.ph
 
 for.body.i.lr.ph:                                 ; preds = %if.end
   %rep_.i.i = getelementptr inbounds i8, ptr %this, i64 328
   %1 = zext nneg i32 %0 to i64
   br label %for.body.i
 
-for.body.i:                                       ; preds = %for.body.i.lr.ph, %for.cond.i.backedge
-  %indvars.iv = phi i64 [ %1, %for.body.i.lr.ph ], [ %indvars.iv.next, %for.cond.i.backedge ]
+for.body.i:                                       ; preds = %for.body.i.lr.ph, %_ZNK22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage13IsInitializedEv.exit38
+  %indvars.iv = phi i64 [ %1, %for.body.i.lr.ph ], [ %indvars.iv.next, %_ZNK22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage13IsInitializedEv.exit38 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %2 = load ptr, ptr %rep_.i.i, align 8
   %elements.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %arrayidx.i.i = getelementptr inbounds [1 x ptr], ptr %elements.i.i, i64 0, i64 %indvars.iv.next
   %3 = load ptr, ptr %arrayidx.i.i, align 8
-  %_has_bits_.i.i26 = getelementptr inbounds i8, ptr %3, i64 16
-  %4 = load i32, ptr %_has_bits_.i.i26, align 4
-  %and.i.i27 = and i32 %4, 1
-  %cmp.i.i28.not = icmp eq i32 %and.i.i27, 0
-  %corecursive_10.i.i29 = getelementptr inbounds i8, ptr %3, i64 24
-  %5 = load ptr, ptr %corecursive_10.i.i29, align 8
-  %cmp11.i.i30 = icmp ne ptr %5, null
-  %6 = select i1 %cmp.i.i28.not, i1 true, i1 %cmp11.i.i30
+  %_has_bits_.i.i27 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = load i32, ptr %_has_bits_.i.i27, align 4
+  %and.i.i28 = and i32 %4, 1
+  %cmp.i.i29.not = icmp eq i32 %and.i.i28, 0
+  %corecursive_10.i.i30 = getelementptr inbounds i8, ptr %3, i64 24
+  %5 = load ptr, ptr %corecursive_10.i.i30, align 8
+  %cmp11.i.i31 = icmp ne ptr %5, null
+  %6 = select i1 %cmp.i.i29.not, i1 true, i1 %cmp11.i.i31
   tail call void @llvm.assume(i1 %6)
-  br i1 %cmp.i.i28.not, label %for.cond.i.backedge, label %if.then.i33
+  br i1 %cmp.i.i29.not, label %_ZNK22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage13IsInitializedEv.exit38, label %if.then.i35
 
-if.then.i33:                                      ; preds = %for.body.i
-  %call2.i35 = tail call noundef zeroext i1 @_ZNK22protobuf_test_messages6proto218TestAllTypesProto213IsInitializedEv(ptr noundef nonnull align 8 dereferenceable(3152) %5)
-  br i1 %call2.i35, label %for.cond.i.backedge, label %return
+if.then.i35:                                      ; preds = %for.body.i
+  %call2.i37 = tail call noundef zeroext i1 @_ZNK22protobuf_test_messages6proto218TestAllTypesProto213IsInitializedEv(ptr noundef nonnull align 8 dereferenceable(3152) %5)
+  br i1 %call2.i37, label %_ZNK22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage13IsInitializedEv.exit38, label %return
 
-for.cond.i.backedge:                              ; preds = %if.then.i33, %for.body.i
+_ZNK22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage13IsInitializedEv.exit38: ; preds = %for.body.i, %if.then.i35
   %cmp.i = icmp ult i64 %indvars.iv, 2
   br i1 %cmp.i, label %if.end4, label %for.body.i, !llvm.loop !31
 
-if.end4:                                          ; preds = %for.cond.i.backedge, %if.end
+if.end4:                                          ; preds = %_ZNK22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage13IsInitializedEv.exit38, %if.end
   %map_string_nested_message_ = getelementptr inbounds i8, ptr %this, i64 1880
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %it.i)
   %vtable.i = load ptr, ptr %map_string_nested_message_, align 8
@@ -8752,14 +8755,14 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22
   %arrayidx2.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %11, i64 %xor.i.i.i.i.i.i
   %13 = load ptr, ptr %arrayidx2.i.i.i.i.i.i, align 8, !noalias !35
   %cmp3.i.i.not.i.i.i.i = icmp eq ptr %12, %13
-  br i1 %cmp3.i.i.not.i.i.i.i, label %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE5beginEv.exit, label %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE5beginEv.exit.thread64
+  br i1 %cmp3.i.i.not.i.i.i.i, label %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE5beginEv.exit, label %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE5beginEv.exit.thread69
 
-_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE5beginEv.exit.thread64: ; preds = %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i
+_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE5beginEv.exit.thread69: ; preds = %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i
   store ptr %12, ptr %it.i, align 8, !alias.scope !38
-  %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i67 = getelementptr inbounds i8, ptr %it.i, i64 8
-  store ptr %8, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i67, align 8, !alias.scope !38
-  %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i68 = getelementptr inbounds i8, ptr %it.i, i64 16
-  store i64 %ref.tmp2.sroa.4.0.i, ptr %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i68, align 8, !alias.scope !38
+  %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i72 = getelementptr inbounds i8, ptr %it.i, i64 8
+  store ptr %8, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i72, align 8, !alias.scope !38
+  %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i73 = getelementptr inbounds i8, ptr %it.i, i64 16
+  store i64 %ref.tmp2.sroa.4.0.i, ptr %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i73, align 8, !alias.scope !38
   br label %for.body.i4.preheader
 
 for.inc.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
@@ -8777,39 +8780,39 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22
   store ptr %8, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i, align 8, !alias.scope !38
   %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i = getelementptr inbounds i8, ptr %it.i, i64 16
   store i64 %ref.tmp2.sroa.4.0.i, ptr %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i, align 8, !alias.scope !38
-  %cmp.i.i.i47.not55 = icmp eq ptr %15, null
-  br i1 %cmp.i.i.i47.not55, label %if.end7, label %for.body.i4.preheader
+  %cmp.i.i.i50.not60 = icmp eq ptr %15, null
+  br i1 %cmp.i.i.i50.not60, label %if.end7, label %for.body.i4.preheader
 
-for.body.i4.preheader:                            ; preds = %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE5beginEv.exit.thread64, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE5beginEv.exit
-  %.ph = phi ptr [ %15, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE5beginEv.exit ], [ %12, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE5beginEv.exit.thread64 ]
+for.body.i4.preheader:                            ; preds = %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE5beginEv.exit.thread69, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE5beginEv.exit
+  %.ph = phi ptr [ %15, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE5beginEv.exit ], [ %12, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE5beginEv.exit.thread69 ]
   br label %for.body.i4
 
 for.body.i4:                                      ; preds = %for.body.i4.preheader, %for.inc.i
   %16 = phi ptr [ %.pr, %for.inc.i ], [ %.ph, %for.body.i4.preheader ]
   %v_.i.i.i = getelementptr inbounds i8, ptr %16, i64 8
   %17 = load ptr, ptr %v_.i.i.i, align 8
-  %_has_bits_.i.i37 = getelementptr inbounds i8, ptr %17, i64 48
-  %18 = load i32, ptr %_has_bits_.i.i37, align 4
-  %and.i.i38 = and i32 %18, 1
-  %cmp.i.i39.not = icmp eq i32 %and.i.i38, 0
-  %corecursive_10.i.i40 = getelementptr inbounds i8, ptr %17, i64 56
-  %19 = load ptr, ptr %corecursive_10.i.i40, align 8
-  %cmp11.i.i41 = icmp ne ptr %19, null
-  %20 = select i1 %cmp.i.i39.not, i1 true, i1 %cmp11.i.i41
+  %_has_bits_.i.i39 = getelementptr inbounds i8, ptr %17, i64 48
+  %18 = load i32, ptr %_has_bits_.i.i39, align 4
+  %and.i.i40 = and i32 %18, 1
+  %cmp.i.i41.not = icmp eq i32 %and.i.i40, 0
+  %corecursive_10.i.i42 = getelementptr inbounds i8, ptr %17, i64 56
+  %19 = load ptr, ptr %corecursive_10.i.i42, align 8
+  %cmp11.i.i43 = icmp ne ptr %19, null
+  %20 = select i1 %cmp.i.i41.not, i1 true, i1 %cmp11.i.i43
   call void @llvm.assume(i1 %20)
-  br i1 %cmp.i.i39.not, label %for.inc.i, label %_ZNK22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage13IsInitializedEv.exit46
+  br i1 %cmp.i.i41.not, label %for.inc.i, label %if.then.i47
 
-_ZNK22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage13IsInitializedEv.exit46: ; preds = %for.body.i4
+if.then.i47:                                      ; preds = %for.body.i4
   %call2.i = call noundef zeroext i1 @_ZNK22protobuf_test_messages6proto218TestAllTypesProto213IsInitializedEv(ptr noundef nonnull align 8 dereferenceable(3152) %19)
   br i1 %call2.i, label %for.inc.i, label %_ZN6google8protobuf8internal17AllAreInitializedIN22protobuf_test_messages6proto255TestAllTypesProto2_MapStringNestedMessageEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_32TestAllTypesProto2_NestedMessageELNS1_14WireFormatLite9FieldTypeE9ELSE_11ELi0EEEbRKNS1_8MapFieldIT_T0_T1_XT2_EXT3_EXT4_EEE.exit
 
-for.inc.i:                                        ; preds = %for.body.i4, %_ZNK22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage13IsInitializedEv.exit46
+for.inc.i:                                        ; preds = %for.body.i4, %if.then.i47
   %call.i = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE8InnerMap13iterator_baseIKNSB_12KeyValuePairEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %it.i)
   %.pr = load ptr, ptr %it.i, align 8
-  %cmp.i.i.i47.not = icmp eq ptr %.pr, null
-  br i1 %cmp.i.i.i47.not, label %if.end7, label %for.body.i4, !llvm.loop !42
+  %cmp.i.i.i50.not = icmp eq ptr %.pr, null
+  br i1 %cmp.i.i.i50.not, label %if.end7, label %for.body.i4, !llvm.loop !42
 
-_ZN6google8protobuf8internal17AllAreInitializedIN22protobuf_test_messages6proto255TestAllTypesProto2_MapStringNestedMessageEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_32TestAllTypesProto2_NestedMessageELNS1_14WireFormatLite9FieldTypeE9ELSE_11ELi0EEEbRKNS1_8MapFieldIT_T0_T1_XT2_EXT3_EXT4_EEE.exit: ; preds = %_ZNK22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage13IsInitializedEv.exit46
+_ZN6google8protobuf8internal17AllAreInitializedIN22protobuf_test_messages6proto255TestAllTypesProto2_MapStringNestedMessageEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_32TestAllTypesProto2_NestedMessageELNS1_14WireFormatLite9FieldTypeE9ELSE_11ELi0EEEbRKNS1_8MapFieldIT_T0_T1_XT2_EXT3_EXT4_EEE.exit: ; preds = %if.then.i47
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %it.i)
   br label %return
 
@@ -8836,18 +8839,18 @@ if.then9:                                         ; preds = %if.end7
   %cmp11.i.i = icmp ne ptr %25, null
   %26 = select i1 %cmp.i.i.not, i1 true, i1 %cmp11.i.i
   call void @llvm.assume(i1 %26)
-  br i1 %cmp.i.i.not, label %if.end13, label %_ZNK22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage13IsInitializedEv.exit
+  br i1 %cmp.i.i.not, label %if.end13, label %if.then.i
 
-_ZNK22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage13IsInitializedEv.exit: ; preds = %if.then9
+if.then.i:                                        ; preds = %if.then9
   %call2.i8 = call noundef zeroext i1 @_ZNK22protobuf_test_messages6proto218TestAllTypesProto213IsInitializedEv(ptr noundef nonnull align 8 dereferenceable(3152) %25)
-  br i1 %call2.i8, label %_ZNK22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage13IsInitializedEv.exit.if.end13_crit_edge, label %return
+  br i1 %call2.i8, label %if.then.i.if.end13_crit_edge, label %return
 
-_ZNK22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage13IsInitializedEv.exit.if.end13_crit_edge: ; preds = %_ZNK22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage13IsInitializedEv.exit
+if.then.i.if.end13_crit_edge:                     ; preds = %if.then.i
   %.pre = load i32, ptr %_has_bits_.i, align 8
   br label %if.end13
 
-if.end13:                                         ; preds = %_ZNK22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage13IsInitializedEv.exit.if.end13_crit_edge, %if.then9, %if.end7
-  %27 = phi i32 [ %.pre, %_ZNK22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage13IsInitializedEv.exit.if.end13_crit_edge ], [ %21, %if.then9 ], [ %21, %if.end7 ]
+if.end13:                                         ; preds = %if.then.i.if.end13_crit_edge, %if.then9, %if.end7
+  %27 = phi i32 [ %.pre, %if.then.i.if.end13_crit_edge ], [ %21, %if.then9 ], [ %21, %if.end7 ]
   %and.i10 = and i32 %27, 256
   %cmp.i11.not = icmp eq i32 %and.i10, 0
   %recursive_message_10.i = getelementptr inbounds i8, ptr %this, i64 2888
@@ -8879,14 +8882,17 @@ if.then23:                                        ; preds = %if.end19
   %cmp11.i.i19 = icmp ne ptr %33, null
   %34 = select i1 %cmp.i.i17.not, i1 true, i1 %cmp11.i.i19
   call void @llvm.assume(i1 %34)
-  br i1 %cmp.i.i17.not, label %return, label %if.then.i22
+  br i1 %cmp.i.i17.not, label %_ZNK22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage13IsInitializedEv.exit26.thread, label %if.then.i23
 
-if.then.i22:                                      ; preds = %if.then23
-  %call2.i24 = call noundef zeroext i1 @_ZNK22protobuf_test_messages6proto218TestAllTypesProto213IsInitializedEv(ptr noundef nonnull align 8 dereferenceable(3152) %33)
+if.then.i23:                                      ; preds = %if.then23
+  %call2.i25 = call noundef zeroext i1 @_ZNK22protobuf_test_messages6proto218TestAllTypesProto213IsInitializedEv(ptr noundef nonnull align 8 dereferenceable(3152) %33)
+  br i1 %call2.i25, label %_ZNK22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage13IsInitializedEv.exit26.thread, label %return
+
+_ZNK22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage13IsInitializedEv.exit26.thread: ; preds = %if.then23, %if.then.i23
   br label %return
 
-return:                                           ; preds = %if.then.i33, %if.then.i22, %if.then23, %_ZN6google8protobuf8internal17AllAreInitializedIN22protobuf_test_messages6proto255TestAllTypesProto2_MapStringNestedMessageEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_32TestAllTypesProto2_NestedMessageELNS1_14WireFormatLite9FieldTypeE9ELSE_11ELi0EEEbRKNS1_8MapFieldIT_T0_T1_XT2_EXT3_EXT4_EEE.exit, %if.end19, %if.then15, %_ZNK22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage13IsInitializedEv.exit, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZN6google8protobuf8internal17AllAreInitializedIN22protobuf_test_messages6proto255TestAllTypesProto2_MapStringNestedMessageEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_32TestAllTypesProto2_NestedMessageELNS1_14WireFormatLite9FieldTypeE9ELSE_11ELi0EEEbRKNS1_8MapFieldIT_T0_T1_XT2_EXT3_EXT4_EEE.exit ], [ false, %_ZNK22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage13IsInitializedEv.exit ], [ false, %if.then15 ], [ true, %if.end19 ], [ true, %if.then23 ], [ %call2.i24, %if.then.i22 ], [ false, %if.then.i33 ]
+return:                                           ; preds = %if.then.i35, %if.end19, %_ZNK22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage13IsInitializedEv.exit26.thread, %if.then.i23, %if.then.i, %_ZN6google8protobuf8internal17AllAreInitializedIN22protobuf_test_messages6proto255TestAllTypesProto2_MapStringNestedMessageEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_32TestAllTypesProto2_NestedMessageELNS1_14WireFormatLite9FieldTypeE9ELSE_11ELi0EEEbRKNS1_8MapFieldIT_T0_T1_XT2_EXT3_EXT4_EEE.exit, %if.then15, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZN6google8protobuf8internal17AllAreInitializedIN22protobuf_test_messages6proto255TestAllTypesProto2_MapStringNestedMessageEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_32TestAllTypesProto2_NestedMessageELNS1_14WireFormatLite9FieldTypeE9ELSE_11ELi0EEEbRKNS1_8MapFieldIT_T0_T1_XT2_EXT3_EXT4_EEE.exit ], [ false, %if.then15 ], [ false, %if.then.i ], [ false, %if.then.i23 ], [ true, %_ZNK22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage13IsInitializedEv.exit26.thread ], [ true, %if.end19 ], [ false, %if.then.i35 ]
   ret i1 %retval.0
 }
 
@@ -69459,14 +69465,17 @@ cond.true.i:                                      ; preds = %entry
   %cmp11.i.i.i = icmp ne ptr %2, null
   %3 = select i1 %cmp.i.not.i.i, i1 true, i1 %cmp11.i.i.i
   tail call void @llvm.assume(i1 %3)
-  br i1 %cmp.i.not.i.i, label %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE11EN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE13IsInitializedEPS7_.exit, label %if.then.i.i
+  br i1 %cmp.i.not.i.i, label %if.end4.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %cond.true.i
   %call2.i.i = tail call noundef zeroext i1 @_ZNK22protobuf_test_messages6proto218TestAllTypesProto213IsInitializedEv(ptr noundef nonnull align 8 dereferenceable(3152) %2)
+  br i1 %call2.i.i, label %if.end4.i.i, label %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE11EN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE13IsInitializedEPS7_.exit
+
+if.end4.i.i:                                      ; preds = %if.then.i.i, %cond.true.i
   br label %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE11EN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE13IsInitializedEPS7_.exit
 
-_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE11EN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE13IsInitializedEPS7_.exit: ; preds = %entry, %cond.true.i, %if.then.i.i
-  %cond.i = phi i1 [ false, %entry ], [ true, %cond.true.i ], [ %call2.i.i, %if.then.i.i ]
+_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE11EN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE13IsInitializedEPS7_.exit: ; preds = %entry, %if.then.i.i, %if.end4.i.i
+  %cond.i = phi i1 [ false, %entry ], [ true, %if.end4.i.i ], [ false, %if.then.i.i ]
   ret i1 %cond.i
 }
 

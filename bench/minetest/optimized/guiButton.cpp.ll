@@ -2985,7 +2985,7 @@ if.then129:                                       ; preds = %if.then125
   %83 = load ptr, ptr %vfn.i213, align 8
   %call.i214 = call noundef ptr %83(ptr noundef nonnull align 8 dereferenceable(8) %82)
   %cmp.i215 = icmp eq ptr %call.i214, %this
-  br i1 %cmp.i215, label %_ZNK9GUIButton9isHoveredEv.exit221.thread247, label %lor.rhs.i216
+  br i1 %cmp.i215, label %_ZNK9GUIButton9isHoveredEv.exit221.thread, label %lor.rhs.i216
 
 lor.rhs.i216:                                     ; preds = %if.then129
   %cmp2.not.i217 = icmp eq ptr %call.i214, null
@@ -2996,11 +2996,13 @@ _ZNK9GUIButton9isHoveredEv.exit221:               ; preds = %lor.rhs.i216
   %84 = load ptr, ptr %Parent.i.i219, align 8, !tbaa !56
   %.fr = freeze ptr %84
   %cmp4.i220 = icmp eq ptr %.fr, %this
-  %spec.select = select i1 %cmp4.i220, i32 2, i32 3
+  br i1 %cmp4.i220, label %_ZNK9GUIButton9isHoveredEv.exit221.thread, label %_ZNK9GUIButton9isHoveredEv.exit221.thread247
+
+_ZNK9GUIButton9isHoveredEv.exit221.thread:        ; preds = %_ZNK9GUIButton9isHoveredEv.exit221, %if.then129
   br label %_ZNK9GUIButton9isHoveredEv.exit221.thread247
 
-_ZNK9GUIButton9isHoveredEv.exit221.thread247:     ; preds = %_ZNK9GUIButton9isHoveredEv.exit221, %if.then129, %lor.rhs.i216
-  %85 = phi i32 [ 3, %lor.rhs.i216 ], [ 2, %if.then129 ], [ %spec.select, %_ZNK9GUIButton9isHoveredEv.exit221 ]
+_ZNK9GUIButton9isHoveredEv.exit221.thread247:     ; preds = %_ZNK9GUIButton9isHoveredEv.exit221.thread, %_ZNK9GUIButton9isHoveredEv.exit221, %lor.rhs.i216
+  %85 = phi i32 [ 2, %_ZNK9GUIButton9isHoveredEv.exit221.thread ], [ 3, %_ZNK9GUIButton9isHoveredEv.exit221 ], [ 3, %lor.rhs.i216 ]
   %HoverTime = getelementptr inbounds i8, ptr %this, i64 7356
   %86 = load i32, ptr %HoverTime, align 4, !tbaa !95
   call void @_ZN9GUIButton10drawSpriteEN3irr3gui17EGUI_BUTTON_STATEEjRKNS0_4core8vector2dIiEE(ptr noundef nonnull align 8 dereferenceable(7452) %this, i32 noundef %85, i32 noundef %86, ptr noundef nonnull align 4 dereferenceable(8) %pos130)

@@ -3568,16 +3568,18 @@ emitter_json_key_prefix.exit:                     ; preds = %emitter_json_key_pr
   %5 = phi i32 [ %.pre5, %emitter_json_key_prefix.exit.loopexit ], [ %emitter.val, %if.then.i ], [ %4, %if.then5.i ]
   %.fr = freeze i32 %5
   %cmp = icmp eq i32 %.fr, 1
-  %spec.select = select i1 %cmp, ptr @.str.29, ptr @.str.31
-  br label %emitter_json_key_prefix.exit.thread
+  br i1 %cmp, label %emitter_json_key_prefix.exit.thread, label %6
 
-emitter_json_key_prefix.exit.thread:              ; preds = %emitter_json_key_prefix.exit, %if.end4.i
-  %6 = phi ptr [ @.str.29, %if.end4.i ], [ %spec.select, %emitter_json_key_prefix.exit ]
-  tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.30, ptr noundef %json_key, ptr noundef nonnull %6)
+emitter_json_key_prefix.exit.thread:              ; preds = %if.end4.i, %emitter_json_key_prefix.exit
+  br label %6
+
+6:                                                ; preds = %emitter_json_key_prefix.exit, %emitter_json_key_prefix.exit.thread
+  %7 = phi ptr [ @.str.29, %emitter_json_key_prefix.exit.thread ], [ @.str.31, %emitter_json_key_prefix.exit ]
+  tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.30, ptr noundef %json_key, ptr noundef nonnull %7)
   store i8 1, ptr %emitted_key.i, align 1
   br label %if.end
 
-if.end:                                           ; preds = %emitter_json_key_prefix.exit.thread, %entry
+if.end:                                           ; preds = %6, %entry
   ret void
 }
 

@@ -2058,9 +2058,9 @@ _ZN5arrow6StatusD2Ev.exit240:                     ; preds = %do.body116
   br label %cleanup143
 
 cleanup143:                                       ; preds = %_ZN5arrow6Status11DeleteStateEv.exit.i.i, %cleanup74, %_ZN5arrow6StatusD2Ev.exit240, %_ZN5arrow6StatusD2Ev.exit163, %_ZN5arrow6StatusD2Ev.exit, %_ZN5arrow6StatusC2ERKS0_.exit, %if.end112
-  %cond = phi i1 [ false, %_ZN5arrow6StatusC2ERKS0_.exit ], [ true, %if.end112 ], [ false, %_ZN5arrow6StatusD2Ev.exit ], [ false, %_ZN5arrow6StatusD2Ev.exit163 ], [ %cmp.i241, %_ZN5arrow6StatusD2Ev.exit240 ], [ false, %cleanup74 ], [ false, %_ZN5arrow6Status11DeleteStateEv.exit.i.i ]
-  %input.1 = phi ptr [ %input.0, %_ZN5arrow6StatusC2ERKS0_.exit ], [ %add.ptr80, %if.end112 ], [ %input.0, %_ZN5arrow6StatusD2Ev.exit ], [ %add.ptr80, %_ZN5arrow6StatusD2Ev.exit163 ], [ %add.ptr80, %_ZN5arrow6StatusD2Ev.exit240 ], [ %input.0, %cleanup74 ], [ %input.0, %_ZN5arrow6Status11DeleteStateEv.exit.i.i ]
-  %nbytes.addr.1 = phi i64 [ %nbytes.addr.0, %_ZN5arrow6StatusC2ERKS0_.exit ], [ %sub82, %if.end112 ], [ %nbytes.addr.0, %_ZN5arrow6StatusD2Ev.exit ], [ %sub82, %_ZN5arrow6StatusD2Ev.exit163 ], [ %sub82, %_ZN5arrow6StatusD2Ev.exit240 ], [ %nbytes.addr.0, %cleanup74 ], [ %nbytes.addr.0, %_ZN5arrow6Status11DeleteStateEv.exit.i.i ]
+  %cond = phi i1 [ false, %_ZN5arrow6StatusC2ERKS0_.exit ], [ false, %_ZN5arrow6StatusD2Ev.exit ], [ false, %_ZN5arrow6StatusD2Ev.exit163 ], [ true, %if.end112 ], [ %cmp.i241, %_ZN5arrow6StatusD2Ev.exit240 ], [ false, %cleanup74 ], [ false, %_ZN5arrow6Status11DeleteStateEv.exit.i.i ]
+  %input.1 = phi ptr [ %input.0, %_ZN5arrow6StatusC2ERKS0_.exit ], [ %input.0, %_ZN5arrow6StatusD2Ev.exit ], [ %add.ptr80, %_ZN5arrow6StatusD2Ev.exit163 ], [ %add.ptr80, %if.end112 ], [ %add.ptr80, %_ZN5arrow6StatusD2Ev.exit240 ], [ %input.0, %cleanup74 ], [ %input.0, %_ZN5arrow6Status11DeleteStateEv.exit.i.i ]
+  %nbytes.addr.1 = phi i64 [ %nbytes.addr.0, %_ZN5arrow6StatusC2ERKS0_.exit ], [ %nbytes.addr.0, %_ZN5arrow6StatusD2Ev.exit ], [ %sub82, %_ZN5arrow6StatusD2Ev.exit163 ], [ %sub82, %if.end112 ], [ %sub82, %_ZN5arrow6StatusD2Ev.exit240 ], [ %nbytes.addr.0, %cleanup74 ], [ %nbytes.addr.0, %_ZN5arrow6Status11DeleteStateEv.exit.i.i ]
   %68 = load ptr, ptr %ref.tmp, align 8
   %cmp.not.i.i278 = icmp eq ptr %68, null
   br i1 %cmp.not.i.i278, label %_ZN5arrow6ResultINS_4util10Compressor14CompressResultEED2Ev.exit314, label %delete.notnull.i.i.i279

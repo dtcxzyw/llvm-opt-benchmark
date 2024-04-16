@@ -66,16 +66,18 @@ entry:
 if.then:                                          ; preds = %entry
   %call = tail call i32 @isatty(i32 noundef 2) #9
   %tobool1.not = icmp eq i32 %call, 0
-  br i1 %tobool1.not, label %if.end5.sink.split, label %land.lhs.true
+  br i1 %tobool1.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then
   %call2 = tail call i32 @is_terminal_dumb() #9
   %tobool3.not = icmp eq i32 %call2, 0
-  %spec.select = select i1 %tobool3.not, ptr @.str, ptr @.str.1
+  br i1 %tobool3.not, label %if.end5.sink.split, label %if.else
+
+if.else:                                          ; preds = %land.lhs.true, %if.then
   br label %if.end5.sink.split
 
-if.end5.sink.split:                               ; preds = %land.lhs.true, %if.then
-  %.str.sink = phi ptr [ @.str.1, %if.then ], [ %spec.select, %land.lhs.true ]
+if.end5.sink.split:                               ; preds = %land.lhs.true, %if.else
+  %.str.sink = phi ptr [ @.str.1, %if.else ], [ @.str, %land.lhs.true ]
   store ptr %.str.sink, ptr @demultiplex_sideband.suffix, align 8
   br label %if.end5
 

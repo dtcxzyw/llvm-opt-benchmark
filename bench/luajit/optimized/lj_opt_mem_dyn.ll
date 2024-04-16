@@ -2502,7 +2502,7 @@ if.end11:                                         ; preds = %if.end
   br label %retry
 
 retry:                                            ; preds = %while.end179, %if.end11
-  %4 = phi ptr [ %57, %while.end179 ], [ %1, %if.end11 ]
+  %4 = phi ptr [ %56, %while.end179 ], [ %1, %if.end11 ]
   %xr.0 = phi ptr [ %arrayidx183, %while.end179 ], [ %arrayidx, %if.end11 ]
   %lim.0 = phi i32 [ %retval.0.i, %while.end179 ], [ %conv, %if.end11 ]
   %ref.0 = phi i32 [ %ref.3.lcssa, %while.end179 ], [ %conv13, %if.end11 ]
@@ -2687,14 +2687,14 @@ if.end.i:                                         ; preds = %cond.false.i, %cond
   br i1 %29, label %if.then21.i, label %doemit
 
 if.then21.i:                                      ; preds = %if.end.i, %land.lhs.true.i
-  %ir.addr.0145.i = phi ptr [ %arrayidx16.i, %if.end.i ], [ %xr.1, %land.lhs.true.i ]
-  %ofs.0144.i = phi i64 [ %cond.i, %if.end.i ], [ 0, %land.lhs.true.i ]
-  %30 = load i16, ptr %ir.addr.0145.i, align 8
+  %ir.addr.0142.i = phi ptr [ %arrayidx16.i, %if.end.i ], [ %xr.1, %land.lhs.true.i ]
+  %ofs.0141.i = phi i64 [ %cond.i, %if.end.i ], [ 0, %land.lhs.true.i ]
+  %30 = load i16, ptr %ir.addr.0142.i, align 8
   %idxprom25.i = zext i16 %30 to i64
   %arrayidx26.i = getelementptr inbounds %union.IRIns, ptr %14, i64 %idxprom25.i
   %o27.i = getelementptr inbounds i8, ptr %arrayidx26.i, i64 5
   %31 = load i8, ptr %o27.i, align 1
-  switch i8 %31, label %if.end56.i [
+  switch i8 %31, label %if.else54.i [
     i8 36, label %land.lhs.true31.i
     i8 41, label %land.lhs.true46.i
   ]
@@ -2703,14 +2703,13 @@ land.lhs.true31.i:                                ; preds = %if.then21.i
   %op232.i = getelementptr inbounds i8, ptr %arrayidx26.i, i64 2
   %32 = load i16, ptr %op232.i, align 2
   %cmp34.i = icmp sgt i16 %32, -1
-  br i1 %cmp34.i, label %if.then36.i, label %if.end56.i
+  br i1 %cmp34.i, label %if.then36.i, label %if.else54.i
 
 if.then36.i:                                      ; preds = %land.lhs.true31.i
   %idxprom40.i = zext nneg i16 %32 to i64
   %arrayidx41.i = getelementptr inbounds %union.IRIns, ptr %14, i64 %idxprom40.i
   %33 = load i32, ptr %arrayidx41.i, align 8
   %34 = zext i32 %33 to i64
-  %.pre140.i = load i16, ptr %arrayidx26.i, align 8
   br label %if.end56.i
 
 land.lhs.true46.i:                                ; preds = %if.then21.i
@@ -2718,57 +2717,57 @@ land.lhs.true46.i:                                ; preds = %if.then21.i
   %op249.i = getelementptr inbounds i8, ptr %arrayidx26.i, i64 2
   %36 = load i16, ptr %op249.i, align 2
   %cmp51.i = icmp eq i16 %35, %36
-  %37 = select i1 %cmp51.i, i16 %35, i16 %30
-  %spec.select.i = select i1 %cmp51.i, ptr %arrayidx26.i, ptr %ir.addr.0145.i
-  %spec.select42.i = zext i1 %cmp51.i to i64
+  br i1 %cmp51.i, label %if.end56.i, label %if.else54.i
+
+if.else54.i:                                      ; preds = %land.lhs.true46.i, %land.lhs.true31.i, %if.then21.i
   br label %if.end56.i
 
-if.end56.i:                                       ; preds = %land.lhs.true46.i, %if.then36.i, %land.lhs.true31.i, %if.then21.i
-  %38 = phi i16 [ %.pre140.i, %if.then36.i ], [ %37, %land.lhs.true46.i ], [ %30, %land.lhs.true31.i ], [ %30, %if.then21.i ]
-  %ir1.0.i = phi ptr [ %arrayidx26.i, %if.then36.i ], [ %spec.select.i, %land.lhs.true46.i ], [ %ir.addr.0145.i, %land.lhs.true31.i ], [ %ir.addr.0145.i, %if.then21.i ]
-  %shift.0.i = phi i64 [ %34, %if.then36.i ], [ %spec.select42.i, %land.lhs.true46.i ], [ 0, %land.lhs.true31.i ], [ 0, %if.then21.i ]
-  %idxprom60.i = zext i16 %38 to i64
+if.end56.i:                                       ; preds = %if.else54.i, %land.lhs.true46.i, %if.then36.i
+  %ir1.0.i = phi ptr [ %arrayidx26.i, %if.then36.i ], [ %ir.addr.0142.i, %if.else54.i ], [ %arrayidx26.i, %land.lhs.true46.i ]
+  %shift.0.i = phi i64 [ %34, %if.then36.i ], [ 0, %if.else54.i ], [ 1, %land.lhs.true46.i ]
+  %37 = load i16, ptr %ir1.0.i, align 8
+  %idxprom60.i = zext i16 %37 to i64
   %arrayidx61.i = getelementptr inbounds %union.IRIns, ptr %14, i64 %idxprom60.i
   %o62.i = getelementptr inbounds i8, ptr %arrayidx61.i, i64 5
-  %39 = load i8, ptr %o62.i, align 1
-  %cmp64.i = icmp eq i8 %39, 41
+  %38 = load i8, ptr %o62.i, align 1
+  %cmp64.i = icmp eq i8 %38, 41
   br i1 %cmp64.i, label %land.lhs.true66.i, label %doemit
 
 land.lhs.true66.i:                                ; preds = %if.end56.i
   %t.i = getelementptr inbounds i8, ptr %arrayidx61.i, i64 4
-  %40 = load i8, ptr %t.i, align 4
-  %41 = and i8 %40, 31
-  %cmp68.i = icmp eq i8 %41, 19
+  %39 = load i8, ptr %t.i, align 4
+  %40 = and i8 %39, 31
+  %cmp68.i = icmp eq i8 %40, 19
   br i1 %cmp68.i, label %land.lhs.true70.i, label %doemit
 
 land.lhs.true70.i:                                ; preds = %land.lhs.true66.i
   %op271.i = getelementptr inbounds i8, ptr %arrayidx61.i, i64 2
-  %42 = load i16, ptr %op271.i, align 2
-  %cmp73.i = icmp sgt i16 %42, -1
+  %41 = load i16, ptr %op271.i, align 2
+  %cmp73.i = icmp sgt i16 %41, -1
   br i1 %cmp73.i, label %if.then75.i, label %doemit
 
 if.then75.i:                                      ; preds = %land.lhs.true70.i
-  %idxprom79.i = zext nneg i16 %42 to i64
+  %idxprom79.i = zext nneg i16 %41 to i64
   %arrayidx80.i = getelementptr inbounds %union.IRIns, ptr %14, i64 %idxprom79.i
-  %43 = load i32, ptr %arrayidx80.i, align 8
-  %conv81.i = sext i32 %43 to i64
+  %42 = load i32, ptr %arrayidx80.i, align 8
+  %conv81.i = sext i32 %42 to i64
   %shl.i = shl i64 %conv81.i, %shift.0.i
-  %add.i = add nsw i64 %shl.i, %ofs.0144.i
-  %44 = load i16, ptr %arrayidx61.i, align 8
-  %conv85.i = zext i16 %44 to i32
-  %cmp86.not.i = icmp eq ptr %ir1.0.i, %ir.addr.0145.i
+  %add.i = add nsw i64 %shl.i, %ofs.0141.i
+  %43 = load i16, ptr %arrayidx61.i, align 8
+  %conv85.i = zext i16 %43 to i32
+  %cmp86.not.i = icmp eq ptr %ir1.0.i, %ir.addr.0142.i
   br i1 %cmp86.not.i, label %if.end102.i, label %land.lhs.true88.i
 
 land.lhs.true88.i:                                ; preds = %if.then75.i
   %o89.i = getelementptr inbounds i8, ptr %ir1.0.i, i64 5
-  %45 = load i8, ptr %o89.i, align 1
-  %cmp93.i = icmp eq i8 %45, 36
+  %44 = load i8, ptr %o89.i, align 1
+  %cmp93.i = icmp eq i8 %44, 36
   br i1 %cmp93.i, label %cond.true95.split.i, label %cond.false98.split.i
 
 cond.true95.split.i:                              ; preds = %land.lhs.true88.i
   %op296.i = getelementptr inbounds i8, ptr %ir1.0.i, i64 2
-  %46 = load i16, ptr %op296.i, align 2
-  %conv97.i = zext i16 %46 to i32
+  %45 = load i16, ptr %op296.i, align 2
+  %conv97.i = zext i16 %45 to i32
   %arrayidx.i.i = getelementptr inbounds i8, ptr %J, i64 474
   %spec.select.i.i = tail call i32 @llvm.umin.i32(i32 %conv97.i, i32 %conv85.i)
   %spec.select12.i.i = tail call i32 @llvm.umax.i32(i32 %conv97.i, i32 %conv85.i)
@@ -2782,15 +2781,15 @@ while.body.i.i:                                   ; preds = %cond.true95.split.i
   %ref.0.in16.i.i = phi i16 [ %ref.0.in.i.i, %if.end16.i.i ], [ %ref.0.in13.i.i, %cond.true95.split.i ]
   %idxprom5.i.i = zext i16 %ref.0.in16.i.i to i64
   %arrayidx6.i.i = getelementptr inbounds %union.IRIns, ptr %14, i64 %idxprom5.i.i
-  %47 = load i16, ptr %arrayidx6.i.i, align 8
-  %conv8.i.i = zext i16 %47 to i32
+  %46 = load i16, ptr %arrayidx6.i.i, align 8
+  %conv8.i.i = zext i16 %46 to i32
   %cmp9.i.i = icmp eq i32 %spec.select12.i.i, %conv8.i.i
   br i1 %cmp9.i.i, label %land.lhs.true.i.i, label %if.end16.i.i
 
 land.lhs.true.i.i:                                ; preds = %while.body.i.i
   %op211.i.i = getelementptr inbounds i8, ptr %arrayidx6.i.i, i64 2
-  %48 = load i16, ptr %op211.i.i, align 2
-  %conv12.i.i = zext i16 %48 to i32
+  %47 = load i16, ptr %op211.i.i, align 2
+  %conv12.i.i = zext i16 %47 to i32
   %cmp13.i.i = icmp eq i32 %spec.select.i.i, %conv12.i.i
   br i1 %cmp13.i.i, label %if.end102.i, label %if.end16.i.i
 
@@ -2802,119 +2801,119 @@ if.end16.i.i:                                     ; preds = %land.lhs.true.i.i, 
   br i1 %cmp2.i.i, label %while.body.i.i, label %doemit, !llvm.loop !33
 
 cond.false98.split.i:                             ; preds = %land.lhs.true88.i
-  %chain.i44.i = getelementptr inbounds i8, ptr %J, i64 402
-  %idxprom.i.i = zext i8 %45 to i64
-  %arrayidx.i45.i = getelementptr inbounds [101 x i16], ptr %chain.i44.i, i64 0, i64 %idxprom.i.i
-  %ref.0.in13.i46.i = load i16, ptr %arrayidx.i45.i, align 2
-  %cmp215.i48.i = icmp ult i16 %44, %ref.0.in13.i46.i
-  br i1 %cmp215.i48.i, label %while.body.i52.i, label %doemit
+  %chain.i42.i = getelementptr inbounds i8, ptr %J, i64 402
+  %idxprom.i.i = zext i8 %44 to i64
+  %arrayidx.i43.i = getelementptr inbounds [101 x i16], ptr %chain.i42.i, i64 0, i64 %idxprom.i.i
+  %ref.0.in13.i44.i = load i16, ptr %arrayidx.i43.i, align 2
+  %cmp215.i46.i = icmp ult i16 %43, %ref.0.in13.i44.i
+  br i1 %cmp215.i46.i, label %while.body.i50.i, label %doemit
 
-while.body.i52.i:                                 ; preds = %cond.false98.split.i, %if.end16.i59.i
-  %ref.0.in16.i54.i = phi i16 [ %ref.0.in.i61.i, %if.end16.i59.i ], [ %ref.0.in13.i46.i, %cond.false98.split.i ]
-  %idxprom5.i55.i = zext i16 %ref.0.in16.i54.i to i64
-  %arrayidx6.i56.i = getelementptr inbounds %union.IRIns, ptr %14, i64 %idxprom5.i55.i
-  %49 = load i16, ptr %arrayidx6.i56.i, align 8
-  %cmp9.i58.i = icmp eq i16 %44, %49
-  br i1 %cmp9.i58.i, label %land.lhs.true.i64.i, label %if.end16.i59.i
+while.body.i50.i:                                 ; preds = %cond.false98.split.i, %if.end16.i57.i
+  %ref.0.in16.i52.i = phi i16 [ %ref.0.in.i59.i, %if.end16.i57.i ], [ %ref.0.in13.i44.i, %cond.false98.split.i ]
+  %idxprom5.i53.i = zext i16 %ref.0.in16.i52.i to i64
+  %arrayidx6.i54.i = getelementptr inbounds %union.IRIns, ptr %14, i64 %idxprom5.i53.i
+  %48 = load i16, ptr %arrayidx6.i54.i, align 8
+  %cmp9.i56.i = icmp eq i16 %43, %48
+  br i1 %cmp9.i56.i, label %land.lhs.true.i62.i, label %if.end16.i57.i
 
-land.lhs.true.i64.i:                              ; preds = %while.body.i52.i
-  %op211.i65.i = getelementptr inbounds i8, ptr %arrayidx6.i56.i, i64 2
-  %50 = load i16, ptr %op211.i65.i, align 2
-  %cmp13.i67.i = icmp eq i16 %44, %50
-  br i1 %cmp13.i67.i, label %if.end102.loopexit130.i, label %if.end16.i59.i
+land.lhs.true.i62.i:                              ; preds = %while.body.i50.i
+  %op211.i63.i = getelementptr inbounds i8, ptr %arrayidx6.i54.i, i64 2
+  %49 = load i16, ptr %op211.i63.i, align 2
+  %cmp13.i65.i = icmp eq i16 %43, %49
+  br i1 %cmp13.i65.i, label %if.end102.loopexit128.i, label %if.end16.i57.i
 
-if.end16.i59.i:                                   ; preds = %land.lhs.true.i64.i, %while.body.i52.i
-  %prev.i60.i = getelementptr inbounds i8, ptr %arrayidx6.i56.i, i64 6
-  %ref.0.in.i61.i = load i16, ptr %prev.i60.i, align 2
-  %cmp2.i63.i = icmp ult i16 %44, %ref.0.in.i61.i
-  br i1 %cmp2.i63.i, label %while.body.i52.i, label %doemit, !llvm.loop !33
+if.end16.i57.i:                                   ; preds = %land.lhs.true.i62.i, %while.body.i50.i
+  %prev.i58.i = getelementptr inbounds i8, ptr %arrayidx6.i54.i, i64 6
+  %ref.0.in.i59.i = load i16, ptr %prev.i58.i, align 2
+  %cmp2.i61.i = icmp ult i16 %43, %ref.0.in.i59.i
+  br i1 %cmp2.i61.i, label %while.body.i50.i, label %doemit, !llvm.loop !33
 
-if.end102.loopexit130.i:                          ; preds = %land.lhs.true.i64.i
-  %ref.017.i53.le.i = zext i16 %ref.0.in16.i54.i to i32
+if.end102.loopexit128.i:                          ; preds = %land.lhs.true.i62.i
+  %ref.017.i51.le.i = zext i16 %ref.0.in16.i52.i to i32
   br label %if.end102.i
 
-if.end102.i:                                      ; preds = %land.lhs.true.i.i, %if.end102.loopexit130.i, %if.then75.i
-  %idxref.0.i = phi i32 [ %conv85.i, %if.then75.i ], [ %ref.017.i53.le.i, %if.end102.loopexit130.i ], [ %ref.017.i.i, %land.lhs.true.i.i ]
-  %op2103.i = getelementptr inbounds i8, ptr %ir.addr.0145.i, i64 2
-  %51 = load i16, ptr %op2103.i, align 2
-  %conv104.i = zext i16 %51 to i32
-  %arrayidx.i70.i = getelementptr inbounds i8, ptr %J, i64 484
-  %spec.select.i71.i = tail call i32 @llvm.umin.i32(i32 %conv104.i, i32 %idxref.0.i)
-  %spec.select12.i72.i = tail call i32 @llvm.umax.i32(i32 %conv104.i, i32 %idxref.0.i)
-  %ref.0.in13.i73.i = load i16, ptr %arrayidx.i70.i, align 2
-  %ref.014.i74.i = zext i16 %ref.0.in13.i73.i to i32
-  %cmp215.i75.i = icmp ult i32 %spec.select12.i72.i, %ref.014.i74.i
-  br i1 %cmp215.i75.i, label %while.body.i79.i, label %doemit
+if.end102.i:                                      ; preds = %land.lhs.true.i.i, %if.end102.loopexit128.i, %if.then75.i
+  %idxref.0.i = phi i32 [ %conv85.i, %if.then75.i ], [ %ref.017.i51.le.i, %if.end102.loopexit128.i ], [ %ref.017.i.i, %land.lhs.true.i.i ]
+  %op2103.i = getelementptr inbounds i8, ptr %ir.addr.0142.i, i64 2
+  %50 = load i16, ptr %op2103.i, align 2
+  %conv104.i = zext i16 %50 to i32
+  %arrayidx.i68.i = getelementptr inbounds i8, ptr %J, i64 484
+  %spec.select.i69.i = tail call i32 @llvm.umin.i32(i32 %conv104.i, i32 %idxref.0.i)
+  %spec.select12.i70.i = tail call i32 @llvm.umax.i32(i32 %conv104.i, i32 %idxref.0.i)
+  %ref.0.in13.i71.i = load i16, ptr %arrayidx.i68.i, align 2
+  %ref.014.i72.i = zext i16 %ref.0.in13.i71.i to i32
+  %cmp215.i73.i = icmp ult i32 %spec.select12.i70.i, %ref.014.i72.i
+  br i1 %cmp215.i73.i, label %while.body.i77.i, label %doemit
 
-while.body.i79.i:                                 ; preds = %if.end102.i, %if.end16.i86.i
-  %ref.017.i80.i = phi i32 [ %ref.0.i89.i, %if.end16.i86.i ], [ %ref.014.i74.i, %if.end102.i ]
-  %ref.0.in16.i81.i = phi i16 [ %ref.0.in.i88.i, %if.end16.i86.i ], [ %ref.0.in13.i73.i, %if.end102.i ]
-  %idxprom5.i82.i = zext i16 %ref.0.in16.i81.i to i64
-  %arrayidx6.i83.i = getelementptr inbounds %union.IRIns, ptr %14, i64 %idxprom5.i82.i
-  %52 = load i16, ptr %arrayidx6.i83.i, align 8
-  %conv8.i84.i = zext i16 %52 to i32
-  %cmp9.i85.i = icmp eq i32 %spec.select12.i72.i, %conv8.i84.i
-  br i1 %cmp9.i85.i, label %land.lhs.true.i91.i, label %if.end16.i86.i
+while.body.i77.i:                                 ; preds = %if.end102.i, %if.end16.i84.i
+  %ref.017.i78.i = phi i32 [ %ref.0.i87.i, %if.end16.i84.i ], [ %ref.014.i72.i, %if.end102.i ]
+  %ref.0.in16.i79.i = phi i16 [ %ref.0.in.i86.i, %if.end16.i84.i ], [ %ref.0.in13.i71.i, %if.end102.i ]
+  %idxprom5.i80.i = zext i16 %ref.0.in16.i79.i to i64
+  %arrayidx6.i81.i = getelementptr inbounds %union.IRIns, ptr %14, i64 %idxprom5.i80.i
+  %51 = load i16, ptr %arrayidx6.i81.i, align 8
+  %conv8.i82.i = zext i16 %51 to i32
+  %cmp9.i83.i = icmp eq i32 %spec.select12.i70.i, %conv8.i82.i
+  br i1 %cmp9.i83.i, label %land.lhs.true.i89.i, label %if.end16.i84.i
 
-land.lhs.true.i91.i:                              ; preds = %while.body.i79.i
-  %op211.i92.i = getelementptr inbounds i8, ptr %arrayidx6.i83.i, i64 2
-  %53 = load i16, ptr %op211.i92.i, align 2
-  %conv12.i93.i = zext i16 %53 to i32
-  %cmp13.i94.i = icmp eq i32 %spec.select.i71.i, %conv12.i93.i
-  br i1 %cmp13.i94.i, label %if.end108.i, label %if.end16.i86.i
+land.lhs.true.i89.i:                              ; preds = %while.body.i77.i
+  %op211.i90.i = getelementptr inbounds i8, ptr %arrayidx6.i81.i, i64 2
+  %52 = load i16, ptr %op211.i90.i, align 2
+  %conv12.i91.i = zext i16 %52 to i32
+  %cmp13.i92.i = icmp eq i32 %spec.select.i69.i, %conv12.i91.i
+  br i1 %cmp13.i92.i, label %if.end108.i, label %if.end16.i84.i
 
-if.end16.i86.i:                                   ; preds = %land.lhs.true.i91.i, %while.body.i79.i
-  %prev.i87.i = getelementptr inbounds i8, ptr %arrayidx6.i83.i, i64 6
-  %ref.0.in.i88.i = load i16, ptr %prev.i87.i, align 2
-  %ref.0.i89.i = zext i16 %ref.0.in.i88.i to i32
-  %cmp2.i90.i = icmp ult i32 %spec.select12.i72.i, %ref.0.i89.i
-  br i1 %cmp2.i90.i, label %while.body.i79.i, label %doemit, !llvm.loop !33
+if.end16.i84.i:                                   ; preds = %land.lhs.true.i89.i, %while.body.i77.i
+  %prev.i85.i = getelementptr inbounds i8, ptr %arrayidx6.i81.i, i64 6
+  %ref.0.in.i86.i = load i16, ptr %prev.i85.i, align 2
+  %ref.0.i87.i = zext i16 %ref.0.in.i86.i to i32
+  %cmp2.i88.i = icmp ult i32 %spec.select12.i70.i, %ref.0.i87.i
+  br i1 %cmp2.i88.i, label %while.body.i77.i, label %doemit, !llvm.loop !33
 
-if.end108.i:                                      ; preds = %land.lhs.true.i91.i
+if.end108.i:                                      ; preds = %land.lhs.true.i89.i
   %cmp109.not.i = icmp eq i64 %add.i, 0
   br i1 %cmp109.not.i, label %if.then165, label %if.then111.i
 
 if.then111.i:                                     ; preds = %if.end108.i
   %call112.i = tail call i32 @lj_ir_kint64(ptr noundef %J, i64 noundef %add.i) #5
   %conv114.i = and i32 %call112.i, 65535
-  %spec.select.i98.i = tail call i32 @llvm.umin.i32(i32 %conv114.i, i32 %ref.017.i80.i)
-  %spec.select12.i99.i = tail call i32 @llvm.umax.i32(i32 %conv114.i, i32 %ref.017.i80.i)
-  %ref.0.in13.i100.i = load i16, ptr %arrayidx.i70.i, align 2
-  %ref.014.i101.i = zext i16 %ref.0.in13.i100.i to i32
-  %cmp215.i102.i = icmp ult i32 %spec.select12.i99.i, %ref.014.i101.i
-  br i1 %cmp215.i102.i, label %while.body.lr.ph.i104.i, label %doemit
+  %spec.select.i96.i = tail call i32 @llvm.umin.i32(i32 %conv114.i, i32 %ref.017.i78.i)
+  %spec.select12.i97.i = tail call i32 @llvm.umax.i32(i32 %conv114.i, i32 %ref.017.i78.i)
+  %ref.0.in13.i98.i = load i16, ptr %arrayidx.i68.i, align 2
+  %ref.014.i99.i = zext i16 %ref.0.in13.i98.i to i32
+  %cmp215.i100.i = icmp ult i32 %spec.select12.i97.i, %ref.014.i99.i
+  br i1 %cmp215.i100.i, label %while.body.lr.ph.i102.i, label %doemit
 
-while.body.lr.ph.i104.i:                          ; preds = %if.then111.i
-  %54 = load ptr, ptr %ir, align 8
-  br label %while.body.i106.i
+while.body.lr.ph.i102.i:                          ; preds = %if.then111.i
+  %53 = load ptr, ptr %ir, align 8
+  br label %while.body.i104.i
 
-while.body.i106.i:                                ; preds = %if.end16.i113.i, %while.body.lr.ph.i104.i
-  %ref.017.i107.i = phi i32 [ %ref.014.i101.i, %while.body.lr.ph.i104.i ], [ %ref.0.i116.i, %if.end16.i113.i ]
-  %ref.0.in16.i108.i = phi i16 [ %ref.0.in13.i100.i, %while.body.lr.ph.i104.i ], [ %ref.0.in.i115.i, %if.end16.i113.i ]
-  %idxprom5.i109.i = zext i16 %ref.0.in16.i108.i to i64
-  %arrayidx6.i110.i = getelementptr inbounds %union.IRIns, ptr %54, i64 %idxprom5.i109.i
-  %55 = load i16, ptr %arrayidx6.i110.i, align 8
-  %conv8.i111.i = zext i16 %55 to i32
-  %cmp9.i112.i = icmp eq i32 %spec.select12.i99.i, %conv8.i111.i
-  br i1 %cmp9.i112.i, label %land.lhs.true.i118.i, label %if.end16.i113.i
+while.body.i104.i:                                ; preds = %if.end16.i111.i, %while.body.lr.ph.i102.i
+  %ref.017.i105.i = phi i32 [ %ref.014.i99.i, %while.body.lr.ph.i102.i ], [ %ref.0.i114.i, %if.end16.i111.i ]
+  %ref.0.in16.i106.i = phi i16 [ %ref.0.in13.i98.i, %while.body.lr.ph.i102.i ], [ %ref.0.in.i113.i, %if.end16.i111.i ]
+  %idxprom5.i107.i = zext i16 %ref.0.in16.i106.i to i64
+  %arrayidx6.i108.i = getelementptr inbounds %union.IRIns, ptr %53, i64 %idxprom5.i107.i
+  %54 = load i16, ptr %arrayidx6.i108.i, align 8
+  %conv8.i109.i = zext i16 %54 to i32
+  %cmp9.i110.i = icmp eq i32 %spec.select12.i97.i, %conv8.i109.i
+  br i1 %cmp9.i110.i, label %land.lhs.true.i116.i, label %if.end16.i111.i
 
-land.lhs.true.i118.i:                             ; preds = %while.body.i106.i
-  %op211.i119.i = getelementptr inbounds i8, ptr %arrayidx6.i110.i, i64 2
-  %56 = load i16, ptr %op211.i119.i, align 2
-  %conv12.i120.i = zext i16 %56 to i32
-  %cmp13.i121.i = icmp eq i32 %spec.select.i98.i, %conv12.i120.i
-  br i1 %cmp13.i121.i, label %if.then165, label %if.end16.i113.i
+land.lhs.true.i116.i:                             ; preds = %while.body.i104.i
+  %op211.i117.i = getelementptr inbounds i8, ptr %arrayidx6.i108.i, i64 2
+  %55 = load i16, ptr %op211.i117.i, align 2
+  %conv12.i118.i = zext i16 %55 to i32
+  %cmp13.i119.i = icmp eq i32 %spec.select.i96.i, %conv12.i118.i
+  br i1 %cmp13.i119.i, label %if.then165, label %if.end16.i111.i
 
-if.end16.i113.i:                                  ; preds = %land.lhs.true.i118.i, %while.body.i106.i
-  %prev.i114.i = getelementptr inbounds i8, ptr %arrayidx6.i110.i, i64 6
-  %ref.0.in.i115.i = load i16, ptr %prev.i114.i, align 2
-  %ref.0.i116.i = zext i16 %ref.0.in.i115.i to i32
-  %cmp2.i117.i = icmp ult i32 %spec.select12.i99.i, %ref.0.i116.i
-  br i1 %cmp2.i117.i, label %while.body.i106.i, label %doemit, !llvm.loop !33
+if.end16.i111.i:                                  ; preds = %land.lhs.true.i116.i, %while.body.i104.i
+  %prev.i112.i = getelementptr inbounds i8, ptr %arrayidx6.i108.i, i64 6
+  %ref.0.in.i113.i = load i16, ptr %prev.i112.i, align 2
+  %ref.0.i114.i = zext i16 %ref.0.in.i113.i to i32
+  %cmp2.i115.i = icmp ult i32 %spec.select12.i97.i, %ref.0.i114.i
+  br i1 %cmp2.i115.i, label %while.body.i104.i, label %doemit, !llvm.loop !33
 
-if.then165:                                       ; preds = %land.lhs.true.i118.i, %if.end108.i
-  %57 = phi ptr [ %14, %if.end108.i ], [ %54, %land.lhs.true.i118.i ]
-  %retval.0.i = phi i32 [ %ref.017.i80.i, %if.end108.i ], [ %ref.017.i107.i, %land.lhs.true.i118.i ]
+if.then165:                                       ; preds = %land.lhs.true.i116.i, %if.end108.i
+  %56 = phi ptr [ %14, %if.end108.i ], [ %53, %land.lhs.true.i116.i ]
+  %retval.0.i = phi i32 [ %ref.017.i78.i, %if.end108.i ], [ %ref.017.i105.i, %land.lhs.true.i116.i ]
   %arrayidx167 = getelementptr inbounds i8, ptr %J, i64 558
   %ref.3.in85 = load i16, ptr %arrayidx167, align 2
   %ref.386 = zext i16 %ref.3.in85 to i32
@@ -2922,7 +2921,7 @@ if.then165:                                       ; preds = %land.lhs.true.i118.
   br i1 %cmp17087, label %while.body172.lr.ph, label %while.end179
 
 while.body172.lr.ph:                              ; preds = %if.then165
-  %invariant.gep = getelementptr inbounds i8, ptr %57, i64 6
+  %invariant.gep = getelementptr inbounds i8, ptr %56, i64 6
   br label %while.body172
 
 while.body172:                                    ; preds = %while.body172.lr.ph, %while.body172
@@ -2937,10 +2936,10 @@ while.body172:                                    ; preds = %while.body172.lr.ph
 while.end179:                                     ; preds = %while.body172, %if.then165
   %ref.3.lcssa = phi i32 [ %ref.386, %if.then165 ], [ %ref.3, %while.body172 ]
   %idxprom182 = zext nneg i32 %retval.0.i to i64
-  %arrayidx183 = getelementptr inbounds %union.IRIns, ptr %57, i64 %idxprom182
+  %arrayidx183 = getelementptr inbounds %union.IRIns, ptr %56, i64 %idxprom182
   br label %retry
 
-doemit:                                           ; preds = %if.end16.i59.i, %if.end16.i.i, %if.end16.i86.i, %if.end16.i113.i, %land.lhs.true161, %if.then111.i, %if.end102.i, %cond.false98.split.i, %cond.true95.split.i, %if.end.i, %if.end56.i, %land.lhs.true66.i, %land.lhs.true70.i, %while.end142, %land.lhs.true149, %land.lhs.true154, %if.end
+doemit:                                           ; preds = %if.end16.i57.i, %if.end16.i.i, %if.end16.i84.i, %if.end16.i111.i, %land.lhs.true161, %if.then111.i, %if.end102.i, %cond.false98.split.i, %cond.true95.split.i, %if.end.i, %if.end56.i, %land.lhs.true66.i, %land.lhs.true70.i, %while.end142, %land.lhs.true149, %land.lhs.true154, %if.end
   %call185 = tail call i32 @lj_ir_emit(ptr noundef %J) #5
   br label %return
 

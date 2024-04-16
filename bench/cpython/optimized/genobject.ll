@@ -1707,14 +1707,18 @@ do.body23:                                        ; preds = %do.end15, %if.then1
   %gi_exc_state = getelementptr inbounds i8, ptr %gen, i64 40
   %3 = load ptr, ptr %gi_exc_state, align 8
   %tobool24.not = icmp eq ptr %3, null
-  br i1 %tobool24.not, label %return, label %if.then25
+  br i1 %tobool24.not, label %do.end34, label %if.then25
 
 if.then25:                                        ; preds = %do.body23
   %call29 = tail call i32 %visit(ptr noundef nonnull %3, ptr noundef %arg) #7
+  %tobool30.not = icmp eq i32 %call29, 0
+  br i1 %tobool30.not, label %do.end34, label %return
+
+do.end34:                                         ; preds = %do.body23, %if.then25
   br label %return
 
-return:                                           ; preds = %if.then25, %do.body23, %if.then17, %if.then7, %if.then
-  %retval.0 = phi i32 [ %call, %if.then ], [ %call10, %if.then7 ], [ %call18, %if.then17 ], [ 0, %do.body23 ], [ %call29, %if.then25 ]
+return:                                           ; preds = %if.then25, %if.then17, %if.then7, %if.then, %do.end34
+  %retval.0 = phi i32 [ 0, %do.end34 ], [ %call, %if.then ], [ %call10, %if.then7 ], [ %call18, %if.then17 ], [ %call29, %if.then25 ]
   ret i32 %retval.0
 }
 
@@ -2391,20 +2395,20 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %cmp.i.not.i = icmp eq ptr %o.val24, @PyGen_Type
-  br i1 %cmp.i.not.i, label %gen_is_coroutine.exit, label %if.end
+  br i1 %cmp.i.not.i, label %if.then.i, label %if.end
 
-gen_is_coroutine.exit:                            ; preds = %lor.lhs.false
+if.then.i:                                        ; preds = %lor.lhs.false
   %1 = getelementptr i8, ptr %o, i64 72
   %o.val.i = load ptr, ptr %1, align 8
   %co_flags.i = getelementptr inbounds i8, ptr %o.val.i, i64 48
   %2 = load i32, ptr %co_flags.i, align 8
-  %3 = and i32 %2, 256
-  %tobool2.not = icmp eq i32 %3, 0
-  br i1 %tobool2.not, label %if.end, label %if.then
+  %and.i = and i32 %2, 256
+  %tobool2.not.i = icmp eq i32 %and.i, 0
+  br i1 %tobool2.not.i, label %if.end, label %if.then
 
-if.then:                                          ; preds = %gen_is_coroutine.exit, %entry
-  %4 = load i32, ptr %o, align 8
-  %add.i.i = add i32 %4, 1
+if.then:                                          ; preds = %if.then.i, %entry
+  %3 = load i32, ptr %o, align 8
+  %add.i.i = add i32 %3, 1
   %cmp.i.i = icmp eq i32 %add.i.i, 0
   br i1 %cmp.i.i, label %return, label %if.end.i.i
 
@@ -2412,51 +2416,51 @@ if.end.i.i:                                       ; preds = %if.then
   store i32 %add.i.i, ptr %o, align 8
   br label %return
 
-if.end:                                           ; preds = %lor.lhs.false, %gen_is_coroutine.exit
+if.end:                                           ; preds = %lor.lhs.false, %if.then.i
   %tp_as_async = getelementptr inbounds i8, ptr %o.val24, i64 80
-  %5 = load ptr, ptr %tp_as_async, align 8
-  %cmp.not = icmp eq ptr %5, null
+  %4 = load ptr, ptr %tp_as_async, align 8
+  %cmp.not = icmp eq ptr %4, null
   br i1 %cmp.not, label %if.end37, label %if.end7
 
 if.end7:                                          ; preds = %if.end
-  %6 = load ptr, ptr %5, align 8
-  %cmp8.not = icmp eq ptr %6, null
+  %5 = load ptr, ptr %4, align 8
+  %cmp8.not = icmp eq ptr %5, null
   br i1 %cmp8.not, label %if.end37, label %if.then9
 
 if.then9:                                         ; preds = %if.end7
-  %call10 = tail call ptr %6(ptr noundef nonnull %o) #7
+  %call10 = tail call ptr %5(ptr noundef nonnull %o) #7
   %cmp11.not = icmp eq ptr %call10, null
   br i1 %cmp11.not, label %return, label %if.then12
 
 if.then12:                                        ; preds = %if.then9
-  %7 = getelementptr i8, ptr %call10, i64 8
-  %call10.val23 = load ptr, ptr %7, align 8
+  %6 = getelementptr i8, ptr %call10, i64 8
+  %call10.val23 = load ptr, ptr %6, align 8
   %cmp.i26.not = icmp eq ptr %call10.val23, @PyCoro_Type
   br i1 %cmp.i26.not, label %if.then18, label %lor.lhs.false15
 
 lor.lhs.false15:                                  ; preds = %if.then12
   %cmp.i.not.i29 = icmp eq ptr %call10.val23, @PyGen_Type
-  br i1 %cmp.i.not.i29, label %gen_is_coroutine.exit36, label %if.else
+  br i1 %cmp.i.not.i29, label %if.then.i32, label %if.else
 
-gen_is_coroutine.exit36:                          ; preds = %lor.lhs.false15
-  %8 = getelementptr i8, ptr %call10, i64 72
-  %o.val.i32 = load ptr, ptr %8, align 8
-  %co_flags.i33 = getelementptr inbounds i8, ptr %o.val.i32, i64 48
-  %9 = load i32, ptr %co_flags.i33, align 8
-  %10 = and i32 %9, 256
-  %tobool17.not = icmp eq i32 %10, 0
-  br i1 %tobool17.not, label %if.else, label %if.then18
+if.then.i32:                                      ; preds = %lor.lhs.false15
+  %7 = getelementptr i8, ptr %call10, i64 72
+  %o.val.i33 = load ptr, ptr %7, align 8
+  %co_flags.i34 = getelementptr inbounds i8, ptr %o.val.i33, i64 48
+  %8 = load i32, ptr %co_flags.i34, align 8
+  %and.i35 = and i32 %8, 256
+  %tobool2.not.i36 = icmp eq i32 %and.i35, 0
+  br i1 %tobool2.not.i36, label %if.else, label %if.then18
 
-if.then18:                                        ; preds = %gen_is_coroutine.exit36, %if.then12
-  %11 = load ptr, ptr @PyExc_TypeError, align 8
-  tail call void @PyErr_SetString(ptr noundef %11, ptr noundef nonnull @.str.1) #7
-  %12 = load i64, ptr %call10, align 8
-  %13 = and i64 %12, 2147483648
-  %cmp.i50.not = icmp eq i64 %13, 0
+if.then18:                                        ; preds = %if.then.i32, %if.then12
+  %9 = load ptr, ptr @PyExc_TypeError, align 8
+  tail call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.1) #7
+  %10 = load i64, ptr %call10, align 8
+  %11 = and i64 %10, 2147483648
+  %cmp.i50.not = icmp eq i64 %11, 0
   br i1 %cmp.i50.not, label %if.end.i43, label %return
 
 if.end.i43:                                       ; preds = %if.then18
-  %dec.i44 = add i64 %12, -1
+  %dec.i44 = add i64 %10, -1
   store i64 %dec.i44, ptr %call10, align 8
   %cmp.i45 = icmp eq i64 %dec.i44, 0
   br i1 %cmp.i45, label %if.then1.i46, label %return
@@ -2465,24 +2469,24 @@ if.then1.i46:                                     ; preds = %if.end.i43
   tail call void @_Py_Dealloc(ptr noundef nonnull %call10) #7
   br label %return
 
-if.else:                                          ; preds = %lor.lhs.false15, %gen_is_coroutine.exit36
+if.else:                                          ; preds = %lor.lhs.false15, %if.then.i32
   %call22 = tail call i32 @PyIter_Check(ptr noundef nonnull %call10) #7
   %tobool23.not = icmp eq i32 %call22, 0
   br i1 %tobool23.not, label %if.then24, label %return
 
 if.then24:                                        ; preds = %if.else
-  %14 = load ptr, ptr @PyExc_TypeError, align 8
-  %call10.val = load ptr, ptr %7, align 8
+  %12 = load ptr, ptr @PyExc_TypeError, align 8
+  %call10.val = load ptr, ptr %6, align 8
   %tp_name = getelementptr inbounds i8, ptr %call10.val, i64 24
-  %15 = load ptr, ptr %tp_name, align 8
-  %call26 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %14, ptr noundef nonnull @.str.2, ptr noundef %15) #7
-  %16 = load i64, ptr %call10, align 8
-  %17 = and i64 %16, 2147483648
-  %cmp.i53.not = icmp eq i64 %17, 0
+  %13 = load ptr, ptr %tp_name, align 8
+  %call26 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %12, ptr noundef nonnull @.str.2, ptr noundef %13) #7
+  %14 = load i64, ptr %call10, align 8
+  %15 = and i64 %14, 2147483648
+  %cmp.i53.not = icmp eq i64 %15, 0
   br i1 %cmp.i53.not, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %if.then24
-  %dec.i = add i64 %16, -1
+  %dec.i = add i64 %14, -1
   store i64 %dec.i, ptr %call10, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then1.i, label %return
@@ -2492,10 +2496,10 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %return
 
 if.end37:                                         ; preds = %if.end, %if.end7
-  %18 = load ptr, ptr @PyExc_TypeError, align 8
+  %16 = load ptr, ptr @PyExc_TypeError, align 8
   %tp_name38 = getelementptr inbounds i8, ptr %o.val24, i64 24
-  %19 = load ptr, ptr %tp_name38, align 8
-  %call39 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %18, ptr noundef nonnull @.str.3, ptr noundef %19) #7
+  %17 = load ptr, ptr %tp_name38, align 8
+  %call39 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %16, ptr noundef nonnull @.str.3, ptr noundef %17) #7
   br label %return
 
 return:                                           ; preds = %if.end.i.i, %if.then, %if.then9, %if.else, %if.then24, %if.then1.i, %if.end.i, %if.end.i43, %if.then1.i46, %if.then18, %if.end37
@@ -2571,14 +2575,18 @@ entry:
   %cw_coroutine = getelementptr inbounds i8, ptr %cw, i64 16
   %0 = load ptr, ptr %cw_coroutine, align 8
   %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %return, label %if.then
+  br i1 %tobool.not, label %do.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %call = tail call i32 %visit(ptr noundef nonnull %0, ptr noundef %arg) #7
+  %tobool2.not = icmp eq i32 %call, 0
+  br i1 %tobool2.not, label %do.end, label %return
+
+do.end:                                           ; preds = %entry, %if.then
   br label %return
 
-return:                                           ; preds = %if.then, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ %call, %if.then ]
+return:                                           ; preds = %if.then, %do.end
+  %retval.0 = phi i32 [ 0, %do.end ], [ %call, %if.then ]
   ret i32 %retval.0
 }
 
@@ -2702,14 +2710,18 @@ do.body23.i:                                      ; preds = %if.then17.i, %do.en
   %gi_exc_state.i = getelementptr inbounds i8, ptr %gen, i64 40
   %4 = load ptr, ptr %gi_exc_state.i, align 8
   %tobool24.not.i = icmp eq ptr %4, null
-  br i1 %tobool24.not.i, label %return, label %if.then25.i
+  br i1 %tobool24.not.i, label %do.end34.i, label %if.then25.i
 
 if.then25.i:                                      ; preds = %do.body23.i
   %call29.i = tail call i32 %visit(ptr noundef nonnull %4, ptr noundef %arg) #7
+  %tobool30.not.i = icmp eq i32 %call29.i, 0
+  br i1 %tobool30.not.i, label %do.end34.i, label %return
+
+do.end34.i:                                       ; preds = %if.then25.i, %do.body23.i
   br label %return
 
-return:                                           ; preds = %if.then25.i, %do.body23.i, %if.then17.i, %if.then7.i, %if.then.i, %if.then
-  %retval.0 = phi i32 [ %call, %if.then ], [ %call.i, %if.then.i ], [ %call10.i, %if.then7.i ], [ %call18.i, %if.then17.i ], [ 0, %do.body23.i ], [ %call29.i, %if.then25.i ]
+return:                                           ; preds = %do.end34.i, %if.then25.i, %if.then17.i, %if.then7.i, %if.then.i, %if.then
+  %retval.0 = phi i32 [ %call, %if.then ], [ 0, %do.end34.i ], [ %call.i, %if.then.i ], [ %call10.i, %if.then7.i ], [ %call18.i, %if.then17.i ], [ %call29.i, %if.then25.i ]
   ret i32 %retval.0
 }
 
@@ -2939,14 +2951,18 @@ do.body5:                                         ; preds = %if.then, %entry
   %ags_sendval = getelementptr inbounds i8, ptr %o, i64 24
   %1 = load ptr, ptr %ags_sendval, align 8
   %tobool6.not = icmp eq ptr %1, null
-  br i1 %tobool6.not, label %return, label %if.then7
+  br i1 %tobool6.not, label %do.end15, label %if.then7
 
 if.then7:                                         ; preds = %do.body5
   %call10 = tail call i32 %visit(ptr noundef nonnull %1, ptr noundef %arg) #7
+  %tobool11.not = icmp eq i32 %call10, 0
+  br i1 %tobool11.not, label %do.end15, label %return
+
+do.end15:                                         ; preds = %do.body5, %if.then7
   br label %return
 
-return:                                           ; preds = %if.then7, %do.body5, %if.then
-  %retval.0 = phi i32 [ %call, %if.then ], [ 0, %do.body5 ], [ %call10, %if.then7 ]
+return:                                           ; preds = %if.then7, %if.then, %do.end15
+  %retval.0 = phi i32 [ 0, %do.end15 ], [ %call, %if.then ], [ %call10, %if.then7 ]
   ret i32 %retval.0
 }
 
@@ -3104,14 +3120,18 @@ entry:
   %agw_val = getelementptr inbounds i8, ptr %o, i64 16
   %0 = load ptr, ptr %agw_val, align 8
   %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %return, label %if.then
+  br i1 %tobool.not, label %do.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %call = tail call i32 %visit(ptr noundef nonnull %0, ptr noundef %arg) #7
+  %tobool2.not = icmp eq i32 %call, 0
+  br i1 %tobool2.not, label %do.end, label %return
+
+do.end:                                           ; preds = %entry, %if.then
   br label %return
 
-return:                                           ; preds = %if.then, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ %call, %if.then ]
+return:                                           ; preds = %if.then, %do.end
+  %retval.0 = phi i32 [ 0, %do.end ], [ %call, %if.then ]
   ret i32 %retval.0
 }
 
@@ -3280,14 +3300,18 @@ do.body5:                                         ; preds = %if.then, %entry
   %agt_args = getelementptr inbounds i8, ptr %o, i64 24
   %1 = load ptr, ptr %agt_args, align 8
   %tobool6.not = icmp eq ptr %1, null
-  br i1 %tobool6.not, label %return, label %if.then7
+  br i1 %tobool6.not, label %do.end15, label %if.then7
 
 if.then7:                                         ; preds = %do.body5
   %call10 = tail call i32 %visit(ptr noundef nonnull %1, ptr noundef %arg) #7
+  %tobool11.not = icmp eq i32 %call10, 0
+  br i1 %tobool11.not, label %do.end15, label %return
+
+do.end15:                                         ; preds = %do.body5, %if.then7
   br label %return
 
-return:                                           ; preds = %if.then7, %do.body5, %if.then
-  %retval.0 = phi i32 [ %call, %if.then ], [ 0, %do.body5 ], [ %call10, %if.then7 ]
+return:                                           ; preds = %if.then7, %if.then, %do.end15
+  %retval.0 = phi i32 [ 0, %do.end15 ], [ %call, %if.then ], [ %call10, %if.then7 ]
   ret i32 %retval.0
 }
 

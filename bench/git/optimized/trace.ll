@@ -539,16 +539,18 @@ highres_nanos.exit20:                             ; preds = %if.else4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i12)
   %tobool.not = icmp eq i64 %add.i19.fr, 0
   %sub = sub i64 %add.i11, %add.i19.fr
-  %spec.select = select i1 %tobool.not, i64 1, i64 %sub
-  br label %9
+  br i1 %tobool.not, label %9, label %10
 
-9:                                                ; preds = %highres_nanos.exit20, %highres_nanos.exit20.thread
-  %10 = phi i64 [ 1, %highres_nanos.exit20.thread ], [ %spec.select, %highres_nanos.exit20 ]
-  store i64 %10, ptr @getnanotime.offset, align 8
+9:                                                ; preds = %highres_nanos.exit20.thread, %highres_nanos.exit20
+  br label %10
+
+10:                                               ; preds = %highres_nanos.exit20, %9
+  %11 = phi i64 [ 1, %9 ], [ %sub, %highres_nanos.exit20 ]
+  store i64 %11, ptr @getnanotime.offset, align 8
   br label %return
 
-return:                                           ; preds = %9, %if.then2, %highres_nanos.exit
-  %retval.0 = phi i64 [ %add, %highres_nanos.exit ], [ %add.i5, %if.then2 ], [ %add.i11, %9 ]
+return:                                           ; preds = %10, %if.then2, %highres_nanos.exit
+  %retval.0 = phi i64 [ %add, %highres_nanos.exit ], [ %add.i5, %if.then2 ], [ %add.i11, %10 ]
   ret i64 %retval.0
 }
 

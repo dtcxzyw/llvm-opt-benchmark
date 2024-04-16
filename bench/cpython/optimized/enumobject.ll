@@ -1014,14 +1014,18 @@ do.body16:                                        ; preds = %if.then7, %do.body5
   %en_longindex = getelementptr inbounds i8, ptr %en, i64 40
   %2 = load ptr, ptr %en_longindex, align 8
   %tobool17.not = icmp eq ptr %2, null
-  br i1 %tobool17.not, label %return, label %if.then18
+  br i1 %tobool17.not, label %do.end26, label %if.then18
 
 if.then18:                                        ; preds = %do.body16
   %call21 = tail call i32 %visit(ptr noundef nonnull %2, ptr noundef %arg) #3
+  %tobool22.not = icmp eq i32 %call21, 0
+  br i1 %tobool22.not, label %do.end26, label %return
+
+do.end26:                                         ; preds = %do.body16, %if.then18
   br label %return
 
-return:                                           ; preds = %if.then18, %do.body16, %if.then7, %if.then
-  %retval.0 = phi i32 [ %call, %if.then ], [ %call10, %if.then7 ], [ 0, %do.body16 ], [ %call21, %if.then18 ]
+return:                                           ; preds = %if.then18, %if.then7, %if.then, %do.end26
+  %retval.0 = phi i32 [ 0, %do.end26 ], [ %call, %if.then ], [ %call10, %if.then7 ], [ %call21, %if.then18 ]
   ret i32 %retval.0
 }
 
@@ -1591,14 +1595,18 @@ entry:
   %seq = getelementptr inbounds i8, ptr %ro, i64 24
   %0 = load ptr, ptr %seq, align 8
   %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %return, label %if.then
+  br i1 %tobool.not, label %do.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %call = tail call i32 %visit(ptr noundef nonnull %0, ptr noundef %arg) #3
+  %tobool2.not = icmp eq i32 %call, 0
+  br i1 %tobool2.not, label %do.end, label %return
+
+do.end:                                           ; preds = %entry, %if.then
   br label %return
 
-return:                                           ; preds = %if.then, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ %call, %if.then ]
+return:                                           ; preds = %if.then, %do.end
+  %retval.0 = phi i32 [ 0, %do.end ], [ %call, %if.then ]
   ret i32 %retval.0
 }
 

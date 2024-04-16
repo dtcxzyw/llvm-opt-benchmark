@@ -3145,7 +3145,7 @@ _ZNK6vectorI5lboolLb0EjE5emptyEv.exit.i:          ; preds = %sw.bb19
   %arrayidx.i.i46 = getelementptr inbounds i8, ptr %62, i64 -4
   %63 = load i32, ptr %arrayidx.i.i46, align 4
   %cmp3.i.i = icmp eq i32 %63, 0
-  br i1 %cmp3.i.i, label %if.then.i, label %cleanup
+  br i1 %cmp3.i.i, label %if.then.i, label %sw.epilog
 
 if.then.i:                                        ; preds = %_ZNK6vectorI5lboolLb0EjE5emptyEv.exit.i, %sw.bb19
   %64 = load ptr, ptr %this, align 8
@@ -3167,7 +3167,7 @@ _ZNK6vectorI5lboolLb0EjE4sizeEv.exit.i.i:         ; preds = %if.end.i.i.i51, %fo
   %retval.0.i.i.i53 = phi i32 [ %66, %if.end.i.i.i51 ], [ 0, %for.cond.i.i48 ]
   %67 = zext i32 %retval.0.i.i.i53 to i64
   %cmp.i1.i = icmp ult i64 %indvars.iv.i.i49, %67
-  br i1 %cmp.i1.i, label %for.body.i.i54, label %cleanup
+  br i1 %cmp.i1.i, label %for.body.i.i54, label %sw.epilog
 
 for.body.i.i54:                                   ; preds = %_ZNK6vectorI5lboolLb0EjE4sizeEv.exit.i.i
   %arrayidx.i4.i.i55 = getelementptr inbounds i32, ptr %65, i64 %indvars.iv.i.i49
@@ -3208,12 +3208,12 @@ _ZN6vectorI5lboolLb0EjE9push_backERKS0_.exit.i.i: ; preds = %.noexc70, %lor.lhs.
   %indvars.iv.next.i.i65 = add nuw nsw i64 %indvars.iv.i.i49, 1
   br label %for.cond.i.i48, !llvm.loop !6
 
-sw.epilog:                                        ; preds = %invoke.cont8
+sw.epilog:                                        ; preds = %_ZNK6vectorI5lboolLb0EjE4sizeEv.exit.i.i, %_ZNK6vectorI5lboolLb0EjE5emptyEv.exit.i, %invoke.cont8
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNK6vectorI5lboolLb0EjE4sizeEv.exit.i.i, %_ZNK6vectorI5lboolLb0EjE5emptyEv.exit.i, %if.then.i.i.i2.i.i, %_ZN7svectorIjjED2Ev.exit.i.i, %invoke.cont8, %sw.epilog
-  %retval.0 = phi i32 [ %call9, %invoke.cont8 ], [ undef, %sw.epilog ], [ 1, %_ZN7svectorIjjED2Ev.exit.i.i ], [ 1, %if.then.i.i.i2.i.i ], [ undef, %_ZNK6vectorI5lboolLb0EjE5emptyEv.exit.i ], [ undef, %_ZNK6vectorI5lboolLb0EjE4sizeEv.exit.i.i ]
-  %switch = phi i1 [ false, %invoke.cont8 ], [ true, %sw.epilog ], [ false, %_ZN7svectorIjjED2Ev.exit.i.i ], [ false, %if.then.i.i.i2.i.i ], [ true, %_ZNK6vectorI5lboolLb0EjE5emptyEv.exit.i ], [ true, %_ZNK6vectorI5lboolLb0EjE4sizeEv.exit.i.i ]
+cleanup:                                          ; preds = %if.then.i.i.i2.i.i, %_ZN7svectorIjjED2Ev.exit.i.i, %invoke.cont8, %sw.epilog
+  %retval.0 = phi i32 [ undef, %sw.epilog ], [ %call9, %invoke.cont8 ], [ 1, %_ZN7svectorIjjED2Ev.exit.i.i ], [ 1, %if.then.i.i.i2.i.i ]
+  %switch = phi i1 [ true, %sw.epilog ], [ false, %invoke.cont8 ], [ false, %_ZN7svectorIjjED2Ev.exit.i.i ], [ false, %if.then.i.i.i2.i.i ]
   %76 = load ptr, ptr %m_lits.i, align 8
   %77 = load i32, ptr %_sa, align 8
   %78 = load ptr, ptr %76, align 8

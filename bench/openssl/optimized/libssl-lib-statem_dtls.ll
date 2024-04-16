@@ -1935,15 +1935,19 @@ if.end10:                                         ; preds = %if.end
   %init_off = getelementptr inbounds i8, ptr %s, i64 264
   store i64 0, ptr %init_off, align 8
   %cmp12.not = icmp eq i32 %htype, 3
-  br i1 %cmp12.not, label %return, label %if.then14
+  br i1 %cmp12.not, label %if.end21, label %if.then14
 
 if.then14:                                        ; preds = %if.end10.thread, %if.end10
   %cond = zext i1 %cmp.not to i32
   %call17 = call i32 @dtls1_buffer_message(ptr noundef nonnull %s, i32 noundef %cond), !range !7
+  %tobool18.not = icmp eq i32 %call17, 0
+  br i1 %tobool18.not, label %return, label %if.end21
+
+if.end21:                                         ; preds = %if.then14, %if.end10
   br label %return
 
-return:                                           ; preds = %if.then14, %if.end10, %land.lhs.true, %lor.lhs.false
-  %retval.0 = phi i32 [ 0, %lor.lhs.false ], [ 0, %land.lhs.true ], [ 1, %if.end10 ], [ %call17, %if.then14 ]
+return:                                           ; preds = %if.then14, %land.lhs.true, %lor.lhs.false, %if.end21
+  %retval.0 = phi i32 [ 1, %if.end21 ], [ 0, %lor.lhs.false ], [ 0, %land.lhs.true ], [ 0, %if.then14 ]
   ret i32 %retval.0
 }
 

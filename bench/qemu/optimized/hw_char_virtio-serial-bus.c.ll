@@ -1724,8 +1724,8 @@ entry:
   %serial = getelementptr inbounds i8, ptr %call.i, i64 736
   %0 = load i32, ptr %serial, align 8
   %sub = add i32 %0, 31
-  %cmp22.not = icmp ult i32 %sub, 32
-  br i1 %cmp22.not, label %for.end, label %for.body.lr.ph
+  %cmp24.not = icmp ult i32 %sub, 32
+  br i1 %cmp24.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %div11 = lshr i32 %sub, 5
@@ -1834,16 +1834,16 @@ if.then23.i:                                      ; preds = %if.end.i
 for.inc.i:                                        ; preds = %if.then23.i, %if.end.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %conv.i18
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !23
+  br i1 %exitcond.not.i, label %fetch_active_ports_list.exit, label %for.body.i, !llvm.loop !23
 
-for.end.i:                                        ; preds = %for.inc.i
+fetch_active_ports_list.exit:                     ; preds = %for.inc.i
   %10 = load ptr, ptr %post_load.i, align 8
   %11 = load ptr, ptr %10, align 8
   tail call void @timer_mod(ptr noundef %11, i64 noundef 1) #12
   br label %return
 
-return:                                           ; preds = %for.body, %if.end.i.i, %for.body.i, %for.inc.i.i, %for.end.i, %for.end
-  %retval.0 = phi i32 [ 0, %for.end ], [ 0, %for.end.i ], [ -22, %for.inc.i.i ], [ -22, %for.body.i ], [ -22, %if.end.i.i ], [ -22, %for.body ]
+return:                                           ; preds = %for.body, %if.end.i.i, %for.body.i, %for.inc.i.i, %for.end, %fetch_active_ports_list.exit
+  %retval.0 = phi i32 [ 0, %fetch_active_ports_list.exit ], [ 0, %for.end ], [ -22, %for.inc.i.i ], [ -22, %for.body.i ], [ -22, %if.end.i.i ], [ -22, %for.body ]
   ret i32 %retval.0
 }
 

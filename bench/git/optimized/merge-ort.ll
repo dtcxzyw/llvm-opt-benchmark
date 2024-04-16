@@ -1204,7 +1204,7 @@ if.end.i.i39.i:                                   ; preds = %if.end.i35.i
 oideq.exit48.i:                                   ; preds = %if.end.i.i39.i, %if.then.i.i44.i
   %retval.0.in.in.i.i41.i = phi i32 [ %bcmp3.i.i45.i, %if.then.i.i44.i ], [ %bcmp.i.i40.i, %if.end.i.i39.i ]
   %retval.0.in.i.i42.not.i = icmp eq i32 %retval.0.in.in.i.i41.i, 0
-  br i1 %retval.0.in.i.i42.not.i, label %land.lhs.true25.i, label %if.end38.sink.split.i
+  br i1 %retval.0.in.i.i42.not.i, label %land.lhs.true25.i, label %if.else35.i
 
 land.lhs.true25.i:                                ; preds = %oideq.exit48.i
   %oid27.i = getelementptr inbounds i8, ptr %side2, i64 4
@@ -1245,11 +1245,13 @@ if.end.i.i58.i:                                   ; preds = %if.end.i54.i
 oideq.exit67.i:                                   ; preds = %if.end.i.i58.i, %if.then.i.i63.i
   %retval.0.in.in.i.i60.i = phi i32 [ %bcmp3.i.i64.i, %if.then.i.i63.i ], [ %bcmp.i.i59.i, %if.end.i.i58.i ]
   %retval.0.in.i.i61.not.i = icmp eq i32 %retval.0.in.in.i.i60.i, 0
-  %spec.select.i = select i1 %retval.0.in.i.i61.not.i, i32 2, i32 0
+  br i1 %retval.0.in.i.i61.not.i, label %if.end38.sink.split.i, label %if.else35.i
+
+if.else35.i:                                      ; preds = %oideq.exit67.i, %oideq.exit48.i
   br label %if.end38.sink.split.i
 
-if.end38.sink.split.i:                            ; preds = %oideq.exit67.i, %oideq.exit48.i, %oideq.exit29.i, %if.end.i
-  %.sink.i = phi i32 [ 0, %if.end.i ], [ 1, %oideq.exit29.i ], [ 0, %oideq.exit48.i ], [ %spec.select.i, %oideq.exit67.i ]
+if.end38.sink.split.i:                            ; preds = %if.else35.i, %oideq.exit67.i, %oideq.exit29.i, %if.end.i
+  %.sink.i = phi i32 [ 0, %if.else35.i ], [ 0, %if.end.i ], [ 1, %oideq.exit29.i ], [ 2, %oideq.exit67.i ]
   %cached_pairs_valid_side34.i = getelementptr inbounds i8, ptr %2, i64 1568
   store i32 %.sink.i, ptr %cached_pairs_valid_side34.i, align 8
   br label %merge_check_renames_reusable.exit
@@ -5221,7 +5223,7 @@ declare ptr @lookup_tree(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare void @setup_traverse_info(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @collect_merge_info_callback(i32 noundef %n, i64 noundef %mask, i64 noundef %dirmask, ptr noundef %names, ptr noundef %info) #0 {
+define internal noundef i32 @collect_merge_info_callback(i32 noundef %n, i64 noundef %mask, i64 noundef %dirmask, ptr noundef %names, ptr noundef %info) #0 {
 entry:
   %newinfo = alloca %struct.traverse_info, align 8
   %t = alloca [3 x %struct.tree_desc], align 16
@@ -5459,8 +5461,8 @@ if.then95:                                        ; preds = %traverse_path_len.e
   %call.i = tail call ptr @mem_pool_calloc(ptr noundef nonnull %pool.i, i64 noundef 1, i64 noundef 64) #18
   %directory_name.i = getelementptr inbounds i8, ptr %call.i, i64 56
   store ptr %2, ptr %directory_name.i, align 8
-  %sext299 = shl i64 %34, 32
-  %conv.i = ashr exact i64 %sext299, 32
+  %sext298 = shl i64 %34, 32
+  %conv.i = ashr exact i64 %sext298, 32
   %basename_offset.i = getelementptr inbounds i8, ptr %call.i, i64 48
   store i64 %conv.i, ptr %basename_offset.i, align 8
   %clean.i = getelementptr inbounds i8, ptr %call.i, i64 40
@@ -5500,8 +5502,8 @@ if.then105:                                       ; preds = %if.end100
   %call.i198 = tail call ptr @mem_pool_calloc(ptr noundef nonnull %pool.i197, i64 noundef 1, i64 noundef 64) #18
   %directory_name.i199 = getelementptr inbounds i8, ptr %call.i198, i64 56
   store ptr %2, ptr %directory_name.i199, align 8
-  %sext298 = shl i64 %42, 32
-  %conv.i200 = ashr exact i64 %sext298, 32
+  %sext297 = shl i64 %42, 32
+  %conv.i200 = ashr exact i64 %sext297, 32
   %basename_offset.i201 = getelementptr inbounds i8, ptr %call.i198, i64 48
   store i64 %conv.i200, ptr %basename_offset.i201, align 8
   %clean.i202 = getelementptr inbounds i8, ptr %call.i198, i64 40
@@ -5538,8 +5540,8 @@ if.then116:                                       ; preds = %if.end111
   %call.i218 = tail call ptr @mem_pool_calloc(ptr noundef nonnull %pool.i217, i64 noundef 1, i64 noundef 64) #18
   %directory_name.i219 = getelementptr inbounds i8, ptr %call.i218, i64 56
   store ptr %2, ptr %directory_name.i219, align 8
-  %sext297 = shl i64 %48, 32
-  %conv.i220 = ashr exact i64 %sext297, 32
+  %sext296 = shl i64 %48, 32
+  %conv.i220 = ashr exact i64 %sext296, 32
   %basename_offset.i221 = getelementptr inbounds i8, ptr %call.i218, i64 48
   store i64 %conv.i220, ptr %basename_offset.i221, align 8
   %clean.i222 = getelementptr inbounds i8, ptr %call.i218, i64 40
@@ -5576,8 +5578,8 @@ if.then127:                                       ; preds = %if.end122
   %call.i238 = tail call ptr @mem_pool_calloc(ptr noundef nonnull %pool.i237, i64 noundef 1, i64 noundef 64) #18
   %directory_name.i239 = getelementptr inbounds i8, ptr %call.i238, i64 56
   store ptr %2, ptr %directory_name.i239, align 8
-  %sext296 = shl i64 %54, 32
-  %conv.i240 = ashr exact i64 %sext296, 32
+  %sext295 = shl i64 %54, 32
+  %conv.i240 = ashr exact i64 %sext295, 32
   %basename_offset.i241 = getelementptr inbounds i8, ptr %call.i238, i64 48
   store i64 %conv.i240, ptr %basename_offset.i241, align 8
   %clean.i242 = getelementptr inbounds i8, ptr %call.i238, i64 40
@@ -5809,7 +5811,7 @@ setup_path_info.exit:                             ; preds = %for.end.i, %if.then
   %bf.clear140 = and i16 %bf.load139, -1793
   %bf.set = or disjoint i16 %bf.clear140, %bf.shl
   store i16 %bf.set, ptr %filemask35.i, align 8
-  br i1 %cmp63, label %if.then142, label %return
+  br i1 %cmp63, label %if.then142, label %if.end305
 
 if.then142:                                       ; preds = %setup_path_info.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %buf, i8 0, i64 24, i1 false)
@@ -5835,7 +5837,7 @@ if.then154:                                       ; preds = %land.lhs.true149, %
   br label %if.end164
 
 if.end164:                                        ; preds = %land.lhs.true149, %if.then154, %if.then142
-  %bf.load202312 = phi i16 [ %bf.set161, %if.then154 ], [ %bf.set, %land.lhs.true149 ], [ %bf.set, %if.then142 ]
+  %bf.load202311 = phi i16 [ %bf.set161, %if.then154 ], [ %bf.set, %land.lhs.true149 ], [ %bf.set, %if.then142 ]
   %side.0 = phi i32 [ %conv163, %if.then154 ], [ %cond146, %land.lhs.true149 ], [ %cond146, %if.then142 ]
   %bf.load166 = load i8, ptr %dir_rename_mask, align 8
   %bf.clear167 = and i8 %bf.load166, 7
@@ -5876,10 +5878,10 @@ if.then183:                                       ; preds = %land.lhs.true177
   br label %return
 
 if.end200:                                        ; preds = %land.lhs.true177.if.end200_crit_edge, %land.lhs.true174, %if.end164
-  %bf.load202 = phi i16 [ %bf.load202.pre, %land.lhs.true177.if.end200_crit_edge ], [ %bf.load202312, %land.lhs.true174 ], [ %bf.load202312, %if.end164 ]
+  %bf.load202 = phi i16 [ %bf.load202.pre, %land.lhs.true177.if.end200_crit_edge ], [ %bf.load202311, %land.lhs.true174 ], [ %bf.load202311, %if.end164 ]
   %77 = shl i16 %69, 8
-  %bf.shl208304 = or i16 %77, -1793
-  %bf.set210 = and i16 %bf.shl208304, %bf.load202
+  %bf.shl208303 = or i16 %77, -1793
+  %bf.set210 = and i16 %bf.shl208303, %bf.load202
   store i16 %bf.set210, ptr %filemask35.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %newinfo, ptr noundef nonnull align 8 dereferenceable(88) %info, i64 88, i1 false)
   %prev = getelementptr inbounds i8, ptr %newinfo, i64 8
@@ -5919,7 +5921,7 @@ st_add.exit292:                                   ; preds = %st_add.exit
 
 for.body:                                         ; preds = %st_add.exit292, %if.end261
   %indvars.iv = phi i64 [ 0, %st_add.exit292 ], [ %indvars.iv.next, %if.end261 ]
-  %dirmask.addr.0301 = phi i64 [ %dirmask, %st_add.exit292 ], [ %shr, %if.end261 ]
+  %dirmask.addr.0300 = phi i64 [ %dirmask, %st_add.exit292 ], [ %shr, %if.end261 ]
   %cmp223 = icmp eq i64 %indvars.iv, 1
   %or.cond9 = select i1 %cmp223, i1 %11, i1 false
   br i1 %or.cond9, label %if.then227, label %if.else230
@@ -5946,7 +5948,7 @@ if.then243:                                       ; preds = %if.else238
   br label %for.end
 
 if.else246:                                       ; preds = %if.else238
-  %and248 = and i64 %dirmask.addr.0301, 1
+  %and248 = and i64 %dirmask.addr.0300, 1
   %tobool249.not = icmp eq i64 %and248, 0
   %arrayidx252 = getelementptr inbounds %struct.name_entry, ptr %names, i64 %indvars.iv
   %oid247.0 = select i1 %tobool249.not, ptr null, ptr %arrayidx252
@@ -5958,7 +5960,7 @@ if.else246:                                       ; preds = %if.else238
   br label %if.end261
 
 if.end261:                                        ; preds = %if.else246, %if.then227
-  %shr = lshr i64 %dirmask.addr.0301, 1
+  %shr = lshr i64 %dirmask.addr.0300, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !57
@@ -5991,21 +5993,23 @@ if.end284:                                        ; preds = %if.else281, %if.the
   br label %for.body295
 
 for.body295:                                      ; preds = %if.end284, %for.body295
-  %indvars.iv307 = phi i64 [ 0, %if.end284 ], [ %indvars.iv.next308, %for.body295 ]
-  %arrayidx297 = getelementptr inbounds [3 x ptr], ptr %buf, i64 0, i64 %indvars.iv307
+  %indvars.iv306 = phi i64 [ 0, %if.end284 ], [ %indvars.iv.next307, %for.body295 ]
+  %arrayidx297 = getelementptr inbounds [3 x ptr], ptr %buf, i64 0, i64 %indvars.iv306
   %83 = load ptr, ptr %arrayidx297, align 8
   call void @free(ptr noundef %83) #18
-  %indvars.iv.next308 = add nuw nsw i64 %indvars.iv307, 1
-  %exitcond310.not = icmp eq i64 %indvars.iv.next308, 3
-  br i1 %exitcond310.not, label %for.end300, label %for.body295, !llvm.loop !58
+  %indvars.iv.next307 = add nuw nsw i64 %indvars.iv306, 1
+  %exitcond309.not = icmp eq i64 %indvars.iv.next307, 3
+  br i1 %exitcond309.not, label %for.end300, label %for.body295, !llvm.loop !58
 
 for.end300:                                       ; preds = %for.body295
-  %cmp301.inv = icmp sgt i32 %ret.0, -1
-  %spec.select295 = select i1 %cmp301.inv, i32 %3, i32 -1
+  %cmp301 = icmp slt i32 %ret.0, 0
+  br i1 %cmp301, label %return, label %if.end305
+
+if.end305:                                        ; preds = %for.end300, %setup_path_info.exit
   br label %return
 
-return:                                           ; preds = %for.end300, %setup_path_info.exit, %if.then183, %if.then127, %if.then116, %if.then105, %if.then95
-  %retval.0 = phi i32 [ %3, %if.then95 ], [ %3, %if.then105 ], [ %3, %if.then116 ], [ %3, %if.then127 ], [ %3, %if.then183 ], [ %3, %setup_path_info.exit ], [ %spec.select295, %for.end300 ]
+return:                                           ; preds = %for.end300, %if.end305, %if.then183, %if.then127, %if.then116, %if.then105, %if.then95
+  %retval.0 = phi i32 [ %3, %if.then95 ], [ %3, %if.then105 ], [ %3, %if.then116 ], [ %3, %if.then127 ], [ %3, %if.end305 ], [ %3, %if.then183 ], [ -1, %for.end300 ]
   ret i32 %retval.0
 }
 

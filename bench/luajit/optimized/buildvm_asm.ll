@@ -311,16 +311,18 @@ emit_asm_bytes.exit.i:                            ; preds = %if.then17.i.i, %for
   %add.ptr.i = getelementptr inbounds i8, ptr %36, i64 %idx.ext.i
   %call45.i = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %add.ptr.i, ptr noundef nonnull dereferenceable(4) @.str.19, i64 noundef 3) #7
   %tobool.not.i = icmp eq i32 %call45.i, 0
-  br i1 %tobool.not.i, label %emit_asm_reloc_text.exit, label %if.then46.i
+  br i1 %tobool.not.i, label %if.end53.i, label %if.then46.i
 
 if.then46.i:                                      ; preds = %emit_asm_bytes.exit.i
   %49 = load i32, ptr %mode.i, align 8
   %cmp47.i = icmp eq i32 %49, 0
-  %spec.select.i = select i1 %cmp47.i, ptr @.str.20, ptr @.str.21
+  br i1 %cmp47.i, label %emit_asm_reloc_text.exit, label %if.end53.i
+
+if.end53.i:                                       ; preds = %if.then46.i, %emit_asm_bytes.exit.i
   br label %emit_asm_reloc_text.exit
 
-emit_asm_reloc_text.exit:                         ; preds = %emit_asm_bytes.exit.i, %if.then46.i
-  %.str.21.sink.i = phi ptr [ @.str.21, %emit_asm_bytes.exit.i ], [ %spec.select.i, %if.then46.i ]
+emit_asm_reloc_text.exit:                         ; preds = %if.then46.i, %if.end53.i
+  %.str.21.sink.i = phi ptr [ @.str.21, %if.end53.i ], [ @.str.20, %if.then46.i ]
   %50 = load ptr, ptr %fp, align 8
   %call55.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef nonnull %.str.21.sink.i, ptr noundef %opname.0.i, ptr noundef nonnull %36)
   br label %if.end41

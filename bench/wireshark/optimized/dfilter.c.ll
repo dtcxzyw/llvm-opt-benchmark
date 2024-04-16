@@ -1056,11 +1056,13 @@ define ptr @dfilter_deprecated_tokens(ptr nocapture noundef readonly %0) local_u
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   %6 = load i32, ptr %5, align 8
   %.not5 = icmp eq i32 %6, 0
-  %spec.select = select i1 %.not5, ptr null, ptr %3
-  br label %7
+  br i1 %.not5, label %7, label %8
 
 7:                                                ; preds = %4, %1
-  %.0 = phi ptr [ null, %1 ], [ %spec.select, %4 ]
+  br label %8
+
+8:                                                ; preds = %4, %7
+  %.0 = phi ptr [ null, %7 ], [ %3, %4 ]
   ret ptr %.0
 }
 

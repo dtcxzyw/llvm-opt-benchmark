@@ -5865,7 +5865,7 @@ define dso_local i32 @attnameAttNum(ptr nocapture noundef readonly %0, ptr nound
 21:                                               ; preds = %17
   %22 = trunc nuw nsw i64 %indvars.iv to i32
   %23 = add nuw nsw i32 %22, 1
-  br label %specialAttNum.exit
+  br label %35
 
 24:                                               ; preds = %10, %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5877,21 +5877,25 @@ define dso_local i32 @attnameAttNum(ptr nocapture noundef readonly %0, ptr nound
   br i1 %29, label %10, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %24, %3
-  br i1 %2, label %30, label %specialAttNum.exit
+  br i1 %2, label %30, label %specialAttNum.exit.thread
 
 30:                                               ; preds = %._crit_edge
   %31 = tail call ptr @SystemAttributeByName(ptr noundef %1) #10
   %.not.i = icmp eq ptr %31, null
-  br i1 %.not.i, label %specialAttNum.exit, label %32
+  br i1 %.not.i, label %specialAttNum.exit.thread, label %specialAttNum.exit
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds i8, ptr %31, i64 74
-  %34 = load i16, ptr %33, align 2
-  %35 = sext i16 %34 to i32
-  br label %specialAttNum.exit
+specialAttNum.exit:                               ; preds = %30
+  %32 = getelementptr inbounds i8, ptr %31, i64 74
+  %33 = load i16, ptr %32, align 2
+  %34 = sext i16 %33 to i32
+  %.not = icmp eq i16 %33, 0
+  br i1 %.not, label %specialAttNum.exit.thread, label %35
 
-specialAttNum.exit:                               ; preds = %32, %30, %._crit_edge, %21
-  %.0 = phi i32 [ %23, %21 ], [ 0, %._crit_edge ], [ %35, %32 ], [ 0, %30 ]
+specialAttNum.exit.thread:                        ; preds = %30, %specialAttNum.exit, %._crit_edge
+  br label %35
+
+35:                                               ; preds = %specialAttNum.exit, %specialAttNum.exit.thread, %21
+  %.0 = phi i32 [ %23, %21 ], [ 0, %specialAttNum.exit.thread ], [ %34, %specialAttNum.exit ]
   ret i32 %.0
 }
 

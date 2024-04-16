@@ -36,15 +36,19 @@ land.lhs.true:                                    ; preds = %if.end
 
 if.end6:                                          ; preds = %land.lhs.true, %if.end
   %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %if.end12, label %land.lhs.true7
+  br i1 %tobool.not, label %if.else, label %land.lhs.true7
 
 land.lhs.true7:                                   ; preds = %if.end6
   %asn1_cb8 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %asn1_cb8, align 8
+  %tobool9.not = icmp eq ptr %3, null
+  br i1 %tobool9.not, label %if.else, label %if.end12
+
+if.else:                                          ; preds = %land.lhs.true7, %if.end6
   br label %if.end12
 
-if.end12:                                         ; preds = %land.lhs.true7, %if.end6
-  %asn1_cb.0 = phi ptr [ null, %if.end6 ], [ %3, %land.lhs.true7 ]
+if.end12:                                         ; preds = %land.lhs.true7, %if.else
+  %asn1_cb.0 = phi ptr [ null, %if.else ], [ %3, %land.lhs.true7 ]
   switch i8 %1, label %sw.epilog [
     i8 0, label %sw.bb
     i8 5, label %sw.bb20

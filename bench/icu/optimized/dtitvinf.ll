@@ -1835,7 +1835,7 @@ for.end:                                          ; preds = %for.body, %entry
 define noundef signext i8 @_ZN6icu_7516DateIntervalInfo13stringNumericEiic(i32 noundef %fieldWidth, i32 noundef %anotherFieldWidth, i8 noundef signext %patternLetter) local_unnamed_addr #6 align 2 {
 entry:
   %cmp = icmp eq i8 %patternLetter, 77
-  br i1 %cmp, label %if.then, label %return
+  br i1 %cmp, label %if.then, label %if.end7
 
 if.then:                                          ; preds = %entry
   %cmp1 = icmp slt i32 %fieldWidth, 3
@@ -1847,11 +1847,13 @@ lor.lhs.false:                                    ; preds = %if.then
   %cmp3 = icmp sgt i32 %fieldWidth, 2
   %cmp5 = icmp slt i32 %anotherFieldWidth, 3
   %or.cond1 = and i1 %cmp3, %cmp5
-  %spec.select = zext i1 %or.cond1 to i8
+  br i1 %or.cond1, label %return, label %if.end7
+
+if.end7:                                          ; preds = %lor.lhs.false, %entry
   br label %return
 
-return:                                           ; preds = %lor.lhs.false, %entry, %if.then
-  %retval.0 = phi i8 [ 1, %if.then ], [ 0, %entry ], [ %spec.select, %lor.lhs.false ]
+return:                                           ; preds = %if.then, %lor.lhs.false, %if.end7
+  %retval.0 = phi i8 [ 0, %if.end7 ], [ 1, %lor.lhs.false ], [ 1, %if.then ]
   ret i8 %retval.0
 }
 
@@ -2119,12 +2121,12 @@ invoke.cont62:                                    ; preds = %invoke.cont60
   br label %if.end
 
 lpad.loopexit:                                    ; preds = %while.cond
-  %lpad.loopexit203 = landingpad { ptr, i32 }
+  %lpad.loopexit200 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup119
 
 lpad.loopexit.split-lp:                           ; preds = %if.then, %invoke.cont17, %invoke.cont24, %invoke.cont32, %invoke.cont42, %invoke.cont52, %entry, %lor.lhs.false, %lor.lhs.false5, %lor.lhs.false9, %lor.lhs.false13
-  %lpad.loopexit.split-lp204 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp201 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup119
 
@@ -2207,11 +2209,11 @@ if.end:                                           ; preds = %invoke.cont62, %inv
 
 for.body.i.preheader:                             ; preds = %if.end
   %copySkeleton.pn.sroa.phi = getelementptr inbounds i8, ptr %copySkeleton.pn, i64 24
-  %copySkeleton.pn.sroa.phi229 = getelementptr inbounds i8, ptr %copySkeleton.pn, i64 10
+  %copySkeleton.pn.sroa.phi225 = getelementptr inbounds i8, ptr %copySkeleton.pn, i64 10
   %65 = and i16 %62, 2
   %tobool.not.i.i.i.i = icmp eq i16 %65, 0
   %66 = load ptr, ptr %copySkeleton.pn.sroa.phi, align 8
-  %cond.i2.i.i.i = select i1 %tobool.not.i.i.i.i, ptr %66, ptr %copySkeleton.pn.sroa.phi229
+  %cond.i2.i.i.i = select i1 %tobool.not.i.i.i.i, ptr %66, ptr %copySkeleton.pn.sroa.phi225
   %67 = zext nneg i32 %cond.i7.i155 to i64
   br label %for.body.i
 
@@ -2288,16 +2290,16 @@ for.body.i170:                                    ; preds = %for.body.i170, %for
   %inc.i179 = add nsw i32 %81, 1
   store i32 %inc.i179, ptr %gep.i178, align 4
   %indvars.iv.next.i180 = add nuw nsw i64 %indvars.iv.i171, 1
-  %exitcond214.not = icmp eq i64 %indvars.iv.next.i180, %78
-  br i1 %exitcond214.not, label %for.body78.preheader, label %for.body.i170, !llvm.loop !9
+  %exitcond211.not = icmp eq i64 %indvars.iv.next.i180, %78
+  br i1 %exitcond211.not, label %for.body78.preheader, label %for.body.i170, !llvm.loop !9
 
 for.body78.preheader:                             ; preds = %for.body.i170, %while.body
   br label %for.body78
 
 for.body78:                                       ; preds = %for.body78.preheader, %for.inc105
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc105 ], [ 0, %for.body78.preheader ]
-  %fieldDifference.0210 = phi i8 [ %fieldDifference.1, %for.inc105 ], [ 1, %for.body78.preheader ]
-  %distance.0209 = phi i32 [ %distance.1, %for.inc105 ], [ 0, %for.body78.preheader ]
+  %fieldDifference.0207 = phi i8 [ %fieldDifference.1, %for.inc105 ], [ 1, %for.body78.preheader ]
+  %distance.0206 = phi i32 [ %distance.1, %for.inc105 ], [ 0, %for.body78.preheader ]
   %arrayidx80 = getelementptr inbounds [58 x i32], ptr %inputSkeletonFieldWidth, i64 0, i64 %indvars.iv
   %82 = load i32, ptr %arrayidx80, align 4
   %arrayidx82 = getelementptr inbounds [58 x i32], ptr %skeletonFieldWidth, i64 0, i64 %indvars.iv
@@ -2310,7 +2312,7 @@ if.end85:                                         ; preds = %for.body78
   br i1 %cmp86, label %if.then87, label %if.else
 
 if.then87:                                        ; preds = %if.end85
-  %add = add nuw nsw i32 %distance.0209, 4096
+  %add = add nuw nsw i32 %distance.0206, 4096
   br label %for.inc105
 
 if.else:                                          ; preds = %if.end85
@@ -2318,7 +2320,7 @@ if.else:                                          ; preds = %if.end85
   br i1 %cmp88, label %if.then89, label %if.else91
 
 if.then89:                                        ; preds = %if.else
-  %add90 = add nuw nsw i32 %distance.0209, 4096
+  %add90 = add nuw nsw i32 %distance.0206, 4096
   br label %for.inc105
 
 if.else91:                                        ; preds = %if.else
@@ -2328,25 +2330,31 @@ if.else91:                                        ; preds = %if.else
 if.then.i:                                        ; preds = %if.else91
   %cmp1.i = icmp slt i32 %82, 3
   %cmp2.i = icmp sgt i32 %83, 2
-  %or.cond224 = xor i1 %cmp1.i, %cmp2.i
-  br i1 %or.cond224, label %if.else98, label %if.then96
+  %or.cond.i = and i1 %cmp1.i, %cmp2.i
+  br i1 %or.cond.i, label %if.then96, label %lor.lhs.false.i
 
-if.then96:                                        ; preds = %if.then.i
-  %add97 = add nuw nsw i32 %distance.0209, 256
+lor.lhs.false.i:                                  ; preds = %if.then.i
+  %cmp3.i = icmp sgt i32 %82, 2
+  %cmp5.i = icmp slt i32 %83, 3
+  %or.cond1.i = and i1 %cmp3.i, %cmp5.i
+  br i1 %or.cond1.i, label %if.then96, label %if.else98
+
+if.then96:                                        ; preds = %lor.lhs.false.i, %if.then.i
+  %add97 = add nuw nsw i32 %distance.0206, 256
   br label %for.inc105
 
-if.else98:                                        ; preds = %if.then.i, %if.else91
+if.else98:                                        ; preds = %lor.lhs.false.i, %if.else91
   %sub = sub nsw i32 %82, %83
   %cond = call i32 @llvm.abs.i32(i32 %sub, i1 true)
-  %add101 = add nuw nsw i32 %cond, %distance.0209
+  %add101 = add nuw nsw i32 %cond, %distance.0206
   br label %for.inc105
 
 for.inc105:                                       ; preds = %if.then87, %if.then96, %if.else98, %if.then89, %for.body78
-  %distance.1 = phi i32 [ %distance.0209, %for.body78 ], [ %add, %if.then87 ], [ %add90, %if.then89 ], [ %add97, %if.then96 ], [ %add101, %if.else98 ]
-  %fieldDifference.1 = phi i8 [ %fieldDifference.0210, %for.body78 ], [ -1, %if.then87 ], [ -1, %if.then89 ], [ %fieldDifference.0210, %if.then96 ], [ %fieldDifference.0210, %if.else98 ]
+  %distance.1 = phi i32 [ %distance.0206, %for.body78 ], [ %add, %if.then87 ], [ %add90, %if.then89 ], [ %add97, %if.then96 ], [ %add101, %if.else98 ]
+  %fieldDifference.1 = phi i8 [ %fieldDifference.0207, %for.body78 ], [ -1, %if.then87 ], [ -1, %if.then89 ], [ %fieldDifference.0207, %if.then96 ], [ %fieldDifference.0207, %if.else98 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond216.not = icmp eq i64 %indvars.iv.next, 58
-  br i1 %exitcond216.not, label %for.end107, label %for.body78, !llvm.loop !10
+  %exitcond213.not = icmp eq i64 %indvars.iv.next, 58
+  br i1 %exitcond213.not, label %for.end107, label %for.body78, !llvm.loop !10
 
 for.end107:                                       ; preds = %for.inc105
   %cmp108 = icmp slt i32 %distance.1, %bestDistance.0
@@ -2386,7 +2394,7 @@ if.end118:                                        ; preds = %if.then117, %while.
   ret ptr %bestSkeleton.2
 
 ehcleanup119:                                     ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad61, %lpad51, %ehcleanup45, %ehcleanup35, %ehcleanup
-  %.pn46 = phi { ptr, i32 } [ %61, %lpad61 ], [ %60, %lpad51 ], [ %.pn40, %ehcleanup45 ], [ %.pn38, %ehcleanup35 ], [ %.pn, %ehcleanup ], [ %lpad.loopexit203, %lpad.loopexit ], [ %lpad.loopexit.split-lp204, %lpad.loopexit.split-lp ]
+  %.pn46 = phi { ptr, i32 } [ %61, %lpad61 ], [ %60, %lpad51 ], [ %.pn40, %ehcleanup45 ], [ %.pn38, %ehcleanup35 ], [ %.pn, %ehcleanup ], [ %lpad.loopexit200, %lpad.loopexit ], [ %lpad.loopexit.split-lp201, %lpad.loopexit.split-lp ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %copySkeleton) #15
   resume { ptr, i32 } %.pn46
 }
@@ -2803,13 +2811,13 @@ define linkonce_odr hidden noundef i32 @_ZN6icu_7516DateIntervalInfo16DateInterv
 entry:
   %0 = load i8, ptr %patternLetter, align 1
   %cmp.not = icmp eq i8 %0, 0
-  br i1 %cmp.not, label %return, label %land.lhs.true
+  br i1 %cmp.not, label %if.end44, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
   %arrayidx2 = getelementptr inbounds i8, ptr %patternLetter, i64 1
   %1 = load i8, ptr %arrayidx2, align 1
   %cmp4 = icmp eq i8 %1, 0
-  br i1 %cmp4, label %if.then, label %return
+  br i1 %cmp4, label %if.then, label %if.end44
 
 if.then:                                          ; preds = %land.lhs.true
   switch i8 %0, label %if.else27 [
@@ -2843,11 +2851,13 @@ if.else27:                                        ; preds = %if.then
 
 if.else33:                                        ; preds = %if.else27
   %cmp35 = icmp eq i8 %0, 109
-  %spec.select = select i1 %cmp35, i32 12, i32 24
+  br i1 %cmp35, label %return, label %if.end44
+
+if.end44:                                         ; preds = %if.else33, %land.lhs.true, %entry
   br label %return
 
-return:                                           ; preds = %if.else33, %entry, %land.lhs.true, %if.else27, %if.then, %if.then26, %if.then22, %if.then18, %if.then14, %if.then10
-  %retval.0 = phi i32 [ 1, %if.then10 ], [ 2, %if.then14 ], [ 5, %if.then18 ], [ 9, %if.then22 ], [ 9, %if.then26 ], [ 0, %if.then ], [ 10, %if.else27 ], [ 24, %land.lhs.true ], [ 24, %entry ], [ %spec.select, %if.else33 ]
+return:                                           ; preds = %if.else33, %if.else27, %if.then, %if.end44, %if.then26, %if.then22, %if.then18, %if.then14, %if.then10
+  %retval.0 = phi i32 [ 1, %if.then10 ], [ 2, %if.then14 ], [ 5, %if.then18 ], [ 9, %if.then22 ], [ 9, %if.then26 ], [ 24, %if.end44 ], [ 0, %if.then ], [ 10, %if.else27 ], [ 12, %if.else33 ]
   ret i32 %retval.0
 }
 

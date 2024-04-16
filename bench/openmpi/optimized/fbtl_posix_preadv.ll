@@ -28,7 +28,7 @@ define i64 @mca_fbtl_posix_preadv(ptr noundef %0) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 296
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %267, label %7
+  br i1 %6, label %266, label %7
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %0, i64 108
@@ -64,7 +64,7 @@ define i64 @mca_fbtl_posix_preadv(ptr noundef %0) local_unnamed_addr #0 {
   %32 = load i32, ptr %31, align 4
   %33 = call ptr @strerror(i32 noundef %32) #10
   call void (i32, ptr, ...) @opal_output(i32 noundef 1, ptr noundef nonnull @.str, ptr noundef %33) #10
-  br label %267
+  br label %266
 
 34:                                               ; preds = %10
   store i32 %12, ptr %11, align 8
@@ -78,7 +78,7 @@ define i64 @mca_fbtl_posix_preadv(ptr noundef %0) local_unnamed_addr #0 {
   %40 = getelementptr inbounds i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8
   %42 = ptrtoint ptr %41 to i64
-  br i1 %38, label %43, label %233
+  br i1 %38, label %43, label %232
 
 43:                                               ; preds = %35
   %wide.trip.count = zext nneg i32 %37 to i64
@@ -108,7 +108,7 @@ define i64 @mca_fbtl_posix_preadv(ptr noundef %0) local_unnamed_addr #0 {
   %57 = icmp eq i8 %56, 0
   %58 = icmp ult i64 %53, %wide.trip.count
   %or.cond = select i1 %57, i1 true, i1 %58
-  br i1 %or.cond, label %144, label %59
+  br i1 %or.cond, label %.critedge, label %59
 
 59:                                               ; preds = %54
   %60 = udiv i64 %53, %wide.trip.count
@@ -118,409 +118,409 @@ define i64 @mca_fbtl_posix_preadv(ptr noundef %0) local_unnamed_addr #0 {
   %64 = load i64, ptr @mca_fbtl_posix_max_gap_size, align 8
   %65 = icmp ugt i64 %60, %64
   %or.cond56 = select i1 %63, i1 true, i1 %65
-  br i1 %or.cond56, label %144, label %.lr.ph157.i
+  br i1 %or.cond56, label %.critedge, label %.lr.ph157.i
 
-.lr.ph157.i:                                      ; preds = %59, %._crit_edge147.i
-  %66 = phi i32 [ %143, %._crit_edge147.i ], [ %37, %59 ]
-  %.0102155.i = phi i64 [ %.1103.i, %._crit_edge147.i ], [ 0, %59 ]
-  %.0104154.i = phi i32 [ %.2.i.in, %._crit_edge147.i ], [ 0, %59 ]
-  %.0106153.i = phi ptr [ %.1107.i, %._crit_edge147.i ], [ null, %59 ]
-  %.0108152.i = phi i64 [ %.1109.lcssa.i, %._crit_edge147.i ], [ 0, %59 ]
-  %67 = load ptr, ptr %4, align 8
-  %68 = sext i32 %.0104154.i to i64
-  %69 = getelementptr inbounds %struct.mca_common_ompio_io_array_t, ptr %67, i64 %68, i32 1
-  %70 = load ptr, ptr %69, align 8
-  %71 = ptrtoint ptr %70 to i64
-  %72 = load i64, ptr @mca_fbtl_posix_max_tmpbuf_size, align 8
-  %73 = sext i32 %66 to i64
-  %74 = add nsw i64 %68, 1
-  %smax = call i64 @llvm.smax.i64(i64 %74, i64 %73)
-  br label %75
+.critedge:                                        ; preds = %59, %54
+  %66 = call noalias dereferenceable_or_null(1600) ptr @malloc(i64 noundef 1600) #12
+  %67 = icmp eq ptr %66, null
+  br i1 %67, label %68, label %.lr.ph.i
 
-75:                                               ; preds = %85, %.lr.ph157.i
-  %indvars.iv.i = phi i64 [ %68, %.lr.ph157.i ], [ %indvars.iv.next.i, %85 ]
-  %.099138.i = phi i32 [ %.0104154.i, %.lr.ph157.i ], [ %spec.select121.i, %85 ]
-  %.0100137.i = phi i64 [ 0, %.lr.ph157.i ], [ %spec.select.i, %85 ]
-  %76 = getelementptr inbounds %struct.mca_common_ompio_io_array_t, ptr %67, i64 %indvars.iv.i
-  %77 = getelementptr inbounds i8, ptr %76, i64 8
-  %78 = load ptr, ptr %77, align 8
-  %79 = ptrtoint ptr %78 to i64
-  %80 = getelementptr inbounds i8, ptr %76, i64 16
-  %81 = load i64, ptr %80, align 8
-  %82 = sub i64 %79, %71
-  %83 = add i64 %82, %81
-  %84 = icmp ugt i64 %83, %72
-  br i1 %84, label %.loopexit.i, label %85
-
-85:                                               ; preds = %75
-  %86 = icmp ugt i64 %83, %.0100137.i
-  %spec.select.i = call i64 @llvm.umax.i64(i64 %83, i64 %.0100137.i)
-  %87 = trunc nsw i64 %indvars.iv.i to i32
-  %spec.select121.i = select i1 %86, i32 %87, i32 %.099138.i
-  %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  %exitcond97.not = icmp eq i64 %indvars.iv.next.i, %smax
-  br i1 %exitcond97.not, label %.loopexit.i, label %75, !llvm.loop !6
-
-.loopexit.i:                                      ; preds = %85, %75
-  %.099124.i = phi i32 [ %.099138.i, %75 ], [ %spec.select121.i, %85 ]
-  %.2.i.in.in = phi i64 [ %indvars.iv.i, %75 ], [ %smax, %85 ]
-  %.2.i.in = trunc i64 %.2.i.in.in to i32
-  %.2.i = add i32 %.2.i.in, -1
-  %88 = sext i32 %.099124.i to i64
-  %89 = getelementptr inbounds %struct.mca_common_ompio_io_array_t, ptr %67, i64 %88
-  %90 = getelementptr inbounds i8, ptr %89, i64 8
-  %91 = load ptr, ptr %90, align 8
-  %92 = ptrtoint ptr %91 to i64
-  %93 = getelementptr inbounds i8, ptr %89, i64 16
-  %94 = load i64, ptr %93, align 8
-  %95 = sub i64 %92, %71
-  %96 = add i64 %95, %94
-  %97 = icmp ugt i64 %96, %.0102155.i
-  br i1 %97, label %98, label %104
-
-98:                                               ; preds = %.loopexit.i
-  %.not119.i = icmp eq ptr %.0106153.i, null
-  br i1 %.not119.i, label %100, label %99
-
-99:                                               ; preds = %98
-  call void @free(ptr noundef nonnull %.0106153.i) #10
-  br label %100
-
-100:                                              ; preds = %99, %98
-  %101 = call noalias ptr @malloc(i64 noundef %96) #12
-  %102 = icmp eq ptr %101, null
-  br i1 %102, label %103, label %104
-
-103:                                              ; preds = %100
+68:                                               ; preds = %.critedge
   call void (i32, ptr, ...) @opal_output(i32 noundef 1, ptr noundef nonnull @.str.3) #10
-  br label %mca_fbtl_posix_preadv_datasieving.exit
+  br label %mca_fbtl_posix_preadv_generic.exit
 
-104:                                              ; preds = %100, %.loopexit.i
-  %.1107.i = phi ptr [ %.0106153.i, %.loopexit.i ], [ %101, %100 ]
-  %.1103.i = phi i64 [ %.0102155.i, %.loopexit.i ], [ %96, %100 ]
-  %105 = call i32 @mca_fbtl_posix_lock(ptr noundef nonnull %2, ptr noundef %0, i32 noundef 0, i64 noundef %71, i64 noundef %96, i32 noundef 10, ptr noundef nonnull %3) #10
-  %106 = icmp sgt i32 %105, 0
-  br i1 %106, label %107, label %.preheader.i
+.lr.ph.i:                                         ; preds = %.critedge, %150
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %150 ], [ 0, %.critedge ]
+  %.0110.i = phi i64 [ %.2.i, %150 ], [ 0, %.critedge ]
+  %.078109.i = phi i64 [ %.179.i, %150 ], [ 0, %.critedge ]
+  %.080108.i = phi i32 [ %.282.i, %150 ], [ 0, %.critedge ]
+  %.083107.i = phi i32 [ %.184.i, %150 ], [ 1, %.critedge ]
+  %.086105.i = phi i64 [ %.288.i, %150 ], [ 0, %.critedge ]
+  %.089104.i = phi ptr [ %.190.i, %150 ], [ %66, %.critedge ]
+  %69 = icmp eq i32 %.080108.i, 0
+  br i1 %69, label %70, label %86
 
-.preheader.i:                                     ; preds = %104
-  %.not161.i = icmp eq i64 %96, 0
-  br i1 %.not161.i, label %._crit_edge.i, label %.lr.ph.i
+70:                                               ; preds = %.lr.ph.i
+  %71 = load ptr, ptr %4, align 8
+  %72 = getelementptr inbounds %struct.mca_common_ompio_io_array_t, ptr %71, i64 %indvars.iv.i
+  %73 = load ptr, ptr %72, align 8
+  store ptr %73, ptr %.089104.i, align 8
+  %74 = load ptr, ptr %4, align 8
+  %75 = getelementptr inbounds %struct.mca_common_ompio_io_array_t, ptr %74, i64 %indvars.iv.i, i32 2
+  %76 = load i64, ptr %75, align 8
+  %77 = getelementptr inbounds i8, ptr %.089104.i, i64 8
+  store i64 %76, ptr %77, align 8
+  %78 = load ptr, ptr %4, align 8
+  %79 = getelementptr inbounds %struct.mca_common_ompio_io_array_t, ptr %78, i64 %indvars.iv.i
+  %80 = getelementptr inbounds i8, ptr %79, i64 8
+  %81 = load ptr, ptr %80, align 8
+  %82 = ptrtoint ptr %81 to i64
+  %83 = getelementptr inbounds i8, ptr %79, i64 16
+  %84 = load i64, ptr %83, align 8
+  %85 = add nsw i64 %84, %82
+  br label %86
 
-107:                                              ; preds = %104
-  %108 = tail call ptr @__errno_location() #11
-  %109 = load i32, ptr %108, align 4
-  %110 = call ptr @strerror(i32 noundef %109) #10
-  call void (i32, ptr, ...) @opal_output(i32 noundef 1, ptr noundef nonnull @.str.4, i32 noundef %105, ptr noundef %110) #10
-  call void @mca_fbtl_posix_unlock(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %3) #10
-  call void @free(ptr noundef %.1107.i) #10
-  br label %mca_fbtl_posix_preadv_datasieving.exit
+86:                                               ; preds = %70, %.lr.ph.i
+  %.181.i = phi i32 [ 1, %70 ], [ %.080108.i, %.lr.ph.i ]
+  %.179.i = phi i64 [ %82, %70 ], [ %.078109.i, %.lr.ph.i ]
+  %.1.i = phi i64 [ %85, %70 ], [ %.0110.i, %.lr.ph.i ]
+  %87 = mul nsw i32 %.083107.i, 100
+  %.not.i = icmp sgt i32 %87, %.181.i
+  br i1 %.not.i, label %96, label %88
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %120
-  %.098139.i = phi i64 [ %121, %120 ], [ 0, %.preheader.i ]
-  %111 = load i32, ptr %0, align 8
-  %112 = getelementptr inbounds i8, ptr %.1107.i, i64 %.098139.i
-  %113 = sub i64 %96, %.098139.i
-  %114 = add i64 %.098139.i, %71
-  %115 = call i64 @pread(i32 noundef %111, ptr noundef %112, i64 noundef %113, i64 noundef %114) #10
-  switch i64 %115, label %120 [
-    i64 -1, label %116
+88:                                               ; preds = %86
+  %89 = add nsw i32 %.083107.i, 1
+  %90 = mul nsw i32 %89, 100
+  %91 = sext i32 %90 to i64
+  %92 = shl nsw i64 %91, 4
+  %93 = call ptr @realloc(ptr noundef %.089104.i, i64 noundef %92) #13
+  %94 = icmp eq ptr %93, null
+  br i1 %94, label %95, label %96
+
+95:                                               ; preds = %88
+  call void (i32, ptr, ...) @opal_output(i32 noundef 1, ptr noundef nonnull @.str.3) #10
+  br label %mca_fbtl_posix_preadv_generic.exit
+
+96:                                               ; preds = %88, %86
+  %.190.i = phi ptr [ %93, %88 ], [ %.089104.i, %86 ]
+  %.184.i = phi i32 [ %89, %88 ], [ %.083107.i, %86 ]
+  %97 = load i32, ptr %36, align 8
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %98 = zext i32 %97 to i64
+  %.not98.i = icmp eq i64 %indvars.iv.next.i, %98
+  br i1 %.not98.i, label %131, label %99
+
+99:                                               ; preds = %96
+  %100 = load ptr, ptr %4, align 8
+  %101 = getelementptr inbounds %struct.mca_common_ompio_io_array_t, ptr %100, i64 %indvars.iv.i
+  %102 = getelementptr inbounds i8, ptr %101, i64 8
+  %103 = load ptr, ptr %102, align 8
+  %104 = ptrtoint ptr %103 to i64
+  %105 = getelementptr inbounds i8, ptr %101, i64 16
+  %106 = load i64, ptr %105, align 8
+  %107 = add nsw i64 %106, %104
+  %108 = getelementptr inbounds %struct.mca_common_ompio_io_array_t, ptr %100, i64 %indvars.iv.next.i
+  %109 = getelementptr inbounds i8, ptr %108, i64 8
+  %110 = load ptr, ptr %109, align 8
+  %111 = ptrtoint ptr %110 to i64
+  %112 = icmp eq i64 %107, %111
+  %113 = icmp slt i32 %.181.i, 1024
+  %or.cond.i = and i1 %113, %112
+  br i1 %or.cond.i, label %114, label %131
+
+114:                                              ; preds = %99
+  %115 = load ptr, ptr %108, align 8
+  %116 = sext i32 %.181.i to i64
+  %117 = getelementptr inbounds %struct.iovec, ptr %.190.i, i64 %116
+  store ptr %115, ptr %117, align 8
+  %118 = load ptr, ptr %4, align 8
+  %119 = getelementptr inbounds %struct.mca_common_ompio_io_array_t, ptr %118, i64 %indvars.iv.next.i, i32 2
+  %120 = load i64, ptr %119, align 8
+  %121 = getelementptr inbounds i8, ptr %117, i64 8
+  store i64 %120, ptr %121, align 8
+  %122 = load ptr, ptr %4, align 8
+  %123 = getelementptr inbounds %struct.mca_common_ompio_io_array_t, ptr %122, i64 %indvars.iv.i
+  %124 = getelementptr inbounds i8, ptr %123, i64 8
+  %125 = load ptr, ptr %124, align 8
+  %126 = ptrtoint ptr %125 to i64
+  %127 = getelementptr inbounds i8, ptr %123, i64 16
+  %128 = load i64, ptr %127, align 8
+  %129 = add nsw i64 %128, %126
+  %130 = add nsw i32 %.181.i, 1
+  br label %150
+
+131:                                              ; preds = %99, %96
+  %132 = sub nsw i64 %.1.i, %.179.i
+  %133 = call i32 @mca_fbtl_posix_lock(ptr noundef nonnull %2, ptr noundef nonnull %0, i32 noundef 0, i64 noundef %.179.i, i64 noundef %132, i32 noundef 11, ptr noundef nonnull %3) #10
+  %134 = icmp sgt i32 %133, 0
+  br i1 %134, label %135, label %139
+
+135:                                              ; preds = %131
+  %136 = tail call ptr @__errno_location() #11
+  %137 = load i32, ptr %136, align 4
+  %138 = call ptr @strerror(i32 noundef %137) #10
+  call void (i32, ptr, ...) @opal_output(i32 noundef 1, ptr noundef nonnull @.str.6, i32 noundef %133, ptr noundef %138) #10
+  call void @free(ptr noundef %.190.i) #10
+  call void @mca_fbtl_posix_unlock(ptr noundef nonnull %2, ptr noundef nonnull %0, ptr noundef nonnull %3) #10
+  br label %mca_fbtl_posix_preadv_generic.exit
+
+139:                                              ; preds = %131
+  %140 = load i32, ptr %0, align 8
+  %141 = call i64 @preadv(i32 noundef %140, ptr noundef %.190.i, i32 noundef %.181.i, i64 noundef %.179.i) #10
+  call void @mca_fbtl_posix_unlock(ptr noundef nonnull %2, ptr noundef nonnull %0, ptr noundef nonnull %3) #10
+  %142 = icmp sgt i64 %141, 0
+  br i1 %142, label %143, label %145
+
+143:                                              ; preds = %139
+  %144 = add nuw nsw i64 %141, %.086105.i
+  br label %150
+
+145:                                              ; preds = %139
+  switch i64 %141, label %150 [
+    i64 -1, label %146
     i64 0, label %._crit_edge.i
   ]
 
-116:                                              ; preds = %.lr.ph.i
-  %117 = tail call ptr @__errno_location() #11
-  %118 = load i32, ptr %117, align 4
-  %119 = call ptr @strerror(i32 noundef %118) #10
-  call void (i32, ptr, ...) @opal_output(i32 noundef 1, ptr noundef nonnull @.str.5, ptr noundef %119) #10
+146:                                              ; preds = %145
+  %147 = tail call ptr @__errno_location() #11
+  %148 = load i32, ptr %147, align 4
+  %149 = call ptr @strerror(i32 noundef %148) #10
+  call void (i32, ptr, ...) @opal_output(i32 noundef 1, ptr noundef nonnull @.str.7, ptr noundef %149) #10
+  call void @free(ptr noundef %.190.i) #10
+  br label %mca_fbtl_posix_preadv_generic.exit
+
+150:                                              ; preds = %145, %143, %114
+  %.288.i = phi i64 [ %.086105.i, %114 ], [ %144, %143 ], [ %.086105.i, %145 ]
+  %.282.i = phi i32 [ %130, %114 ], [ 0, %143 ], [ 0, %145 ]
+  %.2.i = phi i64 [ %129, %114 ], [ %.1.i, %143 ], [ %.1.i, %145 ]
+  %151 = load i32, ptr %36, align 8
+  %152 = sext i32 %151 to i64
+  %153 = icmp slt i64 %indvars.iv.next.i, %152
+  br i1 %153, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !6
+
+._crit_edge.i:                                    ; preds = %150, %145
+  %.086.lcssa.i = phi i64 [ %.086105.i, %145 ], [ %.288.i, %150 ]
+  call void @free(ptr noundef %.190.i) #10
+  br label %mca_fbtl_posix_preadv_generic.exit
+
+.lr.ph157.i:                                      ; preds = %59, %._crit_edge147.i
+  %154 = phi i32 [ %231, %._crit_edge147.i ], [ %37, %59 ]
+  %.0102155.i = phi i64 [ %.1103.i, %._crit_edge147.i ], [ 0, %59 ]
+  %.0104154.i = phi i32 [ %.2.i59.in, %._crit_edge147.i ], [ 0, %59 ]
+  %.0106153.i = phi ptr [ %.1107.i, %._crit_edge147.i ], [ null, %59 ]
+  %.0108152.i = phi i64 [ %.1109.lcssa.i, %._crit_edge147.i ], [ 0, %59 ]
+  %155 = load ptr, ptr %4, align 8
+  %156 = sext i32 %.0104154.i to i64
+  %157 = getelementptr inbounds %struct.mca_common_ompio_io_array_t, ptr %155, i64 %156, i32 1
+  %158 = load ptr, ptr %157, align 8
+  %159 = ptrtoint ptr %158 to i64
+  %160 = load i64, ptr @mca_fbtl_posix_max_tmpbuf_size, align 8
+  %161 = sext i32 %154 to i64
+  %162 = add nsw i64 %156, 1
+  %smax = call i64 @llvm.smax.i64(i64 %162, i64 %161)
+  br label %163
+
+163:                                              ; preds = %173, %.lr.ph157.i
+  %indvars.iv.i57 = phi i64 [ %156, %.lr.ph157.i ], [ %indvars.iv.next.i58, %173 ]
+  %.099138.i = phi i32 [ %.0104154.i, %.lr.ph157.i ], [ %spec.select121.i, %173 ]
+  %.0100137.i = phi i64 [ 0, %.lr.ph157.i ], [ %spec.select.i, %173 ]
+  %164 = getelementptr inbounds %struct.mca_common_ompio_io_array_t, ptr %155, i64 %indvars.iv.i57
+  %165 = getelementptr inbounds i8, ptr %164, i64 8
+  %166 = load ptr, ptr %165, align 8
+  %167 = ptrtoint ptr %166 to i64
+  %168 = getelementptr inbounds i8, ptr %164, i64 16
+  %169 = load i64, ptr %168, align 8
+  %170 = sub i64 %167, %159
+  %171 = add i64 %170, %169
+  %172 = icmp ugt i64 %171, %160
+  br i1 %172, label %.loopexit.i, label %173
+
+173:                                              ; preds = %163
+  %174 = icmp ugt i64 %171, %.0100137.i
+  %spec.select.i = call i64 @llvm.umax.i64(i64 %171, i64 %.0100137.i)
+  %175 = trunc nsw i64 %indvars.iv.i57 to i32
+  %spec.select121.i = select i1 %174, i32 %175, i32 %.099138.i
+  %indvars.iv.next.i58 = add nsw i64 %indvars.iv.i57, 1
+  %exitcond97.not = icmp eq i64 %indvars.iv.next.i58, %smax
+  br i1 %exitcond97.not, label %.loopexit.i, label %163, !llvm.loop !7
+
+.loopexit.i:                                      ; preds = %173, %163
+  %.099124.i = phi i32 [ %.099138.i, %163 ], [ %spec.select121.i, %173 ]
+  %.2.i59.in.in = phi i64 [ %indvars.iv.i57, %163 ], [ %smax, %173 ]
+  %.2.i59.in = trunc i64 %.2.i59.in.in to i32
+  %.2.i59 = add i32 %.2.i59.in, -1
+  %176 = sext i32 %.099124.i to i64
+  %177 = getelementptr inbounds %struct.mca_common_ompio_io_array_t, ptr %155, i64 %176
+  %178 = getelementptr inbounds i8, ptr %177, i64 8
+  %179 = load ptr, ptr %178, align 8
+  %180 = ptrtoint ptr %179 to i64
+  %181 = getelementptr inbounds i8, ptr %177, i64 16
+  %182 = load i64, ptr %181, align 8
+  %183 = sub i64 %180, %159
+  %184 = add i64 %183, %182
+  %185 = icmp ugt i64 %184, %.0102155.i
+  br i1 %185, label %186, label %192
+
+186:                                              ; preds = %.loopexit.i
+  %.not119.i = icmp eq ptr %.0106153.i, null
+  br i1 %.not119.i, label %188, label %187
+
+187:                                              ; preds = %186
+  call void @free(ptr noundef nonnull %.0106153.i) #10
+  br label %188
+
+188:                                              ; preds = %187, %186
+  %189 = call noalias ptr @malloc(i64 noundef %184) #12
+  %190 = icmp eq ptr %189, null
+  br i1 %190, label %191, label %192
+
+191:                                              ; preds = %188
+  call void (i32, ptr, ...) @opal_output(i32 noundef 1, ptr noundef nonnull @.str.3) #10
+  br label %mca_fbtl_posix_preadv_generic.exit
+
+192:                                              ; preds = %188, %.loopexit.i
+  %.1107.i = phi ptr [ %.0106153.i, %.loopexit.i ], [ %189, %188 ]
+  %.1103.i = phi i64 [ %.0102155.i, %.loopexit.i ], [ %184, %188 ]
+  %193 = call i32 @mca_fbtl_posix_lock(ptr noundef nonnull %2, ptr noundef %0, i32 noundef 0, i64 noundef %159, i64 noundef %184, i32 noundef 10, ptr noundef nonnull %3) #10
+  %194 = icmp sgt i32 %193, 0
+  br i1 %194, label %195, label %.preheader.i60
+
+.preheader.i60:                                   ; preds = %192
+  %.not161.i = icmp eq i64 %184, 0
+  br i1 %.not161.i, label %._crit_edge.i62, label %.lr.ph.i61
+
+195:                                              ; preds = %192
+  %196 = tail call ptr @__errno_location() #11
+  %197 = load i32, ptr %196, align 4
+  %198 = call ptr @strerror(i32 noundef %197) #10
+  call void (i32, ptr, ...) @opal_output(i32 noundef 1, ptr noundef nonnull @.str.4, i32 noundef %193, ptr noundef %198) #10
+  call void @mca_fbtl_posix_unlock(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %3) #10
+  call void @free(ptr noundef %.1107.i) #10
+  br label %mca_fbtl_posix_preadv_generic.exit
+
+.lr.ph.i61:                                       ; preds = %.preheader.i60, %208
+  %.098139.i = phi i64 [ %209, %208 ], [ 0, %.preheader.i60 ]
+  %199 = load i32, ptr %0, align 8
+  %200 = getelementptr inbounds i8, ptr %.1107.i, i64 %.098139.i
+  %201 = sub i64 %184, %.098139.i
+  %202 = add i64 %.098139.i, %159
+  %203 = call i64 @pread(i32 noundef %199, ptr noundef %200, i64 noundef %201, i64 noundef %202) #10
+  switch i64 %203, label %208 [
+    i64 -1, label %204
+    i64 0, label %._crit_edge.i62
+  ]
+
+204:                                              ; preds = %.lr.ph.i61
+  %205 = tail call ptr @__errno_location() #11
+  %206 = load i32, ptr %205, align 4
+  %207 = call ptr @strerror(i32 noundef %206) #10
+  call void (i32, ptr, ...) @opal_output(i32 noundef 1, ptr noundef nonnull @.str.5, ptr noundef %207) #10
   call void @mca_fbtl_posix_unlock(ptr noundef nonnull %2, ptr noundef nonnull %0, ptr noundef nonnull %3) #10
   call void @free(ptr noundef %.1107.i) #10
-  br label %mca_fbtl_posix_preadv_datasieving.exit
+  br label %mca_fbtl_posix_preadv_generic.exit
 
-120:                                              ; preds = %.lr.ph.i
-  %121 = add i64 %115, %.098139.i
-  %122 = icmp ult i64 %121, %96
-  br i1 %122, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !7
+208:                                              ; preds = %.lr.ph.i61
+  %209 = add i64 %203, %.098139.i
+  %210 = icmp ult i64 %209, %184
+  br i1 %210, label %.lr.ph.i61, label %._crit_edge.i62, !llvm.loop !8
 
-._crit_edge.i:                                    ; preds = %120, %.lr.ph.i, %.preheader.i
-  %.098.lcssa.i = phi i64 [ 0, %.preheader.i ], [ %121, %120 ], [ %.098139.i, %.lr.ph.i ]
+._crit_edge.i62:                                  ; preds = %208, %.lr.ph.i61, %.preheader.i60
+  %.098.lcssa.i = phi i64 [ 0, %.preheader.i60 ], [ %209, %208 ], [ %.098139.i, %.lr.ph.i61 ]
   call void @mca_fbtl_posix_unlock(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %3) #10
-  %123 = load ptr, ptr %4, align 8
-  %124 = getelementptr inbounds %struct.mca_common_ompio_io_array_t, ptr %123, i64 %68, i32 1
-  %125 = load ptr, ptr %124, align 8
-  %126 = ptrtoint ptr %125 to i64
-  %.not120142.i = icmp sgt i32 %.0104154.i, %.2.i
+  %211 = load ptr, ptr %4, align 8
+  %212 = getelementptr inbounds %struct.mca_common_ompio_io_array_t, ptr %211, i64 %156, i32 1
+  %213 = load ptr, ptr %212, align 8
+  %214 = ptrtoint ptr %213 to i64
+  %.not120142.i = icmp sgt i32 %.0104154.i, %.2.i59
   br i1 %.not120142.i, label %._crit_edge147.i, label %.lr.ph146.i
 
-.lr.ph146.i:                                      ; preds = %._crit_edge.i, %134
-  %indvars.iv169.i = phi i64 [ %indvars.iv.next170.i, %134 ], [ %68, %._crit_edge.i ]
-  %.1109144.i = phi i64 [ %142, %134 ], [ %.0108152.i, %._crit_edge.i ]
-  %127 = load ptr, ptr %4, align 8
-  %128 = getelementptr inbounds %struct.mca_common_ompio_io_array_t, ptr %127, i64 %indvars.iv169.i
-  %129 = getelementptr inbounds i8, ptr %128, i64 8
-  %130 = load ptr, ptr %129, align 8
-  %131 = ptrtoint ptr %130 to i64
-  %132 = sub i64 %131, %126
-  %133 = icmp ugt i64 %132, %.098.lcssa.i
-  br i1 %133, label %._crit_edge147.i, label %134
+.lr.ph146.i:                                      ; preds = %._crit_edge.i62, %222
+  %indvars.iv169.i = phi i64 [ %indvars.iv.next170.i, %222 ], [ %156, %._crit_edge.i62 ]
+  %.1109144.i = phi i64 [ %230, %222 ], [ %.0108152.i, %._crit_edge.i62 ]
+  %215 = load ptr, ptr %4, align 8
+  %216 = getelementptr inbounds %struct.mca_common_ompio_io_array_t, ptr %215, i64 %indvars.iv169.i
+  %217 = getelementptr inbounds i8, ptr %216, i64 8
+  %218 = load ptr, ptr %217, align 8
+  %219 = ptrtoint ptr %218 to i64
+  %220 = sub i64 %219, %214
+  %221 = icmp ugt i64 %220, %.098.lcssa.i
+  br i1 %221, label %._crit_edge147.i, label %222
 
-134:                                              ; preds = %.lr.ph146.i
-  %135 = getelementptr inbounds i8, ptr %128, i64 16
-  %136 = load i64, ptr %135, align 8
-  %137 = add i64 %136, %132
-  %138 = icmp ugt i64 %137, %.098.lcssa.i
-  %139 = sub i64 %.098.lcssa.i, %132
-  %spec.select122.i = select i1 %138, i64 %139, i64 %136
-  %140 = load ptr, ptr %128, align 8
-  %141 = getelementptr inbounds i8, ptr %.1107.i, i64 %132
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %140, ptr align 1 %141, i64 %spec.select122.i, i1 false)
-  %142 = add i64 %spec.select122.i, %.1109144.i
+222:                                              ; preds = %.lr.ph146.i
+  %223 = getelementptr inbounds i8, ptr %216, i64 16
+  %224 = load i64, ptr %223, align 8
+  %225 = add i64 %224, %220
+  %226 = icmp ugt i64 %225, %.098.lcssa.i
+  %227 = sub i64 %.098.lcssa.i, %220
+  %spec.select122.i = select i1 %226, i64 %227, i64 %224
+  %228 = load ptr, ptr %216, align 8
+  %229 = getelementptr inbounds i8, ptr %.1107.i, i64 %220
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %228, ptr align 1 %229, i64 %spec.select122.i, i1 false)
+  %230 = add i64 %spec.select122.i, %.1109144.i
   %indvars.iv.next170.i = add nsw i64 %indvars.iv169.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next170.i to i32
-  %exitcond.not.i = icmp eq i32 %.2.i.in, %lftr.wideiv.i
-  br i1 %exitcond.not.i, label %._crit_edge147.i, label %.lr.ph146.i, !llvm.loop !8
+  %exitcond.not.i = icmp eq i32 %.2.i59.in, %lftr.wideiv.i
+  br i1 %exitcond.not.i, label %._crit_edge147.i, label %.lr.ph146.i, !llvm.loop !9
 
-._crit_edge147.i:                                 ; preds = %134, %.lr.ph146.i, %._crit_edge.i
-  %.1109.lcssa.i = phi i64 [ %.0108152.i, %._crit_edge.i ], [ %142, %134 ], [ %.1109144.i, %.lr.ph146.i ]
-  %143 = load i32, ptr %36, align 8
-  %.not.i = icmp sgt i32 %143, %.2.i.in
-  br i1 %.not.i, label %.lr.ph157.i, label %._crit_edge158.i, !llvm.loop !9
+._crit_edge147.i:                                 ; preds = %222, %.lr.ph146.i, %._crit_edge.i62
+  %.1109.lcssa.i = phi i64 [ %.0108152.i, %._crit_edge.i62 ], [ %230, %222 ], [ %.1109144.i, %.lr.ph146.i ]
+  %231 = load i32, ptr %36, align 8
+  %.not.i63 = icmp sgt i32 %231, %.2.i59.in
+  br i1 %.not.i63, label %.lr.ph157.i, label %._crit_edge158.i, !llvm.loop !10
 
 ._crit_edge158.i:                                 ; preds = %._crit_edge147.i
   call void @free(ptr noundef %.1107.i) #10
-  br label %mca_fbtl_posix_preadv_datasieving.exit
+  br label %mca_fbtl_posix_preadv_generic.exit
 
-144:                                              ; preds = %59, %54
-  %145 = call noalias dereferenceable_or_null(1600) ptr @malloc(i64 noundef 1600) #12
-  %146 = icmp eq ptr %145, null
-  br i1 %146, label %147, label %.lr.ph.i59
+232:                                              ; preds = %35
+  %233 = getelementptr inbounds i8, ptr %39, i64 16
+  %234 = load i64, ptr %233, align 8
+  %235 = call i32 @mca_fbtl_posix_lock(ptr noundef nonnull %2, ptr noundef nonnull %0, i32 noundef 0, i64 noundef %42, i64 noundef %234, i32 noundef 10, ptr noundef nonnull %3) #10
+  %236 = icmp sgt i32 %235, 0
+  br i1 %236, label %237, label %241
 
-147:                                              ; preds = %144
-  call void (i32, ptr, ...) @opal_output(i32 noundef 1, ptr noundef nonnull @.str.3) #10
-  br label %mca_fbtl_posix_preadv_datasieving.exit
-
-.lr.ph.i59:                                       ; preds = %144, %229
-  %indvars.iv.i60 = phi i64 [ %indvars.iv.next.i62, %229 ], [ 0, %144 ]
-  %.0110.i = phi i64 [ %.2.i63, %229 ], [ 0, %144 ]
-  %.078109.i = phi i64 [ %.179.i, %229 ], [ 0, %144 ]
-  %.080108.i = phi i32 [ %.282.i, %229 ], [ 0, %144 ]
-  %.083107.i = phi i32 [ %.184.i, %229 ], [ 1, %144 ]
-  %.086105.i = phi i64 [ %.288.i, %229 ], [ 0, %144 ]
-  %.089104.i = phi ptr [ %.190.i, %229 ], [ %145, %144 ]
-  %148 = icmp eq i32 %.080108.i, 0
-  br i1 %148, label %149, label %165
-
-149:                                              ; preds = %.lr.ph.i59
-  %150 = load ptr, ptr %4, align 8
-  %151 = getelementptr inbounds %struct.mca_common_ompio_io_array_t, ptr %150, i64 %indvars.iv.i60
-  %152 = load ptr, ptr %151, align 8
-  store ptr %152, ptr %.089104.i, align 8
-  %153 = load ptr, ptr %4, align 8
-  %154 = getelementptr inbounds %struct.mca_common_ompio_io_array_t, ptr %153, i64 %indvars.iv.i60, i32 2
-  %155 = load i64, ptr %154, align 8
-  %156 = getelementptr inbounds i8, ptr %.089104.i, i64 8
-  store i64 %155, ptr %156, align 8
-  %157 = load ptr, ptr %4, align 8
-  %158 = getelementptr inbounds %struct.mca_common_ompio_io_array_t, ptr %157, i64 %indvars.iv.i60
-  %159 = getelementptr inbounds i8, ptr %158, i64 8
-  %160 = load ptr, ptr %159, align 8
-  %161 = ptrtoint ptr %160 to i64
-  %162 = getelementptr inbounds i8, ptr %158, i64 16
-  %163 = load i64, ptr %162, align 8
-  %164 = add nsw i64 %163, %161
-  br label %165
-
-165:                                              ; preds = %149, %.lr.ph.i59
-  %.181.i = phi i32 [ 1, %149 ], [ %.080108.i, %.lr.ph.i59 ]
-  %.179.i = phi i64 [ %161, %149 ], [ %.078109.i, %.lr.ph.i59 ]
-  %.1.i = phi i64 [ %164, %149 ], [ %.0110.i, %.lr.ph.i59 ]
-  %166 = mul nsw i32 %.083107.i, 100
-  %.not.i61 = icmp sgt i32 %166, %.181.i
-  br i1 %.not.i61, label %175, label %167
-
-167:                                              ; preds = %165
-  %168 = add nsw i32 %.083107.i, 1
-  %169 = mul nsw i32 %168, 100
-  %170 = sext i32 %169 to i64
-  %171 = shl nsw i64 %170, 4
-  %172 = call ptr @realloc(ptr noundef %.089104.i, i64 noundef %171) #13
-  %173 = icmp eq ptr %172, null
-  br i1 %173, label %174, label %175
-
-174:                                              ; preds = %167
-  call void (i32, ptr, ...) @opal_output(i32 noundef 1, ptr noundef nonnull @.str.3) #10
-  br label %mca_fbtl_posix_preadv_datasieving.exit
-
-175:                                              ; preds = %167, %165
-  %.190.i = phi ptr [ %172, %167 ], [ %.089104.i, %165 ]
-  %.184.i = phi i32 [ %168, %167 ], [ %.083107.i, %165 ]
-  %176 = load i32, ptr %36, align 8
-  %indvars.iv.next.i62 = add nuw nsw i64 %indvars.iv.i60, 1
-  %177 = zext i32 %176 to i64
-  %.not98.i = icmp eq i64 %indvars.iv.next.i62, %177
-  br i1 %.not98.i, label %210, label %178
-
-178:                                              ; preds = %175
-  %179 = load ptr, ptr %4, align 8
-  %180 = getelementptr inbounds %struct.mca_common_ompio_io_array_t, ptr %179, i64 %indvars.iv.i60
-  %181 = getelementptr inbounds i8, ptr %180, i64 8
-  %182 = load ptr, ptr %181, align 8
-  %183 = ptrtoint ptr %182 to i64
-  %184 = getelementptr inbounds i8, ptr %180, i64 16
-  %185 = load i64, ptr %184, align 8
-  %186 = add nsw i64 %185, %183
-  %187 = getelementptr inbounds %struct.mca_common_ompio_io_array_t, ptr %179, i64 %indvars.iv.next.i62
-  %188 = getelementptr inbounds i8, ptr %187, i64 8
-  %189 = load ptr, ptr %188, align 8
-  %190 = ptrtoint ptr %189 to i64
-  %191 = icmp eq i64 %186, %190
-  %192 = icmp slt i32 %.181.i, 1024
-  %or.cond.i = and i1 %192, %191
-  br i1 %or.cond.i, label %193, label %210
-
-193:                                              ; preds = %178
-  %194 = load ptr, ptr %187, align 8
-  %195 = sext i32 %.181.i to i64
-  %196 = getelementptr inbounds %struct.iovec, ptr %.190.i, i64 %195
-  store ptr %194, ptr %196, align 8
-  %197 = load ptr, ptr %4, align 8
-  %198 = getelementptr inbounds %struct.mca_common_ompio_io_array_t, ptr %197, i64 %indvars.iv.next.i62, i32 2
-  %199 = load i64, ptr %198, align 8
-  %200 = getelementptr inbounds i8, ptr %196, i64 8
-  store i64 %199, ptr %200, align 8
-  %201 = load ptr, ptr %4, align 8
-  %202 = getelementptr inbounds %struct.mca_common_ompio_io_array_t, ptr %201, i64 %indvars.iv.i60
-  %203 = getelementptr inbounds i8, ptr %202, i64 8
-  %204 = load ptr, ptr %203, align 8
-  %205 = ptrtoint ptr %204 to i64
-  %206 = getelementptr inbounds i8, ptr %202, i64 16
-  %207 = load i64, ptr %206, align 8
-  %208 = add nsw i64 %207, %205
-  %209 = add nsw i32 %.181.i, 1
-  br label %229
-
-210:                                              ; preds = %178, %175
-  %211 = sub nsw i64 %.1.i, %.179.i
-  %212 = call i32 @mca_fbtl_posix_lock(ptr noundef nonnull %2, ptr noundef nonnull %0, i32 noundef 0, i64 noundef %.179.i, i64 noundef %211, i32 noundef 11, ptr noundef nonnull %3) #10
-  %213 = icmp sgt i32 %212, 0
-  br i1 %213, label %214, label %218
-
-214:                                              ; preds = %210
-  %215 = tail call ptr @__errno_location() #11
-  %216 = load i32, ptr %215, align 4
-  %217 = call ptr @strerror(i32 noundef %216) #10
-  call void (i32, ptr, ...) @opal_output(i32 noundef 1, ptr noundef nonnull @.str.6, i32 noundef %212, ptr noundef %217) #10
-  call void @free(ptr noundef %.190.i) #10
-  call void @mca_fbtl_posix_unlock(ptr noundef nonnull %2, ptr noundef nonnull %0, ptr noundef nonnull %3) #10
-  br label %mca_fbtl_posix_preadv_datasieving.exit
-
-218:                                              ; preds = %210
-  %219 = load i32, ptr %0, align 8
-  %220 = call i64 @preadv(i32 noundef %219, ptr noundef %.190.i, i32 noundef %.181.i, i64 noundef %.179.i) #10
-  call void @mca_fbtl_posix_unlock(ptr noundef nonnull %2, ptr noundef nonnull %0, ptr noundef nonnull %3) #10
-  %221 = icmp sgt i64 %220, 0
-  br i1 %221, label %222, label %224
-
-222:                                              ; preds = %218
-  %223 = add nuw nsw i64 %220, %.086105.i
-  br label %229
-
-224:                                              ; preds = %218
-  switch i64 %220, label %229 [
-    i64 -1, label %225
-    i64 0, label %._crit_edge.i58
-  ]
-
-225:                                              ; preds = %224
-  %226 = tail call ptr @__errno_location() #11
-  %227 = load i32, ptr %226, align 4
-  %228 = call ptr @strerror(i32 noundef %227) #10
-  call void (i32, ptr, ...) @opal_output(i32 noundef 1, ptr noundef nonnull @.str.7, ptr noundef %228) #10
-  call void @free(ptr noundef %.190.i) #10
-  br label %mca_fbtl_posix_preadv_datasieving.exit
-
-229:                                              ; preds = %224, %222, %193
-  %.288.i = phi i64 [ %.086105.i, %193 ], [ %223, %222 ], [ %.086105.i, %224 ]
-  %.282.i = phi i32 [ %209, %193 ], [ 0, %222 ], [ 0, %224 ]
-  %.2.i63 = phi i64 [ %208, %193 ], [ %.1.i, %222 ], [ %.1.i, %224 ]
-  %230 = load i32, ptr %36, align 8
-  %231 = sext i32 %230 to i64
-  %232 = icmp slt i64 %indvars.iv.next.i62, %231
-  br i1 %232, label %.lr.ph.i59, label %._crit_edge.i58, !llvm.loop !10
-
-._crit_edge.i58:                                  ; preds = %229, %224
-  %.086.lcssa.i = phi i64 [ %.086105.i, %224 ], [ %.288.i, %229 ]
-  call void @free(ptr noundef %.190.i) #10
-  br label %mca_fbtl_posix_preadv_datasieving.exit
-
-233:                                              ; preds = %35
-  %234 = getelementptr inbounds i8, ptr %39, i64 16
-  %235 = load i64, ptr %234, align 8
-  %236 = call i32 @mca_fbtl_posix_lock(ptr noundef nonnull %2, ptr noundef nonnull %0, i32 noundef 0, i64 noundef %42, i64 noundef %235, i32 noundef 10, ptr noundef nonnull %3) #10
-  %237 = icmp sgt i32 %236, 0
-  br i1 %237, label %238, label %242
-
-238:                                              ; preds = %233
-  %239 = tail call ptr @__errno_location() #11
-  %240 = load i32, ptr %239, align 4
-  %241 = call ptr @strerror(i32 noundef %240) #10
-  call void (i32, ptr, ...) @opal_output(i32 noundef 1, ptr noundef nonnull @.str.1, i32 noundef %236, ptr noundef %241) #10
+237:                                              ; preds = %232
+  %238 = tail call ptr @__errno_location() #11
+  %239 = load i32, ptr %238, align 4
+  %240 = call ptr @strerror(i32 noundef %239) #10
+  call void (i32, ptr, ...) @opal_output(i32 noundef 1, ptr noundef nonnull @.str.1, i32 noundef %235, ptr noundef %240) #10
   br label %mca_fbtl_posix_preadv_single.exit
 
-242:                                              ; preds = %233
-  %243 = load ptr, ptr %4, align 8
-  %244 = getelementptr inbounds i8, ptr %243, i64 16
-  %245 = load i64, ptr %244, align 8
-  %.not.i64 = icmp eq i64 %245, 0
+241:                                              ; preds = %232
+  %242 = load ptr, ptr %4, align 8
+  %243 = getelementptr inbounds i8, ptr %242, i64 16
+  %244 = load i64, ptr %243, align 8
+  %.not.i64 = icmp eq i64 %244, 0
   br i1 %.not.i64, label %mca_fbtl_posix_preadv_single.exit, label %.lr.ph.i65
 
-.lr.ph.i65:                                       ; preds = %242, %262
-  %.03236.i = phi i64 [ %263, %262 ], [ 0, %242 ]
-  %246 = load i32, ptr %0, align 8
-  %247 = load ptr, ptr %4, align 8
-  %248 = load ptr, ptr %247, align 8
-  %249 = getelementptr inbounds i8, ptr %248, i64 %.03236.i
-  %250 = getelementptr inbounds i8, ptr %247, i64 16
-  %251 = load i64, ptr %250, align 8
-  %252 = sub i64 %251, %.03236.i
-  %253 = getelementptr inbounds i8, ptr %247, i64 8
-  %254 = load ptr, ptr %253, align 8
-  %255 = ptrtoint ptr %254 to i64
-  %256 = add i64 %.03236.i, %255
-  %257 = call i64 @pread(i32 noundef %246, ptr noundef %249, i64 noundef %252, i64 noundef %256) #10
-  switch i64 %257, label %262 [
-    i64 -1, label %258
+.lr.ph.i65:                                       ; preds = %241, %261
+  %.03236.i = phi i64 [ %262, %261 ], [ 0, %241 ]
+  %245 = load i32, ptr %0, align 8
+  %246 = load ptr, ptr %4, align 8
+  %247 = load ptr, ptr %246, align 8
+  %248 = getelementptr inbounds i8, ptr %247, i64 %.03236.i
+  %249 = getelementptr inbounds i8, ptr %246, i64 16
+  %250 = load i64, ptr %249, align 8
+  %251 = sub i64 %250, %.03236.i
+  %252 = getelementptr inbounds i8, ptr %246, i64 8
+  %253 = load ptr, ptr %252, align 8
+  %254 = ptrtoint ptr %253 to i64
+  %255 = add i64 %.03236.i, %254
+  %256 = call i64 @pread(i32 noundef %245, ptr noundef %248, i64 noundef %251, i64 noundef %255) #10
+  switch i64 %256, label %261 [
+    i64 -1, label %257
     i64 0, label %mca_fbtl_posix_preadv_single.exit
   ]
 
-258:                                              ; preds = %.lr.ph.i65
-  %259 = tail call ptr @__errno_location() #11
-  %260 = load i32, ptr %259, align 4
-  %261 = call ptr @strerror(i32 noundef %260) #10
-  call void (i32, ptr, ...) @opal_output(i32 noundef 1, ptr noundef nonnull @.str.2, ptr noundef %261) #10
+257:                                              ; preds = %.lr.ph.i65
+  %258 = tail call ptr @__errno_location() #11
+  %259 = load i32, ptr %258, align 4
+  %260 = call ptr @strerror(i32 noundef %259) #10
+  call void (i32, ptr, ...) @opal_output(i32 noundef 1, ptr noundef nonnull @.str.2, ptr noundef %260) #10
   br label %mca_fbtl_posix_preadv_single.exit
 
-262:                                              ; preds = %.lr.ph.i65
-  %263 = add i64 %257, %.03236.i
-  %264 = icmp ult i64 %263, %245
-  br i1 %264, label %.lr.ph.i65, label %mca_fbtl_posix_preadv_single.exit, !llvm.loop !11
+261:                                              ; preds = %.lr.ph.i65
+  %262 = add i64 %256, %.03236.i
+  %263 = icmp ult i64 %262, %244
+  br i1 %263, label %.lr.ph.i65, label %mca_fbtl_posix_preadv_single.exit, !llvm.loop !11
 
-mca_fbtl_posix_preadv_single.exit:                ; preds = %.lr.ph.i65, %262, %238, %242, %258
-  %.0.i67 = phi i64 [ -1, %238 ], [ -1, %258 ], [ 0, %242 ], [ %263, %262 ], [ %.03236.i, %.lr.ph.i65 ]
+mca_fbtl_posix_preadv_single.exit:                ; preds = %.lr.ph.i65, %261, %237, %241, %257
+  %.0.i67 = phi i64 [ -1, %237 ], [ -1, %257 ], [ 0, %241 ], [ %262, %261 ], [ %.03236.i, %.lr.ph.i65 ]
   call void @mca_fbtl_posix_unlock(ptr noundef nonnull %2, ptr noundef nonnull %0, ptr noundef nonnull %3) #10
-  br label %mca_fbtl_posix_preadv_datasieving.exit
+  br label %mca_fbtl_posix_preadv_generic.exit
 
-mca_fbtl_posix_preadv_datasieving.exit:           ; preds = %._crit_edge.i58, %225, %214, %174, %147, %._crit_edge158.i, %116, %107, %103, %mca_fbtl_posix_preadv_single.exit
-  %.051 = phi i64 [ %.0.i67, %mca_fbtl_posix_preadv_single.exit ], [ %.1109.lcssa.i, %._crit_edge158.i ], [ -2, %103 ], [ -1, %107 ], [ -1, %116 ], [ -2, %147 ], [ -2, %174 ], [ -1, %214 ], [ -1, %225 ], [ %.086.lcssa.i, %._crit_edge.i58 ]
-  %265 = load i32, ptr %8, align 4
-  %.not54 = icmp eq i32 %265, 0
-  br i1 %.not54, label %267, label %266
+mca_fbtl_posix_preadv_generic.exit:               ; preds = %._crit_edge158.i, %204, %195, %191, %._crit_edge.i, %146, %135, %95, %68, %mca_fbtl_posix_preadv_single.exit
+  %.051 = phi i64 [ %.0.i67, %mca_fbtl_posix_preadv_single.exit ], [ -2, %68 ], [ -2, %95 ], [ -1, %135 ], [ -1, %146 ], [ %.086.lcssa.i, %._crit_edge.i ], [ %.1109.lcssa.i, %._crit_edge158.i ], [ -2, %191 ], [ -1, %195 ], [ -1, %204 ]
+  %264 = load i32, ptr %8, align 4
+  %.not54 = icmp eq i32 %264, 0
+  br i1 %.not54, label %266, label %265
 
-266:                                              ; preds = %mca_fbtl_posix_preadv_datasieving.exit
+265:                                              ; preds = %mca_fbtl_posix_preadv_generic.exit
   call void @mca_fbtl_posix_unlock(ptr noundef nonnull %2, ptr noundef nonnull %0, ptr noundef nonnull %3) #10
-  br label %267
+  br label %266
 
-267:                                              ; preds = %mca_fbtl_posix_preadv_datasieving.exit, %266, %1, %30
-  %.050 = phi i64 [ -1, %30 ], [ -1, %1 ], [ %.051, %266 ], [ %.051, %mca_fbtl_posix_preadv_datasieving.exit ]
+266:                                              ; preds = %mca_fbtl_posix_preadv_generic.exit, %265, %1, %30
+  %.050 = phi i64 [ -1, %30 ], [ -1, %1 ], [ %.051, %265 ], [ %.051, %mca_fbtl_posix_preadv_generic.exit ]
   ret i64 %.050
 }
 

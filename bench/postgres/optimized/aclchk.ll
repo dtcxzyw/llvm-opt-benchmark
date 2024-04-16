@@ -4428,13 +4428,13 @@ define dso_local i32 @pg_attribute_aclcheck_all_ext(i32 noundef %0, i32 noundef 
   %.not41.us63 = icmp sgt i16 %74, %25
   br i1 %.not41.us63, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !16
 
-.lr.ph.split.split:                               ; preds = %.lr.ph, %98
-  %.03449 = phi i32 [ %.1, %98 ], [ 1, %.lr.ph ]
-  %.03548 = phi i16 [ %99, %98 ], [ 1, %.lr.ph ]
+.lr.ph.split.split:                               ; preds = %.lr.ph, %99
+  %.03449 = phi i32 [ %.1, %99 ], [ 1, %.lr.ph ]
+  %.03548 = phi i16 [ %100, %99 ], [ 1, %.lr.ph ]
   %75 = sext i16 %.03548 to i64
   %76 = call ptr @SearchSysCache2(i32 noundef 7, i64 noundef %7, i64 noundef %75) #8
   %.not42 = icmp eq ptr %76, null
-  br i1 %.not42, label %98, label %77
+  br i1 %.not42, label %99, label %77
 
 77:                                               ; preds = %.lr.ph.split.split
   %78 = getelementptr inbounds i8, ptr %76, i64 16
@@ -4450,7 +4450,7 @@ define dso_local i32 @pg_attribute_aclcheck_all_ext(i32 noundef %0, i32 noundef 
 
 87:                                               ; preds = %77
   call void @ReleaseSysCache(ptr noundef nonnull %76) #8
-  br label %98
+  br label %99
 
 88:                                               ; preds = %77
   %89 = call i64 @SysCacheGetAttr(i32 noundef 7, ptr noundef nonnull %76, i16 noundef signext 23, ptr noundef nonnull %6) #8
@@ -4476,17 +4476,19 @@ define dso_local i32 @pg_attribute_aclcheck_all_ext(i32 noundef %0, i32 noundef 
 97:                                               ; preds = %92, %96
   call void @ReleaseSysCache(ptr noundef nonnull %76) #8
   %.not44 = icmp eq i64 %95, 0
-  %spec.select73 = zext i1 %.not44 to i32
-  br label %98
+  br i1 %.not44, label %98, label %99
 
-98:                                               ; preds = %97, %.thread, %.lr.ph.split.split, %87
-  %.1 = phi i32 [ %.03449, %87 ], [ %.03449, %.lr.ph.split.split ], [ 1, %.thread ], [ %spec.select73, %97 ]
-  %99 = add i16 %.03548, 1
-  %.not41 = icmp sgt i16 %99, %25
+98:                                               ; preds = %.thread, %97
+  br label %99
+
+99:                                               ; preds = %97, %98, %.lr.ph.split.split, %87
+  %.1 = phi i32 [ %.03449, %87 ], [ 1, %98 ], [ %.03449, %.lr.ph.split.split ], [ 0, %97 ]
+  %100 = add i16 %.03548, 1
+  %.not41 = icmp sgt i16 %100, %25
   br i1 %.not41, label %.loopexit, label %.lr.ph.split.split, !llvm.loop !16
 
-.loopexit:                                        ; preds = %71, %73, %47, %48, %98, %15, %.thread.us61, %10
-  %.033 = phi i32 [ 1, %10 ], [ 1, %15 ], [ 1, %.thread.us61 ], [ %.1, %98 ], [ 0, %47 ], [ 1, %48 ], [ 1, %71 ], [ %.1.us62, %73 ]
+.loopexit:                                        ; preds = %71, %73, %47, %48, %99, %15, %.thread.us61, %10
+  %.033 = phi i32 [ 1, %10 ], [ 1, %15 ], [ 1, %.thread.us61 ], [ %.1, %99 ], [ 0, %47 ], [ 1, %48 ], [ 1, %71 ], [ %.1.us62, %73 ]
   ret i32 %.033
 }
 

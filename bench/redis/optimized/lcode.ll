@@ -371,7 +371,7 @@ while.body.i:                                     ; preds = %if.end.i, %while.bo
   %add.i.i = add nuw nsw i32 %list.addr.037.i, 1
   %add1.i.i = add nsw i32 %add.i.i, %sub.i.i
   %cmp.i.i.i2 = icmp sgt i32 %list.addr.037.i, 0
-  br i1 %cmp.i.i.i2, label %land.lhs.true.i.i.i, label %getjumpcontrol.exit.i.i
+  br i1 %cmp.i.i.i2, label %land.lhs.true.i.i.i, label %if.else.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %while.body.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 -4
@@ -381,13 +381,14 @@ land.lhs.true.i.i.i:                              ; preds = %while.body.i
   %arrayidx2.i.i.i = getelementptr inbounds [38 x i8], ptr @luaP_opmodes, i64 0, i64 %idxprom1.i.i.i
   %12 = load i8, ptr %arrayidx2.i.i.i, align 1, !tbaa !24
   %tobool.not.i.i.i = icmp sgt i8 %12, -1
-  %spec.select.i = select i1 %tobool.not.i.i.i, i32 %10, i32 %11
-  %spec.select1.i = select i1 %tobool.not.i.i.i, ptr %arrayidx.i.i, ptr %add.ptr.i.i.i
+  br i1 %tobool.not.i.i.i, label %if.else.i.i.i, label %getjumpcontrol.exit.i.i
+
+if.else.i.i.i:                                    ; preds = %land.lhs.true.i.i.i, %while.body.i
   br label %getjumpcontrol.exit.i.i
 
-getjumpcontrol.exit.i.i:                          ; preds = %land.lhs.true.i.i.i, %while.body.i
-  %13 = phi i32 [ %10, %while.body.i ], [ %spec.select.i, %land.lhs.true.i.i.i ]
-  %retval.0.i.i.i = phi ptr [ %arrayidx.i.i, %while.body.i ], [ %spec.select1.i, %land.lhs.true.i.i.i ]
+getjumpcontrol.exit.i.i:                          ; preds = %if.else.i.i.i, %land.lhs.true.i.i.i
+  %13 = phi i32 [ %10, %if.else.i.i.i ], [ %11, %land.lhs.true.i.i.i ]
+  %retval.0.i.i.i = phi ptr [ %arrayidx.i.i, %if.else.i.i.i ], [ %add.ptr.i.i.i, %land.lhs.true.i.i.i ]
   %and.i.i = and i32 %13, 63
   %cmp.not.i.i = icmp eq i32 %and.i.i, 27
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.else.i
@@ -533,7 +534,7 @@ while.body:                                       ; preds = %if.end, %while.body
   %add.i = add nuw nsw i32 %list.addr.037, 1
   %add1.i = add nsw i32 %add.i, %sub.i
   %cmp.i.i = icmp sgt i32 %list.addr.037, 0
-  br i1 %cmp.i.i, label %land.lhs.true.i.i, label %getjumpcontrol.exit.i
+  br i1 %cmp.i.i, label %land.lhs.true.i.i, label %if.else.i.i
 
 land.lhs.true.i.i:                                ; preds = %while.body
   %add.ptr.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 -4
@@ -543,13 +544,14 @@ land.lhs.true.i.i:                                ; preds = %while.body
   %arrayidx2.i.i = getelementptr inbounds [38 x i8], ptr @luaP_opmodes, i64 0, i64 %idxprom1.i.i
   %4 = load i8, ptr %arrayidx2.i.i, align 1, !tbaa !24
   %tobool.not.i.i = icmp sgt i8 %4, -1
-  %spec.select = select i1 %tobool.not.i.i, i32 %2, i32 %3
-  %spec.select1 = select i1 %tobool.not.i.i, ptr %arrayidx.i, ptr %add.ptr.i.i
+  br i1 %tobool.not.i.i, label %if.else.i.i, label %getjumpcontrol.exit.i
+
+if.else.i.i:                                      ; preds = %land.lhs.true.i.i, %while.body
   br label %getjumpcontrol.exit.i
 
-getjumpcontrol.exit.i:                            ; preds = %land.lhs.true.i.i, %while.body
-  %5 = phi i32 [ %2, %while.body ], [ %spec.select, %land.lhs.true.i.i ]
-  %retval.0.i.i = phi ptr [ %arrayidx.i, %while.body ], [ %spec.select1, %land.lhs.true.i.i ]
+getjumpcontrol.exit.i:                            ; preds = %if.else.i.i, %land.lhs.true.i.i
+  %5 = phi i32 [ %2, %if.else.i.i ], [ %3, %land.lhs.true.i.i ]
+  %retval.0.i.i = phi ptr [ %arrayidx.i, %if.else.i.i ], [ %add.ptr.i.i, %land.lhs.true.i.i ]
   %and.i = and i32 %5, 63
   %cmp.not.i = icmp eq i32 %and.i, 27
   br i1 %cmp.not.i, label %if.end.i, label %if.else
@@ -4549,7 +4551,7 @@ while.body.i:                                     ; preds = %if.end.i, %while.bo
   %add.i.i = add nuw nsw i32 %list.addr.037.i, 1
   %add1.i.i = add nsw i32 %add.i.i, %sub.i.i
   %cmp.i.i.i = icmp sgt i32 %list.addr.037.i, 0
-  br i1 %cmp.i.i.i, label %land.lhs.true.i.i.i, label %getjumpcontrol.exit.i.i
+  br i1 %cmp.i.i.i, label %land.lhs.true.i.i.i, label %if.else.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %while.body.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 -4
@@ -4559,13 +4561,14 @@ land.lhs.true.i.i.i:                              ; preds = %while.body.i
   %arrayidx2.i.i.i = getelementptr inbounds [38 x i8], ptr @luaP_opmodes, i64 0, i64 %idxprom1.i.i.i
   %7 = load i8, ptr %arrayidx2.i.i.i, align 1, !tbaa !24
   %tobool.not.i.i.i = icmp sgt i8 %7, -1
-  %spec.select.i = select i1 %tobool.not.i.i.i, i32 %5, i32 %6
-  %spec.select1.i = select i1 %tobool.not.i.i.i, ptr %arrayidx.i.i, ptr %add.ptr.i.i.i
+  br i1 %tobool.not.i.i.i, label %if.else.i.i.i, label %getjumpcontrol.exit.i.i
+
+if.else.i.i.i:                                    ; preds = %land.lhs.true.i.i.i, %while.body.i
   br label %getjumpcontrol.exit.i.i
 
-getjumpcontrol.exit.i.i:                          ; preds = %land.lhs.true.i.i.i, %while.body.i
-  %8 = phi i32 [ %5, %while.body.i ], [ %spec.select.i, %land.lhs.true.i.i.i ]
-  %retval.0.i.i.i = phi ptr [ %arrayidx.i.i, %while.body.i ], [ %spec.select1.i, %land.lhs.true.i.i.i ]
+getjumpcontrol.exit.i.i:                          ; preds = %if.else.i.i.i, %land.lhs.true.i.i.i
+  %8 = phi i32 [ %5, %if.else.i.i.i ], [ %6, %land.lhs.true.i.i.i ]
+  %retval.0.i.i.i = phi ptr [ %arrayidx.i.i, %if.else.i.i.i ], [ %add.ptr.i.i.i, %land.lhs.true.i.i.i ]
   %and.i.i = and i32 %8, 63
   %cmp.not.i.i = icmp eq i32 %and.i.i, 27
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.else.i

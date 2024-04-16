@@ -631,7 +631,7 @@ dom_html5_serialize_node.exit:                    ; preds = %dom_html5_serialize
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @dom_html5_serializes_as_void(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @dom_html5_serializes_as_void(ptr nocapture noundef readonly %0) unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 72
   %.val = load ptr, ptr %2, align 8
   %3 = icmp eq ptr %.val, null
@@ -642,13 +642,13 @@ dom_is_html_ns.exit:                              ; preds = %1
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(29) @.str.18) #5
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %dom_is_html_ns.exit.thread, label %dom_local_name_compare_ex.exit54
+  br i1 %7, label %dom_is_html_ns.exit.thread, label %dom_local_name_compare_ex.exit54.thread
 
 dom_is_html_ns.exit.thread:                       ; preds = %1, %dom_is_html_ns.exit
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #5
-  switch i64 %10, label %dom_local_name_compare_ex.exit51.thread.thread.thread [
+  switch i64 %10, label %dom_local_name_compare_ex.exit54.thread [
     i64 4, label %dom_local_name_compare_ex.exit
     i64 2, label %dom_local_name_compare_ex.exit39
     i64 3, label %dom_local_name_compare_ex.exit40
@@ -661,115 +661,112 @@ dom_is_html_ns.exit.thread:                       ; preds = %1, %dom_is_html_ns.
 dom_local_name_compare_ex.exit:                   ; preds = %dom_is_html_ns.exit.thread
   %11 = tail call i32 @zend_binary_strcmp(ptr noundef %9, i64 noundef 4, ptr noundef nonnull @.str, i64 noundef 4) #4
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %dom_local_name_compare_ex.exit54, label %dom_local_name_compare_ex.exit38
+  br i1 %12, label %61, label %dom_local_name_compare_ex.exit38
 
 dom_local_name_compare_ex.exit38:                 ; preds = %dom_local_name_compare_ex.exit
   %13 = load ptr, ptr %8, align 8
   %14 = tail call i32 @zend_binary_strcmp(ptr noundef %13, i64 noundef 4, ptr noundef nonnull @.str.1, i64 noundef 4) #4
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %dom_local_name_compare_ex.exit54, label %dom_local_name_compare_ex.exit45
+  br i1 %15, label %61, label %dom_local_name_compare_ex.exit45
 
 dom_local_name_compare_ex.exit39:                 ; preds = %dom_is_html_ns.exit.thread
   %16 = tail call i32 @zend_binary_strcmp(ptr noundef %9, i64 noundef 2, ptr noundef nonnull @.str.2, i64 noundef 2) #4
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %dom_local_name_compare_ex.exit54, label %dom_local_name_compare_ex.exit42
+  br i1 %17, label %61, label %dom_local_name_compare_ex.exit42
 
 dom_local_name_compare_ex.exit40:                 ; preds = %dom_is_html_ns.exit.thread
   %18 = tail call i32 @zend_binary_strcmp(ptr noundef %9, i64 noundef 3, ptr noundef nonnull @.str.3, i64 noundef 3) #4
   %19 = icmp eq i32 %18, 0
-  br i1 %19, label %dom_local_name_compare_ex.exit54, label %dom_local_name_compare_ex.exit43
+  br i1 %19, label %61, label %dom_local_name_compare_ex.exit43
 
 dom_local_name_compare_ex.exit41:                 ; preds = %dom_is_html_ns.exit.thread
   %20 = tail call i32 @zend_binary_strcmp(ptr noundef %9, i64 noundef 5, ptr noundef nonnull @.str.4, i64 noundef 5) #4
   %21 = icmp eq i32 %20, 0
-  br i1 %21, label %dom_local_name_compare_ex.exit54, label %dom_local_name_compare_ex.exit44
+  br i1 %21, label %61, label %dom_local_name_compare_ex.exit44
 
 dom_local_name_compare_ex.exit42:                 ; preds = %dom_local_name_compare_ex.exit39
   %22 = load ptr, ptr %8, align 8
   %23 = tail call i32 @zend_binary_strcmp(ptr noundef %22, i64 noundef 2, ptr noundef nonnull @.str.5, i64 noundef 2) #4
   %24 = icmp eq i32 %23, 0
-  br label %dom_local_name_compare_ex.exit54
+  br i1 %24, label %61, label %dom_local_name_compare_ex.exit54.thread
 
 dom_local_name_compare_ex.exit43:                 ; preds = %dom_local_name_compare_ex.exit40
   %25 = load ptr, ptr %8, align 8
   %26 = tail call i32 @zend_binary_strcmp(ptr noundef %25, i64 noundef 3, ptr noundef nonnull @.str.6, i64 noundef 3) #4
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %dom_local_name_compare_ex.exit54, label %dom_local_name_compare_ex.exit49
+  br i1 %27, label %61, label %dom_local_name_compare_ex.exit49
 
 dom_local_name_compare_ex.exit44:                 ; preds = %dom_local_name_compare_ex.exit41
   %28 = load ptr, ptr %8, align 8
   %29 = tail call i32 @zend_binary_strcmp(ptr noundef %28, i64 noundef 5, ptr noundef nonnull @.str.7, i64 noundef 5) #4
   %30 = icmp eq i32 %29, 0
-  br i1 %30, label %dom_local_name_compare_ex.exit54, label %dom_local_name_compare_ex.exit48
+  br i1 %30, label %61, label %dom_local_name_compare_ex.exit48
 
 dom_local_name_compare_ex.exit45:                 ; preds = %dom_local_name_compare_ex.exit38
   %31 = load ptr, ptr %8, align 8
   %32 = tail call i32 @zend_binary_strcmp(ptr noundef %31, i64 noundef %10, ptr noundef nonnull @.str.8, i64 noundef %10) #4
   %33 = icmp eq i32 %32, 0
-  br i1 %33, label %dom_local_name_compare_ex.exit54, label %dom_local_name_compare_ex.exit46
+  br i1 %33, label %61, label %dom_local_name_compare_ex.exit46
 
 dom_local_name_compare_ex.exit46:                 ; preds = %dom_local_name_compare_ex.exit45
   %34 = load ptr, ptr %8, align 8
   %35 = tail call i32 @zend_binary_strcmp(ptr noundef %34, i64 noundef %10, ptr noundef nonnull @.str.9, i64 noundef %10) #4
   %36 = icmp eq i32 %35, 0
-  br i1 %36, label %dom_local_name_compare_ex.exit54, label %dom_local_name_compare_ex.exit51.thread.thread99.thread
+  br i1 %36, label %61, label %dom_local_name_compare_ex.exit54.thread
 
 dom_local_name_compare_ex.exit47:                 ; preds = %dom_is_html_ns.exit.thread
   %37 = load ptr, ptr %8, align 8
   %38 = tail call i32 @zend_binary_strcmp(ptr noundef %37, i64 noundef 6, ptr noundef nonnull @.str.10, i64 noundef 6) #4
   %39 = icmp eq i32 %38, 0
-  br i1 %39, label %dom_local_name_compare_ex.exit54, label %dom_local_name_compare_ex.exit53
+  br i1 %39, label %61, label %dom_local_name_compare_ex.exit53
 
 dom_local_name_compare_ex.exit48:                 ; preds = %dom_local_name_compare_ex.exit44
   %40 = load ptr, ptr %8, align 8
   %41 = tail call i32 @zend_binary_strcmp(ptr noundef %40, i64 noundef %10, ptr noundef nonnull @.str.11, i64 noundef %10) #4
   %42 = icmp eq i32 %41, 0
-  br i1 %42, label %dom_local_name_compare_ex.exit54, label %dom_local_name_compare_ex.exit52
+  br i1 %42, label %61, label %dom_local_name_compare_ex.exit52
 
 dom_local_name_compare_ex.exit49:                 ; preds = %dom_local_name_compare_ex.exit43
   %43 = load ptr, ptr %8, align 8
   %44 = tail call i32 @zend_binary_strcmp(ptr noundef %43, i64 noundef 3, ptr noundef nonnull @.str.12, i64 noundef 3) #4
   %45 = icmp eq i32 %44, 0
-  br i1 %45, label %dom_local_name_compare_ex.exit54, label %dom_local_name_compare_ex.exit51.thread.thread99.thread
+  br i1 %45, label %61, label %dom_local_name_compare_ex.exit54.thread
 
 dom_local_name_compare_ex.exit50:                 ; preds = %dom_is_html_ns.exit.thread
   %46 = load ptr, ptr %8, align 8
   %47 = tail call i32 @zend_binary_strcmp(ptr noundef %46, i64 noundef 8, ptr noundef nonnull @.str.13, i64 noundef 8) #4
   %48 = icmp eq i32 %47, 0
-  br i1 %48, label %dom_local_name_compare_ex.exit54, label %dom_local_name_compare_ex.exit51.thread.thread.thread
+  br i1 %48, label %61, label %dom_local_name_compare_ex.exit54.thread
 
 dom_local_name_compare_ex.exit51:                 ; preds = %dom_is_html_ns.exit.thread
   %49 = load ptr, ptr %8, align 8
   %50 = tail call i32 @zend_binary_strcmp(ptr noundef %49, i64 noundef 7, ptr noundef nonnull @.str.14, i64 noundef 7) #4
   %51 = icmp eq i32 %50, 0
-  br i1 %51, label %dom_local_name_compare_ex.exit54, label %dom_local_name_compare_ex.exit51.thread.thread.thread
-
-dom_local_name_compare_ex.exit51.thread.thread.thread: ; preds = %dom_is_html_ns.exit.thread, %dom_local_name_compare_ex.exit50, %dom_local_name_compare_ex.exit51
-  br label %dom_local_name_compare_ex.exit54
-
-dom_local_name_compare_ex.exit51.thread.thread99.thread: ; preds = %dom_local_name_compare_ex.exit49, %dom_local_name_compare_ex.exit46
-  br label %dom_local_name_compare_ex.exit54
+  br i1 %51, label %61, label %dom_local_name_compare_ex.exit54.thread
 
 dom_local_name_compare_ex.exit52:                 ; preds = %dom_local_name_compare_ex.exit48
   %52 = load ptr, ptr %8, align 8
   %53 = tail call i32 @zend_binary_strcmp(ptr noundef %52, i64 noundef %10, ptr noundef nonnull @.str.15, i64 noundef %10) #4
   %54 = icmp eq i32 %53, 0
-  br i1 %54, label %dom_local_name_compare_ex.exit54, label %dom_local_name_compare_ex.exit53.thread
+  br i1 %54, label %61, label %dom_local_name_compare_ex.exit54
 
 dom_local_name_compare_ex.exit53:                 ; preds = %dom_local_name_compare_ex.exit47
   %55 = load ptr, ptr %8, align 8
   %56 = tail call i32 @zend_binary_strcmp(ptr noundef %55, i64 noundef %10, ptr noundef nonnull @.str.16, i64 noundef %10) #4
   %57 = icmp eq i32 %56, 0
-  br label %dom_local_name_compare_ex.exit54
+  br i1 %57, label %61, label %dom_local_name_compare_ex.exit54.thread
 
-dom_local_name_compare_ex.exit53.thread:          ; preds = %dom_local_name_compare_ex.exit52
+dom_local_name_compare_ex.exit54:                 ; preds = %dom_local_name_compare_ex.exit52
   %58 = load ptr, ptr %8, align 8
   %59 = tail call i32 @zend_binary_strcmp(ptr noundef %58, i64 noundef %10, ptr noundef nonnull @.str.17, i64 noundef %10) #4
   %60 = icmp eq i32 %59, 0
-  br label %dom_local_name_compare_ex.exit54
+  br i1 %60, label %61, label %dom_local_name_compare_ex.exit54.thread
 
-dom_local_name_compare_ex.exit54:                 ; preds = %dom_local_name_compare_ex.exit53, %dom_local_name_compare_ex.exit42, %dom_local_name_compare_ex.exit51.thread.thread99.thread, %dom_local_name_compare_ex.exit51.thread.thread.thread, %dom_local_name_compare_ex.exit53.thread, %dom_is_html_ns.exit, %dom_local_name_compare_ex.exit, %dom_local_name_compare_ex.exit38, %dom_local_name_compare_ex.exit39, %dom_local_name_compare_ex.exit40, %dom_local_name_compare_ex.exit41, %dom_local_name_compare_ex.exit43, %dom_local_name_compare_ex.exit44, %dom_local_name_compare_ex.exit45, %dom_local_name_compare_ex.exit46, %dom_local_name_compare_ex.exit47, %dom_local_name_compare_ex.exit48, %dom_local_name_compare_ex.exit49, %dom_local_name_compare_ex.exit50, %dom_local_name_compare_ex.exit51, %dom_local_name_compare_ex.exit52
-  %.0 = phi i1 [ %57, %dom_local_name_compare_ex.exit53 ], [ true, %dom_local_name_compare_ex.exit52 ], [ true, %dom_local_name_compare_ex.exit51 ], [ true, %dom_local_name_compare_ex.exit50 ], [ true, %dom_local_name_compare_ex.exit49 ], [ true, %dom_local_name_compare_ex.exit48 ], [ true, %dom_local_name_compare_ex.exit47 ], [ true, %dom_local_name_compare_ex.exit46 ], [ true, %dom_local_name_compare_ex.exit45 ], [ true, %dom_local_name_compare_ex.exit44 ], [ true, %dom_local_name_compare_ex.exit43 ], [ true, %dom_local_name_compare_ex.exit41 ], [ true, %dom_local_name_compare_ex.exit40 ], [ true, %dom_local_name_compare_ex.exit39 ], [ true, %dom_local_name_compare_ex.exit38 ], [ true, %dom_local_name_compare_ex.exit ], [ false, %dom_is_html_ns.exit ], [ %60, %dom_local_name_compare_ex.exit53.thread ], [ false, %dom_local_name_compare_ex.exit51.thread.thread.thread ], [ false, %dom_local_name_compare_ex.exit51.thread.thread99.thread ], [ %24, %dom_local_name_compare_ex.exit42 ]
+dom_local_name_compare_ex.exit54.thread:          ; preds = %dom_local_name_compare_ex.exit53, %dom_is_html_ns.exit.thread, %dom_local_name_compare_ex.exit46, %dom_local_name_compare_ex.exit49, %dom_local_name_compare_ex.exit51, %dom_local_name_compare_ex.exit50, %dom_local_name_compare_ex.exit42, %dom_local_name_compare_ex.exit54, %dom_is_html_ns.exit
+  br label %61
+
+61:                                               ; preds = %dom_local_name_compare_ex.exit, %dom_local_name_compare_ex.exit38, %dom_local_name_compare_ex.exit39, %dom_local_name_compare_ex.exit40, %dom_local_name_compare_ex.exit41, %dom_local_name_compare_ex.exit42, %dom_local_name_compare_ex.exit43, %dom_local_name_compare_ex.exit44, %dom_local_name_compare_ex.exit45, %dom_local_name_compare_ex.exit46, %dom_local_name_compare_ex.exit47, %dom_local_name_compare_ex.exit48, %dom_local_name_compare_ex.exit49, %dom_local_name_compare_ex.exit50, %dom_local_name_compare_ex.exit51, %dom_local_name_compare_ex.exit52, %dom_local_name_compare_ex.exit53, %dom_local_name_compare_ex.exit54, %dom_local_name_compare_ex.exit54.thread
+  %.0 = phi i1 [ false, %dom_local_name_compare_ex.exit54.thread ], [ true, %dom_local_name_compare_ex.exit54 ], [ true, %dom_local_name_compare_ex.exit53 ], [ true, %dom_local_name_compare_ex.exit52 ], [ true, %dom_local_name_compare_ex.exit51 ], [ true, %dom_local_name_compare_ex.exit50 ], [ true, %dom_local_name_compare_ex.exit49 ], [ true, %dom_local_name_compare_ex.exit48 ], [ true, %dom_local_name_compare_ex.exit47 ], [ true, %dom_local_name_compare_ex.exit46 ], [ true, %dom_local_name_compare_ex.exit45 ], [ true, %dom_local_name_compare_ex.exit44 ], [ true, %dom_local_name_compare_ex.exit43 ], [ true, %dom_local_name_compare_ex.exit42 ], [ true, %dom_local_name_compare_ex.exit41 ], [ true, %dom_local_name_compare_ex.exit40 ], [ true, %dom_local_name_compare_ex.exit39 ], [ true, %dom_local_name_compare_ex.exit38 ], [ true, %dom_local_name_compare_ex.exit ]
   ret i1 %.0
 }
 

@@ -353,7 +353,7 @@ declare ptr @OSSL_PROVIDER_load(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @OSSL_SELF_TEST_set_callback(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @self_test_on_pairwise_fail(ptr noundef %params, ptr nocapture noundef readonly %arg) #1 {
+define internal noundef i32 @self_test_on_pairwise_fail(ptr noundef %params, ptr nocapture noundef readonly %arg) #1 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %params, ptr noundef nonnull @.str.47) #4
   %cmp = icmp eq ptr %call, null
@@ -370,7 +370,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %1 = load ptr, ptr %data, align 8
   %call2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(8) @.str.48) #5
   %cmp3 = icmp eq i32 %call2, 0
-  br i1 %cmp3, label %if.then4, label %return
+  br i1 %cmp3, label %if.then4, label %if.end18
 
 if.then4:                                         ; preds = %if.end
   %call5 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %params, ptr noundef nonnull @.str.49) #4
@@ -388,12 +388,14 @@ if.end11:                                         ; preds = %lor.lhs.false7
   %3 = load ptr, ptr %data12, align 8
   %4 = load ptr, ptr %arg, align 8
   %call14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %4) #5
-  %cmp15 = icmp ne i32 %call14, 0
-  %spec.select = zext i1 %cmp15 to i32
+  %cmp15 = icmp eq i32 %call14, 0
+  br i1 %cmp15, label %return, label %if.end18
+
+if.end18:                                         ; preds = %if.end11, %if.end
   br label %return
 
-return:                                           ; preds = %if.end11, %if.end, %if.then4, %lor.lhs.false7, %entry, %lor.lhs.false
-  %retval.0 = phi i32 [ 0, %lor.lhs.false ], [ 0, %entry ], [ 0, %lor.lhs.false7 ], [ 0, %if.then4 ], [ 1, %if.end ], [ %spec.select, %if.end11 ]
+return:                                           ; preds = %if.end11, %if.then4, %lor.lhs.false7, %entry, %lor.lhs.false, %if.end18
+  %retval.0 = phi i32 [ 1, %if.end18 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ 0, %lor.lhs.false7 ], [ 0, %if.then4 ], [ 0, %if.end11 ]
   ret i32 %retval.0
 }
 

@@ -99,17 +99,15 @@ lor.lhs.false3:                                   ; preds = %entry
 
 land.rhs.i:                                       ; preds = %lor.lhs.false3
   %rem1.i = srem i32 %year, 100
-  %cmp2.not.i = icmp eq i32 %rem1.i, 0
-  br i1 %cmp2.not.i, label %_ZN8facebook5velox4util10isLeapYearEi.exit, label %_ZN8facebook5velox4util10isLeapYearEi.exit.thread5
-
-_ZN8facebook5velox4util10isLeapYearEi.exit:       ; preds = %land.rhs.i
+  %cmp2.not.i = icmp ne i32 %rem1.i, 0
   %rem3.i = srem i32 %year, 400
   %cmp4.i = icmp eq i32 %rem3.i, 0
-  %spec.select6 = select i1 %cmp4.i, i32 366, i32 365
+  %or.cond6 = or i1 %cmp2.not.i, %cmp4.i
+  %spec.select7 = select i1 %or.cond6, i32 366, i32 365
   br label %_ZN8facebook5velox4util10isLeapYearEi.exit.thread5
 
-_ZN8facebook5velox4util10isLeapYearEi.exit.thread5: ; preds = %_ZN8facebook5velox4util10isLeapYearEi.exit, %land.rhs.i, %lor.lhs.false3
-  %2 = phi i32 [ 365, %lor.lhs.false3 ], [ 366, %land.rhs.i ], [ %spec.select6, %_ZN8facebook5velox4util10isLeapYearEi.exit ]
+_ZN8facebook5velox4util10isLeapYearEi.exit.thread5: ; preds = %land.rhs.i, %lor.lhs.false3
+  %2 = phi i32 [ 365, %lor.lhs.false3 ], [ %spec.select7, %land.rhs.i ]
   %cmp4 = icmp uge i32 %2, %dayOfYear
   br label %return
 
@@ -520,36 +518,27 @@ entry:
 lor.lhs.false3.i:                                 ; preds = %entry
   %1 = and i32 %year, 3
   %cmp.i.i = icmp eq i32 %1, 0
-  br i1 %cmp.i.i, label %land.rhs.i.i, label %_ZN8facebook5velox4util16isValidDayOfYearEii.exit.thread
+  br i1 %cmp.i.i, label %_ZN8facebook5velox4util16isValidDayOfYearEii.exit, label %_ZN8facebook5velox4util16isValidDayOfYearEii.exit.thread
 
-land.rhs.i.i:                                     ; preds = %lor.lhs.false3.i
+_ZN8facebook5velox4util16isValidDayOfYearEii.exit: ; preds = %lor.lhs.false3.i
   %rem1.i.i = srem i32 %year, 100
-  %cmp2.not.i.i = icmp eq i32 %rem1.i.i, 0
-  br i1 %cmp2.not.i.i, label %_ZN8facebook5velox4util10isLeapYearEi.exit.i, label %_ZN8facebook5velox4util16isValidDayOfYearEii.exit
-
-_ZN8facebook5velox4util10isLeapYearEi.exit.i:     ; preds = %land.rhs.i.i
+  %cmp2.not.i.i = icmp ne i32 %rem1.i.i, 0
   %rem3.i.i = srem i32 %year, 400
   %cmp4.i.i = icmp eq i32 %rem3.i.i, 0
-  %spec.select6.i = select i1 %cmp4.i.i, i32 366, i32 365
-  br label %_ZN8facebook5velox4util16isValidDayOfYearEii.exit
-
-_ZN8facebook5velox4util16isValidDayOfYearEii.exit: ; preds = %land.rhs.i.i, %_ZN8facebook5velox4util10isLeapYearEi.exit.i
-  %2 = phi i32 [ 366, %land.rhs.i.i ], [ %spec.select6.i, %_ZN8facebook5velox4util10isLeapYearEi.exit.i ]
-  %cmp4.i.not = icmp ult i32 %2, %dayOfYear
-  br i1 %cmp4.i.not, label %if.then, label %if.end9.i.i
+  %or.cond6.i = or i1 %cmp2.not.i.i, %cmp4.i.i
+  %spec.select7.i = select i1 %or.cond6.i, i32 366, i32 365
+  %cmp4.i.not = icmp ult i32 %spec.select7.i, %dayOfYear
+  br i1 %cmp4.i.not, label %if.then, label %land.rhs.i.i.i
 
 _ZN8facebook5velox4util16isValidDayOfYearEii.exit.thread: ; preds = %lor.lhs.false3.i
-  %cmp4.i.not11 = icmp ugt i32 %dayOfYear, 365
-  br i1 %cmp4.i.not11, label %if.then, label %_ZN8facebook5velox4util11isValidDateEiii.exit.i
+  %cmp4.i.not10 = icmp ugt i32 %dayOfYear, 365
+  br i1 %cmp4.i.not10, label %if.then, label %_ZN8facebook5velox4util11isValidDateEiii.exit.i
 
 if.then:                                          ; preds = %_ZN8facebook5velox4util16isValidDayOfYearEii.exit.thread, %entry, %_ZN8facebook5velox4util16isValidDayOfYearEii.exit
   tail call void @llvm.trap()
   unreachable
 
-if.end9.i.i:                                      ; preds = %_ZN8facebook5velox4util16isValidDayOfYearEii.exit
-  br i1 %cmp.i.i, label %land.rhs.i.i.i, label %_ZN8facebook5velox4util11isValidDateEiii.exit.i
-
-land.rhs.i.i.i:                                   ; preds = %if.end9.i.i
+land.rhs.i.i.i:                                   ; preds = %_ZN8facebook5velox4util16isValidDayOfYearEii.exit
   %rem1.i.i.i = srem i32 %year, 100
   %cmp2.not.i.i.i = icmp eq i32 %rem1.i.i.i, 0
   br i1 %cmp2.not.i.i.i, label %_ZN8facebook5velox4util10isLeapYearEi.exit.i.i, label %_ZN8facebook5velox4util11isValidDateEiii.exit.i
@@ -560,9 +549,9 @@ _ZN8facebook5velox4util10isLeapYearEi.exit.i.i:   ; preds = %land.rhs.i.i.i
   %spec.select.i.i = select i1 %cmp4.i.i.i, ptr getelementptr inbounds ([13 x i32], ptr @_ZN8facebook5velox4utilL9kLeapDaysE, i64 0, i64 1), ptr getelementptr inbounds ([13 x i32], ptr @_ZN8facebook5velox4utilL11kNormalDaysE, i64 0, i64 1)
   br label %_ZN8facebook5velox4util11isValidDateEiii.exit.i
 
-_ZN8facebook5velox4util11isValidDateEiii.exit.i:  ; preds = %_ZN8facebook5velox4util16isValidDayOfYearEii.exit.thread, %land.rhs.i.i.i, %if.end9.i.i, %_ZN8facebook5velox4util10isLeapYearEi.exit.i.i
-  %3 = phi ptr [ %spec.select.i.i, %_ZN8facebook5velox4util10isLeapYearEi.exit.i.i ], [ getelementptr inbounds ([13 x i32], ptr @_ZN8facebook5velox4utilL11kNormalDaysE, i64 0, i64 1), %if.end9.i.i ], [ getelementptr inbounds ([13 x i32], ptr @_ZN8facebook5velox4utilL9kLeapDaysE, i64 0, i64 1), %land.rhs.i.i.i ], [ getelementptr inbounds ([13 x i32], ptr @_ZN8facebook5velox4utilL11kNormalDaysE, i64 0, i64 1), %_ZN8facebook5velox4util16isValidDayOfYearEii.exit.thread ]
-  %.pn.i.i = load i32, ptr %3, align 4
+_ZN8facebook5velox4util11isValidDateEiii.exit.i:  ; preds = %_ZN8facebook5velox4util16isValidDayOfYearEii.exit.thread, %land.rhs.i.i.i, %_ZN8facebook5velox4util10isLeapYearEi.exit.i.i
+  %2 = phi ptr [ %spec.select.i.i, %_ZN8facebook5velox4util10isLeapYearEi.exit.i.i ], [ getelementptr inbounds ([13 x i32], ptr @_ZN8facebook5velox4utilL9kLeapDaysE, i64 0, i64 1), %land.rhs.i.i.i ], [ getelementptr inbounds ([13 x i32], ptr @_ZN8facebook5velox4utilL11kNormalDaysE, i64 0, i64 1), %_ZN8facebook5velox4util16isValidDayOfYearEii.exit.thread ]
+  %.pn.i.i = load i32, ptr %2, align 4
   %cond.i.not.i = icmp slt i32 %.pn.i.i, 1
   br i1 %cond.i.not.i, label %if.then.i, label %while.cond.preheader.i
 
@@ -571,20 +560,20 @@ while.cond.preheader.i:                           ; preds = %_ZN8facebook5velox4
   br i1 %cmp32.i, label %while.body.preheader.i, label %while.cond1.preheader.i
 
 while.body.preheader.i:                           ; preds = %while.cond.preheader.i
-  %4 = tail call i32 @llvm.smax.i32(i32 %year, i32 1570)
-  %5 = icmp slt i32 %year, 1570
-  %umin.i.neg10 = sext i1 %5 to i32
-  %umin.i = zext i1 %5 to i32
-  %.neg = sub nsw i32 %4, %year
-  %6 = add nsw i32 %.neg, %umin.i.neg10
-  %7 = udiv i32 %6, 400
-  %8 = add nuw nsw i32 %7, %umin.i
-  %9 = mul i32 %8, 400
-  %10 = zext nneg i32 %8 to i64
-  %.neg.i = mul nsw i64 %10, -146097
-  %11 = add nsw i32 %year, 400
-  %12 = add i32 %11, %9
-  %13 = add nsw i64 %.neg.i, -146097
+  %3 = tail call i32 @llvm.smax.i32(i32 %year, i32 1570)
+  %4 = icmp slt i32 %year, 1570
+  %umin.i.neg9 = sext i1 %4 to i32
+  %umin.i = zext i1 %4 to i32
+  %.neg = sub nsw i32 %3, %year
+  %5 = add nsw i32 %.neg, %umin.i.neg9
+  %6 = udiv i32 %5, 400
+  %7 = add nuw nsw i32 %6, %umin.i
+  %8 = mul i32 %7, 400
+  %9 = zext nneg i32 %7 to i64
+  %.neg.i = mul nsw i64 %9, -146097
+  %10 = add nsw i32 %year, 400
+  %11 = add i32 %10, %8
+  %12 = add nsw i64 %.neg.i, -146097
   br label %while.cond1.preheader.i
 
 if.then.i:                                        ; preds = %_ZN8facebook5velox4util11isValidDateEiii.exit.i
@@ -592,49 +581,49 @@ if.then.i:                                        ; preds = %_ZN8facebook5velox4
   unreachable
 
 while.cond1.preheader.i:                          ; preds = %while.body.preheader.i, %while.cond.preheader.i
-  %year.addr.0.lcssa.i = phi i32 [ %year, %while.cond.preheader.i ], [ %12, %while.body.preheader.i ]
-  %daysSinceEpoch.0.lcssa.i = phi i64 [ 0, %while.cond.preheader.i ], [ %13, %while.body.preheader.i ]
+  %year.addr.0.lcssa.i = phi i32 [ %year, %while.cond.preheader.i ], [ %11, %while.body.preheader.i ]
+  %daysSinceEpoch.0.lcssa.i = phi i64 [ 0, %while.cond.preheader.i ], [ %12, %while.body.preheader.i ]
   %cmp236.i = icmp ugt i32 %year.addr.0.lcssa.i, 2369
   br i1 %cmp236.i, label %while.body3.preheader.i, label %while.end6.i
 
 while.body3.preheader.i:                          ; preds = %while.cond1.preheader.i
-  %14 = add i32 %year.addr.0.lcssa.i, -2370
-  %15 = urem i32 %14, 400
-  %16 = udiv i32 %14, 400
-  %17 = zext nneg i32 %16 to i64
-  %18 = mul nuw nsw i64 %17, 146097
-  %19 = add nuw nsw i32 %15, 1970
-  %20 = add nsw i64 %daysSinceEpoch.0.lcssa.i, 146097
-  %21 = add nsw i64 %20, %18
+  %13 = add i32 %year.addr.0.lcssa.i, -2370
+  %14 = urem i32 %13, 400
+  %15 = udiv i32 %13, 400
+  %16 = zext nneg i32 %15 to i64
+  %17 = mul nuw nsw i64 %16, 146097
+  %18 = add nuw nsw i32 %14, 1970
+  %19 = add nsw i64 %daysSinceEpoch.0.lcssa.i, 146097
+  %20 = add nsw i64 %19, %17
   br label %while.end6.i
 
 while.end6.i:                                     ; preds = %while.body3.preheader.i, %while.cond1.preheader.i
-  %year.addr.1.lcssa.i = phi i32 [ %year.addr.0.lcssa.i, %while.cond1.preheader.i ], [ %19, %while.body3.preheader.i ]
-  %daysSinceEpoch.1.lcssa.i = phi i64 [ %daysSinceEpoch.0.lcssa.i, %while.cond1.preheader.i ], [ %21, %while.body3.preheader.i ]
+  %year.addr.1.lcssa.i = phi i32 [ %year.addr.0.lcssa.i, %while.cond1.preheader.i ], [ %18, %while.body3.preheader.i ]
+  %daysSinceEpoch.1.lcssa.i = phi i64 [ %daysSinceEpoch.0.lcssa.i, %while.cond1.preheader.i ], [ %20, %while.body3.preheader.i ]
   %sub7.i = add nsw i32 %year.addr.1.lcssa.i, -1970
   %idxprom.i = zext nneg i32 %sub7.i to i64
   %arrayidx.i = getelementptr inbounds [401 x i32], ptr @_ZN8facebook5velox4utilL19kCumulativeYearDaysE, i64 0, i64 %idxprom.i
-  %22 = load i32, ptr %arrayidx.i, align 4
-  %23 = and i32 %year.addr.1.lcssa.i, 3
-  %cmp.i.i3 = icmp eq i32 %23, 0
+  %21 = load i32, ptr %arrayidx.i, align 4
+  %22 = and i32 %year.addr.1.lcssa.i, 3
+  %cmp.i.i3 = icmp eq i32 %22, 0
   br i1 %cmp.i.i3, label %land.rhs.i.i4, label %_ZN8facebook5velox4util22daysSinceEpochFromDateEiii.exit
 
 land.rhs.i.i4:                                    ; preds = %while.end6.i
   %rem1.i28.lhs.trunc.i = trunc nuw i32 %year.addr.1.lcssa.i to i16
   %rem1.i2829.i = urem i16 %rem1.i28.lhs.trunc.i, 100
   %cmp2.not.i.i5 = icmp eq i16 %rem1.i2829.i, 0
-  br i1 %cmp2.not.i.i5, label %_ZN8facebook5velox4util10isLeapYearEi.exit.i6, label %_ZN8facebook5velox4util22daysSinceEpochFromDateEiii.exit
+  br i1 %cmp2.not.i.i5, label %_ZN8facebook5velox4util10isLeapYearEi.exit.i, label %_ZN8facebook5velox4util22daysSinceEpochFromDateEiii.exit
 
-_ZN8facebook5velox4util10isLeapYearEi.exit.i6:    ; preds = %land.rhs.i.i4
+_ZN8facebook5velox4util10isLeapYearEi.exit.i:     ; preds = %land.rhs.i.i4
   %rem3.i3031.i = urem i16 %rem1.i28.lhs.trunc.i, 400
-  %cmp4.i.i7 = icmp eq i16 %rem3.i3031.i, 0
-  %spec.select.i = select i1 %cmp4.i.i7, ptr @_ZN8facebook5velox4utilL19kCumulativeLeapDaysE, ptr @_ZN8facebook5velox4utilL15kCumulativeDaysE
+  %cmp4.i.i6 = icmp eq i16 %rem3.i3031.i, 0
+  %spec.select.i = select i1 %cmp4.i.i6, ptr @_ZN8facebook5velox4utilL19kCumulativeLeapDaysE, ptr @_ZN8facebook5velox4utilL15kCumulativeDaysE
   br label %_ZN8facebook5velox4util22daysSinceEpochFromDateEiii.exit
 
-_ZN8facebook5velox4util22daysSinceEpochFromDateEiii.exit: ; preds = %land.rhs.i.i4, %while.end6.i, %_ZN8facebook5velox4util10isLeapYearEi.exit.i6
-  %24 = phi ptr [ %spec.select.i, %_ZN8facebook5velox4util10isLeapYearEi.exit.i6 ], [ @_ZN8facebook5velox4utilL15kCumulativeDaysE, %while.end6.i ], [ @_ZN8facebook5velox4utilL19kCumulativeLeapDaysE, %land.rhs.i.i4 ]
-  %cond.i = load i32, ptr %24, align 4
-  %conv.i = sext i32 %22 to i64
+_ZN8facebook5velox4util22daysSinceEpochFromDateEiii.exit: ; preds = %land.rhs.i.i4, %while.end6.i, %_ZN8facebook5velox4util10isLeapYearEi.exit.i
+  %23 = phi ptr [ %spec.select.i, %_ZN8facebook5velox4util10isLeapYearEi.exit.i ], [ @_ZN8facebook5velox4utilL15kCumulativeDaysE, %while.end6.i ], [ @_ZN8facebook5velox4utilL19kCumulativeLeapDaysE, %land.rhs.i.i4 ]
+  %cond.i = load i32, ptr %23, align 4
+  %conv.i = sext i32 %21 to i64
   %conv16.i = sext i32 %cond.i to i64
   %sub = add nsw i32 %dayOfYear, -1
   %conv = zext nneg i32 %sub to i64

@@ -7188,27 +7188,29 @@ if.end10:                                         ; preds = %if.end
 
 skip_optional_kwonly:                             ; preds = %if.end10
   %tobool.not.i11 = icmp eq i32 %call12.fr, 0
-  %spec.select = select i1 %tobool.not.i11, ptr @_Py_FalseStruct, ptr @_Py_TrueStruct
-  br label %skip_optional_kwonly.thread
+  br i1 %tobool.not.i11, label %skip_optional_kwonly.thread, label %7
 
-skip_optional_kwonly.thread:                      ; preds = %skip_optional_kwonly, %if.end
-  %7 = phi ptr [ @_Py_FalseStruct, %if.end ], [ %spec.select, %skip_optional_kwonly ]
-  %call.i = call ptr (i32, ...) @pack_arguments_newref(i32 noundef 3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %7)
+skip_optional_kwonly.thread:                      ; preds = %if.end, %skip_optional_kwonly
+  br label %7
+
+7:                                                ; preds = %skip_optional_kwonly, %skip_optional_kwonly.thread
+  %8 = phi ptr [ @_Py_FalseStruct, %skip_optional_kwonly.thread ], [ @_Py_TrueStruct, %skip_optional_kwonly ]
+  %call.i = call ptr (i32, ...) @pack_arguments_newref(i32 noundef 3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %8)
   br label %exit
 
-exit:                                             ; preds = %if.end10, %skip_optional_kwonly.thread
-  %return_value.0 = phi ptr [ null, %if.end10 ], [ %call.i, %skip_optional_kwonly.thread ]
+exit:                                             ; preds = %if.end10, %7
+  %return_value.0 = phi ptr [ null, %if.end10 ], [ %call.i, %7 ]
   %cmp.not.i = icmp eq ptr %5, null
   br i1 %cmp.not.i, label %Py_XDECREF.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %exit
-  %8 = load i64, ptr %5, align 8
-  %9 = and i64 %8, 2147483648
-  %cmp.i2.not.i = icmp eq i64 %9, 0
+  %9 = load i64, ptr %5, align 8
+  %10 = and i64 %9, 2147483648
+  %cmp.i2.not.i = icmp eq i64 %10, 0
   br i1 %cmp.i2.not.i, label %if.end.i.i, label %Py_XDECREF.exit
 
 if.end.i.i:                                       ; preds = %if.then.i
-  %dec.i.i = add i64 %8, -1
+  %dec.i.i = add i64 %9, -1
   store i64 %dec.i.i, ptr %5, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp.i.i, label %if.then1.i.i, label %Py_XDECREF.exit
@@ -7858,7 +7860,7 @@ exit:                                             ; preds = %cond.end9, %skip_op
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @depr_star_pos0_len1(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @depr_star_pos0_len1(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %cmp = icmp eq i64 %nargs, 1
@@ -7874,21 +7876,23 @@ if.end2:                                          ; preds = %if.then
   %cmp3 = icmp eq ptr %kwnames, null
   %cmp8 = icmp ne ptr %args, null
   %1 = and i1 %cmp8, %cmp3
-  br i1 %1, label %exit, label %cond.end
+  br i1 %1, label %if.end12, label %cond.end
 
 cond.end:                                         ; preds = %entry, %if.end2
   %call9 = call ptr @_PyArg_UnpackKeywords(ptr noundef %args, i64 noundef %nargs, ptr noundef null, ptr noundef %kwnames, ptr noundef nonnull @depr_star_pos0_len1._parser, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %argsbuf) #9
   %tobool10.not = icmp eq ptr %call9, null
-  %spec.select = select i1 %tobool10.not, ptr null, ptr @_Py_NoneStruct
+  br i1 %tobool10.not, label %exit, label %if.end12
+
+if.end12:                                         ; preds = %if.end2, %cond.end
   br label %exit
 
-exit:                                             ; preds = %cond.end, %if.end2, %if.then
-  %return_value.0 = phi ptr [ null, %if.then ], [ @_Py_NoneStruct, %if.end2 ], [ %spec.select, %cond.end ]
+exit:                                             ; preds = %cond.end, %if.then, %if.end12
+  %return_value.0 = phi ptr [ null, %if.then ], [ @_Py_NoneStruct, %if.end12 ], [ null, %cond.end ]
   ret ptr %return_value.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @depr_star_pos0_len2(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @depr_star_pos0_len2(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [2 x ptr], align 16
   %0 = add i64 %nargs, -1
@@ -7907,16 +7911,18 @@ if.end3:                                          ; preds = %if.then
   %or.cond2 = and i1 %2, %cmp4
   %cmp10 = icmp ne ptr %args, null
   %or.cond3 = and i1 %cmp10, %or.cond2
-  br i1 %or.cond3, label %exit, label %cond.end
+  br i1 %or.cond3, label %if.end14, label %cond.end
 
 cond.end:                                         ; preds = %entry, %if.end3
   %call11 = call ptr @_PyArg_UnpackKeywords(ptr noundef %args, i64 noundef %nargs, ptr noundef null, ptr noundef %kwnames, ptr noundef nonnull @depr_star_pos0_len2._parser, i32 noundef 2, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %argsbuf) #9
   %tobool12.not = icmp eq ptr %call11, null
-  %spec.select = select i1 %tobool12.not, ptr null, ptr @_Py_NoneStruct
+  br i1 %tobool12.not, label %exit, label %if.end14
+
+if.end14:                                         ; preds = %if.end3, %cond.end
   br label %exit
 
-exit:                                             ; preds = %cond.end, %if.end3, %if.then
-  %return_value.0 = phi ptr [ null, %if.then ], [ @_Py_NoneStruct, %if.end3 ], [ %spec.select, %cond.end ]
+exit:                                             ; preds = %cond.end, %if.then, %if.end14
+  %return_value.0 = phi ptr [ null, %if.then ], [ @_Py_NoneStruct, %if.end14 ], [ null, %cond.end ]
   ret ptr %return_value.0
 }
 
@@ -7946,7 +7952,7 @@ exit:                                             ; preds = %if.end3, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @depr_star_pos1_len1_opt(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @depr_star_pos1_len1_opt(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [2 x ptr], align 16
   %tobool.not = icmp eq ptr %kwnames, null
@@ -7997,21 +8003,23 @@ if.end4:                                          ; preds = %if.then, %cond.end
   %cmp10 = icmp ne ptr %args, null
   %6 = and i1 %cmp10, %5
   %or.cond2 = and i1 %tobool.not, %6
-  br i1 %or.cond2, label %exit, label %cond.end14
+  br i1 %or.cond2, label %if.end18, label %cond.end14
 
 cond.end14:                                       ; preds = %if.end4
   %call13 = call ptr @_PyArg_UnpackKeywords(ptr noundef %args, i64 noundef %nargs, ptr noundef null, ptr noundef %kwnames, ptr noundef nonnull @depr_star_pos1_len1_opt._parser, i32 noundef 1, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %argsbuf) #9
   %tobool16.not = icmp eq ptr %call13, null
-  %spec.select = select i1 %tobool16.not, ptr null, ptr @_Py_NoneStruct
+  br i1 %tobool16.not, label %exit, label %if.end18
+
+if.end18:                                         ; preds = %if.end4, %cond.end14
   br label %exit
 
-exit:                                             ; preds = %cond.end14, %if.end4, %if.then
-  %return_value.0 = phi ptr [ null, %if.then ], [ @_Py_NoneStruct, %if.end4 ], [ %spec.select, %cond.end14 ]
+exit:                                             ; preds = %if.end18, %cond.end14, %if.then
+  %return_value.0 = phi ptr [ null, %if.then ], [ null, %cond.end14 ], [ @_Py_NoneStruct, %if.end18 ]
   ret ptr %return_value.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @depr_star_pos1_len1(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @depr_star_pos1_len1(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [2 x ptr], align 16
   %cmp = icmp eq i64 %nargs, 2
@@ -8027,16 +8035,18 @@ if.end2:                                          ; preds = %if.then
   %cmp3 = icmp eq ptr %kwnames, null
   %cmp8 = icmp ne ptr %args, null
   %1 = and i1 %cmp8, %cmp3
-  br i1 %1, label %exit, label %cond.end
+  br i1 %1, label %if.end12, label %cond.end
 
 cond.end:                                         ; preds = %entry, %if.end2
   %call9 = call ptr @_PyArg_UnpackKeywords(ptr noundef %args, i64 noundef %nargs, ptr noundef null, ptr noundef %kwnames, ptr noundef nonnull @depr_star_pos1_len1._parser, i32 noundef 2, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %argsbuf) #9
   %tobool10.not = icmp eq ptr %call9, null
-  %spec.select = select i1 %tobool10.not, ptr null, ptr @_Py_NoneStruct
+  br i1 %tobool10.not, label %exit, label %if.end12
+
+if.end12:                                         ; preds = %if.end2, %cond.end
   br label %exit
 
-exit:                                             ; preds = %cond.end, %if.end2, %if.then
-  %return_value.0 = phi ptr [ null, %if.then ], [ @_Py_NoneStruct, %if.end2 ], [ %spec.select, %cond.end ]
+exit:                                             ; preds = %cond.end, %if.then, %if.end12
+  %return_value.0 = phi ptr [ null, %if.then ], [ @_Py_NoneStruct, %if.end12 ], [ null, %cond.end ]
   ret ptr %return_value.0
 }
 
@@ -8066,7 +8076,7 @@ exit:                                             ; preds = %if.end3, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @depr_star_pos2_len1(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @depr_star_pos2_len1(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [3 x ptr], align 16
   %cmp = icmp eq i64 %nargs, 3
@@ -8082,21 +8092,23 @@ if.end2:                                          ; preds = %if.then
   %cmp3 = icmp eq ptr %kwnames, null
   %cmp8 = icmp ne ptr %args, null
   %1 = and i1 %cmp8, %cmp3
-  br i1 %1, label %exit, label %cond.end
+  br i1 %1, label %if.end12, label %cond.end
 
 cond.end:                                         ; preds = %entry, %if.end2
   %call9 = call ptr @_PyArg_UnpackKeywords(ptr noundef %args, i64 noundef %nargs, ptr noundef null, ptr noundef %kwnames, ptr noundef nonnull @depr_star_pos2_len1._parser, i32 noundef 3, i32 noundef 3, i32 noundef 0, ptr noundef nonnull %argsbuf) #9
   %tobool10.not = icmp eq ptr %call9, null
-  %spec.select = select i1 %tobool10.not, ptr null, ptr @_Py_NoneStruct
+  br i1 %tobool10.not, label %exit, label %if.end12
+
+if.end12:                                         ; preds = %if.end2, %cond.end
   br label %exit
 
-exit:                                             ; preds = %cond.end, %if.end2, %if.then
-  %return_value.0 = phi ptr [ null, %if.then ], [ @_Py_NoneStruct, %if.end2 ], [ %spec.select, %cond.end ]
+exit:                                             ; preds = %cond.end, %if.then, %if.end12
+  %return_value.0 = phi ptr [ null, %if.then ], [ @_Py_NoneStruct, %if.end12 ], [ null, %cond.end ]
   ret ptr %return_value.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @depr_star_pos2_len2(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @depr_star_pos2_len2(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [4 x ptr], align 16
   %0 = add i64 %nargs, -3
@@ -8115,16 +8127,18 @@ if.end3:                                          ; preds = %if.then
   %or.cond2 = and i1 %2, %cmp4
   %cmp10 = icmp ne ptr %args, null
   %or.cond3 = and i1 %cmp10, %or.cond2
-  br i1 %or.cond3, label %exit, label %cond.end
+  br i1 %or.cond3, label %if.end14, label %cond.end
 
 cond.end:                                         ; preds = %entry, %if.end3
   %call11 = call ptr @_PyArg_UnpackKeywords(ptr noundef %args, i64 noundef %nargs, ptr noundef null, ptr noundef %kwnames, ptr noundef nonnull @depr_star_pos2_len2._parser, i32 noundef 4, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %argsbuf) #9
   %tobool12.not = icmp eq ptr %call11, null
-  %spec.select = select i1 %tobool12.not, ptr null, ptr @_Py_NoneStruct
+  br i1 %tobool12.not, label %exit, label %if.end14
+
+if.end14:                                         ; preds = %if.end3, %cond.end
   br label %exit
 
-exit:                                             ; preds = %cond.end, %if.end3, %if.then
-  %return_value.0 = phi ptr [ null, %if.then ], [ @_Py_NoneStruct, %if.end3 ], [ %spec.select, %cond.end ]
+exit:                                             ; preds = %cond.end, %if.then, %if.end14
+  %return_value.0 = phi ptr [ null, %if.then ], [ @_Py_NoneStruct, %if.end14 ], [ null, %cond.end ]
   ret ptr %return_value.0
 }
 
@@ -8210,7 +8224,7 @@ exit:                                             ; preds = %if.end3, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @depr_kwd_required_1(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @depr_kwd_required_1(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [2 x ptr], align 16
   %cmp = icmp eq ptr %kwnames, null
@@ -8218,7 +8232,7 @@ entry:
   %or.cond1 = and i1 %0, %cmp
   %cmp5 = icmp ne ptr %args, null
   %or.cond2 = and i1 %cmp5, %or.cond1
-  br i1 %or.cond2, label %exit, label %cond.end
+  br i1 %or.cond2, label %if.end12, label %cond.end
 
 cond.end:                                         ; preds = %entry
   %call = call ptr @_PyArg_UnpackKeywords(ptr noundef %args, i64 noundef %nargs, ptr noundef null, ptr noundef %kwnames, ptr noundef nonnull @depr_kwd_required_1._parser, i32 noundef 2, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %argsbuf) #9
@@ -8227,22 +8241,24 @@ cond.end:                                         ; preds = %entry
 
 if.end:                                           ; preds = %cond.end
   %cmp6 = icmp slt i64 %nargs, 2
-  br i1 %cmp6, label %if.then7, label %exit
+  br i1 %cmp6, label %if.then7, label %if.end12
 
 if.then7:                                         ; preds = %if.end
   %1 = load ptr, ptr @PyExc_DeprecationWarning, align 8
   %call8 = call i32 @PyErr_WarnEx(ptr noundef %1, ptr noundef nonnull @.str.169, i64 noundef 1) #9
   %tobool9.not = icmp eq i32 %call8, 0
-  %spec.select = select i1 %tobool9.not, ptr @_Py_NoneStruct, ptr null
+  br i1 %tobool9.not, label %if.end12, label %exit
+
+if.end12:                                         ; preds = %entry, %if.then7, %if.end
   br label %exit
 
-exit:                                             ; preds = %if.then7, %entry, %if.end, %cond.end
-  %return_value.0 = phi ptr [ null, %cond.end ], [ @_Py_NoneStruct, %if.end ], [ @_Py_NoneStruct, %entry ], [ %spec.select, %if.then7 ]
+exit:                                             ; preds = %if.then7, %cond.end, %if.end12
+  %return_value.0 = phi ptr [ null, %if.then7 ], [ @_Py_NoneStruct, %if.end12 ], [ null, %cond.end ]
   ret ptr %return_value.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @depr_kwd_required_2(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @depr_kwd_required_2(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [3 x ptr], align 16
   %cmp = icmp eq ptr %kwnames, null
@@ -8250,7 +8266,7 @@ entry:
   %or.cond1 = and i1 %0, %cmp
   %cmp5 = icmp ne ptr %args, null
   %or.cond2 = and i1 %cmp5, %or.cond1
-  br i1 %or.cond2, label %exit, label %cond.end
+  br i1 %or.cond2, label %if.end12, label %cond.end
 
 cond.end:                                         ; preds = %entry
   %call = call ptr @_PyArg_UnpackKeywords(ptr noundef %args, i64 noundef %nargs, ptr noundef null, ptr noundef %kwnames, ptr noundef nonnull @depr_kwd_required_2._parser, i32 noundef 3, i32 noundef 3, i32 noundef 0, ptr noundef nonnull %argsbuf) #9
@@ -8259,17 +8275,19 @@ cond.end:                                         ; preds = %entry
 
 if.end:                                           ; preds = %cond.end
   %cmp6 = icmp slt i64 %nargs, 3
-  br i1 %cmp6, label %if.then7, label %exit
+  br i1 %cmp6, label %if.then7, label %if.end12
 
 if.then7:                                         ; preds = %if.end
   %1 = load ptr, ptr @PyExc_DeprecationWarning, align 8
   %call8 = call i32 @PyErr_WarnEx(ptr noundef %1, ptr noundef nonnull @.str.170, i64 noundef 1) #9
   %tobool9.not = icmp eq i32 %call8, 0
-  %spec.select = select i1 %tobool9.not, ptr @_Py_NoneStruct, ptr null
+  br i1 %tobool9.not, label %if.end12, label %exit
+
+if.end12:                                         ; preds = %entry, %if.then7, %if.end
   br label %exit
 
-exit:                                             ; preds = %if.then7, %entry, %if.end, %cond.end
-  %return_value.0 = phi ptr [ null, %cond.end ], [ @_Py_NoneStruct, %if.end ], [ @_Py_NoneStruct, %entry ], [ %spec.select, %if.then7 ]
+exit:                                             ; preds = %if.then7, %cond.end, %if.end12
+  %return_value.0 = phi ptr [ null, %if.then7 ], [ @_Py_NoneStruct, %if.end12 ], [ null, %cond.end ]
   ret ptr %return_value.0
 }
 
@@ -8748,7 +8766,7 @@ exit:                                             ; preds = %if.end26, %cond.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @depr_kwd_noinline(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @depr_kwd_noinline(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %a = alloca ptr, align 8
   %b = alloca ptr, align 8
@@ -8763,7 +8781,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %tobool1.not = icmp eq ptr %kwnames, null
-  br i1 %tobool1.not, label %exit, label %land.lhs.true
+  br i1 %tobool1.not, label %if.end18, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
   %0 = getelementptr i8, ptr %kwnames, i64 8
@@ -8798,7 +8816,7 @@ PyTuple_GET_SIZE.exit:                            ; preds = %cond.end.i.i
   %ob_size.i.i = getelementptr inbounds i8, ptr %kwnames, i64 16
   %3 = load i64, ptr %ob_size.i.i, align 8
   %tobool3.not = icmp eq i64 %3, 0
-  br i1 %tobool3.not, label %exit, label %land.lhs.true4
+  br i1 %tobool3.not, label %if.end18, label %land.lhs.true4
 
 land.lhs.true4:                                   ; preds = %PyTuple_GET_SIZE.exit
   %cmp = icmp slt i64 %nargs, 2
@@ -8806,12 +8824,12 @@ land.lhs.true4:                                   ; preds = %PyTuple_GET_SIZE.ex
 
 lor.lhs.false:                                    ; preds = %land.lhs.true4
   %cmp5 = icmp eq i64 %nargs, 2
-  br i1 %cmp5, label %land.lhs.true6, label %exit
+  br i1 %cmp5, label %land.lhs.true6, label %if.end18
 
 land.lhs.true6:                                   ; preds = %lor.lhs.false
   %call7 = call i32 @PySequence_Contains(ptr noundef nonnull %kwnames, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 248)) #9
   %tobool8.not = icmp eq i32 %call7, 0
-  br i1 %tobool8.not, label %exit, label %if.then9
+  br i1 %tobool8.not, label %if.end18, label %if.then9
 
 if.then9:                                         ; preds = %land.lhs.true6, %land.lhs.true4
   %call10 = call ptr @PyErr_Occurred() #9
@@ -8822,16 +8840,18 @@ if.end13:                                         ; preds = %if.then9
   %4 = load ptr, ptr @PyExc_DeprecationWarning, align 8
   %call14 = call i32 @PyErr_WarnEx(ptr noundef %4, ptr noundef nonnull @.str.176, i64 noundef 1) #9
   %tobool15.not = icmp eq i32 %call14, 0
-  %spec.select = select i1 %tobool15.not, ptr @_Py_NoneStruct, ptr null
+  br i1 %tobool15.not, label %if.end18, label %exit
+
+if.end18:                                         ; preds = %if.end13, %land.lhs.true6, %lor.lhs.false, %PyTuple_GET_SIZE.exit, %if.end
   br label %exit
 
-exit:                                             ; preds = %if.end13, %if.end, %PyTuple_GET_SIZE.exit, %lor.lhs.false, %land.lhs.true6, %if.then9, %entry
-  %return_value.0 = phi ptr [ null, %if.then9 ], [ null, %entry ], [ @_Py_NoneStruct, %land.lhs.true6 ], [ @_Py_NoneStruct, %lor.lhs.false ], [ @_Py_NoneStruct, %PyTuple_GET_SIZE.exit ], [ @_Py_NoneStruct, %if.end ], [ %spec.select, %if.end13 ]
+exit:                                             ; preds = %if.end13, %if.then9, %entry, %if.end18
+  %return_value.0 = phi ptr [ null, %if.then9 ], [ null, %if.end13 ], [ @_Py_NoneStruct, %if.end18 ], [ null, %entry ]
   ret ptr %return_value.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @depr_kwd_multi(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @depr_kwd_multi(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [8 x ptr], align 16
   %cmp = icmp eq ptr %kwnames, null
@@ -8839,7 +8859,7 @@ entry:
   %or.cond1 = and i1 %0, %cmp
   %cmp5 = icmp ne ptr %args, null
   %or.cond2 = and i1 %cmp5, %or.cond1
-  br i1 %or.cond2, label %exit, label %cond.end
+  br i1 %or.cond2, label %if.end12, label %cond.end
 
 cond.end:                                         ; preds = %entry
   %call = call ptr @_PyArg_UnpackKeywords(ptr noundef %args, i64 noundef %nargs, ptr noundef null, ptr noundef %kwnames, ptr noundef nonnull @depr_kwd_multi._parser, i32 noundef 8, i32 noundef 8, i32 noundef 0, ptr noundef nonnull %argsbuf) #9
@@ -8848,22 +8868,24 @@ cond.end:                                         ; preds = %entry
 
 if.end:                                           ; preds = %cond.end
   %cmp6 = icmp slt i64 %nargs, 7
-  br i1 %cmp6, label %if.then7, label %exit
+  br i1 %cmp6, label %if.then7, label %if.end12
 
 if.then7:                                         ; preds = %if.end
   %1 = load ptr, ptr @PyExc_DeprecationWarning, align 8
   %call8 = call i32 @PyErr_WarnEx(ptr noundef %1, ptr noundef nonnull @.str.177, i64 noundef 1) #9
   %tobool9.not = icmp eq i32 %call8, 0
-  %spec.select = select i1 %tobool9.not, ptr @_Py_NoneStruct, ptr null
+  br i1 %tobool9.not, label %if.end12, label %exit
+
+if.end12:                                         ; preds = %entry, %if.then7, %if.end
   br label %exit
 
-exit:                                             ; preds = %if.then7, %entry, %if.end, %cond.end
-  %return_value.0 = phi ptr [ null, %cond.end ], [ @_Py_NoneStruct, %if.end ], [ @_Py_NoneStruct, %entry ], [ %spec.select, %if.then7 ]
+exit:                                             ; preds = %if.then7, %cond.end, %if.end12
+  %return_value.0 = phi ptr [ null, %if.then7 ], [ @_Py_NoneStruct, %if.end12 ], [ null, %cond.end ]
   ret ptr %return_value.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @depr_multi(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @depr_multi(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [7 x ptr], align 16
   %0 = add i64 %nargs, -5
@@ -8883,17 +8905,19 @@ if.end3:                                          ; preds = %if.then, %entry
 
 if.end7:                                          ; preds = %if.end3
   %cmp8 = icmp slt i64 %nargs, 3
-  br i1 %cmp8, label %if.then9, label %exit
+  br i1 %cmp8, label %if.then9, label %if.end14
 
 if.then9:                                         ; preds = %if.end7
   %2 = load ptr, ptr @PyExc_DeprecationWarning, align 8
   %call10 = call i32 @PyErr_WarnEx(ptr noundef %2, ptr noundef nonnull @.str.179, i64 noundef 1) #9
   %tobool11.not = icmp eq i32 %call10, 0
-  %spec.select = select i1 %tobool11.not, ptr @_Py_NoneStruct, ptr null
+  br i1 %tobool11.not, label %if.end14, label %exit
+
+if.end14:                                         ; preds = %if.then9, %if.end7
   br label %exit
 
-exit:                                             ; preds = %if.then9, %if.end7, %if.end3, %if.then
-  %return_value.0 = phi ptr [ null, %if.then ], [ null, %if.end3 ], [ @_Py_NoneStruct, %if.end7 ], [ %spec.select, %if.then9 ]
+exit:                                             ; preds = %if.then9, %if.end3, %if.then, %if.end14
+  %return_value.0 = phi ptr [ null, %if.then ], [ null, %if.then9 ], [ @_Py_NoneStruct, %if.end14 ], [ null, %if.end3 ]
   ret ptr %return_value.0
 }
 
@@ -9391,7 +9415,7 @@ exit:                                             ; preds = %cond.end38, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @depr_star_new_clone(ptr nocapture readnone %type, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @depr_star_new_clone(ptr nocapture readnone %type, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %tobool.not = icmp eq ptr %kwnames, null
@@ -9441,21 +9465,23 @@ if.end4:                                          ; preds = %if.then, %cond.end
   %cmp10 = icmp ne ptr %args, null
   %5 = and i1 %cmp10, %4
   %or.cond2 = and i1 %5, %tobool.not
-  br i1 %or.cond2, label %exit, label %cond.end14
+  br i1 %or.cond2, label %if.end18, label %cond.end14
 
 cond.end14:                                       ; preds = %if.end4
   %call13 = call ptr @_PyArg_UnpackKeywords(ptr noundef %args, i64 noundef %nargs, ptr noundef null, ptr noundef %kwnames, ptr noundef nonnull @depr_star_new_clone._parser, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %argsbuf) #9
   %tobool16.not = icmp eq ptr %call13, null
-  %spec.select = select i1 %tobool16.not, ptr null, ptr @_Py_NoneStruct
+  br i1 %tobool16.not, label %exit, label %if.end18
+
+if.end18:                                         ; preds = %if.end4, %cond.end14
   br label %exit
 
-exit:                                             ; preds = %cond.end14, %if.end4, %if.then
-  %return_value.0 = phi ptr [ null, %if.then ], [ @_Py_NoneStruct, %if.end4 ], [ %spec.select, %cond.end14 ]
+exit:                                             ; preds = %if.end18, %cond.end14, %if.then
+  %return_value.0 = phi ptr [ null, %if.then ], [ null, %cond.end14 ], [ @_Py_NoneStruct, %if.end18 ]
   ret ptr %return_value.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @depr_star_init(ptr nocapture readnone %self, ptr noundef %args, ptr noundef %kwargs) #0 {
+define internal noundef i32 @depr_star_init(ptr nocapture readnone %self, ptr noundef %args, ptr noundef %kwargs) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %0 = getelementptr i8, ptr %args, i64 8
@@ -9526,7 +9552,7 @@ if.end5:                                          ; preds = %if.then, %cond.end
   br i1 %or.cond1, label %land.lhs.true10, label %cond.false27
 
 land.lhs.true10:                                  ; preds = %if.end5
-  br i1 %tobool13.not, label %cond.false15, label %exit
+  br i1 %tobool13.not, label %cond.false15, label %if.end42
 
 cond.false15:                                     ; preds = %land.lhs.true10
   tail call void @__assert_fail(ptr noundef nonnull @.str.185, ptr noundef nonnull @.str.186, i32 noundef 249, ptr noundef nonnull @__PRETTY_FUNCTION__.depr_star_init) #10
@@ -9543,18 +9569,20 @@ cond.end38:                                       ; preds = %cond.false27
   %ob_item34 = getelementptr inbounds i8, ptr %args, i64 24
   %call37 = call ptr @_PyArg_UnpackKeywords(ptr noundef nonnull %ob_item34, i64 noundef %3, ptr noundef %kwargs, ptr noundef null, ptr noundef nonnull @depr_star_init._parser, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %argsbuf) #9
   %tobool40.not = icmp eq ptr %call37, null
-  %spec.select = sext i1 %tobool40.not to i32
+  br i1 %tobool40.not, label %exit, label %if.end42
+
+if.end42:                                         ; preds = %land.lhs.true10, %cond.end38
   br label %exit
 
-exit:                                             ; preds = %cond.end38, %land.lhs.true10, %if.then
-  %return_value.0 = phi i32 [ -1, %if.then ], [ 0, %land.lhs.true10 ], [ %spec.select, %cond.end38 ]
+exit:                                             ; preds = %if.end42, %cond.end38, %if.then
+  %return_value.0 = phi i32 [ -1, %if.then ], [ -1, %cond.end38 ], [ 0, %if.end42 ]
   ret i32 %return_value.0
 }
 
 declare ptr @PyType_GenericNew(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @depr_star_init_clone(ptr nocapture readnone %self, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @depr_star_init_clone(ptr nocapture readnone %self, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %tobool.not = icmp eq ptr %kwnames, null
@@ -9604,16 +9632,18 @@ if.end4:                                          ; preds = %if.then, %cond.end
   %cmp10 = icmp ne ptr %args, null
   %5 = and i1 %cmp10, %4
   %or.cond2 = and i1 %5, %tobool.not
-  br i1 %or.cond2, label %exit, label %cond.end14
+  br i1 %or.cond2, label %if.end18, label %cond.end14
 
 cond.end14:                                       ; preds = %if.end4
   %call13 = call ptr @_PyArg_UnpackKeywords(ptr noundef %args, i64 noundef %nargs, ptr noundef null, ptr noundef %kwnames, ptr noundef nonnull @depr_star_init_clone._parser, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %argsbuf) #9
   %tobool16.not = icmp eq ptr %call13, null
-  %spec.select = select i1 %tobool16.not, ptr null, ptr @_Py_NoneStruct
+  br i1 %tobool16.not, label %exit, label %if.end18
+
+if.end18:                                         ; preds = %if.end4, %cond.end14
   br label %exit
 
-exit:                                             ; preds = %cond.end14, %if.end4, %if.then
-  %return_value.0 = phi ptr [ null, %if.then ], [ @_Py_NoneStruct, %if.end4 ], [ %spec.select, %cond.end14 ]
+exit:                                             ; preds = %if.end18, %cond.end14, %if.then
+  %return_value.0 = phi ptr [ null, %if.then ], [ null, %cond.end14 ], [ @_Py_NoneStruct, %if.end18 ]
   ret ptr %return_value.0
 }
 
@@ -9897,7 +9927,7 @@ exit:                                             ; preds = %if.end49, %cond.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @depr_kwd_init_noinline(ptr nocapture readnone %self, ptr noundef %args, ptr noundef %kwargs) #0 {
+define internal noundef i32 @depr_kwd_init_noinline(ptr nocapture readnone %self, ptr noundef %args, ptr noundef %kwargs) #0 {
 entry:
   %a = alloca ptr, align 8
   %b = alloca ptr, align 8
@@ -9943,7 +9973,7 @@ PyTuple_GET_SIZE.exit:                            ; preds = %cond.end.i.i
 
 if.end:                                           ; preds = %PyTuple_GET_SIZE.exit
   %tobool2.not = icmp eq ptr %kwargs, null
-  br i1 %tobool2.not, label %exit, label %land.lhs.true
+  br i1 %tobool2.not, label %if.end19, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
   %4 = getelementptr i8, ptr %kwargs, i64 8
@@ -9962,7 +9992,7 @@ PyDict_GET_SIZE.exit:                             ; preds = %land.lhs.true
   %ma_used.i = getelementptr inbounds i8, ptr %kwargs, i64 16
   %7 = load i64, ptr %ma_used.i, align 8
   %tobool4.not = icmp eq i64 %7, 0
-  br i1 %tobool4.not, label %exit, label %land.lhs.true5
+  br i1 %tobool4.not, label %if.end19, label %land.lhs.true5
 
 land.lhs.true5:                                   ; preds = %PyDict_GET_SIZE.exit
   %cmp = icmp slt i64 %3, 2
@@ -9970,12 +10000,12 @@ land.lhs.true5:                                   ; preds = %PyDict_GET_SIZE.exi
 
 lor.lhs.false:                                    ; preds = %land.lhs.true5
   %cmp6 = icmp eq i64 %3, 2
-  br i1 %cmp6, label %land.lhs.true7, label %exit
+  br i1 %cmp6, label %land.lhs.true7, label %if.end19
 
 land.lhs.true7:                                   ; preds = %lor.lhs.false
   %call8 = call i32 @PyDict_Contains(ptr noundef nonnull %kwargs, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 248)) #9
   %tobool9.not = icmp eq i32 %call8, 0
-  br i1 %tobool9.not, label %exit, label %if.then10
+  br i1 %tobool9.not, label %if.end19, label %if.then10
 
 if.then10:                                        ; preds = %land.lhs.true7, %land.lhs.true5
   %call11 = call ptr @PyErr_Occurred() #9
@@ -9985,12 +10015,14 @@ if.then10:                                        ; preds = %land.lhs.true7, %la
 if.end14:                                         ; preds = %if.then10
   %8 = load ptr, ptr @PyExc_DeprecationWarning, align 8
   %call15 = call i32 @PyErr_WarnEx(ptr noundef %8, ptr noundef nonnull @.str.204, i64 noundef 1) #9
-  %tobool16.not = icmp ne i32 %call15, 0
-  %spec.select = sext i1 %tobool16.not to i32
+  %tobool16.not = icmp eq i32 %call15, 0
+  br i1 %tobool16.not, label %if.end19, label %exit
+
+if.end19:                                         ; preds = %if.end14, %land.lhs.true7, %lor.lhs.false, %PyDict_GET_SIZE.exit, %if.end
   br label %exit
 
-exit:                                             ; preds = %if.end14, %if.end, %PyDict_GET_SIZE.exit, %lor.lhs.false, %land.lhs.true7, %if.then10, %PyTuple_GET_SIZE.exit
-  %return_value.0 = phi i32 [ -1, %if.then10 ], [ -1, %PyTuple_GET_SIZE.exit ], [ 0, %land.lhs.true7 ], [ 0, %lor.lhs.false ], [ 0, %PyDict_GET_SIZE.exit ], [ 0, %if.end ], [ %spec.select, %if.end14 ]
+exit:                                             ; preds = %if.end14, %if.then10, %PyTuple_GET_SIZE.exit, %if.end19
+  %return_value.0 = phi i32 [ -1, %if.then10 ], [ -1, %if.end14 ], [ 0, %if.end19 ], [ -1, %PyTuple_GET_SIZE.exit ]
   ret i32 %return_value.0
 }
 

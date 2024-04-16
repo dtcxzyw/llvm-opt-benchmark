@@ -46,11 +46,13 @@ define i32 @onigenc_unicode_fold1_key(ptr noundef %0) local_unnamed_addr #0 {
   %32 = getelementptr inbounds i32, ptr @OnigUnicodeFolds1, i64 %31
   %33 = tail call i32 @onig_codes_cmp(ptr noundef %0, ptr noundef nonnull %32, i32 noundef 1) #2
   %34 = icmp eq i32 %33, 0
-  %spec.select = select i1 %34, i32 %30, i32 -1
-  br label %35
+  br i1 %34, label %36, label %35
 
-35:                                               ; preds = %29, %1, %24
-  %.0 = phi i32 [ -1, %24 ], [ -1, %1 ], [ %spec.select, %29 ]
+35:                                               ; preds = %24, %29, %1
+  br label %36
+
+36:                                               ; preds = %29, %35
+  %.0 = phi i32 [ -1, %35 ], [ %30, %29 ]
   ret i32 %.0
 }
 

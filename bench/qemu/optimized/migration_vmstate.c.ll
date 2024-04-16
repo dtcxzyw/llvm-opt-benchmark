@@ -1133,19 +1133,22 @@ return:                                           ; preds = %trace_vmstate_subse
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @vmstate_section_needed(ptr nocapture noundef readonly %vmsd, ptr noundef %opaque) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @vmstate_section_needed(ptr nocapture noundef readonly %vmsd, ptr noundef %opaque) local_unnamed_addr #0 {
 entry:
   %needed = getelementptr inbounds i8, ptr %vmsd, i64 56
   %0 = load ptr, ptr %needed, align 8
   %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %return, label %land.lhs.true
+  br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
   %call = tail call zeroext i1 %0(ptr noundef %opaque) #10
+  br i1 %call, label %if.end, label %return
+
+if.end:                                           ; preds = %land.lhs.true, %entry
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ %call, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %if.end
+  %retval.0 = phi i1 [ true, %if.end ], [ false, %land.lhs.true ]
   ret i1 %retval.0
 }
 
@@ -1694,7 +1697,7 @@ declare void @json_writer_start_array(ptr noundef, ptr noundef) local_unnamed_ad
 declare i64 @qemu_file_transferred(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define internal fastcc zeroext i1 @vmsd_can_compress(ptr nocapture noundef readonly %field) unnamed_addr #4 {
+define internal fastcc noundef zeroext i1 @vmsd_can_compress(ptr nocapture noundef readonly %field) unnamed_addr #4 {
 entry:
   %field_exists = getelementptr inbounds i8, ptr %field, i64 96
   %0 = load ptr, ptr %field_exists, align 8
@@ -1706,7 +1709,7 @@ if.end:                                           ; preds = %entry
   %1 = load i32, ptr %flags, align 8
   %and = and i32 %1, 8
   %tobool1.not = icmp eq i32 %and, 0
-  br i1 %tobool1.not, label %return, label %if.then2
+  br i1 %tobool1.not, label %if.end10, label %if.then2
 
 if.then2:                                         ; preds = %if.end
   %vmsd = getelementptr inbounds i8, ptr %field, i64 80
@@ -1732,10 +1735,13 @@ while.end:                                        ; preds = %while.cond, %if.the
   %subsections = getelementptr inbounds i8, ptr %2, i64 80
   %6 = load ptr, ptr %subsections, align 8
   %tobool7.not = icmp eq ptr %6, null
+  br i1 %tobool7.not, label %if.end10, label %return
+
+if.end10:                                         ; preds = %while.end, %if.end
   br label %return
 
-return:                                           ; preds = %while.body, %while.end, %if.end, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ true, %if.end ], [ %tobool7.not, %while.end ], [ false, %while.body ]
+return:                                           ; preds = %while.body, %while.end, %entry, %if.end10
+  %retval.0 = phi i1 [ true, %if.end10 ], [ false, %entry ], [ false, %while.end ], [ false, %while.body ]
   ret i1 %retval.0
 }
 
@@ -1802,18 +1808,18 @@ while.body:                                       ; preds = %land.rhs
   %needed.i = getelementptr inbounds i8, ptr %8, i64 56
   %9 = load ptr, ptr %needed.i, align 8
   %tobool.not.i = icmp eq ptr %9, null
-  br i1 %tobool.not.i, label %if.then, label %vmstate_section_needed.exit
+  br i1 %tobool.not.i, label %if.then, label %land.lhs.true.i
 
-vmstate_section_needed.exit:                      ; preds = %while.body
+land.lhs.true.i:                                  ; preds = %while.body
   %call.i = tail call zeroext i1 %9(ptr noundef %opaque) #10
-  br i1 %call.i, label %vmstate_section_needed.exit.if.then_crit_edge, label %if.end21
+  br i1 %call.i, label %land.lhs.true.i.if.then_crit_edge, label %if.end21
 
-vmstate_section_needed.exit.if.then_crit_edge:    ; preds = %vmstate_section_needed.exit
+land.lhs.true.i.if.then_crit_edge:                ; preds = %land.lhs.true.i
   %.pre = load ptr, ptr %sub.045, align 8
   br label %if.then
 
-if.then:                                          ; preds = %vmstate_section_needed.exit.if.then_crit_edge, %while.body
-  %10 = phi ptr [ %.pre, %vmstate_section_needed.exit.if.then_crit_edge ], [ %8, %while.body ]
+if.then:                                          ; preds = %land.lhs.true.i.if.then_crit_edge, %while.body
+  %10 = phi ptr [ %.pre, %land.lhs.true.i.if.then_crit_edge ], [ %8, %while.body ]
   %11 = load ptr, ptr %vmsd, align 8
   %12 = load ptr, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i26)
@@ -1890,8 +1896,8 @@ if.then19:                                        ; preds = %if.end17
   tail call void @json_writer_end_object(ptr noundef nonnull %vmdesc) #10
   br label %if.end21
 
-if.end21:                                         ; preds = %if.end17, %if.then19, %vmstate_section_needed.exit
-  %vmdesc_has_subsections.3 = phi i8 [ %vmdesc_has_subsections.2, %if.then19 ], [ %vmdesc_has_subsections.2, %if.end17 ], [ %vmdesc_has_subsections.044, %vmstate_section_needed.exit ]
+if.end21:                                         ; preds = %land.lhs.true.i, %if.end17, %if.then19
+  %vmdesc_has_subsections.3 = phi i8 [ %vmdesc_has_subsections.2, %if.then19 ], [ %vmdesc_has_subsections.2, %if.end17 ], [ %vmdesc_has_subsections.044, %land.lhs.true.i ]
   %incdec.ptr = getelementptr i8, ptr %sub.045, i64 8
   %tobool.not = icmp eq ptr %incdec.ptr, null
   br i1 %tobool.not, label %while.end, label %land.rhs, !llvm.loop !15

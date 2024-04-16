@@ -4040,12 +4040,12 @@ entry:
   %fromLength = alloca i32, align 4
   %toLength = alloca i32, align 4
   %cmp.not = icmp eq ptr %ec, null
-  br i1 %cmp.not, label %return, label %land.lhs.true
+  br i1 %cmp.not, label %if.end58, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
   %0 = load i32, ptr %ec, align 4
   %cmp.i = icmp sgt i32 %0, 0
-  br i1 %cmp.i, label %return, label %if.then
+  br i1 %cmp.i, label %if.end58, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
   store i32 0, ptr %localStatus, align 4
@@ -4157,11 +4157,13 @@ if.then52:                                        ; preds = %if.end49
 if.end53:                                         ; preds = %if.end49, %if.then52
   %9 = phi i32 [ %7, %if.end49 ], [ %8, %if.then52 ]
   %cmp.i33 = icmp sgt i32 %9, 0
-  %spec.select = select i1 %cmp.i33, i32 0, i32 %currCount.3
+  br i1 %cmp.i33, label %if.end58, label %return
+
+if.end58:                                         ; preds = %if.end53, %land.lhs.true, %entry
   br label %return
 
-return:                                           ; preds = %if.end53, %entry, %land.lhs.true, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %land.lhs.true ], [ 0, %entry ], [ %spec.select, %if.end53 ]
+return:                                           ; preds = %if.end53, %if.then, %if.end58
+  %retval.0 = phi i32 [ 0, %if.end58 ], [ 0, %if.then ], [ %currCount.3, %if.end53 ]
   ret i32 %retval.0
 }
 

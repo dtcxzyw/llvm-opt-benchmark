@@ -1462,7 +1462,7 @@ isofile_free.exit82:                              ; preds = %.lr.ph.i79, %66
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @iso9660_write_data(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal noundef i64 @iso9660_write_data(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 248
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 16
@@ -1966,39 +1966,39 @@ zisofs_rewind_boot_file.exit.thread243:           ; preds = %54
 148:                                              ; preds = %145
   %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %87, ptr noundef nonnull dereferenceable(8) @zisofs_magic, i64 8)
   %.not59.i.i.i = icmp eq i32 %bcmp.i.i.i, 0
-  br i1 %.not59.i.i.i, label %149, label %157
+  br i1 %.not59.i.i.i, label %149, label %.critedge.i.i.i
 
 149:                                              ; preds = %148
   %150 = load i32, ptr %93, align 1
   %151 = zext i32 %150 to i64
   %.not60.i.i.i = icmp eq i64 %125, %151
-  br i1 %.not60.i.i.i, label %152, label %157
+  br i1 %.not60.i.i.i, label %152, label %.critedge.i.i.i
 
 152:                                              ; preds = %149
   %153 = load i8, ptr %94, align 1
   %.not61.i.i.i = icmp eq i8 %153, 4
-  br i1 %.not61.i.i.i, label %154, label %157
+  br i1 %.not61.i.i.i, label %154, label %.critedge.i.i.i
 
 154:                                              ; preds = %152
   %155 = load i8, ptr %95, align 1
   %156 = zext i8 %155 to i32
   %.not62.i.i.i = icmp eq i32 %126, %156
-  br i1 %.not62.i.i.i, label %.critedge.i.i.i, label %157
+  br i1 %.not62.i.i.i, label %157, label %.critedge.i.i.i
 
-157:                                              ; preds = %154, %152, %149, %148
+.critedge.i.i.i:                                  ; preds = %154, %152, %149, %148
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.71) #23
   br label %wb_write_padding_to_temp.exit.thread.i
 
-.critedge.i.i.i:                                  ; preds = %154
+157:                                              ; preds = %154
   %158 = add nsw i64 %114, -16
   %159 = or disjoint i8 %122, 2
   store i8 %159, ptr %89, align 8
   br label %160
 
-160:                                              ; preds = %.critedge.i.i.i, %142
-  %161 = phi i8 [ %159, %.critedge.i.i.i ], [ %122, %142 ]
-  %.054.i.i.i = phi i64 [ %158, %.critedge.i.i.i ], [ %114, %142 ]
-  %.053.i.i.i = phi ptr [ %96, %.critedge.i.i.i ], [ %87, %142 ]
+160:                                              ; preds = %157, %142
+  %161 = phi i8 [ %159, %157 ], [ %122, %142 ]
+  %.054.i.i.i = phi i64 [ %158, %157 ], [ %114, %142 ]
+  %.053.i.i.i = phi ptr [ %96, %157 ], [ %87, %142 ]
   %162 = load i64, ptr %97, align 8
   %163 = icmp ult i64 %162, %133
   br i1 %163, label %164, label %zisofs_extract_init.exit.i.thread.i
@@ -2283,8 +2283,8 @@ wb_write_padding_to_temp.exit.i:                  ; preds = %.thread.i
   %spec.select79.i = select i1 %287, i32 -30, i32 0
   br label %wb_write_padding_to_temp.exit.thread.i
 
-wb_write_padding_to_temp.exit.thread.i:           ; preds = %wb_write_padding_to_temp.exit.i, %.thread.i, %zisofs_extract.exit.thread.i, %zisofs_extract.exit.thread.thread.i, %249, %wb_consume.exit.thread.i.i, %216, %207, %202, %192, %157, %147, %141, %.thread74.i
-  %.1.i = phi i32 [ %277, %zisofs_extract.exit.thread.i ], [ -30, %.thread74.i ], [ 0, %.thread.i ], [ -30, %wb_consume.exit.thread.i.i ], [ -30, %157 ], [ -30, %147 ], [ -30, %141 ], [ -30, %249 ], [ -30, %216 ], [ -30, %207 ], [ -30, %202 ], [ -30, %192 ], [ %spec.select79.i, %wb_write_padding_to_temp.exit.i ], [ -30, %zisofs_extract.exit.thread.thread.i ]
+wb_write_padding_to_temp.exit.thread.i:           ; preds = %wb_write_padding_to_temp.exit.i, %.thread.i, %zisofs_extract.exit.thread.i, %zisofs_extract.exit.thread.thread.i, %249, %wb_consume.exit.thread.i.i, %216, %207, %202, %192, %.critedge.i.i.i, %147, %141, %.thread74.i
+  %.1.i = phi i32 [ %277, %zisofs_extract.exit.thread.i ], [ -30, %.thread74.i ], [ 0, %.thread.i ], [ -30, %wb_consume.exit.thread.i.i ], [ -30, %.critedge.i.i.i ], [ -30, %147 ], [ -30, %141 ], [ -30, %249 ], [ -30, %216 ], [ -30, %207 ], [ -30, %202 ], [ -30, %192 ], [ %spec.select79.i, %wb_write_padding_to_temp.exit.i ], [ -30, %zisofs_extract.exit.thread.thread.i ]
   call void @free(ptr noundef %87) #23
   %288 = load ptr, ptr %90, align 8
   call void @free(ptr noundef %288) #23
@@ -6381,7 +6381,7 @@ declare i32 @__archive_write_output(ptr noundef, ptr noundef, i64 noundef) local
 declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @write_iso9660_data(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef i64 @write_iso9660_data(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 248
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
@@ -6391,7 +6391,7 @@ define internal fastcc i64 @write_iso9660_data(ptr noundef %0, ptr noundef %1, i
 
 9:                                                ; preds = %3
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.46) #23
-  br label %97
+  br label %98
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds i8, ptr %5, i64 64
@@ -6432,12 +6432,12 @@ define internal fastcc i64 @write_iso9660_data(ptr noundef %0, ptr noundef %1, i
 31:                                               ; preds = %28
   %32 = tail call fastcc i32 @zisofs_write_to_temp(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %23)
   %.not59 = icmp eq i32 %32, 0
-  br i1 %.not59, label %42, label %97
+  br i1 %.not59, label %42, label %98
 
 33:                                               ; preds = %28
   %34 = tail call fastcc i32 @wb_write_to_temp(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %23), !range !5
   %.not58 = icmp eq i32 %34, 0
-  br i1 %.not58, label %35, label %97
+  br i1 %.not58, label %35, label %98
 
 35:                                               ; preds = %33
   %36 = load ptr, ptr %14, align 8
@@ -6463,7 +6463,7 @@ wb_write_padding_to_temp.exit:                    ; preds = %42
   %49 = sub nsw i64 2048, %48
   %50 = tail call fastcc i32 @write_null(ptr noundef nonnull %0, i64 noundef %49)
   %.not60 = icmp eq i32 %50, 0
-  br i1 %.not60, label %wb_write_padding_to_temp.exit.wb_write_padding_to_temp.exit.thread_crit_edge, label %97
+  br i1 %.not60, label %wb_write_padding_to_temp.exit.wb_write_padding_to_temp.exit.thread_crit_edge, label %98
 
 wb_write_padding_to_temp.exit.wb_write_padding_to_temp.exit.thread_crit_edge: ; preds = %wb_write_padding_to_temp.exit
   %.pre68 = load ptr, ptr %14, align 8
@@ -6487,7 +6487,7 @@ wb_write_padding_to_temp.exit.thread:             ; preds = %wb_write_padding_to
 
 59:                                               ; preds = %wb_write_padding_to_temp.exit.thread
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull @.str.59) #23
-  br label %97
+  br label %98
 
 60:                                               ; preds = %wb_write_padding_to_temp.exit.thread
   %61 = getelementptr inbounds i8, ptr %1, i64 %23
@@ -6536,13 +6536,12 @@ wb_write_padding_to_temp.exit.thread:             ; preds = %wb_write_padding_to
 85:                                               ; preds = %82
   %86 = tail call fastcc i32 @zisofs_write_to_temp(ptr noundef nonnull %0, ptr noundef %.053, i64 noundef %.054)
   %.not64 = icmp eq i32 %86, 0
-  %spec.select = select i1 %.not64, i64 %2, i64 -30
-  br label %97
+  br i1 %.not64, label %97, label %98
 
 87:                                               ; preds = %82
   %88 = tail call fastcc i32 @wb_write_to_temp(ptr noundef nonnull %0, ptr noundef %.053, i64 noundef %.054), !range !5
   %.not63 = icmp eq i32 %88, 0
-  br i1 %.not63, label %89, label %97
+  br i1 %.not63, label %89, label %98
 
 89:                                               ; preds = %87
   %90 = getelementptr inbounds i8, ptr %5, i64 16
@@ -6555,8 +6554,11 @@ wb_write_padding_to_temp.exit.thread:             ; preds = %wb_write_padding_to
   store i64 %96, ptr %94, align 8
   br label %97
 
-97:                                               ; preds = %85, %89, %87, %wb_write_padding_to_temp.exit, %33, %31, %59, %9
-  %.0 = phi i64 [ -30, %9 ], [ -30, %59 ], [ -30, %31 ], [ -30, %33 ], [ -30, %wb_write_padding_to_temp.exit ], [ -30, %87 ], [ %2, %89 ], [ %spec.select, %85 ]
+97:                                               ; preds = %85, %89
+  br label %98
+
+98:                                               ; preds = %87, %85, %wb_write_padding_to_temp.exit, %33, %31, %97, %59, %9
+  %.0 = phi i64 [ -30, %9 ], [ -30, %59 ], [ %2, %97 ], [ -30, %31 ], [ -30, %33 ], [ -30, %wb_write_padding_to_temp.exit ], [ -30, %85 ], [ -30, %87 ]
   ret i64 %.0
 }
 
@@ -6695,7 +6697,7 @@ define internal fastcc void @zisofs_detect_magic(ptr %.248.val, ptr noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @zisofs_write_to_temp(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef i32 @zisofs_write_to_temp(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 248
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 16
@@ -7037,7 +7039,7 @@ wb_consume.exit.thread:                           ; preds = %41, %wb_consume.exi
 declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @wb_set_offset(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @wb_set_offset(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 248
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 66280
@@ -7139,8 +7141,7 @@ write_to_temp.exit:                               ; preds = %29
   %51 = load i32, ptr %50, align 8
   %52 = tail call i64 @lseek(i32 noundef %51, i64 noundef %1, i32 noundef 0) #23
   store i64 %1, ptr %12, align 8
-  store i64 65536, ptr %9, align 8
-  br label %.loopexit
+  br label %.sink.split
 
 53:                                               ; preds = %.thread._crit_edge, %38
   %54 = phi i64 [ %.pre75, %.thread._crit_edge ], [ %20, %38 ]
@@ -7151,8 +7152,7 @@ write_to_temp.exit:                               ; preds = %29
 56:                                               ; preds = %53
   %reass.sub = sub i64 %55, %1
   %57 = add i64 %reass.sub, 65536
-  store i64 %57, ptr %9, align 8
-  br label %.loopexit
+  br label %.sink.split
 
 58:                                               ; preds = %53
   %59 = sub nsw i64 %1, %54
@@ -7178,16 +7178,23 @@ write_to_temp.exit:                               ; preds = %29
 ._crit_edge:                                      ; preds = %63, %58
   %.0.lcssa = phi i64 [ %59, %58 ], [ %65, %63 ]
   %66 = icmp sgt i64 %.0.lcssa, 0
-  br i1 %66, label %67, label %.loopexit
+  br i1 %66, label %67, label %69
 
 67:                                               ; preds = %._crit_edge
   %68 = tail call fastcc i32 @write_null(ptr noundef %0, i64 noundef %.0.lcssa)
   %.not60 = icmp eq i32 %68, 0
-  %spec.select = select i1 %.not60, i32 0, i32 -30
+  br i1 %.not60, label %69, label %.loopexit
+
+.sink.split:                                      ; preds = %.thread68, %56
+  %.sink = phi i64 [ %57, %56 ], [ 65536, %.thread68 ]
+  store i64 %.sink, ptr %9, align 8
+  br label %69
+
+69:                                               ; preds = %.sink.split, %67, %._crit_edge
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %write_to_temp.exit, %67, %.thread68, %._crit_edge, %56, %48, %7
-  %.050 = phi i32 [ -30, %7 ], [ -30, %write_to_temp.exit ], [ -30, %48 ], [ 0, %56 ], [ 0, %._crit_edge ], [ 0, %.thread68 ], [ %spec.select, %67 ], [ -30, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %write_to_temp.exit, %67, %48, %69, %7
+  %.050 = phi i32 [ -30, %7 ], [ 0, %69 ], [ -30, %write_to_temp.exit ], [ -30, %48 ], [ -30, %67 ], [ -30, %.lr.ph ]
   ret i32 %.050
 }
 
@@ -8112,10 +8119,10 @@ define internal fastcc i32 @write_path_table(ptr noundef %0, i32 noundef %1, ptr
 
 .lr.ph.i:                                         ; preds = %15, %109
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %109 ], [ 0, %15 ]
-  %.062102.i = phi i32 [ %112, %109 ], [ 0, %15 ]
-  %.064100.i = phi i64 [ %.165.i, %109 ], [ %18, %15 ]
-  %.06699.i = phi ptr [ %114, %109 ], [ %21, %15 ]
-  %.06898.i = phi ptr [ %.169.i, %109 ], [ %20, %15 ]
+  %.06299.i = phi i32 [ %112, %109 ], [ 0, %15 ]
+  %.06497.i = phi i64 [ %.165.i, %109 ], [ %18, %15 ]
+  %.06696.i = phi ptr [ %114, %109 ], [ %21, %15 ]
+  %.06895.i = phi ptr [ %.169.i, %109 ], [ %20, %15 ]
   %25 = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv.i
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 168
@@ -8131,11 +8138,11 @@ define internal fastcc i32 @write_path_table(ptr noundef %0, i32 noundef %1, ptr
 
 34:                                               ; preds = %30, %.lr.ph.i
   %.0.i = phi i64 [ %33, %30 ], [ 1, %.lr.ph.i ]
-  %35 = getelementptr inbounds i8, ptr %.06699.i, i64 1
+  %35 = getelementptr inbounds i8, ptr %.06696.i, i64 1
   %36 = ptrtoint ptr %35 to i64
-  %37 = ptrtoint ptr %.06898.i to i64
+  %37 = ptrtoint ptr %.06895.i to i64
   %38 = sub i64 %36, %37
-  %39 = sub i64 %.064100.i, %38
+  %39 = sub i64 %.06497.i, %38
   %40 = add nsw i64 %.0.i, 1
   %41 = add nsw i64 %.0.i, 9
   %42 = icmp ult i64 %39, %41
@@ -8176,9 +8183,9 @@ wb_consume.exit.thread80.i:                       ; preds = %wb_consume.exit.i, 
   br label %60
 
 60:                                               ; preds = %wb_consume.exit.thread80.i, %34
-  %.169.i = phi ptr [ %58, %wb_consume.exit.thread80.i ], [ %.06898.i, %34 ]
-  %.167.i = phi ptr [ %59, %wb_consume.exit.thread80.i ], [ %.06699.i, %34 ]
-  %.165.i = phi i64 [ %56, %wb_consume.exit.thread80.i ], [ %.064100.i, %34 ]
+  %.169.i = phi ptr [ %58, %wb_consume.exit.thread80.i ], [ %.06895.i, %34 ]
+  %.167.i = phi ptr [ %59, %wb_consume.exit.thread80.i ], [ %.06696.i, %34 ]
+  %.165.i = phi i64 [ %56, %wb_consume.exit.thread80.i ], [ %.06497.i, %34 ]
   %61 = getelementptr inbounds i8, ptr %.167.i, i64 1
   %62 = trunc i64 %.0.i to i8
   store i8 %62, ptr %61, align 1
@@ -8232,12 +8239,12 @@ wb_consume.exit.thread80.i:                       ; preds = %wb_consume.exit.i, 
   br label %97
 
 97:                                               ; preds = %83, %69
-  %.sink113.in.i = phi i32 [ %95, %83 ], [ %82, %69 ]
+  %.sink110.in.i = phi i32 [ %95, %83 ], [ %82, %69 ]
   %.sink.in.i = phi i32 [ %96, %83 ], [ %81, %69 ]
   %.sink.i = trunc i32 %.sink.in.i to i8
-  %.sink113.i = trunc i32 %.sink113.in.i to i8
+  %.sink110.i = trunc i32 %.sink110.in.i to i8
   %98 = getelementptr inbounds i8, ptr %.167.i, i64 7
-  store i8 %.sink113.i, ptr %98, align 1
+  store i8 %.sink110.i, ptr %98, align 1
   %99 = getelementptr inbounds i8, ptr %.167.i, i64 8
   store i8 %.sink.i, ptr %99, align 1
   %100 = load ptr, ptr %27, align 8
@@ -8266,7 +8273,7 @@ wb_consume.exit.thread80.i:                       ; preds = %wb_consume.exit.i, 
 109:                                              ; preds = %107, %105
   %.1.i = phi i64 [ %40, %107 ], [ %.0.i, %105 ]
   %110 = trunc i64 %.1.i to i32
-  %111 = add i32 %.062102.i, 8
+  %111 = add i32 %.06299.i, 8
   %112 = add i32 %111, %110
   %113 = add nsw i64 %.1.i, 8
   %114 = getelementptr inbounds i8, ptr %.167.i, i64 %113
@@ -8310,14 +8317,11 @@ wb_consume.exit78.thread.i:                       ; preds = %122
 
 wb_consume.exit78.i:                              ; preds = %131
   %134 = tail call fastcc i32 @wb_write_out(ptr noundef nonnull %0)
-  %.fr.i = freeze i32 %134
-  %135 = icmp slt i32 %.fr.i, 0
-  %spec.select.i = select i1 %135, i32 %.fr.i, i32 %.062.lcssa.i
-  br label %_write_path_table.exit
+  %135 = icmp slt i32 %134, 0
+  br i1 %135, label %_write_path_table.exit.thread, label %_write_path_table.exit
 
 _write_path_table.exit:                           ; preds = %._crit_edge.i, %131, %wb_consume.exit78.i
-  %.061.i = phi i32 [ %.062.lcssa.i, %._crit_edge.i ], [ %.062.lcssa.i, %131 ], [ %spec.select.i, %wb_consume.exit78.i ]
-  %136 = icmp slt i32 %.061.i, 0
+  %136 = icmp slt i32 %.062.lcssa.i, 0
   br i1 %136, label %_write_path_table.exit.thread, label %_write_path_table.exit._write_path_table.exit.thread23_crit_edge
 
 _write_path_table.exit._write_path_table.exit.thread23_crit_edge: ; preds = %_write_path_table.exit
@@ -8326,7 +8330,7 @@ _write_path_table.exit._write_path_table.exit.thread23_crit_edge: ; preds = %_wr
 
 _write_path_table.exit.thread23:                  ; preds = %_write_path_table.exit._write_path_table.exit.thread23_crit_edge, %9
   %137 = phi i32 [ %.pre, %_write_path_table.exit._write_path_table.exit.thread23_crit_edge ], [ %10, %9 ]
-  %.061.i25 = phi i32 [ %.061.i, %_write_path_table.exit._write_path_table.exit.thread23_crit_edge ], [ 0, %9 ]
+  %.061.i25 = phi i32 [ %.062.lcssa.i, %_write_path_table.exit._write_path_table.exit.thread23_crit_edge ], [ 0, %9 ]
   %138 = zext nneg i32 %.061.i25 to i64
   %139 = add i64 %.045, %138
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -8344,8 +8348,8 @@ _write_path_table.exit.thread23:                  ; preds = %_write_path_table.e
   %145 = tail call fastcc i32 @write_null(ptr noundef %0, i64 noundef %144)
   br label %_write_path_table.exit.thread
 
-_write_path_table.exit.thread:                    ; preds = %_write_path_table.exit, %wb_consume.exit.i, %3, %wb_consume.exit78.thread.i, %wb_consume.exit.thread.i, %._crit_edge, %143
-  %.018 = phi i32 [ %145, %143 ], [ %.061.i25, %._crit_edge ], [ -30, %wb_consume.exit78.thread.i ], [ -30, %wb_consume.exit.thread.i ], [ 0, %3 ], [ %52, %wb_consume.exit.i ], [ %.061.i, %_write_path_table.exit ]
+_write_path_table.exit.thread:                    ; preds = %wb_consume.exit78.i, %_write_path_table.exit, %wb_consume.exit.i, %3, %wb_consume.exit78.thread.i, %wb_consume.exit.thread.i, %._crit_edge, %143
+  %.018 = phi i32 [ %145, %143 ], [ %.061.i25, %._crit_edge ], [ -30, %wb_consume.exit78.thread.i ], [ -30, %wb_consume.exit.thread.i ], [ 0, %3 ], [ %52, %wb_consume.exit.i ], [ %134, %wb_consume.exit78.i ], [ %.062.lcssa.i, %_write_path_table.exit ]
   ret i32 %.018
 }
 
@@ -8919,15 +8923,19 @@ make_boot_catalog.exit.thread61:                  ; preds = %88, %make_boot_cata
   %.143.lcssa = phi i64 [ %.042, %107 ], [ %.4, %.loopexit ]
   %.1.lcssa = phi i64 [ 0, %107 ], [ %.3, %.loopexit ]
   %133 = icmp sgt i64 %.143.lcssa, 0
-  br i1 %133, label %134, label %.loopexit63
+  br i1 %133, label %134, label %138
 
 134:                                              ; preds = %._crit_edge
   %135 = shl i64 %.143.lcssa, 11
   %136 = tail call fastcc i32 @write_file_contents(ptr noundef %0, i64 noundef %.1.lcssa, i64 noundef %135), !range !26
+  %137 = icmp slt i32 %136, 0
+  br i1 %137, label %.loopexit63, label %138
+
+138:                                              ; preds = %134, %._crit_edge
   br label %.loopexit63
 
-.loopexit63:                                      ; preds = %119, %make_boot_catalog.exit.thread, %134, %._crit_edge, %103, %make_boot_catalog.exit
-  %.047 = phi i32 [ %91, %make_boot_catalog.exit ], [ %105, %103 ], [ 0, %._crit_edge ], [ %136, %134 ], [ -30, %make_boot_catalog.exit.thread ], [ %120, %119 ]
+.loopexit63:                                      ; preds = %119, %make_boot_catalog.exit.thread, %134, %103, %make_boot_catalog.exit, %138
+  %.047 = phi i32 [ 0, %138 ], [ %91, %make_boot_catalog.exit ], [ %105, %103 ], [ %136, %134 ], [ -30, %make_boot_catalog.exit.thread ], [ %120, %119 ]
   ret i32 %.047
 }
 

@@ -2253,28 +2253,33 @@ define { ptr, ptr } @gen_collect(ptr %0, ptr %1) local_unnamed_addr #1 {
   %4 = extractvalue { i64, ptr } %3, 0
   %5 = extractvalue { i64, ptr } %3, 1
   %.not62.i = icmp eq ptr %0, null
-  br i1 %.not62.i, label %._crit_edge.thread.i, label %.lr.ph.outer.i
+  br i1 %.not62.i, label %._crit_edge.thread.i, label %.lr.ph.outer.i.outer
 
-.lr.ph.outer.i:                                   ; preds = %2, %38
-  %.067.ph.i = phi i32 [ %.1.i, %38 ], [ 1, %2 ]
-  %.03866.ph.i = phi i32 [ %.139.i, %38 ], [ 0, %2 ]
-  %.sroa.7.065.ph.i = phi ptr [ %.sroa.7.065.i, %38 ], [ %5, %2 ]
-  %.sroa.019.064.ph.i = phi i64 [ %.sroa.019.064.i, %38 ], [ %4, %2 ]
-  %.04163.ph.i = phi ptr [ %39, %38 ], [ %0, %2 ]
+.lr.ph.outer.i.outer:                             ; preds = %2, %.loopexit
+  %.068.ph.i.ph = phi i32 [ %.068.i, %.loopexit ], [ 1, %2 ]
+  %.03867.ph.i.ph = phi i32 [ %.139.i, %.loopexit ], [ 0, %2 ]
+  %.sroa.7.066.ph.i.ph = phi ptr [ %.sroa.7.066.i.ph, %.loopexit ], [ %5, %2 ]
+  %.sroa.019.065.ph.i.ph = phi i64 [ %.sroa.019.065.i.ph, %.loopexit ], [ %4, %2 ]
+  %.04163.ph.i.ph = phi ptr [ %38, %.loopexit ], [ %0, %2 ]
+  br label %.lr.ph.i.outer
+
+.lr.ph.i.outer:                                   ; preds = %.lr.ph.outer.i.outer, %.thread82.i
+  %.068.i.ph = phi i32 [ %.068.ph.i.ph, %.lr.ph.outer.i.outer ], [ 1, %.thread82.i ]
+  %.sroa.7.066.i.ph = phi ptr [ %.sroa.7.066.ph.i.ph, %.lr.ph.outer.i.outer ], [ %49, %.thread82.i ]
+  %.sroa.019.065.i.ph = phi i64 [ %.sroa.019.065.ph.i.ph, %.lr.ph.outer.i.outer ], [ %48, %.thread82.i ]
+  %.04163.i.ph = phi ptr [ %.04163.ph.i.ph, %.lr.ph.outer.i.outer ], [ %50, %.thread82.i ]
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.thread81.i, %.lr.ph.outer.i
-  %.067.i = phi i32 [ 1, %.thread81.i ], [ %.067.ph.i, %.lr.ph.outer.i ]
-  %.sroa.7.065.i = phi ptr [ %49, %.thread81.i ], [ %.sroa.7.065.ph.i, %.lr.ph.outer.i ]
-  %.sroa.019.064.i = phi i64 [ %48, %.thread81.i ], [ %.sroa.019.064.ph.i, %.lr.ph.outer.i ]
-  %.04163.i = phi ptr [ %50, %.thread81.i ], [ %.04163.ph.i, %.lr.ph.outer.i ]
+.lr.ph.i:                                         ; preds = %.lr.ph.i.outer, %.thread
+  %.068.i = phi i32 [ 0, %.thread ], [ %.068.i.ph, %.lr.ph.i.outer ]
+  %.04163.i = phi ptr [ %39, %.thread ], [ %.04163.i.ph, %.lr.ph.i.outer ]
   %6 = getelementptr inbounds i8, ptr %.04163.i, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 14
   br i1 %8, label %9, label %23
 
 9:                                                ; preds = %.lr.ph.i
-  %10 = add nsw i32 %.03866.ph.i, 1
+  %10 = add nsw i32 %.03867.ph.i.ph, 1
   %11 = getelementptr inbounds i8, ptr %.04163.i, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
@@ -2287,15 +2292,15 @@ define { ptr, ptr } @gen_collect(ptr %0, ptr %1) local_unnamed_addr #1 {
   br i1 %.not52.i, label %17, label %block_join.exit70
 
 17:                                               ; preds = %14
-  %18 = tail call { i64, ptr } @jv_copy(i64 %.sroa.019.064.i, ptr %.sroa.7.065.i) #17
+  %18 = tail call { i64, ptr } @jv_copy(i64 %.sroa.019.065.i.ph, ptr %.sroa.7.066.i.ph) #17
   %19 = extractvalue { i64, ptr } %18, 0
   %20 = extractvalue { i64, ptr } %18, 1
   %21 = tail call i32 @jv_array_length(i64 %19, ptr %20) #17
   %22 = icmp sgt i32 %21, 0
-  br i1 %22, label %block_join.exit70, label %38
+  br i1 %22, label %block_join.exit70, label %.loopexit
 
 23:                                               ; preds = %.lr.ph.i
-  %.not47.i = icmp ne i32 %.067.i, 0
+  %.not47.i = icmp ne i32 %.068.i, 0
   %24 = icmp eq i32 %7, 0
   %or.cond53.i = and i1 %.not47.i, %24
   br i1 %or.cond53.i, label %25, label %30
@@ -2303,39 +2308,42 @@ define { ptr, ptr } @gen_collect(ptr %0, ptr %1) local_unnamed_addr #1 {
 25:                                               ; preds = %23
   %26 = load ptr, ptr %.04163.i, align 8
   %.not50.i = icmp eq ptr %26, null
-  br i1 %.not50.i, label %.thread81.i, label %27
+  br i1 %.not50.i, label %.thread82.i, label %27
 
 27:                                               ; preds = %25
   %28 = getelementptr inbounds i8, ptr %26, i64 16
   %29 = load i32, ptr %28, align 8
   %.not51.i = icmp eq i32 %29, 17
-  br i1 %.not51.i, label %.thread81.i, label %block_join.exit70
+  br i1 %.not51.i, label %.thread82.i, label %block_join.exit70
 
 30:                                               ; preds = %23
   %.not48.i = icmp eq i32 %7, 17
-  br i1 %.not48.i, label %31, label %38
+  br i1 %.not48.i, label %31, label %.thread
 
 31:                                               ; preds = %30
   %32 = getelementptr inbounds i8, ptr %.04163.i, i64 32
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %38, label %35
+  br i1 %34, label %.thread, label %35
 
 35:                                               ; preds = %31
   %36 = getelementptr inbounds i8, ptr %33, i64 16
   %37 = load i32, ptr %36, align 8
   %.not49.i = icmp eq i32 %37, 0
-  %spec.select.i = select i1 %.not49.i, i32 %.067.i, i32 0
-  br label %38
+  br i1 %.not49.i, label %.loopexit, label %.thread
 
-38:                                               ; preds = %35, %31, %30, %17
-  %.139.i = phi i32 [ %10, %17 ], [ %.03866.ph.i, %31 ], [ %.03866.ph.i, %30 ], [ %.03866.ph.i, %35 ]
-  %.1.i = phi i32 [ %.067.i, %17 ], [ 0, %31 ], [ 0, %30 ], [ %spec.select.i, %35 ]
+.loopexit:                                        ; preds = %35, %17
+  %.139.i = phi i32 [ %10, %17 ], [ %.03867.ph.i.ph, %35 ]
+  %38 = load ptr, ptr %.04163.i, align 8
+  %.not.i = icmp eq ptr %38, null
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.outer.i.outer, !llvm.loop !19
+
+.thread:                                          ; preds = %30, %31, %35
   %39 = load ptr, ptr %.04163.i, align 8
-  %.not.i = icmp eq ptr %39, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.outer.i, !llvm.loop !19
+  %.not.i96 = icmp eq ptr %39, null
+  br i1 %.not.i96, label %block_join.exit70, label %.lr.ph.i, !llvm.loop !19
 
-.thread81.i:                                      ; preds = %27, %25
+.thread82.i:                                      ; preds = %27, %25
   %40 = getelementptr inbounds i8, ptr %.04163.i, i64 40
   %41 = load i64, ptr %40, align 8
   %42 = getelementptr inbounds i8, ptr %.04163.i, i64 48
@@ -2343,26 +2351,26 @@ define { ptr, ptr } @gen_collect(ptr %0, ptr %1) local_unnamed_addr #1 {
   %44 = tail call { i64, ptr } @jv_copy(i64 %41, ptr %43) #17
   %45 = extractvalue { i64, ptr } %44, 0
   %46 = extractvalue { i64, ptr } %44, 1
-  %47 = tail call { i64, ptr } @jv_array_append(i64 %.sroa.019.064.i, ptr %.sroa.7.065.i, i64 %45, ptr %46) #17
+  %47 = tail call { i64, ptr } @jv_array_append(i64 %.sroa.019.065.i.ph, ptr %.sroa.7.066.i.ph, i64 %45, ptr %46) #17
   %48 = extractvalue { i64, ptr } %47, 0
   %49 = extractvalue { i64, ptr } %47, 1
   %50 = load ptr, ptr %.04163.i, align 8
-  %.not86.i = icmp eq ptr %50, null
-  br i1 %.not86.i, label %._crit_edge.thread91.i, label %.lr.ph.i, !llvm.loop !19
+  %.not87.i = icmp eq ptr %50, null
+  br i1 %.not87.i, label %._crit_edge.thread92.i, label %.lr.ph.i.outer, !llvm.loop !19
 
-._crit_edge.thread91.i:                           ; preds = %.thread81.i
-  %51 = add nsw i32 %.03866.ph.i, 1
+._crit_edge.thread92.i:                           ; preds = %.thread82.i
+  %51 = add nsw i32 %.03867.ph.i.ph, 1
   br label %._crit_edge.thread.i
 
-._crit_edge.i:                                    ; preds = %38
-  %52 = icmp eq i32 %.1.i, 0
+._crit_edge.i:                                    ; preds = %.loopexit
+  %52 = icmp eq i32 %.068.i, 0
   %53 = add nsw i32 %.139.i, 1
   br i1 %52, label %block_join.exit70, label %._crit_edge.thread.i
 
-._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %._crit_edge.thread91.i, %2
-  %.038.lcssa80.i = phi i32 [ %53, %._crit_edge.i ], [ %51, %._crit_edge.thread91.i ], [ 1, %2 ]
-  %.sroa.7.0.lcssa79.i = phi ptr [ %.sroa.7.065.i, %._crit_edge.i ], [ %49, %._crit_edge.thread91.i ], [ %5, %2 ]
-  %.sroa.019.0.lcssa78.i = phi i64 [ %.sroa.019.064.i, %._crit_edge.i ], [ %48, %._crit_edge.thread91.i ], [ %4, %2 ]
+._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %._crit_edge.thread92.i, %2
+  %.038.lcssa81.i = phi i32 [ %53, %._crit_edge.i ], [ %51, %._crit_edge.thread92.i ], [ 1, %2 ]
+  %.sroa.7.0.lcssa80.i = phi ptr [ %.sroa.7.066.i.ph, %._crit_edge.i ], [ %49, %._crit_edge.thread92.i ], [ %5, %2 ]
+  %.sroa.019.0.lcssa79.i = phi i64 [ %.sroa.019.065.i.ph, %._crit_edge.i ], [ %48, %._crit_edge.thread92.i ], [ %4, %2 ]
   %54 = icmp eq ptr %1, null
   br i1 %54, label %59, label %55
 
@@ -2373,11 +2381,11 @@ define { ptr, ptr } @gen_collect(ptr %0, ptr %1) local_unnamed_addr #1 {
   br i1 %58, label %59, label %block_join.exit70
 
 59:                                               ; preds = %55, %._crit_edge.thread.i
-  %60 = tail call { i64, ptr } @jv_copy(i64 %.sroa.019.0.lcssa78.i, ptr %.sroa.7.0.lcssa79.i) #17
+  %60 = tail call { i64, ptr } @jv_copy(i64 %.sroa.019.0.lcssa79.i, ptr %.sroa.7.0.lcssa80.i) #17
   %61 = extractvalue { i64, ptr } %60, 0
   %62 = extractvalue { i64, ptr } %60, 1
   %63 = tail call i32 @jv_array_length(i64 %61, ptr %62) #17
-  %64 = icmp eq i32 %63, %.038.lcssa80.i
+  %64 = icmp eq i32 %63, %.038.lcssa81.i
   br i1 %64, label %65, label %block_join.exit70
 
 65:                                               ; preds = %59
@@ -2408,14 +2416,14 @@ gen_const_array.exit:                             ; preds = %.lr.ph.i.i, %65
   %74 = getelementptr inbounds i8, ptr %67, i64 64
   store ptr null, ptr %74, align 8
   %75 = getelementptr inbounds i8, ptr %67, i64 40
-  store i64 %.sroa.019.0.lcssa78.i, ptr %75, align 8
+  store i64 %.sroa.019.0.lcssa79.i, ptr %75, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %67, i64 48
-  store ptr %.sroa.7.0.lcssa79.i, ptr %.sroa.2.0..sroa_idx.i.i, align 8
+  store ptr %.sroa.7.0.lcssa80.i, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   br label %163
 
-block_join.exit70:                                ; preds = %9, %14, %17, %27, %._crit_edge.i, %55, %59
-  %.sroa.019.061.i = phi i64 [ %.sroa.019.0.lcssa78.i, %59 ], [ %.sroa.019.0.lcssa78.i, %55 ], [ %.sroa.019.064.i, %._crit_edge.i ], [ %.sroa.019.064.i, %27 ], [ %.sroa.019.064.i, %17 ], [ %.sroa.019.064.i, %14 ], [ %.sroa.019.064.i, %9 ]
-  %.sroa.7.059.i = phi ptr [ %.sroa.7.0.lcssa79.i, %59 ], [ %.sroa.7.0.lcssa79.i, %55 ], [ %.sroa.7.065.i, %._crit_edge.i ], [ %.sroa.7.065.i, %27 ], [ %.sroa.7.065.i, %17 ], [ %.sroa.7.065.i, %14 ], [ %.sroa.7.065.i, %9 ]
+block_join.exit70:                                ; preds = %9, %14, %17, %.thread, %27, %._crit_edge.i, %55, %59
+  %.sroa.019.061.i = phi i64 [ %.sroa.019.0.lcssa79.i, %59 ], [ %.sroa.019.0.lcssa79.i, %55 ], [ %.sroa.019.065.i.ph, %._crit_edge.i ], [ %.sroa.019.065.i.ph, %27 ], [ %.sroa.019.065.i.ph, %.thread ], [ %.sroa.019.065.i.ph, %17 ], [ %.sroa.019.065.i.ph, %14 ], [ %.sroa.019.065.i.ph, %9 ]
+  %.sroa.7.059.i = phi ptr [ %.sroa.7.0.lcssa80.i, %59 ], [ %.sroa.7.0.lcssa80.i, %55 ], [ %.sroa.7.066.i.ph, %._crit_edge.i ], [ %.sroa.7.066.i.ph, %27 ], [ %.sroa.7.066.i.ph, %.thread ], [ %.sroa.7.066.i.ph, %17 ], [ %.sroa.7.066.i.ph, %14 ], [ %.sroa.7.066.i.ph, %9 ]
   tail call void @jv_free(i64 %.sroa.019.061.i, ptr %.sroa.7.059.i) #17
   %76 = tail call ptr @jv_mem_alloc(i64 noundef 160) #17
   %77 = getelementptr inbounds i8, ptr %76, i64 16
@@ -2558,24 +2566,24 @@ block_join.exit70:                                ; preds = %9, %14, %17, %27, %
   store ptr %135, ptr %76, align 8
   %145 = getelementptr inbounds i8, ptr %135, i64 8
   store ptr %76, ptr %145, align 8
-  br i1 %.not62.i, label %.thread, label %146
+  br i1 %.not62.i, label %.thread105, label %146
 
 146:                                              ; preds = %block_join.exit70
   store ptr %0, ptr %135, align 8
   %147 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %135, ptr %147, align 8
   %.not7.i.i79 = icmp eq ptr %1, null
-  br i1 %.not7.i.i79, label %block_join.exit93, label %.thread
+  br i1 %.not7.i.i79, label %block_join.exit93, label %.thread105
 
-.thread:                                          ; preds = %block_join.exit70, %146
-  %.sroa.3.0.i73102 = phi ptr [ %1, %146 ], [ %135, %block_join.exit70 ]
-  store ptr %113, ptr %.sroa.3.0.i73102, align 8
+.thread105:                                       ; preds = %block_join.exit70, %146
+  %.sroa.3.0.i73110 = phi ptr [ %1, %146 ], [ %135, %block_join.exit70 ]
+  store ptr %113, ptr %.sroa.3.0.i73110, align 8
   %148 = getelementptr inbounds i8, ptr %113, i64 8
-  store ptr %.sroa.3.0.i73102, ptr %148, align 8
+  store ptr %.sroa.3.0.i73110, ptr %148, align 8
   br label %block_join.exit93
 
-block_join.exit93:                                ; preds = %.thread, %146
-  %.sroa.0.1.i81 = phi ptr [ %113, %146 ], [ %88, %.thread ]
+block_join.exit93:                                ; preds = %.thread105, %146
+  %.sroa.0.1.i81 = phi ptr [ %113, %146 ], [ %88, %.thread105 ]
   %149 = load ptr, ptr %86, align 8
   %150 = tail call ptr @jv_mem_alloc(i64 noundef 160) #17
   %151 = getelementptr inbounds i8, ptr %150, i64 16
@@ -2608,9 +2616,9 @@ block_join.exit93:                                ; preds = %.thread, %146
 
 163:                                              ; preds = %gen_const_array.exit, %block_join.exit93
   %.sroa.037.0 = phi ptr [ %.sroa.0.1.i81, %block_join.exit93 ], [ %67, %gen_const_array.exit ]
-  %.pn103 = phi ptr [ %150, %block_join.exit93 ], [ %67, %gen_const_array.exit ]
+  %.pn111 = phi ptr [ %150, %block_join.exit93 ], [ %67, %gen_const_array.exit ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.037.0, 0
-  %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.pn103, 1
+  %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.pn111, 1
   ret { ptr, ptr } %.fca.1.insert
 }
 
@@ -4007,7 +4015,7 @@ define noundef i32 @block_has_main(ptr readonly %0, ptr nocapture readnone %1) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @block_is_funcdef(ptr readonly %0, ptr nocapture readnone %1) local_unnamed_addr #6 {
+define noundef i32 @block_is_funcdef(ptr readonly %0, ptr nocapture readnone %1) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %3
 
@@ -4015,11 +4023,13 @@ define i32 @block_is_funcdef(ptr readonly %0, ptr nocapture readnone %1) local_u
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 33
-  %spec.select = zext i1 %6 to i32
-  br label %7
+  br i1 %6, label %8, label %7
 
 7:                                                ; preds = %3, %2
-  %.0 = phi i32 [ 0, %2 ], [ %spec.select, %3 ]
+  br label %8
+
+8:                                                ; preds = %3, %7
+  %.0 = phi i32 [ 0, %7 ], [ 1, %3 ]
   ret i32 %.0
 }
 

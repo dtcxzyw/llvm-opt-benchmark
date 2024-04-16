@@ -4735,17 +4735,17 @@ sw.bb26:                                          ; preds = %entry
 sw.bb28:                                          ; preds = %entry
   %islittle = getelementptr inbounds i8, ptr %h, i64 8
   store i32 1, ptr %islittle, align 8
-  br label %return
+  br label %sw.epilog
 
 sw.bb29:                                          ; preds = %entry
   %islittle30 = getelementptr inbounds i8, ptr %h, i64 8
   store i32 0, ptr %islittle30, align 8
-  br label %return
+  br label %sw.epilog
 
 sw.bb31:                                          ; preds = %entry
   %islittle33 = getelementptr inbounds i8, ptr %h, i64 8
   store i32 1, ptr %islittle33, align 8
-  br label %return
+  br label %sw.epilog
 
 sw.bb34:                                          ; preds = %entry
   %48 = load ptr, ptr %fmt, align 8
@@ -4787,19 +4787,19 @@ getnumlimit.exit85:                               ; preds = %sw.bb34, %getnum.ex
   %retval.0.i82 = phi i32 [ %call4.i84, %if.then.i83 ], [ %add.i.i77, %getnum.exit.i80 ], [ 8, %sw.bb34 ]
   %maxalign36 = getelementptr inbounds i8, ptr %h, i64 12
   store i32 %retval.0.i82, ptr %maxalign36, align 4
-  br label %return
+  br label %sw.epilog
 
 sw.default:                                       ; preds = %entry
   %conv = sext i8 %1 to i32
   %60 = load ptr, ptr %h, align 8
   %call38 = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %60, ptr noundef nonnull @.str.66, i32 noundef %conv) #13
+  br label %sw.epilog
+
+sw.epilog:                                        ; preds = %entry, %sw.default, %getnumlimit.exit85, %sw.bb31, %sw.bb29, %sw.bb28
   br label %return
 
-sw.epilog:                                        ; preds = %entry
-  br label %return
-
-return:                                           ; preds = %sw.bb28, %sw.bb29, %sw.bb31, %getnumlimit.exit85, %sw.default, %entry, %getnum.exit, %if.then, %sw.epilog, %sw.bb26, %sw.bb25, %getnumlimit.exit67, %getnumlimit.exit50, %getnumlimit.exit, %sw.bb11, %sw.bb10, %sw.bb9, %sw.bb8, %sw.bb7, %sw.bb6, %sw.bb5, %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb1, %sw.bb
-  %retval.0 = phi i32 [ 9, %sw.bb26 ], [ 8, %sw.bb25 ], [ 6, %getnumlimit.exit67 ], [ 1, %getnumlimit.exit50 ], [ 0, %getnumlimit.exit ], [ 4, %sw.bb11 ], [ 3, %sw.bb10 ], [ 2, %sw.bb9 ], [ 1, %sw.bb8 ], [ 1, %sw.bb7 ], [ 0, %sw.bb6 ], [ 1, %sw.bb5 ], [ 0, %sw.bb4 ], [ 1, %sw.bb3 ], [ 0, %sw.bb2 ], [ 1, %sw.bb1 ], [ 0, %sw.bb ], [ 5, %if.then ], [ 5, %getnum.exit ], [ 7, %entry ], [ 10, %sw.default ], [ 10, %getnumlimit.exit85 ], [ 10, %sw.bb31 ], [ 10, %sw.bb29 ], [ 10, %sw.bb28 ], [ 10, %sw.epilog ]
+return:                                           ; preds = %entry, %getnum.exit, %if.then, %sw.epilog, %sw.bb26, %sw.bb25, %getnumlimit.exit67, %getnumlimit.exit50, %getnumlimit.exit, %sw.bb11, %sw.bb10, %sw.bb9, %sw.bb8, %sw.bb7, %sw.bb6, %sw.bb5, %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb1, %sw.bb
+  %retval.0 = phi i32 [ 10, %sw.epilog ], [ 9, %sw.bb26 ], [ 8, %sw.bb25 ], [ 6, %getnumlimit.exit67 ], [ 1, %getnumlimit.exit50 ], [ 0, %getnumlimit.exit ], [ 4, %sw.bb11 ], [ 3, %sw.bb10 ], [ 2, %sw.bb9 ], [ 1, %sw.bb8 ], [ 1, %sw.bb7 ], [ 0, %sw.bb6 ], [ 1, %sw.bb5 ], [ 0, %sw.bb4 ], [ 1, %sw.bb3 ], [ 0, %sw.bb2 ], [ 1, %sw.bb1 ], [ 0, %sw.bb ], [ 5, %if.then ], [ 5, %getnum.exit ], [ 7, %entry ]
   ret i32 %retval.0
 }
 

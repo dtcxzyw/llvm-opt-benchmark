@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @BN_mul(ptr noundef %r, ptr noundef readonly %a, ptr noundef readonly %b, ptr noundef %ctx) local_unnamed_addr #0 {
+define hidden noundef i32 @BN_mul(ptr noundef %r, ptr noundef readonly %a, ptr noundef readonly %b, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %top1 = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load i32, ptr %top1, align 8
@@ -154,16 +154,18 @@ if.end106:                                        ; preds = %if.end100
 end:                                              ; preds = %if.end106, %if.end97, %if.end21
   tail call void @bn_correct_top(ptr noundef nonnull %rr.0) #4
   %cmp111.not = icmp eq ptr %rr.0, %r
-  br i1 %cmp111.not, label %err, label %land.lhs.true113
+  br i1 %cmp111.not, label %if.end116, label %land.lhs.true113
 
 land.lhs.true113:                                 ; preds = %end
   %call114 = tail call ptr @BN_copy(ptr noundef %r, ptr noundef nonnull %rr.0) #4
-  %tobool.not = icmp ne ptr %call114, null
-  %spec.select = zext i1 %tobool.not to i32
+  %tobool.not = icmp eq ptr %call114, null
+  br i1 %tobool.not, label %err, label %if.end116
+
+if.end116:                                        ; preds = %land.lhs.true113, %end
   br label %err
 
-err:                                              ; preds = %land.lhs.true113, %end, %if.end100, %if.end83, %if.else76, %if.end62, %if.then56, %if.then33, %if.then17, %if.then7
-  %ret.0 = phi i32 [ 0, %if.then7 ], [ 0, %if.then17 ], [ 0, %if.then33 ], [ 0, %if.then56 ], [ 0, %if.end62 ], [ 0, %if.else76 ], [ 0, %if.end83 ], [ 0, %if.end100 ], [ 1, %end ], [ %spec.select, %land.lhs.true113 ]
+err:                                              ; preds = %land.lhs.true113, %if.end100, %if.end83, %if.else76, %if.end62, %if.then56, %if.then33, %if.then17, %if.then7, %if.end116
+  %ret.0 = phi i32 [ 0, %if.then7 ], [ 0, %if.then17 ], [ 1, %if.end116 ], [ 0, %land.lhs.true113 ], [ 0, %if.then33 ], [ 0, %if.then56 ], [ 0, %if.end62 ], [ 0, %if.else76 ], [ 0, %if.end83 ], [ 0, %if.end100 ]
   tail call void @BN_CTX_end(ptr noundef %ctx) #4
   br label %return
 
@@ -768,7 +770,7 @@ return:                                           ; preds = %if.end2, %if.end12,
 declare i64 @bn_mul_words(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @BN_sqr(ptr noundef %r, ptr noundef readonly %a, ptr noundef %ctx) local_unnamed_addr #0 {
+define hidden noundef i32 @BN_sqr(ptr noundef %r, ptr noundef readonly %a, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %t = alloca [32 x i64], align 16
   %top = getelementptr inbounds i8, ptr %a, i64 8
@@ -879,20 +881,22 @@ if.end56:                                         ; preds = %if.then18, %if.end3
   %16 = load i64, ptr %arrayidx, align 8
   %cmp64 = icmp ult i64 %16, 4294967296
   %sub67 = sext i1 %cmp64 to i32
-  %spec.select49 = add nsw i32 %mul, %sub67
+  %spec.select = add nsw i32 %mul, %sub67
   %17 = getelementptr inbounds i8, ptr %cond, i64 8
-  store i32 %spec.select49, ptr %17, align 8
+  store i32 %spec.select, ptr %17, align 8
   %cmp72.not = icmp eq ptr %cond, %r
-  br i1 %cmp72.not, label %err, label %land.lhs.true
+  br i1 %cmp72.not, label %if.end77, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end56
   %call74 = call ptr @BN_copy(ptr noundef %r, ptr noundef nonnull %cond) #4
-  %tobool75.not = icmp ne ptr %call74, null
-  %spec.select = zext i1 %tobool75.not to i32
+  %tobool75.not = icmp eq ptr %call74, null
+  br i1 %tobool75.not, label %err, label %if.end77
+
+if.end77:                                         ; preds = %land.lhs.true, %if.end56
   br label %err
 
-err:                                              ; preds = %land.lhs.true, %if.end56, %if.else43, %if.then32, %if.end6, %cond.end
-  %ret.0 = phi i32 [ 0, %if.end6 ], [ 0, %if.then32 ], [ 0, %if.else43 ], [ 0, %cond.end ], [ 1, %if.end56 ], [ %spec.select, %land.lhs.true ]
+err:                                              ; preds = %land.lhs.true, %if.else43, %if.then32, %if.end6, %cond.end, %if.end77
+  %ret.0 = phi i32 [ 0, %if.end6 ], [ 1, %if.end77 ], [ 0, %land.lhs.true ], [ 0, %if.then32 ], [ 0, %if.else43 ], [ 0, %cond.end ]
   call void @BN_CTX_end(ptr noundef %ctx) #4
   br label %return
 

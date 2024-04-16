@@ -1068,14 +1068,18 @@ do.body39:                                        ; preds = %if.then30, %do.body
   %dict = getelementptr inbounds i8, ptr %self, i64 144
   %4 = load ptr, ptr %dict, align 8
   %tobool40.not = icmp eq ptr %4, null
-  br i1 %tobool40.not, label %return, label %if.then41
+  br i1 %tobool40.not, label %do.end49, label %if.then41
 
 if.then41:                                        ; preds = %do.body39
   %call44 = tail call i32 %visit(ptr noundef nonnull %4, ptr noundef %arg) #6
+  %tobool45.not = icmp eq i32 %call44, 0
+  br i1 %tobool45.not, label %do.end49, label %return
+
+do.end49:                                         ; preds = %do.body39, %if.then41
   br label %return
 
-return:                                           ; preds = %if.then41, %do.body39, %if.then30, %if.then19, %if.then8, %if.then
-  %retval.0 = phi i32 [ %call2, %if.then ], [ %call11, %if.then8 ], [ %call22, %if.then19 ], [ %call33, %if.then30 ], [ 0, %do.body39 ], [ %call44, %if.then41 ]
+return:                                           ; preds = %if.then41, %if.then30, %if.then19, %if.then8, %if.then, %do.end49
+  %retval.0 = phi i32 [ 0, %do.end49 ], [ %call2, %if.then ], [ %call11, %if.then8 ], [ %call22, %if.then19 ], [ %call33, %if.then30 ], [ %call44, %if.then41 ]
   ret i32 %retval.0
 }
 
@@ -2816,7 +2820,7 @@ _io_StringIO___getstate___impl.exit:              ; preds = %entry, %if.then8.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_io_StringIO___setstate__(ptr noundef %self, ptr noundef %state) #0 {
+define internal noundef ptr @_io_StringIO___setstate__(ptr noundef %self, ptr noundef %state) #0 {
 entry:
   %closed.i = getelementptr inbounds i8, ptr %self, i64 113
   %0 = load i8, ptr %closed.i, align 1
@@ -3026,7 +3030,7 @@ if.end46.i:                                       ; preds = %if.end43.i
   %arrayidx49.i = getelementptr i8, ptr %state, i64 48
   %25 = load ptr, ptr %arrayidx49.i, align 8
   %cmp50.not.i = icmp eq ptr %25, @_Py_NoneStruct
-  br i1 %cmp50.not.i, label %_io_StringIO___setstate___impl.exit, label %if.then51.i
+  br i1 %cmp50.not.i, label %if.end71.i, label %if.then51.i
 
 if.then51.i:                                      ; preds = %if.end46.i
   %26 = getelementptr i8, ptr %25, i64 8
@@ -3053,8 +3057,7 @@ if.end59.i:                                       ; preds = %if.then51.i
 if.then62.i:                                      ; preds = %if.end59.i
   %call64.i = tail call i32 @PyDict_Update(ptr noundef nonnull %31, ptr noundef %25) #6
   %cmp65.i = icmp slt i32 %call64.i, 0
-  %spec.select.i = select i1 %cmp65.i, ptr null, ptr @_Py_NoneStruct
-  br label %_io_StringIO___setstate___impl.exit
+  br i1 %cmp65.i, label %_io_StringIO___setstate___impl.exit, label %if.end71.i
 
 if.else.i:                                        ; preds = %if.end59.i
   %32 = load i32, ptr %25, align 8
@@ -3068,10 +3071,13 @@ if.end.i.i.i:                                     ; preds = %if.else.i
 
 _Py_NewRef.exit.i:                                ; preds = %if.end.i.i.i, %if.else.i
   store ptr %25, ptr %dict60.i, align 8
+  br label %if.end71.i
+
+if.end71.i:                                       ; preds = %_Py_NewRef.exit.i, %if.then62.i, %if.end46.i
   br label %_io_StringIO___setstate___impl.exit
 
-_io_StringIO___setstate___impl.exit:              ; preds = %if.then.i, %if.then4.i, %if.end9.i, %if.then16.i, %if.end.i75.i, %if.then1.i78.i, %Py_DECREF.exit.i, %if.then25.i, %if.then33.i, %land.lhs.true.i, %if.then45.i, %if.end46.i, %if.then55.i, %if.then62.i, %_Py_NewRef.exit.i
-  %retval.0.i = phi ptr [ null, %if.then.i ], [ null, %if.then4.i ], [ null, %if.then25.i ], [ null, %if.then45.i ], [ null, %if.then55.i ], [ null, %if.then33.i ], [ null, %if.end9.i ], [ null, %if.then16.i ], [ null, %if.then1.i78.i ], [ null, %if.end.i75.i ], [ null, %Py_DECREF.exit.i ], [ null, %land.lhs.true.i ], [ @_Py_NoneStruct, %_Py_NewRef.exit.i ], [ @_Py_NoneStruct, %if.end46.i ], [ %spec.select.i, %if.then62.i ]
+_io_StringIO___setstate___impl.exit:              ; preds = %if.then.i, %if.then4.i, %if.end9.i, %if.then16.i, %if.end.i75.i, %if.then1.i78.i, %Py_DECREF.exit.i, %if.then25.i, %if.then33.i, %land.lhs.true.i, %if.then45.i, %if.then55.i, %if.then62.i, %if.end71.i
+  %retval.0.i = phi ptr [ null, %if.then.i ], [ null, %if.then4.i ], [ null, %if.then25.i ], [ null, %if.then45.i ], [ @_Py_NoneStruct, %if.end71.i ], [ null, %if.then55.i ], [ null, %if.then33.i ], [ null, %if.end9.i ], [ null, %if.then16.i ], [ null, %if.then1.i78.i ], [ null, %if.end.i75.i ], [ null, %Py_DECREF.exit.i ], [ null, %land.lhs.true.i ], [ null, %if.then62.i ]
   ret ptr %retval.0.i
 }
 

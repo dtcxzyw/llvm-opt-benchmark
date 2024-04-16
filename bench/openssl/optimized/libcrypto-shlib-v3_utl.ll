@@ -2238,18 +2238,20 @@ if.end40.i:                                       ; preds = %if.then10.i, %if.en
 
 while.end:                                        ; preds = %if.end40.i, %if.then8
   %cmp14 = icmp eq i64 %dec, 0
-  %spec.select = select i1 %cmp14, i64 %a_len, i64 %dec
-  br label %while.end.thread
+  br i1 %cmp14, label %while.end.thread, label %8
 
 while.end.thread:                                 ; preds = %while.cond, %while.end
-  %8 = phi i64 [ %spec.select, %while.end ], [ %a_len, %while.cond ]
-  %bcmp.i = tail call i32 @bcmp(ptr %a, ptr %b, i64 %8)
+  br label %8
+
+8:                                                ; preds = %while.end, %while.end.thread
+  %9 = phi i64 [ %a_len, %while.end.thread ], [ %dec, %while.end ]
+  %bcmp.i = tail call i32 @bcmp(ptr %a, ptr %b, i64 %9)
   %tobool.not.i = icmp eq i32 %bcmp.i, 0
   %lnot.ext.i = zext i1 %tobool.not.i to i32
   br label %return
 
-return:                                           ; preds = %if.then10.i, %while.body.i, %entry, %while.end.thread
-  %retval.0 = phi i32 [ %lnot.ext.i, %while.end.thread ], [ 0, %entry ], [ 0, %while.body.i ], [ 0, %if.then10.i ]
+return:                                           ; preds = %if.then10.i, %while.body.i, %entry, %8
+  %retval.0 = phi i32 [ %lnot.ext.i, %8 ], [ 0, %entry ], [ 0, %while.body.i ], [ 0, %if.then10.i ]
   ret i32 %retval.0
 }
 

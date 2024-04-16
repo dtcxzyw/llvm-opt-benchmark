@@ -259,7 +259,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare i32 @BN_GF2m_mod_arr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_ec_GF2m_simple_group_get_curve(ptr nocapture noundef readonly %group, ptr noundef %p, ptr noundef %a, ptr noundef %b, ptr nocapture readnone %ctx) #0 {
+define noundef i32 @ossl_ec_GF2m_simple_group_get_curve(ptr nocapture noundef readonly %group, ptr noundef %p, ptr noundef %a, ptr noundef %b, ptr nocapture readnone %ctx) #0 {
 entry:
   %cmp.not = icmp eq ptr %p, null
   br i1 %cmp.not, label %if.end2, label %if.then
@@ -284,18 +284,20 @@ if.then4:                                         ; preds = %if.end2
 
 if.end10:                                         ; preds = %if.then4, %if.end2
   %cmp11.not = icmp eq ptr %b, null
-  br i1 %cmp11.not, label %return, label %if.then12
+  br i1 %cmp11.not, label %if.end18, label %if.then12
 
 if.then12:                                        ; preds = %if.end10
   %b13 = getelementptr inbounds i8, ptr %group, i64 104
   %2 = load ptr, ptr %b13, align 8
   %call14 = tail call ptr @BN_copy(ptr noundef nonnull %b, ptr noundef %2) #4
-  %tobool15.not = icmp ne ptr %call14, null
-  %spec.select = zext i1 %tobool15.not to i32
+  %tobool15.not = icmp eq ptr %call14, null
+  br i1 %tobool15.not, label %return, label %if.end18
+
+if.end18:                                         ; preds = %if.then12, %if.end10
   br label %return
 
-return:                                           ; preds = %if.then12, %if.then4, %if.end10, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.then4 ], [ 1, %if.end10 ], [ %spec.select, %if.then12 ]
+return:                                           ; preds = %if.end18, %if.then4, %if.then12, %if.then
+  %retval.0 = phi i32 [ 0, %if.then ], [ 1, %if.end18 ], [ 0, %if.then12 ], [ 0, %if.then4 ]
   ret i32 %retval.0
 }
 

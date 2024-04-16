@@ -6988,8 +6988,8 @@ _ZN7QStringD2Ev.exit:                             ; preds = %8, %_ZN17QArrayData
   %19 = getelementptr inbounds i8, ptr %0, i64 448
   %20 = load i32, ptr %19, align 8
   %21 = call i32 @wtap_dump_can_compress(i32 noundef %20)
-  %.not = icmp ne i32 %21, 0
-  br label %28
+  %.not = icmp eq i32 %21, 0
+  br i1 %.not, label %28, label %29
 
 22:                                               ; preds = %2
   %23 = landingpad { ptr, i32 }
@@ -7012,7 +7012,10 @@ _ZN7QStringD2Ev.exit8:                            ; preds = %22, %_ZN17QArrayDat
   resume { ptr, i32 } %23
 
 28:                                               ; preds = %18, %_ZN7QStringD2Ev.exit
-  %.sink = phi i1 [ false, %_ZN7QStringD2Ev.exit ], [ %.not, %18 ]
+  br label %29
+
+29:                                               ; preds = %18, %28
+  %.sink = phi i1 [ false, %28 ], [ true, %18 ]
   call void @_ZN15QAbstractButton10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(40) %7, i1 noundef zeroext %.sink)
   call void @_ZN10QBoxLayout9addWidgetEP7QWidgeti6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull align 8 dereferenceable(28) %1, ptr noundef nonnull %7, i32 noundef 0, i32 32)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
@@ -7023,15 +7026,15 @@ _ZN7QStringD2Ev.exit8:                            ; preds = %22, %_ZN17QArrayDat
   store i64 ptrtoint (ptr @_ZN17CaptureFileDialog20fixFilenameExtensionEv to i64), ptr %4, align 8, !noalias !51
   %.fca.1.gep.i = getelementptr inbounds i8, ptr %4, i64 8
   store i64 0, ptr %.fca.1.gep.i, align 8, !noalias !51
-  %29 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #19, !noalias !51
-  store i32 1, ptr %29, align 4, !noalias !51
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
-  store ptr @_ZN9QtPrivate11QSlotObjectIM17CaptureFileDialogFvvENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb, ptr %30, align 8, !noalias !51
-  %31 = getelementptr inbounds i8, ptr %29, i64 16
-  store i64 ptrtoint (ptr @_ZN17CaptureFileDialog20fixFilenameExtensionEv to i64), ptr %31, align 8, !noalias !51
-  %.repack7.i.i = getelementptr inbounds i8, ptr %29, i64 24
+  %30 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #19, !noalias !51
+  store i32 1, ptr %30, align 4, !noalias !51
+  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  store ptr @_ZN9QtPrivate11QSlotObjectIM17CaptureFileDialogFvvENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb, ptr %31, align 8, !noalias !51
+  %32 = getelementptr inbounds i8, ptr %30, i64 16
+  store i64 ptrtoint (ptr @_ZN17CaptureFileDialog20fixFilenameExtensionEv to i64), ptr %32, align 8, !noalias !51
+  %.repack7.i.i = getelementptr inbounds i8, ptr %30, i64 24
   store i64 0, ptr %.repack7.i.i, align 8, !noalias !51
-  call void @_ZN7QObject11connectImplEPKS_PPvS1_S3_PN9QtPrivate15QSlotObjectBaseEN2Qt14ConnectionTypeEPKiPK11QMetaObject(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %6, ptr noundef nonnull %7, ptr noundef nonnull %3, ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %29, i32 noundef 0, ptr noundef null, ptr noundef nonnull @_ZN9QCheckBox16staticMetaObjectE)
+  call void @_ZN7QObject11connectImplEPKS_PPvS1_S3_PN9QtPrivate15QSlotObjectBaseEN2Qt14ConnectionTypeEPKiPK11QMetaObject(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %6, ptr noundef nonnull %7, ptr noundef nonnull %3, ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %30, i32 noundef 0, ptr noundef null, ptr noundef nonnull @_ZN9QCheckBox16staticMetaObjectE)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #18

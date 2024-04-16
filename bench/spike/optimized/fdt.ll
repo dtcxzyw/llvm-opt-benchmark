@@ -354,7 +354,7 @@ define noundef i32 @fdt_check_header(ptr nocapture noundef readonly %0) local_un
   %174 = icmp ult i32 %173, %89
   %175 = icmp ugt i32 %173, %84
   %.not15.i29 = or i1 %174, %175
-  br i1 %.not15.i29, label %check_block_.exit.thread, label %176
+  br i1 %.not15.i29, label %check_block_.exit32.thread, label %176
 
 176:                                              ; preds = %155
   %177 = getelementptr inbounds i8, ptr %0, i64 33
@@ -377,16 +377,18 @@ define noundef i32 @fdt_check_header(ptr nocapture noundef readonly %0) local_un
   %194 = or disjoint i32 %190, %193
   %195 = add i32 %194, %173
   %196 = icmp ult i32 %195, %173
-  br i1 %196, label %check_block_.exit.thread, label %check_block_.exit32
+  br i1 %196, label %check_block_.exit32.thread, label %check_block_.exit32
 
 check_block_.exit32:                              ; preds = %176
   %.not46 = icmp ugt i32 %195, %84
   %cond.fr = freeze i1 %.not46
-  %spec.select = select i1 %cond.fr, i32 -8, i32 0
+  br i1 %cond.fr, label %check_block_.exit32.thread, label %check_block_.exit.thread
+
+check_block_.exit32.thread:                       ; preds = %176, %155, %check_block_.exit32
   br label %check_block_.exit.thread
 
-check_block_.exit.thread:                         ; preds = %19, %check_block_.exit32, %176, %155, %134, %133, %132, %88, %66, %45, %1
-  %.0 = phi i32 [ -9, %1 ], [ -10, %45 ], [ -8, %66 ], [ -8, %88 ], [ -8, %132 ], [ -8, %133 ], [ -8, %134 ], [ -8, %155 ], [ -8, %176 ], [ %spec.select, %check_block_.exit32 ], [ -10, %19 ]
+check_block_.exit.thread:                         ; preds = %19, %134, %133, %check_block_.exit32.thread, %check_block_.exit32, %132, %88, %66, %45, %1
+  %.0 = phi i32 [ -9, %1 ], [ -10, %45 ], [ -8, %66 ], [ -8, %88 ], [ -8, %132 ], [ -8, %check_block_.exit32.thread ], [ 0, %check_block_.exit32 ], [ -8, %133 ], [ -8, %134 ], [ -10, %19 ]
   ret i32 %.0
 }
 

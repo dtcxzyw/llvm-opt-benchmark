@@ -8927,7 +8927,7 @@ free_address.exit7:                               ; preds = %free_address.exit, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @addresses_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #5 {
+define internal fastcc noundef i32 @addresses_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #5 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
   %5 = icmp eq i32 %3, %4
@@ -8943,7 +8943,7 @@ define internal fastcc i32 @addresses_equal(ptr nocapture noundef readonly %0, p
 
 12:                                               ; preds = %6
   %13 = icmp eq i32 %8, 0
-  br i1 %13, label %21, label %14
+  br i1 %13, label %22, label %14
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds i8, ptr %0, i64 8
@@ -8953,11 +8953,13 @@ define internal fastcc i32 @addresses_equal(ptr nocapture noundef readonly %0, p
   %19 = sext i32 %8 to i64
   %bcmp = tail call i32 @bcmp(ptr %16, ptr %18, i64 %19)
   %20 = icmp eq i32 %bcmp, 0
-  %spec.select = zext i1 %20 to i32
-  br label %21
+  br i1 %20, label %22, label %21
 
-21:                                               ; preds = %14, %2, %6, %12
-  %.0 = phi i32 [ 1, %12 ], [ 0, %6 ], [ 0, %2 ], [ %spec.select, %14 ]
+21:                                               ; preds = %14, %6, %2
+  br label %22
+
+22:                                               ; preds = %12, %14, %21
+  %.0 = phi i32 [ 0, %21 ], [ 1, %14 ], [ 1, %12 ]
   ret i32 %.0
 }
 

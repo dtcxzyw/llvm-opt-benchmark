@@ -1285,20 +1285,24 @@ Sfm_ObjIsNode.exit59.thread._crit_edge:           ; preds = %Sfm_ObjIsNode.exit5
   %66 = getelementptr inbounds i8, ptr %65, i64 96
   %67 = load i32, ptr %66, align 4
   %.not46 = icmp eq i32 %67, 0
-  br i1 %.not46, label %.loopexit, label %68
+  br i1 %.not46, label %73, label %68
 
 68:                                               ; preds = %.critedge2
   %69 = getelementptr %struct.Vec_Int_t_, ptr %.val, i64 %13, i32 1
   %.val1.i61 = load i32, ptr %69, align 4
   %70 = icmp slt i32 %.val1.i61, 7
-  br i1 %70, label %71, label %.loopexit
+  br i1 %70, label %71, label %73
 
 71:                                               ; preds = %68
   %72 = tail call i32 @Sfm_NodeResubOne(ptr noundef nonnull %0, i32 noundef %1), !range !9
+  %.not47 = icmp eq i32 %72, 0
+  br i1 %.not47, label %73, label %.loopexit
+
+73:                                               ; preds = %71, %68, %.critedge2
   br label %.loopexit
 
-.loopexit:                                        ; preds = %32, %Sfm_ObjIsNode.exit59.thread, %71, %.critedge2, %68, %10, %2
-  %.041 = phi i32 [ 0, %2 ], [ 0, %10 ], [ 0, %68 ], [ 0, %.critedge2 ], [ %72, %71 ], [ 1, %Sfm_ObjIsNode.exit59.thread ], [ 1, %32 ]
+.loopexit:                                        ; preds = %32, %Sfm_ObjIsNode.exit59.thread, %71, %10, %2, %73
+  %.041 = phi i32 [ 0, %73 ], [ 0, %2 ], [ 0, %10 ], [ 1, %71 ], [ 1, %Sfm_ObjIsNode.exit59.thread ], [ 1, %32 ]
   ret i32 %.041
 }
 

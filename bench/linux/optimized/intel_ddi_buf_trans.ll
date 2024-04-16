@@ -454,15 +454,16 @@ define internal noundef nonnull ptr @dg2_get_snps_buf_trans(ptr nocapture readno
 
 8:                                                ; preds = %3
   %9 = tail call zeroext i1 @intel_dp_is_uhbr(ptr noundef %1) #5
-  %spec.select = select i1 %9, i32 16, i32 10
-  %spec.select1 = select i1 %9, ptr @dg2_snps_trans_uhbr, ptr @dg2_snps_trans
-  br label %10
+  br i1 %9, label %11, label %10
 
 10:                                               ; preds = %8, %3
-  %11 = phi i32 [ 10, %3 ], [ %spec.select, %8 ]
-  %12 = phi ptr [ @dg2_snps_trans, %3 ], [ %spec.select1, %8 ]
-  store i32 %11, ptr %2, align 4
-  ret ptr %12
+  br label %11
+
+11:                                               ; preds = %10, %8
+  %12 = phi i32 [ 10, %10 ], [ 16, %8 ]
+  %13 = phi ptr [ @dg2_snps_trans, %10 ], [ @dg2_snps_trans_uhbr, %8 ]
+  store i32 %12, ptr %2, align 4
+  ret ptr %13
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -1246,7 +1247,7 @@ define internal noundef nonnull ptr @bxt_get_buf_trans(ptr nocapture noundef rea
   %6 = zext i32 %5 to i64
   %7 = and i64 %6, 64
   %8 = icmp eq i64 %7, 0
-  br i1 %8, label %9, label %26
+  br i1 %8, label %9, label %27
 
 9:                                                ; preds = %3
   %10 = and i64 %6, 256
@@ -1279,13 +1280,15 @@ define internal noundef nonnull ptr @bxt_get_buf_trans(ptr nocapture noundef rea
   %23 = getelementptr inbounds i8, ptr %22, i64 2199
   %24 = load i8, ptr %23, align 1, !range !10, !noundef !11
   %25 = icmp eq i8 %24, 0
-  %spec.select = select i1 %25, ptr @bxt_trans_dp, ptr @bxt_trans_edp
-  br label %26
+  br i1 %25, label %26, label %27
 
-26:                                               ; preds = %19, %9, %3
-  %27 = phi ptr [ @bxt_trans_hdmi, %3 ], [ @bxt_trans_dp, %9 ], [ %spec.select, %19 ]
+26:                                               ; preds = %19, %9
+  br label %27
+
+27:                                               ; preds = %26, %19, %3
+  %28 = phi ptr [ @bxt_trans_dp, %26 ], [ @bxt_trans_hdmi, %3 ], [ @bxt_trans_edp, %19 ]
   store i32 10, ptr %2, align 4
-  ret ptr %27
+  ret ptr %28
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
@@ -1643,12 +1646,12 @@ define internal noundef nonnull ptr @bdw_get_buf_trans(ptr nocapture noundef rea
   %6 = zext i32 %5 to i64
   %7 = and i64 %6, 2
   %8 = icmp eq i64 %7, 0
-  br i1 %8, label %9, label %29
+  br i1 %8, label %9, label %30
 
 9:                                                ; preds = %3
   %10 = and i64 %6, 64
   %11 = icmp eq i64 %10, 0
-  br i1 %11, label %12, label %29
+  br i1 %11, label %12, label %30
 
 12:                                               ; preds = %9
   %13 = and i64 %6, 256
@@ -1681,14 +1684,16 @@ define internal noundef nonnull ptr @bdw_get_buf_trans(ptr nocapture noundef rea
   %26 = getelementptr inbounds i8, ptr %25, i64 2199
   %27 = load i8, ptr %26, align 1, !range !10, !noundef !11
   %28 = icmp eq i8 %27, 0
-  %spec.select = select i1 %28, ptr @bdw_trans_dp, ptr @bdw_trans_edp
-  br label %29
+  br i1 %28, label %29, label %30
 
-29:                                               ; preds = %22, %12, %9, %3
-  %30 = phi i32 [ 9, %3 ], [ 10, %9 ], [ 9, %12 ], [ 9, %22 ]
-  %31 = phi ptr [ @bdw_trans_fdi, %3 ], [ @bdw_trans_hdmi, %9 ], [ @bdw_trans_dp, %12 ], [ %spec.select, %22 ]
-  store i32 %30, ptr %2, align 4
-  ret ptr %31
+29:                                               ; preds = %22, %12
+  br label %30
+
+30:                                               ; preds = %29, %22, %9, %3
+  %31 = phi i32 [ 9, %29 ], [ 9, %3 ], [ 10, %9 ], [ 9, %22 ]
+  %32 = phi ptr [ @bdw_trans_dp, %29 ], [ @bdw_trans_fdi, %3 ], [ @bdw_trans_hdmi, %9 ], [ @bdw_trans_edp, %22 ]
+  store i32 %31, ptr %2, align 4
+  ret ptr %32
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)

@@ -915,16 +915,18 @@ entry:
 define hidden void @BN_set_negative(ptr noundef %bn, i32 noundef %sign) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq i32 %sign, 0
-  br i1 %tobool.not, label %if.end, label %land.lhs.true
+  br i1 %tobool.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
   %call = tail call i32 @BN_is_zero(ptr noundef %bn) #14
   %tobool1.not = icmp eq i32 %call, 0
-  %spec.select = zext i1 %tobool1.not to i32
+  br i1 %tobool1.not, label %if.end, label %if.else
+
+if.else:                                          ; preds = %land.lhs.true, %entry
   br label %if.end
 
-if.end:                                           ; preds = %land.lhs.true, %entry
-  %.sink = phi i32 [ 0, %entry ], [ %spec.select, %land.lhs.true ]
+if.end:                                           ; preds = %land.lhs.true, %if.else
+  %.sink = phi i32 [ 0, %if.else ], [ 1, %land.lhs.true ]
   %neg2 = getelementptr inbounds i8, ptr %bn, i64 16
   store i32 %.sink, ptr %neg2, align 8
   ret void

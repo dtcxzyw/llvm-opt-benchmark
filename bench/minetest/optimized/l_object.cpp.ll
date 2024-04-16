@@ -882,7 +882,7 @@ define dso_local noundef ptr @_ZN9ObjectRef9getobjectEPS_(ptr nocapture noundef 
 entry:
   %0 = load ptr, ptr %ref, align 8, !tbaa !15
   %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %cleanup, label %land.lhs.true
+  br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
   %m_pending_removal.i = getelementptr inbounds i8, ptr %0, i64 105
@@ -892,11 +892,13 @@ land.lhs.true:                                    ; preds = %entry
   %2 = load i8, ptr %m_pending_deactivation.i, align 8, !range !35
   %tobool2.i = icmp ne i8 %2, 0
   %3 = select i1 %tobool.not.i, i1 true, i1 %tobool2.i
-  %spec.select = select i1 %3, ptr null, ptr %0
+  br i1 %3, label %cleanup, label %if.end
+
+if.end:                                           ; preds = %land.lhs.true, %entry
   br label %cleanup
 
-cleanup:                                          ; preds = %land.lhs.true, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ %spec.select, %land.lhs.true ]
+cleanup:                                          ; preds = %if.end, %land.lhs.true
+  %retval.0 = phi ptr [ %0, %if.end ], [ null, %land.lhs.true ]
   ret ptr %retval.0
 }
 
@@ -1304,7 +1306,7 @@ entry:
   %1 = load ptr, ptr %call.i51, align 8, !tbaa !80
   %2 = load ptr, ptr %0, align 8, !tbaa !15
   %tobool.not.i = icmp eq ptr %2, null
-  br i1 %tobool.not.i, label %_ZN9ObjectRef9getobjectEPS_.exit, label %land.lhs.true.i
+  br i1 %tobool.not.i, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
   %m_pending_removal.i.i = getelementptr inbounds i8, ptr %2, i64 105
@@ -1314,11 +1316,13 @@ land.lhs.true.i:                                  ; preds = %entry
   %4 = load i8, ptr %m_pending_deactivation.i.i, align 8, !range !35
   %tobool2.i.i = icmp ne i8 %4, 0
   %5 = select i1 %tobool.not.i.i, i1 true, i1 %tobool2.i.i
-  %spec.select = select i1 %5, ptr null, ptr %2
+  br i1 %5, label %_ZN9ObjectRef9getobjectEPS_.exit, label %if.end.i
+
+if.end.i:                                         ; preds = %land.lhs.true.i, %entry
   br label %_ZN9ObjectRef9getobjectEPS_.exit
 
-_ZN9ObjectRef9getobjectEPS_.exit:                 ; preds = %land.lhs.true.i, %entry
-  %retval.0.i = phi ptr [ null, %entry ], [ %spec.select, %land.lhs.true.i ]
+_ZN9ObjectRef9getobjectEPS_.exit:                 ; preds = %if.end.i, %land.lhs.true.i
+  %retval.0.i = phi ptr [ %2, %if.end.i ], [ null, %land.lhs.true.i ]
   %6 = load ptr, ptr %1, align 8, !tbaa !15
   %tobool.not.i52 = icmp eq ptr %6, null
   br i1 %tobool.not.i52, label %cleanup, label %land.lhs.true.i53
@@ -1557,7 +1561,7 @@ entry:
   %1 = load ptr, ptr %call.i11, align 8, !tbaa !80
   %2 = load ptr, ptr %0, align 8, !tbaa !15
   %tobool.not.i = icmp eq ptr %2, null
-  br i1 %tobool.not.i, label %_ZN9ObjectRef9getobjectEPS_.exit, label %land.lhs.true.i
+  br i1 %tobool.not.i, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
   %m_pending_removal.i.i = getelementptr inbounds i8, ptr %2, i64 105
@@ -1567,11 +1571,13 @@ land.lhs.true.i:                                  ; preds = %entry
   %4 = load i8, ptr %m_pending_deactivation.i.i, align 8, !range !35
   %tobool2.i.i = icmp ne i8 %4, 0
   %5 = select i1 %tobool.not.i.i, i1 true, i1 %tobool2.i.i
-  %spec.select = select i1 %5, ptr null, ptr %2
+  br i1 %5, label %_ZN9ObjectRef9getobjectEPS_.exit, label %if.end.i
+
+if.end.i:                                         ; preds = %land.lhs.true.i, %entry
   br label %_ZN9ObjectRef9getobjectEPS_.exit
 
-_ZN9ObjectRef9getobjectEPS_.exit:                 ; preds = %land.lhs.true.i, %entry
-  %retval.0.i = phi ptr [ null, %entry ], [ %spec.select, %land.lhs.true.i ]
+_ZN9ObjectRef9getobjectEPS_.exit:                 ; preds = %if.end.i, %land.lhs.true.i
+  %retval.0.i = phi ptr [ %2, %if.end.i ], [ null, %land.lhs.true.i ]
   %6 = load ptr, ptr %1, align 8, !tbaa !15
   %tobool.not.i12 = icmp eq ptr %6, null
   br i1 %tobool.not.i12, label %cleanup, label %land.lhs.true.i13
@@ -5152,7 +5158,7 @@ if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %call.i122, align 8, !tbaa !80
   %2 = load ptr, ptr %0, align 8, !tbaa !15
   %tobool.not.i = icmp eq ptr %2, null
-  br i1 %tobool.not.i, label %_ZN9ObjectRef9getobjectEPS_.exit, label %land.lhs.true.i
+  br i1 %tobool.not.i, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end
   %m_pending_removal.i.i = getelementptr inbounds i8, ptr %2, i64 105
@@ -5162,11 +5168,13 @@ land.lhs.true.i:                                  ; preds = %if.end
   %4 = load i8, ptr %m_pending_deactivation.i.i, align 8, !range !35
   %tobool2.i.i = icmp ne i8 %4, 0
   %5 = select i1 %tobool.not.i.i, i1 true, i1 %tobool2.i.i
-  %spec.select = select i1 %5, ptr null, ptr %2
+  br i1 %5, label %_ZN9ObjectRef9getobjectEPS_.exit, label %if.end.i
+
+if.end.i:                                         ; preds = %land.lhs.true.i, %if.end
   br label %_ZN9ObjectRef9getobjectEPS_.exit
 
-_ZN9ObjectRef9getobjectEPS_.exit:                 ; preds = %land.lhs.true.i, %if.end
-  %retval.0.i = phi ptr [ null, %if.end ], [ %spec.select, %land.lhs.true.i ]
+_ZN9ObjectRef9getobjectEPS_.exit:                 ; preds = %if.end.i, %land.lhs.true.i
+  %retval.0.i = phi ptr [ %2, %if.end.i ], [ null, %land.lhs.true.i ]
   %6 = load ptr, ptr %1, align 8, !tbaa !15
   %tobool.not.i123 = icmp eq ptr %6, null
   br i1 %tobool.not.i123, label %cleanup98, label %land.lhs.true.i124

@@ -451,10 +451,10 @@ JsonbIteratorInit.exit:                           ; preds = %106, %116
   %137 = getelementptr inbounds i8, ptr %5, i64 24
   br label %138
 
-138:                                              ; preds = %.lr.ph71, %146
-  %139 = phi i32 [ %136, %.lr.ph71 ], [ %149, %146 ]
+138:                                              ; preds = %.lr.ph71, %147
+  %139 = phi i32 [ %136, %.lr.ph71 ], [ %150, %147 ]
   %140 = icmp ult i32 %139, 4
-  br i1 %140, label %146, label %141
+  br i1 %140, label %147, label %141
 
 141:                                              ; preds = %138
   %142 = icmp eq i32 %139, 4
@@ -463,18 +463,20 @@ JsonbIteratorInit.exit:                           ; preds = %106, %116
 143:                                              ; preds = %141
   %144 = load i8, ptr %137, align 8
   %145 = trunc i8 %144 to i1
-  %spec.select = select i1 %145, ptr %5, ptr null
-  br label %146
+  br i1 %145, label %147, label %146
 
-146:                                              ; preds = %143, %141, %138
-  %147 = phi ptr [ %5, %138 ], [ null, %141 ], [ %spec.select, %143 ]
-  %148 = call fastcc ptr @pushJsonbValueScalar(ptr noundef %0, i32 noundef %139, ptr noundef %147)
-  %149 = call i32 @JsonbIteratorNext(ptr noundef nonnull %4, ptr noundef nonnull %5, i1 noundef zeroext false), !range !8
-  %.not58 = icmp eq i32 %149, 0
+146:                                              ; preds = %143, %141
+  br label %147
+
+147:                                              ; preds = %138, %143, %146
+  %148 = phi ptr [ null, %146 ], [ %5, %143 ], [ %5, %138 ]
+  %149 = call fastcc ptr @pushJsonbValueScalar(ptr noundef %0, i32 noundef %139, ptr noundef %148)
+  %150 = call i32 @JsonbIteratorNext(ptr noundef nonnull %4, ptr noundef nonnull %5, i1 noundef zeroext false), !range !8
+  %.not58 = icmp eq i32 %150, 0
   br i1 %.not58, label %pushJsonbValueScalar.exit, label %138, !llvm.loop !9
 
-pushJsonbValueScalar.exit:                        ; preds = %146, %135, %77, %76, %._crit_edge, %130, %92, %._crit_edge68
-  %.051 = phi ptr [ %40, %._crit_edge68 ], [ %93, %92 ], [ %133, %130 ], [ %71, %._crit_edge ], [ %71, %76 ], [ %71, %77 ], [ null, %135 ], [ %148, %146 ]
+pushJsonbValueScalar.exit:                        ; preds = %147, %135, %77, %76, %._crit_edge, %130, %92, %._crit_edge68
+  %.051 = phi ptr [ %40, %._crit_edge68 ], [ %93, %92 ], [ %133, %130 ], [ %71, %._crit_edge ], [ %71, %76 ], [ %71, %77 ], [ null, %135 ], [ %149, %147 ]
   ret ptr %.051
 }
 

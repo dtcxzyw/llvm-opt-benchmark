@@ -453,7 +453,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rsa_get_ctx_params(ptr noundef readonly %vprsactx, ptr noundef %params) #0 {
+define internal noundef i32 @rsa_get_ctx_params(ptr noundef readonly %vprsactx, ptr noundef %params) #0 {
 entry:
   %cmp = icmp eq ptr %vprsactx, null
   br i1 %cmp, label %return, label %if.end
@@ -604,18 +604,20 @@ land.lhs.true72:                                  ; preds = %if.end69
 if.end76:                                         ; preds = %land.lhs.true72, %if.end69
   %call77 = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str.9) #6
   %cmp78.not = icmp eq ptr %call77, null
-  br i1 %cmp78.not, label %return, label %land.lhs.true79
+  br i1 %cmp78.not, label %if.end83, label %land.lhs.true79
 
 land.lhs.true79:                                  ; preds = %if.end76
   %implicit_rejection = getelementptr inbounds i8, ptr %vprsactx, i64 64
   %12 = load i32, ptr %implicit_rejection, align 8
   %call80 = tail call i32 @OSSL_PARAM_set_uint(ptr noundef nonnull %call77, i32 noundef %12) #6
-  %tobool81.not = icmp ne i32 %call80, 0
-  %spec.select = zext i1 %tobool81.not to i32
+  %tobool81.not = icmp eq i32 %call80, 0
+  br i1 %tobool81.not, label %return, label %if.end83
+
+if.end83:                                         ; preds = %land.lhs.true79, %if.end76
   br label %return
 
-return:                                           ; preds = %land.lhs.true79, %if.end76, %land.lhs.true72, %land.lhs.true65, %land.lhs.true58, %cond.end49, %cond.end, %if.then2, %if.then18, %sw.bb, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 0, %sw.bb ], [ 0, %if.then18 ], [ 0, %if.then2 ], [ 0, %cond.end ], [ 0, %cond.end49 ], [ 0, %land.lhs.true58 ], [ 0, %land.lhs.true65 ], [ 0, %land.lhs.true72 ], [ 1, %if.end76 ], [ %spec.select, %land.lhs.true79 ]
+return:                                           ; preds = %land.lhs.true79, %land.lhs.true72, %land.lhs.true65, %land.lhs.true58, %cond.end49, %cond.end, %if.then2, %if.then18, %sw.bb, %entry, %if.end83
+  %retval.0 = phi i32 [ 1, %if.end83 ], [ 0, %entry ], [ 0, %sw.bb ], [ 0, %if.then18 ], [ 0, %if.then2 ], [ 0, %cond.end ], [ 0, %cond.end49 ], [ 0, %land.lhs.true58 ], [ 0, %land.lhs.true65 ], [ 0, %land.lhs.true72 ], [ 0, %land.lhs.true79 ]
   ret i32 %retval.0
 }
 

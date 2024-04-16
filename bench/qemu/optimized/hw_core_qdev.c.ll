@@ -705,14 +705,18 @@ for.body:                                         ; preds = %if.end3, %for.cond
 
 for.end:                                          ; preds = %for.cond, %if.end3
   %tobool8.not = icmp eq ptr %post_devfn, null
-  br i1 %tobool8.not, label %return, label %if.then9
+  br i1 %tobool8.not, label %if.end14, label %if.then9
 
 if.then9:                                         ; preds = %for.end
   %call10 = tail call i32 %post_devfn(ptr noundef %dev, ptr noundef %opaque) #13
+  %tobool11.not = icmp eq i32 %call10, 0
+  br i1 %tobool11.not, label %if.end14, label %return
+
+if.end14:                                         ; preds = %if.then9, %for.end
   br label %return
 
-return:                                           ; preds = %for.body, %if.then9, %for.end, %if.then
-  %retval.0 = phi i32 [ %call, %if.then ], [ 0, %for.end ], [ %call10, %if.then9 ], [ %call5, %for.body ]
+return:                                           ; preds = %for.body, %if.then9, %if.then, %if.end14
+  %retval.0 = phi i32 [ 0, %if.end14 ], [ %call, %if.then ], [ %call10, %if.then9 ], [ %call5, %for.body ]
   ret i32 %retval.0
 }
 

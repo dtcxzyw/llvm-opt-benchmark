@@ -4975,15 +4975,18 @@ call2.i10.i.noexc298:                             ; preds = %if.end45
 
 if.end.i.i303:                                    ; preds = %call2.i10.i.noexc298
   %cmp827.i.i304 = icmp eq i64 %11, 0
-  br i1 %cmp827.i.i304, label %invoke.cont53, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i305
+  br i1 %cmp827.i.i304, label %if.then.i.i.i.i309, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i305
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i305: ; preds = %if.end.i.i303
   %bcmp.i.i306 = call i32 @bcmp(ptr %12, ptr %10, i64 %11)
   %cmp.i.i.i.i307 = icmp eq i32 %bcmp.i.i306, 0
+  br i1 %cmp.i.i.i.i307, label %if.then.i.i.i.i309, label %invoke.cont53
+
+if.then.i.i.i.i309:                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i305, %if.end.i.i303
   br label %invoke.cont53
 
-invoke.cont53:                                    ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i305, %if.end.i.i303, %call2.i10.i.noexc298
-  %retval.1.i.i308 = phi i1 [ false, %call2.i10.i.noexc298 ], [ true, %if.end.i.i303 ], [ %cmp.i.i.i.i307, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i305 ]
+invoke.cont53:                                    ; preds = %if.then.i.i.i.i309, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i305, %call2.i10.i.noexc298
+  %retval.1.i.i308 = phi i1 [ false, %call2.i10.i.noexc298 ], [ true, %if.then.i.i.i.i309 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i305 ]
   %cmp.i.i.i310 = icmp eq ptr %12, %7
   br i1 %cmp.i.i.i310, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i312, label %if.then.i.i311
 
@@ -5557,15 +5560,18 @@ invoke.cont111:                                   ; preds = %invoke.cont107
 
 land.rhs.i.i.i326:                                ; preds = %invoke.cont111
   %cmp.i9.i.i.i.i327 = icmp eq i64 %21, 0
-  br i1 %cmp.i9.i.i.i.i327, label %_Z9str_equalIwJEEDaRKNSt7__cxx1112basic_stringIT_St11char_traitsIS2_ESaIS2_EEES8_DpOT0_.exit, label %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i328
+  br i1 %cmp.i9.i.i.i.i327, label %if.then.i.i.i.i331, label %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i328
 
 _ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i328: ; preds = %land.rhs.i.i.i326
   %call.i.i.i.i.i329 = call i32 @wmemcmp(ptr noundef %20, ptr noundef %22, i64 noundef %21) #31
   %cmp.i.i.i.i330 = icmp eq i32 %call.i.i.i.i.i329, 0
+  br i1 %cmp.i.i.i.i330, label %if.then.i.i.i.i331, label %_Z9str_equalIwJEEDaRKNSt7__cxx1112basic_stringIT_St11char_traitsIS2_ESaIS2_EEES8_DpOT0_.exit
+
+if.then.i.i.i.i331:                               ; preds = %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i328, %land.rhs.i.i.i326
   br label %_Z9str_equalIwJEEDaRKNSt7__cxx1112basic_stringIT_St11char_traitsIS2_ESaIS2_EEES8_DpOT0_.exit
 
-_Z9str_equalIwJEEDaRKNSt7__cxx1112basic_stringIT_St11char_traitsIS2_ESaIS2_EEES8_DpOT0_.exit: ; preds = %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i328, %land.rhs.i.i.i326, %invoke.cont111
-  %retval.1.i.i325 = phi i1 [ false, %invoke.cont111 ], [ true, %land.rhs.i.i.i326 ], [ %cmp.i.i.i.i330, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i328 ]
+_Z9str_equalIwJEEDaRKNSt7__cxx1112basic_stringIT_St11char_traitsIS2_ESaIS2_EEES8_DpOT0_.exit: ; preds = %if.then.i.i.i.i331, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i328, %invoke.cont111
+  %retval.1.i.i325 = phi i1 [ false, %invoke.cont111 ], [ true, %if.then.i.i.i.i331 ], [ false, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i328 ]
   %24 = getelementptr inbounds i8, ptr %ref.tmp108, i64 16
   %cmp.i.i.i332 = icmp eq ptr %22, %24
   br i1 %cmp.i.i.i332, label %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i334, label %if.then.i.i333

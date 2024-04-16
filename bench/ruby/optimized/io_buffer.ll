@@ -1142,67 +1142,78 @@ define internal fastcc noundef i64 @io_buffer_hexdump(i64 noundef returned %0, i
 .lr.ph46:                                         ; preds = %6
   %11 = icmp eq i32 %5, 0
   %.not = icmp eq i64 %1, 0
-  %spec.select51 = select i1 %11, ptr @.str.120, ptr @.str.119
-  br i1 %.not, label %.critedge, label %.lr.ph46.split.us
+  br i1 %.not, label %.lr.ph46.split, label %.lr.ph46.split.us.preheader
 
-.lr.ph46.split.us:                                ; preds = %.lr.ph46, %._crit_edge.us
-  %.044.us = phi i64 [ %36, %._crit_edge.us ], [ %4, %.lr.ph46 ]
-  %.03643.us = phi ptr [ @.str.120, %._crit_edge.us ], [ %spec.select51, %.lr.ph46 ]
+.lr.ph46.split.us.preheader:                      ; preds = %.lr.ph46
+  %12 = select i1 %11, ptr @.str.120, ptr @.str.119
+  br label %.lr.ph46.split.us
+
+.lr.ph46.split.us:                                ; preds = %.lr.ph46.split.us.preheader, %._crit_edge.us
+  %.044.us = phi i64 [ %38, %._crit_edge.us ], [ %4, %.lr.ph46.split.us.preheader ]
+  %.03643.us = phi ptr [ @.str.120, %._crit_edge.us ], [ %12, %.lr.ph46.split.us.preheader ]
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %8, i8 0, i64 %1, i1 false)
-  %12 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull %.03643.us, i64 noundef %.044.us) #20
-  br label %13
+  %13 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull %.03643.us, i64 noundef %.044.us) #20
+  br label %14
 
-13:                                               ; preds = %.lr.ph46.split.us, %33
-  %.03541.us = phi i64 [ 0, %.lr.ph46.split.us ], [ %34, %33 ]
-  %14 = add i64 %.03541.us, %.044.us
-  %15 = icmp ult i64 %14, %3
-  br i1 %15, label %18, label %16
+14:                                               ; preds = %.lr.ph46.split.us, %35
+  %.03541.us = phi i64 [ 0, %.lr.ph46.split.us ], [ %36, %35 ]
+  %15 = add i64 %.03541.us, %.044.us
+  %16 = icmp ult i64 %15, %3
+  br i1 %16, label %19, label %17
 
-16:                                               ; preds = %13
-  %17 = call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.122, i64 noundef 3) #20
-  br label %33
+17:                                               ; preds = %14
+  %18 = call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.122, i64 noundef 3) #20
+  br label %35
 
-18:                                               ; preds = %13
-  %19 = getelementptr i8, ptr %2, i64 %14
-  %20 = load i8, ptr %19, align 1
-  %21 = zext i8 %20 to i32
-  %22 = icmp ult i8 %20, 127
-  br i1 %22, label %23, label %30
+19:                                               ; preds = %14
+  %20 = getelementptr i8, ptr %2, i64 %15
+  %21 = load i8, ptr %20, align 1
+  %22 = zext i8 %21 to i32
+  %23 = icmp ult i8 %21, 127
+  br i1 %23, label %24, label %31
 
-23:                                               ; preds = %18
-  %24 = tail call ptr @__ctype_b_loc() #24
-  %25 = load ptr, ptr %24, align 8
-  %26 = zext nneg i8 %20 to i64
-  %27 = getelementptr i16, ptr %25, i64 %26
-  %28 = load i16, ptr %27, align 2
-  %29 = and i16 %28, 16384
-  %.not.us = icmp eq i16 %29, 0
-  %spec.select = select i1 %.not.us, i8 46, i8 %20
-  br label %30
+24:                                               ; preds = %19
+  %25 = tail call ptr @__ctype_b_loc() #24
+  %26 = load ptr, ptr %25, align 8
+  %27 = zext nneg i8 %21 to i64
+  %28 = getelementptr i16, ptr %26, i64 %27
+  %29 = load i16, ptr %28, align 2
+  %30 = and i16 %29, 16384
+  %.not.us = icmp eq i16 %30, 0
+  br i1 %.not.us, label %31, label %32
 
-30:                                               ; preds = %23, %18
-  %.sink = phi i8 [ 46, %18 ], [ %spec.select, %23 ]
-  %31 = getelementptr i8, ptr %8, i64 %.03541.us
-  store i8 %.sink, ptr %31, align 1
-  %32 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.121, i32 noundef %21) #20
-  br label %33
+31:                                               ; preds = %24, %19
+  br label %32
 
-33:                                               ; preds = %30, %16
-  %34 = add nuw i64 %.03541.us, 1
-  %exitcond.not = icmp eq i64 %34, %1
-  br i1 %exitcond.not, label %._crit_edge.us, label %13, !llvm.loop !11
+32:                                               ; preds = %24, %31
+  %.sink = phi i8 [ 46, %31 ], [ %21, %24 ]
+  %33 = getelementptr i8, ptr %8, i64 %.03541.us
+  store i8 %.sink, ptr %33, align 1
+  %34 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.121, i32 noundef %22) #20
+  br label %35
 
-._crit_edge.us:                                   ; preds = %33
-  %35 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.123, ptr noundef nonnull %8) #20
-  %36 = add i64 %.044.us, %1
-  %37 = icmp ult i64 %36, %3
-  br i1 %37, label %.lr.ph46.split.us, label %._crit_edge47, !llvm.loop !13
+35:                                               ; preds = %32, %17
+  %36 = add nuw i64 %.03541.us, 1
+  %exitcond.not = icmp eq i64 %36, %1
+  br i1 %exitcond.not, label %._crit_edge.us, label %14, !llvm.loop !11
 
-.critedge:                                        ; preds = %.lr.ph46, %.critedge
-  %.str.120.sink50 = phi ptr [ @.str.120, %.critedge ], [ %spec.select51, %.lr.ph46 ]
-  %38 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull %.str.120.sink50, i64 noundef %4) #20
-  %39 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.123, ptr noundef nonnull %8) #20
+._crit_edge.us:                                   ; preds = %35
+  %37 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.123, ptr noundef nonnull %8) #20
+  %38 = add i64 %.044.us, %1
+  %39 = icmp ult i64 %38, %3
+  br i1 %39, label %.lr.ph46.split.us, label %._crit_edge47, !llvm.loop !13
+
+.lr.ph46.split:                                   ; preds = %.lr.ph46
+  br i1 %11, label %40, label %.critedge
+
+40:                                               ; preds = %.critedge, %.lr.ph46.split
   br label %.critedge
+
+.critedge:                                        ; preds = %.lr.ph46.split, %40
+  %.str.120.sink50 = phi ptr [ @.str.120, %40 ], [ @.str.119, %.lr.ph46.split ]
+  %41 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull %.str.120.sink50, i64 noundef %4) #20
+  %42 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.123, ptr noundef nonnull %8) #20
+  br label %40
 
 ._crit_edge47:                                    ; preds = %._crit_edge.us, %6
   ret i64 %0

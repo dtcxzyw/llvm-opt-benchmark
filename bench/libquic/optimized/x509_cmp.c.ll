@@ -915,18 +915,18 @@ if.then18.i:                                      ; preds = %if.end4.i
   br i1 %tobool25.not.i, label %if.then33, label %check_suite_b.exit
 
 check_suite_b.exit:                               ; preds = %if.then18.i, %if.end15.i
-  %tflags.0 = phi i64 [ %flags, %if.then18.i ], [ %and16.i, %if.end15.i ]
-  %call12173 = tail call i64 @sk_num(ptr noundef %chain) #8
-  %cmp13174 = icmp ult i64 %i.0, %call12173
-  br i1 %cmp13174, label %for.body, label %land.lhs.true.i64
+  %tflags.1 = phi i64 [ %and16.i, %if.end15.i ], [ %flags, %if.then18.i ]
+  %call12171 = tail call i64 @sk_num(ptr noundef %chain) #8
+  %cmp13172 = icmp ult i64 %i.0, %call12171
+  br i1 %cmp13172, label %for.body, label %land.lhs.true.i64
 
 for.body:                                         ; preds = %check_suite_b.exit, %for.inc
-  %pk.0178 = phi ptr [ %call.i39, %for.inc ], [ %call.i, %check_suite_b.exit ]
-  %i.1177 = phi i64 [ %inc, %for.inc ], [ %i.0, %check_suite_b.exit ]
-  %x.addr.1176 = phi ptr [ %call15, %for.inc ], [ %x.addr.0, %check_suite_b.exit ]
-  %tflags.1175 = phi i64 [ %tflags.2, %for.inc ], [ %tflags.0, %check_suite_b.exit ]
-  %call14 = tail call i32 @X509_get_signature_nid(ptr noundef nonnull %x.addr.1176) #8
-  %call15 = tail call ptr @sk_value(ptr noundef %chain, i64 noundef %i.1177) #8
+  %pk.0176 = phi ptr [ %call.i39, %for.inc ], [ %call.i, %check_suite_b.exit ]
+  %i.1175 = phi i64 [ %inc, %for.inc ], [ %i.0, %check_suite_b.exit ]
+  %x.addr.1174 = phi ptr [ %call15, %for.inc ], [ %x.addr.0, %check_suite_b.exit ]
+  %tflags.2173 = phi i64 [ %tflags.4, %for.inc ], [ %tflags.1, %check_suite_b.exit ]
+  %call14 = tail call i32 @X509_get_signature_nid(ptr noundef nonnull %x.addr.1174) #8
+  %call15 = tail call ptr @sk_value(ptr noundef %chain, i64 noundef %i.1175) #8
   %6 = load ptr, ptr %call15, align 8
   %7 = load ptr, ptr %6, align 8
   %call18 = tail call i64 @ASN1_INTEGER_get(ptr noundef %7) #8
@@ -934,7 +934,7 @@ for.body:                                         ; preds = %check_suite_b.exit,
   br i1 %cmp19.not, label %lor.lhs.false.i35, label %if.then33
 
 lor.lhs.false.i35:                                ; preds = %for.body
-  tail call void @EVP_PKEY_free(ptr noundef nonnull %pk.0178) #8
+  tail call void @EVP_PKEY_free(ptr noundef nonnull %pk.0176) #8
   %8 = load ptr, ptr %call15, align 8
   %cmp1.i36 = icmp eq ptr %8, null
   br i1 %cmp1.i36, label %if.then33.thread, label %X509_get_pubkey.exit41
@@ -973,12 +973,12 @@ if.then7.i57:                                     ; preds = %if.end4.i51
   ]
 
 if.end12.i:                                       ; preds = %if.then7.i57, %if.then7.i57
-  %and.i58 = and i64 %tflags.1175, 131072
+  %and.i58 = and i64 %tflags.2173, 131072
   %tobool13.not.i59 = icmp eq i64 %and.i58, 0
   br i1 %tobool13.not.i59, label %if.then33, label %if.end15.i60
 
 if.end15.i60:                                     ; preds = %if.end12.i
-  %and16.i61 = and i64 %tflags.1175, -65537
+  %and16.i61 = and i64 %tflags.2173, -65537
   br label %for.inc
 
 if.then18.i53:                                    ; preds = %if.end4.i51
@@ -988,19 +988,19 @@ if.then18.i53:                                    ; preds = %if.end4.i51
   ]
 
 if.end23.i:                                       ; preds = %if.then18.i53, %if.then18.i53
-  %and24.i54 = and i64 %tflags.1175, 65536
+  %and24.i54 = and i64 %tflags.2173, 65536
   %tobool25.not.i55 = icmp eq i64 %and24.i54, 0
   br i1 %tobool25.not.i55, label %if.then33, label %for.inc
 
-for.inc:                                          ; preds = %if.end15.i60, %if.end23.i
-  %tflags.2 = phi i64 [ %tflags.1175, %if.end23.i ], [ %and16.i61, %if.end15.i60 ]
-  %inc = add nuw i64 %i.1177, 1
+for.inc:                                          ; preds = %if.end23.i, %if.end15.i60
+  %tflags.4 = phi i64 [ %and16.i61, %if.end15.i60 ], [ %tflags.2173, %if.end23.i ]
+  %inc = add nuw i64 %i.1175, 1
   %call12 = tail call i64 @sk_num(ptr noundef %chain) #8
   %cmp13 = icmp ult i64 %inc, %call12
   br i1 %cmp13, label %for.body, label %land.lhs.true.i64, !llvm.loop !11
 
 land.lhs.true.i64:                                ; preds = %for.inc, %check_suite_b.exit
-  %tflags.1.lcssa = phi i64 [ %tflags.0, %check_suite_b.exit ], [ %tflags.2, %for.inc ]
+  %tflags.2.lcssa = phi i64 [ %tflags.1, %check_suite_b.exit ], [ %tflags.4, %for.inc ]
   %x.addr.1.lcssa = phi ptr [ %x.addr.0, %check_suite_b.exit ], [ %call15, %for.inc ]
   %i.1.lcssa = phi i64 [ %i.0, %check_suite_b.exit ], [ %inc, %for.inc ]
   %pk.0.lcssa = phi ptr [ %call.i, %check_suite_b.exit ], [ %call.i39, %for.inc ]
@@ -1031,7 +1031,7 @@ if.then7.i79:                                     ; preds = %if.end4.i72
   ]
 
 if.end12.i80:                                     ; preds = %if.then7.i79, %if.then7.i79
-  %and.i81 = and i64 %tflags.1.lcssa, 131072
+  %and.i81 = and i64 %tflags.2.lcssa, 131072
   %tobool13.not.i82 = icmp eq i64 %and.i81, 0
   br i1 %tobool13.not.i82, label %if.then33, label %if.end31
 
@@ -1042,7 +1042,7 @@ if.then18.i74:                                    ; preds = %if.end4.i72
   ]
 
 if.end23.i75:                                     ; preds = %if.then18.i74, %if.then18.i74
-  %and24.i76 = and i64 %tflags.1.lcssa, 65536
+  %and24.i76 = and i64 %tflags.2.lcssa, 65536
   %tobool25.not.i77 = icmp eq i64 %and24.i76, 0
   br i1 %tobool25.not.i77, label %if.then33, label %if.end31
 
@@ -1050,33 +1050,33 @@ if.end31:                                         ; preds = %if.end12.i80, %if.e
   tail call void @EVP_PKEY_free(ptr noundef nonnull %pk.0.lcssa) #8
   br label %return
 
-if.then33:                                        ; preds = %for.body, %if.end23.i, %if.end.i47, %if.end4.i51, %if.then18.i53, %if.then7.i57, %if.end12.i, %land.lhs.true.i43, %if.end23.i75, %if.end.i68, %if.then7.i79, %if.end12.i80, %if.then18.i74, %if.end4.i72, %land.lhs.true.i64, %if.then18.i, %if.end.i32, %if.end4.i, %if.then7.i, %land.lhs.true.i
-  %pk.0161.sink = phi ptr [ %call.i, %if.then18.i ], [ %call.i, %land.lhs.true.i ], [ %call.i, %if.end4.i ], [ %call.i, %if.then7.i ], [ %call.i, %if.end.i32 ], [ %pk.0.lcssa, %if.end.i68 ], [ %pk.0.lcssa, %if.then7.i79 ], [ %pk.0.lcssa, %if.end12.i80 ], [ %pk.0.lcssa, %if.then18.i74 ], [ %pk.0.lcssa, %if.end4.i72 ], [ %pk.0.lcssa, %land.lhs.true.i64 ], [ %pk.0.lcssa, %if.end23.i75 ], [ %call.i39, %if.end23.i ], [ %call.i39, %if.end.i47 ], [ %call.i39, %if.end4.i51 ], [ %call.i39, %if.then18.i53 ], [ %call.i39, %if.then7.i57 ], [ %call.i39, %if.end12.i ], [ %call.i39, %land.lhs.true.i43 ], [ %pk.0178, %for.body ]
-  %tflags.4113131 = phi i64 [ %flags, %if.then18.i ], [ %flags, %land.lhs.true.i ], [ %flags, %if.end4.i ], [ %flags, %if.then7.i ], [ %flags, %if.end.i32 ], [ %tflags.1.lcssa, %if.end.i68 ], [ %tflags.1.lcssa, %if.then7.i79 ], [ %tflags.1.lcssa, %if.end12.i80 ], [ %tflags.1.lcssa, %if.then18.i74 ], [ %tflags.1.lcssa, %if.end4.i72 ], [ %tflags.1.lcssa, %land.lhs.true.i64 ], [ %tflags.1.lcssa, %if.end23.i75 ], [ %tflags.1175, %land.lhs.true.i43 ], [ %tflags.1175, %if.end12.i ], [ %tflags.1175, %if.then7.i57 ], [ %tflags.1175, %if.then18.i53 ], [ %tflags.1175, %if.end4.i51 ], [ %tflags.1175, %if.end.i47 ], [ %tflags.1175, %if.end23.i ], [ %tflags.1175, %for.body ]
-  %cmp35 = phi i1 [ true, %if.then18.i ], [ false, %land.lhs.true.i ], [ false, %if.end4.i ], [ true, %if.then7.i ], [ false, %if.end.i32 ], [ false, %if.end.i68 ], [ false, %if.then7.i79 ], [ true, %if.end12.i80 ], [ false, %if.then18.i74 ], [ false, %if.end4.i72 ], [ false, %land.lhs.true.i64 ], [ true, %if.end23.i75 ], [ true, %if.end23.i ], [ false, %if.end.i47 ], [ false, %if.end4.i51 ], [ false, %if.then18.i53 ], [ false, %if.then7.i57 ], [ true, %if.end12.i ], [ false, %land.lhs.true.i43 ], [ false, %for.body ]
-  %rv.0115130 = phi i32 [ 60, %if.then18.i ], [ 57, %land.lhs.true.i ], [ 58, %if.end4.i ], [ 60, %if.then7.i ], [ 57, %if.end.i32 ], [ 57, %if.end.i68 ], [ 59, %if.then7.i79 ], [ 60, %if.end12.i80 ], [ 59, %if.then18.i74 ], [ 58, %if.end4.i72 ], [ 57, %land.lhs.true.i64 ], [ 60, %if.end23.i75 ], [ 60, %if.end23.i ], [ 57, %if.end.i47 ], [ 58, %if.end4.i51 ], [ 59, %if.then18.i53 ], [ 59, %if.then7.i57 ], [ 60, %if.end12.i ], [ 57, %land.lhs.true.i43 ], [ 56, %for.body ]
-  %i.2117129 = phi i64 [ 0, %if.then18.i ], [ 0, %land.lhs.true.i ], [ 0, %if.end4.i ], [ 0, %if.then7.i ], [ 0, %if.end.i32 ], [ %i.1.lcssa, %if.end.i68 ], [ %i.1.lcssa, %if.then7.i79 ], [ %i.1.lcssa, %if.end12.i80 ], [ %i.1.lcssa, %if.then18.i74 ], [ %i.1.lcssa, %if.end4.i72 ], [ %i.1.lcssa, %land.lhs.true.i64 ], [ %i.1.lcssa, %if.end23.i75 ], [ %i.1177, %land.lhs.true.i43 ], [ %i.1177, %if.end12.i ], [ %i.1177, %if.then7.i57 ], [ %i.1177, %if.then18.i53 ], [ %i.1177, %if.end4.i51 ], [ %i.1177, %if.end.i47 ], [ %i.1177, %if.end23.i ], [ %i.1177, %for.body ]
-  tail call void @EVP_PKEY_free(ptr noundef nonnull %pk.0161.sink) #8
-  %cmp41.not = icmp eq i64 %tflags.4113131, %flags
+if.then33:                                        ; preds = %for.body, %if.end.i47, %if.end4.i51, %if.then18.i53, %if.end23.i, %if.then7.i57, %if.end12.i, %land.lhs.true.i43, %if.end.i68, %if.then7.i79, %if.end12.i80, %if.then18.i74, %if.end23.i75, %if.end4.i72, %land.lhs.true.i64, %if.end.i32, %if.end4.i, %if.then18.i, %if.then7.i, %land.lhs.true.i
+  %pk.0159.sink = phi ptr [ %call.i, %land.lhs.true.i ], [ %call.i, %if.end4.i ], [ %call.i, %if.then18.i ], [ %call.i, %if.then7.i ], [ %call.i, %if.end.i32 ], [ %pk.0.lcssa, %if.end.i68 ], [ %pk.0.lcssa, %if.then7.i79 ], [ %pk.0.lcssa, %if.end12.i80 ], [ %pk.0.lcssa, %if.then18.i74 ], [ %pk.0.lcssa, %if.end23.i75 ], [ %pk.0.lcssa, %if.end4.i72 ], [ %pk.0.lcssa, %land.lhs.true.i64 ], [ %call.i39, %if.end.i47 ], [ %call.i39, %if.end4.i51 ], [ %call.i39, %if.then18.i53 ], [ %call.i39, %if.end23.i ], [ %call.i39, %if.then7.i57 ], [ %call.i39, %if.end12.i ], [ %call.i39, %land.lhs.true.i43 ], [ %pk.0176, %for.body ]
+  %tflags.7112130 = phi i64 [ %flags, %land.lhs.true.i ], [ %flags, %if.end4.i ], [ %flags, %if.then18.i ], [ %flags, %if.then7.i ], [ %flags, %if.end.i32 ], [ %tflags.2.lcssa, %if.end.i68 ], [ %tflags.2.lcssa, %if.then7.i79 ], [ %tflags.2.lcssa, %if.end12.i80 ], [ %tflags.2.lcssa, %if.then18.i74 ], [ %tflags.2.lcssa, %if.end23.i75 ], [ %tflags.2.lcssa, %if.end4.i72 ], [ %tflags.2.lcssa, %land.lhs.true.i64 ], [ %tflags.2173, %land.lhs.true.i43 ], [ %tflags.2173, %if.end12.i ], [ %tflags.2173, %if.then7.i57 ], [ %tflags.2173, %if.end23.i ], [ %tflags.2173, %if.then18.i53 ], [ %tflags.2173, %if.end4.i51 ], [ %tflags.2173, %if.end.i47 ], [ %tflags.2173, %for.body ]
+  %cmp35 = phi i1 [ false, %land.lhs.true.i ], [ false, %if.end4.i ], [ true, %if.then18.i ], [ true, %if.then7.i ], [ false, %if.end.i32 ], [ false, %if.end.i68 ], [ false, %if.then7.i79 ], [ true, %if.end12.i80 ], [ false, %if.then18.i74 ], [ true, %if.end23.i75 ], [ false, %if.end4.i72 ], [ false, %land.lhs.true.i64 ], [ false, %if.end.i47 ], [ false, %if.end4.i51 ], [ false, %if.then18.i53 ], [ true, %if.end23.i ], [ false, %if.then7.i57 ], [ true, %if.end12.i ], [ false, %land.lhs.true.i43 ], [ false, %for.body ]
+  %rv.0114129 = phi i32 [ 57, %land.lhs.true.i ], [ 58, %if.end4.i ], [ 60, %if.then18.i ], [ 60, %if.then7.i ], [ 57, %if.end.i32 ], [ 57, %if.end.i68 ], [ 59, %if.then7.i79 ], [ 60, %if.end12.i80 ], [ 59, %if.then18.i74 ], [ 60, %if.end23.i75 ], [ 58, %if.end4.i72 ], [ 57, %land.lhs.true.i64 ], [ 57, %if.end.i47 ], [ 58, %if.end4.i51 ], [ 59, %if.then18.i53 ], [ 60, %if.end23.i ], [ 59, %if.then7.i57 ], [ 60, %if.end12.i ], [ 57, %land.lhs.true.i43 ], [ 56, %for.body ]
+  %i.2116128 = phi i64 [ 0, %land.lhs.true.i ], [ 0, %if.end4.i ], [ 0, %if.then18.i ], [ 0, %if.then7.i ], [ 0, %if.end.i32 ], [ %i.1.lcssa, %if.end.i68 ], [ %i.1.lcssa, %if.then7.i79 ], [ %i.1.lcssa, %if.end12.i80 ], [ %i.1.lcssa, %if.then18.i74 ], [ %i.1.lcssa, %if.end23.i75 ], [ %i.1.lcssa, %if.end4.i72 ], [ %i.1.lcssa, %land.lhs.true.i64 ], [ %i.1175, %land.lhs.true.i43 ], [ %i.1175, %if.end12.i ], [ %i.1175, %if.then7.i57 ], [ %i.1175, %if.end23.i ], [ %i.1175, %if.then18.i53 ], [ %i.1175, %if.end4.i51 ], [ %i.1175, %if.end.i47 ], [ %i.1175, %for.body ]
+  tail call void @EVP_PKEY_free(ptr noundef nonnull %pk.0159.sink) #8
+  %cmp41.not = icmp eq i64 %tflags.7112130, %flags
   %spec.select29 = select i1 %cmp41.not, i32 60, i32 61
-  %14 = add nsw i32 %rv.0115130, -59
-  %spec.select217 = select i1 %cmp35, i32 %spec.select29, i32 %rv.0115130
+  %14 = add nsw i32 %rv.0114129, -59
+  %spec.select215 = select i1 %cmp35, i32 %spec.select29, i32 %rv.0114129
   %15 = icmp ult i32 %14, 2
   %16 = select i1 %cmp35, i1 true, i1 %15
   br label %if.then33.thread
 
 if.then33.thread:                                 ; preds = %X509_get_pubkey.exit41, %lor.lhs.false.i35, %if.then33, %lor.lhs.false.i, %X509_get_pubkey.exit, %if.end2
-  %i.2117129202 = phi i64 [ 0, %lor.lhs.false.i ], [ 0, %X509_get_pubkey.exit ], [ 0, %if.end2 ], [ %i.2117129, %if.then33 ], [ %i.1177, %lor.lhs.false.i35 ], [ %i.1177, %X509_get_pubkey.exit41 ]
-  %rv.0115130201 = phi i1 [ false, %lor.lhs.false.i ], [ false, %X509_get_pubkey.exit ], [ false, %if.end2 ], [ %16, %if.then33 ], [ false, %lor.lhs.false.i35 ], [ false, %X509_get_pubkey.exit41 ]
-  %17 = phi i32 [ 57, %lor.lhs.false.i ], [ 57, %X509_get_pubkey.exit ], [ 56, %if.end2 ], [ %spec.select217, %if.then33 ], [ 57, %lor.lhs.false.i35 ], [ 57, %X509_get_pubkey.exit41 ]
+  %i.2116128200 = phi i64 [ 0, %lor.lhs.false.i ], [ 0, %X509_get_pubkey.exit ], [ 0, %if.end2 ], [ %i.2116128, %if.then33 ], [ %i.1175, %lor.lhs.false.i35 ], [ %i.1175, %X509_get_pubkey.exit41 ]
+  %rv.0114129199 = phi i1 [ false, %lor.lhs.false.i ], [ false, %X509_get_pubkey.exit ], [ false, %if.end2 ], [ %16, %if.then33 ], [ false, %lor.lhs.false.i35 ], [ false, %X509_get_pubkey.exit41 ]
+  %17 = phi i32 [ 57, %lor.lhs.false.i ], [ 57, %X509_get_pubkey.exit ], [ 56, %if.end2 ], [ %spec.select215, %if.then33 ], [ 57, %lor.lhs.false.i35 ], [ 57, %X509_get_pubkey.exit41 ]
   %tobool44.not = icmp eq ptr %perror_depth, null
   br i1 %tobool44.not, label %return, label %if.then45
 
 if.then45:                                        ; preds = %if.then33.thread
-  %tobool36 = icmp ne i64 %i.2117129202, 0
-  %or.cond1 = select i1 %rv.0115130201, i1 %tobool36, i1 false
+  %tobool36 = icmp ne i64 %i.2116128200, 0
+  %or.cond1 = select i1 %rv.0114129199, i1 %tobool36, i1 false
   %dec = sext i1 %or.cond1 to i64
-  %spec.select = add i64 %i.2117129202, %dec
+  %spec.select = add i64 %i.2116128200, %dec
   %conv = trunc i64 %spec.select to i32
   store i32 %conv, ptr %perror_depth, align 4
   br label %return
@@ -1135,8 +1135,7 @@ if.then7.i:                                       ; preds = %if.end4.i
 if.end12.i:                                       ; preds = %if.then7.i, %if.then7.i
   %and.i = and i64 %flags, 131072
   %tobool13.not.i = icmp eq i64 %and.i, 0
-  %spec.select = select i1 %tobool13.not.i, i32 60, i32 0
-  br label %return
+  br i1 %tobool13.not.i, label %return, label %if.end30.i
 
 if.then18.i:                                      ; preds = %if.end4.i
   switch i32 %call, label %return [
@@ -1147,11 +1146,13 @@ if.then18.i:                                      ; preds = %if.end4.i
 if.end23.i:                                       ; preds = %if.then18.i, %if.then18.i
   %and24.i = and i64 %flags, 65536
   %tobool25.not.i = icmp eq i64 %and24.i, 0
-  %spec.select.i = select i1 %tobool25.not.i, i32 60, i32 0
+  br i1 %tobool25.not.i, label %return, label %if.end30.i
+
+if.end30.i:                                       ; preds = %if.end12.i, %if.end23.i
   br label %return
 
-return:                                           ; preds = %if.end12.i, %if.end23.i, %if.then18.i, %if.then7.i, %if.end4.i, %if.end.i, %land.lhs.true.i, %if.end, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 57, %if.end.i ], [ 59, %if.then7.i ], [ 59, %if.then18.i ], [ 58, %if.end4.i ], [ %spec.select.i, %if.end23.i ], [ 57, %land.lhs.true.i ], [ 57, %if.end ], [ %spec.select, %if.end12.i ]
+return:                                           ; preds = %if.end30.i, %if.end23.i, %if.then18.i, %if.end12.i, %if.then7.i, %if.end4.i, %if.end.i, %land.lhs.true.i, %if.end, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ 0, %if.end30.i ], [ 57, %if.end.i ], [ 59, %if.then7.i ], [ 60, %if.end12.i ], [ 59, %if.then18.i ], [ 60, %if.end23.i ], [ 58, %if.end4.i ], [ 57, %land.lhs.true.i ], [ 57, %if.end ]
   ret i32 %retval.0
 }
 

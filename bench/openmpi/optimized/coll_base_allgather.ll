@@ -221,7 +221,7 @@ ompi_datatype_copy_content_same_ddt.exit144.thread: ; preds = %97, %ompi_datatyp
   %.val.i145 = load i64, ptr %12, align 8
   %.val23.i146 = load i64, ptr %14, align 8
   %103 = sub nsw i64 %.val23.i146, %.val.i145
-  br i1 %65, label %.loopexit.sink.split, label %.lr.ph.i148.preheader
+  br i1 %65, label %ompi_datatype_copy_content_same_ddt.exit157.thread, label %.lr.ph.i148.preheader
 
 .lr.ph.i148.preheader:                            ; preds = %ompi_datatype_copy_content_same_ddt.exit144.thread
   %104 = mul nsw i64 %16, %92
@@ -244,14 +244,17 @@ ompi_datatype_copy_content_same_ddt.exit144.thread: ; preds = %97, %ompi_datatyp
   %110 = getelementptr inbounds i8, ptr %.01828.i149, i64 %108
   %111 = sub i64 %.02026.i151, %spec.select24.i152
   %.not.i156 = icmp eq i64 %111, 0
-  br i1 %.not.i156, label %.loopexit.sink.split, label %.lr.ph.i148, !llvm.loop !4
+  br i1 %.not.i156, label %ompi_datatype_copy_content_same_ddt.exit157.thread, label %.lr.ph.i148, !llvm.loop !4
 
 ompi_datatype_copy_content_same_ddt.exit157:      ; preds = %.lr.ph.i148
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %106, i32 0)
+  %112 = icmp slt i32 %106, 0
+  br i1 %112, label %.loopexit.sink.split, label %ompi_datatype_copy_content_same_ddt.exit157.thread
+
+ompi_datatype_copy_content_same_ddt.exit157.thread: ; preds = %107, %ompi_datatype_copy_content_same_ddt.exit144.thread, %ompi_datatype_copy_content_same_ddt.exit157
   br label %.loopexit.sink.split
 
-.loopexit.sink.split:                             ; preds = %107, %ompi_datatype_copy_content_same_ddt.exit157, %ompi_datatype_copy_content_same_ddt.exit144.thread, %ompi_datatype_copy_content_same_ddt.exit144, %ompi_datatype_copy_content_same_ddt.exit131
-  %.0.ph = phi i32 [ %84, %ompi_datatype_copy_content_same_ddt.exit131 ], [ %96, %ompi_datatype_copy_content_same_ddt.exit144 ], [ 0, %ompi_datatype_copy_content_same_ddt.exit144.thread ], [ %spec.select, %ompi_datatype_copy_content_same_ddt.exit157 ], [ 0, %107 ]
+.loopexit.sink.split:                             ; preds = %ompi_datatype_copy_content_same_ddt.exit157, %ompi_datatype_copy_content_same_ddt.exit144, %ompi_datatype_copy_content_same_ddt.exit131, %ompi_datatype_copy_content_same_ddt.exit157.thread
+  %.0.ph = phi i32 [ 0, %ompi_datatype_copy_content_same_ddt.exit157.thread ], [ %84, %ompi_datatype_copy_content_same_ddt.exit131 ], [ %96, %ompi_datatype_copy_content_same_ddt.exit144 ], [ %106, %ompi_datatype_copy_content_same_ddt.exit157 ]
   tail call void @free(ptr noundef %78) #8
   br label %.loopexit
 
@@ -895,9 +898,6 @@ declare i32 @opal_datatype_commit(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #7
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

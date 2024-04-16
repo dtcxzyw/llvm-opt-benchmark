@@ -1350,8 +1350,8 @@ switch.lookup:                                    ; preds = %73
   br label %94
 
 94:                                               ; preds = %85, %91
-  %storemerge3029 = phi i32 [ %93, %91 ], [ 0, %85 ]
-  store i32 %storemerge3029, ptr %9, align 4
+  %storemerge3028 = phi i32 [ %93, %91 ], [ 0, %85 ]
+  store i32 %storemerge3028, ptr %9, align 4
   %.not2354 = icmp eq ptr %.02282, null
   br i1 %.not2354, label %106, label %96
 
@@ -1519,11 +1519,11 @@ switch.lookup:                                    ; preds = %73
 
 ._crit_edge:                                      ; preds = %166
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.12279, i64 68
-  %.pre3042 = load i8, ptr %.phi.trans.insert, align 4
+  %.pre3040 = load i8, ptr %.phi.trans.insert, align 4
   br label %167
 
 167:                                              ; preds = %._crit_edge, %.thread2920
-  %168 = phi i8 [ %163, %.thread2920 ], [ %.pre3042, %._crit_edge ]
+  %168 = phi i8 [ %163, %.thread2920 ], [ %.pre3040, %._crit_edge ]
   %.222872927 = phi i32 [ %spec.select2541, %.thread2920 ], [ %.22287, %._crit_edge ]
   %.022882926 = phi i32 [ 1, %.thread2920 ], [ %.02288, %._crit_edge ]
   %.022892925 = phi i32 [ 1, %.thread2920 ], [ %.02289, %._crit_edge ]
@@ -2458,7 +2458,7 @@ proto_item_set_hidden.exit:                       ; preds = %adv_pdu_type_str_ge
   br label %727
 
 727:                                              ; preds = %722, %712
-  %.sink3033 = phi ptr [ @dissect_btle.broadcast_addr, %722 ], [ %54, %712 ]
+  %.sink3031 = phi ptr [ @dissect_btle.broadcast_addr, %722 ], [ %54, %712 ]
   %.22293 = phi i8 [ %.12292, %722 ], [ %721, %712 ]
   %.3 = phi i32 [ %.2, %722 ], [ %716, %712 ]
   %728 = getelementptr inbounds i8, ptr %1, i64 136
@@ -2466,7 +2466,7 @@ proto_item_set_hidden.exit:                       ; preds = %adv_pdu_type_str_ge
   %729 = getelementptr inbounds i8, ptr %1, i64 140
   store i32 6, ptr %729, align 4
   %730 = getelementptr inbounds i8, ptr %1, i64 144
-  store ptr %.sink3033, ptr %730, align 8
+  store ptr %.sink3031, ptr %730, align 8
   %731 = getelementptr inbounds i8, ptr %1, i64 152
   store ptr null, ptr %731, align 8
   %732 = getelementptr inbounds i8, ptr %1, i64 232
@@ -2474,7 +2474,7 @@ proto_item_set_hidden.exit:                       ; preds = %adv_pdu_type_str_ge
   %733 = getelementptr inbounds i8, ptr %1, i64 236
   store i32 6, ptr %733, align 4
   %734 = getelementptr inbounds i8, ptr %1, i64 240
-  store ptr %.sink3033, ptr %734, align 8
+  store ptr %.sink3031, ptr %734, align 8
   %735 = getelementptr inbounds i8, ptr %1, i64 248
   store ptr null, ptr %735, align 8
   %736 = and i32 %710, 4
@@ -3288,13 +3288,13 @@ proto_item_set_generated.exit2557:                ; preds = %proto_item_set_gene
 1223:                                             ; preds = %1219
   store i32 %1208, ptr %1213, align 4
   %.pre = load i32, ptr %108, align 4
-  %.pre3034 = load i16, ptr %1209, align 2
-  %.pre3035 = load ptr, ptr %1196, align 16
+  %.pre3032 = load i16, ptr %1209, align 2
+  %.pre3033 = load ptr, ptr %1196, align 16
   br label %control_proc_complete_if_instant_reached.exit
 
 control_proc_complete_if_instant_reached.exit:    ; preds = %1207, %1212, %1215, %1219, %1223
-  %1224 = phi ptr [ %1195, %1207 ], [ %1195, %1212 ], [ %1195, %1215 ], [ %1195, %1219 ], [ %.pre3035, %1223 ]
-  %1225 = phi i16 [ %1210, %1207 ], [ %1210, %1212 ], [ %1210, %1215 ], [ %1210, %1219 ], [ %.pre3034, %1223 ]
+  %1224 = phi ptr [ %1195, %1207 ], [ %1195, %1212 ], [ %1195, %1215 ], [ %1195, %1219 ], [ %.pre3033, %1223 ]
+  %1225 = phi i16 [ %1210, %1207 ], [ %1210, %1212 ], [ %1210, %1215 ], [ %1210, %1219 ], [ %.pre3032, %1223 ]
   %1226 = phi i32 [ %1208, %1207 ], [ %1208, %1212 ], [ %1208, %1215 ], [ %1208, %1219 ], [ %.pre, %1223 ]
   %.not.i2559 = icmp eq ptr %1224, null
   br i1 %.not.i2559, label %control_proc_complete_if_instant_reached.exit2564, label %1227
@@ -3655,13 +3655,13 @@ proto_item_set_hidden.exit2567:                   ; preds = %1377, %1383, %1386
   %1431 = load i32, ptr @l2cap_index, align 4
   %.02312.sroa.gep2595 = getelementptr inbounds i8, ptr %.02312, i64 4
   store i32 %1431, ptr %.02312.sroa.gep2595, align 4
-  %.pre3037 = load i8, ptr %1420, align 8
+  %.pre3035 = load i8, ptr %1420, align 8
   %.pr.pre = load i32, ptr %1424, align 4
   br label %.cont2608
 
 .cont2608:                                        ; preds = %.else2609, %.then
   %.pr = phi i32 [ %1425, %.then ], [ %.pr.pre, %.else2609 ]
-  %1432 = phi i8 [ %1421, %.then ], [ %.pre3037, %.else2609 ]
+  %1432 = phi i8 [ %1421, %.then ], [ %.pre3035, %.else2609 ]
   %1433 = phi i32 [ %1429, %.then ], [ %1431, %.else2609 ]
   %.sroa.0.02952 = phi i8 [ 12, %.then ], [ 0, %.else2609 ]
   %.sroa.22603.0 = phi i32 [ %1429, %.then ], [ 0, %.else2609 ]
@@ -3705,11 +3705,11 @@ proto_item_set_hidden.exit2567:                   ; preds = %1377, %1383, %1386
   %.else.val2643 = load i8, ptr %.02312, align 4
   %1445 = and i8 %.else.val2643, -5
   store i8 %1445, ptr %.02312, align 4
-  %.pre3039 = load i8, ptr %1420, align 8
+  %.pre3037 = load i8, ptr %1420, align 8
   br label %.cont2637
 
 .cont2637:                                        ; preds = %.else2639, %.then2638
-  %1446 = phi i8 [ %1438, %.then2638 ], [ %.pre3039, %.else2639 ]
+  %1446 = phi i8 [ %1438, %.then2638 ], [ %.pre3037, %.else2639 ]
   %.sroa.0.3 = phi i8 [ %1444, %.then2638 ], [ %.sroa.0.1, %.else2639 ]
   %1447 = and i8 %1446, -3
   store i8 %1447, ptr %1420, align 8
@@ -3730,11 +3730,11 @@ proto_item_set_hidden.exit2567:                   ; preds = %1377, %1383, %1386
   %1451 = load i32, ptr @l2cap_index, align 4
   %.02312.sroa.gep2592 = getelementptr inbounds i8, ptr %.02312, i64 4
   store i32 %1451, ptr %.02312.sroa.gep2592, align 4
-  %.pre3040 = load i8, ptr %1420, align 8
+  %.pre3038 = load i8, ptr %1420, align 8
   br label %.cont2610
 
 .cont2610:                                        ; preds = %.else2612, %.then2611
-  %1452 = phi i8 [ %1421, %.then2611 ], [ %.pre3040, %.else2612 ]
+  %1452 = phi i8 [ %1421, %.then2611 ], [ %.pre3038, %.else2612 ]
   %1453 = phi i32 [ %1449, %.then2611 ], [ %1451, %.else2612 ]
   %.sroa.0.42956 = phi i8 [ 12, %.then2611 ], [ 0, %.else2612 ]
   %.sroa.22603.2 = phi i32 [ %1449, %.then2611 ], [ 0, %.else2612 ]
@@ -3804,14 +3804,14 @@ proto_item_set_hidden.exit2567:                   ; preds = %1377, %1383, %1386
   %1479 = load i32, ptr %6, align 4
   %1480 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.11, i32 noundef %1479) #9
   %.not2492 = icmp eq ptr %1480, null
-  br i1 %.not2492, label %.thread3017, label %1481
+  br i1 %.not2492, label %.thread3016, label %1481
 
 1481:                                             ; preds = %1465
   %1482 = load ptr, ptr @btl2cap_handle, align 8
   %1483 = call i32 @call_dissector_with_data(ptr noundef %1482, ptr noundef nonnull %1464, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %1468) #9
-  br label %.thread3017
+  br label %.thread3016
 
-.thread3017:                                      ; preds = %1465, %1481
+.thread3016:                                      ; preds = %1465, %1481
   %1484 = load i32, ptr %6, align 4
   %1485 = add i32 %1484, %.11
   br label %2568
@@ -4536,25 +4536,25 @@ proto_item_set_hidden.exit2567:                   ; preds = %1377, %1383, %1386
   %.not16.i = icmp eq i16 %1817, 0
   %1818 = getelementptr i8, ptr %1808, i64 4
   %1819 = load i32, ptr %1818, align 4
-  br i1 %.not16.i, label %control_proc_can_add_frame_even_if_complete.exit, label %1820
+  br i1 %.not16.i, label %1820, label %1821
 
 1820:                                             ; preds = %1812
-  %1821 = load i32, ptr %108, align 4
-  br label %control_proc_can_add_frame_even_if_complete.exit
+  %.not17.i = icmp eq i32 %1819, 0
+  br i1 %.not17.i, label %control_proc_can_add_frame_even_if_complete.exit, label %control_proc_can_add_frame_even_if_complete.exit.thread
 
-control_proc_can_add_frame_even_if_complete.exit: ; preds = %1812, %1820
-  %.pn = phi i32 [ %1821, %1820 ], [ 0, %1812 ]
-  %.0.shrunk.i.not = icmp eq i32 %1819, %.pn
-  br i1 %.0.shrunk.i.not, label %1822, label %control_proc_can_add_frame_even_if_complete.exit.thread
+1821:                                             ; preds = %1812
+  %1822 = load i32, ptr %108, align 4
+  %.not19.i = icmp eq i32 %1819, %1822
+  br i1 %.not19.i, label %control_proc_can_add_frame_even_if_complete.exit, label %control_proc_can_add_frame_even_if_complete.exit.thread
 
-1822:                                             ; preds = %control_proc_can_add_frame_even_if_complete.exit
+control_proc_can_add_frame_even_if_complete.exit: ; preds = %1821, %1820
   %1823 = zext nneg i32 %.02306 to i64
   %1824 = getelementptr [3 x ptr], ptr %20, i64 0, i64 %1823
   %1825 = load ptr, ptr %1824, align 8
   call fastcc void @control_proc_add_last_frame(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %69, i8 noundef zeroext 7, i32 noundef %.02306, ptr noundef nonnull %1808, ptr noundef %1825, i32 noundef 1)
   br label %proto_item_set_generated.exit2572
 
-control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %1809, %control_proc_can_add_frame_even_if_complete.exit, %1805
+control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %1821, %1820, %1809, %1805
   %1826 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %1570, ptr noundef nonnull @ei_control_proc_wrong_seq) #9
   br label %proto_item_set_generated.exit2572
 
@@ -5316,11 +5316,11 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %1809, %contr
 
 2172:                                             ; preds = %2165
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2169, ptr noundef nonnull @.str.691) #9
-  %.pre3036 = load i64, ptr %23, align 8
+  %.pre3034 = load i64, ptr %23, align 8
   br label %2173
 
 2173:                                             ; preds = %2172, %2165
-  %2174 = phi i64 [ %.pre3036, %2172 ], [ %2170, %2165 ]
+  %2174 = phi i64 [ %.pre3034, %2172 ], [ %2170, %2165 ]
   %2175 = add nuw nsw i32 %.11, 3
   %2176 = load i64, ptr %22, align 8
   %2177 = icmp ne i64 %2176, 0
@@ -6161,14 +6161,14 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %1809, %contr
 2567:                                             ; preds = %.cont2653, %1492, %1550, %1535
   %.sroa.22603.10 = phi i32 [ %.sroa.22603.7, %1535 ], [ %.sroa.22603.9, %1550 ], [ %.sroa.22603.42981, %1492 ], [ %.sroa.22603.42981, %.cont2653 ]
   %.32311 = phi i32 [ %.12309, %1535 ], [ %.22310, %1550 ], [ %.023082982, %1492 ], [ %.023082982, %.cont2653 ]
-  %.pn3030 = load i32, ptr %6, align 4
-  %.13 = add i32 %.pn3030, %.11
+  %.pn = load i32, ptr %6, align 4
+  %.13 = add i32 %.pn, %.11
   %.not2493 = icmp eq i32 %.32311, 0
   br i1 %.not2493, label %proto_item_set_generated.exit2572, label %2568
 
-2568:                                             ; preds = %.thread3017, %2567
-  %.133023 = phi i32 [ %1485, %.thread3017 ], [ %.13, %2567 ]
-  %.sroa.22603.103022 = phi i32 [ %.sroa.22603.329622972, %.thread3017 ], [ %.sroa.22603.10, %2567 ]
+2568:                                             ; preds = %.thread3016, %2567
+  %.133022 = phi i32 [ %1485, %.thread3016 ], [ %.13, %2567 ]
+  %.sroa.22603.103021 = phi i32 [ %.sroa.22603.329622972, %.thread3016 ], [ %.sroa.22603.10, %2567 ]
   %2569 = load i32, ptr @hf_l2cap_index, align 4
   br i1 %1326, label %.cont, label %.else
 
@@ -6178,7 +6178,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %1809, %contr
   br label %.cont
 
 .cont:                                            ; preds = %2568, %.else
-  %2570 = phi i32 [ %.sroa.22603.103022, %2568 ], [ %.else.val, %.else ]
+  %2570 = phi i32 [ %.sroa.22603.103021, %2568 ], [ %.else.val, %.else ]
   %2571 = call ptr @proto_tree_add_uint(ptr noundef %69, i32 noundef %2569, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %2570) #9
   %.not.i2570 = icmp eq ptr %2571, null
   br i1 %.not.i2570, label %proto_item_set_generated.exit2572, label %2572
@@ -6196,8 +6196,8 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %1809, %contr
   store i32 %2578, ptr %2576, align 4
   br label %proto_item_set_generated.exit2572
 
-proto_item_set_generated.exit2572:                ; preds = %.cont2826.thread, %.cont2822.thread, %.cont2814.thread, %.cont2786.thread, %.cont2762.thread, %.cont2758.thread, %.cont2754.thread, %.cont2726.thread, %.cont2718.thread, %.cont2714.thread, %.cont2702.thread, %.cont2694.thread, %.cont2682.thread, %.cont2678.thread, %.cont2674.thread, %.cont2670.thread, %.cont2666.thread, %1494, %1496, %1630, %1663, %1642, %1660, %1654, %1641, %1638, %.cont2666, %1665, %1709, %1688, %1706, %1700, %1683, %.cont2670, %1711, %1715, %1737, %1730, %.cont2674, %1739, %1757, %1755, %1752, %.cont2678, %1759, %1772, %1770, %1767, %.cont2682, %1774, %.cont2686, %1795, %1792, %1785, %1797, %.cont2690, %control_proc_can_add_frame_even_if_complete.exit.thread, %1822, %1827, %1838, %1831, %.cont2694, %1840, %.cont2698, %1857, %1853, %1869, %1879, %1872, %.cont2702, %1881, %.cont2706, %1902, %1899, %1892, %1904, %.cont2710, %1927, %1923, %1933, %1953, %1951, %1948, %1943, %.cont2714, %1955, %1966, %1959, %.cont2718, %1968, %.cont2722, %1974, %1983, %1996, %1994, %1991, %.cont2726, %1998, %.cont2730, %2066, %2065, %2057, %2052, %2047, %2039, %2033, %2027, %2020, %2015, %2068, %.cont2734, %2074, %2083, %.cont2738, %2098, %2094, %2100, %.cont2742, %2105, %2114, %.cont2746, %2128, %2124, %2130, %.cont2750, %2135, %2144, %2156, %2154, %2151, %.cont2754, %2185, %2205, %2203, %2200, %2195, %.cont2758, %2207, %2227, %2217, %2224, %.cont2762, %2229, %.cont2766, %2238, %2247, %.cont2770, %2262, %2258, %2264, %.cont2774, %2272, %2281, %2284, %.cont2778, %2292, %2301, %.cont2782, %2318, %2314, %2320, %2330, %2324, %.cont2786, %2332, %.cont2790, %2345, %2342, %2381, %.cont2794, %2394, %2391, %2396, %.cont2798, %2402, %2411, %2414, %.cont2802, %2420, %2429, %.cont2806, %2444, %2440, %2446, %.cont2810, %2452, %2461, %2464, %2474, %2468, %.cont2814, %2476, %2495, %2488, %2492, %2483, %.cont2818, %2497, %2510, %2501, %2507, %.cont2822, %2512, %2527, %2518, %2524, %.cont2826, %2529, %.cont2830, %2537, %2546, %2549, %2551, %2557, %2560, %2575, %2572, %.cont, %2567
-  %.133016 = phi i32 [ %.13, %2567 ], [ %.133023, %.cont ], [ %.133023, %2572 ], [ %.133023, %2575 ], [ %2515, %.cont2826.thread ], [ %2498, %.cont2822.thread ], [ %2465, %.cont2814.thread ], [ %2321, %.cont2786.thread ], [ %2214, %.cont2762.thread ], [ %2186, %.cont2758.thread ], [ %1572, %.cont2754.thread ], [ %1984, %.cont2726.thread ], [ %1956, %.cont2718.thread ], [ %1936, %.cont2714.thread ], [ %.12, %.cont2702.thread ], [ %1828, %.cont2694.thread ], [ %1760, %.cont2682.thread ], [ %1745, %.cont2678.thread ], [ %1727, %.cont2674.thread ], [ %1676, %.cont2670.thread ], [ %1605, %.cont2666.thread ], [ %.11, %1494 ], [ %.11, %1496 ], [ %1605, %1630 ], [ %1605, %1663 ], [ %1605, %1642 ], [ %1605, %1660 ], [ %1605, %1654 ], [ %1605, %1641 ], [ %1605, %1638 ], [ %1605, %.cont2666 ], [ %1676, %1665 ], [ %1676, %1709 ], [ %1676, %1688 ], [ %1676, %1706 ], [ %1676, %1700 ], [ %1676, %1683 ], [ %1676, %.cont2670 ], [ %1714, %1711 ], [ %1727, %1715 ], [ %1727, %1737 ], [ %1727, %1730 ], [ %1727, %.cont2674 ], [ %1745, %1739 ], [ %1745, %1757 ], [ %1745, %1755 ], [ %1745, %1752 ], [ %1745, %.cont2678 ], [ %1760, %1759 ], [ %1760, %1772 ], [ %1760, %1770 ], [ %1760, %1767 ], [ %1760, %.cont2682 ], [ %1775, %1774 ], [ %1775, %.cont2686 ], [ %1775, %1795 ], [ %1775, %1792 ], [ %1775, %1785 ], [ %1800, %1797 ], [ %1800, %.cont2690 ], [ %1800, %control_proc_can_add_frame_even_if_complete.exit.thread ], [ %1800, %1822 ], [ %1828, %1827 ], [ %1828, %1838 ], [ %1828, %1831 ], [ %1828, %.cont2694 ], [ %1841, %1840 ], [ %1841, %.cont2698 ], [ %1841, %1857 ], [ %1841, %1853 ], [ %.12, %1869 ], [ %.12, %1879 ], [ %.12, %1872 ], [ %.12, %.cont2702 ], [ %1882, %1881 ], [ %1882, %.cont2706 ], [ %1882, %1902 ], [ %1882, %1899 ], [ %1882, %1892 ], [ %1913, %1904 ], [ %1913, %.cont2710 ], [ %1913, %1927 ], [ %1913, %1923 ], [ %1936, %1933 ], [ %1936, %1953 ], [ %1936, %1951 ], [ %1936, %1948 ], [ %1936, %1943 ], [ %1936, %.cont2714 ], [ %1956, %1955 ], [ %1956, %1966 ], [ %1956, %1959 ], [ %1956, %.cont2718 ], [ %1969, %1968 ], [ %1969, %.cont2722 ], [ %1969, %1974 ], [ %1984, %1983 ], [ %1984, %1996 ], [ %1984, %1994 ], [ %1984, %1991 ], [ %1984, %.cont2726 ], [ %2004, %1998 ], [ %2004, %.cont2730 ], [ %2004, %2066 ], [ %2004, %2065 ], [ %2004, %2057 ], [ %2004, %2052 ], [ %2004, %2047 ], [ %2004, %2039 ], [ %2004, %2033 ], [ %2004, %2027 ], [ %2004, %2020 ], [ %2004, %2015 ], [ %2069, %2068 ], [ %2069, %.cont2734 ], [ %2069, %2074 ], [ %2084, %2083 ], [ %2084, %.cont2738 ], [ %2084, %2098 ], [ %2084, %2094 ], [ %1572, %2100 ], [ %1572, %.cont2742 ], [ %1572, %2105 ], [ %1572, %2114 ], [ %1572, %.cont2746 ], [ %1572, %2128 ], [ %1572, %2124 ], [ %1572, %2130 ], [ %1572, %.cont2750 ], [ %1572, %2135 ], [ %1572, %2144 ], [ %1572, %2156 ], [ %1572, %2154 ], [ %1572, %2151 ], [ %1572, %.cont2754 ], [ %2186, %2185 ], [ %2186, %2205 ], [ %2186, %2203 ], [ %2186, %2200 ], [ %2186, %2195 ], [ %2186, %.cont2758 ], [ %2214, %2207 ], [ %2214, %2227 ], [ %2214, %2217 ], [ %2214, %2224 ], [ %2214, %.cont2762 ], [ %2233, %2229 ], [ %2233, %.cont2766 ], [ %2233, %2238 ], [ %2248, %2247 ], [ %2248, %.cont2770 ], [ %2248, %2262 ], [ %2248, %2258 ], [ %2267, %2264 ], [ %2267, %.cont2774 ], [ %2267, %2272 ], [ %2267, %2281 ], [ %2287, %2284 ], [ %2287, %.cont2778 ], [ %2287, %2292 ], [ %2304, %2301 ], [ %2304, %.cont2782 ], [ %2304, %2318 ], [ %2304, %2314 ], [ %2321, %2320 ], [ %2321, %2330 ], [ %2321, %2324 ], [ %2321, %.cont2786 ], [ %2333, %2332 ], [ %2333, %.cont2790 ], [ %2333, %2345 ], [ %2333, %2342 ], [ %2382, %2381 ], [ %2382, %.cont2794 ], [ %2382, %2394 ], [ %2382, %2391 ], [ %2397, %2396 ], [ %2397, %.cont2798 ], [ %2397, %2402 ], [ %2397, %2411 ], [ %2415, %2414 ], [ %2415, %.cont2802 ], [ %2415, %2420 ], [ %2430, %2429 ], [ %2430, %.cont2806 ], [ %2430, %2444 ], [ %2430, %2440 ], [ %2447, %2446 ], [ %2447, %.cont2810 ], [ %2447, %2452 ], [ %2447, %2461 ], [ %2465, %2464 ], [ %2465, %2474 ], [ %2465, %2468 ], [ %2465, %.cont2814 ], [ %2477, %2476 ], [ %2477, %2495 ], [ %2477, %2488 ], [ %2477, %2492 ], [ %2477, %2483 ], [ %2477, %.cont2818 ], [ %2498, %2497 ], [ %2498, %2510 ], [ %2498, %2501 ], [ %2498, %2507 ], [ %2498, %.cont2822 ], [ %2515, %2512 ], [ %2515, %2527 ], [ %2515, %2518 ], [ %2515, %2524 ], [ %2515, %.cont2826 ], [ %2532, %2529 ], [ %2532, %.cont2830 ], [ %2532, %2537 ], [ %2532, %2546 ], [ %2550, %2549 ], [ %2556, %2551 ], [ %.11, %2557 ], [ %2566, %2560 ]
+proto_item_set_generated.exit2572:                ; preds = %.cont2826.thread, %.cont2822.thread, %.cont2814.thread, %.cont2786.thread, %.cont2762.thread, %.cont2758.thread, %.cont2754.thread, %.cont2726.thread, %.cont2718.thread, %.cont2714.thread, %.cont2702.thread, %.cont2694.thread, %.cont2682.thread, %.cont2678.thread, %.cont2674.thread, %.cont2670.thread, %.cont2666.thread, %1494, %1496, %1630, %1663, %1642, %1660, %1654, %1641, %1638, %.cont2666, %1665, %1709, %1688, %1706, %1700, %1683, %.cont2670, %1711, %1715, %1737, %1730, %.cont2674, %1739, %1757, %1755, %1752, %.cont2678, %1759, %1772, %1770, %1767, %.cont2682, %1774, %.cont2686, %1795, %1792, %1785, %1797, %.cont2690, %control_proc_can_add_frame_even_if_complete.exit.thread, %control_proc_can_add_frame_even_if_complete.exit, %1827, %1838, %1831, %.cont2694, %1840, %.cont2698, %1857, %1853, %1869, %1879, %1872, %.cont2702, %1881, %.cont2706, %1902, %1899, %1892, %1904, %.cont2710, %1927, %1923, %1933, %1953, %1951, %1948, %1943, %.cont2714, %1955, %1966, %1959, %.cont2718, %1968, %.cont2722, %1974, %1983, %1996, %1994, %1991, %.cont2726, %1998, %.cont2730, %2066, %2065, %2057, %2052, %2047, %2039, %2033, %2027, %2020, %2015, %2068, %.cont2734, %2074, %2083, %.cont2738, %2098, %2094, %2100, %.cont2742, %2105, %2114, %.cont2746, %2128, %2124, %2130, %.cont2750, %2135, %2144, %2156, %2154, %2151, %.cont2754, %2185, %2205, %2203, %2200, %2195, %.cont2758, %2207, %2227, %2217, %2224, %.cont2762, %2229, %.cont2766, %2238, %2247, %.cont2770, %2262, %2258, %2264, %.cont2774, %2272, %2281, %2284, %.cont2778, %2292, %2301, %.cont2782, %2318, %2314, %2320, %2330, %2324, %.cont2786, %2332, %.cont2790, %2345, %2342, %2381, %.cont2794, %2394, %2391, %2396, %.cont2798, %2402, %2411, %2414, %.cont2802, %2420, %2429, %.cont2806, %2444, %2440, %2446, %.cont2810, %2452, %2461, %2464, %2474, %2468, %.cont2814, %2476, %2495, %2488, %2492, %2483, %.cont2818, %2497, %2510, %2501, %2507, %.cont2822, %2512, %2527, %2518, %2524, %.cont2826, %2529, %.cont2830, %2537, %2546, %2549, %2551, %2557, %2560, %2575, %2572, %.cont, %2567
+  %.133015 = phi i32 [ %.13, %2567 ], [ %.133022, %.cont ], [ %.133022, %2572 ], [ %.133022, %2575 ], [ %2515, %.cont2826.thread ], [ %2498, %.cont2822.thread ], [ %2465, %.cont2814.thread ], [ %2321, %.cont2786.thread ], [ %2214, %.cont2762.thread ], [ %2186, %.cont2758.thread ], [ %1572, %.cont2754.thread ], [ %1984, %.cont2726.thread ], [ %1956, %.cont2718.thread ], [ %1936, %.cont2714.thread ], [ %.12, %.cont2702.thread ], [ %1828, %.cont2694.thread ], [ %1760, %.cont2682.thread ], [ %1745, %.cont2678.thread ], [ %1727, %.cont2674.thread ], [ %1676, %.cont2670.thread ], [ %1605, %.cont2666.thread ], [ %.11, %1494 ], [ %.11, %1496 ], [ %1605, %1630 ], [ %1605, %1663 ], [ %1605, %1642 ], [ %1605, %1660 ], [ %1605, %1654 ], [ %1605, %1641 ], [ %1605, %1638 ], [ %1605, %.cont2666 ], [ %1676, %1665 ], [ %1676, %1709 ], [ %1676, %1688 ], [ %1676, %1706 ], [ %1676, %1700 ], [ %1676, %1683 ], [ %1676, %.cont2670 ], [ %1714, %1711 ], [ %1727, %1715 ], [ %1727, %1737 ], [ %1727, %1730 ], [ %1727, %.cont2674 ], [ %1745, %1739 ], [ %1745, %1757 ], [ %1745, %1755 ], [ %1745, %1752 ], [ %1745, %.cont2678 ], [ %1760, %1759 ], [ %1760, %1772 ], [ %1760, %1770 ], [ %1760, %1767 ], [ %1760, %.cont2682 ], [ %1775, %1774 ], [ %1775, %.cont2686 ], [ %1775, %1795 ], [ %1775, %1792 ], [ %1775, %1785 ], [ %1800, %1797 ], [ %1800, %.cont2690 ], [ %1800, %control_proc_can_add_frame_even_if_complete.exit.thread ], [ %1800, %control_proc_can_add_frame_even_if_complete.exit ], [ %1828, %1827 ], [ %1828, %1838 ], [ %1828, %1831 ], [ %1828, %.cont2694 ], [ %1841, %1840 ], [ %1841, %.cont2698 ], [ %1841, %1857 ], [ %1841, %1853 ], [ %.12, %1869 ], [ %.12, %1879 ], [ %.12, %1872 ], [ %.12, %.cont2702 ], [ %1882, %1881 ], [ %1882, %.cont2706 ], [ %1882, %1902 ], [ %1882, %1899 ], [ %1882, %1892 ], [ %1913, %1904 ], [ %1913, %.cont2710 ], [ %1913, %1927 ], [ %1913, %1923 ], [ %1936, %1933 ], [ %1936, %1953 ], [ %1936, %1951 ], [ %1936, %1948 ], [ %1936, %1943 ], [ %1936, %.cont2714 ], [ %1956, %1955 ], [ %1956, %1966 ], [ %1956, %1959 ], [ %1956, %.cont2718 ], [ %1969, %1968 ], [ %1969, %.cont2722 ], [ %1969, %1974 ], [ %1984, %1983 ], [ %1984, %1996 ], [ %1984, %1994 ], [ %1984, %1991 ], [ %1984, %.cont2726 ], [ %2004, %1998 ], [ %2004, %.cont2730 ], [ %2004, %2066 ], [ %2004, %2065 ], [ %2004, %2057 ], [ %2004, %2052 ], [ %2004, %2047 ], [ %2004, %2039 ], [ %2004, %2033 ], [ %2004, %2027 ], [ %2004, %2020 ], [ %2004, %2015 ], [ %2069, %2068 ], [ %2069, %.cont2734 ], [ %2069, %2074 ], [ %2084, %2083 ], [ %2084, %.cont2738 ], [ %2084, %2098 ], [ %2084, %2094 ], [ %1572, %2100 ], [ %1572, %.cont2742 ], [ %1572, %2105 ], [ %1572, %2114 ], [ %1572, %.cont2746 ], [ %1572, %2128 ], [ %1572, %2124 ], [ %1572, %2130 ], [ %1572, %.cont2750 ], [ %1572, %2135 ], [ %1572, %2144 ], [ %1572, %2156 ], [ %1572, %2154 ], [ %1572, %2151 ], [ %1572, %.cont2754 ], [ %2186, %2185 ], [ %2186, %2205 ], [ %2186, %2203 ], [ %2186, %2200 ], [ %2186, %2195 ], [ %2186, %.cont2758 ], [ %2214, %2207 ], [ %2214, %2227 ], [ %2214, %2217 ], [ %2214, %2224 ], [ %2214, %.cont2762 ], [ %2233, %2229 ], [ %2233, %.cont2766 ], [ %2233, %2238 ], [ %2248, %2247 ], [ %2248, %.cont2770 ], [ %2248, %2262 ], [ %2248, %2258 ], [ %2267, %2264 ], [ %2267, %.cont2774 ], [ %2267, %2272 ], [ %2267, %2281 ], [ %2287, %2284 ], [ %2287, %.cont2778 ], [ %2287, %2292 ], [ %2304, %2301 ], [ %2304, %.cont2782 ], [ %2304, %2318 ], [ %2304, %2314 ], [ %2321, %2320 ], [ %2321, %2330 ], [ %2321, %2324 ], [ %2321, %.cont2786 ], [ %2333, %2332 ], [ %2333, %.cont2790 ], [ %2333, %2345 ], [ %2333, %2342 ], [ %2382, %2381 ], [ %2382, %.cont2794 ], [ %2382, %2394 ], [ %2382, %2391 ], [ %2397, %2396 ], [ %2397, %.cont2798 ], [ %2397, %2402 ], [ %2397, %2411 ], [ %2415, %2414 ], [ %2415, %.cont2802 ], [ %2415, %2420 ], [ %2430, %2429 ], [ %2430, %.cont2806 ], [ %2430, %2444 ], [ %2430, %2440 ], [ %2447, %2446 ], [ %2447, %.cont2810 ], [ %2447, %2452 ], [ %2447, %2461 ], [ %2465, %2464 ], [ %2465, %2474 ], [ %2465, %2468 ], [ %2465, %.cont2814 ], [ %2477, %2476 ], [ %2477, %2495 ], [ %2477, %2488 ], [ %2477, %2492 ], [ %2477, %2483 ], [ %2477, %.cont2818 ], [ %2498, %2497 ], [ %2498, %2510 ], [ %2498, %2501 ], [ %2498, %2507 ], [ %2498, %.cont2822 ], [ %2515, %2512 ], [ %2515, %2527 ], [ %2515, %2518 ], [ %2515, %2524 ], [ %2515, %.cont2826 ], [ %2532, %2529 ], [ %2532, %.cont2830 ], [ %2532, %2537 ], [ %2532, %2546 ], [ %2550, %2549 ], [ %2556, %2551 ], [ %.11, %2557 ], [ %2566, %2560 ]
   store i32 1, ptr %7, align 16
   store ptr %9, ptr %1096, align 8
   store i32 1, ptr %1097, align 16
@@ -6537,7 +6537,7 @@ proto_item_set_hidden.exit2581:                   ; preds = %2684, %2716, %2719
 dissect_ctrl_pdu_without_data.exit:               ; preds = %2760, %2757, %2618, %2614, %proto_item_set_generated.exit2575, %2766, %2769, %2724, %2750, %2738, %323, %516, %365, %327, %424, %386, %634, %579, %1037, %1066, %896, %1073, %1070
   %.02277 = phi i32 [ 5592405, %1073 ], [ 5592405, %1070 ], [ 5592405, %1066 ], [ 5592405, %1037 ], [ 5592405, %896 ], [ 5592405, %579 ], [ 5592405, %634 ], [ 5592405, %516 ], [ 5592405, %386 ], [ 5592405, %424 ], [ 5592405, %327 ], [ 5592405, %365 ], [ 5592405, %323 ], [ %2620, %2618 ], [ 5592405, %2614 ], [ 5592405, %proto_item_set_generated.exit2575 ], [ 5592405, %2750 ], [ 5592405, %2738 ], [ 5592405, %2724 ], [ 5592405, %2769 ], [ 5592405, %2766 ], [ 5592405, %2757 ], [ 5592405, %2760 ]
   %.12275 = phi i32 [ %spec.store.select, %1073 ], [ %spec.store.select, %1070 ], [ %spec.store.select, %1066 ], [ %spec.store.select, %1037 ], [ %spec.store.select, %896 ], [ %spec.store.select, %579 ], [ %spec.store.select, %634 ], [ %spec.store.select, %516 ], [ %spec.store.select, %386 ], [ %spec.store.select, %424 ], [ %spec.store.select, %327 ], [ %spec.store.select, %365 ], [ %spec.store.select, %323 ], [ 1, %2618 ], [ 0, %2614 ], [ %.02274, %proto_item_set_generated.exit2575 ], [ %.02274, %2750 ], [ %.02274, %2738 ], [ %.02274, %2724 ], [ %.02274, %2769 ], [ %.02274, %2766 ], [ %.02274, %2757 ], [ %.02274, %2760 ]
-  %.14 = phi i32 [ %1079, %1073 ], [ %257, %1070 ], [ %1069, %1066 ], [ %.10, %1037 ], [ %.9, %896 ], [ %629, %579 ], [ %629, %634 ], [ %519, %516 ], [ %394, %386 ], [ %394, %424 ], [ %335, %327 ], [ %335, %365 ], [ %326, %323 ], [ %.133016, %2618 ], [ %.133016, %2614 ], [ %.133016, %proto_item_set_generated.exit2575 ], [ %2756, %2750 ], [ %2749, %2738 ], [ %2729, %2724 ], [ %2775, %2769 ], [ %.0, %2766 ], [ %2734, %2757 ], [ %2765, %2760 ]
+  %.14 = phi i32 [ %1079, %1073 ], [ %257, %1070 ], [ %1069, %1066 ], [ %.10, %1037 ], [ %.9, %896 ], [ %629, %579 ], [ %629, %634 ], [ %519, %516 ], [ %394, %386 ], [ %394, %424 ], [ %335, %327 ], [ %335, %365 ], [ %326, %323 ], [ %.133015, %2618 ], [ %.133015, %2614 ], [ %.133015, %proto_item_set_generated.exit2575 ], [ %2756, %2750 ], [ %2749, %2738 ], [ %2729, %2724 ], [ %2775, %2769 ], [ %.0, %2766 ], [ %2734, %2757 ], [ %2765, %2760 ]
   %2776 = call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %.14) #9
   br label %2777
 
@@ -6569,10 +6569,10 @@ dissect_ctrl_pdu_without_data.exit:               ; preds = %2760, %2757, %2618,
 reverse_bits_per_byte.exit:                       ; preds = %2777
   %2797 = load i32, ptr @hf_crc, align 4
   %2798 = call ptr @proto_tree_add_uint(ptr noundef %69, i32 noundef %2797, ptr noundef %0, i32 noundef %.14, i32 noundef 3, i32 noundef %2795) #9
-  switch i32 %.12275, label %.thread3025 [
+  switch i32 %.12275, label %.thread3024 [
     i32 1, label %2799
-    i32 0, label %.thread3025.sink.split
-    i32 2, label %.thread3027
+    i32 0, label %.thread3024.sink.split
+    i32 2, label %.thread3026
   ]
 
 2799:                                             ; preds = %reverse_bits_per_byte.exit
@@ -6618,17 +6618,17 @@ reverse_bits_per_byte.exit:                       ; preds = %2777
 btle_crc.exit:                                    ; preds = %.lr.ph.i, %2799
   %.015.lcssa.i = phi i32 [ %.02277, %2799 ], [ %2827, %.lr.ph.i ]
   %2828 = icmp eq i32 %2795, %.015.lcssa.i
-  br i1 %2828, label %.thread3025, label %.thread3025.sink.split
+  br i1 %2828, label %.thread3024, label %.thread3026
 
-.thread3027:                                      ; preds = %reverse_bits_per_byte.exit
-  br label %.thread3025.sink.split
+.thread3026:                                      ; preds = %reverse_bits_per_byte.exit, %btle_crc.exit
+  br label %.thread3024.sink.split
 
-.thread3025.sink.split:                           ; preds = %btle_crc.exit, %reverse_bits_per_byte.exit, %.thread3027
-  %ei_crc_incorrect.sink = phi ptr [ @ei_crc_cannot_be_determined, %reverse_bits_per_byte.exit ], [ @ei_crc_incorrect, %btle_crc.exit ], [ @ei_crc_incorrect, %.thread3027 ]
+.thread3024.sink.split:                           ; preds = %reverse_bits_per_byte.exit, %.thread3026
+  %ei_crc_incorrect.sink = phi ptr [ @ei_crc_incorrect, %.thread3026 ], [ @ei_crc_cannot_be_determined, %reverse_bits_per_byte.exit ]
   %2829 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %2798, ptr noundef nonnull %ei_crc_incorrect.sink) #9
-  br label %.thread3025
+  br label %.thread3024
 
-.thread3025:                                      ; preds = %.thread3025.sink.split, %reverse_bits_per_byte.exit, %btle_crc.exit
+.thread3024:                                      ; preds = %.thread3024.sink.split, %reverse_bits_per_byte.exit, %btle_crc.exit
   %2830 = add i32 %.14, 3
   ret i32 %2830
 }
@@ -6948,31 +6948,35 @@ define internal fastcc i32 @control_proc_can_add_frame(ptr nocapture noundef rea
   %20 = zext nneg i32 %3 to i64
   %21 = getelementptr [5 x i32], ptr %1, i64 0, i64 %20
   %22 = load i32, ptr %21, align 4
-  br i1 %.not16.i, label %control_proc_can_add_frame_even_if_complete.exit, label %23
+  br i1 %.not16.i, label %23, label %24
 
 23:                                               ; preds = %14
-  %24 = getelementptr inbounds i8, ptr %0, i64 20
-  %25 = load i32, ptr %24, align 4
+  %.not17.i = icmp eq i32 %22, 0
+  br i1 %.not17.i, label %.control_proc_can_add_frame_even_if_complete.exit_crit_edge, label %control_proc_can_add_frame_even_if_complete.exit.thread
+
+.control_proc_can_add_frame_even_if_complete.exit_crit_edge: ; preds = %23
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 20
+  %.pre = load i32, ptr %.phi.trans.insert, align 4
   br label %control_proc_can_add_frame_even_if_complete.exit
 
-control_proc_can_add_frame_even_if_complete.exit: ; preds = %14, %23
-  %.pn = phi i32 [ %25, %23 ], [ 0, %14 ]
-  %.0.shrunk.i.not = icmp eq i32 %22, %.pn
-  br i1 %.0.shrunk.i.not, label %26, label %control_proc_can_add_frame_even_if_complete.exit.thread
+24:                                               ; preds = %14
+  %25 = getelementptr inbounds i8, ptr %0, i64 20
+  %26 = load i32, ptr %25, align 4
+  %.not19.i = icmp eq i32 %22, %26
+  br i1 %.not19.i, label %control_proc_can_add_frame_even_if_complete.exit, label %control_proc_can_add_frame_even_if_complete.exit.thread
 
-26:                                               ; preds = %control_proc_can_add_frame_even_if_complete.exit
-  %27 = getelementptr inbounds i8, ptr %0, i64 20
-  %28 = load i32, ptr %27, align 4
-  %29 = getelementptr i8, ptr %1, i64 24
-  %.val = load i32, ptr %29, align 4
+control_proc_can_add_frame_even_if_complete.exit: ; preds = %.control_proc_can_add_frame_even_if_complete.exit_crit_edge, %24
+  %27 = phi i32 [ %.pre, %.control_proc_can_add_frame_even_if_complete.exit_crit_edge ], [ %22, %24 ]
+  %28 = getelementptr i8, ptr %1, i64 24
+  %.val = load i32, ptr %28, align 4
   %.not.i7 = icmp eq i32 %.val, 0
-  %30 = icmp uge i32 %.val, %28
-  %or.cond.i.not = or i1 %.not.i7, %30
+  %29 = icmp uge i32 %.val, %27
+  %or.cond.i.not = or i1 %.not.i7, %29
   %. = zext i1 %or.cond.i.not to i32
   br label %control_proc_can_add_frame_even_if_complete.exit.thread
 
-control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %8, %5, %4, %26, %control_proc_can_add_frame_even_if_complete.exit
-  %.0 = phi i32 [ 0, %control_proc_can_add_frame_even_if_complete.exit ], [ %., %26 ], [ 0, %4 ], [ 0, %5 ], [ 0, %8 ]
+control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %24, %23, %8, %5, %4, %control_proc_can_add_frame_even_if_complete.exit
+  %.0 = phi i32 [ %., %control_proc_can_add_frame_even_if_complete.exit ], [ 0, %4 ], [ 0, %5 ], [ 0, %8 ], [ 0, %23 ], [ 0, %24 ]
   ret i32 %.0
 }
 
@@ -7084,106 +7088,106 @@ define internal fastcc ptr @control_proc_start(ptr noundef %0, ptr noundef %1, p
 
 control_proc_contains_instant.exit.i:             ; preds = %13, %13, %13, %13
   switch i8 %6, label %control_proc_invalid_collision.exit.thread [
-    i8 0, label %control_proc_contains_instant.exit16.i
-    i8 1, label %control_proc_contains_instant.exit16.i
-    i8 15, label %control_proc_contains_instant.exit16.i
-    i8 22, label %control_proc_contains_instant.exit16.i
+    i8 0, label %control_proc_invalid_collision.exit
+    i8 1, label %control_proc_invalid_collision.exit
+    i8 15, label %control_proc_invalid_collision.exit
+    i8 22, label %control_proc_invalid_collision.exit
   ]
 
-control_proc_contains_instant.exit16.i:           ; preds = %control_proc_contains_instant.exit.i, %control_proc_contains_instant.exit.i, %control_proc_contains_instant.exit.i, %control_proc_contains_instant.exit.i
+control_proc_invalid_collision.exit:              ; preds = %control_proc_contains_instant.exit.i, %control_proc_contains_instant.exit.i, %control_proc_contains_instant.exit.i, %control_proc_contains_instant.exit.i
   %16 = getelementptr i8, ptr %5, i64 4
   %17 = load i32, ptr %16, align 4
-  %.not13.i = icmp ne i32 %17, 0
-  %.not = icmp ult i32 %17, %10
-  %or.cond = and i1 %.not13.i, %.not
-  br i1 %or.cond, label %18, label %control_proc_invalid_collision.exit.thread
+  %.not13.i = icmp eq i32 %17, 0
+  %18 = icmp uge i32 %17, %10
+  %or.cond.i.not = or i1 %.not13.i, %18
+  br i1 %or.cond.i.not, label %control_proc_invalid_collision.exit.thread, label %19
 
-18:                                               ; preds = %control_proc_contains_instant.exit16.i
-  %19 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %3, ptr noundef nonnull @ei_control_proc_invalid_collision) #9
+19:                                               ; preds = %control_proc_invalid_collision.exit
+  %20 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %3, ptr noundef nonnull @ei_control_proc_invalid_collision) #9
   br label %control_proc_invalid_collision.exit.thread
 
-control_proc_invalid_collision.exit.thread:       ; preds = %control_proc_contains_instant.exit.i, %13, %control_proc_contains_instant.exit16.i, %8, %7, %18
-  %20 = getelementptr inbounds i8, ptr %1, i64 80
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 50
-  %23 = load i16, ptr %22, align 2
-  %24 = and i16 %23, 8
-  %.not41 = icmp eq i16 %24, 0
-  %25 = getelementptr inbounds i8, ptr %1, i64 20
-  %26 = load i32, ptr %25, align 4
-  br i1 %.not41, label %27, label %39
+control_proc_invalid_collision.exit.thread:       ; preds = %control_proc_contains_instant.exit.i, %13, %8, %7, %19, %control_proc_invalid_collision.exit
+  %21 = getelementptr inbounds i8, ptr %1, i64 80
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds i8, ptr %22, i64 50
+  %24 = load i16, ptr %23, align 2
+  %25 = and i16 %24, 8
+  %.not41 = icmp eq i16 %25, 0
+  %26 = getelementptr inbounds i8, ptr %1, i64 20
+  %27 = load i32, ptr %26, align 4
+  br i1 %.not41, label %28, label %40
 
-27:                                               ; preds = %control_proc_invalid_collision.exit.thread
-  %28 = tail call ptr @wmem_tree_lookup32_le(ptr noundef %4, i32 noundef %26) #9
-  %.not42 = icmp eq ptr %28, null
-  br i1 %.not42, label %33, label %29
+28:                                               ; preds = %control_proc_invalid_collision.exit.thread
+  %29 = tail call ptr @wmem_tree_lookup32_le(ptr noundef %4, i32 noundef %27) #9
+  %.not42 = icmp eq ptr %29, null
+  br i1 %.not42, label %34, label %30
 
-29:                                               ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %28, i64 24
-  %31 = load i32, ptr %30, align 4
-  %32 = icmp eq i32 %31, 0
-  br i1 %32, label %.loopexit, label %33
+30:                                               ; preds = %28
+  %31 = getelementptr inbounds i8, ptr %29, i64 24
+  %32 = load i32, ptr %31, align 4
+  %33 = icmp eq i32 %32, 0
+  br i1 %33, label %.loopexit, label %34
 
-33:                                               ; preds = %29, %27
-  %34 = tail call ptr @wmem_file_scope() #9
-  %35 = tail call noalias ptr @wmem_alloc0(ptr noundef %34, i64 noundef 36) #9
-  %36 = getelementptr inbounds i8, ptr %35, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %36, i8 0, i64 32, i1 false)
-  %37 = load i32, ptr %25, align 4
-  store i32 %37, ptr %35, align 4
-  %38 = getelementptr inbounds i8, ptr %35, i64 20
-  store i8 %6, ptr %38, align 4
-  tail call void @wmem_tree_insert32(ptr noundef %4, i32 noundef %37, ptr noundef nonnull %35) #9
+34:                                               ; preds = %30, %28
+  %35 = tail call ptr @wmem_file_scope() #9
+  %36 = tail call noalias ptr @wmem_alloc0(ptr noundef %35, i64 noundef 36) #9
+  %37 = getelementptr inbounds i8, ptr %36, i64 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %37, i8 0, i64 32, i1 false)
+  %38 = load i32, ptr %26, align 4
+  store i32 %38, ptr %36, align 4
+  %39 = getelementptr inbounds i8, ptr %36, i64 20
+  store i8 %6, ptr %39, align 4
+  tail call void @wmem_tree_insert32(ptr noundef %4, i32 noundef %38, ptr noundef nonnull %36) #9
   br label %.loopexit
 
-39:                                               ; preds = %control_proc_invalid_collision.exit.thread
-  %40 = tail call ptr @wmem_tree_lookup32(ptr noundef %4, i32 noundef %26) #9
-  %.not43 = icmp eq ptr %40, null
-  br i1 %.not43, label %57, label %41
+40:                                               ; preds = %control_proc_invalid_collision.exit.thread
+  %41 = tail call ptr @wmem_tree_lookup32(ptr noundef %4, i32 noundef %27) #9
+  %.not43 = icmp eq ptr %41, null
+  br i1 %.not43, label %58, label %42
 
-41:                                               ; preds = %39
-  %42 = getelementptr inbounds i8, ptr %40, i64 20
-  %43 = load i8, ptr %42, align 4
-  %44 = icmp eq i8 %43, %6
-  br i1 %44, label %.preheader, label %57
+42:                                               ; preds = %40
+  %43 = getelementptr inbounds i8, ptr %41, i64 20
+  %44 = load i8, ptr %43, align 4
+  %45 = icmp eq i8 %44, %6
+  br i1 %45, label %.preheader, label %58
 
-.preheader:                                       ; preds = %41, %proto_item_set_generated.exit
-  %indvars.iv = phi i64 [ %indvars.iv.next, %proto_item_set_generated.exit ], [ 1, %41 ]
-  %45 = getelementptr [5 x i32], ptr %40, i64 0, i64 %indvars.iv
-  %46 = load i32, ptr %45, align 4
-  %.not44 = icmp eq i32 %46, 0
-  br i1 %.not44, label %proto_item_set_generated.exit, label %47
+.preheader:                                       ; preds = %42, %proto_item_set_generated.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %proto_item_set_generated.exit ], [ 1, %42 ]
+  %46 = getelementptr [5 x i32], ptr %41, i64 0, i64 %indvars.iv
+  %47 = load i32, ptr %46, align 4
+  %.not44 = icmp eq i32 %47, 0
+  br i1 %.not44, label %proto_item_set_generated.exit, label %48
 
-47:                                               ; preds = %.preheader
-  %48 = load i32, ptr @hf_response_in_frame, align 4
-  %49 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %48, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %46) #9
-  %.not.i45 = icmp eq ptr %49, null
-  br i1 %.not.i45, label %proto_item_set_generated.exit, label %50
+48:                                               ; preds = %.preheader
+  %49 = load i32, ptr @hf_response_in_frame, align 4
+  %50 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %49, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %47) #9
+  %.not.i45 = icmp eq ptr %50, null
+  br i1 %.not.i45, label %proto_item_set_generated.exit, label %51
 
-50:                                               ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %49, i64 32
-  %52 = load ptr, ptr %51, align 8
-  %.not5.i = icmp eq ptr %52, null
-  br i1 %.not5.i, label %proto_item_set_generated.exit, label %53
+51:                                               ; preds = %48
+  %52 = getelementptr inbounds i8, ptr %50, i64 32
+  %53 = load ptr, ptr %52, align 8
+  %.not5.i = icmp eq ptr %53, null
+  br i1 %.not5.i, label %proto_item_set_generated.exit, label %54
 
-53:                                               ; preds = %50
-  %54 = getelementptr inbounds i8, ptr %52, i64 28
-  %55 = load i32, ptr %54, align 4
-  %56 = or i32 %55, 2
-  store i32 %56, ptr %54, align 4
+54:                                               ; preds = %51
+  %55 = getelementptr inbounds i8, ptr %53, i64 28
+  %56 = load i32, ptr %55, align 4
+  %57 = or i32 %56, 2
+  store i32 %57, ptr %55, align 4
   br label %proto_item_set_generated.exit
 
-proto_item_set_generated.exit:                    ; preds = %53, %50, %47, %.preheader
+proto_item_set_generated.exit:                    ; preds = %54, %51, %48, %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !15
 
-57:                                               ; preds = %41, %39
-  %58 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %3, ptr noundef nonnull @ei_control_proc_overlapping) #9
+58:                                               ; preds = %42, %40
+  %59 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %3, ptr noundef nonnull @ei_control_proc_overlapping) #9
   br label %.loopexit
 
-.loopexit:                                        ; preds = %proto_item_set_generated.exit, %33, %29, %57
-  %.035 = phi ptr [ null, %57 ], [ null, %29 ], [ %35, %33 ], [ %40, %proto_item_set_generated.exit ]
+.loopexit:                                        ; preds = %proto_item_set_generated.exit, %34, %30, %58
+  %.035 = phi ptr [ null, %58 ], [ null, %30 ], [ %36, %34 ], [ %41, %proto_item_set_generated.exit ]
   ret ptr %.035
 }
 

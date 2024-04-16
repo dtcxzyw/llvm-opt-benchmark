@@ -1694,37 +1694,36 @@ intel_hda_update_int_sts.exit:                    ; preds = %for.body.i
   %spec.select16.i = select i1 %tobool18.not.i, i32 %sts.4.i, i32 %or20.i
   %int_sts.i = getelementptr inbounds i8, ptr %d, i64 2776
   store i32 %spec.select16.i, ptr %int_sts.i, align 8
-  %tobool.not = icmp slt i32 %spec.select16.i, 0
-  %tobool2.not = icmp slt i32 %6, 0
-  %tobool10.not.not = select i1 %tobool.not, i1 %tobool2.not, i1 false
-  %level.0 = zext i1 %tobool10.not.not to i32
+  %7 = and i32 %spec.select16.i, %6
+  %or.cond = icmp slt i32 %7, 0
+  %.lobit = lshr i32 %7, 31
   %debug = getelementptr inbounds i8, ptr %d, i64 4168
-  %7 = load i32, ptr %debug, align 8
-  %cmp = icmp ugt i32 %7, 1
+  %8 = load i32, ptr %debug, align 8
+  %cmp = icmp ugt i32 %8, 1
   br i1 %cmp, label %if.then3, label %do.end
 
 if.then3:                                         ; preds = %intel_hda_update_int_sts.exit
-  %8 = load ptr, ptr @stderr, align 8
+  %9 = load ptr, ptr @stderr, align 8
   %name = getelementptr inbounds i8, ptr %d, i64 2608
-  %9 = load ptr, ptr %name, align 16
-  %call4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.19, ptr noundef %9) #12
-  %10 = load ptr, ptr @stderr, align 8
+  %10 = load ptr, ptr %name, align 16
+  %call4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.19, ptr noundef %10) #12
+  %11 = load ptr, ptr @stderr, align 8
   %cond = select i1 %call, ptr @.str.132, ptr @.str.133
-  %call6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.131, ptr noundef nonnull @__func__.intel_hda_update_irq, i32 noundef %level.0, ptr noundef nonnull %cond) #12
+  %call6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.131, ptr noundef nonnull @__func__.intel_hda_update_irq, i32 noundef %.lobit, ptr noundef nonnull %cond) #12
   br label %do.end
 
 do.end:                                           ; preds = %intel_hda_update_int_sts.exit, %if.then3
   br i1 %call, label %if.then9, label %if.else14
 
 if.then9:                                         ; preds = %do.end
-  br i1 %tobool10.not.not, label %if.then11, label %if.end16
+  br i1 %or.cond, label %if.then11, label %if.end16
 
 if.then11:                                        ; preds = %if.then9
   tail call void @msi_notify(ptr noundef nonnull %d, i32 noundef 0) #10
   br label %if.end16
 
 if.else14:                                        ; preds = %do.end
-  tail call void @pci_set_irq(ptr noundef nonnull %d, i32 noundef %level.0) #10
+  tail call void @pci_set_irq(ptr noundef nonnull %d, i32 noundef %.lobit) #10
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then9, %if.then11, %if.else14

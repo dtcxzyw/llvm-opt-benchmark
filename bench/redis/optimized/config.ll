@@ -5408,16 +5408,18 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   %4 = load i32, ptr %convert_empty_to_null, align 8
   %tobool7.not = icmp eq i32 %4, 0
   %.pre = load ptr, ptr %argv, align 8
-  br i1 %tobool7.not, label %cond.end, label %land.lhs.true8
+  br i1 %tobool7.not, label %cond.false, label %land.lhs.true8
 
 land.lhs.true8:                                   ; preds = %if.end
   %5 = load i8, ptr %.pre, align 1
   %tobool11.not = icmp eq i8 %5, 0
-  %spec.select = select i1 %tobool11.not, ptr null, ptr %.pre
+  br i1 %tobool11.not, label %cond.end, label %cond.false
+
+cond.false:                                       ; preds = %land.lhs.true8, %if.end
   br label %cond.end
 
-cond.end:                                         ; preds = %land.lhs.true8, %if.end
-  %cond = phi ptr [ %.pre, %if.end ], [ %spec.select, %land.lhs.true8 ]
+cond.end:                                         ; preds = %land.lhs.true8, %cond.false
+  %cond = phi ptr [ %.pre, %cond.false ], [ null, %land.lhs.true8 ]
   %cmp.not = icmp eq ptr %cond, %3
   br i1 %cmp.not, label %if.end28, label %land.lhs.true13
 
@@ -5767,7 +5769,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   %7 = load i32, ptr %convert_empty_to_null, align 8
   %tobool9.not = icmp eq i32 %7, 0
   %.pre = load ptr, ptr %argv, align 8
-  br i1 %tobool9.not, label %cond.end17, label %land.lhs.true10
+  br i1 %tobool9.not, label %cond.false15, label %land.lhs.true10
 
 land.lhs.true10:                                  ; preds = %cond.end
   %arrayidx.i = getelementptr inbounds i8, ptr %.pre, i64 -1
@@ -5813,11 +5815,13 @@ sw.bb13.i:                                        ; preds = %land.lhs.true10
 sdslen.exit:                                      ; preds = %sw.bb.i, %sw.bb3.i, %sw.bb5.i, %sw.bb9.i, %sw.bb13.i
   %retval.0.i = phi i64 [ %12, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ]
   %cmp = icmp eq i64 %retval.0.i, 0
-  %spec.select = select i1 %cmp, ptr null, ptr %.pre
+  br i1 %cmp, label %cond.end17, label %cond.false15
+
+cond.false15:                                     ; preds = %sdslen.exit, %cond.end
   br label %cond.end17
 
-cond.end17:                                       ; preds = %sdslen.exit, %cond.end, %land.lhs.true10
-  %cond18 = phi ptr [ null, %land.lhs.true10 ], [ %.pre, %cond.end ], [ %spec.select, %sdslen.exit ]
+cond.end17:                                       ; preds = %land.lhs.true10, %sdslen.exit, %cond.false15
+  %cond18 = phi ptr [ %.pre, %cond.false15 ], [ null, %sdslen.exit ], [ null, %land.lhs.true10 ]
   %cmp19.not = icmp eq ptr %cond18, %cond
   br i1 %cmp19.not, label %if.end47, label %land.lhs.true21
 
@@ -8028,7 +8032,7 @@ land.lhs.true:                                    ; preds = %if.end
   %1 = load i8, ptr %arrayidx.i, align 1
   %conv.i = zext i8 %1 to i32
   %and.i = and i32 %conv.i, 7
-  switch i32 %and.i, label %if.end4 [
+  switch i32 %and.i, label %sdslen.exit.thread [
     i32 0, label %sw.bb.i
     i32 1, label %sw.bb3.i
     i32 2, label %sw.bb5.i
@@ -8067,12 +8071,14 @@ sw.bb13.i:                                        ; preds = %land.lhs.true
 sdslen.exit:                                      ; preds = %sw.bb.i, %sw.bb3.i, %sw.bb5.i, %sw.bb9.i, %sw.bb13.i
   %retval.0.i = phi i64 [ %5, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ]
   %retval.0.i.fr = freeze i64 %retval.0.i
-  %cmp2 = icmp ne i64 %retval.0.i.fr, 0
-  %spec.select = zext i1 %cmp2 to i32
+  %cmp2 = icmp eq i64 %retval.0.i.fr, 0
+  br i1 %cmp2, label %sdslen.exit.thread, label %if.end4
+
+sdslen.exit.thread:                               ; preds = %land.lhs.true, %sdslen.exit
   br label %if.end4
 
-if.end4:                                          ; preds = %sdslen.exit, %land.lhs.true, %if.end
-  %argc.addr.0 = phi i32 [ %argc, %if.end ], [ 0, %land.lhs.true ], [ %spec.select, %sdslen.exit ]
+if.end4:                                          ; preds = %sdslen.exit.thread, %sdslen.exit, %if.end
+  %argc.addr.0 = phi i32 [ %argc, %if.end ], [ 0, %sdslen.exit.thread ], [ 1, %sdslen.exit ]
   %6 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 48), align 8
   %cmp514 = icmp sgt i32 %6, 0
   br i1 %cmp514, label %for.body, label %for.cond7.preheader

@@ -990,31 +990,36 @@ if.end.i15.i:                                     ; preds = %_ZN6vectorIiLb0EjE4
   %idx.addr.036.i.i = phi i32 [ %cond.i.i, %if.end16.i.i ], [ 1, %_ZN6vectorIiLb0EjE4backEv.exit.i ]
   %add.i.i.i = or disjoint i32 %shl.i37.i.i, 1
   %cmp6.i.i = icmp slt i32 %add.i.i.i, %46
-  %.pre.i.i = load ptr, ptr %m_inf_heap.i.i, align 8
-  br i1 %cmp6.i.i, label %land.lhs.true.i.i27, label %cond.end.i.i
+  %.pre.pre.i.i = load ptr, ptr %m_inf_heap.i.i, align 8
+  br i1 %cmp6.i.i, label %land.lhs.true.i.i27, label %if.end.cond.false_crit_edge.i.i
+
+if.end.cond.false_crit_edge.i.i:                  ; preds = %if.end.i15.i
+  %.pre39.phi.trans.insert.i.i = zext i32 %shl.i37.i.i to i64
+  %arrayidx.i24.phi.trans.insert.phi.trans.insert.i.i = getelementptr inbounds i32, ptr %.pre.pre.i.i, i64 %.pre39.phi.trans.insert.i.i
+  %.pre40.pre.i.i = load i32, ptr %arrayidx.i24.phi.trans.insert.phi.trans.insert.i.i, align 4
+  br label %cond.end.i.i
 
 land.lhs.true.i.i27:                              ; preds = %if.end.i15.i
   %idxprom.i19.i.i = zext i32 %add.i.i.i to i64
-  %arrayidx.i20.i.i = getelementptr inbounds i32, ptr %.pre.i.i, i64 %idxprom.i19.i.i
+  %arrayidx.i20.i.i = getelementptr inbounds i32, ptr %.pre.pre.i.i, i64 %idxprom.i19.i.i
   %47 = load i32, ptr %arrayidx.i20.i.i, align 4
   %idxprom.i21.i.i = zext i32 %shl.i37.i.i to i64
-  %arrayidx.i22.i.i = getelementptr inbounds i32, ptr %.pre.i.i, i64 %idxprom.i21.i.i
+  %arrayidx.i22.i.i = getelementptr inbounds i32, ptr %.pre.pre.i.i, i64 %idxprom.i21.i.i
   %48 = load i32, ptr %arrayidx.i22.i.i, align 4
   %cmp.i.i.i.i = icmp ult i32 %47, %48
-  %spec.select.i.i = select i1 %cmp.i.i.i.i, i32 %add.i.i.i, i32 %shl.i37.i.i
+  %spec.select.i.i = call i32 @llvm.umin.i32(i32 %47, i32 %48)
+  %spec.select47.i.i = select i1 %cmp.i.i.i.i, i32 %add.i.i.i, i32 %shl.i37.i.i
   br label %cond.end.i.i
 
-cond.end.i.i:                                     ; preds = %land.lhs.true.i.i27, %if.end.i15.i
-  %cond.i.i = phi i32 [ %shl.i37.i.i, %if.end.i15.i ], [ %spec.select.i.i, %land.lhs.true.i.i27 ]
-  %idxprom.i23.i.i = zext i32 %cond.i.i to i64
-  %arrayidx.i24.i.i = getelementptr inbounds i32, ptr %.pre.i.i, i64 %idxprom.i23.i.i
-  %49 = load i32, ptr %arrayidx.i24.i.i, align 4
+cond.end.i.i:                                     ; preds = %land.lhs.true.i.i27, %if.end.cond.false_crit_edge.i.i
+  %49 = phi i32 [ %.pre40.pre.i.i, %if.end.cond.false_crit_edge.i.i ], [ %spec.select.i.i, %land.lhs.true.i.i27 ]
+  %cond.i.i = phi i32 [ %shl.i37.i.i, %if.end.cond.false_crit_edge.i.i ], [ %spec.select47.i.i, %land.lhs.true.i.i27 ]
   %cmp.i.i25.i.i = icmp ult i32 %49, %45
-  %idxprom.i26.i.i = zext i32 %idx.addr.036.i.i to i64
-  br i1 %cmp.i.i25.i.i, label %if.end16.i.i, label %_ZN4heapIN2lp8lpvar_ltEE9move_downEi.exit.i
+  br i1 %cmp.i.i25.i.i, label %if.end16.i.i, label %while.end.loopexit.i.i
 
 if.end16.i.i:                                     ; preds = %cond.end.i.i
-  %arrayidx.i27.i.i = getelementptr inbounds i32, ptr %.pre.i.i, i64 %idxprom.i26.i.i
+  %idxprom.i26.i.i = zext i32 %idx.addr.036.i.i to i64
+  %arrayidx.i27.i.i = getelementptr inbounds i32, ptr %.pre.pre.i.i, i64 %idxprom.i26.i.i
   store i32 %49, ptr %arrayidx.i27.i.i, align 4
   %50 = load ptr, ptr %m_value2indices10.i, align 8
   %idxprom.i28.i.i = zext i32 %49 to i64
@@ -1025,13 +1030,19 @@ if.end16.i.i:                                     ; preds = %cond.end.i.i
   br i1 %cmp.not.i.i, label %if.end.i15.i, label %if.end16.while.end.loopexit_crit_edge.i.i, !llvm.loop !7
 
 if.end16.while.end.loopexit_crit_edge.i.i:        ; preds = %if.end16.i.i
-  %.pre39.pre.i.i = load ptr, ptr %m_inf_heap.i.i, align 8
+  %.pre41.pre.i.i = load ptr, ptr %m_inf_heap.i.i, align 8
+  br label %while.end.loopexit.i.i
+
+while.end.loopexit.i.i:                           ; preds = %cond.end.i.i, %if.end16.while.end.loopexit_crit_edge.i.i
+  %.pre41.i.i = phi ptr [ %.pre41.pre.i.i, %if.end16.while.end.loopexit_crit_edge.i.i ], [ %.pre.pre.i.i, %cond.end.i.i ]
+  %idx.addr.0.lcssa.ph.i.i = phi i32 [ %cond.i.i, %if.end16.while.end.loopexit_crit_edge.i.i ], [ %idx.addr.036.i.i, %cond.end.i.i ]
+  %.pre.i.i = zext i32 %idx.addr.0.lcssa.ph.i.i to i64
   br label %_ZN4heapIN2lp8lpvar_ltEE9move_downEi.exit.i
 
-_ZN4heapIN2lp8lpvar_ltEE9move_downEi.exit.i:      ; preds = %cond.end.i.i, %if.end16.while.end.loopexit_crit_edge.i.i, %_ZN6vectorIiLb0EjE4backEv.exit.i
-  %idxprom.i30.pre-phi.i.i = phi i64 [ 1, %_ZN6vectorIiLb0EjE4backEv.exit.i ], [ %idxprom.i23.i.i, %if.end16.while.end.loopexit_crit_edge.i.i ], [ %idxprom.i26.i.i, %cond.end.i.i ]
-  %51 = phi ptr [ %44, %_ZN6vectorIiLb0EjE4backEv.exit.i ], [ %.pre39.pre.i.i, %if.end16.while.end.loopexit_crit_edge.i.i ], [ %.pre.i.i, %cond.end.i.i ]
-  %idx.addr.0.lcssa.i.i = phi i32 [ 1, %_ZN6vectorIiLb0EjE4backEv.exit.i ], [ %cond.i.i, %if.end16.while.end.loopexit_crit_edge.i.i ], [ %idx.addr.036.i.i, %cond.end.i.i ]
+_ZN4heapIN2lp8lpvar_ltEE9move_downEi.exit.i:      ; preds = %while.end.loopexit.i.i, %_ZN6vectorIiLb0EjE4backEv.exit.i
+  %idxprom.i30.pre-phi.i.i = phi i64 [ %.pre.i.i, %while.end.loopexit.i.i ], [ 1, %_ZN6vectorIiLb0EjE4backEv.exit.i ]
+  %51 = phi ptr [ %.pre41.i.i, %while.end.loopexit.i.i ], [ %44, %_ZN6vectorIiLb0EjE4backEv.exit.i ]
+  %idx.addr.0.lcssa.i.i = phi i32 [ %idx.addr.0.lcssa.ph.i.i, %while.end.loopexit.i.i ], [ 1, %_ZN6vectorIiLb0EjE4backEv.exit.i ]
   %arrayidx.i31.i.i = getelementptr inbounds i32, ptr %51, i64 %idxprom.i30.pre-phi.i.i
   store i32 %45, ptr %arrayidx.i31.i.i, align 4
   %52 = load ptr, ptr %m_value2indices10.i, align 8
@@ -1412,31 +1423,36 @@ if.end.i15.i:                                     ; preds = %_ZN6vectorIiLb0EjE4
   %idx.addr.036.i.i = phi i32 [ %cond.i.i, %if.end16.i.i ], [ 1, %_ZN6vectorIiLb0EjE4backEv.exit.i ]
   %add.i.i.i = or disjoint i32 %shl.i37.i.i, 1
   %cmp6.i.i = icmp slt i32 %add.i.i.i, %55
-  %.pre.i.i = load ptr, ptr %m_inf_heap.i.i, align 8
-  br i1 %cmp6.i.i, label %land.lhs.true.i.i28, label %cond.end.i.i
+  %.pre.pre.i.i = load ptr, ptr %m_inf_heap.i.i, align 8
+  br i1 %cmp6.i.i, label %land.lhs.true.i.i28, label %if.end.cond.false_crit_edge.i.i
+
+if.end.cond.false_crit_edge.i.i:                  ; preds = %if.end.i15.i
+  %.pre39.phi.trans.insert.i.i = zext i32 %shl.i37.i.i to i64
+  %arrayidx.i24.phi.trans.insert.phi.trans.insert.i.i = getelementptr inbounds i32, ptr %.pre.pre.i.i, i64 %.pre39.phi.trans.insert.i.i
+  %.pre40.pre.i.i = load i32, ptr %arrayidx.i24.phi.trans.insert.phi.trans.insert.i.i, align 4
+  br label %cond.end.i.i
 
 land.lhs.true.i.i28:                              ; preds = %if.end.i15.i
   %idxprom.i19.i.i = zext i32 %add.i.i.i to i64
-  %arrayidx.i20.i.i = getelementptr inbounds i32, ptr %.pre.i.i, i64 %idxprom.i19.i.i
+  %arrayidx.i20.i.i = getelementptr inbounds i32, ptr %.pre.pre.i.i, i64 %idxprom.i19.i.i
   %56 = load i32, ptr %arrayidx.i20.i.i, align 4
   %idxprom.i21.i.i = zext i32 %shl.i37.i.i to i64
-  %arrayidx.i22.i.i = getelementptr inbounds i32, ptr %.pre.i.i, i64 %idxprom.i21.i.i
+  %arrayidx.i22.i.i = getelementptr inbounds i32, ptr %.pre.pre.i.i, i64 %idxprom.i21.i.i
   %57 = load i32, ptr %arrayidx.i22.i.i, align 4
   %cmp.i.i.i.i = icmp ult i32 %56, %57
-  %spec.select.i.i = select i1 %cmp.i.i.i.i, i32 %add.i.i.i, i32 %shl.i37.i.i
+  %spec.select.i.i = call i32 @llvm.umin.i32(i32 %56, i32 %57)
+  %spec.select47.i.i = select i1 %cmp.i.i.i.i, i32 %add.i.i.i, i32 %shl.i37.i.i
   br label %cond.end.i.i
 
-cond.end.i.i:                                     ; preds = %land.lhs.true.i.i28, %if.end.i15.i
-  %cond.i.i = phi i32 [ %shl.i37.i.i, %if.end.i15.i ], [ %spec.select.i.i, %land.lhs.true.i.i28 ]
-  %idxprom.i23.i.i = zext i32 %cond.i.i to i64
-  %arrayidx.i24.i.i = getelementptr inbounds i32, ptr %.pre.i.i, i64 %idxprom.i23.i.i
-  %58 = load i32, ptr %arrayidx.i24.i.i, align 4
+cond.end.i.i:                                     ; preds = %land.lhs.true.i.i28, %if.end.cond.false_crit_edge.i.i
+  %58 = phi i32 [ %.pre40.pre.i.i, %if.end.cond.false_crit_edge.i.i ], [ %spec.select.i.i, %land.lhs.true.i.i28 ]
+  %cond.i.i = phi i32 [ %shl.i37.i.i, %if.end.cond.false_crit_edge.i.i ], [ %spec.select47.i.i, %land.lhs.true.i.i28 ]
   %cmp.i.i25.i.i = icmp ult i32 %58, %54
-  %idxprom.i26.i.i = zext i32 %idx.addr.036.i.i to i64
-  br i1 %cmp.i.i25.i.i, label %if.end16.i.i, label %_ZN4heapIN2lp8lpvar_ltEE9move_downEi.exit.i
+  br i1 %cmp.i.i25.i.i, label %if.end16.i.i, label %while.end.loopexit.i.i
 
 if.end16.i.i:                                     ; preds = %cond.end.i.i
-  %arrayidx.i27.i.i = getelementptr inbounds i32, ptr %.pre.i.i, i64 %idxprom.i26.i.i
+  %idxprom.i26.i.i = zext i32 %idx.addr.036.i.i to i64
+  %arrayidx.i27.i.i = getelementptr inbounds i32, ptr %.pre.pre.i.i, i64 %idxprom.i26.i.i
   store i32 %58, ptr %arrayidx.i27.i.i, align 4
   %59 = load ptr, ptr %m_value2indices10.i, align 8
   %idxprom.i28.i.i = zext i32 %58 to i64
@@ -1447,13 +1463,19 @@ if.end16.i.i:                                     ; preds = %cond.end.i.i
   br i1 %cmp.not.i.i, label %if.end.i15.i, label %if.end16.while.end.loopexit_crit_edge.i.i, !llvm.loop !7
 
 if.end16.while.end.loopexit_crit_edge.i.i:        ; preds = %if.end16.i.i
-  %.pre39.pre.i.i = load ptr, ptr %m_inf_heap.i.i, align 8
+  %.pre41.pre.i.i = load ptr, ptr %m_inf_heap.i.i, align 8
+  br label %while.end.loopexit.i.i
+
+while.end.loopexit.i.i:                           ; preds = %cond.end.i.i, %if.end16.while.end.loopexit_crit_edge.i.i
+  %.pre41.i.i = phi ptr [ %.pre41.pre.i.i, %if.end16.while.end.loopexit_crit_edge.i.i ], [ %.pre.pre.i.i, %cond.end.i.i ]
+  %idx.addr.0.lcssa.ph.i.i = phi i32 [ %cond.i.i, %if.end16.while.end.loopexit_crit_edge.i.i ], [ %idx.addr.036.i.i, %cond.end.i.i ]
+  %.pre.i.i = zext i32 %idx.addr.0.lcssa.ph.i.i to i64
   br label %_ZN4heapIN2lp8lpvar_ltEE9move_downEi.exit.i
 
-_ZN4heapIN2lp8lpvar_ltEE9move_downEi.exit.i:      ; preds = %cond.end.i.i, %if.end16.while.end.loopexit_crit_edge.i.i, %_ZN6vectorIiLb0EjE4backEv.exit.i
-  %idxprom.i30.pre-phi.i.i = phi i64 [ 1, %_ZN6vectorIiLb0EjE4backEv.exit.i ], [ %idxprom.i23.i.i, %if.end16.while.end.loopexit_crit_edge.i.i ], [ %idxprom.i26.i.i, %cond.end.i.i ]
-  %60 = phi ptr [ %53, %_ZN6vectorIiLb0EjE4backEv.exit.i ], [ %.pre39.pre.i.i, %if.end16.while.end.loopexit_crit_edge.i.i ], [ %.pre.i.i, %cond.end.i.i ]
-  %idx.addr.0.lcssa.i.i = phi i32 [ 1, %_ZN6vectorIiLb0EjE4backEv.exit.i ], [ %cond.i.i, %if.end16.while.end.loopexit_crit_edge.i.i ], [ %idx.addr.036.i.i, %cond.end.i.i ]
+_ZN4heapIN2lp8lpvar_ltEE9move_downEi.exit.i:      ; preds = %while.end.loopexit.i.i, %_ZN6vectorIiLb0EjE4backEv.exit.i
+  %idxprom.i30.pre-phi.i.i = phi i64 [ %.pre.i.i, %while.end.loopexit.i.i ], [ 1, %_ZN6vectorIiLb0EjE4backEv.exit.i ]
+  %60 = phi ptr [ %.pre41.i.i, %while.end.loopexit.i.i ], [ %53, %_ZN6vectorIiLb0EjE4backEv.exit.i ]
+  %idx.addr.0.lcssa.i.i = phi i32 [ %idx.addr.0.lcssa.ph.i.i, %while.end.loopexit.i.i ], [ 1, %_ZN6vectorIiLb0EjE4backEv.exit.i ]
   %arrayidx.i31.i.i = getelementptr inbounds i32, ptr %60, i64 %idxprom.i30.pre-phi.i.i
   store i32 %54, ptr %arrayidx.i31.i.i, align 4
   %61 = load ptr, ptr %m_value2indices10.i, align 8
@@ -5361,31 +5383,36 @@ if.end.i35:                                       ; preds = %if.else22, %if.end1
   %idx.addr.036.i = phi i32 [ %cond.i, %if.end16.i ], [ %1, %if.else22 ]
   %add.i.i = or disjoint i32 %shl.i37.i, 1
   %cmp6.i = icmp slt i32 %add.i.i, %22
-  %.pre.i = load ptr, ptr %this, align 8
-  br i1 %cmp6.i, label %land.lhs.true.i, label %cond.end.i
+  %.pre.pre.i36 = load ptr, ptr %this, align 8
+  br i1 %cmp6.i, label %land.lhs.true.i, label %if.end.cond.false_crit_edge.i
+
+if.end.cond.false_crit_edge.i:                    ; preds = %if.end.i35
+  %.pre39.phi.trans.insert.i = zext i32 %shl.i37.i to i64
+  %arrayidx.i24.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i32, ptr %.pre.pre.i36, i64 %.pre39.phi.trans.insert.i
+  %.pre40.pre.i = load i32, ptr %arrayidx.i24.phi.trans.insert.phi.trans.insert.i, align 4
+  br label %cond.end.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i35
   %idxprom.i19.i = zext i32 %add.i.i to i64
-  %arrayidx.i20.i = getelementptr inbounds i32, ptr %.pre.i, i64 %idxprom.i19.i
+  %arrayidx.i20.i = getelementptr inbounds i32, ptr %.pre.pre.i36, i64 %idxprom.i19.i
   %23 = load i32, ptr %arrayidx.i20.i, align 4
   %idxprom.i21.i = zext i32 %shl.i37.i to i64
-  %arrayidx.i22.i = getelementptr inbounds i32, ptr %.pre.i, i64 %idxprom.i21.i
+  %arrayidx.i22.i = getelementptr inbounds i32, ptr %.pre.pre.i36, i64 %idxprom.i21.i
   %24 = load i32, ptr %arrayidx.i22.i, align 4
   %cmp.i.i.i37 = icmp ult i32 %23, %24
-  %spec.select.i = select i1 %cmp.i.i.i37, i32 %add.i.i, i32 %shl.i37.i
+  %spec.select.i = tail call i32 @llvm.umin.i32(i32 %23, i32 %24)
+  %spec.select47.i = select i1 %cmp.i.i.i37, i32 %add.i.i, i32 %shl.i37.i
   br label %cond.end.i
 
-cond.end.i:                                       ; preds = %land.lhs.true.i, %if.end.i35
-  %cond.i = phi i32 [ %shl.i37.i, %if.end.i35 ], [ %spec.select.i, %land.lhs.true.i ]
-  %idxprom.i23.i = zext i32 %cond.i to i64
-  %arrayidx.i24.i = getelementptr inbounds i32, ptr %.pre.i, i64 %idxprom.i23.i
-  %25 = load i32, ptr %arrayidx.i24.i, align 4
+cond.end.i:                                       ; preds = %land.lhs.true.i, %if.end.cond.false_crit_edge.i
+  %25 = phi i32 [ %.pre40.pre.i, %if.end.cond.false_crit_edge.i ], [ %spec.select.i, %land.lhs.true.i ]
+  %cond.i = phi i32 [ %shl.i37.i, %if.end.cond.false_crit_edge.i ], [ %spec.select47.i, %land.lhs.true.i ]
   %cmp.i.i25.i = icmp ult i32 %25, %21
-  %idxprom.i26.i = zext i32 %idx.addr.036.i to i64
-  br i1 %cmp.i.i25.i, label %if.end16.i, label %_ZN4heapIN2lp8lpvar_ltEE9move_downEi.exit
+  br i1 %cmp.i.i25.i, label %if.end16.i, label %while.end.loopexit.i
 
 if.end16.i:                                       ; preds = %cond.end.i
-  %arrayidx.i27.i = getelementptr inbounds i32, ptr %.pre.i, i64 %idxprom.i26.i
+  %idxprom.i26.i = zext i32 %idx.addr.036.i to i64
+  %arrayidx.i27.i = getelementptr inbounds i32, ptr %.pre.pre.i36, i64 %idxprom.i26.i
   store i32 %25, ptr %arrayidx.i27.i, align 4
   %26 = load ptr, ptr %m_value2indices, align 8
   %idxprom.i28.i = zext i32 %25 to i64
@@ -5396,13 +5423,19 @@ if.end16.i:                                       ; preds = %cond.end.i
   br i1 %cmp.not.i, label %if.end.i35, label %if.end16.while.end.loopexit_crit_edge.i, !llvm.loop !7
 
 if.end16.while.end.loopexit_crit_edge.i:          ; preds = %if.end16.i
-  %.pre39.pre.i = load ptr, ptr %this, align 8
+  %.pre41.pre.i = load ptr, ptr %this, align 8
+  br label %while.end.loopexit.i
+
+while.end.loopexit.i:                             ; preds = %cond.end.i, %if.end16.while.end.loopexit_crit_edge.i
+  %.pre41.i = phi ptr [ %.pre41.pre.i, %if.end16.while.end.loopexit_crit_edge.i ], [ %.pre.pre.i36, %cond.end.i ]
+  %idx.addr.0.lcssa.ph.i = phi i32 [ %cond.i, %if.end16.while.end.loopexit_crit_edge.i ], [ %idx.addr.036.i, %cond.end.i ]
+  %.pre.i = zext i32 %idx.addr.0.lcssa.ph.i to i64
   br label %_ZN4heapIN2lp8lpvar_ltEE9move_downEi.exit
 
-_ZN4heapIN2lp8lpvar_ltEE9move_downEi.exit:        ; preds = %cond.end.i, %if.else22, %if.end16.while.end.loopexit_crit_edge.i
-  %idxprom.i30.pre-phi.i = phi i64 [ %idxprom.i15, %if.else22 ], [ %idxprom.i23.i, %if.end16.while.end.loopexit_crit_edge.i ], [ %idxprom.i26.i, %cond.end.i ]
-  %27 = phi ptr [ %.pre, %if.else22 ], [ %.pre39.pre.i, %if.end16.while.end.loopexit_crit_edge.i ], [ %.pre.i, %cond.end.i ]
-  %idx.addr.0.lcssa.i33 = phi i32 [ %1, %if.else22 ], [ %cond.i, %if.end16.while.end.loopexit_crit_edge.i ], [ %idx.addr.036.i, %cond.end.i ]
+_ZN4heapIN2lp8lpvar_ltEE9move_downEi.exit:        ; preds = %if.else22, %while.end.loopexit.i
+  %idxprom.i30.pre-phi.i = phi i64 [ %.pre.i, %while.end.loopexit.i ], [ %idxprom.i15, %if.else22 ]
+  %27 = phi ptr [ %.pre41.i, %while.end.loopexit.i ], [ %.pre, %if.else22 ]
+  %idx.addr.0.lcssa.i33 = phi i32 [ %idx.addr.0.lcssa.ph.i, %while.end.loopexit.i ], [ %1, %if.else22 ]
   %arrayidx.i31.i = getelementptr inbounds i32, ptr %27, i64 %idxprom.i30.pre-phi.i
   store i32 %21, ptr %arrayidx.i31.i, align 4
   %28 = load ptr, ptr %m_value2indices, align 8
@@ -7535,7 +7568,7 @@ _ZNK2lp13static_matrixI8rationalS1_E30number_of_non_zeroes_in_columnEj.exit13.i.
   %cmp.i.i59 = icmp eq i32 %retval.0.i.i.i.i53, 0
   %cmp4.i.i60 = icmp ne i32 %16, 0
   %or.cond.i.i61 = and i1 %cmp.i.i59, %cmp4.i.i60
-  br i1 %or.cond.i.i61, label %if.end17, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIPjS9_EEbT_T0_.exit70
+  br i1 %or.cond.i.i61, label %if.else6, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIPjS9_EEbT_T0_.exit70
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIPjS9_EEbT_T0_.exit70: ; preds = %_ZNK2lp13static_matrixI8rationalS1_E30number_of_non_zeroes_in_columnEj.exit.i.i52, %_ZNK2lp13static_matrixI8rationalS1_E30number_of_non_zeroes_in_columnEj.exit13.i.i57
   %retval.0.i.i1218.i.i63 = phi i32 [ %16, %_ZNK2lp13static_matrixI8rationalS1_E30number_of_non_zeroes_in_columnEj.exit13.i.i57 ], [ 0, %_ZNK2lp13static_matrixI8rationalS1_E30number_of_non_zeroes_in_columnEj.exit.i.i52 ]
@@ -7544,8 +7577,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E1
   %or.cond1.i.i66 = and i1 %cmp5.i.i64, %cmp7.i.i65
   %cmp10.i.i67 = icmp ult i32 %retval.0.i.i.i.i53, %retval.0.i.i1218.i.i63
   %spec.select.i.i68 = or i1 %cmp10.i.i67, %or.cond1.i.i66
-  %spec.select = select i1 %spec.select.i.i68, i32 %12, i32 %0
-  %spec.select158 = select i1 %spec.select.i.i68, ptr %__c, ptr %__a
+  br i1 %spec.select.i.i68, label %if.end17, label %if.else6
+
+if.else6:                                         ; preds = %_ZNK2lp13static_matrixI8rationalS1_E30number_of_non_zeroes_in_columnEj.exit13.i.i57, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIPjS9_EEbT_T0_.exit70
   br label %if.end17
 
 if.else8:                                         ; preds = %_ZNK2lp13static_matrixI8rationalS1_E30number_of_non_zeroes_in_columnEj.exit13.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIPjS9_EEbT_T0_.exit.thread128
@@ -7606,7 +7640,7 @@ _ZNK2lp13static_matrixI8rationalS1_E30number_of_non_zeroes_in_columnEj.exit13.i.
   %cmp.i.i111 = icmp eq i32 %retval.0.i.i.i.i105, 0
   %cmp4.i.i112 = icmp ne i32 %26, 0
   %or.cond.i.i113 = and i1 %cmp.i.i111, %cmp4.i.i112
-  br i1 %or.cond.i.i113, label %if.end17, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIPjS9_EEbT_T0_.exit122
+  br i1 %or.cond.i.i113, label %if.else14, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIPjS9_EEbT_T0_.exit122
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIPjS9_EEbT_T0_.exit122: ; preds = %_ZNK2lp13static_matrixI8rationalS1_E30number_of_non_zeroes_in_columnEj.exit.i.i104, %_ZNK2lp13static_matrixI8rationalS1_E30number_of_non_zeroes_in_columnEj.exit13.i.i109
   %retval.0.i.i1218.i.i115 = phi i32 [ %26, %_ZNK2lp13static_matrixI8rationalS1_E30number_of_non_zeroes_in_columnEj.exit13.i.i109 ], [ 0, %_ZNK2lp13static_matrixI8rationalS1_E30number_of_non_zeroes_in_columnEj.exit.i.i104 ]
@@ -7615,13 +7649,14 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E1
   %or.cond1.i.i118 = and i1 %cmp5.i.i116, %cmp7.i.i117
   %cmp10.i.i119 = icmp ult i32 %retval.0.i.i.i.i105, %retval.0.i.i1218.i.i115
   %spec.select.i.i120 = or i1 %cmp10.i.i119, %or.cond1.i.i118
-  %spec.select159 = select i1 %spec.select.i.i120, i32 %21, i32 %1
-  %spec.select160 = select i1 %spec.select.i.i120, ptr %__c, ptr %__b
+  br i1 %spec.select.i.i120, label %if.end17, label %if.else14
+
+if.else14:                                        ; preds = %_ZNK2lp13static_matrixI8rationalS1_E30number_of_non_zeroes_in_columnEj.exit13.i.i109, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIPjS9_EEbT_T0_.exit122
   br label %if.end17
 
-if.end17:                                         ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIPjS9_EEbT_T0_.exit122, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIPjS9_EEbT_T0_.exit70, %_ZNK2lp13static_matrixI8rationalS1_E30number_of_non_zeroes_in_columnEj.exit13.i.i109, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIPjS9_EEbT_T0_.exit96, %_ZNK2lp13static_matrixI8rationalS1_E30number_of_non_zeroes_in_columnEj.exit13.i.i57, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIPjS9_EEbT_T0_.exit44
-  %.sink157 = phi i32 [ %1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIPjS9_EEbT_T0_.exit44 ], [ %0, %_ZNK2lp13static_matrixI8rationalS1_E30number_of_non_zeroes_in_columnEj.exit13.i.i57 ], [ %0, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIPjS9_EEbT_T0_.exit96 ], [ %1, %_ZNK2lp13static_matrixI8rationalS1_E30number_of_non_zeroes_in_columnEj.exit13.i.i109 ], [ %spec.select, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIPjS9_EEbT_T0_.exit70 ], [ %spec.select159, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIPjS9_EEbT_T0_.exit122 ]
-  %__a.sink = phi ptr [ %__b, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIPjS9_EEbT_T0_.exit44 ], [ %__a, %_ZNK2lp13static_matrixI8rationalS1_E30number_of_non_zeroes_in_columnEj.exit13.i.i57 ], [ %__a, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIPjS9_EEbT_T0_.exit96 ], [ %__b, %_ZNK2lp13static_matrixI8rationalS1_E30number_of_non_zeroes_in_columnEj.exit13.i.i109 ], [ %spec.select158, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIPjS9_EEbT_T0_.exit70 ], [ %spec.select160, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIPjS9_EEbT_T0_.exit122 ]
+if.end17:                                         ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIPjS9_EEbT_T0_.exit122, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIPjS9_EEbT_T0_.exit96, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIPjS9_EEbT_T0_.exit70, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIPjS9_EEbT_T0_.exit44, %if.else14, %if.else6
+  %.sink157 = phi i32 [ %1, %if.else14 ], [ %0, %if.else6 ], [ %1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIPjS9_EEbT_T0_.exit44 ], [ %12, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIPjS9_EEbT_T0_.exit70 ], [ %0, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIPjS9_EEbT_T0_.exit96 ], [ %21, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIPjS9_EEbT_T0_.exit122 ]
+  %__a.sink = phi ptr [ %__b, %if.else14 ], [ %__a, %if.else6 ], [ %__b, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIPjS9_EEbT_T0_.exit44 ], [ %__c, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIPjS9_EEbT_T0_.exit70 ], [ %__a, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIPjS9_EEbT_T0_.exit96 ], [ %__c, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIPjS9_EEbT_T0_.exit122 ]
   %27 = load i32, ptr %__result, align 4
   store i32 %.sink157, ptr %__result, align 4
   store i32 %27, ptr %__a.sink, align 4
@@ -15778,7 +15813,7 @@ _ZNK2lp13static_matrixI8rationalNS_12numeric_pairIS1_EEE30number_of_non_zeroes_i
   %cmp.i.i59 = icmp eq i32 %retval.0.i.i.i.i53, 0
   %cmp4.i.i60 = icmp ne i32 %16, 0
   %or.cond.i.i61 = and i1 %cmp.i.i59, %cmp4.i.i60
-  br i1 %or.cond.i.i61, label %if.end17, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIPjSB_EEbT_T0_.exit70
+  br i1 %or.cond.i.i61, label %if.else6, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIPjSB_EEbT_T0_.exit70
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIPjSB_EEbT_T0_.exit70: ; preds = %_ZNK2lp13static_matrixI8rationalNS_12numeric_pairIS1_EEE30number_of_non_zeroes_in_columnEj.exit.i.i52, %_ZNK2lp13static_matrixI8rationalNS_12numeric_pairIS1_EEE30number_of_non_zeroes_in_columnEj.exit13.i.i57
   %retval.0.i.i1218.i.i63 = phi i32 [ %16, %_ZNK2lp13static_matrixI8rationalNS_12numeric_pairIS1_EEE30number_of_non_zeroes_in_columnEj.exit13.i.i57 ], [ 0, %_ZNK2lp13static_matrixI8rationalNS_12numeric_pairIS1_EEE30number_of_non_zeroes_in_columnEj.exit.i.i52 ]
@@ -15787,8 +15822,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_1
   %or.cond1.i.i66 = and i1 %cmp5.i.i64, %cmp7.i.i65
   %cmp10.i.i67 = icmp ult i32 %retval.0.i.i.i.i53, %retval.0.i.i1218.i.i63
   %spec.select.i.i68 = or i1 %cmp10.i.i67, %or.cond1.i.i66
-  %spec.select = select i1 %spec.select.i.i68, i32 %12, i32 %0
-  %spec.select158 = select i1 %spec.select.i.i68, ptr %__c, ptr %__a
+  br i1 %spec.select.i.i68, label %if.end17, label %if.else6
+
+if.else6:                                         ; preds = %_ZNK2lp13static_matrixI8rationalNS_12numeric_pairIS1_EEE30number_of_non_zeroes_in_columnEj.exit13.i.i57, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIPjSB_EEbT_T0_.exit70
   br label %if.end17
 
 if.else8:                                         ; preds = %_ZNK2lp13static_matrixI8rationalNS_12numeric_pairIS1_EEE30number_of_non_zeroes_in_columnEj.exit13.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIPjSB_EEbT_T0_.exit.thread128
@@ -15849,7 +15885,7 @@ _ZNK2lp13static_matrixI8rationalNS_12numeric_pairIS1_EEE30number_of_non_zeroes_i
   %cmp.i.i111 = icmp eq i32 %retval.0.i.i.i.i105, 0
   %cmp4.i.i112 = icmp ne i32 %26, 0
   %or.cond.i.i113 = and i1 %cmp.i.i111, %cmp4.i.i112
-  br i1 %or.cond.i.i113, label %if.end17, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIPjSB_EEbT_T0_.exit122
+  br i1 %or.cond.i.i113, label %if.else14, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIPjSB_EEbT_T0_.exit122
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIPjSB_EEbT_T0_.exit122: ; preds = %_ZNK2lp13static_matrixI8rationalNS_12numeric_pairIS1_EEE30number_of_non_zeroes_in_columnEj.exit.i.i104, %_ZNK2lp13static_matrixI8rationalNS_12numeric_pairIS1_EEE30number_of_non_zeroes_in_columnEj.exit13.i.i109
   %retval.0.i.i1218.i.i115 = phi i32 [ %26, %_ZNK2lp13static_matrixI8rationalNS_12numeric_pairIS1_EEE30number_of_non_zeroes_in_columnEj.exit13.i.i109 ], [ 0, %_ZNK2lp13static_matrixI8rationalNS_12numeric_pairIS1_EEE30number_of_non_zeroes_in_columnEj.exit.i.i104 ]
@@ -15858,13 +15894,14 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_1
   %or.cond1.i.i118 = and i1 %cmp5.i.i116, %cmp7.i.i117
   %cmp10.i.i119 = icmp ult i32 %retval.0.i.i.i.i105, %retval.0.i.i1218.i.i115
   %spec.select.i.i120 = or i1 %cmp10.i.i119, %or.cond1.i.i118
-  %spec.select159 = select i1 %spec.select.i.i120, i32 %21, i32 %1
-  %spec.select160 = select i1 %spec.select.i.i120, ptr %__c, ptr %__b
+  br i1 %spec.select.i.i120, label %if.end17, label %if.else14
+
+if.else14:                                        ; preds = %_ZNK2lp13static_matrixI8rationalNS_12numeric_pairIS1_EEE30number_of_non_zeroes_in_columnEj.exit13.i.i109, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIPjSB_EEbT_T0_.exit122
   br label %if.end17
 
-if.end17:                                         ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIPjSB_EEbT_T0_.exit122, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIPjSB_EEbT_T0_.exit70, %_ZNK2lp13static_matrixI8rationalNS_12numeric_pairIS1_EEE30number_of_non_zeroes_in_columnEj.exit13.i.i109, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIPjSB_EEbT_T0_.exit96, %_ZNK2lp13static_matrixI8rationalNS_12numeric_pairIS1_EEE30number_of_non_zeroes_in_columnEj.exit13.i.i57, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIPjSB_EEbT_T0_.exit44
-  %.sink157 = phi i32 [ %1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIPjSB_EEbT_T0_.exit44 ], [ %0, %_ZNK2lp13static_matrixI8rationalNS_12numeric_pairIS1_EEE30number_of_non_zeroes_in_columnEj.exit13.i.i57 ], [ %0, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIPjSB_EEbT_T0_.exit96 ], [ %1, %_ZNK2lp13static_matrixI8rationalNS_12numeric_pairIS1_EEE30number_of_non_zeroes_in_columnEj.exit13.i.i109 ], [ %spec.select, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIPjSB_EEbT_T0_.exit70 ], [ %spec.select159, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIPjSB_EEbT_T0_.exit122 ]
-  %__a.sink = phi ptr [ %__b, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIPjSB_EEbT_T0_.exit44 ], [ %__a, %_ZNK2lp13static_matrixI8rationalNS_12numeric_pairIS1_EEE30number_of_non_zeroes_in_columnEj.exit13.i.i57 ], [ %__a, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIPjSB_EEbT_T0_.exit96 ], [ %__b, %_ZNK2lp13static_matrixI8rationalNS_12numeric_pairIS1_EEE30number_of_non_zeroes_in_columnEj.exit13.i.i109 ], [ %spec.select158, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIPjSB_EEbT_T0_.exit70 ], [ %spec.select160, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIPjSB_EEbT_T0_.exit122 ]
+if.end17:                                         ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIPjSB_EEbT_T0_.exit122, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIPjSB_EEbT_T0_.exit96, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIPjSB_EEbT_T0_.exit70, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIPjSB_EEbT_T0_.exit44, %if.else14, %if.else6
+  %.sink157 = phi i32 [ %1, %if.else14 ], [ %0, %if.else6 ], [ %1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIPjSB_EEbT_T0_.exit44 ], [ %12, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIPjSB_EEbT_T0_.exit70 ], [ %0, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIPjSB_EEbT_T0_.exit96 ], [ %21, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIPjSB_EEbT_T0_.exit122 ]
+  %__a.sink = phi ptr [ %__b, %if.else14 ], [ %__a, %if.else6 ], [ %__b, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIPjSB_EEbT_T0_.exit44 ], [ %__c, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIPjSB_EEbT_T0_.exit70 ], [ %__a, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIPjSB_EEbT_T0_.exit96 ], [ %__c, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIPjSB_EEbT_T0_.exit122 ]
   %27 = load i32, ptr %__result, align 4
   store i32 %.sink157, ptr %__result, align 4
   store i32 %27, ptr %__a.sink, align 4
@@ -20067,6 +20104,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #16

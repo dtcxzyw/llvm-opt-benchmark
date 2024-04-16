@@ -872,17 +872,19 @@ if.then4:                                         ; preds = %land.lhs.true3
 if.end9:                                          ; preds = %if.end, %land.lhs.true, %land.lhs.true3, %if.then4
   %pri_spec.addr.0 = phi ptr [ %pri_spec, %if.then4 ], [ null, %land.lhs.true3 ], [ null, %land.lhs.true ], [ null, %if.end ]
   %cmp.i = icmp eq ptr %data_prd, null
-  br i1 %cmp.i, label %set_request_flags.exit, label %lor.lhs.false.i
+  br i1 %cmp.i, label %if.then.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end9
   %read_callback.i = getelementptr inbounds i8, ptr %data_prd, i64 8
   %3 = load ptr, ptr %read_callback.i, align 8
   %cmp1.i = icmp eq ptr %3, null
-  %spec.select4.i = zext i1 %cmp1.i to i8
+  br i1 %cmp1.i, label %if.then.i, label %set_request_flags.exit
+
+if.then.i:                                        ; preds = %lor.lhs.false.i, %if.end9
   br label %set_request_flags.exit
 
-set_request_flags.exit:                           ; preds = %if.end9, %lor.lhs.false.i
-  %flags.0.i = phi i8 [ 1, %if.end9 ], [ %spec.select4.i, %lor.lhs.false.i ]
+set_request_flags.exit:                           ; preds = %lor.lhs.false.i, %if.then.i
+  %flags.0.i = phi i8 [ 1, %if.then.i ], [ 0, %lor.lhs.false.i ]
   %tobool.not.i = icmp eq ptr %pri_spec.addr.0, null
   %4 = or disjoint i8 %flags.0.i, 32
   %spec.select.i = select i1 %tobool.not.i, i8 %flags.0.i, i8 %4
@@ -908,17 +910,19 @@ if.end:                                           ; preds = %entry
 
 if.end2:                                          ; preds = %if.end
   %cmp.i = icmp eq ptr %data_prd, null
-  br i1 %cmp.i, label %set_response_flags.exit, label %lor.lhs.false.i
+  br i1 %cmp.i, label %if.then.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end2
   %read_callback.i = getelementptr inbounds i8, ptr %data_prd, i64 8
   %1 = load ptr, ptr %read_callback.i, align 8
   %cmp1.i = icmp eq ptr %1, null
-  %spec.select.i = zext i1 %cmp1.i to i8
+  br i1 %cmp1.i, label %if.then.i, label %set_response_flags.exit
+
+if.then.i:                                        ; preds = %lor.lhs.false.i, %if.end2
   br label %set_response_flags.exit
 
-set_response_flags.exit:                          ; preds = %if.end2, %lor.lhs.false.i
-  %flags.0.i = phi i8 [ 1, %if.end2 ], [ %spec.select.i, %lor.lhs.false.i ]
+set_response_flags.exit:                          ; preds = %lor.lhs.false.i, %if.then.i
+  %flags.0.i = phi i8 [ 1, %if.then.i ], [ 0, %lor.lhs.false.i ]
   %call3 = tail call fastcc i32 @submit_headers_shared_nva(ptr noundef nonnull %session, i8 noundef zeroext %flags.0.i, i32 noundef %stream_id, ptr noundef null, ptr noundef %nva, i64 noundef %nvlen, ptr noundef %data_prd, ptr noundef null)
   br label %return
 

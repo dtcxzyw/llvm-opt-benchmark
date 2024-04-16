@@ -2935,7 +2935,7 @@ define internal noundef i32 @_lib_timeline_button_release_callback(ptr nocapture
   %7 = getelementptr inbounds i8, ptr %6, i64 208
   %8 = load i32, ptr %7, align 8, !tbaa !87
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %87, label %10
+  br i1 %9, label %85, label %10
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds i8, ptr %1, i64 24
@@ -3052,7 +3052,7 @@ define internal noundef i32 @_lib_timeline_button_release_callback(ptr nocapture
   %72 = getelementptr inbounds i8, ptr %6, i64 212
   %73 = load i32, ptr %72, align 4, !tbaa !94
   %74 = icmp eq i32 %73, 0
-  br i1 %74, label %75, label %83
+  br i1 %74, label %75, label %.split
 
 75:                                               ; preds = %71
   %76 = getelementptr inbounds i8, ptr %1, i64 48
@@ -3062,19 +3062,21 @@ define internal noundef i32 @_lib_timeline_button_release_callback(ptr nocapture
   %80 = or i32 %79, %77
   %81 = and i32 %80, %78
   %82 = icmp eq i32 %81, 1
-  %spec.select = zext i1 %82 to i32
-  br label %83
+  br i1 %82, label %.split1, label %.split
 
-83:                                               ; preds = %75, %71
-  %84 = phi i32 [ 0, %71 ], [ %spec.select, %75 ]
-  call fastcc void @_selection_collect(ptr noundef nonnull %6, i32 noundef %84)
-  %85 = getelementptr inbounds i8, ptr %6, i64 88
-  %86 = load ptr, ptr %85, align 8, !tbaa !42
-  call void @gtk_widget_queue_draw(ptr noundef %86) #17
+.split:                                           ; preds = %71, %75
+  br label %.split1
+
+.split1:                                          ; preds = %75, %.split
+  %.sink = phi i32 [ 0, %.split ], [ 1, %75 ]
+  call fastcc void @_selection_collect(ptr noundef nonnull %6, i32 noundef %.sink)
+  %83 = getelementptr inbounds i8, ptr %6, i64 88
+  %84 = load ptr, ptr %83, align 8, !tbaa !42
+  call void @gtk_widget_queue_draw(ptr noundef %84) #17
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4) #17
-  br label %87
+  br label %85
 
-87:                                               ; preds = %83, %3
+85:                                               ; preds = %.split1, %3
   ret i32 1
 }
 

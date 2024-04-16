@@ -2414,8 +2414,8 @@ define internal fastcc noundef i32 @guitar_mapping(ptr nocapture noundef readonl
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %9, i64 %21) #14, !srcloc !9
   br label %22
 
-22:                                               ; preds = %.thread, %17, %4
-  %23 = phi i32 [ 0, %4 ], [ 1, %17 ], [ 1, %.thread ]
+22:                                               ; preds = %.thread, %4, %17
+  %23 = phi i32 [ 1, %17 ], [ 0, %4 ], [ 1, %.thread ]
   ret i32 %23
 }
 

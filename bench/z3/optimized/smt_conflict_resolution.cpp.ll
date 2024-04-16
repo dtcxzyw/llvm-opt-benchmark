@@ -2689,26 +2689,26 @@ if.end20:                                         ; preds = %if.then15, %if.then
   %m_assumptions.i = getelementptr inbounds i8, ptr %14, i64 9896
   %15 = load ptr, ptr %m_assumptions.i, align 8
   %cmp.i.i5 = icmp eq ptr %15, null
-  br i1 %cmp.i.i5, label %return, label %_ZNK3smt7context20tracking_assumptionsEv.exit
+  br i1 %cmp.i.i5, label %return, label %_ZNK6vectorIN3sat7literalELb0EjE5emptyEv.exit.i
 
-_ZNK3smt7context20tracking_assumptionsEv.exit:    ; preds = %if.end20
+_ZNK6vectorIN3sat7literalELb0EjE5emptyEv.exit.i:  ; preds = %if.end20
   %arrayidx.i.i6 = getelementptr inbounds i8, ptr %15, i64 -4
   %16 = load i32, ptr %arrayidx.i.i6, align 4
   %.fr.i = freeze i32 %16
-  %cmp3.i.i = icmp ne i32 %.fr.i, 0
+  %cmp3.i.i = icmp eq i32 %.fr.i, 0
   %m_search_lvl.i7 = getelementptr inbounds i8, ptr %14, i64 10024
   %17 = load i32, ptr %m_search_lvl.i7, align 8
   %m_base_lvl.i = getelementptr inbounds i8, ptr %14, i64 10020
   %18 = load i32, ptr %m_base_lvl.i, align 4
-  %cmp.i8 = icmp ugt i32 %17, %18
-  %spec.select.i = select i1 %cmp3.i.i, i1 %cmp.i8, i1 false
-  br i1 %spec.select.i, label %if.then23, label %return
+  %cmp.i8 = icmp ule i32 %17, %18
+  %brmerge = select i1 %cmp3.i.i, i1 true, i1 %cmp.i8
+  br i1 %brmerge, label %return, label %if.then23
 
-if.then23:                                        ; preds = %_ZNK3smt7context20tracking_assumptionsEv.exit
+if.then23:                                        ; preds = %_ZNK6vectorIN3sat7literalELb0EjE5emptyEv.exit.i
   tail call void @_ZN3smt19conflict_resolution13mk_unsat_coreENS_15b_justificationEN3sat7literalE(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr %conflict.coerce, i32 %not_l.coerce)
   br label %return
 
-return:                                           ; preds = %if.end20, %if.end, %_ZNK3smt7context20tracking_assumptionsEv.exit, %if.then23
+return:                                           ; preds = %_ZNK6vectorIN3sat7literalELb0EjE5emptyEv.exit.i, %if.end20, %if.end, %if.then23
   ret i1 %cmp.not
 }
 

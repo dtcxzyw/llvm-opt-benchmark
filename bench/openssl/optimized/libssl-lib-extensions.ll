@@ -813,7 +813,7 @@ return:                                           ; preds = %for.body, %for.inc1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @should_add_extension(ptr nocapture noundef readonly %s, i32 noundef %extctx, i32 noundef %thisctx, i32 noundef %max_version) local_unnamed_addr #3 {
+define noundef i32 @should_add_extension(ptr nocapture noundef readonly %s, i32 noundef %extctx, i32 noundef %thisctx, i32 noundef %max_version) local_unnamed_addr #3 {
 entry:
   %and = and i32 %thisctx, %extctx
   %cmp = icmp eq i32 %and, 0
@@ -893,16 +893,19 @@ extension_is_relevant.exit:                       ; preds = %lor.lhs.false36.i
 lor.lhs.false:                                    ; preds = %extension_is_relevant.exit
   %cmp4.not = icmp eq i32 %and34.i, 0
   %or.cond6 = or i1 %cmp32.not.i, %cmp4.not
-  br i1 %or.cond6, label %return, label %land.lhs.true5
+  br i1 %or.cond6, label %if.end11, label %land.lhs.true5
 
 land.lhs.true5:                                   ; preds = %lor.lhs.false
-  %cmp9 = icmp sgt i32 %max_version, 771
-  %or.cond.not = and i1 %cmp9, %tobool.not.i
-  %spec.select = zext i1 %or.cond.not to i32
+  %tobool7 = icmp ne i32 %and1.i, 0
+  %cmp9 = icmp slt i32 %max_version, 772
+  %or.cond = or i1 %cmp9, %tobool7
+  br i1 %or.cond, label %return, label %if.end11
+
+if.end11:                                         ; preds = %land.lhs.true5, %lor.lhs.false
   br label %return
 
-return:                                           ; preds = %if.end.i, %lor.lhs.false.i, %lor.lhs.false23.i, %lor.lhs.false28.i, %lor.lhs.false36.i, %land.lhs.true5, %lor.lhs.false, %extension_is_relevant.exit, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 0, %extension_is_relevant.exit ], [ 1, %lor.lhs.false ], [ %spec.select, %land.lhs.true5 ], [ 0, %lor.lhs.false36.i ], [ 0, %lor.lhs.false28.i ], [ 0, %lor.lhs.false23.i ], [ 0, %lor.lhs.false.i ], [ 0, %if.end.i ]
+return:                                           ; preds = %if.end.i, %lor.lhs.false.i, %lor.lhs.false23.i, %lor.lhs.false28.i, %lor.lhs.false36.i, %extension_is_relevant.exit, %land.lhs.true5, %entry, %if.end11
+  %retval.0 = phi i32 [ 1, %if.end11 ], [ 0, %entry ], [ 0, %land.lhs.true5 ], [ 0, %extension_is_relevant.exit ], [ 0, %lor.lhs.false36.i ], [ 0, %lor.lhs.false28.i ], [ 0, %lor.lhs.false23.i ], [ 0, %lor.lhs.false.i ], [ 0, %if.end.i ]
   ret i32 %retval.0
 }
 
@@ -984,9 +987,9 @@ for.cond.preheader:                               ; preds = %if.end26
   br label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
-  %i.039 = phi i64 [ 0, %for.cond.preheader ], [ %inc, %for.inc ]
-  %thisexd.038 = phi ptr [ @ext_defs, %for.cond.preheader ], [ %incdec.ptr, %for.inc ]
-  %context33 = getelementptr inbounds i8, ptr %thisexd.038, i64 4
+  %i.036 = phi i64 [ 0, %for.cond.preheader ], [ %inc, %for.inc ]
+  %thisexd.035 = phi ptr [ @ext_defs, %for.cond.preheader ], [ %incdec.ptr, %for.inc ]
+  %context33 = getelementptr inbounds i8, ptr %thisexd.035, i64 4
   %2 = load i32, ptr %context33, align 4
   %3 = load i32, ptr %max_version, align 4
   %and.i = and i32 %2, %context
@@ -1058,14 +1061,17 @@ extension_is_relevant.exit.i:                     ; preds = %lor.lhs.false36.i.i
 
 lor.lhs.false.i:                                  ; preds = %extension_is_relevant.exit.i
   %or.cond6.i = or i1 %cmp10.not, %cmp32.not.i.i
-  %cmp9.i = icmp sgt i32 %3, 771
-  %or.cond.not.i = and i1 %cmp9.i, %tobool.not.i.i
-  %or.cond = select i1 %or.cond6.i, i1 true, i1 %or.cond.not.i
-  br i1 %or.cond, label %if.end37, label %for.inc
+  br i1 %or.cond6.i, label %if.end37, label %land.lhs.true5.i
 
-if.end37:                                         ; preds = %lor.lhs.false.i
+land.lhs.true5.i:                                 ; preds = %lor.lhs.false.i
+  %tobool7.i = icmp ne i32 %and1.i.i, 0
+  %cmp9.i = icmp slt i32 %3, 772
+  %or.cond.i = or i1 %cmp9.i, %tobool7.i
+  br i1 %or.cond.i, label %for.inc, label %if.end37
+
+if.end37:                                         ; preds = %land.lhs.true5.i, %lor.lhs.false.i
   %cond.in.v = select i1 %tobool37.i.i, i64 40, i64 32
-  %cond.in = getelementptr inbounds i8, ptr %thisexd.038, i64 %cond.in.v
+  %cond.in = getelementptr inbounds i8, ptr %thisexd.035, i64 %cond.in.v
   %cond = load ptr, ptr %cond.in, align 8
   %cmp39 = icmp eq ptr %cond, null
   br i1 %cmp39, label %for.inc, label %if.end42
@@ -1081,15 +1087,15 @@ land.lhs.true50:                                  ; preds = %if.end42
   br i1 %cmp52.not, label %for.inc, label %if.then54
 
 if.then54:                                        ; preds = %land.lhs.true50
-  %arrayidx = getelementptr inbounds [29 x i8], ptr %ext, i64 0, i64 %i.039
+  %arrayidx = getelementptr inbounds [29 x i8], ptr %ext, i64 0, i64 %i.036
   %12 = load i8, ptr %arrayidx, align 1
   %13 = or i8 %12, 2
   store i8 %13, ptr %arrayidx, align 1
   br label %for.inc
 
-for.inc:                                          ; preds = %lor.lhs.false.i, %if.end.i.i, %lor.lhs.false.i.i, %lor.lhs.false23.i.i, %lor.lhs.false28.i.i, %lor.lhs.false36.i.i, %extension_is_relevant.exit.i, %for.body, %if.end42, %land.lhs.true50, %if.then54, %if.end37
-  %inc = add nuw nsw i64 %i.039, 1
-  %incdec.ptr = getelementptr inbounds i8, ptr %thisexd.038, i64 56
+for.inc:                                          ; preds = %if.end.i.i, %lor.lhs.false.i.i, %lor.lhs.false23.i.i, %lor.lhs.false28.i.i, %lor.lhs.false36.i.i, %extension_is_relevant.exit.i, %land.lhs.true5.i, %for.body, %if.end42, %land.lhs.true50, %if.then54, %if.end37
+  %inc = add nuw nsw i64 %i.036, 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %thisexd.035, i64 56
   %exitcond.not = icmp eq i64 %inc, 29
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
 
@@ -2661,7 +2667,7 @@ declare i32 @tls_construct_stoc_early_data(ptr noundef, ptr noundef, i32 noundef
 declare i32 @tls_construct_ctos_early_data(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @final_early_data(ptr noundef %s, i32 noundef %context, i32 noundef %sent) #1 {
+define internal noundef i32 @final_early_data(ptr noundef %s, i32 noundef %context, i32 noundef %sent) #1 {
 entry:
   %tobool.not = icmp eq i32 %sent, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -2734,18 +2740,20 @@ land.lhs.true21:                                  ; preds = %lor.lhs.false19
 if.then24:                                        ; preds = %land.lhs.true21, %lor.lhs.false17, %lor.lhs.false13, %lor.lhs.false11, %lor.lhs.false, %if.end8
   %early_data = getelementptr inbounds i8, ptr %s, i64 2680
   store i32 1, ptr %early_data, align 8
-  br label %return
+  br label %if.end32
 
 if.else:                                          ; preds = %land.lhs.true21, %lor.lhs.false19
   %early_data27 = getelementptr inbounds i8, ptr %s, i64 2680
   store i32 2, ptr %early_data27, align 8
   %call28 = tail call i32 @tls13_change_cipher_state(ptr noundef nonnull %s, i32 noundef 97) #8
-  %tobool29.not = icmp ne i32 %call28, 0
-  %spec.select = zext i1 %tobool29.not to i32
+  %tobool29.not = icmp eq i32 %call28, 0
+  br i1 %tobool29.not, label %return, label %if.end32
+
+if.end32:                                         ; preds = %if.else, %if.then24
   br label %return
 
-return:                                           ; preds = %if.else, %if.then24, %if.then2, %land.lhs.true4, %entry, %if.then6
-  %retval.0 = phi i32 [ 0, %if.then6 ], [ 1, %entry ], [ 1, %land.lhs.true4 ], [ 1, %if.then2 ], [ 1, %if.then24 ], [ %spec.select, %if.else ]
+return:                                           ; preds = %if.else, %if.then2, %land.lhs.true4, %entry, %if.end32, %if.then6
+  %retval.0 = phi i32 [ 1, %if.end32 ], [ 0, %if.then6 ], [ 1, %entry ], [ 1, %land.lhs.true4 ], [ 1, %if.then2 ], [ 0, %if.else ]
   ret i32 %retval.0
 }
 

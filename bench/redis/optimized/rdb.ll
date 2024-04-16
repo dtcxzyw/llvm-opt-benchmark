@@ -407,8 +407,8 @@ if.end12.i:                                       ; preds = %if.end8.i
   %tobool1.not.i = icmp eq i64 %sub.i, 0
   br i1 %tobool1.not.i, label %return, label %while.body.i, !llvm.loop !5
 
-return:                                           ; preds = %if.end12.i, %while.cond.preheader.i, %if.then10.i, %land.lhs.true, %entry
-  %retval.0 = phi i64 [ %len, %entry ], [ 0, %while.cond.preheader.i ], [ -1, %if.then10.i ], [ -1, %land.lhs.true ], [ %len, %if.end12.i ]
+return:                                           ; preds = %if.end12.i, %land.lhs.true, %if.then10.i, %entry, %while.cond.preheader.i
+  %retval.0 = phi i64 [ 0, %while.cond.preheader.i ], [ %len, %entry ], [ -1, %if.then10.i ], [ -1, %land.lhs.true ], [ %len, %if.end12.i ]
   ret i64 %retval.0
 }
 
@@ -2333,7 +2333,7 @@ land.lhs.true.i24:                                ; preds = %if.then32
   %12 = load i64, ptr %flags.i.i25, align 8
   %and.i.i26 = and i64 %12, 2
   %tobool.not.i.i27 = icmp eq i64 %and.i.i26, 0
-  br i1 %tobool.not.i.i27, label %while.body.lr.ph.i.i31, label %return
+  br i1 %tobool.not.i.i27, label %while.body.lr.ph.i.i31, label %rdbWriteRaw.exit53.thread
 
 while.body.lr.ph.i.i31:                           ; preds = %land.lhs.true.i24
   %max_processing_chunk.i.i32 = getelementptr inbounds i8, ptr %rdb, i64 64
@@ -2367,7 +2367,7 @@ if.then10.i.i51:                                  ; preds = %if.end8.i.i43
   %17 = load i64, ptr %flags.i.i25, align 8
   %or.i.i52 = or i64 %17, 2
   store i64 %or.i.i52, ptr %flags.i.i25, align 8
-  br label %return
+  br label %rdbWriteRaw.exit53.thread
 
 if.end12.i.i46:                                   ; preds = %if.end8.i.i43
   %add.ptr.i.i47 = getelementptr inbounds i8, ptr %buf.addr.022.i.i38, i64 %cond.i.i40
@@ -2381,11 +2381,13 @@ if.end12.i.i46:                                   ; preds = %if.end8.i.i43
 rdbWriteRaw.exit53:                               ; preds = %if.end12.i.i46, %if.then32
   %cmp34 = icmp eq i64 %len, -1
   %add38 = add i64 %conv25, %len
-  %spec.select = select i1 %cmp34, i64 -1, i64 %add38
+  br i1 %cmp34, label %rdbWriteRaw.exit53.thread, label %return
+
+rdbWriteRaw.exit53.thread:                        ; preds = %land.lhs.true.i24, %if.then10.i.i51, %rdbWriteRaw.exit53
   br label %return
 
-return:                                           ; preds = %if.end12.i.i, %if.then2, %rdbWriteRaw.exit53, %land.lhs.true.i24, %if.then10.i.i51, %if.then10.i.i, %land.lhs.true.i, %if.end29, %if.end23, %if.end18, %rdbSaveLzfStringObject.exit
-  %retval.0 = phi i64 [ -1, %rdbSaveLzfStringObject.exit ], [ %call8.i, %if.end18 ], [ -1, %if.end23 ], [ %conv25, %if.end29 ], [ -1, %if.then10.i.i ], [ -1, %land.lhs.true.i ], [ -1, %if.then10.i.i51 ], [ -1, %land.lhs.true.i24 ], [ %spec.select, %rdbWriteRaw.exit53 ], [ %retval.0.ph.i.i, %if.then2 ], [ %retval.0.ph.i.i, %if.end12.i.i ]
+return:                                           ; preds = %if.end12.i.i, %if.then2, %rdbWriteRaw.exit53.thread, %rdbWriteRaw.exit53, %if.then10.i.i, %land.lhs.true.i, %if.end29, %if.end23, %if.end18, %rdbSaveLzfStringObject.exit
+  %retval.0 = phi i64 [ -1, %rdbSaveLzfStringObject.exit ], [ %call8.i, %if.end18 ], [ -1, %if.end23 ], [ %conv25, %if.end29 ], [ -1, %if.then10.i.i ], [ -1, %land.lhs.true.i ], [ -1, %rdbWriteRaw.exit53.thread ], [ %add38, %rdbWriteRaw.exit53 ], [ %retval.0.ph.i.i, %if.then2 ], [ %retval.0.ph.i.i, %if.end12.i.i ]
   ret i64 %retval.0
 }
 
@@ -2520,7 +2522,7 @@ land.lhs.true.i13:                                ; preds = %if.end
   %10 = load i64, ptr %flags.i.i14, align 8
   %and.i.i15 = and i64 %10, 2
   %tobool.not.i.i16 = icmp eq i64 %and.i.i15, 0
-  br i1 %tobool.not.i.i16, label %while.cond.preheader.i.i18, label %return
+  br i1 %tobool.not.i.i16, label %while.cond.preheader.i.i18, label %rdbWriteRaw.exit42.thread
 
 while.cond.preheader.i.i18:                       ; preds = %land.lhs.true.i13
   %tobool1.not21.i.i19 = icmp eq i32 %call4, 0
@@ -2558,7 +2560,7 @@ if.then10.i.i40:                                  ; preds = %if.end8.i.i32
   %15 = load i64, ptr %flags.i.i14, align 8
   %or.i.i41 = or i64 %15, 2
   store i64 %or.i.i41, ptr %flags.i.i14, align 8
-  br label %return
+  br label %rdbWriteRaw.exit42.thread
 
 if.end12.i.i35:                                   ; preds = %if.end8.i.i32
   %add.ptr.i.i36 = getelementptr inbounds i8, ptr %buf.addr.022.i.i27, i64 %cond.i.i29
@@ -2572,11 +2574,13 @@ if.end12.i.i35:                                   ; preds = %if.end8.i.i32
 rdbWriteRaw.exit42:                               ; preds = %if.end12.i.i35, %if.end
   %cmp18 = icmp eq i32 %call4, -1
   %add22 = add nsw i64 %conv11, %conv9
-  %spec.select = select i1 %cmp18, i64 -1, i64 %add22
+  br i1 %cmp18, label %rdbWriteRaw.exit42.thread, label %return
+
+rdbWriteRaw.exit42.thread:                        ; preds = %land.lhs.true.i13, %if.then10.i.i40, %rdbWriteRaw.exit42
   br label %return
 
-return:                                           ; preds = %if.end12.i.i, %rdbWriteRaw.exit42, %land.lhs.true.i13, %if.then10.i.i40, %while.cond.preheader.i.i18, %if.then10.i.i, %land.lhs.true.i, %if.then, %cond.end
-  %retval.0 = phi i64 [ -1, %cond.end ], [ %retval.0.ph.i, %if.then ], [ -1, %if.then10.i.i ], [ -1, %land.lhs.true.i ], [ %conv11, %while.cond.preheader.i.i18 ], [ -1, %if.then10.i.i40 ], [ -1, %land.lhs.true.i13 ], [ %spec.select, %rdbWriteRaw.exit42 ], [ %retval.0.ph.i, %if.end12.i.i ]
+return:                                           ; preds = %if.end12.i.i, %while.cond.preheader.i.i18, %rdbWriteRaw.exit42.thread, %rdbWriteRaw.exit42, %if.then10.i.i, %land.lhs.true.i, %if.then, %cond.end
+  %retval.0 = phi i64 [ -1, %cond.end ], [ %retval.0.ph.i, %if.then ], [ -1, %if.then10.i.i ], [ -1, %land.lhs.true.i ], [ -1, %rdbWriteRaw.exit42.thread ], [ %add22, %rdbWriteRaw.exit42 ], [ %conv11, %while.cond.preheader.i.i18 ], [ %retval.0.ph.i, %if.end12.i.i ]
   ret i64 %retval.0
 }
 

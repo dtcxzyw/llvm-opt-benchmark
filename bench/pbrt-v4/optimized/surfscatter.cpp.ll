@@ -6265,32 +6265,33 @@ entry:
   %cmp4 = fcmp olt float %1, 0x3FE70A3D80000000
   %or.cond = select i1 %cmp, i1 %cmp4, i1 false
   %.pre = extractelement <2 x float> %from.coerce0, i64 1
-  br i1 %or.cond, label %if.end15, label %if.else
+  br i1 %or.cond, label %entry.if.end15_crit_edge, label %if.else
+
+entry.if.end15_crit_edge:                         ; preds = %entry
+  %.pre132 = extractelement <2 x float> %to.coerce0, i64 1
+  br label %if.end15
 
 if.else:                                          ; preds = %entry
   %2 = tail call noundef float @llvm.fabs.f32(float %.pre)
   %cmp6 = fcmp olt float %2, 0x3FE70A3D80000000
-  br i1 %cmp6, label %land.lhs.true7, label %if.end15
-
-land.lhs.true7:                                   ; preds = %if.else
   %to.sroa.0.4.vec.extract = extractelement <2 x float> %to.coerce0, i64 1
-  %3 = tail call noundef float @llvm.fabs.f32(float %to.sroa.0.4.vec.extract)
+  %3 = tail call float @llvm.fabs.f32(float %to.sroa.0.4.vec.extract)
   %cmp10 = fcmp olt float %3, 0x3FE70A3D80000000
-  br i1 %cmp10, label %if.end15, label %if.else13
-
-if.else13:                                        ; preds = %land.lhs.true7
+  %or.cond123 = select i1 %cmp6, i1 %cmp10, i1 false
+  %spec.select = select i1 %or.cond123, float 1.000000e+00, float 0.000000e+00
+  %spec.select124 = select i1 %or.cond123, float 0.000000e+00, float 1.000000e+00
   br label %if.end15
 
-if.end15:                                         ; preds = %entry, %if.else, %land.lhs.true7, %if.else13
-  %refl.sroa.0.0 = phi float [ 0.000000e+00, %if.else ], [ 0.000000e+00, %land.lhs.true7 ], [ 0.000000e+00, %if.else13 ], [ 1.000000e+00, %entry ]
-  %refl.sroa.6.0 = phi float [ 0.000000e+00, %if.else ], [ 1.000000e+00, %land.lhs.true7 ], [ 0.000000e+00, %if.else13 ], [ 0.000000e+00, %entry ]
-  %refl.sroa.12.0 = phi float [ 1.000000e+00, %if.else ], [ 0.000000e+00, %land.lhs.true7 ], [ 1.000000e+00, %if.else13 ], [ 0.000000e+00, %entry ]
+if.end15:                                         ; preds = %entry.if.end15_crit_edge, %if.else
+  %c.sroa.0.4.vec.extract.i22.pre-phi = phi float [ %.pre132, %entry.if.end15_crit_edge ], [ %to.sroa.0.4.vec.extract, %if.else ]
+  %refl.sroa.0.0 = phi float [ 1.000000e+00, %entry.if.end15_crit_edge ], [ 0.000000e+00, %if.else ]
+  %refl.sroa.6.0 = phi float [ 0.000000e+00, %entry.if.end15_crit_edge ], [ %spec.select, %if.else ]
+  %refl.sroa.12.0 = phi float [ 0.000000e+00, %entry.if.end15_crit_edge ], [ %spec.select124, %if.else ]
   %sub.i = fsub float %refl.sroa.0.0, %from.sroa.0.0.vec.extract
   %sub4.i = fsub float %refl.sroa.6.0, %.pre
   %sub6.i = fsub float %refl.sroa.12.0, %from.coerce1
   %sub.i20 = fsub float %refl.sroa.0.0, %to.sroa.0.0.vec.extract
-  %c.sroa.0.4.vec.extract.i22 = extractelement <2 x float> %to.coerce0, i64 1
-  %sub4.i23 = fsub float %refl.sroa.6.0, %c.sroa.0.4.vec.extract.i22
+  %sub4.i23 = fsub float %refl.sroa.6.0, %c.sroa.0.4.vec.extract.i22.pre-phi
   %sub6.i25 = fsub float %refl.sroa.12.0, %to.coerce1
   call void @_ZN4pbrt12SquareMatrixILi4EEC1Ev(ptr noundef nonnull align 4 dereferenceable(64) %r)
   %mul.i = fmul float %sub.i, %sub.i
@@ -6316,13 +6317,13 @@ if.end15:                                         ; preds = %entry, %if.else, %l
   br label %for.cond22.preheader
 
 for.cond22.preheader:                             ; preds = %if.end15, %for.inc61
-  %indvars.iv126 = phi i64 [ 0, %if.end15 ], [ %indvars.iv.next127, %for.inc61 ]
-  %4 = trunc nuw nsw i64 %indvars.iv126 to i32
+  %indvars.iv128 = phi i64 [ 0, %if.end15 ], [ %indvars.iv.next129, %for.inc61 ]
+  %4 = trunc nuw nsw i64 %indvars.iv128 to i32
   br label %for.body24
 
 for.body24:                                       ; preds = %for.cond22.preheader, %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit97
   %indvars.iv = phi i64 [ 0, %for.cond22.preheader ], [ %indvars.iv.next, %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit97 ]
-  %cmp25 = icmp eq i64 %indvars.iv126, %indvars.iv
+  %cmp25 = icmp eq i64 %indvars.iv128, %indvars.iv
   %conv = uitofp i1 %cmp25 to float
   switch i32 %4, label %if.end4.i [
     i32 0, label %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit
@@ -6421,9 +6422,9 @@ _ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit97:        ; preds = %_ZN4pbrt6Tuple3INS_
   br i1 %exitcond.not, label %for.inc61, label %for.body24, !llvm.loop !63
 
 for.inc61:                                        ; preds = %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit97
-  %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
-  %exitcond129.not = icmp eq i64 %indvars.iv.next127, 3
-  br i1 %exitcond129.not, label %for.end63, label %for.cond22.preheader, !llvm.loop !64
+  %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
+  %exitcond131.not = icmp eq i64 %indvars.iv.next129, 3
+  br i1 %exitcond131.not, label %for.end63, label %for.cond22.preheader, !llvm.loop !64
 
 for.end63:                                        ; preds = %for.inc61
   call void @_ZN4pbrt12SquareMatrixILi4EEC1Ev(ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp64)

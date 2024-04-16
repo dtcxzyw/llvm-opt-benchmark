@@ -1371,7 +1371,7 @@ declare ptr @ASN1_INTEGER_new() local_unnamed_addr #1
 declare void @OSSL_CRMF_POPO_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @OSSL_CRMF_MSGS_verify_popo(ptr noundef %reqs, i32 noundef %rid, i32 noundef %acceptRAVerified, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
+define noundef i32 @OSSL_CRMF_MSGS_verify_popo(ptr noundef %reqs, i32 noundef %rid, i32 noundef %acceptRAVerified, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %reqs, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -1408,7 +1408,7 @@ if.end5:                                          ; preds = %if.end
 
 sw.bb:                                            ; preds = %if.end5
   %tobool.not = icmp eq i32 %acceptRAVerified, 0
-  br i1 %tobool.not, label %if.then7, label %return
+  br i1 %tobool.not, label %if.then7, label %sw.epilog
 
 if.then7:                                         ; preds = %sw.bb
   tail call void @ERR_new() #7
@@ -1491,9 +1491,8 @@ if.end36:                                         ; preds = %if.end33, %if.end26
   %10 = load ptr, ptr %signature, align 8
   %call37 = tail call ptr @X509_PUBKEY_get0(ptr noundef nonnull %4) #7
   %call38 = tail call i32 @ASN1_item_verify_ex(ptr noundef %it.0, ptr noundef %9, ptr noundef %10, ptr noundef %asn.0, ptr noundef null, ptr noundef %call37, ptr noundef %libctx, ptr noundef %propq) #7
-  %cmp39 = icmp sgt i32 %call38, 0
-  %spec.select = zext i1 %cmp39 to i32
-  br label %return
+  %cmp39 = icmp slt i32 %call38, 1
+  br i1 %cmp39, label %return, label %sw.epilog
 
 sw.default:                                       ; preds = %if.end5
   tail call void @ERR_new() #7
@@ -1501,8 +1500,11 @@ sw.default:                                       ; preds = %if.end5
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 56, i32 noundef 116, ptr noundef null) #7
   br label %return
 
-return:                                           ; preds = %if.end36, %sw.bb, %sw.default, %if.then32, %if.then25, %if.then19, %if.then11, %if.then7, %if.then4, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.then4 ], [ 0, %sw.default ], [ 0, %if.then11 ], [ 0, %if.then19 ], [ 0, %if.then25 ], [ 0, %if.then32 ], [ 0, %if.then7 ], [ 1, %sw.bb ], [ %spec.select, %if.end36 ]
+sw.epilog:                                        ; preds = %if.end36, %sw.bb
+  br label %return
+
+return:                                           ; preds = %if.end36, %sw.epilog, %sw.default, %if.then32, %if.then25, %if.then19, %if.then11, %if.then7, %if.then4, %if.then
+  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.then4 ], [ 0, %sw.default ], [ 0, %if.then11 ], [ 0, %if.then19 ], [ 0, %if.then25 ], [ 1, %sw.epilog ], [ 0, %if.then32 ], [ 0, %if.then7 ], [ 0, %if.end36 ]
   ret i32 %retval.0
 }
 
@@ -1637,7 +1639,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @OSSL_CRMF_CERTTEMPLATE_fill(ptr noundef %tmpl, ptr noundef %pubkey, ptr noundef %subject, ptr noundef %issuer, ptr noundef %serial) local_unnamed_addr #0 {
+define noundef i32 @OSSL_CRMF_CERTTEMPLATE_fill(ptr noundef %tmpl, ptr noundef %pubkey, ptr noundef %subject, ptr noundef %issuer, ptr noundef %serial) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %tmpl, null
   br i1 %cmp, label %if.then, label %if.end
@@ -1683,17 +1685,19 @@ if.then13:                                        ; preds = %if.end11
 
 if.end19:                                         ; preds = %if.then13, %if.end11
   %cmp20.not = icmp eq ptr %pubkey, null
-  br i1 %cmp20.not, label %return, label %land.lhs.true21
+  br i1 %cmp20.not, label %if.end25, label %land.lhs.true21
 
 land.lhs.true21:                                  ; preds = %if.end19
   %publicKey = getelementptr inbounds i8, ptr %tmpl, i64 48
   %call22 = tail call i32 @X509_PUBKEY_set(ptr noundef nonnull %publicKey, ptr noundef nonnull %pubkey) #7
-  %tobool23.not = icmp ne i32 %call22, 0
-  %spec.select = zext i1 %tobool23.not to i32
+  %tobool23.not = icmp eq i32 %call22, 0
+  br i1 %tobool23.not, label %return, label %if.end25
+
+if.end25:                                         ; preds = %land.lhs.true21, %if.end19
   br label %return
 
-return:                                           ; preds = %land.lhs.true21, %if.end19, %if.then13, %land.lhs.true6, %land.lhs.true, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true6 ], [ 0, %if.then13 ], [ 1, %if.end19 ], [ %spec.select, %land.lhs.true21 ]
+return:                                           ; preds = %land.lhs.true21, %if.then13, %land.lhs.true6, %land.lhs.true, %if.end25, %if.then
+  %retval.0 = phi i32 [ 0, %if.then ], [ 1, %if.end25 ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true6 ], [ 0, %if.then13 ], [ 0, %land.lhs.true21 ]
   ret i32 %retval.0
 }
 

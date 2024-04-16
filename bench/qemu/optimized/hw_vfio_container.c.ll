@@ -809,16 +809,20 @@ if.end24:                                         ; preds = %land.lhs.true19, %l
   br label %return
 
 while.end:                                        ; preds = %trace_vfio_dma_unmap_overflow_workaround.exit, %if.end8
-  br i1 %need_dirty_sync.0, label %if.then30, label %return
+  br i1 %need_dirty_sync.0, label %if.then30, label %if.end35
 
 if.then30:                                        ; preds = %while.end
   %translated_addr = getelementptr inbounds i8, ptr %iotlb, i64 16
   %89 = load i64, ptr %translated_addr, align 8
   %call31 = call i32 @vfio_get_dirty_bitmap(ptr noundef nonnull %container, i64 noundef %iova, i64 noundef %size, i64 noundef %89) #15
+  %tobool32.not = icmp eq i32 %call31, 0
+  br i1 %tobool32.not, label %if.end35, label %return
+
+if.end35:                                         ; preds = %if.then30, %while.end
   br label %return
 
-return:                                           ; preds = %if.then30, %while.end, %if.end24, %vfio_dma_unmap_bitmap.exit
-  %retval.0 = phi i32 [ %sub28, %if.end24 ], [ %retval.0.i, %vfio_dma_unmap_bitmap.exit ], [ 0, %while.end ], [ %call31, %if.then30 ]
+return:                                           ; preds = %if.then30, %if.end35, %if.end24, %vfio_dma_unmap_bitmap.exit
+  %retval.0 = phi i32 [ %sub28, %if.end24 ], [ 0, %if.end35 ], [ %retval.0.i, %vfio_dma_unmap_bitmap.exit ], [ %call31, %if.then30 ]
   ret i32 %retval.0
 }
 

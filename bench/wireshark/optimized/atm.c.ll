@@ -27,16 +27,16 @@ define hidden void @atm_guess_traffic_type(ptr nocapture noundef %0, ptr nocaptu
 
 13:                                               ; preds = %10
   store i8 6, ptr %4, align 4
-  br label %46
+  br label %47
 
 14:                                               ; preds = %10
   store i8 4, ptr %5, align 1
-  br label %46
+  br label %47
 
 15:                                               ; preds = %10, %2
   %16 = load i32, ptr %3, align 8
   %17 = icmp ugt i32 %16, 2
-  br i1 %17, label %18, label %45
+  br i1 %17, label %18, label %46
 
 18:                                               ; preds = %15
   %19 = load i8, ptr %1, align 1
@@ -57,7 +57,7 @@ define hidden void @atm_guess_traffic_type(ptr nocapture noundef %0, ptr nocaptu
 
 29:                                               ; preds = %25
   store i8 1, ptr %5, align 1
-  br label %46
+  br label %47
 
 30:                                               ; preds = %25, %21, %18
   %31 = getelementptr inbounds i8, ptr %0, i64 100
@@ -70,7 +70,7 @@ define hidden void @atm_guess_traffic_type(ptr nocapture noundef %0, ptr nocaptu
 
 35:                                               ; preds = %30
   store i8 6, ptr %4, align 4
-  br label %46
+  br label %47
 
 36:                                               ; preds = %30
   switch i8 %19, label %38 [
@@ -80,31 +80,33 @@ define hidden void @atm_guess_traffic_type(ptr nocapture noundef %0, ptr nocaptu
 
 37:                                               ; preds = %36, %36
   store i8 6, ptr %4, align 4
-  br label %46
+  br label %47
 
 38:                                               ; preds = %36
   store i8 3, ptr %5, align 1
   %39 = load i8, ptr %1, align 1
   %40 = icmp eq i8 %39, -1
-  br i1 %40, label %41, label %atm_guess_lane_type.exit
+  br i1 %40, label %41, label %45
 
 41:                                               ; preds = %38
   %42 = getelementptr i8, ptr %1, i64 1
   %43 = load i8, ptr %42, align 1
   %44 = icmp eq i8 %43, 0
-  %spec.select.i = select i1 %44, i8 1, i8 2
+  br i1 %44, label %atm_guess_lane_type.exit, label %45
+
+45:                                               ; preds = %41, %38
   br label %atm_guess_lane_type.exit
 
-atm_guess_lane_type.exit:                         ; preds = %38, %41
-  %.sink.i = phi i8 [ 2, %38 ], [ %spec.select.i, %41 ]
+atm_guess_lane_type.exit:                         ; preds = %41, %45
+  %.sink.i = phi i8 [ 2, %45 ], [ 1, %41 ]
   store i8 %.sink.i, ptr %6, align 2
-  br label %46
+  br label %47
 
-45:                                               ; preds = %15
+46:                                               ; preds = %15
   store i8 6, ptr %4, align 4
-  br label %46
+  br label %47
 
-46:                                               ; preds = %29, %37, %atm_guess_lane_type.exit, %35, %45, %14, %13
+47:                                               ; preds = %29, %37, %atm_guess_lane_type.exit, %35, %46, %14, %13
   ret void
 }
 
@@ -113,27 +115,29 @@ define hidden void @atm_guess_lane_type(ptr nocapture noundef %0, ptr nocapture 
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load i32, ptr %3, align 8
   %5 = icmp ugt i32 %4, 1
-  br i1 %5, label %6, label %14
+  br i1 %5, label %6, label %15
 
 6:                                                ; preds = %2
   %7 = load i8, ptr %1, align 1
   %8 = icmp eq i8 %7, -1
-  br i1 %8, label %9, label %.sink.split
+  br i1 %8, label %9, label %13
 
 9:                                                ; preds = %6
   %10 = getelementptr i8, ptr %1, i64 1
   %11 = load i8, ptr %10, align 1
   %12 = icmp eq i8 %11, 0
-  %spec.select = select i1 %12, i8 1, i8 2
+  br i1 %12, label %.sink.split, label %13
+
+13:                                               ; preds = %9, %6
   br label %.sink.split
 
-.sink.split:                                      ; preds = %9, %6
-  %.sink = phi i8 [ 2, %6 ], [ %spec.select, %9 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 86
-  store i8 %.sink, ptr %13, align 2
-  br label %14
+.sink.split:                                      ; preds = %9, %13
+  %.sink = phi i8 [ 2, %13 ], [ 1, %9 ]
+  %14 = getelementptr inbounds i8, ptr %0, i64 86
+  store i8 %.sink, ptr %14, align 2
+  br label %15
 
-14:                                               ; preds = %.sink.split, %2
+15:                                               ; preds = %.sink.split, %2
   ret void
 }
 

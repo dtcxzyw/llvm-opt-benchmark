@@ -3489,7 +3489,7 @@ entry:
   %NumBuckets.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i32, ptr %NumBuckets.i.i.i.i.i, align 8
   %cmp.i.i.i = icmp eq i32 %1, 0
-  br i1 %cmp.i.i.i, label %return, label %if.end.i.i.i
+  br i1 %cmp.i.i.i, label %if.end15, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %entry
   %2 = ptrtoint ptr %Value to i64
@@ -3510,7 +3510,7 @@ if.end9.i.i.i:                                    ; preds = %if.end.i.i.i, %if.e
   %BucketNo.025.i.i.i = phi i32 [ %BucketNo.0.i.i.i, %if.end13.i.i.i ], [ %BucketNo.019.i.i.i, %if.end.i.i.i ]
   %ProbeAmt.024.i.i.i = phi i32 [ %inc.i.i.i, %if.end13.i.i.i ], [ 1, %if.end.i.i.i ]
   %cmp.i15.i.i.not.i = icmp eq ptr %4, inttoptr (i64 -8 to ptr)
-  br i1 %cmp.i15.i.i.not.i, label %return, label %if.end13.i.i.i
+  br i1 %cmp.i15.i.i.not.i, label %if.end15, label %if.end13.i.i.i
 
 if.end13.i.i.i:                                   ; preds = %if.end9.i.i.i
   %inc.i.i.i = add i32 %ProbeAmt.024.i.i.i, 1
@@ -3540,7 +3540,7 @@ if.end9.i.i.i18:                                  ; preds = %if.end.i.i.i8, %if.
   %BucketNo.025.i.i.i19 = phi i32 [ %BucketNo.0.i.i.i25, %if.end13.i.i.i22 ], [ %BucketNo.019.i.i.i14, %if.end.i.i.i8 ]
   %ProbeAmt.024.i.i.i20 = phi i32 [ %inc.i.i.i23, %if.end13.i.i.i22 ], [ 1, %if.end.i.i.i8 ]
   %cmp.i15.i.i.not.i21 = icmp eq ptr %8, inttoptr (i64 -8 to ptr)
-  br i1 %cmp.i15.i.i.not.i21, label %return, label %if.end13.i.i.i22
+  br i1 %cmp.i15.i.i.not.i21, label %if.end15, label %if.end13.i.i.i22
 
 if.end13.i.i.i22:                                 ; preds = %if.end9.i.i.i18
   %inc.i.i.i23 = add i32 %ProbeAmt.024.i.i.i20, 1
@@ -3623,7 +3623,7 @@ _ZN6hermes17RegisterAllocator11getRegisterEPNS_5ValueE.exit: ; preds = %if.end13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %I.addr.i)
   %call4 = call noundef i32 @_ZN6hermes17RegisterAllocator20getInstructionNumberEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(1952) %this, ptr noundef %At)
   %cmp.i.not = icmp eq i32 %retval.sroa.0.0.copyload.i, -1
-  br i1 %cmp.i.not, label %return, label %if.then6
+  br i1 %cmp.i.not, label %if.end15, label %if.then6
 
 if.then6:                                         ; preds = %_ZN6hermes17RegisterAllocator11getRegisterEPNS_5ValueE.exit
   %call.i = call noundef i32 @_ZN6hermes17RegisterAllocator20getInstructionNumberEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(1952) %this, ptr noundef %Value)
@@ -3764,11 +3764,11 @@ sw.bb27.i.i.i:                                    ; preds = %if.end25.i.i.i, %fo
   %tobool.not.old = icmp eq ptr %19, null
   br i1 %tobool.not.old, label %if.end15, label %return
 
-if.end15:                                         ; preds = %sw.bb27.i.i.i, %"_ZSt7find_ifIPKN6hermes7SegmentEZNS0_17RegisterAllocator27getRegisterForInstructionAtEPNS0_11InstructionES6_E3$_0ET_S8_S8_T0_.exit"
+if.end15:                                         ; preds = %if.end9.i.i.i, %if.end9.i.i.i18, %sw.bb27.i.i.i, %entry, %_ZN6hermes17RegisterAllocator11getRegisterEPNS_5ValueE.exit, %"_ZSt7find_ifIPKN6hermes7SegmentEZNS0_17RegisterAllocator27getRegisterForInstructionAtEPNS0_11InstructionES6_E3$_0ET_S8_S8_T0_.exit"
   br label %return
 
-return:                                           ; preds = %if.end9.i.i.i, %if.end9.i.i.i18, %if.end8.i.i.i, %if.end4.i.i.i, %if.end.i.i.i36, %for.body.i.i.i, %sw.bb27.i.i.i, %sw.bb22.i.i.i, %sw.bb.i.i.i, %_ZN6hermes17RegisterAllocator11getRegisterEPNS_5ValueE.exit, %entry, %"_ZSt7find_ifIPKN6hermes7SegmentEZNS0_17RegisterAllocator27getRegisterForInstructionAtEPNS0_11InstructionES6_E3$_0ET_S8_S8_T0_.exit", %if.end15
-  %retval.sroa.0.0 = phi i32 [ %retval.sroa.0.0.copyload.i, %"_ZSt7find_ifIPKN6hermes7SegmentEZNS0_17RegisterAllocator27getRegisterForInstructionAtEPNS0_11InstructionES6_E3$_0ET_S8_S8_T0_.exit" ], [ -1, %entry ], [ -1, %_ZN6hermes17RegisterAllocator11getRegisterEPNS_5ValueE.exit ], [ -1, %if.end15 ], [ %retval.sroa.0.0.copyload.i, %sw.bb.i.i.i ], [ %retval.sroa.0.0.copyload.i, %sw.bb22.i.i.i ], [ %retval.sroa.0.0.copyload.i, %sw.bb27.i.i.i ], [ %retval.sroa.0.0.copyload.i, %for.body.i.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i.i.i36 ], [ %retval.sroa.0.0.copyload.i, %if.end4.i.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end8.i.i.i ], [ -1, %if.end9.i.i.i18 ], [ -1, %if.end9.i.i.i ]
+return:                                           ; preds = %if.end8.i.i.i, %if.end4.i.i.i, %if.end.i.i.i36, %for.body.i.i.i, %sw.bb27.i.i.i, %sw.bb22.i.i.i, %sw.bb.i.i.i, %"_ZSt7find_ifIPKN6hermes7SegmentEZNS0_17RegisterAllocator27getRegisterForInstructionAtEPNS0_11InstructionES6_E3$_0ET_S8_S8_T0_.exit", %if.end15
+  %retval.sroa.0.0 = phi i32 [ -1, %if.end15 ], [ %retval.sroa.0.0.copyload.i, %"_ZSt7find_ifIPKN6hermes7SegmentEZNS0_17RegisterAllocator27getRegisterForInstructionAtEPNS0_11InstructionES6_E3$_0ET_S8_S8_T0_.exit" ], [ %retval.sroa.0.0.copyload.i, %sw.bb.i.i.i ], [ %retval.sroa.0.0.copyload.i, %sw.bb22.i.i.i ], [ %retval.sroa.0.0.copyload.i, %sw.bb27.i.i.i ], [ %retval.sroa.0.0.copyload.i, %for.body.i.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i.i.i36 ], [ %retval.sroa.0.0.copyload.i, %if.end4.i.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end8.i.i.i ]
   ret i32 %retval.sroa.0.0
 }
 
@@ -13872,8 +13872,8 @@ while.body.lr.ph:                                 ; preds = %entry
   %0 = getelementptr i8, ptr %__comp.coerce, i64 328
   br label %while.body
 
-while.body:                                       ; preds = %while.body.lr.ph, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.exit.thread"
-  %__secondChild.026 = phi i64 [ %__holeIndex, %while.body.lr.ph ], [ %13, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.exit.thread" ]
+while.body:                                       ; preds = %while.body.lr.ph, %while.cond
+  %__secondChild.026 = phi i64 [ %__holeIndex, %while.body.lr.ph ], [ %13, %while.cond ]
   %add = shl i64 %__secondChild.026, 1
   %mul = add i64 %add, 2
   %add.ptr = getelementptr inbounds i32, ptr %__first, i64 %mul
@@ -13960,21 +13960,21 @@ for.body.i33.i.i:                                 ; preds = %_ZNK6hermes8Interva
   %cmp10.i.i = icmp ult i32 %add.ptr.val, %add.ptr3.val
   %11 = and i1 %cmp10.i.i, %cmp9.i.i
   %cond.fr = freeze i1 %11
-  %spec.select = select i1 %cond.fr, i64 %sub2, i64 %mul
-  %add.ptr4.phi.trans.insert = getelementptr inbounds i32, ptr %__first, i64 %spec.select
-  %.pre = load i32, ptr %add.ptr4.phi.trans.insert, align 4
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.exit.thread"
+  br i1 %cond.fr, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.exit.thread", label %while.cond
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.exit.thread": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.exit", %_ZNK6hermes8Interval5startEv.exit16.i.i
-  %12 = phi i32 [ %add.ptr3.val, %_ZNK6hermes8Interval5startEv.exit16.i.i ], [ %.pre, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.exit" ]
-  %13 = phi i64 [ %sub2, %_ZNK6hermes8Interval5startEv.exit16.i.i ], [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.exit" ]
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.exit.thread": ; preds = %_ZNK6hermes8Interval5startEv.exit16.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.exit"
+  br label %while.cond
+
+while.cond:                                       ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.exit", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.exit.thread"
+  %12 = phi i32 [ %add.ptr3.val, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.exit.thread" ], [ %add.ptr.val, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.exit" ]
+  %13 = phi i64 [ %sub2, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.exit.thread" ], [ %mul, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.exit" ]
   %add.ptr5 = getelementptr inbounds i32, ptr %__first, i64 %__secondChild.026
   store i32 %12, ptr %add.ptr5, align 4
   %cmp = icmp slt i64 %13, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !73
 
-while.end:                                        ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.exit.thread", %entry
-  %__secondChild.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %13, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.exit.thread" ]
+while.end:                                        ; preds = %while.cond, %entry
+  %__secondChild.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %13, %while.cond ]
   %and = and i64 %__len, 1
   %cmp6 = icmp eq i64 %and, 0
   br i1 %cmp6, label %land.lhs.true, label %if.end17

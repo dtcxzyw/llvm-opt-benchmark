@@ -774,14 +774,18 @@ entry:
   %0 = getelementptr i8, ptr %m_obj, i64 8
   %m_obj.val = load ptr, ptr %0, align 8
   %tobool.not = icmp eq ptr %m_obj.val, null
-  br i1 %tobool.not, label %return, label %if.then
+  br i1 %tobool.not, label %do.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %call2 = tail call i32 %visit(ptr noundef nonnull %m_obj.val, ptr noundef %arg) #8
+  %tobool3.not = icmp eq i32 %call2, 0
+  br i1 %tobool3.not, label %do.end, label %return
+
+do.end:                                           ; preds = %entry, %if.then
   br label %return
 
-return:                                           ; preds = %if.then, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ %call2, %if.then ]
+return:                                           ; preds = %if.then, %do.end
+  %retval.0 = phi i32 [ 0, %do.end ], [ %call2, %if.then ]
   ret i32 %retval.0
 }
 

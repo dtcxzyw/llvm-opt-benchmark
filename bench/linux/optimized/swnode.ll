@@ -2529,119 +2529,121 @@ define internal ptr @software_node_graph_get_next_endpoint(ptr noundef %0, ptr n
   %62 = tail call ptr @kobject_get(ptr noundef %61) #12
   %63 = getelementptr i8, ptr %53, i64 -96
   %64 = icmp eq ptr %63, null
-  br i1 %64, label %.thread22.thread, label %69
+  br i1 %64, label %.thread22.thread, label %70
 
 .thread22.thread:                                 ; preds = %.preheader31, %60
   %.pre = load ptr, ptr %7, align 8
   %.pre.fr = freeze ptr %.pre
   %65 = icmp eq ptr %.pre.fr, @software_node_ops
-  %spec.select50 = select i1 %65, ptr %10, ptr null
-  br label %.thread22.thread.thread
+  br i1 %65, label %.thread22.thread.thread, label %66
 
-.thread22.thread.thread:                          ; preds = %.thread22.thread, %48
-  %66 = phi ptr [ %10, %48 ], [ %spec.select50, %.thread22.thread ]
-  %67 = tail call ptr @kobject_get(ptr noundef %66) #12
-  %68 = getelementptr inbounds i8, ptr %66, i64 64
-  br label %69
+.thread22.thread.thread:                          ; preds = %48, %.thread22.thread
+  br label %66
 
-69:                                               ; preds = %.thread22.thread.thread, %60
-  %70 = phi ptr [ %63, %60 ], [ %68, %.thread22.thread.thread ]
-  %71 = tail call fastcc ptr @swnode_graph_find_next_port(ptr noundef %70, ptr noundef null)
+66:                                               ; preds = %.thread22.thread, %.thread22.thread.thread
+  %67 = phi ptr [ %10, %.thread22.thread.thread ], [ null, %.thread22.thread ]
+  %68 = tail call ptr @kobject_get(ptr noundef %67) #12
+  %69 = getelementptr inbounds i8, ptr %67, i64 64
+  br label %70
+
+70:                                               ; preds = %66, %60
+  %71 = phi ptr [ %63, %60 ], [ %69, %66 ]
+  %72 = tail call fastcc ptr @swnode_graph_find_next_port(ptr noundef %71, ptr noundef null)
   br label %.thread20
 
-.thread20:                                        ; preds = %28, %69
-  %72 = phi ptr [ %70, %69 ], [ null, %28 ]
-  %73 = phi ptr [ %71, %69 ], [ %30, %28 ]
-  %74 = icmp eq ptr %73, null
-  br i1 %74, label %.thread20.thread, label %.preheader.preheader
+.thread20:                                        ; preds = %28, %70
+  %73 = phi ptr [ %71, %70 ], [ null, %28 ]
+  %74 = phi ptr [ %72, %70 ], [ %30, %28 ]
+  %75 = icmp eq ptr %74, null
+  br i1 %75, label %.thread20.thread, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %34, %41, %45, %.thread20
-  %75 = phi ptr [ %73, %.thread20 ], [ %30, %45 ], [ %30, %41 ], [ %30, %34 ]
-  %76 = phi ptr [ %72, %.thread20 ], [ %47, %45 ], [ null, %41 ], [ null, %34 ]
+  %76 = phi ptr [ %74, %.thread20 ], [ %30, %45 ], [ %30, %41 ], [ %30, %34 ]
+  %77 = phi ptr [ %73, %.thread20 ], [ %47, %45 ], [ null, %41 ], [ null, %34 ]
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.preheader, %112
-  %77 = phi ptr [ %113, %112 ], [ %75, %.preheader.preheader ]
-  %78 = phi ptr [ null, %112 ], [ %1, %.preheader.preheader ]
-  %79 = icmp ugt ptr %77, inttoptr (i64 -4096 to ptr)
-  br i1 %79, label %.thread23, label %80
+.preheader:                                       ; preds = %.preheader.preheader, %113
+  %78 = phi ptr [ %114, %113 ], [ %76, %.preheader.preheader ]
+  %79 = phi ptr [ null, %113 ], [ %1, %.preheader.preheader ]
+  %80 = icmp ugt ptr %78, inttoptr (i64 -4096 to ptr)
+  br i1 %80, label %.thread23, label %81
 
-80:                                               ; preds = %.preheader
-  %81 = getelementptr inbounds i8, ptr %77, i64 8
-  %82 = load ptr, ptr %81, align 8
-  %.fr = freeze ptr %82
-  %83 = icmp eq ptr %.fr, @software_node_ops
-  %84 = getelementptr i8, ptr %77, i64 -64
-  %spec.select = select i1 %83, ptr %84, ptr null
+81:                                               ; preds = %.preheader
+  %82 = getelementptr inbounds i8, ptr %78, i64 8
+  %83 = load ptr, ptr %82, align 8
+  %.fr = freeze ptr %83
+  %84 = icmp eq ptr %.fr, @software_node_ops
+  %85 = getelementptr i8, ptr %78, i64 -64
+  %spec.select = select i1 %84, ptr %85, ptr null
   br label %.thread23
 
-.thread23:                                        ; preds = %80, %.preheader
-  %85 = phi ptr [ null, %.preheader ], [ %spec.select, %80 ]
-  %86 = icmp eq ptr %78, null
-  %87 = icmp ugt ptr %78, inttoptr (i64 -4096 to ptr)
-  %88 = or i1 %86, %87
-  br i1 %88, label %.thread26, label %89
+.thread23:                                        ; preds = %81, %.preheader
+  %86 = phi ptr [ null, %.preheader ], [ %spec.select, %81 ]
+  %87 = icmp eq ptr %79, null
+  %88 = icmp ugt ptr %79, inttoptr (i64 -4096 to ptr)
+  %89 = or i1 %87, %88
+  br i1 %89, label %.thread26, label %90
 
-89:                                               ; preds = %.thread23
-  %90 = getelementptr inbounds i8, ptr %78, i64 8
-  %91 = load ptr, ptr %90, align 8
-  %.fr30 = freeze ptr %91
-  %92 = icmp eq ptr %.fr30, @software_node_ops
-  %93 = getelementptr i8, ptr %78, i64 -64
-  %spec.select29 = select i1 %92, ptr %93, ptr null
+90:                                               ; preds = %.thread23
+  %91 = getelementptr inbounds i8, ptr %79, i64 8
+  %92 = load ptr, ptr %91, align 8
+  %.fr30 = freeze ptr %92
+  %93 = icmp eq ptr %.fr30, @software_node_ops
+  %94 = getelementptr i8, ptr %79, i64 -64
+  %spec.select29 = select i1 %93, ptr %94, ptr null
   br label %.thread26
 
-.thread26:                                        ; preds = %89, %.thread23
-  %94 = phi ptr [ null, %.thread23 ], [ %spec.select29, %89 ]
-  %95 = icmp eq ptr %85, null
-  br i1 %95, label %.thread28, label %96
+.thread26:                                        ; preds = %90, %.thread23
+  %95 = phi ptr [ null, %.thread23 ], [ %spec.select29, %90 ]
+  %96 = icmp eq ptr %86, null
+  br i1 %96, label %.thread28, label %97
 
-96:                                               ; preds = %.thread26
-  %97 = getelementptr inbounds i8, ptr %85, i64 176
-  %98 = load volatile ptr, ptr %97, align 8
-  %99 = icmp eq ptr %98, %97
-  br i1 %99, label %.thread28, label %100
+97:                                               ; preds = %.thread26
+  %98 = getelementptr inbounds i8, ptr %86, i64 176
+  %99 = load volatile ptr, ptr %98, align 8
+  %100 = icmp eq ptr %99, %98
+  br i1 %100, label %.thread28, label %101
 
-100:                                              ; preds = %96
-  %101 = icmp eq ptr %94, null
-  br i1 %101, label %106, label %102
+101:                                              ; preds = %97
+  %102 = icmp eq ptr %95, null
+  br i1 %102, label %107, label %103
 
-102:                                              ; preds = %100
-  %103 = getelementptr inbounds i8, ptr %94, i64 160
-  %104 = load ptr, ptr %103, align 8
-  %105 = icmp eq ptr %104, %97
-  br i1 %105, label %.thread28, label %106
+103:                                              ; preds = %101
+  %104 = getelementptr inbounds i8, ptr %95, i64 160
+  %105 = load ptr, ptr %104, align 8
+  %106 = icmp eq ptr %105, %98
+  br i1 %106, label %.thread28, label %107
 
-.thread28:                                        ; preds = %.thread26, %96, %102
-  tail call void @fwnode_handle_put(ptr noundef %78) #12
-  br label %112
+.thread28:                                        ; preds = %.thread26, %97, %103
+  tail call void @fwnode_handle_put(ptr noundef %79) #12
+  br label %113
 
-106:                                              ; preds = %100, %102
-  %107 = phi ptr [ %98, %100 ], [ %104, %102 ]
-  tail call void @fwnode_handle_put(ptr noundef %78) #12
-  %108 = getelementptr i8, ptr %107, i64 -96
-  %109 = tail call ptr @fwnode_handle_get(ptr noundef %108) #12
-  %110 = icmp eq ptr %109, null
-  br i1 %110, label %112, label %111
+107:                                              ; preds = %101, %103
+  %108 = phi ptr [ %99, %101 ], [ %105, %103 ]
+  tail call void @fwnode_handle_put(ptr noundef %79) #12
+  %109 = getelementptr i8, ptr %108, i64 -96
+  %110 = tail call ptr @fwnode_handle_get(ptr noundef %109) #12
+  %111 = icmp eq ptr %110, null
+  br i1 %111, label %113, label %112
 
-111:                                              ; preds = %106
-  tail call void @fwnode_handle_put(ptr noundef nonnull %77) #12
+112:                                              ; preds = %107
+  tail call void @fwnode_handle_put(ptr noundef nonnull %78) #12
   br label %.thread20.thread
 
-112:                                              ; preds = %.thread28, %106
-  %113 = tail call fastcc ptr @swnode_graph_find_next_port(ptr noundef %76, ptr noundef nonnull %77)
-  %114 = icmp eq ptr %113, null
-  br i1 %114, label %.thread20.thread, label %.preheader, !llvm.loop !27
+113:                                              ; preds = %.thread28, %107
+  %114 = tail call fastcc ptr @swnode_graph_find_next_port(ptr noundef %77, ptr noundef nonnull %78)
+  %115 = icmp eq ptr %114, null
+  br i1 %115, label %.thread20.thread, label %.preheader, !llvm.loop !27
 
-.thread20.thread:                                 ; preds = %112, %15, %17, %24, %111, %.thread20
-  %115 = phi ptr [ %76, %111 ], [ %72, %.thread20 ], [ null, %24 ], [ null, %17 ], [ null, %15 ], [ %76, %112 ]
-  %116 = phi ptr [ %109, %111 ], [ %1, %.thread20 ], [ %1, %24 ], [ %1, %17 ], [ %1, %15 ], [ null, %112 ]
-  tail call void @fwnode_handle_put(ptr noundef %115) #12
+.thread20.thread:                                 ; preds = %113, %15, %17, %24, %112, %.thread20
+  %116 = phi ptr [ %77, %112 ], [ %73, %.thread20 ], [ null, %24 ], [ null, %17 ], [ null, %15 ], [ %77, %113 ]
+  %117 = phi ptr [ %110, %112 ], [ %1, %.thread20 ], [ %1, %24 ], [ %1, %17 ], [ %1, %15 ], [ null, %113 ]
+  tail call void @fwnode_handle_put(ptr noundef %116) #12
   br label %.thread
 
 .thread:                                          ; preds = %2, %.thread20.thread, %6
-  %117 = phi ptr [ %116, %.thread20.thread ], [ null, %6 ], [ null, %2 ]
-  ret ptr %117
+  %118 = phi ptr [ %117, %.thread20.thread ], [ null, %6 ], [ null, %2 ]
+  ret ptr %118
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

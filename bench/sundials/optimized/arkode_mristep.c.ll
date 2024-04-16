@@ -2517,7 +2517,7 @@ mriStep_AccessStepMem.exit:                       ; preds = %6
   %22 = getelementptr inbounds i8, ptr %19, i64 16
   %23 = load ptr, ptr %22, align 8
   %.not.i = icmp eq ptr %23, null
-  br i1 %.not.i, label %mriStep_AccessStepMem.exit.thread, label %mriStepInnerStepper_Reset.exit
+  br i1 %.not.i, label %mriStepInnerStepper_Reset.exit.thread25, label %mriStepInnerStepper_Reset.exit
 
 mriStepInnerStepper_Reset.exit:                   ; preds = %21
   %24 = tail call i32 %23(ptr noundef nonnull %15, double noundef %1, ptr noundef %2) #12
@@ -2525,11 +2525,13 @@ mriStepInnerStepper_Reset.exit:                   ; preds = %21
   %25 = getelementptr inbounds i8, ptr %15, i64 40
   store i32 %.fr, ptr %25, align 8
   %.not14 = icmp eq i32 %.fr, 0
-  %spec.select = select i1 %.not14, i32 0, i32 -34
+  br i1 %.not14, label %mriStepInnerStepper_Reset.exit.thread25, label %mriStep_AccessStepMem.exit.thread
+
+mriStepInnerStepper_Reset.exit.thread25:          ; preds = %21, %mriStepInnerStepper_Reset.exit
   br label %mriStep_AccessStepMem.exit.thread
 
-mriStep_AccessStepMem.exit.thread:                ; preds = %mriStepInnerStepper_Reset.exit, %17, %13, %21, %10, %5, %12
-  %.0 = phi i32 [ %11, %12 ], [ -21, %5 ], [ -21, %10 ], [ 0, %21 ], [ -34, %13 ], [ -34, %17 ], [ %spec.select, %mriStepInnerStepper_Reset.exit ]
+mriStep_AccessStepMem.exit.thread:                ; preds = %17, %13, %10, %5, %mriStepInnerStepper_Reset.exit.thread25, %mriStepInnerStepper_Reset.exit, %12
+  %.0 = phi i32 [ %11, %12 ], [ 0, %mriStepInnerStepper_Reset.exit.thread25 ], [ -34, %mriStepInnerStepper_Reset.exit ], [ -21, %5 ], [ -21, %10 ], [ -34, %13 ], [ -34, %17 ]
   ret i32 %.0
 }
 
@@ -3734,7 +3736,7 @@ declare i32 @SUNNonlinSolSetup(ptr noundef, ptr noundef, ptr noundef) local_unna
 declare double @llvm.fmuladd.f64(double, double, double) #7
 
 ; Function Attrs: nounwind uwtable
-define i32 @mriStep_StageERKFast(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define noundef i32 @mriStep_StageERKFast(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 568
   %5 = load double, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 56
@@ -3812,7 +3814,7 @@ mriStepInnerStepper_Evolve.exit:                  ; preds = %50
   %57 = getelementptr inbounds i8, ptr %1, i64 360
   %58 = load ptr, ptr %57, align 8
   %.not42 = icmp eq ptr %58, null
-  br i1 %.not42, label %mriStepInnerStepper_Evolve.exit.thread, label %59
+  br i1 %.not42, label %65, label %59
 
 59:                                               ; preds = %56
   %60 = load double, ptr %41, align 8
@@ -3821,11 +3823,13 @@ mriStepInnerStepper_Evolve.exit:                  ; preds = %50
   %63 = load ptr, ptr %62, align 8
   %64 = tail call i32 %58(double noundef %60, ptr noundef %61, ptr noundef %63) #12
   %.not43 = icmp eq i32 %64, 0
-  %spec.select = select i1 %.not43, i32 0, i32 -36
+  br i1 %.not43, label %65, label %mriStepInnerStepper_Evolve.exit.thread
+
+65:                                               ; preds = %59, %56
   br label %mriStepInnerStepper_Evolve.exit.thread
 
-mriStepInnerStepper_Evolve.exit.thread:           ; preds = %50, %46, %39, %59, %56, %mriStepInnerStepper_Evolve.exit, %30, %3
-  %.0 = phi i32 [ %19, %3 ], [ -35, %30 ], [ -34, %mriStepInnerStepper_Evolve.exit ], [ 0, %56 ], [ %spec.select, %59 ], [ -34, %39 ], [ -34, %46 ], [ -34, %50 ]
+mriStepInnerStepper_Evolve.exit.thread:           ; preds = %50, %46, %39, %59, %mriStepInnerStepper_Evolve.exit, %30, %3, %65
+  %.0 = phi i32 [ 0, %65 ], [ %19, %3 ], [ -35, %30 ], [ -34, %mriStepInnerStepper_Evolve.exit ], [ -36, %59 ], [ -34, %39 ], [ -34, %46 ], [ -34, %50 ]
   ret i32 %.0
 }
 

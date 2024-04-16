@@ -21,8 +21,8 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %if.then2, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end
-  %cmp714 = icmp sgt i32 %0, 0
-  br i1 %cmp714, label %for.body.lr.ph, label %return
+  %cmp715 = icmp sgt i32 %0, 0
+  br i1 %cmp715, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %data = getelementptr inbounds i8, ptr %a, i64 8
@@ -32,12 +32,11 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 if.then2:                                         ; preds = %if.end
   %call = tail call i32 @BIO_write(ptr noundef %bp, ptr noundef nonnull @.str.1, i32 noundef 2) #5
   %cmp3.not = icmp eq i32 %call, 2
-  %spec.select = select i1 %cmp3.not, i32 2, i32 -1
-  br label %return
+  br i1 %cmp3.not, label %return, label %err
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end31
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %if.end31 ]
-  %n.016 = phi i32 [ 0, %for.body.lr.ph ], [ %add32, %if.end31 ]
+  %n.017 = phi i32 [ 0, %for.body.lr.ph ], [ %add32, %if.end31 ]
   %cmp8.not = icmp ne i64 %indvars.iv, 0
   %1 = trunc nuw nsw i64 %indvars.iv to i32
   %rem = urem i32 %1, 35
@@ -48,14 +47,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
 if.then10:                                        ; preds = %for.body
   %call11 = call i32 @BIO_write(ptr noundef %bp, ptr noundef nonnull @.str.2, i32 noundef 2) #5
   %cmp12.not = icmp eq i32 %call11, 2
-  br i1 %cmp12.not, label %if.end14, label %return
+  br i1 %cmp12.not, label %if.end14, label %err
 
 if.end14:                                         ; preds = %if.then10
-  %add = add nsw i32 %n.016, 2
+  %add = add nsw i32 %n.017, 2
   br label %if.end15
 
 if.end15:                                         ; preds = %if.end14, %for.body
-  %n.1 = phi i32 [ %add, %if.end14 ], [ %n.016, %for.body ]
+  %n.1 = phi i32 [ %add, %if.end14 ], [ %n.017, %for.body ]
   %2 = load ptr, ptr %data, align 8
   %arrayidx = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
   %3 = load i8, ptr %arrayidx, align 1
@@ -72,7 +71,7 @@ if.end15:                                         ; preds = %if.end14, %for.body
   store i8 %8, ptr %arrayidx26, align 1
   %call27 = call i32 @BIO_write(ptr noundef %bp, ptr noundef nonnull %buf, i32 noundef 2) #5
   %cmp28.not = icmp eq i32 %call27, 2
-  br i1 %cmp28.not, label %if.end31, label %return
+  br i1 %cmp28.not, label %if.end31, label %err
 
 if.end31:                                         ; preds = %if.end15
   %add32 = add nsw i32 %n.1, 2
@@ -82,8 +81,11 @@ if.end31:                                         ; preds = %if.end15
   %cmp7 = icmp slt i64 %indvars.iv.next, %10
   br i1 %cmp7, label %for.body, label %return, !llvm.loop !7
 
-return:                                           ; preds = %if.end31, %if.end15, %if.then10, %for.cond.preheader, %if.then2, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ %spec.select, %if.then2 ], [ 0, %for.cond.preheader ], [ %add32, %if.end31 ], [ -1, %if.end15 ], [ -1, %if.then10 ]
+err:                                              ; preds = %if.end15, %if.then10, %if.then2
+  br label %return
+
+return:                                           ; preds = %if.end31, %for.cond.preheader, %if.then2, %entry, %err
+  %retval.0 = phi i32 [ -1, %err ], [ 0, %entry ], [ 2, %if.then2 ], [ 0, %for.cond.preheader ], [ %add32, %if.end31 ]
   ret i32 %retval.0
 }
 

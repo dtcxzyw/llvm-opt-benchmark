@@ -819,7 +819,7 @@ define hidden noundef i32 @pcapng_open(ptr noundef %0, ptr noundef %1, ptr nound
 
 12:                                               ; preds = %3
   %13 = load i32, ptr %1, align 4
-  switch i32 %13, label %108 [
+  switch i32 %13, label %109 [
     i32 0, label %14
     i32 -12, label %14
   ]
@@ -829,12 +829,12 @@ define hidden noundef i32 @pcapng_open(ptr noundef %0, ptr noundef %1, ptr nound
   %15 = load ptr, ptr %2, align 8
   call void @g_free(ptr noundef %15) #16
   store ptr null, ptr %2, align 8
-  br label %108
+  br label %109
 
 16:                                               ; preds = %3
   %17 = load i32, ptr %6, align 4
   %.not59 = icmp eq i32 %17, 168627466
-  br i1 %.not59, label %18, label %108
+  br i1 %.not59, label %18, label %109
 
 18:                                               ; preds = %16
   store i32 168627466, ptr %5, align 8
@@ -854,21 +854,21 @@ define hidden noundef i32 @pcapng_open(ptr noundef %0, ptr noundef %1, ptr nound
   %24 = load ptr, ptr %2, align 8
   call void @g_free(ptr noundef %24) #16
   store ptr null, ptr %2, align 8
-  br label %108
+  br label %109
 
 25:                                               ; preds = %18
   %26 = load ptr, ptr %19, align 8
   call void @wtap_block_unref(ptr noundef %26) #16
   %27 = load i32, ptr %1, align 4
   %28 = icmp eq i32 %27, -12
-  br i1 %28, label %29, label %108
+  br i1 %28, label %29, label %109
 
 29:                                               ; preds = %25
   store i32 0, ptr %1, align 4
   %30 = load ptr, ptr %2, align 8
   call void @g_free(ptr noundef %30) #16
   store ptr null, ptr %2, align 8
-  br label %108
+  br label %109
 
 31:                                               ; preds = %18
   %32 = load ptr, ptr %0, align 8
@@ -901,7 +901,7 @@ define hidden noundef i32 @pcapng_open(ptr noundef %0, ptr noundef %1, ptr nound
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   %44 = load ptr, ptr %19, align 8
   call void @wtap_block_unref(ptr noundef %44) #16
-  br label %108
+  br label %109
 
 45:                                               ; preds = %34
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
@@ -956,16 +956,16 @@ define hidden noundef i32 @pcapng_open(ptr noundef %0, ptr noundef %1, ptr nound
   store i64 %75, ptr %7, align 8
   %76 = load ptr, ptr %0, align 8
   %77 = call i32 @wtap_read_bytes_or_eof(ptr noundef %76, ptr noundef nonnull %6, i32 noundef 8, ptr noundef %1, ptr noundef %2) #16
-  %.not6172 = icmp eq i32 %77, 0
-  br i1 %.not6172, label %._crit_edge, label %.lr.ph
+  %.not6169 = icmp eq i32 %77, 0
+  br i1 %.not6169, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %103, %45
+._crit_edge:                                      ; preds = %104, %45
   %78 = load i32, ptr %1, align 4
   %79 = icmp eq i32 %78, 0
-  br i1 %79, label %get_block_type_internal.exit.thread70, label %108
+  br i1 %79, label %get_block_type_internal.exit.thread, label %109
 
-.lr.ph:                                           ; preds = %45, %103
-  %80 = phi i64 [ %105, %103 ], [ %75, %45 ]
+.lr.ph:                                           ; preds = %45, %104
+  %80 = phi i64 [ %106, %104 ], [ %75, %45 ]
   %81 = load ptr, ptr %0, align 8
   %82 = call i64 @file_seek(ptr noundef %81, i64 noundef %80, i32 noundef 0, ptr noundef %1) #16
   %83 = load ptr, ptr %61, align 8
@@ -986,78 +986,78 @@ define hidden noundef i32 @pcapng_open(ptr noundef %0, ptr noundef %1, ptr nound
 thread-pre-split:                                 ; preds = %.lr.ph, %89
   %91 = phi i32 [ %90, %89 ], [ %.pr, %.lr.ph ]
   switch i32 %91, label %92 [
-    i32 168627466, label %get_block_type_internal.exit.thread
-    i32 1, label %get_block_type_internal.exit.thread
-    i32 4, label %get_block_type_internal.exit.thread
-    i32 10, label %get_block_type_internal.exit.thread
-    i32 5, label %get_block_type_internal.exit.thread
-    i32 513, label %get_block_type_internal.exit.thread
-    i32 514, label %get_block_type_internal.exit.thread
-    i32 515, label %get_block_type_internal.exit.thread
-    i32 517, label %get_block_type_internal.exit.thread
-    i32 518, label %get_block_type_internal.exit.thread
-    i32 519, label %get_block_type_internal.exit.thread
-    i32 521, label %get_block_type_internal.exit.thread
-    i32 528, label %get_block_type_internal.exit.thread
-    i32 529, label %get_block_type_internal.exit.thread
-    i32 530, label %get_block_type_internal.exit.thread
-    i32 531, label %get_block_type_internal.exit.thread
-    i32 532, label %get_block_type_internal.exit.thread
-    i32 533, label %get_block_type_internal.exit.thread
-    i32 536, label %get_block_type_internal.exit.thread
-    i32 537, label %get_block_type_internal.exit.thread
-    i32 544, label %get_block_type_internal.exit.thread
-    i32 2, label %get_block_type_internal.exit.thread70
-    i32 6, label %get_block_type_internal.exit.thread70
-    i32 3, label %get_block_type_internal.exit.thread70
-    i32 2989, label %get_block_type_internal.exit.thread70
-    i32 1073744813, label %get_block_type_internal.exit.thread70
-    i32 516, label %get_block_type_internal.exit.thread70
-    i32 534, label %get_block_type_internal.exit.thread70
-    i32 545, label %get_block_type_internal.exit.thread70
-    i32 9, label %get_block_type_internal.exit.thread70
+    i32 168627466, label %get_block_type_internal.exit
+    i32 1, label %get_block_type_internal.exit
+    i32 4, label %get_block_type_internal.exit
+    i32 10, label %get_block_type_internal.exit
+    i32 5, label %get_block_type_internal.exit
+    i32 513, label %get_block_type_internal.exit
+    i32 514, label %get_block_type_internal.exit
+    i32 515, label %get_block_type_internal.exit
+    i32 517, label %get_block_type_internal.exit
+    i32 518, label %get_block_type_internal.exit
+    i32 519, label %get_block_type_internal.exit
+    i32 521, label %get_block_type_internal.exit
+    i32 528, label %get_block_type_internal.exit
+    i32 529, label %get_block_type_internal.exit
+    i32 530, label %get_block_type_internal.exit
+    i32 531, label %get_block_type_internal.exit
+    i32 532, label %get_block_type_internal.exit
+    i32 533, label %get_block_type_internal.exit
+    i32 536, label %get_block_type_internal.exit
+    i32 537, label %get_block_type_internal.exit
+    i32 544, label %get_block_type_internal.exit
+    i32 2, label %get_block_type_internal.exit.thread
+    i32 6, label %get_block_type_internal.exit.thread
+    i32 3, label %get_block_type_internal.exit.thread
+    i32 2989, label %get_block_type_internal.exit.thread
+    i32 1073744813, label %get_block_type_internal.exit.thread
+    i32 516, label %get_block_type_internal.exit.thread
+    i32 534, label %get_block_type_internal.exit.thread
+    i32 545, label %get_block_type_internal.exit.thread
+    i32 9, label %get_block_type_internal.exit.thread
   ]
 
 92:                                               ; preds = %thread-pre-split
   %93 = load ptr, ptr @block_handlers, align 8
   %.not.i65 = icmp eq ptr %93, null
-  br i1 %.not.i65, label %get_block_type_internal.exit.thread, label %get_block_type_internal.exit
+  br i1 %.not.i65, label %get_block_type_internal.exit, label %94
 
-get_block_type_internal.exit:                     ; preds = %92
-  %94 = zext i32 %91 to i64
-  %95 = inttoptr i64 %94 to ptr
-  %96 = call ptr @g_hash_table_lookup(ptr noundef nonnull %93, ptr noundef %95) #16
-  %.not3.i = icmp eq ptr %96, null
-  br i1 %.not3.i, label %get_block_type_internal.exit.thread, label %get_block_type_internal.exit.thread70
+94:                                               ; preds = %92
+  %95 = zext i32 %91 to i64
+  %96 = inttoptr i64 %95 to ptr
+  %97 = call ptr @g_hash_table_lookup(ptr noundef nonnull %93, ptr noundef %96) #16
+  %.not3.i = icmp eq ptr %97, null
+  br i1 %.not3.i, label %get_block_type_internal.exit, label %get_block_type_internal.exit.thread
 
-get_block_type_internal.exit.thread:              ; preds = %92, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %get_block_type_internal.exit
-  %97 = load ptr, ptr %0, align 8
-  %98 = call fastcc i32 @pcapng_read_block(ptr noundef nonnull %0, ptr noundef %97, ptr noundef nonnull %87, ptr noundef nonnull %9, ptr noundef nonnull %5, ptr noundef %1, ptr noundef %2)
-  %.not63 = icmp eq i32 %98, 0
-  br i1 %.not63, label %99, label %103
+get_block_type_internal.exit:                     ; preds = %92, %94, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split
+  %98 = load ptr, ptr %0, align 8
+  %99 = call fastcc i32 @pcapng_read_block(ptr noundef nonnull %0, ptr noundef %98, ptr noundef nonnull %87, ptr noundef nonnull %9, ptr noundef nonnull %5, ptr noundef %1, ptr noundef %2)
+  %.not63 = icmp eq i32 %99, 0
+  br i1 %.not63, label %100, label %104
 
-99:                                               ; preds = %get_block_type_internal.exit.thread
-  %100 = load ptr, ptr %19, align 8
-  call void @wtap_block_unref(ptr noundef %100) #16
-  %101 = load i32, ptr %1, align 4
-  %102 = icmp eq i32 %101, 0
-  br i1 %102, label %get_block_type_internal.exit.thread70, label %108
+100:                                              ; preds = %get_block_type_internal.exit
+  %101 = load ptr, ptr %19, align 8
+  call void @wtap_block_unref(ptr noundef %101) #16
+  %102 = load i32, ptr %1, align 4
+  %103 = icmp eq i32 %102, 0
+  br i1 %103, label %get_block_type_internal.exit.thread, label %109
 
-103:                                              ; preds = %get_block_type_internal.exit.thread
+104:                                              ; preds = %get_block_type_internal.exit
   call fastcc void @pcapng_process_internal_block(ptr noundef nonnull %0, ptr noundef nonnull %55, ptr noundef nonnull %87, ptr noundef nonnull byval(%struct.section_info_t) align 8 %9, ptr noundef nonnull %5, ptr noundef nonnull %7)
-  %104 = load ptr, ptr %0, align 8
-  %105 = call i64 @file_tell(ptr noundef %104) #16
-  store i64 %105, ptr %7, align 8
-  %106 = load ptr, ptr %0, align 8
-  %107 = call i32 @wtap_read_bytes_or_eof(ptr noundef %106, ptr noundef nonnull %6, i32 noundef 8, ptr noundef %1, ptr noundef %2) #16
-  %.not61 = icmp eq i32 %107, 0
+  %105 = load ptr, ptr %0, align 8
+  %106 = call i64 @file_tell(ptr noundef %105) #16
+  store i64 %106, ptr %7, align 8
+  %107 = load ptr, ptr %0, align 8
+  %108 = call i32 @wtap_read_bytes_or_eof(ptr noundef %107, ptr noundef nonnull %6, i32 noundef 8, ptr noundef %1, ptr noundef %2) #16
+  %.not61 = icmp eq i32 %108, 0
   br i1 %.not61, label %._crit_edge, label %.lr.ph
 
-get_block_type_internal.exit.thread70:            ; preds = %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %get_block_type_internal.exit, %99, %._crit_edge
-  br label %108
+get_block_type_internal.exit.thread:              ; preds = %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %94, %100, %._crit_edge
+  br label %109
 
-108:                                              ; preds = %99, %._crit_edge, %25, %16, %12, %get_block_type_internal.exit.thread70, %43, %29, %22, %14
-  %.0 = phi i32 [ 1, %get_block_type_internal.exit.thread70 ], [ -1, %43 ], [ 0, %22 ], [ 0, %29 ], [ 0, %14 ], [ -1, %12 ], [ 0, %16 ], [ -1, %25 ], [ -1, %._crit_edge ], [ -1, %99 ]
+109:                                              ; preds = %100, %._crit_edge, %25, %16, %12, %get_block_type_internal.exit.thread, %43, %29, %22, %14
+  %.0 = phi i32 [ 1, %get_block_type_internal.exit.thread ], [ -1, %43 ], [ 0, %22 ], [ 0, %29 ], [ 0, %14 ], [ -1, %12 ], [ 0, %16 ], [ -1, %25 ], [ -1, %._crit_edge ], [ -1, %100 ]
   ret i32 %.0
 }
 
@@ -1825,7 +1825,7 @@ declare ptr @wtap_block_create(i32 noundef) local_unnamed_addr #1
 declare ptr @wtap_block_get_mandatory_data(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pcapng_process_section_header_block_option(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2, i16 noundef zeroext %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #0 {
+define internal i32 @pcapng_process_section_header_block_option(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2, i16 noundef zeroext %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #0 {
   switch i16 %2, label %26 [
     i16 2, label %8
     i16 3, label %14
@@ -1838,7 +1838,7 @@ define internal noundef i32 @pcapng_process_section_header_block_option(ptr noca
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 @wtap_block_add_string_option_owned(ptr noundef %12, i32 noundef 2, ptr noundef %10) #16
-  br label %pcapng_process_unhandled_option.exit.thread
+  br label %pcapng_process_unhandled_option.exit
 
 14:                                               ; preds = %7
   %15 = zext i16 %3 to i64
@@ -1846,7 +1846,7 @@ define internal noundef i32 @pcapng_process_section_header_block_option(ptr noca
   %17 = getelementptr inbounds i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 @wtap_block_add_string_option_owned(ptr noundef %18, i32 noundef 3, ptr noundef %16) #16
-  br label %pcapng_process_unhandled_option.exit.thread
+  br label %pcapng_process_unhandled_option.exit
 
 20:                                               ; preds = %7
   %21 = zext i16 %3 to i64
@@ -1854,34 +1854,33 @@ define internal noundef i32 @pcapng_process_section_header_block_option(ptr noca
   %23 = getelementptr inbounds i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i32 @wtap_block_add_string_option_owned(ptr noundef %24, i32 noundef 4, ptr noundef %22) #16
-  br label %pcapng_process_unhandled_option.exit.thread
+  br label %pcapng_process_unhandled_option.exit
 
 26:                                               ; preds = %7
   %27 = load ptr, ptr @option_handlers, align 16
   %.not.i = icmp eq ptr %27, null
-  br i1 %.not.i, label %pcapng_process_unhandled_option.exit.thread, label %28
+  br i1 %.not.i, label %pcapng_process_unhandled_option.exit, label %28
 
 28:                                               ; preds = %26
   %29 = zext i16 %2 to i64
   %30 = inttoptr i64 %29 to ptr
   %31 = tail call ptr @g_hash_table_lookup(ptr noundef nonnull %27, ptr noundef %30) #16
   %.not12.i = icmp eq ptr %31, null
-  br i1 %.not12.i, label %pcapng_process_unhandled_option.exit.thread, label %pcapng_process_unhandled_option.exit
+  br i1 %.not12.i, label %pcapng_process_unhandled_option.exit, label %32
 
-pcapng_process_unhandled_option.exit:             ; preds = %28
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
-  %34 = load ptr, ptr %33, align 8
-  %35 = load i32, ptr %1, align 8
-  %36 = zext i16 %3 to i32
-  %37 = tail call i32 %32(ptr noundef %34, i32 noundef %35, i32 noundef %36, ptr noundef %4, ptr noundef %5, ptr noundef %6) #16
-  %.fr = freeze i32 %37
-  %.not13.i.not = icmp ne i32 %.fr, 0
-  %spec.select = zext i1 %.not13.i.not to i32
-  br label %pcapng_process_unhandled_option.exit.thread
+32:                                               ; preds = %28
+  %33 = load ptr, ptr %31, align 8
+  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = load ptr, ptr %34, align 8
+  %36 = load i32, ptr %1, align 8
+  %37 = zext i16 %3 to i32
+  %38 = tail call i32 %33(ptr noundef %35, i32 noundef %36, i32 noundef %37, ptr noundef %4, ptr noundef %5, ptr noundef %6) #16
+  %.not13.i = icmp ne i32 %38, 0
+  %spec.select = zext i1 %.not13.i to i32
+  br label %pcapng_process_unhandled_option.exit
 
-pcapng_process_unhandled_option.exit.thread:      ; preds = %pcapng_process_unhandled_option.exit, %26, %28, %8, %14, %20
-  %.0 = phi i32 [ 1, %20 ], [ 1, %14 ], [ 1, %8 ], [ 1, %28 ], [ 1, %26 ], [ %spec.select, %pcapng_process_unhandled_option.exit ]
+pcapng_process_unhandled_option.exit:             ; preds = %32, %8, %14, %20, %26, %28
+  %.0 = phi i32 [ 1, %28 ], [ 1, %26 ], [ 1, %20 ], [ 1, %14 ], [ 1, %8 ], [ %spec.select, %32 ]
   ret i32 %.0
 }
 
@@ -3639,7 +3638,7 @@ define internal fastcc noundef i32 @pcapng_read_systemd_journal_export_block(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @pcapng_read_unknown_block(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc noundef i32 @pcapng_read_unknown_block(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = icmp ult i32 %8, 12
@@ -3650,7 +3649,7 @@ define internal fastcc i32 @pcapng_read_unknown_block(ptr noundef %0, ptr nocapt
   %11 = load i32, ptr %7, align 4
   %12 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.52, i32 noundef %11, i32 noundef 12) #16
   store ptr %12, ptr %5, align 8
-  br label %29
+  br label %30
 
 13:                                               ; preds = %6
   %14 = add i32 %8, -12
@@ -3670,22 +3669,24 @@ define internal fastcc i32 @pcapng_read_unknown_block(ptr noundef %0, ptr nocapt
   %22 = load ptr, ptr %20, align 8
   %23 = load i32, ptr %2, align 8
   %24 = tail call i32 %22(ptr noundef %0, i32 noundef %14, i32 noundef %23, ptr noundef %3, ptr noundef %4, ptr noundef %5) #16
-  %.not23 = icmp ne i32 %24, 0
-  %spec.select = zext i1 %.not23 to i32
-  br label %29
+  %.not23 = icmp eq i32 %24, 0
+  br i1 %.not23, label %30, label %29
 
 25:                                               ; preds = %16, %13
   %26 = tail call i32 @wtap_read_bytes(ptr noundef %0, ptr noundef null, i32 noundef %14, ptr noundef %4, ptr noundef %5) #16
   %.not22 = icmp eq i32 %26, 0
-  br i1 %.not22, label %29, label %27
+  br i1 %.not22, label %30, label %27
 
 27:                                               ; preds = %25
   %28 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 1, ptr %28, align 4
   br label %29
 
-29:                                               ; preds = %21, %27, %25, %10
-  %.0 = phi i32 [ 0, %10 ], [ 0, %25 ], [ 1, %27 ], [ %spec.select, %21 ]
+29:                                               ; preds = %21, %27
+  br label %30
+
+30:                                               ; preds = %25, %21, %29, %10
+  %.0 = phi i32 [ 0, %10 ], [ 1, %29 ], [ 0, %21 ], [ 0, %25 ]
   ret i32 %.0
 }
 
@@ -3694,7 +3695,7 @@ declare i32 @wtap_pcap_encap_to_wtap_encap(i32 noundef) local_unnamed_addr #1
 declare i32 @wtap_max_snaplen_for_encap(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pcapng_process_if_descr_block_option(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2, i16 noundef zeroext %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #0 {
+define internal i32 @pcapng_process_if_descr_block_option(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2, i16 noundef zeroext %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #0 {
   %8 = alloca %struct.if_filter_opt_s, align 8
   switch i16 %2, label %112 [
     i16 2, label %9
@@ -3798,8 +3799,8 @@ define internal noundef i32 @pcapng_process_if_descr_block_option(ptr nocapture 
   %58 = tail call noalias ptr @g_malloc_n(i64 noundef %57, i64 noundef 8) #17
   %59 = getelementptr inbounds i8, ptr %8, i64 16
   store ptr %58, ptr %59, align 8
-  %.not105 = icmp ult i16 %3, 9
-  br i1 %.not105, label %._crit_edge, label %.lr.ph.preheader
+  %.not103 = icmp ult i16 %3, 9
+  br i1 %.not103, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %53
   %60 = getelementptr i8, ptr %4, i64 1
@@ -3807,10 +3808,10 @@ define internal noundef i32 @pcapng_process_if_descr_block_option(ptr nocapture 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %79
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %79 ]
-  %.085103 = phi ptr [ %60, %.lr.ph.preheader ], [ %80, %79 ]
+  %.085101 = phi ptr [ %60, %.lr.ph.preheader ], [ %80, %79 ]
   %61 = load ptr, ptr %59, align 8
   %62 = getelementptr %struct.wtap_bpf_insn_s, ptr %61, i64 %indvars.iv
-  %63 = load i16, ptr %.085103, align 1
+  %63 = load i16, ptr %.085101, align 1
   store i16 %63, ptr %62, align 4
   %64 = load i32, ptr %1, align 8
   %.not = icmp eq i32 %64, 0
@@ -3822,15 +3823,15 @@ define internal noundef i32 @pcapng_process_if_descr_block_option(ptr nocapture 
   br label %66
 
 66:                                               ; preds = %65, %.lr.ph
-  %67 = getelementptr i8, ptr %.085103, i64 2
+  %67 = getelementptr i8, ptr %.085101, i64 2
   %68 = getelementptr inbounds i8, ptr %62, i64 2
   %69 = load i8, ptr %67, align 1
   store i8 %69, ptr %68, align 2
-  %70 = getelementptr i8, ptr %.085103, i64 3
+  %70 = getelementptr i8, ptr %.085101, i64 3
   %71 = getelementptr inbounds i8, ptr %62, i64 3
   %72 = load i8, ptr %70, align 1
   store i8 %72, ptr %71, align 1
-  %73 = getelementptr i8, ptr %.085103, i64 4
+  %73 = getelementptr i8, ptr %.085101, i64 4
   %74 = getelementptr inbounds i8, ptr %62, i64 4
   %75 = load i32, ptr %73, align 1
   store i32 %75, ptr %74, align 4
@@ -3844,7 +3845,7 @@ define internal noundef i32 @pcapng_process_if_descr_block_option(ptr nocapture 
   br label %79
 
 79:                                               ; preds = %77, %66
-  %80 = getelementptr i8, ptr %.085103, i64 8
+  %80 = getelementptr i8, ptr %.085101, i64 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %57
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
@@ -3909,22 +3910,21 @@ define internal noundef i32 @pcapng_process_if_descr_block_option(ptr nocapture 
   %116 = inttoptr i64 %115 to ptr
   %117 = tail call ptr @g_hash_table_lookup(ptr noundef nonnull %113, ptr noundef %116) #16
   %.not12.i = icmp eq ptr %117, null
-  br i1 %.not12.i, label %pcapng_process_uint64_option.exit, label %pcapng_process_unhandled_option.exit
+  br i1 %.not12.i, label %pcapng_process_uint64_option.exit, label %118
 
-pcapng_process_unhandled_option.exit:             ; preds = %114
-  %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds i8, ptr %0, i64 8
-  %120 = load ptr, ptr %119, align 8
-  %121 = load i32, ptr %1, align 8
-  %122 = zext i16 %3 to i32
-  %123 = tail call i32 %118(ptr noundef %120, i32 noundef %121, i32 noundef %122, ptr noundef %4, ptr noundef %5, ptr noundef %6) #16
-  %.fr = freeze i32 %123
-  %.not13.i.not = icmp ne i32 %.fr, 0
-  %spec.select = zext i1 %.not13.i.not to i32
+118:                                              ; preds = %114
+  %119 = load ptr, ptr %117, align 8
+  %120 = getelementptr inbounds i8, ptr %0, i64 8
+  %121 = load ptr, ptr %120, align 8
+  %122 = load i32, ptr %1, align 8
+  %123 = zext i16 %3 to i32
+  %124 = tail call i32 %119(ptr noundef %121, i32 noundef %122, i32 noundef %123, ptr noundef %4, ptr noundef %5, ptr noundef %6) #16
+  %.not13.i = icmp ne i32 %124, 0
+  %spec.select = zext i1 %.not13.i to i32
   br label %pcapng_process_uint64_option.exit
 
-pcapng_process_uint64_option.exit:                ; preds = %pcapng_process_unhandled_option.exit, %112, %114, %106, %104, %93, %91, %31, %29, %23, %21, %9, %15, %85, %98, %._crit_edge, %43, %7, %7, %7, %7, %7, %41, %39
-  %.0 = phi i32 [ 0, %39 ], [ 1, %41 ], [ 1, %7 ], [ 1, %7 ], [ 1, %7 ], [ 1, %7 ], [ 1, %7 ], [ 1, %43 ], [ 1, %._crit_edge ], [ 1, %98 ], [ 1, %85 ], [ 1, %15 ], [ 1, %9 ], [ 1, %21 ], [ 1, %23 ], [ 1, %29 ], [ 1, %31 ], [ 1, %91 ], [ 1, %93 ], [ 1, %104 ], [ 1, %106 ], [ 1, %114 ], [ 1, %112 ], [ %spec.select, %pcapng_process_unhandled_option.exit ]
+pcapng_process_uint64_option.exit:                ; preds = %118, %9, %15, %85, %98, %._crit_edge, %43, %7, %7, %7, %7, %7, %41, %21, %23, %29, %31, %91, %93, %104, %106, %112, %114, %39
+  %.0 = phi i32 [ 0, %39 ], [ 1, %114 ], [ 1, %112 ], [ 1, %106 ], [ 1, %104 ], [ 1, %93 ], [ 1, %91 ], [ 1, %31 ], [ 1, %29 ], [ 1, %23 ], [ 1, %21 ], [ 1, %41 ], [ 1, %7 ], [ 1, %7 ], [ 1, %7 ], [ 1, %7 ], [ 1, %7 ], [ 1, %43 ], [ 1, %._crit_edge ], [ 1, %98 ], [ 1, %85 ], [ 1, %15 ], [ 1, %9 ], [ %spec.select, %118 ]
   ret i32 %.0
 }
 
@@ -3939,7 +3939,7 @@ declare i32 @pcap_process_pseudo_header(ptr noundef, i32 noundef, i32 noundef, i
 declare i32 @wtap_read_packet_bytes(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pcapng_process_packet_block_option(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2, i16 noundef zeroext %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #0 {
+define internal i32 @pcapng_process_packet_block_option(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2, i16 noundef zeroext %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #0 {
   %8 = alloca %struct.packet_verdict_opt_s, align 8
   %9 = alloca %struct.packet_hash_opt_s, align 8
   switch i16 %2, label %96 [
@@ -3960,7 +3960,7 @@ define internal noundef i32 @pcapng_process_packet_block_option(ptr nocapture no
   store i32 -13, ptr %5, align 4
   %13 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.25, i32 noundef %12) #16
   store ptr %13, ptr %6, align 8
-  br label %pcapng_process_unhandled_option.exit.thread
+  br label %pcapng_process_unhandled_option.exit
 
 pcapng_process_uint32_option.exit:                ; preds = %10
   %.0.copyload.i = load i32, ptr %4, align 1
@@ -3971,7 +3971,7 @@ pcapng_process_uint32_option.exit:                ; preds = %10
   %16 = getelementptr inbounds i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 @wtap_block_add_uint32_option(ptr noundef %17, i32 noundef 2, i32 noundef %spec.select.i) #16
-  br label %pcapng_process_unhandled_option.exit.thread
+  br label %pcapng_process_unhandled_option.exit
 
 19:                                               ; preds = %7
   %20 = icmp eq i16 %3, 0
@@ -3981,7 +3981,7 @@ pcapng_process_uint32_option.exit:                ; preds = %10
   store i32 -13, ptr %5, align 4
   %22 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.26, i32 noundef 0) #16
   store ptr %22, ptr %6, align 8
-  br label %pcapng_process_unhandled_option.exit.thread
+  br label %pcapng_process_unhandled_option.exit
 
 23:                                               ; preds = %19
   %24 = zext i16 %3 to i64
@@ -3998,7 +3998,7 @@ pcapng_process_uint32_option.exit:                ; preds = %10
   %33 = load ptr, ptr %32, align 8
   %34 = call i32 @wtap_block_add_packet_hash_option(ptr noundef %33, i32 noundef 3, ptr noundef nonnull %9) #16
   call void @wtap_packet_hash_free(ptr noundef nonnull %9) #16
-  br label %pcapng_process_unhandled_option.exit.thread
+  br label %pcapng_process_unhandled_option.exit
 
 35:                                               ; preds = %7
   %.not111 = icmp eq i16 %3, 8
@@ -4009,62 +4009,62 @@ pcapng_process_uint32_option.exit:                ; preds = %10
   store i32 -13, ptr %5, align 4
   %38 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.27, i32 noundef %37) #16
   store ptr %38, ptr %6, align 8
-  br label %pcapng_process_unhandled_option.exit.thread
+  br label %pcapng_process_unhandled_option.exit
 
 pcapng_process_uint64_option.exit:                ; preds = %35
-  %.0.copyload.i116 = load i64, ptr %4, align 1
+  %.0.copyload.i115 = load i64, ptr %4, align 1
   %39 = load i32, ptr %1, align 8
-  %.not.i117 = icmp eq i32 %39, 0
-  %40 = tail call i64 @llvm.bswap.i64(i64 %.0.copyload.i116)
-  %spec.select.i118 = select i1 %.not.i117, i64 %.0.copyload.i116, i64 %40
+  %.not.i116 = icmp eq i32 %39, 0
+  %40 = tail call i64 @llvm.bswap.i64(i64 %.0.copyload.i115)
+  %spec.select.i117 = select i1 %.not.i116, i64 %.0.copyload.i115, i64 %40
   %41 = getelementptr inbounds i8, ptr %0, i64 8
   %42 = load ptr, ptr %41, align 8
-  %43 = tail call i32 @wtap_block_add_uint64_option(ptr noundef %42, i32 noundef 4, i64 noundef %spec.select.i118) #16
-  br label %pcapng_process_unhandled_option.exit.thread
+  %43 = tail call i32 @wtap_block_add_uint64_option(ptr noundef %42, i32 noundef 4, i64 noundef %spec.select.i117) #16
+  br label %pcapng_process_unhandled_option.exit
 
 44:                                               ; preds = %7
   %.not110 = icmp eq i16 %3, 8
-  br i1 %.not110, label %pcapng_process_uint64_option.exit122, label %45
+  br i1 %.not110, label %pcapng_process_uint64_option.exit121, label %45
 
 45:                                               ; preds = %44
   %46 = zext i16 %3 to i32
   store i32 -13, ptr %5, align 4
   %47 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.28, i32 noundef %46) #16
   store ptr %47, ptr %6, align 8
-  br label %pcapng_process_unhandled_option.exit.thread
+  br label %pcapng_process_unhandled_option.exit
 
-pcapng_process_uint64_option.exit122:             ; preds = %44
-  %.0.copyload.i119 = load i64, ptr %4, align 1
+pcapng_process_uint64_option.exit121:             ; preds = %44
+  %.0.copyload.i118 = load i64, ptr %4, align 1
   %48 = load i32, ptr %1, align 8
-  %.not.i120 = icmp eq i32 %48, 0
-  %49 = tail call i64 @llvm.bswap.i64(i64 %.0.copyload.i119)
-  %spec.select.i121 = select i1 %.not.i120, i64 %.0.copyload.i119, i64 %49
+  %.not.i119 = icmp eq i32 %48, 0
+  %49 = tail call i64 @llvm.bswap.i64(i64 %.0.copyload.i118)
+  %spec.select.i120 = select i1 %.not.i119, i64 %.0.copyload.i118, i64 %49
   %50 = getelementptr inbounds i8, ptr %0, i64 8
   %51 = load ptr, ptr %50, align 8
-  %52 = tail call i32 @wtap_block_add_uint64_option(ptr noundef %51, i32 noundef 5, i64 noundef %spec.select.i121) #16
-  br label %pcapng_process_unhandled_option.exit.thread
+  %52 = tail call i32 @wtap_block_add_uint64_option(ptr noundef %51, i32 noundef 5, i64 noundef %spec.select.i120) #16
+  br label %pcapng_process_unhandled_option.exit
 
 53:                                               ; preds = %7
   %.not109 = icmp eq i16 %3, 4
-  br i1 %.not109, label %pcapng_process_uint32_option.exit126, label %54
+  br i1 %.not109, label %pcapng_process_uint32_option.exit125, label %54
 
 54:                                               ; preds = %53
   %55 = zext i16 %3 to i32
   store i32 -13, ptr %5, align 4
   %56 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.29, i32 noundef %55) #16
   store ptr %56, ptr %6, align 8
-  br label %pcapng_process_unhandled_option.exit.thread
+  br label %pcapng_process_unhandled_option.exit
 
-pcapng_process_uint32_option.exit126:             ; preds = %53
-  %.0.copyload.i123 = load i32, ptr %4, align 1
+pcapng_process_uint32_option.exit125:             ; preds = %53
+  %.0.copyload.i122 = load i32, ptr %4, align 1
   %57 = load i32, ptr %1, align 8
-  %.not.i124 = icmp eq i32 %57, 0
-  %58 = tail call i32 @llvm.bswap.i32(i32 %.0.copyload.i123)
-  %spec.select.i125 = select i1 %.not.i124, i32 %.0.copyload.i123, i32 %58
+  %.not.i123 = icmp eq i32 %57, 0
+  %58 = tail call i32 @llvm.bswap.i32(i32 %.0.copyload.i122)
+  %spec.select.i124 = select i1 %.not.i123, i32 %.0.copyload.i122, i32 %58
   %59 = getelementptr inbounds i8, ptr %0, i64 8
   %60 = load ptr, ptr %59, align 8
-  %61 = tail call i32 @wtap_block_add_uint32_option(ptr noundef %60, i32 noundef 6, i32 noundef %spec.select.i125) #16
-  br label %pcapng_process_unhandled_option.exit.thread
+  %61 = tail call i32 @wtap_block_add_uint32_option(ptr noundef %60, i32 noundef 6, i32 noundef %spec.select.i124) #16
+  br label %pcapng_process_unhandled_option.exit
 
 62:                                               ; preds = %7
   %63 = zext i16 %3 to i32
@@ -4075,11 +4075,11 @@ pcapng_process_uint32_option.exit126:             ; preds = %53
   store i32 -13, ptr %5, align 4
   %66 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.18, i32 noundef 0) #16
   store ptr %66, ptr %6, align 8
-  br label %pcapng_process_unhandled_option.exit.thread
+  br label %pcapng_process_unhandled_option.exit
 
 67:                                               ; preds = %62
   %68 = load i8, ptr %4, align 1
-  switch i8 %68, label %pcapng_process_unhandled_option.exit.thread [
+  switch i8 %68, label %pcapng_process_unhandled_option.exit [
     i8 0, label %69
     i8 1, label %76
     i8 2, label %84
@@ -4104,7 +4104,7 @@ pcapng_process_uint32_option.exit126:             ; preds = %53
   store i32 -13, ptr %5, align 4
   %78 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.30, i32 noundef %63) #16
   store ptr %78, ptr %6, align 8
-  br label %pcapng_process_unhandled_option.exit.thread
+  br label %pcapng_process_unhandled_option.exit
 
 79:                                               ; preds = %76
   %80 = getelementptr i8, ptr %4, i64 1
@@ -4126,7 +4126,7 @@ pcapng_process_uint32_option.exit126:             ; preds = %53
   store i32 -13, ptr %5, align 4
   %86 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.31, i32 noundef %63) #16
   store ptr %86, ptr %6, align 8
-  br label %pcapng_process_unhandled_option.exit.thread
+  br label %pcapng_process_unhandled_option.exit
 
 87:                                               ; preds = %84
   %88 = getelementptr i8, ptr %4, i64 1
@@ -4145,34 +4145,33 @@ pcapng_process_uint32_option.exit126:             ; preds = %53
   %94 = load ptr, ptr %93, align 8
   %95 = call i32 @wtap_block_add_packet_verdict_option(ptr noundef %94, i32 noundef 7, ptr noundef nonnull %8) #16
   call void @wtap_packet_verdict_free(ptr noundef nonnull %8) #16
-  br label %pcapng_process_unhandled_option.exit.thread
+  br label %pcapng_process_unhandled_option.exit
 
 96:                                               ; preds = %7
   %97 = load ptr, ptr getelementptr inbounds ([7 x ptr], ptr @option_handlers, i64 0, i64 2), align 16
-  %.not.i127 = icmp eq ptr %97, null
-  br i1 %.not.i127, label %pcapng_process_unhandled_option.exit.thread, label %98
+  %.not.i126 = icmp eq ptr %97, null
+  br i1 %.not.i126, label %pcapng_process_unhandled_option.exit, label %98
 
 98:                                               ; preds = %96
   %99 = zext i16 %2 to i64
   %100 = inttoptr i64 %99 to ptr
   %101 = tail call ptr @g_hash_table_lookup(ptr noundef nonnull %97, ptr noundef %100) #16
   %.not12.i = icmp eq ptr %101, null
-  br i1 %.not12.i, label %pcapng_process_unhandled_option.exit.thread, label %pcapng_process_unhandled_option.exit
+  br i1 %.not12.i, label %pcapng_process_unhandled_option.exit, label %102
 
-pcapng_process_unhandled_option.exit:             ; preds = %98
-  %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %0, i64 8
-  %104 = load ptr, ptr %103, align 8
-  %105 = load i32, ptr %1, align 8
-  %106 = zext i16 %3 to i32
-  %107 = tail call i32 %102(ptr noundef %104, i32 noundef %105, i32 noundef %106, ptr noundef %4, ptr noundef %5, ptr noundef %6) #16
-  %.fr = freeze i32 %107
-  %.not13.i.not = icmp ne i32 %.fr, 0
-  %spec.select132 = zext i1 %.not13.i.not to i32
-  br label %pcapng_process_unhandled_option.exit.thread
+102:                                              ; preds = %98
+  %103 = load ptr, ptr %101, align 8
+  %104 = getelementptr inbounds i8, ptr %0, i64 8
+  %105 = load ptr, ptr %104, align 8
+  %106 = load i32, ptr %1, align 8
+  %107 = zext i16 %3 to i32
+  %108 = tail call i32 %103(ptr noundef %105, i32 noundef %106, i32 noundef %107, ptr noundef %4, ptr noundef %5, ptr noundef %6) #16
+  %.not13.i = icmp ne i32 %108, 0
+  %spec.select129 = zext i1 %.not13.i to i32
+  br label %pcapng_process_unhandled_option.exit
 
-pcapng_process_unhandled_option.exit.thread:      ; preds = %pcapng_process_unhandled_option.exit, %96, %98, %pcapng_process_uint32_option.exit, %23, %pcapng_process_uint64_option.exit, %pcapng_process_uint64_option.exit122, %pcapng_process_uint32_option.exit126, %92, %67, %85, %77, %65, %54, %45, %36, %21, %11
-  %.095 = phi i32 [ 0, %65 ], [ 0, %85 ], [ 0, %77 ], [ 0, %54 ], [ 0, %45 ], [ 0, %36 ], [ 0, %21 ], [ 0, %11 ], [ 1, %67 ], [ 1, %92 ], [ 1, %pcapng_process_uint32_option.exit126 ], [ 1, %pcapng_process_uint64_option.exit122 ], [ 1, %pcapng_process_uint64_option.exit ], [ 1, %23 ], [ 1, %pcapng_process_uint32_option.exit ], [ 1, %98 ], [ 1, %96 ], [ %spec.select132, %pcapng_process_unhandled_option.exit ]
+pcapng_process_unhandled_option.exit:             ; preds = %102, %pcapng_process_uint32_option.exit, %23, %pcapng_process_uint64_option.exit, %pcapng_process_uint64_option.exit121, %pcapng_process_uint32_option.exit125, %92, %96, %98, %67, %85, %77, %65, %54, %45, %36, %21, %11
+  %.095 = phi i32 [ 0, %65 ], [ 0, %85 ], [ 0, %77 ], [ 0, %54 ], [ 0, %45 ], [ 0, %36 ], [ 0, %21 ], [ 0, %11 ], [ 1, %67 ], [ 1, %98 ], [ 1, %96 ], [ 1, %92 ], [ 1, %pcapng_process_uint32_option.exit125 ], [ 1, %pcapng_process_uint64_option.exit121 ], [ 1, %pcapng_process_uint64_option.exit ], [ 1, %23 ], [ 1, %pcapng_process_uint32_option.exit ], [ %spec.select129, %102 ]
   ret i32 %.095
 }
 
@@ -4209,37 +4208,36 @@ declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr
 declare ptr @g_list_prepend(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pcapng_process_name_resolution_block_option(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2, i16 noundef zeroext %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #0 {
+define internal i32 @pcapng_process_name_resolution_block_option(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2, i16 noundef zeroext %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #0 {
   %8 = load ptr, ptr getelementptr inbounds ([7 x ptr], ptr @option_handlers, i64 0, i64 3), align 8
   %.not.i = icmp eq ptr %8, null
-  br i1 %.not.i, label %pcapng_process_unhandled_option.exit.thread, label %9
+  br i1 %.not.i, label %pcapng_process_unhandled_option.exit, label %9
 
 9:                                                ; preds = %7
   %10 = zext i16 %2 to i64
   %11 = inttoptr i64 %10 to ptr
   %12 = tail call ptr @g_hash_table_lookup(ptr noundef nonnull %8, ptr noundef %11) #16
   %.not12.i = icmp eq ptr %12, null
-  br i1 %.not12.i, label %pcapng_process_unhandled_option.exit.thread, label %pcapng_process_unhandled_option.exit
+  br i1 %.not12.i, label %pcapng_process_unhandled_option.exit, label %13
 
-pcapng_process_unhandled_option.exit:             ; preds = %9
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = load ptr, ptr %14, align 8
-  %16 = load i32, ptr %1, align 8
-  %17 = zext i16 %3 to i32
-  %18 = tail call i32 %13(ptr noundef %15, i32 noundef %16, i32 noundef %17, ptr noundef %4, ptr noundef %5, ptr noundef %6) #16
-  %.fr = freeze i32 %18
-  %.not13.i.not = icmp ne i32 %.fr, 0
-  %spec.select = zext i1 %.not13.i.not to i32
-  br label %pcapng_process_unhandled_option.exit.thread
+13:                                               ; preds = %9
+  %14 = load ptr, ptr %12, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = load ptr, ptr %15, align 8
+  %17 = load i32, ptr %1, align 8
+  %18 = zext i16 %3 to i32
+  %19 = tail call i32 %14(ptr noundef %16, i32 noundef %17, i32 noundef %18, ptr noundef %4, ptr noundef %5, ptr noundef %6) #16
+  %.not13.i = icmp ne i32 %19, 0
+  %spec.select = zext i1 %.not13.i to i32
+  br label %pcapng_process_unhandled_option.exit
 
-pcapng_process_unhandled_option.exit.thread:      ; preds = %pcapng_process_unhandled_option.exit, %7, %9
-  %19 = phi i32 [ 1, %9 ], [ 1, %7 ], [ %spec.select, %pcapng_process_unhandled_option.exit ]
-  ret i32 %19
+pcapng_process_unhandled_option.exit:             ; preds = %13, %9, %7
+  %20 = phi i32 [ 1, %7 ], [ 1, %9 ], [ %spec.select, %13 ]
+  ret i32 %20
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pcapng_process_interface_statistics_block_option(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2, i16 noundef zeroext %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #0 {
+define internal i32 @pcapng_process_interface_statistics_block_option(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2, i16 noundef zeroext %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #0 {
   switch i16 %2, label %76 [
     i16 2, label %8
     i16 3, label %22
@@ -4381,22 +4379,21 @@ define internal noundef i32 @pcapng_process_interface_statistics_block_option(pt
   %80 = inttoptr i64 %79 to ptr
   %81 = tail call ptr @g_hash_table_lookup(ptr noundef nonnull %77, ptr noundef %80) #16
   %.not12.i = icmp eq ptr %81, null
-  br i1 %.not12.i, label %pcapng_process_timestamp_option.exit, label %pcapng_process_unhandled_option.exit
+  br i1 %.not12.i, label %pcapng_process_timestamp_option.exit, label %82
 
-pcapng_process_unhandled_option.exit:             ; preds = %78
-  %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %0, i64 8
-  %84 = load ptr, ptr %83, align 8
-  %85 = load i32, ptr %1, align 8
-  %86 = zext i16 %3 to i32
-  %87 = tail call i32 %82(ptr noundef %84, i32 noundef %85, i32 noundef %86, ptr noundef %4, ptr noundef %5, ptr noundef %6) #16
-  %.fr = freeze i32 %87
-  %.not13.i.not = icmp ne i32 %.fr, 0
-  %spec.select = zext i1 %.not13.i.not to i32
+82:                                               ; preds = %78
+  %83 = load ptr, ptr %81, align 8
+  %84 = getelementptr inbounds i8, ptr %0, i64 8
+  %85 = load ptr, ptr %84, align 8
+  %86 = load i32, ptr %1, align 8
+  %87 = zext i16 %3 to i32
+  %88 = tail call i32 %83(ptr noundef %85, i32 noundef %86, i32 noundef %87, ptr noundef %4, ptr noundef %5, ptr noundef %6) #16
+  %.not13.i = icmp ne i32 %88, 0
+  %spec.select = zext i1 %.not13.i to i32
   br label %pcapng_process_timestamp_option.exit
 
-pcapng_process_timestamp_option.exit:             ; preds = %pcapng_process_unhandled_option.exit, %76, %78, %70, %68, %62, %60, %54, %52, %46, %44, %38, %36, %24, %22, %10, %8
-  %.0 = phi i32 [ 1, %8 ], [ 1, %10 ], [ 1, %22 ], [ 1, %24 ], [ 1, %36 ], [ 1, %38 ], [ 1, %44 ], [ 1, %46 ], [ 1, %52 ], [ 1, %54 ], [ 1, %60 ], [ 1, %62 ], [ 1, %68 ], [ 1, %70 ], [ 1, %78 ], [ 1, %76 ], [ %spec.select, %pcapng_process_unhandled_option.exit ]
+pcapng_process_timestamp_option.exit:             ; preds = %82, %8, %10, %22, %24, %36, %38, %44, %46, %52, %54, %60, %62, %68, %70, %76, %78
+  %.0 = phi i32 [ 1, %78 ], [ 1, %76 ], [ 1, %70 ], [ 1, %68 ], [ 1, %62 ], [ 1, %60 ], [ 1, %54 ], [ 1, %52 ], [ 1, %46 ], [ 1, %44 ], [ 1, %38 ], [ 1, %36 ], [ 1, %24 ], [ 1, %22 ], [ 1, %10 ], [ 1, %8 ], [ %spec.select, %82 ]
   ret i32 %.0
 }
 
@@ -6723,7 +6720,7 @@ pcapng_write_uint32_option.exit32:                ; preds = %26
   %68 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %9, i64 noundef %67, ptr noundef %5) #16
   br label %pcapng_write_packet_verdict_option.exit
 
-pcapng_write_packet_verdict_option.exit:          ; preds = %30, %32, %39, %43, %45, %50, %53, %55, %58, %61, %63, %.thread.i
+pcapng_write_packet_verdict_option.exit:          ; preds = %.thread.i, %30, %32, %39, %43, %45, %50, %53, %55, %58, %61, %63
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
@@ -6745,12 +6742,12 @@ define internal noundef i32 @write_block_option(ptr noundef %0, i32 noundef %1, 
   %9 = alloca i32, align 4
   %10 = alloca %struct.pcapng_option_header, align 2
   %11 = alloca i32, align 4
-  switch i32 %1, label %68 [
+  switch i32 %1, label %70 [
     i32 1, label %12
-    i32 2988, label %30
-    i32 2989, label %30
-    i32 19372, label %76
-    i32 19373, label %76
+    i32 2988, label %31
+    i32 2989, label %31
+    i32 19372, label %78
+    i32 19373, label %78
   ]
 
 12:                                               ; preds = %5
@@ -6764,7 +6761,7 @@ define internal noundef i32 @write_block_option(ptr noundef %0, i32 noundef %1, 
   store i32 0, ptr %11, align 4
   %18 = add i64 %17, -65536
   %or.cond.i = icmp ult i64 %18, -65535
-  br i1 %or.cond.i, label %pcapng_write_string_option.exit.thread29, label %19
+  br i1 %or.cond.i, label %pcapng_write_string_option.exit, label %19
 
 19:                                               ; preds = %12
   store i16 1, ptr %10, align 2
@@ -6784,140 +6781,134 @@ define internal noundef i32 @write_block_option(ptr noundef %0, i32 noundef %1, 
 26:                                               ; preds = %23
   %27 = and i64 %17, 3
   %.not21.i = icmp eq i64 %27, 0
-  br i1 %.not21.i, label %pcapng_write_string_option.exit.thread29, label %pcapng_write_string_option.exit
+  br i1 %.not21.i, label %pcapng_write_string_option.exit, label %28
 
-pcapng_write_string_option.exit.thread:           ; preds = %19, %23
+28:                                               ; preds = %26
+  %29 = sub nuw nsw i64 4, %27
+  %30 = call i32 @wtap_dump_file_write(ptr noundef %13, ptr noundef nonnull %11, i64 noundef %29, ptr noundef %15) #16
+  %.not23.i = icmp eq i32 %30, 0
+  br i1 %.not23.i, label %pcapng_write_string_option.exit.thread, label %pcapng_write_string_option.exit
+
+pcapng_write_string_option.exit.thread:           ; preds = %19, %23, %28
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
-  br label %77
+  br label %79
 
-pcapng_write_string_option.exit.thread29:         ; preds = %12, %26
+pcapng_write_string_option.exit:                  ; preds = %26, %28, %12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
-  br label %76
+  br label %78
 
-pcapng_write_string_option.exit:                  ; preds = %26
-  %28 = sub nuw nsw i64 4, %27
-  %29 = call i32 @wtap_dump_file_write(ptr noundef %13, ptr noundef nonnull %11, i64 noundef %28, ptr noundef %15) #16
-  %.not23.i.not = icmp eq i32 %29, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
-  br i1 %.not23.i.not, label %77, label %76
-
-30:                                               ; preds = %5, %5
-  %31 = load ptr, ptr %4, align 8
-  %32 = getelementptr inbounds i8, ptr %4, i64 8
-  %33 = load ptr, ptr %32, align 8
+31:                                               ; preds = %5, %5
+  %32 = load ptr, ptr %4, align 8
+  %33 = getelementptr inbounds i8, ptr %4, i64 8
+  %34 = load ptr, ptr %33, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 0, ptr %7, align 4
-  %34 = load i32, ptr %3, align 8
-  %cond.i = icmp eq i32 %34, 10949
+  %35 = load i32, ptr %3, align 8
+  %cond.i = icmp eq i32 %35, 10949
   %..i = select i1 %cond.i, i64 16, i64 8
   %.50.i = select i1 %cond.i, i64 8, i64 4
-  %35 = getelementptr inbounds i8, ptr %3, i64 %..i
-  %36 = load i64, ptr %35, align 8
-  %37 = add i64 %.50.i, %36
-  %38 = icmp ugt i64 %37, 65535
-  br i1 %38, label %pcapng_write_custom_option.exit.thread35, label %39
+  %36 = getelementptr inbounds i8, ptr %3, i64 %..i
+  %37 = load i64, ptr %36, align 8
+  %38 = add i64 %.50.i, %37
+  %39 = icmp ugt i64 %38, 65535
+  br i1 %39, label %pcapng_write_custom_option.exit, label %40
 
-39:                                               ; preds = %30
-  %40 = trunc i32 %1 to i16
-  store i16 %40, ptr %6, align 2
-  %41 = trunc nuw i64 %37 to i16
-  %42 = getelementptr inbounds i8, ptr %6, i64 2
-  store i16 %41, ptr %42, align 2
-  %43 = call i32 @wtap_dump_file_write(ptr noundef %31, ptr noundef nonnull %6, i64 noundef 4, ptr noundef %33) #16
-  %.not.i24 = icmp eq i32 %43, 0
-  br i1 %.not.i24, label %pcapng_write_custom_option.exit.thread, label %44
+40:                                               ; preds = %31
+  %41 = trunc i32 %1 to i16
+  store i16 %41, ptr %6, align 2
+  %42 = trunc nuw i64 %38 to i16
+  %43 = getelementptr inbounds i8, ptr %6, i64 2
+  store i16 %42, ptr %43, align 2
+  %44 = call i32 @wtap_dump_file_write(ptr noundef %32, ptr noundef nonnull %6, i64 noundef 4, ptr noundef %34) #16
+  %.not.i24 = icmp eq i32 %44, 0
+  br i1 %.not.i24, label %pcapng_write_custom_option.exit.thread, label %45
 
-44:                                               ; preds = %39
-  %45 = load i32, ptr %3, align 8
-  store i32 %45, ptr %8, align 4
-  %46 = call i32 @wtap_dump_file_write(ptr noundef %31, ptr noundef nonnull %8, i64 noundef 4, ptr noundef %33) #16
-  %.not41.i = icmp eq i32 %46, 0
-  br i1 %.not41.i, label %pcapng_write_custom_option.exit.thread, label %47
+45:                                               ; preds = %40
+  %46 = load i32, ptr %3, align 8
+  store i32 %46, ptr %8, align 4
+  %47 = call i32 @wtap_dump_file_write(ptr noundef %32, ptr noundef nonnull %8, i64 noundef 4, ptr noundef %34) #16
+  %.not41.i = icmp eq i32 %47, 0
+  br i1 %.not41.i, label %pcapng_write_custom_option.exit.thread, label %48
 
-47:                                               ; preds = %44
-  %48 = load i32, ptr %3, align 8
-  %cond1.i = icmp eq i32 %48, 10949
-  %49 = getelementptr inbounds i8, ptr %3, i64 8
-  br i1 %cond1.i, label %50, label %59
+48:                                               ; preds = %45
+  %49 = load i32, ptr %3, align 8
+  %cond1.i = icmp eq i32 %49, 10949
+  %50 = getelementptr inbounds i8, ptr %3, i64 8
+  br i1 %cond1.i, label %51, label %60
 
-50:                                               ; preds = %47
-  %51 = load i32, ptr %49, align 8
-  store i32 %51, ptr %9, align 4
-  %52 = call i32 @wtap_dump_file_write(ptr noundef %31, ptr noundef nonnull %9, i64 noundef 4, ptr noundef %33) #16
-  %.not43.i = icmp eq i32 %52, 0
-  br i1 %.not43.i, label %pcapng_write_custom_option.exit.thread, label %53
+51:                                               ; preds = %48
+  %52 = load i32, ptr %50, align 8
+  store i32 %52, ptr %9, align 4
+  %53 = call i32 @wtap_dump_file_write(ptr noundef %32, ptr noundef nonnull %9, i64 noundef 4, ptr noundef %34) #16
+  %.not43.i = icmp eq i32 %53, 0
+  br i1 %.not43.i, label %pcapng_write_custom_option.exit.thread, label %54
 
-53:                                               ; preds = %50
-  %54 = getelementptr inbounds i8, ptr %3, i64 24
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %3, i64 16
-  %57 = load i64, ptr %56, align 8
-  %58 = call i32 @wtap_dump_file_write(ptr noundef %31, ptr noundef %55, i64 noundef %57, ptr noundef %33) #16
-  %.not44.i = icmp eq i32 %58, 0
-  br i1 %.not44.i, label %pcapng_write_custom_option.exit.thread, label %64
+54:                                               ; preds = %51
+  %55 = getelementptr inbounds i8, ptr %3, i64 24
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr inbounds i8, ptr %3, i64 16
+  %58 = load i64, ptr %57, align 8
+  %59 = call i32 @wtap_dump_file_write(ptr noundef %32, ptr noundef %56, i64 noundef %58, ptr noundef %34) #16
+  %.not44.i = icmp eq i32 %59, 0
+  br i1 %.not44.i, label %pcapng_write_custom_option.exit.thread, label %65
 
-59:                                               ; preds = %47
-  %60 = getelementptr inbounds i8, ptr %3, i64 16
-  %61 = load ptr, ptr %60, align 8
-  %62 = load i64, ptr %49, align 8
-  %63 = call i32 @wtap_dump_file_write(ptr noundef %31, ptr noundef %61, i64 noundef %62, ptr noundef %33) #16
-  %.not42.i = icmp eq i32 %63, 0
-  br i1 %.not42.i, label %pcapng_write_custom_option.exit.thread, label %64
+60:                                               ; preds = %48
+  %61 = getelementptr inbounds i8, ptr %3, i64 16
+  %62 = load ptr, ptr %61, align 8
+  %63 = load i64, ptr %50, align 8
+  %64 = call i32 @wtap_dump_file_write(ptr noundef %32, ptr noundef %62, i64 noundef %63, ptr noundef %34) #16
+  %.not42.i = icmp eq i32 %64, 0
+  br i1 %.not42.i, label %pcapng_write_custom_option.exit.thread, label %65
 
-64:                                               ; preds = %59, %53
-  %65 = and i64 %36, 3
-  %.not45.i = icmp eq i64 %65, 0
-  br i1 %.not45.i, label %pcapng_write_custom_option.exit.thread35, label %pcapng_write_custom_option.exit
+65:                                               ; preds = %60, %54
+  %66 = and i64 %37, 3
+  %.not45.i = icmp eq i64 %66, 0
+  br i1 %.not45.i, label %pcapng_write_custom_option.exit, label %67
 
-pcapng_write_custom_option.exit.thread:           ; preds = %39, %44, %50, %53, %59
+67:                                               ; preds = %65
+  %68 = sub nuw nsw i64 4, %66
+  %69 = call i32 @wtap_dump_file_write(ptr noundef %32, ptr noundef nonnull %7, i64 noundef %68, ptr noundef %34) #16
+  %.not47.i = icmp eq i32 %69, 0
+  br i1 %.not47.i, label %pcapng_write_custom_option.exit.thread, label %pcapng_write_custom_option.exit
+
+pcapng_write_custom_option.exit.thread:           ; preds = %40, %45, %51, %54, %60, %67
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  br label %77
+  br label %79
 
-pcapng_write_custom_option.exit.thread35:         ; preds = %30, %64
+pcapng_write_custom_option.exit:                  ; preds = %65, %67, %31
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  br label %76
+  br label %78
 
-pcapng_write_custom_option.exit:                  ; preds = %64
-  %66 = sub nuw nsw i64 4, %65
-  %67 = call i32 @wtap_dump_file_write(ptr noundef %31, ptr noundef nonnull %7, i64 noundef %66, ptr noundef %33) #16
-  %.not47.i.not = icmp eq i32 %67, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  br i1 %.not47.i.not, label %77, label %76
+70:                                               ; preds = %5
+  %71 = getelementptr inbounds i8, ptr %4, i64 16
+  %72 = load ptr, ptr %71, align 8
+  %.not21 = icmp eq ptr %72, null
+  br i1 %.not21, label %78, label %73
 
-68:                                               ; preds = %5
-  %69 = getelementptr inbounds i8, ptr %4, i64 16
-  %70 = load ptr, ptr %69, align 8
-  %.not21 = icmp eq ptr %70, null
-  br i1 %.not21, label %76, label %71
+73:                                               ; preds = %70
+  %74 = load ptr, ptr %4, align 8
+  %75 = getelementptr inbounds i8, ptr %4, i64 8
+  %76 = load ptr, ptr %75, align 8
+  %77 = tail call i32 %72(ptr noundef %74, ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %76) #16
+  %.not22 = icmp eq i32 %77, 0
+  br i1 %.not22, label %79, label %78
 
-71:                                               ; preds = %68
-  %72 = load ptr, ptr %4, align 8
-  %73 = getelementptr inbounds i8, ptr %4, i64 8
-  %74 = load ptr, ptr %73, align 8
-  %75 = tail call i32 %70(ptr noundef %72, ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %74) #16
-  %.not22 = icmp eq i32 %75, 0
-  br i1 %.not22, label %77, label %76
+78:                                               ; preds = %pcapng_write_custom_option.exit, %pcapng_write_string_option.exit, %70, %73, %5, %5
+  br label %79
 
-76:                                               ; preds = %pcapng_write_custom_option.exit.thread35, %pcapng_write_string_option.exit.thread29, %68, %71, %5, %5, %pcapng_write_custom_option.exit, %pcapng_write_string_option.exit
-  br label %77
-
-77:                                               ; preds = %pcapng_write_custom_option.exit.thread, %pcapng_write_string_option.exit.thread, %71, %pcapng_write_custom_option.exit, %pcapng_write_string_option.exit, %76
-  %.0 = phi i32 [ 1, %76 ], [ 0, %pcapng_write_string_option.exit ], [ 0, %pcapng_write_custom_option.exit ], [ 0, %71 ], [ 0, %pcapng_write_string_option.exit.thread ], [ 0, %pcapng_write_custom_option.exit.thread ]
+79:                                               ; preds = %pcapng_write_custom_option.exit.thread, %pcapng_write_string_option.exit.thread, %73, %78
+  %.0 = phi i32 [ 1, %78 ], [ 0, %73 ], [ 0, %pcapng_write_string_option.exit.thread ], [ 0, %pcapng_write_custom_option.exit.thread ]
   ret i32 %.0
 }
 
@@ -7039,7 +7030,7 @@ define internal noundef i32 @write_wtap_shb_option(ptr noundef %0, ptr nocapture
   %8 = alloca i32, align 4
   %.off = add i32 %2, -2
   %switch = icmp ult i32 %.off, 3
-  br i1 %switch, label %9, label %25
+  br i1 %switch, label %9, label %26
 
 9:                                                ; preds = %6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
@@ -7049,7 +7040,7 @@ define internal noundef i32 @write_wtap_shb_option(ptr noundef %0, ptr nocapture
   store i32 0, ptr %8, align 4
   %12 = add i64 %11, -65536
   %or.cond.i = icmp ult i64 %12, -65535
-  br i1 %or.cond.i, label %pcapng_write_string_option.exit.thread9, label %13
+  br i1 %or.cond.i, label %pcapng_write_string_option.exit, label %13
 
 13:                                               ; preds = %9
   %14 = trunc nuw i32 %2 to i16
@@ -7070,30 +7061,26 @@ define internal noundef i32 @write_wtap_shb_option(ptr noundef %0, ptr nocapture
 21:                                               ; preds = %18
   %22 = and i64 %11, 3
   %.not21.i = icmp eq i64 %22, 0
-  br i1 %.not21.i, label %pcapng_write_string_option.exit.thread9, label %pcapng_write_string_option.exit
+  br i1 %.not21.i, label %pcapng_write_string_option.exit, label %23
 
-pcapng_write_string_option.exit.thread:           ; preds = %13, %18
+23:                                               ; preds = %21
+  %24 = sub nuw nsw i64 4, %22
+  %25 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %8, i64 noundef %24, ptr noundef %5) #16
+  %.not23.i = icmp eq i32 %25, 0
+  br i1 %.not23.i, label %pcapng_write_string_option.exit.thread, label %pcapng_write_string_option.exit
+
+pcapng_write_string_option.exit.thread:           ; preds = %13, %18, %23
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  br label %25
+  br label %26
 
-pcapng_write_string_option.exit.thread9:          ; preds = %9, %21
+pcapng_write_string_option.exit:                  ; preds = %21, %23, %9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  br label %25
+  br label %26
 
-pcapng_write_string_option.exit:                  ; preds = %21
-  %23 = sub nuw nsw i64 4, %22
-  %24 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %8, i64 noundef %23, ptr noundef %5) #16
-  %.fr = freeze i32 %24
-  %.not23.i.not = icmp ne i32 %.fr, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  %spec.select = zext i1 %.not23.i.not to i32
-  br label %25
-
-25:                                               ; preds = %pcapng_write_string_option.exit, %pcapng_write_string_option.exit.thread9, %pcapng_write_string_option.exit.thread, %6
-  %.0 = phi i32 [ 1, %6 ], [ 1, %pcapng_write_string_option.exit.thread9 ], [ 0, %pcapng_write_string_option.exit.thread ], [ %spec.select, %pcapng_write_string_option.exit ]
+26:                                               ; preds = %6, %pcapng_write_string_option.exit, %pcapng_write_string_option.exit.thread
+  %.0 = phi i32 [ 0, %pcapng_write_string_option.exit.thread ], [ 1, %pcapng_write_string_option.exit ], [ 1, %6 ]
   ret i32 %.0
 }
 
@@ -7185,15 +7172,15 @@ define internal noundef i32 @write_wtap_idb_option(ptr noundef %0, ptr nocapture
   %14 = alloca %struct.pcapng_option_header, align 2
   %15 = alloca %struct.pcapng_option_header, align 2
   %16 = alloca i32, align 4
-  switch i32 %2, label %86 [
+  switch i32 %2, label %88 [
     i32 2, label %17
     i32 3, label %17
     i32 12, label %17
     i32 15, label %17
-    i32 8, label %33
-    i32 9, label %37
-    i32 11, label %43
-    i32 13, label %80
+    i32 8, label %34
+    i32 9, label %38
+    i32 11, label %44
+    i32 13, label %82
   ]
 
 17:                                               ; preds = %6, %6, %6, %6
@@ -7204,7 +7191,7 @@ define internal noundef i32 @write_wtap_idb_option(ptr noundef %0, ptr nocapture
   store i32 0, ptr %16, align 4
   %20 = add i64 %19, -65536
   %or.cond.i = icmp ult i64 %20, -65535
-  br i1 %or.cond.i, label %pcapng_write_string_option.exit.thread41, label %21
+  br i1 %or.cond.i, label %pcapng_write_string_option.exit, label %21
 
 21:                                               ; preds = %17
   %22 = trunc i32 %2 to i16
@@ -7225,209 +7212,198 @@ define internal noundef i32 @write_wtap_idb_option(ptr noundef %0, ptr nocapture
 29:                                               ; preds = %26
   %30 = and i64 %19, 3
   %.not21.i = icmp eq i64 %30, 0
-  br i1 %.not21.i, label %pcapng_write_string_option.exit.thread41, label %pcapng_write_string_option.exit
+  br i1 %.not21.i, label %pcapng_write_string_option.exit, label %31
 
-pcapng_write_string_option.exit.thread:           ; preds = %21, %26
+31:                                               ; preds = %29
+  %32 = sub nuw nsw i64 4, %30
+  %33 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %16, i64 noundef %32, ptr noundef %5) #16
+  %.not23.i = icmp eq i32 %33, 0
+  br i1 %.not23.i, label %pcapng_write_string_option.exit.thread, label %pcapng_write_string_option.exit
+
+pcapng_write_string_option.exit.thread:           ; preds = %21, %26, %31
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
-  br label %87
+  br label %89
 
-pcapng_write_string_option.exit.thread41:         ; preds = %17, %29
+pcapng_write_string_option.exit:                  ; preds = %29, %31, %17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
-  br label %86
+  br label %88
 
-pcapng_write_string_option.exit:                  ; preds = %29
-  %31 = sub nuw nsw i64 4, %30
-  %32 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %16, i64 noundef %31, ptr noundef %5) #16
-  %.not23.i.not = icmp eq i32 %32, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
-  br i1 %.not23.i.not, label %87, label %86
-
-33:                                               ; preds = %6
+34:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
   store i16 8, ptr %14, align 2
-  %34 = getelementptr inbounds i8, ptr %14, i64 2
-  store i16 8, ptr %34, align 2
-  %35 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %14, i64 noundef 4, ptr noundef %5) #16
-  %.not.i26 = icmp eq i32 %35, 0
+  %35 = getelementptr inbounds i8, ptr %14, i64 2
+  store i16 8, ptr %35, align 2
+  %36 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %14, i64 noundef 4, ptr noundef %5) #16
+  %.not.i26 = icmp eq i32 %36, 0
   br i1 %.not.i26, label %pcapng_write_uint64_option.exit.thread, label %pcapng_write_uint64_option.exit
 
-pcapng_write_uint64_option.exit.thread:           ; preds = %33
+pcapng_write_uint64_option.exit.thread:           ; preds = %34
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
-  br label %87
+  br label %89
 
-pcapng_write_uint64_option.exit:                  ; preds = %33
-  %36 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef %4, i64 noundef 8, ptr noundef %5) #16
-  %.not6.i.not = icmp eq i32 %36, 0
+pcapng_write_uint64_option.exit:                  ; preds = %34
+  %37 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef %4, i64 noundef 8, ptr noundef %5) #16
+  %.not6.i.not = icmp eq i32 %37, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
-  br i1 %.not6.i.not, label %87, label %86
+  br i1 %.not6.i.not, label %89, label %88
 
-37:                                               ; preds = %6
+38:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
   store i32 0, ptr %13, align 4
   store i16 9, ptr %12, align 2
-  %38 = getelementptr inbounds i8, ptr %12, i64 2
-  store i16 1, ptr %38, align 2
-  %39 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %12, i64 noundef 4, ptr noundef %5) #16
-  %.not.i27 = icmp eq i32 %39, 0
-  br i1 %.not.i27, label %pcapng_write_uint8_option.exit.thread, label %40
+  %39 = getelementptr inbounds i8, ptr %12, i64 2
+  store i16 1, ptr %39, align 2
+  %40 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %12, i64 noundef 4, ptr noundef %5) #16
+  %.not.i27 = icmp eq i32 %40, 0
+  br i1 %.not.i27, label %pcapng_write_uint8_option.exit.thread, label %41
 
-40:                                               ; preds = %37
-  %41 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef %4, i64 noundef 1, ptr noundef %5) #16
-  %.not8.i = icmp eq i32 %41, 0
+41:                                               ; preds = %38
+  %42 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef %4, i64 noundef 1, ptr noundef %5) #16
+  %.not8.i = icmp eq i32 %42, 0
   br i1 %.not8.i, label %pcapng_write_uint8_option.exit.thread, label %pcapng_write_uint8_option.exit
 
-pcapng_write_uint8_option.exit.thread:            ; preds = %37, %40
+pcapng_write_uint8_option.exit.thread:            ; preds = %38, %41
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
-  br label %87
+  br label %89
 
-pcapng_write_uint8_option.exit:                   ; preds = %40
-  %42 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %13, i64 noundef 3, ptr noundef %5) #16
-  %.not9.i.not = icmp eq i32 %42, 0
+pcapng_write_uint8_option.exit:                   ; preds = %41
+  %43 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %13, i64 noundef 3, ptr noundef %5) #16
+  %.not9.i.not = icmp eq i32 %43, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
-  br i1 %.not9.i.not, label %87, label %86
+  br i1 %.not9.i.not, label %89, label %88
 
-43:                                               ; preds = %6
+44:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   store i32 0, ptr %11, align 4
-  %44 = load i32, ptr %4, align 8
-  switch i32 %44, label %pcapng_write_if_filter_option.exit.thread [
-    i32 0, label %45
-    i32 1, label %50
+  %45 = load i32, ptr %4, align 8
+  switch i32 %45, label %pcapng_write_if_filter_option.exit [
+    i32 0, label %46
+    i32 1, label %51
   ]
 
-45:                                               ; preds = %43
+46:                                               ; preds = %44
   store i8 0, ptr %9, align 1
-  %46 = getelementptr inbounds i8, ptr %4, i64 8
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %47) #19
-  %49 = icmp ugt i64 %48, 65534
-  br i1 %49, label %pcapng_write_if_filter_option.exit.thread, label %56
+  %47 = getelementptr inbounds i8, ptr %4, i64 8
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %48) #19
+  %50 = icmp ugt i64 %49, 65534
+  br i1 %50, label %pcapng_write_if_filter_option.exit, label %57
 
-50:                                               ; preds = %43
+51:                                               ; preds = %44
   store i8 1, ptr %9, align 1
-  %51 = getelementptr inbounds i8, ptr %4, i64 8
-  %52 = load i32, ptr %51, align 8
-  %53 = shl i32 %52, 3
-  %54 = zext nneg i32 %53 to i64
-  %55 = icmp ugt i32 %53, 65528
-  br i1 %55, label %pcapng_write_if_filter_option.exit.thread, label %56
+  %52 = getelementptr inbounds i8, ptr %4, i64 8
+  %53 = load i32, ptr %52, align 8
+  %54 = shl i32 %53, 3
+  %55 = zext nneg i32 %54 to i64
+  %56 = icmp ugt i32 %54, 65528
+  br i1 %56, label %pcapng_write_if_filter_option.exit, label %57
 
-56:                                               ; preds = %50, %45
-  %.0.i30 = phi i64 [ %54, %50 ], [ %48, %45 ]
-  %57 = trunc nuw i64 %.0.i30 to i32
-  %58 = add nuw i32 %57, 1
-  %59 = and i32 %58, 3
-  %.not.i31 = icmp eq i32 %59, 0
-  %60 = sub nuw nsw i32 4, %59
+57:                                               ; preds = %51, %46
+  %.0.i30 = phi i64 [ %55, %51 ], [ %49, %46 ]
+  %58 = trunc nuw i64 %.0.i30 to i32
+  %59 = add nuw i32 %58, 1
+  %60 = and i32 %59, 3
+  %.not.i31 = icmp eq i32 %60, 0
+  %61 = sub nuw nsw i32 4, %60
   store i16 11, ptr %10, align 2
-  %61 = trunc nuw i32 %58 to i16
-  %62 = getelementptr inbounds i8, ptr %10, i64 2
-  store i16 %61, ptr %62, align 2
-  %63 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %10, i64 noundef 4, ptr noundef %5) #16
-  %.not33.i = icmp eq i32 %63, 0
-  br i1 %.not33.i, label %pcapng_write_if_filter_option.exit.thread52, label %64
+  %62 = trunc nuw i32 %59 to i16
+  %63 = getelementptr inbounds i8, ptr %10, i64 2
+  store i16 %62, ptr %63, align 2
+  %64 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %10, i64 noundef 4, ptr noundef %5) #16
+  %.not33.i = icmp eq i32 %64, 0
+  br i1 %.not33.i, label %pcapng_write_if_filter_option.exit.thread, label %65
 
-64:                                               ; preds = %56
-  %65 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %9, i64 noundef 1, ptr noundef %5) #16
-  %.not34.i = icmp eq i32 %65, 0
-  br i1 %.not34.i, label %pcapng_write_if_filter_option.exit.thread52, label %66
+65:                                               ; preds = %57
+  %66 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %9, i64 noundef 1, ptr noundef %5) #16
+  %.not34.i = icmp eq i32 %66, 0
+  br i1 %.not34.i, label %pcapng_write_if_filter_option.exit.thread, label %67
 
-66:                                               ; preds = %64
-  %67 = load i32, ptr %4, align 8
-  switch i32 %67, label %76 [
-    i32 0, label %68
-    i32 1, label %72
+67:                                               ; preds = %65
+  %68 = load i32, ptr %4, align 8
+  switch i32 %68, label %77 [
+    i32 0, label %69
+    i32 1, label %73
   ]
 
-68:                                               ; preds = %66
-  %69 = getelementptr inbounds i8, ptr %4, i64 8
-  %70 = load ptr, ptr %69, align 8
-  %71 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef %70, i64 noundef %.0.i30, ptr noundef %5) #16
-  %.not36.i = icmp eq i32 %71, 0
-  %brmerge39.i = select i1 %.not36.i, i1 true, i1 %.not.i31
-  br i1 %brmerge39.i, label %pcapng_write_if_filter_option.exit, label %77
+69:                                               ; preds = %67
+  %70 = getelementptr inbounds i8, ptr %4, i64 8
+  %71 = load ptr, ptr %70, align 8
+  %72 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef %71, i64 noundef %.0.i30, ptr noundef %5) #16
+  %.not36.i = icmp eq i32 %72, 0
+  br i1 %.not36.i, label %pcapng_write_if_filter_option.exit.thread, label %78
 
-72:                                               ; preds = %66
-  %73 = getelementptr inbounds i8, ptr %4, i64 16
-  %74 = load ptr, ptr %73, align 8
-  %75 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef %74, i64 noundef %.0.i30, ptr noundef %5) #16
-  %.not35.i = icmp eq i32 %75, 0
-  %brmerge.i = select i1 %.not35.i, i1 true, i1 %.not.i31
-  br i1 %brmerge.i, label %pcapng_write_if_filter_option.exit, label %77
+73:                                               ; preds = %67
+  %74 = getelementptr inbounds i8, ptr %4, i64 16
+  %75 = load ptr, ptr %74, align 8
+  %76 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef %75, i64 noundef %.0.i30, ptr noundef %5) #16
+  %.not35.i = icmp eq i32 %76, 0
+  br i1 %.not35.i, label %pcapng_write_if_filter_option.exit.thread, label %78
 
-76:                                               ; preds = %66
+77:                                               ; preds = %67
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 4819, ptr noundef nonnull @__func__.pcapng_write_if_filter_option, ptr noundef nonnull @.str.58) #21
   unreachable
 
-77:                                               ; preds = %72, %68
-  %78 = zext nneg i32 %60 to i64
-  %79 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %11, i64 noundef %78, ptr noundef %5) #16
-  %.not38.i = icmp eq i32 %79, 0
+78:                                               ; preds = %73, %69
+  br i1 %.not.i31, label %pcapng_write_if_filter_option.exit, label %79
+
+79:                                               ; preds = %78
+  %80 = zext nneg i32 %61 to i64
+  %81 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %11, i64 noundef %80, ptr noundef %5) #16
+  %.not38.i = icmp eq i32 %81, 0
+  br i1 %.not38.i, label %pcapng_write_if_filter_option.exit.thread, label %pcapng_write_if_filter_option.exit
+
+pcapng_write_if_filter_option.exit.thread:        ; preds = %57, %65, %69, %73, %79
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
-  br i1 %.not38.i, label %87, label %86
+  br label %89
 
-pcapng_write_if_filter_option.exit.thread:        ; preds = %45, %50, %43
+pcapng_write_if_filter_option.exit:               ; preds = %78, %79, %44, %46, %51
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
-  br label %86
+  br label %88
 
-pcapng_write_if_filter_option.exit.thread52:      ; preds = %56, %64
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
-  br label %87
-
-pcapng_write_if_filter_option.exit:               ; preds = %68, %72
-  %.029.shrunk.i = phi i1 [ %.not36.i, %68 ], [ %.not35.i, %72 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
-  br i1 %.029.shrunk.i, label %87, label %86
-
-80:                                               ; preds = %6
+82:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   store i32 0, ptr %8, align 4
   store i16 13, ptr %7, align 2
-  %81 = getelementptr inbounds i8, ptr %7, i64 2
-  store i16 1, ptr %81, align 2
-  %82 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 4, ptr noundef %5) #16
-  %.not.i32 = icmp eq i32 %82, 0
-  br i1 %.not.i32, label %pcapng_write_uint8_option.exit37.thread, label %83
+  %83 = getelementptr inbounds i8, ptr %7, i64 2
+  store i16 1, ptr %83, align 2
+  %84 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 4, ptr noundef %5) #16
+  %.not.i32 = icmp eq i32 %84, 0
+  br i1 %.not.i32, label %pcapng_write_uint8_option.exit37.thread, label %85
 
-83:                                               ; preds = %80
-  %84 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef %4, i64 noundef 1, ptr noundef %5) #16
-  %.not8.i33 = icmp eq i32 %84, 0
+85:                                               ; preds = %82
+  %86 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef %4, i64 noundef 1, ptr noundef %5) #16
+  %.not8.i33 = icmp eq i32 %86, 0
   br i1 %.not8.i33, label %pcapng_write_uint8_option.exit37.thread, label %pcapng_write_uint8_option.exit37
 
-pcapng_write_uint8_option.exit37.thread:          ; preds = %80, %83
+pcapng_write_uint8_option.exit37.thread:          ; preds = %82, %85
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  br label %87
+  br label %89
 
-pcapng_write_uint8_option.exit37:                 ; preds = %83
-  %85 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 3, ptr noundef %5) #16
-  %.not9.i34.not = icmp eq i32 %85, 0
+pcapng_write_uint8_option.exit37:                 ; preds = %85
+  %87 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 3, ptr noundef %5) #16
+  %.not9.i34.not = icmp eq i32 %87, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  br i1 %.not9.i34.not, label %87, label %86
+  br i1 %.not9.i34.not, label %89, label %88
 
-86:                                               ; preds = %77, %pcapng_write_if_filter_option.exit.thread, %pcapng_write_string_option.exit.thread41, %6, %pcapng_write_uint8_option.exit37, %pcapng_write_if_filter_option.exit, %pcapng_write_uint8_option.exit, %pcapng_write_uint64_option.exit, %pcapng_write_string_option.exit
-  br label %87
+88:                                               ; preds = %pcapng_write_if_filter_option.exit, %pcapng_write_string_option.exit, %6, %pcapng_write_uint8_option.exit37, %pcapng_write_uint8_option.exit, %pcapng_write_uint64_option.exit
+  br label %89
 
-87:                                               ; preds = %77, %pcapng_write_uint8_option.exit37.thread, %pcapng_write_if_filter_option.exit.thread52, %pcapng_write_uint8_option.exit.thread, %pcapng_write_uint64_option.exit.thread, %pcapng_write_string_option.exit.thread, %pcapng_write_uint8_option.exit37, %pcapng_write_if_filter_option.exit, %pcapng_write_uint8_option.exit, %pcapng_write_uint64_option.exit, %pcapng_write_string_option.exit, %86
-  %.0 = phi i32 [ 1, %86 ], [ 0, %pcapng_write_string_option.exit ], [ 0, %pcapng_write_uint64_option.exit ], [ 0, %pcapng_write_uint8_option.exit ], [ 0, %pcapng_write_if_filter_option.exit ], [ 0, %pcapng_write_uint8_option.exit37 ], [ 0, %pcapng_write_string_option.exit.thread ], [ 0, %pcapng_write_uint64_option.exit.thread ], [ 0, %pcapng_write_uint8_option.exit.thread ], [ 0, %pcapng_write_if_filter_option.exit.thread52 ], [ 0, %pcapng_write_uint8_option.exit37.thread ], [ 0, %77 ]
+89:                                               ; preds = %pcapng_write_uint8_option.exit37.thread, %pcapng_write_if_filter_option.exit.thread, %pcapng_write_uint8_option.exit.thread, %pcapng_write_uint64_option.exit.thread, %pcapng_write_string_option.exit.thread, %pcapng_write_uint8_option.exit37, %pcapng_write_uint8_option.exit, %pcapng_write_uint64_option.exit, %88
+  %.0 = phi i32 [ 1, %88 ], [ 0, %pcapng_write_uint64_option.exit ], [ 0, %pcapng_write_uint8_option.exit ], [ 0, %pcapng_write_uint8_option.exit37 ], [ 0, %pcapng_write_string_option.exit.thread ], [ 0, %pcapng_write_uint64_option.exit.thread ], [ 0, %pcapng_write_uint8_option.exit.thread ], [ 0, %pcapng_write_if_filter_option.exit.thread ], [ 0, %pcapng_write_uint8_option.exit37.thread ]
   ret i32 %.0
 }
 

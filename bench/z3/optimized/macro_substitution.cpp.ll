@@ -1681,19 +1681,20 @@ entry:
   %bf.load.i.i = load i32, ptr %m_kind.i.i, align 4
   %bf.clear.i.i = and i32 %bf.load.i.i, 65535
   %cmp.i = icmp eq i32 %bf.clear.i.i, 0
-  br i1 %cmp.i, label %_Z9is_app_ofPK4exprPK9func_decl.exit, label %if.end
+  br i1 %cmp.i, label %_Z9is_app_ofPK4exprPK9func_decl.exit, label %if.else
 
 _Z9is_app_ofPK4exprPK9func_decl.exit:             ; preds = %entry
   %m_decl.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %3 = load ptr, ptr %m_decl.i.i, align 8
   %cmp3.i = icmp eq ptr %3, %f
-  %spec.select = select i1 %cmp3.i, ptr %1, ptr %2
-  %spec.select9 = select i1 %cmp3.i, ptr %2, ptr %1
+  br i1 %cmp3.i, label %if.end, label %if.else
+
+if.else:                                          ; preds = %entry, %_Z9is_app_ofPK4exprPK9func_decl.exit
   br label %if.end
 
-if.end:                                           ; preds = %_Z9is_app_ofPK4exprPK9func_decl.exit, %entry
-  %storemerge7 = phi ptr [ %2, %entry ], [ %spec.select, %_Z9is_app_ofPK4exprPK9func_decl.exit ]
-  %storemerge = phi ptr [ %1, %entry ], [ %spec.select9, %_Z9is_app_ofPK4exprPK9func_decl.exit ]
+if.end:                                           ; preds = %_Z9is_app_ofPK4exprPK9func_decl.exit, %if.else
+  %storemerge7 = phi ptr [ %2, %if.else ], [ %1, %_Z9is_app_ofPK4exprPK9func_decl.exit ]
+  %storemerge = phi ptr [ %1, %if.else ], [ %2, %_Z9is_app_ofPK4exprPK9func_decl.exit ]
   store ptr %storemerge7, ptr %head, align 8
   store ptr %storemerge, ptr %def, align 8
   ret void

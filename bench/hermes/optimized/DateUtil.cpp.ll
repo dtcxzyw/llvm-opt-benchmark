@@ -193,19 +193,19 @@ entry:
 if.end.i:                                         ; preds = %entry
   %call.i3.i = tail call noundef double @fmod(double noundef %y, double noundef 1.000000e+02) #17
   %cmp2.i = fcmp une double %call.i3.i, 0.000000e+00
-  br i1 %cmp2.i, label %_ZN6hermes2vmL10isLeapYearEd.exit.thread2, label %_ZN6hermes2vmL10isLeapYearEd.exit
+  br i1 %cmp2.i, label %_ZN6hermes2vmL10isLeapYearEd.exit.thread, label %_ZN6hermes2vmL10isLeapYearEd.exit
 
 _ZN6hermes2vmL10isLeapYearEd.exit:                ; preds = %if.end.i
   %call.i4.i = tail call noundef double @fmod(double noundef %y, double noundef 4.000000e+02) #17
   %cmp6.i = fcmp oeq double %call.i4.i, 0.000000e+00
-  br i1 %cmp6.i, label %0, label %_ZN6hermes2vmL10isLeapYearEd.exit.thread2
+  br i1 %cmp6.i, label %_ZN6hermes2vmL10isLeapYearEd.exit.thread, label %_ZN6hermes2vmL10isLeapYearEd.exit.thread2
 
-0:                                                ; preds = %_ZN6hermes2vmL10isLeapYearEd.exit
+_ZN6hermes2vmL10isLeapYearEd.exit.thread:         ; preds = %if.end.i, %_ZN6hermes2vmL10isLeapYearEd.exit
   br label %_ZN6hermes2vmL10isLeapYearEd.exit.thread2
 
-_ZN6hermes2vmL10isLeapYearEd.exit.thread2:        ; preds = %if.end.i, %entry, %_ZN6hermes2vmL10isLeapYearEd.exit, %0
-  %1 = phi i32 [ 365, %_ZN6hermes2vmL10isLeapYearEd.exit ], [ 366, %0 ], [ 365, %entry ], [ 366, %if.end.i ]
-  ret i32 %1
+_ZN6hermes2vmL10isLeapYearEd.exit.thread2:        ; preds = %entry, %_ZN6hermes2vmL10isLeapYearEd.exit, %_ZN6hermes2vmL10isLeapYearEd.exit.thread
+  %0 = phi i32 [ 366, %_ZN6hermes2vmL10isLeapYearEd.exit.thread ], [ 365, %_ZN6hermes2vmL10isLeapYearEd.exit ], [ 365, %entry ]
+  ret i32 %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -313,20 +313,20 @@ while.cond3:                                      ; preds = %while.cond3.prehead
 if.end.i.i:                                       ; preds = %while.cond3
   %call.i3.i.i = tail call noundef double @fmod(double noundef %y.1, double noundef 1.000000e+02) #17
   %cmp2.i.i = fcmp une double %call.i3.i.i, 0.000000e+00
-  br i1 %cmp2.i.i, label %_ZN6hermes2vm10daysInYearEd.exit, label %_ZN6hermes2vmL10isLeapYearEd.exit.i
+  br i1 %cmp2.i.i, label %_ZN6hermes2vmL10isLeapYearEd.exit.thread.i, label %_ZN6hermes2vmL10isLeapYearEd.exit.i
 
 _ZN6hermes2vmL10isLeapYearEd.exit.i:              ; preds = %if.end.i.i
   %call.i4.i.i = tail call noundef double @fmod(double noundef %y.1, double noundef 4.000000e+02) #17
   %cmp6.i.i = fcmp oeq double %call.i4.i.i, 0.000000e+00
-  br i1 %cmp6.i.i, label %11, label %_ZN6hermes2vm10daysInYearEd.exit
+  br i1 %cmp6.i.i, label %_ZN6hermes2vmL10isLeapYearEd.exit.thread.i, label %_ZN6hermes2vm10daysInYearEd.exit
 
-11:                                               ; preds = %_ZN6hermes2vmL10isLeapYearEd.exit.i
+_ZN6hermes2vmL10isLeapYearEd.exit.thread.i:       ; preds = %_ZN6hermes2vmL10isLeapYearEd.exit.i, %if.end.i.i
   br label %_ZN6hermes2vm10daysInYearEd.exit
 
-_ZN6hermes2vm10daysInYearEd.exit:                 ; preds = %while.cond3, %if.end.i.i, %_ZN6hermes2vmL10isLeapYearEd.exit.i, %11
-  %conv = phi double [ 3.650000e+02, %_ZN6hermes2vmL10isLeapYearEd.exit.i ], [ 3.660000e+02, %11 ], [ 3.650000e+02, %while.cond3 ], [ 3.660000e+02, %if.end.i.i ]
-  %12 = tail call double @llvm.fmuladd.f64(double %conv, double 8.640000e+07, double %yt.1)
-  %cmp5 = fcmp ugt double %12, %t
+_ZN6hermes2vm10daysInYearEd.exit:                 ; preds = %while.cond3, %_ZN6hermes2vmL10isLeapYearEd.exit.i, %_ZN6hermes2vmL10isLeapYearEd.exit.thread.i
+  %conv = phi double [ 3.660000e+02, %_ZN6hermes2vmL10isLeapYearEd.exit.thread.i ], [ 3.650000e+02, %_ZN6hermes2vmL10isLeapYearEd.exit.i ], [ 3.650000e+02, %while.cond3 ]
+  %11 = tail call double @llvm.fmuladd.f64(double %conv, double 8.640000e+07, double %yt.1)
+  %cmp5 = fcmp ugt double %11, %t
   br i1 %cmp5, label %return, label %while.body6
 
 while.body6:                                      ; preds = %_ZN6hermes2vm10daysInYearEd.exit
@@ -334,16 +334,16 @@ while.body6:                                      ; preds = %_ZN6hermes2vm10days
   %sub.i.i22 = fadd double %inc, -1.970000e+03
   %sub1.i.i23 = fadd double %inc, -1.969000e+03
   %div.i.i24 = fmul double %sub1.i.i23, 2.500000e-01
-  %13 = tail call double @llvm.floor.f64(double %div.i.i24)
-  %14 = tail call double @llvm.fmuladd.f64(double %sub.i.i22, double 3.650000e+02, double %13)
+  %12 = tail call double @llvm.floor.f64(double %div.i.i24)
+  %13 = tail call double @llvm.fmuladd.f64(double %sub.i.i22, double 3.650000e+02, double %12)
   %sub2.i.i25 = fadd double %inc, -1.901000e+03
   %div3.i.i26 = fdiv double %sub2.i.i25, 1.000000e+02
-  %15 = tail call double @llvm.floor.f64(double %div3.i.i26)
-  %sub4.i.i27 = fsub double %14, %15
+  %14 = tail call double @llvm.floor.f64(double %div3.i.i26)
+  %sub4.i.i27 = fsub double %13, %14
   %sub5.i.i28 = fadd double %inc, -1.601000e+03
   %div6.i.i29 = fdiv double %sub5.i.i28, 4.000000e+02
-  %16 = tail call double @llvm.floor.f64(double %div6.i.i29)
-  %add.i.i30 = fadd double %16, %sub4.i.i27
+  %15 = tail call double @llvm.floor.f64(double %div6.i.i29)
+  %add.i.i30 = fadd double %15, %sub4.i.i27
   %mul.i31 = fmul double %add.i.i30, 8.640000e+07
   br label %while.cond3, !llvm.loop !6
 
@@ -363,18 +363,18 @@ entry:
 if.end.i.i:                                       ; preds = %entry
   %call.i3.i.i = tail call noundef double @fmod(double noundef %call, double noundef 1.000000e+02) #17
   %cmp2.i.i = fcmp une double %call.i3.i.i, 0.000000e+00
-  br i1 %cmp2.i.i, label %_ZN6hermes2vm10daysInYearEd.exit, label %_ZN6hermes2vmL10isLeapYearEd.exit.i
+  br i1 %cmp2.i.i, label %_ZN6hermes2vmL10isLeapYearEd.exit.thread.i, label %_ZN6hermes2vmL10isLeapYearEd.exit.i
 
 _ZN6hermes2vmL10isLeapYearEd.exit.i:              ; preds = %if.end.i.i
   %call.i4.i.i = tail call noundef double @fmod(double noundef %call, double noundef 4.000000e+02) #17
   %cmp6.i.i = fcmp oeq double %call.i4.i.i, 0.000000e+00
-  br i1 %cmp6.i.i, label %0, label %_ZN6hermes2vm10daysInYearEd.exit
+  br i1 %cmp6.i.i, label %_ZN6hermes2vmL10isLeapYearEd.exit.thread.i, label %_ZN6hermes2vm10daysInYearEd.exit
 
-0:                                                ; preds = %_ZN6hermes2vmL10isLeapYearEd.exit.i
+_ZN6hermes2vmL10isLeapYearEd.exit.thread.i:       ; preds = %_ZN6hermes2vmL10isLeapYearEd.exit.i, %if.end.i.i
   br label %_ZN6hermes2vm10daysInYearEd.exit
 
-_ZN6hermes2vm10daysInYearEd.exit:                 ; preds = %entry, %if.end.i.i, %_ZN6hermes2vmL10isLeapYearEd.exit.i, %0
-  %cmp = phi i1 [ false, %_ZN6hermes2vmL10isLeapYearEd.exit.i ], [ true, %0 ], [ false, %entry ], [ true, %if.end.i.i ]
+_ZN6hermes2vm10daysInYearEd.exit:                 ; preds = %entry, %_ZN6hermes2vmL10isLeapYearEd.exit.i, %_ZN6hermes2vmL10isLeapYearEd.exit.thread.i
+  %cmp = phi i1 [ true, %_ZN6hermes2vmL10isLeapYearEd.exit.thread.i ], [ false, %_ZN6hermes2vmL10isLeapYearEd.exit.i ], [ false, %entry ]
   ret i1 %cmp
 }
 
@@ -422,7 +422,7 @@ _ZN6hermes2vmL10isLeapYearEd.exit.i.i:            ; preds = %if.end.i.i.i
   %cmp6.i.i.i = fcmp oeq double %call.i4.i.i.i, 0.000000e+00
   br i1 %cmp6.i.i.i, label %cond.end, label %cond.false
 
-cond.false:                                       ; preds = %_ZN6hermes2vmL10isLeapYearEd.exit.i.i, %land.lhs.true, %for.body
+cond.false:                                       ; preds = %land.lhs.true, %_ZN6hermes2vmL10isLeapYearEd.exit.i.i, %for.body
   %arrayidx6 = getelementptr inbounds [11 x i8], ptr @__const._ZN6hermes2vm13monthFromTimeEd.kDaysInMonthNonLeap, i64 0, i64 %indvars.iv
   %5 = load i8, ptr %arrayidx6, align 1
   %conv7 = sext i8 %5 to i32
@@ -459,26 +459,26 @@ entry:
   %call.i = tail call noundef double @_ZN6hermes2vm12yearFromTimeEd(double noundef %t)
   %call.i.i.i.i = tail call noundef double @fmod(double noundef %call.i, double noundef 4.000000e+00) #17
   %cmp.i.i.i = fcmp une double %call.i.i.i.i, 0.000000e+00
-  br i1 %cmp.i.i.i, label %_ZN6hermes2vm10inLeapYearEd.exit, label %if.end.i.i.i
+  br i1 %cmp.i.i.i, label %_ZN6hermes2vm10inLeapYearEd.exit.thread, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %entry
   %call.i3.i.i.i = tail call noundef double @fmod(double noundef %call.i, double noundef 1.000000e+02) #17
   %cmp2.i.i.i = fcmp une double %call.i3.i.i.i, 0.000000e+00
-  br i1 %cmp2.i.i.i, label %_ZN6hermes2vm10inLeapYearEd.exit, label %_ZN6hermes2vmL10isLeapYearEd.exit.i.i
+  br i1 %cmp2.i.i.i, label %0, label %_ZN6hermes2vmL10isLeapYearEd.exit.i.i
 
 _ZN6hermes2vmL10isLeapYearEd.exit.i.i:            ; preds = %if.end.i.i.i
   %call.i4.i.i.i = tail call noundef double @fmod(double noundef %call.i, double noundef 4.000000e+02) #17
   %cmp6.i.i.i = fcmp oeq double %call.i4.i.i.i, 0.000000e+00
-  br i1 %cmp6.i.i.i, label %0, label %_ZN6hermes2vm10inLeapYearEd.exit
+  br i1 %cmp6.i.i.i, label %0, label %_ZN6hermes2vm10inLeapYearEd.exit.thread
 
-0:                                                ; preds = %_ZN6hermes2vmL10isLeapYearEd.exit.i.i
-  br label %_ZN6hermes2vm10inLeapYearEd.exit
+0:                                                ; preds = %_ZN6hermes2vmL10isLeapYearEd.exit.i.i, %if.end.i.i.i
+  br label %_ZN6hermes2vm10inLeapYearEd.exit.thread
 
-_ZN6hermes2vm10inLeapYearEd.exit:                 ; preds = %if.end.i.i.i, %_ZN6hermes2vmL10isLeapYearEd.exit.i.i, %entry, %0
-  %_ZZN6hermes2vmL12dayFromMonthEjbE13standardTable.sink = phi ptr [ @_ZZN6hermes2vmL12dayFromMonthEjbE13standardTable, %entry ], [ @_ZZN6hermes2vmL12dayFromMonthEjbE13standardTable, %_ZN6hermes2vmL10isLeapYearEd.exit.i.i ], [ @_ZZN6hermes2vmL12dayFromMonthEjbE13leapYearTable, %if.end.i.i.i ], [ @_ZZN6hermes2vmL12dayFromMonthEjbE13leapYearTable, %0 ]
-  %call4 = tail call noundef i32 @_ZN6hermes2vm13monthFromTimeEd(double noundef %t)
-  %idxprom.i = zext i32 %call4 to i64
-  %arrayidx2.i = getelementptr inbounds [13 x i16], ptr %_ZZN6hermes2vmL12dayFromMonthEjbE13standardTable.sink, i64 0, i64 %idxprom.i
+_ZN6hermes2vm10inLeapYearEd.exit.thread:          ; preds = %entry, %_ZN6hermes2vmL10isLeapYearEd.exit.i.i, %0
+  %_ZZN6hermes2vmL12dayFromMonthEjbE13standardTable.sink = phi ptr [ @_ZZN6hermes2vmL12dayFromMonthEjbE13leapYearTable, %0 ], [ @_ZZN6hermes2vmL12dayFromMonthEjbE13standardTable, %_ZN6hermes2vmL10isLeapYearEd.exit.i.i ], [ @_ZZN6hermes2vmL12dayFromMonthEjbE13standardTable, %entry ]
+  %call46 = tail call noundef i32 @_ZN6hermes2vm13monthFromTimeEd(double noundef %t)
+  %idxprom.i7 = zext i32 %call46 to i64
+  %arrayidx2.i9 = getelementptr inbounds [13 x i16], ptr %_ZZN6hermes2vmL12dayFromMonthEjbE13standardTable.sink, i64 0, i64 %idxprom.i7
   %div.i = fdiv double %t, 8.640000e+07
   %1 = tail call noundef double @llvm.floor.f64(double %div.i)
   %sub5.i = fadd double %call1, -1.601000e+03
@@ -495,7 +495,7 @@ _ZN6hermes2vm10inLeapYearEd.exit:                 ; preds = %if.end.i.i.i, %_ZN6
   %sub4.i = fsub double %4, %5
   %add.i = fadd double %2, %sub4.i
   %sub = fsub double %1, %add.i
-  %cond.i = load i16, ptr %arrayidx2.i, align 2
+  %cond.i = load i16, ptr %arrayidx2.i9, align 2
   %conv = uitofp i16 %cond.i to double
   %sub6 = fsub double %sub, %conv
   %add = fadd double %sub6, 1.000000e+00
@@ -613,17 +613,15 @@ if.end.i:                                         ; preds = %entry
 
 if.end.i.i:                                       ; preds = %if.end.i
   %rem1.i.i = srem i32 %add21.i, 100
-  %cmp2.not.i.i = icmp eq i32 %rem1.i.i, 0
-  br i1 %cmp2.not.i.i, label %_ZN6hermes2vmL10isLeapYearEi.exit.i, label %_ZN6hermes2vmL10isLeapYearEi.exit.thread6.i
-
-_ZN6hermes2vmL10isLeapYearEi.exit.i:              ; preds = %if.end.i.i
+  %cmp2.not.i.i = icmp ne i32 %rem1.i.i, 0
   %rem5.i.i = srem i32 %add21.i, 400
   %cmp6.not.i.i = icmp eq i32 %rem5.i.i, 0
-  %spec.select.i = select i1 %cmp6.not.i.i, i32 2012, i32 2006
+  %or.cond9.i = or i1 %cmp2.not.i.i, %cmp6.not.i.i
+  %spec.select.i = select i1 %or.cond9.i, i32 2012, i32 2006
   br label %_ZN6hermes2vmL10isLeapYearEi.exit.thread6.i
 
-_ZN6hermes2vmL10isLeapYearEi.exit.thread6.i:      ; preds = %_ZN6hermes2vmL10isLeapYearEi.exit.i, %if.end.i.i, %if.end.i
-  %2 = phi i32 [ 2006, %if.end.i ], [ 2012, %if.end.i.i ], [ %spec.select.i, %_ZN6hermes2vmL10isLeapYearEi.exit.i ]
+_ZN6hermes2vmL10isLeapYearEi.exit.thread6.i:      ; preds = %if.end.i.i, %if.end.i
+  %2 = phi i32 [ 2006, %if.end.i ], [ %spec.select.i, %if.end.i.i ]
   %mul.i5 = mul nsw i32 %sub.i.i.i.i, 12
   %rem.i = srem i32 %mul.i5, 28
   %add.i6 = add nsw i32 %2, %rem.i

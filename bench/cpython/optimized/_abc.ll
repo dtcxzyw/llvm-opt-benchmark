@@ -936,14 +936,18 @@ entry:
   %module.val = load ptr, ptr %0, align 8
   %1 = load ptr, ptr %module.val, align 8
   %tobool.not = icmp eq ptr %1, null
-  br i1 %tobool.not, label %return, label %if.then
+  br i1 %tobool.not, label %do.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %call2 = tail call i32 %visit(ptr noundef nonnull %1, ptr noundef %arg) #4
+  %tobool3.not = icmp eq i32 %call2, 0
+  br i1 %tobool3.not, label %do.end, label %return
+
+do.end:                                           ; preds = %entry, %if.then
   br label %return
 
-return:                                           ; preds = %if.then, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ %call2, %if.then ]
+return:                                           ; preds = %if.then, %do.end
+  %retval.0 = phi i32 [ 0, %do.end ], [ %call2, %if.then ]
   ret i32 %retval.0
 }
 
@@ -3568,14 +3572,18 @@ do.body28:                                        ; preds = %if.then19, %do.body
   %_abc_negative_cache = getelementptr inbounds i8, ptr %self, i64 32
   %3 = load ptr, ptr %_abc_negative_cache, align 8
   %tobool29.not = icmp eq ptr %3, null
-  br i1 %tobool29.not, label %return, label %if.then30
+  br i1 %tobool29.not, label %do.end38, label %if.then30
 
 if.then30:                                        ; preds = %do.body28
   %call33 = tail call i32 %visit(ptr noundef nonnull %3, ptr noundef %arg) #4
+  %tobool34.not = icmp eq i32 %call33, 0
+  br i1 %tobool34.not, label %do.end38, label %return
+
+do.end38:                                         ; preds = %do.body28, %if.then30
   br label %return
 
-return:                                           ; preds = %if.then30, %do.body28, %if.then19, %if.then8, %if.then
-  %retval.0 = phi i32 [ %call2, %if.then ], [ %call11, %if.then8 ], [ %call22, %if.then19 ], [ 0, %do.body28 ], [ %call33, %if.then30 ]
+return:                                           ; preds = %if.then30, %if.then19, %if.then8, %if.then, %do.end38
+  %retval.0 = phi i32 [ 0, %do.end38 ], [ %call2, %if.then ], [ %call11, %if.then8 ], [ %call22, %if.then19 ], [ %call33, %if.then30 ]
   ret i32 %retval.0
 }
 

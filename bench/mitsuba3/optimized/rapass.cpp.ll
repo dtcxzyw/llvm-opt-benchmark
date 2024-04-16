@@ -8892,9 +8892,9 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass16updateStackFrameEv(
   br i1 %46, label %.loopexit, label %51
 
 .thread:                                          ; preds = %40
-  br i1 %46, label %.loopexit, label %.thread15
+  br i1 %46, label %.loopexit, label %.thread16
 
-.thread15:                                        ; preds = %.thread
+.thread16:                                        ; preds = %.thread
   %48 = getelementptr inbounds i8, ptr %0, i64 320
   %49 = load ptr, ptr %48, align 8, !tbaa !9
   %50 = zext i32 %45 to i64
@@ -8903,17 +8903,17 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass16updateStackFrameEv(
 51:                                               ; preds = %47
   %52 = getelementptr inbounds i8, ptr %3, i64 474
   %53 = load i8, ptr %52, align 2, !tbaa !378
-  %.fr9 = freeze i8 %53
-  %54 = icmp ult i8 %35, %.fr9
+  %.fr10 = freeze i8 %53
+  %54 = icmp ult i8 %35, %.fr10
   %55 = getelementptr inbounds i8, ptr %0, i64 320
   %56 = load ptr, ptr %55, align 8, !tbaa !9
   %57 = getelementptr inbounds i8, ptr %0, i64 556
   %58 = zext i32 %45 to i64
   br i1 %54, label %.split.us.preheader, label %.split
 
-.split.us.preheader:                              ; preds = %.thread15, %51
-  %59 = phi i64 [ %50, %.thread15 ], [ %58, %51 ]
-  %60 = phi ptr [ %49, %.thread15 ], [ %56, %51 ]
+.split.us.preheader:                              ; preds = %.thread16, %51
+  %59 = phi i64 [ %50, %.thread16 ], [ %58, %51 ]
+  %60 = phi ptr [ %49, %.thread16 ], [ %56, %51 ]
   %61 = getelementptr inbounds i8, ptr %3, i64 208
   %62 = getelementptr inbounds i8, ptr %0, i64 556
   br label %.split.us
@@ -9143,7 +9143,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass16updateStackFrameEv(
   br i1 %221, label %_ZN6asmjit9_abi_1_1010BaseRAPass16_updateStackArgsEv.exit, label %170, !llvm.loop !387
 
 _ZN6asmjit9_abi_1_1010BaseRAPass16_updateStackArgsEv.exit: ; preds = %113, %70, %219, %178, %153, %150, %147, %140, %133, %.loopexit
-  %222 = phi i32 [ %148, %147 ], [ %141, %140 ], [ %138, %133 ], [ %131, %.loopexit ], [ 0, %150 ], [ 0, %153 ], [ 3, %178 ], [ 0, %219 ], [ 3, %70 ], [ 3, %113 ]
+  %222 = phi i32 [ %148, %147 ], [ %141, %140 ], [ %138, %133 ], [ %131, %.loopexit ], [ 0, %150 ], [ 0, %153 ], [ 0, %219 ], [ 3, %178 ], [ 3, %70 ], [ 3, %113 ]
   ret i32 %222
 }
 

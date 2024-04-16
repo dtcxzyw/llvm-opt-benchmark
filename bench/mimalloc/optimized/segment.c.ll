@@ -1290,8 +1290,8 @@ while.body:                                       ; preds = %land.rhs.i
   %40 = load i32, ptr %slices.i.i, align 8
   %idx.ext.i.i = zext i32 %40 to i64
   %add.ptr.i.idx.i = mul nuw nsw i64 %idx.ext.i.i, 80
-  %cmp20.i = icmp slt i64 %add.ptr.i.idx.i, %arrayidx.i.i.idx.i
-  br i1 %cmp20.i, label %while.body.lr.ph.i, label %mi_segment_check_free.exit
+  %cmp19.i = icmp slt i64 %add.ptr.i.idx.i, %arrayidx.i.i.idx.i
+  br i1 %cmp19.i, label %while.body.lr.ph.i, label %mi_segment_check_free.exit
 
 while.body.lr.ph.i:                               ; preds = %while.body
   %add.ptr.i.i = getelementptr inbounds i8, ptr %slices.i.i, i64 %add.ptr.i.idx.i
@@ -1299,15 +1299,15 @@ while.body.lr.ph.i:                               ; preds = %while.body
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end24.i, %while.body.lr.ph.i
-  %slice.021.i = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i ], [ %add.ptr.i, %if.end24.i ]
-  %41 = getelementptr i8, ptr %slice.021.i, i64 28
+  %slice.020.i = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i ], [ %add.ptr.i, %if.end24.i ]
+  %41 = getelementptr i8, ptr %slice.020.i, i64 28
   %slice.0.val.i = load i32, ptr %41, align 4
   %cmp.i.not.i = icmp eq i32 %slice.0.val.i, 0
   br i1 %cmp.i.not.i, label %if.end24.i, label %if.then.i19
 
 if.then.i19:                                      ; preds = %while.body.i
-  tail call void @_mi_page_free_collect(ptr noundef nonnull %slice.021.i, i1 noundef zeroext false) #13
-  %42 = getelementptr i8, ptr %slice.021.i, i64 24
+  tail call void @_mi_page_free_collect(ptr noundef nonnull %slice.020.i, i1 noundef zeroext false) #13
+  %42 = getelementptr i8, ptr %slice.020.i, i64 24
   %call2.val.i = load i32, ptr %42, align 8
   %cmp.i16.i = icmp eq i32 %call2.val.i, 0
   br i1 %cmp.i16.i, label %if.then4.i, label %if.else.i
@@ -1319,7 +1319,7 @@ if.then4.i:                                       ; preds = %if.then.i19
   %44 = load i64, ptr %abandoned.i, align 8
   %dec.i = add i64 %44, -1
   store i64 %dec.i, ptr %abandoned.i, align 8
-  %call5.i = tail call fastcc ptr @mi_segment_page_clear(ptr noundef nonnull %slice.021.i, ptr noundef %tld) #12
+  %call5.i = tail call fastcc ptr @mi_segment_page_clear(ptr noundef nonnull %slice.020.i, ptr noundef %tld) #12
   br label %if.end24.i
 
 if.else.i:                                        ; preds = %if.then.i19
@@ -1328,19 +1328,19 @@ if.else.i:                                        ; preds = %if.then.i19
   br i1 %cmp10.i, label %land.lhs.true.i, label %if.end24.i
 
 land.lhs.true.i:                                  ; preds = %if.else.i
-  %reserved.i.i = getelementptr inbounds i8, ptr %slice.021.i, i64 12
+  %reserved.i.i = getelementptr inbounds i8, ptr %slice.020.i, i64 12
   %46 = load i16, ptr %reserved.i.i, align 4
   %conv.i.i = zext i16 %46 to i32
   %cmp.i17.i = icmp ult i32 %call2.val.i, %conv.i.i
   br i1 %cmp.i17.i, label %if.end24.i, label %mi_page_has_any_available.exit.i
 
 mi_page_has_any_available.exit.i:                 ; preds = %land.lhs.true.i
-  %xthread_free.i.i.i = getelementptr inbounds i8, ptr %slice.021.i, i64 40
+  %xthread_free.i.i.i = getelementptr inbounds i8, ptr %slice.020.i, i64 40
   %47 = load atomic i64, ptr %xthread_free.i.i.i monotonic, align 8
   br label %if.end24.i
 
-if.end24.i:                                       ; preds = %while.body.i, %mi_page_has_any_available.exit.i, %land.lhs.true.i, %if.else.i, %if.then4.i
-  %slice.1.i = phi ptr [ %slice.021.i, %if.else.i ], [ %call5.i, %if.then4.i ], [ %slice.021.i, %land.lhs.true.i ], [ %slice.021.i, %mi_page_has_any_available.exit.i ], [ %slice.021.i, %while.body.i ]
+if.end24.i:                                       ; preds = %mi_page_has_any_available.exit.i, %while.body.i, %land.lhs.true.i, %if.else.i, %if.then4.i
+  %slice.1.i = phi ptr [ %slice.020.i, %if.else.i ], [ %call5.i, %if.then4.i ], [ %slice.020.i, %mi_page_has_any_available.exit.i ], [ %slice.020.i, %land.lhs.true.i ], [ %slice.020.i, %while.body.i ]
   %48 = load i32, ptr %slice.1.i, align 8
   %idx.ext.i = zext i32 %48 to i64
   %add.ptr.i = getelementptr inbounds %struct.mi_page_s, ptr %slice.1.i, i64 %idx.ext.i
@@ -2125,8 +2125,8 @@ while.body.i.i:                                   ; preds = %land.rhs.i.i.i
   %45 = load i32, ptr %slices.i.i.i.i, align 8
   %idx.ext.i.i.i.i = zext i32 %45 to i64
   %add.ptr.i.idx.i.i.i = mul nuw nsw i64 %idx.ext.i.i.i.i, 80
-  %cmp20.i.i.i = icmp slt i64 %add.ptr.i.idx.i.i.i, %arrayidx.i.i.idx.i.i.i
-  br i1 %cmp20.i.i.i, label %while.body.lr.ph.i.i.i, label %mi_segment_check_free.exit.i.i
+  %cmp19.i.i.i = icmp slt i64 %add.ptr.i.idx.i.i.i, %arrayidx.i.i.idx.i.i.i
+  br i1 %cmp19.i.i.i, label %while.body.lr.ph.i.i.i, label %mi_segment_check_free.exit.i.i
 
 while.body.lr.ph.i.i.i:                           ; preds = %while.body.i.i
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %slices.i.i.i.i, i64 %add.ptr.i.idx.i.i.i
@@ -2134,16 +2134,16 @@ while.body.lr.ph.i.i.i:                           ; preds = %while.body.i.i
   br label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %if.end24.i.i.i, %while.body.lr.ph.i.i.i
-  %has_page.022.i.i.i = phi i1 [ false, %while.body.lr.ph.i.i.i ], [ %has_page.1.i.i.i, %if.end24.i.i.i ]
-  %slice.021.i.i.i = phi ptr [ %add.ptr.i.i.i.i, %while.body.lr.ph.i.i.i ], [ %add.ptr.i.i.i, %if.end24.i.i.i ]
-  %46 = getelementptr i8, ptr %slice.021.i.i.i, i64 28
+  %has_page.021.i.i.i = phi i1 [ false, %while.body.lr.ph.i.i.i ], [ %has_page.1.i.i.i, %if.end24.i.i.i ]
+  %slice.020.i.i.i = phi ptr [ %add.ptr.i.i.i.i, %while.body.lr.ph.i.i.i ], [ %add.ptr.i.i.i, %if.end24.i.i.i ]
+  %46 = getelementptr i8, ptr %slice.020.i.i.i, i64 28
   %slice.0.val.i.i.i = load i32, ptr %46, align 4
   %cmp.i.not.i.i.i = icmp eq i32 %slice.0.val.i.i.i, 0
   br i1 %cmp.i.not.i.i.i, label %if.else17.i.i.i, label %if.then.i22.i.i
 
 if.then.i22.i.i:                                  ; preds = %while.body.i.i.i
-  tail call void @_mi_page_free_collect(ptr noundef nonnull %slice.021.i.i.i, i1 noundef zeroext false) #13
-  %47 = getelementptr i8, ptr %slice.021.i.i.i, i64 24
+  tail call void @_mi_page_free_collect(ptr noundef nonnull %slice.020.i.i.i, i1 noundef zeroext false) #13
+  %47 = getelementptr i8, ptr %slice.020.i.i.i, i64 24
   %call2.val.i.i.i = load i32, ptr %47, align 8
   %cmp.i16.i.i.i = icmp eq i32 %call2.val.i.i.i, 0
   br i1 %cmp.i16.i.i.i, label %if.then4.i.i.i, label %if.else.i.i.i
@@ -2155,11 +2155,11 @@ if.then4.i.i.i:                                   ; preds = %if.then.i22.i.i
   %49 = load i64, ptr %abandoned.i.i.i, align 8
   %dec.i.i.i = add i64 %49, -1
   store i64 %dec.i.i.i, ptr %abandoned.i.i.i, align 8
-  %call5.i.i.i = tail call fastcc ptr @mi_segment_page_clear(ptr noundef nonnull %slice.021.i.i.i, ptr noundef %tld) #12
+  %call5.i.i.i = tail call fastcc ptr @mi_segment_page_clear(ptr noundef nonnull %slice.020.i.i.i, ptr noundef %tld) #12
   %50 = load i32, ptr %call5.i.i.i, align 8
   %conv.i.i.i19 = zext i32 %50 to i64
   %cmp6.not.i.i.i = icmp ule i64 %div13, %conv.i.i.i19
-  %spec.select.i.i.i = select i1 %cmp6.not.i.i.i, i1 true, i1 %has_page.022.i.i.i
+  %spec.select.i.i.i = select i1 %cmp6.not.i.i.i, i1 true, i1 %has_page.021.i.i.i
   br label %if.end24.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i22.i.i
@@ -2169,30 +2169,32 @@ if.else.i.i.i:                                    ; preds = %if.then.i22.i.i
   br i1 %cmp10.i.i.i, label %land.lhs.true.i.i.i, label %if.end24.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %if.else.i.i.i
-  %reserved.i.i.i.i = getelementptr inbounds i8, ptr %slice.021.i.i.i, i64 12
+  %reserved.i.i.i.i = getelementptr inbounds i8, ptr %slice.020.i.i.i, i64 12
   %52 = load i16, ptr %reserved.i.i.i.i, align 4
   %conv.i.i.i.i = zext i16 %52 to i32
   %cmp.i17.i.i.i = icmp ult i32 %call2.val.i.i.i, %conv.i.i.i.i
-  br i1 %cmp.i17.i.i.i, label %if.end24.i.i.i, label %mi_page_has_any_available.exit.i.i.i
+  br i1 %cmp.i17.i.i.i, label %mi_page_has_any_available.exit.thread.i.i.i, label %mi_page_has_any_available.exit.i.i.i
 
 mi_page_has_any_available.exit.i.i.i:             ; preds = %land.lhs.true.i.i.i
-  %xthread_free.i.i.i.i.i = getelementptr inbounds i8, ptr %slice.021.i.i.i, i64 40
+  %xthread_free.i.i.i.i.i = getelementptr inbounds i8, ptr %slice.020.i.i.i, i64 40
   %53 = load atomic i64, ptr %xthread_free.i.i.i.i.i monotonic, align 8
   %.fr.i.i.i = freeze i64 %53
   %cmp2.i.i24.i.i = icmp ugt i64 %.fr.i.i.i, 3
-  %spec.select19.i.i.i = select i1 %cmp2.i.i24.i.i, i1 true, i1 %has_page.022.i.i.i
+  br i1 %cmp2.i.i24.i.i, label %mi_page_has_any_available.exit.thread.i.i.i, label %if.end24.i.i.i
+
+mi_page_has_any_available.exit.thread.i.i.i:      ; preds = %mi_page_has_any_available.exit.i.i.i, %land.lhs.true.i.i.i
   br label %if.end24.i.i.i
 
 if.else17.i.i.i:                                  ; preds = %while.body.i.i.i
-  %54 = load i32, ptr %slice.021.i.i.i, align 8
+  %54 = load i32, ptr %slice.020.i.i.i, align 8
   %conv19.i.i.i = zext i32 %54 to i64
   %cmp20.not.i.i.i = icmp ule i64 %div13, %conv19.i.i.i
-  %spec.select15.i.i.i = select i1 %cmp20.not.i.i.i, i1 true, i1 %has_page.022.i.i.i
+  %spec.select15.i.i.i = select i1 %cmp20.not.i.i.i, i1 true, i1 %has_page.021.i.i.i
   br label %if.end24.i.i.i
 
-if.end24.i.i.i:                                   ; preds = %if.else17.i.i.i, %mi_page_has_any_available.exit.i.i.i, %land.lhs.true.i.i.i, %if.else.i.i.i, %if.then4.i.i.i
-  %slice.1.i.i.i = phi ptr [ %slice.021.i.i.i, %if.else.i.i.i ], [ %call5.i.i.i, %if.then4.i.i.i ], [ %slice.021.i.i.i, %if.else17.i.i.i ], [ %slice.021.i.i.i, %land.lhs.true.i.i.i ], [ %slice.021.i.i.i, %mi_page_has_any_available.exit.i.i.i ]
-  %has_page.1.i.i.i = phi i1 [ %has_page.022.i.i.i, %if.else.i.i.i ], [ %spec.select.i.i.i, %if.then4.i.i.i ], [ %spec.select15.i.i.i, %if.else17.i.i.i ], [ true, %land.lhs.true.i.i.i ], [ %spec.select19.i.i.i, %mi_page_has_any_available.exit.i.i.i ]
+if.end24.i.i.i:                                   ; preds = %if.else17.i.i.i, %mi_page_has_any_available.exit.thread.i.i.i, %mi_page_has_any_available.exit.i.i.i, %if.else.i.i.i, %if.then4.i.i.i
+  %slice.1.i.i.i = phi ptr [ %slice.020.i.i.i, %if.else.i.i.i ], [ %call5.i.i.i, %if.then4.i.i.i ], [ %slice.020.i.i.i, %if.else17.i.i.i ], [ %slice.020.i.i.i, %mi_page_has_any_available.exit.i.i.i ], [ %slice.020.i.i.i, %mi_page_has_any_available.exit.thread.i.i.i ]
+  %has_page.1.i.i.i = phi i1 [ %has_page.021.i.i.i, %if.else.i.i.i ], [ %spec.select.i.i.i, %if.then4.i.i.i ], [ %spec.select15.i.i.i, %if.else17.i.i.i ], [ %has_page.021.i.i.i, %mi_page_has_any_available.exit.i.i.i ], [ true, %mi_page_has_any_available.exit.thread.i.i.i ]
   %55 = load i32, ptr %slice.1.i.i.i, align 8
   %idx.ext.i.i.i = zext i32 %55 to i64
   %add.ptr.i.i.i = getelementptr inbounds %struct.mi_page_s, ptr %slice.1.i.i.i, i64 %idx.ext.i.i.i

@@ -697,14 +697,14 @@ if.else:                                          ; preds = %land.lhs.true, %whi
 if.end:                                           ; preds = %if.else, %if.then
   %tv.0 = phi ptr [ %call15, %if.then ], [ %call17, %if.else ]
   %tobool.not = icmp eq ptr %tv.0, null
-  br i1 %tobool.not, label %return, label %land.lhs.true18
+  br i1 %tobool.not, label %if.end32, label %land.lhs.true18
 
 land.lhs.true18:                                  ; preds = %if.end
   %6 = load i64, ptr %tv.0, align 8
   %shr19 = ashr i64 %6, 47
   %7 = and i64 %shr19, 4294967295
   %cmp20 = icmp eq i64 %7, 4294967284
-  br i1 %cmp20, label %land.lhs.true22, label %return
+  br i1 %cmp20, label %land.lhs.true22, label %if.end32
 
 land.lhs.true22:                                  ; preds = %land.lhs.true18
   %and23 = and i64 %6, 140737488355327
@@ -718,16 +718,18 @@ land.lhs.true22:                                  ; preds = %land.lhs.true18
   %11 = inttoptr i64 %10 to ptr
   %call26 = tail call ptr @lj_tab_getstr(ptr noundef %8, ptr noundef %11) #14
   %tobool27.not = icmp eq ptr %call26, null
-  br i1 %tobool27.not, label %return, label %land.lhs.true28
+  br i1 %tobool27.not, label %if.end32, label %land.lhs.true28
 
 land.lhs.true28:                                  ; preds = %land.lhs.true22
   %12 = load i64, ptr %call26, align 8
   %cmp29 = icmp eq i64 %12, -1
-  %spec.select = select i1 %cmp29, ptr null, ptr %call26
+  br i1 %cmp29, label %if.end32, label %return
+
+if.end32:                                         ; preds = %land.lhs.true28, %land.lhs.true22, %land.lhs.true18, %if.end
   br label %return
 
-return:                                           ; preds = %land.lhs.true28, %if.end, %land.lhs.true18, %land.lhs.true22
-  %retval.0 = phi ptr [ null, %land.lhs.true22 ], [ null, %land.lhs.true18 ], [ null, %if.end ], [ %spec.select, %land.lhs.true28 ]
+return:                                           ; preds = %land.lhs.true28, %if.end32
+  %retval.0 = phi ptr [ null, %if.end32 ], [ %call26, %land.lhs.true28 ]
   ret ptr %retval.0
 }
 

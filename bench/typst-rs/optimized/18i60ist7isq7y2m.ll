@@ -799,17 +799,17 @@ _ZN10ttf_parser6tables4glyf10CoordsIter4next17h20496966498cbd79E.exit.i: ; preds
   br label %.thread27.i12.i
 
 .thread27.i12.i:                                  ; preds = %415, %407
-  %420 = phi i64 [ %332, %407 ], [ %416, %415 ]
-  %421 = phi i64 [ %333, %407 ], [ %416, %415 ]
-  %422 = phi i16 [ 0, %407 ], [ %419, %415 ]
+  %420 = phi i64 [ %416, %415 ], [ %332, %407 ]
+  %421 = phi i64 [ %416, %415 ], [ %333, %407 ]
+  %422 = phi i16 [ %419, %415 ], [ 0, %407 ]
   %423 = sub nsw i16 0, %422
   %spec.select.i13.i = select i1 %.not18.i, i16 %423, i16 %422
   br label %"_ZN100_$LT$ttf_parser..tables..glyf..GlyphPointsIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h18d35d620f4f3ae6E.exit"
 
 "_ZN100_$LT$ttf_parser..tables..glyf..GlyphPointsIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h18d35d620f4f3ae6E.exit": ; preds = %406, %408, %412, %.thread27.i12.i
-  %424 = phi i64 [ %332, %406 ], [ %420, %.thread27.i12.i ], [ %332, %408 ], [ %409, %412 ]
-  %425 = phi i64 [ %333, %406 ], [ %421, %.thread27.i12.i ], [ %332, %408 ], [ %409, %412 ]
-  %.0.i10.i = phi i16 [ 0, %406 ], [ %spec.select.i13.i, %.thread27.i12.i ], [ 0, %408 ], [ %414, %412 ]
+  %424 = phi i64 [ %332, %406 ], [ %420, %.thread27.i12.i ], [ %409, %412 ], [ %332, %408 ]
+  %425 = phi i64 [ %333, %406 ], [ %421, %.thread27.i12.i ], [ %409, %412 ], [ %332, %408 ]
+  %.0.i10.i = phi i16 [ 0, %406 ], [ %spec.select.i13.i, %.thread27.i12.i ], [ %414, %412 ], [ 0, %408 ]
   %426 = add i16 %331, %.0.i10.i
   %427 = and i8 %.sroa.21.3, 1
   %.not.not.not = icmp eq i8 %427, 0

@@ -274,8 +274,8 @@ entry:
 define internal fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_113DoPartialPathIchEEbPKT_RKNS_9ComponentEiPNS_12CanonOutputTIcEE(ptr nocapture noundef readonly %spec, i32 %path.0.val, i32 %path.4.val, i32 noundef %path_begin_in_output, ptr noundef %output) unnamed_addr #0 {
 entry:
   %add.i = add nsw i32 %path.4.val, %path.0.val
-  %cmp53 = icmp sgt i32 %path.4.val, 0
-  br i1 %cmp53, label %for.body.lr.ph, label %for.end
+  %cmp58 = icmp sgt i32 %path.4.val, 0
+  br i1 %cmp58, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
   %cur_len_.i85 = getelementptr inbounds i8, ptr %output, i64 20
@@ -286,10 +286,10 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %last_invalid_percent_index.058 = phi i32 [ -2147483648, %for.body.lr.ph ], [ %last_invalid_percent_index.1, %for.inc ]
-  %success.056 = phi i1 [ true, %for.body.lr.ph ], [ %success.1, %for.inc ]
-  %storemerge55 = phi i32 [ %path.0.val, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %idxprom = sext i32 %storemerge55 to i64
+  %last_invalid_percent_index.063 = phi i32 [ -2147483648, %for.body.lr.ph ], [ %last_invalid_percent_index.1, %for.inc ]
+  %success.061 = phi i1 [ true, %for.body.lr.ph ], [ %success.1, %for.inc ]
+  %storemerge60 = phi i32 [ %path.0.val, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %idxprom = sext i32 %storemerge60 to i64
   %arrayidx = getelementptr inbounds i8, ptr %spec, i64 %idxprom
   %1 = load i8, ptr %arrayidx, align 1
   %idxprom1 = zext i8 %1 to i64
@@ -308,7 +308,7 @@ if.then:                                          ; preds = %for.body
   ]
 
 land.lhs.true.i:                                  ; preds = %if.then
-  %add.i43 = add nsw i32 %storemerge55, 3
+  %add.i43 = add nsw i32 %storemerge60, 3
   %cmp5.not.i = icmp sgt i32 %add.i43, %add.i
   br i1 %cmp5.not.i, label %if.else60, label %land.lhs.true6.i
 
@@ -327,7 +327,7 @@ land.lhs.true12.i:                                ; preds = %land.lhs.true6.i
   br i1 %switch.selectcmp.i, label %if.then5, label %if.end.i111
 
 if.then5:                                         ; preds = %if.then, %land.lhs.true12.i
-  %retval.0.i = phi i32 [ 1, %if.then ], [ 3, %land.lhs.true12.i ]
+  %retval.0.i.ph = phi i32 [ 1, %if.then ], [ 3, %land.lhs.true12.i ]
   %6 = load i32, ptr %cur_len_.i85, align 4
   %cmp7 = icmp sgt i32 %6, %path_begin_in_output
   br i1 %cmp7, label %land.lhs.true, label %if.else
@@ -342,7 +342,7 @@ land.lhs.true:                                    ; preds = %if.then5
   br i1 %cmp11, label %if.then12, label %if.else
 
 if.then12:                                        ; preds = %land.lhs.true
-  %add = add nsw i32 %retval.0.i, %storemerge55
+  %add = add nsw i32 %retval.0.i.ph, %storemerge60
   %cmp.i = icmp eq i32 %add, %add.i
   br i1 %cmp.i, label %sw.bb16, label %if.end.i
 
@@ -395,18 +395,18 @@ if.then12.i:                                      ; preds = %if.end7.i, %if.end7
   %add13.i = add nuw nsw i32 %retval.0.i.i, 1
   br label %sw.bb20
 
-sw.bb:                                            ; preds = %if.end.i, %if.end7.i, %land.lhs.true6.i.i, %land.lhs.true.i.i, %land.lhs.true12.i.i
+sw.bb:                                            ; preds = %if.end7.i, %land.lhs.true12.i.i, %land.lhs.true6.i.i, %land.lhs.true.i.i, %if.end.i
   %14 = load i32, ptr %buffer_len_.i86, align 8
   %cmp.i53 = icmp slt i32 %6, %14
   br i1 %cmp.i53, label %return.sink.split.i, label %if.end.i54
 
 if.end.i54:                                       ; preds = %sw.bb
   %cmp.i.i = icmp eq i32 %14, 0
-  %spec.select83 = select i1 %cmp.i.i, i32 16, i32 %14
+  %spec.select88 = select i1 %cmp.i.i, i32 16, i32 %14
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %if.end.i54, %if.end.i.i
-  %new_len.0.i.i = phi i32 [ %mul.i.i, %if.end.i.i ], [ %spec.select83, %if.end.i54 ]
+  %new_len.0.i.i = phi i32 [ %mul.i.i, %if.end.i.i ], [ %spec.select88, %if.end.i54 ]
   %cmp3.i.i = icmp slt i32 %new_len.0.i.i, 1073741824
   br i1 %cmp3.i.i, label %if.end.i.i, label %_ZN3url12CanonOutputTIcE9push_backEc.exit
 
@@ -436,19 +436,19 @@ return.sink.split.i:                              ; preds = %sw.bb, %if.end5.i
   br label %_ZN3url12CanonOutputTIcE9push_backEc.exit
 
 _ZN3url12CanonOutputTIcE9push_backEc.exit:        ; preds = %do.body.i.i, %return.sink.split.i
-  %sub14 = add i32 %storemerge55, -1
-  %add15 = add i32 %sub14, %retval.0.i
+  %sub14 = add i32 %storemerge60, -1
+  %add15 = add i32 %sub14, %retval.0.i.ph
   br label %for.inc
 
 sw.bb16:                                          ; preds = %if.then12, %if.end.i, %if.end.i
   %.sink.i.ph = phi i32 [ 1, %if.end.i ], [ 1, %if.end.i ], [ 0, %if.then12 ]
-  %add17 = add i32 %storemerge55, -1
-  %sub18 = add i32 %add17, %retval.0.i
+  %add17 = add i32 %storemerge60, -1
+  %sub18 = add i32 %add17, %retval.0.i.ph
   %add19 = add i32 %sub18, %.sink.i.ph
   br label %for.inc
 
 sw.bb20:                                          ; preds = %if.then12.i, %if.then4.i
-  %.sink.i = phi i32 [ %add13.i, %if.then12.i ], [ %retval.0.i.i, %if.then4.i ]
+  %.sink.i.ph19 = phi i32 [ %retval.0.i.i, %if.then4.i ], [ %add13.i, %if.then12.i ]
   %cmp.i58 = icmp eq i32 %sub, %path_begin_in_output
   br i1 %cmp.i58, label %_ZN3url12_GLOBAL__N_121BackUpToPreviousSlashEiPNS_12CanonOutputTIcEE.exit, label %if.end.i59
 
@@ -474,9 +474,9 @@ while.end.i:                                      ; preds = %while.cond.i
   br label %_ZN3url12_GLOBAL__N_121BackUpToPreviousSlashEiPNS_12CanonOutputTIcEE.exit
 
 _ZN3url12_GLOBAL__N_121BackUpToPreviousSlashEiPNS_12CanonOutputTIcEE.exit: ; preds = %sw.bb20, %while.end.i
-  %add21 = add i32 %storemerge55, -1
-  %sub22 = add i32 %add21, %retval.0.i
-  %add23 = add i32 %sub22, %.sink.i
+  %add21 = add i32 %storemerge60, -1
+  %sub22 = add i32 %add21, %retval.0.i.ph
+  %add23 = add i32 %sub22, %.sink.i.ph19
   br label %for.inc
 
 if.else:                                          ; preds = %land.lhs.true, %if.then5
@@ -486,11 +486,11 @@ if.else:                                          ; preds = %land.lhs.true, %if.
 
 if.end.i64:                                       ; preds = %if.else
   %cmp.i.i65 = icmp eq i32 %22, 0
-  %spec.select84 = select i1 %cmp.i.i65, i32 16, i32 %22
+  %spec.select89 = select i1 %cmp.i.i65, i32 16, i32 %22
   br label %do.body.i.i67
 
 do.body.i.i67:                                    ; preds = %if.end.i64, %if.end.i.i70
-  %new_len.0.i.i68 = phi i32 [ %mul.i.i71, %if.end.i.i70 ], [ %spec.select84, %if.end.i64 ]
+  %new_len.0.i.i68 = phi i32 [ %mul.i.i71, %if.end.i.i70 ], [ %spec.select89, %if.end.i64 ]
   %cmp3.i.i69 = icmp slt i32 %new_len.0.i.i68, 1073741824
   br i1 %cmp3.i.i69, label %if.end.i.i70, label %_ZN3url12CanonOutputTIcE9push_backEc.exit84
 
@@ -519,8 +519,8 @@ return.sink.split.i76:                            ; preds = %if.else, %if.end5.i
   br label %_ZN3url12CanonOutputTIcE9push_backEc.exit84
 
 _ZN3url12CanonOutputTIcE9push_backEc.exit84:      ; preds = %do.body.i.i67, %return.sink.split.i76
-  %sub24 = add i32 %storemerge55, -1
-  %add25 = add i32 %sub24, %retval.0.i
+  %sub24 = add i32 %storemerge60, -1
+  %add25 = add i32 %sub24, %retval.0.i.ph
   br label %for.inc
 
 if.then29:                                        ; preds = %if.then
@@ -531,11 +531,11 @@ if.then29:                                        ; preds = %if.then
 
 if.end.i88:                                       ; preds = %if.then29
   %cmp.i.i89 = icmp eq i32 %27, 0
-  %spec.select85 = select i1 %cmp.i.i89, i32 16, i32 %27
+  %spec.select90 = select i1 %cmp.i.i89, i32 16, i32 %27
   br label %do.body.i.i91
 
 do.body.i.i91:                                    ; preds = %if.end.i88, %if.end.i.i94
-  %new_len.0.i.i92 = phi i32 [ %mul.i.i95, %if.end.i.i94 ], [ %spec.select85, %if.end.i88 ]
+  %new_len.0.i.i92 = phi i32 [ %mul.i.i95, %if.end.i.i94 ], [ %spec.select90, %if.end.i88 ]
   %cmp3.i.i93 = icmp slt i32 %new_len.0.i.i92, 1073741824
   br i1 %cmp3.i.i93, label %if.end.i.i94, label %for.inc
 
@@ -596,12 +596,12 @@ if.then35:                                        ; preds = %lor.lhs.false14.i
   %40 = load i8, ptr %arrayidx.i15.i, align 1
   %sub.i16.i = sub i8 %32, %40
   %add21.i = add i8 %sub.i16.i, %shl.i
-  %add23.i = add nsw i32 %storemerge55, 2
+  %add23.i = add nsw i32 %storemerge60, 2
   %idxprom36 = zext i8 %add21.i to i64
   %arrayidx37 = getelementptr inbounds [256 x i8], ptr @_ZN3url12_GLOBAL__N_115kPathCharLookupE, i64 0, i64 %idxprom36
   %41 = load i8, ptr %arrayidx37, align 1
-  %conv3868 = zext i8 %41 to i32
-  %and39 = and i32 %conv3868, 4
+  %conv3873 = zext i8 %41 to i32
+  %and39 = and i32 %conv3873, 4
   %tobool40.not = icmp eq i32 %and39, 0
   %42 = load i32, ptr %cur_len_.i85, align 4
   %43 = load i32, ptr %buffer_len_.i86, align 8
@@ -613,11 +613,11 @@ if.then41:                                        ; preds = %if.then35
 
 if.end.i118:                                      ; preds = %if.then41
   %cmp.i.i119 = icmp eq i32 %43, 0
-  %spec.select86 = select i1 %cmp.i.i119, i32 16, i32 %43
+  %spec.select91 = select i1 %cmp.i.i119, i32 16, i32 %43
   br label %do.body.i.i121
 
 do.body.i.i121:                                   ; preds = %if.end.i118, %if.end.i.i124
-  %new_len.0.i.i122 = phi i32 [ %mul.i.i125, %if.end.i.i124 ], [ %spec.select86, %if.end.i118 ]
+  %new_len.0.i.i122 = phi i32 [ %mul.i.i125, %if.end.i.i124 ], [ %spec.select91, %if.end.i118 ]
   %cmp3.i.i123 = icmp slt i32 %new_len.0.i.i122, 1073741824
   br i1 %cmp3.i.i123, label %if.end.i.i124, label %_ZN3url12CanonOutputTIcE9push_backEc.exit138
 
@@ -648,7 +648,7 @@ return.sink.split.i130:                           ; preds = %if.then41, %if.end5
 _ZN3url12CanonOutputTIcE9push_backEc.exit138:     ; preds = %do.body.i.i121, %return.sink.split.i130
   %47 = phi i32 [ %inc11.i136, %return.sink.split.i130 ], [ %42, %do.body.i.i121 ]
   %sub43 = add nsw i32 %47, -3
-  %cmp44.not = icmp slt i32 %last_invalid_percent_index.058, %sub43
+  %cmp44.not = icmp slt i32 %last_invalid_percent_index.063, %sub43
   br i1 %cmp44.not, label %for.inc, label %if.then45
 
 if.then45:                                        ; preds = %_ZN3url12CanonOutputTIcE9push_backEc.exit138
@@ -658,7 +658,7 @@ if.then45:                                        ; preds = %_ZN3url12CanonOutpu
   %arrayidx.i.i142 = getelementptr i8, ptr %50, i64 -1
   %51 = load i8, ptr %arrayidx.i.i142, align 1
   %sub2.i = add nsw i32 %47, -2
-  %cmp.i143 = icmp eq i32 %sub2.i, %last_invalid_percent_index.058
+  %cmp.i143 = icmp eq i32 %sub2.i, %last_invalid_percent_index.063
   br i1 %cmp.i143, label %if.then.i146, label %if.end8.i
 
 if.then.i146:                                     ; preds = %if.then45
@@ -675,11 +675,11 @@ if.end.i148:                                      ; preds = %if.then.i146
 
 if.end.i.i152:                                    ; preds = %if.end.i148
   %cmp.i.i.i = icmp eq i32 %53, 0
-  %spec.select87 = select i1 %cmp.i.i.i, i32 16, i32 %53
+  %spec.select92 = select i1 %cmp.i.i.i, i32 16, i32 %53
   br label %do.body.i.i.i
 
 do.body.i.i.i:                                    ; preds = %if.end.i.i152, %if.end.i.i.i
-  %new_len.0.i.i.i = phi i32 [ %mul.i.i.i, %if.end.i.i.i ], [ %spec.select87, %if.end.i.i152 ]
+  %new_len.0.i.i.i = phi i32 [ %mul.i.i.i, %if.end.i.i.i ], [ %spec.select92, %if.end.i.i152 ]
   %cmp3.i.i.i = icmp slt i32 %new_len.0.i.i.i, 1073741824
   br i1 %cmp3.i.i.i, label %if.end.i.i.i, label %if.end8.i
 
@@ -712,12 +712,12 @@ return.sink.split.i.i:                            ; preds = %if.end5.i.i, %if.en
 if.end8.i:                                        ; preds = %do.body.i.i.i, %return.sink.split.i.i, %if.then45
   %57 = phi i32 [ %inc11.i.i, %return.sink.split.i.i ], [ %47, %if.then45 ], [ %47, %do.body.i.i.i ]
   %58 = phi ptr [ %.pre.i, %return.sink.split.i.i ], [ %48, %if.then45 ], [ %48, %do.body.i.i.i ]
-  %add.i.i144 = add nsw i32 %last_invalid_percent_index.058, 3
+  %add.i.i144 = add nsw i32 %last_invalid_percent_index.063, 3
   %cmp.i25.i = icmp sgt i32 %add.i.i144, %57
   br i1 %cmp.i25.i, label %if.else.i, label %if.end.i26.i
 
 if.end.i26.i:                                     ; preds = %if.end8.i
-  %59 = sext i32 %last_invalid_percent_index.058 to i64
+  %59 = sext i32 %last_invalid_percent_index.063 to i64
   %60 = getelementptr i8, ptr %58, i64 %59
   %arrayidx.i27.i = getelementptr i8, ptr %60, i64 1
   %61 = load i8, ptr %arrayidx.i27.i, align 1
@@ -748,11 +748,11 @@ if.then14.i:                                      ; preds = %if.then12.i145
 
 if.end.i34.i:                                     ; preds = %if.then14.i
   %cmp.i.i35.i = icmp eq i32 %67, 0
-  %spec.select88 = select i1 %cmp.i.i35.i, i32 16, i32 %67
+  %spec.select93 = select i1 %cmp.i.i35.i, i32 16, i32 %67
   br label %do.body.i.i37.i
 
 do.body.i.i37.i:                                  ; preds = %if.end.i34.i, %if.end.i.i40.i
-  %new_len.0.i.i38.i = phi i32 [ %mul.i.i41.i, %if.end.i.i40.i ], [ %spec.select88, %if.end.i34.i ]
+  %new_len.0.i.i38.i = phi i32 [ %mul.i.i41.i, %if.end.i.i40.i ], [ %spec.select93, %if.end.i34.i ]
   %cmp3.i.i39.i = icmp slt i32 %new_len.0.i.i38.i, 1073741824
   br i1 %cmp3.i.i39.i, label %if.end.i.i40.i, label %if.end16.i
 
@@ -798,11 +798,11 @@ if.end16.i:                                       ; preds = %do.body.i.i37.i, %r
 
 if.end.i64.i:                                     ; preds = %if.end16.i
   %cmp.i.i65.i = icmp eq i32 %76, 0
-  %spec.select89 = select i1 %cmp.i.i65.i, i32 16, i32 %76
+  %spec.select94 = select i1 %cmp.i.i65.i, i32 16, i32 %76
   br label %do.body.i.i67.i
 
 do.body.i.i67.i:                                  ; preds = %if.end.i64.i, %if.end.i.i70.i
-  %new_len.0.i.i68.i = phi i32 [ %mul.i.i71.i, %if.end.i.i70.i ], [ %spec.select89, %if.end.i64.i ]
+  %new_len.0.i.i68.i = phi i32 [ %mul.i.i71.i, %if.end.i.i70.i ], [ %spec.select94, %if.end.i64.i ]
   %cmp3.i.i69.i = icmp slt i32 %new_len.0.i.i68.i, 1073741824
   br i1 %cmp3.i.i69.i, label %if.end.i.i70.i, label %for.inc
 
@@ -842,11 +842,11 @@ if.else48:                                        ; preds = %if.then35
 
 if.end.i158:                                      ; preds = %if.else48
   %cmp.i.i159 = icmp eq i32 %43, 0
-  %spec.select90 = select i1 %cmp.i.i159, i32 16, i32 %43
+  %spec.select95 = select i1 %cmp.i.i159, i32 16, i32 %43
   br label %do.body.i.i161
 
 do.body.i.i161:                                   ; preds = %if.end.i158, %if.end.i.i164
-  %new_len.0.i.i162 = phi i32 [ %mul.i.i165, %if.end.i.i164 ], [ %spec.select90, %if.end.i158 ]
+  %new_len.0.i.i162 = phi i32 [ %mul.i.i165, %if.end.i.i164 ], [ %spec.select95, %if.end.i158 ]
   %cmp3.i.i163 = icmp slt i32 %new_len.0.i.i162, 1073741824
   br i1 %cmp3.i.i163, label %if.end.i.i164, label %_ZN3url12CanonOutputTIcE9push_backEc.exit178.loopexit
 
@@ -875,16 +875,16 @@ return.sink.split.i170:                           ; preds = %if.else48, %if.end5
   %.phi.trans.insert = sext i32 %add23.i to i64
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.phi.trans.insert
   %.pre = load i8, ptr %gep, align 1
-  %.pre64 = load i32, ptr %buffer_len_.i86, align 8
+  %.pre69 = load i32, ptr %buffer_len_.i86, align 8
   br label %_ZN3url12CanonOutputTIcE9push_backEc.exit178
 
 _ZN3url12CanonOutputTIcE9push_backEc.exit178.loopexit: ; preds = %do.body.i.i161
-  %.pre67 = sext i32 %add23.i to i64
+  %.pre72 = sext i32 %add23.i to i64
   br label %_ZN3url12CanonOutputTIcE9push_backEc.exit178
 
 _ZN3url12CanonOutputTIcE9push_backEc.exit178:     ; preds = %_ZN3url12CanonOutputTIcE9push_backEc.exit178.loopexit, %return.sink.split.i170
-  %.pre-phi = phi i64 [ %.pre67, %_ZN3url12CanonOutputTIcE9push_backEc.exit178.loopexit ], [ %.phi.trans.insert, %return.sink.split.i170 ]
-  %83 = phi i32 [ %43, %_ZN3url12CanonOutputTIcE9push_backEc.exit178.loopexit ], [ %.pre64, %return.sink.split.i170 ]
+  %.pre-phi = phi i64 [ %.pre72, %_ZN3url12CanonOutputTIcE9push_backEc.exit178.loopexit ], [ %.phi.trans.insert, %return.sink.split.i170 ]
+  %83 = phi i32 [ %43, %_ZN3url12CanonOutputTIcE9push_backEc.exit178.loopexit ], [ %.pre69, %return.sink.split.i170 ]
   %84 = phi i32 [ %42, %_ZN3url12CanonOutputTIcE9push_backEc.exit178.loopexit ], [ %inc11.i176, %return.sink.split.i170 ]
   %85 = phi i8 [ %31, %_ZN3url12CanonOutputTIcE9push_backEc.exit178.loopexit ], [ %.pre, %return.sink.split.i170 ]
   %86 = getelementptr i8, ptr %spec, i64 %.pre-phi
@@ -893,11 +893,11 @@ _ZN3url12CanonOutputTIcE9push_backEc.exit178:     ; preds = %_ZN3url12CanonOutpu
 
 if.end.i182:                                      ; preds = %_ZN3url12CanonOutputTIcE9push_backEc.exit178
   %cmp.i.i183 = icmp eq i32 %83, 0
-  %spec.select91 = select i1 %cmp.i.i183, i32 16, i32 %83
+  %spec.select96 = select i1 %cmp.i.i183, i32 16, i32 %83
   br label %do.body.i.i185
 
 do.body.i.i185:                                   ; preds = %if.end.i182, %if.end.i.i188
-  %new_len.0.i.i186 = phi i32 [ %mul.i.i189, %if.end.i.i188 ], [ %spec.select91, %if.end.i182 ]
+  %new_len.0.i.i186 = phi i32 [ %mul.i.i189, %if.end.i.i188 ], [ %spec.select96, %if.end.i182 ]
   %cmp3.i.i187 = icmp slt i32 %new_len.0.i.i186, 1073741824
   br i1 %cmp3.i.i187, label %if.end.i.i188, label %_ZN3url12CanonOutputTIcE9push_backEc.exit202
 
@@ -923,11 +923,11 @@ return.sink.split.i194:                           ; preds = %_ZN3url12CanonOutpu
   %89 = load i32, ptr %cur_len_.i85, align 4
   %inc11.i200 = add nsw i32 %89, 1
   store i32 %inc11.i200, ptr %cur_len_.i85, align 4
-  %.pre65 = load i32, ptr %buffer_len_.i86, align 8
+  %.pre70 = load i32, ptr %buffer_len_.i86, align 8
   br label %_ZN3url12CanonOutputTIcE9push_backEc.exit202
 
 _ZN3url12CanonOutputTIcE9push_backEc.exit202:     ; preds = %do.body.i.i185, %return.sink.split.i194
-  %90 = phi i32 [ %.pre65, %return.sink.split.i194 ], [ %83, %do.body.i.i185 ]
+  %90 = phi i32 [ %.pre70, %return.sink.split.i194 ], [ %83, %do.body.i.i185 ]
   %91 = phi i32 [ %inc11.i200, %return.sink.split.i194 ], [ %84, %do.body.i.i185 ]
   %92 = load i8, ptr %86, align 1
   %cmp.i205 = icmp slt i32 %91, %90
@@ -935,11 +935,11 @@ _ZN3url12CanonOutputTIcE9push_backEc.exit202:     ; preds = %do.body.i.i185, %re
 
 if.end.i206:                                      ; preds = %_ZN3url12CanonOutputTIcE9push_backEc.exit202
   %cmp.i.i207 = icmp eq i32 %90, 0
-  %spec.select92 = select i1 %cmp.i.i207, i32 16, i32 %90
+  %spec.select97 = select i1 %cmp.i.i207, i32 16, i32 %90
   br label %do.body.i.i209
 
 do.body.i.i209:                                   ; preds = %if.end.i206, %if.end.i.i212
-  %new_len.0.i.i210 = phi i32 [ %mul.i.i213, %if.end.i.i212 ], [ %spec.select92, %if.end.i206 ]
+  %new_len.0.i.i210 = phi i32 [ %mul.i.i213, %if.end.i.i212 ], [ %spec.select97, %if.end.i206 ]
   %cmp3.i.i211 = icmp slt i32 %new_len.0.i.i210, 1073741824
   br i1 %cmp3.i.i211, label %if.end.i.i212, label %_ZN3url12CanonOutputTIcE9push_backEc.exit226
 
@@ -968,9 +968,9 @@ return.sink.split.i218:                           ; preds = %_ZN3url12CanonOutpu
   br label %_ZN3url12CanonOutputTIcE9push_backEc.exit226
 
 _ZN3url12CanonOutputTIcE9push_backEc.exit226:     ; preds = %do.body.i.i209, %return.sink.split.i218
-  %and55 = and i32 %conv3868, 8
+  %and55 = and i32 %conv3873, 8
   %tobool56.not = icmp eq i32 %and55, 0
-  %spec.select = select i1 %tobool56.not, i1 %success.056, i1 false
+  %spec.select = select i1 %tobool56.not, i1 %success.061, i1 false
   br label %for.inc
 
 if.else60:                                        ; preds = %land.lhs.true.i, %lor.lhs.false14.i, %if.end.i111
@@ -981,11 +981,11 @@ if.else60:                                        ; preds = %land.lhs.true.i, %l
 
 if.end.i231:                                      ; preds = %if.else60
   %cmp.i.i232 = icmp eq i32 %97, 0
-  %spec.select93 = select i1 %cmp.i.i232, i32 16, i32 %97
+  %spec.select98 = select i1 %cmp.i.i232, i32 16, i32 %97
   br label %do.body.i.i234
 
 do.body.i.i234:                                   ; preds = %if.end.i231, %if.end.i.i237
-  %new_len.0.i.i235 = phi i32 [ %mul.i.i238, %if.end.i.i237 ], [ %spec.select93, %if.end.i231 ]
+  %new_len.0.i.i235 = phi i32 [ %mul.i.i238, %if.end.i.i237 ], [ %spec.select98, %if.end.i231 ]
   %cmp3.i.i236 = icmp slt i32 %new_len.0.i.i235, 1073741824
   br i1 %cmp3.i.i236, label %if.end.i.i237, label %for.inc
 
@@ -1039,11 +1039,11 @@ if.else78:                                        ; preds = %for.body
 
 if.end.i255:                                      ; preds = %if.else78
   %cmp.i.i256 = icmp eq i32 %102, 0
-  %spec.select94 = select i1 %cmp.i.i256, i32 16, i32 %102
+  %spec.select99 = select i1 %cmp.i.i256, i32 16, i32 %102
   br label %do.body.i.i258
 
 do.body.i.i258:                                   ; preds = %if.end.i255, %if.end.i.i261
-  %new_len.0.i.i259 = phi i32 [ %mul.i.i262, %if.end.i.i261 ], [ %spec.select94, %if.end.i255 ]
+  %new_len.0.i.i259 = phi i32 [ %mul.i.i262, %if.end.i.i261 ], [ %spec.select99, %if.end.i255 ]
   %cmp3.i.i260 = icmp slt i32 %new_len.0.i.i259, 1073741824
   br i1 %cmp3.i.i260, label %if.end.i.i261, label %for.inc
 
@@ -1072,9 +1072,9 @@ return.sink.split.i267:                           ; preds = %if.else78, %if.end5
   br label %for.inc
 
 for.inc:                                          ; preds = %do.body.i.i91, %do.body.i.i67.i, %do.body.i.i234, %do.body.i.i258, %return.sink.split.i267, %return.sink.split.i243, %if.end22.sink.split.i, %if.else.i, %if.then.i146, %return.sink.split.i100, %_ZN3url12CanonOutputTIcE9push_backEc.exit226, %if.then67, %if.then72, %if.else68, %_ZN3url12CanonOutputTIcE9push_backEc.exit138, %_ZN3url12CanonOutputTIcE9push_backEc.exit84, %_ZN3url12_GLOBAL__N_121BackUpToPreviousSlashEiPNS_12CanonOutputTIcEE.exit, %sw.bb16, %_ZN3url12CanonOutputTIcE9push_backEc.exit
-  %i.1 = phi i32 [ %add23, %_ZN3url12_GLOBAL__N_121BackUpToPreviousSlashEiPNS_12CanonOutputTIcEE.exit ], [ %add19, %sw.bb16 ], [ %add15, %_ZN3url12CanonOutputTIcE9push_backEc.exit ], [ %add25, %_ZN3url12CanonOutputTIcE9push_backEc.exit84 ], [ %storemerge55, %if.else68 ], [ %storemerge55, %if.then72 ], [ %storemerge55, %if.then67 ], [ %add23.i, %_ZN3url12CanonOutputTIcE9push_backEc.exit226 ], [ %add23.i, %_ZN3url12CanonOutputTIcE9push_backEc.exit138 ], [ %storemerge55, %return.sink.split.i100 ], [ %add23.i, %if.then.i146 ], [ %add23.i, %if.else.i ], [ %add23.i, %if.end22.sink.split.i ], [ %storemerge55, %return.sink.split.i243 ], [ %storemerge55, %return.sink.split.i267 ], [ %storemerge55, %do.body.i.i258 ], [ %storemerge55, %do.body.i.i234 ], [ %add23.i, %do.body.i.i67.i ], [ %storemerge55, %do.body.i.i91 ]
-  %success.1 = phi i1 [ %success.056, %_ZN3url12_GLOBAL__N_121BackUpToPreviousSlashEiPNS_12CanonOutputTIcEE.exit ], [ %success.056, %sw.bb16 ], [ %success.056, %_ZN3url12CanonOutputTIcE9push_backEc.exit ], [ %success.056, %_ZN3url12CanonOutputTIcE9push_backEc.exit84 ], [ %success.056, %if.else68 ], [ %success.056, %if.then72 ], [ false, %if.then67 ], [ %spec.select, %_ZN3url12CanonOutputTIcE9push_backEc.exit226 ], [ %success.056, %_ZN3url12CanonOutputTIcE9push_backEc.exit138 ], [ %success.056, %return.sink.split.i100 ], [ %success.056, %if.then.i146 ], [ %success.056, %if.else.i ], [ %success.056, %if.end22.sink.split.i ], [ %success.056, %return.sink.split.i243 ], [ %success.056, %return.sink.split.i267 ], [ %success.056, %do.body.i.i258 ], [ %success.056, %do.body.i.i234 ], [ %success.056, %do.body.i.i67.i ], [ %success.056, %do.body.i.i91 ]
-  %last_invalid_percent_index.1 = phi i32 [ %last_invalid_percent_index.058, %_ZN3url12_GLOBAL__N_121BackUpToPreviousSlashEiPNS_12CanonOutputTIcEE.exit ], [ %last_invalid_percent_index.058, %sw.bb16 ], [ %last_invalid_percent_index.058, %_ZN3url12CanonOutputTIcE9push_backEc.exit ], [ %last_invalid_percent_index.058, %_ZN3url12CanonOutputTIcE9push_backEc.exit84 ], [ %last_invalid_percent_index.058, %if.else68 ], [ %last_invalid_percent_index.058, %if.then72 ], [ %last_invalid_percent_index.058, %if.then67 ], [ %last_invalid_percent_index.058, %_ZN3url12CanonOutputTIcE9push_backEc.exit226 ], [ %last_invalid_percent_index.058, %_ZN3url12CanonOutputTIcE9push_backEc.exit138 ], [ %last_invalid_percent_index.058, %return.sink.split.i100 ], [ %last_invalid_percent_index.058, %if.then.i146 ], [ %last_invalid_percent_index.058, %if.else.i ], [ %last_invalid_percent_index.058, %if.end22.sink.split.i ], [ %96, %return.sink.split.i243 ], [ %last_invalid_percent_index.058, %return.sink.split.i267 ], [ %last_invalid_percent_index.058, %do.body.i.i258 ], [ %96, %do.body.i.i234 ], [ %last_invalid_percent_index.058, %do.body.i.i67.i ], [ %last_invalid_percent_index.058, %do.body.i.i91 ]
+  %i.1 = phi i32 [ %add23, %_ZN3url12_GLOBAL__N_121BackUpToPreviousSlashEiPNS_12CanonOutputTIcEE.exit ], [ %add19, %sw.bb16 ], [ %add15, %_ZN3url12CanonOutputTIcE9push_backEc.exit ], [ %add25, %_ZN3url12CanonOutputTIcE9push_backEc.exit84 ], [ %storemerge60, %if.else68 ], [ %storemerge60, %if.then72 ], [ %storemerge60, %if.then67 ], [ %add23.i, %_ZN3url12CanonOutputTIcE9push_backEc.exit226 ], [ %add23.i, %_ZN3url12CanonOutputTIcE9push_backEc.exit138 ], [ %storemerge60, %return.sink.split.i100 ], [ %add23.i, %if.then.i146 ], [ %add23.i, %if.else.i ], [ %add23.i, %if.end22.sink.split.i ], [ %storemerge60, %return.sink.split.i243 ], [ %storemerge60, %return.sink.split.i267 ], [ %storemerge60, %do.body.i.i258 ], [ %storemerge60, %do.body.i.i234 ], [ %add23.i, %do.body.i.i67.i ], [ %storemerge60, %do.body.i.i91 ]
+  %success.1 = phi i1 [ %success.061, %_ZN3url12_GLOBAL__N_121BackUpToPreviousSlashEiPNS_12CanonOutputTIcEE.exit ], [ %success.061, %sw.bb16 ], [ %success.061, %_ZN3url12CanonOutputTIcE9push_backEc.exit ], [ %success.061, %_ZN3url12CanonOutputTIcE9push_backEc.exit84 ], [ %success.061, %if.else68 ], [ %success.061, %if.then72 ], [ false, %if.then67 ], [ %spec.select, %_ZN3url12CanonOutputTIcE9push_backEc.exit226 ], [ %success.061, %_ZN3url12CanonOutputTIcE9push_backEc.exit138 ], [ %success.061, %return.sink.split.i100 ], [ %success.061, %if.then.i146 ], [ %success.061, %if.else.i ], [ %success.061, %if.end22.sink.split.i ], [ %success.061, %return.sink.split.i243 ], [ %success.061, %return.sink.split.i267 ], [ %success.061, %do.body.i.i258 ], [ %success.061, %do.body.i.i234 ], [ %success.061, %do.body.i.i67.i ], [ %success.061, %do.body.i.i91 ]
+  %last_invalid_percent_index.1 = phi i32 [ %last_invalid_percent_index.063, %_ZN3url12_GLOBAL__N_121BackUpToPreviousSlashEiPNS_12CanonOutputTIcEE.exit ], [ %last_invalid_percent_index.063, %sw.bb16 ], [ %last_invalid_percent_index.063, %_ZN3url12CanonOutputTIcE9push_backEc.exit ], [ %last_invalid_percent_index.063, %_ZN3url12CanonOutputTIcE9push_backEc.exit84 ], [ %last_invalid_percent_index.063, %if.else68 ], [ %last_invalid_percent_index.063, %if.then72 ], [ %last_invalid_percent_index.063, %if.then67 ], [ %last_invalid_percent_index.063, %_ZN3url12CanonOutputTIcE9push_backEc.exit226 ], [ %last_invalid_percent_index.063, %_ZN3url12CanonOutputTIcE9push_backEc.exit138 ], [ %last_invalid_percent_index.063, %return.sink.split.i100 ], [ %last_invalid_percent_index.063, %if.then.i146 ], [ %last_invalid_percent_index.063, %if.else.i ], [ %last_invalid_percent_index.063, %if.end22.sink.split.i ], [ %96, %return.sink.split.i243 ], [ %last_invalid_percent_index.063, %return.sink.split.i267 ], [ %last_invalid_percent_index.063, %do.body.i.i258 ], [ %96, %do.body.i.i234 ], [ %last_invalid_percent_index.063, %do.body.i.i67.i ], [ %last_invalid_percent_index.063, %do.body.i.i91 ]
   %inc = add nsw i32 %i.1, 1
   %cmp = icmp slt i32 %inc, %add.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !8
@@ -1102,8 +1102,8 @@ entry:
   %add.i = add nsw i32 %path.4.val, %path.0.val
   %invariant.gep = getelementptr i8, ptr %spec, i64 -2
   store i32 %path.0.val, ptr %i, align 4
-  %cmp41 = icmp sgt i32 %path.4.val, 0
-  br i1 %cmp41, label %for.body.lr.ph, label %for.end
+  %cmp46 = icmp sgt i32 %path.4.val, 0
+  br i1 %cmp46, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
   %cur_len_.i91 = getelementptr inbounds i8, ptr %output, i64 20
@@ -1113,10 +1113,10 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %last_invalid_percent_index.046 = phi i32 [ -2147483648, %for.body.lr.ph ], [ %last_invalid_percent_index.1, %for.inc ]
-  %success.044 = phi i8 [ 1, %for.body.lr.ph ], [ %success.1, %for.inc ]
-  %storemerge43 = phi i32 [ %path.0.val, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %idxprom = sext i32 %storemerge43 to i64
+  %last_invalid_percent_index.051 = phi i32 [ -2147483648, %for.body.lr.ph ], [ %last_invalid_percent_index.1, %for.inc ]
+  %success.049 = phi i8 [ 1, %for.body.lr.ph ], [ %success.1, %for.inc ]
+  %storemerge48 = phi i32 [ %path.0.val, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %idxprom = sext i32 %storemerge48 to i64
   %arrayidx = getelementptr inbounds i16, ptr %spec, i64 %idxprom
   %1 = load i16, ptr %arrayidx, align 2
   %cmp1 = icmp ugt i16 %1, 127
@@ -1128,7 +1128,7 @@ if.then:                                          ; preds = %for.body
   %2 = load i32, ptr %char_value.i, align 4
   call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_17AppendEscapedCharIhcEEvS3_PNS1_IT0_EEEEEEvjS4_(i32 noundef %2, ptr noundef %output)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %char_value.i)
-  %3 = and i8 %success.044, 1
+  %3 = and i8 %success.049, 1
   %tobool548 = icmp ne i8 %3, 0
   %tobool5 = select i1 %call.i, i1 %tobool548, i1 false
   %frombool = zext i1 %tobool5 to i8
@@ -1152,7 +1152,7 @@ if.then12:                                        ; preds = %if.else
   ]
 
 land.lhs.true.i:                                  ; preds = %if.then12
-  %add.i49 = add nsw i32 %storemerge43, 3
+  %add.i49 = add nsw i32 %storemerge48, 3
   %cmp5.not.i = icmp sgt i32 %add.i49, %add.i
   br i1 %cmp5.not.i, label %if.else73, label %land.lhs.true6.i
 
@@ -1171,7 +1171,7 @@ land.lhs.true12.i:                                ; preds = %land.lhs.true6.i
   br i1 %switch.selectcmp.i, label %if.then15, label %lor.lhs.false.i
 
 if.then15:                                        ; preds = %if.then12, %land.lhs.true12.i
-  %retval.0.i = phi i32 [ 1, %if.then12 ], [ 3, %land.lhs.true12.i ]
+  %retval.0.i.ph = phi i32 [ 1, %if.then12 ], [ 3, %land.lhs.true12.i ]
   %8 = load i32, ptr %cur_len_.i91, align 4
   %cmp17 = icmp sgt i32 %8, %path_begin_in_output
   br i1 %cmp17, label %land.lhs.true, label %if.else34
@@ -1186,7 +1186,7 @@ land.lhs.true:                                    ; preds = %if.then15
   br i1 %cmp21, label %if.then22, label %if.else34
 
 if.then22:                                        ; preds = %land.lhs.true
-  %add = add nsw i32 %retval.0.i, %storemerge43
+  %add = add nsw i32 %retval.0.i.ph, %storemerge48
   %cmp.i = icmp eq i32 %add, %add.i
   br i1 %cmp.i, label %sw.bb26, label %if.end.i
 
@@ -1239,18 +1239,18 @@ if.then11.i:                                      ; preds = %if.end7.i, %if.end7
   %add12.i = add nuw nsw i32 %retval.0.i.i, 1
   br label %sw.bb30
 
-sw.bb:                                            ; preds = %if.end.i, %if.end7.i, %land.lhs.true6.i.i, %land.lhs.true.i.i, %land.lhs.true12.i.i
+sw.bb:                                            ; preds = %if.end7.i, %land.lhs.true12.i.i, %land.lhs.true6.i.i, %land.lhs.true.i.i, %if.end.i
   %16 = load i32, ptr %buffer_len_.i92, align 8
   %cmp.i59 = icmp slt i32 %8, %16
   br i1 %cmp.i59, label %return.sink.split.i, label %if.end.i60
 
 if.end.i60:                                       ; preds = %sw.bb
   %cmp.i.i = icmp eq i32 %16, 0
-  %spec.select73 = select i1 %cmp.i.i, i32 16, i32 %16
+  %spec.select78 = select i1 %cmp.i.i, i32 16, i32 %16
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %if.end.i60, %if.end.i.i
-  %new_len.0.i.i = phi i32 [ %mul.i.i, %if.end.i.i ], [ %spec.select73, %if.end.i60 ]
+  %new_len.0.i.i = phi i32 [ %mul.i.i, %if.end.i.i ], [ %spec.select78, %if.end.i60 ]
   %cmp3.i.i = icmp slt i32 %new_len.0.i.i, 1073741824
   br i1 %cmp3.i.i, label %if.end.i.i, label %_ZN3url12CanonOutputTIcE9push_backEc.exit
 
@@ -1277,26 +1277,26 @@ return.sink.split.i:                              ; preds = %sw.bb, %if.end5.i
   %19 = load i32, ptr %cur_len_.i91, align 4
   %inc11.i = add nsw i32 %19, 1
   store i32 %inc11.i, ptr %cur_len_.i91, align 4
-  %.pre56 = load i32, ptr %i, align 4
+  %.pre61 = load i32, ptr %i, align 4
   br label %_ZN3url12CanonOutputTIcE9push_backEc.exit
 
 _ZN3url12CanonOutputTIcE9push_backEc.exit:        ; preds = %do.body.i.i, %return.sink.split.i
-  %20 = phi i32 [ %.pre56, %return.sink.split.i ], [ %storemerge43, %do.body.i.i ]
-  %sub24 = add nsw i32 %retval.0.i, -1
+  %20 = phi i32 [ %.pre61, %return.sink.split.i ], [ %storemerge48, %do.body.i.i ]
+  %sub24 = add nsw i32 %retval.0.i.ph, -1
   %add25 = add nsw i32 %sub24, %20
   store i32 %add25, ptr %i, align 4
   br label %for.inc
 
 sw.bb26:                                          ; preds = %if.then22, %if.end.i, %if.end.i
   %.sink.i.ph = phi i32 [ 1, %if.end.i ], [ 1, %if.end.i ], [ 0, %if.then22 ]
-  %add27 = add i32 %storemerge43, -1
-  %sub28 = add i32 %add27, %retval.0.i
+  %add27 = add i32 %storemerge48, -1
+  %sub28 = add i32 %add27, %retval.0.i.ph
   %add29 = add i32 %sub28, %.sink.i.ph
   store i32 %add29, ptr %i, align 4
   br label %for.inc
 
 sw.bb30:                                          ; preds = %if.then11.i, %if.then4.i
-  %.sink.i = phi i32 [ %add12.i, %if.then11.i ], [ %retval.0.i.i, %if.then4.i ]
+  %.sink.i.ph9 = phi i32 [ %retval.0.i.i, %if.then4.i ], [ %add12.i, %if.then11.i ]
   %cmp.i64 = icmp eq i32 %sub, %path_begin_in_output
   br i1 %cmp.i64, label %_ZN3url12_GLOBAL__N_121BackUpToPreviousSlashEiPNS_12CanonOutputTIcEE.exit, label %if.end.i65
 
@@ -1322,9 +1322,9 @@ while.end.i:                                      ; preds = %while.cond.i
   br label %_ZN3url12_GLOBAL__N_121BackUpToPreviousSlashEiPNS_12CanonOutputTIcEE.exit
 
 _ZN3url12_GLOBAL__N_121BackUpToPreviousSlashEiPNS_12CanonOutputTIcEE.exit: ; preds = %sw.bb30, %while.end.i
-  %add31 = add i32 %storemerge43, -1
-  %sub32 = add i32 %add31, %retval.0.i
-  %add33 = add i32 %sub32, %.sink.i
+  %add31 = add i32 %storemerge48, -1
+  %sub32 = add i32 %add31, %retval.0.i.ph
+  %add33 = add i32 %sub32, %.sink.i.ph9
   store i32 %add33, ptr %i, align 4
   br label %for.inc
 
@@ -1335,11 +1335,11 @@ if.else34:                                        ; preds = %land.lhs.true, %if.
 
 if.end.i70:                                       ; preds = %if.else34
   %cmp.i.i71 = icmp eq i32 %25, 0
-  %spec.select74 = select i1 %cmp.i.i71, i32 16, i32 %25
+  %spec.select79 = select i1 %cmp.i.i71, i32 16, i32 %25
   br label %do.body.i.i73
 
 do.body.i.i73:                                    ; preds = %if.end.i70, %if.end.i.i76
-  %new_len.0.i.i74 = phi i32 [ %mul.i.i77, %if.end.i.i76 ], [ %spec.select74, %if.end.i70 ]
+  %new_len.0.i.i74 = phi i32 [ %mul.i.i77, %if.end.i.i76 ], [ %spec.select79, %if.end.i70 ]
   %cmp3.i.i75 = icmp slt i32 %new_len.0.i.i74, 1073741824
   br i1 %cmp3.i.i75, label %if.end.i.i76, label %_ZN3url12CanonOutputTIcE9push_backEc.exit90
 
@@ -1365,12 +1365,12 @@ return.sink.split.i82:                            ; preds = %if.else34, %if.end5
   %28 = load i32, ptr %cur_len_.i91, align 4
   %inc11.i88 = add nsw i32 %28, 1
   store i32 %inc11.i88, ptr %cur_len_.i91, align 4
-  %.pre54 = load i32, ptr %i, align 4
+  %.pre59 = load i32, ptr %i, align 4
   br label %_ZN3url12CanonOutputTIcE9push_backEc.exit90
 
 _ZN3url12CanonOutputTIcE9push_backEc.exit90:      ; preds = %do.body.i.i73, %return.sink.split.i82
-  %29 = phi i32 [ %.pre54, %return.sink.split.i82 ], [ %storemerge43, %do.body.i.i73 ]
-  %sub35 = add nsw i32 %retval.0.i, -1
+  %29 = phi i32 [ %.pre59, %return.sink.split.i82 ], [ %storemerge48, %do.body.i.i73 ]
+  %sub35 = add nsw i32 %retval.0.i.ph, -1
   %add36 = add nsw i32 %sub35, %29
   store i32 %add36, ptr %i, align 4
   br label %for.inc
@@ -1383,11 +1383,11 @@ if.then40:                                        ; preds = %if.then12
 
 if.end.i94:                                       ; preds = %if.then40
   %cmp.i.i95 = icmp eq i32 %31, 0
-  %spec.select75 = select i1 %cmp.i.i95, i32 16, i32 %31
+  %spec.select80 = select i1 %cmp.i.i95, i32 16, i32 %31
   br label %do.body.i.i97
 
 do.body.i.i97:                                    ; preds = %if.end.i94, %if.end.i.i100
-  %new_len.0.i.i98 = phi i32 [ %mul.i.i101, %if.end.i.i100 ], [ %spec.select75, %if.end.i94 ]
+  %new_len.0.i.i98 = phi i32 [ %mul.i.i101, %if.end.i.i100 ], [ %spec.select80, %if.end.i94 ]
   %cmp3.i.i99 = icmp slt i32 %new_len.0.i.i98, 1073741824
   br i1 %cmp3.i.i99, label %if.end.i.i100, label %for.inc
 
@@ -1458,13 +1458,13 @@ if.then46:                                        ; preds = %lor.lhs.false15.i
   %44 = load i8, ptr %arrayidx.i16.i, align 1
   %sub.i17.i = sub i8 %conv13.i, %44
   %add23.i = add i8 %sub.i17.i, %shl.i
-  %add25.i = add nsw i32 %storemerge43, 2
+  %add25.i = add nsw i32 %storemerge48, 2
   store i32 %add25.i, ptr %i, align 4
   %idxprom47 = zext i8 %add23.i to i64
   %arrayidx48 = getelementptr inbounds [256 x i8], ptr @_ZN3url12_GLOBAL__N_115kPathCharLookupE, i64 0, i64 %idxprom47
   %45 = load i8, ptr %arrayidx48, align 1
-  %conv4958 = zext i8 %45 to i32
-  %and50 = and i32 %conv4958, 4
+  %conv4963 = zext i8 %45 to i32
+  %and50 = and i32 %conv4963, 4
   %tobool51.not = icmp eq i32 %and50, 0
   %46 = load i32, ptr %cur_len_.i91, align 4
   %47 = load i32, ptr %buffer_len_.i92, align 8
@@ -1476,11 +1476,11 @@ if.then52:                                        ; preds = %if.then46
 
 if.end.i125:                                      ; preds = %if.then52
   %cmp.i.i126 = icmp eq i32 %47, 0
-  %spec.select76 = select i1 %cmp.i.i126, i32 16, i32 %47
+  %spec.select81 = select i1 %cmp.i.i126, i32 16, i32 %47
   br label %do.body.i.i128
 
 do.body.i.i128:                                   ; preds = %if.end.i125, %if.end.i.i131
-  %new_len.0.i.i129 = phi i32 [ %mul.i.i132, %if.end.i.i131 ], [ %spec.select76, %if.end.i125 ]
+  %new_len.0.i.i129 = phi i32 [ %mul.i.i132, %if.end.i.i131 ], [ %spec.select81, %if.end.i125 ]
   %cmp3.i.i130 = icmp slt i32 %new_len.0.i.i129, 1073741824
   br i1 %cmp3.i.i130, label %if.end.i.i131, label %_ZN3url12CanonOutputTIcE9push_backEc.exit145
 
@@ -1511,7 +1511,7 @@ return.sink.split.i137:                           ; preds = %if.then52, %if.end5
 _ZN3url12CanonOutputTIcE9push_backEc.exit145:     ; preds = %do.body.i.i128, %return.sink.split.i137
   %51 = phi i32 [ %inc11.i143, %return.sink.split.i137 ], [ %46, %do.body.i.i128 ]
   %sub54 = add nsw i32 %51, -3
-  %cmp55.not = icmp slt i32 %last_invalid_percent_index.046, %sub54
+  %cmp55.not = icmp slt i32 %last_invalid_percent_index.051, %sub54
   br i1 %cmp55.not, label %for.inc, label %if.then56
 
 if.then56:                                        ; preds = %_ZN3url12CanonOutputTIcE9push_backEc.exit145
@@ -1523,7 +1523,7 @@ if.then56:                                        ; preds = %_ZN3url12CanonOutpu
   %arrayidx.i.i149 = getelementptr i8, ptr %55, i64 -1
   %56 = load i8, ptr %arrayidx.i.i149, align 1
   %sub2.i = add nsw i32 %51, -2
-  %cmp.i150 = icmp eq i32 %sub2.i, %last_invalid_percent_index.046
+  %cmp.i150 = icmp eq i32 %sub2.i, %last_invalid_percent_index.051
   br i1 %cmp.i150, label %if.then.i152, label %if.end9.i
 
 if.then.i152:                                     ; preds = %if.then56
@@ -1545,11 +1545,11 @@ if.end.i157:                                      ; preds = %lor.lhs.false.i154
 
 if.end.i.i159:                                    ; preds = %if.end.i157
   %cmp.i.i.i = icmp eq i32 %58, 0
-  %spec.select77 = select i1 %cmp.i.i.i, i32 16, i32 %58
+  %spec.select82 = select i1 %cmp.i.i.i, i32 16, i32 %58
   br label %do.body.i.i.i
 
 do.body.i.i.i:                                    ; preds = %if.end.i.i159, %if.end.i.i.i
-  %new_len.0.i.i.i = phi i32 [ %mul.i.i.i, %if.end.i.i.i ], [ %spec.select77, %if.end.i.i159 ]
+  %new_len.0.i.i.i = phi i32 [ %mul.i.i.i, %if.end.i.i.i ], [ %spec.select82, %if.end.i.i159 ]
   %cmp3.i.i.i = icmp slt i32 %new_len.0.i.i.i, 1073741824
   br i1 %cmp3.i.i.i, label %if.end.i.i.i, label %if.end9.i
 
@@ -1582,12 +1582,12 @@ return.sink.split.i.i:                            ; preds = %if.end5.i.i, %if.en
 if.end9.i:                                        ; preds = %do.body.i.i.i, %return.sink.split.i.i, %if.then56
   %62 = phi i32 [ %inc11.i.i, %return.sink.split.i.i ], [ %51, %if.then56 ], [ %51, %do.body.i.i.i ]
   %63 = phi ptr [ %.pre.i, %return.sink.split.i.i ], [ %53, %if.then56 ], [ %53, %do.body.i.i.i ]
-  %add.i.i151 = add nsw i32 %last_invalid_percent_index.046, 3
+  %add.i.i151 = add nsw i32 %last_invalid_percent_index.051, 3
   %cmp.i25.i = icmp sgt i32 %add.i.i151, %62
   br i1 %cmp.i25.i, label %if.else.i, label %if.end.i26.i
 
 if.end.i26.i:                                     ; preds = %if.end9.i
-  %64 = sext i32 %last_invalid_percent_index.046 to i64
+  %64 = sext i32 %last_invalid_percent_index.051 to i64
   %65 = getelementptr i8, ptr %63, i64 %64
   %arrayidx.i27.i = getelementptr i8, ptr %65, i64 1
   %66 = load i8, ptr %arrayidx.i27.i, align 1
@@ -1618,11 +1618,11 @@ if.then15.i:                                      ; preds = %if.then13.i
 
 if.end.i34.i:                                     ; preds = %if.then15.i
   %cmp.i.i35.i = icmp eq i32 %72, 0
-  %spec.select78 = select i1 %cmp.i.i35.i, i32 16, i32 %72
+  %spec.select83 = select i1 %cmp.i.i35.i, i32 16, i32 %72
   br label %do.body.i.i37.i
 
 do.body.i.i37.i:                                  ; preds = %if.end.i34.i, %if.end.i.i40.i
-  %new_len.0.i.i38.i = phi i32 [ %mul.i.i41.i, %if.end.i.i40.i ], [ %spec.select78, %if.end.i34.i ]
+  %new_len.0.i.i38.i = phi i32 [ %mul.i.i41.i, %if.end.i.i40.i ], [ %spec.select83, %if.end.i34.i ]
   %cmp3.i.i39.i = icmp slt i32 %new_len.0.i.i38.i, 1073741824
   br i1 %cmp3.i.i39.i, label %if.end.i.i40.i, label %if.end17.i
 
@@ -1668,11 +1668,11 @@ if.end17.i:                                       ; preds = %do.body.i.i37.i, %r
 
 if.end.i64.i:                                     ; preds = %if.end17.i
   %cmp.i.i65.i = icmp eq i32 %81, 0
-  %spec.select79 = select i1 %cmp.i.i65.i, i32 16, i32 %81
+  %spec.select84 = select i1 %cmp.i.i65.i, i32 16, i32 %81
   br label %do.body.i.i67.i
 
 do.body.i.i67.i:                                  ; preds = %if.end.i64.i, %if.end.i.i70.i
-  %new_len.0.i.i68.i = phi i32 [ %mul.i.i71.i, %if.end.i.i70.i ], [ %spec.select79, %if.end.i64.i ]
+  %new_len.0.i.i68.i = phi i32 [ %mul.i.i71.i, %if.end.i.i70.i ], [ %spec.select84, %if.end.i64.i ]
   %cmp3.i.i69.i = icmp slt i32 %new_len.0.i.i68.i, 1073741824
   br i1 %cmp3.i.i69.i, label %if.end.i.i70.i, label %for.inc
 
@@ -1712,11 +1712,11 @@ if.else59:                                        ; preds = %if.then46
 
 if.end.i165:                                      ; preds = %if.else59
   %cmp.i.i166 = icmp eq i32 %47, 0
-  %spec.select80 = select i1 %cmp.i.i166, i32 16, i32 %47
+  %spec.select85 = select i1 %cmp.i.i166, i32 16, i32 %47
   br label %do.body.i.i168
 
 do.body.i.i168:                                   ; preds = %if.end.i165, %if.end.i.i171
-  %new_len.0.i.i169 = phi i32 [ %mul.i.i172, %if.end.i.i171 ], [ %spec.select80, %if.end.i165 ]
+  %new_len.0.i.i169 = phi i32 [ %mul.i.i172, %if.end.i.i171 ], [ %spec.select85, %if.end.i165 ]
   %cmp3.i.i170 = icmp slt i32 %new_len.0.i.i169, 1073741824
   br i1 %cmp3.i.i170, label %if.end.i.i171, label %_ZN3url12CanonOutputTIcE9push_backEc.exit185
 
@@ -1743,11 +1743,11 @@ return.sink.split.i177:                           ; preds = %if.else59, %if.end5
   %inc11.i183 = add nsw i32 %87, 1
   store i32 %inc11.i183, ptr %cur_len_.i91, align 4
   %.pre = load i32, ptr %i, align 4
-  %.pre51 = load i32, ptr %buffer_len_.i92, align 8
+  %.pre56 = load i32, ptr %buffer_len_.i92, align 8
   br label %_ZN3url12CanonOutputTIcE9push_backEc.exit185
 
 _ZN3url12CanonOutputTIcE9push_backEc.exit185:     ; preds = %do.body.i.i168, %return.sink.split.i177
-  %88 = phi i32 [ %.pre51, %return.sink.split.i177 ], [ %47, %do.body.i.i168 ]
+  %88 = phi i32 [ %.pre56, %return.sink.split.i177 ], [ %47, %do.body.i.i168 ]
   %89 = phi i32 [ %inc11.i183, %return.sink.split.i177 ], [ %46, %do.body.i.i168 ]
   %90 = phi i32 [ %.pre, %return.sink.split.i177 ], [ %add25.i, %do.body.i.i168 ]
   %91 = sext i32 %90 to i64
@@ -1759,11 +1759,11 @@ _ZN3url12CanonOutputTIcE9push_backEc.exit185:     ; preds = %do.body.i.i168, %re
 
 if.end.i189:                                      ; preds = %_ZN3url12CanonOutputTIcE9push_backEc.exit185
   %cmp.i.i190 = icmp eq i32 %88, 0
-  %spec.select81 = select i1 %cmp.i.i190, i32 16, i32 %88
+  %spec.select86 = select i1 %cmp.i.i190, i32 16, i32 %88
   br label %do.body.i.i192
 
 do.body.i.i192:                                   ; preds = %if.end.i189, %if.end.i.i195
-  %new_len.0.i.i193 = phi i32 [ %mul.i.i196, %if.end.i.i195 ], [ %spec.select81, %if.end.i189 ]
+  %new_len.0.i.i193 = phi i32 [ %mul.i.i196, %if.end.i.i195 ], [ %spec.select86, %if.end.i189 ]
   %cmp3.i.i194 = icmp slt i32 %new_len.0.i.i193, 1073741824
   br i1 %cmp3.i.i194, label %if.end.i.i195, label %_ZN3url12CanonOutputTIcE9push_backEc.exit209
 
@@ -1789,14 +1789,14 @@ return.sink.split.i201:                           ; preds = %_ZN3url12CanonOutpu
   %95 = load i32, ptr %cur_len_.i91, align 4
   %inc11.i207 = add nsw i32 %95, 1
   store i32 %inc11.i207, ptr %cur_len_.i91, align 4
-  %.pre52 = load i32, ptr %i, align 4
-  %.pre53 = load i32, ptr %buffer_len_.i92, align 8
-  %.pre57 = sext i32 %.pre52 to i64
+  %.pre57 = load i32, ptr %i, align 4
+  %.pre58 = load i32, ptr %buffer_len_.i92, align 8
+  %.pre62 = sext i32 %.pre57 to i64
   br label %_ZN3url12CanonOutputTIcE9push_backEc.exit209
 
 _ZN3url12CanonOutputTIcE9push_backEc.exit209:     ; preds = %do.body.i.i192, %return.sink.split.i201
-  %idxprom64.pre-phi = phi i64 [ %.pre57, %return.sink.split.i201 ], [ %91, %do.body.i.i192 ]
-  %96 = phi i32 [ %.pre53, %return.sink.split.i201 ], [ %88, %do.body.i.i192 ]
+  %idxprom64.pre-phi = phi i64 [ %.pre62, %return.sink.split.i201 ], [ %91, %do.body.i.i192 ]
+  %96 = phi i32 [ %.pre58, %return.sink.split.i201 ], [ %88, %do.body.i.i192 ]
   %97 = phi i32 [ %inc11.i207, %return.sink.split.i201 ], [ %89, %do.body.i.i192 ]
   %arrayidx65 = getelementptr inbounds i16, ptr %spec, i64 %idxprom64.pre-phi
   %98 = load i16, ptr %arrayidx65, align 2
@@ -1806,11 +1806,11 @@ _ZN3url12CanonOutputTIcE9push_backEc.exit209:     ; preds = %do.body.i.i192, %re
 
 if.end.i213:                                      ; preds = %_ZN3url12CanonOutputTIcE9push_backEc.exit209
   %cmp.i.i214 = icmp eq i32 %96, 0
-  %spec.select82 = select i1 %cmp.i.i214, i32 16, i32 %96
+  %spec.select87 = select i1 %cmp.i.i214, i32 16, i32 %96
   br label %do.body.i.i216
 
 do.body.i.i216:                                   ; preds = %if.end.i213, %if.end.i.i219
-  %new_len.0.i.i217 = phi i32 [ %mul.i.i220, %if.end.i.i219 ], [ %spec.select82, %if.end.i213 ]
+  %new_len.0.i.i217 = phi i32 [ %mul.i.i220, %if.end.i.i219 ], [ %spec.select87, %if.end.i213 ]
   %cmp3.i.i218 = icmp slt i32 %new_len.0.i.i217, 1073741824
   br i1 %cmp3.i.i218, label %if.end.i.i219, label %_ZN3url12CanonOutputTIcE9push_backEc.exit233
 
@@ -1839,9 +1839,9 @@ return.sink.split.i225:                           ; preds = %_ZN3url12CanonOutpu
   br label %_ZN3url12CanonOutputTIcE9push_backEc.exit233
 
 _ZN3url12CanonOutputTIcE9push_backEc.exit233:     ; preds = %do.body.i.i216, %return.sink.split.i225
-  %and68 = and i32 %conv4958, 8
+  %and68 = and i32 %conv4963, 8
   %tobool69.not = icmp eq i32 %and68, 0
-  %spec.select = select i1 %tobool69.not, i8 %success.044, i8 0
+  %spec.select = select i1 %tobool69.not, i8 %success.049, i8 0
   br label %for.inc
 
 if.else73:                                        ; preds = %land.lhs.true.i, %lor.lhs.false2.i, %lor.lhs.false.i, %lor.lhs.false15.i, %if.end.i120
@@ -1852,11 +1852,11 @@ if.else73:                                        ; preds = %land.lhs.true.i, %l
 
 if.end.i238:                                      ; preds = %if.else73
   %cmp.i.i239 = icmp eq i32 %103, 0
-  %spec.select83 = select i1 %cmp.i.i239, i32 16, i32 %103
+  %spec.select88 = select i1 %cmp.i.i239, i32 16, i32 %103
   br label %do.body.i.i241
 
 do.body.i.i241:                                   ; preds = %if.end.i238, %if.end.i.i244
-  %new_len.0.i.i242 = phi i32 [ %mul.i.i245, %if.end.i.i244 ], [ %spec.select83, %if.end.i238 ]
+  %new_len.0.i.i242 = phi i32 [ %mul.i.i245, %if.end.i.i244 ], [ %spec.select88, %if.end.i238 ]
   %cmp3.i.i243 = icmp slt i32 %new_len.0.i.i242, 1073741824
   br i1 %cmp3.i.i243, label %if.end.i.i244, label %for.inc
 
@@ -1910,11 +1910,11 @@ if.else91:                                        ; preds = %if.else
 
 if.end.i262:                                      ; preds = %if.else91
   %cmp.i.i263 = icmp eq i32 %108, 0
-  %spec.select84 = select i1 %cmp.i.i263, i32 16, i32 %108
+  %spec.select89 = select i1 %cmp.i.i263, i32 16, i32 %108
   br label %do.body.i.i265
 
 do.body.i.i265:                                   ; preds = %if.end.i262, %if.end.i.i268
-  %new_len.0.i.i266 = phi i32 [ %mul.i.i269, %if.end.i.i268 ], [ %spec.select84, %if.end.i262 ]
+  %new_len.0.i.i266 = phi i32 [ %mul.i.i269, %if.end.i.i268 ], [ %spec.select89, %if.end.i262 ]
   %cmp3.i.i267 = icmp slt i32 %new_len.0.i.i266, 1073741824
   br i1 %cmp3.i.i267, label %if.end.i.i268, label %for.inc
 
@@ -1943,8 +1943,8 @@ return.sink.split.i274:                           ; preds = %if.else91, %if.end5
   br label %for.inc
 
 for.inc:                                          ; preds = %do.body.i.i97, %do.body.i.i67.i, %do.body.i.i241, %do.body.i.i265, %return.sink.split.i274, %return.sink.split.i250, %if.end23.sink.split.i, %if.else.i, %lor.lhs.false.i154, %if.then.i152, %return.sink.split.i106, %_ZN3url12CanonOutputTIcE9push_backEc.exit233, %if.then, %_ZN3url12CanonOutputTIcE9push_backEc.exit, %sw.bb26, %_ZN3url12_GLOBAL__N_121BackUpToPreviousSlashEiPNS_12CanonOutputTIcEE.exit, %_ZN3url12CanonOutputTIcE9push_backEc.exit90, %_ZN3url12CanonOutputTIcE9push_backEc.exit145, %if.else81, %if.then85, %if.then80
-  %success.1 = phi i8 [ %frombool, %if.then ], [ %success.044, %_ZN3url12_GLOBAL__N_121BackUpToPreviousSlashEiPNS_12CanonOutputTIcEE.exit ], [ %success.044, %sw.bb26 ], [ %success.044, %_ZN3url12CanonOutputTIcE9push_backEc.exit ], [ %success.044, %_ZN3url12CanonOutputTIcE9push_backEc.exit90 ], [ %success.044, %if.else81 ], [ %success.044, %if.then85 ], [ 0, %if.then80 ], [ %spec.select, %_ZN3url12CanonOutputTIcE9push_backEc.exit233 ], [ %success.044, %_ZN3url12CanonOutputTIcE9push_backEc.exit145 ], [ %success.044, %return.sink.split.i106 ], [ %success.044, %if.then.i152 ], [ %success.044, %lor.lhs.false.i154 ], [ %success.044, %if.else.i ], [ %success.044, %if.end23.sink.split.i ], [ %success.044, %return.sink.split.i250 ], [ %success.044, %return.sink.split.i274 ], [ %success.044, %do.body.i.i265 ], [ %success.044, %do.body.i.i241 ], [ %success.044, %do.body.i.i67.i ], [ %success.044, %do.body.i.i97 ]
-  %last_invalid_percent_index.1 = phi i32 [ %last_invalid_percent_index.046, %if.then ], [ %last_invalid_percent_index.046, %_ZN3url12_GLOBAL__N_121BackUpToPreviousSlashEiPNS_12CanonOutputTIcEE.exit ], [ %last_invalid_percent_index.046, %sw.bb26 ], [ %last_invalid_percent_index.046, %_ZN3url12CanonOutputTIcE9push_backEc.exit ], [ %last_invalid_percent_index.046, %_ZN3url12CanonOutputTIcE9push_backEc.exit90 ], [ %last_invalid_percent_index.046, %if.else81 ], [ %last_invalid_percent_index.046, %if.then85 ], [ %last_invalid_percent_index.046, %if.then80 ], [ %last_invalid_percent_index.046, %_ZN3url12CanonOutputTIcE9push_backEc.exit233 ], [ %last_invalid_percent_index.046, %_ZN3url12CanonOutputTIcE9push_backEc.exit145 ], [ %last_invalid_percent_index.046, %return.sink.split.i106 ], [ %last_invalid_percent_index.046, %if.then.i152 ], [ %last_invalid_percent_index.046, %lor.lhs.false.i154 ], [ %last_invalid_percent_index.046, %if.else.i ], [ %last_invalid_percent_index.046, %if.end23.sink.split.i ], [ %102, %return.sink.split.i250 ], [ %last_invalid_percent_index.046, %return.sink.split.i274 ], [ %last_invalid_percent_index.046, %do.body.i.i265 ], [ %102, %do.body.i.i241 ], [ %last_invalid_percent_index.046, %do.body.i.i67.i ], [ %last_invalid_percent_index.046, %do.body.i.i97 ]
+  %success.1 = phi i8 [ %frombool, %if.then ], [ %success.049, %_ZN3url12_GLOBAL__N_121BackUpToPreviousSlashEiPNS_12CanonOutputTIcEE.exit ], [ %success.049, %sw.bb26 ], [ %success.049, %_ZN3url12CanonOutputTIcE9push_backEc.exit ], [ %success.049, %_ZN3url12CanonOutputTIcE9push_backEc.exit90 ], [ %success.049, %if.else81 ], [ %success.049, %if.then85 ], [ 0, %if.then80 ], [ %spec.select, %_ZN3url12CanonOutputTIcE9push_backEc.exit233 ], [ %success.049, %_ZN3url12CanonOutputTIcE9push_backEc.exit145 ], [ %success.049, %return.sink.split.i106 ], [ %success.049, %if.then.i152 ], [ %success.049, %lor.lhs.false.i154 ], [ %success.049, %if.else.i ], [ %success.049, %if.end23.sink.split.i ], [ %success.049, %return.sink.split.i250 ], [ %success.049, %return.sink.split.i274 ], [ %success.049, %do.body.i.i265 ], [ %success.049, %do.body.i.i241 ], [ %success.049, %do.body.i.i67.i ], [ %success.049, %do.body.i.i97 ]
+  %last_invalid_percent_index.1 = phi i32 [ %last_invalid_percent_index.051, %if.then ], [ %last_invalid_percent_index.051, %_ZN3url12_GLOBAL__N_121BackUpToPreviousSlashEiPNS_12CanonOutputTIcEE.exit ], [ %last_invalid_percent_index.051, %sw.bb26 ], [ %last_invalid_percent_index.051, %_ZN3url12CanonOutputTIcE9push_backEc.exit ], [ %last_invalid_percent_index.051, %_ZN3url12CanonOutputTIcE9push_backEc.exit90 ], [ %last_invalid_percent_index.051, %if.else81 ], [ %last_invalid_percent_index.051, %if.then85 ], [ %last_invalid_percent_index.051, %if.then80 ], [ %last_invalid_percent_index.051, %_ZN3url12CanonOutputTIcE9push_backEc.exit233 ], [ %last_invalid_percent_index.051, %_ZN3url12CanonOutputTIcE9push_backEc.exit145 ], [ %last_invalid_percent_index.051, %return.sink.split.i106 ], [ %last_invalid_percent_index.051, %if.then.i152 ], [ %last_invalid_percent_index.051, %lor.lhs.false.i154 ], [ %last_invalid_percent_index.051, %if.else.i ], [ %last_invalid_percent_index.051, %if.end23.sink.split.i ], [ %102, %return.sink.split.i250 ], [ %last_invalid_percent_index.051, %return.sink.split.i274 ], [ %last_invalid_percent_index.051, %do.body.i.i265 ], [ %102, %do.body.i.i241 ], [ %last_invalid_percent_index.051, %do.body.i.i67.i ], [ %last_invalid_percent_index.051, %do.body.i.i97 ]
   %112 = load i32, ptr %i, align 4
   %inc = add nsw i32 %112, 1
   store i32 %inc, ptr %i, align 4

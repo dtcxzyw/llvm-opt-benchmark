@@ -3325,7 +3325,7 @@ define i32 @hwloc_bitmap_isequal(ptr nocapture noundef readonly %0, ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @hwloc_bitmap_intersects(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #10 {
+define noundef i32 @hwloc_bitmap_intersects(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #10 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
   %5 = tail call i32 @llvm.umin.i32(i32 %3, i32 %4)
@@ -3421,22 +3421,24 @@ define i32 @hwloc_bitmap_intersects(ptr nocapture noundef readonly %0, ptr nocap
 .loopexit:                                        ; preds = %._crit_edge..loopexit_crit_edge, %.loopexit42
   %38 = phi i32 [ %.pre, %._crit_edge..loopexit_crit_edge ], [ %29, %.loopexit42 ]
   %.not35 = icmp eq i32 %38, 0
-  br i1 %.not35, label %.loopexit40, label %.loopexit.thread
+  br i1 %.not35, label %41, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %34, %.loopexit
   %39 = getelementptr inbounds i8, ptr %1, i64 16
   %40 = load i32, ptr %39, align 8
-  %.not36 = icmp ne i32 %40, 0
-  %spec.select = zext i1 %.not36 to i32
+  %.not36 = icmp eq i32 %40, 0
+  br i1 %.not36, label %41, label %.loopexit40
+
+41:                                               ; preds = %.loopexit.thread, %.loopexit
   br label %.loopexit40
 
-.loopexit40:                                      ; preds = %11, %25, %35, %.loopexit.thread, %.loopexit
-  %.031 = phi i32 [ 0, %.loopexit ], [ %spec.select, %.loopexit.thread ], [ 1, %35 ], [ 1, %25 ], [ 1, %11 ]
+.loopexit40:                                      ; preds = %11, %25, %35, %.loopexit.thread, %41
+  %.031 = phi i32 [ 0, %41 ], [ 1, %.loopexit.thread ], [ 1, %35 ], [ 1, %25 ], [ 1, %11 ]
   ret i32 %.031
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @hwloc_bitmap_isincluded(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #10 {
+define noundef i32 @hwloc_bitmap_isincluded(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #10 {
   %3 = load i32, ptr %1, align 8
   %4 = load i32, ptr %0, align 8
   %5 = tail call i32 @llvm.umin.i32(i32 %3, i32 %4)
@@ -3532,17 +3534,19 @@ define i32 @hwloc_bitmap_isincluded(ptr nocapture noundef readonly %0, ptr nocap
 .loopexit:                                        ; preds = %._crit_edge..loopexit_crit_edge, %.loopexit46
   %38 = phi i32 [ %.pre, %._crit_edge..loopexit_crit_edge ], [ %29, %.loopexit46 ]
   %.not40 = icmp eq i32 %38, 0
-  br i1 %.not40, label %.loopexit44, label %.loopexit.thread
+  br i1 %.not40, label %41, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %34, %.loopexit
   %39 = getelementptr inbounds i8, ptr %1, i64 16
   %40 = load i32, ptr %39, align 8
-  %.not41 = icmp ne i32 %40, 0
-  %spec.select = zext i1 %.not41 to i32
+  %.not41 = icmp eq i32 %40, 0
+  br i1 %.not41, label %.loopexit44, label %41
+
+41:                                               ; preds = %.loopexit.thread, %.loopexit
   br label %.loopexit44
 
-.loopexit44:                                      ; preds = %11, %25, %35, %.loopexit.thread, %.loopexit
-  %.033 = phi i32 [ 1, %.loopexit ], [ %spec.select, %.loopexit.thread ], [ 0, %35 ], [ 0, %25 ], [ 0, %11 ]
+.loopexit44:                                      ; preds = %11, %25, %35, %.loopexit.thread, %41
+  %.033 = phi i32 [ 1, %41 ], [ 0, %.loopexit.thread ], [ 0, %35 ], [ 0, %25 ], [ 0, %11 ]
   ret i32 %.033
 }
 

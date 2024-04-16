@@ -57,7 +57,7 @@ entry:
 declare zeroext i1 @visit_type_enum(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_q_obj_cxl_inject_general_media_event_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_q_obj_cxl_inject_general_media_event_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i = alloca i32, align 4
   %has_component_id = alloca i8, align 1
@@ -137,14 +137,17 @@ if.then33:                                        ; preds = %if.end31
 
 if.end37:                                         ; preds = %if.then33, %if.end31
   %call38 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.10, ptr noundef nonnull %has_component_id) #4
-  br i1 %call38, label %if.then39, label %return
+  br i1 %call38, label %if.then39, label %if.end44
 
 if.then39:                                        ; preds = %if.end37
   %call41 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.10, ptr noundef nonnull %component_id, ptr noundef %errp) #4
+  br i1 %call41, label %if.end44, label %return
+
+if.end44:                                         ; preds = %if.then39, %if.end37
   br label %return
 
-return:                                           ; preds = %if.then39, %if.end37, %if.then33, %if.then27, %if.then21, %if.end16, %if.end13, %if.end10, %if.end7, %if.end4, %if.end, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end ], [ false, %if.end4 ], [ false, %if.end7 ], [ false, %if.end10 ], [ false, %if.end13 ], [ false, %if.end16 ], [ false, %if.then21 ], [ false, %if.then27 ], [ false, %if.then33 ], [ true, %if.end37 ], [ %call41, %if.then39 ]
+return:                                           ; preds = %if.then39, %if.then33, %if.then27, %if.then21, %if.end16, %if.end13, %if.end10, %if.end7, %if.end4, %if.end, %entry, %if.end44
+  %retval.0 = phi i1 [ true, %if.end44 ], [ false, %entry ], [ false, %if.end ], [ false, %if.end4 ], [ false, %if.end7 ], [ false, %if.end10 ], [ false, %if.end13 ], [ false, %if.end16 ], [ false, %if.then21 ], [ false, %if.then27 ], [ false, %if.then33 ], [ false, %if.then39 ]
   ret i1 %retval.0
 }
 
@@ -159,7 +162,7 @@ declare zeroext i1 @visit_optional(ptr noundef, ptr noundef, ptr noundef) local_
 declare zeroext i1 @visit_type_uint32(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_q_obj_cxl_inject_dram_event_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_q_obj_cxl_inject_dram_event_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i = alloca i32, align 4
   %call = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str, ptr noundef %obj, ptr noundef %errp) #4
@@ -274,15 +277,18 @@ if.then56:                                        ; preds = %if.end54
 if.end60:                                         ; preds = %if.then56, %if.end54
   %has_correction_mask = getelementptr inbounds i8, ptr %obj, i64 52
   %call61 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.16, ptr noundef nonnull %has_correction_mask) #4
-  br i1 %call61, label %if.then62, label %return
+  br i1 %call61, label %if.then62, label %if.end66
 
 if.then62:                                        ; preds = %if.end60
   %correction_mask = getelementptr inbounds i8, ptr %obj, i64 56
   %call63 = call zeroext i1 @visit_type_uint64List(ptr noundef %v, ptr noundef nonnull @.str.16, ptr noundef nonnull %correction_mask, ptr noundef %errp) #4
+  br i1 %call63, label %if.end66, label %return
+
+if.end66:                                         ; preds = %if.then62, %if.end60
   br label %return
 
-return:                                           ; preds = %if.then62, %if.end60, %if.then56, %if.then50, %if.then44, %if.then38, %if.then32, %if.then26, %if.then20, %if.end15, %if.end12, %if.end9, %if.end6, %if.end3, %if.end, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end ], [ false, %if.end3 ], [ false, %if.end6 ], [ false, %if.end9 ], [ false, %if.end12 ], [ false, %if.end15 ], [ false, %if.then20 ], [ false, %if.then26 ], [ false, %if.then32 ], [ false, %if.then38 ], [ false, %if.then44 ], [ false, %if.then50 ], [ false, %if.then56 ], [ true, %if.end60 ], [ %call63, %if.then62 ]
+return:                                           ; preds = %if.then62, %if.then56, %if.then50, %if.then44, %if.then38, %if.then32, %if.then26, %if.then20, %if.end15, %if.end12, %if.end9, %if.end6, %if.end3, %if.end, %entry, %if.end66
+  %retval.0 = phi i1 [ true, %if.end66 ], [ false, %entry ], [ false, %if.end ], [ false, %if.end3 ], [ false, %if.end6 ], [ false, %if.end9 ], [ false, %if.end12 ], [ false, %if.end15 ], [ false, %if.then20 ], [ false, %if.then26 ], [ false, %if.then32 ], [ false, %if.then38 ], [ false, %if.then44 ], [ false, %if.then50 ], [ false, %if.then56 ], [ false, %if.then62 ]
   ret i1 %retval.0
 }
 

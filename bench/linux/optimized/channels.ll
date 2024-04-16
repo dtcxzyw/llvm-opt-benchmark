@@ -72,7 +72,7 @@ define internal noundef i32 @channels_fill_reply(ptr noundef %0, ptr nocapture r
   %16 = call i32 @nla_put(ptr noundef %0, i32 noundef 2, i32 noundef 4, ptr noundef nonnull %11) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #6
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %59
+  br i1 %17, label %18, label %60
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %2, i64 28
@@ -82,7 +82,7 @@ define internal noundef i32 @channels_fill_reply(ptr noundef %0, ptr nocapture r
   %21 = call i32 @nla_put(ptr noundef %0, i32 noundef 6, i32 noundef 4, ptr noundef nonnull %10) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #6
   %22 = icmp eq i32 %21, 0
-  br i1 %22, label %23, label %59
+  br i1 %22, label %23, label %60
 
 23:                                               ; preds = %18, %3
   %24 = getelementptr inbounds i8, ptr %2, i64 16
@@ -96,7 +96,7 @@ define internal noundef i32 @channels_fill_reply(ptr noundef %0, ptr nocapture r
   %28 = call i32 @nla_put(ptr noundef %0, i32 noundef 3, i32 noundef 4, ptr noundef nonnull %9) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
   %29 = icmp eq i32 %28, 0
-  br i1 %29, label %30, label %59
+  br i1 %29, label %30, label %60
 
 30:                                               ; preds = %27
   %31 = getelementptr inbounds i8, ptr %2, i64 32
@@ -106,7 +106,7 @@ define internal noundef i32 @channels_fill_reply(ptr noundef %0, ptr nocapture r
   %33 = call i32 @nla_put(ptr noundef %0, i32 noundef 7, i32 noundef 4, ptr noundef nonnull %8) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #6
   %34 = icmp eq i32 %33, 0
-  br i1 %34, label %35, label %59
+  br i1 %34, label %35, label %60
 
 35:                                               ; preds = %30, %23
   %36 = getelementptr inbounds i8, ptr %2, i64 20
@@ -120,7 +120,7 @@ define internal noundef i32 @channels_fill_reply(ptr noundef %0, ptr nocapture r
   %40 = call i32 @nla_put(ptr noundef %0, i32 noundef 4, i32 noundef 4, ptr noundef nonnull %7) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
   %41 = icmp eq i32 %40, 0
-  br i1 %41, label %42, label %59
+  br i1 %41, label %42, label %60
 
 42:                                               ; preds = %39
   %43 = getelementptr inbounds i8, ptr %2, i64 36
@@ -130,7 +130,7 @@ define internal noundef i32 @channels_fill_reply(ptr noundef %0, ptr nocapture r
   %45 = call i32 @nla_put(ptr noundef %0, i32 noundef 8, i32 noundef 4, ptr noundef nonnull %6) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #6
   %46 = icmp eq i32 %45, 0
-  br i1 %46, label %47, label %59
+  br i1 %46, label %47, label %60
 
 47:                                               ; preds = %42, %35
   %48 = getelementptr inbounds i8, ptr %2, i64 24
@@ -144,7 +144,7 @@ define internal noundef i32 @channels_fill_reply(ptr noundef %0, ptr nocapture r
   %52 = call i32 @nla_put(ptr noundef %0, i32 noundef 5, i32 noundef 4, ptr noundef nonnull %5) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
   %53 = icmp eq i32 %52, 0
-  br i1 %53, label %54, label %59
+  br i1 %53, label %54, label %60
 
 54:                                               ; preds = %51
   %55 = getelementptr inbounds i8, ptr %2, i64 40
@@ -154,12 +154,14 @@ define internal noundef i32 @channels_fill_reply(ptr noundef %0, ptr nocapture r
   %57 = call i32 @nla_put(ptr noundef %0, i32 noundef 9, i32 noundef 4, ptr noundef nonnull %4) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
   %58 = icmp eq i32 %57, 0
-  %spec.select = select i1 %58, i32 0, i32 -90
-  br label %59
+  br i1 %58, label %59, label %60
 
-59:                                               ; preds = %54, %47, %51, %42, %39, %30, %27, %18, %15
-  %60 = phi i32 [ -90, %51 ], [ -90, %42 ], [ -90, %39 ], [ -90, %30 ], [ -90, %27 ], [ -90, %18 ], [ -90, %15 ], [ 0, %47 ], [ %spec.select, %54 ]
-  ret i32 %60
+59:                                               ; preds = %54, %47
+  br label %60
+
+60:                                               ; preds = %59, %54, %51, %42, %39, %30, %27, %18, %15
+  %61 = phi i32 [ 0, %59 ], [ -90, %54 ], [ -90, %51 ], [ -90, %42 ], [ -90, %39 ], [ -90, %30 ], [ -90, %27 ], [ -90, %18 ], [ -90, %15 ]
+  ret i32 %61
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)

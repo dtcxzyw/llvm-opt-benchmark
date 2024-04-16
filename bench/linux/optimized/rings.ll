@@ -112,7 +112,7 @@ define internal noundef i32 @rings_fill_reply(ptr noundef %0, ptr nocapture read
   %31 = call i32 @nla_put(ptr noundef %0, i32 noundef 2, i32 noundef 4, ptr noundef nonnull %18) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #7
   %32 = icmp eq i32 %31, 0
-  br i1 %32, label %33, label %120
+  br i1 %32, label %33, label %121
 
 33:                                               ; preds = %30
   %34 = getelementptr inbounds i8, ptr %2, i64 28
@@ -122,7 +122,7 @@ define internal noundef i32 @rings_fill_reply(ptr noundef %0, ptr nocapture read
   %36 = call i32 @nla_put(ptr noundef %0, i32 noundef 6, i32 noundef 4, ptr noundef nonnull %17) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #7
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %38, label %120
+  br i1 %37, label %38, label %121
 
 38:                                               ; preds = %33, %26
   %39 = getelementptr inbounds i8, ptr %2, i64 16
@@ -136,7 +136,7 @@ define internal noundef i32 @rings_fill_reply(ptr noundef %0, ptr nocapture read
   %43 = call i32 @nla_put(ptr noundef %0, i32 noundef 3, i32 noundef 4, ptr noundef nonnull %16) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #7
   %44 = icmp eq i32 %43, 0
-  br i1 %44, label %45, label %120
+  br i1 %44, label %45, label %121
 
 45:                                               ; preds = %42
   %46 = getelementptr inbounds i8, ptr %2, i64 32
@@ -146,7 +146,7 @@ define internal noundef i32 @rings_fill_reply(ptr noundef %0, ptr nocapture read
   %48 = call i32 @nla_put(ptr noundef %0, i32 noundef 7, i32 noundef 4, ptr noundef nonnull %15) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #7
   %49 = icmp eq i32 %48, 0
-  br i1 %49, label %50, label %120
+  br i1 %49, label %50, label %121
 
 50:                                               ; preds = %45, %38
   %51 = getelementptr inbounds i8, ptr %2, i64 20
@@ -160,7 +160,7 @@ define internal noundef i32 @rings_fill_reply(ptr noundef %0, ptr nocapture read
   %55 = call i32 @nla_put(ptr noundef %0, i32 noundef 4, i32 noundef 4, ptr noundef nonnull %14) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #7
   %56 = icmp eq i32 %55, 0
-  br i1 %56, label %57, label %120
+  br i1 %56, label %57, label %121
 
 57:                                               ; preds = %54
   %58 = getelementptr inbounds i8, ptr %2, i64 36
@@ -170,7 +170,7 @@ define internal noundef i32 @rings_fill_reply(ptr noundef %0, ptr nocapture read
   %60 = call i32 @nla_put(ptr noundef %0, i32 noundef 8, i32 noundef 4, ptr noundef nonnull %13) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #7
   %61 = icmp eq i32 %60, 0
-  br i1 %61, label %62, label %120
+  br i1 %61, label %62, label %121
 
 62:                                               ; preds = %57, %50
   %63 = getelementptr inbounds i8, ptr %2, i64 24
@@ -184,7 +184,7 @@ define internal noundef i32 @rings_fill_reply(ptr noundef %0, ptr nocapture read
   %67 = call i32 @nla_put(ptr noundef %0, i32 noundef 5, i32 noundef 4, ptr noundef nonnull %12) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #7
   %68 = icmp eq i32 %67, 0
-  br i1 %68, label %69, label %120
+  br i1 %68, label %69, label %121
 
 69:                                               ; preds = %66
   %70 = getelementptr inbounds i8, ptr %2, i64 40
@@ -194,7 +194,7 @@ define internal noundef i32 @rings_fill_reply(ptr noundef %0, ptr nocapture read
   %72 = call i32 @nla_put(ptr noundef %0, i32 noundef 9, i32 noundef 4, ptr noundef nonnull %11) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #7
   %73 = icmp eq i32 %72, 0
-  br i1 %73, label %74, label %120
+  br i1 %73, label %74, label %121
 
 74:                                               ; preds = %69, %62
   %75 = load i32, ptr %19, align 4
@@ -207,7 +207,7 @@ define internal noundef i32 @rings_fill_reply(ptr noundef %0, ptr nocapture read
   %78 = call i32 @nla_put(ptr noundef %0, i32 noundef 10, i32 noundef 4, ptr noundef nonnull %10) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #7
   %79 = icmp eq i32 %78, 0
-  br i1 %79, label %80, label %120
+  br i1 %79, label %80, label %121
 
 80:                                               ; preds = %77, %74
   %81 = load i8, ptr %22, align 4
@@ -220,7 +220,7 @@ define internal noundef i32 @rings_fill_reply(ptr noundef %0, ptr nocapture read
   %84 = call i32 @nla_put(ptr noundef %0, i32 noundef 11, i32 noundef 1, ptr noundef nonnull %9) #7
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #7
   %85 = icmp eq i32 %84, 0
-  br i1 %85, label %86, label %120
+  br i1 %85, label %86, label %121
 
 86:                                               ; preds = %83, %80
   %87 = getelementptr inbounds i8, ptr %2, i64 52
@@ -234,7 +234,7 @@ define internal noundef i32 @rings_fill_reply(ptr noundef %0, ptr nocapture read
   %91 = call i32 @nla_put(ptr noundef %0, i32 noundef 12, i32 noundef 4, ptr noundef nonnull %8) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #7
   %92 = icmp eq i32 %91, 0
-  br i1 %92, label %93, label %120
+  br i1 %92, label %93, label %121
 
 93:                                               ; preds = %90, %86
   %94 = getelementptr inbounds i8, ptr %2, i64 49
@@ -246,7 +246,7 @@ define internal noundef i32 @rings_fill_reply(ptr noundef %0, ptr nocapture read
   %98 = call i32 @nla_put(ptr noundef %0, i32 noundef 13, i32 noundef 1, ptr noundef nonnull %7) #7
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #7
   %99 = icmp eq i32 %98, 0
-  br i1 %99, label %100, label %120
+  br i1 %99, label %100, label %121
 
 100:                                              ; preds = %93
   %101 = getelementptr inbounds i8, ptr %2, i64 50
@@ -258,7 +258,7 @@ define internal noundef i32 @rings_fill_reply(ptr noundef %0, ptr nocapture read
   %105 = call i32 @nla_put(ptr noundef %0, i32 noundef 14, i32 noundef 1, ptr noundef nonnull %6) #7
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #7
   %106 = icmp eq i32 %105, 0
-  br i1 %106, label %107, label %120
+  br i1 %106, label %107, label %121
 
 107:                                              ; preds = %100
   %108 = and i32 %21, 16
@@ -273,7 +273,7 @@ define internal noundef i32 @rings_fill_reply(ptr noundef %0, ptr nocapture read
   %113 = call i32 @nla_put(ptr noundef %0, i32 noundef 16, i32 noundef 4, ptr noundef nonnull %5) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
   %114 = icmp eq i32 %113, 0
-  br i1 %114, label %115, label %120
+  br i1 %114, label %115, label %121
 
 115:                                              ; preds = %110
   %116 = getelementptr inbounds i8, ptr %2, i64 56
@@ -283,12 +283,14 @@ define internal noundef i32 @rings_fill_reply(ptr noundef %0, ptr nocapture read
   %118 = call i32 @nla_put(ptr noundef %0, i32 noundef 15, i32 noundef 4, ptr noundef nonnull %4) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
   %119 = icmp eq i32 %118, 0
-  %spec.select = select i1 %119, i32 0, i32 -90
-  br label %120
+  br i1 %119, label %120, label %121
 
-120:                                              ; preds = %115, %107, %110, %100, %93, %90, %83, %77, %69, %66, %57, %54, %45, %42, %33, %30
-  %121 = phi i32 [ -90, %110 ], [ -90, %100 ], [ -90, %93 ], [ -90, %90 ], [ -90, %83 ], [ -90, %77 ], [ -90, %69 ], [ -90, %66 ], [ -90, %57 ], [ -90, %54 ], [ -90, %45 ], [ -90, %42 ], [ -90, %33 ], [ -90, %30 ], [ 0, %107 ], [ %spec.select, %115 ]
-  ret i32 %121
+120:                                              ; preds = %115, %107
+  br label %121
+
+121:                                              ; preds = %120, %115, %110, %100, %93, %90, %83, %77, %69, %66, %57, %54, %45, %42, %33, %30
+  %122 = phi i32 [ 0, %120 ], [ -90, %115 ], [ -90, %110 ], [ -90, %100 ], [ -90, %93 ], [ -90, %90 ], [ -90, %83 ], [ -90, %77 ], [ -90, %69 ], [ -90, %66 ], [ -90, %57 ], [ -90, %54 ], [ -90, %45 ], [ -90, %42 ], [ -90, %33 ], [ -90, %30 ]
+  ret i32 %122
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

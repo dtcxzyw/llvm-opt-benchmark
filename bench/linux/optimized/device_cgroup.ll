@@ -854,7 +854,7 @@ define internal noundef i64 @devcgroup_access_write(ptr noundef %0, ptr noundef 
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #9
   call void @mutex_unlock(ptr noundef nonnull @devcgroup_mutex) #9
   %189 = sext i32 %.ph to i64
-  br label %193
+  br label %194
 
 .thread15:                                        ; preds = %.loopexit16, %55, %30, %174
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %7) #9
@@ -871,12 +871,14 @@ define internal noundef i64 @devcgroup_access_write(ptr noundef %0, ptr noundef 
   call void @mutex_unlock(ptr noundef nonnull @devcgroup_mutex) #9
   %191 = icmp eq i32 %190, 0
   %192 = sext i32 %190 to i64
-  %spec.select = select i1 %191, i64 %2, i64 %192
-  br label %193
+  br i1 %191, label %193, label %194
 
-193:                                              ; preds = %.loopexit, %.thread15, %.thread13
-  %194 = phi i64 [ %189, %.thread13 ], [ %2, %.thread15 ], [ %spec.select, %.loopexit ]
-  ret i64 %194
+193:                                              ; preds = %.thread15, %.loopexit
+  br label %194
+
+194:                                              ; preds = %.thread13, %.loopexit, %193
+  %195 = phi i64 [ %2, %193 ], [ %192, %.loopexit ], [ %189, %.thread13 ]
+  ret i64 %195
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

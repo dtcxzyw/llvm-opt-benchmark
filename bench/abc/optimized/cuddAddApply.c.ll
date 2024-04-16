@@ -601,17 +601,17 @@ define ptr @Cudd_addAgreement(ptr nocapture noundef readonly %0, ptr nocapture n
   %4 = load ptr, ptr %1, align 8
   %5 = load ptr, ptr %2, align 8
   %6 = icmp eq ptr %4, %5
-  br i1 %6, label %19, label %7
+  br i1 %6, label %20, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %0, i64 72
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %4, %9
-  br i1 %10, label %19, label %11
+  br i1 %10, label %20, label %11
 
 11:                                               ; preds = %7
   %12 = icmp eq ptr %5, %9
-  br i1 %12, label %19, label %13
+  br i1 %12, label %20, label %13
 
 13:                                               ; preds = %11
   %14 = load i32, ptr %4, align 8
@@ -621,11 +621,13 @@ define ptr @Cudd_addAgreement(ptr nocapture noundef readonly %0, ptr nocapture n
 16:                                               ; preds = %13
   %17 = load i32, ptr %5, align 8
   %18 = icmp eq i32 %17, 2147483647
-  %spec.select = select i1 %18, ptr %9, ptr null
-  br label %19
+  br i1 %18, label %20, label %19
 
-19:                                               ; preds = %16, %13, %11, %7, %3
-  %.0 = phi ptr [ %4, %3 ], [ %4, %7 ], [ %5, %11 ], [ null, %13 ], [ %spec.select, %16 ]
+19:                                               ; preds = %16, %13
+  br label %20
+
+20:                                               ; preds = %16, %11, %7, %3, %19
+  %.0 = phi ptr [ null, %19 ], [ %4, %3 ], [ %4, %7 ], [ %5, %11 ], [ %9, %16 ]
   ret ptr %.0
 }
 

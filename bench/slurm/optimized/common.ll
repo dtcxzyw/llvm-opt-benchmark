@@ -850,7 +850,7 @@ define dso_local noundef i32 @commit_check(ptr noundef %0) local_unnamed_addr #1
   %7 = tail call i32 @fileno(ptr noundef %6) #20
   %8 = load i32, ptr @rollback_flag, align 4
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %47, label %9
+  br i1 %.not, label %48, label %9
 
 9:                                                ; preds = %1
   %10 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, ptr noundef %0)
@@ -930,11 +930,13 @@ define dso_local noundef i32 @commit_check(ptr noundef %0) local_unnamed_addr #1
 45:                                               ; preds = %.critedge
   %46 = and i8 %.033, -33
   %or.cond11 = icmp eq i8 %46, 89
-  %spec.select = zext i1 %or.cond11 to i32
-  br label %47
+  br i1 %or.cond11, label %48, label %47
 
-47:                                               ; preds = %45, %44, %1
-  %.0 = phi i32 [ 1, %1 ], [ 0, %44 ], [ %spec.select, %45 ]
+47:                                               ; preds = %45, %44
+  br label %48
+
+48:                                               ; preds = %45, %1, %47
+  %.0 = phi i32 [ 0, %47 ], [ 1, %1 ], [ 1, %45 ]
   ret i32 %.0
 }
 

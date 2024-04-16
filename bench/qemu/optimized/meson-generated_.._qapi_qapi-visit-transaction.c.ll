@@ -843,11 +843,11 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_TransactionAction(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_TransactionProperties_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @visit_type_TransactionProperties_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #1 {
 entry:
   %value.i = alloca i32, align 4
   %call = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.4, ptr noundef %obj) #5
-  br i1 %call, label %if.then, label %return
+  br i1 %call, label %if.then, label %if.end3
 
 if.then:                                          ; preds = %entry
   %completion_mode = getelementptr inbounds i8, ptr %obj, i64 4
@@ -858,10 +858,13 @@ if.then:                                          ; preds = %entry
   %1 = load i32, ptr %value.i, align 4
   store i32 %1, ptr %completion_mode, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i)
+  br i1 %call.i, label %if.end3, label %return
+
+if.end3:                                          ; preds = %if.then, %entry
   br label %return
 
-return:                                           ; preds = %if.then, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ %call.i, %if.then ]
+return:                                           ; preds = %if.then, %if.end3
+  %retval.0 = phi i1 [ true, %if.end3 ], [ false, %if.then ]
   ret i1 %retval.0
 }
 
@@ -893,9 +896,9 @@ if.else:                                          ; preds = %if.then1
 
 if.end5:                                          ; preds = %if.end
   %call.i = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.4, ptr noundef nonnull %0) #5
-  br i1 %call.i, label %visit_type_TransactionProperties_members.exit, label %out_obj
+  br i1 %call.i, label %if.then.i, label %out_obj
 
-visit_type_TransactionProperties_members.exit:    ; preds = %if.end5
+if.then.i:                                        ; preds = %if.end5
   %completion_mode.i = getelementptr inbounds i8, ptr %0, i64 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i.i)
   %1 = load i32, ptr %completion_mode.i, align 4
@@ -906,11 +909,11 @@ visit_type_TransactionProperties_members.exit:    ; preds = %if.end5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i.i)
   br i1 %call.i.i, label %out_obj, label %out_obj.thread16
 
-out_obj.thread16:                                 ; preds = %visit_type_TransactionProperties_members.exit
+out_obj.thread16:                                 ; preds = %if.then.i
   call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %land.lhs.true
 
-out_obj:                                          ; preds = %if.end5, %visit_type_TransactionProperties_members.exit
+out_obj:                                          ; preds = %if.then.i, %if.end5
   %call9 = call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #5
   call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br i1 %call9, label %return, label %land.lhs.true
@@ -1002,14 +1005,17 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call2 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.6, ptr noundef nonnull %has_properties) #5
-  br i1 %call2, label %if.then3, label %return
+  br i1 %call2, label %if.then3, label %if.end8
 
 if.then3:                                         ; preds = %if.end
   %call5 = call zeroext i1 @visit_type_TransactionProperties(ptr noundef %v, ptr noundef nonnull @.str.6, ptr noundef nonnull %properties, ptr noundef %errp)
+  br i1 %call5, label %if.end8, label %return
+
+if.end8:                                          ; preds = %if.then3, %if.end
   br label %return
 
-return:                                           ; preds = %if.then3, %if.end, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ true, %if.end ], [ %call5, %if.then3 ]
+return:                                           ; preds = %if.then3, %entry, %if.end8
+  %retval.0 = phi i1 [ true, %if.end8 ], [ false, %entry ], [ false, %if.then3 ]
   ret i1 %retval.0
 }
 

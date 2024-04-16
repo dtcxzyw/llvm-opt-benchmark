@@ -260,11 +260,11 @@ define noundef i32 @opal_hash_table_set_value_uint32(ptr nocapture noundef %0, i
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds %struct.opal_hash_element_t, ptr %10, i64 %8
   %12 = load i32, ptr %11, align 8
-  %.not32 = icmp eq i32 %12, 0
-  br i1 %.not32, label %._crit_edge, label %.lr.ph
+  %.not34 = icmp eq i32 %12, 0
+  br i1 %.not34, label %._crit_edge, label %.lr.ph
 
 13:                                               ; preds = %.lr.ph
-  %14 = add i64 %spec.store.select33, 1
+  %14 = add i64 %spec.store.select35, 1
   %15 = icmp eq i64 %14, %5
   %spec.store.select = select i1 %15, i64 0, i64 %14
   %16 = getelementptr inbounds %struct.opal_hash_element_t, ptr %10, i64 %spec.store.select
@@ -273,12 +273,12 @@ define noundef i32 @opal_hash_table_set_value_uint32(ptr nocapture noundef %0, i
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %13, %3
-  %.lcssa28 = phi ptr [ %11, %3 ], [ %16, %13 ]
-  %18 = getelementptr inbounds i8, ptr %.lcssa28, i64 8
+  %.lcssa30 = phi ptr [ %11, %3 ], [ %16, %13 ]
+  %18 = getelementptr inbounds i8, ptr %.lcssa30, i64 8
   store i32 %1, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %.lcssa28, i64 24
+  %19 = getelementptr inbounds i8, ptr %.lcssa30, i64 24
   store ptr %2, ptr %19, align 8
-  store i32 1, ptr %.lcssa28, align 8
+  store i32 1, ptr %.lcssa30, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 32
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %21, 1
@@ -309,7 +309,7 @@ define noundef i32 @opal_hash_table_set_value_uint32(ptr nocapture noundef %0, i
 
 .preheader.i:                                     ; preds = %25
   %.not39.i = icmp eq i64 %27, 0
-  br i1 %.not39.i, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %.not39.i, label %opal_hash_grow.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %56
   %.03438.i = phi i64 [ %57, %56 ], [ 0, %.preheader.i ]
@@ -343,9 +343,9 @@ define noundef i32 @opal_hash_table_set_value_uint32(ptr nocapture noundef %0, i
 56:                                               ; preds = %55, %.lr.ph.i
   %57 = add nuw i64 %.03438.i, 1
   %exitcond.not.i = icmp eq i64 %57, %27
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !6
+  br i1 %exitcond.not.i, label %opal_hash_grow.exit.thread, label %.lr.ph.i, !llvm.loop !6
 
-._crit_edge.i:                                    ; preds = %56, %.preheader.i
+opal_hash_grow.exit.thread:                       ; preds = %56, %.preheader.i
   store ptr %40, ptr %9, align 8
   store i64 %39, ptr %4, align 8
   %58 = getelementptr inbounds i8, ptr %0, i64 48
@@ -362,7 +362,7 @@ define noundef i32 @opal_hash_table_set_value_uint32(ptr nocapture noundef %0, i
 
 .lr.ph:                                           ; preds = %3, %13
   %66 = phi ptr [ %16, %13 ], [ %11, %3 ]
-  %spec.store.select33 = phi i64 [ %spec.store.select, %13 ], [ %8, %3 ]
+  %spec.store.select35 = phi i64 [ %spec.store.select, %13 ], [ %8, %3 ]
   %67 = getelementptr inbounds i8, ptr %66, i64 8
   %68 = load i32, ptr %67, align 8
   %69 = icmp eq i32 %68, %1
@@ -373,8 +373,8 @@ define noundef i32 @opal_hash_table_set_value_uint32(ptr nocapture noundef %0, i
   store ptr %2, ptr %71, align 8
   br label %opal_hash_grow.exit
 
-opal_hash_grow.exit:                              ; preds = %._crit_edge.i, %25, %._crit_edge, %70
-  %.0 = phi i32 [ 0, %70 ], [ 0, %._crit_edge ], [ 0, %._crit_edge.i ], [ -2, %25 ]
+opal_hash_grow.exit:                              ; preds = %._crit_edge, %opal_hash_grow.exit.thread, %25, %70
+  %.0 = phi i32 [ 0, %70 ], [ -2, %25 ], [ 0, %opal_hash_grow.exit.thread ], [ 0, %._crit_edge ]
   ret i32 %.0
 }
 
@@ -534,11 +534,11 @@ define noundef i32 @opal_hash_table_set_value_uint64(ptr nocapture noundef %0, i
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds %struct.opal_hash_element_t, ptr %9, i64 %7
   %11 = load i32, ptr %10, align 8
-  %.not32 = icmp eq i32 %11, 0
-  br i1 %.not32, label %._crit_edge, label %.lr.ph
+  %.not34 = icmp eq i32 %11, 0
+  br i1 %.not34, label %._crit_edge, label %.lr.ph
 
 12:                                               ; preds = %.lr.ph
-  %13 = add i64 %spec.store.select33, 1
+  %13 = add i64 %spec.store.select35, 1
   %14 = icmp eq i64 %13, %5
   %spec.store.select = select i1 %14, i64 0, i64 %13
   %15 = getelementptr inbounds %struct.opal_hash_element_t, ptr %9, i64 %spec.store.select
@@ -547,12 +547,12 @@ define noundef i32 @opal_hash_table_set_value_uint64(ptr nocapture noundef %0, i
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %12, %3
-  %.lcssa28 = phi ptr [ %10, %3 ], [ %15, %12 ]
-  %17 = getelementptr inbounds i8, ptr %.lcssa28, i64 8
+  %.lcssa30 = phi ptr [ %10, %3 ], [ %15, %12 ]
+  %17 = getelementptr inbounds i8, ptr %.lcssa30, i64 8
   store i64 %1, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %.lcssa28, i64 24
+  %18 = getelementptr inbounds i8, ptr %.lcssa30, i64 24
   store ptr %2, ptr %18, align 8
-  store i32 1, ptr %.lcssa28, align 8
+  store i32 1, ptr %.lcssa30, align 8
   %19 = getelementptr inbounds i8, ptr %0, i64 32
   %20 = load i64, ptr %19, align 8
   %21 = add i64 %20, 1
@@ -583,7 +583,7 @@ define noundef i32 @opal_hash_table_set_value_uint64(ptr nocapture noundef %0, i
 
 .preheader.i:                                     ; preds = %24
   %.not39.i = icmp eq i64 %26, 0
-  br i1 %.not39.i, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %.not39.i, label %opal_hash_grow.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %55
   %.03438.i = phi i64 [ %56, %55 ], [ 0, %.preheader.i ]
@@ -617,9 +617,9 @@ define noundef i32 @opal_hash_table_set_value_uint64(ptr nocapture noundef %0, i
 55:                                               ; preds = %54, %.lr.ph.i
   %56 = add nuw i64 %.03438.i, 1
   %exitcond.not.i = icmp eq i64 %56, %26
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !6
+  br i1 %exitcond.not.i, label %opal_hash_grow.exit.thread, label %.lr.ph.i, !llvm.loop !6
 
-._crit_edge.i:                                    ; preds = %55, %.preheader.i
+opal_hash_grow.exit.thread:                       ; preds = %55, %.preheader.i
   store ptr %39, ptr %8, align 8
   store i64 %38, ptr %4, align 8
   %57 = getelementptr inbounds i8, ptr %0, i64 48
@@ -636,7 +636,7 @@ define noundef i32 @opal_hash_table_set_value_uint64(ptr nocapture noundef %0, i
 
 .lr.ph:                                           ; preds = %3, %12
   %65 = phi ptr [ %15, %12 ], [ %10, %3 ]
-  %spec.store.select33 = phi i64 [ %spec.store.select, %12 ], [ %7, %3 ]
+  %spec.store.select35 = phi i64 [ %spec.store.select, %12 ], [ %7, %3 ]
   %66 = getelementptr inbounds i8, ptr %65, i64 8
   %67 = load i64, ptr %66, align 8
   %68 = icmp eq i64 %67, %1
@@ -647,8 +647,8 @@ define noundef i32 @opal_hash_table_set_value_uint64(ptr nocapture noundef %0, i
   store ptr %2, ptr %70, align 8
   br label %opal_hash_grow.exit
 
-opal_hash_grow.exit:                              ; preds = %._crit_edge.i, %24, %._crit_edge, %69
-  %.0 = phi i32 [ 0, %69 ], [ 0, %._crit_edge ], [ 0, %._crit_edge.i ], [ -2, %24 ]
+opal_hash_grow.exit:                              ; preds = %._crit_edge, %opal_hash_grow.exit.thread, %24, %69
+  %.0 = phi i32 [ 0, %69 ], [ -2, %24 ], [ 0, %opal_hash_grow.exit.thread ], [ 0, %._crit_edge ]
   ret i32 %.0
 }
 
@@ -850,20 +850,20 @@ opal_hash_hash_key_ptr.exit:                      ; preds = %.lr.ph.i, %4
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds %struct.opal_hash_element_t, ptr %16, i64 %14
   %18 = load i32, ptr %17, align 8
-  %.not47 = icmp eq i32 %18, 0
-  br i1 %.not47, label %._crit_edge, label %.lr.ph
+  %.not49 = icmp eq i32 %18, 0
+  br i1 %.not49, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %79, %opal_hash_hash_key_ptr.exit
-  %.lcssa42 = phi ptr [ %17, %opal_hash_hash_key_ptr.exit ], [ %82, %79 ]
+  %.lcssa44 = phi ptr [ %17, %opal_hash_hash_key_ptr.exit ], [ %82, %79 ]
   %19 = tail call noalias ptr @malloc(i64 noundef %2) #19
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %19, ptr align 1 %1, i64 %2, i1 false)
-  %20 = getelementptr inbounds i8, ptr %.lcssa42, i64 8
+  %20 = getelementptr inbounds i8, ptr %.lcssa44, i64 8
   store ptr %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %.lcssa42, i64 16
+  %21 = getelementptr inbounds i8, ptr %.lcssa44, i64 16
   store i64 %2, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %.lcssa42, i64 24
+  %22 = getelementptr inbounds i8, ptr %.lcssa44, i64 24
   store ptr %3, ptr %22, align 8
-  store i32 1, ptr %.lcssa42, align 8
+  store i32 1, ptr %.lcssa44, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 32
   %24 = load i64, ptr %23, align 8
   %25 = add i64 %24, 1
@@ -894,7 +894,7 @@ opal_hash_hash_key_ptr.exit:                      ; preds = %.lr.ph.i, %4
 
 .preheader.i:                                     ; preds = %28
   %.not39.i = icmp eq i64 %30, 0
-  br i1 %.not39.i, label %._crit_edge.i, label %.lr.ph.i39
+  br i1 %.not39.i, label %opal_hash_grow.exit.thread, label %.lr.ph.i39
 
 .lr.ph.i39:                                       ; preds = %.preheader.i, %59
   %.03438.i = phi i64 [ %60, %59 ], [ 0, %.preheader.i ]
@@ -928,9 +928,9 @@ opal_hash_hash_key_ptr.exit:                      ; preds = %.lr.ph.i, %4
 59:                                               ; preds = %58, %.lr.ph.i39
   %60 = add nuw i64 %.03438.i, 1
   %exitcond.not.i41 = icmp eq i64 %60, %30
-  br i1 %exitcond.not.i41, label %._crit_edge.i, label %.lr.ph.i39, !llvm.loop !6
+  br i1 %exitcond.not.i41, label %opal_hash_grow.exit.thread, label %.lr.ph.i39, !llvm.loop !6
 
-._crit_edge.i:                                    ; preds = %59, %.preheader.i
+opal_hash_grow.exit.thread:                       ; preds = %59, %.preheader.i
   store ptr %43, ptr %15, align 8
   store i64 %42, ptr %5, align 8
   %61 = getelementptr inbounds i8, ptr %0, i64 48
@@ -947,7 +947,7 @@ opal_hash_hash_key_ptr.exit:                      ; preds = %.lr.ph.i, %4
 
 .lr.ph:                                           ; preds = %opal_hash_hash_key_ptr.exit, %79
   %69 = phi ptr [ %82, %79 ], [ %17, %opal_hash_hash_key_ptr.exit ]
-  %spec.store.select48 = phi i64 [ %spec.store.select, %79 ], [ %14, %opal_hash_hash_key_ptr.exit ]
+  %spec.store.select50 = phi i64 [ %spec.store.select, %79 ], [ %14, %opal_hash_hash_key_ptr.exit ]
   %70 = getelementptr inbounds i8, ptr %69, i64 16
   %71 = load i64, ptr %70, align 8
   %72 = icmp eq i64 %71, %2
@@ -966,7 +966,7 @@ opal_hash_hash_key_ptr.exit:                      ; preds = %.lr.ph.i, %4
   br label %opal_hash_grow.exit
 
 79:                                               ; preds = %.lr.ph, %73
-  %80 = add i64 %spec.store.select48, 1
+  %80 = add i64 %spec.store.select50, 1
   %81 = icmp eq i64 %80, %6
   %spec.store.select = select i1 %81, i64 0, i64 %80
   %82 = getelementptr inbounds %struct.opal_hash_element_t, ptr %16, i64 %spec.store.select
@@ -974,8 +974,8 @@ opal_hash_hash_key_ptr.exit:                      ; preds = %.lr.ph.i, %4
   %.not = icmp eq i32 %83, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-opal_hash_grow.exit:                              ; preds = %._crit_edge.i, %28, %._crit_edge, %77
-  %.0 = phi i32 [ 0, %77 ], [ 0, %._crit_edge ], [ 0, %._crit_edge.i ], [ -2, %28 ]
+opal_hash_grow.exit:                              ; preds = %._crit_edge, %opal_hash_grow.exit.thread, %28, %77
+  %.0 = phi i32 [ 0, %77 ], [ -2, %28 ], [ 0, %opal_hash_grow.exit.thread ], [ 0, %._crit_edge ]
   ret i32 %.0
 }
 

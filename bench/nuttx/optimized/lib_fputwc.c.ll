@@ -4,14 +4,14 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define i32 @fputwc_unlocked(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define noundef i32 @fputwc_unlocked(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca [4 x i8], align 1
   %isascii = icmp ult i32 %0, 128
   br i1 %isascii, label %4, label %6
 
 4:                                                ; preds = %2
   %5 = tail call i32 @putc_unlocked(i32 noundef %0, ptr noundef %1)
-  br label %13
+  br label %14
 
 6:                                                ; preds = %2
   %7 = call i32 @wctomb(ptr noundef nonnull %3, i32 noundef %0) #4
@@ -22,11 +22,13 @@ define i32 @fputwc_unlocked(i32 noundef %0, ptr noundef %1) local_unnamed_addr #
   %10 = zext nneg i32 %7 to i64
   %11 = call i64 @lib_fwrite_unlocked(ptr noundef nonnull %3, i64 noundef %10, ptr noundef %1) #4
   %12 = icmp slt i64 %11, %10
-  %spec.select = select i1 %12, i32 -1, i32 %0
-  br label %13
+  br i1 %12, label %13, label %14
 
-13:                                               ; preds = %9, %6, %4
-  %.0 = phi i32 [ %5, %4 ], [ -1, %6 ], [ %spec.select, %9 ]
+13:                                               ; preds = %9, %6
+  br label %14
+
+14:                                               ; preds = %9, %13, %4
+  %.0 = phi i32 [ %5, %4 ], [ -1, %13 ], [ %0, %9 ]
   ret i32 %.0
 }
 
@@ -38,7 +40,7 @@ declare i32 @wctomb(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i64 @lib_fwrite_unlocked(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @fputwc(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define noundef i32 @fputwc(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca [4 x i8], align 1
   tail call void @flockfile(ptr noundef %1)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
@@ -52,17 +54,19 @@ define i32 @fputwc(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 6:                                                ; preds = %2
   %7 = call i32 @wctomb(ptr noundef nonnull %3, i32 noundef %0) #4
   %8 = icmp slt i32 %7, 0
-  br i1 %8, label %fputwc_unlocked.exit, label %9
+  br i1 %8, label %13, label %9
 
 9:                                                ; preds = %6
   %10 = zext nneg i32 %7 to i64
   %11 = call i64 @lib_fwrite_unlocked(ptr noundef nonnull %3, i64 noundef %10, ptr noundef %1) #4
   %12 = icmp slt i64 %11, %10
-  %spec.select.i = select i1 %12, i32 -1, i32 %0
+  br i1 %12, label %13, label %fputwc_unlocked.exit
+
+13:                                               ; preds = %9, %6
   br label %fputwc_unlocked.exit
 
-fputwc_unlocked.exit:                             ; preds = %4, %6, %9
-  %.0.i = phi i32 [ %5, %4 ], [ -1, %6 ], [ %spec.select.i, %9 ]
+fputwc_unlocked.exit:                             ; preds = %4, %9, %13
+  %.0.i = phi i32 [ %5, %4 ], [ -1, %13 ], [ %0, %9 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @funlockfile(ptr noundef %1)
   ret i32 %.0.i

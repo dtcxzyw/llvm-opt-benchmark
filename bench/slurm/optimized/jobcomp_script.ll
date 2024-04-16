@@ -1828,94 +1828,96 @@ define noundef i32 @jobcomp_p_log_record(ptr noundef %0) local_unnamed_addr #0 {
   %175 = getelementptr inbounds i8, ptr %173, i64 472
   %176 = load ptr, ptr %175, align 8
   %.not151.i = icmp eq ptr %176, null
-  %spec.select.i = select i1 %.not151.i, ptr @.str.79, ptr %176
-  br label %177
+  br i1 %.not151.i, label %177, label %178
 
 177:                                              ; preds = %174, %171
-  %.str.79.sink.i = phi ptr [ @.str.79, %171 ], [ %spec.select.i, %174 ]
-  %178 = tail call ptr @slurm_xstrdup(ptr noundef nonnull %.str.79.sink.i) #10
-  %179 = getelementptr inbounds i8, ptr %6, i64 160
-  store ptr %178, ptr %179, align 8
-  %180 = load ptr, ptr %12, align 8
-  %.not152.i = icmp eq ptr %180, null
-  br i1 %.not152.i, label %_jobcomp_info_create.exit, label %181
+  br label %178
 
-181:                                              ; preds = %177
-  %182 = getelementptr inbounds i8, ptr %180, i64 424
-  %183 = load ptr, ptr %182, align 8
-  %.not153.i = icmp eq ptr %183, null
-  br i1 %.not153.i, label %187, label %184
+178:                                              ; preds = %177, %174
+  %.str.79.sink.i = phi ptr [ @.str.79, %177 ], [ %176, %174 ]
+  %179 = tail call ptr @slurm_xstrdup(ptr noundef nonnull %.str.79.sink.i) #10
+  %180 = getelementptr inbounds i8, ptr %6, i64 160
+  store ptr %179, ptr %180, align 8
+  %181 = load ptr, ptr %12, align 8
+  %.not152.i = icmp eq ptr %181, null
+  br i1 %.not152.i, label %_jobcomp_info_create.exit, label %182
 
-184:                                              ; preds = %181
-  %185 = tail call ptr @slurm_xstrdup(ptr noundef nonnull %183) #10
-  %186 = getelementptr inbounds i8, ptr %6, i64 192
-  store ptr %185, ptr %186, align 8
+182:                                              ; preds = %178
+  %183 = getelementptr inbounds i8, ptr %181, i64 424
+  %184 = load ptr, ptr %183, align 8
+  %.not153.i = icmp eq ptr %184, null
+  br i1 %.not153.i, label %188, label %185
+
+185:                                              ; preds = %182
+  %186 = tail call ptr @slurm_xstrdup(ptr noundef nonnull %184) #10
+  %187 = getelementptr inbounds i8, ptr %6, i64 192
+  store ptr %186, ptr %187, align 8
   %.pre.i = load ptr, ptr %12, align 8
-  br label %187
+  br label %188
 
-187:                                              ; preds = %184, %181
-  %188 = phi ptr [ %.pre.i, %184 ], [ %180, %181 ]
-  %189 = getelementptr inbounds i8, ptr %188, i64 432
-  %190 = load ptr, ptr %189, align 8
-  %.not154.i = icmp eq ptr %190, null
-  br i1 %.not154.i, label %194, label %191
+188:                                              ; preds = %185, %182
+  %189 = phi ptr [ %.pre.i, %185 ], [ %181, %182 ]
+  %190 = getelementptr inbounds i8, ptr %189, i64 432
+  %191 = load ptr, ptr %190, align 8
+  %.not154.i = icmp eq ptr %191, null
+  br i1 %.not154.i, label %195, label %192
 
-191:                                              ; preds = %187
-  %192 = tail call ptr @slurm_xstrdup(ptr noundef nonnull %190) #10
-  %193 = getelementptr inbounds i8, ptr %6, i64 200
-  store ptr %192, ptr %193, align 8
+192:                                              ; preds = %188
+  %193 = tail call ptr @slurm_xstrdup(ptr noundef nonnull %191) #10
+  %194 = getelementptr inbounds i8, ptr %6, i64 200
+  store ptr %193, ptr %194, align 8
   %.pre156.i = load ptr, ptr %12, align 8
-  br label %194
+  br label %195
 
-194:                                              ; preds = %191, %187
-  %195 = phi ptr [ %.pre156.i, %191 ], [ %188, %187 ]
-  %196 = getelementptr inbounds i8, ptr %195, i64 416
-  %197 = load ptr, ptr %196, align 8
-  %.not155.i = icmp eq ptr %197, null
-  br i1 %.not155.i, label %_jobcomp_info_create.exit, label %198
+195:                                              ; preds = %192, %188
+  %196 = phi ptr [ %.pre156.i, %192 ], [ %189, %188 ]
+  %197 = getelementptr inbounds i8, ptr %196, i64 416
+  %198 = load ptr, ptr %197, align 8
+  %.not155.i = icmp eq ptr %198, null
+  br i1 %.not155.i, label %_jobcomp_info_create.exit, label %199
 
-198:                                              ; preds = %194
-  %199 = tail call ptr @slurm_xstrdup(ptr noundef nonnull %197) #10
-  %200 = getelementptr inbounds i8, ptr %6, i64 208
-  store ptr %199, ptr %200, align 8
+199:                                              ; preds = %195
+  %200 = tail call ptr @slurm_xstrdup(ptr noundef nonnull %198) #10
+  %201 = getelementptr inbounds i8, ptr %6, i64 208
+  store ptr %200, ptr %201, align 8
   br label %_jobcomp_info_create.exit
 
-_jobcomp_info_create.exit:                        ; preds = %198, %194, %177
-  %201 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @comp_list_mutex) #10
-  %.not12 = icmp eq i32 %201, 0
-  br i1 %.not12, label %204, label %202
+_jobcomp_info_create.exit:                        ; preds = %199, %195, %178
+  %202 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @comp_list_mutex) #10
+  %.not12 = icmp eq i32 %202, 0
+  br i1 %.not12, label %205, label %203
 
-202:                                              ; preds = %_jobcomp_info_create.exit
-  %203 = tail call ptr @__errno_location() #11
-  store i32 %201, ptr %203, align 4
+203:                                              ; preds = %_jobcomp_info_create.exit
+  %204 = tail call ptr @__errno_location() #11
+  store i32 %202, ptr %204, align 4
   tail call void (ptr, ...) @slurm_fatal(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 639, ptr noundef nonnull @__func__.jobcomp_p_log_record) #12
   unreachable
 
-204:                                              ; preds = %_jobcomp_info_create.exit
-  %205 = load ptr, ptr @comp_list, align 8
-  tail call void @slurm_list_append(ptr noundef %205, ptr noundef nonnull %6) #10
-  %206 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull @comp_list_cond) #10
-  %.not13 = icmp eq i32 %206, 0
-  br i1 %.not13, label %210, label %207
+205:                                              ; preds = %_jobcomp_info_create.exit
+  %206 = load ptr, ptr @comp_list, align 8
+  tail call void @slurm_list_append(ptr noundef %206, ptr noundef nonnull %6) #10
+  %207 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull @comp_list_cond) #10
+  %.not13 = icmp eq i32 %207, 0
+  br i1 %.not13, label %211, label %208
 
-207:                                              ; preds = %204
-  %208 = tail call ptr @__errno_location() #11
-  store i32 %206, ptr %208, align 4
-  %209 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.2, i32 noundef 641, ptr noundef nonnull @__func__.jobcomp_p_log_record) #10
-  br label %210
+208:                                              ; preds = %205
+  %209 = tail call ptr @__errno_location() #11
+  store i32 %207, ptr %209, align 4
+  %210 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.2, i32 noundef 641, ptr noundef nonnull @__func__.jobcomp_p_log_record) #10
+  br label %211
 
-210:                                              ; preds = %207, %204
-  %211 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @comp_list_mutex) #10
-  %.not14 = icmp eq i32 %211, 0
-  br i1 %.not14, label %214, label %212
+211:                                              ; preds = %208, %205
+  %212 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @comp_list_mutex) #10
+  %.not14 = icmp eq i32 %212, 0
+  br i1 %.not14, label %215, label %213
 
-212:                                              ; preds = %210
-  %213 = tail call ptr @__errno_location() #11
-  store i32 %211, ptr %213, align 4
+213:                                              ; preds = %211
+  %214 = tail call ptr @__errno_location() #11
+  store i32 %212, ptr %214, align 4
   tail call void (ptr, ...) @slurm_fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.2, i32 noundef 642, ptr noundef nonnull @__func__.jobcomp_p_log_record) #12
   unreachable
 
-214:                                              ; preds = %210
+215:                                              ; preds = %211
   ret i32 0
 }
 

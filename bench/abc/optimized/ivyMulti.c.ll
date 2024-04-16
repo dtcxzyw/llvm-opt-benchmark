@@ -493,7 +493,7 @@ Ivy_MultiWeight.exit88.i:                         ; preds = %252, %251
   %.val86.i = load i32, ptr %276, align 8
   %277 = lshr i32 %.val86.i, 11
   %278 = icmp slt i32 %.1693.i, %.0.i87.i
-  br i1 %278, label %283, label %279
+  br i1 %278, label %282, label %279
 
 279:                                              ; preds = %Ivy_MultiWeight.exit88.i
   %280 = icmp eq i32 %.1693.i, %.0.i87.i
@@ -501,14 +501,14 @@ Ivy_MultiWeight.exit88.i:                         ; preds = %252, %251
   %or.cond.i = select i1 %280, i1 %281, i1 false
   br i1 %or.cond.i, label %282, label %283
 
-282:                                              ; preds = %279
+282:                                              ; preds = %279, %Ivy_MultiWeight.exit88.i
   br label %283
 
-283:                                              ; preds = %282, %279, %Ivy_MultiWeight.exit88.i, %Ivy_MultiWeight.exit.i, %211
-  %.172.i = phi i32 [ %.0712.i, %211 ], [ %219, %Ivy_MultiWeight.exit.i ], [ %.0712.i, %279 ], [ %219, %Ivy_MultiWeight.exit88.i ], [ %219, %282 ]
-  %.270.i = phi i32 [ %.1693.i, %211 ], [ %.0.i.i, %Ivy_MultiWeight.exit.i ], [ %.1693.i, %279 ], [ %.0.i87.i, %Ivy_MultiWeight.exit88.i ], [ %.1693.i, %282 ]
-  %.267.i = phi ptr [ %.1664.i, %211 ], [ %212, %Ivy_MultiWeight.exit.i ], [ %.1664.i, %279 ], [ %212, %Ivy_MultiWeight.exit88.i ], [ %212, %282 ]
-  %.2.i = phi i32 [ %.15.i, %211 ], [ %250, %Ivy_MultiWeight.exit.i ], [ %.15.i, %279 ], [ %277, %Ivy_MultiWeight.exit88.i ], [ %277, %282 ]
+283:                                              ; preds = %282, %279, %Ivy_MultiWeight.exit.i, %211
+  %.172.i = phi i32 [ %.0712.i, %211 ], [ %219, %Ivy_MultiWeight.exit.i ], [ %219, %282 ], [ %.0712.i, %279 ]
+  %.270.i = phi i32 [ %.1693.i, %211 ], [ %.0.i.i, %Ivy_MultiWeight.exit.i ], [ %.0.i87.i, %282 ], [ %.1693.i, %279 ]
+  %.267.i = phi ptr [ %.1664.i, %211 ], [ %212, %Ivy_MultiWeight.exit.i ], [ %212, %282 ], [ %.1664.i, %279 ]
+  %.2.i = phi i32 [ %.15.i, %211 ], [ %250, %Ivy_MultiWeight.exit.i ], [ %277, %282 ], [ %.15.i, %279 ]
   %284 = icmp sgt i64 %indvars.iv.i, 1
   br i1 %284, label %211, label %._crit_edge.i, !llvm.loop !12
 

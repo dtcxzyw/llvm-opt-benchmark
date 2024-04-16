@@ -38,8 +38,8 @@ if.end.i16:                                       ; preds = %if.then
   store ptr %incdec.ptr.i24, ptr %next_in.i13, align 8
   br label %return
 
-return:                                           ; preds = %if.then, %entry, %if.end.i16
-  %retval.0 = phi i32 [ 1, %entry ], [ 1, %if.end.i16 ], [ 0, %if.then ]
+return:                                           ; preds = %entry, %if.end.i16, %if.then
+  %retval.0 = phi i32 [ 0, %if.then ], [ 1, %if.end.i16 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 

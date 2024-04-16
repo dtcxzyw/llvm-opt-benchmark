@@ -434,10 +434,18 @@ if.end6:                                          ; preds = %if.end3
 if.end.i:                                         ; preds = %if.end6
   %6 = load i64, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 4), align 8
   %cmp.i13.i = icmp eq i64 %6, 0
+  br i1 %cmp.i13.i, label %_mi_is_main_thread.exit.thread.i, label %_mi_is_main_thread.exit.i
+
+_mi_is_main_thread.exit.i:                        ; preds = %if.end.i
   %cmp1.i.i = icmp eq i64 %6, %3
   %cond.fr.i = freeze i1 %cmp1.i.i
-  %7 = or i1 %cmp.i13.i, %cond.fr.i
-  %8 = select i1 %7, ptr @_mi_heap_main, ptr @_mi_heap_empty
+  br i1 %cond.fr.i, label %_mi_is_main_thread.exit.thread.i, label %7
+
+_mi_is_main_thread.exit.thread.i:                 ; preds = %_mi_is_main_thread.exit.i, %if.end.i
+  br label %7
+
+7:                                                ; preds = %_mi_is_main_thread.exit.thread.i, %_mi_is_main_thread.exit.i
+  %8 = phi ptr [ @_mi_heap_main, %_mi_is_main_thread.exit.thread.i ], [ @_mi_heap_empty, %_mi_is_main_thread.exit.i ]
   %9 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
   store ptr %8, ptr %9, align 8
   tail call void @_mi_prim_thread_associate_default_heap(ptr noundef nonnull %8) #13
@@ -447,7 +455,7 @@ if.end.i:                                         ; preds = %if.end6
   %cmp.i14.not.i = icmp eq ptr %11, @_mi_heap_empty
   br i1 %cmp.i14.not.i, label %if.end13, label %if.end4.i
 
-if.end4.i:                                        ; preds = %if.end.i
+if.end4.i:                                        ; preds = %7
   %12 = load ptr, ptr %11, align 8
   %heaps.i = getelementptr inbounds i8, ptr %12, i64 24
   %13 = load ptr, ptr %heaps.i, align 8
@@ -509,7 +517,7 @@ if.end16.critedge.i:                              ; preds = %while.end.i
   tail call void @_mi_stats_done(ptr noundef nonnull %stats.c.i) #13
   br label %if.end13
 
-if.end13:                                         ; preds = %if.then.i.i, %if.end16.critedge.i, %for.end.i.i, %if.end.i, %if.end6, %if.end3, %if.then
+if.end13:                                         ; preds = %if.then.i.i, %if.end16.critedge.i, %for.end.i.i, %7, %if.end6, %if.end3, %if.then
   ret void
 }
 

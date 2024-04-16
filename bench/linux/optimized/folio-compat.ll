@@ -66,11 +66,11 @@ define dso_local ptr @page_mapping(ptr noundef %0) #0 align 16 {
 6:                                                ; preds = %1
   %7 = add nsw i64 %3, -1
   %8 = inttoptr i64 %7 to ptr
-  br label %25
+  br label %26
 
 9:                                                ; preds = %1
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hugetlb_optimize_vmemmap_key, i32 2) #2
-          to label %25 [label %10], !srcloc !6
+          to label %26 [label %10], !srcloc !6
 
 10:                                               ; preds = %9
   %11 = ptrtoint ptr %0 to i64
@@ -91,13 +91,15 @@ define dso_local ptr @page_mapping(ptr noundef %0) #0 align 16 {
   %22 = icmp eq i64 %21, 0
   %23 = add nsw i64 %20, -1
   %24 = inttoptr i64 %23 to ptr
-  %spec.select = select i1 %22, ptr %0, ptr %24
-  br label %25
+  br i1 %22, label %25, label %26
 
-25:                                               ; preds = %18, %10, %14, %9, %6
-  %26 = phi ptr [ %8, %6 ], [ %0, %9 ], [ %0, %14 ], [ %0, %10 ], [ %spec.select, %18 ]
-  %27 = tail call ptr @folio_mapping(ptr noundef %26) #2
-  ret ptr %27
+25:                                               ; preds = %18, %14, %10
+  br label %26
+
+26:                                               ; preds = %25, %18, %9, %6
+  %27 = phi ptr [ %8, %6 ], [ %24, %18 ], [ %0, %25 ], [ %0, %9 ]
+  %28 = tail call ptr @folio_mapping(ptr noundef %27) #2
+  ret ptr %28
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -114,11 +116,11 @@ define dso_local void @unlock_page(ptr noundef %0) #0 align 16 {
 6:                                                ; preds = %1
   %7 = add nsw i64 %3, -1
   %8 = inttoptr i64 %7 to ptr
-  br label %25
+  br label %26
 
 9:                                                ; preds = %1
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hugetlb_optimize_vmemmap_key, i32 2) #2
-          to label %25 [label %10], !srcloc !6
+          to label %26 [label %10], !srcloc !6
 
 10:                                               ; preds = %9
   %11 = ptrtoint ptr %0 to i64
@@ -139,12 +141,14 @@ define dso_local void @unlock_page(ptr noundef %0) #0 align 16 {
   %22 = icmp eq i64 %21, 0
   %23 = add nsw i64 %20, -1
   %24 = inttoptr i64 %23 to ptr
-  %spec.select = select i1 %22, ptr %0, ptr %24
-  br label %25
+  br i1 %22, label %25, label %26
 
-25:                                               ; preds = %18, %10, %14, %9, %6
-  %26 = phi ptr [ %8, %6 ], [ %0, %9 ], [ %0, %14 ], [ %0, %10 ], [ %spec.select, %18 ]
-  tail call void @folio_unlock(ptr noundef %26) #2
+25:                                               ; preds = %18, %14, %10
+  br label %26
+
+26:                                               ; preds = %25, %18, %9, %6
+  %27 = phi ptr [ %8, %6 ], [ %24, %18 ], [ %0, %25 ], [ %0, %9 ]
+  tail call void @folio_unlock(ptr noundef %27) #2
   ret void
 }
 
@@ -162,11 +166,11 @@ define dso_local void @end_page_writeback(ptr noundef %0) #0 align 16 {
 6:                                                ; preds = %1
   %7 = add nsw i64 %3, -1
   %8 = inttoptr i64 %7 to ptr
-  br label %25
+  br label %26
 
 9:                                                ; preds = %1
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hugetlb_optimize_vmemmap_key, i32 2) #2
-          to label %25 [label %10], !srcloc !6
+          to label %26 [label %10], !srcloc !6
 
 10:                                               ; preds = %9
   %11 = ptrtoint ptr %0 to i64
@@ -187,12 +191,14 @@ define dso_local void @end_page_writeback(ptr noundef %0) #0 align 16 {
   %22 = icmp eq i64 %21, 0
   %23 = add nsw i64 %20, -1
   %24 = inttoptr i64 %23 to ptr
-  %spec.select = select i1 %22, ptr %0, ptr %24
-  br label %25
+  br i1 %22, label %25, label %26
 
-25:                                               ; preds = %18, %10, %14, %9, %6
-  %26 = phi ptr [ %8, %6 ], [ %0, %9 ], [ %0, %14 ], [ %0, %10 ], [ %spec.select, %18 ]
-  tail call void @folio_end_writeback(ptr noundef %26) #2
+25:                                               ; preds = %18, %14, %10
+  br label %26
+
+26:                                               ; preds = %25, %18, %9, %6
+  %27 = phi ptr [ %8, %6 ], [ %24, %18 ], [ %0, %25 ], [ %0, %9 ]
+  tail call void @folio_end_writeback(ptr noundef %27) #2
   ret void
 }
 
@@ -210,11 +216,11 @@ define dso_local void @wait_on_page_writeback(ptr noundef %0) #0 align 16 {
 6:                                                ; preds = %1
   %7 = add nsw i64 %3, -1
   %8 = inttoptr i64 %7 to ptr
-  br label %25
+  br label %26
 
 9:                                                ; preds = %1
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hugetlb_optimize_vmemmap_key, i32 2) #2
-          to label %25 [label %10], !srcloc !6
+          to label %26 [label %10], !srcloc !6
 
 10:                                               ; preds = %9
   %11 = ptrtoint ptr %0 to i64
@@ -235,12 +241,14 @@ define dso_local void @wait_on_page_writeback(ptr noundef %0) #0 align 16 {
   %22 = icmp eq i64 %21, 0
   %23 = add nsw i64 %20, -1
   %24 = inttoptr i64 %23 to ptr
-  %spec.select = select i1 %22, ptr %0, ptr %24
-  br label %25
+  br i1 %22, label %25, label %26
 
-25:                                               ; preds = %18, %10, %14, %9, %6
-  %26 = phi ptr [ %8, %6 ], [ %0, %9 ], [ %0, %14 ], [ %0, %10 ], [ %spec.select, %18 ]
-  tail call void @folio_wait_writeback(ptr noundef %26) #2
+25:                                               ; preds = %18, %14, %10
+  br label %26
+
+26:                                               ; preds = %25, %18, %9, %6
+  %27 = phi ptr [ %8, %6 ], [ %24, %18 ], [ %0, %25 ], [ %0, %9 ]
+  tail call void @folio_wait_writeback(ptr noundef %27) #2
   ret void
 }
 
@@ -258,11 +266,11 @@ define dso_local void @wait_for_stable_page(ptr noundef %0) #0 align 16 {
 6:                                                ; preds = %1
   %7 = add nsw i64 %3, -1
   %8 = inttoptr i64 %7 to ptr
-  br label %25
+  br label %26
 
 9:                                                ; preds = %1
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hugetlb_optimize_vmemmap_key, i32 2) #2
-          to label %25 [label %10], !srcloc !6
+          to label %26 [label %10], !srcloc !6
 
 10:                                               ; preds = %9
   %11 = ptrtoint ptr %0 to i64
@@ -283,12 +291,14 @@ define dso_local void @wait_for_stable_page(ptr noundef %0) #0 align 16 {
   %22 = icmp eq i64 %21, 0
   %23 = add nsw i64 %20, -1
   %24 = inttoptr i64 %23 to ptr
-  %spec.select = select i1 %22, ptr %0, ptr %24
-  br label %25
+  br i1 %22, label %25, label %26
 
-25:                                               ; preds = %18, %10, %14, %9, %6
-  %26 = phi ptr [ %8, %6 ], [ %0, %9 ], [ %0, %14 ], [ %0, %10 ], [ %spec.select, %18 ]
-  tail call void @folio_wait_stable(ptr noundef %26) #2
+25:                                               ; preds = %18, %14, %10
+  br label %26
+
+26:                                               ; preds = %25, %18, %9, %6
+  %27 = phi ptr [ %8, %6 ], [ %24, %18 ], [ %0, %25 ], [ %0, %9 ]
+  tail call void @folio_wait_stable(ptr noundef %27) #2
   ret void
 }
 
@@ -306,11 +316,11 @@ define dso_local void @mark_page_accessed(ptr noundef %0) #0 align 16 {
 6:                                                ; preds = %1
   %7 = add nsw i64 %3, -1
   %8 = inttoptr i64 %7 to ptr
-  br label %25
+  br label %26
 
 9:                                                ; preds = %1
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hugetlb_optimize_vmemmap_key, i32 2) #2
-          to label %25 [label %10], !srcloc !6
+          to label %26 [label %10], !srcloc !6
 
 10:                                               ; preds = %9
   %11 = ptrtoint ptr %0 to i64
@@ -331,12 +341,14 @@ define dso_local void @mark_page_accessed(ptr noundef %0) #0 align 16 {
   %22 = icmp eq i64 %21, 0
   %23 = add nsw i64 %20, -1
   %24 = inttoptr i64 %23 to ptr
-  %spec.select = select i1 %22, ptr %0, ptr %24
-  br label %25
+  br i1 %22, label %25, label %26
 
-25:                                               ; preds = %18, %10, %14, %9, %6
-  %26 = phi ptr [ %8, %6 ], [ %0, %9 ], [ %0, %14 ], [ %0, %10 ], [ %spec.select, %18 ]
-  tail call void @folio_mark_accessed(ptr noundef %26) #2
+25:                                               ; preds = %18, %14, %10
+  br label %26
+
+26:                                               ; preds = %25, %18, %9, %6
+  %27 = phi ptr [ %8, %6 ], [ %24, %18 ], [ %0, %25 ], [ %0, %9 ]
+  tail call void @folio_mark_accessed(ptr noundef %27) #2
   ret void
 }
 
@@ -354,11 +366,11 @@ define dso_local void @set_page_writeback(ptr noundef %0) #0 align 16 {
 6:                                                ; preds = %1
   %7 = add nsw i64 %3, -1
   %8 = inttoptr i64 %7 to ptr
-  br label %25
+  br label %26
 
 9:                                                ; preds = %1
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hugetlb_optimize_vmemmap_key, i32 2) #2
-          to label %25 [label %10], !srcloc !6
+          to label %26 [label %10], !srcloc !6
 
 10:                                               ; preds = %9
   %11 = ptrtoint ptr %0 to i64
@@ -379,12 +391,14 @@ define dso_local void @set_page_writeback(ptr noundef %0) #0 align 16 {
   %22 = icmp eq i64 %21, 0
   %23 = add nsw i64 %20, -1
   %24 = inttoptr i64 %23 to ptr
-  %spec.select = select i1 %22, ptr %0, ptr %24
-  br label %25
+  br i1 %22, label %25, label %26
 
-25:                                               ; preds = %18, %10, %14, %9, %6
-  %26 = phi ptr [ %8, %6 ], [ %0, %9 ], [ %0, %14 ], [ %0, %10 ], [ %spec.select, %18 ]
-  tail call void @__folio_start_writeback(ptr noundef %26, i1 noundef zeroext false) #2
+25:                                               ; preds = %18, %14, %10
+  br label %26
+
+26:                                               ; preds = %25, %18, %9, %6
+  %27 = phi ptr [ %8, %6 ], [ %24, %18 ], [ %0, %25 ], [ %0, %9 ]
+  tail call void @__folio_start_writeback(ptr noundef %27, i1 noundef zeroext false) #2
   ret void
 }
 
@@ -402,11 +416,11 @@ define dso_local zeroext i1 @set_page_dirty(ptr noundef %0) #0 align 16 {
 6:                                                ; preds = %1
   %7 = add nsw i64 %3, -1
   %8 = inttoptr i64 %7 to ptr
-  br label %25
+  br label %26
 
 9:                                                ; preds = %1
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hugetlb_optimize_vmemmap_key, i32 2) #2
-          to label %25 [label %10], !srcloc !6
+          to label %26 [label %10], !srcloc !6
 
 10:                                               ; preds = %9
   %11 = ptrtoint ptr %0 to i64
@@ -427,13 +441,15 @@ define dso_local zeroext i1 @set_page_dirty(ptr noundef %0) #0 align 16 {
   %22 = icmp eq i64 %21, 0
   %23 = add nsw i64 %20, -1
   %24 = inttoptr i64 %23 to ptr
-  %spec.select = select i1 %22, ptr %0, ptr %24
-  br label %25
+  br i1 %22, label %25, label %26
 
-25:                                               ; preds = %18, %10, %14, %9, %6
-  %26 = phi ptr [ %8, %6 ], [ %0, %9 ], [ %0, %14 ], [ %0, %10 ], [ %spec.select, %18 ]
-  %27 = tail call zeroext i1 @folio_mark_dirty(ptr noundef %26) #2
-  ret i1 %27
+25:                                               ; preds = %18, %14, %10
+  br label %26
+
+26:                                               ; preds = %25, %18, %9, %6
+  %27 = phi ptr [ %8, %6 ], [ %24, %18 ], [ %0, %25 ], [ %0, %9 ]
+  %28 = tail call zeroext i1 @folio_mark_dirty(ptr noundef %27) #2
+  ret i1 %28
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -450,11 +466,11 @@ define dso_local i32 @__set_page_dirty_nobuffers(ptr noundef %0) #0 align 16 {
 6:                                                ; preds = %1
   %7 = add nsw i64 %3, -1
   %8 = inttoptr i64 %7 to ptr
-  br label %25
+  br label %26
 
 9:                                                ; preds = %1
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hugetlb_optimize_vmemmap_key, i32 2) #2
-          to label %25 [label %10], !srcloc !6
+          to label %26 [label %10], !srcloc !6
 
 10:                                               ; preds = %9
   %11 = ptrtoint ptr %0 to i64
@@ -475,53 +491,57 @@ define dso_local i32 @__set_page_dirty_nobuffers(ptr noundef %0) #0 align 16 {
   %22 = icmp eq i64 %21, 0
   %23 = add nsw i64 %20, -1
   %24 = inttoptr i64 %23 to ptr
-  %spec.select = select i1 %22, ptr %0, ptr %24
-  br label %25
+  br i1 %22, label %25, label %26
 
-25:                                               ; preds = %18, %10, %14, %9, %6
-  %26 = phi ptr [ %8, %6 ], [ %0, %9 ], [ %0, %14 ], [ %0, %10 ], [ %spec.select, %18 ]
-  %27 = tail call ptr @folio_mapping(ptr noundef %26) #2
-  %28 = load volatile i64, ptr %2, align 8
-  %29 = and i64 %28, 1
-  %30 = icmp eq i64 %29, 0
-  br i1 %30, label %34, label %31, !prof !5
+25:                                               ; preds = %18, %14, %10
+  br label %26
 
-31:                                               ; preds = %25
-  %32 = add nsw i64 %28, -1
-  %33 = inttoptr i64 %32 to ptr
-  br label %50
+26:                                               ; preds = %25, %18, %9, %6
+  %27 = phi ptr [ %8, %6 ], [ %24, %18 ], [ %0, %25 ], [ %0, %9 ]
+  %28 = tail call ptr @folio_mapping(ptr noundef %27) #2
+  %29 = load volatile i64, ptr %2, align 8
+  %30 = and i64 %29, 1
+  %31 = icmp eq i64 %30, 0
+  br i1 %31, label %35, label %32, !prof !5
 
-34:                                               ; preds = %25
+32:                                               ; preds = %26
+  %33 = add nsw i64 %29, -1
+  %34 = inttoptr i64 %33 to ptr
+  br label %52
+
+35:                                               ; preds = %26
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hugetlb_optimize_vmemmap_key, i32 2) #2
-          to label %50 [label %35], !srcloc !6
+          to label %52 [label %36], !srcloc !6
 
-35:                                               ; preds = %34
-  %36 = ptrtoint ptr %0 to i64
-  %37 = and i64 %36, 4095
-  %38 = icmp eq i64 %37, 0
-  br i1 %38, label %39, label %50
+36:                                               ; preds = %35
+  %37 = ptrtoint ptr %0 to i64
+  %38 = and i64 %37, 4095
+  %39 = icmp eq i64 %38, 0
+  br i1 %39, label %40, label %51
 
-39:                                               ; preds = %35
-  %40 = load volatile i64, ptr %0, align 8
-  %41 = and i64 %40, 64
-  %42 = icmp eq i64 %41, 0
-  br i1 %42, label %50, label %43
+40:                                               ; preds = %36
+  %41 = load volatile i64, ptr %0, align 8
+  %42 = and i64 %41, 64
+  %43 = icmp eq i64 %42, 0
+  br i1 %43, label %51, label %44
 
-43:                                               ; preds = %39
-  %44 = getelementptr i8, ptr %0, i64 72
-  %45 = load volatile i64, ptr %44, align 8
-  %46 = and i64 %45, 1
-  %47 = icmp eq i64 %46, 0
-  %48 = add nsw i64 %45, -1
-  %49 = inttoptr i64 %48 to ptr
-  %spec.select1 = select i1 %47, ptr %0, ptr %49
-  br label %50
+44:                                               ; preds = %40
+  %45 = getelementptr i8, ptr %0, i64 72
+  %46 = load volatile i64, ptr %45, align 8
+  %47 = and i64 %46, 1
+  %48 = icmp eq i64 %47, 0
+  %49 = add nsw i64 %46, -1
+  %50 = inttoptr i64 %49 to ptr
+  br i1 %48, label %51, label %52
 
-50:                                               ; preds = %43, %35, %39, %34, %31
-  %51 = phi ptr [ %33, %31 ], [ %0, %34 ], [ %0, %39 ], [ %0, %35 ], [ %spec.select1, %43 ]
-  %52 = tail call zeroext i1 @filemap_dirty_folio(ptr noundef %27, ptr noundef %51) #2
-  %53 = zext i1 %52 to i32
-  ret i32 %53
+51:                                               ; preds = %44, %40, %36
+  br label %52
+
+52:                                               ; preds = %51, %44, %35, %32
+  %53 = phi ptr [ %34, %32 ], [ %50, %44 ], [ %0, %51 ], [ %0, %35 ]
+  %54 = tail call zeroext i1 @filemap_dirty_folio(ptr noundef %28, ptr noundef %53) #2
+  %55 = zext i1 %54 to i32
+  ret i32 %55
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -538,11 +558,11 @@ define dso_local zeroext i1 @clear_page_dirty_for_io(ptr noundef %0) #0 align 16
 6:                                                ; preds = %1
   %7 = add nsw i64 %3, -1
   %8 = inttoptr i64 %7 to ptr
-  br label %25
+  br label %26
 
 9:                                                ; preds = %1
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hugetlb_optimize_vmemmap_key, i32 2) #2
-          to label %25 [label %10], !srcloc !6
+          to label %26 [label %10], !srcloc !6
 
 10:                                               ; preds = %9
   %11 = ptrtoint ptr %0 to i64
@@ -563,13 +583,15 @@ define dso_local zeroext i1 @clear_page_dirty_for_io(ptr noundef %0) #0 align 16
   %22 = icmp eq i64 %21, 0
   %23 = add nsw i64 %20, -1
   %24 = inttoptr i64 %23 to ptr
-  %spec.select = select i1 %22, ptr %0, ptr %24
-  br label %25
+  br i1 %22, label %25, label %26
 
-25:                                               ; preds = %18, %10, %14, %9, %6
-  %26 = phi ptr [ %8, %6 ], [ %0, %9 ], [ %0, %14 ], [ %0, %10 ], [ %spec.select, %18 ]
-  %27 = tail call zeroext i1 @folio_clear_dirty_for_io(ptr noundef %26) #2
-  ret i1 %27
+25:                                               ; preds = %18, %14, %10
+  br label %26
+
+26:                                               ; preds = %25, %18, %9, %6
+  %27 = phi ptr [ %8, %6 ], [ %24, %18 ], [ %0, %25 ], [ %0, %9 ]
+  %28 = tail call zeroext i1 @folio_clear_dirty_for_io(ptr noundef %27) #2
+  ret i1 %28
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -586,11 +608,11 @@ define dso_local zeroext i1 @redirty_page_for_writepage(ptr noundef %0, ptr noun
 7:                                                ; preds = %2
   %8 = add nsw i64 %4, -1
   %9 = inttoptr i64 %8 to ptr
-  br label %26
+  br label %27
 
 10:                                               ; preds = %2
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hugetlb_optimize_vmemmap_key, i32 2) #2
-          to label %26 [label %11], !srcloc !6
+          to label %27 [label %11], !srcloc !6
 
 11:                                               ; preds = %10
   %12 = ptrtoint ptr %1 to i64
@@ -611,13 +633,15 @@ define dso_local zeroext i1 @redirty_page_for_writepage(ptr noundef %0, ptr noun
   %23 = icmp eq i64 %22, 0
   %24 = add nsw i64 %21, -1
   %25 = inttoptr i64 %24 to ptr
-  %spec.select = select i1 %23, ptr %1, ptr %25
-  br label %26
+  br i1 %23, label %26, label %27
 
-26:                                               ; preds = %19, %11, %15, %10, %7
-  %27 = phi ptr [ %9, %7 ], [ %1, %10 ], [ %1, %15 ], [ %1, %11 ], [ %spec.select, %19 ]
-  %28 = tail call zeroext i1 @folio_redirty_for_writepage(ptr noundef %0, ptr noundef %27) #2
-  ret i1 %28
+26:                                               ; preds = %19, %15, %11
+  br label %27
+
+27:                                               ; preds = %26, %19, %10, %7
+  %28 = phi ptr [ %9, %7 ], [ %25, %19 ], [ %1, %26 ], [ %1, %10 ]
+  %29 = tail call zeroext i1 @folio_redirty_for_writepage(ptr noundef %0, ptr noundef %28) #2
+  ret i1 %29
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -634,11 +658,11 @@ define dso_local i32 @add_to_page_cache_lru(ptr noundef %0, ptr noundef %1, i64 
 9:                                                ; preds = %4
   %10 = add nsw i64 %6, -1
   %11 = inttoptr i64 %10 to ptr
-  br label %28
+  br label %29
 
 12:                                               ; preds = %4
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hugetlb_optimize_vmemmap_key, i32 2) #2
-          to label %28 [label %13], !srcloc !6
+          to label %29 [label %13], !srcloc !6
 
 13:                                               ; preds = %12
   %14 = ptrtoint ptr %0 to i64
@@ -659,13 +683,15 @@ define dso_local i32 @add_to_page_cache_lru(ptr noundef %0, ptr noundef %1, i64 
   %25 = icmp eq i64 %24, 0
   %26 = add nsw i64 %23, -1
   %27 = inttoptr i64 %26 to ptr
-  %spec.select = select i1 %25, ptr %0, ptr %27
-  br label %28
+  br i1 %25, label %28, label %29
 
-28:                                               ; preds = %21, %13, %17, %12, %9
-  %29 = phi ptr [ %11, %9 ], [ %0, %12 ], [ %0, %17 ], [ %0, %13 ], [ %spec.select, %21 ]
-  %30 = tail call i32 @filemap_add_folio(ptr noundef %1, ptr noundef %29, i64 noundef %2, i32 noundef %3) #2
-  ret i32 %30
+28:                                               ; preds = %21, %17, %13
+  br label %29
+
+29:                                               ; preds = %28, %21, %12, %9
+  %30 = phi ptr [ %11, %9 ], [ %27, %21 ], [ %0, %28 ], [ %0, %12 ]
+  %31 = tail call i32 @filemap_add_folio(ptr noundef %1, ptr noundef %30, i64 noundef %2, i32 noundef %3) #2
+  ret i32 %31
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -742,7 +768,7 @@ define dso_local zeroext i1 @isolate_lru_page(ptr noundef %0) local_unnamed_addr
   %3 = load volatile i64, ptr %2, align 8
   %4 = and i64 %3, 1
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %6, label %24
+  br i1 %5, label %6, label %23
 
 6:                                                ; preds = %1
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hugetlb_optimize_vmemmap_key, i32 2) #2
@@ -768,30 +794,30 @@ define dso_local zeroext i1 @isolate_lru_page(ptr noundef %0) local_unnamed_addr
   %20 = add nsw i64 %17, -1
   %21 = inttoptr i64 %20 to ptr
   %22 = icmp eq ptr %21, %0
-  %23 = select i1 %19, i1 true, i1 %22
-  br i1 %23, label %.thread, label %24
+  %or.cond = select i1 %19, i1 true, i1 %22
+  br i1 %or.cond, label %.thread, label %23
 
-24:                                               ; preds = %15, %1
-  %25 = tail call i32 @___ratelimit(ptr noundef nonnull @isolate_lru_page._rs, ptr noundef nonnull @__func__.isolate_lru_page) #2
-  %26 = icmp eq i32 %25, 0
-  br i1 %26, label %29, label %27, !prof !5
+23:                                               ; preds = %15, %1
+  %24 = tail call i32 @___ratelimit(ptr noundef nonnull @isolate_lru_page._rs, ptr noundef nonnull @__func__.isolate_lru_page) #2
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %28, label %26, !prof !5
 
-27:                                               ; preds = %24
+26:                                               ; preds = %23
   tail call void asm sideeffect "436: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 436b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 436) #2, !srcloc !7
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str) #2
   tail call void asm sideeffect "437: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 437b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 437) #2, !srcloc !8
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 110, i32 2313, i64 12) #2, !srcloc !9
   tail call void asm sideeffect "438: nop\0A\09.pushsection .discard.instr_end\0A\09.long 438b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 438) #2, !srcloc !10
   tail call void asm sideeffect "439: nop\0A\09.pushsection .discard.instr_end\0A\09.long 439b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 439) #2, !srcloc !11
-  br label %29
+  br label %28
 
-.thread:                                          ; preds = %7, %11, %6, %15
-  %28 = tail call zeroext i1 @folio_isolate_lru(ptr noundef %0) #2
-  br label %29
+.thread:                                          ; preds = %7, %11, %15, %6
+  %27 = tail call zeroext i1 @folio_isolate_lru(ptr noundef %0) #2
+  br label %28
 
-29:                                               ; preds = %.thread, %27, %24
-  %30 = phi i1 [ %28, %.thread ], [ false, %27 ], [ false, %24 ]
-  ret i1 %30
+28:                                               ; preds = %.thread, %26, %23
+  %29 = phi i1 [ %27, %.thread ], [ false, %26 ], [ false, %23 ]
+  ret i1 %29
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -814,11 +840,11 @@ define dso_local void @putback_lru_page(ptr noundef %0) local_unnamed_addr #0 al
 6:                                                ; preds = %1
   %7 = add nsw i64 %3, -1
   %8 = inttoptr i64 %7 to ptr
-  br label %25
+  br label %26
 
 9:                                                ; preds = %1
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hugetlb_optimize_vmemmap_key, i32 2) #2
-          to label %25 [label %10], !srcloc !6
+          to label %26 [label %10], !srcloc !6
 
 10:                                               ; preds = %9
   %11 = ptrtoint ptr %0 to i64
@@ -839,12 +865,14 @@ define dso_local void @putback_lru_page(ptr noundef %0) local_unnamed_addr #0 al
   %22 = icmp eq i64 %21, 0
   %23 = add nsw i64 %20, -1
   %24 = inttoptr i64 %23 to ptr
-  %spec.select = select i1 %22, ptr %0, ptr %24
-  br label %25
+  br i1 %22, label %25, label %26
 
-25:                                               ; preds = %18, %10, %14, %9, %6
-  %26 = phi ptr [ %8, %6 ], [ %0, %9 ], [ %0, %14 ], [ %0, %10 ], [ %spec.select, %18 ]
-  tail call void @folio_putback_lru(ptr noundef %26) #2
+25:                                               ; preds = %18, %14, %10
+  br label %26
+
+26:                                               ; preds = %25, %18, %9, %6
+  %27 = phi ptr [ %8, %6 ], [ %24, %18 ], [ %0, %25 ], [ %0, %9 ]
+  tail call void @folio_putback_lru(ptr noundef %27) #2
   ret void
 }
 

@@ -294,17 +294,17 @@ define internal i32 @dissect_mcpe_heur(ptr noundef %0, ptr noundef %1, ptr nound
 9:                                                ; preds = %4
   %10 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
   %11 = icmp ugt i32 %10, 1
-  br i1 %11, label %test_mcpe_heur.exit, label %test_mcpe_heur.exit.thread
+  br i1 %11, label %12, label %test_mcpe_heur.exit.thread
 
-test_mcpe_heur.exit:                              ; preds = %9
-  %12 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #3
-  %13 = load ptr, ptr @mcpe_packet_dissectors, align 8
-  %14 = sext i8 %12 to i32
-  %15 = tail call ptr @dissector_get_uint_handle(ptr noundef %13, i32 noundef %14) #3
-  %.not.i.not = icmp eq ptr %15, null
-  br i1 %.not.i.not, label %test_mcpe_heur.exit.thread, label %16
+12:                                               ; preds = %9
+  %13 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #3
+  %14 = load ptr, ptr @mcpe_packet_dissectors, align 8
+  %15 = sext i8 %13 to i32
+  %16 = tail call ptr @dissector_get_uint_handle(ptr noundef %14, i32 noundef %15) #3
+  %.not.i = icmp eq ptr %16, null
+  br i1 %.not.i, label %test_mcpe_heur.exit.thread, label %test_mcpe_heur.exit
 
-16:                                               ; preds = %test_mcpe_heur.exit
+test_mcpe_heur.exit:                              ; preds = %12
   %17 = load ptr, ptr @mcpe_handle, align 8
   tail call void @raknet_conversation_set_dissector(ptr noundef %1, ptr noundef %17) #3
   %18 = getelementptr inbounds i8, ptr %1, i64 8
@@ -322,11 +322,11 @@ test_mcpe_heur.exit:                              ; preds = %9
   %28 = icmp eq i32 %27, 254
   br i1 %28, label %30, label %29
 
-29:                                               ; preds = %16
+29:                                               ; preds = %test_mcpe_heur.exit
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.67, i32 noundef 442, ptr noundef nonnull @.str.68) #4
   unreachable
 
-30:                                               ; preds = %16
+30:                                               ; preds = %test_mcpe_heur.exit
   %31 = load i32, ptr @hf_mcpe_packet_id, align 4
   %32 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %24, i32 noundef %31, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6) #3
   %33 = load i32, ptr %6, align 4
@@ -337,13 +337,13 @@ test_mcpe_heur.exit:                              ; preds = %9
   %37 = call ptr @val_to_str(i32 noundef %36, ptr noundef nonnull @mcpe_packet_names, ptr noundef nonnull @.str.63) #3
   call void @col_add_str(ptr noundef %35, i32 noundef 25, ptr noundef %37) #3
   %38 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 1) #3
-  %39 = call i32 @call_dissector_only(ptr noundef nonnull %15, ptr noundef %38, ptr noundef nonnull %1, ptr noundef %24, ptr noundef %3) #3
+  %39 = call i32 @call_dissector_only(ptr noundef nonnull %16, ptr noundef %38, ptr noundef nonnull %1, ptr noundef %24, ptr noundef %3) #3
   %40 = icmp sgt i32 %39, 0
   %41 = zext i1 %40 to i32
   br label %test_mcpe_heur.exit.thread
 
-test_mcpe_heur.exit.thread:                       ; preds = %4, %9, %test_mcpe_heur.exit, %30
-  %.0 = phi i32 [ %41, %30 ], [ 0, %test_mcpe_heur.exit ], [ 0, %9 ], [ 0, %4 ]
+test_mcpe_heur.exit.thread:                       ; preds = %12, %4, %9, %30
+  %.0 = phi i32 [ %41, %30 ], [ 0, %9 ], [ 0, %4 ], [ 0, %12 ]
   ret i32 %.0
 }
 

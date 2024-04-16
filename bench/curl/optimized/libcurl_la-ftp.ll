@@ -5320,25 +5320,27 @@ if.end85:                                         ; preds = %lor.lhs.false
   %bf.load.fr = freeze i64 %bf.load
   %18 = and i64 %bf.load.fr, 2048
   %.not = icmp eq i64 %18, 0
-  %spec.select = select i1 %.not, ptr @.str.46, ptr @.str.45
-  br label %if.end85.thread
+  br i1 %.not, label %19, label %if.end85.thread
 
-if.end85.thread:                                  ; preds = %if.end85, %if.end55, %if.then59
-  %19 = phi ptr [ @.str.45, %if.then59 ], [ @.str.45, %if.end55 ], [ %spec.select, %if.end85 ]
+if.end85.thread:                                  ; preds = %if.end55, %if.then59, %if.end85
+  br label %19
+
+19:                                               ; preds = %if.end85, %if.end85.thread
+  %20 = phi ptr [ @.str.45, %if.end85.thread ], [ @.str.46, %if.end85 ]
   %file90 = getelementptr inbounds i8, ptr %0, i64 1016
-  %20 = load ptr, ptr %file90, align 8
-  %call91 = tail call i32 (ptr, ptr, ptr, ...) @Curl_pp_sendf(ptr noundef nonnull %data, ptr noundef nonnull %proto, ptr noundef nonnull %19, ptr noundef %20) #10
+  %21 = load ptr, ptr %file90, align 8
+  %call91 = tail call i32 (ptr, ptr, ptr, ...) @Curl_pp_sendf(ptr noundef nonnull %data, ptr noundef nonnull %proto, ptr noundef nonnull %20, ptr noundef %21) #10
   %tobool92.not = icmp eq i32 %call91, 0
   br i1 %tobool92.not, label %if.then93, label %return
 
-if.then93:                                        ; preds = %if.end85.thread
+if.then93:                                        ; preds = %19
   %data.val = load ptr, ptr %conn1, align 8
   %state.i53 = getelementptr inbounds i8, ptr %data.val, i64 1102
   store i8 33, ptr %state.i53, align 2
   br label %return
 
-return:                                           ; preds = %if.end85.thread, %if.then93, %if.then12, %if.then14, %do.end82, %if.then49, %if.then26
-  %retval.0 = phi i32 [ 31, %if.then26 ], [ 31, %if.then49 ], [ 0, %do.end82 ], [ 0, %if.then14 ], [ %call, %if.then12 ], [ 0, %if.then93 ], [ %call91, %if.end85.thread ]
+return:                                           ; preds = %19, %if.then93, %if.then12, %if.then14, %do.end82, %if.then49, %if.then26
+  %retval.0 = phi i32 [ 31, %if.then26 ], [ 31, %if.then49 ], [ 0, %do.end82 ], [ 0, %if.then14 ], [ %call, %if.then12 ], [ 0, %if.then93 ], [ %call91, %19 ]
   ret i32 %retval.0
 }
 

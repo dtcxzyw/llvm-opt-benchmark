@@ -228,8 +228,8 @@ entry:
   %tobool.not8 = icmp eq ptr %o, null
   br i1 %tobool.not8, label %while.end, label %land.rhs
 
-land.rhs:                                         ; preds = %entry, %if.end
-  %o.addr.09 = phi ptr [ %3, %if.end ], [ %o, %entry ]
+land.rhs:                                         ; preds = %entry, %land.lhs.true6
+  %o.addr.09 = phi ptr [ %3, %land.lhs.true6 ], [ %o, %entry ]
   %bf.load = load i32, ptr %o.addr.09, align 4
   %0 = and i32 %bf.load, 14
   %cmp = icmp eq i32 %0, 8
@@ -246,16 +246,16 @@ land.lhs.true:                                    ; preds = %while.body
   %bf.load2 = load i32, ptr %call, align 4
   %2 = and i32 %bf.load2, 14
   %cmp5 = icmp eq i32 %2, 8
-  br i1 %cmp5, label %if.end, label %while.end
+  br i1 %cmp5, label %land.lhs.true6, label %while.end
 
-if.end:                                           ; preds = %land.lhs.true
+land.lhs.true6:                                   ; preds = %land.lhs.true
   %tagged = getelementptr inbounds i8, ptr %call, i64 40
   %3 = load ptr, ptr %tagged, align 8
-  %tobool.not = icmp eq ptr %3, null
-  br i1 %tobool.not, label %while.end, label %land.rhs, !llvm.loop !7
+  %tobool7.not = icmp eq ptr %3, null
+  br i1 %tobool7.not, label %while.end, label %land.rhs, !llvm.loop !7
 
-while.end:                                        ; preds = %while.body, %land.lhs.true, %land.rhs, %if.end, %entry
-  %o.addr.0.lcssa = phi ptr [ null, %entry ], [ null, %while.body ], [ null, %land.lhs.true ], [ null, %if.end ], [ %o.addr.09, %land.rhs ]
+while.end:                                        ; preds = %land.lhs.true6, %land.lhs.true, %while.body, %land.rhs, %entry
+  %o.addr.0.lcssa = phi ptr [ null, %entry ], [ null, %land.lhs.true6 ], [ null, %land.lhs.true ], [ null, %while.body ], [ %o.addr.09, %land.rhs ]
   ret ptr %o.addr.0.lcssa
 }
 

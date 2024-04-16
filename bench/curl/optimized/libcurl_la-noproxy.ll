@@ -67,9 +67,9 @@ if.else:                                          ; preds = %if.end9
 
 if.end38:                                         ; preds = %if.else, %if.end22
   %name.addr.0 = phi ptr [ %hostip, %if.end22 ], [ %name, %if.else ]
-  %.pr109 = load i8, ptr %no_proxy, align 1
-  %tobool39.not97110 = icmp eq i8 %.pr109, 0
-  br i1 %tobool39.not97110, label %return, label %while.cond40
+  %.pr104 = load i8, ptr %no_proxy, align 1
+  %tobool39.not94105 = icmp eq i8 %.pr104, 0
+  br i1 %tobool39.not94105, label %return, label %while.cond40
 
 if.end38.thread:                                  ; preds = %if.else
   %2 = getelementptr i8, ptr %name, i64 %call25
@@ -78,16 +78,16 @@ if.end38.thread:                                  ; preds = %if.else
   %cmp33 = icmp eq i8 %3, 46
   %dec = sext i1 %cmp33 to i64
   %spec.select = add i64 %call25, %dec
-  %.pr109130 = load i8, ptr %no_proxy, align 1
-  %tobool39.not97110131 = icmp eq i8 %.pr109130, 0
-  br i1 %tobool39.not97110131, label %return, label %while.cond40.us.us.preheader
+  %.pr104125 = load i8, ptr %no_proxy, align 1
+  %tobool39.not94105126 = icmp eq i8 %.pr104125, 0
+  br i1 %tobool39.not94105126, label %return, label %while.cond40.us.us.preheader
 
 while.cond40.us.us.preheader:                     ; preds = %if.end38.thread
   %invariant.gep = getelementptr i8, ptr %name, i64 -1
   br label %while.cond40.us.us
 
 while.cond40.us.us:                               ; preds = %while.cond40.us.us.backedge, %while.cond40.us.us.preheader
-  %4 = phi i8 [ %.pr109130, %while.cond40.us.us.preheader ], [ %.be168, %while.cond40.us.us.backedge ]
+  %4 = phi i8 [ %.pr104125, %while.cond40.us.us.preheader ], [ %.be163, %while.cond40.us.us.backedge ]
   %p.1.us.us = phi ptr [ %no_proxy, %while.cond40.us.us.preheader ], [ %p.1.us.us.be, %while.cond40.us.us.backedge ]
   switch i8 %4, label %while.cond51.us.us [
     i8 9, label %while.body49.us.us
@@ -96,11 +96,11 @@ while.cond40.us.us:                               ; preds = %while.cond40.us.us.
 
 while.body49.us.us:                               ; preds = %while.cond40.us.us, %while.cond40.us.us
   %incdec.ptr50.us.us = getelementptr inbounds i8, ptr %p.1.us.us, i64 1
-  %.pre126 = load i8, ptr %incdec.ptr50.us.us, align 1
+  %.pre121 = load i8, ptr %incdec.ptr50.us.us, align 1
   br label %while.cond40.us.us.backedge
 
 while.cond40.us.us.backedge:                      ; preds = %while.cond159.us.us, %while.body49.us.us, %if.then157.split.us.us
-  %.be168 = phi i8 [ %.pre126, %while.body49.us.us ], [ %.pr.us, %if.then157.split.us.us ], [ %9, %while.cond159.us.us ]
+  %.be163 = phi i8 [ %.pre121, %while.body49.us.us ], [ %.pr.us, %if.then157.split.us.us ], [ %9, %while.cond159.us.us ]
   %p.1.us.us.be = phi ptr [ %incdec.ptr50.us.us, %while.body49.us.us ], [ %p.3.us.us, %if.then157.split.us.us ], [ %p.4.us.us, %while.cond159.us.us ]
   br label %while.cond40.us.us, !llvm.loop !4
 
@@ -203,11 +203,11 @@ while.body67.us.us:                               ; preds = %while.cond51.us.us
 if.then157.split.us.us:                           ; preds = %while.cond139.us.us
   store i8 1, ptr %spacesep, align 1
   %.pr.us = load i8, ptr %p.3.us.us, align 1
-  %tobool39.not97.us = icmp eq i8 %.pr.us, 0
-  br i1 %tobool39.not97.us, label %return, label %while.cond40.us.us.backedge
+  %tobool39.not94.us = icmp eq i8 %.pr.us, 0
+  br i1 %tobool39.not94.us, label %return, label %while.cond40.us.us.backedge
 
 while.cond40:                                     ; preds = %if.end38, %while.cond40.backedge
-  %10 = phi i8 [ %.be, %while.cond40.backedge ], [ %.pr109, %if.end38 ]
+  %10 = phi i8 [ %.be, %while.cond40.backedge ], [ %.pr104, %if.end38 ]
   %p.1 = phi ptr [ %p.1.be, %while.cond40.backedge ], [ %no_proxy, %if.end38 ]
   switch i8 %10, label %while.cond51 [
     i8 9, label %while.body49
@@ -220,7 +220,7 @@ while.body49:                                     ; preds = %while.cond40, %whil
   br label %while.cond40.backedge
 
 while.cond40.backedge:                            ; preds = %while.cond159, %while.body49, %if.then157.split
-  %.be = phi i8 [ %.pre, %while.body49 ], [ %.pr, %if.then157.split ], [ %24, %while.cond159 ]
+  %.be = phi i8 [ %.pre, %while.body49 ], [ %.pr, %if.then157.split ], [ %25, %while.cond159 ]
   %p.1.be = phi ptr [ %incdec.ptr50, %while.body49 ], [ %p.3, %if.then157.split ], [ %p.4, %while.cond159 ]
   br label %while.cond40, !llvm.loop !4
 
@@ -243,8 +243,8 @@ while.body67:                                     ; preds = %while.cond51
 
 while.end69:                                      ; preds = %while.cond51, %while.cond51, %while.cond51, %while.cond51
   %12 = add i64 %tokenlen.0, -128
-  %or.cond116 = icmp ult i64 %12, -127
-  br i1 %or.cond116, label %while.cond139.preheader, label %if.end116
+  %or.cond111 = icmp ult i64 %12, -127
+  br i1 %or.cond111, label %while.cond139.preheader, label %if.end116
 
 if.end116:                                        ; preds = %while.end69
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %checkip, ptr nonnull align 1 %p.1, i64 %tokenlen.0, i1 false)
@@ -280,21 +280,23 @@ if.then128:                                       ; preds = %if.end125
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %address.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %check.i)
   %tobool.not.i = icmp eq i32 %call124.fr, 0
-  %spec.select94 = select i1 %tobool.not.i, i32 128, i32 %call124.fr
-  br label %13
+  br i1 %tobool.not.i, label %13, label %14
 
-13:                                               ; preds = %if.then128, %if.then128.thread
-  %14 = phi i32 [ 128, %if.then128.thread ], [ %spec.select94, %if.then128 ]
-  %div10.i = lshr i32 %14, 3
-  %and.i = and i32 %14, 7
+13:                                               ; preds = %if.then128.thread, %if.then128
+  br label %14
+
+14:                                               ; preds = %if.then128, %13
+  %15 = phi i32 [ 128, %13 ], [ %call124.fr, %if.then128 ]
+  %div10.i = lshr i32 %15, 3
+  %and.i = and i32 %15, 7
   %call.i = call i32 @inet_pton(i32 noundef 10, ptr noundef nonnull %name.addr.0, ptr noundef nonnull %address.i) #10
   %cmp.not.i = icmp eq i32 %call.i, 1
   br i1 %cmp.not.i, label %if.end2.i, label %Curl_cidr6_match.exit.thread
 
-if.end2.i:                                        ; preds = %13
+if.end2.i:                                        ; preds = %14
   %call4.i = call i32 @inet_pton(i32 noundef 10, ptr noundef nonnull %checkip, ptr noundef nonnull %check.i) #10
   %cmp5.not.i = icmp ne i32 %call4.i, 1
-  %cmp8.i = icmp ugt i32 %14, 135
+  %cmp8.i = icmp ugt i32 %15, 135
   %or.cond12.i = or i1 %cmp8.i, %cmp5.not.i
   br i1 %or.cond12.i, label %Curl_cidr6_match.exit.thread, label %lor.lhs.false.i
 
@@ -305,53 +307,41 @@ lor.lhs.false.i:                                  ; preds = %if.end2.i
   br i1 %or.cond.i, label %Curl_cidr6_match.exit.thread, label %if.end12.i
 
 if.end12.i:                                       ; preds = %lor.lhs.false.i
-  %tobool13.not.i = icmp ult i32 %14, 8
+  %tobool13.not.i = icmp ult i32 %15, 8
   br i1 %tobool13.not.i, label %if.end20.i, label %land.lhs.true14.i
 
 land.lhs.true14.i:                                ; preds = %if.end12.i
   %conv.i = zext nneg i32 %div10.i to i64
   %bcmp.i = call i32 @bcmp(ptr nonnull %address.i, ptr nonnull %check.i, i64 %conv.i)
   %tobool18.not.i = icmp eq i32 %bcmp.i, 0
-  %brmerge.not.i = and i1 %tobool10.i, %tobool18.not.i
-  br i1 %brmerge.not.i, label %land.lhs.true22.i, label %Curl_cidr6_match.exit
+  br i1 %tobool18.not.i, label %if.end20.i, label %Curl_cidr6_match.exit.thread
 
-if.end20.i:                                       ; preds = %if.end12.i
-  br i1 %tobool10.i, label %if.end20.land.lhs.true22_crit_edge.i, label %Curl_cidr6_match.exit.thread91
+if.end20.i:                                       ; preds = %land.lhs.true14.i, %if.end12.i
+  br i1 %tobool10.i, label %land.lhs.true22.i, label %Curl_cidr6_match.exit
 
-Curl_cidr6_match.exit.thread91:                   ; preds = %if.end20.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %address.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %check.i)
-  br label %return
-
-if.end20.land.lhs.true22_crit_edge.i:             ; preds = %if.end20.i
-  %.pre.i = zext nneg i32 %div10.i to i64
-  br label %land.lhs.true22.i
-
-land.lhs.true22.i:                                ; preds = %if.end20.land.lhs.true22_crit_edge.i, %land.lhs.true14.i
-  %idxprom.pre-phi.i = phi i64 [ %.pre.i, %if.end20.land.lhs.true22_crit_edge.i ], [ %conv.i, %land.lhs.true14.i ]
-  %arrayidx.i = getelementptr inbounds [16 x i8], ptr %address.i, i64 0, i64 %idxprom.pre-phi.i
-  %15 = load i8, ptr %arrayidx.i, align 1
-  %arrayidx25.i = getelementptr inbounds [16 x i8], ptr %check.i, i64 0, i64 %idxprom.pre-phi.i
-  %16 = load i8, ptr %arrayidx25.i, align 1
-  %xor11.i = xor i8 %16, %15
+land.lhs.true22.i:                                ; preds = %if.end20.i
+  %idxprom.i = zext nneg i32 %div10.i to i64
+  %arrayidx.i = getelementptr inbounds [16 x i8], ptr %address.i, i64 0, i64 %idxprom.i
+  %16 = load i8, ptr %arrayidx.i, align 1
+  %arrayidx25.i = getelementptr inbounds [16 x i8], ptr %check.i, i64 0, i64 %idxprom.i
+  %17 = load i8, ptr %arrayidx25.i, align 1
+  %xor11.i = xor i8 %17, %16
   %xor.i = zext i8 %xor11.i to i32
   %sub.i = sub nuw nsw i32 8, %and.i
   %shl.i = shl nuw nsw i32 255, %sub.i
   %and27.i = and i32 %shl.i, %xor.i
-  %tobool28.not.i.not = icmp eq i32 %and27.i, 0
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %address.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %check.i)
-  br i1 %tobool28.not.i.not, label %while.cond139.preheader, label %return
+  %tobool28.not.i = icmp eq i32 %and27.i, 0
+  br i1 %tobool28.not.i, label %Curl_cidr6_match.exit.thread, label %Curl_cidr6_match.exit
 
-Curl_cidr6_match.exit.thread:                     ; preds = %13, %if.end2.i, %lor.lhs.false.i
+Curl_cidr6_match.exit.thread:                     ; preds = %14, %if.end2.i, %lor.lhs.false.i, %land.lhs.true14.i, %land.lhs.true22.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %address.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %check.i)
   br label %while.cond139.preheader
 
-Curl_cidr6_match.exit:                            ; preds = %land.lhs.true14.i
+Curl_cidr6_match.exit:                            ; preds = %if.end20.i, %land.lhs.true22.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %address.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %check.i)
-  br i1 %tobool18.not.i, label %return, label %while.cond139.preheader
+  br label %return
 
 if.else131:                                       ; preds = %if.end125
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %address.i72)
@@ -373,14 +363,14 @@ if.end3.i:                                        ; preds = %if.end.i
   br i1 %cmp5.not.i77, label %if.end7.i, label %Curl_cidr4_match.exit.thread
 
 if.end7.i:                                        ; preds = %if.end3.i
-  %17 = and i32 %bits.08386, 31
-  %or.cond.not.i = icmp eq i32 %17, 0
+  %18 = and i32 %bits.08386, 31
+  %or.cond.not.i = icmp eq i32 %18, 0
   br i1 %or.cond.not.i, label %if.end15.i, label %Curl_cidr4_match.exit
 
 if.end15.i:                                       ; preds = %if.end7.i
-  %18 = load i32, ptr %address.i72, align 4
-  %19 = load i32, ptr %check.i73, align 4
-  %cmp16.i = icmp eq i32 %18, %19
+  %19 = load i32, ptr %address.i72, align 4
+  %20 = load i32, ptr %check.i73, align 4
+  %cmp16.i = icmp eq i32 %19, %20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %address.i72)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %check.i73)
   br i1 %cmp16.i, label %return, label %while.cond139.preheader
@@ -392,24 +382,24 @@ Curl_cidr4_match.exit.thread:                     ; preds = %if.else131, %if.end
 
 Curl_cidr4_match.exit:                            ; preds = %if.end7.i
   %sub.i78 = sub nuw nsw i32 32, %bits.08386
-  %20 = load i32, ptr %address.i72, align 4
-  %call10.i = call i32 @htonl(i32 noundef %20) #11
-  %21 = load i32, ptr %check.i73, align 4
-  %call11.i = call i32 @htonl(i32 noundef %21) #11
+  %21 = load i32, ptr %address.i72, align 4
+  %call10.i = call i32 @htonl(i32 noundef %21) #11
+  %22 = load i32, ptr %check.i73, align 4
+  %call11.i = call i32 @htonl(i32 noundef %22) #11
   %xor.i79 = xor i32 %call11.i, %call10.i
-  %22 = lshr i32 %xor.i79, %sub.i78
-  %tobool12.not.i = icmp eq i32 %22, 0
+  %23 = lshr i32 %xor.i79, %sub.i78
+  %tobool12.not.i = icmp eq i32 %23, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %address.i72)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %check.i73)
   br i1 %tobool12.not.i, label %return, label %while.cond139.preheader
 
-while.cond139.preheader:                          ; preds = %if.end15.i, %Curl_cidr4_match.exit.thread, %land.lhs.true22.i, %Curl_cidr6_match.exit.thread, %Curl_cidr4_match.exit, %Curl_cidr6_match.exit, %while.end69
+while.cond139.preheader:                          ; preds = %if.end15.i, %Curl_cidr4_match.exit.thread, %Curl_cidr6_match.exit.thread, %Curl_cidr4_match.exit, %while.end69
   br label %while.cond139
 
 while.cond139:                                    ; preds = %while.cond139.preheader, %while.body148
   %p.3 = phi ptr [ %incdec.ptr149, %while.body148 ], [ %p.2, %while.cond139.preheader ]
-  %23 = load i8, ptr %p.3, align 1
-  switch i8 %23, label %if.then157.split [
+  %24 = load i8, ptr %p.3, align 1
+  switch i8 %24, label %if.then157.split [
     i8 32, label %while.body148
     i8 9, label %while.body148
     i8 0, label %while.cond159.preheader
@@ -426,20 +416,20 @@ while.body148:                                    ; preds = %while.cond139, %whi
 if.then157.split:                                 ; preds = %while.cond139
   store i8 1, ptr %spacesep, align 1
   %.pr = load i8, ptr %p.3, align 1
-  %tobool39.not97 = icmp eq i8 %.pr, 0
-  br i1 %tobool39.not97, label %return, label %while.cond40.backedge
+  %tobool39.not94 = icmp eq i8 %.pr, 0
+  br i1 %tobool39.not94, label %return, label %while.cond40.backedge
 
 while.cond159:                                    ; preds = %while.cond159.preheader, %while.cond159
   %p.4 = phi ptr [ %incdec.ptr164, %while.cond159 ], [ %p.3, %while.cond159.preheader ]
-  %24 = load i8, ptr %p.4, align 1
+  %25 = load i8, ptr %p.4, align 1
   %incdec.ptr164 = getelementptr inbounds i8, ptr %p.4, i64 1
-  switch i8 %24, label %while.cond40.backedge [
+  switch i8 %25, label %while.cond40.backedge [
     i8 44, label %while.cond159
     i8 0, label %return
   ]
 
-return:                                           ; preds = %if.then157.split.us.us, %sw.epilog.us.us, %if.then91.us.us, %while.cond159.us.us, %if.then157.split, %Curl_cidr6_match.exit, %Curl_cidr4_match.exit, %land.lhs.true22.i, %if.end15.i, %while.cond159, %if.end38.thread, %if.end38, %Curl_cidr6_match.exit.thread91, %land.lhs.true, %if.end18, %if.then14, %if.then6, %entry, %lor.lhs.false
-  %retval.0 = phi i1 [ false, %lor.lhs.false ], [ false, %entry ], [ true, %if.then6 ], [ false, %if.then14 ], [ false, %if.end18 ], [ false, %land.lhs.true ], [ true, %Curl_cidr6_match.exit.thread91 ], [ false, %if.end38 ], [ false, %if.end38.thread ], [ false, %while.cond159 ], [ false, %if.then157.split ], [ true, %Curl_cidr6_match.exit ], [ true, %Curl_cidr4_match.exit ], [ true, %land.lhs.true22.i ], [ true, %if.end15.i ], [ false, %while.cond159.us.us ], [ false, %if.then157.split.us.us ], [ true, %sw.epilog.us.us ], [ true, %if.then91.us.us ]
+return:                                           ; preds = %if.then157.split.us.us, %sw.epilog.us.us, %if.then91.us.us, %while.cond159.us.us, %if.then157.split, %Curl_cidr4_match.exit, %if.end15.i, %while.cond159, %if.end38.thread, %if.end38, %Curl_cidr6_match.exit, %land.lhs.true, %if.end18, %if.then14, %if.then6, %entry, %lor.lhs.false
+  %retval.0 = phi i1 [ false, %lor.lhs.false ], [ false, %entry ], [ true, %if.then6 ], [ false, %if.then14 ], [ false, %if.end18 ], [ false, %land.lhs.true ], [ true, %Curl_cidr6_match.exit ], [ false, %if.end38 ], [ false, %if.end38.thread ], [ false, %while.cond159 ], [ false, %if.then157.split ], [ true, %Curl_cidr4_match.exit ], [ true, %if.end15.i ], [ false, %while.cond159.us.us ], [ false, %if.then157.split.us.us ], [ true, %sw.epilog.us.us ], [ true, %if.then91.us.us ]
   ret i1 %retval.0
 }
 

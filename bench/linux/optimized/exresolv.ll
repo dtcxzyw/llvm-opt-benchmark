@@ -25,7 +25,7 @@ define dso_local i32 @acpi_ex_resolve_to_value(ptr noundef %0, ptr noundef %1) l
 
 8:                                                ; preds = %5, %2
   tail call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 49, ptr noundef nonnull @.str) #3
-  br label %72
+  br label %74
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %6, i64 8
@@ -66,7 +66,7 @@ define dso_local i32 @acpi_ex_resolve_to_value(ptr noundef %0, ptr noundef %1) l
   %21 = load i32, ptr %20, align 8
   %22 = call i32 @acpi_ds_method_data_get_value(i8 noundef zeroext %18, i32 noundef %21, ptr noundef %1, ptr noundef nonnull %3) #3
   %23 = icmp eq i32 %22, 0
-  br i1 %23, label %24, label %.thread6
+  br i1 %23, label %24, label %.thread7
 
 24:                                               ; preds = %19
   call void @acpi_ut_remove_reference(ptr noundef nonnull %6) #3
@@ -104,12 +104,12 @@ define dso_local i32 @acpi_ex_resolve_to_value(ptr noundef %0, ptr noundef %1) l
 
 38:                                               ; preds = %32
   tail call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 186, ptr noundef nonnull @.str.4, ptr noundef nonnull %6) #3
-  br label %.thread6
+  br label %.thread7
 
 39:                                               ; preds = %26
   %40 = zext i8 %28 to i32
   tail call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 198, ptr noundef nonnull @.str.5, i32 noundef %40, ptr noundef nonnull %6) #3
-  br label %.thread6
+  br label %.thread7
 
 41:                                               ; preds = %16
   %42 = getelementptr inbounds i8, ptr %6, i64 24
@@ -138,7 +138,7 @@ define dso_local i32 @acpi_ex_resolve_to_value(ptr noundef %0, ptr noundef %1) l
 50:                                               ; preds = %16
   %51 = zext i8 %18 to i32
   tail call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 240, ptr noundef nonnull @.str.6, i32 noundef %51, ptr noundef nonnull %6) #3
-  br label %.thread6
+  br label %.thread7
 
 52:                                               ; preds = %13
   %53 = tail call i32 @acpi_ds_get_buffer_arguments(ptr noundef nonnull %6) #3
@@ -160,16 +160,16 @@ define dso_local i32 @acpi_ex_resolve_to_value(ptr noundef %0, ptr noundef %1) l
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #3
   br label %63
 
-.thread6:                                         ; preds = %19, %50, %39, %38
+.thread7:                                         ; preds = %19, %50, %39, %38
   %.ph = phi i32 [ 12295, %38 ], [ 12303, %39 ], [ 12303, %50 ], [ %22, %19 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #3
-  br label %72
+  br label %74
 
 60:                                               ; preds = %56, %54, %52
   %61 = phi i32 [ %57, %56 ], [ %55, %54 ], [ %53, %52 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #3
   %62 = icmp eq i32 %61, 0
-  br i1 %62, label %63, label %72
+  br i1 %62, label %63, label %74
 
 63:                                               ; preds = %.thread, %60
   %64 = load ptr, ptr %0, align 8
@@ -183,20 +183,24 @@ define dso_local i32 @acpi_ex_resolve_to_value(ptr noundef %0, ptr noundef %1) l
 
 66:                                               ; preds = %63
   call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 65, ptr noundef nonnull @.str) #3
-  br label %72
+  br label %74
 
 67:                                               ; preds = %._crit_edge, %9
   %68 = phi i8 [ %.pre, %._crit_edge ], [ %11, %9 ]
   %69 = icmp eq i8 %68, 15
-  br i1 %69, label %70, label %72
+  br i1 %69, label %70, label %73
 
 70:                                               ; preds = %67
   %71 = call i32 @acpi_ex_resolve_node_to_value(ptr noundef nonnull %0, ptr noundef %1) #3
-  br label %72
+  %72 = icmp eq i32 %71, 0
+  br i1 %72, label %73, label %74
 
-72:                                               ; preds = %.thread6, %70, %67, %66, %60, %8
-  %73 = phi i32 [ 12290, %66 ], [ 12290, %8 ], [ %61, %60 ], [ 0, %67 ], [ %71, %70 ], [ %.ph, %.thread6 ]
-  ret i32 %73
+73:                                               ; preds = %70, %67
+  br label %74
+
+74:                                               ; preds = %.thread7, %73, %70, %66, %60, %8
+  %75 = phi i32 [ 0, %73 ], [ 12290, %66 ], [ 12290, %8 ], [ %61, %60 ], [ %71, %70 ], [ %.ph, %.thread7 ]
+  ret i32 %75
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

@@ -777,7 +777,7 @@ define dso_local i64 @_find_next_zero_bit(ptr nocapture noundef readonly %0, i64
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read)
 define dso_local i64 @_find_last_bit(ptr nocapture noundef readonly %0, i64 noundef %1) #0 align 16 {
   %3 = icmp eq i64 %1, 0
-  br i1 %3, label %.loopexit, label %4
+  br i1 %3, label %.thread, label %4
 
 4:                                                ; preds = %2
   %5 = sub i64 0, %1
@@ -787,28 +787,28 @@ define dso_local i64 @_find_last_bit(ptr nocapture noundef readonly %0, i64 noun
   %9 = lshr i64 %8, 6
   br label %10
 
-10:                                               ; preds = %21, %4
-  %11 = phi i64 [ %7, %4 ], [ -1, %21 ]
-  %12 = phi i64 [ %9, %4 ], [ %22, %21 ]
+10:                                               ; preds = %17, %4
+  %11 = phi i64 [ %7, %4 ], [ -1, %17 ]
+  %12 = phi i64 [ %9, %4 ], [ %18, %17 ]
   %13 = getelementptr i64, ptr %0, i64 %12
   %14 = load i64, ptr %13, align 8
   %15 = and i64 %14, %11
   %16 = icmp eq i64 %15, 0
-  br i1 %16, label %21, label %17
+  br i1 %16, label %17, label %20
 
 17:                                               ; preds = %10
-  %18 = shl i64 %12, 6
-  %19 = tail call i64 asm "bsr $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %15) #5, !srcloc !24
-  %20 = add i64 %19, %18
-  br label %.loopexit
+  %18 = add nsw i64 %12, -1
+  %19 = icmp eq i64 %12, 0
+  br i1 %19, label %.thread, label %10, !llvm.loop !24
 
-21:                                               ; preds = %10
-  %22 = add nsw i64 %12, -1
-  %23 = icmp eq i64 %12, 0
-  br i1 %23, label %.loopexit, label %10, !llvm.loop !25
+20:                                               ; preds = %10
+  %21 = shl i64 %12, 6
+  %22 = tail call i64 asm "bsr $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %15) #5, !srcloc !25
+  %23 = add i64 %22, %21
+  br label %.thread
 
-.loopexit:                                        ; preds = %21, %17, %2
-  %24 = phi i64 [ 0, %2 ], [ %20, %17 ], [ %1, %21 ]
+.thread:                                          ; preds = %17, %2, %20
+  %24 = phi i64 [ %23, %20 ], [ 0, %2 ], [ %1, %17 ]
   ret i64 %24
 }
 
@@ -912,5 +912,5 @@ attributes #7 = { nounwind }
 !21 = distinct !{!21, !6, !7}
 !22 = distinct !{!22, !6, !7}
 !23 = distinct !{!23, !6, !7}
-!24 = !{i64 252042}
-!25 = distinct !{!25, !6, !7}
+!24 = distinct !{!24, !6, !7}
+!25 = !{i64 252042}

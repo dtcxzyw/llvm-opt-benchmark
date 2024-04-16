@@ -4,14 +4,14 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define i32 @fputc_unlocked(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define noundef i32 @fputc_unlocked(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i8, align 1
   %4 = trunc i32 %0 to i8
   store i8 %4, ptr %3, align 1
   %5 = call i64 @lib_fwrite_unlocked(ptr noundef nonnull %3, i64 noundef 1, ptr noundef %1) #4
   %6 = trunc i64 %5 to i32
   %7 = icmp sgt i32 %6, 0
-  br i1 %7, label %8, label %17
+  br i1 %7, label %8, label %18
 
 8:                                                ; preds = %2
   %9 = icmp eq i32 %0, 10
@@ -28,11 +28,13 @@ define i32 @fputc_unlocked(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   %15 = call i64 @lib_fflush_unlocked(ptr noundef nonnull %1) #4
   %16 = and i64 %15, 2147483648
   %.not8 = icmp eq i64 %16, 0
-  %spec.select = select i1 %.not8, i32 10, i32 -1
-  br label %17
+  br i1 %.not8, label %17, label %18
 
-17:                                               ; preds = %14, %2, %8, %10
-  %.0 = phi i32 [ 10, %10 ], [ %0, %8 ], [ -1, %2 ], [ %spec.select, %14 ]
+17:                                               ; preds = %14, %10, %8
+  br label %18
+
+18:                                               ; preds = %2, %14, %17
+  %.0 = phi i32 [ %0, %17 ], [ -1, %14 ], [ -1, %2 ]
   ret i32 %.0
 }
 
@@ -41,7 +43,7 @@ declare i64 @lib_fwrite_unlocked(ptr noundef, i64 noundef, ptr noundef) local_un
 declare i64 @lib_fflush_unlocked(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @fputc(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define noundef i32 @fputc(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i8, align 1
   tail call void @flockfile(ptr noundef %1)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
@@ -54,24 +56,26 @@ define i32 @fputc(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 8:                                                ; preds = %2
   %9 = icmp eq i32 %0, 10
-  br i1 %9, label %10, label %fputc_unlocked.exit
+  br i1 %9, label %10, label %17
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds i8, ptr %1, i64 194
   %12 = load i8, ptr %11, align 2
   %13 = and i8 %12, 4
   %.not.i = icmp eq i8 %13, 0
-  br i1 %.not.i, label %fputc_unlocked.exit, label %14
+  br i1 %.not.i, label %17, label %14
 
 14:                                               ; preds = %10
   %15 = call i64 @lib_fflush_unlocked(ptr noundef nonnull %1) #4
   %16 = and i64 %15, 2147483648
   %.not8.i = icmp eq i64 %16, 0
-  %spec.select.i = select i1 %.not8.i, i32 10, i32 -1
+  br i1 %.not8.i, label %17, label %fputc_unlocked.exit
+
+17:                                               ; preds = %14, %10, %8
   br label %fputc_unlocked.exit
 
-fputc_unlocked.exit:                              ; preds = %2, %8, %10, %14
-  %.0.i = phi i32 [ 10, %10 ], [ %0, %8 ], [ -1, %2 ], [ %spec.select.i, %14 ]
+fputc_unlocked.exit:                              ; preds = %2, %14, %17
+  %.0.i = phi i32 [ %0, %17 ], [ -1, %14 ], [ -1, %2 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   call void @funlockfile(ptr noundef %1)
   ret i32 %.0.i

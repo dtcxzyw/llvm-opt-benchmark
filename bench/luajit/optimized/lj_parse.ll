@@ -2516,18 +2516,21 @@ if.end27.i:                                       ; preds = %land.lhs.true23.i, 
   %call30.i = call ptr @lj_str_new(ptr noundef %291, ptr noundef nonnull @.str.7, i64 noundef 4) #10
   %call31.i = call ptr @lj_tab_getstr(ptr noundef %290, ptr noundef %call30.i) #10
   %tobool32.not.i = icmp eq ptr %call31.i, null
-  br i1 %tobool32.not.i, label %parse_for_iter.exit.i, label %land.lhs.true33.i
+  br i1 %tobool32.not.i, label %if.end41.i, label %land.lhs.true33.i
 
 land.lhs.true33.i:                                ; preds = %if.end27.i
   %hi34.i = getelementptr inbounds i8, ptr %call31.i, i64 4
   %292 = load i32, ptr %hi34.i, align 4
   %cmp35.i = icmp eq i32 %292, 0
-  br i1 %cmp35.i, label %land.lhs.true36.i, label %parse_for_iter.exit.i
+  br i1 %cmp35.i, label %land.lhs.true36.i, label %if.end41.i
 
 land.lhs.true36.i:                                ; preds = %land.lhs.true33.i
   %293 = load i32, ptr %call31.i, align 8
   %shr38.i = lshr i32 %284, 16
   %cmp39.i = icmp eq i32 %293, %shr38.i
+  br i1 %cmp39.i, label %parse_for_iter.exit.i, label %if.end41.i
+
+if.end41.i:                                       ; preds = %land.lhs.true36.i, %land.lhs.true33.i, %if.end27.i
   br label %parse_for_iter.exit.i
 
 sw.epilog.i:                                      ; preds = %sw.bb11.i, %if.end4.i
@@ -2557,8 +2560,8 @@ land.rhs.i:                                       ; preds = %sw.epilog.i
   %tobool50.not.i = icmp eq i32 %call49.i, 0
   br label %parse_for_iter.exit.i
 
-parse_for_iter.exit.i:                            ; preds = %land.rhs.i, %land.lhs.true43.i, %sw.epilog.i, %land.lhs.true36.i, %land.lhs.true33.i, %if.end27.i, %land.lhs.true23.i, %sw.bb.i507, %if.end.i501, %land.rhs.i.i, %bcreg_bump.exit
-  %296 = phi i1 [ false, %bcreg_bump.exit ], [ false, %land.rhs.i.i ], [ false, %sw.bb.i507 ], [ true, %land.lhs.true23.i ], [ false, %land.lhs.true33.i ], [ false, %if.end27.i ], [ false, %if.end.i501 ], [ %tobool50.not.i, %land.rhs.i ], [ %cmp39.i, %land.lhs.true36.i ], [ %tobool45.not.i, %land.lhs.true43.i ], [ false, %sw.epilog.i ]
+parse_for_iter.exit.i:                            ; preds = %land.rhs.i, %land.lhs.true43.i, %sw.epilog.i, %if.end41.i, %land.lhs.true36.i, %land.lhs.true23.i, %sw.bb.i507, %if.end.i501, %land.rhs.i.i, %bcreg_bump.exit
+  %296 = phi i1 [ false, %bcreg_bump.exit ], [ false, %if.end41.i ], [ false, %land.rhs.i.i ], [ false, %sw.bb.i507 ], [ true, %land.lhs.true23.i ], [ true, %land.lhs.true36.i ], [ false, %if.end.i501 ], [ %tobool50.not.i, %land.rhs.i ], [ %tobool45.not.i, %land.lhs.true43.i ], [ false, %sw.epilog.i ]
   %297 = load ptr, ptr %ls, align 8
   %nactvar2.i478 = getelementptr inbounds i8, ptr %297, i64 56
   %298 = load i32, ptr %nactvar2.i478, align 8

@@ -184,12 +184,10 @@ entry:
   %lo.addr.i = alloca i64, align 8
   %tm.i = alloca %struct.tm, align 8
   %mid.i = alloca i64, align 8
-  %tm2.i44 = alloca %struct.tm, align 8
-  %tm2.i = alloca %struct.tm, align 8
   %t0 = alloca i64, align 8
   %t1 = alloca i64, align 8
-  %tm0 = alloca %struct.tm, align 16
-  %tm1 = alloca %struct.tm, align 16
+  %tm0 = alloca %struct.tm, align 8
+  %tm1 = alloca %struct.tm, align 8
   %local_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %local_, align 8
   %tobool = trunc i8 %0 to i1
@@ -423,182 +421,26 @@ if.then56:                                        ; preds = %if.else
   br label %return
 
 if.end66:                                         ; preds = %if.else, %if.then38
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %tm2.i)
-  %35 = trunc i64 %34 to i32
-  %conv.i = add i32 %35, -1900
-  %tm_year.i = getelementptr inbounds i8, ptr %tm0, i64 20
-  store i32 %conv.i, ptr %tm_year.i, align 4
-  %m.i.i37 = getelementptr inbounds i8, ptr %cs, i64 8
-  %36 = load i8, ptr %m.i.i37, align 8
-  %conv.i.i38 = sext i8 %36 to i32
-  %sub2.i = add nsw i32 %conv.i.i38, -1
-  %tm_mon.i = getelementptr inbounds i8, ptr %tm0, i64 16
-  store i32 %sub2.i, ptr %tm_mon.i, align 16
-  %d.i.i39 = getelementptr inbounds i8, ptr %cs, i64 9
-  %tm_mday.i = getelementptr inbounds i8, ptr %tm0, i64 12
-  %hh.i.i40 = getelementptr inbounds i8, ptr %cs, i64 10
-  %tm_hour.i = getelementptr inbounds i8, ptr %tm0, i64 8
-  %mm.i.i41 = getelementptr inbounds i8, ptr %cs, i64 11
-  %tm_min.i = getelementptr inbounds i8, ptr %tm0, i64 4
-  %ss.i.i42 = getelementptr inbounds i8, ptr %cs, i64 12
-  %37 = load <4 x i8>, ptr %d.i.i39, align 1
-  %38 = sext <4 x i8> %37 to <4 x i32>
-  %39 = shufflevector <4 x i32> %38, <4 x i32> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
-  store <4 x i32> %39, ptr %tm0, align 16
-  %tm_isdst.i = getelementptr inbounds i8, ptr %tm0, i64 32
-  store i32 0, ptr %tm_isdst.i, align 16
-  %call7.i = call i64 @mktime(ptr noundef nonnull %tm0) #12
-  store i64 %call7.i, ptr %t0, align 8
-  %cmp.i43 = icmp eq i64 %call7.i, -1
-  br i1 %cmp.i43, label %if.then.i, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit.thread128
+  %call67 = call fastcc noundef zeroext i1 @_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm(ptr noundef nonnull align 8 dereferenceable(16) %cs, i32 noundef 0, ptr noundef nonnull %t0, ptr noundef nonnull %tm0)
+  br i1 %call67, label %land.lhs.true, label %if.end125
 
-_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit.thread128: ; preds = %if.end66
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %tm2.i)
-  br label %land.lhs.true
+land.lhs.true:                                    ; preds = %if.end66
+  %call68 = call fastcc noundef zeroext i1 @_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm(ptr noundef nonnull align 8 dereferenceable(16) %cs, i32 noundef 1, ptr noundef nonnull %t1, ptr noundef nonnull %tm1)
+  br i1 %call68, label %if.then69, label %if.end125
 
-if.then.i:                                        ; preds = %if.end66
-  %call.i.i = call noundef ptr @localtime_r(ptr noundef nonnull %t0, ptr noundef nonnull %tm2.i) #12
-  %cmp9.i = icmp eq ptr %call.i.i, null
-  br i1 %cmp9.i, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit.thread, label %lor.lhs.false.i
-
-lor.lhs.false.i:                                  ; preds = %if.then.i
-  %tm_year10.i = getelementptr inbounds i8, ptr %call.i.i, i64 20
-  %40 = load i32, ptr %tm_year10.i, align 4
-  %41 = load i32, ptr %tm_year.i, align 4
-  %cmp12.not.i = icmp eq i32 %40, %41
-  br i1 %cmp12.not.i, label %lor.lhs.false13.i, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit.thread
-
-lor.lhs.false13.i:                                ; preds = %lor.lhs.false.i
-  %tm_mon14.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
-  %42 = load i32, ptr %tm_mon14.i, align 8
-  %43 = load i32, ptr %tm_mon.i, align 16
-  %cmp16.not.i = icmp eq i32 %42, %43
-  br i1 %cmp16.not.i, label %lor.lhs.false17.i, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit.thread
-
-lor.lhs.false17.i:                                ; preds = %lor.lhs.false13.i
-  %tm_mday18.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
-  %44 = load i32, ptr %tm_mday18.i, align 4
-  %45 = load i32, ptr %tm_mday.i, align 4
-  %cmp20.not.i = icmp eq i32 %44, %45
-  br i1 %cmp20.not.i, label %lor.lhs.false21.i, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit.thread
-
-lor.lhs.false21.i:                                ; preds = %lor.lhs.false17.i
-  %tm_hour22.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
-  %46 = load i32, ptr %tm_hour22.i, align 8
-  %47 = load i32, ptr %tm_hour.i, align 8
-  %cmp24.not.i = icmp eq i32 %46, %47
-  br i1 %cmp24.not.i, label %lor.lhs.false25.i, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit.thread
-
-lor.lhs.false25.i:                                ; preds = %lor.lhs.false21.i
-  %tm_min26.i = getelementptr inbounds i8, ptr %call.i.i, i64 4
-  %48 = load i32, ptr %tm_min26.i, align 4
-  %49 = load i32, ptr %tm_min.i, align 4
-  %cmp28.not.i = icmp eq i32 %48, %49
-  br i1 %cmp28.not.i, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit.thread
-
-_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit.thread: ; preds = %lor.lhs.false25.i, %lor.lhs.false21.i, %lor.lhs.false17.i, %lor.lhs.false13.i, %lor.lhs.false.i, %if.then.i
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %tm2.i)
-  br label %if.end125
-
-_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit: ; preds = %lor.lhs.false25.i
-  %50 = load i32, ptr %call.i.i, align 8
-  %51 = load i32, ptr %tm0, align 16
-  %cmp32.not.i = icmp eq i32 %50, %51
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %tm2.i)
-  br i1 %cmp32.not.i, label %land.lhs.true, label %if.end125
-
-land.lhs.true:                                    ; preds = %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit.thread128, %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %tm2.i44)
-  %52 = load i64, ptr %cs, align 8
-  %53 = trunc i64 %52 to i32
-  %conv.i45 = add i32 %53, -1900
-  %tm_year.i46 = getelementptr inbounds i8, ptr %tm1, i64 20
-  store i32 %conv.i45, ptr %tm_year.i46, align 4
-  %54 = load i8, ptr %m.i.i37, align 8
-  %conv.i.i48 = sext i8 %54 to i32
-  %sub2.i49 = add nsw i32 %conv.i.i48, -1
-  %tm_mon.i50 = getelementptr inbounds i8, ptr %tm1, i64 16
-  store i32 %sub2.i49, ptr %tm_mon.i50, align 16
-  %tm_mday.i53 = getelementptr inbounds i8, ptr %tm1, i64 12
-  %tm_hour.i56 = getelementptr inbounds i8, ptr %tm1, i64 8
-  %tm_min.i59 = getelementptr inbounds i8, ptr %tm1, i64 4
-  %55 = load <4 x i8>, ptr %d.i.i39, align 1
-  %56 = sext <4 x i8> %55 to <4 x i32>
-  %57 = shufflevector <4 x i32> %56, <4 x i32> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
-  store <4 x i32> %57, ptr %tm1, align 16
-  %tm_isdst.i62 = getelementptr inbounds i8, ptr %tm1, i64 32
-  store i32 1, ptr %tm_isdst.i62, align 16
-  %call7.i63 = call i64 @mktime(ptr noundef nonnull %tm1) #12
-  store i64 %call7.i63, ptr %t1, align 8
-  %cmp.i64 = icmp eq i64 %call7.i63, -1
-  br i1 %cmp.i64, label %if.then.i66, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit86.thread131
-
-_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit86.thread131: ; preds = %land.lhs.true
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %tm2.i44)
-  br label %if.then69
-
-if.then.i66:                                      ; preds = %land.lhs.true
-  %call.i.i67 = call noundef ptr @localtime_r(ptr noundef nonnull %t1, ptr noundef nonnull %tm2.i44) #12
-  %cmp9.i68 = icmp eq ptr %call.i.i67, null
-  br i1 %cmp9.i68, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit86.thread, label %lor.lhs.false.i69
-
-lor.lhs.false.i69:                                ; preds = %if.then.i66
-  %tm_year10.i70 = getelementptr inbounds i8, ptr %call.i.i67, i64 20
-  %58 = load i32, ptr %tm_year10.i70, align 4
-  %59 = load i32, ptr %tm_year.i46, align 4
-  %cmp12.not.i71 = icmp eq i32 %58, %59
-  br i1 %cmp12.not.i71, label %lor.lhs.false13.i72, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit86.thread
-
-lor.lhs.false13.i72:                              ; preds = %lor.lhs.false.i69
-  %tm_mon14.i73 = getelementptr inbounds i8, ptr %call.i.i67, i64 16
-  %60 = load i32, ptr %tm_mon14.i73, align 8
-  %61 = load i32, ptr %tm_mon.i50, align 16
-  %cmp16.not.i74 = icmp eq i32 %60, %61
-  br i1 %cmp16.not.i74, label %lor.lhs.false17.i75, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit86.thread
-
-lor.lhs.false17.i75:                              ; preds = %lor.lhs.false13.i72
-  %tm_mday18.i76 = getelementptr inbounds i8, ptr %call.i.i67, i64 12
-  %62 = load i32, ptr %tm_mday18.i76, align 4
-  %63 = load i32, ptr %tm_mday.i53, align 4
-  %cmp20.not.i77 = icmp eq i32 %62, %63
-  br i1 %cmp20.not.i77, label %lor.lhs.false21.i78, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit86.thread
-
-lor.lhs.false21.i78:                              ; preds = %lor.lhs.false17.i75
-  %tm_hour22.i79 = getelementptr inbounds i8, ptr %call.i.i67, i64 8
-  %64 = load i32, ptr %tm_hour22.i79, align 8
-  %65 = load i32, ptr %tm_hour.i56, align 8
-  %cmp24.not.i80 = icmp eq i32 %64, %65
-  br i1 %cmp24.not.i80, label %lor.lhs.false25.i81, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit86.thread
-
-lor.lhs.false25.i81:                              ; preds = %lor.lhs.false21.i78
-  %tm_min26.i82 = getelementptr inbounds i8, ptr %call.i.i67, i64 4
-  %66 = load i32, ptr %tm_min26.i82, align 4
-  %67 = load i32, ptr %tm_min.i59, align 4
-  %cmp28.not.i83 = icmp eq i32 %66, %67
-  br i1 %cmp28.not.i83, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit86, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit86.thread
-
-_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit86.thread: ; preds = %lor.lhs.false25.i81, %lor.lhs.false21.i78, %lor.lhs.false17.i75, %lor.lhs.false13.i72, %lor.lhs.false.i69, %if.then.i66
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %tm2.i44)
-  br label %if.end125
-
-_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit86: ; preds = %lor.lhs.false25.i81
-  %68 = load i32, ptr %call.i.i67, align 8
-  %69 = load i32, ptr %tm1, align 16
-  %cmp32.not.i85 = icmp eq i32 %68, %69
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %tm2.i44)
-  br i1 %cmp32.not.i85, label %if.then69, label %if.end125
-
-if.then69:                                        ; preds = %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit86.thread131, %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit86
-  %70 = load i32, ptr %tm_isdst.i, align 16
-  %71 = load i32, ptr %tm_isdst.i62, align 16
-  %cmp71 = icmp eq i32 %70, %71
-  %72 = load i64, ptr %t0, align 8
+if.then69:                                        ; preds = %land.lhs.true
+  %tm_isdst = getelementptr inbounds i8, ptr %tm0, i64 32
+  %35 = load i32, ptr %tm_isdst, align 8
+  %tm_isdst70 = getelementptr inbounds i8, ptr %tm1, i64 32
+  %36 = load i32, ptr %tm_isdst70, align 8
+  %cmp71 = icmp eq i32 %35, %36
+  %37 = load i64, ptr %t0, align 8
   br i1 %cmp71, label %if.then72, label %if.end86
 
 if.then72:                                        ; preds = %if.then69
-  %tobool75.not = icmp eq i32 %70, 0
-  %73 = load i64, ptr %t1, align 8
-  %cond = select i1 %tobool75.not, i64 %72, i64 %73
+  %tobool75.not = icmp eq i32 %35, 0
+  %38 = load i64, ptr %t1, align 8
+  %cond = select i1 %tobool75.not, i64 %37, i64 %38
   store i32 0, ptr %agg.result, align 8
   %pre83 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %cond, ptr %pre83, align 8
@@ -609,57 +451,57 @@ if.then72:                                        ; preds = %if.then69
   br label %return
 
 if.end86:                                         ; preds = %if.then69
-  %74 = getelementptr inbounds i8, ptr %tm0, i64 40
-  %tm0.val = load i64, ptr %74, align 8
-  %75 = load i64, ptr %t1, align 8
-  %cmp88 = icmp slt i64 %72, %75
+  %39 = getelementptr inbounds i8, ptr %tm0, i64 40
+  %tm0.val = load i64, ptr %39, align 8
+  %40 = load i64, ptr %t1, align 8
+  %cmp88 = icmp slt i64 %37, %40
   br i1 %cmp88, label %if.then89, label %if.end91
 
 if.then89:                                        ; preds = %if.end86
-  store i64 %75, ptr %t0, align 8
-  store i64 %72, ptr %t1, align 8
-  %76 = getelementptr inbounds i8, ptr %tm1, i64 40
-  %tm1.val = load i64, ptr %76, align 8
+  store i64 %40, ptr %t0, align 8
+  store i64 %37, ptr %t1, align 8
+  %41 = getelementptr inbounds i8, ptr %tm1, i64 40
+  %tm1.val = load i64, ptr %41, align 8
   br label %if.end91
 
 if.end91:                                         ; preds = %if.then89, %if.end86
-  %77 = phi i64 [ %75, %if.then89 ], [ %72, %if.end86 ]
-  %78 = phi i64 [ %72, %if.then89 ], [ %75, %if.end86 ]
+  %42 = phi i64 [ %40, %if.then89 ], [ %37, %if.end86 ]
+  %43 = phi i64 [ %37, %if.then89 ], [ %40, %if.end86 ]
   %offset.0 = phi i64 [ %tm1.val, %if.then89 ], [ %tm0.val, %if.end86 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %lo.addr.i)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %tm.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mid.i)
-  %add10.i = add nsw i64 %78, 1
-  %cmp.not11.i = icmp eq i64 %add10.i, %77
+  %add10.i = add nsw i64 %43, 1
+  %cmp.not11.i = icmp eq i64 %add10.i, %42
   br i1 %cmp.not11.i, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_110find_transElll.exit, label %while.body.i
 
-while.body.i:                                     ; preds = %if.end91, %if.then.i88
-  %79 = phi i64 [ %spec.select144, %if.then.i88 ], [ %78, %if.end91 ]
-  %hi.addr.012.i = phi i64 [ %spec.select145, %if.then.i88 ], [ %77, %if.end91 ]
-  %sub.i = sub nsw i64 %hi.addr.012.i, %79
+while.body.i:                                     ; preds = %if.end91, %if.end18.i
+  %44 = phi i64 [ %49, %if.end18.i ], [ %43, %if.end91 ]
+  %hi.addr.012.i = phi i64 [ %hi.addr.1.i, %if.end18.i ], [ %42, %if.end91 ]
+  %sub.i = sub nsw i64 %hi.addr.012.i, %44
   %div.i = sdiv i64 %sub.i, 2
-  %add1.i = add nsw i64 %div.i, %79
+  %add1.i = add nsw i64 %div.i, %44
   store i64 %add1.i, ptr %mid.i, align 8
-  %call.i.i87 = call noundef ptr @localtime_r(ptr noundef nonnull %mid.i, ptr noundef nonnull %tm.i) #12
-  %cmp2.not.i = icmp eq ptr %call.i.i87, null
-  br i1 %cmp2.not.i, label %while.cond7.preheader.i, label %if.then.i88
+  %call.i.i = call noundef ptr @localtime_r(ptr noundef nonnull %mid.i, ptr noundef nonnull %tm.i) #12
+  %cmp2.not.i = icmp eq ptr %call.i.i, null
+  br i1 %cmp2.not.i, label %while.cond7.preheader.i, label %if.then.i
 
 while.cond7.preheader.i:                          ; preds = %while.body.i
-  %inc13.i = add nsw i64 %79, 1
+  %inc13.i = add nsw i64 %44, 1
   store i64 %inc13.i, ptr %lo.addr.i, align 8
   %cmp8.not14.i = icmp eq i64 %inc13.i, %hi.addr.012.i
   br i1 %cmp8.not14.i, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_110find_transElll.exit, label %while.body9.i
 
-if.then.i88:                                      ; preds = %while.body.i
-  %80 = getelementptr i8, ptr %call.i.i87, i64 40
-  %call.val.i = load i64, ptr %80, align 8
-  %cmp4.i89 = icmp eq i64 %call.val.i, %offset.0
-  %81 = load i64, ptr %mid.i, align 8
-  %spec.select144 = select i1 %cmp4.i89, i64 %79, i64 %81
-  %spec.select145 = select i1 %cmp4.i89, i64 %81, i64 %hi.addr.012.i
-  %add.i = add nsw i64 %spec.select144, 1
-  %cmp.not.i = icmp eq i64 %add.i, %spec.select145
-  br i1 %cmp.not.i, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_110find_transElll.exit, label %while.body.i, !llvm.loop !6
+if.then.i:                                        ; preds = %while.body.i
+  %45 = getelementptr i8, ptr %call.i.i, i64 40
+  %call.val.i = load i64, ptr %45, align 8
+  %cmp4.i37 = icmp eq i64 %call.val.i, %offset.0
+  %46 = load i64, ptr %mid.i, align 8
+  br i1 %cmp4.i37, label %if.end18.i, label %if.else.i
+
+if.else.i:                                        ; preds = %if.then.i
+  store i64 %46, ptr %lo.addr.i, align 8
+  br label %if.end18.i
 
 while.body9.i:                                    ; preds = %while.cond7.preheader.i, %if.end17.i
   %call.i8.i = call noundef ptr @localtime_r(ptr noundef nonnull %lo.addr.i, ptr noundef nonnull %tm.i) #12
@@ -667,8 +509,8 @@ while.body9.i:                                    ; preds = %while.cond7.prehead
   br i1 %cmp11.not.i, label %if.end17.i, label %if.then12.i
 
 if.then12.i:                                      ; preds = %while.body9.i
-  %82 = getelementptr i8, ptr %call.i8.i, i64 40
-  %call10.val.i = load i64, ptr %82, align 8
+  %47 = getelementptr i8, ptr %call.i8.i, i64 40
+  %call10.val.i = load i64, ptr %47, align 8
   %cmp14.i = icmp eq i64 %call10.val.i, %offset.0
   br i1 %cmp14.i, label %if.then12.while.end.loopexit_crit_edge.i, label %if.end17.i
 
@@ -677,94 +519,106 @@ if.then12.while.end.loopexit_crit_edge.i:         ; preds = %if.then12.i
   br label %_ZN4absl13time_internal4cctz12_GLOBAL__N_110find_transElll.exit
 
 if.end17.i:                                       ; preds = %if.then12.i, %while.body9.i
-  %83 = load i64, ptr %lo.addr.i, align 8
-  %inc.i = add nsw i64 %83, 1
+  %48 = load i64, ptr %lo.addr.i, align 8
+  %inc.i = add nsw i64 %48, 1
   store i64 %inc.i, ptr %lo.addr.i, align 8
   %cmp8.not.i = icmp eq i64 %inc.i, %hi.addr.012.i
-  br i1 %cmp8.not.i, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_110find_transElll.exit, label %while.body9.i, !llvm.loop !8
+  br i1 %cmp8.not.i, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_110find_transElll.exit, label %while.body9.i, !llvm.loop !6
 
-_ZN4absl13time_internal4cctz12_GLOBAL__N_110find_transElll.exit: ; preds = %if.then.i88, %if.end17.i, %if.end91, %while.cond7.preheader.i, %if.then12.while.end.loopexit_crit_edge.i
-  %retval.0.i90 = phi i64 [ %77, %if.end91 ], [ %hi.addr.012.i, %while.cond7.preheader.i ], [ %.pre.pre.i, %if.then12.while.end.loopexit_crit_edge.i ], [ %hi.addr.012.i, %if.end17.i ], [ %spec.select145, %if.then.i88 ]
+if.end18.i:                                       ; preds = %if.else.i, %if.then.i
+  %49 = phi i64 [ %46, %if.else.i ], [ %44, %if.then.i ]
+  %hi.addr.1.i = phi i64 [ %hi.addr.012.i, %if.else.i ], [ %46, %if.then.i ]
+  %add.i = add nsw i64 %49, 1
+  %cmp.not.i = icmp eq i64 %add.i, %hi.addr.1.i
+  br i1 %cmp.not.i, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_110find_transElll.exit, label %while.body.i, !llvm.loop !8
+
+_ZN4absl13time_internal4cctz12_GLOBAL__N_110find_transElll.exit: ; preds = %if.end18.i, %if.end17.i, %if.end91, %while.cond7.preheader.i, %if.then12.while.end.loopexit_crit_edge.i
+  %retval.0.i = phi i64 [ %42, %if.end91 ], [ %hi.addr.012.i, %while.cond7.preheader.i ], [ %.pre.pre.i, %if.then12.while.end.loopexit_crit_edge.i ], [ %hi.addr.012.i, %if.end17.i ], [ %hi.addr.1.i, %if.end18.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %lo.addr.i)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %tm.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %mid.i)
-  %tobool98.not = icmp eq i32 %70, 0
+  %tobool98.not = icmp eq i32 %35, 0
   %pre122 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %trans123 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %post124 = getelementptr inbounds i8, ptr %agg.result, i64 24
   br i1 %tobool98.not, label %if.end112, label %if.then99
 
 if.then99:                                        ; preds = %_ZN4absl13time_internal4cctz12_GLOBAL__N_110find_transElll.exit
-  %84 = load i64, ptr %t0, align 8
-  %85 = load i64, ptr %t1, align 8
+  %50 = load i64, ptr %t0, align 8
+  %51 = load i64, ptr %t1, align 8
   store i32 1, ptr %agg.result, align 8
-  store i64 %84, ptr %pre122, align 8
-  store i64 %retval.0.i90, ptr %trans123, align 8
-  store i64 %85, ptr %post124, align 8
+  store i64 %50, ptr %pre122, align 8
+  store i64 %retval.0.i, ptr %trans123, align 8
+  store i64 %51, ptr %post124, align 8
   br label %return
 
 if.end112:                                        ; preds = %_ZN4absl13time_internal4cctz12_GLOBAL__N_110find_transElll.exit
-  %86 = load i64, ptr %t1, align 8
-  %87 = load i64, ptr %t0, align 8
+  %52 = load i64, ptr %t1, align 8
+  %53 = load i64, ptr %t0, align 8
   store i32 2, ptr %agg.result, align 8
-  store i64 %86, ptr %pre122, align 8
-  store i64 %retval.0.i90, ptr %trans123, align 8
-  store i64 %87, ptr %post124, align 8
+  store i64 %52, ptr %pre122, align 8
+  store i64 %retval.0.i, ptr %trans123, align 8
+  store i64 %53, ptr %post124, align 8
   br label %return
 
-if.end125:                                        ; preds = %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit86.thread, %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit.thread, %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit86, %_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm.exit
-  %88 = load i64, ptr %cs, align 8
-  %cmp.i96 = icmp slt i64 %88, 1970
-  br i1 %cmp.i96, label %cond.end137, label %lor.rhs.i97
+if.end125:                                        ; preds = %land.lhs.true, %if.end66
+  %54 = load i64, ptr %cs, align 8
+  %cmp.i43 = icmp slt i64 %54, 1970
+  br i1 %cmp.i43, label %cond.end137, label %lor.rhs.i44
 
-lor.rhs.i97:                                      ; preds = %if.end125
-  %cmp4.i98 = icmp eq i64 %88, 1970
-  br i1 %cmp4.i98, label %land.rhs.i99, label %cond.end137
+lor.rhs.i44:                                      ; preds = %if.end125
+  %cmp4.i45 = icmp eq i64 %54, 1970
+  br i1 %cmp4.i45, label %land.rhs.i46, label %cond.false133
 
-land.rhs.i99:                                     ; preds = %lor.rhs.i97
-  %89 = load i8, ptr %m.i.i37, align 8
-  %cmp7.i101 = icmp slt i8 %89, 1
-  br i1 %cmp7.i101, label %cond.end137, label %lor.rhs8.i102
+land.rhs.i46:                                     ; preds = %lor.rhs.i44
+  %m.i.i47 = getelementptr inbounds i8, ptr %cs, i64 8
+  %55 = load i8, ptr %m.i.i47, align 8
+  %cmp7.i48 = icmp slt i8 %55, 1
+  br i1 %cmp7.i48, label %cond.end137, label %lor.rhs8.i49
 
-lor.rhs8.i102:                                    ; preds = %land.rhs.i99
-  %cmp11.i103 = icmp eq i8 %89, 1
-  br i1 %cmp11.i103, label %land.rhs12.i104, label %cond.end137
+lor.rhs8.i49:                                     ; preds = %land.rhs.i46
+  %cmp11.i50 = icmp eq i8 %55, 1
+  br i1 %cmp11.i50, label %land.rhs12.i51, label %cond.false133
 
-land.rhs12.i104:                                  ; preds = %lor.rhs8.i102
-  %90 = load i8, ptr %d.i.i39, align 1
-  %cmp15.i106 = icmp slt i8 %90, 1
-  br i1 %cmp15.i106, label %cond.end137, label %lor.rhs16.i107
+land.rhs12.i51:                                   ; preds = %lor.rhs8.i49
+  %d.i.i52 = getelementptr inbounds i8, ptr %cs, i64 9
+  %56 = load i8, ptr %d.i.i52, align 1
+  %cmp15.i53 = icmp slt i8 %56, 1
+  br i1 %cmp15.i53, label %cond.end137, label %lor.rhs16.i54
 
-lor.rhs16.i107:                                   ; preds = %land.rhs12.i104
-  %cmp19.i108 = icmp eq i8 %90, 1
-  br i1 %cmp19.i108, label %land.rhs20.i109, label %cond.end137
+lor.rhs16.i54:                                    ; preds = %land.rhs12.i51
+  %cmp19.i55 = icmp eq i8 %56, 1
+  br i1 %cmp19.i55, label %land.rhs20.i56, label %cond.false133
 
-land.rhs20.i109:                                  ; preds = %lor.rhs16.i107
-  %91 = load i8, ptr %hh.i.i40, align 2
-  %cmp23.i111 = icmp slt i8 %91, 0
-  br i1 %cmp23.i111, label %cond.end137, label %lor.rhs24.i112
+land.rhs20.i56:                                   ; preds = %lor.rhs16.i54
+  %hh.i.i57 = getelementptr inbounds i8, ptr %cs, i64 10
+  %57 = load i8, ptr %hh.i.i57, align 2
+  %cmp23.i58 = icmp slt i8 %57, 0
+  br i1 %cmp23.i58, label %cond.end137, label %lor.rhs24.i59
 
-lor.rhs24.i112:                                   ; preds = %land.rhs20.i109
-  %cmp27.i113 = icmp eq i8 %91, 0
-  br i1 %cmp27.i113, label %land.rhs28.i114, label %cond.end137
+lor.rhs24.i59:                                    ; preds = %land.rhs20.i56
+  %cmp27.i60 = icmp eq i8 %57, 0
+  br i1 %cmp27.i60, label %land.rhs28.i61, label %cond.false133
 
-land.rhs28.i114:                                  ; preds = %lor.rhs24.i112
-  %92 = load i8, ptr %mm.i.i41, align 1
-  %cmp31.i116 = icmp slt i8 %92, 0
-  br i1 %cmp31.i116, label %cond.end137, label %lor.rhs32.i117
+land.rhs28.i61:                                   ; preds = %lor.rhs24.i59
+  %mm.i.i62 = getelementptr inbounds i8, ptr %cs, i64 11
+  %58 = load i8, ptr %mm.i.i62, align 1
+  %cmp31.i63 = icmp slt i8 %58, 0
+  br i1 %cmp31.i63, label %cond.end137, label %lor.rhs32.i64
 
-lor.rhs32.i117:                                   ; preds = %land.rhs28.i114
-  %cmp35.i118 = icmp eq i8 %92, 0
-  br i1 %cmp35.i118, label %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit122, label %cond.end137
+lor.rhs32.i64:                                    ; preds = %land.rhs28.i61
+  %cmp35.i65 = icmp eq i8 %58, 0
+  %ss.i.i67 = getelementptr inbounds i8, ptr %cs, i64 12
+  %59 = load i8, ptr %ss.i.i67, align 4
+  %cmp39.i68 = icmp slt i8 %59, 0
+  %or.cond = select i1 %cmp35.i65, i1 %cmp39.i68, i1 false
+  br i1 %or.cond, label %cond.end137, label %cond.false133
 
-_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit122: ; preds = %lor.rhs32.i117
-  %93 = load i8, ptr %ss.i.i42, align 4
-  %cmp39.i121 = icmp slt i8 %93, 0
-  %spec.select = select i1 %cmp39.i121, i64 -9223372036854775808, i64 9223372036854775807
+cond.false133:                                    ; preds = %lor.rhs32.i64, %lor.rhs24.i59, %lor.rhs16.i54, %lor.rhs8.i49, %lor.rhs.i44
   br label %cond.end137
 
-cond.end137:                                      ; preds = %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit122, %lor.rhs32.i117, %lor.rhs24.i112, %lor.rhs16.i107, %lor.rhs8.i102, %lor.rhs.i97, %land.rhs28.i114, %land.rhs20.i109, %land.rhs12.i104, %land.rhs.i99, %if.end125
-  %tp126.sroa.0.0 = phi i64 [ -9223372036854775808, %if.end125 ], [ -9223372036854775808, %land.rhs.i99 ], [ -9223372036854775808, %land.rhs12.i104 ], [ -9223372036854775808, %land.rhs20.i109 ], [ -9223372036854775808, %land.rhs28.i114 ], [ 9223372036854775807, %lor.rhs.i97 ], [ 9223372036854775807, %lor.rhs8.i102 ], [ 9223372036854775807, %lor.rhs16.i107 ], [ 9223372036854775807, %lor.rhs24.i112 ], [ 9223372036854775807, %lor.rhs32.i117 ], [ %spec.select, %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit122 ]
+cond.end137:                                      ; preds = %lor.rhs32.i64, %land.rhs28.i61, %land.rhs20.i56, %land.rhs12.i51, %land.rhs.i46, %if.end125, %cond.false133
+  %tp126.sroa.0.0 = phi i64 [ 9223372036854775807, %cond.false133 ], [ -9223372036854775808, %if.end125 ], [ -9223372036854775808, %land.rhs.i46 ], [ -9223372036854775808, %land.rhs12.i51 ], [ -9223372036854775808, %land.rhs20.i56 ], [ -9223372036854775808, %land.rhs28.i61 ], [ -9223372036854775808, %lor.rhs32.i64 ]
   store i32 0, ptr %agg.result, align 8
   %pre139 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %tp126.sroa.0.0, ptr %pre139, align 8
@@ -804,6 +658,101 @@ entry:
 
 ; Function Attrs: nofree nounwind
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc noundef zeroext i1 @_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %cs, i32 noundef %is_dst, ptr noundef %t, ptr nocapture noundef %tm) unnamed_addr #3 {
+entry:
+  %tm2 = alloca %struct.tm, align 8
+  %0 = load i64, ptr %cs, align 8
+  %1 = trunc i64 %0 to i32
+  %conv = add i32 %1, -1900
+  %tm_year = getelementptr inbounds i8, ptr %tm, i64 20
+  store i32 %conv, ptr %tm_year, align 4
+  %m.i = getelementptr inbounds i8, ptr %cs, i64 8
+  %2 = load i8, ptr %m.i, align 8
+  %conv.i = sext i8 %2 to i32
+  %sub2 = add nsw i32 %conv.i, -1
+  %tm_mon = getelementptr inbounds i8, ptr %tm, i64 16
+  store i32 %sub2, ptr %tm_mon, align 8
+  %d.i = getelementptr inbounds i8, ptr %cs, i64 9
+  %3 = load i8, ptr %d.i, align 1
+  %conv.i27 = sext i8 %3 to i32
+  %tm_mday = getelementptr inbounds i8, ptr %tm, i64 12
+  store i32 %conv.i27, ptr %tm_mday, align 4
+  %hh.i = getelementptr inbounds i8, ptr %cs, i64 10
+  %4 = load i8, ptr %hh.i, align 2
+  %conv.i28 = sext i8 %4 to i32
+  %tm_hour = getelementptr inbounds i8, ptr %tm, i64 8
+  store i32 %conv.i28, ptr %tm_hour, align 8
+  %mm.i = getelementptr inbounds i8, ptr %cs, i64 11
+  %5 = load i8, ptr %mm.i, align 1
+  %conv.i29 = sext i8 %5 to i32
+  %tm_min = getelementptr inbounds i8, ptr %tm, i64 4
+  store i32 %conv.i29, ptr %tm_min, align 4
+  %ss.i = getelementptr inbounds i8, ptr %cs, i64 12
+  %6 = load i8, ptr %ss.i, align 4
+  %conv.i30 = sext i8 %6 to i32
+  store i32 %conv.i30, ptr %tm, align 8
+  %tm_isdst = getelementptr inbounds i8, ptr %tm, i64 32
+  store i32 %is_dst, ptr %tm_isdst, align 8
+  %call7 = tail call i64 @mktime(ptr noundef nonnull %tm) #12
+  store i64 %call7, ptr %t, align 8
+  %cmp = icmp eq i64 %call7, -1
+  br i1 %cmp, label %if.then, label %if.end34
+
+if.then:                                          ; preds = %entry
+  %call.i = call noundef ptr @localtime_r(ptr noundef nonnull %t, ptr noundef nonnull %tm2) #12
+  %cmp9 = icmp eq ptr %call.i, null
+  br i1 %cmp9, label %return, label %lor.lhs.false
+
+lor.lhs.false:                                    ; preds = %if.then
+  %tm_year10 = getelementptr inbounds i8, ptr %call.i, i64 20
+  %7 = load i32, ptr %tm_year10, align 4
+  %8 = load i32, ptr %tm_year, align 4
+  %cmp12.not = icmp eq i32 %7, %8
+  br i1 %cmp12.not, label %lor.lhs.false13, label %return
+
+lor.lhs.false13:                                  ; preds = %lor.lhs.false
+  %tm_mon14 = getelementptr inbounds i8, ptr %call.i, i64 16
+  %9 = load i32, ptr %tm_mon14, align 8
+  %10 = load i32, ptr %tm_mon, align 8
+  %cmp16.not = icmp eq i32 %9, %10
+  br i1 %cmp16.not, label %lor.lhs.false17, label %return
+
+lor.lhs.false17:                                  ; preds = %lor.lhs.false13
+  %tm_mday18 = getelementptr inbounds i8, ptr %call.i, i64 12
+  %11 = load i32, ptr %tm_mday18, align 4
+  %12 = load i32, ptr %tm_mday, align 4
+  %cmp20.not = icmp eq i32 %11, %12
+  br i1 %cmp20.not, label %lor.lhs.false21, label %return
+
+lor.lhs.false21:                                  ; preds = %lor.lhs.false17
+  %tm_hour22 = getelementptr inbounds i8, ptr %call.i, i64 8
+  %13 = load i32, ptr %tm_hour22, align 8
+  %14 = load i32, ptr %tm_hour, align 8
+  %cmp24.not = icmp eq i32 %13, %14
+  br i1 %cmp24.not, label %lor.lhs.false25, label %return
+
+lor.lhs.false25:                                  ; preds = %lor.lhs.false21
+  %tm_min26 = getelementptr inbounds i8, ptr %call.i, i64 4
+  %15 = load i32, ptr %tm_min26, align 4
+  %16 = load i32, ptr %tm_min, align 4
+  %cmp28.not = icmp eq i32 %15, %16
+  br i1 %cmp28.not, label %lor.lhs.false29, label %return
+
+lor.lhs.false29:                                  ; preds = %lor.lhs.false25
+  %17 = load i32, ptr %call.i, align 8
+  %18 = load i32, ptr %tm, align 8
+  %cmp32.not = icmp eq i32 %17, %18
+  br i1 %cmp32.not, label %if.end34, label %return
+
+if.end34:                                         ; preds = %lor.lhs.false29, %entry
+  br label %return
+
+return:                                           ; preds = %if.then, %lor.lhs.false, %lor.lhs.false13, %lor.lhs.false17, %lor.lhs.false21, %lor.lhs.false25, %lor.lhs.false29, %if.end34
+  %retval.0 = phi i1 [ true, %if.end34 ], [ false, %lor.lhs.false29 ], [ false, %lor.lhs.false25 ], [ false, %lor.lhs.false21 ], [ false, %lor.lhs.false17 ], [ false, %lor.lhs.false13 ], [ false, %lor.lhs.false ], [ false, %if.then ]
+  ret i1 %retval.0
+}
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef zeroext i1 @_ZNK4absl13time_internal4cctz12TimeZoneLibC14NextTransitionERKNSt6chrono10time_pointINS3_3_V212system_clockENS3_8durationIlSt5ratioILl1ELl1EEEEEEPNS1_9time_zone16civil_transitionE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #5 align 2 {
@@ -1215,17 +1164,15 @@ if.then16:                                        ; preds = %if.else
 
 land.rhs.i.i:                                     ; preds = %if.then16
   %rem1.i.i = srem i64 %add.i, 100
-  %cmp2.not.i.i = icmp eq i64 %rem1.i.i, 0
-  br i1 %cmp2.not.i.i, label %_ZN4absl13time_internal4cctz6detail4impl12is_leap_yearEl.exit.i, label %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit
-
-_ZN4absl13time_internal4cctz6detail4impl12is_leap_yearEl.exit.i: ; preds = %land.rhs.i.i
+  %cmp2.not.i.i = icmp ne i64 %rem1.i.i, 0
   %rem3.i.i = srem i64 %add.i, 400
   %cmp4.i.i = icmp eq i64 %rem3.i.i, 0
-  %1 = select i1 %cmp4.i.i, i64 366, i64 365
+  %or.cond.i = or i1 %cmp2.not.i.i, %cmp4.i.i
+  %1 = select i1 %or.cond.i, i64 366, i64 365
   br label %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit
 
-_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit: ; preds = %if.then16, %land.rhs.i.i, %_ZN4absl13time_internal4cctz6detail4impl12is_leap_yearEl.exit.i
-  %conv = phi i64 [ 365, %if.then16 ], [ 366, %land.rhs.i.i ], [ %1, %_ZN4absl13time_internal4cctz6detail4impl12is_leap_yearEl.exit.i ]
+_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit: ; preds = %if.then16, %land.rhs.i.i
+  %conv = phi i64 [ 365, %if.then16 ], [ %1, %land.rhs.i.i ]
   %add18 = add nsw i64 %conv, %add7
   br label %if.end23
 
@@ -1249,23 +1196,23 @@ if.then25:                                        ; preds = %if.end23
   %cmp3.i = icmp slt i32 %conv2.i, 0
   %add4.i = add nsw i32 %conv2.i, 400
   %cond.i = select i1 %cmp3.i, i32 %add4.i, i32 %conv2.i
-  %cmp.i6188 = icmp eq i32 %cond.i, 0
-  %cmp1.i89 = icmp sgt i32 %cond.i, 300
-  %2 = or i1 %cmp.i6188, %cmp1.i89
-  %conv2890 = select i1 %2, i64 36525, i64 36524
-  %cmp29.not91 = icmp ugt i64 %d.addr.0, %conv2890
-  br i1 %cmp29.not91, label %if.end31, label %for.cond40.preheader
+  %cmp.i6189 = icmp eq i32 %cond.i, 0
+  %cmp1.i90 = icmp sgt i32 %cond.i, 300
+  %2 = or i1 %cmp.i6189, %cmp1.i90
+  %conv2891 = select i1 %2, i64 36525, i64 36524
+  %cmp29.not92 = icmp ugt i64 %d.addr.0, %conv2891
+  br i1 %cmp29.not92, label %if.end31, label %for.cond40.preheader
 
 if.end31:                                         ; preds = %if.then25, %if.end31
-  %conv2895 = phi i64 [ %conv28, %if.end31 ], [ %conv2890, %if.then25 ]
-  %d.addr.194 = phi i64 [ %sub33, %if.end31 ], [ %d.addr.0, %if.then25 ]
-  %ey.293 = phi i64 [ %add34, %if.end31 ], [ %ey.1, %if.then25 ]
-  %yi.092 = phi i32 [ %spec.select, %if.end31 ], [ %cond.i, %if.then25 ]
-  %sub33 = sub nuw nsw i64 %d.addr.194, %conv2895
-  %add34 = add nsw i64 %ey.293, 100
-  %cmp36 = icmp sgt i32 %yi.092, 299
+  %conv2896 = phi i64 [ %conv28, %if.end31 ], [ %conv2891, %if.then25 ]
+  %d.addr.195 = phi i64 [ %sub33, %if.end31 ], [ %d.addr.0, %if.then25 ]
+  %ey.294 = phi i64 [ %add34, %if.end31 ], [ %ey.1, %if.then25 ]
+  %yi.093 = phi i32 [ %spec.select, %if.end31 ], [ %cond.i, %if.then25 ]
+  %sub33 = sub nuw nsw i64 %d.addr.195, %conv2896
+  %add34 = add nsw i64 %ey.294, 100
+  %cmp36 = icmp sgt i32 %yi.093, 299
   %spec.select.v = select i1 %cmp36, i32 -300, i32 100
-  %spec.select = add nsw i32 %spec.select.v, %yi.092
+  %spec.select = add nsw i32 %spec.select.v, %yi.093
   %cmp.i61 = icmp eq i32 %spec.select, 0
   %cmp1.i = icmp sgt i32 %spec.select, 300
   %3 = or i1 %cmp.i61, %cmp1.i
@@ -1285,13 +1232,13 @@ for.cond40:                                       ; preds = %for.cond40.preheade
   %d.addr.2 = phi i64 [ %sub48, %if.end46 ], [ %d.addr.2.ph, %for.cond40.preheader ]
   %cmp.i63 = icmp eq i32 %yi.2, 0
   %cmp1.i64 = icmp sgt i32 %yi.2, 300
-  %or.cond.i = or i1 %cmp.i63, %cmp1.i64
-  br i1 %or.cond.i, label %_ZN4absl13time_internal4cctz6detail4impl15days_per_4yearsEi.exit, label %lor.rhs.i
+  %or.cond.i65 = or i1 %cmp.i63, %cmp1.i64
+  br i1 %or.cond.i65, label %_ZN4absl13time_internal4cctz6detail4impl15days_per_4yearsEi.exit, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %for.cond40
   %sub.i = add nsw i32 %yi.2, -1
-  %rem.i65 = srem i32 %sub.i, 100
-  %cmp2.i = icmp slt i32 %rem.i65, 96
+  %rem.i66 = srem i32 %sub.i, 100
+  %cmp2.i = icmp slt i32 %rem.i66, 96
   %4 = select i1 %cmp2.i, i64 1461, i64 1460
   br label %_ZN4absl13time_internal4cctz6detail4impl15days_per_4yearsEi.exit
 
@@ -1311,35 +1258,33 @@ if.end46:                                         ; preds = %_ZN4absl13time_inte
 for.cond56:                                       ; preds = %_ZN4absl13time_internal4cctz6detail4impl15days_per_4yearsEi.exit, %if.end62
   %ey.4 = phi i64 [ %inc, %if.end62 ], [ %ey.3, %_ZN4absl13time_internal4cctz6detail4impl15days_per_4yearsEi.exit ]
   %d.addr.3 = phi i64 [ %sub64, %if.end62 ], [ %d.addr.2, %_ZN4absl13time_internal4cctz6detail4impl15days_per_4yearsEi.exit ]
-  %add.i68 = add i64 %ey.4, %conv1.i59
-  %5 = and i64 %add.i68, 3
-  %cmp.i.i69 = icmp eq i64 %5, 0
-  br i1 %cmp.i.i69, label %land.rhs.i.i70, label %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit77
+  %add.i69 = add i64 %ey.4, %conv1.i59
+  %5 = and i64 %add.i69, 3
+  %cmp.i.i70 = icmp eq i64 %5, 0
+  br i1 %cmp.i.i70, label %land.rhs.i.i71, label %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit78
 
-land.rhs.i.i70:                                   ; preds = %for.cond56
-  %rem1.i.i71 = srem i64 %add.i68, 100
-  %cmp2.not.i.i72 = icmp eq i64 %rem1.i.i71, 0
-  br i1 %cmp2.not.i.i72, label %_ZN4absl13time_internal4cctz6detail4impl12is_leap_yearEl.exit.i73, label %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit77
-
-_ZN4absl13time_internal4cctz6detail4impl12is_leap_yearEl.exit.i73: ; preds = %land.rhs.i.i70
-  %rem3.i.i74 = srem i64 %add.i68, 400
+land.rhs.i.i71:                                   ; preds = %for.cond56
+  %rem1.i.i72 = srem i64 %add.i69, 100
+  %cmp2.not.i.i73 = icmp ne i64 %rem1.i.i72, 0
+  %rem3.i.i74 = srem i64 %add.i69, 400
   %cmp4.i.i75 = icmp eq i64 %rem3.i.i74, 0
-  %spec.select.i76 = select i1 %cmp4.i.i75, i64 366, i64 365
-  br label %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit77
+  %or.cond.i76 = or i1 %cmp2.not.i.i73, %cmp4.i.i75
+  %spec.select.i77 = select i1 %or.cond.i76, i64 366, i64 365
+  br label %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit78
 
-_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit77: ; preds = %for.cond56, %land.rhs.i.i70, %_ZN4absl13time_internal4cctz6detail4impl12is_leap_yearEl.exit.i73
-  %conv59 = phi i64 [ 365, %for.cond56 ], [ 366, %land.rhs.i.i70 ], [ %spec.select.i76, %_ZN4absl13time_internal4cctz6detail4impl12is_leap_yearEl.exit.i73 ]
+_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit78: ; preds = %for.cond56, %land.rhs.i.i71
+  %conv59 = phi i64 [ 365, %for.cond56 ], [ %spec.select.i77, %land.rhs.i.i71 ]
   %cmp60.not = icmp ugt i64 %d.addr.3, %conv59
   br i1 %cmp60.not, label %if.end62, label %if.end66
 
-if.end62:                                         ; preds = %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit77
+if.end62:                                         ; preds = %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit78
   %sub64 = sub nuw nsw i64 %d.addr.3, %conv59
   %inc = add nsw i64 %ey.4, 1
   br label %for.cond56, !llvm.loop !11
 
-if.end66:                                         ; preds = %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit77, %if.end23
-  %ey.5 = phi i64 [ %ey.1, %if.end23 ], [ %ey.4, %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit77 ]
-  %d.addr.4 = phi i64 [ %d.addr.0, %if.end23 ], [ %d.addr.3, %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit77 ]
+if.end66:                                         ; preds = %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit78, %if.end23
+  %ey.5 = phi i64 [ %ey.1, %if.end23 ], [ %ey.4, %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit78 ]
+  %d.addr.4 = phi i64 [ %d.addr.0, %if.end23 ], [ %d.addr.3, %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit78 ]
   %cmp67 = icmp ugt i64 %d.addr.4, 28
   br i1 %cmp67, label %for.cond69, label %if.end85
 
@@ -1350,27 +1295,27 @@ for.cond69:                                       ; preds = %if.end66, %if.end75
   %idxprom.i = sext i8 %m.addr.0 to i64
   %arrayidx.i = getelementptr inbounds [13 x i32], ptr @__const._ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.k_days_per_month, i64 0, i64 %idxprom.i
   %6 = load i32, ptr %arrayidx.i, align 4
-  %cmp.i78 = icmp eq i8 %m.addr.0, 2
+  %cmp.i79 = icmp eq i8 %m.addr.0, 2
   %7 = and i64 %ey.6, 3
-  %cmp.i.i79 = icmp eq i64 %7, 0
-  %or.cond.i80 = and i1 %cmp.i.i79, %cmp.i78
-  br i1 %or.cond.i80, label %land.rhs.i.i83, label %_ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.exit
+  %cmp.i.i80 = icmp eq i64 %7, 0
+  %or.cond.i81 = and i1 %cmp.i.i80, %cmp.i79
+  br i1 %or.cond.i81, label %land.rhs.i.i84, label %_ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.exit
 
-land.rhs.i.i83:                                   ; preds = %for.cond69
-  %rem1.i.i84 = srem i64 %ey.6, 100
-  %cmp2.not.i.i85 = icmp eq i64 %rem1.i.i84, 0
-  br i1 %cmp2.not.i.i85, label %lor.rhs.i.i, label %_ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.exit
+land.rhs.i.i84:                                   ; preds = %for.cond69
+  %rem1.i.i85 = srem i64 %ey.6, 100
+  %cmp2.not.i.i86 = icmp eq i64 %rem1.i.i85, 0
+  br i1 %cmp2.not.i.i86, label %lor.rhs.i.i, label %_ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.exit
 
-lor.rhs.i.i:                                      ; preds = %land.rhs.i.i83
-  %rem3.i.i86 = srem i64 %ey.6, 400
-  %cmp4.i.i87 = icmp eq i64 %rem3.i.i86, 0
-  %8 = zext i1 %cmp4.i.i87 to i32
+lor.rhs.i.i:                                      ; preds = %land.rhs.i.i84
+  %rem3.i.i87 = srem i64 %ey.6, 400
+  %cmp4.i.i88 = icmp eq i64 %rem3.i.i87, 0
+  %8 = zext i1 %cmp4.i.i88 to i32
   br label %_ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.exit
 
-_ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.exit: ; preds = %for.cond69, %land.rhs.i.i83, %lor.rhs.i.i
-  %conv1.i81 = phi i32 [ 0, %for.cond69 ], [ 1, %land.rhs.i.i83 ], [ %8, %lor.rhs.i.i ]
-  %add.i82 = add nsw i32 %conv1.i81, %6
-  %conv72 = sext i32 %add.i82 to i64
+_ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.exit: ; preds = %for.cond69, %land.rhs.i.i84, %lor.rhs.i.i
+  %conv1.i82 = phi i32 [ 0, %for.cond69 ], [ 1, %land.rhs.i.i84 ], [ %8, %lor.rhs.i.i ]
+  %add.i83 = add nsw i32 %conv1.i82, %6
+  %conv72 = sext i32 %add.i83 to i64
   %cmp73.not = icmp sgt i64 %d.addr.5, %conv72
   br i1 %cmp73.not, label %if.end75, label %if.end85
 

@@ -4915,13 +4915,13 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
   %983 = phi ptr [ %981, %980 ], [ null, %979 ]
   %984 = zext i16 %976 to i32
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %983, i32 noundef 2, ptr noundef nonnull @.str.98, i32 noundef %984) #17
+  br label %985
+
+985:                                              ; preds = %982, %974
   br label %986
 
-985:                                              ; preds = %974
-  br label %986
-
-986:                                              ; preds = %982, %985, %978, %977, %974
-  %987 = phi i32 [ 0, %978 ], [ 100, %977 ], [ 500, %974 ], [ 2500, %982 ], [ 2500, %985 ]
+986:                                              ; preds = %985, %978, %977, %974
+  %987 = phi i32 [ 2500, %985 ], [ 0, %978 ], [ 100, %977 ], [ 500, %974 ]
   %988 = getelementptr inbounds i8, ptr %1, i64 212
   store i32 %987, ptr %988, align 4
   %989 = getelementptr inbounds i8, ptr %948, i64 4
@@ -4950,9 +4950,9 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
   %997 = phi ptr [ %995, %994 ], [ null, %993 ]
   %998 = zext i16 %990 to i32
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %997, i32 noundef 2, ptr noundef nonnull @.str.99, i32 noundef %998) #17
-  br label %1010
+  br label %999
 
-999:                                              ; preds = %986
+999:                                              ; preds = %996, %986
   br label %1010
 
 1000:                                             ; preds = %969, %965, %946
@@ -4968,8 +4968,8 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
   %1009 = mul nuw nsw i32 %1008, 100
   br label %1010
 
-1010:                                             ; preds = %996, %1000, %999, %992, %991, %986
-  %1011 = phi i32 [ %1009, %1000 ], [ 0, %992 ], [ 100, %991 ], [ 500, %986 ], [ 2500, %996 ], [ 2500, %999 ]
+1010:                                             ; preds = %1000, %999, %992, %991, %986
+  %1011 = phi i32 [ %1009, %1000 ], [ 2500, %999 ], [ 0, %992 ], [ 100, %991 ], [ 500, %986 ]
   %1012 = getelementptr inbounds i8, ptr %1, i64 216
   store i32 %1011, ptr %1012, align 4
   %1013 = load i16, ptr %160, align 8

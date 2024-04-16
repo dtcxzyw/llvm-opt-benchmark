@@ -1204,18 +1204,18 @@ Py_SET_REFCNT.exit.i:                             ; preds = %if.end.i.i, %if.the
 if.end:                                           ; preds = %Py_SET_REFCNT.exit.i, %entry
   %m_name = getelementptr inbounds i8, ptr %module, i64 40
   %3 = load ptr, ptr %m_name, align 8
-  switch i32 %module_api_version, label %check_api_version.exit [
+  switch i32 %module_api_version, label %if.then.i33 [
     i32 1013, label %if.end4
     i32 3, label %if.end4
   ]
 
-check_api_version.exit:                           ; preds = %if.end
+if.then.i33:                                      ; preds = %if.end
   %4 = load ptr, ptr @PyExc_RuntimeWarning, align 8
   %call.i34 = tail call i32 (ptr, i64, ptr, ...) @PyErr_WarnFormat(ptr noundef %4, i64 noundef 1, ptr noundef nonnull @.str.27, ptr noundef %3, i32 noundef 1013, ptr noundef %3, i32 noundef %module_api_version) #4
-  %tobool.not.i.not = icmp eq i32 %call.i34, 0
-  br i1 %tobool.not.i.not, label %if.end4, label %return
+  %tobool.not.i = icmp eq i32 %call.i34, 0
+  br i1 %tobool.not.i, label %if.end4, label %return
 
-if.end4:                                          ; preds = %if.end, %if.end, %check_api_version.exit
+if.end4:                                          ; preds = %if.then.i33, %if.end, %if.end
   %m_slots = getelementptr inbounds i8, ptr %module, i64 72
   %5 = load ptr, ptr %m_slots, align 8
   %tobool5.not = icmp eq ptr %5, null
@@ -1402,8 +1402,8 @@ if.end40:                                         ; preds = %if.end.i.i55, %if.e
   store ptr %module, ptr %md_def, align 8
   br label %return
 
-return:                                           ; preds = %if.end8, %if.end.i, %if.then1.i, %if.then38, %if.end.i44, %if.then1.i47, %if.then30, %if.end.i53, %if.then1.i56, %if.then19, %PyModule_New.exit, %check_api_version.exit, %if.end40, %if.then6
-  %retval.0 = phi ptr [ null, %if.then6 ], [ %call1.i, %if.end40 ], [ null, %check_api_version.exit ], [ null, %PyModule_New.exit ], [ null, %if.then19 ], [ null, %if.then1.i56 ], [ null, %if.end.i53 ], [ null, %if.then30 ], [ null, %if.then1.i47 ], [ null, %if.end.i44 ], [ null, %if.then38 ], [ null, %if.then1.i ], [ null, %if.end.i ], [ null, %if.end8 ]
+return:                                           ; preds = %if.end8, %if.then.i33, %if.end.i, %if.then1.i, %if.then38, %if.end.i44, %if.then1.i47, %if.then30, %if.end.i53, %if.then1.i56, %if.then19, %PyModule_New.exit, %if.end40, %if.then6
+  %retval.0 = phi ptr [ null, %if.then6 ], [ %call1.i, %if.end40 ], [ null, %PyModule_New.exit ], [ null, %if.then19 ], [ null, %if.then1.i56 ], [ null, %if.end.i53 ], [ null, %if.then30 ], [ null, %if.then1.i47 ], [ null, %if.end.i44 ], [ null, %if.then38 ], [ null, %if.then1.i ], [ null, %if.end.i ], [ null, %if.then.i33 ], [ null, %if.end8 ]
   ret ptr %retval.0
 }
 
@@ -1530,18 +1530,18 @@ if.end:                                           ; preds = %PyModuleDef_Init.ex
   br i1 %cmp4, label %error, label %if.end6
 
 if.end6:                                          ; preds = %if.end
-  switch i32 %module_api_version, label %check_api_version.exit [
+  switch i32 %module_api_version, label %if.then.i59 [
     i32 1013, label %if.end9
     i32 3, label %if.end9
   ]
 
-check_api_version.exit:                           ; preds = %if.end6
+if.then.i59:                                      ; preds = %if.end6
   %6 = load ptr, ptr @PyExc_RuntimeWarning, align 8
   %call.i60 = tail call i32 (ptr, i64, ptr, ...) @PyErr_WarnFormat(ptr noundef %6, i64 noundef 1, ptr noundef nonnull @.str.27, ptr noundef nonnull %call3, i32 noundef 1013, ptr noundef nonnull %call3, i32 noundef %module_api_version) #4
-  %tobool.not.i.not = icmp eq i32 %call.i60, 0
-  br i1 %tobool.not.i.not, label %if.end9, label %error
+  %tobool.not.i = icmp eq i32 %call.i60, 0
+  br i1 %tobool.not.i, label %if.end9, label %error
 
-if.end9:                                          ; preds = %if.end6, %if.end6, %check_api_version.exit
+if.end9:                                          ; preds = %if.then.i59, %if.end6, %if.end6
   %m_size = getelementptr inbounds i8, ptr %def, i64 56
   %7 = load i64, ptr %m_size, align 8
   %cmp10 = icmp slt i64 %7, 0
@@ -1780,8 +1780,8 @@ if.end.i114:                                      ; preds = %if.end110
   %cmp.i116 = icmp eq i64 %dec.i115, 0
   br i1 %cmp.i116, label %return.sink.split, label %return
 
-error:                                            ; preds = %if.then104, %if.then96, %if.else70, %if.then57, %if.then60, %land.lhs.true47, %land.lhs.true, %check_api_version.exit, %if.end, %if.then91, %if.then87, %if.then66, %sw.default, %if.then24, %if.then18, %if.then11
-  %m.1 = phi ptr [ null, %if.end ], [ null, %if.then11 ], [ null, %sw.default ], [ null, %if.then24 ], [ null, %if.then18 ], [ null, %if.then57 ], [ null, %if.then60 ], [ %call55, %if.then66 ], [ %m.0, %if.then96 ], [ %m.0, %if.then104 ], [ %m.0, %if.then87 ], [ %m.0, %if.then91 ], [ null, %if.else70 ], [ null, %land.lhs.true ], [ null, %land.lhs.true47 ], [ null, %check_api_version.exit ]
+error:                                            ; preds = %if.then.i59, %if.then104, %if.then96, %if.else70, %if.then57, %if.then60, %land.lhs.true47, %land.lhs.true, %if.end, %if.then91, %if.then87, %if.then66, %sw.default, %if.then24, %if.then18, %if.then11
+  %m.1 = phi ptr [ null, %if.end ], [ null, %if.then11 ], [ null, %sw.default ], [ null, %if.then24 ], [ null, %if.then18 ], [ null, %if.then57 ], [ null, %if.then60 ], [ %call55, %if.then66 ], [ %m.0, %if.then96 ], [ %m.0, %if.then104 ], [ %m.0, %if.then87 ], [ %m.0, %if.then91 ], [ null, %if.else70 ], [ null, %land.lhs.true ], [ null, %land.lhs.true47 ], [ null, %if.then.i59 ]
   %34 = load i64, ptr %call2, align 8
   %35 = and i64 %34, 2147483648
   %cmp.i124.not = icmp eq i64 %35, 0
@@ -3186,14 +3186,18 @@ do.body:                                          ; preds = %entry, %land.lhs.tr
   %md_dict = getelementptr inbounds i8, ptr %m, i64 16
   %4 = load ptr, ptr %md_dict, align 8
   %tobool11.not = icmp eq ptr %4, null
-  br i1 %tobool11.not, label %return, label %if.then12
+  br i1 %tobool11.not, label %do.end, label %if.then12
 
 if.then12:                                        ; preds = %do.body
   %call14 = tail call i32 %visit(ptr noundef nonnull %4, ptr noundef %arg) #4
+  %tobool15.not = icmp eq i32 %call14, 0
+  br i1 %tobool15.not, label %do.end, label %return
+
+do.end:                                           ; preds = %do.body, %if.then12
   br label %return
 
-return:                                           ; preds = %if.then12, %do.body, %if.then
-  %retval.0 = phi i32 [ %call, %if.then ], [ 0, %do.body ], [ %call14, %if.then12 ]
+return:                                           ; preds = %if.then12, %if.then, %do.end
+  %retval.0 = phi i32 [ 0, %do.end ], [ %call, %if.then ], [ %call14, %if.then12 ]
   ret i32 %retval.0
 }
 

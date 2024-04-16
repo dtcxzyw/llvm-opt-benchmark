@@ -1752,7 +1752,7 @@ define internal noundef i32 @agedgeseqcmpf(ptr nocapture readnone %0, ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @agedgeidcmpf(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #2 {
+define internal noundef i32 @agedgeidcmpf(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #2 {
   %5 = getelementptr inbounds i8, ptr %1, i64 56
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
@@ -1762,11 +1762,11 @@ define internal i32 @agedgeidcmpf(ptr nocapture readnone %0, ptr nocapture nound
   %11 = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = icmp ult i64 %8, %12
-  br i1 %13, label %30, label %14
+  br i1 %13, label %31, label %14
 
 14:                                               ; preds = %4
   %15 = icmp ugt i64 %8, %12
-  br i1 %15, label %30, label %16
+  br i1 %15, label %31, label %16
 
 16:                                               ; preds = %14
   %17 = load i32, ptr %1, align 8
@@ -1786,15 +1786,17 @@ define internal i32 @agedgeidcmpf(ptr nocapture readnone %0, ptr nocapture nound
   %25 = getelementptr inbounds i8, ptr %2, i64 8
   %26 = load i64, ptr %25, align 8
   %27 = icmp ult i64 %24, %26
-  br i1 %27, label %30, label %28
+  br i1 %27, label %31, label %28
 
 28:                                               ; preds = %22
   %29 = icmp ugt i64 %24, %26
-  %spec.select = zext i1 %29 to i32
-  br label %30
+  br i1 %29, label %31, label %30
 
-30:                                               ; preds = %28, %16, %19, %22, %14, %4
-  %.0 = phi i32 [ -1, %4 ], [ 1, %14 ], [ -1, %22 ], [ 0, %19 ], [ 0, %16 ], [ %spec.select, %28 ]
+30:                                               ; preds = %28, %19, %16
+  br label %31
+
+31:                                               ; preds = %28, %22, %14, %4, %30
+  %.0 = phi i32 [ 0, %30 ], [ -1, %4 ], [ 1, %14 ], [ -1, %22 ], [ 1, %28 ]
   ret i32 %.0
 }
 

@@ -62,7 +62,7 @@ return:                                           ; preds = %if.end3, %land.lhs.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dsa_sign_init(ptr noundef %vpdsactx, ptr noundef %vdsa, ptr noundef %params) #0 {
+define internal noundef i32 @dsa_sign_init(ptr noundef %vpdsactx, ptr noundef %vdsa, ptr noundef %params) #0 {
 entry:
   %call = tail call fastcc i32 @dsa_signverify_init(ptr noundef %vpdsactx, ptr noundef %vdsa, ptr noundef %params, i32 noundef 16), !range !4
   ret i32 %call
@@ -135,7 +135,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dsa_verify_init(ptr noundef %vpdsactx, ptr noundef %vdsa, ptr noundef %params) #0 {
+define internal noundef i32 @dsa_verify_init(ptr noundef %vpdsactx, ptr noundef %vdsa, ptr noundef %params) #0 {
 entry:
   %call = tail call fastcc i32 @dsa_signverify_init(ptr noundef %vpdsactx, ptr noundef %vdsa, ptr noundef %params, i32 noundef 32), !range !4
   ret i32 %call
@@ -507,7 +507,7 @@ return:                                           ; preds = %if.end36, %if.then3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dsa_get_ctx_params(ptr noundef %vpdsactx, ptr noundef %params) #0 {
+define internal noundef i32 @dsa_get_ctx_params(ptr noundef %vpdsactx, ptr noundef %params) #0 {
 entry:
   %cmp = icmp eq ptr %vpdsactx, null
   br i1 %cmp, label %return, label %if.end
@@ -540,18 +540,20 @@ land.lhs.true7:                                   ; preds = %if.end4
 if.end11:                                         ; preds = %land.lhs.true7, %if.end4
   %call12 = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str.7) #8
   %cmp13.not = icmp eq ptr %call12, null
-  br i1 %cmp13.not, label %return, label %land.lhs.true14
+  br i1 %cmp13.not, label %if.end18, label %land.lhs.true14
 
 land.lhs.true14:                                  ; preds = %if.end11
   %nonce_type = getelementptr inbounds i8, ptr %vpdsactx, i64 28
   %2 = load i32, ptr %nonce_type, align 4
   %call15 = tail call i32 @OSSL_PARAM_set_uint(ptr noundef nonnull %call12, i32 noundef %2) #8
-  %tobool16.not = icmp ne i32 %call15, 0
-  %spec.select = zext i1 %tobool16.not to i32
+  %tobool16.not = icmp eq i32 %call15, 0
+  br i1 %tobool16.not, label %return, label %if.end18
+
+if.end18:                                         ; preds = %land.lhs.true14, %if.end11
   br label %return
 
-return:                                           ; preds = %land.lhs.true14, %if.end11, %land.lhs.true7, %land.lhs.true, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true7 ], [ 1, %if.end11 ], [ %spec.select, %land.lhs.true14 ]
+return:                                           ; preds = %land.lhs.true14, %land.lhs.true7, %land.lhs.true, %entry, %if.end18
+  %retval.0 = phi i32 [ 1, %if.end18 ], [ 0, %entry ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true7 ], [ 0, %land.lhs.true14 ]
   ret i32 %retval.0
 }
 
@@ -562,7 +564,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dsa_set_ctx_params(ptr noundef %vpdsactx, ptr noundef %params) #0 {
+define internal noundef i32 @dsa_set_ctx_params(ptr noundef %vpdsactx, ptr noundef %params) #0 {
 entry:
   %mdname = alloca [50 x i8], align 16
   %pmdname = alloca ptr, align 8
@@ -607,36 +609,40 @@ if.end15:                                         ; preds = %land.lhs.true, %if.
 if.end22:                                         ; preds = %if.end15, %if.end3
   %call23 = call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %params, ptr noundef nonnull @.str.7) #8
   %cmp24.not = icmp eq ptr %call23, null
-  br i1 %cmp24.not, label %return, label %land.lhs.true25
+  br i1 %cmp24.not, label %if.end29, label %land.lhs.true25
 
 land.lhs.true25:                                  ; preds = %if.end22
   %nonce_type = getelementptr inbounds i8, ptr %vpdsactx, i64 28
   %call26 = call i32 @OSSL_PARAM_get_uint(ptr noundef nonnull %call23, ptr noundef nonnull %nonce_type) #8
-  %tobool27.not = icmp ne i32 %call26, 0
-  %spec.select = zext i1 %tobool27.not to i32
+  %tobool27.not = icmp eq i32 %call26, 0
+  br i1 %tobool27.not, label %return, label %if.end29
+
+if.end29:                                         ; preds = %land.lhs.true25, %if.end22
   br label %return
 
-return:                                           ; preds = %land.lhs.true25, %if.end22, %if.end15, %land.lhs.true, %if.then5, %if.end, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 1, %if.end ], [ 0, %if.then5 ], [ 0, %land.lhs.true ], [ 0, %if.end15 ], [ 1, %if.end22 ], [ %spec.select, %land.lhs.true25 ]
+return:                                           ; preds = %land.lhs.true25, %if.end15, %land.lhs.true, %if.then5, %if.end, %entry, %if.end29
+  %retval.0 = phi i32 [ 1, %if.end29 ], [ 0, %entry ], [ 1, %if.end ], [ 0, %if.then5 ], [ 0, %land.lhs.true ], [ 0, %if.end15 ], [ 0, %land.lhs.true25 ]
   ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal nonnull ptr @dsa_settable_ctx_params(ptr noundef readonly %vpdsactx, ptr nocapture readnone %provctx) #2 {
+define internal noundef nonnull ptr @dsa_settable_ctx_params(ptr noundef readonly %vpdsactx, ptr nocapture readnone %provctx) #2 {
 entry:
   %cmp.not = icmp eq ptr %vpdsactx, null
-  br i1 %cmp.not, label %return, label %land.lhs.true
+  br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
   %flag_allow_md = getelementptr inbounds i8, ptr %vpdsactx, i64 24
   %bf.load = load i8, ptr %flag_allow_md, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
-  %spec.select = select i1 %tobool.not, ptr @settable_ctx_params_no_digest, ptr @settable_ctx_params
+  br i1 %tobool.not, label %return, label %if.end
+
+if.end:                                           ; preds = %land.lhs.true, %entry
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %entry
-  %retval.0 = phi ptr [ @settable_ctx_params, %entry ], [ %spec.select, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %if.end
+  %retval.0 = phi ptr [ @settable_ctx_params, %if.end ], [ @settable_ctx_params_no_digest, %land.lhs.true ]
   ret ptr %retval.0
 }
 
@@ -719,7 +725,7 @@ declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dsa_signverify_init(ptr noundef %vpdsactx, ptr noundef %vdsa, ptr noundef %params, i32 noundef %operation) unnamed_addr #0 {
+define internal fastcc noundef i32 @dsa_signverify_init(ptr noundef %vpdsactx, ptr noundef %vdsa, ptr noundef %params, i32 noundef %operation) unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #8
   %tobool = icmp eq i32 %call, 0

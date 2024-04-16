@@ -983,7 +983,7 @@ Buffer_To_Window.exit:                            ; preds = %91, %.thread.i, %65
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @_nc_Synchronize_Options(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %.thread81, label %3
+  br i1 %.not, label %107, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds i8, ptr %0, i64 48
@@ -1003,7 +1003,7 @@ define dso_local noundef i32 @_nc_Synchronize_Options(ptr noundef %0, i32 nounde
 
 13:                                               ; preds = %9
   store i32 %5, ptr %4, align 8
-  br label %.thread81
+  br label %107
 
 14:                                               ; preds = %9
   %15 = load i16, ptr %8, align 8
@@ -1046,7 +1046,7 @@ define dso_local noundef i32 @_nc_Synchronize_Options(ptr noundef %0, i32 nounde
   %.057 = phi i32 [ 0, %27 ], [ 0, %17 ], [ 0, %14 ], [ 0, %3 ], [ %30, %.sink.split ]
   %32 = and i32 %6, 512
   %.not69 = icmp eq i32 %32, 0
-  br i1 %.not69, label %.thread81, label %33
+  br i1 %.not69, label %107, label %33
 
 33:                                               ; preds = %31
   %34 = getelementptr inbounds i8, ptr %0, i64 2
@@ -1179,11 +1179,13 @@ define dso_local noundef i32 @_nc_Synchronize_Options(ptr noundef %0, i32 nounde
 105:                                              ; preds = %99, %63
   %106 = tail call fastcc i32 @Display_Or_Erase_Field(ptr noundef nonnull %0, i1 noundef zeroext false), !range !10
   %.not79 = icmp eq i32 %106, 0
-  %spec.select = select i1 %.not79, i32 %.057, i32 -1
-  br label %.thread81
+  br i1 %.not79, label %.thread81, label %107
 
-.thread81:                                        ; preds = %105, %.thread80, %74, %.critedge, %85, %88, %91, %93, %96, %99, %42, %45, %52, %55, %57, %60, %63, %31, %2, %13
-  %.056 = phi i32 [ -14, %13 ], [ -2, %2 ], [ %.057, %31 ], [ %.057, %63 ], [ %.057, %60 ], [ %.057, %57 ], [ %.057, %55 ], [ %.057, %52 ], [ %.057, %45 ], [ %.057, %42 ], [ %.057, %99 ], [ %.057, %96 ], [ %.057, %93 ], [ %.057, %91 ], [ %.057, %88 ], [ %.057, %85 ], [ %.057, %.critedge ], [ %.057, %74 ], [ %.057, %.thread80 ], [ %spec.select, %105 ]
+.thread81:                                        ; preds = %.thread80, %74, %.critedge, %85, %88, %91, %93, %96, %99, %42, %45, %52, %55, %57, %60, %63, %105
+  br label %107
+
+107:                                              ; preds = %.thread81, %105, %31, %2, %13
+  %.056 = phi i32 [ -14, %13 ], [ -2, %2 ], [ %.057, %31 ], [ %.057, %.thread81 ], [ -1, %105 ]
   ret i32 %.056
 }
 

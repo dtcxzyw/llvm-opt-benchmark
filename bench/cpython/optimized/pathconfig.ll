@@ -584,16 +584,18 @@ define hidden ptr @_Py_GetStdlibDir() local_unnamed_addr #9 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (%struct._PyPathConfig, ptr @_Py_path_config, i64 0, i32 3), align 8
   %cmp.not = icmp eq ptr %0, null
-  br i1 %cmp.not, label %return, label %land.lhs.true
+  br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
   %1 = load i32, ptr %0, align 4
   %cmp1.not = icmp eq i32 %1, 0
-  %spec.select = select i1 %cmp1.not, ptr null, ptr %0
+  br i1 %cmp1.not, label %if.end, label %return
+
+if.end:                                           ; preds = %land.lhs.true, %entry
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ %spec.select, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %if.end
+  %retval.0 = phi ptr [ null, %if.end ], [ %0, %land.lhs.true ]
   ret ptr %retval.0
 }
 

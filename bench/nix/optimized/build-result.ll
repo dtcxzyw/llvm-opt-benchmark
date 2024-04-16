@@ -501,16 +501,16 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 26:                                               ; preds = %20
   %27 = icmp eq i64 %22, 0
-  br i1 %27, label %_ZNK3nix9DrvOutputeqERKS0_.exit.thread4.i.i.i, label %_ZNK3nix9DrvOutputeqERKS0_.exit.i.i.i
+  br i1 %27, label %_ZNK3nix9DrvOutputeqERKS0_.exit.i.i.i, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i.i.i.i
 
-_ZNK3nix9DrvOutputeqERKS0_.exit.i.i.i:            ; preds = %26
+_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i.i.i.i: ; preds = %26
   %28 = load ptr, ptr %18, align 8
   %29 = load ptr, ptr %17, align 8
   %bcmp.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr %29, ptr %28, i64 %22)
   %30 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i, 0
-  br i1 %30, label %_ZNK3nix9DrvOutputeqERKS0_.exit.thread4.i.i.i, label %_ZNK3nix11RealisationeqERKS0_.exit
+  br i1 %30, label %_ZNK3nix9DrvOutputeqERKS0_.exit.i.i.i, label %_ZNK3nix11RealisationeqERKS0_.exit
 
-_ZNK3nix9DrvOutputeqERKS0_.exit.thread4.i.i.i:    ; preds = %_ZNK3nix9DrvOutputeqERKS0_.exit.i.i.i, %26
+_ZNK3nix9DrvOutputeqERKS0_.exit.i.i.i:            ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i.i.i.i, %26
   %31 = getelementptr inbounds i8, ptr %0, i64 152
   %32 = load i64, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %1, i64 152
@@ -518,19 +518,22 @@ _ZNK3nix9DrvOutputeqERKS0_.exit.thread4.i.i.i:    ; preds = %_ZNK3nix9DrvOutpute
   %35 = icmp eq i64 %32, %34
   br i1 %35, label %36, label %_ZNK3nix11RealisationeqERKS0_.exit
 
-36:                                               ; preds = %_ZNK3nix9DrvOutputeqERKS0_.exit.thread4.i.i.i
+36:                                               ; preds = %_ZNK3nix9DrvOutputeqERKS0_.exit.i.i.i
   %37 = icmp eq i64 %32, 0
-  br i1 %37, label %_ZNK3nix11RealisationeqERKS0_.exit, label %_ZNK3nix9StorePatheqERKS0_.exit.i.i.i.i
+  br i1 %37, label %_ZNK3nix9StorePatheqERKS0_.exit.thread.i.i.i.i, label %_ZNK3nix9StorePatheqERKS0_.exit.i.i.i.i
 
 _ZNK3nix9StorePatheqERKS0_.exit.i.i.i.i:          ; preds = %36
   %38 = load ptr, ptr %16, align 8
   %39 = load ptr, ptr %15, align 8
   %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr %39, ptr %38, i64 %32)
   %40 = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
+  br i1 %40, label %_ZNK3nix9StorePatheqERKS0_.exit.thread.i.i.i.i, label %_ZNK3nix11RealisationeqERKS0_.exit
+
+_ZNK3nix9StorePatheqERKS0_.exit.thread.i.i.i.i:   ; preds = %_ZNK3nix9StorePatheqERKS0_.exit.i.i.i.i, %36
   br label %_ZNK3nix11RealisationeqERKS0_.exit
 
-_ZNK3nix11RealisationeqERKS0_.exit:               ; preds = %2, %_ZNK3nix9StorePatheqERKS0_.exit.i.i.i.i, %36, %_ZNK3nix9DrvOutputeqERKS0_.exit.thread4.i.i.i, %_ZNK3nix9DrvOutputeqERKS0_.exit.i.i.i, %20, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
-  %41 = phi i1 [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ false, %_ZNK3nix9DrvOutputeqERKS0_.exit.i.i.i ], [ false, %_ZNK3nix9DrvOutputeqERKS0_.exit.thread4.i.i.i ], [ true, %36 ], [ %40, %_ZNK3nix9StorePatheqERKS0_.exit.i.i.i.i ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread ], [ false, %20 ], [ false, %2 ]
+_ZNK3nix11RealisationeqERKS0_.exit:               ; preds = %2, %_ZNK3nix9StorePatheqERKS0_.exit.thread.i.i.i.i, %_ZNK3nix9StorePatheqERKS0_.exit.i.i.i.i, %_ZNK3nix9DrvOutputeqERKS0_.exit.i.i.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i.i.i.i, %20, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
+  %41 = phi i1 [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ false, %_ZNK3nix9StorePatheqERKS0_.exit.i.i.i.i ], [ true, %_ZNK3nix9StorePatheqERKS0_.exit.thread.i.i.i.i ], [ false, %_ZNK3nix9DrvOutputeqERKS0_.exit.i.i.i ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i.i.i.i ], [ false, %20 ], [ false, %2 ]
   ret i1 %41
 }
 

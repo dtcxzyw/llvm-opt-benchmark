@@ -548,50 +548,59 @@ define hidden void @mausb_set_usb_conv_info(ptr nocapture noundef writeonly %0, 
   %22 = getelementptr inbounds i8, ptr %0, i64 4
   store i8 %21, ptr %22, align 4
   %23 = load i8, ptr %3, align 1
-  switch i8 %23, label %mausb_is_setup_response.exit [
+  switch i8 %23, label %.thread [
     i8 -128, label %24
-    i8 -127, label %31
+    i8 -127, label %35
   ]
 
 24:                                               ; preds = %2
   %25 = load i8, ptr %1, align 4
   %26 = and i8 %25, 16
   %.not.i = icmp eq i8 %26, 0
-  br i1 %.not.i, label %mausb_is_setup_response.exit, label %27
+  br i1 %.not.i, label %.thread, label %27
 
 27:                                               ; preds = %24
   %28 = getelementptr inbounds i8, ptr %1, i64 16
   %29 = load i32, ptr %28, align 4
   %30 = icmp eq i32 %29, 0
-  br i1 %30, label %mausb_is_setup_response.exit.sink.split, label %mausb_is_setup_response.exit
+  br i1 %30, label %31, label %.thread
 
-31:                                               ; preds = %2
-  %32 = load i8, ptr %1, align 4
-  %33 = and i8 %32, 16
-  %.not.i21 = icmp eq i8 %33, 0
-  br i1 %.not.i21, label %mausb_is_setup_response.exit.sink.split, label %mausb_is_setup_response.exit
+31:                                               ; preds = %27
+  %32 = getelementptr i8, ptr %1, i64 12
+  %.val.i = load i8, ptr %32, align 4
+  %33 = and i8 %.val.i, 96
+  %34 = icmp eq i8 %33, 0
+  br i1 %34, label %mausb_has_setup_data.exit, label %.thread
 
-mausb_is_setup_response.exit.sink.split:          ; preds = %31, %27
-  %34 = getelementptr i8, ptr %1, i64 12
-  %.val.i = load i8, ptr %34, align 4
-  %35 = and i8 %.val.i, 96
-  %.not = icmp eq i8 %35, 0
-  %36 = zext i1 %.not to i32
-  br label %mausb_is_setup_response.exit
+35:                                               ; preds = %2
+  %36 = load i8, ptr %1, align 4
+  %37 = and i8 %36, 16
+  %.not.i21 = icmp eq i8 %37, 0
+  br i1 %.not.i21, label %38, label %.thread
 
-mausb_is_setup_response.exit:                     ; preds = %mausb_is_setup_response.exit.sink.split, %2, %24, %27, %31
-  %.shrunk = phi i32 [ 0, %31 ], [ 0, %27 ], [ 0, %24 ], [ 0, %2 ], [ %36, %mausb_is_setup_response.exit.sink.split ]
-  %37 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 %.shrunk, ptr %37, align 8
-  %38 = getelementptr i8, ptr %1, i64 12
-  %.val19 = load i8, ptr %38, align 4
-  %39 = lshr i8 %.val19, 2
-  %40 = and i8 %39, 24
-  %switch.shiftamt = zext nneg i8 %40 to i32
+38:                                               ; preds = %35
+  %39 = getelementptr i8, ptr %1, i64 12
+  %.val.i22 = load i8, ptr %39, align 4
+  %40 = and i8 %.val.i22, 96
+  %41 = icmp eq i8 %40, 0
+  br i1 %41, label %mausb_has_setup_data.exit, label %.thread
+
+.thread:                                          ; preds = %2, %31, %27, %24, %38, %35
+  br label %mausb_has_setup_data.exit
+
+mausb_has_setup_data.exit:                        ; preds = %.thread, %38, %31
+  %42 = phi i32 [ 1, %31 ], [ 0, %.thread ], [ 1, %38 ]
+  %43 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 %42, ptr %43, align 8
+  %44 = getelementptr i8, ptr %1, i64 12
+  %.val19 = load i8, ptr %44, align 4
+  %45 = lshr i8 %.val19, 2
+  %46 = and i8 %45, 24
+  %switch.shiftamt = zext nneg i8 %46 to i32
   %switch.downshift = lshr i32 16973826, %switch.shiftamt
   %switch.masked = trunc i32 %switch.downshift to i8
-  %41 = getelementptr inbounds i8, ptr %0, i64 12
-  store i8 %switch.masked, ptr %41, align 4
+  %47 = getelementptr inbounds i8, ptr %0, i64 12
+  store i8 %switch.masked, ptr %47, align 4
   ret void
 }
 

@@ -2577,12 +2577,12 @@ define internal i64 @sel_commit_bools_write(ptr nocapture noundef readonly %0, p
   %11 = load ptr, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #14
   %12 = icmp ugt i64 %2, 4095
-  br i1 %12, label %53, label %13
+  br i1 %12, label %54, label %13
 
 13:                                               ; preds = %4
   %14 = load i64, ptr %3, align 8
   %15 = icmp eq i64 %14, 0
-  br i1 %15, label %16, label %53
+  br i1 %15, label %16, label %54
 
 16:                                               ; preds = %13
   %17 = tail call ptr @memdup_user_nul(ptr noundef %1, i64 noundef %2) #14
@@ -2591,7 +2591,7 @@ define internal i64 @sel_commit_bools_write(ptr nocapture noundef readonly %0, p
 
 19:                                               ; preds = %16
   %20 = ptrtoint ptr %17 to i64
-  br label %53
+  br label %54
 
 21:                                               ; preds = %16
   store i32 0, ptr %5, align 4, !annotation !12
@@ -2610,12 +2610,12 @@ define internal i64 @sel_commit_bools_write(ptr nocapture noundef readonly %0, p
   %33 = tail call i32 @avc_has_perm(i32 noundef %32, i32 noundef 2, i16 noundef zeroext 1, i32 noundef 256, ptr noundef null) #14
   %34 = sext i32 %33 to i64
   %35 = icmp eq i32 %33, 0
-  br i1 %35, label %36, label %.thread
+  br i1 %35, label %36, label %52
 
 36:                                               ; preds = %21
   %37 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef %17, ptr noundef nonnull @.str.41, ptr noundef nonnull %5)
   %38 = icmp eq i32 %37, 1
-  br i1 %38, label %39, label %.thread
+  br i1 %38, label %39, label %52
 
 39:                                               ; preds = %36
   %40 = load i32, ptr %5, align 4
@@ -2635,19 +2635,21 @@ define internal i64 @sel_commit_bools_write(ptr nocapture noundef readonly %0, p
   %.fr = freeze i32 %49
   %50 = sext i32 %.fr to i64
   %51 = icmp eq i32 %.fr, 0
-  %spec.select = select i1 %51, i64 %2, i64 %50
-  br label %.thread
+  br i1 %51, label %.thread, label %52
 
-.thread:                                          ; preds = %46, %39, %42, %36, %21
-  %52 = phi i64 [ %34, %21 ], [ -22, %36 ], [ %2, %42 ], [ %2, %39 ], [ %spec.select, %46 ]
+.thread:                                          ; preds = %39, %42, %46
+  br label %52
+
+52:                                               ; preds = %.thread, %46, %36, %21
+  %53 = phi i64 [ %34, %21 ], [ -22, %36 ], [ %2, %.thread ], [ %50, %46 ]
   call void @mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.selinux_state, ptr @selinux_state, i64 0, i32 6)) #14
   call void @kfree(ptr noundef %17) #14
-  br label %53
+  br label %54
 
-53:                                               ; preds = %.thread, %19, %13, %4
-  %54 = phi i64 [ %20, %19 ], [ %52, %.thread ], [ -12, %4 ], [ -22, %13 ]
+54:                                               ; preds = %52, %19, %13, %4
+  %55 = phi i64 [ %20, %19 ], [ %53, %52 ], [ -12, %4 ], [ -22, %13 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #14
-  ret i64 %54
+  ret i64 %55
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -3193,7 +3195,7 @@ define internal noundef i32 @sel_mmap_policy_fault(ptr nocapture noundef %0) #5 
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 3
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %11, label %51
+  br i1 %10, label %11, label %52
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds i8, ptr %0, i64 16
@@ -3203,7 +3205,7 @@ define internal noundef i32 @sel_mmap_policy_fault(ptr nocapture noundef %0) #5 
   %16 = add i64 %15, 4095
   %17 = and i64 %16, -4096
   %18 = icmp ult i64 %14, %17
-  br i1 %18, label %19, label %51
+  br i1 %18, label %19, label %52
 
 19:                                               ; preds = %11
   %20 = getelementptr inbounds i8, ptr %6, i64 8
@@ -3219,11 +3221,11 @@ define internal noundef i32 @sel_mmap_policy_fault(ptr nocapture noundef %0) #5 
 28:                                               ; preds = %19
   %29 = add nsw i64 %25, -1
   %30 = inttoptr i64 %29 to ptr
-  br label %47
+  br label %48
 
 31:                                               ; preds = %19
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hugetlb_optimize_vmemmap_key, i32 2) #14
-          to label %47 [label %32], !srcloc !36
+          to label %48 [label %32], !srcloc !36
 
 32:                                               ; preds = %31
   %33 = ptrtoint ptr %23 to i64
@@ -3244,20 +3246,22 @@ define internal noundef i32 @sel_mmap_policy_fault(ptr nocapture noundef %0) #5 
   %44 = icmp eq i64 %43, 0
   %45 = add nsw i64 %42, -1
   %46 = inttoptr i64 %45 to ptr
-  %spec.select = select i1 %44, ptr %23, ptr %46
-  br label %47
+  br i1 %44, label %47, label %48
 
-47:                                               ; preds = %40, %32, %36, %31, %28
-  %48 = phi ptr [ %30, %28 ], [ %23, %31 ], [ %23, %36 ], [ %23, %32 ], [ %spec.select, %40 ]
-  %49 = getelementptr inbounds i8, ptr %48, i64 52
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %49, ptr elementtype(i32) %49) #14, !srcloc !37
-  %50 = getelementptr inbounds i8, ptr %0, i64 80
-  store ptr %23, ptr %50, align 8
-  br label %51
+47:                                               ; preds = %40, %36, %32
+  br label %48
 
-51:                                               ; preds = %47, %11, %1
-  %52 = phi i32 [ 0, %47 ], [ 2, %1 ], [ 2, %11 ]
-  ret i32 %52
+48:                                               ; preds = %47, %40, %31, %28
+  %49 = phi ptr [ %30, %28 ], [ %46, %40 ], [ %23, %47 ], [ %23, %31 ]
+  %50 = getelementptr inbounds i8, ptr %49, i64 52
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %50, ptr elementtype(i32) %50) #14, !srcloc !37
+  %51 = getelementptr inbounds i8, ptr %0, i64 80
+  store ptr %23, ptr %51, align 8
+  br label %52
+
+52:                                               ; preds = %48, %11, %1
+  %53 = phi i32 [ 0, %48 ], [ 2, %1 ], [ 2, %11 ]
+  ret i32 %53
 }
 
 ; Function Attrs: null_pointer_is_valid

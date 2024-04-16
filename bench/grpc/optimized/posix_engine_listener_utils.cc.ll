@@ -238,18 +238,20 @@ invoke.cont6:                                     ; preds = %invoke.cont2
   store i32 %13, ptr %socket, align 4
   %14 = load i32, ptr %dsmode, align 4
   %cmp = icmp eq i32 %14, 1
-  br i1 %cmp, label %land.lhs.true, label %do.body
+  br i1 %cmp, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %invoke.cont6
   %call10 = invoke noundef zeroext i1 @_ZN17grpc_event_engine12experimental25ResolvedAddressIsV4MappedERKNS0_11EventEngine15ResolvedAddressEPS2_(ptr noundef nonnull align 4 dereferenceable(132) %addr, ptr noundef nonnull %addr4_copy)
           to label %invoke.cont9 unwind label %lpad1
 
 invoke.cont9:                                     ; preds = %land.lhs.true
-  %spec.select = select i1 %call10, ptr %addr4_copy, ptr %addr
+  br i1 %call10, label %do.body, label %if.else
+
+if.else:                                          ; preds = %invoke.cont9, %invoke.cont6
   br label %do.body
 
-do.body:                                          ; preds = %invoke.cont9, %invoke.cont6
-  %addr4_copy.sink = phi ptr [ %addr, %invoke.cont6 ], [ %spec.select, %invoke.cont9 ]
+do.body:                                          ; preds = %invoke.cont9, %if.else
+  %addr4_copy.sink = phi ptr [ %addr, %if.else ], [ %addr4_copy, %invoke.cont9 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %addr.i, ptr noundef nonnull align 4 dereferenceable(132) %addr4_copy.sink, i64 132, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !4)
   call void @llvm.lifetime.start.p0(i64 132, ptr nonnull %sockname_temp.i)

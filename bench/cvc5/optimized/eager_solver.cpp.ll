@@ -2452,10 +2452,10 @@ lpad.i.i:                                         ; preds = %init.i.i
 invoke.cont:                                      ; preds = %invoke.cont.i.i, %init.check.i.i, %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
   %5 = load ptr, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   %cmp.i = icmp eq ptr %0, %5
-  br i1 %cmp.i, label %invoke.cont.cleanup_crit_edge, label %if.then
+  br i1 %cmp.i, label %invoke.cont.if.end51_crit_edge, label %if.then
 
-invoke.cont.cleanup_crit_edge:                    ; preds = %invoke.cont
-  %.pre = load ptr, ptr %n, align 8
+invoke.cont.if.end51_crit_edge:                   ; preds = %invoke.cont
+  %.pre.pre = load ptr, ptr %n, align 8
   br label %cleanup
 
 if.then:                                          ; preds = %invoke.cont
@@ -2700,9 +2700,9 @@ lpad44:                                           ; preds = %invoke.cont42
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp41) #12
   br label %ehcleanup52
 
-cleanup:                                          ; preds = %invoke.cont.cleanup_crit_edge, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %if.then.i.i45, %if.then13.i.i51, %invoke.cont45, %if.then.i.i247, %if.then13.i.i253
-  %30 = phi ptr [ %.pre, %invoke.cont.cleanup_crit_edge ], [ %10, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ %10, %if.then.i.i45 ], [ %10, %if.then13.i.i51 ], [ %10, %invoke.cont45 ], [ %10, %if.then.i.i247 ], [ %10, %if.then13.i.i253 ]
-  %cleanup.dest.slot.0 = phi i1 [ false, %invoke.cont.cleanup_crit_edge ], [ %call17, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ %call17, %if.then.i.i45 ], [ %call17, %if.then13.i.i51 ], [ %call46, %invoke.cont45 ], [ %call46, %if.then.i.i247 ], [ %call46, %if.then13.i.i253 ]
+cleanup:                                          ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %if.then.i.i45, %if.then13.i.i51, %invoke.cont45, %if.then.i.i247, %if.then13.i.i253, %invoke.cont.if.end51_crit_edge
+  %30 = phi ptr [ %.pre.pre, %invoke.cont.if.end51_crit_edge ], [ %10, %if.then13.i.i253 ], [ %10, %if.then.i.i247 ], [ %10, %invoke.cont45 ], [ %10, %if.then13.i.i51 ], [ %10, %if.then.i.i45 ], [ %10, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ]
+  %switch = phi i1 [ false, %invoke.cont.if.end51_crit_edge ], [ %call46, %if.then13.i.i253 ], [ %call46, %if.then.i.i247 ], [ %call46, %invoke.cont45 ], [ %call17, %if.then13.i.i51 ], [ %call17, %if.then.i.i45 ], [ %call17, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ]
   %bf.load.i.i256 = load i64, ptr %30, align 8
   %31 = and i64 %bf.load.i.i256, 1152920405095219200
   %cmp.not.i.i257 = icmp eq i64 %31, 1152920405095219200
@@ -2730,7 +2730,7 @@ terminate.lpad.i265:                              ; preds = %if.then13.i.i264
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit266: ; preds = %cleanup, %if.then.i.i258, %if.then13.i.i264
   %cmp2.not = xor i1 %cmp2, true
-  %brmerge = or i1 %cleanup.dest.slot.0, %cmp2.not
+  %brmerge = or i1 %switch, %cmp2.not
   br i1 %brmerge, label %return, label %for.body
 
 ehcleanup52:                                      ; preds = %lpad, %lpad.i.i, %lpad44, %ehcleanup, %lpad6
@@ -2739,7 +2739,7 @@ ehcleanup52:                                      ; preds = %lpad, %lpad.i.i, %l
   resume { ptr, i32 } %.pn.pn
 
 return:                                           ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit266
-  ret i1 %cleanup.dest.slot.0
+  ret i1 %switch
 }
 
 declare void @_ZN4cvc58internal6theory7strings5utils20getConstantComponentENS0_12NodeTemplateILb1EEE(ptr sret(%"class.cvc5::internal::NodeTemplate") align 8, ptr noundef) local_unnamed_addr #0

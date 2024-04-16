@@ -374,9 +374,8 @@ entry:
 if.then:                                          ; preds = %entry
   store ptr null, ptr %vstr, align 8
   %call = tail call i32 @hashTypeGetFromListpack(ptr noundef nonnull %o, ptr noundef %field, ptr noundef nonnull %vstr, ptr noundef %vlen, ptr noundef %vll), !range !7
-  %cmp1 = icmp ne i32 %call, 0
-  %spec.select = sext i1 %cmp1 to i32
-  br label %return
+  %cmp1 = icmp eq i32 %call, 0
+  br i1 %cmp1, label %return, label %if.end15
 
 if.then7:                                         ; preds = %entry
   %0 = and i32 %bf.load, 240
@@ -393,12 +392,12 @@ cond.end.i:                                       ; preds = %if.then7
   %1 = load ptr, ptr %ptr.i, align 8
   %call.i = tail call ptr @dictFind(ptr noundef %1, ptr noundef %field) #10
   %cmp2.i = icmp eq ptr %call.i, null
-  br i1 %cmp2.i, label %return, label %hashTypeGetFromHashTable.exit
+  br i1 %cmp2.i, label %if.end15, label %hashTypeGetFromHashTable.exit
 
 hashTypeGetFromHashTable.exit:                    ; preds = %cond.end.i
   %call4.i = tail call ptr @dictGetVal(ptr noundef nonnull %call.i) #10
   %cmp9.not = icmp eq ptr %call4.i, null
-  br i1 %cmp9.not, label %return, label %if.then10
+  br i1 %cmp9.not, label %if.end15, label %if.then10
 
 if.then10:                                        ; preds = %hashTypeGetFromHashTable.exit
   store ptr %call4.i, ptr %vstr, align 8
@@ -453,8 +452,11 @@ if.else13:                                        ; preds = %entry
   tail call void @abort() #11
   unreachable
 
-return:                                           ; preds = %cond.end.i, %if.then, %hashTypeGetFromHashTable.exit, %sdslen.exit
-  %retval.0 = phi i32 [ 0, %sdslen.exit ], [ -1, %hashTypeGetFromHashTable.exit ], [ %spec.select, %if.then ], [ -1, %cond.end.i ]
+if.end15:                                         ; preds = %cond.end.i, %hashTypeGetFromHashTable.exit, %if.then
+  br label %return
+
+return:                                           ; preds = %if.then, %if.end15, %sdslen.exit
+  %retval.0 = phi i32 [ -1, %if.end15 ], [ 0, %sdslen.exit ], [ 0, %if.then ]
   ret i32 %retval.0
 }
 
@@ -1234,7 +1236,7 @@ declare void @dictReleaseIterator(ptr noundef) local_unnamed_addr #1
 declare void @zfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @hashTypeNext(ptr nocapture noundef %hi) local_unnamed_addr #0 {
+define dso_local noundef i32 @hashTypeNext(ptr nocapture noundef %hi) local_unnamed_addr #0 {
 entry:
   %encoding = getelementptr inbounds i8, ptr %hi, i64 8
   %0 = load i32, ptr %encoding, align 8
@@ -1297,7 +1299,7 @@ cond.false33:                                     ; preds = %if.end22
 cond.end34:                                       ; preds = %if.end22
   store ptr %fptr.0, ptr %fptr1, align 8
   store ptr %call23, ptr %vptr2, align 8
-  br label %return
+  br label %if.end49
 
 if.then41:                                        ; preds = %entry
   %di = getelementptr inbounds i8, ptr %hi, i64 32
@@ -1306,16 +1308,18 @@ if.then41:                                        ; preds = %entry
   %de = getelementptr inbounds i8, ptr %hi, i64 40
   store ptr %call42, ptr %de, align 8
   %cmp43 = icmp eq ptr %call42, null
-  %spec.select = sext i1 %cmp43 to i32
-  br label %return
+  br i1 %cmp43, label %return, label %if.end49
 
 if.else47:                                        ; preds = %entry
   tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 374, ptr noundef nonnull @.str.4) #10
   tail call void @abort() #11
   unreachable
 
-return:                                           ; preds = %if.then41, %cond.end34, %if.end
-  %retval.0 = phi i32 [ -1, %if.end ], [ 0, %cond.end34 ], [ %spec.select, %if.then41 ]
+if.end49:                                         ; preds = %if.then41, %cond.end34
+  br label %return
+
+return:                                           ; preds = %if.then41, %if.end, %if.end49
+  %retval.0 = phi i32 [ 0, %if.end49 ], [ -1, %if.end ], [ -1, %if.then41 ]
   ret i32 %retval.0
 }
 

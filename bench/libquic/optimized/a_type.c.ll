@@ -8,11 +8,11 @@ define hidden i32 @ASN1_TYPE_get(ptr nocapture noundef readonly %a) local_unname
 entry:
   %value = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load ptr, ptr %value, align 8
-  %cmp.not = icmp eq ptr %0, null
+  %cmp.not = icmp ne ptr %0, null
   %.pre = load i32, ptr %a, align 8
   %cmp1 = icmp eq i32 %.pre, 5
-  %spec.select = select i1 %cmp1, i32 5, i32 0
-  %retval.0 = select i1 %cmp.not, i32 %spec.select, i32 %.pre
+  %or.cond = select i1 %cmp.not, i1 true, i1 %cmp1
+  %retval.0 = select i1 %or.cond, i32 %.pre, i32 0
   ret i32 %retval.0
 }
 

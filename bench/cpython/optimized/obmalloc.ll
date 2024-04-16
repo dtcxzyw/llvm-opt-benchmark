@@ -7281,7 +7281,12 @@ if.then5.i:                                       ; preds = %if.end.i
   %cond.i.i = select i1 %cmp.i.i, i32 112, i32 %sub.i.i
   %conv.i.i = zext nneg i32 %cond.i.i to i64
   %cmp7.i = icmp ugt i64 %1, %conv.i.i
-  br i1 %cmp7.i, label %mi_arena_try_alloc.exit, label %if.end23
+  br i1 %cmp7.i, label %if.then9.i, label %if.end23
+
+if.then9.i:                                       ; preds = %if.then5.i
+  %call12.i = tail call fastcc ptr @mi_arena_try_alloc_at_id(i32 noundef %req_arena_id, i1 noundef zeroext true, i32 noundef %retval.0.i, i64 noundef %size, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, i32 noundef %req_arena_id, ptr noundef nonnull %memid, ptr noundef %tld)
+  %cmp13.not.i = icmp eq ptr %call12.i, null
+  br i1 %cmp13.not.i, label %if.end23, label %return
 
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw i64 %i.035.i, 1
@@ -7302,8 +7307,8 @@ for.end.i:                                        ; preds = %for.cond.i
 
 for.cond33.i:                                     ; preds = %for.body36.i
   %inc47.i = add nuw i64 %i32.036.i, 1
-  %exitcond39.not.i = icmp eq i64 %inc47.i, %1
-  br i1 %exitcond39.not.i, label %if.end, label %for.body36.i, !llvm.loop !28
+  %exitcond40.not.i = icmp eq i64 %inc47.i, %1
+  br i1 %exitcond40.not.i, label %if.end, label %for.body36.i, !llvm.loop !28
 
 for.body36.i:                                     ; preds = %for.end.i, %for.cond33.i
   %i32.036.i = phi i64 [ %inc47.i, %for.cond33.i ], [ 0, %for.end.i ]
@@ -7313,12 +7318,7 @@ for.body36.i:                                     ; preds = %for.end.i, %for.con
   %cmp42.not.i = icmp eq ptr %call41.i, null
   br i1 %cmp42.not.i, label %for.cond33.i, label %return
 
-mi_arena_try_alloc.exit:                          ; preds = %if.then5.i
-  %call12.i = tail call fastcc ptr @mi_arena_try_alloc_at_id(i32 noundef %req_arena_id, i1 noundef zeroext true, i32 noundef %retval.0.i, i64 noundef %size, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, i32 noundef %req_arena_id, ptr noundef nonnull %memid, ptr noundef %tld)
-  %cmp7.not = icmp eq ptr %call12.i, null
-  br i1 %cmp7.not, label %if.end23, label %return
-
-if.end:                                           ; preds = %for.cond33.i, %if.then, %for.end.i
+if.end:                                           ; preds = %for.cond33.i, %for.end.i, %if.then
   %cmp10 = icmp eq i32 %req_arena_id, 0
   br i1 %cmp10, label %if.then11, label %if.end23
 
@@ -7375,12 +7375,12 @@ if.then14:                                        ; preds = %mi_arena_reserve.ex
   %cmp18.not = icmp eq ptr %call17, null
   br i1 %cmp18.not, label %if.end23, label %return
 
-if.end23:                                         ; preds = %if.end10.i, %if.end6.i, %if.end.i39, %if.then11, %mi_arena_try_alloc.exit, %if.then5.i, %if.end, %if.then14, %mi_arena_reserve.exit, %_mi_os_numa_node.exit
+if.end23:                                         ; preds = %if.then9.i, %if.then5.i, %if.end10.i, %if.end6.i, %if.end.i39, %if.then11, %if.end, %if.then14, %mi_arena_reserve.exit, %_mi_os_numa_node.exit
   %call.i44 = call i64 @mi_option_get(i32 noundef 17)
   %cmp.i45 = icmp eq i64 %call.i44, 0
   %cmp26.not = icmp eq i32 %req_arena_id, 0
-  %or.cond56 = and i1 %cmp26.not, %cmp.i45
-  br i1 %or.cond56, label %if.end29, label %if.then27
+  %or.cond51 = and i1 %cmp26.not, %cmp.i45
+  br i1 %or.cond51, label %if.end29, label %if.then27
 
 if.then27:                                        ; preds = %if.end23
   %call28 = tail call ptr @__errno_location() #53
@@ -7400,8 +7400,8 @@ if.else:                                          ; preds = %if.end29
   %call38 = call ptr @_mi_os_alloc_aligned(i64 noundef %size, i64 noundef %alignment, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, ptr noundef %memid, ptr poison)
   br label %return
 
-return:                                           ; preds = %for.body.i, %for.body36.i, %if.then14, %mi_arena_try_alloc.exit, %if.else, %if.then31, %if.then27
-  %retval.0 = phi ptr [ null, %if.then27 ], [ %call34, %if.then31 ], [ %call38, %if.else ], [ %call12.i, %mi_arena_try_alloc.exit ], [ %call17, %if.then14 ], [ %call41.i, %for.body36.i ], [ %call24.i, %for.body.i ]
+return:                                           ; preds = %for.body.i, %for.body36.i, %if.then9.i, %if.then14, %if.else, %if.then31, %if.then27
+  %retval.0 = phi ptr [ null, %if.then27 ], [ %call34, %if.then31 ], [ %call38, %if.else ], [ %call17, %if.then14 ], [ %call12.i, %if.then9.i ], [ %call41.i, %for.body36.i ], [ %call24.i, %for.body.i ]
   ret ptr %retval.0
 }
 
@@ -14876,21 +14876,29 @@ _mi_stat_decrease.exit:                           ; preds = %while.cond.i.i.i, %
 if.end.i:                                         ; preds = %_mi_stat_decrease.exit
   %12 = load i64, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 4), align 8
   %cmp.i13.i = icmp eq i64 %12, 0
+  br i1 %cmp.i13.i, label %_mi_is_main_thread.exit.thread.i, label %_mi_is_main_thread.exit.i
+
+_mi_is_main_thread.exit.i:                        ; preds = %if.end.i
   %cmp1.i.i = icmp eq i64 %12, %9
   %cond.fr.i = freeze i1 %cmp1.i.i
-  %13 = or i1 %cmp.i13.i, %cond.fr.i
-  %14 = select i1 %13, ptr @_mi_heap_main, ptr @_mi_heap_empty
+  br i1 %cond.fr.i, label %_mi_is_main_thread.exit.thread.i, label %13
+
+_mi_is_main_thread.exit.thread.i:                 ; preds = %_mi_is_main_thread.exit.i, %if.end.i
+  br label %13
+
+13:                                               ; preds = %_mi_is_main_thread.exit.thread.i, %_mi_is_main_thread.exit.i
+  %14 = phi ptr [ @_mi_heap_main, %_mi_is_main_thread.exit.thread.i ], [ @_mi_heap_empty, %_mi_is_main_thread.exit.i ]
   %15 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
   store ptr %14, ptr %15, align 8
   %16 = load i32, ptr @_mi_heap_default_key, align 4
   %cmp.not.i.i.i = icmp eq i32 %16, -1
   br i1 %cmp.not.i.i.i, label %_mi_heap_set_default_direct.exit.i, label %if.then.i.i.i
 
-if.then.i.i.i:                                    ; preds = %if.end.i
+if.then.i.i.i:                                    ; preds = %13
   %call.i.i.i = tail call i32 @pthread_setspecific(i32 noundef %16, ptr noundef nonnull %14) #44
   br label %_mi_heap_set_default_direct.exit.i
 
-_mi_heap_set_default_direct.exit.i:               ; preds = %if.then.i.i.i, %if.end.i
+_mi_heap_set_default_direct.exit.i:               ; preds = %if.then.i.i.i, %13
   %17 = load ptr, ptr %heap.addr.0, align 8
   %heap_backing.i = getelementptr inbounds i8, ptr %17, i64 16
   %18 = load ptr, ptr %heap_backing.i, align 8
@@ -17858,14 +17866,22 @@ entry:
   %0 = load atomic i64, ptr @unix_mmap.large_page_try_ok acquire, align 8
   %rem.i = and i64 %size, 1073741823
   %cmp12.i = icmp eq i64 %rem.i, 0
+  br i1 %cmp12.i, label %land.lhs.true13.i, label %if.else17.i
+
+land.lhs.true13.i:                                ; preds = %entry
   %.b.i = load i1, ptr @unix_mmap.mi_huge_pages_available, align 1
-  %spec.select43.i = select i1 %.b.i, i32 1409548322, i32 2013528098
-  %lflags.0.i = select i1 %cmp12.i, i32 %spec.select43.i, i32 1409548322
+  br i1 %.b.i, label %if.else17.i, label %if.end19.i
+
+if.else17.i:                                      ; preds = %land.lhs.true13.i, %entry
+  br label %if.end19.i
+
+if.end19.i:                                       ; preds = %if.else17.i, %land.lhs.true13.i
+  %lflags.0.i = phi i32 [ 1409548322, %if.else17.i ], [ 2013528098, %land.lhs.true13.i ]
   %call24.i = tail call fastcc ptr @unix_mmap_prim(ptr noundef %hint_addr, i64 noundef %size, i64 noundef 33554432, i32 noundef 3, i32 noundef %lflags.0.i)
   %cmp25.i = icmp eq ptr %call24.i, null
   br i1 %cmp25.i, label %if.end34.i, label %unix_mmap.exit
 
-if.end34.i:                                       ; preds = %entry
+if.end34.i:                                       ; preds = %if.end19.i
   store i1 true, ptr @unix_mmap.mi_huge_pages_available, align 1
   %call30.i = tail call ptr @__errno_location() #53
   %1 = load i32, ptr %call30.i, align 4
@@ -17873,8 +17889,8 @@ if.end34.i:                                       ; preds = %entry
   %call33.i = tail call fastcc ptr @unix_mmap_prim(ptr noundef %hint_addr, i64 noundef %size, i64 noundef 33554432, i32 noundef 3, i32 noundef 1409548322)
   br label %unix_mmap.exit
 
-unix_mmap.exit:                                   ; preds = %entry, %if.end34.i
-  %retval.0.i = phi ptr [ %call33.i, %if.end34.i ], [ %call24.i, %entry ]
+unix_mmap.exit:                                   ; preds = %if.end19.i, %if.end34.i
+  %retval.0.i = phi ptr [ %call33.i, %if.end34.i ], [ %call24.i, %if.end19.i ]
   store ptr %retval.0.i, ptr %addr, align 8
   %cmp = icmp ne ptr %retval.0.i, null
   %2 = icmp ult i32 %numa_node, 64
@@ -22312,8 +22328,8 @@ entry:
   %1 = load i32, ptr %slices.i, align 8
   %idx.ext.i = zext i32 %1 to i64
   %add.ptr.i = getelementptr %struct.mi_page_s, ptr %slices.i, i64 %idx.ext.i
-  %cmp22 = icmp ult ptr %add.ptr.i, %arrayidx.i.i
-  br i1 %cmp22, label %while.body.lr.ph, label %while.end
+  %cmp21 = icmp ult ptr %add.ptr.i, %arrayidx.i.i
+  br i1 %cmp21, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
   %stats = getelementptr inbounds i8, ptr %tld, i64 896
@@ -22321,15 +22337,15 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end24
-  %has_page.024 = phi i1 [ false, %while.body.lr.ph ], [ %has_page.1, %if.end24 ]
-  %slice.023 = phi ptr [ %add.ptr.i, %while.body.lr.ph ], [ %add.ptr, %if.end24 ]
-  %2 = getelementptr i8, ptr %slice.023, i64 28
+  %has_page.023 = phi i1 [ false, %while.body.lr.ph ], [ %has_page.1, %if.end24 ]
+  %slice.022 = phi ptr [ %add.ptr.i, %while.body.lr.ph ], [ %add.ptr, %if.end24 ]
+  %2 = getelementptr i8, ptr %slice.022, i64 28
   %slice.0.val = load i32, ptr %2, align 4
   %cmp.i.not = icmp eq i32 %slice.0.val, 0
   br i1 %cmp.i.not, label %if.else17, label %if.then
 
 if.then:                                          ; preds = %while.body
-  %xthread_free.i.i = getelementptr inbounds i8, ptr %slice.023, i64 40
+  %xthread_free.i.i = getelementptr inbounds i8, ptr %slice.022, i64 40
   %3 = load atomic i64, ptr %xthread_free.i.i monotonic, align 8
   %cmp.not.i = icmp ult i64 %3, 4
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
@@ -22353,7 +22369,7 @@ do.end.i.i:                                       ; preds = %do.body.i.i
   br i1 %cmp.i.i, label %if.end.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %do.end.i.i
-  %capacity.i.i = getelementptr inbounds i8, ptr %slice.023, i64 10
+  %capacity.i.i = getelementptr inbounds i8, ptr %slice.022, i64 10
   %9 = load i16, ptr %capacity.i.i, align 2
   %conv.i.i = zext i16 %9 to i32
   %tail.0.val18.i.i = load i64, ptr %8, align 8
@@ -22384,25 +22400,25 @@ if.then10.i.i:                                    ; preds = %while.end.i.i
   br label %if.end.i
 
 if.end11.i.i:                                     ; preds = %while.end.i.i
-  %local_free.i.i = getelementptr inbounds i8, ptr %slice.023, i64 32
+  %local_free.i.i = getelementptr inbounds i8, ptr %slice.022, i64 32
   %13 = load ptr, ptr %local_free.i.i, align 8
   %14 = ptrtoint ptr %13 to i64
   store i64 %14, ptr %tail.0.lcssa.i.i, align 8
   store ptr %8, ptr %local_free.i.i, align 8
-  %used.i.i = getelementptr inbounds i8, ptr %slice.023, i64 24
+  %used.i.i = getelementptr inbounds i8, ptr %slice.022, i64 24
   %15 = load i32, ptr %used.i.i, align 8
   %sub.i.i = sub i32 %15, %count.0.lcssa.i.i
   store i32 %sub.i.i, ptr %used.i.i, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.end11.i.i, %if.then10.i.i, %do.end.i.i, %if.then
-  %local_free.i = getelementptr inbounds i8, ptr %slice.023, i64 32
+  %local_free.i = getelementptr inbounds i8, ptr %slice.022, i64 32
   %16 = load ptr, ptr %local_free.i, align 8
   %cmp1.not.i = icmp eq ptr %16, null
   br i1 %cmp1.not.i, label %_mi_page_free_collect.exit, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %free.i = getelementptr inbounds i8, ptr %slice.023, i64 16
+  %free.i = getelementptr inbounds i8, ptr %slice.022, i64 16
   %17 = load ptr, ptr %free.i, align 8
   %cmp3.i = icmp eq ptr %17, null
   br i1 %cmp3.i, label %if.end26.sink.split.i, label %_mi_page_free_collect.exit
@@ -22410,14 +22426,14 @@ if.then2.i:                                       ; preds = %if.end.i
 if.end26.sink.split.i:                            ; preds = %if.then2.i
   store ptr %16, ptr %free.i, align 8
   store ptr null, ptr %local_free.i, align 8
-  %free_is_zero20.i = getelementptr inbounds i8, ptr %slice.023, i64 15
+  %free_is_zero20.i = getelementptr inbounds i8, ptr %slice.022, i64 15
   %bf.load.i = load i8, ptr %free_is_zero20.i, align 1
   %bf.clear.i = and i8 %bf.load.i, -2
   store i8 %bf.clear.i, ptr %free_is_zero20.i, align 1
   br label %_mi_page_free_collect.exit
 
 _mi_page_free_collect.exit:                       ; preds = %if.then2.i, %if.end.i, %if.end26.sink.split.i
-  %18 = getelementptr i8, ptr %slice.023, i64 24
+  %18 = getelementptr i8, ptr %slice.022, i64 24
   %call2.val = load i32, ptr %18, align 8
   %cmp.i16 = icmp eq i32 %call2.val, 0
   br i1 %cmp.i16, label %if.then4, label %if.else
@@ -22478,11 +22494,11 @@ _mi_stat_decrease.exit:                           ; preds = %mi_atomic_maxi64_re
   %30 = load i64, ptr %abandoned, align 8
   %dec = add i64 %30, -1
   store i64 %dec, ptr %abandoned, align 8
-  %call5 = tail call fastcc ptr @mi_segment_page_clear(ptr noundef %slice.023, ptr noundef %tld)
+  %call5 = tail call fastcc ptr @mi_segment_page_clear(ptr noundef %slice.022, ptr noundef %tld)
   %31 = load i32, ptr %call5, align 8
   %conv = zext i32 %31 to i64
   %cmp6.not = icmp uge i64 %conv, %slices_needed
-  %spec.select = select i1 %cmp6.not, i1 true, i1 %has_page.024
+  %spec.select = select i1 %cmp6.not, i1 true, i1 %has_page.023
   br label %if.end24
 
 if.else:                                          ; preds = %_mi_page_free_collect.exit
@@ -22492,29 +22508,31 @@ if.else:                                          ; preds = %_mi_page_free_colle
   br i1 %cmp10, label %land.lhs.true, label %if.end24
 
 land.lhs.true:                                    ; preds = %if.else
-  %reserved.i = getelementptr inbounds i8, ptr %slice.023, i64 12
+  %reserved.i = getelementptr inbounds i8, ptr %slice.022, i64 12
   %33 = load i16, ptr %reserved.i, align 4
   %conv.i = zext i16 %33 to i32
   %cmp.i18 = icmp ult i32 %call2.val, %conv.i
-  br i1 %cmp.i18, label %if.end24, label %mi_page_has_any_available.exit
+  br i1 %cmp.i18, label %mi_page_has_any_available.exit.thread, label %mi_page_has_any_available.exit
 
 mi_page_has_any_available.exit:                   ; preds = %land.lhs.true
   %34 = load atomic i64, ptr %xthread_free.i.i monotonic, align 8
   %.fr = freeze i64 %34
   %cmp2.i = icmp ugt i64 %.fr, 3
-  %spec.select21 = select i1 %cmp2.i, i1 true, i1 %has_page.024
+  br i1 %cmp2.i, label %mi_page_has_any_available.exit.thread, label %if.end24
+
+mi_page_has_any_available.exit.thread:            ; preds = %land.lhs.true, %mi_page_has_any_available.exit
   br label %if.end24
 
 if.else17:                                        ; preds = %while.body
-  %35 = load i32, ptr %slice.023, align 8
+  %35 = load i32, ptr %slice.022, align 8
   %conv19 = zext i32 %35 to i64
   %cmp20.not = icmp uge i64 %conv19, %slices_needed
-  %spec.select15 = select i1 %cmp20.not, i1 true, i1 %has_page.024
+  %spec.select15 = select i1 %cmp20.not, i1 true, i1 %has_page.023
   br label %if.end24
 
-if.end24:                                         ; preds = %mi_page_has_any_available.exit, %land.lhs.true, %if.else17, %_mi_stat_decrease.exit, %if.else
-  %slice.1 = phi ptr [ %slice.023, %if.else ], [ %call5, %_mi_stat_decrease.exit ], [ %slice.023, %if.else17 ], [ %slice.023, %land.lhs.true ], [ %slice.023, %mi_page_has_any_available.exit ]
-  %has_page.1 = phi i1 [ %has_page.024, %if.else ], [ %spec.select, %_mi_stat_decrease.exit ], [ %spec.select15, %if.else17 ], [ true, %land.lhs.true ], [ %spec.select21, %mi_page_has_any_available.exit ]
+if.end24:                                         ; preds = %mi_page_has_any_available.exit.thread, %mi_page_has_any_available.exit, %if.else17, %_mi_stat_decrease.exit, %if.else
+  %slice.1 = phi ptr [ %slice.022, %if.else ], [ %call5, %_mi_stat_decrease.exit ], [ %slice.022, %if.else17 ], [ %slice.022, %mi_page_has_any_available.exit ], [ %slice.022, %mi_page_has_any_available.exit.thread ]
+  %has_page.1 = phi i1 [ %has_page.023, %if.else ], [ %spec.select, %_mi_stat_decrease.exit ], [ %spec.select15, %if.else17 ], [ %has_page.023, %mi_page_has_any_available.exit ], [ true, %mi_page_has_any_available.exit.thread ]
   %36 = load i32, ptr %slice.1, align 8
   %idx.ext = zext i32 %36 to i64
   %add.ptr = getelementptr %struct.mi_page_s, ptr %slice.1, i64 %idx.ext
@@ -24747,15 +24765,23 @@ if.then8.i:                                       ; preds = %if.then5.i
 if.else.i:                                        ; preds = %if.then5.i
   %rem.i = and i64 %size, 1071644672
   %cmp12.i = icmp eq i64 %rem.i, 0
+  br i1 %cmp12.i, label %land.lhs.true13.i, label %if.else17.i
+
+land.lhs.true13.i:                                ; preds = %if.else.i
   %.b.i = load i1, ptr @unix_mmap.mi_huge_pages_available, align 1
-  %spec.select43.i = select i1 %.b.i, i32 1409548322, i32 2013528098
-  %lflags.0.i = select i1 %cmp12.i, i32 %spec.select43.i, i32 1409548322
+  br i1 %.b.i, label %if.else17.i, label %if.end19.i
+
+if.else17.i:                                      ; preds = %land.lhs.true13.i, %if.else.i
+  br label %if.end19.i
+
+if.end19.i:                                       ; preds = %if.else17.i, %land.lhs.true13.i
+  %lflags.0.i = phi i32 [ 1409548322, %if.else17.i ], [ 2013528098, %land.lhs.true13.i ]
   store i8 1, ptr %is_large, align 1
   %call24.i = tail call fastcc ptr @unix_mmap_prim(ptr noundef null, i64 noundef %size, i64 noundef %try_alignment, i32 noundef %cond, i32 noundef %lflags.0.i)
   %cmp25.i = icmp eq ptr %call24.i, null
   br i1 %cmp25.i, label %if.end34.i, label %unix_mmap.exit.thread
 
-if.end34.i:                                       ; preds = %if.else.i
+if.end34.i:                                       ; preds = %if.end19.i
   store i1 true, ptr @unix_mmap.mi_huge_pages_available, align 1
   %call30.i = tail call ptr @__errno_location() #53
   %3 = load i32, ptr %call30.i, align 4
@@ -24776,19 +24802,19 @@ if.then46.i:                                      ; preds = %if.then39.i, %if.th
   %brmerge42.i = or i1 %cmp48.not.i, %allow_large.not41.i
   %.b4 = load i1, ptr @mi_os_mem_config.1, align 8
   %not..b4 = xor i1 %.b4, true
-  %or.cond65.i = select i1 %brmerge42.i, i1 true, i1 %not..b4
-  br i1 %or.cond65.i, label %unix_mmap.exit, label %lor.lhs.false.i45.i
+  %or.cond64.i = select i1 %brmerge42.i, i1 true, i1 %not..b4
+  br i1 %or.cond64.i, label %unix_mmap.exit, label %lor.lhs.false.i44.i
 
-lor.lhs.false.i45.i:                              ; preds = %if.then46.i
-  %call.i.i46.i = tail call i64 @mi_option_get(i32 noundef 6)
-  %cmp.i.not.i47.i = icmp ne i64 %call.i.i46.i, 0
+lor.lhs.false.i44.i:                              ; preds = %if.then46.i
+  %call.i.i45.i = tail call i64 @mi_option_get(i32 noundef 6)
+  %cmp.i.not.i46.i = icmp ne i64 %call.i.i45.i, 0
   %4 = or i64 %size, %try_alignment
   %5 = and i64 %4, 2097151
   %6 = icmp eq i64 %5, 0
-  %or.cond8 = and i1 %cmp.i.not.i47.i, %6
+  %or.cond8 = and i1 %cmp.i.not.i46.i, %6
   br i1 %or.cond8, label %if.then53.i, label %unix_mmap.exit.thread
 
-if.then53.i:                                      ; preds = %lor.lhs.false.i45.i
+if.then53.i:                                      ; preds = %lor.lhs.false.i44.i
   %call.i.i = tail call i32 @madvise(ptr noundef nonnull %call47.i, i64 noundef %size, i32 noundef 14) #44
   %cmp55.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp55.i, label %if.then56.i, label %unix_mmap.exit.thread
@@ -24797,8 +24823,8 @@ if.then56.i:                                      ; preds = %if.then53.i
   store i8 1, ptr %is_large, align 1
   br label %unix_mmap.exit.thread
 
-unix_mmap.exit.thread:                            ; preds = %if.end34.i, %if.then56.i, %if.then53.i, %lor.lhs.false.i45.i, %if.else.i
-  %retval.0.i.ph = phi ptr [ %call24.i, %if.else.i ], [ %call47.i, %lor.lhs.false.i45.i ], [ %call47.i, %if.then53.i ], [ %call47.i, %if.then56.i ], [ %call33.i, %if.end34.i ]
+unix_mmap.exit.thread:                            ; preds = %if.end34.i, %if.then56.i, %if.then53.i, %lor.lhs.false.i44.i, %if.end19.i
+  %retval.0.i.ph = phi ptr [ %call24.i, %if.end19.i ], [ %call47.i, %lor.lhs.false.i44.i ], [ %call47.i, %if.then53.i ], [ %call47.i, %if.then56.i ], [ %call33.i, %if.end34.i ]
   store ptr %retval.0.i.ph, ptr %addr, align 8
   br label %cond.end
 
@@ -25610,12 +25636,7 @@ sw.bb1.i:                                         ; preds = %PyMutex_Lock.exit
   store ptr @_PyObject_Calloc, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 1, i32 1, i32 2), align 8
   store ptr @_PyObject_Realloc, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 1, i32 1, i32 3), align 8
   store ptr @_PyObject_Free, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 1, i32 1, i32 4), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 1, i32 2), align 8
-  store ptr @_PyObject_Malloc, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 1, i32 2, i32 1), align 8
-  store ptr @_PyObject_Calloc, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 1, i32 2, i32 2), align 8
-  store ptr @_PyObject_Realloc, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 1, i32 2, i32 3), align 8
-  store ptr @_PyObject_Free, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 1, i32 2, i32 4), align 8
-  br label %set_up_allocators_unlocked.exit
+  br label %sw.epilog.sink.split.i
 
 set_default_allocator_unlocked.exit5.i:           ; preds = %PyMutex_Lock.exit
   store ptr null, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 1), align 8
@@ -25646,19 +25667,14 @@ set_default_allocator_unlocked.exit5.i:           ; preds = %PyMutex_Lock.exit
   store ptr @_PyObject_Realloc, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 1, i32 2, i32 3), align 8
   store ptr @_PyObject_Free, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 1, i32 2, i32 4), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 2, i32 2, i32 1), ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 1, i32 2), i64 40, i1 false)
-  store ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 2, i32 2), ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 1, i32 2), align 8
-  store ptr @_PyMem_DebugMalloc, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 1, i32 2, i32 1), align 8
-  store ptr @_PyMem_DebugCalloc, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 1, i32 2, i32 2), align 8
-  store ptr @_PyMem_DebugRealloc, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 1, i32 2, i32 3), align 8
-  store ptr @_PyMem_DebugFree, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 1, i32 2, i32 4), align 8
-  br label %set_up_allocators_unlocked.exit
+  br label %sw.epilog.sink.split.i
 
 sw.bb8.i:                                         ; preds = %PyMutex_Lock.exit, %PyMutex_Lock.exit
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 1), ptr noundef nonnull align 8 dereferenceable(40) @__const.get_current_allocator_name_unlocked.malloc_alloc, i64 40, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 1, i32 1), ptr noundef nonnull align 8 dereferenceable(40) @__const.get_current_allocator_name_unlocked.pymalloc, i64 40, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 1, i32 2), ptr noundef nonnull align 8 dereferenceable(40) @__const.get_current_allocator_name_unlocked.pymalloc, i64 40, i1 false)
   %cmp.i = icmp eq i32 %allocator, 6
-  br i1 %cmp.i, label %if.end18.i.i11.i, label %set_up_allocators_unlocked.exit
+  br i1 %cmp.i, label %if.end18.i.i11.i, label %sw.epilog.i
 
 if.end18.i.i11.i:                                 ; preds = %sw.bb8.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 2, i32 0, i32 1), ptr noundef nonnull align 8 dereferenceable(40) @__const.get_current_allocator_name_unlocked.malloc_alloc, i64 40, i1 false)
@@ -25674,19 +25690,14 @@ if.end18.i.i11.i:                                 ; preds = %sw.bb8.i
   store ptr @_PyMem_DebugRealloc, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 1, i32 1, i32 3), align 8
   store ptr @_PyMem_DebugFree, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 1, i32 1, i32 4), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 2, i32 2, i32 1), ptr noundef nonnull align 8 dereferenceable(40) @__const.get_current_allocator_name_unlocked.pymalloc, i64 40, i1 false)
-  store ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 2, i32 2), ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 1, i32 2), align 8
-  store ptr @_PyMem_DebugMalloc, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 1, i32 2, i32 1), align 8
-  store ptr @_PyMem_DebugCalloc, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 1, i32 2, i32 2), align 8
-  store ptr @_PyMem_DebugRealloc, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 1, i32 2, i32 3), align 8
-  store ptr @_PyMem_DebugFree, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 1, i32 2, i32 4), align 8
-  br label %set_up_allocators_unlocked.exit
+  br label %sw.epilog.sink.split.i
 
 sw.bb9.i:                                         ; preds = %PyMutex_Lock.exit, %PyMutex_Lock.exit
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 1), ptr noundef nonnull align 8 dereferenceable(40) @__const.get_current_allocator_name_unlocked.malloc_alloc, i64 40, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 1, i32 1), ptr noundef nonnull align 8 dereferenceable(40) @__const.get_current_allocator_name_unlocked.mimalloc, i64 40, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 1, i32 2), ptr noundef nonnull align 8 dereferenceable(40) @__const.get_current_allocator_name_unlocked.mimalloc_obj, i64 40, i1 false)
   %cmp12.i = icmp eq i32 %allocator, 8
-  br i1 %cmp12.i, label %if.end18.i.i19.i, label %set_up_allocators_unlocked.exit
+  br i1 %cmp12.i, label %if.end18.i.i19.i, label %sw.epilog.i
 
 if.end18.i.i19.i:                                 ; preds = %sw.bb9.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 2, i32 0, i32 1), ptr noundef nonnull align 8 dereferenceable(40) @__const.get_current_allocator_name_unlocked.malloc_alloc, i64 40, i1 false)
@@ -25702,19 +25713,14 @@ if.end18.i.i19.i:                                 ; preds = %sw.bb9.i
   store ptr @_PyMem_DebugRealloc, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 1, i32 1, i32 3), align 8
   store ptr @_PyMem_DebugFree, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 1, i32 1, i32 4), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 2, i32 2, i32 1), ptr noundef nonnull align 8 dereferenceable(40) @__const.get_current_allocator_name_unlocked.mimalloc_obj, i64 40, i1 false)
-  store ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 2, i32 2), ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 1, i32 2), align 8
-  store ptr @_PyMem_DebugMalloc, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 1, i32 2, i32 1), align 8
-  store ptr @_PyMem_DebugCalloc, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 1, i32 2, i32 2), align 8
-  store ptr @_PyMem_DebugRealloc, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 1, i32 2, i32 3), align 8
-  store ptr @_PyMem_DebugFree, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 1, i32 2, i32 4), align 8
-  br label %set_up_allocators_unlocked.exit
+  br label %sw.epilog.sink.split.i
 
 sw.bb15.i:                                        ; preds = %PyMutex_Lock.exit, %PyMutex_Lock.exit
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 1), ptr noundef nonnull align 8 dereferenceable(40) @__const.get_current_allocator_name_unlocked.malloc_alloc, i64 40, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 1, i32 1), ptr noundef nonnull align 8 dereferenceable(40) @__const.get_current_allocator_name_unlocked.malloc_alloc, i64 40, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 1, i32 2), ptr noundef nonnull align 8 dereferenceable(40) @__const.get_current_allocator_name_unlocked.malloc_alloc, i64 40, i1 false)
   %cmp17.i = icmp eq i32 %allocator, 4
-  br i1 %cmp17.i, label %if.end18.i.i28.i, label %set_up_allocators_unlocked.exit
+  br i1 %cmp17.i, label %if.end18.i.i28.i, label %sw.epilog.i
 
 if.end18.i.i28.i:                                 ; preds = %sw.bb15.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 2, i32 0, i32 1), ptr noundef nonnull align 8 dereferenceable(40) @__const.get_current_allocator_name_unlocked.malloc_alloc, i64 40, i1 false)
@@ -25730,18 +25736,26 @@ if.end18.i.i28.i:                                 ; preds = %sw.bb15.i
   store ptr @_PyMem_DebugRealloc, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 1, i32 1, i32 3), align 8
   store ptr @_PyMem_DebugFree, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 1, i32 1, i32 4), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 2, i32 2, i32 1), ptr noundef nonnull align 8 dereferenceable(40) @__const.get_current_allocator_name_unlocked.malloc_alloc, i64 40, i1 false)
-  store ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 2, i32 2), ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 1, i32 2), align 8
-  store ptr @_PyMem_DebugMalloc, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 1, i32 2, i32 1), align 8
-  store ptr @_PyMem_DebugCalloc, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 1, i32 2, i32 2), align 8
-  store ptr @_PyMem_DebugRealloc, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 1, i32 2, i32 3), align 8
-  store ptr @_PyMem_DebugFree, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 1, i32 2, i32 4), align 8
+  br label %sw.epilog.sink.split.i
+
+sw.epilog.sink.split.i:                           ; preds = %if.end18.i.i28.i, %if.end18.i.i19.i, %if.end18.i.i11.i, %set_default_allocator_unlocked.exit5.i, %sw.bb1.i
+  %.sink.i = phi ptr [ getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 2, i32 2), %if.end18.i.i28.i ], [ getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 2, i32 2), %if.end18.i.i19.i ], [ getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 2, i32 2), %if.end18.i.i11.i ], [ getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 2, i32 2), %set_default_allocator_unlocked.exit5.i ], [ null, %sw.bb1.i ]
+  %_PyMem_DebugMalloc.sink.i = phi ptr [ @_PyMem_DebugMalloc, %if.end18.i.i28.i ], [ @_PyMem_DebugMalloc, %if.end18.i.i19.i ], [ @_PyMem_DebugMalloc, %if.end18.i.i11.i ], [ @_PyMem_DebugMalloc, %set_default_allocator_unlocked.exit5.i ], [ @_PyObject_Malloc, %sw.bb1.i ]
+  %_PyMem_DebugCalloc.sink.i = phi ptr [ @_PyMem_DebugCalloc, %if.end18.i.i28.i ], [ @_PyMem_DebugCalloc, %if.end18.i.i19.i ], [ @_PyMem_DebugCalloc, %if.end18.i.i11.i ], [ @_PyMem_DebugCalloc, %set_default_allocator_unlocked.exit5.i ], [ @_PyObject_Calloc, %sw.bb1.i ]
+  %_PyMem_DebugRealloc.sink.i = phi ptr [ @_PyMem_DebugRealloc, %if.end18.i.i28.i ], [ @_PyMem_DebugRealloc, %if.end18.i.i19.i ], [ @_PyMem_DebugRealloc, %if.end18.i.i11.i ], [ @_PyMem_DebugRealloc, %set_default_allocator_unlocked.exit5.i ], [ @_PyObject_Realloc, %sw.bb1.i ]
+  %_PyMem_DebugFree.sink.i = phi ptr [ @_PyMem_DebugFree, %if.end18.i.i28.i ], [ @_PyMem_DebugFree, %if.end18.i.i19.i ], [ @_PyMem_DebugFree, %if.end18.i.i11.i ], [ @_PyMem_DebugFree, %set_default_allocator_unlocked.exit5.i ], [ @_PyObject_Free, %sw.bb1.i ]
+  store ptr %.sink.i, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 1, i32 2), align 8
+  store ptr %_PyMem_DebugMalloc.sink.i, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 1, i32 2, i32 1), align 8
+  store ptr %_PyMem_DebugCalloc.sink.i, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 1, i32 2, i32 2), align 8
+  store ptr %_PyMem_DebugRealloc.sink.i, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 1, i32 2, i32 3), align 8
+  store ptr %_PyMem_DebugFree.sink.i, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 1, i32 2, i32 4), align 8
+  br label %sw.epilog.i
+
+sw.epilog.i:                                      ; preds = %sw.epilog.sink.split.i, %sw.bb15.i, %sw.bb9.i, %sw.bb8.i, %PyMutex_Lock.exit
   br label %set_up_allocators_unlocked.exit
 
-sw.epilog.i:                                      ; preds = %PyMutex_Lock.exit
-  br label %set_up_allocators_unlocked.exit
-
-set_up_allocators_unlocked.exit:                  ; preds = %PyMutex_Lock.exit, %sw.bb1.i, %set_default_allocator_unlocked.exit5.i, %sw.bb8.i, %if.end18.i.i11.i, %sw.bb9.i, %if.end18.i.i19.i, %sw.bb15.i, %if.end18.i.i28.i, %sw.epilog.i
-  %retval.0.i = phi i32 [ -1, %PyMutex_Lock.exit ], [ 0, %sw.bb15.i ], [ 0, %sw.bb9.i ], [ 0, %sw.bb8.i ], [ 0, %set_default_allocator_unlocked.exit5.i ], [ 0, %sw.bb1.i ], [ 0, %sw.epilog.i ], [ 0, %if.end18.i.i11.i ], [ 0, %if.end18.i.i19.i ], [ 0, %if.end18.i.i28.i ]
+set_up_allocators_unlocked.exit:                  ; preds = %PyMutex_Lock.exit, %sw.epilog.i
+  %retval.0.i = phi i32 [ 0, %sw.epilog.i ], [ -1, %PyMutex_Lock.exit ]
   %2 = cmpxchg ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11), i8 1, i8 0 seq_cst seq_cst, align 1
   %3 = extractvalue { i8, i1 } %2, 1
   br i1 %3, label %PyMutex_Unlock.exit, label %if.then.i1
@@ -25755,7 +25769,7 @@ PyMutex_Unlock.exit:                              ; preds = %set_up_allocators_u
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @_PyMem_GetCurrentAllocatorName() local_unnamed_addr #0 {
+define dso_local noundef ptr @_PyMem_GetCurrentAllocatorName() local_unnamed_addr #0 {
 entry:
   %0 = cmpxchg ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11), i8 0, i8 1 seq_cst seq_cst, align 1
   %1 = extractvalue { i8, i1 } %0, 1
@@ -25803,22 +25817,22 @@ land.lhs.true21.i:                                ; preds = %land.lhs.true18.i
 if.end25.i:                                       ; preds = %land.lhs.true21.i, %land.lhs.true18.i, %PyMutex_Lock.exit
   %bcmp.i25.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(40) getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 1), ptr noundef nonnull dereferenceable(40) @__const.get_current_allocator_name_unlocked.dbg_raw, i64 40)
   %cmp.i26.not.i = icmp eq i32 %bcmp.i25.i, 0
-  br i1 %cmp.i26.not.i, label %land.lhs.true28.i, label %get_current_allocator_name_unlocked.exit
+  br i1 %cmp.i26.not.i, label %land.lhs.true28.i, label %if.end65.i
 
 land.lhs.true28.i:                                ; preds = %if.end25.i
   %bcmp.i28.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(40) getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 1, i32 1), ptr noundef nonnull dereferenceable(40) @__const.get_current_allocator_name_unlocked.dbg_mem, i64 40)
   %cmp.i29.not.i = icmp eq i32 %bcmp.i28.i, 0
-  br i1 %cmp.i29.not.i, label %land.lhs.true31.i, label %get_current_allocator_name_unlocked.exit
+  br i1 %cmp.i29.not.i, label %land.lhs.true31.i, label %if.end65.i
 
 land.lhs.true31.i:                                ; preds = %land.lhs.true28.i
   %bcmp.i31.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(40) getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 1, i32 2), ptr noundef nonnull dereferenceable(40) @__const.get_current_allocator_name_unlocked.dbg_obj, i64 40)
   %cmp.i32.not.i = icmp eq i32 %bcmp.i31.i, 0
-  br i1 %cmp.i32.not.i, label %if.then34.i, label %get_current_allocator_name_unlocked.exit
+  br i1 %cmp.i32.not.i, label %if.then34.i, label %if.end65.i
 
 if.then34.i:                                      ; preds = %land.lhs.true31.i
   %bcmp.i34.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(40) getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 2, i32 0, i32 1), ptr noundef nonnull dereferenceable(40) @__const.get_current_allocator_name_unlocked.malloc_alloc, i64 40)
   %cmp.i35.not.i = icmp eq i32 %bcmp.i34.i, 0
-  br i1 %cmp.i35.not.i, label %land.lhs.true37.i, label %get_current_allocator_name_unlocked.exit
+  br i1 %cmp.i35.not.i, label %land.lhs.true37.i, label %if.end65.i
 
 land.lhs.true37.i:                                ; preds = %if.then34.i
   %bcmp.i37.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(40) getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 2, i32 1, i32 1), ptr noundef nonnull dereferenceable(40) @__const.get_current_allocator_name_unlocked.malloc_alloc, i64 40)
@@ -25843,16 +25857,18 @@ land.lhs.true50.i:                                ; preds = %land.lhs.true47.i
 land.lhs.true57.i:                                ; preds = %land.lhs.true50.i, %land.lhs.true47.i
   %bcmp.i55.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(40) getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 2, i32 1, i32 1), ptr noundef nonnull dereferenceable(40) @__const.get_current_allocator_name_unlocked.mimalloc, i64 40)
   %cmp.i56.not.i = icmp eq i32 %bcmp.i55.i, 0
-  br i1 %cmp.i56.not.i, label %land.lhs.true60.i, label %get_current_allocator_name_unlocked.exit
+  br i1 %cmp.i56.not.i, label %land.lhs.true60.i, label %if.end65.i
 
 land.lhs.true60.i:                                ; preds = %land.lhs.true57.i
   %bcmp.i58.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(40) getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11, i32 2, i32 2, i32 1), ptr noundef nonnull dereferenceable(40) @__const.get_current_allocator_name_unlocked.mimalloc_obj, i64 40)
   %cmp.i59.not.i = icmp eq i32 %bcmp.i58.i, 0
-  %spec.select.i = select i1 %cmp.i59.not.i, ptr @.str.39, ptr null
+  br i1 %cmp.i59.not.i, label %get_current_allocator_name_unlocked.exit, label %if.end65.i
+
+if.end65.i:                                       ; preds = %land.lhs.true60.i, %land.lhs.true57.i, %if.then34.i, %land.lhs.true31.i, %land.lhs.true28.i, %if.end25.i
   br label %get_current_allocator_name_unlocked.exit
 
-get_current_allocator_name_unlocked.exit:         ; preds = %land.lhs.true3.i, %land.lhs.true11.i, %land.lhs.true21.i, %if.end25.i, %land.lhs.true28.i, %land.lhs.true31.i, %if.then34.i, %land.lhs.true40.i, %land.lhs.true50.i, %land.lhs.true57.i, %land.lhs.true60.i
-  %retval.0.i = phi ptr [ @.str.40, %land.lhs.true3.i ], [ @.str.36, %land.lhs.true11.i ], [ @.str.38, %land.lhs.true21.i ], [ @.str.41, %land.lhs.true40.i ], [ @.str.37, %land.lhs.true50.i ], [ null, %land.lhs.true57.i ], [ null, %land.lhs.true31.i ], [ null, %land.lhs.true28.i ], [ null, %if.end25.i ], [ %spec.select.i, %land.lhs.true60.i ], [ null, %if.then34.i ]
+get_current_allocator_name_unlocked.exit:         ; preds = %land.lhs.true3.i, %land.lhs.true11.i, %land.lhs.true21.i, %land.lhs.true40.i, %land.lhs.true50.i, %land.lhs.true60.i, %if.end65.i
+  %retval.0.i = phi ptr [ null, %if.end65.i ], [ @.str.40, %land.lhs.true3.i ], [ @.str.36, %land.lhs.true11.i ], [ @.str.38, %land.lhs.true21.i ], [ @.str.41, %land.lhs.true40.i ], [ @.str.37, %land.lhs.true50.i ], [ @.str.39, %land.lhs.true60.i ]
   %2 = cmpxchg ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 11), i8 1, i8 0 seq_cst seq_cst, align 1
   %3 = extractvalue { i8, i1 } %2, 1
   br i1 %3, label %PyMutex_Unlock.exit, label %if.then.i1

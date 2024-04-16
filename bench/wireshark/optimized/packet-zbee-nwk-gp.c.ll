@@ -1155,12 +1155,12 @@ define internal i32 @dissect_zbee_nwk_gp(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %179, label %182, label %.zbee_gp_make_nonce.exit_crit_edge.i
 
 .zbee_gp_make_nonce.exit_crit_edge.i:             ; preds = %168
-  %.pre11.i = lshr i32 %180, 8
-  %.pre13.i = trunc i32 %.pre11.i to i8
-  %.pre15.i = lshr i32 %180, 16
-  %.pre17.i = trunc i32 %.pre15.i to i8
-  %.pre19.i = lshr i32 %180, 24
-  %.pre21.i = trunc nuw i32 %.pre19.i to i8
+  %.pre12.i = lshr i32 %180, 8
+  %.pre14.i = trunc i32 %.pre12.i to i8
+  %.pre16.i = lshr i32 %180, 16
+  %.pre18.i = trunc i32 %.pre16.i to i8
+  %.pre20.i = lshr i32 %180, 24
+  %.pre22.i = trunc nuw i32 %.pre20.i to i8
   br label %zbee_gp_decrypt_payload.exit
 
 182:                                              ; preds = %168
@@ -1177,14 +1177,13 @@ define internal i32 @dissect_zbee_nwk_gp(ptr noundef %0, ptr noundef %1, ptr nou
   br label %zbee_gp_decrypt_payload.exit
 
 zbee_gp_decrypt_payload.exit:                     ; preds = %.zbee_gp_make_nonce.exit_crit_edge.i, %182
-  %.pre-phi22.i = phi i8 [ %.pre21.i, %.zbee_gp_make_nonce.exit_crit_edge.i ], [ %188, %182 ]
-  %.pre-phi18.i = phi i8 [ %.pre17.i, %.zbee_gp_make_nonce.exit_crit_edge.i ], [ %186, %182 ]
-  %.pre-phi14.i = phi i8 [ %.pre13.i, %.zbee_gp_make_nonce.exit_crit_edge.i ], [ %184, %182 ]
-  %spec.select.i.i = phi i8 [ -93, %.zbee_gp_make_nonce.exit_crit_edge.i ], [ 5, %182 ]
+  %.pre-phi23.i = phi i8 [ %.pre22.i, %.zbee_gp_make_nonce.exit_crit_edge.i ], [ %188, %182 ]
+  %.pre-phi19.i = phi i8 [ %.pre18.i, %.zbee_gp_make_nonce.exit_crit_edge.i ], [ %186, %182 ]
+  %.pre-phi15.i = phi i8 [ %.pre14.i, %.zbee_gp_make_nonce.exit_crit_edge.i ], [ %184, %182 ]
   store i8 %181, ptr %158, align 4
-  store i8 %.pre-phi14.i, ptr %159, align 1
-  store i8 %.pre-phi18.i, ptr %160, align 2
-  store i8 %.pre-phi22.i, ptr %161, align 1
+  store i8 %.pre-phi15.i, ptr %159, align 1
+  store i8 %.pre-phi19.i, ptr %160, align 2
+  store i8 %.pre-phi23.i, ptr %161, align 1
   %189 = load i32, ptr %163, align 4
   %190 = trunc i32 %189 to i8
   store i8 %190, ptr %162, align 4
@@ -1198,9 +1197,10 @@ zbee_gp_decrypt_payload.exit:                     ; preds = %.zbee_gp_make_nonce
   %196 = trunc nuw i32 %195 to i8
   store i8 %196, ptr %166, align 1
   %197 = load i8, ptr %81, align 4
-  %198 = icmp eq i8 %197, 2
-  %spec.select.i = select i1 %198, i8 %spec.select.i.i, i8 5
-  store i8 %spec.select.i, ptr %167, align 4
+  %198 = icmp ne i8 %197, 2
+  %brmerge.i = or i1 %179, %198
+  %.sink.i.i = select i1 %brmerge.i, i8 5, i8 -93
+  store i8 %.sink.i.i, ptr %167, align 4
   %sext = shl i32 %174, 24
   %199 = ashr exact i32 %sext, 24
   %sext155 = shl i64 %175, 56
@@ -1572,12 +1572,12 @@ dissect_zbee_nwk_gp_cmd_read_attributes_response.exit: ; preds = %.loopexit.i, %
   br i1 %192, label %194, label %.zbee_gp_make_nonce.exit_crit_edge.i.i
 
 .zbee_gp_make_nonce.exit_crit_edge.i.i:           ; preds = %187
-  %.pre11.i.i = lshr i32 %188, 8
-  %.pre13.i.i = trunc i32 %.pre11.i.i to i8
-  %.pre15.i.i = lshr i32 %188, 16
-  %.pre17.i.i = trunc i32 %.pre15.i.i to i8
-  %.pre19.i.i = lshr i32 %188, 24
-  %.pre21.i.i = trunc nuw i32 %.pre19.i.i to i8
+  %.pre12.i.i = lshr i32 %188, 8
+  %.pre14.i.i = trunc i32 %.pre12.i.i to i8
+  %.pre16.i.i = lshr i32 %188, 16
+  %.pre18.i.i = trunc i32 %.pre16.i.i to i8
+  %.pre20.i.i = lshr i32 %188, 24
+  %.pre22.i.i = trunc nuw i32 %.pre20.i.i to i8
   br label %zbee_gp_decrypt_payload.exit.i
 
 194:                                              ; preds = %187
@@ -1594,22 +1594,22 @@ dissect_zbee_nwk_gp_cmd_read_attributes_response.exit: ; preds = %.loopexit.i, %
   br label %zbee_gp_decrypt_payload.exit.i
 
 zbee_gp_decrypt_payload.exit.i:                   ; preds = %194, %.zbee_gp_make_nonce.exit_crit_edge.i.i
-  %.pre-phi22.i.i = phi i8 [ %.pre21.i.i, %.zbee_gp_make_nonce.exit_crit_edge.i.i ], [ %200, %194 ]
-  %.pre-phi18.i.i = phi i8 [ %.pre17.i.i, %.zbee_gp_make_nonce.exit_crit_edge.i.i ], [ %198, %194 ]
-  %.pre-phi14.i.i = phi i8 [ %.pre13.i.i, %.zbee_gp_make_nonce.exit_crit_edge.i.i ], [ %196, %194 ]
-  %spec.select.i.i.i = phi i8 [ -93, %.zbee_gp_make_nonce.exit_crit_edge.i.i ], [ 5, %194 ]
+  %.pre-phi23.i.i = phi i8 [ %.pre22.i.i, %.zbee_gp_make_nonce.exit_crit_edge.i.i ], [ %200, %194 ]
+  %.pre-phi19.i.i = phi i8 [ %.pre18.i.i, %.zbee_gp_make_nonce.exit_crit_edge.i.i ], [ %198, %194 ]
+  %.pre-phi15.i.i = phi i8 [ %.pre14.i.i, %.zbee_gp_make_nonce.exit_crit_edge.i.i ], [ %196, %194 ]
   store i8 %193, ptr %177, align 4
-  store i8 %.pre-phi14.i.i, ptr %178, align 1
-  store i8 %.pre-phi18.i.i, ptr %179, align 2
-  store i8 %.pre-phi22.i.i, ptr %180, align 1
+  store i8 %.pre-phi15.i.i, ptr %178, align 1
+  store i8 %.pre-phi19.i.i, ptr %179, align 2
+  store i8 %.pre-phi23.i.i, ptr %180, align 1
   store i8 %193, ptr %181, align 4
-  store i8 %.pre-phi14.i.i, ptr %182, align 1
-  store i8 %.pre-phi18.i.i, ptr %183, align 2
-  store i8 %.pre-phi22.i.i, ptr %184, align 1
+  store i8 %.pre-phi15.i.i, ptr %182, align 1
+  store i8 %.pre-phi19.i.i, ptr %183, align 2
+  store i8 %.pre-phi23.i.i, ptr %184, align 1
   %201 = load i8, ptr %185, align 4
-  %202 = icmp eq i8 %201, 2
-  %spec.select.i.i = select i1 %202, i8 %spec.select.i.i.i, i8 5
-  store i8 %spec.select.i.i, ptr %186, align 4
+  %202 = icmp ne i8 %201, 2
+  %brmerge.i.i = or i1 %192, %202
+  %.sink.i.i.i = select i1 %brmerge.i.i, i8 5, i8 -93
+  store i8 %.sink.i.i.i, ptr %186, align 4
   %203 = call i32 @zbee_sec_ccm_decrypt(ptr noundef nonnull %190, ptr noundef nonnull %10, ptr noundef nonnull %156, ptr noundef %171, ptr noundef %154, i32 noundef 4, i32 noundef 16, i32 noundef 4) #11
   %.not.i.not.i = icmp eq i32 %203, 0
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %10)
@@ -2017,12 +2017,12 @@ dissect_zbee_nwk_gp_cmd_read_attributes.exit:     ; preds = %.loopexit.i113, %31
   br i1 %420, label %423, label %.zbee_gp_make_nonce.exit_crit_edge.i.i118
 
 .zbee_gp_make_nonce.exit_crit_edge.i.i118:        ; preds = %415
-  %.pre11.i.i119 = lshr i32 %421, 8
-  %.pre13.i.i120 = trunc i32 %.pre11.i.i119 to i8
-  %.pre15.i.i121 = lshr i32 %421, 16
-  %.pre17.i.i122 = trunc i32 %.pre15.i.i121 to i8
-  %.pre19.i.i123 = lshr i32 %421, 24
-  %.pre21.i.i124 = trunc nuw i32 %.pre19.i.i123 to i8
+  %.pre12.i.i119 = lshr i32 %421, 8
+  %.pre14.i.i120 = trunc i32 %.pre12.i.i119 to i8
+  %.pre16.i.i121 = lshr i32 %421, 16
+  %.pre18.i.i122 = trunc i32 %.pre16.i.i121 to i8
+  %.pre20.i.i123 = lshr i32 %421, 24
+  %.pre22.i.i124 = trunc nuw i32 %.pre20.i.i123 to i8
   br label %zbee_gp_decrypt_payload.exit.i125
 
 423:                                              ; preds = %415
@@ -2039,14 +2039,13 @@ dissect_zbee_nwk_gp_cmd_read_attributes.exit:     ; preds = %.loopexit.i113, %31
   br label %zbee_gp_decrypt_payload.exit.i125
 
 zbee_gp_decrypt_payload.exit.i125:                ; preds = %423, %.zbee_gp_make_nonce.exit_crit_edge.i.i118
-  %.pre-phi22.i.i126 = phi i8 [ %.pre21.i.i124, %.zbee_gp_make_nonce.exit_crit_edge.i.i118 ], [ %429, %423 ]
-  %.pre-phi18.i.i127 = phi i8 [ %.pre17.i.i122, %.zbee_gp_make_nonce.exit_crit_edge.i.i118 ], [ %427, %423 ]
-  %.pre-phi14.i.i128 = phi i8 [ %.pre13.i.i120, %.zbee_gp_make_nonce.exit_crit_edge.i.i118 ], [ %425, %423 ]
-  %spec.select.i.i.i129 = phi i8 [ -93, %.zbee_gp_make_nonce.exit_crit_edge.i.i118 ], [ 5, %423 ]
+  %.pre-phi23.i.i126 = phi i8 [ %.pre22.i.i124, %.zbee_gp_make_nonce.exit_crit_edge.i.i118 ], [ %429, %423 ]
+  %.pre-phi19.i.i127 = phi i8 [ %.pre18.i.i122, %.zbee_gp_make_nonce.exit_crit_edge.i.i118 ], [ %427, %423 ]
+  %.pre-phi15.i.i128 = phi i8 [ %.pre14.i.i120, %.zbee_gp_make_nonce.exit_crit_edge.i.i118 ], [ %425, %423 ]
   store i8 %422, ptr %405, align 4
-  store i8 %.pre-phi14.i.i128, ptr %406, align 1
-  store i8 %.pre-phi18.i.i127, ptr %407, align 2
-  store i8 %.pre-phi22.i.i126, ptr %408, align 1
+  store i8 %.pre-phi15.i.i128, ptr %406, align 1
+  store i8 %.pre-phi19.i.i127, ptr %407, align 2
+  store i8 %.pre-phi23.i.i126, ptr %408, align 1
   %430 = trunc i32 %416 to i8
   store i8 %430, ptr %409, align 4
   %431 = lshr i32 %416, 8
@@ -2059,9 +2058,10 @@ zbee_gp_decrypt_payload.exit.i125:                ; preds = %423, %.zbee_gp_make
   %436 = trunc nuw i32 %435 to i8
   store i8 %436, ptr %412, align 1
   %437 = load i8, ptr %413, align 4
-  %438 = icmp eq i8 %437, 2
-  %spec.select.i.i130 = select i1 %438, i8 %spec.select.i.i.i129, i8 5
-  store i8 %spec.select.i.i130, ptr %414, align 4
+  %438 = icmp ne i8 %437, 2
+  %brmerge.i.i129 = or i1 %420, %438
+  %.sink.i.i.i130 = select i1 %brmerge.i.i129, i8 5, i8 -93
+  store i8 %.sink.i.i.i130, ptr %414, align 4
   %439 = call i32 @zbee_sec_ccm_decrypt(ptr noundef nonnull %418, ptr noundef nonnull %6, ptr noundef nonnull %384, ptr noundef %399, ptr noundef %382, i32 noundef 4, i32 noundef 16, i32 noundef 4) #11
   %.not.i.not.i131 = icmp eq i32 %439, 0
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %6)

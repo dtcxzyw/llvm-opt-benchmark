@@ -2916,7 +2916,7 @@ land.lhs.true.i:                                  ; preds = %if.end13.i
   %cmp3.i20.i = icmp slt i8 %5, 64
   %or.cond13.i21.i = and i1 %cmp3.i20.i, %or.cond.i18.i
   %7 = freeze i1 %or.cond13.i21.i
-  br i1 %7, label %if.end22.i, label %switch.early.test
+  br i1 %7, label %if.then20.i, label %switch.early.test
 
 switch.early.test:                                ; preds = %land.lhs.true.i
   switch i8 %5, label %if.end22.i [
@@ -2934,11 +2934,11 @@ switch.early.test:                                ; preds = %land.lhs.true.i
     i8 65, label %if.then20.i
   ]
 
-if.then20.i:                                      ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test
+if.then20.i:                                      ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %land.lhs.true.i
   br label %if.end22.i
 
-if.end22.i:                                       ; preds = %land.lhs.true.i, %switch.early.test, %if.then20.i, %if.end13.i
-  %8 = phi ptr [ %incdec.ptr7.i, %if.end13.i ], [ %incdec.ptr7.i, %switch.early.test ], [ %add.ptr.i, %land.lhs.true.i ], [ %add.ptr.i, %if.then20.i ]
+if.end22.i:                                       ; preds = %switch.early.test, %if.then20.i, %if.end13.i
+  %8 = phi ptr [ %add.ptr.i, %if.then20.i ], [ %incdec.ptr7.i, %if.end13.i ], [ %incdec.ptr7.i, %switch.early.test ]
   %cmp23.i = icmp eq ptr %8, %end
   br i1 %cmp23.i, label %return, label %while.cond.backedge
 
@@ -3016,7 +3016,7 @@ land.lhs.true.i99:                                ; preds = %if.end13.i94
   %cmp3.i20.i102 = icmp slt i8 %14, 64
   %or.cond13.i21.i103 = and i1 %cmp3.i20.i102, %or.cond.i18.i101
   %16 = freeze i1 %or.cond13.i21.i103
-  br i1 %16, label %if.end22.i97, label %switch.early.test321
+  br i1 %16, label %if.then20.i112, label %switch.early.test321
 
 switch.early.test321:                             ; preds = %land.lhs.true.i99
   switch i8 %14, label %if.end22.i97 [
@@ -3034,11 +3034,11 @@ switch.early.test321:                             ; preds = %land.lhs.true.i99
     i8 65, label %if.then20.i112
   ]
 
-if.then20.i112:                                   ; preds = %switch.early.test321, %switch.early.test321, %switch.early.test321, %switch.early.test321, %switch.early.test321, %switch.early.test321, %switch.early.test321, %switch.early.test321, %switch.early.test321, %switch.early.test321, %switch.early.test321, %switch.early.test321
+if.then20.i112:                                   ; preds = %switch.early.test321, %switch.early.test321, %switch.early.test321, %switch.early.test321, %switch.early.test321, %switch.early.test321, %switch.early.test321, %switch.early.test321, %switch.early.test321, %switch.early.test321, %switch.early.test321, %switch.early.test321, %land.lhs.true.i99
   br label %if.end22.i97
 
-if.end22.i97:                                     ; preds = %land.lhs.true.i99, %switch.early.test321, %if.then20.i112, %if.end13.i94
-  %17 = phi ptr [ %incdec.ptr7.i89, %if.end13.i94 ], [ %incdec.ptr7.i89, %switch.early.test321 ], [ %add.ptr.i92, %land.lhs.true.i99 ], [ %add.ptr.i92, %if.then20.i112 ]
+if.end22.i97:                                     ; preds = %switch.early.test321, %if.then20.i112, %if.end13.i94
+  %17 = phi ptr [ %add.ptr.i92, %if.then20.i112 ], [ %incdec.ptr7.i89, %if.end13.i94 ], [ %incdec.ptr7.i89, %switch.early.test321 ]
   %cmp23.i98 = icmp eq ptr %17, %end
   br i1 %cmp23.i98, label %return, label %while.cond7.backedge
 
@@ -3217,7 +3217,7 @@ land.lhs.true.i264:                               ; preds = %if.end13.i259
   %cmp3.i20.i267 = icmp slt i8 %38, 64
   %or.cond13.i21.i268 = and i1 %cmp3.i20.i267, %or.cond.i18.i266
   %40 = freeze i1 %or.cond13.i21.i268
-  br i1 %40, label %if.end22.i262, label %switch.early.test323
+  br i1 %40, label %if.then20.i277, label %switch.early.test323
 
 switch.early.test323:                             ; preds = %land.lhs.true.i264
   switch i8 %38, label %if.end22.i262 [
@@ -3235,11 +3235,11 @@ switch.early.test323:                             ; preds = %land.lhs.true.i264
     i8 65, label %if.then20.i277
   ]
 
-if.then20.i277:                                   ; preds = %switch.early.test323, %switch.early.test323, %switch.early.test323, %switch.early.test323, %switch.early.test323, %switch.early.test323, %switch.early.test323, %switch.early.test323, %switch.early.test323, %switch.early.test323, %switch.early.test323, %switch.early.test323
+if.then20.i277:                                   ; preds = %switch.early.test323, %switch.early.test323, %switch.early.test323, %switch.early.test323, %switch.early.test323, %switch.early.test323, %switch.early.test323, %switch.early.test323, %switch.early.test323, %switch.early.test323, %switch.early.test323, %switch.early.test323, %land.lhs.true.i264
   br label %if.end22.i262
 
-if.end22.i262:                                    ; preds = %land.lhs.true.i264, %switch.early.test323, %if.then20.i277, %if.end13.i259
-  %41 = phi ptr [ %incdec.ptr7.i254, %if.end13.i259 ], [ %incdec.ptr7.i254, %switch.early.test323 ], [ %add.ptr.i257, %land.lhs.true.i264 ], [ %add.ptr.i257, %if.then20.i277 ]
+if.end22.i262:                                    ; preds = %switch.early.test323, %if.then20.i277, %if.end13.i259
+  %41 = phi ptr [ %add.ptr.i257, %if.then20.i277 ], [ %incdec.ptr7.i254, %if.end13.i259 ], [ %incdec.ptr7.i254, %switch.early.test323 ]
   %cmp23.i263 = icmp eq ptr %41, %end
   br i1 %cmp23.i263, label %return, label %while.cond43.backedge
 
@@ -5010,7 +5010,7 @@ land.lhs.true.i:                                  ; preds = %if.end13.i
   %cmp3.i20.i = icmp ult i16 %7, 64
   %or.cond13.i21.i = and i1 %cmp3.i20.i, %or.cond.i18.i
   %9 = freeze i1 %or.cond13.i21.i
-  br i1 %9, label %if.end22.i, label %switch.early.test
+  br i1 %9, label %if.then20.i, label %switch.early.test
 
 switch.early.test:                                ; preds = %land.lhs.true.i
   switch i16 %7, label %if.end22.i [
@@ -5028,11 +5028,11 @@ switch.early.test:                                ; preds = %land.lhs.true.i
     i16 65, label %if.then20.i
   ]
 
-if.then20.i:                                      ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test
+if.then20.i:                                      ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %land.lhs.true.i
   br label %if.end22.i
 
-if.end22.i:                                       ; preds = %land.lhs.true.i, %switch.early.test, %if.then20.i, %if.end13.i
-  %10 = phi ptr [ %incdec.ptr7.i, %if.end13.i ], [ %incdec.ptr7.i, %switch.early.test ], [ %add.ptr.i, %land.lhs.true.i ], [ %add.ptr.i, %if.then20.i ]
+if.end22.i:                                       ; preds = %switch.early.test, %if.then20.i, %if.end13.i
+  %10 = phi ptr [ %add.ptr.i, %if.then20.i ], [ %incdec.ptr7.i, %if.end13.i ], [ %incdec.ptr7.i, %switch.early.test ]
   %cmp23.i = icmp eq ptr %10, %end
   br i1 %cmp23.i, label %return, label %while.cond.backedge
 
@@ -5116,7 +5116,7 @@ land.lhs.true.i95:                                ; preds = %if.end13.i91
   %cmp3.i20.i98 = icmp ult i16 %16, 64
   %or.cond13.i21.i99 = and i1 %cmp3.i20.i98, %or.cond.i18.i97
   %18 = freeze i1 %or.cond13.i21.i99
-  br i1 %18, label %if.end22.i93, label %switch.early.test302
+  br i1 %18, label %if.then20.i108, label %switch.early.test302
 
 switch.early.test302:                             ; preds = %land.lhs.true.i95
   switch i16 %16, label %if.end22.i93 [
@@ -5134,11 +5134,11 @@ switch.early.test302:                             ; preds = %land.lhs.true.i95
     i16 65, label %if.then20.i108
   ]
 
-if.then20.i108:                                   ; preds = %switch.early.test302, %switch.early.test302, %switch.early.test302, %switch.early.test302, %switch.early.test302, %switch.early.test302, %switch.early.test302, %switch.early.test302, %switch.early.test302, %switch.early.test302, %switch.early.test302, %switch.early.test302
+if.then20.i108:                                   ; preds = %switch.early.test302, %switch.early.test302, %switch.early.test302, %switch.early.test302, %switch.early.test302, %switch.early.test302, %switch.early.test302, %switch.early.test302, %switch.early.test302, %switch.early.test302, %switch.early.test302, %switch.early.test302, %land.lhs.true.i95
   br label %if.end22.i93
 
-if.end22.i93:                                     ; preds = %land.lhs.true.i95, %switch.early.test302, %if.then20.i108, %if.end13.i91
-  %19 = phi ptr [ %incdec.ptr7.i86, %if.end13.i91 ], [ %incdec.ptr7.i86, %switch.early.test302 ], [ %add.ptr.i89, %land.lhs.true.i95 ], [ %add.ptr.i89, %if.then20.i108 ]
+if.end22.i93:                                     ; preds = %switch.early.test302, %if.then20.i108, %if.end13.i91
+  %19 = phi ptr [ %add.ptr.i89, %if.then20.i108 ], [ %incdec.ptr7.i86, %if.end13.i91 ], [ %incdec.ptr7.i86, %switch.early.test302 ]
   %cmp23.i94 = icmp eq ptr %19, %end
   br i1 %cmp23.i94, label %return, label %while.cond7.backedge
 
@@ -5315,7 +5315,7 @@ land.lhs.true.i254:                               ; preds = %if.end13.i250
   %cmp3.i20.i257 = icmp ult i16 %40, 64
   %or.cond13.i21.i258 = and i1 %cmp3.i20.i257, %or.cond.i18.i256
   %42 = freeze i1 %or.cond13.i21.i258
-  br i1 %42, label %if.end22.i252, label %switch.early.test304
+  br i1 %42, label %if.then20.i267, label %switch.early.test304
 
 switch.early.test304:                             ; preds = %land.lhs.true.i254
   switch i16 %40, label %if.end22.i252 [
@@ -5333,11 +5333,11 @@ switch.early.test304:                             ; preds = %land.lhs.true.i254
     i16 65, label %if.then20.i267
   ]
 
-if.then20.i267:                                   ; preds = %switch.early.test304, %switch.early.test304, %switch.early.test304, %switch.early.test304, %switch.early.test304, %switch.early.test304, %switch.early.test304, %switch.early.test304, %switch.early.test304, %switch.early.test304, %switch.early.test304, %switch.early.test304
+if.then20.i267:                                   ; preds = %switch.early.test304, %switch.early.test304, %switch.early.test304, %switch.early.test304, %switch.early.test304, %switch.early.test304, %switch.early.test304, %switch.early.test304, %switch.early.test304, %switch.early.test304, %switch.early.test304, %switch.early.test304, %land.lhs.true.i254
   br label %if.end22.i252
 
-if.end22.i252:                                    ; preds = %land.lhs.true.i254, %switch.early.test304, %if.then20.i267, %if.end13.i250
-  %43 = phi ptr [ %incdec.ptr7.i245, %if.end13.i250 ], [ %incdec.ptr7.i245, %switch.early.test304 ], [ %add.ptr.i248, %land.lhs.true.i254 ], [ %add.ptr.i248, %if.then20.i267 ]
+if.end22.i252:                                    ; preds = %switch.early.test304, %if.then20.i267, %if.end13.i250
+  %43 = phi ptr [ %add.ptr.i248, %if.then20.i267 ], [ %incdec.ptr7.i245, %if.end13.i250 ], [ %incdec.ptr7.i245, %switch.early.test304 ]
   %cmp23.i253 = icmp eq ptr %43, %end
   br i1 %cmp23.i253, label %return, label %while.cond43.backedge
 

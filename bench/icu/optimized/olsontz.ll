@@ -1040,21 +1040,21 @@ if.then3:                                         ; preds = %if.then
 if.else:                                          ; preds = %entry
   %and.i.i = and i32 %year, 3
   %cmp.i.i = icmp eq i32 %and.i.i, 0
-  br i1 %cmp.i.i, label %land.rhs.i.i, label %_ZN6icu_755Grego11monthLengthEii.exit
+  br i1 %cmp.i.i, label %land.rhs.i.i, label %_ZN6icu_755Grego10isLeapYearEi.exit.thread.i
 
 land.rhs.i.i:                                     ; preds = %if.else
   %rem.i.i = srem i32 %year, 100
-  %cmp1.not.i.i = icmp eq i32 %rem.i.i, 0
-  br i1 %cmp1.not.i.i, label %_ZN6icu_755Grego10isLeapYearEi.exit.i, label %_ZN6icu_755Grego11monthLengthEii.exit
-
-_ZN6icu_755Grego10isLeapYearEi.exit.i:            ; preds = %land.rhs.i.i
+  %cmp1.not.i.i = icmp ne i32 %rem.i.i, 0
   %rem2.i.i = srem i32 %year, 400
   %cmp3.i.not.i = icmp eq i32 %rem2.i.i, 0
-  %spec.select.i = select i1 %cmp3.i.not.i, i32 12, i32 0
+  %or.cond.i = or i1 %cmp1.not.i.i, %cmp3.i.not.i
+  br i1 %or.cond.i, label %_ZN6icu_755Grego11monthLengthEii.exit, label %_ZN6icu_755Grego10isLeapYearEi.exit.thread.i
+
+_ZN6icu_755Grego10isLeapYearEi.exit.thread.i:     ; preds = %land.rhs.i.i, %if.else
   br label %_ZN6icu_755Grego11monthLengthEii.exit
 
-_ZN6icu_755Grego11monthLengthEii.exit:            ; preds = %if.else, %land.rhs.i.i, %_ZN6icu_755Grego10isLeapYearEi.exit.i
-  %1 = phi i32 [ 0, %if.else ], [ 12, %land.rhs.i.i ], [ %spec.select.i, %_ZN6icu_755Grego10isLeapYearEi.exit.i ]
+_ZN6icu_755Grego11monthLengthEii.exit:            ; preds = %land.rhs.i.i, %_ZN6icu_755Grego10isLeapYearEi.exit.thread.i
+  %1 = phi i32 [ 0, %_ZN6icu_755Grego10isLeapYearEi.exit.thread.i ], [ 12, %land.rhs.i.i ]
   %add.i = add nuw nsw i32 %1, %month
   %idxprom.i = zext nneg i32 %add.i to i64
   %arrayidx.i = getelementptr inbounds [24 x i8], ptr @_ZN6icu_755Grego12MONTH_LENGTHE, i64 0, i64 %idxprom.i

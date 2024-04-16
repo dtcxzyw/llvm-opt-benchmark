@@ -2692,15 +2692,17 @@ slot_attisnull.exit.i:                            ; preds = %slot_getsomeattrs.e
 
 29:                                               ; preds = %._crit_edge.loopexit.i
   %.not12 = icmp eq ptr %3, null
-  br i1 %.not12, label %ri_NullCheck.exit.thread, label %30
+  br i1 %.not12, label %32, label %30
 
 30:                                               ; preds = %29
   %31 = tail call fastcc zeroext i1 @ri_KeysEqual(ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %5, i1 noundef zeroext true)
-  %not.15 = xor i1 %31, true
+  br i1 %31, label %ri_NullCheck.exit.thread, label %32
+
+32:                                               ; preds = %30, %29
   br label %ri_NullCheck.exit.thread
 
-ri_NullCheck.exit.thread:                         ; preds = %._crit_edge.loopexit.i, %4, %30, %29
-  %.0 = phi i1 [ true, %29 ], [ %not.15, %30 ], [ false, %4 ], [ false, %._crit_edge.loopexit.i ]
+ri_NullCheck.exit.thread:                         ; preds = %._crit_edge.loopexit.i, %4, %30, %32
+  %.0 = phi i1 [ true, %32 ], [ false, %30 ], [ false, %4 ], [ false, %._crit_edge.loopexit.i ]
   ret i1 %.0
 }
 

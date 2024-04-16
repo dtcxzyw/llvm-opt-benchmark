@@ -3080,7 +3080,7 @@ define dso_local noundef i64 @ZSTD_DCtx_refDDict(ptr nocapture noundef %0, ptr n
   %8 = getelementptr inbounds i8, ptr %0, i64 30212
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %11, label %129
+  br i1 %10, label %11, label %128
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds i8, ptr %0, i64 30168
@@ -3090,7 +3090,7 @@ define dso_local noundef i64 @ZSTD_DCtx_refDDict(ptr nocapture noundef %0, ptr n
   store i32 0, ptr %15, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   %16 = icmp eq ptr %1, null
-  br i1 %16, label %129, label %17
+  br i1 %16, label %128, label %17
 
 17:                                               ; preds = %11
   %18 = getelementptr inbounds i8, ptr %0, i64 30176
@@ -3099,7 +3099,7 @@ define dso_local noundef i64 @ZSTD_DCtx_refDDict(ptr nocapture noundef %0, ptr n
   %19 = getelementptr inbounds i8, ptr %0, i64 30208
   %20 = load i32, ptr %19, align 8
   %21 = icmp eq i32 %20, 1
-  br i1 %21, label %22, label %129
+  br i1 %21, label %22, label %128
 
 22:                                               ; preds = %17
   %23 = getelementptr inbounds i8, ptr %0, i64 30200
@@ -3128,7 +3128,7 @@ define dso_local noundef i64 @ZSTD_DCtx_refDDict(ptr nocapture noundef %0, ptr n
 .thread:                                          ; preds = %33, %26
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   store ptr null, ptr %23, align 8
-  br label %129
+  br label %128
 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds i8, ptr %28, i64 8
@@ -3160,7 +3160,7 @@ define dso_local noundef i64 @ZSTD_DCtx_refDDict(ptr nocapture noundef %0, ptr n
   %49 = load ptr, ptr %38, align 8
   %50 = load i64, ptr %43, align 8
   %51 = icmp eq ptr %48, null
-  br i1 %51, label %.thread11, label %52
+  br i1 %51, label %.thread12, label %52
 
 52:                                               ; preds = %46
   %53 = shl i64 %44, 1
@@ -3168,16 +3168,16 @@ define dso_local noundef i64 @ZSTD_DCtx_refDDict(ptr nocapture noundef %0, ptr n
   store i64 %53, ptr %43, align 8
   store i64 0, ptr %40, align 8
   %54 = icmp eq i64 %50, 0
-  br i1 %54, label %.loopexit17, label %.preheader16
+  br i1 %54, label %.loopexit18, label %.preheader17
 
-.preheader16:                                     ; preds = %52, %91
+.preheader17:                                     ; preds = %52, %91
   %55 = phi i64 [ %92, %91 ], [ 0, %52 ]
   %56 = getelementptr ptr, ptr %49, i64 %55
   %57 = load ptr, ptr %56, align 8
   %58 = icmp eq ptr %57, null
   br i1 %58, label %91, label %59
 
-59:                                               ; preds = %.preheader16
+59:                                               ; preds = %.preheader17
   %60 = call i32 @ZSTD_getDictID_fromDDict(ptr noundef nonnull %57) #10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 %60, ptr %4, align 4
@@ -3187,7 +3187,7 @@ define dso_local noundef i64 @ZSTD_DCtx_refDDict(ptr nocapture noundef %0, ptr n
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   %64 = load i64, ptr %40, align 8
   %65 = icmp eq i64 %64, %62
-  br i1 %65, label %.thread11, label %66
+  br i1 %65, label %.thread12, label %66
 
 66:                                               ; preds = %59
   %67 = and i64 %63, %61
@@ -3195,31 +3195,31 @@ define dso_local noundef i64 @ZSTD_DCtx_refDDict(ptr nocapture noundef %0, ptr n
   %69 = getelementptr ptr, ptr %68, i64 %67
   %70 = load ptr, ptr %69, align 8
   %71 = icmp eq ptr %70, null
-  br i1 %71, label %.loopexit15, label %.preheader14
+  br i1 %71, label %.loopexit16, label %.preheader15
 
-.preheader14:                                     ; preds = %66, %79
+.preheader15:                                     ; preds = %66, %79
   %72 = phi ptr [ %84, %79 ], [ %70, %66 ]
   %73 = phi i64 [ %81, %79 ], [ %67, %66 ]
   %74 = call i32 @ZSTD_getDictID_fromDDict(ptr noundef nonnull %72) #10
   %75 = icmp eq i32 %74, %60
   br i1 %75, label %76, label %79
 
-76:                                               ; preds = %.preheader14
+76:                                               ; preds = %.preheader15
   %77 = load ptr, ptr %38, align 8
   %78 = getelementptr ptr, ptr %77, i64 %73
   store ptr %57, ptr %78, align 8
   br label %91
 
-79:                                               ; preds = %.preheader14
+79:                                               ; preds = %.preheader15
   %80 = and i64 %73, %63
   %81 = add i64 %80, 1
   %82 = load ptr, ptr %38, align 8
   %83 = getelementptr ptr, ptr %82, i64 %81
   %84 = load ptr, ptr %83, align 8
   %85 = icmp eq ptr %84, null
-  br i1 %85, label %.loopexit15, label %.preheader14, !llvm.loop !17
+  br i1 %85, label %.loopexit16, label %.preheader15, !llvm.loop !17
 
-.loopexit15:                                      ; preds = %79, %66
+.loopexit16:                                      ; preds = %79, %66
   %86 = phi i64 [ %67, %66 ], [ %81, %79 ]
   %87 = phi ptr [ %68, %66 ], [ %82, %79 ]
   %88 = getelementptr ptr, ptr %87, i64 %86
@@ -3229,22 +3229,22 @@ define dso_local noundef i64 @ZSTD_DCtx_refDDict(ptr nocapture noundef %0, ptr n
   store i64 %90, ptr %40, align 8
   br label %91
 
-91:                                               ; preds = %.loopexit15, %76, %.preheader16
+91:                                               ; preds = %.loopexit16, %76, %.preheader17
   %92 = add nuw i64 %55, 1
   %93 = icmp eq i64 %92, %50
-  br i1 %93, label %.loopexit17, label %.preheader16, !llvm.loop !18
+  br i1 %93, label %.loopexit18, label %.preheader17, !llvm.loop !18
 
-.thread11:                                        ; preds = %59, %46
+.thread12:                                        ; preds = %59, %46
   %.ph = phi i64 [ -64, %46 ], [ -1, %59 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %126
 
-.loopexit17:                                      ; preds = %91, %52
+.loopexit18:                                      ; preds = %91, %52
   call void @ZSTD_customFree(ptr noundef %49, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %5) #10
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %94
 
-94:                                               ; preds = %.loopexit17, %37
+94:                                               ; preds = %.loopexit18, %37
   %95 = call i32 @ZSTD_getDictID_fromDDict(ptr noundef nonnull %1) #10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store i32 %95, ptr %3, align 4
@@ -3275,7 +3275,7 @@ define dso_local noundef i64 @ZSTD_DCtx_refDDict(ptr nocapture noundef %0, ptr n
   %112 = load ptr, ptr %38, align 8
   %113 = getelementptr ptr, ptr %112, i64 %108
   store ptr %1, ptr %113, align 8
-  br label %128
+  br label %.thread14
 
 114:                                              ; preds = %.preheader
   %115 = and i64 %108, %98
@@ -3294,20 +3294,20 @@ define dso_local noundef i64 @ZSTD_DCtx_refDDict(ptr nocapture noundef %0, ptr n
   %124 = load i64, ptr %40, align 8
   %125 = add i64 %124, 1
   store i64 %125, ptr %40, align 8
+  br label %.thread14
+
+.thread14:                                        ; preds = %111, %.loopexit
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %128
 
-126:                                              ; preds = %.thread11, %94
-  %127 = phi i64 [ -1, %94 ], [ %.ph, %.thread11 ]
+126:                                              ; preds = %.thread12, %94
+  %127 = phi i64 [ -1, %94 ], [ %.ph, %.thread12 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  br label %129
+  br label %128
 
-128:                                              ; preds = %111, %.loopexit
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  br label %129
-
-129:                                              ; preds = %128, %126, %.thread, %11, %17, %2
-  %130 = phi i64 [ -60, %2 ], [ 0, %17 ], [ 0, %11 ], [ -64, %.thread ], [ 0, %128 ], [ %127, %126 ]
-  ret i64 %130
+128:                                              ; preds = %11, %17, %.thread14, %126, %.thread, %2
+  %129 = phi i64 [ %127, %126 ], [ -60, %2 ], [ -64, %.thread ], [ 0, %.thread14 ], [ 0, %17 ], [ 0, %11 ]
+  ret i64 %129
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)

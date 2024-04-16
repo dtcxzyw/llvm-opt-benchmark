@@ -2498,8 +2498,8 @@ lor.lhs.false:                                    ; preds = %if.end5
   %tobool10.not = icmp eq i32 %call9, 0
   br i1 %tobool10.not, label %if.end15, label %if.then14
 
-if.then14:                                        ; preds = %entry, %if.end, %if.end5, %lor.lhs.false
-  %err.0.ph = phi i32 [ 1, %lor.lhs.false ], [ 1, %if.end5 ], [ %call2, %if.end ], [ %call1, %entry ]
+if.then14:                                        ; preds = %if.end5, %lor.lhs.false, %entry, %if.end
+  %err.0.ph = phi i32 [ %call2, %if.end ], [ %call1, %entry ], [ 1, %lor.lhs.false ], [ 1, %if.end5 ]
   call void @reftable_log_record_release(ptr noundef %log) #14
   br label %if.end15
 

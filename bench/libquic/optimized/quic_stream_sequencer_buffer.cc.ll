@@ -2394,23 +2394,25 @@ for.body:                                         ; preds = %land.rhs
 if.end31:                                         ; preds = %for.body
   %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %iter.sroa.0.039) #22
   %cmp.i21.not = icmp eq ptr %call.i, %add.ptr.i.i
-  br i1 %cmp.i21.not, label %if.end51, label %land.rhs, !llvm.loop !59
+  br i1 %cmp.i21.not, label %if.then50, label %land.rhs, !llvm.loop !59
 
 for.end:                                          ; preds = %land.rhs, %for.body, %if.end
   %iter.sroa.0.0.lcssa = phi ptr [ %11, %if.end ], [ %iter.sroa.0.039, %for.body ], [ %iter.sroa.0.039, %land.rhs ]
   %region_len.0.lcssa = phi i64 [ 0, %if.end ], [ %region_len.040, %for.body ], [ %region_len.040, %land.rhs ]
   %cmp.i26 = icmp eq ptr %iter.sroa.0.0.lcssa, %add.ptr.i.i
-  br i1 %cmp.i26, label %if.end51, label %lor.rhs
+  br i1 %cmp.i26, label %if.then50, label %lor.rhs
 
 lor.rhs:                                          ; preds = %for.end
   %timestamp45 = getelementptr inbounds i8, ptr %iter.sroa.0.0.lcssa, i64 48
   %agg.tmp42.sroa.0.0.copyload = load i64, ptr %timestamp45, align 8
   %cmp.i28 = icmp eq i64 %agg.tmp42.sroa.0.0.copyload, %12
-  %spec.select = select i1 %cmp.i28, i64 %.sroa.speculated, i64 %region_len.0.lcssa
+  br i1 %cmp.i28, label %if.then50, label %if.end51
+
+if.then50:                                        ; preds = %if.end31, %for.end, %lor.rhs
   br label %if.end51
 
-if.end51:                                         ; preds = %if.end31, %lor.rhs, %for.end
-  %region_len.1 = phi i64 [ %.sroa.speculated, %for.end ], [ %spec.select, %lor.rhs ], [ %.sroa.speculated, %if.end31 ]
+if.end51:                                         ; preds = %if.then50, %lor.rhs
+  %region_len.1 = phi i64 [ %.sroa.speculated, %if.then50 ], [ %region_len.0.lcssa, %lor.rhs ]
   %iov_len52 = getelementptr inbounds i8, ptr %iov, i64 8
   store i64 %region_len.1, ptr %iov_len52, align 8
   br label %return

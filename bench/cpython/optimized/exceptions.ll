@@ -3366,14 +3366,18 @@ do.body49:                                        ; preds = %if.then40, %do.body
   %context = getelementptr inbounds i8, ptr %self, i64 48
   %5 = load ptr, ptr %context, align 8
   %tobool50.not = icmp eq ptr %5, null
-  br i1 %tobool50.not, label %return, label %if.then51
+  br i1 %tobool50.not, label %do.end59, label %if.then51
 
 if.then51:                                        ; preds = %do.body49
   %call54 = tail call i32 %visit(ptr noundef nonnull %5, ptr noundef %arg) #10
+  %tobool55.not = icmp eq i32 %call54, 0
+  br i1 %tobool55.not, label %do.end59, label %return
+
+do.end59:                                         ; preds = %do.body49, %if.then51
   br label %return
 
-return:                                           ; preds = %if.then51, %do.body49, %if.then40, %if.then29, %if.then18, %if.then7, %if.then
-  %retval.0 = phi i32 [ %call, %if.then ], [ %call10, %if.then7 ], [ %call21, %if.then18 ], [ %call32, %if.then29 ], [ %call43, %if.then40 ], [ 0, %do.body49 ], [ %call54, %if.then51 ]
+return:                                           ; preds = %if.then51, %if.then40, %if.then29, %if.then18, %if.then7, %if.then, %do.end59
+  %retval.0 = phi i32 [ 0, %do.end59 ], [ %call, %if.then ], [ %call10, %if.then7 ], [ %call21, %if.then18 ], [ %call32, %if.then29 ], [ %call43, %if.then40 ], [ %call54, %if.then51 ]
   ret i32 %retval.0
 }
 
@@ -5806,14 +5810,18 @@ do.body49.i:                                      ; preds = %if.then40.i, %do.bo
   %context.i = getelementptr inbounds i8, ptr %self, i64 48
   %6 = load ptr, ptr %context.i, align 8
   %tobool50.not.i = icmp eq ptr %6, null
-  br i1 %tobool50.not.i, label %return, label %if.then51.i
+  br i1 %tobool50.not.i, label %do.end59.i, label %if.then51.i
 
 if.then51.i:                                      ; preds = %do.body49.i
   %call54.i = tail call i32 %visit(ptr noundef nonnull %6, ptr noundef %arg) #10
+  %tobool55.not.i = icmp eq i32 %call54.i, 0
+  br i1 %tobool55.not.i, label %do.end59.i, label %return
+
+do.end59.i:                                       ; preds = %if.then51.i, %do.body49.i
   br label %return
 
-return:                                           ; preds = %if.then51.i, %do.body49.i, %if.then40.i, %if.then29.i, %if.then18.i, %if.then7.i, %if.then.i, %if.then
-  %retval.0 = phi i32 [ %call, %if.then ], [ %call.i, %if.then.i ], [ %call10.i, %if.then7.i ], [ %call21.i, %if.then18.i ], [ %call32.i, %if.then29.i ], [ %call43.i, %if.then40.i ], [ 0, %do.body49.i ], [ %call54.i, %if.then51.i ]
+return:                                           ; preds = %do.end59.i, %if.then51.i, %if.then40.i, %if.then29.i, %if.then18.i, %if.then7.i, %if.then.i, %if.then
+  %retval.0 = phi i32 [ %call, %if.then ], [ 0, %do.end59.i ], [ %call.i, %if.then.i ], [ %call10.i, %if.then7.i ], [ %call21.i, %if.then18.i ], [ %call32.i, %if.then29.i ], [ %call43.i, %if.then40.i ], [ %call54.i, %if.then51.i ]
   ret i32 %retval.0
 }
 
@@ -6073,14 +6081,18 @@ do.body49.i:                                      ; preds = %if.then40.i, %do.bo
   %context.i = getelementptr inbounds i8, ptr %self, i64 48
   %6 = load ptr, ptr %context.i, align 8
   %tobool50.not.i = icmp eq ptr %6, null
-  br i1 %tobool50.not.i, label %return, label %if.then51.i
+  br i1 %tobool50.not.i, label %do.end59.i, label %if.then51.i
 
 if.then51.i:                                      ; preds = %do.body49.i
   %call54.i = tail call i32 %visit(ptr noundef nonnull %6, ptr noundef %arg) #10
+  %tobool55.not.i = icmp eq i32 %call54.i, 0
+  br i1 %tobool55.not.i, label %do.end59.i, label %return
+
+do.end59.i:                                       ; preds = %if.then51.i, %do.body49.i
   br label %return
 
-return:                                           ; preds = %if.then51.i, %do.body49.i, %if.then40.i, %if.then29.i, %if.then18.i, %if.then7.i, %if.then.i, %if.then
-  %retval.0 = phi i32 [ %call, %if.then ], [ %call.i, %if.then.i ], [ %call10.i, %if.then7.i ], [ %call21.i, %if.then18.i ], [ %call32.i, %if.then29.i ], [ %call43.i, %if.then40.i ], [ 0, %do.body49.i ], [ %call54.i, %if.then51.i ]
+return:                                           ; preds = %do.end59.i, %if.then51.i, %if.then40.i, %if.then29.i, %if.then18.i, %if.then7.i, %if.then.i, %if.then
+  %retval.0 = phi i32 [ %call, %if.then ], [ 0, %do.end59.i ], [ %call.i, %if.then.i ], [ %call10.i, %if.then7.i ], [ %call21.i, %if.then18.i ], [ %call32.i, %if.then29.i ], [ %call43.i, %if.then40.i ], [ %call54.i, %if.then51.i ]
   ret i32 %retval.0
 }
 
@@ -7186,14 +7198,18 @@ do.body49.i:                                      ; preds = %if.then40.i, %do.bo
   %context.i = getelementptr inbounds i8, ptr %self, i64 48
   %7 = load ptr, ptr %context.i, align 8
   %tobool50.not.i = icmp eq ptr %7, null
-  br i1 %tobool50.not.i, label %return, label %if.then51.i
+  br i1 %tobool50.not.i, label %do.end59.i, label %if.then51.i
 
 if.then51.i:                                      ; preds = %do.body49.i
   %call54.i = tail call i32 %visit(ptr noundef nonnull %7, ptr noundef %arg) #10
+  %tobool55.not.i = icmp eq i32 %call54.i, 0
+  br i1 %tobool55.not.i, label %do.end59.i, label %return
+
+do.end59.i:                                       ; preds = %if.then51.i, %do.body49.i
   br label %return
 
-return:                                           ; preds = %if.then51.i, %do.body49.i, %if.then40.i, %if.then29.i, %if.then18.i, %if.then7.i, %if.then.i, %if.then7, %if.then
-  %retval.0 = phi i32 [ %call, %if.then ], [ %call10, %if.then7 ], [ %call.i, %if.then.i ], [ %call10.i, %if.then7.i ], [ %call21.i, %if.then18.i ], [ %call32.i, %if.then29.i ], [ %call43.i, %if.then40.i ], [ 0, %do.body49.i ], [ %call54.i, %if.then51.i ]
+return:                                           ; preds = %do.end59.i, %if.then51.i, %if.then40.i, %if.then29.i, %if.then18.i, %if.then7.i, %if.then.i, %if.then7, %if.then
+  %retval.0 = phi i32 [ %call, %if.then ], [ %call10, %if.then7 ], [ 0, %do.end59.i ], [ %call.i, %if.then.i ], [ %call10.i, %if.then7.i ], [ %call21.i, %if.then18.i ], [ %call32.i, %if.then29.i ], [ %call43.i, %if.then40.i ], [ %call54.i, %if.then51.i ]
   ret i32 %retval.0
 }
 
@@ -8046,14 +8062,18 @@ do.body49.i:                                      ; preds = %if.then40.i, %do.bo
   %context.i = getelementptr inbounds i8, ptr %self, i64 48
   %9 = load ptr, ptr %context.i, align 8
   %tobool50.not.i = icmp eq ptr %9, null
-  br i1 %tobool50.not.i, label %return, label %if.then51.i
+  br i1 %tobool50.not.i, label %do.end59.i, label %if.then51.i
 
 if.then51.i:                                      ; preds = %do.body49.i
   %call54.i = tail call i32 %visit(ptr noundef nonnull %9, ptr noundef %arg) #10
+  %tobool55.not.i = icmp eq i32 %call54.i, 0
+  br i1 %tobool55.not.i, label %do.end59.i, label %return
+
+do.end59.i:                                       ; preds = %if.then51.i, %do.body49.i
   br label %return
 
-return:                                           ; preds = %if.then51.i, %do.body49.i, %if.then40.i, %if.then29.i, %if.then18.i, %if.then7.i, %if.then.i, %if.then29, %if.then18, %if.then7, %if.then
-  %retval.0 = phi i32 [ %call, %if.then ], [ %call10, %if.then7 ], [ %call21, %if.then18 ], [ %call32, %if.then29 ], [ %call.i, %if.then.i ], [ %call10.i, %if.then7.i ], [ %call21.i, %if.then18.i ], [ %call32.i, %if.then29.i ], [ %call43.i, %if.then40.i ], [ 0, %do.body49.i ], [ %call54.i, %if.then51.i ]
+return:                                           ; preds = %do.end59.i, %if.then51.i, %if.then40.i, %if.then29.i, %if.then18.i, %if.then7.i, %if.then.i, %if.then29, %if.then18, %if.then7, %if.then
+  %retval.0 = phi i32 [ %call, %if.then ], [ %call10, %if.then7 ], [ %call21, %if.then18 ], [ %call32, %if.then29 ], [ 0, %do.end59.i ], [ %call.i, %if.then.i ], [ %call10.i, %if.then7.i ], [ %call21.i, %if.then18.i ], [ %call32.i, %if.then29.i ], [ %call43.i, %if.then40.i ], [ %call54.i, %if.then51.i ]
   ret i32 %retval.0
 }
 
@@ -8779,14 +8799,18 @@ do.body49.i:                                      ; preds = %if.then40.i, %do.bo
   %context.i = getelementptr inbounds i8, ptr %self, i64 48
   %9 = load ptr, ptr %context.i, align 8
   %tobool50.not.i = icmp eq ptr %9, null
-  br i1 %tobool50.not.i, label %return, label %if.then51.i
+  br i1 %tobool50.not.i, label %do.end59.i, label %if.then51.i
 
 if.then51.i:                                      ; preds = %do.body49.i
   %call54.i = tail call i32 %visit(ptr noundef nonnull %9, ptr noundef %arg) #10
+  %tobool55.not.i = icmp eq i32 %call54.i, 0
+  br i1 %tobool55.not.i, label %do.end59.i, label %return
+
+do.end59.i:                                       ; preds = %if.then51.i, %do.body49.i
   br label %return
 
-return:                                           ; preds = %if.then51.i, %do.body49.i, %if.then40.i, %if.then29.i, %if.then18.i, %if.then7.i, %if.then.i, %if.then29, %if.then18, %if.then7, %if.then
-  %retval.0 = phi i32 [ %call, %if.then ], [ %call10, %if.then7 ], [ %call21, %if.then18 ], [ %call32, %if.then29 ], [ %call.i, %if.then.i ], [ %call10.i, %if.then7.i ], [ %call21.i, %if.then18.i ], [ %call32.i, %if.then29.i ], [ %call43.i, %if.then40.i ], [ 0, %do.body49.i ], [ %call54.i, %if.then51.i ]
+return:                                           ; preds = %do.end59.i, %if.then51.i, %if.then40.i, %if.then29.i, %if.then18.i, %if.then7.i, %if.then.i, %if.then29, %if.then18, %if.then7, %if.then
+  %retval.0 = phi i32 [ %call, %if.then ], [ %call10, %if.then7 ], [ %call21, %if.then18 ], [ %call32, %if.then29 ], [ 0, %do.end59.i ], [ %call.i, %if.then.i ], [ %call10.i, %if.then7.i ], [ %call21.i, %if.then18.i ], [ %call32.i, %if.then29.i ], [ %call43.i, %if.then40.i ], [ %call54.i, %if.then51.i ]
   ret i32 %retval.0
 }
 
@@ -8908,15 +8932,15 @@ entry:
   %tp_init.i = getelementptr inbounds i8, ptr %self.val8, i64 296
   %1 = load ptr, ptr %tp_init.i, align 8
   %cmp.not.i = icmp eq ptr %1, @OSError_init
-  br i1 %cmp.not.i, label %return, label %oserror_use_init.exit
+  br i1 %cmp.not.i, label %return, label %land.lhs.true.i
 
-oserror_use_init.exit:                            ; preds = %entry
+land.lhs.true.i:                                  ; preds = %entry
   %tp_new.i = getelementptr inbounds i8, ptr %self.val8, i64 312
   %2 = load ptr, ptr %tp_new.i, align 8
-  %cmp1.i.not = icmp eq ptr %2, @OSError_new
-  br i1 %cmp1.i.not, label %if.end, label %return
+  %cmp1.i = icmp eq ptr %2, @OSError_new
+  br i1 %cmp1.i, label %if.end, label %return
 
-if.end:                                           ; preds = %oserror_use_init.exit
+if.end:                                           ; preds = %land.lhs.true.i
   %cmp = icmp eq ptr %kwds, null
   br i1 %cmp, label %if.end6, label %lor.lhs.false
 
@@ -8944,30 +8968,30 @@ Py_INCREF.exit:                                   ; preds = %if.end6, %if.end.i
   %.val.i = load i64, ptr %5, align 8
   %6 = add i64 %.val.i, -2
   %or.cond.i = icmp ult i64 %6, 4
-  br i1 %or.cond.i, label %oserror_parse_args.exit, label %oserror_parse_args.exit.thread
+  br i1 %or.cond.i, label %if.then.i, label %if.end10
 
-oserror_parse_args.exit.thread:                   ; preds = %Py_INCREF.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %_winerror.i)
-  br label %if.end10
-
-oserror_parse_args.exit:                          ; preds = %Py_INCREF.exit
+if.then.i:                                        ; preds = %Py_INCREF.exit
   %call2.i = call i32 (ptr, ptr, i64, i64, ...) @PyArg_UnpackTuple(ptr noundef nonnull %args, ptr noundef nonnull @.str.97, i64 noundef 2, i64 noundef 5, ptr noundef nonnull %myerrno, ptr noundef nonnull %strerror, ptr noundef nonnull %filename, ptr noundef nonnull %_winerror.i, ptr noundef nonnull %filename2) #10
-  %tobool.not.i.not = icmp eq i32 %call2.i, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %_winerror.i)
-  br i1 %tobool.not.i.not, label %error, label %oserror_parse_args.exit.if.end10_crit_edge
+  %tobool.not.i = icmp eq i32 %call2.i, 0
+  br i1 %tobool.not.i, label %oserror_parse_args.exit, label %if.then.i.if.end10_crit_edge
 
-oserror_parse_args.exit.if.end10_crit_edge:       ; preds = %oserror_parse_args.exit
+if.then.i.if.end10_crit_edge:                     ; preds = %if.then.i
   %.pre = load ptr, ptr %myerrno, align 8
   %.pre15 = load ptr, ptr %strerror, align 8
   %.pre16 = load ptr, ptr %filename, align 8
   %.pre17 = load ptr, ptr %filename2, align 8
   br label %if.end10
 
-if.end10:                                         ; preds = %oserror_parse_args.exit.if.end10_crit_edge, %oserror_parse_args.exit.thread
-  %7 = phi ptr [ %.pre17, %oserror_parse_args.exit.if.end10_crit_edge ], [ null, %oserror_parse_args.exit.thread ]
-  %8 = phi ptr [ %.pre16, %oserror_parse_args.exit.if.end10_crit_edge ], [ null, %oserror_parse_args.exit.thread ]
-  %9 = phi ptr [ %.pre15, %oserror_parse_args.exit.if.end10_crit_edge ], [ null, %oserror_parse_args.exit.thread ]
-  %10 = phi ptr [ %.pre, %oserror_parse_args.exit.if.end10_crit_edge ], [ null, %oserror_parse_args.exit.thread ]
+oserror_parse_args.exit:                          ; preds = %if.then.i
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %_winerror.i)
+  br label %error
+
+if.end10:                                         ; preds = %if.then.i.if.end10_crit_edge, %Py_INCREF.exit
+  %7 = phi ptr [ %.pre17, %if.then.i.if.end10_crit_edge ], [ null, %Py_INCREF.exit ]
+  %8 = phi ptr [ %.pre16, %if.then.i.if.end10_crit_edge ], [ null, %Py_INCREF.exit ]
+  %9 = phi ptr [ %.pre15, %if.then.i.if.end10_crit_edge ], [ null, %Py_INCREF.exit ]
+  %10 = phi ptr [ %.pre, %if.then.i.if.end10_crit_edge ], [ null, %Py_INCREF.exit ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %_winerror.i)
   %call11 = call fastcc i32 @oserror_init(ptr noundef nonnull %self, ptr noundef nonnull %args.addr, ptr noundef %10, ptr noundef %9, ptr noundef %8, ptr noundef %7), !range !5
   %tobool12.not = icmp eq i32 %call11, 0
   br i1 %tobool12.not, label %return, label %if.end10.error_crit_edge
@@ -8993,8 +9017,8 @@ if.then1.i:                                       ; preds = %if.end.i16
   call void @_Py_Dealloc(ptr noundef nonnull %11) #10
   br label %return
 
-return:                                           ; preds = %entry, %if.end.i16, %if.then1.i, %error, %if.end10, %lor.lhs.false, %oserror_use_init.exit
-  %retval.0 = phi i32 [ 0, %oserror_use_init.exit ], [ -1, %lor.lhs.false ], [ 0, %if.end10 ], [ -1, %error ], [ -1, %if.then1.i ], [ -1, %if.end.i16 ], [ 0, %entry ]
+return:                                           ; preds = %land.lhs.true.i, %entry, %if.end.i16, %if.then1.i, %error, %if.end10, %lor.lhs.false
+  %retval.0 = phi i32 [ -1, %lor.lhs.false ], [ 0, %if.end10 ], [ -1, %error ], [ -1, %if.then1.i ], [ -1, %if.end.i16 ], [ 0, %entry ], [ 0, %land.lhs.true.i ]
   ret i32 %retval.0
 }
 
@@ -9025,15 +9049,15 @@ Py_INCREF.exit:                                   ; preds = %entry, %if.end.i
   %tp_init.i = getelementptr inbounds i8, ptr %type, i64 296
   %1 = load ptr, ptr %tp_init.i, align 8
   %cmp.not.i = icmp eq ptr %1, @OSError_init
-  br i1 %cmp.not.i, label %if.then, label %oserror_use_init.exit
+  br i1 %cmp.not.i, label %if.then, label %land.lhs.true.i
 
-oserror_use_init.exit:                            ; preds = %Py_INCREF.exit
+land.lhs.true.i:                                  ; preds = %Py_INCREF.exit
   %tp_new.i = getelementptr inbounds i8, ptr %type, i64 312
   %2 = load ptr, ptr %tp_new.i, align 8
-  %cmp1.i.not = icmp eq ptr %2, @OSError_new
-  br i1 %cmp1.i.not, label %if.end28, label %if.then
+  %cmp1.i = icmp eq ptr %2, @OSError_new
+  br i1 %cmp1.i, label %if.end28, label %if.then
 
-if.then:                                          ; preds = %Py_INCREF.exit, %oserror_use_init.exit
+if.then:                                          ; preds = %Py_INCREF.exit, %land.lhs.true.i
   %cmp = icmp eq ptr %kwds, null
   br i1 %cmp, label %if.end, label %lor.lhs.false
 
@@ -9051,20 +9075,24 @@ if.end:                                           ; preds = %lor.lhs.false, %if.
   %.val.i = load i64, ptr %4, align 8
   %5 = add i64 %.val.i, -2
   %or.cond.i = icmp ult i64 %5, 4
-  br i1 %or.cond.i, label %oserror_parse_args.exit, label %if.end7.thread
+  br i1 %or.cond.i, label %if.then.i, label %if.end7.thread
 
 if.end7.thread:                                   ; preds = %if.end
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %_winerror.i)
   br label %if.end28
 
-oserror_parse_args.exit:                          ; preds = %if.end
+if.then.i:                                        ; preds = %if.end
   %call2.i = call i32 (ptr, ptr, i64, i64, ...) @PyArg_UnpackTuple(ptr noundef nonnull %args, ptr noundef nonnull @.str.97, i64 noundef 2, i64 noundef 5, ptr noundef nonnull %myerrno, ptr noundef nonnull %strerror, ptr noundef nonnull %filename, ptr noundef nonnull %_winerror.i, ptr noundef nonnull %filename2) #10
-  %tobool.not.i.not = icmp eq i32 %call2.i, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %_winerror.i)
-  br i1 %tobool.not.i.not, label %if.then.i37, label %if.end7
+  %tobool.not.i = icmp eq i32 %call2.i, 0
+  br i1 %tobool.not.i, label %oserror_parse_args.exit, label %if.end7
 
-if.end7:                                          ; preds = %oserror_parse_args.exit
+oserror_parse_args.exit:                          ; preds = %if.then.i
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %_winerror.i)
+  br label %if.then.i37
+
+if.end7:                                          ; preds = %if.then.i
   %.pre = load ptr, ptr %myerrno, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %_winerror.i)
   %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %7 = load ptr, ptr %6, align 8
   %interp.i.i = getelementptr inbounds i8, ptr %7, i64 16
@@ -9100,8 +9128,8 @@ if.else:                                          ; preds = %if.then17
   %tobool23.not = icmp eq ptr %call22, null
   br i1 %tobool23.not, label %if.end28, label %if.then.i37
 
-if.end28:                                         ; preds = %if.end7.thread, %if.then17, %if.end7, %land.lhs.true, %land.lhs.true13, %if.else, %oserror_use_init.exit
-  %type.addr.0 = phi ptr [ %type, %oserror_use_init.exit ], [ %type, %if.else ], [ %type, %land.lhs.true13 ], [ %type, %land.lhs.true ], [ %type, %if.end7 ], [ %call19, %if.then17 ], [ %type, %if.end7.thread ]
+if.end28:                                         ; preds = %if.end7.thread, %land.lhs.true.i, %if.then17, %if.end7, %land.lhs.true, %land.lhs.true13, %if.else
+  %type.addr.0 = phi ptr [ %type, %if.else ], [ %type, %land.lhs.true13 ], [ %type, %land.lhs.true ], [ %type, %if.end7 ], [ %call19, %if.then17 ], [ %type, %land.lhs.true.i ], [ %type, %if.end7.thread ]
   %tp_alloc = getelementptr inbounds i8, ptr %type.addr.0, i64 304
   %14 = load ptr, ptr %tp_alloc, align 8
   %call29 = call ptr %14(ptr noundef nonnull %type.addr.0, i64 noundef 0) #10
@@ -9118,15 +9146,15 @@ if.end32:                                         ; preds = %if.end28
   %tp_init.i25 = getelementptr inbounds i8, ptr %type.addr.0, i64 296
   %15 = load ptr, ptr %tp_init.i25, align 8
   %cmp.not.i26 = icmp eq ptr %15, @OSError_init
-  br i1 %cmp.not.i26, label %if.then35, label %oserror_use_init.exit32
+  br i1 %cmp.not.i26, label %if.then35, label %land.lhs.true.i27
 
-oserror_use_init.exit32:                          ; preds = %if.end32
+land.lhs.true.i27:                                ; preds = %if.end32
   %tp_new.i28 = getelementptr inbounds i8, ptr %type.addr.0, i64 312
   %16 = load ptr, ptr %tp_new.i28, align 8
-  %cmp1.i29.not = icmp eq ptr %16, @OSError_new
-  br i1 %cmp1.i29.not, label %if.else40, label %if.then35
+  %cmp1.i29 = icmp eq ptr %16, @OSError_new
+  br i1 %cmp1.i29, label %if.else40, label %if.then35
 
-if.then35:                                        ; preds = %if.end32, %oserror_use_init.exit32
+if.then35:                                        ; preds = %if.end32, %land.lhs.true.i27
   %17 = load ptr, ptr %myerrno, align 8
   %18 = load ptr, ptr %strerror, align 8
   %19 = load ptr, ptr %filename, align 8
@@ -9137,7 +9165,7 @@ if.then35:                                        ; preds = %if.end32, %oserror_
   %cmp.not.i33 = icmp eq ptr %.pre61, null
   br i1 %tobool37.not, label %if.end47, label %error
 
-if.else40:                                        ; preds = %oserror_use_init.exit32
+if.else40:                                        ; preds = %land.lhs.true.i27
   %call41 = call ptr @PyTuple_New(i64 noundef 0) #10
   %args42 = getelementptr inbounds i8, ptr %call29, i64 24
   store ptr %call41, ptr %args42, align 8
@@ -9725,14 +9753,18 @@ do.body49.i:                                      ; preds = %if.then40.i, %do.bo
   %context.i = getelementptr inbounds i8, ptr %self, i64 48
   %6 = load ptr, ptr %context.i, align 8
   %tobool50.not.i = icmp eq ptr %6, null
-  br i1 %tobool50.not.i, label %return, label %if.then51.i
+  br i1 %tobool50.not.i, label %do.end59.i, label %if.then51.i
 
 if.then51.i:                                      ; preds = %do.body49.i
   %call54.i = tail call i32 %visit(ptr noundef nonnull %6, ptr noundef %arg) #10
+  %tobool55.not.i = icmp eq i32 %call54.i, 0
+  br i1 %tobool55.not.i, label %do.end59.i, label %return
+
+do.end59.i:                                       ; preds = %if.then51.i, %do.body49.i
   br label %return
 
-return:                                           ; preds = %if.then51.i, %do.body49.i, %if.then40.i, %if.then29.i, %if.then18.i, %if.then7.i, %if.then.i, %if.then
-  %retval.0 = phi i32 [ %call, %if.then ], [ %call.i, %if.then.i ], [ %call10.i, %if.then7.i ], [ %call21.i, %if.then18.i ], [ %call32.i, %if.then29.i ], [ %call43.i, %if.then40.i ], [ 0, %do.body49.i ], [ %call54.i, %if.then51.i ]
+return:                                           ; preds = %do.end59.i, %if.then51.i, %if.then40.i, %if.then29.i, %if.then18.i, %if.then7.i, %if.then.i, %if.then
+  %retval.0 = phi i32 [ %call, %if.then ], [ 0, %do.end59.i ], [ %call.i, %if.then.i ], [ %call10.i, %if.then7.i ], [ %call21.i, %if.then18.i ], [ %call32.i, %if.then29.i ], [ %call43.i, %if.then40.i ], [ %call54.i, %if.then51.i ]
   ret i32 %retval.0
 }
 
@@ -10041,14 +10073,18 @@ do.body49.i:                                      ; preds = %if.then40.i, %do.bo
   %context.i = getelementptr inbounds i8, ptr %self, i64 48
   %7 = load ptr, ptr %context.i, align 8
   %tobool50.not.i = icmp eq ptr %7, null
-  br i1 %tobool50.not.i, label %return, label %if.then51.i
+  br i1 %tobool50.not.i, label %do.end59.i, label %if.then51.i
 
 if.then51.i:                                      ; preds = %do.body49.i
   %call54.i = tail call i32 %visit(ptr noundef nonnull %7, ptr noundef %arg) #10
+  %tobool55.not.i = icmp eq i32 %call54.i, 0
+  br i1 %tobool55.not.i, label %do.end59.i, label %return
+
+do.end59.i:                                       ; preds = %if.then51.i, %do.body49.i
   br label %return
 
-return:                                           ; preds = %if.then51.i, %do.body49.i, %if.then40.i, %if.then29.i, %if.then18.i, %if.then7.i, %if.then.i, %if.then7, %if.then
-  %retval.0 = phi i32 [ %call, %if.then ], [ %call10, %if.then7 ], [ %call.i, %if.then.i ], [ %call10.i, %if.then7.i ], [ %call21.i, %if.then18.i ], [ %call32.i, %if.then29.i ], [ %call43.i, %if.then40.i ], [ 0, %do.body49.i ], [ %call54.i, %if.then51.i ]
+return:                                           ; preds = %do.end59.i, %if.then51.i, %if.then40.i, %if.then29.i, %if.then18.i, %if.then7.i, %if.then.i, %if.then7, %if.then
+  %retval.0 = phi i32 [ %call, %if.then ], [ %call10, %if.then7 ], [ 0, %do.end59.i ], [ %call.i, %if.then.i ], [ %call10.i, %if.then7.i ], [ %call21.i, %if.then18.i ], [ %call32.i, %if.then29.i ], [ %call43.i, %if.then40.i ], [ %call54.i, %if.then51.i ]
   ret i32 %retval.0
 }
 
@@ -11392,14 +11428,18 @@ do.body49.i:                                      ; preds = %if.then40.i, %do.bo
   %context.i = getelementptr inbounds i8, ptr %self, i64 48
   %8 = load ptr, ptr %context.i, align 8
   %tobool50.not.i = icmp eq ptr %8, null
-  br i1 %tobool50.not.i, label %return, label %if.then51.i
+  br i1 %tobool50.not.i, label %do.end59.i, label %if.then51.i
 
 if.then51.i:                                      ; preds = %do.body49.i
   %call54.i = tail call i32 %visit(ptr noundef nonnull %8, ptr noundef %arg) #10
+  %tobool55.not.i = icmp eq i32 %call54.i, 0
+  br i1 %tobool55.not.i, label %do.end59.i, label %return
+
+do.end59.i:                                       ; preds = %if.then51.i, %do.body49.i
   br label %return
 
-return:                                           ; preds = %if.then51.i, %do.body49.i, %if.then40.i, %if.then29.i, %if.then18.i, %if.then7.i, %if.then.i, %if.then18, %if.then7, %if.then
-  %retval.0 = phi i32 [ %call, %if.then ], [ %call10, %if.then7 ], [ %call21, %if.then18 ], [ %call.i, %if.then.i ], [ %call10.i, %if.then7.i ], [ %call21.i, %if.then18.i ], [ %call32.i, %if.then29.i ], [ %call43.i, %if.then40.i ], [ 0, %do.body49.i ], [ %call54.i, %if.then51.i ]
+return:                                           ; preds = %do.end59.i, %if.then51.i, %if.then40.i, %if.then29.i, %if.then18.i, %if.then7.i, %if.then.i, %if.then18, %if.then7, %if.then
+  %retval.0 = phi i32 [ %call, %if.then ], [ %call10, %if.then7 ], [ %call21, %if.then18 ], [ 0, %do.end59.i ], [ %call.i, %if.then.i ], [ %call10.i, %if.then7.i ], [ %call21.i, %if.then18.i ], [ %call32.i, %if.then29.i ], [ %call43.i, %if.then40.i ], [ %call54.i, %if.then51.i ]
   ret i32 %retval.0
 }
 

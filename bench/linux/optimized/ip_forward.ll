@@ -123,8 +123,8 @@ define dso_local i32 @ip_forward(ptr noundef %0) local_unnamed_addr #0 align 16 
 76:                                               ; preds = %29
   %77 = getelementptr i8, ptr %33, i64 2824
   %78 = load i32, ptr %77, align 4
-  %.not14 = icmp eq i32 %78, 0
-  br i1 %.not14, label %79, label %.thread6
+  %.not12 = icmp eq i32 %78, 0
+  br i1 %.not12, label %79, label %.thread6
 
 79:                                               ; preds = %76
   %80 = getelementptr i8, ptr %33, i64 2970
@@ -158,7 +158,7 @@ define dso_local i32 @ip_forward(ptr noundef %0) local_unnamed_addr #0 align 16 
 
 97:                                               ; preds = %.thread10
   %98 = tail call zeroext i1 @ip_call_ra_chain(ptr noundef %0) #5
-  br i1 %98, label %339, label %99
+  br i1 %98, label %341, label %99
 
 99:                                               ; preds = %97, %.thread10
   %100 = load i8, ptr %2, align 8
@@ -183,7 +183,7 @@ define dso_local i32 @ip_forward(ptr noundef %0) local_unnamed_addr #0 align 16 
   %114 = getelementptr inbounds i8, ptr %113, i64 8
   %115 = load i8, ptr %114, align 4
   %116 = icmp ult i8 %115, 2
-  br i1 %116, label %333, label %117
+  br i1 %116, label %335, label %117
 
 117:                                              ; preds = %105
   %118 = getelementptr i8, ptr %108, i64 2820
@@ -228,7 +228,7 @@ define dso_local i32 @ip_forward(ptr noundef %0) local_unnamed_addr #0 align 16 
   %147 = getelementptr inbounds i8, ptr %141, i64 147
   %148 = load i8, ptr %147, align 1
   %149 = icmp eq i8 %148, 0
-  br i1 %149, label %150, label %331
+  br i1 %149, label %150, label %333
 
 150:                                              ; preds = %146, %137
   %151 = getelementptr inbounds i8, ptr %108, i64 408
@@ -312,211 +312,211 @@ ip_dst_mtu_maybe_forward.exit:                    ; preds = %176, %183, %194, %1
   %206 = getelementptr inbounds i8, ptr %0, i64 112
   %207 = load i32, ptr %206, align 8
   %208 = icmp ugt i32 %207, %205
-  %.pre.i.pre15 = load ptr, ptr %11, align 8
-  br i1 %208, label %209, label %ip_exceeds_mtu.exit.thread
+  %.pre.i.pre13 = load ptr, ptr %11, align 8
+  br i1 %208, label %209, label %239
 
 209:                                              ; preds = %ip_dst_mtu_maybe_forward.exit
   %210 = load i16, ptr %110, align 4
   %211 = zext i16 %210 to i64
-  %212 = getelementptr i8, ptr %.pre.i.pre15, i64 %211
+  %212 = getelementptr i8, ptr %.pre.i.pre13, i64 %211
   %213 = getelementptr inbounds i8, ptr %212, i64 6
   %214 = load i16, ptr %213, align 2
   %215 = and i16 %214, 64
   %216 = icmp eq i16 %215, 0
-  br i1 %216, label %ip_exceeds_mtu.exit.thread, label %217, !prof !6
+  br i1 %216, label %239, label %217, !prof !6
 
 217:                                              ; preds = %209
   %218 = getelementptr inbounds i8, ptr %0, i64 62
   %219 = load i16, ptr %218, align 2
   %220 = zext i16 %219 to i32
   %221 = icmp ult i32 %204, %220
-  br i1 %221, label %ip_exceeds_mtu.exit.thread13, label %222, !prof !6
+  br i1 %221, label %ip_exceeds_mtu.exit, label %222, !prof !6
 
 222:                                              ; preds = %217
   %223 = load i8, ptr %2, align 8
   %224 = and i8 %223, 8
   %225 = icmp eq i8 %224, 0
-  br i1 %225, label %226, label %ip_exceeds_mtu.exit.thread
+  br i1 %225, label %226, label %239
 
 226:                                              ; preds = %222
   %227 = load i32, ptr %13, align 4
   %228 = zext i32 %227 to i64
-  %229 = getelementptr i8, ptr %.pre.i.pre15, i64 %228
+  %229 = getelementptr i8, ptr %.pre.i.pre13, i64 %228
   %230 = getelementptr inbounds i8, ptr %229, i64 4
   %231 = load i16, ptr %230, align 4
   %232 = icmp eq i16 %231, 0
-  br i1 %232, label %ip_exceeds_mtu.exit.thread13, label %ip_exceeds_mtu.exit
+  br i1 %232, label %ip_exceeds_mtu.exit, label %233
 
-ip_exceeds_mtu.exit:                              ; preds = %226
-  %233 = tail call zeroext i1 @skb_gso_validate_network_len(ptr noundef %0, i32 noundef %205) #5
-  br i1 %233, label %ip_exceeds_mtu.exit.ip_exceeds_mtu.exit.thread_crit_edge, label %ip_exceeds_mtu.exit.thread13
+233:                                              ; preds = %226
+  %234 = tail call zeroext i1 @skb_gso_validate_network_len(ptr noundef %0, i32 noundef %205) #5
+  br i1 %234, label %._crit_edge, label %ip_exceeds_mtu.exit
 
-ip_exceeds_mtu.exit.ip_exceeds_mtu.exit.thread_crit_edge: ; preds = %ip_exceeds_mtu.exit
+._crit_edge:                                      ; preds = %233
   %.pre = load ptr, ptr %141, align 8
   %.pre.i.pre = load ptr, ptr %11, align 8
-  br label %ip_exceeds_mtu.exit.thread
+  br label %239
 
-ip_exceeds_mtu.exit.thread13:                     ; preds = %226, %217, %ip_exceeds_mtu.exit
-  %234 = load ptr, ptr %151, align 8
-  %235 = getelementptr i8, ptr %234, i64 168
-  tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %235, ptr elementtype(i64) %235) #5, !srcloc !8
-  %236 = tail call i32 @llvm.bswap.i32(i32 %205)
-  %237 = getelementptr inbounds i8, ptr %0, i64 44
-  tail call void @__icmp_send(ptr noundef %0, i32 noundef 3, i32 noundef 4, i32 noundef %236, ptr noundef %237) #5
+ip_exceeds_mtu.exit:                              ; preds = %226, %233, %217
+  %235 = load ptr, ptr %151, align 8
+  %236 = getelementptr i8, ptr %235, i64 168
+  tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %236, ptr elementtype(i64) %236) #5, !srcloc !8
+  %237 = tail call i32 @llvm.bswap.i32(i32 %205)
+  %238 = getelementptr inbounds i8, ptr %0, i64 44
+  tail call void @__icmp_send(ptr noundef %0, i32 noundef 3, i32 noundef 4, i32 noundef %237, ptr noundef %238) #5
   br label %.thread11
 
-ip_exceeds_mtu.exit.thread:                       ; preds = %ip_exceeds_mtu.exit.ip_exceeds_mtu.exit.thread_crit_edge, %222, %209, %ip_dst_mtu_maybe_forward.exit
-  %.pre.i = phi ptr [ %.pre.i.pre, %ip_exceeds_mtu.exit.ip_exceeds_mtu.exit.thread_crit_edge ], [ %.pre.i.pre15, %222 ], [ %.pre.i.pre15, %209 ], [ %.pre.i.pre15, %ip_dst_mtu_maybe_forward.exit ]
-  %238 = phi ptr [ %.pre, %ip_exceeds_mtu.exit.ip_exceeds_mtu.exit.thread_crit_edge ], [ %157, %222 ], [ %157, %209 ], [ %157, %ip_dst_mtu_maybe_forward.exit ]
-  %239 = getelementptr inbounds i8, ptr %238, i64 172
-  %240 = load i16, ptr %239, align 4
-  %241 = zext i16 %240 to i32
-  %242 = getelementptr inbounds i8, ptr %238, i64 60
-  %243 = load volatile i16, ptr %242, align 4
-  %244 = zext i16 %243 to i32
-  %245 = add nuw nsw i32 %244, %241
-  %246 = and i32 %245, 131056
-  %247 = getelementptr inbounds i8, ptr %141, i64 60
-  %248 = load i16, ptr %247, align 4
-  %249 = zext i16 %248 to i32
-  %250 = add nuw nsw i32 %249, 16
-  %251 = add nuw nsw i32 %250, %246
-  %252 = getelementptr inbounds i8, ptr %0, i64 126
-  %253 = load i8, ptr %252, align 2
-  %254 = and i8 %253, 1
-  %255 = icmp eq i8 %254, 0
-  br i1 %255, label %._crit_edge.i3, label %256
+239:                                              ; preds = %._crit_edge, %ip_dst_mtu_maybe_forward.exit, %209, %222
+  %.pre.i = phi ptr [ %.pre.i.pre, %._crit_edge ], [ %.pre.i.pre13, %ip_dst_mtu_maybe_forward.exit ], [ %.pre.i.pre13, %209 ], [ %.pre.i.pre13, %222 ]
+  %240 = phi ptr [ %.pre, %._crit_edge ], [ %157, %ip_dst_mtu_maybe_forward.exit ], [ %157, %209 ], [ %157, %222 ]
+  %241 = getelementptr inbounds i8, ptr %240, i64 172
+  %242 = load i16, ptr %241, align 4
+  %243 = zext i16 %242 to i32
+  %244 = getelementptr inbounds i8, ptr %240, i64 60
+  %245 = load volatile i16, ptr %244, align 4
+  %246 = zext i16 %245 to i32
+  %247 = add nuw nsw i32 %246, %243
+  %248 = and i32 %247, 131056
+  %249 = getelementptr inbounds i8, ptr %141, i64 60
+  %250 = load i16, ptr %249, align 4
+  %251 = zext i16 %250 to i32
+  %252 = add nuw nsw i32 %251, 16
+  %253 = add nuw nsw i32 %252, %248
+  %254 = getelementptr inbounds i8, ptr %0, i64 126
+  %255 = load i8, ptr %254, align 2
+  %256 = and i8 %255, 1
+  %257 = icmp eq i8 %256, 0
+  br i1 %257, label %._crit_edge.i3, label %258
 
-256:                                              ; preds = %ip_exceeds_mtu.exit.thread
-  %257 = load i32, ptr %13, align 4
-  %258 = zext i32 %257 to i64
-  %259 = getelementptr i8, ptr %.pre.i, i64 %258
-  %260 = getelementptr inbounds i8, ptr %259, i64 32
-  %261 = load volatile i32, ptr %260, align 4
-  %262 = and i32 %261, 65535
-  %263 = icmp ne i32 %262, 1
-  %264 = zext i1 %263 to i32
+258:                                              ; preds = %239
+  %259 = load i32, ptr %13, align 4
+  %260 = zext i32 %259 to i64
+  %261 = getelementptr i8, ptr %.pre.i, i64 %260
+  %262 = getelementptr inbounds i8, ptr %261, i64 32
+  %263 = load volatile i32, ptr %262, align 4
+  %264 = and i32 %263, 65535
+  %265 = icmp ne i32 %264, 1
+  %266 = zext i1 %265 to i32
   br label %._crit_edge.i3
 
-._crit_edge.i3:                                   ; preds = %256, %ip_exceeds_mtu.exit.thread
-  %265 = phi i32 [ %264, %256 ], [ 0, %ip_exceeds_mtu.exit.thread ]
-  %266 = getelementptr inbounds i8, ptr %0, i64 200
-  %267 = load ptr, ptr %266, align 8
-  %268 = ptrtoint ptr %267 to i64
-  %269 = ptrtoint ptr %.pre.i to i64
-  %270 = sub i64 %268, %269
-  %271 = trunc i64 %270 to i32
-  %272 = tail call i32 @llvm.usub.sat.i32(i32 %251, i32 %271)
-  %273 = or i32 %272, %265
-  %274 = icmp eq i32 %273, 0
-  br i1 %274, label %skb_cow.exit.thread, label %skb_cow.exit
+._crit_edge.i3:                                   ; preds = %258, %239
+  %267 = phi i32 [ %266, %258 ], [ 0, %239 ]
+  %268 = getelementptr inbounds i8, ptr %0, i64 200
+  %269 = load ptr, ptr %268, align 8
+  %270 = ptrtoint ptr %269 to i64
+  %271 = ptrtoint ptr %.pre.i to i64
+  %272 = sub i64 %270, %271
+  %273 = trunc i64 %272 to i32
+  %274 = tail call i32 @llvm.usub.sat.i32(i32 %253, i32 %273)
+  %275 = or i32 %274, %267
+  %276 = icmp eq i32 %275, 0
+  br i1 %276, label %skb_cow.exit.thread, label %skb_cow.exit
 
 skb_cow.exit:                                     ; preds = %._crit_edge.i3
-  %275 = add nuw nsw i32 %272, 63
-  %276 = and i32 %275, 524224
-  %277 = tail call i32 @pskb_expand_head(ptr noundef %0, i32 noundef %276, i32 noundef 0, i32 noundef 2080) #5
-  %278 = icmp eq i32 %277, 0
-  br i1 %278, label %skb_cow.exit.skb_cow.exit.thread_crit_edge, label %.thread11
+  %277 = add nuw nsw i32 %274, 63
+  %278 = and i32 %277, 524224
+  %279 = tail call i32 @pskb_expand_head(ptr noundef %0, i32 noundef %278, i32 noundef 0, i32 noundef 2080) #5
+  %280 = icmp eq i32 %279, 0
+  br i1 %280, label %skb_cow.exit.skb_cow.exit.thread_crit_edge, label %.thread11
 
 skb_cow.exit.skb_cow.exit.thread_crit_edge:       ; preds = %skb_cow.exit
-  %.pre17 = load ptr, ptr %11, align 8
+  %.pre15 = load ptr, ptr %11, align 8
   br label %skb_cow.exit.thread
 
 skb_cow.exit.thread:                              ; preds = %skb_cow.exit.skb_cow.exit.thread_crit_edge, %._crit_edge.i3
-  %279 = phi ptr [ %.pre17, %skb_cow.exit.skb_cow.exit.thread_crit_edge ], [ %.pre.i, %._crit_edge.i3 ]
-  %280 = load i16, ptr %110, align 4
-  %281 = zext i16 %280 to i64
-  %282 = getelementptr i8, ptr %279, i64 %281
-  %283 = getelementptr inbounds i8, ptr %282, i64 10
-  %284 = load i16, ptr %283, align 2
-  %285 = add i16 %284, 1
-  %286 = icmp ugt i16 %284, -3
-  %287 = zext i1 %286 to i16
-  %288 = add i16 %285, %287
-  store i16 %288, ptr %283, align 2
-  %289 = getelementptr inbounds i8, ptr %282, i64 8
-  %290 = load i8, ptr %289, align 4
-  %291 = add i8 %290, -1
-  store i8 %291, ptr %289, align 4
-  %292 = load i16, ptr %154, align 4
-  %293 = and i16 %292, 32
-  %294 = icmp eq i16 %293, 0
-  br i1 %294, label %313, label %295
+  %281 = phi ptr [ %.pre15, %skb_cow.exit.skb_cow.exit.thread_crit_edge ], [ %.pre.i, %._crit_edge.i3 ]
+  %282 = load i16, ptr %110, align 4
+  %283 = zext i16 %282 to i64
+  %284 = getelementptr i8, ptr %281, i64 %283
+  %285 = getelementptr inbounds i8, ptr %284, i64 10
+  %286 = load i16, ptr %285, align 2
+  %287 = add i16 %286, 1
+  %288 = icmp ugt i16 %286, -3
+  %289 = zext i1 %288 to i16
+  %290 = add i16 %287, %289
+  store i16 %290, ptr %285, align 2
+  %291 = getelementptr inbounds i8, ptr %284, i64 8
+  %292 = load i8, ptr %291, align 4
+  %293 = add i8 %292, -1
+  store i8 %293, ptr %291, align 4
+  %294 = load i16, ptr %154, align 4
+  %295 = and i16 %294, 32
+  %296 = icmp eq i16 %295, 0
+  br i1 %296, label %315, label %297
 
-295:                                              ; preds = %skb_cow.exit.thread
-  %296 = getelementptr inbounds i8, ptr %0, i64 53
-  %297 = load i8, ptr %296, align 1
-  %298 = icmp eq i8 %297, 0
-  br i1 %298, label %299, label %313
+297:                                              ; preds = %skb_cow.exit.thread
+  %298 = getelementptr inbounds i8, ptr %0, i64 53
+  %299 = load i8, ptr %298, align 1
+  %300 = icmp eq i8 %299, 0
+  br i1 %300, label %301, label %315
 
-299:                                              ; preds = %295
-  %300 = load i8, ptr %34, align 1
-  %301 = and i8 %300, 1
-  %302 = icmp eq i8 %301, 0
-  br i1 %302, label %312, label %303
+301:                                              ; preds = %297
+  %302 = load i8, ptr %34, align 1
+  %303 = and i8 %302, 1
+  %304 = icmp eq i8 %303, 0
+  br i1 %304, label %314, label %305
 
-303:                                              ; preds = %299
-  %304 = getelementptr inbounds i8, ptr %0, i64 216
-  %305 = load ptr, ptr %304, align 8
-  %306 = getelementptr inbounds i8, ptr %305, i64 4
-  %307 = load i8, ptr %306, align 1
-  %308 = zext i8 %307 to i64
-  %309 = shl nuw nsw i64 %308, 3
-  %310 = getelementptr i8, ptr %305, i64 %309
-  %311 = icmp eq ptr %310, null
-  br i1 %311, label %312, label %313
+305:                                              ; preds = %301
+  %306 = getelementptr inbounds i8, ptr %0, i64 216
+  %307 = load ptr, ptr %306, align 8
+  %308 = getelementptr inbounds i8, ptr %307, i64 4
+  %309 = load i8, ptr %308, align 1
+  %310 = zext i8 %309 to i64
+  %311 = shl nuw nsw i64 %310, 3
+  %312 = getelementptr i8, ptr %307, i64 %311
+  %313 = icmp eq ptr %312, null
+  br i1 %313, label %314, label %315
 
-312:                                              ; preds = %303, %299
+314:                                              ; preds = %305, %301
   tail call void @ip_rt_send_redirect(ptr noundef %0) #5
-  br label %313
+  br label %315
 
-313:                                              ; preds = %312, %303, %295, %skb_cow.exit.thread
-  %314 = getelementptr inbounds i8, ptr %108, i64 1112
-  %315 = load volatile i8, ptr %314, align 8
-  %316 = icmp eq i8 %315, 0
-  br i1 %316, label %327, label %317
+315:                                              ; preds = %314, %305, %297, %skb_cow.exit.thread
+  %316 = getelementptr inbounds i8, ptr %108, i64 1112
+  %317 = load volatile i8, ptr %316, align 8
+  %318 = icmp eq i8 %317, 0
+  br i1 %318, label %329, label %319
 
-317:                                              ; preds = %313
-  %318 = getelementptr inbounds i8, ptr %282, i64 1
-  %319 = load i8, ptr %318, align 1
-  %320 = lshr i8 %319, 1
-  %321 = and i8 %320, 15
-  %322 = zext nneg i8 %321 to i64
-  %323 = getelementptr [16 x i8], ptr @ip_tos2prio, i64 0, i64 %322
-  %324 = load i8, ptr %323, align 1
-  %325 = zext i8 %324 to i32
-  %326 = getelementptr inbounds i8, ptr %0, i64 140
-  store i32 %325, ptr %326, align 4
-  br label %327
+319:                                              ; preds = %315
+  %320 = getelementptr inbounds i8, ptr %284, i64 1
+  %321 = load i8, ptr %320, align 1
+  %322 = lshr i8 %321, 1
+  %323 = and i8 %322, 15
+  %324 = zext nneg i8 %323 to i64
+  %325 = getelementptr [16 x i8], ptr @ip_tos2prio, i64 0, i64 %324
+  %326 = load i8, ptr %325, align 1
+  %327 = zext i8 %326 to i32
+  %328 = getelementptr inbounds i8, ptr %0, i64 140
+  store i32 %327, ptr %328, align 4
+  br label %329
 
-327:                                              ; preds = %317, %313
-  %328 = load ptr, ptr %30, align 8
-  %329 = load ptr, ptr %141, align 8
-  %330 = tail call fastcc i32 @NF_HOOK(ptr noundef %108, ptr noundef %0, ptr noundef %328, ptr noundef %329)
-  br label %339
+329:                                              ; preds = %319, %315
+  %330 = load ptr, ptr %30, align 8
+  %331 = load ptr, ptr %141, align 8
+  %332 = tail call fastcc i32 @NF_HOOK(ptr noundef %108, ptr noundef %0, ptr noundef %330, ptr noundef %331)
+  br label %341
 
-331:                                              ; preds = %146
-  %332 = getelementptr inbounds i8, ptr %0, i64 44
-  tail call void @__icmp_send(ptr noundef %0, i32 noundef 3, i32 noundef 5, i32 noundef 0, ptr noundef %332) #5
+333:                                              ; preds = %146
+  %334 = getelementptr inbounds i8, ptr %0, i64 44
+  tail call void @__icmp_send(ptr noundef %0, i32 noundef 3, i32 noundef 5, i32 noundef 0, ptr noundef %334) #5
   br label %.thread11
 
-333:                                              ; preds = %105
-  %334 = getelementptr inbounds i8, ptr %108, i64 408
-  %335 = load ptr, ptr %334, align 8
-  %336 = getelementptr i8, ptr %335, i64 56
-  tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %336, ptr elementtype(i64) %336) #5, !srcloc !9
-  %337 = getelementptr inbounds i8, ptr %0, i64 44
-  tail call void @__icmp_send(ptr noundef %0, i32 noundef 11, i32 noundef 0, i32 noundef 0, ptr noundef %337) #5
+335:                                              ; preds = %105
+  %336 = getelementptr inbounds i8, ptr %108, i64 408
+  %337 = load ptr, ptr %336, align 8
+  %338 = getelementptr i8, ptr %337, i64 56
+  tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %338, ptr elementtype(i64) %338) #5, !srcloc !9
+  %339 = getelementptr inbounds i8, ptr %0, i64 44
+  tail call void @__icmp_send(ptr noundef %0, i32 noundef 11, i32 noundef 0, i32 noundef 0, ptr noundef %339) #5
   br label %.thread11
 
-.thread11:                                        ; preds = %67, %333, %331, %skb_cow.exit, %ip_exceeds_mtu.exit.thread13, %134, %91, %28, %6, %1
-  %338 = phi i32 [ 2, %1 ], [ 2, %6 ], [ 11, %333 ], [ 2, %331 ], [ 71, %ip_exceeds_mtu.exit.thread13 ], [ 2, %skb_cow.exit ], [ 14, %91 ], [ 14, %134 ], [ 2, %28 ], [ 14, %67 ]
-  tail call void @kfree_skb_reason(ptr noundef %0, i32 noundef %338) #5
-  br label %339
+.thread11:                                        ; preds = %67, %335, %333, %skb_cow.exit, %ip_exceeds_mtu.exit, %134, %91, %28, %6, %1
+  %340 = phi i32 [ 2, %1 ], [ 2, %6 ], [ 11, %335 ], [ 2, %333 ], [ 71, %ip_exceeds_mtu.exit ], [ 2, %skb_cow.exit ], [ 14, %91 ], [ 14, %134 ], [ 2, %28 ], [ 14, %67 ]
+  tail call void @kfree_skb_reason(ptr noundef %0, i32 noundef %340) #5
+  br label %341
 
-339:                                              ; preds = %.thread11, %327, %97
-  %340 = phi i32 [ 1, %.thread11 ], [ %330, %327 ], [ 0, %97 ]
-  ret i32 %340
+341:                                              ; preds = %.thread11, %329, %97
+  %342 = phi i32 [ 1, %.thread11 ], [ %332, %329 ], [ 0, %97 ]
+  ret i32 %342
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

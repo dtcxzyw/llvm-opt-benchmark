@@ -5124,12 +5124,12 @@ define hidden noundef i32 @phar_zip_flush(ptr noundef %0, ptr noundef %1, i64 no
 
 26:                                               ; preds = %5
   %.not527 = icmp eq ptr %4, null
-  br i1 %.not527, label %571, label %27
+  br i1 %.not527, label %572, label %27
 
 27:                                               ; preds = %26
   %28 = load ptr, ptr %0, align 8
   %29 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %4, i64 noundef 0, ptr noundef nonnull @.str.51, ptr noundef %28) #15
-  br label %571
+  br label %572
 
 30:                                               ; preds = %5
   %31 = and i16 %24, 128
@@ -5154,7 +5154,7 @@ define hidden noundef i32 @phar_zip_flush(ptr noundef %0, ptr noundef %1, i64 no
 
 40:                                               ; preds = %37
   %41 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef %4, i64 noundef 0, ptr noundef nonnull @.str.52) #15
-  br label %571
+  br label %572
 
 42:                                               ; preds = %37
   %43 = load ptr, ptr %14, align 8
@@ -5169,13 +5169,13 @@ define hidden noundef i32 @phar_zip_flush(ptr noundef %0, ptr noundef %1, i64 no
 
 50:                                               ; preds = %42
   %.not475 = icmp eq ptr %4, null
-  br i1 %.not475, label %571, label %51
+  br i1 %.not475, label %572, label %51
 
 51:                                               ; preds = %50
   %52 = load ptr, ptr %14, align 8
   %53 = load ptr, ptr %52, align 8
   %54 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %4, i64 noundef 0, ptr noundef nonnull @.str.53, ptr noundef %53) #15
-  br label %571
+  br label %572
 
 55:                                               ; preds = %42
   %56 = load ptr, ptr %14, align 8
@@ -5265,7 +5265,7 @@ define hidden noundef i32 @phar_zip_flush(ptr noundef %0, ptr noundef %1, i64 no
   %89 = zext i32 %81 to i64
   %90 = call i32 @phar_get_archive(ptr noundef nonnull %14, ptr noundef %83, i64 noundef %86, ptr noundef %88, i64 noundef %89, ptr noundef %4) #15
   %91 = icmp eq i32 %90, -1
-  br i1 %91, label %571, label %92
+  br i1 %91, label %572, label %92
 
 92:                                               ; preds = %82, %78
   %93 = icmp eq ptr %1, null
@@ -5286,13 +5286,13 @@ define hidden noundef i32 @phar_zip_flush(ptr noundef %0, ptr noundef %1, i64 no
 
 101:                                              ; preds = %97
   %.not478 = icmp eq ptr %4, null
-  br i1 %.not478, label %571, label %102
+  br i1 %.not478, label %572, label %102
 
 102:                                              ; preds = %101
   %103 = load ptr, ptr %14, align 8
   %104 = load ptr, ptr %103, align 8
   %105 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %4, i64 noundef 0, ptr noundef nonnull @.str.55, ptr noundef %104) #15
-  br label %571
+  br label %572
 
 106:                                              ; preds = %97
   %107 = icmp eq i64 %2, -1
@@ -5334,13 +5334,13 @@ define hidden noundef i32 @phar_zip_flush(ptr noundef %0, ptr noundef %1, i64 no
 
 .thread:                                          ; preds = %106, %124
   %.not481 = icmp eq ptr %4, null
-  br i1 %.not481, label %571, label %127
+  br i1 %.not481, label %572, label %127
 
 127:                                              ; preds = %.thread
   %128 = load ptr, ptr %14, align 8
   %129 = load ptr, ptr %128, align 8
   %130 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %4, i64 noundef 0, ptr noundef nonnull @.str.56, ptr noundef %129) #15
-  br label %571
+  br label %572
 
 131:                                              ; preds = %95, %124
   %.2 = phi i64 [ %112, %124 ], [ %2, %95 ]
@@ -5360,11 +5360,11 @@ define hidden noundef i32 @phar_zip_flush(ptr noundef %0, ptr noundef %1, i64 no
   br label %139
 
 139:                                              ; preds = %135, %134
-  br i1 %96, label %571, label %140
+  br i1 %96, label %572, label %140
 
 140:                                              ; preds = %139
   call void @_efree(ptr noundef nonnull %.1) #15
-  br label %571
+  br label %572
 
 141:                                              ; preds = %131
   %142 = call ptr @_php_stream_fopen_tmpfile(i32 noundef 0) #15
@@ -5373,7 +5373,7 @@ define hidden noundef i32 @phar_zip_flush(ptr noundef %0, ptr noundef %1, i64 no
 
 144:                                              ; preds = %141
   %145 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef %4, i64 noundef 0, ptr noundef nonnull @.str.52) #15
-  br label %571
+  br label %572
 
 146:                                              ; preds = %141
   %147 = ptrtoint ptr %132 to i64
@@ -5410,7 +5410,7 @@ define hidden noundef i32 @phar_zip_flush(ptr noundef %0, ptr noundef %1, i64 no
 
 163:                                              ; preds = %162, %161
   %164 = call i32 @_php_stream_free(ptr noundef nonnull %142, i32 noundef 3) #15
-  br label %571
+  br label %572
 
 165:                                              ; preds = %154
   %166 = call noalias ptr @_estrndup(ptr noundef nonnull @.str.45, i64 noundef 14) #15
@@ -5485,7 +5485,7 @@ define hidden noundef i32 @phar_zip_flush(ptr noundef %0, ptr noundef %1, i64 no
 
 186:                                              ; preds = %183
   %187 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef %4, i64 noundef 0, ptr noundef nonnull @.str.52) #15
-  br label %571
+  br label %572
 
 188:                                              ; preds = %183
   %189 = call i64 @_php_stream_write(ptr noundef nonnull %184, ptr noundef nonnull @phar_zip_flush.newstub, i64 noundef 60) #15
@@ -5495,7 +5495,7 @@ define hidden noundef i32 @phar_zip_flush(ptr noundef %0, ptr noundef %1, i64 no
 190:                                              ; preds = %188
   %191 = call i32 @_php_stream_free(ptr noundef nonnull %184, i32 noundef 3) #15
   %.not496 = icmp eq ptr %4, null
-  br i1 %.not496, label %571, label %192
+  br i1 %.not496, label %572, label %192
 
 192:                                              ; preds = %190
   %193 = select i1 %93, ptr @.str.62, ptr @.str.61
@@ -5503,7 +5503,7 @@ define hidden noundef i32 @phar_zip_flush(ptr noundef %0, ptr noundef %1, i64 no
   %195 = load ptr, ptr %14, align 8
   %196 = load ptr, ptr %195, align 8
   %197 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %4, i64 noundef 0, ptr noundef nonnull @.str.60, ptr noundef nonnull %193, ptr noundef nonnull %194, ptr noundef %196) #15
-  br label %571
+  br label %572
 
 198:                                              ; preds = %188
   %199 = call noalias ptr @_estrndup(ptr noundef nonnull @.str.45, i64 noundef 14) #15
@@ -5585,13 +5585,13 @@ define hidden noundef i32 @phar_zip_flush(ptr noundef %0, ptr noundef %1, i64 no
   %221 = call i32 @_php_stream_free(ptr noundef nonnull %184, i32 noundef 3) #15
   call void @_efree(ptr noundef %199) #15
   %.not494 = icmp eq ptr %4, null
-  br i1 %.not494, label %571, label %222
+  br i1 %.not494, label %572, label %222
 
 222:                                              ; preds = %.thread531
   %223 = load ptr, ptr %14, align 8
   %224 = load ptr, ptr %223, align 8
   %225 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %4, i64 noundef 0, ptr noundef nonnull @.str.65, ptr noundef %224) #15
-  br label %571
+  br label %572
 
 226:                                              ; preds = %202
   %227 = call i32 @_php_stream_free(ptr noundef nonnull %184, i32 noundef 3) #15
@@ -5702,13 +5702,13 @@ define hidden noundef i32 @phar_zip_flush(ptr noundef %0, ptr noundef %1, i64 no
 
 263:                                              ; preds = %261, %260
   %.not503 = icmp eq ptr %4, null
-  br i1 %.not503, label %571, label %264
+  br i1 %.not503, label %572, label %264
 
 264:                                              ; preds = %263
   %265 = load ptr, ptr %14, align 8
   %266 = load ptr, ptr %265, align 8
   %267 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %4, i64 noundef 4096, ptr noundef nonnull @.str.67, ptr noundef %266) #15
-  br label %571
+  br label %572
 
 268:                                              ; preds = %257
   %269 = call ptr @_php_stream_fopen_tmpfile(i32 noundef 0) #15
@@ -5736,16 +5736,16 @@ define hidden noundef i32 @phar_zip_flush(ptr noundef %0, ptr noundef %1, i64 no
   br i1 %.not504, label %281, label %283
 
 281:                                              ; preds = %271
-  br i1 %.not505, label %282, label %.thread544
+  br i1 %.not505, label %282, label %.thread541
 
 282:                                              ; preds = %281
   store i32 3, ptr %279, align 4
-  br label %.thread544
+  br label %.thread541
 
 283:                                              ; preds = %271
-  br i1 %.not505, label %287, label %.thread544
+  br i1 %.not505, label %287, label %.thread541
 
-.thread544:                                       ; preds = %281, %282, %283
+.thread541:                                       ; preds = %281, %282, %283
   %284 = getelementptr inbounds i8, ptr %275, i64 100
   %285 = load i32, ptr %284, align 4
   %286 = add i32 %285, 1
@@ -5756,19 +5756,19 @@ define hidden noundef i32 @phar_zip_flush(ptr noundef %0, ptr noundef %1, i64 no
   %289 = load i32, ptr %288, align 4
   br label %290
 
-290:                                              ; preds = %287, %.thread544
-  %.sink539.in.in = phi i32 [ %289, %287 ], [ %286, %.thread544 ]
-  %.sink538 = trunc i32 %.sink539.in.in to i8
-  %.sink539.in = lshr i32 %.sink539.in.in, 8
-  %.sink539 = trunc i32 %.sink539.in to i8
+290:                                              ; preds = %287, %.thread541
+  %.sink536.in.in = phi i32 [ %289, %287 ], [ %286, %.thread541 ]
+  %.sink535 = trunc i32 %.sink536.in.in to i8
+  %.sink536.in = lshr i32 %.sink536.in.in, 8
+  %.sink536 = trunc i32 %.sink536.in to i8
   %291 = getelementptr inbounds i8, ptr %18, i64 9
-  store i8 %.sink539, ptr %291, align 1
+  store i8 %.sink536, ptr %291, align 1
   %292 = getelementptr inbounds i8, ptr %18, i64 8
-  store i8 %.sink538, ptr %292, align 4
+  store i8 %.sink535, ptr %292, align 4
   %293 = getelementptr inbounds i8, ptr %18, i64 11
-  store i8 %.sink539, ptr %293, align 1
+  store i8 %.sink536, ptr %293, align 1
   %294 = getelementptr inbounds i8, ptr %18, i64 10
-  store i8 %.sink538, ptr %294, align 2
+  store i8 %.sink535, ptr %294, align 2
   %295 = getelementptr inbounds i8, ptr %275, i64 72
   call void @zend_hash_apply_with_argument(ptr noundef nonnull %295, ptr noundef nonnull @phar_zip_changed_apply, ptr noundef nonnull %17) #15
   %296 = load ptr, ptr %14, align 8
@@ -5791,28 +5791,28 @@ define hidden noundef i32 @phar_zip_flush(ptr noundef %0, ptr noundef %1, i64 no
   %306 = load ptr, ptr %14, align 8
   %307 = load ptr, ptr %306, align 8
   %308 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %4, i64 noundef 4096, ptr noundef nonnull @.str.69, ptr noundef %307, ptr noundef nonnull %303) #15
-  %.pre540 = load ptr, ptr %16, align 8
+  %.pre537 = load ptr, ptr %16, align 8
   br label %309
 
 309:                                              ; preds = %305, %304
-  %310 = phi ptr [ %.pre540, %305 ], [ %303, %304 ]
+  %310 = phi ptr [ %.pre537, %305 ], [ %303, %304 ]
   call void @_efree(ptr noundef %310) #15
   br label %311
 
-311:                                              ; preds = %phar_zip_applysignature.exit.thread, %459, %460, %phar_zip_applysignature.exit, %309
+311:                                              ; preds = %phar_zip_applysignature.exit.thread, %460, %461, %309
   %312 = load ptr, ptr %270, align 8
   %313 = call i32 @_php_stream_free(ptr noundef %312, i32 noundef 3) #15
   br label %314
 
-314:                                              ; preds = %509, %510, %501, %502, %487, %488, %311
+314:                                              ; preds = %510, %511, %502, %503, %488, %489, %311
   %315 = load ptr, ptr %17, align 8
   %316 = call i32 @_php_stream_free(ptr noundef %315, i32 noundef 3) #15
   %.not526 = icmp eq i32 %.0303, 0
-  br i1 %.not526, label %571, label %317
+  br i1 %.not526, label %572, label %317
 
 317:                                              ; preds = %314
   %318 = call i32 @_php_stream_free(ptr noundef %.0305, i32 noundef 3) #15
-  br label %571
+  br label %572
 
 319:                                              ; preds = %290
   %320 = load ptr, ptr %14, align 8
@@ -5830,7 +5830,7 @@ define hidden noundef i32 @phar_zip_flush(ptr noundef %0, ptr noundef %1, i64 no
   %325 = getelementptr inbounds i8, ptr %320, i64 276
   %326 = load i32, ptr %325, align 4
   %.not43.i = icmp eq i32 %326, 0
-  br i1 %.not43.i, label %phar_zip_applysignature.exit.thread535, label %327
+  br i1 %.not43.i, label %425, label %327
 
 327:                                              ; preds = %324, %319
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %9, i8 0, i64 160, i1 false)
@@ -5984,276 +5984,269 @@ define hidden noundef i32 @phar_zip_flush(ptr noundef %0, ptr noundef %1, i64 no
   %421 = call i32 @_php_stream_free(ptr noundef nonnull %328, i32 noundef 3) #15
   %422 = load ptr, ptr %20, align 8
   %.not47.i = icmp eq ptr %422, null
-  br i1 %.not47.i, label %phar_zip_applysignature.exit.thread535, label %phar_zip_applysignature.exit
+  br i1 %.not47.i, label %425, label %423
 
-phar_zip_applysignature.exit.thread:              ; preds = %330, %362, %372, %411
+423:                                              ; preds = %413
+  %424 = load ptr, ptr %422, align 8
+  %.not48.i = icmp eq ptr %424, null
+  br i1 %.not48.i, label %425, label %phar_zip_applysignature.exit.thread
+
+phar_zip_applysignature.exit.thread:              ; preds = %330, %362, %372, %411, %423
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %9)
   br label %311
 
-phar_zip_applysignature.exit.thread535:           ; preds = %413, %324
+425:                                              ; preds = %423, %413, %324
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %9)
-  br label %424
+  %426 = load ptr, ptr %270, align 8
+  %427 = call i64 @_php_stream_tell(ptr noundef %426) #15
+  %428 = load ptr, ptr %17, align 8
+  %429 = call i64 @_php_stream_tell(ptr noundef %428) #15
+  %430 = getelementptr inbounds i8, ptr %18, i64 12
+  %431 = lshr i64 %427, 24
+  %432 = trunc i64 %431 to i8
+  %433 = getelementptr inbounds i8, ptr %18, i64 15
+  store i8 %432, ptr %433, align 1
+  %434 = lshr i64 %427, 16
+  %435 = trunc i64 %434 to i8
+  %436 = getelementptr inbounds i8, ptr %18, i64 14
+  store i8 %435, ptr %436, align 2
+  %437 = lshr i64 %427, 8
+  %438 = trunc i64 %437 to i8
+  %439 = getelementptr inbounds i8, ptr %18, i64 13
+  store i8 %438, ptr %439, align 1
+  %440 = trunc i64 %427 to i8
+  store i8 %440, ptr %430, align 4
+  %441 = getelementptr inbounds i8, ptr %18, i64 16
+  %442 = lshr i64 %429, 24
+  %443 = trunc i64 %442 to i8
+  %444 = getelementptr inbounds i8, ptr %18, i64 19
+  store i8 %443, ptr %444, align 1
+  %445 = lshr i64 %429, 16
+  %446 = trunc i64 %445 to i8
+  %447 = getelementptr inbounds i8, ptr %18, i64 18
+  store i8 %446, ptr %447, align 2
+  %448 = lshr i64 %429, 8
+  %449 = trunc i64 %448 to i8
+  %450 = getelementptr inbounds i8, ptr %18, i64 17
+  store i8 %449, ptr %450, align 1
+  %451 = trunc i64 %429 to i8
+  store i8 %451, ptr %441, align 4
+  %452 = load ptr, ptr %270, align 8
+  %453 = call i32 @_php_stream_seek(ptr noundef %452, i64 noundef 0, i32 noundef 0) #15
+  %454 = load ptr, ptr %270, align 8
+  %455 = load ptr, ptr %17, align 8
+  %456 = call i32 @_php_stream_copy_to_stream_ex(ptr noundef %454, ptr noundef %455, i64 noundef -1, ptr noundef nonnull %19) #15
+  %.not508 = icmp eq i32 %456, 0
+  br i1 %.not508, label %457, label %460
 
-phar_zip_applysignature.exit:                     ; preds = %413
-  %423 = load ptr, ptr %422, align 8
-  %.not48.i.not = icmp eq ptr %423, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %9)
-  br i1 %.not48.i.not, label %424, label %311
+457:                                              ; preds = %425
+  %458 = load i64, ptr %19, align 8
+  %459 = and i64 %427, 4294967295
+  %.not509 = icmp eq i64 %458, %459
+  br i1 %.not509, label %465, label %460
 
-424:                                              ; preds = %phar_zip_applysignature.exit.thread535, %phar_zip_applysignature.exit
-  %425 = load ptr, ptr %270, align 8
-  %426 = call i64 @_php_stream_tell(ptr noundef %425) #15
-  %427 = load ptr, ptr %17, align 8
-  %428 = call i64 @_php_stream_tell(ptr noundef %427) #15
-  %429 = getelementptr inbounds i8, ptr %18, i64 12
-  %430 = lshr i64 %426, 24
-  %431 = trunc i64 %430 to i8
-  %432 = getelementptr inbounds i8, ptr %18, i64 15
-  store i8 %431, ptr %432, align 1
-  %433 = lshr i64 %426, 16
-  %434 = trunc i64 %433 to i8
-  %435 = getelementptr inbounds i8, ptr %18, i64 14
-  store i8 %434, ptr %435, align 2
-  %436 = lshr i64 %426, 8
-  %437 = trunc i64 %436 to i8
-  %438 = getelementptr inbounds i8, ptr %18, i64 13
-  store i8 %437, ptr %438, align 1
-  %439 = trunc i64 %426 to i8
-  store i8 %439, ptr %429, align 4
-  %440 = getelementptr inbounds i8, ptr %18, i64 16
-  %441 = lshr i64 %428, 24
-  %442 = trunc i64 %441 to i8
-  %443 = getelementptr inbounds i8, ptr %18, i64 19
-  store i8 %442, ptr %443, align 1
-  %444 = lshr i64 %428, 16
-  %445 = trunc i64 %444 to i8
-  %446 = getelementptr inbounds i8, ptr %18, i64 18
-  store i8 %445, ptr %446, align 2
-  %447 = lshr i64 %428, 8
-  %448 = trunc i64 %447 to i8
-  %449 = getelementptr inbounds i8, ptr %18, i64 17
-  store i8 %448, ptr %449, align 1
-  %450 = trunc i64 %428 to i8
-  store i8 %450, ptr %440, align 4
-  %451 = load ptr, ptr %270, align 8
-  %452 = call i32 @_php_stream_seek(ptr noundef %451, i64 noundef 0, i32 noundef 0) #15
-  %453 = load ptr, ptr %270, align 8
-  %454 = load ptr, ptr %17, align 8
-  %455 = call i32 @_php_stream_copy_to_stream_ex(ptr noundef %453, ptr noundef %454, i64 noundef -1, ptr noundef nonnull %19) #15
-  %.not508 = icmp eq i32 %455, 0
-  br i1 %.not508, label %456, label %459
-
-456:                                              ; preds = %424
-  %457 = load i64, ptr %19, align 8
-  %458 = and i64 %426, 4294967295
-  %.not509 = icmp eq i64 %457, %458
-  br i1 %.not509, label %464, label %459
-
-459:                                              ; preds = %456, %424
+460:                                              ; preds = %457, %425
   %.not524 = icmp eq ptr %4, null
-  br i1 %.not524, label %311, label %460
+  br i1 %.not524, label %311, label %461
 
-460:                                              ; preds = %459
-  %461 = load ptr, ptr %14, align 8
-  %462 = load ptr, ptr %461, align 8
-  %463 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %4, i64 noundef 4096, ptr noundef nonnull @.str.70, ptr noundef %462) #15
+461:                                              ; preds = %460
+  %462 = load ptr, ptr %14, align 8
+  %463 = load ptr, ptr %462, align 8
+  %464 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %4, i64 noundef 4096, ptr noundef nonnull @.str.70, ptr noundef %463) #15
   br label %311
 
-464:                                              ; preds = %456
-  %465 = load ptr, ptr %270, align 8
-  %466 = call i32 @_php_stream_free(ptr noundef %465, i32 noundef 3) #15
-  %467 = load ptr, ptr %14, align 8
-  %468 = getelementptr inbounds i8, ptr %467, i64 296
-  %469 = getelementptr inbounds i8, ptr %467, i64 324
-  %470 = load i16, ptr %469, align 4
-  %471 = lshr i16 %470, 8
-  %472 = and i16 %471, 1
-  %473 = zext nneg i16 %472 to i32
-  call void @phar_metadata_tracker_try_ensure_has_serialized_data(ptr noundef nonnull %468, i32 noundef %473) #15
-  %474 = load ptr, ptr %14, align 8
-  %475 = getelementptr inbounds i8, ptr %474, i64 312
-  %476 = load ptr, ptr %475, align 8
-  %.not510 = icmp eq ptr %476, null
-  br i1 %.not510, label %506, label %477
+465:                                              ; preds = %457
+  %466 = load ptr, ptr %270, align 8
+  %467 = call i32 @_php_stream_free(ptr noundef %466, i32 noundef 3) #15
+  %468 = load ptr, ptr %14, align 8
+  %469 = getelementptr inbounds i8, ptr %468, i64 296
+  %470 = getelementptr inbounds i8, ptr %468, i64 324
+  %471 = load i16, ptr %470, align 4
+  %472 = lshr i16 %471, 8
+  %473 = and i16 %472, 1
+  %474 = zext nneg i16 %473 to i32
+  call void @phar_metadata_tracker_try_ensure_has_serialized_data(ptr noundef nonnull %469, i32 noundef %474) #15
+  %475 = load ptr, ptr %14, align 8
+  %476 = getelementptr inbounds i8, ptr %475, i64 312
+  %477 = load ptr, ptr %476, align 8
+  %.not510 = icmp eq ptr %477, null
+  br i1 %.not510, label %507, label %478
 
-477:                                              ; preds = %464
-  %478 = getelementptr inbounds i8, ptr %18, i64 20
-  %479 = getelementptr inbounds i8, ptr %476, i64 16
-  %480 = load i64, ptr %479, align 8
-  %481 = trunc i64 %480 to i8
-  %482 = lshr i64 %480, 8
-  %483 = trunc i64 %482 to i8
-  %484 = getelementptr inbounds i8, ptr %18, i64 21
-  store i8 %483, ptr %484, align 1
-  store i8 %481, ptr %478, align 4
-  %485 = load ptr, ptr %17, align 8
-  %486 = call i64 @_php_stream_write(ptr noundef %485, ptr noundef nonnull %18, i64 noundef 22) #15
-  %.not513 = icmp eq i64 %486, 22
-  br i1 %.not513, label %492, label %487
+478:                                              ; preds = %465
+  %479 = getelementptr inbounds i8, ptr %18, i64 20
+  %480 = getelementptr inbounds i8, ptr %477, i64 16
+  %481 = load i64, ptr %480, align 8
+  %482 = trunc i64 %481 to i8
+  %483 = lshr i64 %481, 8
+  %484 = trunc i64 %483 to i8
+  %485 = getelementptr inbounds i8, ptr %18, i64 21
+  store i8 %484, ptr %485, align 1
+  store i8 %482, ptr %479, align 4
+  %486 = load ptr, ptr %17, align 8
+  %487 = call i64 @_php_stream_write(ptr noundef %486, ptr noundef nonnull %18, i64 noundef 22) #15
+  %.not513 = icmp eq i64 %487, 22
+  br i1 %.not513, label %493, label %488
 
-487:                                              ; preds = %477
+488:                                              ; preds = %478
   %.not523 = icmp eq ptr %4, null
-  br i1 %.not523, label %314, label %488
+  br i1 %.not523, label %314, label %489
 
-488:                                              ; preds = %487
-  %489 = load ptr, ptr %14, align 8
-  %490 = load ptr, ptr %489, align 8
-  %491 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %4, i64 noundef 4096, ptr noundef nonnull @.str.71, ptr noundef %490) #15
+489:                                              ; preds = %488
+  %490 = load ptr, ptr %14, align 8
+  %491 = load ptr, ptr %490, align 8
+  %492 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %4, i64 noundef 4096, ptr noundef nonnull @.str.71, ptr noundef %491) #15
   br label %314
 
-492:                                              ; preds = %477
-  %493 = load ptr, ptr %14, align 8
-  %494 = getelementptr inbounds i8, ptr %493, i64 312
-  %495 = load ptr, ptr %494, align 8
-  %496 = getelementptr inbounds i8, ptr %495, i64 16
-  %497 = load i64, ptr %496, align 8
-  %498 = load ptr, ptr %17, align 8
-  %499 = getelementptr inbounds i8, ptr %495, i64 24
-  %500 = call i64 @_php_stream_write(ptr noundef %498, ptr noundef nonnull %499, i64 noundef %497) #15
-  %.not514 = icmp eq i64 %497, %500
-  br i1 %.not514, label %514, label %501
+493:                                              ; preds = %478
+  %494 = load ptr, ptr %14, align 8
+  %495 = getelementptr inbounds i8, ptr %494, i64 312
+  %496 = load ptr, ptr %495, align 8
+  %497 = getelementptr inbounds i8, ptr %496, i64 16
+  %498 = load i64, ptr %497, align 8
+  %499 = load ptr, ptr %17, align 8
+  %500 = getelementptr inbounds i8, ptr %496, i64 24
+  %501 = call i64 @_php_stream_write(ptr noundef %499, ptr noundef nonnull %500, i64 noundef %498) #15
+  %.not514 = icmp eq i64 %498, %501
+  br i1 %.not514, label %515, label %502
 
-501:                                              ; preds = %492
+502:                                              ; preds = %493
   %.not522 = icmp eq ptr %4, null
-  br i1 %.not522, label %314, label %502
+  br i1 %.not522, label %314, label %503
 
-502:                                              ; preds = %501
-  %503 = load ptr, ptr %14, align 8
-  %504 = load ptr, ptr %503, align 8
-  %505 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %4, i64 noundef 4096, ptr noundef nonnull @.str.72, ptr noundef %504) #15
+503:                                              ; preds = %502
+  %504 = load ptr, ptr %14, align 8
+  %505 = load ptr, ptr %504, align 8
+  %506 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %4, i64 noundef 4096, ptr noundef nonnull @.str.72, ptr noundef %505) #15
   br label %314
 
-506:                                              ; preds = %464
-  %507 = load ptr, ptr %17, align 8
-  %508 = call i64 @_php_stream_write(ptr noundef %507, ptr noundef nonnull %18, i64 noundef 22) #15
-  %.not511 = icmp eq i64 %508, 22
-  br i1 %.not511, label %514, label %509
+507:                                              ; preds = %465
+  %508 = load ptr, ptr %17, align 8
+  %509 = call i64 @_php_stream_write(ptr noundef %508, ptr noundef nonnull %18, i64 noundef 22) #15
+  %.not511 = icmp eq i64 %509, 22
+  br i1 %.not511, label %515, label %510
 
-509:                                              ; preds = %506
+510:                                              ; preds = %507
   %.not512 = icmp eq ptr %4, null
-  br i1 %.not512, label %314, label %510
+  br i1 %.not512, label %314, label %511
 
-510:                                              ; preds = %509
-  %511 = load ptr, ptr %14, align 8
-  %512 = load ptr, ptr %511, align 8
-  %513 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %4, i64 noundef 4096, ptr noundef nonnull @.str.71, ptr noundef %512) #15
+511:                                              ; preds = %510
+  %512 = load ptr, ptr %14, align 8
+  %513 = load ptr, ptr %512, align 8
+  %514 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %4, i64 noundef 4096, ptr noundef nonnull @.str.71, ptr noundef %513) #15
   br label %314
 
-514:                                              ; preds = %506, %492
-  %515 = load ptr, ptr %14, align 8
-  %516 = getelementptr inbounds i8, ptr %515, i64 256
-  %517 = load ptr, ptr %516, align 8
-  %518 = icmp ne ptr %517, null
-  %519 = load i32, ptr %273, align 8
-  %520 = icmp ne i32 %519, 0
-  %or.cond6 = select i1 %518, i1 %520, i1 false
-  br i1 %or.cond6, label %521, label %523
+515:                                              ; preds = %507, %493
+  %516 = load ptr, ptr %14, align 8
+  %517 = getelementptr inbounds i8, ptr %516, i64 256
+  %518 = load ptr, ptr %517, align 8
+  %519 = icmp ne ptr %518, null
+  %520 = load i32, ptr %273, align 8
+  %521 = icmp ne i32 %520, 0
+  %or.cond6 = select i1 %519, i1 %521, i1 false
+  br i1 %or.cond6, label %522, label %524
 
-521:                                              ; preds = %514
-  %522 = call i32 @_php_stream_free(ptr noundef nonnull %517, i32 noundef 3) #15
-  %.pre541 = load ptr, ptr %14, align 8
-  br label %523
+522:                                              ; preds = %515
+  %523 = call i32 @_php_stream_free(ptr noundef nonnull %518, i32 noundef 3) #15
+  %.pre538 = load ptr, ptr %14, align 8
+  br label %524
 
-523:                                              ; preds = %521, %514
-  %524 = phi ptr [ %.pre541, %521 ], [ %515, %514 ]
-  %525 = getelementptr inbounds i8, ptr %524, i64 264
-  %526 = load ptr, ptr %525, align 8
-  %.not515 = icmp eq ptr %526, null
-  br i1 %.not515, label %534, label %527
+524:                                              ; preds = %522, %515
+  %525 = phi ptr [ %.pre538, %522 ], [ %516, %515 ]
+  %526 = getelementptr inbounds i8, ptr %525, i64 264
+  %527 = load ptr, ptr %526, align 8
+  %.not515 = icmp eq ptr %527, null
+  br i1 %.not515, label %535, label %528
 
-527:                                              ; preds = %523
-  %528 = load i32, ptr %272, align 4
-  %.not516 = icmp eq i32 %528, 0
-  br i1 %.not516, label %531, label %529
+528:                                              ; preds = %524
+  %529 = load i32, ptr %272, align 4
+  %.not516 = icmp eq i32 %529, 0
+  br i1 %.not516, label %532, label %530
 
-529:                                              ; preds = %527
-  %530 = call i32 @_php_stream_free(ptr noundef nonnull %526, i32 noundef 3) #15
-  %.pre542 = load ptr, ptr %14, align 8
-  br label %531
+530:                                              ; preds = %528
+  %531 = call i32 @_php_stream_free(ptr noundef nonnull %527, i32 noundef 3) #15
+  %.pre539 = load ptr, ptr %14, align 8
+  br label %532
 
-531:                                              ; preds = %529, %527
-  %532 = phi ptr [ %.pre542, %529 ], [ %524, %527 ]
-  %533 = getelementptr inbounds i8, ptr %532, i64 264
-  store ptr null, ptr %533, align 8
-  br label %534
+532:                                              ; preds = %530, %528
+  %533 = phi ptr [ %.pre539, %530 ], [ %525, %528 ]
+  %534 = getelementptr inbounds i8, ptr %533, i64 264
+  store ptr null, ptr %534, align 8
+  br label %535
 
-534:                                              ; preds = %531, %523
-  %535 = phi ptr [ %532, %531 ], [ %524, %523 ]
-  %536 = getelementptr inbounds i8, ptr %535, i64 324
-  %537 = load i16, ptr %536, align 4
-  %538 = and i16 %537, -9
-  store i16 %538, ptr %536, align 4
-  %539 = and i16 %537, 16
-  %.not517 = icmp eq i16 %539, 0
-  br i1 %.not517, label %543, label %540
+535:                                              ; preds = %532, %524
+  %536 = phi ptr [ %533, %532 ], [ %525, %524 ]
+  %537 = getelementptr inbounds i8, ptr %536, i64 324
+  %538 = load i16, ptr %537, align 4
+  %539 = and i16 %538, -9
+  store i16 %539, ptr %537, align 4
+  %540 = and i16 %538, 16
+  %.not517 = icmp eq i16 %540, 0
+  br i1 %.not517, label %544, label %541
 
-540:                                              ; preds = %534
-  %541 = load ptr, ptr %17, align 8
-  %542 = getelementptr inbounds i8, ptr %535, i64 256
-  store ptr %541, ptr %542, align 8
-  br label %568
+541:                                              ; preds = %535
+  %542 = load ptr, ptr %17, align 8
+  %543 = getelementptr inbounds i8, ptr %536, i64 256
+  store ptr %542, ptr %543, align 8
+  br label %569
 
-543:                                              ; preds = %534
-  %544 = load ptr, ptr %535, align 8
-  %545 = call ptr @_php_stream_open_wrapper_ex(ptr noundef %544, ptr noundef nonnull @.str.73, i32 noundef 26, ptr noundef null, ptr noundef null) #15
-  %546 = load ptr, ptr %14, align 8
-  %547 = getelementptr inbounds i8, ptr %546, i64 256
-  store ptr %545, ptr %547, align 8
-  %.not518 = icmp eq ptr %545, null
-  br i1 %.not518, label %548, label %558
+544:                                              ; preds = %535
+  %545 = load ptr, ptr %536, align 8
+  %546 = call ptr @_php_stream_open_wrapper_ex(ptr noundef %545, ptr noundef nonnull @.str.73, i32 noundef 26, ptr noundef null, ptr noundef null) #15
+  %547 = load ptr, ptr %14, align 8
+  %548 = getelementptr inbounds i8, ptr %547, i64 256
+  store ptr %546, ptr %548, align 8
+  %.not518 = icmp eq ptr %546, null
+  br i1 %.not518, label %549, label %559
 
-548:                                              ; preds = %543
+549:                                              ; preds = %544
   %.not519 = icmp eq i32 %.0303, 0
-  br i1 %.not519, label %551, label %549
+  br i1 %.not519, label %552, label %550
 
-549:                                              ; preds = %548
-  %550 = call i32 @_php_stream_free(ptr noundef %.0305, i32 noundef 3) #15
-  %.pre543 = load ptr, ptr %14, align 8
-  br label %551
+550:                                              ; preds = %549
+  %551 = call i32 @_php_stream_free(ptr noundef %.0305, i32 noundef 3) #15
+  %.pre540 = load ptr, ptr %14, align 8
+  br label %552
 
-551:                                              ; preds = %549, %548
-  %552 = phi ptr [ %.pre543, %549 ], [ %546, %548 ]
-  %553 = load ptr, ptr %17, align 8
-  %554 = getelementptr inbounds i8, ptr %552, i64 256
-  store ptr %553, ptr %554, align 8
+552:                                              ; preds = %550, %549
+  %553 = phi ptr [ %.pre540, %550 ], [ %547, %549 ]
+  %554 = load ptr, ptr %17, align 8
+  %555 = getelementptr inbounds i8, ptr %553, i64 256
+  store ptr %554, ptr %555, align 8
   %.not520 = icmp eq ptr %4, null
-  br i1 %.not520, label %571, label %555
+  br i1 %.not520, label %572, label %556
 
-555:                                              ; preds = %551
-  %556 = load ptr, ptr %552, align 8
-  %557 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %4, i64 noundef 4096, ptr noundef nonnull @.str.74, ptr noundef %556) #15
-  br label %571
+556:                                              ; preds = %552
+  %557 = load ptr, ptr %553, align 8
+  %558 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %4, i64 noundef 4096, ptr noundef nonnull @.str.74, ptr noundef %557) #15
+  br label %572
 
-558:                                              ; preds = %543
-  %559 = load ptr, ptr %17, align 8
-  %560 = call i32 @_php_stream_seek(ptr noundef %559, i64 noundef 0, i32 noundef 0) #15
-  %561 = load ptr, ptr %17, align 8
-  %562 = load ptr, ptr %14, align 8
-  %563 = getelementptr inbounds i8, ptr %562, i64 256
-  %564 = load ptr, ptr %563, align 8
-  %565 = call i32 @_php_stream_copy_to_stream_ex(ptr noundef %561, ptr noundef %564, i64 noundef -1, ptr noundef null) #15
-  %566 = load ptr, ptr %17, align 8
-  %567 = call i32 @_php_stream_free(ptr noundef %566, i32 noundef 3) #15
-  br label %568
+559:                                              ; preds = %544
+  %560 = load ptr, ptr %17, align 8
+  %561 = call i32 @_php_stream_seek(ptr noundef %560, i64 noundef 0, i32 noundef 0) #15
+  %562 = load ptr, ptr %17, align 8
+  %563 = load ptr, ptr %14, align 8
+  %564 = getelementptr inbounds i8, ptr %563, i64 256
+  %565 = load ptr, ptr %564, align 8
+  %566 = call i32 @_php_stream_copy_to_stream_ex(ptr noundef %562, ptr noundef %565, i64 noundef -1, ptr noundef null) #15
+  %567 = load ptr, ptr %17, align 8
+  %568 = call i32 @_php_stream_free(ptr noundef %567, i32 noundef 3) #15
+  br label %569
 
-568:                                              ; preds = %558, %540
+569:                                              ; preds = %559, %541
   %.not521 = icmp eq i32 %.0303, 0
-  br i1 %.not521, label %571, label %569
+  br i1 %.not521, label %572, label %570
 
-569:                                              ; preds = %568
-  %570 = call i32 @_php_stream_free(ptr noundef %.0305, i32 noundef 3) #15
-  br label %571
+570:                                              ; preds = %569
+  %571 = call i32 @_php_stream_free(ptr noundef %.0305, i32 noundef 3) #15
+  br label %572
 
-571:                                              ; preds = %568, %569, %551, %555, %314, %317, %263, %264, %.thread531, %222, %190, %192, %139, %140, %.thread, %127, %101, %102, %82, %50, %51, %26, %27, %186, %163, %144, %40
+572:                                              ; preds = %569, %570, %552, %556, %314, %317, %263, %264, %.thread531, %222, %190, %192, %139, %140, %.thread, %127, %101, %102, %82, %50, %51, %26, %27, %186, %163, %144, %40
   ret i32 -1
 }
 

@@ -1158,16 +1158,16 @@ define dso_local zeroext i1 @rangeTableEntry_used(ptr noundef %0, i32 noundef %1
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @rangeTableEntry_used_walker(ptr noundef %0, ptr noundef %1) #0 {
   %3 = icmp eq ptr %0, null
-  br i1 %3, label %56, label %4
+  br i1 %3, label %59, label %4
 
 4:                                                ; preds = %2
   %5 = load i32, ptr %0, align 4
   switch i32 %5, label %.thread [
     i32 6, label %6
-    i32 51, label %21
-    i32 55, label %30
-    i32 56, label %39
-    i32 59, label %48
+    i32 51, label %22
+    i32 55, label %32
+    i32 56, label %42
+    i32 59, label %51
   ]
 
 6:                                                ; preds = %4
@@ -1176,77 +1176,86 @@ define internal zeroext i1 @rangeTableEntry_used_walker(ptr noundef %0, ptr noun
   %9 = getelementptr inbounds i8, ptr %1, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %8, %10
-  br i1 %11, label %12, label %56
+  br i1 %11, label %12, label %21
 
 12:                                               ; preds = %6
   %13 = getelementptr inbounds i8, ptr %0, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = load i32, ptr %1, align 4
   %16 = icmp eq i32 %14, %15
-  br i1 %16, label %56, label %17
+  br i1 %16, label %59, label %17
 
 17:                                               ; preds = %12
   %18 = getelementptr inbounds i8, ptr %0, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = tail call zeroext i1 @bms_is_member(i32 noundef %15, ptr noundef %19) #7
-  br label %56
+  br i1 %20, label %59, label %21
 
-21:                                               ; preds = %4
-  %22 = getelementptr inbounds i8, ptr %1, i64 4
-  %23 = load i32, ptr %22, align 4
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %25, label %56
+21:                                               ; preds = %17, %6
+  br label %59
 
-25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %0, i64 4
-  %27 = load i32, ptr %26, align 4
-  %28 = load i32, ptr %1, align 4
-  %29 = icmp eq i32 %27, %28
-  br label %56
+22:                                               ; preds = %4
+  %23 = getelementptr inbounds i8, ptr %1, i64 4
+  %24 = load i32, ptr %23, align 4
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %26, label %31
 
-30:                                               ; preds = %4
-  %31 = getelementptr inbounds i8, ptr %0, i64 4
-  %32 = load i32, ptr %31, align 4
-  %33 = load i32, ptr %1, align 4
-  %34 = icmp eq i32 %32, %33
-  br i1 %34, label %35, label %56
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds i8, ptr %0, i64 4
+  %28 = load i32, ptr %27, align 4
+  %29 = load i32, ptr %1, align 4
+  %30 = icmp eq i32 %28, %29
+  br i1 %30, label %59, label %31
 
-35:                                               ; preds = %30
-  %36 = getelementptr inbounds i8, ptr %1, i64 4
-  %37 = load i32, ptr %36, align 4
-  %38 = icmp eq i32 %37, 0
-  br label %56
+31:                                               ; preds = %26, %22
+  br label %59
 
-39:                                               ; preds = %4
-  %40 = getelementptr inbounds i8, ptr %0, i64 64
-  %41 = load i32, ptr %40, align 8
-  %42 = load i32, ptr %1, align 4
-  %43 = icmp eq i32 %41, %42
-  br i1 %43, label %44, label %.thread
+32:                                               ; preds = %4
+  %33 = getelementptr inbounds i8, ptr %0, i64 4
+  %34 = load i32, ptr %33, align 4
+  %35 = load i32, ptr %1, align 4
+  %36 = icmp eq i32 %34, %35
+  br i1 %36, label %37, label %41
 
-44:                                               ; preds = %39
-  %45 = getelementptr inbounds i8, ptr %1, i64 4
-  %46 = load i32, ptr %45, align 4
-  %47 = icmp eq i32 %46, 0
-  br i1 %47, label %56, label %.thread
+37:                                               ; preds = %32
+  %38 = getelementptr inbounds i8, ptr %1, i64 4
+  %39 = load i32, ptr %38, align 4
+  %40 = icmp eq i32 %39, 0
+  br i1 %40, label %59, label %41
 
-48:                                               ; preds = %4
-  %49 = getelementptr inbounds i8, ptr %1, i64 4
-  %50 = load i32, ptr %49, align 4
-  %51 = add i32 %50, 1
-  store i32 %51, ptr %49, align 4
-  %52 = tail call zeroext i1 @query_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @rangeTableEntry_used_walker, ptr noundef %1, i32 noundef 0) #7
-  %53 = load i32, ptr %49, align 4
-  %54 = add i32 %53, -1
-  store i32 %54, ptr %49, align 4
-  br label %56
+41:                                               ; preds = %37, %32
+  br label %59
 
-.thread:                                          ; preds = %4, %44, %39
-  %55 = tail call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @rangeTableEntry_used_walker, ptr noundef %1) #7
-  br label %56
+42:                                               ; preds = %4
+  %43 = getelementptr inbounds i8, ptr %0, i64 64
+  %44 = load i32, ptr %43, align 8
+  %45 = load i32, ptr %1, align 4
+  %46 = icmp eq i32 %44, %45
+  br i1 %46, label %47, label %.thread
 
-56:                                               ; preds = %35, %25, %17, %44, %30, %21, %6, %12, %2, %.thread, %48
-  %.0 = phi i1 [ %52, %48 ], [ %55, %.thread ], [ false, %2 ], [ true, %12 ], [ false, %6 ], [ false, %21 ], [ false, %30 ], [ true, %44 ], [ %20, %17 ], [ %29, %25 ], [ %38, %35 ]
+47:                                               ; preds = %42
+  %48 = getelementptr inbounds i8, ptr %1, i64 4
+  %49 = load i32, ptr %48, align 4
+  %50 = icmp eq i32 %49, 0
+  br i1 %50, label %59, label %.thread
+
+51:                                               ; preds = %4
+  %52 = getelementptr inbounds i8, ptr %1, i64 4
+  %53 = load i32, ptr %52, align 4
+  %54 = add i32 %53, 1
+  store i32 %54, ptr %52, align 4
+  %55 = tail call zeroext i1 @query_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @rangeTableEntry_used_walker, ptr noundef %1, i32 noundef 0) #7
+  %56 = load i32, ptr %52, align 4
+  %57 = add i32 %56, -1
+  store i32 %57, ptr %52, align 4
+  br label %59
+
+.thread:                                          ; preds = %4, %47, %42
+  %58 = tail call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @rangeTableEntry_used_walker, ptr noundef %1) #7
+  br label %59
+
+59:                                               ; preds = %47, %37, %26, %12, %17, %2, %.thread, %51, %41, %31, %21
+  %.0 = phi i1 [ false, %21 ], [ false, %31 ], [ false, %41 ], [ %55, %51 ], [ %58, %.thread ], [ false, %2 ], [ true, %17 ], [ true, %12 ], [ true, %26 ], [ true, %37 ], [ true, %47 ]
   ret i1 %.0
 }
 

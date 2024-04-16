@@ -532,8 +532,6 @@ target triple = "x86_64-pc-linux-gnu"
 @ipx_ct_dissector_info = internal global %struct._ct_dissector_info { ptr @ipx_conv_get_filter_type }, align 8
 @.str.415 = private unnamed_addr constant [8 x i8] c"INVALID\00", align 1
 @ipx_endpoint_dissector_info = internal global %struct._et_dissector_info { ptr @ipx_endpoint_get_filter_type }, align 8
-@switch.table.ipx_conv_get_filter_type = private unnamed_addr constant [3 x i64] [i64 8, i64 32, i64 8], align 8
-@switch.table.ipx_conv_get_filter_type.1 = private unnamed_addr constant [3 x ptr] [ptr @.str.5, ptr @.str.8, ptr @.str.11], align 8
 
 declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #0
 
@@ -1546,7 +1544,7 @@ define internal i32 @spx_hash_func(ptr nocapture noundef readonly %0) #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @spx_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal noundef i32 @spx_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = icmp eq ptr %3, %4
@@ -1566,11 +1564,13 @@ define internal i32 @spx_equal(ptr nocapture noundef readonly %0, ptr nocapture 
   %15 = getelementptr inbounds i8, ptr %1, i64 12
   %16 = load i16, ptr %15, align 4
   %17 = icmp eq i16 %14, %16
-  %spec.select = zext i1 %17 to i32
-  br label %18
+  br i1 %17, label %19, label %18
 
-18:                                               ; preds = %12, %2, %6
-  %.0 = phi i32 [ 0, %6 ], [ 0, %2 ], [ %spec.select, %12 ]
+18:                                               ; preds = %12, %6, %2
+  br label %19
+
+19:                                               ; preds = %12, %18
+  %.0 = phi i32 [ 0, %18 ], [ 1, %12 ]
   ret i32 %.0
 }
 
@@ -1759,32 +1759,43 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 declare void @add_conversation_table_data(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal nonnull ptr @ipx_conv_get_filter_type(ptr nocapture noundef readonly %0, i32 noundef %1) #2 {
-  %3 = icmp ult i32 %1, 3
-  br i1 %3, label %switch.lookup, label %9
+define internal noundef nonnull ptr @ipx_conv_get_filter_type(ptr nocapture noundef readonly %0, i32 noundef %1) #2 {
+  switch i32 %1, label %15 [
+    i32 0, label %3
+    i32 1, label %7
+    i32 2, label %11
+  ]
 
-switch.lookup:                                    ; preds = %2
-  %4 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table.ipx_conv_get_filter_type, i64 0, i64 %4
-  %switch.load = load i64, ptr %switch.gep, align 8
-  %5 = zext nneg i32 %1 to i64
-  %switch.gep10 = getelementptr inbounds [3 x ptr], ptr @switch.table.ipx_conv_get_filter_type.1, i64 0, i64 %5
-  %switch.load11 = load ptr, ptr %switch.gep10, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 %switch.load
-  %7 = load i32, ptr %6, align 8
-  %8 = icmp eq i32 %7, 4
-  %spec.select7 = select i1 %8, ptr %switch.load11, ptr @.str.415
-  br label %9
+3:                                                ; preds = %2
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = load i32, ptr %4, align 8
+  %6 = icmp eq i32 %5, 4
+  br i1 %6, label %16, label %15
 
-9:                                                ; preds = %2, %switch.lookup
-  %.0 = phi ptr [ @.str.415, %2 ], [ %spec.select7, %switch.lookup ]
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = load i32, ptr %8, align 8
+  %10 = icmp eq i32 %9, 4
+  br i1 %10, label %16, label %15
+
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = load i32, ptr %12, align 8
+  %14 = icmp eq i32 %13, 4
+  br i1 %14, label %16, label %15
+
+15:                                               ; preds = %7, %3, %2, %11
+  br label %16
+
+16:                                               ; preds = %11, %7, %3, %15
+  %.0 = phi ptr [ @.str.415, %15 ], [ @.str.5, %3 ], [ @.str.8, %7 ], [ @.str.11, %11 ]
   ret ptr %.0
 }
 
 declare void @add_endpoint_table_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal nonnull ptr @ipx_endpoint_get_filter_type(ptr nocapture noundef readonly %0, i32 noundef %1) #2 {
+define internal noundef nonnull ptr @ipx_endpoint_get_filter_type(ptr nocapture noundef readonly %0, i32 noundef %1) #2 {
   %3 = icmp eq i32 %1, 2
   br i1 %3, label %4, label %8
 
@@ -1792,11 +1803,13 @@ define internal nonnull ptr @ipx_endpoint_get_filter_type(ptr nocapture noundef 
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 4
-  %spec.select = select i1 %7, ptr @.str.11, ptr @.str.415
-  br label %8
+  br i1 %7, label %9, label %8
 
 8:                                                ; preds = %4, %2
-  %.0 = phi ptr [ @.str.415, %2 ], [ %spec.select, %4 ]
+  br label %9
+
+9:                                                ; preds = %4, %8
+  %.0 = phi ptr [ @.str.415, %8 ], [ @.str.11, %4 ]
   ret ptr %.0
 }
 

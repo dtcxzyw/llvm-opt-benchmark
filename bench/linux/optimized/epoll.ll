@@ -8,13 +8,13 @@ define dso_local noundef i32 @io_epoll_ctl_prep(ptr noundef %0, ptr noundef %1) 
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load i16, ptr %3, align 8
   %5 = icmp eq i16 %4, 0
-  br i1 %5, label %6, label %29
+  br i1 %5, label %6, label %30
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %1, i64 44
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %29
+  br i1 %9, label %10, label %30
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %1, i64 4
@@ -40,12 +40,14 @@ define dso_local noundef i32 @io_epoll_ctl_prep(ptr noundef %0, ptr noundef %1) 
   %26 = inttoptr i64 %24 to ptr
   %27 = tail call i64 @_copy_from_user(ptr noundef %25, ptr noundef %26, i64 noundef 12) #2
   %28 = icmp eq i64 %27, 0
-  %spec.select = select i1 %28, i32 0, i32 -14
-  br label %29
+  br i1 %28, label %29, label %30
 
-29:                                               ; preds = %22, %10, %6, %2
-  %30 = phi i32 [ -22, %6 ], [ -22, %2 ], [ 0, %10 ], [ %spec.select, %22 ]
-  ret i32 %30
+29:                                               ; preds = %22, %10
+  br label %30
+
+30:                                               ; preds = %29, %22, %6, %2
+  %31 = phi i32 [ 0, %29 ], [ -14, %22 ], [ -22, %6 ], [ -22, %2 ]
+  ret i32 %31
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -1325,7 +1325,7 @@ define void @ADIOI_Heap_merge(ptr nocapture noundef readonly %0, ptr nocapture n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %34 ]
-  %.0146163 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1147, %34 ]
+  %.0146161 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1147, %34 ]
   %14 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4
   %.not157 = icmp eq i32 %15, 0
@@ -1338,7 +1338,7 @@ define void @ADIOI_Heap_merge(ptr nocapture noundef readonly %0, ptr nocapture n
   %20 = load i32, ptr %19, align 4
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds i64, ptr %18, i64 %21
-  %23 = sext i32 %.0146163 to i64
+  %23 = sext i32 %.0146161 to i64
   %24 = getelementptr inbounds %struct.heap_struct, ptr %12, i64 %23
   store ptr %22, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %17, i64 8
@@ -1351,44 +1351,44 @@ define void @ADIOI_Heap_merge(ptr nocapture noundef readonly %0, ptr nocapture n
   %31 = load i32, ptr %14, align 4
   %32 = getelementptr inbounds i8, ptr %24, i64 16
   store i32 %31, ptr %32, align 8
-  %33 = add nsw i32 %.0146163, 1
+  %33 = add nsw i32 %.0146161, 1
   br label %34
 
 34:                                               ; preds = %.lr.ph, %16
-  %.1147 = phi i32 [ %33, %16 ], [ %.0146163, %.lr.ph ]
+  %.1147 = phi i32 [ %33, %16 ], [ %.0146161, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %34, %8
   %35 = icmp sgt i32 %6, 1
-  br i1 %35, label %.preheader161.preheader, label %.preheader
+  br i1 %35, label %.preheader159.preheader, label %.preheader
 
-.preheader161.preheader:                          ; preds = %._crit_edge
+.preheader159.preheader:                          ; preds = %._crit_edge
   %36 = lshr i32 %6, 1
-  br label %.preheader161
+  br label %.preheader159
 
-.loopexit:                                        ; preds = %68
-  %37 = icmp sgt i32 %.1149165.in, 1
-  br i1 %37, label %.preheader161, label %.preheader, !llvm.loop !28
+.loopexit:                                        ; preds = %69
+  %37 = icmp sgt i32 %.1149163.in, 1
+  br i1 %37, label %.preheader159, label %.preheader, !llvm.loop !28
 
-.preheader161:                                    ; preds = %.preheader161.preheader, %.loopexit
-  %.1149165.in = phi i32 [ %.1149165, %.loopexit ], [ %36, %.preheader161.preheader ]
-  %.1149165 = add nsw i32 %.1149165.in, -1
+.preheader159:                                    ; preds = %.preheader159.preheader, %.loopexit
+  %.1149163.in = phi i32 [ %.1149163, %.loopexit ], [ %36, %.preheader159.preheader ]
+  %.1149163 = add nsw i32 %.1149163.in, -1
   br label %41
 
 .preheader:                                       ; preds = %.loopexit, %._crit_edge
   %38 = icmp sgt i32 %7, 0
-  br i1 %38, label %.lr.ph168, label %._crit_edge169
+  br i1 %38, label %.lr.ph166, label %._crit_edge167
 
-.lr.ph168:                                        ; preds = %.preheader
+.lr.ph166:                                        ; preds = %.preheader
   %39 = getelementptr inbounds i8, ptr %12, i64 8
   %40 = getelementptr inbounds i8, ptr %12, i64 16
-  %wide.trip.count174 = zext nneg i32 %7 to i64
-  br label %80
+  %wide.trip.count172 = zext nneg i32 %7 to i64
+  br label %81
 
-41:                                               ; preds = %.preheader161, %69
-  %.0142 = phi i32 [ %.1, %69 ], [ %.1149165, %.preheader161 ]
+41:                                               ; preds = %.preheader159, %70
+  %.0142 = phi i32 [ %.1, %70 ], [ %.1149163, %.preheader159 ]
   %42 = shl i32 %.0142, 1
   %43 = add i32 %42, 2
   %44 = or disjoint i32 %42, 1
@@ -1405,162 +1405,166 @@ define void @ADIOI_Heap_merge(ptr nocapture noundef readonly %0, ptr nocapture n
   %53 = load ptr, ptr %52, align 8
   %54 = load i64, ptr %53, align 8
   %55 = icmp slt i64 %50, %54
-  %spec.select159 = select i1 %55, i32 %44, i32 %.0142
-  br label %56
+  br i1 %55, label %57, label %56
 
 56:                                               ; preds = %46, %41
-  %.0 = phi i32 [ %.0142, %41 ], [ %spec.select159, %46 ]
-  %57 = icmp slt i32 %43, %6
-  br i1 %57, label %58, label %68
+  br label %57
 
-58:                                               ; preds = %56
-  %59 = sext i32 %43 to i64
-  %60 = getelementptr inbounds %struct.heap_struct, ptr %12, i64 %59
-  %61 = load ptr, ptr %60, align 8
-  %62 = load i64, ptr %61, align 8
-  %63 = sext i32 %.0 to i64
-  %64 = getelementptr inbounds %struct.heap_struct, ptr %12, i64 %63
-  %65 = load ptr, ptr %64, align 8
-  %66 = load i64, ptr %65, align 8
-  %67 = icmp slt i64 %62, %66
-  %spec.select = select i1 %67, i32 %43, i32 %.0
-  br label %68
+57:                                               ; preds = %46, %56
+  %.0 = phi i32 [ %.0142, %56 ], [ %44, %46 ]
+  %58 = icmp slt i32 %43, %6
+  br i1 %58, label %59, label %69
 
-68:                                               ; preds = %58, %56
-  %.1 = phi i32 [ %.0, %56 ], [ %spec.select, %58 ]
+59:                                               ; preds = %57
+  %60 = sext i32 %43 to i64
+  %61 = getelementptr inbounds %struct.heap_struct, ptr %12, i64 %60
+  %62 = load ptr, ptr %61, align 8
+  %63 = load i64, ptr %62, align 8
+  %64 = sext i32 %.0 to i64
+  %65 = getelementptr inbounds %struct.heap_struct, ptr %12, i64 %64
+  %66 = load ptr, ptr %65, align 8
+  %67 = load i64, ptr %66, align 8
+  %68 = icmp slt i64 %63, %67
+  %spec.select = select i1 %68, i32 %43, i32 %.0
+  br label %69
+
+69:                                               ; preds = %59, %57
+  %.1 = phi i32 [ %.0, %57 ], [ %spec.select, %59 ]
   %.not156 = icmp eq i32 %.1, %.0142
-  br i1 %.not156, label %.loopexit, label %69
+  br i1 %.not156, label %.loopexit, label %70
 
-69:                                               ; preds = %68
-  %70 = sext i32 %.0142 to i64
-  %71 = getelementptr inbounds %struct.heap_struct, ptr %12, i64 %70
-  %72 = getelementptr inbounds i8, ptr %71, i64 16
-  %73 = load i32, ptr %72, align 8
-  %74 = sext i32 %.1 to i64
-  %75 = getelementptr inbounds %struct.heap_struct, ptr %12, i64 %74
-  %76 = getelementptr inbounds i8, ptr %75, i64 16
-  %77 = load i32, ptr %76, align 8
-  store i32 %77, ptr %72, align 8
-  %78 = load <2 x ptr>, ptr %71, align 8
-  %79 = load <2 x ptr>, ptr %75, align 8
-  store <2 x ptr> %79, ptr %71, align 8
-  store <2 x ptr> %78, ptr %75, align 8
-  store i32 %73, ptr %76, align 8
+70:                                               ; preds = %69
+  %71 = sext i32 %.0142 to i64
+  %72 = getelementptr inbounds %struct.heap_struct, ptr %12, i64 %71
+  %73 = getelementptr inbounds i8, ptr %72, i64 16
+  %74 = load i32, ptr %73, align 8
+  %75 = sext i32 %.1 to i64
+  %76 = getelementptr inbounds %struct.heap_struct, ptr %12, i64 %75
+  %77 = getelementptr inbounds i8, ptr %76, i64 16
+  %78 = load i32, ptr %77, align 8
+  store i32 %78, ptr %73, align 8
+  %79 = load <2 x ptr>, ptr %72, align 8
+  %80 = load <2 x ptr>, ptr %76, align 8
+  store <2 x ptr> %80, ptr %72, align 8
+  store <2 x ptr> %79, ptr %76, align 8
+  store i32 %74, ptr %77, align 8
   br label %41
 
-80:                                               ; preds = %.lr.ph168, %144
-  %indvars.iv171 = phi i64 [ 0, %.lr.ph168 ], [ %indvars.iv.next172, %144 ]
-  %.0144167 = phi i32 [ %6, %.lr.ph168 ], [ %.1145, %144 ]
-  %81 = load ptr, ptr %12, align 8
-  %82 = load i64, ptr %81, align 8
-  %83 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv171
-  store i64 %82, ptr %83, align 8
-  %84 = load ptr, ptr %39, align 8
-  %85 = load i64, ptr %84, align 8
-  %86 = trunc i64 %85 to i32
-  %87 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv171
-  store i32 %86, ptr %87, align 4
-  %88 = load i32, ptr %40, align 8
-  %89 = add nsw i32 %88, -1
-  store i32 %89, ptr %40, align 8
-  %.not = icmp eq i32 %89, 0
-  br i1 %.not, label %90, label %100
+81:                                               ; preds = %.lr.ph166, %146
+  %indvars.iv169 = phi i64 [ 0, %.lr.ph166 ], [ %indvars.iv.next170, %146 ]
+  %.0144165 = phi i32 [ %6, %.lr.ph166 ], [ %.1145, %146 ]
+  %82 = load ptr, ptr %12, align 8
+  %83 = load i64, ptr %82, align 8
+  %84 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv169
+  store i64 %83, ptr %84, align 8
+  %85 = load ptr, ptr %39, align 8
+  %86 = load i64, ptr %85, align 8
+  %87 = trunc i64 %86 to i32
+  %88 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv169
+  store i32 %87, ptr %88, align 4
+  %89 = load i32, ptr %40, align 8
+  %90 = add nsw i32 %89, -1
+  store i32 %90, ptr %40, align 8
+  %.not = icmp eq i32 %90, 0
+  br i1 %.not, label %91, label %101
 
-90:                                               ; preds = %80
-  %91 = sext i32 %.0144167 to i64
-  %92 = getelementptr %struct.heap_struct, ptr %12, i64 %91
-  %93 = getelementptr i8, ptr %92, i64 -24
-  %94 = load ptr, ptr %93, align 8
-  store ptr %94, ptr %12, align 8
-  %95 = getelementptr i8, ptr %92, i64 -16
-  %96 = load ptr, ptr %95, align 8
-  store ptr %96, ptr %39, align 8
-  %97 = getelementptr i8, ptr %92, i64 -8
-  %98 = load i32, ptr %97, align 8
-  store i32 %98, ptr %40, align 8
-  %99 = add nsw i32 %.0144167, -1
-  br label %105
+91:                                               ; preds = %81
+  %92 = sext i32 %.0144165 to i64
+  %93 = getelementptr %struct.heap_struct, ptr %12, i64 %92
+  %94 = getelementptr i8, ptr %93, i64 -24
+  %95 = load ptr, ptr %94, align 8
+  store ptr %95, ptr %12, align 8
+  %96 = getelementptr i8, ptr %93, i64 -16
+  %97 = load ptr, ptr %96, align 8
+  store ptr %97, ptr %39, align 8
+  %98 = getelementptr i8, ptr %93, i64 -8
+  %99 = load i32, ptr %98, align 8
+  store i32 %99, ptr %40, align 8
+  %100 = add nsw i32 %.0144165, -1
+  br label %106
 
-100:                                              ; preds = %80
-  %101 = load ptr, ptr %12, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 8
-  store ptr %102, ptr %12, align 8
-  %103 = load ptr, ptr %39, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 8
-  store ptr %104, ptr %39, align 8
-  br label %105
+101:                                              ; preds = %81
+  %102 = load ptr, ptr %12, align 8
+  %103 = getelementptr inbounds i8, ptr %102, i64 8
+  store ptr %103, ptr %12, align 8
+  %104 = load ptr, ptr %39, align 8
+  %105 = getelementptr inbounds i8, ptr %104, i64 8
+  store ptr %105, ptr %39, align 8
+  br label %106
 
-105:                                              ; preds = %100, %90
-  %106 = phi i32 [ %89, %100 ], [ %98, %90 ]
-  %107 = phi ptr [ %104, %100 ], [ %96, %90 ]
-  %108 = phi ptr [ %102, %100 ], [ %94, %90 ]
-  %.1145 = phi i32 [ %.0144167, %100 ], [ %99, %90 ]
-  br label %109
+106:                                              ; preds = %101, %91
+  %107 = phi i32 [ %90, %101 ], [ %99, %91 ]
+  %108 = phi ptr [ %105, %101 ], [ %97, %91 ]
+  %109 = phi ptr [ %103, %101 ], [ %95, %91 ]
+  %.1145 = phi i32 [ %.0144165, %101 ], [ %100, %91 ]
+  br label %110
 
-109:                                              ; preds = %134, %105
-  %.1143 = phi i32 [ 0, %105 ], [ %.3, %134 ]
-  %110 = shl i32 %.1143, 1
-  %111 = add i32 %110, 2
-  %112 = or disjoint i32 %110, 1
-  %113 = icmp slt i32 %112, %.1145
-  br i1 %113, label %114, label %121
+110:                                              ; preds = %136, %106
+  %.1143 = phi i32 [ 0, %106 ], [ %.3, %136 ]
+  %111 = shl i32 %.1143, 1
+  %112 = add i32 %111, 2
+  %113 = or disjoint i32 %111, 1
+  %114 = icmp slt i32 %113, %.1145
+  br i1 %114, label %115, label %122
 
-114:                                              ; preds = %109
-  %115 = sext i32 %112 to i64
-  %116 = getelementptr inbounds %struct.heap_struct, ptr %12, i64 %115
-  %117 = load ptr, ptr %116, align 8
-  %118 = load i64, ptr %117, align 8
-  %119 = load i64, ptr %108, align 8
-  %120 = icmp slt i64 %118, %119
-  %spec.select160 = select i1 %120, i32 %112, i32 %.1143
-  br label %121
+115:                                              ; preds = %110
+  %116 = sext i32 %113 to i64
+  %117 = getelementptr inbounds %struct.heap_struct, ptr %12, i64 %116
+  %118 = load ptr, ptr %117, align 8
+  %119 = load i64, ptr %118, align 8
+  %120 = load i64, ptr %109, align 8
+  %121 = icmp slt i64 %119, %120
+  br i1 %121, label %123, label %122
 
-121:                                              ; preds = %114, %109
-  %.2 = phi i32 [ %.1143, %109 ], [ %spec.select160, %114 ]
-  %122 = icmp slt i32 %111, %.1145
-  br i1 %122, label %123, label %133
+122:                                              ; preds = %115, %110
+  br label %123
 
-123:                                              ; preds = %121
-  %124 = sext i32 %111 to i64
-  %125 = getelementptr inbounds %struct.heap_struct, ptr %12, i64 %124
-  %126 = load ptr, ptr %125, align 8
-  %127 = load i64, ptr %126, align 8
-  %128 = sext i32 %.2 to i64
-  %129 = getelementptr inbounds %struct.heap_struct, ptr %12, i64 %128
-  %130 = load ptr, ptr %129, align 8
-  %131 = load i64, ptr %130, align 8
-  %132 = icmp slt i64 %127, %131
-  %spec.select158 = select i1 %132, i32 %111, i32 %.2
-  br label %133
+123:                                              ; preds = %115, %122
+  %.2 = phi i32 [ %.1143, %122 ], [ %113, %115 ]
+  %124 = icmp slt i32 %112, %.1145
+  br i1 %124, label %125, label %135
 
-133:                                              ; preds = %123, %121
-  %.3 = phi i32 [ %.2, %121 ], [ %spec.select158, %123 ]
+125:                                              ; preds = %123
+  %126 = sext i32 %112 to i64
+  %127 = getelementptr inbounds %struct.heap_struct, ptr %12, i64 %126
+  %128 = load ptr, ptr %127, align 8
+  %129 = load i64, ptr %128, align 8
+  %130 = sext i32 %.2 to i64
+  %131 = getelementptr inbounds %struct.heap_struct, ptr %12, i64 %130
+  %132 = load ptr, ptr %131, align 8
+  %133 = load i64, ptr %132, align 8
+  %134 = icmp slt i64 %129, %133
+  %spec.select158 = select i1 %134, i32 %112, i32 %.2
+  br label %135
+
+135:                                              ; preds = %125, %123
+  %.3 = phi i32 [ %.2, %123 ], [ %spec.select158, %125 ]
   %.not155 = icmp eq i32 %.3, %.1143
-  br i1 %.not155, label %144, label %134
+  br i1 %.not155, label %146, label %136
 
-134:                                              ; preds = %133
-  %135 = sext i32 %.1143 to i64
-  %136 = getelementptr inbounds %struct.heap_struct, ptr %12, i64 %135
-  %137 = getelementptr inbounds i8, ptr %136, i64 16
-  %138 = sext i32 %.3 to i64
-  %139 = getelementptr inbounds %struct.heap_struct, ptr %12, i64 %138
-  %140 = getelementptr inbounds i8, ptr %139, i64 8
-  %141 = load <2 x ptr>, ptr %139, align 8
-  store <2 x ptr> %141, ptr %136, align 8
-  %142 = getelementptr inbounds i8, ptr %139, i64 16
-  %143 = load i32, ptr %142, align 8
-  store i32 %143, ptr %137, align 8
-  store ptr %108, ptr %139, align 8
-  store ptr %107, ptr %140, align 8
-  store i32 %106, ptr %142, align 8
-  br label %109
+136:                                              ; preds = %135
+  %137 = sext i32 %.1143 to i64
+  %138 = getelementptr inbounds %struct.heap_struct, ptr %12, i64 %137
+  %139 = getelementptr inbounds i8, ptr %138, i64 16
+  %140 = sext i32 %.3 to i64
+  %141 = getelementptr inbounds %struct.heap_struct, ptr %12, i64 %140
+  %142 = getelementptr inbounds i8, ptr %141, i64 8
+  %143 = load <2 x ptr>, ptr %141, align 8
+  store <2 x ptr> %143, ptr %138, align 8
+  %144 = getelementptr inbounds i8, ptr %141, i64 16
+  %145 = load i32, ptr %144, align 8
+  store i32 %145, ptr %139, align 8
+  store ptr %109, ptr %141, align 8
+  store ptr %108, ptr %142, align 8
+  store i32 %107, ptr %144, align 8
+  br label %110
 
-144:                                              ; preds = %133
-  %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 1
-  %exitcond175.not = icmp eq i64 %indvars.iv.next172, %wide.trip.count174
-  br i1 %exitcond175.not, label %._crit_edge169, label %80, !llvm.loop !29
+146:                                              ; preds = %135
+  %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
+  %exitcond173.not = icmp eq i64 %indvars.iv.next170, %wide.trip.count172
+  br i1 %exitcond173.not, label %._crit_edge167, label %81, !llvm.loop !29
 
-._crit_edge169:                                   ; preds = %144, %.preheader
+._crit_edge167:                                   ; preds = %146, %.preheader
   tail call void @ADIOI_Free_fn(ptr noundef %12, i32 noundef 1032, ptr noundef nonnull @.str) #6
   ret void
 }

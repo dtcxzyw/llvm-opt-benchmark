@@ -923,7 +923,7 @@ declare i32 @ASN1_UTCTIME_set_string(ptr noundef, ptr noundef) local_unnamed_add
 declare i32 @ASN1_GENERALIZEDTIME_set_string(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @ASN1_TIME_set_string_X509(ptr noundef %s, ptr noundef %str) local_unnamed_addr #1 {
+define noundef i32 @ASN1_TIME_set_string_X509(ptr noundef %s, ptr noundef %str) local_unnamed_addr #1 {
 ASN1_TIME_check.exit:
   %t = alloca %struct.asn1_string_st, align 8
   %tm = alloca %struct.tm, align 8
@@ -986,16 +986,18 @@ if.end28:                                         ; preds = %if.then18
 
 if.end34:                                         ; preds = %if.end6
   %cmp35 = icmp eq ptr %s, null
-  br i1 %cmp35, label %if.end40, label %lor.lhs.false
+  br i1 %cmp35, label %if.then39, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end28, %if.end15, %if.end34
   %call37 = call i32 @ASN1_STRING_copy(ptr noundef nonnull %s, ptr noundef nonnull %t) #9
-  %tobool38.not = icmp ne i32 %call37, 0
-  %spec.select = zext i1 %tobool38.not to i32
+  %tobool38.not = icmp eq i32 %call37, 0
+  br i1 %tobool38.not, label %if.end40, label %if.then39
+
+if.then39:                                        ; preds = %lor.lhs.false, %if.end34
   br label %if.end40
 
-if.end40:                                         ; preds = %lor.lhs.false, %if.end34
-  %rv.0 = phi i32 [ 1, %if.end34 ], [ %spec.select, %lor.lhs.false ]
+if.end40:                                         ; preds = %if.then39, %lor.lhs.false
+  %rv.0 = phi i32 [ 1, %if.then39 ], [ 0, %lor.lhs.false ]
   %5 = load ptr, ptr %data, align 8
   %cmp42.not = icmp eq ptr %5, %str
   br i1 %cmp42.not, label %out, label %if.then44

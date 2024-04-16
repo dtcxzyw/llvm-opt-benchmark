@@ -3642,8 +3642,8 @@ if.then23:                                        ; preds = %if.else
   %switch.select17 = select i1 %switch.selectcmp16, i32 3, i32 %switch.select
   br label %return
 
-return:                                           ; preds = %if.then23, %entry, %if.else, %if.then13
-  %retval.0 = phi i32 [ %conv18, %if.then13 ], [ 1, %if.else ], [ 1, %entry ], [ %switch.select17, %if.then23 ]
+return:                                           ; preds = %entry, %if.else, %if.then23, %if.then13
+  %retval.0 = phi i32 [ %conv18, %if.then13 ], [ %switch.select17, %if.then23 ], [ 1, %if.else ], [ 1, %entry ]
   ret i32 %retval.0
 }
 

@@ -774,8 +774,8 @@ if.then34.i:                                      ; preds = %if.then31.i
 
 land.lhs.true.i71:                                ; preds = %if.then34.i
   store ptr null, ptr %pkey.i, align 8
-  %call.i28.i = call i32 @OPENSSL_sk_push(ptr noundef nonnull %call.i.i70, ptr noundef nonnull %call35.i) #5
-  %cmp40.not.i = icmp eq i32 %call.i28.i, 0
+  %call.i25.i = call i32 @OPENSSL_sk_push(ptr noundef nonnull %call.i.i70, ptr noundef nonnull %call35.i) #5
+  %cmp40.not.i = icmp eq i32 %call.i25.i, 0
   br i1 %cmp40.not.i, label %if.end85.i, label %if.end45.i
 
 if.end45.i:                                       ; preds = %land.lhs.true.i71, %if.then31.i
@@ -786,18 +786,18 @@ if.end45.i:                                       ; preds = %land.lhs.true.i71, 
 if.then50.i:                                      ; preds = %if.end45.i
   %call51.i = call ptr @OSSL_STORE_INFO_new_CERT(ptr noundef nonnull %56) #5
   %cmp52.not.i = icmp eq ptr %call51.i, null
-  br i1 %cmp52.not.i, label %if.end85.i, label %if.end62.i
+  br i1 %cmp52.not.i, label %if.end85.i, label %land.lhs.true54.i
 
-if.end62.i:                                       ; preds = %if.then50.i
+land.lhs.true54.i:                                ; preds = %if.then50.i
   store ptr null, ptr %cert.i62, align 8
-  %call.i29.i72 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %call.i.i70, ptr noundef nonnull %call51.i) #5
-  %cmp57.not.not.i = icmp eq i32 %call.i29.i72, 0
-  br i1 %cmp57.not.not.i, label %if.end85.i, label %land.rhs.i.preheader
+  %call.i26.i = call i32 @OPENSSL_sk_push(ptr noundef nonnull %call.i.i70, ptr noundef nonnull %call51.i) #5
+  %cmp57.not.i = icmp eq i32 %call.i26.i, 0
+  br i1 %cmp57.not.i, label %if.end85.i, label %land.rhs.i.preheader
 
-land.rhs.i.preheader:                             ; preds = %if.end62.i, %if.end45.i
+land.rhs.i.preheader:                             ; preds = %land.lhs.true54.i, %if.end45.i
   br label %land.rhs.i
 
-land.rhs.i:                                       ; preds = %land.rhs.i.preheader, %if.end84.i
+land.rhs.i:                                       ; preds = %land.rhs.i.preheader, %land.lhs.true78.i
   %57 = load ptr, ptr %chain.i, align 8
   %call65.i = call i32 @OPENSSL_sk_num(ptr noundef %57) #5
   %cmp66.i = icmp sgt i32 %call65.i, 0
@@ -814,18 +814,18 @@ land.lhs.true73.i:                                ; preds = %while.body.i
   %59 = load ptr, ptr %chain.i, align 8
   %call75.i = call ptr @OPENSSL_sk_shift(ptr noundef %59) #5
   %cmp76.not.i = icmp eq ptr %call75.i, null
-  br i1 %cmp76.not.i, label %if.end85.i, label %if.end84.i
+  br i1 %cmp76.not.i, label %if.end85.i, label %land.lhs.true78.i
 
-if.end84.i:                                       ; preds = %land.lhs.true73.i
-  %call.i30.i = call i32 @OPENSSL_sk_push(ptr noundef nonnull %call.i.i70, ptr noundef nonnull %call70.i) #5
-  %cmp80.not.not.i = icmp eq i32 %call.i30.i, 0
-  br i1 %cmp80.not.not.i, label %if.end85.i, label %land.rhs.i, !llvm.loop !6
+land.lhs.true78.i:                                ; preds = %land.lhs.true73.i
+  %call.i27.i72 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %call.i.i70, ptr noundef nonnull %call70.i) #5
+  %cmp80.not.i = icmp eq i32 %call.i27.i72, 0
+  br i1 %cmp80.not.i, label %if.end85.i, label %land.rhs.i, !llvm.loop !6
 
-if.end85.i:                                       ; preds = %if.end84.i, %land.lhs.true73.i, %while.body.i, %land.rhs.i, %if.end62.i, %if.then50.i, %land.lhs.true.i71, %if.then34.i, %if.then27.i
-  %osi_pkey.1.i = phi ptr [ null, %if.then27.i ], [ null, %if.end62.i ], [ %call35.i, %land.lhs.true.i71 ], [ null, %if.then34.i ], [ null, %if.then50.i ], [ null, %land.rhs.i ], [ null, %while.body.i ], [ null, %land.lhs.true73.i ], [ null, %if.end84.i ]
-  %osi_cert.1.i = phi ptr [ null, %if.then27.i ], [ %call51.i, %if.end62.i ], [ null, %land.lhs.true.i71 ], [ null, %if.then34.i ], [ null, %if.then50.i ], [ null, %land.rhs.i ], [ null, %while.body.i ], [ null, %land.lhs.true73.i ], [ null, %if.end84.i ]
-  %osi_ca.2.i = phi ptr [ null, %if.then27.i ], [ null, %if.end62.i ], [ null, %land.lhs.true.i71 ], [ null, %if.then34.i ], [ null, %if.then50.i ], [ %call70.i, %if.end84.i ], [ %call70.i, %land.lhs.true73.i ], [ null, %while.body.i ], [ null, %land.rhs.i ]
-  %tobool86.not.i = phi i1 [ false, %if.then27.i ], [ true, %if.end62.i ], [ true, %land.lhs.true.i71 ], [ true, %if.then34.i ], [ true, %if.then50.i ], [ %cmp66.i, %land.rhs.i ], [ %cmp66.i, %while.body.i ], [ %cmp66.i, %land.lhs.true73.i ], [ %cmp66.i, %if.end84.i ]
+if.end85.i:                                       ; preds = %land.lhs.true78.i, %land.lhs.true73.i, %while.body.i, %land.rhs.i, %land.lhs.true54.i, %if.then50.i, %land.lhs.true.i71, %if.then34.i, %if.then27.i
+  %osi_pkey.1.i = phi ptr [ null, %if.then27.i ], [ %call35.i, %land.lhs.true.i71 ], [ null, %if.then34.i ], [ null, %land.lhs.true54.i ], [ null, %if.then50.i ], [ null, %land.rhs.i ], [ null, %while.body.i ], [ null, %land.lhs.true73.i ], [ null, %land.lhs.true78.i ]
+  %osi_cert.1.i = phi ptr [ null, %if.then27.i ], [ null, %land.lhs.true.i71 ], [ null, %if.then34.i ], [ %call51.i, %land.lhs.true54.i ], [ null, %if.then50.i ], [ null, %land.rhs.i ], [ null, %while.body.i ], [ null, %land.lhs.true73.i ], [ null, %land.lhs.true78.i ]
+  %osi_ca.2.i = phi ptr [ null, %if.then27.i ], [ null, %land.lhs.true.i71 ], [ null, %if.then34.i ], [ null, %land.lhs.true54.i ], [ null, %if.then50.i ], [ %call70.i, %land.lhs.true78.i ], [ %call70.i, %land.lhs.true73.i ], [ null, %while.body.i ], [ null, %land.rhs.i ]
+  %tobool86.not.i = phi i1 [ false, %if.then27.i ], [ true, %land.lhs.true.i71 ], [ true, %if.then34.i ], [ true, %land.lhs.true54.i ], [ true, %if.then50.i ], [ %cmp66.i, %land.rhs.i ], [ %cmp66.i, %while.body.i ], [ %cmp66.i, %land.lhs.true73.i ], [ %cmp66.i, %land.lhs.true78.i ]
   %60 = load ptr, ptr %pkey.i, align 8
   call void @EVP_PKEY_free(ptr noundef %60) #5
   %61 = load ptr, ptr %cert.i62, align 8
@@ -853,8 +853,8 @@ p12_end.i:                                        ; preds = %if.end88.i, %if.end
   call void @PKCS12_free(ptr noundef nonnull %call.i67) #5
   %cached_info92.i = getelementptr inbounds i8, ptr %0, i64 64
   %63 = load ptr, ptr %cached_info92.i, align 8
-  %call.i31.i = call ptr @OPENSSL_sk_shift(ptr noundef %63) #5
-  store ptr %call.i31.i, ptr %arg, align 8
+  %call.i28.i = call ptr @OPENSSL_sk_shift(ptr noundef %63) #5
+  store ptr %call.i28.i, ptr %arg, align 8
   call void @llvm.lifetime.end.p0(i64 1025, ptr nonnull %tpass.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tpass_len.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pkey.i)
@@ -866,8 +866,8 @@ p12_end.i:                                        ; preds = %if.end88.i, %if.end
 if.end83.critedge:                                ; preds = %if.then.i64
   %cached_info92.i.c = getelementptr inbounds i8, ptr %0, i64 64
   %64 = load ptr, ptr %cached_info92.i.c, align 8
-  %call.i31.i.c = call ptr @OPENSSL_sk_shift(ptr noundef %64) #5
-  store ptr %call.i31.i.c, ptr %arg, align 8
+  %call.i28.i.c = call ptr @OPENSSL_sk_shift(ptr noundef %64) #5
+  store ptr %call.i28.i.c, ptr %arg, align 8
   call void @llvm.lifetime.end.p0(i64 1025, ptr nonnull %tpass.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tpass_len.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pkey.i)

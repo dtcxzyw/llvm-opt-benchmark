@@ -995,7 +995,7 @@ define internal fastcc zeroext i1 @match_smt(ptr nocapture noundef readonly %0, 
   %15 = getelementptr inbounds i8, ptr %1, i64 224
   %16 = load i32, ptr %15, align 8
   %17 = icmp eq i32 %14, %16
-  br i1 %17, label %18, label %122
+  br i1 %17, label %18, label %.thread
 
 18:                                               ; preds = %6
   %19 = getelementptr inbounds i8, ptr %0, i64 228
@@ -1003,7 +1003,7 @@ define internal fastcc zeroext i1 @match_smt(ptr nocapture noundef readonly %0, 
   %21 = getelementptr inbounds i8, ptr %1, i64 228
   %22 = load i32, ptr %21, align 4
   %23 = icmp eq i32 %20, %22
-  br i1 %23, label %24, label %122
+  br i1 %23, label %24, label %.thread
 
 24:                                               ; preds = %18
   %25 = zext i16 %8 to i64
@@ -1019,7 +1019,7 @@ define internal fastcc zeroext i1 @match_smt(ptr nocapture noundef readonly %0, 
   %35 = inttoptr i64 %34 to ptr
   %36 = load i32, ptr %35, align 4
   %37 = icmp eq i32 %30, %36
-  br i1 %37, label %38, label %122
+  br i1 %37, label %38, label %.thread
 
 38:                                               ; preds = %24
   %39 = getelementptr inbounds i8, ptr %0, i64 236
@@ -1039,7 +1039,7 @@ define internal fastcc zeroext i1 @match_smt(ptr nocapture noundef readonly %0, 
   %51 = icmp eq i32 %47, %50
   %52 = load i1, ptr @topology_sane.__already_done, align 1
   %53 = select i1 %51, i1 true, i1 %52
-  br i1 %53, label %122, label %54, !prof !16
+  br i1 %53, label %.thread, label %54, !prof !16
 
 54:                                               ; preds = %44
   store i1 true, ptr @topology_sane.__already_done, align 1
@@ -1057,23 +1057,23 @@ define internal fastcc zeroext i1 @match_smt(ptr nocapture noundef readonly %0, 
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.15, i32 475, i32 2313, i64 12) #23, !srcloc !19
   tail call void asm sideeffect "501: nop\0A\09.pushsection .discard.instr_end\0A\09.long 501b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 501) #23, !srcloc !20
   tail call void asm sideeffect "502: nop\0A\09.pushsection .discard.instr_end\0A\09.long 502b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 502) #23, !srcloc !21
-  br label %122
+  br label %.thread
 
 63:                                               ; preds = %38
   %64 = getelementptr inbounds i8, ptr %0, i64 232
   %65 = load i32, ptr %64, align 8
   %66 = icmp eq i32 %65, 255
-  br i1 %66, label %122, label %67
+  br i1 %66, label %.thread, label %67
 
 67:                                               ; preds = %63
   %68 = getelementptr inbounds i8, ptr %1, i64 232
   %69 = load i32, ptr %68, align 8
   %70 = icmp eq i32 %65, %69
-  br i1 %70, label %71, label %122
+  br i1 %70, label %71, label %.thread
 
 71:                                               ; preds = %67
   %72 = tail call fastcc zeroext i1 @topology_sane(i16 %8, i16 %11)
-  br label %122
+  br label %.thread
 
 73:                                               ; preds = %2
   %74 = getelementptr inbounds i8, ptr %0, i64 224
@@ -1081,7 +1081,7 @@ define internal fastcc zeroext i1 @match_smt(ptr nocapture noundef readonly %0, 
   %76 = getelementptr inbounds i8, ptr %1, i64 224
   %77 = load i32, ptr %76, align 8
   %78 = icmp eq i32 %75, %77
-  br i1 %78, label %79, label %122
+  br i1 %78, label %79, label %.thread
 
 79:                                               ; preds = %73
   %80 = getelementptr inbounds i8, ptr %0, i64 228
@@ -1089,7 +1089,7 @@ define internal fastcc zeroext i1 @match_smt(ptr nocapture noundef readonly %0, 
   %82 = getelementptr inbounds i8, ptr %1, i64 228
   %83 = load i32, ptr %82, align 4
   %84 = icmp eq i32 %81, %83
-  br i1 %84, label %85, label %122
+  br i1 %84, label %85, label %.thread
 
 85:                                               ; preds = %79
   %86 = getelementptr inbounds i8, ptr %0, i64 236
@@ -1097,7 +1097,7 @@ define internal fastcc zeroext i1 @match_smt(ptr nocapture noundef readonly %0, 
   %88 = getelementptr inbounds i8, ptr %1, i64 236
   %89 = load i32, ptr %88, align 4
   %90 = icmp eq i32 %87, %89
-  br i1 %90, label %91, label %122
+  br i1 %90, label %91, label %.thread
 
 91:                                               ; preds = %85
   %92 = getelementptr inbounds i8, ptr %0, i64 302
@@ -1119,7 +1119,7 @@ define internal fastcc zeroext i1 @match_smt(ptr nocapture noundef readonly %0, 
   %108 = icmp eq i32 %101, %107
   %109 = load i1, ptr @topology_sane.__already_done, align 1
   %110 = select i1 %108, i1 true, i1 %109
-  br i1 %110, label %122, label %111, !prof !16
+  br i1 %110, label %.thread, label %111, !prof !16
 
 111:                                              ; preds = %91
   %112 = zext i16 %95 to i32
@@ -1139,11 +1139,11 @@ define internal fastcc zeroext i1 @match_smt(ptr nocapture noundef readonly %0, 
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.15, i32 475, i32 2313, i64 12) #23, !srcloc !19
   tail call void asm sideeffect "501: nop\0A\09.pushsection .discard.instr_end\0A\09.long 501b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 501) #23, !srcloc !20
   tail call void asm sideeffect "502: nop\0A\09.pushsection .discard.instr_end\0A\09.long 502b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 502) #23, !srcloc !21
-  br label %122
+  br label %.thread
 
-122:                                              ; preds = %6, %18, %24, %44, %54, %63, %67, %71, %73, %79, %85, %111, %91
-  %123 = phi i1 [ %108, %91 ], [ false, %111 ], [ false, %85 ], [ false, %79 ], [ false, %73 ], [ %72, %71 ], [ false, %63 ], [ false, %67 ], [ false, %24 ], [ false, %18 ], [ false, %6 ], [ %51, %44 ], [ false, %54 ]
-  ret i1 %123
+.thread:                                          ; preds = %6, %18, %24, %67, %63, %73, %79, %85, %44, %54, %71, %111, %91
+  %122 = phi i1 [ %108, %91 ], [ false, %111 ], [ %72, %71 ], [ %51, %44 ], [ false, %54 ], [ false, %85 ], [ false, %79 ], [ false, %73 ], [ false, %63 ], [ false, %67 ], [ false, %24 ], [ false, %18 ], [ false, %6 ]
+  ret i1 %122
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none)

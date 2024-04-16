@@ -112,12 +112,11 @@ define dso_local noundef i32 @nf_nat_manip_pkt(ptr noundef %0, ptr noundef %1, i
 41:                                               ; preds = %38, %36
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #8
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #8
-  br label %46
+  br label %47
 
 42:                                               ; preds = %4
   %43 = call fastcc zeroext i1 @nf_nat_ipv4_manip_pkt(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %7, i32 noundef %2)
-  %spec.select = zext i1 %43 to i32
-  br label %46
+  br i1 %43, label %47, label %46
 
 44:                                               ; preds = %4
   call void asm sideeffect "1017: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1017b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1017) #8, !srcloc !6
@@ -130,10 +129,13 @@ define dso_local noundef i32 @nf_nat_manip_pkt(ptr noundef %0, ptr noundef %1, i
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #8
   br label %46
 
-46:                                               ; preds = %42, %44, %45, %41
-  %47 = phi i32 [ 1, %41 ], [ 0, %45 ], [ 0, %44 ], [ %spec.select, %42 ]
+46:                                               ; preds = %45, %44, %42
+  br label %47
+
+47:                                               ; preds = %46, %42, %41
+  %48 = phi i32 [ 0, %46 ], [ 1, %41 ], [ 1, %42 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #8
-  ret i32 %47
+  ret i32 %48
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -1458,7 +1460,7 @@ define internal fastcc i32 @nf_xfrm_me_harder(ptr noundef %0, ptr noundef %1, i3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %4, i8 0, i64 88, i1 false), !annotation !5
   %7 = call i32 @__xfrm_decode_session(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4, i32 noundef %2, i32 noundef 0) #8
   %8 = icmp slt i32 %7, 0
-  br i1 %8, label %79, label %9
+  br i1 %8, label %80, label %9
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %1, i64 88
@@ -1486,7 +1488,7 @@ define internal fastcc i32 @nf_xfrm_me_harder(ptr noundef %0, ptr noundef %1, i3
 
 26:                                               ; preds = %20
   %27 = call zeroext i1 @rcuref_get_slowpath(ptr noundef %22) #8
-  br i1 %27, label %28, label %79
+  br i1 %27, label %28, label %80
 
 28:                                               ; preds = %26, %20
   %29 = icmp eq ptr %6, null
@@ -1508,7 +1510,7 @@ define internal fastcc i32 @nf_xfrm_me_harder(ptr noundef %0, ptr noundef %1, i3
 39:                                               ; preds = %35
   %40 = ptrtoint ptr %37 to i64
   %41 = trunc i64 %40 to i32
-  br label %79
+  br label %80
 
 42:                                               ; preds = %35
   %43 = load i64, ptr %10, align 8
@@ -1557,13 +1559,15 @@ define internal fastcc i32 @nf_xfrm_me_harder(ptr noundef %0, ptr noundef %1, i3
   %76 = sub nsw i32 %65, %73
   %77 = call i32 @pskb_expand_head(ptr noundef %1, i32 noundef %76, i32 noundef 0, i32 noundef 2080) #8
   %78 = icmp eq i32 %77, 0
-  %spec.select = select i1 %78, i32 0, i32 -12
-  br label %79
+  br i1 %78, label %79, label %80
 
-79:                                               ; preds = %75, %49, %39, %26, %3
-  %80 = phi i32 [ %41, %39 ], [ %7, %3 ], [ -113, %26 ], [ 0, %49 ], [ %spec.select, %75 ]
+79:                                               ; preds = %75, %49
+  br label %80
+
+80:                                               ; preds = %79, %75, %39, %26, %3
+  %81 = phi i32 [ %41, %39 ], [ 0, %79 ], [ %7, %3 ], [ -113, %26 ], [ -12, %75 ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4) #8
-  ret i32 %80
+  ret i32 %81
 }
 
 ; Function Attrs: null_pointer_is_valid

@@ -5743,7 +5743,7 @@ IDASensPredict.exit.i:                            ; preds = %.lr.ph.i135.i, %764
   %818 = getelementptr inbounds i8, ptr %817, i64 16
   %819 = load ptr, ptr %818, align 8
   %.not139.i.i = icmp eq ptr %819, null
-  br i1 %.not139.i.i, label %.thread147.i.i.sink.split, label %.thread146.i.i
+  br i1 %.not139.i.i, label %.thread148.i.i, label %.thread146.i.i
 
 .thread.i.i:                                      ; preds = %812
   %820 = load ptr, ptr %359, align 8
@@ -5771,14 +5771,14 @@ IDASensPredict.exit.i:                            ; preds = %.lr.ph.i135.i, %764
 830:                                              ; preds = %829
   br i1 %785, label %.thread148.i.i, label %.thread147.i.i.sink.split
 
-.thread148.i.i:                                   ; preds = %830
+.thread148.i.i:                                   ; preds = %830, %813
   br label %.thread147.i.i.sink.split
 
-.thread147.i.i.sink.split:                        ; preds = %813, %830, %.thread148.i.i
-  %.sink645 = phi ptr [ %358, %830 ], [ %363, %813 ], [ %363, %.thread148.i.i ]
-  %.sink644.ph = phi ptr [ %345, %830 ], [ %364, %813 ], [ %364, %.thread148.i.i ]
-  %.sink643.ph = phi ptr [ %359, %830 ], [ %360, %813 ], [ %360, %.thread148.i.i ]
-  %.sink642.ph = phi ptr [ %309, %830 ], [ %365, %813 ], [ %365, %.thread148.i.i ]
+.thread147.i.i.sink.split:                        ; preds = %830, %.thread148.i.i
+  %.sink645 = phi ptr [ %363, %.thread148.i.i ], [ %358, %830 ]
+  %.sink644.ph = phi ptr [ %364, %.thread148.i.i ], [ %345, %830 ]
+  %.sink643.ph = phi ptr [ %360, %.thread148.i.i ], [ %359, %830 ]
+  %.sink642.ph = phi ptr [ %365, %.thread148.i.i ], [ %309, %830 ]
   %.pre149.i.i = load ptr, ptr %.sink645, align 8
   br label %.thread147.i.i
 

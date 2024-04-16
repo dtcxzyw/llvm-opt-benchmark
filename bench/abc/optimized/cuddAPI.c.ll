@@ -410,7 +410,7 @@ declare void @Cudd_RecursiveDerefZdd(ptr noundef, ptr noundef) local_unnamed_add
 ; Function Attrs: nounwind uwtable
 define noundef i32 @Cudd_zddVarsFromBddVars(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp slt i32 %1, 1
-  br i1 %3, label %120, label %4
+  br i1 %3, label %122, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 140
@@ -426,7 +426,7 @@ define noundef i32 @Cudd_zddVarsFromBddVars(ptr noundef %0, i32 noundef %1) loca
   %13 = add nsw i32 %10, -1
   %14 = tail call i32 @cuddResizeTableZdd(ptr noundef nonnull %0, i32 noundef %13) #20
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %120, label %16
+  br i1 %15, label %122, label %16
 
 16:                                               ; preds = %12, %4
   br i1 %7, label %.preheader123, label %59
@@ -555,7 +555,7 @@ define noundef i32 @Cudd_zddVarsFromBddVars(ptr noundef %0, i32 noundef %1) loca
 77:                                               ; preds = %59
   %78 = getelementptr inbounds i8, ptr %0, i64 624
   store i32 1, ptr %78, align 8
-  br label %120
+  br label %122
 
 ._crit_edge128:                                   ; preds = %._crit_edge.us, %.preheader125
   %79 = mul nsw i32 %65, %1
@@ -579,7 +579,7 @@ define noundef i32 @Cudd_zddVarsFromBddVars(ptr noundef %0, i32 noundef %1) loca
   %84 = tail call i32 @Cudd_zddShuffleHeap(ptr noundef %0, ptr noundef nonnull %63) #20
   tail call void @free(ptr noundef nonnull %63) #20
   %85 = icmp eq i32 %84, 0
-  br i1 %85, label %120, label %.loopexit
+  br i1 %85, label %122, label %.loopexit
 
 .loopexit:                                        ; preds = %49, %.preheader121, %._crit_edge
   %86 = getelementptr inbounds i8, ptr %0, i64 528
@@ -602,18 +602,18 @@ Cudd_FreeZddTree.exit:                            ; preds = %.loopexit
   %92 = tail call ptr @Mtr_CopyTree(ptr noundef nonnull %90, i32 noundef %1) #20
   store ptr %92, ptr %86, align 8
   %93 = icmp eq ptr %92, null
-  br i1 %93, label %120, label %103
+  br i1 %93, label %122, label %103
 
 94:                                               ; preds = %88
   %cond = icmp eq i32 %1, 1
-  br i1 %cond, label %120, label %95
+  br i1 %cond, label %121, label %95
 
 95:                                               ; preds = %94
   %96 = load i32, ptr %5, align 4
   %97 = tail call ptr @Mtr_InitGroupTree(i32 noundef 0, i32 noundef %96) #20
   store ptr %97, ptr %86, align 8
   %98 = icmp eq ptr %97, null
-  br i1 %98, label %120, label %.thread
+  br i1 %98, label %122, label %.thread
 
 .thread:                                          ; preds = %95
   %99 = getelementptr inbounds i8, ptr %0, i64 336
@@ -625,7 +625,7 @@ Cudd_FreeZddTree.exit:                            ; preds = %.loopexit
 
 103:                                              ; preds = %91
   %.not119 = icmp eq i32 %1, 1
-  br i1 %.not119, label %120, label %104
+  br i1 %.not119, label %121, label %104
 
 104:                                              ; preds = %.thread, %103
   %105 = load i32, ptr %8, align 8
@@ -637,7 +637,7 @@ Cudd_FreeZddTree.exit:                            ; preds = %.loopexit
 109:                                              ; preds = %104
   %110 = getelementptr inbounds i8, ptr %0, i64 624
   store i32 1, ptr %110, align 8
-  br label %120
+  br label %122
 
 111:                                              ; preds = %104
   %112 = tail call noalias ptr @malloc(i64 noundef %106) #21
@@ -657,17 +657,21 @@ Cudd_FreeZddTree.exit:                            ; preds = %.loopexit
 116:                                              ; preds = %111
   %117 = getelementptr inbounds i8, ptr %0, i64 624
   store i32 1, ptr %117, align 8
-  br label %120
+  br label %122
 
 ._crit_edge138:                                   ; preds = %.lr.ph137.preheader, %.preheader
   %118 = load ptr, ptr %86, align 8
   %119 = tail call fastcc i32 @addMultiplicityGroups(ptr noundef nonnull %0, ptr noundef %118, i32 noundef %1, ptr noundef nonnull %107, ptr noundef nonnull %112), !range !17
   tail call void @free(ptr noundef nonnull %107) #20
   tail call void @free(ptr noundef nonnull %112) #20
-  br label %120
+  %120 = icmp eq i32 %119, 0
+  br i1 %120, label %122, label %121
 
-120:                                              ; preds = %._crit_edge138, %94, %103, %95, %91, %._crit_edge, %12, %2, %116, %109, %77
-  %.0 = phi i32 [ 0, %109 ], [ 0, %116 ], [ 0, %77 ], [ 0, %2 ], [ 0, %12 ], [ 0, %._crit_edge ], [ 0, %91 ], [ 0, %95 ], [ 1, %94 ], [ 1, %103 ], [ %119, %._crit_edge138 ]
+121:                                              ; preds = %94, %._crit_edge138, %103
+  br label %122
+
+122:                                              ; preds = %._crit_edge138, %95, %91, %._crit_edge, %12, %2, %121, %116, %109, %77
+  %.0 = phi i32 [ 0, %109 ], [ 0, %116 ], [ 1, %121 ], [ 0, %77 ], [ 0, %2 ], [ 0, %12 ], [ 0, %._crit_edge ], [ 0, %91 ], [ 0, %95 ], [ 0, %._crit_edge138 ]
   ret i32 %.0
 }
 
@@ -2744,7 +2748,7 @@ switch.lookup:                                    ; preds = %15
   br label %27
 
 27:                                               ; preds = %switch.lookup, %10, %10, %25, %24, %23, %22, %21, %20, %19, %18, %17
-  %.str.60.sink = phi ptr [ @.str.60, %25 ], [ @.str.59, %24 ], [ @.str.58, %23 ], [ @.str.57, %22 ], [ @.str.56, %21 ], [ @.str.55, %20 ], [ @.str.54, %19 ], [ @.str.53, %18 ], [ @.str.51, %10 ], [ @.str.51, %10 ], [ @.str.52, %17 ], [ %switch.load, %switch.lookup ]
+  %.str.60.sink = phi ptr [ @.str.60, %25 ], [ @.str.59, %24 ], [ @.str.58, %23 ], [ @.str.57, %22 ], [ @.str.56, %21 ], [ @.str.55, %20 ], [ @.str.54, %19 ], [ @.str.53, %18 ], [ @.str.52, %17 ], [ @.str.51, %10 ], [ @.str.51, %10 ], [ %switch.load, %switch.lookup ]
   %28 = load ptr, ptr %6, align 8
   %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull %.str.60.sink) #20
   %30 = icmp eq i32 %29, -1

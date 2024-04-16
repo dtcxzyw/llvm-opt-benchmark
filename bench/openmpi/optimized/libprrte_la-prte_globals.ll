@@ -141,14 +141,16 @@ define noundef i32 @prte_dt_init() local_unnamed_addr #0 {
   %10 = load i8, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 10), align 4
   %11 = and i8 %10, 6
   %or.cond3 = icmp eq i8 %11, 0
-  br i1 %or.cond3, label %13, label %.sink.split
+  br i1 %or.cond3, label %13, label %.thread
 
 12:                                               ; preds = %0
-  %spec.select = select i1 %5, i32 %4, i32 1
+  br i1 %5, label %.sink.split, label %.thread
+
+.thread:                                          ; preds = %9, %12
   br label %.sink.split
 
-.sink.split:                                      ; preds = %12, %9
-  %.sink = phi i32 [ 1, %9 ], [ %spec.select, %12 ]
+.sink.split:                                      ; preds = %12, %.thread
+  %.sink = phi i32 [ 1, %.thread ], [ %4, %12 ]
   tail call void @pmix_output_set_verbosity(i32 noundef %1, i32 noundef %.sink) #13
   br label %13
 

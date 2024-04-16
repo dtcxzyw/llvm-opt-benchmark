@@ -2453,8 +2453,8 @@ do.end31:                                         ; preds = %if.then20
   %d33 = getelementptr inbounds i8, ptr %gen, i64 8
   %11 = load ptr, ptr %d33, align 8
   %call34 = tail call i32 @X509_NAME_print_ex(ptr noundef nonnull %call24, ptr noundef %11, i32 noundef 0, i64 noundef 17892113) #17
-  %cmp35 = icmp sgt i32 %call34, -1
-  br i1 %cmp35, label %if.end37, label %_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2Ev.exit
+  %cmp35 = icmp slt i32 %call34, 0
+  br i1 %cmp35, label %_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2Ev.exit, label %if.end37
 
 if.end37:                                         ; preds = %do.end31
   store ptr null, ptr %oline, align 8
@@ -2472,19 +2472,20 @@ do.body52:                                        ; preds = %if.end37
   %12 = load ptr, ptr %oline, align 8
   %cmp54 = icmp eq ptr %12, null
   %.not = select i1 %cmp53.not, i1 %cmp54, i1 false
-  br i1 %.not, label %do.body59, label %do.end64
+  br i1 %.not, label %do.body59, label %_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2Ev.exit.thread
 
 do.body59:                                        ; preds = %do.body52
   call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node6cryptoL16PrintGeneralNameERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS2_XadL_Z12BIO_free_allEEEEEPK15GENERAL_NAME_stE4args_1) #17
   call void @abort() #18
   unreachable
 
-do.end64:                                         ; preds = %do.body52
+_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2Ev.exit.thread: ; preds = %do.body52
   call fastcc void @_ZN4node6cryptoL12PrintAltNameERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS2_XadL_Z12BIO_free_allEEEEEPKcmbS9_(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef %12, i64 noundef %call39, i1 noundef zeroext true, ptr noundef null)
-  br label %_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2Ev.exit
-
-_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2Ev.exit: ; preds = %do.end31, %do.end64
   call void @BIO_free_all(ptr noundef nonnull %call24) #17
+  br label %return
+
+_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2Ev.exit: ; preds = %do.end31
+  tail call void @BIO_free_all(ptr noundef nonnull %call24) #17
   br label %return
 
 if.then68:                                        ; preds = %entry
@@ -2635,8 +2636,8 @@ do.body162:                                       ; preds = %entry
   tail call void @abort() #18
   unreachable
 
-return:                                           ; preds = %for.body, %_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2Ev.exit, %if.then, %if.then12, %if.else98, %if.then73, %if.then139, %if.else143, %if.then132, %if.then158, %if.then152, %if.then107, %if.then4
-  %retval.1 = phi i1 [ true, %if.then4 ], [ true, %if.then107 ], [ true, %if.then152 ], [ true, %if.then158 ], [ true, %if.then132 ], [ true, %if.else143 ], [ true, %if.then139 ], [ true, %if.then73 ], [ true, %if.else98 ], [ true, %if.then12 ], [ true, %if.then ], [ %cmp35, %_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2Ev.exit ], [ true, %for.body ]
+return:                                           ; preds = %for.body, %if.then, %if.then12, %if.else98, %if.then73, %if.then139, %if.else143, %if.then132, %if.then158, %if.then152, %if.then107, %if.then4, %_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2Ev.exit.thread, %_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2Ev.exit
+  %retval.1 = phi i1 [ false, %_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2Ev.exit ], [ true, %_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2Ev.exit.thread ], [ true, %if.then4 ], [ true, %if.then107 ], [ true, %if.then152 ], [ true, %if.then158 ], [ true, %if.then132 ], [ true, %if.else143 ], [ true, %if.then139 ], [ true, %if.then73 ], [ true, %if.else98 ], [ true, %if.then12 ], [ true, %if.then ], [ true, %for.body ]
   ret i1 %retval.1
 }
 
@@ -4368,9 +4369,9 @@ land.lhs.true103:                                 ; preds = %if.end98
   %spec.select = select i1 %call137, ptr %call65, ptr null
   br label %if.then.i62
 
-if.then.i62:                                      ; preds = %_ZN4node6crypto12_GLOBAL__N_13SetIN2v86ObjectEEEbNS3_5LocalINS3_7ContextEEENS5_IS4_EENS5_INS3_5ValueEEENS3_10MaybeLocalIT_EE.exit.i, %if.end.i34, %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit15.i, %do.end62, %_ZN4node6crypto12_GLOBAL__N_122AddIssuerChainToObjectEPSt10unique_ptrI7x509_stNS_15FunctionDeleterIS3_XadL_Z9X509_freeEEEEEN2v85LocalINS8_6ObjectEEEOS2_I13stack_st_X509NS0_18StackOfX509DeleterEEPNS_11EnvironmentE.exit, %_ZN4node6crypto12_GLOBAL__N_117GetLastIssuedCertEPSt10unique_ptrI7x509_stNS_15FunctionDeleterIS3_XadL_Z9X509_freeEEEEERKS2_I6ssl_stNS4_IS8_XadL_Z8SSL_freeEEEEEN2v85LocalINSD_6ObjectEEEPNS_11EnvironmentE.exit, %if.end98, %land.lhs.true103
-  %retval.sroa.0.2124 = phi ptr [ %spec.select, %land.lhs.true103 ], [ null, %do.end62 ], [ null, %_ZN4node6crypto12_GLOBAL__N_122AddIssuerChainToObjectEPSt10unique_ptrI7x509_stNS_15FunctionDeleterIS3_XadL_Z9X509_freeEEEEEN2v85LocalINS8_6ObjectEEEOS2_I13stack_st_X509NS0_18StackOfX509DeleterEEPNS_11EnvironmentE.exit ], [ null, %_ZN4node6crypto12_GLOBAL__N_117GetLastIssuedCertEPSt10unique_ptrI7x509_stNS_15FunctionDeleterIS3_XadL_Z9X509_freeEEEEERKS2_I6ssl_stNS4_IS8_XadL_Z8SSL_freeEEEEEN2v85LocalINSD_6ObjectEEEPNS_11EnvironmentE.exit ], [ %call65, %if.end98 ], [ null, %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit15.i ], [ null, %if.end.i34 ], [ null, %_ZN4node6crypto12_GLOBAL__N_13SetIN2v86ObjectEEEbNS3_5LocalINS3_7ContextEEENS5_IS4_EENS5_INS3_5ValueEEENS3_10MaybeLocalIT_EE.exit.i ]
-  %cert.sroa.0.11123 = phi ptr [ %cert.sroa.0.9, %land.lhs.true103 ], [ null, %do.end62 ], [ %cert.sroa.0.4, %_ZN4node6crypto12_GLOBAL__N_122AddIssuerChainToObjectEPSt10unique_ptrI7x509_stNS_15FunctionDeleterIS3_XadL_Z9X509_freeEEEEEN2v85LocalINS8_6ObjectEEEOS2_I13stack_st_X509NS0_18StackOfX509DeleterEEPNS_11EnvironmentE.exit ], [ %cert.sroa.0.9, %_ZN4node6crypto12_GLOBAL__N_117GetLastIssuedCertEPSt10unique_ptrI7x509_stNS_15FunctionDeleterIS3_XadL_Z9X509_freeEEEEERKS2_I6ssl_stNS4_IS8_XadL_Z8SSL_freeEEEEEN2v85LocalINSD_6ObjectEEEPNS_11EnvironmentE.exit ], [ %cert.sroa.0.9, %if.end98 ], [ %cert.sroa.0.8, %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit15.i ], [ %cert.sroa.0.3, %if.end.i34 ], [ %cert.sroa.0.3, %_ZN4node6crypto12_GLOBAL__N_13SetIN2v86ObjectEEEbNS3_5LocalINS3_7ContextEEENS5_IS4_EENS5_INS3_5ValueEEENS3_10MaybeLocalIT_EE.exit.i ]
+if.then.i62:                                      ; preds = %_ZN4node6crypto12_GLOBAL__N_13SetIN2v86ObjectEEEbNS3_5LocalINS3_7ContextEEENS5_IS4_EENS5_INS3_5ValueEEENS3_10MaybeLocalIT_EE.exit.i, %if.end.i34, %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit15.i, %land.lhs.true103, %do.end62, %_ZN4node6crypto12_GLOBAL__N_122AddIssuerChainToObjectEPSt10unique_ptrI7x509_stNS_15FunctionDeleterIS3_XadL_Z9X509_freeEEEEEN2v85LocalINS8_6ObjectEEEOS2_I13stack_st_X509NS0_18StackOfX509DeleterEEPNS_11EnvironmentE.exit, %_ZN4node6crypto12_GLOBAL__N_117GetLastIssuedCertEPSt10unique_ptrI7x509_stNS_15FunctionDeleterIS3_XadL_Z9X509_freeEEEEERKS2_I6ssl_stNS4_IS8_XadL_Z8SSL_freeEEEEEN2v85LocalINSD_6ObjectEEEPNS_11EnvironmentE.exit, %if.end98
+  %retval.sroa.0.2124 = phi ptr [ %call65, %if.end98 ], [ null, %_ZN4node6crypto12_GLOBAL__N_117GetLastIssuedCertEPSt10unique_ptrI7x509_stNS_15FunctionDeleterIS3_XadL_Z9X509_freeEEEEERKS2_I6ssl_stNS4_IS8_XadL_Z8SSL_freeEEEEEN2v85LocalINSD_6ObjectEEEPNS_11EnvironmentE.exit ], [ null, %_ZN4node6crypto12_GLOBAL__N_122AddIssuerChainToObjectEPSt10unique_ptrI7x509_stNS_15FunctionDeleterIS3_XadL_Z9X509_freeEEEEEN2v85LocalINS8_6ObjectEEEOS2_I13stack_st_X509NS0_18StackOfX509DeleterEEPNS_11EnvironmentE.exit ], [ null, %do.end62 ], [ %spec.select, %land.lhs.true103 ], [ null, %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit15.i ], [ null, %if.end.i34 ], [ null, %_ZN4node6crypto12_GLOBAL__N_13SetIN2v86ObjectEEEbNS3_5LocalINS3_7ContextEEENS5_IS4_EENS5_INS3_5ValueEEENS3_10MaybeLocalIT_EE.exit.i ]
+  %cert.sroa.0.11123 = phi ptr [ %cert.sroa.0.9, %if.end98 ], [ %cert.sroa.0.9, %_ZN4node6crypto12_GLOBAL__N_117GetLastIssuedCertEPSt10unique_ptrI7x509_stNS_15FunctionDeleterIS3_XadL_Z9X509_freeEEEEERKS2_I6ssl_stNS4_IS8_XadL_Z8SSL_freeEEEEEN2v85LocalINSD_6ObjectEEEPNS_11EnvironmentE.exit ], [ %cert.sroa.0.4, %_ZN4node6crypto12_GLOBAL__N_122AddIssuerChainToObjectEPSt10unique_ptrI7x509_stNS_15FunctionDeleterIS3_XadL_Z9X509_freeEEEEEN2v85LocalINS8_6ObjectEEEOS2_I13stack_st_X509NS0_18StackOfX509DeleterEEPNS_11EnvironmentE.exit ], [ null, %do.end62 ], [ %cert.sroa.0.9, %land.lhs.true103 ], [ %cert.sroa.0.8, %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit15.i ], [ %cert.sroa.0.3, %if.end.i34 ], [ %cert.sroa.0.3, %_ZN4node6crypto12_GLOBAL__N_13SetIN2v86ObjectEEEbNS3_5LocalINS3_7ContextEEENS5_IS4_EENS5_INS3_5ValueEEENS3_10MaybeLocalIT_EE.exit.i ]
   call void @OPENSSL_sk_pop_free(ptr noundef nonnull %call1.i185191, ptr noundef nonnull @X509_free) #17
   br label %cleanup145
 

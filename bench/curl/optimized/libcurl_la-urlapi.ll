@@ -229,10 +229,10 @@ land.lhs.true.i:                                  ; preds = %if.end5.i
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %land.lhs.true.i, %if.end5.i, %if.end5.thread.i
-  %sub.ptr.sub25.i = phi i64 [ %sub.ptr.sub.i, %if.end5.i ], [ %sub.ptr.sub.i, %land.lhs.true.i ], [ %sub.ptr.sub22.i, %if.end5.thread.i ]
-  %cond.i = phi ptr [ null, %if.end5.i ], [ %spec.select.i, %land.lhs.true.i ], [ null, %if.end5.thread.i ]
-  %sub26.i = add nsw i64 %sub.ptr.sub25.i, -1
-  %call9.i = call i32 @Curl_parse_login_details(ptr noundef %auth, i64 noundef %sub26.i, ptr noundef nonnull %userp.i, ptr noundef nonnull %passwdp.i, ptr noundef %cond.i) #10
+  %sub.ptr.sub25.i = phi i64 [ %sub.ptr.sub22.i, %if.end5.thread.i ], [ %sub.ptr.sub.i, %if.end5.i ], [ %sub.ptr.sub.i, %land.lhs.true.i ]
+  %cond.i = phi ptr [ null, %if.end5.thread.i ], [ null, %if.end5.i ], [ %spec.select.i, %land.lhs.true.i ]
+  %sub27.i = add nsw i64 %sub.ptr.sub25.i, -1
+  %call9.i = call i32 @Curl_parse_login_details(ptr noundef %auth, i64 noundef %sub27.i, ptr noundef nonnull %userp.i, ptr noundef nonnull %passwdp.i, ptr noundef %cond.i) #10
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   %.pre.i = load ptr, ptr %userp.i, align 8
   br i1 %tobool10.not.i, label %if.end12.i, label %parse_hostname_login.exit
@@ -308,9 +308,9 @@ parse_hostname_login.exit:                        ; preds = %entry, %cond.end.i,
   br i1 %tobool.not.i, label %if.end, label %return
 
 if.end:                                           ; preds = %parse_hostname_login.exit.thread, %parse_hostname_login.exit
-  %offset.039 = phi i64 [ %sub.ptr.sub25.i, %parse_hostname_login.exit.thread ], [ 0, %parse_hostname_login.exit ]
-  %add.ptr = getelementptr inbounds i8, ptr %auth, i64 %offset.039
-  %sub = sub i64 %authlen, %offset.039
+  %offset.037 = phi i64 [ %sub.ptr.sub25.i, %parse_hostname_login.exit.thread ], [ 0, %parse_hostname_login.exit ]
+  %add.ptr = getelementptr inbounds i8, ptr %auth, i64 %offset.037
+  %sub = sub i64 %authlen, %offset.037
   %call1 = call i32 @Curl_dyn_addn(ptr noundef %host, ptr noundef %add.ptr, i64 noundef %sub) #10
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.end4, label %if.then3
@@ -329,12 +329,12 @@ if.end4:                                          ; preds = %if.end
 
 if.then.i:                                        ; preds = %if.end4
   %call2.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %call.i18, i32 noundef 93) #11
-  %tobool.not.i25 = icmp eq ptr %call2.i, null
-  br i1 %tobool.not.i25, label %Curl_parse_port.exit.thread, label %if.end.i26
+  %tobool.not.i24 = icmp eq ptr %call2.i, null
+  br i1 %tobool.not.i24, label %Curl_parse_port.exit.thread, label %if.end.i25
 
-if.end.i26:                                       ; preds = %if.then.i
-  %incdec.ptr.i27 = getelementptr inbounds i8, ptr %call2.i, i64 1
-  %20 = load i8, ptr %incdec.ptr.i27, align 1
+if.end.i25:                                       ; preds = %if.then.i
+  %incdec.ptr.i26 = getelementptr inbounds i8, ptr %call2.i, i64 1
+  %20 = load i8, ptr %incdec.ptr.i26, align 1
   switch i8 %20, label %Curl_parse_port.exit.thread [
     i8 0, label %if.end9
     i8 58, label %if.then16.i
@@ -345,8 +345,8 @@ if.end14.i:                                       ; preds = %if.end4
   %tobool15.not.i = icmp eq ptr %call13.i, null
   br i1 %tobool15.not.i, label %if.end9, label %if.then16.i
 
-if.then16.i:                                      ; preds = %if.end14.i, %if.end.i26
-  %portptr.026.i = phi ptr [ %call13.i, %if.end14.i ], [ %incdec.ptr.i27, %if.end.i26 ]
+if.then16.i:                                      ; preds = %if.end14.i, %if.end.i25
+  %portptr.026.i = phi ptr [ %call13.i, %if.end14.i ], [ %incdec.ptr.i26, %if.end.i25 ]
   %sub.ptr.lhs.cast.i19 = ptrtoint ptr %portptr.026.i to i64
   %sub.ptr.rhs.cast.i20 = ptrtoint ptr %call.i18 to i64
   %sub.ptr.sub.i21 = sub i64 %sub.ptr.lhs.cast.i19, %sub.ptr.rhs.cast.i20
@@ -387,12 +387,12 @@ if.end40.i:                                       ; preds = %if.end36.i
   %tobool45.not.i = icmp eq ptr %call42.i, null
   br i1 %tobool45.not.i, label %Curl_parse_port.exit.thread, label %if.end9
 
-Curl_parse_port.exit.thread:                      ; preds = %if.then20.i, %if.then.i, %if.end.i26, %if.end23.i, %if.end31.i, %if.end36.i, %if.end40.i
-  %retval.0.i22.ph = phi i32 [ 4, %if.end36.i ], [ 4, %if.end31.i ], [ 4, %if.end23.i ], [ 4, %if.end.i26 ], [ 22, %if.then.i ], [ 4, %if.then20.i ], [ 7, %if.end40.i ]
+Curl_parse_port.exit.thread:                      ; preds = %if.then20.i, %if.then.i, %if.end.i25, %if.end23.i, %if.end31.i, %if.end36.i, %if.end40.i
+  %retval.0.i22.ph = phi i32 [ 7, %if.end40.i ], [ 4, %if.end36.i ], [ 4, %if.end31.i ], [ 4, %if.end23.i ], [ 4, %if.end.i25 ], [ 22, %if.then.i ], [ 4, %if.then20.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rest.i)
   br label %return
 
-if.end9:                                          ; preds = %if.then20.i, %if.end.i26, %if.end14.i, %if.end40.i
+if.end9:                                          ; preds = %if.then20.i, %if.end.i25, %if.end14.i, %if.end40.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rest.i)
   %call10 = call i64 @Curl_dyn_len(ptr noundef %host) #10
   %tobool11.not = icmp eq i64 %call10, 0
@@ -401,16 +401,16 @@ if.end9:                                          ; preds = %if.then20.i, %if.en
 if.end13:                                         ; preds = %if.end9
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %parts.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endp.i)
-  %call.i28 = call ptr @Curl_dyn_ptr(ptr noundef %host) #10
+  %call.i27 = call ptr @Curl_dyn_ptr(ptr noundef %host) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %parts.i, i8 0, i64 32, i1 false)
-  %27 = load i8, ptr %call.i28, align 1
-  %cmp.i29 = icmp eq i8 %27, 91
-  br i1 %cmp.i29, label %sw.bb15, label %while.cond.i
+  %27 = load i8, ptr %call.i27, align 1
+  %cmp.i28 = icmp eq i8 %27, 91
+  br i1 %cmp.i28, label %sw.bb15, label %while.cond.i
 
 while.cond.i:                                     ; preds = %if.end13, %sw.epilog.i
   %done.0.i = phi i1 [ %done.1.i, %sw.epilog.i ], [ false, %if.end13 ]
   %n.0.i = phi i32 [ %n.1.i, %sw.epilog.i ], [ 0, %if.end13 ]
-  %c.0.i = phi ptr [ %c.1.i, %sw.epilog.i ], [ %call.i28, %if.end13 ]
+  %c.0.i = phi ptr [ %c.1.i, %sw.epilog.i ], [ %call.i27, %if.end13 ]
   br i1 %done.0.i, label %while.end.i, label %while.body.i
 
 while.body.i:                                     ; preds = %while.cond.i
@@ -437,18 +437,18 @@ sw.bb.i:                                          ; preds = %if.end9.i
 
 if.end15.i:                                       ; preds = %sw.bb.i
   %inc.i = add nsw i32 %n.0.i, 1
-  %incdec.ptr.i31 = getelementptr inbounds i8, ptr %30, i64 1
+  %incdec.ptr.i30 = getelementptr inbounds i8, ptr %30, i64 1
   br label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %if.end15.i, %if.end9.i
   %done.1.i = phi i1 [ false, %if.end15.i ], [ true, %if.end9.i ]
   %n.1.i = phi i32 [ %inc.i, %if.end15.i ], [ %n.0.i, %if.end9.i ]
-  %c.1.i = phi ptr [ %incdec.ptr.i31, %if.end15.i ], [ %30, %if.end9.i ]
+  %c.1.i = phi ptr [ %incdec.ptr.i30, %if.end15.i ], [ %30, %if.end9.i ]
   %cmp25.old.i = icmp ugt i64 %call10.i, 4294967295
   br i1 %cmp25.old.i, label %sw.bb19, label %while.cond.i, !llvm.loop !7
 
 while.end.i:                                      ; preds = %while.cond.i
-  switch i32 %n.0.i, label %ipv4_normalize.exit.thread46 [
+  switch i32 %n.0.i, label %ipv4_normalize.exit.thread41 [
     i32 0, label %sw.bb29.i
     i32 1, label %sw.bb43.i
     i32 2, label %sw.bb66.i
@@ -466,7 +466,7 @@ sw.bb29.i:                                        ; preds = %while.end.i
   %35 = lshr i32 %33, 8
   %conv38.i = and i32 %35, 255
   %conv41.i = and i32 %33, 255
-  %call42.i35 = call i32 (ptr, ptr, ...) @Curl_dyn_addf(ptr noundef %host, ptr noundef nonnull @.str.17, i32 noundef %conv31.i, i32 noundef %conv34.i, i32 noundef %conv38.i, i32 noundef %conv41.i) #10
+  %call42.i33 = call i32 (ptr, ptr, ...) @Curl_dyn_addf(ptr noundef %host, ptr noundef nonnull @.str.17, i32 noundef %conv31.i, i32 noundef %conv34.i, i32 noundef %conv38.i, i32 noundef %conv41.i) #10
   br label %sw.epilog119.i
 
 sw.bb43.i:                                        ; preds = %while.end.i
@@ -475,8 +475,8 @@ sw.bb43.i:                                        ; preds = %while.end.i
   %arrayidx47.i = getelementptr inbounds i8, ptr %parts.i, i64 8
   %37 = load i64, ptr %arrayidx47.i, align 8
   %cmp48.i = icmp ugt i64 %37, 16777215
-  %or.cond.i34 = select i1 %cmp45.i, i1 true, i1 %cmp48.i
-  br i1 %or.cond.i34, label %sw.bb19, label %if.end51.i
+  %or.cond.i32 = select i1 %cmp45.i, i1 true, i1 %cmp48.i
+  br i1 %or.cond.i32, label %sw.bb19, label %if.end51.i
 
 if.end51.i:                                       ; preds = %sw.bb43.i
   call void @Curl_dyn_reset(ptr noundef %host) #10
@@ -539,12 +539,12 @@ if.end109.i:                                      ; preds = %sw.bb92.i
   br label %sw.epilog119.i
 
 sw.epilog119.i:                                   ; preds = %if.end109.i, %if.end79.i, %if.end51.i, %sw.bb29.i
-  %result.0.i32 = phi i32 [ %call118.i, %if.end109.i ], [ %call91.i, %if.end79.i ], [ %call65.i, %if.end51.i ], [ %call42.i35, %sw.bb29.i ]
-  %result.0.fr.i = freeze i32 %result.0.i32
+  %result.0.i31 = phi i32 [ %call118.i, %if.end109.i ], [ %call91.i, %if.end79.i ], [ %call65.i, %if.end51.i ], [ %call42.i33, %sw.bb29.i ]
+  %result.0.fr.i = freeze i32 %result.0.i31
   %tobool120.not.i = icmp eq i32 %result.0.fr.i, 0
-  br i1 %tobool120.not.i, label %ipv4_normalize.exit.thread46, label %sw.bb27
+  br i1 %tobool120.not.i, label %ipv4_normalize.exit.thread41, label %sw.bb27
 
-ipv4_normalize.exit.thread46:                     ; preds = %while.end.i, %sw.epilog119.i
+ipv4_normalize.exit.thread41:                     ; preds = %while.end.i, %sw.epilog119.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %parts.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %endp.i)
   br label %return
@@ -575,8 +575,8 @@ sw.bb27:                                          ; preds = %sw.epilog119.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %endp.i)
   br label %return
 
-return:                                           ; preds = %ipv4_normalize.exit.thread46, %Curl_parse_port.exit.thread, %if.then3, %parse_hostname_login.exit, %sw.bb19, %if.then22, %sw.bb27, %sw.bb15, %if.end9
-  %retval.0 = phi i32 [ 14, %if.end9 ], [ %result.0.i, %parse_hostname_login.exit ], [ %cond, %if.then3 ], [ 7, %sw.bb27 ], [ %call20, %sw.bb19 ], [ %call25, %if.then22 ], [ %call18, %sw.bb15 ], [ %retval.0.i22.ph, %Curl_parse_port.exit.thread ], [ 0, %ipv4_normalize.exit.thread46 ]
+return:                                           ; preds = %ipv4_normalize.exit.thread41, %Curl_parse_port.exit.thread, %if.then3, %parse_hostname_login.exit, %sw.bb19, %if.then22, %sw.bb27, %sw.bb15, %if.end9
+  %retval.0 = phi i32 [ 14, %if.end9 ], [ %result.0.i, %parse_hostname_login.exit ], [ %cond, %if.then3 ], [ 7, %sw.bb27 ], [ %call20, %sw.bb19 ], [ %call25, %if.then22 ], [ %call18, %sw.bb15 ], [ %retval.0.i22.ph, %Curl_parse_port.exit.thread ], [ 0, %ipv4_normalize.exit.thread41 ]
   ret i32 %retval.0
 }
 

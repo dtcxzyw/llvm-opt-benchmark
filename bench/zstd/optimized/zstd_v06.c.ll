@@ -1873,7 +1873,7 @@ return:                                           ; preds = %for.body55, %if.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i64 @HUFv06_decompress1X2_usingDTable(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %cSrc, i64 noundef %cSrcSize, ptr nocapture noundef readonly %DTable) local_unnamed_addr #12 {
+define i64 @HUFv06_decompress1X2_usingDTable(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %cSrc, i64 noundef %cSrcSize, ptr nocapture noundef readonly %DTable) local_unnamed_addr #12 {
 entry:
   %bitD = alloca %struct.BITv06_DStream_t, align 8
   %0 = load i16, ptr %DTable, align 2
@@ -2003,18 +2003,16 @@ if.end:                                           ; preds = %BITv06_initDStream.
   %21 = load ptr, ptr %ptr.i5, align 8
   %22 = load ptr, ptr %start.i, align 8
   %cmp.i7 = icmp eq ptr %21, %22
-  br i1 %cmp.i7, label %BITv06_endOfDStream.exit, label %return
-
-BITv06_endOfDStream.exit:                         ; preds = %if.end
   %bitsConsumed.i8 = getelementptr inbounds i8, ptr %bitD, i64 8
   %23 = load i32, ptr %bitsConsumed.i8, align 8
   %.fr = freeze i32 %23
   %cmp1.i9.not = icmp eq i32 %.fr, 64
-  %spec.select = select i1 %cmp1.i9.not, i64 %dstSize, i64 -20
+  %or.cond = and i1 %cmp.i7, %cmp1.i9.not
+  %spec.select = select i1 %or.cond, i64 %dstSize, i64 -20
   br label %return
 
-return:                                           ; preds = %entry, %BITv06_endOfDStream.exit, %if.end, %sw.epilog.i, %if.then2.i, %BITv06_initDStream.exit
-  %retval.0 = phi i64 [ %cSrcSize, %BITv06_initDStream.exit ], [ -1, %sw.epilog.i ], [ -1, %if.then2.i ], [ -20, %if.end ], [ %spec.select, %BITv06_endOfDStream.exit ], [ -72, %entry ]
+return:                                           ; preds = %entry, %if.end, %sw.epilog.i, %if.then2.i, %BITv06_initDStream.exit
+  %retval.0 = phi i64 [ %cSrcSize, %BITv06_initDStream.exit ], [ -1, %sw.epilog.i ], [ -1, %if.then2.i ], [ %spec.select, %if.end ], [ -72, %entry ]
   ret i64 %retval.0
 }
 
@@ -3975,7 +3973,7 @@ return:                                           ; preds = %if.end6, %if.end, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i64 @HUFv06_decompress1X4_usingDTable(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %cSrc, i64 noundef %cSrcSize, ptr nocapture noundef readonly %DTable) local_unnamed_addr #12 {
+define i64 @HUFv06_decompress1X4_usingDTable(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %cSrc, i64 noundef %cSrcSize, ptr nocapture noundef readonly %DTable) local_unnamed_addr #12 {
 entry:
   %bitD = alloca %struct.BITv06_DStream_t, align 8
   %0 = load i32, ptr %DTable, align 4
@@ -4104,18 +4102,16 @@ if.end:                                           ; preds = %BITv06_initDStream.
   %21 = load ptr, ptr %ptr.i5, align 8
   %22 = load ptr, ptr %start.i, align 8
   %cmp.i7 = icmp eq ptr %21, %22
-  br i1 %cmp.i7, label %BITv06_endOfDStream.exit, label %return
-
-BITv06_endOfDStream.exit:                         ; preds = %if.end
   %bitsConsumed.i8 = getelementptr inbounds i8, ptr %bitD, i64 8
   %23 = load i32, ptr %bitsConsumed.i8, align 8
   %.fr = freeze i32 %23
   %cmp1.i9.not = icmp eq i32 %.fr, 64
-  %spec.select = select i1 %cmp1.i9.not, i64 %dstSize, i64 -20
+  %or.cond = and i1 %cmp.i7, %cmp1.i9.not
+  %spec.select = select i1 %or.cond, i64 %dstSize, i64 -20
   br label %return
 
-return:                                           ; preds = %entry, %BITv06_endOfDStream.exit, %if.end, %sw.epilog.i, %if.then2.i, %BITv06_initDStream.exit
-  %retval.0 = phi i64 [ %cSrcSize, %BITv06_initDStream.exit ], [ -1, %sw.epilog.i ], [ -1, %if.then2.i ], [ -20, %if.end ], [ %spec.select, %BITv06_endOfDStream.exit ], [ -72, %entry ]
+return:                                           ; preds = %entry, %if.end, %sw.epilog.i, %if.then2.i, %BITv06_initDStream.exit
+  %retval.0 = phi i64 [ %cSrcSize, %BITv06_initDStream.exit ], [ -1, %sw.epilog.i ], [ -1, %if.then2.i ], [ %spec.select, %if.end ], [ -72, %entry ]
   ret i64 %retval.0
 }
 
@@ -7877,8 +7873,8 @@ if.end4.i:                                        ; preds = %ZSTDv06_loadEntropy
   store ptr %add.ptr3.i24.i, ptr %previousDstEnd.i, align 8
   br label %return
 
-return:                                           ; preds = %if.end4.i, %ZSTDv06_loadEntropy.exit.i, %ZSTDv06_loadEntropy.exit.thread.i, %if.then.i, %if.end
-  %retval.0 = phi i64 [ 0, %if.end ], [ 0, %if.then.i ], [ 0, %if.end4.i ], [ -30, %ZSTDv06_loadEntropy.exit.i ], [ -30, %ZSTDv06_loadEntropy.exit.thread.i ]
+return:                                           ; preds = %ZSTDv06_loadEntropy.exit.i, %ZSTDv06_loadEntropy.exit.thread.i, %if.end4.i, %if.then.i, %if.end
+  %retval.0 = phi i64 [ 0, %if.end ], [ 0, %if.then.i ], [ 0, %if.end4.i ], [ -30, %ZSTDv06_loadEntropy.exit.thread.i ], [ -30, %ZSTDv06_loadEntropy.exit.i ]
   ret i64 %retval.0
 }
 

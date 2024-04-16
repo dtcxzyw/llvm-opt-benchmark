@@ -178,28 +178,28 @@ if.then.i:                                        ; preds = %entry
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str.3, i32 noundef 525) #9
   store ptr null, ptr %propq2.i, align 8
   %cmp4.not.i = icmp eq ptr %propq, null
-  br i1 %cmp4.not.i, label %if.end, label %ossl_x509_crl_set0_libctx.exit
+  br i1 %cmp4.not.i, label %if.end, label %if.then5.i
 
-ossl_x509_crl_set0_libctx.exit:                   ; preds = %if.then.i
+if.then5.i:                                       ; preds = %if.then.i
   %call.i = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %propq, ptr noundef nonnull @.str.3, i32 noundef 528) #9
   store ptr %call.i, ptr %propq2.i, align 8
-  %cmp8.i.not = icmp eq ptr %call.i, null
-  br i1 %cmp8.i.not, label %if.then, label %if.end
+  %cmp8.i = icmp eq ptr %call.i, null
+  br i1 %cmp8.i, label %if.then, label %if.end
 
-if.then:                                          ; preds = %ossl_x509_crl_set0_libctx.exit
+if.then:                                          ; preds = %if.then5.i
   tail call void @ASN1_item_free(ptr noundef nonnull %call1, ptr noundef nonnull @X509_CRL_it.local_it) #9
   br label %if.end
 
-if.end:                                           ; preds = %entry, %if.then.i, %if.then, %ossl_x509_crl_set0_libctx.exit
-  %crl.0 = phi ptr [ %call1, %ossl_x509_crl_set0_libctx.exit ], [ null, %if.then ], [ %call1, %if.then.i ], [ null, %entry ]
+if.end:                                           ; preds = %if.then5.i, %if.then.i, %entry, %if.then
+  %crl.0 = phi ptr [ null, %if.then ], [ null, %entry ], [ %call1, %if.then.i ], [ %call1, %if.then5.i ]
   ret ptr %crl.0
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_x509_crl_set0_libctx(ptr noundef %x, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #1 {
+define noundef i32 @ossl_x509_crl_set0_libctx(ptr noundef %x, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #1 {
 entry:
   %cmp.not = icmp eq ptr %x, null
-  br i1 %cmp.not, label %return, label %if.then
+  br i1 %cmp.not, label %if.end11, label %if.then
 
 if.then:                                          ; preds = %entry
   %libctx1 = getelementptr inbounds i8, ptr %x, i64 232
@@ -209,17 +209,19 @@ if.then:                                          ; preds = %entry
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str.3, i32 noundef 525) #9
   store ptr null, ptr %propq2, align 8
   %cmp4.not = icmp eq ptr %propq, null
-  br i1 %cmp4.not, label %return, label %if.then5
+  br i1 %cmp4.not, label %if.end11, label %if.then5
 
 if.then5:                                         ; preds = %if.then
   %call = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %propq, ptr noundef nonnull @.str.3, i32 noundef 528) #9
   store ptr %call, ptr %propq2, align 8
-  %cmp8 = icmp ne ptr %call, null
-  %spec.select = zext i1 %cmp8 to i32
+  %cmp8 = icmp eq ptr %call, null
+  br i1 %cmp8, label %return, label %if.end11
+
+if.end11:                                         ; preds = %if.then, %if.then5, %entry
   br label %return
 
-return:                                           ; preds = %if.then5, %entry, %if.then
-  %retval.0 = phi i32 [ 1, %if.then ], [ 1, %entry ], [ %spec.select, %if.then5 ]
+return:                                           ; preds = %if.then5, %if.end11
+  %retval.0 = phi i32 [ 1, %if.end11 ], [ 0, %if.then5 ]
   ret i32 %retval.0
 }
 
@@ -453,7 +455,7 @@ declare ptr @OPENSSL_sk_set_cmp_func(ptr noundef, ptr noundef) local_unnamed_add
 declare ptr @ASN1_BIT_STRING_it() #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @crl_cb(i32 noundef %operation, ptr nocapture noundef readonly %pval, ptr nocapture readnone %it, ptr nocapture noundef readonly %exarg) #1 {
+define internal i32 @crl_cb(i32 noundef %operation, ptr nocapture noundef readonly %pval, ptr nocapture readnone %it, ptr nocapture noundef readonly %exarg) #1 {
 entry:
   %j.i = alloca i32, align 4
   %i = alloca i32, align 4
@@ -722,17 +724,17 @@ if.end76.sink.split:                              ; preds = %land.lhs.true70, %i
 if.end76:                                         ; preds = %if.end76.sink.split, %land.lhs.true70, %if.end67
   %extensions = getelementptr inbounds i8, ptr %0, i64 56
   %42 = load ptr, ptr %extensions, align 8
-  %call7999 = call i32 @OPENSSL_sk_num(ptr noundef %42) #9
-  %cmp80100 = icmp sgt i32 %call7999, 0
-  br i1 %cmp80100, label %for.body.lr.ph, label %for.end
+  %call7998 = call i32 @OPENSSL_sk_num(ptr noundef %42) #9
+  %cmp8099 = icmp sgt i32 %call7998, 0
+  br i1 %cmp8099, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end76
   %flags87 = getelementptr inbounds i8, ptr %0, i64 132
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %idx.0101 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %call82 = call ptr @OPENSSL_sk_value(ptr noundef %42, i32 noundef %idx.0101) #9
+  %idx.0100 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %call82 = call ptr @OPENSSL_sk_value(ptr noundef %42, i32 noundef %idx.0100) #9
   %call83 = call ptr @X509_EXTENSION_get_object(ptr noundef %call82) #9
   %call84 = call i32 @OBJ_obj2nid(ptr noundef %call83) #9
   %cmp85 = icmp eq i32 %call84, 857
@@ -763,7 +765,7 @@ if.end98:                                         ; preds = %if.then92
   br label %for.end
 
 for.inc:                                          ; preds = %if.then92, %if.then92, %if.then92, %if.end89
-  %inc = add nuw nsw i32 %idx.0101, 1
+  %inc = add nuw nsw i32 %idx.0100, 1
   %call79 = call i32 @OPENSSL_sk_num(ptr noundef %42) #9
   %cmp80 = icmp slt i32 %inc, %call79
   br i1 %cmp80, label %for.body, label %for.end, !llvm.loop !4
@@ -965,18 +967,17 @@ if.then.i87:                                      ; preds = %sw.bb140
   tail call void @CRYPTO_free(ptr noundef %67, ptr noundef nonnull @.str.3, i32 noundef 525) #9
   store ptr null, ptr %propq2.i, align 8
   %cmp4.not.i = icmp eq ptr %65, null
-  br i1 %cmp4.not.i, label %return, label %ossl_x509_crl_set0_libctx.exit
+  br i1 %cmp4.not.i, label %return, label %if.then5.i
 
-ossl_x509_crl_set0_libctx.exit:                   ; preds = %if.then.i87
+if.then5.i:                                       ; preds = %if.then.i87
   %call.i88 = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %65, ptr noundef nonnull @.str.3, i32 noundef 528) #9
-  %call.i88.fr = freeze ptr %call.i88
-  store ptr %call.i88.fr, ptr %propq2.i, align 8
-  %cmp8.i.not = icmp ne ptr %call.i88.fr, null
-  %spec.select = zext i1 %cmp8.i.not to i32
+  store ptr %call.i88, ptr %propq2.i, align 8
+  %cmp8.i = icmp ne ptr %call.i88, null
+  %spec.select = zext i1 %cmp8.i to i32
   br label %return
 
-return:                                           ; preds = %ossl_x509_crl_set0_libctx.exit, %sw.bb140, %if.then.i87, %crl_set_issuers.exit, %entry, %sw.bb8, %if.end115, %if.end132, %if.then125, %if.then108, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %crl_set_issuers.exit ], [ 0, %if.then108 ], [ 0, %if.then125 ], [ 1, %if.end132 ], [ 1, %if.end115 ], [ 1, %sw.bb8 ], [ 1, %entry ], [ 1, %if.then.i87 ], [ 1, %sw.bb140 ], [ %spec.select, %ossl_x509_crl_set0_libctx.exit ]
+return:                                           ; preds = %if.then5.i, %entry, %sw.bb8, %if.end115, %if.end132, %sw.bb140, %if.then.i87, %crl_set_issuers.exit, %if.then125, %if.then108, %if.then
+  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %crl_set_issuers.exit ], [ 0, %if.then108 ], [ 0, %if.then125 ], [ 1, %if.then.i87 ], [ 1, %sw.bb140 ], [ 1, %if.end132 ], [ 1, %if.end115 ], [ 1, %sw.bb8 ], [ 1, %entry ], [ %spec.select, %if.then5.i ]
   ret i32 %retval.0
 }
 

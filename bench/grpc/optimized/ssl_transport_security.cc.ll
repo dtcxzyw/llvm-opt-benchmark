@@ -3395,25 +3395,25 @@ _ZL21looks_like_ip_addressSt17basic_string_viewIcSt11char_traitsIcEE.exit: ; pre
   %retval.0.i = phi i1 [ true, %entry ], [ %4, %for.end.loopexit.i ], [ true, %if.then16.i ], [ true, %if.else.i ], [ true, %land.lhs.true.i ]
   %property_count = getelementptr inbounds i8, ptr %peer, i64 8
   %5 = load i64, ptr %property_count, align 8
-  %cmp26.not = icmp eq i64 %5, 0
-  br i1 %cmp26.not, label %return, label %for.body.lr.ph
+  %cmp23.not = icmp eq i64 %5, 0
+  br i1 %cmp23.not, label %if.end46, label %for.body.lr.ph
 
 _ZL21looks_like_ip_addressSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread: ; preds = %for.body.i
-  %property_count63 = getelementptr inbounds i8, ptr %peer, i64 8
-  %6 = load i64, ptr %property_count63, align 8
-  %cmp26.not64 = icmp eq i64 %6, 0
-  br i1 %cmp26.not64, label %return, label %for.body.lr.ph.split
+  %property_count60 = getelementptr inbounds i8, ptr %peer, i64 8
+  %6 = load i64, ptr %property_count60, align 8
+  %cmp23.not61 = icmp eq i64 %6, 0
+  br i1 %cmp23.not61, label %if.end46, label %for.body.lr.ph.split
 
 for.body.lr.ph:                                   ; preds = %_ZL21looks_like_ip_addressSt17basic_string_viewIcSt11char_traitsIcEE.exit
   br i1 %retval.0.i, label %for.body.us, label %for.body.lr.ph.split
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
   %7 = phi i64 [ %12, %for.inc.us ], [ %5, %for.body.lr.ph ]
-  %i.029.us = phi i64 [ %inc29.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
-  %san_count.028.us = phi i64 [ %san_count.1.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
-  %cn_property.027.us = phi ptr [ %cn_property.1.us, %for.inc.us ], [ null, %for.body.lr.ph ]
+  %i.026.us = phi i64 [ %inc29.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
+  %san_count.025.us = phi i64 [ %san_count.1.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
+  %cn_property.024.us = phi ptr [ %cn_property.1.us, %for.inc.us ], [ null, %for.body.lr.ph ]
   %8 = load ptr, ptr %peer, align 8
-  %arrayidx.us = getelementptr inbounds %struct.tsi_peer_property, ptr %8, i64 %i.029.us
+  %arrayidx.us = getelementptr inbounds %struct.tsi_peer_property, ptr %8, i64 %i.026.us
   %9 = load ptr, ptr %arrayidx.us, align 8
   %cmp2.us = icmp eq ptr %9, null
   br i1 %cmp2.us, label %for.inc.us, label %if.end.us
@@ -3426,7 +3426,7 @@ if.end.us:                                        ; preds = %for.body.us
 if.else22.us:                                     ; preds = %if.end.us
   %call24.us = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(25) @.str.18) #20
   %cmp25.us = icmp eq i32 %call24.us, 0
-  %spec.select.us = select i1 %cmp25.us, ptr %arrayidx.us, ptr %cn_property.027.us
+  %spec.select.us = select i1 %cmp25.us, ptr %arrayidx.us, ptr %cn_property.024.us
   br label %for.inc.us
 
 if.then6.us:                                      ; preds = %if.end.us
@@ -3439,49 +3439,49 @@ if.then6.us:                                      ; preds = %if.end.us
   br i1 %tobool12.not.us, label %if.then6.us.for.inc.us_crit_edge, label %return
 
 if.then6.us.for.inc.us_crit_edge:                 ; preds = %if.then6.us
-  %inc.us = add i64 %san_count.028.us, 1
+  %inc.us = add i64 %san_count.025.us, 1
   %.pre = load i64, ptr %property_count, align 8
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.then6.us.for.inc.us_crit_edge, %if.else22.us, %for.body.us
   %12 = phi i64 [ %7, %for.body.us ], [ %7, %if.else22.us ], [ %.pre, %if.then6.us.for.inc.us_crit_edge ]
-  %cn_property.1.us = phi ptr [ %cn_property.027.us, %for.body.us ], [ %spec.select.us, %if.else22.us ], [ %cn_property.027.us, %if.then6.us.for.inc.us_crit_edge ]
-  %san_count.1.us = phi i64 [ %san_count.028.us, %for.body.us ], [ %san_count.028.us, %if.else22.us ], [ %inc.us, %if.then6.us.for.inc.us_crit_edge ]
-  %inc29.us = add nuw i64 %i.029.us, 1
+  %cn_property.1.us = phi ptr [ %cn_property.024.us, %for.body.us ], [ %spec.select.us, %if.else22.us ], [ %cn_property.024.us, %if.then6.us.for.inc.us_crit_edge ]
+  %san_count.1.us = phi i64 [ %san_count.025.us, %for.body.us ], [ %san_count.025.us, %if.else22.us ], [ %inc.us, %if.then6.us.for.inc.us_crit_edge ]
+  %inc29.us = add nuw i64 %i.026.us, 1
   %cmp.us = icmp ult i64 %inc29.us, %12
   br i1 %cmp.us, label %for.body.us, label %for.end, !llvm.loop !38
 
 for.body.lr.ph.split:                             ; preds = %_ZL21looks_like_ip_addressSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread, %for.body.lr.ph
   %13 = phi i64 [ %5, %for.body.lr.ph ], [ %6, %_ZL21looks_like_ip_addressSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread ]
   %14 = load ptr, ptr %peer, align 8
-  br i1 %cmp25.not.i, label %for.body.us32, label %for.body
+  br i1 %cmp25.not.i, label %for.body.us29, label %for.body
 
-for.body.us32:                                    ; preds = %for.body.lr.ph.split, %for.inc.us49
-  %i.029.us33 = phi i64 [ %inc29.us52, %for.inc.us49 ], [ 0, %for.body.lr.ph.split ]
-  %arrayidx.us36 = getelementptr inbounds %struct.tsi_peer_property, ptr %14, i64 %i.029.us33
-  %15 = load ptr, ptr %arrayidx.us36, align 8
-  %cmp2.us37 = icmp eq ptr %15, null
-  br i1 %cmp2.us37, label %for.inc.us49, label %if.end.us38
+for.body.us29:                                    ; preds = %for.body.lr.ph.split, %for.inc.us46
+  %i.026.us30 = phi i64 [ %inc29.us49, %for.inc.us46 ], [ 0, %for.body.lr.ph.split ]
+  %arrayidx.us33 = getelementptr inbounds %struct.tsi_peer_property, ptr %14, i64 %i.026.us30
+  %15 = load ptr, ptr %arrayidx.us33, align 8
+  %cmp2.us34 = icmp eq ptr %15, null
+  br i1 %cmp2.us34, label %for.inc.us46, label %if.end.us35
 
-if.end.us38:                                      ; preds = %for.body.us32
-  %call4.us39 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(30) @.str.17) #20
-  %cmp5.us40 = icmp eq i32 %call4.us39, 0
-  br i1 %cmp5.us40, label %if.then6.us45, label %for.inc.us49
+if.end.us35:                                      ; preds = %for.body.us29
+  %call4.us36 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(30) @.str.17) #20
+  %cmp5.us37 = icmp eq i32 %call4.us36, 0
+  br i1 %cmp5.us37, label %if.then6.us42, label %for.inc.us46
 
-if.then6.us45:                                    ; preds = %if.end.us38
-  %length.us48 = getelementptr inbounds i8, ptr %arrayidx.us36, i64 16
-  %16 = load i64, ptr %length.us48, align 8
+if.then6.us42:                                    ; preds = %if.end.us35
+  %length.us45 = getelementptr inbounds i8, ptr %arrayidx.us33, i64 16
+  %16 = load i64, ptr %length.us45, align 8
   %cmp.i.us = icmp eq i64 %16, 0
-  br i1 %cmp.i.us, label %return, label %for.inc.us49
+  br i1 %cmp.i.us, label %return, label %for.inc.us46
 
-for.inc.us49:                                     ; preds = %if.end.us38, %if.then6.us45, %for.body.us32
-  %inc29.us52 = add nuw i64 %i.029.us33, 1
-  %cmp.us53 = icmp ult i64 %inc29.us52, %13
-  br i1 %cmp.us53, label %for.body.us32, label %return, !llvm.loop !38
+for.inc.us46:                                     ; preds = %if.end.us35, %if.then6.us42, %for.body.us29
+  %inc29.us49 = add nuw i64 %i.026.us30, 1
+  %cmp.us50 = icmp ult i64 %inc29.us49, %13
+  br i1 %cmp.us50, label %for.body.us29, label %if.end46, !llvm.loop !38
 
 for.body:                                         ; preds = %for.body.lr.ph.split, %for.inc
-  %i.029 = phi i64 [ %inc29, %for.inc ], [ 0, %for.body.lr.ph.split ]
-  %arrayidx = getelementptr inbounds %struct.tsi_peer_property, ptr %14, i64 %i.029
+  %i.026 = phi i64 [ %inc29, %for.inc ], [ 0, %for.body.lr.ph.split ]
+  %arrayidx = getelementptr inbounds %struct.tsi_peer_property, ptr %14, i64 %i.026
   %17 = load ptr, ptr %arrayidx, align 8
   %cmp2 = icmp eq ptr %17, null
   br i1 %cmp2, label %for.inc, label %if.end
@@ -3504,16 +3504,16 @@ land.rhs.i:                                       ; preds = %if.then6
   %cmp.i.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp.i.i, label %return, label %for.inc
 
-for.inc:                                          ; preds = %if.end, %if.then6, %land.rhs.i, %for.body
-  %inc29 = add nuw i64 %i.029, 1
+for.inc:                                          ; preds = %if.end, %land.rhs.i, %if.then6, %for.body
+  %inc29 = add nuw i64 %i.026, 1
   %cmp = icmp ult i64 %inc29, %13
-  br i1 %cmp, label %for.body, label %return, !llvm.loop !38
+  br i1 %cmp, label %for.body, label %if.end46, !llvm.loop !38
 
 for.end:                                          ; preds = %for.inc.us
   %cmp30 = icmp ne i64 %san_count.1.us, 0
   %cmp32 = icmp eq ptr %cn_property.1.us, null
   %or.cond.not18 = select i1 %cmp30, i1 true, i1 %cmp32
-  br i1 %or.cond.not18, label %return, label %if.then35
+  br i1 %or.cond.not18, label %if.end46, label %if.then35
 
 if.then35:                                        ; preds = %for.end
   %value37 = getelementptr inbounds i8, ptr %cn_property.1.us, i64 8
@@ -3521,10 +3521,14 @@ if.then35:                                        ; preds = %for.end
   %length40 = getelementptr inbounds i8, ptr %cn_property.1.us, i64 16
   %21 = load i64, ptr %length40, align 8
   %call42 = tail call fastcc noundef i32 @_ZL21does_entry_match_nameSt17basic_string_viewIcSt11char_traitsIcEES2_(i64 %21, ptr %20, i64 %name.coerce0, ptr %name.coerce1), !range !36
+  %tobool43.not = icmp eq i32 %call42, 0
+  br i1 %tobool43.not, label %if.end46, label %return
+
+if.end46:                                         ; preds = %for.inc, %for.inc.us46, %_ZL21looks_like_ip_addressSt17basic_string_viewIcSt11char_traitsIcEE.exit, %_ZL21looks_like_ip_addressSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread, %if.then35, %for.end
   br label %return
 
-return:                                           ; preds = %for.inc, %land.rhs.i, %for.inc.us49, %if.then6.us45, %if.then6.us, %_ZL21looks_like_ip_addressSt17basic_string_viewIcSt11char_traitsIcEE.exit, %_ZL21looks_like_ip_addressSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread, %if.then35, %for.end
-  %retval.0 = phi i32 [ 0, %for.end ], [ %call42, %if.then35 ], [ 0, %_ZL21looks_like_ip_addressSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread ], [ 0, %_ZL21looks_like_ip_addressSt17basic_string_viewIcSt11char_traitsIcEE.exit ], [ 1, %if.then6.us ], [ 0, %for.inc.us49 ], [ 1, %if.then6.us45 ], [ 0, %for.inc ], [ 1, %land.rhs.i ]
+return:                                           ; preds = %land.rhs.i, %if.then6.us42, %if.then6.us, %if.then35, %if.end46
+  %retval.0 = phi i32 [ 0, %if.end46 ], [ 1, %if.then35 ], [ 1, %if.then6.us ], [ 1, %if.then6.us42 ], [ 1, %land.rhs.i ]
   ret i32 %retval.0
 }
 

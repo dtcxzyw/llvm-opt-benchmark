@@ -78,13 +78,13 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_genphy_c45_e
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @genphy_c45_pma_resume(ptr noundef %0) #0 align 16 {
-  %2 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 1) #8
+  %2 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 1) #7
   %3 = and i32 %2, -2147483646
   %4 = icmp eq i32 %3, 2
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %1
-  %6 = tail call i32 @phy_modify_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 0, i16 noundef zeroext 2048, i16 noundef zeroext 0) #8
+  %6 = tail call i32 @phy_modify_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 0, i16 noundef zeroext 2048, i16 noundef zeroext 0) #7
   br label %7
 
 7:                                                ; preds = %5, %1
@@ -94,13 +94,13 @@ define dso_local i32 @genphy_c45_pma_resume(ptr noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @genphy_c45_pma_suspend(ptr noundef %0) #0 align 16 {
-  %2 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 1) #8
+  %2 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 1) #7
   %3 = and i32 %2, -2147483646
   %4 = icmp eq i32 %3, 2
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %1
-  %6 = tail call i32 @phy_modify_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 0, i16 noundef zeroext 0, i16 noundef zeroext 2048) #8
+  %6 = tail call i32 @phy_modify_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 0, i16 noundef zeroext 0, i16 noundef zeroext 2048) #7
   br label %7
 
 7:                                                ; preds = %5, %1
@@ -125,12 +125,12 @@ define dso_local i32 @genphy_c45_pma_baset1_setup_master_slave(ptr noundef %0) #
   br label %6
 
 5:                                                ; preds = %1
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %0, ptr noundef nonnull @.str) #9
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %0, ptr noundef nonnull @.str) #8
   br label %9
 
 6:                                                ; preds = %4, %1, %1
   %7 = phi i16 [ 0, %1 ], [ 0, %1 ], [ 16384, %4 ]
-  %8 = tail call i32 @phy_modify_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 2100, i16 noundef zeroext 16384, i16 noundef zeroext %7) #8
+  %8 = tail call i32 @phy_modify_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 2100, i16 noundef zeroext 16384, i16 noundef zeroext %7) #7
   br label %9
 
 9:                                                ; preds = %6, %5, %1, %1
@@ -155,30 +155,30 @@ define dso_local i32 @genphy_c45_pma_setup_forced(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1020
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 1
-  br i1 %4, label %5, label %86
+  br i1 %4, label %5, label %87
 
 5:                                                ; preds = %1
-  %6 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 0) #8
+  %6 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 0) #7
   %7 = icmp slt i32 %6, 0
-  br i1 %7, label %86, label %8
+  br i1 %7, label %87, label %8
 
 8:                                                ; preds = %5
-  %9 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 7) #8
+  %9 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 7) #7
   %10 = icmp slt i32 %9, 0
-  br i1 %10, label %86, label %11
+  br i1 %10, label %87, label %11
 
 11:                                               ; preds = %8
   %12 = and i32 %6, 2147475331
   %13 = and i32 %9, 65472
   %14 = getelementptr inbounds i8, ptr %0, i64 1016
   %15 = load i32, ptr %14, align 8
-  switch i32 %15, label %86 [
+  switch i32 %15, label %87 [
     i32 10, label %16
-    i32 100, label %28
-    i32 1000, label %30
-    i32 2500, label %32
-    i32 5000, label %34
-    i32 10000, label %36
+    i32 100, label %29
+    i32 1000, label %31
+    i32 2500, label %33
+    i32 5000, label %35
+    i32 10000, label %37
   ]
 
 16:                                               ; preds = %11
@@ -188,9 +188,9 @@ define dso_local i32 @genphy_c45_pma_setup_forced(ptr noundef %0) #0 align 16 {
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %16
-  %21 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 11) #8
+  %21 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 11) #7
   %22 = icmp slt i32 %21, 0
-  br i1 %22, label %38, label %23
+  br i1 %22, label %28, label %23
 
 23:                                               ; preds = %20
   store i32 %21, ptr %17, align 4
@@ -200,126 +200,128 @@ define dso_local i32 @genphy_c45_pma_setup_forced(ptr noundef %0) #0 align 16 {
   %25 = phi i32 [ %21, %23 ], [ %18, %16 ]
   %26 = and i32 %25, 2048
   %27 = icmp eq i32 %26, 0
-  %spec.select = select i1 %27, i32 15, i32 61
-  br label %38
+  br i1 %27, label %28, label %39
 
-28:                                               ; preds = %11
-  %29 = or disjoint i32 %12, 8192
-  br label %38
+28:                                               ; preds = %24, %20
+  br label %39
 
-30:                                               ; preds = %11
-  %31 = or disjoint i32 %12, 64
-  br label %38
+29:                                               ; preds = %11
+  %30 = or disjoint i32 %12, 8192
+  br label %39
 
-32:                                               ; preds = %11
-  %33 = or disjoint i32 %12, 8280
-  br label %38
+31:                                               ; preds = %11
+  %32 = or disjoint i32 %12, 64
+  br label %39
 
-34:                                               ; preds = %11
-  %35 = or disjoint i32 %12, 8284
-  br label %38
+33:                                               ; preds = %11
+  %34 = or disjoint i32 %12, 8280
+  br label %39
 
-36:                                               ; preds = %11
-  %37 = or disjoint i32 %12, 8256
-  br label %38
+35:                                               ; preds = %11
+  %36 = or disjoint i32 %12, 8284
+  br label %39
 
-38:                                               ; preds = %24, %20, %36, %34, %32, %30, %28
-  %39 = phi i32 [ 9, %36 ], [ 49, %34 ], [ 48, %32 ], [ 12, %30 ], [ 14, %28 ], [ 15, %20 ], [ %spec.select, %24 ]
-  %40 = phi i32 [ %37, %36 ], [ %35, %34 ], [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ %12, %20 ], [ %12, %24 ]
-  %41 = trunc i32 %40 to i16
-  %42 = tail call i32 @phy_write_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 0, i16 noundef zeroext %41) #8
-  %43 = icmp slt i32 %42, 0
-  br i1 %43, label %86, label %44
+37:                                               ; preds = %11
+  %38 = or disjoint i32 %12, 8256
+  br label %39
 
-44:                                               ; preds = %38
-  %45 = or disjoint i32 %39, %13
-  %46 = trunc nuw i32 %45 to i16
-  %47 = tail call i32 @phy_write_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 7, i16 noundef zeroext %46) #8
-  %48 = icmp slt i32 %47, 0
-  br i1 %48, label %86, label %49
+39:                                               ; preds = %37, %35, %33, %31, %29, %28, %24
+  %40 = phi i32 [ 15, %28 ], [ 9, %37 ], [ 49, %35 ], [ 48, %33 ], [ 12, %31 ], [ 14, %29 ], [ 61, %24 ]
+  %41 = phi i32 [ %12, %28 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %12, %24 ]
+  %42 = trunc i32 %41 to i16
+  %43 = tail call i32 @phy_write_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 0, i16 noundef zeroext %42) #7
+  %44 = icmp slt i32 %43, 0
+  br i1 %44, label %87, label %45
 
-49:                                               ; preds = %44
-  %50 = getelementptr inbounds i8, ptr %0, i64 1396
-  %51 = load i32, ptr %50, align 4
-  %52 = icmp eq i32 %51, -61
-  br i1 %52, label %53, label %57
+45:                                               ; preds = %39
+  %46 = or disjoint i32 %40, %13
+  %47 = trunc nuw i32 %46 to i16
+  %48 = tail call i32 @phy_write_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 7, i16 noundef zeroext %47) #7
+  %49 = icmp slt i32 %48, 0
+  br i1 %49, label %87, label %50
 
-53:                                               ; preds = %49
-  %54 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 11) #8
-  %55 = icmp slt i32 %54, 0
-  br i1 %55, label %74, label %56
+50:                                               ; preds = %45
+  %51 = getelementptr inbounds i8, ptr %0, i64 1396
+  %52 = load i32, ptr %51, align 4
+  %53 = icmp eq i32 %52, -61
+  br i1 %53, label %54, label %58
 
-56:                                               ; preds = %53
-  store i32 %54, ptr %50, align 4
-  br label %57
+54:                                               ; preds = %50
+  %55 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 11) #7
+  %56 = icmp slt i32 %55, 0
+  br i1 %56, label %75, label %57
 
-57:                                               ; preds = %56, %49
-  %58 = phi i32 [ %54, %56 ], [ %51, %49 ]
-  %59 = and i32 %58, 2048
-  %60 = icmp eq i32 %59, 0
-  br i1 %60, label %.thread11, label %61
+57:                                               ; preds = %54
+  store i32 %55, ptr %51, align 4
+  br label %58
 
-61:                                               ; preds = %57
-  %62 = getelementptr inbounds i8, ptr %0, i64 1037
-  %63 = load i8, ptr %62, align 1
-  switch i8 %63, label %.thread [
-    i8 2, label %64
-    i8 4, label %64
-    i8 5, label %65
-    i8 3, label %65
+58:                                               ; preds = %57, %50
+  %59 = phi i32 [ %55, %57 ], [ %52, %50 ]
+  %60 = and i32 %59, 2048
+  %61 = icmp eq i32 %60, 0
+  br i1 %61, label %.thread11, label %62
+
+62:                                               ; preds = %58
+  %63 = getelementptr inbounds i8, ptr %0, i64 1037
+  %64 = load i8, ptr %63, align 1
+  switch i8 %64, label %.thread [
+    i8 2, label %65
+    i8 4, label %65
+    i8 5, label %66
+    i8 3, label %66
     i8 1, label %.thread10
     i8 0, label %.thread10
   ]
 
-64:                                               ; preds = %61, %61
-  br label %65
+65:                                               ; preds = %62, %62
+  br label %66
 
-.thread:                                          ; preds = %61
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %0, ptr noundef nonnull @.str) #9
-  br label %86
+.thread:                                          ; preds = %62
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %0, ptr noundef nonnull @.str) #8
+  br label %87
 
-65:                                               ; preds = %61, %61, %64
-  %66 = phi i16 [ 0, %61 ], [ 0, %61 ], [ 16384, %64 ]
-  %67 = tail call i32 @phy_modify_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 2100, i16 noundef zeroext 16384, i16 noundef zeroext %66) #8
-  %68 = icmp slt i32 %67, 0
-  br i1 %68, label %86, label %.thread10
+66:                                               ; preds = %62, %62, %65
+  %67 = phi i16 [ 0, %62 ], [ 0, %62 ], [ 16384, %65 ]
+  %68 = tail call i32 @phy_modify_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 2100, i16 noundef zeroext 16384, i16 noundef zeroext %67) #7
+  %69 = icmp slt i32 %68, 0
+  br i1 %69, label %87, label %.thread10
 
-.thread10:                                        ; preds = %61, %61, %65
-  %69 = load i32, ptr %14, align 8
-  %70 = icmp eq i32 %69, 1000
-  %71 = zext i1 %70 to i16
-  %72 = tail call i32 @phy_modify_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 2100, i16 noundef zeroext 15, i16 noundef zeroext %71) #8
-  %73 = icmp slt i32 %72, 0
-  br i1 %73, label %86, label %74
+.thread10:                                        ; preds = %62, %62, %66
+  %70 = load i32, ptr %14, align 8
+  %71 = icmp eq i32 %70, 1000
+  %72 = zext i1 %71 to i16
+  %73 = tail call i32 @phy_modify_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 2100, i16 noundef zeroext 15, i16 noundef zeroext %72) #7
+  %74 = icmp slt i32 %73, 0
+  br i1 %74, label %87, label %75
 
-74:                                               ; preds = %.thread10, %53
-  %.pr = load i32, ptr %50, align 4
-  %75 = icmp eq i32 %.pr, -61
-  br i1 %75, label %76, label %.thread11
+75:                                               ; preds = %.thread10, %54
+  %.pr = load i32, ptr %51, align 4
+  %76 = icmp eq i32 %.pr, -61
+  br i1 %76, label %77, label %.thread11
 
-76:                                               ; preds = %74
-  %77 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 11) #8
-  %78 = icmp slt i32 %77, 0
-  br i1 %78, label %83, label %79
+77:                                               ; preds = %75
+  %78 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 11) #7
+  %79 = icmp slt i32 %78, 0
+  br i1 %79, label %84, label %80
 
-79:                                               ; preds = %76
-  store i32 %77, ptr %50, align 4
+80:                                               ; preds = %77
+  store i32 %78, ptr %51, align 4
   br label %.thread11
 
-.thread11:                                        ; preds = %57, %79, %74
-  %80 = phi i32 [ %58, %57 ], [ %77, %79 ], [ %.pr, %74 ]
-  %81 = lshr i32 %80, 2
-  %82 = and i32 %81, 512
-  br label %83
+.thread11:                                        ; preds = %58, %80, %75
+  %81 = phi i32 [ %59, %58 ], [ %78, %80 ], [ %.pr, %75 ]
+  %82 = lshr i32 %81, 2
+  %83 = and i32 %82, 512
+  br label %84
 
-83:                                               ; preds = %.thread11, %76
-  %84 = phi i32 [ %82, %.thread11 ], [ 0, %76 ]
-  %85 = tail call i32 @phy_modify_mmd(ptr noundef %0, i32 noundef 7, i32 noundef %84, i16 noundef zeroext 4608, i16 noundef zeroext 0) #8
-  br label %86
+84:                                               ; preds = %.thread11, %77
+  %85 = phi i32 [ %83, %.thread11 ], [ 0, %77 ]
+  %86 = tail call i32 @phy_modify_mmd(ptr noundef %0, i32 noundef 7, i32 noundef %85, i16 noundef zeroext 4608, i16 noundef zeroext 0) #7
+  br label %87
 
-86:                                               ; preds = %.thread, %83, %.thread10, %65, %44, %38, %11, %8, %5, %1
-  %87 = phi i32 [ %85, %83 ], [ -22, %1 ], [ %6, %5 ], [ %9, %8 ], [ -22, %11 ], [ %42, %38 ], [ %47, %44 ], [ %67, %65 ], [ %72, %.thread10 ], [ -95, %.thread ]
-  ret i32 %87
+87:                                               ; preds = %.thread, %84, %.thread10, %66, %45, %39, %11, %8, %5, %1
+  %88 = phi i32 [ %86, %84 ], [ -22, %1 ], [ %6, %5 ], [ %9, %8 ], [ -22, %11 ], [ %43, %39 ], [ %48, %45 ], [ %68, %66 ], [ %73, %.thread10 ], [ -95, %.thread ]
+  ret i32 %88
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -336,7 +338,7 @@ define dso_local i32 @genphy_c45_an_disable_aneg(ptr noundef %0) #0 align 16 {
   br i1 %4, label %5, label %9
 
 5:                                                ; preds = %1
-  %6 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 11) #8
+  %6 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 11) #7
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %13, label %8
 
@@ -352,7 +354,7 @@ define dso_local i32 @genphy_c45_an_disable_aneg(ptr noundef %0) #0 align 16 {
 
 13:                                               ; preds = %9, %5
   %14 = phi i32 [ %12, %9 ], [ 0, %5 ]
-  %15 = tail call i32 @phy_modify_mmd(ptr noundef %0, i32 noundef 7, i32 noundef %14, i16 noundef zeroext 4608, i16 noundef zeroext 0) #8
+  %15 = tail call i32 @phy_modify_mmd(ptr noundef %0, i32 noundef 7, i32 noundef %14, i16 noundef zeroext 4608, i16 noundef zeroext 0) #7
   ret i32 %15
 }
 
@@ -361,17 +363,17 @@ define dso_local i32 @genphy_c45_an_config_aneg(ptr noundef %0) #0 align 16 {
   %2 = alloca [2 x i64], align 16
   %3 = getelementptr inbounds i8, ptr %0, i64 1056
   %4 = getelementptr inbounds i8, ptr %0, i64 1040
-  %5 = tail call zeroext i1 @__bitmap_and(ptr noundef %3, ptr noundef %3, ptr noundef %4, i32 noundef 102) #8
+  %5 = tail call zeroext i1 @__bitmap_and(ptr noundef %3, ptr noundef %3, ptr noundef %4, i32 noundef 102) #7
   %6 = getelementptr inbounds i8, ptr %0, i64 1136
   %7 = load i8, ptr %6, align 8, !range !5, !noundef !6
   %8 = icmp eq i8 %7, 0
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %10 = call i32 @genphy_c45_write_eee_adv(ptr noundef %0, ptr noundef nonnull %2), !range !7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #7
   br label %14
 
 11:                                               ; preds = %1
@@ -391,7 +393,7 @@ define dso_local i32 @genphy_c45_an_config_aneg(ptr noundef %0) #0 align 16 {
   br i1 %20, label %21, label %25
 
 21:                                               ; preds = %17
-  %22 = call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 11) #8
+  %22 = call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 11) #7
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %69, label %24
 
@@ -430,7 +432,7 @@ define dso_local i32 @genphy_c45_an_config_aneg(ptr noundef %0) #0 align 16 {
   br label %37
 
 36:                                               ; preds = %29
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %0, ptr noundef nonnull @.str) #9
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %0, ptr noundef nonnull @.str) #8
   br label %123
 
 37:                                               ; preds = %35, %34, %33, %32, %29
@@ -449,7 +451,7 @@ define dso_local i32 @genphy_c45_an_config_aneg(ptr noundef %0) #0 align 16 {
   %50 = or disjoint i32 %46, %39
   %51 = or disjoint i32 %50, %49
   %52 = trunc nuw nsw i32 %51 to i16
-  %53 = call i32 @phy_modify_mmd_changed(ptr noundef %0, i32 noundef 7, i32 noundef 514, i16 noundef zeroext %38, i16 noundef zeroext %52) #8
+  %53 = call i32 @phy_modify_mmd_changed(ptr noundef %0, i32 noundef 7, i32 noundef 514, i16 noundef zeroext %38, i16 noundef zeroext %52) #7
   %54 = icmp slt i32 %53, 0
   br i1 %54, label %123, label %55
 
@@ -461,7 +463,7 @@ define dso_local i32 @genphy_c45_an_config_aneg(ptr noundef %0) #0 align 16 {
   %60 = and i32 %59, 16384
   %61 = or disjoint i32 %60, %41
   %62 = trunc nuw nsw i32 %61 to i16
-  %63 = call i32 @phy_modify_mmd_changed(ptr noundef %0, i32 noundef 7, i32 noundef 515, i16 noundef zeroext %40, i16 noundef zeroext %62) #8
+  %63 = call i32 @phy_modify_mmd_changed(ptr noundef %0, i32 noundef 7, i32 noundef 515, i16 noundef zeroext %40, i16 noundef zeroext %62) #7
   %64 = icmp slt i32 %63, 0
   br i1 %64, label %123, label %65
 
@@ -502,7 +504,7 @@ define dso_local i32 @genphy_c45_an_config_aneg(ptr noundef %0) #0 align 16 {
   %97 = and i32 %96, 2048
   %98 = or disjoint i32 %94, %97
   %99 = trunc nuw nsw i32 %98 to i16
-  %100 = call i32 @phy_modify_mmd_changed(ptr noundef %0, i32 noundef 7, i32 noundef 16, i16 noundef zeroext 4064, i16 noundef zeroext %99) #8
+  %100 = call i32 @phy_modify_mmd_changed(ptr noundef %0, i32 noundef 7, i32 noundef 16, i16 noundef zeroext 4064, i16 noundef zeroext %99) #7
   %101 = icmp slt i32 %100, 0
   br i1 %101, label %123, label %102
 
@@ -520,7 +522,7 @@ define dso_local i32 @genphy_c45_an_config_aneg(ptr noundef %0) #0 align 16 {
   %113 = trunc i64 %105 to i16
   %114 = and i16 %113, 4096
   %115 = or disjoint i16 %112, %114
-  %116 = call i32 @phy_modify_mmd_changed(ptr noundef %0, i32 noundef 7, i32 noundef 32, i16 noundef zeroext 4480, i16 noundef zeroext %115) #8
+  %116 = call i32 @phy_modify_mmd_changed(ptr noundef %0, i32 noundef 7, i32 noundef 32, i16 noundef zeroext 4480, i16 noundef zeroext %115) #7
   %117 = icmp slt i32 %116, 0
   br i1 %117, label %123, label %118
 
@@ -545,10 +547,10 @@ define dso_local i32 @genphy_c45_an_config_eee_aneg(ptr noundef %0) local_unname
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %7 = call i32 @genphy_c45_write_eee_adv(ptr noundef %0, ptr noundef nonnull %2), !range !7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #7
   br label %11
 
 8:                                                ; preds = %1
@@ -572,7 +574,7 @@ define dso_local i32 @genphy_c45_restart_aneg(ptr noundef %0) #0 align 16 {
   br i1 %4, label %5, label %9
 
 5:                                                ; preds = %1
-  %6 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 11) #8
+  %6 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 11) #7
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %13, label %8
 
@@ -588,7 +590,7 @@ define dso_local i32 @genphy_c45_restart_aneg(ptr noundef %0) #0 align 16 {
 
 13:                                               ; preds = %9, %5
   %14 = phi i32 [ %12, %9 ], [ 0, %5 ]
-  %15 = tail call i32 @phy_modify_mmd(ptr noundef %0, i32 noundef 7, i32 noundef %14, i16 noundef zeroext 0, i16 noundef zeroext 4608) #8
+  %15 = tail call i32 @phy_modify_mmd(ptr noundef %0, i32 noundef 7, i32 noundef %14, i16 noundef zeroext 0, i16 noundef zeroext 4608) #7
   ret i32 %15
 }
 
@@ -600,7 +602,7 @@ define dso_local i32 @genphy_c45_check_and_restart_aneg(ptr noundef %0, i1 nound
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %2
-  %7 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 11) #8
+  %7 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 11) #7
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %14, label %9
 
@@ -619,7 +621,7 @@ define dso_local i32 @genphy_c45_check_and_restart_aneg(ptr noundef %0, i1 nound
   br i1 %1, label %.critedge, label %16
 
 16:                                               ; preds = %14
-  %17 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 7, i32 noundef %15) #8
+  %17 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 7, i32 noundef %15) #7
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %35, label %19
 
@@ -634,7 +636,7 @@ define dso_local i32 @genphy_c45_check_and_restart_aneg(ptr noundef %0, i1 nound
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %.critedge
-  %25 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 11) #8
+  %25 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 11) #7
   %26 = icmp slt i32 %25, 0
   br i1 %26, label %32, label %27
 
@@ -650,7 +652,7 @@ define dso_local i32 @genphy_c45_check_and_restart_aneg(ptr noundef %0, i1 nound
 
 32:                                               ; preds = %28, %24
   %33 = phi i32 [ %31, %28 ], [ 0, %24 ]
-  %34 = tail call i32 @phy_modify_mmd(ptr noundef %0, i32 noundef 7, i32 noundef %33, i16 noundef zeroext 0, i16 noundef zeroext 4608) #8
+  %34 = tail call i32 @phy_modify_mmd(ptr noundef %0, i32 noundef 7, i32 noundef %33, i16 noundef zeroext 0, i16 noundef zeroext 4608) #7
   br label %35
 
 35:                                               ; preds = %32, %19, %16
@@ -666,7 +668,7 @@ define dso_local i32 @genphy_c45_aneg_done(ptr noundef %0) #0 align 16 {
   br i1 %4, label %5, label %9
 
 5:                                                ; preds = %1
-  %6 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 11) #8
+  %6 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 11) #7
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %14, label %8
 
@@ -683,7 +685,7 @@ define dso_local i32 @genphy_c45_aneg_done(ptr noundef %0) #0 align 16 {
 
 14:                                               ; preds = %9, %5
   %15 = phi i32 [ %13, %9 ], [ 1, %5 ]
-  %16 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 7, i32 noundef %15) #8
+  %16 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 7, i32 noundef %15) #7
   %17 = icmp slt i32 %16, 0
   %18 = lshr i32 %16, 5
   %19 = and i32 %18, 1
@@ -700,7 +702,7 @@ define dso_local i32 @genphy_c45_read_link(ptr noundef %0) #0 align 16 {
   br i1 %5, label %16, label %6
 
 6:                                                ; preds = %1
-  %7 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 7, i32 noundef 0) #8
+  %7 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 7, i32 noundef 0) #7
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %53, label %9
 
@@ -745,7 +747,7 @@ define dso_local i32 @genphy_c45_read_link(ptr noundef %0) #0 align 16 {
   br i1 %35, label %36, label %42
 
 36:                                               ; preds = %32, %29
-  %37 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 1) #8
+  %37 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 1) #7
   %38 = icmp slt i32 %37, 0
   br i1 %38, label %53, label %39
 
@@ -755,7 +757,7 @@ define dso_local i32 @genphy_c45_read_link(ptr noundef %0) #0 align 16 {
   br i1 %41, label %42, label %48
 
 42:                                               ; preds = %39, %32
-  %43 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 1) #8
+  %43 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 1) #7
   %44 = icmp slt i32 %43, 0
   br i1 %44, label %53, label %45
 
@@ -785,7 +787,7 @@ define dso_local i32 @genphy_c45_read_lpa(ptr noundef %0) #0 align 16 {
   br i1 %4, label %5, label %9
 
 5:                                                ; preds = %1
-  %6 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 11) #8
+  %6 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 11) #7
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %50, label %8
 
@@ -800,7 +802,7 @@ define dso_local i32 @genphy_c45_read_lpa(ptr noundef %0) #0 align 16 {
   br i1 %12, label %50, label %13
 
 13:                                               ; preds = %9
-  %14 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 7, i32 noundef 513) #8
+  %14 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 7, i32 noundef 513) #7
   %15 = icmp slt i32 %14, 0
   br i1 %15, label %122, label %16
 
@@ -811,10 +813,10 @@ define dso_local i32 @genphy_c45_read_lpa(ptr noundef %0) #0 align 16 {
   br i1 %18, label %20, label %23
 
 20:                                               ; preds = %16
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %19, i64 6) #8, !srcloc !8
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %19, i64 13) #8, !srcloc !8
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %19, i64 14) #8, !srcloc !8
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %19, i64 92) #8, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %19, i64 6) #7, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %19, i64 13) #7, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %19, i64 14) #7, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %19, i64 92) #7, !srcloc !8
   %21 = getelementptr inbounds i8, ptr %0, i64 1028
   store i32 0, ptr %21, align 4
   %22 = getelementptr inbounds i8, ptr %0, i64 1032
@@ -822,8 +824,8 @@ define dso_local i32 @genphy_c45_read_lpa(ptr noundef %0) #0 align 16 {
   br label %122
 
 23:                                               ; preds = %16
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %19, i64 6) #8, !srcloc !9
-  %24 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 7, i32 noundef 517) #8
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %19, i64 6) #7, !srcloc !9
+  %24 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 7, i32 noundef 517) #7
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %122, label %26
 
@@ -833,11 +835,11 @@ define dso_local i32 @genphy_c45_read_lpa(ptr noundef %0) #0 align 16 {
   br i1 %28, label %30, label %29
 
 29:                                               ; preds = %26
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %19, i64 13) #8, !srcloc !9
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %19, i64 13) #7, !srcloc !9
   br label %31
 
 30:                                               ; preds = %26
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %19, i64 13) #8, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %19, i64 13) #7, !srcloc !8
   br label %31
 
 31:                                               ; preds = %30, %29
@@ -846,11 +848,11 @@ define dso_local i32 @genphy_c45_read_lpa(ptr noundef %0) #0 align 16 {
   br i1 %33, label %35, label %34
 
 34:                                               ; preds = %31
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %19, i64 14) #8, !srcloc !9
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %19, i64 14) #7, !srcloc !9
   br label %36
 
 35:                                               ; preds = %31
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %19, i64 14) #8, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %19, i64 14) #7, !srcloc !8
   br label %36
 
 36:                                               ; preds = %35, %34
@@ -862,7 +864,7 @@ define dso_local i32 @genphy_c45_read_lpa(ptr noundef %0) #0 align 16 {
   %41 = and i32 %40, 1
   %42 = getelementptr inbounds i8, ptr %0, i64 1032
   store i32 %41, ptr %42, align 8
-  %43 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 7, i32 noundef 518) #8
+  %43 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 7, i32 noundef 518) #7
   %44 = icmp slt i32 %43, 0
   br i1 %44, label %122, label %45
 
@@ -872,15 +874,15 @@ define dso_local i32 @genphy_c45_read_lpa(ptr noundef %0) #0 align 16 {
   br i1 %47, label %49, label %48
 
 48:                                               ; preds = %45
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %19, i64 92) #8, !srcloc !9
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %19, i64 92) #7, !srcloc !9
   br label %122
 
 49:                                               ; preds = %45
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %19, i64 92) #8, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %19, i64 92) #7, !srcloc !8
   br label %122
 
 50:                                               ; preds = %9, %5
-  %51 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 7, i32 noundef 1) #8
+  %51 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 7, i32 noundef 1) #7
   %52 = icmp slt i32 %51, 0
   br i1 %52, label %122, label %53
 
@@ -891,16 +893,16 @@ define dso_local i32 @genphy_c45_read_lpa(ptr noundef %0) #0 align 16 {
   br i1 %55, label %57, label %60
 
 57:                                               ; preds = %53
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %56, i64 6) #8, !srcloc !8
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %56, i64 47) #8, !srcloc !8
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %56, i64 48) #8, !srcloc !8
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %56, i64 12) #8, !srcloc !8
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %56, i64 0) #8, !srcloc !8
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %56, i64 1) #8, !srcloc !8
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %56, i64 2) #8, !srcloc !8
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %56, i64 3) #8, !srcloc !8
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %56, i64 13) #8, !srcloc !8
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %56, i64 14) #8, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %56, i64 6) #7, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %56, i64 47) #7, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %56, i64 48) #7, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %56, i64 12) #7, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %56, i64 0) #7, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %56, i64 1) #7, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %56, i64 2) #7, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %56, i64 3) #7, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %56, i64 13) #7, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %56, i64 14) #7, !srcloc !8
   %58 = getelementptr inbounds i8, ptr %0, i64 1028
   store i32 0, ptr %58, align 4
   %59 = getelementptr inbounds i8, ptr %0, i64 1032
@@ -913,15 +915,15 @@ define dso_local i32 @genphy_c45_read_lpa(ptr noundef %0) #0 align 16 {
   br i1 %62, label %64, label %63
 
 63:                                               ; preds = %60
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %56, i64 6) #8, !srcloc !9
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %56, i64 6) #7, !srcloc !9
   br label %65
 
 64:                                               ; preds = %60
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %56, i64 6) #8, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %56, i64 6) #7, !srcloc !8
   br label %65
 
 65:                                               ; preds = %64, %63
-  %66 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 7, i32 noundef 19) #8
+  %66 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 7, i32 noundef 19) #7
   %67 = icmp slt i32 %66, 0
   br i1 %67, label %122, label %68
 
@@ -931,11 +933,11 @@ define dso_local i32 @genphy_c45_read_lpa(ptr noundef %0) #0 align 16 {
   br i1 %70, label %72, label %71
 
 71:                                               ; preds = %68
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %56, i64 0) #8, !srcloc !9
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %56, i64 0) #7, !srcloc !9
   br label %73
 
 72:                                               ; preds = %68
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %56, i64 0) #8, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %56, i64 0) #7, !srcloc !8
   br label %73
 
 73:                                               ; preds = %72, %71
@@ -944,11 +946,11 @@ define dso_local i32 @genphy_c45_read_lpa(ptr noundef %0) #0 align 16 {
   br i1 %75, label %77, label %76
 
 76:                                               ; preds = %73
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %56, i64 1) #8, !srcloc !9
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %56, i64 1) #7, !srcloc !9
   br label %78
 
 77:                                               ; preds = %73
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %56, i64 1) #8, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %56, i64 1) #7, !srcloc !8
   br label %78
 
 78:                                               ; preds = %77, %76
@@ -957,11 +959,11 @@ define dso_local i32 @genphy_c45_read_lpa(ptr noundef %0) #0 align 16 {
   br i1 %80, label %82, label %81
 
 81:                                               ; preds = %78
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %56, i64 2) #8, !srcloc !9
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %56, i64 2) #7, !srcloc !9
   br label %83
 
 82:                                               ; preds = %78
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %56, i64 2) #8, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %56, i64 2) #7, !srcloc !8
   br label %83
 
 83:                                               ; preds = %82, %81
@@ -970,11 +972,11 @@ define dso_local i32 @genphy_c45_read_lpa(ptr noundef %0) #0 align 16 {
   br i1 %85, label %87, label %86
 
 86:                                               ; preds = %83
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %56, i64 3) #8, !srcloc !9
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %56, i64 3) #7, !srcloc !9
   br label %88
 
 87:                                               ; preds = %83
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %56, i64 3) #8, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %56, i64 3) #7, !srcloc !8
   br label %88
 
 88:                                               ; preds = %87, %86
@@ -983,11 +985,11 @@ define dso_local i32 @genphy_c45_read_lpa(ptr noundef %0) #0 align 16 {
   br i1 %90, label %92, label %91
 
 91:                                               ; preds = %88
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %56, i64 13) #8, !srcloc !9
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %56, i64 13) #7, !srcloc !9
   br label %93
 
 92:                                               ; preds = %88
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %56, i64 13) #8, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %56, i64 13) #7, !srcloc !8
   br label %93
 
 93:                                               ; preds = %92, %91
@@ -996,11 +998,11 @@ define dso_local i32 @genphy_c45_read_lpa(ptr noundef %0) #0 align 16 {
   br i1 %95, label %97, label %96
 
 96:                                               ; preds = %93
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %56, i64 14) #8, !srcloc !9
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %56, i64 14) #7, !srcloc !9
   br label %98
 
 97:                                               ; preds = %93
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %56, i64 14) #8, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %56, i64 14) #7, !srcloc !8
   br label %98
 
 98:                                               ; preds = %97, %96
@@ -1012,7 +1014,7 @@ define dso_local i32 @genphy_c45_read_lpa(ptr noundef %0) #0 align 16 {
   %103 = and i32 %102, 1
   %104 = getelementptr inbounds i8, ptr %0, i64 1032
   store i32 %103, ptr %104, align 8
-  %105 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 7, i32 noundef 33) #8
+  %105 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 7, i32 noundef 33) #7
   %106 = icmp slt i32 %105, 0
   br i1 %106, label %122, label %107
 
@@ -1022,11 +1024,11 @@ define dso_local i32 @genphy_c45_read_lpa(ptr noundef %0) #0 align 16 {
   br i1 %109, label %111, label %110
 
 110:                                              ; preds = %107
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %56, i64 47) #8, !srcloc !9
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %56, i64 47) #7, !srcloc !9
   br label %112
 
 111:                                              ; preds = %107
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %56, i64 47) #8, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %56, i64 47) #7, !srcloc !8
   br label %112
 
 112:                                              ; preds = %111, %110
@@ -1035,11 +1037,11 @@ define dso_local i32 @genphy_c45_read_lpa(ptr noundef %0) #0 align 16 {
   br i1 %114, label %116, label %115
 
 115:                                              ; preds = %112
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %56, i64 48) #8, !srcloc !9
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %56, i64 48) #7, !srcloc !9
   br label %117
 
 116:                                              ; preds = %112
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %56, i64 48) #8, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %56, i64 48) #7, !srcloc !8
   br label %117
 
 117:                                              ; preds = %116, %115
@@ -1048,11 +1050,11 @@ define dso_local i32 @genphy_c45_read_lpa(ptr noundef %0) #0 align 16 {
   br i1 %119, label %121, label %120
 
 120:                                              ; preds = %117
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %56, i64 12) #8, !srcloc !9
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %56, i64 12) #7, !srcloc !9
   br label %122
 
 121:                                              ; preds = %117
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %56, i64 12) #8, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %56, i64 12) #7, !srcloc !8
   br label %122
 
 122:                                              ; preds = %121, %120, %98, %65, %57, %50, %49, %48, %36, %23, %20, %13
@@ -1066,7 +1068,7 @@ define dso_local i32 @genphy_c45_pma_baset1_read_master_slave(ptr noundef %0) #0
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 1036
   store i8 1, ptr %3, align 4
-  %4 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 2100) #8
+  %4 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 2100) #7
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %11, label %6
 
@@ -1088,9 +1090,9 @@ define dso_local i32 @genphy_c45_pma_baset1_read_master_slave(ptr noundef %0) #0
 define dso_local i32 @genphy_c45_read_pma(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1072
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
-  %3 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 0) #8
+  %3 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 0) #7
   %4 = icmp slt i32 %3, 0
-  br i1 %4, label %38, label %5
+  br i1 %4, label %.thread, label %5
 
 5:                                                ; preds = %1
   %6 = and i32 %3, 8316
@@ -1133,9 +1135,9 @@ define dso_local i32 @genphy_c45_read_pma(ptr noundef %0) #0 align 16 {
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %14
-  %21 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 11) #8
+  %21 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 11) #7
   %22 = icmp slt i32 %21, 0
-  br i1 %22, label %38, label %23
+  br i1 %22, label %.thread, label %23
 
 23:                                               ; preds = %20
   store i32 %21, ptr %17, align 4
@@ -1145,16 +1147,16 @@ define dso_local i32 @genphy_c45_read_pma(ptr noundef %0) #0 align 16 {
   %25 = phi i32 [ %21, %23 ], [ %18, %14 ]
   %26 = and i32 %25, 2048
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %38, label %28
+  br i1 %27, label %.thread, label %28
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds i8, ptr %0, i64 1038
   store i8 1, ptr %29, align 2
   %30 = getelementptr inbounds i8, ptr %0, i64 1036
   store i8 1, ptr %30, align 4
-  %31 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 2100) #8
+  %31 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 2100) #7
   %32 = icmp slt i32 %31, 0
-  br i1 %32, label %38, label %33
+  br i1 %32, label %.thread, label %33
 
 33:                                               ; preds = %28
   %34 = and i32 %31, 16384
@@ -1163,11 +1165,11 @@ define dso_local i32 @genphy_c45_read_pma(ptr noundef %0) #0 align 16 {
   %37 = select i1 %35, i8 3, i8 2
   store i8 %36, ptr %30, align 4
   store i8 %37, ptr %29, align 2
-  br label %38
+  br label %.thread
 
-38:                                               ; preds = %28, %33, %20, %24, %1
-  %39 = phi i32 [ %3, %1 ], [ 0, %24 ], [ 0, %20 ], [ 0, %33 ], [ %31, %28 ]
-  ret i32 %39
+.thread:                                          ; preds = %28, %20, %24, %33, %1
+  %38 = phi i32 [ %3, %1 ], [ 0, %33 ], [ 0, %24 ], [ 0, %20 ], [ %31, %28 ]
+  ret i32 %38
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1178,7 +1180,7 @@ define dso_local i32 @genphy_c45_read_mdix(ptr noundef %0) #0 align 16 {
   br i1 %4, label %5, label %14
 
 5:                                                ; preds = %1
-  %6 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 130) #8
+  %6 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 130) #7
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %14, label %8
 
@@ -1199,7 +1201,7 @@ define dso_local i32 @genphy_c45_read_mdix(ptr noundef %0) #0 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @genphy_c45_write_eee_adv(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1104
-  %4 = tail call zeroext i1 @__bitmap_intersects(ptr noundef %3, ptr noundef nonnull @phy_eee_cap1_features, i32 noundef 102) #8
+  %4 = tail call zeroext i1 @__bitmap_intersects(ptr noundef %3, ptr noundef nonnull @phy_eee_cap1_features, i32 noundef 102) #7
   br i1 %4, label %5, label %45
 
 5:                                                ; preds = %2
@@ -1237,7 +1239,7 @@ define dso_local i32 @genphy_c45_write_eee_adv(ptr noundef %0, ptr noundef %1) l
   %37 = xor i32 %36, -1
   %38 = and i32 %34, %37
   %39 = trunc nuw nsw i32 %38 to i16
-  %40 = tail call i32 @phy_modify_mmd_changed(ptr noundef %0, i32 noundef 7, i32 noundef 60, i16 noundef zeroext 126, i16 noundef zeroext %39) #8
+  %40 = tail call i32 @phy_modify_mmd_changed(ptr noundef %0, i32 noundef 7, i32 noundef 60, i16 noundef zeroext 126, i16 noundef zeroext %39) #7
   %41 = icmp slt i32 %40, 0
   br i1 %41, label %62, label %42
 
@@ -1260,7 +1262,7 @@ define dso_local i32 @genphy_c45_write_eee_adv(ptr noundef %0, ptr noundef %1) l
   %54 = lshr i64 %53, 14
   %55 = trunc i64 %54 to i16
   %56 = and i16 %55, 16384
-  %57 = tail call i32 @phy_modify_mmd_changed(ptr noundef %0, i32 noundef 7, i32 noundef 526, i16 noundef zeroext 16384, i16 noundef zeroext %56) #8
+  %57 = tail call i32 @phy_modify_mmd_changed(ptr noundef %0, i32 noundef 7, i32 noundef 526, i16 noundef zeroext 16384, i16 noundef zeroext %56) #7
   %58 = icmp slt i32 %57, 0
   br i1 %58, label %62, label %59
 
@@ -1277,11 +1279,11 @@ define dso_local i32 @genphy_c45_write_eee_adv(ptr noundef %0, ptr noundef %1) l
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @genphy_c45_read_eee_adv(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1104
-  %4 = tail call zeroext i1 @__bitmap_intersects(ptr noundef %3, ptr noundef nonnull @phy_eee_cap1_features, i32 noundef 102) #8
+  %4 = tail call zeroext i1 @__bitmap_intersects(ptr noundef %3, ptr noundef nonnull @phy_eee_cap1_features, i32 noundef 102) #7
   br i1 %4, label %5, label %mii_eee_cap1_mod_linkmode_t.exit
 
 5:                                                ; preds = %2
-  %6 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 7, i32 noundef 60) #8
+  %6 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 7, i32 noundef 60) #7
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %50, label %8
 
@@ -1291,11 +1293,11 @@ define dso_local i32 @genphy_c45_read_eee_adv(ptr noundef %0, ptr noundef %1) lo
   br i1 %10, label %12, label %11
 
 11:                                               ; preds = %8
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %1, i64 3) #8, !srcloc !9
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %1, i64 3) #7, !srcloc !9
   br label %13
 
 12:                                               ; preds = %8
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %1, i64 3) #8, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %1, i64 3) #7, !srcloc !8
   br label %13
 
 13:                                               ; preds = %12, %11
@@ -1304,11 +1306,11 @@ define dso_local i32 @genphy_c45_read_eee_adv(ptr noundef %0, ptr noundef %1) lo
   br i1 %15, label %17, label %16
 
 16:                                               ; preds = %13
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %1, i64 5) #8, !srcloc !9
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %1, i64 5) #7, !srcloc !9
   br label %18
 
 17:                                               ; preds = %13
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %1, i64 5) #8, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %1, i64 5) #7, !srcloc !8
   br label %18
 
 18:                                               ; preds = %17, %16
@@ -1317,11 +1319,11 @@ define dso_local i32 @genphy_c45_read_eee_adv(ptr noundef %0, ptr noundef %1) lo
   br i1 %20, label %22, label %21
 
 21:                                               ; preds = %18
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %1, i64 12) #8, !srcloc !9
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %1, i64 12) #7, !srcloc !9
   br label %23
 
 22:                                               ; preds = %18
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %1, i64 12) #8, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %1, i64 12) #7, !srcloc !8
   br label %23
 
 23:                                               ; preds = %22, %21
@@ -1330,11 +1332,11 @@ define dso_local i32 @genphy_c45_read_eee_adv(ptr noundef %0, ptr noundef %1) lo
   br i1 %25, label %27, label %26
 
 26:                                               ; preds = %23
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %1, i64 17) #8, !srcloc !9
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %1, i64 17) #7, !srcloc !9
   br label %28
 
 27:                                               ; preds = %23
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %1, i64 17) #8, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %1, i64 17) #7, !srcloc !8
   br label %28
 
 28:                                               ; preds = %27, %26
@@ -1343,11 +1345,11 @@ define dso_local i32 @genphy_c45_read_eee_adv(ptr noundef %0, ptr noundef %1) lo
   br i1 %30, label %32, label %31
 
 31:                                               ; preds = %28
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %1, i64 18) #8, !srcloc !9
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %1, i64 18) #7, !srcloc !9
   br label %33
 
 32:                                               ; preds = %28
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %1, i64 18) #8, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %1, i64 18) #7, !srcloc !8
   br label %33
 
 33:                                               ; preds = %32, %31
@@ -1356,11 +1358,11 @@ define dso_local i32 @genphy_c45_read_eee_adv(ptr noundef %0, ptr noundef %1) lo
   br i1 %35, label %37, label %36
 
 36:                                               ; preds = %33
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %1, i64 19) #8, !srcloc !9
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %1, i64 19) #7, !srcloc !9
   br label %mii_eee_cap1_mod_linkmode_t.exit
 
 37:                                               ; preds = %33
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %1, i64 19) #8, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %1, i64 19) #7, !srcloc !8
   br label %mii_eee_cap1_mod_linkmode_t.exit
 
 mii_eee_cap1_mod_linkmode_t.exit:                 ; preds = %37, %36, %2
@@ -1371,7 +1373,7 @@ mii_eee_cap1_mod_linkmode_t.exit:                 ; preds = %37, %36, %2
   br i1 %41, label %50, label %42
 
 42:                                               ; preds = %mii_eee_cap1_mod_linkmode_t.exit
-  %43 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 7, i32 noundef 526) #8
+  %43 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 7, i32 noundef 526) #7
   %44 = icmp slt i32 %43, 0
   br i1 %44, label %50, label %45
 
@@ -1381,11 +1383,11 @@ mii_eee_cap1_mod_linkmode_t.exit:                 ; preds = %37, %36, %2
   br i1 %47, label %49, label %48
 
 48:                                               ; preds = %45
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %1, i64 92) #8, !srcloc !9
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %1, i64 92) #7, !srcloc !9
   br label %50
 
 49:                                               ; preds = %45
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %1, i64 92) #8, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %1, i64 92) #7, !srcloc !8
   br label %50
 
 50:                                               ; preds = %49, %48, %42, %mii_eee_cap1_mod_linkmode_t.exit, %5
@@ -1396,11 +1398,11 @@ mii_eee_cap1_mod_linkmode_t.exit:                 ; preds = %37, %36, %2
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @genphy_c45_read_eee_abilities(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1040
-  %3 = tail call zeroext i1 @__bitmap_intersects(ptr noundef %2, ptr noundef nonnull @phy_eee_cap1_features, i32 noundef 102) #8
+  %3 = tail call zeroext i1 @__bitmap_intersects(ptr noundef %2, ptr noundef nonnull @phy_eee_cap1_features, i32 noundef 102) #7
   br i1 %3, label %4, label %.thread
 
 4:                                                ; preds = %1
-  %5 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 3, i32 noundef 20) #8
+  %5 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 3, i32 noundef 20) #7
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %54, label %7
 
@@ -1415,11 +1417,11 @@ define dso_local i32 @genphy_c45_read_eee_abilities(ptr noundef %0) #0 align 16 
   br i1 %12, label %14, label %13
 
 13:                                               ; preds = %9
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %10, i64 3) #8, !srcloc !9
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %10, i64 3) #7, !srcloc !9
   br label %15
 
 14:                                               ; preds = %9
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %10, i64 3) #8, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %10, i64 3) #7, !srcloc !8
   br label %15
 
 15:                                               ; preds = %14, %13
@@ -1428,11 +1430,11 @@ define dso_local i32 @genphy_c45_read_eee_abilities(ptr noundef %0) #0 align 16 
   br i1 %17, label %19, label %18
 
 18:                                               ; preds = %15
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %10, i64 5) #8, !srcloc !9
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %10, i64 5) #7, !srcloc !9
   br label %20
 
 19:                                               ; preds = %15
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %10, i64 5) #8, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %10, i64 5) #7, !srcloc !8
   br label %20
 
 20:                                               ; preds = %19, %18
@@ -1441,11 +1443,11 @@ define dso_local i32 @genphy_c45_read_eee_abilities(ptr noundef %0) #0 align 16 
   br i1 %22, label %24, label %23
 
 23:                                               ; preds = %20
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %10, i64 12) #8, !srcloc !9
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %10, i64 12) #7, !srcloc !9
   br label %25
 
 24:                                               ; preds = %20
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %10, i64 12) #8, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %10, i64 12) #7, !srcloc !8
   br label %25
 
 25:                                               ; preds = %24, %23
@@ -1454,11 +1456,11 @@ define dso_local i32 @genphy_c45_read_eee_abilities(ptr noundef %0) #0 align 16 
   br i1 %27, label %29, label %28
 
 28:                                               ; preds = %25
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %10, i64 17) #8, !srcloc !9
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %10, i64 17) #7, !srcloc !9
   br label %30
 
 29:                                               ; preds = %25
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %10, i64 17) #8, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %10, i64 17) #7, !srcloc !8
   br label %30
 
 30:                                               ; preds = %29, %28
@@ -1467,11 +1469,11 @@ define dso_local i32 @genphy_c45_read_eee_abilities(ptr noundef %0) #0 align 16 
   br i1 %32, label %34, label %33
 
 33:                                               ; preds = %30
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %10, i64 18) #8, !srcloc !9
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %10, i64 18) #7, !srcloc !9
   br label %35
 
 34:                                               ; preds = %30
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %10, i64 18) #8, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %10, i64 18) #7, !srcloc !8
   br label %35
 
 35:                                               ; preds = %34, %33
@@ -1480,15 +1482,15 @@ define dso_local i32 @genphy_c45_read_eee_abilities(ptr noundef %0) #0 align 16 
   br i1 %37, label %39, label %38
 
 38:                                               ; preds = %35
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %10, i64 19) #8, !srcloc !9
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %10, i64 19) #7, !srcloc !9
   br label %mii_eee_cap1_mod_linkmode_t.exit
 
 39:                                               ; preds = %35
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %10, i64 19) #8, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %10, i64 19) #7, !srcloc !8
   br label %mii_eee_cap1_mod_linkmode_t.exit
 
 mii_eee_cap1_mod_linkmode_t.exit:                 ; preds = %38, %39
-  %40 = tail call zeroext i1 @__bitmap_and(ptr noundef %10, ptr noundef %10, ptr noundef %2, i32 noundef 102) #8
+  %40 = tail call zeroext i1 @__bitmap_and(ptr noundef %10, ptr noundef %10, ptr noundef %2, i32 noundef 102) #7
   br label %.thread
 
 .thread:                                          ; preds = %7, %mii_eee_cap1_mod_linkmode_t.exit, %1
@@ -1499,7 +1501,7 @@ mii_eee_cap1_mod_linkmode_t.exit:                 ; preds = %38, %39
   br i1 %44, label %54, label %45
 
 45:                                               ; preds = %.thread
-  %46 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 2295) #8
+  %46 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 2295) #7
   %47 = icmp slt i32 %46, 0
   br i1 %47, label %54, label %48
 
@@ -1510,11 +1512,11 @@ mii_eee_cap1_mod_linkmode_t.exit:                 ; preds = %38, %39
   br i1 %51, label %53, label %52
 
 52:                                               ; preds = %48
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %49, i64 92) #8, !srcloc !9
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %49, i64 92) #7, !srcloc !9
   br label %54
 
 53:                                               ; preds = %48
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %49, i64 92) #8, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %49, i64 92) #7, !srcloc !8
   br label %54
 
 54:                                               ; preds = %4, %53, %52, %45, %.thread
@@ -1527,7 +1529,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @genphy_c45_pma_baset1_read_abilities(ptr noundef %0) #0 align 16 {
-  %2 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 18) #8
+  %2 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 18) #7
   %3 = icmp slt i32 %2, 0
   br i1 %3, label %28, label %4
 
@@ -1538,11 +1540,11 @@ define dso_local i32 @genphy_c45_pma_baset1_read_abilities(ptr noundef %0) #0 al
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %4
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 92) #8, !srcloc !9
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 92) #7, !srcloc !9
   br label %10
 
 9:                                                ; preds = %4
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 92) #8, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 92) #7, !srcloc !8
   br label %10
 
 10:                                               ; preds = %9, %8
@@ -1551,11 +1553,11 @@ define dso_local i32 @genphy_c45_pma_baset1_read_abilities(ptr noundef %0) #0 al
   br i1 %12, label %14, label %13
 
 13:                                               ; preds = %10
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 67) #8, !srcloc !9
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 67) #7, !srcloc !9
   br label %15
 
 14:                                               ; preds = %10
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 67) #8, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 67) #7, !srcloc !8
   br label %15
 
 15:                                               ; preds = %14, %13
@@ -1564,15 +1566,15 @@ define dso_local i32 @genphy_c45_pma_baset1_read_abilities(ptr noundef %0) #0 al
   br i1 %17, label %19, label %18
 
 18:                                               ; preds = %15
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 68) #8, !srcloc !9
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 68) #7, !srcloc !9
   br label %20
 
 19:                                               ; preds = %15
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 68) #8, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 68) #7, !srcloc !8
   br label %20
 
 20:                                               ; preds = %19, %18
-  %21 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 7, i32 noundef 513) #8
+  %21 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 7, i32 noundef 513) #7
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %28, label %23
 
@@ -1582,11 +1584,11 @@ define dso_local i32 @genphy_c45_pma_baset1_read_abilities(ptr noundef %0) #0 al
   br i1 %25, label %27, label %26
 
 26:                                               ; preds = %23
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 6) #8, !srcloc !9
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 6) #7, !srcloc !9
   br label %28
 
 27:                                               ; preds = %23
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 6) #8, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 6) #7, !srcloc !8
   br label %28
 
 28:                                               ; preds = %27, %26, %20, %1
@@ -1596,9 +1598,9 @@ define dso_local i32 @genphy_c45_pma_baset1_read_abilities(ptr noundef %0) #0 al
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @genphy_c45_pma_read_ext_abilities(ptr noundef %0) #0 align 16 {
-  %2 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 11) #8
+  %2 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 11) #7
   %3 = icmp slt i32 %2, 0
-  br i1 %3, label %67, label %4
+  br i1 %3, label %69, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 1040
@@ -1607,11 +1609,11 @@ define dso_local i32 @genphy_c45_pma_read_ext_abilities(ptr noundef %0) #0 align
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %4
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 45) #8, !srcloc !9
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 45) #7, !srcloc !9
   br label %10
 
 9:                                                ; preds = %4
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 45) #8, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 45) #7, !srcloc !8
   br label %10
 
 10:                                               ; preds = %9, %8
@@ -1620,11 +1622,11 @@ define dso_local i32 @genphy_c45_pma_read_ext_abilities(ptr noundef %0) #0 align
   br i1 %12, label %14, label %13
 
 13:                                               ; preds = %10
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 12) #8, !srcloc !9
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 12) #7, !srcloc !9
   br label %15
 
 14:                                               ; preds = %10
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 12) #8, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 12) #7, !srcloc !8
   br label %15
 
 15:                                               ; preds = %14, %13
@@ -1633,11 +1635,11 @@ define dso_local i32 @genphy_c45_pma_read_ext_abilities(ptr noundef %0) #0 align
   br i1 %17, label %19, label %18
 
 18:                                               ; preds = %15
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 18) #8, !srcloc !9
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 18) #7, !srcloc !9
   br label %20
 
 19:                                               ; preds = %15
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 18) #8, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 18) #7, !srcloc !8
   br label %20
 
 20:                                               ; preds = %19, %18
@@ -1646,11 +1648,11 @@ define dso_local i32 @genphy_c45_pma_read_ext_abilities(ptr noundef %0) #0 align
   br i1 %22, label %24, label %23
 
 23:                                               ; preds = %20
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 19) #8, !srcloc !9
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 19) #7, !srcloc !9
   br label %25
 
 24:                                               ; preds = %20
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 19) #8, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 19) #7, !srcloc !8
   br label %25
 
 25:                                               ; preds = %24, %23
@@ -1659,11 +1661,11 @@ define dso_local i32 @genphy_c45_pma_read_ext_abilities(ptr noundef %0) #0 align
   br i1 %27, label %29, label %28
 
 28:                                               ; preds = %25
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 5) #8, !srcloc !9
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 5) #7, !srcloc !9
   br label %30
 
 29:                                               ; preds = %25
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 5) #8, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 5) #7, !srcloc !8
   br label %30
 
 30:                                               ; preds = %29, %28
@@ -1672,11 +1674,11 @@ define dso_local i32 @genphy_c45_pma_read_ext_abilities(ptr noundef %0) #0 align
   br i1 %32, label %34, label %33
 
 33:                                               ; preds = %30
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 17) #8, !srcloc !9
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 17) #7, !srcloc !9
   br label %35
 
 34:                                               ; preds = %30
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 17) #8, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 17) #7, !srcloc !8
   br label %35
 
 35:                                               ; preds = %34, %33
@@ -1685,13 +1687,13 @@ define dso_local i32 @genphy_c45_pma_read_ext_abilities(ptr noundef %0) #0 align
   br i1 %37, label %39, label %38
 
 38:                                               ; preds = %35
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 3) #8, !srcloc !9
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 2) #8, !srcloc !9
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 3) #7, !srcloc !9
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 2) #7, !srcloc !9
   br label %40
 
 39:                                               ; preds = %35
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 3) #8, !srcloc !8
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 2) #8, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 3) #7, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 2) #7, !srcloc !8
   br label %40
 
 40:                                               ; preds = %39, %38
@@ -1700,13 +1702,13 @@ define dso_local i32 @genphy_c45_pma_read_ext_abilities(ptr noundef %0) #0 align
   br i1 %42, label %44, label %43
 
 43:                                               ; preds = %40
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 1) #8, !srcloc !9
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 0) #8, !srcloc !9
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 1) #7, !srcloc !9
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 0) #7, !srcloc !9
   br label %45
 
 44:                                               ; preds = %40
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 1) #8, !srcloc !8
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 0) #8, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 1) #7, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 0) #7, !srcloc !8
   br label %45
 
 45:                                               ; preds = %44, %43
@@ -1715,9 +1717,9 @@ define dso_local i32 @genphy_c45_pma_read_ext_abilities(ptr noundef %0) #0 align
   br i1 %47, label %61, label %48
 
 48:                                               ; preds = %45
-  %49 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 21) #8
+  %49 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 21) #7
   %50 = icmp slt i32 %49, 0
-  br i1 %50, label %67, label %51
+  br i1 %50, label %69, label %51
 
 51:                                               ; preds = %48
   %52 = and i32 %49, 1
@@ -1725,11 +1727,11 @@ define dso_local i32 @genphy_c45_pma_read_ext_abilities(ptr noundef %0) #0 align
   br i1 %53, label %55, label %54
 
 54:                                               ; preds = %51
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 47) #8, !srcloc !9
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 47) #7, !srcloc !9
   br label %56
 
 55:                                               ; preds = %51
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 47) #8, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 47) #7, !srcloc !8
   br label %56
 
 56:                                               ; preds = %55, %54
@@ -1738,32 +1740,36 @@ define dso_local i32 @genphy_c45_pma_read_ext_abilities(ptr noundef %0) #0 align
   br i1 %58, label %60, label %59
 
 59:                                               ; preds = %56
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 48) #8, !srcloc !9
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 48) #7, !srcloc !9
   br label %61
 
 60:                                               ; preds = %56
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 48) #8, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 48) #7, !srcloc !8
   br label %61
 
 61:                                               ; preds = %60, %59, %45
   %62 = phi i32 [ %2, %45 ], [ %49, %59 ], [ %49, %60 ]
   %63 = and i32 %62, 2048
   %64 = icmp eq i32 %63, 0
-  br i1 %64, label %67, label %65
+  br i1 %64, label %68, label %65
 
 65:                                               ; preds = %61
   %66 = tail call i32 @genphy_c45_pma_baset1_read_abilities(ptr noundef %0), !range !10
-  br label %67
+  %67 = icmp slt i32 %66, 0
+  br i1 %67, label %69, label %68
 
-67:                                               ; preds = %65, %61, %48, %1
-  %68 = phi i32 [ %2, %1 ], [ %49, %48 ], [ 0, %61 ], [ %66, %65 ]
-  ret i32 %68
+68:                                               ; preds = %65, %61
+  br label %69
+
+69:                                               ; preds = %68, %65, %48, %1
+  %70 = phi i32 [ 0, %68 ], [ %2, %1 ], [ %49, %48 ], [ %66, %65 ]
+  ret i32 %70
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @genphy_c45_pma_read_abilities(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1040
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %2, i64 6) #8, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %2, i64 6) #7, !srcloc !8
   %3 = getelementptr inbounds i8, ptr %0, i64 856
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 128
@@ -1771,7 +1777,7 @@ define dso_local i32 @genphy_c45_pma_read_abilities(ptr noundef %0) #0 align 16 
   br i1 %6, label %14, label %7
 
 7:                                                ; preds = %1
-  %8 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 7, i32 noundef 1) #8
+  %8 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 7, i32 noundef 1) #7
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %40, label %10
 
@@ -1781,11 +1787,11 @@ define dso_local i32 @genphy_c45_pma_read_abilities(ptr noundef %0) #0 align 16 
   br i1 %12, label %14, label %13
 
 13:                                               ; preds = %10
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %2, i64 6) #8, !srcloc !9
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %2, i64 6) #7, !srcloc !9
   br label %14
 
 14:                                               ; preds = %13, %10, %1
-  %15 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 8) #8
+  %15 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 8) #7
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %40, label %17
 
@@ -1795,11 +1801,11 @@ define dso_local i32 @genphy_c45_pma_read_abilities(ptr noundef %0) #0 align 16 
   br i1 %19, label %21, label %20
 
 20:                                               ; preds = %17
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %2, i64 43) #8, !srcloc !9
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %2, i64 43) #7, !srcloc !9
   br label %22
 
 21:                                               ; preds = %17
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %2, i64 43) #8, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %2, i64 43) #7, !srcloc !8
   br label %22
 
 22:                                               ; preds = %21, %20
@@ -1808,11 +1814,11 @@ define dso_local i32 @genphy_c45_pma_read_abilities(ptr noundef %0) #0 align 16 
   br i1 %24, label %26, label %25
 
 25:                                               ; preds = %22
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %2, i64 44) #8, !srcloc !9
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %2, i64 44) #7, !srcloc !9
   br label %27
 
 26:                                               ; preds = %22
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %2, i64 44) #8, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %2, i64 44) #7, !srcloc !8
   br label %27
 
 27:                                               ; preds = %26, %25
@@ -1821,11 +1827,11 @@ define dso_local i32 @genphy_c45_pma_read_abilities(ptr noundef %0) #0 align 16 
   br i1 %29, label %31, label %30
 
 30:                                               ; preds = %27
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %2, i64 46) #8, !srcloc !9
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %2, i64 46) #7, !srcloc !9
   br label %32
 
 31:                                               ; preds = %27
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %2, i64 46) #8, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %2, i64 46) #7, !srcloc !8
   br label %32
 
 32:                                               ; preds = %31, %30
@@ -1853,12 +1859,12 @@ define dso_local i32 @genphy_c45_baset1_read_status(ptr noundef %0) #0 align 16 
   store i8 1, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 1038
   store i8 1, ptr %3, align 2
-  %4 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 7, i32 noundef 514) #8
+  %4 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 7, i32 noundef 514) #7
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %17, label %6
 
 6:                                                ; preds = %1
-  %7 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 7, i32 noundef 515) #8
+  %7 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 7, i32 noundef 515) #7
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %17, label %9
 
@@ -1911,7 +1917,7 @@ define dso_local i32 @genphy_c45_read_status(ptr noundef %0) #0 align 16 {
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %16
-  %21 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 11) #8
+  %21 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 11) #7
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %44, label %23
 
@@ -1930,12 +1936,12 @@ define dso_local i32 @genphy_c45_read_status(ptr noundef %0) #0 align 16 {
   store i8 1, ptr %29, align 4
   %30 = getelementptr inbounds i8, ptr %0, i64 1038
   store i8 1, ptr %30, align 2
-  %31 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 7, i32 noundef 514) #8
+  %31 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 7, i32 noundef 514) #7
   %32 = icmp slt i32 %31, 0
   br i1 %32, label %.thread, label %33
 
 33:                                               ; preds = %28
-  %34 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 7, i32 noundef 515) #8
+  %34 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 7, i32 noundef 515) #7
   %35 = icmp slt i32 %34, 0
   br i1 %35, label %.thread, label %36
 
@@ -1951,7 +1957,7 @@ define dso_local i32 @genphy_c45_read_status(ptr noundef %0) #0 align 16 {
   br label %44
 
 44:                                               ; preds = %36, %24, %20
-  tail call void @phy_resolve_aneg_linkmode(ptr noundef %0) #8
+  tail call void @phy_resolve_aneg_linkmode(ptr noundef %0) #7
   br label %.thread
 
 45:                                               ; preds = %4
@@ -2001,7 +2007,7 @@ define dso_local noundef i32 @gen10g_config_aneg(ptr nocapture readnone %0) #5 a
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @genphy_c45_loopback(ptr noundef %0, i1 noundef zeroext %1) #0 align 16 {
   %3 = select i1 %1, i16 16384, i16 0
-  %4 = tail call i32 @phy_modify_mmd(ptr noundef %0, i32 noundef 3, i32 noundef 0, i16 noundef zeroext 16384, i16 noundef zeroext %3) #8
+  %4 = tail call i32 @phy_modify_mmd(ptr noundef %0, i32 noundef 3, i32 noundef 0, i16 noundef zeroext 16384, i16 noundef zeroext %3) #7
   ret i32 %4
 }
 
@@ -2010,7 +2016,7 @@ define dso_local i32 @genphy_c45_fast_retrain(ptr noundef %0, i1 noundef zeroext
   br i1 %1, label %5, label %3
 
 3:                                                ; preds = %2
-  %4 = tail call i32 @phy_modify_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 147, i16 noundef zeroext 1, i16 noundef zeroext 0) #8
+  %4 = tail call i32 @phy_modify_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 147, i16 noundef zeroext 1, i16 noundef zeroext 0) #7
   br label %18
 
 5:                                                ; preds = %2
@@ -2021,17 +2027,17 @@ define dso_local i32 @genphy_c45_fast_retrain(ptr noundef %0, i1 noundef zeroext
   br i1 %9, label %16, label %10
 
 10:                                               ; preds = %5
-  %11 = tail call i32 @phy_modify_mmd(ptr noundef %0, i32 noundef 7, i32 noundef 32, i16 noundef zeroext 0, i16 noundef zeroext 32) #8
+  %11 = tail call i32 @phy_modify_mmd(ptr noundef %0, i32 noundef 7, i32 noundef 32, i16 noundef zeroext 0, i16 noundef zeroext 32) #7
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %18
 
 13:                                               ; preds = %10
-  %14 = tail call i32 @phy_modify_mmd(ptr noundef %0, i32 noundef 7, i32 noundef 64, i16 noundef zeroext 0, i16 noundef zeroext 8) #8
+  %14 = tail call i32 @phy_modify_mmd(ptr noundef %0, i32 noundef 7, i32 noundef 64, i16 noundef zeroext 0, i16 noundef zeroext 8) #7
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %13, %5
-  %17 = tail call i32 @phy_modify_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 147, i16 noundef zeroext 0, i16 noundef zeroext 1) #8
+  %17 = tail call i32 @phy_modify_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 147, i16 noundef zeroext 0, i16 noundef zeroext 1) #7
   br label %18
 
 18:                                               ; preds = %16, %13, %10, %3
@@ -2041,7 +2047,7 @@ define dso_local i32 @genphy_c45_fast_retrain(ptr noundef %0, i1 noundef zeroext
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @genphy_c45_plca_get_cfg(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 align 16 {
-  %3 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 31, i32 noundef 51712) #8
+  %3 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 31, i32 noundef 51712) #7
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %37, label %5
 
@@ -2053,7 +2059,7 @@ define dso_local i32 @genphy_c45_plca_get_cfg(ptr noundef %0, ptr nocapture noun
 8:                                                ; preds = %5
   %9 = and i32 %3, 2147418367
   store i32 %9, ptr %1, align 4
-  %10 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 31, i32 noundef 51713) #8
+  %10 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 31, i32 noundef 51713) #7
   %11 = icmp slt i32 %10, 0
   br i1 %11, label %37, label %12
 
@@ -2062,7 +2068,7 @@ define dso_local i32 @genphy_c45_plca_get_cfg(ptr noundef %0, ptr nocapture noun
   %14 = and i32 %13, 1
   %15 = getelementptr inbounds i8, ptr %1, i64 4
   store i32 %14, ptr %15, align 4
-  %16 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 31, i32 noundef 51714) #8
+  %16 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 31, i32 noundef 51714) #7
   %17 = icmp slt i32 %16, 0
   br i1 %17, label %37, label %18
 
@@ -2074,7 +2080,7 @@ define dso_local i32 @genphy_c45_plca_get_cfg(ptr noundef %0, ptr nocapture noun
   %22 = and i32 %16, 255
   %23 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 %22, ptr %23, align 4
-  %24 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 31, i32 noundef 51716) #8
+  %24 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 31, i32 noundef 51716) #7
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %37, label %26
 
@@ -2082,7 +2088,7 @@ define dso_local i32 @genphy_c45_plca_get_cfg(ptr noundef %0, ptr nocapture noun
   %27 = and i32 %24, 255
   %28 = getelementptr inbounds i8, ptr %1, i64 16
   store i32 %27, ptr %28, align 4
-  %29 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 31, i32 noundef 51717) #8
+  %29 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 31, i32 noundef 51717) #7
   %30 = icmp slt i32 %29, 0
   br i1 %30, label %37, label %31
 
@@ -2105,7 +2111,7 @@ define dso_local i32 @genphy_c45_plca_get_cfg(ptr noundef %0, ptr nocapture noun
 define dso_local i32 @genphy_c45_plca_set_cfg(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = load i32, ptr %1, align 4
   %4 = icmp sgt i32 %3, -1
-  br i1 %4, label %88, label %5
+  br i1 %4, label %90, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %1, i64 4
@@ -2114,9 +2120,9 @@ define dso_local i32 @genphy_c45_plca_set_cfg(ptr noundef %0, ptr nocapture noun
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %5
-  %10 = tail call i32 @phy_modify_mmd(ptr noundef %0, i32 noundef 31, i32 noundef 51713, i16 noundef zeroext -32768, i16 noundef zeroext 0) #8
+  %10 = tail call i32 @phy_modify_mmd(ptr noundef %0, i32 noundef 31, i32 noundef 51713, i16 noundef zeroext -32768, i16 noundef zeroext 0) #7
   %11 = icmp slt i32 %10, 0
-  br i1 %11, label %88, label %12
+  br i1 %11, label %90, label %12
 
 12:                                               ; preds = %9, %5
   %13 = getelementptr inbounds i8, ptr %1, i64 12
@@ -2135,19 +2141,19 @@ define dso_local i32 @genphy_c45_plca_set_cfg(ptr noundef %0, ptr nocapture noun
   br i1 %21, label %.thread, label %26
 
 .thread:                                          ; preds = %18, %20
-  %22 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 31, i32 noundef 51714) #8
+  %22 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 31, i32 noundef 51714) #7
   %23 = icmp slt i32 %22, 0
-  br i1 %23, label %88, label %24
+  br i1 %23, label %90, label %24
 
 24:                                               ; preds = %.thread
   %25 = trunc i32 %22 to i16
   %.pre = load i32, ptr %13, align 4
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
-  %.pre9 = load i32, ptr %.phi.trans.insert, align 4
+  %.pre10 = load i32, ptr %.phi.trans.insert, align 4
   br label %26
 
 26:                                               ; preds = %24, %20
-  %27 = phi i32 [ %.pre9, %24 ], [ %17, %20 ]
+  %27 = phi i32 [ %.pre10, %24 ], [ %17, %20 ]
   %28 = phi i32 [ %.pre, %24 ], [ %14, %20 ]
   %29 = phi i16 [ %25, %24 ], [ 0, %20 ]
   %30 = and i16 %29, 255
@@ -2161,9 +2167,9 @@ define dso_local i32 @genphy_c45_plca_set_cfg(ptr noundef %0, ptr nocapture noun
   %38 = or i16 %36, %37
   %39 = icmp slt i32 %27, 0
   %40 = select i1 %39, i16 %35, i16 %38
-  %41 = tail call i32 @phy_write_mmd(ptr noundef %0, i32 noundef 31, i32 noundef 51714, i16 noundef zeroext %40) #8
+  %41 = tail call i32 @phy_write_mmd(ptr noundef %0, i32 noundef 31, i32 noundef 51714, i16 noundef zeroext %40) #7
   %42 = icmp slt i32 %41, 0
-  br i1 %42, label %88, label %43
+  br i1 %42, label %90, label %43
 
 43:                                               ; preds = %26, %18
   %44 = phi i16 [ %40, %26 ], [ 0, %18 ]
@@ -2174,9 +2180,9 @@ define dso_local i32 @genphy_c45_plca_set_cfg(ptr noundef %0, ptr nocapture noun
 
 48:                                               ; preds = %43
   %49 = trunc i32 %46 to i16
-  %50 = tail call i32 @phy_write_mmd(ptr noundef %0, i32 noundef 31, i32 noundef 51716, i16 noundef zeroext %49) #8
+  %50 = tail call i32 @phy_write_mmd(ptr noundef %0, i32 noundef 31, i32 noundef 51716, i16 noundef zeroext %49) #7
   %51 = icmp slt i32 %50, 0
-  br i1 %51, label %88, label %52
+  br i1 %51, label %90, label %52
 
 52:                                               ; preds = %48, %43
   %53 = getelementptr inbounds i8, ptr %1, i64 20
@@ -2188,27 +2194,27 @@ define dso_local i32 @genphy_c45_plca_set_cfg(ptr noundef %0, ptr nocapture noun
 
 58:                                               ; preds = %52
   %59 = icmp sgt i32 %57, -1
-  br i1 %59, label %.thread8, label %83
+  br i1 %59, label %.thread9, label %83
 
 60:                                               ; preds = %52
   %61 = icmp slt i32 %57, 0
-  br i1 %61, label %.thread8, label %66
+  br i1 %61, label %.thread9, label %66
 
-.thread8:                                         ; preds = %58, %60
-  %62 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 31, i32 noundef 51717) #8
+.thread9:                                         ; preds = %58, %60
+  %62 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 31, i32 noundef 51717) #7
   %63 = icmp slt i32 %62, 0
-  br i1 %63, label %88, label %64
+  br i1 %63, label %90, label %64
 
-64:                                               ; preds = %.thread8
+64:                                               ; preds = %.thread9
   %65 = trunc i32 %62 to i16
-  %.pre10 = load i32, ptr %53, align 4
-  %.phi.trans.insert11 = getelementptr inbounds i8, ptr %1, i64 24
-  %.pre12 = load i32, ptr %.phi.trans.insert11, align 4
+  %.pre11 = load i32, ptr %53, align 4
+  %.phi.trans.insert12 = getelementptr inbounds i8, ptr %1, i64 24
+  %.pre13 = load i32, ptr %.phi.trans.insert12, align 4
   br label %66
 
 66:                                               ; preds = %64, %60
-  %67 = phi i32 [ %.pre12, %64 ], [ %57, %60 ]
-  %68 = phi i32 [ %.pre10, %64 ], [ %54, %60 ]
+  %67 = phi i32 [ %.pre13, %64 ], [ %57, %60 ]
+  %68 = phi i32 [ %.pre11, %64 ], [ %54, %60 ]
   %69 = phi i16 [ %65, %64 ], [ %44, %60 ]
   %70 = and i16 %69, 255
   %71 = trunc i32 %68 to i16
@@ -2221,28 +2227,31 @@ define dso_local i32 @genphy_c45_plca_set_cfg(ptr noundef %0, ptr nocapture noun
   %78 = or i16 %76, %77
   %79 = icmp slt i32 %67, 0
   %80 = select i1 %79, i16 %75, i16 %78
-  %81 = tail call i32 @phy_write_mmd(ptr noundef %0, i32 noundef 31, i32 noundef 51717, i16 noundef zeroext %80) #8
+  %81 = tail call i32 @phy_write_mmd(ptr noundef %0, i32 noundef 31, i32 noundef 51717, i16 noundef zeroext %80) #7
   %82 = icmp slt i32 %81, 0
-  br i1 %82, label %88, label %83
+  br i1 %82, label %90, label %83
 
 83:                                               ; preds = %66, %58
   %84 = load i32, ptr %6, align 4
   %85 = icmp sgt i32 %84, 0
-  br i1 %85, label %86, label %88
+  br i1 %85, label %86, label %89
 
 86:                                               ; preds = %83
-  %87 = tail call i32 @phy_modify_mmd(ptr noundef %0, i32 noundef 31, i32 noundef 51713, i16 noundef zeroext 0, i16 noundef zeroext -32768) #8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %87, i32 0)
-  br label %88
+  %87 = tail call i32 @phy_modify_mmd(ptr noundef %0, i32 noundef 31, i32 noundef 51713, i16 noundef zeroext 0, i16 noundef zeroext -32768) #7
+  %88 = icmp slt i32 %87, 0
+  br i1 %88, label %90, label %89
 
-88:                                               ; preds = %86, %83, %66, %.thread8, %48, %26, %.thread, %9, %2
-  %89 = phi i32 [ -22, %2 ], [ %10, %9 ], [ %22, %.thread ], [ %41, %26 ], [ %50, %48 ], [ %62, %.thread8 ], [ %81, %66 ], [ 0, %83 ], [ %spec.select, %86 ]
-  ret i32 %89
+89:                                               ; preds = %86, %83
+  br label %90
+
+90:                                               ; preds = %89, %86, %66, %.thread9, %48, %26, %.thread, %9, %2
+  %91 = phi i32 [ 0, %89 ], [ -22, %2 ], [ %10, %9 ], [ %22, %.thread ], [ %41, %26 ], [ %50, %48 ], [ %62, %.thread9 ], [ %81, %66 ], [ %87, %86 ]
+  ret i32 %91
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @genphy_c45_plca_get_status(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 align 16 {
-  %3 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 31, i32 noundef 51715) #8
+  %3 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 31, i32 noundef 51715) #7
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %9, label %5
 
@@ -2263,11 +2272,11 @@ define dso_local i32 @genphy_c45_eee_is_active(ptr noundef %0, ptr noundef write
   %5 = alloca [2 x i64], align 16
   %6 = alloca [2 x i64], align 16
   %7 = alloca [2 x i64], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, i8 0, i64 16, i1 false), !annotation !11
   %8 = call i32 @genphy_c45_read_eee_adv(ptr noundef %0, ptr noundef nonnull %5), !range !10
   %9 = icmp eq i32 %8, 0
@@ -2275,11 +2284,11 @@ define dso_local i32 @genphy_c45_eee_is_active(ptr noundef %0, ptr noundef write
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds i8, ptr %0, i64 1104
-  %12 = call zeroext i1 @__bitmap_intersects(ptr noundef %11, ptr noundef nonnull @phy_eee_cap1_features, i32 noundef 102) #8
+  %12 = call zeroext i1 @__bitmap_intersects(ptr noundef %11, ptr noundef nonnull @phy_eee_cap1_features, i32 noundef 102) #7
   br i1 %12, label %13, label %46
 
 13:                                               ; preds = %10
-  %14 = call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 7, i32 noundef 61) #8
+  %14 = call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 7, i32 noundef 61) #7
   %15 = icmp slt i32 %14, 0
   br i1 %15, label %84, label %16
 
@@ -2289,11 +2298,11 @@ define dso_local i32 @genphy_c45_eee_is_active(ptr noundef %0, ptr noundef write
   br i1 %18, label %20, label %19
 
 19:                                               ; preds = %16
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 3) #8, !srcloc !9
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 3) #7, !srcloc !9
   br label %21
 
 20:                                               ; preds = %16
-  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 3) #8, !srcloc !8
+  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 3) #7, !srcloc !8
   br label %21
 
 21:                                               ; preds = %20, %19
@@ -2302,11 +2311,11 @@ define dso_local i32 @genphy_c45_eee_is_active(ptr noundef %0, ptr noundef write
   br i1 %23, label %25, label %24
 
 24:                                               ; preds = %21
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 5) #8, !srcloc !9
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 5) #7, !srcloc !9
   br label %26
 
 25:                                               ; preds = %21
-  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 5) #8, !srcloc !8
+  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 5) #7, !srcloc !8
   br label %26
 
 26:                                               ; preds = %25, %24
@@ -2315,11 +2324,11 @@ define dso_local i32 @genphy_c45_eee_is_active(ptr noundef %0, ptr noundef write
   br i1 %28, label %30, label %29
 
 29:                                               ; preds = %26
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 12) #8, !srcloc !9
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 12) #7, !srcloc !9
   br label %31
 
 30:                                               ; preds = %26
-  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 12) #8, !srcloc !8
+  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 12) #7, !srcloc !8
   br label %31
 
 31:                                               ; preds = %30, %29
@@ -2328,11 +2337,11 @@ define dso_local i32 @genphy_c45_eee_is_active(ptr noundef %0, ptr noundef write
   br i1 %33, label %35, label %34
 
 34:                                               ; preds = %31
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 17) #8, !srcloc !9
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 17) #7, !srcloc !9
   br label %36
 
 35:                                               ; preds = %31
-  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 17) #8, !srcloc !8
+  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 17) #7, !srcloc !8
   br label %36
 
 36:                                               ; preds = %35, %34
@@ -2341,11 +2350,11 @@ define dso_local i32 @genphy_c45_eee_is_active(ptr noundef %0, ptr noundef write
   br i1 %38, label %40, label %39
 
 39:                                               ; preds = %36
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 18) #8, !srcloc !9
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 18) #7, !srcloc !9
   br label %41
 
 40:                                               ; preds = %36
-  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 18) #8, !srcloc !8
+  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 18) #7, !srcloc !8
   br label %41
 
 41:                                               ; preds = %40, %39
@@ -2354,11 +2363,11 @@ define dso_local i32 @genphy_c45_eee_is_active(ptr noundef %0, ptr noundef write
   br i1 %43, label %45, label %44
 
 44:                                               ; preds = %41
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 19) #8, !srcloc !9
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 19) #7, !srcloc !9
   br label %46
 
 45:                                               ; preds = %41
-  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 19) #8, !srcloc !8
+  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 19) #7, !srcloc !8
   br label %46
 
 46:                                               ; preds = %45, %44, %10
@@ -2369,7 +2378,7 @@ define dso_local i32 @genphy_c45_eee_is_active(ptr noundef %0, ptr noundef write
   br i1 %50, label %59, label %51
 
 51:                                               ; preds = %46
-  %52 = call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 7, i32 noundef 527) #8
+  %52 = call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 7, i32 noundef 527) #7
   %53 = icmp slt i32 %52, 0
   br i1 %53, label %84, label %54
 
@@ -2379,22 +2388,22 @@ define dso_local i32 @genphy_c45_eee_is_active(ptr noundef %0, ptr noundef write
   br i1 %56, label %58, label %57
 
 57:                                               ; preds = %54
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 92) #8, !srcloc !9
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 92) #7, !srcloc !9
   br label %59
 
 58:                                               ; preds = %54
-  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 92) #8, !srcloc !8
+  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 92) #7, !srcloc !8
   br label %59
 
 59:                                               ; preds = %46, %57, %58
-  %60 = call i64 @_find_first_bit(ptr noundef nonnull %5, i64 noundef 102) #8
+  %60 = call i64 @_find_first_bit(ptr noundef nonnull %5, i64 noundef 102) #7
   %61 = icmp ne i64 %60, 102
   %62 = zext i1 %61 to i8
-  %63 = call zeroext i1 @__bitmap_and(ptr noundef nonnull %7, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 102) #8
+  %63 = call zeroext i1 @__bitmap_and(ptr noundef nonnull %7, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 102) #7
   br i1 %61, label %64, label %74
 
 64:                                               ; preds = %59
-  %65 = call i64 @_find_first_bit(ptr noundef nonnull %7, i64 noundef 102) #8
+  %65 = call i64 @_find_first_bit(ptr noundef nonnull %7, i64 noundef 102) #7
   %66 = icmp eq i64 %65, 102
   br i1 %66, label %74, label %67
 
@@ -2403,7 +2412,7 @@ define dso_local i32 @genphy_c45_eee_is_active(ptr noundef %0, ptr noundef write
   %69 = load i32, ptr %68, align 8
   %70 = getelementptr inbounds i8, ptr %0, i64 1020
   %71 = load i32, ptr %70, align 4
-  %72 = call zeroext i1 @phy_check_valid(i32 noundef %69, i32 noundef %71, ptr noundef nonnull %7) #8
+  %72 = call zeroext i1 @phy_check_valid(i32 noundef %69, i32 noundef %71, ptr noundef nonnull %7) #7
   %73 = zext i1 %72 to i32
   br label %74
 
@@ -2434,9 +2443,9 @@ define dso_local i32 @genphy_c45_eee_is_active(ptr noundef %0, ptr noundef write
 
 84:                                               ; preds = %13, %51, %83, %81, %4
   %85 = phi i32 [ %8, %4 ], [ %75, %83 ], [ %75, %81 ], [ %14, %13 ], [ %52, %51 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
   ret i32 %85
 }
 
@@ -2448,11 +2457,11 @@ define dso_local i32 @genphy_c45_ethtool_get_eee(ptr noundef %0, ptr noundef %1)
   %3 = alloca [2 x i64], align 16
   %4 = alloca [2 x i64], align 16
   %5 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #7
   store i8 0, ptr %5, align 1, !annotation !11
   %6 = call i32 @genphy_c45_eee_is_active(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5), !range !7
   %7 = icmp slt i32 %6, 0
@@ -2467,24 +2476,24 @@ define dso_local i32 @genphy_c45_ethtool_get_eee(ptr noundef %0, ptr noundef %1)
   store i32 %6, ptr %12, align 4
   %13 = getelementptr inbounds i8, ptr %1, i64 4
   %14 = getelementptr inbounds i8, ptr %0, i64 1104
-  %15 = call zeroext i1 @ethtool_convert_link_mode_to_legacy_u32(ptr noundef %13, ptr noundef %14) #8
+  %15 = call zeroext i1 @ethtool_convert_link_mode_to_legacy_u32(ptr noundef %13, ptr noundef %14) #7
   %16 = getelementptr inbounds i8, ptr %1, i64 8
-  %17 = call zeroext i1 @ethtool_convert_link_mode_to_legacy_u32(ptr noundef %16, ptr noundef nonnull %3) #8
+  %17 = call zeroext i1 @ethtool_convert_link_mode_to_legacy_u32(ptr noundef %16, ptr noundef nonnull %3) #7
   %18 = getelementptr inbounds i8, ptr %1, i64 12
-  %19 = call zeroext i1 @ethtool_convert_link_mode_to_legacy_u32(ptr noundef %18, ptr noundef nonnull %4) #8
+  %19 = call zeroext i1 @ethtool_convert_link_mode_to_legacy_u32(ptr noundef %18, ptr noundef nonnull %4) #7
   %20 = select i1 %19, i1 %17, i1 false
   %21 = select i1 %20, i1 %15, i1 false
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %8
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %0, ptr noundef nonnull @.str.1) #9
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %0, ptr noundef nonnull @.str.1) #8
   br label %23
 
 23:                                               ; preds = %22, %8, %2
   %24 = phi i32 [ %6, %2 ], [ 0, %22 ], [ 0, %8 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
   ret i32 %24
 }
 
@@ -2507,25 +2516,25 @@ define dso_local i32 @genphy_c45_ethtool_set_eee(ptr noundef %0, ptr nocapture n
   br i1 %11, label %20, label %12
 
 12:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !11
-  call void @ethtool_convert_legacy_u32_to_link_mode(ptr noundef nonnull %4, i32 noundef %10) #8
+  call void @ethtool_convert_legacy_u32_to_link_mode(ptr noundef nonnull %4, i32 noundef %10) #7
   %13 = getelementptr inbounds i8, ptr %0, i64 1104
-  %14 = call zeroext i1 @__bitmap_andnot(ptr noundef nonnull %4, ptr noundef nonnull %4, ptr noundef %13, i32 noundef 102) #8
-  %15 = call i64 @_find_first_bit(ptr noundef nonnull %4, i64 noundef 102) #8
+  %14 = call zeroext i1 @__bitmap_andnot(ptr noundef nonnull %4, ptr noundef nonnull %4, ptr noundef %13, i32 noundef 102) #7
+  %15 = call i64 @_find_first_bit(ptr noundef nonnull %4, i64 noundef 102) #7
   %16 = icmp eq i64 %15, 102
   br i1 %16, label %.thread, label %19
 
 .thread:                                          ; preds = %12
   %17 = getelementptr inbounds i8, ptr %0, i64 1120
   %18 = load i32, ptr %9, align 4
-  call void @ethtool_convert_legacy_u32_to_link_mode(ptr noundef %17, i32 noundef %18) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #8
+  call void @ethtool_convert_legacy_u32_to_link_mode(ptr noundef %17, i32 noundef %18) #7
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #7
   br label %23
 
 19:                                               ; preds = %12
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %0, ptr noundef nonnull @.str.2) #9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #8
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %0, ptr noundef nonnull @.str.2) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #7
   br label %37
 
 20:                                               ; preds = %8
@@ -2544,10 +2553,10 @@ define dso_local i32 @genphy_c45_ethtool_set_eee(ptr noundef %0, ptr nocapture n
 27:                                               ; preds = %2
   %28 = getelementptr inbounds i8, ptr %0, i64 1136
   store i8 0, ptr %28, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %29 = call i32 @genphy_c45_write_eee_adv(ptr noundef %0, ptr noundef nonnull %3), !range !7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
   br label %30
 
 30:                                               ; preds = %23, %27
@@ -2560,7 +2569,7 @@ define dso_local i32 @genphy_c45_ethtool_set_eee(ptr noundef %0, ptr nocapture n
   br i1 %34, label %37, label %35
 
 35:                                               ; preds = %33
-  %36 = call i32 @phy_restart_aneg(ptr noundef %0) #8
+  %36 = call i32 @phy_restart_aneg(ptr noundef %0) #7
   br label %37
 
 37:                                               ; preds = %19, %35, %33, %30
@@ -2589,9 +2598,6 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: null_pointer_is_valid
 declare dso_local zeroext i1 @__bitmap_andnot(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #7
-
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
@@ -2599,9 +2605,8 @@ attributes #3 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protect
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
-attributes #9 = { cold nounwind }
+attributes #7 = { nounwind }
+attributes #8 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

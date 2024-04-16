@@ -2459,17 +2459,17 @@ define zeroext i1 @is_zend_mm() local_unnamed_addr #8 {
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext i1 @is_zend_ptr(ptr noundef %0) local_unnamed_addr #0 {
+define noundef zeroext i1 @is_zend_ptr(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @alloc_globals.0, align 8
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %14, label %4
+  br i1 %.not, label %15, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %2, i64 360
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, @tracked_malloc
-  br i1 %7, label %8, label %.loopexit
+  br i1 %7, label %8, label %14
 
 8:                                                ; preds = %4
   %9 = ptrtoint ptr %0 to i64
@@ -2477,55 +2477,58 @@ define zeroext i1 @is_zend_ptr(ptr noundef %0) local_unnamed_addr #0 {
   %11 = getelementptr inbounds i8, ptr %2, i64 384
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr @zend_hash_index_find(ptr noundef %12, i64 noundef %10) #35
-  %.not29 = icmp ne ptr %13, null
+  %.not29 = icmp eq ptr %13, null
+  br i1 %.not29, label %14, label %.loopexit
+
+14:                                               ; preds = %8, %4
   br label %.loopexit
 
-14:                                               ; preds = %1
-  %15 = getelementptr inbounds i8, ptr %2, i64 312
-  %16 = load ptr, ptr %15, align 8
-  %.not23 = icmp eq ptr %16, null
+15:                                               ; preds = %1
+  %16 = getelementptr inbounds i8, ptr %2, i64 312
+  %17 = load ptr, ptr %16, align 8
+  %.not23 = icmp eq ptr %17, null
   br i1 %.not23, label %.loopexit33, label %.preheader31
 
-.preheader31:                                     ; preds = %14, %19
-  %.016 = phi ptr [ %21, %19 ], [ %16, %14 ]
+.preheader31:                                     ; preds = %15, %20
+  %.016 = phi ptr [ %22, %20 ], [ %17, %15 ]
   %.not24 = icmp ule ptr %.016, %0
-  %17 = getelementptr inbounds i8, ptr %.016, i64 2097152
-  %18 = icmp ugt ptr %17, %0
-  %or.cond = select i1 %.not24, i1 %18, i1 false
-  br i1 %or.cond, label %.loopexit, label %19
+  %18 = getelementptr inbounds i8, ptr %.016, i64 2097152
+  %19 = icmp ugt ptr %18, %0
+  %or.cond = select i1 %.not24, i1 %19, i1 false
+  br i1 %or.cond, label %.loopexit, label %20
 
-19:                                               ; preds = %.preheader31
-  %20 = getelementptr inbounds i8, ptr %.016, i64 8
-  %21 = load ptr, ptr %20, align 8
-  %.not25 = icmp eq ptr %21, %16
+20:                                               ; preds = %.preheader31
+  %21 = getelementptr inbounds i8, ptr %.016, i64 8
+  %22 = load ptr, ptr %21, align 8
+  %.not25 = icmp eq ptr %22, %17
   br i1 %.not25, label %.loopexit33, label %.preheader31
 
-.loopexit33:                                      ; preds = %19, %14
-  %22 = getelementptr inbounds i8, ptr %2, i64 304
-  %23 = load ptr, ptr %22, align 8
-  %.not26 = icmp eq ptr %23, null
+.loopexit33:                                      ; preds = %20, %15
+  %23 = getelementptr inbounds i8, ptr %2, i64 304
+  %24 = load ptr, ptr %23, align 8
+  %.not26 = icmp eq ptr %24, null
   br i1 %.not26, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %.loopexit33, %29
-  %.0 = phi ptr [ %31, %29 ], [ %23, %.loopexit33 ]
+.preheader:                                       ; preds = %.loopexit33, %30
+  %.0 = phi ptr [ %32, %30 ], [ %24, %.loopexit33 ]
   %.not27 = icmp ugt ptr %.0, %0
-  br i1 %.not27, label %29, label %24
+  br i1 %.not27, label %30, label %25
 
-24:                                               ; preds = %.preheader
-  %25 = getelementptr inbounds i8, ptr %.0, i64 8
-  %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %.0, i64 %26
-  %28 = icmp ugt ptr %27, %0
-  br i1 %28, label %.loopexit, label %29
+25:                                               ; preds = %.preheader
+  %26 = getelementptr inbounds i8, ptr %.0, i64 8
+  %27 = load i64, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %.0, i64 %27
+  %29 = icmp ugt ptr %28, %0
+  br i1 %29, label %.loopexit, label %30
 
-29:                                               ; preds = %24, %.preheader
-  %30 = getelementptr inbounds i8, ptr %.0, i64 16
-  %31 = load ptr, ptr %30, align 8
-  %.not28 = icmp eq ptr %31, %23
+30:                                               ; preds = %25, %.preheader
+  %31 = getelementptr inbounds i8, ptr %.0, i64 16
+  %32 = load ptr, ptr %31, align 8
+  %.not28 = icmp eq ptr %32, %24
   br i1 %.not28, label %.loopexit, label %.preheader
 
-.loopexit:                                        ; preds = %.preheader31, %29, %24, %8, %.loopexit33, %4
-  %.017 = phi i1 [ false, %4 ], [ false, %.loopexit33 ], [ %.not29, %8 ], [ false, %29 ], [ true, %24 ], [ true, %.preheader31 ]
+.loopexit:                                        ; preds = %.preheader31, %30, %25, %.loopexit33, %8, %14
+  %.017 = phi i1 [ false, %14 ], [ true, %8 ], [ false, %.loopexit33 ], [ false, %30 ], [ true, %25 ], [ true, %.preheader31 ]
   ret i1 %.017
 }
 

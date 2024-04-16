@@ -3661,17 +3661,19 @@ if.then10:                                        ; preds = %do.end7
 if.end12:                                         ; preds = %do.end7
   %6 = load ptr, ptr %data, align 8
   %tobool14.not = icmp eq ptr %6, null
-  br i1 %tobool14.not, label %cond.end, label %land.lhs.true15
+  br i1 %tobool14.not, label %cond.false, label %land.lhs.true15
 
 land.lhs.true15:                                  ; preds = %if.end12
   %view_src = getelementptr inbounds i8, ptr %src, i64 264
   %7 = load ptr, ptr %view_src, align 8
   %tobool16.not = icmp eq ptr %7, null
-  %spec.select = select i1 %tobool16.not, ptr %ctx_allocated, ptr %ctx_unallocated
+  br i1 %tobool16.not, label %cond.end, label %cond.false
+
+cond.false:                                       ; preds = %land.lhs.true15, %if.end12
   br label %cond.end
 
-cond.end:                                         ; preds = %land.lhs.true15, %if.end12
-  %cond = phi ptr [ %ctx_unallocated, %if.end12 ], [ %spec.select, %land.lhs.true15 ]
+cond.end:                                         ; preds = %land.lhs.true15, %cond.false
+  %cond = phi ptr [ %ctx_unallocated, %cond.false ], [ %ctx_allocated, %land.lhs.true15 ]
   %call.i = tail call ptr @ggml_dup_tensor(ptr noundef %cond, ptr noundef nonnull %src) #19
   %nb.i = getelementptr inbounds i8, ptr %src, i64 48
   %nb1.i = getelementptr inbounds i8, ptr %call.i, i64 48

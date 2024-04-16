@@ -685,7 +685,7 @@ land.lhs.true.i:                                  ; preds = %if.else.i
   br i1 %tobool.not.i, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry, %land.lhs.true.i
-  %retval.0.i = phi ptr [ %rb, %entry ], [ %tempb, %land.lhs.true.i ]
+  %retval.0.i.ph = phi ptr [ %tempb, %land.lhs.true.i ], [ %rb, %entry ]
   %4 = load i64, ptr %rc, align 8
   %shr.i16 = ashr i64 %4, 47
   %conv.i17 = trunc nsw i64 %shr.i16 to i32
@@ -695,28 +695,28 @@ land.lhs.true:                                    ; preds = %entry, %land.lhs.tr
 
 if.else.i19:                                      ; preds = %land.lhs.true
   %cmp4.i20 = icmp eq i32 %conv.i17, -5
-  br i1 %cmp4.i20, label %land.lhs.true.i22, label %if.else
+  br i1 %cmp4.i20, label %land.lhs.true.i23, label %if.else
 
-land.lhs.true.i22:                                ; preds = %if.else.i19
-  %and.i23 = and i64 %4, 140737488355327
-  %6 = inttoptr i64 %and.i23 to ptr
-  %call.i24 = call i32 @lj_strscan_num(ptr noundef %6, ptr noundef nonnull %tempc) #5
-  %tobool.not.i25 = icmp eq i32 %call.i24, 0
-  br i1 %tobool.not.i25, label %if.else, label %land.lhs.true.i22.if.then_crit_edge
+land.lhs.true.i23:                                ; preds = %if.else.i19
+  %and.i24 = and i64 %4, 140737488355327
+  %6 = inttoptr i64 %and.i24 to ptr
+  %call.i25 = call i32 @lj_strscan_num(ptr noundef %6, ptr noundef nonnull %tempc) #5
+  %tobool.not.i26 = icmp eq i32 %call.i25, 0
+  br i1 %tobool.not.i26, label %if.else, label %land.lhs.true.i23.if.then_crit_edge
 
-land.lhs.true.i22.if.then_crit_edge:              ; preds = %land.lhs.true.i22
+land.lhs.true.i23.if.then_crit_edge:              ; preds = %land.lhs.true.i23
   %.pre = load double, ptr %tempc, align 8
   br label %if.then
 
-if.then:                                          ; preds = %land.lhs.true.i22.if.then_crit_edge, %land.lhs.true
-  %7 = phi double [ %5, %land.lhs.true ], [ %.pre, %land.lhs.true.i22.if.then_crit_edge ]
-  %8 = load double, ptr %retval.0.i, align 8
+if.then:                                          ; preds = %land.lhs.true.i23.if.then_crit_edge, %land.lhs.true
+  %7 = phi double [ %.pre, %land.lhs.true.i23.if.then_crit_edge ], [ %5, %land.lhs.true ]
+  %8 = load double, ptr %retval.0.i.ph, align 8
   %sub = add nsw i32 %shr, -10
   %call5 = call double @lj_vm_foldarith(double noundef %8, double noundef %7, i32 noundef %sub) #5
   store double %call5, ptr %ra, align 8
   br label %return
 
-if.else:                                          ; preds = %land.lhs.true.i22, %if.else.i19, %land.lhs.true.i, %if.else.i
+if.else:                                          ; preds = %land.lhs.true.i23, %if.else.i19, %land.lhs.true.i, %if.else.i
   %9 = load i64, ptr %rb, align 8
   %shr.i28 = ashr i64 %9, 47
   %conv.i29 = trunc nsw i64 %shr.i28 to i32
@@ -904,7 +904,7 @@ return:                                           ; preds = %mmcall.exit, %if.th
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @str2num(ptr noundef readonly %o, ptr noundef %n) unnamed_addr #0 {
+define internal fastcc noundef ptr @str2num(ptr noundef readonly %o, ptr noundef %n) unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %o, align 8
   %shr = ashr i64 %0, 47
@@ -914,18 +914,20 @@ entry:
 
 if.else:                                          ; preds = %entry
   %cmp4 = icmp eq i32 %conv, -5
-  br i1 %cmp4, label %land.lhs.true, label %return
+  br i1 %cmp4, label %land.lhs.true, label %if.else7
 
 land.lhs.true:                                    ; preds = %if.else
   %and = and i64 %0, 140737488355327
   %1 = inttoptr i64 %and to ptr
   %call = tail call i32 @lj_strscan_num(ptr noundef %1, ptr noundef %n) #5
   %tobool.not = icmp eq i32 %call, 0
-  %spec.select = select i1 %tobool.not, ptr null, ptr %n
+  br i1 %tobool.not, label %if.else7, label %return
+
+if.else7:                                         ; preds = %land.lhs.true, %if.else
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %if.else, %entry
-  %retval.0 = phi ptr [ %o, %entry ], [ null, %if.else ], [ %spec.select, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %entry, %if.else7
+  %retval.0 = phi ptr [ null, %if.else7 ], [ %o, %entry ], [ %n, %land.lhs.true ]
   ret ptr %retval.0
 }
 

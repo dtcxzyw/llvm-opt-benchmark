@@ -4649,13 +4649,13 @@ entry:
   br i1 %cmp.i, label %for.cond.preheader, label %for.end
 
 for.cond.preheader:                               ; preds = %entry
-  %call268 = call noundef signext i8 @_ZNK6icu_7513ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %table, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %key.addr, ptr noundef nonnull align 8 dereferenceable(8) %value)
-  %tobool3.not69 = icmp eq i8 %call268, 0
-  br i1 %tobool3.not69, label %for.end, label %for.body.lr.ph
+  %call264 = call noundef signext i8 @_ZNK6icu_7513ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %table, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %key.addr, ptr noundef nonnull align 8 dereferenceable(8) %value)
+  %tobool3.not65 = icmp eq i8 %call264, 0
+  br i1 %tobool3.not65, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %style36 = getelementptr inbounds i8, ptr %this, i64 12
-  %genericUnit61 = getelementptr inbounds i8, ptr %this, i64 16
+  %style35 = getelementptr inbounds i8, ptr %this, i64 12
+  %genericUnit57 = getelementptr inbounds i8, ptr %this, i64 16
   %outputData.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %pastFutureIndex13.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %fUnion.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
@@ -4663,7 +4663,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %i.070 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %i.066 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %vtable4 = load ptr, ptr %value, align 8
   %vfn5 = getelementptr inbounds i8, ptr %vtable4, i64 24
   %3 = load ptr, ptr %vfn5, align 8
@@ -4690,7 +4690,7 @@ land.lhs.true.i.i:                                ; preds = %if.then7
 
 if.end.i.i:                                       ; preds = %if.then7
   %cmp4.i.i = icmp eq i32 %conv.i.i, 6
-  br i1 %cmp4.i.i, label %land.lhs.true5.i.i, label %_ZN6icu_7512_GLOBAL__N_122RelDateTimeFmtDataSink15styleFromStringEPKc.exit.i
+  br i1 %cmp4.i.i, label %land.lhs.true5.i.i, label %if.end12.i.i
 
 land.lhs.true5.i.i:                               ; preds = %if.end.i.i, %land.lhs.true.i.i
   %idx.ext6.pre-phi.i.i = phi i64 [ %idx.ext.i.i, %land.lhs.true.i.i ], [ 6, %if.end.i.i ]
@@ -4698,11 +4698,13 @@ land.lhs.true5.i.i:                               ; preds = %if.end.i.i, %land.l
   %add.ptr8.i.i = getelementptr inbounds i8, ptr %add.ptr7.i.i, i64 -6
   %call9.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr8.i.i, ptr noundef nonnull dereferenceable(7) @.str.2) #20
   %cmp10.i.i = icmp eq i32 %call9.i.i, 0
-  %spec.select.i.i = zext i1 %cmp10.i.i to i32
+  br i1 %cmp10.i.i, label %_ZN6icu_7512_GLOBAL__N_122RelDateTimeFmtDataSink15styleFromStringEPKc.exit.i, label %if.end12.i.i
+
+if.end12.i.i:                                     ; preds = %land.lhs.true5.i.i, %if.end.i.i
   br label %_ZN6icu_7512_GLOBAL__N_122RelDateTimeFmtDataSink15styleFromStringEPKc.exit.i
 
-_ZN6icu_7512_GLOBAL__N_122RelDateTimeFmtDataSink15styleFromStringEPKc.exit.i: ; preds = %land.lhs.true5.i.i, %if.end.i.i, %land.lhs.true.i.i
-  %retval.0.i.i = phi i32 [ 2, %land.lhs.true.i.i ], [ 0, %if.end.i.i ], [ %spec.select.i.i, %land.lhs.true5.i.i ]
+_ZN6icu_7512_GLOBAL__N_122RelDateTimeFmtDataSink15styleFromStringEPKc.exit.i: ; preds = %if.end12.i.i, %land.lhs.true5.i.i, %land.lhs.true.i.i
+  %retval.0.i.i = phi i32 [ 0, %if.end12.i.i ], [ 2, %land.lhs.true.i.i ], [ 1, %land.lhs.true5.i.i ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i)
   store i32 0, ptr %len.i.i, align 4, !noalias !37
@@ -4716,7 +4718,7 @@ _ZN6icu_7512_GLOBAL__N_122RelDateTimeFmtDataSink15styleFromStringEPKc.exit.i: ; 
           to label %_ZNK6icu_7513ResourceValue21getAliasUnicodeStringER10UErrorCode.exit.i unwind label %lpad.i.i
 
 common.resume:                                    ; preds = %lpad.i.i.i, %lpad.i.i32, %lpad.i.i29.i, %lpad.i31.i, %lpad.i41.i.i, %lpad58.i.i, %cleanup.action29.i.i.i, %lpad.i.i, %ehcleanup.i
-  %common.resume.op = phi { ptr, i32 } [ %7, %lpad.i.i ], [ %.pn.i, %ehcleanup.i ], [ %.pn.i.i.i, %cleanup.action29.i.i.i ], [ %37, %lpad.i.i.i ], [ %40, %lpad.i.i32 ], [ %53, %lpad.i.i29.i ], [ %64, %lpad.i41.i.i ], [ %67, %lpad58.i.i ], [ %56, %lpad.i31.i ]
+  %common.resume.op = phi { ptr, i32 } [ %7, %lpad.i.i ], [ %.pn.i, %ehcleanup.i ], [ %.pn.i.i.i, %cleanup.action29.i.i.i ], [ %36, %lpad.i.i.i ], [ %39, %lpad.i.i32 ], [ %52, %lpad.i.i29.i ], [ %63, %lpad.i41.i.i ], [ %66, %lpad58.i.i ], [ %55, %lpad.i31.i ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i.i:                                         ; preds = %_ZN6icu_7512_GLOBAL__N_122RelDateTimeFmtDataSink15styleFromStringEPKc.exit.i
@@ -4846,40 +4848,30 @@ land.lhs.true.i:                                  ; preds = %if.else
   %add.ptr1.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -7
   %call2.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr1.i, ptr noundef nonnull dereferenceable(8) @.str.1) #20
   %cmp3.i = icmp eq i32 %call2.i, 0
-  br i1 %cmp3.i, label %23, label %_ZN6icu_7512_GLOBAL__N_122RelDateTimeFmtDataSink15styleFromStringEPKc.exit
+  br i1 %cmp3.i, label %.thread, label %land.lhs.true5.i
 
 if.end.i12:                                       ; preds = %if.else
   %cmp4.i = icmp eq i32 %conv.i10, 6
-  br i1 %cmp4.i, label %_ZN6icu_7512_GLOBAL__N_122RelDateTimeFmtDataSink15styleFromStringEPKc.exit, label %22
+  br i1 %cmp4.i, label %land.lhs.true5.i, label %22
 
-_ZN6icu_7512_GLOBAL__N_122RelDateTimeFmtDataSink15styleFromStringEPKc.exit: ; preds = %land.lhs.true.i, %if.end.i12
+land.lhs.true5.i:                                 ; preds = %if.end.i12, %land.lhs.true.i
   %idx.ext6.pre-phi.i = phi i64 [ %idx.ext.i, %land.lhs.true.i ], [ 6, %if.end.i12 ]
   %add.ptr7.i = getelementptr inbounds i8, ptr %4, i64 %idx.ext6.pre-phi.i
   %add.ptr8.i = getelementptr inbounds i8, ptr %add.ptr7.i, i64 -6
   %call9.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr8.i, ptr noundef nonnull dereferenceable(7) @.str.2) #20
-  %call9.i.fr = freeze i32 %call9.i
-  %cmp10.i = icmp eq i32 %call9.i.fr, 0
-  %spec.select.i = zext i1 %cmp10.i to i32
-  store i32 %spec.select.i, ptr %style36, align 4
-  %call9 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #20
-  %spec.select.neg = select i1 %cmp10.i, i32 -6, i32 0
+  %cmp10.i = icmp eq i32 %call9.i, 0
+  br i1 %cmp10.i, label %.thread, label %22
+
+22:                                               ; preds = %if.end.i12, %land.lhs.true5.i
   br label %.thread
 
-22:                                               ; preds = %if.end.i12
-  store i32 0, ptr %style36, align 4
-  %call937 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #20
-  br label %.thread
-
-23:                                               ; preds = %land.lhs.true.i
-  store i32 2, ptr %style36, align 4
-  %call93754 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #20
-  br label %.thread
-
-.thread:                                          ; preds = %_ZN6icu_7512_GLOBAL__N_122RelDateTimeFmtDataSink15styleFromStringEPKc.exit, %22, %23
-  %conv4349.in = phi i64 [ %call93754, %23 ], [ %call937, %22 ], [ %call9, %_ZN6icu_7512_GLOBAL__N_122RelDateTimeFmtDataSink15styleFromStringEPKc.exit ]
-  %.neg = phi i32 [ -7, %23 ], [ 0, %22 ], [ %spec.select.neg, %_ZN6icu_7512_GLOBAL__N_122RelDateTimeFmtDataSink15styleFromStringEPKc.exit ]
-  %conv4349 = trunc i64 %conv4349.in to i32
-  %sub = add i32 %.neg, %conv4349
+.thread:                                          ; preds = %land.lhs.true.i, %land.lhs.true5.i, %22
+  %.sink = phi i32 [ 0, %22 ], [ 1, %land.lhs.true5.i ], [ 2, %land.lhs.true.i ]
+  %.neg = phi i32 [ 0, %22 ], [ -6, %land.lhs.true5.i ], [ -7, %land.lhs.true.i ]
+  store i32 %.sink, ptr %style35, align 4
+  %call936 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #20
+  %conv4146 = trunc i64 %call936 to i32
+  %sub = add i32 %.neg, %conv4146
   switch i32 %sub, label %_ZN6icu_7512_GLOBAL__N_122RelDateTimeFmtDataSink24unitOrNegativeFromStringEPKci.exit [
     i32 3, label %sw.bb.i
     i32 4, label %sw.bb42.i
@@ -4964,21 +4956,21 @@ sw.bb78.i:                                        ; preds = %.thread
   br i1 %cmp81.i, label %if.then17, label %_ZN6icu_7512_GLOBAL__N_122RelDateTimeFmtDataSink24unitOrNegativeFromStringEPKci.exit
 
 _ZN6icu_7512_GLOBAL__N_122RelDateTimeFmtDataSink24unitOrNegativeFromStringEPKci.exit: ; preds = %.thread, %if.else30.i, %if.else52.i, %sw.bb60.i, %if.else71.i, %sw.bb78.i
-  store i32 -1, ptr %genericUnit61, align 8
+  store i32 -1, ptr %genericUnit57, align 8
   br label %for.inc
 
 if.then17:                                        ; preds = %sw.bb.i, %if.else.i, %if.else5.i, %if.else10.i, %if.else15.i, %if.else20.i, %if.else25.i, %if.else30.i, %sw.bb42.i, %if.else47.i, %if.else52.i, %sw.bb60.i, %sw.bb66.i, %if.else71.i, %sw.bb78.i
   %retval.0.i13.ph = phi i32 [ 6, %sw.bb78.i ], [ 0, %if.else71.i ], [ 1, %sw.bb66.i ], [ 5, %sw.bb60.i ], [ 7, %if.else52.i ], [ 4, %if.else47.i ], [ 2, %sw.bb42.i ], [ 14, %if.else30.i ], [ 13, %if.else25.i ], [ 12, %if.else20.i ], [ 11, %if.else15.i ], [ 10, %if.else10.i ], [ 9, %if.else5.i ], [ 8, %if.else.i ], [ 3, %sw.bb.i ]
-  store i32 %retval.0.i13.ph, ptr %genericUnit61, align 8
+  store i32 %retval.0.i13.ph, ptr %genericUnit57, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %key.addr.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %unitTypesTable.i)
   store ptr %4, ptr %key.addr.i, align 8
   %vtable.i = load ptr, ptr %value, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 88
-  %24 = load ptr, ptr %vfn.i, align 8
-  call void %24(ptr nonnull sret(%"class.icu_75::ResourceTable") align 8 %unitTypesTable.i, ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-  %25 = load i32, ptr %errorCode, align 4
-  %cmp.i.i18 = icmp slt i32 %25, 1
+  %23 = load ptr, ptr %vfn.i, align 8
+  call void %23(ptr nonnull sret(%"class.icu_75::ResourceTable") align 8 %unitTypesTable.i, ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  %24 = load i32, ptr %errorCode, align 4
+  %cmp.i.i18 = icmp slt i32 %24, 1
   br i1 %cmp.i.i18, label %for.cond.preheader.i, label %_ZN6icu_7512_GLOBAL__N_122RelDateTimeFmtDataSink15consumeTimeUnitEPKcRNS_13ResourceValueER10UErrorCode.exit
 
 for.cond.preheader.i:                             ; preds = %if.then17
@@ -4988,43 +4980,43 @@ for.cond.preheader.i:                             ; preds = %if.then17
 
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.inc.i
   %i.065.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %for.cond.preheader.i ]
-  %26 = load ptr, ptr %key.addr.i, align 8
-  %call4.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(3) @.str.18) #20
+  %25 = load ptr, ptr %key.addr.i, align 8
+  %call4.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(3) @.str.18) #20
   %cmp.i19 = icmp eq i32 %call4.i, 0
   br i1 %cmp.i19, label %land.lhs.true.i28, label %if.end10.i
 
 land.lhs.true.i28:                                ; preds = %for.body.i
   %vtable5.i = load ptr, ptr %value, align 8
   %vfn6.i = getelementptr inbounds i8, ptr %vtable5.i, i64 24
-  %27 = load ptr, ptr %vfn6.i, align 8
-  %call7.i29 = call noundef i32 %27(ptr noundef nonnull align 8 dereferenceable(8) %value)
+  %26 = load ptr, ptr %vfn6.i, align 8
+  %call7.i29 = call noundef i32 %26(ptr noundef nonnull align 8 dereferenceable(8) %value)
   %cmp8.i30 = icmp eq i32 %call7.i29, 0
   br i1 %cmp8.i30, label %if.then9.i, label %if.end10.i
 
 if.then9.i:                                       ; preds = %land.lhs.true.i28
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ref.tmp.i.i)
-  %28 = load i32, ptr %errorCode, align 4
-  %cmp.i.i.i = icmp slt i32 %28, 1
+  %27 = load i32, ptr %errorCode, align 4
+  %cmp.i.i.i = icmp slt i32 %27, 1
   br i1 %cmp.i.i.i, label %if.end.i.i31, label %_ZN6icu_7512_GLOBAL__N_122RelDateTimeFmtDataSink20handlePlainDirectionERNS_13ResourceValueER10UErrorCode.exit.i
 
 if.end.i.i31:                                     ; preds = %if.then9.i
-  %29 = load i32, ptr %genericUnit61, align 8
-  %switch.tableidx = add i32 %29, -1
-  %30 = icmp ult i32 %switch.tableidx, 14
-  br i1 %30, label %switch.lookup, label %_ZN6icu_7512_GLOBAL__N_122RelDateTimeFmtDataSink20handlePlainDirectionERNS_13ResourceValueER10UErrorCode.exit.i
+  %28 = load i32, ptr %genericUnit57, align 8
+  %switch.tableidx = add i32 %28, -1
+  %29 = icmp ult i32 %switch.tableidx, 14
+  br i1 %29, label %switch.lookup, label %_ZN6icu_7512_GLOBAL__N_122RelDateTimeFmtDataSink20handlePlainDirectionERNS_13ResourceValueER10UErrorCode.exit.i
 
 switch.lookup:                                    ; preds = %if.end.i.i31
-  %31 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [14 x i64], ptr @switch.table._ZN6icu_7512_GLOBAL__N_122RelDateTimeFmtDataSink3putEPKcRNS_13ResourceValueEaR10UErrorCode.1, i64 0, i64 %31
+  %30 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [14 x i64], ptr @switch.table._ZN6icu_7512_GLOBAL__N_122RelDateTimeFmtDataSink3putEPKcRNS_13ResourceValueEaR10UErrorCode.1, i64 0, i64 %30
   %switch.load = load i64, ptr %switch.gep, align 8
-  %32 = load ptr, ptr %outputData.i.i, align 8
-  %absoluteUnits.i.i = getelementptr inbounds i8, ptr %32, i64 24
-  %33 = load i32, ptr %style36, align 4
-  %idxprom.i.i = zext i32 %33 to i64
+  %31 = load ptr, ptr %outputData.i.i, align 8
+  %absoluteUnits.i.i = getelementptr inbounds i8, ptr %31, i64 24
+  %32 = load i32, ptr %style35, align 4
+  %idxprom.i.i = zext i32 %32 to i64
   %arrayidx7.i.i = getelementptr inbounds [3 x [15 x [6 x %"class.icu_75::UnicodeString"]]], ptr %absoluteUnits.i.i, i64 0, i64 %idxprom.i.i, i64 %switch.load, i64 5
   %fUnion.i.i.i = getelementptr inbounds i8, ptr %arrayidx7.i.i, i64 8
-  %34 = load i16, ptr %fUnion.i.i.i, align 8
-  %cmp.i4.i.i = icmp ugt i16 %34, 31
+  %33 = load i16, ptr %fUnion.i.i.i, align 8
+  %cmp.i4.i.i = icmp ugt i16 %33, 31
   br i1 %cmp.i4.i.i, label %_ZN6icu_7512_GLOBAL__N_122RelDateTimeFmtDataSink20handlePlainDirectionERNS_13ResourceValueER10UErrorCode.exit.i, label %if.then10.i.i
 
 if.then10.i.i:                                    ; preds = %switch.lookup
@@ -5033,23 +5025,23 @@ if.then10.i.i:                                    ; preds = %switch.lookup
   store i32 0, ptr %len.i.i.i, align 4, !noalias !40
   %vtable.i.i.i = load ptr, ptr %value, align 8, !noalias !40
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 32
-  %35 = load ptr, ptr %vfn.i.i.i, align 8, !noalias !40
-  %call.i.i.i = call noundef ptr %35(ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %len.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %errorCode), !noalias !40
+  %34 = load ptr, ptr %vfn.i.i.i, align 8, !noalias !40
+  %call.i.i.i = call noundef ptr %34(ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %len.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %errorCode), !noalias !40
   store ptr %call.i.i.i, ptr %agg.tmp.i.i.i, align 8, !noalias !40
-  %36 = load i32, ptr %len.i.i.i, align 4, !noalias !40
-  invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp.i.i, i8 noundef signext 1, ptr noundef nonnull %agg.tmp.i.i.i, i32 noundef %36)
+  %35 = load i32, ptr %len.i.i.i, align 4, !noalias !40
+  invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp.i.i, i8 noundef signext 1, ptr noundef nonnull %agg.tmp.i.i.i, i32 noundef %35)
           to label %_ZNK6icu_7513ResourceValue16getUnicodeStringER10UErrorCode.exit.i.i unwind label %lpad.i.i.i
 
 lpad.i.i.i:                                       ; preds = %if.then10.i.i
-  %37 = landingpad { ptr, i32 }
+  %36 = landingpad { ptr, i32 }
           cleanup
-  %38 = load ptr, ptr %agg.tmp.i.i.i, align 8, !noalias !40
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %38) #17, !srcloc !16
+  %37 = load ptr, ptr %agg.tmp.i.i.i, align 8, !noalias !40
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %37) #17, !srcloc !16
   br label %common.resume
 
 _ZNK6icu_7513ResourceValue16getUnicodeStringER10UErrorCode.exit.i.i: ; preds = %if.then10.i.i
-  %39 = load ptr, ptr %agg.tmp.i.i.i, align 8, !noalias !40
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %39) #17, !srcloc !16
+  %38 = load ptr, ptr %agg.tmp.i.i.i, align 8, !noalias !40
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %38) #17, !srcloc !16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i)
   %call19.i.i = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx7.i.i, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp.i.i)
@@ -5060,7 +5052,7 @@ invoke.cont.i.i33:                                ; preds = %_ZNK6icu_7513Resour
   br label %_ZN6icu_7512_GLOBAL__N_122RelDateTimeFmtDataSink20handlePlainDirectionERNS_13ResourceValueER10UErrorCode.exit.i
 
 lpad.i.i32:                                       ; preds = %_ZNK6icu_7513ResourceValue16getUnicodeStringER10UErrorCode.exit.i.i
-  %40 = landingpad { ptr, i32 }
+  %39 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp.i.i) #17
   br label %common.resume
@@ -5072,14 +5064,14 @@ _ZN6icu_7512_GLOBAL__N_122RelDateTimeFmtDataSink20handlePlainDirectionERNS_13Res
 if.end10.i:                                       ; preds = %_ZN6icu_7512_GLOBAL__N_122RelDateTimeFmtDataSink20handlePlainDirectionERNS_13ResourceValueER10UErrorCode.exit.i, %land.lhs.true.i28, %for.body.i
   %vtable11.i = load ptr, ptr %value, align 8
   %vfn12.i = getelementptr inbounds i8, ptr %vtable11.i, i64 24
-  %41 = load ptr, ptr %vfn12.i, align 8
-  %call13.i = call noundef i32 %41(ptr noundef nonnull align 8 dereferenceable(8) %value)
+  %40 = load ptr, ptr %vfn12.i, align 8
+  %call13.i = call noundef i32 %40(ptr noundef nonnull align 8 dereferenceable(8) %value)
   %cmp14.i = icmp eq i32 %call13.i, 2
   br i1 %cmp14.i, label %if.then15.i, label %for.inc.i
 
 if.then15.i:                                      ; preds = %if.end10.i
-  %42 = load ptr, ptr %key.addr.i, align 8
-  %call16.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(9) @.str.19) #20
+  %41 = load ptr, ptr %key.addr.i, align 8
+  %call16.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull dereferenceable(9) @.str.19) #20
   %cmp17.i = icmp eq i32 %call16.i, 0
   br i1 %cmp17.i, label %if.then18.i, label %if.else.i21
 
@@ -5088,13 +5080,13 @@ if.then18.i:                                      ; preds = %if.then15.i
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %unitTypesTable.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ref.tmp.i14.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ref.tmp57.i.i)
-  store ptr %42, ptr %key.addr.i.i, align 8
+  store ptr %41, ptr %key.addr.i.i, align 8
   %vtable.i.i24 = load ptr, ptr %value, align 8
   %vfn.i.i25 = getelementptr inbounds i8, ptr %vtable.i.i24, i64 88
-  %43 = load ptr, ptr %vfn.i.i25, align 8
-  call void %43(ptr nonnull sret(%"class.icu_75::ResourceTable") align 8 %unitTypesTable.i.i, ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-  %44 = load i32, ptr %errorCode, align 4
-  %cmp.i.i15.i = icmp slt i32 %44, 1
+  %42 = load ptr, ptr %vfn.i.i25, align 8
+  call void %42(ptr nonnull sret(%"class.icu_75::ResourceTable") align 8 %unitTypesTable.i.i, ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  %43 = load i32, ptr %errorCode, align 4
+  %cmp.i.i15.i = icmp slt i32 %43, 1
   br i1 %cmp.i.i15.i, label %for.cond.preheader.i.i, label %_ZN6icu_7512_GLOBAL__N_122RelDateTimeFmtDataSink20consumeTableRelativeEPKcRNS_13ResourceValueER10UErrorCode.exit.i
 
 for.cond.preheader.i.i:                           ; preds = %if.then18.i
@@ -5106,57 +5098,57 @@ for.body.i.i:                                     ; preds = %for.cond.preheader.
   %i.054.i.i = phi i32 [ %inc.i.i, %for.inc.i.i ], [ 0, %for.cond.preheader.i.i ]
   %vtable4.i.i = load ptr, ptr %value, align 8
   %vfn5.i.i = getelementptr inbounds i8, ptr %vtable4.i.i, i64 24
-  %45 = load ptr, ptr %vfn5.i.i, align 8
-  %call6.i.i = call noundef i32 %45(ptr noundef nonnull align 8 dereferenceable(8) %value)
+  %44 = load ptr, ptr %vfn5.i.i, align 8
+  %call6.i.i = call noundef i32 %44(ptr noundef nonnull align 8 dereferenceable(8) %value)
   %cmp.i19.i = icmp eq i32 %call6.i.i, 0
   br i1 %cmp.i19.i, label %if.then7.i.i, label %for.inc.i.i
 
 if.then7.i.i:                                     ; preds = %for.body.i.i
-  %46 = load ptr, ptr %key.addr.i.i, align 8
-  %call.i.i20.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %46, ptr noundef nonnull dereferenceable(3) @.str.22) #20
+  %45 = load ptr, ptr %key.addr.i.i, align 8
+  %call.i.i20.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %45, ptr noundef nonnull dereferenceable(3) @.str.22) #20
   %cmp.i14.i.i = icmp eq i32 %call.i.i20.i, 0
   br i1 %cmp.i14.i.i, label %if.end11.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then7.i.i
-  %call1.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %46, ptr noundef nonnull dereferenceable(3) @.str.23) #20
+  %call1.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %45, ptr noundef nonnull dereferenceable(3) @.str.23) #20
   %cmp2.i.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %cmp2.i.i.i, label %if.end11.i.i, label %if.end4.i.i.i
 
 if.end4.i.i.i:                                    ; preds = %if.end.i.i.i
-  %call5.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %46, ptr noundef nonnull dereferenceable(2) @.str.21) #20
+  %call5.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %45, ptr noundef nonnull dereferenceable(2) @.str.21) #20
   %cmp6.i.i.i = icmp eq i32 %call5.i.i.i, 0
   br i1 %cmp6.i.i.i, label %if.end11.i.i, label %if.end8.i.i.i
 
 if.end8.i.i.i:                                    ; preds = %if.end4.i.i.i
-  %call9.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %46, ptr noundef nonnull dereferenceable(2) @.str.24) #20
+  %call9.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %45, ptr noundef nonnull dereferenceable(2) @.str.24) #20
   %cmp10.i.i.i = icmp eq i32 %call9.i.i.i, 0
   br i1 %cmp10.i.i.i, label %if.end11.i.i, label %if.end12.i.i.i
 
 if.end12.i.i.i:                                   ; preds = %if.end8.i.i.i
-  %call13.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %46, ptr noundef nonnull dereferenceable(2) @.str.25) #20
+  %call13.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %45, ptr noundef nonnull dereferenceable(2) @.str.25) #20
   %cmp14.i.i.i = icmp eq i32 %call13.i.i.i, 0
   br i1 %cmp14.i.i.i, label %if.end11.i.i, label %for.inc.i.i
 
 if.end11.i.i:                                     ; preds = %if.end12.i.i.i, %if.end8.i.i.i, %if.end4.i.i.i, %if.end.i.i.i, %if.then7.i.i
   %retval.0.i.ph.i21.i = phi i64 [ 3, %if.end8.i.i.i ], [ 2, %if.end4.i.i.i ], [ 1, %if.end.i.i.i ], [ 0, %if.then7.i.i ], [ 4, %if.end12.i.i.i ]
-  %47 = load i32, ptr %genericUnit61, align 8
-  %cond.i.i = icmp eq i32 %47, 0
+  %46 = load i32, ptr %genericUnit57, align 8
+  %cond.i.i = icmp eq i32 %46, 0
   br i1 %cond.i.i, label %land.lhs.true.i.i27, label %if.end30.i.i
 
 land.lhs.true.i.i27:                              ; preds = %if.end11.i.i
-  %call14.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %46, ptr noundef nonnull dereferenceable(2) @.str.21) #20
+  %call14.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %45, ptr noundef nonnull dereferenceable(2) @.str.21) #20
   %cmp15.i.i = icmp eq i32 %call14.i.i, 0
   br i1 %cmp15.i.i, label %land.lhs.true16.i.i, label %for.inc.i.i
 
 land.lhs.true16.i.i:                              ; preds = %land.lhs.true.i.i27
-  %48 = load ptr, ptr %outputData.i.i, align 8
-  %absoluteUnits.i24.i = getelementptr inbounds i8, ptr %48, i64 24
-  %49 = load i32, ptr %style36, align 4
-  %idxprom.i25.i = zext i32 %49 to i64
+  %47 = load ptr, ptr %outputData.i.i, align 8
+  %absoluteUnits.i24.i = getelementptr inbounds i8, ptr %47, i64 24
+  %48 = load i32, ptr %style35, align 4
+  %idxprom.i25.i = zext i32 %48 to i64
   %arrayidx18.i.i = getelementptr inbounds [3 x [15 x [6 x %"class.icu_75::UnicodeString"]]], ptr %absoluteUnits.i24.i, i64 0, i64 %idxprom.i25.i, i64 11, i64 5
   %fUnion.i.i26.i = getelementptr inbounds i8, ptr %arrayidx18.i.i, i64 8
-  %50 = load i16, ptr %fUnion.i.i26.i, align 8
-  %cmp.i16.i.i = icmp ugt i16 %50, 31
+  %49 = load i16, ptr %fUnion.i.i26.i, align 8
+  %cmp.i16.i.i = icmp ugt i16 %49, 31
   br i1 %cmp.i16.i.i, label %for.inc.i.i, label %if.then21.i.i
 
 if.then21.i.i:                                    ; preds = %land.lhs.true16.i.i
@@ -5165,23 +5157,23 @@ if.then21.i.i:                                    ; preds = %land.lhs.true16.i.i
   store i32 0, ptr %len.i.i12.i, align 4, !noalias !43
   %vtable.i.i27.i = load ptr, ptr %value, align 8, !noalias !43
   %vfn.i.i28.i = getelementptr inbounds i8, ptr %vtable.i.i27.i, i64 32
-  %51 = load ptr, ptr %vfn.i.i28.i, align 8, !noalias !43
-  %call.i17.i.i = call noundef ptr %51(ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %len.i.i12.i, ptr noundef nonnull align 4 dereferenceable(4) %errorCode), !noalias !43
+  %50 = load ptr, ptr %vfn.i.i28.i, align 8, !noalias !43
+  %call.i17.i.i = call noundef ptr %50(ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %len.i.i12.i, ptr noundef nonnull align 4 dereferenceable(4) %errorCode), !noalias !43
   store ptr %call.i17.i.i, ptr %agg.tmp.i.i13.i, align 8, !noalias !43
-  %52 = load i32, ptr %len.i.i12.i, align 4, !noalias !43
-  invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp.i14.i, i8 noundef signext 1, ptr noundef nonnull %agg.tmp.i.i13.i, i32 noundef %52)
+  %51 = load i32, ptr %len.i.i12.i, align 4, !noalias !43
+  invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp.i14.i, i8 noundef signext 1, ptr noundef nonnull %agg.tmp.i.i13.i, i32 noundef %51)
           to label %_ZNK6icu_7513ResourceValue16getUnicodeStringER10UErrorCode.exit.i30.i unwind label %lpad.i.i29.i
 
 lpad.i.i29.i:                                     ; preds = %if.then21.i.i
-  %53 = landingpad { ptr, i32 }
+  %52 = landingpad { ptr, i32 }
           cleanup
-  %54 = load ptr, ptr %agg.tmp.i.i13.i, align 8, !noalias !43
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %54) #17, !srcloc !16
+  %53 = load ptr, ptr %agg.tmp.i.i13.i, align 8, !noalias !43
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %53) #17, !srcloc !16
   br label %common.resume
 
 _ZNK6icu_7513ResourceValue16getUnicodeStringER10UErrorCode.exit.i30.i: ; preds = %if.then21.i.i
-  %55 = load ptr, ptr %agg.tmp.i.i13.i, align 8, !noalias !43
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %55) #17, !srcloc !16
+  %54 = load ptr, ptr %agg.tmp.i.i13.i, align 8, !noalias !43
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %54) #17, !srcloc !16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i.i12.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i13.i)
   %call29.i.i = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx18.i.i, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp.i14.i)
@@ -5189,58 +5181,58 @@ _ZNK6icu_7513ResourceValue16getUnicodeStringER10UErrorCode.exit.i30.i: ; preds =
 
 invoke.cont.i32.i:                                ; preds = %_ZNK6icu_7513ResourceValue16getUnicodeStringER10UErrorCode.exit.i30.i
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp.i14.i) #17
-  %.pr.pr.pre.i.i = load i32, ptr %genericUnit61, align 8
+  %.pr.pr.pre.i.i = load i32, ptr %genericUnit57, align 8
   br label %if.end30.i.i
 
 lpad.i31.i:                                       ; preds = %_ZNK6icu_7513ResourceValue16getUnicodeStringER10UErrorCode.exit.i30.i
-  %56 = landingpad { ptr, i32 }
+  %55 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp.i14.i) #17
   br label %common.resume
 
 if.end30.i.i:                                     ; preds = %invoke.cont.i32.i, %if.end11.i.i
-  %.pr.i.i = phi i32 [ %47, %if.end11.i.i ], [ %.pr.pr.pre.i.i, %invoke.cont.i32.i ]
-  %switch.tableidx82 = add i32 %.pr.i.i, -1
-  %57 = icmp ult i32 %switch.tableidx82, 14
-  br i1 %57, label %switch.lookup81, label %for.inc.i.i
+  %.pr.i.i = phi i32 [ %46, %if.end11.i.i ], [ %.pr.pr.pre.i.i, %invoke.cont.i32.i ]
+  %switch.tableidx78 = add i32 %.pr.i.i, -1
+  %56 = icmp ult i32 %switch.tableidx78, 14
+  br i1 %56, label %switch.lookup77, label %for.inc.i.i
 
-switch.lookup81:                                  ; preds = %if.end30.i.i
-  %58 = zext nneg i32 %switch.tableidx82 to i64
-  %switch.gep83 = getelementptr inbounds [14 x i64], ptr @switch.table._ZN6icu_7512_GLOBAL__N_122RelDateTimeFmtDataSink3putEPKcRNS_13ResourceValueEaR10UErrorCode.1, i64 0, i64 %58
-  %switch.load84 = load i64, ptr %switch.gep83, align 8
-  %59 = load ptr, ptr %outputData.i.i, align 8
-  %absoluteUnits37.i.i = getelementptr inbounds i8, ptr %59, i64 24
-  %60 = load i32, ptr %style36, align 4
-  %idxprom39.i.i = zext i32 %60 to i64
-  %arrayidx44.i.i = getelementptr inbounds [3 x [15 x [6 x %"class.icu_75::UnicodeString"]]], ptr %absoluteUnits37.i.i, i64 0, i64 %idxprom39.i.i, i64 %switch.load84, i64 %retval.0.i.ph.i21.i
+switch.lookup77:                                  ; preds = %if.end30.i.i
+  %57 = zext nneg i32 %switch.tableidx78 to i64
+  %switch.gep79 = getelementptr inbounds [14 x i64], ptr @switch.table._ZN6icu_7512_GLOBAL__N_122RelDateTimeFmtDataSink3putEPKcRNS_13ResourceValueEaR10UErrorCode.1, i64 0, i64 %57
+  %switch.load80 = load i64, ptr %switch.gep79, align 8
+  %58 = load ptr, ptr %outputData.i.i, align 8
+  %absoluteUnits37.i.i = getelementptr inbounds i8, ptr %58, i64 24
+  %59 = load i32, ptr %style35, align 4
+  %idxprom39.i.i = zext i32 %59 to i64
+  %arrayidx44.i.i = getelementptr inbounds [3 x [15 x [6 x %"class.icu_75::UnicodeString"]]], ptr %absoluteUnits37.i.i, i64 0, i64 %idxprom39.i.i, i64 %switch.load80, i64 %retval.0.i.ph.i21.i
   %fUnion.i33.i.i = getelementptr inbounds i8, ptr %arrayidx44.i.i, i64 8
-  %61 = load i16, ptr %fUnion.i33.i.i, align 8
-  %cmp.i34.i.i = icmp ugt i16 %61, 31
+  %60 = load i16, ptr %fUnion.i33.i.i, align 8
+  %cmp.i34.i.i = icmp ugt i16 %60, 31
   br i1 %cmp.i34.i.i, label %for.inc.i.i, label %if.then47.i.i
 
-if.then47.i.i:                                    ; preds = %switch.lookup81
+if.then47.i.i:                                    ; preds = %switch.lookup77
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i36.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i37.i.i)
   store i32 0, ptr %len.i36.i.i, align 4, !noalias !46
   %vtable.i38.i.i = load ptr, ptr %value, align 8, !noalias !46
   %vfn.i39.i.i = getelementptr inbounds i8, ptr %vtable.i38.i.i, i64 32
-  %62 = load ptr, ptr %vfn.i39.i.i, align 8, !noalias !46
-  %call.i40.i.i = call noundef ptr %62(ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %len.i36.i.i, ptr noundef nonnull align 4 dereferenceable(4) %errorCode), !noalias !46
+  %61 = load ptr, ptr %vfn.i39.i.i, align 8, !noalias !46
+  %call.i40.i.i = call noundef ptr %61(ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %len.i36.i.i, ptr noundef nonnull align 4 dereferenceable(4) %errorCode), !noalias !46
   store ptr %call.i40.i.i, ptr %agg.tmp.i37.i.i, align 8, !noalias !46
-  %63 = load i32, ptr %len.i36.i.i, align 4, !noalias !46
-  invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp57.i.i, i8 noundef signext 1, ptr noundef nonnull %agg.tmp.i37.i.i, i32 noundef %63)
+  %62 = load i32, ptr %len.i36.i.i, align 4, !noalias !46
+  invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp57.i.i, i8 noundef signext 1, ptr noundef nonnull %agg.tmp.i37.i.i, i32 noundef %62)
           to label %_ZNK6icu_7513ResourceValue16getUnicodeStringER10UErrorCode.exit42.i.i unwind label %lpad.i41.i.i
 
 lpad.i41.i.i:                                     ; preds = %if.then47.i.i
-  %64 = landingpad { ptr, i32 }
+  %63 = landingpad { ptr, i32 }
           cleanup
-  %65 = load ptr, ptr %agg.tmp.i37.i.i, align 8, !noalias !46
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %65) #17, !srcloc !16
+  %64 = load ptr, ptr %agg.tmp.i37.i.i, align 8, !noalias !46
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %64) #17, !srcloc !16
   br label %common.resume
 
 _ZNK6icu_7513ResourceValue16getUnicodeStringER10UErrorCode.exit42.i.i: ; preds = %if.then47.i.i
-  %66 = load ptr, ptr %agg.tmp.i37.i.i, align 8, !noalias !46
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %66) #17, !srcloc !16
+  %65 = load ptr, ptr %agg.tmp.i37.i.i, align 8, !noalias !46
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %65) #17, !srcloc !16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i36.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i37.i.i)
   %call60.i.i = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx44.i.i, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp57.i.i)
@@ -5251,12 +5243,12 @@ invoke.cont59.i.i:                                ; preds = %_ZNK6icu_7513Resour
   br label %for.inc.i.i
 
 lpad58.i.i:                                       ; preds = %_ZNK6icu_7513ResourceValue16getUnicodeStringER10UErrorCode.exit42.i.i
-  %67 = landingpad { ptr, i32 }
+  %66 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp57.i.i) #17
   br label %common.resume
 
-for.inc.i.i:                                      ; preds = %if.end30.i.i, %invoke.cont59.i.i, %switch.lookup81, %land.lhs.true16.i.i, %land.lhs.true.i.i27, %if.end12.i.i.i, %for.body.i.i
+for.inc.i.i:                                      ; preds = %if.end30.i.i, %invoke.cont59.i.i, %switch.lookup77, %land.lhs.true16.i.i, %land.lhs.true.i.i27, %if.end12.i.i.i, %for.body.i.i
   %inc.i.i = add nuw nsw i32 %i.054.i.i, 1
   %call2.i.i26 = call noundef signext i8 @_ZNK6icu_7513ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %unitTypesTable.i.i, i32 noundef %inc.i.i, ptr noundef nonnull align 8 dereferenceable(8) %key.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %value)
   %tobool3.not.i.i = icmp eq i8 %call2.i.i26, 0
@@ -5270,44 +5262,44 @@ _ZN6icu_7512_GLOBAL__N_122RelDateTimeFmtDataSink20consumeTableRelativeEPKcRNS_13
   br label %for.inc.i
 
 if.else.i21:                                      ; preds = %if.then15.i
-  %call19.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(13) @.str.20) #20
+  %call19.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull dereferenceable(13) @.str.20) #20
   %cmp20.i = icmp eq i32 %call19.i, 0
   br i1 %cmp20.i, label %if.then21.i, label %for.inc.i
 
 if.then21.i:                                      ; preds = %if.else.i21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %key.addr.i33.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %relativeTimeTable.i.i)
-  store ptr %42, ptr %key.addr.i33.i, align 8
+  store ptr %41, ptr %key.addr.i33.i, align 8
   %vtable.i34.i = load ptr, ptr %value, align 8
   %vfn.i35.i = getelementptr inbounds i8, ptr %vtable.i34.i, i64 88
-  %68 = load ptr, ptr %vfn.i35.i, align 8
-  call void %68(ptr nonnull sret(%"class.icu_75::ResourceTable") align 8 %relativeTimeTable.i.i, ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-  %69 = load i32, ptr %errorCode, align 4
-  %cmp.i.i36.i = icmp slt i32 %69, 1
+  %67 = load ptr, ptr %vfn.i35.i, align 8
+  call void %67(ptr nonnull sret(%"class.icu_75::ResourceTable") align 8 %relativeTimeTable.i.i, ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  %68 = load i32, ptr %errorCode, align 4
+  %cmp.i.i36.i = icmp slt i32 %68, 1
   br i1 %cmp.i.i36.i, label %if.end.i37.i, label %_ZN6icu_7512_GLOBAL__N_122RelDateTimeFmtDataSink24consumeTableRelativeTimeEPKcRNS_13ResourceValueER10UErrorCode.exit.i
 
 if.end.i37.i:                                     ; preds = %if.then21.i
-  %70 = load i32, ptr %genericUnit61, align 8
-  %71 = icmp ult i32 %70, 15
-  br i1 %71, label %switch.lookup85, label %_ZN6icu_7512_GLOBAL__N_122RelDateTimeFmtDataSink24consumeTableRelativeTimeEPKcRNS_13ResourceValueER10UErrorCode.exit.i
+  %69 = load i32, ptr %genericUnit57, align 8
+  %70 = icmp ult i32 %69, 15
+  br i1 %70, label %switch.lookup81, label %_ZN6icu_7512_GLOBAL__N_122RelDateTimeFmtDataSink24consumeTableRelativeTimeEPKcRNS_13ResourceValueER10UErrorCode.exit.i
 
-switch.lookup85:                                  ; preds = %if.end.i37.i
-  %72 = zext nneg i32 %70 to i64
-  %switch.gep86 = getelementptr inbounds [15 x i64], ptr @switch.table._ZN6icu_7512_GLOBAL__N_122RelDateTimeFmtDataSink3putEPKcRNS_13ResourceValueEaR10UErrorCode.2, i64 0, i64 %72
-  %switch.load87 = load i64, ptr %switch.gep86, align 8
+switch.lookup81:                                  ; preds = %if.end.i37.i
+  %71 = zext nneg i32 %69 to i64
+  %switch.gep82 = getelementptr inbounds [15 x i64], ptr @switch.table._ZN6icu_7512_GLOBAL__N_122RelDateTimeFmtDataSink3putEPKcRNS_13ResourceValueEaR10UErrorCode.2, i64 0, i64 %71
+  %switch.load83 = load i64, ptr %switch.gep82, align 8
   %call514.i.i = call noundef signext i8 @_ZNK6icu_7513ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %relativeTimeTable.i.i, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %key.addr.i33.i, ptr noundef nonnull align 8 dereferenceable(8) %value)
   %tobool6.not15.i.i = icmp eq i8 %call514.i.i, 0
   br i1 %tobool6.not15.i.i, label %_ZN6icu_7512_GLOBAL__N_122RelDateTimeFmtDataSink24consumeTableRelativeTimeEPKcRNS_13ResourceValueER10UErrorCode.exit.i, label %for.body.i40.i
 
-for.body.i40.i:                                   ; preds = %switch.lookup85, %for.inc.i41.i
-  %i.016.i.i = phi i32 [ %inc.i42.i, %for.inc.i41.i ], [ 0, %switch.lookup85 ]
-  %73 = load ptr, ptr %key.addr.i33.i, align 8
-  %call7.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %73, ptr noundef nonnull dereferenceable(5) @.str.26) #20
+for.body.i40.i:                                   ; preds = %switch.lookup81, %for.inc.i41.i
+  %i.016.i.i = phi i32 [ %inc.i42.i, %for.inc.i41.i ], [ 0, %switch.lookup81 ]
+  %72 = load ptr, ptr %key.addr.i33.i, align 8
+  %call7.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %72, ptr noundef nonnull dereferenceable(5) @.str.26) #20
   %cmp8.i.i = icmp eq i32 %call7.i.i, 0
   br i1 %cmp8.i.i, label %if.end16.i.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %for.body.i40.i
-  %call10.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %73, ptr noundef nonnull dereferenceable(7) @.str.27) #20
+  %call10.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %72, ptr noundef nonnull dereferenceable(7) @.str.27) #20
   %cmp11.i.i = icmp eq i32 %call10.i.i, 0
   br i1 %cmp11.i.i, label %if.end16.i.i, label %for.inc.i41.i
 
@@ -5317,13 +5309,13 @@ if.end16.i.i:                                     ; preds = %if.else.i.i, %for.b
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %key.addr.i.i.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %unitTypesTable.i.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ref.tmp.i.i.i)
-  store ptr %73, ptr %key.addr.i.i.i, align 8
+  store ptr %72, ptr %key.addr.i.i.i, align 8
   %vtable.i.i43.i = load ptr, ptr %value, align 8
   %vfn.i.i44.i = getelementptr inbounds i8, ptr %vtable.i.i43.i, i64 88
-  %74 = load ptr, ptr %vfn.i.i44.i, align 8
-  call void %74(ptr nonnull sret(%"class.icu_75::ResourceTable") align 8 %unitTypesTable.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-  %75 = load i32, ptr %errorCode, align 4
-  %cmp.i.i.i.i = icmp slt i32 %75, 1
+  %73 = load ptr, ptr %vfn.i.i44.i, align 8
+  call void %73(ptr nonnull sret(%"class.icu_75::ResourceTable") align 8 %unitTypesTable.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  %74 = load i32, ptr %errorCode, align 4
+  %cmp.i.i.i.i = icmp slt i32 %74, 1
   br i1 %cmp.i.i.i.i, label %for.cond.preheader.i.i.i, label %_ZN6icu_7512_GLOBAL__N_122RelDateTimeFmtDataSink17consumeTimeDetailEiPKcRNS_13ResourceValueER10UErrorCode.exit.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %if.end16.i.i
@@ -5335,29 +5327,29 @@ for.body.i.i.i:                                   ; preds = %for.cond.preheader.
   %i.025.i.i.i = phi i32 [ %inc.i.i.i, %for.inc.i.i.i ], [ 0, %for.cond.preheader.i.i.i ]
   %vtable4.i.i.i = load ptr, ptr %value, align 8
   %vfn5.i.i.i = getelementptr inbounds i8, ptr %vtable4.i.i.i, i64 24
-  %76 = load ptr, ptr %vfn5.i.i.i, align 8
-  %call6.i.i.i = call noundef i32 %76(ptr noundef nonnull align 8 dereferenceable(8) %value)
+  %75 = load ptr, ptr %vfn5.i.i.i, align 8
+  %call6.i.i.i = call noundef i32 %75(ptr noundef nonnull align 8 dereferenceable(8) %value)
   %cmp.i7.i.i = icmp eq i32 %call6.i.i.i, 0
   br i1 %cmp.i7.i.i, label %if.then7.i.i.i, label %for.inc.i.i.i
 
 if.then7.i.i.i:                                   ; preds = %for.body.i.i.i
-  %77 = load ptr, ptr %key.addr.i.i.i, align 8
-  %call8.i.i.i = call noundef i32 @_ZN6icu_7514StandardPlural25indexOrNegativeFromStringEPKc(ptr noundef %77)
+  %76 = load ptr, ptr %key.addr.i.i.i, align 8
+  %call8.i.i.i = call noundef i32 @_ZN6icu_7514StandardPlural25indexOrNegativeFromStringEPKc(ptr noundef %76)
   %cmp9.i.i.i = icmp sgt i32 %call8.i.i.i, -1
   br i1 %cmp9.i.i.i, label %if.then10.i.i.i, label %for.inc.i.i.i
 
 if.then10.i.i.i:                                  ; preds = %if.then7.i.i.i
-  %78 = load ptr, ptr %outputData.i.i, align 8
-  %relativeUnitsFormatters.i.i.i = getelementptr inbounds i8, ptr %78, i64 17304
-  %79 = load i32, ptr %style36, align 4
-  %idxprom.i.i.i = zext i32 %79 to i64
-  %80 = load i32, ptr %pastFutureIndex13.i.i, align 8
-  %idxprom13.i.i.i = sext i32 %80 to i64
-  %arrayidx14.i.i.i = getelementptr inbounds [3 x [15 x [2 x [8 x ptr]]]], ptr %relativeUnitsFormatters.i.i.i, i64 0, i64 %idxprom.i.i.i, i64 %switch.load87, i64 %idxprom13.i.i.i
+  %77 = load ptr, ptr %outputData.i.i, align 8
+  %relativeUnitsFormatters.i.i.i = getelementptr inbounds i8, ptr %77, i64 17304
+  %78 = load i32, ptr %style35, align 4
+  %idxprom.i.i.i = zext i32 %78 to i64
+  %79 = load i32, ptr %pastFutureIndex13.i.i, align 8
+  %idxprom13.i.i.i = sext i32 %79 to i64
+  %arrayidx14.i.i.i = getelementptr inbounds [3 x [15 x [2 x [8 x ptr]]]], ptr %relativeUnitsFormatters.i.i.i, i64 0, i64 %idxprom.i.i.i, i64 %switch.load83, i64 %idxprom13.i.i.i
   %idxprom15.i.i.i = zext nneg i32 %call8.i.i.i to i64
   %arrayidx16.i.i.i = getelementptr inbounds ptr, ptr %arrayidx14.i.i.i, i64 %idxprom15.i.i.i
-  %81 = load ptr, ptr %arrayidx16.i.i.i, align 8
-  %cmp17.i.i.i = icmp eq ptr %81, null
+  %80 = load ptr, ptr %arrayidx16.i.i.i, align 8
+  %cmp17.i.i.i = icmp eq ptr %80, null
   br i1 %cmp17.i.i.i, label %if.then18.i.i.i, label %for.inc.i.i.i
 
 if.then18.i.i.i:                                  ; preds = %if.then10.i.i.i
@@ -5371,26 +5363,26 @@ new.notnull.i.i.i:                                ; preds = %if.then18.i.i.i
   store i32 0, ptr %len.i.i.i.i, align 4, !noalias !50
   %vtable.i.i.i.i = load ptr, ptr %value, align 8, !noalias !50
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 32
-  %82 = load ptr, ptr %vfn.i.i.i.i, align 8, !noalias !50
-  %call.i15.i.i.i = invoke noundef ptr %82(ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %len.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  %81 = load ptr, ptr %vfn.i.i.i.i, align 8, !noalias !50
+  %call.i15.i.i.i = invoke noundef ptr %81(ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %len.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %call.i.noexc.i.i.i unwind label %lpad.i.i45.i
 
 call.i.noexc.i.i.i:                               ; preds = %new.notnull.i.i.i
   store ptr %call.i15.i.i.i, ptr %agg.tmp.i.i.i.i, align 8, !noalias !50
-  %83 = load i32, ptr %len.i.i.i.i, align 4, !noalias !50
-  invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp.i.i.i, i8 noundef signext 1, ptr noundef nonnull %agg.tmp.i.i.i.i, i32 noundef %83)
+  %82 = load i32, ptr %len.i.i.i.i, align 4, !noalias !50
+  invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp.i.i.i, i8 noundef signext 1, ptr noundef nonnull %agg.tmp.i.i.i.i, i32 noundef %82)
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i.i
 
 lpad.i.i.i.i:                                     ; preds = %call.i.noexc.i.i.i
-  %84 = landingpad { ptr, i32 }
+  %83 = landingpad { ptr, i32 }
           cleanup
-  %85 = load ptr, ptr %agg.tmp.i.i.i.i, align 8, !noalias !50
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %85) #17, !srcloc !16
+  %84 = load ptr, ptr %agg.tmp.i.i.i.i, align 8, !noalias !50
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %84) #17, !srcloc !16
   br label %cleanup.action29.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %call.i.noexc.i.i.i
-  %86 = load ptr, ptr %agg.tmp.i.i.i.i, align 8, !noalias !50
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %86) #17, !srcloc !16
+  %85 = load ptr, ptr %agg.tmp.i.i.i.i, align 8, !noalias !50
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %85) #17, !srcloc !16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i.i)
   %compiledPattern.i.i.i.i = getelementptr inbounds i8, ptr %call19.i.i.i, i64 8
@@ -5401,7 +5393,7 @@ invoke.cont.i.i.i:                                ; preds = %call.i.noexc.i.i.i
           to label %cleanup.done.i.i.i unwind label %lpad.i16.i.i.i
 
 lpad.i16.i.i.i:                                   ; preds = %invoke.cont.i.i.i
-  %87 = landingpad { ptr, i32 }
+  %86 = landingpad { ptr, i32 }
           cleanup
   %compiledPattern.i.i.i.i.le = getelementptr inbounds i8, ptr %call19.i.i.i, i64 8
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %compiledPattern.i.i.i.i.le) #17
@@ -5424,12 +5416,12 @@ if.then34.i.i.i:                                  ; preds = %cleanup.done.i.i.i,
   br label %for.inc.i.i.i
 
 lpad.i.i45.i:                                     ; preds = %new.notnull.i.i.i
-  %88 = landingpad { ptr, i32 }
+  %87 = landingpad { ptr, i32 }
           cleanup
   br label %cleanup.action29.i.i.i
 
 cleanup.action29.i.i.i:                           ; preds = %lpad.i.i45.i, %lpad.i16.i.i.i, %lpad.i.i.i.i
-  %.pn.i.i.i = phi { ptr, i32 } [ %87, %lpad.i16.i.i.i ], [ %88, %lpad.i.i45.i ], [ %84, %lpad.i.i.i.i ]
+  %.pn.i.i.i = phi { ptr, i32 } [ %86, %lpad.i16.i.i.i ], [ %87, %lpad.i.i45.i ], [ %83, %lpad.i.i.i.i ]
   call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call19.i.i.i) #17
   br label %common.resume
 
@@ -5451,7 +5443,7 @@ for.inc.i41.i:                                    ; preds = %_ZN6icu_7512_GLOBAL
   %tobool6.not.i.i = icmp eq i8 %call5.i.i, 0
   br i1 %tobool6.not.i.i, label %_ZN6icu_7512_GLOBAL__N_122RelDateTimeFmtDataSink24consumeTableRelativeTimeEPKcRNS_13ResourceValueER10UErrorCode.exit.i, label %for.body.i40.i, !llvm.loop !54
 
-_ZN6icu_7512_GLOBAL__N_122RelDateTimeFmtDataSink24consumeTableRelativeTimeEPKcRNS_13ResourceValueER10UErrorCode.exit.i: ; preds = %for.inc.i41.i, %if.end.i37.i, %switch.lookup85, %if.then21.i
+_ZN6icu_7512_GLOBAL__N_122RelDateTimeFmtDataSink24consumeTableRelativeTimeEPKcRNS_13ResourceValueER10UErrorCode.exit.i: ; preds = %for.inc.i41.i, %if.end.i37.i, %switch.lookup81, %if.then21.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %key.addr.i33.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %relativeTimeTable.i.i)
   br label %for.inc.i
@@ -5468,7 +5460,7 @@ _ZN6icu_7512_GLOBAL__N_122RelDateTimeFmtDataSink15consumeTimeUnitEPKcRNS_13Resou
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZN6icu_7512_GLOBAL__N_122RelDateTimeFmtDataSink24unitOrNegativeFromStringEPKci.exit, %_ZN6icu_7512_GLOBAL__N_122RelDateTimeFmtDataSink12consumeAliasEPKcRKNS_13ResourceValueER10UErrorCode.exit, %_ZN6icu_7512_GLOBAL__N_122RelDateTimeFmtDataSink15consumeTimeUnitEPKcRNS_13ResourceValueER10UErrorCode.exit
-  %inc = add nuw nsw i32 %i.070, 1
+  %inc = add nuw nsw i32 %i.066, 1
   %call2 = call noundef signext i8 @_ZNK6icu_7513ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %table, i32 noundef %inc, ptr noundef nonnull align 8 dereferenceable(8) %key.addr, ptr noundef nonnull align 8 dereferenceable(8) %value)
   %tobool3.not = icmp eq i8 %call2, 0
   br i1 %tobool3.not, label %for.end, label %for.body, !llvm.loop !56

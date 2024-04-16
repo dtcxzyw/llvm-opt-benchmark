@@ -2372,7 +2372,7 @@ land.lhs.true:                                    ; preds = %memptr.end62, %whil
 if.then74:                                        ; preds = %land.lhs.true
   %39 = load ptr, ptr %_session, align 8
   call void @_ZN3zmq14session_base_t5flushEv(ptr noundef nonnull align 8 dereferenceable(1624) %39)
-  br label %return
+  br label %if.end94
 
 if.else76:                                        ; preds = %while.cond, %while.end
   %_io_error = getelementptr inbounds i8, ptr %this, i64 1664
@@ -2408,10 +2408,13 @@ if.else86:                                        ; preds = %if.else76
   %45 = load ptr, ptr %_session, align 8
   call void @_ZN3zmq14session_base_t5flushEv(ptr noundef nonnull align 8 dereferenceable(1624) %45)
   %call89 = call noundef zeroext i1 @_ZN3zmq20stream_engine_base_t17in_event_internalEv(ptr noundef nonnull align 8 dereferenceable(1689) %this)
+  br i1 %call89, label %if.end94, label %return
+
+if.end94:                                         ; preds = %if.else86, %if.then74
   br label %return
 
-return:                                           ; preds = %if.else86, %if.then74, %if.then83, %if.then78, %if.then26, %if.else
-  %retval.0 = phi i1 [ true, %if.then26 ], [ false, %if.else ], [ false, %if.then78 ], [ false, %if.then83 ], [ true, %if.then74 ], [ %call89, %if.else86 ]
+return:                                           ; preds = %if.else86, %if.end94, %if.then83, %if.then78, %if.then26, %if.else
+  %retval.0 = phi i1 [ true, %if.then26 ], [ false, %if.else ], [ true, %if.end94 ], [ false, %if.then78 ], [ false, %if.then83 ], [ false, %if.else86 ]
   ret i1 %retval.0
 }
 

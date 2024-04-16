@@ -5734,14 +5734,17 @@ if.end:                                           ; preds = %_ZN4Game18showOverl
   %_M_string_length.i.i = getelementptr inbounds i8, ptr %address, i64 8
   %19 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !14
   %cmp.i = icmp eq i64 %19, 0
-  br i1 %cmp.i, label %if.then26, label %return
+  br i1 %cmp.i, label %if.then26, label %if.end30
 
 if.then26:                                        ; preds = %if.end
   %call27 = call noundef zeroext i1 @_ZN4Game24createSingleplayerServerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK11SubgameSpect(ptr noundef nonnull align 8 dereferenceable(686) %this, ptr noundef nonnull align 8 dereferenceable(32) %map_dir, ptr noundef nonnull align 8 dereferenceable(280) %gamespec, i16 noundef zeroext %port)
+  br i1 %call27, label %if.end30, label %return
+
+if.end30:                                         ; preds = %if.then26, %if.end
   br label %return
 
-return:                                           ; preds = %if.then26, %if.end, %_ZN4Game18showOverlayMessageEPKcfib.exit
-  %retval.0 = phi i1 [ false, %_ZN4Game18showOverlayMessageEPKcfib.exit ], [ true, %if.end ], [ %call27, %if.then26 ]
+return:                                           ; preds = %if.end30, %if.then26, %_ZN4Game18showOverlayMessageEPKcfib.exit
+  %retval.0 = phi i1 [ true, %if.end30 ], [ false, %_ZN4Game18showOverlayMessageEPKcfib.exit ], [ false, %if.then26 ]
   ret i1 %retval.0
 }
 

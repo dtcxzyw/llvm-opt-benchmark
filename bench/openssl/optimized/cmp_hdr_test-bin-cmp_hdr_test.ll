@@ -824,7 +824,7 @@ return:                                           ; preds = %entry, %execute_HDR
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_HDR_init_with_ref() #1 {
+define internal noundef i32 @test_HDR_init_with_ref() #1 {
 entry:
   %ref = alloca [15 x i8], align 1
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @.str.11)
@@ -877,7 +877,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_HDR_init_with_subject() #1 {
+define internal noundef i32 @test_HDR_init_with_subject() #1 {
 entry:
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @.str.12)
   %cmp = icmp eq ptr %call, null
@@ -1105,7 +1105,7 @@ declare i32 @ossl_cmp_hdr_set_implicitConfirm(ptr noundef) local_unnamed_addr #2
 declare i32 @OSSL_CMP_CTX_set1_referenceValue(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @execute_HDR_init_test(ptr nocapture noundef readonly %fixture) unnamed_addr #1 {
+define internal fastcc noundef i32 @execute_HDR_init_test(ptr nocapture noundef readonly %fixture) unnamed_addr #1 {
 entry:
   %expected = getelementptr inbounds i8, ptr %fixture, i64 8
   %0 = load i32, ptr %expected, align 8
@@ -1161,7 +1161,7 @@ if.end29:                                         ; preds = %if.end18
   %recipNonce = getelementptr inbounds i8, ptr %12, i64 296
   %13 = load ptr, ptr %recipNonce, align 8
   %cmp33.not = icmp eq ptr %13, null
-  br i1 %cmp33.not, label %return, label %land.lhs.true
+  br i1 %cmp33.not, label %if.end41, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end29
   %call35 = tail call i32 @test_ptr(ptr noundef nonnull @.str.13, i32 noundef 422, ptr noundef nonnull @.str.71, ptr noundef %call31) #8
@@ -1171,12 +1171,14 @@ land.lhs.true:                                    ; preds = %if.end29
 lor.lhs.false:                                    ; preds = %land.lhs.true
   %call37 = tail call i32 @ASN1_OCTET_STRING_cmp(ptr noundef %call31, ptr noundef nonnull %13) #8
   %call38 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.13, i32 noundef 424, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.72, i32 noundef 0, i32 noundef %call37) #8
-  %tobool39.not = icmp ne i32 %call38, 0
-  %spec.select = zext i1 %tobool39.not to i32
+  %tobool39.not = icmp eq i32 %call38, 0
+  br i1 %tobool39.not, label %return, label %if.end41
+
+if.end41:                                         ; preds = %lor.lhs.false, %if.end29
   br label %return
 
-return:                                           ; preds = %lor.lhs.false, %if.end29, %land.lhs.true, %if.end18, %if.end10, %if.end4, %if.end, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 1, %if.end ], [ 0, %if.end4 ], [ 0, %if.end10 ], [ 0, %if.end18 ], [ 0, %land.lhs.true ], [ 1, %if.end29 ], [ %spec.select, %lor.lhs.false ]
+return:                                           ; preds = %land.lhs.true, %lor.lhs.false, %if.end18, %if.end10, %if.end4, %if.end, %entry, %if.end41
+  %retval.0 = phi i32 [ 1, %if.end41 ], [ 0, %entry ], [ 1, %if.end ], [ 0, %if.end4 ], [ 0, %if.end10 ], [ 0, %if.end18 ], [ 0, %lor.lhs.false ], [ 0, %land.lhs.true ]
   ret i32 %retval.0
 }
 

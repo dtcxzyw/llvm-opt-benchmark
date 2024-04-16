@@ -10462,7 +10462,7 @@ while.end:                                        ; preds = %cleanup, %if.end
   %cmp17 = icmp sgt i32 %jmin.0.lcssa, -1
   %cmp20 = icmp slt i32 %jmin.0.lcssa, %6
   %or.cond = and i1 %cmp17, %cmp20
-  br i1 %or.cond, label %land.lhs.true21, label %cleanup38
+  br i1 %or.cond, label %land.lhs.true21, label %if.end34
 
 land.lhs.true21:                                  ; preds = %while.end
   %10 = load ptr, ptr %add.ptr.i10.i, align 8, !tbaa !126
@@ -10470,17 +10470,19 @@ land.lhs.true21:                                  ; preds = %while.end
   %arrayidx24 = getelementptr inbounds %"struct.GUITable::Cell", ptr %10, i64 %idxprom23
   %11 = load i32, ptr %arrayidx24, align 4, !tbaa !276
   %cmp26.not = icmp slt i32 %sub2, %11
-  br i1 %cmp26.not, label %cleanup38, label %land.lhs.true27
+  br i1 %cmp26.not, label %if.end34, label %land.lhs.true27
 
 land.lhs.true27:                                  ; preds = %land.lhs.true21
   %xmax31 = getelementptr inbounds i8, ptr %arrayidx24, i64 4
   %12 = load i32, ptr %xmax31, align 4, !tbaa !278
   %cmp32.not = icmp sgt i32 %sub2, %12
-  %spec.select = select i1 %cmp32.not, i32 -1, i32 %jmin.0.lcssa
+  br i1 %cmp32.not, label %if.end34, label %cleanup38
+
+if.end34:                                         ; preds = %land.lhs.true27, %land.lhs.true21, %while.end
   br label %cleanup38
 
-cleanup38:                                        ; preds = %land.lhs.true, %land.lhs.true27, %while.end, %land.lhs.true21, %_ZNK8GUITable6getRowEi.exit, %land.lhs.true.i, %entry
-  %retval.3 = phi i32 [ -1, %_ZNK8GUITable6getRowEi.exit ], [ -1, %land.lhs.true.i ], [ -1, %entry ], [ -1, %land.lhs.true21 ], [ -1, %while.end ], [ %spec.select, %land.lhs.true27 ], [ %add, %land.lhs.true ]
+cleanup38:                                        ; preds = %land.lhs.true, %if.end34, %land.lhs.true27, %_ZNK8GUITable6getRowEi.exit, %land.lhs.true.i, %entry
+  %retval.3 = phi i32 [ -1, %_ZNK8GUITable6getRowEi.exit ], [ -1, %if.end34 ], [ %jmin.0.lcssa, %land.lhs.true27 ], [ -1, %land.lhs.true.i ], [ -1, %entry ], [ %add, %land.lhs.true ]
   ret i32 %retval.3
 }
 

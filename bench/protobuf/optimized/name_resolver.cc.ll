@@ -437,17 +437,18 @@ if.then.critedge:                                 ; preds = %land.rhs.i
 
 if.then:                                          ; preds = %if.then.critedge, %if.end.i.i
   %cmp.i3 = icmp eq i64 %a.coerce0, %b.coerce0
-  br i1 %cmp.i3, label %land.rhs.i4, label %return
+  br i1 %cmp.i3, label %land.rhs.i4, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread
 
 land.rhs.i4:                                      ; preds = %if.then
   %cmp.i2.i.i = icmp eq i64 %a.coerce0, 0
-  br i1 %cmp.i2.i.i, label %return, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit
+  br i1 %cmp.i2.i.i, label %return, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
 
-_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit: ; preds = %land.rhs.i4
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %land.rhs.i4
   %bcmp.i5 = call i32 @bcmp(ptr %a.coerce1, ptr %b.coerce1, i64 %a.coerce0)
-  %bcmp.i5.fr = freeze i32 %bcmp.i5
-  %cmp.i.i6 = icmp eq i32 %bcmp.i5.fr, 0
-  %spec.select = select i1 %cmp.i.i6, i32 1, i32 2
+  %cmp.i.i6 = icmp eq i32 %bcmp.i5, 0
+  br i1 %cmp.i.i6, label %return, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread
+
+_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread: ; preds = %if.then, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
   br label %return
 
 lpad:                                             ; preds = %entry
@@ -461,8 +462,8 @@ return.critedge:                                  ; preds = %invoke.cont
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #18
   br label %return
 
-return:                                           ; preds = %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit, %return.critedge, %land.rhs.i4, %if.then, %if.end.i.i
-  %retval.0 = phi i32 [ 0, %if.end.i.i ], [ 2, %if.then ], [ 1, %land.rhs.i4 ], [ 0, %return.critedge ], [ %spec.select, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit ]
+return:                                           ; preds = %return.critedge, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %land.rhs.i4, %if.end.i.i
+  %retval.0 = phi i32 [ 0, %if.end.i.i ], [ 2, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ 1, %land.rhs.i4 ], [ 0, %return.critedge ]
   ret i32 %retval.0
 }
 

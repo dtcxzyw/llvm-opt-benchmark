@@ -192,8 +192,8 @@ define hidden i32 @gef_ctx_check_signature(ptr noundef readonly %0) local_unname
 ; Function Attrs: nounwind uwtable
 define hidden ptr @gef_ctx_get(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call zeroext i1 @asn1_ctx_check_signature(ptr noundef %0) #3
-  %.not13 = icmp ne ptr %0, null
-  %.not.not = and i1 %.not13, %2
+  %.not12 = icmp ne ptr %0, null
+  %.not.not = and i1 %.not12, %2
   br i1 %.not.not, label %3, label %6
 
 3:                                                ; preds = %1
@@ -210,12 +210,14 @@ gef_ctx_check_signature.exit:                     ; preds = %6
   %7 = load i32, ptr %.07, align 8
   %.fr = freeze i32 %7
   %.not = icmp eq i32 %.fr, 1195722328
-  %spec.select12 = select i1 %.not, ptr %.07, ptr null
-  br label %gef_ctx_check_signature.exit.thread
+  br i1 %.not, label %8, label %gef_ctx_check_signature.exit.thread
 
-gef_ctx_check_signature.exit.thread:              ; preds = %gef_ctx_check_signature.exit, %6
-  %8 = phi ptr [ null, %6 ], [ %spec.select12, %gef_ctx_check_signature.exit ]
-  ret ptr %8
+gef_ctx_check_signature.exit.thread:              ; preds = %6, %gef_ctx_check_signature.exit
+  br label %8
+
+8:                                                ; preds = %gef_ctx_check_signature.exit, %gef_ctx_check_signature.exit.thread
+  %9 = phi ptr [ null, %gef_ctx_check_signature.exit.thread ], [ %.07, %gef_ctx_check_signature.exit ]
+  ret ptr %9
 }
 
 declare zeroext i1 @asn1_ctx_check_signature(ptr noundef) local_unnamed_addr #1

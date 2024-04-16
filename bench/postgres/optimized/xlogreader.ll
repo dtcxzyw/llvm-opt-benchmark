@@ -1657,12 +1657,12 @@ define internal fastcc i32 @ReadPageInternal(ptr noundef %0, i64 noundef %1, i32
 
 35:                                               ; preds = %25
   %36 = icmp slt i32 %33, 0
-  br i1 %36, label %.sink.split, label %37
+  br i1 %36, label %68, label %37
 
 37:                                               ; preds = %35
   %38 = load ptr, ptr %31, align 8
   %39 = tail call zeroext i1 @XLogReaderValidatePageHeader(ptr noundef nonnull %0, i64 noundef %27, ptr noundef %38)
-  br i1 %39, label %40, label %.sink.split
+  br i1 %39, label %40, label %68
 
 40:                                               ; preds = %37, %21
   %41 = load ptr, ptr %0, align 8
@@ -1677,7 +1677,7 @@ define internal fastcc i32 @ReadPageInternal(ptr noundef %0, i64 noundef %1, i32
 
 49:                                               ; preds = %40
   %or.cond4 = icmp slt i32 %47, 25
-  br i1 %or.cond4, label %.sink.split, label %50
+  br i1 %or.cond4, label %68, label %50
 
 50:                                               ; preds = %49
   %51 = zext nneg i32 %47 to i64
@@ -1700,21 +1700,21 @@ define internal fastcc i32 @ReadPageInternal(ptr noundef %0, i64 noundef %1, i32
 
 64:                                               ; preds = %58
   %65 = icmp slt i32 %62, 0
-  br i1 %65, label %.sink.split, label %66
+  br i1 %65, label %68, label %66
 
 66:                                               ; preds = %64, %50
   %.063 = phi i32 [ %62, %64 ], [ %47, %50 ]
   %67 = tail call zeroext i1 @XLogReaderValidatePageHeader(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %52)
   br i1 %67, label %.sink.split, label %68
 
-68:                                               ; preds = %66
+68:                                               ; preds = %66, %64, %49, %37, %35
   br label %.sink.split
 
-.sink.split:                                      ; preds = %35, %37, %49, %64, %66, %68
-  %.sink74 = phi i64 [ %7, %66 ], [ 0, %64 ], [ 0, %49 ], [ 0, %37 ], [ 0, %35 ], [ 0, %68 ]
-  %.sink72 = phi i32 [ %10, %66 ], [ 0, %64 ], [ 0, %49 ], [ 0, %37 ], [ 0, %35 ], [ 0, %68 ]
-  %.sink = phi i32 [ %.063, %66 ], [ 0, %64 ], [ 0, %49 ], [ 0, %37 ], [ 0, %35 ], [ 0, %68 ]
-  %.0.ph = phi i32 [ %.063, %66 ], [ -1, %64 ], [ -1, %49 ], [ -1, %37 ], [ -1, %35 ], [ -1, %68 ]
+.sink.split:                                      ; preds = %66, %68
+  %.sink74 = phi i64 [ 0, %68 ], [ %7, %66 ]
+  %.sink72 = phi i32 [ 0, %68 ], [ %10, %66 ]
+  %.sink = phi i32 [ 0, %68 ], [ %.063, %66 ]
+  %.0.ph = phi i32 [ -1, %68 ], [ %.063, %66 ]
   store i64 %.sink74, ptr %11, align 8
   %69 = getelementptr inbounds i8, ptr %0, i64 1232
   store i32 %.sink72, ptr %69, align 8

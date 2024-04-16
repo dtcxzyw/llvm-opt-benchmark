@@ -425,13 +425,13 @@ if.then.i.i:                                      ; preds = %if.then2.i
   %idx.ext.i.i = sext i32 %.fr.i to i64
   %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 %idx.ext.i.i
   %cmp.not7.i.i = icmp eq i32 %.fr.i, 0
-  br i1 %cmp.not7.i.i, label %do_dump.exit.thread65, label %while.body.lr.ph.i.i
+  br i1 %cmp.not7.i.i, label %do_dump.exit.thread62, label %while.body.lr.ph.i.i
 
-do_dump.exit.thread65:                            ; preds = %if.then.i.i
+do_dump.exit.thread62:                            ; preds = %if.then.i.i
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %hextmp.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %t.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i)
-  %add4368 = add nsw i32 %outlen.0, 1
+  %add4365 = add nsw i32 %outlen.0, 1
   br label %return
 
 while.body.lr.ph.i.i:                             ; preds = %if.then.i.i
@@ -467,8 +467,8 @@ do_hex_dump.exit.thread.i:                        ; preds = %while.body.i.i
 do_hex_dump.exit.i:                               ; preds = %while.cond.i.i, %if.then2.i
   %shl.i.i = shl i32 %.fr.i, 1
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %hextmp.i.i)
-  %cmp.inv.i = icmp sgt i32 %shl.i.i, -1
-  br i1 %cmp.inv.i, label %do_dump.exit, label %do_dump.exit.thread
+  %cmp.i = icmp slt i32 %shl.i.i, 0
+  br i1 %cmp.i, label %do_dump.exit.thread, label %do_dump.exit
 
 if.end6.i:                                        ; preds = %if.end.i
   %12 = load i32, ptr %type1, align 4
@@ -529,15 +529,15 @@ do_hex_dump.exit38.i:                             ; preds = %while.cond.i32.i, %
   %shl.i36.i = shl nuw i32 %call8.fr.i, 1
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %hextmp.i16.i)
   call void @CRYPTO_free(ptr noundef nonnull %call12.i, ptr noundef nonnull @.str.13, i32 noundef 290) #8
-  %cmp19.inv.i = icmp sgt i32 %shl.i36.i, -1
-  br i1 %cmp19.inv.i, label %do_dump.exit, label %do_dump.exit.thread
+  %cmp19.i = icmp slt i32 %shl.i36.i, 0
+  br i1 %cmp19.i, label %do_dump.exit.thread, label %do_dump.exit
 
-do_dump.exit.thread:                              ; preds = %if.then37, %if.end6.i, %if.end11.i, %do_hex_dump.exit.thread.i, %do_hex_dump.exit38.thread.i, %do_hex_dump.exit.i, %do_hex_dump.exit38.i
+do_dump.exit.thread:                              ; preds = %if.then37, %if.end6.i, %if.end11.i, %do_hex_dump.exit.i, %do_hex_dump.exit.thread.i, %do_hex_dump.exit38.i, %do_hex_dump.exit38.thread.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %t.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i)
   br label %return
 
-do_dump.exit:                                     ; preds = %do_hex_dump.exit38.i, %do_hex_dump.exit.i
+do_dump.exit:                                     ; preds = %do_hex_dump.exit.i, %do_hex_dump.exit38.i
   %retval.0.i.in = phi i32 [ %shl.i.i, %do_hex_dump.exit.i ], [ %shl.i36.i, %do_hex_dump.exit38.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %t.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i)
@@ -551,15 +551,15 @@ if.end44:                                         ; preds = %if.end25
   %conv23 = sext i8 %18 to i32
   %tobool48.not = icmp eq i32 %.fr, 12
   %or = or i32 %conv23, 8
-  %spec.select79 = select i1 %tobool48.not, i32 1, i32 %or
+  %spec.select = select i1 %tobool48.not, i32 1, i32 %or
   br label %if.end44.thread
 
 if.end44.thread:                                  ; preds = %if.else, %land.lhs.true28, %if.end44
-  %type.15877 = phi i32 [ %conv23, %if.end44 ], [ 1, %land.lhs.true28 ], [ 1, %if.else ]
-  %19 = phi i32 [ %spec.select79, %if.end44 ], [ 9, %land.lhs.true28 ], [ 9, %if.else ]
-  %tobool46.not78.in = and i64 %lflags, 16
-  %tobool46.not78 = icmp eq i64 %tobool46.not78.in, 0
-  %type.2 = select i1 %tobool46.not78, i32 %type.15877, i32 %19
+  %type.15774 = phi i32 [ %conv23, %if.end44 ], [ 1, %land.lhs.true28 ], [ 1, %if.else ]
+  %19 = phi i32 [ %spec.select, %if.end44 ], [ 9, %land.lhs.true28 ], [ 9, %if.else ]
+  %tobool46.not75.in = and i64 %lflags, 16
+  %tobool46.not75 = icmp eq i64 %tobool46.not75.in, 0
+  %type.2 = select i1 %tobool46.not75, i32 %type.15774, i32 %19
   %data = getelementptr inbounds i8, ptr %str, i64 8
   %20 = load ptr, ptr %data, align 8
   %21 = load i32, ptr %str, align 8
@@ -594,16 +594,18 @@ if.end72:                                         ; preds = %land.lhs.true68, %i
 if.end79:                                         ; preds = %if.end72
   %25 = load i8, ptr %quotes, align 1
   %tobool81.not = icmp eq i8 %25, 0
-  br i1 %tobool81.not, label %return, label %land.lhs.true82
+  br i1 %tobool81.not, label %if.end86, label %land.lhs.true82
 
 land.lhs.true82:                                  ; preds = %if.end79
   %call83 = call i32 %io_ch(ptr noundef nonnull %arg, ptr noundef nonnull @.str.11, i32 noundef 1) #8, !callees !6
   %tobool84.not = icmp eq i32 %call83, 0
-  %spec.select49 = select i1 %tobool84.not, i32 -1, i32 %spec.select46
+  br i1 %tobool84.not, label %return, label %if.end86
+
+if.end86:                                         ; preds = %land.lhs.true82, %if.end79
   br label %return
 
-return:                                           ; preds = %do_dump.exit, %do_dump.exit.thread65, %do_dump.exit.thread, %land.lhs.true82, %if.end79, %if.end72, %land.lhs.true68, %if.end57, %if.end44.thread, %if.then, %lor.lhs.false
-  %retval.0 = phi i32 [ -1, %lor.lhs.false ], [ -1, %if.then ], [ -1, %if.end44.thread ], [ %spec.select46, %if.end57 ], [ -1, %land.lhs.true68 ], [ -1, %if.end72 ], [ %spec.select46, %if.end79 ], [ %spec.select49, %land.lhs.true82 ], [ %add4368, %do_dump.exit.thread65 ], [ -1, %do_dump.exit.thread ], [ %add43, %do_dump.exit ]
+return:                                           ; preds = %do_dump.exit, %do_dump.exit.thread, %do_dump.exit.thread62, %land.lhs.true82, %if.end72, %land.lhs.true68, %if.end57, %if.end44.thread, %if.then, %lor.lhs.false, %if.end86
+  %retval.0 = phi i32 [ %spec.select46, %if.end86 ], [ -1, %lor.lhs.false ], [ -1, %if.then ], [ -1, %if.end44.thread ], [ %spec.select46, %if.end57 ], [ -1, %land.lhs.true68 ], [ -1, %if.end72 ], [ -1, %land.lhs.true82 ], [ -1, %do_dump.exit.thread ], [ %add43, %do_dump.exit ], [ %add4365, %do_dump.exit.thread62 ]
   ret i32 %retval.0
 }
 

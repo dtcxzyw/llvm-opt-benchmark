@@ -749,7 +749,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
 declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @fileIsRDB(ptr noundef %filepath) local_unnamed_addr #4 {
+define dso_local noundef i32 @fileIsRDB(ptr noundef %filepath) local_unnamed_addr #4 {
 entry:
   %sb = alloca %struct.stat, align 8
   %sig = alloca [5 x i8], align 1
@@ -779,22 +779,28 @@ if.then7:                                         ; preds = %if.end
 if.end9:                                          ; preds = %if.end
   %st_size = getelementptr inbounds i8, ptr %sb, i64 48
   %1 = load i64, ptr %st_size, align 8
-  %cmp14 = icmp sgt i64 %1, 7
-  br i1 %cmp14, label %if.then15, label %return
+  %cmp10 = icmp eq i64 %1, 0
+  br i1 %cmp10, label %return, label %if.end13
 
-if.then15:                                        ; preds = %if.end9
+if.end13:                                         ; preds = %if.end9
+  %cmp14 = icmp sgt i64 %1, 7
+  br i1 %cmp14, label %if.then15, label %if.end24
+
+if.then15:                                        ; preds = %if.end13
   %call16 = call i64 @fread(ptr noundef nonnull %sig, i64 noundef 5, i64 noundef 1, ptr noundef nonnull %call)
   %cmp17 = icmp eq i64 %call16, 1
-  br i1 %cmp17, label %land.rhs, label %return
+  br i1 %cmp17, label %land.rhs, label %if.end24
 
 land.rhs:                                         ; preds = %if.then15
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %sig, ptr noundef nonnull dereferenceable(5) @.str.39, i64 5)
   %cmp20 = icmp eq i32 %bcmp, 0
-  %spec.select = zext i1 %cmp20 to i32
+  br i1 %cmp20, label %return, label %if.end24
+
+if.end24:                                         ; preds = %if.then15, %land.rhs, %if.end13
   br label %return
 
-return:                                           ; preds = %land.rhs, %if.then15, %if.end9
-  %retval.0 = phi i32 [ 0, %if.end9 ], [ 0, %if.then15 ], [ %spec.select, %land.rhs ]
+return:                                           ; preds = %land.rhs, %if.end9, %if.end24
+  %retval.0 = phi i32 [ 0, %if.end24 ], [ 0, %if.end9 ], [ 1, %land.rhs ]
   %call25 = tail call i32 @fclose(ptr noundef nonnull %call)
   ret i32 %retval.0
 }
@@ -877,7 +883,7 @@ return:                                           ; preds = %while.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @getInputFileType(ptr noundef %filepath) local_unnamed_addr #4 {
+define dso_local noundef i32 @getInputFileType(ptr noundef %filepath) local_unnamed_addr #4 {
 entry:
   %call = tail call i32 @fileIsManifest(ptr noundef %filepath), !range !5
   %tobool.not = icmp eq i32 %call, 0

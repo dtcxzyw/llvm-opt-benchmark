@@ -3091,11 +3091,11 @@ define internal fastcc void @Io_NtkWriteOne(ptr nocapture noundef %0, ptr nounde
 
 10:                                               ; preds = %9
   tail call void @Io_NtkWriteConvertedBox(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %4)
-  br label %210
+  br label %212
 
 11:                                               ; preds = %9
   %12 = tail call i64 @fwrite(ptr nonnull @.str.75, i64 10, i64 1, ptr %0)
-  br label %210
+  br label %212
 
 13:                                               ; preds = %5
   tail call void @Io_WriteTimingInfo(ptr noundef %0, ptr noundef nonnull %1)
@@ -3313,23 +3313,23 @@ define internal fastcc void @Io_NtkWriteOne(ptr nocapture noundef %0, ptr nounde
   %.not.i = icmp eq ptr %113, null
   br label %117
 
-117:                                              ; preds = %.lr.ph130, %Io_NtkWriteNode.exit.thread
-  %118 = phi ptr [ %114, %.lr.ph130 ], [ %207, %Io_NtkWriteNode.exit.thread ]
-  %.3129 = phi i32 [ 0, %.lr.ph130 ], [ %206, %Io_NtkWriteNode.exit.thread ]
+117:                                              ; preds = %.lr.ph130, %207
+  %118 = phi ptr [ %114, %.lr.ph130 ], [ %209, %207 ]
+  %.3129 = phi i32 [ 0, %.lr.ph130 ], [ %208, %207 ]
   %119 = getelementptr i8, ptr %118, i64 8
   %.val104.val = load ptr, ptr %119, align 8
   %120 = sext i32 %.3129 to i64
   %121 = getelementptr inbounds ptr, ptr %.val104.val, i64 %120
   %122 = load ptr, ptr %121, align 8
   %123 = icmp eq ptr %122, null
-  br i1 %123, label %Io_NtkWriteNode.exit.thread, label %124
+  br i1 %123, label %207, label %124
 
 124:                                              ; preds = %117
   %125 = getelementptr i8, ptr %122, i64 20
   %.val105 = load i32, ptr %125, align 4
   %126 = and i32 %.val105, 15
   %.not115 = icmp eq i32 %126, 7
-  br i1 %.not115, label %127, label %Io_NtkWriteNode.exit.thread
+  br i1 %.not115, label %127, label %207
 
 127:                                              ; preds = %124
   br i1 %.not.i, label %131, label %128
@@ -3497,23 +3497,27 @@ Io_NtkWriteNode.exit:                             ; preds = %134, %136, %Abc_Obj
   %204 = tail call i64 @fwrite(ptr nonnull @.str.80, i64 5, i64 1, ptr %0)
   %205 = tail call i32 @Io_NtkWriteNodeGate(ptr noundef %0, ptr noundef nonnull %122, i32 noundef %109), !range !56
   %fputc19.i = tail call i32 @fputc(i32 10, ptr %0)
-  %spec.select = add nsw i32 %205, %.3129
-  br label %Io_NtkWriteNode.exit.thread
+  %.not85 = icmp eq i32 %205, 0
+  %206 = add nsw i32 %.3129, 1
+  br i1 %.not85, label %Io_NtkWriteNode.exit.thread, label %207
 
-Io_NtkWriteNode.exit.thread:                      ; preds = %Io_NtkWriteNode.exit, %Io_NtkWriteNodeFanins.exit.i, %141, %124, %117
-  %.4 = phi i32 [ %.3129, %117 ], [ %.3129, %124 ], [ %.3129, %141 ], [ %.3129, %Io_NtkWriteNodeFanins.exit.i ], [ %spec.select, %Io_NtkWriteNode.exit ]
-  %206 = add nsw i32 %.4, 1
-  %207 = load ptr, ptr %111, align 8
-  %208 = getelementptr i8, ptr %207, i64 4
-  %.val = load i32, ptr %208, align 4
-  %209 = icmp slt i32 %206, %.val
-  br i1 %209, label %117, label %.critedge6, !llvm.loop !57
+Io_NtkWriteNode.exit.thread:                      ; preds = %Io_NtkWriteNodeFanins.exit.i, %141, %Io_NtkWriteNode.exit
+  br label %207
 
-.critedge6:                                       ; preds = %Io_NtkWriteNode.exit.thread, %108
+207:                                              ; preds = %Io_NtkWriteNode.exit.thread, %Io_NtkWriteNode.exit, %124, %117
+  %.4 = phi i32 [ %.3129, %117 ], [ %.3129, %124 ], [ %.3129, %Io_NtkWriteNode.exit.thread ], [ %206, %Io_NtkWriteNode.exit ]
+  %208 = add nsw i32 %.4, 1
+  %209 = load ptr, ptr %111, align 8
+  %210 = getelementptr i8, ptr %209, i64 4
+  %.val = load i32, ptr %210, align 4
+  %211 = icmp slt i32 %208, %.val
+  br i1 %211, label %117, label %.critedge6, !llvm.loop !57
+
+.critedge6:                                       ; preds = %207, %108
   tail call void @Extra_ProgressBarStop(ptr noundef %113) #10
-  br label %210
+  br label %212
 
-210:                                              ; preds = %10, %11, %.critedge6
+212:                                              ; preds = %10, %11, %.critedge6
   ret void
 }
 

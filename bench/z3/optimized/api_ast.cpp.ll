@@ -4863,7 +4863,7 @@ invoke.cont21:                                    ; preds = %sw.bb
           to label %invoke.cont25 unwind label %lpad1
 
 invoke.cont25:                                    ; preds = %invoke.cont21
-  br i1 %call26, label %invoke.cont29, label %cleanup
+  br i1 %call26, label %invoke.cont29, label %if.end34
 
 invoke.cont29:                                    ; preds = %invoke.cont25
   %m_manager.i = getelementptr inbounds i8, ptr %c, i64 232
@@ -4872,8 +4872,9 @@ invoke.cont29:                                    ; preds = %invoke.cont25
           to label %invoke.cont31 unwind label %lpad1
 
 invoke.cont31:                                    ; preds = %invoke.cont29
-  %not.call32 = xor i1 %call32, true
-  %spec.select = zext i1 %not.call32 to i32
+  br i1 %call32, label %cleanup, label %if.end34
+
+if.end34:                                         ; preds = %invoke.cont31, %invoke.cont25
   br label %cleanup
 
 sw.bb36:                                          ; preds = %if.end14
@@ -4888,8 +4889,8 @@ sw.bb38:                                          ; preds = %if.end14
 sw.default:                                       ; preds = %if.end14
   br label %cleanup
 
-cleanup:                                          ; preds = %invoke.cont31, %if.end14, %invoke.cont25, %if.then10, %sw.default, %sw.bb38, %sw.bb37, %sw.bb36
-  %retval.0 = phi i32 [ 1000, %sw.default ], [ 5, %sw.bb38 ], [ 4, %sw.bb37 ], [ 3, %sw.bb36 ], [ 1000, %if.then10 ], [ 1, %invoke.cont25 ], [ 2, %if.end14 ], [ %spec.select, %invoke.cont31 ]
+cleanup:                                          ; preds = %if.end14, %invoke.cont31, %if.then10, %sw.default, %sw.bb38, %sw.bb37, %sw.bb36, %if.end34
+  %retval.0 = phi i32 [ 1000, %sw.default ], [ 5, %sw.bb38 ], [ 4, %sw.bb37 ], [ 3, %sw.bb36 ], [ 1, %if.end34 ], [ 1000, %if.then10 ], [ 0, %invoke.cont31 ], [ 2, %if.end14 ]
   br i1 %tobool.i, label %if.then.i14, label %return
 
 if.then.i14:                                      ; preds = %cleanup
@@ -5433,7 +5434,7 @@ _ZN10z3_log_ctxD2Ev.exit9:                        ; preds = %cleanup, %if.then.i
 declare void @_Z30log_Z3_get_decl_num_parametersP11_Z3_contextP13_Z3_func_decl(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define i32 @Z3_get_decl_parameter_kind(ptr noundef %c, ptr noundef %d, i32 noundef %idx) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef i32 @Z3_get_decl_parameter_kind(ptr noundef %c, ptr noundef %d, i32 noundef %idx) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = atomicrmw xchg ptr @g_z3_log_enabled, i8 0 seq_cst, align 1
   %tobool.i = trunc i8 %0 to i1
@@ -5523,16 +5524,13 @@ invoke.cont29:                                    ; preds = %invoke.cont17
   %arrayidx = getelementptr inbounds %class.parameter, ptr %14, i64 %idxprom
   %_M_index.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %16 = load i8, ptr %_M_index.i.i.i, align 8
-  switch i8 %16, label %if.end52.thread [
+  switch i8 %16, label %if.end61 [
     i8 0, label %cleanup
     i8 5, label %cleanup.fold.split
     i8 2, label %cleanup.fold.split44
     i8 4, label %cleanup.fold.split45
     i8 1, label %land.lhs.true
   ]
-
-if.end52.thread:                                  ; preds = %invoke.cont29
-  br label %cleanup
 
 land.lhs.true:                                    ; preds = %invoke.cont29
   %call48 = invoke noundef ptr @_ZNK9parameter7get_astEv(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx)
@@ -5548,7 +5546,7 @@ invoke.cont47:                                    ; preds = %land.lhs.true
 if.end52:                                         ; preds = %invoke.cont47
   %.pre = load i8, ptr %_M_index.i.i.i, align 8
   %cmp.i36 = icmp eq i8 %.pre, 1
-  br i1 %cmp.i36, label %land.lhs.true55, label %cleanup
+  br i1 %cmp.i36, label %land.lhs.true55, label %if.end61
 
 land.lhs.true55:                                  ; preds = %if.end52
   %call57 = invoke noundef ptr @_ZNK9parameter7get_astEv(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx)
@@ -5560,7 +5558,9 @@ invoke.cont58:                                    ; preds = %land.lhs.true55
   %bf.clear.i.i.i = and i32 %bf.load.i.i.i, 65535
   %17 = add nsw i32 %bf.clear.i.i.i, -5
   %18 = icmp ult i32 %17, -2
-  %spec.select = select i1 %18, i32 5, i32 6
+  br i1 %18, label %cleanup, label %if.end61
+
+if.end61:                                         ; preds = %invoke.cont29, %invoke.cont58, %if.end52
   br label %cleanup
 
 cleanup.fold.split:                               ; preds = %invoke.cont29
@@ -5572,8 +5572,8 @@ cleanup.fold.split44:                             ; preds = %invoke.cont29
 cleanup.fold.split45:                             ; preds = %invoke.cont29
   br label %cleanup
 
-cleanup:                                          ; preds = %if.end52.thread, %invoke.cont29, %cleanup.fold.split45, %cleanup.fold.split44, %cleanup.fold.split, %invoke.cont58, %if.end52, %invoke.cont47, %if.then20, %if.then10
-  %retval.0 = phi i32 [ 0, %if.then10 ], [ 0, %if.then20 ], [ 0, %invoke.cont29 ], [ 4, %invoke.cont47 ], [ 6, %if.end52 ], [ %spec.select, %invoke.cont58 ], [ 1, %cleanup.fold.split ], [ 3, %cleanup.fold.split44 ], [ 2, %cleanup.fold.split45 ], [ 6, %if.end52.thread ]
+cleanup:                                          ; preds = %invoke.cont29, %cleanup.fold.split45, %cleanup.fold.split44, %cleanup.fold.split, %invoke.cont58, %invoke.cont47, %if.then20, %if.then10, %if.end61
+  %retval.0 = phi i32 [ 6, %if.end61 ], [ 0, %if.then10 ], [ 0, %if.then20 ], [ 0, %invoke.cont29 ], [ 4, %invoke.cont47 ], [ 5, %invoke.cont58 ], [ 1, %cleanup.fold.split ], [ 3, %cleanup.fold.split44 ], [ 2, %cleanup.fold.split45 ]
   br i1 %tobool.i, label %if.then.i38, label %return
 
 if.then.i38:                                      ; preds = %cleanup

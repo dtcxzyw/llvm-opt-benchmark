@@ -1736,61 +1736,61 @@ define hidden i32 @_extcap_requires_configuration_int(ptr noundef %0, i32 nounde
   tail call fastcc void @extcap_ensure_all_interfaces_loaded()
   %3 = tail call ptr @extcap_get_if_configuration(ptr noundef %0)
   %4 = tail call ptr @g_list_first(ptr noundef %3) #11
-  %.not60 = icmp eq ptr %4, null
-  br i1 %.not60, label %._crit_edge57, label %.lr.ph56
+  %.not58 = icmp eq ptr %4, null
+  br i1 %.not58, label %._crit_edge55, label %.lr.ph54
 
-.lr.ph56:                                         ; preds = %2
+.lr.ph54:                                         ; preds = %2
   %.not38 = icmp eq i32 %1, 0
-  br i1 %.not38, label %.lr.ph56.split.us, label %.lr.ph56.split
+  br i1 %.not38, label %.lr.ph54.split.us, label %.lr.ph54.split
 
-.lr.ph56.split.us:                                ; preds = %.lr.ph56, %._crit_edge.split.us.us
-  %.03154.us = phi ptr [ %8, %._crit_edge.split.us.us ], [ %4, %.lr.ph56 ]
-  %5 = load ptr, ptr %.03154.us, align 8
+.lr.ph54.split.us:                                ; preds = %.lr.ph54, %._crit_edge.split.us.us
+  %.03152.us = phi ptr [ %8, %._crit_edge.split.us.us ], [ %4, %.lr.ph54 ]
+  %5 = load ptr, ptr %.03152.us, align 8
   %6 = tail call ptr @g_list_first(ptr noundef %5) #11
-  %.not62 = icmp eq ptr %6, null
-  br i1 %.not62, label %._crit_edge.split.us.us, label %.lr.ph.us
+  %.not60 = icmp eq ptr %6, null
+  br i1 %.not60, label %._crit_edge.split.us.us, label %.lr.ph.us
 
 ._crit_edge.split.us.us.loopexit:                 ; preds = %.lr.ph.us
   %spec.select = zext i1 %.not37.us.us to i32
   br label %._crit_edge.split.us.us
 
-._crit_edge.split.us.us:                          ; preds = %._crit_edge.split.us.us.loopexit, %.lr.ph56.split.us
-  %.1.lcssa.us = phi i32 [ 0, %.lr.ph56.split.us ], [ %spec.select, %._crit_edge.split.us.us.loopexit ]
-  %7 = getelementptr inbounds i8, ptr %.03154.us, i64 8
+._crit_edge.split.us.us:                          ; preds = %._crit_edge.split.us.us.loopexit, %.lr.ph54.split.us
+  %.1.lcssa.us = phi i32 [ 0, %.lr.ph54.split.us ], [ %spec.select, %._crit_edge.split.us.us.loopexit ]
+  %7 = getelementptr inbounds i8, ptr %.03152.us, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = icmp ne ptr %8, null
   %.not.us = icmp eq i32 %.1.lcssa.us, 0
   %10 = select i1 %9, i1 %.not.us, i1 false
-  br i1 %10, label %.lr.ph56.split.us, label %._crit_edge57, !llvm.loop !28
+  br i1 %10, label %.lr.ph54.split.us, label %._crit_edge55, !llvm.loop !28
 
-.lr.ph.us:                                        ; preds = %.lr.ph56.split.us, %.lr.ph.us
-  %.03052.us.us = phi ptr [ %13, %.lr.ph.us ], [ %6, %.lr.ph56.split.us ]
-  %11 = load ptr, ptr %.03052.us.us, align 8
+.lr.ph.us:                                        ; preds = %.lr.ph54.split.us, %.lr.ph.us
+  %.03051.us.us = phi ptr [ %13, %.lr.ph.us ], [ %6, %.lr.ph54.split.us ]
+  %11 = load ptr, ptr %.03051.us.us, align 8
   %.not37.us.us = icmp ne ptr %11, null
-  %12 = getelementptr inbounds i8, ptr %.03052.us.us, i64 8
+  %12 = getelementptr inbounds i8, ptr %.03051.us.us, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  %.not64 = select i1 %14, i1 true, i1 %.not37.us.us
-  br i1 %.not64, label %._crit_edge.split.us.us.loopexit, label %.lr.ph.us, !llvm.loop !29
+  %.not62 = select i1 %14, i1 true, i1 %.not37.us.us
+  br i1 %.not62, label %._crit_edge.split.us.us.loopexit, label %.lr.ph.us, !llvm.loop !29
 
-.lr.ph56.split:                                   ; preds = %.lr.ph56, %._crit_edge.split
-  %.03154 = phi ptr [ %51, %._crit_edge.split ], [ %4, %.lr.ph56 ]
-  %15 = load ptr, ptr %.03154, align 8
+.lr.ph54.split:                                   ; preds = %.lr.ph54, %._crit_edge.split
+  %.03152 = phi ptr [ %52, %._crit_edge.split ], [ %4, %.lr.ph54 ]
+  %15 = load ptr, ptr %.03152, align 8
   %16 = tail call ptr @g_list_first(ptr noundef %15) #11
-  %.not61 = icmp eq ptr %16, null
-  br i1 %.not61, label %._crit_edge.split, label %.lr.ph
+  %.not59 = icmp eq ptr %16, null
+  br i1 %.not59, label %._crit_edge.split, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph56.split, %45
-  %.03052 = phi ptr [ %47, %45 ], [ %16, %.lr.ph56.split ]
-  %17 = load ptr, ptr %.03052, align 8
+.lr.ph:                                           ; preds = %.lr.ph54.split, %46
+  %.03051 = phi ptr [ %48, %46 ], [ %16, %.lr.ph54.split ]
+  %17 = load ptr, ptr %.03051, align 8
   %.not37 = icmp eq ptr %17, null
-  br i1 %.not37, label %45, label %18
+  br i1 %.not37, label %46, label %18
 
 18:                                               ; preds = %.lr.ph
   %19 = getelementptr inbounds i8, ptr %17, i64 52
   %20 = load i32, ptr %19, align 4
   %.not39 = icmp eq i32 %20, 0
-  br i1 %.not39, label %45, label %21
+  br i1 %.not39, label %46, label %21
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds i8, ptr %17, i64 112
@@ -1812,8 +1812,8 @@ define hidden i32 @_extcap_requires_configuration_int(ptr noundef %0, i32 nounde
 29:                                               ; preds = %26
   %30 = getelementptr inbounds i8, ptr %28, i64 8
   %31 = load ptr, ptr %30, align 8
-  %.not51 = icmp eq ptr %31, null
-  br i1 %.not51, label %.thread, label %34
+  %.not50 = icmp eq ptr %31, null
+  br i1 %.not50, label %.thread, label %35
 
 .thread:                                          ; preds = %26, %29
   %.not43 = icmp eq ptr %.028, null
@@ -1822,74 +1822,76 @@ define hidden i32 @_extcap_requires_configuration_int(ptr noundef %0, i32 nounde
 32:                                               ; preds = %.thread
   %33 = load i8, ptr %.028, align 1
   %.not44 = icmp eq i8 %33, 0
-  %spec.select47 = zext i1 %.not44 to i32
-  br label %34
+  br i1 %.not44, label %34, label %35
 
-34:                                               ; preds = %32, %.thread, %29
-  %.050 = phi ptr [ %31, %29 ], [ null, %.thread ], [ null, %32 ]
-  %.2 = phi i32 [ 0, %29 ], [ 1, %.thread ], [ %spec.select47, %32 ]
-  %35 = getelementptr inbounds i8, ptr %17, i64 80
-  %36 = load i32, ptr %35, align 8
-  %37 = icmp eq i32 %36, 13
-  br i1 %37, label %38, label %45
+34:                                               ; preds = %32, %.thread
+  br label %35
 
-38:                                               ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %17, i64 48
-  %40 = load i32, ptr %39, align 8
-  %.not45 = icmp eq i32 %40, 0
-  br i1 %.not45, label %45, label %41
+35:                                               ; preds = %32, %34, %29
+  %.049 = phi ptr [ %31, %29 ], [ null, %32 ], [ null, %34 ]
+  %.2 = phi i32 [ 0, %29 ], [ 0, %32 ], [ 1, %34 ]
+  %36 = getelementptr inbounds i8, ptr %17, i64 80
+  %37 = load i32, ptr %36, align 8
+  %38 = icmp eq i32 %37, 13
+  br i1 %38, label %39, label %46
 
-41:                                               ; preds = %38
-  %42 = tail call zeroext i1 @file_exists(ptr noundef %.050) #11
-  br i1 %42, label %45, label %43
+39:                                               ; preds = %35
+  %40 = getelementptr inbounds i8, ptr %17, i64 48
+  %41 = load i32, ptr %40, align 8
+  %.not45 = icmp eq i32 %41, 0
+  br i1 %.not45, label %46, label %42
 
-43:                                               ; preds = %41
-  %44 = tail call zeroext i1 @file_exists(ptr noundef %.028) #11
-  %spec.select46 = select i1 %44, i32 %.2, i32 1
-  br label %45
+42:                                               ; preds = %39
+  %43 = tail call zeroext i1 @file_exists(ptr noundef %.049) #11
+  br i1 %43, label %46, label %44
 
-45:                                               ; preds = %43, %34, %41, %38, %18, %.lr.ph
-  %.3 = phi i32 [ %.2, %41 ], [ %.2, %38 ], [ %.2, %34 ], [ 0, %18 ], [ 0, %.lr.ph ], [ %spec.select46, %43 ]
-  %46 = getelementptr inbounds i8, ptr %.03052, i64 8
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp ne ptr %47, null
+44:                                               ; preds = %42
+  %45 = tail call zeroext i1 @file_exists(ptr noundef %.028) #11
+  %spec.select46 = select i1 %45, i32 %.2, i32 1
+  br label %46
+
+46:                                               ; preds = %44, %35, %42, %39, %18, %.lr.ph
+  %.3 = phi i32 [ %.2, %42 ], [ %.2, %39 ], [ %.2, %35 ], [ 0, %18 ], [ 0, %.lr.ph ], [ %spec.select46, %44 ]
+  %47 = getelementptr inbounds i8, ptr %.03051, i64 8
+  %48 = load ptr, ptr %47, align 8
+  %49 = icmp ne ptr %48, null
   %.not36 = icmp eq i32 %.3, 0
-  %49 = select i1 %48, i1 %.not36, i1 false
-  br i1 %49, label %.lr.ph, label %._crit_edge.split, !llvm.loop !29
+  %50 = select i1 %49, i1 %.not36, i1 false
+  br i1 %50, label %.lr.ph, label %._crit_edge.split, !llvm.loop !29
 
-._crit_edge.split:                                ; preds = %45, %.lr.ph56.split
-  %.1.lcssa = phi i32 [ 0, %.lr.ph56.split ], [ %.3, %45 ]
-  %50 = getelementptr inbounds i8, ptr %.03154, i64 8
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp ne ptr %51, null
+._crit_edge.split:                                ; preds = %46, %.lr.ph54.split
+  %.1.lcssa = phi i32 [ 0, %.lr.ph54.split ], [ %.3, %46 ]
+  %51 = getelementptr inbounds i8, ptr %.03152, i64 8
+  %52 = load ptr, ptr %51, align 8
+  %53 = icmp ne ptr %52, null
   %.not = icmp eq i32 %.1.lcssa, 0
-  %53 = select i1 %52, i1 %.not, i1 false
-  br i1 %53, label %.lr.ph56.split, label %._crit_edge57, !llvm.loop !28
+  %54 = select i1 %53, i1 %.not, i1 false
+  br i1 %54, label %.lr.ph54.split, label %._crit_edge55, !llvm.loop !28
 
-._crit_edge57:                                    ; preds = %._crit_edge.split, %._crit_edge.split.us.us, %2
+._crit_edge55:                                    ; preds = %._crit_edge.split, %._crit_edge.split.us.us, %2
   %.029.lcssa = phi i32 [ 0, %2 ], [ %.1.lcssa.us, %._crit_edge.split.us.us ], [ %.1.lcssa, %._crit_edge.split ]
-  %54 = tail call ptr @g_list_first(ptr noundef %3) #11
-  %.not11.i = icmp eq ptr %54, null
+  %55 = tail call ptr @g_list_first(ptr noundef %3) #11
+  %.not11.i = icmp eq ptr %55, null
   br i1 %.not11.i, label %extcap_free_if_configuration.exit, label %.lr.ph.split.i
 
-.lr.ph.split.i:                                   ; preds = %._crit_edge57, %58
-  %.012.i = phi ptr [ %60, %58 ], [ %54, %._crit_edge57 ]
-  %55 = load ptr, ptr %.012.i, align 8
-  %.not9.i = icmp eq ptr %55, null
-  br i1 %.not9.i, label %58, label %56
+.lr.ph.split.i:                                   ; preds = %._crit_edge55, %59
+  %.012.i = phi ptr [ %61, %59 ], [ %55, %._crit_edge55 ]
+  %56 = load ptr, ptr %.012.i, align 8
+  %.not9.i = icmp eq ptr %56, null
+  br i1 %.not9.i, label %59, label %57
 
-56:                                               ; preds = %.lr.ph.split.i
-  %57 = tail call ptr @g_list_first(ptr noundef nonnull %55) #11
-  tail call void @extcap_free_arg_list(ptr noundef %57) #11
-  br label %58
+57:                                               ; preds = %.lr.ph.split.i
+  %58 = tail call ptr @g_list_first(ptr noundef nonnull %56) #11
+  tail call void @extcap_free_arg_list(ptr noundef %58) #11
+  br label %59
 
-58:                                               ; preds = %56, %.lr.ph.split.i
-  %59 = getelementptr inbounds i8, ptr %.012.i, i64 8
-  %60 = load ptr, ptr %59, align 8
-  %.not.i = icmp eq ptr %60, null
+59:                                               ; preds = %57, %.lr.ph.split.i
+  %60 = getelementptr inbounds i8, ptr %.012.i, i64 8
+  %61 = load ptr, ptr %60, align 8
+  %.not.i = icmp eq ptr %61, null
   br i1 %.not.i, label %extcap_free_if_configuration.exit, label %.lr.ph.split.i, !llvm.loop !25
 
-extcap_free_if_configuration.exit:                ; preds = %58, %._crit_edge57
+extcap_free_if_configuration.exit:                ; preds = %59, %._crit_edge55
   tail call void @g_list_free(ptr noundef %3) #11
   ret i32 %.029.lcssa
 }

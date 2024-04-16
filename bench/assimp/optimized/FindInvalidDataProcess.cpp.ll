@@ -2487,8 +2487,8 @@ declare void @_ZN6Assimp11BaseProcessD2Ev(ptr noundef nonnull align 8 dereferenc
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_Z21ValidateArrayContentsI10aiVector3tIfEEPKcPKT_jRKSt6vectorIbSaIbEEbb(ptr noundef %arr, i32 noundef %size, ptr noundef nonnull align 8 dereferenceable(40) %dirtyMask, i1 noundef zeroext %mayBeIdentical, i1 noundef zeroext %mayBeZero) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
 entry:
-  %cmp27.not = icmp eq i32 %size, 0
-  br i1 %cmp27.not, label %return, label %for.body.lr.ph
+  %cmp28.not = icmp eq i32 %size, 0
+  br i1 %cmp28.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %_M_finish.i.i = getelementptr inbounds i8, ptr %dirtyMask, i64 16
@@ -2503,16 +2503,16 @@ for.body.lr.ph:                                   ; preds = %entry
   %conv.i.i = zext i32 %1 to i64
   %add.i.i = sub nsw i64 0, %conv.i.i
   %tobool.not = icmp eq i64 %mul.i.i, %add.i.i
-  %wide.trip.count108 = zext i32 %size to i64
+  %wide.trip.count109 = zext i32 %size to i64
   br i1 %tobool.not, label %for.body.lr.ph.split.us, label %for.body.lr.ph.split
 
 for.body.lr.ph.split.us:                          ; preds = %for.body.lr.ph
   br i1 %mayBeZero, label %for.body.us.us, label %for.body.us
 
 for.body.us.us:                                   ; preds = %for.body.lr.ph.split.us, %for.inc.us.us
-  %indvars.iv105 = phi i64 [ %indvars.iv.next106, %for.inc.us.us ], [ 0, %for.body.lr.ph.split.us ]
-  %b.028.us.us = phi i1 [ %b.1.us.us, %for.inc.us.us ], [ false, %for.body.lr.ph.split.us ]
-  %arrayidx.us.us = getelementptr inbounds %class.aiVector3t, ptr %arr, i64 %indvars.iv105
+  %indvars.iv106 = phi i64 [ %indvars.iv.next107, %for.inc.us.us ], [ 0, %for.body.lr.ph.split.us ]
+  %b.029.us.us = phi i1 [ %b.1.us.us, %for.inc.us.us ], [ false, %for.body.lr.ph.split.us ]
+  %arrayidx.us.us = getelementptr inbounds %class.aiVector3t, ptr %arr, i64 %indvars.iv106
   %3 = load float, ptr %arrayidx.us.us, align 4
   %4 = tail call float @llvm.fabs.f32(float %3)
   %cmp.i.us.us = fcmp ueq float %4, 0x7FF0000000000000
@@ -2533,40 +2533,42 @@ lor.lhs.false5.us.us:                             ; preds = %lor.lhs.false.us.us
   br i1 %cmp.i17.us.us, label %return, label %if.end8.us.us
 
 if.end8.us.us:                                    ; preds = %lor.lhs.false5.us.us
-  %tobool21.not.us.us = icmp eq i64 %indvars.iv105, 0
+  %tobool21.not.us.us = icmp eq i64 %indvars.iv106, 0
   br i1 %tobool21.not.us.us, label %for.inc.us.us, label %land.lhs.true22.us.us
 
 land.lhs.true22.us.us:                            ; preds = %if.end8.us.us
-  %9 = getelementptr %class.aiVector3t, ptr %arr, i64 %indvars.iv105
+  %9 = getelementptr %class.aiVector3t, ptr %arr, i64 %indvars.iv106
   %arrayidx24.us.us = getelementptr i8, ptr %9, i64 -12
   %10 = load float, ptr %arrayidx24.us.us, align 4
   %cmp.i18.us.us = fcmp une float %3, %10
-  br i1 %cmp.i18.us.us, label %for.inc.us.us, label %lor.lhs.false.i.us.us
+  br i1 %cmp.i18.us.us, label %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us.us, label %lor.lhs.false.i.us.us
 
 lor.lhs.false.i.us.us:                            ; preds = %land.lhs.true22.us.us
   %y3.i.us.us = getelementptr i8, ptr %9, i64 -8
   %11 = load float, ptr %y3.i.us.us, align 4
   %cmp4.i.us.us = fcmp une float %5, %11
-  br i1 %cmp4.i.us.us, label %for.inc.us.us, label %_ZNK10aiVector3tIfEneERKS0_.exit.us.us
+  br i1 %cmp4.i.us.us, label %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us.us, label %_ZNK10aiVector3tIfEneERKS0_.exit.us.us
 
 _ZNK10aiVector3tIfEneERKS0_.exit.us.us:           ; preds = %lor.lhs.false.i.us.us
   %z5.i.us.us = getelementptr i8, ptr %9, i64 -4
   %12 = load float, ptr %z5.i.us.us, align 4
   %cmp6.i.us.us = fcmp une float %7, %12
   %cond.fr.us.us = freeze i1 %cmp6.i.us.us
-  %spec.select.us.us = select i1 %cond.fr.us.us, i1 true, i1 %b.028.us.us
+  br i1 %cond.fr.us.us, label %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us.us, label %for.inc.us.us
+
+_ZNK10aiVector3tIfEneERKS0_.exit.thread.us.us:    ; preds = %_ZNK10aiVector3tIfEneERKS0_.exit.us.us, %lor.lhs.false.i.us.us, %land.lhs.true22.us.us
   br label %for.inc.us.us
 
-for.inc.us.us:                                    ; preds = %_ZNK10aiVector3tIfEneERKS0_.exit.us.us, %lor.lhs.false.i.us.us, %land.lhs.true22.us.us, %if.end8.us.us
-  %b.1.us.us = phi i1 [ %b.028.us.us, %if.end8.us.us ], [ true, %lor.lhs.false.i.us.us ], [ true, %land.lhs.true22.us.us ], [ %spec.select.us.us, %_ZNK10aiVector3tIfEneERKS0_.exit.us.us ]
-  %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
-  %exitcond109.not = icmp eq i64 %indvars.iv.next106, %wide.trip.count108
-  br i1 %exitcond109.not, label %for.end, label %for.body.us.us, !llvm.loop !31
+for.inc.us.us:                                    ; preds = %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us.us, %_ZNK10aiVector3tIfEneERKS0_.exit.us.us, %if.end8.us.us
+  %b.1.us.us = phi i1 [ %b.029.us.us, %if.end8.us.us ], [ true, %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us.us ], [ %b.029.us.us, %_ZNK10aiVector3tIfEneERKS0_.exit.us.us ]
+  %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
+  %exitcond110.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count109
+  br i1 %exitcond110.not, label %for.end, label %for.body.us.us, !llvm.loop !31
 
 for.body.us:                                      ; preds = %for.body.lr.ph.split.us, %for.inc.us
-  %indvars.iv100 = phi i64 [ %indvars.iv.next101, %for.inc.us ], [ 0, %for.body.lr.ph.split.us ]
-  %b.028.us = phi i1 [ %b.1.us, %for.inc.us ], [ false, %for.body.lr.ph.split.us ]
-  %arrayidx.us = getelementptr inbounds %class.aiVector3t, ptr %arr, i64 %indvars.iv100
+  %indvars.iv101 = phi i64 [ %indvars.iv.next102, %for.inc.us ], [ 0, %for.body.lr.ph.split.us ]
+  %b.029.us = phi i1 [ %b.1.us, %for.inc.us ], [ false, %for.body.lr.ph.split.us ]
+  %arrayidx.us = getelementptr inbounds %class.aiVector3t, ptr %arr, i64 %indvars.iv101
   %13 = load float, ptr %arrayidx.us, align 4
   %14 = tail call float @llvm.fabs.f32(float %13)
   %cmp.i.us = fcmp ueq float %14, 0x7FF0000000000000
@@ -2589,119 +2591,123 @@ lor.lhs.false5.us:                                ; preds = %lor.lhs.false.us
 if.end8.us:                                       ; preds = %lor.lhs.false5.us
   %tobool12.us = fcmp une float %13, 0.000000e+00
   %tobool15.us = fcmp une float %15, 0.000000e+00
-  %or.cond22.us = select i1 %tobool12.us, i1 true, i1 %tobool15.us
+  %or.cond23.us = select i1 %tobool12.us, i1 true, i1 %tobool15.us
   %tobool18.us = fcmp une float %17, 0.000000e+00
-  %or.cond23.us = select i1 %or.cond22.us, i1 true, i1 %tobool18.us
-  br i1 %or.cond23.us, label %if.end20.us, label %return
+  %or.cond24.us = select i1 %or.cond23.us, i1 true, i1 %tobool18.us
+  br i1 %or.cond24.us, label %if.end20.us, label %return
 
 if.end20.us:                                      ; preds = %if.end8.us
-  %tobool21.not.us = icmp eq i64 %indvars.iv100, 0
+  %tobool21.not.us = icmp eq i64 %indvars.iv101, 0
   br i1 %tobool21.not.us, label %for.inc.us, label %land.lhs.true22.us
 
 land.lhs.true22.us:                               ; preds = %if.end20.us
-  %19 = getelementptr %class.aiVector3t, ptr %arr, i64 %indvars.iv100
+  %19 = getelementptr %class.aiVector3t, ptr %arr, i64 %indvars.iv101
   %arrayidx24.us = getelementptr i8, ptr %19, i64 -12
   %20 = load float, ptr %arrayidx24.us, align 4
   %cmp.i18.us = fcmp une float %13, %20
-  br i1 %cmp.i18.us, label %for.inc.us, label %lor.lhs.false.i.us
+  br i1 %cmp.i18.us, label %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us, label %lor.lhs.false.i.us
 
 lor.lhs.false.i.us:                               ; preds = %land.lhs.true22.us
   %y3.i.us = getelementptr i8, ptr %19, i64 -8
   %21 = load float, ptr %y3.i.us, align 4
   %cmp4.i.us = fcmp une float %15, %21
-  br i1 %cmp4.i.us, label %for.inc.us, label %_ZNK10aiVector3tIfEneERKS0_.exit.us
+  br i1 %cmp4.i.us, label %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us, label %_ZNK10aiVector3tIfEneERKS0_.exit.us
 
 _ZNK10aiVector3tIfEneERKS0_.exit.us:              ; preds = %lor.lhs.false.i.us
   %z5.i.us = getelementptr i8, ptr %19, i64 -4
   %22 = load float, ptr %z5.i.us, align 4
   %cmp6.i.us = fcmp une float %17, %22
   %cond.fr.us = freeze i1 %cmp6.i.us
-  %spec.select.us = select i1 %cond.fr.us, i1 true, i1 %b.028.us
+  br i1 %cond.fr.us, label %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us, label %for.inc.us
+
+_ZNK10aiVector3tIfEneERKS0_.exit.thread.us:       ; preds = %_ZNK10aiVector3tIfEneERKS0_.exit.us, %lor.lhs.false.i.us, %land.lhs.true22.us
   br label %for.inc.us
 
-for.inc.us:                                       ; preds = %_ZNK10aiVector3tIfEneERKS0_.exit.us, %lor.lhs.false.i.us, %land.lhs.true22.us, %if.end20.us
-  %b.1.us = phi i1 [ %b.028.us, %if.end20.us ], [ true, %lor.lhs.false.i.us ], [ true, %land.lhs.true22.us ], [ %spec.select.us, %_ZNK10aiVector3tIfEneERKS0_.exit.us ]
-  %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
-  %exitcond104.not = icmp eq i64 %indvars.iv.next101, %wide.trip.count108
-  br i1 %exitcond104.not, label %for.end, label %for.body.us, !llvm.loop !31
+for.inc.us:                                       ; preds = %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us, %_ZNK10aiVector3tIfEneERKS0_.exit.us, %if.end20.us
+  %b.1.us = phi i1 [ %b.029.us, %if.end20.us ], [ true, %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us ], [ %b.029.us, %_ZNK10aiVector3tIfEneERKS0_.exit.us ]
+  %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
+  %exitcond105.not = icmp eq i64 %indvars.iv.next102, %wide.trip.count109
+  br i1 %exitcond105.not, label %for.end, label %for.body.us, !llvm.loop !31
 
 for.body.lr.ph.split:                             ; preds = %for.body.lr.ph
-  br i1 %mayBeZero, label %for.body.us34, label %for.body
+  br i1 %mayBeZero, label %for.body.us35, label %for.body
 
-for.body.us34:                                    ; preds = %for.body.lr.ph.split, %for.inc.us71
-  %indvars.iv95 = phi i64 [ %indvars.iv.next96, %for.inc.us71 ], [ 0, %for.body.lr.ph.split ]
-  %cnt.029.us36 = phi i32 [ %cnt.1.us73, %for.inc.us71 ], [ 0, %for.body.lr.ph.split ]
-  %b.028.us37 = phi i1 [ %b.1.us72, %for.inc.us71 ], [ false, %for.body.lr.ph.split ]
-  %div.i.i.i.i.i202124.us = lshr i64 %indvars.iv95, 6
-  %div.i.i.i.i.i20.zext.us = and i64 %div.i.i.i.i.i202124.us, 67108863
+for.body.us35:                                    ; preds = %for.body.lr.ph.split, %for.inc.us72
+  %indvars.iv96 = phi i64 [ %indvars.iv.next97, %for.inc.us72 ], [ 0, %for.body.lr.ph.split ]
+  %cnt.030.us37 = phi i32 [ %cnt.1.us74, %for.inc.us72 ], [ 0, %for.body.lr.ph.split ]
+  %b.029.us38 = phi i1 [ %b.1.us73, %for.inc.us72 ], [ false, %for.body.lr.ph.split ]
+  %div.i.i.i.i.i202125.us = lshr i64 %indvars.iv96, 6
+  %div.i.i.i.i.i20.zext.us = and i64 %div.i.i.i.i.i202125.us, 67108863
   %add.ptr.i.i.i.i.i.us = getelementptr inbounds i64, ptr %2, i64 %div.i.i.i.i.i20.zext.us
-  %conv4.i.i.i.i.i.us = and i64 %indvars.iv95, 63
+  %conv4.i.i.i.i.i.us = and i64 %indvars.iv96, 63
   %shl.i.i.i.us = shl nuw i64 1, %conv4.i.i.i.i.i.us
   %23 = load i64, ptr %add.ptr.i.i.i.i.i.us, align 8
   %and.i.i.i.i.us = and i64 %23, %shl.i.i.i.us
   %tobool.i.i.i.i.not.us = icmp eq i64 %and.i.i.i.i.us, 0
-  br i1 %tobool.i.i.i.i.not.us, label %if.end.us38, label %for.inc.us71
+  br i1 %tobool.i.i.i.i.not.us, label %if.end.us39, label %for.inc.us72
 
-if.end.us38:                                      ; preds = %for.body.us34
-  %inc.us39 = add i32 %cnt.029.us36, 1
-  %arrayidx.us41 = getelementptr inbounds %class.aiVector3t, ptr %arr, i64 %indvars.iv95
-  %24 = load float, ptr %arrayidx.us41, align 4
+if.end.us39:                                      ; preds = %for.body.us35
+  %inc.us40 = add i32 %cnt.030.us37, 1
+  %arrayidx.us42 = getelementptr inbounds %class.aiVector3t, ptr %arr, i64 %indvars.iv96
+  %24 = load float, ptr %arrayidx.us42, align 4
   %25 = tail call float @llvm.fabs.f32(float %24)
-  %cmp.i.us42 = fcmp ueq float %25, 0x7FF0000000000000
-  br i1 %cmp.i.us42, label %return, label %lor.lhs.false.us43
+  %cmp.i.us43 = fcmp ueq float %25, 0x7FF0000000000000
+  br i1 %cmp.i.us43, label %return, label %lor.lhs.false.us44
 
-lor.lhs.false.us43:                               ; preds = %if.end.us38
-  %y.us44 = getelementptr inbounds i8, ptr %arrayidx.us41, i64 4
-  %26 = load float, ptr %y.us44, align 4
+lor.lhs.false.us44:                               ; preds = %if.end.us39
+  %y.us45 = getelementptr inbounds i8, ptr %arrayidx.us42, i64 4
+  %26 = load float, ptr %y.us45, align 4
   %27 = tail call float @llvm.fabs.f32(float %26)
-  %cmp.i16.us45 = fcmp ueq float %27, 0x7FF0000000000000
-  br i1 %cmp.i16.us45, label %return, label %lor.lhs.false5.us46
+  %cmp.i16.us46 = fcmp ueq float %27, 0x7FF0000000000000
+  br i1 %cmp.i16.us46, label %return, label %lor.lhs.false5.us47
 
-lor.lhs.false5.us46:                              ; preds = %lor.lhs.false.us43
-  %z.us47 = getelementptr inbounds i8, ptr %arrayidx.us41, i64 8
-  %28 = load float, ptr %z.us47, align 4
+lor.lhs.false5.us47:                              ; preds = %lor.lhs.false.us44
+  %z.us48 = getelementptr inbounds i8, ptr %arrayidx.us42, i64 8
+  %28 = load float, ptr %z.us48, align 4
   %29 = tail call float @llvm.fabs.f32(float %28)
-  %cmp.i17.us48 = fcmp ueq float %29, 0x7FF0000000000000
-  br i1 %cmp.i17.us48, label %return, label %if.end8.us49
+  %cmp.i17.us49 = fcmp ueq float %29, 0x7FF0000000000000
+  br i1 %cmp.i17.us49, label %return, label %if.end8.us50
 
-if.end8.us49:                                     ; preds = %lor.lhs.false5.us46
-  %tobool21.not.us57 = icmp eq i64 %indvars.iv95, 0
-  br i1 %tobool21.not.us57, label %for.inc.us71, label %land.lhs.true22.us58
+if.end8.us50:                                     ; preds = %lor.lhs.false5.us47
+  %tobool21.not.us58 = icmp eq i64 %indvars.iv96, 0
+  br i1 %tobool21.not.us58, label %for.inc.us72, label %land.lhs.true22.us59
 
-land.lhs.true22.us58:                             ; preds = %if.end8.us49
-  %30 = getelementptr %class.aiVector3t, ptr %arr, i64 %indvars.iv95
-  %arrayidx24.us61 = getelementptr i8, ptr %30, i64 -12
-  %31 = load float, ptr %arrayidx24.us61, align 4
-  %cmp.i18.us62 = fcmp une float %24, %31
-  br i1 %cmp.i18.us62, label %for.inc.us71, label %lor.lhs.false.i.us63
+land.lhs.true22.us59:                             ; preds = %if.end8.us50
+  %30 = getelementptr %class.aiVector3t, ptr %arr, i64 %indvars.iv96
+  %arrayidx24.us62 = getelementptr i8, ptr %30, i64 -12
+  %31 = load float, ptr %arrayidx24.us62, align 4
+  %cmp.i18.us63 = fcmp une float %24, %31
+  br i1 %cmp.i18.us63, label %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us71, label %lor.lhs.false.i.us64
 
-lor.lhs.false.i.us63:                             ; preds = %land.lhs.true22.us58
-  %y3.i.us64 = getelementptr i8, ptr %30, i64 -8
-  %32 = load float, ptr %y3.i.us64, align 4
-  %cmp4.i.us65 = fcmp une float %26, %32
-  br i1 %cmp4.i.us65, label %for.inc.us71, label %_ZNK10aiVector3tIfEneERKS0_.exit.us66
+lor.lhs.false.i.us64:                             ; preds = %land.lhs.true22.us59
+  %y3.i.us65 = getelementptr i8, ptr %30, i64 -8
+  %32 = load float, ptr %y3.i.us65, align 4
+  %cmp4.i.us66 = fcmp une float %26, %32
+  br i1 %cmp4.i.us66, label %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us71, label %_ZNK10aiVector3tIfEneERKS0_.exit.us67
 
-_ZNK10aiVector3tIfEneERKS0_.exit.us66:            ; preds = %lor.lhs.false.i.us63
-  %z5.i.us67 = getelementptr i8, ptr %30, i64 -4
-  %33 = load float, ptr %z5.i.us67, align 4
-  %cmp6.i.us68 = fcmp une float %28, %33
-  %cond.fr.us69 = freeze i1 %cmp6.i.us68
-  %spec.select.us70 = select i1 %cond.fr.us69, i1 true, i1 %b.028.us37
-  br label %for.inc.us71
+_ZNK10aiVector3tIfEneERKS0_.exit.us67:            ; preds = %lor.lhs.false.i.us64
+  %z5.i.us68 = getelementptr i8, ptr %30, i64 -4
+  %33 = load float, ptr %z5.i.us68, align 4
+  %cmp6.i.us69 = fcmp une float %28, %33
+  %cond.fr.us70 = freeze i1 %cmp6.i.us69
+  br i1 %cond.fr.us70, label %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us71, label %for.inc.us72
 
-for.inc.us71:                                     ; preds = %_ZNK10aiVector3tIfEneERKS0_.exit.us66, %lor.lhs.false.i.us63, %land.lhs.true22.us58, %if.end8.us49, %for.body.us34
-  %b.1.us72 = phi i1 [ %b.028.us37, %for.body.us34 ], [ %b.028.us37, %if.end8.us49 ], [ true, %lor.lhs.false.i.us63 ], [ true, %land.lhs.true22.us58 ], [ %spec.select.us70, %_ZNK10aiVector3tIfEneERKS0_.exit.us66 ]
-  %cnt.1.us73 = phi i32 [ %cnt.029.us36, %for.body.us34 ], [ %inc.us39, %if.end8.us49 ], [ %inc.us39, %lor.lhs.false.i.us63 ], [ %inc.us39, %land.lhs.true22.us58 ], [ %inc.us39, %_ZNK10aiVector3tIfEneERKS0_.exit.us66 ]
-  %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
-  %exitcond99.not = icmp eq i64 %indvars.iv.next96, %wide.trip.count108
-  br i1 %exitcond99.not, label %for.end, label %for.body.us34, !llvm.loop !31
+_ZNK10aiVector3tIfEneERKS0_.exit.thread.us71:     ; preds = %_ZNK10aiVector3tIfEneERKS0_.exit.us67, %lor.lhs.false.i.us64, %land.lhs.true22.us59
+  br label %for.inc.us72
+
+for.inc.us72:                                     ; preds = %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us71, %_ZNK10aiVector3tIfEneERKS0_.exit.us67, %if.end8.us50, %for.body.us35
+  %b.1.us73 = phi i1 [ %b.029.us38, %for.body.us35 ], [ %b.029.us38, %if.end8.us50 ], [ true, %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us71 ], [ %b.029.us38, %_ZNK10aiVector3tIfEneERKS0_.exit.us67 ]
+  %cnt.1.us74 = phi i32 [ %cnt.030.us37, %for.body.us35 ], [ %inc.us40, %if.end8.us50 ], [ %inc.us40, %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us71 ], [ %inc.us40, %_ZNK10aiVector3tIfEneERKS0_.exit.us67 ]
+  %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
+  %exitcond100.not = icmp eq i64 %indvars.iv.next97, %wide.trip.count109
+  br i1 %exitcond100.not, label %for.end, label %for.body.us35, !llvm.loop !31
 
 for.body:                                         ; preds = %for.body.lr.ph.split, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %for.body.lr.ph.split ]
-  %cnt.029 = phi i32 [ %cnt.1, %for.inc ], [ 0, %for.body.lr.ph.split ]
-  %b.028 = phi i1 [ %b.1, %for.inc ], [ false, %for.body.lr.ph.split ]
-  %div.i.i.i.i.i202124 = lshr i64 %indvars.iv, 6
-  %div.i.i.i.i.i20.zext = and i64 %div.i.i.i.i.i202124, 67108863
+  %cnt.030 = phi i32 [ %cnt.1, %for.inc ], [ 0, %for.body.lr.ph.split ]
+  %b.029 = phi i1 [ %b.1, %for.inc ], [ false, %for.body.lr.ph.split ]
+  %div.i.i.i.i.i202125 = lshr i64 %indvars.iv, 6
+  %div.i.i.i.i.i20.zext = and i64 %div.i.i.i.i.i202125, 67108863
   %add.ptr.i.i.i.i.i = getelementptr inbounds i64, ptr %2, i64 %div.i.i.i.i.i20.zext
   %conv4.i.i.i.i.i = and i64 %indvars.iv, 63
   %shl.i.i.i = shl nuw i64 1, %conv4.i.i.i.i.i
@@ -2711,7 +2717,7 @@ for.body:                                         ; preds = %for.body.lr.ph.spli
   br i1 %tobool.i.i.i.i.not, label %if.end, label %for.inc
 
 if.end:                                           ; preds = %for.body
-  %inc = add i32 %cnt.029, 1
+  %inc = add i32 %cnt.030, 1
   %arrayidx = getelementptr inbounds %class.aiVector3t, ptr %arr, i64 %indvars.iv
   %35 = load float, ptr %arrayidx, align 4
   %36 = tail call float @llvm.fabs.f32(float %35)
@@ -2735,10 +2741,10 @@ lor.lhs.false5:                                   ; preds = %lor.lhs.false
 if.end8:                                          ; preds = %lor.lhs.false5
   %tobool12 = fcmp une float %35, 0.000000e+00
   %tobool15 = fcmp une float %37, 0.000000e+00
-  %or.cond22 = select i1 %tobool12, i1 true, i1 %tobool15
+  %or.cond23 = select i1 %tobool12, i1 true, i1 %tobool15
   %tobool18 = fcmp une float %39, 0.000000e+00
-  %or.cond23 = select i1 %or.cond22, i1 true, i1 %tobool18
-  br i1 %or.cond23, label %if.end20, label %return
+  %or.cond24 = select i1 %or.cond23, i1 true, i1 %tobool18
+  br i1 %or.cond24, label %if.end20, label %return
 
 if.end20:                                         ; preds = %if.end8
   %tobool21.not = icmp eq i64 %indvars.iv, 0
@@ -2749,42 +2755,42 @@ land.lhs.true22:                                  ; preds = %if.end20
   %arrayidx24 = getelementptr i8, ptr %41, i64 -12
   %42 = load float, ptr %arrayidx24, align 4
   %cmp.i18 = fcmp une float %35, %42
-  br i1 %cmp.i18, label %for.inc, label %lor.lhs.false.i
+  br i1 %cmp.i18, label %_ZNK10aiVector3tIfEneERKS0_.exit.thread, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %land.lhs.true22
   %y3.i = getelementptr i8, ptr %41, i64 -8
   %43 = load float, ptr %y3.i, align 4
   %cmp4.i = fcmp une float %37, %43
-  br i1 %cmp4.i, label %for.inc, label %_ZNK10aiVector3tIfEneERKS0_.exit
+  br i1 %cmp4.i, label %_ZNK10aiVector3tIfEneERKS0_.exit.thread, label %_ZNK10aiVector3tIfEneERKS0_.exit
 
 _ZNK10aiVector3tIfEneERKS0_.exit:                 ; preds = %lor.lhs.false.i
   %z5.i = getelementptr i8, ptr %41, i64 -4
   %44 = load float, ptr %z5.i, align 4
   %cmp6.i = fcmp une float %39, %44
   %cond.fr = freeze i1 %cmp6.i
-  %spec.select = select i1 %cond.fr, i1 true, i1 %b.028
+  br i1 %cond.fr, label %_ZNK10aiVector3tIfEneERKS0_.exit.thread, label %for.inc
+
+_ZNK10aiVector3tIfEneERKS0_.exit.thread:          ; preds = %land.lhs.true22, %lor.lhs.false.i, %_ZNK10aiVector3tIfEneERKS0_.exit
   br label %for.inc
 
-for.inc:                                          ; preds = %_ZNK10aiVector3tIfEneERKS0_.exit, %land.lhs.true22, %lor.lhs.false.i, %if.end20, %for.body
-  %b.1 = phi i1 [ %b.028, %for.body ], [ %b.028, %if.end20 ], [ true, %lor.lhs.false.i ], [ true, %land.lhs.true22 ], [ %spec.select, %_ZNK10aiVector3tIfEneERKS0_.exit ]
-  %cnt.1 = phi i32 [ %cnt.029, %for.body ], [ %inc, %if.end20 ], [ %inc, %lor.lhs.false.i ], [ %inc, %land.lhs.true22 ], [ %inc, %_ZNK10aiVector3tIfEneERKS0_.exit ]
+for.inc:                                          ; preds = %_ZNK10aiVector3tIfEneERKS0_.exit.thread, %_ZNK10aiVector3tIfEneERKS0_.exit, %if.end20, %for.body
+  %b.1 = phi i1 [ %b.029, %for.body ], [ %b.029, %if.end20 ], [ true, %_ZNK10aiVector3tIfEneERKS0_.exit.thread ], [ %b.029, %_ZNK10aiVector3tIfEneERKS0_.exit ]
+  %cnt.1 = phi i32 [ %cnt.030, %for.body ], [ %inc, %if.end20 ], [ %inc, %_ZNK10aiVector3tIfEneERKS0_.exit.thread ], [ %inc, %_ZNK10aiVector3tIfEneERKS0_.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count108
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count109
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !31
 
-for.end:                                          ; preds = %for.inc, %for.inc.us71, %for.inc.us, %for.inc.us.us
-  %b.0.lcssa = phi i1 [ %b.1.us.us, %for.inc.us.us ], [ %b.1.us, %for.inc.us ], [ %b.1.us72, %for.inc.us71 ], [ %b.1, %for.inc ]
-  %cnt.0.lcssa = phi i32 [ %size, %for.inc.us.us ], [ %size, %for.inc.us ], [ %cnt.1.us73, %for.inc.us71 ], [ %cnt.1, %for.inc ]
-  %cmp29 = icmp ugt i32 %cnt.0.lcssa, 1
-  br i1 %cmp29, label %land.lhs.true30, label %return
-
-land.lhs.true30:                                  ; preds = %for.end
+for.end:                                          ; preds = %for.inc, %for.inc.us72, %for.inc.us, %for.inc.us.us, %entry
+  %b.0.lcssa = phi i1 [ false, %entry ], [ %b.1.us.us, %for.inc.us.us ], [ %b.1.us, %for.inc.us ], [ %b.1.us73, %for.inc.us72 ], [ %b.1, %for.inc ]
+  %cnt.0.lcssa = phi i32 [ 0, %entry ], [ %size, %for.inc.us.us ], [ %size, %for.inc.us ], [ %cnt.1.us74, %for.inc.us72 ], [ %cnt.1, %for.inc ]
+  %cmp29 = icmp ult i32 %cnt.0.lcssa, 2
   %brmerge = or i1 %b.0.lcssa, %mayBeIdentical
-  %spec.select15 = select i1 %brmerge, ptr null, ptr @.str.20
+  %or.cond = select i1 %cmp29, i1 true, i1 %brmerge
+  %spec.select15 = select i1 %or.cond, ptr null, ptr @.str.20
   br label %return
 
-return:                                           ; preds = %if.end8, %if.end, %lor.lhs.false, %lor.lhs.false5, %if.end.us38, %lor.lhs.false.us43, %lor.lhs.false5.us46, %for.body.us, %lor.lhs.false.us, %lor.lhs.false5.us, %if.end8.us, %for.body.us.us, %lor.lhs.false.us.us, %lor.lhs.false5.us.us, %entry, %land.lhs.true30, %for.end
-  %retval.0 = phi ptr [ null, %for.end ], [ %spec.select15, %land.lhs.true30 ], [ null, %entry ], [ @.str.18, %lor.lhs.false5.us.us ], [ @.str.18, %lor.lhs.false.us.us ], [ @.str.18, %for.body.us.us ], [ @.str.19, %if.end8.us ], [ @.str.18, %for.body.us ], [ @.str.18, %lor.lhs.false.us ], [ @.str.18, %lor.lhs.false5.us ], [ @.str.18, %lor.lhs.false5.us46 ], [ @.str.18, %lor.lhs.false.us43 ], [ @.str.18, %if.end.us38 ], [ @.str.19, %if.end8 ], [ @.str.18, %if.end ], [ @.str.18, %lor.lhs.false ], [ @.str.18, %lor.lhs.false5 ]
+return:                                           ; preds = %if.end8, %if.end, %lor.lhs.false, %lor.lhs.false5, %if.end.us39, %lor.lhs.false.us44, %lor.lhs.false5.us47, %for.body.us, %lor.lhs.false.us, %lor.lhs.false5.us, %if.end8.us, %for.body.us.us, %lor.lhs.false.us.us, %lor.lhs.false5.us.us, %for.end
+  %retval.0 = phi ptr [ %spec.select15, %for.end ], [ @.str.18, %lor.lhs.false5.us.us ], [ @.str.18, %lor.lhs.false.us.us ], [ @.str.18, %for.body.us.us ], [ @.str.19, %if.end8.us ], [ @.str.18, %for.body.us ], [ @.str.18, %lor.lhs.false.us ], [ @.str.18, %lor.lhs.false5.us ], [ @.str.18, %lor.lhs.false5.us47 ], [ @.str.18, %lor.lhs.false.us44 ], [ @.str.18, %if.end.us39 ], [ @.str.19, %if.end8 ], [ @.str.18, %if.end ], [ @.str.18, %lor.lhs.false ], [ @.str.18, %lor.lhs.false5 ]
   ret ptr %retval.0
 }
 

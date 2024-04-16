@@ -2790,7 +2790,7 @@ define internal nonnull ptr @ltp_conv_get_filter_type(ptr nocapture noundef read
 declare void @add_endpoint_table_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal nonnull ptr @ltp_endp_get_filter_type(ptr nocapture noundef readonly %0, i32 noundef %1) #2 {
+define internal noundef nonnull ptr @ltp_endp_get_filter_type(ptr nocapture noundef readonly %0, i32 noundef %1) #2 {
   %switch = icmp ult i32 %1, 3
   br i1 %switch, label %3, label %7
 
@@ -2798,11 +2798,13 @@ define internal nonnull ptr @ltp_endp_get_filter_type(ptr nocapture noundef read
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 12
-  %spec.select = select i1 %6, ptr @.str.5, ptr @.str.203
-  br label %7
+  br i1 %6, label %8, label %7
 
-7:                                                ; preds = %3, %2
-  %.0 = phi ptr [ @.str.203, %2 ], [ %spec.select, %3 ]
+7:                                                ; preds = %2, %3
+  br label %8
+
+8:                                                ; preds = %3, %7
+  %.0 = phi ptr [ @.str.203, %7 ], [ @.str.5, %3 ]
   ret ptr %.0
 }
 

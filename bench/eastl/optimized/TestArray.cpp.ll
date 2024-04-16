@@ -652,7 +652,7 @@ entry:
 define weak_odr dso_local noundef i32 @_ZNK5eastl5arrayIiLm5EE17validate_iteratorEPKi(ptr noundef nonnull align 4 dereferenceable(20) %this, ptr noundef %i) local_unnamed_addr #0 comdat align 2 {
 entry:
   %cmp.not = icmp ult ptr %i, %this
-  br i1 %cmp.not, label %return, label %if.then
+  br i1 %cmp.not, label %if.end12, label %if.then
 
 if.then:                                          ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 20
@@ -661,11 +661,13 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then
   %cmp9.not = icmp ult ptr %add.ptr, %i
-  %spec.select = select i1 %cmp9.not, i32 0, i32 3
+  br i1 %cmp9.not, label %if.end12, label %return
+
+if.end12:                                         ; preds = %if.end, %entry
   br label %return
 
-return:                                           ; preds = %if.end, %entry, %if.then
-  %retval.0 = phi i32 [ 7, %if.then ], [ 0, %entry ], [ %spec.select, %if.end ]
+return:                                           ; preds = %if.end, %if.then, %if.end12
+  %retval.0 = phi i32 [ 0, %if.end12 ], [ 7, %if.then ], [ 3, %if.end ]
   ret i32 %retval.0
 }
 
@@ -888,7 +890,7 @@ entry:
 define weak_odr dso_local noundef i32 @_ZNK5eastl5arrayI7Align32Lm5EE17validate_iteratorEPKS1_(ptr noundef nonnull align 32 dereferenceable(160) %this, ptr noundef %i) local_unnamed_addr #0 comdat align 2 {
 entry:
   %cmp.not = icmp ult ptr %i, %this
-  br i1 %cmp.not, label %return, label %if.then
+  br i1 %cmp.not, label %if.end12, label %if.then
 
 if.then:                                          ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 160
@@ -897,11 +899,13 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then
   %cmp9.not = icmp ult ptr %add.ptr, %i
-  %spec.select = select i1 %cmp9.not, i32 0, i32 3
+  br i1 %cmp9.not, label %if.end12, label %return
+
+if.end12:                                         ; preds = %if.end, %entry
   br label %return
 
-return:                                           ; preds = %if.end, %entry, %if.then
-  %retval.0 = phi i32 [ 7, %if.then ], [ 0, %entry ], [ %spec.select, %if.end ]
+return:                                           ; preds = %if.end, %if.then, %if.end12
+  %retval.0 = phi i32 [ 0, %if.end12 ], [ 7, %if.then ], [ 3, %if.end ]
   ret i32 %retval.0
 }
 

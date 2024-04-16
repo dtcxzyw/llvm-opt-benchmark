@@ -37,38 +37,38 @@ lor.lhs.false3:                                   ; preds = %lor.lhs.false
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %buf.i)
   %call.i5 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %md_ctx.i, ptr noundef nonnull %buf.i, ptr noundef nonnull %i.i) #5
   %tobool.not.i = icmp eq i32 %call.i5, 0
-  br i1 %tobool.not.i, label %1, label %lor.lhs.false.i
+  br i1 %tobool.not.i, label %HMAC_Final.exit.thread, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %lor.lhs.false3
   %call2.i = call i32 @EVP_MD_CTX_copy_ex(ptr noundef nonnull %md_ctx.i, ptr noundef nonnull %o_ctx.i) #5
   %tobool3.not.i = icmp eq i32 %call2.i, 0
-  br i1 %tobool3.not.i, label %1, label %lor.lhs.false4.i
+  br i1 %tobool3.not.i, label %HMAC_Final.exit.thread, label %lor.lhs.false4.i
 
 lor.lhs.false4.i:                                 ; preds = %lor.lhs.false.i
   %0 = load i32, ptr %i.i, align 4
   %conv.i = zext i32 %0 to i64
   %call7.i = call i32 @EVP_DigestUpdate(ptr noundef nonnull %md_ctx.i, ptr noundef nonnull %buf.i, i64 noundef %conv.i) #5
   %tobool8.not.i = icmp eq i32 %call7.i, 0
-  br i1 %tobool8.not.i, label %1, label %lor.lhs.false9.i
+  br i1 %tobool8.not.i, label %HMAC_Final.exit.thread, label %lor.lhs.false9.i
 
 lor.lhs.false9.i:                                 ; preds = %lor.lhs.false4.i
   %call11.i = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %md_ctx.i, ptr noundef nonnull %spec.store.select, ptr noundef %out_len) #5
   %tobool12.not.i = icmp eq i32 %call11.i, 0
-  br i1 %tobool12.not.i, label %1, label %HMAC_Final.exit
+  br i1 %tobool12.not.i, label %HMAC_Final.exit.thread, label %HMAC_Final.exit
+
+HMAC_Final.exit.thread:                           ; preds = %lor.lhs.false3, %lor.lhs.false.i, %lor.lhs.false4.i, %lor.lhs.false9.i
+  store i32 0, ptr %out_len, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %i.i)
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %buf.i)
+  br label %if.end7
 
 HMAC_Final.exit:                                  ; preds = %lor.lhs.false9.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %buf.i)
   br label %if.end7
 
-1:                                                ; preds = %lor.lhs.false3, %lor.lhs.false.i, %lor.lhs.false4.i, %lor.lhs.false9.i
-  store i32 0, ptr %out_len, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %i.i)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %buf.i)
-  br label %if.end7
-
-if.end7:                                          ; preds = %1, %HMAC_Final.exit, %entry, %lor.lhs.false
-  %out.addr.0 = phi ptr [ null, %lor.lhs.false ], [ null, %entry ], [ null, %1 ], [ %spec.store.select, %HMAC_Final.exit ]
+if.end7:                                          ; preds = %entry, %lor.lhs.false, %HMAC_Final.exit.thread, %HMAC_Final.exit
+  %out.addr.0 = phi ptr [ %spec.store.select, %HMAC_Final.exit ], [ null, %HMAC_Final.exit.thread ], [ null, %lor.lhs.false ], [ null, %entry ]
   %call.i8 = call i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %i_ctx.i) #5
   %call1.i = call i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %o_ctx.i) #5
   %call2.i11 = call i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %md_ctx.i) #5

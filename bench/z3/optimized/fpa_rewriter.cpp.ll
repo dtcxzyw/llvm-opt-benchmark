@@ -640,7 +640,7 @@ entry:
   %m_plugin.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_plugin.i, align 8
   %call.i = call noundef zeroext i1 @_ZN15fpa_decl_plugin13is_rm_numeralEP4exprR17mpf_rounding_mode(ptr noundef nonnull align 8 dereferenceable(1008) %0, ptr noundef %arg1, ptr noundef nonnull align 4 dereferenceable(4) %rm)
-  br i1 %call.i, label %if.then, label %return
+  br i1 %call.i, label %if.then, label %if.end35
 
 if.then:                                          ; preds = %entry
   %m_fm = getelementptr inbounds i8, ptr %this, i64 64
@@ -751,7 +751,7 @@ lpad18:                                           ; preds = %if.then2.i.i.i, %in
   br label %ehcleanup
 
 cleanup:                                          ; preds = %invoke.cont31, %invoke.cont7, %invoke.cont12
-  %switch = phi i32 [ 5, %invoke.cont12 ], [ 5, %invoke.cont7 ], [ 4, %invoke.cont31 ]
+  %switch = phi i1 [ true, %invoke.cont12 ], [ true, %invoke.cont7 ], [ false, %invoke.cont31 ]
   %20 = load ptr, ptr %v3, align 8
   %m_mpz_manager.i.i.i21 = getelementptr inbounds i8, ptr %20, i64 728
   %21 = load ptr, ptr %m_mpz_manager.i.i.i21, align 8
@@ -772,7 +772,7 @@ _ZN10scoped_mpfD2Ev.exit24:                       ; preds = %cleanup
   %25 = load ptr, ptr %m_mpz_manager.i.i.i25, align 8
   %significand.i.i.i26 = getelementptr inbounds i8, ptr %v2, i64 16
   invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %25, ptr noundef nonnull align 8 dereferenceable(16) %significand.i.i.i26)
-          to label %return unwind label %terminate.lpad.i.i27
+          to label %_ZN10scoped_mpfD2Ev.exit28 unwind label %terminate.lpad.i.i27
 
 terminate.lpad.i.i27:                             ; preds = %_ZN10scoped_mpfD2Ev.exit24
   %26 = landingpad { ptr, i32 }
@@ -780,6 +780,9 @@ terminate.lpad.i.i27:                             ; preds = %_ZN10scoped_mpfD2Ev
   %27 = extractvalue { ptr, i32 } %26, 0
   call void @__clang_call_terminate(ptr %27) #14
   unreachable
+
+_ZN10scoped_mpfD2Ev.exit28:                       ; preds = %_ZN10scoped_mpfD2Ev.exit24
+  br i1 %switch, label %if.end35, label %return
 
 ehcleanup:                                        ; preds = %lpad18, %lpad4
   %.pn = phi { ptr, i32 } [ %19, %lpad18 ], [ %18, %lpad4 ]
@@ -791,8 +794,11 @@ ehcleanup34:                                      ; preds = %ehcleanup, %lpad
   call void @_ZN10scoped_mpfD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %v2) #13
   resume { ptr, i32 } %.pn.pn
 
-return:                                           ; preds = %_ZN10scoped_mpfD2Ev.exit24, %entry
-  %retval.1 = phi i32 [ 5, %entry ], [ %switch, %_ZN10scoped_mpfD2Ev.exit24 ]
+if.end35:                                         ; preds = %_ZN10scoped_mpfD2Ev.exit28, %entry
+  br label %return
+
+return:                                           ; preds = %_ZN10scoped_mpfD2Ev.exit28, %if.end35
+  %retval.1 = phi i32 [ 4, %_ZN10scoped_mpfD2Ev.exit28 ], [ 5, %if.end35 ]
   ret i32 %retval.1
 }
 
@@ -1242,7 +1248,7 @@ entry:
   %m_plugin.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_plugin.i, align 8
   %call.i = call noundef zeroext i1 @_ZN15fpa_decl_plugin13is_rm_numeralEP4exprR17mpf_rounding_mode(ptr noundef nonnull align 8 dereferenceable(1008) %0, ptr noundef %arg1, ptr noundef nonnull align 4 dereferenceable(4) %rm)
-  br i1 %call.i, label %if.then, label %return
+  br i1 %call.i, label %if.then, label %if.end35
 
 if.then:                                          ; preds = %entry
   %m_fm = getelementptr inbounds i8, ptr %this, i64 64
@@ -1353,7 +1359,7 @@ lpad18:                                           ; preds = %if.then2.i.i.i, %in
   br label %ehcleanup
 
 cleanup:                                          ; preds = %invoke.cont31, %invoke.cont7, %invoke.cont12
-  %switch = phi i32 [ 5, %invoke.cont12 ], [ 5, %invoke.cont7 ], [ 4, %invoke.cont31 ]
+  %switch = phi i1 [ true, %invoke.cont12 ], [ true, %invoke.cont7 ], [ false, %invoke.cont31 ]
   %20 = load ptr, ptr %v3, align 8
   %m_mpz_manager.i.i.i21 = getelementptr inbounds i8, ptr %20, i64 728
   %21 = load ptr, ptr %m_mpz_manager.i.i.i21, align 8
@@ -1374,7 +1380,7 @@ _ZN10scoped_mpfD2Ev.exit24:                       ; preds = %cleanup
   %25 = load ptr, ptr %m_mpz_manager.i.i.i25, align 8
   %significand.i.i.i26 = getelementptr inbounds i8, ptr %v2, i64 16
   invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %25, ptr noundef nonnull align 8 dereferenceable(16) %significand.i.i.i26)
-          to label %return unwind label %terminate.lpad.i.i27
+          to label %_ZN10scoped_mpfD2Ev.exit28 unwind label %terminate.lpad.i.i27
 
 terminate.lpad.i.i27:                             ; preds = %_ZN10scoped_mpfD2Ev.exit24
   %26 = landingpad { ptr, i32 }
@@ -1382,6 +1388,9 @@ terminate.lpad.i.i27:                             ; preds = %_ZN10scoped_mpfD2Ev
   %27 = extractvalue { ptr, i32 } %26, 0
   call void @__clang_call_terminate(ptr %27) #14
   unreachable
+
+_ZN10scoped_mpfD2Ev.exit28:                       ; preds = %_ZN10scoped_mpfD2Ev.exit24
+  br i1 %switch, label %if.end35, label %return
 
 ehcleanup:                                        ; preds = %lpad18, %lpad4
   %.pn = phi { ptr, i32 } [ %19, %lpad18 ], [ %18, %lpad4 ]
@@ -1393,8 +1402,11 @@ ehcleanup34:                                      ; preds = %ehcleanup, %lpad
   call void @_ZN10scoped_mpfD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %v2) #13
   resume { ptr, i32 } %.pn.pn
 
-return:                                           ; preds = %_ZN10scoped_mpfD2Ev.exit24, %entry
-  %retval.1 = phi i32 [ 5, %entry ], [ %switch, %_ZN10scoped_mpfD2Ev.exit24 ]
+if.end35:                                         ; preds = %_ZN10scoped_mpfD2Ev.exit28, %entry
+  br label %return
+
+return:                                           ; preds = %_ZN10scoped_mpfD2Ev.exit28, %if.end35
+  %retval.1 = phi i32 [ 4, %_ZN10scoped_mpfD2Ev.exit28 ], [ 5, %if.end35 ]
   ret i32 %retval.1
 }
 
@@ -1408,7 +1420,7 @@ entry:
   %m_plugin.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_plugin.i, align 8
   %call.i = call noundef zeroext i1 @_ZN15fpa_decl_plugin13is_rm_numeralEP4exprR17mpf_rounding_mode(ptr noundef nonnull align 8 dereferenceable(1008) %0, ptr noundef %arg1, ptr noundef nonnull align 4 dereferenceable(4) %rm)
-  br i1 %call.i, label %if.then, label %return
+  br i1 %call.i, label %if.then, label %if.end35
 
 if.then:                                          ; preds = %entry
   %m_fm = getelementptr inbounds i8, ptr %this, i64 64
@@ -1519,7 +1531,7 @@ lpad18:                                           ; preds = %if.then2.i.i.i, %in
   br label %ehcleanup
 
 cleanup:                                          ; preds = %invoke.cont31, %invoke.cont7, %invoke.cont12
-  %switch = phi i32 [ 5, %invoke.cont12 ], [ 5, %invoke.cont7 ], [ 4, %invoke.cont31 ]
+  %switch = phi i1 [ true, %invoke.cont12 ], [ true, %invoke.cont7 ], [ false, %invoke.cont31 ]
   %20 = load ptr, ptr %v3, align 8
   %m_mpz_manager.i.i.i21 = getelementptr inbounds i8, ptr %20, i64 728
   %21 = load ptr, ptr %m_mpz_manager.i.i.i21, align 8
@@ -1540,7 +1552,7 @@ _ZN10scoped_mpfD2Ev.exit24:                       ; preds = %cleanup
   %25 = load ptr, ptr %m_mpz_manager.i.i.i25, align 8
   %significand.i.i.i26 = getelementptr inbounds i8, ptr %v2, i64 16
   invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %25, ptr noundef nonnull align 8 dereferenceable(16) %significand.i.i.i26)
-          to label %return unwind label %terminate.lpad.i.i27
+          to label %_ZN10scoped_mpfD2Ev.exit28 unwind label %terminate.lpad.i.i27
 
 terminate.lpad.i.i27:                             ; preds = %_ZN10scoped_mpfD2Ev.exit24
   %26 = landingpad { ptr, i32 }
@@ -1548,6 +1560,9 @@ terminate.lpad.i.i27:                             ; preds = %_ZN10scoped_mpfD2Ev
   %27 = extractvalue { ptr, i32 } %26, 0
   call void @__clang_call_terminate(ptr %27) #14
   unreachable
+
+_ZN10scoped_mpfD2Ev.exit28:                       ; preds = %_ZN10scoped_mpfD2Ev.exit24
+  br i1 %switch, label %if.end35, label %return
 
 ehcleanup:                                        ; preds = %lpad18, %lpad4
   %.pn = phi { ptr, i32 } [ %19, %lpad18 ], [ %18, %lpad4 ]
@@ -1559,8 +1574,11 @@ ehcleanup34:                                      ; preds = %ehcleanup, %lpad
   call void @_ZN10scoped_mpfD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %v2) #13
   resume { ptr, i32 } %.pn.pn
 
-return:                                           ; preds = %_ZN10scoped_mpfD2Ev.exit24, %entry
-  %retval.1 = phi i32 [ 5, %entry ], [ %switch, %_ZN10scoped_mpfD2Ev.exit24 ]
+if.end35:                                         ; preds = %_ZN10scoped_mpfD2Ev.exit28, %entry
+  br label %return
+
+return:                                           ; preds = %_ZN10scoped_mpfD2Ev.exit28, %if.end35
+  %retval.1 = phi i32 [ 4, %_ZN10scoped_mpfD2Ev.exit28 ], [ 5, %if.end35 ]
   ret i32 %retval.1
 }
 
@@ -2594,7 +2612,7 @@ entry:
   %m_plugin.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_plugin.i, align 8
   %call.i = call noundef zeroext i1 @_ZN15fpa_decl_plugin13is_rm_numeralEP4exprR17mpf_rounding_mode(ptr noundef nonnull align 8 dereferenceable(1008) %0, ptr noundef %arg1, ptr noundef nonnull align 4 dereferenceable(4) %rm)
-  br i1 %call.i, label %if.then, label %return
+  br i1 %call.i, label %if.then, label %if.end48
 
 if.then:                                          ; preds = %entry
   %m_fm = getelementptr inbounds i8, ptr %this, i64 64
@@ -2725,7 +2743,7 @@ lpad27:                                           ; preds = %if.then2.i.i.i, %in
   br label %ehcleanup
 
 cleanup:                                          ; preds = %invoke.cont42, %invoke.cont10, %invoke.cont15, %invoke.cont21
-  %switch = phi i32 [ 5, %invoke.cont21 ], [ 5, %invoke.cont15 ], [ 5, %invoke.cont10 ], [ 4, %invoke.cont42 ]
+  %switch = phi i1 [ true, %invoke.cont21 ], [ true, %invoke.cont15 ], [ true, %invoke.cont10 ], [ false, %invoke.cont42 ]
   %23 = load ptr, ptr %v4, align 8
   %m_mpz_manager.i.i.i30 = getelementptr inbounds i8, ptr %23, i64 728
   %24 = load ptr, ptr %m_mpz_manager.i.i.i30, align 8
@@ -2761,7 +2779,7 @@ _ZN10scoped_mpfD2Ev.exit37:                       ; preds = %_ZN10scoped_mpfD2Ev
   %32 = load ptr, ptr %m_mpz_manager.i.i.i38, align 8
   %significand.i.i.i39 = getelementptr inbounds i8, ptr %v2, i64 16
   invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %32, ptr noundef nonnull align 8 dereferenceable(16) %significand.i.i.i39)
-          to label %return unwind label %terminate.lpad.i.i40
+          to label %_ZN10scoped_mpfD2Ev.exit41 unwind label %terminate.lpad.i.i40
 
 terminate.lpad.i.i40:                             ; preds = %_ZN10scoped_mpfD2Ev.exit37
   %33 = landingpad { ptr, i32 }
@@ -2769,6 +2787,9 @@ terminate.lpad.i.i40:                             ; preds = %_ZN10scoped_mpfD2Ev
   %34 = extractvalue { ptr, i32 } %33, 0
   call void @__clang_call_terminate(ptr %34) #14
   unreachable
+
+_ZN10scoped_mpfD2Ev.exit41:                       ; preds = %_ZN10scoped_mpfD2Ev.exit37
+  br i1 %switch, label %if.end48, label %return
 
 ehcleanup:                                        ; preds = %lpad27, %lpad7
   %.pn = phi { ptr, i32 } [ %22, %lpad27 ], [ %21, %lpad7 ]
@@ -2785,8 +2806,11 @@ ehcleanup47:                                      ; preds = %ehcleanup45, %lpad
   call void @_ZN10scoped_mpfD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %v2) #13
   resume { ptr, i32 } %.pn.pn.pn
 
-return:                                           ; preds = %_ZN10scoped_mpfD2Ev.exit37, %entry
-  %retval.1 = phi i32 [ 5, %entry ], [ %switch, %_ZN10scoped_mpfD2Ev.exit37 ]
+if.end48:                                         ; preds = %_ZN10scoped_mpfD2Ev.exit41, %entry
+  br label %return
+
+return:                                           ; preds = %_ZN10scoped_mpfD2Ev.exit41, %if.end48
+  %retval.1 = phi i32 [ 4, %_ZN10scoped_mpfD2Ev.exit41 ], [ 5, %if.end48 ]
   ret i32 %retval.1
 }
 
@@ -2799,7 +2823,7 @@ entry:
   %m_plugin.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_plugin.i, align 8
   %call.i = call noundef zeroext i1 @_ZN15fpa_decl_plugin13is_rm_numeralEP4exprR17mpf_rounding_mode(ptr noundef nonnull align 8 dereferenceable(1008) %0, ptr noundef %arg1, ptr noundef nonnull align 4 dereferenceable(4) %rm)
-  br i1 %call.i, label %if.then, label %return
+  br i1 %call.i, label %if.then, label %if.end23
 
 if.then:                                          ; preds = %entry
   %m_fm = getelementptr inbounds i8, ptr %this, i64 64
@@ -2905,16 +2929,18 @@ terminate.lpad.i.i14:                             ; preds = %cleanup
   unreachable
 
 _ZN10scoped_mpfD2Ev.exit15:                       ; preds = %cleanup
-  %spec.select = select i1 %call.i34, i32 4, i32 5
-  br label %return
+  br i1 %call.i34, label %return, label %if.end23
 
 ehcleanup:                                        ; preds = %lpad10, %lpad
   %.pn = phi { ptr, i32 } [ %16, %lpad10 ], [ %15, %lpad ]
   call void @_ZN10scoped_mpfD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %v2) #13
   resume { ptr, i32 } %.pn
 
-return:                                           ; preds = %_ZN10scoped_mpfD2Ev.exit15, %entry
-  %retval.1 = phi i32 [ 5, %entry ], [ %spec.select, %_ZN10scoped_mpfD2Ev.exit15 ]
+if.end23:                                         ; preds = %_ZN10scoped_mpfD2Ev.exit15, %entry
+  br label %return
+
+return:                                           ; preds = %_ZN10scoped_mpfD2Ev.exit15, %if.end23
+  %retval.1 = phi i32 [ 4, %_ZN10scoped_mpfD2Ev.exit15 ], [ 5, %if.end23 ]
   ret i32 %retval.1
 }
 
@@ -2927,7 +2953,7 @@ entry:
   %m_plugin.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_plugin.i, align 8
   %call.i = call noundef zeroext i1 @_ZN15fpa_decl_plugin13is_rm_numeralEP4exprR17mpf_rounding_mode(ptr noundef nonnull align 8 dereferenceable(1008) %0, ptr noundef %arg1, ptr noundef nonnull align 4 dereferenceable(4) %rm)
-  br i1 %call.i, label %if.then, label %return
+  br i1 %call.i, label %if.then, label %if.end23
 
 if.then:                                          ; preds = %entry
   %m_fm = getelementptr inbounds i8, ptr %this, i64 64
@@ -3033,16 +3059,18 @@ terminate.lpad.i.i14:                             ; preds = %cleanup
   unreachable
 
 _ZN10scoped_mpfD2Ev.exit15:                       ; preds = %cleanup
-  %spec.select = select i1 %call.i34, i32 4, i32 5
-  br label %return
+  br i1 %call.i34, label %return, label %if.end23
 
 ehcleanup:                                        ; preds = %lpad10, %lpad
   %.pn = phi { ptr, i32 } [ %16, %lpad10 ], [ %15, %lpad ]
   call void @_ZN10scoped_mpfD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %v2) #13
   resume { ptr, i32 } %.pn
 
-return:                                           ; preds = %_ZN10scoped_mpfD2Ev.exit15, %entry
-  %retval.1 = phi i32 [ 5, %entry ], [ %spec.select, %_ZN10scoped_mpfD2Ev.exit15 ]
+if.end23:                                         ; preds = %_ZN10scoped_mpfD2Ev.exit15, %entry
+  br label %return
+
+return:                                           ; preds = %_ZN10scoped_mpfD2Ev.exit15, %if.end23
+  %retval.1 = phi i32 [ 4, %_ZN10scoped_mpfD2Ev.exit15 ], [ 5, %if.end23 ]
   ret i32 %retval.1
 }
 
@@ -6523,7 +6551,7 @@ entry:
   %bf.load.i.i = load i32, ptr %m_kind.i.i, align 4
   %bf.clear.i.i = and i32 %bf.load.i.i, 65535
   %cmp.i = icmp eq i32 %bf.clear.i.i, 0
-  br i1 %cmp.i, label %land.rhs.i, label %return
+  br i1 %cmp.i, label %land.rhs.i, label %if.end163
 
 land.rhs.i:                                       ; preds = %entry
   %m_decl.i.i = getelementptr inbounds i8, ptr %arg, i64 16
@@ -6531,7 +6559,7 @@ land.rhs.i:                                       ; preds = %entry
   %m_info.i.i.i = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load ptr, ptr %m_info.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %2, null
-  br i1 %tobool.not.i.i.i, label %return, label %_Z9is_app_ofPK4exprii.exit
+  br i1 %tobool.not.i.i.i, label %if.end163, label %_Z9is_app_ofPK4exprii.exit
 
 _Z9is_app_ofPK4exprii.exit:                       ; preds = %land.rhs.i
   %3 = load i32, ptr %2, align 8
@@ -6540,7 +6568,7 @@ _Z9is_app_ofPK4exprii.exit:                       ; preds = %land.rhs.i
   %4 = load i32, ptr %m_kind.i.i.i.i, align 4
   %cmp2.i.i.i.i = icmp eq i32 %4, 37
   %5 = select i1 %cmp.i.i.i.i, i1 %cmp2.i.i.i.i, i1 false
-  br i1 %5, label %if.then, label %return
+  br i1 %5, label %if.then, label %if.end163
 
 if.then:                                          ; preds = %_Z9is_app_ofPK4exprii.exit
   %6 = load ptr, ptr %this, align 8
@@ -6932,7 +6960,7 @@ cleanup153.critedge:                              ; preds = %if.then145
   br label %cleanup153
 
 cleanup153:                                       ; preds = %land.rhs.i.i77, %land.lhs.true50, %land.rhs.i.i64, %land.lhs.true, %land.rhs.i.i, %invoke.cont40, %if.then2.i.i.i211, %if.then.i.i.i206, %_ZN7obj_refI4expr11ast_managerED2Ev.exit204, %invoke.cont44, %invoke.cont48, %invoke.cont53, %invoke.cont94, %cleanup153.critedge
-  %switch = phi i32 [ 4, %cleanup153.critedge ], [ 5, %invoke.cont94 ], [ 5, %invoke.cont53 ], [ 5, %invoke.cont48 ], [ 5, %invoke.cont44 ], [ 5, %_ZN7obj_refI4expr11ast_managerED2Ev.exit204 ], [ 5, %if.then.i.i.i206 ], [ 5, %if.then2.i.i.i211 ], [ 5, %invoke.cont40 ], [ 5, %land.rhs.i.i ], [ 5, %land.lhs.true ], [ 5, %land.rhs.i.i64 ], [ 5, %land.lhs.true50 ], [ 5, %land.rhs.i.i77 ]
+  %switch = phi i1 [ false, %cleanup153.critedge ], [ true, %invoke.cont94 ], [ true, %invoke.cont53 ], [ true, %invoke.cont48 ], [ true, %invoke.cont44 ], [ true, %_ZN7obj_refI4expr11ast_managerED2Ev.exit204 ], [ true, %if.then.i.i.i206 ], [ true, %if.then2.i.i.i211 ], [ true, %invoke.cont40 ], [ true, %land.rhs.i.i ], [ true, %land.lhs.true ], [ true, %land.rhs.i.i64 ], [ true, %land.lhs.true50 ], [ true, %land.rhs.i.i77 ]
   %77 = load ptr, ptr %a2, align 8
   %tobool.not.i.i214 = icmp eq ptr %77, null
   br i1 %tobool.not.i.i214, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit222, label %if.then.i.i.i215
@@ -7010,7 +7038,7 @@ terminate.lpad.i239:                              ; preds = %if.then2.i.i.i238
 _ZN7obj_refI4expr11ast_managerED2Ev.exit240:      ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit231, %if.then.i.i.i233, %if.then2.i.i.i238
   %92 = load ptr, ptr %fpsrt, align 8
   %tobool.not.i.i241 = icmp eq ptr %92, null
-  br i1 %tobool.not.i.i241, label %return, label %if.then.i.i.i242
+  br i1 %tobool.not.i.i241, label %_ZN7obj_refI4sort11ast_managerED2Ev.exit, label %if.then.i.i.i242
 
 if.then.i.i.i242:                                 ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit240
   %93 = load ptr, ptr %m_manager.i, align 8
@@ -7019,11 +7047,11 @@ if.then.i.i.i242:                                 ; preds = %_ZN7obj_refI4expr11
   %dec.i.i.i.i245 = add i32 %94, -1
   store i32 %dec.i.i.i.i245, ptr %m_ref_count.i.i.i.i244, align 4
   %cmp.i.i.i246 = icmp eq i32 %dec.i.i.i.i245, 0
-  br i1 %cmp.i.i.i246, label %if.then2.i.i.i247, label %return
+  br i1 %cmp.i.i.i246, label %if.then2.i.i.i247, label %_ZN7obj_refI4sort11ast_managerED2Ev.exit
 
 if.then2.i.i.i247:                                ; preds = %if.then.i.i.i242
   invoke void @_ZN11ast_manager11delete_nodeEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %93, ptr noundef nonnull %92)
-          to label %return unwind label %terminate.lpad.i248
+          to label %_ZN7obj_refI4sort11ast_managerED2Ev.exit unwind label %terminate.lpad.i248
 
 terminate.lpad.i248:                              ; preds = %if.then2.i.i.i247
   %95 = landingpad { ptr, i32 }
@@ -7031,6 +7059,9 @@ terminate.lpad.i248:                              ; preds = %if.then2.i.i.i247
   %96 = extractvalue { ptr, i32 } %95, 0
   call void @__clang_call_terminate(ptr %96) #14
   unreachable
+
+_ZN7obj_refI4sort11ast_managerED2Ev.exit:         ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit240, %if.then.i.i.i242, %if.then2.i.i.i247
+  br i1 %switch, label %if.end163, label %return
 
 ehcleanup154:                                     ; preds = %lpad109, %lpad23
   %.pn.pn.pn = phi { ptr, i32 } [ %61, %lpad109 ], [ %60, %lpad23 ]
@@ -7040,8 +7071,11 @@ ehcleanup154:                                     ; preds = %lpad109, %lpad23
   call void @_ZN7obj_refI4sort11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %fpsrt) #13
   resume { ptr, i32 } %.pn.pn.pn
 
-return:                                           ; preds = %if.then2.i.i.i247, %if.then.i.i.i242, %_ZN7obj_refI4expr11ast_managerED2Ev.exit240, %land.rhs.i, %entry, %_Z9is_app_ofPK4exprii.exit
-  %retval.3 = phi i32 [ 5, %_Z9is_app_ofPK4exprii.exit ], [ 5, %entry ], [ 5, %land.rhs.i ], [ %switch, %_ZN7obj_refI4expr11ast_managerED2Ev.exit240 ], [ %switch, %if.then.i.i.i242 ], [ %switch, %if.then2.i.i.i247 ]
+if.end163:                                        ; preds = %land.rhs.i, %entry, %_ZN7obj_refI4sort11ast_managerED2Ev.exit, %_Z9is_app_ofPK4exprii.exit
+  br label %return
+
+return:                                           ; preds = %_ZN7obj_refI4sort11ast_managerED2Ev.exit, %if.end163
+  %retval.3 = phi i32 [ 4, %_ZN7obj_refI4sort11ast_managerED2Ev.exit ], [ 5, %if.end163 ]
   ret i32 %retval.3
 }
 

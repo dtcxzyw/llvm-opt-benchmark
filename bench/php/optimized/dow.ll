@@ -13,82 +13,98 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden i64 @timelib_day_of_week(i64 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = srem i64 %0, 400
-  %5 = icmp slt i64 %4, 0
-  %6 = select i1 %5, i64 400, i64 0
-  %spec.select.i.i = add nsw i64 %6, %4
+  %5 = srem i64 %0, 100
+  %6 = and i64 %0, 3
+  %7 = icmp eq i64 %6, 0
+  br i1 %7, label %8, label %10
+
+8:                                                ; preds = %3
+  %.not.i = icmp ne i64 %5, 0
+  %9 = icmp eq i64 %4, 0
+  %or.cond.i = or i1 %.not.i, %9
+  br i1 %or.cond.i, label %timelib_day_of_week_ex.exit, label %10
+
+10:                                               ; preds = %8, %3
+  br label %timelib_day_of_week_ex.exit
+
+timelib_day_of_week_ex.exit:                      ; preds = %8, %10
+  %m_table_leap.pn.i = phi ptr [ @m_table_common, %10 ], [ @m_table_leap, %8 ]
+  %11 = icmp slt i64 %5, 0
+  %12 = select i1 %11, i64 100, i64 0
+  %spec.select.i17.i = add nsw i64 %12, %5
+  %13 = icmp slt i64 %4, 0
+  %14 = select i1 %13, i64 400, i64 0
+  %spec.select.i.i = add nsw i64 %14, %4
   %.lhs.trunc.i = trunc nsw i64 %spec.select.i.i to i16
-  %7 = sdiv i16 %.lhs.trunc.i, 100
-  %.sext.i = sext i16 %7 to i64
+  %15 = sdiv i16 %.lhs.trunc.i, 100
+  %.sext.i = sext i16 %15 to i64
   %spec.select.i.i.i = shl nsw i64 %.sext.i, 1
   %spec.select.i.not.i.i = and i64 %spec.select.i.i.i, 6
-  %8 = xor i64 %spec.select.i.not.i.i, 6
-  %9 = srem i64 %0, 100
-  %10 = icmp slt i64 %9, 0
-  %11 = select i1 %10, i64 100, i64 0
-  %spec.select.i17.i = add nsw i64 %11, %9
-  %12 = and i64 %0, 3
-  %13 = icmp eq i64 %12, 0
-  %.not.i = icmp ne i64 %9, 0
-  %14 = icmp eq i64 %4, 0
-  %or.cond.i = or i1 %.not.i, %14
-  %15 = and i1 %13, %or.cond.i
-  %m_table_leap.pn.i = select i1 %15, ptr @m_table_leap, ptr @m_table_common
+  %16 = xor i64 %spec.select.i.not.i.i, 6
   %.in.i = getelementptr inbounds [13 x i32], ptr %m_table_leap.pn.i, i64 0, i64 %1
-  %16 = load i32, ptr %.in.i, align 4
-  %17 = sext i32 %16 to i64
+  %17 = load i32, ptr %.in.i, align 4
+  %18 = sext i32 %17 to i64
   %.lhs.trunc19.i = trunc nsw i64 %spec.select.i17.i to i16
-  %18 = sdiv i16 %.lhs.trunc19.i, 4
-  %.sext20.i = sext i16 %18 to i64
-  %19 = add i64 %spec.select.i17.i, %2
-  %20 = add i64 %19, %.sext20.i
-  %21 = add i64 %20, %8
-  %22 = add i64 %21, %17
-  %23 = srem i64 %22, 7
-  %24 = icmp slt i64 %23, 0
-  %25 = select i1 %24, i64 7, i64 0
-  %spec.select.i18.i = add nsw i64 %25, %23
+  %19 = sdiv i16 %.lhs.trunc19.i, 4
+  %.sext20.i = sext i16 %19 to i64
+  %20 = add i64 %spec.select.i17.i, %2
+  %21 = add i64 %20, %.sext20.i
+  %22 = add i64 %21, %16
+  %23 = add i64 %22, %18
+  %24 = srem i64 %23, 7
+  %25 = icmp slt i64 %24, 0
+  %26 = select i1 %25, i64 7, i64 0
+  %spec.select.i18.i = add nsw i64 %26, %24
   ret i64 %spec.select.i18.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden i64 @timelib_iso_day_of_week(i64 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = srem i64 %0, 400
-  %5 = icmp slt i64 %4, 0
-  %6 = select i1 %5, i64 400, i64 0
-  %spec.select.i.i = add nsw i64 %6, %4
+  %5 = srem i64 %0, 100
+  %6 = and i64 %0, 3
+  %7 = icmp eq i64 %6, 0
+  br i1 %7, label %8, label %10
+
+8:                                                ; preds = %3
+  %.not.i = icmp ne i64 %5, 0
+  %9 = icmp eq i64 %4, 0
+  %or.cond.i = or i1 %.not.i, %9
+  br i1 %or.cond.i, label %timelib_day_of_week_ex.exit, label %10
+
+10:                                               ; preds = %8, %3
+  br label %timelib_day_of_week_ex.exit
+
+timelib_day_of_week_ex.exit:                      ; preds = %8, %10
+  %m_table_leap.pn.i = phi ptr [ @m_table_common, %10 ], [ @m_table_leap, %8 ]
+  %11 = icmp slt i64 %5, 0
+  %12 = select i1 %11, i64 100, i64 0
+  %spec.select.i17.i = add nsw i64 %12, %5
+  %13 = icmp slt i64 %4, 0
+  %14 = select i1 %13, i64 400, i64 0
+  %spec.select.i.i = add nsw i64 %14, %4
   %.lhs.trunc.i = trunc nsw i64 %spec.select.i.i to i16
-  %7 = sdiv i16 %.lhs.trunc.i, 100
-  %.sext.i = sext i16 %7 to i64
+  %15 = sdiv i16 %.lhs.trunc.i, 100
+  %.sext.i = sext i16 %15 to i64
   %spec.select.i.i.i = shl nsw i64 %.sext.i, 1
   %spec.select.i.not.i.i = and i64 %spec.select.i.i.i, 6
-  %8 = xor i64 %spec.select.i.not.i.i, 6
-  %9 = srem i64 %0, 100
-  %10 = icmp slt i64 %9, 0
-  %11 = select i1 %10, i64 100, i64 0
-  %spec.select.i17.i = add nsw i64 %11, %9
-  %12 = and i64 %0, 3
-  %13 = icmp eq i64 %12, 0
-  %.not.i = icmp ne i64 %9, 0
-  %14 = icmp eq i64 %4, 0
-  %or.cond.i = or i1 %.not.i, %14
-  %15 = and i1 %13, %or.cond.i
-  %m_table_leap.pn.i = select i1 %15, ptr @m_table_leap, ptr @m_table_common
+  %16 = xor i64 %spec.select.i.not.i.i, 6
   %.in.i = getelementptr inbounds [13 x i32], ptr %m_table_leap.pn.i, i64 0, i64 %1
-  %16 = load i32, ptr %.in.i, align 4
-  %17 = sext i32 %16 to i64
+  %17 = load i32, ptr %.in.i, align 4
+  %18 = sext i32 %17 to i64
   %.lhs.trunc19.i = trunc nsw i64 %spec.select.i17.i to i16
-  %18 = sdiv i16 %.lhs.trunc19.i, 4
-  %.sext20.i = sext i16 %18 to i64
-  %19 = add i64 %spec.select.i17.i, %2
-  %20 = add i64 %19, %.sext20.i
-  %21 = add i64 %20, %8
-  %22 = add i64 %21, %17
-  %23 = srem i64 %22, 7
-  %24 = icmp slt i64 %23, 0
-  %25 = select i1 %24, i64 7, i64 0
-  %spec.select.i18.i = add nsw i64 %25, %23
-  %26 = icmp eq i64 %spec.select.i18.i, 0
-  %spec.store.select.i = select i1 %26, i64 7, i64 %spec.select.i18.i
+  %19 = sdiv i16 %.lhs.trunc19.i, 4
+  %.sext20.i = sext i16 %19 to i64
+  %20 = add i64 %spec.select.i17.i, %2
+  %21 = add i64 %20, %.sext20.i
+  %22 = add i64 %21, %16
+  %23 = add i64 %22, %18
+  %24 = srem i64 %23, 7
+  %25 = icmp slt i64 %24, 0
+  %26 = select i1 %25, i64 7, i64 0
+  %spec.select.i18.i = add nsw i64 %26, %24
+  %27 = icmp eq i64 %spec.select.i18.i, 0
+  %spec.store.select.i = select i1 %27, i64 7, i64 %spec.select.i18.i
   ret i64 %spec.store.select.i
 }
 
@@ -104,17 +120,19 @@ define hidden i64 @timelib_day_of_year(i64 noundef %0, i64 noundef %1, i64 nound
   %8 = srem i64 %0, 400
   %9 = icmp eq i64 %8, 0
   %or.cond = or i1 %.not, %9
-  %spec.select = select i1 %or.cond, ptr @d_table_leap, ptr @d_table_common
-  br label %10
+  br i1 %or.cond, label %11, label %10
 
 10:                                               ; preds = %6, %3
-  %d_table_leap.pn = phi ptr [ @d_table_common, %3 ], [ %spec.select, %6 ]
+  br label %11
+
+11:                                               ; preds = %6, %10
+  %d_table_leap.pn = phi ptr [ @d_table_common, %10 ], [ @d_table_leap, %6 ]
   %.in = getelementptr inbounds [13 x i32], ptr %d_table_leap.pn, i64 0, i64 %1
-  %11 = load i32, ptr %.in, align 4
-  %12 = sext i32 %11 to i64
-  %13 = add i64 %2, -1
-  %14 = add i64 %13, %12
-  ret i64 %14
+  %12 = load i32, ptr %.in, align 4
+  %13 = sext i32 %12 to i64
+  %14 = add i64 %2, -1
+  %15 = add i64 %14, %13
+  ret i64 %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -129,15 +147,17 @@ define hidden i64 @timelib_days_in_month(i64 noundef %0, i64 noundef %1) local_u
   %7 = srem i64 %0, 400
   %8 = icmp eq i64 %7, 0
   %or.cond = or i1 %.not, %8
-  %spec.select = select i1 %or.cond, ptr @ml_table_leap, ptr @ml_table_common
-  br label %9
+  br i1 %or.cond, label %10, label %9
 
 9:                                                ; preds = %5, %2
-  %ml_table_leap.pn = phi ptr [ @ml_table_common, %2 ], [ %spec.select, %5 ]
+  br label %10
+
+10:                                               ; preds = %5, %9
+  %ml_table_leap.pn = phi ptr [ @ml_table_common, %9 ], [ @ml_table_leap, %5 ]
   %.in = getelementptr inbounds [13 x i32], ptr %ml_table_leap.pn, i64 0, i64 %1
-  %10 = load i32, ptr %.in, align 4
-  %11 = sext i32 %10 to i64
-  ret i64 %11
+  %11 = load i32, ptr %.in, align 4
+  %12 = sext i32 %11 to i64
+  ret i64 %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
@@ -175,12 +195,7 @@ define hidden void @timelib_isoweek_from_date(i64 noundef %0, i64 noundef %1, i6
 
 23:                                               ; preds = %18, %20, %13
   %24 = phi i1 [ false, %13 ], [ true, %18 ], [ %22, %20 ]
-  br i1 %7, label %25, label %.timelib_day_of_year.exit_crit_edge
-
-.timelib_day_of_year.exit_crit_edge:              ; preds = %23
-  %.pre = srem i64 %0, 400
-  %.pre73 = srem i64 %0, 100
-  br label %timelib_day_of_year.exit
+  br i1 %7, label %25, label %timelib_day_of_year.exit
 
 25:                                               ; preds = %23
   %26 = srem i64 %0, 100
@@ -188,129 +203,156 @@ define hidden void @timelib_isoweek_from_date(i64 noundef %0, i64 noundef %1, i6
   %27 = srem i64 %0, 400
   %28 = icmp eq i64 %27, 0
   %or.cond.i = or i1 %.not.i, %28
-  %spec.select.i = select i1 %or.cond.i, ptr @d_table_leap, ptr @d_table_common
-  br label %timelib_day_of_year.exit
-
-timelib_day_of_year.exit:                         ; preds = %.timelib_day_of_year.exit_crit_edge, %25
-  %.pre-phi74 = phi i64 [ %.pre73, %.timelib_day_of_year.exit_crit_edge ], [ %26, %25 ]
-  %.pre-phi = phi i64 [ %.pre, %.timelib_day_of_year.exit_crit_edge ], [ %27, %25 ]
-  %d_table_leap.pn.i = phi ptr [ @d_table_common, %.timelib_day_of_year.exit_crit_edge ], [ %spec.select.i, %25 ]
-  %.in.i = getelementptr inbounds [13 x i32], ptr %d_table_leap.pn.i, i64 0, i64 %1
-  %29 = load i32, ptr %.in.i, align 4
+  %spec.select91 = select i1 %or.cond.i, ptr @d_table_leap, ptr @d_table_common
+  %.in.i79 = getelementptr inbounds [13 x i32], ptr %spec.select91, i64 0, i64 %1
+  %29 = load i32, ptr %.in.i79, align 4
   %30 = trunc i64 %2 to i32
   %31 = add i32 %29, %30
   %32 = icmp sgt i64 %1, 2
-  %or.cond = and i1 %32, %14
-  %33 = zext i1 %or.cond to i32
-  %spec.select = add i32 %31, %33
-  %34 = icmp slt i64 %.pre-phi, 0
-  %35 = select i1 %34, i64 400, i64 0
-  %spec.select.i.i.i = add nsw i64 %35, %.pre-phi
+  %or.cond80 = and i1 %32, %14
+  %33 = zext i1 %or.cond80 to i32
+  %spec.select81 = add i32 %31, %33
+  %.not.i.i = icmp ne i64 %26, 0
+  %34 = icmp eq i64 %27, 0
+  %or.cond.i.i = or i1 %.not.i.i, %34
+  %spec.select93 = select i1 %or.cond.i.i, ptr @m_table_leap, ptr @m_table_common
+  br label %timelib_day_of_week.exit
+
+timelib_day_of_year.exit:                         ; preds = %23
+  %.pre75 = srem i64 %0, 400
+  %.pre = srem i64 %0, 100
+  %.in.i = getelementptr inbounds [13 x i32], ptr @d_table_common, i64 0, i64 %1
+  %35 = load i32, ptr %.in.i, align 4
+  %36 = trunc i64 %2 to i32
+  %37 = add i32 %35, %36
+  %38 = icmp sgt i64 %1, 2
+  %or.cond = and i1 %38, %14
+  %39 = zext i1 %or.cond to i32
+  %spec.select = add i32 %37, %39
+  br label %timelib_day_of_week.exit
+
+timelib_day_of_week.exit:                         ; preds = %25, %timelib_day_of_year.exit
+  %spec.select89 = phi i32 [ %spec.select, %timelib_day_of_year.exit ], [ %spec.select81, %25 ]
+  %.pre-phi86 = phi i64 [ %.pre75, %timelib_day_of_year.exit ], [ %27, %25 ]
+  %.pre-phi7483 = phi i64 [ %.pre, %timelib_day_of_year.exit ], [ %26, %25 ]
+  %m_table_leap.pn.i.i = phi ptr [ @m_table_common, %timelib_day_of_year.exit ], [ %spec.select93, %25 ]
+  %40 = icmp slt i64 %.pre-phi7483, 0
+  %41 = select i1 %40, i64 100, i64 0
+  %spec.select.i17.i.i = add nsw i64 %41, %.pre-phi7483
+  %42 = icmp slt i64 %.pre-phi86, 0
+  %43 = select i1 %42, i64 400, i64 0
+  %spec.select.i.i.i = add nsw i64 %43, %.pre-phi86
   %.lhs.trunc.i.i = trunc nsw i64 %spec.select.i.i.i to i16
-  %36 = sdiv i16 %.lhs.trunc.i.i, 100
-  %.sext.i.i = sext i16 %36 to i64
+  %44 = sdiv i16 %.lhs.trunc.i.i, 100
+  %.sext.i.i = sext i16 %44 to i64
   %spec.select.i.i.i.i = shl nsw i64 %.sext.i.i, 1
   %spec.select.i.not.i.i.i = and i64 %spec.select.i.i.i.i, 6
-  %37 = xor i64 %spec.select.i.not.i.i.i, 6
-  %38 = icmp slt i64 %.pre-phi74, 0
-  %39 = select i1 %38, i64 100, i64 0
-  %spec.select.i17.i.i = add nsw i64 %39, %.pre-phi74
-  %.not.i.i = icmp ne i64 %.pre-phi74, 0
-  %40 = icmp eq i64 %.pre-phi, 0
-  %or.cond.i.i = or i1 %.not.i.i, %40
-  %41 = and i1 %7, %or.cond.i.i
-  %m_table_leap.pn.i.i = select i1 %41, ptr @m_table_leap, ptr @m_table_common
-  %42 = select i1 %41, i64 6, i64 0
+  %45 = xor i64 %spec.select.i.not.i.i.i, 6
+  %.in.i.i = getelementptr inbounds i8, ptr %m_table_leap.pn.i.i, i64 4
+  %46 = load i32, ptr %.in.i.i, align 4
+  %47 = sext i32 %46 to i64
   %.lhs.trunc19.i.i = trunc nsw i64 %spec.select.i17.i.i to i16
-  %43 = sdiv i16 %.lhs.trunc19.i.i, 4
-  %.sext20.i.i = sext i16 %43 to i64
-  %44 = add nsw i64 %spec.select.i17.i.i, %.sext20.i.i
-  %45 = add nsw i64 %44, 1
-  %46 = add nsw i64 %45, %42
-  %47 = add nsw i64 %46, %37
-  %.lhs.trunc = trunc i64 %47 to i16
-  %48 = srem i16 %.lhs.trunc, 7
-  %.sext = sext i16 %48 to i32
-  %49 = icmp slt i16 %48, 0
-  %50 = select i1 %49, i32 7, i32 0
-  %spec.select.i18.i.i = add nsw i32 %50, %.sext
-  %.in.i.i66 = getelementptr inbounds [13 x i32], ptr %m_table_leap.pn.i.i, i64 0, i64 %1
-  %51 = load i32, ptr %.in.i.i66, align 4
-  %52 = sext i32 %51 to i64
-  %53 = add i64 %44, %2
-  %54 = add i64 %53, %37
-  %55 = add i64 %54, %52
-  %56 = srem i64 %55, 7
-  %57 = icmp slt i64 %56, 0
-  %58 = select i1 %57, i64 7, i64 0
-  %spec.select.i18.i.i69 = add nsw i64 %58, %56
-  %59 = trunc nsw i64 %spec.select.i18.i.i69 to i32
-  %60 = icmp eq i32 %59, 0
-  %spec.store.select = select i1 %60, i32 7, i32 %59
-  %61 = icmp eq i32 %spec.select.i18.i.i, 0
-  %spec.store.select6 = select i1 %61, i32 7, i32 %spec.select.i18.i.i
-  %62 = sub nsw i32 8, %spec.store.select6
-  %63 = icmp sle i32 %spec.select, %62
-  %64 = icmp sgt i32 %spec.store.select6, 4
-  %or.cond3 = and i1 %64, %63
-  br i1 %or.cond3, label %65, label %70
+  %48 = sdiv i16 %.lhs.trunc19.i.i, 4
+  %.sext20.i.i = sext i16 %48 to i64
+  %49 = add nsw i64 %spec.select.i17.i.i, %.sext20.i.i
+  %50 = or i64 %spec.select.i.i.i.i, -7
+  %sub = sub nsw i64 %49, %50
+  %51 = add nsw i64 %sub, %47
+  %52 = srem i64 %51, 7
+  %53 = icmp slt i64 %52, 0
+  %54 = select i1 %53, i64 7, i64 0
+  %spec.select.i18.i.i = add nsw i64 %54, %52
+  %55 = trunc nsw i64 %spec.select.i18.i.i to i32
+  br i1 %7, label %56, label %58
 
-65:                                               ; preds = %timelib_day_of_year.exit
+56:                                               ; preds = %timelib_day_of_week.exit
+  %.not.i.i68 = icmp ne i64 %.pre-phi7483, 0
+  %57 = icmp eq i64 %.pre-phi86, 0
+  %or.cond.i.i69 = or i1 %.not.i.i68, %57
+  br i1 %or.cond.i.i69, label %timelib_day_of_week.exit70, label %58
+
+58:                                               ; preds = %56, %timelib_day_of_week.exit
+  br label %timelib_day_of_week.exit70
+
+timelib_day_of_week.exit70:                       ; preds = %56, %58
+  %m_table_leap.pn.i.i57 = phi ptr [ @m_table_common, %58 ], [ @m_table_leap, %56 ]
+  %.in.i.i64 = getelementptr inbounds [13 x i32], ptr %m_table_leap.pn.i.i57, i64 0, i64 %1
+  %59 = load i32, ptr %.in.i.i64, align 4
+  %60 = sext i32 %59 to i64
+  %61 = add i64 %49, %2
+  %62 = add i64 %61, %45
+  %63 = add i64 %62, %60
+  %64 = srem i64 %63, 7
+  %65 = icmp slt i64 %64, 0
+  %66 = select i1 %65, i64 7, i64 0
+  %spec.select.i18.i.i67 = add nsw i64 %66, %64
+  %67 = trunc nsw i64 %spec.select.i18.i.i67 to i32
+  %68 = icmp eq i32 %67, 0
+  %spec.store.select = select i1 %68, i32 7, i32 %67
+  %69 = icmp eq i32 %55, 0
+  %spec.store.select6 = select i1 %69, i32 7, i32 %55
+  %70 = sub nsw i32 8, %spec.store.select6
+  %71 = icmp sle i32 %spec.select89, %70
+  %72 = icmp sgt i32 %spec.store.select6, 4
+  %or.cond3 = and i1 %72, %71
+  br i1 %or.cond3, label %73, label %78
+
+73:                                               ; preds = %timelib_day_of_week.exit70
   store i64 %15, ptr %4, align 8
-  %66 = icmp eq i32 %spec.store.select6, 5
-  %67 = icmp eq i32 %spec.store.select6, 6
-  %or.cond5 = and i1 %67, %24
-  %or.cond56 = or i1 %66, %or.cond5
-  br i1 %or.cond56, label %68, label %69
+  %74 = icmp eq i32 %spec.store.select6, 5
+  %75 = icmp eq i32 %spec.store.select6, 6
+  %or.cond5 = and i1 %24, %75
+  %or.cond56 = or i1 %74, %or.cond5
+  br i1 %or.cond56, label %76, label %77
 
-68:                                               ; preds = %65
+76:                                               ; preds = %73
   store i64 53, ptr %3, align 8
-  br label %71
+  br label %79
 
-69:                                               ; preds = %65
+77:                                               ; preds = %73
   store i64 52, ptr %3, align 8
-  br label %71
+  br label %79
 
-70:                                               ; preds = %timelib_day_of_year.exit
+78:                                               ; preds = %timelib_day_of_week.exit70
   store i64 %0, ptr %4, align 8
-  br label %71
+  br label %79
 
-71:                                               ; preds = %68, %69, %70
-  %72 = load i64, ptr %4, align 8
-  %73 = icmp eq i64 %72, %0
-  br i1 %73, label %74, label %87
+79:                                               ; preds = %76, %77, %78
+  %80 = load i64, ptr %4, align 8
+  %81 = icmp eq i64 %80, %0
+  br i1 %81, label %82, label %95
 
-74:                                               ; preds = %71
+82:                                               ; preds = %79
   %.neg71 = select i1 %14, i32 367, i32 365
-  %75 = sub i32 %.neg71, %spec.select
-  %76 = sub nsw i32 4, %spec.store.select
-  %77 = icmp slt i32 %75, %76
-  br i1 %77, label %78, label %80
+  %83 = sub i32 %.neg71, %spec.select89
+  %84 = sub nsw i32 4, %spec.store.select
+  %85 = icmp slt i32 %83, %84
+  br i1 %85, label %86, label %88
 
-78:                                               ; preds = %74
-  %79 = add nsw i64 %0, 1
-  store i64 %79, ptr %4, align 8
+86:                                               ; preds = %82
+  %87 = add nsw i64 %0, 1
+  store i64 %87, ptr %4, align 8
   br label %.sink.split
 
-80:                                               ; preds = %74
-  %reass.sub = add nsw i32 %spec.store.select6, 6
-  %81 = add i32 %reass.sub, %spec.select
-  %82 = sub i32 %81, %spec.store.select
-  %83 = sdiv i32 %82, 7
-  %84 = sext i32 %83 to i64
-  store i64 %84, ptr %3, align 8
-  br i1 %64, label %85, label %87
+88:                                               ; preds = %82
+  %reass.sub = add i32 %spec.select89, 6
+  %89 = add i32 %reass.sub, %spec.store.select6
+  %90 = sub i32 %89, %spec.store.select
+  %91 = sdiv i32 %90, 7
+  %92 = sext i32 %91 to i64
+  store i64 %92, ptr %3, align 8
+  br i1 %72, label %93, label %95
 
-85:                                               ; preds = %80
-  %86 = add nsw i64 %84, -1
+93:                                               ; preds = %88
+  %94 = add nsw i64 %92, -1
   br label %.sink.split
 
-.sink.split:                                      ; preds = %78, %85
-  %.sink = phi i64 [ %86, %85 ], [ 1, %78 ]
+.sink.split:                                      ; preds = %86, %93
+  %.sink = phi i64 [ %94, %93 ], [ 1, %86 ]
   store i64 %.sink, ptr %3, align 8
-  br label %87
+  br label %95
 
-87:                                               ; preds = %.sink.split, %71, %80
+95:                                               ; preds = %.sink.split, %79, %88
   ret void
 }
 
@@ -318,42 +360,50 @@ timelib_day_of_year.exit:                         ; preds = %.timelib_day_of_yea
 define hidden void @timelib_isodate_from_date(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #1 {
   tail call void @timelib_isoweek_from_date(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %4, ptr noundef %3)
   %7 = srem i64 %0, 400
-  %8 = icmp slt i64 %7, 0
-  %9 = select i1 %8, i64 400, i64 0
-  %spec.select.i.i = add nsw i64 %9, %7
+  %8 = srem i64 %0, 100
+  %9 = and i64 %0, 3
+  %10 = icmp eq i64 %9, 0
+  br i1 %10, label %11, label %13
+
+11:                                               ; preds = %6
+  %.not.i = icmp ne i64 %8, 0
+  %12 = icmp eq i64 %7, 0
+  %or.cond.i = or i1 %.not.i, %12
+  br i1 %or.cond.i, label %timelib_day_of_week_ex.exit, label %13
+
+13:                                               ; preds = %11, %6
+  br label %timelib_day_of_week_ex.exit
+
+timelib_day_of_week_ex.exit:                      ; preds = %11, %13
+  %m_table_leap.pn.i = phi ptr [ @m_table_common, %13 ], [ @m_table_leap, %11 ]
+  %14 = icmp slt i64 %8, 0
+  %15 = select i1 %14, i64 100, i64 0
+  %spec.select.i17.i = add nsw i64 %15, %8
+  %16 = icmp slt i64 %7, 0
+  %17 = select i1 %16, i64 400, i64 0
+  %spec.select.i.i = add nsw i64 %17, %7
   %.lhs.trunc.i = trunc nsw i64 %spec.select.i.i to i16
-  %10 = sdiv i16 %.lhs.trunc.i, 100
-  %.sext.i = sext i16 %10 to i64
+  %18 = sdiv i16 %.lhs.trunc.i, 100
+  %.sext.i = sext i16 %18 to i64
   %spec.select.i.i.i = shl nsw i64 %.sext.i, 1
   %spec.select.i.not.i.i = and i64 %spec.select.i.i.i, 6
-  %11 = xor i64 %spec.select.i.not.i.i, 6
-  %12 = srem i64 %0, 100
-  %13 = icmp slt i64 %12, 0
-  %14 = select i1 %13, i64 100, i64 0
-  %spec.select.i17.i = add nsw i64 %14, %12
-  %15 = and i64 %0, 3
-  %16 = icmp eq i64 %15, 0
-  %.not.i = icmp ne i64 %12, 0
-  %17 = icmp eq i64 %7, 0
-  %or.cond.i = or i1 %.not.i, %17
-  %18 = and i1 %16, %or.cond.i
-  %m_table_leap.pn.i = select i1 %18, ptr @m_table_leap, ptr @m_table_common
+  %19 = xor i64 %spec.select.i.not.i.i, 6
   %.in.i = getelementptr inbounds [13 x i32], ptr %m_table_leap.pn.i, i64 0, i64 %1
-  %19 = load i32, ptr %.in.i, align 4
-  %20 = sext i32 %19 to i64
+  %20 = load i32, ptr %.in.i, align 4
+  %21 = sext i32 %20 to i64
   %.lhs.trunc19.i = trunc nsw i64 %spec.select.i17.i to i16
-  %21 = sdiv i16 %.lhs.trunc19.i, 4
-  %.sext20.i = sext i16 %21 to i64
-  %22 = add i64 %spec.select.i17.i, %2
-  %23 = add i64 %22, %.sext20.i
-  %24 = add i64 %23, %11
-  %25 = add i64 %24, %20
-  %26 = srem i64 %25, 7
-  %27 = icmp slt i64 %26, 0
-  %28 = select i1 %27, i64 7, i64 0
-  %spec.select.i18.i = add nsw i64 %28, %26
-  %29 = icmp eq i64 %spec.select.i18.i, 0
-  %spec.store.select.i = select i1 %29, i64 7, i64 %spec.select.i18.i
+  %22 = sdiv i16 %.lhs.trunc19.i, 4
+  %.sext20.i = sext i16 %22 to i64
+  %23 = add i64 %spec.select.i17.i, %2
+  %24 = add i64 %23, %.sext20.i
+  %25 = add i64 %24, %19
+  %26 = add i64 %25, %21
+  %27 = srem i64 %26, 7
+  %28 = icmp slt i64 %27, 0
+  %29 = select i1 %28, i64 7, i64 0
+  %spec.select.i18.i = add nsw i64 %29, %27
+  %30 = icmp eq i64 %spec.select.i18.i, 0
+  %spec.store.select.i = select i1 %30, i64 7, i64 %spec.select.i18.i
   store i64 %spec.store.select.i, ptr %5, align 8
   ret void
 }
@@ -361,189 +411,216 @@ define hidden void @timelib_isodate_from_date(i64 noundef %0, i64 noundef %1, i6
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden i64 @timelib_daynr_from_weeknr(i64 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = srem i64 %0, 400
-  %5 = icmp slt i64 %4, 0
-  %6 = select i1 %5, i64 400, i64 0
-  %spec.select.i.i.i = add nsw i64 %6, %4
+  %5 = srem i64 %0, 100
+  %6 = and i64 %0, 3
+  %7 = icmp eq i64 %6, 0
+  br i1 %7, label %8, label %10
+
+8:                                                ; preds = %3
+  %.not.i.i = icmp ne i64 %5, 0
+  %9 = icmp eq i64 %4, 0
+  %or.cond.i.i = or i1 %.not.i.i, %9
+  br i1 %or.cond.i.i, label %timelib_day_of_week.exit, label %10
+
+10:                                               ; preds = %8, %3
+  br label %timelib_day_of_week.exit
+
+timelib_day_of_week.exit:                         ; preds = %8, %10
+  %m_table_leap.pn.i.i = phi ptr [ @m_table_common, %10 ], [ @m_table_leap, %8 ]
+  %11 = icmp slt i64 %5, 0
+  %12 = select i1 %11, i64 100, i64 0
+  %spec.select.i17.i.i = add nsw i64 %12, %5
+  %13 = icmp slt i64 %4, 0
+  %14 = select i1 %13, i64 400, i64 0
+  %spec.select.i.i.i = add nsw i64 %14, %4
   %.lhs.trunc.i.i = trunc nsw i64 %spec.select.i.i.i to i16
-  %7 = sdiv i16 %.lhs.trunc.i.i, 100
-  %.sext.i.i = sext i16 %7 to i64
+  %15 = sdiv i16 %.lhs.trunc.i.i, 100
+  %.sext.i.i = sext i16 %15 to i64
   %spec.select.i.i.i.i = shl nsw i64 %.sext.i.i, 1
   %spec.select.i.not.i.i.i = and i64 %spec.select.i.i.i.i, 6
-  %8 = xor i64 %spec.select.i.not.i.i.i, 6
-  %9 = srem i64 %0, 100
-  %10 = icmp slt i64 %9, 0
-  %11 = select i1 %10, i64 100, i64 0
-  %spec.select.i17.i.i = add nsw i64 %11, %9
-  %12 = and i64 %0, 3
-  %13 = icmp eq i64 %12, 0
-  %.not.i.i = icmp ne i64 %9, 0
-  %14 = icmp eq i64 %4, 0
-  %or.cond.i.i = or i1 %.not.i.i, %14
-  %15 = and i1 %13, %or.cond.i.i
-  %16 = select i1 %15, i64 6, i64 0
+  %16 = xor i64 %spec.select.i.not.i.i.i, 6
+  %.in.i.i = getelementptr inbounds i8, ptr %m_table_leap.pn.i.i, i64 4
+  %17 = load i32, ptr %.in.i.i, align 4
+  %18 = sext i32 %17 to i64
   %.lhs.trunc19.i.i = trunc nsw i64 %spec.select.i17.i.i to i16
-  %17 = sdiv i16 %.lhs.trunc19.i.i, 4
-  %.sext20.i.i = zext i16 %17 to i64
-  %18 = add nsw i64 %spec.select.i17.i.i, 1
-  %19 = add nsw i64 %18, %16
-  %20 = add nsw i64 %19, %.sext20.i.i
-  %21 = add nsw i64 %20, %8
-  %.lhs.trunc = trunc i64 %21 to i16
-  %22 = srem i16 %.lhs.trunc, 7
-  %.sext = sext i16 %22 to i64
-  %23 = icmp slt i16 %22, 0
-  %24 = select i1 %23, i64 7, i64 0
-  %spec.select.i18.i.i = add nsw i64 %24, %.sext
-  %25 = icmp sgt i64 %spec.select.i18.i.i, 4
-  %26 = add nsw i64 %spec.select.i18.i.i, -7
-  %27 = select i1 %25, i64 %26, i64 %spec.select.i18.i.i
-  %28 = mul i64 %1, 7
-  %29 = add i64 %28, -7
-  %30 = add i64 %29, %2
-  %31 = sub i64 %30, %27
-  ret i64 %31
+  %19 = sdiv i16 %.lhs.trunc19.i.i, 4
+  %.sext20.i.i = sext i16 %19 to i64
+  %20 = add nsw i64 %spec.select.i17.i.i, 1
+  %21 = add nsw i64 %20, %.sext20.i.i
+  %22 = add nsw i64 %21, %16
+  %23 = add nsw i64 %22, %18
+  %24 = srem i64 %23, 7
+  %25 = icmp slt i64 %24, 0
+  %26 = select i1 %25, i64 7, i64 0
+  %spec.select.i18.i.i = add nsw i64 %26, %24
+  %27 = icmp sgt i64 %spec.select.i18.i.i, 4
+  %28 = add nsw i64 %spec.select.i18.i.i, -7
+  %29 = select i1 %27, i64 %28, i64 %spec.select.i18.i.i
+  %30 = mul i64 %1, 7
+  %31 = add i64 %30, -7
+  %32 = add i64 %31, %2
+  %33 = sub i64 %32, %29
+  ret i64 %33
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
 define hidden void @timelib_date_from_isodate(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #2 {
   %7 = srem i64 %0, 400
-  %8 = icmp slt i64 %7, 0
-  %9 = select i1 %8, i64 400, i64 0
-  %spec.select.i.i.i.i = add nsw i64 %9, %7
+  %8 = srem i64 %0, 100
+  %9 = and i64 %0, 3
+  %10 = icmp eq i64 %9, 0
+  br i1 %10, label %11, label %13
+
+11:                                               ; preds = %6
+  %.not.i.i.i = icmp ne i64 %8, 0
+  %12 = icmp eq i64 %7, 0
+  %or.cond.i.i.i = or i1 %.not.i.i.i, %12
+  br i1 %or.cond.i.i.i, label %timelib_daynr_from_weeknr.exit, label %13
+
+13:                                               ; preds = %11, %6
+  br label %timelib_daynr_from_weeknr.exit
+
+timelib_daynr_from_weeknr.exit:                   ; preds = %11, %13
+  %m_table_leap.pn.i.i.i = phi ptr [ @m_table_common, %13 ], [ @m_table_leap, %11 ]
+  %14 = icmp slt i64 %8, 0
+  %15 = select i1 %14, i64 100, i64 0
+  %spec.select.i17.i.i.i = add nsw i64 %15, %8
+  %16 = icmp slt i64 %7, 0
+  %17 = select i1 %16, i64 400, i64 0
+  %spec.select.i.i.i.i = add nsw i64 %17, %7
   %.lhs.trunc.i.i.i = trunc nsw i64 %spec.select.i.i.i.i to i16
-  %10 = sdiv i16 %.lhs.trunc.i.i.i, 100
-  %.sext.i.i.i = sext i16 %10 to i64
+  %18 = sdiv i16 %.lhs.trunc.i.i.i, 100
+  %.sext.i.i.i = sext i16 %18 to i64
   %spec.select.i.i.i.i.i = shl nsw i64 %.sext.i.i.i, 1
   %spec.select.i.not.i.i.i.i = and i64 %spec.select.i.i.i.i.i, 6
-  %11 = xor i64 %spec.select.i.not.i.i.i.i, 6
-  %12 = srem i64 %0, 100
-  %13 = icmp slt i64 %12, 0
-  %14 = select i1 %13, i64 100, i64 0
-  %spec.select.i17.i.i.i = add nsw i64 %14, %12
-  %15 = and i64 %0, 3
-  %16 = icmp eq i64 %15, 0
-  %.not.i.i.i = icmp ne i64 %12, 0
-  %17 = icmp eq i64 %7, 0
-  %or.cond.i.i.i = or i1 %.not.i.i.i, %17
-  %18 = and i1 %16, %or.cond.i.i.i
-  %19 = select i1 %18, i64 6, i64 0
+  %19 = xor i64 %spec.select.i.not.i.i.i.i, 6
+  %.in.i.i.i = getelementptr inbounds i8, ptr %m_table_leap.pn.i.i.i, i64 4
+  %20 = load i32, ptr %.in.i.i.i, align 4
+  %21 = sext i32 %20 to i64
   %.lhs.trunc19.i.i.i = trunc nsw i64 %spec.select.i17.i.i.i to i16
-  %20 = sdiv i16 %.lhs.trunc19.i.i.i, 4
-  %.sext20.i.i.i = zext i16 %20 to i64
-  %21 = add nsw i64 %spec.select.i17.i.i.i, 1
-  %22 = add nsw i64 %21, %19
-  %23 = add nsw i64 %22, %.sext20.i.i.i
-  %24 = add nsw i64 %23, %11
-  %.lhs.trunc.i = trunc i64 %24 to i16
-  %25 = srem i16 %.lhs.trunc.i, 7
-  %.sext.i = sext i16 %25 to i64
-  %26 = icmp slt i16 %25, 0
-  %27 = select i1 %26, i64 7, i64 0
-  %spec.select.i18.i.i.i = add nsw i64 %27, %.sext.i
-  %28 = icmp sgt i64 %spec.select.i18.i.i.i, 4
-  %29 = add nsw i64 %spec.select.i18.i.i.i, -7
-  %30 = select i1 %28, i64 %29, i64 %spec.select.i18.i.i.i
-  %31 = mul i64 %1, 7
-  %32 = add i64 %31, -6
-  %33 = add i64 %32, %2
-  %34 = sub i64 %33, %30
+  %22 = sdiv i16 %.lhs.trunc19.i.i.i, 4
+  %.sext20.i.i.i = sext i16 %22 to i64
+  %23 = add nsw i64 %spec.select.i17.i.i.i, 1
+  %24 = add nsw i64 %23, %.sext20.i.i.i
+  %25 = add nsw i64 %24, %19
+  %26 = add nsw i64 %25, %21
+  %27 = srem i64 %26, 7
+  %28 = icmp slt i64 %27, 0
+  %29 = select i1 %28, i64 7, i64 0
+  %spec.select.i18.i.i.i = add nsw i64 %29, %27
+  %30 = icmp sgt i64 %spec.select.i18.i.i.i, 4
+  %31 = add nsw i64 %spec.select.i18.i.i.i, -7
+  %32 = select i1 %30, i64 %31, i64 %spec.select.i18.i.i.i
+  %33 = mul i64 %1, 7
+  %34 = add i64 %33, -6
+  %35 = add i64 %34, %2
+  %36 = sub i64 %35, %32
   store i64 %0, ptr %3, align 8
-  %spec.select = and i1 %16, %or.cond.i.i.i
-  %35 = icmp slt i64 %34, 1
-  br i1 %35, label %.lr.ph, label %.preheader
+  br i1 %10, label %37, label %39
+
+37:                                               ; preds = %timelib_daynr_from_weeknr.exit
+  %.not = icmp ne i64 %8, 0
+  %38 = icmp eq i64 %7, 0
+  %spec.select = or i1 %.not, %38
+  br label %39
+
+39:                                               ; preds = %37, %timelib_daynr_from_weeknr.exit
+  %40 = phi i1 [ false, %timelib_daynr_from_weeknr.exit ], [ %spec.select, %37 ]
+  %41 = icmp slt i64 %36, 1
+  br i1 %41, label %.lr.ph, label %.preheader
 
 ..preheader_crit_edge:                            ; preds = %.thread39
-  store i64 %38, ptr %3, align 8
+  store i64 %44, ptr %3, align 8
   br label %.preheader
 
-.preheader:                                       ; preds = %..preheader_crit_edge, %6
-  %.promoted49 = phi i64 [ %38, %..preheader_crit_edge ], [ %0, %6 ]
-  %.032.lcssa = phi i64 [ %48, %..preheader_crit_edge ], [ %34, %6 ]
-  %.0.lcssa = phi i1 [ %46, %..preheader_crit_edge ], [ %spec.select, %6 ]
-  %36 = select i1 %.0.lcssa, i64 366, i64 365
-  %37 = icmp ugt i64 %.032.lcssa, %36
-  br i1 %37, label %.lr.ph46, label %64
+.preheader:                                       ; preds = %..preheader_crit_edge, %39
+  %.promoted49 = phi i64 [ %44, %..preheader_crit_edge ], [ %0, %39 ]
+  %.032.lcssa = phi i64 [ %54, %..preheader_crit_edge ], [ %36, %39 ]
+  %.0.lcssa = phi i1 [ %52, %..preheader_crit_edge ], [ %40, %39 ]
+  %42 = select i1 %.0.lcssa, i64 366, i64 365
+  %43 = icmp ugt i64 %.032.lcssa, %42
+  br i1 %43, label %.lr.ph46, label %70
 
-.lr.ph:                                           ; preds = %6, %.thread39
-  %.fr = phi i64 [ %38, %.thread39 ], [ %0, %6 ]
-  %.03243 = phi i64 [ %48, %.thread39 ], [ %34, %6 ]
-  %38 = add i64 %.fr, -1
-  %39 = and i64 %38, 3
-  %40 = icmp eq i64 %39, 0
-  br i1 %40, label %41, label %.thread39
+.lr.ph:                                           ; preds = %39, %.thread39
+  %.fr = phi i64 [ %44, %.thread39 ], [ %0, %39 ]
+  %.03243 = phi i64 [ %54, %.thread39 ], [ %36, %39 ]
+  %44 = add i64 %.fr, -1
+  %45 = and i64 %44, 3
+  %46 = icmp eq i64 %45, 0
+  br i1 %46, label %47, label %.thread39
 
-41:                                               ; preds = %.lr.ph
-  %42 = srem i64 %38, 100
-  %.not37 = icmp eq i64 %42, 0
-  br i1 %.not37, label %43, label %.thread39
+47:                                               ; preds = %.lr.ph
+  %48 = srem i64 %44, 100
+  %.not37 = icmp eq i64 %48, 0
+  br i1 %.not37, label %49, label %.thread39
 
-43:                                               ; preds = %41
-  %44 = srem i64 %38, 400
-  %45 = icmp eq i64 %44, 0
-  %spec.select41 = select i1 %45, i64 366, i64 365
+49:                                               ; preds = %47
+  %50 = srem i64 %44, 400
+  %51 = icmp eq i64 %50, 0
+  %spec.select41 = select i1 %51, i64 366, i64 365
   br label %.thread39
 
-.thread39:                                        ; preds = %43, %41, %.lr.ph
-  %46 = phi i1 [ false, %.lr.ph ], [ true, %41 ], [ %45, %43 ]
-  %47 = phi i64 [ 365, %.lr.ph ], [ 366, %41 ], [ %spec.select41, %43 ]
-  %48 = add nsw i64 %47, %.03243
-  %49 = icmp slt i64 %48, 1
-  br i1 %49, label %.lr.ph, label %..preheader_crit_edge
+.thread39:                                        ; preds = %49, %47, %.lr.ph
+  %52 = phi i1 [ false, %.lr.ph ], [ true, %47 ], [ %51, %49 ]
+  %53 = phi i64 [ 365, %.lr.ph ], [ 366, %47 ], [ %spec.select41, %49 ]
+  %54 = add nsw i64 %53, %.03243
+  %55 = icmp slt i64 %54, 1
+  br i1 %55, label %.lr.ph, label %..preheader_crit_edge
 
 .lr.ph46:                                         ; preds = %.preheader, %.thread68
-  %50 = phi i64 [ %53, %.thread68 ], [ %.promoted49, %.preheader ]
-  %51 = phi i64 [ %62, %.thread68 ], [ %36, %.preheader ]
-  %.13345 = phi i64 [ %52, %.thread68 ], [ %.032.lcssa, %.preheader ]
-  %52 = sub nuw nsw i64 %.13345, %51
-  %53 = add i64 %50, 1
-  %54 = and i64 %53, 3
-  %55 = icmp eq i64 %54, 0
-  br i1 %55, label %56, label %.thread68
+  %56 = phi i64 [ %59, %.thread68 ], [ %.promoted49, %.preheader ]
+  %57 = phi i64 [ %68, %.thread68 ], [ %42, %.preheader ]
+  %.13345 = phi i64 [ %58, %.thread68 ], [ %.032.lcssa, %.preheader ]
+  %58 = sub nuw nsw i64 %.13345, %57
+  %59 = add i64 %56, 1
+  %60 = and i64 %59, 3
+  %61 = icmp eq i64 %60, 0
+  br i1 %61, label %62, label %.thread68
 
-56:                                               ; preds = %.lr.ph46
-  %57 = srem i64 %53, 100
-  %.not36 = icmp eq i64 %57, 0
-  br i1 %.not36, label %58, label %.thread68
+62:                                               ; preds = %.lr.ph46
+  %63 = srem i64 %59, 100
+  %.not36 = icmp eq i64 %63, 0
+  br i1 %.not36, label %64, label %.thread68
 
-58:                                               ; preds = %56
-  %59 = srem i64 %53, 400
-  %60 = icmp eq i64 %59, 0
-  %spec.select76 = select i1 %60, i64 366, i64 365
+64:                                               ; preds = %62
+  %65 = srem i64 %59, 400
+  %66 = icmp eq i64 %65, 0
+  %spec.select76 = select i1 %66, i64 366, i64 365
   br label %.thread68
 
-.thread68:                                        ; preds = %58, %56, %.lr.ph46
-  %61 = phi i1 [ false, %.lr.ph46 ], [ true, %56 ], [ %60, %58 ]
-  %62 = phi i64 [ 365, %.lr.ph46 ], [ 366, %56 ], [ %spec.select76, %58 ]
-  %63 = icmp sgt i64 %52, %62
-  br i1 %63, label %.lr.ph46, label %._crit_edge
+.thread68:                                        ; preds = %64, %62, %.lr.ph46
+  %67 = phi i1 [ false, %.lr.ph46 ], [ true, %62 ], [ %66, %64 ]
+  %68 = phi i64 [ 365, %.lr.ph46 ], [ 366, %62 ], [ %spec.select76, %64 ]
+  %69 = icmp sgt i64 %58, %68
+  br i1 %69, label %.lr.ph46, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.thread68
-  store i64 %53, ptr %3, align 8
-  br label %64
+  store i64 %59, ptr %3, align 8
+  br label %70
 
-64:                                               ; preds = %._crit_edge, %.preheader
-  %.133.lcssa = phi i64 [ %52, %._crit_edge ], [ %.032.lcssa, %.preheader ]
-  %.1.lcssa = phi i1 [ %61, %._crit_edge ], [ %.0.lcssa, %.preheader ]
-  %65 = select i1 %.1.lcssa, ptr @ml_table_leap, ptr @ml_table_common
+70:                                               ; preds = %._crit_edge, %.preheader
+  %.133.lcssa = phi i64 [ %58, %._crit_edge ], [ %.032.lcssa, %.preheader ]
+  %.1.lcssa = phi i1 [ %67, %._crit_edge ], [ %.0.lcssa, %.preheader ]
+  %71 = select i1 %.1.lcssa, ptr @ml_table_leap, ptr @ml_table_common
   store i64 1, ptr %4, align 8
-  %66 = icmp sgt i64 %.133.lcssa, 31
-  br i1 %66, label %.lr.ph54, label %._crit_edge55
+  %72 = icmp sgt i64 %.133.lcssa, 31
+  br i1 %72, label %.lr.ph54, label %._crit_edge55
 
-.lr.ph54:                                         ; preds = %64, %.lr.ph54
-  %67 = phi i64 [ %72, %.lr.ph54 ], [ 31, %64 ]
-  %.252 = phi i64 [ %68, %.lr.ph54 ], [ %.133.lcssa, %64 ]
-  %storemerge51 = phi i64 [ %69, %.lr.ph54 ], [ 1, %64 ]
-  %68 = sub nsw i64 %.252, %67
-  %69 = add nuw nsw i64 %storemerge51, 1
-  store i64 %69, ptr %4, align 8
-  %70 = getelementptr inbounds i32, ptr %65, i64 %69
-  %71 = load i32, ptr %70, align 4
-  %72 = sext i32 %71 to i64
-  %73 = icmp sgt i64 %68, %72
-  br i1 %73, label %.lr.ph54, label %._crit_edge55
+.lr.ph54:                                         ; preds = %70, %.lr.ph54
+  %73 = phi i64 [ %78, %.lr.ph54 ], [ 31, %70 ]
+  %.252 = phi i64 [ %74, %.lr.ph54 ], [ %.133.lcssa, %70 ]
+  %storemerge51 = phi i64 [ %75, %.lr.ph54 ], [ 1, %70 ]
+  %74 = sub nsw i64 %.252, %73
+  %75 = add nuw nsw i64 %storemerge51, 1
+  store i64 %75, ptr %4, align 8
+  %76 = getelementptr inbounds i32, ptr %71, i64 %75
+  %77 = load i32, ptr %76, align 4
+  %78 = sext i32 %77 to i64
+  %79 = icmp sgt i64 %74, %78
+  br i1 %79, label %.lr.ph54, label %._crit_edge55
 
-._crit_edge55:                                    ; preds = %.lr.ph54, %64
-  %.2.lcssa = phi i64 [ %.133.lcssa, %64 ], [ %68, %.lr.ph54 ]
+._crit_edge55:                                    ; preds = %.lr.ph54, %70
+  %.2.lcssa = phi i64 [ %.133.lcssa, %70 ], [ %74, %.lr.ph54 ]
   store i64 %.2.lcssa, ptr %5, align 8
   ret void
 }
@@ -565,12 +642,12 @@ define hidden i32 @timelib_valid_date(i64 noundef %0, i64 noundef %1, i64 nounde
   %or.cond = icmp ult i64 %4, -12
   %5 = icmp slt i64 %2, 1
   %or.cond3 = or i1 %or.cond, %5
-  br i1 %or.cond3, label %16, label %6
+  br i1 %or.cond3, label %17, label %6
 
 6:                                                ; preds = %3
   %7 = and i64 %0, 3
   %8 = icmp eq i64 %7, 0
-  br i1 %8, label %9, label %timelib_days_in_month.exit
+  br i1 %8, label %9, label %13
 
 9:                                                ; preds = %6
   %10 = srem i64 %0, 100
@@ -578,19 +655,21 @@ define hidden i32 @timelib_valid_date(i64 noundef %0, i64 noundef %1, i64 nounde
   %11 = srem i64 %0, 400
   %12 = icmp eq i64 %11, 0
   %or.cond.i = or i1 %.not.i, %12
-  %spec.select.i = select i1 %or.cond.i, ptr @ml_table_leap, ptr @ml_table_common
+  br i1 %or.cond.i, label %timelib_days_in_month.exit, label %13
+
+13:                                               ; preds = %9, %6
   br label %timelib_days_in_month.exit
 
-timelib_days_in_month.exit:                       ; preds = %6, %9
-  %ml_table_leap.pn.i = phi ptr [ @ml_table_common, %6 ], [ %spec.select.i, %9 ]
+timelib_days_in_month.exit:                       ; preds = %9, %13
+  %ml_table_leap.pn.i = phi ptr [ @ml_table_common, %13 ], [ @ml_table_leap, %9 ]
   %.in.i = getelementptr inbounds [13 x i32], ptr %ml_table_leap.pn.i, i64 0, i64 %1
-  %13 = load i32, ptr %.in.i, align 4
-  %14 = sext i32 %13 to i64
-  %15 = icmp sge i64 %14, %2
-  %spec.select = zext i1 %15 to i32
-  br label %16
+  %14 = load i32, ptr %.in.i, align 4
+  %15 = sext i32 %14 to i64
+  %16 = icmp sge i64 %15, %2
+  %spec.select = zext i1 %16 to i32
+  br label %17
 
-16:                                               ; preds = %timelib_days_in_month.exit, %3
+17:                                               ; preds = %timelib_days_in_month.exit, %3
   %.0 = phi i32 [ 0, %3 ], [ %spec.select, %timelib_days_in_month.exit ]
   ret i32 %.0
 }

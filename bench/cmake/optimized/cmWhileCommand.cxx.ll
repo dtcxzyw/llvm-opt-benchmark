@@ -935,18 +935,20 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 219:                                              ; preds = %215
   %220 = load i8, ptr @_ZN13cmSystemTools20s_FatalErrorOccurredE, align 1
   %221 = trunc i8 %220 to i1
-  br i1 %221, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %222
+  br i1 %221, label %_ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.thread, label %222
 
 222:                                              ; preds = %219
   %223 = invoke noundef zeroext i1 @_ZN13cmSystemTools16GetInterruptFlagEv()
           to label %_ZN13cmSystemTools21GetFatalErrorOccurredEv.exit unwind label %207
 
 _ZN13cmSystemTools21GetFatalErrorOccurredEv.exit: ; preds = %222
-  %spec.select = zext i1 %223 to i32
+  br i1 %223, label %_ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.thread, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
+
+_ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.thread: ; preds = %219, %_ZN13cmSystemTools21GetFatalErrorOccurredEv.exit
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 
-_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %_ZN13cmSystemTools21GetFatalErrorOccurredEv.exit, %219, %201, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, %212, %209, %218
-  %.038 = phi i32 [ 1, %218 ], [ 1, %209 ], [ 4, %212 ], [ 1, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i ], [ 1, %201 ], [ 1, %219 ], [ %spec.select, %_ZN13cmSystemTools21GetFatalErrorOccurredEv.exit ]
+_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %_ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.thread, %_ZN13cmSystemTools21GetFatalErrorOccurredEv.exit, %201, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, %212, %209, %218
+  %.038 = phi i32 [ 1, %218 ], [ 1, %209 ], [ 4, %212 ], [ 1, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i ], [ 1, %201 ], [ 1, %_ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.thread ], [ 0, %_ZN13cmSystemTools21GetFatalErrorOccurredEv.exit ]
   %224 = load ptr, ptr %155, align 8
   %225 = load ptr, ptr %162, align 8
   %.not4.i.i.i.i.i = icmp eq ptr %224, %225

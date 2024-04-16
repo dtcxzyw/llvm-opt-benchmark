@@ -174,7 +174,7 @@ sw.bb1:                                           ; preds = %for.cond
   %arrayidx = getelementptr i8, ptr %pos.0, i64 1
   %1 = load i8, ptr %arrayidx, align 1
   %cmp = icmp eq i8 %1, 45
-  br i1 %cmp, label %if.then, label %return
+  br i1 %cmp, label %if.then, label %return.loopexit50
 
 if.then:                                          ; preds = %sw.bb1
   %add.ptr = getelementptr i8, ptr %pos.0, i64 2
@@ -196,7 +196,7 @@ sw.bb17:                                          ; preds = %for.cond
   %arrayidx18 = getelementptr i8, ptr %pos.0, i64 1
   %3 = load i8, ptr %arrayidx18, align 1
   %cmp20 = icmp eq i8 %3, 42
-  br i1 %cmp20, label %if.then22, label %return
+  br i1 %cmp20, label %if.then22, label %return.loopexit50
 
 if.then22:                                        ; preds = %sw.bb17
   %add.ptr23 = getelementptr i8, ptr %pos.0, i64 2
@@ -229,11 +229,11 @@ for.inc:                                          ; preds = %while.cond, %for.in
   %incdec.ptr49 = getelementptr i8, ptr %pos.3, i64 1
   br label %for.cond, !llvm.loop !7
 
-return.loopexit50:                                ; preds = %for.cond
+return.loopexit50:                                ; preds = %for.cond, %sw.bb1, %sw.bb17
   br label %return
 
-return:                                           ; preds = %sw.bb17, %sw.bb1, %while.cond24, %while.cond, %for.cond, %return.loopexit50
-  %retval.0 = phi ptr [ null, %for.cond ], [ null, %while.cond ], [ null, %while.cond24 ], [ %pos.0, %sw.bb1 ], [ %pos.0, %sw.bb17 ], [ %pos.0, %return.loopexit50 ]
+return:                                           ; preds = %while.cond24, %while.cond, %for.cond, %return.loopexit50
+  %retval.0 = phi ptr [ %pos.0, %return.loopexit50 ], [ null, %for.cond ], [ null, %while.cond ], [ null, %while.cond24 ]
   ret ptr %retval.0
 }
 
@@ -313,14 +313,18 @@ entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
   %tobool.not = icmp eq ptr %self.val, null
-  br i1 %tobool.not, label %return, label %if.then
+  br i1 %tobool.not, label %do.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %call2 = tail call i32 %visit(ptr noundef nonnull %self.val, ptr noundef %arg) #4
+  %tobool3.not = icmp eq i32 %call2, 0
+  br i1 %tobool3.not, label %do.end, label %return
+
+do.end:                                           ; preds = %entry, %if.then
   br label %return
 
-return:                                           ; preds = %if.then, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ %call2, %if.then ]
+return:                                           ; preds = %if.then, %do.end
+  %retval.0 = phi i32 [ 0, %do.end ], [ %call2, %if.then ]
   ret i32 %retval.0
 }
 

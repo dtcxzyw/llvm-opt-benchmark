@@ -5159,13 +5159,13 @@ define internal fastcc i32 @ftp_state_ul_setup(ptr noundef %0, i1 noundef zeroex
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 (ptr, ptr, ptr, ...) @Curl_pp_sendf(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef nonnull @.str.35, ptr noundef %18) #10
   %.not70 = icmp eq i32 %19, 0
-  br i1 %.not70, label %20, label %73
+  br i1 %.not70, label %20, label %74
 
 20:                                               ; preds = %16
   %.val75 = load ptr, ptr %4, align 8
   %21 = getelementptr inbounds i8, ptr %.val75, i64 1094
   store i8 25, ptr %21, align 2
-  br label %73
+  br label %74
 
 .thread:                                          ; preds = %12, %14
   %22 = getelementptr inbounds i8, ptr %5, i64 752
@@ -5194,7 +5194,7 @@ define internal fastcc i32 @ftp_state_ul_setup(ptr noundef %0, i1 noundef zeroex
 
 32:                                               ; preds = %24
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.42) #10
-  br label %73
+  br label %74
 
 33:                                               ; preds = %.preheader, %46
   %34 = phi i64 [ %48, %46 ], [ %.pre, %.preheader ]
@@ -5218,7 +5218,7 @@ define internal fastcc i32 @ftp_state_ul_setup(ptr noundef %0, i1 noundef zeroex
 
 45:                                               ; preds = %39
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.43) #10
-  br label %73
+  br label %74
 
 46:                                               ; preds = %39
   %47 = add i64 %43, %.056
@@ -5256,32 +5256,34 @@ define internal fastcc i32 @ftp_state_ul_setup(ptr noundef %0, i1 noundef zeroex
   %.val74 = load ptr, ptr %4, align 8
   %63 = getelementptr inbounds i8, ptr %.val74, i64 1094
   store i8 0, ptr %63, align 2
-  br label %73
+  br label %74
 
 64:                                               ; preds = %12
   %65 = load i64, ptr %9, align 2
   %.fr82 = freeze i64 %65
   %66 = and i64 %.fr82, 1024
   %.not83 = icmp eq i64 %66, 0
-  %spec.select = select i1 %.not83, ptr @.str.46, ptr @.str.45
-  br label %.thread79
+  br i1 %.not83, label %67, label %.thread79
 
-.thread79:                                        ; preds = %64, %.thread76, %53
-  %67 = phi ptr [ @.str.45, %53 ], [ @.str.45, %.thread76 ], [ %spec.select, %64 ]
-  %68 = getelementptr inbounds i8, ptr %5, i64 1008
-  %69 = load ptr, ptr %68, align 8
-  %70 = call i32 (ptr, ptr, ptr, ...) @Curl_pp_sendf(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef nonnull %67, ptr noundef %69) #10
-  %.not67 = icmp eq i32 %70, 0
-  br i1 %.not67, label %71, label %73
+.thread79:                                        ; preds = %.thread76, %53, %64
+  br label %67
 
-71:                                               ; preds = %.thread79
+67:                                               ; preds = %64, %.thread79
+  %68 = phi ptr [ @.str.45, %.thread79 ], [ @.str.46, %64 ]
+  %69 = getelementptr inbounds i8, ptr %5, i64 1008
+  %70 = load ptr, ptr %69, align 8
+  %71 = call i32 (ptr, ptr, ptr, ...) @Curl_pp_sendf(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef nonnull %68, ptr noundef %70) #10
+  %.not67 = icmp eq i32 %71, 0
+  br i1 %.not67, label %72, label %74
+
+72:                                               ; preds = %67
   %.val = load ptr, ptr %4, align 8
-  %72 = getelementptr inbounds i8, ptr %.val, i64 1094
-  store i8 33, ptr %72, align 2
-  br label %73
+  %73 = getelementptr inbounds i8, ptr %.val, i64 1094
+  store i8 33, ptr %73, align 2
+  br label %74
 
-73:                                               ; preds = %.thread79, %71, %16, %20, %61, %45, %32
-  %.0 = phi i32 [ 31, %32 ], [ 31, %45 ], [ 0, %61 ], [ 0, %20 ], [ %19, %16 ], [ 0, %71 ], [ %70, %.thread79 ]
+74:                                               ; preds = %67, %72, %16, %20, %61, %45, %32
+  %.0 = phi i32 [ 31, %32 ], [ 31, %45 ], [ 0, %61 ], [ 0, %20 ], [ %19, %16 ], [ 0, %72 ], [ %71, %67 ]
   ret i32 %.0
 }
 

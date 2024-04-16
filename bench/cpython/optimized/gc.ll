@@ -594,14 +594,18 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %self, i64 %1
   %2 = load ptr, ptr %add.ptr.i, align 8
   %tobool.not = icmp eq ptr %2, null
-  br i1 %tobool.not, label %return, label %if.then
+  br i1 %tobool.not, label %do.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %call1 = tail call i32 %visit(ptr noundef nonnull %2, ptr noundef %arg) #7
+  %tobool2.not = icmp eq i32 %call1, 0
+  br i1 %tobool2.not, label %do.end, label %return
+
+do.end:                                           ; preds = %entry, %if.then
   br label %return
 
-return:                                           ; preds = %if.then, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ %call1, %if.then ]
+return:                                           ; preds = %if.then, %do.end
+  %retval.0 = phi i32 [ 0, %do.end ], [ %call1, %if.then ]
   ret i32 %retval.0
 }
 

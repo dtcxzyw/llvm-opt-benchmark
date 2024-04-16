@@ -566,20 +566,22 @@ return:                                           ; preds = %entry, %if.then, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @riscv_gdb_set_csr(ptr noundef %env, ptr nocapture noundef readonly %mem_buf, i32 noundef %n) #0 {
+define internal noundef i32 @riscv_gdb_set_csr(ptr noundef %env, ptr nocapture noundef readonly %mem_buf, i32 noundef %n) #0 {
 entry:
   %cmp = icmp slt i32 %n, 4096
-  br i1 %cmp, label %if.then, label %return
+  br i1 %cmp, label %if.then, label %if.end4
 
 if.then:                                          ; preds = %entry
   %mem_buf.val = load i64, ptr %mem_buf, align 1
   %call1 = tail call i32 @riscv_csrrw_debug(ptr noundef %env, i32 noundef %n, ptr noundef null, i64 noundef %mem_buf.val, i64 noundef -1) #8
   %cmp2 = icmp eq i32 %call1, -1
-  %spec.select = select i1 %cmp2, i32 8, i32 0
+  br i1 %cmp2, label %return, label %if.end4
+
+if.end4:                                          ; preds = %if.then, %entry
   br label %return
 
-return:                                           ; preds = %if.then, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ %spec.select, %if.then ]
+return:                                           ; preds = %if.then, %if.end4
+  %retval.0 = phi i32 [ 0, %if.end4 ], [ 8, %if.then ]
   ret i32 %retval.0
 }
 

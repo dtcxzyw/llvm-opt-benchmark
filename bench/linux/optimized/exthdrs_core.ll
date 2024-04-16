@@ -260,8 +260,8 @@ define dso_local i32 @ipv6_find_tlv(ptr nocapture noundef readonly %0, i32 nound
   %56 = icmp sgt i32 %55, 0
   br i1 %56, label %32, label %.thread4
 
-.thread4:                                         ; preds = %32, %44, %42, %52, %20, %3
-  %57 = phi i32 [ -1, %20 ], [ -1, %3 ], [ %34, %32 ], [ -1, %44 ], [ -1, %42 ], [ -1, %52 ]
+.thread4:                                         ; preds = %44, %42, %32, %52, %20, %3
+  %57 = phi i32 [ -1, %20 ], [ -1, %3 ], [ -1, %44 ], [ -1, %42 ], [ %34, %32 ], [ -1, %52 ]
   ret i32 %57
 }
 

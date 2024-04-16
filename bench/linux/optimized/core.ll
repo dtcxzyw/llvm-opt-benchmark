@@ -3088,7 +3088,7 @@ declare dso_local void @intel_pmu_lbr_init_hsw() local_unnamed_addr #0
 define internal i32 @hsw_hw_config(ptr noundef %0) #1 align 16 {
   %2 = tail call i32 @intel_pmu_hw_config(ptr noundef %0)
   %3 = icmp eq i32 %2, 0
-  br i1 %3, label %4, label %37
+  br i1 %3, label %4, label %38
 
 4:                                                ; preds = %1
   %5 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 24), align 8
@@ -3100,7 +3100,7 @@ define internal i32 @hsw_hw_config(ptr noundef %0) #1 align 16 {
   %9 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 24), align 8
   %10 = and i64 %9, 68719476736
   %11 = icmp eq i64 %10, 0
-  br i1 %11, label %37, label %12
+  br i1 %11, label %38, label %12
 
 12:                                               ; preds = %8, %4
   %13 = getelementptr inbounds i8, ptr %0, i64 224
@@ -3117,14 +3117,14 @@ define internal i32 @hsw_hw_config(ptr noundef %0) #1 align 16 {
 21:                                               ; preds = %12
   %22 = and i64 %17, 2097152
   %23 = icmp eq i64 %22, 0
-  br i1 %23, label %24, label %37
+  br i1 %23, label %24, label %38
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds i8, ptr %0, i64 256
   %26 = load i64, ptr %25, align 8
   %27 = and i64 %26, 98304
   %28 = icmp eq i64 %27, 0
-  br i1 %28, label %29, label %37
+  br i1 %28, label %29, label %38
 
 29:                                               ; preds = %24, %12
   %30 = and i64 %18, 8589934592
@@ -3136,12 +3136,14 @@ define internal i32 @hsw_hw_config(ptr noundef %0) #1 align 16 {
   %34 = load i64, ptr %33, align 8
   %35 = add i64 %34, -1
   %36 = icmp ult i64 %35, 2147483646
-  %spec.select = select i1 %36, i32 -95, i32 0
-  br label %37
+  br i1 %36, label %38, label %37
 
-37:                                               ; preds = %32, %29, %24, %21, %8, %1
-  %38 = phi i32 [ %2, %1 ], [ 0, %8 ], [ -95, %24 ], [ -95, %21 ], [ 0, %29 ], [ %spec.select, %32 ]
-  ret i32 %38
+37:                                               ; preds = %32, %29
+  br label %38
+
+38:                                               ; preds = %37, %32, %24, %21, %8, %1
+  %39 = phi i32 [ 0, %37 ], [ %2, %1 ], [ 0, %8 ], [ -95, %24 ], [ -95, %21 ], [ -95, %32 ]
+  ret i32 %39
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -3968,15 +3970,15 @@ define internal i32 @adl_hw_config(ptr noundef %0) #1 align 16 {
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 312
   %5 = load i32, ptr %4, align 8
-  switch i32 %5, label %44 [
+  switch i32 %5, label %45 [
     i32 2, label %6
-    i32 1, label %42
+    i32 1, label %43
   ]
 
 6:                                                ; preds = %1
   %7 = tail call i32 @intel_pmu_hw_config(ptr noundef %0)
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %9, label %45
+  br i1 %8, label %9, label %46
 
 9:                                                ; preds = %6
   %10 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 24), align 8
@@ -3988,7 +3990,7 @@ define internal i32 @adl_hw_config(ptr noundef %0) #1 align 16 {
   %14 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 24), align 8
   %15 = and i64 %14, 68719476736
   %16 = icmp eq i64 %15, 0
-  br i1 %16, label %45, label %17
+  br i1 %16, label %46, label %17
 
 17:                                               ; preds = %13, %9
   %18 = getelementptr inbounds i8, ptr %0, i64 224
@@ -4005,41 +4007,43 @@ define internal i32 @adl_hw_config(ptr noundef %0) #1 align 16 {
 26:                                               ; preds = %17
   %27 = and i64 %22, 2097152
   %28 = icmp eq i64 %27, 0
-  br i1 %28, label %29, label %45
+  br i1 %28, label %29, label %46
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds i8, ptr %0, i64 256
   %31 = load i64, ptr %30, align 8
   %32 = and i64 %31, 98304
   %33 = icmp eq i64 %32, 0
-  br i1 %33, label %34, label %45
+  br i1 %33, label %34, label %46
 
 34:                                               ; preds = %29, %17
   %35 = and i64 %23, 8589934592
   %36 = icmp eq i64 %35, 0
-  br i1 %36, label %45, label %37
+  br i1 %36, label %42, label %37
 
 37:                                               ; preds = %34
   %38 = getelementptr inbounds i8, ptr %0, i64 232
   %39 = load i64, ptr %38, align 8
   %40 = add i64 %39, -1
   %41 = icmp ult i64 %40, 2147483646
-  %spec.select = select i1 %41, i32 -95, i32 0
-  br label %45
+  br i1 %41, label %46, label %42
 
-42:                                               ; preds = %1
-  %43 = tail call i32 @intel_pmu_hw_config(ptr noundef %0)
-  br label %45
+42:                                               ; preds = %37, %34
+  br label %46
 
-44:                                               ; preds = %1
+43:                                               ; preds = %1
+  %44 = tail call i32 @intel_pmu_hw_config(ptr noundef %0)
+  br label %46
+
+45:                                               ; preds = %1
   tail call void asm sideeffect "482: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 482b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 482) #22, !srcloc !49
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.66, i32 4523, i32 2305, i64 12) #22, !srcloc !50
   tail call void asm sideeffect "483: nop\0A\09.pushsection .discard.instr_end\0A\09.long 483b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 483) #22, !srcloc !51
-  br label %45
+  br label %46
 
-45:                                               ; preds = %37, %34, %44, %42, %29, %26, %13, %6
-  %46 = phi i32 [ %43, %42 ], [ -95, %44 ], [ %7, %6 ], [ 0, %13 ], [ -95, %29 ], [ -95, %26 ], [ 0, %34 ], [ %spec.select, %37 ]
-  ret i32 %46
+46:                                               ; preds = %45, %43, %42, %37, %29, %26, %13, %6
+  %47 = phi i32 [ %44, %43 ], [ -95, %45 ], [ 0, %42 ], [ %7, %6 ], [ 0, %13 ], [ -95, %29 ], [ -95, %26 ], [ -95, %37 ]
+  ret i32 %47
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
@@ -7752,7 +7756,7 @@ define internal i64 @intel_pmu_update(ptr noundef %0) #1 align 16 {
 define internal i32 @intel_pmu_hw_config(ptr noundef %0) #1 align 16 {
   %2 = tail call i32 @x86_pmu_hw_config(ptr noundef %0) #22
   %3 = icmp eq i32 %2, 0
-  br i1 %3, label %4, label %.thread13
+  br i1 %3, label %4, label %.thread12
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 256
@@ -7780,18 +7784,18 @@ define internal i32 @intel_pmu_hw_config(ptr noundef %0) #1 align 16 {
   %23 = load i16, ptr getelementptr inbounds (%struct.x86_pmu, ptr @x86_pmu, i64 0, i32 55), align 8
   %24 = and i16 %23, 2
   %25 = icmp eq i16 %24, 0
-  br i1 %25, label %.thread13, label %26
+  br i1 %25, label %.thread12, label %26
 
 26:                                               ; preds = %22
   %27 = load i64, ptr %5, align 8
   %28 = and i64 %27, 98336
   %29 = icmp eq i64 %28, 32
-  br i1 %29, label %30, label %.thread13
+  br i1 %29, label %30, label %.thread12
 
 30:                                               ; preds = %26
   %31 = tail call i32 @x86_add_exclusive(i32 noundef 0) #22
   %32 = icmp eq i32 %31, 0
-  br i1 %32, label %33, label %.thread13
+  br i1 %32, label %33, label %.thread12
 
 33:                                               ; preds = %30
   %34 = getelementptr inbounds i8, ptr %0, i64 920
@@ -7810,7 +7814,7 @@ define internal i32 @intel_pmu_hw_config(ptr noundef %0) #1 align 16 {
   %42 = load i64, ptr %41, align 8
   %43 = and i64 %42, 65535
   %44 = icmp eq i64 %43, 6912
-  br i1 %44, label %.thread13, label %45
+  br i1 %44, label %.thread12, label %45
 
 45:                                               ; preds = %40
   %46 = and i64 %37, 1024
@@ -7875,7 +7879,7 @@ define internal i32 @intel_pmu_hw_config(ptr noundef %0) #1 align 16 {
   %89 = getelementptr inbounds i8, ptr %0, i64 288
   %90 = load i64, ptr %89, align 8
   %91 = icmp eq i64 %90, 0
-  br i1 %91, label %.thread11, label %92
+  br i1 %91, label %.thread10, label %92
 
 92:                                               ; preds = %88
   %93 = getelementptr inbounds i8, ptr %0, i64 232
@@ -7893,19 +7897,19 @@ define internal i32 @intel_pmu_hw_config(ptr noundef %0) #1 align 16 {
 100:                                              ; preds = %96, %92
   %101 = and i64 %90, 524288
   %102 = icmp eq i64 %101, 0
-  br i1 %102, label %.thread11, label %103
+  br i1 %102, label %.thread10, label %103
 
 103:                                              ; preds = %100
   %104 = load i32, ptr getelementptr inbounds (%struct.x86_pmu, ptr @x86_pmu, i64 0, i32 90), align 8
   %105 = and i32 %104, 1024
   %106 = icmp eq i32 %105, 0
-  br i1 %106, label %.thread13, label %107
+  br i1 %106, label %.thread12, label %107
 
 107:                                              ; preds = %103
   %108 = getelementptr inbounds i8, ptr %0, i64 224
   %109 = load i64, ptr %108, align 8
   %110 = icmp ult i64 %109, 65536
-  br i1 %110, label %111, label %.thread13
+  br i1 %110, label %111, label %.thread12
 
 111:                                              ; preds = %107
   %112 = getelementptr inbounds i8, ptr %0, i64 144
@@ -7914,7 +7918,7 @@ define internal i32 @intel_pmu_hw_config(ptr noundef %0) #1 align 16 {
   %115 = load i64, ptr %114, align 8
   %116 = and i64 %115, 2048
   %117 = icmp eq i64 %116, 0
-  br i1 %117, label %118, label %.thread13
+  br i1 %117, label %118, label %.thread12
 
 118:                                              ; preds = %111
   %119 = trunc i64 %115 to i32
@@ -7942,7 +7946,7 @@ define internal i32 @intel_pmu_hw_config(ptr noundef %0) #1 align 16 {
   %135 = load i64, ptr %134, align 8
   %136 = and i64 %135, 2048
   %137 = icmp eq i64 %136, 0
-  br i1 %137, label %138, label %.thread13
+  br i1 %137, label %138, label %.thread12
 
 138:                                              ; preds = %.preheader
   %139 = trunc i64 %135 to i32
@@ -7961,7 +7965,7 @@ define internal i32 @intel_pmu_hw_config(ptr noundef %0) #1 align 16 {
   %149 = tail call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %148, i32 -1) #24, !srcloc !13
   %150 = add i32 %149, 1
   %151 = icmp sgt i32 %145, %150
-  br i1 %151, label %.thread13, label %152
+  br i1 %151, label %.thread12, label %152
 
 152:                                              ; preds = %.loopexit
   %153 = load i64, ptr %89, align 8
@@ -7981,19 +7985,19 @@ define internal i32 @intel_pmu_hw_config(ptr noundef %0) #1 align 16 {
   %161 = phi i32 [ %.pre, %156 ], [ %124, %152 ]
   %162 = and i32 %161, 262144
   %163 = icmp eq i32 %162, 0
-  br i1 %163, label %.thread13, label %.thread11
+  br i1 %163, label %.thread12, label %.thread10
 
-.thread11:                                        ; preds = %88, %160, %100
+.thread10:                                        ; preds = %88, %160, %100
   %164 = getelementptr inbounds i8, ptr %0, i64 404
   %165 = load i32, ptr %164, align 4
   %166 = and i32 %165, 262144
   %167 = icmp eq i32 %166, 0
   br i1 %167, label %196, label %168
 
-168:                                              ; preds = %.thread11
+168:                                              ; preds = %.thread10
   %169 = tail call i32 @intel_pmu_setup_lbr_filter(ptr noundef %0) #22
   %170 = icmp eq i32 %169, 0
-  br i1 %170, label %171, label %.thread13
+  br i1 %170, label %171, label %.thread12
 
 171:                                              ; preds = %168
   %172 = getelementptr inbounds i8, ptr %0, i64 172
@@ -8023,14 +8027,14 @@ define internal i32 @intel_pmu_hw_config(ptr noundef %0) #1 align 16 {
 191:                                              ; preds = %178, %171
   %192 = tail call i32 @x86_add_exclusive(i32 noundef 0) #22
   %193 = icmp eq i32 %192, 0
-  br i1 %193, label %194, label %.thread13
+  br i1 %193, label %194, label %.thread12
 
 194:                                              ; preds = %191
   %195 = getelementptr inbounds i8, ptr %0, i64 920
   store ptr @hw_perf_lbr_event_destroy, ptr %195, align 8
   br label %196
 
-196:                                              ; preds = %194, %178, %.thread11
+196:                                              ; preds = %194, %178, %.thread10
   %197 = load i64, ptr %5, align 8
   %198 = and i64 %197, 2147483648
   %199 = icmp eq i64 %198, 0
@@ -8039,7 +8043,7 @@ define internal i32 @intel_pmu_hw_config(ptr noundef %0) #1 align 16 {
 200:                                              ; preds = %196
   %201 = and i64 %197, 98304
   %202 = icmp eq i64 %201, 0
-  br i1 %202, label %.thread13, label %203
+  br i1 %202, label %.thread12, label %203
 
 203:                                              ; preds = %200
   %204 = load i32, ptr %164, align 4
@@ -8050,8 +8054,8 @@ define internal i32 @intel_pmu_hw_config(ptr noundef %0) #1 align 16 {
 206:                                              ; preds = %203, %196
   %207 = load i32, ptr %36, align 8
   switch i32 %207, label %208 [
-    i32 0, label %.thread13
-    i32 3, label %.thread13
+    i32 0, label %.thread12
+    i32 3, label %.thread12
   ]
 
 208:                                              ; preds = %206
@@ -8093,7 +8097,7 @@ define internal i32 @intel_pmu_hw_config(ptr noundef %0) #1 align 16 {
   %233 = getelementptr inbounds i8, ptr %0, i64 272
   %234 = load i64, ptr %233, align 8
   %235 = icmp eq i64 %234, 0
-  br i1 %235, label %236, label %.thread13
+  br i1 %235, label %236, label %.thread12
 
 236:                                              ; preds = %232
   %237 = getelementptr inbounds i8, ptr %0, i64 280
@@ -8101,7 +8105,7 @@ define internal i32 @intel_pmu_hw_config(ptr noundef %0) #1 align 16 {
   %239 = and i64 %222, 17174364160
   %240 = or i64 %238, %239
   %241 = icmp eq i64 %240, 0
-  br i1 %241, label %242, label %.thread13
+  br i1 %241, label %242, label %.thread12
 
 242:                                              ; preds = %236
   br i1 %228, label %243, label %273
@@ -8120,20 +8124,20 @@ define internal i32 @intel_pmu_hw_config(ptr noundef %0) #1 align 16 {
   %252 = getelementptr inbounds i8, ptr %0, i64 232
   %253 = load i64, ptr %252, align 8
   %254 = icmp eq i64 %253, 0
-  br i1 %254, label %255, label %.thread13
+  br i1 %254, label %255, label %.thread12
 
 255:                                              ; preds = %249
   %256 = getelementptr inbounds i8, ptr %251, i64 224
   %257 = load i64, ptr %256, align 8
   %258 = and i64 %257, 65535
   %259 = icmp eq i64 %258, 1024
-  br i1 %259, label %260, label %.thread13
+  br i1 %259, label %260, label %.thread12
 
 260:                                              ; preds = %255
   %261 = getelementptr inbounds i8, ptr %251, i64 232
   %262 = load i64, ptr %261, align 8
   %263 = icmp eq i64 %262, 0
-  br i1 %263, label %264, label %.thread13
+  br i1 %263, label %264, label %.thread12
 
 264:                                              ; preds = %260
   %265 = getelementptr inbounds i8, ptr %0, i64 132
@@ -8153,7 +8157,7 @@ define internal i32 @intel_pmu_hw_config(ptr noundef %0) #1 align 16 {
   %274 = load i32, ptr getelementptr inbounds (%struct.x86_pmu, ptr @x86_pmu, i64 0, i32 90), align 8
   %275 = and i32 %274, 256
   %276 = icmp eq i32 %275, 0
-  br i1 %276, label %.thread12, label %277
+  br i1 %276, label %323, label %277
 
 277:                                              ; preds = %273
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @perf_is_hybrid, i32 2) #22
@@ -8165,34 +8169,34 @@ define internal i32 @intel_pmu_hw_config(ptr noundef %0) #1 align 16 {
   %281 = getelementptr inbounds i8, ptr %280, i64 312
   %282 = load i32, ptr %281, align 8
   %283 = icmp eq i32 %282, 2
-  br i1 %283, label %284, label %.thread12
+  br i1 %283, label %284, label %323
 
 284:                                              ; preds = %278, %277
   %285 = getelementptr inbounds i8, ptr %0, i64 240
   %286 = load i64, ptr %285, align 8
   %287 = and i64 %286, 32768
   %288 = icmp eq i64 %287, 0
-  br i1 %288, label %.thread12, label %289
+  br i1 %288, label %323, label %289
 
 289:                                              ; preds = %284
   %290 = getelementptr inbounds i8, ptr %0, i64 224
   %291 = load i64, ptr %290, align 8
   %292 = and i64 %291, 65535
   %293 = icmp eq i64 %292, 461
-  br i1 %293, label %294, label %.thread12
+  br i1 %293, label %294, label %323
 
 294:                                              ; preds = %289
   %295 = getelementptr inbounds i8, ptr %0, i64 144
   %296 = load ptr, ptr %295, align 8
   %297 = icmp eq ptr %296, %0
-  br i1 %297, label %.thread13, label %298
+  br i1 %297, label %.thread12, label %298
 
 298:                                              ; preds = %294
   %299 = getelementptr inbounds i8, ptr %296, i64 224
   %300 = load i64, ptr %299, align 8
   %301 = and i64 %300, 65535
   %302 = icmp eq i64 %301, 33283
-  br i1 %302, label %.thread12, label %303
+  br i1 %302, label %323, label %303
 
 303:                                              ; preds = %298
   %304 = getelementptr inbounds i8, ptr %296, i64 144
@@ -8222,38 +8226,38 @@ define internal i32 @intel_pmu_hw_config(ptr noundef %0) #1 align 16 {
   %319 = getelementptr i8, ptr %.lcssa, i64 -16
   br label %320
 
-320:                                              ; preds = %303, %318
+320:                                              ; preds = %318, %303
   %321 = phi ptr [ null, %303 ], [ %319, %318 ]
-  %.not = icmp eq ptr %321, %296
-  br i1 %.not, label %.thread13, label %.thread12
+  %322 = icmp eq ptr %321, %296
+  br i1 %322, label %.thread12, label %323
 
-.thread12:                                        ; preds = %298, %320, %289, %284, %278, %273
-  %322 = getelementptr inbounds i8, ptr %0, i64 224
-  %323 = load i64, ptr %322, align 8
-  %324 = and i64 %323, 2097152
-  %325 = icmp eq i64 %324, 0
-  br i1 %325, label %.thread13, label %326
+323:                                              ; preds = %320, %298, %289, %284, %278, %273
+  %324 = getelementptr inbounds i8, ptr %0, i64 224
+  %325 = load i64, ptr %324, align 8
+  %326 = and i64 %325, 2097152
+  %327 = icmp eq i64 %326, 0
+  br i1 %327, label %.thread12, label %328
 
-326:                                              ; preds = %.thread12
-  %327 = load i32, ptr getelementptr inbounds (%struct.x86_pmu, ptr @x86_pmu, i64 0, i32 1), align 8
-  %328 = icmp slt i32 %327, 3
-  br i1 %328, label %.thread13, label %329
+328:                                              ; preds = %323
+  %329 = load i32, ptr getelementptr inbounds (%struct.x86_pmu, ptr @x86_pmu, i64 0, i32 1), align 8
+  %330 = icmp slt i32 %329, 3
+  br i1 %330, label %.thread12, label %331
 
-329:                                              ; preds = %326
-  %330 = tail call fastcc i32 @perf_allow_cpu(ptr noundef %36)
-  %331 = icmp eq i32 %330, 0
-  br i1 %331, label %332, label %.thread13
+331:                                              ; preds = %328
+  %332 = tail call fastcc i32 @perf_allow_cpu(ptr noundef %36)
+  %333 = icmp eq i32 %332, 0
+  br i1 %333, label %334, label %.thread12
 
-332:                                              ; preds = %329
-  %333 = getelementptr inbounds i8, ptr %0, i64 360
-  %334 = load i64, ptr %333, align 8
-  %335 = or i64 %334, 2097152
-  store i64 %335, ptr %333, align 8
-  br label %.thread13
+334:                                              ; preds = %331
+  %335 = getelementptr inbounds i8, ptr %0, i64 360
+  %336 = load i64, ptr %335, align 8
+  %337 = or i64 %336, 2097152
+  store i64 %337, ptr %335, align 8
+  br label %.thread12
 
-.thread13:                                        ; preds = %.preheader, %294, %22, %26, %30, %332, %329, %326, %.thread12, %320, %260, %255, %249, %236, %232, %206, %206, %200, %191, %168, %160, %.loopexit, %111, %107, %103, %40, %1
-  %336 = phi i32 [ 0, %332 ], [ -61, %320 ], [ -22, %160 ], [ %2, %1 ], [ -22, %40 ], [ %169, %168 ], [ -16, %191 ], [ -22, %200 ], [ 0, %206 ], [ 0, %206 ], [ -22, %236 ], [ -22, %232 ], [ -22, %260 ], [ -22, %255 ], [ -22, %249 ], [ 0, %.thread12 ], [ -22, %326 ], [ %330, %329 ], [ -22, %.loopexit ], [ -22, %111 ], [ -22, %103 ], [ -22, %107 ], [ -95, %22 ], [ -95, %26 ], [ -16, %30 ], [ -61, %294 ], [ -22, %.preheader ]
-  ret i32 %336
+.thread12:                                        ; preds = %.preheader, %320, %294, %22, %26, %30, %334, %331, %328, %323, %260, %255, %249, %236, %232, %206, %206, %200, %191, %168, %160, %.loopexit, %111, %107, %103, %40, %1
+  %338 = phi i32 [ 0, %334 ], [ -22, %160 ], [ %2, %1 ], [ -22, %40 ], [ %169, %168 ], [ -16, %191 ], [ -22, %200 ], [ 0, %206 ], [ 0, %206 ], [ -22, %236 ], [ -22, %232 ], [ -22, %260 ], [ -22, %255 ], [ -22, %249 ], [ 0, %323 ], [ -22, %328 ], [ %332, %331 ], [ -22, %.loopexit ], [ -22, %111 ], [ -22, %103 ], [ -22, %107 ], [ -95, %22 ], [ -95, %26 ], [ -16, %30 ], [ -61, %294 ], [ -61, %320 ], [ -22, %.preheader ]
+  ret i32 %338
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -587,7 +587,7 @@ sw.bb103:                                         ; preds = %entry
 sw.bb1.i:                                         ; preds = %sw.bb103
   %call3.i = call i32 @BIO_ADDR_rawaddress(ptr noundef %0, ptr noundef nonnull %tmp_addr.i, ptr noundef null) #11
   %tobool.not.i114 = icmp eq i32 %call3.i, 0
-  br i1 %tobool.not.i114, label %dgram_get_mtu_overhead.exit, label %land.lhs.true.i
+  br i1 %tobool.not.i114, label %if.else.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %sw.bb1.i
   %20 = load i32, ptr %tmp_addr.i, align 4
@@ -596,18 +596,20 @@ land.lhs.true.i:                                  ; preds = %sw.bb1.i
   %21 = load i32, ptr %arrayidx6.i, align 4
   %cmp7.i = icmp eq i32 %21, 0
   %or.cond.i = select i1 %cmp.i115, i1 %cmp7.i, i1 false
-  br i1 %or.cond.i, label %land.rhs.i, label %dgram_get_mtu_overhead.exit
+  br i1 %or.cond.i, label %land.rhs.i, label %if.else.i
 
 land.rhs.i:                                       ; preds = %land.lhs.true.i
   %arrayidx9.i = getelementptr inbounds i8, ptr %tmp_addr.i, i64 8
   %22 = load i32, ptr %arrayidx9.i, align 4
   %call10.i = call i32 @htonl(i32 noundef 65535) #12
   %cmp11.i = icmp eq i32 %22, %call10.i
-  %spec.select.i = select i1 %cmp11.i, i64 28, i64 48
+  br i1 %cmp11.i, label %dgram_get_mtu_overhead.exit, label %if.else.i
+
+if.else.i:                                        ; preds = %land.rhs.i, %land.lhs.true.i, %sw.bb1.i
   br label %dgram_get_mtu_overhead.exit
 
-dgram_get_mtu_overhead.exit:                      ; preds = %sw.bb103, %sw.bb1.i, %land.lhs.true.i, %land.rhs.i
-  %ret.0.i = phi i64 [ 48, %land.lhs.true.i ], [ 48, %sw.bb1.i ], [ 28, %sw.bb103 ], [ %spec.select.i, %land.rhs.i ]
+dgram_get_mtu_overhead.exit:                      ; preds = %sw.bb103, %land.rhs.i, %if.else.i
+  %ret.0.i = phi i64 [ 48, %if.else.i ], [ 28, %land.rhs.i ], [ 28, %sw.bb103 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tmp_addr.i)
   %call107 = call i32 @BIO_ADDR_family(ptr noundef %0) #11
   switch i32 %call107, label %sw.default131 [
@@ -917,7 +919,7 @@ sw.bb303:                                         ; preds = %entry
 sw.bb1.i122:                                      ; preds = %sw.bb303
   %call3.i123 = call i32 @BIO_ADDR_rawaddress(ptr noundef %0, ptr noundef nonnull %tmp_addr.i118, ptr noundef null) #11
   %tobool.not.i124 = icmp eq i32 %call3.i123, 0
-  br i1 %tobool.not.i124, label %dgram_get_mtu_overhead.exit135, label %land.lhs.true.i125
+  br i1 %tobool.not.i124, label %if.else.i130, label %land.lhs.true.i125
 
 land.lhs.true.i125:                               ; preds = %sw.bb1.i122
   %51 = load i32, ptr %tmp_addr.i118, align 4
@@ -926,18 +928,20 @@ land.lhs.true.i125:                               ; preds = %sw.bb1.i122
   %52 = load i32, ptr %arrayidx6.i127, align 4
   %cmp7.i128 = icmp eq i32 %52, 0
   %or.cond.i129 = select i1 %cmp.i126, i1 %cmp7.i128, i1 false
-  br i1 %or.cond.i129, label %land.rhs.i130, label %dgram_get_mtu_overhead.exit135
+  br i1 %or.cond.i129, label %land.rhs.i131, label %if.else.i130
 
-land.rhs.i130:                                    ; preds = %land.lhs.true.i125
-  %arrayidx9.i131 = getelementptr inbounds i8, ptr %tmp_addr.i118, i64 8
-  %53 = load i32, ptr %arrayidx9.i131, align 4
-  %call10.i132 = call i32 @htonl(i32 noundef 65535) #12
-  %cmp11.i133 = icmp eq i32 %53, %call10.i132
-  %spec.select.i134 = select i1 %cmp11.i133, i64 28, i64 48
+land.rhs.i131:                                    ; preds = %land.lhs.true.i125
+  %arrayidx9.i132 = getelementptr inbounds i8, ptr %tmp_addr.i118, i64 8
+  %53 = load i32, ptr %arrayidx9.i132, align 4
+  %call10.i133 = call i32 @htonl(i32 noundef 65535) #12
+  %cmp11.i134 = icmp eq i32 %53, %call10.i133
+  br i1 %cmp11.i134, label %dgram_get_mtu_overhead.exit135, label %if.else.i130
+
+if.else.i130:                                     ; preds = %land.rhs.i131, %land.lhs.true.i125, %sw.bb1.i122
   br label %dgram_get_mtu_overhead.exit135
 
-dgram_get_mtu_overhead.exit135:                   ; preds = %sw.bb303, %sw.bb1.i122, %land.lhs.true.i125, %land.rhs.i130
-  %ret.0.i121 = phi i64 [ 48, %land.lhs.true.i125 ], [ 48, %sw.bb1.i122 ], [ 28, %sw.bb303 ], [ %spec.select.i134, %land.rhs.i130 ]
+dgram_get_mtu_overhead.exit135:                   ; preds = %sw.bb303, %land.rhs.i131, %if.else.i130
+  %ret.0.i121 = phi i64 [ 48, %if.else.i130 ], [ 28, %land.rhs.i131 ], [ 28, %sw.bb303 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tmp_addr.i118)
   br label %sw.epilog333
 

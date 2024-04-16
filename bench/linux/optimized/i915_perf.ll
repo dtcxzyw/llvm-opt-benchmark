@@ -3585,14 +3585,14 @@ define dso_local noundef i32 @i915_perf_init(ptr noundef %0) local_unnamed_addr 
   switch i8 %24, label %30 [
     i8 8, label %.thread.sink.split
     i8 9, label %25
-    i8 11, label %.thread25
-    i8 12, label %.thread12
+    i8 11, label %.thread27
+    i8 12, label %.thread14
   ]
 
 25:                                               ; preds = %20
   br label %.thread.sink.split
 
-.thread25:                                        ; preds = %20
+.thread27:                                        ; preds = %20
   %26 = getelementptr inbounds i8, ptr %0, i64 9188
   store i32 292, ptr %26, align 4
   %27 = getelementptr inbounds i8, ptr %0, i64 9192
@@ -3601,7 +3601,7 @@ define dso_local noundef i32 @i915_perf_init(ptr noundef %0) local_unnamed_addr 
   store i32 65536, ptr %28, align 4
   br label %45
 
-.thread12:                                        ; preds = %20
+.thread14:                                        ; preds = %20
   %29 = getelementptr inbounds i8, ptr %0, i64 9196
   store i32 65536, ptr %29, align 4
   br label %48
@@ -3621,13 +3621,13 @@ define dso_local noundef i32 @i915_perf_init(ptr noundef %0) local_unnamed_addr 
   br i1 %34, label %.thread, label %44
 
 .thread.sink.split:                               ; preds = %20, %25
-  %.sink30 = phi i32 [ 296, %25 ], [ 288, %20 ]
-  %.sink28 = phi i32 [ 990, %25 ], [ 718, %20 ]
+  %.sink32 = phi i32 [ 296, %25 ], [ 288, %20 ]
+  %.sink30 = phi i32 [ 990, %25 ], [ 718, %20 ]
   %.sink = phi i32 [ 65536, %25 ], [ 33554432, %20 ]
   %35 = getelementptr inbounds i8, ptr %0, i64 9188
-  store i32 %.sink30, ptr %35, align 4
+  store i32 %.sink32, ptr %35, align 4
   %36 = getelementptr inbounds i8, ptr %0, i64 9192
-  store i32 %.sink28, ptr %36, align 8
+  store i32 %.sink30, ptr %36, align 8
   %37 = getelementptr inbounds i8, ptr %0, i64 9196
   store i32 %.sink, ptr %37, align 4
   br label %.thread
@@ -3650,14 +3650,14 @@ define dso_local noundef i32 @i915_perf_init(ptr noundef %0) local_unnamed_addr 
 44:                                               ; preds = %30
   switch i8 %.pr.pre, label %72 [
     i8 11, label %45
-    i8 12, label %._crit_edge15
+    i8 12, label %._crit_edge17
   ]
 
-._crit_edge15:                                    ; preds = %44
+._crit_edge17:                                    ; preds = %44
   %.pre = load ptr, ptr %14, align 8
   br label %48
 
-45:                                               ; preds = %.thread25, %44
+45:                                               ; preds = %.thread27, %44
   store ptr @gen7_is_valid_b_counter_addr, ptr %21, align 8
   %46 = getelementptr inbounds i8, ptr %0, i64 9208
   store ptr @gen11_is_valid_mux_addr, ptr %46, align 8
@@ -3665,8 +3665,8 @@ define dso_local noundef i32 @i915_perf_init(ptr noundef %0) local_unnamed_addr 
   store ptr @gen8_is_valid_flex_addr, ptr %47, align 8
   br label %57
 
-48:                                               ; preds = %._crit_edge15, %.thread12
-  %49 = phi ptr [ %.pre, %._crit_edge15 ], [ %15, %.thread12 ]
+48:                                               ; preds = %._crit_edge17, %.thread14
+  %49 = phi ptr [ %.pre, %._crit_edge17 ], [ %15, %.thread14 ]
   %50 = getelementptr inbounds i8, ptr %49, i64 28
   %51 = load i64, ptr %50, align 4
   %52 = and i64 %51, 33554432
@@ -3705,7 +3705,7 @@ define dso_local noundef i32 @i915_perf_init(ptr noundef %0) local_unnamed_addr 
   %73 = getelementptr inbounds i8, ptr %0, i64 9224
   %74 = load ptr, ptr %73, align 8
   %75 = icmp eq ptr %74, null
-  br i1 %75, label %236, label %76
+  br i1 %75, label %.thread12, label %76
 
 76:                                               ; preds = %72
   %77 = getelementptr inbounds i8, ptr %0, i64 9304
@@ -3765,15 +3765,15 @@ define dso_local noundef i32 @i915_perf_init(ptr noundef %0) local_unnamed_addr 
   br label %.backedge.outer
 
 .backedge.outer:                                  ; preds = %213, %87
-  %.pre1619.ph = phi ptr [ %.pre16.pre, %213 ], [ %0, %87 ]
+  %.pre1821.ph = phi ptr [ %.pre18.pre, %213 ], [ %0, %87 ]
   %.ph = phi i1 [ false, %213 ], [ true, %87 ]
-  %.ph32 = phi i64 [ 1, %213 ], [ 0, %87 ]
-  %106 = getelementptr inbounds i8, ptr %.pre1619.ph, i64 9304
+  %.ph34 = phi i64 [ 1, %213 ], [ 0, %87 ]
+  %106 = getelementptr inbounds i8, ptr %.pre1821.ph, i64 9304
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.outer, %214
   %107 = phi i1 [ false, %214 ], [ %.ph, %.backedge.outer ]
-  %108 = phi i64 [ 1, %214 ], [ %.ph32, %.backedge.outer ]
+  %108 = phi i64 [ 1, %214 ], [ %.ph34, %.backedge.outer ]
   %109 = getelementptr [2 x ptr], ptr %106, i64 0, i64 %108
   %110 = load ptr, ptr %109, align 8
   %111 = icmp eq ptr %110, null
@@ -3940,100 +3940,100 @@ define dso_local noundef i32 @i915_perf_init(ptr noundef %0) local_unnamed_addr 
   br label %213
 
 213:                                              ; preds = %192, %181, %._crit_edge
-  %.pre16.pre = load ptr, ptr %2, align 8
-  br i1 %107, label %.backedge.outer, label %._crit_edge17, !llvm.loop !83
+  %.pre18.pre = load ptr, ptr %2, align 8
+  br i1 %107, label %.backedge.outer, label %._crit_edge19, !llvm.loop !83
 
 214:                                              ; preds = %.backedge
-  br i1 %107, label %.backedge, label %._crit_edge17, !llvm.loop !83
+  br i1 %107, label %.backedge, label %._crit_edge19, !llvm.loop !83
 
 215:                                              ; preds = %112
   %216 = icmp eq ptr %0, null
-  br i1 %216, label %220, label %217
+  br i1 %216, label %234, label %217
 
 217:                                              ; preds = %215
   %218 = getelementptr inbounds i8, ptr %0, i64 8
   %219 = load ptr, ptr %218, align 8
-  br label %220
+  br label %234
 
-220:                                              ; preds = %217, %215
-  %221 = phi ptr [ %219, %217 ], [ null, %215 ]
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %221, ptr noundef nonnull @.str.20, i32 noundef -12) #22
-  br label %236
-
-._crit_edge17:                                    ; preds = %213, %214
-  %222 = phi ptr [ %.pre1619.ph, %214 ], [ %.pre16.pre, %213 ]
-  %223 = getelementptr inbounds i8, ptr %222, i64 7168
-  %224 = load ptr, ptr %223, align 8
-  %225 = load i32, ptr %224, align 8
-  switch i32 %225, label %234 [
-    i32 19, label %226
-    i32 20, label %228
-    i32 21, label %228
-    i32 22, label %228
-    i32 23, label %228
-    i32 24, label %228
-    i32 25, label %228
-    i32 26, label %228
-    i32 27, label %228
-    i32 28, label %228
-    i32 29, label %228
-    i32 30, label %228
-    i32 31, label %228
-    i32 32, label %228
-    i32 33, label %228
-    i32 34, label %228
-    i32 35, label %228
-    i32 37, label %230
-    i32 39, label %232
+._crit_edge19:                                    ; preds = %213, %214
+  %220 = phi ptr [ %.pre1821.ph, %214 ], [ %.pre18.pre, %213 ]
+  %221 = getelementptr inbounds i8, ptr %220, i64 7168
+  %222 = load ptr, ptr %221, align 8
+  %223 = load i32, ptr %222, align 8
+  switch i32 %223, label %232 [
+    i32 19, label %224
+    i32 20, label %226
+    i32 21, label %226
+    i32 22, label %226
+    i32 23, label %226
+    i32 24, label %226
+    i32 25, label %226
+    i32 26, label %226
+    i32 27, label %226
+    i32 28, label %226
+    i32 29, label %226
+    i32 30, label %226
+    i32 31, label %226
+    i32 32, label %226
+    i32 33, label %226
+    i32 34, label %226
+    i32 35, label %226
+    i32 37, label %228
+    i32 39, label %230
   ]
 
-226:                                              ; preds = %._crit_edge17
+224:                                              ; preds = %._crit_edge19
+  %225 = getelementptr inbounds i8, ptr %0, i64 9280
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %225, i64 1) #19, !srcloc !84
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %225, i64 1) #19, !srcloc !84
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %225, i64 2) #19, !srcloc !84
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %225, i64 3) #19, !srcloc !84
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %225, i64 4) #19, !srcloc !84
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %225, i64 5) #19, !srcloc !84
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %225, i64 6) #19, !srcloc !84
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %225, i64 7) #19, !srcloc !84
+  br label %.thread12
+
+226:                                              ; preds = %._crit_edge19, %._crit_edge19, %._crit_edge19, %._crit_edge19, %._crit_edge19, %._crit_edge19, %._crit_edge19, %._crit_edge19, %._crit_edge19, %._crit_edge19, %._crit_edge19, %._crit_edge19, %._crit_edge19, %._crit_edge19, %._crit_edge19, %._crit_edge19
   %227 = getelementptr inbounds i8, ptr %0, i64 9280
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %227, i64 1) #19, !srcloc !84
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %227, i64 1) #19, !srcloc !84
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %227, i64 2) #19, !srcloc !84
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %227, i64 3) #19, !srcloc !84
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %227, i64 4) #19, !srcloc !84
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %227, i64 5) #19, !srcloc !84
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %227, i64 6) #19, !srcloc !84
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %227, i64 8) #19, !srcloc !84
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %227, i64 9) #19, !srcloc !84
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %227, i64 10) #19, !srcloc !84
   tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %227, i64 7) #19, !srcloc !84
-  br label %236
+  br label %.thread12
 
-228:                                              ; preds = %._crit_edge17, %._crit_edge17, %._crit_edge17, %._crit_edge17, %._crit_edge17, %._crit_edge17, %._crit_edge17, %._crit_edge17, %._crit_edge17, %._crit_edge17, %._crit_edge17, %._crit_edge17, %._crit_edge17, %._crit_edge17, %._crit_edge17, %._crit_edge17
+228:                                              ; preds = %._crit_edge19
   %229 = getelementptr inbounds i8, ptr %0, i64 9280
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %229, i64 8) #19, !srcloc !84
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %229, i64 9) #19, !srcloc !84
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %229, i64 10) #19, !srcloc !84
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %229, i64 7) #19, !srcloc !84
-  br label %236
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %229, i64 11) #19, !srcloc !84
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %229, i64 12) #19, !srcloc !84
+  br label %.thread12
 
-230:                                              ; preds = %._crit_edge17
+230:                                              ; preds = %._crit_edge19
   %231 = getelementptr inbounds i8, ptr %0, i64 9280
   tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %231, i64 11) #19, !srcloc !84
   tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %231, i64 12) #19, !srcloc !84
-  br label %236
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %231, i64 13) #19, !srcloc !84
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %231, i64 14) #19, !srcloc !84
+  br label %.thread12
 
-232:                                              ; preds = %._crit_edge17
-  %233 = getelementptr inbounds i8, ptr %0, i64 9280
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %233, i64 11) #19, !srcloc !84
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %233, i64 12) #19, !srcloc !84
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %233, i64 13) #19, !srcloc !84
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %233, i64 14) #19, !srcloc !84
-  br label %236
-
-234:                                              ; preds = %._crit_edge17
+232:                                              ; preds = %._crit_edge19
   tail call void asm sideeffect "960: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 960b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 960) #19, !srcloc !85
-  %235 = zext i32 %225 to i64
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.89, i64 noundef %235) #19
+  %233 = zext i32 %223 to i64
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.89, i64 noundef %233) #19
   tail call void asm sideeffect "961: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 961b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 961) #19, !srcloc !86
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.24, i32 5043, i32 2313, i64 12) #19, !srcloc !87
   tail call void asm sideeffect "962: nop\0A\09.pushsection .discard.instr_end\0A\09.long 962b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 962) #19, !srcloc !88
   tail call void asm sideeffect "963: nop\0A\09.pushsection .discard.instr_end\0A\09.long 963b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 963) #19, !srcloc !89
-  br label %236
+  br label %.thread12
 
-236:                                              ; preds = %220, %226, %228, %230, %232, %234, %72
-  %237 = phi i32 [ 0, %72 ], [ 0, %234 ], [ 0, %232 ], [ 0, %230 ], [ 0, %228 ], [ 0, %226 ], [ -12, %220 ]
-  ret i32 %237
+234:                                              ; preds = %215, %217
+  %235 = phi ptr [ %219, %217 ], [ null, %215 ]
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %235, ptr noundef nonnull @.str.20, i32 noundef -12) #22
+  br label %.thread12
+
+.thread12:                                        ; preds = %224, %226, %228, %230, %232, %72, %234
+  %236 = phi i32 [ -12, %234 ], [ 0, %72 ], [ 0, %232 ], [ 0, %230 ], [ 0, %228 ], [ 0, %226 ], [ 0, %224 ]
+  ret i32 %236
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(none)
@@ -6290,12 +6290,14 @@ define dso_local noundef i32 @i915_perf_ioctl_version(ptr nocapture noundef read
 46:                                               ; preds = %41
   %47 = getelementptr inbounds i8, ptr %43, i64 3592
   %48 = tail call zeroext i1 @intel_check_bios_c6_setup(ptr noundef %47) #19
-  %spec.select = select i1 %48, i32 6, i32 7
-  br label %49
+  br i1 %48, label %50, label %49
 
-49:                                               ; preds = %46, %1, %5, %9, %41
-  %50 = phi i32 [ 7, %41 ], [ 7, %9 ], [ 7, %5 ], [ 7, %1 ], [ %spec.select, %46 ]
-  ret i32 %50
+49:                                               ; preds = %46, %41, %9, %5, %1
+  br label %50
+
+50:                                               ; preds = %49, %46
+  %51 = phi i32 [ 7, %49 ], [ 6, %46 ]
+  ret i32 %51
 }
 
 ; Function Attrs: null_pointer_is_valid

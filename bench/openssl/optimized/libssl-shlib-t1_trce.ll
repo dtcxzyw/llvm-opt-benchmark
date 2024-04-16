@@ -2594,17 +2594,21 @@ if.end40:                                         ; preds = %if.then35
   %14 = load i32, ptr %enc_flags44, align 8
   %and45 = and i32 %14, 8
   %tobool46.not = icmp eq i32 %and45, 0
-  br i1 %tobool46.not, label %land.lhs.true47, label %return
+  br i1 %tobool46.not, label %land.lhs.true47, label %if.end64
 
 land.lhs.true47:                                  ; preds = %if.end40
   %15 = load i32, ptr %12, align 8
   %cmp51 = icmp slt i32 %15, 772
   %cmp57.not = icmp eq i32 %15, 65536
   %or.cond32 = or i1 %cmp51, %cmp57.not
-  br i1 %or.cond32, label %return, label %land.lhs.true59
+  br i1 %or.cond32, label %if.end64, label %land.lhs.true59
 
 land.lhs.true59:                                  ; preds = %land.lhs.true47
   %call61 = call fastcc i32 @ssl_print_extensions(ptr noundef %bio, i32 noundef 8, i32 noundef %server, i8 noundef zeroext 11, ptr noundef nonnull %msg.addr, ptr noundef nonnull %clen), !range !7
+  %tobool62.not = icmp eq i32 %call61, 0
+  br i1 %tobool62.not, label %return, label %if.end64
+
+if.end64:                                         ; preds = %land.lhs.true59, %land.lhs.true47, %if.end40
   br label %return
 
 if.end65:                                         ; preds = %land.lhs.true25, %land.lhs.true30
@@ -2740,8 +2744,8 @@ if.end99:                                         ; preds = %land.lhs.true94.if.
   %cmp69.not = icmp eq i64 %33, 0
   br i1 %cmp69.not, label %return, label %while.body, !llvm.loop !10
 
-return:                                           ; preds = %land.lhs.true94, %if.end99, %if.end65, %if.end.i, %land.lhs.true8, %ssl_print_certificate.exit.thread, %land.lhs.true59, %if.end40, %land.lhs.true47, %if.then35, %if.end12, %if.end, %ssl_print_hexbuf.exit
-  %retval.0 = phi i32 [ 0, %ssl_print_hexbuf.exit ], [ 0, %if.end ], [ 0, %if.end12 ], [ 0, %if.then35 ], [ 1, %land.lhs.true47 ], [ 1, %if.end40 ], [ %call61, %land.lhs.true59 ], [ 0, %ssl_print_certificate.exit.thread ], [ 0, %land.lhs.true8 ], [ 0, %if.end.i ], [ 1, %if.end65 ], [ 0, %land.lhs.true94 ], [ 1, %if.end99 ]
+return:                                           ; preds = %land.lhs.true94, %if.end99, %if.end65, %if.end.i, %land.lhs.true8, %ssl_print_certificate.exit.thread, %land.lhs.true59, %if.then35, %if.end12, %if.end, %ssl_print_hexbuf.exit, %if.end64
+  %retval.0 = phi i32 [ 1, %if.end64 ], [ 0, %ssl_print_hexbuf.exit ], [ 0, %if.end ], [ 0, %if.end12 ], [ 0, %if.then35 ], [ 0, %land.lhs.true59 ], [ 0, %ssl_print_certificate.exit.thread ], [ 0, %land.lhs.true8 ], [ 0, %if.end.i ], [ 1, %if.end65 ], [ 0, %land.lhs.true94 ], [ 1, %if.end99 ]
   ret i32 %retval.0
 }
 

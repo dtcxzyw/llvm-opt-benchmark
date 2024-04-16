@@ -131,25 +131,25 @@ define internal fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hd
   %6 = load i64, ptr %5, align 8, !noundef !5
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   %8 = load i64, ptr %7, align 8, !noundef !5
-  switch i64 %6, label %18 [
+  switch i64 %6, label %19 [
     i64 0, label %9
     i64 1, label %11
   ]
 
 9:                                                ; preds = %1
   %10 = icmp eq i64 %8, 0
-  br i1 %10, label %select.unfold, label %.thread26
+  br i1 %10, label %17, label %.thread27
 
-.thread26:                                        ; preds = %9
+.thread27:                                        ; preds = %9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.7)
   br label %_ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit
 
 11:                                               ; preds = %1
   %12 = icmp eq i64 %8, 0
-  br i1 %12, label %13, label %.thread28
+  br i1 %12, label %13, label %.thread29
 
-.thread28:                                        ; preds = %11
+.thread29:                                        ; preds = %11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.7)
   br label %_ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit
@@ -158,43 +158,43 @@ define internal fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hd
   %14 = load ptr, ptr %4, align 8, !nonnull !5, !align !44, !noundef !5
   %15 = getelementptr inbounds i8, ptr %4, i64 8
   %16 = load i64, ptr %15, align 8, !noundef !5
-  br label %select.unfold
+  br label %17
 
-select.unfold:                                    ; preds = %9, %13
-  %.sroa.7.0 = phi i64 [ %16, %13 ], [ 0, %9 ]
-  %.sroa.0.0 = phi ptr [ %14, %13 ], [ @anon.31ea63a5c4740ef46f42555c294aa5d7.6, %9 ]
-  %17 = tail call noundef nonnull ptr @"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$3msg17hdff21eba1a01d4ffE"(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0, i64 noundef %.sroa.7.0)
-  br label %20
+17:                                               ; preds = %13, %9
+  %.sroa.7.0.ph = phi i64 [ 0, %9 ], [ %16, %13 ]
+  %.sroa.0.0.ph = phi ptr [ @anon.31ea63a5c4740ef46f42555c294aa5d7.6, %9 ], [ %14, %13 ]
+  %18 = tail call noundef nonnull ptr @"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$3msg17hdff21eba1a01d4ffE"(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.ph, i64 noundef %.sroa.7.0.ph)
+  br label %21
 
-18:                                               ; preds = %1
+19:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.7)
   br label %_ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit
 
-_ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit:    ; preds = %18, %.thread28, %.thread26
+_ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit:    ; preds = %19, %.thread29, %.thread27
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   %.sroa.6.0.copyload = load ptr, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2), !noalias !45
   store ptr %4, ptr %2, align 8, !noalias !56
-  %.sroa.5.0..sroa_idx4 = getelementptr inbounds i8, ptr %2, i64 8
-  store i64 %6, ptr %.sroa.5.0..sroa_idx4, align 8, !noalias !56
-  %.sroa.6.0..sroa_idx6 = getelementptr inbounds i8, ptr %2, i64 16
-  store ptr %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx6, align 8, !noalias !56
-  %.sroa.68.0..sroa_idx9 = getelementptr inbounds i8, ptr %2, i64 24
-  store i64 %8, ptr %.sroa.68.0..sroa_idx9, align 8, !noalias !56
-  %.sroa.7.0..sroa_idx11 = getelementptr inbounds i8, ptr %2, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx11, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7, i64 16, i1 false), !noalias !56
+  %.sroa.5.0..sroa_idx3 = getelementptr inbounds i8, ptr %2, i64 8
+  store i64 %6, ptr %.sroa.5.0..sroa_idx3, align 8, !noalias !56
+  %.sroa.6.0..sroa_idx5 = getelementptr inbounds i8, ptr %2, i64 16
+  store ptr %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx5, align 8, !noalias !56
+  %.sroa.67.0..sroa_idx8 = getelementptr inbounds i8, ptr %2, i64 24
+  store i64 %8, ptr %.sroa.67.0..sroa_idx8, align 8, !noalias !56
+  %.sroa.7.0..sroa_idx10 = getelementptr inbounds i8, ptr %2, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx10, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7, i64 16, i1 false), !noalias !56
   call void @_ZN5alloc3fmt6format12format_inner17h4f5d4c1ba302c88bE(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 dereferenceable(24) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2), !noalias !57
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2), !noalias !45
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.7)
-  %19 = call noundef nonnull ptr @"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$3msg17h311647a33cf87b04E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3)
+  %20 = call noundef nonnull ptr @"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$3msg17h311647a33cf87b04E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  br label %20
+  br label %21
 
-20:                                               ; preds = %_ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit, %select.unfold
-  %.0 = phi ptr [ %17, %select.unfold ], [ %19, %_ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit ]
+21:                                               ; preds = %_ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit, %17
+  %.0 = phi ptr [ %18, %17 ], [ %20, %_ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit ]
   ret ptr %.0
 }
 

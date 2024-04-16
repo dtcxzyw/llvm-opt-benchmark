@@ -368,13 +368,17 @@ define hidden ptr @rb_builtin_ast(ptr nocapture noundef readonly %0, ptr nocaptu
 .thread228:                                       ; preds = %112, %.thread223
   %116 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(8) getelementptr inbounds ([18 x i8], ptr @prelude_name14, i64 0, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 6) #7
   %117 = icmp eq i32 %116, 0
-  br i1 %117, label %118, label %prelude_ast.exit
+  br i1 %117, label %118, label %.thread230
 
 118:                                              ; preds = %.thread228
   %119 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @prelude_name14, i64 noundef 17) #6
   store i64 %119, ptr %1, align 8
   %120 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @prelude_code14, i64 noundef 189) #6
   %121 = tail call fastcc ptr @prelude_ast(i64 noundef %119, i64 noundef %120, i32 noundef 1)
+  %.not143 = icmp eq ptr %121, null
+  br i1 %.not143, label %.thread230, label %prelude_ast.exit
+
+.thread230:                                       ; preds = %.thread228, %118
   br label %prelude_ast.exit
 
 .thread217.thread.thread:                         ; preds = %96, %99
@@ -419,34 +423,37 @@ define hidden ptr @rb_builtin_ast(ptr nocapture noundef readonly %0, ptr nocaptu
   %141 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @prelude_code17, i64 noundef 98) #6
   %142 = tail call fastcc ptr @prelude_ast(i64 noundef %140, i64 noundef %141, i32 noundef 1)
   %.not146 = icmp eq ptr %142, null
-  %brmerge.not288 = and i1 %.not146, %134
-  br i1 %brmerge.not288, label %149, label %prelude_ast.exit
+  br i1 %.not146, label %.thread242, label %prelude_ast.exit
 
 .thread236.thread:                                ; preds = %.thread211, %92
   %143 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(9) getelementptr inbounds ([19 x i8], ptr @prelude_name18, i64 0, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 7) #7
   %144 = icmp eq i32 %143, 0
-  br i1 %144, label %145, label %prelude_ast.exit
+  br i1 %144, label %145, label %.thread245
 
 145:                                              ; preds = %.thread236.thread
   %146 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @prelude_name18, i64 noundef 18) #6
   store i64 %146, ptr %1, align 8
   %147 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @prelude_code18, i64 noundef 352) #6
   %148 = tail call fastcc ptr @prelude_ast(i64 noundef %146, i64 noundef %147, i32 noundef 1)
-  br label %prelude_ast.exit
+  %.not147 = icmp eq ptr %148, null
+  br i1 %.not147, label %.thread245, label %prelude_ast.exit
 
-.thread242:                                       ; preds = %136, %.thread236
-  br i1 %134, label %149, label %prelude_ast.exit
+.thread242:                                       ; preds = %139, %136, %.thread236
+  br i1 %134, label %149, label %.thread245
 
-149:                                              ; preds = %139, %.thread242
+149:                                              ; preds = %.thread242
   %150 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(13) getelementptr inbounds ([23 x i8], ptr @prelude_name19, i64 0, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 11) #7
   %151 = icmp eq i32 %150, 0
-  br i1 %151, label %152, label %prelude_ast.exit
+  br i1 %151, label %152, label %.thread245
 
 152:                                              ; preds = %149
   %153 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @prelude_name19, i64 noundef 22) #6
   store i64 %153, ptr %1, align 8
   %154 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @prelude_code19, i64 noundef 552) #6
   %155 = tail call fastcc ptr @prelude_ast(i64 noundef %153, i64 noundef %154, i32 noundef 1)
+  br label %prelude_ast.exit
+
+.thread245:                                       ; preds = %.thread236.thread, %145, %.thread242, %149
   br label %prelude_ast.exit
 
 .thread242.thread.thread:                         ; preds = %79, %.thread190
@@ -461,8 +468,8 @@ define hidden ptr @rb_builtin_ast(ptr nocapture noundef readonly %0, ptr nocaptu
   %161 = tail call fastcc ptr @prelude_ast(i64 noundef %159, i64 noundef %160, i32 noundef 10)
   br label %prelude_ast.exit
 
-prelude_ast.exit:                                 ; preds = %152, %145, %118, %139, %149, %.thread242, %.thread236.thread, %.thread228, %53, %158, %.thread242.thread.thread, %17, %50, %38, %25, %12, %130, %124, %112, %106, %99, %92, %86, %79, %73, %66, %59, %46
-  %.0 = phi ptr [ %49, %46 ], [ %62, %59 ], [ %69, %66 ], [ %76, %73 ], [ %82, %79 ], [ %89, %86 ], [ %95, %92 ], [ %102, %99 ], [ %109, %106 ], [ %115, %112 ], [ %127, %124 ], [ %133, %130 ], [ %142, %139 ], [ %155, %152 ], [ %11, %12 ], [ %24, %25 ], [ %37, %38 ], [ %161, %158 ], [ null, %.thread242.thread.thread ], [ null, %17 ], [ null, %50 ], [ %56, %53 ], [ null, %.thread228 ], [ null, %.thread236.thread ], [ null, %.thread242 ], [ null, %149 ], [ %121, %118 ], [ %148, %145 ]
+prelude_ast.exit:                                 ; preds = %152, %.thread230, %.thread245, %53, %158, %.thread242.thread.thread, %17, %50, %38, %25, %12, %145, %139, %130, %124, %118, %112, %106, %99, %92, %86, %79, %73, %66, %59, %46
+  %.0 = phi ptr [ %49, %46 ], [ %62, %59 ], [ %69, %66 ], [ %76, %73 ], [ %82, %79 ], [ %89, %86 ], [ %95, %92 ], [ %102, %99 ], [ %109, %106 ], [ %115, %112 ], [ %121, %118 ], [ %127, %124 ], [ %133, %130 ], [ %142, %139 ], [ %148, %145 ], [ %155, %152 ], [ %11, %12 ], [ %24, %25 ], [ %37, %38 ], [ %161, %158 ], [ null, %.thread242.thread.thread ], [ null, %.thread245 ], [ null, %17 ], [ null, %50 ], [ %56, %53 ], [ null, %.thread230 ]
   ret ptr %.0
 }
 

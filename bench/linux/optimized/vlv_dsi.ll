@@ -2299,14 +2299,14 @@ define internal noundef zeroext i1 @intel_dsi_get_hw_state(ptr nocapture noundef
   %27 = getelementptr inbounds i8, ptr %3, i64 2304
   br label %28
 
-28:                                               ; preds = %.thread, %21
-  %29 = phi i64 [ 0, %21 ], [ %114, %.thread ]
+28:                                               ; preds = %.thread4, %21
+  %29 = phi i64 [ 0, %21 ], [ %114, %.thread4 ]
   %30 = load i16, ptr %22, align 8
   %31 = zext i16 %30 to i64
   %32 = shl nuw nsw i64 1, %29
   %33 = and i64 %32, %31
   %34 = icmp eq i64 %33, 0
-  br i1 %34, label %.thread, label %35
+  br i1 %34, label %.thread4, label %35
 
 35:                                               ; preds = %28
   %36 = load i32, ptr %15, align 4
@@ -2363,7 +2363,7 @@ define internal noundef zeroext i1 @intel_dsi_get_hw_state(ptr nocapture noundef
   %77 = tail call i32 %76(ptr noundef %23, i32 %75, i1 noundef zeroext true) #9
   %78 = and i32 %77, 57344
   %.not = icmp eq i32 %78, 0
-  br i1 %.not, label %.thread, label %79
+  br i1 %.not, label %.thread4, label %79
 
 79:                                               ; preds = %69, %72
   %80 = icmp ne i64 %29, 0
@@ -2374,7 +2374,7 @@ define internal noundef zeroext i1 @intel_dsi_get_hw_state(ptr nocapture noundef
   %85 = tail call i32 %84(ptr noundef %23, i32 %83, i1 noundef zeroext true) #9
   %86 = and i32 %85, 1
   %87 = icmp eq i32 %86, 0
-  br i1 %87, label %.thread, label %88
+  br i1 %87, label %.thread4, label %88
 
 88:                                               ; preds = %79
   %89 = load i32, ptr %15, align 4
@@ -2407,31 +2407,31 @@ define internal noundef zeroext i1 @intel_dsi_get_hw_state(ptr nocapture noundef
   %109 = load ptr, ptr %104, align 8
   br label %110
 
-110:                                              ; preds = %108, %101
+110:                                              ; preds = %101, %108
   %111 = phi ptr [ %109, %108 ], [ %106, %101 ]
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.6, ptr noundef %103, ptr noundef %111, ptr noundef nonnull @.str.26) #9
   tail call void asm sideeffect "910: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 910b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 910) #9, !srcloc !51
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 992, i32 2313, i64 12) #9, !srcloc !52
   tail call void asm sideeffect "911: nop\0A\09.pushsection .discard.instr_end\0A\09.long 911b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 911) #9, !srcloc !53
   tail call void asm sideeffect "912: nop\0A\09.pushsection .discard.instr_end\0A\09.long 912b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 912) #9, !srcloc !54
-  br label %.thread
+  br label %.thread4
 
 112:                                              ; preds = %88
   %113 = zext i1 %80 to i32
   br label %.loopexit.sink.split
 
-.thread:                                          ; preds = %72, %110, %79, %28
+.thread4:                                         ; preds = %72, %79, %110, %28
   %114 = add nuw nsw i64 %29, 1
   %115 = icmp eq i64 %114, 9
   br i1 %115, label %.loopexit, label %28, !llvm.loop !55
 
 .loopexit.sink.split:                             ; preds = %92, %112
-  %.lcssa10.sink = phi i32 [ %113, %112 ], [ %99, %92 ]
-  store i32 %.lcssa10.sink, ptr %1, align 4
+  %.sink = phi i32 [ %113, %112 ], [ %99, %92 ]
+  store i32 %.sink, ptr %1, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.thread, %.loopexit.sink.split, %19
-  %116 = phi i1 [ false, %19 ], [ true, %.loopexit.sink.split ], [ false, %.thread ]
+.loopexit:                                        ; preds = %.thread4, %.loopexit.sink.split, %19
+  %116 = phi i1 [ false, %19 ], [ true, %.loopexit.sink.split ], [ false, %.thread4 ]
   %117 = load i32, ptr %10, align 4
   tail call void @intel_display_power_put_unchecked(ptr noundef %3, i32 noundef %117) #9
   br label %118
@@ -2543,16 +2543,16 @@ define internal void @intel_dsi_get_config(ptr noundef %0, ptr noundef %1) #0 al
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 81, i32 2313, i64 12) #9, !srcloc !7
   tail call void asm sideeffect "903: nop\0A\09.pushsection .discard.instr_end\0A\09.long 903b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 903) #9, !srcloc !8
   tail call void asm sideeffect "904: nop\0A\09.pushsection .discard.instr_end\0A\09.long 904b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 904) #9, !srcloc !9
-  br label %68
+  br label %.thread15
 
-.thread15:                                        ; preds = %51, %51
+.thread15:                                        ; preds = %65, %51, %51
   br label %68
 
 67:                                               ; preds = %51
   br label %68
 
-68:                                               ; preds = %65, %51, %.thread15, %67
-  %69 = phi i32 [ 16, %67 ], [ 18, %51 ], [ 24, %65 ], [ 24, %.thread15 ]
+68:                                               ; preds = %51, %.thread15, %67
+  %69 = phi i32 [ 16, %67 ], [ 24, %.thread15 ], [ 18, %51 ]
   %70 = tail call i32 @bdw_get_pipe_misc_bpp(ptr noundef %19) #9
   %71 = getelementptr inbounds i8, ptr %1, i64 1364
   store i32 %70, ptr %71, align 4

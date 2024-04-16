@@ -115,7 +115,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   %tobool.not = icmp eq ptr %call, null
-  br i1 %tobool.not, label %return, label %land.lhs.true
+  br i1 %tobool.not, label %if.else4, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %do.end
   %call.i = tail call i32 @job_type(ptr noundef nonnull %call) #6
@@ -134,13 +134,14 @@ lor.lhs.false3.i:                                 ; preds = %lor.lhs.false.i
 
 is_block_job.exit:                                ; preds = %lor.lhs.false3.i
   %call6.i = tail call i32 @job_type(ptr noundef nonnull %call) #6
-  %call6.i.fr = freeze i32 %call6.i
-  %cmp7.i = icmp eq i32 %call6.i.fr, 1
-  %spec.select = select i1 %cmp7.i, ptr %call, ptr null
+  %cmp7.i = icmp eq i32 %call6.i, 1
+  br i1 %cmp7.i, label %return, label %if.else4
+
+if.else4:                                         ; preds = %is_block_job.exit, %do.end
   br label %return
 
-return:                                           ; preds = %is_block_job.exit, %land.lhs.true, %lor.lhs.false.i, %lor.lhs.false3.i, %do.end
-  %retval.0 = phi ptr [ null, %do.end ], [ %call, %lor.lhs.false3.i ], [ %call, %lor.lhs.false.i ], [ %call, %land.lhs.true ], [ %spec.select, %is_block_job.exit ]
+return:                                           ; preds = %land.lhs.true, %lor.lhs.false.i, %lor.lhs.false3.i, %is_block_job.exit, %if.else4
+  %retval.0 = phi ptr [ null, %if.else4 ], [ %call, %is_block_job.exit ], [ %call, %lor.lhs.false3.i ], [ %call, %lor.lhs.false.i ], [ %call, %land.lhs.true ]
   ret ptr %retval.0
 }
 

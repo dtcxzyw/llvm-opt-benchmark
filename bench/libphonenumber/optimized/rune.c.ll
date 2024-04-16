@@ -353,14 +353,14 @@ define dso_local i32 @runenlen(ptr nocapture noundef readonly %0, i32 noundef %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @fullrune(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define dso_local noundef i32 @fullrune(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %4, label %15
 
 4:                                                ; preds = %2
   %5 = load i8, ptr %0, align 1
   %6 = icmp sgt i8 %5, -1
-  br i1 %6, label %15, label %7
+  br i1 %6, label %16, label %7
 
 7:                                                ; preds = %4
   %.not = icmp eq i32 %1, 1
@@ -368,7 +368,7 @@ define dso_local i32 @fullrune(ptr nocapture noundef readonly %0, i32 noundef %1
 
 8:                                                ; preds = %7
   %9 = icmp ult i8 %5, -32
-  br i1 %9, label %15, label %10
+  br i1 %9, label %16, label %10
 
 10:                                               ; preds = %8
   %11 = icmp ugt i32 %1, 2
@@ -378,11 +378,13 @@ define dso_local i32 @fullrune(ptr nocapture noundef readonly %0, i32 noundef %1
   %13 = icmp ult i8 %5, -16
   %14 = icmp ne i32 %1, 3
   %or.cond = or i1 %14, %13
-  %spec.select = zext i1 %or.cond to i32
-  br label %15
+  br i1 %or.cond, label %16, label %15
 
-15:                                               ; preds = %12, %2, %10, %7, %8, %4
-  %.0 = phi i32 [ 1, %4 ], [ 1, %8 ], [ 0, %7 ], [ 0, %10 ], [ 0, %2 ], [ %spec.select, %12 ]
+15:                                               ; preds = %7, %12, %10, %2
+  br label %16
+
+16:                                               ; preds = %12, %8, %4, %15
+  %.0 = phi i32 [ 0, %15 ], [ 1, %4 ], [ 1, %8 ], [ 1, %12 ]
   ret i32 %.0
 }
 

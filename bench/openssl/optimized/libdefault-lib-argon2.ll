@@ -873,7 +873,7 @@ if.end105:                                        ; preds = %if.then101
 if.end110:                                        ; preds = %if.end105, %if.end98
   %call111 = call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %params, ptr noundef nonnull @.str.23) #9
   %cmp112.not = icmp eq ptr %call111, null
-  br i1 %cmp112.not, label %return, label %if.then113
+  br i1 %cmp112.not, label %if.end119, label %if.then113
 
 if.then113:                                       ; preds = %if.end110
   %data_type = getelementptr inbounds i8, ptr %call111, i64 8
@@ -885,10 +885,14 @@ lor.lhs.false:                                    ; preds = %if.then113
   %data = getelementptr inbounds i8, ptr %call111, i64 16
   %28 = load ptr, ptr %data, align 8
   %call115 = call fastcc i32 @set_property_query(ptr noundef %vctx, ptr noundef %28), !range !4
+  %tobool116.not = icmp eq i32 %call115, 0
+  br i1 %tobool116.not, label %return, label %if.end119
+
+if.end119:                                        ; preds = %lor.lhs.false, %if.end110
   br label %return
 
-return:                                           ; preds = %if.then2.i99, %if.then.i100, %kdf_argon2_ctx_set_t_cost.exit.thread, %kdf_argon2_ctx_set_out_length.exit.thread, %kdf_argon2_ctx_set_ad.exit.thread124, %kdf_argon2_ctx_set_ad.exit.thread, %kdf_argon2_ctx_set_secret.exit.thread117, %kdf_argon2_ctx_set_secret.exit.thread, %kdf_argon2_ctx_set_salt.exit.thread110, %kdf_argon2_ctx_set_salt.exit.thread, %kdf_argon2_ctx_set_pwd.exit.thread103, %kdf_argon2_ctx_set_pwd.exit.thread, %lor.lhs.false, %if.end110, %if.then113, %if.end105, %if.then101, %if.then93, %if.end85, %if.then81, %if.end73, %if.then69, %if.then57, %if.then45, %if.then33, %entry
-  %retval.0 = phi i32 [ 1, %entry ], [ 0, %if.then33 ], [ 0, %if.then45 ], [ 0, %if.then57 ], [ 0, %if.then69 ], [ 0, %if.end73 ], [ 0, %if.then81 ], [ 0, %if.end85 ], [ 0, %if.then93 ], [ 0, %if.then101 ], [ 0, %if.end105 ], [ 0, %if.then113 ], [ 1, %if.end110 ], [ %call115, %lor.lhs.false ], [ 0, %kdf_argon2_ctx_set_pwd.exit.thread ], [ 0, %kdf_argon2_ctx_set_pwd.exit.thread103 ], [ 0, %kdf_argon2_ctx_set_salt.exit.thread ], [ 0, %kdf_argon2_ctx_set_salt.exit.thread110 ], [ 0, %kdf_argon2_ctx_set_secret.exit.thread ], [ 0, %kdf_argon2_ctx_set_secret.exit.thread117 ], [ 0, %kdf_argon2_ctx_set_ad.exit.thread ], [ 0, %kdf_argon2_ctx_set_ad.exit.thread124 ], [ 0, %kdf_argon2_ctx_set_out_length.exit.thread ], [ 0, %kdf_argon2_ctx_set_t_cost.exit.thread ], [ 0, %if.then.i100 ], [ 0, %if.then2.i99 ]
+return:                                           ; preds = %if.then2.i99, %if.then.i100, %kdf_argon2_ctx_set_t_cost.exit.thread, %kdf_argon2_ctx_set_out_length.exit.thread, %kdf_argon2_ctx_set_ad.exit.thread124, %kdf_argon2_ctx_set_ad.exit.thread, %kdf_argon2_ctx_set_secret.exit.thread117, %kdf_argon2_ctx_set_secret.exit.thread, %kdf_argon2_ctx_set_salt.exit.thread110, %kdf_argon2_ctx_set_salt.exit.thread, %kdf_argon2_ctx_set_pwd.exit.thread103, %kdf_argon2_ctx_set_pwd.exit.thread, %if.then113, %lor.lhs.false, %if.end105, %if.then101, %if.then93, %if.end85, %if.then81, %if.end73, %if.then69, %if.then57, %if.then45, %if.then33, %entry, %if.end119
+  %retval.0 = phi i32 [ 1, %if.end119 ], [ 1, %entry ], [ 0, %if.then33 ], [ 0, %if.then45 ], [ 0, %if.then57 ], [ 0, %if.then69 ], [ 0, %if.end73 ], [ 0, %if.then81 ], [ 0, %if.end85 ], [ 0, %if.then93 ], [ 0, %if.then101 ], [ 0, %if.end105 ], [ 0, %lor.lhs.false ], [ 0, %if.then113 ], [ 0, %kdf_argon2_ctx_set_pwd.exit.thread ], [ 0, %kdf_argon2_ctx_set_pwd.exit.thread103 ], [ 0, %kdf_argon2_ctx_set_salt.exit.thread ], [ 0, %kdf_argon2_ctx_set_salt.exit.thread110 ], [ 0, %kdf_argon2_ctx_set_secret.exit.thread ], [ 0, %kdf_argon2_ctx_set_secret.exit.thread117 ], [ 0, %kdf_argon2_ctx_set_ad.exit.thread ], [ 0, %kdf_argon2_ctx_set_ad.exit.thread124 ], [ 0, %kdf_argon2_ctx_set_out_length.exit.thread ], [ 0, %kdf_argon2_ctx_set_t_cost.exit.thread ], [ 0, %if.then.i100 ], [ 0, %if.then2.i99 ]
   ret i32 %retval.0
 }
 

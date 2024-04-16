@@ -3529,7 +3529,7 @@ define internal noundef i32 @features_index_add_single_callback(ptr nocapture re
   %10 = load i8, ptr %9, align 8
   %11 = trunc i8 %10 to i1
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %144, label %12
+  br i1 %.not, label %147, label %12
 
 12:                                               ; preds = %4
   %13 = load i64, ptr %1, align 8
@@ -3606,7 +3606,7 @@ is_rbext_path.exit:                               ; preds = %RSTRING_PTR.exit.i,
   store i64 %49, ptr %52, align 8
   %53 = ptrtoint ptr %28 to i64
   store i64 %53, ptr %1, align 8
-  br label %145
+  br label %148
 
 54:                                               ; preds = %12
   %55 = inttoptr i64 %13 to ptr
@@ -3620,7 +3620,7 @@ is_rbext_path.exit:                               ; preds = %RSTRING_PTR.exit.i,
   %60 = getelementptr inbounds i8, ptr %59, i64 16
   %61 = getelementptr inbounds i8, ptr %59, i64 32
   %cond = icmp eq i64 %13, 0
-  br i1 %cond, label %123, label %.split
+  br i1 %cond, label %126, label %.split
 
 .split:                                           ; preds = %56
   %62 = load i64, ptr %55, align 8
@@ -3740,7 +3740,7 @@ rb_darray_size.exit:                              ; preds = %is_rbext_path.exit5
 
 .loopexit:                                        ; preds = %rb_darray_size.exit, %rb_darray_size.exit.us84, %54
   %.not.i.i52 = icmp eq i64 %13, 0
-  br i1 %.not.i.i52, label %123, label %.loopexit.rb_darray_size.exit.i_crit_edge
+  br i1 %.not.i.i52, label %126, label %.loopexit.rb_darray_size.exit.i_crit_edge
 
 .loopexit.rb_darray_size.exit.i_crit_edge:        ; preds = %.split, %.loopexit
   %.pre = load i64, ptr %55, align 8
@@ -3753,70 +3753,75 @@ rb_darray_size.exit.i:                            ; preds = %Check_Type.exit, %i
   %118 = load i64, ptr %117, align 8
   %.fr.i = freeze i64 %118
   %119 = icmp ult i64 %116, %.fr.i
-  br i1 %119, label %rb_darray_ensure_space.exit, label %.thread2.i
+  br i1 %119, label %rb_darray_ensure_space.exit, label %120
 
-.thread2.i:                                       ; preds = %rb_darray_size.exit.i
-  %120 = icmp eq i64 %.fr.i, 0
-  %121 = shl i64 %.fr.i, 1
-  %spec.select.i = select i1 %120, i64 1, i64 %121
-  %122 = tail call ptr @rb_xrealloc_mul_add(ptr noundef nonnull %55, i64 noundef %spec.select.i, i64 noundef 8, i64 noundef 16) #6
-  %.pre107.pre = load i64, ptr %122, align 8
+120:                                              ; preds = %rb_darray_size.exit.i
+  %121 = icmp eq i64 %.fr.i, 0
+  br i1 %121, label %124, label %.thread2.i
+
+.thread2.i:                                       ; preds = %120
+  %122 = shl i64 %.fr.i, 1
+  %123 = tail call ptr @rb_xrealloc_mul_add(ptr noundef nonnull %55, i64 noundef %122, i64 noundef 8, i64 noundef 16) #6
   br label %rb_darray_resize_capa_impl.exit.i
 
-123:                                              ; preds = %56, %.loopexit
-  %124 = tail call ptr @rb_xrealloc_mul_add(ptr noundef null, i64 noundef 1, i64 noundef 8, i64 noundef 16) #6
-  store i64 0, ptr %124, align 8
+124:                                              ; preds = %120
+  %125 = tail call ptr @rb_xrealloc_mul_add(ptr noundef nonnull %55, i64 noundef 1, i64 noundef 8, i64 noundef 16) #6
   br label %rb_darray_resize_capa_impl.exit.i
 
-rb_darray_resize_capa_impl.exit.i:                ; preds = %123, %.thread2.i
-  %.pre107 = phi i64 [ %.pre107.pre, %.thread2.i ], [ 0, %123 ]
-  %.068 = phi i64 [ %.070, %.thread2.i ], [ -1, %123 ]
-  %125 = phi ptr [ %122, %.thread2.i ], [ %124, %123 ]
-  %126 = phi i64 [ %spec.select.i, %.thread2.i ], [ 1, %123 ]
-  %127 = getelementptr inbounds i8, ptr %125, i64 8
-  store i64 %126, ptr %127, align 8
+126:                                              ; preds = %56, %.loopexit
+  %127 = tail call ptr @rb_xrealloc_mul_add(ptr noundef null, i64 noundef 1, i64 noundef 8, i64 noundef 16) #6
+  store i64 0, ptr %127, align 8
+  br label %rb_darray_resize_capa_impl.exit.i
+
+rb_darray_resize_capa_impl.exit.i:                ; preds = %126, %124, %.thread2.i
+  %.068 = phi i64 [ %.070, %.thread2.i ], [ %.070, %124 ], [ -1, %126 ]
+  %128 = phi ptr [ %123, %.thread2.i ], [ %125, %124 ], [ %127, %126 ]
+  %129 = phi i64 [ %122, %.thread2.i ], [ 1, %124 ], [ 1, %126 ]
+  %130 = getelementptr inbounds i8, ptr %128, i64 8
+  store i64 %129, ptr %130, align 8
+  %.pre107 = load i64, ptr %128, align 8
   br label %rb_darray_ensure_space.exit
 
 rb_darray_ensure_space.exit:                      ; preds = %rb_darray_size.exit.i, %rb_darray_resize_capa_impl.exit.i
-  %128 = phi i64 [ %.pre107, %rb_darray_resize_capa_impl.exit.i ], [ %116, %rb_darray_size.exit.i ]
+  %131 = phi i64 [ %.pre107, %rb_darray_resize_capa_impl.exit.i ], [ %116, %rb_darray_size.exit.i ]
   %.069 = phi i64 [ %.068, %rb_darray_resize_capa_impl.exit.i ], [ %.070, %rb_darray_size.exit.i ]
-  %.064 = phi ptr [ %125, %rb_darray_resize_capa_impl.exit.i ], [ %55, %rb_darray_size.exit.i ]
-  %129 = ashr i64 %8, 1
-  %130 = getelementptr inbounds i8, ptr %.064, i64 16
-  %131 = getelementptr [0 x i64], ptr %130, i64 0, i64 %128
-  store i64 %129, ptr %131, align 8
-  %132 = load i64, ptr %.064, align 8
-  %133 = add i64 %132, 1
-  store i64 %133, ptr %.064, align 8
-  %134 = ptrtoint ptr %.064 to i64
-  store i64 %134, ptr %1, align 8
-  %135 = icmp sgt i64 %.069, -1
-  br i1 %135, label %rb_darray_size.exit54, label %145
+  %.064 = phi ptr [ %128, %rb_darray_resize_capa_impl.exit.i ], [ %55, %rb_darray_size.exit.i ]
+  %132 = ashr i64 %8, 1
+  %133 = getelementptr inbounds i8, ptr %.064, i64 16
+  %134 = getelementptr [0 x i64], ptr %133, i64 0, i64 %131
+  store i64 %132, ptr %134, align 8
+  %135 = load i64, ptr %.064, align 8
+  %136 = add i64 %135, 1
+  store i64 %136, ptr %.064, align 8
+  %137 = ptrtoint ptr %.064 to i64
+  store i64 %137, ptr %1, align 8
+  %138 = icmp sgt i64 %.069, -1
+  br i1 %138, label %rb_darray_size.exit54, label %148
 
 rb_darray_size.exit54:                            ; preds = %rb_darray_ensure_space.exit
-  %136 = load i64, ptr %.064, align 8
-  %137 = xor i64 %.069, -1
-  %138 = add i64 %136, %137
-  %139 = icmp ugt i64 %138, 2305843009213693951
-  br i1 %139, label %140, label %rbimpl_size_mul_or_raise.exit
+  %139 = load i64, ptr %.064, align 8
+  %140 = xor i64 %.069, -1
+  %141 = add i64 %139, %140
+  %142 = icmp ugt i64 %141, 2305843009213693951
+  br i1 %142, label %143, label %rbimpl_size_mul_or_raise.exit
 
-140:                                              ; preds = %rb_darray_size.exit54
-  tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %138) #17
+143:                                              ; preds = %rb_darray_size.exit54
+  tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %141) #17
   unreachable
 
 rbimpl_size_mul_or_raise.exit:                    ; preds = %rb_darray_size.exit54
-  %141 = getelementptr i64, ptr %130, i64 %.069
-  %142 = getelementptr i8, ptr %141, i64 8
-  %143 = shl nuw i64 %138, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %141, ptr align 8 %142, i64 %143, i1 false)
-  store i64 %129, ptr %141, align 8
-  br label %145
+  %144 = getelementptr i64, ptr %133, i64 %.069
+  %145 = getelementptr i8, ptr %144, i64 8
+  %146 = shl nuw i64 %141, 3
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %144, ptr align 8 %145, i64 %146, i1 false)
+  store i64 %132, ptr %144, align 8
+  br label %148
 
-144:                                              ; preds = %4
+147:                                              ; preds = %4
   store i64 %8, ptr %1, align 8
-  br label %145
+  br label %148
 
-145:                                              ; preds = %is_rbext_path.exit, %rbimpl_size_mul_or_raise.exit, %rb_darray_ensure_space.exit, %144
+148:                                              ; preds = %is_rbext_path.exit, %rbimpl_size_mul_or_raise.exit, %rb_darray_ensure_space.exit, %147
   ret i32 0
 }
 

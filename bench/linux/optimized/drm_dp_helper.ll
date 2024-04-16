@@ -3616,7 +3616,7 @@ define dso_local i32 @drm_dp_set_phy_test_pattern(ptr noundef %0, ptr nocapture 
   %10 = getelementptr inbounds i8, ptr %1, i64 4
   %11 = load i8, ptr %10, align 4
   %12 = icmp eq i8 %11, 0
-  br i1 %12, label %.loopexit, label %.preheader
+  br i1 %12, label %.loopexit3, label %.preheader
 
 13:                                               ; preds = %3
   %14 = shl i8 %7, 2
@@ -3626,30 +3626,33 @@ define dso_local i32 @drm_dp_set_phy_test_pattern(ptr noundef %0, ptr nocapture 
   %16 = call i64 @drm_dp_dpcd_write(ptr noundef %0, i32 noundef 258, ptr noundef nonnull %5, i64 noundef 1), !range !12
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   %17 = trunc nsw i64 %16 to i32
-  %spec.select = call i32 @llvm.smin.i32(i32 %17, i32 0)
-  br label %.loopexit
+  %18 = icmp slt i32 %17, 0
+  br i1 %18, label %.loopexit, label %.loopexit3
 
-18:                                               ; preds = %.preheader
-  %19 = add nuw nsw i32 %23, 1
-  %20 = load i8, ptr %10, align 4
-  %21 = zext i8 %20 to i32
-  %22 = icmp ult i32 %19, %21
-  br i1 %22, label %.preheader, label %.loopexit, !llvm.loop !48
+19:                                               ; preds = %.preheader
+  %20 = add nuw nsw i32 %24, 1
+  %21 = load i8, ptr %10, align 4
+  %22 = zext i8 %21 to i32
+  %23 = icmp ult i32 %20, %22
+  br i1 %23, label %.preheader, label %.loopexit3, !llvm.loop !48
 
-.preheader:                                       ; preds = %9, %18
-  %23 = phi i32 [ %19, %18 ], [ 0, %9 ]
-  %24 = add nuw nsw i32 %23, 267
+.preheader:                                       ; preds = %9, %19
+  %24 = phi i32 [ %20, %19 ], [ 0, %9 ]
+  %25 = add nuw nsw i32 %24, 267
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   store i8 %7, ptr %4, align 1
-  %25 = call i64 @drm_dp_dpcd_write(ptr noundef %0, i32 noundef %24, ptr noundef nonnull %4, i64 noundef 1), !range !12
+  %26 = call i64 @drm_dp_dpcd_write(ptr noundef %0, i32 noundef %25, ptr noundef nonnull %4, i64 noundef 1), !range !12
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  %26 = trunc nsw i64 %25 to i32
-  %27 = icmp slt i32 %26, 0
-  br i1 %27, label %.loopexit, label %18
+  %27 = trunc nsw i64 %26 to i32
+  %28 = icmp slt i32 %27, 0
+  br i1 %28, label %.loopexit, label %19
 
-.loopexit:                                        ; preds = %18, %.preheader, %13, %9
-  %28 = phi i32 [ 0, %9 ], [ %spec.select, %13 ], [ 0, %18 ], [ %26, %.preheader ]
-  ret i32 %28
+.loopexit3:                                       ; preds = %19, %13, %9
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %.preheader, %.loopexit3, %13
+  %29 = phi i32 [ 0, %.loopexit3 ], [ %17, %13 ], [ %27, %.preheader ]
+  ret i32 %29
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

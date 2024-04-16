@@ -890,7 +890,7 @@ for.end.i.i:                                      ; preds = %if.end.i.i, %land.r
   %arrayidx16.i.i = getelementptr %struct.MemoryRegionSection, ptr %4, i64 %idxprom15.i.i
   %6 = load i128, ptr %arrayidx16.i.i, align 16
   %tobool.not.i.i.i = icmp ult i128 %6, 18446744073709551616
-  br i1 %tobool.not.i.i.i, label %section_covers_addr.exit.i.i, label %phys_page_find.exit.i
+  br i1 %tobool.not.i.i.i, label %section_covers_addr.exit.i.i, label %section_covers_addr.exit.thread.i.i
 
 section_covers_addr.exit.i.i:                     ; preds = %for.end.i.i
   %offset_within_address_space.i.i.i = getelementptr inbounds i8, ptr %arrayidx16.i.i, i64 40
@@ -902,11 +902,13 @@ section_covers_addr.exit.i.i:                     ; preds = %for.end.i.i
   %cmp1.i.i.i.i = icmp uge i64 %sub.i.i.i.i.i, %addr
   %narrow.i.i.i.i = and i1 %cmp.not.i.i.i.i, %cmp1.i.i.i.i
   %cond.fr.i.i = freeze i1 %narrow.i.i.i.i
-  %spec.select.i.i = select i1 %cond.fr.i.i, ptr %arrayidx16.i.i, ptr %4
+  br i1 %cond.fr.i.i, label %section_covers_addr.exit.thread.i.i, label %phys_page_find.exit.i
+
+section_covers_addr.exit.thread.i.i:              ; preds = %section_covers_addr.exit.i.i, %for.end.i.i
   br label %phys_page_find.exit.i
 
-phys_page_find.exit.i:                            ; preds = %for.body.i.i, %section_covers_addr.exit.i.i, %for.end.i.i
-  %retval.0.i.i = phi ptr [ %arrayidx16.i.i, %for.end.i.i ], [ %spec.select.i.i, %section_covers_addr.exit.i.i ], [ %4, %for.body.i.i ]
+phys_page_find.exit.i:                            ; preds = %for.body.i.i, %section_covers_addr.exit.thread.i.i, %section_covers_addr.exit.i.i
+  %retval.0.i.i = phi ptr [ %arrayidx16.i.i, %section_covers_addr.exit.thread.i.i ], [ %4, %section_covers_addr.exit.i.i ], [ %4, %for.body.i.i ]
   %8 = ptrtoint ptr %retval.0.i.i to i64
   store atomic i64 %8, ptr %d monotonic, align 8
   br label %if.end.i
@@ -2010,7 +2012,7 @@ for.end.i:                                        ; preds = %if.end.i, %land.rhs
   %arrayidx16.i = getelementptr %struct.MemoryRegionSection, ptr %3, i64 %idxprom15.i
   %4 = load i128, ptr %arrayidx16.i, align 16
   %tobool.not.i.i = icmp ult i128 %4, 18446744073709551616
-  br i1 %tobool.not.i.i, label %section_covers_addr.exit.i, label %phys_page_find.exit
+  br i1 %tobool.not.i.i, label %section_covers_addr.exit.i, label %section_covers_addr.exit.thread.i
 
 section_covers_addr.exit.i:                       ; preds = %for.end.i
   %offset_within_address_space.i.i = getelementptr inbounds i8, ptr %arrayidx16.i, i64 40
@@ -2022,11 +2024,13 @@ section_covers_addr.exit.i:                       ; preds = %for.end.i
   %cmp1.i.i.i = icmp uge i64 %sub.i.i.i.i, %and
   %narrow.i.i.i = and i1 %cmp.not.i.i.i, %cmp1.i.i.i
   %cond.fr.i = freeze i1 %narrow.i.i.i
-  %spec.select.i = select i1 %cond.fr.i, ptr %arrayidx16.i, ptr %3
+  br i1 %cond.fr.i, label %section_covers_addr.exit.thread.i, label %phys_page_find.exit
+
+section_covers_addr.exit.thread.i:                ; preds = %section_covers_addr.exit.i, %for.end.i
   br label %phys_page_find.exit
 
-phys_page_find.exit:                              ; preds = %for.body.i, %for.end.i, %section_covers_addr.exit.i
-  %retval.0.i = phi ptr [ %arrayidx16.i, %for.end.i ], [ %spec.select.i, %section_covers_addr.exit.i ], [ %3, %for.body.i ]
+phys_page_find.exit:                              ; preds = %for.body.i, %section_covers_addr.exit.i, %section_covers_addr.exit.thread.i
+  %retval.0.i = phi ptr [ %arrayidx16.i, %section_covers_addr.exit.thread.i ], [ %3, %section_covers_addr.exit.i ], [ %3, %for.body.i ]
   %mr5 = getelementptr inbounds i8, ptr %retval.0.i, i64 16
   %6 = load ptr, ptr %mr5, align 16
   %subpage6 = getelementptr inbounds i8, ptr %6, i64 42
@@ -9823,16 +9827,18 @@ if.then30:                                        ; preds = %if.end28
   %10 = load i32, ptr %flags.i41, align 8
   %and.i42 = and i32 %10, 2
   %tobool.i43.not = icmp eq i32 %and.i42, 0
-  br i1 %tobool.i43.not, label %if.end37, label %land.lhs.true
+  br i1 %tobool.i43.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then30
   %11 = load i32, ptr %fd, align 8
   %cmp33 = icmp slt i32 %11, 0
-  %spec.select = select i1 %cmp33, i32 9, i32 4
+  br i1 %cmp33, label %if.end37, label %if.else
+
+if.else:                                          ; preds = %land.lhs.true, %if.then30
   br label %if.end37
 
-if.end37:                                         ; preds = %land.lhs.true, %if.then30
-  %.sink = phi i32 [ 4, %if.then30 ], [ %spec.select, %land.lhs.true ]
+if.end37:                                         ; preds = %land.lhs.true, %if.else
+  %.sink = phi i32 [ 4, %if.else ], [ 9, %land.lhs.true ]
   %call36 = tail call i32 @madvise(ptr noundef %add.ptr, i64 noundef %length, i32 noundef %.sink) #26
   %tobool38.not = icmp eq i32 %call36, 0
   br i1 %tobool38.not, label %if.end45, label %if.then39

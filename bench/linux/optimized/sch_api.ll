@@ -304,13 +304,13 @@ define dso_local noundef i32 @register_qdisc(ptr noundef %0) #0 align 16 {
   %57 = icmp eq ptr %56, null
   br i1 %57, label %.thread, label %58
 
-58:                                               ; preds = %46, %54, %30
+58:                                               ; preds = %54, %46, %30
   store ptr null, ptr %0, align 8
   store ptr %0, ptr %4, align 8
   br label %.thread
 
-.thread:                                          ; preds = %7, %54, %50, %34, %38, %42, %24, %58
-  %59 = phi i32 [ 0, %58 ], [ -22, %24 ], [ -22, %42 ], [ -22, %38 ], [ -22, %34 ], [ -22, %50 ], [ -22, %54 ], [ -17, %7 ]
+.thread:                                          ; preds = %7, %50, %54, %34, %38, %42, %24, %58
+  %59 = phi i32 [ 0, %58 ], [ -22, %24 ], [ -22, %42 ], [ -22, %38 ], [ -22, %34 ], [ -22, %54 ], [ -22, %50 ], [ -17, %7 ]
   tail call void @_raw_write_unlock(ptr noundef nonnull @qdisc_mod_lock) #19
   ret i32 %59
 }
@@ -1009,12 +1009,12 @@ define internal fastcc noundef zeroext i8 @__detect_linklayer(ptr nocapture noun
   %19 = getelementptr inbounds i8, ptr %0, i64 8
   %20 = load i32, ptr %19, align 4
   %21 = icmp ugt i32 %20, 12500000
-  br i1 %21, label %37, label %22
+  br i1 %21, label %38, label %22
 
 22:                                               ; preds = %2
   %23 = load i32, ptr %1, align 4
   %24 = icmp eq i32 %23, 0
-  br i1 %24, label %37, label %25
+  br i1 %24, label %38, label %25
 
 25:                                               ; preds = %22
   %26 = icmp sgt i32 %18, %16
@@ -1030,12 +1030,14 @@ define internal fastcc noundef zeroext i8 @__detect_linklayer(ptr nocapture noun
   %34 = getelementptr i32, ptr %1, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = icmp eq i32 %32, %35
-  %spec.select = select i1 %36, i8 2, i8 1
-  br label %37
+  br i1 %36, label %38, label %37
 
-37:                                               ; preds = %29, %25, %22, %2
-  %38 = phi i8 [ 1, %22 ], [ 1, %2 ], [ 1, %25 ], [ %spec.select, %29 ]
-  ret i8 %38
+37:                                               ; preds = %29, %25
+  br label %38
+
+38:                                               ; preds = %37, %29, %22, %2
+  %39 = phi i8 [ 1, %37 ], [ 1, %22 ], [ 1, %2 ], [ 2, %29 ]
+  ret i8 %39
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1751,13 +1753,13 @@ define dso_local noundef i32 @qdisc_offload_dump_helper(ptr nocapture noundef %0
   %23 = load i32, ptr %7, align 16
   %24 = or i32 %23, 512
   store i32 %24, ptr %7, align 16
+  br label %25
+
+25:                                               ; preds = %22, %20
   br label %26
 
-25:                                               ; preds = %20
-  br label %26
-
-26:                                               ; preds = %22, %25, %20, %14, %3
-  %27 = phi i32 [ 0, %14 ], [ 0, %3 ], [ 0, %20 ], [ 0, %22 ], [ %21, %25 ]
+26:                                               ; preds = %25, %20, %14, %3
+  %27 = phi i32 [ %21, %25 ], [ 0, %14 ], [ 0, %3 ], [ 0, %20 ]
   ret i32 %27
 }
 
@@ -2619,14 +2621,14 @@ define internal i32 @tc_get_qdisc(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %42 = getelementptr inbounds i8, ptr %41, i64 8
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
-  br i1 %44, label %.thread17, label %45
+  br i1 %44, label %.thread18, label %45
 
 45:                                               ; preds = %39
   %46 = getelementptr inbounds i8, ptr %43, i64 40
   %47 = load ptr, ptr %46, align 8
   %48 = call i64 %47(ptr noundef nonnull %34, i32 noundef %26) #19
   %49 = icmp eq i64 %48, 0
-  br i1 %49, label %.thread17, label %50
+  br i1 %49, label %.thread18, label %50
 
 50:                                               ; preds = %45
   %51 = getelementptr inbounds i8, ptr %43, i64 24
@@ -2638,7 +2640,7 @@ define internal i32 @tc_get_qdisc(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %55 = getelementptr inbounds i8, ptr %22, i64 984
   %56 = load ptr, ptr %55, align 8
   %57 = icmp eq ptr %56, null
-  br i1 %57, label %.thread17, label %58
+  br i1 %57, label %.thread18, label %58
 
 58:                                               ; preds = %54
   %59 = getelementptr inbounds i8, ptr %56, i64 16
@@ -2654,14 +2656,14 @@ define internal i32 @tc_get_qdisc(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %65 = phi ptr [ %60, %58 ], [ %63, %61 ], [ %53, %50 ]
   %66 = phi ptr [ null, %58 ], [ null, %61 ], [ %34, %50 ]
   %67 = icmp eq ptr %65, null
-  br i1 %67, label %.thread17, label %70
+  br i1 %67, label %.thread18, label %70
 
-.thread17:                                        ; preds = %45, %39, %54, %64
+.thread18:                                        ; preds = %45, %39, %54, %64
   call void @do_trace_netlink_extack(ptr noundef nonnull @tc_get_qdisc.__msg.41) #19
   %68 = icmp eq ptr %2, null
   br i1 %68, label %.thread, label %69
 
-69:                                               ; preds = %.thread17
+69:                                               ; preds = %.thread18
   store ptr @tc_get_qdisc.__msg.41, ptr %2, align 8
   br label %.thread
 
@@ -2731,7 +2733,7 @@ define internal i32 @tc_get_qdisc(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %105 = getelementptr inbounds i8, ptr %1, i64 4
   %106 = load i16, ptr %105, align 4
   %107 = icmp eq i16 %106, 37
-  br i1 %107, label %108, label %121
+  br i1 %107, label %108, label %122
 
 108:                                              ; preds = %104
   br i1 %27, label %109, label %112
@@ -2762,59 +2764,63 @@ define internal i32 @tc_get_qdisc(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 119:                                              ; preds = %112
   %120 = call fastcc i32 @qdisc_graft(ptr noundef nonnull %22, ptr noundef %91, ptr noundef %0, ptr noundef %1, i32 noundef %26, ptr noundef null, ptr noundef nonnull %90, ptr noundef %2)
+  %121 = icmp eq i32 %120, 0
+  br i1 %121, label %152, label %.thread
+
+122:                                              ; preds = %104
+  %123 = icmp eq ptr %0, null
+  br i1 %123, label %127, label %124
+
+124:                                              ; preds = %122
+  %125 = getelementptr inbounds i8, ptr %0, i64 52
+  %126 = load i32, ptr %125, align 4
+  br label %127
+
+127:                                              ; preds = %124, %122
+  %128 = phi i32 [ %126, %124 ], [ 0, %122 ]
+  %129 = call ptr @__alloc_skb(i32 noundef 3776, i32 noundef 3264, i32 noundef 0, i32 noundef -1) #19
+  %130 = icmp eq ptr %129, null
+  br i1 %130, label %152, label %131
+
+131:                                              ; preds = %127
+  %132 = getelementptr inbounds i8, ptr %90, i64 16
+  %133 = load i32, ptr %132, align 16
+  %134 = and i32 %133, 129
+  %135 = icmp eq i32 %134, 0
+  br i1 %135, label %136, label %141
+
+136:                                              ; preds = %131
+  %137 = getelementptr inbounds i8, ptr %1, i64 8
+  %138 = load i32, ptr %137, align 4
+  %139 = call fastcc i32 @tc_fill_qdisc(ptr noundef nonnull %129, ptr noundef nonnull %90, i32 noundef %26, i32 noundef %128, i32 noundef %138, i16 noundef zeroext 0, i32 noundef 36, ptr noundef null)
+  %140 = icmp slt i32 %139, 0
+  br i1 %140, label %151, label %141
+
+141:                                              ; preds = %136, %131
+  %142 = getelementptr inbounds i8, ptr %129, i64 112
+  %143 = load i32, ptr %142, align 8
+  %144 = icmp eq i32 %143, 0
+  br i1 %144, label %151, label %145
+
+145:                                              ; preds = %141
+  %146 = getelementptr inbounds i8, ptr %1, i64 6
+  %147 = load i16, ptr %146, align 2
+  %148 = and i16 %147, 8
+  %149 = zext nneg i16 %148 to i32
+  %150 = call i32 @rtnetlink_send(ptr noundef nonnull %129, ptr noundef %8, i32 noundef %128, i32 noundef 4, i32 noundef %149) #19
+  br label %152
+
+151:                                              ; preds = %141, %136
+  call void @kfree_skb_reason(ptr noundef nonnull %129, i32 noundef 2) #19
+  br label %152
+
+152:                                              ; preds = %151, %145, %127, %119
   br label %.thread
 
-121:                                              ; preds = %104
-  %122 = icmp eq ptr %0, null
-  br i1 %122, label %126, label %123
-
-123:                                              ; preds = %121
-  %124 = getelementptr inbounds i8, ptr %0, i64 52
-  %125 = load i32, ptr %124, align 4
-  br label %126
-
-126:                                              ; preds = %123, %121
-  %127 = phi i32 [ %125, %123 ], [ 0, %121 ]
-  %128 = call ptr @__alloc_skb(i32 noundef 3776, i32 noundef 3264, i32 noundef 0, i32 noundef -1) #19
-  %129 = icmp eq ptr %128, null
-  br i1 %129, label %.thread, label %130
-
-130:                                              ; preds = %126
-  %131 = getelementptr inbounds i8, ptr %90, i64 16
-  %132 = load i32, ptr %131, align 16
-  %133 = and i32 %132, 129
-  %134 = icmp eq i32 %133, 0
-  br i1 %134, label %135, label %140
-
-135:                                              ; preds = %130
-  %136 = getelementptr inbounds i8, ptr %1, i64 8
-  %137 = load i32, ptr %136, align 4
-  %138 = call fastcc i32 @tc_fill_qdisc(ptr noundef nonnull %128, ptr noundef nonnull %90, i32 noundef %26, i32 noundef %127, i32 noundef %137, i16 noundef zeroext 0, i32 noundef 36, ptr noundef null)
-  %139 = icmp slt i32 %138, 0
-  br i1 %139, label %150, label %140
-
-140:                                              ; preds = %135, %130
-  %141 = getelementptr inbounds i8, ptr %128, i64 112
-  %142 = load i32, ptr %141, align 8
-  %143 = icmp eq i32 %142, 0
-  br i1 %143, label %150, label %144
-
-144:                                              ; preds = %140
-  %145 = getelementptr inbounds i8, ptr %1, i64 6
-  %146 = load i16, ptr %145, align 2
-  %147 = and i16 %146, 8
-  %148 = zext nneg i16 %147 to i32
-  %149 = call i32 @rtnetlink_send(ptr noundef nonnull %128, ptr noundef %8, i32 noundef %127, i32 noundef 4, i32 noundef %148) #19
-  br label %.thread
-
-150:                                              ; preds = %140, %135
-  call void @kfree_skb_reason(ptr noundef nonnull %128, i32 noundef 2) #19
-  br label %.thread
-
-.thread:                                          ; preds = %11, %13, %119, %126, %144, %150, %118, %116, %111, %109, %103, %101, %88, %86, %80, %78, %69, %.thread17, %38, %36, %19, %14
-  %151 = phi i32 [ %17, %14 ], [ -19, %19 ], [ -2, %38 ], [ -2, %36 ], [ -2, %69 ], [ -2, %.thread17 ], [ -22, %80 ], [ -22, %78 ], [ -2, %88 ], [ -2, %86 ], [ -22, %103 ], [ -22, %101 ], [ -22, %111 ], [ -22, %109 ], [ -2, %118 ], [ -2, %116 ], [ 0, %150 ], [ 0, %144 ], [ 0, %126 ], [ %120, %119 ], [ -22, %13 ], [ -22, %11 ]
+.thread:                                          ; preds = %11, %13, %152, %119, %118, %116, %111, %109, %103, %101, %88, %86, %80, %78, %69, %.thread18, %38, %36, %19, %14
+  %153 = phi i32 [ 0, %152 ], [ %17, %14 ], [ -19, %19 ], [ -2, %38 ], [ -2, %36 ], [ -2, %69 ], [ -2, %.thread18 ], [ -22, %80 ], [ -22, %78 ], [ -2, %88 ], [ -2, %86 ], [ -22, %103 ], [ -22, %101 ], [ -22, %111 ], [ -22, %109 ], [ -2, %118 ], [ -2, %116 ], [ %120, %119 ], [ -22, %13 ], [ -22, %11 ]
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %4) #19
-  ret i32 %151
+  ret i32 %153
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

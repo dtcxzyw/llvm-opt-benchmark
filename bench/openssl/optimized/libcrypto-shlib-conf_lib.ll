@@ -420,7 +420,7 @@ if.end25.i:                                       ; preds = %for.body.i
 if.end.thread13:                                  ; preds = %if.end25.i, %if.end3.i
   %res.0.lcssa.i = phi i64 [ 0, %if.end3.i ], [ %add.i, %if.end25.i ]
   %call315 = tail call i32 @ERR_pop_to_mark() #14
-  br label %7
+  br label %8
 
 if.else:                                          ; preds = %entry
   %3 = load ptr, ptr @default_CONF_method, align 8
@@ -449,12 +449,14 @@ if.end:                                           ; preds = %if.then.i, %if.else
   %call3 = call i32 @ERR_pop_to_mark() #14
   %cmp4 = icmp eq i32 %call2, 0
   %6 = load i64, ptr %result, align 8
-  %spec.select = select i1 %cmp4, i64 0, i64 %6
-  br label %7
+  br i1 %cmp4, label %7, label %8
 
-7:                                                ; preds = %if.end, %if.end.thread, %if.end.thread13
-  %8 = phi i64 [ %res.0.lcssa.i, %if.end.thread13 ], [ 0, %if.end.thread ], [ %spec.select, %if.end ]
-  ret i64 %8
+7:                                                ; preds = %if.end.thread, %if.end
+  br label %8
+
+8:                                                ; preds = %if.end.thread13, %if.end, %7
+  %9 = phi i64 [ 0, %7 ], [ %6, %if.end ], [ %res.0.lcssa.i, %if.end.thread13 ]
+  ret i64 %9
 }
 
 declare i32 @ERR_set_mark() local_unnamed_addr #1

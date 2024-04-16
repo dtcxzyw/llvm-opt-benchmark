@@ -13,16 +13,18 @@ define noundef i32 @remove(ptr nocapture noundef readonly %0) local_unnamed_addr
   %4 = tail call ptr @__errno() #3
   %5 = load i32, ptr %4, align 4
   %.not2 = icmp eq i32 %5, 1
-  br i1 %.not2, label %6, label %8
+  br i1 %.not2, label %6, label %9
 
 6:                                                ; preds = %3
   %7 = tail call i32 @rmdir(ptr noundef %0)
-  %.not3 = icmp ne i32 %7, 0
-  %spec.select = sext i1 %.not3 to i32
-  br label %8
+  %.not3 = icmp eq i32 %7, 0
+  br i1 %.not3, label %8, label %9
 
-8:                                                ; preds = %6, %1, %3
-  %.0 = phi i32 [ -1, %3 ], [ 0, %1 ], [ %spec.select, %6 ]
+8:                                                ; preds = %6, %1
+  br label %9
+
+9:                                                ; preds = %3, %6, %8
+  %.0 = phi i32 [ 0, %8 ], [ -1, %6 ], [ -1, %3 ]
   ret i32 %.0
 }
 

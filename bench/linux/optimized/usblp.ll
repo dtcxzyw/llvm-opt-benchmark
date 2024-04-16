@@ -576,12 +576,14 @@ define internal noundef i32 @usblp_resume(ptr nocapture noundef readonly %0) #2 
 11:                                               ; preds = %7
   %12 = tail call fastcc i32 @usblp_submit_read(ptr noundef %3), !range !14
   %13 = icmp slt i32 %12, 0
-  %spec.select = select i1 %13, i32 -5, i32 0
-  br label %14
+  br i1 %13, label %15, label %14
 
-14:                                               ; preds = %11, %1, %7
-  %15 = phi i32 [ 0, %7 ], [ 0, %1 ], [ %spec.select, %11 ]
-  ret i32 %15
+14:                                               ; preds = %11, %7, %1
+  br label %15
+
+15:                                               ; preds = %14, %11
+  %16 = phi i32 [ 0, %14 ], [ -5, %11 ]
+  ret i32 %16
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

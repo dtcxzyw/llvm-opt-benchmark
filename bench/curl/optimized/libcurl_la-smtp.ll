@@ -281,42 +281,42 @@ if.then37.i.i.i:                                  ; preds = %if.then30.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %host39.i.i.i, i8 0, i64 32, i1 false)
   %25 = load ptr, ptr @Curl_cstrdup, align 8
   %26 = load i8, ptr %22, align 1
-  %cmp.i64.i.i.i = icmp eq i8 %26, 60
-  %cond.idx.i65.i.i.i = zext i1 %cmp.i64.i.i.i to i64
-  %cond.i66.i.i.i = getelementptr inbounds i8, ptr %22, i64 %cond.idx.i65.i.i.i
-  %call.i67.i.i.i = call ptr %25(ptr noundef nonnull %cond.i66.i.i.i) #8
-  %tobool.not.i68.i.i.i = icmp eq ptr %call.i67.i.i.i, null
-  br i1 %tobool.not.i68.i.i.i, label %if.then45.i.i.i, label %if.end.i69.i.i.i
+  %cmp.i63.i.i.i = icmp eq i8 %26, 60
+  %cond.idx.i64.i.i.i = zext i1 %cmp.i63.i.i.i to i64
+  %cond.i65.i.i.i = getelementptr inbounds i8, ptr %22, i64 %cond.idx.i64.i.i.i
+  %call.i66.i.i.i = call ptr %25(ptr noundef nonnull %cond.i65.i.i.i) #8
+  %tobool.not.i67.i.i.i = icmp eq ptr %call.i66.i.i.i, null
+  br i1 %tobool.not.i67.i.i.i, label %if.then45.i.i.i, label %if.end.i68.i.i.i
 
-if.end.i69.i.i.i:                                 ; preds = %if.then37.i.i.i
-  %call2.i70.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call.i67.i.i.i) #9
-  %tobool3.not.i71.i.i.i = icmp eq i64 %call2.i70.i.i.i, 0
-  br i1 %tobool3.not.i71.i.i.i, label %if.end13.i75.i.i.i, label %if.then4.i72.i.i.i
+if.end.i68.i.i.i:                                 ; preds = %if.then37.i.i.i
+  %call2.i69.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call.i66.i.i.i) #9
+  %tobool3.not.i70.i.i.i = icmp eq i64 %call2.i69.i.i.i, 0
+  br i1 %tobool3.not.i70.i.i.i, label %if.end13.i74.i.i.i, label %if.then4.i71.i.i.i
 
-if.then4.i72.i.i.i:                               ; preds = %if.end.i69.i.i.i
-  %27 = getelementptr i8, ptr %call.i67.i.i.i, i64 %call2.i70.i.i.i
-  %arrayidx5.i73.i.i.i = getelementptr i8, ptr %27, i64 -1
-  %28 = load i8, ptr %arrayidx5.i73.i.i.i, align 1
-  %cmp7.i74.i.i.i = icmp eq i8 %28, 62
-  br i1 %cmp7.i74.i.i.i, label %if.then9.i84.i.i.i, label %if.end13.i75.i.i.i
+if.then4.i71.i.i.i:                               ; preds = %if.end.i68.i.i.i
+  %27 = getelementptr i8, ptr %call.i66.i.i.i, i64 %call2.i69.i.i.i
+  %arrayidx5.i72.i.i.i = getelementptr i8, ptr %27, i64 -1
+  %28 = load i8, ptr %arrayidx5.i72.i.i.i, align 1
+  %cmp7.i73.i.i.i = icmp eq i8 %28, 62
+  br i1 %cmp7.i73.i.i.i, label %if.then9.i83.i.i.i, label %if.end13.i74.i.i.i
 
-if.then9.i84.i.i.i:                               ; preds = %if.then4.i72.i.i.i
-  store i8 0, ptr %arrayidx5.i73.i.i.i, align 1
-  br label %if.end13.i75.i.i.i
+if.then9.i83.i.i.i:                               ; preds = %if.then4.i71.i.i.i
+  store i8 0, ptr %arrayidx5.i72.i.i.i, align 1
+  br label %if.end13.i74.i.i.i
 
-if.end13.i75.i.i.i:                               ; preds = %if.then9.i84.i.i.i, %if.then4.i72.i.i.i, %if.end.i69.i.i.i
-  %strchr.i76.i.i.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %call.i67.i.i.i, i32 64)
-  %name.i77.i.i.i = getelementptr inbounds i8, ptr %host39.i.i.i, i64 16
-  store ptr %strchr.i76.i.i.i, ptr %name.i77.i.i.i, align 8
-  %tobool16.not.i78.i.i.i = icmp eq ptr %strchr.i76.i.i.i, null
-  br i1 %tobool16.not.i78.i.i.i, label %if.end46.i.i.i, label %if.then17.i79.i.i.i
+if.end13.i74.i.i.i:                               ; preds = %if.then9.i83.i.i.i, %if.then4.i71.i.i.i, %if.end.i68.i.i.i
+  %strchr.i75.i.i.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %call.i66.i.i.i, i32 64)
+  %name.i76.i.i.i = getelementptr inbounds i8, ptr %host39.i.i.i, i64 16
+  store ptr %strchr.i75.i.i.i, ptr %name.i76.i.i.i, align 8
+  %tobool16.not.i77.i.i.i = icmp eq ptr %strchr.i75.i.i.i, null
+  br i1 %tobool16.not.i77.i.i.i, label %if.end46.i.i.i, label %if.then17.i78.i.i.i
 
-if.then17.i79.i.i.i:                              ; preds = %if.end13.i75.i.i.i
-  store i8 0, ptr %strchr.i76.i.i.i, align 1
-  %29 = load ptr, ptr %name.i77.i.i.i, align 8
-  %add.ptr20.i80.i.i.i = getelementptr inbounds i8, ptr %29, i64 1
-  store ptr %add.ptr20.i80.i.i.i, ptr %name.i77.i.i.i, align 8
-  %call22.i81.i.i.i = call i32 @Curl_idnconvert_hostname(ptr noundef nonnull %host39.i.i.i) #8
+if.then17.i78.i.i.i:                              ; preds = %if.end13.i74.i.i.i
+  store i8 0, ptr %strchr.i75.i.i.i, align 1
+  %29 = load ptr, ptr %name.i76.i.i.i, align 8
+  %add.ptr20.i79.i.i.i = getelementptr inbounds i8, ptr %29, i64 1
+  store ptr %add.ptr20.i79.i.i.i, ptr %name.i76.i.i.i, align 8
+  %call22.i80.i.i.i = call i32 @Curl_idnconvert_hostname(ptr noundef nonnull %host39.i.i.i) #8
   br label %if.end46.i.i.i
 
 if.then45.i.i.i:                                  ; preds = %if.then37.i.i.i
@@ -324,7 +324,7 @@ if.then45.i.i.i:                                  ; preds = %if.then37.i.i.i
   call void %30(ptr noundef nonnull %from.1.i.i.i) #8
   br label %smtp_perform_mail.exit.i.i
 
-if.end46.i.i.i:                                   ; preds = %if.then17.i79.i.i.i, %if.end13.i75.i.i.i
+if.end46.i.i.i:                                   ; preds = %if.then17.i78.i.i.i, %if.end13.i74.i.i.i
   %tobool47.i.i.i = trunc nuw i8 %utf8.0.i.i.i to i1
   br i1 %tobool47.i.i.i, label %if.end65.i.i.i, label %land.lhs.true48.i.i.i
 
@@ -339,37 +339,39 @@ land.lhs.true56.i.i.i:                            ; preds = %land.lhs.true48.i.i
   %encalloc57.i.i.i = getelementptr inbounds i8, ptr %host39.i.i.i, i64 8
   %32 = load ptr, ptr %encalloc57.i.i.i, align 8
   %tobool58.not.i.i.i = icmp eq ptr %32, null
-  br i1 %tobool58.not.i.i.i, label %lor.lhs.false59.i.i.i, label %if.end65.i.i.i
+  br i1 %tobool58.not.i.i.i, label %lor.lhs.false59.i.i.i, label %if.then64.i.i.i
 
 lor.lhs.false59.i.i.i:                            ; preds = %land.lhs.true56.i.i.i
-  %call60.i.i.i = call zeroext i1 @Curl_is_ASCII_name(ptr noundef nonnull %call.i67.i.i.i) #8
-  br i1 %call60.i.i.i, label %lor.lhs.false61.i.i.i, label %if.end65.i.i.i
+  %call60.i.i.i = call zeroext i1 @Curl_is_ASCII_name(ptr noundef nonnull %call.i66.i.i.i) #8
+  br i1 %call60.i.i.i, label %lor.lhs.false61.i.i.i, label %if.then64.i.i.i
 
 lor.lhs.false61.i.i.i:                            ; preds = %lor.lhs.false59.i.i.i
-  %33 = load ptr, ptr %name.i77.i.i.i, align 8
+  %33 = load ptr, ptr %name.i76.i.i.i, align 8
   %call63.i.i.i = call zeroext i1 @Curl_is_ASCII_name(ptr noundef %33) #8
-  %spec.select63.i.i.i = select i1 %call63.i.i.i, i8 %utf8.0.i.i.i, i8 1
+  br i1 %call63.i.i.i, label %if.end65.i.i.i, label %if.then64.i.i.i
+
+if.then64.i.i.i:                                  ; preds = %lor.lhs.false61.i.i.i, %lor.lhs.false59.i.i.i, %land.lhs.true56.i.i.i
   br label %if.end65.i.i.i
 
-if.end65.i.i.i:                                   ; preds = %lor.lhs.false61.i.i.i, %lor.lhs.false59.i.i.i, %land.lhs.true56.i.i.i, %land.lhs.true48.i.i.i, %if.end46.i.i.i
-  %utf8.1.i.i.i = phi i8 [ %utf8.0.i.i.i, %if.end46.i.i.i ], [ %utf8.0.i.i.i, %land.lhs.true48.i.i.i ], [ 1, %lor.lhs.false59.i.i.i ], [ 1, %land.lhs.true56.i.i.i ], [ %spec.select63.i.i.i, %lor.lhs.false61.i.i.i ]
-  %34 = load ptr, ptr %name.i77.i.i.i, align 8
+if.end65.i.i.i:                                   ; preds = %if.then64.i.i.i, %lor.lhs.false61.i.i.i, %land.lhs.true48.i.i.i, %if.end46.i.i.i
+  %utf8.1.i.i.i = phi i8 [ %utf8.0.i.i.i, %if.end46.i.i.i ], [ 1, %if.then64.i.i.i ], [ %utf8.0.i.i.i, %lor.lhs.false61.i.i.i ], [ %utf8.0.i.i.i, %land.lhs.true48.i.i.i ]
+  %34 = load ptr, ptr %name.i76.i.i.i, align 8
   %tobool67.not.i.i.i = icmp eq ptr %34, null
   br i1 %tobool67.not.i.i.i, label %if.else71.i.i.i, label %if.then68.i.i.i
 
 if.then68.i.i.i:                                  ; preds = %if.end65.i.i.i
-  %call70.i.i.i = call ptr (ptr, ...) @curl_maprintf(ptr noundef nonnull @.str.40, ptr noundef nonnull %call.i67.i.i.i, ptr noundef nonnull %34) #8
+  %call70.i.i.i = call ptr (ptr, ...) @curl_maprintf(ptr noundef nonnull @.str.40, ptr noundef nonnull %call.i66.i.i.i, ptr noundef nonnull %34) #8
   call void @Curl_free_idnconverted_hostname(ptr noundef nonnull %host39.i.i.i) #8
   br label %if.end73.i.i.i
 
 if.else71.i.i.i:                                  ; preds = %if.end65.i.i.i
-  %call72.i.i.i = call ptr (ptr, ...) @curl_maprintf(ptr noundef nonnull @.str.41, ptr noundef nonnull %call.i67.i.i.i) #8
+  %call72.i.i.i = call ptr (ptr, ...) @curl_maprintf(ptr noundef nonnull @.str.41, ptr noundef nonnull %call.i66.i.i.i) #8
   br label %if.end73.i.i.i
 
 if.end73.i.i.i:                                   ; preds = %if.else71.i.i.i, %if.then68.i.i.i
   %auth.0.i.i.i = phi ptr [ %call70.i.i.i, %if.then68.i.i.i ], [ %call72.i.i.i, %if.else71.i.i.i ]
   %35 = load ptr, ptr @Curl_cfree, align 8
-  call void %35(ptr noundef nonnull %call.i67.i.i.i) #8
+  call void %35(ptr noundef nonnull %call.i66.i.i.i) #8
   br label %if.end76.i.i.i
 
 if.else74.i.i.i:                                  ; preds = %if.then30.i.i.i
@@ -427,7 +429,7 @@ if.end109.i.i.i:                                  ; preds = %if.end103.i.i.i, %i
   br i1 %tobool110.not.i.i.i, label %if.end112.i.i.i, label %if.then111.i.i.i
 
 if.then111.i.i.i:                                 ; preds = %if.end109.i.i.i, %if.end103.i.i.i, %if.then84.i.i.i
-  %result.1107.i.i.i = phi i32 [ %call108.i.i.i, %if.end109.i.i.i ], [ %call101.i.i.i, %if.end103.i.i.i ], [ %call93.i.i.i, %if.then84.i.i.i ]
+  %result.1106.i.i.i = phi i32 [ %call108.i.i.i, %if.end109.i.i.i ], [ %call101.i.i.i, %if.end103.i.i.i ], [ %call93.i.i.i, %if.then84.i.i.i ]
   %41 = load ptr, ptr @Curl_cfree, align 8
   call void %41(ptr noundef nonnull %from.1.i.i.i) #8
   %42 = load ptr, ptr @Curl_cfree, align 8
@@ -483,50 +485,50 @@ if.end139.i.i.i:                                  ; preds = %if.then132.if.end13
   br i1 %tobool146.not.i.i.i, label %if.end139.if.end160_crit_edge.i.i.i, label %land.lhs.true147.i.i.i
 
 if.end139.if.end160_crit_edge.i.i.i:              ; preds = %if.end139.i.i.i
-  %tobool162.not140.i.i.i = icmp eq ptr %auth.2.i.i.i, null
-  %cond141.i.i.i = select i1 %tobool162.not140.i.i.i, ptr @.str.22, ptr @.str.47
-  %cond164142.i.i.i = select i1 %tobool162.not140.i.i.i, ptr @.str.22, ptr %auth.2.i.i.i
-  %tobool165.not143.i.i.i = icmp eq ptr %size.0.i.i.i, null
-  %cond166144.i.i.i = select i1 %tobool165.not143.i.i.i, ptr @.str.22, ptr @.str.48
-  %cond171145.i.i.i = select i1 %tobool165.not143.i.i.i, ptr @.str.22, ptr %size.0.i.i.i
+  %tobool162.not139.i.i.i = icmp eq ptr %auth.2.i.i.i, null
+  %cond140.i.i.i = select i1 %tobool162.not139.i.i.i, ptr @.str.22, ptr @.str.47
+  %cond164141.i.i.i = select i1 %tobool162.not139.i.i.i, ptr @.str.22, ptr %auth.2.i.i.i
+  %tobool165.not142.i.i.i = icmp eq ptr %size.0.i.i.i, null
+  %cond166143.i.i.i = select i1 %tobool165.not142.i.i.i, ptr @.str.22, ptr @.str.48
+  %cond171144.i.i.i = select i1 %tobool165.not142.i.i.i, ptr @.str.22, ptr %size.0.i.i.i
   br i1 %.pre.i.i.i, label %50, label %51
 
 land.lhs.true147.i.i.i:                           ; preds = %if.end139.i.i.i
   br i1 %.pre.i.i.i, label %if.end160.thread.i.i.i, label %if.then149.i.i.i
 
 if.end160.thread.i.i.i:                           ; preds = %land.lhs.true147.i.i.i
-  %tobool162.not116.i.i.i = icmp eq ptr %auth.2.i.i.i, null
-  %cond117.i.i.i = select i1 %tobool162.not116.i.i.i, ptr @.str.22, ptr @.str.47
-  %cond164118.i.i.i = select i1 %tobool162.not116.i.i.i, ptr @.str.22, ptr %auth.2.i.i.i
-  %tobool165.not119.i.i.i = icmp eq ptr %size.0.i.i.i, null
-  %cond166120.i.i.i = select i1 %tobool165.not119.i.i.i, ptr @.str.22, ptr @.str.48
-  %cond171121.i.i.i = select i1 %tobool165.not119.i.i.i, ptr @.str.22, ptr %size.0.i.i.i
+  %tobool162.not115.i.i.i = icmp eq ptr %auth.2.i.i.i, null
+  %cond116.i.i.i = select i1 %tobool162.not115.i.i.i, ptr @.str.22, ptr @.str.47
+  %cond164117.i.i.i = select i1 %tobool162.not115.i.i.i, ptr @.str.22, ptr %auth.2.i.i.i
+  %tobool165.not118.i.i.i = icmp eq ptr %size.0.i.i.i, null
+  %cond166119.i.i.i = select i1 %tobool165.not118.i.i.i, ptr @.str.22, ptr @.str.48
+  %cond171120.i.i.i = select i1 %tobool165.not118.i.i.i, ptr @.str.22, ptr %size.0.i.i.i
   br label %50
 
 if.then149.i.i.i:                                 ; preds = %land.lhs.true147.i.i.i
   %48 = load ptr, ptr %p.i.i, align 8
   %rcpt150.i.i.i = getelementptr inbounds i8, ptr %48, i64 16
-  %rcpt.0108.i.i.i = load ptr, ptr %rcpt150.i.i.i, align 8
-  %tobool151109.i.i.i = icmp eq ptr %rcpt.0108.i.i.i, null
-  br i1 %tobool151109.i.i.i, label %if.end160.thread131.i.i.i, label %while.body.i.i.i
+  %rcpt.0107.i.i.i = load ptr, ptr %rcpt150.i.i.i, align 8
+  %tobool151108.i.i.i = icmp eq ptr %rcpt.0107.i.i.i, null
+  br i1 %tobool151108.i.i.i, label %if.end160.thread130.i.i.i, label %while.body.i.i.i
 
-if.end160.thread131.i.i.i:                        ; preds = %if.then149.i.i.i
-  %tobool162.not133.i.i.i = icmp eq ptr %auth.2.i.i.i, null
-  %cond134.i.i.i = select i1 %tobool162.not133.i.i.i, ptr @.str.22, ptr @.str.47
-  %cond164135.i.i.i = select i1 %tobool162.not133.i.i.i, ptr @.str.22, ptr %auth.2.i.i.i
-  %tobool165.not136.i.i.i = icmp eq ptr %size.0.i.i.i, null
-  %cond166137.i.i.i = select i1 %tobool165.not136.i.i.i, ptr @.str.22, ptr @.str.48
-  %cond171138.i.i.i = select i1 %tobool165.not136.i.i.i, ptr @.str.22, ptr %size.0.i.i.i
+if.end160.thread130.i.i.i:                        ; preds = %if.then149.i.i.i
+  %tobool162.not132.i.i.i = icmp eq ptr %auth.2.i.i.i, null
+  %cond133.i.i.i = select i1 %tobool162.not132.i.i.i, ptr @.str.22, ptr @.str.47
+  %cond164134.i.i.i = select i1 %tobool162.not132.i.i.i, ptr @.str.22, ptr %auth.2.i.i.i
+  %tobool165.not135.i.i.i = icmp eq ptr %size.0.i.i.i, null
+  %cond166136.i.i.i = select i1 %tobool165.not135.i.i.i, ptr @.str.22, ptr @.str.48
+  %cond171137.i.i.i = select i1 %tobool165.not135.i.i.i, ptr @.str.22, ptr %size.0.i.i.i
   br label %51
 
 while.body.i.i.i:                                 ; preds = %if.then149.i.i.i, %while.body.i.i.i
-  %rcpt.0113.i.i.i = phi ptr [ %rcpt.0.i.i.i, %while.body.i.i.i ], [ %rcpt.0108.i.i.i, %if.then149.i.i.i ]
-  %utf8.4112.i.i.i = phi i8 [ %spec.select.i.i.i, %while.body.i.i.i ], [ %utf8.3.fr.i.i.i, %if.then149.i.i.i ]
-  %49 = load ptr, ptr %rcpt.0113.i.i.i, align 8
+  %rcpt.0112.i.i.i = phi ptr [ %rcpt.0.i.i.i, %while.body.i.i.i ], [ %rcpt.0107.i.i.i, %if.then149.i.i.i ]
+  %utf8.4111.i.i.i = phi i8 [ %spec.select.i.i.i, %while.body.i.i.i ], [ %utf8.3.fr.i.i.i, %if.then149.i.i.i ]
+  %49 = load ptr, ptr %rcpt.0112.i.i.i, align 8
   %call157.i.i.i = call zeroext i1 @Curl_is_ASCII_name(ptr noundef %49) #8
   %call157.i.fr.i.i = freeze i1 %call157.i.i.i
-  %spec.select.i.i.i = select i1 %call157.i.fr.i.i, i8 %utf8.4112.i.i.i, i8 1
-  %next.i.i.i = getelementptr inbounds i8, ptr %rcpt.0113.i.i.i, i64 8
+  %spec.select.i.i.i = select i1 %call157.i.fr.i.i, i8 %utf8.4111.i.i.i, i8 1
+  %next.i.i.i = getelementptr inbounds i8, ptr %rcpt.0112.i.i.i, i64 8
   %rcpt.0.i.i.i = load ptr, ptr %next.i.i.i, align 8
   %tobool151.i.i.i = icmp eq ptr %rcpt.0.i.i.i, null
   %tobool153.i.i.i = trunc i8 %spec.select.i.i.i to i1
@@ -543,19 +545,19 @@ if.end160.i.i.i:                                  ; preds = %while.body.i.i.i
   br i1 %tobool153.i.i.i, label %50, label %51
 
 50:                                               ; preds = %if.end160.i.i.i, %if.end160.thread.i.i.i, %if.end139.if.end160_crit_edge.i.i.i
-  %cond171130.i.i.i = phi ptr [ %cond171121.i.i.i, %if.end160.thread.i.i.i ], [ %cond171.i.i.i, %if.end160.i.i.i ], [ %cond171145.i.i.i, %if.end139.if.end160_crit_edge.i.i.i ]
-  %cond166128.i.i.i = phi ptr [ %cond166120.i.i.i, %if.end160.thread.i.i.i ], [ %cond166.i.i.i, %if.end160.i.i.i ], [ %cond166144.i.i.i, %if.end139.if.end160_crit_edge.i.i.i ]
-  %cond164126.i.i.i = phi ptr [ %cond164118.i.i.i, %if.end160.thread.i.i.i ], [ %cond164.i.i.i, %if.end160.i.i.i ], [ %cond164142.i.i.i, %if.end139.if.end160_crit_edge.i.i.i ]
-  %cond124.i.i.i = phi ptr [ %cond117.i.i.i, %if.end160.thread.i.i.i ], [ %cond.i.i.i, %if.end160.i.i.i ], [ %cond141.i.i.i, %if.end139.if.end160_crit_edge.i.i.i ]
+  %cond171129.i.i.i = phi ptr [ %cond171120.i.i.i, %if.end160.thread.i.i.i ], [ %cond171.i.i.i, %if.end160.i.i.i ], [ %cond171144.i.i.i, %if.end139.if.end160_crit_edge.i.i.i ]
+  %cond166127.i.i.i = phi ptr [ %cond166119.i.i.i, %if.end160.thread.i.i.i ], [ %cond166.i.i.i, %if.end160.i.i.i ], [ %cond166143.i.i.i, %if.end139.if.end160_crit_edge.i.i.i ]
+  %cond164125.i.i.i = phi ptr [ %cond164117.i.i.i, %if.end160.thread.i.i.i ], [ %cond164.i.i.i, %if.end160.i.i.i ], [ %cond164141.i.i.i, %if.end139.if.end160_crit_edge.i.i.i ]
+  %cond123.i.i.i = phi ptr [ %cond116.i.i.i, %if.end160.thread.i.i.i ], [ %cond.i.i.i, %if.end160.i.i.i ], [ %cond140.i.i.i, %if.end139.if.end160_crit_edge.i.i.i ]
   br label %51
 
-51:                                               ; preds = %50, %if.end160.i.i.i, %if.end160.thread131.i.i.i, %if.end139.if.end160_crit_edge.i.i.i
-  %cond171129.i.i.i = phi ptr [ %cond171130.i.i.i, %50 ], [ %cond171.i.i.i, %if.end160.i.i.i ], [ %cond171138.i.i.i, %if.end160.thread131.i.i.i ], [ %cond171145.i.i.i, %if.end139.if.end160_crit_edge.i.i.i ]
-  %cond166127.i.i.i = phi ptr [ %cond166128.i.i.i, %50 ], [ %cond166.i.i.i, %if.end160.i.i.i ], [ %cond166137.i.i.i, %if.end160.thread131.i.i.i ], [ %cond166144.i.i.i, %if.end139.if.end160_crit_edge.i.i.i ]
-  %cond164125.i.i.i = phi ptr [ %cond164126.i.i.i, %50 ], [ %cond164.i.i.i, %if.end160.i.i.i ], [ %cond164135.i.i.i, %if.end160.thread131.i.i.i ], [ %cond164142.i.i.i, %if.end139.if.end160_crit_edge.i.i.i ]
-  %cond123.i.i.i = phi ptr [ %cond124.i.i.i, %50 ], [ %cond.i.i.i, %if.end160.i.i.i ], [ %cond134.i.i.i, %if.end160.thread131.i.i.i ], [ %cond141.i.i.i, %if.end139.if.end160_crit_edge.i.i.i ]
-  %52 = phi ptr [ @.str.23, %50 ], [ @.str.22, %if.end160.i.i.i ], [ @.str.22, %if.end160.thread131.i.i.i ], [ @.str.22, %if.end139.if.end160_crit_edge.i.i.i ]
-  %call175.i.i.i = call i32 (ptr, ptr, ptr, ...) @Curl_pp_sendf(ptr noundef %data, ptr noundef nonnull %proto121.i.i.i, ptr noundef nonnull @.str.46, ptr noundef nonnull %from.1.i.i.i, ptr noundef nonnull %cond123.i.i.i, ptr noundef nonnull %cond164125.i.i.i, ptr noundef nonnull %cond166127.i.i.i, ptr noundef nonnull %cond171129.i.i.i, ptr noundef nonnull %52) #8
+51:                                               ; preds = %50, %if.end160.i.i.i, %if.end160.thread130.i.i.i, %if.end139.if.end160_crit_edge.i.i.i
+  %cond171128.i.i.i = phi ptr [ %cond171129.i.i.i, %50 ], [ %cond171.i.i.i, %if.end160.i.i.i ], [ %cond171137.i.i.i, %if.end160.thread130.i.i.i ], [ %cond171144.i.i.i, %if.end139.if.end160_crit_edge.i.i.i ]
+  %cond166126.i.i.i = phi ptr [ %cond166127.i.i.i, %50 ], [ %cond166.i.i.i, %if.end160.i.i.i ], [ %cond166136.i.i.i, %if.end160.thread130.i.i.i ], [ %cond166143.i.i.i, %if.end139.if.end160_crit_edge.i.i.i ]
+  %cond164124.i.i.i = phi ptr [ %cond164125.i.i.i, %50 ], [ %cond164.i.i.i, %if.end160.i.i.i ], [ %cond164134.i.i.i, %if.end160.thread130.i.i.i ], [ %cond164141.i.i.i, %if.end139.if.end160_crit_edge.i.i.i ]
+  %cond122.i.i.i = phi ptr [ %cond123.i.i.i, %50 ], [ %cond.i.i.i, %if.end160.i.i.i ], [ %cond133.i.i.i, %if.end160.thread130.i.i.i ], [ %cond140.i.i.i, %if.end139.if.end160_crit_edge.i.i.i ]
+  %52 = phi ptr [ @.str.23, %50 ], [ @.str.22, %if.end160.i.i.i ], [ @.str.22, %if.end160.thread130.i.i.i ], [ @.str.22, %if.end139.if.end160_crit_edge.i.i.i ]
+  %call175.i.i.i = call i32 (ptr, ptr, ptr, ...) @Curl_pp_sendf(ptr noundef %data, ptr noundef nonnull %proto121.i.i.i, ptr noundef nonnull @.str.46, ptr noundef nonnull %from.1.i.i.i, ptr noundef nonnull %cond122.i.i.i, ptr noundef nonnull %cond164124.i.i.i, ptr noundef nonnull %cond166126.i.i.i, ptr noundef nonnull %cond171128.i.i.i, ptr noundef nonnull %52) #8
   %53 = load ptr, ptr @Curl_cfree, align 8
   call void %53(ptr noundef nonnull %from.1.i.i.i) #8
   %54 = load ptr, ptr @Curl_cfree, align 8
@@ -572,7 +574,7 @@ if.then177.i.i.i:                                 ; preds = %51
   br label %smtp_perform_mail.exit.i.i
 
 smtp_perform_mail.exit.i.i:                       ; preds = %if.then177.i.i.i, %51, %if.then137.i.i.i, %if.then111.i.i.i, %if.then78.i.i.i, %if.then45.i.i.i, %if.end20.i.i.i, %if.then.i.i.i
-  %retval.0.i.i.i = phi i32 [ 27, %if.then45.i.i.i ], [ %result.1107.i.i.i, %if.then111.i.i.i ], [ 27, %if.then137.i.i.i ], [ 27, %if.then78.i.i.i ], [ 27, %if.end20.i.i.i ], [ 0, %if.then177.i.i.i ], [ %call175.i.i.i, %51 ], [ 27, %if.then.i.i.i ]
+  %retval.0.i.i.i = phi i32 [ 27, %if.then45.i.i.i ], [ %result.1106.i.i.i, %if.then111.i.i.i ], [ 27, %if.then137.i.i.i ], [ 27, %if.then78.i.i.i ], [ 27, %if.end20.i.i.i ], [ 0, %if.then177.i.i.i ], [ %call175.i.i.i, %51 ], [ 27, %if.then.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %host.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %host39.i.i.i)
   br label %if.end18.i.i

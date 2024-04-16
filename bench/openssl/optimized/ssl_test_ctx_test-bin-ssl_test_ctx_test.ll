@@ -391,7 +391,7 @@ lor.lhs.false:                                    ; preds = %entry
   %6 = load i32, ptr %4, align 8
   %call.i = tail call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 77, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, i32 noundef %5, i32 noundef %6) #3
   %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %err, label %lor.lhs.false.i
+  br i1 %tobool.not.i, label %testctx_eq.exit.thread, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %lor.lhs.false
   %handshake_mode.i = getelementptr inbounds i8, ptr %call, i64 4
@@ -400,7 +400,7 @@ lor.lhs.false.i:                                  ; preds = %lor.lhs.false
   %8 = load i32, ptr %handshake_mode2.i, align 4
   %call3.i = tail call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 78, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29, i32 noundef %7, i32 noundef %8) #3
   %tobool4.not.i = icmp eq i32 %call3.i, 0
-  br i1 %tobool4.not.i, label %err, label %lor.lhs.false5.i
+  br i1 %tobool4.not.i, label %testctx_eq.exit.thread, label %lor.lhs.false5.i
 
 lor.lhs.false5.i:                                 ; preds = %lor.lhs.false.i
   %app_data_size.i = getelementptr inbounds i8, ptr %call, i64 8
@@ -409,7 +409,7 @@ lor.lhs.false5.i:                                 ; preds = %lor.lhs.false.i
   %10 = load i32, ptr %app_data_size6.i, align 8
   %call7.i = tail call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 79, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, i32 noundef %9, i32 noundef %10) #3
   %tobool8.not.i = icmp eq i32 %call7.i, 0
-  br i1 %tobool8.not.i, label %err, label %lor.lhs.false9.i
+  br i1 %tobool8.not.i, label %testctx_eq.exit.thread, label %lor.lhs.false9.i
 
 lor.lhs.false9.i:                                 ; preds = %lor.lhs.false5.i
   %max_fragment_size.i = getelementptr inbounds i8, ptr %call, i64 12
@@ -418,21 +418,21 @@ lor.lhs.false9.i:                                 ; preds = %lor.lhs.false5.i
   %12 = load i32, ptr %max_fragment_size10.i, align 4
   %call11.i = tail call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 80, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, i32 noundef %11, i32 noundef %12) #3
   %tobool12.not.i = icmp eq i32 %call11.i, 0
-  br i1 %tobool12.not.i, label %err, label %lor.lhs.false13.i
+  br i1 %tobool12.not.i, label %testctx_eq.exit.thread, label %lor.lhs.false13.i
 
 lor.lhs.false13.i:                                ; preds = %lor.lhs.false9.i
   %extra.i = getelementptr inbounds i8, ptr %call, i64 24
   %extra14.i = getelementptr inbounds i8, ptr %4, i64 24
   %call15.i = tail call fastcc i32 @extraconf_eq(ptr noundef nonnull %extra.i, ptr noundef nonnull %extra14.i), !range !5
   %tobool16.not.i = icmp eq i32 %call15.i, 0
-  br i1 %tobool16.not.i, label %err, label %lor.lhs.false17.i
+  br i1 %tobool16.not.i, label %testctx_eq.exit.thread, label %lor.lhs.false17.i
 
 lor.lhs.false17.i:                                ; preds = %lor.lhs.false13.i
   %resume_extra.i = getelementptr inbounds i8, ptr %call, i64 224
   %resume_extra18.i = getelementptr inbounds i8, ptr %4, i64 224
   %call19.i = tail call fastcc i32 @extraconf_eq(ptr noundef nonnull %resume_extra.i, ptr noundef nonnull %resume_extra18.i), !range !5
   %tobool20.not.i = icmp eq i32 %call19.i, 0
-  br i1 %tobool20.not.i, label %err, label %lor.lhs.false21.i
+  br i1 %tobool20.not.i, label %testctx_eq.exit.thread, label %lor.lhs.false21.i
 
 lor.lhs.false21.i:                                ; preds = %lor.lhs.false17.i
   %expected_result.i = getelementptr inbounds i8, ptr %call, i64 424
@@ -441,7 +441,7 @@ lor.lhs.false21.i:                                ; preds = %lor.lhs.false17.i
   %14 = load i32, ptr %expected_result22.i, align 8
   %call23.i = tail call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 83, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.35, i32 noundef %13, i32 noundef %14) #3
   %tobool24.not.i = icmp eq i32 %call23.i, 0
-  br i1 %tobool24.not.i, label %err, label %lor.lhs.false25.i
+  br i1 %tobool24.not.i, label %testctx_eq.exit.thread, label %lor.lhs.false25.i
 
 lor.lhs.false25.i:                                ; preds = %lor.lhs.false21.i
   %expected_client_alert.i = getelementptr inbounds i8, ptr %call, i64 428
@@ -450,7 +450,7 @@ lor.lhs.false25.i:                                ; preds = %lor.lhs.false21.i
   %16 = load i32, ptr %expected_client_alert26.i, align 4
   %call27.i = tail call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 85, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37, i32 noundef %15, i32 noundef %16) #3
   %tobool28.not.i = icmp eq i32 %call27.i, 0
-  br i1 %tobool28.not.i, label %err, label %lor.lhs.false29.i
+  br i1 %tobool28.not.i, label %testctx_eq.exit.thread, label %lor.lhs.false29.i
 
 lor.lhs.false29.i:                                ; preds = %lor.lhs.false25.i
   %expected_server_alert.i = getelementptr inbounds i8, ptr %call, i64 432
@@ -459,7 +459,7 @@ lor.lhs.false29.i:                                ; preds = %lor.lhs.false25.i
   %18 = load i32, ptr %expected_server_alert30.i, align 8
   %call31.i = tail call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 87, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.39, i32 noundef %17, i32 noundef %18) #3
   %tobool32.not.i = icmp eq i32 %call31.i, 0
-  br i1 %tobool32.not.i, label %err, label %lor.lhs.false33.i
+  br i1 %tobool32.not.i, label %testctx_eq.exit.thread, label %lor.lhs.false33.i
 
 lor.lhs.false33.i:                                ; preds = %lor.lhs.false29.i
   %expected_protocol.i = getelementptr inbounds i8, ptr %call, i64 436
@@ -468,7 +468,7 @@ lor.lhs.false33.i:                                ; preds = %lor.lhs.false29.i
   %20 = load i32, ptr %expected_protocol34.i, align 4
   %call35.i = tail call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 88, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.41, i32 noundef %19, i32 noundef %20) #3
   %tobool36.not.i = icmp eq i32 %call35.i, 0
-  br i1 %tobool36.not.i, label %err, label %lor.lhs.false37.i
+  br i1 %tobool36.not.i, label %testctx_eq.exit.thread, label %lor.lhs.false37.i
 
 lor.lhs.false37.i:                                ; preds = %lor.lhs.false33.i
   %expected_servername.i = getelementptr inbounds i8, ptr %call, i64 440
@@ -477,7 +477,7 @@ lor.lhs.false37.i:                                ; preds = %lor.lhs.false33.i
   %22 = load i32, ptr %expected_servername38.i, align 8
   %call39.i = tail call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 89, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43, i32 noundef %21, i32 noundef %22) #3
   %tobool40.not.i = icmp eq i32 %call39.i, 0
-  br i1 %tobool40.not.i, label %err, label %lor.lhs.false41.i
+  br i1 %tobool40.not.i, label %testctx_eq.exit.thread, label %lor.lhs.false41.i
 
 lor.lhs.false41.i:                                ; preds = %lor.lhs.false37.i
   %session_ticket_expected.i = getelementptr inbounds i8, ptr %call, i64 444
@@ -486,7 +486,7 @@ lor.lhs.false41.i:                                ; preds = %lor.lhs.false37.i
   %24 = load i32, ptr %session_ticket_expected42.i, align 4
   %call43.i = tail call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 91, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.45, i32 noundef %23, i32 noundef %24) #3
   %tobool44.not.i = icmp eq i32 %call43.i, 0
-  br i1 %tobool44.not.i, label %err, label %lor.lhs.false45.i
+  br i1 %tobool44.not.i, label %testctx_eq.exit.thread, label %lor.lhs.false45.i
 
 lor.lhs.false45.i:                                ; preds = %lor.lhs.false41.i
   %compression_expected.i = getelementptr inbounds i8, ptr %call, i64 448
@@ -495,7 +495,7 @@ lor.lhs.false45.i:                                ; preds = %lor.lhs.false41.i
   %26 = load i32, ptr %compression_expected46.i, align 8
   %call47.i = tail call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 93, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef %25, i32 noundef %26) #3
   %tobool48.not.i = icmp eq i32 %call47.i, 0
-  br i1 %tobool48.not.i, label %err, label %lor.lhs.false49.i
+  br i1 %tobool48.not.i, label %testctx_eq.exit.thread, label %lor.lhs.false49.i
 
 lor.lhs.false49.i:                                ; preds = %lor.lhs.false45.i
   %expected_npn_protocol.i = getelementptr inbounds i8, ptr %call, i64 456
@@ -504,7 +504,7 @@ lor.lhs.false49.i:                                ; preds = %lor.lhs.false45.i
   %28 = load ptr, ptr %expected_npn_protocol50.i, align 8
   %call51.i = tail call i32 @test_str_eq(ptr noundef nonnull @.str.14, i32 noundef 95, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49, ptr noundef %27, ptr noundef %28) #3
   %tobool52.not.i = icmp eq i32 %call51.i, 0
-  br i1 %tobool52.not.i, label %err, label %lor.lhs.false53.i
+  br i1 %tobool52.not.i, label %testctx_eq.exit.thread, label %lor.lhs.false53.i
 
 lor.lhs.false53.i:                                ; preds = %lor.lhs.false49.i
   %expected_alpn_protocol.i = getelementptr inbounds i8, ptr %call, i64 464
@@ -513,7 +513,7 @@ lor.lhs.false53.i:                                ; preds = %lor.lhs.false49.i
   %30 = load ptr, ptr %expected_alpn_protocol54.i, align 8
   %call55.i = tail call i32 @test_str_eq(ptr noundef nonnull @.str.14, i32 noundef 97, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.51, ptr noundef %29, ptr noundef %30) #3
   %tobool56.not.i = icmp eq i32 %call55.i, 0
-  br i1 %tobool56.not.i, label %err, label %lor.lhs.false57.i
+  br i1 %tobool56.not.i, label %testctx_eq.exit.thread, label %lor.lhs.false57.i
 
 lor.lhs.false57.i:                                ; preds = %lor.lhs.false53.i
   %expected_cipher.i = getelementptr inbounds i8, ptr %call, i64 552
@@ -522,7 +522,7 @@ lor.lhs.false57.i:                                ; preds = %lor.lhs.false53.i
   %32 = load ptr, ptr %expected_cipher58.i, align 8
   %call59.i = tail call i32 @test_str_eq(ptr noundef nonnull @.str.14, i32 noundef 99, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.53, ptr noundef %31, ptr noundef %32) #3
   %tobool60.not.i = icmp eq i32 %call59.i, 0
-  br i1 %tobool60.not.i, label %err, label %lor.lhs.false61.i
+  br i1 %tobool60.not.i, label %testctx_eq.exit.thread, label %lor.lhs.false61.i
 
 lor.lhs.false61.i:                                ; preds = %lor.lhs.false57.i
   %expected_session_ticket_app_data.i = getelementptr inbounds i8, ptr %call, i64 560
@@ -531,7 +531,7 @@ lor.lhs.false61.i:                                ; preds = %lor.lhs.false57.i
   %34 = load ptr, ptr %expected_session_ticket_app_data62.i, align 8
   %call63.i = tail call i32 @test_str_eq(ptr noundef nonnull @.str.14, i32 noundef 101, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.55, ptr noundef %33, ptr noundef %34) #3
   %tobool64.not.i = icmp eq i32 %call63.i, 0
-  br i1 %tobool64.not.i, label %err, label %lor.lhs.false65.i
+  br i1 %tobool64.not.i, label %testctx_eq.exit.thread, label %lor.lhs.false65.i
 
 lor.lhs.false65.i:                                ; preds = %lor.lhs.false61.i
   %resumption_expected.i = getelementptr inbounds i8, ptr %call, i64 472
@@ -540,7 +540,7 @@ lor.lhs.false65.i:                                ; preds = %lor.lhs.false61.i
   %36 = load i32, ptr %resumption_expected66.i, align 8
   %call67.i = tail call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 103, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.57, i32 noundef %35, i32 noundef %36) #3
   %tobool68.not.i = icmp eq i32 %call67.i, 0
-  br i1 %tobool68.not.i, label %err, label %testctx_eq.exit
+  br i1 %tobool68.not.i, label %testctx_eq.exit.thread, label %testctx_eq.exit
 
 testctx_eq.exit:                                  ; preds = %lor.lhs.false65.i
   %session_id_expected.i = getelementptr inbounds i8, ptr %call, i64 544
@@ -549,12 +549,14 @@ testctx_eq.exit:                                  ; preds = %lor.lhs.false65.i
   %38 = load i32, ptr %session_id_expected70.i, align 8
   %call71.i = tail call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 105, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.59, i32 noundef %37, i32 noundef %38) #3
   %call71.i.fr = freeze i32 %call71.i
-  %tobool72.not.i.not = icmp ne i32 %call71.i.fr, 0
-  %spec.select = zext i1 %tobool72.not.i.not to i32
+  %tobool72.not.i.not = icmp eq i32 %call71.i.fr, 0
+  br i1 %tobool72.not.i.not, label %testctx_eq.exit.thread, label %err
+
+testctx_eq.exit.thread:                           ; preds = %lor.lhs.false, %lor.lhs.false.i, %lor.lhs.false5.i, %lor.lhs.false9.i, %lor.lhs.false13.i, %lor.lhs.false17.i, %lor.lhs.false21.i, %lor.lhs.false25.i, %lor.lhs.false29.i, %lor.lhs.false33.i, %lor.lhs.false37.i, %lor.lhs.false41.i, %lor.lhs.false45.i, %lor.lhs.false49.i, %lor.lhs.false53.i, %lor.lhs.false57.i, %lor.lhs.false61.i, %lor.lhs.false65.i, %testctx_eq.exit
   br label %err
 
-err:                                              ; preds = %testctx_eq.exit, %lor.lhs.false, %lor.lhs.false.i, %lor.lhs.false5.i, %lor.lhs.false9.i, %lor.lhs.false13.i, %lor.lhs.false17.i, %lor.lhs.false21.i, %lor.lhs.false25.i, %lor.lhs.false29.i, %lor.lhs.false33.i, %lor.lhs.false37.i, %lor.lhs.false41.i, %lor.lhs.false45.i, %lor.lhs.false49.i, %lor.lhs.false53.i, %lor.lhs.false57.i, %lor.lhs.false61.i, %lor.lhs.false65.i, %entry
-  %success.0 = phi i32 [ 0, %entry ], [ 0, %lor.lhs.false65.i ], [ 0, %lor.lhs.false61.i ], [ 0, %lor.lhs.false57.i ], [ 0, %lor.lhs.false53.i ], [ 0, %lor.lhs.false49.i ], [ 0, %lor.lhs.false45.i ], [ 0, %lor.lhs.false41.i ], [ 0, %lor.lhs.false37.i ], [ 0, %lor.lhs.false33.i ], [ 0, %lor.lhs.false29.i ], [ 0, %lor.lhs.false25.i ], [ 0, %lor.lhs.false21.i ], [ 0, %lor.lhs.false17.i ], [ 0, %lor.lhs.false13.i ], [ 0, %lor.lhs.false9.i ], [ 0, %lor.lhs.false5.i ], [ 0, %lor.lhs.false.i ], [ 0, %lor.lhs.false ], [ %spec.select, %testctx_eq.exit ]
+err:                                              ; preds = %testctx_eq.exit.thread, %testctx_eq.exit, %entry
+  %success.0 = phi i32 [ 0, %entry ], [ 0, %testctx_eq.exit.thread ], [ 1, %testctx_eq.exit ]
   tail call void @SSL_TEST_CTX_free(ptr noundef %call) #3
   ret i32 %success.0
 }

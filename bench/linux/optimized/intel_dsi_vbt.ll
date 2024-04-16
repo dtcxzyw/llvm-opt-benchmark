@@ -1104,175 +1104,178 @@ define internal ptr @mipi_exec_send_packet(ptr noundef %0, ptr noundef %1) #0 al
 23:                                               ; preds = %8
   %24 = zext i16 %18 to i32
   %25 = tail call i32 asm "bsfl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %24, i32 -1) #11, !srcloc !25
-  br label %35
+  br label %37
 
 26:                                               ; preds = %8
   %27 = and i8 %11, 24
   %28 = icmp eq i8 %27, 0
-  br i1 %28, label %35, label %29
+  br i1 %28, label %36, label %29
 
 29:                                               ; preds = %26
-  %30 = and i16 %18, 2
-  %31 = icmp eq i16 %30, 0
-  br i1 %31, label %32, label %35
+  %30 = zext i16 %18 to i64
+  %31 = and i64 %30, 2
+  %32 = icmp eq i64 %31, 0
+  br i1 %32, label %33, label %37
 
-32:                                               ; preds = %29
-  %33 = lshr i16 %18, 1
-  %34 = and i16 %33, 2
-  %spec.select = zext nneg i16 %34 to i32
-  br label %35
+33:                                               ; preds = %29
+  %34 = and i64 %30, 4
+  %35 = icmp eq i64 %34, 0
+  br i1 %35, label %36, label %37
 
-35:                                               ; preds = %32, %26, %29, %23
-  %36 = phi i32 [ 1, %29 ], [ %25, %23 ], [ 0, %26 ], [ %spec.select, %32 ]
-  %37 = getelementptr inbounds i8, ptr %0, i64 384
-  %38 = sext i32 %36 to i64
-  %39 = getelementptr [9 x ptr], ptr %37, i64 0, i64 %38
-  %40 = load ptr, ptr %39, align 8
-  %41 = icmp eq ptr %40, null
-  br i1 %41, label %42, label %54, !prof !26
+36:                                               ; preds = %33, %26
+  br label %37
 
-42:                                               ; preds = %35
+37:                                               ; preds = %36, %33, %29, %23
+  %38 = phi i32 [ 0, %36 ], [ 1, %29 ], [ 2, %33 ], [ %25, %23 ]
+  %39 = getelementptr inbounds i8, ptr %0, i64 384
+  %40 = sext i32 %38 to i64
+  %41 = getelementptr [9 x ptr], ptr %39, i64 0, i64 %40
+  %42 = load ptr, ptr %41, align 8
+  %43 = icmp eq ptr %42, null
+  br i1 %43, label %44, label %56, !prof !26
+
+44:                                               ; preds = %37
   tail call void asm sideeffect "967: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 967b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 967) #8, !srcloc !27
-  %43 = getelementptr inbounds i8, ptr %3, i64 8
-  %44 = load ptr, ptr %43, align 8
-  %45 = tail call ptr @dev_driver_string(ptr noundef %44) #8
-  %46 = load ptr, ptr %43, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 80
-  %48 = load ptr, ptr %47, align 8
-  %49 = icmp eq ptr %48, null
-  br i1 %49, label %50, label %52
+  %45 = getelementptr inbounds i8, ptr %3, i64 8
+  %46 = load ptr, ptr %45, align 8
+  %47 = tail call ptr @dev_driver_string(ptr noundef %46) #8
+  %48 = load ptr, ptr %45, align 8
+  %49 = getelementptr inbounds i8, ptr %48, i64 80
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp eq ptr %50, null
+  br i1 %51, label %52, label %54
 
-50:                                               ; preds = %42
-  %51 = load ptr, ptr %46, align 8
-  br label %52
+52:                                               ; preds = %44
+  %53 = load ptr, ptr %48, align 8
+  br label %54
 
-52:                                               ; preds = %50, %42
-  %53 = phi ptr [ %51, %50 ], [ %48, %42 ]
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.41, ptr noundef %45, ptr noundef %53, ptr noundef nonnull @.str.62) #8
+54:                                               ; preds = %52, %44
+  %55 = phi ptr [ %53, %52 ], [ %50, %44 ]
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.41, ptr noundef %47, ptr noundef %55, ptr noundef nonnull @.str.62) #8
   tail call void asm sideeffect "968: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 968b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 968) #8, !srcloc !28
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.43, i32 123, i32 2313, i64 12) #8, !srcloc !29
   tail call void asm sideeffect "969: nop\0A\09.pushsection .discard.instr_end\0A\09.long 969b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 969) #8, !srcloc !30
   tail call void asm sideeffect "970: nop\0A\09.pushsection .discard.instr_end\0A\09.long 970b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 970) #8, !srcloc !31
-  br label %110
+  br label %112
 
-54:                                               ; preds = %35
-  %55 = getelementptr inbounds i8, ptr %40, i64 48
-  %56 = load ptr, ptr %55, align 8
-  %57 = icmp eq ptr %56, null
-  br i1 %57, label %58, label %65
+56:                                               ; preds = %37
+  %57 = getelementptr inbounds i8, ptr %42, i64 48
+  %58 = load ptr, ptr %57, align 8
+  %59 = icmp eq ptr %58, null
+  br i1 %59, label %60, label %67
 
-58:                                               ; preds = %54
-  br i1 %4, label %62, label %59
+60:                                               ; preds = %56
+  br i1 %4, label %64, label %61
 
-59:                                               ; preds = %58
-  %60 = getelementptr inbounds i8, ptr %3, i64 8
-  %61 = load ptr, ptr %60, align 8
-  br label %62
+61:                                               ; preds = %60
+  %62 = getelementptr inbounds i8, ptr %3, i64 8
+  %63 = load ptr, ptr %62, align 8
+  br label %64
 
-62:                                               ; preds = %59, %58
-  %63 = phi ptr [ %61, %59 ], [ null, %58 ]
-  %64 = add i32 %36, 65
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %63, i32 noundef 2, ptr noundef nonnull @.str.63, i32 noundef %64) #8
-  br label %110
+64:                                               ; preds = %61, %60
+  %65 = phi ptr [ %63, %61 ], [ null, %60 ]
+  %66 = add i32 %38, 65
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %65, i32 noundef 2, ptr noundef nonnull @.str.63, i32 noundef %66) #8
+  br label %112
 
-65:                                               ; preds = %54
-  %66 = getelementptr inbounds i8, ptr %56, i64 776
-  %67 = load i64, ptr %66, align 8
-  %68 = and i64 %67, -2049
-  %69 = shl nuw nsw i32 %16, 11
-  %70 = and i32 %69, 2048
-  %71 = xor i32 %70, 2048
-  %72 = zext nneg i32 %71 to i64
-  %73 = or disjoint i64 %68, %72
-  store i64 %73, ptr %66, align 8
-  %74 = lshr i32 %16, 1
-  %75 = and i32 %74, 3
-  %76 = getelementptr inbounds i8, ptr %56, i64 760
-  store i32 %75, ptr %76, align 8
-  switch i8 %13, label %105 [
-    i8 3, label %77
-    i8 19, label %79
-    i8 35, label %81
-    i8 4, label %83
-    i8 20, label %83
-    i8 36, label %83
-    i8 41, label %89
-    i8 5, label %92
-    i8 21, label %94
-    i8 6, label %96
-    i8 57, label %102
+67:                                               ; preds = %56
+  %68 = getelementptr inbounds i8, ptr %58, i64 776
+  %69 = load i64, ptr %68, align 8
+  %70 = and i64 %69, -2049
+  %71 = shl nuw nsw i32 %16, 11
+  %72 = and i32 %71, 2048
+  %73 = xor i32 %72, 2048
+  %74 = zext nneg i32 %73 to i64
+  %75 = or disjoint i64 %70, %74
+  store i64 %75, ptr %68, align 8
+  %76 = lshr i32 %16, 1
+  %77 = and i32 %76, 3
+  %78 = getelementptr inbounds i8, ptr %58, i64 760
+  store i32 %77, ptr %78, align 8
+  switch i8 %13, label %107 [
+    i8 3, label %79
+    i8 19, label %81
+    i8 35, label %83
+    i8 4, label %85
+    i8 20, label %85
+    i8 36, label %85
+    i8 41, label %91
+    i8 5, label %94
+    i8 21, label %96
+    i8 6, label %98
+    i8 57, label %104
   ]
 
-77:                                               ; preds = %65
-  %78 = tail call i64 @mipi_dsi_generic_write(ptr noundef nonnull %56, ptr noundef null, i64 noundef 0) #8
-  br label %105
+79:                                               ; preds = %67
+  %80 = tail call i64 @mipi_dsi_generic_write(ptr noundef nonnull %58, ptr noundef null, i64 noundef 0) #8
+  br label %107
 
-79:                                               ; preds = %65
-  %80 = tail call i64 @mipi_dsi_generic_write(ptr noundef nonnull %56, ptr noundef %15, i64 noundef 1) #8
-  br label %105
+81:                                               ; preds = %67
+  %82 = tail call i64 @mipi_dsi_generic_write(ptr noundef nonnull %58, ptr noundef %15, i64 noundef 1) #8
+  br label %107
 
-81:                                               ; preds = %65
-  %82 = tail call i64 @mipi_dsi_generic_write(ptr noundef nonnull %56, ptr noundef %15, i64 noundef 2) #8
-  br label %105
+83:                                               ; preds = %67
+  %84 = tail call i64 @mipi_dsi_generic_write(ptr noundef nonnull %58, ptr noundef %15, i64 noundef 2) #8
+  br label %107
 
-83:                                               ; preds = %65, %65, %65
-  br i1 %4, label %87, label %84
+85:                                               ; preds = %67, %67, %67
+  br i1 %4, label %89, label %86
 
-84:                                               ; preds = %83
-  %85 = getelementptr inbounds i8, ptr %3, i64 8
-  %86 = load ptr, ptr %85, align 8
-  br label %87
+86:                                               ; preds = %85
+  %87 = getelementptr inbounds i8, ptr %3, i64 8
+  %88 = load ptr, ptr %87, align 8
+  br label %89
 
-87:                                               ; preds = %84, %83
-  %88 = phi ptr [ %86, %84 ], [ null, %83 ]
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %88, i32 noundef 1, ptr noundef nonnull @.str.64) #8
-  br label %105
+89:                                               ; preds = %86, %85
+  %90 = phi ptr [ %88, %86 ], [ null, %85 ]
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %90, i32 noundef 1, ptr noundef nonnull @.str.64) #8
+  br label %107
 
-89:                                               ; preds = %65
-  %90 = zext i16 %14 to i64
-  %91 = tail call i64 @mipi_dsi_generic_write(ptr noundef nonnull %56, ptr noundef %15, i64 noundef %90) #8
-  br label %105
+91:                                               ; preds = %67
+  %92 = zext i16 %14 to i64
+  %93 = tail call i64 @mipi_dsi_generic_write(ptr noundef nonnull %58, ptr noundef %15, i64 noundef %92) #8
+  br label %107
 
-92:                                               ; preds = %65
-  %93 = tail call i64 @mipi_dsi_dcs_write_buffer(ptr noundef nonnull %56, ptr noundef %15, i64 noundef 1) #8
-  br label %105
+94:                                               ; preds = %67
+  %95 = tail call i64 @mipi_dsi_dcs_write_buffer(ptr noundef nonnull %58, ptr noundef %15, i64 noundef 1) #8
+  br label %107
 
-94:                                               ; preds = %65
-  %95 = tail call i64 @mipi_dsi_dcs_write_buffer(ptr noundef nonnull %56, ptr noundef %15, i64 noundef 2) #8
-  br label %105
+96:                                               ; preds = %67
+  %97 = tail call i64 @mipi_dsi_dcs_write_buffer(ptr noundef nonnull %58, ptr noundef %15, i64 noundef 2) #8
+  br label %107
 
-96:                                               ; preds = %65
-  br i1 %4, label %100, label %97
+98:                                               ; preds = %67
+  br i1 %4, label %102, label %99
 
-97:                                               ; preds = %96
-  %98 = getelementptr inbounds i8, ptr %3, i64 8
-  %99 = load ptr, ptr %98, align 8
-  br label %100
+99:                                               ; preds = %98
+  %100 = getelementptr inbounds i8, ptr %3, i64 8
+  %101 = load ptr, ptr %100, align 8
+  br label %102
 
-100:                                              ; preds = %97, %96
-  %101 = phi ptr [ %99, %97 ], [ null, %96 ]
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %101, i32 noundef 1, ptr noundef nonnull @.str.65) #8
-  br label %105
+102:                                              ; preds = %99, %98
+  %103 = phi ptr [ %101, %99 ], [ null, %98 ]
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %103, i32 noundef 1, ptr noundef nonnull @.str.65) #8
+  br label %107
 
-102:                                              ; preds = %65
-  %103 = zext i16 %14 to i64
-  %104 = tail call i64 @mipi_dsi_dcs_write_buffer(ptr noundef nonnull %56, ptr noundef %15, i64 noundef %103) #8
-  br label %105
+104:                                              ; preds = %67
+  %105 = zext i16 %14 to i64
+  %106 = tail call i64 @mipi_dsi_dcs_write_buffer(ptr noundef nonnull %58, ptr noundef %15, i64 noundef %105) #8
+  br label %107
 
-105:                                              ; preds = %102, %100, %94, %92, %89, %87, %81, %79, %77, %65
-  %106 = getelementptr inbounds i8, ptr %3, i64 2632
-  %107 = load i16, ptr %106, align 8
-  %108 = icmp ult i16 %107, 11
-  br i1 %108, label %109, label %110
+107:                                              ; preds = %104, %102, %96, %94, %91, %89, %83, %81, %79, %67
+  %108 = getelementptr inbounds i8, ptr %3, i64 2632
+  %109 = load i16, ptr %108, align 8
+  %110 = icmp ult i16 %109, 11
+  br i1 %110, label %111, label %112
 
-109:                                              ; preds = %105
-  tail call void @vlv_dsi_wait_for_fifo_empty(ptr noundef %0, i32 noundef %36) #8
-  br label %110
+111:                                              ; preds = %107
+  tail call void @vlv_dsi_wait_for_fifo_empty(ptr noundef %0, i32 noundef %38) #8
+  br label %112
 
-110:                                              ; preds = %109, %105, %62, %52
-  %111 = zext i16 %14 to i64
-  %112 = getelementptr i8, ptr %15, i64 %111
-  ret ptr %112
+112:                                              ; preds = %111, %107, %64, %54
+  %113 = zext i16 %14 to i64
+  %114 = getelementptr i8, ptr %15, i64 %113
+  ret ptr %114
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

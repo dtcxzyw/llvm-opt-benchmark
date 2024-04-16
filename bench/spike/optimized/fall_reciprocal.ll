@@ -332,9 +332,9 @@ define i16 @f16_recip7(i16 %0) local_unnamed_addr #0 {
   %12 = load i8, ptr @softfloat_exceptionFlags, align 1
   %13 = or i8 %12, 16
   store i8 %13, ptr @softfloat_exceptionFlags, align 1
-  br label %63
+  br label %14
 
-14:                                               ; preds = %1
+14:                                               ; preds = %11, %1
   br label %63
 
 15:                                               ; preds = %1
@@ -430,8 +430,8 @@ recip7.exit:                                      ; preds = %40, %49
   store i8 %62, ptr @softfloat_exceptionFlags, align 1
   br label %63
 
-63:                                               ; preds = %recip7.exit, %11, %1, %59, %14, %8, %5, %4
-  %.sroa.0.0 = phi i16 [ %60, %59 ], [ %58, %recip7.exit ], [ 31744, %8 ], [ -1024, %5 ], [ 0, %4 ], [ -32768, %1 ], [ 32256, %11 ], [ 32256, %14 ]
+63:                                               ; preds = %recip7.exit, %1, %59, %14, %8, %5, %4
+  %.sroa.0.0 = phi i16 [ %60, %59 ], [ %58, %recip7.exit ], [ 32256, %14 ], [ 31744, %8 ], [ -1024, %5 ], [ 0, %4 ], [ -32768, %1 ]
   ret i16 %.sroa.0.0
 }
 
@@ -469,9 +469,9 @@ define i32 @f32_recip7(i32 %0) local_unnamed_addr #0 {
   %12 = load i8, ptr @softfloat_exceptionFlags, align 1
   %13 = or i8 %12, 16
   store i8 %13, ptr @softfloat_exceptionFlags, align 1
-  br label %62
+  br label %14
 
-14:                                               ; preds = %1
+14:                                               ; preds = %11, %1
   br label %62
 
 15:                                               ; preds = %1
@@ -567,8 +567,8 @@ recip7.exit:                                      ; preds = %39, %48
   store i8 %61, ptr @softfloat_exceptionFlags, align 1
   br label %62
 
-62:                                               ; preds = %recip7.exit, %11, %1, %57, %14, %8, %5, %4
-  %.sroa.0.0 = phi i32 [ %59, %57 ], [ %56, %recip7.exit ], [ 2139095040, %8 ], [ -8388608, %5 ], [ 0, %4 ], [ -2147483648, %1 ], [ 2143289344, %11 ], [ 2143289344, %14 ]
+62:                                               ; preds = %recip7.exit, %1, %57, %14, %8, %5, %4
+  %.sroa.0.0 = phi i32 [ %59, %57 ], [ %56, %recip7.exit ], [ 2143289344, %14 ], [ 2139095040, %8 ], [ -8388608, %5 ], [ 0, %4 ], [ -2147483648, %1 ]
   ret i32 %.sroa.0.0
 }
 
@@ -606,9 +606,9 @@ define i64 @f64_recip7(i64 %0) local_unnamed_addr #0 {
   %12 = load i8, ptr @softfloat_exceptionFlags, align 1
   %13 = or i8 %12, 16
   store i8 %13, ptr @softfloat_exceptionFlags, align 1
-  br label %59
+  br label %14
 
-14:                                               ; preds = %1
+14:                                               ; preds = %11, %1
   br label %59
 
 15:                                               ; preds = %1
@@ -700,8 +700,8 @@ recip7.exit:                                      ; preds = %37, %46
   store i8 %58, ptr @softfloat_exceptionFlags, align 1
   br label %59
 
-59:                                               ; preds = %recip7.exit, %11, %1, %54, %14, %8, %5, %4
-  %.sroa.0.0 = phi i64 [ %56, %54 ], [ %53, %recip7.exit ], [ 9218868437227405312, %8 ], [ -4503599627370496, %5 ], [ 0, %4 ], [ -9223372036854775808, %1 ], [ 9221120237041090560, %11 ], [ 9221120237041090560, %14 ]
+59:                                               ; preds = %recip7.exit, %1, %54, %14, %8, %5, %4
+  %.sroa.0.0 = phi i64 [ %56, %54 ], [ %53, %recip7.exit ], [ 9221120237041090560, %14 ], [ 9218868437227405312, %8 ], [ -4503599627370496, %5 ], [ 0, %4 ], [ -9223372036854775808, %1 ]
   ret i64 %.sroa.0.0
 }
 

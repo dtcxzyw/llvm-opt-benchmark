@@ -3471,7 +3471,7 @@ find_fid_info.exit.thread:                        ; preds = %47, %find_fid_info.
 declare ptr @g_slist_find_custom(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @msg_data_find(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal noundef i32 @msg_data_find(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
   %5 = icmp eq i32 %3, %4
@@ -3506,12 +3506,14 @@ define internal i32 @msg_data_find(ptr nocapture noundef readonly %0, ptr nocapt
   %26 = load i32, ptr %25, align 4
   %27 = getelementptr inbounds i8, ptr %1, i64 12
   %28 = load i32, ptr %27, align 4
-  %29 = icmp ne i32 %26, %28
-  %spec.select = zext i1 %29 to i32
-  br label %30
+  %29 = icmp eq i32 %26, %28
+  br i1 %29, label %31, label %30
 
-30:                                               ; preds = %24, %2, %6, %12, %18
-  %.0 = phi i32 [ 1, %18 ], [ 1, %12 ], [ 1, %6 ], [ 1, %2 ], [ %spec.select, %24 ]
+30:                                               ; preds = %24, %18, %12, %6, %2
+  br label %31
+
+31:                                               ; preds = %24, %30
+  %.0 = phi i32 [ 1, %30 ], [ 0, %24 ]
   ret i32 %.0
 }
 

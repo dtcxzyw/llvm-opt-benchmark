@@ -867,7 +867,7 @@ If_CluHasVar.exit.thread13.us.us:                 ; preds = %34, %17
   br i1 %exitcond52.not.i.us.us, label %If_CluHasVar.exit.thread.us.us, label %34, !llvm.loop !9
 
 If_CluHasVar.exit.thread.us.us:                   ; preds = %._crit_edge.us.i.us.us, %41, %If_CluHasVar.exit.thread13.us.us, %If_CluHasVar.exit.us.us
-  %42 = phi i32 [ %40, %If_CluHasVar.exit.thread13.us.us ], [ %27, %If_CluHasVar.exit.us.us ], [ %.021.us.us, %41 ], [ %.021.us.us, %._crit_edge.us.i.us.us ]
+  %42 = phi i32 [ %27, %If_CluHasVar.exit.us.us ], [ %40, %If_CluHasVar.exit.thread13.us.us ], [ %.021.us.us, %41 ], [ %.021.us.us, %._crit_edge.us.i.us.us ]
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next48, %wide.trip.count50
   br i1 %exitcond51.not, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !10
@@ -7648,7 +7648,7 @@ If_CluHasVar.exit.thread14.us.us.i:               ; preds = %77, %If_CluHasVar.e
   br i1 %exitcond52.not.i.us.us.i, label %If_CluHasVar.exit.thread.us.us.i, label %77, !llvm.loop !9
 
 If_CluHasVar.exit.thread.us.us.i:                 ; preds = %._crit_edge.us.i.us.us.i, %84, %If_CluHasVar.exit.thread14.us.us.i, %If_CluHasVar.exit.us.us.i
-  %85 = phi i32 [ %83, %If_CluHasVar.exit.thread14.us.us.i ], [ %70, %If_CluHasVar.exit.us.us.i ], [ %.021.us.us.i, %84 ], [ %.021.us.us.i, %._crit_edge.us.i.us.us.i ]
+  %85 = phi i32 [ %70, %If_CluHasVar.exit.us.us.i ], [ %83, %If_CluHasVar.exit.thread14.us.us.i ], [ %.021.us.us.i, %84 ], [ %.021.us.us.i, %._crit_edge.us.i.us.us.i ]
   %indvars.iv.next48.i = add nuw nsw i64 %indvars.iv47.i, 1
   %exitcond51.not.i = icmp eq i64 %indvars.iv.next48.i, %wide.trip.count50.i
   br i1 %exitcond51.not.i, label %If_CluSupport.exit, label %.lr.ph.split.us.split.us.i, !llvm.loop !127
@@ -8587,7 +8587,7 @@ If_CluCheckDecOut.exit:                           ; preds = %41, %If_CluAdjust.e
   %or.cond.i25 = or i1 %61, %63
   br i1 %or.cond.i25, label %If_CluCheckDecOutU.exit, label %56
 
-If_CluCheckDecOutU.exit:                          ; preds = %48, %.lr.ph.i, %.lr.ph.i23, %56, %If_CluCheckDecOut.exit, %If_CluAdjust.exit22, %5
+If_CluCheckDecOutU.exit:                          ; preds = %48, %.lr.ph.i, %56, %.lr.ph.i23, %If_CluCheckDecOut.exit, %If_CluAdjust.exit22, %5
   %.0 = phi i32 [ 0, %5 ], [ 1, %If_CluAdjust.exit22 ], [ 0, %If_CluCheckDecOut.exit ], [ 0, %56 ], [ 1, %.lr.ph.i23 ], [ 1, %.lr.ph.i ], [ 1, %48 ]
   ret i32 %.0
 }
@@ -8771,7 +8771,7 @@ If_CluCheckDecIn.exit:                            ; preds = %53, %41
   %or.cond27.i = select i1 %121, i1 %123, i1 false
   br i1 %or.cond27.i, label %If_CluCheckDecInU.exit, label %95
 
-If_CluCheckDecInU.exit:                           ; preds = %54, %80, %83, %96, %95, %If_CluCheckDecIn.exit, %If_CluAdjust.exit, %5
+If_CluCheckDecInU.exit:                           ; preds = %54, %80, %83, %95, %96, %If_CluCheckDecIn.exit, %If_CluAdjust.exit, %5
   %.0 = phi i32 [ 0, %5 ], [ 1, %If_CluAdjust.exit ], [ 0, %If_CluCheckDecIn.exit ], [ 0, %95 ], [ 1, %96 ], [ 1, %83 ], [ 1, %80 ], [ 1, %54 ]
   ret i32 %.0
 }

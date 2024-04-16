@@ -2571,7 +2571,7 @@ if.then31:                                        ; preds = %land.lhs.true
   %next = getelementptr inbounds i8, ptr %1, i64 8
   %16 = load ptr, ptr %next, align 8
   %tobool.not.i220 = icmp eq ptr %16, null
-  br i1 %tobool.not.i220, label %if.end55, label %if.end.i221
+  br i1 %tobool.not.i220, label %_quicklistNodeAllowInsert.exit247.thread, label %if.end.i221
 
 if.end.i221:                                      ; preds = %if.then31
   %container.i222 = getelementptr inbounds i8, ptr %16, i64 32
@@ -2579,7 +2579,7 @@ if.end.i221:                                      ; preds = %if.then31
   %17 = and i32 %bf.load.i223, 786432
   %cmp.i224 = icmp eq i32 %17, 262144
   %18 = select i1 %cmp.i224, i1 true, i1 %cmp5.i
-  br i1 %18, label %if.end55, label %if.end14.i226
+  br i1 %18, label %_quicklistNodeAllowInsert.exit247.thread, label %if.end14.i226
 
 if.end14.i226:                                    ; preds = %if.end.i221
   %sz15.i227 = getelementptr inbounds i8, ptr %16, i64 24
@@ -2587,7 +2587,7 @@ if.end14.i226:                                    ; preds = %if.end.i221
   %add.i228 = add i64 %sz, 8
   %add16.i229 = add i64 %add.i228, %19
   %cmp.i.i.i230 = icmp sgt i32 %bf.cast, -1
-  br i1 %cmp.i.i.i230, label %if.else.i.i241, label %if.then.i.i231
+  br i1 %cmp.i.i.i230, label %_quicklistNodeAllowInsert.exit247, label %if.then.i.i231
 
 if.then.i.i231:                                   ; preds = %if.end14.i226
   %20 = tail call i32 @llvm.umax.i32(i32 %bf.cast, i32 -5)
@@ -2596,20 +2596,19 @@ if.then.i.i231:                                   ; preds = %if.end14.i226
   %arrayidx.i.i.i234 = getelementptr inbounds [5 x i64], ptr @optimization_level, i64 0, i64 %spec.select.i.i.i233
   %21 = load i64, ptr %arrayidx.i.i.i234, align 8
   %cmp2.i.i235 = icmp ult i64 %21, %add16.i229
-  br label %_quicklistNodeAllowInsert.exit247
+  %cond.fr351 = freeze i1 %cmp2.i.i235
+  br i1 %cond.fr351, label %_quicklistNodeAllowInsert.exit247.thread, label %if.end55
 
-if.else.i.i241:                                   ; preds = %if.end14.i226
+_quicklistNodeAllowInsert.exit247:                ; preds = %if.end14.i226
   %bf.clear18.i242 = and i32 %bf.load.i223, 65535
   %cond.i.i.i243 = tail call i32 @llvm.umax.i32(i32 %bf.cast, i32 1)
   %cmp7.i.i244 = icmp ugt i64 %add16.i229, 8192
   %cmp10.i.i245 = icmp ule i32 %cond.i.i.i243, %bf.clear18.i242
   %spec.select.i.i246 = or i1 %cmp10.i.i245, %cmp7.i.i244
-  br label %_quicklistNodeAllowInsert.exit247
+  %cond.fr = freeze i1 %spec.select.i.i246
+  br i1 %cond.fr, label %_quicklistNodeAllowInsert.exit247.thread, label %if.end55
 
-_quicklistNodeAllowInsert.exit247:                ; preds = %if.then.i.i231, %if.else.i.i241
-  %retval.0.shrunk.i.i237 = phi i1 [ %cmp2.i.i235, %if.then.i.i231 ], [ %spec.select.i.i246, %if.else.i.i241 ]
-  %cond.fr = freeze i1 %retval.0.shrunk.i.i237
-  %not.cond.fr = xor i1 %cond.fr, true
+_quicklistNodeAllowInsert.exit247.thread:         ; preds = %if.then.i.i231, %if.end.i221, %if.then31, %_quicklistNodeAllowInsert.exit247
   br label %if.end55
 
 land.lhs.true38:                                  ; preds = %_quicklistNodeAllowInsert.exit
@@ -2625,7 +2624,7 @@ lor.lhs.false42:                                  ; preds = %land.lhs.true38
 if.then50:                                        ; preds = %lor.lhs.false42, %land.lhs.true38
   %22 = load ptr, ptr %1, align 8
   %tobool.not.i248 = icmp eq ptr %22, null
-  br i1 %tobool.not.i248, label %if.end55, label %if.end.i249
+  br i1 %tobool.not.i248, label %_quicklistNodeAllowInsert.exit275.thread, label %if.end.i249
 
 if.end.i249:                                      ; preds = %if.then50
   %container.i250 = getelementptr inbounds i8, ptr %22, i64 32
@@ -2633,7 +2632,7 @@ if.end.i249:                                      ; preds = %if.then50
   %23 = and i32 %bf.load.i251, 786432
   %cmp.i252 = icmp eq i32 %23, 262144
   %24 = select i1 %cmp.i252, i1 true, i1 %cmp5.i
-  br i1 %24, label %if.end55, label %if.end14.i254
+  br i1 %24, label %_quicklistNodeAllowInsert.exit275.thread, label %if.end14.i254
 
 if.end14.i254:                                    ; preds = %if.end.i249
   %sz15.i255 = getelementptr inbounds i8, ptr %22, i64 24
@@ -2641,7 +2640,7 @@ if.end14.i254:                                    ; preds = %if.end.i249
   %add.i256 = add i64 %sz, 8
   %add16.i257 = add i64 %add.i256, %25
   %cmp.i.i.i258 = icmp sgt i32 %bf.cast, -1
-  br i1 %cmp.i.i.i258, label %if.else.i.i269, label %if.then.i.i259
+  br i1 %cmp.i.i.i258, label %_quicklistNodeAllowInsert.exit275, label %if.then.i.i259
 
 if.then.i.i259:                                   ; preds = %if.end14.i254
   %26 = tail call i32 @llvm.umax.i32(i32 %bf.cast, i32 -5)
@@ -2650,29 +2649,28 @@ if.then.i.i259:                                   ; preds = %if.end14.i254
   %arrayidx.i.i.i262 = getelementptr inbounds [5 x i64], ptr @optimization_level, i64 0, i64 %spec.select.i.i.i261
   %27 = load i64, ptr %arrayidx.i.i.i262, align 8
   %cmp2.i.i263 = icmp ult i64 %27, %add16.i257
-  br label %_quicklistNodeAllowInsert.exit275
+  %cond.fr342352 = freeze i1 %cmp2.i.i263
+  br i1 %cond.fr342352, label %_quicklistNodeAllowInsert.exit275.thread, label %if.end55
 
-if.else.i.i269:                                   ; preds = %if.end14.i254
+_quicklistNodeAllowInsert.exit275:                ; preds = %if.end14.i254
   %bf.clear18.i270 = and i32 %bf.load.i251, 65535
   %cond.i.i.i271 = tail call i32 @llvm.umax.i32(i32 %bf.cast, i32 1)
   %cmp7.i.i272 = icmp ugt i64 %add16.i257, 8192
   %cmp10.i.i273 = icmp ule i32 %cond.i.i.i271, %bf.clear18.i270
   %spec.select.i.i274 = or i1 %cmp10.i.i273, %cmp7.i.i272
-  br label %_quicklistNodeAllowInsert.exit275
+  %cond.fr342 = freeze i1 %spec.select.i.i274
+  br i1 %cond.fr342, label %_quicklistNodeAllowInsert.exit275.thread, label %if.end55
 
-_quicklistNodeAllowInsert.exit275:                ; preds = %if.then.i.i259, %if.else.i.i269
-  %retval.0.shrunk.i.i265 = phi i1 [ %cmp2.i.i263, %if.then.i.i259 ], [ %spec.select.i.i274, %if.else.i.i269 ]
-  %cond.fr342 = freeze i1 %retval.0.shrunk.i.i265
-  %not.cond.fr342 = xor i1 %cond.fr342, true
+_quicklistNodeAllowInsert.exit275.thread:         ; preds = %if.then.i.i259, %if.end.i249, %if.then50, %_quicklistNodeAllowInsert.exit275
   br label %if.end55
 
-if.end55:                                         ; preds = %_quicklistNodeAllowInsert.exit275, %_quicklistNodeAllowInsert.exit247, %if.end.i249, %if.then50, %if.end.i221, %if.then31, %land.lhs.true, %lor.lhs.false42
-  %tobool399341 = phi i1 [ true, %lor.lhs.false42 ], [ true, %land.lhs.true ], [ false, %if.then31 ], [ false, %if.end.i221 ], [ true, %if.then50 ], [ true, %if.end.i249 ], [ false, %_quicklistNodeAllowInsert.exit247 ], [ true, %_quicklistNodeAllowInsert.exit275 ]
-  %tobool223340 = phi i1 [ false, %lor.lhs.false42 ], [ false, %land.lhs.true ], [ true, %if.then31 ], [ true, %if.end.i221 ], [ false, %if.then50 ], [ false, %if.end.i249 ], [ true, %_quicklistNodeAllowInsert.exit247 ], [ false, %_quicklistNodeAllowInsert.exit275 ]
-  %tobool225339 = phi i1 [ false, %lor.lhs.false42 ], [ false, %land.lhs.true ], [ false, %if.then31 ], [ false, %if.end.i221 ], [ false, %if.then50 ], [ false, %if.end.i249 ], [ %not.cond.fr, %_quicklistNodeAllowInsert.exit247 ], [ false, %_quicklistNodeAllowInsert.exit275 ]
-  %tobool313 = phi i1 [ false, %lor.lhs.false42 ], [ false, %land.lhs.true ], [ false, %if.then31 ], [ false, %if.end.i221 ], [ false, %if.then50 ], [ false, %if.end.i249 ], [ false, %_quicklistNodeAllowInsert.exit247 ], [ %not.cond.fr342, %_quicklistNodeAllowInsert.exit275 ]
-  %tobool311 = phi i1 [ false, %lor.lhs.false42 ], [ false, %land.lhs.true ], [ false, %if.then31 ], [ false, %if.end.i221 ], [ true, %if.then50 ], [ true, %if.end.i249 ], [ false, %_quicklistNodeAllowInsert.exit247 ], [ true, %_quicklistNodeAllowInsert.exit275 ]
-  %tobool405 = phi i1 [ true, %lor.lhs.false42 ], [ true, %land.lhs.true ], [ true, %if.then31 ], [ true, %if.end.i221 ], [ false, %if.then50 ], [ false, %if.end.i249 ], [ true, %_quicklistNodeAllowInsert.exit247 ], [ false, %_quicklistNodeAllowInsert.exit275 ]
+if.end55:                                         ; preds = %if.then.i.i259, %if.then.i.i231, %land.lhs.true, %_quicklistNodeAllowInsert.exit247, %_quicklistNodeAllowInsert.exit247.thread, %_quicklistNodeAllowInsert.exit275.thread, %_quicklistNodeAllowInsert.exit275, %lor.lhs.false42
+  %tobool399341 = phi i1 [ true, %lor.lhs.false42 ], [ true, %_quicklistNodeAllowInsert.exit275 ], [ true, %_quicklistNodeAllowInsert.exit275.thread ], [ false, %_quicklistNodeAllowInsert.exit247.thread ], [ false, %_quicklistNodeAllowInsert.exit247 ], [ true, %land.lhs.true ], [ false, %if.then.i.i231 ], [ true, %if.then.i.i259 ]
+  %tobool223340 = phi i1 [ false, %lor.lhs.false42 ], [ false, %_quicklistNodeAllowInsert.exit275 ], [ false, %_quicklistNodeAllowInsert.exit275.thread ], [ true, %_quicklistNodeAllowInsert.exit247.thread ], [ true, %_quicklistNodeAllowInsert.exit247 ], [ false, %land.lhs.true ], [ true, %if.then.i.i231 ], [ false, %if.then.i.i259 ]
+  %tobool225339 = phi i1 [ false, %lor.lhs.false42 ], [ false, %_quicklistNodeAllowInsert.exit275 ], [ false, %_quicklistNodeAllowInsert.exit275.thread ], [ false, %_quicklistNodeAllowInsert.exit247.thread ], [ true, %_quicklistNodeAllowInsert.exit247 ], [ false, %land.lhs.true ], [ true, %if.then.i.i231 ], [ false, %if.then.i.i259 ]
+  %tobool313 = phi i1 [ false, %lor.lhs.false42 ], [ true, %_quicklistNodeAllowInsert.exit275 ], [ false, %_quicklistNodeAllowInsert.exit275.thread ], [ false, %_quicklistNodeAllowInsert.exit247.thread ], [ false, %_quicklistNodeAllowInsert.exit247 ], [ false, %land.lhs.true ], [ false, %if.then.i.i231 ], [ true, %if.then.i.i259 ]
+  %tobool311 = phi i1 [ false, %lor.lhs.false42 ], [ true, %_quicklistNodeAllowInsert.exit275 ], [ true, %_quicklistNodeAllowInsert.exit275.thread ], [ false, %_quicklistNodeAllowInsert.exit247.thread ], [ false, %_quicklistNodeAllowInsert.exit247 ], [ false, %land.lhs.true ], [ false, %if.then.i.i231 ], [ true, %if.then.i.i259 ]
+  %tobool405 = phi i1 [ true, %lor.lhs.false42 ], [ false, %_quicklistNodeAllowInsert.exit275 ], [ false, %_quicklistNodeAllowInsert.exit275.thread ], [ true, %_quicklistNodeAllowInsert.exit247.thread ], [ true, %_quicklistNodeAllowInsert.exit247 ], [ true, %land.lhs.true ], [ true, %if.then.i.i231 ], [ false, %if.then.i.i259 ]
   %cmp56.not = icmp ugt i64 %10, %sz
   br i1 %cmp56.not, label %if.end97, label %if.then64
 
@@ -3074,11 +3072,11 @@ if.then441:                                       ; preds = %land.lhs.true434
   %bf.set446 = or i32 %bf.load444, 1048576
   store i32 %bf.set446, ptr %container.i, align 8
   %offset449.phi.trans.insert = getelementptr inbounds i8, ptr %entry1, i64 48
-  %.pre349 = load i32, ptr %offset449.phi.trans.insert, align 8
+  %.pre348 = load i32, ptr %offset449.phi.trans.insert, align 8
   br label %do.end448
 
 do.end448:                                        ; preds = %land.lhs.true434, %if.then441
-  %66 = phi i32 [ %15, %land.lhs.true434 ], [ %.pre349, %if.then441 ]
+  %66 = phi i32 [ %15, %land.lhs.true434 ], [ %.pre348, %if.then441 ]
   %call450 = tail call ptr @_quicklistSplitNode(ptr noundef nonnull %1, i32 noundef %66, i32 noundef %after)
   %entry453 = getelementptr inbounds i8, ptr %call450, i64 16
   %67 = load ptr, ptr %entry453, align 8

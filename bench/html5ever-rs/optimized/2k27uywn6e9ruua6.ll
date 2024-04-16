@@ -263,8 +263,8 @@ define internal fastcc noundef i32 @"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$14
   %.old = icmp eq i32 %65, 0
   br i1 %.old, label %.thread, label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217he6d69f7754b9abccE.exit.i21"
 
-.thread:                                          ; preds = %64, %78, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit", %49, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe4b4302862dc0f7E.exit19.thread39"
-  %.046 = phi i32 [ %.sroa.4.0.i.ph10.i33, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe4b4302862dc0f7E.exit19.thread39" ], [ 1114112, %49 ], [ 1114112, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit" ], [ %.sroa.4.0.i.ph10.i33, %78 ], [ %.sroa.4.0.i.ph10.i33, %64 ]
+.thread:                                          ; preds = %78, %64, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit", %49, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe4b4302862dc0f7E.exit19.thread39"
+  %.046 = phi i32 [ %.sroa.4.0.i.ph10.i33, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe4b4302862dc0f7E.exit19.thread39" ], [ 1114112, %49 ], [ 1114112, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit" ], [ %.sroa.4.0.i.ph10.i33, %64 ], [ %.sroa.4.0.i.ph10.i33, %78 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
   %98 = icmp ult i64 %2, 16
   br i1 %98, label %.thread.thread, label %99

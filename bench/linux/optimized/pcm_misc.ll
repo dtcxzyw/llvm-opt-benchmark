@@ -220,8 +220,8 @@ define dso_local i64 @snd_pcm_format_size(i32 noundef %0, i64 noundef %1) #0 ali
   %14 = lshr i64 %13, 3
   br label %.thread
 
-.thread:                                          ; preds = %9, %4, %2
-  %15 = phi i64 [ -22, %2 ], [ -22, %4 ], [ %14, %9 ]
+.thread:                                          ; preds = %2, %4, %9
+  %15 = phi i64 [ %14, %9 ], [ -22, %4 ], [ -22, %2 ]
   ret i64 %15
 }
 
@@ -536,12 +536,14 @@ define dso_local i32 @snd_pcm_rate_range_to_bits(i32 noundef %0, i32 noundef %1)
 
 21:                                               ; preds = %7
   %22 = icmp eq i32 %18, 0
-  %spec.select = select i1 %22, i32 -2147483648, i32 %18
-  br label %.thread
+  br i1 %22, label %.thread, label %23
 
-.thread:                                          ; preds = %21, %2
-  %23 = phi i32 [ -2147483648, %2 ], [ %spec.select, %21 ]
-  ret i32 %23
+.thread:                                          ; preds = %2, %21
+  br label %23
+
+23:                                               ; preds = %21, %.thread
+  %24 = phi i32 [ -2147483648, %.thread ], [ %18, %21 ]
+  ret i32 %24
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

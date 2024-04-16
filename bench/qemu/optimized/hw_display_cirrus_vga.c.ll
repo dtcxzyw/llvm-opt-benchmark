@@ -190,7 +190,7 @@ entry:
 
 if.then36.i:                                      ; preds = %entry
   %cmp37.i = icmp ugt i32 %limit.0.i20, 32768
-  br i1 %cmp37.i, label %if.end44.thread27.i, label %cirrus_update_bank_ptr.exit28
+  br i1 %cmp37.i, label %if.end44.thread27.i, label %if.else52.i22
 
 if.end44.thread27.i:                              ; preds = %if.then36.i
   %add40.i = add nuw nsw i32 %offset.1.i18, 32768
@@ -199,13 +199,14 @@ if.end44.thread27.i:                              ; preds = %if.then36.i
 
 if.end44.i:                                       ; preds = %entry
   %cmp45.not.not.i21 = icmp ugt i32 %7, %offset.1.i18
-  %spec.select = select i1 %cmp45.not.not.i21, i32 %offset.1.i18, i32 0
-  %spec.select29 = select i1 %cmp45.not.not.i21, i32 %limit.0.i20, i32 0
+  br i1 %cmp45.not.not.i21, label %cirrus_update_bank_ptr.exit28, label %if.else52.i22
+
+if.else52.i22:                                    ; preds = %if.end44.i, %if.then36.i
   br label %cirrus_update_bank_ptr.exit28
 
-cirrus_update_bank_ptr.exit28:                    ; preds = %if.end44.i, %if.then36.i, %if.end44.thread27.i
-  %offset.231.i.sink = phi i32 [ %add40.i, %if.end44.thread27.i ], [ 0, %if.then36.i ], [ %spec.select, %if.end44.i ]
-  %.sink.i24 = phi i32 [ %sub41.i, %if.end44.thread27.i ], [ 0, %if.then36.i ], [ %spec.select29, %if.end44.i ]
+cirrus_update_bank_ptr.exit28:                    ; preds = %if.end44.thread27.i, %if.end44.i, %if.else52.i22
+  %offset.231.i.sink = phi i32 [ 0, %if.else52.i22 ], [ %add40.i, %if.end44.thread27.i ], [ %offset.1.i18, %if.end44.i ]
+  %.sink.i24 = phi i32 [ 0, %if.else52.i22 ], [ %sub41.i, %if.end44.thread27.i ], [ %limit.0.i20, %if.end44.i ]
   %arrayidx49.i = getelementptr i8, ptr %opaque, i64 70592
   store i32 %offset.231.i.sink, ptr %arrayidx49.i, align 4
   %arrayidx58.i = getelementptr i8, ptr %opaque, i64 70600
@@ -2282,7 +2283,7 @@ sw.bb35:                                          ; preds = %trace_vga_cirrus_wr
 
 if.then36.i:                                      ; preds = %sw.bb35
   %cmp37.i = icmp ugt i32 %limit.0.i63, 32768
-  br i1 %cmp37.i, label %if.end44.thread27.i, label %cirrus_update_bank_ptr.exit71
+  br i1 %cmp37.i, label %if.end44.thread27.i, label %if.else52.i65
 
 if.end44.thread27.i:                              ; preds = %if.then36.i
   %add40.i = add nuw nsw i32 %offset.1.i61, 32768
@@ -2291,13 +2292,14 @@ if.end44.thread27.i:                              ; preds = %if.then36.i
 
 if.end44.i:                                       ; preds = %sw.bb35
   %cmp45.not.not.i64 = icmp ugt i32 %12, %offset.1.i61
-  %spec.select = select i1 %cmp45.not.not.i64, i32 %offset.1.i61, i32 0
-  %spec.select133 = select i1 %cmp45.not.not.i64, i32 %limit.0.i63, i32 0
+  br i1 %cmp45.not.not.i64, label %cirrus_update_bank_ptr.exit71, label %if.else52.i65
+
+if.else52.i65:                                    ; preds = %if.end44.i, %if.then36.i
   br label %cirrus_update_bank_ptr.exit71
 
-cirrus_update_bank_ptr.exit71:                    ; preds = %if.end44.i, %if.then36.i, %if.end44.thread27.i
-  %offset.231.i.sink = phi i32 [ %add40.i, %if.end44.thread27.i ], [ 0, %if.then36.i ], [ %spec.select, %if.end44.i ]
-  %.sink.i67 = phi i32 [ %sub41.i, %if.end44.thread27.i ], [ 0, %if.then36.i ], [ %spec.select133, %if.end44.i ]
+cirrus_update_bank_ptr.exit71:                    ; preds = %if.end44.thread27.i, %if.end44.i, %if.else52.i65
+  %offset.231.i.sink = phi i32 [ 0, %if.else52.i65 ], [ %add40.i, %if.end44.thread27.i ], [ %offset.1.i61, %if.end44.i ]
+  %.sink.i67 = phi i32 [ 0, %if.else52.i65 ], [ %sub41.i, %if.end44.thread27.i ], [ %limit.0.i63, %if.end44.i ]
   %arrayidx49.i = getelementptr i8, ptr %s, i64 70592
   store i32 %offset.231.i.sink, ptr %arrayidx49.i, align 4
   %arrayidx58.i = getelementptr i8, ptr %s, i64 70600
@@ -2337,7 +2339,7 @@ sw.bb41:                                          ; preds = %trace_vga_cirrus_wr
 
 if.then36.i123:                                   ; preds = %sw.bb41
   %cmp37.i124 = icmp ugt i32 %limit.0.i109, 32768
-  br i1 %cmp37.i124, label %if.end44.thread27.i125, label %cirrus_update_bank_ptr.exit128
+  br i1 %cmp37.i124, label %if.end44.thread27.i125, label %if.else52.i112
 
 if.end44.thread27.i125:                           ; preds = %if.then36.i123
   %add40.i126 = add nuw nsw i32 %offset.1.i107, 32768
@@ -2346,13 +2348,14 @@ if.end44.thread27.i125:                           ; preds = %if.then36.i123
 
 if.end44.i110:                                    ; preds = %sw.bb41
   %cmp45.not.not.i111 = icmp ugt i32 %16, %offset.1.i107
-  %spec.select134 = select i1 %cmp45.not.not.i111, i32 %offset.1.i107, i32 0
-  %spec.select135 = select i1 %cmp45.not.not.i111, i32 %limit.0.i109, i32 0
+  br i1 %cmp45.not.not.i111, label %cirrus_update_bank_ptr.exit128, label %if.else52.i112
+
+if.else52.i112:                                   ; preds = %if.end44.i110, %if.then36.i123
   br label %cirrus_update_bank_ptr.exit128
 
-cirrus_update_bank_ptr.exit128:                   ; preds = %if.end44.i110, %if.then36.i123, %if.end44.thread27.i125
-  %offset.231.i120.sink = phi i32 [ %add40.i126, %if.end44.thread27.i125 ], [ 0, %if.then36.i123 ], [ %spec.select134, %if.end44.i110 ]
-  %.sink.i115 = phi i32 [ %sub41.i127, %if.end44.thread27.i125 ], [ 0, %if.then36.i123 ], [ %spec.select135, %if.end44.i110 ]
+cirrus_update_bank_ptr.exit128:                   ; preds = %if.end44.thread27.i125, %if.end44.i110, %if.else52.i112
+  %offset.231.i120.sink = phi i32 [ 0, %if.else52.i112 ], [ %add40.i126, %if.end44.thread27.i125 ], [ %offset.1.i107, %if.end44.i110 ]
+  %.sink.i115 = phi i32 [ 0, %if.else52.i112 ], [ %sub41.i127, %if.end44.thread27.i125 ], [ %limit.0.i109, %if.end44.i110 ]
   %arrayidx49.i122 = getelementptr i8, ptr %s, i64 70592
   store i32 %offset.231.i120.sink, ptr %arrayidx49.i122, align 4
   %arrayidx58.i117 = getelementptr i8, ptr %s, i64 70600

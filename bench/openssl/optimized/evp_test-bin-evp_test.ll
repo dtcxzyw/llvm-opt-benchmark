@@ -5610,7 +5610,7 @@ if.end51:                                         ; preds = %if.end42
 if.end59:                                         ; preds = %if.end51
   %14 = load i32, ptr %encoding, align 8
   %cmp62.not = icmp eq i32 %14, 2
-  br i1 %cmp62.not, label %err73.sink.split, label %land.lhs.true
+  br i1 %cmp62.not, label %if.end71, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end59
   %15 = load i32, ptr %chunk_len, align 4
@@ -5642,14 +5642,16 @@ if.else.i41:                                      ; preds = %land.lhs.true.i38, 
 if.end.i43:                                       ; preds = %if.else.i41, %if.then.i48
   %r.0.i44 = phi i32 [ %lnot.ext.i51, %if.then.i48 ], [ %call4.i42, %if.else.i41 ]
   %tobool5.not.i45 = icmp eq i32 %r.0.i44, 0
-  %spec.select = select i1 %tobool5.not.i45, ptr @.str.261, ptr null
+  br i1 %tobool5.not.i45, label %err73.sink.split, label %if.end71
+
+if.end71:                                         ; preds = %if.end.i43, %if.end59
   br label %err73.sink.split
 
-err73.sink.split:                                 ; preds = %if.end.i43, %if.end59, %if.end51, %if.end42, %if.end.i, %entry
-  %.str.259.sink = phi ptr [ @.str.255, %entry ], [ @.str.259, %if.end.i ], [ @.str.252, %if.end42 ], [ @.str.252, %if.end51 ], [ null, %if.end59 ], [ %spec.select, %if.end.i43 ]
-  %encode_out.1.ph = phi ptr [ null, %entry ], [ %call12, %if.end.i ], [ %encode_out.0, %if.end42 ], [ %encode_out.0, %if.end51 ], [ %encode_out.0, %if.end59 ], [ %encode_out.0, %if.end.i43 ]
-  %decode_out.0.ph = phi ptr [ null, %entry ], [ null, %if.end.i ], [ %call38, %if.end42 ], [ %call38, %if.end51 ], [ %call38, %if.end59 ], [ %call38, %if.end.i43 ]
-  %encode_ctx.1.ph = phi ptr [ null, %entry ], [ %call3, %if.end.i ], [ %encode_ctx.0, %if.end42 ], [ %encode_ctx.0, %if.end51 ], [ %encode_ctx.0, %if.end59 ], [ %encode_ctx.0, %if.end.i43 ]
+err73.sink.split:                                 ; preds = %if.end.i43, %if.end51, %if.end42, %if.end.i, %entry, %if.end71
+  %.str.259.sink = phi ptr [ null, %if.end71 ], [ @.str.255, %entry ], [ @.str.259, %if.end.i ], [ @.str.252, %if.end42 ], [ @.str.252, %if.end51 ], [ @.str.261, %if.end.i43 ]
+  %encode_out.1.ph = phi ptr [ %encode_out.0, %if.end71 ], [ null, %entry ], [ %call12, %if.end.i ], [ %encode_out.0, %if.end42 ], [ %encode_out.0, %if.end51 ], [ %encode_out.0, %if.end.i43 ]
+  %decode_out.0.ph = phi ptr [ %call38, %if.end71 ], [ null, %entry ], [ null, %if.end.i ], [ %call38, %if.end42 ], [ %call38, %if.end51 ], [ %call38, %if.end.i43 ]
+  %encode_ctx.1.ph = phi ptr [ %encode_ctx.0, %if.end71 ], [ null, %entry ], [ %call3, %if.end.i ], [ %encode_ctx.0, %if.end42 ], [ %encode_ctx.0, %if.end51 ], [ %encode_ctx.0, %if.end.i43 ]
   %err7.i = getelementptr inbounds i8, ptr %t, i64 6568
   store ptr %.str.259.sink, ptr %err7.i, align 8
   br label %err73

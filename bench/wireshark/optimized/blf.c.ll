@@ -845,7 +845,7 @@ blf_read_log_object_header.exit:                  ; preds = %41
   %45 = add i64 %.1232525, 16
   %46 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef nonnull %0, i64 noundef %45, ptr noundef nonnull %7, i64 noundef 16, ptr noundef %2, ptr noundef %3), !range !6
   %.not246 = icmp eq i32 %46, 0
-  br i1 %.not246, label %blf_read_log_object_header2.exit.thread, label %47
+  br i1 %.not246, label %blf_read_log_object_header2.exit.thread.loopexit, label %47
 
 47:                                               ; preds = %blf_read_log_object_header.exit
   %48 = load i64, ptr %24, align 8
@@ -866,7 +866,7 @@ blf_read_log_object_header.exit:                  ; preds = %41
   %55 = add i64 %.1232525, 16
   %56 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef nonnull %0, i64 noundef %55, ptr noundef nonnull %8, i64 noundef 24, ptr noundef %2, ptr noundef %3), !range !6
   %.not.i = icmp eq i32 %56, 0
-  br i1 %.not.i, label %blf_read_log_object_header2.exit.thread, label %57
+  br i1 %.not.i, label %blf_read_log_object_header2.exit.thread.loopexit, label %57
 
 57:                                               ; preds = %54
   %58 = load i64, ptr %21, align 8
@@ -888,7 +888,7 @@ blf_read_log_object_header3.exit:                 ; preds = %59
   %63 = add i64 %.1232525, 16
   %64 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef nonnull %0, i64 noundef %63, ptr noundef nonnull %9, i64 noundef 16, ptr noundef %2, ptr noundef %3), !range !6
   %.not244 = icmp eq i32 %64, 0
-  br i1 %.not244, label %blf_read_log_object_header2.exit.thread, label %65
+  br i1 %.not244, label %blf_read_log_object_header2.exit.thread.loopexit, label %65
 
 65:                                               ; preds = %blf_read_log_object_header3.exit
   %66 = load i64, ptr %19, align 8
@@ -1407,11 +1407,11 @@ switch.lookup:                                    ; preds = %230
   %.not524 = icmp eq i32 %326, 0
   br i1 %.not524, label %._crit_edge, label %.lr.ph
 
-blf_read_log_object_header2.exit.thread.loopexit: ; preds = %309
+blf_read_log_object_header2.exit.thread.loopexit: ; preds = %blf_read_log_object_header.exit, %blf_read_log_object_header3.exit, %309, %54
   br label %blf_read_log_object_header2.exit.thread
 
-blf_read_log_object_header2.exit.thread:          ; preds = %54, %blf_read_log_object_header3.exit, %blf_read_log_object_header.exit, %309, %309, %309, %309, %blf_read_log_object_header2.exit.thread.loopexit, %52, %.thread271, %blf_read_log_object_header3.exit.thread, %blf_read_log_object_header.exit.thread, %._crit_edge, %32, %315, %310, %185, %180, %175, %170, %165, %160, %155, %150, %145, %140, %135, %130, %125, %120, %115, %110, %105, %100, %95, %90, %85, %83, %67
-  %.0 = phi i32 [ 0, %67 ], [ %319, %315 ], [ %314, %310 ], [ %189, %185 ], [ %184, %180 ], [ %179, %175 ], [ %174, %170 ], [ %169, %165 ], [ %164, %160 ], [ %159, %155 ], [ %154, %150 ], [ %149, %145 ], [ %144, %140 ], [ %139, %135 ], [ %134, %130 ], [ %129, %125 ], [ %124, %120 ], [ %119, %115 ], [ %114, %110 ], [ %109, %105 ], [ %104, %100 ], [ %99, %95 ], [ %94, %90 ], [ %89, %85 ], [ 0, %83 ], [ 0, %32 ], [ 0, %._crit_edge ], [ 0, %blf_read_log_object_header.exit.thread ], [ 0, %blf_read_log_object_header3.exit.thread ], [ 1, %.thread271 ], [ 0, %52 ], [ 1, %309 ], [ 1, %309 ], [ 1, %309 ], [ 1, %309 ], [ 0, %blf_read_log_object_header.exit ], [ 0, %blf_read_log_object_header3.exit ], [ 0, %54 ], [ 0, %blf_read_log_object_header2.exit.thread.loopexit ]
+blf_read_log_object_header2.exit.thread:          ; preds = %309, %309, %309, %309, %blf_read_log_object_header2.exit.thread.loopexit, %.thread271, %52, %blf_read_log_object_header3.exit.thread, %blf_read_log_object_header.exit.thread, %._crit_edge, %32, %315, %310, %185, %180, %175, %170, %165, %160, %155, %150, %145, %140, %135, %130, %125, %120, %115, %110, %105, %100, %95, %90, %85, %83, %67
+  %.0 = phi i32 [ 0, %67 ], [ %319, %315 ], [ %314, %310 ], [ %189, %185 ], [ %184, %180 ], [ %179, %175 ], [ %174, %170 ], [ %169, %165 ], [ %164, %160 ], [ %159, %155 ], [ %154, %150 ], [ %149, %145 ], [ %144, %140 ], [ %139, %135 ], [ %134, %130 ], [ %129, %125 ], [ %124, %120 ], [ %119, %115 ], [ %114, %110 ], [ %109, %105 ], [ %104, %100 ], [ %99, %95 ], [ %94, %90 ], [ %89, %85 ], [ 0, %83 ], [ 0, %32 ], [ 0, %._crit_edge ], [ 0, %blf_read_log_object_header.exit.thread ], [ 0, %blf_read_log_object_header3.exit.thread ], [ 0, %52 ], [ 1, %.thread271 ], [ 0, %blf_read_log_object_header2.exit.thread.loopexit ], [ 1, %309 ], [ 1, %309 ], [ 1, %309 ], [ 1, %309 ]
   ret i32 %.0
 }
 
@@ -3964,7 +3964,7 @@ define internal fastcc noundef i32 @blf_pull_next_logcontainer(ptr nocapture nou
   %70 = getelementptr inbounds i8, ptr %4, i64 12
   %71 = load i32, ptr %70, align 4
   %cond.i = icmp eq i32 %71, 10
-  br i1 %cond.i, label %72, label %blf_find_next_logcontainer.exit
+  br i1 %cond.i, label %72, label %112
 
 72:                                               ; preds = %69
   %.not56.i = icmp eq i16 %52, 16
@@ -3998,7 +3998,7 @@ define internal fastcc noundef i32 @blf_pull_next_logcontainer(ptr nocapture nou
   %87 = load i16, ptr %49, align 4
   %88 = zext i16 %87 to i64
   %89 = add nuw nsw i64 %88, 16
-  br label %blf_find_next_logcontainer.exit.thread14
+  br label %97
 
 90:                                               ; preds = %80
   %91 = load ptr, ptr %25, align 8
@@ -4007,76 +4007,73 @@ define internal fastcc noundef i32 @blf_pull_next_logcontainer(ptr nocapture nou
   %94 = load i16, ptr %49, align 4
   %95 = zext i16 %94 to i64
   %96 = sub i64 %93, %95
-  br label %blf_find_next_logcontainer.exit.thread14
+  br label %97
 
-blf_find_next_logcontainer.exit.thread14:         ; preds = %86, %90
+97:                                               ; preds = %90, %86
   %.sink66.i = phi i64 [ %92, %90 ], [ %89, %86 ]
   %.sink.i = phi i64 [ %96, %90 ], [ 0, %86 ]
-  %97 = getelementptr inbounds i8, ptr %6, i64 16
-  store i64 %.sink66.i, ptr %97, align 8
+  %98 = getelementptr inbounds i8, ptr %6, i64 16
+  store i64 %.sink66.i, ptr %98, align 8
   store i64 %.sink.i, ptr %6, align 8
-  %98 = load i32, ptr %64, align 4
-  %99 = zext i32 %98 to i64
-  %100 = getelementptr inbounds i8, ptr %6, i64 8
-  store i64 %99, ptr %100, align 8
-  %101 = getelementptr inbounds i8, ptr %6, i64 24
-  store i64 %.048.i, ptr %101, align 8
-  %102 = getelementptr inbounds i8, ptr %5, i64 8
-  %103 = load i32, ptr %102, align 4
-  %104 = zext i32 %103 to i64
-  %105 = getelementptr inbounds i8, ptr %6, i64 32
-  store i64 %104, ptr %105, align 8
-  %106 = load i16, ptr %5, align 4
-  store i16 %106, ptr %83, align 8
-  %107 = load ptr, ptr %7, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 24
-  %109 = load ptr, ptr %108, align 8
-  %110 = call ptr @g_array_append_vals(ptr noundef %109, ptr noundef nonnull %6, i32 noundef 1) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6)
-  br label %114
+  %99 = load i32, ptr %64, align 4
+  %100 = zext i32 %99 to i64
+  %101 = getelementptr inbounds i8, ptr %6, i64 8
+  store i64 %100, ptr %101, align 8
+  %102 = getelementptr inbounds i8, ptr %6, i64 24
+  store i64 %.048.i, ptr %102, align 8
+  %103 = getelementptr inbounds i8, ptr %5, i64 8
+  %104 = load i32, ptr %103, align 4
+  %105 = zext i32 %104 to i64
+  %106 = getelementptr inbounds i8, ptr %6, i64 32
+  store i64 %105, ptr %106, align 8
+  %107 = load i16, ptr %5, align 4
+  store i16 %107, ptr %83, align 8
+  %108 = load ptr, ptr %7, align 8
+  %109 = getelementptr inbounds i8, ptr %108, i64 24
+  %110 = load ptr, ptr %109, align 8
+  %111 = call ptr @g_array_append_vals(ptr noundef %110, ptr noundef nonnull %6, i32 noundef 1) #14
+  br label %116
+
+112:                                              ; preds = %69
+  %113 = load ptr, ptr %25, align 8
+  %114 = add i32 %65, -16
+  %115 = call i32 @wtap_read_bytes(ptr noundef %113, ptr noundef null, i32 noundef %114, ptr noundef %1, ptr noundef %2) #14
+  %.not55.i = icmp eq i32 %115, 0
+  br i1 %.not55.i, label %blf_find_next_logcontainer.exit.thread, label %116
 
 blf_find_next_logcontainer.exit.thread.sink.split: ; preds = %67, %60, %55
   %.sink = phi ptr [ %56, %55 ], [ %62, %60 ], [ %68, %67 ]
   store ptr %.sink, ptr %2, align 8
   br label %blf_find_next_logcontainer.exit.thread
 
-blf_find_next_logcontainer.exit.thread:           ; preds = %26, %blf_find_next_logcontainer.exit.thread.sink.split, %47, %73, %77
+blf_find_next_logcontainer.exit.thread:           ; preds = %26, %blf_find_next_logcontainer.exit.thread.sink.split, %47, %73, %77, %112
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6)
-  br label %127
+  br label %129
 
-blf_find_next_logcontainer.exit:                  ; preds = %69
-  %111 = load ptr, ptr %25, align 8
-  %112 = add i32 %65, -16
-  %113 = call i32 @wtap_read_bytes(ptr noundef %111, ptr noundef null, i32 noundef %112, ptr noundef %1, ptr noundef %2) #14
-  %.not55.i.not = icmp eq i32 %113, 0
+116:                                              ; preds = %112, %97
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6)
-  br i1 %.not55.i.not, label %127, label %114
+  %117 = load ptr, ptr %7, align 8
+  %118 = getelementptr inbounds i8, ptr %117, i64 24
+  %119 = load ptr, ptr %118, align 8
+  %120 = getelementptr inbounds i8, ptr %119, i64 8
+  %121 = load i32, ptr %120, align 8
+  %122 = icmp eq i32 %121, 0
+  br i1 %122, label %129, label %123
 
-114:                                              ; preds = %blf_find_next_logcontainer.exit.thread14, %blf_find_next_logcontainer.exit
-  %115 = load ptr, ptr %7, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 24
-  %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds i8, ptr %117, i64 8
-  %119 = load i32, ptr %118, align 8
-  %120 = icmp eq i32 %119, 0
-  br i1 %120, label %127, label %121
+123:                                              ; preds = %116
+  %124 = load ptr, ptr %119, align 8
+  %125 = add i32 %121, -1
+  %126 = zext i32 %125 to i64
+  %127 = getelementptr %struct.blf_log_container, ptr %124, i64 %126
+  %128 = call fastcc i32 @blf_pull_logcontainer_into_memory(ptr noundef nonnull %0, ptr noundef %127, ptr noundef %1, ptr noundef %2), !range !6
+  br label %129
 
-121:                                              ; preds = %114
-  %122 = load ptr, ptr %117, align 8
-  %123 = add i32 %119, -1
-  %124 = zext i32 %123 to i64
-  %125 = getelementptr %struct.blf_log_container, ptr %122, i64 %124
-  %126 = call fastcc i32 @blf_pull_logcontainer_into_memory(ptr noundef nonnull %0, ptr noundef %125, ptr noundef %1, ptr noundef %2), !range !6
-  br label %127
-
-127:                                              ; preds = %blf_find_next_logcontainer.exit.thread, %121, %114, %blf_find_next_logcontainer.exit
-  %.0 = phi i32 [ 0, %blf_find_next_logcontainer.exit ], [ 0, %114 ], [ %126, %121 ], [ 0, %blf_find_next_logcontainer.exit.thread ]
+129:                                              ; preds = %blf_find_next_logcontainer.exit.thread, %123, %116
+  %.0 = phi i32 [ 0, %116 ], [ %128, %123 ], [ 0, %blf_find_next_logcontainer.exit.thread ]
   ret i32 %.0
 }
 
@@ -4771,7 +4768,7 @@ blf_read_bytes.exit.thread:                       ; preds = %42, %45, %blf_read_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @blf_prepare_interface_name(ptr nocapture noundef readonly %0, i32 noundef %1, i16 noundef zeroext %2, i16 noundef zeroext %3, ptr noundef %4, i32 noundef %5) unnamed_addr #1 {
+define internal fastcc noundef i32 @blf_prepare_interface_name(ptr nocapture noundef readonly %0, i32 noundef %1, i16 noundef zeroext %2, i16 noundef zeroext %3, ptr noundef %4, i32 noundef %5) unnamed_addr #1 {
   %7 = alloca i64, align 8
   %8 = sext i32 %1 to i64
   %9 = shl nsw i64 %8, 32
@@ -4786,7 +4783,7 @@ define internal fastcc i32 @blf_prepare_interface_name(ptr nocapture noundef rea
   %17 = getelementptr inbounds i8, ptr %16, i64 40
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %48, label %20
+  br i1 %19, label %51, label %20
 
 20:                                               ; preds = %6
   %21 = call ptr @g_hash_table_lookup(ptr noundef nonnull %18, ptr noundef nonnull %7) #14
@@ -4801,7 +4798,7 @@ define internal fastcc i32 @blf_prepare_interface_name(ptr nocapture noundef rea
   %27 = load ptr, ptr %26, align 8
   %28 = call i32 @g_hash_table_remove(ptr noundef %27, ptr noundef nonnull %7) #14
   %.not = icmp eq i32 %28, 0
-  br i1 %.not, label %48, label %29
+  br i1 %.not, label %51, label %29
 
 29:                                               ; preds = %24, %20
   %.030 = phi ptr [ %21, %20 ], [ null, %24 ]
@@ -4820,12 +4817,12 @@ define internal fastcc i32 @blf_prepare_interface_name(ptr nocapture noundef rea
   %38 = load ptr, ptr %37, align 8
   %39 = call i32 @g_hash_table_insert(ptr noundef %38, ptr noundef nonnull %33, ptr noundef %35) #14
   %.not35 = icmp eq i32 %39, 0
-  br i1 %.not35, label %48, label %40
+  br i1 %.not35, label %51, label %40
 
 40:                                               ; preds = %29, %32
   %.031 = phi ptr [ %35, %32 ], [ %.030, %29 ]
   %41 = icmp eq i32 %1, 1
-  br i1 %41, label %42, label %48
+  br i1 %41, label %42, label %50
 
 42:                                               ; preds = %40
   %.not36 = icmp eq ptr %.031, null
@@ -4845,8 +4842,16 @@ define internal fastcc i32 @blf_prepare_interface_name(ptr nocapture noundef rea
   call void @g_free(ptr noundef nonnull %45) #14
   br label %48
 
-48:                                               ; preds = %44, %47, %.thread, %40, %32, %24, %6
-  %.0 = phi i32 [ 0, %6 ], [ 0, %24 ], [ 0, %32 ], [ 1, %40 ], [ %43, %.thread ], [ %46, %47 ], [ %46, %44 ]
+48:                                               ; preds = %.thread, %47, %44
+  %49 = phi i32 [ %43, %.thread ], [ %46, %47 ], [ %46, %44 ]
+  %.not38 = icmp eq i32 %49, 0
+  br i1 %.not38, label %51, label %50
+
+50:                                               ; preds = %48, %40
+  br label %51
+
+51:                                               ; preds = %48, %32, %24, %6, %50
+  %.0 = phi i32 [ 1, %50 ], [ 0, %6 ], [ 0, %24 ], [ 0, %32 ], [ 0, %48 ]
   ret i32 %.0
 }
 

@@ -440,7 +440,7 @@ define dso_local zeroext i16 @nf_nat_exp_find_port(ptr noundef %0, i16 noundef z
   br label %.thread1
 
 .thread1:                                         ; preds = %12, %7, %.thread1.loopexit
-  %19 = phi i16 [ 0, %7 ], [ 0, %12 ], [ %8, %.thread1.loopexit ]
+  %19 = phi i16 [ %8, %.thread1.loopexit ], [ 0, %7 ], [ 0, %12 ]
   ret i16 %19
 }
 

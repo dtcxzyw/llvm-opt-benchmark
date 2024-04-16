@@ -162,17 +162,19 @@ do.end51:                                         ; preds = %do.cond48
 
 if.then54:                                        ; preds = %do.end51
   %cmp55 = icmp eq i32 %ret.3, %hash_len
-  br i1 %cmp55, label %land.lhs.true57, label %return
+  br i1 %cmp55, label %land.lhs.true57, label %if.else
 
 land.lhs.true57:                                  ; preds = %if.then54
   %conv58 = zext nneg i32 %hash_len to i64
   %bcmp = call i32 @bcmp(ptr nonnull %4, ptr %hash_data, i64 %conv58)
   %cmp60 = icmp eq i32 %bcmp, 0
-  %spec.select38 = select i1 %cmp60, i32 0, i32 -229
+  br i1 %cmp60, label %return, label %if.else
+
+if.else:                                          ; preds = %land.lhs.true57, %if.then54
   br label %return
 
-return:                                           ; preds = %land.lhs.true57, %do.end25, %sw.bb31, %if.then54, %do.end51, %if.end18, %if.end12, %wc_SignatureGetSize.exit, %entry
-  %retval.0 = phi i32 [ -173, %entry ], [ -173, %wc_SignatureGetSize.exit ], [ %call13, %if.end12 ], [ %spec.store.select, %do.end25 ], [ %ret.3, %do.end51 ], [ -229, %if.then54 ], [ -125, %sw.bb31 ], [ -173, %if.end18 ], [ %spec.select38, %land.lhs.true57 ]
+return:                                           ; preds = %do.end25, %sw.bb31, %land.lhs.true57, %do.end51, %if.else, %if.end18, %if.end12, %wc_SignatureGetSize.exit, %entry
+  %retval.0 = phi i32 [ -173, %entry ], [ -173, %wc_SignatureGetSize.exit ], [ %call13, %if.end12 ], [ %spec.store.select, %do.end25 ], [ -229, %if.else ], [ %ret.3, %do.end51 ], [ 0, %land.lhs.true57 ], [ -125, %sw.bb31 ], [ -173, %if.end18 ]
   ret i32 %retval.0
 }
 

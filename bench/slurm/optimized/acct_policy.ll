@@ -6981,7 +6981,7 @@ define dso_local noundef i32 @acct_policy_handle_accrue_time(ptr noundef %0, i1 
 
 9:                                                ; preds = %2
   %10 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.27, ptr noundef nonnull @__func__.acct_policy_handle_accrue_time) #12
-  br label %110
+  br label %111
 
 11:                                               ; preds = %2
   %12 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 124), align 2
@@ -6993,13 +6993,13 @@ define dso_local noundef i32 @acct_policy_handle_accrue_time(ptr noundef %0, i1 
   %15 = getelementptr inbounds i8, ptr %8, i64 16
   %16 = load i64, ptr %15, align 8
   %.not76 = icmp eq i64 %16, 0
-  br i1 %.not76, label %17, label %110
+  br i1 %.not76, label %17, label %111
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds i8, ptr %8, i64 448
   %19 = load i64, ptr %18, align 8
   store i64 %19, ptr %15, align 8
-  br label %110
+  br label %111
 
 20:                                               ; preds = %11
   %21 = load i16, ptr @accounting_enforce, align 2
@@ -7011,26 +7011,26 @@ define dso_local noundef i32 @acct_policy_handle_accrue_time(ptr noundef %0, i1 
   %24 = getelementptr inbounds i8, ptr %8, i64 16
   %25 = load i64, ptr %24, align 8
   %.not63 = icmp eq i64 %25, 0
-  br i1 %.not63, label %26, label %110
+  br i1 %.not63, label %26, label %111
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds i8, ptr %8, i64 48
   %28 = load i64, ptr %27, align 8
   store i64 %28, ptr %24, align 8
-  br label %110
+  br label %111
 
 29:                                               ; preds = %20
   %30 = getelementptr inbounds i8, ptr %0, i64 712
   %31 = load i32, ptr %30, align 8
   %.not64 = icmp eq i32 %31, 0
-  br i1 %.not64, label %110, label %32
+  br i1 %.not64, label %111, label %32
 
 32:                                               ; preds = %29
   %33 = getelementptr inbounds i8, ptr %0, i64 112
   %34 = load i64, ptr %33, align 8
   %35 = and i64 %34, 536870912
   %.not65 = icmp eq i64 %35, 0
-  br i1 %.not65, label %36, label %110
+  br i1 %.not65, label %36, label %111
 
 36:                                               ; preds = %32
   %37 = getelementptr inbounds i8, ptr %8, i64 48
@@ -7038,7 +7038,7 @@ define dso_local noundef i32 @acct_policy_handle_accrue_time(ptr noundef %0, i1 
   %.not66 = icmp ne i64 %38, 0
   %39 = icmp sgt i64 %38, %6
   %or.cond = select i1 %.not66, i1 %39, i1 false
-  br i1 %or.cond, label %110, label %40
+  br i1 %or.cond, label %111, label %40
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds i8, ptr %8, i64 16
@@ -7051,7 +7051,7 @@ define dso_local noundef i32 @acct_policy_handle_accrue_time(ptr noundef %0, i1 
   %45 = load i32, ptr %44, align 8
   %46 = and i32 %45, 255
   %47 = icmp eq i32 %46, 0
-  br i1 %47, label %48, label %110
+  br i1 %47, label %48, label %111
 
 48:                                               ; preds = %43, %40
   br i1 %1, label %50, label %49
@@ -7069,11 +7069,11 @@ define dso_local noundef i32 @acct_policy_handle_accrue_time(ptr noundef %0, i1 
 53:                                               ; preds = %50
   %54 = call i32 @get_log_level() #12
   %55 = icmp sgt i32 %54, 4
-  br i1 %55, label %56, label %108
+  br i1 %55, label %56, label %109
 
 56:                                               ; preds = %53
   call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.28, ptr noundef nonnull @__func__.acct_policy_handle_accrue_time, ptr noundef nonnull %0) #12
-  br label %108
+  br label %109
 
 57:                                               ; preds = %50
   %58 = getelementptr inbounds i8, ptr %0, i64 760
@@ -7100,20 +7100,20 @@ define dso_local noundef i32 @acct_policy_handle_accrue_time(ptr noundef %0, i1 
   %.052 = phi ptr [ %71, %60 ], [ null, %57 ]
   %73 = load i64, ptr %41, align 8
   %.not70 = icmp eq i64 %73, 0
-  br i1 %.not70, label %100, label %74
+  br i1 %.not70, label %101, label %74
 
 74:                                               ; preds = %72
   %75 = load i64, ptr %33, align 8
   %76 = and i64 %75, 262144
   %.not71 = icmp eq i64 %76, 0
-  br i1 %.not71, label %77, label %90
+  br i1 %.not71, label %77, label %91
 
 77:                                               ; preds = %74
   %78 = getelementptr inbounds i8, ptr %0, i64 448
   %79 = load i32, ptr %78, align 8
   %80 = and i32 %79, 255
   %81 = icmp eq i32 %80, 0
-  br i1 %81, label %90, label %82
+  br i1 %81, label %91, label %82
 
 82:                                               ; preds = %77
   %83 = getelementptr inbounds i8, ptr %0, i64 56
@@ -7123,59 +7123,62 @@ define dso_local noundef i32 @acct_policy_handle_accrue_time(ptr noundef %0, i1 
 
 85:                                               ; preds = %82
   %86 = load i32, ptr %84, align 8
-  %spec.select = call i32 @llvm.umax.i32(i32 %86, i32 1)
-  br label %87
+  %.not73 = icmp eq i32 %86, 0
+  br i1 %.not73, label %87, label %88
 
 87:                                               ; preds = %85, %82
-  %.0 = phi i32 [ 1, %82 ], [ %spec.select, %85 ]
-  %88 = or disjoint i64 %75, 262144
-  store i64 %88, ptr %33, align 8
-  %89 = load ptr, ptr %51, align 8
-  call fastcc void @_remove_accrue_time_internal(ptr noundef %89, ptr noundef %59, ptr noundef %.053, ptr noundef %.052, i32 noundef %.0)
-  br label %90
+  br label %88
 
-90:                                               ; preds = %87, %77, %74
-  %91 = getelementptr inbounds i8, ptr %0, i64 448
-  %92 = load i32, ptr %91, align 8
-  %93 = and i32 %92, 255
-  %94 = icmp eq i32 %93, 0
-  br i1 %94, label %95, label %108
+88:                                               ; preds = %85, %87
+  %.0 = phi i32 [ 1, %87 ], [ %86, %85 ]
+  %89 = or disjoint i64 %75, 262144
+  store i64 %89, ptr %33, align 8
+  %90 = load ptr, ptr %51, align 8
+  call fastcc void @_remove_accrue_time_internal(ptr noundef %90, ptr noundef %59, ptr noundef %.053, ptr noundef %.052, i32 noundef %.0)
+  br label %91
 
-95:                                               ; preds = %90
-  %96 = getelementptr inbounds i8, ptr %0, i64 56
-  %97 = load ptr, ptr %96, align 8
-  %.not74 = icmp eq ptr %97, null
-  br i1 %.not74, label %108, label %98
+91:                                               ; preds = %88, %77, %74
+  %92 = getelementptr inbounds i8, ptr %0, i64 448
+  %93 = load i32, ptr %92, align 8
+  %94 = and i32 %93, 255
+  %95 = icmp eq i32 %94, 0
+  br i1 %95, label %96, label %109
 
-98:                                               ; preds = %95
-  %99 = load i32, ptr %97, align 8
-  %.not75 = icmp eq i32 %99, 0
-  br i1 %.not75, label %108, label %105
+96:                                               ; preds = %91
+  %97 = getelementptr inbounds i8, ptr %0, i64 56
+  %98 = load ptr, ptr %97, align 8
+  %.not74 = icmp eq ptr %98, null
+  br i1 %.not74, label %109, label %99
 
-100:                                              ; preds = %72
-  %101 = getelementptr inbounds i8, ptr %0, i64 448
-  %102 = load i32, ptr %101, align 8
-  %103 = and i32 %102, 255
-  %104 = icmp eq i32 %103, 0
-  br i1 %104, label %105, label %108
+99:                                               ; preds = %96
+  %100 = load i32, ptr %98, align 8
+  %.not75 = icmp eq i32 %100, 0
+  br i1 %.not75, label %109, label %106
 
-105:                                              ; preds = %100, %98
+101:                                              ; preds = %72
+  %102 = getelementptr inbounds i8, ptr %0, i64 448
+  %103 = load i32, ptr %102, align 8
+  %104 = and i32 %103, 255
+  %105 = icmp eq i32 %104, 0
+  br i1 %105, label %106, label %109
+
+106:                                              ; preds = %101, %99
   call fastcc void @_get_accrue_limits(ptr noundef nonnull %0, ptr noundef %.053, ptr noundef %.052, ptr noundef nonnull %3, ptr noundef nonnull %4)
-  %106 = load i32, ptr %3, align 4
-  %107 = load i32, ptr %4, align 4
-  call fastcc void @_handle_add_accrue(ptr noundef nonnull %0, ptr noundef %.053, ptr noundef %.052, i32 noundef %106, i32 noundef %107, i64 noundef %6)
-  br label %108
+  %107 = load i32, ptr %3, align 4
+  %108 = load i32, ptr %4, align 4
+  call fastcc void @_handle_add_accrue(ptr noundef nonnull %0, ptr noundef %.053, ptr noundef %.052, i32 noundef %107, i32 noundef %108, i64 noundef %6)
+  br label %109
 
-108:                                              ; preds = %53, %56, %100, %90, %95, %98, %105
-  %.051 = phi i32 [ 0, %105 ], [ 0, %98 ], [ 0, %95 ], [ 0, %90 ], [ 0, %100 ], [ -1, %56 ], [ -1, %53 ]
-  br i1 %1, label %110, label %109
+109:                                              ; preds = %53, %56, %101, %91, %96, %99, %106
+  %.051 = phi i32 [ 0, %106 ], [ 0, %99 ], [ 0, %96 ], [ 0, %91 ], [ 0, %101 ], [ -1, %56 ], [ -1, %53 ]
+  br i1 %1, label %111, label %110
 
-109:                                              ; preds = %108
+110:                                              ; preds = %109
   call void @assoc_mgr_unlock(ptr noundef nonnull %5) #12
-  br label %110
+  br label %111
 
-110:                                              ; preds = %108, %109, %43, %29, %32, %36, %23, %26, %14, %17, %9
-  %.050 = phi i32 [ -1, %9 ], [ 0, %17 ], [ 0, %14 ], [ 0, %26 ], [ 0, %23 ], [ 0, %36 ], [ 0, %32 ], [ 0, %29 ], [ 0, %43 ], [ %.051, %109 ], [ %.051, %108 ]
+111:                                              ; preds = %109, %110, %43, %29, %32, %36, %23, %26, %14, %17, %9
+  %.050 = phi i32 [ -1, %9 ], [ 0, %17 ], [ 0, %14 ], [ 0, %26 ], [ 0, %23 ], [ 0, %36 ], [ 0, %32 ], [ 0, %29 ], [ 0, %43 ], [ %.051, %110 ], [ %.051, %109 ]
   ret i32 %.050
 }
 
@@ -7575,19 +7578,19 @@ define internal fastcc void @_handle_add_accrue(ptr noundef %0, ptr noundef %1, 
 14:                                               ; preds = %11
   %15 = load i32, ptr %13, align 8
   %.not52 = icmp eq i32 %15, 0
-  br i1 %.not52, label %16, label %42
+  br i1 %.not52, label %16, label %43
 
 16:                                               ; preds = %14, %11, %6
   %17 = getelementptr inbounds i8, ptr %8, i64 16
   %18 = load i64, ptr %17, align 8
   %.not56 = icmp eq i64 %18, 0
-  br i1 %.not56, label %19, label %62
+  br i1 %.not56, label %19, label %63
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds i8, ptr %8, i64 48
   %21 = load i64, ptr %20, align 8
   %.not57 = icmp eq i64 %21, 0
-  br i1 %.not57, label %62, label %22
+  br i1 %.not57, label %63, label %22
 
 22:                                               ; preds = %19
   br i1 %9, label %25, label %23
@@ -7606,84 +7609,87 @@ define internal fastcc void @_handle_add_accrue(ptr noundef %0, ptr noundef %1, 
 
 29:                                               ; preds = %25
   %30 = load i32, ptr %28, align 8
-  %spec.select = tail call i32 @llvm.umax.i32(i32 %30, i32 1)
-  br label %31
+  %.not60 = icmp eq i32 %30, 0
+  br i1 %.not60, label %31, label %32
 
 31:                                               ; preds = %29, %25
-  %.042 = phi i32 [ 1, %25 ], [ %spec.select, %29 ]
-  %32 = getelementptr inbounds i8, ptr %0, i64 72
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 760
-  %35 = load ptr, ptr %34, align 8
-  tail call fastcc void @_add_accrue_time_internal(ptr noundef %33, ptr noundef %35, ptr noundef %1, ptr noundef %2, i32 noundef %.042)
-  br label %62
+  br label %32
+
+32:                                               ; preds = %29, %31
+  %.042 = phi i32 [ 1, %31 ], [ %30, %29 ]
+  %33 = getelementptr inbounds i8, ptr %0, i64 72
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds i8, ptr %0, i64 760
+  %36 = load ptr, ptr %35, align 8
+  tail call fastcc void @_add_accrue_time_internal(ptr noundef %34, ptr noundef %36, ptr noundef %1, ptr noundef %2, i32 noundef %.042)
+  br label %63
 
 .critedge:                                        ; preds = %10
-  %36 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
-  %37 = and i64 %36, 1125899906842624
-  %.not53 = icmp eq i64 %37, 0
-  br i1 %.not53, label %62, label %38
+  %37 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %38 = and i64 %37, 1125899906842624
+  %.not53 = icmp eq i64 %38, 0
+  br i1 %.not53, label %63, label %39
 
-38:                                               ; preds = %.critedge
-  %39 = tail call i32 @get_log_level() #12
-  %40 = icmp sgt i32 %39, 3
-  br i1 %40, label %41, label %62
+39:                                               ; preds = %.critedge
+  %40 = tail call i32 @get_log_level() #12
+  %41 = icmp sgt i32 %40, 3
+  br i1 %41, label %42, label %63
 
-41:                                               ; preds = %38
+42:                                               ; preds = %39
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.114, ptr noundef nonnull @__func__._handle_add_accrue, ptr noundef nonnull %0) #12
-  br label %62
+  br label %63
 
-42:                                               ; preds = %14
+43:                                               ; preds = %14
   %. = tail call i32 @llvm.umin.i32(i32 %15, i32 %4)
-  %43 = icmp sgt i32 %., 0
-  br i1 %43, label %.lr.ph, label %._crit_edge
+  %44 = icmp sgt i32 %., 0
+  br i1 %44, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %42, %56
-  %.063 = phi i32 [ %57, %56 ], [ 0, %42 ]
-  %.04162 = phi ptr [ %44, %56 ], [ %0, %42 ]
+.lr.ph:                                           ; preds = %43, %57
+  %.063 = phi i32 [ %58, %57 ], [ 0, %43 ]
+  %.04162 = phi ptr [ %45, %57 ], [ %0, %43 ]
   tail call void @job_array_pre_sched(ptr noundef %.04162) #12
-  %44 = tail call ptr @job_array_post_sched(ptr noundef %.04162) #12
-  %45 = getelementptr inbounds i8, ptr %.04162, i64 216
-  %46 = load ptr, ptr %45, align 8
-  %.not54 = icmp eq ptr %46, null
-  br i1 %.not54, label %47, label %48
+  %45 = tail call ptr @job_array_post_sched(ptr noundef %.04162) #12
+  %46 = getelementptr inbounds i8, ptr %.04162, i64 216
+  %47 = load ptr, ptr %46, align 8
+  %.not54 = icmp eq ptr %47, null
+  br i1 %.not54, label %48, label %49
 
-47:                                               ; preds = %.lr.ph
+48:                                               ; preds = %.lr.ph
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.115, ptr noundef nonnull @__func__._handle_add_accrue) #13
   unreachable
 
-48:                                               ; preds = %.lr.ph
-  %49 = getelementptr inbounds i8, ptr %46, i64 16
-  store i64 %5, ptr %49, align 8
-  %50 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
-  %51 = and i64 %50, 1125899906842624
-  %.not55 = icmp eq i64 %51, 0
-  br i1 %.not55, label %56, label %52
+49:                                               ; preds = %.lr.ph
+  %50 = getelementptr inbounds i8, ptr %47, i64 16
+  store i64 %5, ptr %50, align 8
+  %51 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %52 = and i64 %51, 1125899906842624
+  %.not55 = icmp eq i64 %52, 0
+  br i1 %.not55, label %57, label %53
 
-52:                                               ; preds = %48
-  %53 = tail call i32 @get_log_level() #12
-  %54 = icmp sgt i32 %53, 3
-  br i1 %54, label %55, label %56
+53:                                               ; preds = %49
+  %54 = tail call i32 @get_log_level() #12
+  %55 = icmp sgt i32 %54, 3
+  br i1 %55, label %56, label %57
 
-55:                                               ; preds = %52
+56:                                               ; preds = %53
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.116, ptr noundef nonnull %.04162, i64 noundef %5) #12
-  br label %56
+  br label %57
 
-56:                                               ; preds = %55, %52, %48
-  %57 = add nuw nsw i32 %.063, 1
-  %exitcond.not = icmp eq i32 %57, %.
+57:                                               ; preds = %56, %53, %49
+  %58 = add nuw nsw i32 %.063, 1
+  %exitcond.not = icmp eq i32 %58, %.
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
 
-._crit_edge:                                      ; preds = %56, %42
-  %.041.lcssa = phi ptr [ %0, %42 ], [ %44, %56 ]
-  %58 = getelementptr inbounds i8, ptr %.041.lcssa, i64 72
-  %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %.041.lcssa, i64 760
-  %61 = load ptr, ptr %60, align 8
-  tail call fastcc void @_add_accrue_time_internal(ptr noundef %59, ptr noundef %61, ptr noundef %1, ptr noundef %2, i32 noundef %.)
-  br label %62
+._crit_edge:                                      ; preds = %57, %43
+  %.041.lcssa = phi ptr [ %0, %43 ], [ %45, %57 ]
+  %59 = getelementptr inbounds i8, ptr %.041.lcssa, i64 72
+  %60 = load ptr, ptr %59, align 8
+  %61 = getelementptr inbounds i8, ptr %.041.lcssa, i64 760
+  %62 = load ptr, ptr %61, align 8
+  tail call fastcc void @_add_accrue_time_internal(ptr noundef %60, ptr noundef %62, ptr noundef %1, ptr noundef %2, i32 noundef %.)
+  br label %63
 
-62:                                               ; preds = %41, %38, %.critedge, %16, %19, %31, %._crit_edge
+63:                                               ; preds = %42, %39, %.critedge, %16, %19, %32, %._crit_edge
   ret void
 }
 
@@ -7819,32 +7825,32 @@ define dso_local void @acct_policy_remove_accrue_time(ptr noundef %0, i1 noundef
   %4 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 124), align 2
   %5 = and i16 %4, 1
   %.not = icmp eq i16 %5, 0
-  br i1 %.not, label %6, label %57
+  br i1 %.not, label %6, label %58
 
 6:                                                ; preds = %2
   %7 = load i16, ptr @accounting_enforce, align 2
   %8 = and i16 %7, 2
   %.not30 = icmp eq i16 %8, 0
-  br i1 %.not30, label %57, label %9
+  br i1 %.not30, label %58, label %9
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds i8, ptr %0, i64 216
   %11 = load ptr, ptr %10, align 8
   %.not31 = icmp eq ptr %11, null
-  br i1 %.not31, label %57, label %12
+  br i1 %.not31, label %58, label %12
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds i8, ptr %11, i64 16
   %14 = load i64, ptr %13, align 8
   %.not32 = icmp eq i64 %14, 0
-  br i1 %.not32, label %57, label %15
+  br i1 %.not32, label %58, label %15
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds i8, ptr %0, i64 448
   %17 = load i32, ptr %16, align 8
   %18 = and i32 %17, 255
   %19 = icmp eq i32 %18, 0
-  br i1 %19, label %20, label %57
+  br i1 %19, label %20, label %58
 
 20:                                               ; preds = %15
   br i1 %1, label %22, label %21
@@ -7862,11 +7868,11 @@ define dso_local void @acct_policy_remove_accrue_time(ptr noundef %0, i1 noundef
 25:                                               ; preds = %22
   %26 = call i32 @get_log_level() #12
   %27 = icmp sgt i32 %26, 4
-  br i1 %27, label %28, label %55
+  br i1 %27, label %28, label %56
 
 28:                                               ; preds = %25
   call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.28, ptr noundef nonnull @__func__.acct_policy_remove_accrue_time, ptr noundef nonnull %0) #12
-  br label %55
+  br label %56
 
 29:                                               ; preds = %22
   %30 = getelementptr inbounds i8, ptr %0, i64 760
@@ -7898,29 +7904,32 @@ define dso_local void @acct_policy_remove_accrue_time(ptr noundef %0, i1 noundef
 
 47:                                               ; preds = %44
   %48 = load i32, ptr %46, align 8
-  %spec.select = call i32 @llvm.umax.i32(i32 %48, i32 1)
-  br label %49
+  %.not36 = icmp eq i32 %48, 0
+  br i1 %.not36, label %49, label %50
 
 49:                                               ; preds = %47, %44
-  %.0 = phi i32 [ 1, %44 ], [ %spec.select, %47 ]
+  br label %50
+
+50:                                               ; preds = %47, %49
+  %.0 = phi i32 [ 1, %49 ], [ %48, %47 ]
   call fastcc void @_remove_accrue_time_internal(ptr noundef nonnull %24, ptr noundef %31, ptr noundef %.024, ptr noundef %.023, i32 noundef %.0)
-  %50 = load ptr, ptr %10, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 16
-  store i64 0, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 112
-  %53 = load i64, ptr %52, align 8
-  %54 = and i64 %53, -262145
-  store i64 %54, ptr %52, align 8
-  br label %55
+  %51 = load ptr, ptr %10, align 8
+  %52 = getelementptr inbounds i8, ptr %51, i64 16
+  store i64 0, ptr %52, align 8
+  %53 = getelementptr inbounds i8, ptr %0, i64 112
+  %54 = load i64, ptr %53, align 8
+  %55 = and i64 %54, -262145
+  store i64 %55, ptr %53, align 8
+  br label %56
 
-55:                                               ; preds = %25, %28, %49
-  br i1 %1, label %57, label %56
+56:                                               ; preds = %25, %28, %50
+  br i1 %1, label %58, label %57
 
-56:                                               ; preds = %55
+57:                                               ; preds = %56
   call void @assoc_mgr_unlock(ptr noundef nonnull %3) #12
-  br label %57
+  br label %58
 
-57:                                               ; preds = %15, %9, %12, %6, %2, %56, %55
+58:                                               ; preds = %15, %9, %12, %6, %2, %57, %56
   ret void
 }
 

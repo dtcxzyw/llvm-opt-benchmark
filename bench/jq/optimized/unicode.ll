@@ -2101,13 +2101,13 @@ declare i32 @onigenc_unicode_fold1_key(ptr noundef) local_unnamed_addr #1
 declare i32 @onigenc_unicode_fold2_key(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @onigenc_wb_is_break_position(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define noundef i32 @onigenc_wb_is_break_position(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = icmp eq ptr %1, %3
   %9 = icmp eq ptr %1, %4
   %or.cond278 = or i1 %8, %9
-  br i1 %or.cond278, label %.thread314, label %10
+  br i1 %or.cond278, label %._crit_edge354.thread, label %10
 
 10:                                               ; preds = %5
   %11 = icmp eq ptr %2, null
@@ -2116,7 +2116,7 @@ define i32 @onigenc_wb_is_break_position(ptr noundef %0, ptr noundef %1, ptr nou
 12:                                               ; preds = %10
   %13 = tail call ptr @onigenc_get_prev_char_head(ptr noundef %0, ptr noundef %3, ptr noundef %1) #10
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %.thread314, label %15
+  br i1 %14, label %._crit_edge354.thread, label %15
 
 15:                                               ; preds = %12, %10
   %.0249 = phi ptr [ %13, %12 ], [ %2, %10 ]
@@ -2198,26 +2198,26 @@ wb_get_type.exit284:                              ; preds = %49, %51, %55
   %59 = icmp eq i32 %39, 0
   %60 = icmp eq i32 %58, 0
   %or.cond = select i1 %59, i1 %60, i1 false
-  br i1 %or.cond, label %.thread314, label %61
+  br i1 %or.cond, label %.thread295, label %61
 
 61:                                               ; preds = %wb_get_type.exit284
   %62 = icmp eq i32 %39, 2
   %63 = icmp eq i32 %58, 9
   %or.cond3 = select i1 %62, i1 %63, i1 false
-  br i1 %or.cond3, label %.thread314, label %64
+  br i1 %or.cond3, label %._crit_edge354.thread, label %64
 
 64:                                               ; preds = %61
   switch i32 %39, label %65 [
-    i32 13, label %.thread314
-    i32 9, label %.thread314
-    i32 2, label %.thread314
+    i32 13, label %._crit_edge354.thread
+    i32 9, label %._crit_edge354.thread
+    i32 2, label %._crit_edge354.thread
   ]
 
 65:                                               ; preds = %64
   switch i32 %58, label %66 [
-    i32 13, label %.thread314
-    i32 9, label %.thread314
-    i32 2, label %.thread314
+    i32 13, label %._crit_edge354.thread
+    i32 9, label %._crit_edge354.thread
+    i32 2, label %._crit_edge354.thread
   ]
 
 66:                                               ; preds = %65
@@ -2227,55 +2227,55 @@ wb_get_type.exit284:                              ; preds = %49, %51, %55
 68:                                               ; preds = %66
   %69 = tail call i32 @onig_is_in_code_range(ptr noundef nonnull @CR_Extended_Pictographic, i32 noundef %20) #10
   %.not = icmp eq i32 %69, 0
-  br i1 %.not, label %.thread, label %.thread314
+  br i1 %.not, label %.thread, label %._crit_edge354.thread
 
 70:                                               ; preds = %66
   %71 = icmp eq i32 %39, 17
   %72 = icmp eq i32 %58, 17
   %or.cond13 = select i1 %71, i1 %72, i1 false
-  br i1 %or.cond13, label %.thread314, label %.thread
+  br i1 %or.cond13, label %._crit_edge354.thread, label %.thread
 
 .thread:                                          ; preds = %68, %70
   switch i32 %58, label %73 [
-    i32 18, label %.thread314
-    i32 6, label %.thread314
-    i32 4, label %.thread314
+    i32 18, label %._crit_edge354.thread
+    i32 6, label %._crit_edge354.thread
+    i32 4, label %._crit_edge354.thread
   ]
 
 73:                                               ; preds = %.thread
   switch i32 %39, label %.loopexit [
-    i32 18, label %.preheader323
-    i32 6, label %.preheader323
-    i32 4, label %.preheader323
+    i32 18, label %.preheader320
+    i32 6, label %.preheader320
+    i32 4, label %.preheader320
   ]
 
-.preheader323:                                    ; preds = %73, %73, %73
+.preheader320:                                    ; preds = %73, %73, %73
   %74 = tail call ptr @onigenc_get_prev_char_head(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %.0249) #10
-  %.not271325 = icmp eq ptr %74, null
-  br i1 %.not271325, label %.loopexit, label %.lr.ph
+  %.not271322 = icmp eq ptr %74, null
+  br i1 %.not271322, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader323, %.backedge324
-  %75 = phi ptr [ %79, %.backedge324 ], [ %74, %.preheader323 ]
+.lr.ph:                                           ; preds = %.preheader320, %.backedge321
+  %75 = phi ptr [ %79, %.backedge321 ], [ %74, %.preheader320 ]
   %76 = load ptr, ptr %16, align 8
   %77 = tail call i32 %76(ptr noundef nonnull %75, ptr noundef %4) #10
   %78 = tail call fastcc i32 @wb_get_type(i32 noundef %77)
   switch i32 %78, label %.loopexit [
-    i32 18, label %.backedge324
-    i32 6, label %.backedge324
-    i32 4, label %.backedge324
+    i32 18, label %.backedge321
+    i32 6, label %.backedge321
+    i32 4, label %.backedge321
   ]
 
-.backedge324:                                     ; preds = %.lr.ph, %.lr.ph, %.lr.ph
+.backedge321:                                     ; preds = %.lr.ph, %.lr.ph, %.lr.ph
   %79 = tail call ptr @onigenc_get_prev_char_head(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %75) #10
   %.not271 = icmp eq ptr %79, null
   br i1 %.not271, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %.backedge324, %.lr.ph, %.preheader323, %73
-  %.2251 = phi ptr [ %.0249, %73 ], [ %.0249, %.preheader323 ], [ %75, %.lr.ph ], [ %75, %.backedge324 ]
-  %.1248 = phi i32 [ %39, %73 ], [ %39, %.preheader323 ], [ %78, %.lr.ph ], [ %78, %.backedge324 ]
+.loopexit:                                        ; preds = %.backedge321, %.lr.ph, %.preheader320, %73
+  %.2251 = phi ptr [ %.0249, %73 ], [ %.0249, %.preheader320 ], [ %75, %.lr.ph ], [ %75, %.backedge321 ]
+  %.1248 = phi i32 [ %39, %73 ], [ %39, %.preheader320 ], [ %78, %.lr.ph ], [ %78, %.backedge321 ]
   %80 = icmp eq i32 %.1248, 1
   %81 = icmp eq i32 %.1248, 7
-  switch i32 %.1248, label %.loopexit412 [
+  switch i32 %.1248, label %.loopexit410 [
     i32 7, label %82
     i32 1, label %82
     i32 16, label %87
@@ -2284,9 +2284,9 @@ wb_get_type.exit284:                              ; preds = %49, %51, %55
   ]
 
 82:                                               ; preds = %.loopexit, %.loopexit
-  switch i32 %58, label %.loopexit412 [
-    i32 7, label %.thread314
-    i32 1, label %.thread314
+  switch i32 %58, label %.loopexit410 [
+    i32 7, label %._crit_edge354.thread
+    i32 1, label %._crit_edge354.thread
     i32 16, label %83
     i32 12, label %83
     i32 10, label %83
@@ -2295,13 +2295,13 @@ wb_get_type.exit284:                              ; preds = %49, %51, %55
 83:                                               ; preds = %82, %82, %82
   %84 = call fastcc i32 @wb_get_next_main_code(ptr noundef %0, ptr noundef %1, ptr noundef %4, ptr noundef nonnull %6, ptr noundef nonnull %7), !range !37
   %.not272 = icmp eq i32 %84, 0
-  br i1 %.not272, label %.loopexit412, label %85
+  br i1 %.not272, label %.loopexit410, label %85
 
 85:                                               ; preds = %83
   %86 = load i32, ptr %7, align 4
-  switch i32 %86, label %.loopexit412 [
-    i32 7, label %.thread314
-    i32 1, label %.thread314
+  switch i32 %86, label %.loopexit410 [
+    i32 7, label %._crit_edge354.thread
+    i32 1, label %._crit_edge354.thread
   ]
 
 87:                                               ; preds = %.loopexit, %.loopexit, %.loopexit
@@ -2312,94 +2312,93 @@ wb_get_type.exit284:                              ; preds = %49, %51, %55
 
 88:                                               ; preds = %87, %87
   %89 = tail call ptr @onigenc_get_prev_char_head(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %.2251) #10
-  %.not273330 = icmp eq ptr %89, null
-  br i1 %.not273330, label %.thread289.thread, label %.lr.ph331
+  %.not273327 = icmp eq ptr %89, null
+  br i1 %.not273327, label %.thread289.thread, label %.lr.ph328
 
-.lr.ph331:                                        ; preds = %88, %.backedge322
-  %90 = phi ptr [ %94, %.backedge322 ], [ %89, %88 ]
+.lr.ph328:                                        ; preds = %88, %.backedge319
+  %90 = phi ptr [ %94, %.backedge319 ], [ %89, %88 ]
   %91 = load ptr, ptr %16, align 8
   %92 = tail call i32 %91(ptr noundef nonnull %90, ptr noundef %4) #10
   %93 = tail call fastcc i32 @wb_get_type(i32 noundef %92)
-  switch i32 %93, label %.loopexit412 [
-    i32 18, label %.backedge322
-    i32 6, label %.backedge322
-    i32 4, label %.backedge322
-    i32 7, label %.thread314
-    i32 1, label %.thread314
+  switch i32 %93, label %.loopexit410 [
+    i32 18, label %.backedge319
+    i32 6, label %.backedge319
+    i32 4, label %.backedge319
+    i32 7, label %._crit_edge354.thread
+    i32 1, label %._crit_edge354.thread
   ]
 
-.backedge322:                                     ; preds = %.lr.ph331, %.lr.ph331, %.lr.ph331
+.backedge319:                                     ; preds = %.lr.ph328, %.lr.ph328, %.lr.ph328
   %94 = tail call ptr @onigenc_get_prev_char_head(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %90) #10
   %.not273 = icmp eq ptr %94, null
-  br i1 %.not273, label %._crit_edge, label %.lr.ph331
+  br i1 %.not273, label %._crit_edge, label %.lr.ph328
 
-._crit_edge:                                      ; preds = %.backedge322
-  switch i32 %93, label %.loopexit412 [
-    i32 7, label %.thread314
-    i32 1, label %.thread314
+._crit_edge:                                      ; preds = %.backedge319
+  switch i32 %93, label %.loopexit410 [
+    i32 7, label %._crit_edge354.thread
+    i32 1, label %._crit_edge354.thread
   ]
 
-.loopexit412:                                     ; preds = %.lr.ph331, %83, %85, %82, %.loopexit, %._crit_edge
-  %.5254 = phi ptr [ %90, %._crit_edge ], [ %.2251, %.loopexit ], [ %.2251, %82 ], [ %.2251, %85 ], [ %.2251, %83 ], [ %90, %.lr.ph331 ]
+.loopexit410:                                     ; preds = %.lr.ph328, %83, %85, %82, %.loopexit, %._crit_edge
+  %.5254 = phi ptr [ %90, %._crit_edge ], [ %.2251, %.loopexit ], [ %.2251, %82 ], [ %.2251, %85 ], [ %.2251, %83 ], [ %90, %.lr.ph328 ]
   br i1 %81, label %95, label %101
 
-95:                                               ; preds = %.loopexit412
+95:                                               ; preds = %.loopexit410
   switch i32 %58, label %.thread289 [
-    i32 16, label %.thread314
+    i32 16, label %._crit_edge354.thread
     i32 3, label %96
   ]
 
 96:                                               ; preds = %95
   %97 = call fastcc i32 @wb_get_next_main_code(ptr noundef %0, ptr noundef %1, ptr noundef %4, ptr noundef nonnull %6, ptr noundef nonnull %7), !range !37
-  %98 = icmp eq i32 %97, 0
+  %98 = icmp ne i32 %97, 0
   %99 = load i32, ptr %7, align 4
-  %100 = icmp ne i32 %99, 7
-  %or.cond87.not = select i1 %98, i1 true, i1 %100
-  %spec.select317 = zext i1 %or.cond87.not to i32
-  br label %.thread314
+  %100 = icmp eq i32 %99, 7
+  %or.cond87 = select i1 %98, i1 %100, i1 false
+  br i1 %or.cond87, label %._crit_edge354.thread, label %.thread295
 
-101:                                              ; preds = %.loopexit412
+101:                                              ; preds = %.loopexit410
   %102 = icmp eq i32 %.1248, 3
   %103 = icmp eq i32 %58, 7
   %or.cond89 = select i1 %102, i1 %103, i1 false
-  br i1 %or.cond89, label %.preheader320, label %.thread289
+  br i1 %or.cond89, label %.preheader317, label %.thread289
 
-.preheader320:                                    ; preds = %101
+.preheader317:                                    ; preds = %101
   %104 = tail call ptr @onigenc_get_prev_char_head(ptr noundef %0, ptr noundef %3, ptr noundef %.5254) #10
-  %.not274337 = icmp eq ptr %104, null
-  br i1 %.not274337, label %.thread293, label %.lr.ph338
+  %.not274334 = icmp eq ptr %104, null
+  br i1 %.not274334, label %.thread293, label %.lr.ph335
 
-.lr.ph338:                                        ; preds = %.preheader320, %.backedge321
-  %105 = phi ptr [ %109, %.backedge321 ], [ %104, %.preheader320 ]
+.lr.ph335:                                        ; preds = %.preheader317, %.backedge318
+  %105 = phi ptr [ %109, %.backedge318 ], [ %104, %.preheader317 ]
   %106 = load ptr, ptr %16, align 8
   %107 = tail call i32 %106(ptr noundef nonnull %105, ptr noundef %4) #10
   %108 = tail call fastcc i32 @wb_get_type(i32 noundef %107)
   switch i32 %108, label %.thread289 [
-    i32 18, label %.backedge321
-    i32 6, label %.backedge321
-    i32 4, label %.backedge321
-    i32 7, label %.thread314
+    i32 18, label %.backedge318
+    i32 6, label %.backedge318
+    i32 4, label %.backedge318
+    i32 7, label %._crit_edge354.thread
   ]
 
-.backedge321:                                     ; preds = %.lr.ph338, %.lr.ph338, %.lr.ph338
+.backedge318:                                     ; preds = %.lr.ph335, %.lr.ph335, %.lr.ph335
   %109 = tail call ptr @onigenc_get_prev_char_head(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %105) #10
   %.not274 = icmp eq ptr %109, null
-  br i1 %.not274, label %._crit_edge339, label %.lr.ph338
+  br i1 %.not274, label %._crit_edge336, label %.lr.ph335
 
-._crit_edge339:                                   ; preds = %.backedge321
+._crit_edge336:                                   ; preds = %.backedge318
   %110 = icmp eq i32 %108, 7
-  br i1 %110, label %.thread314, label %.thread289
+  br i1 %110, label %._crit_edge354.thread, label %.thread289
 
-.thread289:                                       ; preds = %.lr.ph338, %87, %95, %._crit_edge339, %101
-  %.8 = phi ptr [ %105, %._crit_edge339 ], [ %.5254, %101 ], [ %.5254, %95 ], [ %.2251, %87 ], [ %105, %.lr.ph338 ]
+.thread289:                                       ; preds = %.lr.ph335, %87, %95, %._crit_edge336, %101
+  %.8 = phi ptr [ %105, %._crit_edge336 ], [ %.5254, %101 ], [ %.5254, %95 ], [ %.2251, %87 ], [ %105, %.lr.ph335 ]
   %111 = icmp eq i32 %58, 14
   br i1 %111, label %112, label %.thread289.thread
 
 112:                                              ; preds = %.thread289
   switch i32 %.1248, label %.thread289.thread [
-    i32 14, label %.thread314
-    i32 7, label %.thread314
-    i32 1, label %.thread314
+    i32 14, label %._crit_edge354.thread
+    i32 7, label %._crit_edge354.thread
+    i32 1, label %._crit_edge354.thread
     i32 16, label %113
     i32 12, label %113
     i32 11, label %113
@@ -2407,10 +2406,10 @@ wb_get_type.exit284:                              ; preds = %49, %51, %55
 
 113:                                              ; preds = %112, %112, %112
   %114 = tail call ptr @onigenc_get_prev_char_head(ptr noundef %0, ptr noundef %3, ptr noundef %.8) #10
-  %.not275345 = icmp eq ptr %114, null
-  br i1 %.not275345, label %.thread289.thread, label %.lr.ph347
+  %.not275342 = icmp eq ptr %114, null
+  br i1 %.not275342, label %.thread289.thread, label %.lr.ph344
 
-.lr.ph347:                                        ; preds = %113, %.backedge
+.lr.ph344:                                        ; preds = %113, %.backedge
   %115 = phi ptr [ %121, %.backedge ], [ %114, %113 ]
   %116 = load ptr, ptr %16, align 8
   %117 = tail call i32 %116(ptr noundef nonnull %115, ptr noundef %4) #10
@@ -2421,27 +2420,27 @@ wb_get_type.exit284:                              ; preds = %49, %51, %55
     i32 7, label %.backedge
     i32 1, label %.backedge
     i32 0, label %.backedge
-    i32 5, label %.thread314
+    i32 5, label %._crit_edge354.thread
   ]
 
-.backedge:                                        ; preds = %.lr.ph347, %.lr.ph347, %.lr.ph347
+.backedge:                                        ; preds = %.lr.ph344, %.lr.ph344, %.lr.ph344
   %121 = tail call ptr @onigenc_get_prev_char_head(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %115) #10
   %.not275 = icmp eq ptr %121, null
-  br i1 %.not275, label %._crit_edge348, label %.lr.ph347
+  br i1 %.not275, label %._crit_edge345, label %.lr.ph344
 
-._crit_edge348:                                   ; preds = %.backedge
+._crit_edge345:                                   ; preds = %.backedge
   %122 = icmp eq i32 %118, 14
-  br i1 %122, label %.thread314, label %.thread289.thread
+  br i1 %122, label %._crit_edge354.thread, label %.thread289.thread
 
-.thread289.thread:                                ; preds = %.lr.ph347, %113, %88, %112, %._crit_edge348, %.thread289
-  %.11 = phi ptr [ %115, %._crit_edge348 ], [ %.8, %.thread289 ], [ %.8, %112 ], [ %.2251, %88 ], [ %.8, %113 ], [ %115, %.lr.ph347 ]
+.thread289.thread:                                ; preds = %.lr.ph344, %113, %88, %112, %._crit_edge345, %.thread289
+  %.11 = phi ptr [ %115, %._crit_edge345 ], [ %.8, %.thread289 ], [ %.8, %112 ], [ %.2251, %88 ], [ %.8, %113 ], [ %115, %.lr.ph344 ]
   %123 = icmp eq i32 %.1248, 14
   br i1 %123, label %124, label %130
 
 124:                                              ; preds = %.thread289.thread
   switch i32 %58, label %.thread293 [
-    i32 7, label %.thread314
-    i32 1, label %.thread314
+    i32 7, label %._crit_edge354.thread
+    i32 1, label %._crit_edge354.thread
     i32 16, label %125
     i32 12, label %125
     i32 11, label %125
@@ -2453,18 +2452,18 @@ wb_get_type.exit284:                              ; preds = %49, %51, %55
   %128 = load i32, ptr %7, align 4
   %129 = icmp eq i32 %128, 14
   %or.cond91 = select i1 %127, i1 %129, i1 false
-  br i1 %or.cond91, label %.thread314, label %.thread293
+  br i1 %or.cond91, label %._crit_edge354.thread, label %.thread293
 
 130:                                              ; preds = %.thread289.thread
   %131 = icmp eq i32 %.1248, 8
   %132 = icmp eq i32 %58, 8
   %or.cond69 = select i1 %131, i1 %132, i1 false
-  br i1 %or.cond69, label %.thread314, label %.thread293
+  br i1 %or.cond69, label %._crit_edge354.thread, label %.thread293
 
-.thread293:                                       ; preds = %.preheader320, %125, %124, %130
-  %133 = phi i1 [ false, %130 ], [ true, %124 ], [ true, %125 ], [ false, %.preheader320 ]
-  %.11382 = phi ptr [ %.11, %130 ], [ %.11, %124 ], [ %.11, %125 ], [ %.5254, %.preheader320 ]
-  %134 = phi i1 [ %131, %130 ], [ false, %124 ], [ false, %125 ], [ false, %.preheader320 ]
+.thread293:                                       ; preds = %.preheader317, %125, %124, %130
+  %133 = phi i1 [ false, %130 ], [ true, %124 ], [ true, %125 ], [ false, %.preheader317 ]
+  %.11380 = phi ptr [ %.11, %130 ], [ %.11, %124 ], [ %.11, %125 ], [ %.5254, %.preheader317 ]
+  %134 = phi i1 [ %131, %130 ], [ false, %124 ], [ false, %125 ], [ false, %.preheader317 ]
   %135 = or i1 %80, %134
   %136 = or i1 %135, %133
   %or.cond75 = or i1 %136, %81
@@ -2472,55 +2471,56 @@ wb_get_type.exit284:                              ; preds = %49, %51, %55
   %or.cond77 = or i1 %137, %or.cond75
   %138 = icmp eq i32 %58, 5
   %or.cond93 = select i1 %or.cond77, i1 %138, i1 false
-  br i1 %or.cond93, label %.thread314, label %139
+  br i1 %or.cond93, label %._crit_edge354.thread, label %139
 
 139:                                              ; preds = %.thread293
   br i1 %137, label %140, label %141
 
 140:                                              ; preds = %139
   switch i32 %58, label %.thread295 [
-    i32 14, label %.thread314
-    i32 8, label %.thread314
-    i32 7, label %.thread314
-    i32 1, label %.thread314
+    i32 14, label %._crit_edge354.thread
+    i32 8, label %._crit_edge354.thread
+    i32 7, label %._crit_edge354.thread
+    i32 1, label %._crit_edge354.thread
   ]
-
-.thread295:                                       ; preds = %140
-  br label %.thread314
 
 141:                                              ; preds = %139
   %142 = icmp eq i32 %.1248, 15
   %143 = icmp eq i32 %58, 15
   %or.cond85 = select i1 %142, i1 %143, i1 false
-  br i1 %or.cond85, label %.preheader, label %.thread314
+  br i1 %or.cond85, label %.preheader, label %.thread295
 
 .preheader:                                       ; preds = %141
-  %144 = tail call ptr @onigenc_get_prev_char_head(ptr noundef %0, ptr noundef %3, ptr noundef %.11382) #10
-  %.not276354 = icmp eq ptr %144, null
-  br i1 %.not276354, label %.thread314, label %.lr.ph356
+  %144 = tail call ptr @onigenc_get_prev_char_head(ptr noundef %0, ptr noundef %3, ptr noundef %.11380) #10
+  %.not276351 = icmp eq ptr %144, null
+  br i1 %.not276351, label %._crit_edge354.thread, label %.lr.ph353
 
-.lr.ph356:                                        ; preds = %.preheader, %149
+.lr.ph353:                                        ; preds = %.preheader, %149
   %145 = phi ptr [ %151, %149 ], [ %144, %.preheader ]
-  %.0355 = phi i32 [ %150, %149 ], [ 0, %.preheader ]
+  %.0352 = phi i32 [ %150, %149 ], [ 0, %.preheader ]
   %146 = load ptr, ptr %16, align 8
   %147 = tail call i32 %146(ptr noundef nonnull %145, ptr noundef %4) #10
   %148 = tail call fastcc i32 @wb_get_type(i32 noundef %147)
   %.not277 = icmp eq i32 %148, 15
-  br i1 %.not277, label %149, label %._crit_edge357.loopexit
+  br i1 %.not277, label %149, label %._crit_edge354
 
-149:                                              ; preds = %.lr.ph356
-  %150 = add nuw nsw i32 %.0355, 1
+149:                                              ; preds = %.lr.ph353
+  %150 = add nuw nsw i32 %.0352, 1
   %151 = tail call ptr @onigenc_get_prev_char_head(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %145) #10
   %.not276 = icmp eq ptr %151, null
-  br i1 %.not276, label %._crit_edge357.loopexit, label %.lr.ph356, !llvm.loop !38
+  br i1 %.not276, label %._crit_edge354, label %.lr.ph353, !llvm.loop !38
 
-._crit_edge357.loopexit:                          ; preds = %.lr.ph356, %149
-  %.0.lcssa.ph = phi i32 [ %150, %149 ], [ %.0355, %.lr.ph356 ]
+._crit_edge354:                                   ; preds = %149, %.lr.ph353
+  %.0.lcssa.ph = phi i32 [ %150, %149 ], [ %.0352, %.lr.ph353 ]
   %152 = and i32 %.0.lcssa.ph, 1
-  br label %.thread314
+  %153 = icmp eq i32 %152, 0
+  br i1 %153, label %._crit_edge354.thread, label %.thread295
 
-.thread314:                                       ; preds = %.lr.ph331, %.lr.ph331, %.lr.ph338, %.lr.ph347, %.preheader, %._crit_edge357.loopexit, %96, %.thread295, %124, %124, %112, %112, %112, %82, %82, %wb_get_type.exit284, %141, %140, %140, %140, %140, %.thread293, %130, %125, %._crit_edge348, %._crit_edge339, %95, %._crit_edge, %._crit_edge, %85, %85, %.thread, %.thread, %.thread, %70, %68, %65, %65, %65, %64, %64, %64, %61, %12, %5
-  %.0245 = phi i32 [ 1, %5 ], [ 1, %12 ], [ 0, %61 ], [ 1, %64 ], [ 1, %64 ], [ 1, %64 ], [ 1, %65 ], [ 1, %65 ], [ 1, %65 ], [ 0, %68 ], [ 0, %70 ], [ 0, %.thread ], [ 0, %.thread ], [ 0, %.thread ], [ 0, %82 ], [ 0, %82 ], [ 0, %85 ], [ 0, %85 ], [ 0, %._crit_edge ], [ 0, %._crit_edge ], [ 0, %95 ], [ 0, %._crit_edge339 ], [ 0, %112 ], [ 0, %._crit_edge348 ], [ 0, %124 ], [ 0, %124 ], [ 0, %125 ], [ 0, %130 ], [ 0, %.thread293 ], [ 0, %140 ], [ 0, %140 ], [ 0, %140 ], [ 0, %140 ], [ 1, %141 ], [ 1, %wb_get_type.exit284 ], [ 0, %112 ], [ 0, %112 ], [ 1, %.thread295 ], [ %spec.select317, %96 ], [ 0, %.preheader ], [ %152, %._crit_edge357.loopexit ], [ 0, %.lr.ph347 ], [ 0, %.lr.ph338 ], [ 0, %.lr.ph331 ], [ 0, %.lr.ph331 ]
+.thread295:                                       ; preds = %96, %140, %141, %._crit_edge354, %wb_get_type.exit284
+  br label %._crit_edge354.thread
+
+._crit_edge354.thread:                            ; preds = %.lr.ph328, %.lr.ph328, %.lr.ph335, %.lr.ph344, %.preheader, %124, %124, %112, %112, %112, %82, %82, %._crit_edge354, %140, %140, %140, %140, %.thread293, %130, %125, %._crit_edge345, %._crit_edge336, %96, %95, %._crit_edge, %._crit_edge, %85, %85, %.thread, %.thread, %.thread, %70, %68, %65, %65, %65, %64, %64, %64, %61, %12, %5, %.thread295
+  %.0245 = phi i32 [ 1, %.thread295 ], [ 1, %5 ], [ 1, %12 ], [ 0, %61 ], [ 1, %64 ], [ 1, %64 ], [ 1, %64 ], [ 1, %65 ], [ 1, %65 ], [ 1, %65 ], [ 0, %68 ], [ 0, %70 ], [ 0, %.thread ], [ 0, %.thread ], [ 0, %.thread ], [ 0, %82 ], [ 0, %82 ], [ 0, %85 ], [ 0, %85 ], [ 0, %._crit_edge ], [ 0, %._crit_edge ], [ 0, %95 ], [ 0, %96 ], [ 0, %._crit_edge336 ], [ 0, %112 ], [ 0, %._crit_edge345 ], [ 0, %124 ], [ 0, %124 ], [ 0, %125 ], [ 0, %130 ], [ 0, %.thread293 ], [ 0, %140 ], [ 0, %140 ], [ 0, %140 ], [ 0, %140 ], [ 0, %._crit_edge354 ], [ 0, %112 ], [ 0, %112 ], [ 0, %.preheader ], [ 0, %.lr.ph344 ], [ 0, %.lr.ph335 ], [ 0, %.lr.ph328 ], [ 0, %.lr.ph328 ]
   ret i32 %.0245
 }
 
@@ -2711,7 +2711,7 @@ define i32 @onigenc_egcb_is_break_position(ptr noundef %0, ptr noundef %1, ptr n
   %20 = load i32, ptr %19, align 8
   %21 = and i32 %20, 2
   %.not = icmp eq i32 %21, 0
-  br i1 %.not, label %22, label %.preheader70
+  br i1 %.not, label %22, label %.preheader68
 
 22:                                               ; preds = %13
   %23 = icmp ne i32 %16, 13
@@ -2720,9 +2720,9 @@ define i32 @onigenc_egcb_is_break_position(ptr noundef %0, ptr noundef %1, ptr n
   %26 = zext i1 %25 to i32
   br label %unicode_egcb_is_break_2code.exit.thread
 
-.preheader70:                                     ; preds = %13, %.preheader70
-  %.016.i.i = phi i32 [ %.1.i.i, %.preheader70 ], [ 0, %13 ]
-  %.01315.i.i = phi i32 [ %.114.i.i, %.preheader70 ], [ 1371, %13 ]
+.preheader68:                                     ; preds = %13, %.preheader68
+  %.016.i.i = phi i32 [ %.1.i.i, %.preheader68 ], [ 0, %13 ]
+  %.01315.i.i = phi i32 [ %.114.i.i, %.preheader68 ], [ 1371, %13 ]
   %27 = add i32 %.01315.i.i, %.016.i.i
   %28 = lshr i32 %27, 1
   %29 = zext nneg i32 %28 to i64
@@ -2733,9 +2733,9 @@ define i32 @onigenc_egcb_is_break_position(ptr noundef %0, ptr noundef %1, ptr n
   %.114.i.i = select i1 %32, i32 %.01315.i.i, i32 %28
   %.1.i.i = select i1 %32, i32 %33, i32 %.016.i.i
   %34 = icmp ult i32 %.1.i.i, %.114.i.i
-  br i1 %34, label %.preheader70, label %35, !llvm.loop !39
+  br i1 %34, label %.preheader68, label %35, !llvm.loop !39
 
-35:                                               ; preds = %.preheader70
+35:                                               ; preds = %.preheader68
   %36 = icmp ult i32 %.1.i.i, 1371
   br i1 %36, label %37, label %egcb_get_type.exit.i
 
@@ -2791,7 +2791,7 @@ egcb_get_type.exit61.i:                           ; preds = %60, %56, %54
   %64 = icmp eq i32 %44, 0
   %65 = icmp eq i32 %63, 0
   %or.cond.i = select i1 %64, i1 %65, i1 false
-  br i1 %or.cond.i, label %unicode_egcb_is_break_2code.exit.thread, label %66
+  br i1 %or.cond.i, label %unicode_egcb_is_break_2code.exit.thread64, label %66
 
 66:                                               ; preds = %egcb_get_type.exit61.i
   %67 = icmp eq i32 %44, 1
@@ -2805,13 +2805,13 @@ egcb_get_type.exit61.i:                           ; preds = %60, %56, %54
   %71 = add i32 %63, -1
   %or.cond7.i = icmp ult i32 %71, 3
   %or.cond55.i = select i1 %or.cond5.i, i1 true, i1 %or.cond7.i
-  br i1 %or.cond55.i, label %unicode_egcb_is_break_2code.exit.thread, label %72
+  br i1 %or.cond55.i, label %unicode_egcb_is_break_2code.exit.thread64, label %72
 
 72:                                               ; preds = %69
   %73 = icmp ugt i32 %44, 12
   %74 = icmp ugt i32 %63, 12
   %or.cond9.i = select i1 %73, i1 %74, i1 false
-  br i1 %or.cond9.i, label %75, label %83
+  br i1 %or.cond9.i, label %75, label %84
 
 75:                                               ; preds = %72
   %76 = icmp eq i32 %44, 13
@@ -2831,138 +2831,145 @@ egcb_get_type.exit61.i:                           ; preds = %60, %56, %54
   br i1 %or.cond15.i, label %unicode_egcb_is_break_2code.exit.thread, label %81
 
 81:                                               ; preds = %79, %78
-  %82 = add i32 %44, -17
-  %or.cond17.i = icmp ult i32 %82, -2
-  %or.cond54.i.not = select i1 %77, i1 true, i1 %or.cond17.i
-  %spec.select68 = zext i1 %or.cond54.i.not to i32
-  br label %unicode_egcb_is_break_2code.exit.thread
+  %82 = icmp eq i32 %63, 16
+  %83 = add i32 %44, -15
+  %or.cond17.i = icmp ult i32 %83, 2
+  %or.cond54.i = select i1 %82, i1 %or.cond17.i, i1 false
+  br i1 %or.cond54.i, label %unicode_egcb_is_break_2code.exit.thread, label %unicode_egcb_is_break_2code.exit.thread64
 
-83:                                               ; preds = %72
-  switch i32 %63, label %84 [
+84:                                               ; preds = %72
+  switch i32 %63, label %85 [
     i32 8, label %unicode_egcb_is_break_2code.exit.thread
     i32 4, label %unicode_egcb_is_break_2code.exit.thread
     i32 7, label %unicode_egcb_is_break_2code.exit.thread
   ]
 
-84:                                               ; preds = %83
-  switch i32 %44, label %87 [
+85:                                               ; preds = %84
+  switch i32 %44, label %88 [
     i32 5, label %unicode_egcb_is_break_2code.exit.thread
-    i32 8, label %85
+    i32 8, label %86
   ]
 
-85:                                               ; preds = %84
-  %86 = tail call i32 @onig_is_in_code_range(ptr noundef nonnull @CR_Extended_Pictographic, i32 noundef %18) #10
-  %.not.i = icmp eq i32 %86, 0
-  br i1 %.not.i, label %unicode_egcb_is_break_2code.exit.thread, label %.critedge
+86:                                               ; preds = %85
+  %87 = tail call i32 @onig_is_in_code_range(ptr noundef nonnull @CR_Extended_Pictographic, i32 noundef %18) #10
+  %.not.i = icmp eq i32 %87, 0
+  br i1 %.not.i, label %unicode_egcb_is_break_2code.exit.thread64, label %.critedge
 
-87:                                               ; preds = %84
-  %88 = icmp eq i32 %44, 6
-  %89 = icmp eq i32 %63, 6
-  %or.cond21.i = select i1 %88, i1 %89, i1 false
-  br i1 %or.cond21.i, label %unicode_egcb_is_break_2code.exit.preheader, label %unicode_egcb_is_break_2code.exit.thread
+88:                                               ; preds = %85
+  %89 = icmp eq i32 %44, 6
+  %90 = icmp eq i32 %63, 6
+  %or.cond21.i = select i1 %89, i1 %90, i1 false
+  br i1 %or.cond21.i, label %unicode_egcb_is_break_2code.exit.preheader, label %unicode_egcb_is_break_2code.exit.thread64
 
-unicode_egcb_is_break_2code.exit.preheader:       ; preds = %87
-  %90 = tail call ptr @onigenc_get_prev_char_head(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %.041) #10
-  %.not4971 = icmp eq ptr %90, null
-  br i1 %.not4971, label %unicode_egcb_is_break_2code.exit.thread, label %.lr.ph
+unicode_egcb_is_break_2code.exit.preheader:       ; preds = %88
+  %91 = tail call ptr @onigenc_get_prev_char_head(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %.041) #10
+  %.not4969 = icmp eq ptr %91, null
+  br i1 %.not4969, label %unicode_egcb_is_break_2code.exit.thread, label %.lr.ph
 
-.critedge:                                        ; preds = %85, %egcb_get_type.exit
-  %.1 = phi ptr [ %91, %egcb_get_type.exit ], [ %.041, %85 ]
-  %91 = tail call ptr @onigenc_get_prev_char_head(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %.1) #10
-  %.not51 = icmp eq ptr %91, null
-  br i1 %.not51, label %unicode_egcb_is_break_2code.exit.thread, label %92
-
-92:                                               ; preds = %.critedge
-  %93 = load ptr, ptr %14, align 8
-  %94 = tail call i32 %93(ptr noundef nonnull %91, ptr noundef %4) #10
-  %95 = tail call i32 @onig_is_in_code_range(ptr noundef nonnull @CR_Extended_Pictographic, i32 noundef %94) #10
-  %.not52 = icmp eq i32 %95, 0
-  br i1 %.not52, label %.preheader, label %unicode_egcb_is_break_2code.exit.thread
-
-.preheader:                                       ; preds = %92, %.preheader
-  %.016.i = phi i32 [ %.1.i, %.preheader ], [ 0, %92 ]
-  %.01315.i = phi i32 [ %.114.i, %.preheader ], [ 1371, %92 ]
-  %96 = add i32 %.01315.i, %.016.i
-  %97 = lshr i32 %96, 1
-  %98 = zext nneg i32 %97 to i64
-  %99 = getelementptr inbounds [1371 x %struct.EGCB_RANGE_TYPE], ptr @EGCB_RANGES, i64 0, i64 %98, i32 1
-  %100 = load i32, ptr %99, align 4
-  %101 = icmp ult i32 %100, %94
-  %102 = add nuw i32 %97, 1
-  %.114.i = select i1 %101, i32 %.01315.i, i32 %97
-  %.1.i = select i1 %101, i32 %102, i32 %.016.i
-  %103 = icmp ult i32 %.1.i, %.114.i
-  br i1 %103, label %.preheader, label %104, !llvm.loop !39
-
-104:                                              ; preds = %.preheader
-  %105 = icmp ult i32 %.1.i, 1371
-  br i1 %105, label %106, label %unicode_egcb_is_break_2code.exit.thread
-
-106:                                              ; preds = %104
-  %107 = zext nneg i32 %.1.i to i64
-  %108 = getelementptr inbounds [1371 x %struct.EGCB_RANGE_TYPE], ptr @EGCB_RANGES, i64 0, i64 %107
-  %109 = load i32, ptr %108, align 4
-  %.not.i55 = icmp ugt i32 %109, %94
-  br i1 %.not.i55, label %unicode_egcb_is_break_2code.exit.thread, label %egcb_get_type.exit
-
-egcb_get_type.exit:                               ; preds = %106
-  %110 = getelementptr inbounds i8, ptr %108, i64 8
-  %111 = load i32, ptr %110, align 4
-  %.not53 = icmp eq i32 %111, 4
-  br i1 %.not53, label %.critedge, label %unicode_egcb_is_break_2code.exit.thread, !llvm.loop !40
-
-.lr.ph:                                           ; preds = %unicode_egcb_is_break_2code.exit.preheader, %unicode_egcb_is_break_2code.exit
-  %112 = phi ptr [ %133, %unicode_egcb_is_break_2code.exit ], [ %90, %unicode_egcb_is_break_2code.exit.preheader ]
-  %.072 = phi i32 [ %132, %unicode_egcb_is_break_2code.exit ], [ 0, %unicode_egcb_is_break_2code.exit.preheader ]
-  %113 = load ptr, ptr %14, align 8
-  %114 = tail call i32 %113(ptr noundef nonnull %112, ptr noundef %4) #10
-  br label %115
-
-115:                                              ; preds = %115, %.lr.ph
-  %.016.i56 = phi i32 [ 0, %.lr.ph ], [ %.1.i59, %115 ]
-  %.01315.i57 = phi i32 [ 1371, %.lr.ph ], [ %.114.i58, %115 ]
-  %116 = add i32 %.01315.i57, %.016.i56
-  %117 = lshr i32 %116, 1
-  %118 = zext nneg i32 %117 to i64
-  %119 = getelementptr inbounds [1371 x %struct.EGCB_RANGE_TYPE], ptr @EGCB_RANGES, i64 0, i64 %118, i32 1
-  %120 = load i32, ptr %119, align 4
-  %121 = icmp ult i32 %120, %114
-  %122 = add nuw i32 %117, 1
-  %.114.i58 = select i1 %121, i32 %.01315.i57, i32 %117
-  %.1.i59 = select i1 %121, i32 %122, i32 %.016.i56
-  %123 = icmp ult i32 %.1.i59, %.114.i58
-  br i1 %123, label %115, label %124, !llvm.loop !39
-
-124:                                              ; preds = %115
-  %125 = icmp ult i32 %.1.i59, 1371
-  br i1 %125, label %126, label %egcb_get_type.exit61.thread.loopexit
-
-126:                                              ; preds = %124
-  %127 = zext nneg i32 %.1.i59 to i64
-  %128 = getelementptr inbounds [1371 x %struct.EGCB_RANGE_TYPE], ptr @EGCB_RANGES, i64 0, i64 %127
-  %129 = load i32, ptr %128, align 4
-  %.not.i60 = icmp ugt i32 %129, %114
-  br i1 %.not.i60, label %egcb_get_type.exit61.thread.loopexit, label %egcb_get_type.exit61
-
-egcb_get_type.exit61:                             ; preds = %126
-  %130 = getelementptr inbounds i8, ptr %128, i64 8
-  %131 = load i32, ptr %130, align 4
-  %.not50 = icmp eq i32 %131, 6
-  br i1 %.not50, label %unicode_egcb_is_break_2code.exit, label %egcb_get_type.exit61.thread.loopexit
-
-unicode_egcb_is_break_2code.exit:                 ; preds = %egcb_get_type.exit61
-  %132 = add nuw nsw i32 %.072, 1
-  %133 = tail call ptr @onigenc_get_prev_char_head(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %112) #10
-  %.not49 = icmp eq ptr %133, null
-  br i1 %.not49, label %egcb_get_type.exit61.thread.loopexit, label %.lr.ph, !llvm.loop !41
-
-egcb_get_type.exit61.thread.loopexit:             ; preds = %124, %126, %egcb_get_type.exit61, %unicode_egcb_is_break_2code.exit
-  %.0.lcssa.ph = phi i32 [ %132, %unicode_egcb_is_break_2code.exit ], [ %.072, %egcb_get_type.exit61 ], [ %.072, %126 ], [ %.072, %124 ]
-  %134 = and i32 %.0.lcssa.ph, 1
+unicode_egcb_is_break_2code.exit.thread64:        ; preds = %egcb_get_type.exit61.i, %81, %86, %88, %69
   br label %unicode_egcb_is_break_2code.exit.thread
 
-unicode_egcb_is_break_2code.exit.thread:          ; preds = %104, %106, %egcb_get_type.exit, %.critedge, %92, %unicode_egcb_is_break_2code.exit.preheader, %egcb_get_type.exit61.thread.loopexit, %81, %egcb_get_type.exit61.i, %85, %87, %69, %84, %83, %83, %83, %79, %75, %66, %10, %5, %22
-  %.040 = phi i32 [ %26, %22 ], [ 1, %5 ], [ 1, %10 ], [ 0, %66 ], [ 0, %75 ], [ 0, %79 ], [ 0, %83 ], [ 0, %83 ], [ 0, %83 ], [ 0, %84 ], [ 1, %69 ], [ 1, %87 ], [ 1, %85 ], [ 1, %egcb_get_type.exit61.i ], [ %spec.select68, %81 ], [ 0, %unicode_egcb_is_break_2code.exit.preheader ], [ %134, %egcb_get_type.exit61.thread.loopexit ], [ 1, %104 ], [ 1, %106 ], [ 1, %egcb_get_type.exit ], [ 1, %.critedge ], [ 0, %92 ]
+.critedge:                                        ; preds = %86, %egcb_get_type.exit
+  %.1 = phi ptr [ %92, %egcb_get_type.exit ], [ %.041, %86 ]
+  %92 = tail call ptr @onigenc_get_prev_char_head(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %.1) #10
+  %.not51 = icmp eq ptr %92, null
+  br i1 %.not51, label %egcb_get_type.exit.thread, label %93
+
+93:                                               ; preds = %.critedge
+  %94 = load ptr, ptr %14, align 8
+  %95 = tail call i32 %94(ptr noundef nonnull %92, ptr noundef %4) #10
+  %96 = tail call i32 @onig_is_in_code_range(ptr noundef nonnull @CR_Extended_Pictographic, i32 noundef %95) #10
+  %.not52 = icmp eq i32 %96, 0
+  br i1 %.not52, label %.preheader, label %unicode_egcb_is_break_2code.exit.thread
+
+.preheader:                                       ; preds = %93, %.preheader
+  %.016.i = phi i32 [ %.1.i, %.preheader ], [ 0, %93 ]
+  %.01315.i = phi i32 [ %.114.i, %.preheader ], [ 1371, %93 ]
+  %97 = add i32 %.01315.i, %.016.i
+  %98 = lshr i32 %97, 1
+  %99 = zext nneg i32 %98 to i64
+  %100 = getelementptr inbounds [1371 x %struct.EGCB_RANGE_TYPE], ptr @EGCB_RANGES, i64 0, i64 %99, i32 1
+  %101 = load i32, ptr %100, align 4
+  %102 = icmp ult i32 %101, %95
+  %103 = add nuw i32 %98, 1
+  %.114.i = select i1 %102, i32 %.01315.i, i32 %98
+  %.1.i = select i1 %102, i32 %103, i32 %.016.i
+  %104 = icmp ult i32 %.1.i, %.114.i
+  br i1 %104, label %.preheader, label %105, !llvm.loop !39
+
+105:                                              ; preds = %.preheader
+  %106 = icmp ult i32 %.1.i, 1371
+  br i1 %106, label %107, label %egcb_get_type.exit.thread
+
+107:                                              ; preds = %105
+  %108 = zext nneg i32 %.1.i to i64
+  %109 = getelementptr inbounds [1371 x %struct.EGCB_RANGE_TYPE], ptr @EGCB_RANGES, i64 0, i64 %108
+  %110 = load i32, ptr %109, align 4
+  %.not.i55 = icmp ugt i32 %110, %95
+  br i1 %.not.i55, label %egcb_get_type.exit.thread, label %egcb_get_type.exit
+
+egcb_get_type.exit:                               ; preds = %107
+  %111 = getelementptr inbounds i8, ptr %109, i64 8
+  %112 = load i32, ptr %111, align 4
+  %.not53 = icmp eq i32 %112, 4
+  br i1 %.not53, label %.critedge, label %egcb_get_type.exit.thread, !llvm.loop !40
+
+.lr.ph:                                           ; preds = %unicode_egcb_is_break_2code.exit.preheader, %unicode_egcb_is_break_2code.exit
+  %113 = phi ptr [ %134, %unicode_egcb_is_break_2code.exit ], [ %91, %unicode_egcb_is_break_2code.exit.preheader ]
+  %.070 = phi i32 [ %133, %unicode_egcb_is_break_2code.exit ], [ 0, %unicode_egcb_is_break_2code.exit.preheader ]
+  %114 = load ptr, ptr %14, align 8
+  %115 = tail call i32 %114(ptr noundef nonnull %113, ptr noundef %4) #10
+  br label %116
+
+116:                                              ; preds = %116, %.lr.ph
+  %.016.i56 = phi i32 [ 0, %.lr.ph ], [ %.1.i59, %116 ]
+  %.01315.i57 = phi i32 [ 1371, %.lr.ph ], [ %.114.i58, %116 ]
+  %117 = add i32 %.01315.i57, %.016.i56
+  %118 = lshr i32 %117, 1
+  %119 = zext nneg i32 %118 to i64
+  %120 = getelementptr inbounds [1371 x %struct.EGCB_RANGE_TYPE], ptr @EGCB_RANGES, i64 0, i64 %119, i32 1
+  %121 = load i32, ptr %120, align 4
+  %122 = icmp ult i32 %121, %115
+  %123 = add nuw i32 %118, 1
+  %.114.i58 = select i1 %122, i32 %.01315.i57, i32 %118
+  %.1.i59 = select i1 %122, i32 %123, i32 %.016.i56
+  %124 = icmp ult i32 %.1.i59, %.114.i58
+  br i1 %124, label %116, label %125, !llvm.loop !39
+
+125:                                              ; preds = %116
+  %126 = icmp ult i32 %.1.i59, 1371
+  br i1 %126, label %127, label %egcb_get_type.exit61.thread
+
+127:                                              ; preds = %125
+  %128 = zext nneg i32 %.1.i59 to i64
+  %129 = getelementptr inbounds [1371 x %struct.EGCB_RANGE_TYPE], ptr @EGCB_RANGES, i64 0, i64 %128
+  %130 = load i32, ptr %129, align 4
+  %.not.i60 = icmp ugt i32 %130, %115
+  br i1 %.not.i60, label %egcb_get_type.exit61.thread, label %egcb_get_type.exit61
+
+egcb_get_type.exit61:                             ; preds = %127
+  %131 = getelementptr inbounds i8, ptr %129, i64 8
+  %132 = load i32, ptr %131, align 4
+  %.not50 = icmp eq i32 %132, 6
+  br i1 %.not50, label %unicode_egcb_is_break_2code.exit, label %egcb_get_type.exit61.thread
+
+unicode_egcb_is_break_2code.exit:                 ; preds = %egcb_get_type.exit61
+  %133 = add nuw nsw i32 %.070, 1
+  %134 = tail call ptr @onigenc_get_prev_char_head(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %113) #10
+  %.not49 = icmp eq ptr %134, null
+  br i1 %.not49, label %egcb_get_type.exit61.thread, label %.lr.ph, !llvm.loop !41
+
+egcb_get_type.exit61.thread:                      ; preds = %unicode_egcb_is_break_2code.exit, %egcb_get_type.exit61, %127, %125
+  %.0.lcssa.ph = phi i32 [ %133, %unicode_egcb_is_break_2code.exit ], [ %.070, %egcb_get_type.exit61 ], [ %.070, %127 ], [ %.070, %125 ]
+  %135 = and i32 %.0.lcssa.ph, 1
+  %136 = icmp eq i32 %135, 0
+  br i1 %136, label %unicode_egcb_is_break_2code.exit.thread, label %egcb_get_type.exit.thread
+
+egcb_get_type.exit.thread:                        ; preds = %105, %107, %.critedge, %egcb_get_type.exit, %egcb_get_type.exit61.thread
+  br label %unicode_egcb_is_break_2code.exit.thread
+
+unicode_egcb_is_break_2code.exit.thread:          ; preds = %93, %unicode_egcb_is_break_2code.exit.preheader, %85, %84, %84, %84, %81, %79, %75, %66, %egcb_get_type.exit61.thread, %10, %5, %egcb_get_type.exit.thread, %unicode_egcb_is_break_2code.exit.thread64, %22
+  %.040 = phi i32 [ 1, %egcb_get_type.exit.thread ], [ 1, %unicode_egcb_is_break_2code.exit.thread64 ], [ %26, %22 ], [ 1, %5 ], [ 1, %10 ], [ 0, %egcb_get_type.exit61.thread ], [ 0, %66 ], [ 0, %75 ], [ 0, %79 ], [ 0, %81 ], [ 0, %84 ], [ 0, %84 ], [ 0, %84 ], [ 0, %85 ], [ 0, %unicode_egcb_is_break_2code.exit.preheader ], [ 0, %93 ]
   ret i32 %.040
 }
 
@@ -3384,8 +3391,8 @@ unicode_lookup_property_name.exit:                ; preds = %gperf_case_strncmp.
   %129 = sext i16 %128 to i32
   br label %unicode_lookup_property_name.exit.thread
 
-unicode_lookup_property_name.exit.thread:         ; preds = %13, %8, %gperf_case_strncmp.exit.thread.i, %33, %99, %gperf_case_strncmp.exit.i, %104, %hash.exit.i, %unicode_lookup_property_name.exit, %31
-  %.0 = phi i32 [ %32, %31 ], [ %129, %unicode_lookup_property_name.exit ], [ -223, %hash.exit.i ], [ -223, %104 ], [ -223, %gperf_case_strncmp.exit.i ], [ -223, %99 ], [ -223, %33 ], [ -223, %gperf_case_strncmp.exit.thread.i ], [ -223, %8 ], [ -223, %13 ]
+unicode_lookup_property_name.exit.thread:         ; preds = %13, %8, %gperf_case_strncmp.exit.thread.i, %gperf_case_strncmp.exit.i, %104, %99, %hash.exit.i, %33, %unicode_lookup_property_name.exit, %31
+  %.0 = phi i32 [ %32, %31 ], [ %129, %unicode_lookup_property_name.exit ], [ -223, %33 ], [ -223, %hash.exit.i ], [ -223, %99 ], [ -223, %104 ], [ -223, %gperf_case_strncmp.exit.i ], [ -223, %gperf_case_strncmp.exit.thread.i ], [ -223, %8 ], [ -223, %13 ]
   ret i32 %.0
 }
 

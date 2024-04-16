@@ -727,11 +727,14 @@ define noundef zeroext i1 @_ZNK14RtpAudioStream7isMatchEPK13_rtpstream_id(ptr no
 3:                                                ; preds = %2
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = tail call i32 @rtpstream_id_equal(ptr noundef nonnull %4, ptr noundef nonnull %1, i32 noundef 1)
-  %.not5 = icmp ne i32 %5, 0
-  br label %6
+  %.not5 = icmp eq i32 %5, 0
+  br i1 %.not5, label %6, label %7
 
 6:                                                ; preds = %3, %2
-  %.0 = phi i1 [ false, %2 ], [ %.not5, %3 ]
+  br label %7
+
+7:                                                ; preds = %3, %6
+  %.0 = phi i1 [ false, %6 ], [ true, %3 ]
   ret i1 %.0
 }
 
@@ -747,11 +750,14 @@ define noundef zeroext i1 @_ZNK14RtpAudioStream7isMatchEPK12_packet_infoPK9_rtp_
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = tail call i32 @rtpstream_id_equal_pinfo_rtp_info(ptr noundef nonnull %7, ptr noundef nonnull %1, ptr noundef nonnull %2)
-  %.not = icmp ne i32 %8, 0
-  br label %9
+  %.not = icmp eq i32 %8, 0
+  br i1 %.not, label %9, label %10
 
 9:                                                ; preds = %6, %3
-  %.0 = phi i1 [ false, %3 ], [ %.not, %6 ]
+  br label %10
+
+10:                                               ; preds = %6, %9
+  %.0 = phi i1 [ false, %9 ], [ true, %6 ]
   ret i1 %.0
 }
 

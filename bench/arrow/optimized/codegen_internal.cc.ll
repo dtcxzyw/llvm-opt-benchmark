@@ -4432,16 +4432,18 @@ if.then96:                                        ; preds = %if.end93
 if.end97:                                         ; preds = %if.end93
   %86 = load i32, ptr %id_.i, align 8
   %cmp99 = icmp eq i32 %86, 24
-  br i1 %cmp99, label %if.end104, label %lor.lhs.false100
+  br i1 %cmp99, label %if.then103, label %lor.lhs.false100
 
 lor.lhs.false100:                                 ; preds = %if.end97
   %87 = load i32, ptr %id_.i34, align 8
   %cmp102 = icmp eq i32 %87, 24
-  %spec.select = select i1 %cmp102, i32 24, i32 23
+  br i1 %cmp102, label %if.then103, label %if.end104
+
+if.then103:                                       ; preds = %lor.lhs.false100, %if.end97
   br label %if.end104
 
-if.end104:                                        ; preds = %lor.lhs.false100, %if.end97
-  %casted_type_id.0 = phi i32 [ 24, %if.end97 ], [ %spec.select, %lor.lhs.false100 ]
+if.end104:                                        ; preds = %if.then103, %lor.lhs.false100
+  %casted_type_id.0 = phi i32 [ 24, %if.then103 ], [ 23, %lor.lhs.false100 ]
   switch i8 %promotion, label %sw.epilog [
     i8 0, label %sw.bb
     i8 2, label %sw.bb109

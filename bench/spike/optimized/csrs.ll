@@ -1962,7 +1962,7 @@ define noundef zeroext i1 @_ZN13mseccfg_csr_t14unlogged_writeEm(ptr noundef nonn
   %5 = getelementptr inbounds i8, ptr %4, i64 659624
   %6 = load i64, ptr %5, align 8
   %7 = icmp ne i64 %6, 0
-  br i1 %7, label %8, label %75
+  br i1 %7, label %8, label %76
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %0, i64 16
@@ -2028,7 +2028,7 @@ define noundef zeroext i1 @_ZN13mseccfg_csr_t14unlogged_writeEm(ptr noundef nonn
 ._crit_edge.i.i.i.i.i:                            ; preds = %._crit_edge.loopexit.i.i.i.i.i, %8
   %.pre-phi50.i.i.i.i.i = phi i64 [ %35, %._crit_edge.loopexit.i.i.i.i.i ], [ %6, %8 ]
   %.029.lcssa.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i ], [ %11, %8 ]
-  switch i64 %.pre-phi50.i.i.i.i.i, label %.loopexit [
+  switch i64 %.pre-phi50.i.i.i.i.i, label %49 [
     i64 3, label %36
     i64 2, label %41
     i64 1, label %46
@@ -2063,68 +2063,70 @@ define noundef zeroext i1 @_ZN13mseccfg_csr_t14unlogged_writeEm(ptr noundef nonn
   %47 = getelementptr i8, ptr %.2.val.i.i.i.i.i, i64 48
   %.2.val.val.i.i.i.i.i = load i8, ptr %47, align 8
   %48 = icmp slt i8 %.2.val.val.i.i.i.i.i, 0
-  %spec.select.i.i.i.i.i = select i1 %48, ptr %.2.i.i.i.i.i, ptr %12
+  br i1 %48, label %.loopexit, label %49
+
+49:                                               ; preds = %46, %._crit_edge.i.i.i.i.i
   br label %.loopexit
 
 .loopexit.loopexit.split.loop.exit:               ; preds = %27
-  %49 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i, i64 48
+  %50 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i, i64 48
   br label %.loopexit
 
 .loopexit.loopexit.split.loop.exit24:             ; preds = %23
-  %50 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i, i64 32
+  %51 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i, i64 32
   br label %.loopexit
 
 .loopexit.loopexit.split.loop.exit26:             ; preds = %19
-  %51 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i, i64 16
+  %52 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i, i64 16
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit24, %.loopexit.loopexit.split.loop.exit26, %46, %41, %36, %._crit_edge.i.i.i.i.i
-  %.028.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %36 ], [ %.1.i.i.i.i.i, %41 ], [ %12, %._crit_edge.i.i.i.i.i ], [ %spec.select.i.i.i.i.i, %46 ], [ %49, %.loopexit.loopexit.split.loop.exit ], [ %50, %.loopexit.loopexit.split.loop.exit24 ], [ %51, %.loopexit.loopexit.split.loop.exit26 ], [ %.02943.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit24, %.loopexit.loopexit.split.loop.exit26, %49, %46, %41, %36
+  %.028.i.i.i.i.i = phi ptr [ %12, %49 ], [ %.029.lcssa.i.i.i.i.i, %36 ], [ %.1.i.i.i.i.i, %41 ], [ %.2.i.i.i.i.i, %46 ], [ %50, %.loopexit.loopexit.split.loop.exit ], [ %51, %.loopexit.loopexit.split.loop.exit24 ], [ %52, %.loopexit.loopexit.split.loop.exit26 ], [ %.02943.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %.not = icmp eq ptr %.028.i.i.i.i.i, %12
-  %52 = load ptr, ptr %0, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 8
-  %54 = load ptr, ptr %53, align 8
-  %55 = tail call noundef i64 %54(ptr noundef nonnull align 8 dereferenceable(48) %0) #26
-  br i1 %.not, label %63, label %56
+  %53 = load ptr, ptr %0, align 8
+  %54 = getelementptr inbounds i8, ptr %53, i64 8
+  %55 = load ptr, ptr %54, align 8
+  %56 = tail call noundef i64 %55(ptr noundef nonnull align 8 dereferenceable(48) %0) #26
+  br i1 %.not, label %64, label %57
 
-56:                                               ; preds = %.loopexit
-  %57 = load ptr, ptr %0, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 8
-  %59 = load ptr, ptr %58, align 8
-  %60 = tail call noundef i64 %59(ptr noundef nonnull align 8 dereferenceable(48) %0) #26
-  %61 = and i64 %60, 4
-  %62 = icmp eq i64 %61, 0
-  br i1 %62, label %67, label %63
+57:                                               ; preds = %.loopexit
+  %58 = load ptr, ptr %0, align 8
+  %59 = getelementptr inbounds i8, ptr %58, i64 8
+  %60 = load ptr, ptr %59, align 8
+  %61 = tail call noundef i64 %60(ptr noundef nonnull align 8 dereferenceable(48) %0) #26
+  %62 = and i64 %61, 4
+  %63 = icmp eq i64 %62, 0
+  br i1 %63, label %68, label %64
 
-63:                                               ; preds = %56, %.loopexit
-  %64 = and i64 %55, -5
-  %65 = and i64 %1, 4
-  %66 = or disjoint i64 %64, %65
-  br label %67
+64:                                               ; preds = %57, %.loopexit
+  %65 = and i64 %56, -5
+  %66 = and i64 %1, 4
+  %67 = or disjoint i64 %65, %66
+  br label %68
 
-67:                                               ; preds = %63, %56
-  %.0 = phi i64 [ %55, %56 ], [ %66, %63 ]
-  %68 = load ptr, ptr %3, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 40
-  %70 = load ptr, ptr %69, align 8
-  invoke void @_ZN5mmu_t9flush_tlbEv(ptr noundef nonnull align 8 dereferenceable(43168) %70)
-          to label %71 unwind label %76
+68:                                               ; preds = %64, %57
+  %.0 = phi i64 [ %56, %57 ], [ %67, %64 ]
+  %69 = load ptr, ptr %3, align 8
+  %70 = getelementptr inbounds i8, ptr %69, i64 40
+  %71 = load ptr, ptr %70, align 8
+  invoke void @_ZN5mmu_t9flush_tlbEv(ptr noundef nonnull align 8 dereferenceable(43168) %71)
+          to label %72 unwind label %77
 
-71:                                               ; preds = %67
-  %72 = and i64 %1, 3
-  %73 = or i64 %.0, %72
-  %74 = getelementptr inbounds i8, ptr %0, i64 40
-  store i64 %73, ptr %74, align 8
-  br label %75
+72:                                               ; preds = %68
+  %73 = and i64 %1, 3
+  %74 = or i64 %.0, %73
+  %75 = getelementptr inbounds i8, ptr %0, i64 40
+  store i64 %74, ptr %75, align 8
+  br label %76
 
-75:                                               ; preds = %2, %71
+76:                                               ; preds = %2, %72
   ret i1 %7
 
-76:                                               ; preds = %67
-  %77 = landingpad { ptr, i32 }
+77:                                               ; preds = %68
+  %78 = landingpad { ptr, i32 }
           catch ptr null
-  %78 = extractvalue { ptr, i32 } %77, 0
-  tail call void @__clang_call_terminate(ptr %78) #28
+  %79 = extractvalue { ptr, i32 } %78, 0
+  tail call void @__clang_call_terminate(ptr %79) #28
   unreachable
 }
 

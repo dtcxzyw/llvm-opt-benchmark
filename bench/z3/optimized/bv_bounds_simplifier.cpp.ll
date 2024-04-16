@@ -1585,7 +1585,7 @@ while.end:                                        ; preds = %land.rhs.i.i.i, %wh
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %while.end
-  br i1 %call3, label %if.then, label %cleanup45
+  br i1 %call3, label %if.then, label %if.end44
 
 if.then:                                          ; preds = %invoke.cont
   br i1 %sign.addr.0.in.lcssa, label %land.lhs.true, label %if.end
@@ -1854,8 +1854,7 @@ terminate.lpad.i1.i.i.i:                          ; preds = %.noexc.i2.i.i.i, %_
   unreachable
 
 _ZN2bv8intervalD2Ev.exit:                         ; preds = %.noexc.i2.i.i.i
-  %spec.select = or i1 %cond, %retval.0
-  br label %cleanup45
+  br i1 %cond, label %if.end44, label %cleanup45
 
 lpad25:                                           ; preds = %invoke.cont24
   %41 = landingpad { ptr, i32 }
@@ -1960,7 +1959,7 @@ _ZN8rationalD2Ev.exit.i.i.i63:                    ; preds = %.noexc.i.i.i.i61
 .noexc.i2.i.i.i65:                                ; preds = %_ZN8rationalD2Ev.exit.i.i.i63
   %m_den.i.i3.i.i.i66 = getelementptr inbounds i8, ptr %ref.tmp34, i64 48
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %53, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i.i3.i.i.i66)
-          to label %cleanup45 unwind label %terminate.lpad.i1.i.i.i64
+          to label %if.end44 unwind label %terminate.lpad.i1.i.i.i64
 
 terminate.lpad.i1.i.i.i64:                        ; preds = %.noexc.i2.i.i.i65, %_ZN8rationalD2Ev.exit.i.i.i63
   %54 = landingpad { ptr, i32 }
@@ -1985,8 +1984,11 @@ ehcleanup42:                                      ; preds = %lpad38, %lpad36
   call void @_ZN2bv8intervalD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %ref.tmp34) #18
   br label %ehcleanup46
 
-cleanup45:                                        ; preds = %_ZNK2bv12interval_tplImNS_14iinterval_baseEE7is_fullEv.exit.i.i, %.noexc.i2.i.i.i65, %_ZN2bv8intervalD2Ev.exit, %invoke.cont, %invoke.cont5
-  %retval.1 = phi i1 [ false, %invoke.cont5 ], [ true, %invoke.cont ], [ %spec.select, %_ZN2bv8intervalD2Ev.exit ], [ true, %.noexc.i2.i.i.i65 ], [ false, %_ZNK2bv12interval_tplImNS_14iinterval_baseEE7is_fullEv.exit.i.i ]
+if.end44:                                         ; preds = %.noexc.i2.i.i.i65, %_ZN2bv8intervalD2Ev.exit, %invoke.cont
+  br label %cleanup45
+
+cleanup45:                                        ; preds = %_ZNK2bv12interval_tplImNS_14iinterval_baseEE7is_fullEv.exit.i.i, %invoke.cont5, %_ZN2bv8intervalD2Ev.exit, %if.end44
+  %retval.1 = phi i1 [ true, %if.end44 ], [ %retval.0, %_ZN2bv8intervalD2Ev.exit ], [ false, %invoke.cont5 ], [ false, %_ZNK2bv12interval_tplImNS_14iinterval_baseEE7is_fullEv.exit.i.i ]
   %h.i.i.i69 = getelementptr inbounds i8, ptr %b, i64 64
   %58 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %58, ptr noundef nonnull align 8 dereferenceable(16) %h.i.i.i69)

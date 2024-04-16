@@ -2768,15 +2768,17 @@ if.then3.i:                                       ; preds = %if.end.i33
 if.then6.i:                                       ; preds = %if.then3.i
   tail call fastcc void @filter_bitmap_exclude_type(ptr noundef nonnull %bitmap_git, ptr noundef %tip_objects, ptr noundef %to_filter, i32 noundef 1)
   %cond16.i = icmp eq i32 %22, 2
-  %spec.select.i = select i1 %cond16.i, i32 3, i32 2
-  br label %filter_bitmap_object_type.exit
+  br i1 %cond16.i, label %if.then12.i, label %filter_bitmap_object_type.exit
 
 if.then9.thread.i:                                ; preds = %if.then3.i, %if.then6.thread.i
   tail call fastcc void @filter_bitmap_exclude_type(ptr noundef nonnull %bitmap_git, ptr noundef %tip_objects, ptr noundef %to_filter, i32 noundef 2)
+  br label %if.then12.i
+
+if.then12.i:                                      ; preds = %if.then9.thread.i, %if.then6.i
   br label %filter_bitmap_object_type.exit
 
-filter_bitmap_object_type.exit:                   ; preds = %if.then6.i, %if.then9.thread.i
-  %.sink.i = phi i32 [ 3, %if.then9.thread.i ], [ %spec.select.i, %if.then6.i ]
+filter_bitmap_object_type.exit:                   ; preds = %if.then6.i, %if.then12.i
+  %.sink.i = phi i32 [ 3, %if.then12.i ], [ 2, %if.then6.i ]
   tail call fastcc void @filter_bitmap_exclude_type(ptr noundef nonnull %bitmap_git, ptr noundef %tip_objects, ptr noundef %to_filter, i32 noundef %.sink.i)
   br label %return
 

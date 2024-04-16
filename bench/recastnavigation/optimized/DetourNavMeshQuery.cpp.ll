@@ -5268,15 +5268,17 @@ _Z8dtVequalPKfS0_.exit._crit_edge:                ; preds = %_Z8dtVequalPKfS0_.e
   %75 = add nsw i32 %74, 1
   store i32 %75, ptr %7, align 4
   %.not32 = icmp slt i32 %75, %8
-  br i1 %.not32, label %76, label %78
+  br i1 %.not32, label %76, label %79
 
 76:                                               ; preds = %73
   %77 = icmp eq i8 %2, 2
-  %spec.select = select i1 %77, i32 1073741824, i32 536870912
-  br label %78
+  br i1 %77, label %79, label %78
 
-78:                                               ; preds = %76, %47, %46, %73
-  %.0 = phi i32 [ 1073741840, %73 ], [ 536870912, %46 ], [ 536870912, %47 ], [ %spec.select, %76 ]
+78:                                               ; preds = %76, %46, %47
+  br label %79
+
+79:                                               ; preds = %76, %73, %78
+  %.0 = phi i32 [ 536870912, %78 ], [ 1073741840, %73 ], [ 1073741824, %76 ]
   ret i32 %.0
 }
 

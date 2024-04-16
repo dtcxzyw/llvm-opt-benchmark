@@ -108,7 +108,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_quic_wire_encode_frame_ack(ptr noundef %pkt, i32 noundef %ack_delay_exponent, ptr nocapture noundef readonly %ack) local_unnamed_addr #1 {
+define noundef i32 @ossl_quic_wire_encode_frame_ack(ptr noundef %pkt, i32 noundef %ack_delay_exponent, ptr nocapture noundef readonly %ack) local_unnamed_addr #1 {
 entry:
   %ecn_present = getelementptr inbounds i8, ptr %ack, i64 48
   %num_ack_ranges1 = getelementptr inbounds i8, ptr %ack, i64 8
@@ -190,7 +190,7 @@ for.end:                                          ; preds = %for.cond, %for.cond
   %bf.load56 = load i8, ptr %ecn_present, align 8
   %bf.clear57 = and i8 %bf.load56, 1
   %tobool59.not = icmp eq i8 %bf.clear57, 0
-  br i1 %tobool59.not, label %return, label %if.then60
+  br i1 %tobool59.not, label %if.end71, label %if.then60
 
 if.then60:                                        ; preds = %for.end
   %ect0 = getelementptr inbounds i8, ptr %ack, i64 24
@@ -210,12 +210,14 @@ lor.lhs.false66:                                  ; preds = %lor.lhs.false63
   %ecnce = getelementptr inbounds i8, ptr %ack, i64 40
   %12 = load i64, ptr %ecnce, align 8
   %call67 = tail call i32 @WPACKET_quic_write_vlint(ptr noundef %pkt, i64 noundef %12) #11
-  %tobool68.not = icmp ne i32 %call67, 0
-  %spec.select = zext i1 %tobool68.not to i32
+  %tobool68.not = icmp eq i32 %call67, 0
+  br i1 %tobool68.not, label %return, label %if.end71
+
+if.end71:                                         ; preds = %lor.lhs.false66, %for.end
   br label %return
 
-return:                                           ; preds = %for.body, %lor.lhs.false50, %lor.lhs.false66, %for.end, %if.then60, %lor.lhs.false63, %if.end, %lor.lhs.false, %lor.lhs.false18, %lor.lhs.false21, %lor.lhs.false25, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 0, %lor.lhs.false25 ], [ 0, %lor.lhs.false21 ], [ 0, %lor.lhs.false18 ], [ 0, %lor.lhs.false ], [ 0, %if.end ], [ 0, %lor.lhs.false63 ], [ 0, %if.then60 ], [ 1, %for.end ], [ %spec.select, %lor.lhs.false66 ], [ 0, %lor.lhs.false50 ], [ 0, %for.body ]
+return:                                           ; preds = %for.body, %lor.lhs.false50, %if.then60, %lor.lhs.false63, %lor.lhs.false66, %if.end, %lor.lhs.false, %lor.lhs.false18, %lor.lhs.false21, %lor.lhs.false25, %entry, %if.end71
+  %retval.0 = phi i32 [ 1, %if.end71 ], [ 0, %entry ], [ 0, %lor.lhs.false25 ], [ 0, %lor.lhs.false21 ], [ 0, %lor.lhs.false18 ], [ 0, %lor.lhs.false ], [ 0, %if.end ], [ 0, %lor.lhs.false66 ], [ 0, %lor.lhs.false63 ], [ 0, %if.then60 ], [ 0, %lor.lhs.false50 ], [ 0, %for.body ]
   ret i32 %retval.0
 }
 
@@ -437,7 +439,7 @@ return:                                           ; preds = %lor.lhs.false3, %en
 declare i32 @WPACKET_memcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_quic_wire_encode_frame_stream_hdr(ptr noundef %pkt, ptr nocapture noundef readonly %f) local_unnamed_addr #1 {
+define noundef i32 @ossl_quic_wire_encode_frame_stream_hdr(ptr noundef %pkt, ptr nocapture noundef readonly %f) local_unnamed_addr #1 {
 entry:
   %offset = getelementptr inbounds i8, ptr %f, i64 8
   %0 = load i64, ptr %offset, align 8
@@ -477,18 +479,20 @@ if.end22:                                         ; preds = %land.lhs.true, %if.
   %bf.load24 = load i8, ptr %has_explicit_len, align 8
   %bf.clear25 = and i8 %bf.load24, 1
   %tobool27.not = icmp eq i8 %bf.clear25, 0
-  br i1 %tobool27.not, label %return, label %land.lhs.true28
+  br i1 %tobool27.not, label %if.end32, label %land.lhs.true28
 
 land.lhs.true28:                                  ; preds = %if.end22
   %len = getelementptr inbounds i8, ptr %f, i64 16
   %8 = load i64, ptr %len, align 8
   %call29 = tail call i32 @WPACKET_quic_write_vlint(ptr noundef %pkt, i64 noundef %8) #11
-  %tobool30.not = icmp ne i32 %call29, 0
-  %spec.select14 = zext i1 %tobool30.not to i32
+  %tobool30.not = icmp eq i32 %call29, 0
+  br i1 %tobool30.not, label %return, label %if.end32
+
+if.end32:                                         ; preds = %land.lhs.true28, %if.end22
   br label %return
 
-return:                                           ; preds = %land.lhs.true28, %if.end22, %land.lhs.true, %entry, %lor.lhs.false
-  %retval.0 = phi i32 [ 0, %lor.lhs.false ], [ 0, %entry ], [ 0, %land.lhs.true ], [ 1, %if.end22 ], [ %spec.select14, %land.lhs.true28 ]
+return:                                           ; preds = %land.lhs.true28, %land.lhs.true, %entry, %lor.lhs.false, %if.end32
+  %retval.0 = phi i32 [ 1, %if.end32 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true28 ]
   ret i32 %retval.0
 }
 
@@ -1951,8 +1955,8 @@ PACKET_forward.exit:                              ; preds = %if.end19
   store i64 %sub.i.i33, ptr %0, align 8
   br label %return
 
-return:                                           ; preds = %if.end.i18, %lor.lhs.false3, %if.end.i, %if.end.i.i.i, %entry, %PACKET_forward.exit, %if.end19, %if.then14, %if.else, %if.end, %expect_frame_header.exit
-  %retval.0 = phi i32 [ 0, %expect_frame_header.exit ], [ 0, %if.end ], [ 0, %if.else ], [ 1, %if.then14 ], [ 1, %PACKET_forward.exit ], [ 0, %if.end19 ], [ 0, %entry ], [ 0, %if.end.i.i.i ], [ 0, %if.end.i ], [ 0, %lor.lhs.false3 ], [ 0, %if.end.i18 ]
+return:                                           ; preds = %if.end19, %if.end.i18, %lor.lhs.false3, %if.end.i, %if.end.i.i.i, %entry, %if.then14, %PACKET_forward.exit, %if.else, %if.end, %expect_frame_header.exit
+  %retval.0 = phi i32 [ 0, %expect_frame_header.exit ], [ 0, %if.end ], [ 0, %if.else ], [ 1, %PACKET_forward.exit ], [ 1, %if.then14 ], [ 0, %entry ], [ 0, %if.end.i.i.i ], [ 0, %if.end.i ], [ 0, %lor.lhs.false3 ], [ 0, %if.end.i18 ], [ 0, %if.end19 ]
   ret i32 %retval.0
 }
 
@@ -2199,8 +2203,8 @@ PACKET_forward.exit:                              ; preds = %if.else46
   store i64 %sub.i.i55, ptr %0, align 8
   br label %return
 
-return:                                           ; preds = %if.end.i40, %if.then24, %if.end.i27, %if.then3, %if.end.i23, %if.end.i.i.i, %entry, %lor.lhs.false.i, %PACKET_forward.exit, %if.else46, %if.end37.thread, %if.then45, %if.end37
-  %retval.0 = phi i32 [ 0, %if.end37 ], [ 1, %if.then45 ], [ 0, %if.end37.thread ], [ 1, %PACKET_forward.exit ], [ 0, %if.else46 ], [ 0, %lor.lhs.false.i ], [ 0, %entry ], [ 0, %if.end.i.i.i ], [ 0, %if.end.i23 ], [ 0, %if.then3 ], [ 0, %if.end.i27 ], [ 0, %if.then24 ], [ 0, %if.end.i40 ]
+return:                                           ; preds = %if.else46, %if.end.i40, %if.then24, %if.end.i27, %if.then3, %if.end.i23, %if.end.i.i.i, %entry, %lor.lhs.false.i, %if.then45, %PACKET_forward.exit, %if.end37.thread, %if.end37
+  %retval.0 = phi i32 [ 0, %if.end37 ], [ 0, %if.end37.thread ], [ 1, %PACKET_forward.exit ], [ 1, %if.then45 ], [ 0, %lor.lhs.false.i ], [ 0, %entry ], [ 0, %if.end.i.i.i ], [ 0, %if.end.i23 ], [ 0, %if.then3 ], [ 0, %if.end.i27 ], [ 0, %if.then24 ], [ 0, %if.end.i40 ], [ 0, %if.else46 ]
   ret i32 %retval.0
 }
 

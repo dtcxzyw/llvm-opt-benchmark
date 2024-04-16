@@ -1036,19 +1036,21 @@ return:                                           ; preds = %entry, %if.then
 declare void @bdrv_default_perms(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i32 @vpc_probe(ptr nocapture noundef readonly %buf, i32 noundef %buf_size, ptr nocapture readnone %filename) #3 {
+define internal noundef i32 @vpc_probe(ptr nocapture noundef readonly %buf, i32 noundef %buf_size, ptr nocapture readnone %filename) #3 {
 entry:
   %cmp = icmp sgt i32 %buf_size, 7
-  br i1 %cmp, label %land.lhs.true, label %return
+  br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
   %call = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull dereferenceable(9) @.str.13, i64 noundef 8) #16
   %tobool.not = icmp eq i32 %call, 0
-  %spec.select = select i1 %tobool.not, i32 100, i32 0
+  br i1 %tobool.not, label %return, label %if.end
+
+if.end:                                           ; preds = %land.lhs.true, %entry
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ %spec.select, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %if.end
+  %retval.0 = phi i32 [ 0, %if.end ], [ 100, %land.lhs.true ]
   ret i32 %retval.0
 }
 
@@ -1233,9 +1235,9 @@ if.then23.i:                                      ; preds = %if.end10.i
   call void @llvm.memset.p0.i64(ptr align 1 %call.i, i8 -1, i64 %conv28.i, i1 false)
   %12 = load ptr, ptr %file.i, align 8
   %call31.i = call i32 @bdrv_co_pwrite_sync(ptr noundef %12, i64 noundef %mul.i, i64 noundef %conv28.i, ptr noundef %call.i, i32 noundef 0) #15
-  %cmp32.i = icmp sgt i32 %call31.i, -1
+  %cmp32.i = icmp slt i32 %call31.i, 0
   call void @g_free(ptr noundef %call.i) #15
-  br i1 %cmp32.i, label %if.end20.sink.split, label %fail
+  br i1 %cmp32.i, label %fail, label %if.end20.sink.split
 
 if.then13:                                        ; preds = %while.body, %lor.lhs.false.i
   %13 = load i32, ptr %block_size41, align 8
@@ -1719,20 +1721,20 @@ if.then23:                                        ; preds = %land.lhs.true20
   %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %8 = load ptr, ptr %file, align 8
   %call31 = tail call i32 @bdrv_co_pwrite_sync(ptr noundef %8, i64 noundef %mul, i64 noundef %conv28, ptr noundef %call, i32 noundef 0) #15
-  %cmp32 = icmp sgt i32 %call31, -1
-  br i1 %cmp32, label %cleanup, label %if.then34
+  %cmp32 = icmp slt i32 %call31, 0
+  br i1 %cmp32, label %cleanup, label %return.sink.split
 
-if.then34:                                        ; preds = %if.then23
+cleanup:                                          ; preds = %if.then23
   store i32 %call31, ptr %err, align 4
-  br label %cleanup
+  br label %return.sink.split
 
-cleanup:                                          ; preds = %if.then23, %if.then34
-  %spec.select = phi i64 [ %add17, %if.then23 ], [ -2, %if.then34 ]
+return.sink.split:                                ; preds = %if.then23, %cleanup
+  %retval.1.ph = phi i64 [ -2, %cleanup ], [ %add17, %if.then23 ]
   tail call void @g_free(ptr noundef %call) #15
   br label %return
 
-return:                                           ; preds = %cleanup, %if.end10, %land.lhs.true20, %if.end, %lor.lhs.false
-  %retval.1 = phi i64 [ -1, %lor.lhs.false ], [ -1, %if.end ], [ %add17, %land.lhs.true20 ], [ %add17, %if.end10 ], [ %spec.select, %cleanup ]
+return:                                           ; preds = %return.sink.split, %if.end10, %land.lhs.true20, %if.end, %lor.lhs.false
+  %retval.1 = phi i64 [ -1, %lor.lhs.false ], [ -1, %if.end ], [ %add17, %land.lhs.true20 ], [ %add17, %if.end10 ], [ %retval.1.ph, %return.sink.split ]
   ret i64 %retval.1
 }
 

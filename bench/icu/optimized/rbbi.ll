@@ -942,14 +942,17 @@ lor.lhs.false:                                    ; preds = %if.end20
   %cmp24.not = icmp eq ptr %17, null
   %cmp27.not = icmp eq ptr %16, null
   %or.cond = or i1 %cmp27.not, %cmp24.not
-  br i1 %or.cond, label %return, label %land.lhs.true28
+  br i1 %or.cond, label %if.end33, label %land.lhs.true28
 
 land.lhs.true28:                                  ; preds = %lor.lhs.false
   %call31 = tail call noundef zeroext i1 @_ZNK6icu_7515RBBIDataWrappereqERKS0_(ptr noundef nonnull align 8 dereferenceable(137) %16, ptr noundef nonnull align 8 dereferenceable(137) %17)
+  br i1 %call31, label %return, label %if.end33
+
+if.end33:                                         ; preds = %land.lhs.true28, %lor.lhs.false
   br label %return
 
-return:                                           ; preds = %if.end.i.i, %land.lhs.true28, %lor.lhs.false, %if.end20, %if.end8, %land.lhs.true, %land.lhs.true13, %if.end4, %if.end, %_ZNKSt9type_infoneERKS_.exit
-  %retval.0 = phi i1 [ false, %_ZNKSt9type_infoneERKS_.exit ], [ true, %if.end ], [ false, %if.end4 ], [ false, %land.lhs.true13 ], [ false, %land.lhs.true ], [ false, %if.end8 ], [ true, %if.end20 ], [ false, %lor.lhs.false ], [ %call31, %land.lhs.true28 ], [ false, %if.end.i.i ]
+return:                                           ; preds = %if.end.i.i, %if.end20, %land.lhs.true28, %if.end8, %land.lhs.true, %land.lhs.true13, %if.end4, %if.end, %_ZNKSt9type_infoneERKS_.exit, %if.end33
+  %retval.0 = phi i1 [ false, %if.end33 ], [ false, %_ZNKSt9type_infoneERKS_.exit ], [ true, %if.end ], [ false, %if.end4 ], [ false, %land.lhs.true13 ], [ false, %land.lhs.true ], [ false, %if.end8 ], [ true, %land.lhs.true28 ], [ true, %if.end20 ], [ false, %if.end.i.i ]
   ret i1 %retval.0
 }
 

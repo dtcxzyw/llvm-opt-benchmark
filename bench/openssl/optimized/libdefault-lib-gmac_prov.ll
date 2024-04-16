@@ -282,7 +282,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @gmac_set_ctx_params(ptr noundef %vmacctx, ptr noundef %params) #0 {
+define internal noundef i32 @gmac_set_ctx_params(ptr noundef %vmacctx, ptr noundef %params) #0 {
 entry:
   %ctx1 = getelementptr inbounds i8, ptr %vmacctx, i64 8
   %0 = load ptr, ptr %ctx1, align 8
@@ -361,7 +361,7 @@ gmac_setkey.exit:                                 ; preds = %lor.lhs.false
 if.end35:                                         ; preds = %gmac_setkey.exit, %if.end26
   %call36 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %params, ptr noundef nonnull @.str.6) #5
   %cmp37.not = icmp eq ptr %call36, null
-  br i1 %cmp37.not, label %return, label %if.then38
+  br i1 %cmp37.not, label %if.end53, label %if.then38
 
 if.then38:                                        ; preds = %if.end35
   %data_type39 = getelementptr inbounds i8, ptr %call36, i64 8
@@ -381,12 +381,14 @@ lor.lhs.false47:                                  ; preds = %if.end42
   %data48 = getelementptr inbounds i8, ptr %call36, i64 16
   %7 = load ptr, ptr %data48, align 8
   %call49 = tail call i32 @EVP_EncryptInit_ex(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %7) #5
-  %tobool50.not = icmp ne i32 %call49, 0
-  %spec.select = zext i1 %tobool50.not to i32
+  %tobool50.not = icmp eq i32 %call49, 0
+  br i1 %tobool50.not, label %return, label %if.end53
+
+if.end53:                                         ; preds = %lor.lhs.false47, %if.end35
   br label %return
 
-return:                                           ; preds = %gmac_setkey.exit.thread, %lor.lhs.false47, %if.end35, %if.end42, %if.then38, %if.then29, %gmac_setkey.exit, %if.end17, %if.then8, %if.end, %entry, %if.then16
-  %retval.0 = phi i32 [ 0, %if.then16 ], [ 1, %entry ], [ 0, %if.end ], [ 0, %if.then8 ], [ 0, %if.end17 ], [ 0, %gmac_setkey.exit ], [ 0, %if.then29 ], [ 0, %if.then38 ], [ 0, %if.end42 ], [ 1, %if.end35 ], [ %spec.select, %lor.lhs.false47 ], [ 0, %gmac_setkey.exit.thread ]
+return:                                           ; preds = %gmac_setkey.exit.thread, %if.end42, %lor.lhs.false47, %if.then38, %if.then29, %gmac_setkey.exit, %if.end17, %if.then8, %if.end, %entry, %if.end53, %if.then16
+  %retval.0 = phi i32 [ 0, %if.then16 ], [ 1, %if.end53 ], [ 1, %entry ], [ 0, %if.end ], [ 0, %if.then8 ], [ 0, %if.end17 ], [ 0, %gmac_setkey.exit ], [ 0, %if.then29 ], [ 0, %if.then38 ], [ 0, %lor.lhs.false47 ], [ 0, %if.end42 ], [ 0, %gmac_setkey.exit.thread ]
   ret i32 %retval.0
 }
 

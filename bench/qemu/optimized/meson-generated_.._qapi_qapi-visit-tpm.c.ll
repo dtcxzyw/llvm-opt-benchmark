@@ -172,7 +172,7 @@ return:                                           ; preds = %out_obj, %land.lhs.
 declare void @qapi_free_TpmTypeList(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_TPMPassthroughOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_TPMPassthroughOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_path = alloca i8, align 1
   %has_cancel_path = alloca i8, align 1
@@ -194,14 +194,17 @@ if.then:                                          ; preds = %entry
 
 if.end9:                                          ; preds = %if.then, %entry
   %call10 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.1, ptr noundef nonnull %has_cancel_path) #4
-  br i1 %call10, label %if.then11, label %return
+  br i1 %call10, label %if.then11, label %if.end16
 
 if.then11:                                        ; preds = %if.end9
   %call13 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.1, ptr noundef nonnull %cancel_path, ptr noundef %errp) #4
+  br i1 %call13, label %if.end16, label %return
+
+if.end16:                                         ; preds = %if.then11, %if.end9
   br label %return
 
-return:                                           ; preds = %if.then11, %if.end9, %if.then
-  %retval.0 = phi i1 [ false, %if.then ], [ true, %if.end9 ], [ %call13, %if.then11 ]
+return:                                           ; preds = %if.then11, %if.then, %if.end16
+  %retval.0 = phi i1 [ true, %if.end16 ], [ false, %if.then ], [ false, %if.then11 ]
   ret i1 %retval.0
 }
 
@@ -224,9 +227,9 @@ if.end:                                           ; preds = %entry
 
 if.then1:                                         ; preds = %if.end
   %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
-  br i1 %call2, label %out_obj.thread19, label %if.else
+  br i1 %call2, label %out_obj.thread, label %if.else
 
-out_obj.thread19:                                 ; preds = %if.then1
+out_obj.thread:                                   ; preds = %if.then1
   tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br label %return
 
@@ -251,38 +254,30 @@ if.end5:                                          ; preds = %if.end
 
 if.then.i:                                        ; preds = %if.end5
   %call7.i = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str, ptr noundef nonnull %0, ptr noundef %errp) #4
-  br i1 %call7.i, label %if.end9.i, label %visit_type_TPMPassthroughOptions_members.exit.thread15
-
-visit_type_TPMPassthroughOptions_members.exit.thread15: ; preds = %if.then.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_path.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_cancel_path.i)
-  br label %out_obj.thread
+  br i1 %call7.i, label %if.end9.i, label %out_obj.thread16
 
 if.end9.i:                                        ; preds = %if.then.i, %if.end5
   %call10.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.1, ptr noundef nonnull %has_cancel_path.i) #4
-  br i1 %call10.i, label %visit_type_TPMPassthroughOptions_members.exit, label %visit_type_TPMPassthroughOptions_members.exit.thread
+  br i1 %call10.i, label %if.then11.i, label %out_obj
 
-visit_type_TPMPassthroughOptions_members.exit.thread: ; preds = %if.end9.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_path.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_cancel_path.i)
-  br label %out_obj
-
-visit_type_TPMPassthroughOptions_members.exit:    ; preds = %if.end9.i
+if.then11.i:                                      ; preds = %if.end9.i
   %call13.i = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.1, ptr noundef nonnull %cancel_path.i, ptr noundef %errp) #4
+  br i1 %call13.i, label %out_obj, label %out_obj.thread16
+
+out_obj.thread16:                                 ; preds = %if.then11.i, %if.then.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_path.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_cancel_path.i)
-  br i1 %call13.i, label %out_obj, label %out_obj.thread
-
-out_obj.thread:                                   ; preds = %visit_type_TPMPassthroughOptions_members.exit, %visit_type_TPMPassthroughOptions_members.exit.thread15
   call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br label %land.lhs.true
 
-out_obj:                                          ; preds = %visit_type_TPMPassthroughOptions_members.exit, %visit_type_TPMPassthroughOptions_members.exit.thread
+out_obj:                                          ; preds = %if.end9.i, %if.then11.i
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_path.i)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_cancel_path.i)
   %call9 = call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
   call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br i1 %call9, label %return, label %land.lhs.true
 
-land.lhs.true:                                    ; preds = %out_obj.thread, %out_obj
+land.lhs.true:                                    ; preds = %out_obj.thread16, %out_obj
   %call11 = call zeroext i1 @visit_is_input(ptr noundef %v) #4
   br i1 %call11, label %if.then12, label %return
 
@@ -292,8 +287,8 @@ if.then12:                                        ; preds = %land.lhs.true
   store ptr null, ptr %obj, align 8
   br label %return
 
-return:                                           ; preds = %out_obj.thread19, %out_obj, %land.lhs.true, %if.then12, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %if.then12 ], [ false, %land.lhs.true ], [ true, %out_obj ], [ true, %out_obj.thread19 ]
+return:                                           ; preds = %out_obj.thread, %out_obj, %land.lhs.true, %if.then12, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.then12 ], [ false, %land.lhs.true ], [ true, %out_obj ], [ true, %out_obj.thread ]
   ret i1 %retval.0
 }
 

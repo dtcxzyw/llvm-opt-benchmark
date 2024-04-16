@@ -61,13 +61,13 @@ define dso_local noundef i32 @ext4_inode_journal_mode(ptr noundef %0) local_unna
   %6 = getelementptr inbounds i8, ptr %5, i64 552
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %38, label %9
+  br i1 %8, label %39, label %9
 
 9:                                                ; preds = %1
   %10 = load i16, ptr %0, align 8
   %11 = and i16 %10, -4096
   %12 = icmp eq i16 %11, -32768
-  br i1 %12, label %13, label %38
+  br i1 %12, label %13, label %35
 
 13:                                               ; preds = %9
   %14 = getelementptr i8, ptr %0, i64 -216
@@ -90,33 +90,35 @@ define dso_local noundef i32 @ext4_inode_journal_mode(ptr noundef %0) local_unna
   %27 = and i32 %20, 134217728
   %28 = icmp eq i32 %27, 0
   %29 = and i1 %28, %26
-  br i1 %29, label %30, label %35
+  br i1 %29, label %30, label %36
 
 30:                                               ; preds = %13, %18, %23
   %31 = getelementptr inbounds i8, ptr %0, i64 12
   %32 = load i32, ptr %31, align 4
   %33 = and i32 %32, 16384
   %34 = icmp eq i32 %33, 0
-  %spec.select = select i1 %34, i32 1, i32 2
-  br label %38
+  br i1 %34, label %35, label %39
 
-35:                                               ; preds = %23
-  switch i32 %21, label %36 [
-    i32 2048, label %38
-    i32 3072, label %37
+35:                                               ; preds = %30, %9
+  br label %39
+
+36:                                               ; preds = %23
+  switch i32 %21, label %37 [
+    i32 2048, label %39
+    i32 3072, label %38
   ]
 
-36:                                               ; preds = %35
+37:                                               ; preds = %36
   tail call void asm sideeffect "2048: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2048b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2048) #10, !srcloc !6
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 29, i32 0, i64 12) #10, !srcloc !7
   unreachable
 
-37:                                               ; preds = %35
-  br label %38
+38:                                               ; preds = %36
+  br label %39
 
-38:                                               ; preds = %30, %9, %37, %35, %1
-  %39 = phi i32 [ 4, %1 ], [ 2, %35 ], [ 4, %37 ], [ 1, %9 ], [ %spec.select, %30 ]
-  ret i32 %39
+39:                                               ; preds = %38, %36, %35, %30, %1
+  %40 = phi i32 [ 1, %35 ], [ 4, %1 ], [ 2, %30 ], [ 2, %36 ], [ 4, %38 ]
+  ret i32 %40
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

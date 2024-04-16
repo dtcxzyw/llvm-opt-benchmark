@@ -1306,18 +1306,26 @@ define noundef i32 @virtual_chdir(ptr nocapture noundef readonly %0) local_unnam
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal i32 @php_is_dir_ok(ptr nocapture noundef readonly %0) #12 {
+define internal noundef i32 @php_is_dir_ok(ptr nocapture noundef readonly %0) #12 {
   %2 = alloca %struct.stat, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 0, i64 144, i1 false)
   %3 = load ptr, ptr %0, align 8
   %4 = call i32 @stat(ptr noundef %3, ptr noundef nonnull %2) #21
-  %5 = icmp ne i32 %4, 0
-  %6 = getelementptr inbounds i8, ptr %2, i64 24
-  %7 = load i32, ptr %6, align 8
-  %8 = and i32 %7, 61440
-  %9 = icmp ne i32 %8, 16384
-  %narrow = select i1 %5, i1 true, i1 %9
-  %.0 = zext i1 %narrow to i32
+  %5 = icmp eq i32 %4, 0
+  br i1 %5, label %6, label %11
+
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds i8, ptr %2, i64 24
+  %8 = load i32, ptr %7, align 8
+  %9 = and i32 %8, 61440
+  %10 = icmp eq i32 %9, 16384
+  br i1 %10, label %12, label %11
+
+11:                                               ; preds = %6, %1
+  br label %12
+
+12:                                               ; preds = %6, %11
+  %.0 = phi i32 [ 1, %11 ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -1494,18 +1502,26 @@ virtual_filepath_ex.exit:
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal i32 @php_is_file_ok(ptr nocapture noundef readonly %0) #12 {
+define internal noundef i32 @php_is_file_ok(ptr nocapture noundef readonly %0) #12 {
   %2 = alloca %struct.stat, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 0, i64 144, i1 false)
   %3 = load ptr, ptr %0, align 8
   %4 = call i32 @stat(ptr noundef %3, ptr noundef nonnull %2) #21
-  %5 = icmp ne i32 %4, 0
-  %6 = getelementptr inbounds i8, ptr %2, i64 24
-  %7 = load i32, ptr %6, align 8
-  %8 = and i32 %7, 61440
-  %9 = icmp ne i32 %8, 32768
-  %narrow = select i1 %5, i1 true, i1 %9
-  %.0 = zext i1 %narrow to i32
+  %5 = icmp eq i32 %4, 0
+  br i1 %5, label %6, label %11
+
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds i8, ptr %2, i64 24
+  %8 = load i32, ptr %7, align 8
+  %9 = and i32 %8, 61440
+  %10 = icmp eq i32 %9, 32768
+  br i1 %10, label %12, label %11
+
+11:                                               ; preds = %6, %1
+  br label %12
+
+12:                                               ; preds = %6, %11
+  %.0 = phi i32 [ 1, %11 ], [ 0, %6 ]
   ret i32 %.0
 }
 

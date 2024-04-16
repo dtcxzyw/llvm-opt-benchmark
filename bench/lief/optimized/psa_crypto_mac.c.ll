@@ -520,16 +520,16 @@ define hidden i32 @mbedtls_psa_mac_verify_finish(ptr noundef %0, ptr nocapture n
   %4 = alloca [64 x i8], align 16
   %5 = load i32, ptr %0, align 8
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %19, label %7
+  br i1 %6, label %20, label %7
 
 7:                                                ; preds = %3
   %8 = icmp ugt i64 %2, 64
-  br i1 %8, label %19, label %9
+  br i1 %8, label %20, label %9
 
 9:                                                ; preds = %7
   %10 = call fastcc i32 @psa_mac_finish_internal(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef %2)
   %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %11, label %mbedtls_psa_safer_memcmp.exit.thread
+  br i1 %.not, label %11, label %19
 
 11:                                               ; preds = %9
   %.not.i = icmp eq i64 %2, 0
@@ -551,16 +551,18 @@ define hidden i32 @mbedtls_psa_mac_verify_finish(ptr noundef %0, ptr nocapture n
 
 mbedtls_psa_safer_memcmp.exit:                    ; preds = %.lr.ph.i
   %.not11 = icmp eq i8 %17, 0
-  %spec.select = select i1 %.not11, i32 0, i32 -149
-  br label %mbedtls_psa_safer_memcmp.exit.thread
+  br i1 %.not11, label %mbedtls_psa_safer_memcmp.exit.thread, label %19
 
-mbedtls_psa_safer_memcmp.exit.thread:             ; preds = %mbedtls_psa_safer_memcmp.exit, %11, %9
-  %.0 = phi i32 [ %10, %9 ], [ 0, %11 ], [ %spec.select, %mbedtls_psa_safer_memcmp.exit ]
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 64) #5
+mbedtls_psa_safer_memcmp.exit.thread:             ; preds = %11, %mbedtls_psa_safer_memcmp.exit
   br label %19
 
-19:                                               ; preds = %7, %3, %mbedtls_psa_safer_memcmp.exit.thread
-  %.08 = phi i32 [ %.0, %mbedtls_psa_safer_memcmp.exit.thread ], [ -137, %3 ], [ -135, %7 ]
+19:                                               ; preds = %mbedtls_psa_safer_memcmp.exit.thread, %mbedtls_psa_safer_memcmp.exit, %9
+  %.0 = phi i32 [ %10, %9 ], [ 0, %mbedtls_psa_safer_memcmp.exit.thread ], [ -149, %mbedtls_psa_safer_memcmp.exit ]
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 64) #5
+  br label %20
+
+20:                                               ; preds = %7, %3, %19
+  %.08 = phi i32 [ %.0, %19 ], [ -137, %3 ], [ -135, %7 ]
   ret i32 %.08
 }
 

@@ -1526,7 +1526,7 @@ define internal fastcc i32 @do_start_worker() unnamed_addr #0 {
   %10 = load ptr, ptr @MainLWLockArray, align 8
   %11 = getelementptr i8, ptr %10, i64 2816
   tail call void @LWLockRelease(ptr noundef %11) #18
-  br i1 %spec.select.i, label %116, label %12
+  br i1 %spec.select.i, label %119, label %12
 
 12:                                               ; preds = %0
   %13 = load ptr, ptr @CurrentMemoryContext, align 8
@@ -1551,187 +1551,193 @@ define internal fastcc i32 @do_start_worker() unnamed_addr #0 {
   %27 = tail call i64 @GetCurrentTimestamp() #18
   %28 = getelementptr inbounds i8, ptr %16, i64 4
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %.thread, label %.lr.ph99
+  br i1 %.not, label %.thread, label %.lr.ph96
 
-.lr.ph99:                                         ; preds = %12
+.lr.ph96:                                         ; preds = %12
   %29 = getelementptr inbounds i8, ptr %16, i64 16
   %30 = load i32, ptr %28, align 4
   %31 = icmp sgt i32 %30, 0
-  br i1 %31, label %.lr.ph118, label %._crit_edge
+  br i1 %31, label %.lr.ph115, label %._crit_edge
 
-.lr.ph118:                                        ; preds = %.lr.ph99, %89
-  %.06595117 = phi i1 [ %.267, %89 ], [ false, %.lr.ph99 ]
-  %.06396116 = phi ptr [ %.3, %89 ], [ null, %.lr.ph99 ]
-  %.06197115 = phi i1 [ %.162, %89 ], [ false, %.lr.ph99 ]
-  %.06098114 = phi i1 [ %.1, %89 ], [ false, %.lr.ph99 ]
-  %indvars.iv113 = phi i64 [ %indvars.iv.next, %89 ], [ 0, %.lr.ph99 ]
+.lr.ph115:                                        ; preds = %.lr.ph96, %92
+  %.06592114 = phi i1 [ %.267, %92 ], [ false, %.lr.ph96 ]
+  %.06393113 = phi ptr [ %.3, %92 ], [ null, %.lr.ph96 ]
+  %.06194112 = phi i1 [ %.162, %92 ], [ false, %.lr.ph96 ]
+  %.06095111 = phi i1 [ %.1, %92 ], [ false, %.lr.ph96 ]
+  %indvars.iv110 = phi i64 [ %indvars.iv.next, %92 ], [ 0, %.lr.ph96 ]
   %32 = load ptr, ptr %29, align 8
-  %33 = getelementptr %union.ListCell, ptr %32, i64 %indvars.iv113
+  %33 = getelementptr %union.ListCell, ptr %32, i64 %indvars.iv110
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 16
   %36 = load i32, ptr %35, align 8
   %37 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %36, i32 noundef %spec.select) #18
-  br i1 %37, label %38, label %45
+  br i1 %37, label %38, label %46
 
-38:                                               ; preds = %.lr.ph118
-  %39 = icmp eq ptr %.06396116, null
-  br i1 %39, label %89, label %40
+38:                                               ; preds = %.lr.ph115
+  %39 = icmp eq ptr %.06393113, null
+  br i1 %39, label %45, label %40
 
 40:                                               ; preds = %38
   %41 = load i32, ptr %35, align 8
-  %42 = getelementptr inbounds i8, ptr %.06396116, i64 16
+  %42 = getelementptr inbounds i8, ptr %.06393113, i64 16
   %43 = load i32, ptr %42, align 8
   %44 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %41, i32 noundef %43) #18
-  %spec.select81 = select i1 %44, ptr %34, ptr %.06396116
-  br label %89
+  br i1 %44, label %45, label %92
 
-45:                                               ; preds = %.lr.ph118
-  br i1 %.06098114, label %89, label %46
+45:                                               ; preds = %40, %38
+  br label %92
 
-46:                                               ; preds = %45
-  %47 = getelementptr inbounds i8, ptr %34, i64 20
-  %48 = load i32, ptr %47, align 4
-  %49 = tail call zeroext i1 @MultiXactIdPrecedes(i32 noundef %48, i32 noundef %.059) #18
-  br i1 %49, label %50, label %57
+46:                                               ; preds = %.lr.ph115
+  br i1 %.06095111, label %92, label %47
 
-50:                                               ; preds = %46
-  %51 = icmp eq ptr %.06396116, null
-  br i1 %51, label %89, label %52
+47:                                               ; preds = %46
+  %48 = getelementptr inbounds i8, ptr %34, i64 20
+  %49 = load i32, ptr %48, align 4
+  %50 = tail call zeroext i1 @MultiXactIdPrecedes(i32 noundef %49, i32 noundef %.059) #18
+  br i1 %50, label %51, label %59
 
-52:                                               ; preds = %50
-  %53 = load i32, ptr %47, align 4
-  %54 = getelementptr inbounds i8, ptr %.06396116, i64 20
-  %55 = load i32, ptr %54, align 4
-  %56 = tail call zeroext i1 @MultiXactIdPrecedes(i32 noundef %53, i32 noundef %55) #18
-  %spec.select82 = select i1 %56, ptr %34, ptr %.06396116
-  br label %89
+51:                                               ; preds = %47
+  %52 = icmp eq ptr %.06393113, null
+  br i1 %52, label %58, label %53
 
-57:                                               ; preds = %46
-  br i1 %.06197115, label %89, label %58
+53:                                               ; preds = %51
+  %54 = load i32, ptr %48, align 4
+  %55 = getelementptr inbounds i8, ptr %.06393113, i64 20
+  %56 = load i32, ptr %55, align 4
+  %57 = tail call zeroext i1 @MultiXactIdPrecedes(i32 noundef %54, i32 noundef %56) #18
+  br i1 %57, label %58, label %92
 
-58:                                               ; preds = %57
-  %59 = load i32, ptr %34, align 8
-  %60 = tail call ptr @pgstat_fetch_stat_dbentry(i32 noundef %59) #18
-  %61 = getelementptr inbounds i8, ptr %34, i64 24
-  store ptr %60, ptr %61, align 8
-  %.not77 = icmp eq ptr %60, null
-  br i1 %.not77, label %89, label %62
+58:                                               ; preds = %53, %51
+  br label %92
 
-62:                                               ; preds = %58
-  %63 = load ptr, ptr @DatabaseList, align 8
-  %.not78 = icmp eq ptr %63, null
-  %.not7992104 = icmp eq ptr %63, @DatabaseList
-  %.not7992 = or i1 %.not78, %.not7992104
-  br i1 %.not7992, label %.thread87, label %.lr.ph
+59:                                               ; preds = %47
+  br i1 %.06194112, label %92, label %60
 
-.lr.ph:                                           ; preds = %62
-  %64 = load i32, ptr %34, align 8
-  br label %65
+60:                                               ; preds = %59
+  %61 = load i32, ptr %34, align 8
+  %62 = tail call ptr @pgstat_fetch_stat_dbentry(i32 noundef %61) #18
+  %63 = getelementptr inbounds i8, ptr %34, i64 24
+  store ptr %62, ptr %63, align 8
+  %.not77 = icmp eq ptr %62, null
+  br i1 %.not77, label %92, label %64
 
-65:                                               ; preds = %.lr.ph, %select.unfold
-  %.sroa.0.093 = phi ptr [ %63, %.lr.ph ], [ %73, %select.unfold ]
-  %66 = getelementptr i8, ptr %.sroa.0.093, i64 -24
-  %67 = load i32, ptr %66, align 8
-  %68 = icmp eq i32 %67, %64
-  br i1 %68, label %69, label %select.unfold
+64:                                               ; preds = %60
+  %65 = load ptr, ptr @DatabaseList, align 8
+  %.not78 = icmp eq ptr %65, null
+  %.not7989101 = icmp eq ptr %65, @DatabaseList
+  %.not7989 = or i1 %.not78, %.not7989101
+  br i1 %.not7989, label %.thread84, label %.lr.ph
 
-69:                                               ; preds = %65
-  %70 = getelementptr i8, ptr %.sroa.0.093, i64 -16
-  %71 = load i64, ptr %70, align 8
-  %72 = tail call zeroext i1 @TimestampDifferenceExceeds(i64 noundef %71, i64 noundef %27, i32 noundef 0) #18
-  br i1 %72, label %.thread87, label %74
+.lr.ph:                                           ; preds = %64
+  %66 = load i32, ptr %34, align 8
+  br label %67
 
-select.unfold:                                    ; preds = %65
-  %73 = load ptr, ptr %.sroa.0.093, align 8
-  %.not79 = icmp eq ptr %73, @DatabaseList
-  br i1 %.not79, label %.thread87, label %65, !llvm.loop !12
+67:                                               ; preds = %.lr.ph, %select.unfold
+  %.sroa.0.090 = phi ptr [ %65, %.lr.ph ], [ %75, %select.unfold ]
+  %68 = getelementptr i8, ptr %.sroa.0.090, i64 -24
+  %69 = load i32, ptr %68, align 8
+  %70 = icmp eq i32 %69, %66
+  br i1 %70, label %71, label %select.unfold
 
-74:                                               ; preds = %69
-  %75 = load i64, ptr %70, align 8
-  %76 = load i32, ptr @autovacuum_naptime, align 4
-  %77 = mul i32 %76, 1000
-  %78 = tail call zeroext i1 @TimestampDifferenceExceeds(i64 noundef %27, i64 noundef %75, i32 noundef %77) #18
-  br i1 %78, label %.thread87, label %89
+71:                                               ; preds = %67
+  %72 = getelementptr i8, ptr %.sroa.0.090, i64 -16
+  %73 = load i64, ptr %72, align 8
+  %74 = tail call zeroext i1 @TimestampDifferenceExceeds(i64 noundef %73, i64 noundef %27, i32 noundef 0) #18
+  br i1 %74, label %.thread84, label %76
 
-.thread87:                                        ; preds = %select.unfold, %62, %69, %74
-  %79 = icmp eq ptr %.06396116, null
-  br i1 %79, label %89, label %80
+select.unfold:                                    ; preds = %67
+  %75 = load ptr, ptr %.sroa.0.090, align 8
+  %.not79 = icmp eq ptr %75, @DatabaseList
+  br i1 %.not79, label %.thread84, label %67, !llvm.loop !12
 
-80:                                               ; preds = %.thread87
-  %81 = load ptr, ptr %61, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 72
-  %83 = load i64, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %.06396116, i64 24
-  %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 72
-  %87 = load i64, ptr %86, align 8
-  %88 = icmp slt i64 %83, %87
-  %spec.select83 = select i1 %88, ptr %34, ptr %.06396116
-  br label %89
+76:                                               ; preds = %71
+  %77 = load i64, ptr %72, align 8
+  %78 = load i32, ptr @autovacuum_naptime, align 4
+  %79 = mul i32 %78, 1000
+  %80 = tail call zeroext i1 @TimestampDifferenceExceeds(i64 noundef %27, i64 noundef %77, i32 noundef %79) #18
+  br i1 %80, label %.thread84, label %92
 
-89:                                               ; preds = %80, %52, %40, %.thread87, %50, %38, %74, %58, %57, %45
-  %.267 = phi i1 [ %.06595117, %45 ], [ %.06595117, %57 ], [ true, %74 ], [ %.06595117, %58 ], [ %.06595117, %38 ], [ %.06595117, %50 ], [ false, %.thread87 ], [ %.06595117, %40 ], [ %.06595117, %52 ], [ false, %80 ]
-  %.3 = phi ptr [ %.06396116, %45 ], [ %.06396116, %57 ], [ %.06396116, %74 ], [ %.06396116, %58 ], [ %34, %38 ], [ %34, %50 ], [ %34, %.thread87 ], [ %spec.select81, %40 ], [ %spec.select82, %52 ], [ %spec.select83, %80 ]
-  %.162 = phi i1 [ %.06197115, %45 ], [ true, %57 ], [ false, %74 ], [ false, %58 ], [ %.06197115, %38 ], [ true, %50 ], [ false, %.thread87 ], [ %.06197115, %40 ], [ true, %52 ], [ false, %80 ]
-  %.1 = phi i1 [ true, %45 ], [ false, %57 ], [ false, %74 ], [ false, %58 ], [ true, %38 ], [ false, %50 ], [ false, %.thread87 ], [ true, %40 ], [ false, %52 ], [ false, %80 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv113, 1
-  %90 = load i32, ptr %28, align 4
-  %91 = sext i32 %90 to i64
-  %92 = icmp slt i64 %indvars.iv.next, %91
-  br i1 %92, label %.lr.ph118, label %._crit_edge
+.thread84:                                        ; preds = %select.unfold, %64, %71, %76
+  %81 = icmp eq ptr %.06393113, null
+  br i1 %81, label %91, label %82
 
-._crit_edge:                                      ; preds = %89, %.lr.ph99
-  %.06396.lcssa = phi ptr [ null, %.lr.ph99 ], [ %.3, %89 ]
-  %.06595.lcssa = phi i1 [ false, %.lr.ph99 ], [ %.267, %89 ]
-  %.not76 = icmp eq ptr %.06396.lcssa, null
-  br i1 %.not76, label %114, label %93
+82:                                               ; preds = %.thread84
+  %83 = load ptr, ptr %63, align 8
+  %84 = getelementptr inbounds i8, ptr %83, i64 72
+  %85 = load i64, ptr %84, align 8
+  %86 = getelementptr inbounds i8, ptr %.06393113, i64 24
+  %87 = load ptr, ptr %86, align 8
+  %88 = getelementptr inbounds i8, ptr %87, i64 72
+  %89 = load i64, ptr %88, align 8
+  %90 = icmp slt i64 %85, %89
+  br i1 %90, label %91, label %92
 
-93:                                               ; preds = %._crit_edge
-  %94 = load ptr, ptr @MainLWLockArray, align 8
-  %95 = getelementptr i8, ptr %94, i64 2816
-  %96 = tail call zeroext i1 @LWLockAcquire(ptr noundef %95, i32 noundef 0) #18
-  %97 = load ptr, ptr @AutoVacuumShmem, align 8
-  %98 = getelementptr i8, ptr %97, i64 24
-  %.val = load ptr, ptr %98, align 8
-  %99 = getelementptr inbounds i8, ptr %.val, i64 8
-  %100 = load ptr, ptr %99, align 8
-  %101 = load ptr, ptr %.val, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 8
-  store ptr %100, ptr %102, align 8
-  %103 = load ptr, ptr %.val, align 8
-  store ptr %103, ptr %100, align 8
-  %104 = load i32, ptr %.06396.lcssa, align 8
-  %105 = getelementptr inbounds i8, ptr %.val, i64 16
-  store i32 %104, ptr %105, align 8
-  %106 = getelementptr inbounds i8, ptr %.val, i64 24
-  store ptr null, ptr %106, align 8
-  %107 = tail call i64 @GetCurrentTimestamp() #18
-  %108 = getelementptr inbounds i8, ptr %.val, i64 32
-  store i64 %107, ptr %108, align 8
-  %109 = load ptr, ptr @AutoVacuumShmem, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 48
-  store ptr %.val, ptr %110, align 8
-  %111 = load ptr, ptr @MainLWLockArray, align 8
-  %112 = getelementptr i8, ptr %111, i64 2816
-  tail call void @LWLockRelease(ptr noundef %112) #18
+91:                                               ; preds = %82, %.thread84
+  br label %92
+
+92:                                               ; preds = %53, %58, %40, %45, %82, %91, %76, %60, %59, %46
+  %.267 = phi i1 [ %.06592114, %46 ], [ %.06592114, %59 ], [ true, %76 ], [ false, %91 ], [ false, %82 ], [ %.06592114, %60 ], [ %.06592114, %45 ], [ %.06592114, %40 ], [ %.06592114, %58 ], [ %.06592114, %53 ]
+  %.3 = phi ptr [ %.06393113, %46 ], [ %.06393113, %59 ], [ %.06393113, %76 ], [ %34, %91 ], [ %.06393113, %82 ], [ %.06393113, %60 ], [ %34, %45 ], [ %.06393113, %40 ], [ %34, %58 ], [ %.06393113, %53 ]
+  %.162 = phi i1 [ %.06194112, %46 ], [ true, %59 ], [ false, %76 ], [ false, %91 ], [ false, %82 ], [ false, %60 ], [ %.06194112, %45 ], [ %.06194112, %40 ], [ true, %58 ], [ true, %53 ]
+  %.1 = phi i1 [ true, %46 ], [ false, %59 ], [ false, %76 ], [ false, %91 ], [ false, %82 ], [ false, %60 ], [ true, %45 ], [ true, %40 ], [ false, %58 ], [ false, %53 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv110, 1
+  %93 = load i32, ptr %28, align 4
+  %94 = sext i32 %93 to i64
+  %95 = icmp slt i64 %indvars.iv.next, %94
+  br i1 %95, label %.lr.ph115, label %._crit_edge
+
+._crit_edge:                                      ; preds = %92, %.lr.ph96
+  %.06393.lcssa = phi ptr [ null, %.lr.ph96 ], [ %.3, %92 ]
+  %.06592.lcssa = phi i1 [ false, %.lr.ph96 ], [ %.267, %92 ]
+  %.not76 = icmp eq ptr %.06393.lcssa, null
+  br i1 %.not76, label %117, label %96
+
+96:                                               ; preds = %._crit_edge
+  %97 = load ptr, ptr @MainLWLockArray, align 8
+  %98 = getelementptr i8, ptr %97, i64 2816
+  %99 = tail call zeroext i1 @LWLockAcquire(ptr noundef %98, i32 noundef 0) #18
+  %100 = load ptr, ptr @AutoVacuumShmem, align 8
+  %101 = getelementptr i8, ptr %100, i64 24
+  %.val = load ptr, ptr %101, align 8
+  %102 = getelementptr inbounds i8, ptr %.val, i64 8
+  %103 = load ptr, ptr %102, align 8
+  %104 = load ptr, ptr %.val, align 8
+  %105 = getelementptr inbounds i8, ptr %104, i64 8
+  store ptr %103, ptr %105, align 8
+  %106 = load ptr, ptr %.val, align 8
+  store ptr %106, ptr %103, align 8
+  %107 = load i32, ptr %.06393.lcssa, align 8
+  %108 = getelementptr inbounds i8, ptr %.val, i64 16
+  store i32 %107, ptr %108, align 8
+  %109 = getelementptr inbounds i8, ptr %.val, i64 24
+  store ptr null, ptr %109, align 8
+  %110 = tail call i64 @GetCurrentTimestamp() #18
+  %111 = getelementptr inbounds i8, ptr %.val, i64 32
+  store i64 %110, ptr %111, align 8
+  %112 = load ptr, ptr @AutoVacuumShmem, align 8
+  %113 = getelementptr inbounds i8, ptr %112, i64 48
+  store ptr %.val, ptr %113, align 8
+  %114 = load ptr, ptr @MainLWLockArray, align 8
+  %115 = getelementptr i8, ptr %114, i64 2816
+  tail call void @LWLockRelease(ptr noundef %115) #18
   tail call void @SendPostmasterSignal(i32 noundef 4) #18
-  %113 = load i32, ptr %.06396.lcssa, align 8
+  %116 = load i32, ptr %.06393.lcssa, align 8
   br label %.thread
 
-114:                                              ; preds = %._crit_edge
-  br i1 %.06595.lcssa, label %115, label %.thread
+117:                                              ; preds = %._crit_edge
+  br i1 %.06592.lcssa, label %118, label %.thread
 
-115:                                              ; preds = %114
+118:                                              ; preds = %117
   tail call fastcc void @rebuild_database_list(i32 noundef 0)
   br label %.thread
 
-.thread:                                          ; preds = %12, %114, %115, %93
-  %.068 = phi i32 [ %113, %93 ], [ 0, %115 ], [ 0, %114 ], [ 0, %12 ]
+.thread:                                          ; preds = %12, %117, %118, %96
+  %.068 = phi i32 [ %116, %96 ], [ 0, %118 ], [ 0, %117 ], [ 0, %12 ]
   store ptr %15, ptr @CurrentMemoryContext, align 8
   tail call void @MemoryContextDelete(ptr noundef %14) #18
-  br label %116
+  br label %119
 
-116:                                              ; preds = %0, %.thread
+119:                                              ; preds = %0, %.thread
   %.0 = phi i32 [ %.068, %.thread ], [ 0, %0 ]
   ret i32 %.0
 }

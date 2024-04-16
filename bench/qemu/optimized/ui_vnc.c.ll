@@ -4626,13 +4626,13 @@ for.end11:                                        ; preds = %for.cond3.for.inc9_
   %tobool.not = icmp eq i32 %inc, 0
   %conv = sitofp i32 %inc to double
   %div12 = fdiv double %add7, %conv
-  br i1 %tobool.not, label %2, label %for.end11.thread
+  br i1 %tobool.not, label %for.end11.thread, label %2
 
-2:                                                ; preds = %for.end11
-  br label %for.end11.thread
+for.end11.thread:                                 ; preds = %for.cond3.preheader.lr.ph, %entry, %for.end11
+  br label %2
 
-for.end11.thread:                                 ; preds = %for.cond3.preheader.lr.ph, %entry, %for.end11, %2
-  %3 = phi double [ %div12, %for.end11 ], [ 0.000000e+00, %2 ], [ 0.000000e+00, %entry ], [ 0.000000e+00, %for.cond3.preheader.lr.ph ]
+2:                                                ; preds = %for.end11, %for.end11.thread
+  %3 = phi double [ 0.000000e+00, %for.end11.thread ], [ %div12, %for.end11 ]
   ret double %3
 }
 

@@ -253,13 +253,13 @@ define internal fastcc noundef i32 @gz_make(ptr noundef %0) unnamed_addr #0 {
 5:                                                ; preds = %1
   %6 = tail call fastcc i32 @gz_head(ptr noundef nonnull %0), !range !4
   %7 = icmp eq i32 %6, -1
-  br i1 %7, label %54, label %8
+  br i1 %7, label %55, label %8
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %0, i64 56
   %10 = load i32, ptr %9, align 8
   %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %thread-pre-split, label %54
+  br i1 %.not, label %thread-pre-split, label %55
 
 thread-pre-split:                                 ; preds = %8
   %.pr = load i32, ptr %2, align 8
@@ -316,7 +316,7 @@ gz_load.exit:                                     ; preds = %35
   %40 = load i32, ptr %39, align 4
   %41 = tail call ptr @strerror(i32 noundef %40) #11
   tail call void @gz_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef %41) #11
-  br label %54
+  br label %55
 
 .loopexit:                                        ; preds = %31, %37
   %42 = load ptr, ptr %14, align 8
@@ -336,11 +336,13 @@ gz_load.exit:                                     ; preds = %35
   store ptr %50, ptr %51, align 8
   %52 = tail call fastcc i32 @gz_decomp(ptr noundef nonnull %0), !range !4
   %53 = icmp eq i32 %52, -1
-  %spec.select = sext i1 %53 to i32
-  br label %54
+  br i1 %53, label %55, label %54
 
-54:                                               ; preds = %gz_load.exit, %44, %.loopexit, %11, %8, %5
-  %.0 = phi i32 [ -1, %5 ], [ 0, %8 ], [ -1, %gz_load.exit ], [ 0, %11 ], [ 0, %.loopexit ], [ %spec.select, %44 ]
+54:                                               ; preds = %11, %44, %.loopexit
+  br label %55
+
+55:                                               ; preds = %gz_load.exit, %44, %8, %5, %54
+  %.0 = phi i32 [ 0, %54 ], [ -1, %5 ], [ 0, %8 ], [ -1, %gz_load.exit ], [ -1, %44 ]
   ret i32 %.0
 }
 

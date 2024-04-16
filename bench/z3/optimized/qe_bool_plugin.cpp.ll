@@ -239,7 +239,7 @@ entry:
   %0 = load i32, ptr %vl, align 8
   %cmp.i.i.i.i = icmp eq i32 %0, 1
   %1 = select i1 %cmp.i.i.i.i.i, i1 %cmp.i.i.i.i, i1 false
-  br i1 %1, label %_ZNK8rational6is_oneEv.exit, label %cond.end
+  br i1 %1, label %_ZNK8rational6is_oneEv.exit, label %cond.false
 
 _ZNK8rational6is_oneEv.exit:                      ; preds = %entry
   %m_den.i.i = getelementptr inbounds i8, ptr %vl, i64 16
@@ -250,11 +250,13 @@ _ZNK8rational6is_oneEv.exit:                      ; preds = %entry
   %2 = load i32, ptr %m_den.i.i, align 8
   %cmp.i.i6.i.i = icmp eq i32 %2, 1
   %3 = select i1 %cmp.i.i.i5.i.i, i1 %cmp.i.i6.i.i, i1 false
-  %spec.select = select i1 %3, i64 856, i64 864
+  br i1 %3, label %cond.end, label %cond.false
+
+cond.false:                                       ; preds = %entry, %_ZNK8rational6is_oneEv.exit
   br label %cond.end
 
-cond.end:                                         ; preds = %_ZNK8rational6is_oneEv.exit, %entry
-  %.sink3 = phi i64 [ 864, %entry ], [ %spec.select, %_ZNK8rational6is_oneEv.exit ]
+cond.end:                                         ; preds = %_ZNK8rational6is_oneEv.exit, %cond.false
+  %.sink3 = phi i64 [ 864, %cond.false ], [ 856, %_ZNK8rational6is_oneEv.exit ]
   %m3 = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %m3, align 8
   %m_false.i = getelementptr inbounds i8, ptr %4, i64 %.sink3

@@ -421,7 +421,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %60, %6
 81:                                               ; preds = %51, %pmix_obj_new_tma.exit, %45
   %82 = load ptr, ptr getelementptr inbounds (%struct.pmix_pmdl_oshmem_component_t, ptr @pmix_mca_pmdl_oshmem_component, i64 0, i32 3), align 8
   %.not49 = icmp eq ptr %82, null
-  br i1 %.not49, label %.loopexit52, label %83
+  br i1 %.not49, label %101, label %83
 
 83:                                               ; preds = %81
   %84 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_pmdl_base_framework, i64 0, i32 11), align 4
@@ -450,10 +450,14 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %60, %6
   %98 = phi ptr [ %.pre, %90 ], [ %82, %85 ], [ %82, %83 ]
   %99 = load ptr, ptr getelementptr inbounds (%struct.pmix_pmdl_oshmem_component_t, ptr @pmix_mca_pmdl_oshmem_component, i64 0, i32 4), align 8
   %100 = tail call i32 @pmix_util_harvest_envars(ptr noundef %98, ptr noundef %99, ptr noundef %3) #12
+  %.not50 = icmp eq i32 %100, 0
+  br i1 %.not50, label %101, label %.loopexit52
+
+101:                                              ; preds = %97, %81
   br label %.loopexit52
 
-.loopexit52:                                      ; preds = %.lr.ph, %97, %81, %._crit_edge, %39, %44, %13
-  %.0 = phi i32 [ -1366, %13 ], [ -1366, %44 ], [ -1366, %39 ], [ -1366, %._crit_edge ], [ 0, %81 ], [ %100, %97 ], [ -1366, %.lr.ph ]
+.loopexit52:                                      ; preds = %.lr.ph, %97, %._crit_edge, %39, %44, %13, %101
+  %.0 = phi i32 [ 0, %101 ], [ -1366, %13 ], [ -1366, %44 ], [ -1366, %39 ], [ -1366, %._crit_edge ], [ %100, %97 ], [ -1366, %.lr.ph ]
   ret i32 %.0
 }
 

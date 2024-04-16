@@ -3978,18 +3978,15 @@ if.end9.i:                                        ; preds = %if.end9
 
 land.lhs.true.i:                                  ; preds = %if.end9.i
   %tobool.not.i = icmp eq i32 %conv11.i, 0
-  br i1 %tobool.not.i, label %_ZNK6hermes13LiteralNumber22isIntTypeRepresentibleIjEEN4llvh8OptionalIT_EEv.exit, label %if.then12
-
-_ZNK6hermes13LiteralNumber22isIntTypeRepresentibleIjEEN4llvh8OptionalIT_EEv.exit: ; preds = %land.lhs.true.i
   %11 = bitcast double %9 to i64
-  %tobool.i.not.not = icmp sgt i64 %11, -1
-  br i1 %tobool.i.not.not, label %if.then12, label %cleanup
+  %12 = icmp slt i64 %11, 0
+  %or.cond70 = and i1 %tobool.not.i, %12
+  br i1 %or.cond70, label %cleanup, label %if.then12
 
-if.then12:                                        ; preds = %land.lhs.true.i, %_ZNK6hermes13LiteralNumber22isIntTypeRepresentibleIjEEN4llvh8OptionalIT_EEv.exit
-  %ival.sroa.0.0.extract.trunc69 = phi i32 [ 0, %_ZNK6hermes13LiteralNumber22isIntTypeRepresentibleIjEEN4llvh8OptionalIT_EEv.exit ], [ %conv11.i, %land.lhs.true.i ]
-  %12 = load i32, ptr %Size.i.i.i.i.i, align 8
-  %13 = load i32, ptr %Capacity2.i.i.i.i.i, align 4
-  %cmp.not.i = icmp ult i32 %12, %13
+if.then12:                                        ; preds = %land.lhs.true.i
+  %13 = load i32, ptr %Size.i.i.i.i.i, align 8
+  %14 = load i32, ptr %Capacity2.i.i.i.i.i, align 4
+  %cmp.not.i = icmp ult i32 %13, %14
   br i1 %cmp.not.i, label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes13LiteralNumberELb1EE9push_backERKS3_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then12
@@ -3998,18 +3995,18 @@ if.then.i:                                        ; preds = %if.then12
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes13LiteralNumberELb1EE9push_backERKS3_.exit
 
 _ZN4llvh23SmallVectorTemplateBaseIPN6hermes13LiteralNumberELb1EE9push_backERKS3_.exit: ; preds = %if.then12, %if.then.i
-  %14 = phi i32 [ %.pre.i, %if.then.i ], [ %12, %if.then12 ]
-  %15 = load ptr, ptr %values, align 8
-  %conv.i3.i = zext i32 %14 to i64
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %15, i64 %conv.i3.i
-  %16 = ptrtoint ptr %6 to i64
-  store i64 %16, ptr %add.ptr.i.i, align 1
-  %17 = load i32, ptr %Size.i.i.i.i.i, align 8
-  %add.i = add i32 %17, 1
+  %15 = phi i32 [ %.pre.i, %if.then.i ], [ %13, %if.then12 ]
+  %16 = load ptr, ptr %values, align 8
+  %conv.i3.i = zext i32 %15 to i64
+  %add.ptr.i.i = getelementptr inbounds ptr, ptr %16, i64 %conv.i3.i
+  %17 = ptrtoint ptr %6 to i64
+  store i64 %17, ptr %add.ptr.i.i, align 1
+  %18 = load i32, ptr %Size.i.i.i.i.i, align 8
+  %add.i = add i32 %18, 1
   store i32 %add.i, ptr %Size.i.i.i.i.i, align 8
-  %18 = load i32, ptr %Size.i.i.i.i.i19, align 8
-  %19 = load i32, ptr %Capacity2.i.i.i.i.i20, align 4
-  %cmp.not.i23 = icmp ult i32 %18, %19
+  %19 = load i32, ptr %Size.i.i.i.i.i19, align 8
+  %20 = load i32, ptr %Capacity2.i.i.i.i.i20, align 4
+  %cmp.not.i23 = icmp ult i32 %19, %20
   br i1 %cmp.not.i23, label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes10BasicBlockELb1EE9push_backERKS3_.exit, label %if.then.i24
 
 if.then.i24:                                      ; preds = %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes13LiteralNumberELb1EE9push_backERKS3_.exit
@@ -4018,20 +4015,20 @@ if.then.i24:                                      ; preds = %_ZN4llvh23SmallVect
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes10BasicBlockELb1EE9push_backERKS3_.exit
 
 _ZN4llvh23SmallVectorTemplateBaseIPN6hermes10BasicBlockELb1EE9push_backERKS3_.exit: ; preds = %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes13LiteralNumberELb1EE9push_backERKS3_.exit, %if.then.i24
-  %20 = phi i32 [ %.pre.i26, %if.then.i24 ], [ %18, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes13LiteralNumberELb1EE9push_backERKS3_.exit ]
-  %21 = load ptr, ptr %blocks, align 8
-  %conv.i3.i27 = zext i32 %20 to i64
-  %add.ptr.i.i28 = getelementptr inbounds ptr, ptr %21, i64 %conv.i3.i27
-  %22 = ptrtoint ptr %7 to i64
-  store i64 %22, ptr %add.ptr.i.i28, align 1
-  %23 = load i32, ptr %Size.i.i.i.i.i19, align 8
-  %add.i29 = add i32 %23, 1
+  %21 = phi i32 [ %.pre.i26, %if.then.i24 ], [ %19, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes13LiteralNumberELb1EE9push_backERKS3_.exit ]
+  %22 = load ptr, ptr %blocks, align 8
+  %conv.i3.i27 = zext i32 %21 to i64
+  %add.ptr.i.i28 = getelementptr inbounds ptr, ptr %22, i64 %conv.i3.i27
+  %23 = ptrtoint ptr %7 to i64
+  store i64 %23, ptr %add.ptr.i.i28, align 1
+  %24 = load i32, ptr %Size.i.i.i.i.i19, align 8
+  %add.i29 = add i32 %24, 1
   store i32 %add.i29, ptr %Size.i.i.i.i.i19, align 8
   %cmp13 = icmp eq i32 %i.058, 0
-  %.sroa.speculated41 = call i32 @llvm.umin.i32(i32 %ival.sroa.0.0.extract.trunc69, i32 %minValue.057)
-  %.sroa.speculated = call i32 @llvm.umax.i32(i32 %maxValue.056, i32 %ival.sroa.0.0.extract.trunc69)
-  %maxValue.1 = select i1 %cmp13, i32 %ival.sroa.0.0.extract.trunc69, i32 %.sroa.speculated
-  %minValue.1 = select i1 %cmp13, i32 %ival.sroa.0.0.extract.trunc69, i32 %.sroa.speculated41
+  %.sroa.speculated41 = call i32 @llvm.umin.i32(i32 %conv11.i, i32 %minValue.057)
+  %.sroa.speculated = call i32 @llvm.umax.i32(i32 %maxValue.056, i32 %conv11.i)
+  %maxValue.1 = select i1 %cmp13, i32 %conv11.i, i32 %.sroa.speculated
+  %minValue.1 = select i1 %cmp13, i32 %conv11.i, i32 %.sroa.speculated41
   %inc = add nuw i32 %i.058, 1
   %cmp.not = icmp eq i32 %inc, %call5
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !57
@@ -4061,30 +4058,30 @@ if.end33:                                         ; preds = %if.end29
   %call38 = call noundef ptr @_ZN6hermes9IRBuilder16getLiteralNumberEd(ptr noundef nonnull align 8 dereferenceable(40) %builder, double noundef %conv37) #13
   %call39 = call noundef ptr @_ZN6hermes9IRBuilder19createSwitchImmInstEPNS_5ValueEPNS_10BasicBlockEPNS_13LiteralNumberES6_RKN4llvh11SmallVectorIS6_Lj8EEERKNS8_IS4_Lj8EEE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr noundef %call34, ptr noundef %call35, ptr noundef %call36, ptr noundef %call38, ptr noundef nonnull align 8 dereferenceable(80) %values, ptr noundef nonnull align 8 dereferenceable(80) %blocks) #13
   %add.ptr = getelementptr inbounds i8, ptr %switchInst, i64 16
-  %24 = icmp eq ptr %call39, null
+  %25 = icmp eq ptr %call39, null
   %add.ptr40 = getelementptr inbounds i8, ptr %call39, i64 16
-  %spec.select = select i1 %24, ptr null, ptr %add.ptr40
+  %spec.select = select i1 %25, ptr null, ptr %add.ptr40
   call void @_ZN6hermes5Value18replaceAllUsesWithEPS0_(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr, ptr noundef %spec.select) #13
   call void @_ZN6hermes11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(132) %switchInst) #13
   br label %cleanup
 
-cleanup:                                          ; preds = %if.end9.i, %if.end9, %_ZNK6hermes13LiteralNumber22isIntTypeRepresentibleIjEEN4llvh8OptionalIT_EEv.exit, %for.body, %if.end, %if.end29, %for.end, %if.end33
-  %retval.0 = phi i1 [ true, %if.end33 ], [ false, %for.end ], [ false, %if.end29 ], [ false, %if.end ], [ false, %for.body ], [ false, %_ZNK6hermes13LiteralNumber22isIntTypeRepresentibleIjEEN4llvh8OptionalIT_EEv.exit ], [ false, %if.end9 ], [ false, %if.end9.i ]
-  %25 = load ptr, ptr %blocks, align 8
-  %cmp.i.i.i = icmp eq ptr %25, %add.ptr.i.i.i.i.i18
+cleanup:                                          ; preds = %if.end9.i, %for.body, %if.end9, %land.lhs.true.i, %if.end, %if.end29, %for.end, %if.end33
+  %retval.0 = phi i1 [ true, %if.end33 ], [ false, %for.end ], [ false, %if.end29 ], [ false, %if.end ], [ false, %land.lhs.true.i ], [ false, %if.end9 ], [ false, %for.body ], [ false, %if.end9.i ]
+  %26 = load ptr, ptr %blocks, align 8
+  %cmp.i.i.i = icmp eq ptr %26, %add.ptr.i.i.i.i.i18
   br i1 %cmp.i.i.i, label %_ZN4llvh11SmallVectorIPN6hermes10BasicBlockELj8EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %cleanup
-  call void @free(ptr noundef %25) #13
+  call void @free(ptr noundef %26) #13
   br label %_ZN4llvh11SmallVectorIPN6hermes10BasicBlockELj8EED2Ev.exit
 
 _ZN4llvh11SmallVectorIPN6hermes10BasicBlockELj8EED2Ev.exit: ; preds = %cleanup, %if.then.i.i
-  %26 = load ptr, ptr %values, align 8
-  %cmp.i.i.i35 = icmp eq ptr %26, %add.ptr.i.i.i.i.i
+  %27 = load ptr, ptr %values, align 8
+  %cmp.i.i.i35 = icmp eq ptr %27, %add.ptr.i.i.i.i.i
   br i1 %cmp.i.i.i35, label %return, label %if.then.i.i36
 
 if.then.i.i36:                                    ; preds = %_ZN4llvh11SmallVectorIPN6hermes10BasicBlockELj8EED2Ev.exit
-  call void @free(ptr noundef %26) #13
+  call void @free(ptr noundef %27) #13
   br label %return
 
 return:                                           ; preds = %if.then.i.i36, %_ZN4llvh11SmallVectorIPN6hermes10BasicBlockELj8EED2Ev.exit, %entry

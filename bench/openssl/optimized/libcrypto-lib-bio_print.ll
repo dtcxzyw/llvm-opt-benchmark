@@ -2233,12 +2233,14 @@ if.else18:                                        ; preds = %if.else15
   %cmp19 = icmp eq i32 %spec.store.select, 0
   %cmp20 = fcmp oge double %fvalue, 1.000000e+01
   %or.cond = and i1 %cmp20, %cmp19
-  %.mux = zext i1 %or.cond to i32
-  br i1 %cmp19, label %if.then32, label %while.body.i
+  br i1 %or.cond, label %if.then32, label %lor.lhs.false
 
-while.body.i:                                     ; preds = %if.else18, %while.body.i
-  %result.05.i = phi double [ %mul.i, %while.body.i ], [ 1.000000e+00, %if.else18 ]
-  %in_exp.addr.04.i = phi i32 [ %dec.i, %while.body.i ], [ %spec.store.select, %if.else18 ]
+lor.lhs.false:                                    ; preds = %if.else18
+  br i1 %cmp19, label %if.else25, label %while.body.i
+
+while.body.i:                                     ; preds = %lor.lhs.false, %while.body.i
+  %result.05.i = phi double [ %mul.i, %while.body.i ], [ 1.000000e+00, %lor.lhs.false ]
+  %in_exp.addr.04.i = phi i32 [ %dec.i, %while.body.i ], [ %spec.store.select, %lor.lhs.false ]
   %mul.i = fmul double %result.05.i, 1.000000e+01
   %dec.i = add nsw i32 %in_exp.addr.04.i, -1
   %tobool.not.i = icmp eq i32 %dec.i, 0
@@ -2248,16 +2250,16 @@ pow_10.exit:                                      ; preds = %while.body.i
   %cmp23 = fcmp ugt double %mul.i, %fvalue
   br i1 %cmp23, label %if.else25, label %if.end30
 
-if.else25:                                        ; preds = %pow_10.exit
+if.else25:                                        ; preds = %pow_10.exit, %lor.lhs.false
   br label %if.end30
 
 if.end30:                                         ; preds = %if.end10, %pow_10.exit, %if.else25
-  %realstyle.0 = phi i32 [ 1, %pow_10.exit ], [ 0, %if.else25 ], [ %style, %if.end10 ]
+  %realstyle.0 = phi i32 [ 0, %if.else25 ], [ 1, %pow_10.exit ], [ %style, %if.end10 ]
   %cmp31.not = icmp eq i32 %style, 0
   br i1 %cmp31.not, label %if.end62, label %if.then32
 
-if.then32:                                        ; preds = %if.else18, %if.then12, %if.else15, %if.end30
-  %realstyle.0196 = phi i32 [ %realstyle.0, %if.end30 ], [ %.mux, %if.else18 ], [ 1, %if.else15 ], [ 0, %if.then12 ]
+if.then32:                                        ; preds = %if.then12, %if.else15, %if.else18, %if.end30
+  %realstyle.0196 = phi i32 [ %realstyle.0, %if.end30 ], [ 1, %if.else18 ], [ 1, %if.else15 ], [ 0, %if.then12 ]
   %cmp33 = fcmp une double %fvalue, 0.000000e+00
   br i1 %cmp33, label %while.cond.preheader, label %if.end40
 

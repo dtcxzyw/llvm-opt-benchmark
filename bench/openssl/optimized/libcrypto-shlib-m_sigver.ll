@@ -126,8 +126,8 @@ if.then41:                                        ; preds = %if.end39
   %cmp53 = icmp eq ptr %9, null
   %.pre = load ptr, ptr %keymgmt, align 8
   %cmp57 = icmp eq ptr %9, %.pre
-  %or.cond188 = select i1 %cmp53, i1 true, i1 %cmp57
-  br i1 %or.cond188, label %if.end63, label %if.then61
+  %or.cond189 = select i1 %cmp53, i1 true, i1 %cmp57
+  br i1 %or.cond189, label %if.end63, label %if.then61
 
 if.else42:                                        ; preds = %if.end39
   %cmp43 = icmp eq ptr %mdname, null
@@ -139,12 +139,14 @@ if.then46:                                        ; preds = %if.else42
   %10 = load ptr, ptr %ctx, align 8
   %call47 = tail call ptr @EVP_MD_get0_name(ptr noundef %10) #5
   %cmp.not.i = icmp eq ptr %call47, null
-  br i1 %cmp.not.i, label %reinitialize, label %land.lhs.true.i
+  br i1 %cmp.not.i, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then46
   %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call47, ptr noundef nonnull dereferenceable(6) @.str.1) #6
   %cmp1.i = icmp eq i32 %call.i, 0
-  %spec.select.i = select i1 %cmp1.i, ptr null, ptr %call47
+  br i1 %cmp1.i, label %reinitialize, label %if.end.i
+
+if.end.i:                                         ; preds = %land.lhs.true.i, %if.then46
   br label %reinitialize
 
 if.then61:                                        ; preds = %if.then41
@@ -173,8 +175,8 @@ if.then68:                                        ; preds = %if.end63
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %switch = phi i1 [ true, %for.cond.preheader ], [ false, %for.inc ]
-  %signature.2185 = phi ptr [ %signature.1, %for.cond.preheader ], [ %signature.3162, %for.inc ]
-  call void @EVP_SIGNATURE_free(ptr noundef %signature.2185) #5
+  %signature.2186 = phi ptr [ %signature.1, %for.cond.preheader ], [ %signature.3163, %for.inc ]
+  call void @EVP_SIGNATURE_free(ptr noundef %signature.2186) #5
   %11 = load ptr, ptr %tmp_keymgmt, align 8
   call void @EVP_KEYMGMT_free(ptr noundef %11) #5
   br i1 %switch, label %sw.bb, label %sw.bb83
@@ -219,13 +221,13 @@ if.end107:                                        ; preds = %if.end95
   br i1 %cmp108, label %if.then110, label %for.inc
 
 if.then110:                                       ; preds = %if.end95, %if.end107
-  %provkey.1167 = phi ptr [ %call106, %if.end107 ], [ null, %if.end95 ]
+  %provkey.1168 = phi ptr [ %call106, %if.end107 ], [ null, %if.end95 ]
   call void @EVP_KEYMGMT_free(ptr noundef %call99) #5
   br label %for.inc
 
 for.inc:                                          ; preds = %sw.bb, %if.end107, %if.then110
-  %signature.3162 = phi ptr [ %signature.3.ph, %if.then110 ], [ %signature.3.ph, %if.end107 ], [ null, %sw.bb ]
-  %provkey.2 = phi ptr [ %provkey.1167, %if.then110 ], [ %call106, %if.end107 ], [ null, %sw.bb ]
+  %signature.3163 = phi ptr [ %signature.3.ph, %if.then110 ], [ %signature.3.ph, %if.end107 ], [ null, %sw.bb ]
+  %provkey.2 = phi ptr [ %provkey.1168, %if.then110 ], [ %call106, %if.end107 ], [ null, %sw.bb ]
   %cmp73 = icmp eq ptr %provkey.2, null
   %21 = select i1 %switch, i1 %cmp73, i1 false
   br i1 %21, label %for.body, label %for.end, !llvm.loop !5
@@ -234,7 +236,7 @@ for.end:                                          ; preds = %for.inc
   br i1 %cmp73, label %if.then114, label %if.end116
 
 if.then114:                                       ; preds = %for.end
-  call void @EVP_SIGNATURE_free(ptr noundef %signature.3162) #5
+  call void @EVP_SIGNATURE_free(ptr noundef %signature.3163) #5
   %call115 = call i32 @ERR_clear_last_mark() #5
   call void @ERR_new() #5
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 189, ptr noundef nonnull @__func__.do_sigver_init) #5
@@ -244,13 +246,13 @@ if.then114:                                       ; preds = %for.end
 if.end116:                                        ; preds = %for.end
   %call117 = call i32 @ERR_pop_to_mark() #5
   %op118 = getelementptr inbounds i8, ptr %1, i64 40
-  store ptr %signature.3162, ptr %op118, align 8
+  store ptr %signature.3163, ptr %op118, align 8
   %tobool120.not = icmp eq i32 %ver, 0
   %cond121 = select i1 %tobool120.not, i32 128, i32 256
   store i32 %cond121, ptr %1, align 8
-  %newctx = getelementptr inbounds i8, ptr %signature.3162, i64 40
+  %newctx = getelementptr inbounds i8, ptr %signature.3163, i64 40
   %22 = load ptr, ptr %newctx, align 8
-  %prov = getelementptr inbounds i8, ptr %signature.3162, i64 24
+  %prov = getelementptr inbounds i8, ptr %signature.3163, i64 24
   %23 = load ptr, ptr %prov, align 8
   %call123 = call ptr @ossl_provider_ctx(ptr noundef %23) #5
   %call124 = call ptr %22(ptr noundef %call123, ptr noundef %props.addr.0) #5
@@ -265,10 +267,10 @@ if.then131:                                       ; preds = %if.end116
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 134, ptr noundef null) #5
   br label %err
 
-reinitialize:                                     ; preds = %land.lhs.true.i, %if.then46, %if.end116, %if.else42
-  %mdname.addr.0 = phi ptr [ %mdname, %if.else42 ], [ %mdname, %if.end116 ], [ null, %if.then46 ], [ %spec.select.i, %land.lhs.true.i ]
-  %signature.4 = phi ptr [ %signature.1, %if.else42 ], [ %signature.3162, %if.end116 ], [ %signature.1, %if.then46 ], [ %signature.1, %land.lhs.true.i ]
-  %provkey.3 = phi ptr [ null, %if.else42 ], [ %provkey.2, %if.end116 ], [ null, %if.then46 ], [ null, %land.lhs.true.i ]
+reinitialize:                                     ; preds = %if.end.i, %land.lhs.true.i, %if.end116, %if.else42
+  %mdname.addr.0 = phi ptr [ %mdname, %if.else42 ], [ %mdname, %if.end116 ], [ %call47, %if.end.i ], [ null, %land.lhs.true.i ]
+  %signature.4 = phi ptr [ %signature.1, %if.else42 ], [ %signature.3163, %if.end116 ], [ %signature.1, %if.end.i ], [ %signature.1, %land.lhs.true.i ]
+  %provkey.3 = phi ptr [ null, %if.else42 ], [ %provkey.2, %if.end116 ], [ null, %if.end.i ], [ null, %land.lhs.true.i ]
   %cmp133.not = icmp eq ptr %pctx, null
   br i1 %cmp133.not, label %if.end136, label %if.then135
 
@@ -288,12 +290,14 @@ if.then139:                                       ; preds = %if.end136
 if.then143:                                       ; preds = %if.then139
   %call144 = call ptr @EVP_MD_get0_name(ptr noundef nonnull %type) #5
   %cmp.not.i145 = icmp eq ptr %call144, null
-  br i1 %cmp.not.i145, label %if.end186, label %land.lhs.true.i146
+  br i1 %cmp.not.i145, label %if.end.i149, label %land.lhs.true.i146
 
 land.lhs.true.i146:                               ; preds = %if.then143
   %call.i147 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call144, ptr noundef nonnull dereferenceable(6) @.str.1) #6
   %cmp1.i148 = icmp eq i32 %call.i147, 0
-  %spec.select.i149 = select i1 %cmp1.i148, ptr null, ptr %call144
+  br i1 %cmp1.i148, label %if.end186, label %if.end.i149
+
+if.end.i149:                                      ; preds = %land.lhs.true.i146, %if.then143
   br label %if.end186
 
 if.else147:                                       ; preds = %if.end136
@@ -317,12 +321,12 @@ if.end160:                                        ; preds = %if.else147
   br i1 %cmp161.not, label %if.end186, label %if.then163
 
 if.then163:                                       ; preds = %if.then156, %if.end160
-  %mdname.addr.1173 = phi ptr [ %mdname.addr.0, %if.end160 ], [ %locmdname, %if.then156 ]
+  %mdname.addr.1174 = phi ptr [ %mdname.addr.0, %if.end160 ], [ %locmdname, %if.then156 ]
   call void @evp_md_ctx_clear_digest(ptr noundef %ctx, i32 noundef 1, i32 noundef 0) #5
   %call164 = call i32 @ERR_set_mark() #5
   %libctx165 = getelementptr inbounds i8, ptr %1, i64 8
   %25 = load ptr, ptr %libctx165, align 8
-  %call166 = call ptr @EVP_MD_fetch(ptr noundef %25, ptr noundef nonnull %mdname.addr.1173, ptr noundef %props.addr.0) #5
+  %call166 = call ptr @EVP_MD_fetch(ptr noundef %25, ptr noundef nonnull %mdname.addr.1174, ptr noundef %props.addr.0) #5
   %fetched_digest = getelementptr inbounds i8, ptr %ctx, i64 64
   store ptr %call166, ptr %fetched_digest, align 8
   %cmp168.not = icmp eq ptr %call166, null
@@ -335,7 +339,7 @@ if.then170:                                       ; preds = %if.then163
   br label %if.end183
 
 if.else173:                                       ; preds = %if.then163
-  %call174 = call ptr @EVP_get_digestbyname(ptr noundef nonnull %mdname.addr.1173) #5
+  %call174 = call ptr @EVP_get_digestbyname(ptr noundef nonnull %mdname.addr.1174) #5
   store ptr %call174, ptr %digest175, align 8
   store ptr %call174, ptr %ctx, align 8
   %cmp178 = icmp eq ptr %call174, null
@@ -352,8 +356,8 @@ if.end183:                                        ; preds = %if.else173, %if.the
   %call184 = call i32 @ERR_pop_to_mark() #5
   br label %if.end186
 
-if.end186:                                        ; preds = %if.then156, %if.then152, %land.lhs.true.i146, %if.then143, %if.end160, %if.end183, %if.then139
-  %mdname.addr.2 = phi ptr [ %mdname.addr.0, %if.then139 ], [ %mdname.addr.1173, %if.end183 ], [ null, %if.end160 ], [ null, %if.then143 ], [ %spec.select.i149, %land.lhs.true.i146 ], [ null, %if.then152 ], [ null, %if.then156 ]
+if.end186:                                        ; preds = %if.then156, %if.then152, %if.end.i149, %land.lhs.true.i146, %if.end160, %if.end183, %if.then139
+  %mdname.addr.2 = phi ptr [ %mdname.addr.0, %if.then139 ], [ %mdname.addr.1174, %if.end183 ], [ null, %if.end160 ], [ %call144, %if.end.i149 ], [ null, %land.lhs.true.i146 ], [ null, %if.then152 ], [ null, %if.then156 ]
   %tobool187.not = icmp eq i32 %ver, 0
   br i1 %tobool187.not, label %if.else197, label %if.then188
 
@@ -382,13 +386,13 @@ if.then200:                                       ; preds = %if.else197
   br label %err
 
 if.end206:                                        ; preds = %if.else197, %if.then188
-  %.sink189 = phi ptr [ %26, %if.then188 ], [ %27, %if.else197 ]
+  %.sink190 = phi ptr [ %26, %if.then188 ], [ %27, %if.else197 ]
   %algctx204 = getelementptr inbounds i8, ptr %1, i64 48
   %28 = load ptr, ptr %algctx204, align 8
-  %call205 = call i32 %.sink189(ptr noundef %28, ptr noundef %mdname.addr.2, ptr noundef %provkey.3, ptr noundef %params) #5
+  %call205 = call i32 %.sink190(ptr noundef %28, ptr noundef %mdname.addr.2, ptr noundef %provkey.3, ptr noundef %params) #5
   %cmp207 = icmp sgt i32 %call205, 0
   %cmp210 = icmp ne ptr %mdname.addr.2, null
-  %or.cond2 = select i1 %cmp207, i1 true, i1 %cmp210
+  %or.cond2 = or i1 %cmp210, %cmp207
   br i1 %or.cond2, label %end, label %if.end213
 
 if.end213:                                        ; preds = %if.end206
@@ -443,8 +447,8 @@ if.end233:                                        ; preds = %if.end228
   %and = and i32 %34, 4
   %tobool236.not = icmp eq i32 %and, 0
   %cmp238 = icmp eq ptr %type.addr.0, null
-  %or.cond181 = select i1 %tobool236.not, i1 %cmp238, i1 false
-  br i1 %or.cond181, label %if.then240, label %if.end253
+  %or.cond182 = select i1 %tobool236.not, i1 %cmp238, i1 false
+  br i1 %or.cond182, label %if.then240, label %if.end253
 
 if.then240:                                       ; preds = %if.end233
   %call241 = call i32 @EVP_PKEY_get_default_digest_nid(ptr noundef %pkey, ptr noundef nonnull %def_nid) #5
@@ -546,15 +550,15 @@ if.end322:                                        ; preds = %if.end301, %if.else
 
 if.end328:                                        ; preds = %if.end322
   %tobool329.not = icmp eq ptr %pctx, null
-  %.pre187 = load ptr, ptr %pctx1, align 8
+  %.pre188 = load ptr, ptr %pctx1, align 8
   br i1 %tobool329.not, label %if.end332, label %if.then330
 
 if.then330:                                       ; preds = %if.end328
-  store ptr %.pre187, ptr %pctx, align 8
+  store ptr %.pre188, ptr %pctx, align 8
   br label %if.end332
 
 if.end332:                                        ; preds = %if.then330, %if.end328
-  %pmeth334 = getelementptr inbounds i8, ptr %.pre187, i64 120
+  %pmeth334 = getelementptr inbounds i8, ptr %.pre188, i64 120
   %45 = load ptr, ptr %pmeth334, align 8
   %flags335 = getelementptr inbounds i8, ptr %45, i64 4
   %46 = load i32, ptr %flags335, align 4

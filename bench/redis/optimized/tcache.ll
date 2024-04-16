@@ -2445,16 +2445,18 @@ arena_dalloc_no_tcache.exit:                      ; preds = %if.then.i112, %aren
   call void @arena_decay(ptr noundef %tsd, ptr noundef %22, i1 noundef zeroext false, i1 noundef zeroext false) #13
   %call8 = call i32 @arena_nthreads_get(ptr noundef %5, i1 noundef zeroext false) #13
   %cmp = icmp eq i32 %call8, 0
-  br i1 %cmp, label %monotonic.i, label %if.end13
+  br i1 %cmp, label %monotonic.i, label %if.else
 
 monotonic.i:                                      ; preds = %arena_dalloc_no_tcache.exit
   %23 = load atomic i8, ptr @background_thread_enabled_state monotonic, align 1
   %tobool.i154 = trunc i8 %23 to i1
-  %not.tobool.i154 = xor i1 %tobool.i154, true
+  br i1 %tobool.i154, label %if.else, label %if.end13
+
+if.else:                                          ; preds = %monotonic.i, %arena_dalloc_no_tcache.exit
   br label %if.end13
 
-if.end13:                                         ; preds = %monotonic.i, %arena_dalloc_no_tcache.exit
-  %.sink = phi i1 [ false, %arena_dalloc_no_tcache.exit ], [ %not.tobool.i154, %monotonic.i ]
+if.end13:                                         ; preds = %monotonic.i, %if.else
+  %.sink = phi i1 [ false, %if.else ], [ true, %monotonic.i ]
   call void @arena_decay(ptr noundef %tsd, ptr noundef %5, i1 noundef zeroext false, i1 noundef zeroext %.sink) #13
   ret void
 }

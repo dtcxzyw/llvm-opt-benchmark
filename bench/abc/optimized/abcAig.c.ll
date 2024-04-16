@@ -4291,11 +4291,11 @@ define void @Abc_AigPrintNode(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Abc_AigNodeIsAcyclic(ptr nocapture noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #7 {
+define noundef i32 @Abc_AigNodeIsAcyclic(ptr nocapture noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #7 {
   %3 = getelementptr i8, ptr %0, i64 28
   %.val41 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %.val41, 2
-  br i1 %.not, label %4, label %49
+  br i1 %.not, label %4, label %50
 
 4:                                                ; preds = %2
   %.val31 = load ptr, ptr %0, align 8
@@ -4317,7 +4317,7 @@ define i32 @Abc_AigNodeIsAcyclic(ptr nocapture noundef readonly %0, ptr noundef 
   %15 = icmp eq ptr %10, %1
   %16 = icmp eq ptr %14, %1
   %or.cond = select i1 %15, i1 true, i1 %16
-  br i1 %or.cond, label %49, label %17
+  br i1 %or.cond, label %50, label %17
 
 17:                                               ; preds = %4
   %18 = getelementptr i8, ptr %10, i64 20
@@ -4348,7 +4348,7 @@ define i32 @Abc_AigNodeIsAcyclic(ptr nocapture noundef readonly %0, ptr noundef 
   %31 = icmp eq ptr %26, %1
   %32 = icmp eq ptr %30, %1
   %or.cond26 = select i1 %31, i1 true, i1 %32
-  br i1 %or.cond26, label %49, label %33
+  br i1 %or.cond26, label %50, label %33
 
 33:                                               ; preds = %17, %17, %20
   %34 = getelementptr i8, ptr %14, i64 20
@@ -4376,14 +4376,16 @@ define i32 @Abc_AigNodeIsAcyclic(ptr nocapture noundef readonly %0, ptr noundef 
   %44 = sext i32 %.val34.val to i64
   %45 = getelementptr inbounds ptr, ptr %.val.val.val, i64 %44
   %46 = load ptr, ptr %45, align 8
-  %47 = icmp ne ptr %42, %1
-  %48 = icmp ne ptr %46, %1
-  %or.cond27.not = select i1 %47, i1 %48, i1 false
-  %spec.select = zext i1 %or.cond27.not to i32
-  br label %49
+  %47 = icmp eq ptr %42, %1
+  %48 = icmp eq ptr %46, %1
+  %or.cond27 = select i1 %47, i1 true, i1 %48
+  br i1 %or.cond27, label %50, label %49
 
-49:                                               ; preds = %33, %33, %36, %20, %4, %2
-  %.0 = phi i32 [ 1, %2 ], [ 0, %4 ], [ 0, %20 ], [ 1, %33 ], [ %spec.select, %36 ], [ 1, %33 ]
+49:                                               ; preds = %33, %33, %36
+  br label %50
+
+50:                                               ; preds = %36, %20, %4, %2, %49
+  %.0 = phi i32 [ 1, %49 ], [ 1, %2 ], [ 0, %4 ], [ 0, %20 ], [ 0, %36 ]
   ret i32 %.0
 }
 

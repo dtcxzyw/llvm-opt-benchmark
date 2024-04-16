@@ -3815,8 +3815,8 @@ define internal fastcc i32 @cdrom_ioctl_read_tocentry(ptr noundef %0, ptr nounde
   %spec.select = select i1 %52, i32 0, i32 -14
   br label %53
 
-53:                                               ; preds = %6, %11, %50, %2
-  %54 = phi i32 [ -14, %2 ], [ %spec.select, %50 ], [ -22, %6 ], [ %15, %11 ]
+53:                                               ; preds = %50, %11, %6, %2
+  %54 = phi i32 [ -14, %2 ], [ -22, %6 ], [ %15, %11 ], [ %spec.select, %50 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #16
   ret i32 %54
 }

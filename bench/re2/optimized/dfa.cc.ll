@@ -10081,20 +10081,22 @@ lor.end:                                          ; preds = %lor.lhs.false, %if.
   %3 = phi i1 [ true, %if.end22 ], [ %spec.select, %lor.lhs.false ]
   switch i32 %kind, label %lor.lhs.false30 [
     i32 3, label %if.then36
-    i32 2, label %if.else40
+    i32 2, label %if.then32
   ]
 
 lor.lhs.false30:                                  ; preds = %lor.end
-  %spec.select49 = select i1 %tobool.i15, i32 1, i32 %kind
+  br i1 %tobool.i15, label %if.then32, label %if.else40
+
+if.then32:                                        ; preds = %lor.end, %lor.lhs.false30
   br label %if.else40
 
 if.then36:                                        ; preds = %lor.end
   %cmp37 = icmp eq ptr %matches, null
   br label %if.end46
 
-if.else40:                                        ; preds = %lor.lhs.false30, %lor.end
-  %endmatch.0.ph = phi i1 [ true, %lor.end ], [ %tobool.i15, %lor.lhs.false30 ]
-  %kind.addr.0.ph = phi i32 [ 1, %lor.end ], [ %spec.select49, %lor.lhs.false30 ]
+if.else40:                                        ; preds = %if.then32, %lor.lhs.false30
+  %endmatch.0.ph = phi i1 [ false, %lor.lhs.false30 ], [ true, %if.then32 ]
+  %kind.addr.0.ph = phi i32 [ %kind, %lor.lhs.false30 ], [ 1, %if.then32 ]
   %cmp41 = icmp eq ptr %match0, null
   br i1 %cmp41, label %land.lhs.true42, label %if.end46
 
@@ -10131,9 +10133,9 @@ land.lhs.true64:                                  ; preds = %if.end62
   %6 = load ptr, ptr %ep, align 8
   %7 = load i8, ptr %reversed_, align 2
   %tobool66 = trunc i8 %7 to i1
-  %spec.select50.idx = select i1 %tobool66, i64 0, i64 %text.coerce1
-  %spec.select50 = getelementptr inbounds i8, ptr %text.coerce0, i64 %spec.select50.idx
-  %cmp70.not = icmp eq ptr %6, %spec.select50
+  %spec.select48.idx = select i1 %tobool66, i64 0, i64 %text.coerce1
+  %spec.select48 = getelementptr inbounds i8, ptr %text.coerce0, i64 %spec.select48.idx
+  %cmp70.not = icmp eq ptr %6, %spec.select48
   br i1 %cmp70.not, label %if.end72, label %return
 
 if.end72:                                         ; preds = %land.lhs.true64, %if.end62

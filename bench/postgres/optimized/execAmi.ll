@@ -700,7 +700,7 @@ list_length.exit.thread.loopexit:                 ; preds = %tailrecurse, %tailr
   br label %list_length.exit.thread
 
 list_length.exit.thread:                          ; preds = %26, %18, %14, %list_length.exit17, %list_length.exit, %tailrecurse, %list_length.exit.thread.loopexit, %10, %4
-  %.0 = phi i1 [ %9, %4 ], [ %.not, %10 ], [ false, %tailrecurse ], [ false, %26 ], [ false, %18 ], [ false, %14 ], [ false, %list_length.exit17 ], [ false, %list_length.exit ], [ true, %list_length.exit.thread.loopexit ]
+  %.0 = phi i1 [ %9, %4 ], [ %.not, %10 ], [ true, %list_length.exit.thread.loopexit ], [ false, %tailrecurse ], [ false, %list_length.exit ], [ false, %list_length.exit17 ], [ false, %14 ], [ false, %18 ], [ false, %26 ]
   ret i1 %.0
 }
 
@@ -714,11 +714,11 @@ define dso_local zeroext i1 @ExecSupportsBackwardScan(ptr noundef readonly %0) l
   %3 = getelementptr inbounds i8, ptr %.tr33, i64 36
   %4 = load i8, ptr %3, align 4
   %5 = trunc i8 %4 to i1
-  br i1 %5, label %.thread, label %6
+  br i1 %5, label %.thread.loopexit67, label %6
 
 6:                                                ; preds = %.lr.ph
   %7 = load i32, ptr %.tr33, align 4
-  switch i32 %7, label %.thread.loopexit69 [
+  switch i32 %7, label %.thread.loopexit67 [
     i32 315, label %8
     i32 318, label %11
     i32 357, label %tailrecurse.backedge.sink.split
@@ -741,7 +741,7 @@ define dso_local zeroext i1 @ExecSupportsBackwardScan(ptr noundef readonly %0) l
   %9 = getelementptr inbounds i8, ptr %.tr33, i64 64
   %10 = load ptr, ptr %9, align 8
   %.not24 = icmp eq ptr %10, null
-  br i1 %.not24, label %.thread, label %tailrecurse.backedge
+  br i1 %.not24, label %.thread.loopexit67, label %tailrecurse.backedge
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds i8, ptr %.tr33, i64 120
@@ -793,15 +793,15 @@ define dso_local zeroext i1 @ExecSupportsBackwardScan(ptr noundef readonly %0) l
   br label %tailrecurse.backedge.sink.split
 
 tailrecurse.backedge.sink.split:                  ; preds = %6, %6, %38
-  %.sink61 = phi i64 [ 112, %38 ], [ 64, %6 ], [ 64, %6 ]
-  %39 = getelementptr inbounds i8, ptr %.tr33, i64 %.sink61
+  %.sink60 = phi i64 [ 112, %38 ], [ 64, %6 ], [ 64, %6 ]
+  %39 = getelementptr inbounds i8, ptr %.tr33, i64 %.sink60
   %40 = load ptr, ptr %39, align 8
   br label %tailrecurse.backedge
 
 tailrecurse.backedge:                             ; preds = %tailrecurse.backedge.sink.split, %8
   %.tr.be = phi ptr [ %10, %8 ], [ %40, %tailrecurse.backedge.sink.split ]
   %41 = icmp eq ptr %.tr.be, null
-  br i1 %41, label %.thread, label %.lr.ph
+  br i1 %41, label %.thread.loopexit67, label %.lr.ph
 
 42:                                               ; preds = %6
   %43 = getelementptr inbounds i8, ptr %.tr33, i64 112
@@ -810,11 +810,11 @@ tailrecurse.backedge:                             ; preds = %tailrecurse.backedg
   %.not = icmp ne i32 %45, 0
   br label %.thread
 
-.thread.loopexit69:                               ; preds = %6
+.thread.loopexit67:                               ; preds = %6, %8, %.lr.ph, %tailrecurse.backedge
   br label %.thread
 
-.thread:                                          ; preds = %tailrecurse.backedge, %.lr.ph, %8, %.lr.ph45, %22, %6, %6, %6, %6, %6, %6, %6, %6, %.thread.loopexit69, %1, %15, %.lr.ph37, %42, %11, %34, %30
-  %.0 = phi i1 [ %37, %34 ], [ %33, %30 ], [ false, %11 ], [ %.not, %42 ], [ true, %15 ], [ true, %.lr.ph37 ], [ false, %1 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ %29, %22 ], [ %29, %.lr.ph45 ], [ false, %8 ], [ false, %.lr.ph ], [ false, %tailrecurse.backedge ], [ false, %.thread.loopexit69 ]
+.thread:                                          ; preds = %.lr.ph45, %22, %6, %6, %6, %6, %6, %6, %6, %6, %.thread.loopexit67, %1, %15, %.lr.ph37, %42, %11, %34, %30
+  %.0 = phi i1 [ %37, %34 ], [ %33, %30 ], [ false, %11 ], [ %.not, %42 ], [ true, %15 ], [ true, %.lr.ph37 ], [ false, %1 ], [ false, %.thread.loopexit67 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ %29, %22 ], [ %29, %.lr.ph45 ]
   ret i1 %.0
 }
 

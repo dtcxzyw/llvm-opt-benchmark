@@ -41,18 +41,20 @@ if.else:                                          ; preds = %entry
 if.else3:                                         ; preds = %if.else
   %sub = sub i32 0, %errval
   %cmp4 = icmp slt i32 %sub, 19
-  br i1 %cmp4, label %if.then5, label %return
+  br i1 %cmp4, label %if.then5, label %if.end10
 
 if.then5:                                         ; preds = %if.else3
   %idxprom = sext i32 %sub to i64
   %arrayidx = getelementptr [19 x %struct.fdt_errtabent], ptr @fdt_errtable, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
   %tobool.not = icmp eq ptr %0, null
-  %spec.select = select i1 %tobool.not, ptr @.str.2, ptr %0
+  br i1 %tobool.not, label %if.end10, label %return
+
+if.end10:                                         ; preds = %if.then5, %if.else3
   br label %return
 
-return:                                           ; preds = %if.then5, %if.else3, %if.else, %entry
-  %retval.0 = phi ptr [ @.str, %entry ], [ @.str.1, %if.else ], [ @.str.2, %if.else3 ], [ %spec.select, %if.then5 ]
+return:                                           ; preds = %if.then5, %if.else, %entry, %if.end10
+  %retval.0 = phi ptr [ @.str.2, %if.end10 ], [ @.str, %entry ], [ @.str.1, %if.else ], [ %0, %if.then5 ]
   ret ptr %retval.0
 }
 

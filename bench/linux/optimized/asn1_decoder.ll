@@ -30,13 +30,13 @@ define dso_local i32 @asn1_ber_decoder(ptr nocapture noundef readonly %0, ptr no
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %8) #4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %8, i8 0, i64 10, i1 false), !annotation !5
   %14 = icmp ugt i64 %3, 65535
-  br i1 %14, label %.thread27, label %15
+  br i1 %14, label %.thread39, label %15
 
 15:                                               ; preds = %4
   %16 = getelementptr i8, ptr %9, i64 1
   %17 = getelementptr i8, ptr %9, i64 2
   %18 = icmp eq i64 %13, 0
-  br i1 %18, label %.thread27, label %.preheader46, !prof !6
+  br i1 %18, label %.thread39, label %.preheader46, !prof !6
 
 .preheader46:                                     ; preds = %15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %5, i8 0, i64 20, i1 false), !annotation !5
@@ -65,7 +65,7 @@ define dso_local i32 @asn1_ber_decoder(ptr nocapture noundef readonly %0, ptr no
   %36 = zext i8 %35 to i64
   %37 = add i64 %25, %36
   %38 = icmp ugt i64 %37, %13
-  br i1 %38, label %.thread27, label %39, !prof !7
+  br i1 %38, label %.thread39, label %39, !prof !7
 
 39:                                               ; preds = %19
   %40 = icmp ult i8 %31, 28
@@ -92,7 +92,7 @@ define dso_local i32 @asn1_ber_decoder(ptr nocapture noundef readonly %0, ptr no
 53:                                               ; preds = %46
   %54 = sub i64 %20, %26
   %55 = icmp ult i64 %54, 2
-  br i1 %55, label %.thread27, label %56, !prof !7
+  br i1 %55, label %.thread39, label %56, !prof !7
 
 56:                                               ; preds = %53
   %57 = getelementptr i8, ptr %2, i64 %26
@@ -100,7 +100,7 @@ define dso_local i32 @asn1_ber_decoder(ptr nocapture noundef readonly %0, ptr no
   %59 = zext i8 %58 to i32
   %60 = and i32 %59, 31
   %61 = icmp eq i32 %60, 31
-  br i1 %61, label %.thread27, label %62, !prof !7
+  br i1 %61, label %.thread39, label %62, !prof !7
 
 62:                                               ; preds = %56
   %63 = and i32 %32, 8
@@ -118,7 +118,7 @@ define dso_local i32 @asn1_ber_decoder(ptr nocapture noundef readonly %0, ptr no
   br i1 %72, label %74, label %73
 
 73:                                               ; preds = %65
-  br i1 %48, label %.thread36, label %.thread27
+  br i1 %48, label %.thread36, label %.thread39
 
 74:                                               ; preds = %65, %62
   %75 = phi i8 [ %68, %65 ], [ 0, %62 ]
@@ -136,13 +136,13 @@ define dso_local i32 @asn1_ber_decoder(ptr nocapture noundef readonly %0, ptr no
 82:                                               ; preds = %80
   %83 = and i32 %59, 32
   %84 = icmp eq i32 %83, 0
-  br i1 %84, label %.thread27, label %85, !prof !7
+  br i1 %84, label %.thread39, label %85, !prof !7
 
 85:                                               ; preds = %82
   %86 = or disjoint i8 %75, 3
   %87 = sub i64 %20, %77
   %88 = icmp ult i64 %87, 2
-  br i1 %88, label %.thread27, label %120, !prof !7
+  br i1 %88, label %.thread39, label %120, !prof !7
 
 89:                                               ; preds = %80
   %90 = zext i8 %78 to i32
@@ -152,7 +152,7 @@ define dso_local i32 @asn1_ber_decoder(ptr nocapture noundef readonly %0, ptr no
   %94 = sub i64 %20, %77
   %95 = icmp ult i64 %94, %93
   %or.cond = select i1 %92, i1 true, i1 %95
-  br i1 %or.cond, label %.thread27, label %96, !prof !8
+  br i1 %or.cond, label %.thread39, label %96, !prof !8
 
 96:                                               ; preds = %89
   %97 = add i8 %78, -126
@@ -179,13 +179,13 @@ define dso_local i32 @asn1_ber_decoder(ptr nocapture noundef readonly %0, ptr no
   %114 = add i64 %113, %99
   %115 = sub i64 %20, %114
   %.not = icmp ugt i64 %109, %115
-  br i1 %.not, label %.thread27, label %120
+  br i1 %.not, label %.thread39, label %120
 
 116:                                              ; preds = %74
   %117 = zext nneg i8 %78 to i64
   %118 = sub i64 %20, %77
   %119 = icmp ult i64 %118, %117
-  br i1 %119, label %.thread27, label %120, !prof !7
+  br i1 %119, label %.thread39, label %120, !prof !7
 
 120:                                              ; preds = %116, %112, %85
   %121 = phi i64 [ 128, %85 ], [ %109, %112 ], [ %117, %116 ]
@@ -199,7 +199,7 @@ define dso_local i32 @asn1_ber_decoder(ptr nocapture noundef readonly %0, ptr no
 
 128:                                              ; preds = %120
   %129 = icmp ugt i8 %22, 9
-  br i1 %129, label %.thread27, label %130, !prof !7
+  br i1 %129, label %.thread39, label %130, !prof !7
 
 130:                                              ; preds = %128
   %131 = trunc i64 %123 to i16
@@ -231,7 +231,7 @@ define dso_local i32 @asn1_ber_decoder(ptr nocapture noundef readonly %0, ptr no
   %150 = phi i8 [ %159, %376 ], [ %159, %321 ], [ %159, %336 ], [ %159, %272 ], [ %159, %267 ], [ %21, %51 ], [ %58, %73 ], [ %159, %281 ], [ %159, %348 ], [ %159, %342 ], [ %159, %361 ], [ %159, %364 ]
   %151 = phi i64 [ %160, %376 ], [ %160, %321 ], [ %160, %336 ], [ %160, %272 ], [ %160, %267 ], [ %20, %51 ], [ %20, %73 ], [ %160, %281 ], [ %344, %348 ], [ %344, %342 ], [ %160, %361 ], [ %160, %364 ]
   %152 = icmp ult i64 %146, %13
-  br i1 %152, label %19, label %.thread27, !prof !12
+  br i1 %152, label %19, label %.thread39, !prof !12
 
 .thread31:                                        ; preds = %130, %120, %39
   %153 = phi i64 [ %29, %39 ], [ %121, %120 ], [ %121, %130 ]
@@ -286,7 +286,7 @@ define dso_local i32 @asn1_ber_decoder(ptr nocapture noundef readonly %0, ptr no
 167:                                              ; preds = %161
   %168 = sub i64 %160, %156
   %169 = icmp ult i64 %168, 2
-  br i1 %169, label %.thread27, label %.preheader44, !prof !6
+  br i1 %169, label %.thread39, label %.preheader44, !prof !6
 
 .preheader44:                                     ; preds = %167, %192
   %170 = phi i32 [ %194, %192 ], [ 1, %167 ]
@@ -299,7 +299,7 @@ define dso_local i32 @asn1_ber_decoder(ptr nocapture noundef readonly %0, ptr no
   %174 = add i64 %173, %172
   %175 = sub i64 %160, %174
   %176 = icmp ult i64 %175, 2
-  br i1 %176, label %.thread27, label %177, !prof !13
+  br i1 %176, label %.thread39, label %177, !prof !13
 
 177:                                              ; preds = %.thread37, %.preheader44
   %178 = phi i64 [ %171, %.preheader44 ], [ %174, %.thread37 ]
@@ -314,7 +314,7 @@ define dso_local i32 @asn1_ber_decoder(ptr nocapture noundef readonly %0, ptr no
   %185 = getelementptr i8, ptr %2, i64 %179
   %186 = load i8, ptr %185, align 1
   %187 = icmp eq i8 %186, 0
-  br i1 %187, label %188, label %.thread27
+  br i1 %187, label %188, label %.thread39
 
 188:                                              ; preds = %184
   %189 = add i64 %178, 2
@@ -327,7 +327,7 @@ define dso_local i32 @asn1_ber_decoder(ptr nocapture noundef readonly %0, ptr no
   %194 = phi i32 [ %220, %219 ], [ %190, %188 ]
   %195 = sub i64 %160, %193
   %196 = icmp ult i64 %195, 2
-  br i1 %196, label %.thread27, label %.preheader44, !prof !14
+  br i1 %196, label %.thread39, label %.preheader44, !prof !14
 
 197:                                              ; preds = %177
   %198 = and i32 %182, 31
@@ -338,7 +338,7 @@ define dso_local i32 @asn1_ber_decoder(ptr nocapture noundef readonly %0, ptr no
   %200 = phi i64 [ %204, %203 ], [ %179, %197 ]
   %201 = sub i64 %160, %200
   %202 = icmp ult i64 %201, 2
-  br i1 %202, label %.thread27, label %203, !prof !7
+  br i1 %202, label %.thread39, label %203, !prof !7
 
 203:                                              ; preds = %.preheader42
   %204 = add i64 %200, 1
@@ -363,7 +363,7 @@ define dso_local i32 @asn1_ber_decoder(ptr nocapture noundef readonly %0, ptr no
 216:                                              ; preds = %214
   %217 = and i32 %182, 32
   %218 = icmp eq i32 %217, 0
-  br i1 %218, label %.thread27, label %219, !prof !7
+  br i1 %218, label %.thread39, label %219, !prof !7
 
 219:                                              ; preds = %216
   %220 = add i32 %170, 1
@@ -375,7 +375,7 @@ define dso_local i32 @asn1_ber_decoder(ptr nocapture noundef readonly %0, ptr no
   %224 = sub i64 %160, %209
   %225 = icmp ugt i64 %222, %224
   %226 = select i1 %223, i1 true, i1 %225
-  br i1 %226, label %.thread27, label %227, !prof !8
+  br i1 %226, label %.thread39, label %227, !prof !8
 
 227:                                              ; preds = %221
   %228 = icmp eq i64 %222, 0
@@ -405,7 +405,7 @@ define dso_local i32 @asn1_ber_decoder(ptr nocapture noundef readonly %0, ptr no
   %245 = phi i64 [ %212, %.loopexit ], [ %237, %240 ]
   %246 = sub i64 %160, %244
   %247 = icmp ugt i64 %245, %246
-  br i1 %247, label %.thread27, label %.thread37
+  br i1 %247, label %.thread39, label %.thread37
 
 248:                                              ; preds = %188
   %249 = sub i64 %189, %156
@@ -430,7 +430,7 @@ define dso_local i32 @asn1_ber_decoder(ptr nocapture noundef readonly %0, ptr no
   %264 = getelementptr i8, ptr %2, i64 %156
   %265 = tail call i32 %262(ptr noundef %1, i64 noundef %263, i8 noundef zeroext %159, ptr noundef %264, i64 noundef %251) #4
   %266 = icmp sgt i32 %265, -1
-  br i1 %266, label %267, label %.thread27
+  br i1 %266, label %267, label %.thread39
 
 267:                                              ; preds = %254, %250
   %268 = select i1 %164, i64 %251, i64 0
@@ -439,7 +439,7 @@ define dso_local i32 @asn1_ber_decoder(ptr nocapture noundef readonly %0, ptr no
 
 270:                                              ; preds = %.thread31, %.thread31, %.thread31
   %271 = icmp eq i8 %23, 10
-  br i1 %271, label %.thread27, label %272, !prof !7
+  br i1 %271, label %.thread39, label %272, !prof !7
 
 272:                                              ; preds = %270
   %273 = trunc i64 %25 to i8
@@ -456,30 +456,30 @@ define dso_local i32 @asn1_ber_decoder(ptr nocapture noundef readonly %0, ptr no
 281:                                              ; preds = %.thread31
   %282 = and i8 %155, 2
   %283 = icmp eq i8 %282, 0
-  br i1 %283, label %.thread27, label %.thread36, !prof !7
+  br i1 %283, label %.thread39, label %.thread36, !prof !7
 
 284:                                              ; preds = %.thread31
   %285 = icmp ne i8 %23, 0
   %286 = icmp ne i8 %158, 0
   %287 = select i1 %285, i1 true, i1 %286, !prof !7
-  br i1 %287, label %288, label %.thread27, !prof !7
+  br i1 %287, label %288, label %.thread39, !prof !7
 
 288:                                              ; preds = %284
   %289 = zext i8 %158 to i32
   %290 = zext i8 %23 to i32
   %291 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, i32 noundef %290, i32 noundef %289) #5
-  br label %.thread27
+  br label %.thread39
 
 292:                                              ; preds = %.thread31, %.thread31
   %293 = and i8 %155, 2
   %294 = icmp eq i8 %293, 0
   %295 = icmp eq i8 %158, 0
   %296 = select i1 %294, i1 true, i1 %295
-  br i1 %296, label %.thread27, label %299, !prof !8
+  br i1 %296, label %.thread39, label %299, !prof !8
 
 297:                                              ; preds = %.thread31, %.thread31, %.thread31, %.thread31, %.thread31, %.thread31
   %298 = icmp eq i8 %158, 0
-  br i1 %298, label %.thread27, label %299, !prof !7
+  br i1 %298, label %.thread39, label %299, !prof !7
 
 299:                                              ; preds = %297, %292
   %300 = add i8 %158, -1
@@ -498,7 +498,7 @@ define dso_local i32 @asn1_ber_decoder(ptr nocapture noundef readonly %0, ptr no
 311:                                              ; preds = %299
   %312 = sub i64 %160, %156
   %313 = icmp ult i64 %312, 2
-  br i1 %313, label %.thread27, label %314, !prof !7
+  br i1 %313, label %.thread39, label %314, !prof !7
 
 314:                                              ; preds = %311
   %315 = getelementptr i8, ptr %2, i64 %156
@@ -509,7 +509,7 @@ define dso_local i32 @asn1_ber_decoder(ptr nocapture noundef readonly %0, ptr no
 318:                                              ; preds = %314
   %319 = and i32 %32, 2
   %320 = icmp eq i32 %319, 0
-  br i1 %320, label %.thread27, label %321
+  br i1 %320, label %.thread39, label %321
 
 321:                                              ; preds = %318
   %322 = getelementptr i8, ptr %16, i64 %25
@@ -521,7 +521,7 @@ define dso_local i32 @asn1_ber_decoder(ptr nocapture noundef readonly %0, ptr no
   %326 = getelementptr i8, ptr %315, i64 1
   %327 = load i8, ptr %326, align 1
   %328 = icmp eq i8 %327, 0
-  br i1 %328, label %329, label %.thread27
+  br i1 %328, label %329, label %.thread39
 
 329:                                              ; preds = %325
   %330 = add i64 %156, 2
@@ -542,7 +542,7 @@ define dso_local i32 @asn1_ber_decoder(ptr nocapture noundef readonly %0, ptr no
 
 340:                                              ; preds = %331
   %341 = icmp eq i64 %156, %160
-  br i1 %341, label %342, label %.thread27
+  br i1 %341, label %342, label %.thread39
 
 342:                                              ; preds = %340, %329
   %343 = phi i64 [ %330, %329 ], [ %156, %340 ]
@@ -565,7 +565,7 @@ define dso_local i32 @asn1_ber_decoder(ptr nocapture noundef readonly %0, ptr no
   %358 = getelementptr i8, ptr %2, i64 %304
   %359 = tail call i32 %356(ptr noundef %1, i64 noundef %357, i8 noundef zeroext 0, ptr noundef %358, i64 noundef %345) #4
   %360 = icmp sgt i32 %359, -1
-  br i1 %360, label %.thread36, label %.thread27
+  br i1 %360, label %.thread36, label %.thread39
 
 361:                                              ; preds = %.thread31
   %362 = and i8 %155, 4
@@ -582,11 +582,11 @@ define dso_local i32 @asn1_ber_decoder(ptr nocapture noundef readonly %0, ptr no
   %371 = getelementptr i8, ptr %2, i64 %154
   %372 = tail call i32 %369(ptr noundef %1, i64 noundef %370, i8 noundef zeroext %159, ptr noundef %371, i64 noundef %153) #4
   %373 = icmp slt i32 %372, 0
-  br i1 %373, label %.thread27, label %.thread36
+  br i1 %373, label %.thread39, label %.thread36
 
 374:                                              ; preds = %.thread31
   %375 = icmp eq i8 %23, 0
-  br i1 %375, label %.thread27, label %376, !prof !7
+  br i1 %375, label %.thread39, label %376, !prof !7
 
 376:                                              ; preds = %374
   %377 = add i8 %23, -1
@@ -599,10 +599,10 @@ define dso_local i32 @asn1_ber_decoder(ptr nocapture noundef readonly %0, ptr no
 
 383:                                              ; preds = %.thread31
   %384 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1, i32 noundef %32, i64 noundef %25) #5
-  br label %.thread27
+  br label %.thread39
 
-.thread27:                                        ; preds = %112, %89, %167, %73, %116, %128, %85, %82, %56, %53, %374, %364, %348, %340, %325, %318, %311, %297, %292, %281, %270, %254, %.thread36, %19, %192, %184, %216, %.thread37, %243, %221, %.preheader42, %383, %288, %284, %15, %4
-  %385 = phi i32 [ -74, %383 ], [ -74, %288 ], [ -90, %4 ], [ 0, %284 ], [ -74, %15 ], [ -74, %.preheader42 ], [ -74, %221 ], [ -74, %243 ], [ -74, %.thread37 ], [ -74, %216 ], [ -74, %184 ], [ -74, %192 ], [ -74, %112 ], [ -74, %89 ], [ -74, %167 ], [ -74, %73 ], [ -74, %116 ], [ -74, %128 ], [ -74, %85 ], [ -74, %82 ], [ -74, %56 ], [ -74, %53 ], [ -74, %311 ], [ -74, %292 ], [ -74, %281 ], [ %359, %348 ], [ %265, %254 ], [ %372, %364 ], [ -74, %19 ], [ -74, %.thread36 ], [ -74, %374 ], [ -74, %270 ], [ -74, %297 ], [ -74, %340 ], [ -74, %318 ], [ -74, %325 ]
+.thread39:                                        ; preds = %53, %56, %82, %85, %128, %116, %73, %89, %112, %167, %374, %364, %348, %340, %325, %318, %311, %297, %292, %281, %270, %254, %.thread36, %19, %192, %184, %216, %.thread37, %243, %221, %.preheader42, %383, %288, %284, %15, %4
+  %385 = phi i32 [ -74, %383 ], [ -74, %288 ], [ -90, %4 ], [ 0, %284 ], [ -74, %15 ], [ -74, %.preheader42 ], [ -74, %221 ], [ -74, %243 ], [ -74, %.thread37 ], [ -74, %216 ], [ -74, %184 ], [ -74, %192 ], [ -74, %53 ], [ -74, %56 ], [ -74, %82 ], [ -74, %85 ], [ -74, %128 ], [ -74, %116 ], [ -74, %73 ], [ -74, %89 ], [ -74, %112 ], [ -74, %167 ], [ -74, %311 ], [ -74, %292 ], [ -74, %281 ], [ %359, %348 ], [ %265, %254 ], [ %372, %364 ], [ -74, %19 ], [ -74, %.thread36 ], [ -74, %374 ], [ -74, %270 ], [ -74, %297 ], [ -74, %340 ], [ -74, %318 ], [ -74, %325 ]
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %8) #4
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %7) #4
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #4

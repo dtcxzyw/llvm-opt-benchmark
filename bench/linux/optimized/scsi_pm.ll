@@ -95,7 +95,7 @@ define internal noundef i32 @scsi_bus_prepare(ptr noundef %0) #0 align 16 {
 define internal i32 @scsi_bus_suspend(ptr noundef %0) #0 align 16 {
   %2 = tail call i32 @scsi_is_sdev_device(ptr noundef %0) #2
   %3 = icmp eq i32 %2, 0
-  br i1 %3, label %.thread6, label %4
+  br i1 %3, label %27, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 104
@@ -109,35 +109,39 @@ define internal i32 @scsi_bus_suspend(ptr noundef %0) #0 align 16 {
   %11 = getelementptr i8, ptr %0, i64 -440
   %12 = tail call i32 @scsi_device_quiesce(ptr noundef %11) #2
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %16, label %.thread6
+  br i1 %13, label %17, label %27
 
 .thread:                                          ; preds = %4
   %14 = getelementptr i8, ptr %0, i64 -440
   %15 = tail call i32 @scsi_device_quiesce(ptr noundef %14) #2
-  br label %.thread6
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %.thread6, label %27
 
-16:                                               ; preds = %8
-  %17 = icmp eq ptr %10, null
-  br i1 %17, label %.thread6, label %18
+17:                                               ; preds = %8
+  %18 = icmp eq ptr %10, null
+  br i1 %18, label %.thread6, label %19
 
-18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %10, i64 16
-  %20 = load ptr, ptr %19, align 8
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %.thread6, label %22
+19:                                               ; preds = %17
+  %20 = getelementptr inbounds i8, ptr %10, i64 16
+  %21 = load ptr, ptr %20, align 8
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %.thread6, label %23
 
-22:                                               ; preds = %18
-  %23 = tail call i32 %20(ptr noundef %0) #2
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %.thread6, label %25
+.thread6:                                         ; preds = %19, %17, %.thread
+  br label %27
 
-25:                                               ; preds = %22
+23:                                               ; preds = %19
+  %24 = tail call i32 %21(ptr noundef %0) #2
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %27, label %26
+
+26:                                               ; preds = %23
   tail call void @scsi_device_resume(ptr noundef %11) #2
-  br label %.thread6
+  br label %27
 
-.thread6:                                         ; preds = %.thread, %16, %18, %25, %22, %8, %1
-  %26 = phi i32 [ 0, %1 ], [ %23, %25 ], [ 0, %22 ], [ %12, %8 ], [ 0, %18 ], [ 0, %16 ], [ %15, %.thread ]
-  ret i32 %26
+27:                                               ; preds = %.thread6, %.thread, %26, %23, %8, %1
+  %28 = phi i32 [ 0, %1 ], [ %24, %26 ], [ 0, %23 ], [ %12, %8 ], [ %15, %.thread ], [ 0, %.thread6 ]
+  ret i32 %28
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -188,7 +192,7 @@ define internal i32 @scsi_bus_resume(ptr noundef %0) #0 align 16 {
 define internal i32 @scsi_bus_freeze(ptr noundef %0) #0 align 16 {
   %2 = tail call i32 @scsi_is_sdev_device(ptr noundef %0) #2
   %3 = icmp eq i32 %2, 0
-  br i1 %3, label %.thread6, label %4
+  br i1 %3, label %27, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 104
@@ -202,35 +206,39 @@ define internal i32 @scsi_bus_freeze(ptr noundef %0) #0 align 16 {
   %11 = getelementptr i8, ptr %0, i64 -440
   %12 = tail call i32 @scsi_device_quiesce(ptr noundef %11) #2
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %16, label %.thread6
+  br i1 %13, label %17, label %27
 
 .thread:                                          ; preds = %4
   %14 = getelementptr i8, ptr %0, i64 -440
   %15 = tail call i32 @scsi_device_quiesce(ptr noundef %14) #2
-  br label %.thread6
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %.thread6, label %27
 
-16:                                               ; preds = %8
-  %17 = icmp eq ptr %10, null
-  br i1 %17, label %.thread6, label %18
+17:                                               ; preds = %8
+  %18 = icmp eq ptr %10, null
+  br i1 %18, label %.thread6, label %19
 
-18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %10, i64 32
-  %20 = load ptr, ptr %19, align 8
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %.thread6, label %22
+19:                                               ; preds = %17
+  %20 = getelementptr inbounds i8, ptr %10, i64 32
+  %21 = load ptr, ptr %20, align 8
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %.thread6, label %23
 
-22:                                               ; preds = %18
-  %23 = tail call i32 %20(ptr noundef %0) #2
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %.thread6, label %25
+.thread6:                                         ; preds = %19, %17, %.thread
+  br label %27
 
-25:                                               ; preds = %22
+23:                                               ; preds = %19
+  %24 = tail call i32 %21(ptr noundef %0) #2
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %27, label %26
+
+26:                                               ; preds = %23
   tail call void @scsi_device_resume(ptr noundef %11) #2
-  br label %.thread6
+  br label %27
 
-.thread6:                                         ; preds = %.thread, %16, %18, %25, %22, %8, %1
-  %26 = phi i32 [ 0, %1 ], [ %23, %25 ], [ 0, %22 ], [ %12, %8 ], [ 0, %18 ], [ 0, %16 ], [ %15, %.thread ]
-  ret i32 %26
+27:                                               ; preds = %.thread6, %.thread, %26, %23, %8, %1
+  %28 = phi i32 [ 0, %1 ], [ %24, %26 ], [ 0, %23 ], [ %12, %8 ], [ %15, %.thread ], [ 0, %.thread6 ]
+  ret i32 %28
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -281,7 +289,7 @@ define internal i32 @scsi_bus_thaw(ptr noundef %0) #0 align 16 {
 define internal i32 @scsi_bus_poweroff(ptr noundef %0) #0 align 16 {
   %2 = tail call i32 @scsi_is_sdev_device(ptr noundef %0) #2
   %3 = icmp eq i32 %2, 0
-  br i1 %3, label %.thread6, label %4
+  br i1 %3, label %27, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 104
@@ -295,35 +303,39 @@ define internal i32 @scsi_bus_poweroff(ptr noundef %0) #0 align 16 {
   %11 = getelementptr i8, ptr %0, i64 -440
   %12 = tail call i32 @scsi_device_quiesce(ptr noundef %11) #2
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %16, label %.thread6
+  br i1 %13, label %17, label %27
 
 .thread:                                          ; preds = %4
   %14 = getelementptr i8, ptr %0, i64 -440
   %15 = tail call i32 @scsi_device_quiesce(ptr noundef %14) #2
-  br label %.thread6
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %.thread6, label %27
 
-16:                                               ; preds = %8
-  %17 = icmp eq ptr %10, null
-  br i1 %17, label %.thread6, label %18
+17:                                               ; preds = %8
+  %18 = icmp eq ptr %10, null
+  br i1 %18, label %.thread6, label %19
 
-18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %10, i64 48
-  %20 = load ptr, ptr %19, align 8
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %.thread6, label %22
+19:                                               ; preds = %17
+  %20 = getelementptr inbounds i8, ptr %10, i64 48
+  %21 = load ptr, ptr %20, align 8
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %.thread6, label %23
 
-22:                                               ; preds = %18
-  %23 = tail call i32 %20(ptr noundef %0) #2
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %.thread6, label %25
+.thread6:                                         ; preds = %19, %17, %.thread
+  br label %27
 
-25:                                               ; preds = %22
+23:                                               ; preds = %19
+  %24 = tail call i32 %21(ptr noundef %0) #2
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %27, label %26
+
+26:                                               ; preds = %23
   tail call void @scsi_device_resume(ptr noundef %11) #2
-  br label %.thread6
+  br label %27
 
-.thread6:                                         ; preds = %.thread, %16, %18, %25, %22, %8, %1
-  %26 = phi i32 [ 0, %1 ], [ %23, %25 ], [ 0, %22 ], [ %12, %8 ], [ 0, %18 ], [ 0, %16 ], [ %15, %.thread ]
-  ret i32 %26
+27:                                               ; preds = %.thread6, %.thread, %26, %23, %8, %1
+  %28 = phi i32 [ 0, %1 ], [ %24, %26 ], [ 0, %23 ], [ %12, %8 ], [ %15, %.thread ], [ 0, %.thread6 ]
+  ret i32 %28
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

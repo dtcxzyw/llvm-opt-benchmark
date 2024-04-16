@@ -3896,29 +3896,36 @@ sw.bb.i:                                          ; preds = %if.end46
 if.end.i34:                                       ; preds = %sw.bb.i
   %7 = load i64, ptr %arg.val, align 8
   %cmp.i35 = icmp eq i64 %7, %4
-  br i1 %cmp.i35, label %land.lhs.true.i, label %tparam_handle.exit
+  br i1 %cmp.i35, label %land.lhs.true.i, label %if.end8.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i34
   %call4.i = call ptr @ossl_quic_wire_encode_transport_param_bytes(ptr noundef nonnull %wpkt, i64 noundef %4, ptr noundef %call39, i64 noundef %5) #9
   %call5.i = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1848, ptr noundef nonnull @.str.312, ptr noundef %call4.i) #9
-  %tobool6.not.i = icmp ne i32 %call5.i, 0
+  %tobool6.not.i = icmp eq i32 %call5.i, 0
+  br i1 %tobool6.not.i, label %tparam_handle.exit, label %if.end8.i
+
+if.end8.i:                                        ; preds = %land.lhs.true.i, %if.end.i34
   br label %tparam_handle.exit
 
 sw.bb9.i:                                         ; preds = %if.end46, %if.end46
   %8 = load i64, ptr %arg.val, align 8
   %cmp11.not.i = icmp eq i64 %8, %4
-  br i1 %cmp11.not.i, label %tparam_handle.exit, label %land.lhs.true12.i
+  br i1 %cmp11.not.i, label %if.end17.i, label %land.lhs.true12.i
 
 land.lhs.true12.i:                                ; preds = %sw.bb9.i
   %call13.i = call ptr @ossl_quic_wire_encode_transport_param_bytes(ptr noundef nonnull %wpkt, i64 noundef %4, ptr noundef %call39, i64 noundef %5) #9
   %call14.i = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1858, ptr noundef nonnull @.str.312, ptr noundef %call13.i) #9
-  %tobool15.not.i = icmp ne i32 %call14.i, 0
+  %tobool15.not.i = icmp eq i32 %call14.i, 0
+  br i1 %tobool15.not.i, label %tparam_handle.exit, label %if.end17.i
+
+if.end17.i:                                       ; preds = %land.lhs.true12.i, %sw.bb9.i
   br label %tparam_handle.exit
 
 sw.bb18.i:                                        ; preds = %if.end46, %if.end46, %if.end46
   %call19.i = call ptr @ossl_quic_wire_encode_transport_param_bytes(ptr noundef nonnull %wpkt, i64 noundef %4, ptr noundef %call39, i64 noundef %5) #9
   %call20.i = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1868, ptr noundef nonnull @.str.312, ptr noundef %call19.i) #9
   %tobool21.not.i = icmp ne i32 %call20.i, 0
+  %..i = zext i1 %tobool21.not.i to i32
   br label %tparam_handle.exit
 
 sw.bb24.i:                                        ; preds = %if.end46
@@ -3954,9 +3961,8 @@ if.then42.i:                                      ; preds = %if.end38.i
   store i8 %14, ptr %call39, align 1
   br label %tparam_handle.exit
 
-tparam_handle.exit:                               ; preds = %if.end46, %sw.bb.i, %if.end.i34, %land.lhs.true.i, %sw.bb9.i, %land.lhs.true12.i, %sw.bb18.i, %if.then27.i, %if.end33.i, %if.end38.i, %if.then42.i
-  %retval.0.shrunk.i = phi i1 [ false, %sw.bb.i ], [ true, %if.end.i34 ], [ true, %sw.bb9.i ], [ %tobool21.not.i, %sw.bb18.i ], [ false, %if.then27.i ], [ false, %if.end33.i ], [ true, %if.then42.i ], [ true, %if.end38.i ], [ false, %if.end46 ], [ %tobool6.not.i, %land.lhs.true.i ], [ %tobool15.not.i, %land.lhs.true12.i ]
-  %retval.0.i33 = zext i1 %retval.0.shrunk.i to i32
+tparam_handle.exit:                               ; preds = %if.end46, %sw.bb.i, %land.lhs.true.i, %if.end8.i, %land.lhs.true12.i, %if.end17.i, %sw.bb18.i, %if.then27.i, %if.end33.i, %if.end38.i, %if.then42.i
+  %retval.0.i33 = phi i32 [ 1, %if.end17.i ], [ 1, %if.end8.i ], [ 0, %sw.bb.i ], [ 0, %land.lhs.true.i ], [ 0, %land.lhs.true12.i ], [ %..i, %sw.bb18.i ], [ 0, %if.then27.i ], [ 0, %if.end33.i ], [ 1, %if.then42.i ], [ 1, %if.end38.i ], [ 0, %if.end46 ]
   %call50 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1949, ptr noundef nonnull @.str.307, i32 noundef %retval.0.i33) #9
   %tobool51.not = icmp eq i32 %call50, 0
   br i1 %tobool51.not, label %if.then150, label %for.cond, !llvm.loop !26

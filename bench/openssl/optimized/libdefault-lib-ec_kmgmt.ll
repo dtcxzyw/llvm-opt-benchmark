@@ -165,7 +165,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ec_gen_set_params(ptr noundef %genctx, ptr noundef %params) #0 {
+define internal noundef i32 @ec_gen_set_params(ptr noundef %genctx, ptr noundef %params) #0 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %params, ptr noundef nonnull @.str.1) #4
   %cmp.not = icmp eq ptr %call, null
@@ -452,7 +452,7 @@ if.end182:                                        ; preds = %if.then178
 if.end192:                                        ; preds = %if.end182, %if.end175
   %call193 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %params, ptr noundef nonnull @.str.14) #4
   %cmp194.not = icmp eq ptr %call193, null
-  br i1 %cmp194.not, label %err, label %if.then195
+  br i1 %cmp194.not, label %if.end209, label %if.then195
 
 if.then195:                                       ; preds = %if.end192
   %data_type196 = getelementptr inbounds i8, ptr %call193, i64 8
@@ -472,12 +472,14 @@ if.end199:                                        ; preds = %if.then195
   %31 = load ptr, ptr %data201, align 8
   %call203 = tail call noalias ptr @CRYPTO_memdup(ptr noundef %31, i64 noundef %30, ptr noundef nonnull @.str, i32 noundef 1127) #4
   store ptr %call203, ptr %dhkem_ikm, align 8
-  %cmp206 = icmp ne ptr %call203, null
-  %spec.select = zext i1 %cmp206 to i32
+  %cmp206 = icmp eq ptr %call203, null
+  br i1 %cmp206, label %err, label %if.end209
+
+if.end209:                                        ; preds = %if.end199, %if.end192
   br label %err
 
-err:                                              ; preds = %if.end199, %if.end192, %if.then195, %if.end182, %if.then178, %if.end166, %if.then162, %if.end150, %lor.lhs.false153, %if.end133, %lor.lhs.false136, %if.end116, %lor.lhs.false119, %if.end99, %lor.lhs.false102, %if.end83, %lor.lhs.false, %if.end66, %if.then62, %if.end51, %if.then47, %if.end36, %if.then32, %if.end21, %if.then17, %if.end7, %if.then4, %land.lhs.true
-  %ret.0 = phi i32 [ 0, %if.then4 ], [ 0, %if.end7 ], [ 0, %if.then17 ], [ 0, %if.end21 ], [ 0, %if.then32 ], [ 0, %if.end36 ], [ 0, %if.then47 ], [ 0, %if.end51 ], [ 0, %if.then62 ], [ 0, %if.end66 ], [ 0, %if.end83 ], [ 0, %if.end99 ], [ 0, %if.end116 ], [ 0, %if.end133 ], [ 0, %if.end150 ], [ 0, %if.then162 ], [ 0, %if.end166 ], [ 0, %if.then178 ], [ 0, %if.end182 ], [ 0, %if.then195 ], [ 0, %lor.lhs.false153 ], [ 0, %lor.lhs.false136 ], [ 0, %lor.lhs.false119 ], [ 0, %lor.lhs.false102 ], [ 0, %lor.lhs.false ], [ 0, %land.lhs.true ], [ 1, %if.end192 ], [ %spec.select, %if.end199 ]
+err:                                              ; preds = %if.end199, %if.then195, %if.end182, %if.then178, %if.end166, %if.then162, %if.end150, %lor.lhs.false153, %if.end133, %lor.lhs.false136, %if.end116, %lor.lhs.false119, %if.end99, %lor.lhs.false102, %if.end83, %lor.lhs.false, %if.end66, %if.then62, %if.end51, %if.then47, %if.end36, %if.then32, %if.end21, %if.then17, %if.end7, %if.then4, %land.lhs.true, %if.end209
+  %ret.0 = phi i32 [ 0, %if.then4 ], [ 0, %if.end7 ], [ 0, %if.then17 ], [ 0, %if.end21 ], [ 0, %if.then32 ], [ 0, %if.end36 ], [ 0, %if.then47 ], [ 0, %if.end51 ], [ 0, %if.then62 ], [ 0, %if.end66 ], [ 0, %if.end83 ], [ 0, %if.end99 ], [ 0, %if.end116 ], [ 0, %if.end133 ], [ 0, %if.end150 ], [ 0, %if.then162 ], [ 0, %if.end166 ], [ 0, %if.then178 ], [ 0, %if.end182 ], [ 0, %if.then195 ], [ 0, %if.end199 ], [ 1, %if.end209 ], [ 0, %lor.lhs.false153 ], [ 0, %lor.lhs.false136 ], [ 0, %lor.lhs.false119 ], [ 0, %lor.lhs.false102 ], [ 0, %lor.lhs.false ], [ 0, %land.lhs.true ]
   tail call void @EC_GROUP_free(ptr noundef null) #4
   ret i32 %ret.0
 }
@@ -780,13 +782,13 @@ if.then9:                                         ; preds = %if.end6
   %call10 = tail call ptr @ossl_ec_key_get_libctx(ptr noundef nonnull %key) #4
   %call11 = tail call ptr @BN_CTX_new_ex(ptr noundef %call10) #4
   %cmp12 = icmp eq ptr %call11, null
-  br i1 %cmp12, label %if.end18, label %lor.lhs.false
+  br i1 %cmp12, label %if.then17, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then9
   %data_type = getelementptr inbounds i8, ptr %call7, i64 8
   %0 = load i32, ptr %data_type, align 8
   %cmp13.not = icmp eq i32 %0, 5
-  br i1 %cmp13.not, label %lor.lhs.false14, label %if.end18
+  br i1 %cmp13.not, label %lor.lhs.false14, label %if.then17
 
 lor.lhs.false14:                                  ; preds = %lor.lhs.false
   %data = getelementptr inbounds i8, ptr %call7, i64 16
@@ -795,22 +797,22 @@ lor.lhs.false14:                                  ; preds = %lor.lhs.false
   %2 = load i64, ptr %data_size, align 8
   %call15 = tail call i32 @EC_KEY_oct2key(ptr noundef nonnull %key, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %call11) #4
   %tobool16.not = icmp eq i32 %call15, 0
-  br i1 %tobool16.not, label %if.end18, label %if.end22.critedge
+  br i1 %tobool16.not, label %if.then17, label %if.end18
 
-if.end18:                                         ; preds = %lor.lhs.false14, %if.then9, %lor.lhs.false
+if.then17:                                        ; preds = %lor.lhs.false14, %lor.lhs.false, %if.then9
   tail call void @BN_CTX_free(ptr noundef %call11) #4
   br label %return
 
-if.end22.critedge:                                ; preds = %lor.lhs.false14
+if.end18:                                         ; preds = %lor.lhs.false14
   tail call void @BN_CTX_free(ptr noundef nonnull %call11) #4
   br label %if.end22
 
-if.end22:                                         ; preds = %if.end22.critedge, %if.end6
+if.end22:                                         ; preds = %if.end18, %if.end6
   %call23 = tail call i32 @ossl_ec_key_otherparams_fromdata(ptr noundef nonnull %key, ptr noundef nonnull %params) #4
   br label %return
 
-return:                                           ; preds = %if.end3, %if.end, %entry, %if.end22, %if.end18
-  %retval.0 = phi i32 [ %call23, %if.end22 ], [ 0, %if.end18 ], [ 0, %entry ], [ 1, %if.end ], [ 0, %if.end3 ]
+return:                                           ; preds = %if.end3, %if.end, %entry, %if.end22, %if.then17
+  %retval.0 = phi i32 [ %call23, %if.end22 ], [ 0, %if.then17 ], [ 0, %entry ], [ 1, %if.end ], [ 0, %if.end3 ]
   ret i32 %retval.0
 }
 
@@ -2119,7 +2121,7 @@ declare i64 @EC_POINT_point2oct(ptr noundef, ptr noundef, i32 noundef, ptr nound
 declare i32 @ossl_ec_group_todata(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @key_to_params(ptr noundef %eckey, ptr noundef %tmpl, ptr noundef %params, i32 noundef %include_private, ptr noundef %pub_key) unnamed_addr #0 {
+define internal fastcc noundef i32 @key_to_params(ptr noundef %eckey, ptr noundef %tmpl, ptr noundef %params, i32 noundef %include_private, ptr noundef %pub_key) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %eckey, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -2219,7 +2221,7 @@ if.end63:                                         ; preds = %if.end28, %land.lhs
   %cmp64 = icmp ne ptr %call2, null
   %tobool66 = icmp ne i32 %include_private, 0
   %or.cond2 = and i1 %tobool66, %cmp64
-  br i1 %or.cond2, label %if.then67, label %err
+  br i1 %or.cond2, label %if.then67, label %if.end76
 
 if.then67:                                        ; preds = %if.end63
   %call68 = tail call i32 @EC_GROUP_order_bits(ptr noundef nonnull %call) #4
@@ -2231,13 +2233,15 @@ if.end71:                                         ; preds = %if.then67
   %div39 = lshr i32 %add, 3
   %conv = zext nneg i32 %div39 to i64
   %call72 = tail call i32 @ossl_param_build_set_bn_pad(ptr noundef %tmpl, ptr noundef %params, ptr noundef nonnull @.str.34, ptr noundef nonnull %call2, i64 noundef %conv) #4
-  %tobool73.not = icmp ne i32 %call72, 0
-  %spec.select = zext i1 %tobool73.not to i32
+  %tobool73.not = icmp eq i32 %call72, 0
+  br i1 %tobool73.not, label %err, label %if.end76
+
+if.end76:                                         ; preds = %if.end71, %if.end63
   br label %err
 
-err:                                              ; preds = %if.end71, %if.end63, %if.then67, %land.lhs.true57, %land.lhs.true, %if.end46, %if.then41, %if.then34, %if.then20, %lor.lhs.false24, %if.then5
-  %ret.0 = phi i32 [ 0, %if.then5 ], [ 0, %if.then20 ], [ 0, %if.then34 ], [ 0, %if.then41 ], [ 0, %if.then67 ], [ 0, %land.lhs.true57 ], [ 0, %land.lhs.true ], [ 0, %if.end46 ], [ 0, %lor.lhs.false24 ], [ 1, %if.end63 ], [ %spec.select, %if.end71 ]
-  %bnctx.1 = phi ptr [ null, %if.then5 ], [ %call7, %if.then20 ], [ %call7, %if.then34 ], [ %call7, %if.then41 ], [ %bnctx.0, %if.then67 ], [ %call7, %land.lhs.true57 ], [ %call7, %land.lhs.true ], [ %call7, %if.end46 ], [ %call7, %lor.lhs.false24 ], [ %bnctx.0, %if.end63 ], [ %bnctx.0, %if.end71 ]
+err:                                              ; preds = %if.end71, %if.then67, %land.lhs.true57, %land.lhs.true, %if.end46, %if.then41, %if.then34, %if.then20, %lor.lhs.false24, %if.then5, %if.end76
+  %ret.0 = phi i32 [ 0, %if.then5 ], [ 0, %if.then20 ], [ 0, %if.then34 ], [ 0, %if.then41 ], [ 0, %if.then67 ], [ 1, %if.end76 ], [ 0, %if.end71 ], [ 0, %land.lhs.true57 ], [ 0, %land.lhs.true ], [ 0, %if.end46 ], [ 0, %lor.lhs.false24 ]
+  %bnctx.1 = phi ptr [ null, %if.then5 ], [ %call7, %if.then20 ], [ %call7, %if.then34 ], [ %call7, %if.then41 ], [ %bnctx.0, %if.then67 ], [ %bnctx.0, %if.end76 ], [ %bnctx.0, %if.end71 ], [ %call7, %land.lhs.true57 ], [ %call7, %land.lhs.true ], [ %call7, %if.end46 ], [ %call7, %lor.lhs.false24 ]
   tail call void @BN_CTX_free(ptr noundef %bnctx.1) #4
   br label %return
 

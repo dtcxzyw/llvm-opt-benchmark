@@ -33,26 +33,28 @@ land.lhs.true:                                    ; preds = %entry
 if.end:                                           ; preds = %land.lhs.true, %entry
   %call3 = tail call ptr @setlocale(i32 noundef 5, ptr noundef null) #9
   %tobool4.not = icmp eq ptr %call3, null
-  br i1 %tobool4.not, label %return, label %land.lhs.true5
+  br i1 %tobool4.not, label %if.end15, label %land.lhs.true5
 
 land.lhs.true5:                                   ; preds = %if.end
   %1 = load i8, ptr %call3, align 1
   %tobool7.not = icmp eq i8 %1, 0
-  br i1 %tobool7.not, label %return, label %land.lhs.true8
+  br i1 %tobool7.not, label %if.end15, label %land.lhs.true8
 
 land.lhs.true8:                                   ; preds = %land.lhs.true5
   %call9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call3, ptr noundef nonnull dereferenceable(2) @.str.1) #10
   %tobool10.not = icmp eq i32 %call9, 0
-  br i1 %tobool10.not, label %return, label %land.lhs.true11
+  br i1 %tobool10.not, label %if.end15, label %land.lhs.true11
 
 land.lhs.true11:                                  ; preds = %land.lhs.true8
   %call12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call3, ptr noundef nonnull dereferenceable(6) @.str.2) #10
   %tobool13.not = icmp eq i32 %call12, 0
-  %spec.select = select i1 %tobool13.not, ptr null, ptr %call3
+  br i1 %tobool13.not, label %if.end15, label %return
+
+if.end15:                                         ; preds = %land.lhs.true11, %land.lhs.true8, %land.lhs.true5, %if.end
   br label %return
 
-return:                                           ; preds = %land.lhs.true11, %if.end, %land.lhs.true5, %land.lhs.true8, %land.lhs.true
-  %retval.0 = phi ptr [ %call, %land.lhs.true ], [ null, %land.lhs.true8 ], [ null, %land.lhs.true5 ], [ null, %if.end ], [ %spec.select, %land.lhs.true11 ]
+return:                                           ; preds = %land.lhs.true11, %land.lhs.true, %if.end15
+  %retval.0 = phi ptr [ null, %if.end15 ], [ %call, %land.lhs.true ], [ %call3, %land.lhs.true11 ]
   ret ptr %retval.0
 }
 

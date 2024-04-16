@@ -344,7 +344,7 @@ define internal noundef i32 @dd_request_merge(ptr nocapture noundef readonly %0,
   %15 = getelementptr inbounds i8, ptr %7, i64 316
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %50, label %18
+  br i1 %17, label %51, label %18
 
 18:                                               ; preds = %3
   %19 = getelementptr inbounds i8, ptr %2, i64 22
@@ -361,7 +361,7 @@ define internal noundef i32 @dd_request_merge(ptr nocapture noundef readonly %0,
   %30 = getelementptr [3 x %struct.dd_per_prio], ptr %7, i64 0, i64 %25, i32 1, i64 %29
   %31 = tail call ptr @elv_rb_find(ptr noundef %30, i64 noundef %14) #12
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %50, label %33
+  br i1 %32, label %51, label %33
 
 33:                                               ; preds = %18
   %34 = getelementptr inbounds i8, ptr %31, i64 48
@@ -376,7 +376,7 @@ define internal noundef i32 @dd_request_merge(ptr nocapture noundef readonly %0,
 
 38:                                               ; preds = %33
   %39 = tail call zeroext i1 @elv_bio_merge_ok(ptr noundef nonnull %31, ptr noundef %2) #12
-  br i1 %39, label %40, label %50
+  br i1 %39, label %40, label %51
 
 40:                                               ; preds = %38
   store ptr %31, ptr %1, align 8
@@ -391,12 +391,14 @@ define internal noundef i32 @dd_request_merge(ptr nocapture noundef readonly %0,
   %47 = getelementptr inbounds i8, ptr %46, i64 224
   %48 = load i16, ptr %47, align 8
   %49 = icmp ugt i16 %48, 1
-  %spec.select = select i1 %49, i32 3, i32 1
-  br label %50
+  br i1 %49, label %51, label %50
 
-50:                                               ; preds = %45, %40, %38, %18, %3
-  %51 = phi i32 [ 0, %3 ], [ 0, %38 ], [ 0, %18 ], [ 1, %40 ], [ %spec.select, %45 ]
-  ret i32 %51
+50:                                               ; preds = %45, %40
+  br label %51
+
+51:                                               ; preds = %50, %45, %38, %18, %3
+  %52 = phi i32 [ 0, %3 ], [ 0, %38 ], [ 0, %18 ], [ 1, %50 ], [ 3, %45 ]
+  ret i32 %52
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

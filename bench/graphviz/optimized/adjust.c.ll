@@ -725,7 +725,7 @@ define internal fastcc void @getAdjustMode(ptr noundef %0, ptr noundef %1, ptr n
   %42 = getelementptr inbounds i8, ptr %.2, i64 8
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
-  br i1 %44, label %45, label %52
+  br i1 %44, label %45, label %53
 
 45:                                               ; preds = %.loopexit
   %46 = call zeroext i1 @mapbool(ptr noundef nonnull %1) #18
@@ -735,39 +735,39 @@ define internal fastcc void @getAdjustMode(ptr noundef %0, ptr noundef %1, ptr n
 
 .critedge:                                        ; preds = %45
   %49 = call i32 (i32, ptr, ...) @agerr(i32 noundef 0, ptr noundef nonnull @.str.15, ptr noundef nonnull %1) #18
-  br label %.sink.split
+  br label %51
 
 50:                                               ; preds = %45
-  %not. = xor i1 %46, true
-  %spec.select = zext i1 %not. to i32
-  %spec.select52 = select i1 %46, ptr @.str.17, ptr @.str.19
+  br i1 %46, label %.sink.split, label %51
+
+51:                                               ; preds = %.critedge, %50
   br label %.sink.split
 
-.sink.split:                                      ; preds = %50, %.critedge, %3, %6
-  %.sink = phi i32 [ 0, %6 ], [ 0, %3 ], [ 1, %.critedge ], [ %spec.select, %50 ]
-  %.str.17.sink = phi ptr [ @.str.17, %6 ], [ @.str.17, %3 ], [ @.str.19, %.critedge ], [ %spec.select52, %50 ]
+.sink.split:                                      ; preds = %50, %3, %6, %51
+  %.sink = phi i32 [ 1, %51 ], [ 0, %6 ], [ 0, %3 ], [ 0, %50 ]
+  %.str.17.sink = phi ptr [ @.str.19, %51 ], [ @.str.17, %6 ], [ @.str.17, %3 ], [ @.str.17, %50 ]
   store i32 %.sink, ptr %2, align 8
-  %51 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr %.str.17.sink, ptr %51, align 8
-  br label %52
+  %52 = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr %.str.17.sink, ptr %52, align 8
+  br label %53
 
-52:                                               ; preds = %.sink.split, %.loopexit
-  %53 = load i8, ptr @Verbose, align 1
-  %.not41 = icmp eq i8 %53, 0
-  br i1 %.not41, label %63, label %54
+53:                                               ; preds = %.sink.split, %.loopexit
+  %54 = load i8, ptr @Verbose, align 1
+  %.not41 = icmp eq i8 %54, 0
+  br i1 %.not41, label %64, label %55
 
-54:                                               ; preds = %52
-  %55 = load ptr, ptr @stderr, align 8
-  %56 = getelementptr inbounds i8, ptr %2, i64 8
-  %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %2, i64 16
-  %59 = load i32, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %2, i64 24
-  %61 = load double, ptr %60, align 8
-  %62 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %55, ptr noundef nonnull @.str.16, ptr noundef %57, i32 noundef %59, double noundef %61) #21
-  br label %63
+55:                                               ; preds = %53
+  %56 = load ptr, ptr @stderr, align 8
+  %57 = getelementptr inbounds i8, ptr %2, i64 8
+  %58 = load ptr, ptr %57, align 8
+  %59 = getelementptr inbounds i8, ptr %2, i64 16
+  %60 = load i32, ptr %59, align 8
+  %61 = getelementptr inbounds i8, ptr %2, i64 24
+  %62 = load double, ptr %61, align 8
+  %63 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %56, ptr noundef nonnull @.str.16, ptr noundef %58, i32 noundef %60, double noundef %62) #21
+  br label %64
 
-63:                                               ; preds = %54, %52
+64:                                               ; preds = %55, %53
   ret void
 }
 

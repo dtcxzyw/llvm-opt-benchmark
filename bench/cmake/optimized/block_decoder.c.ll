@@ -280,7 +280,7 @@ define internal i32 @block_decode(ptr noundef %0, ptr noundef %1, ptr noalias no
   %109 = getelementptr inbounds i8, ptr %0, i64 224
   %110 = load i8, ptr %109, align 8
   %111 = trunc i8 %110 to i1
-  br i1 %111, label %update_size.exit.thread, label %112
+  br i1 %111, label %120, label %112
 
 112:                                              ; preds = %108
   %113 = load ptr, ptr %97, align 8
@@ -288,18 +288,20 @@ define internal i32 @block_decode(ptr noundef %0, ptr noundef %1, ptr noalias no
   %115 = load i32, ptr %114, align 8
   %116 = tail call zeroext i8 @lzma_check_is_supported(i32 noundef %115) #10
   %.not70 = icmp eq i8 %116, 0
-  br i1 %.not70, label %update_size.exit.thread, label %117
+  br i1 %.not70, label %120, label %117
 
 117:                                              ; preds = %112
   %118 = getelementptr inbounds i8, ptr %113, i64 40
   %119 = getelementptr inbounds i8, ptr %0, i64 120
   %bcmp = tail call i32 @bcmp(ptr nonnull %118, ptr nonnull %119, i64 %102)
   %.not71 = icmp eq i32 %bcmp, 0
-  %spec.select = select i1 %.not71, i32 1, i32 9
+  br i1 %.not71, label %120, label %update_size.exit.thread
+
+120:                                              ; preds = %117, %112, %108
   br label %update_size.exit.thread
 
-update_size.exit.thread:                          ; preds = %78, %76, %30, %11, %117, %9, %108, %112, %96, %83, %52, %60, %51
-  %.0 = phi i32 [ %18, %51 ], [ 9, %60 ], [ 9, %52 ], [ 1, %83 ], [ 0, %96 ], [ 1, %112 ], [ 1, %108 ], [ 11, %9 ], [ %spec.select, %117 ], [ 9, %11 ], [ 9, %30 ], [ 9, %78 ], [ 0, %76 ]
+update_size.exit.thread:                          ; preds = %78, %76, %30, %11, %9, %117, %96, %83, %52, %60, %51, %120
+  %.0 = phi i32 [ 1, %120 ], [ %18, %51 ], [ 9, %60 ], [ 9, %52 ], [ 1, %83 ], [ 0, %96 ], [ 9, %117 ], [ 11, %9 ], [ 9, %11 ], [ 9, %30 ], [ 9, %78 ], [ 0, %76 ]
   ret i32 %.0
 }
 

@@ -495,45 +495,47 @@ define hidden noundef i32 @file_default(ptr nocapture noundef %0, i64 noundef %1
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 1040
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %12, label %6
+  br i1 %.not, label %13, label %6
 
 6:                                                ; preds = %2
   %7 = and i32 %4, 16
   %.not10 = icmp eq i32 %7, 0
-  br i1 %.not10, label %22, label %8
+  br i1 %.not10, label %12, label %8
 
 8:                                                ; preds = %6
   %.not11 = icmp eq i64 %1, 0
   %9 = select i1 %.not11, ptr @.str.14, ptr @.str.13
   %10 = tail call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.12, ptr noundef nonnull %9), !range !4
   %11 = icmp eq i32 %10, -1
-  %spec.select = select i1 %11, i32 -1, i32 1
-  br label %22
+  br i1 %11, label %23, label %12
 
-12:                                               ; preds = %2
-  %13 = and i32 %4, 2048
-  %.not8 = icmp eq i32 %13, 0
-  br i1 %.not8, label %17, label %14
+12:                                               ; preds = %8, %6
+  br label %23
 
-14:                                               ; preds = %12
-  %15 = tail call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.15), !range !4
-  %16 = icmp eq i32 %15, -1
-  %. = select i1 %16, i32 -1, i32 1
-  br label %22
+13:                                               ; preds = %2
+  %14 = and i32 %4, 2048
+  %.not8 = icmp eq i32 %14, 0
+  br i1 %.not8, label %18, label %15
 
-17:                                               ; preds = %12
-  %18 = and i32 %4, 16777216
-  %.not9 = icmp eq i32 %18, 0
-  br i1 %.not9, label %22, label %19
+15:                                               ; preds = %13
+  %16 = tail call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.15), !range !4
+  %17 = icmp eq i32 %16, -1
+  %. = select i1 %17, i32 -1, i32 1
+  br label %23
 
-19:                                               ; preds = %17
-  %20 = tail call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.16), !range !4
-  %21 = icmp eq i32 %20, -1
-  %.12 = select i1 %21, i32 -1, i32 1
-  br label %22
+18:                                               ; preds = %13
+  %19 = and i32 %4, 16777216
+  %.not9 = icmp eq i32 %19, 0
+  br i1 %.not9, label %23, label %20
 
-22:                                               ; preds = %8, %17, %19, %14, %6
-  %.0 = phi i32 [ 1, %6 ], [ %., %14 ], [ %.12, %19 ], [ 0, %17 ], [ %spec.select, %8 ]
+20:                                               ; preds = %18
+  %21 = tail call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.16), !range !4
+  %22 = icmp eq i32 %21, -1
+  %.12 = select i1 %22, i32 -1, i32 1
+  br label %23
+
+23:                                               ; preds = %18, %20, %15, %8, %12
+  %.0 = phi i32 [ 1, %12 ], [ -1, %8 ], [ %., %15 ], [ %.12, %20 ], [ 0, %18 ]
   ret i32 %.0
 }
 
@@ -852,101 +854,103 @@ checkdone.exit128.thread.thread:                  ; preds = %125
   %148 = load i32, ptr %147, align 4
   %149 = and i32 %148, 1040
   %.not.i = icmp eq i32 %149, 0
-  br i1 %.not.i, label %156, label %150
+  br i1 %.not.i, label %157, label %150
 
 150:                                              ; preds = %.thread
   %151 = and i32 %148, 16
   %.not10.i = icmp eq i32 %151, 0
-  br i1 %.not10.i, label %checkdone.exit, label %152
+  br i1 %.not10.i, label %156, label %152
 
 152:                                              ; preds = %150
   %.not11.i = icmp eq i64 %5, 0
   %153 = select i1 %.not11.i, ptr @.str.14, ptr @.str.13
   %154 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.12, ptr noundef nonnull %153), !range !4
   %155 = icmp eq i32 %154, -1
-  %spec.select.i = select i1 %155, i32 -1, i32 1
+  br i1 %155, label %checkdone.exit, label %156
+
+156:                                              ; preds = %152, %150
   br label %checkdone.exit
 
-156:                                              ; preds = %.thread
-  %157 = and i32 %148, 2048
-  %.not8.i = icmp eq i32 %157, 0
-  br i1 %.not8.i, label %161, label %158
+157:                                              ; preds = %.thread
+  %158 = and i32 %148, 2048
+  %.not8.i = icmp eq i32 %158, 0
+  br i1 %.not8.i, label %162, label %159
 
-158:                                              ; preds = %156
-  %159 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.15), !range !4
-  %160 = icmp eq i32 %159, -1
-  %..i = select i1 %160, i32 -1, i32 1
+159:                                              ; preds = %157
+  %160 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.15), !range !4
+  %161 = icmp eq i32 %160, -1
+  %..i = select i1 %161, i32 -1, i32 1
   br label %checkdone.exit
 
-161:                                              ; preds = %156
-  %162 = and i32 %148, 16777216
-  %.not9.i = icmp eq i32 %162, 0
-  br i1 %.not9.i, label %file_default.exit, label %163
+162:                                              ; preds = %157
+  %163 = and i32 %148, 16777216
+  %.not9.i = icmp eq i32 %163, 0
+  br i1 %.not9.i, label %file_default.exit, label %164
 
-163:                                              ; preds = %161
-  %164 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.16), !range !4
-  %165 = icmp eq i32 %164, -1
-  %.12.i = select i1 %165, i32 -1, i32 1
+164:                                              ; preds = %162
+  %165 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.16), !range !4
+  %166 = icmp eq i32 %165, -1
+  %.12.i = select i1 %166, i32 -1, i32 1
   br label %checkdone.exit
 
-file_default.exit:                                ; preds = %161
-  %166 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.27, ptr noundef nonnull %.179), !range !4
-  %167 = icmp eq i32 %166, -1
-  %spec.select167 = sext i1 %167 to i32
+file_default.exit:                                ; preds = %162
+  %167 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.27, ptr noundef nonnull %.179), !range !4
+  %168 = icmp eq i32 %167, -1
+  %spec.select167 = sext i1 %168 to i32
   br label %checkdone.exit
 
-checkdone.exit:                                   ; preds = %file_default.exit, %152, %163, %158, %150, %126, %109, %92, %75, %57, %40, %146, %144
-  %.13 = phi i32 [ %.11191, %144 ], [ %.11, %146 ], [ 0, %40 ], [ %.1131, %57 ], [ %.3133, %75 ], [ %.5135, %92 ], [ %.7137, %109 ], [ %.9, %126 ], [ %spec.select.i, %152 ], [ %.12.i, %163 ], [ %..i, %158 ], [ 1, %150 ], [ %spec.select167, %file_default.exit ]
-  %.7 = phi i32 [ %138, %144 ], [ %.5, %146 ], [ %33, %40 ], [ %50, %57 ], [ %68, %75 ], [ %85, %92 ], [ %102, %109 ], [ %119, %126 ], [ 1, %152 ], [ 1, %163 ], [ 1, %158 ], [ 1, %150 ], [ 1, %file_default.exit ]
-  %168 = getelementptr i8, ptr %0, i64 32
-  %.val = load ptr, ptr %168, align 8
-  %169 = icmp eq ptr %.val, null
-  br i1 %169, label %trim_separator.exit, label %170
+checkdone.exit:                                   ; preds = %file_default.exit, %164, %159, %152, %156, %126, %109, %92, %75, %57, %40, %146, %144
+  %.13 = phi i32 [ %.11191, %144 ], [ %.11, %146 ], [ 0, %40 ], [ %.1131, %57 ], [ %.3133, %75 ], [ %.5135, %92 ], [ %.7137, %109 ], [ %.9, %126 ], [ %.12.i, %164 ], [ %..i, %159 ], [ -1, %152 ], [ 1, %156 ], [ %spec.select167, %file_default.exit ]
+  %.7 = phi i32 [ %138, %144 ], [ %.5, %146 ], [ %33, %40 ], [ %50, %57 ], [ %68, %75 ], [ %85, %92 ], [ %102, %109 ], [ %119, %126 ], [ 1, %164 ], [ 1, %159 ], [ 1, %152 ], [ 1, %156 ], [ 1, %file_default.exit ]
+  %169 = getelementptr i8, ptr %0, i64 32
+  %.val = load ptr, ptr %169, align 8
+  %170 = icmp eq ptr %.val, null
+  br i1 %170, label %trim_separator.exit, label %171
 
-170:                                              ; preds = %checkdone.exit
-  %171 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val) #20
-  %172 = icmp ult i64 %171, 4
-  br i1 %172, label %trim_separator.exit, label %173
+171:                                              ; preds = %checkdone.exit
+  %172 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val) #20
+  %173 = icmp ult i64 %172, 4
+  br i1 %173, label %trim_separator.exit, label %174
 
-173:                                              ; preds = %170
-  %174 = getelementptr i8, ptr %.val, i64 %171
-  %175 = getelementptr i8, ptr %174, i64 -3
-  %176 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %175, ptr noundef nonnull dereferenceable(4) @.str.11) #20
-  %.not.i130 = icmp eq i32 %176, 0
-  br i1 %.not.i130, label %177, label %trim_separator.exit
+174:                                              ; preds = %171
+  %175 = getelementptr i8, ptr %.val, i64 %172
+  %176 = getelementptr i8, ptr %175, i64 -3
+  %177 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %176, ptr noundef nonnull dereferenceable(4) @.str.11) #20
+  %.not.i130 = icmp eq i32 %177, 0
+  br i1 %.not.i130, label %178, label %trim_separator.exit
 
-177:                                              ; preds = %173
-  store i8 0, ptr %175, align 1
+178:                                              ; preds = %174
+  store i8 0, ptr %176, align 1
   br label %trim_separator.exit
 
-trim_separator.exit:                              ; preds = %checkdone.exit, %170, %173, %177
-  %178 = getelementptr inbounds i8, ptr %0, i64 68
-  %179 = load i32, ptr %178, align 4
-  %180 = and i32 %179, 1024
-  %.not116 = icmp eq i32 %180, 0
-  br i1 %.not116, label %190, label %181
+trim_separator.exit:                              ; preds = %checkdone.exit, %171, %174, %178
+  %179 = getelementptr inbounds i8, ptr %0, i64 68
+  %180 = load i32, ptr %179, align 4
+  %181 = and i32 %180, 1024
+  %.not116 = icmp eq i32 %181, 0
+  br i1 %.not116, label %191, label %182
 
-181:                                              ; preds = %trim_separator.exit
-  %182 = and i32 %179, 16
-  %.not117 = icmp eq i32 %182, 0
-  br i1 %.not117, label %186, label %183
+182:                                              ; preds = %trim_separator.exit
+  %183 = and i32 %180, 16
+  %.not117 = icmp eq i32 %183, 0
+  br i1 %.not117, label %187, label %184
 
-183:                                              ; preds = %181
-  %184 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.29), !range !4
-  %185 = icmp eq i32 %184, -1
-  %spec.select168 = select i1 %185, i32 -1, i32 %.13
-  br label %186
+184:                                              ; preds = %182
+  %185 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.29), !range !4
+  %186 = icmp eq i32 %185, -1
+  %spec.select168 = select i1 %186, i32 -1, i32 %.13
+  br label %187
 
-186:                                              ; preds = %183, %181
-  %.14 = phi i32 [ %.13, %181 ], [ %spec.select168, %183 ]
-  %187 = load ptr, ptr %8, align 8
-  %188 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.27, ptr noundef %187), !range !4
-  %189 = icmp eq i32 %188, -1
-  %spec.select169 = select i1 %189, i32 -1, i32 %.14
-  br label %190
+187:                                              ; preds = %184, %182
+  %.14 = phi i32 [ %.13, %182 ], [ %spec.select168, %184 ]
+  %188 = load ptr, ptr %8, align 8
+  %189 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.27, ptr noundef %188), !range !4
+  %190 = icmp eq i32 %189, -1
+  %spec.select169 = select i1 %190, i32 -1, i32 %.14
+  br label %191
 
-190:                                              ; preds = %186, %trim_separator.exit
-  %.15 = phi i32 [ %.13, %trim_separator.exit ], [ %spec.select169, %186 ]
+191:                                              ; preds = %187, %trim_separator.exit
+  %.15 = phi i32 [ %.13, %trim_separator.exit ], [ %spec.select169, %187 ]
   %.15.fr = freeze i32 %.15
   call void @_efree(ptr noundef null) #17
   call void @buffer_fini(ptr noundef nonnull %10) #17

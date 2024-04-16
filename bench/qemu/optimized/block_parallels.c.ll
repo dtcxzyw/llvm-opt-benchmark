@@ -757,7 +757,7 @@ declare i32 @bdrv_has_zero_init_1(ptr noundef) #1
 declare void @bdrv_default_perms(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i32 @parallels_probe(ptr nocapture noundef readonly %buf, i32 noundef %buf_size, ptr nocapture readnone %filename) #2 {
+define internal noundef i32 @parallels_probe(ptr nocapture noundef readonly %buf, i32 noundef %buf_size, ptr nocapture readnone %filename) #2 {
 entry:
   %cmp = icmp ult i32 %buf_size, 64
   br i1 %cmp, label %return, label %if.end
@@ -770,17 +770,19 @@ if.end:                                           ; preds = %entry
 lor.lhs.false:                                    ; preds = %if.end
   %bcmp3 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %buf, ptr noundef nonnull dereferenceable(16) @.str.10, i64 16)
   %tobool5.not = icmp eq i32 %bcmp3, 0
-  br i1 %tobool5.not, label %land.lhs.true, label %return
+  br i1 %tobool5.not, label %land.lhs.true, label %if.end10
 
 land.lhs.true:                                    ; preds = %lor.lhs.false, %if.end
   %version = getelementptr inbounds i8, ptr %buf, i64 16
   %0 = load i32, ptr %version, align 1
   %cmp7 = icmp eq i32 %0, 2
-  %spec.select = select i1 %cmp7, i32 100, i32 0
+  br i1 %cmp7, label %return, label %if.end10
+
+if.end10:                                         ; preds = %land.lhs.true, %lor.lhs.false
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %lor.lhs.false, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 0, %lor.lhs.false ], [ %spec.select, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %entry, %if.end10
+  %retval.0 = phi i32 [ 0, %if.end10 ], [ 0, %entry ], [ 100, %land.lhs.true ]
   ret i32 %retval.0
 }
 

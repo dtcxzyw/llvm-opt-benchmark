@@ -1996,7 +1996,7 @@ define internal fastcc i32 @do_ipv6_mcast_group_source(ptr noundef %0, i32 nound
 .thread:                                          ; preds = %14, %19
   %.ph = phi i32 [ -14, %19 ], [ -22, %14 ]
   call void @llvm.lifetime.end.p0(i64 260, ptr nonnull %6) #13
-  br label %63
+  br label %.thread3
 
 24:                                               ; preds = %19, %23
   %25 = load i32, ptr %6, align 4
@@ -2012,7 +2012,7 @@ define internal fastcc i32 @do_ipv6_mcast_group_source(ptr noundef %0, i32 nound
 
 30:                                               ; preds = %5
   %31 = icmp ult i32 %4, 264
-  br i1 %31, label %63, label %32
+  br i1 %31, label %.thread3, label %32
 
 32:                                               ; preds = %30
   %33 = and i8 %3, 1
@@ -2023,13 +2023,13 @@ define internal fastcc i32 @do_ipv6_mcast_group_source(ptr noundef %0, i32 nound
   %36 = call i64 @_copy_from_user(ptr noundef nonnull %7, ptr noundef %2, i64 noundef 264) #13
   %37 = and i64 %36, 4294967295
   %38 = icmp eq i64 %37, 0
-  br i1 %38, label %40, label %63
+  br i1 %38, label %40, label %.thread3
 
 39:                                               ; preds = %32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %7, ptr noundef align 1 dereferenceable(264) %2, i64 264, i1 false)
   br label %40
 
-40:                                               ; preds = %35, %24, %39
+40:                                               ; preds = %24, %39, %35
   %41 = getelementptr inbounds i8, ptr %7, i64 8
   %42 = load i16, ptr %41, align 8
   %43 = icmp ne i16 %42, 10
@@ -2037,7 +2037,7 @@ define internal fastcc i32 @do_ipv6_mcast_group_source(ptr noundef %0, i32 nound
   %45 = load i16, ptr %44, align 8
   %46 = icmp ne i16 %45, 10
   %47 = select i1 %43, i1 true, i1 %46
-  br i1 %47, label %63, label %48
+  br i1 %47, label %.thread3, label %48
 
 48:                                               ; preds = %40
   switch i32 %1, label %58 [
@@ -2057,7 +2057,7 @@ define internal fastcc i32 @do_ipv6_mcast_group_source(ptr noundef %0, i32 nound
   %55 = icmp eq i32 %53, 0
   %56 = or i1 %54, %55
   %57 = zext i1 %56 to i32
-  switch i32 %53, label %63 [
+  switch i32 %53, label %.thread3 [
     i32 -98, label %59
     i32 0, label %59
   ]
@@ -2069,12 +2069,12 @@ define internal fastcc i32 @do_ipv6_mcast_group_source(ptr noundef %0, i32 nound
   %60 = phi i32 [ 0, %49 ], [ %57, %50 ], [ 1, %58 ], [ 0, %48 ], [ %57, %50 ]
   %61 = phi i32 [ 0, %49 ], [ %57, %50 ], [ 0, %58 ], [ 1, %48 ], [ %57, %50 ]
   %62 = call i32 @ip6_mc_source(i32 noundef %61, i32 noundef %60, ptr noundef %0, ptr noundef nonnull %7) #13
-  br label %63
+  br label %.thread3
 
-63:                                               ; preds = %30, %35, %.thread, %59, %50, %40
-  %64 = phi i32 [ %62, %59 ], [ %53, %50 ], [ -99, %40 ], [ -22, %30 ], [ -14, %35 ], [ %.ph, %.thread ]
+.thread3:                                         ; preds = %.thread, %35, %30, %59, %50, %40
+  %63 = phi i32 [ %62, %59 ], [ %53, %50 ], [ -99, %40 ], [ %.ph, %.thread ], [ -14, %35 ], [ -22, %30 ]
   call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %7) #13
-  ret i32 %64
+  ret i32 %63
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -3331,7 +3331,7 @@ define internal fastcc i32 @ipv6_get_msfilter(ptr noundef %0, ptr %1, i8 %2, ptr
   store i32 %5, ptr %7, align 4
   call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %8) #13
   %9 = icmp slt i32 %5, 144
-  br i1 %9, label %47, label %10
+  br i1 %9, label %48, label %10
 
 10:                                               ; preds = %6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %8, i8 0, i64 272, i1 false), !annotation !16
@@ -3343,7 +3343,7 @@ define internal fastcc i32 @ipv6_get_msfilter(ptr noundef %0, ptr %1, i8 %2, ptr
   %14 = call i64 @_copy_from_user(ptr noundef nonnull %8, ptr noundef %1, i64 noundef 144) #13
   %15 = and i64 %14, 4294967295
   %16 = icmp eq i64 %15, 0
-  br i1 %16, label %18, label %47
+  br i1 %16, label %18, label %48
 
 17:                                               ; preds = %10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %8, ptr noundef align 1 dereferenceable(144) %1, i64 144, i1 false)
@@ -3353,7 +3353,7 @@ define internal fastcc i32 @ipv6_get_msfilter(ptr noundef %0, ptr %1, i8 %2, ptr
   %19 = getelementptr inbounds i8, ptr %8, i64 8
   %20 = load i16, ptr %19, align 8
   %21 = icmp eq i16 %20, 10
-  br i1 %21, label %22, label %47
+  br i1 %21, label %22, label %48
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds i8, ptr %8, i64 140
@@ -3361,7 +3361,7 @@ define internal fastcc i32 @ipv6_get_msfilter(ptr noundef %0, ptr %1, i8 %2, ptr
   call void @sockopt_lock_sock(ptr noundef %0) #13
   %25 = call i32 @ip6_mc_msfget(ptr noundef %0, ptr noundef nonnull %8, ptr %1, i8 %2, i64 noundef 144) #13
   %26 = icmp eq i32 %25, 0
-  br i1 %26, label %27, label %45
+  br i1 %26, label %27, label %46
 
 27:                                               ; preds = %22
   %28 = load i32, ptr %23, align 4
@@ -3390,22 +3390,24 @@ define internal fastcc i32 @ipv6_get_msfilter(ptr noundef %0, ptr %1, i8 %2, ptr
   %41 = call i64 @_copy_to_user(ptr noundef %1, ptr noundef nonnull %8, i64 noundef 144) #13
   %42 = and i64 %41, 4294967295
   %43 = icmp eq i64 %42, 0
-  %spec.select = select i1 %43, i32 0, i32 -14
-  br label %45
+  br i1 %43, label %46, label %45
 
 44:                                               ; preds = %39
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(144) %1, ptr noundef nonnull align 8 dereferenceable(144) %8, i64 144, i1 false)
-  br label %45
+  br label %46
 
-45:                                               ; preds = %40, %34, %44, %22
-  %46 = phi i32 [ %25, %22 ], [ 0, %44 ], [ -14, %34 ], [ %spec.select, %40 ]
+45:                                               ; preds = %40, %34
+  br label %46
+
+46:                                               ; preds = %45, %44, %40, %22
+  %47 = phi i32 [ %25, %22 ], [ -14, %45 ], [ 0, %40 ], [ 0, %44 ]
   call void @sockopt_release_sock(ptr noundef %0) #13
-  br label %47
+  br label %48
 
-47:                                               ; preds = %45, %18, %13, %6
-  %48 = phi i32 [ %46, %45 ], [ -22, %6 ], [ -14, %13 ], [ -99, %18 ]
+48:                                               ; preds = %46, %18, %13, %6
+  %49 = phi i32 [ %47, %46 ], [ -22, %6 ], [ -14, %13 ], [ -99, %18 ]
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %8) #13
-  ret i32 %48
+  ret i32 %49
 }
 
 ; Function Attrs: null_pointer_is_valid

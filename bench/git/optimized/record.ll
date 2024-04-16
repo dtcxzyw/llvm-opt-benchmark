@@ -3770,7 +3770,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @reftable_obj_record_equal_void(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 %hash_size) #12 {
+define internal noundef i32 @reftable_obj_record_equal_void(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 %hash_size) #12 {
 entry:
   %hash_prefix_len = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load i32, ptr %hash_prefix_len, align 8
@@ -3801,7 +3801,7 @@ land.lhs.true:                                    ; preds = %if.end
 
 if.end9:                                          ; preds = %land.lhs.true, %if.end
   %tobool11.not = icmp eq i32 %2, 0
-  br i1 %tobool11.not, label %return, label %land.lhs.true12
+  br i1 %tobool11.not, label %if.end19, label %land.lhs.true12
 
 land.lhs.true12:                                  ; preds = %if.end9
   %offsets = getelementptr inbounds i8, ptr %a, i64 16
@@ -3812,11 +3812,13 @@ land.lhs.true12:                                  ; preds = %if.end9
   %mul = shl nsw i64 %conv15, 3
   %bcmp12 = tail call i32 @bcmp(ptr %6, ptr %7, i64 %mul)
   %tobool17.not = icmp eq i32 %bcmp12, 0
-  %spec.select = zext i1 %tobool17.not to i32
+  br i1 %tobool17.not, label %if.end19, label %return
+
+if.end19:                                         ; preds = %land.lhs.true12, %if.end9
   br label %return
 
-return:                                           ; preds = %land.lhs.true12, %if.end9, %land.lhs.true, %entry, %lor.lhs.false
-  %retval.0 = phi i32 [ 0, %lor.lhs.false ], [ 0, %entry ], [ 0, %land.lhs.true ], [ 1, %if.end9 ], [ %spec.select, %land.lhs.true12 ]
+return:                                           ; preds = %land.lhs.true12, %land.lhs.true, %entry, %lor.lhs.false, %if.end19
+  %retval.0 = phi i32 [ 1, %if.end19 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true12 ]
   ret i32 %retval.0
 }
 

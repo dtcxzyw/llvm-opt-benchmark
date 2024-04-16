@@ -526,7 +526,7 @@ lor.lhs.false.i35:                                ; preds = %if.end.i30
 
 set_Jprojective_coordinate_GFp.exit48.thread:     ; preds = %if.end.i30, %lor.lhs.false.i35
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 101, ptr noundef nonnull @.str, i32 noundef 280) #5
-  br label %err
+  br label %6
 
 if.end4.i39:                                      ; preds = %lor.lhs.false.i35
   %4 = load ptr, ptr %group, align 8
@@ -548,12 +548,14 @@ if.end10.i44:                                     ; preds = %if.end4.i39
 set_Jprojective_coordinate_GFp.exit48:            ; preds = %if.then6.i42, %if.end10.i44
   %retval.0.i34 = phi i32 [ %call9.i43, %if.then6.i42 ], [ %conv.i47, %if.end10.i44 ]
   %retval.0.i34.fr = freeze i32 %retval.0.i34
-  %tobool9.not = icmp ne i32 %retval.0.i34.fr, 0
-  %spec.select = zext i1 %tobool9.not to i32
+  %tobool9.not = icmp eq i32 %retval.0.i34.fr, 0
+  br i1 %tobool9.not, label %6, label %err
+
+6:                                                ; preds = %set_Jprojective_coordinate_GFp.exit48.thread, %set_Jprojective_coordinate_GFp.exit48
   br label %err
 
-err:                                              ; preds = %set_Jprojective_coordinate_GFp.exit48, %lor.lhs.false7, %set_Jprojective_coordinate_GFp.exit48.thread, %set_Jprojective_coordinate_GFp.exit28.thread, %set_Jprojective_coordinate_GFp.exit.thread, %set_Jprojective_coordinate_GFp.exit, %set_Jprojective_coordinate_GFp.exit28
-  %ret.0 = phi i32 [ 0, %set_Jprojective_coordinate_GFp.exit28 ], [ 0, %set_Jprojective_coordinate_GFp.exit ], [ 0, %set_Jprojective_coordinate_GFp.exit.thread ], [ 0, %set_Jprojective_coordinate_GFp.exit28.thread ], [ 0, %set_Jprojective_coordinate_GFp.exit48.thread ], [ 1, %lor.lhs.false7 ], [ %spec.select, %set_Jprojective_coordinate_GFp.exit48 ]
+err:                                              ; preds = %lor.lhs.false7, %6, %set_Jprojective_coordinate_GFp.exit48, %set_Jprojective_coordinate_GFp.exit28.thread, %set_Jprojective_coordinate_GFp.exit.thread, %set_Jprojective_coordinate_GFp.exit, %set_Jprojective_coordinate_GFp.exit28
+  %ret.0 = phi i32 [ 0, %set_Jprojective_coordinate_GFp.exit28 ], [ 0, %set_Jprojective_coordinate_GFp.exit ], [ 0, %set_Jprojective_coordinate_GFp.exit.thread ], [ 0, %set_Jprojective_coordinate_GFp.exit28.thread ], [ 0, %6 ], [ 1, %set_Jprojective_coordinate_GFp.exit48 ], [ 1, %lor.lhs.false7 ]
   tail call void @BN_CTX_free(ptr noundef %new_ctx.0) #5
   br label %return
 

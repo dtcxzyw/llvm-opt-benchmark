@@ -145,7 +145,7 @@ define dso_local i32 @autofs_expire_run(ptr nocapture noundef readonly %0, ptr n
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @autofs_expire_indirect(ptr %.104.val, ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef ptr @autofs_expire_indirect(ptr %.104.val, ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = icmp eq ptr %.104.val, null
   br i1 %4, label %.loopexit1, label %5
 
@@ -530,7 +530,7 @@ declare dso_local void @_raw_spin_lock(ptr noundef) local_unnamed_addr #2 sectio
 declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @should_expire(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef ptr @should_expire(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca %struct.path, align 8
   %6 = alloca %struct.path, align 8
   %7 = alloca %struct.path, align 8
@@ -546,7 +546,7 @@ define internal fastcc ptr @should_expire(ptr noundef %0, ptr noundef %1, i64 no
   %15 = load i32, ptr %0, align 8
   %16 = and i32 %15, 65536
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %62, label %18
+  br i1 %17, label %63, label %18
 
 18:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #7
@@ -613,7 +613,7 @@ autofs_mount_busy.exit.thread:                    ; preds = %26, %42, %18
 50:                                               ; preds = %47
   %51 = and i32 %3, 1
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %53, label %.thread14
+  br i1 %52, label %53, label %62
 
 53:                                               ; preds = %50
   %54 = icmp eq i64 %2, 0
@@ -626,426 +626,432 @@ autofs_mount_busy.exit.thread:                    ; preds = %26, %42, %18
   %59 = add i64 %58, %2
   %60 = sub i64 %56, %59
   %61 = icmp slt i64 %60, 0
-  %spec.select = select i1 %61, ptr null, ptr %0
+  br i1 %61, label %.thread14, label %62
+
+62:                                               ; preds = %55, %50
   br label %.thread14
 
-62:                                               ; preds = %14
-  %63 = and i32 %15, 7340032
-  %64 = icmp eq i32 %63, 6291456
-  br i1 %64, label %65, label %82
+63:                                               ; preds = %14
+  %64 = and i32 %15, 7340032
+  %65 = icmp eq i32 %64, 6291456
+  br i1 %65, label %66, label %84
 
-65:                                               ; preds = %62
-  %66 = and i32 %3, 4
-  %67 = icmp eq i32 %66, 0
-  br i1 %67, label %68, label %.thread14
+66:                                               ; preds = %63
+  %67 = and i32 %3, 4
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %69, label %.thread14
 
-68:                                               ; preds = %65
-  %69 = icmp eq ptr %9, null
-  br i1 %69, label %.thread14, label %70
+69:                                               ; preds = %66
+  %70 = icmp eq ptr %9, null
+  br i1 %70, label %.thread14, label %71
 
-70:                                               ; preds = %68
-  %71 = and i32 %3, 1
-  %72 = icmp eq i32 %71, 0
-  br i1 %72, label %73, label %.thread14
+71:                                               ; preds = %69
+  %72 = and i32 %3, 1
+  %73 = icmp eq i32 %72, 0
+  br i1 %73, label %74, label %83
 
-73:                                               ; preds = %70
-  %74 = icmp eq i64 %2, 0
-  br i1 %74, label %.thread14, label %75
+74:                                               ; preds = %71
+  %75 = icmp eq i64 %2, 0
+  br i1 %75, label %.thread14, label %76
 
-75:                                               ; preds = %73
-  %76 = load volatile i64, ptr @jiffies, align 64
-  %77 = getelementptr inbounds i8, ptr %9, i64 88
-  %78 = load i64, ptr %77, align 8
-  %79 = add i64 %78, %2
-  %80 = sub i64 %76, %79
-  %81 = icmp slt i64 %80, 0
-  %spec.select1 = select i1 %81, ptr null, ptr %0
+76:                                               ; preds = %74
+  %77 = load volatile i64, ptr @jiffies, align 64
+  %78 = getelementptr inbounds i8, ptr %9, i64 88
+  %79 = load i64, ptr %78, align 8
+  %80 = add i64 %79, %2
+  %81 = sub i64 %77, %80
+  %82 = icmp slt i64 %81, 0
+  br i1 %82, label %.thread14, label %83
+
+83:                                               ; preds = %76, %71
   br label %.thread14
 
-82:                                               ; preds = %62
-  %83 = getelementptr inbounds i8, ptr %9, i64 96
-  %84 = load i32, ptr %83, align 8
-  %85 = icmp slt i32 %84, 2
-  br i1 %85, label %.thread14, label %86
+84:                                               ; preds = %63
+  %85 = getelementptr inbounds i8, ptr %9, i64 96
+  %86 = load i32, ptr %85, align 8
+  %87 = icmp slt i32 %86, 2
+  br i1 %87, label %.thread14, label %88
 
-86:                                               ; preds = %82
-  %87 = and i32 %3, 2
-  %88 = icmp eq i32 %87, 0
-  %89 = and i32 %3, 4
+88:                                               ; preds = %84
+  %89 = and i32 %3, 2
   %90 = icmp eq i32 %89, 0
-  br i1 %88, label %91, label %170
+  %91 = and i32 %3, 4
+  %92 = icmp eq i32 %91, 0
+  br i1 %90, label %93, label %172
 
-91:                                               ; preds = %86
-  br i1 %90, label %92, label %98
+93:                                               ; preds = %88
+  br i1 %92, label %94, label %100
 
-92:                                               ; preds = %91
-  %93 = load volatile i32, ptr %83, align 8
-  %94 = add i32 %93, 1
-  %95 = getelementptr inbounds i8, ptr %0, i64 100
-  %96 = load i32, ptr %95, align 4
-  %97 = icmp ugt i32 %96, %94
-  br i1 %97, label %.thread14, label %98
+94:                                               ; preds = %93
+  %95 = load volatile i32, ptr %85, align 8
+  %96 = add i32 %95, 1
+  %97 = getelementptr inbounds i8, ptr %0, i64 100
+  %98 = load i32, ptr %97, align 4
+  %99 = icmp ugt i32 %98, %96
+  br i1 %99, label %.thread14, label %100
 
-98:                                               ; preds = %92, %91
-  %99 = getelementptr inbounds i8, ptr %0, i64 48
-  %100 = load ptr, ptr %99, align 8
-  %101 = icmp eq ptr %100, null
-  br i1 %101, label %.thread14, label %102
+100:                                              ; preds = %94, %93
+  %101 = getelementptr inbounds i8, ptr %0, i64 48
+  %102 = load ptr, ptr %101, align 8
+  %103 = icmp eq ptr %102, null
+  br i1 %103, label %.thread13, label %104
 
-102:                                              ; preds = %98
-  %103 = getelementptr inbounds i8, ptr %0, i64 16
-  %104 = load ptr, ptr %103, align 8
-  %105 = icmp eq ptr %104, null
-  br i1 %105, label %.thread14, label %106
+104:                                              ; preds = %100
+  %105 = getelementptr inbounds i8, ptr %0, i64 16
+  %106 = load ptr, ptr %105, align 8
+  %107 = icmp eq ptr %106, null
+  br i1 %107, label %.thread13, label %108
 
-106:                                              ; preds = %102
-  %107 = getelementptr inbounds i8, ptr %0, i64 96
-  tail call void @lockref_get(ptr noundef %107) #7
-  %108 = getelementptr inbounds i8, ptr %6, i64 8
-  br label %109
+108:                                              ; preds = %104
+  %109 = getelementptr inbounds i8, ptr %0, i64 96
+  tail call void @lockref_get(ptr noundef %109) #7
+  %110 = getelementptr inbounds i8, ptr %6, i64 8
+  br label %111
 
-109:                                              ; preds = %151, %106
-  %110 = phi ptr [ %152, %151 ], [ %0, %106 ]
-  %111 = load i32, ptr %110, align 8
-  %112 = and i32 %111, 65536
-  %113 = icmp eq i32 %112, 0
-  br i1 %113, label %140, label %114
+111:                                              ; preds = %153, %108
+  %112 = phi ptr [ %154, %153 ], [ %0, %108 ]
+  %113 = load i32, ptr %112, align 8
+  %114 = and i32 %113, 65536
+  %115 = icmp eq i32 %114, 0
+  br i1 %115, label %142, label %116
 
-114:                                              ; preds = %109
+116:                                              ; preds = %111
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #7
   store ptr %1, ptr %6, align 8
-  store ptr %110, ptr %108, align 8
+  store ptr %112, ptr %110, align 8
   call void @path_get(ptr noundef nonnull %6) #7
-  %115 = call i32 @follow_down_one(ptr noundef nonnull %6) #7
-  %116 = icmp eq i32 %115, 0
-  br i1 %116, label %autofs_mount_busy.exit12.thread, label %117
+  %117 = call i32 @follow_down_one(ptr noundef nonnull %6) #7
+  %118 = icmp eq i32 %117, 0
+  br i1 %118, label %autofs_mount_busy.exit11.thread, label %119
 
-117:                                              ; preds = %114
-  %118 = load ptr, ptr %108, align 8
-  %119 = call i32 @is_autofs_dentry(ptr noundef %118) #7
-  %120 = icmp eq i32 %119, 0
-  br i1 %120, label %130, label %121
+119:                                              ; preds = %116
+  %120 = load ptr, ptr %110, align 8
+  %121 = call i32 @is_autofs_dentry(ptr noundef %120) #7
+  %122 = icmp eq i32 %121, 0
+  br i1 %122, label %132, label %123
 
-121:                                              ; preds = %117
-  %122 = load ptr, ptr %108, align 8
-  %123 = getelementptr inbounds i8, ptr %122, i64 112
-  %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 872
+123:                                              ; preds = %119
+  %124 = load ptr, ptr %110, align 8
+  %125 = getelementptr inbounds i8, ptr %124, i64 112
   %126 = load ptr, ptr %125, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 56
-  %128 = load i32, ptr %127, align 8
-  %129 = icmp eq i32 %128, 1
-  br i1 %129, label %autofs_mount_busy.exit12.thread, label %130
+  %127 = getelementptr inbounds i8, ptr %126, i64 872
+  %128 = load ptr, ptr %127, align 8
+  %129 = getelementptr inbounds i8, ptr %128, i64 56
+  %130 = load i32, ptr %129, align 8
+  %131 = icmp eq i32 %130, 1
+  br i1 %131, label %autofs_mount_busy.exit11.thread, label %132
 
-130:                                              ; preds = %121, %117
-  br i1 %90, label %131, label %autofs_mount_busy.exit12
+132:                                              ; preds = %123, %119
+  br i1 %92, label %133, label %autofs_mount_busy.exit11
 
-131:                                              ; preds = %130
-  %132 = load ptr, ptr %6, align 8
-  %133 = call i32 @may_umount_tree(ptr noundef %132) #7
-  %134 = icmp eq i32 %133, 0
-  br i1 %134, label %135, label %autofs_mount_busy.exit12
+133:                                              ; preds = %132
+  %134 = load ptr, ptr %6, align 8
+  %135 = call i32 @may_umount_tree(ptr noundef %134) #7
+  %136 = icmp eq i32 %135, 0
+  br i1 %136, label %137, label %autofs_mount_busy.exit11
 
-135:                                              ; preds = %131
-  %136 = getelementptr inbounds i8, ptr %110, i64 128
-  %137 = load ptr, ptr %136, align 8
-  %138 = load volatile i64, ptr @jiffies, align 64
-  %139 = getelementptr inbounds i8, ptr %137, i64 88
-  store i64 %138, ptr %139, align 8
-  br label %autofs_mount_busy.exit12.thread
+137:                                              ; preds = %133
+  %138 = getelementptr inbounds i8, ptr %112, i64 128
+  %139 = load ptr, ptr %138, align 8
+  %140 = load volatile i64, ptr @jiffies, align 64
+  %141 = getelementptr inbounds i8, ptr %139, i64 88
+  store i64 %140, ptr %141, align 8
+  br label %autofs_mount_busy.exit11.thread
 
-autofs_mount_busy.exit12.thread:                  ; preds = %121, %114, %135
+autofs_mount_busy.exit11.thread:                  ; preds = %123, %116, %137
   call void @path_put(ptr noundef nonnull %6) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #7
   br label %.loopexit
 
-autofs_mount_busy.exit12:                         ; preds = %130, %131
+autofs_mount_busy.exit11:                         ; preds = %132, %133
   call void @path_put(ptr noundef nonnull %6) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #7
-  br label %151
+  br label %153
 
-140:                                              ; preds = %109
-  %141 = getelementptr inbounds i8, ptr %110, i64 128
-  %142 = load ptr, ptr %141, align 8
-  %143 = getelementptr inbounds i8, ptr %142, i64 96
-  %144 = load volatile i32, ptr %143, align 8
-  %145 = icmp eq ptr %110, %0
-  %146 = select i1 %145, i32 2, i32 1
-  %147 = add i32 %144, %146
-  %148 = getelementptr inbounds i8, ptr %110, i64 100
-  %149 = load i32, ptr %148, align 4
-  %150 = icmp ugt i32 %149, %147
-  br i1 %150, label %.loopexit, label %151
+142:                                              ; preds = %111
+  %143 = getelementptr inbounds i8, ptr %112, i64 128
+  %144 = load ptr, ptr %143, align 8
+  %145 = getelementptr inbounds i8, ptr %144, i64 96
+  %146 = load volatile i32, ptr %145, align 8
+  %147 = icmp eq ptr %112, %0
+  %148 = select i1 %147, i32 2, i32 1
+  %149 = add i32 %146, %148
+  %150 = getelementptr inbounds i8, ptr %112, i64 100
+  %151 = load i32, ptr %150, align 4
+  %152 = icmp ugt i32 %151, %149
+  br i1 %152, label %.loopexit, label %153
 
-151:                                              ; preds = %autofs_mount_busy.exit12, %140
-  %152 = tail call fastcc ptr @get_next_positive_dentry(ptr noundef nonnull %110, ptr noundef nonnull %0)
-  %153 = icmp eq ptr %152, null
-  br i1 %153, label %154, label %109, !llvm.loop !11
+153:                                              ; preds = %autofs_mount_busy.exit11, %142
+  %154 = tail call fastcc ptr @get_next_positive_dentry(ptr noundef nonnull %112, ptr noundef nonnull %0)
+  %155 = icmp eq ptr %154, null
+  br i1 %155, label %156, label %111, !llvm.loop !11
 
-154:                                              ; preds = %151
-  br i1 %90, label %155, label %.thread14
+156:                                              ; preds = %153
+  br i1 %92, label %157, label %.thread14
 
-155:                                              ; preds = %154
-  %156 = load ptr, ptr %8, align 8
-  %157 = icmp eq ptr %156, null
-  br i1 %157, label %.thread14, label %158
+157:                                              ; preds = %156
+  %158 = load ptr, ptr %8, align 8
+  %159 = icmp eq ptr %158, null
+  br i1 %159, label %.thread13, label %160
 
-158:                                              ; preds = %155
-  %159 = and i32 %3, 1
-  %160 = icmp eq i32 %159, 0
-  br i1 %160, label %161, label %.thread14
+160:                                              ; preds = %157
+  %161 = and i32 %3, 1
+  %162 = icmp eq i32 %161, 0
+  br i1 %162, label %163, label %.thread14
 
-161:                                              ; preds = %158
-  %162 = icmp eq i64 %2, 0
-  br i1 %162, label %.thread14, label %163
+163:                                              ; preds = %160
+  %164 = icmp eq i64 %2, 0
+  br i1 %164, label %.thread13, label %165
 
-163:                                              ; preds = %161
-  %164 = load volatile i64, ptr @jiffies, align 64
-  %165 = getelementptr inbounds i8, ptr %156, i64 88
-  %166 = load i64, ptr %165, align 8
-  %167 = add i64 %166, %2
-  %168 = sub i64 %164, %167
-  %169 = icmp slt i64 %168, 0
-  %spec.select16 = select i1 %169, ptr null, ptr %0
-  br label %.thread14
+165:                                              ; preds = %163
+  %166 = load volatile i64, ptr @jiffies, align 64
+  %167 = getelementptr inbounds i8, ptr %158, i64 88
+  %168 = load i64, ptr %167, align 8
+  %169 = add i64 %168, %2
+  %170 = sub i64 %166, %169
+  %171 = icmp slt i64 %170, 0
+  br i1 %171, label %.thread13, label %.thread14
 
-170:                                              ; preds = %86
-  br i1 %90, label %171, label %.split.preheader
+172:                                              ; preds = %88
+  br i1 %92, label %173, label %.split.preheader
 
-171:                                              ; preds = %170
-  %172 = load volatile i32, ptr %83, align 8
-  %173 = add i32 %172, 1
-  %174 = getelementptr inbounds i8, ptr %0, i64 100
-  %175 = load i32, ptr %174, align 4
-  %176 = icmp ugt i32 %175, %173
-  br i1 %176, label %.thread14, label %.split.us
+173:                                              ; preds = %172
+  %174 = load volatile i32, ptr %85, align 8
+  %175 = add i32 %174, 1
+  %176 = getelementptr inbounds i8, ptr %0, i64 100
+  %177 = load i32, ptr %176, align 4
+  %178 = icmp ugt i32 %177, %175
+  br i1 %178, label %.thread14, label %.split.us
 
-.split.preheader:                                 ; preds = %170
-  %177 = getelementptr inbounds i8, ptr %0, i64 96
-  tail call void @lockref_get(ptr noundef %177) #7
-  %178 = getelementptr inbounds i8, ptr %5, i64 8
-  br label %.split
-
-.split.us:                                        ; preds = %171
+.split.preheader:                                 ; preds = %172
   %179 = getelementptr inbounds i8, ptr %0, i64 96
   tail call void @lockref_get(ptr noundef %179) #7
-  %180 = icmp eq i64 %2, 0
-  %181 = getelementptr inbounds i8, ptr %5, i64 8
-  %182 = and i32 %3, 1
-  %183 = icmp eq i32 %182, 0
-  br i1 %183, label %.split.us.split.us, label %.split.us.split
+  %180 = getelementptr inbounds i8, ptr %5, i64 8
+  br label %.split
 
-.split.us.split.us:                               ; preds = %.split.us, %224
-  %184 = phi ptr [ %225, %224 ], [ %0, %.split.us ]
-  %185 = load i32, ptr %184, align 8
-  %186 = and i32 %185, 65536
-  %187 = icmp eq i32 %186, 0
-  br i1 %187, label %224, label %188
+.split.us:                                        ; preds = %173
+  %181 = getelementptr inbounds i8, ptr %0, i64 96
+  tail call void @lockref_get(ptr noundef %181) #7
+  %182 = icmp eq i64 %2, 0
+  %183 = getelementptr inbounds i8, ptr %5, i64 8
+  %184 = and i32 %3, 1
+  %185 = icmp eq i32 %184, 0
+  br i1 %185, label %.split.us.split.us, label %.split.us.split
 
-188:                                              ; preds = %.split.us.split.us
+.split.us.split.us:                               ; preds = %.split.us, %226
+  %186 = phi ptr [ %227, %226 ], [ %0, %.split.us ]
+  %187 = load i32, ptr %186, align 8
+  %188 = and i32 %187, 65536
+  %189 = icmp eq i32 %188, 0
+  br i1 %189, label %226, label %190
+
+190:                                              ; preds = %.split.us.split.us
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
   store ptr %1, ptr %5, align 8
-  store ptr %184, ptr %181, align 8
+  store ptr %186, ptr %183, align 8
   call void @path_get(ptr noundef nonnull %5) #7
-  %189 = call i32 @follow_down_one(ptr noundef nonnull %5) #7
-  %190 = icmp eq i32 %189, 0
-  br i1 %190, label %autofs_mount_busy.exit13.thread.us.us, label %191
+  %191 = call i32 @follow_down_one(ptr noundef nonnull %5) #7
+  %192 = icmp eq i32 %191, 0
+  br i1 %192, label %autofs_mount_busy.exit12.thread.us.us, label %193
 
-191:                                              ; preds = %188
-  %192 = load ptr, ptr %181, align 8
-  %193 = call i32 @is_autofs_dentry(ptr noundef %192) #7
-  %194 = icmp eq i32 %193, 0
-  br i1 %194, label %204, label %195
+193:                                              ; preds = %190
+  %194 = load ptr, ptr %183, align 8
+  %195 = call i32 @is_autofs_dentry(ptr noundef %194) #7
+  %196 = icmp eq i32 %195, 0
+  br i1 %196, label %206, label %197
 
-195:                                              ; preds = %191
-  %196 = load ptr, ptr %181, align 8
-  %197 = getelementptr inbounds i8, ptr %196, i64 112
-  %198 = load ptr, ptr %197, align 8
-  %199 = getelementptr inbounds i8, ptr %198, i64 872
+197:                                              ; preds = %193
+  %198 = load ptr, ptr %183, align 8
+  %199 = getelementptr inbounds i8, ptr %198, i64 112
   %200 = load ptr, ptr %199, align 8
-  %201 = getelementptr inbounds i8, ptr %200, i64 56
-  %202 = load i32, ptr %201, align 8
-  %203 = icmp eq i32 %202, 1
-  br i1 %203, label %autofs_mount_busy.exit13.thread.us.us, label %204
+  %201 = getelementptr inbounds i8, ptr %200, i64 872
+  %202 = load ptr, ptr %201, align 8
+  %203 = getelementptr inbounds i8, ptr %202, i64 56
+  %204 = load i32, ptr %203, align 8
+  %205 = icmp eq i32 %204, 1
+  br i1 %205, label %autofs_mount_busy.exit12.thread.us.us, label %206
 
-204:                                              ; preds = %195, %191
-  %205 = load ptr, ptr %5, align 8
-  %206 = call i32 @may_umount_tree(ptr noundef %205) #7
-  %207 = icmp eq i32 %206, 0
-  br i1 %207, label %219, label %208
+206:                                              ; preds = %197, %193
+  %207 = load ptr, ptr %5, align 8
+  %208 = call i32 @may_umount_tree(ptr noundef %207) #7
+  %209 = icmp eq i32 %208, 0
+  br i1 %209, label %221, label %210
 
-208:                                              ; preds = %204
+210:                                              ; preds = %206
   call void @path_put(ptr noundef nonnull %5) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
-  %209 = getelementptr inbounds i8, ptr %184, i64 128
-  %210 = load ptr, ptr %209, align 8
-  %211 = icmp eq ptr %210, null
-  %brmerge = or i1 %211, %180
-  br i1 %brmerge, label %224, label %212
+  %211 = getelementptr inbounds i8, ptr %186, i64 128
+  %212 = load ptr, ptr %211, align 8
+  %213 = icmp eq ptr %212, null
+  %brmerge = or i1 %213, %182
+  br i1 %brmerge, label %226, label %214
 
-212:                                              ; preds = %208
-  %213 = load volatile i64, ptr @jiffies, align 64
-  %214 = getelementptr inbounds i8, ptr %210, i64 88
-  %215 = load i64, ptr %214, align 8
-  %216 = add i64 %215, %2
-  %217 = sub i64 %213, %216
-  %218 = icmp slt i64 %217, 0
-  br i1 %218, label %224, label %.loopexit25
+214:                                              ; preds = %210
+  %215 = load volatile i64, ptr @jiffies, align 64
+  %216 = getelementptr inbounds i8, ptr %212, i64 88
+  %217 = load i64, ptr %216, align 8
+  %218 = add i64 %217, %2
+  %219 = sub i64 %215, %218
+  %220 = icmp slt i64 %219, 0
+  br i1 %220, label %226, label %.loopexit23
 
-219:                                              ; preds = %204
-  %220 = getelementptr inbounds i8, ptr %184, i64 128
-  %221 = load ptr, ptr %220, align 8
-  %222 = load volatile i64, ptr @jiffies, align 64
-  %223 = getelementptr inbounds i8, ptr %221, i64 88
-  store i64 %222, ptr %223, align 8
-  br label %autofs_mount_busy.exit13.thread.us.us
+221:                                              ; preds = %206
+  %222 = getelementptr inbounds i8, ptr %186, i64 128
+  %223 = load ptr, ptr %222, align 8
+  %224 = load volatile i64, ptr @jiffies, align 64
+  %225 = getelementptr inbounds i8, ptr %223, i64 88
+  store i64 %224, ptr %225, align 8
+  br label %autofs_mount_busy.exit12.thread.us.us
 
-autofs_mount_busy.exit13.thread.us.us:            ; preds = %219, %195, %188
+autofs_mount_busy.exit12.thread.us.us:            ; preds = %221, %197, %190
   call void @path_put(ptr noundef nonnull %5) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
-  br label %224
+  br label %226
 
-224:                                              ; preds = %208, %autofs_mount_busy.exit13.thread.us.us, %212, %.split.us.split.us
-  %225 = tail call fastcc ptr @get_next_positive_dentry(ptr noundef nonnull %184, ptr noundef nonnull %0)
-  %226 = icmp eq ptr %225, null
-  br i1 %226, label %.thread14, label %.split.us.split.us, !llvm.loop !12
+226:                                              ; preds = %210, %autofs_mount_busy.exit12.thread.us.us, %214, %.split.us.split.us
+  %227 = tail call fastcc ptr @get_next_positive_dentry(ptr noundef nonnull %186, ptr noundef nonnull %0)
+  %228 = icmp eq ptr %227, null
+  br i1 %228, label %.thread13, label %.split.us.split.us, !llvm.loop !12
 
-.split.us.split:                                  ; preds = %.split.us, %260
-  %227 = phi ptr [ %261, %260 ], [ %0, %.split.us ]
-  %228 = load i32, ptr %227, align 8
-  %229 = and i32 %228, 65536
-  %230 = icmp eq i32 %229, 0
-  br i1 %230, label %260, label %231
+.split.us.split:                                  ; preds = %.split.us, %262
+  %229 = phi ptr [ %263, %262 ], [ %0, %.split.us ]
+  %230 = load i32, ptr %229, align 8
+  %231 = and i32 %230, 65536
+  %232 = icmp eq i32 %231, 0
+  br i1 %232, label %262, label %233
 
-231:                                              ; preds = %.split.us.split
+233:                                              ; preds = %.split.us.split
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
   store ptr %1, ptr %5, align 8
-  store ptr %227, ptr %181, align 8
+  store ptr %229, ptr %183, align 8
   call void @path_get(ptr noundef nonnull %5) #7
-  %232 = call i32 @follow_down_one(ptr noundef nonnull %5) #7
-  %233 = icmp eq i32 %232, 0
-  br i1 %233, label %autofs_mount_busy.exit13.thread.us, label %234
+  %234 = call i32 @follow_down_one(ptr noundef nonnull %5) #7
+  %235 = icmp eq i32 %234, 0
+  br i1 %235, label %autofs_mount_busy.exit12.thread.us, label %236
 
-234:                                              ; preds = %231
-  %235 = load ptr, ptr %181, align 8
-  %236 = call i32 @is_autofs_dentry(ptr noundef %235) #7
-  %237 = icmp eq i32 %236, 0
-  br i1 %237, label %247, label %238
+236:                                              ; preds = %233
+  %237 = load ptr, ptr %183, align 8
+  %238 = call i32 @is_autofs_dentry(ptr noundef %237) #7
+  %239 = icmp eq i32 %238, 0
+  br i1 %239, label %249, label %240
 
-238:                                              ; preds = %234
-  %239 = load ptr, ptr %181, align 8
-  %240 = getelementptr inbounds i8, ptr %239, i64 112
-  %241 = load ptr, ptr %240, align 8
-  %242 = getelementptr inbounds i8, ptr %241, i64 872
+240:                                              ; preds = %236
+  %241 = load ptr, ptr %183, align 8
+  %242 = getelementptr inbounds i8, ptr %241, i64 112
   %243 = load ptr, ptr %242, align 8
-  %244 = getelementptr inbounds i8, ptr %243, i64 56
-  %245 = load i32, ptr %244, align 8
-  %246 = icmp eq i32 %245, 1
-  br i1 %246, label %autofs_mount_busy.exit13.thread.us, label %247
+  %244 = getelementptr inbounds i8, ptr %243, i64 872
+  %245 = load ptr, ptr %244, align 8
+  %246 = getelementptr inbounds i8, ptr %245, i64 56
+  %247 = load i32, ptr %246, align 8
+  %248 = icmp eq i32 %247, 1
+  br i1 %248, label %autofs_mount_busy.exit12.thread.us, label %249
 
-247:                                              ; preds = %238, %234
-  %248 = load ptr, ptr %5, align 8
-  %249 = call i32 @may_umount_tree(ptr noundef %248) #7
-  %250 = icmp eq i32 %249, 0
-  br i1 %250, label %255, label %251
+249:                                              ; preds = %240, %236
+  %250 = load ptr, ptr %5, align 8
+  %251 = call i32 @may_umount_tree(ptr noundef %250) #7
+  %252 = icmp eq i32 %251, 0
+  br i1 %252, label %257, label %253
 
-251:                                              ; preds = %247
+253:                                              ; preds = %249
   call void @path_put(ptr noundef nonnull %5) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
-  %252 = getelementptr inbounds i8, ptr %227, i64 128
-  %253 = load ptr, ptr %252, align 8
-  %254 = icmp eq ptr %253, null
-  br i1 %254, label %260, label %.loopexit25
+  %254 = getelementptr inbounds i8, ptr %229, i64 128
+  %255 = load ptr, ptr %254, align 8
+  %256 = icmp eq ptr %255, null
+  br i1 %256, label %262, label %.loopexit23
 
-255:                                              ; preds = %247
-  %256 = getelementptr inbounds i8, ptr %227, i64 128
-  %257 = load ptr, ptr %256, align 8
-  %258 = load volatile i64, ptr @jiffies, align 64
-  %259 = getelementptr inbounds i8, ptr %257, i64 88
-  store i64 %258, ptr %259, align 8
-  br label %autofs_mount_busy.exit13.thread.us
+257:                                              ; preds = %249
+  %258 = getelementptr inbounds i8, ptr %229, i64 128
+  %259 = load ptr, ptr %258, align 8
+  %260 = load volatile i64, ptr @jiffies, align 64
+  %261 = getelementptr inbounds i8, ptr %259, i64 88
+  store i64 %260, ptr %261, align 8
+  br label %autofs_mount_busy.exit12.thread.us
 
-autofs_mount_busy.exit13.thread.us:               ; preds = %255, %238, %231
+autofs_mount_busy.exit12.thread.us:               ; preds = %257, %240, %233
   call void @path_put(ptr noundef nonnull %5) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
-  br label %260
+  br label %262
 
-260:                                              ; preds = %autofs_mount_busy.exit13.thread.us, %251, %.split.us.split
-  %261 = tail call fastcc ptr @get_next_positive_dentry(ptr noundef nonnull %227, ptr noundef nonnull %0)
-  %262 = icmp eq ptr %261, null
-  br i1 %262, label %.thread14, label %.split.us.split, !llvm.loop !12
+262:                                              ; preds = %autofs_mount_busy.exit12.thread.us, %253, %.split.us.split
+  %263 = tail call fastcc ptr @get_next_positive_dentry(ptr noundef nonnull %229, ptr noundef nonnull %0)
+  %264 = icmp eq ptr %263, null
+  br i1 %264, label %.thread13, label %.split.us.split, !llvm.loop !12
 
-.split:                                           ; preds = %.split.preheader, %284
-  %263 = phi ptr [ %285, %284 ], [ %0, %.split.preheader ]
-  %264 = load i32, ptr %263, align 8
-  %265 = and i32 %264, 65536
-  %266 = icmp eq i32 %265, 0
-  br i1 %266, label %284, label %267
+.split:                                           ; preds = %.split.preheader, %286
+  %265 = phi ptr [ %287, %286 ], [ %0, %.split.preheader ]
+  %266 = load i32, ptr %265, align 8
+  %267 = and i32 %266, 65536
+  %268 = icmp eq i32 %267, 0
+  br i1 %268, label %286, label %269
 
-267:                                              ; preds = %.split
+269:                                              ; preds = %.split
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
   store ptr %1, ptr %5, align 8
-  store ptr %263, ptr %178, align 8
+  store ptr %265, ptr %180, align 8
   call void @path_get(ptr noundef nonnull %5) #7
-  %268 = call i32 @follow_down_one(ptr noundef nonnull %5) #7
-  %269 = icmp eq i32 %268, 0
-  br i1 %269, label %autofs_mount_busy.exit13.thread, label %270
+  %270 = call i32 @follow_down_one(ptr noundef nonnull %5) #7
+  %271 = icmp eq i32 %270, 0
+  br i1 %271, label %autofs_mount_busy.exit12.thread, label %272
 
-270:                                              ; preds = %267
-  %271 = load ptr, ptr %178, align 8
-  %272 = call i32 @is_autofs_dentry(ptr noundef %271) #7
-  %273 = icmp eq i32 %272, 0
-  br i1 %273, label %283, label %274
+272:                                              ; preds = %269
+  %273 = load ptr, ptr %180, align 8
+  %274 = call i32 @is_autofs_dentry(ptr noundef %273) #7
+  %275 = icmp eq i32 %274, 0
+  br i1 %275, label %285, label %276
 
-274:                                              ; preds = %270
-  %275 = load ptr, ptr %178, align 8
-  %276 = getelementptr inbounds i8, ptr %275, i64 112
-  %277 = load ptr, ptr %276, align 8
-  %278 = getelementptr inbounds i8, ptr %277, i64 872
+276:                                              ; preds = %272
+  %277 = load ptr, ptr %180, align 8
+  %278 = getelementptr inbounds i8, ptr %277, i64 112
   %279 = load ptr, ptr %278, align 8
-  %280 = getelementptr inbounds i8, ptr %279, i64 56
-  %281 = load i32, ptr %280, align 8
-  %282 = icmp eq i32 %281, 1
-  br i1 %282, label %autofs_mount_busy.exit13.thread, label %283
+  %280 = getelementptr inbounds i8, ptr %279, i64 872
+  %281 = load ptr, ptr %280, align 8
+  %282 = getelementptr inbounds i8, ptr %281, i64 56
+  %283 = load i32, ptr %282, align 8
+  %284 = icmp eq i32 %283, 1
+  br i1 %284, label %autofs_mount_busy.exit12.thread, label %285
 
-autofs_mount_busy.exit13.thread:                  ; preds = %274, %267
+autofs_mount_busy.exit12.thread:                  ; preds = %276, %269
   call void @path_put(ptr noundef nonnull %5) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
-  br label %284
+  br label %286
 
-283:                                              ; preds = %270, %274
+285:                                              ; preds = %272, %276
   call void @path_put(ptr noundef nonnull %5) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
-  br label %.loopexit25
+  br label %.loopexit23
 
-284:                                              ; preds = %autofs_mount_busy.exit13.thread, %.split
-  %285 = tail call fastcc ptr @get_next_positive_dentry(ptr noundef nonnull %263, ptr noundef nonnull %0)
-  %286 = icmp eq ptr %285, null
-  br i1 %286, label %.thread14, label %.split, !llvm.loop !12
-
-.loopexit25:                                      ; preds = %251, %212, %283
-  %287 = phi ptr [ %263, %283 ], [ %184, %212 ], [ %227, %251 ]
+286:                                              ; preds = %autofs_mount_busy.exit12.thread, %.split
+  %287 = tail call fastcc ptr @get_next_positive_dentry(ptr noundef nonnull %265, ptr noundef nonnull %0)
   %288 = icmp eq ptr %287, null
-  br i1 %288, label %.thread14, label %289
+  br i1 %288, label %.thread13, label %.split, !llvm.loop !12
 
-289:                                              ; preds = %.loopexit25
-  %290 = icmp eq ptr %287, %0
-  br i1 %290, label %291, label %.thread14
+.loopexit23:                                      ; preds = %253, %214, %285
+  %289 = phi ptr [ %265, %285 ], [ %186, %214 ], [ %229, %253 ]
+  %290 = icmp eq ptr %289, null
+  br i1 %290, label %.thread13, label %291
 
-291:                                              ; preds = %289
+291:                                              ; preds = %.loopexit23
+  %292 = icmp eq ptr %289, %0
+  br i1 %292, label %293, label %.thread14
+
+293:                                              ; preds = %291
   tail call void @dput(ptr noundef %0) #7
   br label %.thread14
 
-.loopexit:                                        ; preds = %140, %autofs_mount_busy.exit12.thread
-  %292 = load volatile i64, ptr @jiffies, align 64
-  %293 = getelementptr inbounds i8, ptr %9, i64 88
-  store i64 %292, ptr %293, align 8
-  tail call void @dput(ptr noundef nonnull %110) #7
+.loopexit:                                        ; preds = %142, %autofs_mount_busy.exit11.thread
+  %294 = load volatile i64, ptr @jiffies, align 64
+  %295 = getelementptr inbounds i8, ptr %9, i64 88
+  store i64 %294, ptr %295, align 8
+  tail call void @dput(ptr noundef nonnull %112) #7
+  br label %.thread13
+
+.thread13:                                        ; preds = %286, %262, %226, %.loopexit23, %.loopexit, %165, %163, %157, %104, %100
   br label %.thread14
 
-.thread14:                                        ; preds = %284, %260, %224, %46, %163, %289, %291, %171, %98, %102, %155, %161, %.loopexit, %.loopexit25, %autofs_mount_busy.exit.thread, %75, %55, %70, %50, %158, %154, %92, %82, %73, %68, %65, %53, %47, %4
-  %294 = phi ptr [ null, %4 ], [ %0, %46 ], [ %0, %65 ], [ null, %82 ], [ null, %92 ], [ null, %47 ], [ null, %53 ], [ null, %68 ], [ null, %73 ], [ %0, %154 ], [ %0, %158 ], [ %0, %50 ], [ %0, %70 ], [ %spec.select, %55 ], [ %spec.select1, %75 ], [ null, %autofs_mount_busy.exit.thread ], [ null, %.loopexit25 ], [ null, %.loopexit ], [ null, %161 ], [ null, %155 ], [ null, %102 ], [ null, %98 ], [ %287, %289 ], [ %0, %291 ], [ null, %171 ], [ %spec.select16, %163 ], [ null, %224 ], [ null, %260 ], [ null, %284 ]
-  ret ptr %294
+.thread14:                                        ; preds = %46, %291, %293, %173, %autofs_mount_busy.exit.thread, %.thread13, %165, %160, %156, %94, %84, %83, %76, %74, %69, %66, %62, %55, %53, %47, %4
+  %296 = phi ptr [ null, %.thread13 ], [ null, %4 ], [ %0, %46 ], [ %0, %66 ], [ null, %84 ], [ null, %94 ], [ %0, %62 ], [ null, %47 ], [ null, %55 ], [ null, %53 ], [ %0, %83 ], [ null, %69 ], [ null, %76 ], [ null, %74 ], [ %0, %156 ], [ %0, %165 ], [ %0, %160 ], [ null, %autofs_mount_busy.exit.thread ], [ %289, %291 ], [ %0, %293 ], [ null, %173 ]
+  ret ptr %296
 }
 
 ; Function Attrs: null_pointer_is_valid

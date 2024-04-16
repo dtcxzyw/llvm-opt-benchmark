@@ -2795,22 +2795,24 @@ land.lhs.true63:                                  ; preds = %if.end60
 if.end67:                                         ; preds = %land.lhs.true63, %if.end60
   %11 = load i32, ptr %version, align 8
   %cmp69 = icmp sgt i32 %11, 768
-  br i1 %cmp69, label %land.lhs.true70, label %return
+  br i1 %cmp69, label %land.lhs.true70, label %if.end77
 
 land.lhs.true70:                                  ; preds = %if.end67
   %12 = load i32, ptr %alg_a, align 4
   %and71 = and i32 %12, 8
   %tobool72.not = icmp eq i32 %and71, 0
-  br i1 %tobool72.not, label %land.lhs.true73, label %return
+  br i1 %tobool72.not, label %land.lhs.true73, label %if.end77
 
 land.lhs.true73:                                  ; preds = %land.lhs.true70
   %call74 = call i32 @WPACKET_put_bytes__(ptr noundef %pkt, i64 noundef 64, i64 noundef 1) #19
-  %tobool75.not = icmp ne i32 %call74, 0
-  %spec.select = zext i1 %tobool75.not to i32
+  %tobool75.not = icmp eq i32 %call74, 0
+  br i1 %tobool75.not, label %return, label %if.end77
+
+if.end77:                                         ; preds = %land.lhs.true73, %land.lhs.true70, %if.end67
   br label %return
 
-return:                                           ; preds = %land.lhs.true73, %if.end67, %land.lhs.true70, %land.lhs.true63, %land.lhs.true56, %land.lhs.true48, %if.then41, %if.then27, %lor.lhs.false30, %if.then5, %lor.lhs.false, %lor.lhs.false10, %lor.lhs.false13, %lor.lhs.false16, %if.then
-  %retval.0 = phi i32 [ %call, %if.then ], [ 0, %lor.lhs.false16 ], [ 0, %lor.lhs.false13 ], [ 0, %lor.lhs.false10 ], [ 0, %lor.lhs.false ], [ 0, %if.then5 ], [ 0, %lor.lhs.false30 ], [ 0, %if.then27 ], [ 0, %if.then41 ], [ 0, %land.lhs.true48 ], [ 0, %land.lhs.true56 ], [ 0, %land.lhs.true63 ], [ 1, %land.lhs.true70 ], [ 1, %if.end67 ], [ %spec.select, %land.lhs.true73 ]
+return:                                           ; preds = %land.lhs.true73, %land.lhs.true63, %land.lhs.true56, %land.lhs.true48, %if.then41, %if.then27, %lor.lhs.false30, %if.then5, %lor.lhs.false, %lor.lhs.false10, %lor.lhs.false13, %lor.lhs.false16, %if.end77, %if.then
+  %retval.0 = phi i32 [ %call, %if.then ], [ 1, %if.end77 ], [ 0, %lor.lhs.false16 ], [ 0, %lor.lhs.false13 ], [ 0, %lor.lhs.false10 ], [ 0, %lor.lhs.false ], [ 0, %if.then5 ], [ 0, %lor.lhs.false30 ], [ 0, %if.then27 ], [ 0, %if.then41 ], [ 0, %land.lhs.true48 ], [ 0, %land.lhs.true56 ], [ 0, %land.lhs.true63 ], [ 0, %land.lhs.true73 ]
   ret i32 %retval.0
 }
 
@@ -2819,7 +2821,7 @@ declare i32 @WPACKET_memcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed
 declare void @ssl_set_sig_mask(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @ssl3_shutdown(ptr noundef %s) local_unnamed_addr #4 {
+define noundef i32 @ssl3_shutdown(ptr noundef %s) local_unnamed_addr #4 {
 entry:
   %readbytes = alloca i64, align 8
   %cmp = icmp eq ptr %s, null
@@ -2900,17 +2902,19 @@ if.end40thread-pre-split:                         ; preds = %if.then12, %if.else
 if.end40:                                         ; preds = %if.end40thread-pre-split, %if.then30
   %10 = phi i32 [ %.pr, %if.end40thread-pre-split ], [ %9, %if.then30 ]
   %cmp42 = icmp eq i32 %10, 3
-  br i1 %cmp42, label %land.lhs.true, label %return
+  br i1 %cmp42, label %land.lhs.true, label %if.else47
 
 land.lhs.true:                                    ; preds = %if.end40
   %alert_dispatch44 = getelementptr inbounds i8, ptr %s, i64 380
   %11 = load i32, ptr %alert_dispatch44, align 4
   %cmp45 = icmp eq i32 %11, 0
-  %spec.select = zext i1 %cmp45 to i32
+  br i1 %cmp45, label %return, label %if.else47
+
+if.else47:                                        ; preds = %land.lhs.true, %if.end40
   br label %return
 
-return:                                           ; preds = %entry, %cond.false, %land.lhs.true, %if.end40, %if.then30, %if.then21, %if.then12, %if.then8
-  %retval.0 = phi i32 [ 1, %if.then8 ], [ -1, %if.then12 ], [ -1, %if.then21 ], [ -1, %if.then30 ], [ 0, %if.end40 ], [ %spec.select, %land.lhs.true ], [ 0, %cond.false ], [ 0, %entry ]
+return:                                           ; preds = %entry, %cond.false, %land.lhs.true, %if.then30, %if.then21, %if.then12, %if.else47, %if.then8
+  %retval.0 = phi i32 [ 1, %if.then8 ], [ 0, %if.else47 ], [ -1, %if.then12 ], [ -1, %if.then21 ], [ -1, %if.then30 ], [ 1, %land.lhs.true ], [ 0, %cond.false ], [ 0, %entry ]
   ret i32 %retval.0
 }
 

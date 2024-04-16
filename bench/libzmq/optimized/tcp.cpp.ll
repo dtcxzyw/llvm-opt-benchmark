@@ -54,7 +54,7 @@ entry:
   store i32 %keepalive_idle_, ptr %keepalive_idle_.addr, align 4
   store i32 %keepalive_intvl_, ptr %keepalive_intvl_.addr, align 4
   %cmp.not = icmp eq i32 %keepalive_, -1
-  br i1 %cmp.not, label %return, label %if.then
+  br i1 %cmp.not, label %if.end27, label %if.then
 
 if.then:                                          ; preds = %entry
   %call = call i32 @setsockopt(i32 noundef %s_, i32 noundef 1, i32 noundef 9, ptr noundef nonnull %keepalive_.addr, i32 noundef 4) #7
@@ -84,15 +84,19 @@ if.then12:                                        ; preds = %if.end10
 
 if.end18:                                         ; preds = %if.then12, %if.end10
   %cmp19.not = icmp eq i32 %keepalive_intvl_, -1
-  br i1 %cmp19.not, label %return, label %if.then20
+  br i1 %cmp19.not, label %if.end27, label %if.then20
 
 if.then20:                                        ; preds = %if.end18
   %call22 = call i32 @setsockopt(i32 noundef %s_, i32 noundef 6, i32 noundef 5, ptr noundef nonnull %keepalive_intvl_.addr, i32 noundef 4) #7
   call void @_ZN3zmq29assert_success_or_recoverableEii(i32 noundef %s_, i32 noundef %call22)
+  %cmp23.not = icmp eq i32 %call22, 0
+  br i1 %cmp23.not, label %if.end27, label %return
+
+if.end27:                                         ; preds = %if.end18, %if.then20, %entry
   br label %return
 
-return:                                           ; preds = %if.then20, %entry, %if.end18, %if.then12, %if.then4, %if.then
-  %retval.0 = phi i32 [ %call, %if.then ], [ %call6, %if.then4 ], [ %call14, %if.then12 ], [ 0, %if.end18 ], [ 0, %entry ], [ %call22, %if.then20 ]
+return:                                           ; preds = %if.then20, %if.then12, %if.then4, %if.then, %if.end27
+  %retval.0 = phi i32 [ 0, %if.end27 ], [ %call, %if.then ], [ %call6, %if.then4 ], [ %call14, %if.then12 ], [ %call22, %if.then20 ]
   ret i32 %retval.0
 }
 

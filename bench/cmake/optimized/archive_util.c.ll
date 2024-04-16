@@ -48,11 +48,13 @@ define dso_local ptr @archive_error_string(ptr nocapture noundef readonly %0) lo
 4:                                                ; preds = %1
   %5 = load i8, ptr %3, align 1
   %.not5 = icmp eq i8 %5, 0
-  %spec.select = select i1 %.not5, ptr null, ptr %3
-  br label %6
+  br i1 %.not5, label %6, label %7
 
 6:                                                ; preds = %4, %1
-  %.0 = phi ptr [ null, %1 ], [ %spec.select, %4 ]
+  br label %7
+
+7:                                                ; preds = %4, %6
+  %.0 = phi ptr [ null, %6 ], [ %3, %4 ]
   ret ptr %.0
 }
 

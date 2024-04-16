@@ -564,7 +564,7 @@ land.lhs.true:                                    ; preds = %if.then29
   %fForwardsPartialTrie.i = getelementptr inbounds i8, ptr %17, i64 8
   %18 = load ptr, ptr %fForwardsPartialTrie.i, align 8
   %cmp.i.i6.not = icmp eq ptr %18, null
-  br i1 %cmp.i.i6.not, label %return, label %if.then36
+  br i1 %cmp.i.i6.not, label %if.else60, label %if.then36
 
 if.then36:                                        ; preds = %land.lhs.true
   %19 = load ptr, ptr %fText, align 8
@@ -614,11 +614,11 @@ while.end56:                                      ; preds = %invoke.cont48, %inv
   call void @_ZN6icu_7510UCharsTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %iter39) #13
   br label %return
 
-if.else60:                                        ; preds = %if.then29
+if.else60:                                        ; preds = %if.then29, %land.lhs.true
   br label %return
 
-return:                                           ; preds = %while.end, %land.lhs.true, %if.then29, %if.else60, %while.end56
-  %retval.1 = phi i32 [ %., %while.end56 ], [ 1, %if.then29 ], [ 0, %land.lhs.true ], [ 0, %if.else60 ], [ 0, %while.end ]
+return:                                           ; preds = %while.end, %if.then29, %if.else60, %while.end56
+  %retval.1 = phi i32 [ %., %while.end56 ], [ 0, %if.else60 ], [ 1, %if.then29 ], [ 0, %while.end ]
   ret i32 %retval.1
 
 eh.resume:                                        ; preds = %lpad45, %lpad

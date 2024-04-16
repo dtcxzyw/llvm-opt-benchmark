@@ -10048,7 +10048,7 @@ _ZN10pdf_writer6object5Array4item17hfe8b8e2faf82b4a9E.exit: ; preds = %503
   %512 = getelementptr inbounds i8, ptr %511, i64 432
   %.sroa.03.0.copyload.i = load i64, ptr %512, align 8
   %513 = icmp eq i64 %.sroa.03.0.copyload.i, 5
-  br i1 %513, label %_ZN9typst_pdf4font9glyph_cid17ha1618bcfbc3a9fa6E.exit, label %514
+  br i1 %513, label %.thread.i107, label %514
 
 514:                                              ; preds = %.noexc108
   %.sroa.55.0..sroa_idx.i = getelementptr inbounds i8, ptr %511, i64 440
@@ -10064,11 +10064,13 @@ _ZN10pdf_writer6object5Array4item17hfe8b8e2faf82b4a9E.exit: ; preds = %503
   %517 = extractvalue { i16, i16 } %.fr13.i, 1
   call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %8), !noalias !1950
   %switch.i = icmp eq i16 %516, 0
-  %spec.select.i = select i1 %switch.i, i16 %510, i16 %517
+  br i1 %switch.i, label %.thread.i107, label %_ZN9typst_pdf4font9glyph_cid17ha1618bcfbc3a9fa6E.exit
+
+.thread.i107:                                     ; preds = %.noexc108, %.noexc109
   br label %_ZN9typst_pdf4font9glyph_cid17ha1618bcfbc3a9fa6E.exit
 
-_ZN9typst_pdf4font9glyph_cid17ha1618bcfbc3a9fa6E.exit: ; preds = %.noexc109, %.noexc108
-  %518 = phi i16 [ %spec.select.i, %.noexc109 ], [ %510, %.noexc108 ]
+_ZN9typst_pdf4font9glyph_cid17ha1618bcfbc3a9fa6E.exit: ; preds = %.thread.i107, %.noexc109
+  %518 = phi i16 [ %510, %.thread.i107 ], [ %517, %.noexc109 ]
   %519 = lshr i16 %518, 8
   %520 = trunc nuw i16 %519 to i8
   %521 = load i64, ptr %376, align 8, !alias.scope !1953, !noundef !14

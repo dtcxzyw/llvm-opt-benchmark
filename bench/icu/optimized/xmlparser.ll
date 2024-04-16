@@ -3065,17 +3065,19 @@ if.then:                                          ; preds = %entry
 dynamic_cast.end:                                 ; preds = %if.then
   %2 = tail call ptr @__dynamic_cast(ptr nonnull %call4, ptr nonnull @_ZTIN6icu_757UObjectE, ptr nonnull @_ZTIN6icu_7511UXMLElementE, i64 0) #11
   %.fr = freeze ptr %2
-  %3 = icmp ne ptr %.fr, null
-  %spec.select = zext i1 %3 to i32
-  br label %dynamic_cast.end.thread
+  %3 = icmp eq ptr %.fr, null
+  br i1 %3, label %dynamic_cast.end.thread, label %4
 
-dynamic_cast.end.thread:                          ; preds = %dynamic_cast.end, %if.then
-  %4 = phi i32 [ 0, %if.then ], [ %spec.select, %dynamic_cast.end ]
-  store i32 %4, ptr %type, align 4
+dynamic_cast.end.thread:                          ; preds = %if.then, %dynamic_cast.end
+  br label %4
+
+4:                                                ; preds = %dynamic_cast.end, %dynamic_cast.end.thread
+  %5 = phi i32 [ 0, %dynamic_cast.end.thread ], [ 1, %dynamic_cast.end ]
+  store i32 %5, ptr %type, align 4
   br label %return
 
-return:                                           ; preds = %entry, %dynamic_cast.end.thread
-  %retval.0 = phi ptr [ %call4, %dynamic_cast.end.thread ], [ null, %entry ]
+return:                                           ; preds = %entry, %4
+  %retval.0 = phi ptr [ %call4, %4 ], [ null, %entry ]
   ret ptr %retval.0
 }
 

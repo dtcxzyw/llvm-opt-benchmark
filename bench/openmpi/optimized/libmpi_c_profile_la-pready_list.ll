@@ -33,7 +33,7 @@ target triple = "x86_64-pc-linux-gnu"
 define noundef i32 @PMPI_Pready_list(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
   %4 = load i8, ptr @ompi_mpi_param_check, align 1
   %5 = trunc i8 %4 to i1
-  br i1 %5, label %6, label %16
+  br i1 %5, label %6, label %.thread
 
 6:                                                ; preds = %3
   %7 = load volatile i32, ptr @ompi_instance_count, align 4
@@ -52,98 +52,98 @@ define noundef i32 @PMPI_Pready_list(i32 noundef %0, ptr nocapture noundef reado
   %14 = getelementptr inbounds i8, ptr %2, i64 56
   %15 = load i32, ptr %14, align 8
   %.not = icmp eq i32 %15, 8
-  br i1 %.not, label %16, label %._crit_edge.thread.sink.split
+  br i1 %.not, label %.thread, label %._crit_edge.thread.sink.split
 
-16:                                               ; preds = %13, %3
-  %17 = icmp sgt i32 %0, 0
-  br i1 %17, label %.lr.ph.preheader, label %._crit_edge.thread
+.thread:                                          ; preds = %13, %3
+  %16 = icmp sgt i32 %0, 0
+  br i1 %16, label %.lr.ph.preheader, label %._crit_edge.thread
 
-.lr.ph.preheader:                                 ; preds = %16
-  %18 = zext nneg i32 %0 to i64
+.lr.ph.preheader:                                 ; preds = %.thread
+  %17 = zext nneg i32 %0 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %19 = load ptr, ptr getelementptr inbounds (%struct.mca_part_base_module_1_0_1_t, ptr @mca_part, i64 0, i32 4), align 8
-  %20 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
-  %21 = load i32, ptr %20, align 4
-  %22 = sext i32 %21 to i64
-  %23 = tail call i32 %19(i64 noundef %22, i64 noundef %22, ptr noundef %2) #3
+  %18 = load ptr, ptr getelementptr inbounds (%struct.mca_part_base_module_1_0_1_t, ptr @mca_part, i64 0, i32 4), align 8
+  %19 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %20 = load i32, ptr %19, align 4
+  %21 = sext i32 %20 to i64
+  %22 = tail call i32 %18(i64 noundef %21, i64 noundef %21, ptr noundef %2) #3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %24 = icmp ult i64 %indvars.iv.next, %18
-  %25 = icmp eq i32 %23, 0
-  %26 = select i1 %24, i1 %25, i1 false
-  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !4
+  %23 = icmp ult i64 %indvars.iv.next, %17
+  %24 = icmp eq i32 %22, 0
+  %25 = select i1 %23, i1 %24, i1 false
+  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  br i1 %25, label %._crit_edge.thread, label %27
+  br i1 %24, label %._crit_edge.thread, label %26
 
-27:                                               ; preds = %._crit_edge
-  %28 = icmp sgt i32 %23, -1
-  br i1 %28, label %._crit_edge.thread.sink.split, label %.preheader.i
+26:                                               ; preds = %._crit_edge
+  %27 = icmp sgt i32 %22, -1
+  br i1 %27, label %._crit_edge.thread.sink.split, label %.preheader.i
 
-.preheader.i:                                     ; preds = %27
-  %29 = load i32, ptr @ompi_errcode_intern_lastused, align 4
-  %30 = icmp sgt i32 %29, 0
-  br i1 %30, label %.lr.ph.i, label %._crit_edge.thread.sink.split
+.preheader.i:                                     ; preds = %26
+  %28 = load i32, ptr @ompi_errcode_intern_lastused, align 4
+  %29 = icmp sgt i32 %28, 0
+  br i1 %29, label %.lr.ph.i, label %._crit_edge.thread.sink.split
 
-31:                                               ; preds = %opal_pointer_array_get_item.exit.i
+30:                                               ; preds = %opal_pointer_array_get_item.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %32 = load i32, ptr @ompi_errcode_intern_lastused, align 4
-  %33 = sext i32 %32 to i64
-  %34 = icmp slt i64 %indvars.iv.next.i, %33
-  br i1 %34, label %.lr.ph.i, label %._crit_edge.thread.sink.split, !llvm.loop !6
+  %31 = load i32, ptr @ompi_errcode_intern_lastused, align 4
+  %32 = sext i32 %31 to i64
+  %33 = icmp slt i64 %indvars.iv.next.i, %32
+  br i1 %33, label %.lr.ph.i, label %._crit_edge.thread.sink.split, !llvm.loop !6
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %31
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %31 ], [ 0, %.preheader.i ]
-  %35 = load i32, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_errcodes_intern, i64 0, i32 4), align 8
-  %36 = sext i32 %35 to i64
-  %.not.i = icmp slt i64 %indvars.iv.i, %36
-  br i1 %.not.i, label %37, label %opal_pointer_array_get_item.exit.i
+.lr.ph.i:                                         ; preds = %.preheader.i, %30
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %30 ], [ 0, %.preheader.i ]
+  %34 = load i32, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_errcodes_intern, i64 0, i32 4), align 8
+  %35 = sext i32 %34 to i64
+  %.not.i = icmp slt i64 %indvars.iv.i, %35
+  br i1 %.not.i, label %36, label %opal_pointer_array_get_item.exit.i
 
-37:                                               ; preds = %.lr.ph.i
-  %38 = load i8, ptr @opal_uses_threads, align 1
-  %39 = trunc i8 %38 to i1
-  br i1 %39, label %40, label %42
+36:                                               ; preds = %.lr.ph.i
+  %37 = load i8, ptr @opal_uses_threads, align 1
+  %38 = trunc i8 %37 to i1
+  br i1 %38, label %39, label %41
 
-40:                                               ; preds = %37
-  %41 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_errcodes_intern, i64 0, i32 1, i32 1)) #3
+39:                                               ; preds = %36
+  %40 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_errcodes_intern, i64 0, i32 1, i32 1)) #3
   %.pre.i.i = load i8, ptr @opal_uses_threads, align 1
-  br label %42
+  br label %41
 
-42:                                               ; preds = %40, %37
-  %43 = phi i8 [ %38, %37 ], [ %.pre.i.i, %40 ]
-  %44 = load ptr, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_errcodes_intern, i64 0, i32 8), align 8
-  %45 = getelementptr inbounds ptr, ptr %44, i64 %indvars.iv.i
-  %46 = load ptr, ptr %45, align 8
-  %47 = trunc i8 %43 to i1
-  br i1 %47, label %48, label %opal_pointer_array_get_item.exit.i
+41:                                               ; preds = %39, %36
+  %42 = phi i8 [ %37, %36 ], [ %.pre.i.i, %39 ]
+  %43 = load ptr, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_errcodes_intern, i64 0, i32 8), align 8
+  %44 = getelementptr inbounds ptr, ptr %43, i64 %indvars.iv.i
+  %45 = load ptr, ptr %44, align 8
+  %46 = trunc i8 %42 to i1
+  br i1 %46, label %47, label %opal_pointer_array_get_item.exit.i
 
-48:                                               ; preds = %42
-  %49 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_errcodes_intern, i64 0, i32 1, i32 1)) #3
+47:                                               ; preds = %41
+  %48 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_errcodes_intern, i64 0, i32 1, i32 1)) #3
   br label %opal_pointer_array_get_item.exit.i
 
-opal_pointer_array_get_item.exit.i:               ; preds = %48, %42, %.lr.ph.i
-  %.0.i.i = phi ptr [ null, %.lr.ph.i ], [ %46, %42 ], [ %46, %48 ]
-  %50 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp eq i32 %51, %23
-  br i1 %52, label %53, label %31
+opal_pointer_array_get_item.exit.i:               ; preds = %47, %41, %.lr.ph.i
+  %.0.i.i = phi ptr [ null, %.lr.ph.i ], [ %45, %41 ], [ %45, %47 ]
+  %49 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp eq i32 %50, %22
+  br i1 %51, label %52, label %30
 
-53:                                               ; preds = %opal_pointer_array_get_item.exit.i
-  %54 = getelementptr inbounds i8, ptr %.0.i.i, i64 20
-  %55 = load i32, ptr %54, align 4
+52:                                               ; preds = %opal_pointer_array_get_item.exit.i
+  %53 = getelementptr inbounds i8, ptr %.0.i.i, i64 20
+  %54 = load i32, ptr %53, align 4
   br label %._crit_edge.thread.sink.split
 
-._crit_edge.thread.sink.split:                    ; preds = %31, %53, %.preheader.i, %27, %13, %11
-  %.0.i.sink = phi i32 [ 7, %11 ], [ 7, %13 ], [ %23, %27 ], [ %55, %53 ], [ 14, %.preheader.i ], [ 14, %31 ]
-  %56 = load ptr, ptr getelementptr inbounds (%struct.ompi_predefined_communicator_t, ptr @ompi_mpi_comm_world, i64 0, i32 0, i32 19), align 8
-  %57 = load i32, ptr getelementptr inbounds (%struct.ompi_predefined_communicator_t, ptr @ompi_mpi_comm_world, i64 0, i32 0, i32 20), align 8
-  %58 = tail call i32 @ompi_errhandler_invoke(ptr noundef %56, ptr noundef nonnull @ompi_mpi_comm_world, i32 noundef %57, i32 noundef %.0.i.sink, ptr noundef nonnull @FUNC_NAME) #3
+._crit_edge.thread.sink.split:                    ; preds = %30, %52, %.preheader.i, %26, %11, %13
+  %.0.i.sink = phi i32 [ 7, %13 ], [ 7, %11 ], [ %22, %26 ], [ %54, %52 ], [ 14, %.preheader.i ], [ 14, %30 ]
+  %55 = load ptr, ptr getelementptr inbounds (%struct.ompi_predefined_communicator_t, ptr @ompi_mpi_comm_world, i64 0, i32 0, i32 19), align 8
+  %56 = load i32, ptr getelementptr inbounds (%struct.ompi_predefined_communicator_t, ptr @ompi_mpi_comm_world, i64 0, i32 0, i32 20), align 8
+  %57 = tail call i32 @ompi_errhandler_invoke(ptr noundef %55, ptr noundef nonnull @ompi_mpi_comm_world, i32 noundef %56, i32 noundef %.0.i.sink, ptr noundef nonnull @FUNC_NAME) #3
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %._crit_edge.thread.sink.split, %16, %._crit_edge
-  %.0 = phi i32 [ 0, %._crit_edge ], [ 0, %16 ], [ %.0.i.sink, %._crit_edge.thread.sink.split ]
+._crit_edge.thread:                               ; preds = %._crit_edge.thread.sink.split, %.thread, %._crit_edge
+  %.0 = phi i32 [ 0, %._crit_edge ], [ 0, %.thread ], [ %.0.i.sink, %._crit_edge.thread.sink.split ]
   ret i32 %.0
 }
 

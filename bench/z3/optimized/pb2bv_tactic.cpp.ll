@@ -11497,7 +11497,7 @@ invoke.cont:                                      ; preds = %_ZNK17arith_recogni
           to label %invoke.cont38 unwind label %lpad37
 
 invoke.cont38:                                    ; preds = %invoke.cont
-  br i1 %call39, label %land.lhs.true, label %if.end59.critedge
+  br i1 %call39, label %land.lhs.true, label %if.end56
 
 land.lhs.true:                                    ; preds = %invoke.cont38
   %28 = load ptr, ptr %m_bm, align 8
@@ -11505,7 +11505,7 @@ land.lhs.true:                                    ; preds = %invoke.cont38
           to label %invoke.cont41 unwind label %lpad37
 
 invoke.cont41:                                    ; preds = %land.lhs.true
-  br i1 %call42, label %invoke.cont44, label %if.end59.critedge
+  br i1 %call42, label %invoke.cont44, label %if.end56
 
 invoke.cont44:                                    ; preds = %invoke.cont41
   %29 = load i32, ptr %l, align 8
@@ -11518,7 +11518,7 @@ lor.lhs.false46:                                  ; preds = %invoke.cont44
   %cmp.i.i.i.i.i57 = icmp eq i8 %bf.clear.i.i.i.i.i, 0
   %cmp.i.i.i.i58 = icmp eq i32 %29, 1
   %30 = and i1 %cmp.i.i.i.i58, %cmp.i.i.i.i.i57
-  br i1 %30, label %invoke.cont47, label %if.end59.critedge
+  br i1 %30, label %invoke.cont47, label %if.end56
 
 invoke.cont47:                                    ; preds = %lor.lhs.false46
   %bf.load.i.i.i3.i.i = load i8, ptr %m_kind.i1.i.i, align 4
@@ -11527,12 +11527,12 @@ invoke.cont47:                                    ; preds = %lor.lhs.false46
   %31 = load i32, ptr %m_den.i.i, align 8
   %cmp.i.i6.i.i = icmp eq i32 %31, 1
   %32 = select i1 %cmp.i.i.i5.i.i, i1 %cmp.i.i6.i.i, i1 false
-  br i1 %32, label %invoke.cont50, label %if.end59.critedge
+  br i1 %32, label %invoke.cont50, label %if.end56
 
 invoke.cont50:                                    ; preds = %invoke.cont44, %invoke.cont47
   %33 = load i32, ptr %u, align 8
   %cmp.i.i.i.i61 = icmp eq i32 %33, 0
-  br i1 %cmp.i.i.i.i61, label %return.critedge, label %lor.lhs.false52
+  br i1 %cmp.i.i.i.i61, label %cleanup, label %lor.lhs.false52
 
 lor.lhs.false52:                                  ; preds = %invoke.cont50
   %bf.load.i.i.i.i.i63 = load i8, ptr %m_kind.i.i.i47, align 4
@@ -11540,43 +11540,41 @@ lor.lhs.false52:                                  ; preds = %invoke.cont50
   %cmp.i.i.i.i.i65 = icmp eq i8 %bf.clear.i.i.i.i.i64, 0
   %cmp.i.i.i.i66 = icmp eq i32 %33, 1
   %34 = and i1 %cmp.i.i.i.i66, %cmp.i.i.i.i.i65
-  br i1 %34, label %land.rhs.i.i67, label %if.end59.critedge
+  br i1 %34, label %invoke.cont53, label %if.end56
 
-land.rhs.i.i67:                                   ; preds = %lor.lhs.false52
+invoke.cont53:                                    ; preds = %lor.lhs.false52
   %bf.load.i.i.i3.i.i70 = load i8, ptr %m_kind.i1.i.i52, align 4
   %bf.clear.i.i.i4.i.i71 = and i8 %bf.load.i.i.i3.i.i70, 1
-  %cmp.i.i.i5.i.i72 = icmp ne i8 %bf.clear.i.i.i4.i.i71, 0
+  %cmp.i.i.i5.i.i72 = icmp eq i8 %bf.clear.i.i.i4.i.i71, 0
   %35 = load i32, ptr %m_den.i.i51, align 8
-  %cmp.i.i6.i.i73 = icmp ne i32 %35, 1
-  %spec.select.not = select i1 %cmp.i.i.i5.i.i72, i1 true, i1 %cmp.i.i6.i.i73
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %u) #18
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %l) #18
-  br i1 %spec.select.not, label %if.end59, label %return
+  %cmp.i.i6.i.i73 = icmp eq i32 %35, 1
+  %36 = select i1 %cmp.i.i.i5.i.i72, i1 %cmp.i.i6.i.i73, i1 false
+  br i1 %36, label %cleanup, label %if.end56
 
 lpad37:                                           ; preds = %land.lhs.true, %invoke.cont
-  %36 = landingpad { ptr, i32 }
+  %37 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %u) #18
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %l) #18
-  resume { ptr, i32 } %36
+  resume { ptr, i32 } %37
 
-if.end59.critedge:                                ; preds = %lor.lhs.false46, %lor.lhs.false52, %invoke.cont38, %invoke.cont41, %invoke.cont47
+if.end56:                                         ; preds = %lor.lhs.false52, %lor.lhs.false46, %invoke.cont53, %invoke.cont47, %invoke.cont41, %invoke.cont38
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %u) #18
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %l) #18
   br label %if.end59
 
-if.end59:                                         ; preds = %if.end59.critedge, %if.end33, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i, %if.end27, %land.lhs.true.i, %land.rhs.i.i67, %_ZNK17arith_recognizers6is_intEPK4expr.exit, %_Z17is_uninterp_constPK4expr.exit
+cleanup:                                          ; preds = %invoke.cont50, %invoke.cont53
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %u) #18
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %l) #18
+  br label %return
+
+if.end59:                                         ; preds = %if.end56, %if.end33, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i, %if.end27, %land.lhs.true.i, %_ZNK17arith_recognizers6is_intEPK4expr.exit, %_Z17is_uninterp_constPK4expr.exit
   %exception.i75 = call ptr @__cxa_allocate_exception(i64 8) #18
   store ptr %n, ptr %exception.i75, align 8
   call void @__cxa_throw(ptr nonnull %exception.i75, ptr nonnull @_ZTIN12pb2bv_tactic6non_pbE, ptr null) #21
   unreachable
 
-return.critedge:                                  ; preds = %invoke.cont50
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %u) #18
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %l) #18
-  br label %return
-
-return:                                           ; preds = %return.critedge, %land.rhs.i.i, %lor.lhs.false, %land.rhs.i.i67, %if.then29, %if.end23, %_ZNK10arith_util10is_numeralEPK4expr.exit, %if.then21, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK11ast_manager11is_distinctEPK4expr.exit
+return:                                           ; preds = %cleanup, %land.rhs.i.i, %lor.lhs.false, %if.then29, %if.end23, %_ZNK10arith_util10is_numeralEPK4expr.exit, %if.then21, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK11ast_manager11is_distinctEPK4expr.exit
   ret void
 }
 

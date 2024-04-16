@@ -332,22 +332,22 @@ land.lhs.true:                                    ; preds = %pushsig.exit
   %and.i = and i32 %2, -9
   store i32 %and.i, ptr getelementptr inbounds (%struct.termios, ptr @tty_new, i64 0, i32 3), align 4
   %.b.i = load i1, ptr @is_a_tty, align 4
-  br i1 %.b.i, label %noecho_console.exit, label %if.end
+  br i1 %.b.i, label %land.lhs.true.i, label %if.end
 
-noecho_console.exit:                              ; preds = %land.lhs.true
+land.lhs.true.i:                                  ; preds = %land.lhs.true
   %3 = load ptr, ptr @tty_in, align 8
   %call.i8 = call i32 @fileno(ptr noundef %3) #15
   %call1.i = call i32 @tcsetattr(i32 noundef %call.i8, i32 noundef 0, ptr noundef nonnull @tty_new) #15
-  %cmp.i.not = icmp eq i32 %call1.i, -1
-  br i1 %cmp.i.not, label %error.thread, label %if.end
+  %cmp.i = icmp eq i32 %call1.i, -1
+  br i1 %cmp.i, label %error.thread, label %if.end
 
-error.thread:                                     ; preds = %noecho_console.exit
+error.thread:                                     ; preds = %land.lhs.true.i
   %4 = load volatile i32, ptr @intr_signal, align 4
   %cmp3131 = icmp eq i32 %4, 2
   %spec.select632 = sext i1 %cmp3131 to i32
   br label %if.end37
 
-if.end:                                           ; preds = %land.lhs.true, %noecho_console.exit, %pushsig.exit
+if.end:                                           ; preds = %land.lhs.true.i, %land.lhs.true, %pushsig.exit
   store i32 2, ptr @read_string_inner.ps, align 4
   store i8 0, ptr %result, align 16
   %5 = load ptr, ptr @tty_in, align 8
@@ -427,19 +427,18 @@ if.end37:                                         ; preds = %error, %error.threa
 land.lhs.true41:                                  ; preds = %if.end37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) @tty_new, ptr noundef nonnull align 4 dereferenceable(60) @tty_orig, i64 60, i1 false)
   %.b.i12 = load i1, ptr @is_a_tty, align 4
-  br i1 %.b.i12, label %echo_console.exit, label %if.end45thread-pre-split
+  br i1 %.b.i12, label %land.lhs.true.i15, label %if.end45thread-pre-split
 
-echo_console.exit:                                ; preds = %land.lhs.true41
+land.lhs.true.i15:                                ; preds = %land.lhs.true41
   %11 = load ptr, ptr @tty_in, align 8
-  %call.i15 = call i32 @fileno(ptr noundef %11) #15
-  %call1.i16 = call i32 @tcsetattr(i32 noundef %call.i15, i32 noundef 0, ptr noundef nonnull @tty_new) #15
-  %call1.i16.fr = freeze i32 %call1.i16
-  %cmp.i17.not = icmp eq i32 %call1.i16.fr, -1
-  %spec.select41 = select i1 %cmp.i17.not, i32 0, i32 %spec.select633
+  %call.i16 = call i32 @fileno(ptr noundef %11) #15
+  %call1.i17 = call i32 @tcsetattr(i32 noundef %call.i16, i32 noundef 0, ptr noundef nonnull @tty_new) #15
+  %cmp.i18 = icmp eq i32 %call1.i17, -1
+  %spec.select40 = select i1 %cmp.i18, i32 0, i32 %spec.select633
   br label %if.end45thread-pre-split
 
-if.end45thread-pre-split:                         ; preds = %echo_console.exit, %land.lhs.true41, %error
-  %ok.2.ph = phi i32 [ %spec.select6, %error ], [ %spec.select633, %land.lhs.true41 ], [ %spec.select41, %echo_console.exit ]
+if.end45thread-pre-split:                         ; preds = %land.lhs.true.i15, %error, %land.lhs.true41
+  %ok.2.ph = phi i32 [ %spec.select633, %land.lhs.true41 ], [ %spec.select6, %error ], [ %spec.select40, %land.lhs.true.i15 ]
   %.pr = load i32, ptr @read_string_inner.ps, align 4
   br label %if.end45
 

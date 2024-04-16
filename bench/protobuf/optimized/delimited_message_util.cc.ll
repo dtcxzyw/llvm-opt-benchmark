@@ -388,7 +388,7 @@ _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit: ; preds = %whil
 
 if.then4:                                         ; preds = %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit
   %call5 = tail call noundef ptr @_ZNK6google8protobuf11MessageLite31SerializeWithCachedSizesToArrayEPh(ptr noundef nonnull align 8 dereferenceable(16) %message, ptr noundef nonnull %call.i)
-  br label %return
+  br label %if.end9
 
 if.else:                                          ; preds = %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit
   %4 = load ptr, ptr %cur_.i, align 8
@@ -402,11 +402,13 @@ if.else:                                          ; preds = %_ZN6google8protobuf
   %had_error_.i.i = getelementptr inbounds i8, ptr %output, i64 56
   %6 = load i8, ptr %had_error_.i.i, align 8
   %tobool.i.i = trunc i8 %6 to i1
-  %not.tobool.i.i = xor i1 %tobool.i.i, true
+  br i1 %tobool.i.i, label %return, label %if.end9
+
+if.end9:                                          ; preds = %if.else, %if.then4
   br label %return
 
-return:                                           ; preds = %if.else, %if.then4, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ true, %if.then4 ], [ %not.tobool.i.i, %if.else ]
+return:                                           ; preds = %if.else, %entry, %if.end9
+  %retval.0 = phi i1 [ true, %if.end9 ], [ false, %entry ], [ false, %if.else ]
   ret i1 %retval.0
 }
 

@@ -2055,17 +2055,17 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @rankkeycompare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
+define internal noundef i32 @rankkeycompare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = icmp slt i32 %4, %6
-  br i1 %7, label %20, label %8
+  br i1 %7, label %21, label %8
 
 8:                                                ; preds = %2
   %9 = icmp sgt i32 %4, %6
-  br i1 %9, label %20, label %10
+  br i1 %9, label %21, label %10
 
 10:                                               ; preds = %8
   %11 = icmp eq i32 %4, %6
@@ -2075,19 +2075,21 @@ define internal i32 @rankkeycompare(ptr nocapture noundef readonly %0, ptr nocap
   %13 = load i32, ptr %0, align 4
   %14 = load i32, ptr %1, align 4
   %15 = icmp slt i32 %13, %14
-  br i1 %15, label %20, label %16
+  br i1 %15, label %21, label %16
 
 16:                                               ; preds = %12
   %17 = icmp eq i32 %13, %14
-  br i1 %17, label %20, label %18
+  br i1 %17, label %21, label %18
 
 18:                                               ; preds = %16
   %19 = icmp sgt i32 %13, %14
-  %spec.select = zext i1 %19 to i32
-  br label %20
+  br i1 %19, label %21, label %20
 
-20:                                               ; preds = %18, %10, %16, %12, %8, %2
-  %.0 = phi i32 [ -1, %2 ], [ 1, %8 ], [ -1, %12 ], [ 0, %16 ], [ 0, %10 ], [ %spec.select, %18 ]
+20:                                               ; preds = %18, %10
+  br label %21
+
+21:                                               ; preds = %18, %16, %12, %8, %2, %20
+  %.0 = phi i32 [ 0, %20 ], [ -1, %2 ], [ 1, %8 ], [ -1, %12 ], [ 0, %16 ], [ 1, %18 ]
   ret i32 %.0
 }
 

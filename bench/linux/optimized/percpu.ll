@@ -5752,11 +5752,11 @@ define internal fastcc noundef i32 @pcpu_alloc_area(ptr noundef %0, i32 noundef 
   %41 = icmp ugt i64 %40, %33
   br i1 %41, label %._crit_edge.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %23, %61
-  %42 = phi i64 [ %68, %61 ], [ %40, %23 ]
-  %43 = phi i64 [ %67, %61 ], [ %39, %23 ]
-  %44 = phi i64 [ %63, %61 ], [ 0, %23 ]
-  %45 = phi i64 [ %62, %61 ], [ 0, %23 ]
+.lr.ph:                                           ; preds = %23, %62
+  %42 = phi i64 [ %69, %62 ], [ %40, %23 ]
+  %43 = phi i64 [ %68, %62 ], [ %39, %23 ]
+  %44 = phi i64 [ %64, %62 ], [ 0, %23 ]
+  %45 = phi i64 [ %63, %62 ], [ 0, %23 ]
   %46 = tail call i64 @_find_next_bit(ptr noundef %32, i64 noundef %42, i64 noundef %43) #23
   %47 = icmp ult i64 %46, %42
   br i1 %47, label %48, label %._crit_edge
@@ -5770,7 +5770,7 @@ define internal fastcc noundef i32 @pcpu_alloc_area(ptr noundef %0, i32 noundef 
   %52 = icmp ne i64 %49, %44
   %53 = icmp eq i64 %45, 0
   %54 = select i1 %52, i1 true, i1 %53
-  br i1 %54, label %61, label %55
+  br i1 %54, label %62, label %55
 
 55:                                               ; preds = %51
   %56 = icmp eq i64 %43, 0
@@ -5780,181 +5780,183 @@ define internal fastcc noundef i32 @pcpu_alloc_area(ptr noundef %0, i32 noundef 
   %58 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %43) #24, !srcloc !40
   %59 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %45) #24, !srcloc !40
   %60 = icmp ugt i64 %58, %59
-  %spec.select = select i1 %60, i64 %43, i64 %45
-  br label %61
+  br i1 %60, label %61, label %62
 
-61:                                               ; preds = %57, %48, %55, %51
-  %62 = phi i64 [ %45, %51 ], [ 0, %55 ], [ %43, %48 ], [ %spec.select, %57 ]
-  %63 = phi i64 [ %44, %51 ], [ %44, %55 ], [ %49, %48 ], [ %44, %57 ]
-  %64 = add nuw i64 %46, 1
-  %65 = tail call i64 @_find_next_zero_bit(ptr noundef %32, i64 noundef %33, i64 noundef %64) #23
-  %66 = add i64 %5, %65
-  %67 = and i64 %66, %36
-  %68 = add i64 %67, %35
-  %69 = icmp ugt i64 %68, %33
-  br i1 %69, label %._crit_edge, label %.lr.ph
+61:                                               ; preds = %57, %55, %48
+  br label %62
 
-._crit_edge:                                      ; preds = %61, %.lr.ph
-  %.lcssa19 = phi i64 [ %62, %61 ], [ %45, %.lr.ph ]
-  %.lcssa = phi i64 [ %63, %61 ], [ %44, %.lr.ph ]
-  %70 = phi i64 [ %68, %61 ], [ %43, %.lr.ph ]
-  %71 = trunc i64 %70 to i32
-  %72 = icmp sgt i32 %30, %71
-  br i1 %72, label %75, label %173
+62:                                               ; preds = %61, %57, %51
+  %63 = phi i64 [ %43, %61 ], [ %45, %57 ], [ %45, %51 ]
+  %64 = phi i64 [ %49, %61 ], [ %44, %57 ], [ %44, %51 ]
+  %65 = add nuw i64 %46, 1
+  %66 = tail call i64 @_find_next_zero_bit(ptr noundef %32, i64 noundef %33, i64 noundef %65) #23
+  %67 = add i64 %5, %66
+  %68 = and i64 %67, %36
+  %69 = add i64 %68, %35
+  %70 = icmp ugt i64 %69, %33
+  br i1 %70, label %._crit_edge, label %.lr.ph
+
+._crit_edge:                                      ; preds = %62, %.lr.ph
+  %.lcssa16 = phi i64 [ %63, %62 ], [ %45, %.lr.ph ]
+  %.lcssa = phi i64 [ %64, %62 ], [ %44, %.lr.ph ]
+  %71 = phi i64 [ %69, %62 ], [ %43, %.lr.ph ]
+  %72 = trunc i64 %71 to i32
+  %73 = icmp sgt i32 %30, %72
+  br i1 %73, label %76, label %174
 
 ._crit_edge.thread:                               ; preds = %23
-  %73 = trunc i64 %40 to i32
-  %74 = icmp sgt i32 %30, %73
-  br i1 %74, label %.thread, label %173
+  %74 = trunc i64 %40 to i32
+  %75 = icmp sgt i32 %30, %74
+  br i1 %75, label %.thread, label %174
 
-75:                                               ; preds = %._crit_edge
-  %76 = icmp eq i64 %.lcssa, 0
-  br i1 %76, label %.thread, label %77
+76:                                               ; preds = %._crit_edge
+  %77 = icmp eq i64 %.lcssa, 0
+  br i1 %77, label %.thread, label %78
 
-77:                                               ; preds = %75
-  %78 = trunc i64 %.lcssa19 to i32
-  %79 = trunc i64 %.lcssa to i32
-  %80 = and i32 %78, 1023
-  %81 = add i32 %80, %79
-  %82 = icmp ugt i32 %81, 1024
-  br i1 %82, label %.thread, label %83
+78:                                               ; preds = %76
+  %79 = trunc i64 %.lcssa16 to i32
+  %80 = trunc i64 %.lcssa to i32
+  %81 = and i32 %79, 1023
+  %82 = add i32 %81, %80
+  %83 = icmp ugt i32 %82, 1024
+  br i1 %83, label %.thread, label %84
 
-83:                                               ; preds = %77
-  %84 = and i64 %.lcssa19, 1023
-  %85 = ashr i32 %78, 10
-  %86 = getelementptr inbounds i8, ptr %0, i64 80
-  %87 = load ptr, ptr %86, align 16
-  %88 = sext i32 %85 to i64
-  %89 = getelementptr %struct.pcpu_block_md, ptr %87, i64 %88
-  %90 = load ptr, ptr %31, align 8
-  %91 = shl nsw i64 %88, 4
-  %92 = and i64 %91, 288230376151711728
-  %93 = getelementptr i64, ptr %90, i64 %92
-  %94 = tail call i64 @_find_last_bit(ptr noundef %93, i64 noundef %84) #23
-  %95 = trunc i64 %94 to i32
-  %96 = icmp eq i32 %80, %95
-  %97 = add i32 %95, 1
-  %98 = select i1 %96, i32 0, i32 %97
-  tail call fastcc void @pcpu_block_update(ptr noundef %89, i32 noundef %98, i32 noundef %81)
+84:                                               ; preds = %78
+  %85 = and i64 %.lcssa16, 1023
+  %86 = ashr i32 %79, 10
+  %87 = getelementptr inbounds i8, ptr %0, i64 80
+  %88 = load ptr, ptr %87, align 16
+  %89 = sext i32 %86 to i64
+  %90 = getelementptr %struct.pcpu_block_md, ptr %88, i64 %89
+  %91 = load ptr, ptr %31, align 8
+  %92 = shl nsw i64 %89, 4
+  %93 = and i64 %92, 288230376151711728
+  %94 = getelementptr i64, ptr %91, i64 %93
+  %95 = tail call i64 @_find_last_bit(ptr noundef %94, i64 noundef %85) #23
+  %96 = trunc i64 %95 to i32
+  %97 = icmp eq i32 %81, %96
+  %98 = add i32 %96, 1
+  %99 = select i1 %97, i32 0, i32 %98
+  tail call fastcc void @pcpu_block_update(ptr noundef %90, i32 noundef %99, i32 noundef %82)
   br label %.thread
 
-.thread:                                          ; preds = %._crit_edge.thread, %83, %77, %75
-  %99 = phi i64 [ %70, %83 ], [ %70, %77 ], [ %70, %75 ], [ %40, %._crit_edge.thread ]
-  %100 = phi i32 [ %71, %83 ], [ %71, %77 ], [ %71, %75 ], [ %73, %._crit_edge.thread ]
-  %101 = load ptr, ptr %31, align 8
-  tail call void @__bitmap_set(ptr noundef %101, i32 noundef %100, i32 noundef %1) #23
-  %102 = getelementptr inbounds i8, ptr %0, i64 56
-  %103 = load ptr, ptr %102, align 8
-  %104 = shl i64 %99, 32
-  %105 = ashr exact i64 %104, 32
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %103, i64 %105) #23, !srcloc !113
-  %106 = load ptr, ptr %102, align 8
-  %107 = add nsw i32 %100, 1
-  %108 = add i32 %1, -1
-  tail call void @__bitmap_clear(ptr noundef %106, i32 noundef %107, i32 noundef %108) #23
-  %109 = add i32 %100, %1
-  %110 = sext i32 %109 to i64
-  %111 = load ptr, ptr %102, align 8
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %111, i64 %110) #23, !srcloc !113
-  %112 = shl i32 %1, 2
-  %113 = load i32, ptr %6, align 16
-  %114 = sub i32 %113, %112
-  store i32 %114, ptr %6, align 16
-  %115 = getelementptr inbounds i8, ptr %0, i64 44
-  %116 = load i32, ptr %115, align 4
-  %117 = icmp eq i32 %116, %100
-  br i1 %117, label %118, label %125
+.thread:                                          ; preds = %._crit_edge.thread, %84, %78, %76
+  %100 = phi i64 [ %71, %84 ], [ %71, %78 ], [ %71, %76 ], [ %40, %._crit_edge.thread ]
+  %101 = phi i32 [ %72, %84 ], [ %72, %78 ], [ %72, %76 ], [ %74, %._crit_edge.thread ]
+  %102 = load ptr, ptr %31, align 8
+  tail call void @__bitmap_set(ptr noundef %102, i32 noundef %101, i32 noundef %1) #23
+  %103 = getelementptr inbounds i8, ptr %0, i64 56
+  %104 = load ptr, ptr %103, align 8
+  %105 = shl i64 %100, 32
+  %106 = ashr exact i64 %105, 32
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %104, i64 %106) #23, !srcloc !113
+  %107 = load ptr, ptr %103, align 8
+  %108 = add nsw i32 %101, 1
+  %109 = add i32 %1, -1
+  tail call void @__bitmap_clear(ptr noundef %107, i32 noundef %108, i32 noundef %109) #23
+  %110 = add i32 %101, %1
+  %111 = sext i32 %110 to i64
+  %112 = load ptr, ptr %103, align 8
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %112, i64 %111) #23, !srcloc !113
+  %113 = shl i32 %1, 2
+  %114 = load i32, ptr %6, align 16
+  %115 = sub i32 %114, %113
+  store i32 %115, ptr %6, align 16
+  %116 = getelementptr inbounds i8, ptr %0, i64 44
+  %117 = load i32, ptr %116, align 4
+  %118 = icmp eq i32 %117, %101
+  br i1 %118, label %119, label %126
 
-118:                                              ; preds = %.thread
-  %119 = load i32, ptr %27, align 4
-  %120 = shl i32 %119, 10
-  %121 = sext i32 %120 to i64
-  %122 = load ptr, ptr %31, align 8
-  %123 = tail call i64 @_find_next_zero_bit(ptr noundef %122, i64 noundef %121, i64 noundef %110) #23
-  %124 = trunc i64 %123 to i32
-  store i32 %124, ptr %115, align 4
-  br label %125
+119:                                              ; preds = %.thread
+  %120 = load i32, ptr %27, align 4
+  %121 = shl i32 %120, 10
+  %122 = sext i32 %121 to i64
+  %123 = load ptr, ptr %31, align 8
+  %124 = tail call i64 @_find_next_zero_bit(ptr noundef %123, i64 noundef %122, i64 noundef %111) #23
+  %125 = trunc i64 %124 to i32
+  store i32 %125, ptr %116, align 4
+  br label %126
 
-125:                                              ; preds = %118, %.thread
-  tail call fastcc void @pcpu_block_update_hint_alloc(ptr noundef %0, i32 noundef %100, i32 noundef %1)
-  %126 = load i32, ptr %6, align 16
-  %127 = icmp slt i32 %126, 4
-  br i1 %127, label %142, label %128
+126:                                              ; preds = %119, %.thread
+  tail call fastcc void @pcpu_block_update_hint_alloc(ptr noundef %0, i32 noundef %101, i32 noundef %1)
+  %127 = load i32, ptr %6, align 16
+  %128 = icmp slt i32 %127, 4
+  br i1 %128, label %143, label %129
 
-128:                                              ; preds = %125
-  %129 = getelementptr inbounds i8, ptr %0, i64 28
-  %130 = load i32, ptr %129, align 4
-  %131 = icmp eq i32 %130, 0
-  br i1 %131, label %142, label %132
+129:                                              ; preds = %126
+  %130 = getelementptr inbounds i8, ptr %0, i64 28
+  %131 = load i32, ptr %130, align 4
+  %132 = icmp eq i32 %131, 0
+  br i1 %132, label %143, label %133
 
-132:                                              ; preds = %128
-  %133 = shl i32 %130, 2
-  %134 = load i32, ptr @pcpu_unit_size, align 4
-  %135 = icmp eq i32 %134, %133
-  br i1 %135, label %136, label %138
+133:                                              ; preds = %129
+  %134 = shl i32 %131, 2
+  %135 = load i32, ptr @pcpu_unit_size, align 4
+  %136 = icmp eq i32 %135, %134
+  br i1 %136, label %137, label %139
 
-136:                                              ; preds = %132
-  %137 = load i32, ptr @pcpu_free_slot, align 4
-  br label %142
+137:                                              ; preds = %133
+  %138 = load i32, ptr @pcpu_free_slot, align 4
+  br label %143
 
-138:                                              ; preds = %132
-  %139 = tail call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %133, i32 -1) #24, !srcloc !30
-  %140 = add i32 %139, -2
-  %141 = tail call i32 @llvm.smax.i32(i32 %140, i32 1)
-  br label %142
+139:                                              ; preds = %133
+  %140 = tail call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %134, i32 -1) #24, !srcloc !30
+  %141 = add i32 %140, -2
+  %142 = tail call i32 @llvm.smax.i32(i32 %141, i32 1)
+  br label %143
 
-142:                                              ; preds = %138, %136, %128, %125
-  %143 = phi i32 [ 0, %128 ], [ 0, %125 ], [ %137, %136 ], [ %141, %138 ]
-  %144 = getelementptr inbounds i8, ptr %0, i64 97
-  %145 = load i8, ptr %144, align 1, !range !32, !noundef !33
-  %146 = icmp ne i8 %145, 0
-  %147 = icmp eq i32 %143, %24
-  %148 = select i1 %146, i1 true, i1 %147
-  %149 = load ptr, ptr @pcpu_reserved_chunk, align 8
-  %150 = icmp eq ptr %149, %0
-  %151 = select i1 %148, i1 true, i1 %150
-  br i1 %151, label %171, label %152
+143:                                              ; preds = %139, %137, %129, %126
+  %144 = phi i32 [ 0, %129 ], [ 0, %126 ], [ %138, %137 ], [ %142, %139 ]
+  %145 = getelementptr inbounds i8, ptr %0, i64 97
+  %146 = load i8, ptr %145, align 1, !range !32, !noundef !33
+  %147 = icmp ne i8 %146, 0
+  %148 = icmp eq i32 %144, %24
+  %149 = select i1 %147, i1 true, i1 %148
+  %150 = load ptr, ptr @pcpu_reserved_chunk, align 8
+  %151 = icmp eq ptr %150, %0
+  %152 = select i1 %149, i1 true, i1 %151
+  br i1 %152, label %172, label %153
 
-152:                                              ; preds = %142
-  %153 = icmp sgt i32 %143, %24
-  %154 = load ptr, ptr @pcpu_chunk_lists, align 8
-  %155 = sext i32 %143 to i64
-  %156 = getelementptr %struct.list_head, ptr %154, i64 %155
-  %157 = getelementptr inbounds i8, ptr %0, i64 8
-  %158 = load ptr, ptr %157, align 8
-  %159 = load ptr, ptr %0, align 8
-  %160 = getelementptr inbounds i8, ptr %159, i64 8
-  store ptr %158, ptr %160, align 8
-  store volatile ptr %159, ptr %158, align 8
-  br i1 %153, label %161, label %164
+153:                                              ; preds = %143
+  %154 = icmp sgt i32 %144, %24
+  %155 = load ptr, ptr @pcpu_chunk_lists, align 8
+  %156 = sext i32 %144 to i64
+  %157 = getelementptr %struct.list_head, ptr %155, i64 %156
+  %158 = getelementptr inbounds i8, ptr %0, i64 8
+  %159 = load ptr, ptr %158, align 8
+  %160 = load ptr, ptr %0, align 8
+  %161 = getelementptr inbounds i8, ptr %160, i64 8
+  store ptr %159, ptr %161, align 8
+  store volatile ptr %160, ptr %159, align 8
+  br i1 %154, label %162, label %165
 
-161:                                              ; preds = %152
-  %162 = load ptr, ptr %156, align 8
-  %163 = getelementptr inbounds i8, ptr %162, i64 8
-  br label %167
+162:                                              ; preds = %153
+  %163 = load ptr, ptr %157, align 8
+  %164 = getelementptr inbounds i8, ptr %163, i64 8
+  br label %168
 
-164:                                              ; preds = %152
-  %165 = getelementptr inbounds i8, ptr %156, i64 8
-  %166 = load ptr, ptr %165, align 8
-  br label %167
+165:                                              ; preds = %153
+  %166 = getelementptr inbounds i8, ptr %157, i64 8
+  %167 = load ptr, ptr %166, align 8
+  br label %168
 
-167:                                              ; preds = %164, %161
-  %168 = phi ptr [ %163, %161 ], [ %165, %164 ]
-  %169 = phi ptr [ %162, %161 ], [ %156, %164 ]
-  %170 = phi ptr [ %156, %161 ], [ %166, %164 ]
-  store ptr %0, ptr %168, align 8
-  store ptr %169, ptr %0, align 8
-  store ptr %170, ptr %157, align 8
-  store volatile ptr %0, ptr %170, align 8
-  br label %171
+168:                                              ; preds = %165, %162
+  %169 = phi ptr [ %164, %162 ], [ %166, %165 ]
+  %170 = phi ptr [ %163, %162 ], [ %157, %165 ]
+  %171 = phi ptr [ %157, %162 ], [ %167, %165 ]
+  store ptr %0, ptr %169, align 8
+  store ptr %170, ptr %0, align 8
+  store ptr %171, ptr %158, align 8
+  store volatile ptr %0, ptr %171, align 8
+  br label %172
 
-171:                                              ; preds = %167, %142
-  %172 = shl i32 %100, 2
-  br label %173
+172:                                              ; preds = %168, %143
+  %173 = shl i32 %101, 2
+  br label %174
 
-173:                                              ; preds = %._crit_edge.thread, %171, %._crit_edge
-  %174 = phi i32 [ %172, %171 ], [ -1, %._crit_edge ], [ -1, %._crit_edge.thread ]
-  ret i32 %174
+174:                                              ; preds = %._crit_edge.thread, %172, %._crit_edge
+  %175 = phi i32 [ %173, %172 ], [ -1, %._crit_edge ], [ -1, %._crit_edge.thread ]
+  ret i32 %175
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

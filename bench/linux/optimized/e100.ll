@@ -1770,13 +1770,15 @@ define internal fastcc noundef i32 @e100_eeprom_load(ptr nocapture noundef %0) u
 44:                                               ; preds = %41, %37
   %45 = load i32, ptr @eeprom_bad_csum_allow, align 4
   %46 = icmp eq i32 %45, 0
-  %spec.select = select i1 %46, i32 -11, i32 0
-  br label %47
+  br i1 %46, label %48, label %47
 
 47:                                               ; preds = %44, %30
-  %48 = phi i32 [ 0, %30 ], [ %spec.select, %44 ]
+  br label %48
+
+48:                                               ; preds = %47, %44
+  %49 = phi i32 [ 0, %47 ], [ -11, %44 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #19
-  ret i32 %48
+  ret i32 %49
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -5166,7 +5168,7 @@ define internal void @e100_diag_test(ptr noundef %0, ptr nocapture noundef %1, p
   %42 = getelementptr [256 x i16], ptr %40, i64 0, i64 %41
   %43 = load i16, ptr %42, align 2
   %44 = icmp eq i16 %39, %43
-  br i1 %44, label %e100_eeprom_load.exit, label %45
+  br i1 %44, label %55, label %45
 
 45:                                               ; preds = %38
   %46 = load i32, ptr %6, align 64
@@ -5183,74 +5185,76 @@ define internal void @e100_diag_test(ptr noundef %0, ptr nocapture noundef %1, p
 52:                                               ; preds = %49, %45
   %53 = load i32, ptr @eeprom_bad_csum_allow, align 4
   %54 = icmp eq i32 %53, 0
-  %spec.select.i = select i1 %54, i64 -11, i64 0
+  br i1 %54, label %e100_eeprom_load.exit, label %55
+
+55:                                               ; preds = %52, %38
   br label %e100_eeprom_load.exit
 
-e100_eeprom_load.exit:                            ; preds = %38, %52
-  %55 = phi i64 [ 0, %38 ], [ %spec.select.i, %52 ]
+e100_eeprom_load.exit:                            ; preds = %52, %55
+  %56 = phi i64 [ 0, %55 ], [ -11, %52 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #19
-  %56 = getelementptr i8, ptr %2, i64 8
-  store i64 %55, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %1, i64 4
-  %58 = load i32, ptr %57, align 4
-  %59 = and i32 %58, 1
-  %60 = icmp eq i32 %59, 0
-  br i1 %60, label %83, label %61
+  %57 = getelementptr i8, ptr %2, i64 8
+  store i64 %56, ptr %57, align 8
+  %58 = getelementptr inbounds i8, ptr %1, i64 4
+  %59 = load i32, ptr %58, align 4
+  %60 = and i32 %59, 1
+  %61 = icmp eq i32 %60, 0
+  br i1 %61, label %84, label %62
 
-61:                                               ; preds = %e100_eeprom_load.exit
+62:                                               ; preds = %e100_eeprom_load.exit
   call void @mii_ethtool_gset(ptr noundef %7, ptr noundef nonnull %5) #19
-  %62 = getelementptr inbounds i8, ptr %0, i64 352
-  %63 = load volatile i64, ptr %62, align 8
-  %64 = and i64 %63, 1
-  %65 = icmp eq i64 %64, 0
-  br i1 %65, label %67, label %66
+  %63 = getelementptr inbounds i8, ptr %0, i64 352
+  %64 = load volatile i64, ptr %63, align 8
+  %65 = and i64 %64, 1
+  %66 = icmp eq i64 %65, 0
+  br i1 %66, label %68, label %67
 
-66:                                               ; preds = %61
+67:                                               ; preds = %62
   call fastcc void @e100_down(ptr noundef %6)
-  br label %67
+  br label %68
 
-67:                                               ; preds = %66, %61
-  %68 = call fastcc i32 @e100_self_test(ptr noundef %6), !range !32
-  %69 = sext i32 %68 to i64
-  %70 = getelementptr i8, ptr %2, i64 16
-  store i64 %69, ptr %70, align 8
-  %71 = call fastcc i32 @e100_loopback_test(ptr noundef %6, i32 noundef 1)
-  %72 = sext i32 %71 to i64
-  %73 = getelementptr i8, ptr %2, i64 24
-  store i64 %72, ptr %73, align 8
-  %74 = call fastcc i32 @e100_loopback_test(ptr noundef %6, i32 noundef 3)
-  %75 = sext i32 %74 to i64
-  %76 = getelementptr i8, ptr %2, i64 32
-  store i64 %75, ptr %76, align 8
-  %77 = call i32 @mii_ethtool_sset(ptr noundef %7, ptr noundef nonnull %5) #19
-  %78 = load volatile i64, ptr %62, align 8
-  %79 = and i64 %78, 1
-  %80 = icmp eq i64 %79, 0
-  br i1 %80, label %83, label %81
+68:                                               ; preds = %67, %62
+  %69 = call fastcc i32 @e100_self_test(ptr noundef %6), !range !32
+  %70 = sext i32 %69 to i64
+  %71 = getelementptr i8, ptr %2, i64 16
+  store i64 %70, ptr %71, align 8
+  %72 = call fastcc i32 @e100_loopback_test(ptr noundef %6, i32 noundef 1)
+  %73 = sext i32 %72 to i64
+  %74 = getelementptr i8, ptr %2, i64 24
+  store i64 %73, ptr %74, align 8
+  %75 = call fastcc i32 @e100_loopback_test(ptr noundef %6, i32 noundef 3)
+  %76 = sext i32 %75 to i64
+  %77 = getelementptr i8, ptr %2, i64 32
+  store i64 %76, ptr %77, align 8
+  %78 = call i32 @mii_ethtool_sset(ptr noundef %7, ptr noundef nonnull %5) #19
+  %79 = load volatile i64, ptr %63, align 8
+  %80 = and i64 %79, 1
+  %81 = icmp eq i64 %80, 0
+  br i1 %81, label %84, label %82
 
-81:                                               ; preds = %67
-  %82 = call fastcc i32 @e100_up(ptr noundef %6)
-  br label %83
+82:                                               ; preds = %68
+  %83 = call fastcc i32 @e100_up(ptr noundef %6)
+  br label %84
 
-83:                                               ; preds = %81, %67, %e100_eeprom_load.exit
-  %84 = load i32, ptr %57, align 4
-  br label %85
+84:                                               ; preds = %82, %68, %e100_eeprom_load.exit
+  %85 = load i32, ptr %58, align 4
+  br label %86
 
-85:                                               ; preds = %85, %83
-  %86 = phi i64 [ 0, %83 ], [ %93, %85 ]
-  %87 = phi i32 [ %84, %83 ], [ %92, %85 ]
-  %88 = getelementptr i64, ptr %2, i64 %86
-  %89 = load i64, ptr %88, align 8
-  %90 = icmp eq i64 %89, 0
-  %91 = select i1 %90, i32 0, i32 2
-  %92 = or i32 %91, %87
-  store i32 %92, ptr %57, align 4
-  %93 = add nuw nsw i64 %86, 1
-  %94 = icmp eq i64 %93, 5
-  br i1 %94, label %95, label %85, !llvm.loop !46
+86:                                               ; preds = %86, %84
+  %87 = phi i64 [ 0, %84 ], [ %94, %86 ]
+  %88 = phi i32 [ %85, %84 ], [ %93, %86 ]
+  %89 = getelementptr i64, ptr %2, i64 %87
+  %90 = load i64, ptr %89, align 8
+  %91 = icmp eq i64 %90, 0
+  %92 = select i1 %91, i32 0, i32 2
+  %93 = or i32 %92, %88
+  store i32 %93, ptr %58, align 4
+  %94 = add nuw nsw i64 %87, 1
+  %95 = icmp eq i64 %94, 5
+  br i1 %95, label %96, label %86, !llvm.loop !46
 
-95:                                               ; preds = %85
-  %96 = call i64 @msleep_interruptible(i32 noundef 4000) #19
+96:                                               ; preds = %86
+  %97 = call i64 @msleep_interruptible(i32 noundef 4000) #19
   call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %5) #19
   ret void
 }

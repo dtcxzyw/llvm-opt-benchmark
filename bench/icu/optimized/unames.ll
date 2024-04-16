@@ -1386,8 +1386,8 @@ for.end133.i.us:                                  ; preds = %for.inc131.i.us
   br i1 %cmp135.i.us, label %land.lhs.true136.i.us, label %if.end140.i.us
 
 land.lhs.true136.i.us:                            ; preds = %for.end133.i.us, %while.end100.i.us
-  %t.0.lcssa110.i.us = phi ptr [ %t.1.lcssa.i.us, %for.end133.i.us ], [ %otherName.addr.2.i.us, %while.end100.i.us ]
-  %56 = load i8, ptr %t.0.lcssa110.i.us, align 1
+  %t.0.lcssa109.i.us = phi ptr [ %t.1.lcssa.i.us, %for.end133.i.us ], [ %otherName.addr.2.i.us, %while.end100.i.us ]
+  %56 = load i8, ptr %t.0.lcssa109.i.us, align 1
   %cmp138.i.us = icmp eq i8 %56, 0
   br i1 %cmp138.i.us, label %_ZN6icu_75L11findAlgNameEPNS_16AlgorithmicRangeE15UCharNameChoicePKc.exit.us, label %if.end140.i.us
 
@@ -1418,15 +1418,15 @@ while.end.i.us:                                   ; preds = %while.cond.i.us
   %variant.i.us = getelementptr inbounds i8, ptr %algRange.087.us, i64 9
   %59 = load i8, ptr %variant.i.us, align 1
   %60 = zext i8 %59 to i16
-  %cmp1390.not.i.us = icmp eq i8 %59, 0
-  br i1 %cmp1390.not.i.us, label %for.end.i.us, label %for.body.i.us
+  %cmp1388.not.i.us = icmp eq i8 %59, 0
+  br i1 %cmp1388.not.i.us, label %for.end.i.us, label %for.body.i.us
 
 for.body.i.us:                                    ; preds = %while.end.i.us, %for.inc.i.us
-  %otherName.addr.193.i.us = phi ptr [ %incdec.ptr14.i.us, %for.inc.i.us ], [ %otherName.addr.0.i.us, %while.end.i.us ]
-  %code.092.i.us = phi i32 [ %or.i.us, %for.inc.i.us ], [ 0, %while.end.i.us ]
-  %i.091.i.us = phi i16 [ %inc.i.us, %for.inc.i.us ], [ 0, %while.end.i.us ]
-  %incdec.ptr14.i.us = getelementptr inbounds i8, ptr %otherName.addr.193.i.us, i64 1
-  %61 = load i8, ptr %otherName.addr.193.i.us, align 1
+  %otherName.addr.191.i.us = phi ptr [ %incdec.ptr14.i.us, %for.inc.i.us ], [ %otherName.addr.0.i.us, %while.end.i.us ]
+  %code.090.i.us = phi i32 [ %or.i.us, %for.inc.i.us ], [ 0, %while.end.i.us ]
+  %i.089.i.us = phi i16 [ %inc.i.us, %for.inc.i.us ], [ 0, %while.end.i.us ]
+  %incdec.ptr14.i.us = getelementptr inbounds i8, ptr %otherName.addr.191.i.us, i64 1
+  %61 = load i8, ptr %otherName.addr.191.i.us, align 1
   %conv15.i.us = sext i8 %61 to i32
   %62 = add i8 %61, -48
   %or.cond1.i.us = icmp ult i8 %62, 10
@@ -1439,12 +1439,12 @@ if.else.i.us:                                     ; preds = %for.body.i.us
 
 for.inc.i.us:                                     ; preds = %if.else.i.us, %for.body.i.us
   %.sink.i.us = phi i32 [ -48, %for.body.i.us ], [ -55, %if.else.i.us ]
-  %shl.i.us = shl i32 %code.092.i.us, 4
+  %shl.i.us = shl i32 %code.090.i.us, 4
   %sub.i.us = add nsw i32 %.sink.i.us, %conv15.i.us
   %or.i.us = or i32 %sub.i.us, %shl.i.us
-  %inc.i.us = add nuw nsw i16 %i.091.i.us, 1
-  %exitcond106.not.i.us = icmp eq i16 %inc.i.us, %60
-  br i1 %exitcond106.not.i.us, label %for.end.i.us, label %for.body.i.us, !llvm.loop !33
+  %inc.i.us = add nuw nsw i16 %i.089.i.us, 1
+  %exitcond105.not.i.us = icmp eq i16 %inc.i.us, %60
+  br i1 %exitcond105.not.i.us, label %for.end.i.us, label %for.body.i.us, !llvm.loop !33
 
 for.end.i.us:                                     ; preds = %for.inc.i.us, %while.end.i.us
   %code.0.lcssa.i.us = phi i32 [ 0, %while.end.i.us ], [ %or.i.us, %for.inc.i.us ]
@@ -1465,7 +1465,7 @@ land.lhs.true39.i.us:                             ; preds = %land.lhs.true37.i.u
   br i1 %cmp40.not.i.us, label %_ZN6icu_75L11findAlgNameEPNS_16AlgorithmicRangeE15UCharNameChoicePKc.exit.thread.us, label %_ZN6icu_75L11findAlgNameEPNS_16AlgorithmicRangeE15UCharNameChoicePKc.exit.us
 
 _ZN6icu_75L11findAlgNameEPNS_16AlgorithmicRangeE15UCharNameChoicePKc.exit.us: ; preds = %land.lhs.true136.i.us, %land.lhs.true39.i.us, %_ZN6icu_75L17writeFactorSuffixEPKttPKcjPtPS3_S5_Pct.exit.i.us
-  %retval.0.i.us = phi i32 [ %27, %_ZN6icu_75L17writeFactorSuffixEPKttPKcjPtPS3_S5_Pct.exit.i.us ], [ %code.0.lcssa.i.us, %land.lhs.true39.i.us ], [ %inc7887.i.us, %land.lhs.true136.i.us ]
+  %retval.0.i.us = phi i32 [ %code.0.lcssa.i.us, %land.lhs.true39.i.us ], [ %27, %_ZN6icu_75L17writeFactorSuffixEPKttPKcjPtPS3_S5_Pct.exit.i.us ], [ %inc7887.i.us, %land.lhs.true136.i.us ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %buffer.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %indexes.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %elementBases.i)

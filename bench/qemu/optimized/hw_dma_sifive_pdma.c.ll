@@ -742,15 +742,18 @@ entry:
   %2 = load ptr, ptr %arrayidx22, align 8
   %. = zext i1 %or.cond.not to i32
   tail call void @qemu_set_irq(ptr noundef %2, i32 noundef %.) #4
-  br i1 %tobool8.not, label %if.end48, label %land.lhs.true29
+  br i1 %tobool8.not, label %if.else42, label %land.lhs.true29
 
 land.lhs.true29:                                  ; preds = %entry
   %3 = load i32, ptr %arrayidx, align 8
-  %.lobit = lshr i32 %3, 31
+  %tobool36.not = icmp sgt i32 %3, -1
+  br i1 %tobool36.not, label %if.else42, label %if.end48
+
+if.else42:                                        ; preds = %land.lhs.true29, %entry
   br label %if.end48
 
-if.end48:                                         ; preds = %land.lhs.true29, %entry
-  %.sink18 = phi i32 [ 0, %entry ], [ %.lobit, %land.lhs.true29 ]
+if.end48:                                         ; preds = %land.lhs.true29, %if.else42
+  %.sink18 = phi i32 [ 0, %if.else42 ], [ 1, %land.lhs.true29 ]
   %irq43 = getelementptr inbounds i8, ptr %s, i64 1088
   %mul44 = shl nuw nsw i32 %ch, 1
   %add45 = or disjoint i32 %mul44, 1

@@ -147,7 +147,7 @@ define dso_local i64 @efi_query_variable_store(i32 noundef %0, i64 noundef %1, i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #16
   %11 = and i32 %0, 1
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %66, label %13
+  br i1 %12, label %.thread, label %13
 
 13:                                               ; preds = %3
   store i64 0, ptr %7, align 8, !annotation !5
@@ -173,29 +173,29 @@ define dso_local i64 @efi_query_variable_store(i32 noundef %0, i64 noundef %1, i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #16
-  br label %66
+  br label %.thread
 
 23:                                               ; preds = %13
   %24 = load ptr, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 21), align 8
   %25 = call i64 %24(i32 noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #16
   %26 = icmp eq i64 %25, 0
-  br i1 %26, label %27, label %66
+  br i1 %26, label %27, label %.thread
 
 27:                                               ; preds = %23
   %28 = load i64, ptr %8, align 8
   %29 = sub i64 %28, %1
   %30 = icmp ult i64 %29, 5120
-  br i1 %30, label %31, label %66
+  br i1 %30, label %31, label %65
 
 31:                                               ; preds = %27
   %32 = load i1, ptr @efi_no_storage_paranoia, align 1
-  br i1 %32, label %66, label %33
+  br i1 %32, label %65, label %33
 
 33:                                               ; preds = %31
   %34 = add i64 %28, 1024
   %35 = call noalias align 8 ptr @__kmalloc(i64 noundef %34, i32 noundef 3520) #17
   %36 = icmp eq ptr %35, null
-  br i1 %36, label %66, label %37
+  br i1 %36, label %.thread, label %37
 
 37:                                               ; preds = %33
   %38 = load ptr, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 19), align 8
@@ -243,21 +243,23 @@ define dso_local i64 @efi_query_variable_store(i32 noundef %0, i64 noundef %1, i
   %58 = load ptr, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 21), align 8
   %59 = call i64 %58(i32 noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #16
   %60 = icmp eq i64 %59, 0
-  br i1 %60, label %61, label %66
+  br i1 %60, label %61, label %.thread
 
 61:                                               ; preds = %57
   %62 = load i64, ptr %8, align 8
   %63 = sub i64 %62, %1
   %64 = icmp ugt i64 %63, 5119
-  %65 = select i1 %64, i64 0, i64 -9223372036854775799
-  br label %66
+  br i1 %64, label %65, label %.thread
 
-66:                                               ; preds = %33, %57, %61, %27, %31, %23, %14, %3
-  %67 = phi i64 [ %22, %14 ], [ 0, %3 ], [ %25, %23 ], [ 0, %31 ], [ 0, %27 ], [ -9223372036854775799, %33 ], [ %59, %57 ], [ %65, %61 ]
+65:                                               ; preds = %61, %31, %27
+  br label %.thread
+
+.thread:                                          ; preds = %57, %33, %65, %61, %23, %14, %3
+  %66 = phi i64 [ %22, %14 ], [ 0, %65 ], [ -9223372036854775799, %61 ], [ 0, %3 ], [ %25, %23 ], [ %59, %57 ], [ -9223372036854775799, %33 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #16
-  ret i64 %67
+  ret i64 %66
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

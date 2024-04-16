@@ -87,7 +87,7 @@ lookup.exit:                                      ; preds = %land.lhs.true.i, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @curl_easy_option_next(ptr noundef readonly %prev) local_unnamed_addr #2 {
+define noundef ptr @curl_easy_option_next(ptr noundef readonly %prev) local_unnamed_addr #2 {
 entry:
   %tobool.not = icmp eq ptr %prev, null
   br i1 %tobool.not, label %return, label %land.lhs.true
@@ -95,17 +95,19 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %0 = load ptr, ptr %prev, align 8
   %tobool1.not = icmp eq ptr %0, null
-  br i1 %tobool1.not, label %return, label %if.then
+  br i1 %tobool1.not, label %if.end8, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
   %incdec.ptr = getelementptr inbounds i8, ptr %prev, i64 24
   %1 = load ptr, ptr %incdec.ptr, align 8
   %tobool3.not = icmp eq ptr %1, null
-  %spec.select = select i1 %tobool3.not, ptr null, ptr %incdec.ptr
+  br i1 %tobool3.not, label %if.end8, label %return
+
+if.end8:                                          ; preds = %land.lhs.true, %if.then
   br label %return
 
-return:                                           ; preds = %if.then, %land.lhs.true, %entry
-  %retval.0 = phi ptr [ @Curl_easyopts, %entry ], [ null, %land.lhs.true ], [ %spec.select, %if.then ]
+return:                                           ; preds = %entry, %if.then, %if.end8
+  %retval.0 = phi ptr [ null, %if.end8 ], [ %incdec.ptr, %if.then ], [ @Curl_easyopts, %entry ]
   ret ptr %retval.0
 }
 

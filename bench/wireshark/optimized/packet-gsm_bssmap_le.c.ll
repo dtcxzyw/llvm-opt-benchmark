@@ -580,109 +580,111 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 define internal i32 @dissect_bssmap_le(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
   %5 = alloca i32, align 4
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %select.unfold, label %6
+  br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds i8, ptr %3, i64 40
   %8 = load ptr, ptr %7, align 8
   %.not56 = icmp eq ptr %8, null
-  %spec.select = select i1 %.not56, ptr null, ptr %3
-  br label %select.unfold
+  br i1 %.not56, label %9, label %10
 
-select.unfold:                                    ; preds = %6, %4
-  %.0 = phi ptr [ null, %4 ], [ %spec.select, %6 ]
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
-  %10 = load ptr, ptr %9, align 8
-  tail call void @col_append_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.190) #2
-  %11 = load i32, ptr @dissect_bssmap_le.tap_current, align 4
-  %12 = add i32 %11, 1
-  %13 = icmp ugt i32 %12, 3
-  %spec.store.select = select i1 %13, i32 0, i32 %12
+9:                                                ; preds = %6, %4
+  br label %10
+
+10:                                               ; preds = %9, %6
+  %.0 = phi ptr [ %3, %6 ], [ null, %9 ]
+  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = load ptr, ptr %11, align 8
+  tail call void @col_append_str(ptr noundef %12, i32 noundef 25, ptr noundef nonnull @.str.190) #2
+  %13 = load i32, ptr @dissect_bssmap_le.tap_current, align 4
+  %14 = add i32 %13, 1
+  %15 = icmp ugt i32 %14, 3
+  %spec.store.select = select i1 %15, i32 0, i32 %14
   store i32 %spec.store.select, ptr @dissect_bssmap_le.tap_current, align 4
-  %14 = zext i32 %spec.store.select to i64
-  %15 = getelementptr [4 x %struct._gsm_a_tap_rec_t], ptr @dissect_bssmap_le.tap_rec, i64 0, i64 %14
-  store ptr %15, ptr @dissect_bssmap_le.tap_p, align 8
+  %16 = zext i32 %spec.store.select to i64
+  %17 = getelementptr [4 x %struct._gsm_a_tap_rec_t], ptr @dissect_bssmap_le.tap_rec, i64 0, i64 %16
+  store ptr %17, ptr @dissect_bssmap_le.tap_p, align 8
   store ptr %2, ptr @g_tree, align 8
-  %16 = tail call i32 @tvb_reported_length(ptr noundef %0) #2
-  %17 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #2
-  %18 = zext i8 %17 to i32
-  %19 = call ptr @try_val_to_str_idx(i32 noundef %18, ptr noundef nonnull @gsm_bssmap_le_msg_strings, ptr noundef nonnull %5) #2
+  %18 = tail call i32 @tvb_reported_length(ptr noundef %0) #2
+  %19 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #2
+  %20 = zext i8 %19 to i32
+  %21 = call ptr @try_val_to_str_idx(i32 noundef %20, ptr noundef nonnull @gsm_bssmap_le_msg_strings, ptr noundef nonnull %5) #2
   %.not57 = icmp eq ptr %.0, null
-  br i1 %.not57, label %27, label %20
+  br i1 %.not57, label %29, label %22
 
-20:                                               ; preds = %select.unfold
-  %21 = getelementptr inbounds i8, ptr %.0, i64 16
-  %22 = load ptr, ptr %21, align 8
-  %.not58 = icmp eq ptr %22, null
-  br i1 %.not58, label %23, label %27
+22:                                               ; preds = %10
+  %23 = getelementptr inbounds i8, ptr %.0, i64 16
+  %24 = load ptr, ptr %23, align 8
+  %.not58 = icmp eq ptr %24, null
+  br i1 %.not58, label %25, label %29
 
-23:                                               ; preds = %20
-  %24 = call ptr @wmem_file_scope() #2
-  %25 = call ptr @val_to_str(i32 noundef %18, ptr noundef nonnull @gsm_bssmap_le_msg_strings, ptr noundef nonnull @.str.191) #2
-  %26 = call noalias ptr @wmem_strdup(ptr noundef %24, ptr noundef %25) #2
-  store ptr %26, ptr %21, align 8
-  br label %27
+25:                                               ; preds = %22
+  %26 = call ptr @wmem_file_scope() #2
+  %27 = call ptr @val_to_str(i32 noundef %20, ptr noundef nonnull @gsm_bssmap_le_msg_strings, ptr noundef nonnull @.str.191) #2
+  %28 = call noalias ptr @wmem_strdup(ptr noundef %26, ptr noundef %27) #2
+  store ptr %28, ptr %23, align 8
+  br label %29
 
-27:                                               ; preds = %23, %20, %select.unfold
-  %28 = icmp eq ptr %19, null
-  %29 = load i32, ptr @proto_bssmap_le, align 4
-  br i1 %28, label %30, label %34
+29:                                               ; preds = %25, %22, %10
+  %30 = icmp eq ptr %21, null
+  %31 = load i32, ptr @proto_bssmap_le, align 4
+  br i1 %30, label %32, label %36
 
-30:                                               ; preds = %27
-  %31 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %29, ptr noundef %0, i32 noundef 0, i32 noundef %16, ptr noundef nonnull @.str.192, i32 noundef %18) #2
-  %32 = load i32, ptr @ett_bssmap_le_msg, align 4
-  %33 = call ptr @proto_item_add_subtree(ptr noundef %31, i32 noundef %32) #2
-  br label %44
+32:                                               ; preds = %29
+  %33 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %31, ptr noundef %0, i32 noundef 0, i32 noundef %18, ptr noundef nonnull @.str.192, i32 noundef %20) #2
+  %34 = load i32, ptr @ett_bssmap_le_msg, align 4
+  %35 = call ptr @proto_item_add_subtree(ptr noundef %33, i32 noundef %34) #2
+  br label %46
 
-34:                                               ; preds = %27
-  %35 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %29, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.193, ptr noundef nonnull %19) #2
-  %36 = load i32, ptr %5, align 4
-  %37 = sext i32 %36 to i64
-  %38 = getelementptr [14 x i32], ptr @ett_gsm_bssmap_le_msg, i64 0, i64 %37
-  %39 = load i32, ptr %38, align 4
-  %40 = call ptr @proto_item_add_subtree(ptr noundef %35, i32 noundef %39) #2
-  %41 = load ptr, ptr %9, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %41, i32 noundef 25, ptr noundef nonnull @.str.194, ptr noundef nonnull %19) #2
-  %42 = load i32, ptr @hf_gsm_bssmap_le_msg_type, align 4
-  %43 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %40, i32 noundef %42, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %18, ptr noundef nonnull @.str.195, ptr noundef nonnull %19) #2
-  br label %44
+36:                                               ; preds = %29
+  %37 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %31, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.193, ptr noundef nonnull %21) #2
+  %38 = load i32, ptr %5, align 4
+  %39 = sext i32 %38 to i64
+  %40 = getelementptr [14 x i32], ptr @ett_gsm_bssmap_le_msg, i64 0, i64 %39
+  %41 = load i32, ptr %40, align 4
+  %42 = call ptr @proto_item_add_subtree(ptr noundef %37, i32 noundef %41) #2
+  %43 = load ptr, ptr %11, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %43, i32 noundef 25, ptr noundef nonnull @.str.194, ptr noundef nonnull %21) #2
+  %44 = load i32, ptr @hf_gsm_bssmap_le_msg_type, align 4
+  %45 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %42, i32 noundef %44, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %20, ptr noundef nonnull @.str.195, ptr noundef nonnull %21) #2
+  br label %46
 
-44:                                               ; preds = %34, %30
-  %.051 = phi ptr [ %33, %30 ], [ %40, %34 ]
-  %45 = load ptr, ptr @dissect_bssmap_le.tap_p, align 8
-  store i8 0, ptr %45, align 4
-  %46 = getelementptr inbounds i8, ptr %45, i64 1
-  store i8 %17, ptr %46, align 1
-  %47 = load i32, ptr @gsm_a_tap, align 4
-  call void @tap_queue_packet(i32 noundef %47, ptr noundef nonnull %1, ptr noundef nonnull %45) #2
-  %48 = icmp ult i32 %16, 2
-  %or.cond = select i1 %28, i1 true, i1 %48
-  br i1 %or.cond, label %63, label %49
+46:                                               ; preds = %36, %32
+  %.051 = phi ptr [ %35, %32 ], [ %42, %36 ]
+  %47 = load ptr, ptr @dissect_bssmap_le.tap_p, align 8
+  store i8 0, ptr %47, align 4
+  %48 = getelementptr inbounds i8, ptr %47, i64 1
+  store i8 %19, ptr %48, align 1
+  %49 = load i32, ptr @gsm_a_tap, align 4
+  call void @tap_queue_packet(i32 noundef %49, ptr noundef nonnull %1, ptr noundef nonnull %47) #2
+  %50 = icmp ult i32 %18, 2
+  %or.cond = select i1 %30, i1 true, i1 %50
+  br i1 %or.cond, label %65, label %51
 
-49:                                               ; preds = %44
-  %50 = load i32, ptr %5, align 4
-  %51 = sext i32 %50 to i64
-  %52 = and i64 %51, 2305843009213693951
-  %53 = lshr i64 13343, %52
-  %54 = and i64 %53, 1
-  %.not59 = icmp eq i64 %54, 0
-  br i1 %.not59, label %59, label %55
+51:                                               ; preds = %46
+  %52 = load i32, ptr %5, align 4
+  %53 = sext i32 %52 to i64
+  %54 = and i64 %53, 2305843009213693951
+  %55 = lshr i64 13343, %54
+  %56 = and i64 %55, 1
+  %.not59 = icmp eq i64 %56, 0
+  br i1 %.not59, label %61, label %57
 
-55:                                               ; preds = %49
-  %56 = load i32, ptr @hf_gsm_bssmap_le_message_elements, align 4
-  %57 = add i32 %16, -1
-  %58 = call ptr @proto_tree_add_item(ptr noundef %.051, i32 noundef %56, ptr noundef %0, i32 noundef 1, i32 noundef %57, i32 noundef 0) #2
-  br label %63
+57:                                               ; preds = %51
+  %58 = load i32, ptr @hf_gsm_bssmap_le_message_elements, align 4
+  %59 = add i32 %18, -1
+  %60 = call ptr @proto_tree_add_item(ptr noundef %.051, i32 noundef %58, ptr noundef %0, i32 noundef 1, i32 noundef %59, i32 noundef 0) #2
+  br label %65
 
-59:                                               ; preds = %49
-  %60 = getelementptr [14 x ptr], ptr @bssmap_le_msg_fcn, i64 0, i64 %51
-  %61 = load ptr, ptr %60, align 8
-  %62 = add i32 %16, -1
-  call void %61(ptr noundef %0, ptr noundef %.051, ptr noundef nonnull %1, i32 noundef 1, i32 noundef %62) #2
-  br label %63
+61:                                               ; preds = %51
+  %62 = getelementptr [14 x ptr], ptr @bssmap_le_msg_fcn, i64 0, i64 %53
+  %63 = load ptr, ptr %62, align 8
+  %64 = add i32 %18, -1
+  call void %63(ptr noundef %0, ptr noundef %.051, ptr noundef nonnull %1, i32 noundef 1, i32 noundef %64) #2
+  br label %65
 
-63:                                               ; preds = %55, %59, %44
-  ret i32 %16
+65:                                               ; preds = %57, %61, %46
+  ret i32 %18
 }
 
 ; Function Attrs: nounwind uwtable

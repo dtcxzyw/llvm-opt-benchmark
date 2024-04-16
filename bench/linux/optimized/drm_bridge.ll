@@ -1170,8 +1170,8 @@ define dso_local i32 @drm_atomic_bridge_chain_check(ptr noundef %0, ptr noundef 
   %120 = icmp eq ptr %119, %60
   br i1 %120, label %.thread22, label %66, !llvm.loop !47
 
-.thread22:                                        ; preds = %115, %113, %103, %117, %.thread19, %.thread18, %.thread16, %59, %57, %3
-  %121 = phi i32 [ 0, %3 ], [ %55, %57 ], [ 0, %59 ], [ %.ph, %.thread16 ], [ -524, %.thread18 ], [ -22, %.thread19 ], [ 0, %115 ], [ %107, %103 ], [ -22, %113 ], [ 0, %117 ]
+.thread22:                                        ; preds = %117, %115, %113, %103, %.thread19, %.thread18, %.thread16, %59, %57, %3
+  %121 = phi i32 [ 0, %3 ], [ %55, %57 ], [ 0, %59 ], [ %.ph, %.thread16 ], [ -524, %.thread18 ], [ -22, %.thread19 ], [ 0, %117 ], [ 0, %115 ], [ %107, %103 ], [ -22, %113 ]
   ret i32 %121
 }
 

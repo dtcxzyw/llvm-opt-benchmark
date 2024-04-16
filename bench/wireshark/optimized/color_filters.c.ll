@@ -677,7 +677,7 @@ define i32 @color_filters_use_hfid(i32 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @find_hfid(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal noundef i32 @find_hfid(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
   %3 = ptrtoint ptr %1 to i64
   %4 = trunc i64 %3 to i32
   %5 = getelementptr inbounds i8, ptr %0, i64 28
@@ -693,12 +693,13 @@ define internal i32 @find_hfid(ptr nocapture noundef readonly %0, ptr noundef %1
 
 10:                                               ; preds = %7
   %11 = tail call zeroext i1 @dfilter_interested_in_field(ptr noundef nonnull %9, i32 noundef %4) #15
-  %not. = xor i1 %11, true
-  %spec.select = sext i1 %not. to i32
-  br label %12
+  br i1 %11, label %13, label %12
 
-12:                                               ; preds = %10, %2, %7
-  %.0 = phi i32 [ -1, %7 ], [ -1, %2 ], [ %spec.select, %10 ]
+12:                                               ; preds = %10, %7, %2
+  br label %13
+
+13:                                               ; preds = %10, %12
+  %.0 = phi i32 [ -1, %12 ], [ 0, %10 ]
   ret i32 %.0
 }
 
@@ -722,7 +723,7 @@ define i32 @color_filters_use_proto(i32 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @find_proto(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal noundef i32 @find_proto(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
   %3 = ptrtoint ptr %1 to i64
   %4 = trunc i64 %3 to i32
   %5 = getelementptr inbounds i8, ptr %0, i64 28
@@ -738,12 +739,13 @@ define internal i32 @find_proto(ptr nocapture noundef readonly %0, ptr noundef %
 
 10:                                               ; preds = %7
   %11 = tail call zeroext i1 @dfilter_interested_in_proto(ptr noundef nonnull %9, i32 noundef %4) #15
-  %not. = xor i1 %11, true
-  %spec.select = sext i1 %not. to i32
-  br label %12
+  br i1 %11, label %13, label %12
 
-12:                                               ; preds = %10, %2, %7
-  %.0 = phi i32 [ -1, %7 ], [ -1, %2 ], [ %spec.select, %10 ]
+12:                                               ; preds = %10, %7, %2
+  br label %13
+
+13:                                               ; preds = %10, %12
+  %.0 = phi i32 [ -1, %12 ], [ 0, %10 ]
   ret i32 %.0
 }
 

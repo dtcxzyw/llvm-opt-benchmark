@@ -590,7 +590,7 @@ if.else10.i53:                                    ; preds = %land.lhs.true5.i57,
 _ZNK4toku10comparatorclEPK10__toku_dbtS3_.exit63: ; preds = %if.then.i61, %if.then8.i59, %if.else10.i53
   %retval.0.i56 = phi i32 [ %call3.i62, %if.then.i61 ], [ %call9.i60, %if.then8.i59 ], [ %call11.i55, %if.else10.i53 ]
   %cmp14 = icmp eq i32 %retval.0.i56, 0
-  br i1 %cmp14, label %land.lhs.true, label %return
+  br i1 %cmp14, label %land.lhs.true, label %if.else20
 
 land.lhs.true:                                    ; preds = %_ZNK4toku10comparatorclEPK10__toku_dbtS3_.exit63
   %27 = load ptr, ptr %m_right_key.i, align 8
@@ -644,11 +644,13 @@ if.else10.i82:                                    ; preds = %land.lhs.true5.i86,
 _ZNK4toku10comparatorclEPK10__toku_dbtS3_.exit92: ; preds = %if.then.i90, %if.then8.i88, %if.else10.i82
   %retval.0.i85 = phi i32 [ %call3.i91, %if.then.i90 ], [ %call9.i89, %if.then8.i88 ], [ %call11.i84, %if.else10.i82 ]
   %cmp18 = icmp eq i32 %retval.0.i85, 0
-  %spec.select = select i1 %cmp18, i32 0, i32 3
+  br i1 %cmp18, label %return, label %if.else20
+
+if.else20:                                        ; preds = %_ZNK4toku10comparatorclEPK10__toku_dbtS3_.exit92, %_ZNK4toku10comparatorclEPK10__toku_dbtS3_.exit63
   br label %return
 
-return:                                           ; preds = %_ZNK4toku10comparatorclEPK10__toku_dbtS3_.exit92, %_ZNK4toku10comparatorclEPK10__toku_dbtS3_.exit63, %_ZNK4toku10comparatorclEPK10__toku_dbtS3_.exit36, %_ZNK4toku10comparatorclEPK10__toku_dbtS3_.exit
-  %retval.0 = phi i32 [ 1, %_ZNK4toku10comparatorclEPK10__toku_dbtS3_.exit ], [ 2, %_ZNK4toku10comparatorclEPK10__toku_dbtS3_.exit36 ], [ 3, %_ZNK4toku10comparatorclEPK10__toku_dbtS3_.exit63 ], [ %spec.select, %_ZNK4toku10comparatorclEPK10__toku_dbtS3_.exit92 ]
+return:                                           ; preds = %_ZNK4toku10comparatorclEPK10__toku_dbtS3_.exit92, %_ZNK4toku10comparatorclEPK10__toku_dbtS3_.exit36, %_ZNK4toku10comparatorclEPK10__toku_dbtS3_.exit, %if.else20
+  %retval.0 = phi i32 [ 3, %if.else20 ], [ 1, %_ZNK4toku10comparatorclEPK10__toku_dbtS3_.exit ], [ 2, %_ZNK4toku10comparatorclEPK10__toku_dbtS3_.exit36 ], [ 0, %_ZNK4toku10comparatorclEPK10__toku_dbtS3_.exit92 ]
   ret i32 %retval.0
 }
 

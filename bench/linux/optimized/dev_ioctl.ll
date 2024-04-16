@@ -1235,7 +1235,7 @@ define internal fastcc i32 @dev_set_hwtstamp(ptr noundef %0, ptr noundef %1) unn
   %10 = load ptr, ptr %9, align 8
   %11 = call i64 @_copy_from_user(ptr noundef nonnull %5, ptr noundef %10, i64 noundef 12) #11
   %12 = icmp eq i64 %11, 0
-  br i1 %12, label %13, label %64
+  br i1 %12, label %13, label %65
 
 13:                                               ; preds = %2
   %14 = load i32, ptr %5, align 4
@@ -1257,7 +1257,7 @@ define internal fastcc i32 @dev_set_hwtstamp(ptr noundef %0, ptr noundef %1) unn
   %26 = select i1 %25, i32 0, i32 -34
   %27 = select i1 %22, i32 %26, i32 -22
   %28 = select i1 %22, i1 %25, i1 false
-  br i1 %28, label %29, label %64
+  br i1 %28, label %29, label %65
 
 29:                                               ; preds = %13
   %30 = getelementptr inbounds i8, ptr %7, i64 672
@@ -1270,30 +1270,30 @@ define internal fastcc i32 @dev_set_hwtstamp(ptr noundef %0, ptr noundef %1) unn
   %35 = getelementptr inbounds i8, ptr %34, i64 96
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
-  br i1 %37, label %64, label %38
+  br i1 %37, label %65, label %38
 
 38:                                               ; preds = %33
   %39 = getelementptr inbounds i8, ptr %0, i64 352
   %40 = load volatile i64, ptr %39, align 8
   %41 = and i64 %40, 2
   %42 = icmp eq i64 %41, 0
-  br i1 %42, label %64, label %43
+  br i1 %42, label %65, label %43
 
 43:                                               ; preds = %38
   %44 = call i32 %36(ptr noundef %0, ptr noundef %1, i32 noundef 35248) #11
-  br label %64
+  br label %65
 
 45:                                               ; preds = %29
   %46 = getelementptr inbounds i8, ptr %0, i64 352
   %47 = load volatile i64, ptr %46, align 8
   %48 = and i64 %47, 2
   %49 = icmp eq i64 %48, 0
-  br i1 %49, label %64, label %50
+  br i1 %49, label %65, label %50
 
 50:                                               ; preds = %45
   %51 = call i32 @dev_set_hwtstamp_phylib(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4)
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %53, label %64
+  br i1 %52, label %53, label %65
 
 53:                                               ; preds = %50
   %54 = getelementptr inbounds i8, ptr %3, i64 24
@@ -1311,15 +1311,17 @@ define internal fastcc i32 @dev_set_hwtstamp(ptr noundef %0, ptr noundef %1) unn
   %61 = load ptr, ptr %9, align 8
   %62 = call i64 @_copy_to_user(ptr noundef %61, ptr noundef nonnull %5, i64 noundef 12) #11
   %63 = icmp eq i64 %62, 0
-  %spec.select = select i1 %63, i32 0, i32 -14
-  br label %64
+  br i1 %63, label %64, label %65
 
-64:                                               ; preds = %57, %53, %50, %45, %43, %38, %33, %13, %2
-  %65 = phi i32 [ -14, %2 ], [ %27, %13 ], [ -19, %45 ], [ %51, %50 ], [ %44, %43 ], [ -95, %33 ], [ -19, %38 ], [ 0, %53 ], [ %spec.select, %57 ]
+64:                                               ; preds = %57, %53
+  br label %65
+
+65:                                               ; preds = %64, %57, %50, %45, %43, %38, %33, %13, %2
+  %66 = phi i32 [ 0, %64 ], [ -14, %2 ], [ %27, %13 ], [ -19, %45 ], [ %51, %50 ], [ -14, %57 ], [ %44, %43 ], [ -95, %33 ], [ -19, %38 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #11
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %4) #11
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #11
-  ret i32 %65
+  ret i32 %66
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1420,7 +1422,7 @@ dev_get_hwtstamp_phylib.exit:                     ; preds = %48, %51
   %56 = getelementptr inbounds i8, ptr %3, i64 24
   %57 = load i8, ptr %56, align 8, !range !28, !noundef !29
   %58 = icmp eq i8 %57, 0
-  br i1 %58, label %59, label %dev_get_hwtstamp_phylib.exit.thread
+  br i1 %58, label %59, label %71
 
 59:                                               ; preds = %55
   %60 = load i32, ptr %3, align 8
@@ -1437,14 +1439,16 @@ dev_get_hwtstamp_phylib.exit:                     ; preds = %48, %51
   %68 = load ptr, ptr %67, align 8
   %69 = call i64 @_copy_to_user(ptr noundef %68, ptr noundef nonnull %4, i64 noundef 12) #11
   %70 = icmp eq i64 %69, 0
-  %spec.select = select i1 %70, i32 0, i32 -14
+  br i1 %70, label %71, label %dev_get_hwtstamp_phylib.exit.thread
+
+71:                                               ; preds = %59, %55
   br label %dev_get_hwtstamp_phylib.exit.thread
 
-dev_get_hwtstamp_phylib.exit.thread:              ; preds = %45, %59, %55, %dev_get_hwtstamp_phylib.exit, %21, %19, %14, %10
-  %71 = phi i32 [ -19, %21 ], [ %53, %dev_get_hwtstamp_phylib.exit ], [ %20, %19 ], [ -95, %10 ], [ -19, %14 ], [ 0, %55 ], [ %spec.select, %59 ], [ -95, %45 ]
+dev_get_hwtstamp_phylib.exit.thread:              ; preds = %45, %71, %59, %dev_get_hwtstamp_phylib.exit, %21, %19, %14, %10
+  %72 = phi i32 [ 0, %71 ], [ -19, %21 ], [ %53, %dev_get_hwtstamp_phylib.exit ], [ -14, %59 ], [ %20, %19 ], [ -95, %10 ], [ -19, %14 ], [ -95, %45 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #11
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #11
-  ret i32 %71
+  ret i32 %72
 }
 
 ; Function Attrs: null_pointer_is_valid

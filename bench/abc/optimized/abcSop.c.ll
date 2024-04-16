@@ -1446,58 +1446,71 @@ define i32 @Abc_SopIsConst1(ptr nocapture noundef readonly %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @Abc_SopIsBuf(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define noundef i32 @Abc_SopIsBuf(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i8, ptr %2, align 1
   %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %4, label %.thread
-
-4:                                                ; preds = %1
-  %5 = load i8, ptr %0, align 1
-  %6 = and i8 %5, -2
-  %switch = icmp eq i8 %6, 48
-  br i1 %switch, label %.thread.sink.split, label %.thread
-
-.thread.sink.split:                               ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 2
-  %8 = load i8, ptr %7, align 1
-  %9 = icmp eq i8 %8, %5
-  %10 = zext i1 %9 to i32
-  br label %.thread
-
-.thread:                                          ; preds = %4, %.thread.sink.split, %1
-  %.0.shrunk = phi i32 [ 0, %1 ], [ 0, %4 ], [ %10, %.thread.sink.split ]
-  ret i32 %.0.shrunk
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @Abc_SopIsInv(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
-  %3 = load i8, ptr %2, align 1
-  %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %4, label %.thread
+  br i1 %.not, label %4, label %14
 
 4:                                                ; preds = %1
   %5 = load i8, ptr %0, align 1
   switch i8 %5, label %.thread [
-    i8 48, label %.thread.sink.split
     i8 49, label %6
+    i8 48, label %10
   ]
 
 6:                                                ; preds = %4
-  br label %.thread.sink.split
-
-.thread.sink.split:                               ; preds = %4, %6
-  %.sink6 = phi i8 [ 48, %6 ], [ 49, %4 ]
   %7 = getelementptr inbounds i8, ptr %0, i64 2
   %8 = load i8, ptr %7, align 1
-  %9 = icmp eq i8 %8, %.sink6
-  %10 = zext i1 %9 to i32
-  br label %.thread
+  %9 = icmp eq i8 %8, 49
+  br i1 %9, label %14, label %.thread
 
-.thread:                                          ; preds = %.thread.sink.split, %4, %1
-  %.0.shrunk = phi i32 [ 0, %1 ], [ 0, %4 ], [ %10, %.thread.sink.split ]
-  ret i32 %.0.shrunk
+10:                                               ; preds = %4
+  %11 = getelementptr inbounds i8, ptr %0, i64 2
+  %12 = load i8, ptr %11, align 1
+  %13 = icmp eq i8 %12, 48
+  br i1 %13, label %14, label %.thread
+
+.thread:                                          ; preds = %4, %6, %10
+  br label %14
+
+14:                                               ; preds = %6, %10, %1, %.thread
+  %.0 = phi i32 [ 0, %.thread ], [ 0, %1 ], [ 1, %10 ], [ 1, %6 ]
+  ret i32 %.0
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define noundef i32 @Abc_SopIsInv(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = load i8, ptr %2, align 1
+  %.not = icmp eq i8 %3, 0
+  br i1 %.not, label %4, label %14
+
+4:                                                ; preds = %1
+  %5 = load i8, ptr %0, align 1
+  switch i8 %5, label %.thread [
+    i8 48, label %6
+    i8 49, label %10
+  ]
+
+6:                                                ; preds = %4
+  %7 = getelementptr inbounds i8, ptr %0, i64 2
+  %8 = load i8, ptr %7, align 1
+  %9 = icmp eq i8 %8, 49
+  br i1 %9, label %14, label %.thread
+
+10:                                               ; preds = %4
+  %11 = getelementptr inbounds i8, ptr %0, i64 2
+  %12 = load i8, ptr %11, align 1
+  %13 = icmp eq i8 %12, 48
+  br i1 %13, label %14, label %.thread
+
+.thread:                                          ; preds = %4, %6, %10
+  br label %14
+
+14:                                               ; preds = %6, %10, %1, %.thread
+  %.0 = phi i32 [ 0, %.thread ], [ 0, %1 ], [ 1, %10 ], [ 1, %6 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
@@ -3981,15 +3994,16 @@ Abc_SopIsComplement.exit:                         ; preds = %34
   %40 = icmp ne i8 %39, 48
   %41 = icmp ne i8 %39, 110
   %narrow.i.not = and i1 %40, %41
+  %42 = xor i64 %.us-phi, -1
   %cond.fr = freeze i1 %narrow.i.not
-  %not.cond.fr = xor i1 %cond.fr, true
-  %42 = sext i1 %not.cond.fr to i64
-  %spec.select = xor i64 %.us-phi, %42
-  br label %Abc_SopIsComplement.exit.thread
+  br i1 %cond.fr, label %Abc_SopIsComplement.exit.thread, label %43
 
 Abc_SopIsComplement.exit.thread:                  ; preds = %34, %Abc_SopIsComplement.exit
-  %43 = phi i64 [ %spec.select, %Abc_SopIsComplement.exit ], [ %.us-phi, %34 ]
-  ret i64 %43
+  br label %43
+
+43:                                               ; preds = %Abc_SopIsComplement.exit, %Abc_SopIsComplement.exit.thread
+  %44 = phi i64 [ %.us-phi, %Abc_SopIsComplement.exit.thread ], [ %42, %Abc_SopIsComplement.exit ]
+  ret i64 %44
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable

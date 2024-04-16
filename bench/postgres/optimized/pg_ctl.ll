@@ -2355,7 +2355,7 @@ define internal fastcc i32 @get_pgpid(i1 noundef zeroext %0) unnamed_addr #4 {
   %31 = tail call ptr @__errno_location() #20
   %32 = load i32, ptr %31, align 4
   %33 = icmp eq i32 %32, 2
-  br i1 %33, label %49, label %34
+  br i1 %33, label %50, label %34
 
 34:                                               ; preds = %30
   %35 = load ptr, ptr @progname, align 8
@@ -2367,7 +2367,7 @@ define internal fastcc i32 @get_pgpid(i1 noundef zeroext %0) unnamed_addr #4 {
 37:                                               ; preds = %27
   %38 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %28, ptr noundef nonnull @.str.119, ptr noundef nonnull %2) #17
   %.not11 = icmp eq i32 %38, 1
-  br i1 %.not11, label %46, label %39
+  br i1 %.not11, label %47, label %39
 
 39:                                               ; preds = %37
   %40 = call i64 @ftell(ptr noundef nonnull %28)
@@ -2377,23 +2377,25 @@ define internal fastcc i32 @get_pgpid(i1 noundef zeroext %0) unnamed_addr #4 {
 42:                                               ; preds = %39
   %43 = call i32 @feof(ptr noundef nonnull %28) #17
   %.not12 = icmp eq i32 %43, 0
-  %spec.select = select i1 %.not12, ptr @.str.121, ptr @.str.120
-  br label %44
+  br i1 %.not12, label %44, label %45
 
 44:                                               ; preds = %42, %39
-  %.str.121.sink = phi ptr [ @.str.121, %39 ], [ %spec.select, %42 ]
-  %45 = load ptr, ptr @progname, align 8
-  call void (ptr, ...) @write_stderr(ptr noundef nonnull %.str.121.sink, ptr noundef %45, ptr noundef nonnull @pid_file)
+  br label %45
+
+45:                                               ; preds = %42, %44
+  %.str.121.sink = phi ptr [ @.str.121, %44 ], [ @.str.120, %42 ]
+  %46 = load ptr, ptr @progname, align 8
+  call void (ptr, ...) @write_stderr(ptr noundef nonnull %.str.121.sink, ptr noundef %46, ptr noundef nonnull @pid_file)
   call void @exit(i32 noundef 1) #19
   unreachable
 
-46:                                               ; preds = %37
-  %47 = call i32 @fclose(ptr noundef nonnull %28)
-  %48 = load i32, ptr %2, align 4
-  br label %49
+47:                                               ; preds = %37
+  %48 = call i32 @fclose(ptr noundef nonnull %28)
+  %49 = load i32, ptr %2, align 4
+  br label %50
 
-49:                                               ; preds = %30, %46
-  %.0 = phi i32 [ %48, %46 ], [ 0, %30 ]
+50:                                               ; preds = %30, %47
+  %.0 = phi i32 [ %49, %47 ], [ 0, %30 ]
   ret i32 %.0
 }
 

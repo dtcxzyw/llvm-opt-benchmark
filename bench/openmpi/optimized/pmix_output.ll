@@ -1240,7 +1240,7 @@ declare noundef i32 @fileno(ptr nocapture noundef) local_unnamed_addr #11
 declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @open_file(i32 noundef %0) unnamed_addr #2 {
+define internal fastcc noundef i32 @open_file(i32 noundef %0) unnamed_addr #2 {
   %2 = zext i32 %0 to i64
   br label %3
 
@@ -1277,28 +1277,28 @@ define internal fastcc i32 @open_file(i32 noundef %0) unnamed_addr #2 {
 20:                                               ; preds = %19
   %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) %18) #22
   %.not46 = icmp eq i32 %21, 0
-  br i1 %.not46, label %.thread55, label %.loopexit
+  br i1 %.not46, label %.thread54, label %.loopexit
 
 22:                                               ; preds = %13
-  br i1 %.not47, label %.thread55, label %.loopexit
+  br i1 %.not47, label %.thread54, label %.loopexit
 
-.thread55:                                        ; preds = %20, %22
+.thread54:                                        ; preds = %20, %22
   %23 = getelementptr inbounds i8, ptr %6, i64 64
   %24 = load i32, ptr %23, align 8
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %.loopexit, label %26
 
-26:                                               ; preds = %.thread55
+26:                                               ; preds = %.thread54
   %27 = getelementptr inbounds i8, ptr %14, i64 64
   store i32 %24, ptr %27, align 8
-  br label %60
+  br label %61
 
 28:                                               ; preds = %9, %5, %3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
   br i1 %exitcond.not, label %.loopexit, label %3, !llvm.loop !13
 
-.loopexit:                                        ; preds = %28, %19, %.thread55, %22, %20
+.loopexit:                                        ; preds = %28, %19, %.thread54, %22, %20
   %29 = load ptr, ptr @output_dir, align 8
   %.not49 = icmp eq ptr %29, null
   br i1 %.not49, label %60, label %30
@@ -1306,7 +1306,7 @@ define internal fastcc i32 @open_file(i32 noundef %0) unnamed_addr #2 {
 30:                                               ; preds = %.loopexit
   %31 = tail call noalias dereferenceable_or_null(4097) ptr @malloc(i64 noundef 4097) #23
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %60, label %.preheader
+  br i1 %32, label %61, label %.preheader
 
 .preheader:                                       ; preds = %30, %35
   %.012.i = phi i64 [ %36, %35 ], [ 0, %30 ]
@@ -1369,16 +1369,18 @@ pmix_strncpy.exit:                                ; preds = %.preheader, %35
 
 56:                                               ; preds = %49
   store i8 0, ptr %43, align 8
-  br label %60
+  br label %61
 
 57:                                               ; preds = %49
   %58 = tail call i32 (i32, i32, ...) @fcntl(i32 noundef %53, i32 noundef 2, i32 noundef 1) #21
   %59 = icmp eq i32 %58, -1
-  %spec.select54 = select i1 %59, i32 -26, i32 0
-  br label %60
+  br i1 %59, label %61, label %60
 
-60:                                               ; preds = %57, %.loopexit, %30, %56, %26
-  %.035 = phi i32 [ -26, %56 ], [ 0, %26 ], [ -29, %30 ], [ 0, %.loopexit ], [ %spec.select54, %57 ]
+60:                                               ; preds = %57, %.loopexit
+  br label %61
+
+61:                                               ; preds = %57, %30, %60, %56, %26
+  %.035 = phi i32 [ -26, %56 ], [ 0, %60 ], [ 0, %26 ], [ -29, %30 ], [ -26, %57 ]
   ret i32 %.035
 }
 

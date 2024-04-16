@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.Curl_vsetopt = private unnamed_addr constant [6 x i64] [i64 4, i64 1, i64 2, i64 3, i64 4, i64 5], align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Curl_setstropt(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local noundef i32 @Curl_setstropt(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @Curl_cfree, align 8
   %4 = load ptr, ptr %0, align 8
   tail call void %3(ptr noundef %4) #8
@@ -30,18 +30,20 @@ define dso_local i32 @Curl_setstropt(ptr nocapture noundef %0, ptr noundef %1) l
 5:                                                ; preds = %2
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #9
   %7 = icmp ugt i64 %6, 8000000
-  br i1 %7, label %11, label %8
+  br i1 %7, label %12, label %8
 
 8:                                                ; preds = %5
   %9 = load ptr, ptr @Curl_cstrdup, align 8
   %10 = tail call ptr %9(ptr noundef nonnull %1) #8
   store ptr %10, ptr %0, align 8
   %.not8 = icmp eq ptr %10, null
-  %spec.select = select i1 %.not8, i32 27, i32 0
-  br label %11
+  br i1 %.not8, label %12, label %11
 
-11:                                               ; preds = %8, %2, %5
-  %.0 = phi i32 [ 43, %5 ], [ 0, %2 ], [ %spec.select, %8 ]
+11:                                               ; preds = %8, %2
+  br label %12
+
+12:                                               ; preds = %8, %5, %11
+  %.0 = phi i32 [ 0, %11 ], [ 43, %5 ], [ 27, %8 ]
   ret i32 %.0
 }
 

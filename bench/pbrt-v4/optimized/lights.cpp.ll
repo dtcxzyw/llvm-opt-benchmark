@@ -11821,7 +11821,7 @@ entry:
   %and.i.i.i = and i64 %0, 144115188075855871
   %tobool.not1.i = icmp eq i64 %and.i.i.i, 0
   %tobool.not.i = or i1 %cmp.i.i.i, %tobool.not1.i
-  br i1 %tobool.not.i, label %"_ZZN4pbrt16DiffuseAreaLightC1ERKNS_9TransformERKNS_15MediumInterfaceENS_8SpectrumEfNS_5ShapeENS_12FloatTextureENS_5ImageEPKNS_13RGBColorSpaceEbENK3$_0clES9_.exit", label %land.lhs.true.i
+  br i1 %tobool.not.i, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
   %1 = inttoptr i64 %and.i.i.i to ptr
@@ -11829,11 +11829,11 @@ land.lhs.true.i:                                  ; preds = %entry
   %cmp.i = fcmp oeq float %2, 0.000000e+00
   br i1 %cmp.i, label %"_ZZN4pbrt16DiffuseAreaLightC1ERKNS_9TransformERKNS_15MediumInterfaceENS_8SpectrumEfNS_5ShapeENS_12FloatTextureENS_5ImageEPKNS_13RGBColorSpaceEbENK3$_0clES9_.exit", label %if.end.i
 
-if.end.i:                                         ; preds = %land.lhs.true.i
+if.end.i:                                         ; preds = %land.lhs.true.i, %entry
   br label %"_ZZN4pbrt16DiffuseAreaLightC1ERKNS_9TransformERKNS_15MediumInterfaceENS_8SpectrumEfNS_5ShapeENS_12FloatTextureENS_5ImageEPKNS_13RGBColorSpaceEbENK3$_0clES9_.exit"
 
-"_ZZN4pbrt16DiffuseAreaLightC1ERKNS_9TransformERKNS_15MediumInterfaceENS_8SpectrumEfNS_5ShapeENS_12FloatTextureENS_5ImageEPKNS_13RGBColorSpaceEbENK3$_0clES9_.exit": ; preds = %entry, %land.lhs.true.i, %if.end.i
-  %retval.0.i = phi i32 [ 0, %land.lhs.true.i ], [ 2, %entry ], [ 2, %if.end.i ]
+"_ZZN4pbrt16DiffuseAreaLightC1ERKNS_9TransformERKNS_15MediumInterfaceENS_8SpectrumEfNS_5ShapeENS_12FloatTextureENS_5ImageEPKNS_13RGBColorSpaceEbENK3$_0clES9_.exit": ; preds = %land.lhs.true.i, %if.end.i
+  %retval.0.i = phi i32 [ 2, %if.end.i ], [ 0, %land.lhs.true.i ]
   store i32 %retval.0.i, ptr %this, align 8
   %renderFromLight3.i = getelementptr inbounds i8, ptr %this, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %renderFromLight3.i, ptr noundef nonnull align 4 dereferenceable(128) %renderFromLight, i64 128, i1 false)
@@ -16509,8 +16509,7 @@ sw.bb27.i.i.i.i:                                  ; preds = %if.end25.i.i.i.i, %
   %__first.addr.2.i.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i.i, %for.end.i.i.i.i ], [ %incdec.ptr26.i.i.i.i, %if.end25.i.i.i.i ]
   %__first.addr.2.val.i.i.i.i = load float, ptr %__first.addr.2.i.i.i.i, align 4
   %cmp.i.i32.i.i.i.i = fcmp une float %__first.addr.2.val.i.i.i.i, 0.000000e+00
-  %spec.select.i.i.i.i = select i1 %cmp.i.i32.i.i.i.i, ptr %__first.addr.2.i.i.i.i, ptr %add.ptr.i103
-  br label %invoke.cont122
+  br i1 %cmp.i.i32.i.i.i.i, label %invoke.cont122, label %invoke.cont127
 
 invoke.cont122.loopexit.split.loop.exit:          ; preds = %if.end8.i.i.i.i
   %incdec.ptr9.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.addr.044.i.i.i.i, i64 12
@@ -16525,13 +16524,13 @@ invoke.cont122.loopexit.split.loop.exit281:       ; preds = %if.end.i.i.i.i
   br label %invoke.cont122
 
 invoke.cont122:                                   ; preds = %for.body.i.i.i.i, %invoke.cont122.loopexit.split.loop.exit, %invoke.cont122.loopexit.split.loop.exit279, %invoke.cont122.loopexit.split.loop.exit281, %sw.bb27.i.i.i.i, %sw.bb22.i.i.i.i, %sw.bb.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i.i, %sw.bb.i.i.i.i ], [ %__first.addr.1.i.i.i.i, %sw.bb22.i.i.i.i ], [ %spec.select.i.i.i.i, %sw.bb27.i.i.i.i ], [ %incdec.ptr9.i.i.i.i.le, %invoke.cont122.loopexit.split.loop.exit ], [ %incdec.ptr5.i.i.i.i.le, %invoke.cont122.loopexit.split.loop.exit279 ], [ %incdec.ptr.i.i.i.i.le, %invoke.cont122.loopexit.split.loop.exit281 ], [ %__first.addr.044.i.i.i.i, %for.body.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i.i, %sw.bb.i.i.i.i ], [ %__first.addr.1.i.i.i.i, %sw.bb22.i.i.i.i ], [ %__first.addr.2.i.i.i.i, %sw.bb27.i.i.i.i ], [ %incdec.ptr9.i.i.i.i.le, %invoke.cont122.loopexit.split.loop.exit ], [ %incdec.ptr5.i.i.i.i.le, %invoke.cont122.loopexit.split.loop.exit279 ], [ %incdec.ptr.i.i.i.i.le, %invoke.cont122.loopexit.split.loop.exit281 ], [ %__first.addr.044.i.i.i.i, %for.body.i.i.i.i ]
   %cmp.i104 = icmp ne ptr %retval.0.i.i.i.i, %add.ptr.i103
   %cmp.not3.i.i.i = icmp eq i32 %.pre228, 0
   %or.cond195 = or i1 %cmp.not3.i.i.i, %cmp.i104
   br i1 %or.cond195, label %if.end131, label %for.body.i.i.i.preheader
 
-invoke.cont127:                                   ; preds = %for.end.i.i.i.i
+invoke.cont127:                                   ; preds = %sw.bb27.i.i.i.i, %for.end.i.i.i.i
   %cmp.not3.i.i.i.old = icmp eq i32 %.pre228, 0
   br i1 %cmp.not3.i.i.i.old, label %if.end131, label %for.body.i.i.i.preheader
 

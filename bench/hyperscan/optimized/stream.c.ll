@@ -3188,8 +3188,8 @@ roseCountingMiracleScan.exit174.i:                ; preds = %for.end.i145.i
   %sub.ptr.rhs.cast.i152.i = ptrtoint ptr %add.ptr29.i to i64
   %sub.ptr.sub.i153.i = sub i64 %sub.ptr.lhs.cast.i151.i, %sub.ptr.rhs.cast.i152.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %temp.i138.sroa.0.i, ptr align 1 %add.ptr29.i, i64 %sub.ptr.sub.i153.i, i1 false)
-  %temp.i138.sroa.0.i.0.temp.i138.sroa.0.i.0.temp.i138.sroa.0.i.0.temp.i138.sroa.0.0.temp.i138.sroa.0.0.temp.i138.sroa.0.0.temp.i138.sroa.0.0.217258283.i253829743388 = load <16 x i8>, ptr %temp.i138.sroa.0.i, align 16
-  %cmp.i317.i = icmp eq <16 x i8> %vecinit15.i415.i, %temp.i138.sroa.0.i.0.temp.i138.sroa.0.i.0.temp.i138.sroa.0.i.0.temp.i138.sroa.0.0.temp.i138.sroa.0.0.temp.i138.sroa.0.0.temp.i138.sroa.0.0.217258283.i253829743388
+  %temp.i138.sroa.0.i.0.temp.i138.sroa.0.i.0.temp.i138.sroa.0.i.0.temp.i138.sroa.0.0.temp.i138.sroa.0.0.temp.i138.sroa.0.0.temp.i138.sroa.0.0.217248273.i253829743388 = load <16 x i8>, ptr %temp.i138.sroa.0.i, align 16
+  %cmp.i317.i = icmp eq <16 x i8> %vecinit15.i415.i, %temp.i138.sroa.0.i.0.temp.i138.sroa.0.i.0.temp.i138.sroa.0.i.0.temp.i138.sroa.0.0.temp.i138.sroa.0.0.temp.i138.sroa.0.0.temp.i138.sroa.0.0.217248273.i253829743388
   %456 = bitcast <16 x i1> %cmp.i317.i to i16
   %457 = tail call i16 @llvm.ctpop.i16(i16 %456), !range !19
   %458 = zext nneg i16 %457 to i32
@@ -3198,13 +3198,13 @@ roseCountingMiracleScan.exit174.i:                ; preds = %for.end.i145.i
   br i1 %cmp21.i159.not.i, label %if.end35.i, label %if.then33.i
 
 if.then33.loopexit.i:                             ; preds = %for.body.i162.i
-  %.pre277.i = ptrtoint ptr %add.ptr1.i163.i to i64
-  %.pre278.i = ptrtoint ptr %add.ptr29.i to i64
+  %.pre267.i = ptrtoint ptr %add.ptr1.i163.i to i64
+  %.pre268.i = ptrtoint ptr %add.ptr29.i to i64
   br label %if.then33.i
 
 if.then33.i:                                      ; preds = %if.then33.loopexit.i, %roseCountingMiracleScan.exit174.i
-  %sub.ptr.rhs.cast.pre-phi.i = phi i64 [ %.pre278.i, %if.then33.loopexit.i ], [ %sub.ptr.rhs.cast.i152.i, %roseCountingMiracleScan.exit174.i ]
-  %sub.ptr.lhs.cast.pre-phi.i = phi i64 [ %.pre277.i, %if.then33.loopexit.i ], [ %sub.ptr.rhs.cast.i152.i, %roseCountingMiracleScan.exit174.i ]
+  %sub.ptr.rhs.cast.pre-phi.i = phi i64 [ %.pre268.i, %if.then33.loopexit.i ], [ %sub.ptr.rhs.cast.i152.i, %roseCountingMiracleScan.exit174.i ]
+  %sub.ptr.lhs.cast.pre-phi.i = phi i64 [ %.pre267.i, %if.then33.loopexit.i ], [ %sub.ptr.rhs.cast.i152.i, %roseCountingMiracleScan.exit174.i ]
   %sub.ptr.sub.i = sub i64 %cond23.i, %sub.ptr.rhs.cast.pre-phi.i
   %add.i2395 = add i64 %sub.ptr.sub.i, %sub.ptr.lhs.cast.pre-phi.i
   br label %roseCountingMiracleOccurs.exit
@@ -3247,9 +3247,9 @@ for.body.i.i2391:                                 ; preds = %for.cond.i.i2390
 
 for.end.i.i2393:                                  ; preds = %for.cond.i.i2390
   %cmp9.i.not.i = icmp eq ptr %add.ptr49.i, %d_end.addr.i.0.i
-  br i1 %cmp9.i.not.i, label %roseCountingMiracleOccurs.exit.thread, label %roseCountingMiracleScan.exit.i
+  br i1 %cmp9.i.not.i, label %roseCountingMiracleOccurs.exit.thread, label %if.then10.i.i
 
-roseCountingMiracleScan.exit.i:                   ; preds = %for.end.i.i2393
+if.then10.i.i:                                    ; preds = %for.end.i.i2393
   %add11.i.i = add i8 %449, 1
   %temp.i.sroa.0.0.zext.i = zext i8 %add11.i.i to i64
   %temp.i.sroa.0.0.isplat.i = mul nuw i64 %temp.i.sroa.0.0.zext.i, 72340172838076673
@@ -3260,8 +3260,8 @@ roseCountingMiracleScan.exit.i:                   ; preds = %for.end.i.i2393
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %add.ptr49.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %temp.i.sroa.0.i, ptr nonnull align 1 %add.ptr49.i, i64 %sub.ptr.sub.i.i, i1 false)
-  %temp.i.sroa.0.i.0.temp.i.sroa.0.i.0.temp.i.sroa.0.i.0.temp.i.sroa.0.0.temp.i.sroa.0.0.temp.i.sroa.0.0.temp.i.sroa.0.0.218259284.i253929753389 = load <16 x i8>, ptr %temp.i.sroa.0.i, align 16
-  %cmp.i325.i = icmp eq <16 x i8> %vecinit15.i448.i, %temp.i.sroa.0.i.0.temp.i.sroa.0.i.0.temp.i.sroa.0.i.0.temp.i.sroa.0.0.temp.i.sroa.0.0.temp.i.sroa.0.0.temp.i.sroa.0.0.218259284.i253929753389
+  %temp.i.sroa.0.i.0.temp.i.sroa.0.i.0.temp.i.sroa.0.i.0.temp.i.sroa.0.0.temp.i.sroa.0.0.temp.i.sroa.0.0.temp.i.sroa.0.0.218249274.i253929753389 = load <16 x i8>, ptr %temp.i.sroa.0.i, align 16
+  %cmp.i325.i = icmp eq <16 x i8> %vecinit15.i448.i, %temp.i.sroa.0.i.0.temp.i.sroa.0.i.0.temp.i.sroa.0.i.0.temp.i.sroa.0.0.temp.i.sroa.0.0.temp.i.sroa.0.0.temp.i.sroa.0.0.218249274.i253929753389
   %466 = bitcast <16 x i1> %cmp.i325.i to i16
   %467 = tail call i16 @llvm.ctpop.i16(i16 %466), !range !19
   %468 = zext nneg i16 %467 to i32
@@ -3271,12 +3271,12 @@ roseCountingMiracleScan.exit.i:                   ; preds = %for.end.i.i2393
 
 if.then55.loopexit.i:                             ; preds = %for.body.i.i2391
   %.pre.i = ptrtoint ptr %add.ptr1.i.i to i64
-  %.pre276.i = ptrtoint ptr %add.ptr49.i to i64
+  %.pre266.i = ptrtoint ptr %add.ptr49.i to i64
   br label %if.then55.i
 
-if.then55.i:                                      ; preds = %if.then55.loopexit.i, %roseCountingMiracleScan.exit.i
-  %sub.ptr.rhs.cast57.pre-phi.i = phi i64 [ %.pre276.i, %if.then55.loopexit.i ], [ %sub.ptr.rhs.cast.i.i, %roseCountingMiracleScan.exit.i ]
-  %sub.ptr.lhs.cast56.pre-phi.i = phi i64 [ %.pre.i, %if.then55.loopexit.i ], [ %sub.ptr.rhs.cast.i.i, %roseCountingMiracleScan.exit.i ]
+if.then55.i:                                      ; preds = %if.then55.loopexit.i, %if.then10.i.i
+  %sub.ptr.rhs.cast57.pre-phi.i = phi i64 [ %.pre266.i, %if.then55.loopexit.i ], [ %sub.ptr.rhs.cast.i.i, %if.then10.i.i ]
+  %sub.ptr.lhs.cast56.pre-phi.i = phi i64 [ %.pre.i, %if.then55.loopexit.i ], [ %sub.ptr.rhs.cast.i.i, %if.then10.i.i ]
   %sub.ptr.sub58.i = sub i64 %cond.i, %sub.ptr.rhs.cast57.pre-phi.i
   %add59.i = add i64 %sub.ptr.sub58.i, %sub.ptr.lhs.cast56.pre-phi.i
   br label %roseCountingMiracleOccurs.exit
@@ -3364,13 +3364,13 @@ roseCountingMiracleScanShufti.exit271.i:          ; preds = %for.end.i229.i
   br i1 %cmp37.i249.not.i, label %if.end92.i, label %if.then86.i
 
 if.then86.loopexit.i:                             ; preds = %for.body.i252.i
-  %.pre281.i = ptrtoint ptr %add.ptr2.i253.i to i64
-  %.pre282.i = ptrtoint ptr %add.ptr80.i to i64
+  %.pre271.i = ptrtoint ptr %add.ptr2.i253.i to i64
+  %.pre272.i = ptrtoint ptr %add.ptr80.i to i64
   br label %if.then86.i
 
 if.then86.i:                                      ; preds = %if.then86.loopexit.i, %roseCountingMiracleScanShufti.exit271.i
-  %sub.ptr.rhs.cast88.pre-phi.i = phi i64 [ %.pre282.i, %if.then86.loopexit.i ], [ %sub.ptr.rhs.cast.i235.i, %roseCountingMiracleScanShufti.exit271.i ]
-  %sub.ptr.lhs.cast87.pre-phi.i = phi i64 [ %.pre281.i, %if.then86.loopexit.i ], [ %sub.ptr.rhs.cast.i235.i, %roseCountingMiracleScanShufti.exit271.i ]
+  %sub.ptr.rhs.cast88.pre-phi.i = phi i64 [ %.pre272.i, %if.then86.loopexit.i ], [ %sub.ptr.rhs.cast.i235.i, %roseCountingMiracleScanShufti.exit271.i ]
+  %sub.ptr.lhs.cast87.pre-phi.i = phi i64 [ %.pre271.i, %if.then86.loopexit.i ], [ %sub.ptr.rhs.cast.i235.i, %roseCountingMiracleScanShufti.exit271.i ]
   %sub.ptr.sub89.i = sub i64 %cond71.i, %sub.ptr.rhs.cast88.pre-phi.i
   %add90.i = add i64 %sub.ptr.sub89.i, %sub.ptr.lhs.cast87.pre-phi.i
   br label %roseCountingMiracleOccurs.exit
@@ -3422,9 +3422,9 @@ for.body.i194.i:                                  ; preds = %for.cond.i186.i
 
 for.end.i189.i:                                   ; preds = %for.cond.i186.i
   %cmp16.i.not.i = icmp eq ptr %add.ptr109.i, %d_end.addr.i177.0.i
-  br i1 %cmp16.i.not.i, label %roseCountingMiracleOccurs.exit.thread, label %roseCountingMiracleScanShufti.exit.i
+  br i1 %cmp16.i.not.i, label %roseCountingMiracleOccurs.exit.thread, label %if.then17.i.i
 
-roseCountingMiracleScanShufti.exit.i:             ; preds = %for.end.i189.i
+if.then17.i.i:                                    ; preds = %for.end.i189.i
   %temp.i184.sroa.0.0.zext.i = zext i8 %471 to i64
   %temp.i184.sroa.0.0.isplat.i = mul nuw i64 %temp.i184.sroa.0.0.zext.i, 72340172838076673
   %temp.i184.sroa.0.0.vsplat.splatinsert.i = insertelement <2 x i64> poison, i64 %temp.i184.sroa.0.0.isplat.i, i64 0
@@ -3453,18 +3453,18 @@ roseCountingMiracleScanShufti.exit.i:             ; preds = %for.end.i189.i
   br i1 %cmp37.i.not.i, label %roseCountingMiracleOccurs.exit.thread, label %if.then115.i
 
 if.then115.loopexit.i:                            ; preds = %for.body.i194.i
-  %.pre279.i = ptrtoint ptr %add.ptr2.i.i to i64
-  %.pre280.i = ptrtoint ptr %add.ptr109.i to i64
+  %.pre269.i = ptrtoint ptr %add.ptr2.i.i to i64
+  %.pre270.i = ptrtoint ptr %add.ptr109.i to i64
   br label %if.then115.i
 
-if.then115.i:                                     ; preds = %if.then115.loopexit.i, %roseCountingMiracleScanShufti.exit.i
-  %sub.ptr.rhs.cast117.pre-phi.i = phi i64 [ %.pre280.i, %if.then115.loopexit.i ], [ %sub.ptr.rhs.cast.i192.i, %roseCountingMiracleScanShufti.exit.i ]
-  %sub.ptr.lhs.cast116.pre-phi.i = phi i64 [ %.pre279.i, %if.then115.loopexit.i ], [ %sub.ptr.rhs.cast.i192.i, %roseCountingMiracleScanShufti.exit.i ]
+if.then115.i:                                     ; preds = %if.then115.loopexit.i, %if.then17.i.i
+  %sub.ptr.rhs.cast117.pre-phi.i = phi i64 [ %.pre270.i, %if.then115.loopexit.i ], [ %sub.ptr.rhs.cast.i192.i, %if.then17.i.i ]
+  %sub.ptr.lhs.cast116.pre-phi.i = phi i64 [ %.pre269.i, %if.then115.loopexit.i ], [ %sub.ptr.rhs.cast.i192.i, %if.then17.i.i ]
   %sub.ptr.sub118.i = sub i64 %cond.i, %sub.ptr.rhs.cast117.pre-phi.i
   %add119.i = add i64 %sub.ptr.sub118.i, %sub.ptr.lhs.cast116.pre-phi.i
   br label %roseCountingMiracleOccurs.exit
 
-roseCountingMiracleOccurs.exit.thread:            ; preds = %if.end.i2978.thread, %if.end.i2978, %if.end92.i, %roseCountingMiracleScanShufti.exit.i, %if.end35.i, %roseCountingMiracleScan.exit.i, %for.end.i.i2393, %for.end.i189.i
+roseCountingMiracleOccurs.exit.thread:            ; preds = %if.end.i2978.thread, %if.end.i2978, %if.end92.i, %if.end35.i, %for.end.i.i2393, %if.then10.i.i, %for.end.i189.i, %if.then17.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i218.sroa.0.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i184.sroa.0.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i138.sroa.0.i)
@@ -4137,11 +4137,11 @@ land.lhs.true.i3449:                              ; preds = %infixTooOld.exit
   %640 = load i64, ptr %location.i3453, align 8
   %add.i3455 = add nsw i64 %640, %conv.i3208
   %cmp.i3456 = icmp slt i64 %add.i3455, %last_loc81.i.0
-  br i1 %cmp.i3456, label %land.lhs.true.i3449.if.end.i3222.critedge_crit_edge, label %if.end.i3437
+  br i1 %cmp.i3456, label %land.lhs.true.i3449.if.end.i3222_crit_edge, label %if.end.i3437
 
-land.lhs.true.i3449.if.end.i3222.critedge_crit_edge: ; preds = %land.lhs.true.i3449
+land.lhs.true.i3449.if.end.i3222_crit_edge:       ; preds = %land.lhs.true.i3449
   %.pre2972 = add i32 %sub.i3216, -1
-  br label %if.end.i3222.critedge
+  br label %if.end.i3222
 
 if.end.i3437:                                     ; preds = %if.end106.i.thread, %land.lhs.true.i3449
   %sub.i32162473 = phi i32 [ %sub.i32162470, %if.end106.i.thread ], [ %sub.i3216, %land.lhs.true.i3449 ]
@@ -4150,7 +4150,7 @@ if.end.i3437:                                     ; preds = %if.end106.i.thread,
   %642 = phi i32 [ %636, %if.end106.i.thread ], [ %638, %land.lhs.true.i3449 ]
   %sub3.i3438 = add i32 %sub.i32162473, -1
   %cmp4.i3439 = icmp ugt i32 %sub3.i3438, %642
-  br i1 %cmp4.i3439, label %if.end.i3222.critedge, label %if.end7.i3440
+  br i1 %cmp4.i3439, label %if.end.i3222, label %if.end7.i3440
 
 if.end7.i3440:                                    ; preds = %if.end.i3437
   %cmp9.i3441 = icmp eq i32 %sub3.i3438, %642
@@ -4165,19 +4165,19 @@ land.lhs.true11.i:                                ; preds = %if.end7.i3440
   %location22.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i3189, i64 0, i64 %idxprom20.i, i32 1
   %644 = load i64, ptr %location22.i, align 8
   %cmp23.i.not = icmp eq i64 %643, %644
-  br i1 %cmp23.i.not, label %if.end108.i, label %if.end.i3222.critedge
+  br i1 %cmp23.i.not, label %if.end108.i, label %if.end.i3222
 
-if.end.i3222.critedge:                            ; preds = %land.lhs.true.i3449.if.end.i3222.critedge_crit_edge, %land.lhs.true11.i, %if.end.i3437
-  %sub3.i.pre-phi = phi i32 [ %.pre2972, %land.lhs.true.i3449.if.end.i3222.critedge_crit_edge ], [ %sub3.i3438, %land.lhs.true11.i ], [ %sub3.i3438, %if.end.i3437 ]
-  %645 = phi i32 [ %639, %land.lhs.true.i3449.if.end.i3222.critedge_crit_edge ], [ %641, %land.lhs.true11.i ], [ %641, %if.end.i3437 ]
-  %cur.i32152471 = phi ptr [ %cur.i3215, %land.lhs.true.i3449.if.end.i3222.critedge_crit_edge ], [ %cur.i32152472, %land.lhs.true11.i ], [ %cur.i32152472, %if.end.i3437 ]
-  %646 = phi i32 [ %638, %land.lhs.true.i3449.if.end.i3222.critedge_crit_edge ], [ %642, %land.lhs.true11.i ], [ %642, %if.end.i3437 ]
+if.end.i3222:                                     ; preds = %land.lhs.true.i3449.if.end.i3222_crit_edge, %if.end.i3437, %land.lhs.true11.i
+  %sub3.i.pre-phi = phi i32 [ %.pre2972, %land.lhs.true.i3449.if.end.i3222_crit_edge ], [ %sub3.i3438, %if.end.i3437 ], [ %sub3.i3438, %land.lhs.true11.i ]
+  %645 = phi i32 [ %639, %land.lhs.true.i3449.if.end.i3222_crit_edge ], [ %641, %if.end.i3437 ], [ %641, %land.lhs.true11.i ]
+  %cur.i32152471 = phi ptr [ %cur.i3215, %land.lhs.true.i3449.if.end.i3222_crit_edge ], [ %cur.i32152472, %if.end.i3437 ], [ %cur.i32152472, %land.lhs.true11.i ]
+  %646 = phi i32 [ %638, %land.lhs.true.i3449.if.end.i3222_crit_edge ], [ %642, %if.end.i3437 ], [ %642, %land.lhs.true11.i ]
   %cmp.i3223.not = icmp uge i32 %sub3.i.pre-phi, %646
   %brmerge = or i1 %tobool.i3199.not, %cmp.i3223.not
   %.pre2973 = zext i32 %645 to i64
   br i1 %brmerge, label %lor.end.i, label %land.rhs.i
 
-land.rhs.i:                                       ; preds = %if.end.i3222.critedge
+land.rhs.i:                                       ; preds = %if.end.i3222
   %location.i3244 = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i3189, i64 0, i64 %.pre2973, i32 1
   %647 = load i64, ptr %location.i3244, align 8
   %conv.i3245 = zext i32 %635 to i64
@@ -4185,8 +4185,8 @@ land.rhs.i:                                       ; preds = %if.end.i3222.crited
   %cmp6.i3247 = icmp slt i64 %add.i3246, %last_loc81.i.0
   br label %lor.end.i
 
-lor.end.i:                                        ; preds = %if.end.i3222.critedge, %land.rhs.i
-  %648 = phi i1 [ %cmp6.i3247, %land.rhs.i ], [ %cmp.i3223.not, %if.end.i3222.critedge ]
+lor.end.i:                                        ; preds = %if.end.i3222, %land.rhs.i
+  %648 = phi i1 [ %cmp6.i3247, %land.rhs.i ], [ %cmp.i3223.not, %if.end.i3222 ]
   %cond.i3229 = tail call i32 @llvm.umin.i32(i32 %646, i32 %sub3.i.pre-phi)
   %sub16.i = sub i32 %628, %cond.i3229
   %idxprom17.i = zext i32 %sub16.i to i64
@@ -4261,8 +4261,8 @@ if.end63.i:                                       ; preds = %if.then53.i, %if.th
   %.pre2968 = load i32, ptr %end.i3190, align 4
   br label %if.end108.i
 
-if.end108.i:                                      ; preds = %land.lhs.true11.i, %if.end7.i3440, %if.end63.i, %for.end51.i, %if.end97.i2739
-  %654 = phi i32 [ %628, %land.lhs.true11.i ], [ %628, %if.end7.i3440 ], [ %.pre2968, %if.end63.i ], [ %651, %for.end51.i ], [ %628, %if.end97.i2739 ]
+if.end108.i:                                      ; preds = %if.end7.i3440, %land.lhs.true11.i, %if.end63.i, %for.end51.i, %if.end97.i2739
+  %654 = phi i32 [ %628, %if.end7.i3440 ], [ %628, %land.lhs.true11.i ], [ %.pre2968, %if.end63.i ], [ %651, %for.end51.i ], [ %628, %if.end97.i2739 ]
   %idxprom.i3256 = zext i32 %654 to i64
   %arrayidx.i3257 = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i3189, i64 0, i64 %idxprom.i3256
   store i32 1, ptr %arrayidx.i3257, align 8

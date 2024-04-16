@@ -694,13 +694,13 @@ define internal fastcc i64 @tick_nohz_next_event(ptr nocapture noundef %0, i32 n
   %40 = load i8, ptr %0, align 8
   %41 = and i8 %40, 2
   %42 = icmp eq i8 %41, 0
-  br i1 %42, label %60, label %43
+  br i1 %42, label %61, label %43
 
 43:                                               ; preds = %39, %35
   %44 = tail call i64 @timekeeping_max_deferment() #14
   %45 = load i32, ptr @tick_do_timer_cpu, align 4
   %46 = icmp eq i32 %45, %1
-  br i1 %46, label %53, label %47
+  br i1 %46, label %54, label %47
 
 47:                                               ; preds = %43
   %48 = icmp eq i32 %45, -1
@@ -710,23 +710,25 @@ define internal fastcc i64 @tick_nohz_next_event(ptr nocapture noundef %0, i32 n
   %50 = load i8, ptr %0, align 8
   %51 = and i8 %50, 8
   %52 = icmp eq i8 %51, 0
-  %spec.select = select i1 %52, i64 9223372036854775807, i64 %44
-  br label %53
+  br i1 %52, label %53, label %54
 
-53:                                               ; preds = %49, %47, %43
-  %54 = phi i64 [ %44, %43 ], [ 9223372036854775807, %47 ], [ %spec.select, %49 ]
-  %55 = sub i64 9223372036854775807, %11
-  %56 = icmp ult i64 %54, %55
-  %57 = add i64 %54, %11
-  %58 = select i1 %56, i64 %57, i64 9223372036854775807
-  %59 = tail call i64 @llvm.umin.i64(i64 %58, i64 %36)
-  br label %60
+53:                                               ; preds = %49, %47
+  br label %54
 
-60:                                               ; preds = %53, %39
-  %61 = phi i64 [ %59, %53 ], [ 0, %39 ]
-  %62 = getelementptr inbounds i8, ptr %0, i64 152
-  store i64 %61, ptr %62, align 8
-  ret i64 %61
+54:                                               ; preds = %53, %49, %43
+  %55 = phi i64 [ 9223372036854775807, %53 ], [ %44, %49 ], [ %44, %43 ]
+  %56 = sub i64 9223372036854775807, %11
+  %57 = icmp ult i64 %55, %56
+  %58 = add i64 %55, %11
+  %59 = select i1 %57, i64 %58, i64 9223372036854775807
+  %60 = tail call i64 @llvm.umin.i64(i64 %59, i64 %36)
+  br label %61
+
+61:                                               ; preds = %54, %39
+  %62 = phi i64 [ %60, %54 ], [ 0, %39 ]
+  %63 = getelementptr inbounds i8, ptr %0, i64 152
+  store i64 %62, ptr %63, align 8
+  ret i64 %62
 }
 
 ; Function Attrs: null_pointer_is_valid

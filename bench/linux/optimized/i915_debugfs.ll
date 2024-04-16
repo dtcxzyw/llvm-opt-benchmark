@@ -795,8 +795,8 @@ define internal i32 @i915_wedged_get(ptr nocapture noundef readonly %0, ptr noun
 .backedge.backedge:                               ; preds = %.thread2, %12
   br label %.backedge, !llvm.loop !16
 
-.thread:                                          ; preds = %9, %12, %.thread2
-  %15 = phi i32 [ 0, %.thread2 ], [ 0, %12 ], [ %10, %9 ]
+.thread:                                          ; preds = %9, %.thread2, %12
+  %15 = phi i32 [ 0, %12 ], [ 0, %.thread2 ], [ %10, %9 ]
   ret i32 %15
 }
 

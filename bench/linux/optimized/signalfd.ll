@@ -669,15 +669,17 @@ define internal noundef i32 @signalfd_poll(ptr noundef %0, ptr noundef %1) #0 al
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 64
   %26 = tail call i32 @next_signal(ptr noundef %25, ptr noundef %4) #5
-  %27 = icmp ne i32 %26, 0
-  %spec.select = zext i1 %27 to i32
-  br label %28
+  %27 = icmp eq i32 %26, 0
+  br i1 %27, label %29, label %28
 
 28:                                               ; preds = %22, %17
-  %29 = phi i32 [ 1, %17 ], [ %spec.select, %22 ]
-  %30 = load ptr, ptr %7, align 32
-  tail call void @_raw_spin_unlock_irq(ptr noundef %30) #5
-  ret i32 %29
+  br label %29
+
+29:                                               ; preds = %28, %22
+  %30 = phi i32 [ 1, %28 ], [ 0, %22 ]
+  %31 = load ptr, ptr %7, align 32
+  tail call void @_raw_spin_unlock_irq(ptr noundef %31) #5
+  ret i32 %30
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -1084,21 +1084,15 @@ if.then14:                                        ; preds = %if.end13
 invoke.cont16:                                    ; preds = %if.then14
   %3 = load i64, ptr %ref.tmp15, align 8
   %cmp.not.i20 = icmp eq i64 %3, 0
-  br i1 %cmp.not.i20, label %_ZN4absl12lts_202308026StatusD2Ev.exit31, label %if.then.i21
+  br i1 %cmp.not.i20, label %_ZN4absl12lts_202308026StatusD2Ev.exit37, label %_ZN4absl12lts_202308026StatusD2Ev.exit31
 
-if.then.i21:                                      ; preds = %invoke.cont16
+_ZN4absl12lts_202308026StatusD2Ev.exit31:         ; preds = %invoke.cont16
   store i64 %3, ptr %err, align 8
   store i64 54, ptr %ref.tmp15, align 8
-  br label %_ZN4absl12lts_202308026StatusD2Ev.exit31
-
-_ZN4absl12lts_202308026StatusD2Ev.exit31:         ; preds = %invoke.cont16, %if.then.i21
-  %cmp.i32 = icmp ne i64 %3, 0
-  %spec.select = sext i1 %cmp.i32 to i32
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit18, %_ZN4absl12lts_202308026StatusD2Ev.exit, %_ZN4absl12lts_202308026StatusD2Ev.exit31
+cleanup:                                          ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit31, %_ZN4absl12lts_202308026StatusD2Ev.exit18, %_ZN4absl12lts_202308026StatusD2Ev.exit
   %4 = phi i64 [ %1, %_ZN4absl12lts_202308026StatusD2Ev.exit ], [ %2, %_ZN4absl12lts_202308026StatusD2Ev.exit18 ], [ %3, %_ZN4absl12lts_202308026StatusD2Ev.exit31 ]
-  %retval.0 = phi i32 [ -1, %_ZN4absl12lts_202308026StatusD2Ev.exit ], [ -1, %_ZN4absl12lts_202308026StatusD2Ev.exit18 ], [ %spec.select, %_ZN4absl12lts_202308026StatusD2Ev.exit31 ]
   %and.i.i.i33 = and i64 %4, 1
   %cmp.i.i.i34 = icmp eq i64 %and.i.i.i33, 0
   br i1 %cmp.i.i.i34, label %_ZN4absl12lts_202308026StatusD2Ev.exit37, label %if.then.i.i35
@@ -1114,9 +1108,9 @@ terminate.lpad.i36:                               ; preds = %if.then.i.i35
   call void @__clang_call_terminate(ptr %6) #16
   unreachable
 
-_ZN4absl12lts_202308026StatusD2Ev.exit37:         ; preds = %if.end13, %cleanup, %if.then.i.i35
-  %retval.044 = phi i32 [ %retval.0, %cleanup ], [ %retval.0, %if.then.i.i35 ], [ 0, %if.end13 ]
-  ret i32 %retval.044
+_ZN4absl12lts_202308026StatusD2Ev.exit37:         ; preds = %invoke.cont16, %if.end13, %cleanup, %if.then.i.i35
+  %retval.045 = phi i32 [ -1, %cleanup ], [ -1, %if.then.i.i35 ], [ 0, %if.end13 ], [ 0, %invoke.cont16 ]
+  ret i32 %retval.045
 
 ehcleanup:                                        ; preds = %entry, %if.end, %if.then14
   %7 = landingpad { ptr, i32 }

@@ -454,7 +454,7 @@ define dso_local void @i915_ttm_adjust_lru(ptr noundef %0) #1 align 16 {
   %17 = getelementptr inbounds i8, ptr %0, i64 376
   %18 = load volatile i32, ptr %17, align 4
   %19 = icmp eq i32 %18, 0
-  br i1 %19, label %101, label %20
+  br i1 %19, label %102, label %20
 
 20:                                               ; preds = %14
   %21 = load volatile i32, ptr %0, align 4
@@ -546,14 +546,14 @@ define dso_local void @i915_ttm_adjust_lru(ptr noundef %0) #1 align 16 {
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 2080
   tail call void @_raw_spin_lock(ptr noundef %61) #11
-  br i1 %15, label %96, label %62
+  br i1 %15, label %97, label %62
 
 62:                                               ; preds = %.thread6
   %63 = getelementptr inbounds i8, ptr %0, i64 912
   %64 = load i8, ptr %63, align 8
   %65 = and i8 %64, 3
   %66 = icmp eq i8 %65, 0
-  br i1 %66, label %67, label %96
+  br i1 %66, label %67, label %97
 
 67:                                               ; preds = %62
   %68 = getelementptr inbounds i8, ptr %0, i64 744
@@ -561,7 +561,7 @@ define dso_local void @i915_ttm_adjust_lru(ptr noundef %0) #1 align 16 {
   %70 = icmp ne ptr %69, null
   %71 = icmp ule ptr %69, inttoptr (i64 -4096 to ptr)
   %72 = and i1 %70, %71
-  br i1 %72, label %73, label %96
+  br i1 %72, label %73, label %97
 
 73:                                               ; preds = %67
   %74 = getelementptr inbounds i8, ptr %0, i64 384
@@ -590,20 +590,22 @@ define dso_local void @i915_ttm_adjust_lru(ptr noundef %0) #1 align 16 {
   %93 = load i64, ptr %92, align 8
   %94 = and i64 %93, 64
   %95 = icmp eq i64 %94, 0
-  %spec.select = select i1 %95, i32 3, i32 2
-  br label %96
+  br i1 %95, label %97, label %96
 
-96:                                               ; preds = %91, %73, %81, %67, %62, %.thread6
-  %97 = phi i32 [ 3, %.thread6 ], [ 0, %62 ], [ 1, %67 ], [ 2, %81 ], [ 2, %73 ], [ %spec.select, %91 ]
-  %98 = getelementptr inbounds i8, ptr %0, i64 416
-  store i32 %97, ptr %98, align 8
+96:                                               ; preds = %91, %81, %73
+  br label %97
+
+97:                                               ; preds = %96, %91, %67, %62, %.thread6
+  %98 = phi i32 [ 2, %96 ], [ 3, %.thread6 ], [ 0, %62 ], [ 1, %67 ], [ 3, %91 ]
+  %99 = getelementptr inbounds i8, ptr %0, i64 416
+  store i32 %98, ptr %99, align 8
   tail call void @ttm_bo_move_to_lru_tail(ptr noundef %0) #11
-  %99 = load ptr, ptr %59, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 2080
-  tail call void @_raw_spin_unlock(ptr noundef %100) #11
-  br label %101
+  %100 = load ptr, ptr %59, align 8
+  %101 = getelementptr inbounds i8, ptr %100, i64 2080
+  tail call void @_raw_spin_unlock(ptr noundef %101) #11
+  br label %102
 
-101:                                              ; preds = %96, %14
+102:                                              ; preds = %97, %14
   ret void
 }
 

@@ -1809,104 +1809,104 @@ define noundef i32 @slurmdb_unpack_cluster_accounting_rec(ptr nocapture noundef 
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 104, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 569, ptr noundef nonnull @__func__.slurmdb_unpack_cluster_accounting_rec) #6
   store ptr %5, ptr %0, align 8
   %6 = icmp ugt i16 %1, 9983
-  br i1 %6, label %7, label %41
+  br i1 %6, label %7, label %42
 
 7:                                                ; preds = %3
   %8 = tail call i32 @unpack64(ptr noundef %5, ptr noundef %2) #6
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %9, label %44
+  br i1 %.not, label %9, label %45
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds i8, ptr %5, i64 56
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   %11 = tail call i32 @unpack64(ptr noundef nonnull %10, ptr noundef %2) #6
   %.not.i = icmp eq i32 %11, 0
-  br i1 %.not.i, label %12, label %slurmdb_unpack_tres_rec_noalloc.exit.thread
+  br i1 %.not.i, label %12, label %slurmdb_unpack_tres_rec_noalloc.exit
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds i8, ptr %5, i64 72
   %14 = tail call i32 @unpack64(ptr noundef nonnull %13, ptr noundef %2) #6
   %.not10.i = icmp eq i32 %14, 0
-  br i1 %.not10.i, label %15, label %slurmdb_unpack_tres_rec_noalloc.exit.thread
+  br i1 %.not10.i, label %15, label %slurmdb_unpack_tres_rec_noalloc.exit
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds i8, ptr %5, i64 80
   %17 = tail call i32 @unpack32(ptr noundef nonnull %16, ptr noundef %2) #6
   %.not11.i = icmp eq i32 %17, 0
-  br i1 %.not11.i, label %18, label %slurmdb_unpack_tres_rec_noalloc.exit.thread
+  br i1 %.not11.i, label %18, label %slurmdb_unpack_tres_rec_noalloc.exit
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %5, i64 88
   %20 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %19, ptr noundef nonnull %4, ptr noundef %2) #6
   %.not12.i = icmp eq i32 %20, 0
-  br i1 %.not12.i, label %slurmdb_unpack_tres_rec_noalloc.exit, label %slurmdb_unpack_tres_rec_noalloc.exit.thread
+  br i1 %.not12.i, label %21, label %slurmdb_unpack_tres_rec_noalloc.exit
 
-slurmdb_unpack_tres_rec_noalloc.exit.thread:      ; preds = %18, %15, %12, %9
+21:                                               ; preds = %18
+  %22 = getelementptr inbounds i8, ptr %5, i64 96
+  %23 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %22, ptr noundef nonnull %4, ptr noundef %2) #6
+  %.not13.i = icmp eq i32 %23, 0
+  br i1 %.not13.i, label %24, label %slurmdb_unpack_tres_rec_noalloc.exit
+
+slurmdb_unpack_tres_rec_noalloc.exit:             ; preds = %9, %12, %15, %18, %21
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  br label %44
-
-slurmdb_unpack_tres_rec_noalloc.exit:             ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %5, i64 96
-  %22 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %21, ptr noundef nonnull %4, ptr noundef %2) #6
-  %.not13.i.not = icmp eq i32 %22, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  br i1 %.not13.i.not, label %23, label %44
-
-23:                                               ; preds = %slurmdb_unpack_tres_rec_noalloc.exit
-  %24 = getelementptr inbounds i8, ptr %5, i64 8
-  %25 = call i32 @unpack64(ptr noundef nonnull %24, ptr noundef %2) #6
-  %.not25 = icmp eq i32 %25, 0
-  br i1 %.not25, label %26, label %44
-
-26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %5, i64 16
-  %28 = call i32 @unpack64(ptr noundef nonnull %27, ptr noundef %2) #6
-  %.not26 = icmp eq i32 %28, 0
-  br i1 %.not26, label %29, label %44
-
-29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %5, i64 24
-  %31 = call i32 @unpack64(ptr noundef nonnull %30, ptr noundef %2) #6
-  %.not27 = icmp eq i32 %31, 0
-  br i1 %.not27, label %32, label %44
-
-32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %5, i64 32
-  %34 = call i32 @unpack64(ptr noundef nonnull %33, ptr noundef %2) #6
-  %.not28 = icmp eq i32 %34, 0
-  br i1 %.not28, label %35, label %44
-
-35:                                               ; preds = %32
-  %36 = getelementptr inbounds i8, ptr %5, i64 40
-  %37 = call i32 @unpack_time(ptr noundef nonnull %36, ptr noundef %2) #6
-  %.not29 = icmp eq i32 %37, 0
-  br i1 %.not29, label %38, label %44
-
-38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %5, i64 48
-  %40 = call i32 @unpack64(ptr noundef nonnull %39, ptr noundef %2) #6
-  %.not30 = icmp eq i32 %40, 0
-  br i1 %.not30, label %45, label %44
-
-41:                                               ; preds = %3
-  %42 = zext nneg i16 %1 to i32
-  %43 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.slurmdb_unpack_cluster_accounting_rec, i32 noundef %42) #6
-  br label %44
-
-44:                                               ; preds = %slurmdb_unpack_tres_rec_noalloc.exit.thread, %38, %35, %32, %29, %26, %23, %slurmdb_unpack_tres_rec_noalloc.exit, %7, %41
-  call void @slurmdb_destroy_cluster_accounting_rec(ptr noundef %5) #6
-  store ptr null, ptr %0, align 8
   br label %45
 
-45:                                               ; preds = %38, %44
-  %.0 = phi i32 [ -1, %44 ], [ 0, %38 ]
+24:                                               ; preds = %21
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  %25 = getelementptr inbounds i8, ptr %5, i64 8
+  %26 = call i32 @unpack64(ptr noundef nonnull %25, ptr noundef %2) #6
+  %.not25 = icmp eq i32 %26, 0
+  br i1 %.not25, label %27, label %45
+
+27:                                               ; preds = %24
+  %28 = getelementptr inbounds i8, ptr %5, i64 16
+  %29 = call i32 @unpack64(ptr noundef nonnull %28, ptr noundef %2) #6
+  %.not26 = icmp eq i32 %29, 0
+  br i1 %.not26, label %30, label %45
+
+30:                                               ; preds = %27
+  %31 = getelementptr inbounds i8, ptr %5, i64 24
+  %32 = call i32 @unpack64(ptr noundef nonnull %31, ptr noundef %2) #6
+  %.not27 = icmp eq i32 %32, 0
+  br i1 %.not27, label %33, label %45
+
+33:                                               ; preds = %30
+  %34 = getelementptr inbounds i8, ptr %5, i64 32
+  %35 = call i32 @unpack64(ptr noundef nonnull %34, ptr noundef %2) #6
+  %.not28 = icmp eq i32 %35, 0
+  br i1 %.not28, label %36, label %45
+
+36:                                               ; preds = %33
+  %37 = getelementptr inbounds i8, ptr %5, i64 40
+  %38 = call i32 @unpack_time(ptr noundef nonnull %37, ptr noundef %2) #6
+  %.not29 = icmp eq i32 %38, 0
+  br i1 %.not29, label %39, label %45
+
+39:                                               ; preds = %36
+  %40 = getelementptr inbounds i8, ptr %5, i64 48
+  %41 = call i32 @unpack64(ptr noundef nonnull %40, ptr noundef %2) #6
+  %.not30 = icmp eq i32 %41, 0
+  br i1 %.not30, label %46, label %45
+
+42:                                               ; preds = %3
+  %43 = zext nneg i16 %1 to i32
+  %44 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.slurmdb_unpack_cluster_accounting_rec, i32 noundef %43) #6
+  br label %45
+
+45:                                               ; preds = %slurmdb_unpack_tres_rec_noalloc.exit, %39, %36, %33, %30, %27, %24, %7, %42
+  call void @slurmdb_destroy_cluster_accounting_rec(ptr noundef %5) #6
+  store ptr null, ptr %0, align 8
+  br label %46
+
+46:                                               ; preds = %39, %45
+  %.0 = phi i32 [ -1, %45 ], [ 0, %39 ]
   ret i32 %.0
 }
 
 declare i32 @unpack64(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @slurmdb_unpack_tres_rec_noalloc(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define noundef i32 @slurmdb_unpack_tres_rec_noalloc(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = tail call i32 @unpack64(ptr noundef %0, ptr noundef %2) #6
   %.not = icmp eq i32 %5, 0
@@ -1933,12 +1933,14 @@ define i32 @slurmdb_unpack_tres_rec_noalloc(ptr noundef %0, i16 noundef zeroext 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds i8, ptr %0, i64 40
   %17 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %16, ptr noundef nonnull %4, ptr noundef %2) #6
-  %.not13 = icmp ne i32 %17, 0
-  %spec.select = sext i1 %.not13 to i32
-  br label %18
+  %.not13 = icmp eq i32 %17, 0
+  br i1 %.not13, label %19, label %18
 
-18:                                               ; preds = %15, %3, %6, %9, %12
-  %.0 = phi i32 [ -1, %12 ], [ -1, %9 ], [ -1, %6 ], [ -1, %3 ], [ %spec.select, %15 ]
+18:                                               ; preds = %15, %12, %9, %6, %3
+  br label %19
+
+19:                                               ; preds = %15, %18
+  %.0 = phi i32 [ -1, %18 ], [ 0, %15 ]
   ret i32 %.0
 }
 
@@ -3471,73 +3473,73 @@ define noundef i32 @slurmdb_unpack_accounting_rec(ptr nocapture noundef writeonl
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 72, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 1221, ptr noundef nonnull @__func__.slurmdb_unpack_accounting_rec) #6
   store ptr %5, ptr %0, align 8
   %6 = icmp ugt i16 %1, 9983
-  br i1 %6, label %7, label %29
+  br i1 %6, label %7, label %30
 
 7:                                                ; preds = %3
   %8 = tail call i32 @unpack64(ptr noundef %5, ptr noundef %2) #6
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %9, label %32
+  br i1 %.not, label %9, label %33
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds i8, ptr %5, i64 24
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   %11 = tail call i32 @unpack64(ptr noundef nonnull %10, ptr noundef %2) #6
   %.not.i = icmp eq i32 %11, 0
-  br i1 %.not.i, label %12, label %slurmdb_unpack_tres_rec_noalloc.exit.thread
+  br i1 %.not.i, label %12, label %slurmdb_unpack_tres_rec_noalloc.exit
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds i8, ptr %5, i64 40
   %14 = tail call i32 @unpack64(ptr noundef nonnull %13, ptr noundef %2) #6
   %.not10.i = icmp eq i32 %14, 0
-  br i1 %.not10.i, label %15, label %slurmdb_unpack_tres_rec_noalloc.exit.thread
+  br i1 %.not10.i, label %15, label %slurmdb_unpack_tres_rec_noalloc.exit
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds i8, ptr %5, i64 48
   %17 = tail call i32 @unpack32(ptr noundef nonnull %16, ptr noundef %2) #6
   %.not11.i = icmp eq i32 %17, 0
-  br i1 %.not11.i, label %18, label %slurmdb_unpack_tres_rec_noalloc.exit.thread
+  br i1 %.not11.i, label %18, label %slurmdb_unpack_tres_rec_noalloc.exit
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %5, i64 56
   %20 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %19, ptr noundef nonnull %4, ptr noundef %2) #6
   %.not12.i = icmp eq i32 %20, 0
-  br i1 %.not12.i, label %slurmdb_unpack_tres_rec_noalloc.exit, label %slurmdb_unpack_tres_rec_noalloc.exit.thread
+  br i1 %.not12.i, label %21, label %slurmdb_unpack_tres_rec_noalloc.exit
 
-slurmdb_unpack_tres_rec_noalloc.exit.thread:      ; preds = %18, %15, %12, %9
+21:                                               ; preds = %18
+  %22 = getelementptr inbounds i8, ptr %5, i64 64
+  %23 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %22, ptr noundef nonnull %4, ptr noundef %2) #6
+  %.not13.i = icmp eq i32 %23, 0
+  br i1 %.not13.i, label %24, label %slurmdb_unpack_tres_rec_noalloc.exit
+
+slurmdb_unpack_tres_rec_noalloc.exit:             ; preds = %9, %12, %15, %18, %21
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  br label %32
-
-slurmdb_unpack_tres_rec_noalloc.exit:             ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %5, i64 64
-  %22 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %21, ptr noundef nonnull %4, ptr noundef %2) #6
-  %.not13.i.not = icmp eq i32 %22, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  br i1 %.not13.i.not, label %23, label %32
-
-23:                                               ; preds = %slurmdb_unpack_tres_rec_noalloc.exit
-  %24 = getelementptr inbounds i8, ptr %5, i64 8
-  %25 = call i32 @unpack32(ptr noundef nonnull %24, ptr noundef %2) #6
-  %.not17 = icmp eq i32 %25, 0
-  br i1 %.not17, label %26, label %32
-
-26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %5, i64 16
-  %28 = call i32 @unpack_time(ptr noundef nonnull %27, ptr noundef %2) #6
-  %.not18 = icmp eq i32 %28, 0
-  br i1 %.not18, label %33, label %32
-
-29:                                               ; preds = %3
-  %30 = zext nneg i16 %1 to i32
-  %31 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.slurmdb_unpack_accounting_rec, i32 noundef %30) #6
-  br label %32
-
-32:                                               ; preds = %slurmdb_unpack_tres_rec_noalloc.exit.thread, %26, %23, %slurmdb_unpack_tres_rec_noalloc.exit, %7, %29
-  call void @slurmdb_destroy_accounting_rec(ptr noundef %5) #6
-  store ptr null, ptr %0, align 8
   br label %33
 
-33:                                               ; preds = %26, %32
-  %.0 = phi i32 [ -1, %32 ], [ 0, %26 ]
+24:                                               ; preds = %21
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  %25 = getelementptr inbounds i8, ptr %5, i64 8
+  %26 = call i32 @unpack32(ptr noundef nonnull %25, ptr noundef %2) #6
+  %.not17 = icmp eq i32 %26, 0
+  br i1 %.not17, label %27, label %33
+
+27:                                               ; preds = %24
+  %28 = getelementptr inbounds i8, ptr %5, i64 16
+  %29 = call i32 @unpack_time(ptr noundef nonnull %28, ptr noundef %2) #6
+  %.not18 = icmp eq i32 %29, 0
+  br i1 %.not18, label %34, label %33
+
+30:                                               ; preds = %3
+  %31 = zext nneg i16 %1 to i32
+  %32 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.slurmdb_unpack_accounting_rec, i32 noundef %31) #6
+  br label %33
+
+33:                                               ; preds = %slurmdb_unpack_tres_rec_noalloc.exit, %27, %24, %7, %30
+  call void @slurmdb_destroy_accounting_rec(ptr noundef %5) #6
+  store ptr null, ptr %0, align 8
+  br label %34
+
+34:                                               ; preds = %27, %33
+  %.0 = phi i32 [ -1, %33 ], [ 0, %27 ]
   ret i32 %.0
 }
 
@@ -5618,8 +5620,8 @@ define void @slurmdb_pack_qos_usage(ptr nocapture noundef readonly %0, i16 nound
   %33 = load ptr, ptr %27, align 8
   %34 = tail call ptr @list_iterator_create(ptr noundef %33) #6
   %35 = tail call ptr @list_next(ptr noundef %34) #6
-  %.not5669 = icmp eq ptr %35, null
-  br i1 %.not5669, label %._crit_edge, label %.lr.ph
+  %.not5666 = icmp eq ptr %35, null
+  br i1 %.not5666, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %32, %.lr.ph
   %36 = phi ptr [ %38, %.lr.ph ], [ %35, %32 ]
@@ -5637,14 +5639,14 @@ define void @slurmdb_pack_qos_usage(ptr nocapture noundef readonly %0, i16 nound
   %40 = getelementptr inbounds i8, ptr %0, i64 8
   %41 = load ptr, ptr %40, align 8
   %.not57 = icmp eq ptr %41, null
-  br i1 %.not57, label %.thread66, label %42
+  br i1 %.not57, label %.thread63, label %42
 
 42:                                               ; preds = %39
   %43 = tail call i32 @list_count(ptr noundef nonnull %41) #6
   %.not58 = icmp eq i32 %43, 0
-  br i1 %.not58, label %.thread66, label %44
+  br i1 %.not58, label %.thread63, label %44
 
-.thread66:                                        ; preds = %39, %42
+.thread63:                                        ; preds = %39, %42
   tail call void @pack32(i32 noundef -2, ptr noundef %2) #6
   br label %55
 
@@ -5657,18 +5659,18 @@ define void @slurmdb_pack_qos_usage(ptr nocapture noundef readonly %0, i16 nound
   %46 = load ptr, ptr %40, align 8
   %47 = tail call ptr @list_iterator_create(ptr noundef %46) #6
   %48 = tail call ptr @list_next(ptr noundef %47) #6
-  %.not6070 = icmp eq ptr %48, null
-  br i1 %.not6070, label %._crit_edge73, label %.lr.ph72
+  %.not6067 = icmp eq ptr %48, null
+  br i1 %.not6067, label %._crit_edge70, label %.lr.ph69
 
-.lr.ph72:                                         ; preds = %45, %.lr.ph72
-  %49 = phi ptr [ %51, %.lr.ph72 ], [ %48, %45 ]
+.lr.ph69:                                         ; preds = %45, %.lr.ph69
+  %49 = phi ptr [ %51, %.lr.ph69 ], [ %48, %45 ]
   %50 = load i32, ptr %13, align 16
   tail call void @slurmdb_pack_used_limits(ptr noundef nonnull %49, i32 noundef %50, i16 noundef zeroext %1, ptr noundef %2)
   %51 = tail call ptr @list_next(ptr noundef %47) #6
   %.not60 = icmp eq ptr %51, null
-  br i1 %.not60, label %._crit_edge73, label %.lr.ph72, !llvm.loop !27
+  br i1 %.not60, label %._crit_edge70, label %.lr.ph69, !llvm.loop !27
 
-._crit_edge73:                                    ; preds = %.lr.ph72, %45
+._crit_edge70:                                    ; preds = %.lr.ph69, %45
   tail call void @list_iterator_destroy(ptr noundef %47) #6
   br label %55
 
@@ -5677,7 +5679,7 @@ define void @slurmdb_pack_qos_usage(ptr nocapture noundef readonly %0, i16 nound
   %54 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__.slurmdb_pack_qos_usage, i32 noundef %53) #6
   br label %55
 
-55:                                               ; preds = %.thread66, %44, %._crit_edge73, %52
+55:                                               ; preds = %.thread63, %44, %._crit_edge70, %52
   ret void
 }
 
@@ -6362,45 +6364,45 @@ define noundef i32 @slurmdb_unpack_tres_rec(ptr nocapture noundef writeonly %0, 
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   %6 = tail call i32 @unpack64(ptr noundef %5, ptr noundef %2) #6
   %.not.i = icmp eq i32 %6, 0
-  br i1 %.not.i, label %7, label %slurmdb_unpack_tres_rec_noalloc.exit.thread
+  br i1 %.not.i, label %7, label %19
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = tail call i32 @unpack64(ptr noundef nonnull %8, ptr noundef %2) #6
   %.not10.i = icmp eq i32 %9, 0
-  br i1 %.not10.i, label %10, label %slurmdb_unpack_tres_rec_noalloc.exit.thread
+  br i1 %.not10.i, label %10, label %19
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds i8, ptr %5, i64 24
   %12 = tail call i32 @unpack32(ptr noundef nonnull %11, ptr noundef %2) #6
   %.not11.i = icmp eq i32 %12, 0
-  br i1 %.not11.i, label %13, label %slurmdb_unpack_tres_rec_noalloc.exit.thread
+  br i1 %.not11.i, label %13, label %19
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds i8, ptr %5, i64 32
   %15 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %14, ptr noundef nonnull %4, ptr noundef %2) #6
   %.not12.i = icmp eq i32 %15, 0
-  br i1 %.not12.i, label %slurmdb_unpack_tres_rec_noalloc.exit, label %slurmdb_unpack_tres_rec_noalloc.exit.thread
+  br i1 %.not12.i, label %16, label %19
 
-slurmdb_unpack_tres_rec_noalloc.exit.thread:      ; preds = %13, %10, %7, %3
+16:                                               ; preds = %13
+  %17 = getelementptr inbounds i8, ptr %5, i64 40
+  %18 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %17, ptr noundef nonnull %4, ptr noundef %2) #6
+  %.not13.i = icmp eq i32 %18, 0
+  br i1 %.not13.i, label %slurmdb_unpack_tres_rec_noalloc.exit.thread, label %19
+
+slurmdb_unpack_tres_rec_noalloc.exit.thread:      ; preds = %16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  br label %18
+  br label %20
 
-slurmdb_unpack_tres_rec_noalloc.exit:             ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %5, i64 40
-  %17 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %16, ptr noundef nonnull %4, ptr noundef %2) #6
-  %.not13.i.not = icmp eq i32 %17, 0
+19:                                               ; preds = %16, %13, %10, %7, %3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  br i1 %.not13.i.not, label %19, label %18
-
-18:                                               ; preds = %slurmdb_unpack_tres_rec_noalloc.exit.thread, %slurmdb_unpack_tres_rec_noalloc.exit
   call void @slurmdb_destroy_tres_rec(ptr noundef %5) #6
   store ptr null, ptr %0, align 8
-  br label %19
+  br label %20
 
-19:                                               ; preds = %18, %slurmdb_unpack_tres_rec_noalloc.exit
-  %.0.i11 = phi i32 [ -1, %18 ], [ 0, %slurmdb_unpack_tres_rec_noalloc.exit ]
-  ret i32 %.0.i11
+20:                                               ; preds = %slurmdb_unpack_tres_rec_noalloc.exit.thread, %19
+  %.0.i10 = phi i32 [ 0, %slurmdb_unpack_tres_rec_noalloc.exit.thread ], [ -1, %19 ]
+  ret i32 %.0.i10
 }
 
 declare void @slurmdb_destroy_reservation_rec(ptr noundef) local_unnamed_addr #1

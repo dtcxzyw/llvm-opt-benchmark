@@ -6300,17 +6300,21 @@ if.end85:                                         ; preds = %if.then79, %if.end7
   %dangerousPostForkPreExecCallback_ = getelementptr inbounds i8, ptr %options, i64 80
   %15 = load ptr, ptr %dangerousPostForkPreExecCallback_, align 8, !tbaa !224
   %tobool86.not = icmp eq ptr %15, null
-  br i1 %tobool86.not, label %return, label %if.then87
+  br i1 %tobool86.not, label %if.end96, label %if.then87
 
 if.then87:                                        ; preds = %if.end85
   %vtable = load ptr, ptr %15, align 8, !tbaa !38
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %16 = load ptr, ptr %vfn, align 8
   %call89 = tail call noundef i32 %16(ptr noundef nonnull align 8 dereferenceable(8) %15)
+  %tobool90.not.not = icmp eq i32 %call89, 0
+  br i1 %tobool90.not.not, label %if.end96, label %return
+
+if.end96:                                         ; preds = %if.then87, %if.end85
   br label %return
 
-return:                                           ; preds = %if.then87, %if.end85, %if.then82, %cleanup74, %if.then47, %if.then31, %if.then26, %if.then7, %entry
-  %retval.9 = phi i32 [ %call2, %entry ], [ %0, %if.then7 ], [ %12, %cleanup74 ], [ %14, %if.then82 ], [ %7, %if.then31 ], [ %5, %if.then26 ], [ %9, %if.then47 ], [ 0, %if.end85 ], [ %call89, %if.then87 ]
+return:                                           ; preds = %if.end96, %if.then87, %if.then82, %cleanup74, %if.then47, %if.then31, %if.then26, %if.then7, %entry
+  %retval.9 = phi i32 [ %call2, %entry ], [ %0, %if.then7 ], [ %12, %cleanup74 ], [ %14, %if.then82 ], [ %call89, %if.then87 ], [ 0, %if.end96 ], [ %7, %if.then31 ], [ %5, %if.then26 ], [ %9, %if.then47 ]
   ret i32 %retval.9
 }
 

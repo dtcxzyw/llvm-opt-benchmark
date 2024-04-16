@@ -1110,16 +1110,16 @@ if.end20.i.i:                                     ; preds = %if.end18.i.i, %if.t
 lor.lhs.false23.i.i:                              ; preds = %if.end20.i.i
   %call24.i.i = call i32 @parse_tag(ptr noundef nonnull %call21.i.i) #15
   %tobool25.not.i.i = icmp eq i32 %call24.i.i, 0
-  br i1 %tobool25.not.i.i, label %replace_name.exit.i, label %return
+  br i1 %tobool25.not.i.i, label %if.end27.i.i, label %return
 
-replace_name.exit.i:                              ; preds = %lor.lhs.false23.i.i
+if.end27.i.i:                                     ; preds = %lor.lhs.false23.i.i
   %30 = load ptr, ptr %tag9.i.i, align 8
   %date.i.i = getelementptr inbounds i8, ptr %30, i64 56
   %31 = load i64, ptr %date.i.i, align 8
   %date29.i.i = getelementptr inbounds i8, ptr %call21.i.i, i64 56
   %32 = load i64, ptr %date29.i.i, align 8
-  %cmp30.i.not.i = icmp ult i64 %31, %32
-  br i1 %cmp30.i.not.i, label %if.end.i39, label %return
+  %cmp30.i.i = icmp ult i64 %31, %32
+  br i1 %cmp30.i.i, label %if.end.i39, label %return
 
 if.then3.i:                                       ; preds = %if.end55
   %call4.i = call ptr @xmalloc(i64 noundef 112) #15
@@ -1138,11 +1138,11 @@ if.then3.i:                                       ; preds = %if.end55
   store ptr null, ptr %path9.i, align 8
   br label %if.end.i39
 
-if.end.i39:                                       ; preds = %if.then3.i, %replace_name.exit.i, %lor.lhs.false14.i.i, %if.then11.i.i, %lor.lhs.false.i.i
-  %tag.02229.i = phi ptr [ null, %if.then3.i ], [ %call21.i.i, %replace_name.exit.i ], [ null, %lor.lhs.false.i.i ], [ null, %lor.lhs.false14.i.i ], [ null, %if.then11.i.i ]
-  %e.0.i = phi ptr [ %call4.i, %if.then3.i ], [ %call.i.i.i, %replace_name.exit.i ], [ %call.i.i.i, %lor.lhs.false.i.i ], [ %call.i.i.i, %lor.lhs.false14.i.i ], [ %call.i.i.i, %if.then11.i.i ]
+if.end.i39:                                       ; preds = %if.then3.i, %if.end27.i.i, %lor.lhs.false14.i.i, %if.then11.i.i, %lor.lhs.false.i.i
+  %tag.1.ph24.i = phi ptr [ null, %if.then3.i ], [ null, %lor.lhs.false.i.i ], [ null, %if.then11.i.i ], [ %call21.i.i, %if.end27.i.i ], [ null, %lor.lhs.false14.i.i ]
+  %e.0.i = phi ptr [ %call4.i, %if.then3.i ], [ %call.i.i.i, %lor.lhs.false.i.i ], [ %call.i.i.i, %if.then11.i.i ], [ %call.i.i.i, %if.end27.i.i ], [ %call.i.i.i, %lor.lhs.false14.i.i ]
   %tag10.i = getelementptr inbounds i8, ptr %e.0.i, i64 56
-  store ptr %tag.02229.i, ptr %tag10.i, align 8
+  store ptr %tag.1.ph24.i, ptr %tag10.i, align 8
   %prio11.i = getelementptr inbounds i8, ptr %e.0.i, i64 64
   %34 = trunc nuw nsw i32 %prio.0 to i8
   %bf.load.i = load i8, ptr %prio11.i, align 8
@@ -1162,7 +1162,7 @@ if.end.i39:                                       ; preds = %if.then3.i, %replac
   store ptr %call20.i, ptr %path19.i, align 8
   br label %return
 
-return:                                           ; preds = %do.cond.i28, %for.body, %land.rhs24, %land.rhs24.preheader, %if.then20, %if.end.i39, %replace_name.exit.i, %lor.lhs.false23.i.i, %if.end20.i.i, %if.end.i.i38, %if.else
+return:                                           ; preds = %do.cond.i28, %for.body, %land.rhs24, %land.rhs24.preheader, %if.then20, %if.end.i39, %if.end27.i.i, %lor.lhs.false23.i.i, %if.end20.i.i, %if.end.i.i38, %if.else
   ret i32 0
 }
 

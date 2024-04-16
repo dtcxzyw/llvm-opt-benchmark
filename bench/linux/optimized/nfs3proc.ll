@@ -162,89 +162,89 @@ define internal noundef i32 @nfs3_proc_setattr(ptr nocapture noundef readonly %0
   %15 = load i32, ptr %2, align 8
   %16 = and i32 %15, 8192
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %31, label %18
+  br i1 %17, label %30, label %18
 
 18:                                               ; preds = %3
   %19 = getelementptr inbounds i8, ptr %2, i64 72
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %29, label %22
+  br i1 %21, label %.thread, label %22
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds i8, ptr %20, i64 200
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
-  br i1 %25, label %29, label %26
+  br i1 %25, label %.thread, label %26
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds i8, ptr %24, i64 80
   %28 = load ptr, ptr %27, align 8
-  br label %29
-
-29:                                               ; preds = %22, %26, %18
-  %30 = phi ptr [ null, %18 ], [ %28, %26 ], [ null, %22 ]
-  store ptr %30, ptr %14, align 8
-  br label %31
-
-31:                                               ; preds = %29, %3
-  store i64 0, ptr %8, align 8, !annotation !10
-  call void @nfs_fattr_init(ptr noundef %1) #10
-  %32 = getelementptr inbounds i8, ptr %7, i64 40
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 872
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 40
-  %37 = load ptr, ptr %36, align 8
-  br label %38
-
-38:                                               ; preds = %54, %31
-  %39 = call i32 @rpc_call_sync(ptr noundef %37, ptr noundef nonnull %5, i32 noundef 0) #10
-  switch i32 %39, label %.thread [
-    i32 -528, label %40
-    i32 0, label %57
-  ]
-
-40:                                               ; preds = %38
-  %41 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !6
-  %42 = inttoptr i64 %41 to ptr
-  %43 = getelementptr inbounds i8, ptr %42, i64 24
-  store volatile i32 8450, ptr %43, align 8
-  %44 = call i64 @schedule_timeout(i64 noundef 5000) #10
-  %45 = load volatile i64, ptr %42, align 8
-  %46 = and i64 %45, 4
-  %47 = icmp eq i64 %46, 0
-  br i1 %47, label %54, label %48
-
-48:                                               ; preds = %40
-  %49 = getelementptr inbounds i8, ptr %42, i64 1936
-  %50 = load i64, ptr %49, align 8
-  %51 = trunc i64 %50 to i32
-  %52 = lshr i32 %51, 8
-  %53 = and i32 %52, 1
-  br label %54
-
-54:                                               ; preds = %48, %40
-  %55 = phi i32 [ 0, %40 ], [ %53, %48 ]
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %38, label %.thread, !llvm.loop !7
-
-57:                                               ; preds = %38
-  call void @nfs_setattr_update_inode(ptr noundef %7, ptr noundef %2, ptr noundef %1) #10
-  %58 = getelementptr i8, ptr %7, i64 -280
-  %59 = load i64, ptr %58, align 8
-  %60 = and i64 %59, 16
-  %61 = icmp eq i64 %60, 0
-  br i1 %61, label %.thread, label %62
-
-62:                                               ; preds = %57
-  call void @nfs_zap_acl_cache(ptr noundef %7) #10
   br label %.thread
 
-.thread:                                          ; preds = %38, %54, %62, %57
-  %63 = phi i32 [ 0, %62 ], [ 0, %57 ], [ %39, %38 ], [ -512, %54 ]
+.thread:                                          ; preds = %22, %18, %26
+  %29 = phi ptr [ %28, %26 ], [ null, %18 ], [ null, %22 ]
+  store ptr %29, ptr %14, align 8
+  br label %30
+
+30:                                               ; preds = %.thread, %3
+  store i64 0, ptr %8, align 8, !annotation !10
+  call void @nfs_fattr_init(ptr noundef %1) #10
+  %31 = getelementptr inbounds i8, ptr %7, i64 40
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds i8, ptr %32, i64 872
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds i8, ptr %34, i64 40
+  %36 = load ptr, ptr %35, align 8
+  br label %37
+
+37:                                               ; preds = %53, %30
+  %38 = call i32 @rpc_call_sync(ptr noundef %36, ptr noundef nonnull %5, i32 noundef 0) #10
+  switch i32 %38, label %.thread3 [
+    i32 -528, label %39
+    i32 0, label %56
+  ]
+
+39:                                               ; preds = %37
+  %40 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !6
+  %41 = inttoptr i64 %40 to ptr
+  %42 = getelementptr inbounds i8, ptr %41, i64 24
+  store volatile i32 8450, ptr %42, align 8
+  %43 = call i64 @schedule_timeout(i64 noundef 5000) #10
+  %44 = load volatile i64, ptr %41, align 8
+  %45 = and i64 %44, 4
+  %46 = icmp eq i64 %45, 0
+  br i1 %46, label %53, label %47
+
+47:                                               ; preds = %39
+  %48 = getelementptr inbounds i8, ptr %41, i64 1936
+  %49 = load i64, ptr %48, align 8
+  %50 = trunc i64 %49 to i32
+  %51 = lshr i32 %50, 8
+  %52 = and i32 %51, 1
+  br label %53
+
+53:                                               ; preds = %47, %39
+  %54 = phi i32 [ 0, %39 ], [ %52, %47 ]
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %37, label %.thread3, !llvm.loop !7
+
+56:                                               ; preds = %37
+  call void @nfs_setattr_update_inode(ptr noundef %7, ptr noundef %2, ptr noundef %1) #10
+  %57 = getelementptr i8, ptr %7, i64 -280
+  %58 = load i64, ptr %57, align 8
+  %59 = and i64 %58, 16
+  %60 = icmp eq i64 %59, 0
+  br i1 %60, label %.thread3, label %61
+
+61:                                               ; preds = %56
+  call void @nfs_zap_acl_cache(ptr noundef %7) #10
+  br label %.thread3
+
+.thread3:                                         ; preds = %37, %53, %61, %56
+  %62 = phi i32 [ 0, %61 ], [ 0, %56 ], [ %38, %37 ], [ -512, %53 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #10
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #10
-  ret i32 %63
+  ret i32 %62
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

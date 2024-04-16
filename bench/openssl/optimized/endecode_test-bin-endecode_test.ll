@@ -2565,16 +2565,7 @@ if.end:                                           ; preds = %entry
   %or.cond1.not = select i1 %or.cond, i1 %tobool6, i1 false
   %1 = load ptr, ptr %encoded, align 8
   %2 = load i64, ptr %encoded_len, align 8
-  br i1 %or.cond1.not, label %if.then7, label %if.end17
-
-if.then7:                                         ; preds = %if.end
-  %and8 = and i32 %flags, 1
-  %tobool9.not = icmp eq i32 %and8, 0
-  %cond = select i1 %tobool9.not, ptr null, ptr %type
-  %call10 = call fastcc i32 @decode_EVP_PKEY_prov(ptr noundef nonnull @.str.30, i32 noundef %line, ptr noundef nonnull %pkey2, ptr noundef %1, i64 noundef %2, ptr noundef %output_type, ptr noundef %output_structure, ptr noundef %cond, i32 noundef %selection, ptr noundef %pass), !range !8
-  %call13 = call i32 @test_false(ptr noundef nonnull @.str.30, i32 noundef 183, ptr noundef nonnull @.str.228, i32 noundef %call10) #7
-  %tobool14.not = icmp eq i32 %call13, 0
-  br i1 %tobool14.not, label %if.then100, label %if.end115
+  br i1 %or.cond1.not, label %end, label %if.end17
 
 if.end17:                                         ; preds = %if.end
   %call18 = call i32 %check_cb(ptr noundef nonnull @.str.30, i32 noundef %line, ptr noundef %type, ptr noundef %1, i64 noundef %2) #7
@@ -2663,9 +2654,9 @@ if.end88:                                         ; preds = %lor.lhs.false79, %l
   %cmp89 = icmp eq ptr %pass, null
   %cmp92 = icmp eq ptr %pcipher, null
   %or.cond2 = and i1 %cmp89, %cmp92
-  br i1 %or.cond2, label %end, label %if.end115
+  br i1 %or.cond2, label %land.lhs.true94, label %if.end115
 
-end:                                              ; preds = %if.end88
+land.lhs.true94:                                  ; preds = %if.end88
   %10 = load ptr, ptr %encoded, align 8
   %11 = load i64, ptr %encoded_len, align 8
   %12 = load ptr, ptr %encoded2, align 8
@@ -2674,7 +2665,16 @@ end:                                              ; preds = %if.end88
   %tobool96.not = icmp eq i32 %call95, 0
   br i1 %tobool96.not, label %if.then100, label %if.end115
 
-if.then100:                                       ; preds = %entry, %if.end17, %lor.lhs.false, %land.lhs.true41, %lor.lhs.false53, %if.else, %land.lhs.true82, %if.then63, %land.lhs.true70, %if.then7, %end
+end:                                              ; preds = %if.end
+  %and8 = and i32 %flags, 1
+  %tobool9.not = icmp eq i32 %and8, 0
+  %cond = select i1 %tobool9.not, ptr null, ptr %type
+  %call10 = call fastcc i32 @decode_EVP_PKEY_prov(ptr noundef nonnull @.str.30, i32 noundef %line, ptr noundef nonnull %pkey2, ptr noundef %1, i64 noundef %2, ptr noundef %output_type, ptr noundef %output_structure, ptr noundef %cond, i32 noundef %selection, ptr noundef %pass), !range !8
+  %call13 = call i32 @test_false(ptr noundef nonnull @.str.30, i32 noundef 183, ptr noundef nonnull @.str.228, i32 noundef %call10) #7
+  %tobool14.not = icmp eq i32 %call13, 0
+  br i1 %tobool14.not, label %if.then100, label %if.end115
+
+if.then100:                                       ; preds = %entry, %if.end17, %lor.lhs.false, %land.lhs.true41, %lor.lhs.false53, %if.else, %land.lhs.true82, %if.then63, %land.lhs.true70, %land.lhs.true94, %end
   %14 = load ptr, ptr %encoded, align 8
   %cmp101 = icmp ne ptr %14, null
   %15 = load i64, ptr %encoded_len, align 8
@@ -2698,8 +2698,8 @@ if.then113:                                       ; preds = %if.end107
   call void %dump_cb(ptr noundef nonnull @.str.239, ptr noundef nonnull %16, i64 noundef %17) #7, !callees !10
   br label %if.end115
 
-if.end115:                                        ; preds = %if.end88, %if.then7, %if.end107, %if.then113, %end
-  %ok.03 = phi i32 [ 0, %if.end107 ], [ 0, %if.then113 ], [ 1, %end ], [ 1, %if.then7 ], [ 1, %if.end88 ]
+if.end115:                                        ; preds = %land.lhs.true94, %if.end88, %if.end107, %if.then113, %end
+  %ok.03 = phi i32 [ 0, %if.end107 ], [ 0, %if.then113 ], [ 1, %end ], [ 1, %if.end88 ], [ 1, %land.lhs.true94 ]
   %18 = load ptr, ptr %encoded, align 8
   call void @CRYPTO_free(ptr noundef %18, ptr noundef nonnull @.str.30, i32 noundef 233) #7
   %19 = load ptr, ptr %encoded2, align 8

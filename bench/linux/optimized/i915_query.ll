@@ -73,16 +73,7 @@ define dso_local noundef i32 @i915_query_ioctl(ptr noundef %0, ptr nocapture nou
   %34 = phi i32 [ %32, %26 ], [ -22, %24 ]
   %35 = load i32, ptr %15, align 8
   %36 = icmp eq i32 %34, %35
-  br i1 %36, label %.thread4, label %37
-
-.thread4:                                         ; preds = %33
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
-  br label %46
-
-.thread:                                          ; preds = %16, %21
-  %.ph = phi i32 [ -22, %21 ], [ -14, %16 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
-  br label %.loopexit
+  br i1 %36, label %46, label %37
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds i8, ptr %17, i64 8
@@ -94,18 +85,23 @@ define dso_local noundef i32 @i915_query_ioctl(ptr noundef %0, ptr nocapture nou
   call void @llvm.write_register.i64(metadata !0, i64 %42)
   %44 = and i64 %43, 4294967295
   %45 = icmp eq i64 %44, 0
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
-  br i1 %45, label %46, label %.loopexit
+  br i1 %45, label %46, label %.thread
 
-46:                                               ; preds = %.thread4, %37
+.thread:                                          ; preds = %16, %21, %37
+  %.ph = phi i32 [ -14, %37 ], [ -22, %21 ], [ -14, %16 ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
+  br label %.loopexit
+
+46:                                               ; preds = %37, %33
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
   %47 = add nuw i32 %18, 1
   %48 = getelementptr i8, ptr %17, i64 24
   %49 = load i32, ptr %1, align 8
   %50 = icmp ult i32 %47, %49
   br i1 %50, label %16, label %.loopexit, !llvm.loop !9
 
-.loopexit:                                        ; preds = %46, %37, %.thread, %8, %3
-  %51 = phi i32 [ -22, %3 ], [ 0, %8 ], [ %.ph, %.thread ], [ -14, %37 ], [ 0, %46 ]
+.loopexit:                                        ; preds = %46, %.thread, %8, %3
+  %51 = phi i32 [ -22, %3 ], [ 0, %8 ], [ %.ph, %.thread ], [ 0, %46 ]
   ret i32 %51
 }
 

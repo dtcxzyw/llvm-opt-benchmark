@@ -447,20 +447,20 @@ if.end27.i:                                       ; preds = %if.else.i122.if.end
 if.end32.i:                                       ; preds = %if.end27.i
   %25 = load i8, ptr @opt_retain, align 1
   %tobool33.i = trunc i8 %25 to i1
-  br i1 %tobool33.i, label %if.end20, label %if.else37.i
+  br i1 %tobool33.i, label %if.end44.i, label %if.else37.i
 
 if.else37.i:                                      ; preds = %if.end32.i
   %26 = xor i64 %.val100, %edata.val98
   %27 = and i64 %26, 4095
   %cmp40.i.not = icmp eq i64 %27, 0
-  br i1 %cmp40.i.not, label %if.end20, label %return
+  br i1 %cmp40.i.not, label %if.end44.i, label %return
 
-if.end20:                                         ; preds = %if.else37.i, %if.end32.i
+if.end44.i:                                       ; preds = %if.else37.i, %if.end32.i
   call void @emap_update_edata_state(ptr noundef %tsdn, ptr noundef %emap, ptr noundef nonnull %18, i32 noundef 5)
   br label %return
 
-return:                                           ; preds = %monotonic.i.i, %if.then.i144, %if.else.i141, %if.then11.i, %land.lhs.true.i, %if.else.i122, %if.end27.i, %if.else37.i, %rtree_leaf_elm_lookup.exit, %cond.end, %if.end20
-  %retval.0 = phi ptr [ %18, %if.end20 ], [ null, %cond.end ], [ null, %rtree_leaf_elm_lookup.exit ], [ null, %if.else37.i ], [ null, %if.end27.i ], [ null, %if.else.i122 ], [ null, %land.lhs.true.i ], [ null, %if.then11.i ], [ null, %if.else.i141 ], [ null, %if.then.i144 ], [ null, %monotonic.i.i ]
+return:                                           ; preds = %if.else37.i, %if.end27.i, %if.else.i122, %land.lhs.true.i, %if.then11.i, %if.else.i141, %if.then.i144, %monotonic.i.i, %rtree_leaf_elm_lookup.exit, %cond.end, %if.end44.i
+  %retval.0 = phi ptr [ %18, %if.end44.i ], [ null, %cond.end ], [ null, %rtree_leaf_elm_lookup.exit ], [ null, %monotonic.i.i ], [ null, %if.then.i144 ], [ null, %if.else.i141 ], [ null, %if.then11.i ], [ null, %land.lhs.true.i ], [ null, %if.else.i122 ], [ null, %if.end27.i ], [ null, %if.else37.i ]
   ret ptr %retval.0
 }
 

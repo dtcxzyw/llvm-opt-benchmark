@@ -3006,11 +3006,11 @@ define dso_local noundef i32 @hdmi_drm_infoframe_unpack_only(ptr nocapture nound
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
 define dso_local noundef i32 @hdmi_infoframe_unpack(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #13 align 16 {
   %4 = icmp ult i64 %2, 4
-  br i1 %4, label %305, label %5
+  br i1 %4, label %307, label %5
 
 5:                                                ; preds = %3
   %6 = load i8, ptr %1, align 1
-  switch i8 %6, label %305 [
+  switch i8 %6, label %307 [
     i8 -126, label %7
     i8 -121, label %121
     i8 -125, label %144
@@ -3020,19 +3020,19 @@ define dso_local noundef i32 @hdmi_infoframe_unpack(ptr nocapture noundef writeo
 
 7:                                                ; preds = %5
   %8 = icmp ugt i64 %2, 16
-  br i1 %8, label %9, label %305
+  br i1 %8, label %9, label %307
 
 9:                                                ; preds = %7
   %10 = getelementptr i8, ptr %1, i64 1
   %11 = load i8, ptr %10, align 1
   %12 = icmp eq i8 %11, 2
-  br i1 %12, label %13, label %305
+  br i1 %12, label %13, label %307
 
 13:                                               ; preds = %9
   %14 = getelementptr i8, ptr %1, i64 2
   %15 = load i8, ptr %14, align 1
   %16 = icmp eq i8 %15, 13
-  br i1 %16, label %.preheader, label %305
+  br i1 %16, label %.preheader, label %307
 
 .preheader:                                       ; preds = %13, %.preheader
   %17 = phi i64 [ %22, %.preheader ], [ 0, %13 ]
@@ -3046,7 +3046,7 @@ define dso_local noundef i32 @hdmi_infoframe_unpack(ptr nocapture noundef writeo
 
 24:                                               ; preds = %.preheader
   %25 = icmp eq i8 %21, 0
-  br i1 %25, label %26, label %305
+  br i1 %25, label %26, label %307
 
 26:                                               ; preds = %24
   %27 = getelementptr inbounds i8, ptr %0, i64 4
@@ -3093,11 +3093,11 @@ define dso_local noundef i32 @hdmi_infoframe_unpack(ptr nocapture noundef writeo
   %54 = load i16, ptr %53, align 1
   %55 = getelementptr inbounds i8, ptr %0, i64 54
   store i16 %54, ptr %55, align 2
-  %.pre16 = load i8, ptr %30, align 1
+  %.pre15 = load i8, ptr %30, align 1
   br label %56
 
 56:                                               ; preds = %49, %45
-  %57 = phi i8 [ %.pre16, %49 ], [ %46, %45 ]
+  %57 = phi i8 [ %.pre15, %49 ], [ %46, %45 ]
   %58 = and i8 %57, 4
   %59 = icmp eq i8 %58, 0
   br i1 %59, label %67, label %60
@@ -3111,11 +3111,11 @@ define dso_local noundef i32 @hdmi_infoframe_unpack(ptr nocapture noundef writeo
   %65 = load i16, ptr %64, align 1
   %66 = getelementptr inbounds i8, ptr %0, i64 58
   store i16 %65, ptr %66, align 2
-  %.pre17 = load i8, ptr %30, align 1
+  %.pre16 = load i8, ptr %30, align 1
   br label %67
 
 67:                                               ; preds = %60, %56
-  %68 = phi i8 [ %.pre17, %60 ], [ %57, %56 ]
+  %68 = phi i8 [ %.pre16, %60 ], [ %57, %56 ]
   %69 = and i8 %68, 3
   %70 = zext nneg i8 %69 to i32
   %71 = getelementptr inbounds i8, ptr %0, i64 12
@@ -3180,73 +3180,73 @@ define dso_local noundef i32 @hdmi_infoframe_unpack(ptr nocapture noundef writeo
   %119 = and i8 %118, 15
   %120 = getelementptr inbounds i8, ptr %0, i64 7
   store i8 %119, ptr %120, align 1
-  br label %305
+  br label %307
 
 121:                                              ; preds = %5
   %122 = icmp ugt i64 %2, 29
-  br i1 %122, label %123, label %305
+  br i1 %122, label %123, label %307
 
 123:                                              ; preds = %121
   %124 = getelementptr i8, ptr %1, i64 1
   %125 = load i8, ptr %124, align 1
   %126 = icmp eq i8 %125, 1
-  br i1 %126, label %127, label %305
+  br i1 %126, label %127, label %307
 
 127:                                              ; preds = %123
   %128 = getelementptr i8, ptr %1, i64 2
   %129 = load i8, ptr %128, align 1
   %130 = icmp eq i8 %129, 26
-  br i1 %130, label %.preheader4, label %305
+  br i1 %130, label %.preheader3, label %307
 
-.preheader4:                                      ; preds = %127, %.preheader4
-  %131 = phi i64 [ %136, %.preheader4 ], [ 0, %127 ]
-  %132 = phi i8 [ %135, %.preheader4 ], [ 0, %127 ]
+.preheader3:                                      ; preds = %127, %.preheader3
+  %131 = phi i64 [ %136, %.preheader3 ], [ 0, %127 ]
+  %132 = phi i8 [ %135, %.preheader3 ], [ 0, %127 ]
   %133 = getelementptr i8, ptr %1, i64 %131
   %134 = load i8, ptr %133, align 1
   %135 = add i8 %134, %132
   %136 = add nuw nsw i64 %131, 1
   %137 = icmp eq i64 %136, 30
-  br i1 %137, label %138, label %.preheader4, !llvm.loop !7
+  br i1 %137, label %138, label %.preheader3, !llvm.loop !7
 
-138:                                              ; preds = %.preheader4
+138:                                              ; preds = %.preheader3
   %139 = icmp eq i8 %135, 0
-  br i1 %139, label %140, label %305
+  br i1 %139, label %140, label %307
 
 140:                                              ; preds = %138
   %141 = getelementptr i8, ptr %1, i64 4
   %142 = add i64 %2, -4
   %143 = tail call i32 @hdmi_drm_infoframe_unpack_only(ptr noundef %0, ptr noundef %141, i64 noundef %142), !range !29
-  br label %305
+  br label %307
 
 144:                                              ; preds = %5
   %145 = icmp ugt i64 %2, 28
-  br i1 %145, label %146, label %305
+  br i1 %145, label %146, label %307
 
 146:                                              ; preds = %144
   %147 = getelementptr i8, ptr %1, i64 1
   %148 = load i8, ptr %147, align 1
   %149 = icmp eq i8 %148, 1
-  br i1 %149, label %150, label %305
+  br i1 %149, label %150, label %307
 
 150:                                              ; preds = %146
   %151 = getelementptr i8, ptr %1, i64 2
   %152 = load i8, ptr %151, align 1
   %153 = icmp eq i8 %152, 25
-  br i1 %153, label %.preheader5, label %305
+  br i1 %153, label %.preheader4, label %307
 
-.preheader5:                                      ; preds = %150, %.preheader5
-  %154 = phi i64 [ %159, %.preheader5 ], [ 0, %150 ]
-  %155 = phi i8 [ %158, %.preheader5 ], [ 0, %150 ]
+.preheader4:                                      ; preds = %150, %.preheader4
+  %154 = phi i64 [ %159, %.preheader4 ], [ 0, %150 ]
+  %155 = phi i8 [ %158, %.preheader4 ], [ 0, %150 ]
   %156 = getelementptr i8, ptr %1, i64 %154
   %157 = load i8, ptr %156, align 1
   %158 = add i8 %157, %155
   %159 = add nuw nsw i64 %154, 1
   %160 = icmp eq i64 %159, 29
-  br i1 %160, label %161, label %.preheader5, !llvm.loop !7
+  br i1 %160, label %161, label %.preheader4, !llvm.loop !7
 
-161:                                              ; preds = %.preheader5
+161:                                              ; preds = %.preheader4
   %162 = icmp eq i8 %158, 0
-  br i1 %162, label %163, label %305
+  br i1 %162, label %163, label %307
 
 163:                                              ; preds = %161
   %164 = getelementptr i8, ptr %1, i64 4
@@ -3271,37 +3271,37 @@ define dso_local noundef i32 @hdmi_infoframe_unpack(ptr nocapture noundef writeo
   %177 = zext i8 %176 to i32
   %178 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 %177, ptr %178, align 4
-  br label %305
+  br label %307
 
 179:                                              ; preds = %5
   %180 = icmp ugt i64 %2, 13
-  br i1 %180, label %181, label %305
+  br i1 %180, label %181, label %307
 
 181:                                              ; preds = %179
   %182 = getelementptr i8, ptr %1, i64 1
   %183 = load i8, ptr %182, align 1
   %184 = icmp eq i8 %183, 1
-  br i1 %184, label %185, label %305
+  br i1 %184, label %185, label %307
 
 185:                                              ; preds = %181
   %186 = getelementptr i8, ptr %1, i64 2
   %187 = load i8, ptr %186, align 1
   %188 = icmp eq i8 %187, 10
-  br i1 %188, label %.preheader6, label %305
+  br i1 %188, label %.preheader5, label %307
 
-.preheader6:                                      ; preds = %185, %.preheader6
-  %189 = phi i64 [ %194, %.preheader6 ], [ 0, %185 ]
-  %190 = phi i8 [ %193, %.preheader6 ], [ 0, %185 ]
+.preheader5:                                      ; preds = %185, %.preheader5
+  %189 = phi i64 [ %194, %.preheader5 ], [ 0, %185 ]
+  %190 = phi i8 [ %193, %.preheader5 ], [ 0, %185 ]
   %191 = getelementptr i8, ptr %1, i64 %189
   %192 = load i8, ptr %191, align 1
   %193 = add i8 %192, %190
   %194 = add nuw nsw i64 %189, 1
   %195 = icmp eq i64 %194, 14
-  br i1 %195, label %196, label %.preheader6, !llvm.loop !7
+  br i1 %195, label %196, label %.preheader5, !llvm.loop !7
 
-196:                                              ; preds = %.preheader6
+196:                                              ; preds = %.preheader5
   %197 = icmp eq i8 %193, 0
-  br i1 %197, label %198, label %305
+  br i1 %197, label %198, label %307
 
 198:                                              ; preds = %196
   %199 = getelementptr inbounds i8, ptr %0, i64 4
@@ -3353,64 +3353,64 @@ define dso_local noundef i32 @hdmi_infoframe_unpack(ptr nocapture noundef writeo
   %234 = getelementptr inbounds i8, ptr %0, i64 26
   %235 = lshr i8 %233, 7
   store i8 %235, ptr %234, align 2
-  br label %305
+  br label %307
 
 236:                                              ; preds = %5
   %237 = getelementptr i8, ptr %1, i64 1
   %238 = load i8, ptr %237, align 1
   %239 = icmp eq i8 %238, 1
-  br i1 %239, label %240, label %305
+  br i1 %239, label %240, label %307
 
 240:                                              ; preds = %236
   %241 = getelementptr i8, ptr %1, i64 2
   %242 = load i8, ptr %241, align 1
   %243 = add i8 %242, -4
   %244 = icmp ult i8 %243, 3
-  br i1 %244, label %245, label %305
+  br i1 %244, label %245, label %307
 
 245:                                              ; preds = %240
   %246 = add nuw nsw i8 %242, 4
   %247 = zext nneg i8 %246 to i64
   %248 = icmp ugt i64 %247, %2
-  br i1 %248, label %305, label %.preheader7
+  br i1 %248, label %307, label %.preheader6
 
-.preheader7:                                      ; preds = %245, %.preheader7
-  %249 = phi i64 [ %254, %.preheader7 ], [ 0, %245 ]
-  %250 = phi i8 [ %253, %.preheader7 ], [ 0, %245 ]
+.preheader6:                                      ; preds = %245, %.preheader6
+  %249 = phi i64 [ %254, %.preheader6 ], [ 0, %245 ]
+  %250 = phi i8 [ %253, %.preheader6 ], [ 0, %245 ]
   %251 = getelementptr i8, ptr %1, i64 %249
   %252 = load i8, ptr %251, align 1
   %253 = add i8 %252, %250
   %254 = add nuw nsw i64 %249, 1
   %255 = icmp eq i64 %254, %247
-  br i1 %255, label %256, label %.preheader7, !llvm.loop !7
+  br i1 %255, label %256, label %.preheader6, !llvm.loop !7
 
-256:                                              ; preds = %.preheader7
+256:                                              ; preds = %.preheader6
   %257 = icmp eq i8 %253, 0
-  br i1 %257, label %258, label %305
+  br i1 %257, label %258, label %307
 
 258:                                              ; preds = %256
   %259 = getelementptr i8, ptr %1, i64 4
   %260 = load i8, ptr %259, align 1
   %261 = icmp eq i8 %260, 3
-  br i1 %261, label %262, label %305
+  br i1 %261, label %262, label %307
 
 262:                                              ; preds = %258
   %263 = getelementptr i8, ptr %1, i64 5
   %264 = load i8, ptr %263, align 1
   %265 = icmp eq i8 %264, 12
-  br i1 %265, label %266, label %305
+  br i1 %265, label %266, label %307
 
 266:                                              ; preds = %262
   %267 = getelementptr i8, ptr %1, i64 6
   %268 = load i8, ptr %267, align 1
   %269 = icmp eq i8 %268, 0
-  br i1 %269, label %270, label %305
+  br i1 %269, label %270, label %307
 
 270:                                              ; preds = %266
   %271 = getelementptr i8, ptr %1, i64 7
   %272 = load i8, ptr %271, align 1
   %273 = icmp ugt i8 %272, 95
-  br i1 %273, label %305, label %274
+  br i1 %273, label %307, label %274
 
 274:                                              ; preds = %270
   %275 = lshr i8 %272, 5
@@ -3425,56 +3425,59 @@ define dso_local noundef i32 @hdmi_infoframe_unpack(ptr nocapture noundef writeo
   store i32 -1, ptr %279, align 4
   %280 = getelementptr inbounds i8, ptr %0, i64 5
   store i8 %242, ptr %280, align 1
-  switch i8 %275, label %303 [
+  switch i8 %275, label %304 [
     i8 2, label %281
-    i8 1, label %297
+    i8 1, label %298
   ]
 
 281:                                              ; preds = %274
-  %282 = add nsw i8 %242, -7
-  %283 = icmp ult i8 %282, -2
-  br i1 %283, label %305, label %284
+  %282 = icmp eq i8 %242, 6
+  %283 = add nsw i8 %242, -7
+  %284 = icmp ult i8 %283, -2
+  br i1 %284, label %307, label %285
 
-284:                                              ; preds = %281
-  %285 = icmp ne i8 %242, 6
+285:                                              ; preds = %281
   %286 = getelementptr i8, ptr %1, i64 8
   %287 = load i8, ptr %286, align 1
   %288 = lshr i8 %287, 4
   %289 = zext nneg i8 %288 to i32
   store i32 %289, ptr %279, align 4
-  %290 = icmp sgt i8 %287, -1
-  %brmerge = or i1 %285, %290
-  %.mux = select i1 %290, i32 0, i32 -22
-  br i1 %brmerge, label %305, label %291
+  %290 = icmp slt i8 %287, 0
+  br i1 %290, label %291, label %306
 
-291:                                              ; preds = %284
-  %292 = getelementptr i8, ptr %1, i64 9
-  %293 = load i8, ptr %292, align 1
-  %294 = lshr i8 %293, 4
-  %295 = zext nneg i8 %294 to i32
-  %296 = getelementptr inbounds i8, ptr %0, i64 20
-  store i32 %295, ptr %296, align 4
-  br label %305
+291:                                              ; preds = %285
+  br i1 %282, label %292, label %307
 
-297:                                              ; preds = %274
-  %298 = icmp eq i8 %242, 5
-  br i1 %298, label %299, label %305
+292:                                              ; preds = %291
+  %293 = getelementptr i8, ptr %1, i64 9
+  %294 = load i8, ptr %293, align 1
+  %295 = lshr i8 %294, 4
+  %296 = zext nneg i8 %295 to i32
+  %297 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 %296, ptr %297, align 4
+  br label %306
 
-299:                                              ; preds = %297
-  %300 = getelementptr i8, ptr %1, i64 8
-  %301 = load i8, ptr %300, align 1
-  %302 = getelementptr inbounds i8, ptr %0, i64 12
-  store i8 %301, ptr %302, align 4
-  br label %305
+298:                                              ; preds = %274
+  %299 = icmp eq i8 %242, 5
+  br i1 %299, label %300, label %307
 
-303:                                              ; preds = %274
-  %304 = icmp eq i8 %242, 4
-  %spec.select = select i1 %304, i32 0, i32 -22
-  br label %305
+300:                                              ; preds = %298
+  %301 = getelementptr i8, ptr %1, i64 8
+  %302 = load i8, ptr %301, align 1
+  %303 = getelementptr inbounds i8, ptr %0, i64 12
+  store i8 %302, ptr %303, align 4
+  br label %306
 
-305:                                              ; preds = %303, %284, %291, %299, %297, %281, %270, %266, %262, %258, %256, %245, %240, %236, %198, %196, %185, %181, %179, %163, %161, %150, %146, %144, %140, %138, %127, %123, %121, %67, %24, %13, %9, %7, %5, %3
-  %306 = phi i32 [ -22, %3 ], [ -22, %5 ], [ 0, %67 ], [ -22, %7 ], [ -22, %13 ], [ -22, %9 ], [ -22, %24 ], [ %143, %140 ], [ -22, %121 ], [ -22, %127 ], [ -22, %123 ], [ -22, %138 ], [ 0, %163 ], [ -22, %144 ], [ -22, %150 ], [ -22, %146 ], [ -22, %161 ], [ 0, %198 ], [ -22, %179 ], [ -22, %185 ], [ -22, %181 ], [ -22, %196 ], [ -22, %240 ], [ -22, %236 ], [ -22, %245 ], [ -22, %256 ], [ -22, %266 ], [ -22, %262 ], [ -22, %258 ], [ -22, %270 ], [ -22, %281 ], [ -22, %297 ], [ 0, %299 ], [ 0, %291 ], [ %.mux, %284 ], [ %spec.select, %303 ]
-  ret i32 %306
+304:                                              ; preds = %274
+  %305 = icmp eq i8 %242, 4
+  br i1 %305, label %306, label %307
+
+306:                                              ; preds = %304, %300, %292, %285
+  br label %307
+
+307:                                              ; preds = %306, %304, %298, %291, %281, %270, %266, %262, %258, %256, %245, %240, %236, %198, %196, %185, %181, %179, %163, %161, %150, %146, %144, %140, %138, %127, %123, %121, %67, %24, %13, %9, %7, %5, %3
+  %308 = phi i32 [ -22, %3 ], [ -22, %5 ], [ 0, %67 ], [ -22, %7 ], [ -22, %13 ], [ -22, %9 ], [ -22, %24 ], [ %143, %140 ], [ -22, %121 ], [ -22, %127 ], [ -22, %123 ], [ -22, %138 ], [ 0, %163 ], [ -22, %144 ], [ -22, %150 ], [ -22, %146 ], [ -22, %161 ], [ 0, %198 ], [ -22, %179 ], [ -22, %185 ], [ -22, %181 ], [ -22, %196 ], [ 0, %306 ], [ -22, %240 ], [ -22, %236 ], [ -22, %245 ], [ -22, %256 ], [ -22, %266 ], [ -22, %262 ], [ -22, %258 ], [ -22, %270 ], [ -22, %281 ], [ -22, %291 ], [ -22, %298 ], [ -22, %304 ]
+  ret i32 %308
 }
 
 ; Function Attrs: cold null_pointer_is_valid

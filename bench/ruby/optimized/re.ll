@@ -1195,7 +1195,7 @@ rb_reg_check.exit:                                ; preds = %23, %RREGEXP_SRC_PT
   %32 = getelementptr inbounds i8, ptr %31, i64 72
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, %30
-  br i1 %34, label %71, label %35
+  br i1 %34, label %72, label %35
 
 35:                                               ; preds = %rb_reg_check.exit
   %36 = icmp eq i32 %.0.i, 1048576
@@ -1210,7 +1210,7 @@ rb_reg_check.exit:                                ; preds = %23, %RREGEXP_SRC_PT
   %41 = load ptr, ptr %18, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 72
   %43 = load ptr, ptr %42, align 8
-  br label %71
+  br label %72
 
 44:                                               ; preds = %37, %35
   %45 = getelementptr i8, ptr %30, i64 20
@@ -1232,7 +1232,7 @@ rb_enc_asciicompat.exit.thread:                   ; preds = %44, %rb_enc_asciico
   %49 = icmp ne i64 %48, 0
   %50 = icmp eq i64 %0, 0
   %51 = or i1 %50, %49
-  br i1 %51, label %select.unfold, label %52
+  br i1 %51, label %62, label %52
 
 52:                                               ; preds = %47
   %53 = load i64, ptr %17, align 8
@@ -1241,8 +1241,8 @@ rb_enc_asciicompat.exit.thread:                   ; preds = %44, %rb_enc_asciico
   %55 = icmp eq i64 %54, 27
   %56 = and i64 %.fr4.i, 65536
   %.not.i38 = icmp eq i64 %56, 0
-  %or.cond = or i1 %55, %.not.i38
-  br i1 %or.cond, label %select.unfold, label %rb_reg_fixed_encoding_p.exit
+  %or.cond.i = or i1 %55, %.not.i38
+  br i1 %or.cond.i, label %62, label %rb_reg_fixed_encoding_p.exit
 
 rb_reg_fixed_encoding_p.exit:                     ; preds = %52
   %57 = load ptr, ptr %18, align 8
@@ -1257,37 +1257,37 @@ rb_enc_asciicompat.exit43:                        ; preds = %rb_reg_fixed_encodi
   %61 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull %59) #26
   %.not3.i42 = icmp eq i32 %61, 0
   %or.cond.not = and i1 %36, %.not3.i42
-  br i1 %or.cond.not, label %71, label %rb_enc_asciicompat.exit43.thread
+  br i1 %or.cond.not, label %72, label %rb_enc_asciicompat.exit43.thread
 
 rb_enc_asciicompat.exit43.thread:                 ; preds = %rb_reg_fixed_encoding_p.exit, %rb_enc_asciicompat.exit43
   tail call fastcc void @reg_enc_error(i64 noundef %0, i64 noundef %1) #29
   unreachable
 
-select.unfold:                                    ; preds = %47, %52
+62:                                               ; preds = %47, %52
   %.not31 = icmp eq i32 %2, 0
-  br i1 %.not31, label %71, label %62
+  br i1 %.not31, label %72, label %63
 
-62:                                               ; preds = %select.unfold
-  %63 = load i64, ptr %17, align 8
-  %64 = and i64 %63, 262144
-  %.not32 = icmp eq i64 %64, 0
-  br i1 %.not32, label %71, label %65
+63:                                               ; preds = %62
+  %64 = load i64, ptr %17, align 8
+  %65 = and i64 %64, 262144
+  %.not32 = icmp eq i64 %65, 0
+  br i1 %.not32, label %72, label %66
 
-65:                                               ; preds = %62
-  %66 = tail call nonnull ptr @rb_ascii8bit_encoding() #27
-  %67 = icmp ne ptr %30, %66
-  %68 = icmp ne i32 %.0.i, 1048576
-  %or.cond3 = and i1 %68, %67
-  br i1 %or.cond3, label %69, label %71
+66:                                               ; preds = %63
+  %67 = tail call nonnull ptr @rb_ascii8bit_encoding() #27
+  %68 = icmp ne ptr %30, %67
+  %69 = icmp ne i32 %.0.i, 1048576
+  %or.cond3 = and i1 %69, %68
+  br i1 %or.cond3, label %70, label %72
 
-69:                                               ; preds = %65
-  %70 = getelementptr i8, ptr %30, i64 8
-  %.val34 = load ptr, ptr %70, align 8
+70:                                               ; preds = %66
+  %71 = getelementptr i8, ptr %30, i64 8
+  %.val34 = load ptr, ptr %71, align 8
   tail call void (ptr, ...) @rb_warn(ptr noundef nonnull @.str.67, ptr noundef %.val34) #31
-  br label %71
+  br label %72
 
-71:                                               ; preds = %rb_enc_asciicompat.exit43, %40, %69, %65, %62, %select.unfold, %rb_reg_check.exit
-  %.0 = phi ptr [ %30, %rb_reg_check.exit ], [ %43, %40 ], [ %30, %69 ], [ %30, %65 ], [ %30, %62 ], [ %30, %select.unfold ], [ %59, %rb_enc_asciicompat.exit43 ]
+72:                                               ; preds = %rb_enc_asciicompat.exit43, %40, %70, %66, %63, %62, %rb_reg_check.exit
+  %.0 = phi ptr [ %30, %rb_reg_check.exit ], [ %43, %40 ], [ %30, %70 ], [ %30, %66 ], [ %30, %63 ], [ %30, %62 ], [ %59, %rb_enc_asciicompat.exit43 ]
   ret ptr %.0
 }
 
@@ -2125,12 +2125,14 @@ match_last_index.exit:                            ; preds = %17
   %24 = icmp slt i32 %.010.i, 0
   %.not = icmp eq i32 %.010.i, 0
   %. = select i1 %.not, i64 0, i64 20
-  %spec.select = select i1 %24, i64 4, i64 %.
-  br label %.thread
+  br i1 %24, label %.thread, label %25
 
-.thread:                                          ; preds = %match_last_index.exit, %match_check.exit.i, %1
-  %25 = phi i64 [ 4, %1 ], [ 4, %match_check.exit.i ], [ %spec.select, %match_last_index.exit ]
-  ret i64 %25
+.thread:                                          ; preds = %match_last_index.exit, %1, %match_check.exit.i
+  br label %25
+
+25:                                               ; preds = %match_last_index.exit, %.thread
+  %26 = phi i64 [ 4, %.thread ], [ %., %match_last_index.exit ]
+  ret i64 %26
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4331,10 +4333,10 @@ define internal fastcc void @name_to_backref_error(i64 noundef %0) unnamed_addr 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @rb_reg_timeout_p(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @rb_reg_timeout_p(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #1 {
   %3 = load i64, ptr %1, align 8
   %4 = icmp eq i64 %3, 0
-  br i1 %4, label %5, label %12
+  br i1 %4, label %5, label %11
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 440
@@ -4343,25 +4345,28 @@ define dso_local zeroext i1 @rb_reg_timeout_p(ptr nocapture noundef readonly %0,
   %8 = load i64, ptr @rb_reg_match_time_limit, align 8
   %spec.select = select i1 %.not, i64 %8, i64 %7
   %.not12 = icmp eq i64 %spec.select, 0
-  br i1 %.not12, label %11, label %9
+  br i1 %.not12, label %.sink.split, label %9
 
 9:                                                ; preds = %5
   %10 = tail call i64 @rb_hrtime_now() #27
   %.0.i = tail call noundef i64 @llvm.uadd.sat.i64(i64 %spec.select, i64 %10)
-  store i64 %.0.i, ptr %1, align 8
+  br label %.sink.split
+
+11:                                               ; preds = %2
+  %12 = tail call i64 @rb_hrtime_now() #27
+  %13 = icmp ult i64 %3, %12
+  br i1 %13, label %15, label %14
+
+.sink.split:                                      ; preds = %5, %9
+  %.0.i.sink = phi i64 [ %.0.i, %9 ], [ -1, %5 ]
+  store i64 %.0.i.sink, ptr %1, align 8
+  br label %14
+
+14:                                               ; preds = %.sink.split, %11
   br label %15
 
-11:                                               ; preds = %5
-  store i64 -1, ptr %1, align 8
-  br label %15
-
-12:                                               ; preds = %2
-  %13 = tail call i64 @rb_hrtime_now() #27
-  %14 = icmp ult i64 %3, %13
-  br label %15
-
-15:                                               ; preds = %12, %11, %9
-  %.09 = phi i1 [ false, %9 ], [ false, %11 ], [ %14, %12 ]
+15:                                               ; preds = %11, %14
+  %.09 = phi i1 [ false, %14 ], [ true, %11 ]
   ret i1 %.09
 }
 
@@ -4954,13 +4959,15 @@ rb_array_len.exit:                                ; preds = %6, %9
   %14 = tail call i64 @rb_ary_entry(i64 noundef %1, i64 noundef 0) #26
   %15 = tail call i64 @rb_check_array_type(i64 noundef %14) #27
   %16 = icmp eq i64 %15, 4
-  %spec.select = select i1 %16, i64 %1, i64 %15
-  br label %17
+  br i1 %16, label %17, label %18
 
 17:                                               ; preds = %13, %rb_array_len.exit
-  %.sink = phi i64 [ %1, %rb_array_len.exit ], [ %spec.select, %13 ]
-  %18 = tail call fastcc i64 @rb_reg_s_union(i64 noundef %.sink)
-  ret i64 %18
+  br label %18
+
+18:                                               ; preds = %13, %17
+  %.sink = phi i64 [ %1, %17 ], [ %15, %13 ]
+  %19 = tail call fastcc i64 @rb_reg_s_union(i64 noundef %.sink)
+  ret i64 %19
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5631,17 +5638,17 @@ define internal noundef i64 @rb_reg_fixed_encoding_p(i64 noundef %0) #7 {
   %.fr4 = freeze i64 %8
   %9 = and i64 %.fr4, 31
   %10 = icmp eq i64 %9, 27
-  br i1 %10, label %RB_FL_TEST.exit.thread, label %RB_FL_TEST.exit
-
-RB_FL_TEST.exit:                                  ; preds = %6
   %11 = and i64 %.fr4, 65536
   %.not = icmp eq i64 %11, 0
-  %spec.select = select i1 %.not, i64 0, i64 20
-  br label %RB_FL_TEST.exit.thread
+  %or.cond = or i1 %10, %.not
+  br i1 %or.cond, label %RB_FL_TEST.exit.thread, label %12
 
-RB_FL_TEST.exit.thread:                           ; preds = %RB_FL_TEST.exit, %6, %1
-  %12 = phi i64 [ 0, %1 ], [ 0, %6 ], [ %spec.select, %RB_FL_TEST.exit ]
-  ret i64 %12
+RB_FL_TEST.exit.thread:                           ; preds = %6, %1
+  br label %12
+
+12:                                               ; preds = %6, %RB_FL_TEST.exit.thread
+  %13 = phi i64 [ 0, %RB_FL_TEST.exit.thread ], [ 20, %6 ]
+  ret i64 %13
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -9589,8 +9596,8 @@ rb_enc_asciicompat.exit.thread:                   ; preds = %58, %rb_enc_asciico
   %76 = icmp eq i64 %75, 27
   %77 = and i64 %.fr4.i, 65536
   %.not.i98 = icmp eq i64 %77, 0
-  %or.cond = or i1 %76, %.not.i98
-  br i1 %or.cond, label %rb_reg_fixed_encoding_p.exit.thread, label %rb_reg_fixed_encoding_p.exit
+  %or.cond.i = or i1 %76, %.not.i98
+  br i1 %or.cond.i, label %rb_reg_fixed_encoding_p.exit.thread, label %rb_reg_fixed_encoding_p.exit
 
 rb_reg_fixed_encoding_p.exit:                     ; preds = %72
   %.not80 = icmp eq ptr %.061130, null

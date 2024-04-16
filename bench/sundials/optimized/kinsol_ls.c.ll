@@ -723,21 +723,21 @@ define i32 @kinLsSolve(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
 
 53:                                               ; preds = %48
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef nonnull %0, i32 noundef 806, i32 noundef 1279, ptr noundef nonnull @__func__.kinLsSolve, ptr noundef nonnull @.str, ptr noundef nonnull @.str.35) #12
-  br label %97
+  br label %57
 
 54:                                               ; preds = %48
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef nonnull %0, i32 noundef -9987, i32 noundef 1283, ptr noundef nonnull @__func__.kinLsSolve, ptr noundef nonnull @.str, ptr noundef nonnull @.str.35) #12
-  br label %97
+  br label %57
 
 55:                                               ; preds = %48
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef nonnull %0, i32 noundef -805, i32 noundef 1287, ptr noundef nonnull @__func__.kinLsSolve, ptr noundef nonnull @.str, ptr noundef nonnull @.str.36) #12
-  br label %97
+  br label %57
 
 56:                                               ; preds = %48
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef nonnull %0, i32 noundef -808, i32 noundef 1291, ptr noundef nonnull @__func__.kinLsSolve, ptr noundef nonnull @.str, ptr noundef nonnull @.str.37) #12
-  br label %97
+  br label %57
 
-57:                                               ; preds = %48
+57:                                               ; preds = %48, %56, %55, %54, %53
   br label %97
 
 58:                                               ; preds = %.thread, %48
@@ -818,8 +818,8 @@ define i32 @kinLsSolve(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINPrintInfo(ptr noundef nonnull %0, i32 noundef 102, ptr noundef nonnull @.str.33, ptr noundef nonnull @__func__.kinLsSolve, ptr noundef nonnull @.str.38, double noundef %.065, double noundef %96) #12
   br label %97
 
-97:                                               ; preds = %92, %95, %53, %54, %55, %56, %48, %48, %10, %75, %72, %57, %9
-  %.0 = phi i32 [ -2, %9 ], [ 1, %72 ], [ -1, %75 ], [ -1, %10 ], [ 1, %48 ], [ 1, %48 ], [ -808, %56 ], [ -805, %55 ], [ -9987, %54 ], [ 806, %53 ], [ %24, %57 ], [ 0, %95 ], [ 0, %92 ]
+97:                                               ; preds = %92, %95, %48, %48, %10, %75, %72, %57, %9
+  %.0 = phi i32 [ -2, %9 ], [ %24, %57 ], [ 1, %72 ], [ -1, %75 ], [ -1, %10 ], [ 1, %48 ], [ 1, %48 ], [ 0, %95 ], [ 0, %92 ]
   ret i32 %.0
 }
 

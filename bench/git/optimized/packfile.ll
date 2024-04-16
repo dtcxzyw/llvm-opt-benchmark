@@ -1086,7 +1086,7 @@ for.body.i.i:                                     ; preds = %land.rhs, %if.end5.
 
 if.then.i.i:                                      ; preds = %for.body.i.i
   %tobool2.not.i.i = icmp eq ptr %lru_w.0.i, null
-  br i1 %tobool2.not.i.i, label %if.end5.i.i, label %lor.lhs.false.i.i
+  br i1 %tobool2.not.i.i, label %if.then4.i.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.then.i.i
   %last_used.i.i = getelementptr inbounds i8, ptr %w.012.i.i, i64 32
@@ -1096,13 +1096,13 @@ lor.lhs.false.i.i:                                ; preds = %if.then.i.i
   %cmp.i.i = icmp ult i32 %23, %24
   br i1 %cmp.i.i, label %if.then4.i.i, label %if.end5.i.i
 
-if.then4.i.i:                                     ; preds = %lor.lhs.false.i.i
+if.then4.i.i:                                     ; preds = %lor.lhs.false.i.i, %if.then.i.i
   br label %if.end5.i.i
 
-if.end5.i.i:                                      ; preds = %if.then4.i.i, %lor.lhs.false.i.i, %if.then.i.i, %for.body.i.i
-  %lru_p.1.i = phi ptr [ %lru_p.0.i, %lor.lhs.false.i.i ], [ %lru_p.0.i, %for.body.i.i ], [ %p, %if.then.i.i ], [ %p, %if.then4.i.i ]
-  %lru_w.1.i = phi ptr [ %lru_w.0.i, %lor.lhs.false.i.i ], [ %lru_w.0.i, %for.body.i.i ], [ %w.012.i.i, %if.then.i.i ], [ %w.012.i.i, %if.then4.i.i ]
-  %lru_l.1.i = phi ptr [ %lru_l.0.i, %lor.lhs.false.i.i ], [ %lru_l.0.i, %for.body.i.i ], [ %w_l.011.i.i, %if.then.i.i ], [ %w_l.011.i.i, %if.then4.i.i ]
+if.end5.i.i:                                      ; preds = %if.then4.i.i, %lor.lhs.false.i.i, %for.body.i.i
+  %lru_p.1.i = phi ptr [ %p, %if.then4.i.i ], [ %lru_p.0.i, %lor.lhs.false.i.i ], [ %lru_p.0.i, %for.body.i.i ]
+  %lru_w.1.i = phi ptr [ %w.012.i.i, %if.then4.i.i ], [ %lru_w.0.i, %lor.lhs.false.i.i ], [ %lru_w.0.i, %for.body.i.i ]
+  %lru_l.1.i = phi ptr [ %w_l.011.i.i, %if.then4.i.i ], [ %lru_l.0.i, %lor.lhs.false.i.i ], [ %lru_l.0.i, %for.body.i.i ]
   %w.0.i.i = load ptr, ptr %w.012.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %w.0.i.i, null
   br i1 %tobool.not.i.i, label %if.end.i, label %for.body.i.i, !llvm.loop !13
@@ -1142,7 +1142,7 @@ for.body.i7.i:                                    ; preds = %for.body.i, %if.end
 
 if.then.i15.i:                                    ; preds = %for.body.i7.i
   %tobool2.not.i16.i = icmp eq ptr %lru_w.5.i, null
-  br i1 %tobool2.not.i16.i, label %if.end5.i12.i, label %lor.lhs.false.i17.i
+  br i1 %tobool2.not.i16.i, label %if.then4.i21.i, label %lor.lhs.false.i17.i
 
 lor.lhs.false.i17.i:                              ; preds = %if.then.i15.i
   %last_used.i18.i = getelementptr inbounds i8, ptr %w.012.i8.i, i64 32
@@ -1152,13 +1152,13 @@ lor.lhs.false.i17.i:                              ; preds = %if.then.i15.i
   %cmp.i20.i = icmp ult i32 %28, %29
   br i1 %cmp.i20.i, label %if.then4.i21.i, label %if.end5.i12.i
 
-if.then4.i21.i:                                   ; preds = %lor.lhs.false.i17.i
+if.then4.i21.i:                                   ; preds = %lor.lhs.false.i17.i, %if.then.i15.i
   br label %if.end5.i12.i
 
-if.end5.i12.i:                                    ; preds = %if.then4.i21.i, %lor.lhs.false.i17.i, %if.then.i15.i, %for.body.i7.i
-  %lru_p.6.i = phi ptr [ %lru_p.5.i, %lor.lhs.false.i17.i ], [ %lru_p.5.i, %for.body.i7.i ], [ %p.035.i, %if.then.i15.i ], [ %p.035.i, %if.then4.i21.i ]
-  %lru_w.6.i = phi ptr [ %lru_w.5.i, %lor.lhs.false.i17.i ], [ %lru_w.5.i, %for.body.i7.i ], [ %w.012.i8.i, %if.then.i15.i ], [ %w.012.i8.i, %if.then4.i21.i ]
-  %lru_l.6.i = phi ptr [ %lru_l.5.i, %lor.lhs.false.i17.i ], [ %lru_l.5.i, %for.body.i7.i ], [ %w_l.011.i9.i, %if.then.i15.i ], [ %w_l.011.i9.i, %if.then4.i21.i ]
+if.end5.i12.i:                                    ; preds = %if.then4.i21.i, %lor.lhs.false.i17.i, %for.body.i7.i
+  %lru_p.6.i = phi ptr [ %p.035.i, %if.then4.i21.i ], [ %lru_p.5.i, %lor.lhs.false.i17.i ], [ %lru_p.5.i, %for.body.i7.i ]
+  %lru_w.6.i = phi ptr [ %w.012.i8.i, %if.then4.i21.i ], [ %lru_w.5.i, %lor.lhs.false.i17.i ], [ %lru_w.5.i, %for.body.i7.i ]
+  %lru_l.6.i = phi ptr [ %w_l.011.i9.i, %if.then4.i21.i ], [ %lru_l.5.i, %lor.lhs.false.i17.i ], [ %lru_l.5.i, %for.body.i7.i ]
   %w.0.i13.i = load ptr, ptr %w.012.i8.i, align 8
   %tobool.not.i14.i = icmp eq ptr %w.0.i13.i, null
   br i1 %tobool.not.i14.i, label %scan_windows.exit22.i, label %for.body.i7.i, !llvm.loop !13
@@ -2689,17 +2689,19 @@ entry:
   %multi_pack_index.i = getelementptr inbounds i8, ptr %0, i64 112
   %1 = load ptr, ptr %multi_pack_index.i, align 8
   %tobool.not = icmp eq ptr %1, null
-  br i1 %tobool.not, label %return, label %land.lhs.true
+  br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
   %local = getelementptr inbounds i8, ptr %1, i64 68
   %2 = load i32, ptr %local, align 4
   %tobool1.not = icmp eq i32 %2, 0
-  %spec.select = select i1 %tobool1.not, ptr null, ptr %1
+  br i1 %tobool1.not, label %if.end, label %return
+
+if.end:                                           ; preds = %land.lhs.true, %entry
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ %spec.select, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %if.end
+  %retval.0 = phi ptr [ null, %if.end ], [ %1, %land.lhs.true ]
   ret ptr %retval.0
 }
 
@@ -3976,30 +3978,32 @@ in_delta_base_cache.exit:                         ; preds = %if.end76
   %.not = icmp eq ptr %call4.i.i114.fr, null
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %entry1.i.i101)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %key.i.i102)
-  %spec.select = select i1 %.not, i32 2, i32 3
-  br label %90
+  br i1 %.not, label %90, label %91
 
-90:                                               ; preds = %in_delta_base_cache.exit, %in_delta_base_cache.exit.thread
-  %91 = phi i32 [ 2, %in_delta_base_cache.exit.thread ], [ %spec.select, %in_delta_base_cache.exit ]
+90:                                               ; preds = %in_delta_base_cache.exit.thread, %in_delta_base_cache.exit
+  br label %91
+
+91:                                               ; preds = %in_delta_base_cache.exit, %90
+  %92 = phi i32 [ 2, %90 ], [ 3, %in_delta_base_cache.exit ]
   %whence = getelementptr inbounds i8, ptr %oi, i64 48
-  store i32 %91, ptr %whence, align 8
+  store i32 %92, ptr %whence, align 8
   br label %out
 
-out:                                              ; preds = %90, %if.then71, %if.then59, %if.then32, %if.then22, %if.then16
-  %92 = load ptr, ptr %w_curs, align 8
-  %tobool.not.i116 = icmp eq ptr %92, null
+out:                                              ; preds = %91, %if.then71, %if.then59, %if.then32, %if.then22, %if.then16
+  %93 = load ptr, ptr %w_curs, align 8
+  %tobool.not.i116 = icmp eq ptr %93, null
   br i1 %tobool.not.i116, label %unuse_pack.exit, label %if.then.i117
 
 if.then.i117:                                     ; preds = %out
-  %inuse_cnt.i = getelementptr inbounds i8, ptr %92, i64 36
-  %93 = load i32, ptr %inuse_cnt.i, align 4
-  %dec.i = add i32 %93, -1
+  %inuse_cnt.i = getelementptr inbounds i8, ptr %93, i64 36
+  %94 = load i32, ptr %inuse_cnt.i, align 4
+  %dec.i = add i32 %94, -1
   store i32 %dec.i, ptr %inuse_cnt.i, align 4
   br label %unuse_pack.exit
 
 unuse_pack.exit:                                  ; preds = %out, %if.then.i117
-  %94 = load i32, ptr %type, align 4
-  ret i32 %94
+  %95 = load i32, ptr %type, align 4
+  ret i32 %95
 }
 
 declare i32 @offset_to_pack_pos(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1

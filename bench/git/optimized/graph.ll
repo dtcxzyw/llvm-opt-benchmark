@@ -1024,13 +1024,13 @@ graph_update_columns.exit:                        ; preds = %land.rhs.i, %while.
 if.else:                                          ; preds = %graph_update_columns.exit
   %106 = load i32, ptr %num_parents, align 8
   %cmp.i54 = icmp sgt i32 %106, 2
-  br i1 %cmp.i54, label %land.lhs.true.i, label %if.end11
+  br i1 %cmp.i54, label %land.lhs.true.i, label %if.else9
 
 land.lhs.true.i:                                  ; preds = %if.else
   %107 = load i32, ptr %commit_index, align 4
   %sub.i = add nsw i32 %100, -1
   %cmp1.i = icmp slt i32 %107, %sub.i
-  br i1 %cmp1.i, label %graph_needs_pre_commit_line.exit, label %if.end11
+  br i1 %cmp1.i, label %graph_needs_pre_commit_line.exit, label %if.else9
 
 graph_needs_pre_commit_line.exit:                 ; preds = %land.lhs.true.i
   %108 = getelementptr i8, ptr %graph, i64 44
@@ -1038,11 +1038,13 @@ graph_needs_pre_commit_line.exit:                 ; preds = %land.lhs.true.i
   %add.i.i.i = add nsw i32 %106, -3
   %sub.i.i.i = add i32 %add.i.i.i, %graph.val5.i
   %cmp2.i = icmp slt i32 %sub.i.i.i, 1
-  %spec.select = select i1 %cmp2.i, i32 3, i32 2
+  br i1 %cmp2.i, label %if.else9, label %if.end11
+
+if.else9:                                         ; preds = %if.else, %land.lhs.true.i, %graph_needs_pre_commit_line.exit
   br label %if.end11
 
-if.end11:                                         ; preds = %graph_needs_pre_commit_line.exit, %land.lhs.true.i, %if.else, %graph_update_columns.exit
-  %.sink = phi i32 [ 1, %graph_update_columns.exit ], [ 3, %if.else ], [ 3, %land.lhs.true.i ], [ %spec.select, %graph_needs_pre_commit_line.exit ]
+if.end11:                                         ; preds = %graph_needs_pre_commit_line.exit, %graph_update_columns.exit, %if.else9
+  %.sink = phi i32 [ 3, %if.else9 ], [ 1, %graph_update_columns.exit ], [ 2, %graph_needs_pre_commit_line.exit ]
   store i32 %.sink, ptr %state, align 4
   ret void
 }
@@ -1140,7 +1142,7 @@ sw.bb1:                                           ; preds = %if.end
   %num_parents.i.i = getelementptr inbounds i8, ptr %graph, i64 16
   %14 = load i32, ptr %num_parents.i.i, align 8
   %cmp.i.i = icmp sgt i32 %14, 2
-  br i1 %cmp.i.i, label %land.lhs.true.i.i, label %sw.epilog.sink.split
+  br i1 %cmp.i.i, label %land.lhs.true.i.i, label %if.else.i
 
 land.lhs.true.i.i:                                ; preds = %sw.bb1
   %commit_index.i.i = getelementptr inbounds i8, ptr %graph, i64 36
@@ -1149,7 +1151,7 @@ land.lhs.true.i.i:                                ; preds = %sw.bb1
   %16 = load i32, ptr %num_columns.i.i, align 4
   %sub.i.i = add nsw i32 %16, -1
   %cmp1.i.i = icmp slt i32 %15, %sub.i.i
-  br i1 %cmp1.i.i, label %graph_needs_pre_commit_line.exit.i, label %sw.epilog.sink.split
+  br i1 %cmp1.i.i, label %graph_needs_pre_commit_line.exit.i, label %if.else.i
 
 graph_needs_pre_commit_line.exit.i:               ; preds = %land.lhs.true.i.i
   %expansion_row.i.i = getelementptr inbounds i8, ptr %graph, i64 24
@@ -1160,7 +1162,9 @@ graph_needs_pre_commit_line.exit.i:               ; preds = %land.lhs.true.i.i
   %sub.i.i.i.i = add i32 %add.i.i.i.i, %graph.val5.i.i
   %mul.i.i.i = shl nsw i32 %sub.i.i.i.i, 1
   %cmp2.i.not.i = icmp slt i32 %17, %mul.i.i.i
-  %spec.select = select i1 %cmp2.i.not.i, i32 2, i32 3
+  br i1 %cmp2.i.not.i, label %sw.epilog.sink.split, label %if.else.i
+
+if.else.i:                                        ; preds = %graph_needs_pre_commit_line.exit.i, %land.lhs.true.i.i, %sw.bb1
   br label %sw.epilog.sink.split
 
 sw.bb2:                                           ; preds = %if.end
@@ -1580,24 +1584,26 @@ land.lhs.true21.i:                                ; preds = %land.lhs.true.i61
 if.then24.i:                                      ; preds = %land.lhs.true21.i
   %98 = load i32, ptr %prev_state.i53, align 8
   %cmp25.i = icmp eq i32 %98, 4
-  br i1 %cmp25.i, label %land.lhs.true26.i, label %if.end50.sink.split.i
+  br i1 %cmp25.i, label %land.lhs.true26.i, label %if.else31.i
 
 land.lhs.true26.i:                                ; preds = %if.then24.i
   %99 = load i32, ptr %prev_edges_added.i, align 4
   %cmp27.i = icmp sgt i32 %99, 0
-  br i1 %cmp27.i, label %land.lhs.true28.i, label %if.end50.sink.split.i
+  br i1 %cmp27.i, label %land.lhs.true28.i, label %if.else31.i
 
 land.lhs.true28.i:                                ; preds = %land.lhs.true26.i
   %100 = load i32, ptr %prev_commit_index.i54, align 8
   %101 = sext i32 %100 to i64
   %cmp29.i81 = icmp sgt i64 %indvars.iv.i57, %101
-  %spec.select.i = select i1 %cmp29.i81, i8 92, i8 124
+  br i1 %cmp29.i81, label %if.end50.sink.split.i, label %if.else31.i
+
+if.else31.i:                                      ; preds = %land.lhs.true28.i, %land.lhs.true26.i, %if.then24.i
   br label %if.end50.sink.split.i
 
 if.else33.i:                                      ; preds = %land.lhs.true21.i, %if.else15.i
   %102 = load i32, ptr %prev_state.i53, align 8
   %cmp35.i = icmp eq i32 %102, 5
-  br i1 %cmp35.i, label %land.lhs.true36.i, label %if.end50.sink.split.i
+  br i1 %cmp35.i, label %land.lhs.true36.i, label %if.else46.i
 
 land.lhs.true36.i:                                ; preds = %if.else33.i
   %103 = load ptr, ptr %old_mapping.i, align 8
@@ -1607,7 +1613,7 @@ land.lhs.true36.i:                                ; preds = %if.else33.i
   %106 = load i32, ptr %arrayidx38.i, align 4
   %107 = zext i32 %106 to i64
   %cmp39.i = icmp eq i64 %indvars.iv.i57, %107
-  br i1 %cmp39.i, label %land.lhs.true40.i, label %if.end50.sink.split.i
+  br i1 %cmp39.i, label %land.lhs.true40.i, label %if.else46.i
 
 land.lhs.true40.i:                                ; preds = %land.lhs.true36.i
   %108 = load ptr, ptr %mapping.i, align 8
@@ -1615,12 +1621,14 @@ land.lhs.true40.i:                                ; preds = %land.lhs.true36.i
   %109 = load i32, ptr %arrayidx43.i, align 4
   %110 = sext i32 %109 to i64
   %cmp44.i = icmp sgt i64 %indvars.iv.i57, %110
-  %spec.select123.i = select i1 %cmp44.i, i8 47, i8 124
+  br i1 %cmp44.i, label %if.end50.sink.split.i, label %if.else46.i
+
+if.else46.i:                                      ; preds = %land.lhs.true40.i, %land.lhs.true36.i, %if.else33.i
   br label %if.end50.sink.split.i
 
-if.end50.sink.split.i:                            ; preds = %land.lhs.true40.i, %land.lhs.true36.i, %if.else33.i, %land.lhs.true28.i, %land.lhs.true26.i, %if.then24.i, %land.lhs.true.i61
-  %.sink.i = phi i8 [ 92, %land.lhs.true.i61 ], [ 124, %land.lhs.true26.i ], [ 124, %if.then24.i ], [ 124, %land.lhs.true36.i ], [ 124, %if.else33.i ], [ %spec.select.i, %land.lhs.true28.i ], [ %spec.select123.i, %land.lhs.true40.i ]
-  %seen_this.1.ph.i = phi i32 [ 1, %land.lhs.true.i61 ], [ 1, %land.lhs.true26.i ], [ 1, %if.then24.i ], [ %seen_this.0116.i, %land.lhs.true36.i ], [ %seen_this.0116.i, %if.else33.i ], [ 1, %land.lhs.true28.i ], [ %seen_this.0116.i, %land.lhs.true40.i ]
+if.end50.sink.split.i:                            ; preds = %if.else46.i, %land.lhs.true40.i, %if.else31.i, %land.lhs.true28.i, %land.lhs.true.i61
+  %.sink.i = phi i8 [ 124, %if.else46.i ], [ 124, %if.else31.i ], [ 92, %land.lhs.true.i61 ], [ 92, %land.lhs.true28.i ], [ 47, %land.lhs.true40.i ]
+  %seen_this.1.ph.i = phi i32 [ %seen_this.0116.i, %if.else46.i ], [ 1, %if.else31.i ], [ 1, %land.lhs.true.i61 ], [ 1, %land.lhs.true28.i ], [ %seen_this.0116.i, %land.lhs.true40.i ]
   call fastcc void @graph_line_write_column(ptr noundef nonnull %line, ptr noundef nonnull %arrayidx.i58, i8 noundef signext %.sink.i)
   %.pre = load ptr, ptr %line, align 8
   br label %if.end50.i
@@ -1735,8 +1743,8 @@ if.then.i.i.i93:                                  ; preds = %land.lhs.true.i.i.i
   br i1 %tobool5.not.i.i.i, label %graph_is_interesting.exit.i.i, label %first_interesting_parent.exit.i
 
 graph_is_interesting.exit.i.i:                    ; preds = %if.then.i.i.i93, %land.lhs.true.i.i.i, %if.end.i.i91
-  %call.i.i.i172 = tail call i32 @get_commit_action(ptr noundef %graph.val.i.i, ptr noundef %129) #15
-  %cmp.i.not.i.i = icmp eq i32 %call.i.i.i172, 1
+  %call.i.i.i171 = tail call i32 @get_commit_action(ptr noundef %graph.val.i.i, ptr noundef %129) #15
+  %cmp.i.not.i.i = icmp eq i32 %call.i.i.i171, 1
   br i1 %cmp.i.not.i.i, label %first_interesting_parent.exit.i, label %if.end4.i.i
 
 if.end4.i.i:                                      ; preds = %graph_is_interesting.exit.i.i
@@ -1757,29 +1765,29 @@ for.cond.i.i.i:                                   ; preds = %if.end4.i.i, %graph
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
   %135 = load ptr, ptr %list.0.i.i.i, align 8
   %graph.val.i.i.i = load ptr, ptr %130, align 8
-  %tobool.not.i.i.i.i173 = icmp eq ptr %graph.val.i.i.i, null
-  br i1 %tobool.not.i.i.i.i173, label %graph_is_interesting.exit.i.i.i, label %land.lhs.true.i.i.i.i
+  %tobool.not.i.i.i.i172 = icmp eq ptr %graph.val.i.i.i, null
+  br i1 %tobool.not.i.i.i.i172, label %graph_is_interesting.exit.i.i.i, label %land.lhs.true.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %for.body.i.i.i
   %boundary.i.i.i.i = getelementptr inbounds i8, ptr %graph.val.i.i.i, i64 280
   %bf.load.i.i.i.i = load i64, ptr %boundary.i.i.i.i, align 8
   %136 = and i64 %bf.load.i.i.i.i, 12582912
   %tobool2.not.i.i.i.i = icmp eq i64 %136, 0
-  br i1 %tobool2.not.i.i.i.i, label %graph_is_interesting.exit.i.i.i, label %if.then.i.i.i.i174
+  br i1 %tobool2.not.i.i.i.i, label %graph_is_interesting.exit.i.i.i, label %if.then.i.i.i.i173
 
-if.then.i.i.i.i174:                               ; preds = %land.lhs.true.i.i.i.i
+if.then.i.i.i.i173:                               ; preds = %land.lhs.true.i.i.i.i
   %bf.load3.i.i.i.i = load i32, ptr %135, align 8
   %137 = and i32 %bf.load3.i.i.i.i, 1024
   %tobool5.not.i.i.i.i = icmp eq i32 %137, 0
   br i1 %tobool5.not.i.i.i.i, label %graph_is_interesting.exit.i.i.i, label %first_interesting_parent.exit.i
 
-graph_is_interesting.exit.i.i.i:                  ; preds = %if.then.i.i.i.i174, %land.lhs.true.i.i.i.i, %for.body.i.i.i
-  %call.i.i.i.i175 = tail call i32 @get_commit_action(ptr noundef %graph.val.i.i.i, ptr noundef %135) #15
-  %cmp.i.not.i.i.i = icmp eq i32 %call.i.i.i.i175, 1
+graph_is_interesting.exit.i.i.i:                  ; preds = %if.then.i.i.i.i173, %land.lhs.true.i.i.i.i, %for.body.i.i.i
+  %call.i.i.i.i174 = tail call i32 @get_commit_action(ptr noundef %graph.val.i.i.i, ptr noundef %135) #15
+  %cmp.i.not.i.i.i = icmp eq i32 %call.i.i.i.i174, 1
   br i1 %cmp.i.not.i.i.i, label %first_interesting_parent.exit.i, label %for.cond.i.i.i, !llvm.loop !7
 
-first_interesting_parent.exit.i:                  ; preds = %graph_is_interesting.exit.i.i.i, %if.then.i.i.i.i174, %for.cond.i.i.i, %if.end4.i.i, %graph_is_interesting.exit.i.i, %if.then.i.i.i93, %sw.bb4
-  %retval.0.i.i = phi ptr [ null, %sw.bb4 ], [ %128, %graph_is_interesting.exit.i.i ], [ null, %if.end4.i.i ], [ %128, %if.then.i.i.i93 ], [ %list.0.i.i.i, %graph_is_interesting.exit.i.i.i ], [ null, %for.cond.i.i.i ], [ %list.0.i.i.i, %if.then.i.i.i.i174 ]
+first_interesting_parent.exit.i:                  ; preds = %graph_is_interesting.exit.i.i.i, %if.then.i.i.i.i173, %for.cond.i.i.i, %if.end4.i.i, %graph_is_interesting.exit.i.i, %if.then.i.i.i93, %sw.bb4
+  %retval.0.i.i = phi ptr [ null, %sw.bb4 ], [ %128, %graph_is_interesting.exit.i.i ], [ null, %if.end4.i.i ], [ %128, %if.then.i.i.i93 ], [ %list.0.i.i.i, %graph_is_interesting.exit.i.i.i ], [ null, %for.cond.i.i.i ], [ %list.0.i.i.i, %if.then.i.i.i.i173 ]
   %num_columns.i94 = getelementptr inbounds i8, ptr %graph, i64 60
   %138 = load i32, ptr %num_columns.i94, align 4
   %cmp.not148.i = icmp slt i32 %138, 0
@@ -1797,19 +1805,19 @@ for.body.lr.ph.i95:                               ; preds = %first_interesting_p
   br label %for.body.i100
 
 for.body.i100:                                    ; preds = %if.end53.i, %for.body.lr.ph.i95
-  %indvars.iv.i101 = phi i64 [ 0, %for.body.lr.ph.i95 ], [ %indvars.iv.next.i108, %if.end53.i ]
+  %indvars.iv.i101 = phi i64 [ 0, %for.body.lr.ph.i95 ], [ %indvars.iv.next.i107, %if.end53.i ]
   %139 = phi i32 [ %138, %for.body.lr.ph.i95 ], [ %209, %if.end53.i ]
   %seen_this.0151.i = phi i32 [ 0, %for.body.lr.ph.i95 ], [ %seen_this.1.i106, %if.end53.i ]
-  %parent_col.0149.i = phi ptr [ null, %for.body.lr.ph.i95 ], [ %spec.select.i107, %if.end53.i ]
+  %parent_col.0149.i = phi ptr [ null, %for.body.lr.ph.i95 ], [ %spec.select.i, %if.end53.i ]
   %140 = load ptr, ptr %columns.i96, align 8
   %arrayidx.i102 = getelementptr inbounds %struct.column, ptr %140, i64 %indvars.iv.i101
   %141 = zext i32 %139 to i64
   %cmp2.i103 = icmp eq i64 %indvars.iv.i101, %141
-  br i1 %cmp2.i103, label %if.then.i170, label %if.end5.i
+  br i1 %cmp2.i103, label %if.then.i169, label %if.end5.i
 
-if.then.i170:                                     ; preds = %for.body.i100
-  %tobool.not.i171 = icmp eq i32 %seen_this.0151.i, 0
-  br i1 %tobool.not.i171, label %if.end5.thread.i, label %for.end60.i
+if.then.i169:                                     ; preds = %for.body.i100
+  %tobool.not.i170 = icmp eq i32 %seen_this.0151.i, 0
+  br i1 %tobool.not.i170, label %if.end5.thread.i, label %for.end60.i
 
 if.end5.i:                                        ; preds = %for.body.i100
   %col_commit.0.i104 = load ptr, ptr %arrayidx.i102, align 8
@@ -1817,7 +1825,7 @@ if.end5.i:                                        ; preds = %for.body.i100
   %cmp7.i105 = icmp eq ptr %col_commit.0.i104, %142
   br i1 %cmp7.i105, label %if.then8.i, label %if.else32.i
 
-if.end5.thread.i:                                 ; preds = %if.then.i170
+if.end5.thread.i:                                 ; preds = %if.then.i169
   %col_commit.0133.i = load ptr, ptr %graph, align 8
   br label %if.then8.i
 
@@ -1825,14 +1833,14 @@ if.then8.i:                                       ; preds = %if.end5.thread.i, %
   %col_commit.0137.i = phi ptr [ %col_commit.0133.i, %if.end5.thread.i ], [ %col_commit.0.i104, %if.end5.i ]
   %143 = load i32, ptr %num_parents.i97, align 8
   %cmp10143.i = icmp sgt i32 %143, 0
-  br i1 %cmp10143.i, label %for.body11.preheader.i, label %for.end.i117
+  br i1 %cmp10143.i, label %for.body11.preheader.i, label %for.end.i116
 
 for.body11.preheader.i:                           ; preds = %if.then8.i
   %144 = load i32, ptr %merge_layout41.i, align 4
   %width.promoted = load i64, ptr %width, align 8
-  %line.val.i.i159 = load ptr, ptr %line, align 8
-  %len.i.i.i.i.i123 = getelementptr inbounds i8, ptr %line.val.i.i159, i64 8
-  %buf.i.i.i.i127 = getelementptr inbounds i8, ptr %line.val.i.i159, i64 16
+  %line.val.i.i158 = load ptr, ptr %line, align 8
+  %len.i.i.i.i.i122 = getelementptr inbounds i8, ptr %line.val.i.i158, i64 8
+  %buf.i.i.i.i126 = getelementptr inbounds i8, ptr %line.val.i.i158, i64 16
   br label %for.body11.i
 
 for.body11.i:                                     ; preds = %next_interesting_parent.exit.i, %for.body11.preheader.i
@@ -1843,96 +1851,96 @@ for.body11.i:                                     ; preds = %next_interesting_pa
   %146 = load ptr, ptr %parents.0146.i, align 8
   %147 = load i32, ptr %num_new_columns.i.i, align 8
   %cmp5.i.i = icmp sgt i32 %147, 0
-  %.pre.i119 = load ptr, ptr %new_columns.i.i98, align 8
-  br i1 %cmp5.i.i, label %for.body.lr.ph.i.i162, label %graph_find_new_column_by_commit.exit.i
+  %.pre.i118 = load ptr, ptr %new_columns.i.i98, align 8
+  br i1 %cmp5.i.i, label %for.body.lr.ph.i.i161, label %graph_find_new_column_by_commit.exit.i
 
-for.body.lr.ph.i.i162:                            ; preds = %for.body11.i
-  %wide.trip.count.i.i163 = zext nneg i32 %147 to i64
-  br label %for.body.i.i164
+for.body.lr.ph.i.i161:                            ; preds = %for.body11.i
+  %wide.trip.count.i.i162 = zext nneg i32 %147 to i64
+  br label %for.body.i.i163
 
-for.body.i.i164:                                  ; preds = %for.inc.i.i, %for.body.lr.ph.i.i162
-  %indvars.iv.i.i165 = phi i64 [ 0, %for.body.lr.ph.i.i162 ], [ %indvars.iv.next.i.i168, %for.inc.i.i ]
-  %arrayidx.i.i166 = getelementptr inbounds %struct.column, ptr %.pre.i119, i64 %indvars.iv.i.i165
-  %148 = load ptr, ptr %arrayidx.i.i166, align 8
-  %cmp2.i.i167 = icmp eq ptr %148, %146
-  br i1 %cmp2.i.i167, label %graph_find_new_column_by_commit.exit.i, label %for.inc.i.i
+for.body.i.i163:                                  ; preds = %for.inc.i.i, %for.body.lr.ph.i.i161
+  %indvars.iv.i.i164 = phi i64 [ 0, %for.body.lr.ph.i.i161 ], [ %indvars.iv.next.i.i167, %for.inc.i.i ]
+  %arrayidx.i.i165 = getelementptr inbounds %struct.column, ptr %.pre.i118, i64 %indvars.iv.i.i164
+  %148 = load ptr, ptr %arrayidx.i.i165, align 8
+  %cmp2.i.i166 = icmp eq ptr %148, %146
+  br i1 %cmp2.i.i166, label %graph_find_new_column_by_commit.exit.i, label %for.inc.i.i
 
-for.inc.i.i:                                      ; preds = %for.body.i.i164
-  %indvars.iv.next.i.i168 = add nuw nsw i64 %indvars.iv.i.i165, 1
-  %exitcond.not.i.i169 = icmp eq i64 %indvars.iv.next.i.i168, %wide.trip.count.i.i163
-  br i1 %exitcond.not.i.i169, label %graph_find_new_column_by_commit.exit.i, label %for.body.i.i164, !llvm.loop !11
+for.inc.i.i:                                      ; preds = %for.body.i.i163
+  %indvars.iv.next.i.i167 = add nuw nsw i64 %indvars.iv.i.i164, 1
+  %exitcond.not.i.i168 = icmp eq i64 %indvars.iv.next.i.i167, %wide.trip.count.i.i162
+  br i1 %exitcond.not.i.i168, label %graph_find_new_column_by_commit.exit.i, label %for.body.i.i163, !llvm.loop !11
 
-graph_find_new_column_by_commit.exit.i:           ; preds = %for.inc.i.i, %for.body.i.i164, %for.body11.i
-  %retval.0.i45.i = phi i64 [ -1, %for.body11.i ], [ -1, %for.inc.i.i ], [ %indvars.iv.i.i165, %for.body.i.i164 ]
+graph_find_new_column_by_commit.exit.i:           ; preds = %for.inc.i.i, %for.body.i.i163, %for.body11.i
+  %retval.0.i45.i = phi i64 [ -1, %for.body11.i ], [ -1, %for.inc.i.i ], [ %indvars.iv.i.i164, %for.body.i.i163 ]
   %idxprom13.i = sext i32 %idx.0147.i to i64
   %arrayidx14.i = getelementptr inbounds [3 x i8], ptr @merge_chars, i64 0, i64 %idxprom13.i
   %149 = load i8, ptr %arrayidx14.i, align 1
   %sext.i = shl i64 %retval.0.i45.i, 32
   %idxprom15.i = ashr exact i64 %sext.i, 32
-  %color.i.i = getelementptr inbounds %struct.column, ptr %.pre.i119, i64 %idxprom15.i, i32 1
+  %color.i.i = getelementptr inbounds %struct.column, ptr %.pre.i118, i64 %idxprom15.i, i32 1
   %150 = load i16, ptr %color.i.i, align 8
   %151 = load i16, ptr @column_colors_max, align 2
-  %cmp.i.i120 = icmp ult i16 %150, %151
-  br i1 %cmp.i.i120, label %if.then.i.i158, label %if.end.i46.i
+  %cmp.i.i119 = icmp ult i16 %150, %151
+  br i1 %cmp.i.i119, label %if.then.i.i157, label %if.end.i46.i
 
-if.then.i.i158:                                   ; preds = %graph_find_new_column_by_commit.exit.i
+if.then.i.i157:                                   ; preds = %graph_find_new_column_by_commit.exit.i
   %152 = load ptr, ptr @column_colors, align 8
-  %idxprom.i.i.i.i160 = zext i16 %150 to i64
-  %arrayidx.i.i.i.i161 = getelementptr inbounds ptr, ptr %152, i64 %idxprom.i.i.i.i160
-  %153 = load ptr, ptr %arrayidx.i.i.i.i161, align 8
+  %idxprom.i.i.i.i159 = zext i16 %150 to i64
+  %arrayidx.i.i.i.i160 = getelementptr inbounds ptr, ptr %152, i64 %idxprom.i.i.i.i159
+  %153 = load ptr, ptr %arrayidx.i.i.i.i160, align 8
   %call.i.i.i49.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %153) #16
-  tail call void @strbuf_add(ptr noundef %line.val.i.i159, ptr noundef %153, i64 noundef %call.i.i.i49.i) #15
+  tail call void @strbuf_add(ptr noundef %line.val.i.i158, ptr noundef %153, i64 noundef %call.i.i.i49.i) #15
   br label %if.end.i46.i
 
-if.end.i46.i:                                     ; preds = %if.then.i.i158, %graph_find_new_column_by_commit.exit.i
-  %154 = load i64, ptr %line.val.i.i159, align 8
-  %tobool.not.i.i.i.i.i121 = icmp eq i64 %154, 0
-  br i1 %tobool.not.i.i.i.i.i121, label %if.then.i.i.i48.i, label %strbuf_avail.exit.i.i.i.i122
+if.end.i46.i:                                     ; preds = %if.then.i.i157, %graph_find_new_column_by_commit.exit.i
+  %154 = load i64, ptr %line.val.i.i158, align 8
+  %tobool.not.i.i.i.i.i120 = icmp eq i64 %154, 0
+  br i1 %tobool.not.i.i.i.i.i120, label %if.then.i.i.i48.i, label %strbuf_avail.exit.i.i.i.i121
 
-strbuf_avail.exit.i.i.i.i122:                     ; preds = %if.end.i46.i
-  %155 = load i64, ptr %len.i.i.i.i.i123, align 8
-  %.neg.i.i.i.i124 = add i64 %155, 1
-  %tobool.not.i.i.i47.i = icmp eq i64 %154, %.neg.i.i.i.i124
-  br i1 %tobool.not.i.i.i47.i, label %if.then.i.i.i48.i, label %graph_line_addch.exit.i.i125
+strbuf_avail.exit.i.i.i.i121:                     ; preds = %if.end.i46.i
+  %155 = load i64, ptr %len.i.i.i.i.i122, align 8
+  %.neg.i.i.i.i123 = add i64 %155, 1
+  %tobool.not.i.i.i47.i = icmp eq i64 %154, %.neg.i.i.i.i123
+  br i1 %tobool.not.i.i.i47.i, label %if.then.i.i.i48.i, label %graph_line_addch.exit.i.i124
 
-if.then.i.i.i48.i:                                ; preds = %strbuf_avail.exit.i.i.i.i122, %if.end.i46.i
-  tail call void @strbuf_grow(ptr noundef nonnull %line.val.i.i159, i64 noundef 1) #15
-  %.pre.i.i.i.i156 = load i64, ptr %len.i.i.i.i.i123, align 8
-  %.pre8.i.i.i.i157 = add i64 %.pre.i.i.i.i156, 1
-  br label %graph_line_addch.exit.i.i125
+if.then.i.i.i48.i:                                ; preds = %strbuf_avail.exit.i.i.i.i121, %if.end.i46.i
+  tail call void @strbuf_grow(ptr noundef nonnull %line.val.i.i158, i64 noundef 1) #15
+  %.pre.i.i.i.i155 = load i64, ptr %len.i.i.i.i.i122, align 8
+  %.pre8.i.i.i.i156 = add i64 %.pre.i.i.i.i155, 1
+  br label %graph_line_addch.exit.i.i124
 
-graph_line_addch.exit.i.i125:                     ; preds = %if.then.i.i.i48.i, %strbuf_avail.exit.i.i.i.i122
-  %inc.pre-phi.i.i.i.i126 = phi i64 [ %.pre8.i.i.i.i157, %if.then.i.i.i48.i ], [ %.neg.i.i.i.i124, %strbuf_avail.exit.i.i.i.i122 ]
-  %156 = phi i64 [ %.pre.i.i.i.i156, %if.then.i.i.i48.i ], [ %155, %strbuf_avail.exit.i.i.i.i122 ]
-  %157 = load ptr, ptr %buf.i.i.i.i127, align 8
-  store i64 %inc.pre-phi.i.i.i.i126, ptr %len.i.i.i.i.i123, align 8
-  %arrayidx.i.i6.i.i129 = getelementptr inbounds i8, ptr %157, i64 %156
-  store i8 %149, ptr %arrayidx.i.i6.i.i129, align 1
-  %158 = load ptr, ptr %buf.i.i.i.i127, align 8
-  %159 = load i64, ptr %len.i.i.i.i.i123, align 8
-  %arrayidx3.i.i.i.i130 = getelementptr inbounds i8, ptr %158, i64 %159
-  store i8 0, ptr %arrayidx3.i.i.i.i130, align 1
-  %inc.i.i.i131 = add i64 %145, 1
-  store i64 %inc.i.i.i131, ptr %width, align 8
+graph_line_addch.exit.i.i124:                     ; preds = %if.then.i.i.i48.i, %strbuf_avail.exit.i.i.i.i121
+  %inc.pre-phi.i.i.i.i125 = phi i64 [ %.pre8.i.i.i.i156, %if.then.i.i.i48.i ], [ %.neg.i.i.i.i123, %strbuf_avail.exit.i.i.i.i121 ]
+  %156 = phi i64 [ %.pre.i.i.i.i155, %if.then.i.i.i48.i ], [ %155, %strbuf_avail.exit.i.i.i.i121 ]
+  %157 = load ptr, ptr %buf.i.i.i.i126, align 8
+  store i64 %inc.pre-phi.i.i.i.i125, ptr %len.i.i.i.i.i122, align 8
+  %arrayidx.i.i6.i.i128 = getelementptr inbounds i8, ptr %157, i64 %156
+  store i8 %149, ptr %arrayidx.i.i6.i.i128, align 1
+  %158 = load ptr, ptr %buf.i.i.i.i126, align 8
+  %159 = load i64, ptr %len.i.i.i.i.i122, align 8
+  %arrayidx3.i.i.i.i129 = getelementptr inbounds i8, ptr %158, i64 %159
+  store i8 0, ptr %arrayidx3.i.i.i.i129, align 1
+  %inc.i.i.i130 = add i64 %145, 1
+  store i64 %inc.i.i.i130, ptr %width, align 8
   %160 = load i16, ptr %color.i.i, align 8
   %161 = load i16, ptr @column_colors_max, align 2
-  %cmp8.i.i132 = icmp ult i16 %160, %161
-  br i1 %cmp8.i.i132, label %if.then10.i.i150, label %graph_line_write_column.exit.i133
+  %cmp8.i.i131 = icmp ult i16 %160, %161
+  br i1 %cmp8.i.i131, label %if.then10.i.i149, label %graph_line_write_column.exit.i132
 
-if.then10.i.i150:                                 ; preds = %graph_line_addch.exit.i.i125
+if.then10.i.i149:                                 ; preds = %graph_line_addch.exit.i.i124
   %162 = load ptr, ptr @column_colors, align 8
-  %idxprom.i.i7.i.i152 = zext i16 %161 to i64
-  %arrayidx.i.i8.i.i153 = getelementptr inbounds ptr, ptr %162, i64 %idxprom.i.i7.i.i152
-  %163 = load ptr, ptr %arrayidx.i.i8.i.i153, align 8
-  %call.i.i9.i.i154 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %163) #16
-  tail call void @strbuf_add(ptr noundef nonnull %line.val.i.i159, ptr noundef %163, i64 noundef %call.i.i9.i.i154) #15
-  br label %graph_line_write_column.exit.i133
+  %idxprom.i.i7.i.i151 = zext i16 %161 to i64
+  %arrayidx.i.i8.i.i152 = getelementptr inbounds ptr, ptr %162, i64 %idxprom.i.i7.i.i151
+  %163 = load ptr, ptr %arrayidx.i.i8.i.i152, align 8
+  %call.i.i9.i.i153 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %163) #16
+  tail call void @strbuf_add(ptr noundef nonnull %line.val.i.i158, ptr noundef %163, i64 noundef %call.i.i9.i.i153) #15
+  br label %graph_line_write_column.exit.i132
 
-graph_line_write_column.exit.i133:                ; preds = %if.then10.i.i150, %graph_line_addch.exit.i.i125
-  %cmp17.i134 = icmp eq i32 %idx.0147.i, 2
-  br i1 %cmp17.i134, label %if.then18.i, label %if.else24.i
+graph_line_write_column.exit.i132:                ; preds = %if.then10.i.i149, %graph_line_addch.exit.i.i124
+  %cmp17.i133 = icmp eq i32 %idx.0147.i, 2
+  br i1 %cmp17.i133, label %if.then18.i, label %if.else24.i
 
-if.then18.i:                                      ; preds = %graph_line_write_column.exit.i133
+if.then18.i:                                      ; preds = %graph_line_write_column.exit.i132
   %164 = load i32, ptr %edges_added35.i, align 8
   %cmp19.i = icmp sgt i32 %164, 0
   br i1 %cmp19.i, label %if.then22.i, label %lor.lhs.false.i
@@ -1944,59 +1952,59 @@ lor.lhs.false.i:                                  ; preds = %if.then18.i
   br i1 %cmp21.i, label %if.then22.i, label %if.end25.i
 
 if.then22.i:                                      ; preds = %lor.lhs.false.i, %if.then18.i
-  %166 = load i64, ptr %line.val.i.i159, align 8
+  %166 = load i64, ptr %line.val.i.i158, align 8
   %tobool.not.i.i.i50.i = icmp eq i64 %166, 0
-  br i1 %tobool.not.i.i.i50.i, label %if.then.i.i53.i, label %strbuf_avail.exit.i.i.i138
+  br i1 %tobool.not.i.i.i50.i, label %if.then.i.i53.i, label %strbuf_avail.exit.i.i.i137
 
-strbuf_avail.exit.i.i.i138:                       ; preds = %if.then22.i
-  %167 = load i64, ptr %len.i.i.i.i.i123, align 8
-  %.neg.i.i.i139 = add i64 %167, 1
-  %tobool.not.i.i52.i = icmp eq i64 %166, %.neg.i.i.i139
-  br i1 %tobool.not.i.i52.i, label %if.then.i.i53.i, label %graph_line_addch.exit.i140
+strbuf_avail.exit.i.i.i137:                       ; preds = %if.then22.i
+  %167 = load i64, ptr %len.i.i.i.i.i122, align 8
+  %.neg.i.i.i138 = add i64 %167, 1
+  %tobool.not.i.i52.i = icmp eq i64 %166, %.neg.i.i.i138
+  br i1 %tobool.not.i.i52.i, label %if.then.i.i53.i, label %graph_line_addch.exit.i139
 
-if.then.i.i53.i:                                  ; preds = %strbuf_avail.exit.i.i.i138, %if.then22.i
-  tail call void @strbuf_grow(ptr noundef nonnull %line.val.i.i159, i64 noundef 1) #15
-  %.pre.i.i.i148 = load i64, ptr %len.i.i.i.i.i123, align 8
-  %.pre8.i.i.i149 = add i64 %.pre.i.i.i148, 1
-  br label %graph_line_addch.exit.i140
+if.then.i.i53.i:                                  ; preds = %strbuf_avail.exit.i.i.i137, %if.then22.i
+  tail call void @strbuf_grow(ptr noundef nonnull %line.val.i.i158, i64 noundef 1) #15
+  %.pre.i.i.i147 = load i64, ptr %len.i.i.i.i.i122, align 8
+  %.pre8.i.i.i148 = add i64 %.pre.i.i.i147, 1
+  br label %graph_line_addch.exit.i139
 
-graph_line_addch.exit.i140:                       ; preds = %if.then.i.i53.i, %strbuf_avail.exit.i.i.i138
-  %inc.pre-phi.i.i.i141 = phi i64 [ %.pre8.i.i.i149, %if.then.i.i53.i ], [ %.neg.i.i.i139, %strbuf_avail.exit.i.i.i138 ]
-  %168 = phi i64 [ %.pre.i.i.i148, %if.then.i.i53.i ], [ %167, %strbuf_avail.exit.i.i.i138 ]
-  %169 = load ptr, ptr %buf.i.i.i.i127, align 8
-  store i64 %inc.pre-phi.i.i.i141, ptr %len.i.i.i.i.i123, align 8
-  %arrayidx.i.i.i144 = getelementptr inbounds i8, ptr %169, i64 %168
-  store i8 32, ptr %arrayidx.i.i.i144, align 1
-  %170 = load ptr, ptr %buf.i.i.i.i127, align 8
-  %171 = load i64, ptr %len.i.i.i.i.i123, align 8
-  %arrayidx3.i.i.i145 = getelementptr inbounds i8, ptr %170, i64 %171
-  store i8 0, ptr %arrayidx3.i.i.i145, align 1
-  %inc.i.i146 = add i64 %145, 2
-  store i64 %inc.i.i146, ptr %width, align 8
+graph_line_addch.exit.i139:                       ; preds = %if.then.i.i53.i, %strbuf_avail.exit.i.i.i137
+  %inc.pre-phi.i.i.i140 = phi i64 [ %.pre8.i.i.i148, %if.then.i.i53.i ], [ %.neg.i.i.i138, %strbuf_avail.exit.i.i.i137 ]
+  %168 = phi i64 [ %.pre.i.i.i147, %if.then.i.i53.i ], [ %167, %strbuf_avail.exit.i.i.i137 ]
+  %169 = load ptr, ptr %buf.i.i.i.i126, align 8
+  store i64 %inc.pre-phi.i.i.i140, ptr %len.i.i.i.i.i122, align 8
+  %arrayidx.i.i.i143 = getelementptr inbounds i8, ptr %169, i64 %168
+  store i8 32, ptr %arrayidx.i.i.i143, align 1
+  %170 = load ptr, ptr %buf.i.i.i.i126, align 8
+  %171 = load i64, ptr %len.i.i.i.i.i122, align 8
+  %arrayidx3.i.i.i144 = getelementptr inbounds i8, ptr %170, i64 %171
+  store i8 0, ptr %arrayidx3.i.i.i144, align 1
+  %inc.i.i145 = add i64 %145, 2
+  store i64 %inc.i.i145, ptr %width, align 8
   br label %if.end25.i
 
-if.else24.i:                                      ; preds = %graph_line_write_column.exit.i133
+if.else24.i:                                      ; preds = %graph_line_write_column.exit.i132
   %inc.i = add nsw i32 %idx.0147.i, 1
   br label %if.end25.i
 
-if.end25.i:                                       ; preds = %if.else24.i, %graph_line_addch.exit.i140, %lor.lhs.false.i
-  %172 = phi i64 [ %inc.i.i146, %graph_line_addch.exit.i140 ], [ %inc.i.i.i131, %lor.lhs.false.i ], [ %inc.i.i.i131, %if.else24.i ]
-  %idx.1.i = phi i32 [ 2, %graph_line_addch.exit.i140 ], [ 2, %lor.lhs.false.i ], [ %inc.i, %if.else24.i ]
+if.end25.i:                                       ; preds = %if.else24.i, %graph_line_addch.exit.i139, %lor.lhs.false.i
+  %172 = phi i64 [ %inc.i.i145, %graph_line_addch.exit.i139 ], [ %inc.i.i.i130, %lor.lhs.false.i ], [ %inc.i.i.i130, %if.else24.i ]
+  %idx.1.i = phi i32 [ 2, %graph_line_addch.exit.i139 ], [ 2, %lor.lhs.false.i ], [ %inc.i, %if.else24.i ]
   %173 = load ptr, ptr %revs.i.i99, align 8
   %first_parent_only.i.i = getelementptr inbounds i8, ptr %173, i64 280
-  %bf.load.i.i135 = load i64, ptr %first_parent_only.i.i, align 8
-  %174 = and i64 %bf.load.i.i135, 274877906944
+  %bf.load.i.i134 = load i64, ptr %first_parent_only.i.i, align 8
+  %174 = and i64 %bf.load.i.i134, 274877906944
   %tobool.not.i54.i = icmp eq i64 %174, 0
-  br i1 %tobool.not.i54.i, label %for.cond.i.i137, label %next_interesting_parent.exit.i
+  br i1 %tobool.not.i54.i, label %for.cond.i.i136, label %next_interesting_parent.exit.i
 
-for.cond.i.i137:                                  ; preds = %if.end25.i, %graph_is_interesting.exit.i66.i
+for.cond.i.i136:                                  ; preds = %if.end25.i, %graph_is_interesting.exit.i66.i
   %orig.pn.i.i = phi ptr [ %list.0.i.i, %graph_is_interesting.exit.i66.i ], [ %parents.0146.i, %if.end25.i ]
   %list.0.in.i.i = getelementptr inbounds i8, ptr %orig.pn.i.i, i64 8
   %list.0.i.i = load ptr, ptr %list.0.in.i.i, align 8
   %tobool1.not.i.i = icmp eq ptr %list.0.i.i, null
   br i1 %tobool1.not.i.i, label %next_interesting_parent.exit.i, label %for.body.i56.i
 
-for.body.i56.i:                                   ; preds = %for.cond.i.i137
+for.body.i56.i:                                   ; preds = %for.cond.i.i136
   %175 = load ptr, ptr %list.0.i.i, align 8
   %graph.val.i57.i = load ptr, ptr %revs.i.i99, align 8
   %tobool.not.i.i58.i = icmp eq ptr %graph.val.i57.i, null
@@ -2018,21 +2026,21 @@ if.then.i.i63.i:                                  ; preds = %land.lhs.true.i.i59
 graph_is_interesting.exit.i66.i:                  ; preds = %if.then.i.i63.i, %land.lhs.true.i.i59.i, %for.body.i56.i
   %call.i.i67.i = tail call i32 @get_commit_action(ptr noundef %graph.val.i57.i, ptr noundef %175) #15
   %cmp.i.not.i68.i = icmp eq i32 %call.i.i67.i, 1
-  br i1 %cmp.i.not.i68.i, label %next_interesting_parent.exit.i, label %for.cond.i.i137, !llvm.loop !7
+  br i1 %cmp.i.not.i68.i, label %next_interesting_parent.exit.i, label %for.cond.i.i136, !llvm.loop !7
 
-next_interesting_parent.exit.i:                   ; preds = %graph_is_interesting.exit.i66.i, %if.then.i.i63.i, %for.cond.i.i137, %if.end25.i
-  %retval.0.i55.i = phi ptr [ null, %if.end25.i ], [ %list.0.i.i, %if.then.i.i63.i ], [ null, %for.cond.i.i137 ], [ %list.0.i.i, %graph_is_interesting.exit.i66.i ]
+next_interesting_parent.exit.i:                   ; preds = %graph_is_interesting.exit.i66.i, %if.then.i.i63.i, %for.cond.i.i136, %if.end25.i
+  %retval.0.i55.i = phi ptr [ null, %if.end25.i ], [ %list.0.i.i, %if.then.i.i63.i ], [ null, %for.cond.i.i136 ], [ %list.0.i.i, %graph_is_interesting.exit.i66.i ]
   %inc27.i = add nuw nsw i32 %j.0144.i, 1
   %178 = load i32, ptr %num_parents.i97, align 8
-  %cmp10.i136 = icmp slt i32 %inc27.i, %178
-  br i1 %cmp10.i136, label %for.body11.i, label %for.end.i117, !llvm.loop !21
+  %cmp10.i135 = icmp slt i32 %inc27.i, %178
+  br i1 %cmp10.i135, label %for.body11.i, label %for.end.i116, !llvm.loop !21
 
-for.end.i117:                                     ; preds = %next_interesting_parent.exit.i, %if.then8.i
+for.end.i116:                                     ; preds = %next_interesting_parent.exit.i, %if.then8.i
   %179 = load i32, ptr %edges_added35.i, align 8
-  %cmp29.i118 = icmp eq i32 %179, 0
-  br i1 %cmp29.i118, label %if.then30.i, label %if.end53.i
+  %cmp29.i117 = icmp eq i32 %179, 0
+  br i1 %cmp29.i117, label %if.then30.i, label %if.end53.i
 
-if.then30.i:                                      ; preds = %for.end.i117
+if.then30.i:                                      ; preds = %for.end.i116
   %180 = load ptr, ptr %line, align 8
   %181 = load i64, ptr %180, align 8
   %tobool.not.i.i.i69.i = icmp eq i64 %181, 0
@@ -2175,23 +2183,23 @@ graph_line_addch.exit119.i:                       ; preds = %if.then.i.i115.i, %
   store i64 %inc.i114.i, ptr %width, align 8
   br label %if.end53.i
 
-if.end53.i:                                       ; preds = %graph_line_addch.exit119.i, %if.then48.i, %lor.lhs.false43.i, %graph_line_addch.exit102.i, %graph_line_addch.exit85.i, %for.end.i117
-  %col_commit.0135.i = phi ptr [ %col_commit.0137.i, %graph_line_addch.exit85.i ], [ %col_commit.0137.i, %for.end.i117 ], [ %col_commit.0.i104, %graph_line_addch.exit102.i ], [ %col_commit.0.i104, %if.then48.i ], [ %col_commit.0.i104, %graph_line_addch.exit119.i ], [ %col_commit.0.i104, %lor.lhs.false43.i ]
-  %seen_this.1.i106 = phi i32 [ 1, %graph_line_addch.exit85.i ], [ 1, %for.end.i117 ], [ 1, %graph_line_addch.exit102.i ], [ 0, %if.then48.i ], [ 0, %graph_line_addch.exit119.i ], [ 0, %lor.lhs.false43.i ]
+if.end53.i:                                       ; preds = %graph_line_addch.exit119.i, %if.then48.i, %lor.lhs.false43.i, %graph_line_addch.exit102.i, %graph_line_addch.exit85.i, %for.end.i116
+  %col_commit.0135.i = phi ptr [ %col_commit.0137.i, %graph_line_addch.exit85.i ], [ %col_commit.0137.i, %for.end.i116 ], [ %col_commit.0.i104, %graph_line_addch.exit102.i ], [ %col_commit.0.i104, %if.then48.i ], [ %col_commit.0.i104, %graph_line_addch.exit119.i ], [ %col_commit.0.i104, %lor.lhs.false43.i ]
+  %seen_this.1.i106 = phi i32 [ 1, %graph_line_addch.exit85.i ], [ 1, %for.end.i116 ], [ 1, %graph_line_addch.exit102.i ], [ 0, %if.then48.i ], [ 0, %graph_line_addch.exit119.i ], [ 0, %lor.lhs.false43.i ]
   %208 = load ptr, ptr %retval.0.i.i, align 8
   %cmp55.i = icmp eq ptr %col_commit.0135.i, %208
-  %spec.select.i107 = select i1 %cmp55.i, ptr %arrayidx.i102, ptr %parent_col.0149.i
-  %indvars.iv.next.i108 = add nuw nsw i64 %indvars.iv.i101, 1
+  %spec.select.i = select i1 %cmp55.i, ptr %arrayidx.i102, ptr %parent_col.0149.i
+  %indvars.iv.next.i107 = add nuw nsw i64 %indvars.iv.i101, 1
   %209 = load i32, ptr %num_columns.i94, align 4
   %210 = sext i32 %209 to i64
-  %cmp.not.not.i109 = icmp slt i64 %indvars.iv.i101, %210
-  br i1 %cmp.not.not.i109, label %for.body.i100, label %for.end60.i, !llvm.loop !22
+  %cmp.not.not.i108 = icmp slt i64 %indvars.iv.i101, %210
+  br i1 %cmp.not.not.i108, label %for.body.i100, label %for.end60.i, !llvm.loop !22
 
-for.end60.i:                                      ; preds = %if.end53.i, %if.then.i170, %first_interesting_parent.exit.i
-  %mapping_size.i.i110 = getelementptr inbounds i8, ptr %graph, i64 68
-  %211 = load i32, ptr %mapping_size.i.i110, align 4
-  %cmp7.i.i111 = icmp sgt i32 %211, 0
-  br i1 %cmp7.i.i111, label %for.body.lr.ph.i121.i, label %sw.epilog.sink.split
+for.end60.i:                                      ; preds = %if.end53.i, %if.then.i169, %first_interesting_parent.exit.i
+  %mapping_size.i.i109 = getelementptr inbounds i8, ptr %graph, i64 68
+  %211 = load i32, ptr %mapping_size.i.i109, align 4
+  %cmp7.i.i110 = icmp sgt i32 %211, 0
+  br i1 %cmp7.i.i110, label %for.body.lr.ph.i121.i, label %sw.epilog.sink.split
 
 for.body.lr.ph.i121.i:                            ; preds = %for.end60.i
   %mapping.i.i = getelementptr inbounds i8, ptr %graph, i64 88
@@ -2208,75 +2216,75 @@ for.body.i123.i:                                  ; preds = %for.cond.i127.i, %f
   %indvars.iv.i124.i = phi i64 [ 0, %for.body.lr.ph.i121.i ], [ %indvars.iv.next.i128.i, %for.cond.i127.i ]
   %arrayidx.i125.i = getelementptr inbounds i32, ptr %212, i64 %indvars.iv.i124.i
   %213 = load i32, ptr %arrayidx.i125.i, align 4
-  %cmp1.i.i114 = icmp slt i32 %213, 0
+  %cmp1.i.i113 = icmp slt i32 %213, 0
   %214 = trunc nuw nsw i64 %indvars.iv.i124.i to i32
-  %div6.i.i115 = lshr i32 %214, 1
-  %cmp2.i126.i = icmp eq i32 %213, %div6.i.i115
-  %or.cond.i.i116 = or i1 %cmp1.i.i114, %cmp2.i126.i
-  br i1 %or.cond.i.i116, label %for.cond.i127.i, label %sw.epilog.sink.split
+  %div6.i.i114 = lshr i32 %214, 1
+  %cmp2.i126.i = icmp eq i32 %213, %div6.i.i114
+  %or.cond.i.i115 = or i1 %cmp1.i.i113, %cmp2.i126.i
+  br i1 %or.cond.i.i115, label %for.cond.i127.i, label %sw.epilog.sink.split
 
 sw.bb5:                                           ; preds = %if.end
-  %mapping.i176 = getelementptr inbounds i8, ptr %graph, i64 88
-  %old_mapping.i177 = getelementptr inbounds i8, ptr %graph, i64 96
-  %215 = load <2 x i64>, ptr %mapping.i176, align 1
+  %mapping.i175 = getelementptr inbounds i8, ptr %graph, i64 88
+  %old_mapping.i176 = getelementptr inbounds i8, ptr %graph, i64 96
+  %215 = load <2 x i64>, ptr %mapping.i175, align 1
   %216 = shufflevector <2 x i64> %215, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i64> %216, ptr %mapping.i176, align 1
+  store <2 x i64> %216, ptr %mapping.i175, align 1
   %mapping_size.i = getelementptr inbounds i8, ptr %graph, i64 68
   %217 = load i32, ptr %mapping_size.i, align 4
   %cmp91.i = icmp sgt i32 %217, 0
-  br i1 %cmp91.i, label %for.body.i215, label %sw.bb5.for.cond3.preheader.for.end73_crit_edge.i_crit_edge
+  br i1 %cmp91.i, label %for.body.i214, label %sw.bb5.for.cond3.preheader.for.end73_crit_edge.i_crit_edge
 
 sw.bb5.for.cond3.preheader.for.end73_crit_edge.i_crit_edge: ; preds = %sw.bb5
   %.pre249 = sext i32 %217 to i64
   br label %for.end73.i
 
-for.cond3.preheader.i:                            ; preds = %for.body.i215
+for.cond3.preheader.i:                            ; preds = %for.body.i214
   %cmp597.i = icmp sgt i32 %219, 0
   br i1 %cmp597.i, label %for.body6.i, label %for.end73.i
 
-for.body.i215:                                    ; preds = %sw.bb5, %for.body.i215
-  %indvars.iv.i216 = phi i64 [ %indvars.iv.next.i218, %for.body.i215 ], [ 0, %sw.bb5 ]
-  %218 = load ptr, ptr %mapping.i176, align 8
-  %arrayidx.i217 = getelementptr inbounds i32, ptr %218, i64 %indvars.iv.i216
-  store i32 -1, ptr %arrayidx.i217, align 4
-  %indvars.iv.next.i218 = add nuw nsw i64 %indvars.iv.i216, 1
+for.body.i214:                                    ; preds = %sw.bb5, %for.body.i214
+  %indvars.iv.i215 = phi i64 [ %indvars.iv.next.i217, %for.body.i214 ], [ 0, %sw.bb5 ]
+  %218 = load ptr, ptr %mapping.i175, align 8
+  %arrayidx.i216 = getelementptr inbounds i32, ptr %218, i64 %indvars.iv.i215
+  store i32 -1, ptr %arrayidx.i216, align 4
+  %indvars.iv.next.i217 = add nuw nsw i64 %indvars.iv.i215, 1
   %219 = load i32, ptr %mapping_size.i, align 4
   %220 = sext i32 %219 to i64
-  %cmp.i219 = icmp slt i64 %indvars.iv.next.i218, %220
-  br i1 %cmp.i219, label %for.body.i215, label %for.cond3.preheader.i, !llvm.loop !23
+  %cmp.i218 = icmp slt i64 %indvars.iv.next.i217, %220
+  br i1 %cmp.i218, label %for.body.i214, label %for.cond3.preheader.i, !llvm.loop !23
 
 for.body6.i:                                      ; preds = %for.cond3.preheader.i, %for.inc71.i
   %indvars.iv117.i = phi i64 [ %indvars.iv.next118.i, %for.inc71.i ], [ 0, %for.cond3.preheader.i ]
   %horizontal_edge.099.i = phi i32 [ %horizontal_edge.1.i, %for.inc71.i ], [ -1, %for.cond3.preheader.i ]
   %horizontal_edge_target.098.i = phi i32 [ %horizontal_edge_target.1.i, %for.inc71.i ], [ -1, %for.cond3.preheader.i ]
   %indvars122.i = trunc i64 %indvars.iv117.i to i32
-  %221 = load ptr, ptr %old_mapping.i177, align 8
+  %221 = load ptr, ptr %old_mapping.i176, align 8
   %arrayidx9.i = getelementptr inbounds i32, ptr %221, i64 %indvars.iv117.i
   %222 = load i32, ptr %arrayidx9.i, align 4
-  %cmp10.i220 = icmp slt i32 %222, 0
-  br i1 %cmp10.i220, label %for.inc71.i, label %if.end.i
+  %cmp10.i219 = icmp slt i32 %222, 0
+  br i1 %cmp10.i219, label %for.inc71.i, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body6.i
   %mul.i = shl nuw nsw i32 %222, 1
   %223 = zext nneg i32 %mul.i to i64
   %cmp11.i = icmp eq i64 %indvars.iv117.i, %223
-  %224 = load ptr, ptr %mapping.i176, align 8
-  br i1 %cmp11.i, label %if.then12.i229, label %if.else.i221
+  %224 = load ptr, ptr %mapping.i175, align 8
+  br i1 %cmp11.i, label %if.then12.i229, label %if.else.i220
 
 if.then12.i229:                                   ; preds = %if.end.i
   %arrayidx15.i = getelementptr inbounds i32, ptr %224, i64 %indvars.iv117.i
   store i32 %222, ptr %arrayidx15.i, align 4
   br label %for.inc71.i
 
-if.else.i221:                                     ; preds = %if.end.i
-  %sub.i222 = add nsw i32 %indvars122.i, -1
+if.else.i220:                                     ; preds = %if.end.i
+  %sub.i221 = add nsw i32 %indvars122.i, -1
   %225 = getelementptr i32, ptr %224, i64 %indvars.iv117.i
   %arrayidx18.i = getelementptr i8, ptr %225, i64 -4
   %226 = load i32, ptr %arrayidx18.i, align 4
-  %cmp19.i223 = icmp slt i32 %226, 0
-  br i1 %cmp19.i223, label %if.then20.i227, label %if.else39.i
+  %cmp19.i222 = icmp slt i32 %226, 0
+  br i1 %cmp19.i222, label %if.then20.i227, label %if.else39.i
 
-if.then20.i227:                                   ; preds = %if.else.i221
+if.then20.i227:                                   ; preds = %if.else.i220
   store i32 %222, ptr %arrayidx18.i, align 4
   %cmp25.i228 = icmp eq i32 %horizontal_edge.099.i, -1
   br i1 %cmp25.i228, label %if.then26.i, label %for.inc71.i
@@ -2290,7 +2298,7 @@ if.then26.i:                                      ; preds = %if.then20.i227
 
 for.body31.i:                                     ; preds = %if.then26.i, %for.body31.i
   %indvars.iv114.i = phi i64 [ %indvars.iv.next115.i, %for.body31.i ], [ %228, %if.then26.i ]
-  %229 = load ptr, ptr %mapping.i176, align 8
+  %229 = load ptr, ptr %mapping.i175, align 8
   %arrayidx34.i = getelementptr inbounds i32, ptr %229, i64 %indvars.iv114.i
   store i32 %222, ptr %arrayidx34.i, align 4
   %indvars.iv.next115.i = add nuw nsw i64 %indvars.iv114.i, 2
@@ -2299,18 +2307,18 @@ for.body31.i:                                     ; preds = %if.then26.i, %for.b
   %cmp30.i = icmp slt i64 %230, %227
   br i1 %cmp30.i, label %for.body31.i, label %for.inc71.i, !llvm.loop !24
 
-if.else39.i:                                      ; preds = %if.else.i221
-  %cmp44.i224 = icmp eq i32 %226, %222
-  br i1 %cmp44.i224, label %for.inc71.i, label %if.else46.i
+if.else39.i:                                      ; preds = %if.else.i220
+  %cmp44.i223 = icmp eq i32 %226, %222
+  br i1 %cmp44.i223, label %for.inc71.i, label %if.else46.i224
 
-if.else46.i:                                      ; preds = %if.else39.i
+if.else46.i224:                                   ; preds = %if.else39.i
   %231 = add nsw i64 %indvars.iv117.i, -2
   %arrayidx50.i = getelementptr inbounds i32, ptr %224, i64 %231
   store i32 %222, ptr %arrayidx50.i, align 4
   %cmp51.i = icmp eq i32 %horizontal_edge.099.i, -1
   br i1 %cmp51.i, label %if.then52.i, label %for.inc71.i
 
-if.then52.i:                                      ; preds = %if.else46.i
+if.then52.i:                                      ; preds = %if.else46.i224
   %add56.i = add nuw nsw i32 %mul.i, 3
   %232 = zext nneg i32 %add56.i to i64
   %cmp5993.i = icmp sgt i64 %231, %232
@@ -2318,7 +2326,7 @@ if.then52.i:                                      ; preds = %if.else46.i
 
 for.body60.i:                                     ; preds = %if.then52.i, %for.body60.i
   %indvars.iv111.i = phi i64 [ %indvars.iv.next112.i, %for.body60.i ], [ %232, %if.then52.i ]
-  %233 = load ptr, ptr %mapping.i176, align 8
+  %233 = load ptr, ptr %mapping.i175, align 8
   %arrayidx63.i = getelementptr inbounds i32, ptr %233, i64 %indvars.iv111.i
   store i32 %222, ptr %arrayidx63.i, align 4
   %indvars.iv.next112.i = add nuw nsw i64 %indvars.iv111.i, 2
@@ -2327,9 +2335,9 @@ for.body60.i:                                     ; preds = %if.then52.i, %for.b
   %cmp59.i = icmp slt i64 %234, %231
   br i1 %cmp59.i, label %for.body60.i, label %for.inc71.i, !llvm.loop !25
 
-for.inc71.i:                                      ; preds = %for.body60.i, %for.body31.i, %if.then52.i, %if.else46.i, %if.else39.i, %if.then26.i, %if.then20.i227, %if.then12.i229, %for.body6.i
-  %horizontal_edge_target.1.i = phi i32 [ %horizontal_edge_target.098.i, %for.body6.i ], [ %horizontal_edge_target.098.i, %if.then12.i229 ], [ %horizontal_edge_target.098.i, %if.then20.i227 ], [ %horizontal_edge_target.098.i, %if.else39.i ], [ %horizontal_edge_target.098.i, %if.else46.i ], [ %222, %if.then26.i ], [ %222, %if.then52.i ], [ %222, %for.body31.i ], [ %222, %for.body60.i ]
-  %horizontal_edge.1.i = phi i32 [ %horizontal_edge.099.i, %for.body6.i ], [ %horizontal_edge.099.i, %if.then12.i229 ], [ %horizontal_edge.099.i, %if.then20.i227 ], [ %horizontal_edge.099.i, %if.else39.i ], [ %horizontal_edge.099.i, %if.else46.i ], [ %indvars122.i, %if.then26.i ], [ %sub.i222, %if.then52.i ], [ %indvars122.i, %for.body31.i ], [ %sub.i222, %for.body60.i ]
+for.inc71.i:                                      ; preds = %for.body60.i, %for.body31.i, %if.then52.i, %if.else46.i224, %if.else39.i, %if.then26.i, %if.then20.i227, %if.then12.i229, %for.body6.i
+  %horizontal_edge_target.1.i = phi i32 [ %horizontal_edge_target.098.i, %for.body6.i ], [ %horizontal_edge_target.098.i, %if.then12.i229 ], [ %horizontal_edge_target.098.i, %if.then20.i227 ], [ %horizontal_edge_target.098.i, %if.else39.i ], [ %horizontal_edge_target.098.i, %if.else46.i224 ], [ %222, %if.then26.i ], [ %222, %if.then52.i ], [ %222, %for.body31.i ], [ %222, %for.body60.i ]
+  %horizontal_edge.1.i = phi i32 [ %horizontal_edge.099.i, %for.body6.i ], [ %horizontal_edge.099.i, %if.then12.i229 ], [ %horizontal_edge.099.i, %if.then20.i227 ], [ %horizontal_edge.099.i, %if.else39.i ], [ %horizontal_edge.099.i, %if.else46.i224 ], [ %indvars122.i, %if.then26.i ], [ %sub.i221, %if.then52.i ], [ %indvars122.i, %for.body31.i ], [ %sub.i221, %for.body60.i ]
   %indvars.iv.next118.i = add nuw nsw i64 %indvars.iv117.i, 1
   %235 = load i32, ptr %mapping_size.i, align 4
   %236 = sext i32 %235 to i64
@@ -2341,29 +2349,29 @@ for.end73.i:                                      ; preds = %for.inc71.i, %for.c
   %horizontal_edge_target.0.lcssa.i = phi i32 [ -1, %sw.bb5.for.cond3.preheader.for.end73_crit_edge.i_crit_edge ], [ -1, %for.cond3.preheader.i ], [ %horizontal_edge_target.1.i, %for.inc71.i ]
   %horizontal_edge.0.lcssa.i = phi i32 [ -1, %sw.bb5.for.cond3.preheader.for.end73_crit_edge.i_crit_edge ], [ -1, %for.cond3.preheader.i ], [ %horizontal_edge.1.i, %for.inc71.i ]
   %.lcssa90.i = phi i32 [ %217, %sw.bb5.for.cond3.preheader.for.end73_crit_edge.i_crit_edge ], [ %219, %for.cond3.preheader.i ], [ %235, %for.inc71.i ]
-  %237 = load ptr, ptr %old_mapping.i177, align 8
-  %238 = load ptr, ptr %mapping.i176, align 8
-  %tobool.not.i.i178 = icmp eq i32 %.lcssa90.i, 0
-  br i1 %tobool.not.i.i178, label %copy_array.exit.i, label %if.then.i.i179
+  %237 = load ptr, ptr %old_mapping.i176, align 8
+  %238 = load ptr, ptr %mapping.i175, align 8
+  %tobool.not.i.i177 = icmp eq i32 %.lcssa90.i, 0
+  br i1 %tobool.not.i.i177, label %copy_array.exit.i, label %if.then.i.i178
 
-if.then.i.i179:                                   ; preds = %for.end73.i
+if.then.i.i178:                                   ; preds = %for.end73.i
   %mul.ov.i.i.i = icmp slt i32 %.lcssa90.i, 0
-  br i1 %mul.ov.i.i.i, label %if.then.i.i.i214, label %st_mult.exit.i.i
+  br i1 %mul.ov.i.i.i, label %if.then.i.i.i213, label %st_mult.exit.i.i
 
-if.then.i.i.i214:                                 ; preds = %if.then.i.i179
+if.then.i.i.i213:                                 ; preds = %if.then.i.i178
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str.4, i64 noundef 4, i64 noundef %conv.pre-phi.i) #17
   unreachable
 
-st_mult.exit.i.i:                                 ; preds = %if.then.i.i179
-  %mul.i.i.i180 = shl nuw nsw i64 %conv.pre-phi.i, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %237, ptr align 1 %238, i64 %mul.i.i.i180, i1 false)
-  %.pre.i181 = load ptr, ptr %mapping.i176, align 8
+st_mult.exit.i.i:                                 ; preds = %if.then.i.i178
+  %mul.i.i.i179 = shl nuw nsw i64 %conv.pre-phi.i, 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %237, ptr align 1 %238, i64 %mul.i.i.i179, i1 false)
+  %.pre.i180 = load ptr, ptr %mapping.i175, align 8
   %.pre125.i = load i32, ptr %mapping_size.i, align 4
   br label %copy_array.exit.i
 
 copy_array.exit.i:                                ; preds = %st_mult.exit.i.i, %for.end73.i
   %239 = phi i32 [ 0, %for.end73.i ], [ %.pre125.i, %st_mult.exit.i.i ]
-  %240 = phi ptr [ %238, %for.end73.i ], [ %.pre.i181, %st_mult.exit.i.i ]
+  %240 = phi ptr [ %238, %for.end73.i ], [ %.pre.i180, %st_mult.exit.i.i ]
   %241 = sext i32 %239 to i64
   %242 = getelementptr i32, ptr %240, i64 %241
   %arrayidx81.i = getelementptr i8, ptr %242, i64 -4
@@ -2392,7 +2400,7 @@ for.body91.lr.ph.i:                               ; preds = %if.end86.i
 for.body91.i:                                     ; preds = %for.inc141.i, %for.body91.lr.ph.i
   %indvars.iv123.i = phi i64 [ 0, %for.body91.lr.ph.i ], [ %indvars.iv.next124.i, %for.inc141.i ]
   %used_horizontal.0104.i = phi i16 [ 0, %for.body91.lr.ph.i ], [ %used_horizontal.1.i, %for.inc141.i ]
-  %247 = load ptr, ptr %mapping.i176, align 8
+  %247 = load ptr, ptr %mapping.i175, align 8
   %arrayidx95.i = getelementptr inbounds i32, ptr %247, i64 %indvars.iv123.i
   %248 = load i32, ptr %arrayidx95.i, align 4
   %cmp96.i = icmp slt i32 %248, 0
@@ -2401,39 +2409,39 @@ for.body91.i:                                     ; preds = %for.inc141.i, %for.
 if.then98.i:                                      ; preds = %for.body91.i
   %249 = load ptr, ptr %line, align 8
   %250 = load i64, ptr %249, align 8
-  %tobool.not.i.i.i.i199 = icmp eq i64 %250, 0
-  br i1 %tobool.not.i.i.i.i199, label %if.then.i.i86.i, label %strbuf_avail.exit.i.i.i200
+  %tobool.not.i.i.i.i198 = icmp eq i64 %250, 0
+  br i1 %tobool.not.i.i.i.i198, label %if.then.i.i86.i, label %strbuf_avail.exit.i.i.i199
 
-strbuf_avail.exit.i.i.i200:                       ; preds = %if.then98.i
-  %len.i.i.i.i201 = getelementptr inbounds i8, ptr %249, i64 8
-  %251 = load i64, ptr %len.i.i.i.i201, align 8
-  %.neg.i.i.i202 = add i64 %251, 1
-  %tobool.not.i.i.i203 = icmp eq i64 %250, %.neg.i.i.i202
-  br i1 %tobool.not.i.i.i203, label %if.then.i.i86.i, label %graph_line_addch.exit.i204
+strbuf_avail.exit.i.i.i199:                       ; preds = %if.then98.i
+  %len.i.i.i.i200 = getelementptr inbounds i8, ptr %249, i64 8
+  %251 = load i64, ptr %len.i.i.i.i200, align 8
+  %.neg.i.i.i201 = add i64 %251, 1
+  %tobool.not.i.i.i202 = icmp eq i64 %250, %.neg.i.i.i201
+  br i1 %tobool.not.i.i.i202, label %if.then.i.i86.i, label %graph_line_addch.exit.i203
 
-if.then.i.i86.i:                                  ; preds = %strbuf_avail.exit.i.i.i200, %if.then98.i
+if.then.i.i86.i:                                  ; preds = %strbuf_avail.exit.i.i.i199, %if.then98.i
   tail call void @strbuf_grow(ptr noundef nonnull %249, i64 noundef 1) #15
-  %len.phi.trans.insert.i.i.i211 = getelementptr inbounds i8, ptr %249, i64 8
-  %.pre.i.i.i212 = load i64, ptr %len.phi.trans.insert.i.i.i211, align 8
-  %.pre8.i.i.i213 = add i64 %.pre.i.i.i212, 1
-  br label %graph_line_addch.exit.i204
+  %len.phi.trans.insert.i.i.i210 = getelementptr inbounds i8, ptr %249, i64 8
+  %.pre.i.i.i211 = load i64, ptr %len.phi.trans.insert.i.i.i210, align 8
+  %.pre8.i.i.i212 = add i64 %.pre.i.i.i211, 1
+  br label %graph_line_addch.exit.i203
 
-graph_line_addch.exit.i204:                       ; preds = %if.then.i.i86.i, %strbuf_avail.exit.i.i.i200
-  %inc.pre-phi.i.i.i205 = phi i64 [ %.pre8.i.i.i213, %if.then.i.i86.i ], [ %.neg.i.i.i202, %strbuf_avail.exit.i.i.i200 ]
-  %252 = phi i64 [ %.pre.i.i.i212, %if.then.i.i86.i ], [ %251, %strbuf_avail.exit.i.i.i200 ]
-  %buf.i.i.i206 = getelementptr inbounds i8, ptr %249, i64 16
-  %253 = load ptr, ptr %buf.i.i.i206, align 8
-  %len.i.i.i207 = getelementptr inbounds i8, ptr %249, i64 8
-  store i64 %inc.pre-phi.i.i.i205, ptr %len.i.i.i207, align 8
-  %arrayidx.i.i.i208 = getelementptr inbounds i8, ptr %253, i64 %252
-  store i8 32, ptr %arrayidx.i.i.i208, align 1
-  %254 = load ptr, ptr %buf.i.i.i206, align 8
-  %255 = load i64, ptr %len.i.i.i207, align 8
-  %arrayidx3.i.i.i209 = getelementptr inbounds i8, ptr %254, i64 %255
-  store i8 0, ptr %arrayidx3.i.i.i209, align 1
+graph_line_addch.exit.i203:                       ; preds = %if.then.i.i86.i, %strbuf_avail.exit.i.i.i199
+  %inc.pre-phi.i.i.i204 = phi i64 [ %.pre8.i.i.i212, %if.then.i.i86.i ], [ %.neg.i.i.i201, %strbuf_avail.exit.i.i.i199 ]
+  %252 = phi i64 [ %.pre.i.i.i211, %if.then.i.i86.i ], [ %251, %strbuf_avail.exit.i.i.i199 ]
+  %buf.i.i.i205 = getelementptr inbounds i8, ptr %249, i64 16
+  %253 = load ptr, ptr %buf.i.i.i205, align 8
+  %len.i.i.i206 = getelementptr inbounds i8, ptr %249, i64 8
+  store i64 %inc.pre-phi.i.i.i204, ptr %len.i.i.i206, align 8
+  %arrayidx.i.i.i207 = getelementptr inbounds i8, ptr %253, i64 %252
+  store i8 32, ptr %arrayidx.i.i.i207, align 1
+  %254 = load ptr, ptr %buf.i.i.i205, align 8
+  %255 = load i64, ptr %len.i.i.i206, align 8
+  %arrayidx3.i.i.i208 = getelementptr inbounds i8, ptr %254, i64 %255
+  store i8 0, ptr %arrayidx3.i.i.i208, align 1
   %256 = load i64, ptr %width, align 8
-  %inc.i.i210 = add i64 %256, 1
-  store i64 %inc.i.i210, ptr %width, align 8
+  %inc.i.i209 = add i64 %256, 1
+  store i64 %inc.i.i209, ptr %width, align 8
   br label %for.inc141.i
 
 if.else99.i:                                      ; preds = %for.body91.i
@@ -2472,9 +2480,9 @@ if.end121.i:                                      ; preds = %if.then117.i, %if.t
   br label %for.inc141.i
 
 if.else125.i:                                     ; preds = %if.else106.i
-  %tobool.not.i198 = icmp ne i16 %used_horizontal.0104.i, 0
+  %tobool.not.i197 = icmp ne i16 %used_horizontal.0104.i, 0
   %cmp128.i = icmp slt i64 %indvars.iv123.i, %245
-  %or.cond85.i = select i1 %tobool.not.i198, i1 %cmp128.i, i1 false
+  %or.cond85.i = select i1 %tobool.not.i197, i1 %cmp128.i, i1 false
   br i1 %or.cond85.i, label %if.then130.i, label %if.end134.i
 
 if.then130.i:                                     ; preds = %if.else125.i
@@ -2488,8 +2496,8 @@ if.end134.i:                                      ; preds = %if.then130.i, %if.e
   call fastcc void @graph_line_write_column(ptr noundef nonnull %line, ptr noundef %arrayidx137.i, i8 noundef signext 47)
   br label %for.inc141.i
 
-for.inc141.i:                                     ; preds = %if.end134.i, %if.end121.i, %if.then103.i, %graph_line_addch.exit.i204
-  %used_horizontal.1.i = phi i16 [ %used_horizontal.0104.i, %graph_line_addch.exit.i204 ], [ %used_horizontal.0104.i, %if.then103.i ], [ 1, %if.end121.i ], [ %used_horizontal.0104.i, %if.end134.i ]
+for.inc141.i:                                     ; preds = %if.end134.i, %if.end121.i, %if.then103.i, %graph_line_addch.exit.i203
+  %used_horizontal.1.i = phi i16 [ %used_horizontal.0104.i, %graph_line_addch.exit.i203 ], [ %used_horizontal.0104.i, %if.then103.i ], [ 1, %if.end121.i ], [ %used_horizontal.0104.i, %if.end134.i ]
   %indvars.iv.next124.i = add nuw nsw i64 %indvars.iv123.i, 1
   %262 = load i32, ptr %mapping_size.i, align 4
   %263 = sext i32 %262 to i64
@@ -2497,41 +2505,41 @@ for.inc141.i:                                     ; preds = %if.end134.i, %if.en
   br i1 %cmp89.i, label %for.body91.i, label %for.end143.i, !llvm.loop !27
 
 for.end143.i:                                     ; preds = %for.inc141.i
-  %cmp7.i.i185 = icmp sgt i32 %262, 0
-  br i1 %cmp7.i.i185, label %for.body.lr.ph.i.i186, label %sw.epilog.sink.split
+  %cmp7.i.i184 = icmp sgt i32 %262, 0
+  br i1 %cmp7.i.i184, label %for.body.lr.ph.i.i185, label %sw.epilog.sink.split
 
-for.body.lr.ph.i.i186:                            ; preds = %for.end143.i
-  %264 = load ptr, ptr %mapping.i176, align 8
-  %wide.trip.count.i.i187 = zext nneg i32 %262 to i64
-  br label %for.body.i.i188
+for.body.lr.ph.i.i185:                            ; preds = %for.end143.i
+  %264 = load ptr, ptr %mapping.i175, align 8
+  %wide.trip.count.i.i186 = zext nneg i32 %262 to i64
+  br label %for.body.i.i187
 
-for.cond.i.i195:                                  ; preds = %for.body.i.i188
-  %indvars.iv.next.i.i196 = add nuw nsw i64 %indvars.iv.i.i189, 1
-  %exitcond.not.i.i197 = icmp eq i64 %indvars.iv.next.i.i196, %wide.trip.count.i.i187
-  br i1 %exitcond.not.i.i197, label %sw.epilog.sink.split, label %for.body.i.i188, !llvm.loop !20
+for.cond.i.i194:                                  ; preds = %for.body.i.i187
+  %indvars.iv.next.i.i195 = add nuw nsw i64 %indvars.iv.i.i188, 1
+  %exitcond.not.i.i196 = icmp eq i64 %indvars.iv.next.i.i195, %wide.trip.count.i.i186
+  br i1 %exitcond.not.i.i196, label %sw.epilog.sink.split, label %for.body.i.i187, !llvm.loop !20
 
-for.body.i.i188:                                  ; preds = %for.cond.i.i195, %for.body.lr.ph.i.i186
-  %indvars.iv.i.i189 = phi i64 [ 0, %for.body.lr.ph.i.i186 ], [ %indvars.iv.next.i.i196, %for.cond.i.i195 ]
-  %arrayidx.i.i190 = getelementptr inbounds i32, ptr %264, i64 %indvars.iv.i.i189
-  %265 = load i32, ptr %arrayidx.i.i190, align 4
-  %cmp1.i.i191 = icmp slt i32 %265, 0
-  %266 = trunc nuw nsw i64 %indvars.iv.i.i189 to i32
-  %div6.i.i192 = lshr i32 %266, 1
-  %cmp2.i.i193 = icmp eq i32 %265, %div6.i.i192
-  %or.cond.i.i194 = or i1 %cmp1.i.i191, %cmp2.i.i193
-  br i1 %or.cond.i.i194, label %for.cond.i.i195, label %sw.epilog
+for.body.i.i187:                                  ; preds = %for.cond.i.i194, %for.body.lr.ph.i.i185
+  %indvars.iv.i.i188 = phi i64 [ 0, %for.body.lr.ph.i.i185 ], [ %indvars.iv.next.i.i195, %for.cond.i.i194 ]
+  %arrayidx.i.i189 = getelementptr inbounds i32, ptr %264, i64 %indvars.iv.i.i188
+  %265 = load i32, ptr %arrayidx.i.i189, align 4
+  %cmp1.i.i190 = icmp slt i32 %265, 0
+  %266 = trunc nuw nsw i64 %indvars.iv.i.i188 to i32
+  %div6.i.i191 = lshr i32 %266, 1
+  %cmp2.i.i192 = icmp eq i32 %265, %div6.i.i191
+  %or.cond.i.i193 = or i1 %cmp1.i.i190, %cmp2.i.i192
+  br i1 %or.cond.i.i193, label %for.cond.i.i194, label %sw.epilog
 
-sw.epilog.sink.split:                             ; preds = %for.cond.i.i195, %for.body.i123.i, %for.cond.i127.i, %for.body.i50.i, %for.cond.i.i, %graph_needs_pre_commit_line.exit.i, %if.end86.i, %for.end143.i, %for.end60.i, %if.else54.i, %for.end.i73, %for.end.i, %land.lhs.true.i.i14, %graph_needs_pre_commit_line.exit.i18, %sw.bb1, %land.lhs.true.i.i
-  %.sink = phi i32 [ 3, %land.lhs.true.i.i ], [ 3, %sw.bb1 ], [ 3, %graph_needs_pre_commit_line.exit.i18 ], [ 3, %land.lhs.true.i.i14 ], [ 3, %for.end.i ], [ 4, %for.end.i73 ], [ 0, %if.else54.i ], [ 0, %for.end60.i ], [ 0, %for.end143.i ], [ 0, %if.end86.i ], [ %spec.select, %graph_needs_pre_commit_line.exit.i ], [ 0, %for.cond.i.i ], [ 5, %for.body.i50.i ], [ 0, %for.cond.i127.i ], [ 5, %for.body.i123.i ], [ 0, %for.cond.i.i195 ]
-  %shown_commit_line.0.ph = phi i32 [ 0, %land.lhs.true.i.i ], [ 0, %sw.bb1 ], [ 0, %graph_needs_pre_commit_line.exit.i18 ], [ 0, %land.lhs.true.i.i14 ], [ 0, %for.end.i ], [ 1, %for.end.i73 ], [ 1, %if.else54.i ], [ 0, %for.end60.i ], [ 0, %for.end143.i ], [ 0, %if.end86.i ], [ 0, %graph_needs_pre_commit_line.exit.i ], [ 1, %for.cond.i.i ], [ 1, %for.body.i50.i ], [ 0, %for.cond.i127.i ], [ 0, %for.body.i123.i ], [ 0, %for.cond.i.i195 ]
+sw.epilog.sink.split:                             ; preds = %for.cond.i.i194, %for.body.i123.i, %for.cond.i127.i, %for.body.i50.i, %for.cond.i.i, %if.end86.i, %for.end143.i, %for.end60.i, %if.else54.i, %for.end.i73, %for.end.i, %land.lhs.true.i.i14, %graph_needs_pre_commit_line.exit.i18, %graph_needs_pre_commit_line.exit.i, %if.else.i
+  %.sink = phi i32 [ 3, %if.else.i ], [ 2, %graph_needs_pre_commit_line.exit.i ], [ 3, %graph_needs_pre_commit_line.exit.i18 ], [ 3, %land.lhs.true.i.i14 ], [ 3, %for.end.i ], [ 4, %for.end.i73 ], [ 0, %if.else54.i ], [ 0, %for.end60.i ], [ 0, %for.end143.i ], [ 0, %if.end86.i ], [ 0, %for.cond.i.i ], [ 5, %for.body.i50.i ], [ 0, %for.cond.i127.i ], [ 5, %for.body.i123.i ], [ 0, %for.cond.i.i194 ]
+  %shown_commit_line.0.ph = phi i32 [ 0, %if.else.i ], [ 0, %graph_needs_pre_commit_line.exit.i ], [ 0, %graph_needs_pre_commit_line.exit.i18 ], [ 0, %land.lhs.true.i.i14 ], [ 0, %for.end.i ], [ 1, %for.end.i73 ], [ 1, %if.else54.i ], [ 0, %for.end60.i ], [ 0, %for.end143.i ], [ 0, %if.end86.i ], [ 1, %for.cond.i.i ], [ 1, %for.body.i50.i ], [ 0, %for.cond.i127.i ], [ 0, %for.body.i123.i ], [ 0, %for.cond.i.i194 ]
   %267 = load i32, ptr %state, align 4
-  %prev_state.i.i183 = getelementptr inbounds i8, ptr %graph, i64 32
-  store i32 %267, ptr %prev_state.i.i183, align 8
+  %prev_state.i.i182 = getelementptr inbounds i8, ptr %graph, i64 32
+  store i32 %267, ptr %prev_state.i.i182, align 8
   store i32 %.sink, ptr %state, align 4
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %for.body.i.i188, %graph_line_addch.exit.i, %sw.epilog.sink.split, %graph_needs_pre_commit_line.exit.i18, %sw.bb, %if.end
-  %shown_commit_line.0 = phi i32 [ 0, %if.end ], [ 0, %sw.bb ], [ 0, %graph_needs_pre_commit_line.exit.i18 ], [ %shown_commit_line.0.ph, %sw.epilog.sink.split ], [ 0, %graph_line_addch.exit.i ], [ 0, %for.body.i.i188 ]
+sw.epilog:                                        ; preds = %for.body.i.i187, %graph_line_addch.exit.i, %sw.epilog.sink.split, %graph_needs_pre_commit_line.exit.i18, %sw.bb, %if.end
+  %shown_commit_line.0 = phi i32 [ 0, %if.end ], [ 0, %sw.bb ], [ 0, %graph_needs_pre_commit_line.exit.i18 ], [ %shown_commit_line.0.ph, %sw.epilog.sink.split ], [ 0, %graph_line_addch.exit.i ], [ 0, %for.body.i.i187 ]
   %268 = getelementptr i8, ptr %graph, i64 20
   %graph.val = load i32, ptr %268, align 4
   %269 = load i64, ptr %width, align 8

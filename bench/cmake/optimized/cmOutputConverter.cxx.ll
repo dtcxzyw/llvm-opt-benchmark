@@ -1622,7 +1622,7 @@ _ZL28Shell_CharIsMakeVariableNamec.exit.thread:   ; preds = %.lr.ph, %_ZL28Shell
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define dso_local noundef zeroext i1 @_ZN17cmOutputConverter25Shell_ArgumentNeedsQuotesESt17basic_string_viewIcSt11char_traitsIcEEi(i64 %0, ptr readonly %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = icmp eq i64 %0, 0
-  br i1 %4, label %.thread47, label %.lr.ph
+  br i1 %4, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %5 = getelementptr inbounds i8, ptr %1, i64 %0
@@ -1634,7 +1634,7 @@ define dso_local noundef zeroext i1 @_ZN17cmOutputConverter25Shell_ArgumentNeeds
   %.02959.us = phi ptr [ %10, %9 ], [ %1, %.lr.ph ]
   %7 = load i8, ptr %.02959.us, align 1
   %8 = tail call noundef zeroext i1 @_ZN17cmOutputConverter21Shell_CharNeedsQuotesEci(i8 noundef signext %7, i32 noundef %2)
-  br i1 %8, label %.thread47, label %9
+  br i1 %8, label %.loopexit, label %9
 
 9:                                                ; preds = %.lr.ph.split.us
   %10 = getelementptr inbounds i8, ptr %.02959.us, i64 1
@@ -1702,7 +1702,7 @@ _ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit: ; preds = %.lr.ph.i
 28:                                               ; preds = %_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit
   %29 = load i8, ptr %.01836.i, align 1
   %30 = tail call noundef zeroext i1 @_ZN17cmOutputConverter21Shell_CharNeedsQuotesEci(i8 noundef signext %29, i32 noundef %2)
-  br i1 %30, label %.thread47, label %11
+  br i1 %30, label %.loopexit, label %11
 
 _ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit.thread: ; preds = %11, %_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit, %12, %9
   %31 = and i32 %2, 256
@@ -1713,12 +1713,12 @@ _ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit.thread: ; preds = %1
 
 33:                                               ; preds = %_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit.thread
   %34 = load i8, ptr %1, align 1
-  switch i8 %34, label %.thread [
-    i8 124, label %.thread47
-    i8 94, label %.thread47
-    i8 63, label %.thread47
-    i8 38, label %.thread47
-    i8 35, label %.thread47
+  switch i8 %34, label %.thread47 [
+    i8 124, label %.loopexit
+    i8 94, label %.loopexit
+    i8 63, label %.loopexit
+    i8 38, label %.loopexit
+    i8 35, label %.loopexit
   ]
 
 35:                                               ; preds = %_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit.thread
@@ -1727,9 +1727,6 @@ _ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit.thread: ; preds = %1
   %37 = icmp ne i64 %0, 1
   %or.cond49 = and i1 %37, %or.cond.not50
   br i1 %or.cond49, label %38, label %.thread47
-
-.thread:                                          ; preds = %33
-  br label %.thread47
 
 38:                                               ; preds = %35
   %39 = load i8, ptr %1, align 1
@@ -1740,10 +1737,13 @@ _ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit.thread: ; preds = %1
   %42 = getelementptr inbounds i8, ptr %1, i64 1
   %43 = load i8, ptr %42, align 1
   %44 = icmp eq i8 %43, 92
-  br label %.thread47
+  br i1 %44, label %.loopexit, label %.thread47
 
-.thread47:                                        ; preds = %28, %.lr.ph.split.us, %.thread, %41, %35, %38, %33, %33, %33, %33, %33, %3
-  %.0 = phi i1 [ true, %3 ], [ true, %33 ], [ true, %33 ], [ true, %33 ], [ true, %33 ], [ true, %33 ], [ false, %38 ], [ false, %35 ], [ %44, %41 ], [ false, %.thread ], [ true, %.lr.ph.split.us ], [ true, %28 ]
+.thread47:                                        ; preds = %33, %38, %41, %35
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %28, %.lr.ph.split.us, %41, %33, %33, %33, %33, %33, %3, %.thread47
+  %.0 = phi i1 [ false, %.thread47 ], [ true, %3 ], [ true, %33 ], [ true, %33 ], [ true, %33 ], [ true, %33 ], [ true, %33 ], [ true, %41 ], [ true, %.lr.ph.split.us ], [ true, %28 ]
   ret i1 %.0
 }
 

@@ -129,7 +129,7 @@ entry:
   %__dnew.i.i.i.i = alloca i64, align 8
   %path.coerce1.fr = freeze ptr %path.coerce1
   %cmp2.i = icmp ult i64 %path.coerce0, 4
-  br i1 %cmp2.i, label %if.end, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
+  br i1 %cmp2.i, label %if.then, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %entry
   %sub.i = add i64 %path.coerce0, -4
@@ -150,16 +150,20 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.2: ; preds = %_ZNSt11char_trait
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.3: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.2
   %bcmp.i.3 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %add.ptr.i.i.i, ptr noundef nonnull dereferenceable(4) @.str.4, i64 4)
-  %cmp.i.i.i.3 = icmp eq i32 %bcmp.i.3, 0
-  br i1 %cmp.i.i.i.3, label %_Z15removeStringEndSt17basic_string_viewIcSt11char_traitsIcEEPPKc.exit, label %if.end
-
-_Z15removeStringEndSt17basic_string_viewIcSt11char_traitsIcEEPPKc.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.3, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.2, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
+  %cmp.i.i.i.3 = icmp ne i32 %bcmp.i.3, 0
   %cmp.i = icmp eq i64 %sub.i, 0
-  %spec.select = select i1 %cmp.i, i64 %path.coerce0, i64 %sub.i
+  %or.cond = or i1 %cmp.i, %cmp.i.i.i.3
+  br i1 %or.cond, label %if.then, label %if.end
+
+_Z15removeStringEndSt17basic_string_viewIcSt11char_traitsIcEEPPKc.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.2, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
+  %cmp.i.old = icmp eq i64 %sub.i, 0
+  br i1 %cmp.i.old, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry, %_Z15removeStringEndSt17basic_string_viewIcSt11char_traitsIcEEPPKc.exit, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.3
   br label %if.end
 
-if.end:                                           ; preds = %entry, %_Z15removeStringEndSt17basic_string_viewIcSt11char_traitsIcEEPPKc.exit, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.3
-  %stripped_path.sroa.0.0 = phi i64 [ %path.coerce0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.3 ], [ %spec.select, %_Z15removeStringEndSt17basic_string_viewIcSt11char_traitsIcEEPPKc.exit ], [ %path.coerce0, %entry ]
+if.end:                                           ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.3, %if.then, %_Z15removeStringEndSt17basic_string_viewIcSt11char_traitsIcEEPPKc.exit
+  %stripped_path.sroa.0.0 = phi i64 [ %path.coerce0, %if.then ], [ %sub.i, %_Z15removeStringEndSt17basic_string_viewIcSt11char_traitsIcEEPPKc.exit ], [ %sub.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.3 ]
   %stripped_path.sroa.0.0.fr = freeze i64 %stripped_path.sroa.0.0
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %cmp.i.i.i39 = icmp eq ptr %path.coerce1.fr, null

@@ -982,389 +982,389 @@ define noundef i32 @assoc_mgr_init(ptr noundef %0, ptr noundef readonly %1, i32 
 14:                                               ; preds = %13, %12
   %15 = load ptr, ptr getelementptr inbounds (%struct.assoc_init_args_t, ptr @init_setup, i64 0, i32 2), align 8
   %.not.i = icmp eq ptr %15, null
-  br i1 %.not.i, label %_running_cache.exit.thread, label %_running_cache.exit
+  br i1 %.not.i, label %_running_cache.exit, label %16
 
-_running_cache.exit:                              ; preds = %14
-  %16 = load i16, ptr %15, align 2
-  %.not2.i.not = icmp eq i16 %16, 0
-  br i1 %.not2.i.not, label %_running_cache.exit.thread, label %17
+16:                                               ; preds = %14
+  %17 = load i16, ptr %15, align 2
+  %.not2.i = icmp eq i16 %17, 0
+  br i1 %.not2.i, label %_running_cache.exit, label %18
 
-17:                                               ; preds = %_running_cache.exit
-  %18 = tail call i32 @get_log_level() #20
-  %19 = icmp sgt i32 %18, 7
-  br i1 %19, label %20, label %155
+18:                                               ; preds = %16
+  %19 = tail call i32 @get_log_level() #20
+  %20 = icmp sgt i32 %19, 7
+  br i1 %20, label %21, label %155
 
-20:                                               ; preds = %17
+21:                                               ; preds = %18
   tail call void (i32, ptr, ...) @log_var(i32 noundef 8, ptr noundef nonnull @.str.5) #20
   br label %155
 
-_running_cache.exit.thread:                       ; preds = %14, %_running_cache.exit
+_running_cache.exit:                              ; preds = %16, %14
   %.not18 = icmp eq i32 %2, 0
-  br i1 %.not18, label %21, label %155
+  br i1 %.not18, label %22, label %155
 
-21:                                               ; preds = %_running_cache.exit.thread
-  %22 = load ptr, ptr @assoc_mgr_tres_list, align 8
-  %.not19 = icmp eq ptr %22, null
-  br i1 %.not19, label %23, label %31
+22:                                               ; preds = %_running_cache.exit
+  %23 = load ptr, ptr @assoc_mgr_tres_list, align 8
+  %.not19 = icmp eq ptr %23, null
+  br i1 %.not19, label %24, label %32
 
-23:                                               ; preds = %21
-  %24 = load i16, ptr @init_setup, align 8
-  %25 = and i16 %24, 32
-  %.not20 = icmp eq i16 %25, 0
-  br i1 %.not20, label %31, label %26
+24:                                               ; preds = %22
+  %25 = load i16, ptr @init_setup, align 8
+  %26 = and i16 %25, 32
+  %.not20 = icmp eq i16 %26, 0
+  br i1 %.not20, label %32, label %27
 
-26:                                               ; preds = %23
-  %27 = load i16, ptr getelementptr inbounds (%struct.assoc_init_args_t, ptr @init_setup, i64 0, i32 1), align 2
-  %28 = zext i16 %27 to i32
-  %29 = tail call fastcc i32 @_get_assoc_mgr_tres_list(ptr noundef %0, i32 noundef %28), !range !19
-  %30 = icmp eq i32 %29, -1
-  br i1 %30, label %155, label %31
+27:                                               ; preds = %24
+  %28 = load i16, ptr getelementptr inbounds (%struct.assoc_init_args_t, ptr @init_setup, i64 0, i32 1), align 2
+  %29 = zext i16 %28 to i32
+  %30 = tail call fastcc i32 @_get_assoc_mgr_tres_list(ptr noundef %0, i32 noundef %29), !range !19
+  %31 = icmp eq i32 %30, -1
+  br i1 %31, label %155, label %32
 
-31:                                               ; preds = %26, %23, %21
-  %32 = load ptr, ptr @assoc_mgr_qos_list, align 8
-  %.not21 = icmp eq ptr %32, null
-  br i1 %.not21, label %33, label %_get_assoc_mgr_qos_list.exit.thread
+32:                                               ; preds = %27, %24, %22
+  %33 = load ptr, ptr @assoc_mgr_qos_list, align 8
+  %.not21 = icmp eq ptr %33, null
+  br i1 %.not21, label %34, label %_get_assoc_mgr_qos_list.exit.thread
 
-33:                                               ; preds = %31
-  %34 = load i16, ptr @init_setup, align 8
-  %35 = and i16 %34, 2
-  %.not22 = icmp eq i16 %35, 0
-  br i1 %.not22, label %_get_assoc_mgr_qos_list.exit.thread, label %36
+34:                                               ; preds = %32
+  %35 = load i16, ptr @init_setup, align 8
+  %36 = and i16 %35, 2
+  %.not22 = icmp eq i16 %36, 0
+  br i1 %.not22, label %_get_assoc_mgr_qos_list.exit.thread, label %37
 
-36:                                               ; preds = %33
-  %37 = load i16, ptr getelementptr inbounds (%struct.assoc_init_args_t, ptr @init_setup, i64 0, i32 1), align 2
-  %38 = tail call i32 @getuid() #20
-  %39 = tail call ptr @acct_storage_g_get_qos(ptr noundef %0, i32 noundef %38, ptr noundef null) #20
-  %.not.i32 = icmp eq ptr %39, null
-  br i1 %.not.i32, label %40, label %42
+37:                                               ; preds = %34
+  %38 = load i16, ptr getelementptr inbounds (%struct.assoc_init_args_t, ptr @init_setup, i64 0, i32 1), align 2
+  %39 = tail call i32 @getuid() #20
+  %40 = tail call ptr @acct_storage_g_get_qos(ptr noundef %0, i32 noundef %39, ptr noundef null) #20
+  %.not.i32 = icmp eq ptr %40, null
+  br i1 %.not.i32, label %41, label %43
 
-40:                                               ; preds = %36
-  %41 = and i16 %37, 1
-  %.not7.i = icmp eq i16 %41, 0
+41:                                               ; preds = %37
+  %42 = and i16 %38, 1
+  %.not7.i = icmp eq i16 %42, 0
   br i1 %.not7.i, label %_get_assoc_mgr_qos_list.exit.thread, label %_get_assoc_mgr_qos_list.exit
 
-42:                                               ; preds = %36
+43:                                               ; preds = %37
   tail call void @assoc_mgr_lock(ptr noundef nonnull @__const._refresh_assoc_mgr_qos_list.locks)
-  %43 = load ptr, ptr @assoc_mgr_qos_list, align 8
-  %.not8.i = icmp eq ptr %43, null
-  br i1 %.not8.i, label %45, label %44
+  %44 = load ptr, ptr @assoc_mgr_qos_list, align 8
+  %.not8.i = icmp eq ptr %44, null
+  br i1 %.not8.i, label %46, label %45
 
-44:                                               ; preds = %42
-  tail call void @list_destroy(ptr noundef nonnull %43) #20
-  br label %45
+45:                                               ; preds = %43
+  tail call void @list_destroy(ptr noundef nonnull %44) #20
+  br label %46
 
-45:                                               ; preds = %44, %42
-  store ptr %39, ptr @assoc_mgr_qos_list, align 8
-  tail call fastcc void @_post_qos_list(ptr noundef nonnull %39)
+46:                                               ; preds = %45, %43
+  store ptr %40, ptr @assoc_mgr_qos_list, align 8
+  tail call fastcc void @_post_qos_list(ptr noundef nonnull %40)
   tail call void @assoc_mgr_unlock(ptr noundef nonnull @__const._refresh_assoc_mgr_qos_list.locks)
   br label %_get_assoc_mgr_qos_list.exit.thread
 
-_get_assoc_mgr_qos_list.exit:                     ; preds = %40
-  %46 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.139, ptr noundef nonnull @__func__._get_assoc_mgr_qos_list) #20
+_get_assoc_mgr_qos_list.exit:                     ; preds = %41
+  %47 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.139, ptr noundef nonnull @__func__._get_assoc_mgr_qos_list) #20
   br label %155
 
-_get_assoc_mgr_qos_list.exit.thread:              ; preds = %40, %45, %33, %31
-  %47 = load ptr, ptr @assoc_mgr_user_list, align 8
-  %.not23 = icmp eq ptr %47, null
-  br i1 %.not23, label %48, label %56
+_get_assoc_mgr_qos_list.exit.thread:              ; preds = %41, %46, %34, %32
+  %48 = load ptr, ptr @assoc_mgr_user_list, align 8
+  %.not23 = icmp eq ptr %48, null
+  br i1 %.not23, label %49, label %57
 
-48:                                               ; preds = %_get_assoc_mgr_qos_list.exit.thread
-  %49 = load i16, ptr @init_setup, align 8
-  %50 = and i16 %49, 4
-  %.not24 = icmp eq i16 %50, 0
-  br i1 %.not24, label %56, label %51
+49:                                               ; preds = %_get_assoc_mgr_qos_list.exit.thread
+  %50 = load i16, ptr @init_setup, align 8
+  %51 = and i16 %50, 4
+  %.not24 = icmp eq i16 %51, 0
+  br i1 %.not24, label %57, label %52
 
-51:                                               ; preds = %48
-  %52 = load i16, ptr getelementptr inbounds (%struct.assoc_init_args_t, ptr @init_setup, i64 0, i32 1), align 2
-  %53 = zext i16 %52 to i32
-  %54 = tail call fastcc i32 @_get_assoc_mgr_user_list(ptr noundef %0, i32 noundef %53), !range !19
-  %55 = icmp eq i32 %54, -1
-  br i1 %55, label %155, label %56
+52:                                               ; preds = %49
+  %53 = load i16, ptr getelementptr inbounds (%struct.assoc_init_args_t, ptr @init_setup, i64 0, i32 1), align 2
+  %54 = zext i16 %53 to i32
+  %55 = tail call fastcc i32 @_get_assoc_mgr_user_list(ptr noundef %0, i32 noundef %54), !range !19
+  %56 = icmp eq i32 %55, -1
+  br i1 %56, label %155, label %57
 
-56:                                               ; preds = %51, %48, %_get_assoc_mgr_qos_list.exit.thread
-  %57 = load ptr, ptr @assoc_mgr_assoc_list, align 8
-  %.not25 = icmp eq ptr %57, null
-  br i1 %.not25, label %58, label %88
+57:                                               ; preds = %52, %49, %_get_assoc_mgr_qos_list.exit.thread
+  %58 = load ptr, ptr @assoc_mgr_assoc_list, align 8
+  %.not25 = icmp eq ptr %58, null
+  br i1 %.not25, label %59, label %89
 
-58:                                               ; preds = %56
-  %59 = load i16, ptr @init_setup, align 8
-  %60 = and i16 %59, 1
-  %.not26 = icmp eq i16 %60, 0
-  br i1 %.not26, label %.thread, label %61
+59:                                               ; preds = %57
+  %60 = load i16, ptr @init_setup, align 8
+  %61 = and i16 %60, 1
+  %.not26 = icmp eq i16 %61, 0
+  br i1 %.not26, label %.thread, label %62
 
-61:                                               ; preds = %58
-  %62 = load i16, ptr getelementptr inbounds (%struct.assoc_init_args_t, ptr @init_setup, i64 0, i32 1), align 2
+62:                                               ; preds = %59
+  %63 = load i16, ptr getelementptr inbounds (%struct.assoc_init_args_t, ptr @init_setup, i64 0, i32 1), align 2
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %6, i8 0, i64 112, i1 false)
-  %63 = tail call i32 @getuid() #20
+  %64 = tail call i32 @getuid() #20
   tail call void @assoc_mgr_lock(ptr noundef nonnull @__const._refresh_assoc_mgr_assoc_list.locks)
-  %64 = load ptr, ptr @assoc_mgr_assoc_list, align 8
-  %.not.i34 = icmp eq ptr %64, null
-  br i1 %.not.i34, label %66, label %65
+  %65 = load ptr, ptr @assoc_mgr_assoc_list, align 8
+  %.not.i34 = icmp eq ptr %65, null
+  br i1 %.not.i34, label %67, label %66
 
-65:                                               ; preds = %61
-  tail call void @list_destroy(ptr noundef nonnull %64) #20
-  br label %66
+66:                                               ; preds = %62
+  tail call void @list_destroy(ptr noundef nonnull %65) #20
+  br label %67
 
-66:                                               ; preds = %65, %61
+67:                                               ; preds = %66, %62
   store ptr null, ptr @assoc_mgr_assoc_list, align 8
-  %67 = load ptr, ptr @slurmdbd_conf, align 8
-  %.not7.i35 = icmp eq ptr %67, null
-  br i1 %.not7.i35, label %68, label %72
+  %68 = load ptr, ptr @slurmdbd_conf, align 8
+  %.not7.i35 = icmp eq ptr %68, null
+  br i1 %.not7.i35, label %69, label %73
 
-68:                                               ; preds = %66
-  %69 = tail call ptr @list_create(ptr noundef null) #20
-  %70 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr %69, ptr %70, align 8
-  %71 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 28), align 8
-  tail call void @list_append(ptr noundef %69, ptr noundef %71) #20
-  br label %72
+69:                                               ; preds = %67
+  %70 = tail call ptr @list_create(ptr noundef null) #20
+  %71 = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr %70, ptr %71, align 8
+  %72 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 28), align 8
+  tail call void @list_append(ptr noundef %70, ptr noundef %72) #20
+  br label %73
 
-72:                                               ; preds = %68, %66
-  %73 = call ptr @acct_storage_g_get_assocs(ptr noundef %0, i32 noundef %63, ptr noundef nonnull %6) #20
-  store ptr %73, ptr @assoc_mgr_assoc_list, align 8
-  %74 = getelementptr inbounds i8, ptr %6, i64 8
-  %75 = load ptr, ptr %74, align 8
-  %.not8.i36 = icmp eq ptr %75, null
-  br i1 %.not8.i36, label %77, label %76
+73:                                               ; preds = %69, %67
+  %74 = call ptr @acct_storage_g_get_assocs(ptr noundef %0, i32 noundef %64, ptr noundef nonnull %6) #20
+  store ptr %74, ptr @assoc_mgr_assoc_list, align 8
+  %75 = getelementptr inbounds i8, ptr %6, i64 8
+  %76 = load ptr, ptr %75, align 8
+  %.not8.i36 = icmp eq ptr %76, null
+  br i1 %.not8.i36, label %78, label %77
 
-76:                                               ; preds = %72
-  call void @list_destroy(ptr noundef nonnull %75) #20
+77:                                               ; preds = %73
+  call void @list_destroy(ptr noundef nonnull %76) #20
   %.pr.i = load ptr, ptr @assoc_mgr_assoc_list, align 8
-  br label %77
+  br label %78
 
-77:                                               ; preds = %76, %72
-  %78 = phi ptr [ %.pr.i, %76 ], [ %73, %72 ]
-  store ptr null, ptr %74, align 8
-  %.not9.i = icmp eq ptr %78, null
-  br i1 %.not9.i, label %79, label %86
+78:                                               ; preds = %77, %73
+  %79 = phi ptr [ %.pr.i, %77 ], [ %74, %73 ]
+  store ptr null, ptr %75, align 8
+  %.not9.i = icmp eq ptr %79, null
+  br i1 %.not9.i, label %80, label %87
 
-79:                                               ; preds = %77
-  %80 = call ptr @list_create(ptr noundef nonnull @slurmdb_destroy_assoc_rec) #20
-  store ptr %80, ptr @assoc_mgr_assoc_list, align 8
+80:                                               ; preds = %78
+  %81 = call ptr @list_create(ptr noundef nonnull @slurmdb_destroy_assoc_rec) #20
+  store ptr %81, ptr @assoc_mgr_assoc_list, align 8
   call void @assoc_mgr_unlock(ptr noundef nonnull @__const._refresh_assoc_mgr_assoc_list.locks)
-  %81 = and i16 %62, 1
-  %.not10.i = icmp eq i16 %81, 0
-  br i1 %.not10.i, label %82, label %_get_assoc_mgr_assoc_list.exit
+  %82 = and i16 %63, 1
+  %.not10.i = icmp eq i16 %82, 0
+  br i1 %.not10.i, label %83, label %_get_assoc_mgr_assoc_list.exit
 
-82:                                               ; preds = %79
-  %83 = call i32 @get_log_level() #20
-  %84 = icmp sgt i32 %83, 6
-  br i1 %84, label %85, label %_get_assoc_mgr_assoc_list.exit.thread
+83:                                               ; preds = %80
+  %84 = call i32 @get_log_level() #20
+  %85 = icmp sgt i32 %84, 6
+  br i1 %85, label %86, label %_get_assoc_mgr_assoc_list.exit.thread
 
-85:                                               ; preds = %82
+86:                                               ; preds = %83
   call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.141) #20
   br label %_get_assoc_mgr_assoc_list.exit.thread
 
-86:                                               ; preds = %77
+87:                                               ; preds = %78
   call fastcc void @_post_assoc_list()
   call void @assoc_mgr_unlock(ptr noundef nonnull @__const._refresh_assoc_mgr_assoc_list.locks)
   br label %_get_assoc_mgr_assoc_list.exit.thread
 
-_get_assoc_mgr_assoc_list.exit.thread:            ; preds = %86, %85, %82
+_get_assoc_mgr_assoc_list.exit.thread:            ; preds = %87, %86, %83
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %6)
   %.pre = load ptr, ptr @assoc_mgr_assoc_list, align 8
-  br label %88
+  br label %89
 
-_get_assoc_mgr_assoc_list.exit:                   ; preds = %79
-  %87 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.139, ptr noundef nonnull @__func__._get_assoc_mgr_assoc_list) #20
+_get_assoc_mgr_assoc_list.exit:                   ; preds = %80
+  %88 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.139, ptr noundef nonnull @__func__._get_assoc_mgr_assoc_list) #20
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %6)
   br label %155
 
-88:                                               ; preds = %_get_assoc_mgr_assoc_list.exit.thread, %56
-  %89 = phi ptr [ %.pre, %_get_assoc_mgr_assoc_list.exit.thread ], [ %57, %56 ]
-  %90 = icmp eq ptr %89, null
+89:                                               ; preds = %_get_assoc_mgr_assoc_list.exit.thread, %57
+  %90 = phi ptr [ %.pre, %_get_assoc_mgr_assoc_list.exit.thread ], [ %58, %57 ]
+  %91 = icmp eq ptr %90, null
   %.b16 = load i1, ptr @setup_children, align 4
-  %or.cond = select i1 %90, i1 true, i1 %.b16
-  br i1 %or.cond, label %.thread, label %91
+  %or.cond = select i1 %91, i1 true, i1 %.b16
+  br i1 %or.cond, label %.thread, label %92
 
-91:                                               ; preds = %88
-  %92 = call ptr @list_iterator_create(ptr noundef nonnull %89) #20
-  %93 = call ptr @list_next(ptr noundef %92) #20
-  %.not2756 = icmp eq ptr %93, null
+92:                                               ; preds = %89
+  %93 = call ptr @list_iterator_create(ptr noundef nonnull %90) #20
+  %94 = call ptr @list_next(ptr noundef %93) #20
+  %.not2756 = icmp eq ptr %94, null
   br i1 %.not2756, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %91, %.lr.ph
-  %94 = phi ptr [ %96, %.lr.ph ], [ %93, %91 ]
-  %95 = load ptr, ptr @assoc_mgr_qos_list, align 8
-  call void @log_assoc_rec(ptr noundef nonnull %94, ptr noundef %95) #20
-  %96 = call ptr @list_next(ptr noundef %92) #20
-  %.not27 = icmp eq ptr %96, null
+.lr.ph:                                           ; preds = %92, %.lr.ph
+  %95 = phi ptr [ %97, %.lr.ph ], [ %94, %92 ]
+  %96 = load ptr, ptr @assoc_mgr_qos_list, align 8
+  call void @log_assoc_rec(ptr noundef nonnull %95, ptr noundef %96) #20
+  %97 = call ptr @list_next(ptr noundef %93) #20
+  %.not27 = icmp eq ptr %97, null
   br i1 %.not27, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
-._crit_edge:                                      ; preds = %.lr.ph, %91
-  call void @list_iterator_destroy(ptr noundef %92) #20
+._crit_edge:                                      ; preds = %.lr.ph, %92
+  call void @list_iterator_destroy(ptr noundef %93) #20
   br label %.thread
 
-.thread:                                          ; preds = %58, %._crit_edge, %88
-  %97 = load ptr, ptr @assoc_mgr_wckey_list, align 8
-  %.not28 = icmp eq ptr %97, null
-  br i1 %.not28, label %98, label %126
+.thread:                                          ; preds = %59, %._crit_edge, %89
+  %98 = load ptr, ptr @assoc_mgr_wckey_list, align 8
+  %.not28 = icmp eq ptr %98, null
+  br i1 %.not28, label %99, label %127
 
-98:                                               ; preds = %.thread
-  %99 = load i16, ptr @init_setup, align 8
-  %100 = and i16 %99, 8
-  %.not29 = icmp eq i16 %100, 0
-  br i1 %.not29, label %126, label %101
+99:                                               ; preds = %.thread
+  %100 = load i16, ptr @init_setup, align 8
+  %101 = and i16 %100, 8
+  %.not29 = icmp eq i16 %101, 0
+  br i1 %.not29, label %127, label %102
 
-101:                                              ; preds = %98
-  %102 = load i16, ptr getelementptr inbounds (%struct.assoc_init_args_t, ptr @init_setup, i64 0, i32 1), align 2
+102:                                              ; preds = %99
+  %103 = load i16, ptr getelementptr inbounds (%struct.assoc_init_args_t, ptr @init_setup, i64 0, i32 1), align 2
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 72, i1 false)
-  %103 = call i32 @getuid() #20
+  %104 = call i32 @getuid() #20
   call void @assoc_mgr_lock(ptr noundef nonnull @__const._refresh_assoc_wckey_list.locks)
-  %104 = load ptr, ptr @assoc_mgr_wckey_list, align 8
-  %.not.i38 = icmp eq ptr %104, null
-  br i1 %.not.i38, label %106, label %105
+  %105 = load ptr, ptr @assoc_mgr_wckey_list, align 8
+  %.not.i38 = icmp eq ptr %105, null
+  br i1 %.not.i38, label %107, label %106
 
-105:                                              ; preds = %101
-  call void @list_destroy(ptr noundef nonnull %104) #20
-  br label %106
+106:                                              ; preds = %102
+  call void @list_destroy(ptr noundef nonnull %105) #20
+  br label %107
 
-106:                                              ; preds = %105, %101
+107:                                              ; preds = %106, %102
   store ptr null, ptr @assoc_mgr_wckey_list, align 8
-  %107 = load ptr, ptr @slurmdbd_conf, align 8
-  %.not8.i39 = icmp eq ptr %107, null
-  br i1 %.not8.i39, label %108, label %111
+  %108 = load ptr, ptr @slurmdbd_conf, align 8
+  %.not8.i39 = icmp eq ptr %108, null
+  br i1 %.not8.i39, label %109, label %112
 
-108:                                              ; preds = %106
-  %109 = call ptr @list_create(ptr noundef null) #20
-  store ptr %109, ptr %5, align 8
-  %110 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 28), align 8
-  call void @list_append(ptr noundef %109, ptr noundef %110) #20
-  br label %111
+109:                                              ; preds = %107
+  %110 = call ptr @list_create(ptr noundef null) #20
+  store ptr %110, ptr %5, align 8
+  %111 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 28), align 8
+  call void @list_append(ptr noundef %110, ptr noundef %111) #20
+  br label %112
 
-111:                                              ; preds = %108, %106
-  %112 = call ptr @acct_storage_g_get_wckeys(ptr noundef %0, i32 noundef %103, ptr noundef nonnull %5) #20
-  store ptr %112, ptr @assoc_mgr_wckey_list, align 8
-  %113 = load ptr, ptr %5, align 8
-  %.not9.i40 = icmp eq ptr %113, null
-  br i1 %.not9.i40, label %115, label %114
+112:                                              ; preds = %109, %107
+  %113 = call ptr @acct_storage_g_get_wckeys(ptr noundef %0, i32 noundef %104, ptr noundef nonnull %5) #20
+  store ptr %113, ptr @assoc_mgr_wckey_list, align 8
+  %114 = load ptr, ptr %5, align 8
+  %.not9.i40 = icmp eq ptr %114, null
+  br i1 %.not9.i40, label %116, label %115
 
-114:                                              ; preds = %111
-  call void @list_destroy(ptr noundef nonnull %113) #20
+115:                                              ; preds = %112
+  call void @list_destroy(ptr noundef nonnull %114) #20
   %.pr.i41 = load ptr, ptr @assoc_mgr_wckey_list, align 8
-  br label %115
+  br label %116
 
-115:                                              ; preds = %114, %111
-  %116 = phi ptr [ %.pr.i41, %114 ], [ %112, %111 ]
+116:                                              ; preds = %115, %112
+  %117 = phi ptr [ %.pr.i41, %115 ], [ %113, %112 ]
   store ptr null, ptr %5, align 8
-  %.not10.i42 = icmp eq ptr %116, null
-  br i1 %.not10.i42, label %117, label %124
+  %.not10.i42 = icmp eq ptr %117, null
+  br i1 %.not10.i42, label %118, label %125
 
-117:                                              ; preds = %115
-  %118 = call ptr @list_create(ptr noundef nonnull @slurmdb_destroy_wckey_rec) #20
-  store ptr %118, ptr @assoc_mgr_wckey_list, align 8
+118:                                              ; preds = %116
+  %119 = call ptr @list_create(ptr noundef nonnull @slurmdb_destroy_wckey_rec) #20
+  store ptr %119, ptr @assoc_mgr_wckey_list, align 8
   call void @assoc_mgr_unlock(ptr noundef nonnull @__const._refresh_assoc_wckey_list.locks)
-  %119 = and i16 %102, 4
-  %.not11.i = icmp eq i16 %119, 0
-  br i1 %.not11.i, label %120, label %_get_assoc_mgr_wckey_list.exit
+  %120 = and i16 %103, 4
+  %.not11.i = icmp eq i16 %120, 0
+  br i1 %.not11.i, label %121, label %_get_assoc_mgr_wckey_list.exit
 
-120:                                              ; preds = %117
-  %121 = call i32 @get_log_level() #20
-  %122 = icmp sgt i32 %121, 6
-  br i1 %122, label %123, label %_get_assoc_mgr_wckey_list.exit.thread
+121:                                              ; preds = %118
+  %122 = call i32 @get_log_level() #20
+  %123 = icmp sgt i32 %122, 6
+  br i1 %123, label %124, label %_get_assoc_mgr_wckey_list.exit.thread
 
-123:                                              ; preds = %120
+124:                                              ; preds = %121
   call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.143) #20
   br label %_get_assoc_mgr_wckey_list.exit.thread
 
-124:                                              ; preds = %115
-  call fastcc void @_post_wckey_list(ptr noundef nonnull %116)
+125:                                              ; preds = %116
+  call fastcc void @_post_wckey_list(ptr noundef nonnull %117)
   call void @assoc_mgr_unlock(ptr noundef nonnull @__const._refresh_assoc_wckey_list.locks)
   br label %_get_assoc_mgr_wckey_list.exit.thread
 
-_get_assoc_mgr_wckey_list.exit.thread:            ; preds = %124, %123, %120
+_get_assoc_mgr_wckey_list.exit.thread:            ; preds = %125, %124, %121
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5)
-  br label %126
+  br label %127
 
-_get_assoc_mgr_wckey_list.exit:                   ; preds = %117
-  %125 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.139, ptr noundef nonnull @__func__._get_assoc_mgr_wckey_list) #20
+_get_assoc_mgr_wckey_list.exit:                   ; preds = %118
+  %126 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.139, ptr noundef nonnull @__func__._get_assoc_mgr_wckey_list) #20
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5)
   br label %155
 
-126:                                              ; preds = %_get_assoc_mgr_wckey_list.exit.thread, %98, %.thread
-  %127 = load ptr, ptr @assoc_mgr_res_list, align 8
-  %.not30 = icmp eq ptr %127, null
-  br i1 %.not30, label %128, label %155
+127:                                              ; preds = %_get_assoc_mgr_wckey_list.exit.thread, %99, %.thread
+  %128 = load ptr, ptr @assoc_mgr_res_list, align 8
+  %.not30 = icmp eq ptr %128, null
+  br i1 %.not30, label %129, label %155
 
-128:                                              ; preds = %126
-  %129 = load i16, ptr @init_setup, align 8
-  %130 = and i16 %129, 16
-  %.not31 = icmp eq i16 %130, 0
-  br i1 %.not31, label %155, label %131
+129:                                              ; preds = %127
+  %130 = load i16, ptr @init_setup, align 8
+  %131 = and i16 %130, 16
+  %.not31 = icmp eq i16 %131, 0
+  br i1 %.not31, label %155, label %132
 
-131:                                              ; preds = %128
-  %132 = load i16, ptr getelementptr inbounds (%struct.assoc_init_args_t, ptr @init_setup, i64 0, i32 1), align 2
+132:                                              ; preds = %129
+  %133 = load i16, ptr getelementptr inbounds (%struct.assoc_init_args_t, ptr @init_setup, i64 0, i32 1), align 2
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4)
-  %133 = call i32 @getuid() #20
+  %134 = call i32 @getuid() #20
   call void @assoc_mgr_lock(ptr noundef nonnull @__const._refresh_assoc_mgr_res_list.locks)
-  %134 = load ptr, ptr @assoc_mgr_res_list, align 8
-  %.not.i44 = icmp eq ptr %134, null
-  br i1 %.not.i44, label %136, label %135
+  %135 = load ptr, ptr @assoc_mgr_res_list, align 8
+  %.not.i44 = icmp eq ptr %135, null
+  br i1 %.not.i44, label %137, label %136
 
-135:                                              ; preds = %131
-  call void @list_destroy(ptr noundef nonnull %134) #20
-  br label %136
+136:                                              ; preds = %132
+  call void @list_destroy(ptr noundef nonnull %135) #20
+  br label %137
 
-136:                                              ; preds = %135, %131
+137:                                              ; preds = %136, %132
   store ptr null, ptr @assoc_mgr_res_list, align 8
   call void @slurmdb_init_res_cond(ptr noundef nonnull %4, i1 noundef zeroext false) #20
-  %137 = load ptr, ptr @slurmdbd_conf, align 8
-  %.not8.i45 = icmp eq ptr %137, null
-  br i1 %.not8.i45, label %138, label %143
+  %138 = load ptr, ptr @slurmdbd_conf, align 8
+  %.not8.i45 = icmp eq ptr %138, null
+  br i1 %.not8.i45, label %139, label %144
 
-138:                                              ; preds = %136
-  %139 = getelementptr inbounds i8, ptr %4, i64 82
-  store i16 1, ptr %139, align 2
-  %140 = call ptr @list_create(ptr noundef null) #20
-  %141 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr %140, ptr %141, align 8
-  %142 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 28), align 8
-  call void @list_append(ptr noundef %140, ptr noundef %142) #20
-  br label %143
+139:                                              ; preds = %137
+  %140 = getelementptr inbounds i8, ptr %4, i64 82
+  store i16 1, ptr %140, align 2
+  %141 = call ptr @list_create(ptr noundef null) #20
+  %142 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %141, ptr %142, align 8
+  %143 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 28), align 8
+  call void @list_append(ptr noundef %141, ptr noundef %143) #20
+  br label %144
 
-143:                                              ; preds = %138, %136
-  %144 = call ptr @acct_storage_g_get_res(ptr noundef %0, i32 noundef %133, ptr noundef nonnull %4) #20
-  store ptr %144, ptr @assoc_mgr_res_list, align 8
-  %145 = getelementptr inbounds i8, ptr %4, i64 8
-  %146 = load ptr, ptr %145, align 8
-  %.not9.i46 = icmp eq ptr %146, null
-  br i1 %.not9.i46, label %148, label %147
+144:                                              ; preds = %139, %137
+  %145 = call ptr @acct_storage_g_get_res(ptr noundef %0, i32 noundef %134, ptr noundef nonnull %4) #20
+  store ptr %145, ptr @assoc_mgr_res_list, align 8
+  %146 = getelementptr inbounds i8, ptr %4, i64 8
+  %147 = load ptr, ptr %146, align 8
+  %.not9.i46 = icmp eq ptr %147, null
+  br i1 %.not9.i46, label %149, label %148
 
-147:                                              ; preds = %143
-  call void @list_destroy(ptr noundef nonnull %146) #20
+148:                                              ; preds = %144
+  call void @list_destroy(ptr noundef nonnull %147) #20
   %.pr.i47 = load ptr, ptr @assoc_mgr_res_list, align 8
-  br label %148
+  br label %149
 
-148:                                              ; preds = %147, %143
-  %149 = phi ptr [ %.pr.i47, %147 ], [ %144, %143 ]
-  store ptr null, ptr %145, align 8
-  %.not10.i48 = icmp eq ptr %149, null
-  br i1 %.not10.i48, label %150, label %152
+149:                                              ; preds = %148, %144
+  %150 = phi ptr [ %.pr.i47, %148 ], [ %145, %144 ]
+  store ptr null, ptr %146, align 8
+  %.not10.i48 = icmp eq ptr %150, null
+  br i1 %.not10.i48, label %151, label %153
 
-150:                                              ; preds = %148
+151:                                              ; preds = %149
   call void @assoc_mgr_unlock(ptr noundef nonnull @__const._refresh_assoc_mgr_res_list.locks)
-  %151 = and i16 %132, 1
-  %.not11.i50 = icmp eq i16 %151, 0
-  br i1 %.not11.i50, label %_get_assoc_mgr_res_list.exit.thread, label %153
+  %152 = and i16 %133, 1
+  %.not11.i50 = icmp eq i16 %152, 0
+  br i1 %.not11.i50, label %_get_assoc_mgr_res_list.exit.thread, label %_get_assoc_mgr_res_list.exit
 
-152:                                              ; preds = %148
-  call fastcc void @_post_res_list(ptr noundef nonnull %149)
+153:                                              ; preds = %149
+  call fastcc void @_post_res_list(ptr noundef nonnull %150)
   call void @assoc_mgr_unlock(ptr noundef nonnull @__const._refresh_assoc_mgr_res_list.locks)
   br label %_get_assoc_mgr_res_list.exit.thread
 
-_get_assoc_mgr_res_list.exit.thread:              ; preds = %152, %150
+_get_assoc_mgr_res_list.exit.thread:              ; preds = %153, %151
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4)
   br label %155
 
-153:                                              ; preds = %150
+_get_assoc_mgr_res_list.exit:                     ; preds = %151
   %154 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.139, ptr noundef nonnull @__func__._get_assoc_mgr_res_list) #20
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4)
   br label %155
 
-155:                                              ; preds = %153, %_get_assoc_mgr_res_list.exit.thread, %_get_assoc_mgr_wckey_list.exit, %_get_assoc_mgr_assoc_list.exit, %_get_assoc_mgr_qos_list.exit, %126, %128, %51, %26, %_running_cache.exit.thread, %17, %20
-  %.0 = phi i32 [ 0, %20 ], [ 0, %17 ], [ -1, %_running_cache.exit.thread ], [ -1, %26 ], [ -1, %_get_assoc_mgr_qos_list.exit ], [ -1, %51 ], [ -1, %_get_assoc_mgr_assoc_list.exit ], [ -1, %_get_assoc_mgr_wckey_list.exit ], [ 0, %128 ], [ 0, %126 ], [ -1, %153 ], [ 0, %_get_assoc_mgr_res_list.exit.thread ]
+155:                                              ; preds = %127, %129, %_get_assoc_mgr_res_list.exit.thread, %_get_assoc_mgr_res_list.exit, %_get_assoc_mgr_wckey_list.exit, %_get_assoc_mgr_assoc_list.exit, %_get_assoc_mgr_qos_list.exit, %52, %27, %_running_cache.exit, %18, %21
+  %.0 = phi i32 [ 0, %21 ], [ 0, %18 ], [ -1, %_running_cache.exit ], [ -1, %27 ], [ -1, %_get_assoc_mgr_qos_list.exit ], [ -1, %52 ], [ -1, %_get_assoc_mgr_assoc_list.exit ], [ -1, %_get_assoc_mgr_wckey_list.exit ], [ -1, %_get_assoc_mgr_res_list.exit ], [ 0, %_get_assoc_mgr_res_list.exit.thread ], [ 0, %129 ], [ 0, %127 ]
   ret i32 %.0
 }
 
@@ -1412,17 +1412,17 @@ define internal fastcc noundef i32 @_get_assoc_mgr_tres_list(ptr noundef %0, i32
   call void @assoc_mgr_unlock(ptr noundef nonnull @__const._get_assoc_mgr_tres_list.locks)
   %18 = and i32 %1, 1
   %.not13 = icmp eq i32 %18, 0
-  br i1 %.not13, label %30, label %19
+  br i1 %.not13, label %_running_cache.exit.thread, label %19
 
 19:                                               ; preds = %17
   %20 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.139, ptr noundef nonnull @__func__._get_assoc_mgr_tres_list) #20
-  br label %30
+  br label %_running_cache.exit.thread
 
 21:                                               ; preds = %16
   %22 = call i32 @assoc_mgr_post_tres_list(ptr noundef nonnull %12), !range !18
   call void @assoc_mgr_unlock(ptr noundef nonnull @__const._get_assoc_mgr_tres_list.locks)
   %.not14 = icmp eq i32 %22, 0
-  br i1 %.not14, label %30, label %23
+  br i1 %.not14, label %_running_cache.exit.thread, label %23
 
 23:                                               ; preds = %21
   %24 = load ptr, ptr getelementptr inbounds (%struct.assoc_init_args_t, ptr @init_setup, i64 0, i32 2), align 8
@@ -1431,22 +1431,20 @@ define internal fastcc noundef i32 @_get_assoc_mgr_tres_list(ptr noundef %0, i32
 
 25:                                               ; preds = %23
   %26 = load i16, ptr %24, align 2
-  %.not2.i = icmp ne i16 %26, 0
-  br label %_running_cache.exit
+  %.not2.i = icmp eq i16 %26, 0
+  br i1 %.not2.i, label %_running_cache.exit, label %_running_cache.exit.thread
 
 _running_cache.exit:                              ; preds = %23, %25
-  %.0.i = phi i1 [ false, %23 ], [ %.not2.i, %25 ]
   %27 = load ptr, ptr getelementptr inbounds (%struct.assoc_init_args_t, ptr @init_setup, i64 0, i32 11), align 8
   %28 = icmp eq ptr %27, null
-  %or.cond.not = select i1 %.0.i, i1 true, i1 %28
-  br i1 %or.cond.not, label %30, label %29
+  br i1 %28, label %_running_cache.exit.thread, label %29
 
 29:                                               ; preds = %_running_cache.exit
   call void %27() #20
-  br label %30
+  br label %_running_cache.exit.thread
 
-30:                                               ; preds = %21, %_running_cache.exit, %29, %17, %19
-  %.0 = phi i32 [ -1, %19 ], [ 0, %17 ], [ 0, %29 ], [ 0, %_running_cache.exit ], [ 0, %21 ]
+_running_cache.exit.thread:                       ; preds = %25, %21, %_running_cache.exit, %29, %17, %19
+  %.0 = phi i32 [ -1, %19 ], [ 0, %17 ], [ 0, %29 ], [ 0, %_running_cache.exit ], [ 0, %21 ], [ 0, %25 ]
   ret i32 %.0
 }
 
@@ -1620,18 +1618,18 @@ define noundef i32 @assoc_mgr_fini(i1 noundef zeroext %0) local_unnamed_addr #0 
   store ptr null, ptr @assoc_mgr_root_assoc, align 8
   %34 = load ptr, ptr getelementptr inbounds (%struct.assoc_init_args_t, ptr @init_setup, i64 0, i32 2), align 8
   %.not.i = icmp eq ptr %34, null
-  br i1 %.not.i, label %_running_cache.exit.thread, label %_running_cache.exit
+  br i1 %.not.i, label %_running_cache.exit, label %35
 
-_running_cache.exit:                              ; preds = %33
-  %35 = load i16, ptr %34, align 2
-  %.not2.i.not = icmp eq i16 %35, 0
-  br i1 %.not2.i.not, label %_running_cache.exit.thread, label %36
+35:                                               ; preds = %33
+  %36 = load i16, ptr %34, align 2
+  %.not2.i = icmp eq i16 %36, 0
+  br i1 %.not2.i, label %_running_cache.exit, label %37
 
-36:                                               ; preds = %_running_cache.exit
+37:                                               ; preds = %35
   store i16 0, ptr %34, align 2
-  br label %_running_cache.exit.thread
+  br label %_running_cache.exit
 
-_running_cache.exit.thread:                       ; preds = %33, %36, %_running_cache.exit
+_running_cache.exit:                              ; preds = %35, %33, %37
   tail call void @slurm_xfree(ptr noundef nonnull @assoc_hash_id) #20
   tail call void @slurm_xfree(ptr noundef nonnull @assoc_hash) #20
   tail call void @assoc_mgr_unlock(ptr noundef nonnull @__const.assoc_mgr_fini.locks)
@@ -2910,7 +2908,7 @@ define noundef i32 @assoc_mgr_get_user_assocs(ptr nocapture noundef readnone %0,
   %8 = and i32 %2, 1
   %9 = or i32 %7, %8
   %or.cond = icmp eq i32 %9, 0
-  br i1 %or.cond, label %60, label %._crit_edge
+  br i1 %or.cond, label %61, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %6
   %.pre = load ptr, ptr @assoc_mgr_assoc_list, align 8
@@ -2919,7 +2917,7 @@ define noundef i32 @assoc_mgr_get_user_assocs(ptr nocapture noundef readnone %0,
 10:                                               ; preds = %4
   %.old = and i32 %2, 1
   %.not25.old = icmp eq i32 %.old, 0
-  br i1 %.not25.old, label %60, label %11
+  br i1 %.not25.old, label %61, label %11
 
 11:                                               ; preds = %._crit_edge, %10
   %12 = phi ptr [ %.pre, %._crit_edge ], [ null, %10 ]
@@ -3033,11 +3031,13 @@ define noundef i32 @assoc_mgr_get_user_assocs(ptr nocapture noundef readnone %0,
 58:                                               ; preds = %54, %55, %49, %50
   %59 = and i32 %2, 1
   %.not29 = icmp eq i32 %59, 0
-  %spec.select = select i1 %.not29, i32 0, i32 2045
-  br label %60
+  br i1 %.not29, label %60, label %61
 
-60:                                               ; preds = %.outer._crit_edge.thread43, %58, %.outer._crit_edge, %10, %6
-  %.020 = phi i32 [ 0, %6 ], [ 0, %10 ], [ 0, %.outer._crit_edge ], [ %spec.select, %58 ], [ 0, %.outer._crit_edge.thread43 ]
+60:                                               ; preds = %.outer._crit_edge.thread43, %58, %.outer._crit_edge
+  br label %61
+
+61:                                               ; preds = %58, %10, %6, %60
+  %.020 = phi i32 [ 0, %60 ], [ 0, %6 ], [ 0, %10 ], [ 2045, %58 ]
   ret i32 %.020
 }
 
@@ -12511,7 +12511,7 @@ define noundef i32 @assoc_mgr_refresh_lists(ptr noundef %0, i16 noundef zeroext 
 
 _refresh_assoc_mgr_qos_list.exit.thread:          ; preds = %16
   %19 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.174, ptr noundef nonnull @__func__._refresh_assoc_mgr_qos_list) #20
-  br label %_running_cache.exit.thread
+  br label %_running_cache.exit
 
 20:                                               ; preds = %16
   tail call void @assoc_mgr_lock(ptr noundef nonnull @__const._refresh_assoc_mgr_qos_list.locks)
@@ -12582,7 +12582,7 @@ _refresh_assoc_mgr_qos_list.exit:                 ; preds = %20, %._crit_edge.i,
 _refresh_assoc_mgr_user_list.exit.thread:         ; preds = %39
   %43 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.174, ptr noundef nonnull @__func__._refresh_assoc_mgr_user_list) #20
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
-  br label %_running_cache.exit.thread
+  br label %_running_cache.exit
 
 44:                                               ; preds = %39
   call fastcc void @_post_user_list(ptr noundef nonnull %42)
@@ -12864,7 +12864,7 @@ _refresh_assoc_mgr_assoc_list.exit:               ; preds = %62
   call void @assoc_mgr_unlock(ptr noundef nonnull @__const._refresh_assoc_mgr_assoc_list.locks)
   %177 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.174, ptr noundef nonnull @__func__._refresh_assoc_mgr_assoc_list) #20
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %5)
-  br label %_running_cache.exit.thread
+  br label %_running_cache.exit
 
 178:                                              ; preds = %_refresh_assoc_mgr_assoc_list.exit.thread, %47
   %179 = and i32 %8, 8
@@ -12904,7 +12904,7 @@ _refresh_assoc_mgr_assoc_list.exit:               ; preds = %62
 _refresh_assoc_wckey_list.exit.thread:            ; preds = %190
   %191 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.174, ptr noundef nonnull @__func__._refresh_assoc_wckey_list) #20
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
-  br label %_running_cache.exit.thread
+  br label %_running_cache.exit
 
 192:                                              ; preds = %190
   call fastcc void @_post_wckey_list(ptr noundef nonnull %187)
@@ -12965,7 +12965,7 @@ _refresh_assoc_wckey_list.exit:                   ; preds = %192, %194
 _refresh_assoc_mgr_res_list.exit.thread:          ; preds = %210
   %211 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.174, ptr noundef nonnull @__func__._refresh_assoc_mgr_res_list) #20
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %3)
-  br label %_running_cache.exit.thread
+  br label %_running_cache.exit
 
 212:                                              ; preds = %210
   call void @assoc_mgr_lock(ptr noundef nonnull @__const._refresh_assoc_mgr_res_list.locks)
@@ -12982,27 +12982,27 @@ _refresh_assoc_mgr_res_list.exit:                 ; preds = %212, %214
   store ptr %206, ptr @assoc_mgr_res_list, align 8
   call void @assoc_mgr_unlock(ptr noundef nonnull @__const._refresh_assoc_mgr_res_list.locks)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %3)
-  br i1 %.not.not.not, label %216, label %_running_cache.exit.thread
+  br i1 %.not.not.not, label %216, label %_running_cache.exit
 
 215:                                              ; preds = %195
-  br i1 %.not.not.not, label %216, label %_running_cache.exit.thread
+  br i1 %.not.not.not, label %216, label %_running_cache.exit
 
 216:                                              ; preds = %_refresh_assoc_mgr_res_list.exit, %215
   %217 = load ptr, ptr getelementptr inbounds (%struct.assoc_init_args_t, ptr @init_setup, i64 0, i32 2), align 8
   %.not.i37 = icmp eq ptr %217, null
-  br i1 %.not.i37, label %_running_cache.exit.thread, label %_running_cache.exit
+  br i1 %.not.i37, label %_running_cache.exit, label %218
 
-_running_cache.exit:                              ; preds = %216
-  %218 = load i16, ptr %217, align 2
-  %.not2.i.not = icmp eq i16 %218, 0
-  br i1 %.not2.i.not, label %_running_cache.exit.thread, label %219
+218:                                              ; preds = %216
+  %219 = load i16, ptr %217, align 2
+  %.not2.i = icmp eq i16 %219, 0
+  br i1 %.not2.i, label %_running_cache.exit, label %220
 
-219:                                              ; preds = %_running_cache.exit
+220:                                              ; preds = %218
   store i16 3, ptr %217, align 2
-  br label %_running_cache.exit.thread
+  br label %_running_cache.exit
 
-_running_cache.exit.thread:                       ; preds = %216, %_refresh_assoc_mgr_res_list.exit.thread, %_refresh_assoc_wckey_list.exit.thread, %_refresh_assoc_mgr_assoc_list.exit, %_refresh_assoc_mgr_user_list.exit.thread, %_refresh_assoc_mgr_qos_list.exit.thread, %_refresh_assoc_mgr_res_list.exit, %215, %_running_cache.exit, %219
-  %.015 = phi i32 [ -1, %_refresh_assoc_mgr_assoc_list.exit ], [ 0, %_refresh_assoc_mgr_res_list.exit ], [ 0, %219 ], [ 0, %_running_cache.exit ], [ 0, %215 ], [ -1, %_refresh_assoc_mgr_qos_list.exit.thread ], [ -1, %_refresh_assoc_mgr_user_list.exit.thread ], [ -1, %_refresh_assoc_wckey_list.exit.thread ], [ -1, %_refresh_assoc_mgr_res_list.exit.thread ], [ 0, %216 ]
+_running_cache.exit:                              ; preds = %218, %216, %_refresh_assoc_mgr_res_list.exit.thread, %_refresh_assoc_wckey_list.exit.thread, %_refresh_assoc_mgr_assoc_list.exit, %_refresh_assoc_mgr_user_list.exit.thread, %_refresh_assoc_mgr_qos_list.exit.thread, %_refresh_assoc_mgr_res_list.exit, %215, %220
+  %.015 = phi i32 [ -1, %_refresh_assoc_mgr_assoc_list.exit ], [ 0, %_refresh_assoc_mgr_res_list.exit ], [ 0, %220 ], [ 0, %215 ], [ -1, %_refresh_assoc_mgr_qos_list.exit.thread ], [ -1, %_refresh_assoc_mgr_user_list.exit.thread ], [ -1, %_refresh_assoc_wckey_list.exit.thread ], [ -1, %_refresh_assoc_mgr_res_list.exit.thread ], [ 0, %216 ], [ 0, %218 ]
   ret i32 %.015
 }
 

@@ -27,8 +27,7 @@ define dso_local i32 @pg_saslprep(ptr noundef %0, ptr nocapture noundef writeonl
   %12 = tail call noalias ptr @strdup(ptr noundef %0) #7
   store ptr %12, ptr %1, align 8
   %.not116 = icmp eq ptr %12, null
-  %spec.select = sext i1 %.not116 to i32
-  br label %pg_utf8_string_len.exit.thread
+  br i1 %.not116, label %.thread158, label %pg_utf8_string_len.exit.thread
 
 13:                                               ; preds = %2
   %14 = load i8, ptr %0, align 1
@@ -61,7 +60,7 @@ pg_utf8_string_len.exit.thread136:                ; preds = %13, %pg_utf8_string
   %25 = shl nsw i64 %24, 2
   %26 = tail call noalias ptr @malloc(i64 noundef %25) #8
   %.not = icmp eq ptr %26, null
-  br i1 %.not, label %pg_utf8_string_len.exit.thread, label %.preheader168
+  br i1 %.not, label %.thread158, label %.preheader168
 
 .preheader168:                                    ; preds = %pg_utf8_string_len.exit.thread136
   %.not197 = icmp eq i32 %.09.i138, 0
@@ -347,13 +346,16 @@ is_code_in_table.exit134:                         ; preds = %.lr.ph183
   call void @free(ptr noundef nonnull %49) #7
   br label %pg_utf8_string_len.exit.thread
 
+.thread158:                                       ; preds = %pg_utf8_string_len.exit.thread136, %11
+  br label %pg_utf8_string_len.exit.thread
+
 .thread152:                                       ; preds = %._crit_edge189
   call void @free(ptr noundef nonnull %26) #7
   call void @free(ptr noundef nonnull %49) #7
   br label %pg_utf8_string_len.exit.thread
 
-pg_utf8_string_len.exit.thread:                   ; preds = %.lr.ph.i, %.thread152.thread, %11, %pg_utf8_string_len.exit.thread136, %.thread, %.thread152, %.loopexit, %pg_utf8_string_len.exit, %._crit_edge195
-  %.0 = phi i32 [ 0, %._crit_edge195 ], [ -2, %pg_utf8_string_len.exit ], [ -3, %.loopexit ], [ -1, %.thread152 ], [ -3, %.thread ], [ -1, %pg_utf8_string_len.exit.thread136 ], [ %spec.select, %11 ], [ -1, %.thread152.thread ], [ -2, %.lr.ph.i ]
+pg_utf8_string_len.exit.thread:                   ; preds = %.lr.ph.i, %.thread152.thread, %.thread158, %.thread, %.thread152, %.loopexit, %pg_utf8_string_len.exit, %11, %._crit_edge195
+  %.0 = phi i32 [ 0, %._crit_edge195 ], [ 0, %11 ], [ -2, %pg_utf8_string_len.exit ], [ -3, %.loopexit ], [ -1, %.thread152 ], [ -3, %.thread ], [ -1, %.thread158 ], [ -1, %.thread152.thread ], [ -2, %.lr.ph.i ]
   ret i32 %.0
 }
 

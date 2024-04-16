@@ -2355,17 +2355,20 @@ if.end:                                           ; preds = %entry
   %.val = load i64, ptr %2, align 8
   %and.i = and i64 %.val, 1
   %tobool.not.i = icmp eq i64 %and.i, 0
-  br i1 %tobool.not.i, label %if.then2, label %return
+  br i1 %tobool.not.i, label %if.then2, label %if.end7
 
 if.then2:                                         ; preds = %if.end
   %refcount_block_cache = getelementptr inbounds i8, ptr %0, i64 88
   %3 = load ptr, ptr %refcount_block_cache, align 8
   %call3 = tail call i32 @qcow2_cache_write(ptr noundef nonnull %bs, ptr noundef %3) #17
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %call3, i32 0)
+  %cmp4 = icmp slt i32 %call3, 0
+  br i1 %cmp4, label %return, label %if.end7
+
+if.end7:                                          ; preds = %if.then2, %if.end
   br label %return
 
-return:                                           ; preds = %if.then2, %if.end, %entry
-  %retval.0 = phi i32 [ %call, %entry ], [ 0, %if.end ], [ %spec.select, %if.then2 ]
+return:                                           ; preds = %if.then2, %entry, %if.end7
+  %retval.0 = phi i32 [ 0, %if.end7 ], [ %call, %entry ], [ %call3, %if.then2 ]
   ret i32 %retval.0
 }
 
@@ -2387,24 +2390,24 @@ if.end.i:                                         ; preds = %entry
   %.val.i = load i64, ptr %2, align 8
   %and.i.i = and i64 %.val.i, 1
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
-  br i1 %tobool.not.i.i, label %qcow2_write_caches.exit, label %if.end
+  br i1 %tobool.not.i.i, label %if.then2.i, label %if.end
 
-qcow2_write_caches.exit:                          ; preds = %if.end.i
+if.then2.i:                                       ; preds = %if.end.i
   %refcount_block_cache.i = getelementptr inbounds i8, ptr %0, i64 88
   %3 = load ptr, ptr %refcount_block_cache.i, align 8
   %call3.i = tail call i32 @qcow2_cache_write(ptr noundef nonnull %bs, ptr noundef %3) #17
-  %cmp = icmp slt i32 %call3.i, 0
-  br i1 %cmp, label %return, label %if.end
+  %cmp4.i = icmp slt i32 %call3.i, 0
+  br i1 %cmp4.i, label %return, label %if.end
 
-if.end:                                           ; preds = %if.end.i, %qcow2_write_caches.exit
+if.end:                                           ; preds = %if.then2.i, %if.end.i
   %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %4 = load ptr, ptr %file, align 8
   %5 = load ptr, ptr %4, align 8
   %call2 = tail call i32 @bdrv_flush(ptr noundef %5) #17
   br label %return
 
-return:                                           ; preds = %entry, %qcow2_write_caches.exit, %if.end
-  %retval.0 = phi i32 [ %call2, %if.end ], [ %call3.i, %qcow2_write_caches.exit ], [ %call.i, %entry ]
+return:                                           ; preds = %if.then2.i, %entry, %if.end
+  %retval.0 = phi i32 [ %call2, %if.end ], [ %call3.i, %if.then2.i ], [ %call.i, %entry ]
   ret i32 %retval.0
 }
 
@@ -4640,14 +4643,14 @@ for.end213:                                       ; preds = %for.inc211, %for.co
 if.end217:                                        ; preds = %for.end213, %for.cond162.preheader, %land.lhs.true158, %if.end155
   %and218 = and i32 %and, 256
   %tobool219.not = icmp eq i32 %and218, 0
-  br i1 %tobool219.not, label %return, label %land.lhs.true220
+  br i1 %tobool219.not, label %if.end228, label %land.lhs.true220
 
 land.lhs.true220:                                 ; preds = %if.end217
   %autoclear_features = getelementptr inbounds i8, ptr %0, i64 376
   %31 = load i64, ptr %autoclear_features, align 8
   %and221 = and i64 %31, 1
   %tobool222.not = icmp eq i64 %and221, 0
-  br i1 %tobool222.not, label %return, label %if.then223
+  br i1 %tobool222.not, label %if.end228, label %if.then223
 
 if.then223:                                       ; preds = %land.lhs.true220
   %bitmap_directory_offset = getelementptr inbounds i8, ptr %0, i64 288
@@ -4661,11 +4664,13 @@ if.then223:                                       ; preds = %land.lhs.true220
   %cmp.i166 = icmp ult i64 %sub.i4.i165, %and.i113
   %cmp2.i167 = icmp ult i64 %sub.i.i163, %32
   %.not.i168.not = or i1 %cmp2.i167, %cmp.i166
-  %spec.select = select i1 %.not.i168.not, i32 0, i32 256
+  br i1 %.not.i168.not, label %if.end228, label %return
+
+if.end228:                                        ; preds = %if.then223, %land.lhs.true220, %if.end217
   br label %return
 
-return:                                           ; preds = %land.lhs.true62, %land.lhs.true93, %land.lhs.true141, %if.end182, %for.body166, %if.end, %if.then223, %if.end217, %land.lhs.true220, %if.then44, %if.then31, %if.then19, %entry, %if.then209, %if.then193
-  %retval.0 = phi i32 [ %call190, %if.then193 ], [ 128, %if.then209 ], [ 0, %entry ], [ 2, %if.then19 ], [ 8, %if.then31 ], [ 32, %if.then44 ], [ 0, %land.lhs.true220 ], [ 0, %if.end217 ], [ %spec.select, %if.then223 ], [ 1, %if.end ], [ -12, %if.end182 ], [ %call178, %for.body166 ], [ 16, %land.lhs.true141 ], [ 4, %land.lhs.true93 ], [ 64, %land.lhs.true62 ]
+return:                                           ; preds = %land.lhs.true62, %land.lhs.true93, %land.lhs.true141, %if.end182, %for.body166, %if.end, %if.then223, %if.then44, %if.then31, %if.then19, %entry, %if.end228, %if.then209, %if.then193
+  %retval.0 = phi i32 [ %call190, %if.then193 ], [ 128, %if.then209 ], [ 0, %if.end228 ], [ 0, %entry ], [ 2, %if.then19 ], [ 8, %if.then31 ], [ 32, %if.then44 ], [ 256, %if.then223 ], [ 1, %if.end ], [ -12, %if.end182 ], [ %call178, %for.body166 ], [ 16, %land.lhs.true141 ], [ 4, %land.lhs.true93 ], [ 64, %land.lhs.true62 ]
   ret i32 %retval.0
 }
 
@@ -7624,9 +7629,6 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #12
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

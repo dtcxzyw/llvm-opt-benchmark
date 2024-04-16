@@ -247,33 +247,33 @@ define dso_local i32 @g_verify_token_header(ptr nocapture noundef readonly %0, p
   %69 = getelementptr i8, ptr %62, i64 %68
   %70 = load i32, ptr %0, align 8
   %71 = icmp eq i32 %70, %64
-  br i1 %71, label %74, label %.thread7
+  br i1 %71, label %72, label %.thread6
 
-.thread7:                                         ; preds = %67
-  %72 = icmp ult i32 %65, 2
-  %73 = select i1 %72, i32 -2045022964, i32 -2045022965
+72:                                               ; preds = %67
+  %73 = getelementptr inbounds i8, ptr %0, i64 8
+  %74 = load ptr, ptr %73, align 8
+  %75 = tail call i32 @bcmp(ptr %62, ptr %74, i64 %68)
+  %76 = icmp eq i32 %75, 0
+  br i1 %76, label %79, label %.thread6
+
+.thread6:                                         ; preds = %67, %72
+  %77 = icmp ult i32 %65, 2
+  %78 = select i1 %77, i32 -2045022964, i32 -2045022965
   br label %.thread
 
-74:                                               ; preds = %67
-  %75 = getelementptr inbounds i8, ptr %0, i64 8
-  %76 = load ptr, ptr %75, align 8
-  %77 = tail call i32 @bcmp(ptr %62, ptr %76, i64 %68)
-  %78 = icmp ne i32 %77, 0
-  %spec.select1 = select i1 %78, i32 -2045022965, i32 0
-  %79 = icmp ult i32 %65, 2
-  %80 = or i1 %79, %78
-  %81 = select i1 %79, i32 -2045022964, i32 %spec.select1
-  br i1 %80, label %.thread, label %82
+79:                                               ; preds = %72
+  %80 = icmp ult i32 %65, 2
+  br i1 %80, label %.thread, label %81
 
-82:                                               ; preds = %74
-  %83 = add nsw i32 %65, -2
+81:                                               ; preds = %79
+  %82 = add nsw i32 %65, -2
   store ptr %69, ptr %2, align 8
-  store i32 %83, ptr %1, align 4
+  store i32 %82, ptr %1, align 4
   br label %.thread
 
-.thread:                                          ; preds = %18, %.thread7, %82, %74, %59, %54, %45, %7, %4
-  %84 = phi i32 [ 0, %82 ], [ -2045022964, %4 ], [ -2045022964, %7 ], [ -2045022964, %45 ], [ -2045022964, %54 ], [ -2045022964, %59 ], [ %81, %74 ], [ %73, %.thread7 ], [ -2045022964, %18 ]
-  ret i32 %84
+.thread:                                          ; preds = %18, %.thread6, %81, %79, %59, %54, %45, %7, %4
+  %83 = phi i32 [ 0, %81 ], [ -2045022964, %4 ], [ -2045022964, %7 ], [ -2045022964, %45 ], [ -2045022964, %54 ], [ -2045022964, %59 ], [ -2045022964, %79 ], [ %78, %.thread6 ], [ -2045022964, %18 ]
+  ret i32 %83
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

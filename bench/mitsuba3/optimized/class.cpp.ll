@@ -1811,7 +1811,7 @@ define linkonce_odr hidden ptr @_ZNSt3__16__treeINS_12__value_typeINS_12basic_st
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not10.i = icmp eq ptr %4, null
-  br i1 %.not10.i, label %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPN7mitsuba5ClassEEENS_19__map_value_compareIS7_SB_NS_4lessIS7_EELb1EEENS5_ISB_EEE13__lower_boundIS7_EENS_15__tree_iteratorISB_PNS_11__tree_nodeISB_PvEElEERKT_SN_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISL_EEEE.exit.thread, label %.lr.ph.i
+  br i1 %.not10.i, label %.critedge, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2
   %5 = load i8, ptr %1, align 8
@@ -1859,7 +1859,7 @@ define linkonce_odr hidden ptr @_ZNSt3__16__treeINS_12__value_typeINS_12basic_st
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPN7mitsuba5ClassEEENS_19__map_value_compareIS7_SB_NS_4lessIS7_EELb1EEENS5_ISB_EEE13__lower_boundIS7_EENS_15__tree_iteratorISB_PNS_11__tree_nodeISB_PvEElEERKT_SN_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISL_EEEE.exit: ; preds = %16
   %.not = icmp eq ptr %.1.i, %3
-  br i1 %.not, label %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPN7mitsuba5ClassEEENS_19__map_value_compareIS7_SB_NS_4lessIS7_EELb1EEENS5_ISB_EEE13__lower_boundIS7_EENS_15__tree_iteratorISB_PNS_11__tree_nodeISB_PvEElEERKT_SN_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISL_EEEE.exit.thread, label %33
+  br i1 %.not, label %.critedge, label %33
 
 33:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPN7mitsuba5ClassEEENS_19__map_value_compareIS7_SB_NS_4lessIS7_EELb1EEENS5_ISB_EEE13__lower_boundIS7_EENS_15__tree_iteratorISB_PNS_11__tree_nodeISB_PvEElEERKT_SN_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISL_EEEE.exit
   %34 = getelementptr inbounds i8, ptr %.1.i, i64 32
@@ -1881,11 +1881,13 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
   %47 = icmp ult i64 %15, %45
   %48 = icmp slt i32 %46, 0
   %49 = select i1 %.not.i.i.i.i.i, i1 %47, i1 %48
-  %spec.select = select i1 %49, ptr %3, ptr %.1.i
-  br label %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPN7mitsuba5ClassEEENS_19__map_value_compareIS7_SB_NS_4lessIS7_EELb1EEENS5_ISB_EEE13__lower_boundIS7_EENS_15__tree_iteratorISB_PNS_11__tree_nodeISB_PvEElEERKT_SN_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISL_EEEE.exit.thread
+  br i1 %49, label %.critedge, label %50
 
-_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPN7mitsuba5ClassEEENS_19__map_value_compareIS7_SB_NS_4lessIS7_EELb1EEENS5_ISB_EEE13__lower_boundIS7_EENS_15__tree_iteratorISB_PNS_11__tree_nodeISB_PvEElEERKT_SN_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISL_EEEE.exit.thread: ; preds = %33, %2, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPN7mitsuba5ClassEEENS_19__map_value_compareIS7_SB_NS_4lessIS7_EELb1EEENS5_ISB_EEE13__lower_boundIS7_EENS_15__tree_iteratorISB_PNS_11__tree_nodeISB_PvEElEERKT_SN_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISL_EEEE.exit
-  %.sroa.0.0 = phi ptr [ %3, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPN7mitsuba5ClassEEENS_19__map_value_compareIS7_SB_NS_4lessIS7_EELb1EEENS5_ISB_EEE13__lower_boundIS7_EENS_15__tree_iteratorISB_PNS_11__tree_nodeISB_PvEElEERKT_SN_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISL_EEEE.exit ], [ %3, %2 ], [ %spec.select, %33 ]
+.critedge:                                        ; preds = %2, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPN7mitsuba5ClassEEENS_19__map_value_compareIS7_SB_NS_4lessIS7_EELb1EEENS5_ISB_EEE13__lower_boundIS7_EENS_15__tree_iteratorISB_PNS_11__tree_nodeISB_PvEElEERKT_SN_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISL_EEEE.exit, %33
+  br label %50
+
+50:                                               ; preds = %33, %.critedge
+  %.sroa.0.0 = phi ptr [ %3, %.critedge ], [ %.1.i, %33 ]
   ret ptr %.sroa.0.0
 }
 

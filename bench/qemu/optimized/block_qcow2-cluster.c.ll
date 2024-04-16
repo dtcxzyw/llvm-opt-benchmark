@@ -3709,7 +3709,7 @@ if.end77:                                         ; preds = %while.body
 
 while.end:                                        ; preds = %if.end77, %if.end66
   %tobool82.not = icmp eq i32 %cond50, 0
-  br i1 %tobool82.not, label %fail, label %if.then83
+  br i1 %tobool82.not, label %if.end92, label %if.then83
 
 if.then83:                                        ; preds = %while.end
   %13 = getelementptr i8, ptr %0, i64 12
@@ -3722,10 +3722,14 @@ if.then83:                                        ; preds = %while.end
   %shr.i91 = lshr i64 %add.i89, %sh_prom.i90
   %conv86 = trunc i64 %shr.i91 to i32
   %call87 = tail call i32 @zero_l2_subclusters(ptr noundef %bs, i64 noundef %sub53, i32 noundef %conv86), !range !13
+  %cmp88 = icmp slt i32 %call87, 0
+  br i1 %cmp88, label %fail, label %if.end92
+
+if.end92:                                         ; preds = %if.then83, %while.end
   br label %fail
 
-fail:                                             ; preds = %while.body, %if.then83, %while.end, %if.then55
-  %ret.0 = phi i32 [ %call61, %if.then55 ], [ 0, %while.end ], [ %call87, %if.then83 ], [ %call71, %while.body ]
+fail:                                             ; preds = %while.body, %if.then83, %if.then55, %if.end92
+  %ret.0 = phi i32 [ %call61, %if.then55 ], [ %call87, %if.then83 ], [ 0, %if.end92 ], [ %call71, %while.body ]
   store i8 0, ptr %cache_discards, align 8
   tail call void @qcow2_process_discards(ptr noundef %bs, i32 noundef %ret.0) #13
   br label %return

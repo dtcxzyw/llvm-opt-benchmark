@@ -1653,8 +1653,8 @@ _ZNKSt6vectorIPN3zmq6pipe_tESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %i
   %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
   %add.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
-  %spec.select.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 1152921504606846975)
-  %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 1152921504606846975, i64 %spec.select.i.i.i.i
+  %6 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 1152921504606846975)
+  %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 1152921504606846975, i64 %6
   %cmp.not.i.i.i.i = icmp eq i64 %cond.i.i.i.i, 0
   br i1 %cmp.not.i.i.i.i, label %_ZNSt12_Vector_baseIPN3zmq6pipe_tESaIS2_EE11_M_allocateEm.exit.i.i.i, label %cond.true.i.i.i.i
 
@@ -1694,8 +1694,8 @@ _ZNSt6vectorIPN3zmq6pipe_tESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__
 _ZN3zmq7array_tINS_6pipe_tELi3EE9push_backEPS1_.exit: ; preds = %if.then.i.i, %_ZNSt6vectorIPN3zmq6pipe_tESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 256
-  %6 = load ptr, ptr %vfn, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(1825) %this, ptr noundef nonnull %pipe_, i1 noundef zeroext %subscribe_to_all_, i1 noundef zeroext %locally_initiated_)
+  %7 = load ptr, ptr %vfn, align 8
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(1825) %this, ptr noundef nonnull %pipe_, i1 noundef zeroext %subscribe_to_all_, i1 noundef zeroext %locally_initiated_)
   %call = tail call noundef zeroext i1 @_ZNK3zmq5own_t14is_terminatingEv(ptr noundef nonnull align 8 dereferenceable(1444) %this)
   br i1 %call, label %if.then, label %if.end
 
@@ -8318,19 +8318,20 @@ while.body.i.i.i:                                 ; preds = %if.end.i.i.i, %whil
   %5 = tail call i64 @llvm.umin.i64(i64 %2, i64 %4)
   %call4.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %3, ptr noundef %1, i64 noundef %5) #31
   %cmp.i.i.i.i.i = icmp slt i32 %call4.i.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i.i, label %if.end.i.i.i, label %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i.i.i
+  br i1 %cmp.i.i.i.i.i, label %if.else.i.i.i, label %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i.i.i
 
 _ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i.i.i: ; preds = %while.body.i.i.i
   %cmp5.i.i.i.i.i = icmp eq i32 %call4.i.i.i.i.i, 0
   %cmp8.i.i.i.i.i = icmp ult i64 %4, %2
   %spec.select.i.i.i.i.i = and i1 %cmp8.i.i.i.i.i, %cmp5.i.i.i.i.i
-  %spec.select.i.i.i = select i1 %spec.select.i.i.i.i.i, i64 24, i64 16
-  %spec.select8.i.i.i = select i1 %spec.select.i.i.i.i.i, ptr %__y.addr.06.i.i.i, ptr %__x.addr.07.i.i.i
+  br i1 %spec.select.i.i.i.i.i, label %if.else.i.i.i, label %if.end.i.i.i
+
+if.else.i.i.i:                                    ; preds = %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i.i.i, %while.body.i.i.i
   br label %if.end.i.i.i
 
-if.end.i.i.i:                                     ; preds = %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i.i.i, %while.body.i.i.i
-  %.sink.i.i.i = phi i64 [ 24, %while.body.i.i.i ], [ %spec.select.i.i.i, %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i.i.i ]
-  %__y.addr.1.i.i.i = phi ptr [ %__y.addr.06.i.i.i, %while.body.i.i.i ], [ %spec.select8.i.i.i, %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i.i.i ]
+if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i.i.i
+  %.sink.i.i.i = phi i64 [ 24, %if.else.i.i.i ], [ 16, %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i.i.i ]
+  %__y.addr.1.i.i.i = phi ptr [ %__y.addr.06.i.i.i, %if.else.i.i.i ], [ %__x.addr.07.i.i.i, %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i.i.i ]
   %_M_right.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i, i64 %.sink.i.i.i
   %__x.addr.1.i.i.i = load ptr, ptr %_M_right.i.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %__x.addr.1.i.i.i, null
@@ -8388,19 +8389,20 @@ while.body.i.i.i:                                 ; preds = %if.end.i.i.i, %whil
   %5 = tail call i64 @llvm.umin.i64(i64 %2, i64 %4)
   %call4.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %3, ptr noundef %1, i64 noundef %5) #31
   %cmp.i.i.i.i.i = icmp slt i32 %call4.i.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i.i, label %if.end.i.i.i, label %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i.i.i
+  br i1 %cmp.i.i.i.i.i, label %if.else.i.i.i, label %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i.i.i
 
 _ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i.i.i: ; preds = %while.body.i.i.i
   %cmp5.i.i.i.i.i = icmp eq i32 %call4.i.i.i.i.i, 0
   %cmp8.i.i.i.i.i = icmp ult i64 %4, %2
   %spec.select.i.i.i.i.i = and i1 %cmp8.i.i.i.i.i, %cmp5.i.i.i.i.i
-  %spec.select.i.i.i = select i1 %spec.select.i.i.i.i.i, i64 24, i64 16
-  %spec.select8.i.i.i = select i1 %spec.select.i.i.i.i.i, ptr %__y.addr.06.i.i.i, ptr %__x.addr.07.i.i.i
+  br i1 %spec.select.i.i.i.i.i, label %if.else.i.i.i, label %if.end.i.i.i
+
+if.else.i.i.i:                                    ; preds = %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i.i.i, %while.body.i.i.i
   br label %if.end.i.i.i
 
-if.end.i.i.i:                                     ; preds = %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i.i.i, %while.body.i.i.i
-  %.sink.i.i.i = phi i64 [ 24, %while.body.i.i.i ], [ %spec.select.i.i.i, %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i.i.i ]
-  %__y.addr.1.i.i.i = phi ptr [ %__y.addr.06.i.i.i, %while.body.i.i.i ], [ %spec.select8.i.i.i, %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i.i.i ]
+if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i.i.i
+  %.sink.i.i.i = phi i64 [ 24, %if.else.i.i.i ], [ 16, %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i.i.i ]
+  %__y.addr.1.i.i.i = phi ptr [ %__y.addr.06.i.i.i, %if.else.i.i.i ], [ %__x.addr.07.i.i.i, %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i.i.i ]
   %_M_right.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i, i64 %.sink.i.i.i
   %__x.addr.1.i.i.i = load ptr, ptr %_M_right.i.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %__x.addr.1.i.i.i, null
@@ -8458,19 +8460,20 @@ while.body.i.i.i:                                 ; preds = %if.end.i.i.i, %whil
   %5 = tail call i64 @llvm.umin.i64(i64 %2, i64 %4)
   %call4.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %3, ptr noundef %1, i64 noundef %5) #31
   %cmp.i.i.i.i.i = icmp slt i32 %call4.i.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i.i, label %if.end.i.i.i, label %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i.i.i
+  br i1 %cmp.i.i.i.i.i, label %if.else.i.i.i, label %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i.i.i
 
 _ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i.i.i: ; preds = %while.body.i.i.i
   %cmp5.i.i.i.i.i = icmp eq i32 %call4.i.i.i.i.i, 0
   %cmp8.i.i.i.i.i = icmp ult i64 %4, %2
   %spec.select.i.i.i.i.i = and i1 %cmp8.i.i.i.i.i, %cmp5.i.i.i.i.i
-  %spec.select.i.i.i = select i1 %spec.select.i.i.i.i.i, i64 24, i64 16
-  %spec.select8.i.i.i = select i1 %spec.select.i.i.i.i.i, ptr %__y.addr.06.i.i.i, ptr %__x.addr.07.i.i.i
+  br i1 %spec.select.i.i.i.i.i, label %if.else.i.i.i, label %if.end.i.i.i
+
+if.else.i.i.i:                                    ; preds = %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i.i.i, %while.body.i.i.i
   br label %if.end.i.i.i
 
-if.end.i.i.i:                                     ; preds = %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i.i.i, %while.body.i.i.i
-  %.sink.i.i.i = phi i64 [ 24, %while.body.i.i.i ], [ %spec.select.i.i.i, %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i.i.i ]
-  %__y.addr.1.i.i.i = phi ptr [ %__y.addr.06.i.i.i, %while.body.i.i.i ], [ %spec.select8.i.i.i, %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i.i.i ]
+if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i.i.i
+  %.sink.i.i.i = phi i64 [ 24, %if.else.i.i.i ], [ 16, %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i.i.i ]
+  %__y.addr.1.i.i.i = phi ptr [ %__y.addr.06.i.i.i, %if.else.i.i.i ], [ %__x.addr.07.i.i.i, %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i.i.i ]
   %_M_right.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i, i64 %.sink.i.i.i
   %__x.addr.1.i.i.i = load ptr, ptr %_M_right.i.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %__x.addr.1.i.i.i, null
@@ -8557,19 +8560,20 @@ while.body.i.i.i:                                 ; preds = %if.end.i.i.i, %whil
   %5 = tail call i64 @llvm.umin.i64(i64 %2, i64 %4)
   %call4.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %3, ptr noundef %1, i64 noundef %5) #31
   %cmp.i.i.i.i.i = icmp slt i32 %call4.i.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i.i, label %if.end.i.i.i, label %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i.i.i
+  br i1 %cmp.i.i.i.i.i, label %if.else.i.i.i, label %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i.i.i
 
 _ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i.i.i: ; preds = %while.body.i.i.i
   %cmp5.i.i.i.i.i = icmp eq i32 %call4.i.i.i.i.i, 0
   %cmp8.i.i.i.i.i = icmp ult i64 %4, %2
   %spec.select.i.i.i.i.i = and i1 %cmp8.i.i.i.i.i, %cmp5.i.i.i.i.i
-  %spec.select.i.i.i = select i1 %spec.select.i.i.i.i.i, i64 24, i64 16
-  %spec.select8.i.i.i = select i1 %spec.select.i.i.i.i.i, ptr %__y.addr.06.i.i.i, ptr %__x.addr.07.i.i.i
+  br i1 %spec.select.i.i.i.i.i, label %if.else.i.i.i, label %if.end.i.i.i
+
+if.else.i.i.i:                                    ; preds = %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i.i.i, %while.body.i.i.i
   br label %if.end.i.i.i
 
-if.end.i.i.i:                                     ; preds = %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i.i.i, %while.body.i.i.i
-  %.sink.i.i.i = phi i64 [ 24, %while.body.i.i.i ], [ %spec.select.i.i.i, %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i.i.i ]
-  %__y.addr.1.i.i.i = phi ptr [ %__y.addr.06.i.i.i, %while.body.i.i.i ], [ %spec.select8.i.i.i, %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i.i.i ]
+if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i.i.i
+  %.sink.i.i.i = phi i64 [ 24, %if.else.i.i.i ], [ 16, %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i.i.i ]
+  %__y.addr.1.i.i.i = phi ptr [ %__y.addr.06.i.i.i, %if.else.i.i.i ], [ %__x.addr.07.i.i.i, %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i.i.i ]
   %_M_right.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i, i64 %.sink.i.i.i
   %__x.addr.1.i.i.i = load ptr, ptr %_M_right.i.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %__x.addr.1.i.i.i, null
@@ -10311,9 +10315,9 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN3zmq6blob_tESt4pairIKS1_NS0_21
 entry:
   %_M_parent.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %__x.057 = load ptr, ptr %_M_parent.i.i, align 8
-  %cmp.not58 = icmp eq ptr %__x.057, null
-  br i1 %cmp.not58, label %return, label %while.body.lr.ph
+  %__x.055 = load ptr, ptr %_M_parent.i.i, align 8
+  %cmp.not56 = icmp eq ptr %__x.055, null
+  br i1 %cmp.not56, label %return, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
   %0 = load ptr, ptr %__k, align 8
@@ -10322,11 +10326,11 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end19
-  %__x.060 = phi ptr [ %__x.057, %while.body.lr.ph ], [ %__x.0, %if.end19 ]
-  %__y.059 = phi ptr [ %add.ptr.i, %while.body.lr.ph ], [ %__y.1, %if.end19 ]
-  %_M_storage.i.i = getelementptr inbounds i8, ptr %__x.060, i64 32
+  %__x.058 = phi ptr [ %__x.055, %while.body.lr.ph ], [ %__x.0, %if.end19 ]
+  %__y.057 = phi ptr [ %add.ptr.i, %while.body.lr.ph ], [ %__y.1, %if.end19 ]
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %__x.058, i64 32
   %2 = load ptr, ptr %_M_storage.i.i, align 8
-  %_size.i.i = getelementptr inbounds i8, ptr %__x.060, i64 40
+  %_size.i.i = getelementptr inbounds i8, ptr %__x.058, i64 40
   %3 = load i64, ptr %_size.i.i, align 8
   %4 = tail call i64 @llvm.umin.i64(i64 %1, i64 %3)
   %call4.i.i = tail call i32 @memcmp(ptr noundef %2, ptr noundef %0, i64 noundef %4) #31
@@ -10351,16 +10355,16 @@ _ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit26:     ; preds = %if.else
   br i1 %spec.select.i.i25, label %if.end19, label %if.else12
 
 if.else12:                                        ; preds = %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit26
-  %_M_left.i27 = getelementptr inbounds i8, ptr %__x.060, i64 16
+  %_M_left.i27 = getelementptr inbounds i8, ptr %__x.058, i64 16
   %5 = load ptr, ptr %_M_left.i27, align 8
-  %_M_right.i28 = getelementptr inbounds i8, ptr %__x.060, i64 24
+  %_M_right.i28 = getelementptr inbounds i8, ptr %__x.058, i64 24
   %6 = load ptr, ptr %_M_right.i28, align 8
   %cmp.not5.i = icmp eq ptr %5, null
   br i1 %cmp.not5.i, label %_ZNSt8_Rb_treeIN3zmq6blob_tESt4pairIKS1_NS0_21routing_socket_base_t10out_pipe_tEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS3_.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %if.else12, %if.end.i
   %__x.addr.07.i = phi ptr [ %__x.addr.1.i, %if.end.i ], [ %5, %if.else12 ]
-  %__y.addr.06.i = phi ptr [ %__y.addr.1.i, %if.end.i ], [ %__x.060, %if.else12 ]
+  %__y.addr.06.i = phi ptr [ %__y.addr.1.i, %if.end.i ], [ %__x.058, %if.else12 ]
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i, i64 32
   %7 = load ptr, ptr %_M_storage.i.i.i, align 8
   %_size.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i, i64 40
@@ -10368,32 +10372,33 @@ while.body.i:                                     ; preds = %if.else12, %if.end.
   %9 = tail call i64 @llvm.umin.i64(i64 %1, i64 %8)
   %call4.i.i.i = tail call i32 @memcmp(ptr noundef %7, ptr noundef %0, i64 noundef %9) #31
   %cmp.i.i.i = icmp slt i32 %call4.i.i.i, 0
-  br i1 %cmp.i.i.i, label %if.end.i, label %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i
+  br i1 %cmp.i.i.i, label %if.else.i, label %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i
 
 _ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i:     ; preds = %while.body.i
   %cmp5.i.i.i = icmp eq i32 %call4.i.i.i, 0
   %cmp8.i.i.i = icmp ult i64 %8, %1
   %spec.select.i.i.i = and i1 %cmp8.i.i.i, %cmp5.i.i.i
-  %spec.select.i = select i1 %spec.select.i.i.i, i64 24, i64 16
-  %spec.select8.i = select i1 %spec.select.i.i.i, ptr %__y.addr.06.i, ptr %__x.addr.07.i
+  br i1 %spec.select.i.i.i, label %if.else.i, label %if.end.i
+
+if.else.i:                                        ; preds = %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i, %while.body.i
   br label %if.end.i
 
-if.end.i:                                         ; preds = %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i, %while.body.i
-  %.sink.i = phi i64 [ 24, %while.body.i ], [ %spec.select.i, %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i ]
-  %__y.addr.1.i = phi ptr [ %__y.addr.06.i, %while.body.i ], [ %spec.select8.i, %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i ]
+if.end.i:                                         ; preds = %if.else.i, %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i
+  %.sink.i = phi i64 [ 24, %if.else.i ], [ 16, %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i ]
+  %__y.addr.1.i = phi ptr [ %__y.addr.06.i, %if.else.i ], [ %__x.addr.07.i, %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i ]
   %_M_right.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i, i64 %.sink.i
   %__x.addr.1.i = load ptr, ptr %_M_right.i.i, align 8
   %cmp.not.i = icmp eq ptr %__x.addr.1.i, null
   br i1 %cmp.not.i, label %_ZNSt8_Rb_treeIN3zmq6blob_tESt4pairIKS1_NS0_21routing_socket_base_t10out_pipe_tEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS3_.exit, label %while.body.i, !llvm.loop !26
 
 _ZNSt8_Rb_treeIN3zmq6blob_tESt4pairIKS1_NS0_21routing_socket_base_t10out_pipe_tEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS3_.exit: ; preds = %if.end.i, %if.else12
-  %__y.addr.0.lcssa.i = phi ptr [ %__x.060, %if.else12 ], [ %__y.addr.1.i, %if.end.i ]
+  %__y.addr.0.lcssa.i = phi ptr [ %__x.058, %if.else12 ], [ %__y.addr.1.i, %if.end.i ]
   %cmp.not5.i29 = icmp eq ptr %6, null
   br i1 %cmp.not5.i29, label %return, label %while.body.i32
 
-while.body.i32:                                   ; preds = %_ZNSt8_Rb_treeIN3zmq6blob_tESt4pairIKS1_NS0_21routing_socket_base_t10out_pipe_tEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS3_.exit, %if.end.i45
-  %__x.addr.07.i33 = phi ptr [ %__x.addr.1.i49, %if.end.i45 ], [ %6, %_ZNSt8_Rb_treeIN3zmq6blob_tESt4pairIKS1_NS0_21routing_socket_base_t10out_pipe_tEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS3_.exit ]
-  %__y.addr.06.i34 = phi ptr [ %__y.addr.1.i47, %if.end.i45 ], [ %__y.059, %_ZNSt8_Rb_treeIN3zmq6blob_tESt4pairIKS1_NS0_21routing_socket_base_t10out_pipe_tEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS3_.exit ]
+while.body.i32:                                   ; preds = %_ZNSt8_Rb_treeIN3zmq6blob_tESt4pairIKS1_NS0_21routing_socket_base_t10out_pipe_tEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS3_.exit, %if.end.i43
+  %__x.addr.07.i33 = phi ptr [ %__x.addr.1.i47, %if.end.i43 ], [ %6, %_ZNSt8_Rb_treeIN3zmq6blob_tESt4pairIKS1_NS0_21routing_socket_base_t10out_pipe_tEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS3_.exit ]
+  %__y.addr.06.i34 = phi ptr [ %__y.addr.1.i45, %if.end.i43 ], [ %__y.057, %_ZNSt8_Rb_treeIN3zmq6blob_tESt4pairIKS1_NS0_21routing_socket_base_t10out_pipe_tEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS3_.exit ]
   %_M_storage.i.i.i35 = getelementptr inbounds i8, ptr %__x.addr.07.i33, i64 32
   %10 = load ptr, ptr %_M_storage.i.i.i35, align 8
   %_size3.i.i.i36 = getelementptr inbounds i8, ptr %__x.addr.07.i33, i64 40
@@ -10401,35 +10406,35 @@ while.body.i32:                                   ; preds = %_ZNSt8_Rb_treeIN3zm
   %12 = tail call i64 @llvm.umin.i64(i64 %11, i64 %1)
   %call4.i.i.i37 = tail call i32 @memcmp(ptr noundef %0, ptr noundef %10, i64 noundef %12) #31
   %cmp.i.i.i38 = icmp slt i32 %call4.i.i.i37, 0
-  br i1 %cmp.i.i.i38, label %if.end.i45, label %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i39
+  br i1 %cmp.i.i.i38, label %if.end.i43, label %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i39
 
 _ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i39:   ; preds = %while.body.i32
   %cmp5.i.i.i40 = icmp eq i32 %call4.i.i.i37, 0
   %cmp8.i.i.i41 = icmp ult i64 %1, %11
   %spec.select.i.i.i42 = and i1 %cmp8.i.i.i41, %cmp5.i.i.i40
-  %spec.select.i43 = select i1 %spec.select.i.i.i42, i64 16, i64 24
-  %spec.select8.i44 = select i1 %spec.select.i.i.i42, ptr %__x.addr.07.i33, ptr %__y.addr.06.i34
-  br label %if.end.i45
+  %spec.select.i = select i1 %spec.select.i.i.i42, i64 16, i64 24
+  %spec.select8.i = select i1 %spec.select.i.i.i42, ptr %__x.addr.07.i33, ptr %__y.addr.06.i34
+  br label %if.end.i43
 
-if.end.i45:                                       ; preds = %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i39, %while.body.i32
-  %.sink.i46 = phi i64 [ 16, %while.body.i32 ], [ %spec.select.i43, %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i39 ]
-  %__y.addr.1.i47 = phi ptr [ %__x.addr.07.i33, %while.body.i32 ], [ %spec.select8.i44, %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i39 ]
-  %_M_right.i.i48 = getelementptr inbounds i8, ptr %__x.addr.07.i33, i64 %.sink.i46
-  %__x.addr.1.i49 = load ptr, ptr %_M_right.i.i48, align 8
-  %cmp.not.i50 = icmp eq ptr %__x.addr.1.i49, null
-  br i1 %cmp.not.i50, label %return, label %while.body.i32, !llvm.loop !49
+if.end.i43:                                       ; preds = %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i39, %while.body.i32
+  %.sink.i44 = phi i64 [ 16, %while.body.i32 ], [ %spec.select.i, %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i39 ]
+  %__y.addr.1.i45 = phi ptr [ %__x.addr.07.i33, %while.body.i32 ], [ %spec.select8.i, %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i39 ]
+  %_M_right.i.i46 = getelementptr inbounds i8, ptr %__x.addr.07.i33, i64 %.sink.i44
+  %__x.addr.1.i47 = load ptr, ptr %_M_right.i.i46, align 8
+  %cmp.not.i48 = icmp eq ptr %__x.addr.1.i47, null
+  br i1 %cmp.not.i48, label %return, label %while.body.i32, !llvm.loop !49
 
 if.end19:                                         ; preds = %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit26, %if.else, %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit, %while.body
   %.sink = phi i64 [ 24, %while.body ], [ 24, %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit ], [ 16, %if.else ], [ 16, %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit26 ]
-  %__y.1 = phi ptr [ %__y.059, %while.body ], [ %__y.059, %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit ], [ %__x.060, %if.else ], [ %__x.060, %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit26 ]
-  %_M_left.i = getelementptr inbounds i8, ptr %__x.060, i64 %.sink
+  %__y.1 = phi ptr [ %__y.057, %while.body ], [ %__y.057, %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit ], [ %__x.058, %if.else ], [ %__x.058, %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit26 ]
+  %_M_left.i = getelementptr inbounds i8, ptr %__x.058, i64 %.sink
   %__x.0 = load ptr, ptr %_M_left.i, align 8
   %cmp.not = icmp eq ptr %__x.0, null
   br i1 %cmp.not, label %return, label %while.body, !llvm.loop !50
 
-return:                                           ; preds = %if.end19, %if.end.i45, %entry, %_ZNSt8_Rb_treeIN3zmq6blob_tESt4pairIKS1_NS0_21routing_socket_base_t10out_pipe_tEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS3_.exit
-  %retval.sroa.0.0 = phi ptr [ %__y.addr.0.lcssa.i, %_ZNSt8_Rb_treeIN3zmq6blob_tESt4pairIKS1_NS0_21routing_socket_base_t10out_pipe_tEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS3_.exit ], [ %add.ptr.i, %entry ], [ %__y.addr.0.lcssa.i, %if.end.i45 ], [ %__y.1, %if.end19 ]
-  %retval.sroa.3.0 = phi ptr [ %__y.059, %_ZNSt8_Rb_treeIN3zmq6blob_tESt4pairIKS1_NS0_21routing_socket_base_t10out_pipe_tEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS3_.exit ], [ %add.ptr.i, %entry ], [ %__y.addr.1.i47, %if.end.i45 ], [ %__y.1, %if.end19 ]
+return:                                           ; preds = %if.end19, %if.end.i43, %entry, %_ZNSt8_Rb_treeIN3zmq6blob_tESt4pairIKS1_NS0_21routing_socket_base_t10out_pipe_tEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS3_.exit
+  %retval.sroa.0.0 = phi ptr [ %__y.addr.0.lcssa.i, %_ZNSt8_Rb_treeIN3zmq6blob_tESt4pairIKS1_NS0_21routing_socket_base_t10out_pipe_tEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS3_.exit ], [ %add.ptr.i, %entry ], [ %__y.addr.0.lcssa.i, %if.end.i43 ], [ %__y.1, %if.end19 ]
+  %retval.sroa.3.0 = phi ptr [ %__y.057, %_ZNSt8_Rb_treeIN3zmq6blob_tESt4pairIKS1_NS0_21routing_socket_base_t10out_pipe_tEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS3_.exit ], [ %add.ptr.i, %entry ], [ %__y.addr.1.i45, %if.end.i43 ], [ %__y.1, %if.end19 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.3.0, 1
   ret { ptr, ptr } %.fca.1.insert

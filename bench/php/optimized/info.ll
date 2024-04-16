@@ -348,8 +348,8 @@ define void @php_info_print_table_header(i32 noundef %0, ...) local_unnamed_addr
   %10 = add nsw i32 %0, -1
   br label %11
 
-11:                                               ; preds = %.lr.ph, %42
-  %.02432 = phi i32 [ 0, %.lr.ph ], [ %43, %42 ]
+11:                                               ; preds = %.lr.ph, %43
+  %.02432 = phi i32 [ 0, %.lr.ph ], [ %44, %43 ]
   %12 = load i32, ptr %2, align 16
   %13 = icmp ult i32 %12, 41
   br i1 %13, label %14, label %19
@@ -377,51 +377,53 @@ define void @php_info_print_table_header(i32 noundef %0, ...) local_unnamed_addr
 25:                                               ; preds = %22
   %26 = load i8, ptr %24, align 1
   %.not30 = icmp eq i8 %26, 0
-  %spec.select = select i1 %.not30, ptr @.str.121, ptr %24
-  br label %27
+  br i1 %.not30, label %27, label %28
 
 27:                                               ; preds = %25, %22
-  %.0 = phi ptr [ @.str.121, %22 ], [ %spec.select, %25 ]
-  %28 = load i32, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i64 0, i32 32), align 8
-  %.not31 = icmp eq i32 %28, 0
-  br i1 %.not31, label %29, label %34
+  br label %28
 
-29:                                               ; preds = %27
-  %30 = call i64 @php_output_write(ptr noundef nonnull @.str.123, i64 noundef 4) #14
-  %31 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0) #13
-  %32 = call i64 @php_output_write(ptr noundef nonnull %.0, i64 noundef %31) #14
-  %33 = call i64 @php_output_write(ptr noundef nonnull @.str.124, i64 noundef 5) #14
-  br label %42
+28:                                               ; preds = %27, %25
+  %.0 = phi ptr [ %24, %25 ], [ @.str.121, %27 ]
+  %29 = load i32, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i64 0, i32 32), align 8
+  %.not31 = icmp eq i32 %29, 0
+  br i1 %.not31, label %30, label %35
 
-34:                                               ; preds = %27
-  %35 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0) #13
-  %36 = call i64 @php_output_write(ptr noundef nonnull %.0, i64 noundef %35) #14
-  %37 = icmp slt i32 %.02432, %10
-  br i1 %37, label %38, label %40
+30:                                               ; preds = %28
+  %31 = call i64 @php_output_write(ptr noundef nonnull @.str.123, i64 noundef 4) #14
+  %32 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0) #13
+  %33 = call i64 @php_output_write(ptr noundef nonnull %.0, i64 noundef %32) #14
+  %34 = call i64 @php_output_write(ptr noundef nonnull @.str.124, i64 noundef 5) #14
+  br label %43
 
-38:                                               ; preds = %34
-  %39 = call i64 @php_output_write(ptr noundef nonnull @.str.125, i64 noundef 4) #14
-  br label %42
+35:                                               ; preds = %28
+  %36 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0) #13
+  %37 = call i64 @php_output_write(ptr noundef nonnull %.0, i64 noundef %36) #14
+  %38 = icmp slt i32 %.02432, %10
+  br i1 %38, label %39, label %41
 
-40:                                               ; preds = %34
-  %41 = call i64 @php_output_write(ptr noundef nonnull @.str.65, i64 noundef 1) #14
-  br label %42
+39:                                               ; preds = %35
+  %40 = call i64 @php_output_write(ptr noundef nonnull @.str.125, i64 noundef 4) #14
+  br label %43
 
-42:                                               ; preds = %29, %40, %38
-  %43 = add nuw nsw i32 %.02432, 1
-  %exitcond.not = icmp eq i32 %43, %0
+41:                                               ; preds = %35
+  %42 = call i64 @php_output_write(ptr noundef nonnull @.str.65, i64 noundef 1) #14
+  br label %43
+
+43:                                               ; preds = %30, %41, %39
+  %44 = add nuw nsw i32 %.02432, 1
+  %exitcond.not = icmp eq i32 %44, %0
   br i1 %exitcond.not, label %._crit_edge, label %11
 
-._crit_edge:                                      ; preds = %42, %6
-  %44 = load i32, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i64 0, i32 32), align 8
-  %.not28 = icmp eq i32 %44, 0
-  br i1 %.not28, label %45, label %47
+._crit_edge:                                      ; preds = %43, %6
+  %45 = load i32, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i64 0, i32 32), align 8
+  %.not28 = icmp eq i32 %45, 0
+  br i1 %.not28, label %46, label %48
 
-45:                                               ; preds = %._crit_edge
-  %46 = call i64 @php_output_write(ptr noundef nonnull @.str.126, i64 noundef 6) #14
-  br label %47
+46:                                               ; preds = %._crit_edge
+  %47 = call i64 @php_output_write(ptr noundef nonnull @.str.126, i64 noundef 6) #14
+  br label %48
 
-47:                                               ; preds = %45, %._crit_edge
+48:                                               ; preds = %46, %._crit_edge
   call void @llvm.va_end.p0(ptr nonnull %2)
   ret void
 }

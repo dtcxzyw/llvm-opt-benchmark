@@ -2983,7 +2983,7 @@ define dso_local void @snd_hda_codec_setup_stream(ptr noundef %0, i16 noundef ze
   %221 = icmp eq i32 %.fr.us, 0
   br i1 %221, label %.thread14.us, label %223
 
-.thread14.us:                                     ; preds = %205, %211, %215
+.thread14.us:                                     ; preds = %215, %211, %205
   %222 = getelementptr inbounds i8, ptr %195, i64 7
   store i8 1, ptr %222, align 1
   %.pre27 = load ptr, ptr %186, align 8
@@ -3158,7 +3158,7 @@ define dso_local i32 @query_amp_caps(ptr noundef %0, i16 noundef zeroext %1, i32
 define dso_local noundef zeroext i1 @snd_hda_check_amp_caps(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
   %5 = alloca i32, align 4
   %6 = icmp eq i16 %1, 0
-  br i1 %6, label %.thread, label %7
+  br i1 %6, label %51, label %7
 
 7:                                                ; preds = %4
   %8 = zext i16 %1 to i32
@@ -3216,12 +3216,15 @@ define dso_local noundef zeroext i1 @snd_hda_check_amp_caps(ptr noundef %0, i16 
   %48 = select i1 %47, i32 %46, i32 -1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #24
   %49 = and i32 %48, %3
-  %50 = icmp ne i32 %49, 0
-  br label %.thread
+  %50 = icmp eq i32 %49, 0
+  br i1 %50, label %.thread, label %51
 
-.thread:                                          ; preds = %13, %7, %41, %18, %4
-  %51 = phi i1 [ false, %4 ], [ false, %18 ], [ %50, %41 ], [ false, %7 ], [ false, %13 ]
-  ret i1 %51
+.thread:                                          ; preds = %13, %7, %41, %18
+  br label %51
+
+51:                                               ; preds = %.thread, %41, %4
+  %52 = phi i1 [ false, %.thread ], [ false, %4 ], [ true, %41 ]
+  ret i1 %52
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -4569,33 +4572,33 @@ define dso_local i32 @__snd_hda_add_vmaster(ptr noundef %0, ptr noundef %1, ptr 
   %155 = getelementptr inbounds i8, ptr %146, i64 32
   br label %156
 
-156:                                              ; preds = %164, %.split32
-  %157 = phi ptr [ %153, %.split32 ], [ %166, %164 ]
-  %158 = phi ptr [ %3, %.split32 ], [ %165, %164 ]
+156:                                              ; preds = %165, %.split32
+  %157 = phi ptr [ %153, %.split32 ], [ %167, %165 ]
+  %158 = phi ptr [ %3, %.split32 ], [ %166, %165 ]
   call void @llvm.lifetime.start.p0(i64 44, ptr nonnull %9) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(44) %9, i8 0, i64 44, i1 false), !annotation !9
   %159 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 44, ptr noundef nonnull @.str.30, ptr noundef nonnull %157, ptr noundef nonnull %4) #24
   %160 = call i32 @strcmp(ptr noundef %155, ptr noundef nonnull dereferenceable(1) %9) #24
   %161 = icmp eq i32 %160, 0
-  br i1 %161, label %.split34, label %164
+  br i1 %161, label %.split34, label %165
 
 .split34:                                         ; preds = %156
   %162 = tail call i32 @_snd_ctl_add_follower(ptr noundef nonnull %73, ptr noundef nonnull %146, i32 noundef 0) #24
   %163 = icmp eq i32 %162, 0
-  br i1 %163, label %168, label %.split36.us
+  br i1 %163, label %164, label %.split36.us
 
-164:                                              ; preds = %156
-  call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %9) #24
-  %165 = getelementptr i8, ptr %158, i64 8
-  %166 = load ptr, ptr %165, align 8
-  %167 = icmp eq ptr %166, null
-  br i1 %167, label %.loopexit.split, label %156, !llvm.loop !41
-
-168:                                              ; preds = %.split34
+164:                                              ; preds = %.split34
   call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %9) #24
   br label %.loopexit.split
 
-.loopexit.split:                                  ; preds = %164, %148, %.preheader.split, %152, %168
+165:                                              ; preds = %156
+  call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %9) #24
+  %166 = getelementptr i8, ptr %158, i64 8
+  %167 = load ptr, ptr %166, align 8
+  %168 = icmp eq ptr %167, null
+  br i1 %168, label %.loopexit.split, label %156, !llvm.loop !41
+
+.loopexit.split:                                  ; preds = %165, %148, %.preheader.split, %152, %164
   %169 = add nuw i32 %143, 1
   %170 = load i32, ptr %15, align 8
   %171 = icmp ult i32 %169, %170
@@ -6016,64 +6019,68 @@ define dso_local noundef i32 @snd_hda_codec_eapd_power_filter(ptr noundef %0, i1
   %5 = getelementptr inbounds i8, ptr %0, i64 768
   %6 = load i16, ptr %5, align 8
   %7 = icmp eq i16 %6, %1
-  br i1 %7, label %44, label %8
+  br i1 %7, label %46, label %8
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %0, i64 770
   %10 = load i16, ptr %9, align 2
-  %11 = icmp ne i16 %10, %1
-  %12 = icmp eq i32 %2, 3
-  %or.cond = and i1 %12, %11
-  br i1 %or.cond, label %13, label %44
+  %11 = icmp eq i16 %10, %1
+  br i1 %11, label %46, label %12
 
-13:                                               ; preds = %8
-  %14 = zext i16 %1 to i32
-  %15 = getelementptr inbounds i8, ptr %0, i64 828
-  %16 = load i16, ptr %15, align 4
-  %17 = zext i16 %16 to i32
-  %18 = icmp ugt i16 %16, %1
-  br i1 %18, label %44, label %19
+12:                                               ; preds = %8
+  %13 = icmp eq i32 %2, 3
+  br i1 %13, label %14, label %45
 
-19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %0, i64 824
-  %21 = load i32, ptr %20, align 8
-  %22 = add i32 %21, %17
-  %23 = icmp ugt i32 %22, %14
-  br i1 %23, label %24, label %44
+14:                                               ; preds = %12
+  %15 = zext i16 %1 to i32
+  %16 = getelementptr inbounds i8, ptr %0, i64 828
+  %17 = load i16, ptr %16, align 4
+  %18 = zext i16 %17 to i32
+  %19 = icmp ugt i16 %17, %1
+  br i1 %19, label %45, label %20
 
-24:                                               ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %0, i64 1144
-  %26 = load ptr, ptr %25, align 8
-  %27 = sub nsw i32 %14, %17
-  %28 = sext i32 %27 to i64
-  %29 = getelementptr i32, ptr %26, i64 %28
-  %30 = load i32, ptr %29, align 4
-  %31 = and i32 %30, 15728640
-  %32 = icmp eq i32 %31, 4194304
-  br i1 %32, label %33, label %44
+20:                                               ; preds = %14
+  %21 = getelementptr inbounds i8, ptr %0, i64 824
+  %22 = load i32, ptr %21, align 8
+  %23 = add i32 %22, %18
+  %24 = icmp ugt i32 %23, %15
+  br i1 %24, label %25, label %45
 
-33:                                               ; preds = %24
+25:                                               ; preds = %20
+  %26 = getelementptr inbounds i8, ptr %0, i64 1144
+  %27 = load ptr, ptr %26, align 8
+  %28 = sub nsw i32 %15, %18
+  %29 = sext i32 %28 to i64
+  %30 = getelementptr i32, ptr %27, i64 %29
+  %31 = load i32, ptr %30, align 4
+  %32 = and i32 %31, 15728640
+  %33 = icmp eq i32 %32, 4194304
+  br i1 %33, label %34, label %45
+
+34:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #24
   store i32 0, ptr %4, align 4, !annotation !9
-  %34 = call i32 @_snd_hdac_read_parm(ptr noundef %0, i16 noundef zeroext %1, i32 noundef 12, ptr noundef nonnull %4) #24
-  %35 = load i32, ptr %4, align 4
-  %36 = icmp sgt i32 %34, -1
-  %37 = and i32 %35, 65536
+  %35 = call i32 @_snd_hdac_read_parm(ptr noundef %0, i16 noundef zeroext %1, i32 noundef 12, ptr noundef nonnull %4) #24
+  %36 = load i32, ptr %4, align 4
+  %37 = icmp sgt i32 %35, -1
+  %38 = and i32 %36, 65536
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #24
-  %38 = icmp eq i32 %37, 0
-  %39 = select i1 %36, i1 %38, i1 false
-  br i1 %39, label %44, label %40
+  %39 = icmp eq i32 %38, 0
+  %40 = select i1 %37, i1 %39, i1 false
+  br i1 %40, label %45, label %41
 
-40:                                               ; preds = %33
-  %41 = call i32 @snd_hdac_codec_read(ptr noundef %0, i16 noundef zeroext %1, i32 noundef 0, i32 noundef 3852, i32 noundef 0) #24
-  %42 = and i32 %41, 2
-  %43 = icmp eq i32 %42, 0
-  %spec.select = select i1 %43, i32 3, i32 0
-  br label %44
+41:                                               ; preds = %34
+  %42 = call i32 @snd_hdac_codec_read(ptr noundef %0, i16 noundef zeroext %1, i32 noundef 0, i32 noundef 3852, i32 noundef 0) #24
+  %43 = and i32 %42, 2
+  %44 = icmp eq i32 %43, 0
+  br i1 %44, label %45, label %46
 
-44:                                               ; preds = %40, %13, %19, %24, %33, %8, %3
-  %45 = phi i32 [ %2, %8 ], [ %2, %3 ], [ 3, %33 ], [ 3, %24 ], [ 3, %19 ], [ 3, %13 ], [ %spec.select, %40 ]
-  ret i32 %45
+45:                                               ; preds = %41, %34, %25, %20, %14, %12
+  br label %46
+
+46:                                               ; preds = %45, %41, %8, %3
+  %47 = phi i32 [ 0, %41 ], [ %2, %45 ], [ %2, %8 ], [ %2, %3 ]
+  ret i32 %47
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn

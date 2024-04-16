@@ -117,8 +117,8 @@ _ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEm
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %spec.select.i.i.i = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
-  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %spec.select.i.i.i
+  %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %5
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
   br i1 %cmp.not.i.i.i, label %invoke.cont.i.i, label %cond.true.i.i.i
 
@@ -131,8 +131,8 @@ invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i, %_
   %cond.i17.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i
   store i32 0, ptr %add.ptr.i.i, align 8
-  %5 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
-  store i8 0, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
+  store i8 0, ptr %6, align 8
   %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
   store i64 2, ptr %ref.tmp.sroa.33.0..sroa_idx4, align 8
   %cmp.not5.i.i.i.i.i = icmp eq ptr %4, %0
@@ -207,8 +207,8 @@ _ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEm
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %spec.select.i.i.i = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
-  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %spec.select.i.i.i
+  %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %5
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
   br i1 %cmp.not.i.i.i, label %invoke.cont.i.i, label %cond.true.i.i.i
 
@@ -221,8 +221,8 @@ invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i, %_
   %cond.i17.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i
   store i32 0, ptr %add.ptr.i.i, align 8
-  %5 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
-  store i8 1, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
+  store i8 1, ptr %6, align 8
   %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
   store i64 %minDigits, ptr %ref.tmp.sroa.33.0..sroa_idx4, align 8
   %cmp.not5.i.i.i.i.i = icmp eq ptr %4, %0
@@ -297,8 +297,8 @@ _ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEm
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %spec.select.i.i.i = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
-  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %spec.select.i.i.i
+  %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %5
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
   br i1 %cmp.not.i.i.i, label %invoke.cont.i.i, label %cond.true.i.i.i
 
@@ -311,8 +311,8 @@ invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i, %_
   %cond.i17.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i
   store i32 0, ptr %add.ptr.i.i, align 8
-  %5 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
-  store i8 2, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
+  store i8 2, ptr %6, align 8
   %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
   store i64 %minDigits, ptr %ref.tmp.sroa.33.0..sroa_idx4, align 8
   %cmp.not5.i.i.i.i.i = icmp eq ptr %4, %0
@@ -387,8 +387,8 @@ _ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEm
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %spec.select.i.i.i = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
-  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %spec.select.i.i.i
+  %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %5
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
   br i1 %cmp.not.i.i.i, label %invoke.cont.i.i, label %cond.true.i.i.i
 
@@ -401,8 +401,8 @@ invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i, %_
   %cond.i17.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i
   store i32 0, ptr %add.ptr.i.i, align 8
-  %5 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
-  store i8 3, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
+  store i8 3, ptr %6, align 8
   %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
   store i64 %minDigits, ptr %ref.tmp.sroa.33.0..sroa_idx4, align 8
   %cmp.not5.i.i.i.i.i = icmp eq ptr %4, %0
@@ -477,8 +477,8 @@ _ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEm
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %spec.select.i.i.i = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
-  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %spec.select.i.i.i
+  %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %5
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
   br i1 %cmp.not.i.i.i, label %invoke.cont.i.i, label %cond.true.i.i.i
 
@@ -491,8 +491,8 @@ invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i, %_
   %cond.i17.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i
   store i32 0, ptr %add.ptr.i.i, align 8
-  %5 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
-  store i8 4, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
+  store i8 4, ptr %6, align 8
   %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
   store i64 %minDigits, ptr %ref.tmp.sroa.33.0..sroa_idx4, align 8
   %cmp.not5.i.i.i.i.i = icmp eq ptr %4, %0
@@ -567,8 +567,8 @@ _ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEm
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %spec.select.i.i.i = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
-  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %spec.select.i.i.i
+  %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %5
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
   br i1 %cmp.not.i.i.i, label %invoke.cont.i.i, label %cond.true.i.i.i
 
@@ -581,8 +581,8 @@ invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i, %_
   %cond.i17.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i
   store i32 0, ptr %add.ptr.i.i, align 8
-  %5 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
-  store i8 5, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
+  store i8 5, ptr %6, align 8
   %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
   store i64 %minDigits, ptr %ref.tmp.sroa.33.0..sroa_idx4, align 8
   %cmp.not5.i.i.i.i.i = icmp eq ptr %4, %0
@@ -657,8 +657,8 @@ _ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEm
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %spec.select.i.i.i = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
-  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %spec.select.i.i.i
+  %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %5
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
   br i1 %cmp.not.i.i.i, label %invoke.cont.i.i, label %cond.true.i.i.i
 
@@ -671,8 +671,8 @@ invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i, %_
   %cond.i17.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i
   store i32 0, ptr %add.ptr.i.i, align 8
-  %5 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
-  store i8 6, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
+  store i8 6, ptr %6, align 8
   %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
   store i64 %minDigits, ptr %ref.tmp.sroa.33.0..sroa_idx4, align 8
   %cmp.not5.i.i.i.i.i = icmp eq ptr %4, %0
@@ -747,8 +747,8 @@ _ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEm
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %spec.select.i.i.i = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
-  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %spec.select.i.i.i
+  %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %5
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
   br i1 %cmp.not.i.i.i, label %invoke.cont.i.i, label %cond.true.i.i.i
 
@@ -761,8 +761,8 @@ invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i, %_
   %cond.i17.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i
   store i32 0, ptr %add.ptr.i.i, align 8
-  %5 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
-  store i8 7, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
+  store i8 7, ptr %6, align 8
   %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
   store i64 %minDigits, ptr %ref.tmp.sroa.33.0..sroa_idx4, align 8
   %cmp.not5.i.i.i.i.i = icmp eq ptr %4, %0
@@ -837,8 +837,8 @@ _ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEm
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %spec.select.i.i.i = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
-  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %spec.select.i.i.i
+  %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %5
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
   br i1 %cmp.not.i.i.i, label %invoke.cont.i.i, label %cond.true.i.i.i
 
@@ -851,8 +851,8 @@ invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i, %_
   %cond.i17.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i
   store i32 0, ptr %add.ptr.i.i, align 8
-  %5 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
-  store i8 8, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
+  store i8 8, ptr %6, align 8
   %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
   store i64 %minDigits, ptr %ref.tmp.sroa.33.0..sroa_idx4, align 8
   %cmp.not5.i.i.i.i.i = icmp eq ptr %4, %0
@@ -927,8 +927,8 @@ _ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEm
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %spec.select.i.i.i = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
-  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %spec.select.i.i.i
+  %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %5
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
   br i1 %cmp.not.i.i.i, label %invoke.cont.i.i, label %cond.true.i.i.i
 
@@ -941,8 +941,8 @@ invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i, %_
   %cond.i17.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i
   store i32 0, ptr %add.ptr.i.i, align 8
-  %5 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
-  store i8 9, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
+  store i8 9, ptr %6, align 8
   %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
   store i64 %minDigits, ptr %ref.tmp.sroa.33.0..sroa_idx4, align 8
   %cmp.not5.i.i.i.i.i = icmp eq ptr %4, %0
@@ -1017,8 +1017,8 @@ _ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEm
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %spec.select.i.i.i = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
-  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %spec.select.i.i.i
+  %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %5
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
   br i1 %cmp.not.i.i.i, label %invoke.cont.i.i, label %cond.true.i.i.i
 
@@ -1031,8 +1031,8 @@ invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i, %_
   %cond.i17.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i
   store i32 0, ptr %add.ptr.i.i, align 8
-  %5 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
-  store i8 10, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
+  store i8 10, ptr %6, align 8
   %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
   store i64 %minDigits, ptr %ref.tmp.sroa.33.0..sroa_idx4, align 8
   %cmp.not5.i.i.i.i.i = icmp eq ptr %4, %0
@@ -1107,8 +1107,8 @@ _ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEm
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %spec.select.i.i.i = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
-  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %spec.select.i.i.i
+  %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %5
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
   br i1 %cmp.not.i.i.i, label %invoke.cont.i.i, label %cond.true.i.i.i
 
@@ -1121,8 +1121,8 @@ invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i, %_
   %cond.i17.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i
   store i32 0, ptr %add.ptr.i.i, align 8
-  %5 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
-  store i8 11, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
+  store i8 11, ptr %6, align 8
   %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
   store i64 %minDigits, ptr %ref.tmp.sroa.33.0..sroa_idx4, align 8
   %cmp.not5.i.i.i.i.i = icmp eq ptr %4, %0
@@ -1197,8 +1197,8 @@ _ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEm
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %spec.select.i.i.i = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
-  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %spec.select.i.i.i
+  %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %5
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
   br i1 %cmp.not.i.i.i, label %invoke.cont.i.i, label %cond.true.i.i.i
 
@@ -1211,8 +1211,8 @@ invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i, %_
   %cond.i17.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i
   store i32 0, ptr %add.ptr.i.i, align 8
-  %5 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
-  store i8 12, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
+  store i8 12, ptr %6, align 8
   %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
   store i64 %minDigits, ptr %ref.tmp.sroa.33.0..sroa_idx4, align 8
   %cmp.not5.i.i.i.i.i = icmp eq ptr %4, %0
@@ -1287,8 +1287,8 @@ _ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEm
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %spec.select.i.i.i = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
-  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %spec.select.i.i.i
+  %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %5
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
   br i1 %cmp.not.i.i.i, label %invoke.cont.i.i, label %cond.true.i.i.i
 
@@ -1301,8 +1301,8 @@ invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i, %_
   %cond.i17.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i
   store i32 0, ptr %add.ptr.i.i, align 8
-  %5 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
-  store i8 13, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
+  store i8 13, ptr %6, align 8
   %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
   store i64 2, ptr %ref.tmp.sroa.33.0..sroa_idx4, align 8
   %cmp.not5.i.i.i.i.i = icmp eq ptr %4, %0
@@ -1377,8 +1377,8 @@ _ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEm
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %spec.select.i.i.i = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
-  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %spec.select.i.i.i
+  %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %5
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
   br i1 %cmp.not.i.i.i, label %invoke.cont.i.i, label %cond.true.i.i.i
 
@@ -1391,8 +1391,8 @@ invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i, %_
   %cond.i17.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i
   store i32 0, ptr %add.ptr.i.i, align 8
-  %5 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
-  store i8 14, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
+  store i8 14, ptr %6, align 8
   %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
   store i64 %minDigits, ptr %ref.tmp.sroa.33.0..sroa_idx4, align 8
   %cmp.not5.i.i.i.i.i = icmp eq ptr %4, %0
@@ -1467,8 +1467,8 @@ _ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEm
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %spec.select.i.i.i = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
-  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %spec.select.i.i.i
+  %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %5
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
   br i1 %cmp.not.i.i.i, label %invoke.cont.i.i, label %cond.true.i.i.i
 
@@ -1481,8 +1481,8 @@ invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i, %_
   %cond.i17.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i
   store i32 0, ptr %add.ptr.i.i, align 8
-  %5 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
-  store i8 15, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
+  store i8 15, ptr %6, align 8
   %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
   store i64 %minDigits, ptr %ref.tmp.sroa.33.0..sroa_idx4, align 8
   %cmp.not5.i.i.i.i.i = icmp eq ptr %4, %0
@@ -1557,8 +1557,8 @@ _ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEm
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %spec.select.i.i.i = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
-  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %spec.select.i.i.i
+  %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %5
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
   br i1 %cmp.not.i.i.i, label %invoke.cont.i.i, label %cond.true.i.i.i
 
@@ -1571,8 +1571,8 @@ invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i, %_
   %cond.i17.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i
   store i32 0, ptr %add.ptr.i.i, align 8
-  %5 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
-  store i8 16, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
+  store i8 16, ptr %6, align 8
   %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
   store i64 %minDigits, ptr %ref.tmp.sroa.33.0..sroa_idx4, align 8
   %cmp.not5.i.i.i.i.i = icmp eq ptr %4, %0
@@ -1647,8 +1647,8 @@ _ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEm
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %spec.select.i.i.i = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
-  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %spec.select.i.i.i
+  %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %5
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
   br i1 %cmp.not.i.i.i, label %invoke.cont.i.i, label %cond.true.i.i.i
 
@@ -1661,8 +1661,8 @@ invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i, %_
   %cond.i17.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i
   store i32 0, ptr %add.ptr.i.i, align 8
-  %5 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
-  store i8 17, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
+  store i8 17, ptr %6, align 8
   %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
   store i64 %minDigits, ptr %ref.tmp.sroa.33.0..sroa_idx4, align 8
   %cmp.not5.i.i.i.i.i = icmp eq ptr %4, %0
@@ -1737,8 +1737,8 @@ _ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEm
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %spec.select.i.i.i = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
-  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %spec.select.i.i.i
+  %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %5
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
   br i1 %cmp.not.i.i.i, label %invoke.cont.i.i, label %cond.true.i.i.i
 
@@ -1751,8 +1751,8 @@ invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i, %_
   %cond.i17.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i
   store i32 0, ptr %add.ptr.i.i, align 8
-  %5 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
-  store i8 18, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
+  store i8 18, ptr %6, align 8
   %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
   store i64 %minDigits, ptr %ref.tmp.sroa.33.0..sroa_idx4, align 8
   %cmp.not5.i.i.i.i.i = icmp eq ptr %4, %0
@@ -1827,8 +1827,8 @@ _ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEm
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %spec.select.i.i.i = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
-  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %spec.select.i.i.i
+  %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %5
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
   br i1 %cmp.not.i.i.i, label %invoke.cont.i.i, label %cond.true.i.i.i
 
@@ -1841,8 +1841,8 @@ invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i, %_
   %cond.i17.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i
   store i32 0, ptr %add.ptr.i.i, align 8
-  %5 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
-  store i8 19, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
+  store i8 19, ptr %6, align 8
   %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
   store i64 %minDigits, ptr %ref.tmp.sroa.33.0..sroa_idx4, align 8
   %cmp.not5.i.i.i.i.i = icmp eq ptr %4, %0
@@ -1917,8 +1917,8 @@ _ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEm
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %spec.select.i.i.i = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
-  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %spec.select.i.i.i
+  %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %5
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
   br i1 %cmp.not.i.i.i, label %invoke.cont.i.i, label %cond.true.i.i.i
 
@@ -1931,8 +1931,8 @@ invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i, %_
   %cond.i17.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i
   store i32 0, ptr %add.ptr.i.i, align 8
-  %5 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
-  store i8 20, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
+  store i8 20, ptr %6, align 8
   %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
   store i64 %digits, ptr %ref.tmp.sroa.33.0..sroa_idx4, align 8
   %cmp.not5.i.i.i.i.i = icmp eq ptr %4, %0
@@ -2007,8 +2007,8 @@ _ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEm
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %spec.select.i.i.i = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
-  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %spec.select.i.i.i
+  %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %5
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
   br i1 %cmp.not.i.i.i, label %invoke.cont.i.i, label %cond.true.i.i.i
 
@@ -2021,8 +2021,8 @@ invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i, %_
   %cond.i17.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i
   store i32 0, ptr %add.ptr.i.i, align 8
-  %5 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
-  store i8 21, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
+  store i8 21, ptr %6, align 8
   %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
   store i64 %minDigits, ptr %ref.tmp.sroa.33.0..sroa_idx4, align 8
   %cmp.not5.i.i.i.i.i = icmp eq ptr %4, %0
@@ -2097,8 +2097,8 @@ _ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEm
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %spec.select.i.i.i = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
-  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %spec.select.i.i.i
+  %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %5
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
   br i1 %cmp.not.i.i.i, label %invoke.cont.i.i, label %cond.true.i.i.i
 
@@ -2111,8 +2111,8 @@ invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i, %_
   %cond.i17.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i
   store i32 0, ptr %add.ptr.i.i, align 8
-  %5 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
-  store i8 22, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
+  store i8 22, ptr %6, align 8
   %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
   store i64 %minDigits, ptr %ref.tmp.sroa.33.0..sroa_idx4, align 8
   %cmp.not5.i.i.i.i.i = icmp eq ptr %4, %0
@@ -2224,8 +2224,8 @@ _ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEm
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %spec.select.i.i.i = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
-  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %spec.select.i.i.i
+  %12 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %12
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
   br i1 %cmp.not.i.i.i, label %invoke.cont.i.i, label %cond.true.i.i.i
 
@@ -2238,8 +2238,8 @@ invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i, %_
   %cond.i17.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i13 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i
   store i32 1, ptr %add.ptr.i.i13, align 8
-  %12 = getelementptr inbounds i8, ptr %add.ptr.i.i13, i64 8
-  store i64 %literalSize, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %add.ptr.i.i13, i64 8
+  store i64 %literalSize, ptr %13, align 8
   %ref.tmp15.sroa.3.0..sroa_idx15 = getelementptr inbounds i8, ptr %add.ptr.i.i13, i64 16
   store ptr %add.ptr20, ptr %ref.tmp15.sroa.3.0..sroa_idx15, align 8
   br i1 %cmp.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i, label %for.body.i.i.i.i.i
@@ -2406,7 +2406,7 @@ lor.lhs.false:                                    ; preds = %entry
   %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
-  br i1 %cmp.i, label %return, label %if.end.i
+  br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false
   %1 = load i8, ptr %0, align 1
@@ -2417,11 +2417,13 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #16
   %call6.i.fr = freeze i32 %call6.i
   %cmp7.i = icmp eq i32 %call6.i.fr, 0
-  %spec.select = select i1 %cmp7.i, ptr %_M_impl.i, ptr null
+  br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %return
+
+_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %lor.lhs.false, %_ZNKSt9type_infoeqERKS_.exit
   br label %return
 
-return:                                           ; preds = %_ZNKSt9type_infoeqERKS_.exit, %if.end.i, %lor.lhs.false, %entry
-  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %lor.lhs.false ], [ null, %if.end.i ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
+return:                                           ; preds = %if.end.i, %_ZNKSt9type_infoeqERKS_.exit.thread, %_ZNKSt9type_infoeqERKS_.exit, %entry
+  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %_ZNKSt9type_infoeqERKS_.exit ], [ null, %if.end.i ]
   ret ptr %retval.0
 }
 

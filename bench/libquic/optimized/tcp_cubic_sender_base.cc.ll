@@ -744,7 +744,7 @@ if.end20:                                         ; preds = %if.end14
   %rate_based_sending_ = getelementptr inbounds i8, ptr %this, i64 139
   %6 = load i8, ptr %rate_based_sending_, align 1
   %tobool21 = trunc i8 %6 to i1
-  br i1 %tobool21, label %land.lhs.true22, label %return
+  br i1 %tobool21, label %land.lhs.true22, label %if.end30
 
 land.lhs.true22:                                  ; preds = %if.end20
   %vtable23 = load ptr, ptr %this, align 8
@@ -757,11 +757,11 @@ land.lhs.true22:                                  ; preds = %if.end20
   %cmp27 = fcmp ogt float %mul, %conv26
   br i1 %cmp27, label %return, label %if.end30
 
-if.end30:                                         ; preds = %land.lhs.true22
+if.end30:                                         ; preds = %land.lhs.true22, %if.end20
   br label %return
 
-return:                                           ; preds = %if.end20, %land.lhs.true22, %if.end14, %if.end, %if.end30, %if.then
-  %call13.pn = phi { i64, i64 } [ %call8, %if.then ], [ zeroinitializer, %if.end ], [ zeroinitializer, %if.end14 ], [ zeroinitializer, %land.lhs.true22 ], [ { i64 0, i64 9223372036854775807 }, %if.end20 ], [ { i64 0, i64 9223372036854775807 }, %if.end30 ]
+return:                                           ; preds = %land.lhs.true22, %if.end14, %if.end, %if.end30, %if.then
+  %call13.pn = phi { i64, i64 } [ { i64 0, i64 9223372036854775807 }, %if.end30 ], [ %call8, %if.then ], [ zeroinitializer, %if.end ], [ zeroinitializer, %if.end14 ], [ zeroinitializer, %land.lhs.true22 ]
   ret { i64, i64 } %call13.pn
 }
 

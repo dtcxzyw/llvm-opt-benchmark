@@ -7342,8 +7342,8 @@ switch.lookup:                                    ; preds = %14
   %switch.masked = trunc i42 %switch.downshift to i1
   br label %18
 
-18:                                               ; preds = %14, %switch.lookup, %10, %2, %7
-  %.0 = phi i1 [ false, %7 ], [ false, %2 ], [ false, %10 ], [ %switch.masked, %switch.lookup ], [ false, %14 ]
+18:                                               ; preds = %10, %14, %switch.lookup, %2, %7
+  %.0 = phi i1 [ false, %7 ], [ false, %2 ], [ %switch.masked, %switch.lookup ], [ false, %14 ], [ false, %10 ]
   ret i1 %.0
 }
 

@@ -1604,7 +1604,7 @@ define dso_local void @vac_update_datfrozenxid() local_unnamed_addr #0 {
   %.261 = phi i32 [ %.059.ph, %9 ], [ %.160, %33 ], [ %.059.ph, %23 ]
   tail call void @systable_endscan(ptr noundef %8) #16
   tail call void @table_close(ptr noundef %7, i32 noundef 1) #16
-  br i1 %.not.not, label %40, label %138
+  br i1 %.not.not, label %40, label %139
 
 40:                                               ; preds = %.loopexit
   %41 = tail call ptr @table_open(i32 noundef 1262, i32 noundef 3) #16
@@ -1695,7 +1695,7 @@ define dso_local void @vac_update_datfrozenxid() local_unnamed_addr #0 {
   call void @heap_freetuple(ptr noundef nonnull %46) #16
   call void @table_close(ptr noundef %41, i32 noundef 3) #16
   %77 = call zeroext i1 @ForceTransactionIdLimitUpdate() #16
-  br i1 %77, label %78, label %138
+  br i1 %77, label %78, label %139
 
 78:                                               ; preds = %76, %.critedge
   %.278 = phi i32 [ %.279, %76 ], [ %75, %.critedge ]
@@ -1712,7 +1712,7 @@ define dso_local void @vac_update_datfrozenxid() local_unnamed_addr #0 {
   br i1 %.not4860.i, label %.outer._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %78, %.outer.i
-  %88 = phi ptr [ %123, %.outer.i ], [ %87, %78 ]
+  %88 = phi ptr [ %124, %.outer.i ], [ %87, %78 ]
   %.0.ph66.i = phi i32 [ %.1.i, %.outer.i ], [ %.3, %78 ]
   %.035.ph65.i = phi i32 [ %.136.i, %.outer.i ], [ %.278, %78 ]
   %.037.ph64.i = phi i32 [ %.138.i, %.outer.i ], [ %84, %78 ]
@@ -1757,38 +1757,40 @@ define dso_local void @vac_update_datfrozenxid() local_unnamed_addr #0 {
 
 111:                                              ; preds = %109
   %112 = call zeroext i1 @MultiXactIdPrecedes(i32 noundef %6, i32 noundef %100) #16
-  %spec.select.i = select i1 %112, i1 true, i1 %.041.ph62.i
-  br label %113
+  br i1 %112, label %113, label %114
 
 113:                                              ; preds = %111, %109
-  %.142.i = phi i1 [ true, %109 ], [ %spec.select.i, %111 ]
-  %114 = call zeroext i1 @TransactionIdPrecedes(i32 noundef %80, i32 noundef %98) #16
-  br i1 %114, label %119, label %115
+  br label %114
 
-115:                                              ; preds = %113
-  %116 = call zeroext i1 @TransactionIdPrecedes(i32 noundef %98, i32 noundef %.0.ph66.i) #16
-  br i1 %116, label %117, label %119
+114:                                              ; preds = %113, %111
+  %.142.i = phi i1 [ true, %113 ], [ %.041.ph62.i, %111 ]
+  %115 = call zeroext i1 @TransactionIdPrecedes(i32 noundef %80, i32 noundef %98) #16
+  br i1 %115, label %120, label %116
 
-117:                                              ; preds = %115
-  %118 = load volatile i32, ptr %96, align 4
-  br label %119
+116:                                              ; preds = %114
+  %117 = call zeroext i1 @TransactionIdPrecedes(i32 noundef %98, i32 noundef %.0.ph66.i) #16
+  br i1 %117, label %118, label %120
 
-119:                                              ; preds = %117, %115, %113
-  %.140.i = phi i1 [ %.039.ph63.i, %117 ], [ %.039.ph63.i, %115 ], [ true, %113 ]
-  %.138.i = phi i32 [ %118, %117 ], [ %.037.ph64.i, %115 ], [ %.037.ph64.i, %113 ]
-  %.1.i = phi i32 [ %98, %117 ], [ %.0.ph66.i, %115 ], [ %.0.ph66.i, %113 ]
-  %120 = call zeroext i1 @MultiXactIdPrecedes(i32 noundef %100, i32 noundef %.035.ph65.i) #16
-  br i1 %120, label %121, label %.outer.i
+118:                                              ; preds = %116
+  %119 = load volatile i32, ptr %96, align 4
+  br label %120
 
-121:                                              ; preds = %119
-  %122 = load volatile i32, ptr %96, align 4
+120:                                              ; preds = %118, %116, %114
+  %.140.i = phi i1 [ %.039.ph63.i, %118 ], [ %.039.ph63.i, %116 ], [ true, %114 ]
+  %.138.i = phi i32 [ %119, %118 ], [ %.037.ph64.i, %116 ], [ %.037.ph64.i, %114 ]
+  %.1.i = phi i32 [ %98, %118 ], [ %.0.ph66.i, %116 ], [ %.0.ph66.i, %114 ]
+  %121 = call zeroext i1 @MultiXactIdPrecedes(i32 noundef %100, i32 noundef %.035.ph65.i) #16
+  br i1 %121, label %122, label %.outer.i
+
+122:                                              ; preds = %120
+  %123 = load volatile i32, ptr %96, align 4
   br label %.outer.i
 
-.outer.i:                                         ; preds = %121, %119
-  %.144.i = phi i32 [ %122, %121 ], [ %.043.ph61.i, %119 ]
-  %.136.i = phi i32 [ %100, %121 ], [ %.035.ph65.i, %119 ]
-  %123 = call ptr @heap_getnext(ptr noundef %86, i32 noundef 1) #16
-  %.not48.i = icmp eq ptr %123, null
+.outer.i:                                         ; preds = %122, %120
+  %.144.i = phi i32 [ %123, %122 ], [ %.043.ph61.i, %120 ]
+  %.136.i = phi i32 [ %100, %122 ], [ %.035.ph65.i, %120 ]
+  %124 = call ptr @heap_getnext(ptr noundef %86, i32 noundef 1) #16
+  %.not48.i = icmp eq ptr %124, null
   br i1 %.not48.i, label %.outer._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
 
 .outer._crit_edge.i:                              ; preds = %.outer.i, %107, %78
@@ -1798,29 +1800,29 @@ define dso_local void @vac_update_datfrozenxid() local_unnamed_addr #0 {
   %.037.ph.lcssa.i = phi i32 [ %84, %78 ], [ %.037.ph64.i, %107 ], [ %.138.i, %.outer.i ]
   %.035.ph.lcssa.i = phi i32 [ %.278, %78 ], [ %.035.ph65.i, %107 ], [ %.136.i, %.outer.i ]
   %.0.ph.lcssa.i = phi i32 [ %.3, %78 ], [ %.0.ph66.i, %107 ], [ %.1.i, %.outer.i ]
-  %124 = load ptr, ptr %86, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 312
-  %126 = load ptr, ptr %125, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 24
-  %128 = load ptr, ptr %127, align 8
-  call void %128(ptr noundef nonnull %86) #16
+  %125 = load ptr, ptr %86, align 8
+  %126 = getelementptr inbounds i8, ptr %125, i64 312
+  %127 = load ptr, ptr %126, align 8
+  %128 = getelementptr inbounds i8, ptr %127, i64 24
+  %129 = load ptr, ptr %128, align 8
+  call void %129(ptr noundef nonnull %86) #16
   call void @table_close(ptr noundef %85, i32 noundef 1) #16
-  br i1 %.039.ph.lcssa.i, label %129, label %134
+  br i1 %.039.ph.lcssa.i, label %130, label %135
 
-129:                                              ; preds = %.outer._crit_edge.i
-  %130 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #16
-  br i1 %130, label %131, label %vac_truncate_clog.exit
+130:                                              ; preds = %.outer._crit_edge.i
+  %131 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #16
+  br i1 %131, label %132, label %vac_truncate_clog.exit
 
-131:                                              ; preds = %129
-  %132 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.52) #16
-  %133 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.53) #16
+132:                                              ; preds = %130
+  %133 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.52) #16
+  %134 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.53) #16
   call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1890, ptr noundef nonnull @__func__.vac_truncate_clog) #16
   br label %vac_truncate_clog.exit
 
-134:                                              ; preds = %.outer._crit_edge.i
-  br i1 %.041.ph.lcssa.i, label %vac_truncate_clog.exit, label %135
+135:                                              ; preds = %.outer._crit_edge.i
+  br i1 %.041.ph.lcssa.i, label %vac_truncate_clog.exit, label %136
 
-135:                                              ; preds = %134
+136:                                              ; preds = %135
   call void @AdvanceOldestCommitTsXid(i32 noundef %.0.ph.lcssa.i) #16
   call void @TruncateCLOG(i32 noundef %.0.ph.lcssa.i, i32 noundef %.037.ph.lcssa.i) #16
   call void @TruncateCommitTs(i32 noundef %.0.ph.lcssa.i) #16
@@ -1829,13 +1831,13 @@ define dso_local void @vac_update_datfrozenxid() local_unnamed_addr #0 {
   call void @SetMultiXactIdLimit(i32 noundef %.035.ph.lcssa.i, i32 noundef %.043.ph.lcssa.i, i1 noundef zeroext false) #16
   br label %vac_truncate_clog.exit
 
-vac_truncate_clog.exit:                           ; preds = %129, %131, %134, %135
-  %136 = load ptr, ptr @MainLWLockArray, align 8
-  %137 = getelementptr i8, ptr %136, i64 5888
-  call void @LWLockRelease(ptr noundef %137) #16
-  br label %138
+vac_truncate_clog.exit:                           ; preds = %130, %132, %135, %136
+  %137 = load ptr, ptr @MainLWLockArray, align 8
+  %138 = getelementptr i8, ptr %137, i64 5888
+  call void @LWLockRelease(ptr noundef %138) #16
+  br label %139
 
-138:                                              ; preds = %.loopexit, %vac_truncate_clog.exit, %.critedge
+139:                                              ; preds = %.loopexit, %vac_truncate_clog.exit, %.critedge
   ret void
 }
 

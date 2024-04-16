@@ -144,17 +144,17 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.134 = private unnamed_addr constant [28 x i8] c"<= parse new session ticket\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @mbedtls_ssl_conf_has_static_psk(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden noundef i32 @mbedtls_ssl_conf_has_static_psk(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 312
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %15, label %5
+  br i1 %4, label %16, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 320
   %7 = load i64, ptr %6, align 8
   %8 = icmp eq i64 %7, 0
-  br i1 %8, label %15, label %9
+  br i1 %8, label %16, label %9
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %0, i64 296
@@ -165,12 +165,14 @@ define hidden i32 @mbedtls_ssl_conf_has_static_psk(ptr nocapture noundef readonl
 12:                                               ; preds = %9
   %13 = getelementptr inbounds i8, ptr %0, i64 304
   %14 = load i64, ptr %13, align 8
-  %.not4 = icmp ne i64 %14, 0
-  %spec.select = zext i1 %.not4 to i32
-  br label %15
+  %.not4 = icmp eq i64 %14, 0
+  br i1 %.not4, label %15, label %16
 
-15:                                               ; preds = %12, %9, %1, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %1 ], [ 0, %9 ], [ %spec.select, %12 ]
+15:                                               ; preds = %12, %9
+  br label %16
+
+16:                                               ; preds = %12, %1, %5, %15
+  %.0 = phi i32 [ 0, %15 ], [ 0, %5 ], [ 0, %1 ], [ 1, %12 ]
   ret i32 %.0
 }
 
@@ -1991,25 +1993,25 @@ ssl_parse_certificate_request.exit:               ; preds = %548, %552, %556, %5
   %799 = getelementptr inbounds i8, ptr %790, i64 296
   %800 = load ptr, ptr %799, align 8
   %.not.i.i49 = icmp eq ptr %800, null
-  br i1 %.not.i.i49, label %ssl_write_client_key_exchange.exit, label %mbedtls_ssl_conf_has_static_psk.exit.i
+  br i1 %.not.i.i49, label %ssl_write_client_key_exchange.exit, label %801
 
-mbedtls_ssl_conf_has_static_psk.exit.i:           ; preds = %798
-  %801 = getelementptr inbounds i8, ptr %790, i64 304
-  %802 = load i64, ptr %801, align 8
-  %.not4.i.not.i = icmp eq i64 %802, 0
-  br i1 %.not4.i.not.i, label %ssl_write_client_key_exchange.exit, label %803
+801:                                              ; preds = %798
+  %802 = getelementptr inbounds i8, ptr %790, i64 304
+  %803 = load i64, ptr %802, align 8
+  %.not4.i.i = icmp eq i64 %803, 0
+  br i1 %.not4.i.i, label %ssl_write_client_key_exchange.exit, label %mbedtls_ssl_conf_has_static_psk.exit.i
 
-803:                                              ; preds = %mbedtls_ssl_conf_has_static_psk.exit.i
+mbedtls_ssl_conf_has_static_psk.exit.i:           ; preds = %801
   store i64 %796, ptr %5, align 8
   %804 = add i64 %796, -16379
   %805 = icmp ult i64 %804, -16385
   br i1 %805, label %806, label %807
 
-806:                                              ; preds = %803
+806:                                              ; preds = %mbedtls_ssl_conf_has_static_psk.exit.i
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 3155, ptr noundef nonnull @.str.115) #11
   br label %ssl_write_client_key_exchange.exit
 
-807:                                              ; preds = %803
+807:                                              ; preds = %mbedtls_ssl_conf_has_static_psk.exit.i
   %808 = lshr i64 %796, 8
   %809 = trunc i64 %808 to i8
   %810 = getelementptr inbounds i8, ptr %0, i64 360
@@ -2176,8 +2178,8 @@ mbedtls_ssl_conf_has_static_psk.exit.i:           ; preds = %798
   call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 3328, ptr noundef nonnull @.str.119) #11
   br label %ssl_write_client_key_exchange.exit
 
-ssl_write_client_key_exchange.exit:               ; preds = %737, %753, %769, %783, %789, %794, %798, %mbedtls_ssl_conf_has_static_psk.exit.i, %806, %830, %839, %863, %875, %879, %884, %888, %890, %901, %902
-  %.0.i45 = phi i32 [ %736, %737 ], [ %752, %753 ], [ %900, %901 ], [ 0, %902 ], [ %768, %769 ], [ %782, %783 ], [ -27136, %806 ], [ %883, %884 ], [ -27136, %839 ], [ %862, %863 ], [ %874, %875 ], [ -27648, %879 ], [ -27648, %890 ], [ -27648, %mbedtls_ssl_conf_has_static_psk.exit.i ], [ %831, %830 ], [ %889, %888 ], [ -27648, %794 ], [ -27648, %789 ], [ -27648, %798 ]
+ssl_write_client_key_exchange.exit:               ; preds = %737, %753, %769, %783, %789, %794, %798, %801, %806, %830, %839, %863, %875, %879, %884, %888, %890, %901, %902
+  %.0.i45 = phi i32 [ %736, %737 ], [ %752, %753 ], [ %900, %901 ], [ 0, %902 ], [ %768, %769 ], [ %782, %783 ], [ -27136, %806 ], [ %883, %884 ], [ -27136, %839 ], [ %862, %863 ], [ %874, %875 ], [ -27648, %879 ], [ -27648, %890 ], [ %831, %830 ], [ %889, %888 ], [ -27648, %794 ], [ -27648, %789 ], [ -27648, %801 ], [ -27648, %798 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %ssl_parse_server_hello.exit
 

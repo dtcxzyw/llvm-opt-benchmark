@@ -312,38 +312,26 @@ entry:
 declare i32 @ossl_x509_add_cert_new(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @OCSP_basic_sign_ctx(ptr noundef %brsp, ptr noundef %signer, ptr noundef %ctx, ptr noundef %certs, i64 noundef %flags) local_unnamed_addr #0 {
+define noundef i32 @OCSP_basic_sign_ctx(ptr noundef %brsp, ptr noundef %signer, ptr noundef %ctx, ptr noundef %certs, i64 noundef %flags) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ctx, null
-  br i1 %cmp, label %if.then, label %lor.lhs.false
+  br i1 %cmp, label %err.sink.split, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
   %call = tail call ptr @EVP_MD_CTX_get_pkey_ctx(ptr noundef nonnull %ctx) #6
   %cmp1 = icmp eq ptr %call, null
-  br i1 %cmp1, label %if.then, label %if.end
-
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  tail call void @ERR_new() #6
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 175, ptr noundef nonnull @__func__.OCSP_basic_sign_ctx) #6
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 39, i32 noundef 130, ptr noundef null) #6
-  br label %return
+  br i1 %cmp1, label %err.sink.split, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
   %call2 = tail call ptr @EVP_MD_CTX_get_pkey_ctx(ptr noundef nonnull %ctx) #6
   %call3 = tail call ptr @EVP_PKEY_CTX_get0_pkey(ptr noundef %call2) #6
   %cmp4 = icmp eq ptr %call3, null
-  br i1 %cmp4, label %if.then7, label %lor.lhs.false5
+  br i1 %cmp4, label %err.sink.split, label %lor.lhs.false5
 
 lor.lhs.false5:                                   ; preds = %if.end
   %call6 = tail call i32 @X509_check_private_key(ptr noundef %signer, ptr noundef nonnull %call3) #6
   %tobool.not = icmp eq i32 %call6, 0
-  br i1 %tobool.not, label %if.then7, label %if.end8
-
-if.then7:                                         ; preds = %lor.lhs.false5, %if.end
-  tail call void @ERR_new() #6
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 181, ptr noundef nonnull @__func__.OCSP_basic_sign_ctx) #6
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 39, i32 noundef 110, ptr noundef null) #6
-  br label %return
+  br i1 %tobool.not, label %err.sink.split, label %if.end8
 
 if.end8:                                          ; preds = %lor.lhs.false5
   %and = and i64 %flags, 1
@@ -354,13 +342,13 @@ if.then10:                                        ; preds = %if.end8
   %certs.i = getelementptr inbounds i8, ptr %brsp, i64 72
   %call.i = tail call i32 @ossl_x509_add_cert_new(ptr noundef nonnull %certs.i, ptr noundef %signer, i32 noundef 1) #6
   %tobool12.not = icmp eq i32 %call.i, 0
-  br i1 %tobool12.not, label %return, label %lor.lhs.false13
+  br i1 %tobool12.not, label %err, label %lor.lhs.false13
 
 lor.lhs.false13:                                  ; preds = %if.then10
   %0 = load ptr, ptr %certs.i, align 8
   %call15 = tail call i32 @X509_add_certs(ptr noundef %0, ptr noundef %certs, i32 noundef 1) #6
   %tobool16.not = icmp eq i32 %call15, 0
-  br i1 %tobool16.not, label %return, label %if.end19
+  br i1 %tobool16.not, label %err, label %if.end19
 
 if.end19:                                         ; preds = %lor.lhs.false13, %if.end8
   %responderId = getelementptr inbounds i8, ptr %brsp, i64 8
@@ -371,14 +359,14 @@ if.end19:                                         ; preds = %lor.lhs.false13, %i
 if.then22:                                        ; preds = %if.end19
   %call23 = tail call i32 @OCSP_RESPID_set_by_key(ptr noundef nonnull %responderId, ptr noundef %signer), !range !4
   %tobool24.not = icmp eq i32 %call23, 0
-  br i1 %tobool24.not, label %return, label %if.end31
+  br i1 %tobool24.not, label %err, label %if.end31
 
 if.else:                                          ; preds = %if.end19
   %value.i = getelementptr inbounds i8, ptr %brsp, i64 16
   %call.i17 = tail call ptr @X509_get_subject_name(ptr noundef %signer) #6
   %call1.i = tail call i32 @X509_NAME_set(ptr noundef nonnull %value.i, ptr noundef %call.i17) #6
   %tobool.not.i = icmp eq i32 %call1.i, 0
-  br i1 %tobool.not.i, label %return, label %OCSP_RESPID_set_by_name.exit
+  br i1 %tobool.not.i, label %err, label %OCSP_RESPID_set_by_name.exit
 
 OCSP_RESPID_set_by_name.exit:                     ; preds = %if.else
   store i32 0, ptr %responderId, align 8
@@ -394,7 +382,7 @@ land.lhs.true:                                    ; preds = %if.end31
   %1 = load ptr, ptr %producedAt, align 8
   %call35 = tail call ptr @X509_gmtime_adj(ptr noundef %1, i64 noundef 0) #6
   %tobool36.not = icmp eq ptr %call35, null
-  br i1 %tobool36.not, label %return, label %if.end38
+  br i1 %tobool36.not, label %err, label %if.end38
 
 if.end38:                                         ; preds = %land.lhs.true, %if.end31
   %call39 = tail call ptr @OCSP_RESPDATA_it() #6
@@ -402,12 +390,22 @@ if.end38:                                         ; preds = %land.lhs.true, %if.
   %signature = getelementptr inbounds i8, ptr %brsp, i64 64
   %2 = load ptr, ptr %signature, align 8
   %call41 = tail call i32 @ASN1_item_sign_ctx(ptr noundef %call39, ptr noundef nonnull %signatureAlgorithm, ptr noundef null, ptr noundef %2, ptr noundef %brsp, ptr noundef nonnull %ctx) #6
-  %tobool42.not = icmp ne i32 %call41, 0
-  %spec.select = zext i1 %tobool42.not to i32
+  %tobool42.not = icmp eq i32 %call41, 0
+  br i1 %tobool42.not, label %err, label %return
+
+err.sink.split:                                   ; preds = %if.end, %lor.lhs.false5, %entry, %lor.lhs.false
+  %.sink20 = phi i32 [ 175, %lor.lhs.false ], [ 175, %entry ], [ 181, %lor.lhs.false5 ], [ 181, %if.end ]
+  %.sink = phi i32 [ 130, %lor.lhs.false ], [ 130, %entry ], [ 110, %lor.lhs.false5 ], [ 110, %if.end ]
+  tail call void @ERR_new() #6
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink20, ptr noundef nonnull @__func__.OCSP_basic_sign_ctx) #6
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 39, i32 noundef %.sink, ptr noundef null) #6
+  br label %err
+
+err:                                              ; preds = %err.sink.split, %if.else, %if.end38, %land.lhs.true, %if.then22, %if.then10, %lor.lhs.false13
   br label %return
 
-return:                                           ; preds = %if.else, %if.end38, %if.then, %if.then7, %lor.lhs.false13, %if.then10, %if.then22, %land.lhs.true
-  %retval.0 = phi i32 [ 0, %land.lhs.true ], [ 0, %if.then22 ], [ 0, %if.then10 ], [ 0, %lor.lhs.false13 ], [ 0, %if.then7 ], [ 0, %if.then ], [ %spec.select, %if.end38 ], [ 0, %if.else ]
+return:                                           ; preds = %if.end38, %err
+  %retval.0 = phi i32 [ 0, %err ], [ 1, %if.end38 ]
   ret i32 %retval.0
 }
 
@@ -501,7 +499,7 @@ declare i32 @ASN1_item_sign_ctx(ptr noundef, ptr noundef, ptr noundef, ptr nound
 declare ptr @OCSP_RESPDATA_it() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @OCSP_basic_sign(ptr noundef %brsp, ptr noundef %signer, ptr noundef %key, ptr noundef %dgst, ptr noundef %certs, i64 noundef %flags) local_unnamed_addr #0 {
+define noundef i32 @OCSP_basic_sign(ptr noundef %brsp, ptr noundef %signer, ptr noundef %key, ptr noundef %dgst, ptr noundef %certs, i64 noundef %flags) local_unnamed_addr #0 {
 entry:
   %pkctx = alloca ptr, align 8
   %call = tail call ptr @EVP_MD_CTX_new() #6

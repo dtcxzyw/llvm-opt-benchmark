@@ -1083,13 +1083,15 @@ if.end204.i:                                      ; preds = %if.end200.i
 all_ins.exit:                                     ; preds = %if.end204.i
   %call209.i = tail call i32 @PyModule_AddIntConstant(ptr noundef %module, ptr noundef nonnull @.str.73, i64 noundef 8) #7
   %call209.i.fr = freeze i32 %call209.i
-  %tobool210.not.i.not = icmp ne i32 %call209.i.fr, 0
-  %spec.select = sext i1 %tobool210.not.i.not to i32
-  br label %all_ins.exit.thread
+  %tobool210.not.i.not = icmp eq i32 %call209.i.fr, 0
+  br i1 %tobool210.not.i.not, label %0, label %all_ins.exit.thread
 
-all_ins.exit.thread:                              ; preds = %all_ins.exit, %if.end204.i, %if.end200.i, %if.end196.i, %if.end192.i, %if.end188.i, %if.end184.i, %if.end180.i, %if.end176.i, %if.end172.i, %if.end168.i, %if.end164.i, %if.end160.i, %if.end156.i, %if.end152.i, %if.end148.i, %if.end144.i, %if.end140.i, %if.end136.i, %if.end132.i, %if.end128.i, %if.end124.i, %if.end120.i, %if.end116.i, %if.end112.i, %if.end108.i, %if.end104.i, %if.end100.i, %if.end96.i, %if.end92.i, %if.end88.i, %if.end84.i, %if.end80.i, %if.end76.i, %if.end72.i, %if.end68.i, %if.end64.i, %if.end60.i, %if.end56.i, %if.end52.i, %if.end48.i, %if.end44.i, %if.end40.i, %if.end36.i, %if.end32.i, %if.end28.i, %if.end24.i, %if.end20.i, %if.end16.i, %if.end12.i, %if.end8.i, %if.end4.i, %if.end.i, %entry
-  %0 = phi i32 [ -1, %entry ], [ -1, %if.end.i ], [ -1, %if.end4.i ], [ -1, %if.end8.i ], [ -1, %if.end12.i ], [ -1, %if.end16.i ], [ -1, %if.end20.i ], [ -1, %if.end24.i ], [ -1, %if.end28.i ], [ -1, %if.end32.i ], [ -1, %if.end36.i ], [ -1, %if.end40.i ], [ -1, %if.end44.i ], [ -1, %if.end48.i ], [ -1, %if.end52.i ], [ -1, %if.end56.i ], [ -1, %if.end60.i ], [ -1, %if.end64.i ], [ -1, %if.end68.i ], [ -1, %if.end72.i ], [ -1, %if.end76.i ], [ -1, %if.end80.i ], [ -1, %if.end84.i ], [ -1, %if.end88.i ], [ -1, %if.end92.i ], [ -1, %if.end96.i ], [ -1, %if.end100.i ], [ -1, %if.end104.i ], [ -1, %if.end108.i ], [ -1, %if.end112.i ], [ -1, %if.end116.i ], [ -1, %if.end120.i ], [ -1, %if.end124.i ], [ -1, %if.end128.i ], [ -1, %if.end132.i ], [ -1, %if.end136.i ], [ -1, %if.end140.i ], [ -1, %if.end144.i ], [ -1, %if.end148.i ], [ -1, %if.end152.i ], [ -1, %if.end156.i ], [ -1, %if.end160.i ], [ -1, %if.end164.i ], [ -1, %if.end168.i ], [ -1, %if.end172.i ], [ -1, %if.end176.i ], [ -1, %if.end180.i ], [ -1, %if.end184.i ], [ -1, %if.end188.i ], [ -1, %if.end192.i ], [ -1, %if.end196.i ], [ -1, %if.end200.i ], [ -1, %if.end204.i ], [ %spec.select, %all_ins.exit ]
-  ret i32 %0
+all_ins.exit.thread:                              ; preds = %if.end204.i, %if.end200.i, %if.end196.i, %if.end192.i, %if.end188.i, %if.end184.i, %if.end180.i, %if.end176.i, %if.end172.i, %if.end168.i, %if.end164.i, %if.end160.i, %if.end156.i, %if.end152.i, %if.end148.i, %if.end144.i, %if.end140.i, %if.end136.i, %if.end132.i, %if.end128.i, %if.end124.i, %if.end120.i, %if.end116.i, %if.end112.i, %if.end108.i, %if.end104.i, %if.end100.i, %if.end96.i, %if.end92.i, %if.end88.i, %if.end84.i, %if.end80.i, %if.end76.i, %if.end72.i, %if.end68.i, %if.end64.i, %if.end60.i, %if.end56.i, %if.end52.i, %if.end48.i, %if.end44.i, %if.end40.i, %if.end36.i, %if.end32.i, %if.end28.i, %if.end24.i, %if.end20.i, %if.end16.i, %if.end12.i, %if.end8.i, %if.end4.i, %if.end.i, %entry, %all_ins.exit
+  br label %0
+
+0:                                                ; preds = %all_ins.exit, %all_ins.exit.thread
+  %1 = phi i32 [ -1, %all_ins.exit.thread ], [ 0, %all_ins.exit ]
+  ret i32 %1
 }
 
 declare i32 @PyModule_AddIntConstant(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1

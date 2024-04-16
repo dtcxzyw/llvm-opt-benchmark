@@ -94,21 +94,21 @@ define noundef ptr @_ZN4LIEF2PE9to_stringENS0_9Attribute4TYPEE(i32 noundef %0) l
   %.idx.i.i.i9.i.i.i.i.i.i = select i1 %.not.i.i.i8.i.i.i.i.i.i, i64 16, i64 0
   %.add13.i.i = or disjoint i64 %.add12.i.i, %.idx.i.i.i9.i.i.i.i.i.i
   %.not.i.i = icmp eq i64 %.add13.i.i, 184
-  br i1 %.not.i.i, label %_ZNK6frozen3mapIN4LIEF2PE9Attribute4TYPEEPKcLm11ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %_ZNK6frozen3mapIN4LIEF2PE9Attribute4TYPEEPKcLm11ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit
+  br i1 %.not.i.i, label %_ZNK6frozen3mapIN4LIEF2PE9Attribute4TYPEEPKcLm11ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %5
 
-_ZNK6frozen3mapIN4LIEF2PE9Attribute4TYPEEPKcLm11ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit: ; preds = %1
+5:                                                ; preds = %1
   %.ptr16.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_9Attribute4TYPEE.enums2str, i64 %.add13.i.i
-  %5 = load i32, ptr %.ptr16.i.i, align 8
-  %.not17.i.i = icmp sgt i32 %5, %0
-  br i1 %.not17.i.i, label %_ZNK6frozen3mapIN4LIEF2PE9Attribute4TYPEEPKcLm11ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %6
+  %6 = load i32, ptr %.ptr16.i.i, align 8
+  %.not17.i.i = icmp sgt i32 %6, %0
+  br i1 %.not17.i.i, label %_ZNK6frozen3mapIN4LIEF2PE9Attribute4TYPEEPKcLm11ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %7
 
-6:                                                ; preds = %_ZNK6frozen3mapIN4LIEF2PE9Attribute4TYPEEPKcLm11ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit
-  %7 = getelementptr inbounds i8, ptr %.ptr16.i.i, i64 8
-  %8 = load ptr, ptr %7, align 8
+7:                                                ; preds = %5
+  %8 = getelementptr inbounds i8, ptr %.ptr16.i.i, i64 8
+  %9 = load ptr, ptr %8, align 8
   br label %_ZNK6frozen3mapIN4LIEF2PE9Attribute4TYPEEPKcLm11ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread
 
-_ZNK6frozen3mapIN4LIEF2PE9Attribute4TYPEEPKcLm11ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread: ; preds = %1, %_ZNK6frozen3mapIN4LIEF2PE9Attribute4TYPEEPKcLm11ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit, %6
-  %.0 = phi ptr [ %8, %6 ], [ @.str, %_ZNK6frozen3mapIN4LIEF2PE9Attribute4TYPEEPKcLm11ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit ], [ @.str, %1 ]
+_ZNK6frozen3mapIN4LIEF2PE9Attribute4TYPEEPKcLm11ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread: ; preds = %5, %1, %7
+  %.0 = phi ptr [ %9, %7 ], [ @.str, %1 ], [ @.str, %5 ]
   ret ptr %.0
 }
 

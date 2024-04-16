@@ -341,7 +341,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @hmac_get_ctx_params(ptr noundef %vmacctx, ptr noundef %params) #0 {
+define internal noundef i32 @hmac_get_ctx_params(ptr noundef %vmacctx, ptr noundef %params) #0 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str.1) #7
   %cmp.not = icmp eq ptr %call, null
@@ -358,7 +358,7 @@ land.lhs.true:                                    ; preds = %entry
 if.end:                                           ; preds = %land.lhs.true, %entry
   %call3 = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str.2) #7
   %cmp4.not = icmp eq ptr %call3, null
-  br i1 %cmp4.not, label %return, label %land.lhs.true5
+  br i1 %cmp4.not, label %if.end10, label %land.lhs.true5
 
 land.lhs.true5:                                   ; preds = %if.end
   %digest.i = getelementptr inbounds i8, ptr %vmacctx, i64 16
@@ -373,12 +373,14 @@ if.end.i:                                         ; preds = %land.lhs.true5
 hmac_block_size.exit:                             ; preds = %land.lhs.true5, %if.end.i
   %retval.0.i = phi i32 [ %call1.i, %if.end.i ], [ 0, %land.lhs.true5 ]
   %call7 = tail call i32 @OSSL_PARAM_set_int(ptr noundef nonnull %call3, i32 noundef %retval.0.i) #7
-  %tobool8.not = icmp ne i32 %call7, 0
-  %spec.select = zext i1 %tobool8.not to i32
+  %tobool8.not = icmp eq i32 %call7, 0
+  br i1 %tobool8.not, label %return, label %if.end10
+
+if.end10:                                         ; preds = %hmac_block_size.exit, %if.end
   br label %return
 
-return:                                           ; preds = %hmac_block_size.exit, %if.end, %land.lhs.true
-  %retval.0 = phi i32 [ 0, %land.lhs.true ], [ 1, %if.end ], [ %spec.select, %hmac_block_size.exit ]
+return:                                           ; preds = %hmac_block_size.exit, %land.lhs.true, %if.end10
+  %retval.0 = phi i32 [ 1, %if.end10 ], [ 0, %land.lhs.true ], [ 0, %hmac_block_size.exit ]
   ret i32 %retval.0
 }
 
@@ -389,7 +391,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @hmac_set_ctx_params(ptr noundef %vmacctx, ptr noundef %params) #0 {
+define internal noundef i32 @hmac_set_ctx_params(ptr noundef %vmacctx, ptr noundef %params) #0 {
 entry:
   %flag.i13 = alloca i32, align 4
   %flag.i = alloca i32, align 4
@@ -419,7 +421,7 @@ if.then.i:                                        ; preds = %if.end3
 if.end.i:                                         ; preds = %if.then.i
   %1 = load i32, ptr %flag.i, align 4
   %cmp3.i = icmp eq i32 %1, 0
-  %spec.select44 = select i1 %cmp3.i, i32 0, i32 256
+  %spec.select = select i1 %cmp3.i, i32 0, i32 256
   br label %if.end7
 
 set_flag.exit:                                    ; preds = %if.then.i
@@ -427,7 +429,7 @@ set_flag.exit:                                    ; preds = %if.then.i
   br label %return
 
 if.end7:                                          ; preds = %if.end.i, %if.end3
-  %flags.0.ph = phi i32 [ 0, %if.end3 ], [ %spec.select44, %if.end.i ]
+  %flags.0.ph = phi i32 [ 0, %if.end3 ], [ %spec.select, %if.end.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %flag.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %flag.i13)
   %call.i14 = call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %params, ptr noundef nonnull @.str.7) #7
@@ -490,17 +492,19 @@ if.end23:                                         ; preds = %if.then19
 if.end28:                                         ; preds = %if.end23, %if.end15
   %call29 = call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %params, ptr noundef nonnull @.str.8) #7
   %cmp30.not = icmp eq ptr %call29, null
-  br i1 %cmp30.not, label %return, label %if.then32
+  br i1 %cmp30.not, label %if.end37, label %if.then32
 
 if.then32:                                        ; preds = %if.end28
   %tls_data_size = getelementptr inbounds i8, ptr %vmacctx, i64 56
   %call33 = call i32 @OSSL_PARAM_get_size_t(ptr noundef nonnull %call29, ptr noundef nonnull %tls_data_size) #7
-  %tobool34.not = icmp ne i32 %call33, 0
-  %spec.select = zext i1 %tobool34.not to i32
+  %tobool34.not = icmp eq i32 %call33, 0
+  br i1 %tobool34.not, label %return, label %if.end37
+
+if.end37:                                         ; preds = %if.then32, %if.end28
   br label %return
 
-return:                                           ; preds = %set_flag.exit28, %set_flag.exit, %if.then32, %if.end28, %if.end23, %if.then19, %if.end, %entry
-  %retval.0 = phi i32 [ 1, %entry ], [ 0, %if.end ], [ 0, %set_flag.exit ], [ 0, %set_flag.exit28 ], [ 0, %if.then19 ], [ 0, %if.end23 ], [ 1, %if.end28 ], [ %spec.select, %if.then32 ]
+return:                                           ; preds = %set_flag.exit28, %set_flag.exit, %if.then32, %if.end23, %if.then19, %if.end, %entry, %if.end37
+  %retval.0 = phi i32 [ 1, %if.end37 ], [ 1, %entry ], [ 0, %if.end ], [ 0, %set_flag.exit ], [ 0, %set_flag.exit28 ], [ 0, %if.then19 ], [ 0, %if.end23 ], [ 0, %if.then32 ]
   ret i32 %retval.0
 }
 

@@ -2536,17 +2536,17 @@ sw.bb:                                            ; preds = %do.end19, %do.end19
   store i32 1, ptr %state, align 8
   %call21 = tail call i32 @wc_ecc_shared_secret_gen_sync(ptr noundef nonnull %private_key, ptr noundef nonnull %point, ptr noundef nonnull %out, ptr noundef nonnull %outlen)
   %cmp22 = icmp slt i32 %call21, 0
-  br i1 %cmp22, label %do.end28, label %if.end31
+  br i1 %cmp22, label %do.end28, label %sw.bb25
 
-sw.bb25:                                          ; preds = %do.end19
+sw.bb25:                                          ; preds = %sw.bb, %do.end19
   br label %if.end31
 
 do.end28:                                         ; preds = %sw.bb
   %cmp29 = icmp eq i32 %call21, -108
   br i1 %cmp29, label %return, label %if.end31
 
-if.end31:                                         ; preds = %sw.bb, %do.end19, %sw.bb25, %do.end28
-  %err.020 = phi i32 [ %call21, %do.end28 ], [ -192, %do.end19 ], [ 0, %sw.bb ], [ 0, %sw.bb25 ]
+if.end31:                                         ; preds = %do.end19, %sw.bb25, %do.end28
+  %err.020 = phi i32 [ %call21, %do.end28 ], [ -192, %do.end19 ], [ 0, %sw.bb25 ]
   store i32 0, ptr %state, align 8
   br label %return
 
@@ -2648,10 +2648,10 @@ if.then47:                                        ; preds = %lor.lhs.false
   %call53 = call i32 @sp_to_unsigned_bin(ptr noundef nonnull %call.i, ptr noundef %add.ptr) #19
   br label %wc_ecc_del_point_ex.exit
 
-wc_ecc_del_point_ex.exit:                         ; preds = %if.end14, %lor.lhs.false, %if.end23, %if.end28, %if.then35, %if.end33, %if.then47
-  %x.042 = phi i32 [ %call37, %if.then47 ], [ %call37, %if.then35 ], [ 0, %if.end33 ], [ 0, %if.end28 ], [ 0, %if.end23 ], [ %call37, %lor.lhs.false ], [ 0, %if.end14 ]
-  %err.6 = phi i32 [ %call53, %if.then47 ], [ -132, %if.then35 ], [ %call32, %if.end33 ], [ %call27, %if.end28 ], [ %call22, %if.end23 ], [ -132, %lor.lhs.false ], [ -236, %if.end14 ]
-  store i32 %x.042, ptr %outlen, align 4
+wc_ecc_del_point_ex.exit:                         ; preds = %if.end14, %if.then35, %lor.lhs.false, %if.end23, %if.end28, %if.end33, %if.then47
+  %x.041 = phi i32 [ %call37, %if.then47 ], [ 0, %if.end33 ], [ 0, %if.end28 ], [ 0, %if.end23 ], [ %call37, %lor.lhs.false ], [ %call37, %if.then35 ], [ 0, %if.end14 ]
+  %err.6 = phi i32 [ %call53, %if.then47 ], [ %call32, %if.end33 ], [ %call27, %if.end28 ], [ %call22, %if.end23 ], [ -132, %lor.lhs.false ], [ -132, %if.then35 ], [ -236, %if.end14 ]
+  store i32 %x.041, ptr %outlen, align 4
   call void @sp_forcezero(ptr noundef nonnull %call.i) #19
   call void @sp_forcezero(ptr noundef nonnull %y.i) #19
   call void @sp_clear(ptr noundef nonnull %call.i) #19
@@ -3053,7 +3053,7 @@ declare i32 @sp_unsigned_bin_size(ptr noundef) local_unnamed_addr #3
 declare i32 @sp_to_unsigned_bin(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @wc_ecc_point_is_at_infinity(ptr noundef readonly %p) local_unnamed_addr #10 {
+define noundef i32 @wc_ecc_point_is_at_infinity(ptr noundef readonly %p) local_unnamed_addr #10 {
 entry:
   %cmp = icmp eq ptr %p, null
   br i1 %cmp, label %return, label %if.end
@@ -3061,17 +3061,19 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load i32, ptr %p, align 8
   %cmp1 = icmp eq i32 %0, 0
-  br i1 %cmp1, label %land.lhs.true, label %return
+  br i1 %cmp1, label %land.lhs.true, label %if.end6
 
 land.lhs.true:                                    ; preds = %if.end
   %y = getelementptr inbounds i8, ptr %p, i64 1040
   %1 = load i32, ptr %y, align 8
   %cmp4 = icmp eq i32 %1, 0
-  %spec.select = zext i1 %cmp4 to i32
+  br i1 %cmp4, label %return, label %if.end6
+
+if.end6:                                          ; preds = %land.lhs.true, %if.end
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %if.end, %entry
-  %retval.0 = phi i32 [ -173, %entry ], [ 0, %if.end ], [ %spec.select, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %entry, %if.end6
+  %retval.0 = phi i32 [ 0, %if.end6 ], [ -173, %entry ], [ 1, %land.lhs.true ]
   ret i32 %retval.0
 }
 
@@ -3253,16 +3255,16 @@ land.lhs.true:                                    ; preds = %if.else, %do.end
   %k = getelementptr inbounds i8, ptr %key, i64 3152
   %0 = load i32, ptr %k, align 8
   %cmp5 = icmp eq i32 %0, 0
-  br i1 %cmp5, label %if.then63, label %if.end10
+  br i1 %cmp5, label %if.then63, label %lor.lhs.false
 
-if.end10:                                         ; preds = %land.lhs.true
+lor.lhs.false:                                    ; preds = %land.lhs.true
   %order = getelementptr inbounds i8, ptr %curve, i64 24
   %1 = load ptr, ptr %order, align 8
   %call = tail call i32 @sp_cmp(ptr noundef nonnull %k, ptr noundef %1) #19
   %cmp8.not = icmp eq i32 %call, -1
   br i1 %cmp8.not, label %if.end17, label %if.then63
 
-if.end17:                                         ; preds = %if.end10
+if.end17:                                         ; preds = %lor.lhs.false
   %y = getelementptr inbounds i8, ptr %pub.0, i64 1040
   %z = getelementptr inbounds i8, ptr %pub.0, i64 2080
   %call16 = tail call i32 @sp_init_multi(ptr noundef nonnull %pub.0, ptr noundef nonnull %y, ptr noundef nonnull %z, ptr noundef null, ptr noundef null, ptr noundef null) #19
@@ -3334,16 +3336,16 @@ if.end61.fold.split:                              ; preds = %if.then44
   br label %if.end61
 
 if.end61:                                         ; preds = %if.then44, %if.end61.fold.split, %if.end42, %if.then56, %if.end36, %if.end32, %if.end26
-  %err.778 = phi i32 [ %call25, %if.end26 ], [ %call31, %if.end32 ], [ %call35, %if.end36 ], [ %call58, %if.then56 ], [ %call41, %if.end42 ], [ -125, %if.then44 ], [ %call50, %if.end61.fold.split ]
+  %err.777 = phi i32 [ %call25, %if.end26 ], [ %call31, %if.end32 ], [ %call35, %if.end36 ], [ %call58, %if.then56 ], [ %call41, %if.end42 ], [ -125, %if.then44 ], [ %call50, %if.end61.fold.split ]
   call void @sp_clear(ptr noundef nonnull %call.i) #19
   call void @sp_clear(ptr noundef nonnull %y.i) #19
   call void @sp_clear(ptr noundef nonnull %z.i) #19
   call void @wolfSSL_Free(ptr noundef nonnull %call.i) #19
-  %cmp62.not = icmp eq i32 %err.778, 0
+  %cmp62.not = icmp eq i32 %err.777, 0
   br i1 %cmp62.not, label %if.end70, label %if.then63
 
-if.then63:                                        ; preds = %if.end10, %if.end3.i, %if.then12.i, %land.lhs.true, %if.end17, %if.end61
-  %err.899 = phi i32 [ %err.778, %if.end61 ], [ %call16, %if.end17 ], [ -216, %land.lhs.true ], [ -125, %if.end3.i ], [ %call9.i, %if.then12.i ], [ -216, %if.end10 ]
+if.then63:                                        ; preds = %if.end3.i, %if.then12.i, %lor.lhs.false, %land.lhs.true, %if.end17, %if.end61
+  %err.898 = phi i32 [ %err.777, %if.end61 ], [ %call16, %if.end17 ], [ -216, %land.lhs.true ], [ -216, %lor.lhs.false ], [ -125, %if.end3.i ], [ %call9.i, %if.then12.i ]
   call void @sp_clear(ptr noundef nonnull %pub.0) #19
   %y66 = getelementptr inbounds i8, ptr %pub.0, i64 1040
   call void @sp_clear(ptr noundef nonnull %y66) #19
@@ -3352,7 +3354,7 @@ if.then63:                                        ; preds = %if.end10, %if.end3.
   br label %if.end70
 
 if.end70:                                         ; preds = %if.then63, %if.end61
-  %err.8100 = phi i32 [ %err.899, %if.then63 ], [ 0, %if.end61 ]
+  %err.899 = phi i32 [ %err.898, %if.then63 ], [ 0, %if.end61 ]
   %10 = load i32, ptr %key, align 8
   %cmp72 = icmp eq i32 %10, 3
   %or.cond = and i1 %cmp1.not, %cmp72
@@ -3363,7 +3365,7 @@ if.then75:                                        ; preds = %if.end70
   br label %return
 
 return:                                           ; preds = %if.end70, %if.then75, %entry
-  %retval.0 = phi i32 [ -173, %entry ], [ %err.8100, %if.then75 ], [ %err.8100, %if.end70 ]
+  %retval.0 = phi i32 [ -173, %entry ], [ %err.899, %if.then75 ], [ %err.899, %if.end70 ]
   ret i32 %retval.0
 }
 
@@ -5255,32 +5257,32 @@ wc_ecc_check_r_s_range.exit.thread:               ; preds = %if.end13
 if.end6.i:                                        ; preds = %if.end13
   %10 = load i32, ptr %r, align 8
   %cmp7.i = icmp eq i32 %10, 0
-  br i1 %cmp7.i, label %wc_ecc_check_r_s_range.exit.thread44, label %if.end11.i
+  br i1 %cmp7.i, label %wc_ecc_check_r_s_range.exit.thread44, label %lor.lhs.false.i
 
-if.end11.i:                                       ; preds = %if.end6.i
+lor.lhs.false.i:                                  ; preds = %if.end6.i
   %11 = load i32, ptr %s, align 8
-  %cmp9.not.i = icmp eq i32 %11, 0
-  br i1 %cmp9.not.i, label %wc_ecc_check_r_s_range.exit.thread44, label %land.lhs.true.i
+  %cmp9.i = icmp eq i32 %11, 0
+  br i1 %cmp9.i, label %wc_ecc_check_r_s_range.exit.thread44, label %land.lhs.true.i
 
-land.lhs.true.i:                                  ; preds = %if.end11.i
+land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
   %order.i = getelementptr inbounds i8, ptr %curve_lcl.i, i64 24
   %12 = load ptr, ptr %order.i, align 8
   %call13.i = call i32 @sp_cmp(ptr noundef nonnull %r, ptr noundef %12) #19
   %cmp14.not.i = icmp eq i32 %call13.i, -1
-  %.pre8.i = load ptr, ptr %curve.i, align 8
+  %.pre5.i = load ptr, ptr %curve.i, align 8
   br i1 %cmp14.not.i, label %land.lhs.true18.i, label %wc_ecc_check_r_s_range.exit.thread44
 
 land.lhs.true18.i:                                ; preds = %land.lhs.true.i
-  %order19.i = getelementptr inbounds i8, ptr %.pre8.i, i64 24
+  %order19.i = getelementptr inbounds i8, ptr %.pre5.i, i64 24
   %13 = load ptr, ptr %order19.i, align 8
   %call20.i = call i32 @sp_cmp(ptr noundef nonnull %s, ptr noundef %13) #19
   %cmp21.not.i = icmp eq i32 %call20.i, -1
   %.pre.i = load ptr, ptr %curve.i, align 8
   br i1 %cmp21.not.i, label %if.end17, label %wc_ecc_check_r_s_range.exit.thread44
 
-wc_ecc_check_r_s_range.exit.thread44:             ; preds = %land.lhs.true18.i, %land.lhs.true.i, %if.end6.i, %if.end11.i
-  %.ph = phi ptr [ %curve_lcl.i, %if.end11.i ], [ %curve_lcl.i, %if.end6.i ], [ %.pre8.i, %land.lhs.true.i ], [ %.pre.i, %land.lhs.true18.i ]
-  %err.3.i.ph = phi i32 [ -121, %if.end11.i ], [ -121, %if.end6.i ], [ -3, %land.lhs.true.i ], [ -3, %land.lhs.true18.i ]
+wc_ecc_check_r_s_range.exit.thread44:             ; preds = %land.lhs.true18.i, %lor.lhs.false.i, %if.end6.i, %land.lhs.true.i
+  %.ph = phi ptr [ %.pre5.i, %land.lhs.true.i ], [ %curve_lcl.i, %if.end6.i ], [ %curve_lcl.i, %lor.lhs.false.i ], [ %.pre.i, %land.lhs.true18.i ]
+  %err.3.i.ph = phi i32 [ -3, %land.lhs.true.i ], [ -121, %if.end6.i ], [ -121, %lor.lhs.false.i ], [ -3, %land.lhs.true18.i ]
   call fastcc void @wc_ecc_curve_free(ptr noundef %.ph)
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %spec_ints.i)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %curve_lcl.i)
@@ -5819,15 +5821,15 @@ lor.lhs.false16:                                  ; preds = %if.end10
   %7 = load i32, ptr %idx, align 4
   %8 = add i32 %7, -5
   %narrow.i = icmp ult i32 %8, -6
-  br i1 %narrow.i, label %return, label %lor.lhs.false18
+  br i1 %narrow.i, label %if.then21, label %lor.lhs.false18
 
 lor.lhs.false18:                                  ; preds = %lor.lhs.false16
   %dp19 = getelementptr inbounds i8, ptr %key, i64 16
   %9 = load ptr, ptr %dp19, align 8
   %cmp20 = icmp eq ptr %9, null
-  br i1 %cmp20, label %return, label %if.end22
+  br i1 %cmp20, label %if.then21, label %if.end22
 
-if.then21:                                        ; preds = %if.end10
+if.then21:                                        ; preds = %if.end10, %lor.lhs.false18, %lor.lhs.false16
   br label %return
 
 if.end22:                                         ; preds = %lor.lhs.false18
@@ -5880,8 +5882,8 @@ if.end64:                                         ; preds = %if.end49
   store i32 %add26, ptr %outLen, align 4
   br label %return
 
-return:                                           ; preds = %if.end64, %if.end40, %if.end49, %if.end31, %lor.lhs.false16, %lor.lhs.false18, %if.end10, %if.end, %if.then28, %if.then21, %cond.end
-  %retval.0 = phi i32 [ -202, %cond.end ], [ -132, %if.then28 ], [ -170, %if.end ], [ -246, %if.end10 ], [ -170, %lor.lhs.false18 ], [ -170, %lor.lhs.false16 ], [ -170, %if.then21 ], [ -132, %if.end31 ], [ %call46, %if.end40 ], [ %call60, %if.end49 ], [ 0, %if.end64 ]
+return:                                           ; preds = %if.end64, %if.end40, %if.end49, %if.end31, %if.end10, %if.end, %if.then28, %if.then21, %cond.end
+  %retval.0 = phi i32 [ -202, %cond.end ], [ -170, %if.then21 ], [ -132, %if.then28 ], [ -170, %if.end ], [ -246, %if.end10 ], [ -132, %if.end31 ], [ %call46, %if.end40 ], [ %call60, %if.end49 ], [ 0, %if.end64 ]
   ret i32 %retval.0
 }
 
@@ -5939,8 +5941,8 @@ if.then31:                                        ; preds = %land.lhs.true
   %call32 = tail call fastcc i32 @_ecc_is_point(ptr noundef nonnull %ecp, ptr noundef nonnull %b, ptr noundef nonnull %prime)
   br label %if.end33
 
-if.end33:                                         ; preds = %entry, %if.then7, %if.then13, %land.lhs.true, %if.then21, %if.then31
-  %err.4 = phi i32 [ %call32, %if.then31 ], [ -170, %land.lhs.true ], [ -170, %if.then21 ], [ -217, %if.then13 ], [ -217, %if.then7 ], [ -173, %entry ]
+if.end33:                                         ; preds = %entry, %if.then21, %land.lhs.true, %if.then7, %if.then13, %if.then31
+  %err.4 = phi i32 [ %call32, %if.then31 ], [ -217, %if.then13 ], [ -217, %if.then7 ], [ -170, %land.lhs.true ], [ -170, %if.then21 ], [ -173, %entry ]
   ret i32 %err.4
 }
 
@@ -6051,15 +6053,15 @@ do.end3.i:                                        ; preds = %entry
   %pubkey.i = getelementptr inbounds i8, ptr %key, i64 32
   %0 = load i32, ptr %pubkey.i, align 8
   %cmp1.i.i = icmp eq i32 %0, 0
-  br i1 %cmp1.i.i, label %wc_ecc_point_is_at_infinity.exit.i, label %if.then9.i
+  br i1 %cmp1.i.i, label %land.lhs.true.i.i, label %if.then9.i
 
-wc_ecc_point_is_at_infinity.exit.i:               ; preds = %do.end3.i
+land.lhs.true.i.i:                                ; preds = %do.end3.i
   %y.i.i = getelementptr inbounds i8, ptr %key, i64 1072
   %1 = load i32, ptr %y.i.i, align 8
-  %cmp4.i.not.i = icmp eq i32 %1, 0
-  br i1 %cmp4.i.not.i, label %_ecc_validate_public_key.exit, label %if.then9.i
+  %cmp4.i.i = icmp eq i32 %1, 0
+  br i1 %cmp4.i.i, label %_ecc_validate_public_key.exit, label %if.then9.i
 
-if.then9.i:                                       ; preds = %wc_ecc_point_is_at_infinity.exit.i, %do.end3.i
+if.then9.i:                                       ; preds = %land.lhs.true.i.i, %do.end3.i
   %dp.i = getelementptr inbounds i8, ptr %key, i64 16
   %2 = load ptr, ptr %dp.i, align 8
   %call10.i = call fastcc i32 @wc_ecc_curve_load(ptr noundef %2, ptr noundef nonnull %curve.i, i8 noundef zeroext 11), !range !17
@@ -6141,9 +6143,9 @@ if.end6.i.i.i:                                    ; preds = %if.end3.i.i.i
   %z.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 2080
   %call9.i.i.i = call i32 @sp_init_multi(ptr noundef nonnull %call.i.i.i, ptr noundef nonnull %y.i.i.i, ptr noundef nonnull %z.i.i.i, ptr noundef null, ptr noundef null, ptr noundef null) #19
   %cmp10.not.i.i.i = icmp eq i32 %call9.i.i.i, 0
-  br i1 %cmp10.not.i.i.i, label %if.then16.i.i, label %if.end55.thread45.i
+  br i1 %cmp10.not.i.i.i, label %if.then16.i.i, label %if.end55.thread43.i
 
-if.end55.thread45.i:                              ; preds = %if.end6.i.i.i
+if.end55.thread43.i:                              ; preds = %if.end6.i.i.i
   call void @wolfSSL_Free(ptr noundef nonnull %call.i.i.i) #19
   br label %if.end70.i
 
@@ -6155,17 +6157,18 @@ if.then16.i.i:                                    ; preds = %if.end6.i.i.i
 if.end.i.i.i:                                     ; preds = %if.then16.i.i
   %15 = load i32, ptr %call.i.i.i, align 8
   %cmp1.i12.i.i = icmp eq i32 %15, 0
-  br i1 %cmp1.i12.i.i, label %wc_ecc_point_is_at_infinity.exit.i.i, label %if.end55.i
+  br i1 %cmp1.i12.i.i, label %land.lhs.true.i.i.i, label %17
 
-wc_ecc_point_is_at_infinity.exit.i.i:             ; preds = %if.end.i.i.i
+land.lhs.true.i.i.i:                              ; preds = %if.end.i.i.i
   %16 = load i32, ptr %y.i.i.i, align 8
-  %.fr.i.i = freeze i32 %16
-  %cmp4.i15.not.i.i = icmp eq i32 %.fr.i.i, 0
-  %spec.select = select i1 %cmp4.i15.not.i.i, i32 0, i32 -215
+  %cmp4.i16.i.i = icmp eq i32 %16, 0
+  br i1 %cmp4.i16.i.i, label %if.end55.i, label %17
+
+17:                                               ; preds = %land.lhs.true.i.i.i, %if.end.i.i.i
   br label %if.end55.i
 
-if.end55.i:                                       ; preds = %wc_ecc_point_is_at_infinity.exit.i.i, %if.end.i.i.i, %if.then16.i.i
-  %err.0.ph.i.i = phi i32 [ %call18.i.i, %if.then16.i.i ], [ -215, %if.end.i.i.i ], [ %spec.select, %wc_ecc_point_is_at_infinity.exit.i.i ]
+if.end55.i:                                       ; preds = %17, %land.lhs.true.i.i.i, %if.then16.i.i
+  %err.0.ph.i.i = phi i32 [ 0, %land.lhs.true.i.i.i ], [ -215, %17 ], [ %call18.i.i, %if.then16.i.i ]
   call void @sp_clear(ptr noundef nonnull %call.i.i.i) #19
   call void @sp_clear(ptr noundef nonnull %y.i.i.i) #19
   call void @sp_clear(ptr noundef nonnull %z.i.i.i) #19
@@ -6174,34 +6177,36 @@ if.end55.i:                                       ; preds = %wc_ecc_point_is_at_
   br i1 %cmp58.i, label %land.lhs.true.i, label %if.end70.i
 
 land.lhs.true.i:                                  ; preds = %if.end55.i
-  %17 = load i32, ptr %key, align 8
-  %cmp59.i = icmp eq i32 %17, 2
+  %18 = load i32, ptr %key, align 8
+  %cmp59.i = icmp eq i32 %18, 2
   br i1 %cmp59.i, label %land.lhs.true60.i, label %if.end70.i
 
 land.lhs.true60.i:                                ; preds = %land.lhs.true.i
   %k.i = getelementptr inbounds i8, ptr %key, i64 3152
-  %18 = load i32, ptr %k.i, align 8
-  %cmp62.i = icmp eq i32 %18, 0
-  br i1 %cmp62.i, label %if.end70.i, label %lor.lhs.false.i
+  %19 = load i32, ptr %k.i, align 8
+  %cmp62.i = icmp eq i32 %19, 0
+  br i1 %cmp62.i, label %if.then68.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %land.lhs.true60.i
-  %19 = load ptr, ptr %curve.i, align 8
-  %order65.i = getelementptr inbounds i8, ptr %19, i64 24
-  %20 = load ptr, ptr %order65.i, align 8
-  %call66.i = call i32 @sp_cmp(ptr noundef nonnull %k.i, ptr noundef %20) #19
+  %20 = load ptr, ptr %curve.i, align 8
+  %order65.i = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = load ptr, ptr %order65.i, align 8
+  %call66.i = call i32 @sp_cmp(ptr noundef nonnull %k.i, ptr noundef %21) #19
   %cmp67.not.i = icmp eq i32 %call66.i, -1
-  %spec.select26.i = select i1 %cmp67.not.i, i32 0, i32 -216
+  br i1 %cmp67.not.i, label %if.end70.i, label %if.then68.i
+
+if.then68.i:                                      ; preds = %lor.lhs.false.i, %land.lhs.true60.i
   br label %if.end70.i
 
-if.end70.i:                                       ; preds = %lor.lhs.false.i, %land.lhs.true60.i, %land.lhs.true.i, %if.end55.i, %if.end55.thread45.i, %if.end3.i.i.i, %lor.lhs.false7.i.i, %lor.lhs.false.i.i, %if.then49.i, %if.end45.i, %if.then31.i, %if.then22.i, %if.end20.i, %if.end15.i, %if.then9.i
-  %err.7.i = phi i32 [ 0, %land.lhs.true.i ], [ %err.0.ph.i.i, %if.end55.i ], [ -216, %land.lhs.true60.i ], [ %spec.select26.i, %lor.lhs.false.i ], [ %call9.i.i.i, %if.end55.thread45.i ], [ -125, %if.end3.i.i.i ], [ -214, %if.then49.i ], [ -214, %lor.lhs.false.i.i ], [ -214, %lor.lhs.false7.i.i ], [ %call44.i, %if.end45.i ], [ -217, %if.then31.i ], [ -217, %if.then22.i ], [ %call19.i, %if.end20.i ], [ %call14.i, %if.end15.i ], [ %call10.i, %if.then9.i ]
-  %21 = load ptr, ptr %curve.i, align 8
-  call fastcc void @wc_ecc_curve_free(ptr noundef %21)
+if.end70.i:                                       ; preds = %if.then68.i, %lor.lhs.false.i, %land.lhs.true.i, %if.end55.i, %if.end55.thread43.i, %if.end3.i.i.i, %lor.lhs.false7.i.i, %lor.lhs.false.i.i, %if.then49.i, %if.end45.i, %if.then31.i, %if.then22.i, %if.end20.i, %if.end15.i, %if.then9.i
+  %err.7.i = phi i32 [ -216, %if.then68.i ], [ 0, %lor.lhs.false.i ], [ 0, %land.lhs.true.i ], [ %err.0.ph.i.i, %if.end55.i ], [ %call9.i.i.i, %if.end55.thread43.i ], [ -125, %if.end3.i.i.i ], [ -214, %if.then49.i ], [ -214, %lor.lhs.false.i.i ], [ -214, %lor.lhs.false7.i.i ], [ %call44.i, %if.end45.i ], [ -217, %if.then31.i ], [ -217, %if.then22.i ], [ %call19.i, %if.end20.i ], [ %call14.i, %if.end15.i ], [ %call10.i, %if.then9.i ]
+  %22 = load ptr, ptr %curve.i, align 8
+  call fastcc void @wc_ecc_curve_free(ptr noundef %22)
   call void @sp_clear(ptr noundef nonnull %b_lcl.i) #19
   br label %_ecc_validate_public_key.exit
 
-_ecc_validate_public_key.exit:                    ; preds = %entry, %wc_ecc_point_is_at_infinity.exit.i, %if.end70.i
-  %retval.0.i = phi i32 [ %err.7.i, %if.end70.i ], [ -173, %entry ], [ -215, %wc_ecc_point_is_at_infinity.exit.i ]
+_ecc_validate_public_key.exit:                    ; preds = %entry, %land.lhs.true.i.i, %if.end70.i
+  %retval.0.i = phi i32 [ %err.7.i, %if.end70.i ], [ -173, %entry ], [ -215, %land.lhs.true.i.i ]
   call void @llvm.lifetime.end.p0(i64 1040, ptr nonnull %b_lcl.i)
   call void @llvm.lifetime.end.p0(i64 480, ptr nonnull %spec_ints.i)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %curve_lcl.i)
@@ -6419,7 +6424,7 @@ if.end27:                                         ; preds = %lor.lhs.false23
 
 if.end33:                                         ; preds = %if.end27, %if.end19
   %cmp34.not = icmp eq ptr %qy, null
-  br i1 %cmp34.not, label %return, label %if.then35
+  br i1 %cmp34.not, label %if.end48, label %if.then35
 
 if.then35:                                        ; preds = %if.end33
   %cmp36 = icmp eq ptr %qyLen, null
@@ -6433,10 +6438,14 @@ lor.lhs.false37:                                  ; preds = %if.then35
 if.end41:                                         ; preds = %lor.lhs.false37
   %y = getelementptr inbounds i8, ptr %key, i64 1072
   %call44 = tail call i32 @wc_export_int(ptr noundef nonnull %y, ptr noundef nonnull %qy, ptr noundef nonnull %qyLen, i32 noundef %3, i32 noundef %encType) #19
+  %cmp45.not = icmp eq i32 %call44, 0
+  br i1 %cmp45.not, label %if.end48, label %return
+
+if.end48:                                         ; preds = %if.end41, %if.end33
   br label %return
 
-return:                                           ; preds = %if.end41, %lor.lhs.false9, %if.end33, %if.then35, %lor.lhs.false37, %if.end27, %if.then21, %lor.lhs.false23, %if.end14, %if.then7, %if.end, %lor.lhs.false, %entry
-  %retval.0 = phi i32 [ -173, %entry ], [ -170, %lor.lhs.false ], [ -170, %if.end ], [ -173, %lor.lhs.false9 ], [ -173, %if.then7 ], [ %call15, %if.end14 ], [ -173, %lor.lhs.false23 ], [ -173, %if.then21 ], [ %call29, %if.end27 ], [ -173, %lor.lhs.false37 ], [ -173, %if.then35 ], [ 0, %if.end33 ], [ %call44, %if.end41 ]
+return:                                           ; preds = %lor.lhs.false9, %if.end41, %if.then35, %lor.lhs.false37, %if.end27, %if.then21, %lor.lhs.false23, %if.end14, %if.then7, %if.end, %lor.lhs.false, %entry, %if.end48
+  %retval.0 = phi i32 [ 0, %if.end48 ], [ -173, %entry ], [ -170, %lor.lhs.false ], [ -170, %if.end ], [ -173, %lor.lhs.false9 ], [ -173, %if.then7 ], [ %call15, %if.end14 ], [ -173, %lor.lhs.false23 ], [ -173, %if.then21 ], [ %call29, %if.end27 ], [ -173, %lor.lhs.false37 ], [ -173, %if.then35 ], [ %call44, %if.end41 ]
   ret i32 %retval.0
 }
 

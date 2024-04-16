@@ -171,9 +171,9 @@ define dso_local ptr @nfs3_get_acl(ptr noundef %0, i32 noundef %1, i1 noundef ze
   %93 = load i32, ptr %20, align 4
   %94 = and i32 %93, -9
   store i32 %94, ptr %20, align 4
-  br label %135
+  br label %95
 
-95:                                               ; preds = %83
+95:                                               ; preds = %92, %83
   br label %135
 
 96:                                               ; preds = %84
@@ -251,8 +251,8 @@ define dso_local ptr @nfs3_get_acl(ptr noundef %0, i32 noundef %1, i1 noundef ze
   %134 = load ptr, ptr %133, align 8
   br label %169
 
-135:                                              ; preds = %92, %95, %84, %83
-  %136 = phi i32 [ %73, %83 ], [ -5, %84 ], [ -95, %92 ], [ -95, %95 ]
+135:                                              ; preds = %95, %84, %83
+  %136 = phi i32 [ %73, %83 ], [ -95, %95 ], [ -5, %84 ]
   %137 = getelementptr inbounds i8, ptr %0, i64 16
   %138 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #9, !srcloc !6
   %139 = inttoptr i64 %138 to ptr
@@ -647,13 +647,13 @@ define internal fastcc i32 @__nfs3_proc_setacls(ptr noundef %0, ptr noundef %1, 
   %109 = load i32, ptr %71, align 4
   %110 = and i32 %109, -9
   store i32 %110, ptr %71, align 4
+  br label %111
+
+111:                                              ; preds = %108, %98
   br label %112
 
-111:                                              ; preds = %98
-  br label %112
-
-112:                                              ; preds = %108, %111, %105, %98
-  %113 = phi i32 [ %104, %98 ], [ %107, %105 ], [ -95, %108 ], [ -95, %111 ]
+112:                                              ; preds = %111, %105, %98
+  %113 = phi i32 [ %104, %98 ], [ -95, %111 ], [ %107, %105 ]
   %114 = load ptr, ptr %4, align 8
   call void @kfree(ptr noundef %114) #8
   br label %thread-pre-split

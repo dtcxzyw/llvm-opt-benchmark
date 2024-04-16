@@ -4138,7 +4138,7 @@ while.body:                                       ; preds = %entry, %_ZNK9__gnu_
   %add.ptr.i.i.i10.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i56, i64 16
   %1 = load i64, ptr %add.ptr.i.i.i10.i.i.i, align 8, !tbaa !37
   %cmp.i.i.i = icmp ult i64 %0, %1
-  br i1 %cmp.i.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJmmmEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread85, label %lor.rhs.i.i.i
+  br i1 %cmp.i.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJmmmEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %while.body
   %cmp4.i.i.i = icmp ult i64 %1, %0
@@ -4150,7 +4150,7 @@ land.rhs.i.i.i:                                   ; preds = %lor.rhs.i.i.i
   %add.ptr.i.i.i10.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i56, i64 8
   %3 = load i64, ptr %add.ptr.i.i.i10.i.i.i.i, align 8, !tbaa !37
   %cmp.i.i.i.i = icmp ult i64 %2, %3
-  br i1 %cmp.i.i.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJmmmEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread85, label %lor.rhs.i.i.i.i
+  br i1 %cmp.i.i.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJmmmEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %land.rhs.i.i.i
   %cmp4.i.i.i.i = icmp ult i64 %3, %2
@@ -4161,13 +4161,14 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJmmmEES
   %5 = load i64, ptr %add.ptr.i56, align 8, !tbaa !37
   %cmp.i.i.i.i.i = icmp ult i64 %4, %5
   %cond.fr = freeze i1 %cmp.i.i.i.i.i
-  %spec.select = select i1 %cond.fr, i64 %1, i64 %0
-  %spec.select1 = select i1 %cond.fr, i64 %sub3, i64 %mul
+  br i1 %cond.fr, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJmmmEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJmmmEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread85
+
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJmmmEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJmmmEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit, %land.rhs.i.i.i, %while.body
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJmmmEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread85
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJmmmEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread85: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJmmmEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit, %while.body, %land.rhs.i.i.i, %lor.rhs.i.i.i.i, %lor.rhs.i.i.i
-  %6 = phi i64 [ %0, %lor.rhs.i.i.i ], [ %0, %lor.rhs.i.i.i.i ], [ %1, %land.rhs.i.i.i ], [ %1, %while.body ], [ %spec.select, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJmmmEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit ]
-  %7 = phi i64 [ %mul, %lor.rhs.i.i.i ], [ %mul, %lor.rhs.i.i.i.i ], [ %sub3, %land.rhs.i.i.i ], [ %sub3, %while.body ], [ %spec.select1, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJmmmEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit ]
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJmmmEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread85: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJmmmEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJmmmEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit, %lor.rhs.i.i.i.i, %lor.rhs.i.i.i
+  %6 = phi i64 [ %1, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJmmmEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread ], [ %0, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJmmmEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit ], [ %0, %lor.rhs.i.i.i ], [ %0, %lor.rhs.i.i.i.i ]
+  %7 = phi i64 [ %sub3, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJmmmEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread ], [ %mul, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJmmmEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit ], [ %mul, %lor.rhs.i.i.i ], [ %mul, %lor.rhs.i.i.i.i ]
   %add.ptr.i57 = getelementptr inbounds %"class.std::tuple", ptr %__first.coerce, i64 %7
   %add.ptr.i58 = getelementptr inbounds %"class.std::tuple", ptr %__first.coerce, i64 %__holeIndex.addr.088
   %add.ptr.i6.i.i = getelementptr inbounds i8, ptr %add.ptr.i58, i64 16

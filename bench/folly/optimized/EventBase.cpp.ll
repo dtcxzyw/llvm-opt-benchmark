@@ -13008,23 +13008,25 @@ _ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly9EventBase12LoopCallbackENS0_
           to label %invoke.cont17 unwind label %lpad16
 
 invoke.cont17:                                    ; preds = %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly9EventBase12LoopCallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE4swapERSC_.exit
-  br i1 %tobool.not, label %land.lhs.true, label %if.else.invoke
+  br i1 %tobool.not, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %invoke.cont17
   %14 = load ptr, ptr %loopCallbacks_, align 8, !tbaa !154
   %tobool.not.i = icmp eq ptr %14, null
   %cmp.i = icmp eq ptr %14, %loopCallbacks_
   %15 = or i1 %tobool.not.i, %cmp.i
-  %spec.select = select i1 %15, i32 1, i32 3
-  br label %if.else.invoke
+  br i1 %15, label %if.else.invoke, label %if.else
 
 lpad16:                                           ; preds = %if.end44, %if.else.invoke, %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly9EventBase12LoopCallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE4swapERSC_.exit
   %16 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup352
 
-if.else.invoke:                                   ; preds = %land.lhs.true, %invoke.cont17
-  %17 = phi i32 [ 3, %invoke.cont17 ], [ %spec.select, %land.lhs.true ]
+if.else:                                          ; preds = %land.lhs.true, %invoke.cont17
+  br label %if.else.invoke
+
+if.else.invoke:                                   ; preds = %if.else, %land.lhs.true
+  %17 = phi i32 [ 3, %if.else ], [ 1, %land.lhs.true ]
   %.sink = load ptr, ptr %evb_24, align 8, !tbaa !144
   %vtable = load ptr, ptr %.sink, align 8, !tbaa !28
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32

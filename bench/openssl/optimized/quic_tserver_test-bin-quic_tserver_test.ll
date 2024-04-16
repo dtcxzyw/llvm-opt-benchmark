@@ -139,7 +139,7 @@ declare ptr @CRYPTO_THREAD_lock_new() local_unnamed_addr #2
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_tserver(i32 noundef %idx) #1 {
+define internal noundef i32 @test_tserver(i32 noundef %idx) #1 {
 entry:
   %c_pair_own.i = alloca ptr, align 8
   %s_pair_own.i = alloca ptr, align 8
@@ -153,16 +153,16 @@ entry:
   %isinf.i = alloca i32, align 4
   %rmsg.i = alloca %struct.bio_msg_st, align 8
   %msgs_processed.i = alloca i64, align 8
-  %rem = srem i32 %idx, 2
-  %div = sdiv i32 %idx, 2
   %div2 = sdiv i32 %idx, 4
-  %0 = and i32 %div2, 1
-  %tobool = icmp eq i32 %0, 0
-  %tobool4 = icmp ne i32 %rem, 0
+  %rem3 = srem i32 %div2, 2
+  %tobool = icmp eq i32 %rem3, 0
+  %0 = and i32 %idx, 1
+  %tobool4 = icmp ne i32 %0, 0
   %or.cond = or i1 %tobool4, %tobool
   br i1 %or.cond, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
+  %div = sdiv i32 %idx, 2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %c_pair_own.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %s_pair_own.i)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %tserver_args.i)
@@ -255,7 +255,8 @@ if.end48.i:                                       ; preds = %if.end44.i
   store ptr null, ptr %alpn50.i, align 8
   %ctx.i = getelementptr inbounds i8, ptr %tserver_args.i, i64 16
   store ptr null, ptr %ctx.i, align 8
-  br i1 %tobool, label %if.end53.i, label %if.then52.i
+  %tobool51.i = icmp ne i32 %rem3, 0
+  br i1 %tobool51.i, label %if.then52.i, label %if.end53.i
 
 if.then52.i:                                      ; preds = %if.end48.i
   %now_cb.i = getelementptr inbounds i8, ptr %tserver_args.i, i64 40
@@ -314,8 +315,7 @@ if.end86.i:                                       ; preds = %if.end81.i
   br i1 %tobool89.not.i, label %err.i, label %if.end91.i
 
 if.end91.i:                                       ; preds = %if.end86.i
-  %tobool92.i = icmp eq i32 %rem, 0
-  br i1 %tobool92.i, label %cond.false.i, label %cond.true.i
+  br i1 %tobool4, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %if.end91.i
   %call93.i = call ptr @OSSL_QUIC_client_thread_method() #8
@@ -339,7 +339,7 @@ if.end99.i:                                       ; preds = %cond.end.i
   br i1 %tobool102.not.i, label %err.i, label %if.end104.i
 
 if.end104.i:                                      ; preds = %if.end99.i
-  br i1 %tobool, label %if.end114.i, label %if.then106.i
+  br i1 %tobool51.i, label %if.then106.i, label %if.end114.i
 
 if.then106.i:                                     ; preds = %if.end104.i
   %call107.i = call i32 @ossl_quic_conn_set_override_now_cb(ptr noundef %call100.i, ptr noundef nonnull @fake_now, ptr noundef null) #8
@@ -386,13 +386,13 @@ if.end131.i:                                      ; preds = %if.else.i, %if.then
 
 if.end138.i:                                      ; preds = %if.end131.i
   %call.i.i = call i64 @ossl_time_now() #8
-  %call.i94140.i = call i64 @ossl_time_now() #8
-  %retval.sroa.0.0.i141.i = call i64 @llvm.usub.sat.i64(i64 %call.i94140.i, i64 %call.i.i)
-  %cmp5.i.not142.i = icmp ult i64 %retval.sroa.0.0.i141.i, 10000000000
-  br i1 %cmp5.i.not142.i, label %if.end158.lr.ph.i, label %if.then157.i
+  %call.i93139.i = call i64 @ossl_time_now() #8
+  %retval.sroa.0.0.i140.i = call i64 @llvm.usub.sat.i64(i64 %call.i93139.i, i64 %call.i.i)
+  %cmp5.i.not141.i = icmp ult i64 %retval.sroa.0.0.i140.i, 10000000000
+  br i1 %cmp5.i.not141.i, label %if.end158.lr.ph.i, label %if.then157.i
 
 if.end158.lr.ph.i:                                ; preds = %if.end138.i
-  %or.cond6.not156.i = or i1 %tobool92.i, %tobool
+  %or.cond6.i = and i1 %tobool4, %tobool51.i
   %6 = getelementptr inbounds i8, ptr %tv.i, i64 8
   %data_len.i = getelementptr inbounds i8, ptr %rmsg.i, i64 8
   %7 = getelementptr inbounds i8, ptr %rmsg.i, i64 16
@@ -403,20 +403,20 @@ if.then157.i:                                     ; preds = %if.end393.i, %if.en
   br label %err.i
 
 if.end158.i:                                      ; preds = %if.end393.i, %if.end158.lr.ph.i
-  %limit_ms.0155.i = phi i64 [ 10000, %if.end158.lr.ph.i ], [ %limit_ms.1112.ph135.i, %if.end393.i ]
-  %s_begin_write.0154.i = phi i32 [ 0, %if.end158.lr.ph.i ], [ %s_begin_write.1.i, %if.end393.i ]
-  %idle_units_done.0153.i = phi i64 [ 0, %if.end158.lr.ph.i ], [ %idle_units_done.1.ph138.i, %if.end393.i ]
-  %c_total_read.0152.i = phi i64 [ 0, %if.end158.lr.ph.i ], [ %c_total_read.1.i, %if.end393.i ]
-  %s_total_written.0151.i = phi i64 [ 0, %if.end158.lr.ph.i ], [ %s_total_written.1.i, %if.end393.i ]
-  %s_total_read.0150.i = phi i64 [ 0, %if.end158.lr.ph.i ], [ %s_total_read.1.i, %if.end393.i ]
-  %c_start_idle_test.0149.i = phi i32 [ 0, %if.end158.lr.ph.i ], [ %c_start_idle_test.1110.ph136.i, %if.end393.i ]
-  %c_done_eos.0148.i = phi i32 [ 0, %if.end158.lr.ph.i ], [ %c_done_eos.1108.ph137.i, %if.end393.i ]
-  %c_wait_eos.0147.i = phi i32 [ 0, %if.end158.lr.ph.i ], [ %c_wait_eos.1.i, %if.end393.i ]
-  %s_read_done.0146.i = phi i32 [ 0, %if.end158.lr.ph.i ], [ %s_read_done.1.i, %if.end393.i ]
-  %c_begin_read.0145.i = phi i32 [ 0, %if.end158.lr.ph.i ], [ %c_begin_read.1.i, %if.end393.i ]
-  %c_write_done.0144.i = phi i32 [ 0, %if.end158.lr.ph.i ], [ %c_write_done.1.i, %if.end393.i ]
-  %c_connected.0143.i = phi i32 [ 0, %if.end158.lr.ph.i ], [ %c_connected.1.i, %if.end393.i ]
-  %tobool159.not.i = icmp eq i32 %c_start_idle_test.0149.i, 0
+  %limit_ms.0154.i = phi i64 [ 10000, %if.end158.lr.ph.i ], [ %limit_ms.1111.ph134.i, %if.end393.i ]
+  %s_begin_write.0153.i = phi i32 [ 0, %if.end158.lr.ph.i ], [ %s_begin_write.1.i, %if.end393.i ]
+  %idle_units_done.0152.i = phi i64 [ 0, %if.end158.lr.ph.i ], [ %idle_units_done.1.ph137.i, %if.end393.i ]
+  %c_total_read.0151.i = phi i64 [ 0, %if.end158.lr.ph.i ], [ %c_total_read.1.i, %if.end393.i ]
+  %s_total_written.0150.i = phi i64 [ 0, %if.end158.lr.ph.i ], [ %s_total_written.1.i, %if.end393.i ]
+  %s_total_read.0149.i = phi i64 [ 0, %if.end158.lr.ph.i ], [ %s_total_read.1.i, %if.end393.i ]
+  %c_start_idle_test.0148.i = phi i32 [ 0, %if.end158.lr.ph.i ], [ %c_start_idle_test.1109.ph135.i, %if.end393.i ]
+  %c_done_eos.0147.i = phi i32 [ 0, %if.end158.lr.ph.i ], [ %c_done_eos.1107.ph136.i, %if.end393.i ]
+  %c_wait_eos.0146.i = phi i32 [ 0, %if.end158.lr.ph.i ], [ %c_wait_eos.1.i, %if.end393.i ]
+  %s_read_done.0145.i = phi i32 [ 0, %if.end158.lr.ph.i ], [ %s_read_done.1.i, %if.end393.i ]
+  %c_begin_read.0144.i = phi i32 [ 0, %if.end158.lr.ph.i ], [ %c_begin_read.1.i, %if.end393.i ]
+  %c_write_done.0143.i = phi i32 [ 0, %if.end158.lr.ph.i ], [ %c_write_done.1.i, %if.end393.i ]
+  %c_connected.0142.i = phi i32 [ 0, %if.end158.lr.ph.i ], [ %c_connected.1.i, %if.end393.i ]
+  %tobool159.not.i = icmp eq i32 %c_start_idle_test.0148.i, 0
   br i1 %tobool159.not.i, label %if.then160.i, label %if.end176.i
 
 if.then160.i:                                     ; preds = %if.end158.i
@@ -425,8 +425,8 @@ if.then160.i:                                     ; preds = %if.end158.i
   br i1 %cmp162.i, label %lor.end.i, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %if.then160.i
-  %call.i95.i = call i32 @SSL_get_error(ptr noundef %call100.i, i32 noundef %call161.i) #8
-  %8 = and i32 %call.i95.i, -2
+  %call.i94.i = call i32 @SSL_get_error(ptr noundef %call100.i, i32 noundef %call161.i) #8
+  %8 = and i32 %call.i94.i, -2
   %9 = icmp eq i32 %8, 2
   br label %lor.end.i
 
@@ -438,13 +438,13 @@ lor.end.i:                                        ; preds = %lor.rhs.i, %if.then
   br i1 %tobool169.not.i, label %err.i, label %if.end171.i
 
 if.end171.i:                                      ; preds = %lor.end.i
-  %spec.select.i = select i1 %cmp162.i, i32 1, i32 %c_connected.0143.i
+  %spec.select.i = select i1 %cmp162.i, i32 1, i32 %c_connected.0142.i
   br label %if.end176.i
 
 if.end176.i:                                      ; preds = %if.end171.i, %if.end158.i
-  %c_connected.1.i = phi i32 [ %c_connected.0143.i, %if.end158.i ], [ %spec.select.i, %if.end171.i ]
+  %c_connected.1.i = phi i32 [ %c_connected.0142.i, %if.end158.i ], [ %spec.select.i, %if.end171.i ]
   %tobool177.i = icmp eq i32 %c_connected.1.i, 0
-  %tobool178.i = icmp ne i32 %c_write_done.0144.i, 0
+  %tobool178.i = icmp ne i32 %c_write_done.0143.i, 0
   %or.cond.i = select i1 %tobool177.i, i1 true, i1 %tobool178.i
   br i1 %or.cond.i, label %if.end192.i, label %if.then179.i
 
@@ -463,16 +463,16 @@ if.end184.i:                                      ; preds = %if.then179.i
   br i1 %tobool189.not.i, label %err.i, label %if.end192.i
 
 if.end192.i:                                      ; preds = %if.end184.i, %if.end176.i
-  %c_write_done.1.i = phi i32 [ %c_write_done.0144.i, %if.end176.i ], [ 1, %if.end184.i ]
+  %c_write_done.1.i = phi i32 [ %c_write_done.0143.i, %if.end176.i ], [ 1, %if.end184.i ]
   %tobool195.i = icmp eq i32 %c_write_done.1.i, 0
   %or.cond1.not92.i = select i1 %tobool177.i, i1 true, i1 %tobool195.i
-  %tobool197.i = icmp ne i32 %s_read_done.0146.i, 0
+  %tobool197.i = icmp ne i32 %s_read_done.0145.i, 0
   %or.cond2.i = select i1 %or.cond1.not92.i, i1 true, i1 %tobool197.i
   br i1 %or.cond2.i, label %if.end219.i, label %if.then198.i
 
 if.then198.i:                                     ; preds = %if.end192.i
-  %add.ptr.i = getelementptr inbounds i8, ptr @msg2, i64 %s_total_read.0150.i
-  %sub.i = sub i64 1024, %s_total_read.0150.i
+  %add.ptr.i = getelementptr inbounds i8, ptr @msg2, i64 %s_total_read.0149.i
+  %sub.i = sub i64 1024, %s_total_read.0149.i
   %call199.i = call i32 @ossl_quic_tserver_read(ptr noundef %call54.i, i64 noundef 0, ptr noundef nonnull %add.ptr.i, i64 noundef %sub.i, ptr noundef nonnull %l.i) #8
   %tobool200.not.i = icmp eq i32 %call199.i, 0
   br i1 %tobool200.not.i, label %if.then201.i, label %if.else213.i
@@ -486,29 +486,29 @@ if.then201.i:                                     ; preds = %if.then198.i
   br i1 %tobool206.not.i, label %err.i, label %if.end208.i
 
 if.end208.i:                                      ; preds = %if.then201.i
-  %call209.i = call i32 @test_mem_eq(ptr noundef nonnull @.str.14, i32 noundef 236, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46, ptr noundef nonnull @msg1, i64 noundef 46, ptr noundef nonnull @msg2, i64 noundef %s_total_read.0150.i) #8
+  %call209.i = call i32 @test_mem_eq(ptr noundef nonnull @.str.14, i32 noundef 236, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46, ptr noundef nonnull @msg1, i64 noundef 46, ptr noundef nonnull @msg2, i64 noundef %s_total_read.0149.i) #8
   %tobool210.not.i = icmp eq i32 %call209.i, 0
   br i1 %tobool210.not.i, label %err.i, label %if.end219.i
 
 if.else213.i:                                     ; preds = %if.then198.i
   %11 = load i64, ptr %l.i, align 8
-  %add.i = add i64 %11, %s_total_read.0150.i
+  %add.i = add i64 %11, %s_total_read.0149.i
   %call214.i = call i32 @test_size_t_le(ptr noundef nonnull @.str.14, i32 noundef 243, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.48, i64 noundef %add.i, i64 noundef 46) #8
   %tobool215.not.i = icmp eq i32 %call214.i, 0
   br i1 %tobool215.not.i, label %err.i, label %if.end219.i
 
 if.end219.i:                                      ; preds = %if.else213.i, %if.end208.i, %if.end192.i
-  %s_read_done.1.i = phi i32 [ %s_read_done.0146.i, %if.end192.i ], [ 0, %if.else213.i ], [ 1, %if.end208.i ]
-  %s_total_read.1.i = phi i64 [ %s_total_read.0150.i, %if.end192.i ], [ %add.i, %if.else213.i ], [ %s_total_read.0150.i, %if.end208.i ]
-  %s_begin_write.1.i = phi i32 [ %s_begin_write.0154.i, %if.end192.i ], [ %s_begin_write.0154.i, %if.else213.i ], [ 1, %if.end208.i ]
+  %s_read_done.1.i = phi i32 [ %s_read_done.0145.i, %if.end192.i ], [ 0, %if.else213.i ], [ 1, %if.end208.i ]
+  %s_total_read.1.i = phi i64 [ %s_total_read.0149.i, %if.end192.i ], [ %add.i, %if.else213.i ], [ %s_total_read.0149.i, %if.end208.i ]
+  %s_begin_write.1.i = phi i32 [ %s_begin_write.0153.i, %if.end192.i ], [ %s_begin_write.0153.i, %if.else213.i ], [ 1, %if.end208.i ]
   %tobool220.i = icmp ne i32 %s_begin_write.1.i, 0
-  %cmp222.i = icmp ult i64 %s_total_written.0151.i, 46
+  %cmp222.i = icmp ult i64 %s_total_written.0150.i, 46
   %or.cond3.i = select i1 %tobool220.i, i1 %cmp222.i, i1 false
   br i1 %or.cond3.i, label %if.then224.i, label %if.end240.i
 
 if.then224.i:                                     ; preds = %if.end219.i
-  %add.ptr225.i = getelementptr inbounds i8, ptr @msg2, i64 %s_total_written.0151.i
-  %sub226.i = sub nuw nsw i64 46, %s_total_written.0151.i
+  %add.ptr225.i = getelementptr inbounds i8, ptr @msg2, i64 %s_total_written.0150.i
+  %sub226.i = sub nuw nsw i64 46, %s_total_written.0150.i
   %call227.i = call i32 @ossl_quic_tserver_write(ptr noundef %call54.i, i64 noundef 0, ptr noundef nonnull %add.ptr225.i, i64 noundef %sub226.i, ptr noundef nonnull %l.i) #8
   %cmp228.i = icmp ne i32 %call227.i, 0
   %conv229.i = zext i1 %cmp228.i to i32
@@ -518,7 +518,7 @@ if.then224.i:                                     ; preds = %if.end219.i
 
 if.end233.i:                                      ; preds = %if.then224.i
   %12 = load i64, ptr %l.i, align 8
-  %add234.i = add i64 %12, %s_total_written.0151.i
+  %add234.i = add i64 %12, %s_total_written.0150.i
   %cmp235.i = icmp eq i64 %add234.i, 46
   br i1 %cmp235.i, label %if.then237.i, label %if.end240.i
 
@@ -527,23 +527,23 @@ if.then237.i:                                     ; preds = %if.end233.i
   br label %if.end240.i
 
 if.end240.i:                                      ; preds = %if.then237.i, %if.end233.i, %if.end219.i
-  %c_begin_read.1.i = phi i32 [ 1, %if.then237.i ], [ %c_begin_read.0145.i, %if.end233.i ], [ %c_begin_read.0145.i, %if.end219.i ]
-  %s_total_written.1.i = phi i64 [ 46, %if.then237.i ], [ %add234.i, %if.end233.i ], [ %s_total_written.0151.i, %if.end219.i ]
+  %c_begin_read.1.i = phi i32 [ 1, %if.then237.i ], [ %c_begin_read.0144.i, %if.end233.i ], [ %c_begin_read.0144.i, %if.end219.i ]
+  %s_total_written.1.i = phi i64 [ 46, %if.then237.i ], [ %add234.i, %if.end233.i ], [ %s_total_written.0150.i, %if.end219.i ]
   %tobool241.i = icmp ne i32 %c_begin_read.1.i, 0
-  %cmp243.i = icmp ult i64 %c_total_read.0152.i, 46
+  %cmp243.i = icmp ult i64 %c_total_read.0151.i, 46
   %or.cond4.i = select i1 %tobool241.i, i1 %cmp243.i, i1 false
   br i1 %or.cond4.i, label %if.then245.i, label %if.end271.i
 
 if.then245.i:                                     ; preds = %if.end240.i
-  %add.ptr246.i = getelementptr inbounds i8, ptr @msg3, i64 %c_total_read.0152.i
-  %sub247.i = sub nuw nsw i64 46, %c_total_read.0152.i
+  %add.ptr246.i = getelementptr inbounds i8, ptr @msg3, i64 %c_total_read.0151.i
+  %sub247.i = sub nuw nsw i64 46, %c_total_read.0151.i
   %call248.i = call i32 @SSL_read_ex(ptr noundef %call100.i, ptr noundef nonnull %add.ptr246.i, i64 noundef %sub247.i, ptr noundef nonnull %l.i) #8
   %cmp249.i = icmp eq i32 %call248.i, 1
   br i1 %cmp249.i, label %lor.end254.i, label %lor.rhs251.i
 
 lor.rhs251.i:                                     ; preds = %if.then245.i
-  %call.i96.i = call i32 @SSL_get_error(ptr noundef %call100.i, i32 noundef %call248.i) #8
-  %13 = and i32 %call.i96.i, -2
+  %call.i95.i = call i32 @SSL_get_error(ptr noundef %call100.i, i32 noundef %call248.i) #8
+  %13 = and i32 %call.i95.i, -2
   %14 = icmp eq i32 %13, 2
   br label %lor.end254.i
 
@@ -556,7 +556,7 @@ lor.end254.i:                                     ; preds = %lor.rhs251.i, %if.t
 
 if.end261.i:                                      ; preds = %lor.end254.i
   %16 = load i64, ptr %l.i, align 8
-  %add262.i = add i64 %16, %c_total_read.0152.i
+  %add262.i = add i64 %16, %c_total_read.0151.i
   %cmp263.i = icmp eq i64 %add262.i, 46
   br i1 %cmp263.i, label %if.then265.i, label %if.end271.i
 
@@ -566,10 +566,10 @@ if.then265.i:                                     ; preds = %if.end261.i
   br i1 %tobool267.not.i, label %err.i, label %if.end271.i
 
 if.end271.i:                                      ; preds = %if.then265.i, %if.end261.i, %if.end240.i
-  %c_wait_eos.1.i = phi i32 [ %c_wait_eos.0147.i, %if.end261.i ], [ %c_wait_eos.0147.i, %if.end240.i ], [ 1, %if.then265.i ]
-  %c_total_read.1.i = phi i64 [ %add262.i, %if.end261.i ], [ %c_total_read.0152.i, %if.end240.i ], [ 46, %if.then265.i ]
+  %c_wait_eos.1.i = phi i32 [ %c_wait_eos.0146.i, %if.end261.i ], [ %c_wait_eos.0146.i, %if.end240.i ], [ 1, %if.then265.i ]
+  %c_total_read.1.i = phi i64 [ %add262.i, %if.end261.i ], [ %c_total_read.0151.i, %if.end240.i ], [ 46, %if.then265.i ]
   %tobool272.i = icmp eq i32 %c_wait_eos.1.i, 0
-  %tobool274.i = icmp ne i32 %c_done_eos.0148.i, 0
+  %tobool274.i = icmp ne i32 %c_done_eos.0147.i, 0
   %or.cond5.i = select i1 %tobool272.i, i1 true, i1 %tobool274.i
   br i1 %or.cond5.i, label %if.end306.i, label %if.then275.i
 
@@ -590,10 +590,12 @@ if.then286.i:                                     ; preds = %if.end282.i
   %call287.i = call i32 @SSL_get_error(ptr noundef %call100.i, i32 noundef %call276.i) #8
   %call288.i = call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 292, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.53, i32 noundef %call287.i, i32 noundef 6) #8
   %tobool289.not.i = icmp eq i32 %call288.i, 0
-  %brmerge.i = or i1 %or.cond6.not156.i, %tobool289.not.i
-  br i1 %brmerge.i, label %err.loopexit158.split.loop.exit.i, label %if.then295.i
+  br i1 %tobool289.not.i, label %err.i, label %if.end291.i
 
-if.then295.i:                                     ; preds = %if.then286.i
+if.end291.i:                                      ; preds = %if.then286.i
+  br i1 %or.cond6.i, label %if.then295.i, label %for.end394.i
+
+if.then295.i:                                     ; preds = %if.end291.i
   %call296.i = call i32 @ossl_quic_tserver_is_connected(ptr noundef %call54.i) #8
   %cmp297.i = icmp ne i32 %call296.i, 0
   %conv298.i = zext i1 %cmp297.i to i32
@@ -602,14 +604,14 @@ if.then295.i:                                     ; preds = %if.then286.i
   br i1 %tobool300.not.i, label %err.i, label %if.then310.i
 
 if.end306.i:                                      ; preds = %if.end282.i, %if.end271.i
-  %c_done_eos.1.i = phi i32 [ %c_done_eos.0148.i, %if.end271.i ], [ 0, %if.end282.i ]
+  %c_done_eos.1.i = phi i32 [ %c_done_eos.0147.i, %if.end271.i ], [ 0, %if.end282.i ]
   br i1 %tobool159.not.i, label %if.then366.i, label %if.then310.i
 
 if.then310.i:                                     ; preds = %if.end306.i, %if.then295.i
-  %limit_ms.1111.i = phi i64 [ %limit_ms.0155.i, %if.end306.i ], [ 120000, %if.then295.i ]
-  %c_start_idle_test.1109.i = phi i32 [ %c_start_idle_test.0149.i, %if.end306.i ], [ 1, %if.then295.i ]
-  %c_done_eos.1107.i = phi i32 [ %c_done_eos.1.i, %if.end306.i ], [ 1, %if.then295.i ]
-  %cmp311.i = icmp ult i64 %idle_units_done.0153.i, 600
+  %limit_ms.1110.i = phi i64 [ %limit_ms.0154.i, %if.end306.i ], [ 120000, %if.then295.i ]
+  %c_start_idle_test.1108.i = phi i32 [ %c_start_idle_test.0148.i, %if.end306.i ], [ 1, %if.then295.i ]
+  %c_done_eos.1106.i = phi i32 [ %c_done_eos.1.i, %if.end306.i ], [ 1, %if.then295.i ]
+  %cmp311.i = icmp ult i64 %idle_units_done.0152.i, 600
   br i1 %cmp311.i, label %if.then313.i, label %if.then355.i
 
 if.then313.i:                                     ; preds = %if.then310.i
@@ -623,11 +625,11 @@ if.then313.i:                                     ; preds = %if.then310.i
 
 if.end320.i:                                      ; preds = %if.then313.i
   %18 = load i64, ptr @fake_time.0, align 8
-  %retval.sroa.0.0.i98.i = call i64 @llvm.uadd.sat.i64(i64 %18, i64 100000000)
-  store i64 %retval.sroa.0.0.i98.i, ptr @fake_time.0, align 8
+  %retval.sroa.0.0.i97.i = call i64 @llvm.uadd.sat.i64(i64 %18, i64 100000000)
+  store i64 %retval.sroa.0.0.i97.i, ptr @fake_time.0, align 8
   %19 = load ptr, ptr @fake_time_lock, align 8
   %call328.i = call i32 @CRYPTO_THREAD_unlock(ptr noundef %19) #8
-  %inc.i = add nuw nsw i64 %idle_units_done.0153.i, 1
+  %inc.i = add nuw nsw i64 %idle_units_done.0152.i, 1
   call void @ossl_quic_conn_force_assist_thread_wake(ptr noundef %call100.i) #8
   %call329.i = call i32 @SSL_get_event_timeout(ptr noundef %call100.i, ptr noundef nonnull %tv.i, ptr noundef nonnull %isinf.i) #8
   %cmp330.i = icmp ne i32 %call329.i, 0
@@ -643,15 +645,15 @@ if.end335.i:                                      ; preds = %if.end320.i
 
 land.lhs.true337.i:                               ; preds = %if.end335.i
   %21 = load i64, ptr %tv.i, align 8
-  %cmp.i99.i = icmp slt i64 %21, 0
-  br i1 %cmp.i99.i, label %if.then349.i, label %ossl_time_from_timeval.exit.i
+  %cmp.i98.i = icmp slt i64 %21, 0
+  br i1 %cmp.i98.i, label %if.then349.i, label %ossl_time_from_timeval.exit.i
 
 ossl_time_from_timeval.exit.i:                    ; preds = %land.lhs.true337.i
   %22 = load i64, ptr %6, align 8
   %mul.i.neg.i = mul i64 %21, -1000000000
   %mul2.i.i = mul i64 %22, 1000
-  %cmp5.i101.not.i = icmp eq i64 %mul2.i.i, %mul.i.neg.i
-  br i1 %cmp5.i101.not.i, label %if.then349.i, label %if.end368.i
+  %cmp5.i100.not.i = icmp eq i64 %mul2.i.i, %mul.i.neg.i
+  br i1 %cmp5.i100.not.i, label %if.then349.i, label %if.end368.i
 
 if.then349.i:                                     ; preds = %ossl_time_from_timeval.exit.i, %land.lhs.true337.i
   call void @OSSL_sleep(i64 noundef 100) #8
@@ -662,18 +664,18 @@ if.then355.i:                                     ; preds = %if.then310.i
   %cmp357.i = icmp ne i32 %call356.i, 0
   %conv358.i = zext i1 %cmp357.i to i32
   %call359.i = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 341, ptr noundef nonnull @.str.54, i32 noundef %conv358.i) #8
-  %tobool360.not.i = icmp ne i32 %call359.i, 0
-  br label %err.i
+  %tobool360.not.i = icmp eq i32 %call359.i, 0
+  br i1 %tobool360.not.i, label %err.i, label %for.end394.i
 
 if.then366.i:                                     ; preds = %if.end306.i
   %call367.i = call i32 @SSL_handle_events(ptr noundef %call100.i) #8
   br label %if.end368.i
 
 if.end368.i:                                      ; preds = %if.then366.i, %if.then349.i, %ossl_time_from_timeval.exit.i, %if.end335.i
-  %idle_units_done.1.ph138.i = phi i64 [ %idle_units_done.0153.i, %if.then366.i ], [ %inc.i, %ossl_time_from_timeval.exit.i ], [ %inc.i, %if.then349.i ], [ %inc.i, %if.end335.i ]
-  %c_done_eos.1108.ph137.i = phi i32 [ %c_done_eos.1.i, %if.then366.i ], [ %c_done_eos.1107.i, %ossl_time_from_timeval.exit.i ], [ %c_done_eos.1107.i, %if.then349.i ], [ %c_done_eos.1107.i, %if.end335.i ]
-  %c_start_idle_test.1110.ph136.i = phi i32 [ 0, %if.then366.i ], [ %c_start_idle_test.1109.i, %ossl_time_from_timeval.exit.i ], [ %c_start_idle_test.1109.i, %if.then349.i ], [ %c_start_idle_test.1109.i, %if.end335.i ]
-  %limit_ms.1112.ph135.i = phi i64 [ %limit_ms.0155.i, %if.then366.i ], [ %limit_ms.1111.i, %ossl_time_from_timeval.exit.i ], [ %limit_ms.1111.i, %if.then349.i ], [ %limit_ms.1111.i, %if.end335.i ]
+  %idle_units_done.1.ph137.i = phi i64 [ %idle_units_done.0152.i, %if.then366.i ], [ %inc.i, %ossl_time_from_timeval.exit.i ], [ %inc.i, %if.then349.i ], [ %inc.i, %if.end335.i ]
+  %c_done_eos.1107.ph136.i = phi i32 [ %c_done_eos.1.i, %if.then366.i ], [ %c_done_eos.1106.i, %ossl_time_from_timeval.exit.i ], [ %c_done_eos.1106.i, %if.then349.i ], [ %c_done_eos.1106.i, %if.end335.i ]
+  %c_start_idle_test.1109.ph135.i = phi i32 [ 0, %if.then366.i ], [ %c_start_idle_test.1108.i, %ossl_time_from_timeval.exit.i ], [ %c_start_idle_test.1108.i, %if.then349.i ], [ %c_start_idle_test.1108.i, %if.end335.i ]
+  %limit_ms.1111.ph134.i = phi i64 [ %limit_ms.0154.i, %if.then366.i ], [ %limit_ms.1110.i, %ossl_time_from_timeval.exit.i ], [ %limit_ms.1110.i, %if.then349.i ], [ %limit_ms.1110.i, %if.end335.i ]
   %call369.i = call i32 @ossl_quic_tserver_tick(ptr noundef %call54.i) #8
   br i1 %tobool60.not.i, label %if.end393.i, label %if.then371.i
 
@@ -705,25 +707,24 @@ if.end383.i:                                      ; preds = %for.cond372.i
   br i1 %tobool390.not.i, label %err.i, label %for.cond372.i
 
 if.end393.i:                                      ; preds = %for.cond372.i, %if.end368.i
-  %call.i94.i = call i64 @ossl_time_now() #8
-  %retval.sroa.0.0.i.i = call i64 @llvm.usub.sat.i64(i64 %call.i94.i, i64 %call.i.i)
-  %mul.i = mul nuw nsw i64 %limit_ms.1112.ph135.i, 1000000
+  %call.i93.i = call i64 @ossl_time_now() #8
+  %retval.sroa.0.0.i.i = call i64 @llvm.usub.sat.i64(i64 %call.i93.i, i64 %call.i.i)
+  %mul.i = mul nuw nsw i64 %limit_ms.1111.ph134.i, 1000000
   %cmp5.i.not.i = icmp ult i64 %retval.sroa.0.0.i.i, %mul.i
   br i1 %cmp5.i.not.i, label %if.end158.i, label %if.then157.i
 
-err.loopexit158.split.loop.exit.i:                ; preds = %if.then286.i
-  %not.tobool289.not.le.i = xor i1 %tobool289.not.i, true
+for.end394.i:                                     ; preds = %if.end291.i, %if.then355.i
   br label %err.i
 
-err.i:                                            ; preds = %if.end320.i, %if.then313.i, %if.then295.i, %if.then275.i, %if.then265.i, %lor.end254.i, %if.then224.i, %if.else213.i, %if.end208.i, %if.then201.i, %if.end184.i, %if.then179.i, %lor.end.i, %if.end383.i, %err.loopexit158.split.loop.exit.i, %if.then355.i, %if.then157.i, %if.end131.i, %if.else.i, %if.end114.i, %if.then106.i, %if.end99.i, %cond.end.i, %if.end86.i, %if.end81.i, %if.end74.i, %if.end69.i, %if.then61.i, %if.then57.i, %if.end44.i, %if.end39.i, %if.end33.i, %if.end26.i, %if.end19.i, %if.end12.i, %if.end7.i, %if.end.i, %if.end
-  %c_ctx.0.i = phi ptr [ %call95.i, %if.then157.i ], [ %call95.i, %if.end131.i ], [ %call95.i, %if.end114.i ], [ %call95.i, %if.then106.i ], [ %call95.i, %if.end99.i ], [ %call95.i, %cond.end.i ], [ null, %if.end86.i ], [ null, %if.end81.i ], [ null, %if.end74.i ], [ null, %if.end69.i ], [ null, %if.then61.i ], [ null, %if.then57.i ], [ null, %if.end44.i ], [ null, %if.end39.i ], [ null, %if.end33.i ], [ null, %if.end26.i ], [ null, %if.end19.i ], [ null, %if.end12.i ], [ null, %if.end7.i ], [ null, %if.end.i ], [ null, %if.end ], [ %call95.i, %if.else.i ], [ %call95.i, %if.then355.i ], [ %call95.i, %err.loopexit158.split.loop.exit.i ], [ %call95.i, %if.end383.i ], [ %call95.i, %lor.end.i ], [ %call95.i, %if.then179.i ], [ %call95.i, %if.end184.i ], [ %call95.i, %if.then201.i ], [ %call95.i, %if.end208.i ], [ %call95.i, %if.else213.i ], [ %call95.i, %if.then224.i ], [ %call95.i, %lor.end254.i ], [ %call95.i, %if.then265.i ], [ %call95.i, %if.then275.i ], [ %call95.i, %if.then295.i ], [ %call95.i, %if.then313.i ], [ %call95.i, %if.end320.i ]
-  %c_ssl.0.i = phi ptr [ %call100.i, %if.then157.i ], [ %call100.i, %if.end131.i ], [ %call100.i, %if.end114.i ], [ %call100.i, %if.then106.i ], [ %call100.i, %if.end99.i ], [ null, %cond.end.i ], [ null, %if.end86.i ], [ null, %if.end81.i ], [ null, %if.end74.i ], [ null, %if.end69.i ], [ null, %if.then61.i ], [ null, %if.then57.i ], [ null, %if.end44.i ], [ null, %if.end39.i ], [ null, %if.end33.i ], [ null, %if.end26.i ], [ null, %if.end19.i ], [ null, %if.end12.i ], [ null, %if.end7.i ], [ null, %if.end.i ], [ null, %if.end ], [ %call100.i, %if.else.i ], [ %call100.i, %if.then355.i ], [ %call100.i, %err.loopexit158.split.loop.exit.i ], [ %call100.i, %if.end383.i ], [ %call100.i, %lor.end.i ], [ %call100.i, %if.then179.i ], [ %call100.i, %if.end184.i ], [ %call100.i, %if.then201.i ], [ %call100.i, %if.end208.i ], [ %call100.i, %if.else213.i ], [ %call100.i, %if.then224.i ], [ %call100.i, %lor.end254.i ], [ %call100.i, %if.then265.i ], [ %call100.i, %if.then275.i ], [ %call100.i, %if.then295.i ], [ %call100.i, %if.then313.i ], [ %call100.i, %if.end320.i ]
-  %s_addr_.0.i = phi ptr [ %call8.i, %if.then157.i ], [ %call8.i, %if.end131.i ], [ %call8.i, %if.end114.i ], [ %call8.i, %if.then106.i ], [ %call8.i, %if.end99.i ], [ %call8.i, %cond.end.i ], [ %call8.i, %if.end86.i ], [ %call8.i, %if.end81.i ], [ %call8.i, %if.end74.i ], [ %call8.i, %if.end69.i ], [ %call8.i, %if.then61.i ], [ %call8.i, %if.then57.i ], [ %call8.i, %if.end44.i ], [ %call8.i, %if.end39.i ], [ %call8.i, %if.end33.i ], [ %call8.i, %if.end26.i ], [ %call8.i, %if.end19.i ], [ %call8.i, %if.end12.i ], [ %call8.i, %if.end7.i ], [ null, %if.end.i ], [ null, %if.end ], [ %call8.i, %if.else.i ], [ %call8.i, %if.then355.i ], [ %call8.i, %err.loopexit158.split.loop.exit.i ], [ %call8.i, %if.end383.i ], [ %call8.i, %lor.end.i ], [ %call8.i, %if.then179.i ], [ %call8.i, %if.end184.i ], [ %call8.i, %if.then201.i ], [ %call8.i, %if.end208.i ], [ %call8.i, %if.else213.i ], [ %call8.i, %if.then224.i ], [ %call8.i, %lor.end254.i ], [ %call8.i, %if.then265.i ], [ %call8.i, %if.then275.i ], [ %call8.i, %if.then295.i ], [ %call8.i, %if.then313.i ], [ %call8.i, %if.end320.i ]
-  %tserver.0.i = phi ptr [ %call54.i, %if.then157.i ], [ %call54.i, %if.end131.i ], [ %call54.i, %if.end114.i ], [ %call54.i, %if.then106.i ], [ %call54.i, %if.end99.i ], [ %call54.i, %cond.end.i ], [ %call54.i, %if.end86.i ], [ %call54.i, %if.end81.i ], [ %call54.i, %if.end74.i ], [ %call54.i, %if.end69.i ], [ %call54.i, %if.then61.i ], [ %call54.i, %if.then57.i ], [ null, %if.end44.i ], [ null, %if.end39.i ], [ null, %if.end33.i ], [ null, %if.end26.i ], [ null, %if.end19.i ], [ null, %if.end12.i ], [ null, %if.end7.i ], [ null, %if.end.i ], [ null, %if.end ], [ %call54.i, %if.else.i ], [ %call54.i, %if.then355.i ], [ %call54.i, %err.loopexit158.split.loop.exit.i ], [ %call54.i, %if.end383.i ], [ %call54.i, %lor.end.i ], [ %call54.i, %if.then179.i ], [ %call54.i, %if.end184.i ], [ %call54.i, %if.then201.i ], [ %call54.i, %if.end208.i ], [ %call54.i, %if.else213.i ], [ %call54.i, %if.then224.i ], [ %call54.i, %lor.end254.i ], [ %call54.i, %if.then265.i ], [ %call54.i, %if.then275.i ], [ %call54.i, %if.then295.i ], [ %call54.i, %if.then313.i ], [ %call54.i, %if.end320.i ]
-  %c_net_bio_own.0.i = phi ptr [ null, %if.then157.i ], [ null, %if.end131.i ], [ %call82.i, %if.end114.i ], [ %call82.i, %if.then106.i ], [ %call82.i, %if.end99.i ], [ %call82.i, %cond.end.i ], [ %call82.i, %if.end86.i ], [ %call82.i, %if.end81.i ], [ null, %if.end74.i ], [ null, %if.end69.i ], [ null, %if.then61.i ], [ null, %if.then57.i ], [ null, %if.end44.i ], [ null, %if.end39.i ], [ null, %if.end33.i ], [ null, %if.end26.i ], [ null, %if.end19.i ], [ null, %if.end12.i ], [ null, %if.end7.i ], [ null, %if.end.i ], [ null, %if.end ], [ null, %if.else.i ], [ null, %if.then355.i ], [ null, %err.loopexit158.split.loop.exit.i ], [ null, %if.end383.i ], [ null, %lor.end.i ], [ null, %if.then179.i ], [ null, %if.end184.i ], [ null, %if.then201.i ], [ null, %if.end208.i ], [ null, %if.else213.i ], [ null, %if.then224.i ], [ null, %lor.end254.i ], [ null, %if.then265.i ], [ null, %if.then275.i ], [ null, %if.then295.i ], [ null, %if.then313.i ], [ null, %if.end320.i ]
-  %s_net_bio_own.0.i = phi ptr [ null, %if.then157.i ], [ null, %if.end131.i ], [ null, %if.end114.i ], [ null, %if.then106.i ], [ null, %if.end99.i ], [ null, %cond.end.i ], [ null, %if.end86.i ], [ null, %if.end81.i ], [ null, %if.end74.i ], [ null, %if.end69.i ], [ null, %if.then61.i ], [ %call40.i, %if.then57.i ], [ %call40.i, %if.end44.i ], [ %call40.i, %if.end39.i ], [ null, %if.end33.i ], [ null, %if.end26.i ], [ null, %if.end19.i ], [ null, %if.end12.i ], [ null, %if.end7.i ], [ null, %if.end.i ], [ null, %if.end ], [ null, %if.else.i ], [ null, %if.then355.i ], [ null, %err.loopexit158.split.loop.exit.i ], [ null, %if.end383.i ], [ null, %lor.end.i ], [ null, %if.then179.i ], [ null, %if.end184.i ], [ null, %if.then201.i ], [ null, %if.end208.i ], [ null, %if.else213.i ], [ null, %if.then224.i ], [ null, %lor.end254.i ], [ null, %if.then265.i ], [ null, %if.then275.i ], [ null, %if.then295.i ], [ null, %if.then313.i ], [ null, %if.end320.i ]
-  %c_fd.0.i = phi i32 [ %call70.i, %if.then157.i ], [ %call70.i, %if.end131.i ], [ %call70.i, %if.end114.i ], [ %call70.i, %if.then106.i ], [ %call70.i, %if.end99.i ], [ %call70.i, %cond.end.i ], [ %call70.i, %if.end86.i ], [ %call70.i, %if.end81.i ], [ %call70.i, %if.end74.i ], [ %call70.i, %if.end69.i ], [ -1, %if.then61.i ], [ -1, %if.then57.i ], [ -1, %if.end44.i ], [ -1, %if.end39.i ], [ -1, %if.end33.i ], [ -1, %if.end26.i ], [ -1, %if.end19.i ], [ -1, %if.end12.i ], [ -1, %if.end7.i ], [ -1, %if.end.i ], [ -1, %if.end ], [ %call70.i, %if.else.i ], [ %call70.i, %if.then355.i ], [ %call70.i, %err.loopexit158.split.loop.exit.i ], [ %call70.i, %if.end383.i ], [ %call70.i, %lor.end.i ], [ %call70.i, %if.then179.i ], [ %call70.i, %if.end184.i ], [ %call70.i, %if.then201.i ], [ %call70.i, %if.end208.i ], [ %call70.i, %if.else213.i ], [ %call70.i, %if.then224.i ], [ %call70.i, %lor.end254.i ], [ %call70.i, %if.then265.i ], [ %call70.i, %if.then275.i ], [ %call70.i, %if.then295.i ], [ %call70.i, %if.then313.i ], [ %call70.i, %if.end320.i ]
-  %testresult.0.shrunk.i = phi i1 [ false, %if.then157.i ], [ false, %if.end131.i ], [ false, %if.end114.i ], [ false, %if.then106.i ], [ false, %if.end99.i ], [ false, %cond.end.i ], [ false, %if.end86.i ], [ false, %if.end81.i ], [ false, %if.end74.i ], [ false, %if.end69.i ], [ false, %if.then61.i ], [ false, %if.then57.i ], [ false, %if.end44.i ], [ false, %if.end39.i ], [ false, %if.end33.i ], [ false, %if.end26.i ], [ false, %if.end19.i ], [ false, %if.end12.i ], [ false, %if.end7.i ], [ false, %if.end.i ], [ false, %if.end ], [ false, %if.else.i ], [ %tobool360.not.i, %if.then355.i ], [ %not.tobool289.not.le.i, %err.loopexit158.split.loop.exit.i ], [ false, %if.end383.i ], [ false, %lor.end.i ], [ false, %if.then179.i ], [ false, %if.end184.i ], [ false, %if.then201.i ], [ false, %if.end208.i ], [ false, %if.else213.i ], [ false, %if.then224.i ], [ false, %lor.end254.i ], [ false, %if.then265.i ], [ false, %if.then275.i ], [ false, %if.then295.i ], [ false, %if.then313.i ], [ false, %if.end320.i ]
+err.i:                                            ; preds = %if.end320.i, %if.then313.i, %if.then295.i, %if.then286.i, %if.then275.i, %if.then265.i, %lor.end254.i, %if.then224.i, %if.else213.i, %if.end208.i, %if.then201.i, %if.end184.i, %if.then179.i, %lor.end.i, %if.end383.i, %for.end394.i, %if.then355.i, %if.then157.i, %if.end131.i, %if.else.i, %if.end114.i, %if.then106.i, %if.end99.i, %cond.end.i, %if.end86.i, %if.end81.i, %if.end74.i, %if.end69.i, %if.then61.i, %if.then57.i, %if.end44.i, %if.end39.i, %if.end33.i, %if.end26.i, %if.end19.i, %if.end12.i, %if.end7.i, %if.end.i, %if.end
+  %c_ctx.0.i = phi ptr [ %call95.i, %if.then157.i ], [ %call95.i, %for.end394.i ], [ %call95.i, %if.then355.i ], [ %call95.i, %if.end131.i ], [ %call95.i, %if.end114.i ], [ %call95.i, %if.then106.i ], [ %call95.i, %if.end99.i ], [ %call95.i, %cond.end.i ], [ null, %if.end86.i ], [ null, %if.end81.i ], [ null, %if.end74.i ], [ null, %if.end69.i ], [ null, %if.then61.i ], [ null, %if.then57.i ], [ null, %if.end44.i ], [ null, %if.end39.i ], [ null, %if.end33.i ], [ null, %if.end26.i ], [ null, %if.end19.i ], [ null, %if.end12.i ], [ null, %if.end7.i ], [ null, %if.end.i ], [ null, %if.end ], [ %call95.i, %if.else.i ], [ %call95.i, %if.end383.i ], [ %call95.i, %lor.end.i ], [ %call95.i, %if.then179.i ], [ %call95.i, %if.end184.i ], [ %call95.i, %if.then201.i ], [ %call95.i, %if.end208.i ], [ %call95.i, %if.else213.i ], [ %call95.i, %if.then224.i ], [ %call95.i, %lor.end254.i ], [ %call95.i, %if.then265.i ], [ %call95.i, %if.then275.i ], [ %call95.i, %if.then286.i ], [ %call95.i, %if.then295.i ], [ %call95.i, %if.then313.i ], [ %call95.i, %if.end320.i ]
+  %c_ssl.0.i = phi ptr [ %call100.i, %if.then157.i ], [ %call100.i, %for.end394.i ], [ %call100.i, %if.then355.i ], [ %call100.i, %if.end131.i ], [ %call100.i, %if.end114.i ], [ %call100.i, %if.then106.i ], [ %call100.i, %if.end99.i ], [ null, %cond.end.i ], [ null, %if.end86.i ], [ null, %if.end81.i ], [ null, %if.end74.i ], [ null, %if.end69.i ], [ null, %if.then61.i ], [ null, %if.then57.i ], [ null, %if.end44.i ], [ null, %if.end39.i ], [ null, %if.end33.i ], [ null, %if.end26.i ], [ null, %if.end19.i ], [ null, %if.end12.i ], [ null, %if.end7.i ], [ null, %if.end.i ], [ null, %if.end ], [ %call100.i, %if.else.i ], [ %call100.i, %if.end383.i ], [ %call100.i, %lor.end.i ], [ %call100.i, %if.then179.i ], [ %call100.i, %if.end184.i ], [ %call100.i, %if.then201.i ], [ %call100.i, %if.end208.i ], [ %call100.i, %if.else213.i ], [ %call100.i, %if.then224.i ], [ %call100.i, %lor.end254.i ], [ %call100.i, %if.then265.i ], [ %call100.i, %if.then275.i ], [ %call100.i, %if.then286.i ], [ %call100.i, %if.then295.i ], [ %call100.i, %if.then313.i ], [ %call100.i, %if.end320.i ]
+  %s_addr_.0.i = phi ptr [ %call8.i, %if.then157.i ], [ %call8.i, %for.end394.i ], [ %call8.i, %if.then355.i ], [ %call8.i, %if.end131.i ], [ %call8.i, %if.end114.i ], [ %call8.i, %if.then106.i ], [ %call8.i, %if.end99.i ], [ %call8.i, %cond.end.i ], [ %call8.i, %if.end86.i ], [ %call8.i, %if.end81.i ], [ %call8.i, %if.end74.i ], [ %call8.i, %if.end69.i ], [ %call8.i, %if.then61.i ], [ %call8.i, %if.then57.i ], [ %call8.i, %if.end44.i ], [ %call8.i, %if.end39.i ], [ %call8.i, %if.end33.i ], [ %call8.i, %if.end26.i ], [ %call8.i, %if.end19.i ], [ %call8.i, %if.end12.i ], [ %call8.i, %if.end7.i ], [ null, %if.end.i ], [ null, %if.end ], [ %call8.i, %if.else.i ], [ %call8.i, %if.end383.i ], [ %call8.i, %lor.end.i ], [ %call8.i, %if.then179.i ], [ %call8.i, %if.end184.i ], [ %call8.i, %if.then201.i ], [ %call8.i, %if.end208.i ], [ %call8.i, %if.else213.i ], [ %call8.i, %if.then224.i ], [ %call8.i, %lor.end254.i ], [ %call8.i, %if.then265.i ], [ %call8.i, %if.then275.i ], [ %call8.i, %if.then286.i ], [ %call8.i, %if.then295.i ], [ %call8.i, %if.then313.i ], [ %call8.i, %if.end320.i ]
+  %tserver.0.i = phi ptr [ %call54.i, %if.then157.i ], [ %call54.i, %for.end394.i ], [ %call54.i, %if.then355.i ], [ %call54.i, %if.end131.i ], [ %call54.i, %if.end114.i ], [ %call54.i, %if.then106.i ], [ %call54.i, %if.end99.i ], [ %call54.i, %cond.end.i ], [ %call54.i, %if.end86.i ], [ %call54.i, %if.end81.i ], [ %call54.i, %if.end74.i ], [ %call54.i, %if.end69.i ], [ %call54.i, %if.then61.i ], [ %call54.i, %if.then57.i ], [ null, %if.end44.i ], [ null, %if.end39.i ], [ null, %if.end33.i ], [ null, %if.end26.i ], [ null, %if.end19.i ], [ null, %if.end12.i ], [ null, %if.end7.i ], [ null, %if.end.i ], [ null, %if.end ], [ %call54.i, %if.else.i ], [ %call54.i, %if.end383.i ], [ %call54.i, %lor.end.i ], [ %call54.i, %if.then179.i ], [ %call54.i, %if.end184.i ], [ %call54.i, %if.then201.i ], [ %call54.i, %if.end208.i ], [ %call54.i, %if.else213.i ], [ %call54.i, %if.then224.i ], [ %call54.i, %lor.end254.i ], [ %call54.i, %if.then265.i ], [ %call54.i, %if.then275.i ], [ %call54.i, %if.then286.i ], [ %call54.i, %if.then295.i ], [ %call54.i, %if.then313.i ], [ %call54.i, %if.end320.i ]
+  %c_net_bio_own.0.i = phi ptr [ null, %if.then157.i ], [ null, %for.end394.i ], [ null, %if.then355.i ], [ null, %if.end131.i ], [ %call82.i, %if.end114.i ], [ %call82.i, %if.then106.i ], [ %call82.i, %if.end99.i ], [ %call82.i, %cond.end.i ], [ %call82.i, %if.end86.i ], [ %call82.i, %if.end81.i ], [ null, %if.end74.i ], [ null, %if.end69.i ], [ null, %if.then61.i ], [ null, %if.then57.i ], [ null, %if.end44.i ], [ null, %if.end39.i ], [ null, %if.end33.i ], [ null, %if.end26.i ], [ null, %if.end19.i ], [ null, %if.end12.i ], [ null, %if.end7.i ], [ null, %if.end.i ], [ null, %if.end ], [ null, %if.else.i ], [ null, %if.end383.i ], [ null, %lor.end.i ], [ null, %if.then179.i ], [ null, %if.end184.i ], [ null, %if.then201.i ], [ null, %if.end208.i ], [ null, %if.else213.i ], [ null, %if.then224.i ], [ null, %lor.end254.i ], [ null, %if.then265.i ], [ null, %if.then275.i ], [ null, %if.then286.i ], [ null, %if.then295.i ], [ null, %if.then313.i ], [ null, %if.end320.i ]
+  %s_net_bio_own.0.i = phi ptr [ null, %if.then157.i ], [ null, %for.end394.i ], [ null, %if.then355.i ], [ null, %if.end131.i ], [ null, %if.end114.i ], [ null, %if.then106.i ], [ null, %if.end99.i ], [ null, %cond.end.i ], [ null, %if.end86.i ], [ null, %if.end81.i ], [ null, %if.end74.i ], [ null, %if.end69.i ], [ null, %if.then61.i ], [ %call40.i, %if.then57.i ], [ %call40.i, %if.end44.i ], [ %call40.i, %if.end39.i ], [ null, %if.end33.i ], [ null, %if.end26.i ], [ null, %if.end19.i ], [ null, %if.end12.i ], [ null, %if.end7.i ], [ null, %if.end.i ], [ null, %if.end ], [ null, %if.else.i ], [ null, %if.end383.i ], [ null, %lor.end.i ], [ null, %if.then179.i ], [ null, %if.end184.i ], [ null, %if.then201.i ], [ null, %if.end208.i ], [ null, %if.else213.i ], [ null, %if.then224.i ], [ null, %lor.end254.i ], [ null, %if.then265.i ], [ null, %if.then275.i ], [ null, %if.then286.i ], [ null, %if.then295.i ], [ null, %if.then313.i ], [ null, %if.end320.i ]
+  %c_fd.0.i = phi i32 [ %call70.i, %if.then157.i ], [ %call70.i, %for.end394.i ], [ %call70.i, %if.then355.i ], [ %call70.i, %if.end131.i ], [ %call70.i, %if.end114.i ], [ %call70.i, %if.then106.i ], [ %call70.i, %if.end99.i ], [ %call70.i, %cond.end.i ], [ %call70.i, %if.end86.i ], [ %call70.i, %if.end81.i ], [ %call70.i, %if.end74.i ], [ %call70.i, %if.end69.i ], [ -1, %if.then61.i ], [ -1, %if.then57.i ], [ -1, %if.end44.i ], [ -1, %if.end39.i ], [ -1, %if.end33.i ], [ -1, %if.end26.i ], [ -1, %if.end19.i ], [ -1, %if.end12.i ], [ -1, %if.end7.i ], [ -1, %if.end.i ], [ -1, %if.end ], [ %call70.i, %if.else.i ], [ %call70.i, %if.end383.i ], [ %call70.i, %lor.end.i ], [ %call70.i, %if.then179.i ], [ %call70.i, %if.end184.i ], [ %call70.i, %if.then201.i ], [ %call70.i, %if.end208.i ], [ %call70.i, %if.else213.i ], [ %call70.i, %if.then224.i ], [ %call70.i, %lor.end254.i ], [ %call70.i, %if.then265.i ], [ %call70.i, %if.then275.i ], [ %call70.i, %if.then286.i ], [ %call70.i, %if.then295.i ], [ %call70.i, %if.then313.i ], [ %call70.i, %if.end320.i ]
+  %testresult.0.i = phi i32 [ 0, %if.then157.i ], [ 1, %for.end394.i ], [ 0, %if.then355.i ], [ 0, %if.end131.i ], [ 0, %if.end114.i ], [ 0, %if.then106.i ], [ 0, %if.end99.i ], [ 0, %cond.end.i ], [ 0, %if.end86.i ], [ 0, %if.end81.i ], [ 0, %if.end74.i ], [ 0, %if.end69.i ], [ 0, %if.then61.i ], [ 0, %if.then57.i ], [ 0, %if.end44.i ], [ 0, %if.end39.i ], [ 0, %if.end33.i ], [ 0, %if.end26.i ], [ 0, %if.end19.i ], [ 0, %if.end12.i ], [ 0, %if.end7.i ], [ 0, %if.end.i ], [ 0, %if.end ], [ 0, %if.else.i ], [ 0, %if.end383.i ], [ 0, %lor.end.i ], [ 0, %if.then179.i ], [ 0, %if.end184.i ], [ 0, %if.then201.i ], [ 0, %if.end208.i ], [ 0, %if.else213.i ], [ 0, %if.then224.i ], [ 0, %lor.end254.i ], [ 0, %if.then265.i ], [ 0, %if.then275.i ], [ 0, %if.then286.i ], [ 0, %if.then295.i ], [ 0, %if.then313.i ], [ 0, %if.end320.i ]
   call void @SSL_free(ptr noundef %c_ssl.0.i) #8
   call void @SSL_CTX_free(ptr noundef %c_ctx.0.i) #8
   call void @ossl_quic_tserver_free(ptr noundef %tserver.0.i) #8
@@ -750,7 +751,6 @@ if.then406.i:                                     ; preds = %if.end403.i
   br label %do_test.exit
 
 do_test.exit:                                     ; preds = %if.end403.i, %if.then406.i
-  %testresult.0.i = zext i1 %testresult.0.shrunk.i to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %c_pair_own.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %s_pair_own.i)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %tserver_args.i)

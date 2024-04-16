@@ -892,7 +892,7 @@ define internal i32 @dissect_u3v(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %15 = getelementptr inbounds i8, ptr %3, i64 80
   %16 = load i32, ptr %15, align 8
   %.not213 = icmp eq i32 %16, 1
-  br i1 %.not213, label %17, label %.thread241
+  br i1 %.not213, label %17, label %.thread240
 
 17:                                               ; preds = %14, %10
   %.0203 = phi ptr [ %9, %14 ], [ %12, %10 ]
@@ -913,17 +913,17 @@ define internal i32 @dissect_u3v(ptr noundef %0, ptr noundef %1, ptr noundef %2,
     i32 1280717653, label %.thread
   ]
 
-26:                                               ; preds = %17, %25
+26:                                               ; preds = %25, %17
   %27 = getelementptr inbounds i8, ptr %3, i64 4
   %28 = load i8, ptr %27, align 4
   %29 = zext i8 %28 to i32
   %30 = getelementptr inbounds i8, ptr %.0203, i64 48
   %31 = load i32, ptr %30, align 8
   %32 = icmp eq i32 %31, %29
-  %or.cond5 = or i1 %22, %32
-  br i1 %or.cond5, label %.thread, label %.thread240
+  %brmerge = select i1 %32, i1 true, i1 %22
+  br i1 %brmerge, label %.thread, label %.thread239
 
-.thread:                                          ; preds = %25, %25, %26
+.thread:                                          ; preds = %26, %25, %25
   %33 = phi i1 [ %32, %26 ], [ true, %25 ], [ true, %25 ]
   %34 = getelementptr inbounds i8, ptr %3, i64 36
   %35 = load i16, ptr %34, align 4
@@ -944,10 +944,10 @@ define internal i32 @dissect_u3v(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 42:                                               ; preds = %.thread, %37, %41
   br i1 %22, label %43, label %299
 
-.thread240:                                       ; preds = %26
-  br i1 %22, label %43, label %.thread241
+.thread239:                                       ; preds = %26
+  br i1 %22, label %43, label %.thread240
 
-43:                                               ; preds = %.thread240, %42
+43:                                               ; preds = %.thread239, %42
   %44 = getelementptr inbounds i8, ptr %1, i64 8
   %45 = load ptr, ptr %44, align 8
   tail call void @col_set_str(ptr noundef %45, i32 noundef 34, ptr noundef nonnull @.str.1) #5
@@ -960,8 +960,8 @@ define internal i32 @dissect_u3v(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %51 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 0) #5
   %52 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 6) #5
   %53 = zext i16 %52 to i32
-  %.not239 = icmp eq i32 %51, 1129722709
-  switch i32 %51, label %.thread241 [
+  %.not238 = icmp eq i32 %51, 1129722709
+  switch i32 %51, label %.thread240 [
     i32 1163277141, label %54
     i32 1129722709, label %54
   ]
@@ -991,7 +991,7 @@ define internal i32 @dissect_u3v(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %88
 
 72:                                               ; preds = %54
-  br i1 %.not239, label %73, label %.thread241
+  br i1 %.not238, label %73, label %.thread240
 
 73:                                               ; preds = %72
   %74 = tail call ptr @val_to_str(i32 noundef %53, ptr noundef nonnull @command_names, ptr noundef nonnull @.str.620) #5
@@ -1054,13 +1054,13 @@ define internal i32 @dissect_u3v(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   tail call void @p_add_proto_data(ptr noundef %115, ptr noundef nonnull %1, i32 noundef %116, i32 noundef %98, ptr noundef nonnull %109) #5
   %117 = getelementptr inbounds i8, ptr %.0203, i64 56
   store ptr %109, ptr %117, align 8
-  br label %.thread233
+  br label %.thread232
 
 118:                                              ; preds = %106
   %119 = getelementptr inbounds i8, ptr %.0203, i64 56
   %120 = load ptr, ptr %119, align 8
   %.not216 = icmp eq ptr %120, null
-  br i1 %.not216, label %.thread236, label %121
+  br i1 %.not216, label %.thread235, label %121
 
 121:                                              ; preds = %118
   %122 = load i32, ptr %102, align 8
@@ -1069,16 +1069,16 @@ define internal i32 @dissect_u3v(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %124 = tail call ptr @wmem_file_scope() #5
   %125 = load i32, ptr @proto_u3v, align 4
   tail call void @p_add_proto_data(ptr noundef %124, ptr noundef nonnull %1, i32 noundef %125, i32 noundef %98, ptr noundef nonnull %120) #5
-  br label %.thread233
+  br label %.thread232
 
 126:                                              ; preds = %88
   %127 = tail call ptr @wmem_file_scope() #5
   %128 = load i32, ptr @proto_u3v, align 4
   %129 = tail call ptr @p_get_proto_data(ptr noundef %127, ptr noundef nonnull %1, i32 noundef %128, i32 noundef %98) #5
   %.not217 = icmp eq ptr %129, null
-  br i1 %.not217, label %.thread236, label %.thread233
+  br i1 %.not217, label %.thread235, label %.thread232
 
-.thread236:                                       ; preds = %118, %126
+.thread235:                                       ; preds = %118, %126
   %130 = tail call ptr @wmem_packet_scope() #5
   %131 = tail call noalias ptr @wmem_alloc0(ptr noundef %130, i64 noundef 48) #5
   store i32 0, ptr %131, align 8
@@ -1087,10 +1087,10 @@ define internal i32 @dissect_u3v(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %133 = getelementptr inbounds i8, ptr %131, i64 8
   %134 = getelementptr inbounds i8, ptr %1, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %133, ptr noundef nonnull align 8 dereferenceable(16) %134, i64 16, i1 false)
-  br label %.thread233
+  br label %.thread232
 
-.thread233:                                       ; preds = %121, %107, %.thread236, %126
-  %.1 = phi ptr [ %129, %126 ], [ %131, %.thread236 ], [ %120, %121 ], [ %109, %107 ]
+.thread232:                                       ; preds = %121, %107, %.thread235, %126
+  %.1 = phi ptr [ %129, %126 ], [ %131, %.thread235 ], [ %120, %121 ], [ %109, %107 ]
   switch i16 %52, label %295 [
     i16 2048, label %135
     i16 2050, label %189
@@ -1100,7 +1100,7 @@ define internal i32 @dissect_u3v(ptr noundef %0, ptr noundef %1, ptr noundef %2,
     i16 2053, label %284
   ]
 
-135:                                              ; preds = %.thread233
+135:                                              ; preds = %.thread232
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %136 = tail call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef 12) #5
@@ -1203,7 +1203,7 @@ dissect_u3v_read_mem_cmd.exit:                    ; preds = %179, %182
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   br label %dissect_u3v_event_cmd.exit
 
-189:                                              ; preds = %.thread233
+189:                                              ; preds = %.thread232
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store i32 0, ptr %6, align 4
   %190 = tail call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef 12) #5
@@ -1292,7 +1292,7 @@ dissect_u3v_write_mem_cmd.exit:                   ; preds = %228, %231
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   br label %dissect_u3v_event_cmd.exit
 
-236:                                              ; preds = %.thread233
+236:                                              ; preds = %.thread232
   %237 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 14) #5
   %238 = zext i16 %237 to i32
   %239 = load ptr, ptr %44, align 8
@@ -1320,7 +1320,7 @@ dissect_u3v_write_mem_cmd.exit:                   ; preds = %228, %231
   %254 = tail call ptr @proto_tree_add_item(ptr noundef %243, i32 noundef %252, ptr noundef %0, i32 noundef 24, i32 noundef %253, i32 noundef 0) #5
   br label %dissect_u3v_event_cmd.exit
 
-255:                                              ; preds = %.thread233
+255:                                              ; preds = %.thread232
   br i1 %.0207, label %256, label %dissect_u3v_event_cmd.exit
 
 256:                                              ; preds = %255
@@ -1330,7 +1330,7 @@ dissect_u3v_write_mem_cmd.exit:                   ; preds = %228, %231
   tail call fastcc void @dissect_u3v_read_mem_ack(ptr noundef %100, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %94, ptr noundef %.0203, i32 %.1.val, i64 %.1.val218)
   br label %dissect_u3v_event_cmd.exit
 
-258:                                              ; preds = %.thread233
+258:                                              ; preds = %.thread232
   %.1.val219 = load i32, ptr %.1, align 8
   %259 = getelementptr i8, ptr %.1, i64 32
   %.1.val220 = load i64, ptr %259, align 8
@@ -1386,7 +1386,7 @@ dissect_u3v_write_mem_ack.exit:                   ; preds = %proto_item_set_gene
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   br label %dissect_u3v_event_cmd.exit
 
-284:                                              ; preds = %.thread233
+284:                                              ; preds = %.thread232
   %.val = load ptr, ptr %44, align 8
   %285 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 14) #5
   %286 = zext i16 %285 to i32
@@ -1401,17 +1401,17 @@ dissect_u3v_write_mem_ack.exit:                   ; preds = %proto_item_set_gene
   %294 = tail call ptr @proto_tree_add_item(ptr noundef %290, i32 noundef %293, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef -2147483648) #5
   br label %dissect_u3v_event_cmd.exit
 
-295:                                              ; preds = %.thread233
+295:                                              ; preds = %.thread232
   %296 = load i32, ptr @hf_u3v_payloaddata, align 4
   %297 = tail call ptr @proto_tree_add_item(ptr noundef %100, i32 noundef %296, ptr noundef %0, i32 noundef 12, i32 noundef %94, i32 noundef 0) #5
   br label %dissect_u3v_event_cmd.exit
 
 dissect_u3v_event_cmd.exit:                       ; preds = %251, %236, %255, %256, %295, %284, %dissect_u3v_write_mem_ack.exit, %dissect_u3v_write_mem_cmd.exit, %dissect_u3v_read_mem_cmd.exit
   %298 = add nuw nsw i32 %94, 12
-  br label %.thread241
+  br label %.thread240
 
 299:                                              ; preds = %42
-  br i1 %33, label %300, label %.thread241
+  br i1 %33, label %300, label %.thread240
 
 300:                                              ; preds = %299
   %301 = load ptr, ptr %8, align 8
@@ -1557,10 +1557,10 @@ dissect_u3v_event_cmd.exit:                       ; preds = %251, %236, %255, %2
 
 dissect_u3v_stream_leader.exit:                   ; preds = %393, %390, %344, %343, %396, %300
   %404 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
-  br label %.thread241
+  br label %.thread240
 
-.thread241:                                       ; preds = %.thread240, %299, %72, %43, %14, %dissect_u3v_stream_leader.exit, %dissect_u3v_event_cmd.exit
-  %.0206 = phi i32 [ %298, %dissect_u3v_event_cmd.exit ], [ %404, %dissect_u3v_stream_leader.exit ], [ 0, %14 ], [ 0, %43 ], [ 0, %72 ], [ 0, %299 ], [ 0, %.thread240 ]
+.thread240:                                       ; preds = %.thread239, %299, %72, %43, %14, %dissect_u3v_stream_leader.exit, %dissect_u3v_event_cmd.exit
+  %.0206 = phi i32 [ %298, %dissect_u3v_event_cmd.exit ], [ %404, %dissect_u3v_stream_leader.exit ], [ 0, %14 ], [ 0, %43 ], [ 0, %72 ], [ 0, %299 ], [ 0, %.thread239 ]
   ret i32 %.0206
 }
 

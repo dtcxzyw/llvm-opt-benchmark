@@ -139,7 +139,7 @@ declare zeroext i1 @visit_is_input(ptr noundef) local_unnamed_addr #1
 declare void @qapi_free_InetSocketAddressBase(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_InetSocketAddress_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_InetSocketAddress_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call.i = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str, ptr noundef %obj, ptr noundef %errp) #4
   br i1 %call.i, label %visit_type_InetSocketAddressBase_members.exit, label %return
@@ -202,15 +202,18 @@ if.then26:                                        ; preds = %if.end24
 if.end30:                                         ; preds = %if.then26, %if.end24
   %has_mptcp = getelementptr inbounds i8, ptr %obj, i64 28
   %call31 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.9, ptr noundef nonnull %has_mptcp) #4
-  br i1 %call31, label %if.then32, label %return
+  br i1 %call31, label %if.then32, label %if.end36
 
 if.then32:                                        ; preds = %if.end30
   %mptcp = getelementptr inbounds i8, ptr %obj, i64 29
   %call33 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.9, ptr noundef nonnull %mptcp, ptr noundef %errp) #4
+  br i1 %call33, label %if.end36, label %return
+
+if.end36:                                         ; preds = %if.then32, %if.end30
   br label %return
 
-return:                                           ; preds = %entry, %if.then32, %if.end30, %if.then26, %if.then20, %if.then14, %if.then8, %if.then2, %visit_type_InetSocketAddressBase_members.exit
-  %retval.0 = phi i1 [ false, %visit_type_InetSocketAddressBase_members.exit ], [ false, %if.then2 ], [ false, %if.then8 ], [ false, %if.then14 ], [ false, %if.then20 ], [ false, %if.then26 ], [ true, %if.end30 ], [ %call33, %if.then32 ], [ false, %entry ]
+return:                                           ; preds = %entry, %if.then32, %if.then26, %if.then20, %if.then14, %if.then8, %if.then2, %visit_type_InetSocketAddressBase_members.exit, %if.end36
+  %retval.0 = phi i1 [ true, %if.end36 ], [ false, %visit_type_InetSocketAddressBase_members.exit ], [ false, %if.then2 ], [ false, %if.then8 ], [ false, %if.then14 ], [ false, %if.then20 ], [ false, %if.then26 ], [ false, %if.then32 ], [ false, %entry ]
   ret i1 %retval.0
 }
 
@@ -274,7 +277,7 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_InetSocketAddress(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_UnixSocketAddress_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_UnixSocketAddress_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.10, ptr noundef %obj, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -292,15 +295,18 @@ if.then2:                                         ; preds = %if.end
 if.end6:                                          ; preds = %if.then2, %if.end
   %has_tight = getelementptr inbounds i8, ptr %obj, i64 10
   %call7 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.12, ptr noundef nonnull %has_tight) #4
-  br i1 %call7, label %if.then8, label %return
+  br i1 %call7, label %if.then8, label %if.end12
 
 if.then8:                                         ; preds = %if.end6
   %tight = getelementptr inbounds i8, ptr %obj, i64 11
   %call9 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.12, ptr noundef nonnull %tight, ptr noundef %errp) #4
+  br i1 %call9, label %if.end12, label %return
+
+if.end12:                                         ; preds = %if.then8, %if.end6
   br label %return
 
-return:                                           ; preds = %if.then8, %if.end6, %if.then2, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %if.then2 ], [ true, %if.end6 ], [ %call9, %if.then8 ]
+return:                                           ; preds = %if.then8, %if.then2, %entry, %if.end12
+  %retval.0 = phi i1 [ true, %if.end12 ], [ false, %entry ], [ false, %if.then2 ], [ false, %if.then8 ]
   ret i1 %retval.0
 }
 
@@ -317,9 +323,9 @@ if.end:                                           ; preds = %entry
 
 if.then1:                                         ; preds = %if.end
   %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
-  br i1 %call2, label %out_obj.thread19, label %if.else
+  br i1 %call2, label %out_obj.thread, label %if.else
 
-out_obj.thread19:                                 ; preds = %if.then1
+out_obj.thread:                                   ; preds = %if.then1
   tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br label %return
 
@@ -329,7 +335,7 @@ if.else:                                          ; preds = %if.then1
 
 if.end5:                                          ; preds = %if.end
   %call.i = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.10, ptr noundef nonnull %0, ptr noundef %errp) #4
-  br i1 %call.i, label %if.end.i, label %out_obj.thread
+  br i1 %call.i, label %if.end.i, label %out_obj.thread16
 
 if.end.i:                                         ; preds = %if.end5
   %has_abstract.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -339,28 +345,28 @@ if.end.i:                                         ; preds = %if.end5
 if.then2.i:                                       ; preds = %if.end.i
   %abstract.i = getelementptr inbounds i8, ptr %0, i64 9
   %call3.i = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %abstract.i, ptr noundef %errp) #4
-  br i1 %call3.i, label %if.end6.i, label %out_obj.thread
+  br i1 %call3.i, label %if.end6.i, label %out_obj.thread16
 
 if.end6.i:                                        ; preds = %if.then2.i, %if.end.i
   %has_tight.i = getelementptr inbounds i8, ptr %0, i64 10
   %call7.i = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.12, ptr noundef nonnull %has_tight.i) #4
-  br i1 %call7.i, label %visit_type_UnixSocketAddress_members.exit, label %out_obj
+  br i1 %call7.i, label %if.then8.i, label %out_obj
 
-visit_type_UnixSocketAddress_members.exit:        ; preds = %if.end6.i
+if.then8.i:                                       ; preds = %if.end6.i
   %tight.i = getelementptr inbounds i8, ptr %0, i64 11
   %call9.i = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.12, ptr noundef nonnull %tight.i, ptr noundef %errp) #4
-  br i1 %call9.i, label %out_obj, label %out_obj.thread
+  br i1 %call9.i, label %out_obj, label %out_obj.thread16
 
-out_obj.thread:                                   ; preds = %visit_type_UnixSocketAddress_members.exit, %if.end5, %if.then2.i
+out_obj.thread16:                                 ; preds = %if.then8.i, %if.then2.i, %if.end5
   tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br label %land.lhs.true
 
-out_obj:                                          ; preds = %if.end6.i, %visit_type_UnixSocketAddress_members.exit
+out_obj:                                          ; preds = %if.end6.i, %if.then8.i
   %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
   tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br i1 %call9, label %return, label %land.lhs.true
 
-land.lhs.true:                                    ; preds = %out_obj.thread, %out_obj
+land.lhs.true:                                    ; preds = %out_obj.thread16, %out_obj
   %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #4
   br i1 %call11, label %if.then12, label %return
 
@@ -370,8 +376,8 @@ if.then12:                                        ; preds = %land.lhs.true
   store ptr null, ptr %obj, align 8
   br label %return
 
-return:                                           ; preds = %out_obj.thread19, %out_obj, %land.lhs.true, %if.then12, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %if.then12 ], [ false, %land.lhs.true ], [ true, %out_obj ], [ true, %out_obj.thread19 ]
+return:                                           ; preds = %out_obj.thread, %out_obj, %land.lhs.true, %if.then12, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.then12 ], [ false, %land.lhs.true ], [ true, %out_obj ], [ true, %out_obj.thread ]
   ret i1 %retval.0
 }
 
@@ -883,11 +889,14 @@ if.then2.i:                                       ; preds = %if.end.i
 if.end6.i:                                        ; preds = %if.then2.i, %if.end.i
   %has_tight.i = getelementptr inbounds i8, ptr %obj, i64 18
   %call7.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.12, ptr noundef nonnull %has_tight.i) #4
-  br i1 %call7.i, label %if.then8.i, label %return
+  br i1 %call7.i, label %if.then8.i, label %if.end12.i
 
 if.then8.i:                                       ; preds = %if.end6.i
   %tight.i = getelementptr inbounds i8, ptr %obj, i64 19
   %call9.i = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.12, ptr noundef nonnull %tight.i, ptr noundef %errp) #4
+  br i1 %call9.i, label %if.end12.i, label %return
+
+if.end12.i:                                       ; preds = %if.then8.i, %if.end6.i
   br label %return
 
 sw.bb5:                                           ; preds = %if.end
@@ -909,8 +918,8 @@ sw.default:                                       ; preds = %if.end
   call void @abort() #5
   unreachable
 
-return:                                           ; preds = %if.end.i16, %sw.bb5, %if.then8.i, %if.end6.i, %if.then2.i, %sw.bb2, %entry, %sw.bb8, %sw.bb
-  %retval.0 = phi i1 [ %call10, %sw.bb8 ], [ %call1, %sw.bb ], [ false, %entry ], [ false, %sw.bb2 ], [ false, %if.then2.i ], [ true, %if.end6.i ], [ %call9.i, %if.then8.i ], [ false, %sw.bb5 ], [ %call1.i17, %if.end.i16 ]
+return:                                           ; preds = %if.end.i16, %sw.bb5, %if.end12.i, %if.then8.i, %if.then2.i, %sw.bb2, %entry, %sw.bb8, %sw.bb
+  %retval.0 = phi i1 [ %call10, %sw.bb8 ], [ %call1, %sw.bb ], [ false, %entry ], [ true, %if.end12.i ], [ false, %sw.bb2 ], [ false, %if.then2.i ], [ false, %if.then8.i ], [ false, %sw.bb5 ], [ %call1.i17, %if.end.i16 ]
   ret i1 %retval.0
 }
 

@@ -1135,14 +1135,14 @@ sw.bb.i:                                          ; preds = %land.lhs.true
   %bound.i = getelementptr inbounds i8, ptr %6, i64 16
   %8 = load ptr, ptr %bound.i, align 8
   %cmp.not.i = icmp eq ptr %8, null
-  br i1 %cmp.not.i, label %for.inc, label %astfold_type_param.exit
+  br i1 %cmp.not.i, label %for.inc, label %land.lhs.true.i
 
-astfold_type_param.exit:                          ; preds = %sw.bb.i
+land.lhs.true.i:                                  ; preds = %sw.bb.i
   %call.i = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %8, ptr noundef %ctx_, ptr noundef %state), !range !5
-  %tobool.not = icmp eq i32 %call.i, 0
-  br i1 %tobool.not, label %return, label %for.inc
+  %tobool.not.i = icmp eq i32 %call.i, 0
+  br i1 %tobool.not.i, label %return, label %for.inc
 
-for.inc:                                          ; preds = %sw.bb.i, %land.lhs.true, %for.body, %astfold_type_param.exit
+for.inc:                                          ; preds = %land.lhs.true.i, %sw.bb.i, %land.lhs.true, %for.body
   %inc9 = add i32 %i.0, 1
   br label %for.cond, !llvm.loop !9
 
@@ -1244,20 +1244,20 @@ for.body78:                                       ; preds = %cond.end74
 land.lhs.true85:                                  ; preds = %for.body78
   %19 = load i32, ptr %18, align 8
   %cond.i425 = icmp eq i32 %19, 1
-  br i1 %cond.i425, label %sw.bb.i427, label %for.inc90
+  br i1 %cond.i425, label %sw.bb.i428, label %for.inc90
 
-sw.bb.i427:                                       ; preds = %land.lhs.true85
-  %bound.i428 = getelementptr inbounds i8, ptr %18, i64 16
-  %20 = load ptr, ptr %bound.i428, align 8
-  %cmp.not.i429 = icmp eq ptr %20, null
-  br i1 %cmp.not.i429, label %for.inc90, label %astfold_type_param.exit432
+sw.bb.i428:                                       ; preds = %land.lhs.true85
+  %bound.i429 = getelementptr inbounds i8, ptr %18, i64 16
+  %20 = load ptr, ptr %bound.i429, align 8
+  %cmp.not.i430 = icmp eq ptr %20, null
+  br i1 %cmp.not.i430, label %for.inc90, label %land.lhs.true.i431
 
-astfold_type_param.exit432:                       ; preds = %sw.bb.i427
-  %call.i431 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %20, ptr noundef %ctx_, ptr noundef %state), !range !5
-  %tobool87.not = icmp eq i32 %call.i431, 0
-  br i1 %tobool87.not, label %return, label %for.inc90
+land.lhs.true.i431:                               ; preds = %sw.bb.i428
+  %call.i432 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %20, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %tobool.not.i433 = icmp eq i32 %call.i432, 0
+  br i1 %tobool.not.i433, label %return, label %for.inc90
 
-for.inc90:                                        ; preds = %sw.bb.i427, %land.lhs.true85, %for.body78, %astfold_type_param.exit432
+for.inc90:                                        ; preds = %land.lhs.true.i431, %sw.bb.i428, %land.lhs.true85, %for.body78
   %inc91 = add i32 %i63.0, 1
   br label %for.cond67, !llvm.loop !11
 
@@ -1358,21 +1358,21 @@ for.body167:                                      ; preds = %cond.end163
 
 land.lhs.true174:                                 ; preds = %for.body167
   %31 = load i32, ptr %30, align 8
-  %cond.i433 = icmp eq i32 %31, 1
-  br i1 %cond.i433, label %sw.bb.i435, label %for.inc179
+  %cond.i435 = icmp eq i32 %31, 1
+  br i1 %cond.i435, label %sw.bb.i438, label %for.inc179
 
-sw.bb.i435:                                       ; preds = %land.lhs.true174
-  %bound.i436 = getelementptr inbounds i8, ptr %30, i64 16
-  %32 = load ptr, ptr %bound.i436, align 8
-  %cmp.not.i437 = icmp eq ptr %32, null
-  br i1 %cmp.not.i437, label %for.inc179, label %astfold_type_param.exit440
+sw.bb.i438:                                       ; preds = %land.lhs.true174
+  %bound.i439 = getelementptr inbounds i8, ptr %30, i64 16
+  %32 = load ptr, ptr %bound.i439, align 8
+  %cmp.not.i440 = icmp eq ptr %32, null
+  br i1 %cmp.not.i440, label %for.inc179, label %land.lhs.true.i441
 
-astfold_type_param.exit440:                       ; preds = %sw.bb.i435
-  %call.i439 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %32, ptr noundef %ctx_, ptr noundef %state), !range !5
-  %tobool176.not = icmp eq i32 %call.i439, 0
-  br i1 %tobool176.not, label %return, label %for.inc179
+land.lhs.true.i441:                               ; preds = %sw.bb.i438
+  %call.i442 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %32, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %tobool.not.i443 = icmp eq i32 %call.i442, 0
+  br i1 %tobool.not.i443, label %return, label %for.inc179
 
-for.inc179:                                       ; preds = %sw.bb.i435, %land.lhs.true174, %for.body167, %astfold_type_param.exit440
+for.inc179:                                       ; preds = %land.lhs.true.i441, %sw.bb.i438, %land.lhs.true174, %for.body167
   %inc180 = add i32 %i152.0, 1
   br label %for.cond156, !llvm.loop !13
 
@@ -1442,8 +1442,8 @@ for.body225:                                      ; preds = %cond.end221
 land.lhs.true232:                                 ; preds = %for.body225
   %39 = getelementptr i8, ptr %38, i64 8
   %.val = load ptr, ptr %39, align 8
-  %call.i441 = tail call fastcc noundef i32 @astfold_expr(ptr noundef %.val, ptr noundef %ctx_, ptr noundef %state), !range !5
-  %tobool234.not = icmp eq i32 %call.i441, 0
+  %call.i445 = tail call fastcc noundef i32 @astfold_expr(ptr noundef %.val, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %tobool234.not = icmp eq i32 %call.i445, 0
   br i1 %tobool234.not, label %return, label %for.inc237
 
 for.inc237:                                       ; preds = %for.body225, %land.lhs.true232
@@ -1665,21 +1665,21 @@ for.body415:                                      ; preds = %cond.end411
 
 land.lhs.true422:                                 ; preds = %for.body415
   %62 = load i32, ptr %61, align 8
-  %cond.i442 = icmp eq i32 %62, 1
-  br i1 %cond.i442, label %sw.bb.i444, label %for.inc427
+  %cond.i446 = icmp eq i32 %62, 1
+  br i1 %cond.i446, label %sw.bb.i449, label %for.inc427
 
-sw.bb.i444:                                       ; preds = %land.lhs.true422
-  %bound.i445 = getelementptr inbounds i8, ptr %61, i64 16
-  %63 = load ptr, ptr %bound.i445, align 8
-  %cmp.not.i446 = icmp eq ptr %63, null
-  br i1 %cmp.not.i446, label %for.inc427, label %astfold_type_param.exit449
+sw.bb.i449:                                       ; preds = %land.lhs.true422
+  %bound.i450 = getelementptr inbounds i8, ptr %61, i64 16
+  %63 = load ptr, ptr %bound.i450, align 8
+  %cmp.not.i451 = icmp eq ptr %63, null
+  br i1 %cmp.not.i451, label %for.inc427, label %land.lhs.true.i452
 
-astfold_type_param.exit449:                       ; preds = %sw.bb.i444
-  %call.i448 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %63, ptr noundef %ctx_, ptr noundef %state), !range !5
-  %tobool424.not = icmp eq i32 %call.i448, 0
-  br i1 %tobool424.not, label %return, label %for.inc427
+land.lhs.true.i452:                               ; preds = %sw.bb.i449
+  %call.i453 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %63, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %tobool.not.i454 = icmp eq i32 %call.i453, 0
+  br i1 %tobool.not.i454, label %return, label %for.inc427
 
-for.inc427:                                       ; preds = %sw.bb.i444, %land.lhs.true422, %for.body415, %astfold_type_param.exit449
+for.inc427:                                       ; preds = %land.lhs.true.i452, %sw.bb.i449, %land.lhs.true422, %for.body415
   %inc428 = add i32 %i400.0, 1
   br label %for.cond404, !llvm.loop !19
 
@@ -2055,22 +2055,22 @@ for.body734:                                      ; preds = %cond.end730
 
 land.lhs.true741:                                 ; preds = %for.body734
   %99 = load ptr, ptr %98, align 8
-  %call.i450 = tail call fastcc i32 @astfold_expr(ptr noundef %99, ptr noundef %ctx_, ptr noundef %state), !range !5
-  %tobool.not.i = icmp eq i32 %call.i450, 0
-  br i1 %tobool.not.i, label %return, label %if.end.i
+  %call.i456 = tail call fastcc i32 @astfold_expr(ptr noundef %99, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %tobool.not.i457 = icmp eq i32 %call.i456, 0
+  br i1 %tobool.not.i457, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true741
   %optional_vars.i = getelementptr inbounds i8, ptr %98, i64 8
   %100 = load ptr, ptr %optional_vars.i, align 8
-  %cmp.not.i451 = icmp eq ptr %100, null
-  br i1 %cmp.not.i451, label %for.inc746, label %astfold_withitem.exit
+  %cmp.not.i458 = icmp eq ptr %100, null
+  br i1 %cmp.not.i458, label %for.inc746, label %land.lhs.true.i459
 
-astfold_withitem.exit:                            ; preds = %if.end.i
+land.lhs.true.i459:                               ; preds = %if.end.i
   %call2.i = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %100, ptr noundef %ctx_, ptr noundef %state), !range !5
-  %tobool743.not = icmp eq i32 %call2.i, 0
-  br i1 %tobool743.not, label %return, label %for.inc746
+  %tobool3.not.i = icmp eq i32 %call2.i, 0
+  br i1 %tobool3.not.i, label %return, label %for.inc746
 
-for.inc746:                                       ; preds = %if.end.i, %for.body734, %astfold_withitem.exit
+for.inc746:                                       ; preds = %land.lhs.true.i459, %if.end.i, %for.body734
   %inc747 = add i32 %i720.0, 1
   br label %for.cond723, !llvm.loop !28
 
@@ -2139,22 +2139,22 @@ for.body795:                                      ; preds = %cond.end791
 
 land.lhs.true802:                                 ; preds = %for.body795
   %107 = load ptr, ptr %106, align 8
-  %call.i454 = tail call fastcc i32 @astfold_expr(ptr noundef %107, ptr noundef %ctx_, ptr noundef %state), !range !5
-  %tobool.not.i455 = icmp eq i32 %call.i454, 0
-  br i1 %tobool.not.i455, label %return, label %if.end.i456
+  %call.i461 = tail call fastcc i32 @astfold_expr(ptr noundef %107, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %tobool.not.i462 = icmp eq i32 %call.i461, 0
+  br i1 %tobool.not.i462, label %return, label %if.end.i463
 
-if.end.i456:                                      ; preds = %land.lhs.true802
-  %optional_vars.i457 = getelementptr inbounds i8, ptr %106, i64 8
-  %108 = load ptr, ptr %optional_vars.i457, align 8
-  %cmp.not.i458 = icmp eq ptr %108, null
-  br i1 %cmp.not.i458, label %for.inc807, label %astfold_withitem.exit462
+if.end.i463:                                      ; preds = %land.lhs.true802
+  %optional_vars.i464 = getelementptr inbounds i8, ptr %106, i64 8
+  %108 = load ptr, ptr %optional_vars.i464, align 8
+  %cmp.not.i465 = icmp eq ptr %108, null
+  br i1 %cmp.not.i465, label %for.inc807, label %land.lhs.true.i466
 
-astfold_withitem.exit462:                         ; preds = %if.end.i456
-  %call2.i460 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %108, ptr noundef %ctx_, ptr noundef %state), !range !5
-  %tobool804.not = icmp eq i32 %call2.i460, 0
-  br i1 %tobool804.not, label %return, label %for.inc807
+land.lhs.true.i466:                               ; preds = %if.end.i463
+  %call2.i467 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %108, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %tobool3.not.i468 = icmp eq i32 %call2.i467, 0
+  br i1 %tobool3.not.i468, label %return, label %for.inc807
 
-for.inc807:                                       ; preds = %if.end.i456, %for.body795, %astfold_withitem.exit462
+for.inc807:                                       ; preds = %land.lhs.true.i466, %if.end.i463, %for.body795
   %inc808 = add i32 %i780.0, 1
   br label %for.cond784, !llvm.loop !30
 
@@ -2282,36 +2282,36 @@ for.body906:                                      ; preds = %cond.end902
 land.lhs.true913:                                 ; preds = %for.body906
   %120 = load i32, ptr %119, align 8
   %cond1.i = icmp eq i32 %120, 1
-  br i1 %cond1.i, label %sw.bb.i464, label %for.inc918
+  br i1 %cond1.i, label %sw.bb.i473, label %for.inc918
 
-sw.bb.i464:                                       ; preds = %land.lhs.true913
+sw.bb.i473:                                       ; preds = %land.lhs.true913
   %v.i = getelementptr inbounds i8, ptr %119, i64 8
   %121 = load ptr, ptr %v.i, align 8
-  %cmp.not.i465 = icmp eq ptr %121, null
-  br i1 %cmp.not.i465, label %if.end.i469, label %land.lhs.true.i466
+  %cmp.not.i474 = icmp eq ptr %121, null
+  br i1 %cmp.not.i474, label %if.end.i478, label %land.lhs.true.i475
 
-land.lhs.true.i466:                               ; preds = %sw.bb.i464
-  %call.i467 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %121, ptr noundef %ctx_, ptr noundef %state), !range !5
-  %tobool.not.i468 = icmp eq i32 %call.i467, 0
-  br i1 %tobool.not.i468, label %return, label %if.end.i469
+land.lhs.true.i475:                               ; preds = %sw.bb.i473
+  %call.i476 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %121, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %tobool.not.i477 = icmp eq i32 %call.i476, 0
+  br i1 %tobool.not.i477, label %return, label %if.end.i478
 
-if.end.i469:                                      ; preds = %land.lhs.true.i466, %sw.bb.i464
+if.end.i478:                                      ; preds = %land.lhs.true.i475, %sw.bb.i473
   %body.i = getelementptr inbounds i8, ptr %119, i64 24
   %122 = load ptr, ptr %body.i, align 8
   %cmp4.i = icmp eq ptr %122, null
   %typed_elements.i = getelementptr inbounds i8, ptr %122, i64 16
-  br i1 %cmp4.i, label %for.inc918, label %if.end.i469.split
+  br i1 %cmp4.i, label %for.inc918, label %if.end.i478.split
 
-if.end.i469.split:                                ; preds = %if.end.i469
+if.end.i478.split:                                ; preds = %if.end.i478
   %123 = load i64, ptr %122, align 8
-  %cmp6.i596 = icmp sgt i64 %123, 0
-  br i1 %cmp6.i596, label %for.body.i, label %for.inc918
+  %cmp6.i601 = icmp sgt i64 %123, 0
+  br i1 %cmp6.i601, label %for.body.i, label %for.inc918
 
-for.body.i:                                       ; preds = %if.end.i469.split, %for.inc.i
-  %124 = phi i64 [ %126, %for.inc.i ], [ %123, %if.end.i469.split ]
-  %conv.i598 = phi i64 [ %conv.i, %for.inc.i ], [ 0, %if.end.i469.split ]
-  %i.0.i597 = phi i32 [ %inc.i, %for.inc.i ], [ 0, %if.end.i469.split ]
-  %arrayidx.i = getelementptr [1 x ptr], ptr %typed_elements.i, i64 0, i64 %conv.i598
+for.body.i:                                       ; preds = %if.end.i478.split, %for.inc.i
+  %124 = phi i64 [ %126, %for.inc.i ], [ %123, %if.end.i478.split ]
+  %conv.i603 = phi i64 [ %conv.i, %for.inc.i ], [ 0, %if.end.i478.split ]
+  %i.0.i602 = phi i32 [ %inc.i, %for.inc.i ], [ 0, %if.end.i478.split ]
+  %arrayidx.i = getelementptr [1 x ptr], ptr %typed_elements.i, i64 0, i64 %conv.i603
   %125 = load ptr, ptr %arrayidx.i, align 8
   %cmp8.not.i = icmp eq ptr %125, null
   br i1 %cmp8.not.i, label %for.inc.i, label %land.lhs.true10.i
@@ -2322,17 +2322,17 @@ land.lhs.true10.i:                                ; preds = %for.body.i
   br i1 %tobool12.not.i, label %return, label %land.lhs.true10.i.for.inc.i_crit_edge
 
 land.lhs.true10.i.for.inc.i_crit_edge:            ; preds = %land.lhs.true10.i
-  %.pre645 = load i64, ptr %122, align 8
+  %.pre650 = load i64, ptr %122, align 8
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %land.lhs.true10.i.for.inc.i_crit_edge, %for.body.i
-  %126 = phi i64 [ %.pre645, %land.lhs.true10.i.for.inc.i_crit_edge ], [ %124, %for.body.i ]
-  %inc.i = add i32 %i.0.i597, 1
+  %126 = phi i64 [ %.pre650, %land.lhs.true10.i.for.inc.i_crit_edge ], [ %124, %for.body.i ]
+  %inc.i = add i32 %i.0.i602, 1
   %conv.i = sext i32 %inc.i to i64
   %cmp6.i = icmp sgt i64 %126, %conv.i
   br i1 %cmp6.i, label %for.body.i, label %for.inc918, !llvm.loop !33
 
-for.inc918:                                       ; preds = %for.inc.i, %if.end.i469, %if.end.i469.split, %land.lhs.true913, %for.body906
+for.inc918:                                       ; preds = %for.inc.i, %if.end.i478, %if.end.i478.split, %land.lhs.true913, %for.body906
   %inc919 = add i32 %i892.0, 1
   br label %for.cond895, !llvm.loop !34
 
@@ -2473,58 +2473,58 @@ for.body1026:                                     ; preds = %cond.end1022
 
 land.lhs.true1033:                                ; preds = %for.body1026
   %139 = load i32, ptr %138, align 8
-  %cond1.i471 = icmp eq i32 %139, 1
-  br i1 %cond1.i471, label %sw.bb.i473, label %for.inc1038
+  %cond1.i480 = icmp eq i32 %139, 1
+  br i1 %cond1.i480, label %sw.bb.i482, label %for.inc1038
 
-sw.bb.i473:                                       ; preds = %land.lhs.true1033
-  %v.i474 = getelementptr inbounds i8, ptr %138, i64 8
-  %140 = load ptr, ptr %v.i474, align 8
-  %cmp.not.i475 = icmp eq ptr %140, null
-  br i1 %cmp.not.i475, label %if.end.i479, label %land.lhs.true.i476
+sw.bb.i482:                                       ; preds = %land.lhs.true1033
+  %v.i483 = getelementptr inbounds i8, ptr %138, i64 8
+  %140 = load ptr, ptr %v.i483, align 8
+  %cmp.not.i484 = icmp eq ptr %140, null
+  br i1 %cmp.not.i484, label %if.end.i488, label %land.lhs.true.i485
 
-land.lhs.true.i476:                               ; preds = %sw.bb.i473
-  %call.i477 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %140, ptr noundef %ctx_, ptr noundef %state), !range !5
-  %tobool.not.i478 = icmp eq i32 %call.i477, 0
-  br i1 %tobool.not.i478, label %return, label %if.end.i479
+land.lhs.true.i485:                               ; preds = %sw.bb.i482
+  %call.i486 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %140, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %tobool.not.i487 = icmp eq i32 %call.i486, 0
+  br i1 %tobool.not.i487, label %return, label %if.end.i488
 
-if.end.i479:                                      ; preds = %land.lhs.true.i476, %sw.bb.i473
-  %body.i480 = getelementptr inbounds i8, ptr %138, i64 24
-  %141 = load ptr, ptr %body.i480, align 8
-  %cmp4.i484 = icmp eq ptr %141, null
-  %typed_elements.i490 = getelementptr inbounds i8, ptr %141, i64 16
-  br i1 %cmp4.i484, label %for.inc1038, label %if.end.i479.split
+if.end.i488:                                      ; preds = %land.lhs.true.i485, %sw.bb.i482
+  %body.i489 = getelementptr inbounds i8, ptr %138, i64 24
+  %141 = load ptr, ptr %body.i489, align 8
+  %cmp4.i493 = icmp eq ptr %141, null
+  %typed_elements.i499 = getelementptr inbounds i8, ptr %141, i64 16
+  br i1 %cmp4.i493, label %for.inc1038, label %if.end.i488.split
 
-if.end.i479.split:                                ; preds = %if.end.i479
+if.end.i488.split:                                ; preds = %if.end.i488
   %142 = load i64, ptr %141, align 8
-  %cmp6.i488591 = icmp sgt i64 %142, 0
-  br i1 %cmp6.i488591, label %for.body.i489, label %for.inc1038
+  %cmp6.i497596 = icmp sgt i64 %142, 0
+  br i1 %cmp6.i497596, label %for.body.i498, label %for.inc1038
 
-for.body.i489:                                    ; preds = %if.end.i479.split, %for.inc.i496
-  %143 = phi i64 [ %145, %for.inc.i496 ], [ %142, %if.end.i479.split ]
-  %conv.i483593 = phi i64 [ %conv.i483, %for.inc.i496 ], [ 0, %if.end.i479.split ]
-  %i.0.i482592 = phi i32 [ %inc.i497, %for.inc.i496 ], [ 0, %if.end.i479.split ]
-  %arrayidx.i491 = getelementptr [1 x ptr], ptr %typed_elements.i490, i64 0, i64 %conv.i483593
-  %144 = load ptr, ptr %arrayidx.i491, align 8
-  %cmp8.not.i492 = icmp eq ptr %144, null
-  br i1 %cmp8.not.i492, label %for.inc.i496, label %land.lhs.true10.i493
+for.body.i498:                                    ; preds = %if.end.i488.split, %for.inc.i505
+  %143 = phi i64 [ %145, %for.inc.i505 ], [ %142, %if.end.i488.split ]
+  %conv.i492598 = phi i64 [ %conv.i492, %for.inc.i505 ], [ 0, %if.end.i488.split ]
+  %i.0.i491597 = phi i32 [ %inc.i506, %for.inc.i505 ], [ 0, %if.end.i488.split ]
+  %arrayidx.i500 = getelementptr [1 x ptr], ptr %typed_elements.i499, i64 0, i64 %conv.i492598
+  %144 = load ptr, ptr %arrayidx.i500, align 8
+  %cmp8.not.i501 = icmp eq ptr %144, null
+  br i1 %cmp8.not.i501, label %for.inc.i505, label %land.lhs.true10.i502
 
-land.lhs.true10.i493:                             ; preds = %for.body.i489
-  %call11.i494 = tail call fastcc i32 @astfold_stmt(ptr noundef nonnull %144, ptr noundef %ctx_, ptr noundef %state), !range !5
-  %tobool12.not.i495 = icmp eq i32 %call11.i494, 0
-  br i1 %tobool12.not.i495, label %return, label %land.lhs.true10.i493.for.inc.i496_crit_edge
+land.lhs.true10.i502:                             ; preds = %for.body.i498
+  %call11.i503 = tail call fastcc i32 @astfold_stmt(ptr noundef nonnull %144, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %tobool12.not.i504 = icmp eq i32 %call11.i503, 0
+  br i1 %tobool12.not.i504, label %return, label %land.lhs.true10.i502.for.inc.i505_crit_edge
 
-land.lhs.true10.i493.for.inc.i496_crit_edge:      ; preds = %land.lhs.true10.i493
-  %.pre644 = load i64, ptr %141, align 8
-  br label %for.inc.i496
+land.lhs.true10.i502.for.inc.i505_crit_edge:      ; preds = %land.lhs.true10.i502
+  %.pre649 = load i64, ptr %141, align 8
+  br label %for.inc.i505
 
-for.inc.i496:                                     ; preds = %land.lhs.true10.i493.for.inc.i496_crit_edge, %for.body.i489
-  %145 = phi i64 [ %.pre644, %land.lhs.true10.i493.for.inc.i496_crit_edge ], [ %143, %for.body.i489 ]
-  %inc.i497 = add i32 %i.0.i482592, 1
-  %conv.i483 = sext i32 %inc.i497 to i64
-  %cmp6.i488 = icmp sgt i64 %145, %conv.i483
-  br i1 %cmp6.i488, label %for.body.i489, label %for.inc1038, !llvm.loop !33
+for.inc.i505:                                     ; preds = %land.lhs.true10.i502.for.inc.i505_crit_edge, %for.body.i498
+  %145 = phi i64 [ %.pre649, %land.lhs.true10.i502.for.inc.i505_crit_edge ], [ %143, %for.body.i498 ]
+  %inc.i506 = add i32 %i.0.i491597, 1
+  %conv.i492 = sext i32 %inc.i506 to i64
+  %cmp6.i497 = icmp sgt i64 %145, %conv.i492
+  br i1 %cmp6.i497, label %for.body.i498, label %for.inc1038, !llvm.loop !33
 
-for.inc1038:                                      ; preds = %for.inc.i496, %if.end.i479, %if.end.i479.split, %land.lhs.true1033, %for.body1026
+for.inc1038:                                      ; preds = %for.inc.i505, %if.end.i488, %if.end.i488.split, %land.lhs.true1033, %for.body1026
   %inc1039 = add i32 %i1011.0, 1
   br label %for.cond1015, !llvm.loop !38
 
@@ -2661,59 +2661,59 @@ for.body1145:                                     ; preds = %cond.end1141
 
 land.lhs.true1152:                                ; preds = %for.body1145
   %159 = load ptr, ptr %158, align 8
-  %call.i499 = tail call fastcc i32 @astfold_pattern(ptr noundef %159, ptr noundef %ctx_, ptr noundef %state), !range !5
-  %tobool.not.i500 = icmp eq i32 %call.i499, 0
-  br i1 %tobool.not.i500, label %return, label %if.end.i501
+  %call.i508 = tail call fastcc i32 @astfold_pattern(ptr noundef %159, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %tobool.not.i509 = icmp eq i32 %call.i508, 0
+  br i1 %tobool.not.i509, label %return, label %if.end.i510
 
-if.end.i501:                                      ; preds = %land.lhs.true1152
+if.end.i510:                                      ; preds = %land.lhs.true1152
   %guard.i = getelementptr inbounds i8, ptr %158, i64 8
   %160 = load ptr, ptr %guard.i, align 8
-  %cmp.not.i502 = icmp eq ptr %160, null
-  br i1 %cmp.not.i502, label %if.end5.i, label %land.lhs.true.i503
+  %cmp.not.i511 = icmp eq ptr %160, null
+  br i1 %cmp.not.i511, label %if.end5.i515, label %land.lhs.true.i512
 
-land.lhs.true.i503:                               ; preds = %if.end.i501
-  %call2.i504 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %160, ptr noundef %ctx_, ptr noundef %state), !range !5
-  %tobool3.not.i = icmp eq i32 %call2.i504, 0
-  br i1 %tobool3.not.i, label %return, label %if.end5.i
+land.lhs.true.i512:                               ; preds = %if.end.i510
+  %call2.i513 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %160, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %tobool3.not.i514 = icmp eq i32 %call2.i513, 0
+  br i1 %tobool3.not.i514, label %return, label %if.end5.i515
 
-if.end5.i:                                        ; preds = %land.lhs.true.i503, %if.end.i501
-  %body.i505 = getelementptr inbounds i8, ptr %158, i64 16
-  %161 = load ptr, ptr %body.i505, align 8
-  %cmp6.i509 = icmp eq ptr %161, null
-  %typed_elements.i515 = getelementptr inbounds i8, ptr %161, i64 16
-  br i1 %cmp6.i509, label %for.inc1157, label %if.end5.i.split
+if.end5.i515:                                     ; preds = %land.lhs.true.i512, %if.end.i510
+  %body.i516 = getelementptr inbounds i8, ptr %158, i64 16
+  %161 = load ptr, ptr %body.i516, align 8
+  %cmp6.i520 = icmp eq ptr %161, null
+  %typed_elements.i526 = getelementptr inbounds i8, ptr %161, i64 16
+  br i1 %cmp6.i520, label %for.inc1157, label %if.end5.i515.split
 
-if.end5.i.split:                                  ; preds = %if.end5.i
+if.end5.i515.split:                               ; preds = %if.end5.i515
   %162 = load i64, ptr %161, align 8
-  %cmp8.i586 = icmp sgt i64 %162, 0
-  br i1 %cmp8.i586, label %for.body.i514, label %for.inc1157
+  %cmp8.i591 = icmp sgt i64 %162, 0
+  br i1 %cmp8.i591, label %for.body.i525, label %for.inc1157
 
-for.body.i514:                                    ; preds = %if.end5.i.split, %for.inc.i517
-  %163 = phi i64 [ %165, %for.inc.i517 ], [ %162, %if.end5.i.split ]
-  %conv.i508588 = phi i64 [ %conv.i508, %for.inc.i517 ], [ 0, %if.end5.i.split ]
-  %i.0.i507587 = phi i32 [ %inc.i518, %for.inc.i517 ], [ 0, %if.end5.i.split ]
-  %arrayidx.i516 = getelementptr [1 x ptr], ptr %typed_elements.i515, i64 0, i64 %conv.i508588
-  %164 = load ptr, ptr %arrayidx.i516, align 8
+for.body.i525:                                    ; preds = %if.end5.i515.split, %for.inc.i528
+  %163 = phi i64 [ %165, %for.inc.i528 ], [ %162, %if.end5.i515.split ]
+  %conv.i519593 = phi i64 [ %conv.i519, %for.inc.i528 ], [ 0, %if.end5.i515.split ]
+  %i.0.i518592 = phi i32 [ %inc.i529, %for.inc.i528 ], [ 0, %if.end5.i515.split ]
+  %arrayidx.i527 = getelementptr [1 x ptr], ptr %typed_elements.i526, i64 0, i64 %conv.i519593
+  %164 = load ptr, ptr %arrayidx.i527, align 8
   %cmp10.not.i = icmp eq ptr %164, null
-  br i1 %cmp10.not.i, label %for.inc.i517, label %land.lhs.true12.i
+  br i1 %cmp10.not.i, label %for.inc.i528, label %land.lhs.true12.i
 
-land.lhs.true12.i:                                ; preds = %for.body.i514
+land.lhs.true12.i:                                ; preds = %for.body.i525
   %call13.i = tail call fastcc i32 @astfold_stmt(ptr noundef nonnull %164, ptr noundef %ctx_, ptr noundef %state), !range !5
   %tobool14.not.i = icmp eq i32 %call13.i, 0
-  br i1 %tobool14.not.i, label %return, label %land.lhs.true12.i.for.inc.i517_crit_edge
+  br i1 %tobool14.not.i, label %return, label %land.lhs.true12.i.for.inc.i528_crit_edge
 
-land.lhs.true12.i.for.inc.i517_crit_edge:         ; preds = %land.lhs.true12.i
+land.lhs.true12.i.for.inc.i528_crit_edge:         ; preds = %land.lhs.true12.i
   %.pre = load i64, ptr %161, align 8
-  br label %for.inc.i517
+  br label %for.inc.i528
 
-for.inc.i517:                                     ; preds = %land.lhs.true12.i.for.inc.i517_crit_edge, %for.body.i514
-  %165 = phi i64 [ %.pre, %land.lhs.true12.i.for.inc.i517_crit_edge ], [ %163, %for.body.i514 ]
-  %inc.i518 = add i32 %i.0.i507587, 1
-  %conv.i508 = sext i32 %inc.i518 to i64
-  %cmp8.i = icmp sgt i64 %165, %conv.i508
-  br i1 %cmp8.i, label %for.body.i514, label %for.inc1157, !llvm.loop !41
+for.inc.i528:                                     ; preds = %land.lhs.true12.i.for.inc.i528_crit_edge, %for.body.i525
+  %165 = phi i64 [ %.pre, %land.lhs.true12.i.for.inc.i528_crit_edge ], [ %163, %for.body.i525 ]
+  %inc.i529 = add i32 %i.0.i518592, 1
+  %conv.i519 = sext i32 %inc.i529 to i64
+  %cmp8.i = icmp sgt i64 %165, %conv.i519
+  br i1 %cmp8.i, label %for.body.i525, label %for.inc1157, !llvm.loop !41
 
-for.inc1157:                                      ; preds = %for.inc.i517, %if.end5.i, %if.end5.i.split, %for.body1145
+for.inc1157:                                      ; preds = %for.inc.i528, %if.end5.i515, %if.end5.i515.split, %for.body1145
   %inc1158 = add i32 %i1131.0, 1
   br label %for.cond1134, !llvm.loop !42
 
@@ -2723,8 +2723,8 @@ sw.epilog:                                        ; preds = %cond.end1141, %cond
   store i32 %dec, ptr %recursion_depth, align 4
   br label %return
 
-return:                                           ; preds = %land.lhs.true.i503, %land.lhs.true1152, %land.lhs.true12.i, %land.lhs.true1003, %land.lhs.true.i476, %land.lhs.true10.i493, %land.lhs.true1063, %land.lhs.true1093, %land.lhs.true884, %land.lhs.true.i466, %land.lhs.true10.i, %land.lhs.true943, %land.lhs.true972, %land.lhs.true802, %astfold_withitem.exit462, %land.lhs.true832, %land.lhs.true741, %astfold_withitem.exit, %land.lhs.true771, %land.lhs.true681, %land.lhs.true711, %land.lhs.true614, %land.lhs.true644, %land.lhs.true548, %land.lhs.true578, %land.lhs.true470, %land.lhs.true499, %astfold_type_param.exit449, %land.lhs.true340, %land.lhs.true309, %astfold_type_param.exit440, %land.lhs.true203, %land.lhs.true232, %land.lhs.true268, %astfold_type_param.exit432, %land.lhs.true127, %astfold_type_param.exit, %land.lhs.true41, %sw.bb1125, %sw.bb1118, %land.lhs.true1111, %sw.bb1101, %land.lhs.true854, %land.lhs.true844, %sw.bb652, %sw.bb586, %if.end519, %sw.bb513, %for.end506, %if.end442, %sw.bb436, %for.end429, %sw.bb394, %land.lhs.true387, %if.then376, %sw.bb366, %if.end359, %sw.bb354, %for.end347, %land.lhs.true280, %for.end239, %land.lhs.true143, %if.end98, %for.end92, %land.lhs.true54, %if.end14, %for.end, %sw.epilog, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ 1, %sw.epilog ], [ 0, %for.end ], [ 0, %if.end14 ], [ 0, %land.lhs.true54 ], [ 0, %for.end92 ], [ 0, %if.end98 ], [ 0, %land.lhs.true143 ], [ 0, %for.end239 ], [ 0, %land.lhs.true280 ], [ 0, %for.end347 ], [ 0, %sw.bb354 ], [ 0, %if.end359 ], [ 0, %sw.bb366 ], [ 0, %if.then376 ], [ 0, %land.lhs.true387 ], [ 0, %sw.bb394 ], [ 0, %for.end429 ], [ 0, %sw.bb436 ], [ 0, %if.end442 ], [ 0, %for.end506 ], [ 0, %sw.bb513 ], [ 0, %if.end519 ], [ 0, %sw.bb586 ], [ 0, %sw.bb652 ], [ 0, %land.lhs.true844 ], [ 0, %land.lhs.true854 ], [ 0, %sw.bb1101 ], [ 0, %land.lhs.true1111 ], [ 0, %sw.bb1118 ], [ 0, %sw.bb1125 ], [ 0, %land.lhs.true41 ], [ 0, %astfold_type_param.exit ], [ 0, %land.lhs.true127 ], [ 0, %astfold_type_param.exit432 ], [ 0, %land.lhs.true268 ], [ 0, %land.lhs.true232 ], [ 0, %land.lhs.true203 ], [ 0, %astfold_type_param.exit440 ], [ 0, %land.lhs.true309 ], [ 0, %land.lhs.true340 ], [ 0, %astfold_type_param.exit449 ], [ 0, %land.lhs.true499 ], [ 0, %land.lhs.true470 ], [ 0, %land.lhs.true578 ], [ 0, %land.lhs.true548 ], [ 0, %land.lhs.true644 ], [ 0, %land.lhs.true614 ], [ 0, %land.lhs.true711 ], [ 0, %land.lhs.true681 ], [ 0, %land.lhs.true771 ], [ 0, %astfold_withitem.exit ], [ 0, %land.lhs.true741 ], [ 0, %land.lhs.true832 ], [ 0, %astfold_withitem.exit462 ], [ 0, %land.lhs.true802 ], [ 0, %land.lhs.true972 ], [ 0, %land.lhs.true943 ], [ 0, %land.lhs.true10.i ], [ 0, %land.lhs.true.i466 ], [ 0, %land.lhs.true884 ], [ 0, %land.lhs.true1093 ], [ 0, %land.lhs.true1063 ], [ 0, %land.lhs.true10.i493 ], [ 0, %land.lhs.true.i476 ], [ 0, %land.lhs.true1003 ], [ 0, %land.lhs.true12.i ], [ 0, %land.lhs.true1152 ], [ 0, %land.lhs.true.i503 ]
+return:                                           ; preds = %land.lhs.true.i512, %land.lhs.true1152, %land.lhs.true12.i, %land.lhs.true1003, %land.lhs.true.i485, %land.lhs.true10.i502, %land.lhs.true1063, %land.lhs.true1093, %land.lhs.true884, %land.lhs.true.i475, %land.lhs.true10.i, %land.lhs.true943, %land.lhs.true972, %land.lhs.true.i466, %land.lhs.true802, %land.lhs.true832, %land.lhs.true.i459, %land.lhs.true741, %land.lhs.true771, %land.lhs.true681, %land.lhs.true711, %land.lhs.true614, %land.lhs.true644, %land.lhs.true548, %land.lhs.true578, %land.lhs.true470, %land.lhs.true499, %land.lhs.true.i452, %land.lhs.true340, %land.lhs.true309, %land.lhs.true.i441, %land.lhs.true203, %land.lhs.true232, %land.lhs.true268, %land.lhs.true.i431, %land.lhs.true127, %land.lhs.true.i, %land.lhs.true41, %sw.bb1125, %sw.bb1118, %land.lhs.true1111, %sw.bb1101, %land.lhs.true854, %land.lhs.true844, %sw.bb652, %sw.bb586, %if.end519, %sw.bb513, %for.end506, %if.end442, %sw.bb436, %for.end429, %sw.bb394, %land.lhs.true387, %if.then376, %sw.bb366, %if.end359, %sw.bb354, %for.end347, %land.lhs.true280, %for.end239, %land.lhs.true143, %if.end98, %for.end92, %land.lhs.true54, %if.end14, %for.end, %sw.epilog, %if.then
+  %retval.0 = phi i32 [ 0, %if.then ], [ 1, %sw.epilog ], [ 0, %for.end ], [ 0, %if.end14 ], [ 0, %land.lhs.true54 ], [ 0, %for.end92 ], [ 0, %if.end98 ], [ 0, %land.lhs.true143 ], [ 0, %for.end239 ], [ 0, %land.lhs.true280 ], [ 0, %for.end347 ], [ 0, %sw.bb354 ], [ 0, %if.end359 ], [ 0, %sw.bb366 ], [ 0, %if.then376 ], [ 0, %land.lhs.true387 ], [ 0, %sw.bb394 ], [ 0, %for.end429 ], [ 0, %sw.bb436 ], [ 0, %if.end442 ], [ 0, %for.end506 ], [ 0, %sw.bb513 ], [ 0, %if.end519 ], [ 0, %sw.bb586 ], [ 0, %sw.bb652 ], [ 0, %land.lhs.true844 ], [ 0, %land.lhs.true854 ], [ 0, %sw.bb1101 ], [ 0, %land.lhs.true1111 ], [ 0, %sw.bb1118 ], [ 0, %sw.bb1125 ], [ 0, %land.lhs.true41 ], [ 0, %land.lhs.true.i ], [ 0, %land.lhs.true127 ], [ 0, %land.lhs.true.i431 ], [ 0, %land.lhs.true268 ], [ 0, %land.lhs.true232 ], [ 0, %land.lhs.true203 ], [ 0, %land.lhs.true.i441 ], [ 0, %land.lhs.true309 ], [ 0, %land.lhs.true340 ], [ 0, %land.lhs.true.i452 ], [ 0, %land.lhs.true499 ], [ 0, %land.lhs.true470 ], [ 0, %land.lhs.true578 ], [ 0, %land.lhs.true548 ], [ 0, %land.lhs.true644 ], [ 0, %land.lhs.true614 ], [ 0, %land.lhs.true711 ], [ 0, %land.lhs.true681 ], [ 0, %land.lhs.true771 ], [ 0, %land.lhs.true741 ], [ 0, %land.lhs.true.i459 ], [ 0, %land.lhs.true832 ], [ 0, %land.lhs.true802 ], [ 0, %land.lhs.true.i466 ], [ 0, %land.lhs.true972 ], [ 0, %land.lhs.true943 ], [ 0, %land.lhs.true10.i ], [ 0, %land.lhs.true.i475 ], [ 0, %land.lhs.true884 ], [ 0, %land.lhs.true1093 ], [ 0, %land.lhs.true1063 ], [ 0, %land.lhs.true10.i502 ], [ 0, %land.lhs.true.i485 ], [ 0, %land.lhs.true1003 ], [ 0, %land.lhs.true12.i ], [ 0, %land.lhs.true1152 ], [ 0, %land.lhs.true.i512 ]
   ret i32 %retval.0
 }
 
@@ -3784,14 +3784,14 @@ entry:
 
 entry.split:                                      ; preds = %entry
   %1 = load i64, ptr %0, align 8
-  %cmp2123 = icmp sgt i64 %1, 0
-  br i1 %cmp2123, label %for.body, label %for.end
+  %cmp2119 = icmp sgt i64 %1, 0
+  br i1 %cmp2119, label %for.body, label %for.end
 
 for.body:                                         ; preds = %entry.split, %for.inc
   %2 = phi i64 [ %6, %for.inc ], [ %1, %entry.split ]
-  %conv125 = phi i64 [ %conv, %for.inc ], [ 0, %entry.split ]
-  %i.0124 = phi i32 [ %inc, %for.inc ], [ 0, %entry.split ]
-  %arrayidx = getelementptr [1 x ptr], ptr %typed_elements, i64 0, i64 %conv125
+  %conv121 = phi i64 [ %conv, %for.inc ], [ 0, %entry.split ]
+  %i.0120 = phi i32 [ %inc, %for.inc ], [ 0, %entry.split ]
+  %arrayidx = getelementptr [1 x ptr], ptr %typed_elements, i64 0, i64 %conv121
   %3 = load ptr, ptr %arrayidx, align 8
   %cmp4.not = icmp eq ptr %3, null
   br i1 %cmp4.not, label %for.inc, label %land.lhs.true
@@ -3817,9 +3817,9 @@ land.lhs.true.i.for.inc_crit_edge:                ; preds = %land.lhs.true.i
   %.pre = load i64, ptr %0, align 8
   br label %for.inc
 
-for.inc:                                          ; preds = %land.lhs.true.i.for.inc_crit_edge, %land.lhs.true, %if.then.i, %for.body
-  %6 = phi i64 [ %.pre, %land.lhs.true.i.for.inc_crit_edge ], [ %2, %land.lhs.true ], [ %2, %if.then.i ], [ %2, %for.body ]
-  %inc = add i32 %i.0124, 1
+for.inc:                                          ; preds = %land.lhs.true.i.for.inc_crit_edge, %if.then.i, %land.lhs.true, %for.body
+  %6 = phi i64 [ %.pre, %land.lhs.true.i.for.inc_crit_edge ], [ %2, %if.then.i ], [ %2, %land.lhs.true ], [ %2, %for.body ]
+  %inc = add i32 %i.0120, 1
   %conv = sext i32 %inc to i64
   %cmp2 = icmp sgt i64 %6, %conv
   br i1 %cmp2, label %for.body, label %for.end, !llvm.loop !58
@@ -3855,20 +3855,20 @@ land.lhs.true26:                                  ; preds = %for.body19
   %10 = load i32, ptr %ff_features.i, align 4
   %and.i58 = and i32 %10, 16777216
   %tobool.not.i59 = icmp eq i32 %and.i58, 0
-  br i1 %tobool.not.i59, label %if.then.i61, label %for.inc31
+  br i1 %tobool.not.i59, label %if.then.i62, label %for.inc31
 
-if.then.i61:                                      ; preds = %land.lhs.true26
-  %annotation.i62 = getelementptr inbounds i8, ptr %9, i64 8
-  %11 = load ptr, ptr %annotation.i62, align 8
-  %cmp.not.i63 = icmp eq ptr %11, null
-  br i1 %cmp.not.i63, label %for.inc31, label %land.lhs.true.i64
+if.then.i62:                                      ; preds = %land.lhs.true26
+  %annotation.i63 = getelementptr inbounds i8, ptr %9, i64 8
+  %11 = load ptr, ptr %annotation.i63, align 8
+  %cmp.not.i64 = icmp eq ptr %11, null
+  br i1 %cmp.not.i64, label %for.inc31, label %land.lhs.true.i65
 
-land.lhs.true.i64:                                ; preds = %if.then.i61
-  %call.i65 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %11, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
-  %tobool2.not.i66 = icmp eq i32 %call.i65, 0
-  br i1 %tobool2.not.i66, label %return, label %for.inc31
+land.lhs.true.i65:                                ; preds = %if.then.i62
+  %call.i66 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %11, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
+  %tobool2.not.i67 = icmp eq i32 %call.i66, 0
+  br i1 %tobool2.not.i67, label %return, label %for.inc31
 
-for.inc31:                                        ; preds = %land.lhs.true.i64, %land.lhs.true26, %if.then.i61, %for.body19
+for.inc31:                                        ; preds = %land.lhs.true.i65, %if.then.i62, %land.lhs.true26, %for.body19
   %inc32 = add i32 %i6.0, 1
   br label %for.cond8, !llvm.loop !59
 
@@ -3882,20 +3882,20 @@ land.lhs.true36:                                  ; preds = %for.end33
   %13 = load i32, ptr %ff_features.i, align 4
   %and.i70 = and i32 %13, 16777216
   %tobool.not.i71 = icmp eq i32 %and.i70, 0
-  br i1 %tobool.not.i71, label %if.then.i73, label %if.end41
+  br i1 %tobool.not.i71, label %if.then.i74, label %if.end41
 
-if.then.i73:                                      ; preds = %land.lhs.true36
-  %annotation.i74 = getelementptr inbounds i8, ptr %12, i64 8
-  %14 = load ptr, ptr %annotation.i74, align 8
-  %cmp.not.i75 = icmp eq ptr %14, null
-  br i1 %cmp.not.i75, label %if.end41, label %land.lhs.true.i76
+if.then.i74:                                      ; preds = %land.lhs.true36
+  %annotation.i75 = getelementptr inbounds i8, ptr %12, i64 8
+  %14 = load ptr, ptr %annotation.i75, align 8
+  %cmp.not.i76 = icmp eq ptr %14, null
+  br i1 %cmp.not.i76, label %if.end41, label %land.lhs.true.i77
 
-land.lhs.true.i76:                                ; preds = %if.then.i73
-  %call.i77 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %14, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
-  %tobool2.not.i78 = icmp eq i32 %call.i77, 0
-  br i1 %tobool2.not.i78, label %return, label %if.end41
+land.lhs.true.i77:                                ; preds = %if.then.i74
+  %call.i78 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %14, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
+  %tobool2.not.i79 = icmp eq i32 %call.i78, 0
+  br i1 %tobool2.not.i79, label %return, label %if.end41
 
-if.end41:                                         ; preds = %land.lhs.true.i76, %land.lhs.true36, %if.then.i73, %for.end33
+if.end41:                                         ; preds = %land.lhs.true.i77, %if.then.i74, %land.lhs.true36, %for.end33
   %kwonlyargs = getelementptr inbounds i8, ptr %node_, i64 24
   %15 = load ptr, ptr %kwonlyargs, align 8
   %cmp46 = icmp eq ptr %15, null
@@ -3926,20 +3926,20 @@ land.lhs.true62:                                  ; preds = %for.body55
   %18 = load i32, ptr %ff_features.i, align 4
   %and.i82 = and i32 %18, 16777216
   %tobool.not.i83 = icmp eq i32 %and.i82, 0
-  br i1 %tobool.not.i83, label %if.then.i85, label %for.inc67
+  br i1 %tobool.not.i83, label %if.then.i86, label %for.inc67
 
-if.then.i85:                                      ; preds = %land.lhs.true62
-  %annotation.i86 = getelementptr inbounds i8, ptr %17, i64 8
-  %19 = load ptr, ptr %annotation.i86, align 8
-  %cmp.not.i87 = icmp eq ptr %19, null
-  br i1 %cmp.not.i87, label %for.inc67, label %land.lhs.true.i88
+if.then.i86:                                      ; preds = %land.lhs.true62
+  %annotation.i87 = getelementptr inbounds i8, ptr %17, i64 8
+  %19 = load ptr, ptr %annotation.i87, align 8
+  %cmp.not.i88 = icmp eq ptr %19, null
+  br i1 %cmp.not.i88, label %for.inc67, label %land.lhs.true.i89
 
-land.lhs.true.i88:                                ; preds = %if.then.i85
-  %call.i89 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %19, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
-  %tobool2.not.i90 = icmp eq i32 %call.i89, 0
-  br i1 %tobool2.not.i90, label %return, label %for.inc67
+land.lhs.true.i89:                                ; preds = %if.then.i86
+  %call.i90 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %19, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
+  %tobool2.not.i91 = icmp eq i32 %call.i90, 0
+  br i1 %tobool2.not.i91, label %return, label %for.inc67
 
-for.inc67:                                        ; preds = %land.lhs.true.i88, %land.lhs.true62, %if.then.i85, %for.body55
+for.inc67:                                        ; preds = %land.lhs.true.i89, %if.then.i86, %land.lhs.true62, %for.body55
   %inc68 = add i32 %i42.0, 1
   br label %for.cond44, !llvm.loop !60
 
@@ -3952,14 +3952,14 @@ for.end69:                                        ; preds = %cond.end51
 
 for.end69.split:                                  ; preds = %for.end69
   %21 = load i64, ptr %20, align 8
-  %cmp81128 = icmp sgt i64 %21, 0
-  br i1 %cmp81128, label %for.body83, label %for.end97
+  %cmp81124 = icmp sgt i64 %21, 0
+  br i1 %cmp81124, label %for.body83, label %for.end97
 
 for.body83:                                       ; preds = %for.end69.split, %for.inc95
   %22 = phi i64 [ %24, %for.inc95 ], [ %21, %for.end69.split ]
-  %conv73130 = phi i64 [ %conv73, %for.inc95 ], [ 0, %for.end69.split ]
-  %i70.0129 = phi i32 [ %inc96, %for.inc95 ], [ 0, %for.end69.split ]
-  %arrayidx87 = getelementptr [1 x ptr], ptr %typed_elements85, i64 0, i64 %conv73130
+  %conv73126 = phi i64 [ %conv73, %for.inc95 ], [ 0, %for.end69.split ]
+  %i70.0125 = phi i32 [ %inc96, %for.inc95 ], [ 0, %for.end69.split ]
+  %arrayidx87 = getelementptr [1 x ptr], ptr %typed_elements85, i64 0, i64 %conv73126
   %23 = load ptr, ptr %arrayidx87, align 8
   %cmp88.not = icmp eq ptr %23, null
   br i1 %cmp88.not, label %for.inc95, label %land.lhs.true90
@@ -3970,12 +3970,12 @@ land.lhs.true90:                                  ; preds = %for.body83
   br i1 %tobool92.not, label %return, label %land.lhs.true90.for.inc95_crit_edge
 
 land.lhs.true90.for.inc95_crit_edge:              ; preds = %land.lhs.true90
-  %.pre145 = load i64, ptr %20, align 8
+  %.pre141 = load i64, ptr %20, align 8
   br label %for.inc95
 
 for.inc95:                                        ; preds = %land.lhs.true90.for.inc95_crit_edge, %for.body83
-  %24 = phi i64 [ %.pre145, %land.lhs.true90.for.inc95_crit_edge ], [ %22, %for.body83 ]
-  %inc96 = add i32 %i70.0129, 1
+  %24 = phi i64 [ %.pre141, %land.lhs.true90.for.inc95_crit_edge ], [ %22, %for.body83 ]
+  %inc96 = add i32 %i70.0125, 1
   %conv73 = sext i32 %inc96 to i64
   %cmp81 = icmp sgt i64 %24, %conv73
   br i1 %cmp81, label %for.body83, label %for.end97, !llvm.loop !61
@@ -3990,20 +3990,20 @@ land.lhs.true100:                                 ; preds = %for.end97
   %26 = load i32, ptr %ff_features.i, align 4
   %and.i94 = and i32 %26, 16777216
   %tobool.not.i95 = icmp eq i32 %and.i94, 0
-  br i1 %tobool.not.i95, label %if.then.i97, label %if.end105
+  br i1 %tobool.not.i95, label %if.then.i98, label %if.end105
 
-if.then.i97:                                      ; preds = %land.lhs.true100
-  %annotation.i98 = getelementptr inbounds i8, ptr %25, i64 8
-  %27 = load ptr, ptr %annotation.i98, align 8
-  %cmp.not.i99 = icmp eq ptr %27, null
-  br i1 %cmp.not.i99, label %if.end105, label %land.lhs.true.i100
+if.then.i98:                                      ; preds = %land.lhs.true100
+  %annotation.i99 = getelementptr inbounds i8, ptr %25, i64 8
+  %27 = load ptr, ptr %annotation.i99, align 8
+  %cmp.not.i100 = icmp eq ptr %27, null
+  br i1 %cmp.not.i100, label %if.end105, label %land.lhs.true.i101
 
-land.lhs.true.i100:                               ; preds = %if.then.i97
-  %call.i101 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %27, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
-  %tobool2.not.i102 = icmp eq i32 %call.i101, 0
-  br i1 %tobool2.not.i102, label %return, label %if.end105
+land.lhs.true.i101:                               ; preds = %if.then.i98
+  %call.i102 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %27, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
+  %tobool2.not.i103 = icmp eq i32 %call.i102, 0
+  br i1 %tobool2.not.i103, label %return, label %if.end105
 
-if.end105:                                        ; preds = %land.lhs.true.i100, %land.lhs.true100, %if.then.i97, %for.end97
+if.end105:                                        ; preds = %land.lhs.true.i101, %if.then.i98, %land.lhs.true100, %for.end97
   %defaults = getelementptr inbounds i8, ptr %node_, i64 48
   %28 = load ptr, ptr %defaults, align 8
   %cmp110 = icmp eq ptr %28, null
@@ -4012,14 +4012,14 @@ if.end105:                                        ; preds = %land.lhs.true.i100,
 
 if.end105.split:                                  ; preds = %if.end105
   %29 = load i64, ptr %28, align 8
-  %cmp117133 = icmp sgt i64 %29, 0
-  br i1 %cmp117133, label %for.body119, label %return
+  %cmp117129 = icmp sgt i64 %29, 0
+  br i1 %cmp117129, label %for.body119, label %return
 
 for.body119:                                      ; preds = %if.end105.split, %for.inc131
   %30 = phi i64 [ %32, %for.inc131 ], [ %29, %if.end105.split ]
-  %conv109135 = phi i64 [ %conv109, %for.inc131 ], [ 0, %if.end105.split ]
-  %i106.0134 = phi i32 [ %inc132, %for.inc131 ], [ 0, %if.end105.split ]
-  %arrayidx123 = getelementptr [1 x ptr], ptr %typed_elements121, i64 0, i64 %conv109135
+  %conv109131 = phi i64 [ %conv109, %for.inc131 ], [ 0, %if.end105.split ]
+  %i106.0130 = phi i32 [ %inc132, %for.inc131 ], [ 0, %if.end105.split ]
+  %arrayidx123 = getelementptr [1 x ptr], ptr %typed_elements121, i64 0, i64 %conv109131
   %31 = load ptr, ptr %arrayidx123, align 8
   %cmp124.not = icmp eq ptr %31, null
   br i1 %cmp124.not, label %for.inc131, label %land.lhs.true126
@@ -4030,18 +4030,18 @@ land.lhs.true126:                                 ; preds = %for.body119
   br i1 %tobool128.not, label %return, label %land.lhs.true126.for.inc131_crit_edge
 
 land.lhs.true126.for.inc131_crit_edge:            ; preds = %land.lhs.true126
-  %.pre146 = load i64, ptr %28, align 8
+  %.pre142 = load i64, ptr %28, align 8
   br label %for.inc131
 
 for.inc131:                                       ; preds = %land.lhs.true126.for.inc131_crit_edge, %for.body119
-  %32 = phi i64 [ %.pre146, %land.lhs.true126.for.inc131_crit_edge ], [ %30, %for.body119 ]
-  %inc132 = add i32 %i106.0134, 1
+  %32 = phi i64 [ %.pre142, %land.lhs.true126.for.inc131_crit_edge ], [ %30, %for.body119 ]
+  %inc132 = add i32 %i106.0130, 1
   %conv109 = sext i32 %inc132 to i64
   %cmp117 = icmp sgt i64 %32, %conv109
   br i1 %cmp117, label %for.body119, label %return, !llvm.loop !62
 
-return:                                           ; preds = %land.lhs.true.i, %land.lhs.true.i64, %land.lhs.true.i88, %land.lhs.true90, %for.inc131, %land.lhs.true126, %if.end105, %if.end105.split, %land.lhs.true.i100, %land.lhs.true.i76
-  %retval.0 = phi i32 [ 0, %land.lhs.true.i76 ], [ 0, %land.lhs.true.i100 ], [ 1, %if.end105 ], [ 1, %if.end105.split ], [ 0, %land.lhs.true126 ], [ 1, %for.inc131 ], [ 0, %land.lhs.true90 ], [ 0, %land.lhs.true.i88 ], [ 0, %land.lhs.true.i64 ], [ 0, %land.lhs.true.i ]
+return:                                           ; preds = %land.lhs.true.i, %land.lhs.true.i65, %land.lhs.true.i89, %land.lhs.true90, %for.inc131, %land.lhs.true126, %if.end105, %if.end105.split, %land.lhs.true.i101, %land.lhs.true.i77
+  %retval.0 = phi i32 [ 0, %land.lhs.true.i77 ], [ 0, %land.lhs.true.i101 ], [ 1, %if.end105 ], [ 1, %if.end105.split ], [ 0, %land.lhs.true126 ], [ 1, %for.inc131 ], [ 0, %land.lhs.true90 ], [ 0, %land.lhs.true.i89 ], [ 0, %land.lhs.true.i65 ], [ 0, %land.lhs.true.i ]
   ret i32 %retval.0
 }
 
@@ -5774,19 +5774,21 @@ cond.end:                                         ; preds = %entry, %cond.false
   %2 = load i32, ptr %arrayidx, align 4
   %3 = add i32 %2, -9
   %or.cond = icmp ult i32 %3, 2
-  br i1 %or.cond, label %if.then, label %return
+  br i1 %or.cond, label %if.then, label %if.end8
 
 if.then:                                          ; preds = %cond.end
   %typed_elements5 = getelementptr inbounds i8, ptr %node.24.val, i64 16
   %arrayidx6 = getelementptr [1 x ptr], ptr %typed_elements5, i64 0, i64 %cond
   %4 = load ptr, ptr %arrayidx6, align 8
   %call = tail call fastcc i32 @fold_iter(ptr noundef %4, ptr noundef %arena)
-  %tobool.not = icmp ne i32 %call, 0
-  %spec.select = zext i1 %tobool.not to i32
+  %tobool.not = icmp eq i32 %call, 0
+  br i1 %tobool.not, label %return, label %if.end8
+
+if.end8:                                          ; preds = %if.then, %cond.end
   br label %return
 
-return:                                           ; preds = %if.then, %cond.end
-  %retval.0 = phi i32 [ 1, %cond.end ], [ %spec.select, %if.then ]
+return:                                           ; preds = %if.then, %if.end8
+  %retval.0 = phi i32 [ 1, %if.end8 ], [ 0, %if.then ]
   ret i32 %retval.0
 }
 

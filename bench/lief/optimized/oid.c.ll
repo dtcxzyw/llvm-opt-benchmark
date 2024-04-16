@@ -413,8 +413,8 @@ oid_certificate_policies_from_asn1.exit:          ; preds = %7
   store ptr @.str.122, ptr %1, align 8
   br label %oid_certificate_policies_from_asn1.exit.thread
 
-oid_certificate_policies_from_asn1.exit.thread:   ; preds = %7, %.preheader.i, %2, %oid_certificate_policies_from_asn1.exit
-  %.0 = phi i32 [ 0, %oid_certificate_policies_from_asn1.exit ], [ -46, %2 ], [ -46, %.preheader.i ], [ -46, %7 ]
+oid_certificate_policies_from_asn1.exit.thread:   ; preds = %.preheader.i, %7, %2, %oid_certificate_policies_from_asn1.exit
+  %.0 = phi i32 [ 0, %oid_certificate_policies_from_asn1.exit ], [ -46, %2 ], [ -46, %7 ], [ -46, %.preheader.i ]
   ret i32 %.0
 }
 

@@ -2419,7 +2419,7 @@ Iso_AigObj.exit:                                  ; preds = %9, %12
   %22 = load i32, ptr %3, align 4
   %23 = icmp slt i32 %.01425, %22
   %.pre = load i32, ptr %4, align 4
-  br i1 %23, label %28, label %24
+  br i1 %23, label %27, label %24
 
 24:                                               ; preds = %Iso_AigObj.exit
   %25 = icmp eq i32 %.01425, %22
@@ -2427,13 +2427,13 @@ Iso_AigObj.exit:                                  ; preds = %9, %12
   %or.cond = select i1 %25, i1 %26, i1 false
   br i1 %or.cond, label %27, label %28
 
-27:                                               ; preds = %24
+27:                                               ; preds = %24, %Iso_AigObj.exit
   br label %28
 
-28:                                               ; preds = %Iso_AigObj.exit, %24, %27
-  %.117 = phi ptr [ %.01624, %24 ], [ %.01823, %Iso_AigObj.exit ], [ %.01823, %27 ]
-  %.115 = phi i32 [ %.01425, %24 ], [ %22, %Iso_AigObj.exit ], [ %22, %27 ]
-  %.1 = phi i32 [ %.026, %24 ], [ %.pre, %Iso_AigObj.exit ], [ %.pre, %27 ]
+28:                                               ; preds = %24, %27
+  %.117 = phi ptr [ %.01823, %27 ], [ %.01624, %24 ]
+  %.115 = phi i32 [ %22, %27 ], [ %.01425, %24 ]
+  %.1 = phi i32 [ %.pre, %27 ], [ %.026, %24 ]
   %29 = getelementptr inbounds i8, ptr %.01823, i64 16
   %30 = load i32, ptr %29, align 4
   %.not.i = icmp eq i32 %30, 0

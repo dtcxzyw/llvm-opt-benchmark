@@ -84,18 +84,12 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  %.mask = and i32 %errcode, 2139095040
-  %cmp4 = icmp eq i32 %.mask, 268435456
-  br i1 %cmp4, label %land.lhs.true, label %return
-
-land.lhs.true:                                    ; preds = %if.else
-  %retval.0.i10 = and i32 %errcode, 8388607
-  %cmp8 = icmp eq i32 %retval.0.i10, 112
-  %spec.select = zext i1 %cmp8 to i32
+  %or.cond = icmp eq i32 %errcode, 268435568
+  %spec.select = zext i1 %or.cond to i32
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %if.else, %if.then
-  %retval.0 = phi i32 [ %call1, %if.then ], [ 0, %if.else ], [ %spec.select, %land.lhs.true ]
+return:                                           ; preds = %if.else, %if.then
+  %retval.0 = phi i32 [ %call1, %if.then ], [ %spec.select, %if.else ]
   ret i32 %retval.0
 }
 

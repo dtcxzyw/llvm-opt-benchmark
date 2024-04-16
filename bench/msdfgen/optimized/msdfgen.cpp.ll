@@ -2378,7 +2378,7 @@ for.body29:                                       ; preds = %for.body18, %for.in
   %16 = call double @llvm.fabs.f64(double %14)
   %17 = call double @llvm.fabs.f64(double %minDistance.sroa.0.125)
   %cmp.i17 = fcmp olt double %16, %17
-  br i1 %cmp.i17, label %for.inc, label %_ZN7msdfgenltENS_14SignedDistanceES0_.exit
+  br i1 %cmp.i17, label %if.then, label %_ZN7msdfgenltENS_14SignedDistanceES0_.exit
 
 _ZN7msdfgenltENS_14SignedDistanceES0_.exit:       ; preds = %for.body29
   %cmp4.i = fcmp oeq double %16, %17
@@ -2386,12 +2386,12 @@ _ZN7msdfgenltENS_14SignedDistanceES0_.exit:       ; preds = %for.body29
   %18 = select i1 %cmp4.i, i1 %cmp6.i, i1 false
   br i1 %18, label %if.then, label %for.inc
 
-if.then:                                          ; preds = %_ZN7msdfgenltENS_14SignedDistanceES0_.exit
+if.then:                                          ; preds = %for.body29, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit
   br label %for.inc
 
-for.inc:                                          ; preds = %for.body29, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit, %if.then
-  %minDistance.sroa.0.2 = phi double [ %minDistance.sroa.0.125, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit ], [ %14, %if.then ], [ %14, %for.body29 ]
-  %minDistance.sroa.4.2 = phi double [ %minDistance.sroa.4.127, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit ], [ %15, %if.then ], [ %15, %for.body29 ]
+for.inc:                                          ; preds = %_ZN7msdfgenltENS_14SignedDistanceES0_.exit, %if.then
+  %minDistance.sroa.0.2 = phi double [ %14, %if.then ], [ %minDistance.sroa.0.125, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit ]
+  %minDistance.sroa.4.2 = phi double [ %15, %if.then ], [ %minDistance.sroa.4.127, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %edge.sroa.0.026, i64 8
   %19 = load ptr, ptr %_M_finish.i15, align 8
   %cmp.i16.not = icmp eq ptr %incdec.ptr.i, %19
@@ -3023,7 +3023,7 @@ for.body33:                                       ; preds = %for.body22, %for.in
   %15 = call double @llvm.fabs.f64(double %13)
   %16 = call double @llvm.fabs.f64(double %minDistance.sroa.0.192)
   %cmp.i45 = fcmp olt double %15, %16
-  br i1 %cmp.i45, label %if.end, label %_ZN7msdfgenltENS_14SignedDistanceES0_.exit
+  br i1 %cmp.i45, label %if.then, label %_ZN7msdfgenltENS_14SignedDistanceES0_.exit
 
 _ZN7msdfgenltENS_14SignedDistanceES0_.exit:       ; preds = %for.body33
   %cmp4.i = fcmp oeq double %15, %16
@@ -3031,12 +3031,12 @@ _ZN7msdfgenltENS_14SignedDistanceES0_.exit:       ; preds = %for.body33
   %17 = select i1 %cmp4.i, i1 %cmp6.i, i1 false
   br i1 %17, label %if.then, label %if.end
 
-if.then:                                          ; preds = %_ZN7msdfgenltENS_14SignedDistanceES0_.exit
+if.then:                                          ; preds = %for.body33, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit
   br label %if.end
 
-if.end:                                           ; preds = %for.body33, %if.then, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit
-  %minDistance.sroa.0.2 = phi double [ %minDistance.sroa.0.192, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit ], [ %13, %if.then ], [ %13, %for.body33 ]
-  %minDistance.sroa.4.2 = phi double [ %minDistance.sroa.4.194, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit ], [ %14, %if.then ], [ %14, %for.body33 ]
+if.end:                                           ; preds = %if.then, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit
+  %minDistance.sroa.0.2 = phi double [ %13, %if.then ], [ %minDistance.sroa.0.192, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit ]
+  %minDistance.sroa.4.2 = phi double [ %14, %if.then ], [ %minDistance.sroa.4.194, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit ]
   %call42 = call noundef ptr @_ZNK7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %edge.sroa.0.093)
   %color = getelementptr inbounds i8, ptr %call42, i64 8
   %18 = load i32, ptr %color, align 8

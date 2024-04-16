@@ -1995,19 +1995,20 @@ land.end.i.i:                                     ; preds = %_ZNK6duckdb21Templa
 if.then58.i.i:                                    ; preds = %land.end.i.i
   switch i64 %begin.0.i.i, label %cond.end.i.i.i [
     i64 0, label %if.else.i.i.i.i
-    i64 -9223372036854775808, label %if.end.i.i.i
+    i64 -9223372036854775808, label %if.then.i.i.i
   ]
 
 cond.end.i.i.i:                                   ; preds = %if.then58.i.i
   %sub.i.i.i = add nsw i64 %begin.0.i.i, -1
-  %cmp3.i.i.i = icmp ne i64 %sub.i.i.i, -9223372036854775808
-  %spec.select = call i64 @llvm.smax.i64(i64 %sub.i.i.i, i64 -9223372036854775807)
-  %spec.select1 = zext i1 %cmp3.i.i.i to i64
+  %cmp3.i.i.i = icmp eq i64 %sub.i.i.i, -9223372036854775808
+  br i1 %cmp3.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
+
+if.then.i.i.i:                                    ; preds = %cond.end.i.i.i, %if.then58.i.i
   br label %if.end.i.i.i
 
-if.end.i.i.i:                                     ; preds = %cond.end.i.i.i, %if.then58.i.i
-  %35 = phi i64 [ -9223372036854775807, %if.then58.i.i ], [ %spec.select, %cond.end.i.i.i ]
-  %not.is_min.i.i.i.i = phi i64 [ 0, %if.then58.i.i ], [ %spec.select1, %cond.end.i.i.i ]
+if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %cond.end.i.i.i
+  %35 = phi i64 [ -9223372036854775807, %if.then.i.i.i ], [ %sub.i.i.i, %cond.end.i.i.i ]
+  %not.is_min.i.i.i.i = phi i64 [ 0, %if.then.i.i.i ], [ 1, %cond.end.i.i.i ]
   %cmp5.i.i.i = icmp slt i64 %35, 0
   %sub7.i.i.i = sub nsw i64 0, %35
   %cmp8.i.i.i = icmp slt i64 %str.sroa.5.0.copyload.i.i, %sub7.i.i.i
@@ -2520,19 +2521,20 @@ if.then108.i.i:                                   ; preds = %cond.end89.i.i, %co
   %cmp91508516.i.i = phi i1 [ %cmp91.i.i, %cond.end89.i.i ], [ false, %cond.end82.i.i ]
   switch i64 %begin.0519.i.i, label %cond.end.i.i104.i [
     i64 0, label %if.else.i.i.i85.i
-    i64 -9223372036854775808, label %if.end.i.i78.i
+    i64 -9223372036854775808, label %if.then.i323.i.i
   ]
 
 cond.end.i.i104.i:                                ; preds = %if.then108.i.i
   %sub.i.i105.i = add nsw i64 %begin.0519.i.i, -1
-  %cmp3.i.i106.i = icmp ne i64 %sub.i.i105.i, -9223372036854775808
-  %spec.select2 = call i64 @llvm.smax.i64(i64 %sub.i.i105.i, i64 -9223372036854775807)
-  %spec.select3 = zext i1 %cmp3.i.i106.i to i64
+  %cmp3.i.i106.i = icmp eq i64 %sub.i.i105.i, -9223372036854775808
+  br i1 %cmp3.i.i106.i, label %if.then.i323.i.i, label %if.end.i.i78.i
+
+if.then.i323.i.i:                                 ; preds = %cond.end.i.i104.i, %if.then108.i.i
   br label %if.end.i.i78.i
 
-if.end.i.i78.i:                                   ; preds = %cond.end.i.i104.i, %if.then108.i.i
-  %91 = phi i64 [ -9223372036854775807, %if.then108.i.i ], [ %spec.select2, %cond.end.i.i104.i ]
-  %not.is_min.i.i.i79.i = phi i64 [ 0, %if.then108.i.i ], [ %spec.select3, %cond.end.i.i104.i ]
+if.end.i.i78.i:                                   ; preds = %if.then.i323.i.i, %cond.end.i.i104.i
+  %91 = phi i64 [ -9223372036854775807, %if.then.i323.i.i ], [ %sub.i.i105.i, %cond.end.i.i104.i ]
+  %not.is_min.i.i.i79.i = phi i64 [ 0, %if.then.i323.i.i ], [ 1, %cond.end.i.i104.i ]
   %cmp5.i.i80.i = icmp slt i64 %91, 0
   %sub7.i.i81.i = sub nsw i64 0, %91
   %cmp8.i.i82.i = icmp slt i64 %sliced.sroa.6.0.copyload.i.i, %sub7.i.i81.i
@@ -2820,7 +2822,7 @@ for.body167.i.i.prol.loopexit:                    ; preds = %for.body167.i.i.pro
   br i1 %123, label %for.cond.cleanup166.i.i, label %for.body167.i.i
 
 for.body167.us.i.i.preheader:                     ; preds = %for.body167.lr.ph.i.i
-  br i1 %min.iters.check498, label %for.body167.us.i.i.preheader125, label %vector.ph499
+  br i1 %min.iters.check498, label %for.body167.us.i.i.preheader122, label %vector.ph499
 
 vector.ph499:                                     ; preds = %for.body167.us.i.i.preheader
   %n.vec501 = and i64 %sel_length.0.lcssa.i.i, -8
@@ -2841,14 +2843,14 @@ vector.body504:                                   ; preds = %vector.body504, %ve
 
 middle.block496:                                  ; preds = %vector.body504
   %cmp.n503 = icmp eq i64 %sel_length.0.lcssa.i.i, %n.vec501
-  br i1 %cmp.n503, label %for.cond.cleanup166.i.i, label %for.body167.us.i.i.preheader125
+  br i1 %cmp.n503, label %for.cond.cleanup166.i.i, label %for.body167.us.i.i.preheader122
 
-for.body167.us.i.i.preheader125:                  ; preds = %middle.block496, %for.body167.us.i.i.preheader
+for.body167.us.i.i.preheader122:                  ; preds = %middle.block496, %for.body167.us.i.i.preheader
   %i163.0588.us.i.i.ph = phi i64 [ %n.vec501, %middle.block496 ], [ 0, %for.body167.us.i.i.preheader ]
   br label %for.body167.us.i.i
 
-for.body167.us.i.i:                               ; preds = %for.body167.us.i.i.preheader125, %for.body167.us.i.i
-  %i163.0588.us.i.i = phi i64 [ %inc172.us.i.i, %for.body167.us.i.i ], [ %i163.0588.us.i.i.ph, %for.body167.us.i.i.preheader125 ]
+for.body167.us.i.i:                               ; preds = %for.body167.us.i.i.preheader122, %for.body167.us.i.i
+  %i163.0588.us.i.i = phi i64 [ %inc172.us.i.i, %for.body167.us.i.i ], [ %i163.0588.us.i.i.ph, %for.body167.us.i.i.preheader122 ]
   %conv.i358.us.i.i = trunc i64 %i163.0588.us.i.i to i32
   %arrayidx.i359.us.i.i = getelementptr inbounds i32, ptr %112, i64 %i163.0588.us.i.i
   store i32 %conv.i358.us.i.i, ptr %arrayidx.i359.us.i.i, align 4, !tbaa !42
@@ -3516,7 +3518,7 @@ cond.true15.i.i:                                  ; preds = %cond.end12.i.i250
 
 for.body.i.i.i.i.preheader:                       ; preds = %cond.true15.i.i
   %min.iters.check410 = icmp ult i64 %conv.i.i.i.i.i, 4
-  br i1 %min.iters.check410, label %for.body.i.i.i.i.preheader133, label %vector.ph411
+  br i1 %min.iters.check410, label %for.body.i.i.i.i.preheader130, label %vector.ph411
 
 vector.ph411:                                     ; preds = %for.body.i.i.i.i.preheader
   %n.mod.vf412 = and i64 %str.sroa.0.0.copyload.i.i248, 3
@@ -3547,16 +3549,16 @@ middle.block408:                                  ; preds = %vector.body416
   %bin.rdx423 = add <2 x i64> %224, %223
   %226 = call i64 @llvm.vector.reduce.add.v2i64(<2 x i64> %bin.rdx423)
   %cmp.n415 = icmp eq i64 %n.mod.vf412, 0
-  br i1 %cmp.n415, label %_ZN6duckdb11ValueLengthINS_8string_tElEET0_RKT_.exit.i.i, label %for.body.i.i.i.i.preheader133
+  br i1 %cmp.n415, label %_ZN6duckdb11ValueLengthINS_8string_tElEET0_RKT_.exit.i.i, label %for.body.i.i.i.i.preheader130
 
-for.body.i.i.i.i.preheader133:                    ; preds = %middle.block408, %for.body.i.i.i.i.preheader
+for.body.i.i.i.i.preheader130:                    ; preds = %middle.block408, %for.body.i.i.i.i.preheader
   %i.08.i.i.i.i.ph = phi i64 [ %n.vec413, %middle.block408 ], [ 0, %for.body.i.i.i.i.preheader ]
   %length.07.i.i.i.i.ph = phi i64 [ %226, %middle.block408 ], [ 0, %for.body.i.i.i.i.preheader ]
   br label %for.body.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i.preheader133, %for.body.i.i.i.i
-  %i.08.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i.i ], [ %i.08.i.i.i.i.ph, %for.body.i.i.i.i.preheader133 ]
-  %length.07.i.i.i.i = phi i64 [ %add.i.i.i.i, %for.body.i.i.i.i ], [ %length.07.i.i.i.i.ph, %for.body.i.i.i.i.preheader133 ]
+for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i.preheader130, %for.body.i.i.i.i
+  %i.08.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i.i ], [ %i.08.i.i.i.i.ph, %for.body.i.i.i.i.preheader130 ]
+  %length.07.i.i.i.i = phi i64 [ %add.i.i.i.i, %for.body.i.i.i.i ], [ %length.07.i.i.i.i.ph, %for.body.i.i.i.i.preheader130 ]
   %arrayidx.i.i.i.i329 = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 %i.08.i.i.i.i
   %227 = load i8, ptr %arrayidx.i.i.i.i329, align 1, !tbaa !31
   %228 = and i8 %227, -64
@@ -3605,7 +3607,7 @@ cond.true33.i.i:                                  ; preds = %cond.end25.i.i257
 
 for.body.i.i165.i.i.preheader:                    ; preds = %cond.true33.i.i
   %min.iters.check427 = icmp ult i64 %conv.i.i.i163.i.i, 4
-  br i1 %min.iters.check427, label %for.body.i.i165.i.i.preheader130, label %vector.ph428
+  br i1 %min.iters.check427, label %for.body.i.i165.i.i.preheader127, label %vector.ph428
 
 vector.ph428:                                     ; preds = %for.body.i.i165.i.i.preheader
   %n.mod.vf429 = and i64 %str.sroa.0.0.copyload.i.i248, 3
@@ -3636,16 +3638,16 @@ middle.block425:                                  ; preds = %vector.body433
   %bin.rdx440 = add <2 x i64> %242, %241
   %244 = call i64 @llvm.vector.reduce.add.v2i64(<2 x i64> %bin.rdx440)
   %cmp.n432 = icmp eq i64 %n.mod.vf429, 0
-  br i1 %cmp.n432, label %_ZN6duckdb11ValueLengthINS_8string_tElEET0_RKT_.exit175.i.i, label %for.body.i.i165.i.i.preheader130
+  br i1 %cmp.n432, label %_ZN6duckdb11ValueLengthINS_8string_tElEET0_RKT_.exit175.i.i, label %for.body.i.i165.i.i.preheader127
 
-for.body.i.i165.i.i.preheader130:                 ; preds = %middle.block425, %for.body.i.i165.i.i.preheader
+for.body.i.i165.i.i.preheader127:                 ; preds = %middle.block425, %for.body.i.i165.i.i.preheader
   %i.08.i.i166.i.i.ph = phi i64 [ %n.vec430, %middle.block425 ], [ 0, %for.body.i.i165.i.i.preheader ]
   %length.07.i.i167.i.i.ph = phi i64 [ %244, %middle.block425 ], [ 0, %for.body.i.i165.i.i.preheader ]
   br label %for.body.i.i165.i.i
 
-for.body.i.i165.i.i:                              ; preds = %for.body.i.i165.i.i.preheader130, %for.body.i.i165.i.i
-  %i.08.i.i166.i.i = phi i64 [ %inc.i.i172.i.i, %for.body.i.i165.i.i ], [ %i.08.i.i166.i.i.ph, %for.body.i.i165.i.i.preheader130 ]
-  %length.07.i.i167.i.i = phi i64 [ %add.i.i171.i.i, %for.body.i.i165.i.i ], [ %length.07.i.i167.i.i.ph, %for.body.i.i165.i.i.preheader130 ]
+for.body.i.i165.i.i:                              ; preds = %for.body.i.i165.i.i.preheader127, %for.body.i.i165.i.i
+  %i.08.i.i166.i.i = phi i64 [ %inc.i.i172.i.i, %for.body.i.i165.i.i ], [ %i.08.i.i166.i.i.ph, %for.body.i.i165.i.i.preheader127 ]
+  %length.07.i.i167.i.i = phi i64 [ %add.i.i171.i.i, %for.body.i.i165.i.i ], [ %length.07.i.i167.i.i.ph, %for.body.i.i165.i.i.preheader127 ]
   %arrayidx.i.i168.i.i = getelementptr inbounds i8, ptr %cond.i.i.i162.i.i, i64 %i.08.i.i166.i.i
   %245 = load i8, ptr %arrayidx.i.i168.i.i, align 1, !tbaa !31
   %246 = and i8 %245, -64
@@ -3766,7 +3768,7 @@ if.end.i.i.i298:                                  ; preds = %if.then.i.i.i297, %
 
 for.body.i.i.i.i.i.preheader:                     ; preds = %if.end.i.i.i298
   %min.iters.check444 = icmp ult i64 %conv.i.i.i.i.i.i, 4
-  br i1 %min.iters.check444, label %for.body.i.i.i.i.i.preheader128, label %vector.ph445
+  br i1 %min.iters.check444, label %for.body.i.i.i.i.i.preheader125, label %vector.ph445
 
 vector.ph445:                                     ; preds = %for.body.i.i.i.i.i.preheader
   %n.mod.vf446 = and i64 %str.sroa.0.0.copyload.i.i248, 3
@@ -3797,16 +3799,16 @@ middle.block442:                                  ; preds = %vector.body450
   %bin.rdx457 = add <2 x i64> %269, %268
   %271 = call i64 @llvm.vector.reduce.add.v2i64(<2 x i64> %bin.rdx457)
   %cmp.n449 = icmp eq i64 %n.mod.vf446, 0
-  br i1 %cmp.n449, label %_ZN6duckdb11ValueLengthINS_8string_tElEET0_RKT_.exit.i.i.i, label %for.body.i.i.i.i.i.preheader128
+  br i1 %cmp.n449, label %_ZN6duckdb11ValueLengthINS_8string_tElEET0_RKT_.exit.i.i.i, label %for.body.i.i.i.i.i.preheader125
 
-for.body.i.i.i.i.i.preheader128:                  ; preds = %middle.block442, %for.body.i.i.i.i.i.preheader
+for.body.i.i.i.i.i.preheader125:                  ; preds = %middle.block442, %for.body.i.i.i.i.i.preheader
   %i.08.i.i.i.i.i.ph = phi i64 [ %n.vec447, %middle.block442 ], [ 0, %for.body.i.i.i.i.i.preheader ]
   %length.07.i.i.i.i.i.ph = phi i64 [ %271, %middle.block442 ], [ 0, %for.body.i.i.i.i.i.preheader ]
   br label %for.body.i.i.i.i.i
 
-for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.preheader128, %for.body.i.i.i.i.i
-  %i.08.i.i.i.i.i = phi i64 [ %inc.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %i.08.i.i.i.i.i.ph, %for.body.i.i.i.i.i.preheader128 ]
-  %length.07.i.i.i.i.i = phi i64 [ %add.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %length.07.i.i.i.i.i.ph, %for.body.i.i.i.i.i.preheader128 ]
+for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.preheader125, %for.body.i.i.i.i.i
+  %i.08.i.i.i.i.i = phi i64 [ %inc.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %i.08.i.i.i.i.i.ph, %for.body.i.i.i.i.i.preheader125 ]
+  %length.07.i.i.i.i.i = phi i64 [ %add.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %length.07.i.i.i.i.i.ph, %for.body.i.i.i.i.i.preheader125 ]
   %arrayidx.i.i.i.i.i302 = getelementptr inbounds i8, ptr %cond.i.i.i.i.i.i, i64 %i.08.i.i.i.i.i
   %272 = load i8, ptr %arrayidx.i.i.i.i.i302, align 1, !tbaa !31
   %273 = and i8 %272, -64
@@ -4249,7 +4251,7 @@ cond.true77.i.i:                                  ; preds = %cond.end74.i.i238
 
 for.body.i.i.i110.i.preheader:                    ; preds = %cond.true77.i.i
   %min.iters.check368 = icmp ult i64 %conv.i.i.i.i108.i, 4
-  br i1 %min.iters.check368, label %for.body.i.i.i110.i.preheader141, label %vector.ph369
+  br i1 %min.iters.check368, label %for.body.i.i.i110.i.preheader138, label %vector.ph369
 
 vector.ph369:                                     ; preds = %for.body.i.i.i110.i.preheader
   %n.mod.vf370 = and i64 %sliced.sroa.0.0.copyload.i.i235, 3
@@ -4280,16 +4282,16 @@ middle.block366:                                  ; preds = %vector.body374
   %bin.rdx381 = add <2 x i64> %331, %330
   %333 = call i64 @llvm.vector.reduce.add.v2i64(<2 x i64> %bin.rdx381)
   %cmp.n373 = icmp eq i64 %n.mod.vf370, 0
-  br i1 %cmp.n373, label %_ZN6duckdb11ValueLengthINS_8string_tElEET0_RKT_.exit.i119.i, label %for.body.i.i.i110.i.preheader141
+  br i1 %cmp.n373, label %_ZN6duckdb11ValueLengthINS_8string_tElEET0_RKT_.exit.i119.i, label %for.body.i.i.i110.i.preheader138
 
-for.body.i.i.i110.i.preheader141:                 ; preds = %middle.block366, %for.body.i.i.i110.i.preheader
+for.body.i.i.i110.i.preheader138:                 ; preds = %middle.block366, %for.body.i.i.i110.i.preheader
   %i.08.i.i.i111.i.ph = phi i64 [ %n.vec371, %middle.block366 ], [ 0, %for.body.i.i.i110.i.preheader ]
   %length.07.i.i.i112.i.ph = phi i64 [ %333, %middle.block366 ], [ 0, %for.body.i.i.i110.i.preheader ]
   br label %for.body.i.i.i110.i
 
-for.body.i.i.i110.i:                              ; preds = %for.body.i.i.i110.i.preheader141, %for.body.i.i.i110.i
-  %i.08.i.i.i111.i = phi i64 [ %inc.i.i.i117.i, %for.body.i.i.i110.i ], [ %i.08.i.i.i111.i.ph, %for.body.i.i.i110.i.preheader141 ]
-  %length.07.i.i.i112.i = phi i64 [ %add.i.i.i116.i, %for.body.i.i.i110.i ], [ %length.07.i.i.i112.i.ph, %for.body.i.i.i110.i.preheader141 ]
+for.body.i.i.i110.i:                              ; preds = %for.body.i.i.i110.i.preheader138, %for.body.i.i.i110.i
+  %i.08.i.i.i111.i = phi i64 [ %inc.i.i.i117.i, %for.body.i.i.i110.i ], [ %i.08.i.i.i111.i.ph, %for.body.i.i.i110.i.preheader138 ]
+  %length.07.i.i.i112.i = phi i64 [ %add.i.i.i116.i, %for.body.i.i.i110.i ], [ %length.07.i.i.i112.i.ph, %for.body.i.i.i110.i.preheader138 ]
   %arrayidx.i.i.i113.i = getelementptr inbounds i8, ptr %cond.i.i.i.i107.i, i64 %i.08.i.i.i111.i
   %334 = load i8, ptr %arrayidx.i.i.i113.i, align 1, !tbaa !31
   %335 = and i8 %334, -64
@@ -4339,7 +4341,7 @@ cond.true101.i.i:                                 ; preds = %cond.end91.i.i
 
 for.body.i.i340.i.i.preheader:                    ; preds = %cond.true101.i.i
   %min.iters.check351 = icmp ult i64 %conv.i.i.i338.i.i, 4
-  br i1 %min.iters.check351, label %for.body.i.i340.i.i.preheader140, label %vector.ph352
+  br i1 %min.iters.check351, label %for.body.i.i340.i.i.preheader137, label %vector.ph352
 
 vector.ph352:                                     ; preds = %for.body.i.i340.i.i.preheader
   %n.mod.vf353 = and i64 %sliced.sroa.0.0.copyload.i.i235, 3
@@ -4370,16 +4372,16 @@ middle.block349:                                  ; preds = %vector.body357
   %bin.rdx364 = add <2 x i64> %350, %349
   %352 = call i64 @llvm.vector.reduce.add.v2i64(<2 x i64> %bin.rdx364)
   %cmp.n356 = icmp eq i64 %n.mod.vf353, 0
-  br i1 %cmp.n356, label %_ZN6duckdb11ValueLengthINS_8string_tElEET0_RKT_.exit350.i.i, label %for.body.i.i340.i.i.preheader140
+  br i1 %cmp.n356, label %_ZN6duckdb11ValueLengthINS_8string_tElEET0_RKT_.exit350.i.i, label %for.body.i.i340.i.i.preheader137
 
-for.body.i.i340.i.i.preheader140:                 ; preds = %middle.block349, %for.body.i.i340.i.i.preheader
+for.body.i.i340.i.i.preheader137:                 ; preds = %middle.block349, %for.body.i.i340.i.i.preheader
   %i.08.i.i341.i.i.ph = phi i64 [ %n.vec354, %middle.block349 ], [ 0, %for.body.i.i340.i.i.preheader ]
   %length.07.i.i342.i.i.ph = phi i64 [ %352, %middle.block349 ], [ 0, %for.body.i.i340.i.i.preheader ]
   br label %for.body.i.i340.i.i
 
-for.body.i.i340.i.i:                              ; preds = %for.body.i.i340.i.i.preheader140, %for.body.i.i340.i.i
-  %i.08.i.i341.i.i = phi i64 [ %inc.i.i347.i.i, %for.body.i.i340.i.i ], [ %i.08.i.i341.i.i.ph, %for.body.i.i340.i.i.preheader140 ]
-  %length.07.i.i342.i.i = phi i64 [ %add.i.i346.i.i, %for.body.i.i340.i.i ], [ %length.07.i.i342.i.i.ph, %for.body.i.i340.i.i.preheader140 ]
+for.body.i.i340.i.i:                              ; preds = %for.body.i.i340.i.i.preheader137, %for.body.i.i340.i.i
+  %i.08.i.i341.i.i = phi i64 [ %inc.i.i347.i.i, %for.body.i.i340.i.i ], [ %i.08.i.i341.i.i.ph, %for.body.i.i340.i.i.preheader137 ]
+  %length.07.i.i342.i.i = phi i64 [ %add.i.i346.i.i, %for.body.i.i340.i.i ], [ %length.07.i.i342.i.i.ph, %for.body.i.i340.i.i.preheader137 ]
   %arrayidx.i.i343.i.i = getelementptr inbounds i8, ptr %cond.i.i.i337.i.i, i64 %i.08.i.i341.i.i
   %353 = load i8, ptr %arrayidx.i.i343.i.i, align 1, !tbaa !31
   %354 = and i8 %353, -64
@@ -4434,7 +4436,7 @@ if.end.i.i64.i:                                   ; preds = %if.then.i351.i.i, %
 
 for.body.i.i.i.i71.i.preheader:                   ; preds = %if.end.i.i64.i
   %min.iters.check = icmp ult i64 %conv.i.i.i.i.i69.i, 4
-  br i1 %min.iters.check, label %for.body.i.i.i.i71.i.preheader139, label %vector.ph
+  br i1 %min.iters.check, label %for.body.i.i.i.i71.i.preheader136, label %vector.ph
 
 vector.ph:                                        ; preds = %for.body.i.i.i.i71.i.preheader
   %n.mod.vf = and i64 %sliced.sroa.0.0.copyload.i.i235, 3
@@ -4465,16 +4467,16 @@ middle.block:                                     ; preds = %vector.body
   %bin.rdx = add <2 x i64> %365, %364
   %367 = call i64 @llvm.vector.reduce.add.v2i64(<2 x i64> %bin.rdx)
   %cmp.n = icmp eq i64 %n.mod.vf, 0
-  br i1 %cmp.n, label %_ZN6duckdb11ValueLengthINS_8string_tElEET0_RKT_.exit.i.i77.i, label %for.body.i.i.i.i71.i.preheader139
+  br i1 %cmp.n, label %_ZN6duckdb11ValueLengthINS_8string_tElEET0_RKT_.exit.i.i77.i, label %for.body.i.i.i.i71.i.preheader136
 
-for.body.i.i.i.i71.i.preheader139:                ; preds = %middle.block, %for.body.i.i.i.i71.i.preheader
+for.body.i.i.i.i71.i.preheader136:                ; preds = %middle.block, %for.body.i.i.i.i71.i.preheader
   %i.08.i.i.i.i72.i.ph = phi i64 [ %n.vec, %middle.block ], [ 0, %for.body.i.i.i.i71.i.preheader ]
   %length.07.i.i.i.i73.i.ph = phi i64 [ %367, %middle.block ], [ 0, %for.body.i.i.i.i71.i.preheader ]
   br label %for.body.i.i.i.i71.i
 
-for.body.i.i.i.i71.i:                             ; preds = %for.body.i.i.i.i71.i.preheader139, %for.body.i.i.i.i71.i
-  %i.08.i.i.i.i72.i = phi i64 [ %inc.i.i.i.i75.i, %for.body.i.i.i.i71.i ], [ %i.08.i.i.i.i72.i.ph, %for.body.i.i.i.i71.i.preheader139 ]
-  %length.07.i.i.i.i73.i = phi i64 [ %add.i.i.i.i74.i, %for.body.i.i.i.i71.i ], [ %length.07.i.i.i.i73.i.ph, %for.body.i.i.i.i71.i.preheader139 ]
+for.body.i.i.i.i71.i:                             ; preds = %for.body.i.i.i.i71.i.preheader136, %for.body.i.i.i.i71.i
+  %i.08.i.i.i.i72.i = phi i64 [ %inc.i.i.i.i75.i, %for.body.i.i.i.i71.i ], [ %i.08.i.i.i.i72.i.ph, %for.body.i.i.i.i71.i.preheader136 ]
+  %length.07.i.i.i.i73.i = phi i64 [ %add.i.i.i.i74.i, %for.body.i.i.i.i71.i ], [ %length.07.i.i.i.i73.i.ph, %for.body.i.i.i.i71.i.preheader136 ]
   %arrayidx.i.i.i352.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i68.i, i64 %i.08.i.i.i.i72.i
   %368 = load i8, ptr %arrayidx.i.i.i352.i.i, align 1, !tbaa !31
   %369 = and i8 %368, -64
@@ -4699,7 +4701,7 @@ for.body175.i.i.prol.loopexit:                    ; preds = %for.body175.i.i.pro
   br i1 %392, label %for.cond.cleanup174.i.i, label %for.body175.i.i
 
 for.body175.us.i.i.preheader:                     ; preds = %for.body175.lr.ph.i.i
-  br i1 %min.iters.check398, label %for.body175.us.i.i.preheader136, label %vector.ph399
+  br i1 %min.iters.check398, label %for.body175.us.i.i.preheader133, label %vector.ph399
 
 vector.ph399:                                     ; preds = %for.body175.us.i.i.preheader
   %n.vec401 = and i64 %sel_length.0.lcssa.i.i148, -8
@@ -4720,14 +4722,14 @@ vector.body404:                                   ; preds = %vector.body404, %ve
 
 middle.block396:                                  ; preds = %vector.body404
   %cmp.n403 = icmp eq i64 %sel_length.0.lcssa.i.i148, %n.vec401
-  br i1 %cmp.n403, label %for.cond.cleanup174.i.i, label %for.body175.us.i.i.preheader136
+  br i1 %cmp.n403, label %for.cond.cleanup174.i.i, label %for.body175.us.i.i.preheader133
 
-for.body175.us.i.i.preheader136:                  ; preds = %middle.block396, %for.body175.us.i.i.preheader
+for.body175.us.i.i.preheader133:                  ; preds = %middle.block396, %for.body175.us.i.i.preheader
   %i171.052.us.i.i.ph = phi i64 [ %n.vec401, %middle.block396 ], [ 0, %for.body175.us.i.i.preheader ]
   br label %for.body175.us.i.i
 
-for.body175.us.i.i:                               ; preds = %for.body175.us.i.i.preheader136, %for.body175.us.i.i
-  %i171.052.us.i.i = phi i64 [ %inc180.us.i.i, %for.body175.us.i.i ], [ %i171.052.us.i.i.ph, %for.body175.us.i.i.preheader136 ]
+for.body175.us.i.i:                               ; preds = %for.body175.us.i.i.preheader133, %for.body175.us.i.i
+  %i171.052.us.i.i = phi i64 [ %inc180.us.i.i, %for.body175.us.i.i ], [ %i171.052.us.i.i.ph, %for.body175.us.i.i.preheader133 ]
   %conv.i381.us.i.i = trunc i64 %i171.052.us.i.i to i32
   %arrayidx.i382.us.i.i = getelementptr inbounds i32, ptr %381, i64 %i171.052.us.i.i
   store i32 %conv.i381.us.i.i, ptr %arrayidx.i382.us.i.i, align 4, !tbaa !42
@@ -47230,7 +47232,7 @@ lor.lhs.false:                                    ; preds = %entry
   %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8, !tbaa !828
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
-  br i1 %cmp.i, label %cleanup, label %if.end.i
+  br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false
   %1 = load i8, ptr %0, align 1, !tbaa !31
@@ -47241,11 +47243,13 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #24
   %call6.i.fr = freeze i32 %call6.i
   %cmp7.i = icmp eq i32 %call6.i.fr, 0
-  %spec.select = select i1 %cmp7.i, ptr %_M_impl.i, ptr null
+  br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %cleanup
+
+_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false, %if.end.i, %entry
-  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ null, %if.end.i ], [ %_M_impl.i, %lor.lhs.false ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
+cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit.thread, %_ZNKSt9type_infoeqERKS_.exit, %if.end.i, %entry
+  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %_ZNKSt9type_infoeqERKS_.exit ], [ null, %if.end.i ]
   ret ptr %retval.0
 }
 
@@ -66700,7 +66704,7 @@ lor.lhs.false:                                    ; preds = %entry
   %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8, !tbaa !828
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
-  br i1 %cmp.i, label %cleanup, label %if.end.i
+  br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false
   %1 = load i8, ptr %0, align 1, !tbaa !31
@@ -66711,11 +66715,13 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #24
   %call6.i.fr = freeze i32 %call6.i
   %cmp7.i = icmp eq i32 %call6.i.fr, 0
-  %spec.select = select i1 %cmp7.i, ptr %_M_impl.i, ptr null
+  br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %cleanup
+
+_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false, %if.end.i, %entry
-  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ null, %if.end.i ], [ %_M_impl.i, %lor.lhs.false ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
+cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit.thread, %_ZNKSt9type_infoeqERKS_.exit, %if.end.i, %entry
+  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %_ZNKSt9type_infoeqERKS_.exit ], [ null, %if.end.i ]
   ret ptr %retval.0
 }
 

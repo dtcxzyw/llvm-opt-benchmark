@@ -18556,9 +18556,9 @@ _ZNK6vectorIiLb0EjE4sizeEv.exit:                  ; preds = %entry
 _ZNK6vectorIiLb0EjE4sizeEv.exit.thread:           ; preds = %entry
   %arrayidx.i11 = getelementptr inbounds i8, ptr %2, i64 -4
   %3 = load i32, ptr %arrayidx.i11, align 4
-  %sub41 = add i32 %3, -1
-  %cmp42 = icmp eq i32 %1, %sub41
-  br i1 %cmp42, label %if.then, label %if.end.i.i
+  %sub40 = add i32 %3, -1
+  %cmp41 = icmp eq i32 %1, %sub40
+  br i1 %cmp41, label %if.then, label %if.end.i.i
 
 if.then:                                          ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.thread, %_ZNK6vectorIiLb0EjE4sizeEv.exit
   store i32 0, ptr %arrayidx.i, align 4
@@ -18570,7 +18570,7 @@ if.then:                                          ; preds = %_ZNK6vectorIiLb0EjE
   br label %if.end23
 
 if.end.i.i:                                       ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.thread
-  %6 = zext i32 %sub41 to i64
+  %6 = zext i32 %sub40 to i64
   br label %_ZN6vectorIiLb0EjE4backEv.exit
 
 _ZN6vectorIiLb0EjE4backEv.exit:                   ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit, %if.end.i.i
@@ -18668,62 +18668,62 @@ if.end.i35:                                       ; preds = %if.else22, %if.end1
   %idx.addr.036.i = phi i32 [ %cond.i, %if.end16.i ], [ %1, %if.else22 ]
   %add.i.i = or disjoint i32 %shl.i37.i, 1
   %cmp6.i = icmp slt i32 %add.i.i, %26
-  %.pre39.i = load ptr, ptr %m_values, align 8
-  br i1 %cmp6.i, label %land.lhs.true.i, label %cond.end.i
+  br i1 %cmp6.i, label %land.lhs.true.i, label %if.end.cond.false_crit_edge.i
 
-land.lhs.true.i:                                  ; preds = %if.end.i35
-  %idxprom.i19.i = zext i32 %add.i.i to i64
-  %arrayidx.i20.i = getelementptr inbounds i32, ptr %.pre39.i, i64 %idxprom.i19.i
-  %27 = load i32, ptr %arrayidx.i20.i, align 4
-  %idxprom.i21.i = zext i32 %shl.i37.i to i64
-  %arrayidx.i22.i = getelementptr inbounds i32, ptr %.pre39.i, i64 %idxprom.i21.i
-  %28 = load i32, ptr %arrayidx.i22.i, align 4
-  %call.i.i38 = tail call noundef zeroext i1 @_ZNK11max_cliquesIN3smt11neg_literalEE14compare_degreeclEjj(ptr noundef nonnull align 8 dereferenceable(8) %this, i32 noundef %27, i32 noundef %28)
-  %spec.select.i = select i1 %call.i.i38, i32 %add.i.i, i32 %shl.i37.i
-  %.pre.i39 = load ptr, ptr %m_values, align 8
+if.end.cond.false_crit_edge.i:                    ; preds = %if.end.i35
+  %.pre41.i = zext i32 %shl.i37.i to i64
   br label %cond.end.i
 
-cond.end.i:                                       ; preds = %land.lhs.true.i, %if.end.i35
-  %29 = phi ptr [ %.pre39.i, %if.end.i35 ], [ %.pre.i39, %land.lhs.true.i ]
-  %cond.i = phi i32 [ %shl.i37.i, %if.end.i35 ], [ %spec.select.i, %land.lhs.true.i ]
-  %idxprom.i23.i = zext i32 %cond.i to i64
-  %arrayidx.i24.i = getelementptr inbounds i32, ptr %29, i64 %idxprom.i23.i
-  %30 = load i32, ptr %arrayidx.i24.i, align 4
-  %call.i25.i = tail call noundef zeroext i1 @_ZNK11max_cliquesIN3smt11neg_literalEE14compare_degreeclEjj(ptr noundef nonnull align 8 dereferenceable(8) %this, i32 noundef %30, i32 noundef %25)
-  br i1 %call.i25.i, label %if.end16.i, label %cond.end.while.end.loopexit_crit_edge.i
+land.lhs.true.i:                                  ; preds = %if.end.i35
+  %27 = load ptr, ptr %m_values, align 8
+  %idxprom.i19.i = zext i32 %add.i.i to i64
+  %arrayidx.i20.i = getelementptr inbounds i32, ptr %27, i64 %idxprom.i19.i
+  %28 = load i32, ptr %arrayidx.i20.i, align 4
+  %idxprom.i21.i = zext i32 %shl.i37.i to i64
+  %arrayidx.i22.i = getelementptr inbounds i32, ptr %27, i64 %idxprom.i21.i
+  %29 = load i32, ptr %arrayidx.i22.i, align 4
+  %call.i.i38 = tail call noundef zeroext i1 @_ZNK11max_cliquesIN3smt11neg_literalEE14compare_degreeclEjj(ptr noundef nonnull align 8 dereferenceable(8) %this, i32 noundef %28, i32 noundef %29)
+  %spec.select.i = select i1 %call.i.i38, i64 %idxprom.i19.i, i64 %idxprom.i21.i
+  %spec.select42.i = select i1 %call.i.i38, i32 %add.i.i, i32 %shl.i37.i
+  br label %cond.end.i
 
-cond.end.while.end.loopexit_crit_edge.i:          ; preds = %cond.end.i
-  %.pre42.i = zext i32 %idx.addr.036.i to i64
-  br label %while.end.loopexit.i36
+cond.end.i:                                       ; preds = %land.lhs.true.i, %if.end.cond.false_crit_edge.i
+  %idxprom.i23.pre-phi.i = phi i64 [ %.pre41.i, %if.end.cond.false_crit_edge.i ], [ %spec.select.i, %land.lhs.true.i ]
+  %cond.i = phi i32 [ %shl.i37.i, %if.end.cond.false_crit_edge.i ], [ %spec.select42.i, %land.lhs.true.i ]
+  %30 = load ptr, ptr %m_values, align 8
+  %arrayidx.i24.i = getelementptr inbounds i32, ptr %30, i64 %idxprom.i23.pre-phi.i
+  %31 = load i32, ptr %arrayidx.i24.i, align 4
+  %call.i25.i = tail call noundef zeroext i1 @_ZNK11max_cliquesIN3smt11neg_literalEE14compare_degreeclEjj(ptr noundef nonnull align 8 dereferenceable(8) %this, i32 noundef %31, i32 noundef %25)
+  br i1 %call.i25.i, label %if.end16.i, label %while.end.loopexit.i36
 
 if.end16.i:                                       ; preds = %cond.end.i
-  %31 = load ptr, ptr %m_values, align 8
+  %32 = load ptr, ptr %m_values, align 8
   %idxprom.i26.i = zext i32 %idx.addr.036.i to i64
-  %arrayidx.i27.i = getelementptr inbounds i32, ptr %31, i64 %idxprom.i26.i
-  store i32 %30, ptr %arrayidx.i27.i, align 4
-  %32 = load ptr, ptr %m_value2indices, align 8
-  %idxprom.i28.i = zext i32 %30 to i64
-  %arrayidx.i29.i = getelementptr inbounds i32, ptr %32, i64 %idxprom.i28.i
+  %arrayidx.i27.i = getelementptr inbounds i32, ptr %32, i64 %idxprom.i26.i
+  store i32 %31, ptr %arrayidx.i27.i, align 4
+  %33 = load ptr, ptr %m_value2indices, align 8
+  %idxprom.i28.i = zext i32 %31 to i64
+  %arrayidx.i29.i = getelementptr inbounds i32, ptr %33, i64 %idxprom.i28.i
   store i32 %idx.addr.036.i, ptr %arrayidx.i29.i, align 4
   %shl.i.i = shl i32 %cond.i, 1
   %cmp.not.i = icmp slt i32 %shl.i.i, %26
   br i1 %cmp.not.i, label %if.end.i35, label %while.end.loopexit.i36, !llvm.loop !90
 
-while.end.loopexit.i36:                           ; preds = %if.end16.i, %cond.end.while.end.loopexit_crit_edge.i
-  %.pre41.pre-phi.i = phi i64 [ %.pre42.i, %cond.end.while.end.loopexit_crit_edge.i ], [ %idxprom.i23.i, %if.end16.i ]
-  %idx.addr.0.lcssa.ph.i37 = phi i32 [ %idx.addr.036.i, %cond.end.while.end.loopexit_crit_edge.i ], [ %cond.i, %if.end16.i ]
-  %.pre40.i = load ptr, ptr %m_values, align 8
+while.end.loopexit.i36:                           ; preds = %if.end16.i, %cond.end.i
+  %idx.addr.0.lcssa.ph.i37 = phi i32 [ %cond.i, %if.end16.i ], [ %idx.addr.036.i, %cond.end.i ]
+  %.pre39.i = load ptr, ptr %m_values, align 8
+  %.pre40.i = zext i32 %idx.addr.0.lcssa.ph.i37 to i64
   br label %_ZN4heapIN11max_cliquesIN3smt11neg_literalEE14compare_degreeEE9move_downEi.exit
 
 _ZN4heapIN11max_cliquesIN3smt11neg_literalEE14compare_degreeEE9move_downEi.exit: ; preds = %if.else22, %while.end.loopexit.i36
-  %idxprom.i30.pre-phi.i = phi i64 [ %.pre41.pre-phi.i, %while.end.loopexit.i36 ], [ %idxprom.i15, %if.else22 ]
-  %33 = phi ptr [ %.pre40.i, %while.end.loopexit.i36 ], [ %24, %if.else22 ]
+  %idxprom.i30.pre-phi.i = phi i64 [ %.pre40.i, %while.end.loopexit.i36 ], [ %idxprom.i15, %if.else22 ]
+  %34 = phi ptr [ %.pre39.i, %while.end.loopexit.i36 ], [ %24, %if.else22 ]
   %idx.addr.0.lcssa.i33 = phi i32 [ %idx.addr.0.lcssa.ph.i37, %while.end.loopexit.i36 ], [ %1, %if.else22 ]
-  %arrayidx.i31.i = getelementptr inbounds i32, ptr %33, i64 %idxprom.i30.pre-phi.i
+  %arrayidx.i31.i = getelementptr inbounds i32, ptr %34, i64 %idxprom.i30.pre-phi.i
   store i32 %25, ptr %arrayidx.i31.i, align 4
-  %34 = load ptr, ptr %m_value2indices, align 8
+  %35 = load ptr, ptr %m_value2indices, align 8
   %idxprom.i32.i = zext i32 %25 to i64
-  %arrayidx.i33.i = getelementptr inbounds i32, ptr %34, i64 %idxprom.i32.i
+  %arrayidx.i33.i = getelementptr inbounds i32, ptr %35, i64 %idxprom.i32.i
   store i32 %idx.addr.0.lcssa.i33, ptr %arrayidx.i33.i, align 4
   br label %if.end23
 

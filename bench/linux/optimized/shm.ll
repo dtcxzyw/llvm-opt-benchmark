@@ -2891,7 +2891,7 @@ define internal fastcc i32 @shmctl_do_lock(ptr noundef %0, i32 noundef %1, i32 n
 7:                                                ; preds = %3
   %8 = ptrtoint ptr %5 to i64
   %9 = trunc i64 %8 to i32
-  br label %96
+  br label %97
 
 10:                                               ; preds = %3
   %11 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #14, !srcloc !20
@@ -2913,20 +2913,20 @@ define internal fastcc i32 @shmctl_do_lock(ptr noundef %0, i32 noundef %1, i32 n
 20:                                               ; preds = %19, %16, %10
   %21 = tail call i32 @security_shm_shmctl(ptr noundef %5, i32 noundef %2) #12
   %22 = icmp eq i32 %21, 0
-  br i1 %22, label %23, label %96
+  br i1 %22, label %23, label %97
 
 23:                                               ; preds = %20
   tail call void @_raw_spin_lock(ptr noundef %5) #12
   %24 = getelementptr inbounds i8, ptr %5, i64 4
   %25 = load i8, ptr %24, align 4, !range !18, !noundef !19
   %26 = icmp eq i8 %25, 0
-  br i1 %26, label %27, label %select.unfold
+  br i1 %26, label %27, label %.thread
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds i8, ptr %0, i64 1056
   %29 = load ptr, ptr %28, align 8
   %30 = tail call zeroext i1 @ns_capable(ptr noundef %29, i32 noundef 14) #12
-  br i1 %30, label %.thread, label %31
+  br i1 %30, label %51, label %31
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds i8, ptr %12, i64 1784
@@ -2942,11 +2942,11 @@ define internal fastcc i32 @shmctl_do_lock(ptr noundef %0, i32 noundef %1, i32 n
   %40 = getelementptr inbounds i8, ptr %5, i64 24
   %41 = load i32, ptr %40, align 8
   %42 = icmp eq i32 %35, %41
-  br i1 %42, label %43, label %select.unfold
+  br i1 %42, label %43, label %.thread
 
 43:                                               ; preds = %39, %31
   %44 = icmp eq i32 %2, 11
-  br i1 %44, label %45, label %.thread
+  br i1 %44, label %45, label %51
 
 45:                                               ; preds = %43
   %46 = getelementptr inbounds i8, ptr %12, i64 1880
@@ -2954,98 +2954,98 @@ define internal fastcc i32 @shmctl_do_lock(ptr noundef %0, i32 noundef %1, i32 n
   %48 = getelementptr i8, ptr %47, i64 800
   %49 = load volatile i64, ptr %48, align 8
   %50 = icmp eq i64 %49, 0
-  br i1 %50, label %select.unfold, label %.thread.thread
+  br i1 %50, label %.thread, label %.thread6
 
-.thread:                                          ; preds = %43, %27
-  %51 = getelementptr inbounds i8, ptr %5, i64 128
-  %52 = load ptr, ptr %51, align 64
-  %53 = getelementptr inbounds i8, ptr %52, i64 176
-  %54 = load ptr, ptr %53, align 8
-  %55 = icmp eq ptr %54, @hugetlbfs_file_operations
-  %56 = icmp eq ptr %54, @shm_file_operations_huge
-  %57 = or i1 %55, %56
-  br i1 %57, label %select.unfold, label %65
+51:                                               ; preds = %43, %27
+  %52 = getelementptr inbounds i8, ptr %5, i64 128
+  %53 = load ptr, ptr %52, align 64
+  %54 = getelementptr inbounds i8, ptr %53, i64 176
+  %55 = load ptr, ptr %54, align 8
+  %56 = icmp eq ptr %55, @hugetlbfs_file_operations
+  %57 = icmp eq ptr %55, @shm_file_operations_huge
+  %58 = or i1 %56, %57
+  br i1 %58, label %.thread, label %66
 
-.thread.thread:                                   ; preds = %45
-  %58 = getelementptr inbounds i8, ptr %5, i64 128
-  %59 = load ptr, ptr %58, align 64
-  %60 = getelementptr inbounds i8, ptr %59, i64 176
-  %61 = load ptr, ptr %60, align 8
-  %62 = icmp eq ptr %61, @hugetlbfs_file_operations
-  %63 = icmp eq ptr %61, @shm_file_operations_huge
-  %64 = or i1 %62, %63
-  br i1 %64, label %select.unfold, label %.thread7
+.thread6:                                         ; preds = %45
+  %59 = getelementptr inbounds i8, ptr %5, i64 128
+  %60 = load ptr, ptr %59, align 64
+  %61 = getelementptr inbounds i8, ptr %60, i64 176
+  %62 = load ptr, ptr %61, align 8
+  %63 = icmp eq ptr %62, @hugetlbfs_file_operations
+  %64 = icmp eq ptr %62, @shm_file_operations_huge
+  %65 = or i1 %63, %64
+  br i1 %65, label %.thread, label %.thread7
 
-65:                                               ; preds = %.thread
-  %66 = icmp eq i32 %2, 11
-  br i1 %66, label %..thread7_crit_edge, label %81
+66:                                               ; preds = %51
+  %67 = icmp eq i32 %2, 11
+  br i1 %67, label %..thread7_crit_edge, label %82
 
-..thread7_crit_edge:                              ; preds = %65
+..thread7_crit_edge:                              ; preds = %66
   %.phi.trans.insert = getelementptr inbounds i8, ptr %12, i64 1784
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %.thread7
 
-.thread7:                                         ; preds = %..thread7_crit_edge, %.thread.thread
-  %67 = phi ptr [ %.pre, %..thread7_crit_edge ], [ %33, %.thread.thread ]
-  %68 = phi ptr [ %52, %..thread7_crit_edge ], [ %59, %.thread.thread ]
-  %69 = getelementptr inbounds i8, ptr %67, i64 152
-  %70 = load ptr, ptr %69, align 8
-  %71 = tail call i32 @shmem_lock(ptr noundef %68, i32 noundef 1, ptr noundef %70) #12
-  %72 = icmp eq i32 %71, 0
-  br i1 %72, label %73, label %select.unfold
+.thread7:                                         ; preds = %..thread7_crit_edge, %.thread6
+  %68 = phi ptr [ %.pre, %..thread7_crit_edge ], [ %33, %.thread6 ]
+  %69 = phi ptr [ %53, %..thread7_crit_edge ], [ %60, %.thread6 ]
+  %70 = getelementptr inbounds i8, ptr %68, i64 152
+  %71 = load ptr, ptr %70, align 8
+  %72 = tail call i32 @shmem_lock(ptr noundef %69, i32 noundef 1, ptr noundef %71) #12
+  %73 = icmp eq i32 %72, 0
+  br i1 %73, label %74, label %.thread
 
-73:                                               ; preds = %.thread7
-  %74 = getelementptr inbounds i8, ptr %5, i64 32
-  %75 = load i16, ptr %74, align 32
-  %76 = and i16 %75, 1024
-  %77 = icmp eq i16 %76, 0
-  br i1 %77, label %78, label %select.unfold
+74:                                               ; preds = %.thread7
+  %75 = getelementptr inbounds i8, ptr %5, i64 32
+  %76 = load i16, ptr %75, align 32
+  %77 = and i16 %76, 1024
+  %78 = icmp eq i16 %77, 0
+  br i1 %78, label %79, label %.thread
 
-78:                                               ; preds = %73
-  %79 = or disjoint i16 %75, 1024
-  store i16 %79, ptr %74, align 32
-  %80 = getelementptr inbounds i8, ptr %5, i64 192
-  store ptr %70, ptr %80, align 64
-  br label %select.unfold
+79:                                               ; preds = %74
+  %80 = or disjoint i16 %76, 1024
+  store i16 %80, ptr %75, align 32
+  %81 = getelementptr inbounds i8, ptr %5, i64 192
+  store ptr %71, ptr %81, align 64
+  br label %.thread
 
-81:                                               ; preds = %65
-  %82 = getelementptr inbounds i8, ptr %5, i64 32
-  %83 = load i16, ptr %82, align 32
-  %84 = and i16 %83, 1024
-  %85 = icmp eq i16 %84, 0
-  br i1 %85, label %select.unfold, label %86
+82:                                               ; preds = %66
+  %83 = getelementptr inbounds i8, ptr %5, i64 32
+  %84 = load i16, ptr %83, align 32
+  %85 = and i16 %84, 1024
+  %86 = icmp eq i16 %85, 0
+  br i1 %86, label %.thread, label %87
 
-86:                                               ; preds = %81
-  %87 = getelementptr inbounds i8, ptr %5, i64 192
-  %88 = load ptr, ptr %87, align 64
-  %89 = tail call i32 @shmem_lock(ptr noundef %52, i32 noundef 0, ptr noundef %88) #12
-  %90 = load i16, ptr %82, align 32
-  %91 = and i16 %90, -1025
-  store i16 %91, ptr %82, align 32
-  store ptr null, ptr %87, align 64
-  %92 = getelementptr inbounds i8, ptr %52, i64 24
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incq $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %92, ptr elementtype(i64) %92) #12, !srcloc !23
+87:                                               ; preds = %82
+  %88 = getelementptr inbounds i8, ptr %5, i64 192
+  %89 = load ptr, ptr %88, align 64
+  %90 = tail call i32 @shmem_lock(ptr noundef %53, i32 noundef 0, ptr noundef %89) #12
+  %91 = load i16, ptr %83, align 32
+  %92 = and i16 %91, -1025
+  store i16 %92, ptr %83, align 32
+  store ptr null, ptr %88, align 64
+  %93 = getelementptr inbounds i8, ptr %53, i64 24
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incq $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %93, ptr elementtype(i64) %93) #12, !srcloc !23
   tail call void @_raw_spin_unlock(ptr noundef %5) #12
   tail call void @__rcu_read_unlock() #12
-  %93 = getelementptr inbounds i8, ptr %52, i64 216
-  %94 = load ptr, ptr %93, align 8
-  tail call void @shmem_unlock_mapping(ptr noundef %94) #12
-  tail call void @fput(ptr noundef %52) #12
-  br label %98
+  %94 = getelementptr inbounds i8, ptr %53, i64 216
+  %95 = load ptr, ptr %94, align 8
+  tail call void @shmem_unlock_mapping(ptr noundef %95) #12
+  tail call void @fput(ptr noundef %53) #12
+  br label %99
 
-select.unfold:                                    ; preds = %.thread.thread, %45, %39, %81, %78, %73, %.thread7, %.thread, %23
-  %95 = phi i32 [ 0, %.thread ], [ 0, %81 ], [ -43, %23 ], [ 0, %78 ], [ 0, %73 ], [ %71, %.thread7 ], [ -1, %39 ], [ -1, %45 ], [ 0, %.thread.thread ]
+.thread:                                          ; preds = %45, %39, %.thread6, %82, %79, %74, %.thread7, %51, %23
+  %96 = phi i32 [ 0, %51 ], [ 0, %82 ], [ -43, %23 ], [ 0, %79 ], [ 0, %74 ], [ %72, %.thread7 ], [ 0, %.thread6 ], [ -1, %39 ], [ -1, %45 ]
   tail call void @_raw_spin_unlock(ptr noundef %5) #12
-  br label %96
+  br label %97
 
-96:                                               ; preds = %select.unfold, %20, %7
-  %97 = phi i32 [ %9, %7 ], [ %21, %20 ], [ %95, %select.unfold ]
+97:                                               ; preds = %.thread, %20, %7
+  %98 = phi i32 [ %9, %7 ], [ %21, %20 ], [ %96, %.thread ]
   tail call void @__rcu_read_unlock() #12
-  br label %98
+  br label %99
 
-98:                                               ; preds = %96, %86
-  %99 = phi i32 [ %97, %96 ], [ 0, %86 ]
-  ret i32 %99
+99:                                               ; preds = %97, %87
+  %100 = phi i32 [ %98, %97 ], [ 0, %87 ]
+  ret i32 %100
 }
 
 ; Function Attrs: null_pointer_is_valid

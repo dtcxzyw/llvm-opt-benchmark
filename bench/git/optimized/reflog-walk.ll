@@ -724,15 +724,15 @@ define dso_local ptr @next_reflog_entry(ptr nocapture noundef %walk) local_unnam
 entry:
   %nr = getelementptr inbounds i8, ptr %walk, i64 8
   %0 = load i64, ptr %nr, align 8
-  %cmp21.not = icmp eq i64 %0, 0
-  br i1 %cmp21.not, label %return, label %for.body
+  %cmp20.not = icmp eq i64 %0, 0
+  br i1 %cmp20.not, label %return, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %best.024 = phi ptr [ %best.1, %for.inc ], [ null, %entry ]
-  %i.023 = phi i64 [ %inc, %for.inc ], [ 0, %entry ]
-  %best_commit.022 = phi ptr [ %best_commit.1, %for.inc ], [ null, %entry ]
+  %best.023 = phi ptr [ %best.1, %for.inc ], [ null, %entry ]
+  %i.022 = phi i64 [ %inc, %for.inc ], [ 0, %entry ]
+  %best_commit.021 = phi ptr [ %best_commit.1, %for.inc ], [ null, %entry ]
   %1 = load ptr, ptr %walk, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %i.023
+  %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %i.022
   %2 = load ptr, ptr %arrayidx, align 8
   %.pr.i = load i32, ptr %2, align 8
   %cmp6.i = icmp sgt i32 %.pr.i, -1
@@ -768,34 +768,35 @@ for.inc.i:                                        ; preds = %land.lhs.true.i, %f
   br i1 %cmp.i, label %for.body.i, label %for.inc, !llvm.loop !9
 
 if.end:                                           ; preds = %land.lhs.true.i
-  %tobool1.not = icmp eq ptr %best.024, null
-  br i1 %tobool1.not, label %for.inc, label %lor.lhs.false
+  %tobool1.not = icmp eq ptr %best.023, null
+  br i1 %tobool1.not, label %if.then5, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
   %.val = load i32, ptr %2, align 8
-  %.val13 = load ptr, ptr %reflogs.i, align 8
-  %9 = getelementptr i8, ptr %.val13, i64 16
-  %.val13.val = load ptr, ptr %9, align 8
-  %idxprom.i15 = sext i32 %.val to i64
-  %timestamp.i = getelementptr inbounds %struct.reflog_info, ptr %.val13.val, i64 %idxprom.i15, i32 3
+  %.val12 = load ptr, ptr %reflogs.i, align 8
+  %9 = getelementptr i8, ptr %.val12, i64 16
+  %.val12.val = load ptr, ptr %9, align 8
+  %idxprom.i14 = sext i32 %.val to i64
+  %timestamp.i = getelementptr inbounds %struct.reflog_info, ptr %.val12.val, i64 %idxprom.i14, i32 3
   %10 = load i64, ptr %timestamp.i, align 8
-  %best.0.val = load i32, ptr %best.024, align 8
-  %11 = getelementptr i8, ptr %best.024, i64 8
-  %best.0.val14 = load ptr, ptr %11, align 8
-  %12 = getelementptr i8, ptr %best.0.val14, i64 16
-  %best.0.val14.val = load ptr, ptr %12, align 8
-  %idxprom.i16 = sext i32 %best.0.val to i64
-  %timestamp.i17 = getelementptr inbounds %struct.reflog_info, ptr %best.0.val14.val, i64 %idxprom.i16, i32 3
-  %13 = load i64, ptr %timestamp.i17, align 8
+  %best.0.val = load i32, ptr %best.023, align 8
+  %11 = getelementptr i8, ptr %best.023, i64 8
+  %best.0.val13 = load ptr, ptr %11, align 8
+  %12 = getelementptr i8, ptr %best.0.val13, i64 16
+  %best.0.val13.val = load ptr, ptr %12, align 8
+  %idxprom.i15 = sext i32 %best.0.val to i64
+  %timestamp.i16 = getelementptr inbounds %struct.reflog_info, ptr %best.0.val13.val, i64 %idxprom.i15, i32 3
+  %13 = load i64, ptr %timestamp.i16, align 8
   %cmp4 = icmp ugt i64 %10, %13
-  %spec.select = select i1 %cmp4, ptr %call.i, ptr %best_commit.022
-  %spec.select12 = select i1 %cmp4, ptr %2, ptr %best.024
+  br i1 %cmp4, label %if.then5, label %for.inc
+
+if.then5:                                         ; preds = %lor.lhs.false, %if.end
   br label %for.inc
 
-for.inc:                                          ; preds = %for.inc.i, %for.body, %lor.lhs.false, %if.end
-  %best_commit.1 = phi ptr [ %call.i, %if.end ], [ %spec.select, %lor.lhs.false ], [ %best_commit.022, %for.body ], [ %best_commit.022, %for.inc.i ]
-  %best.1 = phi ptr [ %2, %if.end ], [ %spec.select12, %lor.lhs.false ], [ %best.024, %for.body ], [ %best.024, %for.inc.i ]
-  %inc = add nuw i64 %i.023, 1
+for.inc:                                          ; preds = %for.inc.i, %for.body, %lor.lhs.false, %if.then5
+  %best_commit.1 = phi ptr [ %call.i, %if.then5 ], [ %best_commit.021, %lor.lhs.false ], [ %best_commit.021, %for.body ], [ %best_commit.021, %for.inc.i ]
+  %best.1 = phi ptr [ %2, %if.then5 ], [ %best.023, %lor.lhs.false ], [ %best.023, %for.body ], [ %best.023, %for.inc.i ]
+  %inc = add nuw i64 %i.022, 1
   %14 = load i64, ptr %nr, align 8
   %cmp = icmp ult i64 %inc, %14
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !10

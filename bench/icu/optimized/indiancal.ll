@@ -183,17 +183,17 @@ entry:
 
 land.rhs.i.i:                                     ; preds = %entry
   %rem.i.i = srem i32 %add, 100
-  %cmp1.not.i.i = icmp eq i32 %rem.i.i, 0
-  br i1 %cmp1.not.i.i, label %_ZN6icu_75L15isGregorianLeapEi.exit, label %_ZN6icu_75L15isGregorianLeapEi.exit.thread
-
-_ZN6icu_75L15isGregorianLeapEi.exit:              ; preds = %land.rhs.i.i
+  %cmp1.not.i.i = icmp ne i32 %rem.i.i, 0
   %rem2.i.i = srem i32 %add, 400
   %cmp3.i.i.not = icmp eq i32 %rem2.i.i, 0
-  %spec.select = select i1 %cmp3.i.i.not, i32 366, i32 365
-  br label %_ZN6icu_75L15isGregorianLeapEi.exit.thread
+  %or.cond = or i1 %cmp1.not.i.i, %cmp3.i.i.not
+  br i1 %or.cond, label %_ZN6icu_75L15isGregorianLeapEi.exit.thread4, label %_ZN6icu_75L15isGregorianLeapEi.exit.thread
 
-_ZN6icu_75L15isGregorianLeapEi.exit.thread:       ; preds = %_ZN6icu_75L15isGregorianLeapEi.exit, %land.rhs.i.i, %entry
-  %0 = phi i32 [ 365, %entry ], [ 366, %land.rhs.i.i ], [ %spec.select, %_ZN6icu_75L15isGregorianLeapEi.exit ]
+_ZN6icu_75L15isGregorianLeapEi.exit.thread:       ; preds = %land.rhs.i.i, %entry
+  br label %_ZN6icu_75L15isGregorianLeapEi.exit.thread4
+
+_ZN6icu_75L15isGregorianLeapEi.exit.thread4:      ; preds = %land.rhs.i.i, %_ZN6icu_75L15isGregorianLeapEi.exit.thread
+  %0 = phi i32 [ 365, %_ZN6icu_75L15isGregorianLeapEi.exit.thread ], [ 366, %land.rhs.i.i ]
   ret i32 %0
 }
 
@@ -220,7 +220,7 @@ if.end:                                           ; preds = %entry, %if.then
   %add.i = add nsw i32 %eyear.addr.0, 78
   %and.i.i.i = and i32 %add.i, 3
   %cmp.i.i.i = icmp eq i32 %and.i.i.i, 0
-  br i1 %cmp.i.i.i, label %land.rhs.i.i.i, label %if.end.i
+  br i1 %cmp.i.i.i, label %land.rhs.i.i.i, label %if.else.i
 
 land.rhs.i.i.i:                                   ; preds = %if.end
   %rem.i.i.i = srem i32 %add.i, 100
@@ -230,12 +230,12 @@ land.rhs.i.i.i:                                   ; preds = %if.end
   %or.cond.i = or i1 %cmp1.not.i.i.i, %cmp3.i.i.not.i
   br i1 %or.cond.i, label %if.end.i, label %if.else.i
 
-if.else.i:                                        ; preds = %land.rhs.i.i.i
+if.else.i:                                        ; preds = %land.rhs.i.i.i, %if.end
   br label %if.end.i
 
-if.end.i:                                         ; preds = %if.else.i, %land.rhs.i.i.i, %if.end
-  %.sink.i = phi i32 [ 21, %land.rhs.i.i.i ], [ 22, %if.end ], [ 22, %if.else.i ]
-  %leapMonth.0.i = phi double [ 3.100000e+01, %land.rhs.i.i.i ], [ 3.000000e+01, %if.end ], [ 3.000000e+01, %if.else.i ]
+if.end.i:                                         ; preds = %if.else.i, %land.rhs.i.i.i
+  %.sink.i = phi i32 [ 22, %if.else.i ], [ 21, %land.rhs.i.i.i ]
+  %leapMonth.0.i = phi double [ 3.000000e+01, %if.else.i ], [ 3.100000e+01, %land.rhs.i.i.i ]
   %call.i13.i = call noundef double @_ZN6icu_755Grego11fieldsToDayEiii(i32 noundef %add.i, i32 noundef 2, i32 noundef %.sink.i)
   %start.0.in.i = fadd double %call.i13.i, 0x41429EC600000000
   %start.0.i = fadd double %start.0.in.i, -5.000000e-01
@@ -333,17 +333,17 @@ if.then:                                          ; preds = %entry
 
 land.rhs.i.i:                                     ; preds = %if.then
   %rem.i.i = srem i32 %sub7, 100
-  %cmp1.not.i.i = icmp eq i32 %rem.i.i, 0
-  br i1 %cmp1.not.i.i, label %_ZN6icu_75L15isGregorianLeapEi.exit, label %_ZN6icu_75L15isGregorianLeapEi.exit.thread
-
-_ZN6icu_75L15isGregorianLeapEi.exit:              ; preds = %land.rhs.i.i
+  %cmp1.not.i.i = icmp ne i32 %rem.i.i, 0
   %rem2.i.i = srem i32 %sub7, 400
   %cmp3.i.i.not = icmp eq i32 %rem2.i.i, 0
-  %spec.select = select i1 %cmp3.i.i.not, i32 31, i32 30
-  br label %_ZN6icu_75L15isGregorianLeapEi.exit.thread
+  %or.cond = or i1 %cmp1.not.i.i, %cmp3.i.i.not
+  br i1 %or.cond, label %_ZN6icu_75L15isGregorianLeapEi.exit.thread68, label %_ZN6icu_75L15isGregorianLeapEi.exit.thread
 
-_ZN6icu_75L15isGregorianLeapEi.exit.thread:       ; preds = %_ZN6icu_75L15isGregorianLeapEi.exit, %land.rhs.i.i, %if.then
-  %2 = phi i32 [ 30, %if.then ], [ 31, %land.rhs.i.i ], [ %spec.select, %_ZN6icu_75L15isGregorianLeapEi.exit ]
+_ZN6icu_75L15isGregorianLeapEi.exit.thread:       ; preds = %land.rhs.i.i, %if.then
+  br label %_ZN6icu_75L15isGregorianLeapEi.exit.thread68
+
+_ZN6icu_75L15isGregorianLeapEi.exit.thread68:     ; preds = %land.rhs.i.i, %_ZN6icu_75L15isGregorianLeapEi.exit.thread
+  %2 = phi i32 [ 30, %_ZN6icu_75L15isGregorianLeapEi.exit.thread ], [ 31, %land.rhs.i.i ]
   %add10 = add nsw i32 %conv5, 255
   %add11 = add nsw i32 %add10, %2
   br label %if.end
@@ -356,24 +356,24 @@ if.else:                                          ; preds = %entry
 
 land.rhs.i.i25:                                   ; preds = %if.else
   %rem.i.i26 = srem i32 %1, 100
-  %cmp1.not.i.i27 = icmp eq i32 %rem.i.i26, 0
-  br i1 %cmp1.not.i.i27, label %_ZN6icu_75L15isGregorianLeapEi.exit31, label %_ZN6icu_75L15isGregorianLeapEi.exit31.thread
-
-_ZN6icu_75L15isGregorianLeapEi.exit31:            ; preds = %land.rhs.i.i25
+  %cmp1.not.i.i27 = icmp ne i32 %rem.i.i26, 0
   %rem2.i.i29 = srem i32 %1, 400
   %cmp3.i.i30.not = icmp eq i32 %rem2.i.i29, 0
-  %spec.select79 = select i1 %cmp3.i.i30.not, i32 31, i32 30
-  br label %_ZN6icu_75L15isGregorianLeapEi.exit31.thread
+  %or.cond79 = or i1 %cmp1.not.i.i27, %cmp3.i.i30.not
+  br i1 %or.cond79, label %_ZN6icu_75L15isGregorianLeapEi.exit31.thread74, label %_ZN6icu_75L15isGregorianLeapEi.exit31.thread
 
-_ZN6icu_75L15isGregorianLeapEi.exit31.thread:     ; preds = %_ZN6icu_75L15isGregorianLeapEi.exit31, %land.rhs.i.i25, %if.else
-  %3 = phi i32 [ 30, %if.else ], [ 31, %land.rhs.i.i25 ], [ %spec.select79, %_ZN6icu_75L15isGregorianLeapEi.exit31 ]
+_ZN6icu_75L15isGregorianLeapEi.exit31.thread:     ; preds = %land.rhs.i.i25, %if.else
+  br label %_ZN6icu_75L15isGregorianLeapEi.exit31.thread74
+
+_ZN6icu_75L15isGregorianLeapEi.exit31.thread74:   ; preds = %land.rhs.i.i25, %_ZN6icu_75L15isGregorianLeapEi.exit31.thread
+  %3 = phi i32 [ 30, %_ZN6icu_75L15isGregorianLeapEi.exit31.thread ], [ 31, %land.rhs.i.i25 ]
   %sub15 = add nsw i32 %conv5, -80
   br label %if.end
 
-if.end:                                           ; preds = %_ZN6icu_75L15isGregorianLeapEi.exit31.thread, %_ZN6icu_75L15isGregorianLeapEi.exit.thread
-  %IndianYear.0 = phi i32 [ %sub6, %_ZN6icu_75L15isGregorianLeapEi.exit.thread ], [ %sub, %_ZN6icu_75L15isGregorianLeapEi.exit31.thread ]
-  %yday.0 = phi i32 [ %add11, %_ZN6icu_75L15isGregorianLeapEi.exit.thread ], [ %sub15, %_ZN6icu_75L15isGregorianLeapEi.exit31.thread ]
-  %leapMonth.0 = phi i32 [ %2, %_ZN6icu_75L15isGregorianLeapEi.exit.thread ], [ %3, %_ZN6icu_75L15isGregorianLeapEi.exit31.thread ]
+if.end:                                           ; preds = %_ZN6icu_75L15isGregorianLeapEi.exit31.thread74, %_ZN6icu_75L15isGregorianLeapEi.exit.thread68
+  %IndianYear.0 = phi i32 [ %sub6, %_ZN6icu_75L15isGregorianLeapEi.exit.thread68 ], [ %sub, %_ZN6icu_75L15isGregorianLeapEi.exit31.thread74 ]
+  %yday.0 = phi i32 [ %add11, %_ZN6icu_75L15isGregorianLeapEi.exit.thread68 ], [ %sub15, %_ZN6icu_75L15isGregorianLeapEi.exit31.thread74 ]
+  %leapMonth.0 = phi i32 [ %2, %_ZN6icu_75L15isGregorianLeapEi.exit.thread68 ], [ %3, %_ZN6icu_75L15isGregorianLeapEi.exit31.thread74 ]
   %cmp16 = icmp slt i32 %yday.0, %leapMonth.0
   br i1 %cmp16, label %if.end38, label %if.else19
 

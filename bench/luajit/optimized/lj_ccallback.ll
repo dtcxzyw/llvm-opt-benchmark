@@ -17,7 +17,7 @@ entry:
   %sub.ptr.rhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %cmp = icmp ult i64 %sub.ptr.sub, 4096
-  br i1 %cmp, label %if.then, label %return
+  br i1 %cmp, label %if.then, label %if.end7
 
 if.then:                                          ; preds = %entry
   %conv = trunc nuw nsw i64 %sub.ptr.sub to i32
@@ -33,11 +33,13 @@ if.then:                                          ; preds = %entry
   %add = add nuw i32 %mul1, 8
   %add2 = add i32 %add, %mul
   %cmp4 = icmp eq i32 %add2, %conv
-  %spec.select = select i1 %cmp4, i32 %add.i, i32 -1
+  br i1 %cmp4, label %return, label %if.end7
+
+if.end7:                                          ; preds = %if.then, %entry
   br label %return
 
-return:                                           ; preds = %if.then, %entry
-  %retval.0 = phi i32 [ -1, %entry ], [ %spec.select, %if.then ]
+return:                                           ; preds = %if.then, %if.end7
+  %retval.0 = phi i32 [ -1, %if.end7 ], [ %add.i, %if.then ]
   ret i32 %retval.0
 }
 

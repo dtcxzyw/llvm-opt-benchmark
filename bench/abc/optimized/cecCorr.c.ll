@@ -4066,41 +4066,41 @@ define void @Cec_ManRefinedClassPrintStats(ptr nocapture noundef readonly %0, pt
 
 9:                                                ; preds = %.lr.ph, %Gia_ObjIsHead.exit.thread
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %Gia_ObjIsHead.exit.thread ]
-  %.04787 = phi i32 [ 0, %.lr.ph ], [ %.148, %Gia_ObjIsHead.exit.thread ]
-  %.05185 = phi i32 [ 0, %.lr.ph ], [ %.152, %Gia_ObjIsHead.exit.thread ]
-  %.05384 = phi i32 [ 0, %.lr.ph ], [ %.154, %Gia_ObjIsHead.exit.thread ]
+  %.04786 = phi i32 [ 0, %.lr.ph ], [ %.148, %Gia_ObjIsHead.exit.thread ]
+  %.05184 = phi i32 [ 0, %.lr.ph ], [ %.152, %Gia_ObjIsHead.exit.thread ]
+  %.05383 = phi i32 [ 0, %.lr.ph ], [ %.154, %Gia_ObjIsHead.exit.thread ]
   %10 = getelementptr inbounds %struct.Gia_Rpr_t_, ptr %.val.i, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4
   %12 = and i32 %11, 268435455
-  %13 = icmp eq i32 %12, 268435455
-  br i1 %13, label %Gia_ObjIsNone.exit, label %19
+  switch i32 %12, label %Gia_ObjIsHead.exit.thread [
+    i32 268435455, label %Gia_ObjIsNone.exit
+    i32 0, label %18
+  ]
 
 Gia_ObjIsNone.exit:                               ; preds = %9
   %.val3.i = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i32, ptr %.val3.i, i64 %indvars.iv
-  %15 = load i32, ptr %14, align 4
-  %.fr = freeze i32 %15
-  %16 = icmp sgt i32 %.fr, 0
-  br i1 %16, label %Gia_ObjIsHead.exit, label %17
+  %13 = getelementptr inbounds i32, ptr %.val3.i, i64 %indvars.iv
+  %14 = load i32, ptr %13, align 4
+  %.fr = freeze i32 %14
+  %15 = icmp sgt i32 %.fr, 0
+  br i1 %15, label %Gia_ObjIsHead.exit, label %16
 
-17:                                               ; preds = %Gia_ObjIsNone.exit
-  %18 = add nsw i32 %.04787, 1
+16:                                               ; preds = %Gia_ObjIsNone.exit
+  %17 = add nsw i32 %.04786, 1
   br label %Gia_ObjIsHead.exit.thread
 
-19:                                               ; preds = %9
-  %.not83 = icmp eq i32 %12, 0
-  %20 = zext i1 %.not83 to i32
-  %spec.select = add nsw i32 %.05384, %20
+18:                                               ; preds = %9
+  %19 = add nsw i32 %.05383, 1
   br label %Gia_ObjIsHead.exit.thread
 
 Gia_ObjIsHead.exit:                               ; preds = %Gia_ObjIsNone.exit
-  %spec.select81 = add nsw i32 %.05185, 1
+  %20 = add nsw i32 %.05184, 1
   br label %Gia_ObjIsHead.exit.thread
 
-Gia_ObjIsHead.exit.thread:                        ; preds = %Gia_ObjIsHead.exit, %19, %17
-  %.154 = phi i32 [ %.05384, %17 ], [ %spec.select, %19 ], [ %.05384, %Gia_ObjIsHead.exit ]
-  %.152 = phi i32 [ %.05185, %17 ], [ %.05185, %19 ], [ %spec.select81, %Gia_ObjIsHead.exit ]
-  %.148 = phi i32 [ %18, %17 ], [ %.04787, %19 ], [ %.04787, %Gia_ObjIsHead.exit ]
+Gia_ObjIsHead.exit.thread:                        ; preds = %9, %Gia_ObjIsHead.exit, %16, %18
+  %.154 = phi i32 [ %.05383, %16 ], [ %19, %18 ], [ %.05383, %Gia_ObjIsHead.exit ], [ %.05383, %9 ]
+  %.152 = phi i32 [ %.05184, %16 ], [ %.05184, %18 ], [ %20, %Gia_ObjIsHead.exit ], [ %.05184, %9 ]
+  %.148 = phi i32 [ %17, %16 ], [ %.04786, %18 ], [ %.04786, %Gia_ObjIsHead.exit ], [ %.04786, %9 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !45
@@ -4144,20 +4144,20 @@ Gia_ObjIsHead.exit.thread:                        ; preds = %Gia_ObjIsHead.exit,
   %35 = getelementptr i8, ptr %1, i64 4
   %.val66 = load i32, ptr %35, align 4
   %36 = icmp sgt i32 %.val66, 0
-  br i1 %36, label %.lr.ph95, label %.critedge
+  br i1 %36, label %.lr.ph94, label %.critedge
 
-.lr.ph95:                                         ; preds = %.preheader
+.lr.ph94:                                         ; preds = %.preheader
   %37 = getelementptr i8, ptr %1, i64 8
   %.val67 = load ptr, ptr %37, align 8
-  %wide.trip.count103 = zext nneg i32 %.val66 to i64
+  %wide.trip.count102 = zext nneg i32 %.val66 to i64
   br label %38
 
-38:                                               ; preds = %.lr.ph95, %47
-  %indvars.iv100 = phi i64 [ 0, %.lr.ph95 ], [ %indvars.iv.next101, %47 ]
-  %.094 = phi i32 [ 0, %.lr.ph95 ], [ %.1, %47 ]
-  %.04193 = phi i32 [ 0, %.lr.ph95 ], [ %.142, %47 ]
-  %.04492 = phi i32 [ 0, %.lr.ph95 ], [ %.145, %47 ]
-  %39 = getelementptr inbounds i8, ptr %.val67, i64 %indvars.iv100
+38:                                               ; preds = %.lr.ph94, %47
+  %indvars.iv99 = phi i64 [ 0, %.lr.ph94 ], [ %indvars.iv.next100, %47 ]
+  %.093 = phi i32 [ 0, %.lr.ph94 ], [ %.1, %47 ]
+  %.04192 = phi i32 [ 0, %.lr.ph94 ], [ %.142, %47 ]
+  %.04491 = phi i32 [ 0, %.lr.ph94 ], [ %.145, %47 ]
+  %39 = getelementptr inbounds i8, ptr %.val67, i64 %indvars.iv99
   %40 = load i8, ptr %39, align 1
   switch i8 %40, label %47 [
     i8 1, label %41
@@ -4166,24 +4166,24 @@ Gia_ObjIsHead.exit.thread:                        ; preds = %Gia_ObjIsHead.exit,
   ]
 
 41:                                               ; preds = %38
-  %42 = add nsw i32 %.04492, 1
+  %42 = add nsw i32 %.04491, 1
   br label %47
 
 43:                                               ; preds = %38
-  %44 = add nsw i32 %.04193, 1
+  %44 = add nsw i32 %.04192, 1
   br label %47
 
 45:                                               ; preds = %38
-  %46 = add nsw i32 %.094, 1
+  %46 = add nsw i32 %.093, 1
   br label %47
 
 47:                                               ; preds = %38, %41, %45, %43
-  %.145 = phi i32 [ %42, %41 ], [ %.04492, %43 ], [ %.04492, %45 ], [ %.04492, %38 ]
-  %.142 = phi i32 [ %.04193, %41 ], [ %44, %43 ], [ %.04193, %45 ], [ %.04193, %38 ]
-  %.1 = phi i32 [ %.094, %41 ], [ %.094, %43 ], [ %46, %45 ], [ %.094, %38 ]
-  %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
-  %exitcond104.not = icmp eq i64 %indvars.iv.next101, %wide.trip.count103
-  br i1 %exitcond104.not, label %.critedge, label %38, !llvm.loop !46
+  %.145 = phi i32 [ %42, %41 ], [ %.04491, %43 ], [ %.04491, %45 ], [ %.04491, %38 ]
+  %.142 = phi i32 [ %.04192, %41 ], [ %44, %43 ], [ %.04192, %45 ], [ %.04192, %38 ]
+  %.1 = phi i32 [ %.093, %41 ], [ %.093, %43 ], [ %46, %45 ], [ %.093, %38 ]
+  %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
+  %exitcond103.not = icmp eq i64 %indvars.iv.next100, %wide.trip.count102
+  br i1 %exitcond103.not, label %.critedge, label %38, !llvm.loop !46
 
 .critedge:                                        ; preds = %47, %.preheader, %34
   %.246 = phi i32 [ 0, %34 ], [ 0, %.preheader ], [ %.145, %47 ]
@@ -4208,8 +4208,8 @@ Gia_ObjIsHead.exit.thread:                        ; preds = %Gia_ObjIsHead.exit,
   %57 = getelementptr inbounds %struct.Gia_Rpr_t_, ptr %.val62, i64 %56
   %58 = load i32, ptr %57, align 4
   %59 = and i32 %58, 268435455
-  %.not82 = icmp eq i32 %59, 0
-  %60 = select i1 %.not82, i32 43, i32 45
+  %.not81 = icmp eq i32 %59, 0
+  %60 = select i1 %.not81, i32 43, i32 45
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.4, i32 noundef %60)
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.5)
   %61 = sitofp i64 %3 to double
@@ -4269,33 +4269,33 @@ define i32 @Cec_ManCountLits(ptr nocapture noundef readonly %0) local_unnamed_ad
 
 6:                                                ; preds = %.lr.ph, %Gia_ObjIsHead.exit.thread
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %Gia_ObjIsHead.exit.thread ]
-  %.041 = phi i32 [ 0, %.lr.ph ], [ %.1, %Gia_ObjIsHead.exit.thread ]
-  %.01939 = phi i32 [ 0, %.lr.ph ], [ %.120, %Gia_ObjIsHead.exit.thread ]
+  %.040 = phi i32 [ 0, %.lr.ph ], [ %.1, %Gia_ObjIsHead.exit.thread ]
+  %.01938 = phi i32 [ 0, %.lr.ph ], [ %.120, %Gia_ObjIsHead.exit.thread ]
   %7 = getelementptr inbounds %struct.Gia_Rpr_t_, ptr %.val.i, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4
   %9 = and i32 %8, 268435455
-  %10 = icmp eq i32 %9, 268435455
-  br i1 %10, label %Gia_ObjIsNone.exit, label %Gia_ObjIsHead.exit.thread
+  %cond = icmp eq i32 %9, 268435455
+  br i1 %cond, label %Gia_ObjIsNone.exit, label %Gia_ObjIsHead.exit.thread
 
 Gia_ObjIsNone.exit:                               ; preds = %6
   %.val3.i = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds i32, ptr %.val3.i, i64 %indvars.iv
-  %12 = load i32, ptr %11, align 4
-  %.fr = freeze i32 %12
-  %13 = icmp sgt i32 %.fr, 0
-  br i1 %13, label %Gia_ObjIsHead.exit, label %14
+  %10 = getelementptr inbounds i32, ptr %.val3.i, i64 %indvars.iv
+  %11 = load i32, ptr %10, align 4
+  %.fr = freeze i32 %11
+  %12 = icmp sgt i32 %.fr, 0
+  br i1 %12, label %Gia_ObjIsHead.exit, label %13
 
-14:                                               ; preds = %Gia_ObjIsNone.exit
-  %15 = add nsw i32 %.01939, 1
+13:                                               ; preds = %Gia_ObjIsNone.exit
+  %14 = add nsw i32 %.01938, 1
   br label %Gia_ObjIsHead.exit.thread
 
 Gia_ObjIsHead.exit:                               ; preds = %Gia_ObjIsNone.exit
-  %spec.select36 = add nsw i32 %.041, 1
+  %15 = add nsw i32 %.040, 1
   br label %Gia_ObjIsHead.exit.thread
 
-Gia_ObjIsHead.exit.thread:                        ; preds = %6, %Gia_ObjIsHead.exit, %14
-  %.120 = phi i32 [ %15, %14 ], [ %.01939, %Gia_ObjIsHead.exit ], [ %.01939, %6 ]
-  %.1 = phi i32 [ %.041, %14 ], [ %spec.select36, %Gia_ObjIsHead.exit ], [ %.041, %6 ]
+Gia_ObjIsHead.exit.thread:                        ; preds = %6, %Gia_ObjIsHead.exit, %13
+  %.120 = phi i32 [ %14, %13 ], [ %.01938, %Gia_ObjIsHead.exit ], [ %.01938, %6 ]
+  %.1 = phi i32 [ %.040, %13 ], [ %15, %Gia_ObjIsHead.exit ], [ %.040, %6 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %6, !llvm.loop !47
@@ -4831,15 +4831,15 @@ Abc_Clock.exit:                                   ; preds = %2, %22
 
 31:                                               ; preds = %Abc_Clock.exit
   %32 = load i64, ptr %14, align 8
-  %.neg291 = mul i64 %32, -1000000
+  %.neg292 = mul i64 %32, -1000000
   %33 = getelementptr inbounds i8, ptr %14, i64 8
   %34 = load i64, ptr %33, align 8
-  %.neg290 = sdiv i64 %34, -1000
-  %.neg292 = add i64 %.neg290, %.neg291
+  %.neg291 = sdiv i64 %34, -1000
+  %.neg293 = add i64 %.neg291, %.neg292
   br label %Abc_Clock.exit189
 
 Abc_Clock.exit189:                                ; preds = %Abc_Clock.exit, %31
-  %.0.i188.neg = phi i64 [ %.neg292, %31 ], [ 1, %Abc_Clock.exit ]
+  %.0.i188.neg = phi i64 [ %.neg293, %31 ], [ 1, %Abc_Clock.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
   %35 = getelementptr i8, ptr %0, i64 16
   %.val180 = load i32, ptr %35, align 8
@@ -5006,21 +5006,21 @@ Abc_Clock.exit191:                                ; preds = %71, %88
   br label %383
 
 134:                                              ; preds = %.preheader, %327
-  %.0150289 = phi i64 [ 0, %.preheader ], [ %166, %327 ]
-  %.0152288 = phi i64 [ 0, %.preheader ], [ %233, %327 ]
-  %.0153287 = phi i64 [ 0, %.preheader ], [ %197, %327 ]
-  %.sroa.7.0286 = phi i32 [ 0, %.preheader ], [ %.sroa.7.1, %327 ]
-  %.sroa.5.0285 = phi i32 [ 0, %.preheader ], [ %.sroa.5.1, %327 ]
-  %.sroa.3.0284 = phi i32 [ 0, %.preheader ], [ %.sroa.3.1, %327 ]
-  %.sroa.0.0283 = phi i32 [ 0, %.preheader ], [ %.sroa.0.1, %327 ]
-  %.0156282 = phi i32 [ 0, %.preheader ], [ %328, %327 ]
+  %.0150290 = phi i64 [ 0, %.preheader ], [ %166, %327 ]
+  %.0152289 = phi i64 [ 0, %.preheader ], [ %233, %327 ]
+  %.0153288 = phi i64 [ 0, %.preheader ], [ %197, %327 ]
+  %.sroa.7.0287 = phi i32 [ 0, %.preheader ], [ %.sroa.7.1, %327 ]
+  %.sroa.5.0286 = phi i32 [ 0, %.preheader ], [ %.sroa.5.1, %327 ]
+  %.sroa.3.0285 = phi i32 [ 0, %.preheader ], [ %.sroa.3.1, %327 ]
+  %.sroa.0.0284 = phi i32 [ 0, %.preheader ], [ %.sroa.0.1, %327 ]
+  %.0156283 = phi i32 [ 0, %.preheader ], [ %328, %327 ]
   %135 = load i32, ptr %113, align 8
-  %136 = icmp eq i32 %135, %.0156282
+  %136 = icmp eq i32 %135, %.0156283
   br i1 %136, label %137, label %138
 
 137:                                              ; preds = %134
   call void @Cec_ManSimStop(ptr noundef %51) #22
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.10, i32 noundef %.0156282)
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.10, i32 noundef %.0156283)
   br label %383
 
 138:                                              ; preds = %134
@@ -5047,14 +5047,14 @@ Abc_Clock.exit193:                                ; preds = %138, %141
 
 149:                                              ; preds = %Abc_Clock.exit193
   %150 = load i64, ptr %11, align 8
-  %.neg228 = mul i64 %150, -1000000
+  %.neg229 = mul i64 %150, -1000000
   %151 = load i64, ptr %117, align 8
   %.neg = sdiv i64 %151, -1000
-  %.neg229 = add i64 %.neg, %.neg228
+  %.neg230 = add i64 %.neg, %.neg229
   br label %Abc_Clock.exit195
 
 Abc_Clock.exit195:                                ; preds = %Abc_Clock.exit193, %149
-  %.0.i194.neg = phi i64 [ %.neg229, %149 ], [ 1, %Abc_Clock.exit193 ]
+  %.0.i194.neg = phi i64 [ %.neg230, %149 ], [ 1, %Abc_Clock.exit193 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   %152 = load i32, ptr %41, align 8
   %153 = load i32, ptr %47, align 8
@@ -5078,7 +5078,7 @@ Abc_Clock.exit195:                                ; preds = %Abc_Clock.exit193, 
 Abc_Clock.exit197:                                ; preds = %Abc_Clock.exit195, %159
   %.0.i196 = phi i64 [ %164, %159 ], [ -1, %Abc_Clock.exit195 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  %165 = add i64 %.0.i194.neg, %.0150289
+  %165 = add i64 %.0.i194.neg, %.0150290
   %166 = add i64 %165, %.0.i196
   %167 = getelementptr i8, ptr %156, i64 72
   %.val182 = load ptr, ptr %167, align 8
@@ -5111,14 +5111,14 @@ Vec_IntFree.exit:                                 ; preds = %170, %174
 
 178:                                              ; preds = %175
   %179 = load i64, ptr %9, align 8
-  %.neg231 = mul i64 %179, -1000000
+  %.neg232 = mul i64 %179, -1000000
   %180 = load i64, ptr %120, align 8
-  %.neg230 = sdiv i64 %180, -1000
-  %.neg232 = add i64 %.neg230, %.neg231
+  %.neg231 = sdiv i64 %180, -1000
+  %.neg233 = add i64 %.neg231, %.neg232
   br label %Abc_Clock.exit199
 
 Abc_Clock.exit199:                                ; preds = %175, %178
-  %.0.i198.neg = phi i64 [ %.neg232, %178 ], [ 1, %175 ]
+  %.0.i198.neg = phi i64 [ %.neg233, %178 ], [ 1, %175 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   %181 = load i32, ptr %66, align 8
   %.not167 = icmp eq i32 %181, 0
@@ -5152,7 +5152,7 @@ Abc_Clock.exit199:                                ; preds = %175, %178
 Abc_Clock.exit201:                                ; preds = %187, %190
   %.0.i200 = phi i64 [ %195, %190 ], [ -1, %187 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  %196 = add i64 %.0.i198.neg, %.0153287
+  %196 = add i64 %.0.i198.neg, %.0153288
   %197 = add i64 %196, %.0.i200
   %198 = getelementptr i8, ptr %.0155, i64 4
   %.0155.val = load i32, ptr %198, align 4
@@ -5205,14 +5205,14 @@ Vec_IntFree.exit206:                              ; preds = %Vec_StrFree.exit, %
 
 215:                                              ; preds = %212
   %216 = load i64, ptr %7, align 8
-  %.neg234 = mul i64 %216, -1000000
+  %.neg235 = mul i64 %216, -1000000
   %217 = load i64, ptr %122, align 8
-  %.neg233 = sdiv i64 %217, -1000
-  %.neg235 = add i64 %.neg233, %.neg234
+  %.neg234 = sdiv i64 %217, -1000
+  %.neg236 = add i64 %.neg234, %.neg235
   br label %Abc_Clock.exit208
 
 Abc_Clock.exit208:                                ; preds = %212, %215
-  %.0.i207.neg = phi i64 [ %.neg235, %215 ], [ 1, %212 ]
+  %.0.i207.neg = phi i64 [ %.neg236, %215 ], [ 1, %212 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   %218 = load i32, ptr %41, align 8
   %219 = add nsw i32 %218, 2
@@ -5244,7 +5244,7 @@ Vec_IntFree.exit210:                              ; preds = %Abc_Clock.exit208, 
 Abc_Clock.exit212:                                ; preds = %Vec_IntFree.exit210, %226
   %.0.i211 = phi i64 [ %231, %226 ], [ -1, %Vec_IntFree.exit210 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  %232 = add i64 %.0.i207.neg, %.0152288
+  %232 = add i64 %.0.i207.neg, %.0152289
   %233 = add i64 %232, %.0.i211
   %234 = load ptr, ptr %16, align 8
   %235 = load ptr, ptr %17, align 8
@@ -5285,17 +5285,17 @@ Gia_ObjHasSameRepr.exit.i:                        ; preds = %243, %240
   br i1 %250, label %240, label %Gia_ManCheckRefinements.exit.loopexit, !llvm.loop !41
 
 Gia_ManCheckRefinements.exit.loopexit:            ; preds = %Gia_ObjHasSameRepr.exit.i
-  %.pre333.pre = load ptr, ptr %16, align 8
+  %.pre334.pre = load ptr, ptr %16, align 8
   br label %Gia_ManCheckRefinements.exit
 
 Gia_ManCheckRefinements.exit:                     ; preds = %Gia_ManCheckRefinements.exit.loopexit, %Abc_Clock.exit212
-  %.pre333 = phi ptr [ %.pre333.pre, %Gia_ManCheckRefinements.exit.loopexit ], [ %234, %Abc_Clock.exit212 ]
+  %.pre334 = phi ptr [ %.pre334.pre, %Gia_ManCheckRefinements.exit.loopexit ], [ %234, %Abc_Clock.exit212 ]
   %251 = load i32, ptr %44, align 4
   %.not168 = icmp eq i32 %251, 0
   br i1 %.not168, label %263, label %252
 
 252:                                              ; preds = %Gia_ManCheckRefinements.exit
-  %253 = add nuw nsw i32 %.0156282, 1
+  %253 = add nuw nsw i32 %.0156283, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %254 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #22
   %255 = icmp slt i32 %254, 0
@@ -5313,12 +5313,12 @@ Abc_Clock.exit214:                                ; preds = %252, %256
   %.0.i213 = phi i64 [ %261, %256 ], [ -1, %252 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %262 = sub nsw i64 %.0.i213, %.0.i192
-  call void @Cec_ManRefinedClassPrintStats(ptr noundef %0, ptr noundef %.pre333, i32 noundef %253, i64 noundef %262)
+  call void @Cec_ManRefinedClassPrintStats(ptr noundef %0, ptr noundef %.pre334, i32 noundef %253, i64 noundef %262)
   %.pre = load ptr, ptr %16, align 8
   br label %263
 
 263:                                              ; preds = %Abc_Clock.exit214, %Gia_ManCheckRefinements.exit
-  %264 = phi ptr [ %.pre, %Abc_Clock.exit214 ], [ %.pre333, %Gia_ManCheckRefinements.exit ]
+  %264 = phi ptr [ %.pre, %Abc_Clock.exit214 ], [ %.pre334, %Gia_ManCheckRefinements.exit ]
   %265 = getelementptr inbounds i8, ptr %264, i64 8
   %266 = load ptr, ptr %265, align 8
   %.not.i215 = icmp eq ptr %266, null
@@ -5380,11 +5380,11 @@ Vec_IntFree.exit218:                              ; preds = %Vec_StrFree.exit216
   %289 = getelementptr inbounds %struct.Gia_Rpr_t_, ptr %.val181, i64 %288
   %290 = load i32, ptr %289, align 4
   %291 = and i32 %290, 268435455
-  %.not236 = icmp eq i32 %291, 0
-  br i1 %.not236, label %294, label %292
+  %.not237 = icmp eq i32 %291, 0
+  br i1 %.not237, label %294, label %292
 
 292:                                              ; preds = %281
-  %293 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %.0156282)
+  %293 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %.0156283)
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   call void @Cec_ManSimStop(ptr noundef %51) #22
   br label %383
@@ -5405,36 +5405,36 @@ Vec_IntFree.exit218:                              ; preds = %Vec_StrFree.exit216
   br label %298
 
 298:                                              ; preds = %Gia_ObjIsHead.exit.thread.i, %.lr.ph.i221
-  %indvars.iv.i222 = phi i64 [ 1, %.lr.ph.i221 ], [ %indvars.iv.next.i223, %Gia_ObjIsHead.exit.thread.i ]
-  %.041.i = phi i32 [ 0, %.lr.ph.i221 ], [ %.1.i, %Gia_ObjIsHead.exit.thread.i ]
-  %.01939.i = phi i32 [ 0, %.lr.ph.i221 ], [ %.120.i, %Gia_ObjIsHead.exit.thread.i ]
+  %indvars.iv.i222 = phi i64 [ 1, %.lr.ph.i221 ], [ %indvars.iv.next.i224, %Gia_ObjIsHead.exit.thread.i ]
+  %.040.i = phi i32 [ 0, %.lr.ph.i221 ], [ %.1.i, %Gia_ObjIsHead.exit.thread.i ]
+  %.01938.i = phi i32 [ 0, %.lr.ph.i221 ], [ %.120.i, %Gia_ObjIsHead.exit.thread.i ]
   %299 = getelementptr inbounds %struct.Gia_Rpr_t_, ptr %.val.i.i, i64 %indvars.iv.i222
   %300 = load i32, ptr %299, align 4
   %301 = and i32 %300, 268435455
-  %302 = icmp eq i32 %301, 268435455
-  br i1 %302, label %Gia_ObjIsNone.exit.i, label %Gia_ObjIsHead.exit.thread.i
+  %cond.i223 = icmp eq i32 %301, 268435455
+  br i1 %cond.i223, label %Gia_ObjIsNone.exit.i, label %Gia_ObjIsHead.exit.thread.i
 
 Gia_ObjIsNone.exit.i:                             ; preds = %298
   %.val3.i.i = load ptr, ptr %131, align 8
-  %303 = getelementptr inbounds i32, ptr %.val3.i.i, i64 %indvars.iv.i222
-  %304 = load i32, ptr %303, align 4
-  %.fr.i = freeze i32 %304
-  %305 = icmp sgt i32 %.fr.i, 0
-  br i1 %305, label %Gia_ObjIsHead.exit.i, label %306
+  %302 = getelementptr inbounds i32, ptr %.val3.i.i, i64 %indvars.iv.i222
+  %303 = load i32, ptr %302, align 4
+  %.fr.i = freeze i32 %303
+  %304 = icmp sgt i32 %.fr.i, 0
+  br i1 %304, label %Gia_ObjIsHead.exit.i, label %305
 
-306:                                              ; preds = %Gia_ObjIsNone.exit.i
-  %307 = add nsw i32 %.01939.i, 1
+305:                                              ; preds = %Gia_ObjIsNone.exit.i
+  %306 = add nsw i32 %.01938.i, 1
   br label %Gia_ObjIsHead.exit.thread.i
 
 Gia_ObjIsHead.exit.i:                             ; preds = %Gia_ObjIsNone.exit.i
-  %spec.select36.i = add nsw i32 %.041.i, 1
+  %307 = add nsw i32 %.040.i, 1
   br label %Gia_ObjIsHead.exit.thread.i
 
-Gia_ObjIsHead.exit.thread.i:                      ; preds = %Gia_ObjIsHead.exit.i, %306, %298
-  %.120.i = phi i32 [ %307, %306 ], [ %.01939.i, %Gia_ObjIsHead.exit.i ], [ %.01939.i, %298 ]
-  %.1.i = phi i32 [ %.041.i, %306 ], [ %spec.select36.i, %Gia_ObjIsHead.exit.i ], [ %.041.i, %298 ]
-  %indvars.iv.next.i223 = add nuw nsw i64 %indvars.iv.i222, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i223, %wide.trip.count.i
+Gia_ObjIsHead.exit.thread.i:                      ; preds = %Gia_ObjIsHead.exit.i, %305, %298
+  %.120.i = phi i32 [ %306, %305 ], [ %.01938.i, %Gia_ObjIsHead.exit.i ], [ %.01938.i, %298 ]
+  %.1.i = phi i32 [ %.040.i, %305 ], [ %307, %Gia_ObjIsHead.exit.i ], [ %.040.i, %298 ]
+  %indvars.iv.next.i224 = add nuw nsw i64 %indvars.iv.i222, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i224, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %298, !llvm.loop !47
 
 ._crit_edge.loopexit.i:                           ; preds = %Gia_ObjIsHead.exit.thread.i
@@ -5454,17 +5454,17 @@ Cec_ManCountLits.exit:                            ; preds = %296, %._crit_edge.l
   %314 = add i32 %312, %.val.i220
   %.neg.i = sub i32 %314, %309
   %315 = add i32 %.neg.i, %313
-  %316 = icmp ugt i32 %.0156282, 4
+  %316 = icmp ugt i32 %.0156283, 4
   br i1 %316, label %317, label %327
 
 317:                                              ; preds = %Cec_ManCountLits.exit
-  %318 = sub nsw i32 %.sroa.0.0283, %315
+  %318 = sub nsw i32 %.sroa.0.0284, %315
   %319 = shl nsw i32 %295, 2
   %.not173 = icmp sgt i32 %318, %319
   br i1 %.not173, label %327, label %320
 
 320:                                              ; preds = %317
-  %321 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %.0156282)
+  %321 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %.0156283)
   %puts174 = call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
   call void @Cec_ManSimStop(ptr noundef %51) #22
   %322 = load ptr, ptr %52, align 8
@@ -5487,28 +5487,28 @@ Cec_ManCountLits.exit:                            ; preds = %296, %._crit_edge.l
   br label %383
 
 327:                                              ; preds = %Cec_ManCountLits.exit, %317, %294
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0283, %294 ], [ %.sroa.3.0284, %317 ], [ %.sroa.3.0284, %Cec_ManCountLits.exit ]
-  %.sroa.3.1 = phi i32 [ %.sroa.3.0284, %294 ], [ %.sroa.5.0285, %317 ], [ %.sroa.5.0285, %Cec_ManCountLits.exit ]
-  %.sroa.5.1 = phi i32 [ %.sroa.5.0285, %294 ], [ %.sroa.7.0286, %317 ], [ %.sroa.7.0286, %Cec_ManCountLits.exit ]
-  %.sroa.7.1 = phi i32 [ %.sroa.7.0286, %294 ], [ %315, %317 ], [ %315, %Cec_ManCountLits.exit ]
-  %328 = add nuw nsw i32 %.0156282, 1
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0284, %294 ], [ %.sroa.3.0285, %317 ], [ %.sroa.3.0285, %Cec_ManCountLits.exit ]
+  %.sroa.3.1 = phi i32 [ %.sroa.3.0285, %294 ], [ %.sroa.5.0286, %317 ], [ %.sroa.5.0286, %Cec_ManCountLits.exit ]
+  %.sroa.5.1 = phi i32 [ %.sroa.5.0286, %294 ], [ %.sroa.7.0287, %317 ], [ %.sroa.7.0287, %Cec_ManCountLits.exit ]
+  %.sroa.7.1 = phi i32 [ %.sroa.7.0287, %294 ], [ %315, %317 ], [ %315, %Cec_ManCountLits.exit ]
+  %328 = add nuw nsw i32 %.0156283, 1
   %exitcond.not = icmp eq i32 %328, 100000
   br i1 %exitcond.not, label %.loopexit, label %134, !llvm.loop !54
 
 .loopexit:                                        ; preds = %327, %Vec_IntFree.exit206, %Vec_IntFree.exit
-  %.0156266 = phi i32 [ %.0156282, %Vec_IntFree.exit ], [ %.0156282, %Vec_IntFree.exit206 ], [ 100000, %327 ]
-  %.0152255 = phi i64 [ %.0152288, %Vec_IntFree.exit ], [ %.0152288, %Vec_IntFree.exit206 ], [ %233, %327 ]
-  %.1154 = phi i64 [ %.0153287, %Vec_IntFree.exit ], [ %197, %Vec_IntFree.exit206 ], [ %197, %327 ]
+  %.0156267 = phi i32 [ %.0156283, %Vec_IntFree.exit ], [ %.0156283, %Vec_IntFree.exit206 ], [ 100000, %327 ]
+  %.0152256 = phi i64 [ %.0152289, %Vec_IntFree.exit ], [ %.0152289, %Vec_IntFree.exit206 ], [ %233, %327 ]
+  %.1154 = phi i64 [ %.0153288, %Vec_IntFree.exit ], [ %197, %Vec_IntFree.exit206 ], [ %197, %327 ]
   %329 = load i32, ptr %44, align 4
   %.not177 = icmp eq i32 %329, 0
   br i1 %.not177, label %342, label %330
 
 330:                                              ; preds = %.loopexit
-  %331 = add nuw nsw i32 %.0156266, 1
+  %331 = add nuw nsw i32 %.0156267, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %332 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #22
   %333 = icmp slt i32 %332, 0
-  br i1 %333, label %Abc_Clock.exit225, label %334
+  br i1 %333, label %Abc_Clock.exit226, label %334
 
 334:                                              ; preds = %330
   %335 = load i64, ptr %4, align 8
@@ -5517,17 +5517,17 @@ Cec_ManCountLits.exit:                            ; preds = %296, %._crit_edge.l
   %338 = load i64, ptr %337, align 8
   %339 = sdiv i64 %338, 1000
   %340 = add nsw i64 %339, %336
-  br label %Abc_Clock.exit225
+  br label %Abc_Clock.exit226
 
-Abc_Clock.exit225:                                ; preds = %330, %334
-  %.0.i224 = phi i64 [ %340, %334 ], [ -1, %330 ]
+Abc_Clock.exit226:                                ; preds = %330, %334
+  %.0.i225 = phi i64 [ %340, %334 ], [ -1, %330 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %341 = sub nsw i64 %.0.i224, %.0.i192
+  %341 = sub nsw i64 %.0.i225, %.0.i192
   call void @Cec_ManRefinedClassPrintStats(ptr noundef %0, ptr noundef null, i32 noundef %331, i64 noundef %341)
   br label %342
 
-342:                                              ; preds = %Abc_Clock.exit225, %.loopexit
-  %343 = icmp eq i32 %.0156266, 100000
+342:                                              ; preds = %Abc_Clock.exit226, %.loopexit
+  %343 = icmp eq i32 %.0156267, 100000
   br i1 %343, label %344, label %345
 
 344:                                              ; preds = %342
@@ -5539,7 +5539,7 @@ Abc_Clock.exit225:                                ; preds = %330, %334
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %346 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #22
   %347 = icmp slt i32 %346, 0
-  br i1 %347, label %Abc_Clock.exit227, label %348
+  br i1 %347, label %Abc_Clock.exit228, label %348
 
 348:                                              ; preds = %345
   %349 = load i64, ptr %3, align 8
@@ -5548,22 +5548,22 @@ Abc_Clock.exit225:                                ; preds = %330, %334
   %352 = load i64, ptr %351, align 8
   %353 = sdiv i64 %352, 1000
   %354 = add nsw i64 %353, %350
-  br label %Abc_Clock.exit227
+  br label %Abc_Clock.exit228
 
-Abc_Clock.exit227:                                ; preds = %345, %348
-  %.0.i226 = phi i64 [ %354, %348 ], [ -1, %345 ]
+Abc_Clock.exit228:                                ; preds = %345, %348
+  %.0.i227 = phi i64 [ %354, %348 ], [ -1, %345 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %355 = load i32, ptr %44, align 4
   %.not178 = icmp eq i32 %355, 0
   br i1 %.not178, label %383, label %356
 
-356:                                              ; preds = %Abc_Clock.exit227
-  %357 = sub nsw i64 %.0.i226, %.0.i
+356:                                              ; preds = %Abc_Clock.exit228
+  %357 = sub nsw i64 %.0.i227, %.0.i
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16)
   %358 = sitofp i64 %166 to double
   %359 = fdiv double %358, 1.000000e+06
   %360 = sitofp i64 %357 to double
-  %.not179 = icmp eq i64 %.0.i226, %.0.i
+  %.not179 = icmp eq i64 %.0.i227, %.0.i
   %361 = fmul double %358, 1.000000e+02
   %362 = fdiv double %361, %360
   %363 = select i1 %.not179, double 0.000000e+00, double %362
@@ -5576,14 +5576,14 @@ Abc_Clock.exit227:                                ; preds = %345, %348
   %368 = select i1 %.not179, double 0.000000e+00, double %367
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.17, double noundef %365, double noundef %368)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.19)
-  %369 = sitofp i64 %.0152255 to double
+  %369 = sitofp i64 %.0152256 to double
   %370 = fdiv double %369, 1.000000e+06
   %371 = fmul double %369, 1.000000e+02
   %372 = fdiv double %371, %360
   %373 = select i1 %.not179, double 0.000000e+00, double %372
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.17, double noundef %370, double noundef %373)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.20)
-  %374 = add i64 %.1154, %.0152255
+  %374 = add i64 %.1154, %.0152256
   %375 = add i64 %374, %166
   %376 = sub i64 %357, %375
   %377 = sitofp i64 %376 to double
@@ -5597,8 +5597,8 @@ Abc_Clock.exit227:                                ; preds = %345, %348
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.32, double noundef %382)
   br label %383
 
-383:                                              ; preds = %Abc_Clock.exit227, %356, %326, %324, %292, %137, %133, %37
-  %.0 = phi i32 [ 0, %37 ], [ 1, %133 ], [ 1, %137 ], [ 0, %292 ], [ 0, %324 ], [ 0, %326 ], [ 1, %356 ], [ 1, %Abc_Clock.exit227 ]
+383:                                              ; preds = %Abc_Clock.exit228, %356, %326, %324, %292, %137, %133, %37
+  %.0 = phi i32 [ 0, %37 ], [ 1, %133 ], [ 1, %137 ], [ 0, %292 ], [ 0, %324 ], [ 0, %326 ], [ 1, %356 ], [ 1, %Abc_Clock.exit228 ]
   ret i32 %.0
 }
 

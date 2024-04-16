@@ -1157,12 +1157,14 @@ define internal noundef i32 @wmidev_match_notify_id(ptr nocapture noundef readon
   %10 = zext i8 %9 to i32
   %11 = load i32, ptr %1, align 4
   %12 = icmp eq i32 %11, %10
-  %spec.select = zext i1 %12 to i32
-  br label %13
+  br i1 %12, label %14, label %13
 
 13:                                               ; preds = %7, %2
-  %14 = phi i32 [ 0, %2 ], [ %spec.select, %7 ]
-  ret i32 %14
+  br label %14
+
+14:                                               ; preds = %13, %7
+  %15 = phi i32 [ 0, %13 ], [ 1, %7 ]
+  ret i32 %15
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

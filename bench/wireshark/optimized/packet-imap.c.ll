@@ -1057,7 +1057,7 @@ define internal i32 @imap_request_hash(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @imap_request_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal noundef i32 @imap_request_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1070,11 +1070,13 @@ define internal i32 @imap_request_equal(ptr nocapture noundef readonly %0, ptr n
   %10 = load ptr, ptr %1, align 8
   %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %10) #7
   %.not = icmp eq i32 %11, 0
-  %spec.select = zext i1 %.not to i32
-  br label %12
+  br i1 %.not, label %13, label %12
 
 12:                                               ; preds = %8, %2
-  %.0 = phi i32 [ 0, %2 ], [ %spec.select, %8 ]
+  br label %13
+
+13:                                               ; preds = %8, %12
+  %.0 = phi i32 [ 0, %12 ], [ 1, %8 ]
   ret i32 %.0
 }
 

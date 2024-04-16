@@ -213,7 +213,7 @@ for.body.i6:                                      ; preds = %if.end.i, %for.inc.
 
 finish.exit.thread:                               ; preds = %for.body.i6
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %buf.i1)
-  br label %return
+  br label %33
 
 for.inc.i8:                                       ; preds = %for.body.i6
   %31 = load i32, ptr %used.i2, align 4
@@ -235,13 +235,15 @@ finish.exit:                                      ; preds = %for.inc.i8, %if.end
   %add23.i = add i32 %28, 2
   %call24.i = call i32 @BIO_write(ptr noundef %32, ptr noundef nonnull %right_chars.i3, i32 noundef %add23.i) #4
   %call24.i.fr = freeze i32 %call24.i
-  %cmp25.i = icmp sgt i32 %call24.i.fr, -1
+  %cmp25.i = icmp slt i32 %call24.i.fr, 0
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %buf.i1)
-  %spec.select = zext i1 %cmp25.i to i32
+  br i1 %cmp25.i, label %33, label %return
+
+33:                                               ; preds = %finish.exit.thread, %finish.exit
   br label %return
 
-return:                                           ; preds = %finish.exit, %finish.exit.thread15, %finish.exit.thread, %hexdump_write.exit.thread
-  %retval.0 = phi i32 [ 0, %hexdump_write.exit.thread ], [ 1, %finish.exit.thread15 ], [ 0, %finish.exit.thread ], [ %spec.select, %finish.exit ]
+return:                                           ; preds = %33, %finish.exit, %finish.exit.thread15, %hexdump_write.exit.thread
+  %retval.0 = phi i32 [ 0, %hexdump_write.exit.thread ], [ 0, %33 ], [ 1, %finish.exit ], [ 1, %finish.exit.thread15 ]
   ret i32 %retval.0
 }
 

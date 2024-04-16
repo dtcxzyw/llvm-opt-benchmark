@@ -463,13 +463,13 @@ define internal fastcc noundef zeroext i1 @pcapng_write_string_option(ptr nocapt
   %7 = alloca i32, align 4
   store i32 0, ptr %7, align 4
   %8 = icmp eq ptr %2, null
-  br i1 %8, label %write_to_file.exit30, label %9
+  br i1 %8, label %44, label %9
 
 9:                                                ; preds = %5
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #8
   %11 = add i64 %10, -1
   %or.cond = icmp ult i64 %11, 65534
-  br i1 %or.cond, label %12, label %write_to_file.exit30
+  br i1 %or.cond, label %12, label %44
 
 12:                                               ; preds = %9
   store i16 %1, ptr %6, align 2
@@ -493,7 +493,7 @@ define internal fastcc noundef zeroext i1 @pcapng_write_string_option(ptr nocapt
 write_to_file.exit:                               ; preds = %16, %18
   %storemerge.i = phi i32 [ %20, %18 ], [ 0, %16 ]
   store i32 %storemerge.i, ptr %4, align 4
-  br label %write_to_file.exit30
+  br label %44
 
 21:                                               ; preds = %12
   %22 = load i64, ptr %3, align 8
@@ -516,7 +516,7 @@ write_to_file.exit:                               ; preds = %16, %18
 write_to_file.exit26:                             ; preds = %25, %27
   %storemerge.i25 = phi i32 [ %29, %27 ], [ 0, %25 ]
   store i32 %storemerge.i25, ptr %4, align 4
-  br label %write_to_file.exit30
+  br label %44
 
 30:                                               ; preds = %21
   %31 = load i64, ptr %3, align 8
@@ -524,37 +524,37 @@ write_to_file.exit26:                             ; preds = %25, %27
   store i64 %32, ptr %3, align 8
   %33 = and i64 %10, 3
   %.not = icmp eq i64 %33, 0
-  br i1 %.not, label %write_to_file.exit30, label %34
+  br i1 %.not, label %44, label %34
 
 34:                                               ; preds = %30
   %35 = sub nuw nsw i64 4, %33
   %36 = call i64 @fwrite(ptr noundef nonnull %7, i64 noundef %35, i64 noundef 1, ptr noundef %0)
   %.not.i27 = icmp eq i64 %36, 1
-  br i1 %.not.i27, label %43, label %37
+  br i1 %.not.i27, label %write_to_file.exit30.thread, label %37
 
 37:                                               ; preds = %34
   %38 = tail call i32 @ferror(ptr noundef %0) #6
   %.not9.i28 = icmp eq i32 %38, 0
-  br i1 %.not9.i28, label %42, label %39
+  br i1 %.not9.i28, label %write_to_file.exit30, label %39
 
 39:                                               ; preds = %37
   %40 = tail call ptr @__errno_location() #7
   %41 = load i32, ptr %40, align 4
-  br label %42
+  br label %write_to_file.exit30
 
-42:                                               ; preds = %39, %37
+write_to_file.exit30.thread:                      ; preds = %34
+  %42 = load i64, ptr %3, align 8
+  %43 = add i64 %42, %35
+  store i64 %43, ptr %3, align 8
+  br label %44
+
+write_to_file.exit30:                             ; preds = %37, %39
   %storemerge.i29 = phi i32 [ %41, %39 ], [ 0, %37 ]
   store i32 %storemerge.i29, ptr %4, align 4
-  br label %write_to_file.exit30
+  br label %44
 
-43:                                               ; preds = %34
-  %44 = load i64, ptr %3, align 8
-  %45 = add i64 %44, %35
-  store i64 %45, ptr %3, align 8
-  br label %write_to_file.exit30
-
-write_to_file.exit30:                             ; preds = %43, %42, %write_to_file.exit26, %write_to_file.exit, %9, %30, %5
-  %.0 = phi i1 [ true, %5 ], [ false, %write_to_file.exit ], [ false, %write_to_file.exit26 ], [ true, %30 ], [ true, %9 ], [ false, %42 ], [ true, %43 ]
+44:                                               ; preds = %9, %30, %write_to_file.exit30.thread, %write_to_file.exit30, %write_to_file.exit26, %write_to_file.exit, %5
+  %.0 = phi i1 [ true, %5 ], [ false, %write_to_file.exit ], [ false, %write_to_file.exit26 ], [ false, %write_to_file.exit30 ], [ true, %write_to_file.exit30.thread ], [ true, %30 ], [ true, %9 ]
   ret i1 %.0
 }
 

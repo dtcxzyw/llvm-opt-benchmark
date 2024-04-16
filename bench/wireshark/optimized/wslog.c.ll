@@ -452,14 +452,14 @@ define i32 @ws_log_parse_args(ptr nocapture noundef %0, ptr noundef %1, ptr noun
   %.0.i = phi ptr [ %18, %16 ], [ @.str.45, %.preheader ]
   %12 = load i8, ptr %.013.i, align 1
   switch i8 %12, label %13 [
-    i8 0, label %.loopexit.loopexit.i
-    i8 32, label %.loopexit.loopexit.i
-    i8 61, label %.loopexit.loopexit.i
+    i8 0, label %optequal.exit
+    i8 32, label %optequal.exit
+    i8 61, label %optequal.exit
   ]
 
 13:                                               ; preds = %11
   %exitcond = icmp eq ptr %.0.i, getelementptr inbounds ([12 x i8], ptr @.str.45, i64 0, i64 11)
-  br i1 %exitcond, label %optequal.exit, label %14
+  br i1 %exitcond, label %.critedge.i, label %14
 
 14:                                               ; preds = %13
   %15 = load i8, ptr %.0.i, align 1
@@ -471,17 +471,17 @@ define i32 @ws_log_parse_args(ptr nocapture noundef %0, ptr noundef %1, ptr noun
   %18 = getelementptr i8, ptr %.0.i, i64 1
   br label %11, !llvm.loop !7
 
-.loopexit.loopexit.i:                             ; preds = %11, %11, %11
-  %.pre.i = load i8, ptr %.0.i, align 1
-  %19 = icmp eq i8 %.pre.i, 0
-  br i1 %19, label %91, label %optequal.exit.thread.preheader
-
-optequal.exit:                                    ; preds = %13
+.critedge.i:                                      ; preds = %13
   %switch.and.i = and i8 %12, -33
   %switch.selectcmp.i = icmp eq i8 %switch.and.i, 0
   br i1 %switch.selectcmp.i, label %91, label %optequal.exit.thread.preheader
 
-optequal.exit.thread.preheader:                   ; preds = %14, %.loopexit.loopexit.i, %optequal.exit
+optequal.exit:                                    ; preds = %11, %11, %11
+  %.pre.i = load i8, ptr %.0.i, align 1
+  %19 = icmp eq i8 %.pre.i, 0
+  br i1 %19, label %91, label %optequal.exit.thread.preheader
+
+optequal.exit.thread.preheader:                   ; preds = %14, %.critedge.i, %optequal.exit
   br label %optequal.exit.thread
 
 optequal.exit.thread:                             ; preds = %optequal.exit.thread.preheader, %24
@@ -489,14 +489,14 @@ optequal.exit.thread:                             ; preds = %optequal.exit.threa
   %.0.i96 = phi ptr [ %26, %24 ], [ @.str.46, %optequal.exit.thread.preheader ]
   %20 = load i8, ptr %.013.i95, align 1
   switch i8 %20, label %21 [
-    i8 0, label %.loopexit.loopexit.i97
-    i8 32, label %.loopexit.loopexit.i97
-    i8 61, label %.loopexit.loopexit.i97
+    i8 0, label %optequal.exit105
+    i8 32, label %optequal.exit105
+    i8 61, label %optequal.exit105
   ]
 
 21:                                               ; preds = %optequal.exit.thread
   %exitcond380 = icmp eq ptr %.0.i96, getelementptr inbounds ([13 x i8], ptr @.str.46, i64 0, i64 12)
-  br i1 %exitcond380, label %optequal.exit105, label %22
+  br i1 %exitcond380, label %.critedge.i102, label %22
 
 22:                                               ; preds = %21
   %23 = load i8, ptr %.0.i96, align 1
@@ -508,17 +508,17 @@ optequal.exit.thread:                             ; preds = %optequal.exit.threa
   %26 = getelementptr i8, ptr %.0.i96, i64 1
   br label %optequal.exit.thread, !llvm.loop !7
 
-.loopexit.loopexit.i97:                           ; preds = %optequal.exit.thread, %optequal.exit.thread, %optequal.exit.thread
-  %.pre.i98 = load i8, ptr %.0.i96, align 1
-  %27 = icmp eq i8 %.pre.i98, 0
-  br i1 %27, label %91, label %optequal.exit105.thread.preheader
-
-optequal.exit105:                                 ; preds = %21
+.critedge.i102:                                   ; preds = %21
   %switch.and.i103 = and i8 %20, -33
   %switch.selectcmp.i104 = icmp eq i8 %switch.and.i103, 0
   br i1 %switch.selectcmp.i104, label %91, label %optequal.exit105.thread.preheader
 
-optequal.exit105.thread.preheader:                ; preds = %22, %.loopexit.loopexit.i97, %optequal.exit105
+optequal.exit105:                                 ; preds = %optequal.exit.thread, %optequal.exit.thread, %optequal.exit.thread
+  %.pre.i98 = load i8, ptr %.0.i96, align 1
+  %27 = icmp eq i8 %.pre.i98, 0
+  br i1 %27, label %91, label %optequal.exit105.thread.preheader
+
+optequal.exit105.thread.preheader:                ; preds = %22, %.critedge.i102, %optequal.exit105
   br label %optequal.exit105.thread
 
 optequal.exit105.thread:                          ; preds = %optequal.exit105.thread.preheader, %32
@@ -526,14 +526,14 @@ optequal.exit105.thread:                          ; preds = %optequal.exit105.th
   %.0.i107 = phi ptr [ %34, %32 ], [ @.str.47, %optequal.exit105.thread.preheader ]
   %28 = load i8, ptr %.013.i106, align 1
   switch i8 %28, label %29 [
-    i8 0, label %.loopexit.loopexit.i108
-    i8 32, label %.loopexit.loopexit.i108
-    i8 61, label %.loopexit.loopexit.i108
+    i8 0, label %optequal.exit116
+    i8 32, label %optequal.exit116
+    i8 61, label %optequal.exit116
   ]
 
 29:                                               ; preds = %optequal.exit105.thread
   %exitcond381 = icmp eq ptr %.0.i107, getelementptr inbounds ([14 x i8], ptr @.str.47, i64 0, i64 13)
-  br i1 %exitcond381, label %optequal.exit116, label %30
+  br i1 %exitcond381, label %.critedge.i113, label %30
 
 30:                                               ; preds = %29
   %31 = load i8, ptr %.0.i107, align 1
@@ -545,17 +545,17 @@ optequal.exit105.thread:                          ; preds = %optequal.exit105.th
   %34 = getelementptr i8, ptr %.0.i107, i64 1
   br label %optequal.exit105.thread, !llvm.loop !7
 
-.loopexit.loopexit.i108:                          ; preds = %optequal.exit105.thread, %optequal.exit105.thread, %optequal.exit105.thread
-  %.pre.i109 = load i8, ptr %.0.i107, align 1
-  %35 = icmp eq i8 %.pre.i109, 0
-  br i1 %35, label %91, label %optequal.exit116.thread.preheader
-
-optequal.exit116:                                 ; preds = %29
+.critedge.i113:                                   ; preds = %29
   %switch.and.i114 = and i8 %28, -33
   %switch.selectcmp.i115 = icmp eq i8 %switch.and.i114, 0
   br i1 %switch.selectcmp.i115, label %91, label %optequal.exit116.thread.preheader
 
-optequal.exit116.thread.preheader:                ; preds = %30, %.loopexit.loopexit.i108, %optequal.exit116
+optequal.exit116:                                 ; preds = %optequal.exit105.thread, %optequal.exit105.thread, %optequal.exit105.thread
+  %.pre.i109 = load i8, ptr %.0.i107, align 1
+  %35 = icmp eq i8 %.pre.i109, 0
+  br i1 %35, label %91, label %optequal.exit116.thread.preheader
+
+optequal.exit116.thread.preheader:                ; preds = %30, %.critedge.i113, %optequal.exit116
   br label %optequal.exit116.thread
 
 optequal.exit116.thread:                          ; preds = %optequal.exit116.thread.preheader, %40
@@ -563,14 +563,14 @@ optequal.exit116.thread:                          ; preds = %optequal.exit116.th
   %.0.i118 = phi ptr [ %42, %40 ], [ @.str.48, %optequal.exit116.thread.preheader ]
   %36 = load i8, ptr %.013.i117, align 1
   switch i8 %36, label %37 [
-    i8 0, label %.loopexit.loopexit.i119
-    i8 32, label %.loopexit.loopexit.i119
-    i8 61, label %.loopexit.loopexit.i119
+    i8 0, label %optequal.exit127
+    i8 32, label %optequal.exit127
+    i8 61, label %optequal.exit127
   ]
 
 37:                                               ; preds = %optequal.exit116.thread
   %exitcond382 = icmp eq ptr %.0.i118, getelementptr inbounds ([19 x i8], ptr @.str.48, i64 0, i64 18)
-  br i1 %exitcond382, label %optequal.exit127, label %38
+  br i1 %exitcond382, label %.critedge.i124, label %38
 
 38:                                               ; preds = %37
   %39 = load i8, ptr %.0.i118, align 1
@@ -582,17 +582,17 @@ optequal.exit116.thread:                          ; preds = %optequal.exit116.th
   %42 = getelementptr i8, ptr %.0.i118, i64 1
   br label %optequal.exit116.thread, !llvm.loop !7
 
-.loopexit.loopexit.i119:                          ; preds = %optequal.exit116.thread, %optequal.exit116.thread, %optequal.exit116.thread
-  %.pre.i120 = load i8, ptr %.0.i118, align 1
-  %43 = icmp eq i8 %.pre.i120, 0
-  br i1 %43, label %91, label %optequal.exit127.thread.preheader
-
-optequal.exit127:                                 ; preds = %37
+.critedge.i124:                                   ; preds = %37
   %switch.and.i125 = and i8 %36, -33
   %switch.selectcmp.i126 = icmp eq i8 %switch.and.i125, 0
   br i1 %switch.selectcmp.i126, label %91, label %optequal.exit127.thread.preheader
 
-optequal.exit127.thread.preheader:                ; preds = %38, %.loopexit.loopexit.i119, %optequal.exit127
+optequal.exit127:                                 ; preds = %optequal.exit116.thread, %optequal.exit116.thread, %optequal.exit116.thread
+  %.pre.i120 = load i8, ptr %.0.i118, align 1
+  %43 = icmp eq i8 %.pre.i120, 0
+  br i1 %43, label %91, label %optequal.exit127.thread.preheader
+
+optequal.exit127.thread.preheader:                ; preds = %38, %.critedge.i124, %optequal.exit127
   br label %optequal.exit127.thread
 
 optequal.exit127.thread:                          ; preds = %optequal.exit127.thread.preheader, %48
@@ -600,14 +600,14 @@ optequal.exit127.thread:                          ; preds = %optequal.exit127.th
   %.0.i129 = phi ptr [ %50, %48 ], [ @.str.49, %optequal.exit127.thread.preheader ]
   %44 = load i8, ptr %.013.i128, align 1
   switch i8 %44, label %45 [
-    i8 0, label %.loopexit.loopexit.i130
-    i8 32, label %.loopexit.loopexit.i130
-    i8 61, label %.loopexit.loopexit.i130
+    i8 0, label %optequal.exit138
+    i8 32, label %optequal.exit138
+    i8 61, label %optequal.exit138
   ]
 
 45:                                               ; preds = %optequal.exit127.thread
   %exitcond383 = icmp eq ptr %.0.i129, getelementptr inbounds ([20 x i8], ptr @.str.49, i64 0, i64 19)
-  br i1 %exitcond383, label %optequal.exit138, label %46
+  br i1 %exitcond383, label %.critedge.i135, label %46
 
 46:                                               ; preds = %45
   %47 = load i8, ptr %.0.i129, align 1
@@ -619,17 +619,17 @@ optequal.exit127.thread:                          ; preds = %optequal.exit127.th
   %50 = getelementptr i8, ptr %.0.i129, i64 1
   br label %optequal.exit127.thread, !llvm.loop !7
 
-.loopexit.loopexit.i130:                          ; preds = %optequal.exit127.thread, %optequal.exit127.thread, %optequal.exit127.thread
-  %.pre.i131 = load i8, ptr %.0.i129, align 1
-  %51 = icmp eq i8 %.pre.i131, 0
-  br i1 %51, label %91, label %optequal.exit138.thread.preheader
-
-optequal.exit138:                                 ; preds = %45
+.critedge.i135:                                   ; preds = %45
   %switch.and.i136 = and i8 %44, -33
   %switch.selectcmp.i137 = icmp eq i8 %switch.and.i136, 0
   br i1 %switch.selectcmp.i137, label %91, label %optequal.exit138.thread.preheader
 
-optequal.exit138.thread.preheader:                ; preds = %46, %.loopexit.loopexit.i130, %optequal.exit138
+optequal.exit138:                                 ; preds = %optequal.exit127.thread, %optequal.exit127.thread, %optequal.exit127.thread
+  %.pre.i131 = load i8, ptr %.0.i129, align 1
+  %51 = icmp eq i8 %.pre.i131, 0
+  br i1 %51, label %91, label %optequal.exit138.thread.preheader
+
+optequal.exit138.thread.preheader:                ; preds = %46, %.critedge.i135, %optequal.exit138
   br label %optequal.exit138.thread
 
 optequal.exit138.thread:                          ; preds = %optequal.exit138.thread.preheader, %56
@@ -637,14 +637,14 @@ optequal.exit138.thread:                          ; preds = %optequal.exit138.th
   %.0.i140 = phi ptr [ %58, %56 ], [ @.str.50, %optequal.exit138.thread.preheader ]
   %52 = load i8, ptr %.013.i139, align 1
   switch i8 %52, label %53 [
-    i8 0, label %.loopexit.loopexit.i141
-    i8 32, label %.loopexit.loopexit.i141
-    i8 61, label %.loopexit.loopexit.i141
+    i8 0, label %optequal.exit149
+    i8 32, label %optequal.exit149
+    i8 61, label %optequal.exit149
   ]
 
 53:                                               ; preds = %optequal.exit138.thread
   %exitcond384 = icmp eq ptr %.0.i140, getelementptr inbounds ([11 x i8], ptr @.str.50, i64 0, i64 10)
-  br i1 %exitcond384, label %optequal.exit149, label %54
+  br i1 %exitcond384, label %.critedge.i146, label %54
 
 54:                                               ; preds = %53
   %55 = load i8, ptr %.0.i140, align 1
@@ -656,17 +656,17 @@ optequal.exit138.thread:                          ; preds = %optequal.exit138.th
   %58 = getelementptr i8, ptr %.0.i140, i64 1
   br label %optequal.exit138.thread, !llvm.loop !7
 
-.loopexit.loopexit.i141:                          ; preds = %optequal.exit138.thread, %optequal.exit138.thread, %optequal.exit138.thread
-  %.pre.i142 = load i8, ptr %.0.i140, align 1
-  %59 = icmp eq i8 %.pre.i142, 0
-  br i1 %59, label %91, label %optequal.exit149.thread.preheader
-
-optequal.exit149:                                 ; preds = %53
+.critedge.i146:                                   ; preds = %53
   %switch.and.i147 = and i8 %52, -33
   %switch.selectcmp.i148 = icmp eq i8 %switch.and.i147, 0
   br i1 %switch.selectcmp.i148, label %91, label %optequal.exit149.thread.preheader
 
-optequal.exit149.thread.preheader:                ; preds = %54, %.loopexit.loopexit.i141, %optequal.exit149
+optequal.exit149:                                 ; preds = %optequal.exit138.thread, %optequal.exit138.thread, %optequal.exit138.thread
+  %.pre.i142 = load i8, ptr %.0.i140, align 1
+  %59 = icmp eq i8 %.pre.i142, 0
+  br i1 %59, label %91, label %optequal.exit149.thread.preheader
+
+optequal.exit149.thread.preheader:                ; preds = %54, %.critedge.i146, %optequal.exit149
   br label %optequal.exit149.thread
 
 optequal.exit149.thread:                          ; preds = %optequal.exit149.thread.preheader, %64
@@ -674,14 +674,14 @@ optequal.exit149.thread:                          ; preds = %optequal.exit149.th
   %.0.i151 = phi ptr [ %66, %64 ], [ @.str.51, %optequal.exit149.thread.preheader ]
   %60 = load i8, ptr %.013.i150, align 1
   switch i8 %60, label %61 [
-    i8 0, label %.loopexit.loopexit.i152
-    i8 32, label %.loopexit.loopexit.i152
-    i8 61, label %.loopexit.loopexit.i152
+    i8 0, label %optequal.exit160
+    i8 32, label %optequal.exit160
+    i8 61, label %optequal.exit160
   ]
 
 61:                                               ; preds = %optequal.exit149.thread
   %exitcond385 = icmp eq ptr %.0.i151, getelementptr inbounds ([12 x i8], ptr @.str.51, i64 0, i64 11)
-  br i1 %exitcond385, label %optequal.exit160, label %62
+  br i1 %exitcond385, label %.critedge.i157, label %62
 
 62:                                               ; preds = %61
   %63 = load i8, ptr %.0.i151, align 1
@@ -693,17 +693,17 @@ optequal.exit149.thread:                          ; preds = %optequal.exit149.th
   %66 = getelementptr i8, ptr %.0.i151, i64 1
   br label %optequal.exit149.thread, !llvm.loop !7
 
-.loopexit.loopexit.i152:                          ; preds = %optequal.exit149.thread, %optequal.exit149.thread, %optequal.exit149.thread
-  %.pre.i153 = load i8, ptr %.0.i151, align 1
-  %67 = icmp eq i8 %.pre.i153, 0
-  br i1 %67, label %91, label %optequal.exit160.thread.preheader
-
-optequal.exit160:                                 ; preds = %61
+.critedge.i157:                                   ; preds = %61
   %switch.and.i158 = and i8 %60, -33
   %switch.selectcmp.i159 = icmp eq i8 %switch.and.i158, 0
   br i1 %switch.selectcmp.i159, label %91, label %optequal.exit160.thread.preheader
 
-optequal.exit160.thread.preheader:                ; preds = %62, %.loopexit.loopexit.i152, %optequal.exit160
+optequal.exit160:                                 ; preds = %optequal.exit149.thread, %optequal.exit149.thread, %optequal.exit149.thread
+  %.pre.i153 = load i8, ptr %.0.i151, align 1
+  %67 = icmp eq i8 %.pre.i153, 0
+  br i1 %67, label %91, label %optequal.exit160.thread.preheader
+
+optequal.exit160.thread.preheader:                ; preds = %62, %.critedge.i157, %optequal.exit160
   br label %optequal.exit160.thread
 
 optequal.exit160.thread:                          ; preds = %optequal.exit160.thread.preheader, %72
@@ -711,14 +711,14 @@ optequal.exit160.thread:                          ; preds = %optequal.exit160.th
   %.0.i162 = phi ptr [ %74, %72 ], [ @.str.52, %optequal.exit160.thread.preheader ]
   %68 = load i8, ptr %.013.i161, align 1
   switch i8 %68, label %69 [
-    i8 0, label %.loopexit.loopexit.i163
-    i8 32, label %.loopexit.loopexit.i163
-    i8 61, label %.loopexit.loopexit.i163
+    i8 0, label %optequal.exit171
+    i8 32, label %optequal.exit171
+    i8 61, label %optequal.exit171
   ]
 
 69:                                               ; preds = %optequal.exit160.thread
   %exitcond386 = icmp eq ptr %.0.i162, getelementptr inbounds ([12 x i8], ptr @.str.52, i64 0, i64 11)
-  br i1 %exitcond386, label %optequal.exit171, label %70
+  br i1 %exitcond386, label %.critedge.i168, label %70
 
 70:                                               ; preds = %69
   %71 = load i8, ptr %.0.i162, align 1
@@ -730,17 +730,17 @@ optequal.exit160.thread:                          ; preds = %optequal.exit160.th
   %74 = getelementptr i8, ptr %.0.i162, i64 1
   br label %optequal.exit160.thread, !llvm.loop !7
 
-.loopexit.loopexit.i163:                          ; preds = %optequal.exit160.thread, %optequal.exit160.thread, %optequal.exit160.thread
-  %.pre.i164 = load i8, ptr %.0.i162, align 1
-  %75 = icmp eq i8 %.pre.i164, 0
-  br i1 %75, label %91, label %optequal.exit171.thread.preheader
-
-optequal.exit171:                                 ; preds = %69
+.critedge.i168:                                   ; preds = %69
   %switch.and.i169 = and i8 %68, -33
   %switch.selectcmp.i170 = icmp eq i8 %switch.and.i169, 0
   br i1 %switch.selectcmp.i170, label %91, label %optequal.exit171.thread.preheader
 
-optequal.exit171.thread.preheader:                ; preds = %70, %.loopexit.loopexit.i163, %optequal.exit171
+optequal.exit171:                                 ; preds = %optequal.exit160.thread, %optequal.exit160.thread, %optequal.exit160.thread
+  %.pre.i164 = load i8, ptr %.0.i162, align 1
+  %75 = icmp eq i8 %.pre.i164, 0
+  br i1 %75, label %91, label %optequal.exit171.thread.preheader
+
+optequal.exit171.thread.preheader:                ; preds = %70, %.critedge.i168, %optequal.exit171
   br label %optequal.exit171.thread
 
 optequal.exit171.thread:                          ; preds = %optequal.exit171.thread.preheader, %80
@@ -748,14 +748,14 @@ optequal.exit171.thread:                          ; preds = %optequal.exit171.th
   %.0.i173 = phi ptr [ %82, %80 ], [ @.str.53, %optequal.exit171.thread.preheader ]
   %76 = load i8, ptr %.013.i172, align 1
   switch i8 %76, label %77 [
-    i8 0, label %.loopexit.loopexit.i174
-    i8 32, label %.loopexit.loopexit.i174
-    i8 61, label %.loopexit.loopexit.i174
+    i8 0, label %optequal.exit182
+    i8 32, label %optequal.exit182
+    i8 61, label %optequal.exit182
   ]
 
 77:                                               ; preds = %optequal.exit171.thread
   %exitcond387 = icmp eq ptr %.0.i173, getelementptr inbounds ([12 x i8], ptr @.str.53, i64 0, i64 11)
-  br i1 %exitcond387, label %optequal.exit182, label %78
+  br i1 %exitcond387, label %.critedge.i179, label %78
 
 78:                                               ; preds = %77
   %79 = load i8, ptr %.0.i173, align 1
@@ -767,17 +767,17 @@ optequal.exit171.thread:                          ; preds = %optequal.exit171.th
   %82 = getelementptr i8, ptr %.0.i173, i64 1
   br label %optequal.exit171.thread, !llvm.loop !7
 
-.loopexit.loopexit.i174:                          ; preds = %optequal.exit171.thread, %optequal.exit171.thread, %optequal.exit171.thread
-  %.pre.i175 = load i8, ptr %.0.i173, align 1
-  %83 = icmp eq i8 %.pre.i175, 0
-  br i1 %83, label %91, label %optequal.exit182.thread
-
-optequal.exit182:                                 ; preds = %77
+.critedge.i179:                                   ; preds = %77
   %switch.and.i180 = and i8 %76, -33
   %switch.selectcmp.i181 = icmp eq i8 %switch.and.i180, 0
   br i1 %switch.selectcmp.i181, label %91, label %optequal.exit182.thread
 
-optequal.exit182.thread:                          ; preds = %.loopexit.loopexit.i174, %optequal.exit182, %78
+optequal.exit182:                                 ; preds = %optequal.exit171.thread, %optequal.exit171.thread, %optequal.exit171.thread
+  %.pre.i175 = load i8, ptr %.0.i173, align 1
+  %83 = icmp eq i8 %.pre.i175, 0
+  br i1 %83, label %91, label %optequal.exit182.thread
+
+optequal.exit182.thread:                          ; preds = %.critedge.i179, %optequal.exit182, %78
   %84 = load i8, ptr %10, align 1
   %85 = icmp eq i8 %84, 45
   br i1 %85, label %86, label %.outer.backedge
@@ -792,15 +792,15 @@ optequal.exit182.thread:                          ; preds = %.loopexit.loopexit.
   tail call fastcc void @parse_console_compat_option(ptr noundef nonnull %.087.ph324, ptr noundef %2, i32 noundef %3)
   br label %.outer.backedge
 
-91:                                               ; preds = %.loopexit.loopexit.i174, %.loopexit.loopexit.i163, %.loopexit.loopexit.i152, %.loopexit.loopexit.i141, %.loopexit.loopexit.i130, %.loopexit.loopexit.i119, %.loopexit.loopexit.i108, %.loopexit.loopexit.i97, %.loopexit.loopexit.i, %optequal.exit182, %optequal.exit171, %optequal.exit160, %optequal.exit149, %optequal.exit138, %optequal.exit127, %optequal.exit116, %optequal.exit105, %optequal.exit
-  %.083 = phi i64 [ 11, %optequal.exit ], [ 12, %optequal.exit105 ], [ 13, %optequal.exit116 ], [ 18, %optequal.exit127 ], [ 19, %optequal.exit138 ], [ 10, %optequal.exit149 ], [ 11, %optequal.exit160 ], [ 11, %optequal.exit171 ], [ 11, %optequal.exit182 ], [ 11, %.loopexit.loopexit.i ], [ 12, %.loopexit.loopexit.i97 ], [ 13, %.loopexit.loopexit.i108 ], [ 18, %.loopexit.loopexit.i119 ], [ 19, %.loopexit.loopexit.i130 ], [ 10, %.loopexit.loopexit.i141 ], [ 11, %.loopexit.loopexit.i152 ], [ 11, %.loopexit.loopexit.i163 ], [ 11, %.loopexit.loopexit.i174 ]
-  %92 = phi i1 [ true, %optequal.exit ], [ icmp eq (ptr @.str.46, ptr @.str.45), %optequal.exit105 ], [ icmp eq (ptr @.str.46, ptr @.str.45), %optequal.exit116 ], [ icmp eq (ptr @.str.48, ptr @.str.45), %optequal.exit127 ], [ icmp eq (ptr @.str.48, ptr @.str.45), %optequal.exit138 ], [ icmp eq (ptr @.str.50, ptr @.str.45), %optequal.exit149 ], [ icmp eq (ptr @.str.51, ptr @.str.45), %optequal.exit160 ], [ icmp eq (ptr @.str.52, ptr @.str.45), %optequal.exit171 ], [ icmp eq (ptr @.str.53, ptr @.str.45), %optequal.exit182 ], [ true, %.loopexit.loopexit.i ], [ icmp eq (ptr @.str.46, ptr @.str.45), %.loopexit.loopexit.i97 ], [ icmp eq (ptr @.str.46, ptr @.str.45), %.loopexit.loopexit.i108 ], [ icmp eq (ptr @.str.48, ptr @.str.45), %.loopexit.loopexit.i119 ], [ icmp eq (ptr @.str.48, ptr @.str.45), %.loopexit.loopexit.i130 ], [ icmp eq (ptr @.str.50, ptr @.str.45), %.loopexit.loopexit.i141 ], [ icmp eq (ptr @.str.51, ptr @.str.45), %.loopexit.loopexit.i152 ], [ icmp eq (ptr @.str.52, ptr @.str.45), %.loopexit.loopexit.i163 ], [ icmp eq (ptr @.str.53, ptr @.str.45), %.loopexit.loopexit.i174 ]
-  %93 = phi i1 [ icmp eq (ptr @.str.45, ptr @.str.46), %optequal.exit ], [ true, %optequal.exit105 ], [ true, %optequal.exit116 ], [ icmp eq (ptr @.str.48, ptr @.str.46), %optequal.exit127 ], [ icmp eq (ptr @.str.48, ptr @.str.46), %optequal.exit138 ], [ icmp eq (ptr @.str.50, ptr @.str.46), %optequal.exit149 ], [ icmp eq (ptr @.str.51, ptr @.str.46), %optequal.exit160 ], [ icmp eq (ptr @.str.52, ptr @.str.46), %optequal.exit171 ], [ icmp eq (ptr @.str.53, ptr @.str.46), %optequal.exit182 ], [ icmp eq (ptr @.str.45, ptr @.str.46), %.loopexit.loopexit.i ], [ true, %.loopexit.loopexit.i97 ], [ true, %.loopexit.loopexit.i108 ], [ icmp eq (ptr @.str.48, ptr @.str.46), %.loopexit.loopexit.i119 ], [ icmp eq (ptr @.str.48, ptr @.str.46), %.loopexit.loopexit.i130 ], [ icmp eq (ptr @.str.50, ptr @.str.46), %.loopexit.loopexit.i141 ], [ icmp eq (ptr @.str.51, ptr @.str.46), %.loopexit.loopexit.i152 ], [ icmp eq (ptr @.str.52, ptr @.str.46), %.loopexit.loopexit.i163 ], [ icmp eq (ptr @.str.53, ptr @.str.46), %.loopexit.loopexit.i174 ]
-  %94 = phi i1 [ icmp eq (ptr @.str.45, ptr @.str.48), %optequal.exit ], [ icmp eq (ptr @.str.46, ptr @.str.48), %optequal.exit105 ], [ icmp eq (ptr @.str.46, ptr @.str.48), %optequal.exit116 ], [ true, %optequal.exit127 ], [ true, %optequal.exit138 ], [ icmp eq (ptr @.str.50, ptr @.str.48), %optequal.exit149 ], [ icmp eq (ptr @.str.51, ptr @.str.48), %optequal.exit160 ], [ icmp eq (ptr @.str.52, ptr @.str.48), %optequal.exit171 ], [ icmp eq (ptr @.str.53, ptr @.str.48), %optequal.exit182 ], [ icmp eq (ptr @.str.45, ptr @.str.48), %.loopexit.loopexit.i ], [ icmp eq (ptr @.str.46, ptr @.str.48), %.loopexit.loopexit.i97 ], [ icmp eq (ptr @.str.46, ptr @.str.48), %.loopexit.loopexit.i108 ], [ true, %.loopexit.loopexit.i119 ], [ true, %.loopexit.loopexit.i130 ], [ icmp eq (ptr @.str.50, ptr @.str.48), %.loopexit.loopexit.i141 ], [ icmp eq (ptr @.str.51, ptr @.str.48), %.loopexit.loopexit.i152 ], [ icmp eq (ptr @.str.52, ptr @.str.48), %.loopexit.loopexit.i163 ], [ icmp eq (ptr @.str.53, ptr @.str.48), %.loopexit.loopexit.i174 ]
-  %95 = phi i1 [ icmp eq (ptr @.str.45, ptr @.str.50), %optequal.exit ], [ icmp eq (ptr @.str.46, ptr @.str.50), %optequal.exit105 ], [ icmp eq (ptr @.str.46, ptr @.str.50), %optequal.exit116 ], [ icmp eq (ptr @.str.48, ptr @.str.50), %optequal.exit127 ], [ icmp eq (ptr @.str.48, ptr @.str.50), %optequal.exit138 ], [ true, %optequal.exit149 ], [ icmp eq (ptr @.str.51, ptr @.str.50), %optequal.exit160 ], [ icmp eq (ptr @.str.52, ptr @.str.50), %optequal.exit171 ], [ icmp eq (ptr @.str.53, ptr @.str.50), %optequal.exit182 ], [ icmp eq (ptr @.str.45, ptr @.str.50), %.loopexit.loopexit.i ], [ icmp eq (ptr @.str.46, ptr @.str.50), %.loopexit.loopexit.i97 ], [ icmp eq (ptr @.str.46, ptr @.str.50), %.loopexit.loopexit.i108 ], [ icmp eq (ptr @.str.48, ptr @.str.50), %.loopexit.loopexit.i119 ], [ icmp eq (ptr @.str.48, ptr @.str.50), %.loopexit.loopexit.i130 ], [ true, %.loopexit.loopexit.i141 ], [ icmp eq (ptr @.str.51, ptr @.str.50), %.loopexit.loopexit.i152 ], [ icmp eq (ptr @.str.52, ptr @.str.50), %.loopexit.loopexit.i163 ], [ icmp eq (ptr @.str.53, ptr @.str.50), %.loopexit.loopexit.i174 ]
-  %96 = phi i1 [ icmp eq (ptr @.str.45, ptr @.str.51), %optequal.exit ], [ icmp eq (ptr @.str.46, ptr @.str.51), %optequal.exit105 ], [ icmp eq (ptr @.str.46, ptr @.str.51), %optequal.exit116 ], [ icmp eq (ptr @.str.48, ptr @.str.51), %optequal.exit127 ], [ icmp eq (ptr @.str.48, ptr @.str.51), %optequal.exit138 ], [ icmp eq (ptr @.str.50, ptr @.str.51), %optequal.exit149 ], [ true, %optequal.exit160 ], [ icmp eq (ptr @.str.52, ptr @.str.51), %optequal.exit171 ], [ icmp eq (ptr @.str.53, ptr @.str.51), %optequal.exit182 ], [ icmp eq (ptr @.str.45, ptr @.str.51), %.loopexit.loopexit.i ], [ icmp eq (ptr @.str.46, ptr @.str.51), %.loopexit.loopexit.i97 ], [ icmp eq (ptr @.str.46, ptr @.str.51), %.loopexit.loopexit.i108 ], [ icmp eq (ptr @.str.48, ptr @.str.51), %.loopexit.loopexit.i119 ], [ icmp eq (ptr @.str.48, ptr @.str.51), %.loopexit.loopexit.i130 ], [ icmp eq (ptr @.str.50, ptr @.str.51), %.loopexit.loopexit.i141 ], [ true, %.loopexit.loopexit.i152 ], [ icmp eq (ptr @.str.52, ptr @.str.51), %.loopexit.loopexit.i163 ], [ icmp eq (ptr @.str.53, ptr @.str.51), %.loopexit.loopexit.i174 ]
-  %97 = phi i1 [ icmp eq (ptr @.str.45, ptr @.str.52), %optequal.exit ], [ icmp eq (ptr @.str.46, ptr @.str.52), %optequal.exit105 ], [ icmp eq (ptr @.str.46, ptr @.str.52), %optequal.exit116 ], [ icmp eq (ptr @.str.48, ptr @.str.52), %optequal.exit127 ], [ icmp eq (ptr @.str.48, ptr @.str.52), %optequal.exit138 ], [ icmp eq (ptr @.str.50, ptr @.str.52), %optequal.exit149 ], [ icmp eq (ptr @.str.51, ptr @.str.52), %optequal.exit160 ], [ true, %optequal.exit171 ], [ icmp eq (ptr @.str.53, ptr @.str.52), %optequal.exit182 ], [ icmp eq (ptr @.str.45, ptr @.str.52), %.loopexit.loopexit.i ], [ icmp eq (ptr @.str.46, ptr @.str.52), %.loopexit.loopexit.i97 ], [ icmp eq (ptr @.str.46, ptr @.str.52), %.loopexit.loopexit.i108 ], [ icmp eq (ptr @.str.48, ptr @.str.52), %.loopexit.loopexit.i119 ], [ icmp eq (ptr @.str.48, ptr @.str.52), %.loopexit.loopexit.i130 ], [ icmp eq (ptr @.str.50, ptr @.str.52), %.loopexit.loopexit.i141 ], [ icmp eq (ptr @.str.51, ptr @.str.52), %.loopexit.loopexit.i152 ], [ true, %.loopexit.loopexit.i163 ], [ icmp eq (ptr @.str.53, ptr @.str.52), %.loopexit.loopexit.i174 ]
-  %98 = phi i1 [ icmp eq (ptr @.str.45, ptr @.str.53), %optequal.exit ], [ icmp eq (ptr @.str.46, ptr @.str.53), %optequal.exit105 ], [ icmp eq (ptr @.str.46, ptr @.str.53), %optequal.exit116 ], [ icmp eq (ptr @.str.48, ptr @.str.53), %optequal.exit127 ], [ icmp eq (ptr @.str.48, ptr @.str.53), %optequal.exit138 ], [ icmp eq (ptr @.str.50, ptr @.str.53), %optequal.exit149 ], [ icmp eq (ptr @.str.51, ptr @.str.53), %optequal.exit160 ], [ icmp eq (ptr @.str.52, ptr @.str.53), %optequal.exit171 ], [ true, %optequal.exit182 ], [ icmp eq (ptr @.str.45, ptr @.str.53), %.loopexit.loopexit.i ], [ icmp eq (ptr @.str.46, ptr @.str.53), %.loopexit.loopexit.i97 ], [ icmp eq (ptr @.str.46, ptr @.str.53), %.loopexit.loopexit.i108 ], [ icmp eq (ptr @.str.48, ptr @.str.53), %.loopexit.loopexit.i119 ], [ icmp eq (ptr @.str.48, ptr @.str.53), %.loopexit.loopexit.i130 ], [ icmp eq (ptr @.str.50, ptr @.str.53), %.loopexit.loopexit.i141 ], [ icmp eq (ptr @.str.51, ptr @.str.53), %.loopexit.loopexit.i152 ], [ icmp eq (ptr @.str.52, ptr @.str.53), %.loopexit.loopexit.i163 ], [ true, %.loopexit.loopexit.i174 ]
+91:                                               ; preds = %.critedge.i179, %.critedge.i168, %.critedge.i157, %.critedge.i146, %.critedge.i135, %.critedge.i124, %.critedge.i113, %.critedge.i102, %.critedge.i, %optequal.exit182, %optequal.exit171, %optequal.exit160, %optequal.exit149, %optequal.exit138, %optequal.exit127, %optequal.exit116, %optequal.exit105, %optequal.exit
+  %.083 = phi i64 [ 11, %optequal.exit ], [ 12, %optequal.exit105 ], [ 13, %optequal.exit116 ], [ 18, %optequal.exit127 ], [ 19, %optequal.exit138 ], [ 10, %optequal.exit149 ], [ 11, %optequal.exit160 ], [ 11, %optequal.exit171 ], [ 11, %optequal.exit182 ], [ 11, %.critedge.i ], [ 12, %.critedge.i102 ], [ 13, %.critedge.i113 ], [ 18, %.critedge.i124 ], [ 19, %.critedge.i135 ], [ 10, %.critedge.i146 ], [ 11, %.critedge.i157 ], [ 11, %.critedge.i168 ], [ 11, %.critedge.i179 ]
+  %92 = phi i1 [ true, %optequal.exit ], [ icmp eq (ptr @.str.46, ptr @.str.45), %optequal.exit105 ], [ icmp eq (ptr @.str.46, ptr @.str.45), %optequal.exit116 ], [ icmp eq (ptr @.str.48, ptr @.str.45), %optequal.exit127 ], [ icmp eq (ptr @.str.48, ptr @.str.45), %optequal.exit138 ], [ icmp eq (ptr @.str.50, ptr @.str.45), %optequal.exit149 ], [ icmp eq (ptr @.str.51, ptr @.str.45), %optequal.exit160 ], [ icmp eq (ptr @.str.52, ptr @.str.45), %optequal.exit171 ], [ icmp eq (ptr @.str.53, ptr @.str.45), %optequal.exit182 ], [ true, %.critedge.i ], [ icmp eq (ptr @.str.46, ptr @.str.45), %.critedge.i102 ], [ icmp eq (ptr @.str.46, ptr @.str.45), %.critedge.i113 ], [ icmp eq (ptr @.str.48, ptr @.str.45), %.critedge.i124 ], [ icmp eq (ptr @.str.48, ptr @.str.45), %.critedge.i135 ], [ icmp eq (ptr @.str.50, ptr @.str.45), %.critedge.i146 ], [ icmp eq (ptr @.str.51, ptr @.str.45), %.critedge.i157 ], [ icmp eq (ptr @.str.52, ptr @.str.45), %.critedge.i168 ], [ icmp eq (ptr @.str.53, ptr @.str.45), %.critedge.i179 ]
+  %93 = phi i1 [ icmp eq (ptr @.str.45, ptr @.str.46), %optequal.exit ], [ true, %optequal.exit105 ], [ true, %optequal.exit116 ], [ icmp eq (ptr @.str.48, ptr @.str.46), %optequal.exit127 ], [ icmp eq (ptr @.str.48, ptr @.str.46), %optequal.exit138 ], [ icmp eq (ptr @.str.50, ptr @.str.46), %optequal.exit149 ], [ icmp eq (ptr @.str.51, ptr @.str.46), %optequal.exit160 ], [ icmp eq (ptr @.str.52, ptr @.str.46), %optequal.exit171 ], [ icmp eq (ptr @.str.53, ptr @.str.46), %optequal.exit182 ], [ icmp eq (ptr @.str.45, ptr @.str.46), %.critedge.i ], [ true, %.critedge.i102 ], [ true, %.critedge.i113 ], [ icmp eq (ptr @.str.48, ptr @.str.46), %.critedge.i124 ], [ icmp eq (ptr @.str.48, ptr @.str.46), %.critedge.i135 ], [ icmp eq (ptr @.str.50, ptr @.str.46), %.critedge.i146 ], [ icmp eq (ptr @.str.51, ptr @.str.46), %.critedge.i157 ], [ icmp eq (ptr @.str.52, ptr @.str.46), %.critedge.i168 ], [ icmp eq (ptr @.str.53, ptr @.str.46), %.critedge.i179 ]
+  %94 = phi i1 [ icmp eq (ptr @.str.45, ptr @.str.48), %optequal.exit ], [ icmp eq (ptr @.str.46, ptr @.str.48), %optequal.exit105 ], [ icmp eq (ptr @.str.46, ptr @.str.48), %optequal.exit116 ], [ true, %optequal.exit127 ], [ true, %optequal.exit138 ], [ icmp eq (ptr @.str.50, ptr @.str.48), %optequal.exit149 ], [ icmp eq (ptr @.str.51, ptr @.str.48), %optequal.exit160 ], [ icmp eq (ptr @.str.52, ptr @.str.48), %optequal.exit171 ], [ icmp eq (ptr @.str.53, ptr @.str.48), %optequal.exit182 ], [ icmp eq (ptr @.str.45, ptr @.str.48), %.critedge.i ], [ icmp eq (ptr @.str.46, ptr @.str.48), %.critedge.i102 ], [ icmp eq (ptr @.str.46, ptr @.str.48), %.critedge.i113 ], [ true, %.critedge.i124 ], [ true, %.critedge.i135 ], [ icmp eq (ptr @.str.50, ptr @.str.48), %.critedge.i146 ], [ icmp eq (ptr @.str.51, ptr @.str.48), %.critedge.i157 ], [ icmp eq (ptr @.str.52, ptr @.str.48), %.critedge.i168 ], [ icmp eq (ptr @.str.53, ptr @.str.48), %.critedge.i179 ]
+  %95 = phi i1 [ icmp eq (ptr @.str.45, ptr @.str.50), %optequal.exit ], [ icmp eq (ptr @.str.46, ptr @.str.50), %optequal.exit105 ], [ icmp eq (ptr @.str.46, ptr @.str.50), %optequal.exit116 ], [ icmp eq (ptr @.str.48, ptr @.str.50), %optequal.exit127 ], [ icmp eq (ptr @.str.48, ptr @.str.50), %optequal.exit138 ], [ true, %optequal.exit149 ], [ icmp eq (ptr @.str.51, ptr @.str.50), %optequal.exit160 ], [ icmp eq (ptr @.str.52, ptr @.str.50), %optequal.exit171 ], [ icmp eq (ptr @.str.53, ptr @.str.50), %optequal.exit182 ], [ icmp eq (ptr @.str.45, ptr @.str.50), %.critedge.i ], [ icmp eq (ptr @.str.46, ptr @.str.50), %.critedge.i102 ], [ icmp eq (ptr @.str.46, ptr @.str.50), %.critedge.i113 ], [ icmp eq (ptr @.str.48, ptr @.str.50), %.critedge.i124 ], [ icmp eq (ptr @.str.48, ptr @.str.50), %.critedge.i135 ], [ true, %.critedge.i146 ], [ icmp eq (ptr @.str.51, ptr @.str.50), %.critedge.i157 ], [ icmp eq (ptr @.str.52, ptr @.str.50), %.critedge.i168 ], [ icmp eq (ptr @.str.53, ptr @.str.50), %.critedge.i179 ]
+  %96 = phi i1 [ icmp eq (ptr @.str.45, ptr @.str.51), %optequal.exit ], [ icmp eq (ptr @.str.46, ptr @.str.51), %optequal.exit105 ], [ icmp eq (ptr @.str.46, ptr @.str.51), %optequal.exit116 ], [ icmp eq (ptr @.str.48, ptr @.str.51), %optequal.exit127 ], [ icmp eq (ptr @.str.48, ptr @.str.51), %optequal.exit138 ], [ icmp eq (ptr @.str.50, ptr @.str.51), %optequal.exit149 ], [ true, %optequal.exit160 ], [ icmp eq (ptr @.str.52, ptr @.str.51), %optequal.exit171 ], [ icmp eq (ptr @.str.53, ptr @.str.51), %optequal.exit182 ], [ icmp eq (ptr @.str.45, ptr @.str.51), %.critedge.i ], [ icmp eq (ptr @.str.46, ptr @.str.51), %.critedge.i102 ], [ icmp eq (ptr @.str.46, ptr @.str.51), %.critedge.i113 ], [ icmp eq (ptr @.str.48, ptr @.str.51), %.critedge.i124 ], [ icmp eq (ptr @.str.48, ptr @.str.51), %.critedge.i135 ], [ icmp eq (ptr @.str.50, ptr @.str.51), %.critedge.i146 ], [ true, %.critedge.i157 ], [ icmp eq (ptr @.str.52, ptr @.str.51), %.critedge.i168 ], [ icmp eq (ptr @.str.53, ptr @.str.51), %.critedge.i179 ]
+  %97 = phi i1 [ icmp eq (ptr @.str.45, ptr @.str.52), %optequal.exit ], [ icmp eq (ptr @.str.46, ptr @.str.52), %optequal.exit105 ], [ icmp eq (ptr @.str.46, ptr @.str.52), %optequal.exit116 ], [ icmp eq (ptr @.str.48, ptr @.str.52), %optequal.exit127 ], [ icmp eq (ptr @.str.48, ptr @.str.52), %optequal.exit138 ], [ icmp eq (ptr @.str.50, ptr @.str.52), %optequal.exit149 ], [ icmp eq (ptr @.str.51, ptr @.str.52), %optequal.exit160 ], [ true, %optequal.exit171 ], [ icmp eq (ptr @.str.53, ptr @.str.52), %optequal.exit182 ], [ icmp eq (ptr @.str.45, ptr @.str.52), %.critedge.i ], [ icmp eq (ptr @.str.46, ptr @.str.52), %.critedge.i102 ], [ icmp eq (ptr @.str.46, ptr @.str.52), %.critedge.i113 ], [ icmp eq (ptr @.str.48, ptr @.str.52), %.critedge.i124 ], [ icmp eq (ptr @.str.48, ptr @.str.52), %.critedge.i135 ], [ icmp eq (ptr @.str.50, ptr @.str.52), %.critedge.i146 ], [ icmp eq (ptr @.str.51, ptr @.str.52), %.critedge.i157 ], [ true, %.critedge.i168 ], [ icmp eq (ptr @.str.53, ptr @.str.52), %.critedge.i179 ]
+  %98 = phi i1 [ icmp eq (ptr @.str.45, ptr @.str.53), %optequal.exit ], [ icmp eq (ptr @.str.46, ptr @.str.53), %optequal.exit105 ], [ icmp eq (ptr @.str.46, ptr @.str.53), %optequal.exit116 ], [ icmp eq (ptr @.str.48, ptr @.str.53), %optequal.exit127 ], [ icmp eq (ptr @.str.48, ptr @.str.53), %optequal.exit138 ], [ icmp eq (ptr @.str.50, ptr @.str.53), %optequal.exit149 ], [ icmp eq (ptr @.str.51, ptr @.str.53), %optequal.exit160 ], [ icmp eq (ptr @.str.52, ptr @.str.53), %optequal.exit171 ], [ true, %optequal.exit182 ], [ icmp eq (ptr @.str.45, ptr @.str.53), %.critedge.i ], [ icmp eq (ptr @.str.46, ptr @.str.53), %.critedge.i102 ], [ icmp eq (ptr @.str.46, ptr @.str.53), %.critedge.i113 ], [ icmp eq (ptr @.str.48, ptr @.str.53), %.critedge.i124 ], [ icmp eq (ptr @.str.48, ptr @.str.53), %.critedge.i135 ], [ icmp eq (ptr @.str.50, ptr @.str.53), %.critedge.i146 ], [ icmp eq (ptr @.str.51, ptr @.str.53), %.critedge.i157 ], [ icmp eq (ptr @.str.52, ptr @.str.53), %.critedge.i168 ], [ true, %.critedge.i179 ]
   %99 = getelementptr i8, ptr %10, i64 %.083
   %100 = load i8, ptr %99, align 1
   switch i8 %100, label %.outer.backedge [
@@ -2004,8 +2004,8 @@ define internal fastcc void @log_write_dispatch(ptr noundef %0, i32 noundef %1, 
   %14 = load ptr, ptr @fatal_filter, align 8
   %.not = icmp eq ptr %14, null
   %15 = icmp eq ptr %0, null
-  %or.cond54 = or i1 %15, %.not
-  br i1 %or.cond54, label %filter_contains.exit.thread, label %16
+  %or.cond62 = or i1 %15, %.not
+  br i1 %or.cond62, label %filter_contains.exit.thread, label %16
 
 16:                                               ; preds = %13
   %17 = load i8, ptr %0, align 1
@@ -2074,47 +2074,64 @@ filter_contains.exit.thread:                      ; preds = %22, %19, %16, %8, %
 46:                                               ; preds = %44
   %47 = load ptr, ptr @registered_log_writer_data, align 8
   call void %45(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %.0, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %47) #19
-  br label %64
+  br label %65
 
 48:                                               ; preds = %44
   %49 = icmp ult i32 %1, 4
-  %50 = load i8, ptr @stdout_logging_enabled, align 1
-  %51 = trunc nuw i8 %50 to i1
-  %52 = select i1 %49, i1 %51, i1 false
-  %stdout.val.i = load ptr, ptr @stdout, align 8
-  %stderr.val.i = load ptr, ptr @stderr, align 8
-  %.0.i = select i1 %52, ptr %stdout.val.i, ptr %stderr.val.i
-  %stdout_color_enabled.val.i = load i8, ptr @stdout_color_enabled, align 1
-  %stderr_color_enabled.val.i = load i8, ptr @stderr_color_enabled, align 1
-  %.0.in.i = select i1 %52, i8 %stdout_color_enabled.val.i, i8 %stderr_color_enabled.val.i
-  %.0.i49 = trunc i8 %.0.in.i to i1
+  br i1 %49, label %50, label %console_file.exit
+
+50:                                               ; preds = %48
+  %51 = load i8, ptr @stdout_logging_enabled, align 1
+  %52 = trunc nuw i8 %51 to i1
+  %.0.i56 = load ptr, ptr @stdout, align 8
+  %.0.i61 = load ptr, ptr @stderr, align 8
+  %.0.i59 = select i1 %52, ptr %.0.i56, ptr %.0.i61
+  %spec.select = select i1 %52, ptr @stdout_color_enabled, ptr @stderr_color_enabled
+  br label %console_color_enabled.exit
+
+console_file.exit:                                ; preds = %48
+  %.0.i = load ptr, ptr @stderr, align 8
+  br label %console_color_enabled.exit
+
+console_color_enabled.exit:                       ; preds = %50, %console_file.exit
+  %.0.i58 = phi ptr [ %.0.i, %console_file.exit ], [ %.0.i59, %50 ]
+  %.0.in.in.i = phi ptr [ @stderr_color_enabled, %console_file.exit ], [ %spec.select, %50 ]
+  %.0.in.i49 = load i8, ptr %.0.in.in.i, align 1
+  %.0.i50 = trunc i8 %.0.in.i49 to i1
   %53 = getelementptr inbounds i8, ptr %5, i64 56
   %54 = load i64, ptr %53, align 8
   %55 = getelementptr inbounds i8, ptr %5, i64 64
   %56 = load i64, ptr %55, align 8
-  call fastcc void @log_write_do_work(ptr noundef %.0.i, i1 noundef zeroext %.0.i49, ptr noundef %5, i64 noundef %54, i64 noundef %56, ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %6, ptr noundef %7)
-  br i1 %.not46, label %64, label %57
+  call fastcc void @log_write_do_work(ptr noundef %.0.i58, i1 noundef zeroext %.0.i50, ptr noundef %5, i64 noundef %54, i64 noundef %56, ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %6, ptr noundef %7)
+  br i1 %.not46, label %65, label %57
 
-57:                                               ; preds = %48
-  %58 = load i8, ptr @stdout_logging_enabled, align 1
-  %59 = trunc nuw i8 %58 to i1
-  %60 = select i1 %49, i1 %59, i1 false
-  %stdout.val.i50 = load ptr, ptr @stdout, align 8
-  %stderr.val.i51 = load ptr, ptr @stderr, align 8
-  %.0.i52 = select i1 %60, ptr %stdout.val.i50, ptr %stderr.val.i51
-  %61 = load i64, ptr %55, align 8
-  %62 = load ptr, ptr @registered_progname, align 8
-  %63 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0.i52, ptr noundef nonnull @.str.66, ptr noundef %62, i64 noundef %61, ptr noundef %.0) #19
-  br label %64
+57:                                               ; preds = %console_color_enabled.exit
+  br i1 %49, label %58, label %61
 
-64:                                               ; preds = %48, %57, %46
-  br i1 %.042, label %65, label %66
+58:                                               ; preds = %57
+  %59 = load i8, ptr @stdout_logging_enabled, align 1
+  %60 = trunc nuw i8 %59 to i1
+  br i1 %60, label %console_file.exit53, label %61
 
-65:                                               ; preds = %64
+61:                                               ; preds = %58, %57
+  br label %console_file.exit53
+
+console_file.exit53:                              ; preds = %58, %61
+  %.0.in.i51 = phi ptr [ @stderr, %61 ], [ @stdout, %58 ]
+  %.0.i52 = load ptr, ptr %.0.in.i51, align 8
+  %62 = load i64, ptr %55, align 8
+  %63 = load ptr, ptr @registered_progname, align 8
+  %64 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0.i52, ptr noundef nonnull @.str.66, ptr noundef %63, i64 noundef %62, ptr noundef %.0) #19
+  br label %65
+
+65:                                               ; preds = %console_color_enabled.exit, %console_file.exit53, %46
+  br i1 %.042, label %66, label %67
+
+66:                                               ; preds = %65
   call void @abort() #24
   unreachable
 
-66:                                               ; preds = %64
+67:                                               ; preds = %65
   ret void
 }
 
@@ -2643,21 +2660,31 @@ ws_log_level_to_string.exit:                      ; preds = %33, %level_color_on
 ; Function Attrs: nofree nounwind uwtable
 define void @ws_log_console_writer(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef readonly %6, ptr noundef %7) local_unnamed_addr #7 {
   %9 = icmp ult i32 %1, 4
-  %10 = load i8, ptr @stdout_logging_enabled, align 1
-  %11 = trunc nuw i8 %10 to i1
-  %12 = select i1 %9, i1 %11, i1 false
-  %stdout.val.i = load ptr, ptr @stdout, align 8
-  %stderr.val.i = load ptr, ptr @stderr, align 8
-  %.0.i = select i1 %12, ptr %stdout.val.i, ptr %stderr.val.i
-  %stdout_color_enabled.val.i = load i8, ptr @stdout_color_enabled, align 1
-  %stderr_color_enabled.val.i = load i8, ptr @stderr_color_enabled, align 1
-  %.0.in.i = select i1 %12, i8 %stdout_color_enabled.val.i, i8 %stderr_color_enabled.val.i
-  %.0.i11 = trunc i8 %.0.in.i to i1
+  br i1 %9, label %10, label %console_file.exit
+
+10:                                               ; preds = %8
+  %11 = load i8, ptr @stdout_logging_enabled, align 1
+  %12 = trunc nuw i8 %11 to i1
+  %.0.i14 = load ptr, ptr @stdout, align 8
+  %.0.i19 = load ptr, ptr @stderr, align 8
+  %.0.i17 = select i1 %12, ptr %.0.i14, ptr %.0.i19
+  %spec.select = select i1 %12, ptr @stdout_color_enabled, ptr @stderr_color_enabled
+  br label %console_color_enabled.exit
+
+console_file.exit:                                ; preds = %8
+  %.0.i = load ptr, ptr @stderr, align 8
+  br label %console_color_enabled.exit
+
+console_color_enabled.exit:                       ; preds = %10, %console_file.exit
+  %.0.i16 = phi ptr [ %.0.i, %console_file.exit ], [ %.0.i17, %10 ]
+  %.0.in.in.i = phi ptr [ @stderr_color_enabled, %console_file.exit ], [ %spec.select, %10 ]
+  %.0.in.i11 = load i8, ptr %.0.in.in.i, align 1
+  %.0.i12 = trunc i8 %.0.in.i11 to i1
   %13 = getelementptr inbounds i8, ptr %5, i64 56
   %14 = load i64, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %5, i64 64
   %16 = load i64, ptr %15, align 8
-  tail call fastcc void @log_write_do_work(ptr noundef %.0.i, i1 noundef zeroext %.0.i11, ptr noundef %5, i64 noundef %14, i64 noundef %16, ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %6, ptr noundef %7)
+  tail call fastcc void @log_write_do_work(ptr noundef %.0.i16, i1 noundef zeroext %.0.i12, ptr noundef %5, i64 noundef %14, i64 noundef %16, ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %6, ptr noundef %7)
   ret void
 }
 

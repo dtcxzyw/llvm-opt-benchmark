@@ -917,7 +917,7 @@ thread-pre-split:                                 ; preds = %.preheader
 
 76:                                               ; preds = %.loopexit7
   %77 = load i1, ptr @v9fs_file_do_lock.__already_done, align 1
-  br i1 %77, label %.loopexit, label %78, !prof !5
+  br i1 %77, label %81, label %78, !prof !5
 
 78:                                               ; preds = %76
   store i1 true, ptr @v9fs_file_do_lock.__already_done, align 1
@@ -929,13 +929,13 @@ thread-pre-split:                                 ; preds = %.preheader
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 197, i32 2313, i64 12) #4, !srcloc !22
   call void asm sideeffect "392: nop\0A\09.pushsection .discard.instr_end\0A\09.long 392b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 392) #4, !srcloc !23
   call void asm sideeffect "393: nop\0A\09.pushsection .discard.instr_end\0A\09.long 393b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 393) #4, !srcloc !24
+  br label %81
+
+81:                                               ; preds = %78, %76, %.loopexit7, %.loopexit7
   br label %.loopexit
 
-81:                                               ; preds = %.loopexit7, %.loopexit7
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %72, %.loopexit7, %45, %78, %76, %81
-  %.ph = phi i32 [ -37, %81 ], [ -37, %76 ], [ -37, %78 ], [ %51, %45 ], [ -11, %.loopexit7 ], [ %73, %72 ]
+.loopexit:                                        ; preds = %72, %.loopexit7, %81, %45
+  %.ph = phi i32 [ %51, %45 ], [ -37, %81 ], [ -11, %.loopexit7 ], [ %73, %72 ]
   %82 = load i8, ptr %22, align 4
   %83 = icmp eq i8 %82, 2
   br i1 %83, label %87, label %84

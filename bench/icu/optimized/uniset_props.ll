@@ -1666,7 +1666,7 @@ lor.rhs:                                          ; preds = %_ZNK6icu_7513Unicod
   %add.i = add nsw i32 %pos, 5
   %cmp.i = icmp sle i32 %add.i, %cond.i
   %or.cond.i = and i1 %cmp.i, %cmp.i.i5
-  br i1 %or.cond.i, label %_ZNK6icu_7513UnicodeString6charAtEi.exit.i.i, label %_ZN6icu_7510UnicodeSet24resemblesPropertyPatternERKNS_13UnicodeStringEi.exit
+  br i1 %or.cond.i, label %_ZNK6icu_7513UnicodeString6charAtEi.exit.i.i, label %lor.end
 
 _ZNK6icu_7513UnicodeString6charAtEi.exit.i.i:     ; preds = %lor.rhs
   %6 = and i16 %0, 2
@@ -1678,25 +1678,25 @@ _ZNK6icu_7513UnicodeString6charAtEi.exit.i.i:     ; preds = %lor.rhs
   %idxprom.i.i.i.i = sext i32 %pos to i64
   %arrayidx.i.i.i.i = getelementptr inbounds i16, ptr %cond.i2.i.i.i.i, i64 %idxprom.i.i.i.i
   %8 = load i16, ptr %arrayidx.i.i.i.i, align 2
-  switch i16 %8, label %_ZN6icu_7510UnicodeSet24resemblesPropertyPatternERKNS_13UnicodeStringEi.exit [
+  switch i16 %8, label %lor.end [
     i16 91, label %land.rhs.i.i
     i16 92, label %land.rhs.i21.i
   ]
 
 land.rhs.i.i:                                     ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit.i.i
   %cmp.i.i8.i.i = icmp ugt i32 %cond.i, %add
-  br i1 %cmp.i.i8.i.i, label %_ZN6icu_7512_GLOBAL__N_111isPOSIXOpenERKNS_13UnicodeStringEi.exit.i, label %_ZN6icu_7510UnicodeSet24resemblesPropertyPatternERKNS_13UnicodeStringEi.exit
+  br i1 %cmp.i.i8.i.i, label %_ZN6icu_7512_GLOBAL__N_111isPOSIXOpenERKNS_13UnicodeStringEi.exit.i, label %_ZNK6icu_7513UnicodeString6charAtEi.exit.i34.i
 
 _ZN6icu_7512_GLOBAL__N_111isPOSIXOpenERKNS_13UnicodeStringEi.exit.i: ; preds = %land.rhs.i.i
   %idxprom.i.i15.i.i = sext i32 %add to i64
   %arrayidx.i.i16.i.i = getelementptr inbounds i16, ptr %cond.i2.i.i.i.i, i64 %idxprom.i.i15.i.i
   %9 = load i16, ptr %arrayidx.i.i16.i.i, align 2
   %.not.i = icmp eq i16 %9, 58
-  br label %_ZN6icu_7510UnicodeSet24resemblesPropertyPatternERKNS_13UnicodeStringEi.exit
+  br i1 %.not.i, label %lor.end, label %_ZNK6icu_7513UnicodeString6charAtEi.exit.i34.i
 
 land.rhs.i21.i:                                   ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit.i.i
   %cmp.i.i8.i23.i = icmp ugt i32 %cond.i, %add
-  br i1 %cmp.i.i8.i23.i, label %_ZN6icu_7512_GLOBAL__N_110isPerlOpenERKNS_13UnicodeStringEi.exit.i, label %_ZN6icu_7510UnicodeSet24resemblesPropertyPatternERKNS_13UnicodeStringEi.exit
+  br i1 %cmp.i.i8.i23.i, label %_ZN6icu_7512_GLOBAL__N_110isPerlOpenERKNS_13UnicodeStringEi.exit.i, label %lor.end
 
 _ZN6icu_7512_GLOBAL__N_110isPerlOpenERKNS_13UnicodeStringEi.exit.i: ; preds = %land.rhs.i21.i
   %idxprom.i.i15.i25.i = sext i32 %add to i64
@@ -1704,17 +1704,18 @@ _ZN6icu_7512_GLOBAL__N_110isPerlOpenERKNS_13UnicodeStringEi.exit.i: ; preds = %l
   %10 = load i16, ptr %arrayidx.i.i16.i26.i, align 2
   %11 = and i16 %10, -33
   %.not54.i = icmp eq i16 %11, 80
-  %12 = icmp eq i16 %10, 78
-  %spec.select = or i1 %.not54.i, %12
-  br label %_ZN6icu_7510UnicodeSet24resemblesPropertyPatternERKNS_13UnicodeStringEi.exit
+  br i1 %.not54.i, label %lor.end, label %if.then.i.i10.i45.i
 
-_ZN6icu_7510UnicodeSet24resemblesPropertyPatternERKNS_13UnicodeStringEi.exit: ; preds = %_ZN6icu_7512_GLOBAL__N_110isPerlOpenERKNS_13UnicodeStringEi.exit.i, %land.rhs.i21.i, %lor.rhs, %_ZNK6icu_7513UnicodeString6charAtEi.exit.i.i, %land.rhs.i.i, %_ZN6icu_7512_GLOBAL__N_111isPOSIXOpenERKNS_13UnicodeStringEi.exit.i
-  %retval.0.shrunk.i = phi i1 [ false, %lor.rhs ], [ false, %land.rhs.i.i ], [ false, %_ZNK6icu_7513UnicodeString6charAtEi.exit.i.i ], [ %.not.i, %_ZN6icu_7512_GLOBAL__N_111isPOSIXOpenERKNS_13UnicodeStringEi.exit.i ], [ false, %land.rhs.i21.i ], [ %spec.select, %_ZN6icu_7512_GLOBAL__N_110isPerlOpenERKNS_13UnicodeStringEi.exit.i ]
-  %retval.0.i = zext i1 %retval.0.shrunk.i to i8
+_ZNK6icu_7513UnicodeString6charAtEi.exit.i34.i:   ; preds = %_ZN6icu_7512_GLOBAL__N_111isPOSIXOpenERKNS_13UnicodeStringEi.exit.i, %land.rhs.i.i
   br label %lor.end
 
-lor.end:                                          ; preds = %_ZN6icu_7510UnicodeSet24resemblesPropertyPatternERKNS_13UnicodeStringEi.exit, %_ZNK6icu_7513UnicodeString6charAtEi.exit
-  %conv4 = phi i8 [ 1, %_ZNK6icu_7513UnicodeString6charAtEi.exit ], [ %retval.0.i, %_ZN6icu_7510UnicodeSet24resemblesPropertyPatternERKNS_13UnicodeStringEi.exit ]
+if.then.i.i10.i45.i:                              ; preds = %_ZN6icu_7512_GLOBAL__N_110isPerlOpenERKNS_13UnicodeStringEi.exit.i
+  %12 = icmp eq i16 %10, 78
+  %13 = zext i1 %12 to i8
+  br label %lor.end
+
+lor.end:                                          ; preds = %if.then.i.i10.i45.i, %_ZNK6icu_7513UnicodeString6charAtEi.exit.i34.i, %_ZN6icu_7512_GLOBAL__N_110isPerlOpenERKNS_13UnicodeStringEi.exit.i, %_ZN6icu_7512_GLOBAL__N_111isPOSIXOpenERKNS_13UnicodeStringEi.exit.i, %_ZNK6icu_7513UnicodeString6charAtEi.exit.i.i, %lor.rhs, %land.rhs.i21.i, %_ZNK6icu_7513UnicodeString6charAtEi.exit
+  %conv4 = phi i8 [ 1, %_ZNK6icu_7513UnicodeString6charAtEi.exit ], [ 0, %lor.rhs ], [ 1, %_ZN6icu_7512_GLOBAL__N_110isPerlOpenERKNS_13UnicodeStringEi.exit.i ], [ 1, %_ZN6icu_7512_GLOBAL__N_111isPOSIXOpenERKNS_13UnicodeStringEi.exit.i ], [ 0, %_ZNK6icu_7513UnicodeString6charAtEi.exit.i34.i ], [ %13, %if.then.i.i10.i45.i ], [ 0, %_ZNK6icu_7513UnicodeString6charAtEi.exit.i.i ], [ 0, %land.rhs.i21.i ]
   ret i8 %conv4
 }
 
@@ -1753,7 +1754,14 @@ _ZNK6icu_7513UnicodeString6charAtEi.exit.i:       ; preds = %entry
 land.rhs.i:                                       ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit.i
   %add.i = add nuw nsw i32 %pos, 1
   %cmp.i.i8.i = icmp ugt i32 %cond.i, %add.i
-  br i1 %cmp.i.i8.i, label %return.sink.split, label %return
+  br i1 %cmp.i.i8.i, label %_ZN6icu_7512_GLOBAL__N_111isPOSIXOpenERKNS_13UnicodeStringEi.exit, label %_ZNK6icu_7513UnicodeString6charAtEi.exit.i34
+
+_ZN6icu_7512_GLOBAL__N_111isPOSIXOpenERKNS_13UnicodeStringEi.exit: ; preds = %land.rhs.i
+  %idxprom.i.i15.i = sext i32 %add.i to i64
+  %arrayidx.i.i16.i = getelementptr inbounds i16, ptr %cond.i2.i.i.i, i64 %idxprom.i.i15.i
+  %6 = load i16, ptr %arrayidx.i.i16.i, align 2
+  %.not = icmp eq i16 %6, 58
+  br i1 %.not, label %return, label %_ZNK6icu_7513UnicodeString6charAtEi.exit.i34
 
 land.rhs.i21:                                     ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit.i
   %add.i22 = add nuw nsw i32 %pos, 1
@@ -1763,29 +1771,30 @@ land.rhs.i21:                                     ; preds = %_ZNK6icu_7513Unicod
 _ZN6icu_7512_GLOBAL__N_110isPerlOpenERKNS_13UnicodeStringEi.exit: ; preds = %land.rhs.i21
   %idxprom.i.i15.i25 = sext i32 %add.i22 to i64
   %arrayidx.i.i16.i26 = getelementptr inbounds i16, ptr %cond.i2.i.i.i, i64 %idxprom.i.i15.i25
-  %6 = load i16, ptr %arrayidx.i.i16.i26, align 2
-  %7 = and i16 %6, -33
-  %.not54 = icmp eq i16 %7, 80
+  %7 = load i16, ptr %arrayidx.i.i16.i26, align 2
+  %8 = and i16 %7, -33
+  %.not54 = icmp eq i16 %8, 80
   br i1 %.not54, label %return, label %land.rhs.i42
+
+_ZNK6icu_7513UnicodeString6charAtEi.exit.i34:     ; preds = %land.rhs.i, %_ZN6icu_7512_GLOBAL__N_111isPOSIXOpenERKNS_13UnicodeStringEi.exit
+  br label %return
 
 land.rhs.i42:                                     ; preds = %land.rhs.i21, %_ZN6icu_7512_GLOBAL__N_110isPerlOpenERKNS_13UnicodeStringEi.exit
   %add.i43 = add nuw nsw i32 %pos, 1
   %cmp.i.i8.i44 = icmp ugt i32 %cond.i, %add.i43
-  br i1 %cmp.i.i8.i44, label %return.sink.split, label %return
+  br i1 %cmp.i.i8.i44, label %if.then.i.i10.i45, label %return
 
-return.sink.split:                                ; preds = %land.rhs.i42, %land.rhs.i
-  %add.i.sink = phi i32 [ %add.i, %land.rhs.i ], [ %add.i43, %land.rhs.i42 ]
-  %.sink60 = phi i16 [ 58, %land.rhs.i ], [ 78, %land.rhs.i42 ]
-  %idxprom.i.i15.i = sext i32 %add.i.sink to i64
-  %arrayidx.i.i16.i = getelementptr inbounds i16, ptr %cond.i2.i.i.i, i64 %idxprom.i.i15.i
-  %8 = load i16, ptr %arrayidx.i.i16.i, align 2
-  %.not = icmp eq i16 %8, %.sink60
-  %9 = zext i1 %.not to i8
+if.then.i.i10.i45:                                ; preds = %land.rhs.i42
+  %idxprom.i.i15.i46 = sext i32 %add.i43 to i64
+  %arrayidx.i.i16.i47 = getelementptr inbounds i16, ptr %cond.i2.i.i.i, i64 %idxprom.i.i15.i46
+  %9 = load i16, ptr %arrayidx.i.i16.i47, align 2
+  %10 = icmp eq i16 %9, 78
+  %11 = zext i1 %10 to i8
   br label %return
 
-return:                                           ; preds = %return.sink.split, %_ZNK6icu_7513UnicodeString6charAtEi.exit.i, %land.rhs.i, %land.rhs.i42, %_ZN6icu_7512_GLOBAL__N_110isPerlOpenERKNS_13UnicodeStringEi.exit, %entry
-  %retval.0.shrunk = phi i8 [ 0, %entry ], [ 1, %_ZN6icu_7512_GLOBAL__N_110isPerlOpenERKNS_13UnicodeStringEi.exit ], [ 0, %land.rhs.i42 ], [ 0, %land.rhs.i ], [ 0, %_ZNK6icu_7513UnicodeString6charAtEi.exit.i ], [ %9, %return.sink.split ]
-  ret i8 %retval.0.shrunk
+return:                                           ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit.i, %_ZNK6icu_7513UnicodeString6charAtEi.exit.i34, %if.then.i.i10.i45, %land.rhs.i42, %_ZN6icu_7512_GLOBAL__N_111isPOSIXOpenERKNS_13UnicodeStringEi.exit, %_ZN6icu_7512_GLOBAL__N_110isPerlOpenERKNS_13UnicodeStringEi.exit, %entry
+  %retval.0 = phi i8 [ 0, %entry ], [ 1, %_ZN6icu_7512_GLOBAL__N_110isPerlOpenERKNS_13UnicodeStringEi.exit ], [ 1, %_ZN6icu_7512_GLOBAL__N_111isPOSIXOpenERKNS_13UnicodeStringEi.exit ], [ 0, %_ZNK6icu_7513UnicodeString6charAtEi.exit.i34 ], [ %11, %if.then.i.i10.i45 ], [ 0, %land.rhs.i42 ], [ 0, %_ZNK6icu_7513UnicodeString6charAtEi.exit.i ]
+  ret i8 %retval.0
 }
 
 declare noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet5clearEv(ptr noundef nonnull align 8 dereferenceable(200)) unnamed_addr #5

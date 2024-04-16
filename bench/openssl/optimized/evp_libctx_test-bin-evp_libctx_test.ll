@@ -837,7 +837,7 @@ err:                                              ; preds = %if.else, %land.lhs.
 declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_cipher_reinit_partialupdate(i32 noundef %test_id) #1 {
+define internal noundef i32 @test_cipher_reinit_partialupdate(i32 noundef %test_id) #1 {
 entry:
   %out1_len = alloca i32, align 4
   %out2_len = alloca i32, align 4
@@ -930,7 +930,7 @@ if.end45:                                         ; preds = %lor.lhs.false37
 if.end53:                                         ; preds = %if.end45
   %call54 = call i32 @EVP_CIPHER_get_mode(ptr noundef %call4) #6
   %cmp55.not = icmp eq i32 %call54, 65540
-  br i1 %cmp55.not, label %err, label %if.then57
+  br i1 %cmp55.not, label %if.end80, label %if.then57
 
 if.then57:                                        ; preds = %if.end53
   %call58 = call i32 @EVP_EncryptInit_ex(ptr noundef %call2, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull @__const.test_cipher_reinit.iv) #6
@@ -954,13 +954,15 @@ if.end71:                                         ; preds = %lor.lhs.false63
   %5 = load i32, ptr %out3_len, align 4
   %conv75 = sext i32 %5 to i64
   %call76 = call i32 @test_mem_eq(ptr noundef nonnull @.str.22, i32 noundef 467, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.74, ptr noundef nonnull %out1, i64 noundef %conv73, ptr noundef nonnull %out3, i64 noundef %conv75) #6
-  %tobool77.not = icmp ne i32 %call76, 0
-  %spec.select = zext i1 %tobool77.not to i32
+  %tobool77.not = icmp eq i32 %call76, 0
+  br i1 %tobool77.not, label %err, label %if.end80
+
+if.end80:                                         ; preds = %if.end71, %if.end53
   br label %err
 
-err:                                              ; preds = %if.end71, %if.end53, %if.end8, %lor.lhs.false, %lor.lhs.false13, %lor.lhs.false16, %if.then57, %lor.lhs.false63, %if.end45, %if.end20, %lor.lhs.false25, %lor.lhs.false31, %lor.lhs.false37, %if.end, %entry
-  %cipher.0 = phi ptr [ %call4, %lor.lhs.false63 ], [ %call4, %if.then57 ], [ %call4, %if.end45 ], [ %call4, %lor.lhs.false37 ], [ %call4, %lor.lhs.false31 ], [ %call4, %lor.lhs.false25 ], [ %call4, %if.end20 ], [ %call4, %if.end ], [ null, %entry ], [ %call4, %lor.lhs.false16 ], [ %call4, %lor.lhs.false13 ], [ %call4, %lor.lhs.false ], [ %call4, %if.end8 ], [ %call4, %if.end53 ], [ %call4, %if.end71 ]
-  %ret.0 = phi i32 [ 0, %lor.lhs.false63 ], [ 0, %if.then57 ], [ 0, %if.end45 ], [ 0, %lor.lhs.false37 ], [ 0, %lor.lhs.false31 ], [ 0, %lor.lhs.false25 ], [ 0, %if.end20 ], [ 0, %if.end ], [ 0, %entry ], [ 1, %lor.lhs.false16 ], [ 1, %lor.lhs.false13 ], [ 1, %lor.lhs.false ], [ 1, %if.end8 ], [ 1, %if.end53 ], [ %spec.select, %if.end71 ]
+err:                                              ; preds = %if.end8, %lor.lhs.false, %lor.lhs.false13, %lor.lhs.false16, %if.end71, %if.then57, %lor.lhs.false63, %if.end45, %if.end20, %lor.lhs.false25, %lor.lhs.false31, %lor.lhs.false37, %if.end, %entry, %if.end80
+  %cipher.0 = phi ptr [ %call4, %if.end80 ], [ %call4, %if.end71 ], [ %call4, %lor.lhs.false63 ], [ %call4, %if.then57 ], [ %call4, %if.end45 ], [ %call4, %lor.lhs.false37 ], [ %call4, %lor.lhs.false31 ], [ %call4, %lor.lhs.false25 ], [ %call4, %if.end20 ], [ %call4, %if.end ], [ null, %entry ], [ %call4, %lor.lhs.false16 ], [ %call4, %lor.lhs.false13 ], [ %call4, %lor.lhs.false ], [ %call4, %if.end8 ]
+  %ret.0 = phi i32 [ 1, %if.end80 ], [ 0, %if.end71 ], [ 0, %lor.lhs.false63 ], [ 0, %if.then57 ], [ 0, %if.end45 ], [ 0, %lor.lhs.false37 ], [ 0, %lor.lhs.false31 ], [ 0, %lor.lhs.false25 ], [ 0, %if.end20 ], [ 0, %if.end ], [ 0, %entry ], [ 1, %lor.lhs.false16 ], [ 1, %lor.lhs.false13 ], [ 1, %lor.lhs.false ], [ 1, %if.end8 ]
   call void @EVP_CIPHER_free(ptr noundef %cipher.0) #6
   call void @EVP_CIPHER_CTX_free(ptr noundef %call2) #6
   ret i32 %ret.0

@@ -555,7 +555,7 @@ return:                                           ; preds = %if.end43, %if.end52
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sm2sig_get_ctx_params(ptr noundef %vpsm2ctx, ptr noundef %params) #0 {
+define internal noundef i32 @sm2sig_get_ctx_params(ptr noundef %vpsm2ctx, ptr noundef %params) #0 {
 entry:
   %cmp = icmp eq ptr %vpsm2ctx, null
   br i1 %cmp, label %return, label %if.end
@@ -589,7 +589,7 @@ land.lhs.true7:                                   ; preds = %if.end4
 if.end11:                                         ; preds = %land.lhs.true7, %if.end4
   %call12 = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str.5) #7
   %cmp13.not = icmp eq ptr %call12, null
-  br i1 %cmp13.not, label %return, label %land.lhs.true14
+  br i1 %cmp13.not, label %if.end21, label %land.lhs.true14
 
 land.lhs.true14:                                  ; preds = %if.end11
   %md = getelementptr inbounds i8, ptr %vpsm2ctx, i64 352
@@ -608,12 +608,14 @@ cond.false:                                       ; preds = %land.lhs.true14
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi ptr [ %mdname, %cond.true ], [ %call17, %cond.false ]
   %call18 = tail call i32 @OSSL_PARAM_set_utf8_string(ptr noundef nonnull %call12, ptr noundef %cond) #7
-  %tobool19.not = icmp ne i32 %call18, 0
-  %spec.select = zext i1 %tobool19.not to i32
+  %tobool19.not = icmp eq i32 %call18, 0
+  br i1 %tobool19.not, label %return, label %if.end21
+
+if.end21:                                         ; preds = %cond.end, %if.end11
   br label %return
 
-return:                                           ; preds = %cond.end, %if.end11, %land.lhs.true7, %land.lhs.true, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true7 ], [ 1, %if.end11 ], [ %spec.select, %cond.end ]
+return:                                           ; preds = %cond.end, %land.lhs.true7, %land.lhs.true, %entry, %if.end21
+  %retval.0 = phi i32 [ 1, %if.end21 ], [ 0, %entry ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true7 ], [ 0, %cond.end ]
   ret i32 %retval.0
 }
 
@@ -892,7 +894,7 @@ declare i32 @EVP_MD_is_a(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i64 @OPENSSL_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @sm2sig_compute_z_digest(ptr nocapture noundef %ctx) unnamed_addr #0 {
+define internal fastcc noundef i32 @sm2sig_compute_z_digest(ptr nocapture noundef %ctx) unnamed_addr #0 {
 entry:
   %flag_compute_z_digest = getelementptr inbounds i8, ptr %ctx, i64 24
   %bf.load = load i8, ptr %flag_compute_z_digest, align 8
@@ -907,7 +909,7 @@ if.then:                                          ; preds = %entry
   %0 = load i64, ptr %mdsize, align 8
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef %0, ptr noundef nonnull @.str, i32 noundef 259) #7
   %cmp = icmp eq ptr %call, null
-  br i1 %cmp, label %if.end, label %lor.lhs.false
+  br i1 %cmp, label %if.then10, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then
   %md = getelementptr inbounds i8, ptr %ctx, i64 352
@@ -920,19 +922,21 @@ lor.lhs.false:                                    ; preds = %if.then
   %4 = load ptr, ptr %ec, align 8
   %call4 = tail call i32 @ossl_sm2_compute_z_digest(ptr noundef nonnull %call, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #7
   %tobool5.not = icmp eq i32 %call4, 0
-  br i1 %tobool5.not, label %if.end, label %lor.lhs.false6
+  br i1 %tobool5.not, label %if.then10, label %lor.lhs.false6
 
 lor.lhs.false6:                                   ; preds = %lor.lhs.false
   %mdctx = getelementptr inbounds i8, ptr %ctx, i64 360
   %5 = load ptr, ptr %mdctx, align 8
   %6 = load i64, ptr %mdsize, align 8
   %call8 = tail call i32 @EVP_DigestUpdate(ptr noundef %5, ptr noundef nonnull %call, i64 noundef %6) #7
-  %tobool9.not = icmp ne i32 %call8, 0
-  %spec.select = zext i1 %tobool9.not to i32
+  %tobool9.not = icmp eq i32 %call8, 0
+  br i1 %tobool9.not, label %if.then10, label %if.end
+
+if.then10:                                        ; preds = %lor.lhs.false6, %lor.lhs.false, %if.then
   br label %if.end
 
-if.end:                                           ; preds = %lor.lhs.false6, %if.then, %lor.lhs.false
-  %ret.0 = phi i32 [ 0, %lor.lhs.false ], [ 0, %if.then ], [ %spec.select, %lor.lhs.false6 ]
+if.end:                                           ; preds = %if.then10, %lor.lhs.false6
+  %ret.0 = phi i32 [ 0, %if.then10 ], [ 1, %lor.lhs.false6 ]
   tail call void @CRYPTO_free(ptr noundef %call, ptr noundef nonnull @.str, i32 noundef 265) #7
   br label %if.end11
 

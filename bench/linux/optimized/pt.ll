@@ -1970,7 +1970,7 @@ define internal noundef i32 @pt_event_add(ptr noundef %0, i32 noundef %1) #2 ali
   %4 = inttoptr i64 %3 to ptr
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %7, label %16
+  br i1 %6, label %7, label %17
 
 7:                                                ; preds = %2
   %8 = and i32 %1, 1
@@ -1982,17 +1982,19 @@ define internal noundef i32 @pt_event_add(ptr noundef %0, i32 noundef %1) #2 ali
   %11 = getelementptr inbounds i8, ptr %0, i64 480
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, 1
-  %spec.select = select i1 %13, i32 -22, i32 0
-  br label %16
+  br i1 %13, label %17, label %16
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds i8, ptr %0, i64 480
   store i32 1, ptr %15, align 8
   br label %16
 
-16:                                               ; preds = %10, %14, %2
-  %17 = phi i32 [ -16, %2 ], [ 0, %14 ], [ %spec.select, %10 ]
-  ret i32 %17
+16:                                               ; preds = %14, %10
+  br label %17
+
+17:                                               ; preds = %16, %10, %2
+  %18 = phi i32 [ -16, %2 ], [ -22, %10 ], [ 0, %16 ]
+  ret i32 %18
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

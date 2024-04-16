@@ -2874,7 +2874,7 @@ common.resume:                                    ; preds = %44, %28
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef i64 @"_ZN17crossbeam_channel7channel17Receiver$LT$T$GT$3len17h045c751daa42fa2cE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !4, !noundef !5
-  switch i64 %2, label %default.unreachable23 [
+  switch i64 %2, label %default.unreachable22 [
     i64 0, label %3
     i64 1, label %35
     i64 2, label %"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$3len17h54b568b483d713aeE.exit"
@@ -2883,7 +2883,7 @@ define hidden noundef i64 @"_ZN17crossbeam_channel7channel17Receiver$LT$T$GT$3le
     i64 5, label %"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$3len17h54b568b483d713aeE.exit"
   ]
 
-default.unreachable23:                            ; preds = %1
+default.unreachable22:                            ; preds = %1
   unreachable
 
 3:                                                ; preds = %1
@@ -2974,7 +2974,7 @@ default.unreachable23:                            ; preds = %1
   %63 = getelementptr inbounds i8, ptr %62, i64 32
   %64 = load atomic i8, ptr %63 monotonic, align 1
   %65 = icmp eq i8 %64, 0
-  br i1 %65, label %66, label %"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$3len17h54b568b483d713aeE.exit"
+  br i1 %65, label %66, label %_ZN17crossbeam_channel7flavors2at7Channel8is_empty17hb283c6f5e9fcb8acE.llvm.6205359899382664383.exit.thread
 
 66:                                               ; preds = %60
   %67 = getelementptr inbounds i8, ptr %62, i64 16
@@ -2983,7 +2983,7 @@ default.unreachable23:                            ; preds = %1
   %.fca.1.extract.i = extractvalue { i64, i32 } %68, 1
   %69 = load i64, ptr %67, align 8, !alias.scope !335, !noalias !338, !noundef !5
   %70 = icmp slt i64 %.fca.0.extract.i, %69
-  br i1 %70, label %"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$3len17h54b568b483d713aeE.exit", label %71
+  br i1 %70, label %_ZN17crossbeam_channel7flavors2at7Channel8is_empty17hb283c6f5e9fcb8acE.llvm.6205359899382664383.exit.thread, label %71
 
 71:                                               ; preds = %66
   %72 = icmp eq i64 %.fca.0.extract.i, %69
@@ -2993,13 +2993,15 @@ default.unreachable23:                            ; preds = %1
   %74 = getelementptr inbounds i8, ptr %62, i64 24
   %75 = load i32, ptr %74, align 8, !alias.scope !335, !noalias !338, !noundef !5
   %76 = icmp ult i32 %.fca.1.extract.i, %75
-  br i1 %76, label %"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$3len17h54b568b483d713aeE.exit", label %_ZN17crossbeam_channel7flavors2at7Channel8is_empty17hb283c6f5e9fcb8acE.llvm.6205359899382664383.exit
+  br i1 %76, label %_ZN17crossbeam_channel7flavors2at7Channel8is_empty17hb283c6f5e9fcb8acE.llvm.6205359899382664383.exit.thread, label %_ZN17crossbeam_channel7flavors2at7Channel8is_empty17hb283c6f5e9fcb8acE.llvm.6205359899382664383.exit
 
 _ZN17crossbeam_channel7flavors2at7Channel8is_empty17hb283c6f5e9fcb8acE.llvm.6205359899382664383.exit: ; preds = %71, %73
   %77 = load atomic i8, ptr %63 seq_cst, align 1
   %.fr = freeze i8 %77
   %.not = icmp eq i8 %.fr, 0
-  %spec.select = zext i1 %.not to i64
+  br i1 %.not, label %"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$3len17h54b568b483d713aeE.exit", label %_ZN17crossbeam_channel7flavors2at7Channel8is_empty17hb283c6f5e9fcb8acE.llvm.6205359899382664383.exit.thread
+
+_ZN17crossbeam_channel7flavors2at7Channel8is_empty17hb283c6f5e9fcb8acE.llvm.6205359899382664383.exit.thread: ; preds = %73, %66, %60, %_ZN17crossbeam_channel7flavors2at7Channel8is_empty17hb283c6f5e9fcb8acE.llvm.6205359899382664383.exit
   br label %"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$3len17h54b568b483d713aeE.exit"
 
 78:                                               ; preds = %1
@@ -3011,7 +3013,7 @@ _ZN17crossbeam_channel7flavors2at7Channel8is_empty17hb283c6f5e9fcb8acE.llvm.6205
   %83 = tail call { i64, i32 } @_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17he25c233c4a4a6d0fE(ptr noundef nonnull %81)
   %.fca.0.extract1.i = extractvalue { i64, i32 } %83, 0
   %84 = icmp slt i64 %.fca.0.extract.i4, %.fca.0.extract1.i
-  br i1 %84, label %"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$3len17h54b568b483d713aeE.exit", label %_ZN17crossbeam_channel7flavors4tick7Channel8is_empty17hce9349cec0ca806eE.llvm.6205359899382664383.exit
+  br i1 %84, label %_ZN17crossbeam_channel7flavors4tick7Channel8is_empty17hce9349cec0ca806eE.llvm.6205359899382664383.exit.thread, label %_ZN17crossbeam_channel7flavors4tick7Channel8is_empty17hce9349cec0ca806eE.llvm.6205359899382664383.exit
 
 _ZN17crossbeam_channel7flavors4tick7Channel8is_empty17hce9349cec0ca806eE.llvm.6205359899382664383.exit: ; preds = %78
   %.fca.1.extract3.i = extractvalue { i64, i32 } %83, 1
@@ -3020,19 +3022,20 @@ _ZN17crossbeam_channel7flavors4tick7Channel8is_empty17hce9349cec0ca806eE.llvm.62
   %86 = icmp ult i32 %.fca.1.extract.i5, %.fca.1.extract3.i
   %spec.select.i6 = select i1 %85, i1 %86, i1 false
   %cond.fr10 = freeze i1 %spec.select.i6
-  %not.cond.fr10 = xor i1 %cond.fr10, true
-  %spec.select13 = zext i1 %not.cond.fr10 to i64
+  br i1 %cond.fr10, label %_ZN17crossbeam_channel7flavors4tick7Channel8is_empty17hce9349cec0ca806eE.llvm.6205359899382664383.exit.thread, label %"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$3len17h54b568b483d713aeE.exit"
+
+_ZN17crossbeam_channel7flavors4tick7Channel8is_empty17hce9349cec0ca806eE.llvm.6205359899382664383.exit.thread: ; preds = %78, %_ZN17crossbeam_channel7flavors4tick7Channel8is_empty17hce9349cec0ca806eE.llvm.6205359899382664383.exit
   br label %"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$3len17h54b568b483d713aeE.exit"
 
-"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$3len17h54b568b483d713aeE.exit": ; preds = %_ZN17crossbeam_channel7flavors4tick7Channel8is_empty17hce9349cec0ca806eE.llvm.6205359899382664383.exit, %_ZN17crossbeam_channel7flavors2at7Channel8is_empty17hb283c6f5e9fcb8acE.llvm.6205359899382664383.exit, %78, %73, %66, %60, %32, %27, %23, %21, %1, %1, %"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$3len17hcda68d5c8a792c98E.exit"
-  %.0 = phi i64 [ %59, %"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$3len17hcda68d5c8a792c98E.exit" ], [ 0, %1 ], [ 0, %1 ], [ %22, %21 ], [ %31, %27 ], [ %34, %32 ], [ 0, %23 ], [ 0, %60 ], [ 0, %66 ], [ 0, %73 ], [ 0, %78 ], [ %spec.select, %_ZN17crossbeam_channel7flavors2at7Channel8is_empty17hb283c6f5e9fcb8acE.llvm.6205359899382664383.exit ], [ %spec.select13, %_ZN17crossbeam_channel7flavors4tick7Channel8is_empty17hce9349cec0ca806eE.llvm.6205359899382664383.exit ]
+"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$3len17h54b568b483d713aeE.exit": ; preds = %_ZN17crossbeam_channel7flavors4tick7Channel8is_empty17hce9349cec0ca806eE.llvm.6205359899382664383.exit.thread, %_ZN17crossbeam_channel7flavors4tick7Channel8is_empty17hce9349cec0ca806eE.llvm.6205359899382664383.exit, %_ZN17crossbeam_channel7flavors2at7Channel8is_empty17hb283c6f5e9fcb8acE.llvm.6205359899382664383.exit.thread, %_ZN17crossbeam_channel7flavors2at7Channel8is_empty17hb283c6f5e9fcb8acE.llvm.6205359899382664383.exit, %32, %27, %23, %21, %1, %1, %"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$3len17hcda68d5c8a792c98E.exit"
+  %.0 = phi i64 [ %59, %"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$3len17hcda68d5c8a792c98E.exit" ], [ 0, %1 ], [ 0, %1 ], [ %22, %21 ], [ %31, %27 ], [ %34, %32 ], [ 0, %23 ], [ 0, %_ZN17crossbeam_channel7flavors2at7Channel8is_empty17hb283c6f5e9fcb8acE.llvm.6205359899382664383.exit.thread ], [ 1, %_ZN17crossbeam_channel7flavors2at7Channel8is_empty17hb283c6f5e9fcb8acE.llvm.6205359899382664383.exit ], [ 0, %_ZN17crossbeam_channel7flavors4tick7Channel8is_empty17hce9349cec0ca806eE.llvm.6205359899382664383.exit.thread ], [ 1, %_ZN17crossbeam_channel7flavors4tick7Channel8is_empty17hce9349cec0ca806eE.llvm.6205359899382664383.exit ]
   ret i64 %.0
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef i64 @"_ZN17crossbeam_channel7channel17Receiver$LT$T$GT$3len17ha6b3ccc86ed9177cE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !4, !noundef !5
-  switch i64 %2, label %default.unreachable23 [
+  switch i64 %2, label %default.unreachable22 [
     i64 0, label %3
     i64 1, label %35
     i64 2, label %"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$3len17hc5d3832e8692f3ffE.exit"
@@ -3041,7 +3044,7 @@ define hidden noundef i64 @"_ZN17crossbeam_channel7channel17Receiver$LT$T$GT$3le
     i64 5, label %"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$3len17hc5d3832e8692f3ffE.exit"
   ]
 
-default.unreachable23:                            ; preds = %1
+default.unreachable22:                            ; preds = %1
   unreachable
 
 3:                                                ; preds = %1
@@ -3132,7 +3135,7 @@ default.unreachable23:                            ; preds = %1
   %63 = getelementptr inbounds i8, ptr %62, i64 32
   %64 = load atomic i8, ptr %63 monotonic, align 1
   %65 = icmp eq i8 %64, 0
-  br i1 %65, label %66, label %"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$3len17hc5d3832e8692f3ffE.exit"
+  br i1 %65, label %66, label %_ZN17crossbeam_channel7flavors2at7Channel8is_empty17hb283c6f5e9fcb8acE.llvm.6205359899382664383.exit.thread
 
 66:                                               ; preds = %60
   %67 = getelementptr inbounds i8, ptr %62, i64 16
@@ -3141,7 +3144,7 @@ default.unreachable23:                            ; preds = %1
   %.fca.1.extract.i = extractvalue { i64, i32 } %68, 1
   %69 = load i64, ptr %67, align 8, !alias.scope !340, !noalias !343, !noundef !5
   %70 = icmp slt i64 %.fca.0.extract.i, %69
-  br i1 %70, label %"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$3len17hc5d3832e8692f3ffE.exit", label %71
+  br i1 %70, label %_ZN17crossbeam_channel7flavors2at7Channel8is_empty17hb283c6f5e9fcb8acE.llvm.6205359899382664383.exit.thread, label %71
 
 71:                                               ; preds = %66
   %72 = icmp eq i64 %.fca.0.extract.i, %69
@@ -3151,13 +3154,15 @@ default.unreachable23:                            ; preds = %1
   %74 = getelementptr inbounds i8, ptr %62, i64 24
   %75 = load i32, ptr %74, align 8, !alias.scope !340, !noalias !343, !noundef !5
   %76 = icmp ult i32 %.fca.1.extract.i, %75
-  br i1 %76, label %"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$3len17hc5d3832e8692f3ffE.exit", label %_ZN17crossbeam_channel7flavors2at7Channel8is_empty17hb283c6f5e9fcb8acE.llvm.6205359899382664383.exit
+  br i1 %76, label %_ZN17crossbeam_channel7flavors2at7Channel8is_empty17hb283c6f5e9fcb8acE.llvm.6205359899382664383.exit.thread, label %_ZN17crossbeam_channel7flavors2at7Channel8is_empty17hb283c6f5e9fcb8acE.llvm.6205359899382664383.exit
 
 _ZN17crossbeam_channel7flavors2at7Channel8is_empty17hb283c6f5e9fcb8acE.llvm.6205359899382664383.exit: ; preds = %71, %73
   %77 = load atomic i8, ptr %63 seq_cst, align 1
   %.fr = freeze i8 %77
   %.not = icmp eq i8 %.fr, 0
-  %spec.select = zext i1 %.not to i64
+  br i1 %.not, label %"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$3len17hc5d3832e8692f3ffE.exit", label %_ZN17crossbeam_channel7flavors2at7Channel8is_empty17hb283c6f5e9fcb8acE.llvm.6205359899382664383.exit.thread
+
+_ZN17crossbeam_channel7flavors2at7Channel8is_empty17hb283c6f5e9fcb8acE.llvm.6205359899382664383.exit.thread: ; preds = %73, %66, %60, %_ZN17crossbeam_channel7flavors2at7Channel8is_empty17hb283c6f5e9fcb8acE.llvm.6205359899382664383.exit
   br label %"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$3len17hc5d3832e8692f3ffE.exit"
 
 78:                                               ; preds = %1
@@ -3169,7 +3174,7 @@ _ZN17crossbeam_channel7flavors2at7Channel8is_empty17hb283c6f5e9fcb8acE.llvm.6205
   %83 = tail call { i64, i32 } @_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17he25c233c4a4a6d0fE(ptr noundef nonnull %81)
   %.fca.0.extract1.i = extractvalue { i64, i32 } %83, 0
   %84 = icmp slt i64 %.fca.0.extract.i4, %.fca.0.extract1.i
-  br i1 %84, label %"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$3len17hc5d3832e8692f3ffE.exit", label %_ZN17crossbeam_channel7flavors4tick7Channel8is_empty17hce9349cec0ca806eE.llvm.6205359899382664383.exit
+  br i1 %84, label %_ZN17crossbeam_channel7flavors4tick7Channel8is_empty17hce9349cec0ca806eE.llvm.6205359899382664383.exit.thread, label %_ZN17crossbeam_channel7flavors4tick7Channel8is_empty17hce9349cec0ca806eE.llvm.6205359899382664383.exit
 
 _ZN17crossbeam_channel7flavors4tick7Channel8is_empty17hce9349cec0ca806eE.llvm.6205359899382664383.exit: ; preds = %78
   %.fca.1.extract3.i = extractvalue { i64, i32 } %83, 1
@@ -3178,12 +3183,13 @@ _ZN17crossbeam_channel7flavors4tick7Channel8is_empty17hce9349cec0ca806eE.llvm.62
   %86 = icmp ult i32 %.fca.1.extract.i5, %.fca.1.extract3.i
   %spec.select.i6 = select i1 %85, i1 %86, i1 false
   %cond.fr10 = freeze i1 %spec.select.i6
-  %not.cond.fr10 = xor i1 %cond.fr10, true
-  %spec.select13 = zext i1 %not.cond.fr10 to i64
+  br i1 %cond.fr10, label %_ZN17crossbeam_channel7flavors4tick7Channel8is_empty17hce9349cec0ca806eE.llvm.6205359899382664383.exit.thread, label %"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$3len17hc5d3832e8692f3ffE.exit"
+
+_ZN17crossbeam_channel7flavors4tick7Channel8is_empty17hce9349cec0ca806eE.llvm.6205359899382664383.exit.thread: ; preds = %78, %_ZN17crossbeam_channel7flavors4tick7Channel8is_empty17hce9349cec0ca806eE.llvm.6205359899382664383.exit
   br label %"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$3len17hc5d3832e8692f3ffE.exit"
 
-"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$3len17hc5d3832e8692f3ffE.exit": ; preds = %_ZN17crossbeam_channel7flavors4tick7Channel8is_empty17hce9349cec0ca806eE.llvm.6205359899382664383.exit, %_ZN17crossbeam_channel7flavors2at7Channel8is_empty17hb283c6f5e9fcb8acE.llvm.6205359899382664383.exit, %78, %73, %66, %60, %32, %27, %23, %21, %1, %1, %"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$3len17h62d7fc69810a3d94E.exit"
-  %.0 = phi i64 [ %59, %"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$3len17h62d7fc69810a3d94E.exit" ], [ 0, %1 ], [ 0, %1 ], [ %22, %21 ], [ %31, %27 ], [ %34, %32 ], [ 0, %23 ], [ 0, %60 ], [ 0, %66 ], [ 0, %73 ], [ 0, %78 ], [ %spec.select, %_ZN17crossbeam_channel7flavors2at7Channel8is_empty17hb283c6f5e9fcb8acE.llvm.6205359899382664383.exit ], [ %spec.select13, %_ZN17crossbeam_channel7flavors4tick7Channel8is_empty17hce9349cec0ca806eE.llvm.6205359899382664383.exit ]
+"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$3len17hc5d3832e8692f3ffE.exit": ; preds = %_ZN17crossbeam_channel7flavors4tick7Channel8is_empty17hce9349cec0ca806eE.llvm.6205359899382664383.exit.thread, %_ZN17crossbeam_channel7flavors4tick7Channel8is_empty17hce9349cec0ca806eE.llvm.6205359899382664383.exit, %_ZN17crossbeam_channel7flavors2at7Channel8is_empty17hb283c6f5e9fcb8acE.llvm.6205359899382664383.exit.thread, %_ZN17crossbeam_channel7flavors2at7Channel8is_empty17hb283c6f5e9fcb8acE.llvm.6205359899382664383.exit, %32, %27, %23, %21, %1, %1, %"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$3len17h62d7fc69810a3d94E.exit"
+  %.0 = phi i64 [ %59, %"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$3len17h62d7fc69810a3d94E.exit" ], [ 0, %1 ], [ 0, %1 ], [ %22, %21 ], [ %31, %27 ], [ %34, %32 ], [ 0, %23 ], [ 0, %_ZN17crossbeam_channel7flavors2at7Channel8is_empty17hb283c6f5e9fcb8acE.llvm.6205359899382664383.exit.thread ], [ 1, %_ZN17crossbeam_channel7flavors2at7Channel8is_empty17hb283c6f5e9fcb8acE.llvm.6205359899382664383.exit ], [ 0, %_ZN17crossbeam_channel7flavors4tick7Channel8is_empty17hce9349cec0ca806eE.llvm.6205359899382664383.exit.thread ], [ 1, %_ZN17crossbeam_channel7flavors4tick7Channel8is_empty17hce9349cec0ca806eE.llvm.6205359899382664383.exit ]
   ret i64 %.0
 }
 

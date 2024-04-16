@@ -1511,7 +1511,7 @@ Py_XDECREF.exit19:                                ; preds = %Py_XDECREF.exit11, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @symtable_enter_block(ptr noundef %st, ptr noundef %name, i32 noundef %block, ptr noundef %ast, i32 noundef %lineno, i32 noundef %col_offset, i32 noundef %end_lineno, i32 noundef %end_col_offset) unnamed_addr #0 {
+define internal fastcc noundef i32 @symtable_enter_block(ptr noundef %st, ptr noundef %name, i32 noundef %block, ptr noundef %ast, i32 noundef %lineno, i32 noundef %col_offset, i32 noundef %end_lineno, i32 noundef %end_col_offset) unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @PyLong_FromVoidPtr(ptr noundef %ast) #7
   %cmp.i21 = icmp eq ptr %call.i, null
@@ -1719,18 +1719,20 @@ if.then13:                                        ; preds = %Py_DECREF.exit
   br label %if.end15
 
 if.end15:                                         ; preds = %Py_DECREF.exit, %if.then13
-  br i1 %tobool.not, label %return, label %if.then17
+  br i1 %tobool.not, label %if.end22, label %if.then17
 
 if.then17:                                        ; preds = %if.end15
   %ste_children = getelementptr inbounds i8, ptr %15, i64 48
   %20 = load ptr, ptr %ste_children, align 8
   %call18 = tail call i32 @PyList_Append(ptr noundef %20, ptr noundef nonnull %call1.i) #7
-  %cmp19 = icmp sgt i32 %call18, -1
-  %spec.select = zext i1 %cmp19 to i32
+  %cmp19 = icmp slt i32 %call18, 0
+  br i1 %cmp19, label %return, label %if.end22
+
+if.end22:                                         ; preds = %if.then17, %if.end15
   br label %return
 
-return:                                           ; preds = %return.sink.split.i, %if.end.i.i, %if.then3.i, %entry, %if.end.i.i50.i, %if.then.i.i, %if.then17, %if.end15, %Py_DECREF.exit, %if.end.i26, %if.then1.i29, %if.then3
-  %retval.0 = phi i32 [ 0, %if.then3 ], [ 0, %if.then1.i29 ], [ 0, %if.end.i26 ], [ 1, %Py_DECREF.exit ], [ 1, %if.end15 ], [ %spec.select, %if.then17 ], [ 0, %if.then.i.i ], [ 0, %if.end.i.i50.i ], [ 0, %entry ], [ 0, %if.then3.i ], [ 0, %if.end.i.i ], [ 0, %return.sink.split.i ]
+return:                                           ; preds = %return.sink.split.i, %if.end.i.i, %if.then3.i, %entry, %if.end.i.i50.i, %if.then.i.i, %if.then17, %Py_DECREF.exit, %if.end.i26, %if.then1.i29, %if.then3, %if.end22
+  %retval.0 = phi i32 [ 1, %if.end22 ], [ 0, %if.then3 ], [ 0, %if.then1.i29 ], [ 0, %if.end.i26 ], [ 1, %Py_DECREF.exit ], [ 0, %if.then17 ], [ 0, %if.then.i.i ], [ 0, %if.end.i.i50.i ], [ 0, %entry ], [ 0, %if.then3.i ], [ 0, %if.end.i.i ], [ 0, %return.sink.split.i ]
   ret i32 %retval.0
 }
 
@@ -6143,7 +6145,8 @@ if.end15.i:                                       ; preds = %Py_DECREF.exit326.i
 
 land.lhs.true.i:                                  ; preds = %if.end15.i
   %call17.i = call i32 @PySet_Discard(ptr noundef nonnull %bound, ptr noundef %7) #7
-  br label %analyze_name.exit
+  %cmp18.i = icmp slt i32 %call17.i, 0
+  br i1 %cmp18.i, label %if.then.i146, label %while.cond.backedge
 
 if.end21.i:                                       ; preds = %while.body
   br i1 %tobool23.not.i, label %if.end59.i, label %if.then24.i
@@ -6214,24 +6217,13 @@ if.then1.i315.i:                                  ; preds = %if.end.i312.i
   br label %if.then.i146
 
 if.end56.i:                                       ; preds = %if.end52.i
-  br i1 %cmp.i344.not.i, label %if.end.i303.i, label %Py_DECREF.exit308.i
+  br i1 %cmp.i344.not.i, label %if.end.i303.i, label %analyze_name.exit
 
 if.end.i303.i:                                    ; preds = %if.end56.i
   %dec.i304.i = add i64 %14, -1
   store i64 %dec.i304.i, ptr %call49.i, align 8
   %cmp.i305.i = icmp eq i64 %dec.i304.i, 0
-  br i1 %cmp.i305.i, label %if.then1.i306.i, label %Py_DECREF.exit308.i
-
-if.then1.i306.i:                                  ; preds = %if.end.i303.i
-  call void @_Py_Dealloc(ptr noundef nonnull %call49.i) #7
-  br label %Py_DECREF.exit308.i
-
-Py_DECREF.exit308.i:                              ; preds = %if.then1.i306.i, %if.end.i303.i, %if.end56.i
-  %bf.load.i = load i8, ptr %ste_free.i, align 8
-  %bf.set.i = or i8 %bf.load.i, 1
-  store i8 %bf.set.i, ptr %ste_free.i, align 8
-  %call57.i = call i32 @PySet_Add(ptr noundef %free, ptr noundef %7) #7
-  br label %analyze_name.exit
+  br i1 %cmp.i305.i, label %analyze_name.exit.sink.split, label %analyze_name.exit
 
 if.end59.i:                                       ; preds = %if.end21.i
   %and60.i = and i64 %call36, 134
@@ -6434,24 +6426,13 @@ if.then1.i243.i:                                  ; preds = %if.end.i240.i
   br label %if.then.i146
 
 if.end153.i:                                      ; preds = %if.end148.i
-  br i1 %cmp.i376.not.i, label %if.end.i231.i, label %Py_DECREF.exit236.i
+  br i1 %cmp.i376.not.i, label %if.end.i231.i, label %analyze_name.exit
 
 if.end.i231.i:                                    ; preds = %if.end153.i
   %dec.i232.i = add i64 %23, -1
   store i64 %dec.i232.i, ptr %call145.i, align 8
   %cmp.i233.i = icmp eq i64 %dec.i232.i, 0
-  br i1 %cmp.i233.i, label %if.then1.i234.i, label %Py_DECREF.exit236.i
-
-if.then1.i234.i:                                  ; preds = %if.end.i231.i
-  call void @_Py_Dealloc(ptr noundef nonnull %call145.i) #7
-  br label %Py_DECREF.exit236.i
-
-Py_DECREF.exit236.i:                              ; preds = %if.then1.i234.i, %if.end.i231.i, %if.end153.i
-  %bf.load155.i = load i8, ptr %ste_free.i, align 8
-  %bf.set157.i = or i8 %bf.load155.i, 1
-  store i8 %bf.set157.i, ptr %ste_free.i, align 8
-  %call158.i = call i32 @PySet_Add(ptr noundef %free, ptr noundef %7) #7
-  br label %analyze_name.exit
+  br i1 %cmp.i233.i, label %analyze_name.exit.sink.split, label %analyze_name.exit
 
 if.then164.i:                                     ; preds = %if.end141.i, %if.end134.i
   %call165.i = call i32 @PySet_Contains(ptr noundef %global, ptr noundef %7) #7
@@ -6543,9 +6524,17 @@ if.end.i.i:                                       ; preds = %if.end200.i
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp.i.i, label %while.cond.backedge.sink.split, label %while.cond.backedge
 
-analyze_name.exit:                                ; preds = %land.lhs.true.i, %Py_DECREF.exit308.i, %Py_DECREF.exit236.i
-  %retval.0.shrunk.i.in = phi i32 [ %call57.i, %Py_DECREF.exit308.i ], [ %call158.i, %Py_DECREF.exit236.i ], [ %call17.i, %land.lhs.true.i ]
-  %retval.0.shrunk.i = icmp sgt i32 %retval.0.shrunk.i.in, -1
+analyze_name.exit.sink.split:                     ; preds = %if.end.i231.i, %if.end.i303.i
+  %call145.i.sink = phi ptr [ %call49.i, %if.end.i303.i ], [ %call145.i, %if.end.i231.i ]
+  call void @_Py_Dealloc(ptr noundef nonnull %call145.i.sink) #7
+  br label %analyze_name.exit
+
+analyze_name.exit:                                ; preds = %analyze_name.exit.sink.split, %if.end153.i, %if.end.i231.i, %if.end56.i, %if.end.i303.i
+  %bf.load.i = load i8, ptr %ste_free.i, align 8
+  %bf.set.i = or i8 %bf.load.i, 1
+  store i8 %bf.set.i, ptr %ste_free.i, align 8
+  %call57.i = call i32 @PySet_Add(ptr noundef %free, ptr noundef %7) #7
+  %retval.0.shrunk.i = icmp sgt i32 %call57.i, -1
   br i1 %retval.0.shrunk.i, label %while.cond.backedge, label %if.then.i146
 
 while.cond.backedge.sink.split:                   ; preds = %if.end.i.i, %if.end.i213.i, %if.end.i249.i, %if.end.i267.i
@@ -6553,7 +6542,7 @@ while.cond.backedge.sink.split:                   ; preds = %if.end.i.i, %if.end
   call void @_Py_Dealloc(ptr noundef nonnull %call106.i.sink) #7
   br label %while.cond.backedge
 
-while.cond.backedge:                              ; preds = %while.cond.backedge.sink.split, %if.end15.i, %if.end114.i, %if.end.i267.i, %if.end131.i, %if.end.i249.i, %if.end181.i, %if.end.i213.i, %if.end200.i, %if.end.i.i, %if.else.i, %if.then85.i, %analyze_name.exit
+while.cond.backedge:                              ; preds = %while.cond.backedge.sink.split, %if.end114.i, %if.end.i267.i, %if.end131.i, %if.end.i249.i, %if.end181.i, %if.end.i213.i, %if.end200.i, %if.end.i.i, %land.lhs.true.i, %if.end15.i, %if.else.i, %if.then85.i, %analyze_name.exit
   %30 = load ptr, ptr %ste_symbols, align 8
   %call34 = call i32 @PyDict_Next(ptr noundef %30, ptr noundef nonnull %pos, ptr noundef nonnull %name, ptr noundef nonnull %v) #7
   %tobool35.not = icmp eq i32 %call34, 0
@@ -7215,11 +7204,11 @@ if.then1.i:                                       ; preds = %if.end.i
   call void @_Py_Dealloc(ptr noundef nonnull %call175) #7
   br label %if.then.i146
 
-if.then.i146:                                     ; preds = %analyze_name.exit, %if.end.i109, %Py_DECREF.exit326.i, %if.end29.i, %if.end38.i, %if.end47.i, %if.then62.i, %Py_DECREF.exit290.i, %if.end77.i, %if.then85.i, %if.else.i, %if.then104.i, %if.then121.i, %if.then136.i, %if.then143.i, %if.then164.i, %if.then171.i, %if.end190.i, %Py_DECREF.exit199, %land.end, %land.lhs.true, %if.then46, %if.then53, %if.end58, %if.else, %if.end66, %if.then100, %if.then1.i206, %if.end.i203, %land.lhs.true150, %land.lhs.true157, %lor.end, %if.end174, %if.end178, %if.then1.i, %if.end.i, %if.then3.i, %if.then44.i, %if.then35.i, %if.then26.i, %if.then10.i, %if.then1.i333.i, %if.end.i330.i, %if.then55.i, %if.then1.i315.i, %if.end.i312.i, %if.then71.i, %if.then1.i297.i, %if.end.i294.i, %if.then113.i, %if.then1.i279.i, %if.end.i276.i, %if.then130.i, %if.then1.i261.i, %if.end.i258.i, %if.then152.i, %if.then1.i243.i, %if.end.i240.i, %if.then180.i, %if.then1.i225.i, %if.end.i222.i, %if.then199.i, %if.then1.i207.i, %if.end.i204.i, %Py_XDECREF.exit214, %if.then.i198, %if.end.i.i201, %if.then1.i.i204, %if.end4, %if.end8, %if.end12, %if.end16, %if.then21, %if.then27
-  %newbound.0284 = phi ptr [ null, %if.end4 ], [ null, %if.end8 ], [ null, %if.end12 ], [ %call13, %if.end16 ], [ %call13, %if.then21 ], [ %call13, %if.then27 ], [ %call13, %if.then1.i.i204 ], [ %call13, %if.end.i.i201 ], [ %call13, %if.then.i198 ], [ %call13, %Py_XDECREF.exit214 ], [ %call13, %if.end.i204.i ], [ %call13, %if.then1.i207.i ], [ %call13, %if.then199.i ], [ %call13, %if.end.i222.i ], [ %call13, %if.then1.i225.i ], [ %call13, %if.then180.i ], [ %call13, %if.end.i240.i ], [ %call13, %if.then1.i243.i ], [ %call13, %if.then152.i ], [ %call13, %if.end.i258.i ], [ %call13, %if.then1.i261.i ], [ %call13, %if.then130.i ], [ %call13, %if.end.i276.i ], [ %call13, %if.then1.i279.i ], [ %call13, %if.then113.i ], [ %call13, %if.end.i294.i ], [ %call13, %if.then1.i297.i ], [ %call13, %if.then71.i ], [ %call13, %if.end.i312.i ], [ %call13, %if.then1.i315.i ], [ %call13, %if.then55.i ], [ %call13, %if.end.i330.i ], [ %call13, %if.then1.i333.i ], [ %call13, %if.then10.i ], [ %call13, %if.then26.i ], [ %call13, %if.then35.i ], [ %call13, %if.then44.i ], [ %call13, %if.then3.i ], [ %call13, %if.end.i ], [ %call13, %if.then1.i ], [ %call13, %if.end178 ], [ %call13, %if.end174 ], [ %call13, %lor.end ], [ %call13, %land.lhs.true157 ], [ %call13, %land.lhs.true150 ], [ %call13, %if.end.i203 ], [ %call13, %if.then1.i206 ], [ %call13, %if.then100 ], [ %call13, %if.end66 ], [ %call13, %if.else ], [ %call13, %if.end58 ], [ %call13, %if.then53 ], [ %call13, %if.then46 ], [ %call13, %land.lhs.true ], [ %call13, %land.end ], [ %call13, %Py_DECREF.exit199 ], [ %call13, %if.end190.i ], [ %call13, %if.then171.i ], [ %call13, %if.then164.i ], [ %call13, %if.then143.i ], [ %call13, %if.then136.i ], [ %call13, %if.then121.i ], [ %call13, %if.then104.i ], [ %call13, %if.else.i ], [ %call13, %if.then85.i ], [ %call13, %if.end77.i ], [ %call13, %Py_DECREF.exit290.i ], [ %call13, %if.then62.i ], [ %call13, %if.end47.i ], [ %call13, %if.end38.i ], [ %call13, %if.end29.i ], [ %call13, %Py_DECREF.exit326.i ], [ %call13, %if.end.i109 ], [ %call13, %analyze_name.exit ]
-  %newfree.0280 = phi ptr [ null, %if.end4 ], [ null, %if.end8 ], [ %call9, %if.end12 ], [ %call9, %if.end16 ], [ %call9, %if.then21 ], [ %call9, %if.then27 ], [ %call9, %if.then1.i.i204 ], [ %call9, %if.end.i.i201 ], [ %call9, %if.then.i198 ], [ %call9, %Py_XDECREF.exit214 ], [ %call9, %if.end.i204.i ], [ %call9, %if.then1.i207.i ], [ %call9, %if.then199.i ], [ %call9, %if.end.i222.i ], [ %call9, %if.then1.i225.i ], [ %call9, %if.then180.i ], [ %call9, %if.end.i240.i ], [ %call9, %if.then1.i243.i ], [ %call9, %if.then152.i ], [ %call9, %if.end.i258.i ], [ %call9, %if.then1.i261.i ], [ %call9, %if.then130.i ], [ %call9, %if.end.i276.i ], [ %call9, %if.then1.i279.i ], [ %call9, %if.then113.i ], [ %call9, %if.end.i294.i ], [ %call9, %if.then1.i297.i ], [ %call9, %if.then71.i ], [ %call9, %if.end.i312.i ], [ %call9, %if.then1.i315.i ], [ %call9, %if.then55.i ], [ %call9, %if.end.i330.i ], [ %call9, %if.then1.i333.i ], [ %call9, %if.then10.i ], [ %call9, %if.then26.i ], [ %call9, %if.then35.i ], [ %call9, %if.then44.i ], [ %call9, %if.then3.i ], [ %call9, %if.end.i ], [ %call9, %if.then1.i ], [ %call9, %if.end178 ], [ %call9, %if.end174 ], [ %call9, %lor.end ], [ %call9, %land.lhs.true157 ], [ %call9, %land.lhs.true150 ], [ %call9, %if.end.i203 ], [ %call9, %if.then1.i206 ], [ %call9, %if.then100 ], [ %call9, %if.end66 ], [ %call9, %if.else ], [ %call9, %if.end58 ], [ %call9, %if.then53 ], [ %call9, %if.then46 ], [ %call9, %land.lhs.true ], [ %call9, %land.end ], [ %call9, %Py_DECREF.exit199 ], [ %call9, %if.end190.i ], [ %call9, %if.then171.i ], [ %call9, %if.then164.i ], [ %call9, %if.then143.i ], [ %call9, %if.then136.i ], [ %call9, %if.then121.i ], [ %call9, %if.then104.i ], [ %call9, %if.else.i ], [ %call9, %if.then85.i ], [ %call9, %if.end77.i ], [ %call9, %Py_DECREF.exit290.i ], [ %call9, %if.then62.i ], [ %call9, %if.end47.i ], [ %call9, %if.end38.i ], [ %call9, %if.end29.i ], [ %call9, %Py_DECREF.exit326.i ], [ %call9, %if.end.i109 ], [ %call9, %analyze_name.exit ]
-  %inlined_cells.0278 = phi ptr [ null, %if.end4 ], [ null, %if.end8 ], [ null, %if.end12 ], [ null, %if.end16 ], [ %call17, %if.then21 ], [ %call17, %if.then27 ], [ %call17, %if.then1.i.i204 ], [ %call17, %if.end.i.i201 ], [ %call17, %if.then.i198 ], [ %call17, %Py_XDECREF.exit214 ], [ %call17, %if.end.i204.i ], [ %call17, %if.then1.i207.i ], [ %call17, %if.then199.i ], [ %call17, %if.end.i222.i ], [ %call17, %if.then1.i225.i ], [ %call17, %if.then180.i ], [ %call17, %if.end.i240.i ], [ %call17, %if.then1.i243.i ], [ %call17, %if.then152.i ], [ %call17, %if.end.i258.i ], [ %call17, %if.then1.i261.i ], [ %call17, %if.then130.i ], [ %call17, %if.end.i276.i ], [ %call17, %if.then1.i279.i ], [ %call17, %if.then113.i ], [ %call17, %if.end.i294.i ], [ %call17, %if.then1.i297.i ], [ %call17, %if.then71.i ], [ %call17, %if.end.i312.i ], [ %call17, %if.then1.i315.i ], [ %call17, %if.then55.i ], [ %call17, %if.end.i330.i ], [ %call17, %if.then1.i333.i ], [ %call17, %if.then10.i ], [ %call17, %if.then26.i ], [ %call17, %if.then35.i ], [ %call17, %if.then44.i ], [ %call17, %if.then3.i ], [ %call17, %if.end.i ], [ %call17, %if.then1.i ], [ %call17, %if.end178 ], [ %call17, %if.end174 ], [ %call17, %lor.end ], [ %call17, %land.lhs.true157 ], [ %call17, %land.lhs.true150 ], [ %call17, %if.end.i203 ], [ %call17, %if.then1.i206 ], [ %call17, %if.then100 ], [ %call17, %if.end66 ], [ %call17, %if.else ], [ %call17, %if.end58 ], [ %call17, %if.then53 ], [ %call17, %if.then46 ], [ %call17, %land.lhs.true ], [ %call17, %land.end ], [ %call17, %Py_DECREF.exit199 ], [ %call17, %if.end190.i ], [ %call17, %if.then171.i ], [ %call17, %if.then164.i ], [ %call17, %if.then143.i ], [ %call17, %if.then136.i ], [ %call17, %if.then121.i ], [ %call17, %if.then104.i ], [ %call17, %if.else.i ], [ %call17, %if.then85.i ], [ %call17, %if.end77.i ], [ %call17, %Py_DECREF.exit290.i ], [ %call17, %if.then62.i ], [ %call17, %if.end47.i ], [ %call17, %if.end38.i ], [ %call17, %if.end29.i ], [ %call17, %Py_DECREF.exit326.i ], [ %call17, %if.end.i109 ], [ %call17, %analyze_name.exit ]
-  %success.0276 = phi i32 [ 0, %if.end4 ], [ 0, %if.end8 ], [ 0, %if.end12 ], [ 0, %if.end16 ], [ 0, %if.then21 ], [ 0, %if.then27 ], [ 0, %if.then1.i.i204 ], [ 0, %if.end.i.i201 ], [ 0, %if.then.i198 ], [ 0, %Py_XDECREF.exit214 ], [ 0, %if.end.i204.i ], [ 0, %if.then1.i207.i ], [ 0, %if.then199.i ], [ 0, %if.end.i222.i ], [ 0, %if.then1.i225.i ], [ 0, %if.then180.i ], [ 0, %if.end.i240.i ], [ 0, %if.then1.i243.i ], [ 0, %if.then152.i ], [ 0, %if.end.i258.i ], [ 0, %if.then1.i261.i ], [ 0, %if.then130.i ], [ 0, %if.end.i276.i ], [ 0, %if.then1.i279.i ], [ 0, %if.then113.i ], [ 0, %if.end.i294.i ], [ 0, %if.then1.i297.i ], [ 0, %if.then71.i ], [ 0, %if.end.i312.i ], [ 0, %if.then1.i315.i ], [ 0, %if.then55.i ], [ 0, %if.end.i330.i ], [ 0, %if.then1.i333.i ], [ 0, %if.then10.i ], [ 0, %if.then26.i ], [ 0, %if.then35.i ], [ 0, %if.then44.i ], [ 0, %if.then3.i ], [ 1, %if.end.i ], [ 1, %if.then1.i ], [ 1, %if.end178 ], [ 0, %if.end174 ], [ 0, %lor.end ], [ 0, %land.lhs.true157 ], [ 0, %land.lhs.true150 ], [ 0, %if.end.i203 ], [ 0, %if.then1.i206 ], [ 0, %if.then100 ], [ 0, %if.end66 ], [ 0, %if.else ], [ 0, %if.end58 ], [ 0, %if.then53 ], [ 0, %if.then46 ], [ 0, %land.lhs.true ], [ 0, %land.end ], [ 0, %Py_DECREF.exit199 ], [ 0, %if.end190.i ], [ 0, %if.then171.i ], [ 0, %if.then164.i ], [ 0, %if.then143.i ], [ 0, %if.then136.i ], [ 0, %if.then121.i ], [ 0, %if.then104.i ], [ 0, %if.else.i ], [ 0, %if.then85.i ], [ 0, %if.end77.i ], [ 0, %Py_DECREF.exit290.i ], [ 0, %if.then62.i ], [ 0, %if.end47.i ], [ 0, %if.end38.i ], [ 0, %if.end29.i ], [ 0, %Py_DECREF.exit326.i ], [ 0, %if.end.i109 ], [ 0, %analyze_name.exit ]
+if.then.i146:                                     ; preds = %analyze_name.exit, %if.end.i109, %Py_DECREF.exit326.i, %land.lhs.true.i, %if.end29.i, %if.end38.i, %if.end47.i, %if.then62.i, %Py_DECREF.exit290.i, %if.end77.i, %if.then85.i, %if.else.i, %if.then104.i, %if.then121.i, %if.then136.i, %if.then143.i, %if.then164.i, %if.then171.i, %if.end190.i, %Py_DECREF.exit199, %land.end, %land.lhs.true, %if.then46, %if.then53, %if.end58, %if.else, %if.end66, %if.then100, %if.then1.i206, %if.end.i203, %land.lhs.true150, %land.lhs.true157, %lor.end, %if.end174, %if.end178, %if.then1.i, %if.end.i, %if.then3.i, %if.then44.i, %if.then35.i, %if.then26.i, %if.then10.i, %if.then1.i333.i, %if.end.i330.i, %if.then55.i, %if.then1.i315.i, %if.end.i312.i, %if.then71.i, %if.then1.i297.i, %if.end.i294.i, %if.then113.i, %if.then1.i279.i, %if.end.i276.i, %if.then130.i, %if.then1.i261.i, %if.end.i258.i, %if.then152.i, %if.then1.i243.i, %if.end.i240.i, %if.then180.i, %if.then1.i225.i, %if.end.i222.i, %if.then199.i, %if.then1.i207.i, %if.end.i204.i, %Py_XDECREF.exit214, %if.then.i198, %if.end.i.i201, %if.then1.i.i204, %if.end4, %if.end8, %if.end12, %if.end16, %if.then21, %if.then27
+  %newbound.0284 = phi ptr [ null, %if.end4 ], [ null, %if.end8 ], [ null, %if.end12 ], [ %call13, %if.end16 ], [ %call13, %if.then21 ], [ %call13, %if.then27 ], [ %call13, %if.then1.i.i204 ], [ %call13, %if.end.i.i201 ], [ %call13, %if.then.i198 ], [ %call13, %Py_XDECREF.exit214 ], [ %call13, %if.end.i204.i ], [ %call13, %if.then1.i207.i ], [ %call13, %if.then199.i ], [ %call13, %if.end.i222.i ], [ %call13, %if.then1.i225.i ], [ %call13, %if.then180.i ], [ %call13, %if.end.i240.i ], [ %call13, %if.then1.i243.i ], [ %call13, %if.then152.i ], [ %call13, %if.end.i258.i ], [ %call13, %if.then1.i261.i ], [ %call13, %if.then130.i ], [ %call13, %if.end.i276.i ], [ %call13, %if.then1.i279.i ], [ %call13, %if.then113.i ], [ %call13, %if.end.i294.i ], [ %call13, %if.then1.i297.i ], [ %call13, %if.then71.i ], [ %call13, %if.end.i312.i ], [ %call13, %if.then1.i315.i ], [ %call13, %if.then55.i ], [ %call13, %if.end.i330.i ], [ %call13, %if.then1.i333.i ], [ %call13, %if.then10.i ], [ %call13, %if.then26.i ], [ %call13, %if.then35.i ], [ %call13, %if.then44.i ], [ %call13, %if.then3.i ], [ %call13, %if.end.i ], [ %call13, %if.then1.i ], [ %call13, %if.end178 ], [ %call13, %if.end174 ], [ %call13, %lor.end ], [ %call13, %land.lhs.true157 ], [ %call13, %land.lhs.true150 ], [ %call13, %if.end.i203 ], [ %call13, %if.then1.i206 ], [ %call13, %if.then100 ], [ %call13, %if.end66 ], [ %call13, %if.else ], [ %call13, %if.end58 ], [ %call13, %if.then53 ], [ %call13, %if.then46 ], [ %call13, %land.lhs.true ], [ %call13, %land.end ], [ %call13, %Py_DECREF.exit199 ], [ %call13, %if.end190.i ], [ %call13, %if.then171.i ], [ %call13, %if.then164.i ], [ %call13, %if.then143.i ], [ %call13, %if.then136.i ], [ %call13, %if.then121.i ], [ %call13, %if.then104.i ], [ %call13, %if.else.i ], [ %call13, %if.then85.i ], [ %call13, %if.end77.i ], [ %call13, %Py_DECREF.exit290.i ], [ %call13, %if.then62.i ], [ %call13, %if.end47.i ], [ %call13, %if.end38.i ], [ %call13, %if.end29.i ], [ %call13, %land.lhs.true.i ], [ %call13, %Py_DECREF.exit326.i ], [ %call13, %if.end.i109 ], [ %call13, %analyze_name.exit ]
+  %newfree.0280 = phi ptr [ null, %if.end4 ], [ null, %if.end8 ], [ %call9, %if.end12 ], [ %call9, %if.end16 ], [ %call9, %if.then21 ], [ %call9, %if.then27 ], [ %call9, %if.then1.i.i204 ], [ %call9, %if.end.i.i201 ], [ %call9, %if.then.i198 ], [ %call9, %Py_XDECREF.exit214 ], [ %call9, %if.end.i204.i ], [ %call9, %if.then1.i207.i ], [ %call9, %if.then199.i ], [ %call9, %if.end.i222.i ], [ %call9, %if.then1.i225.i ], [ %call9, %if.then180.i ], [ %call9, %if.end.i240.i ], [ %call9, %if.then1.i243.i ], [ %call9, %if.then152.i ], [ %call9, %if.end.i258.i ], [ %call9, %if.then1.i261.i ], [ %call9, %if.then130.i ], [ %call9, %if.end.i276.i ], [ %call9, %if.then1.i279.i ], [ %call9, %if.then113.i ], [ %call9, %if.end.i294.i ], [ %call9, %if.then1.i297.i ], [ %call9, %if.then71.i ], [ %call9, %if.end.i312.i ], [ %call9, %if.then1.i315.i ], [ %call9, %if.then55.i ], [ %call9, %if.end.i330.i ], [ %call9, %if.then1.i333.i ], [ %call9, %if.then10.i ], [ %call9, %if.then26.i ], [ %call9, %if.then35.i ], [ %call9, %if.then44.i ], [ %call9, %if.then3.i ], [ %call9, %if.end.i ], [ %call9, %if.then1.i ], [ %call9, %if.end178 ], [ %call9, %if.end174 ], [ %call9, %lor.end ], [ %call9, %land.lhs.true157 ], [ %call9, %land.lhs.true150 ], [ %call9, %if.end.i203 ], [ %call9, %if.then1.i206 ], [ %call9, %if.then100 ], [ %call9, %if.end66 ], [ %call9, %if.else ], [ %call9, %if.end58 ], [ %call9, %if.then53 ], [ %call9, %if.then46 ], [ %call9, %land.lhs.true ], [ %call9, %land.end ], [ %call9, %Py_DECREF.exit199 ], [ %call9, %if.end190.i ], [ %call9, %if.then171.i ], [ %call9, %if.then164.i ], [ %call9, %if.then143.i ], [ %call9, %if.then136.i ], [ %call9, %if.then121.i ], [ %call9, %if.then104.i ], [ %call9, %if.else.i ], [ %call9, %if.then85.i ], [ %call9, %if.end77.i ], [ %call9, %Py_DECREF.exit290.i ], [ %call9, %if.then62.i ], [ %call9, %if.end47.i ], [ %call9, %if.end38.i ], [ %call9, %if.end29.i ], [ %call9, %land.lhs.true.i ], [ %call9, %Py_DECREF.exit326.i ], [ %call9, %if.end.i109 ], [ %call9, %analyze_name.exit ]
+  %inlined_cells.0278 = phi ptr [ null, %if.end4 ], [ null, %if.end8 ], [ null, %if.end12 ], [ null, %if.end16 ], [ %call17, %if.then21 ], [ %call17, %if.then27 ], [ %call17, %if.then1.i.i204 ], [ %call17, %if.end.i.i201 ], [ %call17, %if.then.i198 ], [ %call17, %Py_XDECREF.exit214 ], [ %call17, %if.end.i204.i ], [ %call17, %if.then1.i207.i ], [ %call17, %if.then199.i ], [ %call17, %if.end.i222.i ], [ %call17, %if.then1.i225.i ], [ %call17, %if.then180.i ], [ %call17, %if.end.i240.i ], [ %call17, %if.then1.i243.i ], [ %call17, %if.then152.i ], [ %call17, %if.end.i258.i ], [ %call17, %if.then1.i261.i ], [ %call17, %if.then130.i ], [ %call17, %if.end.i276.i ], [ %call17, %if.then1.i279.i ], [ %call17, %if.then113.i ], [ %call17, %if.end.i294.i ], [ %call17, %if.then1.i297.i ], [ %call17, %if.then71.i ], [ %call17, %if.end.i312.i ], [ %call17, %if.then1.i315.i ], [ %call17, %if.then55.i ], [ %call17, %if.end.i330.i ], [ %call17, %if.then1.i333.i ], [ %call17, %if.then10.i ], [ %call17, %if.then26.i ], [ %call17, %if.then35.i ], [ %call17, %if.then44.i ], [ %call17, %if.then3.i ], [ %call17, %if.end.i ], [ %call17, %if.then1.i ], [ %call17, %if.end178 ], [ %call17, %if.end174 ], [ %call17, %lor.end ], [ %call17, %land.lhs.true157 ], [ %call17, %land.lhs.true150 ], [ %call17, %if.end.i203 ], [ %call17, %if.then1.i206 ], [ %call17, %if.then100 ], [ %call17, %if.end66 ], [ %call17, %if.else ], [ %call17, %if.end58 ], [ %call17, %if.then53 ], [ %call17, %if.then46 ], [ %call17, %land.lhs.true ], [ %call17, %land.end ], [ %call17, %Py_DECREF.exit199 ], [ %call17, %if.end190.i ], [ %call17, %if.then171.i ], [ %call17, %if.then164.i ], [ %call17, %if.then143.i ], [ %call17, %if.then136.i ], [ %call17, %if.then121.i ], [ %call17, %if.then104.i ], [ %call17, %if.else.i ], [ %call17, %if.then85.i ], [ %call17, %if.end77.i ], [ %call17, %Py_DECREF.exit290.i ], [ %call17, %if.then62.i ], [ %call17, %if.end47.i ], [ %call17, %if.end38.i ], [ %call17, %if.end29.i ], [ %call17, %land.lhs.true.i ], [ %call17, %Py_DECREF.exit326.i ], [ %call17, %if.end.i109 ], [ %call17, %analyze_name.exit ]
+  %success.0276 = phi i32 [ 0, %if.end4 ], [ 0, %if.end8 ], [ 0, %if.end12 ], [ 0, %if.end16 ], [ 0, %if.then21 ], [ 0, %if.then27 ], [ 0, %if.then1.i.i204 ], [ 0, %if.end.i.i201 ], [ 0, %if.then.i198 ], [ 0, %Py_XDECREF.exit214 ], [ 0, %if.end.i204.i ], [ 0, %if.then1.i207.i ], [ 0, %if.then199.i ], [ 0, %if.end.i222.i ], [ 0, %if.then1.i225.i ], [ 0, %if.then180.i ], [ 0, %if.end.i240.i ], [ 0, %if.then1.i243.i ], [ 0, %if.then152.i ], [ 0, %if.end.i258.i ], [ 0, %if.then1.i261.i ], [ 0, %if.then130.i ], [ 0, %if.end.i276.i ], [ 0, %if.then1.i279.i ], [ 0, %if.then113.i ], [ 0, %if.end.i294.i ], [ 0, %if.then1.i297.i ], [ 0, %if.then71.i ], [ 0, %if.end.i312.i ], [ 0, %if.then1.i315.i ], [ 0, %if.then55.i ], [ 0, %if.end.i330.i ], [ 0, %if.then1.i333.i ], [ 0, %if.then10.i ], [ 0, %if.then26.i ], [ 0, %if.then35.i ], [ 0, %if.then44.i ], [ 0, %if.then3.i ], [ 1, %if.end.i ], [ 1, %if.then1.i ], [ 1, %if.end178 ], [ 0, %if.end174 ], [ 0, %lor.end ], [ 0, %land.lhs.true157 ], [ 0, %land.lhs.true150 ], [ 0, %if.end.i203 ], [ 0, %if.then1.i206 ], [ 0, %if.then100 ], [ 0, %if.end66 ], [ 0, %if.else ], [ 0, %if.end58 ], [ 0, %if.then53 ], [ 0, %if.then46 ], [ 0, %land.lhs.true ], [ 0, %land.end ], [ 0, %Py_DECREF.exit199 ], [ 0, %if.end190.i ], [ 0, %if.then171.i ], [ 0, %if.then164.i ], [ 0, %if.then143.i ], [ 0, %if.then136.i ], [ 0, %if.then121.i ], [ 0, %if.then104.i ], [ 0, %if.else.i ], [ 0, %if.then85.i ], [ 0, %if.end77.i ], [ 0, %Py_DECREF.exit290.i ], [ 0, %if.then62.i ], [ 0, %if.end47.i ], [ 0, %if.end38.i ], [ 0, %if.end29.i ], [ 0, %land.lhs.true.i ], [ 0, %Py_DECREF.exit326.i ], [ 0, %if.end.i109 ], [ 0, %analyze_name.exit ]
   %112 = load i64, ptr %call1, align 8
   %113 = and i64 %112, 2147483648
   %cmp.i2.not.i = icmp eq i64 %113, 0
@@ -7941,15 +7930,19 @@ if.then28:                                        ; preds = %if.end26
 
 if.end33:                                         ; preds = %if.then28, %if.end26
   %tobool34.not = icmp eq i32 %has_kwdefaults, 0
-  br i1 %tobool34.not, label %return, label %if.then35
+  br i1 %tobool34.not, label %if.end40, label %if.then35
 
 if.then35:                                        ; preds = %if.end33
   %9 = load ptr, ptr %st_cur, align 8
   %call.i51 = tail call fastcc noundef i32 @symtable_add_def_helper(ptr noundef nonnull %st, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 0, i32 19), i32 noundef 4, ptr noundef %9, i32 noundef %lineno, i32 noundef %col_offset, i32 noundef %end_lineno, i32 noundef %end_col_offset), !range !5
+  %tobool37.not = icmp eq i32 %call.i51, 0
+  br i1 %tobool37.not, label %return, label %if.end40
+
+if.end40:                                         ; preds = %if.then35, %if.end33
   br label %return
 
-return:                                           ; preds = %if.then35, %if.end33, %if.then28, %if.end21, %if.end17, %if.end13, %if.then9, %if.then1, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 0, %if.then1 ], [ 0, %if.then9 ], [ 0, %if.end13 ], [ 0, %if.end17 ], [ 0, %if.end21 ], [ 0, %if.then28 ], [ 1, %if.end33 ], [ %call.i51, %if.then35 ]
+return:                                           ; preds = %if.then35, %if.then28, %if.end21, %if.end17, %if.end13, %if.then9, %if.then1, %entry, %if.end40
+  %retval.0 = phi i32 [ 1, %if.end40 ], [ 0, %entry ], [ 0, %if.then1 ], [ 0, %if.then9 ], [ 0, %if.end13 ], [ 0, %if.end17 ], [ 0, %if.end21 ], [ 0, %if.then28 ], [ 0, %if.then35 ]
   ret i32 %retval.0
 }
 
@@ -9203,7 +9196,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %3 = load i32, ptr %p, align 8
-  switch i32 %3, label %return [
+  switch i32 %3, label %sw.epilog [
     i32 1, label %sw.bb
     i32 8, label %sw.bb187
     i32 3, label %sw.bb7
@@ -9217,7 +9210,8 @@ sw.bb:                                            ; preds = %if.end
   %v = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load ptr, ptr %v, align 8
   %call = tail call fastcc i32 @symtable_visit_expr(ptr noundef nonnull %st, ptr noundef %4), !range !5
-  br label %return
+  %tobool.not = icmp eq i32 %call, 0
+  br i1 %tobool.not, label %return, label %sw.epilog
 
 sw.bb7:                                           ; preds = %if.end
   %v8 = getelementptr inbounds i8, ptr %p, i64 8
@@ -9238,7 +9232,7 @@ cond.false:                                       ; preds = %for.cond
 cond.end:                                         ; preds = %for.cond, %cond.false
   %cond = phi i64 [ %6, %cond.false ], [ 0, %for.cond ]
   %cmp11 = icmp sgt i64 %cond, %conv
-  br i1 %cmp11, label %for.body, label %return
+  br i1 %cmp11, label %for.body, label %sw.epilog
 
 for.body:                                         ; preds = %cond.end
   %arrayidx = getelementptr [1 x ptr], ptr %typed_elements, i64 0, i64 %conv
@@ -9252,7 +9246,7 @@ sw.bb20:                                          ; preds = %if.end
   %v21 = getelementptr inbounds i8, ptr %p, i64 8
   %8 = load ptr, ptr %v21, align 8
   %tobool22.not = icmp eq ptr %8, null
-  br i1 %tobool22.not, label %return, label %if.then23
+  br i1 %tobool22.not, label %sw.epilog, label %if.then23
 
 if.then23:                                        ; preds = %sw.bb20
   %lineno = getelementptr inbounds i8, ptr %p, i64 40
@@ -9266,7 +9260,7 @@ if.then23:                                        ; preds = %sw.bb20
   %st_cur.i = getelementptr inbounds i8, ptr %st, i64 8
   %13 = load ptr, ptr %st_cur.i, align 8
   %call.i = tail call fastcc noundef i32 @symtable_add_def_helper(ptr noundef nonnull %st, ptr noundef nonnull %8, i32 noundef 2, ptr noundef %13, i32 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12), !range !5
-  br label %return
+  br label %sw.epilog
 
 sw.bb28:                                          ; preds = %if.end
   %v31 = getelementptr inbounds i8, ptr %p, i64 8
@@ -9316,7 +9310,7 @@ for.end85:                                        ; preds = %for.cond61, %for.en
   %rest = getelementptr inbounds i8, ptr %p, i64 24
   %20 = load ptr, ptr %rest, align 8
   %tobool87.not = icmp eq ptr %20, null
-  br i1 %tobool87.not, label %return, label %if.then88
+  br i1 %tobool87.not, label %sw.epilog, label %if.then88
 
 if.then88:                                        ; preds = %for.end85
   %lineno91 = getelementptr inbounds i8, ptr %p, i64 40
@@ -9330,7 +9324,7 @@ if.then88:                                        ; preds = %for.end85
   %st_cur.i86 = getelementptr inbounds i8, ptr %st, i64 8
   %25 = load ptr, ptr %st_cur.i86, align 8
   %call.i87 = tail call fastcc noundef i32 @symtable_add_def_helper(ptr noundef %st, ptr noundef nonnull %20, i32 noundef 2, ptr noundef %25, i32 noundef %21, i32 noundef %22, i32 noundef %23, i32 noundef %24), !range !5
-  br label %return
+  br label %sw.epilog
 
 sw.bb97:                                          ; preds = %if.end
   %v98 = getelementptr inbounds i8, ptr %p, i64 8
@@ -9366,14 +9360,14 @@ for.end133:                                       ; preds = %for.cond109, %if.en
   %30 = load ptr, ptr %kwd_patterns, align 8
   %cmp139 = icmp eq ptr %30, null
   %typed_elements150 = getelementptr inbounds i8, ptr %30, i64 16
-  br i1 %cmp139, label %return, label %for.cond137
+  br i1 %cmp139, label %sw.epilog, label %for.cond137
 
 for.cond137:                                      ; preds = %for.end133, %for.body148
   %i134.0 = phi i32 [ %inc160, %for.body148 ], [ 0, %for.end133 ]
   %conv138 = sext i32 %i134.0 to i64
   %31 = load i64, ptr %30, align 8
   %cmp146 = icmp sgt i64 %31, %conv138
-  br i1 %cmp146, label %for.body148, label %return
+  br i1 %cmp146, label %for.body148, label %sw.epilog
 
 for.body148:                                      ; preds = %for.cond137
   %arrayidx152 = getelementptr [1 x ptr], ptr %typed_elements150, i64 0, i64 %conv138
@@ -9398,7 +9392,7 @@ if.end174:                                        ; preds = %if.then165, %sw.bb1
   %name176 = getelementptr inbounds i8, ptr %p, i64 16
   %34 = load ptr, ptr %name176, align 8
   %tobool177.not = icmp eq ptr %34, null
-  br i1 %tobool177.not, label %return, label %if.then178
+  br i1 %tobool177.not, label %sw.epilog, label %if.then178
 
 if.then178:                                       ; preds = %if.end174
   %lineno181 = getelementptr inbounds i8, ptr %p, i64 40
@@ -9412,7 +9406,7 @@ if.then178:                                       ; preds = %if.end174
   %st_cur.i88 = getelementptr inbounds i8, ptr %st, i64 8
   %39 = load ptr, ptr %st_cur.i88, align 8
   %call.i89 = tail call fastcc noundef i32 @symtable_add_def_helper(ptr noundef nonnull %st, ptr noundef nonnull %34, i32 noundef 2, ptr noundef %39, i32 noundef %35, i32 noundef %36, i32 noundef %37, i32 noundef %38), !range !5
-  br label %return
+  br label %sw.epilog
 
 sw.bb187:                                         ; preds = %if.end
   %v190 = getelementptr inbounds i8, ptr %p, i64 8
@@ -9433,7 +9427,7 @@ cond.false197:                                    ; preds = %for.cond192
 cond.end199:                                      ; preds = %for.cond192, %cond.false197
   %cond200 = phi i64 [ %41, %cond.false197 ], [ 0, %for.cond192 ]
   %cmp201 = icmp sgt i64 %cond200, %conv193
-  br i1 %cmp201, label %for.body203, label %return
+  br i1 %cmp201, label %for.body203, label %sw.epilog
 
 for.body203:                                      ; preds = %cond.end199
   %arrayidx207 = getelementptr [1 x ptr], ptr %typed_elements205, i64 0, i64 %conv193
@@ -9443,8 +9437,11 @@ for.body203:                                      ; preds = %cond.end199
   %inc215 = add i32 %i188.0, 1
   br i1 %tobool209.not, label %return, label %for.cond192, !llvm.loop !84
 
-return:                                           ; preds = %for.body120, %for.cond137, %for.body148, %for.body43, %for.body72, %cond.end, %for.body, %cond.end199, %for.body203, %sw.bb, %if.end, %if.then23, %sw.bb20, %if.then88, %for.end85, %if.then178, %if.end174, %for.end133, %if.then165, %sw.bb97, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %sw.bb97 ], [ 0, %if.then165 ], [ 1, %for.end133 ], [ 1, %if.end174 ], [ 1, %if.then178 ], [ 1, %for.end85 ], [ 1, %if.then88 ], [ 1, %sw.bb20 ], [ 1, %if.then23 ], [ 1, %if.end ], [ %call, %sw.bb ], [ 0, %for.body203 ], [ 1, %cond.end199 ], [ 0, %for.body ], [ 1, %cond.end ], [ 0, %for.body72 ], [ 0, %for.body43 ], [ 0, %for.body148 ], [ 1, %for.cond137 ], [ 0, %for.body120 ]
+sw.epilog:                                        ; preds = %for.cond137, %cond.end, %cond.end199, %for.end133, %if.end174, %if.then178, %for.end85, %if.then88, %sw.bb20, %if.then23, %sw.bb, %if.end
+  br label %return
+
+return:                                           ; preds = %for.body120, %for.body148, %for.body43, %for.body72, %for.body, %for.body203, %if.then165, %sw.bb97, %sw.bb, %sw.epilog, %if.then
+  %retval.0 = phi i32 [ 0, %if.then ], [ 1, %sw.epilog ], [ 0, %sw.bb ], [ 0, %sw.bb97 ], [ 0, %if.then165 ], [ 0, %for.body203 ], [ 0, %for.body ], [ 0, %for.body72 ], [ 0, %for.body43 ], [ 0, %for.body148 ], [ 0, %for.body120 ]
   %43 = load i32, ptr %recursion_depth, align 8
   %dec218 = add i32 %43, -1
   store i32 %dec218, ptr %recursion_depth, align 8

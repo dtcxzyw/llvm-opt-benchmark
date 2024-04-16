@@ -2925,14 +2925,22 @@ if.then:                                          ; preds = %entry
   %call = tail call i32 @ucol_getStrength_75(ptr noundef %0)
   %strength = getelementptr inbounds i8, ptr %strsrch, i64 3172
   %1 = load i32, ptr %strength, align 4
-  %cmp = icmp sgt i32 %1, 2
-  %cmp1 = icmp slt i32 %call, 3
-  %or.cond.not = select i1 %cmp, i1 true, i1 %cmp1
-  %cmp3 = icmp slt i32 %1, 3
-  %cmp5 = icmp sgt i32 %call, 2
-  %or.cond1.not = select i1 %cmp3, i1 true, i1 %cmp5
-  %narrow = select i1 %or.cond.not, i1 %or.cond1.not, i1 false
-  %sameCollAttribute.0 = zext i1 %narrow to i8
+  %cmp = icmp slt i32 %1, 3
+  %cmp1 = icmp sgt i32 %call, 2
+  %or.cond = select i1 %cmp, i1 %cmp1, i1 false
+  br i1 %or.cond, label %if.then6, label %lor.lhs.false
+
+lor.lhs.false:                                    ; preds = %if.then
+  %cmp3 = icmp sgt i32 %1, 2
+  %cmp5 = icmp slt i32 %call, 3
+  %or.cond1 = select i1 %cmp3, i1 %cmp5, i1 false
+  br i1 %or.cond1, label %if.then6, label %if.end
+
+if.then6:                                         ; preds = %lor.lhs.false, %if.then
+  br label %if.end
+
+if.end:                                           ; preds = %if.then6, %lor.lhs.false
+  %sameCollAttribute.0 = phi i8 [ 0, %if.then6 ], [ 1, %lor.lhs.false ]
   %2 = load ptr, ptr %collator, align 8
   %call8 = tail call i32 @ucol_getStrength_75(ptr noundef %2)
   store i32 %call8, ptr %strength, align 4
@@ -2945,12 +2953,12 @@ if.then:                                          ; preds = %entry
   %cmp13.not = icmp eq i32 %3, %switch.select2.i
   br i1 %cmp13.not, label %if.end16, label %if.then14
 
-if.then14:                                        ; preds = %if.then
+if.then14:                                        ; preds = %if.end
   store i32 %switch.select2.i, ptr %ceMask12, align 8
   br label %if.end16
 
-if.end16:                                         ; preds = %if.then14, %if.then
-  %sameCollAttribute.1 = phi i8 [ 0, %if.then14 ], [ %sameCollAttribute.0, %if.then ]
+if.end16:                                         ; preds = %if.then14, %if.end
+  %sameCollAttribute.1 = phi i8 [ 0, %if.then14 ], [ %sameCollAttribute.0, %if.end ]
   %4 = load ptr, ptr %collator, align 8
   %call18 = call i32 @ucol_getAttribute_75(ptr noundef %4, i32 noundef 1, ptr noundef nonnull %status)
   %cmp19 = icmp eq i32 %call18, 20

@@ -1208,7 +1208,7 @@ define noundef zeroext i1 @_ZNK5Ipopt22LowRankUpdateSymMatrix19HasValidNumbersIm
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 204
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 4
   %8 = trunc i8 %.pre.i to i1
-  br i1 %8, label %16, label %26
+  br i1 %8, label %16, label %27
 
 _ZNK5Ipopt6Vector15HasValidNumbersEv.exit:        ; preds = %1
   %9 = load ptr, ptr %3, align 8
@@ -1220,7 +1220,7 @@ _ZNK5Ipopt6Vector15HasValidNumbersEv.exit:        ; preds = %1
   store i8 %14, ptr %13, align 4
   %15 = load i32, ptr %6, align 8
   store i32 %15, ptr %4, align 8
-  br i1 %12, label %16, label %26
+  br i1 %12, label %16, label %27
 
 16:                                               ; preds = %._crit_edge.i, %_ZNK5Ipopt6Vector15HasValidNumbersEv.exit
   %17 = getelementptr inbounds i8, ptr %0, i64 96
@@ -1230,7 +1230,7 @@ _ZNK5Ipopt6Vector15HasValidNumbersEv.exit:        ; preds = %1
 
 19:                                               ; preds = %16
   %20 = tail call noundef zeroext i1 @_ZNK5Ipopt6Matrix15HasValidNumbersEv(ptr noundef nonnull align 8 dereferenceable(69) %18)
-  br i1 %20, label %21, label %26
+  br i1 %20, label %21, label %27
 
 21:                                               ; preds = %19, %16
   %22 = getelementptr inbounds i8, ptr %0, i64 104
@@ -1240,10 +1240,13 @@ _ZNK5Ipopt6Vector15HasValidNumbersEv.exit:        ; preds = %1
 
 24:                                               ; preds = %21
   %25 = tail call noundef zeroext i1 @_ZNK5Ipopt6Matrix15HasValidNumbersEv(ptr noundef nonnull align 8 dereferenceable(69) %23)
-  br label %26
+  br i1 %25, label %26, label %27
 
-26:                                               ; preds = %._crit_edge.i, %24, %21, %19, %_ZNK5Ipopt6Vector15HasValidNumbersEv.exit
-  %.0 = phi i1 [ false, %_ZNK5Ipopt6Vector15HasValidNumbersEv.exit ], [ false, %19 ], [ true, %21 ], [ %25, %24 ], [ false, %._crit_edge.i ]
+26:                                               ; preds = %24, %21
+  br label %27
+
+27:                                               ; preds = %._crit_edge.i, %24, %19, %_ZNK5Ipopt6Vector15HasValidNumbersEv.exit, %26
+  %.0 = phi i1 [ true, %26 ], [ false, %_ZNK5Ipopt6Vector15HasValidNumbersEv.exit ], [ false, %19 ], [ false, %24 ], [ false, %._crit_edge.i ]
   ret i1 %.0
 }
 

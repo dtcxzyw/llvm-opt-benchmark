@@ -429,7 +429,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @kdf_pkcs12_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
+define internal noundef i32 @kdf_pkcs12_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_ctx_get0_libctx(ptr noundef %0) #6
@@ -524,17 +524,19 @@ if.then23:                                        ; preds = %if.end20
 if.end28:                                         ; preds = %if.then23, %if.end20
   %call29 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %params, ptr noundef nonnull @.str.5) #6
   %cmp30.not = icmp eq ptr %call29, null
-  br i1 %cmp30.not, label %return, label %if.then31
+  br i1 %cmp30.not, label %if.end36, label %if.then31
 
 if.then31:                                        ; preds = %if.end28
   %iter = getelementptr inbounds i8, ptr %vctx, i64 64
   %call32 = tail call i32 @OSSL_PARAM_get_uint64(ptr noundef nonnull %call29, ptr noundef nonnull %iter) #6
-  %tobool33.not = icmp ne i32 %call32, 0
-  %spec.select = zext i1 %tobool33.not to i32
+  %tobool33.not = icmp eq i32 %call32, 0
+  br i1 %tobool33.not, label %return, label %if.end36
+
+if.end36:                                         ; preds = %if.then31, %if.end28
   br label %return
 
-return:                                           ; preds = %if.then4.i21, %if.then.i26, %if.then4.i, %if.then.i, %if.then31, %if.end28, %if.then23, %if.end, %entry
-  %retval.0 = phi i32 [ 1, %entry ], [ 0, %if.end ], [ 0, %if.then23 ], [ 1, %if.end28 ], [ %spec.select, %if.then31 ], [ 0, %if.then.i ], [ 0, %if.then4.i ], [ 0, %if.then.i26 ], [ 0, %if.then4.i21 ]
+return:                                           ; preds = %if.then4.i21, %if.then.i26, %if.then4.i, %if.then.i, %if.then31, %if.then23, %if.end, %entry, %if.end36
+  %retval.0 = phi i32 [ 1, %if.end36 ], [ 1, %entry ], [ 0, %if.end ], [ 0, %if.then23 ], [ 0, %if.then31 ], [ 0, %if.then.i ], [ 0, %if.then4.i ], [ 0, %if.then.i26 ], [ 0, %if.then4.i21 ]
   ret i32 %retval.0
 }
 

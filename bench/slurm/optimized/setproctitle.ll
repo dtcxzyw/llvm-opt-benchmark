@@ -26,7 +26,7 @@ define void @setproctitle(ptr noundef readonly %0, ...) local_unnamed_addr #0 {
   %5 = load ptr, ptr @ps_buffer, align 8
   %6 = icmp eq ptr %5, null
   %or.cond = select i1 %4, i1 true, i1 %6
-  br i1 %or.cond, label %28, label %7
+  br i1 %or.cond, label %27, label %7
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %3, i64 8
@@ -39,32 +39,30 @@ define void @setproctitle(ptr noundef readonly %0, ...) local_unnamed_addr #0 {
 
 12:                                               ; preds = %7
   %13 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %5, i64 noundef %10, ptr noundef nonnull @.str, ptr noundef %11) #13
-  br label %22
+  br label %21
 
 14:                                               ; preds = %7
   %15 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %5, i64 noundef %10, ptr noundef nonnull @.str.1, ptr noundef %11) #13
-  %16 = icmp eq i32 %15, -1
   %.pre = load i64, ptr @ps_buffer_size, align 8
-  %17 = sext i32 %15 to i64
-  %spec.select = call i64 @llvm.umin.i64(i64 %.pre, i64 %17)
-  %.0 = select i1 %16, i64 %.pre, i64 %spec.select
-  %18 = load ptr, ptr @ps_buffer, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 %.0
-  %20 = sub i64 %.pre, %.0
-  %21 = call i32 @vsnprintf(ptr noundef %19, i64 noundef %20, ptr noundef nonnull %0, ptr noundef nonnull %2) #13
-  br label %22
+  %16 = sext i32 %15 to i64
+  %.0 = call i64 @llvm.umin.i64(i64 %.pre, i64 %16)
+  %17 = load ptr, ptr @ps_buffer, align 8
+  %18 = getelementptr inbounds i8, ptr %17, i64 %.0
+  %19 = sub i64 %.pre, %.0
+  %20 = call i32 @vsnprintf(ptr noundef %18, i64 noundef %19, ptr noundef nonnull %0, ptr noundef nonnull %2) #13
+  br label %21
 
-22:                                               ; preds = %14, %12
+21:                                               ; preds = %14, %12
   call void @llvm.va_end.p0(ptr nonnull %2)
-  %23 = load ptr, ptr @ps_buffer, align 8
-  %24 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #14
-  %25 = getelementptr inbounds i8, ptr %23, i64 %24
-  %26 = load i64, ptr @ps_buffer_size, align 8
-  %27 = sub i64 %26, %24
-  call void @llvm.memset.p0.i64(ptr align 1 %25, i8 0, i64 %27, i1 false)
-  br label %28
+  %22 = load ptr, ptr @ps_buffer, align 8
+  %23 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #14
+  %24 = getelementptr inbounds i8, ptr %22, i64 %23
+  %25 = load i64, ptr @ps_buffer_size, align 8
+  %26 = sub i64 %25, %23
+  call void @llvm.memset.p0.i64(ptr align 1 %24, i8 0, i64 %26, i1 false)
+  br label %27
 
-28:                                               ; preds = %1, %22
+27:                                               ; preds = %1, %21
   ret void
 }
 

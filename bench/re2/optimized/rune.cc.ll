@@ -191,7 +191,7 @@ _ZN3re210runetocharEPcPKi.exit:                   ; preds = %if.end10.i, %if.end
 define noundef i32 @_ZN3re28fullruneEPKci(ptr nocapture noundef readonly %str, i32 noundef %n) local_unnamed_addr #2 {
 entry:
   %cmp = icmp sgt i32 %n, 0
-  br i1 %cmp, label %if.then, label %return
+  br i1 %cmp, label %if.then, label %if.end16
 
 if.then:                                          ; preds = %entry
   %0 = load i8, ptr %str, align 1
@@ -200,7 +200,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then
   %cmp3.not = icmp eq i32 %n, 1
-  br i1 %cmp3.not, label %return, label %if.then4
+  br i1 %cmp3.not, label %if.end16, label %if.then4
 
 if.then4:                                         ; preds = %if.end
   %cmp5 = icmp ult i8 %0, -32
@@ -208,17 +208,19 @@ if.then4:                                         ; preds = %if.end
 
 if.end7:                                          ; preds = %if.then4
   %cmp8 = icmp ugt i32 %n, 2
-  br i1 %cmp8, label %if.then9, label %return
+  br i1 %cmp8, label %if.then9, label %if.end16
 
 if.then9:                                         ; preds = %if.end7
   %cmp10 = icmp ult i8 %0, -16
   %cmp11 = icmp ne i32 %n, 3
   %or.cond = or i1 %cmp11, %cmp10
-  %spec.select = zext i1 %or.cond to i32
+  br i1 %or.cond, label %return, label %if.end16
+
+if.end16:                                         ; preds = %if.end, %if.then9, %if.end7, %entry
   br label %return
 
-return:                                           ; preds = %if.then9, %entry, %if.end7, %if.end, %if.then4, %if.then
-  %retval.0 = phi i32 [ 1, %if.then ], [ 1, %if.then4 ], [ 0, %if.end ], [ 0, %if.end7 ], [ 0, %entry ], [ %spec.select, %if.then9 ]
+return:                                           ; preds = %if.then9, %if.then4, %if.then, %if.end16
+  %retval.0 = phi i32 [ 0, %if.end16 ], [ 1, %if.then ], [ 1, %if.then4 ], [ 1, %if.then9 ]
   ret i32 %retval.0
 }
 

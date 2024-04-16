@@ -29,7 +29,7 @@ define i32 @LAPACKE_dgesvd_work(i32 noundef %0, i8 noundef signext %1, i8 nounde
   store i32 %13, ptr %22, align 4, !tbaa !6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23) #7
   store i32 0, ptr %23, align 4, !tbaa !6
-  switch i32 %0, label %146 [
+  switch i32 %0, label %145 [
     i32 102, label %27
     i32 101, label %29
   ]
@@ -39,255 +39,255 @@ define i32 @LAPACKE_dgesvd_work(i32 noundef %0, i8 noundef signext %1, i8 nounde
   %28 = load i32, ptr %23, align 4, !tbaa !6
   %.lobit = ashr i32 %28, 31
   %spec.select = add nsw i32 %28, %.lobit
-  br label %147
+  br label %146
 
 29:                                               ; preds = %14
   %30 = tail call i32 @LAPACKE_lsame(i8 noundef signext %1, i8 noundef signext 97) #8
   %31 = icmp eq i32 %30, 0
-  br i1 %31, label %32, label %37
+  br i1 %31, label %.thread8, label %36
 
-32:                                               ; preds = %29
-  %33 = tail call i32 @LAPACKE_lsame(i8 noundef signext %1, i8 noundef signext 115) #8
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %37, label %35
+.thread8:                                         ; preds = %29
+  %32 = tail call i32 @LAPACKE_lsame(i8 noundef signext %1, i8 noundef signext 115) #8
+  %33 = icmp eq i32 %32, 0
+  br i1 %33, label %36, label %34
 
-35:                                               ; preds = %32
-  %36 = tail call i32 @llvm.smin.i32(i32 %3, i32 %4)
-  br label %37
+34:                                               ; preds = %.thread8
+  %35 = tail call i32 @llvm.smin.i32(i32 %3, i32 %4)
+  br label %36
 
-37:                                               ; preds = %29, %35, %32
-  %38 = phi i32 [ %3, %35 ], [ 1, %32 ], [ %3, %29 ]
-  %39 = phi i32 [ %36, %35 ], [ 1, %32 ], [ %3, %29 ]
-  %40 = tail call i32 @LAPACKE_lsame(i8 noundef signext %2, i8 noundef signext 97) #8
-  %41 = icmp eq i32 %40, 0
-  br i1 %41, label %42, label %46
+36:                                               ; preds = %29, %34, %.thread8
+  %37 = phi i32 [ %3, %34 ], [ 1, %.thread8 ], [ %3, %29 ]
+  %38 = phi i32 [ %35, %34 ], [ 1, %.thread8 ], [ %3, %29 ]
+  %39 = tail call i32 @LAPACKE_lsame(i8 noundef signext %2, i8 noundef signext 97) #8
+  %40 = icmp eq i32 %39, 0
+  br i1 %40, label %41, label %45
 
-42:                                               ; preds = %37
-  %43 = tail call i32 @LAPACKE_lsame(i8 noundef signext %2, i8 noundef signext 115) #8
-  %44 = icmp eq i32 %43, 0
-  %45 = tail call i32 @llvm.smin.i32(i32 %3, i32 %4)
-  %.ph = select i1 %44, i32 1, i32 %45
-  %spec.select1 = select i1 %44, i32 1, i32 %4
-  br label %46
+41:                                               ; preds = %36
+  %42 = tail call i32 @LAPACKE_lsame(i8 noundef signext %2, i8 noundef signext 115) #8
+  %43 = icmp eq i32 %42, 0
+  %44 = tail call i32 @llvm.smin.i32(i32 %3, i32 %4)
+  %.ph = select i1 %43, i32 1, i32 %44
+  %spec.select16 = select i1 %43, i32 1, i32 %4
+  br label %45
 
-46:                                               ; preds = %37, %42
-  %47 = phi i32 [ %.ph, %42 ], [ %4, %37 ]
-  %48 = phi i32 [ %spec.select1, %42 ], [ %4, %37 ]
+45:                                               ; preds = %41, %36
+  %46 = phi i32 [ %4, %36 ], [ %.ph, %41 ]
+  %47 = phi i32 [ %4, %36 ], [ %spec.select16, %41 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24) #7
-  %49 = tail call i32 @llvm.smax.i32(i32 %3, i32 1)
-  store i32 %49, ptr %24, align 4, !tbaa !6
+  %48 = tail call i32 @llvm.smax.i32(i32 %3, i32 1)
+  store i32 %48, ptr %24, align 4, !tbaa !6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25) #7
-  %50 = tail call i32 @llvm.smax.i32(i32 %38, i32 1)
-  store i32 %50, ptr %25, align 4, !tbaa !6
+  %49 = tail call i32 @llvm.smax.i32(i32 %37, i32 1)
+  store i32 %49, ptr %25, align 4, !tbaa !6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26) #7
-  %51 = tail call i32 @llvm.smax.i32(i32 %47, i32 1)
-  store i32 %51, ptr %26, align 4, !tbaa !6
-  %52 = icmp slt i32 %6, %4
-  br i1 %52, label %53, label %54
+  %50 = tail call i32 @llvm.smax.i32(i32 %46, i32 1)
+  store i32 %50, ptr %26, align 4, !tbaa !6
+  %51 = icmp slt i32 %6, %4
+  br i1 %51, label %52, label %53
 
-53:                                               ; preds = %46
+52:                                               ; preds = %45
   tail call void @LAPACKE_xerbla(ptr noundef nonnull @.str, i32 noundef -7) #7
   br label %.thread15
 
-54:                                               ; preds = %46
-  %55 = icmp sgt i32 %39, %9
-  br i1 %55, label %56, label %57
+53:                                               ; preds = %45
+  %54 = icmp sgt i32 %38, %9
+  br i1 %54, label %55, label %56
 
-56:                                               ; preds = %54
+55:                                               ; preds = %53
   tail call void @LAPACKE_xerbla(ptr noundef nonnull @.str, i32 noundef -10) #7
   br label %.thread15
 
-57:                                               ; preds = %54
-  %58 = icmp sgt i32 %48, %11
-  br i1 %58, label %59, label %60
+56:                                               ; preds = %53
+  %57 = icmp sgt i32 %47, %11
+  br i1 %57, label %58, label %59
 
-59:                                               ; preds = %57
+58:                                               ; preds = %56
   tail call void @LAPACKE_xerbla(ptr noundef nonnull @.str, i32 noundef -12) #7
   br label %.thread15
 
-60:                                               ; preds = %57
-  %61 = icmp eq i32 %13, -1
-  br i1 %61, label %62, label %66
+59:                                               ; preds = %56
+  %60 = icmp eq i32 %13, -1
+  br i1 %60, label %61, label %65
 
-62:                                               ; preds = %60
+61:                                               ; preds = %59
   call void @dgesvd_(ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef %5, ptr noundef nonnull %24, ptr noundef %7, ptr noundef %8, ptr noundef nonnull %25, ptr noundef %10, ptr noundef nonnull %26, ptr noundef %12, ptr noundef nonnull %22, ptr noundef nonnull %23, i64 noundef 1, i64 noundef 1) #7
-  %63 = load i32, ptr %23, align 4
-  %64 = ashr i32 %63, 31
-  %65 = add nsw i32 %64, %63
+  %62 = load i32, ptr %23, align 4
+  %63 = ashr i32 %62, 31
+  %64 = add nsw i32 %63, %62
   br label %.thread15
 
-66:                                               ; preds = %60
-  %67 = zext nneg i32 %49 to i64
-  %68 = shl nuw nsw i64 %67, 3
-  %69 = tail call i32 @llvm.smax.i32(i32 %4, i32 1)
-  %70 = zext nneg i32 %69 to i64
-  %71 = mul i64 %68, %70
-  %72 = tail call noalias ptr @malloc(i64 noundef %71) #9
-  %73 = icmp eq ptr %72, null
-  br i1 %73, label %.thread10, label %74
+65:                                               ; preds = %59
+  %66 = zext nneg i32 %48 to i64
+  %67 = shl nuw nsw i64 %66, 3
+  %68 = tail call i32 @llvm.smax.i32(i32 %4, i32 1)
+  %69 = zext nneg i32 %68 to i64
+  %70 = mul i64 %67, %69
+  %71 = tail call noalias ptr @malloc(i64 noundef %70) #9
+  %72 = icmp eq ptr %71, null
+  br i1 %72, label %.thread10, label %73
 
-.thread10:                                        ; preds = %66
+.thread10:                                        ; preds = %65
   store i32 -1011, ptr %23, align 4, !tbaa !6
-  br label %144
+  br label %143
 
-74:                                               ; preds = %66
-  br i1 %31, label %75, label %78
+73:                                               ; preds = %65
+  br i1 %31, label %74, label %77
 
-75:                                               ; preds = %74
-  %76 = tail call i32 @LAPACKE_lsame(i8 noundef signext %1, i8 noundef signext 115) #8
-  %77 = icmp eq i32 %76, 0
-  br i1 %77, label %86, label %78
+74:                                               ; preds = %73
+  %75 = tail call i32 @LAPACKE_lsame(i8 noundef signext %1, i8 noundef signext 115) #8
+  %76 = icmp eq i32 %75, 0
+  br i1 %76, label %85, label %77
 
-78:                                               ; preds = %75, %74
-  %79 = zext nneg i32 %50 to i64
-  %80 = shl nuw nsw i64 %79, 3
-  %81 = tail call i32 @llvm.smax.i32(i32 %39, i32 1)
-  %82 = zext nneg i32 %81 to i64
-  %83 = mul i64 %80, %82
-  %84 = tail call noalias ptr @malloc(i64 noundef %83) #9
-  %85 = icmp eq ptr %84, null
-  br i1 %85, label %.thread11, label %86
+77:                                               ; preds = %74, %73
+  %78 = zext nneg i32 %49 to i64
+  %79 = shl nuw nsw i64 %78, 3
+  %80 = tail call i32 @llvm.smax.i32(i32 %38, i32 1)
+  %81 = zext nneg i32 %80 to i64
+  %82 = mul i64 %79, %81
+  %83 = tail call noalias ptr @malloc(i64 noundef %82) #9
+  %84 = icmp eq ptr %83, null
+  br i1 %84, label %.thread11, label %85
 
-.thread11:                                        ; preds = %78
+.thread11:                                        ; preds = %77
   store i32 -1011, ptr %23, align 4, !tbaa !6
-  tail call void @free(ptr noundef nonnull %72) #7
-  br label %144
+  tail call void @free(ptr noundef nonnull %71) #7
+  br label %143
 
-86:                                               ; preds = %78, %75
-  %87 = phi ptr [ %84, %78 ], [ null, %75 ]
-  br i1 %41, label %88, label %91
+85:                                               ; preds = %77, %74
+  %86 = phi ptr [ %83, %77 ], [ null, %74 ]
+  br i1 %40, label %87, label %90
 
-88:                                               ; preds = %86
-  %89 = tail call i32 @LAPACKE_lsame(i8 noundef signext %2, i8 noundef signext 115) #8
-  %90 = icmp eq i32 %89, 0
-  br i1 %90, label %98, label %91
+87:                                               ; preds = %85
+  %88 = tail call i32 @LAPACKE_lsame(i8 noundef signext %2, i8 noundef signext 115) #8
+  %89 = icmp eq i32 %88, 0
+  br i1 %89, label %97, label %90
 
-91:                                               ; preds = %88, %86
-  %92 = zext nneg i32 %51 to i64
-  %93 = shl nuw nsw i64 %70, 3
-  %94 = mul i64 %93, %92
-  %95 = tail call noalias ptr @malloc(i64 noundef %94) #9
-  %96 = icmp eq ptr %95, null
-  br i1 %96, label %97, label %98
+90:                                               ; preds = %87, %85
+  %91 = zext nneg i32 %50 to i64
+  %92 = shl nuw nsw i64 %69, 3
+  %93 = mul i64 %92, %91
+  %94 = tail call noalias ptr @malloc(i64 noundef %93) #9
+  %95 = icmp eq ptr %94, null
+  br i1 %95, label %96, label %97
 
-97:                                               ; preds = %91
+96:                                               ; preds = %90
   store i32 -1011, ptr %23, align 4, !tbaa !6
-  br label %134
+  br label %133
 
-98:                                               ; preds = %91, %88
-  %99 = phi ptr [ %95, %91 ], [ null, %88 ]
-  tail call void @LAPACKE_dge_trans(i32 noundef 101, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull %72, i32 noundef %49) #7
-  call void @dgesvd_(ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %72, ptr noundef nonnull %24, ptr noundef %7, ptr noundef %87, ptr noundef nonnull %25, ptr noundef %99, ptr noundef nonnull %26, ptr noundef %12, ptr noundef nonnull %22, ptr noundef nonnull %23, i64 noundef 1, i64 noundef 1) #7
-  %100 = load i32, ptr %23, align 4, !tbaa !6
-  %101 = icmp slt i32 %100, 0
-  br i1 %101, label %102, label %104
+97:                                               ; preds = %90, %87
+  %98 = phi ptr [ %94, %90 ], [ null, %87 ]
+  tail call void @LAPACKE_dge_trans(i32 noundef 101, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull %71, i32 noundef %48) #7
+  call void @dgesvd_(ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %71, ptr noundef nonnull %24, ptr noundef %7, ptr noundef %86, ptr noundef nonnull %25, ptr noundef %98, ptr noundef nonnull %26, ptr noundef %12, ptr noundef nonnull %22, ptr noundef nonnull %23, i64 noundef 1, i64 noundef 1) #7
+  %99 = load i32, ptr %23, align 4, !tbaa !6
+  %100 = icmp slt i32 %99, 0
+  br i1 %100, label %101, label %103
 
-102:                                              ; preds = %98
-  %103 = add nsw i32 %100, -1
-  store i32 %103, ptr %23, align 4, !tbaa !6
-  br label %104
+101:                                              ; preds = %97
+  %102 = add nsw i32 %99, -1
+  store i32 %102, ptr %23, align 4, !tbaa !6
+  br label %103
 
-104:                                              ; preds = %102, %98
-  %105 = load i32, ptr %17, align 4, !tbaa !6
-  %106 = load i32, ptr %18, align 4, !tbaa !6
-  %107 = load i32, ptr %24, align 4, !tbaa !6
-  call void @LAPACKE_dge_trans(i32 noundef 102, i32 noundef %105, i32 noundef %106, ptr noundef nonnull %72, i32 noundef %107, ptr noundef %5, i32 noundef %6) #7
-  %108 = load i8, ptr %15, align 1, !tbaa !3
-  %109 = call i32 @LAPACKE_lsame(i8 noundef signext %108, i8 noundef signext 97) #8
-  %110 = icmp eq i32 %109, 0
-  br i1 %110, label %111, label %114
+103:                                              ; preds = %101, %97
+  %104 = load i32, ptr %17, align 4, !tbaa !6
+  %105 = load i32, ptr %18, align 4, !tbaa !6
+  %106 = load i32, ptr %24, align 4, !tbaa !6
+  call void @LAPACKE_dge_trans(i32 noundef 102, i32 noundef %104, i32 noundef %105, ptr noundef nonnull %71, i32 noundef %106, ptr noundef %5, i32 noundef %6) #7
+  %107 = load i8, ptr %15, align 1, !tbaa !3
+  %108 = call i32 @LAPACKE_lsame(i8 noundef signext %107, i8 noundef signext 97) #8
+  %109 = icmp eq i32 %108, 0
+  br i1 %109, label %110, label %113
 
-111:                                              ; preds = %104
-  %112 = call i32 @LAPACKE_lsame(i8 noundef signext %108, i8 noundef signext 115) #8
-  %113 = icmp eq i32 %112, 0
-  br i1 %113, label %116, label %114
+110:                                              ; preds = %103
+  %111 = call i32 @LAPACKE_lsame(i8 noundef signext %107, i8 noundef signext 115) #8
+  %112 = icmp eq i32 %111, 0
+  br i1 %112, label %115, label %113
 
-114:                                              ; preds = %111, %104
-  %115 = load i32, ptr %25, align 4, !tbaa !6
-  call void @LAPACKE_dge_trans(i32 noundef 102, i32 noundef %38, i32 noundef %39, ptr noundef %87, i32 noundef %115, ptr noundef %8, i32 noundef %9) #7
-  br label %116
+113:                                              ; preds = %110, %103
+  %114 = load i32, ptr %25, align 4, !tbaa !6
+  call void @LAPACKE_dge_trans(i32 noundef 102, i32 noundef %37, i32 noundef %38, ptr noundef %86, i32 noundef %114, ptr noundef %8, i32 noundef %9) #7
+  br label %115
 
-116:                                              ; preds = %114, %111
-  %117 = load i8, ptr %16, align 1, !tbaa !3
-  %118 = call i32 @LAPACKE_lsame(i8 noundef signext %117, i8 noundef signext 97) #8
-  %119 = icmp eq i32 %118, 0
-  br i1 %119, label %120, label %123
+115:                                              ; preds = %113, %110
+  %116 = load i8, ptr %16, align 1, !tbaa !3
+  %117 = call i32 @LAPACKE_lsame(i8 noundef signext %116, i8 noundef signext 97) #8
+  %118 = icmp eq i32 %117, 0
+  br i1 %118, label %119, label %122
 
-120:                                              ; preds = %116
-  %121 = call i32 @LAPACKE_lsame(i8 noundef signext %117, i8 noundef signext 115) #8
-  %122 = icmp eq i32 %121, 0
-  br i1 %122, label %126, label %123
+119:                                              ; preds = %115
+  %120 = call i32 @LAPACKE_lsame(i8 noundef signext %116, i8 noundef signext 115) #8
+  %121 = icmp eq i32 %120, 0
+  br i1 %121, label %125, label %122
 
-123:                                              ; preds = %120, %116
-  %124 = load i32, ptr %18, align 4, !tbaa !6
-  %125 = load i32, ptr %26, align 4, !tbaa !6
-  call void @LAPACKE_dge_trans(i32 noundef 102, i32 noundef %47, i32 noundef %124, ptr noundef %99, i32 noundef %125, ptr noundef %10, i32 noundef %11) #7
+122:                                              ; preds = %119, %115
+  %123 = load i32, ptr %18, align 4, !tbaa !6
+  %124 = load i32, ptr %26, align 4, !tbaa !6
+  call void @LAPACKE_dge_trans(i32 noundef 102, i32 noundef %46, i32 noundef %123, ptr noundef %98, i32 noundef %124, ptr noundef %10, i32 noundef %11) #7
   %.pre = load i8, ptr %16, align 1, !tbaa !3
-  br label %126
+  br label %125
 
-126:                                              ; preds = %123, %120
-  %127 = phi i8 [ %.pre, %123 ], [ %117, %120 ]
-  %128 = call i32 @LAPACKE_lsame(i8 noundef signext %127, i8 noundef signext 97) #8
-  %129 = icmp eq i32 %128, 0
-  br i1 %129, label %130, label %133
+125:                                              ; preds = %122, %119
+  %126 = phi i8 [ %.pre, %122 ], [ %116, %119 ]
+  %127 = call i32 @LAPACKE_lsame(i8 noundef signext %126, i8 noundef signext 97) #8
+  %128 = icmp eq i32 %127, 0
+  br i1 %128, label %129, label %132
 
-130:                                              ; preds = %126
-  %131 = call i32 @LAPACKE_lsame(i8 noundef signext %127, i8 noundef signext 115) #8
-  %132 = icmp eq i32 %131, 0
-  br i1 %132, label %134, label %133
+129:                                              ; preds = %125
+  %130 = call i32 @LAPACKE_lsame(i8 noundef signext %126, i8 noundef signext 115) #8
+  %131 = icmp eq i32 %130, 0
+  br i1 %131, label %133, label %132
 
-133:                                              ; preds = %130, %126
-  call void @free(ptr noundef %99) #7
-  br label %134
+132:                                              ; preds = %129, %125
+  call void @free(ptr noundef %98) #7
+  br label %133
 
-134:                                              ; preds = %133, %130, %97
-  %135 = load i8, ptr %15, align 1, !tbaa !3
-  %136 = call i32 @LAPACKE_lsame(i8 noundef signext %135, i8 noundef signext 97) #8
-  %137 = icmp eq i32 %136, 0
-  br i1 %137, label %138, label %141
+133:                                              ; preds = %132, %129, %96
+  %134 = load i8, ptr %15, align 1, !tbaa !3
+  %135 = call i32 @LAPACKE_lsame(i8 noundef signext %134, i8 noundef signext 97) #8
+  %136 = icmp eq i32 %135, 0
+  br i1 %136, label %137, label %140
 
-138:                                              ; preds = %134
-  %139 = call i32 @LAPACKE_lsame(i8 noundef signext %135, i8 noundef signext 115) #8
-  %140 = icmp eq i32 %139, 0
-  br i1 %140, label %142, label %141
+137:                                              ; preds = %133
+  %138 = call i32 @LAPACKE_lsame(i8 noundef signext %134, i8 noundef signext 115) #8
+  %139 = icmp eq i32 %138, 0
+  br i1 %139, label %141, label %140
 
-141:                                              ; preds = %138, %134
-  call void @free(ptr noundef %87) #7
-  br label %142
+140:                                              ; preds = %137, %133
+  call void @free(ptr noundef %86) #7
+  br label %141
 
-142:                                              ; preds = %138, %141
+141:                                              ; preds = %137, %140
   %.pr.pr = load i32, ptr %23, align 4, !tbaa !6
-  call void @free(ptr noundef nonnull %72) #7
-  %143 = icmp eq i32 %.pr.pr, -1011
-  br i1 %143, label %144, label %145
+  call void @free(ptr noundef nonnull %71) #7
+  %142 = icmp eq i32 %.pr.pr, -1011
+  br i1 %142, label %143, label %144
 
-144:                                              ; preds = %.thread11, %.thread10, %142
+143:                                              ; preds = %.thread11, %.thread10, %141
   call void @LAPACKE_xerbla(ptr noundef nonnull @.str, i32 noundef -1011) #7
-  %.pre16.pre = load i32, ptr %23, align 4, !tbaa !6
-  br label %145
+  %.pre17.pre = load i32, ptr %23, align 4, !tbaa !6
+  br label %144
 
-.thread15:                                        ; preds = %53, %56, %59, %62
-  %.ph14 = phi i32 [ %65, %62 ], [ -12, %59 ], [ -10, %56 ], [ -7, %53 ]
+.thread15:                                        ; preds = %52, %55, %58, %61
+  %.ph14 = phi i32 [ %64, %61 ], [ -12, %58 ], [ -10, %55 ], [ -7, %52 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #7
-  br label %147
+  br label %146
 
-145:                                              ; preds = %144, %142
-  %.pre16 = phi i32 [ %.pre16.pre, %144 ], [ %.pr.pr, %142 ]
+144:                                              ; preds = %143, %141
+  %.pre17 = phi i32 [ %.pre17.pre, %143 ], [ %.pr.pr, %141 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #7
-  br label %147
+  br label %146
 
-146:                                              ; preds = %14
+145:                                              ; preds = %14
   tail call void @LAPACKE_xerbla(ptr noundef nonnull @.str, i32 noundef -1) #7
-  br label %147
+  br label %146
 
-147:                                              ; preds = %27, %146, %145, %.thread15
-  %148 = phi i32 [ %.ph14, %.thread15 ], [ %.pre16, %145 ], [ -1, %146 ], [ %spec.select, %27 ]
+146:                                              ; preds = %27, %145, %144, %.thread15
+  %147 = phi i32 [ %.ph14, %.thread15 ], [ %.pre17, %144 ], [ -1, %145 ], [ %spec.select, %27 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #7
-  ret i32 %148
+  ret i32 %147
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

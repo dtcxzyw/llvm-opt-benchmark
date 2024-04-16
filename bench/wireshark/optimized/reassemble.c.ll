@@ -62,19 +62,19 @@ define internal i32 @fragment_addresses_hash(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @fragment_addresses_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 {
+define internal noundef i32 @fragment_addresses_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 48
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %addresses_equal.exit11
+  br i1 %7, label %8, label %addresses_equal.exit
 
 8:                                                ; preds = %2
   %9 = load i32, ptr %0, align 8
   %10 = load i32, ptr %1, align 8
   %11 = icmp eq i32 %9, %10
-  br i1 %11, label %12, label %addresses_equal.exit11
+  br i1 %11, label %12, label %addresses_equal.exit
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds i8, ptr %0, i64 4
@@ -82,56 +82,58 @@ define internal i32 @fragment_addresses_equal(ptr nocapture noundef readonly %0,
   %15 = getelementptr inbounds i8, ptr %1, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %14, %16
-  br i1 %17, label %18, label %addresses_equal.exit11
+  br i1 %17, label %18, label %addresses_equal.exit
 
 18:                                               ; preds = %12
   %19 = icmp eq i32 %14, 0
-  br i1 %19, label %addresses_equal.exit.thread14, label %addresses_equal.exit
+  br i1 %19, label %27, label %20
 
-addresses_equal.exit:                             ; preds = %18
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
-  %23 = load ptr, ptr %22, align 8
-  %24 = sext i32 %14 to i64
-  %bcmp.i = tail call i32 @bcmp(ptr %21, ptr %23, i64 %24)
-  %.not = icmp eq i32 %bcmp.i, 0
-  br i1 %.not, label %addresses_equal.exit.thread14, label %addresses_equal.exit11
+20:                                               ; preds = %18
+  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = load ptr, ptr %23, align 8
+  %25 = sext i32 %14 to i64
+  %bcmp.i = tail call i32 @bcmp(ptr %22, ptr %24, i64 %25)
+  %26 = icmp eq i32 %bcmp.i, 0
+  br i1 %26, label %27, label %addresses_equal.exit
 
-addresses_equal.exit.thread14:                    ; preds = %18, %addresses_equal.exit
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
-  %26 = getelementptr inbounds i8, ptr %1, i64 24
-  %27 = load i32, ptr %25, align 8
-  %28 = load i32, ptr %26, align 8
-  %29 = icmp eq i32 %27, %28
-  br i1 %29, label %30, label %addresses_equal.exit11
+27:                                               ; preds = %20, %18
+  %28 = getelementptr inbounds i8, ptr %0, i64 24
+  %29 = getelementptr inbounds i8, ptr %1, i64 24
+  %30 = load i32, ptr %28, align 8
+  %31 = load i32, ptr %29, align 8
+  %32 = icmp eq i32 %30, %31
+  br i1 %32, label %33, label %48
 
-30:                                               ; preds = %addresses_equal.exit.thread14
-  %31 = getelementptr inbounds i8, ptr %0, i64 28
-  %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds i8, ptr %1, i64 28
-  %34 = load i32, ptr %33, align 4
-  %35 = icmp eq i32 %32, %34
-  br i1 %35, label %36, label %addresses_equal.exit11
+33:                                               ; preds = %27
+  %34 = getelementptr inbounds i8, ptr %0, i64 28
+  %35 = load i32, ptr %34, align 4
+  %36 = getelementptr inbounds i8, ptr %1, i64 28
+  %37 = load i32, ptr %36, align 4
+  %38 = icmp eq i32 %35, %37
+  br i1 %38, label %39, label %48
 
-36:                                               ; preds = %30
-  %37 = icmp eq i32 %32, 0
-  br i1 %37, label %addresses_equal.exit11, label %38
+39:                                               ; preds = %33
+  %40 = icmp eq i32 %35, 0
+  br i1 %40, label %addresses_equal.exit, label %41
 
-38:                                               ; preds = %36
-  %39 = getelementptr inbounds i8, ptr %0, i64 32
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 32
-  %42 = load ptr, ptr %41, align 8
-  %43 = sext i32 %32 to i64
-  %bcmp.i9 = tail call i32 @bcmp(ptr %40, ptr %42, i64 %43)
-  %44 = icmp eq i32 %bcmp.i9, 0
-  %spec.select.i10 = zext i1 %44 to i32
-  br label %addresses_equal.exit11
+41:                                               ; preds = %39
+  %42 = getelementptr inbounds i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds i8, ptr %1, i64 32
+  %45 = load ptr, ptr %44, align 8
+  %46 = sext i32 %35 to i64
+  %bcmp.i9 = tail call i32 @bcmp(ptr %43, ptr %45, i64 %46)
+  %47 = icmp eq i32 %bcmp.i9, 0
+  br i1 %47, label %addresses_equal.exit, label %48
 
-addresses_equal.exit11:                           ; preds = %8, %12, %38, %36, %30, %addresses_equal.exit.thread14, %addresses_equal.exit, %2
-  %45 = phi i32 [ 0, %addresses_equal.exit ], [ 0, %2 ], [ 1, %36 ], [ 0, %30 ], [ 0, %addresses_equal.exit.thread14 ], [ %spec.select.i10, %38 ], [ 0, %12 ], [ 0, %8 ]
-  ret i32 %45
+48:                                               ; preds = %41, %33, %27
+  br label %addresses_equal.exit
+
+addresses_equal.exit:                             ; preds = %48, %41, %39, %20, %12, %8, %2
+  %49 = phi i32 [ 0, %2 ], [ 0, %8 ], [ 0, %12 ], [ 0, %20 ], [ 0, %48 ], [ 1, %41 ], [ 1, %39 ]
+  ret i32 %49
 }
 
 ; Function Attrs: nounwind uwtable
@@ -294,13 +296,13 @@ define internal i32 @fragment_addresses_ports_equal(ptr nocapture noundef readon
   %5 = getelementptr inbounds i8, ptr %1, i64 56
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %addresses_equal.exit.thread
+  br i1 %7, label %8, label %addresses_equal.exit
 
 8:                                                ; preds = %2
   %9 = load i32, ptr %0, align 8
   %10 = load i32, ptr %1, align 8
   %11 = icmp eq i32 %9, %10
-  br i1 %11, label %12, label %addresses_equal.exit.thread
+  br i1 %11, label %12, label %addresses_equal.exit
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds i8, ptr %0, i64 4
@@ -308,72 +310,72 @@ define internal i32 @fragment_addresses_ports_equal(ptr nocapture noundef readon
   %15 = getelementptr inbounds i8, ptr %1, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %14, %16
-  br i1 %17, label %18, label %addresses_equal.exit.thread
+  br i1 %17, label %18, label %addresses_equal.exit
 
 18:                                               ; preds = %12
   %19 = icmp eq i32 %14, 0
-  br i1 %19, label %addresses_equal.exit.thread19, label %addresses_equal.exit
+  br i1 %19, label %27, label %20
 
-addresses_equal.exit:                             ; preds = %18
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
-  %23 = load ptr, ptr %22, align 8
-  %24 = sext i32 %14 to i64
-  %bcmp.i = tail call i32 @bcmp(ptr %21, ptr %23, i64 %24)
-  %.not = icmp eq i32 %bcmp.i, 0
-  br i1 %.not, label %addresses_equal.exit.thread19, label %addresses_equal.exit.thread
+20:                                               ; preds = %18
+  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = load ptr, ptr %23, align 8
+  %25 = sext i32 %14 to i64
+  %bcmp.i = tail call i32 @bcmp(ptr %22, ptr %24, i64 %25)
+  %26 = icmp eq i32 %bcmp.i, 0
+  br i1 %26, label %27, label %addresses_equal.exit
 
-addresses_equal.exit.thread19:                    ; preds = %18, %addresses_equal.exit
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
-  %26 = getelementptr inbounds i8, ptr %1, i64 24
-  %27 = load i32, ptr %25, align 8
-  %28 = load i32, ptr %26, align 8
-  %29 = icmp eq i32 %27, %28
-  br i1 %29, label %30, label %addresses_equal.exit.thread
+27:                                               ; preds = %20, %18
+  %28 = getelementptr inbounds i8, ptr %0, i64 24
+  %29 = getelementptr inbounds i8, ptr %1, i64 24
+  %30 = load i32, ptr %28, align 8
+  %31 = load i32, ptr %29, align 8
+  %32 = icmp eq i32 %30, %31
+  br i1 %32, label %33, label %addresses_equal.exit
 
-30:                                               ; preds = %addresses_equal.exit.thread19
-  %31 = getelementptr inbounds i8, ptr %0, i64 28
-  %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds i8, ptr %1, i64 28
-  %34 = load i32, ptr %33, align 4
-  %35 = icmp eq i32 %32, %34
-  br i1 %35, label %36, label %addresses_equal.exit.thread
+33:                                               ; preds = %27
+  %34 = getelementptr inbounds i8, ptr %0, i64 28
+  %35 = load i32, ptr %34, align 4
+  %36 = getelementptr inbounds i8, ptr %1, i64 28
+  %37 = load i32, ptr %36, align 4
+  %38 = icmp eq i32 %35, %37
+  br i1 %38, label %39, label %addresses_equal.exit
 
-36:                                               ; preds = %30
-  %37 = icmp eq i32 %32, 0
-  br i1 %37, label %addresses_equal.exit16.thread24, label %addresses_equal.exit16
+39:                                               ; preds = %33
+  %40 = icmp eq i32 %35, 0
+  br i1 %40, label %48, label %41
 
-addresses_equal.exit16:                           ; preds = %36
-  %38 = getelementptr inbounds i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %1, i64 32
-  %41 = load ptr, ptr %40, align 8
-  %42 = sext i32 %32 to i64
-  %bcmp.i14 = tail call i32 @bcmp(ptr %39, ptr %41, i64 %42)
-  %.not27 = icmp eq i32 %bcmp.i14, 0
-  br i1 %.not27, label %addresses_equal.exit16.thread24, label %addresses_equal.exit.thread
+41:                                               ; preds = %39
+  %42 = getelementptr inbounds i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds i8, ptr %1, i64 32
+  %45 = load ptr, ptr %44, align 8
+  %46 = sext i32 %35 to i64
+  %bcmp.i14 = tail call i32 @bcmp(ptr %43, ptr %45, i64 %46)
+  %47 = icmp eq i32 %bcmp.i14, 0
+  br i1 %47, label %48, label %addresses_equal.exit
 
-addresses_equal.exit16.thread24:                  ; preds = %36, %addresses_equal.exit16
-  %43 = getelementptr inbounds i8, ptr %0, i64 48
-  %44 = load i32, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %1, i64 48
-  %46 = load i32, ptr %45, align 8
-  %47 = icmp eq i32 %44, %46
-  br i1 %47, label %48, label %addresses_equal.exit.thread
-
-48:                                               ; preds = %addresses_equal.exit16.thread24
-  %49 = getelementptr inbounds i8, ptr %0, i64 52
-  %50 = load i32, ptr %49, align 4
-  %51 = getelementptr inbounds i8, ptr %1, i64 52
-  %52 = load i32, ptr %51, align 4
+48:                                               ; preds = %41, %39
+  %49 = getelementptr inbounds i8, ptr %0, i64 48
+  %50 = load i32, ptr %49, align 8
+  %51 = getelementptr inbounds i8, ptr %1, i64 48
+  %52 = load i32, ptr %51, align 8
   %53 = icmp eq i32 %50, %52
-  %54 = zext i1 %53 to i32
-  br label %addresses_equal.exit.thread
+  br i1 %53, label %54, label %addresses_equal.exit
 
-addresses_equal.exit.thread:                      ; preds = %addresses_equal.exit.thread19, %30, %8, %12, %48, %addresses_equal.exit16.thread24, %addresses_equal.exit16, %addresses_equal.exit, %2
-  %55 = phi i32 [ 0, %addresses_equal.exit16.thread24 ], [ 0, %addresses_equal.exit16 ], [ 0, %addresses_equal.exit ], [ 0, %2 ], [ %54, %48 ], [ 0, %12 ], [ 0, %8 ], [ 0, %30 ], [ 0, %addresses_equal.exit.thread19 ]
-  ret i32 %55
+54:                                               ; preds = %48
+  %55 = getelementptr inbounds i8, ptr %0, i64 52
+  %56 = load i32, ptr %55, align 4
+  %57 = getelementptr inbounds i8, ptr %1, i64 52
+  %58 = load i32, ptr %57, align 4
+  %59 = icmp eq i32 %56, %58
+  %60 = zext i1 %59 to i32
+  br label %addresses_equal.exit
+
+addresses_equal.exit:                             ; preds = %41, %33, %27, %20, %12, %8, %54, %48, %2
+  %61 = phi i32 [ 0, %48 ], [ 0, %2 ], [ %60, %54 ], [ 0, %8 ], [ 0, %12 ], [ 0, %20 ], [ 0, %27 ], [ 0, %33 ], [ 0, %41 ]
+  ret i32 %61
 }
 
 ; Function Attrs: nounwind uwtable

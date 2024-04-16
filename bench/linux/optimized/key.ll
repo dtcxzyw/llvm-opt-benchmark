@@ -1142,6 +1142,9 @@ define dso_local noundef ptr @key_lookup(i32 noundef %0) #0 align 16 {
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.loopexit, label %.preheader6, !llvm.loop !21
 
+.loopexit:                                        ; preds = %10, %32, %1
+  br label %34
+
 15:                                               ; preds = %8
   %16 = getelementptr i8, ptr %4, i64 -8
   %17 = load volatile i32, ptr %16, align 4
@@ -1176,13 +1179,12 @@ define dso_local noundef ptr @key_lookup(i32 noundef %0) #0 align 16 {
 
 32:                                               ; preds = %31, %.thread
   %33 = icmp eq i32 %27, 0
-  %spec.select = select i1 %33, ptr inttoptr (i64 -126 to ptr), ptr %16
-  br label %.loopexit
+  br i1 %33, label %.loopexit, label %34
 
-.loopexit:                                        ; preds = %10, %32, %1
-  %34 = phi ptr [ inttoptr (i64 -126 to ptr), %1 ], [ %spec.select, %32 ], [ inttoptr (i64 -126 to ptr), %10 ]
+34:                                               ; preds = %32, %.loopexit
+  %35 = phi ptr [ %16, %32 ], [ inttoptr (i64 -126 to ptr), %.loopexit ]
   tail call void @_raw_spin_unlock(ptr noundef nonnull @key_serial_lock) #11
-  ret ptr %34
+  ret ptr %35
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

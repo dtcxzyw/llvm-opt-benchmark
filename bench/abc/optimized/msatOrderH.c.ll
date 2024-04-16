@@ -257,21 +257,26 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   %40 = sext i32 %39 to i64
   br i1 %.not.i, label %Msat_HeapPercolateDown.exit.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %36, %73
-  %41 = phi i32 [ %87, %73 ], [ %34, %36 ]
-  %42 = phi ptr [ %85, %73 ], [ %32, %36 ]
-  %43 = phi i32 [ %84, %73 ], [ 2, %36 ]
-  %.03337.i.i = phi i32 [ %.0.i.i, %73 ], [ 1, %36 ]
+.lr.ph.i.i:                                       ; preds = %36, %70
+  %41 = phi i32 [ %84, %70 ], [ %34, %36 ]
+  %42 = phi ptr [ %82, %70 ], [ %32, %36 ]
+  %43 = phi i32 [ %81, %70 ], [ 2, %36 ]
+  %.03337.i.i = phi i32 [ %.0.i.i, %70 ], [ 1, %36 ]
   %44 = or disjoint i32 %43, 1
   %45 = icmp slt i32 %44, %41
-  %.pre.i.i = load ptr, ptr %0, align 8
-  %46 = getelementptr inbounds i8, ptr %.pre.i.i, i64 40
+  %.pre.pre.i.i = load ptr, ptr %0, align 8
+  %46 = getelementptr inbounds i8, ptr %.pre.pre.i.i, i64 40
   %47 = load ptr, ptr %46, align 8
   %48 = load ptr, ptr %42, align 8
-  br i1 %45, label %49, label %._crit_edge42.i.i
+  br i1 %45, label %49, label %._crit_edge51.i.i
 
-._crit_edge42.i.i:                                ; preds = %.lr.ph.i.i
-  %.pre45.i.i = sext i32 %43 to i64
+._crit_edge51.i.i:                                ; preds = %.lr.ph.i.i
+  %.pre.i.i = sext i32 %43 to i64
+  %.phi.trans.insert45.phi.trans.insert.i.i = getelementptr inbounds i32, ptr %48, i64 %.pre.i.i
+  %.pre46.pre.i.i = load i32, ptr %.phi.trans.insert45.phi.trans.insert.i.i, align 4
+  %.phi.trans.insert47.phi.trans.insert.i.i = sext i32 %.pre46.pre.i.i to i64
+  %.phi.trans.insert48.phi.trans.insert.i.i = getelementptr inbounds double, ptr %47, i64 %.phi.trans.insert47.phi.trans.insert.i.i
+  %.pre49.pre.i.i = load double, ptr %.phi.trans.insert48.phi.trans.insert.i.i, align 8
   br label %64
 
 49:                                               ; preds = %.lr.ph.i.i
@@ -293,86 +298,82 @@ Abc_Clock.exit:                                   ; preds = %1, %6
 63:                                               ; preds = %49
   br label %64
 
-64:                                               ; preds = %63, %49, %._crit_edge42.i.i
-  %.pre-phi.i.i = phi i64 [ %.pre45.i.i, %._crit_edge42.i.i ], [ %50, %49 ], [ %56, %63 ]
-  %.0.i.i = phi i32 [ %43, %._crit_edge42.i.i ], [ %44, %49 ], [ %43, %63 ]
-  %65 = getelementptr inbounds i32, ptr %48, i64 %.pre-phi.i.i
-  %66 = load i32, ptr %65, align 4
-  %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds double, ptr %47, i64 %67
-  %69 = load double, ptr %68, align 8
-  %70 = getelementptr inbounds double, ptr %47, i64 %40
-  %71 = load double, ptr %70, align 8
-  %72 = fcmp ogt double %69, %71
-  br i1 %72, label %73, label %Msat_HeapPercolateDown.exit.i
+64:                                               ; preds = %63, %49, %._crit_edge51.i.i
+  %65 = phi double [ %55, %49 ], [ %.pre49.pre.i.i, %._crit_edge51.i.i ], [ %61, %63 ]
+  %66 = phi i32 [ %52, %49 ], [ %.pre46.pre.i.i, %._crit_edge51.i.i ], [ %58, %63 ]
+  %.0.i.i = phi i32 [ %44, %49 ], [ %43, %._crit_edge51.i.i ], [ %43, %63 ]
+  %67 = getelementptr inbounds double, ptr %47, i64 %40
+  %68 = load double, ptr %67, align 8
+  %69 = fcmp ogt double %65, %68
+  br i1 %69, label %70, label %Msat_HeapPercolateDown.exit.i
 
-73:                                               ; preds = %64
-  %74 = sext i32 %.03337.i.i to i64
-  %75 = getelementptr inbounds i32, ptr %48, i64 %74
-  store i32 %66, ptr %75, align 4
-  %76 = load ptr, ptr %11, align 8
-  %77 = load ptr, ptr %76, align 8
-  %78 = load ptr, ptr %10, align 8
-  %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i32, ptr %79, i64 %74
-  %81 = load i32, ptr %80, align 4
-  %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds i32, ptr %77, i64 %82
-  store i32 %.03337.i.i, ptr %83, align 4
-  %84 = shl i32 %.0.i.i, 1
-  %85 = load ptr, ptr %10, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 8
-  %87 = load i32, ptr %86, align 8
-  %88 = icmp slt i32 %84, %87
-  br i1 %88, label %.lr.ph.i.i, label %.._crit_edge.loopexit_crit_edge.i.i, !llvm.loop !8
+70:                                               ; preds = %64
+  %71 = sext i32 %.03337.i.i to i64
+  %72 = getelementptr inbounds i32, ptr %48, i64 %71
+  store i32 %66, ptr %72, align 4
+  %73 = load ptr, ptr %11, align 8
+  %74 = load ptr, ptr %73, align 8
+  %75 = load ptr, ptr %10, align 8
+  %76 = load ptr, ptr %75, align 8
+  %77 = getelementptr inbounds i32, ptr %76, i64 %71
+  %78 = load i32, ptr %77, align 4
+  %79 = sext i32 %78 to i64
+  %80 = getelementptr inbounds i32, ptr %74, i64 %79
+  store i32 %.03337.i.i, ptr %80, align 4
+  %81 = shl i32 %.0.i.i, 1
+  %82 = load ptr, ptr %10, align 8
+  %83 = getelementptr inbounds i8, ptr %82, i64 8
+  %84 = load i32, ptr %83, align 8
+  %85 = icmp slt i32 %81, %84
+  br i1 %85, label %.lr.ph.i.i, label %.._crit_edge.loopexit_crit_edge.i.i, !llvm.loop !8
 
-.._crit_edge.loopexit_crit_edge.i.i:              ; preds = %73
-  %.pre46.pre.i.i = load ptr, ptr %85, align 8
+.._crit_edge.loopexit_crit_edge.i.i:              ; preds = %70
+  %.pre50.pre.i.i = load ptr, ptr %82, align 8
   br label %Msat_HeapPercolateDown.exit.i
 
 Msat_HeapPercolateDown.exit.i:                    ; preds = %64, %.._crit_edge.loopexit_crit_edge.i.i, %36
-  %89 = phi ptr [ %.pre46.pre.i.i, %.._crit_edge.loopexit_crit_edge.i.i ], [ %37, %36 ], [ %48, %64 ]
+  %86 = phi ptr [ %.pre50.pre.i.i, %.._crit_edge.loopexit_crit_edge.i.i ], [ %37, %36 ], [ %48, %64 ]
   %.033.lcssa.i.i = phi i32 [ %.0.i.i, %.._crit_edge.loopexit_crit_edge.i.i ], [ 1, %36 ], [ %.03337.i.i, %64 ]
-  %90 = sext i32 %.033.lcssa.i.i to i64
-  %91 = getelementptr inbounds i32, ptr %89, i64 %90
-  store i32 %39, ptr %91, align 4
-  %92 = load ptr, ptr %11, align 8
-  %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds i32, ptr %93, i64 %40
-  store i32 %.033.lcssa.i.i, ptr %94, align 4
+  %87 = sext i32 %.033.lcssa.i.i to i64
+  %88 = getelementptr inbounds i32, ptr %86, i64 %87
+  store i32 %39, ptr %88, align 4
+  %89 = load ptr, ptr %11, align 8
+  %90 = load ptr, ptr %89, align 8
+  %91 = getelementptr inbounds i32, ptr %90, i64 %40
+  store i32 %.033.lcssa.i.i, ptr %91, align 4
   br label %Msat_HeapGetTop.exit
 
 Msat_HeapGetTop.exit:                             ; preds = %16, %Msat_HeapPercolateDown.exit.i
-  %95 = load ptr, ptr %0, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 104
-  %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds i32, ptr %97, i64 %30
-  %99 = load i32, ptr %98, align 4
-  %100 = icmp eq i32 %99, -1
-  br i1 %100, label %101, label %12, !llvm.loop !9
+  %92 = load ptr, ptr %0, align 8
+  %93 = getelementptr inbounds i8, ptr %92, i64 104
+  %94 = load ptr, ptr %93, align 8
+  %95 = getelementptr inbounds i32, ptr %94, i64 %30
+  %96 = load i32, ptr %95, align 4
+  %97 = icmp eq i32 %96, -1
+  br i1 %97, label %98, label %12, !llvm.loop !9
 
-101:                                              ; preds = %Msat_HeapGetTop.exit
+98:                                               ; preds = %Msat_HeapGetTop.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  %102 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #9
-  %103 = icmp slt i32 %102, 0
-  br i1 %103, label %Abc_Clock.exit7, label %104
+  %99 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #9
+  %100 = icmp slt i32 %99, 0
+  br i1 %100, label %Abc_Clock.exit7, label %101
 
-104:                                              ; preds = %101
-  %105 = load i64, ptr %2, align 8
-  %106 = mul nsw i64 %105, 1000000
-  %107 = getelementptr inbounds i8, ptr %2, i64 8
-  %108 = load i64, ptr %107, align 8
-  %109 = sdiv i64 %108, 1000
-  %110 = add nsw i64 %109, %106
+101:                                              ; preds = %98
+  %102 = load i64, ptr %2, align 8
+  %103 = mul nsw i64 %102, 1000000
+  %104 = getelementptr inbounds i8, ptr %2, i64 8
+  %105 = load i64, ptr %104, align 8
+  %106 = sdiv i64 %105, 1000
+  %107 = add nsw i64 %106, %103
   br label %Abc_Clock.exit7
 
-Abc_Clock.exit7:                                  ; preds = %101, %104
-  %.0.i6 = phi i64 [ %110, %104 ], [ -1, %101 ]
+Abc_Clock.exit7:                                  ; preds = %98, %101
+  %.0.i6 = phi i64 [ %107, %101 ], [ -1, %98 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  %111 = add i64 %.0.i6, %.0.i.neg
-  %112 = load i64, ptr @timeSelect, align 8
-  %113 = add nsw i64 %111, %112
-  store i64 %113, ptr @timeSelect, align 8
+  %108 = add i64 %.0.i6, %.0.i.neg
+  %109 = load i64, ptr @timeSelect, align 8
+  %110 = add nsw i64 %108, %109
+  store i64 %110, ptr @timeSelect, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %12, %Abc_Clock.exit7

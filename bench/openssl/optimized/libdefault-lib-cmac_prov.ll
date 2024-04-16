@@ -194,7 +194,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @cmac_get_ctx_params(ptr nocapture noundef readonly %vmacctx, ptr noundef %params) #0 {
+define internal noundef i32 @cmac_get_ctx_params(ptr nocapture noundef readonly %vmacctx, ptr noundef %params) #0 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str.1) #3
   %cmp.not = icmp eq ptr %call, null
@@ -222,7 +222,7 @@ cmac_size.exit:                                   ; preds = %land.lhs.true, %if.
 if.end:                                           ; preds = %cmac_size.exit, %entry
   %call3 = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str.2) #3
   %cmp4.not = icmp eq ptr %call3, null
-  br i1 %cmp4.not, label %return, label %land.lhs.true5
+  br i1 %cmp4.not, label %if.end10, label %land.lhs.true5
 
 land.lhs.true5:                                   ; preds = %if.end
   %1 = getelementptr i8, ptr %vmacctx, i64 8
@@ -240,12 +240,14 @@ if.end.i8:                                        ; preds = %land.lhs.true5
 cmac_size.exit12:                                 ; preds = %land.lhs.true5, %if.end.i8
   %retval.0.i11 = phi i64 [ %conv.i10, %if.end.i8 ], [ 0, %land.lhs.true5 ]
   %call7 = tail call i32 @OSSL_PARAM_set_size_t(ptr noundef nonnull %call3, i64 noundef %retval.0.i11) #3
-  %tobool8.not = icmp ne i32 %call7, 0
-  %spec.select = zext i1 %tobool8.not to i32
+  %tobool8.not = icmp eq i32 %call7, 0
+  br i1 %tobool8.not, label %return, label %if.end10
+
+if.end10:                                         ; preds = %cmac_size.exit12, %if.end
   br label %return
 
-return:                                           ; preds = %cmac_size.exit12, %if.end, %cmac_size.exit
-  %retval.0 = phi i32 [ 0, %cmac_size.exit ], [ 1, %if.end ], [ %spec.select, %cmac_size.exit12 ]
+return:                                           ; preds = %cmac_size.exit12, %cmac_size.exit, %if.end10
+  %retval.0 = phi i32 [ 1, %if.end10 ], [ 0, %cmac_size.exit ], [ 0, %cmac_size.exit12 ]
   ret i32 %retval.0
 }
 

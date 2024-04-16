@@ -5780,11 +5780,15 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
 
 nk_utf_decode_byte.exit.i:                        ; preds = %for.body.i.i
   %3 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  %4 = and i32 %3, -2
-  %or.cond42 = icmp eq i32 %4, 2
-  br i1 %or.cond42, label %for.body.i.preheader, label %nk_utf_decode.exit
+  %4 = add i32 %3, -1
+  %or.cond1.i = icmp ult i32 %4, 3
+  br i1 %or.cond1.i, label %for.cond.preheader.i, label %nk_utf_decode.exit
 
-for.body.i.preheader:                             ; preds = %nk_utf_decode_byte.exit.i
+for.cond.preheader.i:                             ; preds = %nk_utf_decode_byte.exit.i
+  %cmp962.i = icmp ugt i32 %3, 1
+  br i1 %cmp962.i, label %for.body.i.preheader, label %if.end.i.i
+
+for.body.i.preheader:                             ; preds = %for.cond.preheader.i
   %zext = and i64 %indvars.iv.i.i, 4294967295
   %5 = tail call i32 @llvm.umin.i32(i32 %indvars.iv, i32 2)
   %narrow = add nuw nsw i32 %5, 2
@@ -5824,7 +5828,9 @@ for.inc.i:                                        ; preds = %nk_utf_decode_byte.
 
 for.end.i:                                        ; preds = %for.inc.i
   %11 = icmp ult i64 %indvars.iv.next.i, %zext
-  %spec.select = select i1 %11, i32 0, i32 %3
+  br i1 %11, label %nk_utf_decode.exit, label %if.end.i.i
+
+if.end.i.i:                                       ; preds = %for.cond.preheader.i, %for.end.i
   br label %nk_utf_decode.exit
 
 return.loopexit.i:                                ; preds = %for.inc.i21.i
@@ -5835,8 +5841,8 @@ return.loopexit81.i:                              ; preds = %nk_utf_decode_byte.
   %indvars78.le.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-nk_utf_decode.exit:                               ; preds = %for.inc.i.i, %for.end.i, %nk_utf_decode_byte.exit.i, %return.loopexit.i, %return.loopexit81.i
-  %retval.0.i = phi i32 [ 1, %nk_utf_decode_byte.exit.i ], [ %indvars78.le91.i, %return.loopexit.i ], [ %indvars78.le.i, %return.loopexit81.i ], [ %spec.select, %for.end.i ], [ 1, %for.inc.i.i ]
+nk_utf_decode.exit:                               ; preds = %for.inc.i.i, %if.end.i.i, %nk_utf_decode_byte.exit.i, %for.end.i, %return.loopexit.i, %return.loopexit81.i
+  %retval.0.i = phi i32 [ 1, %nk_utf_decode_byte.exit.i ], [ 0, %for.end.i ], [ %indvars78.le91.i, %return.loopexit.i ], [ %indvars78.le.i, %return.loopexit81.i ], [ %3, %if.end.i.i ], [ 1, %for.inc.i.i ]
   %add = add nsw i32 %retval.0.i, %byte_len.025
   %inc = add nuw nsw i32 %i.024, 1
   %exitcond34.not = icmp eq i32 %inc, %len
@@ -5958,10 +5964,22 @@ for.end.i:                                        ; preds = %for.inc.i
 
 if.end.i.i:                                       ; preds = %for.cond.preheader.i, %for.end.i
   %udecoded.0.lcssa.i78 = phi i32 [ %or.i, %for.end.i ], [ %conv14.i.i, %for.cond.preheader.i ]
-  %idxprom.i.i = and i64 %indvars.iv.i.i, 4294967294
-  %12 = icmp ne i32 %udecoded.0.lcssa.i78, 0
-  %13 = icmp ne i64 %idxprom.i.i, 0
-  %spec.select = or i1 %12, %13
+  %idxprom.i.i = and i64 %indvars.iv.i.i, 4294967295
+  %arrayidx.i31.i = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i
+  %12 = load i32, ptr %arrayidx.i31.i, align 4
+  %cmp.not.i.i = icmp ugt i32 %12, %udecoded.0.lcssa.i78
+  br i1 %cmp.not.i.i, label %if.then7.i36.i, label %land.lhs.true.i.i
+
+land.lhs.true.i.i:                                ; preds = %if.end.i.i
+  %arrayidx2.i.i = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i
+  %13 = load i32, ptr %arrayidx2.i.i, align 4
+  %cmp3.i.i = icmp uge i32 %udecoded.0.lcssa.i78, %13
+  %14 = add i32 %udecoded.0.lcssa.i78, -55296
+  %or.cond.i.i = icmp ult i32 %14, 2047
+  %or.cond11.i.i = or i1 %or.cond.i.i, %cmp3.i.i
+  br i1 %or.cond11.i.i, label %if.then7.i36.i, label %nk_utf_decode.exit
+
+if.then7.i36.i:                                   ; preds = %land.lhs.true.i.i, %if.end.i.i
   br label %nk_utf_decode.exit
 
 return.loopexit.i:                                ; preds = %for.inc.i21.i
@@ -5972,73 +5990,74 @@ return.loopexit81.i:                              ; preds = %nk_utf_decode_byte.
   %indvars78.le.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-nk_utf_decode.exit:                               ; preds = %for.inc.i.i, %if.end.i.i, %nk_utf_decode_byte.exit.i, %return.loopexit.i, %return.loopexit81.i
-  %unicode.0 = phi i1 [ true, %return.loopexit81.i ], [ true, %return.loopexit.i ], [ true, %nk_utf_decode_byte.exit.i ], [ %spec.select, %if.end.i.i ], [ true, %for.inc.i.i ]
-  %retval.0.i = phi i32 [ %indvars78.le.i, %return.loopexit81.i ], [ %indvars78.le91.i, %return.loopexit.i ], [ 1, %nk_utf_decode_byte.exit.i ], [ %3, %if.end.i.i ], [ 1, %for.inc.i.i ]
-  %tobool299 = icmp ne i32 %retval.0.i, 0
-  %14 = and i1 %unicode.0, %tobool299
-  br i1 %14, label %if.end4.i11, label %while.end
+nk_utf_decode.exit:                               ; preds = %for.inc.i.i, %nk_utf_decode_byte.exit.i, %land.lhs.true.i.i, %if.then7.i36.i, %return.loopexit.i, %return.loopexit81.i
+  %unicode.0 = phi i32 [ 65533, %if.then7.i36.i ], [ %udecoded.0.lcssa.i78, %land.lhs.true.i.i ], [ 65533, %return.loopexit81.i ], [ 65533, %return.loopexit.i ], [ 65533, %nk_utf_decode_byte.exit.i ], [ 65533, %for.inc.i.i ]
+  %retval.0.i = phi i32 [ %3, %if.then7.i36.i ], [ %3, %land.lhs.true.i.i ], [ %indvars78.le.i, %return.loopexit81.i ], [ %indvars78.le91.i, %return.loopexit.i ], [ 1, %nk_utf_decode_byte.exit.i ], [ 1, %for.inc.i.i ]
+  %cmp97 = icmp ne i32 %unicode.0, 0
+  %tobool298 = icmp ne i32 %retval.0.i, 0
+  %15 = and i1 %cmp97, %tobool298
+  br i1 %15, label %if.end4.i11, label %while.end
 
 if.end4.i11:                                      ; preds = %nk_utf_decode.exit, %nk_utf_decode.exit72
-  %num_runes.0101 = phi i32 [ %inc, %nk_utf_decode.exit72 ], [ 0, %nk_utf_decode.exit ]
-  %byte_len.0100 = phi i32 [ %add, %nk_utf_decode.exit72 ], [ %retval.0.i, %nk_utf_decode.exit ]
-  %idx.ext3 = sext i32 %byte_len.0100 to i64
+  %num_runes.0100 = phi i32 [ %inc, %nk_utf_decode.exit72 ], [ 0, %nk_utf_decode.exit ]
+  %byte_len.099 = phi i32 [ %add, %nk_utf_decode.exit72 ], [ %retval.0.i, %nk_utf_decode.exit ]
+  %idx.ext3 = sext i32 %byte_len.099 to i64
   %add.ptr4 = getelementptr inbounds i8, ptr %text, i64 %idx.ext3
-  %15 = load i8, ptr %add.ptr4, align 1
+  %16 = load i8, ptr %add.ptr4, align 1
   br label %for.body.i.i12
 
 for.body.i.i12:                                   ; preds = %for.inc.i.i18, %if.end4.i11
-  %indvars.iv120 = phi i32 [ %indvars.iv.next121, %for.inc.i.i18 ], [ -2, %if.end4.i11 ]
+  %indvars.iv119 = phi i32 [ %indvars.iv.next120, %for.inc.i.i18 ], [ -2, %if.end4.i11 ]
   %indvars.iv.i.i13 = phi i64 [ %indvars.iv.next.i.i19, %for.inc.i.i18 ], [ 0, %if.end4.i11 ]
   %arrayidx.i.i14 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i.i13
-  %16 = load i8, ptr %arrayidx.i.i14, align 1
-  %and8.i.i15 = and i8 %16, %15
+  %17 = load i8, ptr %arrayidx.i.i14, align 1
+  %and8.i.i15 = and i8 %17, %16
   %arrayidx3.i.i16 = getelementptr inbounds [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i.i13
-  %17 = load i8, ptr %arrayidx3.i.i16, align 1
-  %cmp5.i.i17 = icmp eq i8 %and8.i.i15, %17
+  %18 = load i8, ptr %arrayidx3.i.i16, align 1
+  %cmp5.i.i17 = icmp eq i8 %and8.i.i15, %18
   br i1 %cmp5.i.i17, label %nk_utf_decode_byte.exit.i22, label %for.inc.i.i18
 
 for.inc.i.i18:                                    ; preds = %for.body.i.i12
   %indvars.iv.next.i.i19 = add nuw nsw i64 %indvars.iv.i.i13, 1
   %exitcond.not.i.i20 = icmp eq i64 %indvars.iv.next.i.i19, 5
-  %indvars.iv.next121 = add nsw i32 %indvars.iv120, 1
+  %indvars.iv.next120 = add nsw i32 %indvars.iv119, 1
   br i1 %exitcond.not.i.i20, label %nk_utf_decode.exit72, label %for.body.i.i12, !llvm.loop !20
 
 nk_utf_decode_byte.exit.i22:                      ; preds = %for.body.i.i12
-  %18 = trunc nuw nsw i64 %indvars.iv.i.i13 to i32
-  %19 = add i32 %18, -1
-  %or.cond1.i23 = icmp ult i32 %19, 3
+  %19 = trunc nuw nsw i64 %indvars.iv.i.i13 to i32
+  %20 = add i32 %19, -1
+  %or.cond1.i23 = icmp ult i32 %20, 3
   br i1 %or.cond1.i23, label %for.cond.preheader.i24, label %nk_utf_decode.exit72
 
 for.cond.preheader.i24:                           ; preds = %nk_utf_decode_byte.exit.i22
-  %not.i.i25 = xor i8 %16, -1
-  %and12.i.i26 = and i8 %15, %not.i.i25
+  %not.i.i25 = xor i8 %17, -1
+  %and12.i.i26 = and i8 %16, %not.i.i25
   %conv14.i.i27 = zext i8 %and12.i.i26 to i32
-  %cmp962.i28 = icmp ugt i32 %18, 1
+  %cmp962.i28 = icmp ugt i32 %19, 1
   br i1 %cmp962.i28, label %for.body.i43.preheader, label %if.end.i.i32
 
 for.body.i43.preheader:                           ; preds = %for.cond.preheader.i24
-  %zext119 = and i64 %indvars.iv.i.i13, 4294967295
-  %20 = tail call i32 @llvm.umin.i32(i32 %indvars.iv120, i32 2)
-  %narrow125 = add nuw nsw i32 %20, 2
-  %21 = zext nneg i32 %narrow125 to i64
+  %zext118 = and i64 %indvars.iv.i.i13, 4294967295
+  %21 = tail call i32 @llvm.umin.i32(i32 %indvars.iv119, i32 2)
+  %narrow124 = add nuw nsw i32 %21, 2
+  %22 = zext nneg i32 %narrow124 to i64
   br label %for.body.i43
 
 for.body.i43:                                     ; preds = %for.body.i43.preheader, %for.inc.i62
   %indvars.iv.i44 = phi i64 [ %indvars.iv.next.i68, %for.inc.i62 ], [ 1, %for.body.i43.preheader ]
   %udecoded.065.i45 = phi i32 [ %or.i67, %for.inc.i62 ], [ %conv14.i.i27, %for.body.i43.preheader ]
   %arrayidx10.i46 = getelementptr inbounds i8, ptr %add.ptr4, i64 %indvars.iv.i44
-  %22 = load i8, ptr %arrayidx10.i46, align 1
+  %23 = load i8, ptr %arrayidx10.i46, align 1
   br label %for.body.i15.i47
 
 for.body.i15.i47:                                 ; preds = %for.inc.i21.i53, %for.body.i43
   %indvars.iv.i16.i48 = phi i64 [ %indvars.iv.next.i22.i54, %for.inc.i21.i53 ], [ 0, %for.body.i43 ]
   %arrayidx.i17.i49 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i16.i48
-  %23 = load i8, ptr %arrayidx.i17.i49, align 1
-  %and8.i18.i50 = and i8 %23, %22
+  %24 = load i8, ptr %arrayidx.i17.i49, align 1
+  %and8.i18.i50 = and i8 %24, %23
   %arrayidx3.i19.i51 = getelementptr inbounds [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i16.i48
-  %24 = load i8, ptr %arrayidx3.i19.i51, align 1
-  %cmp5.i20.i52 = icmp eq i8 %and8.i18.i50, %24
+  %25 = load i8, ptr %arrayidx3.i19.i51, align 1
+  %cmp5.i20.i52 = icmp eq i8 %and8.i18.i50, %25
   br i1 %cmp5.i20.i52, label %nk_utf_decode_byte.exit30.i58, label %for.inc.i21.i53
 
 for.inc.i21.i53:                                  ; preds = %for.body.i15.i47
@@ -6047,44 +6066,46 @@ for.inc.i21.i53:                                  ; preds = %for.body.i15.i47
   br i1 %exitcond.not.i23.i55, label %return.loopexit.i56, label %for.body.i15.i47, !llvm.loop !20
 
 nk_utf_decode_byte.exit30.i58:                    ; preds = %for.body.i15.i47
-  %25 = and i64 %indvars.iv.i16.i48, 4294967295
-  %cmp12.not.i59 = icmp eq i64 %25, 0
+  %26 = and i64 %indvars.iv.i16.i48, 4294967295
+  %cmp12.not.i59 = icmp eq i64 %26, 0
   br i1 %cmp12.not.i59, label %for.inc.i62, label %return.loopexit81.i60
 
 for.inc.i62:                                      ; preds = %nk_utf_decode_byte.exit30.i58
-  %not.i27.i63 = xor i8 %23, -1
-  %and12.i28.i64 = and i8 %22, %not.i27.i63
+  %not.i27.i63 = xor i8 %24, -1
+  %and12.i28.i64 = and i8 %23, %not.i27.i63
   %conv14.i29.i65 = zext i8 %and12.i28.i64 to i32
   %shl.i66 = shl i32 %udecoded.065.i45, 6
   %or.i67 = or i32 %shl.i66, %conv14.i29.i65
   %indvars.iv.next.i68 = add nuw nsw i64 %indvars.iv.i44, 1
-  %exitcond124.not = icmp eq i64 %indvars.iv.next.i68, %21
-  br i1 %exitcond124.not, label %for.end.i29, label %for.body.i43, !llvm.loop !21
+  %exitcond123.not = icmp eq i64 %indvars.iv.next.i68, %22
+  br i1 %exitcond123.not, label %for.end.i29, label %for.body.i43, !llvm.loop !21
 
 for.end.i29:                                      ; preds = %for.inc.i62
-  %26 = icmp ult i64 %indvars.iv.next.i68, %zext119
-  br i1 %26, label %nk_utf_decode.exit72.thread, label %if.end.i.i32
+  %27 = icmp ult i64 %indvars.iv.next.i68, %zext118
+  br i1 %27, label %nk_utf_decode.exit72.thread, label %if.end.i.i32
 
 nk_utf_decode.exit72.thread:                      ; preds = %for.end.i29
-  %inc132 = add nuw nsw i32 %num_runes.0101, 1
+  %inc132 = add nuw nsw i32 %num_runes.0100, 1
   br label %while.end
 
 if.end.i.i32:                                     ; preds = %for.cond.preheader.i24, %for.end.i29
   %udecoded.0.lcssa.i3081 = phi i32 [ %or.i67, %for.end.i29 ], [ %conv14.i.i27, %for.cond.preheader.i24 ]
   %idxprom.i.i33 = and i64 %indvars.iv.i.i13, 4294967295
   %arrayidx.i31.i34 = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i33
-  %27 = load i32, ptr %arrayidx.i31.i34, align 4
-  %cmp.not.i.i35 = icmp ugt i32 %27, %udecoded.0.lcssa.i3081
-  br i1 %cmp.not.i.i35, label %nk_utf_decode.exit72, label %land.lhs.true.i.i36
+  %28 = load i32, ptr %arrayidx.i31.i34, align 4
+  %cmp.not.i.i35 = icmp ugt i32 %28, %udecoded.0.lcssa.i3081
+  br i1 %cmp.not.i.i35, label %if.then7.i36.i41, label %land.lhs.true.i.i36
 
 land.lhs.true.i.i36:                              ; preds = %if.end.i.i32
   %arrayidx2.i.i37 = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i33
-  %28 = load i32, ptr %arrayidx2.i.i37, align 4
-  %cmp3.i.i38 = icmp uge i32 %udecoded.0.lcssa.i3081, %28
-  %29 = add i32 %udecoded.0.lcssa.i3081, -55296
-  %or.cond.i.i39 = icmp ult i32 %29, 2047
+  %29 = load i32, ptr %arrayidx2.i.i37, align 4
+  %cmp3.i.i38 = icmp uge i32 %udecoded.0.lcssa.i3081, %29
+  %30 = add i32 %udecoded.0.lcssa.i3081, -55296
+  %or.cond.i.i39 = icmp ult i32 %30, 2047
   %or.cond11.i.i40 = or i1 %or.cond.i.i39, %cmp3.i.i38
-  %spec.select82 = select i1 %or.cond11.i.i40, i32 65533, i32 %udecoded.0.lcssa.i3081
+  br i1 %or.cond11.i.i40, label %if.then7.i36.i41, label %nk_utf_decode.exit72
+
+if.then7.i36.i41:                                 ; preds = %land.lhs.true.i.i36, %if.end.i.i32
   br label %nk_utf_decode.exit72
 
 return.loopexit.i56:                              ; preds = %for.inc.i21.i53
@@ -6095,18 +6116,18 @@ return.loopexit81.i60:                            ; preds = %nk_utf_decode_byte.
   %indvars78.le.i61 = trunc i64 %indvars.iv.i44 to i32
   br label %nk_utf_decode.exit72
 
-nk_utf_decode.exit72:                             ; preds = %for.inc.i.i18, %land.lhs.true.i.i36, %if.end.i.i32, %nk_utf_decode_byte.exit.i22, %return.loopexit.i56, %return.loopexit81.i60
-  %unicode.2 = phi i32 [ 65533, %return.loopexit81.i60 ], [ 65533, %return.loopexit.i56 ], [ 65533, %nk_utf_decode_byte.exit.i22 ], [ 65533, %if.end.i.i32 ], [ %spec.select82, %land.lhs.true.i.i36 ], [ 65533, %for.inc.i.i18 ]
-  %retval.0.i21 = phi i32 [ %indvars78.le.i61, %return.loopexit81.i60 ], [ %indvars78.le91.i57, %return.loopexit.i56 ], [ 1, %nk_utf_decode_byte.exit.i22 ], [ %18, %if.end.i.i32 ], [ %18, %land.lhs.true.i.i36 ], [ 1, %for.inc.i.i18 ]
-  %add = add nsw i32 %retval.0.i21, %byte_len.0100
-  %inc = add nuw nsw i32 %num_runes.0101, 1
+nk_utf_decode.exit72:                             ; preds = %for.inc.i.i18, %nk_utf_decode_byte.exit.i22, %land.lhs.true.i.i36, %if.then7.i36.i41, %return.loopexit.i56, %return.loopexit81.i60
+  %unicode.2 = phi i32 [ 65533, %if.then7.i36.i41 ], [ %udecoded.0.lcssa.i3081, %land.lhs.true.i.i36 ], [ 65533, %return.loopexit81.i60 ], [ 65533, %return.loopexit.i56 ], [ 65533, %nk_utf_decode_byte.exit.i22 ], [ 65533, %for.inc.i.i18 ]
+  %retval.0.i21 = phi i32 [ %19, %if.then7.i36.i41 ], [ %19, %land.lhs.true.i.i36 ], [ %indvars78.le.i61, %return.loopexit81.i60 ], [ %indvars78.le91.i57, %return.loopexit.i56 ], [ 1, %nk_utf_decode_byte.exit.i22 ], [ 1, %for.inc.i.i18 ]
+  %add = add nsw i32 %retval.0.i21, %byte_len.099
+  %inc = add nuw nsw i32 %num_runes.0100, 1
   %cmp = icmp ne i32 %unicode.2, 0
   %tobool2 = icmp ne i32 %retval.0.i21, 0
-  %30 = and i1 %cmp, %tobool2
-  br i1 %30, label %if.end4.i11, label %while.end, !llvm.loop !33
+  %31 = and i1 %cmp, %tobool2
+  br i1 %31, label %if.end4.i11, label %while.end, !llvm.loop !33
 
 while.end:                                        ; preds = %nk_utf_decode.exit72, %nk_utf_decode.exit72.thread, %nk_utf_decode.exit
-  %byte_len.0.lcssa = phi i32 [ %retval.0.i, %nk_utf_decode.exit ], [ %byte_len.0100, %nk_utf_decode.exit72.thread ], [ %add, %nk_utf_decode.exit72 ]
+  %byte_len.0.lcssa = phi i32 [ %retval.0.i, %nk_utf_decode.exit ], [ %byte_len.099, %nk_utf_decode.exit72.thread ], [ %add, %nk_utf_decode.exit72 ]
   %num_runes.0.lcssa = phi i32 [ 0, %nk_utf_decode.exit ], [ %inc132, %nk_utf_decode.exit72.thread ], [ %inc, %nk_utf_decode.exit72 ]
   %tobool3.i.not = icmp eq i32 %byte_len.0.lcssa, 0
   br i1 %tobool3.i.not, label %return, label %if.end.i
@@ -6121,8 +6142,8 @@ if.end6.i:                                        ; preds = %if.end.i
   %call9.i = tail call fastcc ptr @nk_memcopy(ptr noundef nonnull %call.i, ptr noundef nonnull %text, i64 noundef %conv.i)
   %call10.i = tail call i32 @nk_utf_len(ptr noundef nonnull %text, i32 noundef %byte_len.0.lcssa)
   %len11.i = getelementptr inbounds i8, ptr %str, i64 120
-  %31 = load i32, ptr %len11.i, align 8
-  %add.i = add nsw i32 %31, %call10.i
+  %32 = load i32, ptr %len11.i, align 8
+  %add.i = add nsw i32 %32, %call10.i
   store i32 %add.i, ptr %len11.i, align 8
   br label %return
 
@@ -6866,11 +6887,15 @@ for.inc.i.i.i:                                    ; preds = %for.body.i.i.i
 
 nk_utf_decode_byte.exit.i.i:                      ; preds = %for.body.i.i.i
   %3 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
-  %4 = and i32 %3, -2
-  %or.cond37.i = icmp eq i32 %4, 2
-  br i1 %or.cond37.i, label %for.body.i.preheader.i, label %nk_utf_decode.exit.i
+  %4 = add i32 %3, -1
+  %or.cond1.i.i = icmp ult i32 %4, 3
+  br i1 %or.cond1.i.i, label %for.cond.preheader.i.i, label %nk_utf_decode.exit.i
 
-for.body.i.preheader.i:                           ; preds = %nk_utf_decode_byte.exit.i.i
+for.cond.preheader.i.i:                           ; preds = %nk_utf_decode_byte.exit.i.i
+  %cmp962.i.i = icmp ugt i32 %3, 1
+  br i1 %cmp962.i.i, label %for.body.i.preheader.i, label %if.end.i.i.i
+
+for.body.i.preheader.i:                           ; preds = %for.cond.preheader.i.i
   %zext.i = and i64 %indvars.iv.i.i.i, 4294967295
   %5 = tail call i32 @llvm.umin.i32(i32 %indvars.iv.i, i32 2)
   %narrow.i = add nuw nsw i32 %5, 2
@@ -6913,7 +6938,9 @@ for.inc.i.i:                                      ; preds = %nk_utf_decode_byte.
 
 for.end.i.i:                                      ; preds = %for.inc.i.i
   %13 = icmp ugt i64 %zext.i, %8
-  %spec.select.i = select i1 %13, i32 0, i32 %3
+  br i1 %13, label %nk_utf_decode.exit.i, label %if.end.i.i.i
+
+if.end.i.i.i:                                     ; preds = %for.end.i.i, %for.cond.preheader.i.i
   br label %nk_utf_decode.exit.i
 
 return.loopexit.i.i:                              ; preds = %for.inc.i21.i.i
@@ -6924,8 +6951,8 @@ return.loopexit81.i.i:                            ; preds = %nk_utf_decode_byte.
   %indvars78.le.i.i = trunc i64 %indvars.iv.i.i to i32
   br label %nk_utf_decode.exit.i
 
-nk_utf_decode.exit.i:                             ; preds = %for.inc.i.i.i, %return.loopexit81.i.i, %return.loopexit.i.i, %for.end.i.i, %nk_utf_decode_byte.exit.i.i
-  %retval.0.i.i = phi i32 [ 1, %nk_utf_decode_byte.exit.i.i ], [ %indvars78.le91.i.i, %return.loopexit.i.i ], [ %indvars78.le.i.i, %return.loopexit81.i.i ], [ %spec.select.i, %for.end.i.i ], [ 1, %for.inc.i.i.i ]
+nk_utf_decode.exit.i:                             ; preds = %for.inc.i.i.i, %return.loopexit81.i.i, %return.loopexit.i.i, %if.end.i.i.i, %for.end.i.i, %nk_utf_decode_byte.exit.i.i
+  %retval.0.i.i = phi i32 [ 1, %nk_utf_decode_byte.exit.i.i ], [ 0, %for.end.i.i ], [ %indvars78.le91.i.i, %return.loopexit.i.i ], [ %indvars78.le.i.i, %return.loopexit81.i.i ], [ %3, %if.end.i.i.i ], [ 1, %for.inc.i.i.i ]
   %add.i = add nsw i32 %retval.0.i.i, %byte_len.022.i
   %inc.i = add nuw nsw i32 %i.021.i, 1
   %exitcond31.not.i = icmp eq i32 %inc.i, %len
@@ -6982,11 +7009,15 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
 
 nk_utf_decode_byte.exit.i:                        ; preds = %for.body.i.i
   %3 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  %4 = and i32 %3, -2
-  %or.cond37 = icmp eq i32 %4, 2
-  br i1 %or.cond37, label %for.body.i.preheader, label %nk_utf_decode.exit
+  %4 = add i32 %3, -1
+  %or.cond1.i = icmp ult i32 %4, 3
+  br i1 %or.cond1.i, label %for.cond.preheader.i, label %nk_utf_decode.exit
 
-for.body.i.preheader:                             ; preds = %nk_utf_decode_byte.exit.i
+for.cond.preheader.i:                             ; preds = %nk_utf_decode_byte.exit.i
+  %cmp962.i = icmp ugt i32 %3, 1
+  br i1 %cmp962.i, label %for.body.i.preheader, label %if.end.i.i
+
+for.body.i.preheader:                             ; preds = %for.cond.preheader.i
   %zext = and i64 %indvars.iv.i.i, 4294967295
   %5 = tail call i32 @llvm.umin.i32(i32 %indvars.iv, i32 2)
   %narrow = add nuw nsw i32 %5, 2
@@ -7026,7 +7057,9 @@ for.inc.i:                                        ; preds = %nk_utf_decode_byte.
 
 for.end.i:                                        ; preds = %for.inc.i
   %11 = icmp ult i64 %indvars.iv.next.i, %zext
-  %spec.select = select i1 %11, i32 0, i32 %3
+  br i1 %11, label %nk_utf_decode.exit, label %if.end.i.i
+
+if.end.i.i:                                       ; preds = %for.cond.preheader.i, %for.end.i
   br label %nk_utf_decode.exit
 
 return.loopexit.i:                                ; preds = %for.inc.i21.i
@@ -7037,8 +7070,8 @@ return.loopexit81.i:                              ; preds = %nk_utf_decode_byte.
   %indvars78.le.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-nk_utf_decode.exit:                               ; preds = %for.inc.i.i, %for.end.i, %nk_utf_decode_byte.exit.i, %return.loopexit.i, %return.loopexit81.i
-  %retval.0.i = phi i32 [ 1, %nk_utf_decode_byte.exit.i ], [ %indvars78.le91.i, %return.loopexit.i ], [ %indvars78.le.i, %return.loopexit81.i ], [ %spec.select, %for.end.i ], [ 1, %for.inc.i.i ]
+nk_utf_decode.exit:                               ; preds = %for.inc.i.i, %if.end.i.i, %nk_utf_decode_byte.exit.i, %for.end.i, %return.loopexit.i, %return.loopexit81.i
+  %retval.0.i = phi i32 [ 1, %nk_utf_decode_byte.exit.i ], [ 0, %for.end.i ], [ %indvars78.le91.i, %return.loopexit.i ], [ %indvars78.le.i, %return.loopexit81.i ], [ %3, %if.end.i.i ], [ 1, %for.inc.i.i ]
   %add = add nsw i32 %retval.0.i, %byte_len.022
   %inc = add nuw nsw i32 %i.021, 1
   %exitcond31.not = icmp eq i32 %inc, %len
@@ -7105,11 +7138,15 @@ for.inc.i.i.i:                                    ; preds = %for.body.i.i.i
 
 nk_utf_decode_byte.exit.i.i:                      ; preds = %for.body.i.i.i
   %5 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
-  %6 = and i32 %5, -2
-  %or.cond37.i = icmp eq i32 %6, 2
-  br i1 %or.cond37.i, label %for.body.i.preheader.i, label %nk_utf_decode.exit.i
+  %6 = add i32 %5, -1
+  %or.cond1.i.i = icmp ult i32 %6, 3
+  br i1 %or.cond1.i.i, label %for.cond.preheader.i.i, label %nk_utf_decode.exit.i
 
-for.body.i.preheader.i:                           ; preds = %nk_utf_decode_byte.exit.i.i
+for.cond.preheader.i.i:                           ; preds = %nk_utf_decode_byte.exit.i.i
+  %cmp962.i.i = icmp ugt i32 %5, 1
+  br i1 %cmp962.i.i, label %for.body.i.preheader.i, label %if.end.i.i.i
+
+for.body.i.preheader.i:                           ; preds = %for.cond.preheader.i.i
   %zext.i = and i64 %indvars.iv.i.i.i, 4294967295
   %7 = tail call i32 @llvm.umin.i32(i32 %indvars.iv.i, i32 2)
   %narrow.i = add nuw nsw i32 %7, 2
@@ -7152,7 +7189,9 @@ for.inc.i.i:                                      ; preds = %nk_utf_decode_byte.
 
 for.end.i.i:                                      ; preds = %for.inc.i.i
   %15 = icmp ugt i64 %zext.i, %10
-  %spec.select.i = select i1 %15, i32 0, i32 %5
+  br i1 %15, label %nk_utf_decode.exit.i, label %if.end.i.i.i
+
+if.end.i.i.i:                                     ; preds = %for.end.i.i, %for.cond.preheader.i.i
   br label %nk_utf_decode.exit.i
 
 return.loopexit.i.i:                              ; preds = %for.inc.i21.i.i
@@ -7163,8 +7202,8 @@ return.loopexit81.i.i:                            ; preds = %nk_utf_decode_byte.
   %indvars78.le.i.i = trunc i64 %indvars.iv.i.i to i32
   br label %nk_utf_decode.exit.i
 
-nk_utf_decode.exit.i:                             ; preds = %for.inc.i.i.i, %return.loopexit81.i.i, %return.loopexit.i.i, %for.end.i.i, %nk_utf_decode_byte.exit.i.i
-  %retval.0.i.i = phi i32 [ 1, %nk_utf_decode_byte.exit.i.i ], [ %indvars78.le91.i.i, %return.loopexit.i.i ], [ %indvars78.le.i.i, %return.loopexit81.i.i ], [ %spec.select.i, %for.end.i.i ], [ 1, %for.inc.i.i.i ]
+nk_utf_decode.exit.i:                             ; preds = %for.inc.i.i.i, %return.loopexit81.i.i, %return.loopexit.i.i, %if.end.i.i.i, %for.end.i.i, %nk_utf_decode_byte.exit.i.i
+  %retval.0.i.i = phi i32 [ 1, %nk_utf_decode_byte.exit.i.i ], [ 0, %for.end.i.i ], [ %indvars78.le91.i.i, %return.loopexit.i.i ], [ %indvars78.le.i.i, %return.loopexit81.i.i ], [ %5, %if.end.i.i.i ], [ 1, %for.inc.i.i.i ]
   %add.i = add nsw i32 %retval.0.i.i, %byte_len.022.i
   %inc.i2 = add nuw nsw i32 %i.021.i, 1
   %exitcond31.not.i = icmp eq i32 %i.021.i, %siz.05.i15
@@ -7271,10 +7310,22 @@ for.end.i:                                        ; preds = %for.inc.i
 
 if.end.i.i:                                       ; preds = %for.cond.preheader.i, %for.end.i
   %udecoded.0.lcssa.i75 = phi i32 [ %or.i, %for.end.i ], [ %conv14.i.i, %for.cond.preheader.i ]
-  %idxprom.i.i = and i64 %indvars.iv.i.i, 4294967294
-  %12 = icmp ne i32 %udecoded.0.lcssa.i75, 0
-  %13 = icmp ne i64 %idxprom.i.i, 0
-  %spec.select = or i1 %12, %13
+  %idxprom.i.i = and i64 %indvars.iv.i.i, 4294967295
+  %arrayidx.i31.i = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i
+  %12 = load i32, ptr %arrayidx.i31.i, align 4
+  %cmp.not.i.i = icmp ugt i32 %12, %udecoded.0.lcssa.i75
+  br i1 %cmp.not.i.i, label %if.then7.i36.i, label %land.lhs.true.i.i
+
+land.lhs.true.i.i:                                ; preds = %if.end.i.i
+  %arrayidx2.i.i = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i
+  %13 = load i32, ptr %arrayidx2.i.i, align 4
+  %cmp3.i.i = icmp uge i32 %udecoded.0.lcssa.i75, %13
+  %14 = add i32 %udecoded.0.lcssa.i75, -55296
+  %or.cond.i.i = icmp ult i32 %14, 2047
+  %or.cond11.i.i = or i1 %or.cond.i.i, %cmp3.i.i
+  br i1 %or.cond11.i.i, label %if.then7.i36.i, label %nk_utf_decode.exit
+
+if.then7.i36.i:                                   ; preds = %land.lhs.true.i.i, %if.end.i.i
   br label %nk_utf_decode.exit
 
 return.loopexit.i:                                ; preds = %for.inc.i21.i
@@ -7285,73 +7336,74 @@ return.loopexit81.i:                              ; preds = %nk_utf_decode_byte.
   %indvars78.le.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-nk_utf_decode.exit:                               ; preds = %for.inc.i.i, %if.end.i.i, %nk_utf_decode_byte.exit.i, %return.loopexit.i, %return.loopexit81.i
-  %unicode.0 = phi i1 [ true, %return.loopexit81.i ], [ true, %return.loopexit.i ], [ true, %nk_utf_decode_byte.exit.i ], [ %spec.select, %if.end.i.i ], [ true, %for.inc.i.i ]
-  %retval.0.i = phi i32 [ %indvars78.le.i, %return.loopexit81.i ], [ %indvars78.le91.i, %return.loopexit.i ], [ 1, %nk_utf_decode_byte.exit.i ], [ %3, %if.end.i.i ], [ 1, %for.inc.i.i ]
-  %tobool296 = icmp ne i32 %retval.0.i, 0
-  %14 = and i1 %unicode.0, %tobool296
-  br i1 %14, label %if.end4.i11, label %while.end
+nk_utf_decode.exit:                               ; preds = %for.inc.i.i, %nk_utf_decode_byte.exit.i, %land.lhs.true.i.i, %if.then7.i36.i, %return.loopexit.i, %return.loopexit81.i
+  %unicode.0 = phi i32 [ 65533, %if.then7.i36.i ], [ %udecoded.0.lcssa.i75, %land.lhs.true.i.i ], [ 65533, %return.loopexit81.i ], [ 65533, %return.loopexit.i ], [ 65533, %nk_utf_decode_byte.exit.i ], [ 65533, %for.inc.i.i ]
+  %retval.0.i = phi i32 [ %3, %if.then7.i36.i ], [ %3, %land.lhs.true.i.i ], [ %indvars78.le.i, %return.loopexit81.i ], [ %indvars78.le91.i, %return.loopexit.i ], [ 1, %nk_utf_decode_byte.exit.i ], [ 1, %for.inc.i.i ]
+  %cmp94 = icmp ne i32 %unicode.0, 0
+  %tobool295 = icmp ne i32 %retval.0.i, 0
+  %15 = and i1 %cmp94, %tobool295
+  br i1 %15, label %if.end4.i11, label %while.end
 
 if.end4.i11:                                      ; preds = %nk_utf_decode.exit, %nk_utf_decode.exit72
-  %num_runes.098 = phi i32 [ %inc, %nk_utf_decode.exit72 ], [ 0, %nk_utf_decode.exit ]
-  %byte_len.097 = phi i32 [ %add, %nk_utf_decode.exit72 ], [ %retval.0.i, %nk_utf_decode.exit ]
-  %idx.ext3 = sext i32 %byte_len.097 to i64
+  %num_runes.097 = phi i32 [ %inc, %nk_utf_decode.exit72 ], [ 0, %nk_utf_decode.exit ]
+  %byte_len.096 = phi i32 [ %add, %nk_utf_decode.exit72 ], [ %retval.0.i, %nk_utf_decode.exit ]
+  %idx.ext3 = sext i32 %byte_len.096 to i64
   %add.ptr4 = getelementptr inbounds i8, ptr %text, i64 %idx.ext3
-  %15 = load i8, ptr %add.ptr4, align 1
+  %16 = load i8, ptr %add.ptr4, align 1
   br label %for.body.i.i12
 
 for.body.i.i12:                                   ; preds = %for.inc.i.i18, %if.end4.i11
-  %indvars.iv117 = phi i32 [ %indvars.iv.next118, %for.inc.i.i18 ], [ -2, %if.end4.i11 ]
+  %indvars.iv116 = phi i32 [ %indvars.iv.next117, %for.inc.i.i18 ], [ -2, %if.end4.i11 ]
   %indvars.iv.i.i13 = phi i64 [ %indvars.iv.next.i.i19, %for.inc.i.i18 ], [ 0, %if.end4.i11 ]
   %arrayidx.i.i14 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i.i13
-  %16 = load i8, ptr %arrayidx.i.i14, align 1
-  %and8.i.i15 = and i8 %16, %15
+  %17 = load i8, ptr %arrayidx.i.i14, align 1
+  %and8.i.i15 = and i8 %17, %16
   %arrayidx3.i.i16 = getelementptr inbounds [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i.i13
-  %17 = load i8, ptr %arrayidx3.i.i16, align 1
-  %cmp5.i.i17 = icmp eq i8 %and8.i.i15, %17
+  %18 = load i8, ptr %arrayidx3.i.i16, align 1
+  %cmp5.i.i17 = icmp eq i8 %and8.i.i15, %18
   br i1 %cmp5.i.i17, label %nk_utf_decode_byte.exit.i22, label %for.inc.i.i18
 
 for.inc.i.i18:                                    ; preds = %for.body.i.i12
   %indvars.iv.next.i.i19 = add nuw nsw i64 %indvars.iv.i.i13, 1
   %exitcond.not.i.i20 = icmp eq i64 %indvars.iv.next.i.i19, 5
-  %indvars.iv.next118 = add nsw i32 %indvars.iv117, 1
+  %indvars.iv.next117 = add nsw i32 %indvars.iv116, 1
   br i1 %exitcond.not.i.i20, label %nk_utf_decode.exit72, label %for.body.i.i12, !llvm.loop !20
 
 nk_utf_decode_byte.exit.i22:                      ; preds = %for.body.i.i12
-  %18 = trunc nuw nsw i64 %indvars.iv.i.i13 to i32
-  %19 = add i32 %18, -1
-  %or.cond1.i23 = icmp ult i32 %19, 3
+  %19 = trunc nuw nsw i64 %indvars.iv.i.i13 to i32
+  %20 = add i32 %19, -1
+  %or.cond1.i23 = icmp ult i32 %20, 3
   br i1 %or.cond1.i23, label %for.cond.preheader.i24, label %nk_utf_decode.exit72
 
 for.cond.preheader.i24:                           ; preds = %nk_utf_decode_byte.exit.i22
-  %not.i.i25 = xor i8 %16, -1
-  %and12.i.i26 = and i8 %15, %not.i.i25
+  %not.i.i25 = xor i8 %17, -1
+  %and12.i.i26 = and i8 %16, %not.i.i25
   %conv14.i.i27 = zext i8 %and12.i.i26 to i32
-  %cmp962.i28 = icmp ugt i32 %18, 1
+  %cmp962.i28 = icmp ugt i32 %19, 1
   br i1 %cmp962.i28, label %for.body.i43.preheader, label %if.end.i.i32
 
 for.body.i43.preheader:                           ; preds = %for.cond.preheader.i24
-  %zext116 = and i64 %indvars.iv.i.i13, 4294967295
-  %20 = tail call i32 @llvm.umin.i32(i32 %indvars.iv117, i32 2)
-  %narrow122 = add nuw nsw i32 %20, 2
-  %21 = zext nneg i32 %narrow122 to i64
+  %zext115 = and i64 %indvars.iv.i.i13, 4294967295
+  %21 = tail call i32 @llvm.umin.i32(i32 %indvars.iv116, i32 2)
+  %narrow121 = add nuw nsw i32 %21, 2
+  %22 = zext nneg i32 %narrow121 to i64
   br label %for.body.i43
 
 for.body.i43:                                     ; preds = %for.body.i43.preheader, %for.inc.i62
   %indvars.iv.i44 = phi i64 [ %indvars.iv.next.i68, %for.inc.i62 ], [ 1, %for.body.i43.preheader ]
   %udecoded.065.i45 = phi i32 [ %or.i67, %for.inc.i62 ], [ %conv14.i.i27, %for.body.i43.preheader ]
   %arrayidx10.i46 = getelementptr inbounds i8, ptr %add.ptr4, i64 %indvars.iv.i44
-  %22 = load i8, ptr %arrayidx10.i46, align 1
+  %23 = load i8, ptr %arrayidx10.i46, align 1
   br label %for.body.i15.i47
 
 for.body.i15.i47:                                 ; preds = %for.inc.i21.i53, %for.body.i43
   %indvars.iv.i16.i48 = phi i64 [ %indvars.iv.next.i22.i54, %for.inc.i21.i53 ], [ 0, %for.body.i43 ]
   %arrayidx.i17.i49 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i16.i48
-  %23 = load i8, ptr %arrayidx.i17.i49, align 1
-  %and8.i18.i50 = and i8 %23, %22
+  %24 = load i8, ptr %arrayidx.i17.i49, align 1
+  %and8.i18.i50 = and i8 %24, %23
   %arrayidx3.i19.i51 = getelementptr inbounds [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i16.i48
-  %24 = load i8, ptr %arrayidx3.i19.i51, align 1
-  %cmp5.i20.i52 = icmp eq i8 %and8.i18.i50, %24
+  %25 = load i8, ptr %arrayidx3.i19.i51, align 1
+  %cmp5.i20.i52 = icmp eq i8 %and8.i18.i50, %25
   br i1 %cmp5.i20.i52, label %nk_utf_decode_byte.exit30.i58, label %for.inc.i21.i53
 
 for.inc.i21.i53:                                  ; preds = %for.body.i15.i47
@@ -7360,44 +7412,46 @@ for.inc.i21.i53:                                  ; preds = %for.body.i15.i47
   br i1 %exitcond.not.i23.i55, label %return.loopexit.i56, label %for.body.i15.i47, !llvm.loop !20
 
 nk_utf_decode_byte.exit30.i58:                    ; preds = %for.body.i15.i47
-  %25 = and i64 %indvars.iv.i16.i48, 4294967295
-  %cmp12.not.i59 = icmp eq i64 %25, 0
+  %26 = and i64 %indvars.iv.i16.i48, 4294967295
+  %cmp12.not.i59 = icmp eq i64 %26, 0
   br i1 %cmp12.not.i59, label %for.inc.i62, label %return.loopexit81.i60
 
 for.inc.i62:                                      ; preds = %nk_utf_decode_byte.exit30.i58
-  %not.i27.i63 = xor i8 %23, -1
-  %and12.i28.i64 = and i8 %22, %not.i27.i63
+  %not.i27.i63 = xor i8 %24, -1
+  %and12.i28.i64 = and i8 %23, %not.i27.i63
   %conv14.i29.i65 = zext i8 %and12.i28.i64 to i32
   %shl.i66 = shl i32 %udecoded.065.i45, 6
   %or.i67 = or i32 %shl.i66, %conv14.i29.i65
   %indvars.iv.next.i68 = add nuw nsw i64 %indvars.iv.i44, 1
-  %exitcond121.not = icmp eq i64 %indvars.iv.next.i68, %21
-  br i1 %exitcond121.not, label %for.end.i29, label %for.body.i43, !llvm.loop !21
+  %exitcond120.not = icmp eq i64 %indvars.iv.next.i68, %22
+  br i1 %exitcond120.not, label %for.end.i29, label %for.body.i43, !llvm.loop !21
 
 for.end.i29:                                      ; preds = %for.inc.i62
-  %26 = icmp ult i64 %indvars.iv.next.i68, %zext116
-  br i1 %26, label %nk_utf_decode.exit72.thread, label %if.end.i.i32
+  %27 = icmp ult i64 %indvars.iv.next.i68, %zext115
+  br i1 %27, label %nk_utf_decode.exit72.thread, label %if.end.i.i32
 
 nk_utf_decode.exit72.thread:                      ; preds = %for.end.i29
-  %inc129 = add nuw nsw i32 %num_runes.098, 1
+  %inc129 = add nuw nsw i32 %num_runes.097, 1
   br label %while.end
 
 if.end.i.i32:                                     ; preds = %for.cond.preheader.i24, %for.end.i29
   %udecoded.0.lcssa.i3078 = phi i32 [ %or.i67, %for.end.i29 ], [ %conv14.i.i27, %for.cond.preheader.i24 ]
   %idxprom.i.i33 = and i64 %indvars.iv.i.i13, 4294967295
   %arrayidx.i31.i34 = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i33
-  %27 = load i32, ptr %arrayidx.i31.i34, align 4
-  %cmp.not.i.i35 = icmp ugt i32 %27, %udecoded.0.lcssa.i3078
-  br i1 %cmp.not.i.i35, label %nk_utf_decode.exit72, label %land.lhs.true.i.i36
+  %28 = load i32, ptr %arrayidx.i31.i34, align 4
+  %cmp.not.i.i35 = icmp ugt i32 %28, %udecoded.0.lcssa.i3078
+  br i1 %cmp.not.i.i35, label %if.then7.i36.i41, label %land.lhs.true.i.i36
 
 land.lhs.true.i.i36:                              ; preds = %if.end.i.i32
   %arrayidx2.i.i37 = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i33
-  %28 = load i32, ptr %arrayidx2.i.i37, align 4
-  %cmp3.i.i38 = icmp uge i32 %udecoded.0.lcssa.i3078, %28
-  %29 = add i32 %udecoded.0.lcssa.i3078, -55296
-  %or.cond.i.i39 = icmp ult i32 %29, 2047
+  %29 = load i32, ptr %arrayidx2.i.i37, align 4
+  %cmp3.i.i38 = icmp uge i32 %udecoded.0.lcssa.i3078, %29
+  %30 = add i32 %udecoded.0.lcssa.i3078, -55296
+  %or.cond.i.i39 = icmp ult i32 %30, 2047
   %or.cond11.i.i40 = or i1 %or.cond.i.i39, %cmp3.i.i38
-  %spec.select79 = select i1 %or.cond11.i.i40, i32 65533, i32 %udecoded.0.lcssa.i3078
+  br i1 %or.cond11.i.i40, label %if.then7.i36.i41, label %nk_utf_decode.exit72
+
+if.then7.i36.i41:                                 ; preds = %land.lhs.true.i.i36, %if.end.i.i32
   br label %nk_utf_decode.exit72
 
 return.loopexit.i56:                              ; preds = %for.inc.i21.i53
@@ -7408,18 +7462,18 @@ return.loopexit81.i60:                            ; preds = %nk_utf_decode_byte.
   %indvars78.le.i61 = trunc i64 %indvars.iv.i44 to i32
   br label %nk_utf_decode.exit72
 
-nk_utf_decode.exit72:                             ; preds = %for.inc.i.i18, %land.lhs.true.i.i36, %if.end.i.i32, %nk_utf_decode_byte.exit.i22, %return.loopexit.i56, %return.loopexit81.i60
-  %unicode.2 = phi i32 [ 65533, %return.loopexit81.i60 ], [ 65533, %return.loopexit.i56 ], [ 65533, %nk_utf_decode_byte.exit.i22 ], [ 65533, %if.end.i.i32 ], [ %spec.select79, %land.lhs.true.i.i36 ], [ 65533, %for.inc.i.i18 ]
-  %retval.0.i21 = phi i32 [ %indvars78.le.i61, %return.loopexit81.i60 ], [ %indvars78.le91.i57, %return.loopexit.i56 ], [ 1, %nk_utf_decode_byte.exit.i22 ], [ %18, %if.end.i.i32 ], [ %18, %land.lhs.true.i.i36 ], [ 1, %for.inc.i.i18 ]
-  %add = add nsw i32 %retval.0.i21, %byte_len.097
-  %inc = add nuw nsw i32 %num_runes.098, 1
+nk_utf_decode.exit72:                             ; preds = %for.inc.i.i18, %nk_utf_decode_byte.exit.i22, %land.lhs.true.i.i36, %if.then7.i36.i41, %return.loopexit.i56, %return.loopexit81.i60
+  %unicode.2 = phi i32 [ 65533, %if.then7.i36.i41 ], [ %udecoded.0.lcssa.i3078, %land.lhs.true.i.i36 ], [ 65533, %return.loopexit81.i60 ], [ 65533, %return.loopexit.i56 ], [ 65533, %nk_utf_decode_byte.exit.i22 ], [ 65533, %for.inc.i.i18 ]
+  %retval.0.i21 = phi i32 [ %19, %if.then7.i36.i41 ], [ %19, %land.lhs.true.i.i36 ], [ %indvars78.le.i61, %return.loopexit81.i60 ], [ %indvars78.le91.i57, %return.loopexit.i56 ], [ 1, %nk_utf_decode_byte.exit.i22 ], [ 1, %for.inc.i.i18 ]
+  %add = add nsw i32 %retval.0.i21, %byte_len.096
+  %inc = add nuw nsw i32 %num_runes.097, 1
   %cmp = icmp ne i32 %unicode.2, 0
   %tobool2 = icmp ne i32 %retval.0.i21, 0
-  %30 = and i1 %cmp, %tobool2
-  br i1 %30, label %if.end4.i11, label %while.end, !llvm.loop !39
+  %31 = and i1 %cmp, %tobool2
+  br i1 %31, label %if.end4.i11, label %while.end, !llvm.loop !39
 
 while.end:                                        ; preds = %nk_utf_decode.exit72, %for.end.i, %nk_utf_decode.exit72.thread, %nk_utf_decode.exit
-  %byte_len.0.lcssa = phi i32 [ %retval.0.i, %nk_utf_decode.exit ], [ %byte_len.097, %nk_utf_decode.exit72.thread ], [ 0, %for.end.i ], [ %add, %nk_utf_decode.exit72 ]
+  %byte_len.0.lcssa = phi i32 [ %retval.0.i, %nk_utf_decode.exit ], [ %byte_len.096, %nk_utf_decode.exit72.thread ], [ 0, %for.end.i ], [ %add, %nk_utf_decode.exit72 ]
   %num_runes.0.lcssa = phi i32 [ 0, %nk_utf_decode.exit ], [ %inc129, %nk_utf_decode.exit72.thread ], [ 0, %for.end.i ], [ %inc, %nk_utf_decode.exit72 ]
   %call6 = tail call i32 @nk_str_insert_at_rune(ptr noundef nonnull %str, i32 noundef %pos, ptr noundef nonnull %text, i32 noundef %byte_len.0.lcssa)
   br label %return
@@ -8723,7 +8777,7 @@ if.end.i.i29:                                     ; preds = %for.end.i26
   %arrayidx.i31.i31 = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i30
   %15 = load i32, ptr %arrayidx.i31.i31, align 4
   %cmp.not.i.i32 = icmp ugt i32 %15, %udecoded.0.lcssa.i27
-  br i1 %cmp.not.i.i32, label %nk_utf_decode.exit69, label %land.lhs.true.i.i33
+  br i1 %cmp.not.i.i32, label %if.then7.i36.i38, label %land.lhs.true.i.i33
 
 land.lhs.true.i.i33:                              ; preds = %if.end.i.i29
   %arrayidx2.i.i34 = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i30
@@ -8732,7 +8786,9 @@ land.lhs.true.i.i33:                              ; preds = %if.end.i.i29
   %17 = add i32 %udecoded.0.lcssa.i27, -55296
   %or.cond.i.i36 = icmp ult i32 %17, 2047
   %or.cond11.i.i37 = or i1 %or.cond.i.i36, %cmp3.i.i35
-  %spec.select = select i1 %or.cond11.i.i37, i32 65533, i32 %udecoded.0.lcssa.i27
+  br i1 %or.cond11.i.i37, label %if.then7.i36.i38, label %nk_utf_decode.exit69
+
+if.then7.i36.i38:                                 ; preds = %land.lhs.true.i.i33, %if.end.i.i29
   br label %nk_utf_decode.exit69
 
 return.loopexit.i53:                              ; preds = %for.inc.i21.i50
@@ -8743,29 +8799,29 @@ return.loopexit81.i57:                            ; preds = %nk_utf_decode_byte.
   %indvars78.le.i58 = trunc i64 %indvars.iv.i41 to i32
   br label %nk_utf_decode.exit69
 
-nk_utf_decode.exit69:                             ; preds = %for.inc.i.i14, %land.lhs.true.i.i33, %if.end.i.i29, %nk_utf_decode_byte.exit.i18, %return.loopexit.i53, %return.loopexit81.i57
-  %unicode.0 = phi i32 [ 65533, %return.loopexit81.i57 ], [ 65533, %return.loopexit.i53 ], [ 65533, %nk_utf_decode_byte.exit.i18 ], [ 65533, %if.end.i.i29 ], [ %spec.select, %land.lhs.true.i.i33 ], [ 65533, %for.inc.i.i14 ]
-  %retval.0.i17 = phi i32 [ %indvars78.le.i58, %return.loopexit81.i57 ], [ %indvars78.le91.i54, %return.loopexit.i53 ], [ 1, %nk_utf_decode_byte.exit.i18 ], [ %5, %if.end.i.i29 ], [ %5, %land.lhs.true.i.i33 ], [ 1, %for.inc.i.i14 ]
+nk_utf_decode.exit69:                             ; preds = %for.inc.i.i14, %nk_utf_decode_byte.exit.i18, %land.lhs.true.i.i33, %if.then7.i36.i38, %return.loopexit.i53, %return.loopexit81.i57
+  %unicode.0 = phi i32 [ 65533, %if.then7.i36.i38 ], [ %udecoded.0.lcssa.i27, %land.lhs.true.i.i33 ], [ 65533, %return.loopexit81.i57 ], [ 65533, %return.loopexit.i53 ], [ 65533, %nk_utf_decode_byte.exit.i18 ], [ 65533, %for.inc.i.i14 ]
+  %retval.0.i17 = phi i32 [ %5, %if.then7.i36.i38 ], [ %5, %land.lhs.true.i.i33 ], [ %indvars78.le.i58, %return.loopexit81.i57 ], [ %indvars78.le91.i54, %return.loopexit.i53 ], [ 1, %nk_utf_decode_byte.exit.i18 ], [ 1, %for.inc.i.i14 ]
   %tobool7.not26.i = icmp eq i32 %retval.0.i17, 0
-  %cmp8.i92 = icmp eq i32 %pos, 0
-  %or.cond100 = or i1 %tobool7.not26.i, %cmp8.i92
-  %tobool2.not.i155 = icmp eq i32 %retval.0.i17, %conv.i
-  %or.cond162 = or i1 %or.cond100, %tobool2.not.i155
-  br i1 %or.cond162, label %nk_str_at_const.exit, label %if.end4.i
+  %cmp8.i91 = icmp eq i32 %pos, 0
+  %or.cond99 = or i1 %tobool7.not26.i, %cmp8.i91
+  %tobool2.not.i154 = icmp eq i32 %retval.0.i17, %conv.i
+  %or.cond161 = or i1 %or.cond99, %tobool2.not.i154
+  br i1 %or.cond161, label %nk_str_at_const.exit, label %if.end4.i
 
 if.end11.i:                                       ; preds = %nk_utf_decode.exit
-  %inc.i = add nuw nsw i32 %inc.i156, 1
-  %add.i = add nsw i32 %add.i157, %retval.0.i2
+  %inc.i = add nuw nsw i32 %inc.i155, 1
+  %add.i = add nsw i32 %add.i156, %retval.0.i2
   %tobool2.not.i = icmp eq i32 %add.i, %conv.i
   br i1 %tobool2.not.i, label %nk_str_at_const.exit, label %if.end4.i, !llvm.loop !42
 
 if.end4.i:                                        ; preds = %nk_utf_decode.exit69, %if.end11.i
-  %add.i157 = phi i32 [ %add.i, %if.end11.i ], [ %retval.0.i17, %nk_utf_decode.exit69 ]
-  %inc.i156 = phi i32 [ %inc.i, %if.end11.i ], [ 1, %nk_utf_decode.exit69 ]
-  %idx.ext.i152.pn = sext i32 %add.i157 to i64
-  %add.ptr.i158 = getelementptr inbounds i8, ptr %0, i64 %idx.ext.i152.pn
-  %sub.i159 = sub nsw i32 %conv.i, %add.i157
-  %18 = load i8, ptr %add.ptr.i158, align 1
+  %add.i156 = phi i32 [ %add.i, %if.end11.i ], [ %retval.0.i17, %nk_utf_decode.exit69 ]
+  %inc.i155 = phi i32 [ %inc.i, %if.end11.i ], [ 1, %nk_utf_decode.exit69 ]
+  %idx.ext.i151.pn = sext i32 %add.i156 to i64
+  %add.ptr.i157 = getelementptr inbounds i8, ptr %0, i64 %idx.ext.i151.pn
+  %sub.i158 = sub nsw i32 %conv.i, %add.i156
+  %18 = load i8, ptr %add.ptr.i157, align 1
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %if.end4.i
@@ -8793,20 +8849,20 @@ for.cond.preheader.i:                             ; preds = %nk_utf_decode_byte.
   %not.i.i = xor i8 %19, -1
   %and12.i.i = and i8 %18, %not.i.i
   %conv14.i.i = zext i8 %and12.i.i to i32
-  %cmp861.i = icmp sgt i32 %sub.i159, 1
+  %cmp861.i = icmp sgt i32 %sub.i158, 1
   %cmp962.i = icmp ugt i32 %21, 1
   %23 = and i1 %cmp861.i, %cmp962.i
   br i1 %23, label %for.body.preheader.i, label %for.end.i
 
 for.body.preheader.i:                             ; preds = %for.cond.preheader.i
-  %24 = zext nneg i32 %sub.i159 to i64
-  %zext117 = and i64 %indvars.iv.i.i, 4294967295
+  %24 = zext nneg i32 %sub.i158 to i64
+  %zext116 = and i64 %indvars.iv.i.i, 4294967295
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 1, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %udecoded.065.i = phi i32 [ %conv14.i.i, %for.body.preheader.i ], [ %or.i, %for.inc.i ]
-  %arrayidx10.i = getelementptr inbounds i8, ptr %add.ptr.i158, i64 %indvars.iv.i
+  %arrayidx10.i = getelementptr inbounds i8, ptr %add.ptr.i157, i64 %indvars.iv.i
   %25 = load i8, ptr %arrayidx10.i, align 1
   br label %for.body.i15.i
 
@@ -8838,7 +8894,7 @@ for.inc.i:                                        ; preds = %nk_utf_decode_byte.
   %or.i = or i32 %shl.i, %conv14.i29.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %cmp8.i3 = icmp ult i64 %indvars.iv.next.i, %24
-  %29 = icmp ult i64 %indvars.iv.next.i, %zext117
+  %29 = icmp ult i64 %indvars.iv.next.i, %zext116
   %30 = and i1 %cmp8.i3, %29
   br i1 %30, label %for.body.i, label %for.end.i, !llvm.loop !21
 
@@ -8852,7 +8908,7 @@ if.end.i.i:                                       ; preds = %for.end.i
   %arrayidx.i31.i = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i
   %31 = load i32, ptr %arrayidx.i31.i, align 4
   %cmp.not.i.i = icmp ugt i32 %31, %udecoded.0.lcssa.i
-  br i1 %cmp.not.i.i, label %nk_utf_decode.exit, label %land.lhs.true.i.i
+  br i1 %cmp.not.i.i, label %if.then7.i36.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end.i.i
   %arrayidx2.i.i = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i
@@ -8861,7 +8917,9 @@ land.lhs.true.i.i:                                ; preds = %if.end.i.i
   %33 = add i32 %udecoded.0.lcssa.i, -55296
   %or.cond.i.i = icmp ult i32 %33, 2047
   %or.cond11.i.i = or i1 %or.cond.i.i, %cmp3.i.i
-  %spec.select76 = select i1 %or.cond11.i.i, i32 65533, i32 %udecoded.0.lcssa.i
+  br i1 %or.cond11.i.i, label %if.then7.i36.i, label %nk_utf_decode.exit
+
+if.then7.i36.i:                                   ; preds = %land.lhs.true.i.i, %if.end.i.i
   br label %nk_utf_decode.exit
 
 return.loopexit.i:                                ; preds = %for.inc.i21.i
@@ -8872,13 +8930,13 @@ return.loopexit81.i:                              ; preds = %nk_utf_decode_byte.
   %indvars78.le.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-nk_utf_decode.exit:                               ; preds = %for.inc.i.i, %land.lhs.true.i.i, %if.end.i.i, %nk_utf_decode_byte.exit.i, %return.loopexit.i, %return.loopexit81.i
-  %unicode.2 = phi i32 [ 65533, %return.loopexit81.i ], [ 65533, %return.loopexit.i ], [ 65533, %nk_utf_decode_byte.exit.i ], [ 65533, %if.end.i.i ], [ %spec.select76, %land.lhs.true.i.i ], [ 65533, %for.inc.i.i ]
-  %retval.0.i2 = phi i32 [ %indvars78.le.i, %return.loopexit81.i ], [ %indvars78.le91.i, %return.loopexit.i ], [ 1, %nk_utf_decode_byte.exit.i ], [ %21, %if.end.i.i ], [ %21, %land.lhs.true.i.i ], [ 1, %for.inc.i.i ]
+nk_utf_decode.exit:                               ; preds = %for.inc.i.i, %nk_utf_decode_byte.exit.i, %land.lhs.true.i.i, %if.then7.i36.i, %return.loopexit.i, %return.loopexit81.i
+  %unicode.2 = phi i32 [ 65533, %if.then7.i36.i ], [ %udecoded.0.lcssa.i, %land.lhs.true.i.i ], [ 65533, %return.loopexit81.i ], [ 65533, %return.loopexit.i ], [ 65533, %nk_utf_decode_byte.exit.i ], [ 65533, %for.inc.i.i ]
+  %retval.0.i2 = phi i32 [ %21, %if.then7.i36.i ], [ %21, %land.lhs.true.i.i ], [ %indvars78.le.i, %return.loopexit81.i ], [ %indvars78.le91.i, %return.loopexit.i ], [ 1, %nk_utf_decode_byte.exit.i ], [ 1, %for.inc.i.i ]
   %tobool7.not.i = icmp eq i32 %retval.0.i2, 0
-  %cmp8.i = icmp eq i32 %inc.i156, %pos
-  %or.cond101 = select i1 %tobool7.not.i, i1 true, i1 %cmp8.i
-  br i1 %or.cond101, label %nk_str_at_const.exit, label %if.end11.i, !llvm.loop !42
+  %cmp8.i = icmp eq i32 %inc.i155, %pos
+  %or.cond100 = select i1 %tobool7.not.i, i1 true, i1 %cmp8.i
+  br i1 %or.cond100, label %nk_str_at_const.exit, label %if.end11.i, !llvm.loop !42
 
 nk_str_at_const.exit:                             ; preds = %nk_utf_decode.exit, %if.end11.i, %for.end.i, %nk_utf_decode.exit69, %if.end5.i, %for.end.i26, %entry
   %unicode.5 = phi i32 [ 0, %entry ], [ %unicode.0, %nk_utf_decode.exit69 ], [ 65533, %for.end.i26 ], [ 0, %if.end5.i ], [ 65533, %for.end.i ], [ %unicode.2, %if.end11.i ], [ %unicode.2, %nk_utf_decode.exit ]
@@ -11027,7 +11085,7 @@ if.end.i.i:                                       ; preds = %for.end.i
   %arrayidx.i31.i = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i
   %13 = load i32, ptr %arrayidx.i31.i, align 4
   %cmp.not.i.i = icmp ugt i32 %13, %udecoded.0.lcssa.i
-  br i1 %cmp.not.i.i, label %nk_utf_decode.exit, label %land.lhs.true.i.i
+  br i1 %cmp.not.i.i, label %if.then7.i36.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end.i.i
   %arrayidx2.i.i = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i
@@ -11036,7 +11094,9 @@ land.lhs.true.i.i:                                ; preds = %if.end.i.i
   %15 = add i32 %udecoded.0.lcssa.i, -55296
   %or.cond.i.i = icmp ult i32 %15, 2047
   %or.cond11.i.i = or i1 %or.cond.i.i, %cmp3.i.i
-  %spec.select = select i1 %or.cond11.i.i, i32 65533, i32 %udecoded.0.lcssa.i
+  br i1 %or.cond11.i.i, label %if.then7.i36.i, label %nk_utf_decode.exit
+
+if.then7.i36.i:                                   ; preds = %land.lhs.true.i.i, %if.end.i.i
   br label %nk_utf_decode.exit
 
 return.loopexit.i:                                ; preds = %for.inc.i21.i
@@ -11047,15 +11107,15 @@ return.loopexit81.i:                              ; preds = %nk_utf_decode_byte.
   %indvars78.le.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-nk_utf_decode.exit:                               ; preds = %for.inc.i.i, %land.lhs.true.i.i, %if.end.i.i, %nk_utf_decode_byte.exit.i, %return.loopexit.i, %return.loopexit81.i
-  %unicode.0 = phi i32 [ 65533, %return.loopexit81.i ], [ 65533, %return.loopexit.i ], [ 65533, %nk_utf_decode_byte.exit.i ], [ 65533, %if.end.i.i ], [ %spec.select, %land.lhs.true.i.i ], [ 65533, %for.inc.i.i ]
-  %retval.0.i = phi i32 [ %indvars78.le.i, %return.loopexit81.i ], [ %indvars78.le91.i, %return.loopexit.i ], [ 1, %nk_utf_decode_byte.exit.i ], [ %3, %if.end.i.i ], [ %3, %land.lhs.true.i.i ], [ 1, %for.inc.i.i ]
-  %tobool.not116 = icmp ne i32 %retval.0.i, 0
-  %cmp1117 = fcmp ogt float %space, 0.000000e+00
-  %or.cond118 = and i1 %tobool.not116, %cmp1117
-  %cmp2119 = icmp sgt i32 %text_len, 0
-  %or.cond31120 = and i1 %or.cond118, %cmp2119
-  br i1 %or.cond31120, label %while.body.lr.ph, label %while.end
+nk_utf_decode.exit:                               ; preds = %for.inc.i.i, %nk_utf_decode_byte.exit.i, %land.lhs.true.i.i, %if.then7.i36.i, %return.loopexit.i, %return.loopexit81.i
+  %unicode.0 = phi i32 [ 65533, %if.then7.i36.i ], [ %udecoded.0.lcssa.i, %land.lhs.true.i.i ], [ 65533, %return.loopexit81.i ], [ 65533, %return.loopexit.i ], [ 65533, %nk_utf_decode_byte.exit.i ], [ 65533, %for.inc.i.i ]
+  %retval.0.i = phi i32 [ %3, %if.then7.i36.i ], [ %3, %land.lhs.true.i.i ], [ %indvars78.le.i, %return.loopexit81.i ], [ %indvars78.le91.i, %return.loopexit.i ], [ 1, %nk_utf_decode_byte.exit.i ], [ 1, %for.inc.i.i ]
+  %tobool.not115 = icmp ne i32 %retval.0.i, 0
+  %cmp1116 = fcmp ogt float %space, 0.000000e+00
+  %or.cond117 = and i1 %tobool.not115, %cmp1116
+  %cmp2118 = icmp sgt i32 %text_len, 0
+  %or.cond31119 = and i1 %or.cond117, %cmp2118
+  br i1 %or.cond31119, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %nk_utf_decode.exit
   %width3 = getelementptr inbounds i8, ptr %font, i64 16
@@ -11088,16 +11148,16 @@ for.end.us:                                       ; preds = %for.cond.us, %for.b
   br i1 %cmp2.us.le, label %if.else, label %return
 
 while.body:                                       ; preds = %while.body.lr.ph, %nk_utf_decode.exit97
-  %sep_width.0129 = phi float [ %sep_width.2, %nk_utf_decode.exit97 ], [ 0.000000e+00, %while.body.lr.ph ]
-  %sep_g.0128 = phi i32 [ %sep_g.2, %nk_utf_decode.exit97 ], [ 0, %while.body.lr.ph ]
-  %sep_len.0127 = phi i32 [ %sep_len.1, %nk_utf_decode.exit97 ], [ 0, %while.body.lr.ph ]
-  %g.0126 = phi i32 [ %add10.pre-phi, %nk_utf_decode.exit97 ], [ 0, %while.body.lr.ph ]
-  %len.0125 = phi i32 [ %add, %nk_utf_decode.exit97 ], [ 0, %while.body.lr.ph ]
-  %width.0124 = phi float [ %call4, %nk_utf_decode.exit97 ], [ 0.000000e+00, %while.body.lr.ph ]
-  %last_width.0123 = phi float [ %last_width.2, %nk_utf_decode.exit97 ], [ 0.000000e+00, %while.body.lr.ph ]
-  %glyph_len.0122 = phi i32 [ %retval.0.i45, %nk_utf_decode.exit97 ], [ %retval.0.i, %while.body.lr.ph ]
-  %unicode.1121 = phi i32 [ %unicode.2, %nk_utf_decode.exit97 ], [ %unicode.0, %while.body.lr.ph ]
-  %add = add nsw i32 %len.0125, %glyph_len.0122
+  %sep_width.0128 = phi float [ %sep_width.2, %nk_utf_decode.exit97 ], [ 0.000000e+00, %while.body.lr.ph ]
+  %sep_g.0127 = phi i32 [ %sep_g.2, %nk_utf_decode.exit97 ], [ 0, %while.body.lr.ph ]
+  %sep_len.0126 = phi i32 [ %sep_len.1, %nk_utf_decode.exit97 ], [ 0, %while.body.lr.ph ]
+  %g.0125 = phi i32 [ %add10.pre-phi, %nk_utf_decode.exit97 ], [ 0, %while.body.lr.ph ]
+  %len.0124 = phi i32 [ %add, %nk_utf_decode.exit97 ], [ 0, %while.body.lr.ph ]
+  %width.0123 = phi float [ %call4, %nk_utf_decode.exit97 ], [ 0.000000e+00, %while.body.lr.ph ]
+  %last_width.0122 = phi float [ %last_width.2, %nk_utf_decode.exit97 ], [ 0.000000e+00, %while.body.lr.ph ]
+  %glyph_len.0121 = phi i32 [ %retval.0.i45, %nk_utf_decode.exit97 ], [ %retval.0.i, %while.body.lr.ph ]
+  %unicode.1120 = phi i32 [ %unicode.2, %nk_utf_decode.exit97 ], [ %unicode.0, %while.body.lr.ph ]
+  %add = add nsw i32 %len.0124, %glyph_len.0121
   %20 = load ptr, ptr %width3, align 8
   %21 = load float, ptr %height, align 8
   %22 = load ptr, ptr %font, align 8
@@ -11111,27 +11171,27 @@ for.cond:                                         ; preds = %for.body, %while.bo
 
 for.body:                                         ; preds = %for.cond
   %23 = load i32, ptr %sep_list, align 4
-  %cmp6.not = icmp eq i32 %unicode.1121, %23
+  %cmp6.not = icmp eq i32 %unicode.1120, %23
   br i1 %cmp6.not, label %if.end, label %for.cond, !llvm.loop !46
 
 if.end:                                           ; preds = %for.body
-  %add7 = add nuw nsw i32 %g.0126, 1
+  %add7 = add nuw nsw i32 %g.0125, 1
   br label %for.end
 
 for.end.loopexit:                                 ; preds = %for.cond
-  %.pre = add nuw nsw i32 %g.0126, 1
+  %.pre = add nuw nsw i32 %g.0125, 1
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %if.end
   %add10.pre-phi = phi i32 [ %.pre, %for.end.loopexit ], [ %add7, %if.end ]
-  %last_width.1 = phi float [ %last_width.0123, %for.end.loopexit ], [ %width.0124, %if.end ]
-  %sep_len.1 = phi i32 [ %sep_len.0127, %for.end.loopexit ], [ %add, %if.end ]
-  %sep_g.1 = phi i32 [ %sep_g.0128, %for.end.loopexit ], [ %add7, %if.end ]
-  %sep_width.1 = phi float [ %sep_width.0129, %for.end.loopexit ], [ %width.0124, %if.end ]
+  %last_width.1 = phi float [ %last_width.0122, %for.end.loopexit ], [ %width.0123, %if.end ]
+  %sep_len.1 = phi i32 [ %sep_len.0126, %for.end.loopexit ], [ %add, %if.end ]
+  %sep_g.1 = phi i32 [ %sep_g.0127, %for.end.loopexit ], [ %add7, %if.end ]
+  %sep_width.1 = phi float [ %sep_width.0128, %for.end.loopexit ], [ %width.0123, %if.end ]
   %cmp8 = icmp eq i32 %i.0, %sep_count
-  %last_width.2 = select i1 %cmp8, float %width.0124, float %last_width.1
+  %last_width.2 = select i1 %cmp8, float %width.0123, float %last_width.1
   %sep_g.2 = select i1 %cmp8, i32 %add10.pre-phi, i32 %sep_g.1
-  %sep_width.2 = select i1 %cmp8, float %width.0124, float %sep_width.1
+  %sep_width.2 = select i1 %cmp8, float %width.0123, float %sep_width.1
   %idxprom12 = sext i32 %add to i64
   %arrayidx13 = getelementptr inbounds i8, ptr %text, i64 %idxprom12
   %sub = sub nsw i32 %text_len, %add
@@ -11174,7 +11234,7 @@ for.cond.preheader.i48:                           ; preds = %nk_utf_decode_byte.
 
 for.body.preheader.i67:                           ; preds = %for.cond.preheader.i48
   %30 = zext nneg i32 %sub to i64
-  %zext162 = and i64 %indvars.iv.i.i37, 4294967295
+  %zext161 = and i64 %indvars.iv.i.i37, 4294967295
   br label %for.body.i68
 
 for.body.i68:                                     ; preds = %for.inc.i87, %for.body.preheader.i67
@@ -11212,7 +11272,7 @@ for.inc.i87:                                      ; preds = %nk_utf_decode_byte.
   %or.i92 = or i32 %shl.i91, %conv14.i29.i90
   %indvars.iv.next.i93 = add nuw nsw i64 %indvars.iv.i69, 1
   %cmp8.i95 = icmp ult i64 %indvars.iv.next.i93, %30
-  %35 = icmp ult i64 %indvars.iv.next.i93, %zext162
+  %35 = icmp ult i64 %indvars.iv.next.i93, %zext161
   %36 = and i1 %cmp8.i95, %35
   br i1 %36, label %for.body.i68, label %for.end.i54, !llvm.loop !21
 
@@ -11226,7 +11286,7 @@ if.end.i.i57:                                     ; preds = %for.end.i54
   %arrayidx.i31.i59 = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i58
   %37 = load i32, ptr %arrayidx.i31.i59, align 4
   %cmp.not.i.i60 = icmp ugt i32 %37, %udecoded.0.lcssa.i55
-  br i1 %cmp.not.i.i60, label %nk_utf_decode.exit97, label %land.lhs.true.i.i61
+  br i1 %cmp.not.i.i60, label %if.then7.i36.i66, label %land.lhs.true.i.i61
 
 land.lhs.true.i.i61:                              ; preds = %if.end.i.i57
   %arrayidx2.i.i62 = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i58
@@ -11235,7 +11295,9 @@ land.lhs.true.i.i61:                              ; preds = %if.end.i.i57
   %39 = add i32 %udecoded.0.lcssa.i55, -55296
   %or.cond.i.i64 = icmp ult i32 %39, 2047
   %or.cond11.i.i65 = or i1 %or.cond.i.i64, %cmp3.i.i63
-  %spec.select98 = select i1 %or.cond11.i.i65, i32 65533, i32 %udecoded.0.lcssa.i55
+  br i1 %or.cond11.i.i65, label %if.then7.i36.i66, label %nk_utf_decode.exit97
+
+if.then7.i36.i66:                                 ; preds = %land.lhs.true.i.i61, %if.end.i.i57
   br label %nk_utf_decode.exit97
 
 return.loopexit.i81:                              ; preds = %for.inc.i21.i78
@@ -11247,12 +11309,12 @@ return.loopexit81.i85:                            ; preds = %nk_utf_decode_byte.
   br label %nk_utf_decode.exit97
 
 nk_utf_decode.exit97.thread:                      ; preds = %for.end, %for.end.i54
-  %cmp2175 = icmp slt i32 %add, %text_len
-  br i1 %cmp2175, label %if.else, label %return
+  %cmp2174 = icmp slt i32 %add, %text_len
+  br i1 %cmp2174, label %if.else, label %return
 
-nk_utf_decode.exit97:                             ; preds = %for.inc.i.i42, %land.lhs.true.i.i61, %if.end.i.i57, %nk_utf_decode_byte.exit.i46, %return.loopexit.i81, %return.loopexit81.i85
-  %unicode.2 = phi i32 [ 65533, %return.loopexit81.i85 ], [ 65533, %return.loopexit.i81 ], [ 65533, %nk_utf_decode_byte.exit.i46 ], [ 65533, %if.end.i.i57 ], [ %spec.select98, %land.lhs.true.i.i61 ], [ 65533, %for.inc.i.i42 ]
-  %retval.0.i45 = phi i32 [ %indvars78.le.i86, %return.loopexit81.i85 ], [ %indvars78.le91.i82, %return.loopexit.i81 ], [ 1, %nk_utf_decode_byte.exit.i46 ], [ %27, %if.end.i.i57 ], [ %27, %land.lhs.true.i.i61 ], [ 1, %for.inc.i.i42 ]
+nk_utf_decode.exit97:                             ; preds = %for.inc.i.i42, %nk_utf_decode_byte.exit.i46, %land.lhs.true.i.i61, %if.then7.i36.i66, %return.loopexit.i81, %return.loopexit81.i85
+  %unicode.2 = phi i32 [ 65533, %if.then7.i36.i66 ], [ %udecoded.0.lcssa.i55, %land.lhs.true.i.i61 ], [ 65533, %return.loopexit81.i85 ], [ 65533, %return.loopexit.i81 ], [ 65533, %nk_utf_decode_byte.exit.i46 ], [ 65533, %for.inc.i.i42 ]
+  %retval.0.i45 = phi i32 [ %27, %if.then7.i36.i66 ], [ %27, %land.lhs.true.i.i61 ], [ %indvars78.le.i86, %return.loopexit81.i85 ], [ %indvars78.le91.i82, %return.loopexit.i81 ], [ 1, %nk_utf_decode_byte.exit.i46 ], [ 1, %for.inc.i.i42 ]
   %tobool.not = icmp ne i32 %retval.0.i45, 0
   %cmp1 = fcmp olt float %call4, %space
   %or.cond = select i1 %tobool.not, i1 %cmp1, i1 false
@@ -11267,23 +11329,23 @@ while.end:                                        ; preds = %nk_utf_decode.exit9
   %sep_len.0.lcssa = phi i32 [ 0, %nk_utf_decode.exit ], [ %sep_len.1, %nk_utf_decode.exit97 ]
   %sep_g.0.lcssa = phi i32 [ 0, %nk_utf_decode.exit ], [ %sep_g.2, %nk_utf_decode.exit97 ]
   %sep_width.0.lcssa = phi float [ 0.000000e+00, %nk_utf_decode.exit ], [ %sep_width.2, %nk_utf_decode.exit97 ]
-  %cmp2.lcssa = phi i1 [ %cmp2119, %nk_utf_decode.exit ], [ %cmp2, %nk_utf_decode.exit97 ]
+  %cmp2.lcssa = phi i1 [ %cmp2118, %nk_utf_decode.exit ], [ %cmp2, %nk_utf_decode.exit97 ]
   br i1 %cmp2.lcssa, label %if.else, label %return
 
 if.else:                                          ; preds = %nk_utf_decode.exit97.thread, %for.end.us, %while.end
-  %sep_width.0.lcssa184 = phi float [ 0.000000e+00, %for.end.us ], [ %sep_width.0.lcssa, %while.end ], [ %sep_width.2, %nk_utf_decode.exit97.thread ]
-  %sep_g.0.lcssa183 = phi i32 [ %sep_g.2.us, %for.end.us ], [ %sep_g.0.lcssa, %while.end ], [ %sep_g.2, %nk_utf_decode.exit97.thread ]
-  %sep_len.0.lcssa182 = phi i32 [ %sep_len.1.us, %for.end.us ], [ %sep_len.0.lcssa, %while.end ], [ %sep_len.1, %nk_utf_decode.exit97.thread ]
-  %len.0.lcssa179 = phi i32 [ %retval.0.i, %for.end.us ], [ %len.0.lcssa, %while.end ], [ %add, %nk_utf_decode.exit97.thread ]
-  %sep_len.0.lcssa182.fr = freeze i32 %sep_len.0.lcssa182
-  %tobool18.not = icmp eq i32 %sep_len.0.lcssa182.fr, 0
-  %spec.select222 = select i1 %tobool18.not, i32 %len.0.lcssa179, i32 %sep_len.0.lcssa182.fr
+  %sep_width.0.lcssa183 = phi float [ 0.000000e+00, %for.end.us ], [ %sep_width.0.lcssa, %while.end ], [ %sep_width.2, %nk_utf_decode.exit97.thread ]
+  %sep_g.0.lcssa182 = phi i32 [ %sep_g.2.us, %for.end.us ], [ %sep_g.0.lcssa, %while.end ], [ %sep_g.2, %nk_utf_decode.exit97.thread ]
+  %sep_len.0.lcssa181 = phi i32 [ %sep_len.1.us, %for.end.us ], [ %sep_len.0.lcssa, %while.end ], [ %sep_len.1, %nk_utf_decode.exit97.thread ]
+  %len.0.lcssa178 = phi i32 [ %retval.0.i, %for.end.us ], [ %len.0.lcssa, %while.end ], [ %add, %nk_utf_decode.exit97.thread ]
+  %sep_len.0.lcssa181.fr = freeze i32 %sep_len.0.lcssa181
+  %tobool18.not = icmp eq i32 %sep_len.0.lcssa181.fr, 0
+  %spec.select = select i1 %tobool18.not, i32 %len.0.lcssa178, i32 %sep_len.0.lcssa181.fr
   br label %return
 
 return:                                           ; preds = %if.else, %for.end.i, %entry, %while.end, %for.end.us, %nk_utf_decode.exit97.thread
-  %g.0.lcssa.sink = phi i32 [ 1, %for.end.us ], [ %g.0.lcssa, %while.end ], [ %add10.pre-phi, %nk_utf_decode.exit97.thread ], [ 0, %entry ], [ 0, %for.end.i ], [ %sep_g.0.lcssa183, %if.else ]
-  %last_width.0.lcssa.sink = phi float [ 0.000000e+00, %for.end.us ], [ %last_width.0.lcssa, %while.end ], [ %last_width.2, %nk_utf_decode.exit97.thread ], [ 0.000000e+00, %entry ], [ 0.000000e+00, %for.end.i ], [ %sep_width.0.lcssa184, %if.else ]
-  %retval.0 = phi i32 [ %retval.0.i, %for.end.us ], [ %len.0.lcssa, %while.end ], [ %add, %nk_utf_decode.exit97.thread ], [ 0, %entry ], [ 0, %for.end.i ], [ %spec.select222, %if.else ]
+  %g.0.lcssa.sink = phi i32 [ 1, %for.end.us ], [ %g.0.lcssa, %while.end ], [ %add10.pre-phi, %nk_utf_decode.exit97.thread ], [ 0, %entry ], [ 0, %for.end.i ], [ %sep_g.0.lcssa182, %if.else ]
+  %last_width.0.lcssa.sink = phi float [ 0.000000e+00, %for.end.us ], [ %last_width.0.lcssa, %while.end ], [ %last_width.2, %nk_utf_decode.exit97.thread ], [ 0.000000e+00, %entry ], [ 0.000000e+00, %for.end.i ], [ %sep_width.0.lcssa183, %if.else ]
+  %retval.0 = phi i32 [ %retval.0.i, %for.end.us ], [ %len.0.lcssa, %while.end ], [ %add, %nk_utf_decode.exit97.thread ], [ 0, %entry ], [ 0, %for.end.i ], [ %spec.select, %if.else ]
   store i32 %g.0.lcssa.sink, ptr %glyphs, align 4
   store float %last_width.0.lcssa.sink, ptr %text_width, align 4
   ret i32 %retval.0
@@ -14746,7 +14808,7 @@ if.end.i.i:                                       ; preds = %for.end.i
   %arrayidx.i31.i = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i
   %20 = load i32, ptr %arrayidx.i31.i, align 4
   %cmp.not.i.i = icmp ugt i32 %20, %udecoded.0.lcssa.i
-  br i1 %cmp.not.i.i, label %nk_utf_decode.exit, label %land.lhs.true.i.i
+  br i1 %cmp.not.i.i, label %if.then7.i36.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end.i.i
   %arrayidx2.i.i = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i
@@ -14755,7 +14817,9 @@ land.lhs.true.i.i:                                ; preds = %if.end.i.i
   %22 = add i32 %udecoded.0.lcssa.i, -55296
   %or.cond.i.i = icmp ult i32 %22, 2047
   %or.cond11.i.i = or i1 %or.cond.i.i, %cmp3.i.i
-  %spec.select = select i1 %or.cond11.i.i, i32 65533, i32 %udecoded.0.lcssa.i
+  br i1 %or.cond11.i.i, label %if.then7.i36.i, label %nk_utf_decode.exit
+
+if.then7.i36.i:                                   ; preds = %land.lhs.true.i.i, %if.end.i.i
   br label %nk_utf_decode.exit
 
 return.loopexit.i:                                ; preds = %for.inc.i21.i
@@ -14766,17 +14830,17 @@ return.loopexit81.i:                              ; preds = %nk_utf_decode_byte.
   %indvars78.le.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-nk_utf_decode.exit:                               ; preds = %land.lhs.true.i.i, %if.end.i.i, %return.loopexit.i, %return.loopexit81.i
-  %unicode.0 = phi i32 [ 65533, %return.loopexit81.i ], [ 65533, %return.loopexit.i ], [ 65533, %if.end.i.i ], [ %spec.select, %land.lhs.true.i.i ]
-  %retval.0.i = phi i32 [ %indvars78.le.i, %return.loopexit81.i ], [ %indvars78.le91.i, %return.loopexit.i ], [ %10, %if.end.i.i ], [ %10, %land.lhs.true.i.i ]
+nk_utf_decode.exit:                               ; preds = %land.lhs.true.i.i, %if.then7.i36.i, %return.loopexit.i, %return.loopexit81.i
+  %unicode.0 = phi i32 [ 65533, %if.then7.i36.i ], [ %udecoded.0.lcssa.i, %land.lhs.true.i.i ], [ 65533, %return.loopexit81.i ], [ 65533, %return.loopexit.i ]
+  %retval.0.i = phi i32 [ %10, %if.then7.i36.i ], [ %10, %land.lhs.true.i.i ], [ %indvars78.le.i, %return.loopexit81.i ], [ %indvars78.le91.i, %return.loopexit.i ]
   %tobool29.not = icmp eq i32 %retval.0.i, 0
   br i1 %tobool29.not, label %while.end, label %if.end31
 
 if.end31:                                         ; preds = %nk_utf_decode.exit
-  %cmp34142 = icmp slt i32 %len, 1
-  %cmp37143 = icmp eq i32 %unicode.0, 65533
-  %or.cond36144 = select i1 %cmp34142, i1 true, i1 %cmp37143
-  br i1 %or.cond36144, label %while.end, label %if.end40.lr.ph
+  %cmp34141 = icmp slt i32 %len, 1
+  %cmp37142 = icmp eq i32 %unicode.0, 65533
+  %or.cond36143 = select i1 %cmp34141, i1 true, i1 %cmp37142
+  br i1 %or.cond36143, label %while.end, label %if.end40.lr.ph
 
 if.end40.lr.ph:                                   ; preds = %if.end31
   %config = getelementptr inbounds i8, ptr %list, i64 112
@@ -14796,15 +14860,15 @@ if.end40.lr.ph:                                   ; preds = %if.end31
   br label %if.end40
 
 if.end40:                                         ; preds = %if.end40.lr.ph, %nk_utf_decode.exit102.thread
-  %x.0148 = phi float [ %rect.sroa.0.0.vec.extract, %if.end40.lr.ph ], [ %add61, %nk_utf_decode.exit102.thread ]
-  %text_len.0147 = phi i32 [ 0, %if.end40.lr.ph ], [ %add60, %nk_utf_decode.exit102.thread ]
-  %glyph_len.0146 = phi i32 [ %retval.0.i, %if.end40.lr.ph ], [ %retval.0.i50123, %nk_utf_decode.exit102.thread ]
-  %unicode.1145 = phi i32 [ %unicode.0, %if.end40.lr.ph ], [ %next.1121, %nk_utf_decode.exit102.thread ]
-  %idx.ext = sext i32 %text_len.0147 to i64
+  %x.0147 = phi float [ %rect.sroa.0.0.vec.extract, %if.end40.lr.ph ], [ %add61, %nk_utf_decode.exit102.thread ]
+  %text_len.0146 = phi i32 [ 0, %if.end40.lr.ph ], [ %add60, %nk_utf_decode.exit102.thread ]
+  %glyph_len.0145 = phi i32 [ %retval.0.i, %if.end40.lr.ph ], [ %retval.0.i50123, %nk_utf_decode.exit102.thread ]
+  %unicode.1144 = phi i32 [ %unicode.0, %if.end40.lr.ph ], [ %next.1121, %nk_utf_decode.exit102.thread ]
+  %idx.ext = sext i32 %text_len.0146 to i64
   %add.ptr = getelementptr inbounds i8, ptr %text, i64 %idx.ext
-  %idx.ext41 = sext i32 %glyph_len.0146 to i64
+  %idx.ext41 = sext i32 %glyph_len.0145 to i64
   %add.ptr42 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext41
-  %sub = sub nsw i32 %len, %text_len.0147
+  %sub = sub nsw i32 %len, %text_len.0146
   %24 = load i8, ptr %add.ptr42, align 1
   br label %for.body.i.i41
 
@@ -14840,7 +14904,7 @@ for.cond.preheader.i53:                           ; preds = %nk_utf_decode_byte.
 
 for.body.preheader.i72:                           ; preds = %for.cond.preheader.i53
   %30 = zext nneg i32 %sub to i64
-  %zext164 = and i64 %indvars.iv.i.i42, 4294967295
+  %zext163 = and i64 %indvars.iv.i.i42, 4294967295
   br label %for.body.i73
 
 for.body.i73:                                     ; preds = %for.inc.i92, %for.body.preheader.i72
@@ -14878,7 +14942,7 @@ for.inc.i92:                                      ; preds = %nk_utf_decode_byte.
   %or.i97 = or i32 %shl.i96, %conv14.i29.i95
   %indvars.iv.next.i98 = add nuw nsw i64 %indvars.iv.i74, 1
   %cmp8.i100 = icmp ult i64 %indvars.iv.next.i98, %30
-  %35 = icmp ult i64 %indvars.iv.next.i98, %zext164
+  %35 = icmp ult i64 %indvars.iv.next.i98, %zext163
   %36 = and i1 %cmp8.i100, %35
   br i1 %36, label %for.body.i73, label %for.end.i59, !llvm.loop !21
 
@@ -14914,32 +14978,32 @@ return.loopexit81.i90:                            ; preds = %nk_utf_decode_byte.
 
 nk_utf_decode.exit102:                            ; preds = %land.lhs.true.i.i66
   %cmp44 = icmp eq i32 %next.1.fr, 65533
-  %spec.select125 = select i1 %cmp44, i32 0, i32 %next.1.fr
+  %spec.select = select i1 %cmp44, i32 0, i32 %next.1.fr
   br label %nk_utf_decode.exit102.thread
 
-nk_utf_decode.exit102.thread:                     ; preds = %for.inc.i.i47, %land.lhs.true.i.i66, %if.end.i.i62, %nk_utf_decode_byte.exit.i51, %return.loopexit.i86, %return.loopexit81.i90, %for.end.i59, %nk_utf_decode.exit102
-  %retval.0.i50123 = phi i32 [ %27, %nk_utf_decode.exit102 ], [ %27, %if.end.i.i62 ], [ %indvars78.le.i91, %return.loopexit81.i90 ], [ %indvars78.le91.i87, %return.loopexit.i86 ], [ 0, %for.end.i59 ], [ 1, %nk_utf_decode_byte.exit.i51 ], [ %27, %land.lhs.true.i.i66 ], [ 1, %for.inc.i.i47 ]
-  %next.1121 = phi i32 [ %next.1.fr, %nk_utf_decode.exit102 ], [ 65533, %if.end.i.i62 ], [ 65533, %return.loopexit81.i90 ], [ 65533, %return.loopexit.i86 ], [ 65533, %for.end.i59 ], [ 65533, %nk_utf_decode_byte.exit.i51 ], [ 65533, %land.lhs.true.i.i66 ], [ 65533, %for.inc.i.i47 ]
-  %40 = phi i32 [ %spec.select125, %nk_utf_decode.exit102 ], [ 0, %if.end.i.i62 ], [ 0, %return.loopexit81.i90 ], [ 0, %return.loopexit.i86 ], [ 0, %for.end.i59 ], [ 0, %nk_utf_decode_byte.exit.i51 ], [ 0, %land.lhs.true.i.i66 ], [ 0, %for.inc.i.i47 ]
+nk_utf_decode.exit102.thread:                     ; preds = %for.inc.i.i47, %if.end.i.i62, %land.lhs.true.i.i66, %nk_utf_decode_byte.exit.i51, %return.loopexit.i86, %return.loopexit81.i90, %for.end.i59, %nk_utf_decode.exit102
+  %retval.0.i50123 = phi i32 [ %27, %nk_utf_decode.exit102 ], [ %indvars78.le.i91, %return.loopexit81.i90 ], [ %indvars78.le91.i87, %return.loopexit.i86 ], [ 0, %for.end.i59 ], [ 1, %nk_utf_decode_byte.exit.i51 ], [ %27, %land.lhs.true.i.i66 ], [ %27, %if.end.i.i62 ], [ 1, %for.inc.i.i47 ]
+  %next.1121 = phi i32 [ %next.1.fr, %nk_utf_decode.exit102 ], [ 65533, %return.loopexit81.i90 ], [ 65533, %return.loopexit.i86 ], [ 65533, %for.end.i59 ], [ 65533, %nk_utf_decode_byte.exit.i51 ], [ 65533, %land.lhs.true.i.i66 ], [ 65533, %if.end.i.i62 ], [ 65533, %for.inc.i.i47 ]
+  %40 = phi i32 [ %spec.select, %nk_utf_decode.exit102 ], [ 0, %return.loopexit81.i90 ], [ 0, %return.loopexit.i86 ], [ 0, %for.end.i59 ], [ 0, %nk_utf_decode_byte.exit.i51 ], [ 0, %land.lhs.true.i.i66 ], [ 0, %if.end.i.i62 ], [ 0, %for.inc.i.i47 ]
   %41 = load ptr, ptr %.in, align 8
   %42 = load ptr, ptr %font, align 8
-  call void %41(ptr %42, float noundef %font_height, ptr noundef nonnull %g, i32 noundef %unicode.1145, i32 noundef %40) #51
+  call void %41(ptr %42, float noundef %font_height, ptr noundef nonnull %g, i32 noundef %unicode.1144, i32 noundef %40) #51
   %43 = load float, ptr %xadvance, align 8
   %44 = load <2 x float>, ptr %offset, align 8
-  %45 = insertelement <2 x float> %rect.coerce0, float %x.0148, i64 0
+  %45 = insertelement <2 x float> %rect.coerce0, float %x.0147, i64 0
   %46 = fadd <2 x float> %45, %44
   %47 = load <2 x float>, ptr %width, align 8
   %48 = fadd <2 x float> %46, %47
   %49 = load <2 x float>, ptr %g, align 8
   %50 = load <2 x float>, ptr %arrayidx59, align 8
   call fastcc void @nk_draw_list_push_rect_uv(ptr noundef nonnull %list, <2 x float> %46, <2 x float> %48, <2 x float> %49, <2 x float> %50, i32 %fg.sroa.0.0.insert.insert)
-  %add60 = add nsw i32 %text_len.0147, %glyph_len.0146
-  %add61 = fadd float %x.0148, %43
+  %add60 = add nsw i32 %text_len.0146, %glyph_len.0145
+  %add61 = fadd float %x.0147, %43
   %cmp34 = icmp sge i32 %add60, %len
   %tobool36 = icmp eq i32 %retval.0.i50123, 0
-  %.not126 = or i1 %tobool36, %cmp34
+  %.not125 = or i1 %tobool36, %cmp34
   %cmp37 = icmp eq i32 %next.1121, 65533
-  %or.cond36 = or i1 %.not126, %cmp37
+  %or.cond36 = or i1 %.not125, %cmp37
   br i1 %or.cond36, label %while.end, label %if.end40, !llvm.loop !65
 
 while.end:                                        ; preds = %for.inc.i.i, %nk_utf_decode.exit102.thread, %nk_utf_decode_byte.exit.i, %if.end31, %for.end.i, %nk_utf_decode.exit, %if.end, %land.lhs.true, %land.lhs.true13, %land.lhs.true18, %entry
@@ -16735,14 +16799,15 @@ if.else.us.i.i:                                   ; preds = %stbrp__skyline_find
 
 if.then21.us.i.i:                                 ; preds = %if.else.us.i.i
   %cmp22.us.i.i = icmp slt i32 %min_y.1.i.us.i.i, %best_y.0107.us.i.i
-  br i1 %cmp22.us.i.i, label %if.end29.us.i.i, label %lor.lhs.false23.us.i.i
+  br i1 %cmp22.us.i.i, label %if.then26.us.i.i, label %lor.lhs.false23.us.i.i
 
 lor.lhs.false23.us.i.i:                           ; preds = %if.then21.us.i.i
   %cmp24.us.i.i = icmp eq i32 %min_y.1.i.us.i.i, %best_y.0107.us.i.i
   %cmp25.us.i.i = icmp slt i32 %waste_area.1.i.us.i.i, %best_waste.0106.us.i.i
   %or.cond.us.i.i = select i1 %cmp24.us.i.i, i1 %cmp25.us.i.i, i1 false
-  %spec.select.i.i = select i1 %or.cond.us.i.i, i32 %waste_area.1.i.us.i.i, i32 %best_waste.0106.us.i.i
-  %spec.select189.i.i = select i1 %or.cond.us.i.i, ptr %prev.0108.us.i.i, ptr %best.0109.us.i.i
+  br i1 %or.cond.us.i.i, label %if.then26.us.i.i, label %if.end29.us.i.i
+
+if.then26.us.i.i:                                 ; preds = %lor.lhs.false23.us.i.i, %if.then21.us.i.i
   br label %if.end29.us.i.i
 
 if.then14.us.i.i:                                 ; preds = %stbrp__skyline_find_min_y.exit.loopexit.us.i.i
@@ -16751,10 +16816,10 @@ if.then14.us.i.i:                                 ; preds = %stbrp__skyline_find
   %spec.select61.us.i.i = select i1 %cmp15.us.i.i, ptr %prev.0108.us.i.i, ptr %best.0109.us.i.i
   br label %if.end29.us.i.i
 
-if.end29.us.i.i:                                  ; preds = %if.then14.us.i.i, %lor.lhs.false23.us.i.i, %if.then21.us.i.i, %if.else.us.i.i
-  %best_waste.1.us.i.i = phi i32 [ %best_waste.0106.us.i.i, %if.else.us.i.i ], [ %best_waste.0106.us.i.i, %if.then14.us.i.i ], [ %waste_area.1.i.us.i.i, %if.then21.us.i.i ], [ %spec.select.i.i, %lor.lhs.false23.us.i.i ]
-  %best_y.1.us.i.i = phi i32 [ %best_y.0107.us.i.i, %if.else.us.i.i ], [ %spec.select.us.i.i, %if.then14.us.i.i ], [ %min_y.1.i.us.i.i, %if.then21.us.i.i ], [ %best_y.0107.us.i.i, %lor.lhs.false23.us.i.i ]
-  %best.1.us.i.i = phi ptr [ %best.0109.us.i.i, %if.else.us.i.i ], [ %spec.select61.us.i.i, %if.then14.us.i.i ], [ %prev.0108.us.i.i, %if.then21.us.i.i ], [ %spec.select189.i.i, %lor.lhs.false23.us.i.i ]
+if.end29.us.i.i:                                  ; preds = %if.then14.us.i.i, %if.then26.us.i.i, %lor.lhs.false23.us.i.i, %if.else.us.i.i
+  %best_waste.1.us.i.i = phi i32 [ %waste_area.1.i.us.i.i, %if.then26.us.i.i ], [ %best_waste.0106.us.i.i, %lor.lhs.false23.us.i.i ], [ %best_waste.0106.us.i.i, %if.else.us.i.i ], [ %best_waste.0106.us.i.i, %if.then14.us.i.i ]
+  %best_y.1.us.i.i = phi i32 [ %min_y.1.i.us.i.i, %if.then26.us.i.i ], [ %best_y.0107.us.i.i, %lor.lhs.false23.us.i.i ], [ %best_y.0107.us.i.i, %if.else.us.i.i ], [ %spec.select.us.i.i, %if.then14.us.i.i ]
+  %best.1.us.i.i = phi ptr [ %prev.0108.us.i.i, %if.then26.us.i.i ], [ %best.0109.us.i.i, %lor.lhs.false23.us.i.i ], [ %best.0109.us.i.i, %if.else.us.i.i ], [ %spec.select61.us.i.i, %if.then14.us.i.i ]
   %next.us.i.i = getelementptr inbounds i8, ptr %node.0110.us.i.i, i64 8
   %node.0.us.i.i = load ptr, ptr %next.us.i.i, align 8
   %17 = load i32, ptr %node.0.us.i.i, align 8
@@ -16779,7 +16844,7 @@ while.body.i.i:                                   ; preds = %while.body.lr.ph.sp
   %best_y.0107.i.i = phi i32 [ %best_y.1.i.i, %if.end29.i.i ], [ 1073741824, %while.body.lr.ph.split.i.i ]
   %best_waste.0106.i.i = phi i32 [ %best_waste.1.i.i, %if.end29.i.i ], [ 1073741824, %while.body.lr.ph.split.i.i ]
   %cmp22.i.i = icmp sgt i32 %best_y.0107.i.i, 0
-  br i1 %cmp22.i.i, label %if.end29.i.i, label %lor.lhs.false23.i.i
+  br i1 %cmp22.i.i, label %if.then26.i.i, label %lor.lhs.false23.i.i
 
 lor.lhs.false23.i.i:                              ; preds = %while.body.i.i
   %cmp24.i.i = icmp eq i32 %best_y.0107.i.i, 0
@@ -16787,13 +16852,13 @@ lor.lhs.false23.i.i:                              ; preds = %while.body.i.i
   %or.cond.i.i = select i1 %cmp24.i.i, i1 %cmp25.i.i, i1 false
   br i1 %or.cond.i.i, label %if.then26.i.i, label %if.end29.i.i
 
-if.then26.i.i:                                    ; preds = %lor.lhs.false23.i.i
+if.then26.i.i:                                    ; preds = %lor.lhs.false23.i.i, %while.body.i.i
   br label %if.end29.i.i
 
-if.end29.i.i:                                     ; preds = %if.then26.i.i, %lor.lhs.false23.i.i, %while.body.i.i
-  %best_waste.1.i.i = phi i32 [ %best_waste.0106.i.i, %lor.lhs.false23.i.i ], [ 0, %while.body.i.i ], [ 0, %if.then26.i.i ]
-  %best_y.1.i.i = phi i32 [ %best_y.0107.i.i, %lor.lhs.false23.i.i ], [ 0, %while.body.i.i ], [ 0, %if.then26.i.i ]
-  %best.1.i.i = phi ptr [ %best.0109.i.i, %lor.lhs.false23.i.i ], [ %prev.0108.i.i, %while.body.i.i ], [ %prev.0108.i.i, %if.then26.i.i ]
+if.end29.i.i:                                     ; preds = %if.then26.i.i, %lor.lhs.false23.i.i
+  %best_waste.1.i.i = phi i32 [ 0, %if.then26.i.i ], [ %best_waste.0106.i.i, %lor.lhs.false23.i.i ]
+  %best_y.1.i.i = phi i32 [ 0, %if.then26.i.i ], [ %best_y.0107.i.i, %lor.lhs.false23.i.i ]
+  %best.1.i.i = phi ptr [ %prev.0108.i.i, %if.then26.i.i ], [ %best.0109.i.i, %lor.lhs.false23.i.i ]
   %next.i.i = getelementptr inbounds i8, ptr %node.0110.i.i, i64 8
   %node.0.i.i = load ptr, ptr %next.i.i, align 8
   %19 = load i32, ptr %node.0.i.i, align 8
@@ -16929,7 +16994,7 @@ if.then65.i.i:                                    ; preds = %stbrp__skyline_find
   %cmp66.i.i = icmp slt i32 %min_y.0.lcssa.i65.i.i, %best_y.2165.i.i
   %cmp68.i.i = icmp slt i32 %waste_area.0.lcssa.i66.i.i, %best_waste.2163.i.i
   %or.cond102.i.i = select i1 %cmp66.i.i, i1 true, i1 %cmp68.i.i
-  br i1 %or.cond102.i.i, label %if.end76.i.i, label %lor.lhs.false69.i.i
+  br i1 %or.cond102.i.i, label %if.then73.i.i, label %lor.lhs.false69.i.i
 
 lor.lhs.false69.i.i:                              ; preds = %if.then65.i.i
   %cmp70.i.i = icmp eq i32 %waste_area.0.lcssa.i66.i.i, %best_waste.2163.i.i
@@ -16937,14 +17002,14 @@ lor.lhs.false69.i.i:                              ; preds = %if.then65.i.i
   %or.cond63.i.i = select i1 %cmp70.i.i, i1 %cmp72.i.i, i1 false
   br i1 %or.cond63.i.i, label %if.then73.i.i, label %if.end76.i.i
 
-if.then73.i.i:                                    ; preds = %lor.lhs.false69.i.i
+if.then73.i.i:                                    ; preds = %lor.lhs.false69.i.i, %if.then65.i.i
   br label %if.end76.i.i
 
-if.end76.i.i:                                     ; preds = %if.then73.i.i, %lor.lhs.false69.i.i, %if.then65.i.i, %stbrp__skyline_find_min_y.exit99.i.i
-  %best_waste.3.i.i = phi i32 [ %best_waste.2163.i.i, %lor.lhs.false69.i.i ], [ %best_waste.2163.i.i, %stbrp__skyline_find_min_y.exit99.i.i ], [ %waste_area.0.lcssa.i66.i.i, %if.then65.i.i ], [ %best_waste.2163.i.i, %if.then73.i.i ]
-  %best_x.1.i.i = phi i32 [ %best_x.0164.i.i, %lor.lhs.false69.i.i ], [ %best_x.0164.i.i, %stbrp__skyline_find_min_y.exit99.i.i ], [ %sub48.i.i, %if.then65.i.i ], [ %sub48.i.i, %if.then73.i.i ]
-  %best_y.3.i.i = phi i32 [ %best_y.2165.i.i, %lor.lhs.false69.i.i ], [ %best_y.2165.i.i, %stbrp__skyline_find_min_y.exit99.i.i ], [ %min_y.0.lcssa.i65.i.i, %if.then65.i.i ], [ %min_y.0.lcssa.i65.i.i, %if.then73.i.i ]
-  %best.3.i.i = phi ptr [ %best.2169.i.i, %lor.lhs.false69.i.i ], [ %best.2169.i.i, %stbrp__skyline_find_min_y.exit99.i.i ], [ %prev.2.i.i, %if.then65.i.i ], [ %prev.2.i.i, %if.then73.i.i ]
+if.end76.i.i:                                     ; preds = %if.then73.i.i, %lor.lhs.false69.i.i, %stbrp__skyline_find_min_y.exit99.i.i
+  %best_waste.3.i.i = phi i32 [ %waste_area.0.lcssa.i66.i.i, %if.then73.i.i ], [ %best_waste.2163.i.i, %lor.lhs.false69.i.i ], [ %best_waste.2163.i.i, %stbrp__skyline_find_min_y.exit99.i.i ]
+  %best_x.1.i.i = phi i32 [ %sub48.i.i, %if.then73.i.i ], [ %best_x.0164.i.i, %lor.lhs.false69.i.i ], [ %best_x.0164.i.i, %stbrp__skyline_find_min_y.exit99.i.i ]
+  %best_y.3.i.i = phi i32 [ %min_y.0.lcssa.i65.i.i, %if.then73.i.i ], [ %best_y.2165.i.i, %lor.lhs.false69.i.i ], [ %best_y.2165.i.i, %stbrp__skyline_find_min_y.exit99.i.i ]
+  %best.3.i.i = phi ptr [ %prev.2.i.i, %if.then73.i.i ], [ %best.2169.i.i, %lor.lhs.false69.i.i ], [ %best.2169.i.i, %stbrp__skyline_find_min_y.exit99.i.i ]
   %next77.i.i = getelementptr inbounds i8, ptr %tail.1168.i.i, i64 8
   %35 = load ptr, ptr %next77.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %35, null
@@ -27479,125 +27544,56 @@ stbtt_InitFont_internal.exit:                     ; preds = %for.inc.i469.i, %st
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @stbtt_GetFontOffsetForIndex(ptr nocapture noundef readonly %data, i32 noundef %index) local_unnamed_addr #11 {
 entry:
-  %0 = load i8, ptr %data, align 1
-  switch i8 %0, label %stbtt_GetFontOffsetForIndex_internal.exit [
-    i8 49, label %land.lhs.true.i.i
-    i8 116, label %land.lhs.true21.i.i
-    i8 79, label %land.lhs.true46.i.i
-    i8 0, label %land.lhs.true70.i.i
-  ]
+  %call.i = tail call fastcc i32 @stbtt__isfont(ptr noundef %data), !range !14
+  %tobool.not.i = icmp eq i32 %call.i, 0
+  br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
-land.lhs.true.i.i:                                ; preds = %entry
-  %arrayidx2.i.i = getelementptr inbounds i8, ptr %data, i64 1
-  %1 = load i8, ptr %arrayidx2.i.i, align 1
-  %cmp4.i.i = icmp eq i8 %1, 0
-  br i1 %cmp4.i.i, label %land.lhs.true6.i.i, label %stbtt_GetFontOffsetForIndex_internal.exit
-
-land.lhs.true6.i.i:                               ; preds = %land.lhs.true.i.i
-  %arrayidx7.i.i = getelementptr inbounds i8, ptr %data, i64 2
-  %2 = load i8, ptr %arrayidx7.i.i, align 1
-  %cmp9.i.i = icmp eq i8 %2, 0
-  br i1 %cmp9.i.i, label %stbtt__isfont.exit.i, label %stbtt_GetFontOffsetForIndex_internal.exit
-
-land.lhs.true21.i.i:                              ; preds = %entry
-  %arrayidx22.i.i = getelementptr inbounds i8, ptr %data, i64 1
-  %3 = load i8, ptr %arrayidx22.i.i, align 1
-  switch i8 %3, label %stbtt_GetFontOffsetForIndex_internal.exit [
-    i8 121, label %land.lhs.true27.i.i
-    i8 114, label %land.lhs.true98.i.i
-    i8 116, label %land.lhs.true9.i
-  ]
-
-land.lhs.true27.i.i:                              ; preds = %land.lhs.true21.i.i
-  %arrayidx28.i.i = getelementptr inbounds i8, ptr %data, i64 2
-  %4 = load i8, ptr %arrayidx28.i.i, align 1
-  %cmp31.i.i = icmp eq i8 %4, 112
-  br i1 %cmp31.i.i, label %land.lhs.true33.i.i, label %stbtt_GetFontOffsetForIndex_internal.exit
-
-land.lhs.true33.i.i:                              ; preds = %land.lhs.true27.i.i
-  %arrayidx34.i.i = getelementptr inbounds i8, ptr %data, i64 3
-  %5 = load i8, ptr %arrayidx34.i.i, align 1
-  %cmp37.i.i = icmp eq i8 %5, 49
-  br i1 %cmp37.i.i, label %if.then.i, label %stbtt_GetFontOffsetForIndex_internal.exit
-
-land.lhs.true46.i.i:                              ; preds = %entry
-  %arrayidx47.i.i = getelementptr inbounds i8, ptr %data, i64 1
-  %6 = load i8, ptr %arrayidx47.i.i, align 1
-  %cmp50.i.i = icmp eq i8 %6, 84
-  br i1 %cmp50.i.i, label %land.lhs.true52.i.i, label %stbtt_GetFontOffsetForIndex_internal.exit
-
-land.lhs.true52.i.i:                              ; preds = %land.lhs.true46.i.i
-  %arrayidx53.i.i = getelementptr inbounds i8, ptr %data, i64 2
-  %7 = load i8, ptr %arrayidx53.i.i, align 1
-  %cmp56.i.i = icmp eq i8 %7, 84
-  br i1 %cmp56.i.i, label %stbtt__isfont.exit.i, label %stbtt_GetFontOffsetForIndex_internal.exit
-
-land.lhs.true70.i.i:                              ; preds = %entry
-  %arrayidx71.i.i = getelementptr inbounds i8, ptr %data, i64 1
-  %8 = load i8, ptr %arrayidx71.i.i, align 1
-  %cmp73.i.i = icmp eq i8 %8, 1
-  br i1 %cmp73.i.i, label %land.lhs.true75.i.i, label %stbtt_GetFontOffsetForIndex_internal.exit
-
-land.lhs.true75.i.i:                              ; preds = %land.lhs.true70.i.i
-  %arrayidx76.i.i = getelementptr inbounds i8, ptr %data, i64 2
-  %9 = load i8, ptr %arrayidx76.i.i, align 1
-  %cmp78.i.i = icmp eq i8 %9, 0
-  br i1 %cmp78.i.i, label %stbtt__isfont.exit.i, label %stbtt_GetFontOffsetForIndex_internal.exit
-
-land.lhs.true98.i.i:                              ; preds = %land.lhs.true21.i.i
-  %arrayidx99.i.i = getelementptr inbounds i8, ptr %data, i64 2
-  %10 = load i8, ptr %arrayidx99.i.i, align 1
-  %cmp102.i.i = icmp eq i8 %10, 117
-  br i1 %cmp102.i.i, label %stbtt__isfont.exit.thread.i, label %stbtt_GetFontOffsetForIndex_internal.exit
-
-stbtt__isfont.exit.i:                             ; preds = %land.lhs.true75.i.i, %land.lhs.true52.i.i, %land.lhs.true6.i.i
-  %.sink39.i.i = phi i8 [ 0, %land.lhs.true6.i.i ], [ 79, %land.lhs.true52.i.i ], [ 0, %land.lhs.true75.i.i ]
-  %arrayidx81.i.i = getelementptr inbounds i8, ptr %data, i64 3
-  %11 = load i8, ptr %arrayidx81.i.i, align 1
-  %cmp83.i.i = icmp eq i8 %11, %.sink39.i.i
-  br i1 %cmp83.i.i, label %if.then.i, label %stbtt_GetFontOffsetForIndex_internal.exit
-
-stbtt__isfont.exit.thread.i:                      ; preds = %land.lhs.true98.i.i
-  %arrayidx81.i59.i = getelementptr inbounds i8, ptr %data, i64 3
-  %12 = load i8, ptr %arrayidx81.i59.i, align 1
-  %cmp83.i60.i = icmp eq i8 %12, 101
-  br i1 %cmp83.i60.i, label %if.then.i, label %stbtt_GetFontOffsetForIndex_internal.exit
-
-if.then.i:                                        ; preds = %stbtt__isfont.exit.thread.i, %stbtt__isfont.exit.i, %land.lhs.true33.i.i
+if.then.i:                                        ; preds = %entry
   %cmp.i = icmp ne i32 %index, 0
   %cond.i = sext i1 %cmp.i to i32
   br label %stbtt_GetFontOffsetForIndex_internal.exit
 
-land.lhs.true9.i:                                 ; preds = %land.lhs.true21.i.i
+if.end.i:                                         ; preds = %entry
+  %0 = load i8, ptr %data, align 1
+  %cmp2.i = icmp eq i8 %0, 116
+  br i1 %cmp2.i, label %land.lhs.true.i, label %stbtt_GetFontOffsetForIndex_internal.exit
+
+land.lhs.true.i:                                  ; preds = %if.end.i
+  %arrayidx4.i = getelementptr inbounds i8, ptr %data, i64 1
+  %1 = load i8, ptr %arrayidx4.i, align 1
+  %cmp7.i = icmp eq i8 %1, 116
+  br i1 %cmp7.i, label %land.lhs.true9.i, label %stbtt_GetFontOffsetForIndex_internal.exit
+
+land.lhs.true9.i:                                 ; preds = %land.lhs.true.i
   %arrayidx10.i = getelementptr inbounds i8, ptr %data, i64 2
-  %13 = load i8, ptr %arrayidx10.i, align 1
-  %cmp13.i = icmp eq i8 %13, 99
+  %2 = load i8, ptr %arrayidx10.i, align 1
+  %cmp13.i = icmp eq i8 %2, 99
   br i1 %cmp13.i, label %land.lhs.true15.i, label %stbtt_GetFontOffsetForIndex_internal.exit
 
 land.lhs.true15.i:                                ; preds = %land.lhs.true9.i
   %arrayidx16.i = getelementptr inbounds i8, ptr %data, i64 3
-  %14 = load i8, ptr %arrayidx16.i, align 1
-  %cmp19.i = icmp eq i8 %14, 102
+  %3 = load i8, ptr %arrayidx16.i, align 1
+  %cmp19.i = icmp eq i8 %3, 102
   br i1 %cmp19.i, label %if.then21.i, label %stbtt_GetFontOffsetForIndex_internal.exit
 
 if.then21.i:                                      ; preds = %land.lhs.true15.i
   %add.ptr.i = getelementptr inbounds i8, ptr %data, i64 4
-  %15 = load i8, ptr %add.ptr.i, align 1
-  %conv.i.i = zext i8 %15 to i32
+  %4 = load i8, ptr %add.ptr.i, align 1
+  %conv.i.i = zext i8 %4 to i32
   %shl.i.i = shl nuw i32 %conv.i.i, 24
   %arrayidx1.i.i = getelementptr inbounds i8, ptr %data, i64 5
-  %16 = load i8, ptr %arrayidx1.i.i, align 1
-  %conv2.i.i = zext i8 %16 to i32
+  %5 = load i8, ptr %arrayidx1.i.i, align 1
+  %conv2.i.i = zext i8 %5 to i32
   %shl3.i.i = shl nuw nsw i32 %conv2.i.i, 16
   %add.i.i = or disjoint i32 %shl3.i.i, %shl.i.i
   %arrayidx4.i.i = getelementptr inbounds i8, ptr %data, i64 6
-  %17 = load i8, ptr %arrayidx4.i.i, align 1
-  %conv5.i.i = zext i8 %17 to i32
+  %6 = load i8, ptr %arrayidx4.i.i, align 1
+  %conv5.i.i = zext i8 %6 to i32
   %shl6.i.i = shl nuw nsw i32 %conv5.i.i, 8
   %add7.i.i = or disjoint i32 %add.i.i, %shl6.i.i
   %arrayidx8.i.i = getelementptr inbounds i8, ptr %data, i64 7
-  %18 = load i8, ptr %arrayidx8.i.i, align 1
-  %conv9.i.i = zext i8 %18 to i32
+  %7 = load i8, ptr %arrayidx8.i.i, align 1
+  %conv9.i.i = zext i8 %7 to i32
   %add10.i.i = or disjoint i32 %add7.i.i, %conv9.i.i
   switch i32 %add10.i.i, label %stbtt_GetFontOffsetForIndex_internal.exit [
     i32 65536, label %if.then29.i
@@ -27606,22 +27602,22 @@ if.then21.i:                                      ; preds = %land.lhs.true15.i
 
 if.then29.i:                                      ; preds = %if.then21.i, %if.then21.i
   %add.ptr30.i = getelementptr inbounds i8, ptr %data, i64 8
-  %19 = load i8, ptr %add.ptr30.i, align 1
-  %conv.i24.i = zext i8 %19 to i32
+  %8 = load i8, ptr %add.ptr30.i, align 1
+  %conv.i24.i = zext i8 %8 to i32
   %shl.i25.i = shl nuw i32 %conv.i24.i, 24
   %arrayidx1.i26.i = getelementptr inbounds i8, ptr %data, i64 9
-  %20 = load i8, ptr %arrayidx1.i26.i, align 1
-  %conv2.i27.i = zext i8 %20 to i32
+  %9 = load i8, ptr %arrayidx1.i26.i, align 1
+  %conv2.i27.i = zext i8 %9 to i32
   %shl3.i28.i = shl nuw nsw i32 %conv2.i27.i, 16
   %add.i29.i = or disjoint i32 %shl3.i28.i, %shl.i25.i
   %arrayidx4.i30.i = getelementptr inbounds i8, ptr %data, i64 10
-  %21 = load i8, ptr %arrayidx4.i30.i, align 1
-  %conv5.i31.i = zext i8 %21 to i32
+  %10 = load i8, ptr %arrayidx4.i30.i, align 1
+  %conv5.i31.i = zext i8 %10 to i32
   %shl6.i32.i = shl nuw nsw i32 %conv5.i31.i, 8
   %add7.i33.i = or disjoint i32 %add.i29.i, %shl6.i32.i
   %arrayidx8.i34.i = getelementptr inbounds i8, ptr %data, i64 11
-  %22 = load i8, ptr %arrayidx8.i34.i, align 1
-  %conv9.i35.i = zext i8 %22 to i32
+  %11 = load i8, ptr %arrayidx8.i34.i, align 1
+  %conv9.i35.i = zext i8 %11 to i32
   %add10.i36.i = or disjoint i32 %add7.i33.i, %conv9.i35.i
   %cmp32.not.i = icmp sgt i32 %add10.i36.i, %index
   br i1 %cmp32.not.i, label %if.end35.i, label %stbtt_GetFontOffsetForIndex_internal.exit
@@ -27631,27 +27627,27 @@ if.end35.i:                                       ; preds = %if.then29.i
   %mul.i = shl nsw i32 %index, 2
   %idx.ext.i = sext i32 %mul.i to i64
   %add.ptr37.i = getelementptr inbounds i8, ptr %add.ptr36.i, i64 %idx.ext.i
-  %23 = load i8, ptr %add.ptr37.i, align 1
-  %conv.i37.i = zext i8 %23 to i32
+  %12 = load i8, ptr %add.ptr37.i, align 1
+  %conv.i37.i = zext i8 %12 to i32
   %shl.i38.i = shl nuw i32 %conv.i37.i, 24
   %arrayidx1.i39.i = getelementptr inbounds i8, ptr %add.ptr37.i, i64 1
-  %24 = load i8, ptr %arrayidx1.i39.i, align 1
-  %conv2.i40.i = zext i8 %24 to i32
+  %13 = load i8, ptr %arrayidx1.i39.i, align 1
+  %conv2.i40.i = zext i8 %13 to i32
   %shl3.i41.i = shl nuw nsw i32 %conv2.i40.i, 16
   %add.i42.i = or disjoint i32 %shl3.i41.i, %shl.i38.i
   %arrayidx4.i43.i = getelementptr inbounds i8, ptr %add.ptr37.i, i64 2
-  %25 = load i8, ptr %arrayidx4.i43.i, align 1
-  %conv5.i44.i = zext i8 %25 to i32
+  %14 = load i8, ptr %arrayidx4.i43.i, align 1
+  %conv5.i44.i = zext i8 %14 to i32
   %shl6.i45.i = shl nuw nsw i32 %conv5.i44.i, 8
   %add7.i46.i = or disjoint i32 %add.i42.i, %shl6.i45.i
   %arrayidx8.i47.i = getelementptr inbounds i8, ptr %add.ptr37.i, i64 3
-  %26 = load i8, ptr %arrayidx8.i47.i, align 1
-  %conv9.i48.i = zext i8 %26 to i32
+  %15 = load i8, ptr %arrayidx8.i47.i, align 1
+  %conv9.i48.i = zext i8 %15 to i32
   %add10.i49.i = or disjoint i32 %add7.i46.i, %conv9.i48.i
   br label %stbtt_GetFontOffsetForIndex_internal.exit
 
-stbtt_GetFontOffsetForIndex_internal.exit:        ; preds = %entry, %land.lhs.true.i.i, %land.lhs.true6.i.i, %land.lhs.true21.i.i, %land.lhs.true27.i.i, %land.lhs.true33.i.i, %land.lhs.true46.i.i, %land.lhs.true52.i.i, %land.lhs.true70.i.i, %land.lhs.true75.i.i, %land.lhs.true98.i.i, %stbtt__isfont.exit.i, %stbtt__isfont.exit.thread.i, %if.then.i, %land.lhs.true9.i, %land.lhs.true15.i, %if.then21.i, %if.then29.i, %if.end35.i
-  %retval.0.i = phi i32 [ %cond.i, %if.then.i ], [ %add10.i49.i, %if.end35.i ], [ -1, %if.then29.i ], [ -1, %land.lhs.true15.i ], [ -1, %land.lhs.true9.i ], [ -1, %land.lhs.true52.i.i ], [ -1, %land.lhs.true46.i.i ], [ -1, %land.lhs.true70.i.i ], [ -1, %land.lhs.true75.i.i ], [ -1, %land.lhs.true.i.i ], [ -1, %land.lhs.true6.i.i ], [ -1, %entry ], [ -1, %if.then21.i ], [ -1, %land.lhs.true98.i.i ], [ -1, %land.lhs.true27.i.i ], [ -1, %land.lhs.true33.i.i ], [ -1, %stbtt__isfont.exit.thread.i ], [ -1, %stbtt__isfont.exit.i ], [ -1, %land.lhs.true21.i.i ]
+stbtt_GetFontOffsetForIndex_internal.exit:        ; preds = %if.then.i, %if.end.i, %land.lhs.true.i, %land.lhs.true9.i, %land.lhs.true15.i, %if.then21.i, %if.then29.i, %if.end35.i
+  %retval.0.i = phi i32 [ %cond.i, %if.then.i ], [ %add10.i49.i, %if.end35.i ], [ -1, %if.then29.i ], [ -1, %land.lhs.true15.i ], [ -1, %land.lhs.true9.i ], [ -1, %land.lhs.true.i ], [ -1, %if.end.i ], [ -1, %if.then21.i ]
   ret i32 %retval.0.i
 }
 
@@ -29284,124 +29280,51 @@ stbtt_BakeFontBitmap_internal.exit:               ; preds = %if.end17.i, %entry,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @stbtt_GetNumberOfFonts(ptr nocapture noundef readonly %data) local_unnamed_addr #11 {
 entry:
+  %call.i = tail call fastcc i32 @stbtt__isfont(ptr noundef %data), !range !14
+  %tobool.not.i = icmp eq i32 %call.i, 0
+  br i1 %tobool.not.i, label %if.end.i, label %stbtt_GetNumberOfFonts_internal.exit
+
+if.end.i:                                         ; preds = %entry
   %0 = load i8, ptr %data, align 1
-  switch i8 %0, label %stbtt_GetNumberOfFonts_internal.exit [
-    i8 49, label %land.lhs.true.i.i
-    i8 116, label %land.lhs.true21.i.i
-    i8 79, label %land.lhs.true46.i.i
-    i8 0, label %land.lhs.true70.i.i
-  ]
+  %cmp.i = icmp eq i8 %0, 116
+  br i1 %cmp.i, label %land.lhs.true.i, label %stbtt_GetNumberOfFonts_internal.exit
 
-land.lhs.true.i.i:                                ; preds = %entry
-  %arrayidx2.i.i = getelementptr inbounds i8, ptr %data, i64 1
-  %1 = load i8, ptr %arrayidx2.i.i, align 1
-  %cmp4.i.i = icmp eq i8 %1, 0
-  br i1 %cmp4.i.i, label %land.lhs.true6.i.i, label %stbtt_GetNumberOfFonts_internal.exit
+land.lhs.true.i:                                  ; preds = %if.end.i
+  %arrayidx3.i = getelementptr inbounds i8, ptr %data, i64 1
+  %1 = load i8, ptr %arrayidx3.i, align 1
+  %cmp6.i = icmp eq i8 %1, 116
+  br i1 %cmp6.i, label %land.lhs.true8.i, label %stbtt_GetNumberOfFonts_internal.exit
 
-land.lhs.true6.i.i:                               ; preds = %land.lhs.true.i.i
-  %arrayidx7.i.i = getelementptr inbounds i8, ptr %data, i64 2
-  %2 = load i8, ptr %arrayidx7.i.i, align 1
-  %cmp9.i.i = icmp eq i8 %2, 0
-  br i1 %cmp9.i.i, label %stbtt__isfont.exit.i, label %stbtt_GetNumberOfFonts_internal.exit
-
-land.lhs.true21.i.i:                              ; preds = %entry
-  %arrayidx22.i.i = getelementptr inbounds i8, ptr %data, i64 1
-  %3 = load i8, ptr %arrayidx22.i.i, align 1
-  switch i8 %3, label %stbtt_GetNumberOfFonts_internal.exit [
-    i8 121, label %land.lhs.true27.i.i
-    i8 114, label %land.lhs.true98.i.i
-    i8 116, label %land.lhs.true8.i
-  ]
-
-land.lhs.true27.i.i:                              ; preds = %land.lhs.true21.i.i
-  %arrayidx28.i.i = getelementptr inbounds i8, ptr %data, i64 2
-  %4 = load i8, ptr %arrayidx28.i.i, align 1
-  %cmp31.i.i = icmp eq i8 %4, 112
-  br i1 %cmp31.i.i, label %land.lhs.true33.i.i, label %land.lhs.true.thread.i
-
-land.lhs.true33.i.i:                              ; preds = %land.lhs.true27.i.i
-  %arrayidx34.i.i = getelementptr inbounds i8, ptr %data, i64 3
-  %5 = load i8, ptr %arrayidx34.i.i, align 1
-  %cmp37.i.i = icmp eq i8 %5, 49
-  br i1 %cmp37.i.i, label %stbtt_GetNumberOfFonts_internal.exit, label %land.lhs.true.thread.i
-
-land.lhs.true46.i.i:                              ; preds = %entry
-  %arrayidx47.i.i = getelementptr inbounds i8, ptr %data, i64 1
-  %6 = load i8, ptr %arrayidx47.i.i, align 1
-  %cmp50.i.i = icmp eq i8 %6, 84
-  br i1 %cmp50.i.i, label %land.lhs.true52.i.i, label %stbtt_GetNumberOfFonts_internal.exit
-
-land.lhs.true52.i.i:                              ; preds = %land.lhs.true46.i.i
-  %arrayidx53.i.i = getelementptr inbounds i8, ptr %data, i64 2
-  %7 = load i8, ptr %arrayidx53.i.i, align 1
-  %cmp56.i.i = icmp eq i8 %7, 84
-  br i1 %cmp56.i.i, label %stbtt__isfont.exit.i, label %stbtt_GetNumberOfFonts_internal.exit
-
-land.lhs.true70.i.i:                              ; preds = %entry
-  %arrayidx71.i.i = getelementptr inbounds i8, ptr %data, i64 1
-  %8 = load i8, ptr %arrayidx71.i.i, align 1
-  %cmp73.i.i = icmp eq i8 %8, 1
-  br i1 %cmp73.i.i, label %land.lhs.true75.i.i, label %stbtt_GetNumberOfFonts_internal.exit
-
-land.lhs.true75.i.i:                              ; preds = %land.lhs.true70.i.i
-  %arrayidx76.i.i = getelementptr inbounds i8, ptr %data, i64 2
-  %9 = load i8, ptr %arrayidx76.i.i, align 1
-  %cmp78.i.i = icmp eq i8 %9, 0
-  br i1 %cmp78.i.i, label %stbtt__isfont.exit.i, label %stbtt_GetNumberOfFonts_internal.exit
-
-land.lhs.true98.i.i:                              ; preds = %land.lhs.true21.i.i
-  %arrayidx99.i.i = getelementptr inbounds i8, ptr %data, i64 2
-  %10 = load i8, ptr %arrayidx99.i.i, align 1
-  %cmp102.i.i = icmp eq i8 %10, 117
-  br i1 %cmp102.i.i, label %stbtt__isfont.exit.thread.i, label %land.lhs.true.thread.i
-
-stbtt__isfont.exit.i:                             ; preds = %land.lhs.true75.i.i, %land.lhs.true52.i.i, %land.lhs.true6.i.i
-  %.sink39.i.i = phi i8 [ 0, %land.lhs.true6.i.i ], [ 79, %land.lhs.true52.i.i ], [ 0, %land.lhs.true75.i.i ]
-  %arrayidx81.i.i = getelementptr inbounds i8, ptr %data, i64 3
-  %11 = load i8, ptr %arrayidx81.i.i, align 1
-  %cmp83.i.i = icmp eq i8 %11, %.sink39.i.i
-  %spec.select = zext i1 %cmp83.i.i to i32
-  br label %stbtt_GetNumberOfFonts_internal.exit
-
-stbtt__isfont.exit.thread.i:                      ; preds = %land.lhs.true98.i.i
-  %arrayidx81.i43.i = getelementptr inbounds i8, ptr %data, i64 3
-  %12 = load i8, ptr %arrayidx81.i43.i, align 1
-  %cmp83.i44.i = icmp eq i8 %12, 101
-  br i1 %cmp83.i44.i, label %stbtt_GetNumberOfFonts_internal.exit, label %land.lhs.true.thread.i
-
-land.lhs.true.thread.i:                           ; preds = %stbtt__isfont.exit.thread.i, %land.lhs.true98.i.i, %land.lhs.true33.i.i, %land.lhs.true27.i.i
-  br label %stbtt_GetNumberOfFonts_internal.exit
-
-land.lhs.true8.i:                                 ; preds = %land.lhs.true21.i.i
+land.lhs.true8.i:                                 ; preds = %land.lhs.true.i
   %arrayidx9.i = getelementptr inbounds i8, ptr %data, i64 2
-  %13 = load i8, ptr %arrayidx9.i, align 1
-  %cmp12.i = icmp eq i8 %13, 99
+  %2 = load i8, ptr %arrayidx9.i, align 1
+  %cmp12.i = icmp eq i8 %2, 99
   br i1 %cmp12.i, label %land.lhs.true14.i, label %stbtt_GetNumberOfFonts_internal.exit
 
 land.lhs.true14.i:                                ; preds = %land.lhs.true8.i
   %arrayidx15.i = getelementptr inbounds i8, ptr %data, i64 3
-  %14 = load i8, ptr %arrayidx15.i, align 1
-  %cmp18.i = icmp eq i8 %14, 102
+  %3 = load i8, ptr %arrayidx15.i, align 1
+  %cmp18.i = icmp eq i8 %3, 102
   br i1 %cmp18.i, label %if.then20.i, label %stbtt_GetNumberOfFonts_internal.exit
 
 if.then20.i:                                      ; preds = %land.lhs.true14.i
   %add.ptr.i = getelementptr inbounds i8, ptr %data, i64 4
-  %15 = load i8, ptr %add.ptr.i, align 1
-  %conv.i.i = zext i8 %15 to i32
+  %4 = load i8, ptr %add.ptr.i, align 1
+  %conv.i.i = zext i8 %4 to i32
   %shl.i.i = shl nuw i32 %conv.i.i, 24
   %arrayidx1.i.i = getelementptr inbounds i8, ptr %data, i64 5
-  %16 = load i8, ptr %arrayidx1.i.i, align 1
-  %conv2.i.i = zext i8 %16 to i32
+  %5 = load i8, ptr %arrayidx1.i.i, align 1
+  %conv2.i.i = zext i8 %5 to i32
   %shl3.i.i = shl nuw nsw i32 %conv2.i.i, 16
   %add.i.i = or disjoint i32 %shl3.i.i, %shl.i.i
   %arrayidx4.i.i = getelementptr inbounds i8, ptr %data, i64 6
-  %17 = load i8, ptr %arrayidx4.i.i, align 1
-  %conv5.i.i = zext i8 %17 to i32
+  %6 = load i8, ptr %arrayidx4.i.i, align 1
+  %conv5.i.i = zext i8 %6 to i32
   %shl6.i.i = shl nuw nsw i32 %conv5.i.i, 8
   %add7.i.i = or disjoint i32 %add.i.i, %shl6.i.i
   %arrayidx8.i.i = getelementptr inbounds i8, ptr %data, i64 7
-  %18 = load i8, ptr %arrayidx8.i.i, align 1
-  %conv9.i.i = zext i8 %18 to i32
+  %7 = load i8, ptr %arrayidx8.i.i, align 1
+  %conv9.i.i = zext i8 %7 to i32
   %add10.i.i = or disjoint i32 %add7.i.i, %conv9.i.i
   switch i32 %add10.i.i, label %stbtt_GetNumberOfFonts_internal.exit [
     i32 65536, label %if.then28.i
@@ -29410,27 +29333,27 @@ if.then20.i:                                      ; preds = %land.lhs.true14.i
 
 if.then28.i:                                      ; preds = %if.then20.i, %if.then20.i
   %add.ptr29.i = getelementptr inbounds i8, ptr %data, i64 8
-  %19 = load i8, ptr %add.ptr29.i, align 1
-  %conv.i21.i = zext i8 %19 to i32
+  %8 = load i8, ptr %add.ptr29.i, align 1
+  %conv.i21.i = zext i8 %8 to i32
   %shl.i22.i = shl nuw i32 %conv.i21.i, 24
   %arrayidx1.i23.i = getelementptr inbounds i8, ptr %data, i64 9
-  %20 = load i8, ptr %arrayidx1.i23.i, align 1
-  %conv2.i24.i = zext i8 %20 to i32
+  %9 = load i8, ptr %arrayidx1.i23.i, align 1
+  %conv2.i24.i = zext i8 %9 to i32
   %shl3.i25.i = shl nuw nsw i32 %conv2.i24.i, 16
   %add.i26.i = or disjoint i32 %shl3.i25.i, %shl.i22.i
   %arrayidx4.i27.i = getelementptr inbounds i8, ptr %data, i64 10
-  %21 = load i8, ptr %arrayidx4.i27.i, align 1
-  %conv5.i28.i = zext i8 %21 to i32
+  %10 = load i8, ptr %arrayidx4.i27.i, align 1
+  %conv5.i28.i = zext i8 %10 to i32
   %shl6.i29.i = shl nuw nsw i32 %conv5.i28.i, 8
   %add7.i30.i = or disjoint i32 %add.i26.i, %shl6.i29.i
   %arrayidx8.i31.i = getelementptr inbounds i8, ptr %data, i64 11
-  %22 = load i8, ptr %arrayidx8.i31.i, align 1
-  %conv9.i32.i = zext i8 %22 to i32
+  %11 = load i8, ptr %arrayidx8.i31.i, align 1
+  %conv9.i32.i = zext i8 %11 to i32
   %add10.i33.i = or disjoint i32 %add7.i30.i, %conv9.i32.i
   br label %stbtt_GetNumberOfFonts_internal.exit
 
-stbtt_GetNumberOfFonts_internal.exit:             ; preds = %stbtt__isfont.exit.i, %entry, %land.lhs.true.i.i, %land.lhs.true6.i.i, %land.lhs.true21.i.i, %land.lhs.true33.i.i, %land.lhs.true46.i.i, %land.lhs.true52.i.i, %land.lhs.true70.i.i, %land.lhs.true75.i.i, %stbtt__isfont.exit.thread.i, %land.lhs.true.thread.i, %land.lhs.true8.i, %land.lhs.true14.i, %if.then20.i, %if.then28.i
-  %retval.0.i = phi i32 [ %add10.i33.i, %if.then28.i ], [ 0, %land.lhs.true14.i ], [ 0, %land.lhs.true8.i ], [ 0, %land.lhs.true52.i.i ], [ 0, %land.lhs.true46.i.i ], [ 0, %land.lhs.true70.i.i ], [ 0, %land.lhs.true75.i.i ], [ 0, %land.lhs.true.i.i ], [ 0, %land.lhs.true6.i.i ], [ 0, %entry ], [ 0, %if.then20.i ], [ 1, %land.lhs.true33.i.i ], [ 1, %stbtt__isfont.exit.thread.i ], [ 0, %land.lhs.true.thread.i ], [ 0, %land.lhs.true21.i.i ], [ %spec.select, %stbtt__isfont.exit.i ]
+stbtt_GetNumberOfFonts_internal.exit:             ; preds = %entry, %if.end.i, %land.lhs.true.i, %land.lhs.true8.i, %land.lhs.true14.i, %if.then20.i, %if.then28.i
+  %retval.0.i = phi i32 [ %add10.i33.i, %if.then28.i ], [ 1, %entry ], [ 0, %land.lhs.true14.i ], [ 0, %land.lhs.true8.i ], [ 0, %land.lhs.true.i ], [ 0, %if.end.i ], [ 0, %if.then20.i ]
   ret i32 %retval.0.i
 }
 
@@ -29454,270 +29377,197 @@ if.end.i:                                         ; preds = %for.inc.i, %if.end.
   %i.012.i = phi i32 [ 0, %if.end.lr.ph.i ], [ %inc.i, %for.inc.i ]
   %idx.ext.i.i = zext nneg i32 %call13.i to i64
   %add.ptr.i.i = getelementptr inbounds i8, ptr %fontdata, i64 %idx.ext.i.i
-  %0 = load i8, ptr %add.ptr.i.i, align 1
-  switch i8 %0, label %for.inc.i [
-    i8 49, label %land.lhs.true.i.i.i
-    i8 116, label %land.lhs.true21.i.i.i
-    i8 79, label %land.lhs.true46.i.i.i
-    i8 0, label %land.lhs.true70.i.i.i
-  ]
+  %call1.i.i = tail call fastcc i32 @stbtt__isfont(ptr noundef %add.ptr.i.i), !range !14
+  %tobool.not.i.i = icmp eq i32 %call1.i.i, 0
+  br i1 %tobool.not.i.i, label %for.inc.i, label %if.end.i.i
 
-land.lhs.true.i.i.i:                              ; preds = %if.end.i
-  %arrayidx2.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 1
-  %1 = load i8, ptr %arrayidx2.i.i.i, align 1
-  %cmp4.i.i.i = icmp eq i8 %1, 0
-  br i1 %cmp4.i.i.i, label %land.lhs.true6.i.i.i, label %for.inc.i
-
-land.lhs.true6.i.i.i:                             ; preds = %land.lhs.true.i.i.i
-  %arrayidx7.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 2
-  %2 = load i8, ptr %arrayidx7.i.i.i, align 1
-  %cmp9.i.i.i = icmp eq i8 %2, 0
-  br i1 %cmp9.i.i.i, label %stbtt__isfont.exit.i.i, label %for.inc.i
-
-land.lhs.true21.i.i.i:                            ; preds = %if.end.i
-  %arrayidx22.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 1
-  %3 = load i8, ptr %arrayidx22.i.i.i, align 1
-  switch i8 %3, label %for.inc.i [
-    i8 121, label %land.lhs.true27.i.i.i
-    i8 114, label %land.lhs.true98.i.i.i
-  ]
-
-land.lhs.true27.i.i.i:                            ; preds = %land.lhs.true21.i.i.i
-  %arrayidx28.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 2
-  %4 = load i8, ptr %arrayidx28.i.i.i, align 1
-  %cmp31.i.i.i = icmp eq i8 %4, 112
-  br i1 %cmp31.i.i.i, label %land.lhs.true33.i.i.i, label %for.inc.i
-
-land.lhs.true33.i.i.i:                            ; preds = %land.lhs.true27.i.i.i
-  %arrayidx34.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 3
-  %5 = load i8, ptr %arrayidx34.i.i.i, align 1
-  %cmp37.i.i.i = icmp eq i8 %5, 49
-  br i1 %cmp37.i.i.i, label %if.end.i.i, label %for.inc.i
-
-land.lhs.true46.i.i.i:                            ; preds = %if.end.i
-  %arrayidx47.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 1
-  %6 = load i8, ptr %arrayidx47.i.i.i, align 1
-  %cmp50.i.i.i = icmp eq i8 %6, 84
-  br i1 %cmp50.i.i.i, label %land.lhs.true52.i.i.i, label %for.inc.i
-
-land.lhs.true52.i.i.i:                            ; preds = %land.lhs.true46.i.i.i
-  %arrayidx53.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 2
-  %7 = load i8, ptr %arrayidx53.i.i.i, align 1
-  %cmp56.i.i.i = icmp eq i8 %7, 84
-  br i1 %cmp56.i.i.i, label %stbtt__isfont.exit.i.i, label %for.inc.i
-
-land.lhs.true70.i.i.i:                            ; preds = %if.end.i
-  %arrayidx71.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 1
-  %8 = load i8, ptr %arrayidx71.i.i.i, align 1
-  %cmp73.i.i.i = icmp eq i8 %8, 1
-  br i1 %cmp73.i.i.i, label %land.lhs.true75.i.i.i, label %for.inc.i
-
-land.lhs.true75.i.i.i:                            ; preds = %land.lhs.true70.i.i.i
-  %arrayidx76.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 2
-  %9 = load i8, ptr %arrayidx76.i.i.i, align 1
-  %cmp78.i.i.i = icmp eq i8 %9, 0
-  br i1 %cmp78.i.i.i, label %stbtt__isfont.exit.i.i, label %for.inc.i
-
-land.lhs.true98.i.i.i:                            ; preds = %land.lhs.true21.i.i.i
-  %arrayidx99.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 2
-  %10 = load i8, ptr %arrayidx99.i.i.i, align 1
-  %cmp102.i.i.i = icmp eq i8 %10, 117
-  br i1 %cmp102.i.i.i, label %stbtt__isfont.exit.i.i, label %for.inc.i
-
-stbtt__isfont.exit.i.i:                           ; preds = %land.lhs.true98.i.i.i, %land.lhs.true75.i.i.i, %land.lhs.true52.i.i.i, %land.lhs.true6.i.i.i
-  %.sink39.i.i.i = phi i8 [ 0, %land.lhs.true6.i.i.i ], [ 79, %land.lhs.true52.i.i.i ], [ 0, %land.lhs.true75.i.i.i ], [ 101, %land.lhs.true98.i.i.i ]
-  %arrayidx81.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 3
-  %11 = load i8, ptr %arrayidx81.i.i.i, align 1
-  %cmp83.i.i.i = icmp eq i8 %11, %.sink39.i.i.i
-  br i1 %cmp83.i.i.i, label %if.end.i.i, label %for.inc.i
-
-if.end.i.i:                                       ; preds = %stbtt__isfont.exit.i.i, %land.lhs.true33.i.i.i
-  %add.ptr1.i38.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 4
-  %add.ptr1.val.i39.pre.i.i = load i8, ptr %add.ptr1.i38.phi.trans.insert.i.i, align 1
+if.end.i.i:                                       ; preds = %if.end.i
+  %add.ptr1.i35.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 4
+  %add.ptr1.val.i36.pre.i.i = load i8, ptr %add.ptr1.i35.phi.trans.insert.i.i, align 1
   %.phi.trans.insert.i.i = getelementptr i8, ptr %add.ptr.i.i, i64 5
-  %add.ptr1.val16.i40.pre.i.i = load i8, ptr %.phi.trans.insert.i.i, align 1
-  %.pre.i.i = zext i8 %add.ptr1.val.i39.pre.i.i to i32
-  %.pre100.i.i = shl nuw nsw i32 %.pre.i.i, 8
-  %.pre101.i.i = zext i8 %add.ptr1.val16.i40.pre.i.i to i32
-  %.pre102.i.i = or disjoint i32 %.pre100.i.i, %.pre101.i.i
-  %.pre103.i.i = add nuw i32 %call13.i, 12
-  %cmp20.not.i46.i.old.i = icmp eq i32 %.pre102.i.i, 0
+  %add.ptr1.val16.i37.pre.i.i = load i8, ptr %.phi.trans.insert.i.i, align 1
+  %.pre.i.i = zext i8 %add.ptr1.val.i36.pre.i.i to i32
+  %.pre94.i.i = shl nuw nsw i32 %.pre.i.i, 8
+  %.pre95.i.i = zext i8 %add.ptr1.val16.i37.pre.i.i to i32
+  %.pre96.i.i = or disjoint i32 %.pre94.i.i, %.pre95.i.i
+  %.pre97.i.i = add nuw i32 %call13.i, 12
+  %cmp20.not.i43.i.old.i = icmp eq i32 %.pre96.i.i, 0
   br i1 %tobool2.not.i.i, label %if.end14.i.i, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
-  br i1 %cmp20.not.i46.i.old.i, label %for.inc.i, label %for.body.lr.ph.i.i.i
+  br i1 %cmp20.not.i43.i.old.i, label %for.inc.i, label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %if.then3.i.i
-  %wide.trip.count.i.i.i = zext nneg i32 %.pre102.i.i to i64
+  %wide.trip.count.i.i.i = zext nneg i32 %.pre96.i.i to i64
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %for.body.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %for.inc.i.i.i ]
   %indvars.iv.tr.i.i.i = trunc i64 %indvars.iv.i.i.i to i32
-  %12 = shl i32 %indvars.iv.tr.i.i.i, 4
-  %add3.i.i.i = add i32 %12, %.pre103.i.i
+  %0 = shl i32 %indvars.iv.tr.i.i.i, 4
+  %add3.i.i.i = add i32 %0, %.pre97.i.i
   %idx.ext4.i.i.i = zext i32 %add3.i.i.i to i64
   %add.ptr5.i.i.i = getelementptr inbounds i8, ptr %fontdata, i64 %idx.ext4.i.i.i
-  %13 = load i8, ptr %add.ptr5.i.i.i, align 1
-  %cmp10.i.i.i = icmp eq i8 %13, 104
-  br i1 %cmp10.i.i.i, label %land.lhs.true.i33.i.i, label %for.inc.i.i.i
+  %1 = load i8, ptr %add.ptr5.i.i.i, align 1
+  %cmp10.i.i.i = icmp eq i8 %1, 104
+  br i1 %cmp10.i.i.i, label %land.lhs.true.i.i.i, label %for.inc.i.i.i
 
-land.lhs.true.i33.i.i:                            ; preds = %for.body.i.i.i
+land.lhs.true.i.i.i:                              ; preds = %for.body.i.i.i
   %arrayidx15.i.i.i = getelementptr inbounds i8, ptr %add.ptr5.i.i.i, i64 1
-  %14 = load i8, ptr %arrayidx15.i.i.i, align 1
-  %cmp19.i.i.i = icmp eq i8 %14, 101
-  br i1 %cmp19.i.i.i, label %land.lhs.true21.i34.i.i, label %for.inc.i.i.i
+  %2 = load i8, ptr %arrayidx15.i.i.i, align 1
+  %cmp19.i.i.i = icmp eq i8 %2, 101
+  br i1 %cmp19.i.i.i, label %land.lhs.true21.i.i.i, label %for.inc.i.i.i
 
-land.lhs.true21.i34.i.i:                          ; preds = %land.lhs.true.i33.i.i
+land.lhs.true21.i.i.i:                            ; preds = %land.lhs.true.i.i.i
   %arrayidx25.i.i.i = getelementptr inbounds i8, ptr %add.ptr5.i.i.i, i64 2
-  %15 = load i8, ptr %arrayidx25.i.i.i, align 1
-  %cmp29.i.i.i = icmp eq i8 %15, 97
+  %3 = load i8, ptr %arrayidx25.i.i.i, align 1
+  %cmp29.i.i.i = icmp eq i8 %3, 97
   br i1 %cmp29.i.i.i, label %land.lhs.true31.i.i.i, label %for.inc.i.i.i
 
-land.lhs.true31.i.i.i:                            ; preds = %land.lhs.true21.i34.i.i
+land.lhs.true31.i.i.i:                            ; preds = %land.lhs.true21.i.i.i
   %arrayidx35.i.i.i = getelementptr inbounds i8, ptr %add.ptr5.i.i.i, i64 3
-  %16 = load i8, ptr %arrayidx35.i.i.i, align 1
-  %cmp39.i.i.i = icmp eq i8 %16, 100
+  %4 = load i8, ptr %arrayidx35.i.i.i, align 1
+  %cmp39.i.i.i = icmp eq i8 %4, 100
   br i1 %cmp39.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true31.i.i.i
   %add.ptr43.i.i.i = getelementptr inbounds i8, ptr %add.ptr5.i.i.i, i64 8
-  %17 = load i8, ptr %add.ptr43.i.i.i, align 1
-  %conv.i17.i.i.i = zext i8 %17 to i64
+  %5 = load i8, ptr %add.ptr43.i.i.i, align 1
+  %conv.i17.i.i.i = zext i8 %5 to i64
   %shl.i.i.i.i = shl nuw nsw i64 %conv.i17.i.i.i, 24
   %arrayidx1.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr5.i.i.i, i64 9
-  %18 = load i8, ptr %arrayidx1.i.i.i.i, align 1
-  %conv2.i18.i.i.i = zext i8 %18 to i64
+  %6 = load i8, ptr %arrayidx1.i.i.i.i, align 1
+  %conv2.i18.i.i.i = zext i8 %6 to i64
   %shl3.i.i.i.i = shl nuw nsw i64 %conv2.i18.i.i.i, 16
   %add.i19.i.i.i = or disjoint i64 %shl3.i.i.i.i, %shl.i.i.i.i
   %arrayidx4.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr5.i.i.i, i64 10
-  %19 = load i8, ptr %arrayidx4.i.i.i.i, align 1
-  %conv5.i.i.i.i = zext i8 %19 to i64
+  %7 = load i8, ptr %arrayidx4.i.i.i.i, align 1
+  %conv5.i.i.i.i = zext i8 %7 to i64
   %shl6.i.i.i.i = shl nuw nsw i64 %conv5.i.i.i.i, 8
   %add7.i.i.i.i = or disjoint i64 %add.i19.i.i.i, %shl6.i.i.i.i
   %arrayidx8.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr5.i.i.i, i64 11
-  %20 = load i8, ptr %arrayidx8.i.i.i.i, align 1
-  %conv9.i.i.i.i = zext i8 %20 to i64
+  %8 = load i8, ptr %arrayidx8.i.i.i.i, align 1
+  %conv9.i.i.i.i = zext i8 %8 to i64
   %add10.i.i.i.i = or disjoint i64 %add7.i.i.i.i, %conv9.i.i.i.i
   br label %stbtt__find_table.exit.i.i
 
-for.inc.i.i.i:                                    ; preds = %land.lhs.true31.i.i.i, %land.lhs.true21.i34.i.i, %land.lhs.true.i33.i.i, %for.body.i.i.i
+for.inc.i.i.i:                                    ; preds = %land.lhs.true31.i.i.i, %land.lhs.true21.i.i.i, %land.lhs.true.i.i.i, %for.body.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
   br i1 %exitcond.not.i.i.i, label %stbtt__find_table.exit.i.i, label %for.body.i.i.i, !llvm.loop !101
 
 stbtt__find_table.exit.i.i:                       ; preds = %for.inc.i.i.i, %if.then.i.i.i
-  %retval.0.i32.i.i = phi i64 [ %add10.i.i.i.i, %if.then.i.i.i ], [ 0, %for.inc.i.i.i ]
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %retval.0.i32.i.i
+  %retval.0.i.i.i = phi i64 [ %add10.i.i.i.i, %if.then.i.i.i ], [ 0, %for.inc.i.i.i ]
+  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %retval.0.i.i.i
   %add.ptr7.val31.i.i = load i8, ptr %gep.i, align 1
-  %21 = and i8 %add.ptr7.val31.i.i, 7
-  %and.i.i = zext nneg i8 %21 to i32
+  %9 = and i8 %add.ptr7.val31.i.i, 7
+  %and.i.i = zext nneg i8 %9 to i32
   %cmp.not.i.i.not = icmp eq i32 %and10.i.i, %and.i.i
-  br i1 %cmp.not.i.i.not, label %for.body.lr.ph.i47.i.i, label %for.inc.i
+  br i1 %cmp.not.i.i.not, label %for.body.lr.ph.i44.i.i, label %for.inc.i
 
 if.end14.i.i:                                     ; preds = %if.end.i.i
-  br i1 %cmp20.not.i46.i.old.i, label %for.inc.i, label %if.end14.i.i.for.body.lr.ph.i47.i.i_crit_edge
+  br i1 %cmp20.not.i43.i.old.i, label %for.inc.i, label %if.end14.i.i.for.body.lr.ph.i44.i.i_crit_edge
 
-if.end14.i.i.for.body.lr.ph.i47.i.i_crit_edge:    ; preds = %if.end14.i.i
-  %.pre = zext nneg i32 %.pre102.i.i to i64
-  br label %for.body.lr.ph.i47.i.i
+if.end14.i.i.for.body.lr.ph.i44.i.i_crit_edge:    ; preds = %if.end14.i.i
+  %.pre = zext nneg i32 %.pre96.i.i to i64
+  br label %for.body.lr.ph.i44.i.i
 
-for.body.lr.ph.i47.i.i:                           ; preds = %if.end14.i.i.for.body.lr.ph.i47.i.i_crit_edge, %stbtt__find_table.exit.i.i
-  %wide.trip.count.i48.i.i.pre-phi = phi i64 [ %.pre, %if.end14.i.i.for.body.lr.ph.i47.i.i_crit_edge ], [ %wide.trip.count.i.i.i, %stbtt__find_table.exit.i.i ]
-  br label %for.body.i49.i.i
+for.body.lr.ph.i44.i.i:                           ; preds = %if.end14.i.i.for.body.lr.ph.i44.i.i_crit_edge, %stbtt__find_table.exit.i.i
+  %wide.trip.count.i45.i.i.pre-phi = phi i64 [ %.pre, %if.end14.i.i.for.body.lr.ph.i44.i.i_crit_edge ], [ %wide.trip.count.i.i.i, %stbtt__find_table.exit.i.i ]
+  br label %for.body.i46.i.i
 
-for.body.i49.i.i:                                 ; preds = %for.inc.i57.i.i, %for.body.lr.ph.i47.i.i
-  %indvars.iv.i50.i.i = phi i64 [ 0, %for.body.lr.ph.i47.i.i ], [ %indvars.iv.next.i58.i.i, %for.inc.i57.i.i ]
-  %indvars.iv.tr.i51.i.i = trunc i64 %indvars.iv.i50.i.i to i32
-  %22 = shl i32 %indvars.iv.tr.i51.i.i, 4
-  %add3.i52.i.i = add i32 %22, %.pre103.i.i
-  %idx.ext4.i53.i.i = zext i32 %add3.i52.i.i to i64
-  %add.ptr5.i54.i.i = getelementptr inbounds i8, ptr %fontdata, i64 %idx.ext4.i53.i.i
-  %23 = load i8, ptr %add.ptr5.i54.i.i, align 1
-  %cmp10.i56.i.i = icmp eq i8 %23, 110
-  br i1 %cmp10.i56.i.i, label %land.lhs.true.i61.i.i, label %for.inc.i57.i.i
+for.body.i46.i.i:                                 ; preds = %for.inc.i54.i.i, %for.body.lr.ph.i44.i.i
+  %indvars.iv.i47.i.i = phi i64 [ 0, %for.body.lr.ph.i44.i.i ], [ %indvars.iv.next.i55.i.i, %for.inc.i54.i.i ]
+  %indvars.iv.tr.i48.i.i = trunc i64 %indvars.iv.i47.i.i to i32
+  %10 = shl i32 %indvars.iv.tr.i48.i.i, 4
+  %add3.i49.i.i = add i32 %10, %.pre97.i.i
+  %idx.ext4.i50.i.i = zext i32 %add3.i49.i.i to i64
+  %add.ptr5.i51.i.i = getelementptr inbounds i8, ptr %fontdata, i64 %idx.ext4.i50.i.i
+  %11 = load i8, ptr %add.ptr5.i51.i.i, align 1
+  %cmp10.i53.i.i = icmp eq i8 %11, 110
+  br i1 %cmp10.i53.i.i, label %land.lhs.true.i58.i.i, label %for.inc.i54.i.i
 
-land.lhs.true.i61.i.i:                            ; preds = %for.body.i49.i.i
-  %arrayidx15.i62.i.i = getelementptr inbounds i8, ptr %add.ptr5.i54.i.i, i64 1
-  %24 = load i8, ptr %arrayidx15.i62.i.i, align 1
-  %cmp19.i64.i.i = icmp eq i8 %24, 97
-  br i1 %cmp19.i64.i.i, label %land.lhs.true21.i65.i.i, label %for.inc.i57.i.i
+land.lhs.true.i58.i.i:                            ; preds = %for.body.i46.i.i
+  %arrayidx15.i59.i.i = getelementptr inbounds i8, ptr %add.ptr5.i51.i.i, i64 1
+  %12 = load i8, ptr %arrayidx15.i59.i.i, align 1
+  %cmp19.i61.i.i = icmp eq i8 %12, 97
+  br i1 %cmp19.i61.i.i, label %land.lhs.true21.i62.i.i, label %for.inc.i54.i.i
 
-land.lhs.true21.i65.i.i:                          ; preds = %land.lhs.true.i61.i.i
-  %arrayidx25.i66.i.i = getelementptr inbounds i8, ptr %add.ptr5.i54.i.i, i64 2
-  %25 = load i8, ptr %arrayidx25.i66.i.i, align 1
-  %cmp29.i68.i.i = icmp eq i8 %25, 109
-  br i1 %cmp29.i68.i.i, label %land.lhs.true31.i69.i.i, label %for.inc.i57.i.i
+land.lhs.true21.i62.i.i:                          ; preds = %land.lhs.true.i58.i.i
+  %arrayidx25.i63.i.i = getelementptr inbounds i8, ptr %add.ptr5.i51.i.i, i64 2
+  %13 = load i8, ptr %arrayidx25.i63.i.i, align 1
+  %cmp29.i65.i.i = icmp eq i8 %13, 109
+  br i1 %cmp29.i65.i.i, label %land.lhs.true31.i66.i.i, label %for.inc.i54.i.i
 
-land.lhs.true31.i69.i.i:                          ; preds = %land.lhs.true21.i65.i.i
-  %arrayidx35.i70.i.i = getelementptr inbounds i8, ptr %add.ptr5.i54.i.i, i64 3
-  %26 = load i8, ptr %arrayidx35.i70.i.i, align 1
-  %cmp39.i72.i.i = icmp eq i8 %26, 101
-  br i1 %cmp39.i72.i.i, label %stbtt__find_table.exit88.i.i, label %for.inc.i57.i.i
+land.lhs.true31.i66.i.i:                          ; preds = %land.lhs.true21.i62.i.i
+  %arrayidx35.i67.i.i = getelementptr inbounds i8, ptr %add.ptr5.i51.i.i, i64 3
+  %14 = load i8, ptr %arrayidx35.i67.i.i, align 1
+  %cmp39.i69.i.i = icmp eq i8 %14, 101
+  br i1 %cmp39.i69.i.i, label %stbtt__find_table.exit85.i.i, label %for.inc.i54.i.i
 
-for.inc.i57.i.i:                                  ; preds = %land.lhs.true31.i69.i.i, %land.lhs.true21.i65.i.i, %land.lhs.true.i61.i.i, %for.body.i49.i.i
-  %indvars.iv.next.i58.i.i = add nuw nsw i64 %indvars.iv.i50.i.i, 1
-  %exitcond.not.i59.i.i = icmp eq i64 %indvars.iv.next.i58.i.i, %wide.trip.count.i48.i.i.pre-phi
-  br i1 %exitcond.not.i59.i.i, label %for.inc.i, label %for.body.i49.i.i, !llvm.loop !101
+for.inc.i54.i.i:                                  ; preds = %land.lhs.true31.i66.i.i, %land.lhs.true21.i62.i.i, %land.lhs.true.i58.i.i, %for.body.i46.i.i
+  %indvars.iv.next.i55.i.i = add nuw nsw i64 %indvars.iv.i47.i.i, 1
+  %exitcond.not.i56.i.i = icmp eq i64 %indvars.iv.next.i55.i.i, %wide.trip.count.i45.i.i.pre-phi
+  br i1 %exitcond.not.i56.i.i, label %for.inc.i, label %for.body.i46.i.i, !llvm.loop !101
 
-stbtt__find_table.exit88.i.i:                     ; preds = %land.lhs.true31.i69.i.i
-  %add.ptr43.i74.i.i = getelementptr inbounds i8, ptr %add.ptr5.i54.i.i, i64 8
-  %27 = load i8, ptr %add.ptr43.i74.i.i, align 1
-  %conv.i17.i75.i.i = zext i8 %27 to i32
-  %shl.i.i76.i.i = shl nuw i32 %conv.i17.i75.i.i, 24
-  %arrayidx1.i.i77.i.i = getelementptr inbounds i8, ptr %add.ptr5.i54.i.i, i64 9
-  %28 = load i8, ptr %arrayidx1.i.i77.i.i, align 1
-  %conv2.i18.i78.i.i = zext i8 %28 to i32
-  %shl3.i.i79.i.i = shl nuw nsw i32 %conv2.i18.i78.i.i, 16
-  %add.i19.i80.i.i = or disjoint i32 %shl3.i.i79.i.i, %shl.i.i76.i.i
-  %arrayidx4.i.i81.i.i = getelementptr inbounds i8, ptr %add.ptr5.i54.i.i, i64 10
-  %29 = load i8, ptr %arrayidx4.i.i81.i.i, align 1
-  %conv5.i.i82.i.i = zext i8 %29 to i32
-  %shl6.i.i83.i.i = shl nuw nsw i32 %conv5.i.i82.i.i, 8
-  %add7.i.i84.i.i = or disjoint i32 %add.i19.i80.i.i, %shl6.i.i83.i.i
-  %arrayidx8.i.i85.i.i = getelementptr inbounds i8, ptr %add.ptr5.i54.i.i, i64 11
-  %30 = load i8, ptr %arrayidx8.i.i85.i.i, align 1
-  %conv9.i.i86.i.i = zext i8 %30 to i32
-  %add10.i.i87.i.i = or disjoint i32 %add7.i.i84.i.i, %conv9.i.i86.i.i
-  %tobool16.not.i.i = icmp eq i32 %add10.i.i87.i.i, 0
+stbtt__find_table.exit85.i.i:                     ; preds = %land.lhs.true31.i66.i.i
+  %add.ptr43.i71.i.i = getelementptr inbounds i8, ptr %add.ptr5.i51.i.i, i64 8
+  %15 = load i8, ptr %add.ptr43.i71.i.i, align 1
+  %conv.i17.i72.i.i = zext i8 %15 to i32
+  %shl.i.i73.i.i = shl nuw i32 %conv.i17.i72.i.i, 24
+  %arrayidx1.i.i74.i.i = getelementptr inbounds i8, ptr %add.ptr5.i51.i.i, i64 9
+  %16 = load i8, ptr %arrayidx1.i.i74.i.i, align 1
+  %conv2.i18.i75.i.i = zext i8 %16 to i32
+  %shl3.i.i76.i.i = shl nuw nsw i32 %conv2.i18.i75.i.i, 16
+  %add.i19.i77.i.i = or disjoint i32 %shl3.i.i76.i.i, %shl.i.i73.i.i
+  %arrayidx4.i.i78.i.i = getelementptr inbounds i8, ptr %add.ptr5.i51.i.i, i64 10
+  %17 = load i8, ptr %arrayidx4.i.i78.i.i, align 1
+  %conv5.i.i79.i.i = zext i8 %17 to i32
+  %shl6.i.i80.i.i = shl nuw nsw i32 %conv5.i.i79.i.i, 8
+  %add7.i.i81.i.i = or disjoint i32 %add.i19.i77.i.i, %shl6.i.i80.i.i
+  %arrayidx8.i.i82.i.i = getelementptr inbounds i8, ptr %add.ptr5.i51.i.i, i64 11
+  %18 = load i8, ptr %arrayidx8.i.i82.i.i, align 1
+  %conv9.i.i83.i.i = zext i8 %18 to i32
+  %add10.i.i84.i.i = or disjoint i32 %add7.i.i81.i.i, %conv9.i.i83.i.i
+  %tobool16.not.i.i = icmp eq i32 %add10.i.i84.i.i, 0
   br i1 %tobool16.not.i.i, label %for.inc.i, label %if.end18.i.i
 
-if.end18.i.i:                                     ; preds = %stbtt__find_table.exit88.i.i
+if.end18.i.i:                                     ; preds = %stbtt__find_table.exit85.i.i
   br i1 %tobool2.not.i.i, label %if.else.i.i, label %if.then20.i.i
 
 if.then20.i.i:                                    ; preds = %if.end18.i.i
-  %call21.i.i = tail call fastcc i32 @stbtt__matchpair(ptr noundef nonnull %fontdata, i32 noundef %add10.i.i87.i.i, ptr noundef %name, i32 noundef %conv.i.i, i32 noundef 16, i32 noundef -1), !range !14
+  %call21.i.i = tail call fastcc i32 @stbtt__matchpair(ptr noundef nonnull %fontdata, i32 noundef %add10.i.i84.i.i, ptr noundef %name, i32 noundef %conv.i.i, i32 noundef 16, i32 noundef -1), !range !14
   %tobool22.not.i.i = icmp eq i32 %call21.i.i, 0
   br i1 %tobool22.not.i.i, label %if.end24.i.i, label %stbtt_FindMatchingFont_internal.exit
 
 if.end24.i.i:                                     ; preds = %if.then20.i.i
-  %call25.i.i = tail call fastcc i32 @stbtt__matchpair(ptr noundef nonnull %fontdata, i32 noundef %add10.i.i87.i.i, ptr noundef %name, i32 noundef %conv.i.i, i32 noundef 1, i32 noundef -1), !range !14
+  %call25.i.i = tail call fastcc i32 @stbtt__matchpair(ptr noundef nonnull %fontdata, i32 noundef %add10.i.i84.i.i, ptr noundef %name, i32 noundef %conv.i.i, i32 noundef 1, i32 noundef -1), !range !14
   %tobool26.not.i.i = icmp eq i32 %call25.i.i, 0
   br i1 %tobool26.not.i.i, label %if.end28.i.i, label %stbtt_FindMatchingFont_internal.exit
 
 if.end28.i.i:                                     ; preds = %if.end24.i.i
-  %call29.i.i = tail call fastcc i32 @stbtt__matchpair(ptr noundef nonnull %fontdata, i32 noundef %add10.i.i87.i.i, ptr noundef %name, i32 noundef %conv.i.i, i32 noundef 3, i32 noundef -1), !range !14
+  %call29.i.i = tail call fastcc i32 @stbtt__matchpair(ptr noundef nonnull %fontdata, i32 noundef %add10.i.i84.i.i, ptr noundef %name, i32 noundef %conv.i.i, i32 noundef 3, i32 noundef -1), !range !14
   %tobool30.not.i.i = icmp eq i32 %call29.i.i, 0
   br i1 %tobool30.not.i.i, label %for.inc.i, label %stbtt_FindMatchingFont_internal.exit
 
 if.else.i.i:                                      ; preds = %if.end18.i.i
-  %call33.i.i = tail call fastcc i32 @stbtt__matchpair(ptr noundef nonnull %fontdata, i32 noundef %add10.i.i87.i.i, ptr noundef %name, i32 noundef %conv.i.i, i32 noundef 16, i32 noundef 17), !range !14
+  %call33.i.i = tail call fastcc i32 @stbtt__matchpair(ptr noundef nonnull %fontdata, i32 noundef %add10.i.i84.i.i, ptr noundef %name, i32 noundef %conv.i.i, i32 noundef 16, i32 noundef 17), !range !14
   %tobool34.not.i.i = icmp eq i32 %call33.i.i, 0
   br i1 %tobool34.not.i.i, label %if.end36.i.i, label %stbtt_FindMatchingFont_internal.exit
 
 if.end36.i.i:                                     ; preds = %if.else.i.i
-  %call37.i.i = tail call fastcc i32 @stbtt__matchpair(ptr noundef nonnull %fontdata, i32 noundef %add10.i.i87.i.i, ptr noundef %name, i32 noundef %conv.i.i, i32 noundef 1, i32 noundef 2), !range !14
+  %call37.i.i = tail call fastcc i32 @stbtt__matchpair(ptr noundef nonnull %fontdata, i32 noundef %add10.i.i84.i.i, ptr noundef %name, i32 noundef %conv.i.i, i32 noundef 1, i32 noundef 2), !range !14
   %tobool38.not.i.i = icmp eq i32 %call37.i.i, 0
   br i1 %tobool38.not.i.i, label %if.end40.i.i, label %stbtt_FindMatchingFont_internal.exit
 
 if.end40.i.i:                                     ; preds = %if.end36.i.i
-  %call41.i.i = tail call fastcc i32 @stbtt__matchpair(ptr noundef nonnull %fontdata, i32 noundef %add10.i.i87.i.i, ptr noundef %name, i32 noundef %conv.i.i, i32 noundef 3, i32 noundef -1), !range !14
+  %call41.i.i = tail call fastcc i32 @stbtt__matchpair(ptr noundef nonnull %fontdata, i32 noundef %add10.i.i84.i.i, ptr noundef %name, i32 noundef %conv.i.i, i32 noundef 3, i32 noundef -1), !range !14
   %tobool42.not.i.i = icmp eq i32 %call41.i.i, 0
   br i1 %tobool42.not.i.i, label %for.inc.i, label %stbtt_FindMatchingFont_internal.exit
 
-for.inc.i:                                        ; preds = %for.inc.i57.i.i, %if.end40.i.i, %if.end28.i.i, %stbtt__find_table.exit88.i.i, %if.end14.i.i, %stbtt__find_table.exit.i.i, %if.then3.i.i, %stbtt__isfont.exit.i.i, %land.lhs.true98.i.i.i, %land.lhs.true75.i.i.i, %land.lhs.true70.i.i.i, %land.lhs.true52.i.i.i, %land.lhs.true46.i.i.i, %land.lhs.true33.i.i.i, %land.lhs.true27.i.i.i, %land.lhs.true21.i.i.i, %land.lhs.true6.i.i.i, %land.lhs.true.i.i.i, %if.end.i
+for.inc.i:                                        ; preds = %for.inc.i54.i.i, %if.end40.i.i, %if.end28.i.i, %stbtt__find_table.exit85.i.i, %if.end14.i.i, %stbtt__find_table.exit.i.i, %if.then3.i.i, %if.end.i
   %inc.i = add nuw nsw i32 %i.012.i, 1
-  %call.i = tail call i32 @stbtt_GetFontOffsetForIndex(ptr noundef nonnull %fontdata, i32 noundef %inc.i)
+  %call.i = tail call i32 @stbtt_GetFontOffsetForIndex(ptr noundef %fontdata, i32 noundef %inc.i)
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %stbtt_FindMatchingFont_internal.exit, label %if.end.i
 
@@ -33106,7 +32956,7 @@ if.end.i.i:                                       ; preds = %for.cond.preheader.
   %arrayidx.i31.i = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i
   %12 = load i32, ptr %arrayidx.i31.i, align 4
   %cmp.not.i.i = icmp ugt i32 %12, %udecoded.0.lcssa.i27
-  br i1 %cmp.not.i.i, label %nk_utf_decode.exit, label %land.lhs.true.i.i
+  br i1 %cmp.not.i.i, label %if.then7.i36.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end.i.i
   %arrayidx2.i.i = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i
@@ -33115,7 +32965,9 @@ land.lhs.true.i.i:                                ; preds = %if.end.i.i
   %14 = add i32 %udecoded.0.lcssa.i27, -55296
   %or.cond.i.i = icmp ult i32 %14, 2047
   %or.cond11.i.i = or i1 %or.cond.i.i, %cmp3.i.i
-  %spec.select = select i1 %or.cond11.i.i, i32 65533, i32 %udecoded.0.lcssa.i27
+  br i1 %or.cond11.i.i, label %if.then7.i36.i, label %nk_utf_decode.exit
+
+if.then7.i36.i:                                   ; preds = %land.lhs.true.i.i, %if.end.i.i
   br label %nk_utf_decode.exit
 
 return.loopexit.i:                                ; preds = %for.inc.i21.i
@@ -33126,9 +32978,9 @@ return.loopexit81.i:                              ; preds = %nk_utf_decode_byte.
   %indvars78.le.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-nk_utf_decode.exit:                               ; preds = %land.lhs.true.i.i, %if.end.i.i, %return.loopexit.i, %return.loopexit81.i
-  %unicode.0 = phi i32 [ 65533, %return.loopexit81.i ], [ 65533, %return.loopexit.i ], [ 65533, %if.end.i.i ], [ %spec.select, %land.lhs.true.i.i ]
-  %retval.0.i = phi i32 [ %indvars78.le.i, %return.loopexit81.i ], [ %indvars78.le91.i, %return.loopexit.i ], [ %3, %if.end.i.i ], [ %3, %land.lhs.true.i.i ]
+nk_utf_decode.exit:                               ; preds = %land.lhs.true.i.i, %if.then7.i36.i, %return.loopexit.i, %return.loopexit81.i
+  %unicode.0 = phi i32 [ 65533, %if.then7.i36.i ], [ %udecoded.0.lcssa.i27, %land.lhs.true.i.i ], [ 65533, %return.loopexit81.i ], [ 65533, %return.loopexit.i ]
+  %retval.0.i = phi i32 [ %3, %if.then7.i36.i ], [ %3, %land.lhs.true.i.i ], [ %indvars78.le.i, %return.loopexit81.i ], [ %indvars78.le91.i, %return.loopexit.i ]
   %tobool1.not = icmp eq i32 %retval.0.i, 0
   br i1 %tobool1.not, label %if.end12, label %land.lhs.true
 
@@ -33762,7 +33614,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @nk_input_is_mouse_pressed(ptr noundef readonly %i, i32 noundef %id) local_unnamed_addr #11 {
+define noundef i32 @nk_input_is_mouse_pressed(ptr noundef readonly %i, i32 noundef %id) local_unnamed_addr #11 {
 entry:
   %tobool.not = icmp eq ptr %i, null
   br i1 %tobool.not, label %return, label %if.end
@@ -33773,17 +33625,19 @@ if.end:                                           ; preds = %entry
   %arrayidx = getelementptr inbounds [4 x %struct.nk_mouse_button], ptr %mouse, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 4
   %tobool1.not = icmp eq i32 %0, 0
-  br i1 %tobool1.not, label %return, label %land.lhs.true
+  br i1 %tobool1.not, label %if.end4, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
   %clicked = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %1 = load i32, ptr %clicked, align 4
-  %tobool2.not = icmp ne i32 %1, 0
-  %spec.select = zext i1 %tobool2.not to i32
+  %tobool2.not = icmp eq i32 %1, 0
+  br i1 %tobool2.not, label %if.end4, label %return
+
+if.end4:                                          ; preds = %land.lhs.true, %if.end
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %if.end, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 0, %if.end ], [ %spec.select, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %entry, %if.end4
+  %retval.0 = phi i32 [ 0, %if.end4 ], [ 0, %entry ], [ 1, %land.lhs.true ]
   ret i32 %retval.0
 }
 
@@ -33814,7 +33668,7 @@ return:                                           ; preds = %if.end, %land.rhs, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @nk_input_is_key_pressed(ptr noundef readonly %i, i32 noundef %key) local_unnamed_addr #11 {
+define noundef i32 @nk_input_is_key_pressed(ptr noundef readonly %i, i32 noundef %key) local_unnamed_addr #11 {
 entry:
   %tobool.not = icmp eq ptr %i, null
   br i1 %tobool.not, label %return, label %if.end
@@ -33829,21 +33683,23 @@ if.end:                                           ; preds = %entry
   br i1 %tobool1.not, label %land.lhs.true5, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %tobool2.not = icmp ne i32 %1, 0
-  br label %return
+  %tobool2.not = icmp eq i32 %1, 0
+  br i1 %tobool2.not, label %if.end8, label %return
 
 land.lhs.true5:                                   ; preds = %if.end
   %cmp = icmp ugt i32 %1, 1
+  br i1 %cmp, label %return, label %if.end8
+
+if.end8:                                          ; preds = %land.lhs.true, %land.lhs.true5
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %land.lhs.true5, %entry
-  %retval.0.shrunk = phi i1 [ false, %entry ], [ %cmp, %land.lhs.true5 ], [ %tobool2.not, %land.lhs.true ]
-  %retval.0 = zext i1 %retval.0.shrunk to i32
+return:                                           ; preds = %land.lhs.true, %land.lhs.true5, %entry, %if.end8
+  %retval.0 = phi i32 [ 0, %if.end8 ], [ 0, %entry ], [ 1, %land.lhs.true5 ], [ 1, %land.lhs.true ]
   ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @nk_input_is_key_released(ptr noundef readonly %i, i32 noundef %key) local_unnamed_addr #11 {
+define noundef i32 @nk_input_is_key_released(ptr noundef readonly %i, i32 noundef %key) local_unnamed_addr #11 {
 entry:
   %tobool.not = icmp eq ptr %i, null
   br i1 %tobool.not, label %return, label %if.end
@@ -33858,16 +33714,18 @@ if.end:                                           ; preds = %entry
   br i1 %tobool1.not, label %land.lhs.true, label %land.lhs.true5
 
 land.lhs.true:                                    ; preds = %if.end
-  %tobool2.not = icmp ne i32 %1, 0
-  br label %return
+  %tobool2.not = icmp eq i32 %1, 0
+  br i1 %tobool2.not, label %if.end8, label %return
 
 land.lhs.true5:                                   ; preds = %if.end
   %cmp = icmp ugt i32 %1, 1
+  br i1 %cmp, label %return, label %if.end8
+
+if.end8:                                          ; preds = %land.lhs.true, %land.lhs.true5
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %land.lhs.true5, %entry
-  %retval.0.shrunk = phi i1 [ false, %entry ], [ %cmp, %land.lhs.true5 ], [ %tobool2.not, %land.lhs.true ]
-  %retval.0 = zext i1 %retval.0.shrunk to i32
+return:                                           ; preds = %land.lhs.true, %land.lhs.true5, %entry, %if.end8
+  %retval.0 = phi i32 [ 0, %if.end8 ], [ 0, %entry ], [ 1, %land.lhs.true5 ], [ 1, %land.lhs.true ]
   ret i32 %retval.0
 }
 
@@ -43460,16 +43318,19 @@ if.end.i56:                                       ; preds = %if.end
   %mouse.i = getelementptr inbounds i8, ptr %ctx, i64 260
   %6 = load i32, ptr %mouse.i, align 4
   %tobool1.not.i = icmp eq i32 %6, 0
-  br i1 %tobool1.not.i, label %if.end.i58, label %land.lhs.true.i
+  br i1 %tobool1.not.i, label %if.end4.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i56
   %clicked.i = getelementptr inbounds i8, ptr %ctx, i64 264
   %7 = load i32, ptr %clicked.i, align 4
-  %tobool2.not.i.not = icmp eq i32 %7, 0
+  %tobool2.not.i = icmp eq i32 %7, 0
+  br i1 %tobool2.not.i, label %if.end4.i, label %if.end.i58
+
+if.end4.i:                                        ; preds = %land.lhs.true.i, %if.end.i56
   br label %if.end.i58
 
-if.end.i58:                                       ; preds = %land.lhs.true.i, %if.end.i56
-  %retval.0.i = phi i1 [ true, %if.end.i56 ], [ %tobool2.not.i.not, %land.lhs.true.i ]
+if.end.i58:                                       ; preds = %if.end4.i, %land.lhs.true.i
+  %tobool19.not = phi i1 [ true, %if.end4.i ], [ false, %land.lhs.true.i ]
   %rect.sroa.0.0.vec.extract.i = extractelement <2 x float> %body.coerce0, i64 0
   %pos.i = getelementptr inbounds i8, ptr %ctx, i64 324
   %8 = load float, ptr %pos.i, align 4
@@ -43518,7 +43379,7 @@ land.rhs11.i74:                                   ; preds = %land.rhs.i70
 
 nk_input_is_mouse_hovering_rect.exit78:           ; preds = %if.end.i61, %land.rhs.i70, %land.rhs11.i74
   %retval.0.i69 = phi i1 [ false, %if.end.i61 ], [ false, %land.rhs.i70 ], [ %cmp17.i77, %land.rhs11.i74 ]
-  br i1 %retval.0.i, label %if.end25.thread, label %if.end25
+  br i1 %tobool19.not, label %if.end25.thread, label %if.end25
 
 if.end25.thread:                                  ; preds = %nk_input_is_mouse_hovering_rect.exit78, %nk_create_window.exit
   %popup.0.ph = phi ptr [ %call.i, %nk_create_window.exit ], [ %2, %nk_input_is_mouse_hovering_rect.exit78 ]
@@ -44841,16 +44702,19 @@ if.end.i:                                         ; preds = %if.then4, %nk_panel
   %mouse.i = getelementptr inbounds i8, ptr %ctx, i64 260
   %11 = load i32, ptr %mouse.i, align 4
   %tobool1.not.i = icmp eq i32 %11, 0
-  br i1 %tobool1.not.i, label %if.end.i23, label %land.lhs.true.i
+  br i1 %tobool1.not.i, label %if.end4.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
   %clicked.i = getelementptr inbounds i8, ptr %ctx, i64 264
   %12 = load i32, ptr %clicked.i, align 4
-  %tobool2.not.i = icmp ne i32 %12, 0
+  %tobool2.not.i = icmp eq i32 %12, 0
+  br i1 %tobool2.not.i, label %if.end4.i, label %if.end.i23
+
+if.end4.i:                                        ; preds = %land.lhs.true.i, %if.end.i
   br label %if.end.i23
 
-if.end.i23:                                       ; preds = %land.lhs.true.i, %if.end.i
-  %retval.0.i = phi i1 [ false, %if.end.i ], [ %tobool2.not.i, %land.lhs.true.i ]
+if.end.i23:                                       ; preds = %if.end4.i, %land.lhs.true.i
+  %tobool26 = phi i1 [ false, %if.end4.i ], [ true, %land.lhs.true.i ]
   %rect.sroa.0.0.vec.extract.i = extractelement <2 x float> %body.sroa.0.0, i64 0
   %pos.i = getelementptr inbounds i8, ptr %ctx, i64 324
   %13 = load float, ptr %pos.i, align 4
@@ -44872,7 +44736,7 @@ nk_input_is_mouse_hovering_rect.exit:             ; preds = %land.rhs.i
   %16 = fadd <2 x float> %body.sroa.0.0, %body.sroa.5.0
   %add16.i = extractelement <2 x float> %16, i64 1
   %cmp17.i = fcmp olt float %15, %add16.i
-  %or.cond = select i1 %retval.0.i, i1 %cmp17.i, i1 false
+  %or.cond = select i1 %tobool26, i1 %cmp17.i, i1 false
   br i1 %or.cond, label %if.then28, label %if.end31
 
 if.then28:                                        ; preds = %nk_input_is_mouse_hovering_rect.exit
@@ -46222,16 +46086,19 @@ if.end.i.i:                                       ; preds = %nk_panel_get_paddin
   %mouse.i.i = getelementptr inbounds i8, ptr %ctx, i64 260
   %11 = load i32, ptr %mouse.i.i, align 4
   %tobool1.not.i.i = icmp eq i32 %11, 0
-  br i1 %tobool1.not.i.i, label %if.end.i23.i, label %land.lhs.true.i.i
+  br i1 %tobool1.not.i.i, label %if.end4.i.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end.i.i
   %clicked.i.i = getelementptr inbounds i8, ptr %ctx, i64 264
   %12 = load i32, ptr %clicked.i.i, align 4
-  %tobool2.not.i.i = icmp ne i32 %12, 0
+  %tobool2.not.i.i = icmp eq i32 %12, 0
+  br i1 %tobool2.not.i.i, label %if.end4.i.i, label %if.end.i23.i
+
+if.end4.i.i:                                      ; preds = %land.lhs.true.i.i, %if.end.i.i
   br label %if.end.i23.i
 
-if.end.i23.i:                                     ; preds = %land.lhs.true.i.i, %if.end.i.i
-  %retval.0.i.i = phi i1 [ false, %if.end.i.i ], [ %tobool2.not.i.i, %land.lhs.true.i.i ]
+if.end.i23.i:                                     ; preds = %if.end4.i.i, %land.lhs.true.i.i
+  %tobool26.i = phi i1 [ false, %if.end4.i.i ], [ true, %land.lhs.true.i.i ]
   %rect.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %body.sroa.0.0.i, i64 0
   %pos.i.i = getelementptr inbounds i8, ptr %ctx, i64 324
   %13 = load float, ptr %pos.i.i, align 4
@@ -46253,7 +46120,7 @@ nk_input_is_mouse_hovering_rect.exit.i:           ; preds = %land.rhs.i.i
   %16 = fadd <2 x float> %body.sroa.0.0.i, %body.sroa.5.0.i
   %add16.i.i = extractelement <2 x float> %16, i64 1
   %cmp17.i.i = fcmp olt float %15, %add16.i.i
-  %or.cond.i = select i1 %retval.0.i.i, i1 %cmp17.i.i, i1 false
+  %or.cond.i = select i1 %tobool26.i, i1 %cmp17.i.i, i1 false
   br i1 %or.cond.i, label %if.then28.i, label %if.end31.i
 
 if.then28.i:                                      ; preds = %nk_input_is_mouse_hovering_rect.exit.i
@@ -49304,17 +49171,14 @@ nk_create_panel.exit:                             ; preds = %if.end, %if.end19.i
   br i1 %or.cond26, label %return, label %if.then55
 
 if.then55:                                        ; preds = %nk_create_panel.exit
-  %and53 = and i32 %18, 32768
-  %tobool54.not = icmp eq i32 %and53, 0
   %and49 = and i32 %18, 16384
-  %tobool50.not = icmp eq i32 %and49, 0
+  %tobool50.not.not = icmp eq i32 %and49, 0
   call void @nk_group_scrolled_end(ptr noundef nonnull %ctx)
-  %spec.select27 = select i1 %tobool54.not, i32 1, i32 32768
-  %spec.select33 = select i1 %tobool50.not, i32 %spec.select27, i32 16384
+  %.mux = select i1 %tobool50.not.not, i32 32768, i32 16384
   br label %return
 
-return:                                           ; preds = %if.then55, %nk_create_panel.exit, %land.lhs.true17, %land.lhs.true11
-  %retval.0 = phi i32 [ 0, %land.lhs.true11 ], [ 0, %land.lhs.true17 ], [ 1, %nk_create_panel.exit ], [ %spec.select33, %if.then55 ]
+return:                                           ; preds = %nk_create_panel.exit, %if.then55, %land.lhs.true17, %land.lhs.true11
+  %retval.0 = phi i32 [ 0, %land.lhs.true11 ], [ 0, %land.lhs.true17 ], [ %.mux, %if.then55 ], [ 1, %nk_create_panel.exit ]
   ret i32 %retval.0
 }
 
@@ -58096,11 +57960,15 @@ for.inc.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
 
 nk_utf_decode_byte.exit.i.i.i:                    ; preds = %for.body.i.i.i.i
   %22 = trunc nuw nsw i64 %indvars.iv.i.i.i.i to i32
-  %23 = and i32 %22, -2
-  %or.cond37.i.i = icmp eq i32 %23, 2
-  br i1 %or.cond37.i.i, label %for.body.i.preheader.i.i, label %nk_utf_decode.exit.i.i
+  %23 = add i32 %22, -1
+  %or.cond1.i.i.i = icmp ult i32 %23, 3
+  br i1 %or.cond1.i.i.i, label %for.cond.preheader.i.i.i, label %nk_utf_decode.exit.i.i
 
-for.body.i.preheader.i.i:                         ; preds = %nk_utf_decode_byte.exit.i.i.i
+for.cond.preheader.i.i.i:                         ; preds = %nk_utf_decode_byte.exit.i.i.i
+  %cmp962.i.i.i = icmp ugt i32 %22, 1
+  br i1 %cmp962.i.i.i, label %for.body.i.preheader.i.i, label %if.end.i.i.i.i
+
+for.body.i.preheader.i.i:                         ; preds = %for.cond.preheader.i.i.i
   %zext.i.i = and i64 %indvars.iv.i.i.i.i, 4294967295
   %24 = tail call i32 @llvm.umin.i32(i32 %indvars.iv.i.i, i32 2)
   %narrow.i.i = add nuw nsw i32 %24, 2
@@ -58140,7 +58008,9 @@ for.inc.i.i.i:                                    ; preds = %nk_utf_decode_byte.
 
 for.end.i.i.i:                                    ; preds = %for.inc.i.i.i
   %30 = icmp ugt i64 %zext.i.i, %25
-  %spec.select.i.i = select i1 %30, i32 0, i32 %22
+  br i1 %30, label %nk_utf_decode.exit.i.i, label %if.end.i.i.i.i
+
+if.end.i.i.i.i:                                   ; preds = %for.end.i.i.i, %for.cond.preheader.i.i.i
   br label %nk_utf_decode.exit.i.i
 
 return.loopexit.i.i.i:                            ; preds = %for.inc.i21.i.i.i
@@ -58151,8 +58021,8 @@ return.loopexit81.i.i.i:                          ; preds = %nk_utf_decode_byte.
   %indvars78.le.i.i.i = trunc i64 %indvars.iv.i.i.i to i32
   br label %nk_utf_decode.exit.i.i
 
-nk_utf_decode.exit.i.i:                           ; preds = %for.inc.i.i.i.i, %return.loopexit81.i.i.i, %return.loopexit.i.i.i, %for.end.i.i.i, %nk_utf_decode_byte.exit.i.i.i
-  %retval.0.i.i.i = phi i32 [ 1, %nk_utf_decode_byte.exit.i.i.i ], [ %indvars78.le91.i.i.i, %return.loopexit.i.i.i ], [ %indvars78.le.i.i.i, %return.loopexit81.i.i.i ], [ %spec.select.i.i, %for.end.i.i.i ], [ 1, %for.inc.i.i.i.i ]
+nk_utf_decode.exit.i.i:                           ; preds = %for.inc.i.i.i.i, %return.loopexit81.i.i.i, %return.loopexit.i.i.i, %if.end.i.i.i.i, %for.end.i.i.i, %nk_utf_decode_byte.exit.i.i.i
+  %retval.0.i.i.i = phi i32 [ 1, %nk_utf_decode_byte.exit.i.i.i ], [ 0, %for.end.i.i.i ], [ %indvars78.le91.i.i.i, %return.loopexit.i.i.i ], [ %indvars78.le.i.i.i, %return.loopexit81.i.i.i ], [ %22, %if.end.i.i.i.i ], [ 1, %for.inc.i.i.i.i ]
   %add.i.i = add nsw i32 %retval.0.i.i.i, %byte_len.022.i.i
   %inc.i.i = add nuw nsw i32 %i.021.i.i, 1
   %exitcond31.not.i.i = icmp eq i32 %inc.i.i, %len
@@ -58327,7 +58197,7 @@ if.end.i.i:                                       ; preds = %for.end.i
   %arrayidx.i31.i = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i
   %14 = load i32, ptr %arrayidx.i31.i, align 4
   %cmp.not.i.i = icmp ugt i32 %14, %udecoded.0.lcssa.i
-  br i1 %cmp.not.i.i, label %nk_utf_decode.exit, label %land.lhs.true.i.i
+  br i1 %cmp.not.i.i, label %if.then7.i36.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end.i.i
   %arrayidx2.i.i = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i
@@ -58336,7 +58206,9 @@ land.lhs.true.i.i:                                ; preds = %if.end.i.i
   %16 = add i32 %udecoded.0.lcssa.i, -55296
   %or.cond.i.i = icmp ult i32 %16, 2047
   %or.cond11.i.i = or i1 %or.cond.i.i, %cmp3.i.i
-  %spec.select = select i1 %or.cond11.i.i, i32 65533, i32 %udecoded.0.lcssa.i
+  br i1 %or.cond11.i.i, label %if.then7.i36.i, label %nk_utf_decode.exit
+
+if.then7.i36.i:                                   ; preds = %land.lhs.true.i.i, %if.end.i.i
   br label %nk_utf_decode.exit
 
 return.loopexit.i:                                ; preds = %for.inc.i21.i
@@ -58347,12 +58219,12 @@ return.loopexit81.i:                              ; preds = %nk_utf_decode_byte.
   %indvars78.le.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-nk_utf_decode.exit:                               ; preds = %for.inc.i.i, %land.lhs.true.i.i, %if.end.i.i, %nk_utf_decode_byte.exit.i, %return.loopexit.i, %return.loopexit81.i
-  %unicode.0 = phi i32 [ 65533, %return.loopexit81.i ], [ 65533, %return.loopexit.i ], [ 65533, %nk_utf_decode_byte.exit.i ], [ 65533, %if.end.i.i ], [ %spec.select, %land.lhs.true.i.i ], [ 65533, %for.inc.i.i ]
-  %retval.0.i = phi i32 [ %indvars78.le.i, %return.loopexit81.i ], [ %indvars78.le91.i, %return.loopexit.i ], [ 1, %nk_utf_decode_byte.exit.i ], [ %4, %if.end.i.i ], [ %4, %land.lhs.true.i.i ], [ 1, %for.inc.i.i ]
-  %cmp4225 = icmp sgt i32 %total_len, 0
-  %tobool6226 = icmp ne i32 %retval.0.i, 0
-  %17 = and i1 %tobool6226, %cmp4225
+nk_utf_decode.exit:                               ; preds = %for.inc.i.i, %nk_utf_decode_byte.exit.i, %land.lhs.true.i.i, %if.then7.i36.i, %return.loopexit.i, %return.loopexit81.i
+  %unicode.0 = phi i32 [ 65533, %if.then7.i36.i ], [ %udecoded.0.lcssa.i, %land.lhs.true.i.i ], [ 65533, %return.loopexit81.i ], [ 65533, %return.loopexit.i ], [ 65533, %nk_utf_decode_byte.exit.i ], [ 65533, %for.inc.i.i ]
+  %retval.0.i = phi i32 [ %4, %if.then7.i36.i ], [ %4, %land.lhs.true.i.i ], [ %indvars78.le.i, %return.loopexit81.i ], [ %indvars78.le91.i, %return.loopexit.i ], [ 1, %nk_utf_decode_byte.exit.i ], [ 1, %for.inc.i.i ]
+  %cmp4227 = icmp sgt i32 %total_len, 0
+  %tobool6228 = icmp ne i32 %retval.0.i, 0
+  %17 = and i1 %tobool6228, %cmp4227
   br i1 %17, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %nk_utf_decode.exit
@@ -58364,19 +58236,19 @@ while.body.lr.ph:                                 ; preds = %nk_utf_decode.exit
   %cursor.i.i = getelementptr inbounds i8, ptr %state, i64 168
   %string = getelementptr inbounds i8, ptr %state, i64 24
   %has_preferred_x.i = getelementptr inbounds i8, ptr %state, i64 183
-  %undo.i114 = getelementptr inbounds i8, ptr %state, i64 192
-  %redo_point.i.i.i.i115 = getelementptr inbounds i8, ptr %state, i64 5378
-  %redo_char_point.i.i.i.i116 = getelementptr inbounds i8, ptr %state, i64 5382
-  %undo_point.i.i.i117 = getelementptr inbounds i8, ptr %state, i64 5376
-  %undo_char_point7.i.i.i120 = getelementptr inbounds i8, ptr %state, i64 5380
+  %undo.i117 = getelementptr inbounds i8, ptr %state, i64 192
+  %redo_point.i.i.i.i118 = getelementptr inbounds i8, ptr %state, i64 5378
+  %redo_char_point.i.i.i.i119 = getelementptr inbounds i8, ptr %state, i64 5382
+  %undo_point.i.i.i120 = getelementptr inbounds i8, ptr %state, i64 5376
+  %undo_char_point7.i.i.i123 = getelementptr inbounds i8, ptr %state, i64 5380
   %undo_char.i.i = getelementptr inbounds i8, ptr %state, i64 1380
   br label %while.body
 
-while.body:                                       ; preds = %while.body.lr.ph, %nk_utf_decode.exit195
-  %text_len.0229 = phi i32 [ 0, %while.body.lr.ph ], [ %add67, %nk_utf_decode.exit195 ]
-  %glyph_len.0228 = phi i32 [ %retval.0.i, %while.body.lr.ph ], [ %retval.0.i143, %nk_utf_decode.exit195 ]
-  %unicode.1227 = phi i32 [ %unicode.0, %while.body.lr.ph ], [ %unicode.2, %nk_utf_decode.exit195 ]
-  switch i32 %unicode.1227, label %if.end16 [
+while.body:                                       ; preds = %while.body.lr.ph, %nk_utf_decode.exit198
+  %text_len.0232 = phi i32 [ 0, %while.body.lr.ph ], [ %add67, %nk_utf_decode.exit198 ]
+  %glyph_len.0231 = phi i32 [ %retval.0.i, %while.body.lr.ph ], [ %retval.0.i146, %nk_utf_decode.exit198 ]
+  %unicode.1229 = phi i32 [ %unicode.0, %while.body.lr.ph ], [ %unicode.2, %nk_utf_decode.exit198 ]
+  switch i32 %unicode.1229, label %if.end16 [
     i32 127, label %next
     i32 10, label %land.lhs.true
   ]
@@ -58392,7 +58264,7 @@ if.end16:                                         ; preds = %while.body, %land.l
   br i1 %tobool17.not, label %if.end23, label %land.lhs.true18
 
 land.lhs.true18:                                  ; preds = %if.end16
-  %call20 = tail call i32 %19(ptr noundef nonnull %state, i32 noundef %unicode.1227) #51
+  %call20 = tail call i32 %19(ptr noundef nonnull %state, i32 noundef %unicode.1229) #51
   %tobool21.not = icmp eq i32 %call20, 0
   br i1 %tobool21.not, label %next, label %if.end23
 
@@ -58414,55 +58286,55 @@ if.then29:                                        ; preds = %land.lhs.true26
   br i1 %cmp32, label %if.then34, label %for.cond.preheader.i48
 
 if.then34:                                        ; preds = %if.then29
-  store i16 99, ptr %redo_point.i.i.i.i115, align 2
-  store i16 999, ptr %redo_char_point.i.i.i.i116, align 2
-  %25 = load i16, ptr %undo_point.i.i.i117, align 4
+  store i16 99, ptr %redo_point.i.i.i.i118, align 2
+  store i16 999, ptr %redo_char_point.i.i.i.i119, align 2
+  %25 = load i16, ptr %undo_point.i.i.i120, align 4
   %cmp.i.i.i = icmp eq i16 %25, 99
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then34
-  tail call fastcc void @nk_textedit_discard_undo(ptr noundef nonnull %undo.i114)
+  tail call fastcc void @nk_textedit_discard_undo(ptr noundef nonnull %undo.i117)
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %if.then34
-  %26 = load i16, ptr %undo_char_point7.i.i.i120, align 4
+  %26 = load i16, ptr %undo_char_point7.i.i.i123, align 4
   %cmp912.i.i.i = icmp sgt i16 %26, 998
   br i1 %cmp912.i.i.i, label %while.body.i.i.i, label %nk_textedit_makeundo_replace.exit
 
 while.body.i.i.i:                                 ; preds = %if.end.i.i.i, %while.body.i.i.i
-  tail call fastcc void @nk_textedit_discard_undo(ptr noundef nonnull %undo.i114)
-  %27 = load i16, ptr %undo_char_point7.i.i.i120, align 4
+  tail call fastcc void @nk_textedit_discard_undo(ptr noundef nonnull %undo.i117)
+  %27 = load i16, ptr %undo_char_point7.i.i.i123, align 4
   %cmp9.i.i.i = icmp sgt i16 %27, 998
   br i1 %cmp9.i.i.i, label %while.body.i.i.i, label %nk_textedit_makeundo_replace.exit, !llvm.loop !218
 
 nk_textedit_makeundo_replace.exit:                ; preds = %while.body.i.i.i, %if.end.i.i.i
-  %28 = load i16, ptr %undo_point.i.i.i117, align 4
+  %28 = load i16, ptr %undo_point.i.i.i120, align 4
   %inc.i.i.i = add i16 %28, 1
-  store i16 %inc.i.i.i, ptr %undo_point.i.i.i117, align 4
+  store i16 %inc.i.i.i, ptr %undo_point.i.i.i120, align 4
   %idxprom.i.i.i = sext i16 %28 to i64
-  %arrayidx.i.i.i = getelementptr inbounds [99 x %struct.nk_text_undo_record], ptr %undo.i114, i64 0, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [99 x %struct.nk_text_undo_record], ptr %undo.i117, i64 0, i64 %idxprom.i.i.i
   store i32 %22, ptr %arrayidx.i.i.i, align 4
   %insert_length.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 4
   store i16 1, ptr %insert_length.i.i, align 4
   %delete_length.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 6
   store i16 1, ptr %delete_length.i.i, align 2
-  %29 = load i16, ptr %undo_char_point7.i.i.i120, align 4
+  %29 = load i16, ptr %undo_char_point7.i.i.i123, align 4
   %char_storage5.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 8
   store i16 %29, ptr %char_storage5.i.i, align 4
   %conv8.i.i = add i16 %29, 1
-  store i16 %conv8.i.i, ptr %undo_char_point7.i.i.i120, align 4
+  store i16 %conv8.i.i, ptr %undo_char_point7.i.i.i123, align 4
   %idxprom.i.i45 = sext i16 %29 to i64
   %arrayidx.i.i46 = getelementptr inbounds [999 x i32], ptr %undo_char.i.i, i64 0, i64 %idxprom.i.i45
   %call1.i = tail call i32 @nk_str_rune_at(ptr noundef nonnull %string, i32 noundef %22)
   store i32 %call1.i, ptr %arrayidx.i.i46, align 4
   %30 = load i32, ptr %cursor.i.i, align 8
   tail call void @nk_str_delete_runes(ptr noundef nonnull %string, i32 noundef %30, i32 noundef 1)
-  %.pre261 = load i32, ptr %cursor.i.i, align 8
+  %.pre264 = load i32, ptr %cursor.i.i, align 8
   br label %for.cond.preheader.i48
 
 for.cond.preheader.i48:                           ; preds = %if.then29, %nk_textedit_makeundo_replace.exit
-  %31 = phi i32 [ %22, %if.then29 ], [ %.pre261, %nk_textedit_makeundo_replace.exit ]
-  %idx.ext = sext i32 %text_len.0229 to i64
+  %31 = phi i32 [ %22, %if.then29 ], [ %.pre264, %nk_textedit_makeundo_replace.exit ]
+  %idx.ext = sext i32 %text_len.0232 to i64
   %add.ptr = getelementptr inbounds i8, ptr %text, i64 %idx.ext
   %32 = load i8, ptr %add.ptr, align 1
   br label %for.body.i.i.i
@@ -58486,28 +58358,32 @@ for.inc.i.i.i:                                    ; preds = %for.body.i.i.i
 
 nk_utf_decode_byte.exit.i.i:                      ; preds = %for.body.i.i.i
   %35 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
-  %36 = and i32 %35, -2
-  %or.cond37.i = icmp eq i32 %36, 2
-  br i1 %or.cond37.i, label %for.body.i.preheader.i, label %nk_utf_decode.exit.i
+  %36 = add i32 %35, -1
+  %or.cond1.i.i = icmp ult i32 %36, 3
+  br i1 %or.cond1.i.i, label %for.cond.preheader.i.i, label %nk_utf_decode.exit.i
 
-for.body.i.preheader.i:                           ; preds = %nk_utf_decode_byte.exit.i.i
+for.cond.preheader.i.i:                           ; preds = %nk_utf_decode_byte.exit.i.i
+  %cmp962.i.i = icmp ugt i32 %35, 1
+  br i1 %cmp962.i.i, label %for.body.i.preheader.i, label %if.end.i.i.i53
+
+for.body.i.preheader.i:                           ; preds = %for.cond.preheader.i.i
   %zext.i = and i64 %indvars.iv.i.i.i, 4294967295
   %37 = tail call i32 @llvm.umin.i32(i32 %indvars.iv.i49, i32 2)
   %narrow.i = add nuw nsw i32 %37, 2
   %38 = zext nneg i32 %narrow.i to i64
   %39 = tail call i32 @llvm.umin.i32(i32 %indvars.iv.i49, i32 2)
-  %narrow262 = add nuw nsw i32 %39, 2
-  %40 = zext nneg i32 %narrow262 to i64
-  br label %for.body.i.i53
+  %narrow265 = add nuw nsw i32 %39, 2
+  %40 = zext nneg i32 %narrow265 to i64
+  br label %for.body.i.i54
 
-for.body.i.i53:                                   ; preds = %for.inc.i.i55, %for.body.i.preheader.i
-  %indvars.iv.i.i54 = phi i64 [ %indvars.iv.next.i.i56, %for.inc.i.i55 ], [ 1, %for.body.i.preheader.i ]
-  %arrayidx10.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 %indvars.iv.i.i54
+for.body.i.i54:                                   ; preds = %for.inc.i.i56, %for.body.i.preheader.i
+  %indvars.iv.i.i55 = phi i64 [ %indvars.iv.next.i.i57, %for.inc.i.i56 ], [ 1, %for.body.i.preheader.i ]
+  %arrayidx10.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 %indvars.iv.i.i55
   %41 = load i8, ptr %arrayidx10.i.i, align 1
   br label %for.body.i15.i.i
 
-for.body.i15.i.i:                                 ; preds = %for.inc.i21.i.i, %for.body.i.i53
-  %indvars.iv.i16.i.i = phi i64 [ %indvars.iv.next.i22.i.i, %for.inc.i21.i.i ], [ 0, %for.body.i.i53 ]
+for.body.i15.i.i:                                 ; preds = %for.inc.i21.i.i, %for.body.i.i54
+  %indvars.iv.i16.i.i = phi i64 [ %indvars.iv.next.i22.i.i, %for.inc.i21.i.i ], [ 0, %for.body.i.i54 ]
   %arrayidx.i17.i.i = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i16.i.i
   %42 = load i8, ptr %arrayidx.i17.i.i, align 1
   %and8.i18.i.i = and i8 %42, %41
@@ -58524,28 +58400,30 @@ for.inc.i21.i.i:                                  ; preds = %for.body.i15.i.i
 nk_utf_decode_byte.exit30.i.i:                    ; preds = %for.body.i15.i.i
   %44 = and i64 %indvars.iv.i16.i.i, 4294967295
   %cmp12.not.i.i = icmp eq i64 %44, 0
-  br i1 %cmp12.not.i.i, label %for.inc.i.i55, label %return.loopexit81.i.i
+  br i1 %cmp12.not.i.i, label %for.inc.i.i56, label %return.loopexit81.i.i
 
-for.inc.i.i55:                                    ; preds = %nk_utf_decode_byte.exit30.i.i
-  %indvars.iv.next.i.i56 = add nuw nsw i64 %indvars.iv.i.i54, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i.i56, %38
-  br i1 %exitcond.not.i, label %for.end.i.i, label %for.body.i.i53, !llvm.loop !21
+for.inc.i.i56:                                    ; preds = %nk_utf_decode_byte.exit30.i.i
+  %indvars.iv.next.i.i57 = add nuw nsw i64 %indvars.iv.i.i55, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i.i57, %38
+  br i1 %exitcond.not.i, label %for.end.i.i, label %for.body.i.i54, !llvm.loop !21
 
-for.end.i.i:                                      ; preds = %for.inc.i.i55
+for.end.i.i:                                      ; preds = %for.inc.i.i56
   %45 = icmp ugt i64 %zext.i, %40
-  %spec.select.i = select i1 %45, i32 0, i32 %35
+  br i1 %45, label %nk_utf_decode.exit.i, label %if.end.i.i.i53
+
+if.end.i.i.i53:                                   ; preds = %for.end.i.i, %for.cond.preheader.i.i
   br label %nk_utf_decode.exit.i
 
 return.loopexit.i.i:                              ; preds = %for.inc.i21.i.i
-  %indvars78.le91.i.i = trunc i64 %indvars.iv.i.i54 to i32
+  %indvars78.le91.i.i = trunc i64 %indvars.iv.i.i55 to i32
   br label %nk_utf_decode.exit.i
 
 return.loopexit81.i.i:                            ; preds = %nk_utf_decode_byte.exit30.i.i
-  %indvars78.le.i.i = trunc i64 %indvars.iv.i.i54 to i32
+  %indvars78.le.i.i = trunc i64 %indvars.iv.i.i55 to i32
   br label %nk_utf_decode.exit.i
 
-nk_utf_decode.exit.i:                             ; preds = %for.inc.i.i.i, %return.loopexit81.i.i, %return.loopexit.i.i, %for.end.i.i, %nk_utf_decode_byte.exit.i.i
-  %retval.0.i.i = phi i32 [ 1, %nk_utf_decode_byte.exit.i.i ], [ %indvars78.le91.i.i, %return.loopexit.i.i ], [ %indvars78.le.i.i, %return.loopexit81.i.i ], [ %spec.select.i, %for.end.i.i ], [ 1, %for.inc.i.i.i ]
+nk_utf_decode.exit.i:                             ; preds = %for.inc.i.i.i, %return.loopexit81.i.i, %return.loopexit.i.i, %if.end.i.i.i53, %for.end.i.i, %nk_utf_decode_byte.exit.i.i
+  %retval.0.i.i = phi i32 [ 1, %nk_utf_decode_byte.exit.i.i ], [ 0, %for.end.i.i ], [ %indvars78.le91.i.i, %return.loopexit.i.i ], [ %indvars78.le.i.i, %return.loopexit81.i.i ], [ %35, %if.end.i.i.i53 ], [ 1, %for.inc.i.i.i ]
   %call4.i = tail call i32 @nk_str_insert_at_rune(ptr noundef nonnull %string, i32 noundef %31, ptr noundef nonnull %add.ptr, i32 noundef %retval.0.i.i)
   %46 = load i32, ptr %cursor.i.i, align 8
   %inc = add nsw i32 %46, 1
@@ -58554,23 +58432,23 @@ nk_utf_decode.exit.i:                             ; preds = %for.inc.i.i.i, %ret
 if.then.i.i:                                      ; preds = %if.end23
   %47 = load i32, ptr %len.i.i, align 8
   %cmp2.i.i = icmp sgt i32 %20, %47
-  br i1 %cmp2.i.i, label %if.then3.i.i, label %if.end.i.i58
+  br i1 %cmp2.i.i, label %if.then3.i.i, label %if.end.i.i59
 
 if.then3.i.i:                                     ; preds = %if.then.i.i
   store i32 %47, ptr %select_start, align 4
-  br label %if.end.i.i58
+  br label %if.end.i.i59
 
-if.end.i.i58:                                     ; preds = %if.then3.i.i, %if.then.i.i
+if.end.i.i59:                                     ; preds = %if.then3.i.i, %if.then.i.i
   %48 = phi i32 [ %47, %if.then3.i.i ], [ %20, %if.then.i.i ]
   %cmp6.i.i = icmp sgt i32 %21, %47
   br i1 %cmp6.i.i, label %if.then7.i.i, label %if.end9.i.i
 
-if.then7.i.i:                                     ; preds = %if.end.i.i58
+if.then7.i.i:                                     ; preds = %if.end.i.i59
   store i32 %47, ptr %select_end, align 8
   br label %if.end9.i.i
 
-if.end9.i.i:                                      ; preds = %if.then7.i.i, %if.end.i.i58
-  %49 = phi i32 [ %47, %if.then7.i.i ], [ %21, %if.end.i.i58 ]
+if.end9.i.i:                                      ; preds = %if.then7.i.i, %if.end.i.i59
+  %49 = phi i32 [ %47, %if.then7.i.i ], [ %21, %if.end.i.i59 ]
   %cmp12.i.i = icmp eq i32 %48, %49
   br i1 %cmp12.i.i, label %if.then13.i.i, label %if.end9.i.i.if.end16.i.i_crit_edge
 
@@ -58597,7 +58475,7 @@ if.then19.i.i:                                    ; preds = %if.end16.i.i
 nk_textedit_clamp.exit.i:                         ; preds = %if.then19.i.i, %if.end16.i.i
   %54 = phi i32 [ %51, %if.then19.i.i ], [ %50, %if.end16.i.i ]
   %cmp.not.i = icmp eq i32 %53, %52
-  br i1 %cmp.not.i, label %for.cond.preheader.i61, label %if.then.i
+  br i1 %cmp.not.i, label %for.cond.preheader.i62, label %if.then.i
 
 if.then.i:                                        ; preds = %nk_textedit_clamp.exit.i
   %cmp3.i = icmp slt i32 %53, %52
@@ -58621,129 +58499,135 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
   %.sink.i = phi i32 [ %55, %if.then4.i ], [ %56, %if.else.i ]
   store i32 %.sink.i, ptr %cursor.i.i, align 8
   store i8 0, ptr %has_preferred_x.i, align 1
-  br label %for.cond.preheader.i61
+  br label %for.cond.preheader.i62
 
-for.cond.preheader.i61:                           ; preds = %if.end.i, %nk_textedit_clamp.exit.i
+for.cond.preheader.i62:                           ; preds = %if.end.i, %nk_textedit_clamp.exit.i
   %57 = phi i32 [ %.sink.i, %if.end.i ], [ %54, %nk_textedit_clamp.exit.i ]
-  %idx.ext48 = sext i32 %text_len.0229 to i64
+  %idx.ext48 = sext i32 %text_len.0232 to i64
   %add.ptr49 = getelementptr inbounds i8, ptr %text, i64 %idx.ext48
   %58 = load i8, ptr %add.ptr49, align 1
-  br label %for.body.i.i.i67
+  br label %for.body.i.i.i68
 
-for.body.i.i.i67:                                 ; preds = %for.inc.i.i.i74, %for.cond.preheader.i61
-  %indvars.iv.i68 = phi i32 [ %indvars.iv.next.i77, %for.inc.i.i.i74 ], [ -2, %for.cond.preheader.i61 ]
-  %indvars.iv.i.i.i69 = phi i64 [ %indvars.iv.next.i.i.i75, %for.inc.i.i.i74 ], [ 0, %for.cond.preheader.i61 ]
-  %arrayidx.i.i.i70 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i.i.i69
-  %59 = load i8, ptr %arrayidx.i.i.i70, align 1
-  %and8.i.i.i71 = and i8 %59, %58
-  %arrayidx3.i.i.i72 = getelementptr inbounds [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i.i.i69
-  %60 = load i8, ptr %arrayidx3.i.i.i72, align 1
-  %cmp5.i.i.i73 = icmp eq i8 %and8.i.i.i71, %60
-  br i1 %cmp5.i.i.i73, label %nk_utf_decode_byte.exit.i.i85, label %for.inc.i.i.i74
+for.body.i.i.i68:                                 ; preds = %for.inc.i.i.i75, %for.cond.preheader.i62
+  %indvars.iv.i69 = phi i32 [ %indvars.iv.next.i78, %for.inc.i.i.i75 ], [ -2, %for.cond.preheader.i62 ]
+  %indvars.iv.i.i.i70 = phi i64 [ %indvars.iv.next.i.i.i76, %for.inc.i.i.i75 ], [ 0, %for.cond.preheader.i62 ]
+  %arrayidx.i.i.i71 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i.i.i70
+  %59 = load i8, ptr %arrayidx.i.i.i71, align 1
+  %and8.i.i.i72 = and i8 %59, %58
+  %arrayidx3.i.i.i73 = getelementptr inbounds [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i.i.i70
+  %60 = load i8, ptr %arrayidx3.i.i.i73, align 1
+  %cmp5.i.i.i74 = icmp eq i8 %and8.i.i.i72, %60
+  br i1 %cmp5.i.i.i74, label %nk_utf_decode_byte.exit.i.i86, label %for.inc.i.i.i75
 
-for.inc.i.i.i74:                                  ; preds = %for.body.i.i.i67
-  %indvars.iv.next.i.i.i75 = add nuw nsw i64 %indvars.iv.i.i.i69, 1
-  %exitcond.not.i.i.i76 = icmp eq i64 %indvars.iv.next.i.i.i75, 5
-  %indvars.iv.next.i77 = add nsw i32 %indvars.iv.i68, 1
-  br i1 %exitcond.not.i.i.i76, label %nk_utf_decode.exit.i78, label %for.body.i.i.i67, !llvm.loop !20
+for.inc.i.i.i75:                                  ; preds = %for.body.i.i.i68
+  %indvars.iv.next.i.i.i76 = add nuw nsw i64 %indvars.iv.i.i.i70, 1
+  %exitcond.not.i.i.i77 = icmp eq i64 %indvars.iv.next.i.i.i76, 5
+  %indvars.iv.next.i78 = add nsw i32 %indvars.iv.i69, 1
+  br i1 %exitcond.not.i.i.i77, label %nk_utf_decode.exit.i79, label %for.body.i.i.i68, !llvm.loop !20
 
-nk_utf_decode_byte.exit.i.i85:                    ; preds = %for.body.i.i.i67
-  %61 = trunc nuw nsw i64 %indvars.iv.i.i.i69 to i32
-  %62 = and i32 %61, -2
-  %or.cond37.i86 = icmp eq i32 %62, 2
-  br i1 %or.cond37.i86, label %for.body.i.preheader.i87, label %nk_utf_decode.exit.i78
+nk_utf_decode_byte.exit.i.i86:                    ; preds = %for.body.i.i.i68
+  %61 = trunc nuw nsw i64 %indvars.iv.i.i.i70 to i32
+  %62 = add i32 %61, -1
+  %or.cond1.i.i87 = icmp ult i32 %62, 3
+  br i1 %or.cond1.i.i87, label %for.cond.preheader.i.i88, label %nk_utf_decode.exit.i79
 
-for.body.i.preheader.i87:                         ; preds = %nk_utf_decode_byte.exit.i.i85
-  %zext.i88 = and i64 %indvars.iv.i.i.i69, 4294967295
-  %63 = tail call i32 @llvm.umin.i32(i32 %indvars.iv.i68, i32 2)
-  %narrow.i89 = add nuw nsw i32 %63, 2
-  %64 = zext nneg i32 %narrow.i89 to i64
-  %65 = tail call i32 @llvm.umin.i32(i32 %indvars.iv.i68, i32 2)
+for.cond.preheader.i.i88:                         ; preds = %nk_utf_decode_byte.exit.i.i86
+  %cmp962.i.i89 = icmp ugt i32 %61, 1
+  br i1 %cmp962.i.i89, label %for.body.i.preheader.i91, label %if.end.i.i.i90
+
+for.body.i.preheader.i91:                         ; preds = %for.cond.preheader.i.i88
+  %zext.i92 = and i64 %indvars.iv.i.i.i70, 4294967295
+  %63 = tail call i32 @llvm.umin.i32(i32 %indvars.iv.i69, i32 2)
+  %narrow.i93 = add nuw nsw i32 %63, 2
+  %64 = zext nneg i32 %narrow.i93 to i64
+  %65 = tail call i32 @llvm.umin.i32(i32 %indvars.iv.i69, i32 2)
   %narrow = add nuw nsw i32 %65, 2
   %66 = zext nneg i32 %narrow to i64
-  br label %for.body.i.i90
+  br label %for.body.i.i94
 
-for.body.i.i90:                                   ; preds = %for.inc.i.i108, %for.body.i.preheader.i87
-  %indvars.iv.i.i91 = phi i64 [ %indvars.iv.next.i.i109, %for.inc.i.i108 ], [ 1, %for.body.i.preheader.i87 ]
-  %arrayidx10.i.i92 = getelementptr inbounds i8, ptr %add.ptr49, i64 %indvars.iv.i.i91
-  %67 = load i8, ptr %arrayidx10.i.i92, align 1
-  br label %for.body.i15.i.i93
+for.body.i.i94:                                   ; preds = %for.inc.i.i112, %for.body.i.preheader.i91
+  %indvars.iv.i.i95 = phi i64 [ %indvars.iv.next.i.i113, %for.inc.i.i112 ], [ 1, %for.body.i.preheader.i91 ]
+  %arrayidx10.i.i96 = getelementptr inbounds i8, ptr %add.ptr49, i64 %indvars.iv.i.i95
+  %67 = load i8, ptr %arrayidx10.i.i96, align 1
+  br label %for.body.i15.i.i97
 
-for.body.i15.i.i93:                               ; preds = %for.inc.i21.i.i99, %for.body.i.i90
-  %indvars.iv.i16.i.i94 = phi i64 [ %indvars.iv.next.i22.i.i100, %for.inc.i21.i.i99 ], [ 0, %for.body.i.i90 ]
-  %arrayidx.i17.i.i95 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i16.i.i94
-  %68 = load i8, ptr %arrayidx.i17.i.i95, align 1
-  %and8.i18.i.i96 = and i8 %68, %67
-  %arrayidx3.i19.i.i97 = getelementptr inbounds [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i16.i.i94
-  %69 = load i8, ptr %arrayidx3.i19.i.i97, align 1
-  %cmp5.i20.i.i98 = icmp eq i8 %and8.i18.i.i96, %69
-  br i1 %cmp5.i20.i.i98, label %nk_utf_decode_byte.exit30.i.i104, label %for.inc.i21.i.i99
+for.body.i15.i.i97:                               ; preds = %for.inc.i21.i.i103, %for.body.i.i94
+  %indvars.iv.i16.i.i98 = phi i64 [ %indvars.iv.next.i22.i.i104, %for.inc.i21.i.i103 ], [ 0, %for.body.i.i94 ]
+  %arrayidx.i17.i.i99 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i16.i.i98
+  %68 = load i8, ptr %arrayidx.i17.i.i99, align 1
+  %and8.i18.i.i100 = and i8 %68, %67
+  %arrayidx3.i19.i.i101 = getelementptr inbounds [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i16.i.i98
+  %69 = load i8, ptr %arrayidx3.i19.i.i101, align 1
+  %cmp5.i20.i.i102 = icmp eq i8 %and8.i18.i.i100, %69
+  br i1 %cmp5.i20.i.i102, label %nk_utf_decode_byte.exit30.i.i108, label %for.inc.i21.i.i103
 
-for.inc.i21.i.i99:                                ; preds = %for.body.i15.i.i93
-  %indvars.iv.next.i22.i.i100 = add nuw nsw i64 %indvars.iv.i16.i.i94, 1
-  %exitcond.not.i23.i.i101 = icmp eq i64 %indvars.iv.next.i22.i.i100, 5
-  br i1 %exitcond.not.i23.i.i101, label %return.loopexit.i.i102, label %for.body.i15.i.i93, !llvm.loop !20
+for.inc.i21.i.i103:                               ; preds = %for.body.i15.i.i97
+  %indvars.iv.next.i22.i.i104 = add nuw nsw i64 %indvars.iv.i16.i.i98, 1
+  %exitcond.not.i23.i.i105 = icmp eq i64 %indvars.iv.next.i22.i.i104, 5
+  br i1 %exitcond.not.i23.i.i105, label %return.loopexit.i.i106, label %for.body.i15.i.i97, !llvm.loop !20
 
-nk_utf_decode_byte.exit30.i.i104:                 ; preds = %for.body.i15.i.i93
-  %70 = and i64 %indvars.iv.i16.i.i94, 4294967295
-  %cmp12.not.i.i105 = icmp eq i64 %70, 0
-  br i1 %cmp12.not.i.i105, label %for.inc.i.i108, label %return.loopexit81.i.i106
+nk_utf_decode_byte.exit30.i.i108:                 ; preds = %for.body.i15.i.i97
+  %70 = and i64 %indvars.iv.i16.i.i98, 4294967295
+  %cmp12.not.i.i109 = icmp eq i64 %70, 0
+  br i1 %cmp12.not.i.i109, label %for.inc.i.i112, label %return.loopexit81.i.i110
 
-for.inc.i.i108:                                   ; preds = %nk_utf_decode_byte.exit30.i.i104
-  %indvars.iv.next.i.i109 = add nuw nsw i64 %indvars.iv.i.i91, 1
-  %exitcond.not.i110 = icmp eq i64 %indvars.iv.next.i.i109, %64
-  br i1 %exitcond.not.i110, label %for.end.i.i111, label %for.body.i.i90, !llvm.loop !21
+for.inc.i.i112:                                   ; preds = %nk_utf_decode_byte.exit30.i.i108
+  %indvars.iv.next.i.i113 = add nuw nsw i64 %indvars.iv.i.i95, 1
+  %exitcond.not.i114 = icmp eq i64 %indvars.iv.next.i.i113, %64
+  br i1 %exitcond.not.i114, label %for.end.i.i115, label %for.body.i.i94, !llvm.loop !21
 
-for.end.i.i111:                                   ; preds = %for.inc.i.i108
-  %71 = icmp ugt i64 %zext.i88, %66
-  %spec.select.i112 = select i1 %71, i32 0, i32 %61
-  br label %nk_utf_decode.exit.i78
+for.end.i.i115:                                   ; preds = %for.inc.i.i112
+  %71 = icmp ugt i64 %zext.i92, %66
+  br i1 %71, label %nk_utf_decode.exit.i79, label %if.end.i.i.i90
 
-return.loopexit.i.i102:                           ; preds = %for.inc.i21.i.i99
-  %indvars78.le91.i.i103 = trunc i64 %indvars.iv.i.i91 to i32
-  br label %nk_utf_decode.exit.i78
+if.end.i.i.i90:                                   ; preds = %for.end.i.i115, %for.cond.preheader.i.i88
+  br label %nk_utf_decode.exit.i79
 
-return.loopexit81.i.i106:                         ; preds = %nk_utf_decode_byte.exit30.i.i104
-  %indvars78.le.i.i107 = trunc i64 %indvars.iv.i.i91 to i32
-  br label %nk_utf_decode.exit.i78
+return.loopexit.i.i106:                           ; preds = %for.inc.i21.i.i103
+  %indvars78.le91.i.i107 = trunc i64 %indvars.iv.i.i95 to i32
+  br label %nk_utf_decode.exit.i79
 
-nk_utf_decode.exit.i78:                           ; preds = %for.inc.i.i.i74, %return.loopexit81.i.i106, %return.loopexit.i.i102, %for.end.i.i111, %nk_utf_decode_byte.exit.i.i85
-  %retval.0.i.i79 = phi i32 [ 1, %nk_utf_decode_byte.exit.i.i85 ], [ %indvars78.le91.i.i103, %return.loopexit.i.i102 ], [ %indvars78.le.i.i107, %return.loopexit81.i.i106 ], [ %spec.select.i112, %for.end.i.i111 ], [ 1, %for.inc.i.i.i74 ]
-  %call4.i84 = tail call i32 @nk_str_insert_at_rune(ptr noundef nonnull %string, i32 noundef %57, ptr noundef nonnull %add.ptr49, i32 noundef %retval.0.i.i79)
+return.loopexit81.i.i110:                         ; preds = %nk_utf_decode_byte.exit30.i.i108
+  %indvars78.le.i.i111 = trunc i64 %indvars.iv.i.i95 to i32
+  br label %nk_utf_decode.exit.i79
+
+nk_utf_decode.exit.i79:                           ; preds = %for.inc.i.i.i75, %return.loopexit81.i.i110, %return.loopexit.i.i106, %if.end.i.i.i90, %for.end.i.i115, %nk_utf_decode_byte.exit.i.i86
+  %retval.0.i.i80 = phi i32 [ 1, %nk_utf_decode_byte.exit.i.i86 ], [ 0, %for.end.i.i115 ], [ %indvars78.le91.i.i107, %return.loopexit.i.i106 ], [ %indvars78.le.i.i111, %return.loopexit81.i.i110 ], [ %61, %if.end.i.i.i90 ], [ 1, %for.inc.i.i.i75 ]
+  %call4.i85 = tail call i32 @nk_str_insert_at_rune(ptr noundef nonnull %string, i32 noundef %57, ptr noundef nonnull %add.ptr49, i32 noundef %retval.0.i.i80)
   %72 = load i32, ptr %cursor.i.i, align 8
-  store i16 99, ptr %redo_point.i.i.i.i115, align 2
-  store i16 999, ptr %redo_char_point.i.i.i.i116, align 2
-  %73 = load i16, ptr %undo_point.i.i.i117, align 4
-  %cmp.i.i.i118 = icmp eq i16 %73, 99
-  br i1 %cmp.i.i.i118, label %if.then.i.i.i129, label %if.end.i.i.i119
+  store i16 99, ptr %redo_point.i.i.i.i118, align 2
+  store i16 999, ptr %redo_char_point.i.i.i.i119, align 2
+  %73 = load i16, ptr %undo_point.i.i.i120, align 4
+  %cmp.i.i.i121 = icmp eq i16 %73, 99
+  br i1 %cmp.i.i.i121, label %if.then.i.i.i132, label %if.end.i.i.i122
 
-if.then.i.i.i129:                                 ; preds = %nk_utf_decode.exit.i78
-  tail call fastcc void @nk_textedit_discard_undo(ptr noundef nonnull %undo.i114)
-  br label %if.end.i.i.i119
+if.then.i.i.i132:                                 ; preds = %nk_utf_decode.exit.i79
+  tail call fastcc void @nk_textedit_discard_undo(ptr noundef nonnull %undo.i117)
+  br label %if.end.i.i.i122
 
-if.end.i.i.i119:                                  ; preds = %if.then.i.i.i129, %nk_utf_decode.exit.i78
-  %74 = load i16, ptr %undo_char_point7.i.i.i120, align 4
-  %cmp912.i.i.i121 = icmp sgt i16 %74, 999
-  br i1 %cmp912.i.i.i121, label %while.body.i.i.i127, label %nk_textedit_makeundo_insert.exit
+if.end.i.i.i122:                                  ; preds = %if.then.i.i.i132, %nk_utf_decode.exit.i79
+  %74 = load i16, ptr %undo_char_point7.i.i.i123, align 4
+  %cmp912.i.i.i124 = icmp sgt i16 %74, 999
+  br i1 %cmp912.i.i.i124, label %while.body.i.i.i130, label %nk_textedit_makeundo_insert.exit
 
-while.body.i.i.i127:                              ; preds = %if.end.i.i.i119, %while.body.i.i.i127
-  tail call fastcc void @nk_textedit_discard_undo(ptr noundef nonnull %undo.i114)
-  %75 = load i16, ptr %undo_char_point7.i.i.i120, align 4
-  %cmp9.i.i.i128 = icmp sgt i16 %75, 999
-  br i1 %cmp9.i.i.i128, label %while.body.i.i.i127, label %nk_textedit_makeundo_insert.exit, !llvm.loop !218
+while.body.i.i.i130:                              ; preds = %if.end.i.i.i122, %while.body.i.i.i130
+  tail call fastcc void @nk_textedit_discard_undo(ptr noundef nonnull %undo.i117)
+  %75 = load i16, ptr %undo_char_point7.i.i.i123, align 4
+  %cmp9.i.i.i131 = icmp sgt i16 %75, 999
+  br i1 %cmp9.i.i.i131, label %while.body.i.i.i130, label %nk_textedit_makeundo_insert.exit, !llvm.loop !218
 
-nk_textedit_makeundo_insert.exit:                 ; preds = %while.body.i.i.i127, %if.end.i.i.i119
-  %76 = load i16, ptr %undo_point.i.i.i117, align 4
-  %inc.i.i.i122 = add i16 %76, 1
-  store i16 %inc.i.i.i122, ptr %undo_point.i.i.i117, align 4
-  %idxprom.i.i.i123 = sext i16 %76 to i64
-  %arrayidx.i.i.i124 = getelementptr inbounds [99 x %struct.nk_text_undo_record], ptr %undo.i114, i64 0, i64 %idxprom.i.i.i123
-  store i32 %72, ptr %arrayidx.i.i.i124, align 4
-  %insert_length.i.i125 = getelementptr inbounds i8, ptr %arrayidx.i.i.i124, i64 4
-  store i16 0, ptr %insert_length.i.i125, align 4
-  %delete_length.i.i126 = getelementptr inbounds i8, ptr %arrayidx.i.i.i124, i64 6
-  store i16 1, ptr %delete_length.i.i126, align 2
-  %char_storage.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i124, i64 8
+nk_textedit_makeundo_insert.exit:                 ; preds = %while.body.i.i.i130, %if.end.i.i.i122
+  %76 = load i16, ptr %undo_point.i.i.i120, align 4
+  %inc.i.i.i125 = add i16 %76, 1
+  store i16 %inc.i.i.i125, ptr %undo_point.i.i.i120, align 4
+  %idxprom.i.i.i126 = sext i16 %76 to i64
+  %arrayidx.i.i.i127 = getelementptr inbounds [99 x %struct.nk_text_undo_record], ptr %undo.i117, i64 0, i64 %idxprom.i.i.i126
+  store i32 %72, ptr %arrayidx.i.i.i127, align 4
+  %insert_length.i.i128 = getelementptr inbounds i8, ptr %arrayidx.i.i.i127, i64 4
+  store i16 0, ptr %insert_length.i.i128, align 4
+  %delete_length.i.i129 = getelementptr inbounds i8, ptr %arrayidx.i.i.i127, i64 6
+  store i16 1, ptr %delete_length.i.i129, align 2
+  %char_storage.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i127, i64 8
   store i16 -1, ptr %char_storage.i.i, align 4
   %77 = load i32, ptr %cursor.i.i, align 8
   %add = add nsw i32 %77, 1
@@ -58758,130 +58642,132 @@ next.sink.split:                                  ; preds = %nk_textedit_makeund
   br label %next
 
 next:                                             ; preds = %next.sink.split, %while.body, %land.lhs.true18, %land.lhs.true
-  %add67 = add nsw i32 %text_len.0229, %glyph_len.0228
+  %add67 = add nsw i32 %text_len.0232, %glyph_len.0231
   %idx.ext68 = sext i32 %add67 to i64
   %add.ptr69 = getelementptr inbounds i8, ptr %text, i64 %idx.ext68
   %sub = sub nsw i32 %total_len, %add67
-  %tobool2.not.i131 = icmp eq i32 %add67, %total_len
-  br i1 %tobool2.not.i131, label %while.end, label %if.end4.i133
+  %tobool2.not.i134 = icmp eq i32 %add67, %total_len
+  br i1 %tobool2.not.i134, label %while.end, label %if.end4.i136
 
-if.end4.i133:                                     ; preds = %next
+if.end4.i136:                                     ; preds = %next
   %79 = load i8, ptr %add.ptr69, align 1
-  br label %for.body.i.i134
+  br label %for.body.i.i137
 
-for.body.i.i134:                                  ; preds = %for.inc.i.i140, %if.end4.i133
-  %indvars.iv.i.i135 = phi i64 [ %indvars.iv.next.i.i141, %for.inc.i.i140 ], [ 0, %if.end4.i133 ]
-  %arrayidx.i.i136 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i.i135
-  %80 = load i8, ptr %arrayidx.i.i136, align 1
-  %and8.i.i137 = and i8 %80, %79
-  %arrayidx3.i.i138 = getelementptr inbounds [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i.i135
-  %81 = load i8, ptr %arrayidx3.i.i138, align 1
-  %cmp5.i.i139 = icmp eq i8 %and8.i.i137, %81
-  br i1 %cmp5.i.i139, label %nk_utf_decode_byte.exit.i144, label %for.inc.i.i140
+for.body.i.i137:                                  ; preds = %for.inc.i.i143, %if.end4.i136
+  %indvars.iv.i.i138 = phi i64 [ %indvars.iv.next.i.i144, %for.inc.i.i143 ], [ 0, %if.end4.i136 ]
+  %arrayidx.i.i139 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i.i138
+  %80 = load i8, ptr %arrayidx.i.i139, align 1
+  %and8.i.i140 = and i8 %80, %79
+  %arrayidx3.i.i141 = getelementptr inbounds [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i.i138
+  %81 = load i8, ptr %arrayidx3.i.i141, align 1
+  %cmp5.i.i142 = icmp eq i8 %and8.i.i140, %81
+  br i1 %cmp5.i.i142, label %nk_utf_decode_byte.exit.i147, label %for.inc.i.i143
 
-for.inc.i.i140:                                   ; preds = %for.body.i.i134
-  %indvars.iv.next.i.i141 = add nuw nsw i64 %indvars.iv.i.i135, 1
-  %exitcond.not.i.i142 = icmp eq i64 %indvars.iv.next.i.i141, 5
-  br i1 %exitcond.not.i.i142, label %nk_utf_decode.exit195, label %for.body.i.i134, !llvm.loop !20
+for.inc.i.i143:                                   ; preds = %for.body.i.i137
+  %indvars.iv.next.i.i144 = add nuw nsw i64 %indvars.iv.i.i138, 1
+  %exitcond.not.i.i145 = icmp eq i64 %indvars.iv.next.i.i144, 5
+  br i1 %exitcond.not.i.i145, label %nk_utf_decode.exit198, label %for.body.i.i137, !llvm.loop !20
 
-nk_utf_decode_byte.exit.i144:                     ; preds = %for.body.i.i134
-  %82 = trunc nuw nsw i64 %indvars.iv.i.i135 to i32
+nk_utf_decode_byte.exit.i147:                     ; preds = %for.body.i.i137
+  %82 = trunc nuw nsw i64 %indvars.iv.i.i138 to i32
   %83 = add i32 %82, -1
-  %or.cond1.i145 = icmp ult i32 %83, 3
-  br i1 %or.cond1.i145, label %for.cond.preheader.i146, label %nk_utf_decode.exit195
+  %or.cond1.i148 = icmp ult i32 %83, 3
+  br i1 %or.cond1.i148, label %for.cond.preheader.i149, label %nk_utf_decode.exit198
 
-for.cond.preheader.i146:                          ; preds = %nk_utf_decode_byte.exit.i144
-  %not.i.i147 = xor i8 %80, -1
-  %and12.i.i148 = and i8 %79, %not.i.i147
-  %conv14.i.i149 = zext i8 %and12.i.i148 to i32
-  %cmp861.i150 = icmp sgt i32 %sub, 1
-  %cmp962.i151 = icmp ugt i32 %82, 1
-  %84 = and i1 %cmp861.i150, %cmp962.i151
-  br i1 %84, label %for.body.preheader.i165, label %for.end.i152
+for.cond.preheader.i149:                          ; preds = %nk_utf_decode_byte.exit.i147
+  %not.i.i150 = xor i8 %80, -1
+  %and12.i.i151 = and i8 %79, %not.i.i150
+  %conv14.i.i152 = zext i8 %and12.i.i151 to i32
+  %cmp861.i153 = icmp sgt i32 %sub, 1
+  %cmp962.i154 = icmp ugt i32 %82, 1
+  %84 = and i1 %cmp861.i153, %cmp962.i154
+  br i1 %84, label %for.body.preheader.i168, label %for.end.i155
 
-for.body.preheader.i165:                          ; preds = %for.cond.preheader.i146
+for.body.preheader.i168:                          ; preds = %for.cond.preheader.i149
   %85 = zext nneg i32 %sub to i64
-  %zext260 = and i64 %indvars.iv.i.i135, 4294967295
-  br label %for.body.i166
+  %zext263 = and i64 %indvars.iv.i.i138, 4294967295
+  br label %for.body.i169
 
-for.body.i166:                                    ; preds = %for.inc.i185, %for.body.preheader.i165
-  %indvars.iv.i167 = phi i64 [ 1, %for.body.preheader.i165 ], [ %indvars.iv.next.i191, %for.inc.i185 ]
-  %udecoded.065.i168 = phi i32 [ %conv14.i.i149, %for.body.preheader.i165 ], [ %or.i190, %for.inc.i185 ]
-  %arrayidx10.i169 = getelementptr inbounds i8, ptr %add.ptr69, i64 %indvars.iv.i167
-  %86 = load i8, ptr %arrayidx10.i169, align 1
-  br label %for.body.i15.i170
+for.body.i169:                                    ; preds = %for.inc.i188, %for.body.preheader.i168
+  %indvars.iv.i170 = phi i64 [ 1, %for.body.preheader.i168 ], [ %indvars.iv.next.i194, %for.inc.i188 ]
+  %udecoded.065.i171 = phi i32 [ %conv14.i.i152, %for.body.preheader.i168 ], [ %or.i193, %for.inc.i188 ]
+  %arrayidx10.i172 = getelementptr inbounds i8, ptr %add.ptr69, i64 %indvars.iv.i170
+  %86 = load i8, ptr %arrayidx10.i172, align 1
+  br label %for.body.i15.i173
 
-for.body.i15.i170:                                ; preds = %for.inc.i21.i176, %for.body.i166
-  %indvars.iv.i16.i171 = phi i64 [ %indvars.iv.next.i22.i177, %for.inc.i21.i176 ], [ 0, %for.body.i166 ]
-  %arrayidx.i17.i172 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i16.i171
-  %87 = load i8, ptr %arrayidx.i17.i172, align 1
-  %and8.i18.i173 = and i8 %87, %86
-  %arrayidx3.i19.i174 = getelementptr inbounds [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i16.i171
-  %88 = load i8, ptr %arrayidx3.i19.i174, align 1
-  %cmp5.i20.i175 = icmp eq i8 %and8.i18.i173, %88
-  br i1 %cmp5.i20.i175, label %nk_utf_decode_byte.exit30.i181, label %for.inc.i21.i176
+for.body.i15.i173:                                ; preds = %for.inc.i21.i179, %for.body.i169
+  %indvars.iv.i16.i174 = phi i64 [ %indvars.iv.next.i22.i180, %for.inc.i21.i179 ], [ 0, %for.body.i169 ]
+  %arrayidx.i17.i175 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i16.i174
+  %87 = load i8, ptr %arrayidx.i17.i175, align 1
+  %and8.i18.i176 = and i8 %87, %86
+  %arrayidx3.i19.i177 = getelementptr inbounds [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i16.i174
+  %88 = load i8, ptr %arrayidx3.i19.i177, align 1
+  %cmp5.i20.i178 = icmp eq i8 %and8.i18.i176, %88
+  br i1 %cmp5.i20.i178, label %nk_utf_decode_byte.exit30.i184, label %for.inc.i21.i179
 
-for.inc.i21.i176:                                 ; preds = %for.body.i15.i170
-  %indvars.iv.next.i22.i177 = add nuw nsw i64 %indvars.iv.i16.i171, 1
-  %exitcond.not.i23.i178 = icmp eq i64 %indvars.iv.next.i22.i177, 5
-  br i1 %exitcond.not.i23.i178, label %return.loopexit.i179, label %for.body.i15.i170, !llvm.loop !20
+for.inc.i21.i179:                                 ; preds = %for.body.i15.i173
+  %indvars.iv.next.i22.i180 = add nuw nsw i64 %indvars.iv.i16.i174, 1
+  %exitcond.not.i23.i181 = icmp eq i64 %indvars.iv.next.i22.i180, 5
+  br i1 %exitcond.not.i23.i181, label %return.loopexit.i182, label %for.body.i15.i173, !llvm.loop !20
 
-nk_utf_decode_byte.exit30.i181:                   ; preds = %for.body.i15.i170
-  %89 = and i64 %indvars.iv.i16.i171, 4294967295
-  %cmp12.not.i182 = icmp eq i64 %89, 0
-  br i1 %cmp12.not.i182, label %for.inc.i185, label %return.loopexit81.i183
+nk_utf_decode_byte.exit30.i184:                   ; preds = %for.body.i15.i173
+  %89 = and i64 %indvars.iv.i16.i174, 4294967295
+  %cmp12.not.i185 = icmp eq i64 %89, 0
+  br i1 %cmp12.not.i185, label %for.inc.i188, label %return.loopexit81.i186
 
-for.inc.i185:                                     ; preds = %nk_utf_decode_byte.exit30.i181
-  %not.i27.i186 = xor i8 %87, -1
-  %and12.i28.i187 = and i8 %86, %not.i27.i186
-  %conv14.i29.i188 = zext i8 %and12.i28.i187 to i32
-  %shl.i189 = shl i32 %udecoded.065.i168, 6
-  %or.i190 = or i32 %shl.i189, %conv14.i29.i188
-  %indvars.iv.next.i191 = add nuw nsw i64 %indvars.iv.i167, 1
-  %cmp8.i193 = icmp ult i64 %indvars.iv.next.i191, %85
-  %90 = icmp ult i64 %indvars.iv.next.i191, %zext260
-  %91 = and i1 %cmp8.i193, %90
-  br i1 %91, label %for.body.i166, label %for.end.i152, !llvm.loop !21
+for.inc.i188:                                     ; preds = %nk_utf_decode_byte.exit30.i184
+  %not.i27.i189 = xor i8 %87, -1
+  %and12.i28.i190 = and i8 %86, %not.i27.i189
+  %conv14.i29.i191 = zext i8 %and12.i28.i190 to i32
+  %shl.i192 = shl i32 %udecoded.065.i171, 6
+  %or.i193 = or i32 %shl.i192, %conv14.i29.i191
+  %indvars.iv.next.i194 = add nuw nsw i64 %indvars.iv.i170, 1
+  %cmp8.i196 = icmp ult i64 %indvars.iv.next.i194, %85
+  %90 = icmp ult i64 %indvars.iv.next.i194, %zext263
+  %91 = and i1 %cmp8.i196, %90
+  br i1 %91, label %for.body.i169, label %for.end.i155, !llvm.loop !21
 
-for.end.i152:                                     ; preds = %for.inc.i185, %for.cond.preheader.i146
-  %udecoded.0.lcssa.i153 = phi i32 [ %conv14.i.i149, %for.cond.preheader.i146 ], [ %or.i190, %for.inc.i185 ]
-  %cmp9.lcssa.i154 = phi i1 [ %cmp962.i151, %for.cond.preheader.i146 ], [ %90, %for.inc.i185 ]
-  br i1 %cmp9.lcssa.i154, label %while.end, label %if.end.i.i155
+for.end.i155:                                     ; preds = %for.inc.i188, %for.cond.preheader.i149
+  %udecoded.0.lcssa.i156 = phi i32 [ %conv14.i.i152, %for.cond.preheader.i149 ], [ %or.i193, %for.inc.i188 ]
+  %cmp9.lcssa.i157 = phi i1 [ %cmp962.i154, %for.cond.preheader.i149 ], [ %90, %for.inc.i188 ]
+  br i1 %cmp9.lcssa.i157, label %while.end, label %if.end.i.i158
 
-if.end.i.i155:                                    ; preds = %for.end.i152
-  %idxprom.i.i156 = and i64 %indvars.iv.i.i135, 4294967295
-  %arrayidx.i31.i157 = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i156
-  %92 = load i32, ptr %arrayidx.i31.i157, align 4
-  %cmp.not.i.i158 = icmp ugt i32 %92, %udecoded.0.lcssa.i153
-  br i1 %cmp.not.i.i158, label %nk_utf_decode.exit195, label %land.lhs.true.i.i159
+if.end.i.i158:                                    ; preds = %for.end.i155
+  %idxprom.i.i159 = and i64 %indvars.iv.i.i138, 4294967295
+  %arrayidx.i31.i160 = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i159
+  %92 = load i32, ptr %arrayidx.i31.i160, align 4
+  %cmp.not.i.i161 = icmp ugt i32 %92, %udecoded.0.lcssa.i156
+  br i1 %cmp.not.i.i161, label %if.then7.i36.i167, label %land.lhs.true.i.i162
 
-land.lhs.true.i.i159:                             ; preds = %if.end.i.i155
-  %arrayidx2.i.i160 = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i156
-  %93 = load i32, ptr %arrayidx2.i.i160, align 4
-  %cmp3.i.i161 = icmp uge i32 %udecoded.0.lcssa.i153, %93
-  %94 = add i32 %udecoded.0.lcssa.i153, -55296
-  %or.cond.i.i162 = icmp ult i32 %94, 2047
-  %or.cond11.i.i163 = or i1 %or.cond.i.i162, %cmp3.i.i161
-  %spec.select199 = select i1 %or.cond11.i.i163, i32 65533, i32 %udecoded.0.lcssa.i153
-  br label %nk_utf_decode.exit195
+land.lhs.true.i.i162:                             ; preds = %if.end.i.i158
+  %arrayidx2.i.i163 = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i159
+  %93 = load i32, ptr %arrayidx2.i.i163, align 4
+  %cmp3.i.i164 = icmp uge i32 %udecoded.0.lcssa.i156, %93
+  %94 = add i32 %udecoded.0.lcssa.i156, -55296
+  %or.cond.i.i165 = icmp ult i32 %94, 2047
+  %or.cond11.i.i166 = or i1 %or.cond.i.i165, %cmp3.i.i164
+  br i1 %or.cond11.i.i166, label %if.then7.i36.i167, label %nk_utf_decode.exit198
 
-return.loopexit.i179:                             ; preds = %for.inc.i21.i176
-  %indvars78.le91.i180 = trunc i64 %indvars.iv.i167 to i32
-  br label %nk_utf_decode.exit195
+if.then7.i36.i167:                                ; preds = %land.lhs.true.i.i162, %if.end.i.i158
+  br label %nk_utf_decode.exit198
 
-return.loopexit81.i183:                           ; preds = %nk_utf_decode_byte.exit30.i181
-  %indvars78.le.i184 = trunc i64 %indvars.iv.i167 to i32
-  br label %nk_utf_decode.exit195
+return.loopexit.i182:                             ; preds = %for.inc.i21.i179
+  %indvars78.le91.i183 = trunc i64 %indvars.iv.i170 to i32
+  br label %nk_utf_decode.exit198
 
-nk_utf_decode.exit195:                            ; preds = %for.inc.i.i140, %land.lhs.true.i.i159, %if.end.i.i155, %nk_utf_decode_byte.exit.i144, %return.loopexit.i179, %return.loopexit81.i183
-  %unicode.2 = phi i32 [ 65533, %return.loopexit81.i183 ], [ 65533, %return.loopexit.i179 ], [ 65533, %nk_utf_decode_byte.exit.i144 ], [ 65533, %if.end.i.i155 ], [ %spec.select199, %land.lhs.true.i.i159 ], [ 65533, %for.inc.i.i140 ]
-  %retval.0.i143 = phi i32 [ %indvars78.le.i184, %return.loopexit81.i183 ], [ %indvars78.le91.i180, %return.loopexit.i179 ], [ 1, %nk_utf_decode_byte.exit.i144 ], [ %82, %if.end.i.i155 ], [ %82, %land.lhs.true.i.i159 ], [ 1, %for.inc.i.i140 ]
+return.loopexit81.i186:                           ; preds = %nk_utf_decode_byte.exit30.i184
+  %indvars78.le.i187 = trunc i64 %indvars.iv.i170 to i32
+  br label %nk_utf_decode.exit198
+
+nk_utf_decode.exit198:                            ; preds = %for.inc.i.i143, %nk_utf_decode_byte.exit.i147, %land.lhs.true.i.i162, %if.then7.i36.i167, %return.loopexit.i182, %return.loopexit81.i186
+  %unicode.2 = phi i32 [ 65533, %if.then7.i36.i167 ], [ %udecoded.0.lcssa.i156, %land.lhs.true.i.i162 ], [ 65533, %return.loopexit81.i186 ], [ 65533, %return.loopexit.i182 ], [ 65533, %nk_utf_decode_byte.exit.i147 ], [ 65533, %for.inc.i.i143 ]
+  %retval.0.i146 = phi i32 [ %82, %if.then7.i36.i167 ], [ %82, %land.lhs.true.i.i162 ], [ %indvars78.le.i187, %return.loopexit81.i186 ], [ %indvars78.le91.i183, %return.loopexit.i182 ], [ 1, %nk_utf_decode_byte.exit.i147 ], [ 1, %for.inc.i.i143 ]
   %cmp4 = icmp slt i32 %add67, %total_len
-  %tobool6 = icmp ne i32 %retval.0.i143, 0
+  %tobool6 = icmp ne i32 %retval.0.i146, 0
   %95 = and i1 %tobool6, %cmp4
   br i1 %95, label %while.body, label %while.end, !llvm.loop !220
 
-while.end:                                        ; preds = %for.end.i152, %next, %nk_utf_decode.exit195, %for.end.i, %nk_utf_decode.exit, %entry, %lor.lhs.false2
+while.end:                                        ; preds = %for.end.i155, %next, %nk_utf_decode.exit198, %for.end.i, %nk_utf_decode.exit, %entry, %lor.lhs.false2
   ret void
 }
 
@@ -60372,12 +60258,12 @@ if.end.i595:                                      ; preds = %if.end126
   %cmp.i597 = fcmp ole float %43, %42
   %48 = extractelement <2 x float> %18, i64 0
   %cmp6.i600 = fcmp olt float %42, %48
-  %or.cond.i601.not1456.not1457 = select i1 %cmp.i597, i1 %cmp6.i600, i1 false
+  %or.cond.i601.not1463.not1464 = select i1 %cmp.i597, i1 %cmp6.i600, i1 false
   %cmp10.i605 = fcmp ole float %46, %45
-  %or.cond1450.not = select i1 %or.cond.i601.not1456.not1457, i1 %cmp10.i605, i1 false
+  %or.cond1459.not = select i1 %or.cond.i601.not1463.not1464, i1 %cmp10.i605, i1 false
   %49 = extractelement <2 x float> %18, i64 1
   %cmp17.i609 = fcmp olt float %45, %49
-  %narrow = select i1 %or.cond1450.not, i1 %cmp17.i609, i1 false
+  %narrow = select i1 %or.cond1459.not, i1 %cmp17.i609, i1 false
   %retval.0.i602 = zext i1 %narrow to i32
   %tobool168.not = icmp eq i8 %select_all.1, 0
   br i1 %tobool168.not, label %if.else170, label %if.then169
@@ -60475,7 +60361,7 @@ if.end226:                                        ; preds = %if.else170, %if.the
 
 for.body:                                         ; preds = %if.end226, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end226 ], [ %indvars.iv.next, %for.inc ]
-  %cursor_follow.11518 = phi i8 [ %cursor_follow.0, %if.end226 ], [ %cursor_follow.2, %for.inc ]
+  %cursor_follow.11526 = phi i8 [ %cursor_follow.0, %if.end226 ], [ %cursor_follow.2, %for.inc ]
   %61 = trunc nuw nsw i64 %indvars.iv to i32
   %62 = and i32 %61, 30
   %or.cond3 = icmp eq i32 %62, 4
@@ -60487,17 +60373,22 @@ if.end.i624:                                      ; preds = %for.body
   %tobool1.not.i = icmp eq i32 %63, 0
   %clicked6.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   %64 = load i32, ptr %clicked6.i, align 4
-  %cmp.i626 = icmp ult i32 %64, 2
-  %tobool2.not.i = icmp eq i32 %64, 0
-  %retval.0.shrunk.i = select i1 %tobool1.not.i, i1 %cmp.i626, i1 %tobool2.not.i
-  br i1 %retval.0.shrunk.i, label %for.inc, label %if.then240
+  br i1 %tobool1.not.i, label %land.lhs.true5.i, label %land.lhs.true.i
 
-if.then240:                                       ; preds = %if.end.i624
+land.lhs.true.i:                                  ; preds = %if.end.i624
+  %tobool2.not.i = icmp eq i32 %64, 0
+  br i1 %tobool2.not.i, label %for.inc, label %if.then240
+
+land.lhs.true5.i:                                 ; preds = %if.end.i624
+  %cmp.i626 = icmp ugt i32 %64, 1
+  br i1 %cmp.i626, label %if.then240, label %for.inc
+
+if.then240:                                       ; preds = %land.lhs.true5.i, %land.lhs.true.i
   tail call fastcc void @nk_textedit_key(ptr noundef %edit, i32 noundef %61, i32 noundef %41, ptr noundef %font, float noundef %cond42)
   br label %for.inc
 
-for.inc:                                          ; preds = %if.end.i624, %if.then240, %for.body
-  %cursor_follow.2 = phi i8 [ %cursor_follow.11518, %for.body ], [ 1, %if.then240 ], [ %cursor_follow.11518, %if.end.i624 ]
+for.inc:                                          ; preds = %land.lhs.true.i, %land.lhs.true5.i, %if.then240, %for.body
+  %cursor_follow.2 = phi i8 [ %cursor_follow.11526, %for.body ], [ 1, %if.then240 ], [ %cursor_follow.11526, %land.lhs.true5.i ], [ %cursor_follow.11526, %land.lhs.true.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 30
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !225
@@ -60533,12 +60424,17 @@ if.end.i628:                                      ; preds = %if.end248, %if.then
   %tobool1.not.i630 = icmp eq i32 %67, 0
   %clicked6.i631 = getelementptr inbounds i8, ptr %in.addr.0, i64 36
   %68 = load i32, ptr %clicked6.i631, align 4
-  %cmp.i637 = icmp ult i32 %68, 2
-  %tobool2.not.i633 = icmp eq i32 %68, 0
-  %retval.0.shrunk.i634 = select i1 %tobool1.not.i630, i1 %cmp.i637, i1 %tobool2.not.i633
-  br i1 %retval.0.shrunk.i634, label %if.end.i640, label %if.then262
+  br i1 %tobool1.not.i630, label %land.lhs.true5.i636, label %land.lhs.true.i632
 
-if.then262:                                       ; preds = %if.end.i628
+land.lhs.true.i632:                               ; preds = %if.end.i628
+  %tobool2.not.i633 = icmp eq i32 %68, 0
+  br i1 %tobool2.not.i633, label %if.end.i640, label %if.then262
+
+land.lhs.true5.i636:                              ; preds = %if.end.i628
+  %cmp.i637 = icmp ugt i32 %68, 1
+  br i1 %cmp.i637, label %if.then262, label %if.end.i640
+
+if.then262:                                       ; preds = %land.lhs.true5.i636, %land.lhs.true.i632
   %and263 = and i32 %flags, 128
   %tobool264 = icmp ne i32 %and263, 0
   %tobool266 = icmp ne i32 %41, 0
@@ -60562,32 +60458,56 @@ if.else273:                                       ; preds = %if.else268
   tail call void @nk_textedit_text(ptr noundef nonnull %edit, ptr noundef nonnull @.str.47, i32 noundef 1)
   br label %if.end.i640
 
-if.end.i640:                                      ; preds = %if.end.i628, %if.then271, %if.else273, %if.then267
-  %cursor_follow.4 = phi i8 [ 1, %if.then267 ], [ 1, %if.then271 ], [ 1, %if.else273 ], [ %cursor_follow.3, %if.end.i628 ]
-  %ret.1 = phi i32 [ %spec.select584, %if.then267 ], [ %or272, %if.then271 ], [ %spec.select584, %if.else273 ], [ %spec.select584, %if.end.i628 ]
+if.end.i640:                                      ; preds = %if.then271, %if.else273, %if.then267, %land.lhs.true.i632, %land.lhs.true5.i636
+  %cursor_follow.4 = phi i8 [ 1, %if.then267 ], [ 1, %if.then271 ], [ 1, %if.else273 ], [ %cursor_follow.3, %land.lhs.true.i632 ], [ %cursor_follow.3, %land.lhs.true5.i636 ]
+  %ret.1 = phi i32 [ %spec.select584, %if.then267 ], [ %or272, %if.then271 ], [ %spec.select584, %if.else273 ], [ %spec.select584, %land.lhs.true.i632 ], [ %spec.select584, %land.lhs.true5.i636 ]
   %arrayidx.i641 = getelementptr inbounds i8, ptr %in.addr.0, i64 56
   %69 = load i32, ptr %arrayidx.i641, align 4
   %tobool1.not.i642 = icmp eq i32 %69, 0
   %clicked6.i643 = getelementptr inbounds i8, ptr %in.addr.0, i64 60
   %70 = load i32, ptr %clicked6.i643, align 4
-  %cmp.i649 = icmp ult i32 %70, 2
+  br i1 %tobool1.not.i642, label %land.lhs.true5.i648, label %land.lhs.true.i644
+
+land.lhs.true.i644:                               ; preds = %if.end.i640
   %tobool2.not.i645 = icmp eq i32 %70, 0
-  %retval.0.shrunk.i646 = select i1 %tobool1.not.i642, i1 %cmp.i649, i1 %tobool2.not.i645
+  br i1 %tobool2.not.i645, label %if.end8.i647, label %if.end.i652
+
+land.lhs.true5.i648:                              ; preds = %if.end.i640
+  %cmp.i649 = icmp ugt i32 %70, 1
+  br i1 %cmp.i649, label %if.end.i652, label %if.end8.i647
+
+if.end8.i647:                                     ; preds = %land.lhs.true5.i648, %land.lhs.true.i644
+  br label %if.end.i652
+
+if.end.i652:                                      ; preds = %if.end8.i647, %land.lhs.true5.i648, %land.lhs.true.i644
+  %tobool279.not = phi i1 [ true, %if.end8.i647 ], [ false, %land.lhs.true5.i648 ], [ false, %land.lhs.true.i644 ]
   %arrayidx.i653 = getelementptr inbounds i8, ptr %in.addr.0, i64 64
   %71 = load i32, ptr %arrayidx.i653, align 4
   %tobool1.not.i654 = icmp eq i32 %71, 0
   %clicked6.i655 = getelementptr inbounds i8, ptr %in.addr.0, i64 68
   %72 = load i32, ptr %clicked6.i655, align 4
-  %cmp.i661 = icmp ult i32 %72, 2
+  br i1 %tobool1.not.i654, label %land.lhs.true5.i660, label %land.lhs.true.i656
+
+land.lhs.true.i656:                               ; preds = %if.end.i652
   %tobool2.not.i657 = icmp eq i32 %72, 0
-  %retval.0.shrunk.i658 = select i1 %tobool1.not.i654, i1 %cmp.i661, i1 %tobool2.not.i657
-  %or.cond5.not1458 = select i1 %retval.0.shrunk.i646, i1 %retval.0.shrunk.i658, i1 false
+  br i1 %tobool2.not.i657, label %if.end8.i659, label %nk_input_is_key_pressed.exit662
+
+land.lhs.true5.i660:                              ; preds = %if.end.i652
+  %cmp.i661 = icmp ugt i32 %72, 1
+  br i1 %cmp.i661, label %nk_input_is_key_pressed.exit662, label %if.end8.i659
+
+if.end8.i659:                                     ; preds = %land.lhs.true5.i660, %land.lhs.true.i656
+  br label %nk_input_is_key_pressed.exit662
+
+nk_input_is_key_pressed.exit662:                  ; preds = %land.lhs.true.i656, %land.lhs.true5.i660, %if.end8.i659
+  %tobool281.not1465 = phi i1 [ true, %if.end8.i659 ], [ false, %land.lhs.true5.i660 ], [ false, %land.lhs.true.i656 ]
+  %or.cond5.not1466 = and i1 %tobool279.not, %tobool281.not1465
   %and283 = and i32 %flags, 64
   %tobool284.not = icmp eq i32 %and283, 0
-  %or.cond585 = or i1 %tobool284.not, %or.cond5.not1458
+  %or.cond585 = or i1 %tobool284.not, %or.cond5.not1466
   br i1 %or.cond585, label %if.end.i677, label %if.then285
 
-if.then285:                                       ; preds = %if.end.i640
+if.then285:                                       ; preds = %nk_input_is_key_pressed.exit662
   %select_start = getelementptr inbounds i8, ptr %edit, i64 172
   %73 = load i32, ptr %select_start, align 4
   %select_end = getelementptr inbounds i8, ptr %edit, i64 176
@@ -60746,7 +60666,7 @@ for.cond.preheader.i1290:                         ; preds = %nk_utf_decode_byte.
 
 for.body.preheader.i1309:                         ; preds = %for.cond.preheader.i1290
   %96 = zext nneg i32 %sub.i667 to i64
-  %zext1635 = and i64 %indvars.iv.i.i1279, 4294967295
+  %zext1643 = and i64 %indvars.iv.i.i1279, 4294967295
   br label %for.body.i1310
 
 for.body.i1310:                                   ; preds = %for.inc.i1329, %for.body.preheader.i1309
@@ -60778,7 +60698,7 @@ nk_utf_decode_byte.exit30.i1325:                  ; preds = %for.body.i15.i1314
 for.inc.i1329:                                    ; preds = %nk_utf_decode_byte.exit30.i1325
   %indvars.iv.next.i1335 = add nuw nsw i64 %indvars.iv.i1311, 1
   %cmp8.i1337 = icmp ult i64 %indvars.iv.next.i1335, %96
-  %101 = icmp ult i64 %indvars.iv.next.i1335, %zext1635
+  %101 = icmp ult i64 %indvars.iv.next.i1335, %zext1643
   %102 = and i1 %cmp8.i1337, %101
   br i1 %102, label %for.body.i1310, label %for.end.i1296, !llvm.loop !21
 
@@ -60826,7 +60746,7 @@ if.then304:                                       ; preds = %nk_str_at_const.exi
   br label %if.end309
 
 if.end309:                                        ; preds = %if.then304, %nk_str_at_const.exit
-  %brmerge = or i1 %tobool117.not, %retval.0.shrunk.i658
+  %brmerge = or i1 %tobool117.not, %tobool281.not1465
   br i1 %brmerge, label %if.end.i677, label %if.then314
 
 if.then314:                                       ; preds = %if.end309
@@ -60915,20 +60835,26 @@ nk_textedit_delete_selection.exit.i:              ; preds = %if.end.i.i, %nk_tex
   store i8 0, ptr %has_preferred_x.i674, align 1
   br label %if.end.i677
 
-if.end.i677:                                      ; preds = %if.end.i640, %if.end309, %if.then314, %if.end.i671, %nk_textedit_delete_selection.exit.i
-  %cursor_follow.5 = phi i8 [ %cursor_follow.4, %if.end309 ], [ %cursor_follow.4, %if.end.i640 ], [ 1, %if.then314 ], [ 1, %if.end.i671 ], [ 1, %nk_textedit_delete_selection.exit.i ]
+if.end.i677:                                      ; preds = %nk_input_is_key_pressed.exit662, %if.end309, %if.then314, %if.end.i671, %nk_textedit_delete_selection.exit.i
+  %cursor_follow.5 = phi i8 [ %cursor_follow.4, %if.end309 ], [ %cursor_follow.4, %nk_input_is_key_pressed.exit662 ], [ 1, %if.then314 ], [ 1, %if.end.i671 ], [ 1, %nk_textedit_delete_selection.exit.i ]
   %arrayidx.i678 = getelementptr inbounds i8, ptr %in.addr.0, i64 72
   %115 = load i32, ptr %arrayidx.i678, align 4
   %tobool1.not.i679 = icmp eq i32 %115, 0
   %clicked6.i680 = getelementptr inbounds i8, ptr %in.addr.0, i64 76
   %116 = load i32, ptr %clicked6.i680, align 4
-  %cmp.i686 = icmp ult i32 %116, 2
-  %tobool2.not.i682 = icmp eq i32 %116, 0
-  %retval.0.shrunk.i683 = select i1 %tobool1.not.i679, i1 %cmp.i686, i1 %tobool2.not.i682
-  %or.cond586 = or i1 %tobool284.not, %retval.0.shrunk.i683
-  br i1 %or.cond586, label %if.end.i689, label %land.lhs.true323
+  br i1 %tobool1.not.i679, label %land.lhs.true5.i685, label %land.lhs.true.i681
 
-land.lhs.true323:                                 ; preds = %if.end.i677
+land.lhs.true.i681:                               ; preds = %if.end.i677
+  %tobool2.not.i682 = icmp eq i32 %116, 0
+  %or.cond1461 = or i1 %tobool284.not, %tobool2.not.i682
+  br i1 %or.cond1461, label %if.end.i689, label %land.lhs.true323
+
+land.lhs.true5.i685:                              ; preds = %if.end.i677
+  %cmp.i686 = icmp ult i32 %116, 2
+  %or.cond1462 = or i1 %tobool284.not, %cmp.i686
+  br i1 %or.cond1462, label %if.end.i689, label %land.lhs.true323
+
+land.lhs.true323:                                 ; preds = %land.lhs.true5.i685, %land.lhs.true.i681
   %paste325 = getelementptr inbounds i8, ptr %edit, i64 8
   %117 = load ptr, ptr %paste325, align 8
   %tobool326.not = icmp eq ptr %117, null
@@ -60939,29 +60865,36 @@ if.then327:                                       ; preds = %land.lhs.true323
   tail call void %117(ptr %118, ptr noundef nonnull %edit) #51
   br label %if.end.i689
 
-if.end.i689:                                      ; preds = %if.end.i677, %land.lhs.true323, %if.then327
-  %cursor_follow.6 = phi i8 [ 1, %if.then327 ], [ %cursor_follow.5, %land.lhs.true323 ], [ %cursor_follow.5, %if.end.i677 ]
+if.end.i689:                                      ; preds = %land.lhs.true5.i685, %land.lhs.true.i681, %land.lhs.true323, %if.then327
+  %cursor_follow.6 = phi i8 [ 1, %if.then327 ], [ %cursor_follow.5, %land.lhs.true323 ], [ %cursor_follow.5, %land.lhs.true.i681 ], [ %cursor_follow.5, %land.lhs.true5.i685 ]
   %arrayidx.i690 = getelementptr inbounds i8, ptr %in.addr.0, i64 40
   %119 = load i32, ptr %arrayidx.i690, align 4
   %tobool1.not.i691 = icmp eq i32 %119, 0
   %clicked6.i692 = getelementptr inbounds i8, ptr %in.addr.0, i64 44
   %120 = load i32, ptr %clicked6.i692, align 4
-  %cmp.i698 = icmp ult i32 %120, 2
+  br i1 %tobool1.not.i691, label %land.lhs.true5.i697, label %land.lhs.true.i693
+
+land.lhs.true.i693:                               ; preds = %if.end.i689
   %tobool2.not.i694 = icmp eq i32 %120, 0
-  %retval.0.shrunk.i695 = select i1 %tobool1.not.i691, i1 %cmp.i698, i1 %tobool2.not.i694
+  br i1 %tobool2.not.i694, label %if.end341, label %nk_input_is_key_pressed.exit699
+
+land.lhs.true5.i697:                              ; preds = %if.end.i689
+  %cmp.i698 = icmp ugt i32 %120, 1
+  br i1 %cmp.i698, label %nk_input_is_key_pressed.exit699, label %if.end341
+
+nk_input_is_key_pressed.exit699:                  ; preds = %land.lhs.true.i693, %land.lhs.true5.i697
   %and337 = and i32 %flags, 8
   %tobool338.not = icmp eq i32 %and337, 0
-  %or.cond587 = or i1 %tobool338.not, %retval.0.shrunk.i695
-  br i1 %or.cond587, label %if.end341, label %if.then339
+  br i1 %tobool338.not, label %if.end341, label %if.then339
 
-if.then339:                                       ; preds = %if.end.i689
+if.then339:                                       ; preds = %nk_input_is_key_pressed.exit699
   tail call void @nk_textedit_text(ptr noundef nonnull %edit, ptr noundef nonnull @.str.48, i32 noundef 4)
   br label %if.end341
 
-if.end341:                                        ; preds = %if.end.i689, %if.then339, %if.end126
-  %cursor_follow.7 = phi i8 [ 1, %if.then339 ], [ %cursor_follow.6, %if.end.i689 ], [ 0, %if.end126 ]
-  %is_hovered.0.in = phi i32 [ %retval.0.i602, %if.then339 ], [ %retval.0.i602, %if.end.i689 ], [ %retval.0.i1423, %if.end126 ]
-  %ret.2 = phi i32 [ %ret.1, %if.then339 ], [ %ret.1, %if.end.i689 ], [ %spec.select584, %if.end126 ]
+if.end341:                                        ; preds = %land.lhs.true5.i697, %land.lhs.true.i693, %nk_input_is_key_pressed.exit699, %if.then339, %if.end126
+  %cursor_follow.7 = phi i8 [ 1, %if.then339 ], [ %cursor_follow.6, %nk_input_is_key_pressed.exit699 ], [ 0, %if.end126 ], [ %cursor_follow.6, %land.lhs.true.i693 ], [ %cursor_follow.6, %land.lhs.true5.i697 ]
+  %is_hovered.0.in = phi i32 [ %retval.0.i602, %if.then339 ], [ %retval.0.i602, %nk_input_is_key_pressed.exit699 ], [ %retval.0.i1423, %if.end126 ], [ %retval.0.i602, %land.lhs.true.i693 ], [ %retval.0.i602, %land.lhs.true5.i697 ]
+  %ret.2 = phi i32 [ %ret.1, %if.then339 ], [ %ret.1, %nk_input_is_key_pressed.exit699 ], [ %spec.select584, %if.end126 ], [ %ret.1, %land.lhs.true.i693 ], [ %ret.1, %land.lhs.true5.i697 ]
   %121 = load i8, ptr %active, align 1
   %tobool343.not = icmp eq i8 %121, 0
   br i1 %tobool343.not, label %if.else345, label %if.end351
@@ -60969,15 +60902,15 @@ if.end341:                                        ; preds = %if.end.i689, %if.th
 if.else345:                                       ; preds = %if.end341
   %122 = load i32, ptr %state, align 4
   %and346 = and i32 %122, 2
-  %.1739 = or disjoint i32 %and346, 4
+  %.1746 = or disjoint i32 %and346, 4
   br label %if.end351
 
 if.end351:                                        ; preds = %if.else345, %if.end341
-  %.sink1736 = phi i32 [ 34, %if.end341 ], [ %.1739, %if.else345 ]
+  %.sink1744 = phi i32 [ 34, %if.end341 ], [ %.1746, %if.else345 ]
   %tobool352.not = icmp eq i32 %is_hovered.0.in, 0
-  %or354 = or i32 %.sink1736, 18
-  %spec.select1801 = select i1 %tobool352.not, i32 %.sink1736, i32 %or354
-  store i32 %spec.select1801, ptr %state, align 4
+  %or354 = or i32 %.sink1744, 18
+  %spec.select1808 = select i1 %tobool352.not, i32 %.sink1744, i32 %or354
+  store i32 %spec.select1808, ptr %state, align 4
   %len.i700 = getelementptr inbounds i8, ptr %edit, i64 144
   %123 = load i32, ptr %len.i700, align 8
   %tobool1.not.i701 = icmp eq i32 %123, 0
@@ -61000,12 +60933,12 @@ lor.lhs.false2.i708:                              ; preds = %lor.lhs.false2.i, %
   br label %nk_str_len_char.exit
 
 nk_str_len_char.exit:                             ; preds = %if.end351, %lor.lhs.false2.i708
-  %retval.0.i7051434 = phi ptr [ %retval.0.i705.ph, %lor.lhs.false2.i708 ], [ null, %if.end351 ]
+  %retval.0.i7051443 = phi ptr [ %retval.0.i705.ph, %lor.lhs.false2.i708 ], [ null, %if.end351 ]
   %retval.0.i711 = phi i32 [ %conv.i710, %lor.lhs.false2.i708 ], [ 0, %if.end351 ]
-  %and362 = and i32 %spec.select1801, 32
+  %and362 = and i32 %spec.select1808, 32
   %tobool363.not = icmp eq i32 %and362, 0
   %active365 = getelementptr inbounds i8, ptr %style, i64 80
-  %and367 = and i32 %spec.select1801, 16
+  %and367 = and i32 %spec.select1808, 16
   %tobool368.not = icmp eq i32 %and367, 0
   %hover = getelementptr inbounds i8, ptr %style, i64 40
   %spec.select590 = select i1 %tobool368.not, ptr %style, ptr %hover
@@ -61151,13 +61084,13 @@ if.then404:                                       ; preds = %sw.epilog
   %142 = load i32, ptr %select_end410, align 8
   %. = tail call i32 @llvm.smin.i32(i32 %141, i32 %142)
   %cond428 = tail call i32 @llvm.smax.i32(i32 %141, i32 %142)
-  %tobool429 = icmp ne ptr %retval.0.i7051434, null
+  %tobool429 = icmp ne ptr %retval.0.i7051443, null
   %tobool431 = icmp ne i32 %retval.0.i711, 0
   %or.cond6 = and i1 %tobool429, %tobool431
   br i1 %or.cond6, label %if.end4.i, label %if.end583
 
 if.end4.i:                                        ; preds = %if.then404
-  %143 = load i8, ptr %retval.0.i7051434, align 1
+  %143 = load i8, ptr %retval.0.i7051443, align 1
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %if.end4.i
@@ -61192,13 +61125,13 @@ for.cond.preheader.i:                             ; preds = %nk_utf_decode_byte.
 
 for.body.preheader.i:                             ; preds = %for.cond.preheader.i
   %149 = zext nneg i32 %retval.0.i711 to i64
-  %zext1636 = and i64 %indvars.iv.i.i, 4294967295
+  %zext1644 = and i64 %indvars.iv.i.i, 4294967295
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 1, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %udecoded.065.i = phi i32 [ %conv14.i.i, %for.body.preheader.i ], [ %or.i, %for.inc.i ]
-  %arrayidx10.i = getelementptr inbounds i8, ptr %retval.0.i7051434, i64 %indvars.iv.i
+  %arrayidx10.i = getelementptr inbounds i8, ptr %retval.0.i7051443, i64 %indvars.iv.i
   %150 = load i8, ptr %arrayidx10.i, align 1
   br label %for.body.i15.i
 
@@ -61230,7 +61163,7 @@ for.inc.i:                                        ; preds = %nk_utf_decode_byte.
   %or.i = or i32 %shl.i, %conv14.i29.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %cmp8.i790 = icmp ult i64 %indvars.iv.next.i, %149
-  %154 = icmp ult i64 %indvars.iv.next.i, %zext1636
+  %154 = icmp ult i64 %indvars.iv.next.i, %zext1644
   %155 = and i1 %cmp8.i790, %154
   br i1 %155, label %for.body.i, label %for.end.i, !llvm.loop !21
 
@@ -61244,7 +61177,7 @@ if.end.i.i787:                                    ; preds = %for.end.i
   %arrayidx.i31.i = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i
   %156 = load i32, ptr %arrayidx.i31.i, align 4
   %cmp.not.i.i788 = icmp ugt i32 %156, %udecoded.0.lcssa.i
-  br i1 %cmp.not.i.i788, label %nk_utf_decode.exit, label %land.lhs.true.i.i
+  br i1 %cmp.not.i.i788, label %if.then7.i36.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end.i.i787
   %arrayidx2.i.i = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i
@@ -61253,7 +61186,9 @@ land.lhs.true.i.i:                                ; preds = %if.end.i.i787
   %158 = add i32 %udecoded.0.lcssa.i, -55296
   %or.cond.i.i = icmp ult i32 %158, 2047
   %or.cond11.i.i = or i1 %or.cond.i.i, %cmp3.i.i789
-  %spec.select1452 = select i1 %or.cond11.i.i, i32 65533, i32 %udecoded.0.lcssa.i
+  br i1 %or.cond11.i.i, label %if.then7.i36.i, label %nk_utf_decode.exit
+
+if.then7.i36.i:                                   ; preds = %land.lhs.true.i.i, %if.end.i.i787
   br label %nk_utf_decode.exit
 
 return.loopexit.i:                                ; preds = %for.inc.i21.i
@@ -61264,22 +61199,22 @@ return.loopexit81.i:                              ; preds = %nk_utf_decode_byte.
   %indvars78.le.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-nk_utf_decode.exit:                               ; preds = %for.inc.i.i, %land.lhs.true.i.i, %if.end.i.i787, %nk_utf_decode_byte.exit.i, %for.end.i, %return.loopexit.i, %return.loopexit81.i
-  %unicode434.0 = phi i32 [ 65533, %for.end.i ], [ 65533, %return.loopexit81.i ], [ 65533, %return.loopexit.i ], [ 65533, %nk_utf_decode_byte.exit.i ], [ 65533, %if.end.i.i787 ], [ %spec.select1452, %land.lhs.true.i.i ], [ 65533, %for.inc.i.i ]
-  %retval.0.i786 = phi i32 [ 0, %for.end.i ], [ %indvars78.le.i, %return.loopexit81.i ], [ %indvars78.le91.i, %return.loopexit.i ], [ 1, %nk_utf_decode_byte.exit.i ], [ %146, %if.end.i.i787 ], [ %146, %land.lhs.true.i.i ], [ 1, %for.inc.i.i ]
+nk_utf_decode.exit:                               ; preds = %for.inc.i.i, %nk_utf_decode_byte.exit.i, %for.end.i, %land.lhs.true.i.i, %if.then7.i36.i, %return.loopexit.i, %return.loopexit81.i
+  %unicode434.0 = phi i32 [ 65533, %for.end.i ], [ 65533, %if.then7.i36.i ], [ %udecoded.0.lcssa.i, %land.lhs.true.i.i ], [ 65533, %return.loopexit81.i ], [ 65533, %return.loopexit.i ], [ 65533, %nk_utf_decode_byte.exit.i ], [ 65533, %for.inc.i.i ]
+  %retval.0.i786 = phi i32 [ 0, %for.end.i ], [ %146, %if.then7.i36.i ], [ %146, %land.lhs.true.i.i ], [ %indvars78.le.i, %return.loopexit81.i ], [ %indvars78.le91.i, %return.loopexit.i ], [ 1, %nk_utf_decode_byte.exit.i ], [ 1, %for.inc.i.i ]
   %width = getelementptr inbounds i8, ptr %font, i64 16
   %159 = load ptr, ptr %width, align 8
   %height438 = getelementptr inbounds i8, ptr %font, i64 8
   %160 = load float, ptr %height438, align 8
   %161 = load ptr, ptr %font, align 8
-  %call440 = tail call float %159(ptr %161, float noundef %160, ptr noundef nonnull %retval.0.i7051434, i32 noundef %retval.0.i786) #51
-  %cmp44115191550 = icmp sgt i32 %retval.0.i711, 0
-  %tobool44415201551 = icmp ne i32 %retval.0.i786, 0
-  %162 = and i1 %cmp44115191550, %tobool44415201551
+  %call440 = tail call float %159(ptr %161, float noundef %160, ptr noundef nonnull %retval.0.i7051443, i32 noundef %retval.0.i786) #51
+  %cmp44115271558 = icmp sgt i32 %retval.0.i711, 0
+  %tobool44415281559 = icmp ne i32 %retval.0.i786, 0
+  %162 = and i1 %cmp44115271558, %tobool44415281559
   br i1 %162, label %while.body.lr.ph.lr.ph, label %while.end.thread
 
 while.end.thread:                                 ; preds = %nk_utf_decode.exit
-  %text_size.sroa.0.4.vec.insert1664 = insertelement <2 x float> <float 0.000000e+00, float poison>, float %cond42, i64 1
+  %text_size.sroa.0.4.vec.insert1672 = insertelement <2 x float> <float 0.000000e+00, float poison>, float %cond42, i64 1
   br label %land.lhs.true571
 
 while.body.lr.ph.lr.ph:                           ; preds = %nk_utf_decode.exit
@@ -61287,115 +61222,115 @@ while.body.lr.ph.lr.ph:                           ; preds = %nk_utf_decode.exit
   br label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.body.lr.ph.lr.ph, %nk_utf_decode.exit856
-  %total_lines.0.ph1565 = phi i32 [ 1, %while.body.lr.ph.lr.ph ], [ %inc538, %nk_utf_decode.exit856 ]
-  %text_size.sroa.0.0.ph1564 = phi <2 x float> [ zeroinitializer, %while.body.lr.ph.lr.ph ], [ %text_size.sroa.0.0.vec.insert, %nk_utf_decode.exit856 ]
-  %cursor_ptr.0.ph1563 = phi ptr [ null, %while.body.lr.ph.lr.ph ], [ %cursor_ptr.1, %nk_utf_decode.exit856 ]
-  %select_begin_ptr.0.ph1562 = phi ptr [ null, %while.body.lr.ph.lr.ph ], [ %select_begin_ptr.1, %nk_utf_decode.exit856 ]
-  %select_end_ptr.0.ph1561 = phi ptr [ null, %while.body.lr.ph.lr.ph ], [ %select_end_ptr.1, %nk_utf_decode.exit856 ]
-  %cursor_pos.sroa.0.0.ph1560 = phi <2 x float> [ zeroinitializer, %while.body.lr.ph.lr.ph ], [ %cursor_pos.sroa.0.1, %nk_utf_decode.exit856 ]
-  %selection_offset_start.sroa.0.0.ph1559 = phi <2 x float> [ zeroinitializer, %while.body.lr.ph.lr.ph ], [ %selection_offset_start.sroa.0.1, %nk_utf_decode.exit856 ]
-  %selection_offset_end.sroa.0.0.ph1558 = phi <2 x float> [ zeroinitializer, %while.body.lr.ph.lr.ph ], [ %selection_offset_end.sroa.0.1, %nk_utf_decode.exit856 ]
-  %glyph_width.0.ph1557 = phi float [ %call440, %while.body.lr.ph.lr.ph ], [ %call551, %nk_utf_decode.exit856 ]
-  %glyph_len433.0.ph1556 = phi i32 [ %retval.0.i786, %while.body.lr.ph.lr.ph ], [ %retval.0.i804, %nk_utf_decode.exit856 ]
-  %text_len435.0.ph1555 = phi i32 [ 0, %while.body.lr.ph.lr.ph ], [ %inc539, %nk_utf_decode.exit856 ]
-  %glyphs.0.ph1554 = phi i32 [ 0, %while.body.lr.ph.lr.ph ], [ %inc540, %nk_utf_decode.exit856 ]
-  %unicode434.1.ph1552 = phi i32 [ %unicode434.0, %while.body.lr.ph.lr.ph ], [ %unicode434.2, %nk_utf_decode.exit856 ]
-  %sub453 = add nsw i32 %total_lines.0.ph1565, -1
+  %total_lines.0.ph1573 = phi i32 [ 1, %while.body.lr.ph.lr.ph ], [ %inc538, %nk_utf_decode.exit856 ]
+  %text_size.sroa.0.0.ph1572 = phi <2 x float> [ zeroinitializer, %while.body.lr.ph.lr.ph ], [ %text_size.sroa.0.0.vec.insert, %nk_utf_decode.exit856 ]
+  %cursor_ptr.0.ph1571 = phi ptr [ null, %while.body.lr.ph.lr.ph ], [ %cursor_ptr.1, %nk_utf_decode.exit856 ]
+  %select_begin_ptr.0.ph1570 = phi ptr [ null, %while.body.lr.ph.lr.ph ], [ %select_begin_ptr.1, %nk_utf_decode.exit856 ]
+  %select_end_ptr.0.ph1569 = phi ptr [ null, %while.body.lr.ph.lr.ph ], [ %select_end_ptr.1, %nk_utf_decode.exit856 ]
+  %cursor_pos.sroa.0.0.ph1568 = phi <2 x float> [ zeroinitializer, %while.body.lr.ph.lr.ph ], [ %cursor_pos.sroa.0.1, %nk_utf_decode.exit856 ]
+  %selection_offset_start.sroa.0.0.ph1567 = phi <2 x float> [ zeroinitializer, %while.body.lr.ph.lr.ph ], [ %selection_offset_start.sroa.0.1, %nk_utf_decode.exit856 ]
+  %selection_offset_end.sroa.0.0.ph1566 = phi <2 x float> [ zeroinitializer, %while.body.lr.ph.lr.ph ], [ %selection_offset_end.sroa.0.1, %nk_utf_decode.exit856 ]
+  %glyph_width.0.ph1565 = phi float [ %call440, %while.body.lr.ph.lr.ph ], [ %call551, %nk_utf_decode.exit856 ]
+  %glyph_len433.0.ph1564 = phi i32 [ %retval.0.i786, %while.body.lr.ph.lr.ph ], [ %retval.0.i804, %nk_utf_decode.exit856 ]
+  %text_len435.0.ph1563 = phi i32 [ 0, %while.body.lr.ph.lr.ph ], [ %inc539, %nk_utf_decode.exit856 ]
+  %glyphs.0.ph1562 = phi i32 [ 0, %while.body.lr.ph.lr.ph ], [ %inc540, %nk_utf_decode.exit856 ]
+  %unicode434.1.ph1560 = phi i32 [ %unicode434.0, %while.body.lr.ph.lr.ph ], [ %unicode434.2, %nk_utf_decode.exit856 ]
+  %sub453 = add nsw i32 %total_lines.0.ph1573, -1
   %conv454 = sitofp i32 %sub453 to float
   %mul = fmul float %cond42, %conv454
-  %idx.ext = sext i32 %text_len435.0.ph1555 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %retval.0.i7051434, i64 %idx.ext
+  %idx.ext = sext i32 %text_len435.0.ph1563 to i64
+  %add.ptr = getelementptr inbounds i8, ptr %retval.0.i7051443, i64 %idx.ext
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %nk_utf_decode.exit922
-  %cursor_ptr.01532 = phi ptr [ %cursor_ptr.0.ph1563, %while.body.lr.ph ], [ %cursor_ptr.1, %nk_utf_decode.exit922 ]
-  %select_begin_ptr.01531 = phi ptr [ %select_begin_ptr.0.ph1562, %while.body.lr.ph ], [ %select_begin_ptr.1, %nk_utf_decode.exit922 ]
-  %select_end_ptr.01530 = phi ptr [ %select_end_ptr.0.ph1561, %while.body.lr.ph ], [ %select_end_ptr.1, %nk_utf_decode.exit922 ]
-  %cursor_pos.sroa.0.01529 = phi <2 x float> [ %cursor_pos.sroa.0.0.ph1560, %while.body.lr.ph ], [ %cursor_pos.sroa.0.1, %nk_utf_decode.exit922 ]
-  %selection_offset_start.sroa.0.01528 = phi <2 x float> [ %selection_offset_start.sroa.0.0.ph1559, %while.body.lr.ph ], [ %selection_offset_start.sroa.0.1, %nk_utf_decode.exit922 ]
-  %selection_offset_end.sroa.0.01527 = phi <2 x float> [ %selection_offset_end.sroa.0.0.ph1558, %while.body.lr.ph ], [ %selection_offset_end.sroa.0.1, %nk_utf_decode.exit922 ]
-  %line_width.01526 = phi float [ 0.000000e+00, %while.body.lr.ph ], [ %add555, %nk_utf_decode.exit922 ]
-  %glyph_width.01525 = phi float [ %glyph_width.0.ph1557, %while.body.lr.ph ], [ %call566, %nk_utf_decode.exit922 ]
-  %glyph_len433.01524 = phi i32 [ %glyph_len433.0.ph1556, %while.body.lr.ph ], [ %retval.0.i870, %nk_utf_decode.exit922 ]
-  %text_len435.01523 = phi i32 [ %text_len435.0.ph1555, %while.body.lr.ph ], [ %add554, %nk_utf_decode.exit922 ]
-  %glyphs.01522 = phi i32 [ %glyphs.0.ph1554, %while.body.lr.ph ], [ %inc553, %nk_utf_decode.exit922 ]
-  %unicode434.11521 = phi i32 [ %unicode434.1.ph1552, %while.body.lr.ph ], [ %unicode434.3, %nk_utf_decode.exit922 ]
-  %tobool447.not = icmp eq ptr %cursor_ptr.01532, null
+  %cursor_ptr.01540 = phi ptr [ %cursor_ptr.0.ph1571, %while.body.lr.ph ], [ %cursor_ptr.1, %nk_utf_decode.exit922 ]
+  %select_begin_ptr.01539 = phi ptr [ %select_begin_ptr.0.ph1570, %while.body.lr.ph ], [ %select_begin_ptr.1, %nk_utf_decode.exit922 ]
+  %select_end_ptr.01538 = phi ptr [ %select_end_ptr.0.ph1569, %while.body.lr.ph ], [ %select_end_ptr.1, %nk_utf_decode.exit922 ]
+  %cursor_pos.sroa.0.01537 = phi <2 x float> [ %cursor_pos.sroa.0.0.ph1568, %while.body.lr.ph ], [ %cursor_pos.sroa.0.1, %nk_utf_decode.exit922 ]
+  %selection_offset_start.sroa.0.01536 = phi <2 x float> [ %selection_offset_start.sroa.0.0.ph1567, %while.body.lr.ph ], [ %selection_offset_start.sroa.0.1, %nk_utf_decode.exit922 ]
+  %selection_offset_end.sroa.0.01535 = phi <2 x float> [ %selection_offset_end.sroa.0.0.ph1566, %while.body.lr.ph ], [ %selection_offset_end.sroa.0.1, %nk_utf_decode.exit922 ]
+  %line_width.01534 = phi float [ 0.000000e+00, %while.body.lr.ph ], [ %add555, %nk_utf_decode.exit922 ]
+  %glyph_width.01533 = phi float [ %glyph_width.0.ph1565, %while.body.lr.ph ], [ %call566, %nk_utf_decode.exit922 ]
+  %glyph_len433.01532 = phi i32 [ %glyph_len433.0.ph1564, %while.body.lr.ph ], [ %retval.0.i870, %nk_utf_decode.exit922 ]
+  %text_len435.01531 = phi i32 [ %text_len435.0.ph1563, %while.body.lr.ph ], [ %add554, %nk_utf_decode.exit922 ]
+  %glyphs.01530 = phi i32 [ %glyphs.0.ph1562, %while.body.lr.ph ], [ %inc553, %nk_utf_decode.exit922 ]
+  %unicode434.11529 = phi i32 [ %unicode434.1.ph1560, %while.body.lr.ph ], [ %unicode434.3, %nk_utf_decode.exit922 ]
+  %tobool447.not = icmp eq ptr %cursor_ptr.01540, null
   br i1 %tobool447.not, label %land.lhs.true448, label %if.end462
 
 land.lhs.true448:                                 ; preds = %while.body
   %163 = load i32, ptr %cursor449, align 8
-  %cmp450 = icmp eq i32 %glyphs.01522, %163
+  %cmp450 = icmp eq i32 %glyphs.01530, %163
   br i1 %cmp450, label %if.then452, label %if.end462
 
 if.then452:                                       ; preds = %land.lhs.true448
-  %sub456 = sub nsw i32 %text_len435.01523, %text_len435.0.ph1555
+  %sub456 = sub nsw i32 %text_len435.01531, %text_len435.0.ph1563
   %call457 = call fastcc <2 x float> @nk_text_calculate_text_bounds(ptr noundef nonnull %font, ptr noundef nonnull %add.ptr, i32 noundef %sub456, float noundef %cond42, ptr noundef nonnull %remaining, ptr noundef nonnull %out_offset, ptr noundef nonnull %glyph_offset)
   %cursor_pos.sroa.0.0.vec.insert = insertelement <2 x float> %call457, float %mul, i64 1
-  %idx.ext460 = sext i32 %text_len435.01523 to i64
-  %add.ptr461 = getelementptr inbounds i8, ptr %retval.0.i7051434, i64 %idx.ext460
+  %idx.ext460 = sext i32 %text_len435.01531 to i64
+  %add.ptr461 = getelementptr inbounds i8, ptr %retval.0.i7051443, i64 %idx.ext460
   br label %if.end462
 
 if.end462:                                        ; preds = %if.then452, %land.lhs.true448, %while.body
-  %cursor_pos.sroa.0.1 = phi <2 x float> [ %cursor_pos.sroa.0.01529, %while.body ], [ %cursor_pos.sroa.0.0.vec.insert, %if.then452 ], [ %cursor_pos.sroa.0.01529, %land.lhs.true448 ]
-  %cursor_ptr.1 = phi ptr [ %cursor_ptr.01532, %while.body ], [ %add.ptr461, %if.then452 ], [ null, %land.lhs.true448 ]
-  %tobool463.not = icmp eq ptr %select_begin_ptr.01531, null
+  %cursor_pos.sroa.0.1 = phi <2 x float> [ %cursor_pos.sroa.0.01537, %while.body ], [ %cursor_pos.sroa.0.0.vec.insert, %if.then452 ], [ %cursor_pos.sroa.0.01537, %land.lhs.true448 ]
+  %cursor_ptr.1 = phi ptr [ %cursor_ptr.01540, %while.body ], [ %add.ptr461, %if.then452 ], [ null, %land.lhs.true448 ]
+  %tobool463.not = icmp eq ptr %select_begin_ptr.01539, null
   br i1 %tobool463.not, label %land.lhs.true464, label %if.end497
 
 land.lhs.true464:                                 ; preds = %if.end462
   %164 = load i32, ptr %select_start409, align 4
   %165 = load i32, ptr %select_end410, align 8
   %cmp467.not = icmp ne i32 %164, %165
-  %cmp470 = icmp eq i32 %glyphs.01522, %.
+  %cmp470 = icmp eq i32 %glyphs.01530, %.
   %or.cond588 = select i1 %cmp467.not, i1 %cmp470, i1 false
   br i1 %or.cond588, label %if.then472, label %if.end497
 
 if.then472:                                       ; preds = %land.lhs.true464
-  %sub491 = sub nsw i32 %text_len435.01523, %text_len435.0.ph1555
+  %sub491 = sub nsw i32 %text_len435.01531, %text_len435.0.ph1563
   %call492 = call fastcc <2 x float> @nk_text_calculate_text_bounds(ptr noundef nonnull %font, ptr noundef nonnull %add.ptr, i32 noundef %sub491, float noundef %cond42, ptr noundef nonnull %remaining476, ptr noundef nonnull %out_offset474, ptr noundef nonnull %glyph_offset473)
   %selection_offset_start.sroa.0.0.vec.insert = insertelement <2 x float> %call492, float %mul, i64 1
-  %idx.ext495 = sext i32 %text_len435.01523 to i64
-  %add.ptr496 = getelementptr inbounds i8, ptr %retval.0.i7051434, i64 %idx.ext495
+  %idx.ext495 = sext i32 %text_len435.01531 to i64
+  %add.ptr496 = getelementptr inbounds i8, ptr %retval.0.i7051443, i64 %idx.ext495
   br label %if.end497
 
 if.end497:                                        ; preds = %if.then472, %land.lhs.true464, %if.end462
-  %selection_offset_start.sroa.0.1 = phi <2 x float> [ %selection_offset_start.sroa.0.01528, %if.end462 ], [ %selection_offset_start.sroa.0.0.vec.insert, %if.then472 ], [ %selection_offset_start.sroa.0.01528, %land.lhs.true464 ]
-  %select_begin_ptr.1 = phi ptr [ %select_begin_ptr.01531, %if.end462 ], [ %add.ptr496, %if.then472 ], [ null, %land.lhs.true464 ]
-  %tobool498.not = icmp eq ptr %select_end_ptr.01530, null
+  %selection_offset_start.sroa.0.1 = phi <2 x float> [ %selection_offset_start.sroa.0.01536, %if.end462 ], [ %selection_offset_start.sroa.0.0.vec.insert, %if.then472 ], [ %selection_offset_start.sroa.0.01536, %land.lhs.true464 ]
+  %select_begin_ptr.1 = phi ptr [ %select_begin_ptr.01539, %if.end462 ], [ %add.ptr496, %if.then472 ], [ null, %land.lhs.true464 ]
+  %tobool498.not = icmp eq ptr %select_end_ptr.01538, null
   br i1 %tobool498.not, label %land.lhs.true499, label %if.end525
 
 land.lhs.true499:                                 ; preds = %if.end497
   %166 = load i32, ptr %select_start409, align 4
   %167 = load i32, ptr %select_end410, align 8
   %cmp502.not = icmp ne i32 %166, %167
-  %cmp505 = icmp eq i32 %glyphs.01522, %cond428
+  %cmp505 = icmp eq i32 %glyphs.01530, %cond428
   %or.cond589 = select i1 %cmp502.not, i1 %cmp505, i1 false
   br i1 %or.cond589, label %if.then507, label %if.end525
 
 if.then507:                                       ; preds = %land.lhs.true499
-  %sub519 = sub nsw i32 %text_len435.01523, %text_len435.0.ph1555
+  %sub519 = sub nsw i32 %text_len435.01531, %text_len435.0.ph1563
   %call520 = call fastcc <2 x float> @nk_text_calculate_text_bounds(ptr noundef nonnull %font, ptr noundef nonnull %add.ptr, i32 noundef %sub519, float noundef %cond42, ptr noundef nonnull %remaining511, ptr noundef nonnull %out_offset509, ptr noundef nonnull %glyph_offset508)
   %selection_offset_end.sroa.0.0.vec.insert = insertelement <2 x float> %call520, float %mul, i64 1
-  %idx.ext523 = sext i32 %text_len435.01523 to i64
-  %add.ptr524 = getelementptr inbounds i8, ptr %retval.0.i7051434, i64 %idx.ext523
+  %idx.ext523 = sext i32 %text_len435.01531 to i64
+  %add.ptr524 = getelementptr inbounds i8, ptr %retval.0.i7051443, i64 %idx.ext523
   br label %if.end525
 
 if.end525:                                        ; preds = %if.then507, %land.lhs.true499, %if.end497
-  %selection_offset_end.sroa.0.1 = phi <2 x float> [ %selection_offset_end.sroa.0.01527, %if.end497 ], [ %selection_offset_end.sroa.0.0.vec.insert, %if.then507 ], [ %selection_offset_end.sroa.0.01527, %land.lhs.true499 ]
-  %select_end_ptr.1 = phi ptr [ %select_end_ptr.01530, %if.end497 ], [ %add.ptr524, %if.then507 ], [ null, %land.lhs.true499 ]
-  %cmp526 = icmp eq i32 %unicode434.11521, 10
+  %selection_offset_end.sroa.0.1 = phi <2 x float> [ %selection_offset_end.sroa.0.01535, %if.end497 ], [ %selection_offset_end.sroa.0.0.vec.insert, %if.then507 ], [ %selection_offset_end.sroa.0.01535, %land.lhs.true499 ]
+  %select_end_ptr.1 = phi ptr [ %select_end_ptr.01538, %if.end497 ], [ %add.ptr524, %if.then507 ], [ null, %land.lhs.true499 ]
+  %cmp526 = icmp eq i32 %unicode434.11529, 10
   br i1 %cmp526, label %if.then528, label %if.end552
 
 if.then528:                                       ; preds = %if.end525
-  %text_size.sroa.0.0.vec.extract = extractelement <2 x float> %text_size.sroa.0.0.ph1564, i64 0
-  %cmp530 = fcmp olt float %text_size.sroa.0.0.vec.extract, %line_width.01526
-  %cond536 = select i1 %cmp530, float %line_width.01526, float %text_size.sroa.0.0.vec.extract
-  %text_size.sroa.0.0.vec.insert = insertelement <2 x float> %text_size.sroa.0.0.ph1564, float %cond536, i64 0
-  %inc538 = add nuw nsw i32 %total_lines.0.ph1565, 1
-  %inc539 = add nsw i32 %text_len435.01523, 1
-  %inc540 = add nsw i32 %glyphs.01522, 1
+  %text_size.sroa.0.0.vec.extract = extractelement <2 x float> %text_size.sroa.0.0.ph1572, i64 0
+  %cmp530 = fcmp olt float %text_size.sroa.0.0.vec.extract, %line_width.01534
+  %cond536 = select i1 %cmp530, float %line_width.01534, float %text_size.sroa.0.0.vec.extract
+  %text_size.sroa.0.0.vec.insert = insertelement <2 x float> %text_size.sroa.0.0.ph1572, float %cond536, i64 0
+  %inc538 = add nuw nsw i32 %total_lines.0.ph1573, 1
+  %inc539 = add nsw i32 %text_len435.01531, 1
+  %inc540 = add nsw i32 %glyphs.01530, 1
   %idx.ext541 = sext i32 %inc539 to i64
-  %add.ptr542 = getelementptr inbounds i8, ptr %retval.0.i7051434, i64 %idx.ext541
+  %add.ptr542 = getelementptr inbounds i8, ptr %retval.0.i7051443, i64 %idx.ext541
   %sub543 = sub nsw i32 %retval.0.i711, %inc539
   %tobool2.not.i792 = icmp eq i32 %retval.0.i711, %inc539
   br i1 %tobool2.not.i792, label %nk_utf_decode.exit856, label %if.end4.i794
@@ -61436,7 +61371,7 @@ for.cond.preheader.i807:                          ; preds = %nk_utf_decode_byte.
 
 for.body.preheader.i826:                          ; preds = %for.cond.preheader.i807
   %174 = zext nneg i32 %sub543 to i64
-  %zext1638 = and i64 %indvars.iv.i.i796, 4294967295
+  %zext1646 = and i64 %indvars.iv.i.i796, 4294967295
   br label %for.body.i827
 
 for.body.i827:                                    ; preds = %for.inc.i846, %for.body.preheader.i826
@@ -61474,7 +61409,7 @@ for.inc.i846:                                     ; preds = %nk_utf_decode_byte.
   %or.i851 = or i32 %shl.i850, %conv14.i29.i849
   %indvars.iv.next.i852 = add nuw nsw i64 %indvars.iv.i828, 1
   %cmp8.i854 = icmp ult i64 %indvars.iv.next.i852, %174
-  %179 = icmp ult i64 %indvars.iv.next.i852, %zext1638
+  %179 = icmp ult i64 %indvars.iv.next.i852, %zext1646
   %180 = and i1 %cmp8.i854, %179
   br i1 %180, label %for.body.i827, label %for.end.i813, !llvm.loop !21
 
@@ -61488,7 +61423,7 @@ if.end.i.i816:                                    ; preds = %for.end.i813
   %arrayidx.i31.i818 = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i817
   %181 = load i32, ptr %arrayidx.i31.i818, align 4
   %cmp.not.i.i819 = icmp ugt i32 %181, %udecoded.0.lcssa.i814
-  br i1 %cmp.not.i.i819, label %nk_utf_decode.exit856, label %land.lhs.true.i.i820
+  br i1 %cmp.not.i.i819, label %if.then7.i36.i825, label %land.lhs.true.i.i820
 
 land.lhs.true.i.i820:                             ; preds = %if.end.i.i816
   %arrayidx2.i.i821 = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i817
@@ -61497,7 +61432,9 @@ land.lhs.true.i.i820:                             ; preds = %if.end.i.i816
   %183 = add i32 %udecoded.0.lcssa.i814, -55296
   %or.cond.i.i823 = icmp ult i32 %183, 2047
   %or.cond11.i.i824 = or i1 %or.cond.i.i823, %cmp3.i.i822
-  %spec.select1453 = select i1 %or.cond11.i.i824, i32 65533, i32 %udecoded.0.lcssa.i814
+  br i1 %or.cond11.i.i824, label %if.then7.i36.i825, label %nk_utf_decode.exit856
+
+if.then7.i36.i825:                                ; preds = %land.lhs.true.i.i820, %if.end.i.i816
   br label %nk_utf_decode.exit856
 
 return.loopexit.i840:                             ; preds = %for.inc.i21.i837
@@ -61508,24 +61445,24 @@ return.loopexit81.i844:                           ; preds = %nk_utf_decode_byte.
   %indvars78.le.i845 = trunc i64 %indvars.iv.i828 to i32
   br label %nk_utf_decode.exit856
 
-nk_utf_decode.exit856:                            ; preds = %for.inc.i.i801, %land.lhs.true.i.i820, %if.end.i.i816, %if.then528, %nk_utf_decode_byte.exit.i805, %for.end.i813, %return.loopexit.i840, %return.loopexit81.i844
-  %unicode434.2 = phi i32 [ 10, %if.then528 ], [ 65533, %for.end.i813 ], [ 65533, %return.loopexit81.i844 ], [ 65533, %return.loopexit.i840 ], [ 65533, %nk_utf_decode_byte.exit.i805 ], [ 65533, %if.end.i.i816 ], [ %spec.select1453, %land.lhs.true.i.i820 ], [ 65533, %for.inc.i.i801 ]
-  %retval.0.i804 = phi i32 [ 0, %if.then528 ], [ 0, %for.end.i813 ], [ %indvars78.le.i845, %return.loopexit81.i844 ], [ %indvars78.le91.i841, %return.loopexit.i840 ], [ 1, %nk_utf_decode_byte.exit.i805 ], [ %171, %if.end.i.i816 ], [ %171, %land.lhs.true.i.i820 ], [ 1, %for.inc.i.i801 ]
+nk_utf_decode.exit856:                            ; preds = %for.inc.i.i801, %if.then528, %nk_utf_decode_byte.exit.i805, %for.end.i813, %land.lhs.true.i.i820, %if.then7.i36.i825, %return.loopexit.i840, %return.loopexit81.i844
+  %unicode434.2 = phi i32 [ 10, %if.then528 ], [ 65533, %for.end.i813 ], [ 65533, %if.then7.i36.i825 ], [ %udecoded.0.lcssa.i814, %land.lhs.true.i.i820 ], [ 65533, %return.loopexit81.i844 ], [ 65533, %return.loopexit.i840 ], [ 65533, %nk_utf_decode_byte.exit.i805 ], [ 65533, %for.inc.i.i801 ]
+  %retval.0.i804 = phi i32 [ 0, %if.then528 ], [ 0, %for.end.i813 ], [ %171, %if.then7.i36.i825 ], [ %171, %land.lhs.true.i.i820 ], [ %indvars78.le.i845, %return.loopexit81.i844 ], [ %indvars78.le91.i841, %return.loopexit.i840 ], [ 1, %nk_utf_decode_byte.exit.i805 ], [ 1, %for.inc.i.i801 ]
   %184 = load ptr, ptr %width, align 8
   %185 = load float, ptr %height438, align 8
   %186 = load ptr, ptr %font, align 8
   %call551 = call float %184(ptr %186, float noundef %185, ptr noundef nonnull %add.ptr542, i32 noundef %retval.0.i804) #51
-  %cmp4411519 = icmp slt i32 %inc539, %retval.0.i711
-  %tobool4441520 = icmp ne i32 %retval.0.i804, 0
-  %187 = and i1 %cmp4411519, %tobool4441520
+  %cmp4411527 = icmp slt i32 %inc539, %retval.0.i711
+  %tobool4441528 = icmp ne i32 %retval.0.i804, 0
+  %187 = and i1 %cmp4411527, %tobool4441528
   br i1 %187, label %while.body.lr.ph, label %while.end, !llvm.loop !226
 
 if.end552:                                        ; preds = %if.end525
-  %inc553 = add nsw i32 %glyphs.01522, 1
-  %add554 = add nsw i32 %glyph_len433.01524, %text_len435.01523
-  %add555 = fadd float %glyph_width.01525, %line_width.01526
+  %inc553 = add nsw i32 %glyphs.01530, 1
+  %add554 = add nsw i32 %glyph_len433.01532, %text_len435.01531
+  %add555 = fadd float %glyph_width.01533, %line_width.01534
   %idx.ext556 = sext i32 %add554 to i64
-  %add.ptr557 = getelementptr inbounds i8, ptr %retval.0.i7051434, i64 %idx.ext556
+  %add.ptr557 = getelementptr inbounds i8, ptr %retval.0.i7051443, i64 %idx.ext556
   %sub558 = sub nsw i32 %retval.0.i711, %add554
   %tobool2.not.i858 = icmp eq i32 %retval.0.i711, %add554
   br i1 %tobool2.not.i858, label %nk_utf_decode.exit922, label %if.end4.i860
@@ -61566,7 +61503,7 @@ for.cond.preheader.i873:                          ; preds = %nk_utf_decode_byte.
 
 for.body.preheader.i892:                          ; preds = %for.cond.preheader.i873
   %194 = zext nneg i32 %sub558 to i64
-  %zext1637 = and i64 %indvars.iv.i.i862, 4294967295
+  %zext1645 = and i64 %indvars.iv.i.i862, 4294967295
   br label %for.body.i893
 
 for.body.i893:                                    ; preds = %for.inc.i912, %for.body.preheader.i892
@@ -61604,7 +61541,7 @@ for.inc.i912:                                     ; preds = %nk_utf_decode_byte.
   %or.i917 = or i32 %shl.i916, %conv14.i29.i915
   %indvars.iv.next.i918 = add nuw nsw i64 %indvars.iv.i894, 1
   %cmp8.i920 = icmp ult i64 %indvars.iv.next.i918, %194
-  %199 = icmp ult i64 %indvars.iv.next.i918, %zext1637
+  %199 = icmp ult i64 %indvars.iv.next.i918, %zext1645
   %200 = and i1 %cmp8.i920, %199
   br i1 %200, label %for.body.i893, label %for.end.i879, !llvm.loop !21
 
@@ -61618,7 +61555,7 @@ if.end.i.i882:                                    ; preds = %for.end.i879
   %arrayidx.i31.i884 = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i883
   %201 = load i32, ptr %arrayidx.i31.i884, align 4
   %cmp.not.i.i885 = icmp ugt i32 %201, %udecoded.0.lcssa.i880
-  br i1 %cmp.not.i.i885, label %nk_utf_decode.exit922, label %land.lhs.true.i.i886
+  br i1 %cmp.not.i.i885, label %if.then7.i36.i891, label %land.lhs.true.i.i886
 
 land.lhs.true.i.i886:                             ; preds = %if.end.i.i882
   %arrayidx2.i.i887 = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i883
@@ -61627,7 +61564,9 @@ land.lhs.true.i.i886:                             ; preds = %if.end.i.i882
   %203 = add i32 %udecoded.0.lcssa.i880, -55296
   %or.cond.i.i889 = icmp ult i32 %203, 2047
   %or.cond11.i.i890 = or i1 %or.cond.i.i889, %cmp3.i.i888
-  %spec.select1454 = select i1 %or.cond11.i.i890, i32 65533, i32 %udecoded.0.lcssa.i880
+  br i1 %or.cond11.i.i890, label %if.then7.i36.i891, label %nk_utf_decode.exit922
+
+if.then7.i36.i891:                                ; preds = %land.lhs.true.i.i886, %if.end.i.i882
   br label %nk_utf_decode.exit922
 
 return.loopexit.i906:                             ; preds = %for.inc.i21.i903
@@ -61638,9 +61577,9 @@ return.loopexit81.i910:                           ; preds = %nk_utf_decode_byte.
   %indvars78.le.i911 = trunc i64 %indvars.iv.i894 to i32
   br label %nk_utf_decode.exit922
 
-nk_utf_decode.exit922:                            ; preds = %for.inc.i.i867, %land.lhs.true.i.i886, %if.end.i.i882, %if.end552, %nk_utf_decode_byte.exit.i871, %for.end.i879, %return.loopexit.i906, %return.loopexit81.i910
-  %unicode434.3 = phi i32 [ %unicode434.11521, %if.end552 ], [ 65533, %for.end.i879 ], [ 65533, %return.loopexit81.i910 ], [ 65533, %return.loopexit.i906 ], [ 65533, %nk_utf_decode_byte.exit.i871 ], [ 65533, %if.end.i.i882 ], [ %spec.select1454, %land.lhs.true.i.i886 ], [ 65533, %for.inc.i.i867 ]
-  %retval.0.i870 = phi i32 [ 0, %if.end552 ], [ 0, %for.end.i879 ], [ %indvars78.le.i911, %return.loopexit81.i910 ], [ %indvars78.le91.i907, %return.loopexit.i906 ], [ 1, %nk_utf_decode_byte.exit.i871 ], [ %191, %if.end.i.i882 ], [ %191, %land.lhs.true.i.i886 ], [ 1, %for.inc.i.i867 ]
+nk_utf_decode.exit922:                            ; preds = %for.inc.i.i867, %if.end552, %nk_utf_decode_byte.exit.i871, %for.end.i879, %land.lhs.true.i.i886, %if.then7.i36.i891, %return.loopexit.i906, %return.loopexit81.i910
+  %unicode434.3 = phi i32 [ %unicode434.11529, %if.end552 ], [ 65533, %for.end.i879 ], [ 65533, %if.then7.i36.i891 ], [ %udecoded.0.lcssa.i880, %land.lhs.true.i.i886 ], [ 65533, %return.loopexit81.i910 ], [ 65533, %return.loopexit.i906 ], [ 65533, %nk_utf_decode_byte.exit.i871 ], [ 65533, %for.inc.i.i867 ]
+  %retval.0.i870 = phi i32 [ 0, %if.end552 ], [ 0, %for.end.i879 ], [ %191, %if.then7.i36.i891 ], [ %191, %land.lhs.true.i.i886 ], [ %indvars78.le.i911, %return.loopexit81.i910 ], [ %indvars78.le91.i907, %return.loopexit.i906 ], [ 1, %nk_utf_decode_byte.exit.i871 ], [ 1, %for.inc.i.i867 ]
   %204 = load ptr, ptr %width, align 8
   %205 = load float, ptr %height438, align 8
   %206 = load ptr, ptr %font, align 8
@@ -61651,8 +61590,8 @@ nk_utf_decode.exit922:                            ; preds = %for.inc.i.i867, %la
   br i1 %207, label %while.body, label %while.end, !llvm.loop !226
 
 while.end:                                        ; preds = %nk_utf_decode.exit856, %nk_utf_decode.exit922
-  %text_size.sroa.0.0.ph.lcssa = phi <2 x float> [ %text_size.sroa.0.0.ph1564, %nk_utf_decode.exit922 ], [ %text_size.sroa.0.0.vec.insert, %nk_utf_decode.exit856 ]
-  %total_lines.0.ph.lcssa = phi i32 [ %total_lines.0.ph1565, %nk_utf_decode.exit922 ], [ %inc538, %nk_utf_decode.exit856 ]
+  %text_size.sroa.0.0.ph.lcssa = phi <2 x float> [ %text_size.sroa.0.0.ph1572, %nk_utf_decode.exit922 ], [ %text_size.sroa.0.0.vec.insert, %nk_utf_decode.exit856 ]
+  %total_lines.0.ph.lcssa = phi i32 [ %total_lines.0.ph1573, %nk_utf_decode.exit922 ], [ %inc538, %nk_utf_decode.exit856 ]
   %line_width.0.lcssa = phi float [ %add555, %nk_utf_decode.exit922 ], [ 0.000000e+00, %nk_utf_decode.exit856 ]
   %conv567 = sitofp i32 %total_lines.0.ph.lcssa to float
   %mul568 = fmul float %cond42, %conv567
@@ -61661,14 +61600,14 @@ while.end:                                        ; preds = %nk_utf_decode.exit8
   br i1 %tobool570.not, label %land.lhs.true571, label %if.end583
 
 land.lhs.true571:                                 ; preds = %while.end.thread, %while.end
-  %text_size.sroa.0.4.vec.insert1673 = phi <2 x float> [ %text_size.sroa.0.4.vec.insert1664, %while.end.thread ], [ %text_size.sroa.0.4.vec.insert, %while.end ]
-  %mul5681672 = phi float [ %cond42, %while.end.thread ], [ %mul568, %while.end ]
-  %select_begin_ptr.0.lcssa1671 = phi ptr [ null, %while.end.thread ], [ %select_begin_ptr.1, %while.end ]
-  %select_end_ptr.0.lcssa1670 = phi ptr [ null, %while.end.thread ], [ %select_end_ptr.1, %while.end ]
-  %cursor_pos.sroa.0.0.lcssa1669 = phi <2 x float> [ zeroinitializer, %while.end.thread ], [ %cursor_pos.sroa.0.1, %while.end ]
-  %selection_offset_start.sroa.0.0.lcssa1668 = phi <2 x float> [ zeroinitializer, %while.end.thread ], [ %selection_offset_start.sroa.0.1, %while.end ]
-  %selection_offset_end.sroa.0.0.lcssa1667 = phi <2 x float> [ zeroinitializer, %while.end.thread ], [ %selection_offset_end.sroa.0.1, %while.end ]
-  %line_width.0.lcssa1666 = phi float [ 0.000000e+00, %while.end.thread ], [ %line_width.0.lcssa, %while.end ]
+  %text_size.sroa.0.4.vec.insert1681 = phi <2 x float> [ %text_size.sroa.0.4.vec.insert1672, %while.end.thread ], [ %text_size.sroa.0.4.vec.insert, %while.end ]
+  %mul5681680 = phi float [ %cond42, %while.end.thread ], [ %mul568, %while.end ]
+  %select_begin_ptr.0.lcssa1679 = phi ptr [ null, %while.end.thread ], [ %select_begin_ptr.1, %while.end ]
+  %select_end_ptr.0.lcssa1678 = phi ptr [ null, %while.end.thread ], [ %select_end_ptr.1, %while.end ]
+  %cursor_pos.sroa.0.0.lcssa1677 = phi <2 x float> [ zeroinitializer, %while.end.thread ], [ %cursor_pos.sroa.0.1, %while.end ]
+  %selection_offset_start.sroa.0.0.lcssa1676 = phi <2 x float> [ zeroinitializer, %while.end.thread ], [ %selection_offset_start.sroa.0.1, %while.end ]
+  %selection_offset_end.sroa.0.0.lcssa1675 = phi <2 x float> [ zeroinitializer, %while.end.thread ], [ %selection_offset_end.sroa.0.1, %while.end ]
+  %line_width.0.lcssa1674 = phi float [ 0.000000e+00, %while.end.thread ], [ %line_width.0.lcssa, %while.end ]
   %cursor572 = getelementptr inbounds i8, ptr %edit, i64 168
   %208 = load i32, ptr %cursor572, align 8
   %209 = load i32, ptr %len.i700, align 8
@@ -61676,19 +61615,19 @@ land.lhs.true571:                                 ; preds = %while.end.thread, %
   br i1 %cmp575, label %if.then577, label %if.end583
 
 if.then577:                                       ; preds = %land.lhs.true571
-  %cursor_pos.sroa.0.0.vec.insert90 = insertelement <2 x float> poison, float %line_width.0.lcssa1666, i64 0
-  %sub580 = fsub float %mul5681672, %cond42
+  %cursor_pos.sroa.0.0.vec.insert90 = insertelement <2 x float> poison, float %line_width.0.lcssa1674, i64 0
+  %sub580 = fsub float %mul5681680, %cond42
   %cursor_pos.sroa.0.4.vec.insert107 = insertelement <2 x float> %cursor_pos.sroa.0.0.vec.insert90, float %sub580, i64 1
   br label %if.end583
 
 if.end583:                                        ; preds = %while.end, %land.lhs.true571, %if.then577, %if.then404
-  %selection_offset_end.sroa.0.2 = phi <2 x float> [ %selection_offset_end.sroa.0.1, %while.end ], [ %selection_offset_end.sroa.0.0.lcssa1667, %if.then577 ], [ %selection_offset_end.sroa.0.0.lcssa1667, %land.lhs.true571 ], [ zeroinitializer, %if.then404 ]
-  %selection_offset_start.sroa.0.2 = phi <2 x float> [ %selection_offset_start.sroa.0.1, %while.end ], [ %selection_offset_start.sroa.0.0.lcssa1668, %if.then577 ], [ %selection_offset_start.sroa.0.0.lcssa1668, %land.lhs.true571 ], [ zeroinitializer, %if.then404 ]
-  %cursor_pos.sroa.0.2 = phi <2 x float> [ %cursor_pos.sroa.0.1, %while.end ], [ %cursor_pos.sroa.0.4.vec.insert107, %if.then577 ], [ %cursor_pos.sroa.0.0.lcssa1669, %land.lhs.true571 ], [ zeroinitializer, %if.then404 ]
-  %select_end_ptr.2 = phi ptr [ %select_end_ptr.1, %while.end ], [ %select_end_ptr.0.lcssa1670, %if.then577 ], [ %select_end_ptr.0.lcssa1670, %land.lhs.true571 ], [ null, %if.then404 ]
-  %select_begin_ptr.2 = phi ptr [ %select_begin_ptr.1, %while.end ], [ %select_begin_ptr.0.lcssa1671, %if.then577 ], [ %select_begin_ptr.0.lcssa1671, %land.lhs.true571 ], [ null, %if.then404 ]
+  %selection_offset_end.sroa.0.2 = phi <2 x float> [ %selection_offset_end.sroa.0.1, %while.end ], [ %selection_offset_end.sroa.0.0.lcssa1675, %if.then577 ], [ %selection_offset_end.sroa.0.0.lcssa1675, %land.lhs.true571 ], [ zeroinitializer, %if.then404 ]
+  %selection_offset_start.sroa.0.2 = phi <2 x float> [ %selection_offset_start.sroa.0.1, %while.end ], [ %selection_offset_start.sroa.0.0.lcssa1676, %if.then577 ], [ %selection_offset_start.sroa.0.0.lcssa1676, %land.lhs.true571 ], [ zeroinitializer, %if.then404 ]
+  %cursor_pos.sroa.0.2 = phi <2 x float> [ %cursor_pos.sroa.0.1, %while.end ], [ %cursor_pos.sroa.0.4.vec.insert107, %if.then577 ], [ %cursor_pos.sroa.0.0.lcssa1677, %land.lhs.true571 ], [ zeroinitializer, %if.then404 ]
+  %select_end_ptr.2 = phi ptr [ %select_end_ptr.1, %while.end ], [ %select_end_ptr.0.lcssa1678, %if.then577 ], [ %select_end_ptr.0.lcssa1678, %land.lhs.true571 ], [ null, %if.then404 ]
+  %select_begin_ptr.2 = phi ptr [ %select_begin_ptr.1, %while.end ], [ %select_begin_ptr.0.lcssa1679, %if.then577 ], [ %select_begin_ptr.0.lcssa1679, %land.lhs.true571 ], [ null, %if.then404 ]
   %cursor_ptr.2 = phi ptr [ %cursor_ptr.1, %while.end ], [ null, %if.then577 ], [ null, %land.lhs.true571 ], [ null, %if.then404 ]
-  %text_size.sroa.0.1 = phi <2 x float> [ %text_size.sroa.0.4.vec.insert, %while.end ], [ %text_size.sroa.0.4.vec.insert1673, %if.then577 ], [ %text_size.sroa.0.4.vec.insert1673, %land.lhs.true571 ], [ zeroinitializer, %if.then404 ]
+  %text_size.sroa.0.1 = phi <2 x float> [ %text_size.sroa.0.4.vec.insert, %while.end ], [ %text_size.sroa.0.4.vec.insert1681, %if.then577 ], [ %text_size.sroa.0.4.vec.insert1681, %land.lhs.true571 ], [ zeroinitializer, %if.then404 ]
   %tobool584.not = icmp eq i8 %cursor_follow.7, 0
   br i1 %tobool584.not, label %if.end682, label %if.then585
 
@@ -61736,7 +61675,7 @@ if.else639:                                       ; preds = %if.then585
   br label %if.end642
 
 if.end642:                                        ; preds = %if.end611, %if.then619, %if.else639
-  br i1 %tobool24.not.not, label %if.end682.thread1435, label %if.then645
+  br i1 %tobool24.not.not, label %if.end682.thread1444, label %if.then645
 
 if.then645:                                       ; preds = %if.end642
   %cursor_pos.sroa.0.4.vec.extract = extractelement <2 x float> %cursor_pos.sroa.0.2, i64 1
@@ -61762,7 +61701,7 @@ if.then671:                                       ; preds = %if.end664
   store float %add668, ptr %y648, align 4
   br label %if.then685
 
-if.end682.thread1435:                             ; preds = %if.end642
+if.end682.thread1444:                             ; preds = %if.end642
   %y680 = getelementptr inbounds i8, ptr %edit, i64 164
   store float 0.000000e+00, ptr %y680, align 4
   br label %if.end.i924
@@ -61796,7 +61735,7 @@ if.then685:                                       ; preds = %if.end682.if.then68
   store float %call706, ptr %y699, align 4
   br label %if.end.i924
 
-if.end.i924:                                      ; preds = %if.end682, %if.then685, %if.end682.thread1435
+if.end.i924:                                      ; preds = %if.end682, %if.then685, %if.end682.thread1444
   %220 = shufflevector <2 x float> %23, <2 x float> %26, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   store <4 x float> %220, ptr %clip43, align 8
   %221 = load ptr, ptr %out, align 8
@@ -61987,7 +61926,7 @@ lor.lhs.false2.i996:                              ; preds = %lor.lhs.false2.i987
   br label %nk_str_len_char.exit1000
 
 nk_str_len_char.exit1000:                         ; preds = %if.then747, %lor.lhs.false2.i996
-  %retval.0.i9921438 = phi ptr [ %retval.0.i992.ph, %lor.lhs.false2.i996 ], [ null, %if.then747 ]
+  %retval.0.i9921447 = phi ptr [ %retval.0.i992.ph, %lor.lhs.false2.i996 ], [ null, %if.then747 ]
   %retval.0.i999 = phi i32 [ %conv.i998, %lor.lhs.false2.i996 ], [ 0, %if.then747 ]
   %scrollbar754 = getelementptr inbounds i8, ptr %edit, i64 160
   %238 = load float, ptr %scrollbar754, align 8
@@ -61997,7 +61936,7 @@ nk_str_len_char.exit1000:                         ; preds = %if.then747, %lor.lh
   %240 = load float, ptr %y759, align 4
   %241 = extractelement <2 x float> %8, i64 1
   %sub760 = fsub float %241, %240
-  call fastcc void @nk_edit_draw_text(ptr noundef nonnull %out, ptr noundef nonnull %style, float noundef %sub756, float noundef %sub760, float noundef 0.000000e+00, ptr noundef %retval.0.i9921438, i32 noundef %retval.0.i999, float noundef %cond42, ptr noundef %font, i32 %background_color.sroa.0.0, i32 %text_color.sroa.0.0, i32 noundef 0)
+  call fastcc void @nk_edit_draw_text(ptr noundef nonnull %out, ptr noundef nonnull %style, float noundef %sub756, float noundef %sub760, float noundef 0.000000e+00, ptr noundef %retval.0.i9921447, i32 noundef %retval.0.i999, float noundef %cond42, ptr noundef %font, i32 %background_color.sroa.0.0, i32 %text_color.sroa.0.0, i32 noundef 0)
   br label %if.end848
 
 if.else761:                                       ; preds = %nk_rgb_factor.exit984
@@ -62035,13 +61974,13 @@ nk_str_get_const.exit1009:                        ; preds = %if.then769, %lor.lh
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv781 = trunc i64 %sub.ptr.sub to i32
   call fastcc void @nk_edit_draw_text(ptr noundef nonnull %out, ptr noundef nonnull %style, float noundef %sub776, float noundef %sub780, float noundef 0.000000e+00, ptr noundef %retval.0.i1008, i32 noundef %conv781, float noundef %cond42, ptr noundef %font, i32 %background_color.sroa.0.0, i32 %text_color.sroa.0.0, i32 noundef 0)
-  %.pre1645 = load i32, ptr %select_start409, align 4
-  %.pre1646 = load i32, ptr %select_end410, align 8
+  %.pre1653 = load i32, ptr %select_start409, align 4
+  %.pre1654 = load i32, ptr %select_end410, align 8
   br label %if.end782
 
 if.end782:                                        ; preds = %nk_str_get_const.exit1009, %if.else761
-  %249 = phi i32 [ %.pre1646, %nk_str_get_const.exit1009 ], [ %234, %if.else761 ]
-  %250 = phi i32 [ %.pre1645, %nk_str_get_const.exit1009 ], [ %233, %if.else761 ]
+  %249 = phi i32 [ %.pre1654, %nk_str_get_const.exit1009 ], [ %234, %if.else761 ]
+  %250 = phi i32 [ %.pre1653, %nk_str_get_const.exit1009 ], [ %233, %if.else761 ]
   %cmp785.not = icmp eq i32 %250, %249
   br i1 %cmp785.not, label %if.end848, label %if.then787
 
@@ -62072,9 +62011,9 @@ lor.lhs.false2.i1021:                             ; preds = %lor.lhs.false2.i101
   br label %nk_str_len_char.exit1025
 
 nk_str_len_char.exit1025:                         ; preds = %if.then789, %lor.lhs.false2.i1021
-  %retval.0.i10171441 = phi ptr [ %retval.0.i1017.ph, %lor.lhs.false2.i1021 ], [ null, %if.then789 ]
+  %retval.0.i10171450 = phi ptr [ %retval.0.i1017.ph, %lor.lhs.false2.i1021 ], [ null, %if.then789 ]
   %retval.0.i1024 = phi i64 [ %255, %lor.lhs.false2.i1021 ], [ 0, %if.then789 ]
-  %add.ptr796 = getelementptr inbounds i8, ptr %retval.0.i10171441, i64 %retval.0.i1024
+  %add.ptr796 = getelementptr inbounds i8, ptr %retval.0.i10171450, i64 %retval.0.i1024
   br label %if.end813
 
 if.end813:                                        ; preds = %if.then787, %nk_str_len_char.exit1025
@@ -62094,9 +62033,9 @@ if.end813:                                        ; preds = %if.then787, %nk_str
   %sub.ptr.sub811 = sub i64 %sub.ptr.lhs.cast809, %sub.ptr.rhs.cast810
   %conv812 = trunc i64 %sub.ptr.sub811 to i32
   call fastcc void @nk_edit_draw_text(ptr noundef nonnull %out, ptr noundef nonnull %style, float noundef %sub801, float noundef %sub807, float noundef %selection_offset_start.sroa.0.0.vec.extract, ptr noundef %select_begin_ptr.2, i32 noundef %conv812, float noundef %cond42, ptr noundef %font, i32 %sel_background_color.sroa.0.0, i32 %sel_text_color.sroa.0.0, i32 noundef 1)
-  %.pre1647 = load i32, ptr %select_start409, align 4
-  %.pre1648 = load i32, ptr %select_end410, align 8
-  %cmp816.not = icmp eq i32 %.pre1647, %.pre1648
+  %.pre1655 = load i32, ptr %select_start409, align 4
+  %.pre1656 = load i32, ptr %select_end410, align 8
+  %cmp816.not = icmp eq i32 %.pre1655, %.pre1656
   br i1 %cmp816.not, label %if.end848, label %land.lhs.true818
 
 land.lhs.true818:                                 ; preds = %if.end813
@@ -62121,14 +62060,14 @@ if.end.i1031:                                     ; preds = %lor.lhs.false2.i102
 
 lor.lhs.false2.i1037:                             ; preds = %lor.lhs.false2.i1028, %if.end.i1031
   %retval.0.i1033.ph = phi ptr [ null, %lor.lhs.false2.i1028 ], [ %262, %if.end.i1031 ]
-  %sext1459 = shl i64 %261, 32
-  %263 = ashr exact i64 %sext1459, 32
+  %sext1467 = shl i64 %261, 32
+  %263 = ashr exact i64 %sext1467, 32
   br label %nk_str_len_char.exit1041
 
 nk_str_len_char.exit1041:                         ; preds = %if.then823, %lor.lhs.false2.i1037
-  %retval.0.i10331444 = phi ptr [ %retval.0.i1033.ph, %lor.lhs.false2.i1037 ], [ null, %if.then823 ]
+  %retval.0.i10331453 = phi ptr [ %retval.0.i1033.ph, %lor.lhs.false2.i1037 ], [ null, %if.then823 ]
   %retval.0.i1040 = phi i64 [ %263, %lor.lhs.false2.i1037 ], [ 0, %if.then823 ]
-  %add.ptr831 = getelementptr inbounds i8, ptr %retval.0.i10331444, i64 %retval.0.i1040
+  %add.ptr831 = getelementptr inbounds i8, ptr %retval.0.i10331453, i64 %retval.0.i1040
   %scrollbar833 = getelementptr inbounds i8, ptr %edit, i64 160
   %264 = load float, ptr %scrollbar833, align 8
   %sub835 = fsub float %257, %264
@@ -62180,7 +62119,7 @@ land.lhs.true861:                                 ; preds = %lor.lhs.false859
   br i1 %cmp863, label %if.then865, label %for.body.i.i1051
 
 for.body.i.i1051:                                 ; preds = %land.lhs.true861, %for.inc.i.i1057
-  %indvars.iv1640 = phi i32 [ %indvars.iv.next1641, %for.inc.i.i1057 ], [ -2, %land.lhs.true861 ]
+  %indvars.iv1648 = phi i32 [ %indvars.iv.next1649, %for.inc.i.i1057 ], [ -2, %land.lhs.true861 ]
   %indvars.iv.i.i1052 = phi i64 [ %indvars.iv.next.i.i1058, %for.inc.i.i1057 ], [ 0, %land.lhs.true861 ]
   %arrayidx.i.i1053 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i.i1052
   %273 = load i8, ptr %arrayidx.i.i1053, align 1
@@ -62193,20 +62132,24 @@ for.body.i.i1051:                                 ; preds = %land.lhs.true861, %
 for.inc.i.i1057:                                  ; preds = %for.body.i.i1051
   %indvars.iv.next.i.i1058 = add nuw nsw i64 %indvars.iv.i.i1052, 1
   %exitcond.not.i.i1059 = icmp eq i64 %indvars.iv.next.i.i1058, 5
-  %indvars.iv.next1641 = add nsw i32 %indvars.iv1640, 1
+  %indvars.iv.next1649 = add nsw i32 %indvars.iv1648, 1
   br i1 %exitcond.not.i.i1059, label %nk_widget_text.exit, label %for.body.i.i1051, !llvm.loop !20
 
 nk_utf_decode_byte.exit.i1061:                    ; preds = %for.body.i.i1051
   %275 = trunc nuw nsw i64 %indvars.iv.i.i1052 to i32
-  %276 = and i32 %275, -2
-  %or.cond1737 = icmp eq i32 %276, 2
-  br i1 %or.cond1737, label %for.body.i1082.preheader, label %nk_widget_text.exit
+  %276 = add i32 %275, -1
+  %or.cond1.i1062 = icmp ult i32 %276, 3
+  br i1 %or.cond1.i1062, label %for.cond.preheader.i1063, label %nk_widget_text.exit
 
-for.body.i1082.preheader:                         ; preds = %nk_utf_decode_byte.exit.i1061
-  %zext1639 = and i64 %indvars.iv.i.i1052, 4294967295
-  %277 = call i32 @llvm.umin.i32(i32 %indvars.iv1640, i32 2)
-  %narrow1649 = add nuw nsw i32 %277, 2
-  %278 = zext nneg i32 %narrow1649 to i64
+for.cond.preheader.i1063:                         ; preds = %nk_utf_decode_byte.exit.i1061
+  %cmp962.i1067 = icmp ugt i32 %275, 1
+  br i1 %cmp962.i1067, label %for.body.i1082.preheader, label %if.end.i.i1071
+
+for.body.i1082.preheader:                         ; preds = %for.cond.preheader.i1063
+  %zext1647 = and i64 %indvars.iv.i.i1052, 4294967295
+  %277 = call i32 @llvm.umin.i32(i32 %indvars.iv1648, i32 2)
+  %narrow1657 = add nuw nsw i32 %277, 2
+  %278 = zext nneg i32 %narrow1657 to i64
   br label %for.body.i1082
 
 for.body.i1082:                                   ; preds = %for.body.i1082.preheader, %for.inc.i1101
@@ -62237,12 +62180,14 @@ nk_utf_decode_byte.exit30.i1097:                  ; preds = %for.body.i15.i1086
 
 for.inc.i1101:                                    ; preds = %nk_utf_decode_byte.exit30.i1097
   %indvars.iv.next.i1107 = add nuw nsw i64 %indvars.iv.i1083, 1
-  %exitcond1643.not = icmp eq i64 %indvars.iv.next.i1107, %278
-  br i1 %exitcond1643.not, label %for.end.i1068, label %for.body.i1082, !llvm.loop !21
+  %exitcond1651.not = icmp eq i64 %indvars.iv.next.i1107, %278
+  br i1 %exitcond1651.not, label %for.end.i1068, label %for.body.i1082, !llvm.loop !21
 
 for.end.i1068:                                    ; preds = %for.inc.i1101
-  %283 = icmp ult i64 %indvars.iv.next.i1107, %zext1639
-  %spec.select1455 = select i1 %283, i32 0, i32 %275
+  %283 = icmp ult i64 %indvars.iv.next.i1107, %zext1647
+  br i1 %283, label %nk_widget_text.exit, label %if.end.i.i1071
+
+if.end.i.i1071:                                   ; preds = %for.cond.preheader.i1063, %for.end.i1068
   br label %nk_widget_text.exit
 
 return.loopexit.i1095:                            ; preds = %for.inc.i21.i1092
@@ -62273,8 +62218,8 @@ if.then865:                                       ; preds = %land.lhs.true861, %
   call void @nk_fill_rect(ptr noundef nonnull %out, <2 x float> %290, <2 x float> %cursor866.sroa.5.12.vec.insert, float noundef 0.000000e+00, i32 %retval.sroa.0.0.insert.insert.i954)
   br label %if.end.i1235
 
-nk_widget_text.exit:                              ; preds = %for.inc.i.i1057, %for.end.i1068, %return.loopexit81.i1099, %return.loopexit.i1095, %nk_utf_decode_byte.exit.i1061, %lor.lhs.false859
-  %phi.call = phi i32 [ 0, %lor.lhs.false859 ], [ 1, %nk_utf_decode_byte.exit.i1061 ], [ %indvars78.le91.i1096, %return.loopexit.i1095 ], [ %indvars78.le.i1100, %return.loopexit81.i1099 ], [ %spec.select1455, %for.end.i1068 ], [ 1, %for.inc.i.i1057 ]
+nk_widget_text.exit:                              ; preds = %for.inc.i.i1057, %if.end.i.i1071, %return.loopexit81.i1099, %return.loopexit.i1095, %for.end.i1068, %nk_utf_decode_byte.exit.i1061, %lor.lhs.false859
+  %phi.call = phi i32 [ 0, %lor.lhs.false859 ], [ 1, %nk_utf_decode_byte.exit.i1061 ], [ 0, %for.end.i1068 ], [ %indvars78.le91.i1096, %return.loopexit.i1095 ], [ %indvars78.le.i1100, %return.loopexit81.i1099 ], [ %275, %if.end.i.i1071 ], [ 1, %for.inc.i.i1057 ]
   %scrollbar897 = getelementptr inbounds i8, ptr %edit, i64 160
   %291 = fadd <2 x float> %8, %cursor_pos.sroa.0.2
   %292 = load <2 x float>, ptr %scrollbar897, align 8
@@ -62332,7 +62277,7 @@ if.end.i1132:                                     ; preds = %lor.lhs.false2.i112
   br label %if.end.i1137
 
 if.end.i1137:                                     ; preds = %if.end.i1132, %lor.lhs.false2.i1129, %if.else922
-  %retval.0.i11251449 = phi i32 [ %conv.i1124, %if.end.i1132 ], [ 0, %lor.lhs.false2.i1129 ], [ 0, %if.else922 ]
+  %retval.0.i11251458 = phi i32 [ %conv.i1124, %if.end.i1132 ], [ 0, %lor.lhs.false2.i1129 ], [ 0, %if.else922 ]
   %retval.0.i1134 = phi ptr [ %311, %if.end.i1132 ], [ null, %lor.lhs.false2.i1129 ], [ null, %if.else922 ]
   %312 = shufflevector <2 x float> %23, <2 x float> %26, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   store <4 x float> %312, ptr %clip43, align 8
@@ -62379,11 +62324,11 @@ nk_push_scissor.exit1175:                         ; preds = %if.end.i1137, %if.e
   %tobool933.not = icmp eq i32 %and932, 0
   %and938 = and i32 %323, 16
   %tobool939.not = icmp eq i32 %and938, 0
-  %.1740 = select i1 %tobool939.not, i64 896, i64 900
+  %.1747 = select i1 %tobool939.not, i64 896, i64 900
   %style.hover = select i1 %tobool939.not, ptr %style, ptr %hover
-  %.sink1738 = select i1 %tobool933.not, i64 %.1740, i64 904
+  %.sink1745 = select i1 %tobool933.not, i64 %.1747, i64 904
   %background929.0 = select i1 %tobool933.not, ptr %style.hover, ptr %active365
-  %text_hover942 = getelementptr inbounds i8, ptr %style, i64 %.sink1738
+  %text_hover942 = getelementptr inbounds i8, ptr %style, i64 %.sink1745
   %text_color931.sroa.0.0 = load i32, ptr %text_hover942, align 4
   %324 = load i32, ptr %background929.0, align 8
   %cmp949 = icmp eq i32 %324, 1
@@ -62471,7 +62416,7 @@ nk_rgb_factor.exit1233:                           ; preds = %nk_rgb_factor.exit1
   %328 = load float, ptr %y969, align 4
   %329 = extractelement <2 x float> %8, i64 1
   %sub970 = fsub float %329, %328
-  tail call fastcc void @nk_edit_draw_text(ptr noundef nonnull %out, ptr noundef nonnull %style, float noundef %sub966, float noundef %sub970, float noundef 0.000000e+00, ptr noundef %retval.0.i1134, i32 noundef %retval.0.i11251449, float noundef %cond42, ptr noundef %font, i32 %retval.sroa.0.0.insert.insert.i1203, i32 %retval.sroa.0.0.insert.insert.i1232, i32 noundef 0)
+  tail call fastcc void @nk_edit_draw_text(ptr noundef nonnull %out, ptr noundef nonnull %style, float noundef %sub966, float noundef %sub970, float noundef 0.000000e+00, ptr noundef %retval.0.i1134, i32 noundef %retval.0.i11251458, float noundef %cond42, ptr noundef %font, i32 %retval.sroa.0.0.insert.insert.i1203, i32 %retval.sroa.0.0.insert.insert.i1232, i32 noundef 0)
   br label %if.end.i1235
 
 if.end.i1235:                                     ; preds = %nk_rgb_factor.exit1233, %if.then865, %nk_widget_text.exit, %if.end848
@@ -62756,14 +62701,14 @@ land.rhs.i.preheader.i:                           ; preds = %land.lhs.true42, %l
   %sub.i = fsub float %add9.i, %div11.i
   %left.sroa.0.4.vec.insert.i = insertelement <2 x float> %left.sroa.0.0.vec.insert.i, float %sub.i, i64 1
   %18 = load i8, ptr %name.addr.0, align 1
-  %cmp.not.i481.i = icmp eq i8 %18, 0
-  br i1 %cmp.not.i481.i, label %nk_strlen.exit.i, label %while.body.i.i
+  %cmp.not.i480.i = icmp eq i8 %18, 0
+  br i1 %cmp.not.i480.i, label %nk_strlen.exit.i, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %land.rhs.i.preheader.i, %while.body.i.i
-  %str.addr.04.i483.i = phi ptr [ %incdec.ptr.i.i, %while.body.i.i ], [ %name.addr.0, %land.rhs.i.preheader.i ]
-  %siz.05.i482.i = phi i32 [ %inc.i.i, %while.body.i.i ], [ 0, %land.rhs.i.preheader.i ]
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %str.addr.04.i483.i, i64 1
-  %inc.i.i = add nuw nsw i32 %siz.05.i482.i, 1
+  %str.addr.04.i482.i = phi ptr [ %incdec.ptr.i.i, %while.body.i.i ], [ %name.addr.0, %land.rhs.i.preheader.i ]
+  %siz.05.i481.i = phi i32 [ %inc.i.i, %while.body.i.i ], [ 0, %land.rhs.i.preheader.i ]
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %str.addr.04.i482.i, i64 1
+  %inc.i.i = add nuw nsw i32 %siz.05.i481.i, 1
   %19 = load i8, ptr %incdec.ptr.i.i, align 1
   %cmp.not.i.i = icmp eq i8 %19, 0
   br i1 %cmp.not.i.i, label %nk_strlen.exit.i, label %while.body.i.i
@@ -62905,17 +62850,17 @@ nk_itoa.exit.loopexit.i:                          ; preds = %for.body.i.i.i
 
 nk_itoa.exit.i:                                   ; preds = %nk_itoa.exit.loopexit.i, %nk_strlen.exit.i.i.i, %land.rhs.i.preheader.i.i.i
   %46 = phi i8 [ %.pre.i, %nk_itoa.exit.loopexit.i ], [ %38, %land.rhs.i.preheader.i.i.i ], [ %38, %nk_strlen.exit.i.i.i ]
-  %cmp.not.i353484.i = icmp eq i8 %46, 0
-  br i1 %cmp.not.i353484.i, label %nk_strlen.exit358.i, label %while.body.i354.i.preheader
+  %cmp.not.i353483.i = icmp eq i8 %46, 0
+  br i1 %cmp.not.i353483.i, label %nk_strlen.exit358.i, label %while.body.i354.i.preheader
 
 while.body.i354.i.preheader:                      ; preds = %nk_itoa.exit.i, %nk_itoa.exit.thread.i
   br label %while.body.i354.i
 
 while.body.i354.i:                                ; preds = %while.body.i354.i.preheader, %while.body.i354.i
-  %str.addr.04.i352486.i = phi ptr [ %incdec.ptr.i355.i, %while.body.i354.i ], [ %string.i, %while.body.i354.i.preheader ]
-  %siz.05.i351485.i = phi i32 [ %inc.i356.i, %while.body.i354.i ], [ 0, %while.body.i354.i.preheader ]
-  %incdec.ptr.i355.i = getelementptr inbounds i8, ptr %str.addr.04.i352486.i, i64 1
-  %inc.i356.i = add nuw nsw i32 %siz.05.i351485.i, 1
+  %str.addr.04.i352485.i = phi ptr [ %incdec.ptr.i355.i, %while.body.i354.i ], [ %string.i, %while.body.i354.i.preheader ]
+  %siz.05.i351484.i = phi i32 [ %inc.i356.i, %while.body.i354.i ], [ 0, %while.body.i354.i.preheader ]
+  %incdec.ptr.i355.i = getelementptr inbounds i8, ptr %str.addr.04.i352485.i, i64 1
+  %inc.i356.i = add nuw nsw i32 %siz.05.i351484.i, 1
   %47 = load i8, ptr %incdec.ptr.i355.i, align 1
   %cmp.not.i353.i = icmp eq i8 %47, 0
   br i1 %cmp.not.i353.i, label %nk_strlen.exit358.i, label %while.body.i354.i
@@ -63618,8 +63563,8 @@ sw.bb266.i:                                       ; preds = %if.then263.i
   %add269..i = call i32 @llvm.smin.i32(i32 %add269.i, i32 %137)
   %min_value281.i = getelementptr inbounds i8, ptr %variant, i64 16
   %138 = load i32, ptr %min_value281.i, align 8
-  %spec.select470.i = call i32 @llvm.smax.i32(i32 %add269..i, i32 %138)
-  store i32 %spec.select470.i, ptr %value267.i, align 8
+  %spec.select469.i = call i32 @llvm.smax.i32(i32 %add269..i, i32 %138)
+  store i32 %spec.select469.i, ptr %value267.i, align 8
   br label %if.end381.i
 
 sw.bb304.i:                                       ; preds = %if.then263.i
@@ -63657,8 +63602,8 @@ sw.bb342.i:                                       ; preds = %if.then263.i
   br label %if.end381.i
 
 if.end381.i:                                      ; preds = %sw.bb342.i, %sw.bb304.i, %sw.bb266.i, %if.then263.i, %if.end260.i
-  %.pre497.i = load i32, ptr %state.0, align 4
-  %cmp384.i = icmp eq i32 %.pre497.i, 1
+  %.pre496.i = load i32, ptr %state.0, align 4
+  %cmp384.i = icmp eq i32 %.pre496.i, 1
   %or.cond.i = select i1 %cmp130.i, i1 %cmp384.i, i1 false
   br i1 %or.cond.i, label %if.then386.i, label %if.else390.i
 
@@ -63710,8 +63655,8 @@ if.end393.i:                                      ; preds = %if.else390.i, %if.t
   store i32 %151, ptr %len397.i, align 8
   %152 = load i32, ptr %cursor.0, align 4
   %..i = call i32 @llvm.smin.i32(i32 %152, i32 %151)
-  %spec.select471.i = call i32 @llvm.smax.i32(i32 %..i, i32 0)
-  store i32 %spec.select471.i, ptr %cursor.i.i, align 8
+  %spec.select470.i = call i32 @llvm.smax.i32(i32 %..i, i32 0)
+  store i32 %spec.select470.i, ptr %cursor.i.i, align 8
   %153 = load i32, ptr %select_begin.0, align 4
   %154 = load i32, ptr %length.1.i, align 4
   %.342.i = call i32 @llvm.smin.i32(i32 %153, i32 %154)
@@ -63757,20 +63702,25 @@ if.end.i388.i:                                    ; preds = %if.end393.i
   %tobool1.not.i389.i = icmp eq i32 %164, 0
   %clicked6.i.i = getelementptr inbounds i8, ptr %cond, i64 36
   %165 = load i32, ptr %clicked6.i.i, align 4
-  %cmp.i392.i = icmp ult i32 %165, 2
+  br i1 %tobool1.not.i389.i, label %land.lhs.true5.i.i, label %land.lhs.true.i390.i
+
+land.lhs.true.i390.i:                             ; preds = %if.end.i388.i
   %tobool2.not.i.i = icmp eq i32 %165, 0
-  %retval.0.shrunk.i.i = select i1 %tobool1.not.i389.i, i1 %cmp.i392.i, i1 %tobool2.not.i.i
-  br i1 %retval.0.shrunk.i.i, label %nk_do_property.exit.thread, label %if.end489.thread.i
+  br i1 %tobool2.not.i.i, label %nk_do_property.exit.thread, label %if.end489.thread.i
+
+land.lhs.true5.i.i:                               ; preds = %if.end.i388.i
+  %cmp.i392.i = icmp ugt i32 %165, 1
+  br i1 %cmp.i392.i, label %if.end489.thread.i, label %nk_do_property.exit.thread
 
 if.end489.i:                                      ; preds = %if.end393.i
   %tobool490.not.i = icmp ne i32 %active.0.i, 0
-  %or.cond509.i = and i1 %tobool490.not.i, %tobool483.not.i
-  br i1 %or.cond509.i, label %if.then494.i, label %nk_do_property.exit
+  %or.cond508.i = and i1 %tobool490.not.i, %tobool483.not.i
+  br i1 %or.cond508.i, label %if.then494.i, label %nk_do_property.exit
 
-if.end489.thread.i:                               ; preds = %if.end.i388.i
+if.end489.thread.i:                               ; preds = %land.lhs.true5.i.i, %land.lhs.true.i390.i
   store i8 0, ptr %active395.i, align 1
-  %tobool490.not499.i = icmp eq i32 %active.0.i, 0
-  br i1 %tobool490.not499.i, label %nk_do_property.exit.thread, label %if.then494.i
+  %tobool490.not498.i = icmp eq i32 %active.0.i, 0
+  br i1 %tobool490.not498.i, label %nk_do_property.exit.thread, label %if.then494.i
 
 if.then494.i:                                     ; preds = %if.end489.thread.i, %if.end489.i
   store i32 0, ptr %state.0, align 4
@@ -63833,8 +63783,8 @@ nk_strtoi.exit.i:                                 ; preds = %while.body17.i.i, %
   %call500..i = call i32 @llvm.smin.i32(i32 %mul24.i.i, i32 %174)
   %min_value512.i = getelementptr inbounds i8, ptr %variant, i64 16
   %175 = load i32, ptr %min_value512.i, align 8
-  %spec.select472.i = call i32 @llvm.smax.i32(i32 %call500..i, i32 %175)
-  store i32 %spec.select472.i, ptr %value501.i, align 8
+  %spec.select471.i = call i32 @llvm.smax.i32(i32 %call500..i, i32 %175)
+  store i32 %spec.select471.i, ptr %value501.i, align 8
   br label %nk_do_property.exit
 
 while.cond.i399.i:                                ; preds = %if.then494.i, %while.cond.backedge.i402.i
@@ -63922,7 +63872,7 @@ nk_string_float_limit.exit436.i:                  ; preds = %while.cond.i419.i, 
   store double %cond595.i, ptr %value567.i, align 8
   br label %nk_do_property.exit
 
-nk_do_property.exit.thread:                       ; preds = %if.end489.thread.i, %if.end.i388.i
+nk_do_property.exit.thread:                       ; preds = %if.end489.thread.i, %land.lhs.true5.i.i, %land.lhs.true.i390.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %num_len.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %string.i)
   br label %land.lhs.true55
@@ -66615,66 +66565,68 @@ if.then12:                                        ; preds = %nk_input_has_mouse_
 
 if.end.i37:                                       ; preds = %if.then12
   %tobool1.not.i = icmp eq i32 %8, 0
-  br i1 %tobool1.not.i, label %if.end16, label %land.lhs.true.i
+  br i1 %tobool1.not.i, label %if.end4.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i37
   %clicked.i = getelementptr inbounds i8, ptr %i, i64 264
   %9 = load i32, ptr %clicked.i, align 4
-  %tobool2.not.i = icmp ne i32 %9, 0
-  %spec.select.i39 = zext i1 %tobool2.not.i to i32
+  %tobool2.not.i = icmp eq i32 %9, 0
+  br i1 %tobool2.not.i, label %if.end4.i, label %if.end16
+
+if.end4.i:                                        ; preds = %land.lhs.true.i, %if.end.i37
   br label %if.end16
 
-if.end16:                                         ; preds = %if.then12, %nk_input_is_mouse_down.exit, %land.rhs.i, %if.end.i, %land.lhs.true.i, %if.end.i37, %nk_input_has_mouse_click_in_button_rect.exit
-  %10 = phi i32 [ %spec.store.select, %nk_input_has_mouse_click_in_button_rect.exit ], [ %spec.store.select, %if.end.i37 ], [ %spec.store.select, %land.lhs.true.i ], [ %., %if.end.i ], [ %., %land.rhs.i ], [ %spec.store.select, %nk_input_is_mouse_down.exit ], [ %spec.store.select, %if.then12 ]
-  %ret.0 = phi i32 [ 0, %nk_input_has_mouse_click_in_button_rect.exit ], [ 0, %if.end.i37 ], [ %spec.select.i39, %land.lhs.true.i ], [ 0, %if.end.i ], [ 0, %land.rhs.i ], [ 0, %nk_input_is_mouse_down.exit ], [ %8, %if.then12 ]
+if.end16:                                         ; preds = %if.then12, %nk_input_is_mouse_down.exit, %land.rhs.i, %if.end.i, %if.end4.i, %land.lhs.true.i, %nk_input_has_mouse_click_in_button_rect.exit
+  %10 = phi i32 [ %spec.store.select, %nk_input_has_mouse_click_in_button_rect.exit ], [ %spec.store.select, %if.end4.i ], [ %spec.store.select, %land.lhs.true.i ], [ %., %if.end.i ], [ %., %land.rhs.i ], [ %spec.store.select, %nk_input_is_mouse_down.exit ], [ %spec.store.select, %if.then12 ]
+  %ret.0 = phi i32 [ 0, %nk_input_has_mouse_click_in_button_rect.exit ], [ 0, %if.end4.i ], [ 1, %land.lhs.true.i ], [ 0, %if.end.i ], [ 0, %land.rhs.i ], [ 0, %nk_input_is_mouse_down.exit ], [ %8, %if.then12 ]
   %and17 = and i32 %10, 16
   %tobool18.not = icmp eq i32 %and17, 0
-  %prev.i61.phi.trans.insert = getelementptr inbounds i8, ptr %i, i64 332
-  %.pre = load float, ptr %prev.i61.phi.trans.insert, align 4
-  br i1 %tobool18.not, label %if.end.i59, label %if.end.i42
+  %prev.i60.phi.trans.insert = getelementptr inbounds i8, ptr %i, i64 332
+  %.pre = load float, ptr %prev.i60.phi.trans.insert, align 4
+  br i1 %tobool18.not, label %if.end.i58, label %if.end.i41
 
-if.end.i42:                                       ; preds = %if.end16
-  %cmp.i44 = fcmp ole float %rect.sroa.0.0.vec.extract.i, %.pre
-  %cmp6.i47 = fcmp olt float %.pre, %add.i
-  %or.cond.i48 = select i1 %cmp.i44, i1 %cmp6.i47, i1 false
-  br i1 %or.cond.i48, label %land.rhs.i50, label %return.sink.split
+if.end.i41:                                       ; preds = %if.end16
+  %cmp.i43 = fcmp ole float %rect.sroa.0.0.vec.extract.i, %.pre
+  %cmp6.i46 = fcmp olt float %.pre, %add.i
+  %or.cond.i47 = select i1 %cmp.i43, i1 %cmp6.i46, i1 false
+  br i1 %or.cond.i47, label %land.rhs.i49, label %return.sink.split
 
-land.rhs.i50:                                     ; preds = %if.end.i42
-  %rect.sroa.0.4.vec.extract.i51 = extractelement <2 x float> %r.coerce0, i64 1
-  %y9.i52 = getelementptr inbounds i8, ptr %i, i64 336
-  %11 = load float, ptr %y9.i52, align 4
-  %cmp10.i53 = fcmp ugt float %rect.sroa.0.4.vec.extract.i51, %11
+land.rhs.i49:                                     ; preds = %if.end.i41
+  %rect.sroa.0.4.vec.extract.i50 = extractelement <2 x float> %r.coerce0, i64 1
+  %y9.i51 = getelementptr inbounds i8, ptr %i, i64 336
+  %11 = load float, ptr %y9.i51, align 4
+  %cmp10.i52 = fcmp ugt float %rect.sroa.0.4.vec.extract.i50, %11
   %12 = fadd <2 x float> %r.coerce0, %r.coerce1
-  %add16.i56 = extractelement <2 x float> %12, i64 1
-  %cmp17.i57 = fcmp uge float %11, %add16.i56
-  %or.cond85 = select i1 %cmp10.i53, i1 true, i1 %cmp17.i57
-  br i1 %or.cond85, label %return.sink.split, label %if.end.i59
+  %add16.i55 = extractelement <2 x float> %12, i64 1
+  %cmp17.i56 = fcmp uge float %11, %add16.i55
+  %or.cond84 = select i1 %cmp10.i52, i1 true, i1 %cmp17.i56
+  br i1 %or.cond84, label %return.sink.split, label %if.end.i58
 
-if.end.i59:                                       ; preds = %if.end16, %land.rhs.i50
-  %cmp.i62 = fcmp ole float %rect.sroa.0.0.vec.extract.i, %.pre
-  %cmp6.i65 = fcmp olt float %.pre, %add.i
-  %or.cond.i66 = select i1 %cmp.i62, i1 %cmp6.i65, i1 false
-  br i1 %or.cond.i66, label %land.rhs.i68, label %return
+if.end.i58:                                       ; preds = %if.end16, %land.rhs.i49
+  %cmp.i61 = fcmp ole float %rect.sroa.0.0.vec.extract.i, %.pre
+  %cmp6.i64 = fcmp olt float %.pre, %add.i
+  %or.cond.i65 = select i1 %cmp.i61, i1 %cmp6.i64, i1 false
+  br i1 %or.cond.i65, label %land.rhs.i67, label %return
 
-land.rhs.i68:                                     ; preds = %if.end.i59
-  %rect.sroa.0.4.vec.extract.i69 = extractelement <2 x float> %r.coerce0, i64 1
-  %y9.i70 = getelementptr inbounds i8, ptr %i, i64 336
-  %13 = load float, ptr %y9.i70, align 4
-  %cmp10.i71 = fcmp ugt float %rect.sroa.0.4.vec.extract.i69, %13
+land.rhs.i67:                                     ; preds = %if.end.i58
+  %rect.sroa.0.4.vec.extract.i68 = extractelement <2 x float> %r.coerce0, i64 1
+  %y9.i69 = getelementptr inbounds i8, ptr %i, i64 336
+  %13 = load float, ptr %y9.i69, align 4
+  %cmp10.i70 = fcmp ugt float %rect.sroa.0.4.vec.extract.i68, %13
   %14 = fadd <2 x float> %r.coerce0, %r.coerce1
-  %add16.i74 = extractelement <2 x float> %14, i64 1
-  %cmp17.i75 = fcmp uge float %13, %add16.i74
-  %or.cond86 = select i1 %cmp10.i71, i1 true, i1 %cmp17.i75
-  br i1 %or.cond86, label %return, label %return.sink.split
+  %add16.i73 = extractelement <2 x float> %14, i64 1
+  %cmp17.i74 = fcmp uge float %13, %add16.i73
+  %or.cond85 = select i1 %cmp10.i70, i1 true, i1 %cmp17.i74
+  br i1 %or.cond85, label %return, label %return.sink.split
 
-return.sink.split:                                ; preds = %land.rhs.i68, %if.end.i42, %land.rhs.i50
-  %.sink = phi i32 [ 8, %land.rhs.i50 ], [ 8, %if.end.i42 ], [ 64, %land.rhs.i68 ]
+return.sink.split:                                ; preds = %land.rhs.i67, %if.end.i41, %land.rhs.i49
+  %.sink = phi i32 [ 8, %land.rhs.i49 ], [ 8, %if.end.i41 ], [ 64, %land.rhs.i67 ]
   %or = or i32 %10, %.sink
   store i32 %or, ptr %state, align 4
   br label %return
 
-return:                                           ; preds = %return.sink.split, %land.rhs.i68, %if.end.i59, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ %ret.0, %if.end.i59 ], [ %ret.0, %land.rhs.i68 ], [ %ret.0, %return.sink.split ]
+return:                                           ; preds = %return.sink.split, %land.rhs.i67, %if.end.i58, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ %ret.0, %if.end.i58 ], [ %ret.0, %land.rhs.i67 ], [ %ret.0, %return.sink.split ]
   ret i32 %retval.0
 }
 
@@ -69214,16 +69166,19 @@ if.end.i.i:                                       ; preds = %nk_panel_get_paddin
   %mouse.i.i = getelementptr inbounds i8, ptr %ctx, i64 260
   %11 = load i32, ptr %mouse.i.i, align 4
   %tobool1.not.i.i = icmp eq i32 %11, 0
-  br i1 %tobool1.not.i.i, label %if.end.i23.i, label %land.lhs.true.i.i
+  br i1 %tobool1.not.i.i, label %if.end4.i.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end.i.i
   %clicked.i.i = getelementptr inbounds i8, ptr %ctx, i64 264
   %12 = load i32, ptr %clicked.i.i, align 4
-  %tobool2.not.i.i = icmp ne i32 %12, 0
+  %tobool2.not.i.i = icmp eq i32 %12, 0
+  br i1 %tobool2.not.i.i, label %if.end4.i.i, label %if.end.i23.i
+
+if.end4.i.i:                                      ; preds = %land.lhs.true.i.i, %if.end.i.i
   br label %if.end.i23.i
 
-if.end.i23.i:                                     ; preds = %land.lhs.true.i.i, %if.end.i.i
-  %retval.0.i.i = phi i1 [ false, %if.end.i.i ], [ %tobool2.not.i.i, %land.lhs.true.i.i ]
+if.end.i23.i:                                     ; preds = %if.end4.i.i, %land.lhs.true.i.i
+  %tobool26.i = phi i1 [ false, %if.end4.i.i ], [ true, %land.lhs.true.i.i ]
   %rect.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %body.sroa.0.0.i, i64 0
   %pos.i.i = getelementptr inbounds i8, ptr %ctx, i64 324
   %13 = load float, ptr %pos.i.i, align 4
@@ -69245,7 +69200,7 @@ nk_input_is_mouse_hovering_rect.exit.i:           ; preds = %land.rhs.i.i
   %16 = fadd <2 x float> %body.sroa.0.0.i, %body.sroa.5.0.i
   %add16.i.i = extractelement <2 x float> %16, i64 1
   %cmp17.i.i = fcmp olt float %15, %add16.i.i
-  %or.cond.i = select i1 %retval.0.i.i, i1 %cmp17.i.i, i1 false
+  %or.cond.i = select i1 %tobool26.i, i1 %cmp17.i.i, i1 false
   br i1 %or.cond.i, label %if.then28.i, label %if.end31.i
 
 if.then28.i:                                      ; preds = %nk_input_is_mouse_hovering_rect.exit.i
@@ -69598,16 +69553,19 @@ if.end.i.i.i33:                                   ; preds = %nk_panel_get_paddin
   %mouse.i.i.i = getelementptr inbounds i8, ptr %ctx, i64 260
   %35 = load i32, ptr %mouse.i.i.i, align 4
   %tobool1.not.i.i.i = icmp eq i32 %35, 0
-  br i1 %tobool1.not.i.i.i, label %if.end.i23.i.i, label %land.lhs.true.i.i.i
+  br i1 %tobool1.not.i.i.i, label %if.end4.i.i.i, label %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %if.end.i.i.i33
   %clicked.i.i.i = getelementptr inbounds i8, ptr %ctx, i64 264
   %36 = load i32, ptr %clicked.i.i.i, align 4
-  %tobool2.not.i.i.i = icmp ne i32 %36, 0
+  %tobool2.not.i.i.i = icmp eq i32 %36, 0
+  br i1 %tobool2.not.i.i.i, label %if.end4.i.i.i, label %if.end.i23.i.i
+
+if.end4.i.i.i:                                    ; preds = %land.lhs.true.i.i.i, %if.end.i.i.i33
   br label %if.end.i23.i.i
 
-if.end.i23.i.i:                                   ; preds = %land.lhs.true.i.i.i, %if.end.i.i.i33
-  %retval.0.i.i.i = phi i1 [ false, %if.end.i.i.i33 ], [ %tobool2.not.i.i.i, %land.lhs.true.i.i.i ]
+if.end.i23.i.i:                                   ; preds = %if.end4.i.i.i, %land.lhs.true.i.i.i
+  %tobool26.i.i = phi i1 [ false, %if.end4.i.i.i ], [ true, %land.lhs.true.i.i.i ]
   %rect.sroa.0.0.vec.extract.i.i.i = extractelement <2 x float> %body.sroa.0.0.i.i, i64 0
   %pos.i.i.i = getelementptr inbounds i8, ptr %ctx, i64 324
   %37 = load float, ptr %pos.i.i.i, align 4
@@ -69629,7 +69587,7 @@ nk_input_is_mouse_hovering_rect.exit.i.i:         ; preds = %land.rhs.i.i.i
   %40 = fadd <2 x float> %body.sroa.0.0.i.i, %body.sroa.5.0.i.i
   %add16.i.i.i = extractelement <2 x float> %40, i64 1
   %cmp17.i.i.i = fcmp olt float %39, %add16.i.i.i
-  %or.cond.i.i = select i1 %retval.0.i.i.i, i1 %cmp17.i.i.i, i1 false
+  %or.cond.i.i = select i1 %tobool26.i.i, i1 %cmp17.i.i.i, i1 false
   br i1 %or.cond.i.i, label %if.then28.i.i, label %if.end31.i.i
 
 if.then28.i.i:                                    ; preds = %nk_input_is_mouse_hovering_rect.exit.i.i
@@ -69969,16 +69927,19 @@ if.end.i.i.i53:                                   ; preds = %nk_panel_get_paddin
   %mouse.i.i.i = getelementptr inbounds i8, ptr %ctx, i64 260
   %30 = load i32, ptr %mouse.i.i.i, align 4
   %tobool1.not.i.i.i = icmp eq i32 %30, 0
-  br i1 %tobool1.not.i.i.i, label %if.end.i23.i.i, label %land.lhs.true.i.i.i
+  br i1 %tobool1.not.i.i.i, label %if.end4.i.i.i, label %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %if.end.i.i.i53
   %clicked.i.i.i = getelementptr inbounds i8, ptr %ctx, i64 264
   %31 = load i32, ptr %clicked.i.i.i, align 4
-  %tobool2.not.i.i.i = icmp ne i32 %31, 0
+  %tobool2.not.i.i.i = icmp eq i32 %31, 0
+  br i1 %tobool2.not.i.i.i, label %if.end4.i.i.i, label %if.end.i23.i.i
+
+if.end4.i.i.i:                                    ; preds = %land.lhs.true.i.i.i, %if.end.i.i.i53
   br label %if.end.i23.i.i
 
-if.end.i23.i.i:                                   ; preds = %land.lhs.true.i.i.i, %if.end.i.i.i53
-  %retval.0.i.i.i = phi i1 [ false, %if.end.i.i.i53 ], [ %tobool2.not.i.i.i, %land.lhs.true.i.i.i ]
+if.end.i23.i.i:                                   ; preds = %if.end4.i.i.i, %land.lhs.true.i.i.i
+  %tobool26.i.i = phi i1 [ false, %if.end4.i.i.i ], [ true, %land.lhs.true.i.i.i ]
   %rect.sroa.0.0.vec.extract.i.i.i = extractelement <2 x float> %body.sroa.0.0.i.i, i64 0
   %pos.i.i.i = getelementptr inbounds i8, ptr %ctx, i64 324
   %32 = load float, ptr %pos.i.i.i, align 4
@@ -70000,7 +69961,7 @@ nk_input_is_mouse_hovering_rect.exit.i.i:         ; preds = %land.rhs.i.i.i
   %35 = fadd <2 x float> %body.sroa.0.0.i.i, %body.sroa.5.0.i.i
   %add16.i.i.i = extractelement <2 x float> %35, i64 1
   %cmp17.i.i.i = fcmp olt float %34, %add16.i.i.i
-  %or.cond.i.i = select i1 %retval.0.i.i.i, i1 %cmp17.i.i.i, i1 false
+  %or.cond.i.i = select i1 %tobool26.i.i, i1 %cmp17.i.i.i, i1 false
   br i1 %or.cond.i.i, label %if.then28.i.i, label %if.end31.i.i
 
 if.then28.i.i:                                    ; preds = %nk_input_is_mouse_hovering_rect.exit.i.i
@@ -70325,16 +70286,19 @@ if.end.i.i.i32:                                   ; preds = %nk_panel_get_paddin
   %mouse.i.i.i = getelementptr inbounds i8, ptr %ctx, i64 260
   %34 = load i32, ptr %mouse.i.i.i, align 4
   %tobool1.not.i.i.i = icmp eq i32 %34, 0
-  br i1 %tobool1.not.i.i.i, label %if.end.i23.i.i, label %land.lhs.true.i.i.i
+  br i1 %tobool1.not.i.i.i, label %if.end4.i.i.i, label %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %if.end.i.i.i32
   %clicked.i.i.i = getelementptr inbounds i8, ptr %ctx, i64 264
   %35 = load i32, ptr %clicked.i.i.i, align 4
-  %tobool2.not.i.i.i = icmp ne i32 %35, 0
+  %tobool2.not.i.i.i = icmp eq i32 %35, 0
+  br i1 %tobool2.not.i.i.i, label %if.end4.i.i.i, label %if.end.i23.i.i
+
+if.end4.i.i.i:                                    ; preds = %land.lhs.true.i.i.i, %if.end.i.i.i32
   br label %if.end.i23.i.i
 
-if.end.i23.i.i:                                   ; preds = %land.lhs.true.i.i.i, %if.end.i.i.i32
-  %retval.0.i.i.i = phi i1 [ false, %if.end.i.i.i32 ], [ %tobool2.not.i.i.i, %land.lhs.true.i.i.i ]
+if.end.i23.i.i:                                   ; preds = %if.end4.i.i.i, %land.lhs.true.i.i.i
+  %tobool26.i.i = phi i1 [ false, %if.end4.i.i.i ], [ true, %land.lhs.true.i.i.i ]
   %rect.sroa.0.0.vec.extract.i.i.i = extractelement <2 x float> %body.sroa.0.0.i.i, i64 0
   %pos.i.i.i = getelementptr inbounds i8, ptr %ctx, i64 324
   %36 = load float, ptr %pos.i.i.i, align 4
@@ -70356,7 +70320,7 @@ nk_input_is_mouse_hovering_rect.exit.i.i:         ; preds = %land.rhs.i.i.i
   %39 = fadd <2 x float> %body.sroa.0.0.i.i, %body.sroa.5.0.i.i
   %add16.i.i.i = extractelement <2 x float> %39, i64 1
   %cmp17.i.i.i = fcmp olt float %38, %add16.i.i.i
-  %or.cond.i.i = select i1 %retval.0.i.i.i, i1 %cmp17.i.i.i, i1 false
+  %or.cond.i.i = select i1 %tobool26.i.i, i1 %cmp17.i.i.i, i1 false
   br i1 %or.cond.i.i, label %if.then28.i.i, label %if.end31.i.i
 
 if.then28.i.i:                                    ; preds = %nk_input_is_mouse_hovering_rect.exit.i.i
@@ -73744,6 +73708,111 @@ declare double @cos(double noundef) local_unnamed_addr #29
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @pow(double noundef, double noundef) local_unnamed_addr #29
 
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define internal fastcc noundef i32 @stbtt__isfont(ptr nocapture noundef readonly %font) unnamed_addr #11 {
+entry:
+  %0 = load i8, ptr %font, align 1
+  switch i8 %0, label %if.end111 [
+    i8 49, label %land.lhs.true
+    i8 116, label %land.lhs.true21
+    i8 79, label %land.lhs.true46
+    i8 0, label %land.lhs.true70
+  ]
+
+land.lhs.true:                                    ; preds = %entry
+  %arrayidx2 = getelementptr inbounds i8, ptr %font, i64 1
+  %1 = load i8, ptr %arrayidx2, align 1
+  %cmp4 = icmp eq i8 %1, 0
+  br i1 %cmp4, label %land.lhs.true6, label %if.end111
+
+land.lhs.true6:                                   ; preds = %land.lhs.true
+  %arrayidx7 = getelementptr inbounds i8, ptr %font, i64 2
+  %2 = load i8, ptr %arrayidx7, align 1
+  %cmp9 = icmp eq i8 %2, 0
+  br i1 %cmp9, label %land.lhs.true11, label %if.end111
+
+land.lhs.true11:                                  ; preds = %land.lhs.true6
+  %arrayidx12 = getelementptr inbounds i8, ptr %font, i64 3
+  %3 = load i8, ptr %arrayidx12, align 1
+  %cmp14 = icmp eq i8 %3, 0
+  br i1 %cmp14, label %return, label %if.end111
+
+land.lhs.true21:                                  ; preds = %entry
+  %arrayidx22 = getelementptr inbounds i8, ptr %font, i64 1
+  %4 = load i8, ptr %arrayidx22, align 1
+  switch i8 %4, label %if.end111 [
+    i8 121, label %land.lhs.true27
+    i8 114, label %land.lhs.true98
+  ]
+
+land.lhs.true27:                                  ; preds = %land.lhs.true21
+  %arrayidx28 = getelementptr inbounds i8, ptr %font, i64 2
+  %5 = load i8, ptr %arrayidx28, align 1
+  %cmp31 = icmp eq i8 %5, 112
+  br i1 %cmp31, label %land.lhs.true33, label %if.end111
+
+land.lhs.true33:                                  ; preds = %land.lhs.true27
+  %arrayidx34 = getelementptr inbounds i8, ptr %font, i64 3
+  %6 = load i8, ptr %arrayidx34, align 1
+  %cmp37 = icmp eq i8 %6, 49
+  br i1 %cmp37, label %return, label %if.end111
+
+land.lhs.true46:                                  ; preds = %entry
+  %arrayidx47 = getelementptr inbounds i8, ptr %font, i64 1
+  %7 = load i8, ptr %arrayidx47, align 1
+  %cmp50 = icmp eq i8 %7, 84
+  br i1 %cmp50, label %land.lhs.true52, label %if.end111
+
+land.lhs.true52:                                  ; preds = %land.lhs.true46
+  %arrayidx53 = getelementptr inbounds i8, ptr %font, i64 2
+  %8 = load i8, ptr %arrayidx53, align 1
+  %cmp56 = icmp eq i8 %8, 84
+  br i1 %cmp56, label %land.lhs.true58, label %if.end111
+
+land.lhs.true58:                                  ; preds = %land.lhs.true52
+  %arrayidx59 = getelementptr inbounds i8, ptr %font, i64 3
+  %9 = load i8, ptr %arrayidx59, align 1
+  %cmp62 = icmp eq i8 %9, 79
+  br i1 %cmp62, label %return, label %if.end111
+
+land.lhs.true70:                                  ; preds = %entry
+  %arrayidx71 = getelementptr inbounds i8, ptr %font, i64 1
+  %10 = load i8, ptr %arrayidx71, align 1
+  %cmp73 = icmp eq i8 %10, 1
+  br i1 %cmp73, label %land.lhs.true75, label %if.end111
+
+land.lhs.true75:                                  ; preds = %land.lhs.true70
+  %arrayidx76 = getelementptr inbounds i8, ptr %font, i64 2
+  %11 = load i8, ptr %arrayidx76, align 1
+  %cmp78 = icmp eq i8 %11, 0
+  br i1 %cmp78, label %land.lhs.true80, label %if.end111
+
+land.lhs.true80:                                  ; preds = %land.lhs.true75
+  %arrayidx81 = getelementptr inbounds i8, ptr %font, i64 3
+  %12 = load i8, ptr %arrayidx81, align 1
+  %cmp83 = icmp eq i8 %12, 0
+  br i1 %cmp83, label %return, label %if.end111
+
+land.lhs.true98:                                  ; preds = %land.lhs.true21
+  %arrayidx99 = getelementptr inbounds i8, ptr %font, i64 2
+  %13 = load i8, ptr %arrayidx99, align 1
+  %cmp102 = icmp eq i8 %13, 117
+  br i1 %cmp102, label %land.lhs.true104, label %if.end111
+
+land.lhs.true104:                                 ; preds = %land.lhs.true98
+  %arrayidx105 = getelementptr inbounds i8, ptr %font, i64 3
+  %14 = load i8, ptr %arrayidx105, align 1
+  %cmp108 = icmp eq i8 %14, 101
+  br i1 %cmp108, label %return, label %if.end111
+
+if.end111:                                        ; preds = %land.lhs.true21, %land.lhs.true33, %land.lhs.true27, %entry, %land.lhs.true58, %land.lhs.true52, %land.lhs.true46, %land.lhs.true70, %land.lhs.true75, %land.lhs.true80, %land.lhs.true, %land.lhs.true6, %land.lhs.true11, %land.lhs.true104, %land.lhs.true98
+  br label %return
+
+return:                                           ; preds = %land.lhs.true104, %land.lhs.true80, %land.lhs.true58, %land.lhs.true33, %land.lhs.true11, %if.end111
+  %retval.0 = phi i32 [ 0, %if.end111 ], [ 1, %land.lhs.true11 ], [ 1, %land.lhs.true33 ], [ 1, %land.lhs.true58 ], [ 1, %land.lhs.true80 ], [ 1, %land.lhs.true104 ]
+  ret i32 %retval.0
+}
+
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #43
 
@@ -74262,7 +74331,7 @@ if.end.i.i:                                       ; preds = %for.end.i
   %arrayidx.i31.i = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i
   %14 = load i32, ptr %arrayidx.i31.i, align 4
   %cmp.not.i.i = icmp ugt i32 %14, %udecoded.0.lcssa.i
-  br i1 %cmp.not.i.i, label %nk_utf_decode.exit, label %land.lhs.true.i.i
+  br i1 %cmp.not.i.i, label %if.then7.i36.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end.i.i
   %arrayidx2.i.i = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i
@@ -74271,7 +74340,9 @@ land.lhs.true.i.i:                                ; preds = %if.end.i.i
   %16 = add i32 %udecoded.0.lcssa.i, -55296
   %or.cond.i.i = icmp ult i32 %16, 2047
   %or.cond11.i.i = or i1 %or.cond.i.i, %cmp3.i.i
-  %spec.select = select i1 %or.cond11.i.i, i32 65533, i32 %udecoded.0.lcssa.i
+  br i1 %or.cond11.i.i, label %if.then7.i36.i, label %nk_utf_decode.exit
+
+if.then7.i36.i:                                   ; preds = %land.lhs.true.i.i, %if.end.i.i
   br label %nk_utf_decode.exit
 
 return.loopexit.i:                                ; preds = %for.inc.i21.i
@@ -74282,17 +74353,17 @@ return.loopexit81.i:                              ; preds = %nk_utf_decode_byte.
   %indvars78.le.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-nk_utf_decode.exit:                               ; preds = %land.lhs.true.i.i, %if.end.i.i, %return.loopexit.i, %return.loopexit81.i
-  %unicode.0 = phi i32 [ 65533, %return.loopexit81.i ], [ 65533, %return.loopexit.i ], [ 65533, %if.end.i.i ], [ %spec.select, %land.lhs.true.i.i ]
-  %retval.0.i = phi i32 [ %indvars78.le.i, %return.loopexit81.i ], [ %indvars78.le91.i, %return.loopexit.i ], [ %4, %if.end.i.i ], [ %4, %land.lhs.true.i.i ]
+nk_utf_decode.exit:                               ; preds = %land.lhs.true.i.i, %if.then7.i36.i, %return.loopexit.i, %return.loopexit81.i
+  %unicode.0 = phi i32 [ 65533, %if.then7.i36.i ], [ %udecoded.0.lcssa.i, %land.lhs.true.i.i ], [ 65533, %return.loopexit81.i ], [ 65533, %return.loopexit.i ]
+  %retval.0.i = phi i32 [ %4, %if.then7.i36.i ], [ %4, %land.lhs.true.i.i ], [ %indvars78.le.i, %return.loopexit81.i ], [ %indvars78.le91.i, %return.loopexit.i ]
   %tobool5.not = icmp eq i32 %retval.0.i, 0
   br i1 %tobool5.not, label %return, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %nk_utf_decode.exit
-  %cmp110 = icmp sgt i32 %retval.0.i, %len
-  %cmp9111 = icmp eq i32 %unicode.0, 65533
-  %or.cond2112 = select i1 %cmp110, i1 true, i1 %cmp9111
-  br i1 %or.cond2112, label %return, label %lor.lhs.false.i.lr.ph
+  %cmp109 = icmp sgt i32 %retval.0.i, %len
+  %cmp9110 = icmp eq i32 %unicode.0, 65533
+  %or.cond2111 = select i1 %cmp109, i1 true, i1 %cmp9110
+  br i1 %or.cond2111, label %return, label %lor.lhs.false.i.lr.ph
 
 lor.lhs.false.i.lr.ph:                            ; preds = %while.cond.preheader
   %glyphs.i = getelementptr inbounds i8, ptr %handle.coerce, i64 88
@@ -74304,9 +74375,9 @@ lor.lhs.false.i.lr.ph:                            ; preds = %while.cond.preheade
   br label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %lor.lhs.false.i.lr.ph, %nk_utf_decode.exit88
-  %text_len.0115 = phi i32 [ %retval.0.i, %lor.lhs.false.i.lr.ph ], [ %add, %nk_utf_decode.exit88 ]
-  %text_width.0114 = phi float [ 0.000000e+00, %lor.lhs.false.i.lr.ph ], [ %28, %nk_utf_decode.exit88 ]
-  %unicode.1113 = phi i32 [ %unicode.0, %lor.lhs.false.i.lr.ph ], [ %udecoded.0.lcssa.i46, %nk_utf_decode.exit88 ]
+  %text_len.0114 = phi i32 [ %retval.0.i, %lor.lhs.false.i.lr.ph ], [ %add, %nk_utf_decode.exit88 ]
+  %text_width.0113 = phi float [ 0.000000e+00, %lor.lhs.false.i.lr.ph ], [ %28, %nk_utf_decode.exit88 ]
+  %unicode.1112 = phi i32 [ %unicode.0, %lor.lhs.false.i.lr.ph ], [ %udecoded.0.lcssa.i46, %nk_utf_decode.exit88 ]
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.cond.i, %lor.lhs.false.i
@@ -74347,13 +74418,13 @@ for.body.i20:                                     ; preds = %if.end17.i, %for.bo
   %24 = or disjoint i64 %22, 1
   %arrayidx7.i = getelementptr inbounds i32, ptr %20, i64 %24
   %25 = load i32, ptr %arrayidx7.i, align 4
-  %cmp9.not.i = icmp ugt i32 %23, %unicode.1113
-  %cmp10.not.i = icmp ult i32 %25, %unicode.1113
+  %cmp9.not.i = icmp ugt i32 %23, %unicode.1112
+  %cmp10.not.i = icmp ult i32 %25, %unicode.1112
   %or.cond.i = select i1 %cmp9.not.i, i1 true, i1 %cmp10.not.i
   br i1 %or.cond.i, label %if.end17.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %for.body.i20
-  %sub13.i = add i32 %total_glyphs.121.i, %unicode.1113
+  %sub13.i = add i32 %total_glyphs.121.i, %unicode.1112
   %add14.i = sub i32 %sub13.i, %23
   %idxprom15.i = zext i32 %add14.i to i64
   %arrayidx16.i = getelementptr inbounds %struct.nk_font_glyph, ptr %17, i64 %idxprom15.i
@@ -74378,11 +74449,11 @@ nk_font_find_glyph.exit:                          ; preds = %do.cond.i, %if.then
   %retval.0.i18 = phi ptr [ %arrayidx16.i, %if.then11.i ], [ %18, %do.cond.i ]
   %xadvance = getelementptr inbounds i8, ptr %retval.0.i18, i64 4
   %27 = load float, ptr %xadvance, align 4
-  %28 = tail call float @llvm.fmuladd.f32(float %27, float %div, float %text_width.0114)
-  %idx.ext = sext i32 %text_len.0115 to i64
+  %28 = tail call float @llvm.fmuladd.f32(float %27, float %div, float %text_width.0113)
+  %idx.ext = sext i32 %text_len.0114 to i64
   %add.ptr = getelementptr inbounds i8, ptr %text, i64 %idx.ext
-  %sub = sub nsw i32 %len, %text_len.0115
-  %tobool2.not.i24 = icmp eq i32 %text_len.0115, %len
+  %sub = sub nsw i32 %len, %text_len.0114
+  %tobool2.not.i24 = icmp eq i32 %text_len.0114, %len
   br i1 %tobool2.not.i24, label %return, label %if.end4.i26
 
 if.end4.i26:                                      ; preds = %nk_font_find_glyph.exit
@@ -74421,7 +74492,7 @@ for.cond.preheader.i39:                           ; preds = %nk_utf_decode_byte.
 
 for.body.preheader.i58:                           ; preds = %for.cond.preheader.i39
   %35 = zext nneg i32 %sub to i64
-  %zext135 = and i64 %indvars.iv.i.i28, 4294967295
+  %zext134 = and i64 %indvars.iv.i.i28, 4294967295
   br label %for.body.i59
 
 for.body.i59:                                     ; preds = %for.inc.i78, %for.body.preheader.i58
@@ -74459,7 +74530,7 @@ for.inc.i78:                                      ; preds = %nk_utf_decode_byte.
   %or.i83 = or i32 %shl.i82, %conv14.i29.i81
   %indvars.iv.next.i84 = add nuw nsw i64 %indvars.iv.i60, 1
   %cmp8.i86 = icmp ult i64 %indvars.iv.next.i84, %35
-  %40 = icmp ult i64 %indvars.iv.next.i84, %zext135
+  %40 = icmp ult i64 %indvars.iv.next.i84, %zext134
   %41 = and i1 %cmp8.i86, %40
   br i1 %41, label %for.body.i59, label %for.end.i45, !llvm.loop !21
 
@@ -74473,26 +74544,28 @@ if.end.i.i48:                                     ; preds = %for.end.i45
   %arrayidx.i31.i50 = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i49
   %42 = load i32, ptr %arrayidx.i31.i50, align 4
   %cmp.not.i.i51 = icmp ugt i32 %42, %udecoded.0.lcssa.i46
-  br i1 %cmp.not.i.i51, label %return, label %nk_utf_decode.exit88
+  br i1 %cmp.not.i.i51, label %return, label %land.lhs.true.i.i52
 
-nk_utf_decode.exit88:                             ; preds = %if.end.i.i48
+land.lhs.true.i.i52:                              ; preds = %if.end.i.i48
   %arrayidx2.i.i53 = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i49
   %43 = load i32, ptr %arrayidx2.i.i53, align 4
   %cmp3.i.i54 = icmp uge i32 %udecoded.0.lcssa.i46, %43
   %44 = add i32 %udecoded.0.lcssa.i46, -55296
   %or.cond.i.i55 = icmp ult i32 %44, 2047
   %or.cond11.i.i56 = or i1 %or.cond.i.i55, %cmp3.i.i54
-  %add = add nsw i32 %text_len.0115, %32
+  br i1 %or.cond11.i.i56, label %return, label %nk_utf_decode.exit88
+
+nk_utf_decode.exit88:                             ; preds = %land.lhs.true.i.i52
+  %add = add nsw i32 %text_len.0114, %32
   %cmp = icmp sgt i32 %add, %len
   %tobool8 = icmp eq i32 %32, 0
   %.not16 = or i1 %tobool8, %cmp
-  %cmp9180 = icmp eq i32 %udecoded.0.lcssa.i46, 65533
-  %cmp9 = or i1 %or.cond11.i.i56, %cmp9180
+  %cmp9 = icmp eq i32 %udecoded.0.lcssa.i46, 65533
   %or.cond2 = select i1 %.not16, i1 true, i1 %cmp9
   br i1 %or.cond2, label %return, label %lor.lhs.false.i, !llvm.loop !257
 
-return:                                           ; preds = %for.inc.i.i, %if.end.i.i48, %nk_utf_decode_byte.exit.i37, %for.end.i45, %nk_font_find_glyph.exit, %nk_utf_decode.exit88, %for.inc.i.i33, %nk_utf_decode_byte.exit30.i74, %for.inc.i21.i69, %nk_utf_decode_byte.exit.i, %while.cond.preheader, %for.end.i, %nk_utf_decode.exit, %entry
-  %retval.0 = phi float [ 0.000000e+00, %entry ], [ 0.000000e+00, %nk_utf_decode.exit ], [ 0.000000e+00, %for.end.i ], [ 0.000000e+00, %while.cond.preheader ], [ 0.000000e+00, %nk_utf_decode_byte.exit.i ], [ %28, %for.inc.i21.i69 ], [ %28, %nk_utf_decode_byte.exit30.i74 ], [ %28, %for.inc.i.i33 ], [ %28, %nk_utf_decode.exit88 ], [ %28, %nk_font_find_glyph.exit ], [ %28, %for.end.i45 ], [ %28, %nk_utf_decode_byte.exit.i37 ], [ %28, %if.end.i.i48 ], [ 0.000000e+00, %for.inc.i.i ]
+return:                                           ; preds = %for.inc.i.i, %if.end.i.i48, %land.lhs.true.i.i52, %nk_utf_decode_byte.exit.i37, %for.end.i45, %nk_font_find_glyph.exit, %nk_utf_decode.exit88, %for.inc.i.i33, %nk_utf_decode_byte.exit30.i74, %for.inc.i21.i69, %nk_utf_decode_byte.exit.i, %while.cond.preheader, %for.end.i, %nk_utf_decode.exit, %entry
+  %retval.0 = phi float [ 0.000000e+00, %entry ], [ 0.000000e+00, %nk_utf_decode.exit ], [ 0.000000e+00, %for.end.i ], [ 0.000000e+00, %while.cond.preheader ], [ 0.000000e+00, %nk_utf_decode_byte.exit.i ], [ %28, %for.inc.i21.i69 ], [ %28, %nk_utf_decode_byte.exit30.i74 ], [ %28, %for.inc.i.i33 ], [ %28, %nk_utf_decode.exit88 ], [ %28, %nk_font_find_glyph.exit ], [ %28, %for.end.i45 ], [ %28, %nk_utf_decode_byte.exit.i37 ], [ %28, %land.lhs.true.i.i52 ], [ %28, %if.end.i.i48 ], [ 0.000000e+00, %for.inc.i.i ]
   ret float %retval.0
 }
 
@@ -74966,8 +75039,8 @@ land.rhs.i148:                                    ; preds = %if.end.i
   %17 = fadd <2 x float> %11, %13
   %add16.i = extractelement <2 x float> %17, i64 1
   %cmp17.i = fcmp uge float %16, %add16.i
-  %or.cond = select i1 %cmp10.i, i1 true, i1 %cmp17.i
-  br i1 %or.cond, label %if.end10, label %if.then9
+  %or.cond247 = select i1 %cmp10.i, i1 true, i1 %cmp17.i
+  br i1 %or.cond247, label %if.end10, label %if.then9
 
 if.then9:                                         ; preds = %land.rhs.i148
   store i32 18, ptr %state, align 4
@@ -75041,15 +75114,27 @@ if.end.i150:                                      ; preds = %if.end10
   %tobool1.not.i = icmp eq i32 %28, 0
   %clicked6.i = getelementptr inbounds i8, ptr %in, i64 236
   %29 = load i32, ptr %clicked6.i, align 4
+  br i1 %tobool1.not.i, label %land.lhs.true5.i, label %land.lhs.true.i
+
+land.lhs.true.i:                                  ; preds = %if.end.i150
+  %tobool2.not.i = icmp eq i32 %29, 0
+  br i1 %tobool2.not.i, label %nk_input_is_key_pressed.exit.thread, label %nk_input_is_key_pressed.exit
+
+land.lhs.true5.i:                                 ; preds = %if.end.i150
   %cmp.i152 = icmp ugt i32 %29, 1
-  %tobool2.not.i = icmp ne i32 %29, 0
-  %retval.0.shrunk.i = select i1 %tobool1.not.i, i1 %cmp.i152, i1 %tobool2.not.i
-  %or.cond2 = and i1 %cmp, %retval.0.shrunk.i
+  br i1 %cmp.i152, label %nk_input_is_key_pressed.exit, label %nk_input_is_key_pressed.exit.thread
+
+nk_input_is_key_pressed.exit.thread:              ; preds = %land.lhs.true.i, %land.lhs.true5.i
+  %tobool113230 = icmp ne i32 %has_scrolling, 0
+  br label %lor.lhs.false
+
+nk_input_is_key_pressed.exit:                     ; preds = %land.lhs.true.i, %land.lhs.true5.i
   %tobool113 = icmp ne i32 %has_scrolling, 0
-  %or.cond3 = and i1 %tobool113, %or.cond2
+  %or.cond3 = and i1 %tobool113, %cmp
   br i1 %or.cond3, label %if.then118, label %lor.lhs.false
 
-lor.lhs.false:                                    ; preds = %if.end.i150
+lor.lhs.false:                                    ; preds = %nk_input_is_key_pressed.exit.thread, %nk_input_is_key_pressed.exit
+  %tobool113232 = phi i1 [ %tobool113230, %nk_input_is_key_pressed.exit.thread ], [ %tobool113, %nk_input_is_key_pressed.exit ]
   %30 = load <2 x float>, ptr %empty0, align 4
   %31 = getelementptr inbounds i8, ptr %empty0, i64 8
   %32 = load <2 x float>, ptr %31, align 4
@@ -75060,7 +75145,7 @@ lor.lhs.false:                                    ; preds = %if.end.i150
 if.then116:                                       ; preds = %lor.lhs.false
   br i1 %cmp, label %if.then118, label %if.else128
 
-if.then118:                                       ; preds = %if.end.i150, %if.then116
+if.then118:                                       ; preds = %nk_input_is_key_pressed.exit, %if.then116
   %h119 = getelementptr inbounds i8, ptr %scroll, i64 12
   %33 = load float, ptr %h119, align 4
   %sub120 = fsub float %scroll_offset, %33
@@ -75081,43 +75166,50 @@ if.end.i154:                                      ; preds = %lor.lhs.false
   %tobool1.not.i156 = icmp eq i32 %35, 0
   %clicked6.i157 = getelementptr inbounds i8, ptr %in, i64 228
   %36 = load i32, ptr %clicked6.i157, align 4
-  %cmp.i163 = icmp ugt i32 %36, 1
-  %tobool2.not.i159 = icmp ne i32 %36, 0
-  %retval.0.shrunk.i160 = select i1 %tobool1.not.i156, i1 %cmp.i163, i1 %tobool2.not.i159
-  %or.cond4 = and i1 %cmp, %retval.0.shrunk.i160
-  %or.cond5 = and i1 %tobool113, %or.cond4
-  br i1 %or.cond5, label %if.then151, label %lor.lhs.false146
+  br i1 %tobool1.not.i156, label %land.lhs.true5.i162, label %land.lhs.true.i158
 
-lor.lhs.false146:                                 ; preds = %if.end.i154
-  %37 = load <2 x float>, ptr %empty1, align 4
-  %38 = getelementptr inbounds i8, ptr %empty1, i64 8
-  %39 = load <2 x float>, ptr %38, align 4
-  %call147 = call fastcc i32 @nk_button_behavior(ptr noundef nonnull %ws, <2 x float> %37, <2 x float> %39, ptr noundef nonnull %in, i32 noundef 0)
+land.lhs.true.i158:                               ; preds = %if.end.i154
+  %tobool2.not.i159 = icmp ne i32 %36, 0
+  %37 = and i1 %tobool113232, %tobool2.not.i159
+  %or.cond248 = and i1 %37, %cmp
+  br i1 %or.cond248, label %if.then151, label %lor.lhs.false146
+
+land.lhs.true5.i162:                              ; preds = %if.end.i154
+  %cmp.i163 = icmp ugt i32 %36, 1
+  %38 = and i1 %tobool113232, %cmp.i163
+  %or.cond249 = and i1 %38, %cmp
+  br i1 %or.cond249, label %if.then151, label %lor.lhs.false146
+
+lor.lhs.false146:                                 ; preds = %land.lhs.true5.i162, %land.lhs.true.i158
+  %39 = load <2 x float>, ptr %empty1, align 4
+  %40 = getelementptr inbounds i8, ptr %empty1, i64 8
+  %41 = load <2 x float>, ptr %40, align 4
+  %call147 = call fastcc i32 @nk_button_behavior(ptr noundef nonnull %ws, <2 x float> %39, <2 x float> %41, ptr noundef nonnull %in, i32 noundef 0)
   %tobool148.not = icmp eq i32 %call147, 0
   br i1 %tobool148.not, label %if.else180, label %if.then149
 
 if.then149:                                       ; preds = %lor.lhs.false146
   br i1 %cmp, label %if.then151, label %if.else165
 
-if.then151:                                       ; preds = %if.end.i154, %if.then149
+if.then151:                                       ; preds = %land.lhs.true5.i162, %land.lhs.true.i158, %if.then149
   %h152 = getelementptr inbounds i8, ptr %scroll, i64 12
-  %40 = load float, ptr %h152, align 4
-  %add153 = fadd float %40, %scroll_offset
-  %sub155 = fsub float %target, %40
+  %42 = load float, ptr %h152, align 4
+  %add153 = fadd float %42, %scroll_offset
+  %sub155 = fsub float %target, %42
   %cmp156 = fcmp olt float %add153, %sub155
   %add153.sub155 = select i1 %cmp156, float %add153, float %sub155
   br label %if.end260
 
 if.else165:                                       ; preds = %if.then149
-  %41 = load float, ptr %12, align 4
-  %add167 = fadd float %41, %scroll_offset
-  %sub169 = fsub float %target, %41
+  %43 = load float, ptr %12, align 4
+  %add167 = fadd float %43, %scroll_offset
+  %sub169 = fsub float %target, %43
   %cmp170 = fcmp olt float %add167, %sub169
   %add167.sub169 = select i1 %cmp170, float %add167, float %sub169
   br label %if.end260
 
 if.else180:                                       ; preds = %lor.lhs.false146
-  br i1 %tobool113, label %if.then182, label %if.end260
+  br i1 %tobool113232, label %if.then182, label %if.end260
 
 if.then182:                                       ; preds = %if.else180
   %or.cond6 = fcmp ueq float %cond, 0.000000e+00
@@ -75125,15 +75217,15 @@ if.then182:                                       ; preds = %if.else180
 
 if.then186:                                       ; preds = %if.then182
   %fneg = fneg float %cond
-  %42 = tail call float @llvm.fmuladd.f32(float %scroll_step, float %fneg, float %scroll_offset)
+  %44 = tail call float @llvm.fmuladd.f32(float %scroll_step, float %fneg, float %scroll_offset)
   br i1 %cmp, label %if.then189, label %if.else213
 
 if.then189:                                       ; preds = %if.then186
   %h190 = getelementptr inbounds i8, ptr %scroll, i64 12
-  %43 = load float, ptr %h190, align 4
-  %sub191 = fsub float %target, %43
-  %cmp192 = fcmp olt float %42, %sub191
-  %.sub191 = select i1 %cmp192, float %42, float %sub191
+  %45 = load float, ptr %h190, align 4
+  %sub191 = fsub float %target, %45
+  %cmp192 = fcmp olt float %44, %sub191
+  %.sub191 = select i1 %cmp192, float %44, float %sub191
   %cmp199 = fcmp olt float %.sub191, 0.000000e+00
   br i1 %cmp199, label %if.end260, label %cond.false201
 
@@ -75141,10 +75233,10 @@ cond.false201:                                    ; preds = %if.then189
   br label %if.end260
 
 if.else213:                                       ; preds = %if.then186
-  %44 = load float, ptr %12, align 4
-  %sub215 = fsub float %target, %44
-  %cmp216 = fcmp olt float %42, %sub215
-  %.sub215 = select i1 %cmp216, float %42, float %sub215
+  %46 = load float, ptr %12, align 4
+  %sub215 = fsub float %target, %46
+  %cmp216 = fcmp olt float %44, %sub215
+  %.sub215 = select i1 %cmp216, float %44, float %sub215
   %cmp223 = fcmp olt float %.sub215, 0.000000e+00
   br i1 %cmp223, label %if.end260, label %cond.false225
 
@@ -75153,101 +75245,112 @@ cond.false225:                                    ; preds = %if.else213
 
 if.end.i166:                                      ; preds = %if.then182
   %arrayidx.i167 = getelementptr inbounds i8, ptr %in, i64 208
-  %45 = load i32, ptr %arrayidx.i167, align 4
-  %tobool1.not.i168 = icmp eq i32 %45, 0
+  %47 = load i32, ptr %arrayidx.i167, align 4
+  %tobool1.not.i168 = icmp eq i32 %47, 0
   %clicked6.i169 = getelementptr inbounds i8, ptr %in, i64 212
-  %46 = load i32, ptr %clicked6.i169, align 4
-  %cmp.i175 = icmp ult i32 %46, 2
-  %tobool2.not.i171 = icmp eq i32 %46, 0
-  %retval.0.shrunk.i172 = select i1 %tobool1.not.i168, i1 %cmp.i175, i1 %tobool2.not.i171
-  br i1 %retval.0.shrunk.i172, label %if.end.i178, label %if.then241
+  %48 = load i32, ptr %clicked6.i169, align 4
+  br i1 %tobool1.not.i168, label %land.lhs.true5.i174, label %land.lhs.true.i170
 
-if.then241:                                       ; preds = %if.end.i166
+land.lhs.true.i170:                               ; preds = %if.end.i166
+  %tobool2.not.i171 = icmp eq i32 %48, 0
+  br i1 %tobool2.not.i171, label %if.end.i178, label %if.then241
+
+land.lhs.true5.i174:                              ; preds = %if.end.i166
+  %cmp.i175 = icmp ugt i32 %48, 1
+  br i1 %cmp.i175, label %if.then241, label %if.end.i178
+
+if.then241:                                       ; preds = %land.lhs.true5.i174, %land.lhs.true.i170
   br i1 %cmp, label %if.then243, label %if.end260
 
 if.then243:                                       ; preds = %if.then241
   br label %if.end260
 
-if.end.i178:                                      ; preds = %if.end.i166
+if.end.i178:                                      ; preds = %land.lhs.true.i170, %land.lhs.true5.i174
   %arrayidx.i179 = getelementptr inbounds i8, ptr %in, i64 216
-  %47 = load i32, ptr %arrayidx.i179, align 4
-  %tobool1.not.i180 = icmp eq i32 %47, 0
+  %49 = load i32, ptr %arrayidx.i179, align 4
+  %tobool1.not.i180 = icmp eq i32 %49, 0
   %clicked6.i181 = getelementptr inbounds i8, ptr %in, i64 220
-  %48 = load i32, ptr %clicked6.i181, align 4
-  %cmp.i187 = icmp ugt i32 %48, 1
-  %tobool2.not.i183 = icmp ne i32 %48, 0
-  %retval.0.shrunk.i184 = select i1 %tobool1.not.i180, i1 %cmp.i187, i1 %tobool2.not.i183
-  %or.cond7 = and i1 %cmp, %retval.0.shrunk.i184
-  br i1 %or.cond7, label %if.then250, label %if.end260
+  %50 = load i32, ptr %clicked6.i181, align 4
+  br i1 %tobool1.not.i180, label %land.lhs.true5.i186, label %land.lhs.true.i182
 
-if.then250:                                       ; preds = %if.end.i178
+land.lhs.true.i182:                               ; preds = %if.end.i178
+  %tobool2.not.i183 = icmp ne i32 %50, 0
+  %or.cond = and i1 %cmp, %tobool2.not.i183
+  br i1 %or.cond, label %if.then250, label %if.end260
+
+land.lhs.true5.i186:                              ; preds = %if.end.i178
+  %cmp.i187 = icmp ugt i32 %50, 1
+  %or.cond246 = and i1 %cmp, %cmp.i187
+  br i1 %or.cond246, label %if.then250, label %if.end260
+
+if.then250:                                       ; preds = %land.lhs.true5.i186, %land.lhs.true.i182
   %h251 = getelementptr inbounds i8, ptr %scroll, i64 12
-  %49 = load float, ptr %h251, align 4
-  %sub252 = fsub float %target, %49
+  %51 = load float, ptr %h251, align 4
+  %sub252 = fsub float %target, %51
   br label %if.end260
 
-if.end260:                                        ; preds = %if.else213, %cond.false225, %if.then189, %cond.false201, %if.else128, %if.then118, %if.else180, %if.then243, %if.then241, %if.then250, %if.end.i178, %if.then151, %if.else165, %if.then21, %if.else61
-  %scroll_offset.addr.0 = phi float [ %cond127, %if.then118 ], [ %cond137, %if.else128 ], [ %add153.sub155, %if.then151 ], [ %add167.sub169, %if.else165 ], [ 0.000000e+00, %if.then243 ], [ %scroll_offset, %if.then241 ], [ %sub252, %if.then250 ], [ %scroll_offset, %if.end.i178 ], [ %scroll_offset, %if.else180 ], [ %cond49, %if.then21 ], [ %cond93, %if.else61 ], [ 0.000000e+00, %if.then189 ], [ %.sub191, %cond.false201 ], [ 0.000000e+00, %if.else213 ], [ %.sub215, %cond.false225 ]
-  %50 = load i32, ptr %state, align 4
-  %and261 = and i32 %50, 16
+if.end260:                                        ; preds = %land.lhs.true5.i186, %land.lhs.true.i182, %if.else213, %cond.false225, %if.then189, %cond.false201, %if.else128, %if.then118, %if.else180, %if.then243, %if.then241, %if.then250, %if.then151, %if.else165, %if.then21, %if.else61
+  %scroll_offset.addr.0 = phi float [ %cond127, %if.then118 ], [ %cond137, %if.else128 ], [ %add153.sub155, %if.then151 ], [ %add167.sub169, %if.else165 ], [ 0.000000e+00, %if.then243 ], [ %scroll_offset, %if.then241 ], [ %sub252, %if.then250 ], [ %scroll_offset, %if.else180 ], [ %cond49, %if.then21 ], [ %cond93, %if.else61 ], [ 0.000000e+00, %if.then189 ], [ %.sub191, %cond.false201 ], [ 0.000000e+00, %if.else213 ], [ %.sub215, %cond.false225 ], [ %scroll_offset, %land.lhs.true.i182 ], [ %scroll_offset, %land.lhs.true5.i186 ]
+  %52 = load i32, ptr %state, align 4
+  %and261 = and i32 %52, 16
   %tobool262.not = icmp eq i32 %and261, 0
   %.pre = load <2 x float>, ptr %scroll, align 4
-  %.pre233 = load <2 x float>, ptr %12, align 4
+  %.pre252 = load <2 x float>, ptr %12, align 4
   br i1 %tobool262.not, label %if.end260.if.end.i207_crit_edge, label %if.end.i190
 
 if.end260.if.end.i207_crit_edge:                  ; preds = %if.end260
   %prev.i209.phi.trans.insert = getelementptr inbounds i8, ptr %in, i64 332
-  %.pre234 = load float, ptr %prev.i209.phi.trans.insert, align 4
-  %.pre235 = extractelement <2 x float> %.pre, i64 0
-  %51 = fadd <2 x float> %.pre, %.pre233
-  %.pre237 = extractelement <2 x float> %51, i64 0
+  %.pre253 = load float, ptr %prev.i209.phi.trans.insert, align 4
+  %.pre254 = extractelement <2 x float> %.pre, i64 0
+  %53 = fadd <2 x float> %.pre, %.pre252
+  %.pre256 = extractelement <2 x float> %53, i64 0
   br label %if.end.i207
 
 if.end.i190:                                      ; preds = %if.end260
   %rect.sroa.0.0.vec.extract.i191 = extractelement <2 x float> %.pre, i64 0
   %prev.i = getelementptr inbounds i8, ptr %in, i64 332
-  %52 = load float, ptr %prev.i, align 4
-  %cmp.i192 = fcmp ole float %rect.sroa.0.0.vec.extract.i191, %52
-  %53 = fadd <2 x float> %.pre, %.pre233
-  %add.i194 = extractelement <2 x float> %53, i64 0
-  %cmp6.i195 = fcmp olt float %52, %add.i194
+  %54 = load float, ptr %prev.i, align 4
+  %cmp.i192 = fcmp ole float %rect.sroa.0.0.vec.extract.i191, %54
+  %55 = fadd <2 x float> %.pre, %.pre252
+  %add.i194 = extractelement <2 x float> %55, i64 0
+  %cmp6.i195 = fcmp olt float %54, %add.i194
   %or.cond.i196 = select i1 %cmp.i192, i1 %cmp6.i195, i1 false
   br i1 %or.cond.i196, label %land.rhs.i198, label %return.sink.split
 
 land.rhs.i198:                                    ; preds = %if.end.i190
   %rect.sroa.0.4.vec.extract.i199 = extractelement <2 x float> %.pre, i64 1
   %y9.i200 = getelementptr inbounds i8, ptr %in, i64 336
-  %54 = load float, ptr %y9.i200, align 4
-  %cmp10.i201 = fcmp ugt float %rect.sroa.0.4.vec.extract.i199, %54
-  %55 = fadd <2 x float> %.pre, %.pre233
-  %add16.i204 = extractelement <2 x float> %55, i64 1
-  %cmp17.i205 = fcmp uge float %54, %add16.i204
-  %or.cond231 = select i1 %cmp10.i201, i1 true, i1 %cmp17.i205
-  br i1 %or.cond231, label %return.sink.split, label %if.end.i207
+  %56 = load float, ptr %y9.i200, align 4
+  %cmp10.i201 = fcmp ugt float %rect.sroa.0.4.vec.extract.i199, %56
+  %57 = fadd <2 x float> %.pre, %.pre252
+  %add16.i204 = extractelement <2 x float> %57, i64 1
+  %cmp17.i205 = fcmp uge float %56, %add16.i204
+  %or.cond250 = select i1 %cmp10.i201, i1 true, i1 %cmp17.i205
+  br i1 %or.cond250, label %return.sink.split, label %if.end.i207
 
 if.end.i207:                                      ; preds = %if.end260.if.end.i207_crit_edge, %land.rhs.i198
-  %add.i212.pre-phi = phi float [ %.pre237, %if.end260.if.end.i207_crit_edge ], [ %add.i194, %land.rhs.i198 ]
-  %rect.sroa.0.0.vec.extract.i208.pre-phi = phi float [ %.pre235, %if.end260.if.end.i207_crit_edge ], [ %rect.sroa.0.0.vec.extract.i191, %land.rhs.i198 ]
-  %56 = phi float [ %.pre234, %if.end260.if.end.i207_crit_edge ], [ %52, %land.rhs.i198 ]
-  %cmp.i210 = fcmp ole float %rect.sroa.0.0.vec.extract.i208.pre-phi, %56
-  %cmp6.i213 = fcmp olt float %56, %add.i212.pre-phi
+  %add.i212.pre-phi = phi float [ %.pre256, %if.end260.if.end.i207_crit_edge ], [ %add.i194, %land.rhs.i198 ]
+  %rect.sroa.0.0.vec.extract.i208.pre-phi = phi float [ %.pre254, %if.end260.if.end.i207_crit_edge ], [ %rect.sroa.0.0.vec.extract.i191, %land.rhs.i198 ]
+  %58 = phi float [ %.pre253, %if.end260.if.end.i207_crit_edge ], [ %54, %land.rhs.i198 ]
+  %cmp.i210 = fcmp ole float %rect.sroa.0.0.vec.extract.i208.pre-phi, %58
+  %cmp6.i213 = fcmp olt float %58, %add.i212.pre-phi
   %or.cond.i214 = select i1 %cmp.i210, i1 %cmp6.i213, i1 false
   br i1 %or.cond.i214, label %land.rhs.i216, label %return
 
 land.rhs.i216:                                    ; preds = %if.end.i207
   %rect.sroa.0.4.vec.extract.i217 = extractelement <2 x float> %.pre, i64 1
   %y9.i218 = getelementptr inbounds i8, ptr %in, i64 336
-  %57 = load float, ptr %y9.i218, align 4
-  %cmp10.i219 = fcmp ugt float %rect.sroa.0.4.vec.extract.i217, %57
-  %58 = fadd <2 x float> %.pre, %.pre233
-  %add16.i222 = extractelement <2 x float> %58, i64 1
-  %cmp17.i223 = fcmp uge float %57, %add16.i222
-  %or.cond232 = select i1 %cmp10.i219, i1 true, i1 %cmp17.i223
-  br i1 %or.cond232, label %return, label %return.sink.split
+  %59 = load float, ptr %y9.i218, align 4
+  %cmp10.i219 = fcmp ugt float %rect.sroa.0.4.vec.extract.i217, %59
+  %60 = fadd <2 x float> %.pre, %.pre252
+  %add16.i222 = extractelement <2 x float> %60, i64 1
+  %cmp17.i223 = fcmp uge float %59, %add16.i222
+  %or.cond251 = select i1 %cmp10.i219, i1 true, i1 %cmp17.i223
+  br i1 %or.cond251, label %return, label %return.sink.split
 
 return.sink.split:                                ; preds = %land.rhs.i216, %if.end.i190, %land.rhs.i198
   %.sink = phi i32 [ 8, %land.rhs.i198 ], [ 8, %if.end.i190 ], [ 64, %land.rhs.i216 ]
-  %or = or i32 %50, %.sink
+  %or = or i32 %52, %.sink
   store i32 %or, ptr %state, align 4
   br label %return
 
@@ -77579,7 +77682,7 @@ if.end.i.i:                                       ; preds = %for.end.i
   %arrayidx.i31.i = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i
   %13 = load i32, ptr %arrayidx.i31.i, align 4
   %cmp.not.i.i = icmp ugt i32 %13, %udecoded.0.lcssa.i
-  br i1 %cmp.not.i.i, label %nk_utf_decode.exit, label %land.lhs.true.i.i
+  br i1 %cmp.not.i.i, label %if.then7.i36.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end.i.i
   %arrayidx2.i.i = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i
@@ -77588,7 +77691,9 @@ land.lhs.true.i.i:                                ; preds = %if.end.i.i
   %15 = add i32 %udecoded.0.lcssa.i, -55296
   %or.cond.i.i = icmp ult i32 %15, 2047
   %or.cond11.i.i = or i1 %or.cond.i.i, %cmp3.i.i
-  %spec.select = select i1 %or.cond11.i.i, i32 65533, i32 %udecoded.0.lcssa.i
+  br i1 %or.cond11.i.i, label %if.then7.i36.i, label %nk_utf_decode.exit
+
+if.then7.i36.i:                                   ; preds = %land.lhs.true.i.i, %if.end.i.i
   br label %nk_utf_decode.exit
 
 return.loopexit.i:                                ; preds = %for.inc.i21.i
@@ -77599,9 +77704,9 @@ return.loopexit81.i:                              ; preds = %nk_utf_decode_byte.
   %indvars78.le.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-nk_utf_decode.exit:                               ; preds = %land.lhs.true.i.i, %if.end.i.i, %return.loopexit.i, %return.loopexit81.i
-  %unicode.0 = phi i32 [ 65533, %return.loopexit81.i ], [ 65533, %return.loopexit.i ], [ 65533, %if.end.i.i ], [ %spec.select, %land.lhs.true.i.i ]
-  %retval.0.i = phi i32 [ %indvars78.le.i, %return.loopexit81.i ], [ %indvars78.le91.i, %return.loopexit.i ], [ %3, %if.end.i.i ], [ %3, %land.lhs.true.i.i ]
+nk_utf_decode.exit:                               ; preds = %land.lhs.true.i.i, %if.then7.i36.i, %return.loopexit.i, %return.loopexit81.i
+  %unicode.0 = phi i32 [ 65533, %if.then7.i36.i ], [ %udecoded.0.lcssa.i, %land.lhs.true.i.i ], [ 65533, %return.loopexit81.i ], [ 65533, %return.loopexit.i ]
+  %retval.0.i = phi i32 [ %3, %if.then7.i36.i ], [ %3, %land.lhs.true.i.i ], [ %indvars78.le.i, %return.loopexit81.i ], [ %indvars78.le91.i, %return.loopexit.i ]
   %tobool5.not = icmp eq i32 %retval.0.i, 0
   br i1 %tobool5.not, label %return, label %while.body.lr.ph.preheader
 
@@ -77619,27 +77724,27 @@ while.body.lr.ph.preheader:                       ; preds = %for.inc.i.i, %nk_ut
   br label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.body.lr.ph.preheader, %nk_utf_decode.exit200
-  %text_len.0.ph257 = phi i32 [ %add32, %nk_utf_decode.exit200 ], [ 0, %while.body.lr.ph.preheader ]
-  %glyph_len.0.ph256 = phi i32 [ %retval.0.i148, %nk_utf_decode.exit200 ], [ %retval.0.i206, %while.body.lr.ph.preheader ]
-  %glyph_width.0.ph255 = phi float [ %call44, %nk_utf_decode.exit200 ], [ %call8, %while.body.lr.ph.preheader ]
-  %line_width.0.ph254 = phi float [ %add33, %nk_utf_decode.exit200 ], [ 0.000000e+00, %while.body.lr.ph.preheader ]
-  %unicode.1.ph253 = phi i32 [ %unicode.3, %nk_utf_decode.exit200 ], [ %unicode.0205, %while.body.lr.ph.preheader ]
-  %20 = sext i32 %text_len.0.ph257 to i64
+  %text_len.0.ph255 = phi i32 [ %add32, %nk_utf_decode.exit200 ], [ 0, %while.body.lr.ph.preheader ]
+  %glyph_len.0.ph254 = phi i32 [ %retval.0.i148, %nk_utf_decode.exit200 ], [ %retval.0.i206, %while.body.lr.ph.preheader ]
+  %glyph_width.0.ph253 = phi float [ %call44, %nk_utf_decode.exit200 ], [ %call8, %while.body.lr.ph.preheader ]
+  %line_width.0.ph252 = phi float [ %add33, %nk_utf_decode.exit200 ], [ 0.000000e+00, %while.body.lr.ph.preheader ]
+  %unicode.1.ph251 = phi i32 [ %unicode.3, %nk_utf_decode.exit200 ], [ %unicode.0205, %while.body.lr.ph.preheader ]
+  %20 = sext i32 %text_len.0.ph255 to i64
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %nk_utf_decode.exit134
   %indvars.iv = phi i64 [ %20, %while.body.lr.ph ], [ %indvars.iv.next, %nk_utf_decode.exit134 ]
-  %glyph_len.0247 = phi i32 [ %glyph_len.0.ph256, %while.body.lr.ph ], [ %retval.0.i82, %nk_utf_decode.exit134 ]
-  %unicode.1246 = phi i32 [ %unicode.1.ph253, %while.body.lr.ph ], [ %unicode.2, %nk_utf_decode.exit134 ]
-  switch i32 %unicode.1246, label %if.end30 [
+  %glyph_len.0245 = phi i32 [ %glyph_len.0.ph254, %while.body.lr.ph ], [ %retval.0.i82, %nk_utf_decode.exit134 ]
+  %unicode.1244 = phi i32 [ %unicode.1.ph251, %while.body.lr.ph ], [ %unicode.2, %nk_utf_decode.exit134 ]
+  switch i32 %unicode.1244, label %if.end30 [
     i32 10, label %if.then12
     i32 13, label %if.then23
   ]
 
 if.then12:                                        ; preds = %while.body
   %21 = trunc nsw i64 %indvars.iv to i32
-  %cmp13 = fcmp ogt float %line_width.0.ph254, 0.000000e+00
-  %cond = select i1 %cmp13, float %line_width.0.ph254, float 0.000000e+00
+  %cmp13 = fcmp ogt float %line_width.0.ph252, 0.000000e+00
+  %cond = select i1 %cmp13, float %line_width.0.ph252, float 0.000000e+00
   %text_size.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %cond, i64 0
   %add = fadd float %row_height, 0.000000e+00
   %text_size.sroa.0.4.vec.insert = insertelement <2 x float> %text_size.sroa.0.0.vec.insert, float %add, i64 1
@@ -77694,7 +77799,7 @@ for.cond.preheader.i85:                           ; preds = %nk_utf_decode_byte.
   br i1 %31, label %for.body.preheader.i104, label %for.end.i91
 
 for.body.preheader.i104:                          ; preds = %for.cond.preheader.i85
-  %zext292 = and i64 %indvars.iv.i.i74, 4294967295
+  %zext290 = and i64 %indvars.iv.i.i74, 4294967295
   br label %for.body.i105
 
 for.body.i105:                                    ; preds = %for.inc.i124, %for.body.preheader.i104
@@ -77732,7 +77837,7 @@ for.inc.i124:                                     ; preds = %nk_utf_decode_byte.
   %or.i129 = or i32 %shl.i128, %conv14.i29.i127
   %indvars.iv.next.i130 = add nuw nsw i64 %indvars.iv.i106, 1
   %cmp8.i132 = icmp ult i64 %indvars.iv.next.i130, %24
-  %36 = icmp ult i64 %indvars.iv.next.i130, %zext292
+  %36 = icmp ult i64 %indvars.iv.next.i130, %zext290
   %37 = and i1 %cmp8.i132, %36
   br i1 %37, label %for.body.i105, label %for.end.i91, !llvm.loop !21
 
@@ -77746,7 +77851,7 @@ if.end.i.i94:                                     ; preds = %for.end.i91
   %arrayidx.i31.i96 = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i95
   %38 = load i32, ptr %arrayidx.i31.i96, align 4
   %cmp.not.i.i97 = icmp ugt i32 %38, %udecoded.0.lcssa.i92
-  br i1 %cmp.not.i.i97, label %nk_utf_decode.exit134, label %land.lhs.true.i.i98
+  br i1 %cmp.not.i.i97, label %if.then7.i36.i103, label %land.lhs.true.i.i98
 
 land.lhs.true.i.i98:                              ; preds = %if.end.i.i94
   %arrayidx2.i.i99 = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i95
@@ -77755,7 +77860,9 @@ land.lhs.true.i.i98:                              ; preds = %if.end.i.i94
   %40 = add i32 %udecoded.0.lcssa.i92, -55296
   %or.cond.i.i101 = icmp ult i32 %40, 2047
   %or.cond11.i.i102 = or i1 %or.cond.i.i101, %cmp3.i.i100
-  %spec.select211 = select i1 %or.cond11.i.i102, i32 65533, i32 %udecoded.0.lcssa.i92
+  br i1 %or.cond11.i.i102, label %if.then7.i36.i103, label %nk_utf_decode.exit134
+
+if.then7.i36.i103:                                ; preds = %land.lhs.true.i.i98, %if.end.i.i94
   br label %nk_utf_decode.exit134
 
 return.loopexit.i118:                             ; preds = %for.inc.i21.i115
@@ -77766,9 +77873,9 @@ return.loopexit81.i122:                           ; preds = %nk_utf_decode_byte.
   %indvars78.le.i123 = trunc i64 %indvars.iv.i106 to i32
   br label %nk_utf_decode.exit134
 
-nk_utf_decode.exit134:                            ; preds = %for.inc.i.i79, %land.lhs.true.i.i98, %if.end.i.i94, %nk_utf_decode_byte.exit.i83, %return.loopexit.i118, %return.loopexit81.i122
-  %unicode.2 = phi i32 [ 65533, %return.loopexit81.i122 ], [ 65533, %return.loopexit.i118 ], [ 65533, %nk_utf_decode_byte.exit.i83 ], [ 65533, %if.end.i.i94 ], [ %spec.select211, %land.lhs.true.i.i98 ], [ 65533, %for.inc.i.i79 ]
-  %retval.0.i82 = phi i32 [ %indvars78.le.i123, %return.loopexit81.i122 ], [ %indvars78.le91.i119, %return.loopexit.i118 ], [ 1, %nk_utf_decode_byte.exit.i83 ], [ %29, %if.end.i.i94 ], [ %29, %land.lhs.true.i.i98 ], [ 1, %for.inc.i.i79 ]
+nk_utf_decode.exit134:                            ; preds = %for.inc.i.i79, %nk_utf_decode_byte.exit.i83, %land.lhs.true.i.i98, %if.then7.i36.i103, %return.loopexit.i118, %return.loopexit81.i122
+  %unicode.2 = phi i32 [ 65533, %if.then7.i36.i103 ], [ %udecoded.0.lcssa.i92, %land.lhs.true.i.i98 ], [ 65533, %return.loopexit81.i122 ], [ 65533, %return.loopexit.i118 ], [ 65533, %nk_utf_decode_byte.exit.i83 ], [ 65533, %for.inc.i.i79 ]
+  %retval.0.i82 = phi i32 [ %29, %if.then7.i36.i103 ], [ %29, %land.lhs.true.i.i98 ], [ %indvars78.le.i123, %return.loopexit81.i122 ], [ %indvars78.le91.i119, %return.loopexit.i118 ], [ 1, %nk_utf_decode_byte.exit.i83 ], [ 1, %for.inc.i.i79 ]
   %cmp9 = icmp slt i64 %indvars.iv.next, %19
   %tobool10 = icmp ne i32 %retval.0.i82, 0
   %41 = and i1 %tobool10, %cmp9
@@ -77779,8 +77886,8 @@ if.end30:                                         ; preds = %while.body
   %43 = load i32, ptr %glyphs, align 4
   %add31 = add nsw i32 %43, 1
   store i32 %add31, ptr %glyphs, align 4
-  %add32 = add nsw i32 %glyph_len.0247, %42
-  %add33 = fadd float %line_width.0.ph254, %glyph_width.0.ph255
+  %add32 = add nsw i32 %glyph_len.0245, %42
+  %add33 = fadd float %line_width.0.ph252, %glyph_width.0.ph253
   %idx.ext34 = sext i32 %add32 to i64
   %add.ptr35 = getelementptr inbounds i8, ptr %begin, i64 %idx.ext34
   %sub36 = sub nsw i32 %byte_len, %add32
@@ -77823,7 +77930,7 @@ for.cond.preheader.i151:                          ; preds = %nk_utf_decode_byte.
 
 for.body.preheader.i170:                          ; preds = %for.cond.preheader.i151
   %50 = zext nneg i32 %sub36 to i64
-  %zext295 = and i64 %indvars.iv.i.i140, 4294967295
+  %zext293 = and i64 %indvars.iv.i.i140, 4294967295
   br label %for.body.i171
 
 for.body.i171:                                    ; preds = %for.inc.i190, %for.body.preheader.i170
@@ -77861,7 +77968,7 @@ for.inc.i190:                                     ; preds = %nk_utf_decode_byte.
   %or.i195 = or i32 %shl.i194, %conv14.i29.i193
   %indvars.iv.next.i196 = add nuw nsw i64 %indvars.iv.i172, 1
   %cmp8.i198 = icmp ult i64 %indvars.iv.next.i196, %50
-  %55 = icmp ult i64 %indvars.iv.next.i196, %zext295
+  %55 = icmp ult i64 %indvars.iv.next.i196, %zext293
   %56 = and i1 %cmp8.i198, %55
   br i1 %56, label %for.body.i171, label %for.end.i157, !llvm.loop !21
 
@@ -77875,7 +77982,7 @@ if.end.i.i160:                                    ; preds = %for.end.i157
   %arrayidx.i31.i162 = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i161
   %57 = load i32, ptr %arrayidx.i31.i162, align 4
   %cmp.not.i.i163 = icmp ugt i32 %57, %udecoded.0.lcssa.i158
-  br i1 %cmp.not.i.i163, label %nk_utf_decode.exit200, label %land.lhs.true.i.i164
+  br i1 %cmp.not.i.i163, label %if.then7.i36.i169, label %land.lhs.true.i.i164
 
 land.lhs.true.i.i164:                             ; preds = %if.end.i.i160
   %arrayidx2.i.i165 = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i161
@@ -77884,7 +77991,9 @@ land.lhs.true.i.i164:                             ; preds = %if.end.i.i160
   %59 = add i32 %udecoded.0.lcssa.i158, -55296
   %or.cond.i.i167 = icmp ult i32 %59, 2047
   %or.cond11.i.i168 = or i1 %or.cond.i.i167, %cmp3.i.i166
-  %spec.select212 = select i1 %or.cond11.i.i168, i32 65533, i32 %udecoded.0.lcssa.i158
+  br i1 %or.cond11.i.i168, label %if.then7.i36.i169, label %nk_utf_decode.exit200
+
+if.then7.i36.i169:                                ; preds = %land.lhs.true.i.i164, %if.end.i.i160
   br label %nk_utf_decode.exit200
 
 return.loopexit.i184:                             ; preds = %for.inc.i21.i181
@@ -77895,34 +78004,34 @@ return.loopexit81.i188:                           ; preds = %nk_utf_decode_byte.
   %indvars78.le.i189 = trunc i64 %indvars.iv.i172 to i32
   br label %nk_utf_decode.exit200
 
-nk_utf_decode.exit200:                            ; preds = %for.inc.i.i145, %land.lhs.true.i.i164, %if.end.i.i160, %if.end30, %nk_utf_decode_byte.exit.i149, %for.end.i157, %return.loopexit.i184, %return.loopexit81.i188
-  %unicode.3 = phi i32 [ %unicode.1246, %if.end30 ], [ 65533, %for.end.i157 ], [ 65533, %return.loopexit81.i188 ], [ 65533, %return.loopexit.i184 ], [ 65533, %nk_utf_decode_byte.exit.i149 ], [ 65533, %if.end.i.i160 ], [ %spec.select212, %land.lhs.true.i.i164 ], [ 65533, %for.inc.i.i145 ]
-  %retval.0.i148 = phi i32 [ 0, %if.end30 ], [ 0, %for.end.i157 ], [ %indvars78.le.i189, %return.loopexit81.i188 ], [ %indvars78.le91.i185, %return.loopexit.i184 ], [ 1, %nk_utf_decode_byte.exit.i149 ], [ %47, %if.end.i.i160 ], [ %47, %land.lhs.true.i.i164 ], [ 1, %for.inc.i.i145 ]
+nk_utf_decode.exit200:                            ; preds = %for.inc.i.i145, %if.end30, %nk_utf_decode_byte.exit.i149, %for.end.i157, %land.lhs.true.i.i164, %if.then7.i36.i169, %return.loopexit.i184, %return.loopexit81.i188
+  %unicode.3 = phi i32 [ %unicode.1244, %if.end30 ], [ 65533, %for.end.i157 ], [ 65533, %if.then7.i36.i169 ], [ %udecoded.0.lcssa.i158, %land.lhs.true.i.i164 ], [ 65533, %return.loopexit81.i188 ], [ 65533, %return.loopexit.i184 ], [ 65533, %nk_utf_decode_byte.exit.i149 ], [ 65533, %for.inc.i.i145 ]
+  %retval.0.i148 = phi i32 [ 0, %if.end30 ], [ 0, %for.end.i157 ], [ %47, %if.then7.i36.i169 ], [ %47, %land.lhs.true.i.i164 ], [ %indvars78.le.i189, %return.loopexit81.i188 ], [ %indvars78.le91.i185, %return.loopexit.i184 ], [ 1, %nk_utf_decode_byte.exit.i149 ], [ 1, %for.inc.i.i145 ]
   %60 = load ptr, ptr %width, align 8
   %61 = load float, ptr %height, align 8
   %62 = load ptr, ptr %font, align 8
   %call44 = tail call float %60(ptr %62, float noundef %61, ptr noundef nonnull %add.ptr35, i32 noundef %retval.0.i148) #51
-  %cmp9244 = icmp slt i32 %add32, %byte_len
-  %tobool10245 = icmp ne i32 %retval.0.i148, 0
-  %63 = and i1 %tobool10245, %cmp9244
+  %cmp9242 = icmp slt i32 %add32, %byte_len
+  %tobool10243 = icmp ne i32 %retval.0.i148, 0
+  %63 = and i1 %tobool10243, %cmp9242
   br i1 %63, label %while.body.lr.ph, label %while.end, !llvm.loop !263
 
 while.end:                                        ; preds = %nk_utf_decode.exit200, %for.end.i91, %if.then23, %nk_utf_decode.exit134, %if.then12
-  %text_len.0222 = phi i32 [ %21, %if.then12 ], [ %25, %nk_utf_decode.exit134 ], [ %25, %if.then23 ], [ %25, %for.end.i91 ], [ %add32, %nk_utf_decode.exit200 ]
+  %text_len.0220 = phi i32 [ %21, %if.then12 ], [ %25, %nk_utf_decode.exit134 ], [ %25, %if.then23 ], [ %25, %for.end.i91 ], [ %add32, %nk_utf_decode.exit200 ]
   %text_size.sroa.0.1 = phi <2 x float> [ %text_size.sroa.0.4.vec.insert, %if.then12 ], [ zeroinitializer, %nk_utf_decode.exit134 ], [ zeroinitializer, %if.then23 ], [ zeroinitializer, %for.end.i91 ], [ zeroinitializer, %nk_utf_decode.exit200 ]
-  %line_width.1 = phi float [ 0.000000e+00, %if.then12 ], [ %line_width.0.ph254, %nk_utf_decode.exit134 ], [ %line_width.0.ph254, %if.then23 ], [ %line_width.0.ph254, %for.end.i91 ], [ %add33, %nk_utf_decode.exit200 ]
+  %line_width.1 = phi float [ 0.000000e+00, %if.then12 ], [ %line_width.0.ph252, %nk_utf_decode.exit134 ], [ %line_width.0.ph252, %if.then23 ], [ %line_width.0.ph252, %for.end.i91 ], [ %add33, %nk_utf_decode.exit200 ]
   %text_size.sroa.0.0.vec.extract28 = extractelement <2 x float> %text_size.sroa.0.1, i64 0
   %cmp46 = fcmp olt float %text_size.sroa.0.0.vec.extract28, %line_width.1
   %text_size.sroa.0.0.vec.insert30 = insertelement <2 x float> %text_size.sroa.0.1, float %line_width.1, i64 0
   %text_size.sroa.0.2 = select i1 %cmp46, <2 x float> %text_size.sroa.0.0.vec.insert30, <2 x float> %text_size.sroa.0.1
   %tobool50.not = icmp eq ptr %out_offset, null
   %.pre = extractelement <2 x float> %text_size.sroa.0.2, i64 1
-  %.pre296 = fadd float %.pre, %row_height
+  %.pre294 = fadd float %.pre, %row_height
   br i1 %tobool50.not, label %if.end55, label %if.then51
 
 if.then51:                                        ; preds = %while.end
   %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %line_width.1, i64 0
-  %retval.sroa.0.4.vec.insert.i201 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %.pre296, i64 1
+  %retval.sroa.0.4.vec.insert.i201 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %.pre294, i64 1
   store <2 x float> %retval.sroa.0.4.vec.insert.i201, ptr %out_offset, align 4
   br label %if.end55
 
@@ -77930,13 +78039,13 @@ if.end55:                                         ; preds = %while.end, %if.then
   %cmp56 = fcmp ogt float %line_width.1, 0.000000e+00
   %cmp59 = fcmp oeq float %.pre, 0.000000e+00
   %or.cond2 = select i1 %cmp56, i1 true, i1 %cmp59
-  %text_size.sroa.0.4.vec.insert38 = insertelement <2 x float> %text_size.sroa.0.2, float %.pre296, i64 1
+  %text_size.sroa.0.4.vec.insert38 = insertelement <2 x float> %text_size.sroa.0.2, float %.pre294, i64 1
   %text_size.sroa.0.3 = select i1 %or.cond2, <2 x float> %text_size.sroa.0.4.vec.insert38, <2 x float> %text_size.sroa.0.2
   %tobool64.not = icmp eq ptr %remaining, null
   br i1 %tobool64.not, label %return, label %if.then65
 
 if.then65:                                        ; preds = %if.end55
-  %idx.ext66 = sext i32 %text_len.0222 to i64
+  %idx.ext66 = sext i32 %text_len.0220 to i64
   %add.ptr67 = getelementptr inbounds i8, ptr %begin, i64 %idx.ext66
   store ptr %add.ptr67, ptr %remaining, align 8
   br label %return
@@ -78077,7 +78186,7 @@ if.end.i.i:                                       ; preds = %for.end.i
   %arrayidx.i31.i = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i
   %14 = load i32, ptr %arrayidx.i31.i, align 4
   %cmp.not.i.i = icmp ugt i32 %14, %udecoded.0.lcssa.i
-  br i1 %cmp.not.i.i, label %nk_utf_decode.exit, label %land.lhs.true.i.i
+  br i1 %cmp.not.i.i, label %if.then7.i36.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end.i.i
   %arrayidx2.i.i = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i
@@ -78086,7 +78195,9 @@ land.lhs.true.i.i:                                ; preds = %if.end.i.i
   %16 = add i32 %udecoded.0.lcssa.i, -55296
   %or.cond.i.i = icmp ult i32 %16, 2047
   %or.cond11.i.i = or i1 %or.cond.i.i, %cmp3.i.i
-  %spec.select = select i1 %or.cond11.i.i, i32 65533, i32 %udecoded.0.lcssa.i
+  br i1 %or.cond11.i.i, label %if.then7.i36.i, label %nk_utf_decode.exit
+
+if.then7.i36.i:                                   ; preds = %land.lhs.true.i.i, %if.end.i.i
   br label %nk_utf_decode.exit
 
 return.loopexit.i:                                ; preds = %for.inc.i21.i
@@ -78097,17 +78208,17 @@ return.loopexit81.i:                              ; preds = %nk_utf_decode_byte.
   %indvars78.le.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-nk_utf_decode.exit:                               ; preds = %land.lhs.true.i.i, %if.end.i.i, %return.loopexit.i, %return.loopexit81.i
-  %unicode.0 = phi i32 [ 65533, %return.loopexit81.i ], [ 65533, %return.loopexit.i ], [ 65533, %if.end.i.i ], [ %spec.select, %land.lhs.true.i.i ]
-  %retval.0.i = phi i32 [ %indvars78.le.i, %return.loopexit81.i ], [ %indvars78.le91.i, %return.loopexit.i ], [ %4, %if.end.i.i ], [ %4, %land.lhs.true.i.i ]
+nk_utf_decode.exit:                               ; preds = %land.lhs.true.i.i, %if.then7.i36.i, %return.loopexit.i, %return.loopexit81.i
+  %unicode.0 = phi i32 [ 65533, %if.then7.i36.i ], [ %udecoded.0.lcssa.i, %land.lhs.true.i.i ], [ 65533, %return.loopexit81.i ], [ 65533, %return.loopexit.i ]
+  %retval.0.i = phi i32 [ %4, %if.then7.i36.i ], [ %4, %land.lhs.true.i.i ], [ %indvars78.le.i, %return.loopexit81.i ], [ %indvars78.le91.i, %return.loopexit.i ]
   %tobool14.not = icmp eq i32 %retval.0.i, 0
   br i1 %tobool14.not, label %if.end80, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %for.inc.i.i, %nk_utf_decode_byte.exit.i, %nk_utf_decode.exit
-  %retval.0.i487 = phi i32 [ %retval.0.i, %nk_utf_decode.exit ], [ 1, %nk_utf_decode_byte.exit.i ], [ 1, %for.inc.i.i ]
-  %unicode.0486 = phi i32 [ %unicode.0, %nk_utf_decode.exit ], [ 65533, %nk_utf_decode_byte.exit.i ], [ 65533, %for.inc.i.i ]
-  %cmp388402418 = icmp sgt i32 %byte_len, 0
-  br i1 %cmp388402418, label %while.body.lr.ph.lr.ph.lr.ph, label %if.end80
+  %retval.0.i484 = phi i32 [ %retval.0.i, %nk_utf_decode.exit ], [ 1, %nk_utf_decode_byte.exit.i ], [ 1, %for.inc.i.i ]
+  %unicode.0483 = phi i32 [ %unicode.0, %nk_utf_decode.exit ], [ 65533, %nk_utf_decode_byte.exit.i ], [ 65533, %for.inc.i.i ]
+  %cmp385399415 = icmp sgt i32 %byte_len, 0
+  br i1 %cmp385399415, label %while.body.lr.ph.lr.ph.lr.ph, label %if.end80
 
 while.body.lr.ph.lr.ph.lr.ph:                     ; preds = %while.cond.preheader
   %width = getelementptr inbounds i8, ptr %font, i64 16
@@ -78123,42 +78234,42 @@ while.body.lr.ph.lr.ph.lr.ph:                     ; preds = %while.cond.preheade
   br label %while.body.lr.ph.lr.ph
 
 while.body.lr.ph.lr.ph:                           ; preds = %while.body.lr.ph.lr.ph.lr.ph, %nk_utf_decode.exit175
-  %glyph_len.0.ph.ph424 = phi i32 [ %retval.0.i487, %while.body.lr.ph.lr.ph.lr.ph ], [ %retval.0.i123, %nk_utf_decode.exit175 ]
-  %line_count.0.ph.ph423 = phi i32 [ 0, %while.body.lr.ph.lr.ph.lr.ph ], [ %inc30, %nk_utf_decode.exit175 ]
-  %line_offset.0.ph.ph422 = phi float [ 0.000000e+00, %while.body.lr.ph.lr.ph.lr.ph ], [ %add33, %nk_utf_decode.exit175 ]
-  %line.0.ph.ph421 = phi ptr [ %text, %while.body.lr.ph.lr.ph.lr.ph ], [ %add.ptr32, %nk_utf_decode.exit175 ]
-  %text_len.0.ph.ph420 = phi i32 [ 0, %while.body.lr.ph.lr.ph.lr.ph ], [ %inc, %nk_utf_decode.exit175 ]
-  %unicode.1.ph.ph419 = phi i32 [ %unicode.0486, %while.body.lr.ph.lr.ph.lr.ph ], [ %unicode.2, %nk_utf_decode.exit175 ]
+  %glyph_len.0.ph.ph421 = phi i32 [ %retval.0.i484, %while.body.lr.ph.lr.ph.lr.ph ], [ %retval.0.i123, %nk_utf_decode.exit175 ]
+  %line_count.0.ph.ph420 = phi i32 [ 0, %while.body.lr.ph.lr.ph.lr.ph ], [ %inc30, %nk_utf_decode.exit175 ]
+  %line_offset.0.ph.ph419 = phi float [ 0.000000e+00, %while.body.lr.ph.lr.ph.lr.ph ], [ %add33, %nk_utf_decode.exit175 ]
+  %line.0.ph.ph418 = phi ptr [ %text, %while.body.lr.ph.lr.ph.lr.ph ], [ %add.ptr32, %nk_utf_decode.exit175 ]
+  %text_len.0.ph.ph417 = phi i32 [ 0, %while.body.lr.ph.lr.ph.lr.ph ], [ %inc, %nk_utf_decode.exit175 ]
+  %unicode.1.ph.ph416 = phi i32 [ %unicode.0483, %while.body.lr.ph.lr.ph.lr.ph ], [ %unicode.2, %nk_utf_decode.exit175 ]
   br label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.body.lr.ph.lr.ph, %nk_utf_decode.exit307
-  %glyph_len.0.ph407 = phi i32 [ %glyph_len.0.ph.ph424, %while.body.lr.ph.lr.ph ], [ %retval.0.i255, %nk_utf_decode.exit307 ]
-  %text_len.0.ph406 = phi i32 [ %text_len.0.ph.ph420, %while.body.lr.ph.lr.ph ], [ %add52, %nk_utf_decode.exit307 ]
-  %line_width.0.ph405 = phi float [ 0.000000e+00, %while.body.lr.ph.lr.ph ], [ %add51, %nk_utf_decode.exit307 ]
-  %unicode.1.ph404 = phi i32 [ %unicode.1.ph.ph419, %while.body.lr.ph.lr.ph ], [ %unicode.4, %nk_utf_decode.exit307 ]
-  %19 = sext i32 %text_len.0.ph406 to i64
+  %glyph_len.0.ph404 = phi i32 [ %glyph_len.0.ph.ph421, %while.body.lr.ph.lr.ph ], [ %retval.0.i255, %nk_utf_decode.exit307 ]
+  %text_len.0.ph403 = phi i32 [ %text_len.0.ph.ph417, %while.body.lr.ph.lr.ph ], [ %add52, %nk_utf_decode.exit307 ]
+  %line_width.0.ph402 = phi float [ 0.000000e+00, %while.body.lr.ph.lr.ph ], [ %add51, %nk_utf_decode.exit307 ]
+  %unicode.1.ph401 = phi i32 [ %unicode.1.ph.ph416, %while.body.lr.ph.lr.ph ], [ %unicode.4, %nk_utf_decode.exit307 ]
+  %19 = sext i32 %text_len.0.ph403 to i64
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %nk_utf_decode.exit241
   %indvars.iv = phi i64 [ %19, %while.body.lr.ph ], [ %indvars.iv.next, %nk_utf_decode.exit241 ]
-  %glyph_len.0392 = phi i32 [ %glyph_len.0.ph407, %while.body.lr.ph ], [ %retval.0.i189, %nk_utf_decode.exit241 ]
-  %unicode.1390 = phi i32 [ %unicode.1.ph404, %while.body.lr.ph ], [ %unicode.3, %nk_utf_decode.exit241 ]
-  switch i32 %unicode.1390, label %if.end47 [
+  %glyph_len.0389 = phi i32 [ %glyph_len.0.ph404, %while.body.lr.ph ], [ %retval.0.i189, %nk_utf_decode.exit241 ]
+  %unicode.1387 = phi i32 [ %unicode.1.ph401, %while.body.lr.ph ], [ %unicode.3, %nk_utf_decode.exit241 ]
+  switch i32 %unicode.1387, label %if.end47 [
     i32 10, label %if.then19
     i32 13, label %if.then41
   ]
 
 if.then19:                                        ; preds = %while.body
   %20 = trunc nsw i64 %indvars.iv to i32
-  %add = fadd float %line_offset.0.ph.ph422, %pos_y
+  %add = fadd float %line_offset.0.ph.ph419, %pos_y
   %label.sroa.0.0.vec.insert = insertelement <2 x float> %17, float %add, i64 1
-  %tobool20.not = icmp eq i32 %line_count.0.ph.ph423, 0
+  %tobool20.not = icmp eq i32 %line_count.0.ph.ph420, 0
   %label.sroa.0.0.vec.insert14 = insertelement <2 x float> %label.sroa.0.0.vec.insert, float %add23, i64 0
   %label.sroa.0.1 = select i1 %tobool20.not, <2 x float> %label.sroa.0.0.vec.insert14, <2 x float> %label.sroa.0.0.vec.insert
   br i1 %tobool25.not, label %if.end27, label %if.then26
 
 if.then26:                                        ; preds = %if.then19
-  %21 = insertelement <2 x float> poison, float %line_width.0.ph405, i64 0
+  %21 = insertelement <2 x float> poison, float %line_width.0.ph402, i64 0
   %label.sroa.6.8.vec.insert = insertelement <2 x float> %21, float %row_height, i64 1
   tail call void @nk_fill_rect(ptr noundef %out, <2 x float> %label.sroa.0.1, <2 x float> %label.sroa.6.8.vec.insert, float noundef 0.000000e+00, i32 %retval.sroa.0.0.insert.insert.i104)
   br label %if.end27
@@ -78171,26 +78282,26 @@ if.end.i107:                                      ; preds = %if.end27
   %idx.ext28 = ashr exact i64 %sext, 32
   %add.ptr29 = getelementptr inbounds i8, ptr %text, i64 %idx.ext28
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr29 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %line.0.ph.ph421 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %line.0.ph.ph418 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv = trunc i64 %sub.ptr.sub to i32
   %b.sroa.0.4.vec.extract.i = extractelement <2 x float> %label.sroa.0.1, i64 1
   %22 = load float, ptr %height, align 8
   %23 = load ptr, ptr %width, align 8
   %24 = load ptr, ptr %font, align 8
-  %call.i = tail call float %23(ptr %24, float noundef %22, ptr noundef nonnull %line.0.ph.ph421, i32 noundef %conv) #51
+  %call.i = tail call float %23(ptr %24, float noundef %22, ptr noundef nonnull %line.0.ph.ph418, i32 noundef %conv) #51
   %25 = fadd float %call.i, 0.000000e+00
   %cmp57.i = fcmp ogt float %25, 1.000000e+00
   %cond64.i = select i1 %cmp57.i, float %25, float 1.000000e+00
   %b.sroa.0.0.vec.extract94.i = extractelement <2 x float> %label.sroa.0.1, i64 0
   %add69.i = fadd float %b.sroa.0.0.vec.extract94.i, 0.000000e+00
-  %sub.i = fsub float %line_width.0.ph405, %cond64.i
+  %sub.i = fsub float %line_width.0.ph402, %cond64.i
   %div.i = fmul float %sub.i, 5.000000e-01
   %add75.i = fadd float %add69.i, %div.i
   %cmp82.i = fcmp olt float %b.sroa.0.0.vec.extract94.i, %add75.i
   %cond91.i = select i1 %cmp82.i, float %add75.i, float %add69.i
   %26 = insertelement <2 x float> poison, float %cond91.i, i64 0
-  %add95.i = fadd float %line_width.0.ph405, %b.sroa.0.0.vec.extract94.i
+  %add95.i = fadd float %line_width.0.ph402, %b.sroa.0.0.vec.extract94.i
   %add98.i = fadd float %cond64.i, %cond91.i
   %cmp99.i = fcmp olt float %add95.i, %add98.i
   %cond109.i = select i1 %cmp99.i, float %add95.i, float %add98.i
@@ -78209,15 +78320,15 @@ if.end.i107:                                      ; preds = %if.end27
   %cmp179.i = fcmp olt float %div164.i, %sub178.i
   %sub178.div164.i = select i1 %cmp179.i, float %sub178.i, float %div164.i
   %label.sroa.15.12.vec.insert51.i = insertelement <2 x float> %label.sroa.15.0.i, float %sub178.div164.i, i64 1
-  tail call void @nk_draw_text(ptr noundef nonnull %out, <2 x float> %label.sroa.0.4.vec.insert27.i, <2 x float> %label.sroa.15.12.vec.insert51.i, ptr noundef nonnull %line.0.ph.ph421, i32 noundef %conv, ptr noundef nonnull %font, i32 %background.coerce, i32 %foreground.coerce)
+  tail call void @nk_draw_text(ptr noundef nonnull %out, <2 x float> %label.sroa.0.4.vec.insert27.i, <2 x float> %label.sroa.15.12.vec.insert51.i, ptr noundef nonnull %line.0.ph.ph418, i32 noundef %conv, ptr noundef nonnull %font, i32 %background.coerce, i32 %foreground.coerce)
   br label %nk_widget_text.exit
 
 nk_widget_text.exit:                              ; preds = %if.end27, %if.end.i107
   %inc = add nsw i32 %20, 1
-  %inc30 = add nuw nsw i32 %line_count.0.ph.ph423, 1
+  %inc30 = add nuw nsw i32 %line_count.0.ph.ph420, 1
   %idx.ext31 = sext i32 %inc to i64
   %add.ptr32 = getelementptr inbounds i8, ptr %text, i64 %idx.ext31
-  %add33 = fadd float %line_offset.0.ph.ph422, %row_height
+  %add33 = fadd float %line_offset.0.ph.ph419, %row_height
   %sub36 = sub nsw i32 %byte_len, %inc
   %tobool2.not.i111 = icmp eq i32 %inc, %byte_len
   br i1 %tobool2.not.i111, label %if.end80, label %if.end4.i113
@@ -78258,7 +78369,7 @@ for.cond.preheader.i126:                          ; preds = %nk_utf_decode_byte.
 
 for.body.preheader.i145:                          ; preds = %for.cond.preheader.i126
   %35 = zext nneg i32 %sub36 to i64
-  %zext481 = and i64 %indvars.iv.i.i115, 4294967295
+  %zext478 = and i64 %indvars.iv.i.i115, 4294967295
   br label %for.body.i146
 
 for.body.i146:                                    ; preds = %for.inc.i165, %for.body.preheader.i145
@@ -78296,7 +78407,7 @@ for.inc.i165:                                     ; preds = %nk_utf_decode_byte.
   %or.i170 = or i32 %shl.i169, %conv14.i29.i168
   %indvars.iv.next.i171 = add nuw nsw i64 %indvars.iv.i147, 1
   %cmp8.i173 = icmp ult i64 %indvars.iv.next.i171, %35
-  %40 = icmp ult i64 %indvars.iv.next.i171, %zext481
+  %40 = icmp ult i64 %indvars.iv.next.i171, %zext478
   %41 = and i1 %cmp8.i173, %40
   br i1 %41, label %for.body.i146, label %for.end.i132, !llvm.loop !21
 
@@ -78310,7 +78421,7 @@ if.end.i.i135:                                    ; preds = %for.end.i132
   %arrayidx.i31.i137 = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i136
   %42 = load i32, ptr %arrayidx.i31.i137, align 4
   %cmp.not.i.i138 = icmp ugt i32 %42, %udecoded.0.lcssa.i133
-  br i1 %cmp.not.i.i138, label %nk_utf_decode.exit175, label %land.lhs.true.i.i139
+  br i1 %cmp.not.i.i138, label %if.then7.i36.i144, label %land.lhs.true.i.i139
 
 land.lhs.true.i.i139:                             ; preds = %if.end.i.i135
   %arrayidx2.i.i140 = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i136
@@ -78319,7 +78430,9 @@ land.lhs.true.i.i139:                             ; preds = %if.end.i.i135
   %44 = add i32 %udecoded.0.lcssa.i133, -55296
   %or.cond.i.i142 = icmp ult i32 %44, 2047
   %or.cond11.i.i143 = or i1 %or.cond.i.i142, %cmp3.i.i141
-  %spec.select347 = select i1 %or.cond11.i.i143, i32 65533, i32 %udecoded.0.lcssa.i133
+  br i1 %or.cond11.i.i143, label %if.then7.i36.i144, label %nk_utf_decode.exit175
+
+if.then7.i36.i144:                                ; preds = %land.lhs.true.i.i139, %if.end.i.i135
   br label %nk_utf_decode.exit175
 
 return.loopexit.i159:                             ; preds = %for.inc.i21.i156
@@ -78330,12 +78443,12 @@ return.loopexit81.i163:                           ; preds = %nk_utf_decode_byte.
   %indvars78.le.i164 = trunc i64 %indvars.iv.i147 to i32
   br label %nk_utf_decode.exit175
 
-nk_utf_decode.exit175:                            ; preds = %for.inc.i.i120, %land.lhs.true.i.i139, %if.end.i.i135, %nk_utf_decode_byte.exit.i124, %return.loopexit.i159, %return.loopexit81.i163
-  %unicode.2 = phi i32 [ 65533, %return.loopexit81.i163 ], [ 65533, %return.loopexit.i159 ], [ 65533, %nk_utf_decode_byte.exit.i124 ], [ 65533, %if.end.i.i135 ], [ %spec.select347, %land.lhs.true.i.i139 ], [ 65533, %for.inc.i.i120 ]
-  %retval.0.i123 = phi i32 [ %indvars78.le.i164, %return.loopexit81.i163 ], [ %indvars78.le91.i160, %return.loopexit.i159 ], [ 1, %nk_utf_decode_byte.exit.i124 ], [ %32, %if.end.i.i135 ], [ %32, %land.lhs.true.i.i139 ], [ 1, %for.inc.i.i120 ]
-  %cmp388402 = icmp slt i32 %inc, %byte_len
-  %tobool17389403 = icmp ne i32 %retval.0.i123, 0
-  %45 = and i1 %cmp388402, %tobool17389403
+nk_utf_decode.exit175:                            ; preds = %for.inc.i.i120, %nk_utf_decode_byte.exit.i124, %land.lhs.true.i.i139, %if.then7.i36.i144, %return.loopexit.i159, %return.loopexit81.i163
+  %unicode.2 = phi i32 [ 65533, %if.then7.i36.i144 ], [ %udecoded.0.lcssa.i133, %land.lhs.true.i.i139 ], [ 65533, %return.loopexit81.i163 ], [ 65533, %return.loopexit.i159 ], [ 65533, %nk_utf_decode_byte.exit.i124 ], [ 65533, %for.inc.i.i120 ]
+  %retval.0.i123 = phi i32 [ %32, %if.then7.i36.i144 ], [ %32, %land.lhs.true.i.i139 ], [ %indvars78.le.i164, %return.loopexit81.i163 ], [ %indvars78.le91.i160, %return.loopexit.i159 ], [ 1, %nk_utf_decode_byte.exit.i124 ], [ 1, %for.inc.i.i120 ]
+  %cmp385399 = icmp slt i32 %inc, %byte_len
+  %tobool17386400 = icmp ne i32 %retval.0.i123, 0
+  %45 = and i1 %cmp385399, %tobool17386400
   br i1 %45, label %while.body.lr.ph.lr.ph, label %if.end80, !llvm.loop !264
 
 if.then41:                                        ; preds = %while.body
@@ -78381,7 +78494,7 @@ for.cond.preheader.i192:                          ; preds = %nk_utf_decode_byte.
   br i1 %53, label %for.body.preheader.i211, label %for.end.i198
 
 for.body.preheader.i211:                          ; preds = %for.cond.preheader.i192
-  %zext477 = and i64 %indvars.iv.i.i181, 4294967295
+  %zext474 = and i64 %indvars.iv.i.i181, 4294967295
   br label %for.body.i212
 
 for.body.i212:                                    ; preds = %for.inc.i231, %for.body.preheader.i211
@@ -78419,7 +78532,7 @@ for.inc.i231:                                     ; preds = %nk_utf_decode_byte.
   %or.i236 = or i32 %shl.i235, %conv14.i29.i234
   %indvars.iv.next.i237 = add nuw nsw i64 %indvars.iv.i213, 1
   %cmp8.i239 = icmp ult i64 %indvars.iv.next.i237, %46
-  %58 = icmp ult i64 %indvars.iv.next.i237, %zext477
+  %58 = icmp ult i64 %indvars.iv.next.i237, %zext474
   %59 = and i1 %cmp8.i239, %58
   br i1 %59, label %for.body.i212, label %for.end.i198, !llvm.loop !21
 
@@ -78433,7 +78546,7 @@ if.end.i.i201:                                    ; preds = %for.end.i198
   %arrayidx.i31.i203 = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i202
   %60 = load i32, ptr %arrayidx.i31.i203, align 4
   %cmp.not.i.i204 = icmp ugt i32 %60, %udecoded.0.lcssa.i199
-  br i1 %cmp.not.i.i204, label %nk_utf_decode.exit241, label %land.lhs.true.i.i205
+  br i1 %cmp.not.i.i204, label %if.then7.i36.i210, label %land.lhs.true.i.i205
 
 land.lhs.true.i.i205:                             ; preds = %if.end.i.i201
   %arrayidx2.i.i206 = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i202
@@ -78442,7 +78555,9 @@ land.lhs.true.i.i205:                             ; preds = %if.end.i.i201
   %62 = add i32 %udecoded.0.lcssa.i199, -55296
   %or.cond.i.i208 = icmp ult i32 %62, 2047
   %or.cond11.i.i209 = or i1 %or.cond.i.i208, %cmp3.i.i207
-  %spec.select348 = select i1 %or.cond11.i.i209, i32 65533, i32 %udecoded.0.lcssa.i199
+  br i1 %or.cond11.i.i209, label %if.then7.i36.i210, label %nk_utf_decode.exit241
+
+if.then7.i36.i210:                                ; preds = %land.lhs.true.i.i205, %if.end.i.i201
   br label %nk_utf_decode.exit241
 
 return.loopexit.i225:                             ; preds = %for.inc.i21.i222
@@ -78453,9 +78568,9 @@ return.loopexit81.i229:                           ; preds = %nk_utf_decode_byte.
   %indvars78.le.i230 = trunc i64 %indvars.iv.i213 to i32
   br label %nk_utf_decode.exit241
 
-nk_utf_decode.exit241:                            ; preds = %for.inc.i.i186, %land.lhs.true.i.i205, %if.end.i.i201, %nk_utf_decode_byte.exit.i190, %return.loopexit.i225, %return.loopexit81.i229
-  %unicode.3 = phi i32 [ 65533, %return.loopexit81.i229 ], [ 65533, %return.loopexit.i225 ], [ 65533, %nk_utf_decode_byte.exit.i190 ], [ 65533, %if.end.i.i201 ], [ %spec.select348, %land.lhs.true.i.i205 ], [ 65533, %for.inc.i.i186 ]
-  %retval.0.i189 = phi i32 [ %indvars78.le.i230, %return.loopexit81.i229 ], [ %indvars78.le91.i226, %return.loopexit.i225 ], [ 1, %nk_utf_decode_byte.exit.i190 ], [ %51, %if.end.i.i201 ], [ %51, %land.lhs.true.i.i205 ], [ 1, %for.inc.i.i186 ]
+nk_utf_decode.exit241:                            ; preds = %for.inc.i.i186, %nk_utf_decode_byte.exit.i190, %land.lhs.true.i.i205, %if.then7.i36.i210, %return.loopexit.i225, %return.loopexit81.i229
+  %unicode.3 = phi i32 [ 65533, %if.then7.i36.i210 ], [ %udecoded.0.lcssa.i199, %land.lhs.true.i.i205 ], [ 65533, %return.loopexit81.i229 ], [ 65533, %return.loopexit.i225 ], [ 65533, %nk_utf_decode_byte.exit.i190 ], [ 65533, %for.inc.i.i186 ]
+  %retval.0.i189 = phi i32 [ %51, %if.then7.i36.i210 ], [ %51, %land.lhs.true.i.i205 ], [ %indvars78.le.i230, %return.loopexit81.i229 ], [ %indvars78.le91.i226, %return.loopexit.i225 ], [ 1, %nk_utf_decode_byte.exit.i190 ], [ 1, %for.inc.i.i186 ]
   %cmp = icmp slt i64 %indvars.iv.next, %18
   %tobool17 = icmp ne i32 %retval.0.i189, 0
   %63 = and i1 %cmp, %tobool17
@@ -78465,13 +78580,13 @@ if.end47:                                         ; preds = %while.body
   %64 = trunc nsw i64 %indvars.iv to i32
   %65 = load ptr, ptr %width, align 8
   %66 = load float, ptr %height, align 8
-  %sext482 = shl i64 %indvars.iv, 32
-  %idx.ext48 = ashr exact i64 %sext482, 32
+  %sext479 = shl i64 %indvars.iv, 32
+  %idx.ext48 = ashr exact i64 %sext479, 32
   %add.ptr49 = getelementptr inbounds i8, ptr %text, i64 %idx.ext48
   %67 = load ptr, ptr %font, align 8
-  %call50 = tail call float %65(ptr %67, float noundef %66, ptr noundef nonnull %add.ptr49, i32 noundef %glyph_len.0392) #51
-  %add51 = fadd float %line_width.0.ph405, %call50
-  %add52 = add nsw i32 %glyph_len.0392, %64
+  %call50 = tail call float %65(ptr %67, float noundef %66, ptr noundef nonnull %add.ptr49, i32 noundef %glyph_len.0389) #51
+  %add51 = fadd float %line_width.0.ph402, %call50
+  %add52 = add nsw i32 %glyph_len.0389, %64
   %idx.ext53 = sext i32 %add52 to i64
   %add.ptr54 = getelementptr inbounds i8, ptr %text, i64 %idx.ext53
   %sub55 = sub nsw i32 %byte_len, %add52
@@ -78514,7 +78629,7 @@ for.cond.preheader.i258:                          ; preds = %nk_utf_decode_byte.
 
 for.body.preheader.i277:                          ; preds = %for.cond.preheader.i258
   %74 = zext nneg i32 %sub55 to i64
-  %zext480 = and i64 %indvars.iv.i.i247, 4294967295
+  %zext477 = and i64 %indvars.iv.i.i247, 4294967295
   br label %for.body.i278
 
 for.body.i278:                                    ; preds = %for.inc.i297, %for.body.preheader.i277
@@ -78552,7 +78667,7 @@ for.inc.i297:                                     ; preds = %nk_utf_decode_byte.
   %or.i302 = or i32 %shl.i301, %conv14.i29.i300
   %indvars.iv.next.i303 = add nuw nsw i64 %indvars.iv.i279, 1
   %cmp8.i305 = icmp ult i64 %indvars.iv.next.i303, %74
-  %79 = icmp ult i64 %indvars.iv.next.i303, %zext480
+  %79 = icmp ult i64 %indvars.iv.next.i303, %zext477
   %80 = and i1 %cmp8.i305, %79
   br i1 %80, label %for.body.i278, label %for.end.i264, !llvm.loop !21
 
@@ -78566,7 +78681,7 @@ if.end.i.i267:                                    ; preds = %for.end.i264
   %arrayidx.i31.i269 = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i268
   %81 = load i32, ptr %arrayidx.i31.i269, align 4
   %cmp.not.i.i270 = icmp ugt i32 %81, %udecoded.0.lcssa.i265
-  br i1 %cmp.not.i.i270, label %nk_utf_decode.exit307, label %land.lhs.true.i.i271
+  br i1 %cmp.not.i.i270, label %if.then7.i36.i276, label %land.lhs.true.i.i271
 
 land.lhs.true.i.i271:                             ; preds = %if.end.i.i267
   %arrayidx2.i.i272 = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i268
@@ -78575,7 +78690,9 @@ land.lhs.true.i.i271:                             ; preds = %if.end.i.i267
   %83 = add i32 %udecoded.0.lcssa.i265, -55296
   %or.cond.i.i274 = icmp ult i32 %83, 2047
   %or.cond11.i.i275 = or i1 %or.cond.i.i274, %cmp3.i.i273
-  %spec.select349 = select i1 %or.cond11.i.i275, i32 65533, i32 %udecoded.0.lcssa.i265
+  br i1 %or.cond11.i.i275, label %if.then7.i36.i276, label %nk_utf_decode.exit307
+
+if.then7.i36.i276:                                ; preds = %land.lhs.true.i.i271, %if.end.i.i267
   br label %nk_utf_decode.exit307
 
 return.loopexit.i291:                             ; preds = %for.inc.i21.i288
@@ -78586,25 +78703,25 @@ return.loopexit81.i295:                           ; preds = %nk_utf_decode_byte.
   %indvars78.le.i296 = trunc i64 %indvars.iv.i279 to i32
   br label %nk_utf_decode.exit307
 
-nk_utf_decode.exit307:                            ; preds = %for.inc.i.i252, %land.lhs.true.i.i271, %if.end.i.i267, %nk_utf_decode_byte.exit.i256, %return.loopexit.i291, %return.loopexit81.i295
-  %unicode.4 = phi i32 [ 65533, %return.loopexit81.i295 ], [ 65533, %return.loopexit.i291 ], [ 65533, %nk_utf_decode_byte.exit.i256 ], [ 65533, %if.end.i.i267 ], [ %spec.select349, %land.lhs.true.i.i271 ], [ 65533, %for.inc.i.i252 ]
-  %retval.0.i255 = phi i32 [ %indvars78.le.i296, %return.loopexit81.i295 ], [ %indvars78.le91.i292, %return.loopexit.i291 ], [ 1, %nk_utf_decode_byte.exit.i256 ], [ %71, %if.end.i.i267 ], [ %71, %land.lhs.true.i.i271 ], [ 1, %for.inc.i.i252 ]
-  %cmp388 = icmp slt i32 %add52, %byte_len
-  %tobool17389 = icmp ne i32 %retval.0.i255, 0
-  %84 = and i1 %cmp388, %tobool17389
+nk_utf_decode.exit307:                            ; preds = %for.inc.i.i252, %nk_utf_decode_byte.exit.i256, %land.lhs.true.i.i271, %if.then7.i36.i276, %return.loopexit.i291, %return.loopexit81.i295
+  %unicode.4 = phi i32 [ 65533, %if.then7.i36.i276 ], [ %udecoded.0.lcssa.i265, %land.lhs.true.i.i271 ], [ 65533, %return.loopexit81.i295 ], [ 65533, %return.loopexit.i291 ], [ 65533, %nk_utf_decode_byte.exit.i256 ], [ 65533, %for.inc.i.i252 ]
+  %retval.0.i255 = phi i32 [ %71, %if.then7.i36.i276 ], [ %71, %land.lhs.true.i.i271 ], [ %indvars78.le.i296, %return.loopexit81.i295 ], [ %indvars78.le91.i292, %return.loopexit.i291 ], [ 1, %nk_utf_decode_byte.exit.i256 ], [ 1, %for.inc.i.i252 ]
+  %cmp385 = icmp slt i32 %add52, %byte_len
+  %tobool17386 = icmp ne i32 %retval.0.i255, 0
+  %84 = and i1 %cmp385, %tobool17386
   br i1 %84, label %while.body.lr.ph, label %while.end, !llvm.loop !264
 
 while.end:                                        ; preds = %for.end.i264, %if.end47, %nk_utf_decode.exit307, %for.end.i198, %if.then41, %nk_utf_decode.exit241
-  %line_width.0.ph.lcssa371 = phi float [ %line_width.0.ph405, %nk_utf_decode.exit241 ], [ %line_width.0.ph405, %if.then41 ], [ %line_width.0.ph405, %for.end.i198 ], [ %add51, %nk_utf_decode.exit307 ], [ %add51, %if.end47 ], [ %add51, %for.end.i264 ]
+  %line_width.0.ph.lcssa368 = phi float [ %line_width.0.ph402, %nk_utf_decode.exit241 ], [ %line_width.0.ph402, %if.then41 ], [ %line_width.0.ph402, %for.end.i198 ], [ %add51, %nk_utf_decode.exit307 ], [ %add51, %if.end47 ], [ %add51, %for.end.i264 ]
   %text_len.0.lcssa = phi i32 [ %47, %nk_utf_decode.exit241 ], [ %47, %if.then41 ], [ %47, %for.end.i198 ], [ %add52, %nk_utf_decode.exit307 ], [ %add52, %if.end47 ], [ %add52, %for.end.i264 ]
-  %cmp57 = fcmp ogt float %line_width.0.ph.lcssa371, 0.000000e+00
+  %cmp57 = fcmp ogt float %line_width.0.ph.lcssa368, 0.000000e+00
   br i1 %cmp57, label %if.then59, label %if.end80
 
 if.then59:                                        ; preds = %while.end
-  %add61 = fadd float %line_offset.0.ph.ph422, %pos_y
+  %add61 = fadd float %line_offset.0.ph.ph419, %pos_y
   %85 = insertelement <2 x float> poison, float %pos_x, i64 0
   %label60.sroa.0.0.vec.insert = insertelement <2 x float> %85, float %add61, i64 1
-  %tobool66.not = icmp eq i32 %line_count.0.ph.ph423, 0
+  %tobool66.not = icmp eq i32 %line_count.0.ph.ph420, 0
   %add69 = fadd float %pos_x, %x_offset
   %label60.sroa.0.0.vec.insert7 = insertelement <2 x float> %label60.sroa.0.0.vec.insert, float %add69, i64 0
   %label60.sroa.0.0 = select i1 %tobool66.not, <2 x float> %label60.sroa.0.0.vec.insert7, <2 x float> %label60.sroa.0.0.vec.insert
@@ -78612,7 +78729,7 @@ if.then59:                                        ; preds = %while.end
   br i1 %tobool71.not, label %if.end73, label %if.then72
 
 if.then72:                                        ; preds = %if.then59
-  %86 = insertelement <2 x float> poison, float %line_width.0.ph.lcssa371, i64 0
+  %86 = insertelement <2 x float> poison, float %line_width.0.ph.lcssa368, i64 0
   %label60.sroa.6.8.vec.insert = insertelement <2 x float> %86, float %row_height, i64 1
   tail call void @nk_fill_rect(ptr noundef %out, <2 x float> %label60.sroa.0.0, <2 x float> %label60.sroa.6.8.vec.insert, float noundef 0.000000e+00, i32 %retval.sroa.0.0.insert.insert.i104)
   br label %if.end73
@@ -78625,7 +78742,7 @@ if.end.i309:                                      ; preds = %if.end73
   %idx.ext74 = sext i32 %text_len.0.lcssa to i64
   %add.ptr75 = getelementptr inbounds i8, ptr %text, i64 %idx.ext74
   %sub.ptr.lhs.cast76 = ptrtoint ptr %add.ptr75 to i64
-  %sub.ptr.rhs.cast77 = ptrtoint ptr %line.0.ph.ph421 to i64
+  %sub.ptr.rhs.cast77 = ptrtoint ptr %line.0.ph.ph418 to i64
   %sub.ptr.sub78 = sub i64 %sub.ptr.lhs.cast76, %sub.ptr.rhs.cast77
   %conv79 = trunc i64 %sub.ptr.sub78 to i32
   %cmp.i312 = fcmp olt float %row_height, 0.000000e+00
@@ -78636,11 +78753,11 @@ if.end.i309:                                      ; preds = %if.end73
   %width.i321 = getelementptr inbounds i8, ptr %font, i64 16
   %88 = load ptr, ptr %width.i321, align 8
   %89 = load ptr, ptr %font, align 8
-  %call.i322 = tail call float %88(ptr %89, float noundef %87, ptr noundef nonnull %line.0.ph.ph421, i32 noundef %conv79) #51
+  %call.i322 = tail call float %88(ptr %89, float noundef %87, ptr noundef nonnull %line.0.ph.ph418, i32 noundef %conv79) #51
   %b.sroa.0.0.vec.extract.i = extractelement <2 x float> %label60.sroa.0.0, i64 0
   %add35.i = fadd float %b.sroa.0.0.vec.extract.i, 0.000000e+00
   %90 = insertelement <2 x float> poison, float %add35.i, i64 0
-  %91 = insertelement <2 x float> poison, float %line_width.0.ph.lcssa371, i64 0
+  %91 = insertelement <2 x float> poison, float %line_width.0.ph.lcssa368, i64 0
   %div164.i325 = fmul float %mul.b.sroa.14.12.vec.extract.i313, 5.000000e-01
   %add165.i326 = fadd float %div164.i325, %b.sroa.0.4.vec.extract.i314
   %92 = load float, ptr %height.i317, align 8
@@ -78652,7 +78769,7 @@ if.end.i309:                                      ; preds = %if.end73
   %cmp179.i332 = fcmp olt float %div164.i325, %sub178.i331
   %sub178.div164.i333 = select i1 %cmp179.i332, float %sub178.i331, float %div164.i325
   %label.sroa.15.12.vec.insert51.i334 = insertelement <2 x float> %91, float %sub178.div164.i333, i64 1
-  tail call void @nk_draw_text(ptr noundef nonnull %out, <2 x float> %label.sroa.0.4.vec.insert27.i329, <2 x float> %label.sroa.15.12.vec.insert51.i334, ptr noundef nonnull %line.0.ph.ph421, i32 noundef %conv79, ptr noundef nonnull %font, i32 %background.coerce, i32 %foreground.coerce)
+  tail call void @nk_draw_text(ptr noundef nonnull %out, <2 x float> %label.sroa.0.4.vec.insert27.i329, <2 x float> %label.sroa.15.12.vec.insert51.i334, ptr noundef nonnull %line.0.ph.ph418, i32 noundef %conv79, ptr noundef nonnull %font, i32 %background.coerce, i32 %foreground.coerce)
   br label %if.end80
 
 if.end80:                                         ; preds = %for.end.i132, %nk_widget_text.exit, %nk_utf_decode.exit175, %while.cond.preheader, %for.end.i, %if.end.i309, %if.end73, %nk_utf_decode.exit, %entry, %while.end
@@ -79586,7 +79703,7 @@ if.end.i.i38:                                     ; preds = %for.end.i35
   %arrayidx.i31.i40 = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i39
   %15 = load i32, ptr %arrayidx.i31.i40, align 4
   %cmp.not.i.i41 = icmp ugt i32 %15, %udecoded.0.lcssa.i36
-  br i1 %cmp.not.i.i41, label %nk_utf_decode.exit78, label %land.lhs.true.i.i42
+  br i1 %cmp.not.i.i41, label %if.then7.i36.i47, label %land.lhs.true.i.i42
 
 land.lhs.true.i.i42:                              ; preds = %if.end.i.i38
   %arrayidx2.i.i43 = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i39
@@ -79595,7 +79712,9 @@ land.lhs.true.i.i42:                              ; preds = %if.end.i.i38
   %17 = add i32 %udecoded.0.lcssa.i36, -55296
   %or.cond.i.i45 = icmp ult i32 %17, 2047
   %or.cond11.i.i46 = or i1 %or.cond.i.i45, %cmp3.i.i44
-  %spec.select = select i1 %or.cond11.i.i46, i32 65533, i32 %udecoded.0.lcssa.i36
+  br i1 %or.cond11.i.i46, label %if.then7.i36.i47, label %nk_utf_decode.exit78
+
+if.then7.i36.i47:                                 ; preds = %land.lhs.true.i.i42, %if.end.i.i38
   br label %nk_utf_decode.exit78
 
 return.loopexit.i62:                              ; preds = %for.inc.i21.i59
@@ -79606,9 +79725,9 @@ return.loopexit81.i66:                            ; preds = %nk_utf_decode_byte.
   %indvars78.le.i67 = trunc i64 %indvars.iv.i50 to i32
   br label %nk_utf_decode.exit78
 
-nk_utf_decode.exit78:                             ; preds = %land.lhs.true.i.i42, %if.end.i.i38, %return.loopexit.i62, %return.loopexit81.i66
-  %c.0 = phi i32 [ 65533, %return.loopexit81.i66 ], [ 65533, %return.loopexit.i62 ], [ 65533, %if.end.i.i38 ], [ %spec.select, %land.lhs.true.i.i42 ]
-  %retval.0.i26 = phi i32 [ %indvars78.le.i67, %return.loopexit81.i66 ], [ %indvars78.le91.i63, %return.loopexit.i62 ], [ %5, %if.end.i.i38 ], [ %5, %land.lhs.true.i.i42 ]
+nk_utf_decode.exit78:                             ; preds = %land.lhs.true.i.i42, %if.then7.i36.i47, %return.loopexit.i62, %return.loopexit81.i66
+  %c.0 = phi i32 [ 65533, %if.then7.i36.i47 ], [ %udecoded.0.lcssa.i36, %land.lhs.true.i.i42 ], [ 65533, %return.loopexit81.i66 ], [ 65533, %return.loopexit.i62 ]
+  %retval.0.i26 = phi i32 [ %5, %if.then7.i36.i47 ], [ %5, %land.lhs.true.i.i42 ], [ %indvars78.le.i67, %return.loopexit81.i66 ], [ %indvars78.le91.i63, %return.loopexit.i62 ]
   %tobool7.not26.i = icmp eq i32 %retval.0.i26, 0
   br i1 %tobool7.not26.i, label %while.end.i, label %while.body.i.preheader
 
@@ -79670,7 +79789,7 @@ for.cond.preheader.i:                             ; preds = %nk_utf_decode_byte.
 
 for.body.preheader.i:                             ; preds = %for.cond.preheader.i
   %24 = zext nneg i32 %sub.i to i64
-  %zext121 = and i64 %indvars.iv.i.i, 4294967295
+  %zext120 = and i64 %indvars.iv.i.i, 4294967295
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
@@ -79708,7 +79827,7 @@ for.inc.i:                                        ; preds = %nk_utf_decode_byte.
   %or.i = or i32 %shl.i, %conv14.i29.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %cmp8.i12 = icmp ult i64 %indvars.iv.next.i, %24
-  %29 = icmp ult i64 %indvars.iv.next.i, %zext121
+  %29 = icmp ult i64 %indvars.iv.next.i, %zext120
   %30 = and i1 %cmp8.i12, %29
   br i1 %30, label %for.body.i, label %for.end.i, !llvm.loop !21
 
@@ -79722,7 +79841,7 @@ if.end.i.i:                                       ; preds = %for.end.i
   %arrayidx.i31.i = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i
   %31 = load i32, ptr %arrayidx.i31.i, align 4
   %cmp.not.i.i = icmp ugt i32 %31, %udecoded.0.lcssa.i
-  br i1 %cmp.not.i.i, label %nk_utf_decode.exit, label %land.lhs.true.i.i
+  br i1 %cmp.not.i.i, label %if.then7.i36.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end.i.i
   %arrayidx2.i.i = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i
@@ -79731,7 +79850,9 @@ land.lhs.true.i.i:                                ; preds = %if.end.i.i
   %33 = add i32 %udecoded.0.lcssa.i, -55296
   %or.cond.i.i = icmp ult i32 %33, 2047
   %or.cond11.i.i = or i1 %or.cond.i.i, %cmp3.i.i
-  %spec.select88 = select i1 %or.cond11.i.i, i32 65533, i32 %udecoded.0.lcssa.i
+  br i1 %or.cond11.i.i, label %if.then7.i36.i, label %nk_utf_decode.exit
+
+if.then7.i36.i:                                   ; preds = %land.lhs.true.i.i, %if.end.i.i
   br label %nk_utf_decode.exit
 
 return.loopexit.i:                                ; preds = %for.inc.i21.i
@@ -79742,9 +79863,9 @@ return.loopexit81.i:                              ; preds = %nk_utf_decode_byte.
   %indvars78.le.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-nk_utf_decode.exit:                               ; preds = %for.inc.i.i, %land.lhs.true.i.i, %if.end.i.i, %nk_utf_decode_byte.exit.i, %return.loopexit.i, %return.loopexit81.i
-  %c.2 = phi i32 [ 65533, %return.loopexit81.i ], [ 65533, %return.loopexit.i ], [ 65533, %nk_utf_decode_byte.exit.i ], [ 65533, %if.end.i.i ], [ %spec.select88, %land.lhs.true.i.i ], [ 65533, %for.inc.i.i ]
-  %retval.0.i11 = phi i32 [ %indvars78.le.i, %return.loopexit81.i ], [ %indvars78.le91.i, %return.loopexit.i ], [ 1, %nk_utf_decode_byte.exit.i ], [ %21, %if.end.i.i ], [ %21, %land.lhs.true.i.i ], [ 1, %for.inc.i.i ]
+nk_utf_decode.exit:                               ; preds = %for.inc.i.i, %nk_utf_decode_byte.exit.i, %land.lhs.true.i.i, %if.then7.i36.i, %return.loopexit.i, %return.loopexit81.i
+  %c.2 = phi i32 [ 65533, %if.then7.i36.i ], [ %udecoded.0.lcssa.i, %land.lhs.true.i.i ], [ 65533, %return.loopexit81.i ], [ 65533, %return.loopexit.i ], [ 65533, %nk_utf_decode_byte.exit.i ], [ 65533, %for.inc.i.i ]
+  %retval.0.i11 = phi i32 [ %21, %if.then7.i36.i ], [ %21, %land.lhs.true.i.i ], [ %indvars78.le.i, %return.loopexit81.i ], [ %indvars78.le91.i, %return.loopexit.i ], [ 1, %nk_utf_decode_byte.exit.i ], [ 1, %for.inc.i.i ]
   %tobool7.not.i = icmp eq i32 %retval.0.i11, 0
   br i1 %tobool7.not.i, label %while.end.i, label %while.body.i, !llvm.loop !37
 

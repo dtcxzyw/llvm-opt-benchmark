@@ -7822,18 +7822,18 @@ define dso_local i64 @je_nallocx(i64 noundef %size, i32 noundef %flags) local_un
 entry:
   %0 = load i32, ptr @malloc_init_state, align 4
   %cmp.i96.not = icmp eq i32 %0, 0
-  br i1 %cmp.i96.not, label %if.end, label %land.lhs.true.i
+  br i1 %cmp.i96.not, label %if.end.i24, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
   %call3.i = tail call fastcc zeroext i1 @malloc_init_hard()
-  br i1 %call3.i, label %return, label %if.end
+  br i1 %call3.i, label %return, label %if.end.i24
 
-if.end:                                           ; preds = %land.lhs.true.i, %entry
+if.end.i24:                                       ; preds = %land.lhs.true.i, %entry
   %1 = load i8, ptr @tsd_booted, align 1
   %tobool.i126 = trunc i8 %1 to i1
   br i1 %tobool.i126, label %if.end.i, label %tsdn_fetch.exit
 
-if.end.i:                                         ; preds = %if.end
+if.end.i:                                         ; preds = %if.end.i24
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
   %state.i.i = getelementptr inbounds i8, ptr %2, i64 832
   %3 = load i8, ptr %state.i.i, align 8
@@ -7844,7 +7844,7 @@ if.then11.i:                                      ; preds = %if.end.i
   %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %2, i1 noundef zeroext false) #19
   br label %tsdn_fetch.exit
 
-tsdn_fetch.exit:                                  ; preds = %if.then11.i, %if.end.i, %if.end
+tsdn_fetch.exit:                                  ; preds = %if.then11.i, %if.end.i, %if.end.i24
   %and.i = and i32 %flags, 63
   %sh_prom.i = zext nneg i32 %and.i to i64
   %shl.i = shl nuw i64 1, %sh_prom.i
@@ -7977,25 +7977,25 @@ define dso_local i32 @je_mallctl(ptr noundef %name, ptr noundef %oldp, ptr nound
 entry:
   %0 = load i32, ptr @malloc_init_state, align 4
   %cmp.i.not = icmp eq i32 %0, 0
-  br i1 %cmp.i.not, label %if.end, label %land.lhs.true.i
+  br i1 %cmp.i.not, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
   %call3.i = tail call fastcc zeroext i1 @malloc_init_hard()
-  br i1 %call3.i, label %return, label %if.end
+  br i1 %call3.i, label %return, label %if.end.i
 
-if.end:                                           ; preds = %land.lhs.true.i, %entry
+if.end.i:                                         ; preds = %land.lhs.true.i, %entry
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
   %state.i.i = getelementptr inbounds i8, ptr %1, i64 832
   %2 = load i8, ptr %state.i.i, align 8
   %cmp6.i.not = icmp eq i8 %2, 0
   br i1 %cmp6.i.not, label %tsd_fetch_impl.exit, label %if.then11.i
 
-if.then11.i:                                      ; preds = %if.end
+if.then11.i:                                      ; preds = %if.end.i
   %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %1, i1 noundef zeroext false) #19
   br label %tsd_fetch_impl.exit
 
-tsd_fetch_impl.exit:                              ; preds = %if.end, %if.then11.i
-  %retval.i13.0 = phi ptr [ %call13.i, %if.then11.i ], [ %1, %if.end ]
+tsd_fetch_impl.exit:                              ; preds = %if.end.i, %if.then11.i
+  %retval.i13.0 = phi ptr [ %call13.i, %if.then11.i ], [ %1, %if.end.i ]
   %call6 = tail call i32 @ctl_byname(ptr noundef %retval.i13.0, ptr noundef %name, ptr noundef %oldp, ptr noundef %oldlenp, ptr noundef %newp, i64 noundef %newlen) #19
   br label %return
 
@@ -8011,25 +8011,25 @@ define dso_local i32 @je_mallctlnametomib(ptr noundef %name, ptr noundef %mibp, 
 entry:
   %0 = load i32, ptr @malloc_init_state, align 4
   %cmp.i.not = icmp eq i32 %0, 0
-  br i1 %cmp.i.not, label %if.end, label %land.lhs.true.i
+  br i1 %cmp.i.not, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
   %call3.i = tail call fastcc zeroext i1 @malloc_init_hard()
-  br i1 %call3.i, label %return, label %if.end
+  br i1 %call3.i, label %return, label %if.end.i
 
-if.end:                                           ; preds = %land.lhs.true.i, %entry
+if.end.i:                                         ; preds = %land.lhs.true.i, %entry
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
   %state.i.i = getelementptr inbounds i8, ptr %1, i64 832
   %2 = load i8, ptr %state.i.i, align 8
   %cmp6.i.not = icmp eq i8 %2, 0
   br i1 %cmp6.i.not, label %tsd_fetch_impl.exit, label %if.then11.i
 
-if.then11.i:                                      ; preds = %if.end
+if.then11.i:                                      ; preds = %if.end.i
   %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %1, i1 noundef zeroext false) #19
   br label %tsd_fetch_impl.exit
 
-tsd_fetch_impl.exit:                              ; preds = %if.end, %if.then11.i
-  %retval.i13.0 = phi ptr [ %call13.i, %if.then11.i ], [ %1, %if.end ]
+tsd_fetch_impl.exit:                              ; preds = %if.end.i, %if.then11.i
+  %retval.i13.0 = phi ptr [ %call13.i, %if.then11.i ], [ %1, %if.end.i ]
   %call6 = tail call i32 @ctl_nametomib(ptr noundef %retval.i13.0, ptr noundef %name, ptr noundef %mibp, ptr noundef %miblenp) #19
   br label %return
 
@@ -8045,25 +8045,25 @@ define dso_local i32 @je_mallctlbymib(ptr noundef %mib, i64 noundef %miblen, ptr
 entry:
   %0 = load i32, ptr @malloc_init_state, align 4
   %cmp.i.not = icmp eq i32 %0, 0
-  br i1 %cmp.i.not, label %if.end, label %land.lhs.true.i
+  br i1 %cmp.i.not, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
   %call3.i = tail call fastcc zeroext i1 @malloc_init_hard()
-  br i1 %call3.i, label %return, label %if.end
+  br i1 %call3.i, label %return, label %if.end.i
 
-if.end:                                           ; preds = %land.lhs.true.i, %entry
+if.end.i:                                         ; preds = %land.lhs.true.i, %entry
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
   %state.i.i = getelementptr inbounds i8, ptr %1, i64 832
   %2 = load i8, ptr %state.i.i, align 8
   %cmp6.i.not = icmp eq i8 %2, 0
   br i1 %cmp6.i.not, label %tsd_fetch_impl.exit, label %if.then11.i
 
-if.then11.i:                                      ; preds = %if.end
+if.then11.i:                                      ; preds = %if.end.i
   %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %1, i1 noundef zeroext false) #19
   br label %tsd_fetch_impl.exit
 
-tsd_fetch_impl.exit:                              ; preds = %if.end, %if.then11.i
-  %retval.i13.0 = phi ptr [ %call13.i, %if.then11.i ], [ %1, %if.end ]
+tsd_fetch_impl.exit:                              ; preds = %if.end.i, %if.then11.i
+  %retval.i13.0 = phi ptr [ %call13.i, %if.then11.i ], [ %1, %if.end.i ]
   %call6 = tail call i32 @ctl_bymib(ptr noundef %retval.i13.0, ptr noundef %mib, i64 noundef %miblen, ptr noundef %oldp, ptr noundef %oldlenp, ptr noundef %newp, i64 noundef %newlen) #19
   br label %return
 
@@ -12975,7 +12975,7 @@ declare zeroext i1 @arena_ralloc_no_move(ptr noundef, ptr noundef, i64 noundef, 
 declare void @te_event_trigger(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @malloc_init_hard() unnamed_addr #1 {
+define internal fastcc noundef zeroext i1 @malloc_init_hard() unnamed_addr #1 {
 entry:
   %set.i1.i = alloca %struct.cpu_set_t, align 8
   %set.i.i = alloca %struct.cpu_set_t, align 8
@@ -13469,15 +13469,18 @@ tsd_fetch_impl.exit:                              ; preds = %post_reentrancy.exi
   %retval.i.0 = phi ptr [ %call13.i, %if.then11.i ], [ %47, %post_reentrancy.exit ]
   %49 = load i8, ptr @opt_background_thread, align 1
   %tobool = trunc i8 %49 to i1
-  br i1 %tobool, label %do.end, label %return
+  br i1 %tobool, label %do.end, label %if.end32
 
 do.end:                                           ; preds = %tsd_fetch_impl.exit
   call void @background_thread_ctl_init(ptr noundef %retval.i.0) #19
   %call29 = call zeroext i1 @background_thread_create(ptr noundef %retval.i.0, i32 noundef 0) #19
+  br i1 %call29, label %return, label %if.end32
+
+if.end32:                                         ; preds = %do.end, %tsd_fetch_impl.exit
   br label %return
 
-return:                                           ; preds = %if.then15.i, %if.then.i.i.i59, %if.then16, %do.end, %tsd_fetch_impl.exit, %malloc_init_hard_recursible.exit, %if.end3, %if.then20, %if.then2, %if.then
-  %retval.0 = phi i1 [ true, %if.then2 ], [ true, %if.then20 ], [ false, %if.then ], [ true, %if.end3 ], [ true, %malloc_init_hard_recursible.exit ], [ false, %tsd_fetch_impl.exit ], [ %call29, %do.end ], [ true, %if.then16 ], [ true, %if.then.i.i.i59 ], [ true, %if.then15.i ]
+return:                                           ; preds = %if.then15.i, %if.then.i.i.i59, %if.then16, %do.end, %malloc_init_hard_recursible.exit, %if.end3, %if.end32, %if.then20, %if.then2, %if.then
+  %retval.0 = phi i1 [ true, %if.then2 ], [ true, %if.then20 ], [ false, %if.end32 ], [ false, %if.then ], [ true, %if.end3 ], [ true, %malloc_init_hard_recursible.exit ], [ true, %do.end ], [ true, %if.then16 ], [ true, %if.then.i.i.i59 ], [ true, %if.then15.i ]
   ret i1 %retval.0
 }
 

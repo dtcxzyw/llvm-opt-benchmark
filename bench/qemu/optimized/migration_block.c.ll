@@ -1241,19 +1241,21 @@ if.end21:                                         ; preds = %if.end18
   %4 = add i32 %3, -1
   %5 = icmp ult i32 %4, 1048576
   %or.cond1 = select i1 %cmp24, i1 %5, i1 false
-  br i1 %or.cond1, label %land.lhs.true34, label %if.end42
+  br i1 %or.cond1, label %land.lhs.true34, label %if.else
 
 land.lhs.true34:                                  ; preds = %if.end21
-  %rem51 = urem i32 1048576, %3
-  %cmp37 = icmp eq i32 %rem51, 0
-  %spec.select49 = select i1 %cmp37, i32 %3, i32 1048576
+  %rem50 = urem i32 1048576, %3
+  %cmp37 = icmp eq i32 %rem50, 0
+  br i1 %cmp37, label %if.end42, label %if.else
+
+if.else:                                          ; preds = %land.lhs.true34, %if.end21
   br label %if.end42
 
-if.end42:                                         ; preds = %land.lhs.true34, %if.end21, %if.end
-  %blk_prev.1 = phi ptr [ %blk_prev.0, %if.end ], [ %call6, %if.end21 ], [ %call6, %land.lhs.true34 ]
-  %total_sectors.1 = phi i64 [ %total_sectors.0, %if.end ], [ %call13, %if.end21 ], [ %call13, %land.lhs.true34 ]
-  %ret.1 = phi i32 [ 0, %if.end ], [ %call23, %if.end21 ], [ 0, %land.lhs.true34 ]
-  %cluster_size.1 = phi i32 [ %cluster_size.0, %if.end ], [ 1048576, %if.end21 ], [ %spec.select49, %land.lhs.true34 ]
+if.end42:                                         ; preds = %land.lhs.true34, %if.else, %if.end
+  %blk_prev.1 = phi ptr [ %call6, %if.else ], [ %blk_prev.0, %if.end ], [ %call6, %land.lhs.true34 ]
+  %total_sectors.1 = phi i64 [ %call13, %if.else ], [ %total_sectors.0, %if.end ], [ %call13, %land.lhs.true34 ]
+  %ret.1 = phi i32 [ %call23, %if.else ], [ 0, %if.end ], [ 0, %land.lhs.true34 ]
+  %cluster_size.1 = phi i32 [ 1048576, %if.else ], [ %cluster_size.0, %if.end ], [ %3, %land.lhs.true34 ]
   %cluster_size.1.fr = freeze i32 %cluster_size.1
   %and50 = and i32 %0, 8
   %tobool51.not = icmp eq i32 %and50, 0
@@ -1271,14 +1273,14 @@ if.else56:                                        ; preds = %if.end42
   %call57 = call noalias dereferenceable_or_null(1048576) ptr @g_malloc(i64 noundef 1048576) #14
   %call58 = call i64 @qemu_get_buffer(ptr noundef %f, ptr noundef %call57, i64 noundef 1048576) #13
   %conv60 = zext nneg i32 %cluster_size.1.fr to i64
-  %cmp6156.not = icmp ugt i32 %cluster_size.1.fr, 1048576
-  br i1 %cmp6156.not, label %for.end, label %for.body.lr.ph
+  %cmp6155.not = icmp ugt i32 %cluster_size.1.fr, 1048576
+  br i1 %cmp6155.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.else56
-  %div50 = udiv i32 1048576, %cluster_size.1.fr
+  %div49 = udiv i32 1048576, %cluster_size.1.fr
   %mul63 = and i64 %call, -512
   %cmp69 = icmp eq i32 %cluster_size.1.fr, 1048576
-  %6 = zext nneg i32 %div50 to i64
+  %6 = zext nneg i32 %div49 to i64
   br i1 %cmp69, label %for.body, label %for.body.us
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %if.end81.us
@@ -1308,8 +1310,8 @@ if.end81.us:                                      ; preds = %if.else78.us, %if.t
   br i1 %or.cond, label %for.body.us, label %for.end, !llvm.loop !21
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end81
-  %indvars.iv69 = phi i64 [ %indvars.iv.next70, %if.end81 ], [ 0, %for.body.lr.ph ]
-  %8 = trunc nuw nsw i64 %indvars.iv69 to i32
+  %indvars.iv68 = phi i64 [ %indvars.iv.next69, %if.end81 ], [ 0, %for.body.lr.ph ]
+  %8 = trunc nuw nsw i64 %indvars.iv68 to i32
   %mul64 = shl i32 %8, 20
   %conv65 = sext i32 %mul64 to i64
   %add = add i64 %mul63, %conv65
@@ -1333,10 +1335,10 @@ if.else78:                                        ; preds = %for.body, %land.lhs
 if.end81:                                         ; preds = %if.else78, %if.then75
   %ret.3 = phi i32 [ %call77, %if.then75 ], [ %call80, %if.else78 ]
   %cmp82 = icmp sgt i32 %ret.3, -1
-  %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
-  %cmp61 = icmp ult i64 %indvars.iv.next70, %6
-  %or.cond61 = select i1 %cmp82, i1 %cmp61, i1 false
-  br i1 %or.cond61, label %for.body, label %for.end, !llvm.loop !21
+  %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
+  %cmp61 = icmp ult i64 %indvars.iv.next69, %6
+  %or.cond60 = select i1 %cmp82, i1 %cmp61, i1 false
+  br i1 %or.cond60, label %for.body, label %for.end, !llvm.loop !21
 
 for.end:                                          ; preds = %if.end81.us, %if.end81, %if.else56
   %ret.4 = phi i32 [ %ret.1, %if.else56 ], [ %ret.3, %if.end81 ], [ %ret.3.us, %if.end81.us ]

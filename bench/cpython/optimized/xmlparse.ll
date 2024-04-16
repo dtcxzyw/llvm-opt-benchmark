@@ -1255,11 +1255,7 @@ if.end6:                                          ; preds = %if.end
   %2 = load ptr, ptr %m_protocolEncodingName, align 8
   tail call void %1(ptr noundef %2) #23
   %cmp7 = icmp eq ptr %encodingName, null
-  br i1 %cmp7, label %if.then8, label %while.cond.i
-
-if.then8:                                         ; preds = %if.end6
-  store ptr null, ptr %m_protocolEncodingName, align 8
-  br label %return
+  br i1 %cmp7, label %return.sink.split, label %while.cond.i
 
 while.cond.i:                                     ; preds = %if.end6, %while.cond.i
   %charsRequired.0.i = phi i64 [ %inc.i, %while.cond.i ], [ 0, %if.end6 ]
@@ -1273,20 +1269,21 @@ while.end.i:                                      ; preds = %while.cond.i
   %m_mem = getelementptr inbounds i8, ptr %parser, i64 24
   %4 = load ptr, ptr %m_mem, align 8
   %call.i = tail call ptr %4(i64 noundef %inc.i) #23
-  %cmp3.i = icmp ne ptr %call.i, null
-  br i1 %cmp3.i, label %if.end.i, label %copyString.exit
+  %cmp3.i = icmp eq ptr %call.i, null
+  br i1 %cmp3.i, label %return.sink.split, label %copyString.exit
 
-if.end.i:                                         ; preds = %while.end.i
+copyString.exit:                                  ; preds = %while.end.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i, ptr nonnull align 1 %encodingName, i64 %inc.i, i1 false)
-  br label %copyString.exit
+  br label %return.sink.split
 
-copyString.exit:                                  ; preds = %while.end.i, %if.end.i
-  store ptr %call.i, ptr %m_protocolEncodingName, align 8
-  %spec.select = zext i1 %cmp3.i to i32
+return.sink.split:                                ; preds = %while.end.i, %if.end6, %copyString.exit
+  %.sink = phi ptr [ %call.i, %copyString.exit ], [ null, %if.end6 ], [ null, %while.end.i ]
+  %retval.0.ph = phi i32 [ 1, %copyString.exit ], [ 1, %if.end6 ], [ 0, %while.end.i ]
+  store ptr %.sink, ptr %m_protocolEncodingName, align 8
   br label %return
 
-return:                                           ; preds = %copyString.exit, %if.then8, %if.end, %if.end, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 0, %if.end ], [ 0, %if.end ], [ 1, %if.then8 ], [ %spec.select, %copyString.exit ]
+return:                                           ; preds = %return.sink.split, %if.end, %if.end, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ 0, %if.end ], [ 0, %if.end ], [ %retval.0.ph, %return.sink.split ]
   ret i32 %retval.0
 }
 
@@ -4453,7 +4450,7 @@ land.lhs.true59:                                  ; preds = %if.end54
 
 cond.end69.thread:                                ; preds = %if.end54
   %cmp71.not118 = icmp sgt i32 %add55, 0
-  br i1 %cmp71.not118, label %do.body.preheader, label %if.then73
+  br i1 %cmp71.not118, label %cond.end135.thread, label %if.then73
 
 if.then73:                                        ; preds = %cond.end69.thread, %land.lhs.true59
   %conv74 = sext i32 %spec.store.select to i64
@@ -4481,13 +4478,13 @@ cond.end87.thread.cond.end104_crit_edge:          ; preds = %cond.end87.thread
 
 land.lhs.true94:                                  ; preds = %land.lhs.true77
   %10 = trunc i64 %sub.ptr.sub85 to i32
-  %spec.select125 = select i1 %tobool79.not, i32 0, i32 %10
+  %spec.select124 = select i1 %tobool79.not, i32 0, i32 %10
   br label %cond.end104
 
 cond.end104:                                      ; preds = %land.lhs.true94, %cond.end87.thread.cond.end104_crit_edge
   %sub.ptr.rhs.cast113.pre-phi = phi i64 [ 0, %cond.end87.thread.cond.end104_crit_edge ], [ %sub.ptr.lhs.cast83, %land.lhs.true94 ]
   %11 = phi ptr [ %.pre, %cond.end87.thread.cond.end104_crit_edge ], [ %9, %land.lhs.true94 ]
-  %cond105 = phi i32 [ 0, %cond.end87.thread.cond.end104_crit_edge ], [ %spec.select125, %land.lhs.true94 ]
+  %cond105 = phi i32 [ 0, %cond.end87.thread.cond.end104_crit_edge ], [ %spec.select124, %land.lhs.true94 ]
   %sub107 = sub i32 %cond105, %spec.store.select
   %idxprom = sext i32 %sub107 to i64
   %arrayidx = getelementptr i8, ptr %11, i64 %idxprom
@@ -4504,19 +4501,19 @@ cond.end104:                                      ; preds = %land.lhs.true94, %c
   br label %if.end214.sink.split
 
 if.else:                                          ; preds = %land.lhs.true59
-  br i1 %tobool33.not, label %do.body.preheader, label %cond.end135
-
-cond.end135:                                      ; preds = %if.else
   %sub.ptr.rhs.cast132 = ptrtoint ptr %5 to i64
   %sub.ptr.sub133 = sub i64 %sub.ptr.lhs.cast65, %sub.ptr.rhs.cast132
   %sub.ptr.sub133.fr = freeze i64 %sub.ptr.sub133
   %14 = trunc i64 %sub.ptr.sub133.fr to i32
   %cmp138 = icmp eq i32 %14, 0
-  %spec.select = select i1 %cmp138, i32 1024, i32 %14
+  %or.cond = or i1 %tobool33.not, %cmp138
+  br i1 %or.cond, label %cond.end135.thread, label %do.body.preheader
+
+cond.end135.thread:                               ; preds = %if.else, %cond.end69.thread
   br label %do.body.preheader
 
-do.body.preheader:                                ; preds = %cond.end135, %if.else, %cond.end69.thread
-  %bufferSize.0.ph = phi i32 [ %spec.select, %cond.end135 ], [ 1024, %cond.end69.thread ], [ 1024, %if.else ]
+do.body.preheader:                                ; preds = %if.else, %cond.end135.thread
+  %bufferSize.0.ph = phi i32 [ %14, %if.else ], [ 1024, %cond.end135.thread ]
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %do.body
@@ -10667,7 +10664,7 @@ if.end50.i:                                       ; preds = %if.end43.i, %if.end
   br i1 %tobool.not.i, label %return, label %while.body.i, !llvm.loop !46
 
 return:                                           ; preds = %while.body.i, %if.end50.i, %if.then16.i, %if.end.i, %if.then, %entry
-  %retval.0 = phi i32 [ %call, %entry ], [ 0, %if.then ], [ 0, %while.body.i ], [ 0, %if.end50.i ], [ 1, %if.end.i ], [ 1, %if.then16.i ]
+  %retval.0 = phi i32 [ %call, %entry ], [ 0, %if.then ], [ 0, %while.body.i ], [ 0, %if.end50.i ], [ 1, %if.then16.i ], [ 1, %if.end.i ]
   ret i32 %retval.0
 }
 
@@ -10756,18 +10753,20 @@ if.end4:                                          ; preds = %if.end
 if.then6:                                         ; preds = %if.end4
   %10 = load ptr, ptr %start.i.i, align 8
   store ptr %10, ptr %ptr1.i.i, align 8
-  br label %return
+  br label %if.end18
 
 if.else:                                          ; preds = %if.end4
   %11 = load ptr, ptr %ptr1.i.i, align 8
   store ptr %11, ptr %start.i.i, align 8
   %call14 = call fastcc i32 @setElementTypePrefix(ptr noundef %parser, ptr noundef nonnull %call1), !range !17
   %tobool15.not = icmp eq i32 %call14, 0
-  %spec.select = select i1 %tobool15.not, ptr null, ptr %call1
+  br i1 %tobool15.not, label %return, label %if.end18
+
+if.end18:                                         ; preds = %if.else, %if.then6
   br label %return
 
-return:                                           ; preds = %poolAppend.exit.thread.i, %land.lhs.true.i, %poolAppend.exit.i, %if.else, %if.then6, %if.end, %poolStoreString.exit
-  %retval.0 = phi ptr [ null, %poolStoreString.exit ], [ null, %if.end ], [ %call1, %if.then6 ], [ %spec.select, %if.else ], [ null, %poolAppend.exit.i ], [ null, %land.lhs.true.i ], [ null, %poolAppend.exit.thread.i ]
+return:                                           ; preds = %poolAppend.exit.thread.i, %land.lhs.true.i, %poolAppend.exit.i, %if.else, %if.end, %poolStoreString.exit, %if.end18
+  %retval.0 = phi ptr [ %call1, %if.end18 ], [ null, %poolStoreString.exit ], [ null, %if.end ], [ null, %if.else ], [ null, %poolAppend.exit.i ], [ null, %land.lhs.true.i ], [ null, %poolAppend.exit.thread.i ]
   ret ptr %retval.0
 }
 
@@ -18055,24 +18054,28 @@ for.body.lr.ph.split.us:                          ; preds = %if.then21
 
 for.body.us.us:                                   ; preds = %for.body.lr.ph.split.us, %if.end65.us.us
   %9 = phi i8 [ %11, %if.end65.us.us ], [ %0, %for.body.lr.ph.split.us ]
-  %idxprom108.us.us = phi i64 [ %idxprom.us.us, %if.end65.us.us ], [ 0, %for.body.lr.ph.split.us ]
-  %len.0107.us.us = phi i32 [ %inc.us.us, %if.end65.us.us ], [ 0, %for.body.lr.ph.split.us ]
-  %isXML.0105.us.us = phi i8 [ %isXML.1.us.us, %if.end65.us.us ], [ 1, %for.body.lr.ph.split.us ]
-  %tobool52.not.us.us = icmp eq i8 %isXML.0105.us.us, 0
-  %cmp54.us.us = icmp sgt i32 %len.0107.us.us, 36
-  %or.cond100.us.us = or i1 %tobool52.not.us.us, %cmp54.us.us
-  br i1 %or.cond100.us.us, label %if.end65.us.us, label %lor.lhs.false.us.us
+  %idxprom104.us.us = phi i64 [ %idxprom.us.us, %if.end65.us.us ], [ 0, %for.body.lr.ph.split.us ]
+  %len.0103.us.us = phi i32 [ %inc.us.us, %if.end65.us.us ], [ 0, %for.body.lr.ph.split.us ]
+  %isXML.0101.us.us = phi i8 [ %isXML.1.us.us, %if.end65.us.us ], [ 1, %for.body.lr.ph.split.us ]
+  %tobool52.not.us.us = icmp eq i8 %isXML.0101.us.us, 0
+  br i1 %tobool52.not.us.us, label %if.end65.us.us, label %land.lhs.true53.us.us
 
-lor.lhs.false.us.us:                              ; preds = %for.body.us.us
-  %arrayidx60.us.us = getelementptr [37 x i8], ptr @addBinding.xmlNamespace, i64 0, i64 %idxprom108.us.us
+land.lhs.true53.us.us:                            ; preds = %for.body.us.us
+  %cmp54.us.us = icmp sgt i32 %len.0103.us.us, 36
+  br i1 %cmp54.us.us, label %if.then64.us.us, label %lor.lhs.false.us.us
+
+lor.lhs.false.us.us:                              ; preds = %land.lhs.true53.us.us
+  %arrayidx60.us.us = getelementptr [37 x i8], ptr @addBinding.xmlNamespace, i64 0, i64 %idxprom104.us.us
   %10 = load i8, ptr %arrayidx60.us.us, align 1
   %cmp62.not.us.us = icmp eq i8 %9, %10
-  %spec.select92.us.us = select i1 %cmp62.not.us.us, i8 %isXML.0105.us.us, i8 0
+  br i1 %cmp62.not.us.us, label %if.end65.us.us, label %if.then64.us.us
+
+if.then64.us.us:                                  ; preds = %lor.lhs.false.us.us, %land.lhs.true53.us.us
   br label %if.end65.us.us
 
-if.end65.us.us:                                   ; preds = %lor.lhs.false.us.us, %for.body.us.us
-  %isXML.1.us.us = phi i8 [ 0, %for.body.us.us ], [ %spec.select92.us.us, %lor.lhs.false.us.us ]
-  %inc.us.us = add i32 %len.0107.us.us, 1
+if.end65.us.us:                                   ; preds = %if.then64.us.us, %lor.lhs.false.us.us, %for.body.us.us
+  %isXML.1.us.us = phi i8 [ 0, %if.then64.us.us ], [ %isXML.0101.us.us, %lor.lhs.false.us.us ], [ 0, %for.body.us.us ]
+  %inc.us.us = add i32 %len.0103.us.us, 1
   %idxprom.us.us = sext i32 %inc.us.us to i64
   %arrayidx49.us.us = getelementptr i8, ptr %uri, i64 %idxprom.us.us
   %11 = load i8, ptr %arrayidx49.us.us, align 1
@@ -18086,23 +18089,27 @@ for.body.lr.ph.split.us.split:                    ; preds = %for.body.lr.ph.spli
 
 for.body.us:                                      ; preds = %for.inc.us, %for.body.lr.ph.split.us.split
   %13 = phi i8 [ %0, %for.body.lr.ph.split.us.split ], [ %15, %for.inc.us ]
-  %idxprom108.us = phi i64 [ 0, %for.body.lr.ph.split.us.split ], [ %idxprom.us, %for.inc.us ]
-  %len.0107.us = phi i32 [ 0, %for.body.lr.ph.split.us.split ], [ %inc.us, %for.inc.us ]
-  %isXML.0105.us = phi i8 [ 1, %for.body.lr.ph.split.us.split ], [ %isXML.1.us, %for.inc.us ]
-  %tobool52.not.us = icmp eq i8 %isXML.0105.us, 0
-  %cmp54.us = icmp sgt i32 %len.0107.us, 36
-  %or.cond100.us = or i1 %tobool52.not.us, %cmp54.us
-  br i1 %or.cond100.us, label %if.end65.us, label %lor.lhs.false.us
+  %idxprom104.us = phi i64 [ 0, %for.body.lr.ph.split.us.split ], [ %idxprom.us, %for.inc.us ]
+  %len.0103.us = phi i32 [ 0, %for.body.lr.ph.split.us.split ], [ %inc.us, %for.inc.us ]
+  %isXML.0101.us = phi i8 [ 1, %for.body.lr.ph.split.us.split ], [ %isXML.1.us, %for.inc.us ]
+  %tobool52.not.us = icmp eq i8 %isXML.0101.us, 0
+  br i1 %tobool52.not.us, label %if.end65.us, label %land.lhs.true53.us
 
-lor.lhs.false.us:                                 ; preds = %for.body.us
-  %arrayidx60.us = getelementptr [37 x i8], ptr @addBinding.xmlNamespace, i64 0, i64 %idxprom108.us
+land.lhs.true53.us:                               ; preds = %for.body.us
+  %cmp54.us = icmp sgt i32 %len.0103.us, 36
+  br i1 %cmp54.us, label %if.then64.us, label %lor.lhs.false.us
+
+lor.lhs.false.us:                                 ; preds = %land.lhs.true53.us
+  %arrayidx60.us = getelementptr [37 x i8], ptr @addBinding.xmlNamespace, i64 0, i64 %idxprom104.us
   %14 = load i8, ptr %arrayidx60.us, align 1
   %cmp62.not.us = icmp eq i8 %13, %14
-  %spec.select92.us = select i1 %cmp62.not.us, i8 %isXML.0105.us, i8 0
+  br i1 %cmp62.not.us, label %if.end65.us, label %if.then64.us
+
+if.then64.us:                                     ; preds = %lor.lhs.false.us, %land.lhs.true53.us
   br label %if.end65.us
 
-if.end65.us:                                      ; preds = %lor.lhs.false.us, %for.body.us
-  %isXML.1.us = phi i8 [ 0, %for.body.us ], [ %spec.select92.us, %lor.lhs.false.us ]
+if.end65.us:                                      ; preds = %if.then64.us, %lor.lhs.false.us, %for.body.us
+  %isXML.1.us = phi i8 [ 0, %if.then64.us ], [ %isXML.0101.us, %lor.lhs.false.us ], [ 0, %for.body.us ]
   %cmp91.us = icmp eq i8 %13, %12
   br i1 %cmp91.us, label %land.lhs.true93.us, label %for.inc.us
 
@@ -18196,7 +18203,7 @@ land.lhs.true93.us:                               ; preds = %if.end65.us
   ]
 
 for.inc.us:                                       ; preds = %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %land.lhs.true93.us, %if.end65.us
-  %inc.us = add i32 %len.0107.us, 1
+  %inc.us = add i32 %len.0103.us, 1
   %idxprom.us = sext i32 %inc.us to i64
   %arrayidx49.us = getelementptr i8, ptr %uri, i64 %idxprom.us
   %15 = load i8, ptr %arrayidx49.us, align 1
@@ -18204,91 +18211,107 @@ for.inc.us:                                       ; preds = %land.lhs.true93.us,
   br i1 %tobool50.not.us, label %for.end, label %for.body.us, !llvm.loop !84
 
 for.body.lr.ph.split:                             ; preds = %if.then21, %land.lhs.true27, %land.lhs.true33, %if.end, %land.lhs.true4, %land.lhs.true9, %land.lhs.true15
-  %m_ns161 = getelementptr inbounds i8, ptr %parser, i64 456
-  %16 = load i8, ptr %m_ns161, align 8
-  %tobool85.not162 = icmp eq i8 %16, 0
-  br i1 %tobool85.not162, label %for.body.us113, label %for.body.lr.ph.split.split
+  %m_ns157 = getelementptr inbounds i8, ptr %parser, i64 456
+  %16 = load i8, ptr %m_ns157, align 8
+  %tobool85.not158 = icmp eq i8 %16, 0
+  br i1 %tobool85.not158, label %for.body.us109, label %for.body.lr.ph.split.split
 
-for.body.us113:                                   ; preds = %for.body.lr.ph.split, %if.end83.us127
-  %17 = phi i8 [ %20, %if.end83.us127 ], [ %0, %for.body.lr.ph.split ]
-  %idxprom108.us114 = phi i64 [ %idxprom.us131, %if.end83.us127 ], [ 0, %for.body.lr.ph.split ]
-  %len.0107.us115 = phi i32 [ %inc.us130, %if.end83.us127 ], [ 0, %for.body.lr.ph.split ]
-  %isXMLNS.0106.us116 = phi i8 [ %isXMLNS.1.us128, %if.end83.us127 ], [ 1, %for.body.lr.ph.split ]
-  %isXML.0105.us117 = phi i8 [ %isXML.1.us126, %if.end83.us127 ], [ 1, %for.body.lr.ph.split ]
-  %tobool52.not.us118 = icmp eq i8 %isXML.0105.us117, 0
-  %cmp54.us119 = icmp sgt i32 %len.0107.us115, 36
-  %or.cond100.us120 = or i1 %tobool52.not.us118, %cmp54.us119
-  br i1 %or.cond100.us120, label %if.end65.us125, label %lor.lhs.false.us121
+for.body.us109:                                   ; preds = %for.body.lr.ph.split, %if.end83.us123
+  %17 = phi i8 [ %20, %if.end83.us123 ], [ %0, %for.body.lr.ph.split ]
+  %idxprom104.us110 = phi i64 [ %idxprom.us127, %if.end83.us123 ], [ 0, %for.body.lr.ph.split ]
+  %len.0103.us111 = phi i32 [ %inc.us126, %if.end83.us123 ], [ 0, %for.body.lr.ph.split ]
+  %isXMLNS.0102.us112 = phi i8 [ %isXMLNS.1.us124, %if.end83.us123 ], [ 1, %for.body.lr.ph.split ]
+  %isXML.0101.us113 = phi i8 [ %isXML.1.us122, %if.end83.us123 ], [ 1, %for.body.lr.ph.split ]
+  %tobool52.not.us114 = icmp eq i8 %isXML.0101.us113, 0
+  br i1 %tobool52.not.us114, label %if.end65.us121, label %land.lhs.true53.us115
 
-lor.lhs.false.us121:                              ; preds = %for.body.us113
-  %arrayidx60.us122 = getelementptr [37 x i8], ptr @addBinding.xmlNamespace, i64 0, i64 %idxprom108.us114
-  %18 = load i8, ptr %arrayidx60.us122, align 1
-  %cmp62.not.us123 = icmp eq i8 %17, %18
-  %spec.select92.us124 = select i1 %cmp62.not.us123, i8 %isXML.0105.us117, i8 0
-  br label %if.end65.us125
+land.lhs.true53.us115:                            ; preds = %for.body.us109
+  %cmp54.us116 = icmp sgt i32 %len.0103.us111, 36
+  br i1 %cmp54.us116, label %if.then64.us120, label %lor.lhs.false.us117
 
-if.end65.us125:                                   ; preds = %lor.lhs.false.us121, %for.body.us113
-  %isXML.1.us126 = phi i8 [ 0, %for.body.us113 ], [ %spec.select92.us124, %lor.lhs.false.us121 ]
-  %tobool69.us.not = icmp eq i8 %isXMLNS.0106.us116, 0
-  %cmp71.us = icmp sgt i32 %len.0107.us115, 29
-  %or.cond = or i1 %tobool69.us.not, %cmp71.us
-  br i1 %or.cond, label %if.end83.us127, label %lor.lhs.false73.us
+lor.lhs.false.us117:                              ; preds = %land.lhs.true53.us115
+  %arrayidx60.us118 = getelementptr [37 x i8], ptr @addBinding.xmlNamespace, i64 0, i64 %idxprom104.us110
+  %18 = load i8, ptr %arrayidx60.us118, align 1
+  %cmp62.not.us119 = icmp eq i8 %17, %18
+  br i1 %cmp62.not.us119, label %if.end65.us121, label %if.then64.us120
 
-lor.lhs.false73.us:                               ; preds = %if.end65.us125
-  %arrayidx78.us = getelementptr [30 x i8], ptr @addBinding.xmlnsNamespace, i64 0, i64 %idxprom108.us114
+if.then64.us120:                                  ; preds = %lor.lhs.false.us117, %land.lhs.true53.us115
+  br label %if.end65.us121
+
+if.end65.us121:                                   ; preds = %if.then64.us120, %lor.lhs.false.us117, %for.body.us109
+  %isXML.1.us122 = phi i8 [ 0, %if.then64.us120 ], [ %isXML.0101.us113, %lor.lhs.false.us117 ], [ 0, %for.body.us109 ]
+  %tobool69.us.not = icmp eq i8 %isXMLNS.0102.us112, 0
+  br i1 %tobool69.us.not, label %if.end83.us123, label %land.lhs.true70.us
+
+land.lhs.true70.us:                               ; preds = %if.end65.us121
+  %cmp71.us = icmp sgt i32 %len.0103.us111, 29
+  br i1 %cmp71.us, label %if.then82.us, label %lor.lhs.false73.us
+
+lor.lhs.false73.us:                               ; preds = %land.lhs.true70.us
+  %arrayidx78.us = getelementptr [30 x i8], ptr @addBinding.xmlnsNamespace, i64 0, i64 %idxprom104.us110
   %19 = load i8, ptr %arrayidx78.us, align 1
   %cmp80.not.us = icmp eq i8 %17, %19
-  %spec.select93.us = select i1 %cmp80.not.us, i8 %isXMLNS.0106.us116, i8 0
-  br label %if.end83.us127
+  br i1 %cmp80.not.us, label %if.end83.us123, label %if.then82.us
 
-if.end83.us127:                                   ; preds = %lor.lhs.false73.us, %if.end65.us125
-  %isXMLNS.1.us128 = phi i8 [ 0, %if.end65.us125 ], [ %spec.select93.us, %lor.lhs.false73.us ]
-  %inc.us130 = add i32 %len.0107.us115, 1
-  %idxprom.us131 = sext i32 %inc.us130 to i64
-  %arrayidx49.us132 = getelementptr i8, ptr %uri, i64 %idxprom.us131
-  %20 = load i8, ptr %arrayidx49.us132, align 1
-  %tobool50.not.us133 = icmp eq i8 %20, 0
-  br i1 %tobool50.not.us133, label %for.end, label %for.body.us113, !llvm.loop !84
+if.then82.us:                                     ; preds = %lor.lhs.false73.us, %land.lhs.true70.us
+  br label %if.end83.us123
+
+if.end83.us123:                                   ; preds = %if.then82.us, %lor.lhs.false73.us, %if.end65.us121
+  %isXMLNS.1.us124 = phi i8 [ 0, %if.then82.us ], [ %isXMLNS.0102.us112, %lor.lhs.false73.us ], [ 0, %if.end65.us121 ]
+  %inc.us126 = add i32 %len.0103.us111, 1
+  %idxprom.us127 = sext i32 %inc.us126 to i64
+  %arrayidx49.us128 = getelementptr i8, ptr %uri, i64 %idxprom.us127
+  %20 = load i8, ptr %arrayidx49.us128, align 1
+  %tobool50.not.us129 = icmp eq i8 %20, 0
+  br i1 %tobool50.not.us129, label %for.end, label %for.body.us109, !llvm.loop !84
 
 for.body.lr.ph.split.split:                       ; preds = %for.body.lr.ph.split
-  %m_namespaceSeparator163 = getelementptr inbounds i8, ptr %parser, i64 892
-  %21 = load i8, ptr %m_namespaceSeparator163, align 4
+  %m_namespaceSeparator159 = getelementptr inbounds i8, ptr %parser, i64 892
+  %21 = load i8, ptr %m_namespaceSeparator159, align 4
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph.split.split, %for.inc
   %22 = phi i8 [ %0, %for.body.lr.ph.split.split ], [ %25, %for.inc ]
-  %idxprom108 = phi i64 [ 0, %for.body.lr.ph.split.split ], [ %idxprom, %for.inc ]
-  %len.0107 = phi i32 [ 0, %for.body.lr.ph.split.split ], [ %inc, %for.inc ]
-  %isXMLNS.0106 = phi i8 [ 1, %for.body.lr.ph.split.split ], [ %isXMLNS.1, %for.inc ]
-  %isXML.0105 = phi i8 [ 1, %for.body.lr.ph.split.split ], [ %isXML.1, %for.inc ]
-  %tobool52.not = icmp eq i8 %isXML.0105, 0
-  %cmp54 = icmp sgt i32 %len.0107, 36
-  %or.cond100 = or i1 %tobool52.not, %cmp54
-  br i1 %or.cond100, label %if.end65, label %lor.lhs.false
+  %idxprom104 = phi i64 [ 0, %for.body.lr.ph.split.split ], [ %idxprom, %for.inc ]
+  %len.0103 = phi i32 [ 0, %for.body.lr.ph.split.split ], [ %inc, %for.inc ]
+  %isXMLNS.0102 = phi i8 [ 1, %for.body.lr.ph.split.split ], [ %isXMLNS.1, %for.inc ]
+  %isXML.0101 = phi i8 [ 1, %for.body.lr.ph.split.split ], [ %isXML.1, %for.inc ]
+  %tobool52.not = icmp eq i8 %isXML.0101, 0
+  br i1 %tobool52.not, label %if.end65, label %land.lhs.true53
 
-lor.lhs.false:                                    ; preds = %for.body
-  %arrayidx60 = getelementptr [37 x i8], ptr @addBinding.xmlNamespace, i64 0, i64 %idxprom108
+land.lhs.true53:                                  ; preds = %for.body
+  %cmp54 = icmp sgt i32 %len.0103, 36
+  br i1 %cmp54, label %if.then64, label %lor.lhs.false
+
+lor.lhs.false:                                    ; preds = %land.lhs.true53
+  %arrayidx60 = getelementptr [37 x i8], ptr @addBinding.xmlNamespace, i64 0, i64 %idxprom104
   %23 = load i8, ptr %arrayidx60, align 1
   %cmp62.not = icmp eq i8 %22, %23
-  %spec.select92 = select i1 %cmp62.not, i8 %isXML.0105, i8 0
+  br i1 %cmp62.not, label %if.end65, label %if.then64
+
+if.then64:                                        ; preds = %lor.lhs.false, %land.lhs.true53
   br label %if.end65
 
-if.end65:                                         ; preds = %lor.lhs.false, %for.body
-  %isXML.1 = phi i8 [ 0, %for.body ], [ %spec.select92, %lor.lhs.false ]
-  %tobool69.not = icmp eq i8 %isXMLNS.0106, 0
-  %cmp71 = icmp sgt i32 %len.0107, 29
-  %or.cond175 = or i1 %tobool69.not, %cmp71
-  br i1 %or.cond175, label %if.end83, label %lor.lhs.false73
+if.end65:                                         ; preds = %if.then64, %lor.lhs.false, %for.body
+  %isXML.1 = phi i8 [ 0, %if.then64 ], [ %isXML.0101, %lor.lhs.false ], [ 0, %for.body ]
+  %tobool69.not = icmp eq i8 %isXMLNS.0102, 0
+  br i1 %tobool69.not, label %if.end83, label %land.lhs.true70
 
-lor.lhs.false73:                                  ; preds = %if.end65
-  %arrayidx78 = getelementptr [30 x i8], ptr @addBinding.xmlnsNamespace, i64 0, i64 %idxprom108
+land.lhs.true70:                                  ; preds = %if.end65
+  %cmp71 = icmp sgt i32 %len.0103, 29
+  br i1 %cmp71, label %if.then82, label %lor.lhs.false73
+
+lor.lhs.false73:                                  ; preds = %land.lhs.true70
+  %arrayidx78 = getelementptr [30 x i8], ptr @addBinding.xmlnsNamespace, i64 0, i64 %idxprom104
   %24 = load i8, ptr %arrayidx78, align 1
   %cmp80.not = icmp eq i8 %22, %24
-  %spec.select93 = select i1 %cmp80.not, i8 %isXMLNS.0106, i8 0
+  br i1 %cmp80.not, label %if.end83, label %if.then82
+
+if.then82:                                        ; preds = %lor.lhs.false73, %land.lhs.true70
   br label %if.end83
 
-if.end83:                                         ; preds = %lor.lhs.false73, %if.end65
-  %isXMLNS.1 = phi i8 [ 0, %if.end65 ], [ %spec.select93, %lor.lhs.false73 ]
+if.end83:                                         ; preds = %if.then82, %lor.lhs.false73, %if.end65
+  %isXMLNS.1 = phi i8 [ 0, %if.then82 ], [ %isXMLNS.0102, %lor.lhs.false73 ], [ 0, %if.end65 ]
   %cmp91 = icmp eq i8 %22, %21
   br i1 %cmp91, label %land.lhs.true93, label %for.inc
 
@@ -18382,24 +18405,24 @@ land.lhs.true93:                                  ; preds = %if.end83
   ]
 
 for.inc:                                          ; preds = %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %land.lhs.true93, %if.end83
-  %inc = add i32 %len.0107, 1
+  %inc = add i32 %len.0103, 1
   %idxprom = sext i32 %inc to i64
   %arrayidx49 = getelementptr i8, ptr %uri, i64 %idxprom
   %25 = load i8, ptr %arrayidx49, align 1
   %tobool50.not = icmp eq i8 %25, 0
   br i1 %tobool50.not, label %for.end, label %for.body, !llvm.loop !84
 
-for.end:                                          ; preds = %for.inc.us, %if.end65.us.us, %for.inc, %if.end83.us127, %land.lhs.true
-  %mustBeXML.0157 = phi i8 [ 0, %land.lhs.true ], [ 0, %if.end83.us127 ], [ 0, %for.inc ], [ 1, %if.end65.us.us ], [ 1, %for.inc.us ]
-  %tobool118.not154 = phi i32 [ 40, %land.lhs.true ], [ 40, %if.end83.us127 ], [ 40, %for.inc ], [ 38, %if.end65.us.us ], [ 38, %for.inc.us ]
-  %isXML.0.lcssa = phi i8 [ 1, %land.lhs.true ], [ %isXML.1.us126, %if.end83.us127 ], [ %isXML.1, %for.inc ], [ %isXML.1.us.us, %if.end65.us.us ], [ %isXML.1.us, %for.inc.us ]
-  %isXMLNS.0.lcssa = phi i8 [ 1, %land.lhs.true ], [ %isXMLNS.1.us128, %if.end83.us127 ], [ %isXMLNS.1, %for.inc ], [ 1, %if.end65.us.us ], [ 1, %for.inc.us ]
-  %len.0.lcssa = phi i32 [ 0, %land.lhs.true ], [ %inc.us130, %if.end83.us127 ], [ %inc, %for.inc ], [ %inc.us.us, %if.end65.us.us ], [ %inc.us, %for.inc.us ]
+for.end:                                          ; preds = %for.inc.us, %if.end65.us.us, %for.inc, %if.end83.us123, %land.lhs.true
+  %mustBeXML.0153 = phi i8 [ 0, %land.lhs.true ], [ 0, %if.end83.us123 ], [ 0, %for.inc ], [ 1, %if.end65.us.us ], [ 1, %for.inc.us ]
+  %tobool118.not150 = phi i32 [ 40, %land.lhs.true ], [ 40, %if.end83.us123 ], [ 40, %for.inc ], [ 38, %if.end65.us.us ], [ 38, %for.inc.us ]
+  %isXML.0.lcssa = phi i8 [ 1, %land.lhs.true ], [ %isXML.1.us122, %if.end83.us123 ], [ %isXML.1, %for.inc ], [ %isXML.1.us.us, %if.end65.us.us ], [ %isXML.1.us, %for.inc.us ]
+  %isXMLNS.0.lcssa = phi i8 [ 1, %land.lhs.true ], [ %isXMLNS.1.us124, %if.end83.us123 ], [ %isXMLNS.1, %for.inc ], [ 1, %if.end65.us.us ], [ 1, %for.inc.us ]
+  %len.0.lcssa = phi i32 [ 0, %land.lhs.true ], [ %inc.us126, %if.end83.us123 ], [ %inc, %for.inc ], [ %inc.us.us, %if.end65.us.us ], [ %inc.us, %for.inc.us ]
   %tobool100 = icmp ne i8 %isXML.0.lcssa, 0
   %cmp101 = icmp eq i32 %len.0.lcssa, 36
   %26 = and i1 %tobool100, %cmp101
   %27 = zext i1 %26 to i8
-  %cmp114.not = icmp eq i8 %mustBeXML.0157, %27
+  %cmp114.not = icmp eq i8 %mustBeXML.0153, %27
   br i1 %cmp114.not, label %if.end119, label %return
 
 if.end119:                                        ; preds = %for.end
@@ -18459,8 +18482,8 @@ if.else:                                          ; preds = %if.end122
   %call151 = tail call ptr %35(i64 noundef 48) #23
   %tobool152.not = icmp eq ptr %call151, null
   %cmp155 = icmp sgt i32 %spec.select, 2147483623
-  %or.cond94 = select i1 %tobool152.not, i1 true, i1 %cmp155
-  br i1 %or.cond94, label %return, label %if.end158
+  %or.cond92 = select i1 %tobool152.not, i1 true, i1 %cmp155
+  br i1 %or.cond92, label %return, label %if.end158
 
 if.end158:                                        ; preds = %if.else
   %36 = load ptr, ptr %m_mem150, align 8
@@ -18513,18 +18536,20 @@ if.end184:                                        ; preds = %if.then179, %if.end
   store ptr %41, ptr %prevPrefixBinding, align 8
   %42 = load i8, ptr %uri, align 1
   %cmp188 = icmp eq i8 %42, 0
-  br i1 %cmp188, label %land.lhs.true190, label %if.end197
+  br i1 %cmp188, label %land.lhs.true190, label %if.else195
 
 land.lhs.true190:                                 ; preds = %if.end184
   %m_dtd = getelementptr inbounds i8, ptr %parser, i64 672
   %43 = load ptr, ptr %m_dtd, align 8
   %defaultPrefix = getelementptr inbounds i8, ptr %43, i64 304
   %cmp191 = icmp eq ptr %defaultPrefix, %prefix
-  %spec.select95 = select i1 %cmp191, ptr null, ptr %b.0
+  br i1 %cmp191, label %if.end197, label %if.else195
+
+if.else195:                                       ; preds = %land.lhs.true190, %if.end184
   br label %if.end197
 
-if.end197:                                        ; preds = %land.lhs.true190, %if.end184
-  %storemerge = phi ptr [ %b.0, %if.end184 ], [ %spec.select95, %land.lhs.true190 ]
+if.end197:                                        ; preds = %land.lhs.true190, %if.else195
+  %storemerge = phi ptr [ %b.0, %if.else195 ], [ null, %land.lhs.true190 ]
   store ptr %storemerge, ptr %binding, align 8
   %44 = load ptr, ptr %bindingsPtr, align 8
   %nextTagBinding198 = getelementptr inbounds i8, ptr %b.0, i64 8
@@ -18550,7 +18575,7 @@ if.then202:                                       ; preds = %land.lhs.true200
   br label %return
 
 return:                                           ; preds = %land.lhs.true93.us, %land.lhs.true93, %if.end197, %land.lhs.true200, %if.then202, %if.else, %if.end137, %if.then133, %if.end119, %for.end, %land.lhs.true33, %land.lhs.true, %if.then168
-  %retval.0 = phi i32 [ 1, %if.then168 ], [ 28, %land.lhs.true ], [ 39, %land.lhs.true33 ], [ %tobool118.not154, %for.end ], [ 40, %if.end119 ], [ 1, %if.then133 ], [ 1, %if.end137 ], [ 1, %if.else ], [ 0, %if.then202 ], [ 0, %land.lhs.true200 ], [ 0, %if.end197 ], [ 2, %land.lhs.true93 ], [ 2, %land.lhs.true93.us ]
+  %retval.0 = phi i32 [ 1, %if.then168 ], [ 28, %land.lhs.true ], [ 39, %land.lhs.true33 ], [ %tobool118.not150, %for.end ], [ 40, %if.end119 ], [ 1, %if.then133 ], [ 1, %if.end137 ], [ 1, %if.else ], [ 0, %if.then202 ], [ 0, %land.lhs.true200 ], [ 0, %if.end197 ], [ 2, %land.lhs.true93 ], [ 2, %land.lhs.true93.us ]
   ret i32 %retval.0
 }
 
@@ -18659,7 +18684,7 @@ if.end50.i:                                       ; preds = %if.end43.i, %if.end
   br i1 %tobool.not.i, label %return, label %while.body.i, !llvm.loop !46
 
 return:                                           ; preds = %while.body.i, %if.end50.i, %if.then16.i, %if.end.i, %if.then, %entry
-  %retval.0 = phi i32 [ %call, %entry ], [ 0, %if.then ], [ 0, %while.body.i ], [ 0, %if.end50.i ], [ 1, %if.end.i ], [ 1, %if.then16.i ]
+  %retval.0 = phi i32 [ %call, %entry ], [ 0, %if.then ], [ 0, %while.body.i ], [ 0, %if.end50.i ], [ 1, %if.then16.i ], [ 1, %if.end.i ]
   ret i32 %retval.0
 }
 
@@ -19494,16 +19519,18 @@ if.else48:                                        ; preds = %if.end34
   %conv57 = zext i1 %tobool54.not to i8
   %call58 = call fastcc i32 @doContent(ptr noundef nonnull %parser, i32 noundef %cond, ptr noundef %36, ptr noundef %s, ptr noundef %end, ptr noundef %nextPtr, i8 noundef zeroext %conv57, i32 noundef 0)
   %cmp59 = icmp eq i32 %call58, 0
-  br i1 %cmp59, label %if.then61, label %return
+  br i1 %cmp59, label %if.then61, label %if.end66
 
 if.then61:                                        ; preds = %if.else48
   %call62 = call fastcc zeroext i8 @storeRawNames(ptr noundef nonnull %parser), !range !13
-  %38 = xor i8 %call62, 1
-  %spec.select = zext nneg i8 %38 to i32
+  %tobool63.not = icmp eq i8 %call62, 0
+  br i1 %tobool63.not, label %return, label %if.end66
+
+if.end66:                                         ; preds = %if.then61, %if.else48
   br label %return
 
-return:                                           ; preds = %if.then61, %if.else48, %land.lhs.true28, %if.end12, %entry, %if.then37, %if.then17
-  %retval.0 = phi i32 [ 0, %if.then17 ], [ %call47, %if.then37 ], [ 23, %entry ], [ %result.0, %if.end12 ], [ 0, %land.lhs.true28 ], [ %call58, %if.else48 ], [ %spec.select, %if.then61 ]
+return:                                           ; preds = %if.then61, %land.lhs.true28, %if.end12, %entry, %if.end66, %if.then37, %if.then17
+  %retval.0 = phi i32 [ 0, %if.then17 ], [ %call47, %if.then37 ], [ %call58, %if.end66 ], [ 23, %entry ], [ %result.0, %if.end12 ], [ 0, %land.lhs.true28 ], [ 1, %if.then61 ]
   ret i32 %retval.0
 }
 

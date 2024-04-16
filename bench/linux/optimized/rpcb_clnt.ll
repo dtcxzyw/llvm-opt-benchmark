@@ -403,23 +403,25 @@ define dso_local i32 @rpcb_register(ptr noundef %0, i32 noundef %1, i32 noundef 
   %48 = load i8, ptr %47, align 8
   %49 = and i8 %48, 1
   %50 = icmp eq i8 %49, 0
-  %spec.select = select i1 %50, i32 1024, i32 8192
-  br label %51
+  br i1 %50, label %51, label %52
 
 51:                                               ; preds = %46, %41
-  %52 = phi i32 [ 1024, %41 ], [ %spec.select, %46 ]
-  %53 = getelementptr inbounds i8, ptr %8, i64 16
-  store ptr %6, ptr %53, align 8
-  %54 = call i32 @rpc_call_sync(ptr noundef %45, ptr noundef nonnull %8, i32 noundef %52) #10
-  %55 = icmp slt i32 %54, 0
-  %56 = load i32, ptr %6, align 4
-  %57 = icmp eq i32 %56, 0
-  %58 = select i1 %57, i32 -13, i32 0
-  %59 = select i1 %55, i32 %54, i32 %58
+  br label %52
+
+52:                                               ; preds = %51, %46
+  %53 = phi i32 [ 1024, %51 ], [ 8192, %46 ]
+  %54 = getelementptr inbounds i8, ptr %8, i64 16
+  store ptr %6, ptr %54, align 8
+  %55 = call i32 @rpc_call_sync(ptr noundef %45, ptr noundef nonnull %8, i32 noundef %53) #10
+  %56 = icmp slt i32 %55, 0
+  %57 = load i32, ptr %6, align 4
+  %58 = icmp eq i32 %57, 0
+  %59 = select i1 %58, i32 -13, i32 0
+  %60 = select i1 %56, i32 %55, i32 %59
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #10
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #10
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #10
-  ret i32 %59
+  ret i32 %60
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -460,7 +462,7 @@ define dso_local i32 @rpcb_v4_register(ptr noundef %0, i32 noundef %1, i32 nound
   %24 = getelementptr inbounds i8, ptr %23, i64 120
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %140, label %27
+  br i1 %26, label %142, label %27
 
 27:                                               ; preds = %5
   %28 = icmp eq ptr %3, null
@@ -529,7 +531,7 @@ define dso_local i32 @rpcb_v4_register(ptr noundef %0, i32 noundef %1, i32 nound
   %65 = select i1 %64, i32 -13, i32 0
   %66 = select i1 %62, i32 %61, i32 %65
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #10
-  br label %140
+  br label %142
 
 67:                                               ; preds = %27
   %68 = load ptr, ptr %15, align 8
@@ -575,9 +577,9 @@ define dso_local i32 @rpcb_v4_register(ptr noundef %0, i32 noundef %1, i32 nound
 
 90:                                               ; preds = %87, %83, %70, %67
   %91 = load i16, ptr %3, align 2
-  switch i16 %91, label %140 [
+  switch i16 %91, label %142 [
     i16 2, label %92
-    i16 10, label %116
+    i16 10, label %117
   ]
 
 92:                                               ; preds = %90
@@ -600,67 +602,71 @@ define dso_local i32 @rpcb_v4_register(ptr noundef %0, i32 noundef %1, i32 nound
   %103 = load i8, ptr %102, align 8
   %104 = and i8 %103, 1
   %105 = icmp eq i8 %104, 0
-  %spec.select = select i1 %105, i32 1024, i32 8192
-  br label %106
+  br i1 %105, label %106, label %107
 
 106:                                              ; preds = %101, %92
-  %107 = phi i32 [ 1024, %92 ], [ %spec.select, %101 ]
-  %108 = getelementptr inbounds i8, ptr %10, i64 16
-  store ptr %7, ptr %108, align 8
-  %109 = call i32 @rpc_call_sync(ptr noundef %100, ptr noundef nonnull %10, i32 noundef %107) #10
-  %110 = icmp slt i32 %109, 0
-  %111 = load i32, ptr %7, align 4
-  %112 = icmp eq i32 %111, 0
-  %113 = select i1 %112, i32 -13, i32 0
-  %114 = select i1 %110, i32 %109, i32 %113
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #10
-  %115 = load ptr, ptr %97, align 8
-  call void @kfree(ptr noundef %115) #10
-  br label %140
+  br label %107
 
-116:                                              ; preds = %90
-  %117 = load ptr, ptr %17, align 8
-  %118 = getelementptr inbounds i8, ptr %3, i64 2
-  %119 = load i16, ptr %118, align 2
-  %120 = call ptr @rpc_sockaddr2uaddr(ptr noundef nonnull %3, i32 noundef 3264) #10
-  %121 = getelementptr inbounds i8, ptr %117, i64 32
-  store ptr %120, ptr %121, align 8
-  %122 = icmp eq i16 %119, 0
-  %123 = select i1 %122, ptr getelementptr inbounds ([4 x %struct.rpc_procinfo], ptr @rpcb_procedures4, i64 0, i64 2), ptr getelementptr inbounds ([4 x %struct.rpc_procinfo], ptr @rpcb_procedures4, i64 0, i64 1)
-  store ptr %123, ptr %10, align 8
-  %124 = load ptr, ptr %24, align 8
+107:                                              ; preds = %106, %101
+  %108 = phi i32 [ 1024, %106 ], [ 8192, %101 ]
+  %109 = getelementptr inbounds i8, ptr %10, i64 16
+  store ptr %7, ptr %109, align 8
+  %110 = call i32 @rpc_call_sync(ptr noundef %100, ptr noundef nonnull %10, i32 noundef %108) #10
+  %111 = icmp slt i32 %110, 0
+  %112 = load i32, ptr %7, align 4
+  %113 = icmp eq i32 %112, 0
+  %114 = select i1 %113, i32 -13, i32 0
+  %115 = select i1 %111, i32 %110, i32 %114
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #10
+  %116 = load ptr, ptr %97, align 8
+  call void @kfree(ptr noundef %116) #10
+  br label %142
+
+117:                                              ; preds = %90
+  %118 = load ptr, ptr %17, align 8
+  %119 = getelementptr inbounds i8, ptr %3, i64 2
+  %120 = load i16, ptr %119, align 2
+  %121 = call ptr @rpc_sockaddr2uaddr(ptr noundef nonnull %3, i32 noundef 3264) #10
+  %122 = getelementptr inbounds i8, ptr %118, i64 32
+  store ptr %121, ptr %122, align 8
+  %123 = icmp eq i16 %120, 0
+  %124 = select i1 %123, ptr getelementptr inbounds ([4 x %struct.rpc_procinfo], ptr @rpcb_procedures4, i64 0, i64 2), ptr getelementptr inbounds ([4 x %struct.rpc_procinfo], ptr @rpcb_procedures4, i64 0, i64 1)
+  store ptr %124, ptr %10, align 8
+  %125 = load ptr, ptr %24, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #10
   store i32 0, ptr %6, align 4
-  br i1 %122, label %125, label %130
+  br i1 %123, label %126, label %131
 
-125:                                              ; preds = %116
-  %126 = getelementptr inbounds i8, ptr %23, i64 136
-  %127 = load i8, ptr %126, align 8
-  %128 = and i8 %127, 1
-  %129 = icmp eq i8 %128, 0
-  %spec.select1 = select i1 %129, i32 1024, i32 8192
-  br label %130
+126:                                              ; preds = %117
+  %127 = getelementptr inbounds i8, ptr %23, i64 136
+  %128 = load i8, ptr %127, align 8
+  %129 = and i8 %128, 1
+  %130 = icmp eq i8 %129, 0
+  br i1 %130, label %131, label %132
 
-130:                                              ; preds = %125, %116
-  %131 = phi i32 [ 1024, %116 ], [ %spec.select1, %125 ]
-  %132 = getelementptr inbounds i8, ptr %10, i64 16
-  store ptr %6, ptr %132, align 8
-  %133 = call i32 @rpc_call_sync(ptr noundef %124, ptr noundef nonnull %10, i32 noundef %131) #10
-  %134 = icmp slt i32 %133, 0
-  %135 = load i32, ptr %6, align 4
-  %136 = icmp eq i32 %135, 0
-  %137 = select i1 %136, i32 -13, i32 0
-  %138 = select i1 %134, i32 %133, i32 %137
+131:                                              ; preds = %126, %117
+  br label %132
+
+132:                                              ; preds = %131, %126
+  %133 = phi i32 [ 1024, %131 ], [ 8192, %126 ]
+  %134 = getelementptr inbounds i8, ptr %10, i64 16
+  store ptr %6, ptr %134, align 8
+  %135 = call i32 @rpc_call_sync(ptr noundef %125, ptr noundef nonnull %10, i32 noundef %133) #10
+  %136 = icmp slt i32 %135, 0
+  %137 = load i32, ptr %6, align 4
+  %138 = icmp eq i32 %137, 0
+  %139 = select i1 %138, i32 -13, i32 0
+  %140 = select i1 %136, i32 %135, i32 %139
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #10
-  %139 = load ptr, ptr %121, align 8
-  call void @kfree(ptr noundef %139) #10
-  br label %140
+  %141 = load ptr, ptr %122, align 8
+  call void @kfree(ptr noundef %141) #10
+  br label %142
 
-140:                                              ; preds = %130, %106, %90, %53, %5
-  %141 = phi i32 [ %66, %53 ], [ %138, %130 ], [ %114, %106 ], [ -93, %5 ], [ -97, %90 ]
+142:                                              ; preds = %132, %107, %90, %53, %5
+  %143 = phi i32 [ %66, %53 ], [ %140, %132 ], [ %115, %107 ], [ -93, %5 ], [ -97, %90 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #10
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9) #10
-  ret i32 %141
+  ret i32 %143
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

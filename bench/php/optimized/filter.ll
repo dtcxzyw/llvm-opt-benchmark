@@ -657,14 +657,16 @@ define ptr @php_stream_filter_create(ptr noundef %0, ptr noundef %1, i8 noundef 
   %33 = load ptr, ptr %32, align 8
   %34 = tail call ptr %33(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) #14
   %35 = icmp eq ptr %34, null
-  br i1 %35, label %.sink.split, label %37
+  br i1 %35, label %.thread85, label %37
 
 36:                                               ; preds = %30
-  %spec.select = select i1 %.not61, ptr @.str, ptr @.str.1
+  br i1 %.not61, label %.sink.split, label %.thread85
+
+.thread85:                                        ; preds = %.thread, %36
   br label %.sink.split
 
-.sink.split:                                      ; preds = %36, %.thread, %8, %.thread90
-  %.str.sink = phi ptr [ @.str, %.thread90 ], [ @.str, %8 ], [ @.str.1, %.thread ], [ %spec.select, %36 ]
+.sink.split:                                      ; preds = %36, %8, %.thread90, %.thread85
+  %.str.sink = phi ptr [ @.str.1, %.thread85 ], [ @.str, %.thread90 ], [ @.str, %8 ], [ @.str, %36 ]
   tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull %.str.sink, ptr noundef %0) #14
   br label %37
 

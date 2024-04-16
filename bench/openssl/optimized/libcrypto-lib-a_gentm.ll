@@ -36,7 +36,7 @@ asn1_generalizedtime_to_tm.exit:                  ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ASN1_GENERALIZEDTIME_set_string(ptr noundef %s, ptr noundef %str) local_unnamed_addr #0 {
+define noundef i32 @ASN1_GENERALIZEDTIME_set_string(ptr noundef %s, ptr noundef %str) local_unnamed_addr #0 {
 ASN1_GENERALIZEDTIME_check.exit:
   %t = alloca %struct.asn1_string_st, align 8
   %type = getelementptr inbounds i8, ptr %t, i64 4
@@ -54,16 +54,18 @@ ASN1_GENERALIZEDTIME_check.exit:
 
 if.end:                                           ; preds = %ASN1_GENERALIZEDTIME_check.exit
   %cmp.not = icmp eq ptr %s, null
-  br i1 %cmp.not, label %return, label %land.lhs.true
+  br i1 %cmp.not, label %if.end6, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
   %call3 = call i32 @ASN1_STRING_copy(ptr noundef nonnull %s, ptr noundef nonnull %t) #4
-  %tobool4.not = icmp ne i32 %call3, 0
-  %spec.select = zext i1 %tobool4.not to i32
+  %tobool4.not = icmp eq i32 %call3, 0
+  br i1 %tobool4.not, label %return, label %if.end6
+
+if.end6:                                          ; preds = %land.lhs.true, %if.end
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %if.end, %ASN1_GENERALIZEDTIME_check.exit
-  %retval.0 = phi i32 [ 0, %ASN1_GENERALIZEDTIME_check.exit ], [ 1, %if.end ], [ %spec.select, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %ASN1_GENERALIZEDTIME_check.exit, %if.end6
+  %retval.0 = phi i32 [ 1, %if.end6 ], [ 0, %ASN1_GENERALIZEDTIME_check.exit ], [ 0, %land.lhs.true ]
   ret i32 %retval.0
 }
 

@@ -1761,47 +1761,53 @@ define internal noundef i32 @pci_plx9050_init(ptr noundef %0) #0 align 16 {
   %19 = load i16, ptr %18, align 2
   %20 = zext i16 %19 to i32
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %8, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.8, i32 noundef %11, i32 noundef %14, i32 noundef %17, i32 noundef %20) #16
-  br label %43
+  br label %47
 
 21:                                               ; preds = %1
   %22 = getelementptr inbounds i8, ptr %0, i64 60
   %23 = load i16, ptr %22, align 4
   %24 = icmp eq i16 %23, 5332
-  br i1 %24, label %.thread, label %25
+  br i1 %24, label %29, label %25
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds i8, ptr %0, i64 64
   %27 = load i16, ptr %26, align 8
   %28 = icmp eq i16 %27, -10163
-  %spec.select = select i1 %28, i8 67, i8 65
-  %29 = icmp eq i16 %23, 4277
-  br i1 %29, label %30, label %.thread
+  br i1 %28, label %29, label %30
 
-30:                                               ; preds = %25
-  %31 = getelementptr inbounds i8, ptr %0, i64 62
-  %32 = load i16, ptr %31, align 2
-  %33 = icmp eq i16 %32, 4202
-  %34 = select i1 %33, i8 91, i8 %spec.select
-  br label %.thread
+29:                                               ; preds = %25, %21
+  br label %30
 
-.thread:                                          ; preds = %21, %30, %25
-  %35 = phi i8 [ %spec.select, %25 ], [ %34, %30 ], [ 67, %21 ]
-  %36 = load i64, ptr %2, align 8
-  %37 = tail call ptr @ioremap(i64 noundef %36, i64 noundef 128) #14
-  %38 = icmp eq ptr %37, null
-  br i1 %38, label %43, label %39
+30:                                               ; preds = %29, %25
+  %31 = phi i8 [ 67, %29 ], [ 65, %25 ]
+  %32 = icmp eq i16 %23, 4277
+  br i1 %32, label %33, label %38
 
-39:                                               ; preds = %.thread
-  %40 = zext nneg i8 %35 to i32
-  %41 = getelementptr i8, ptr %37, i64 76
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %40, ptr elementtype(i32) %41) #14, !srcloc !17
-  %42 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %41) #14, !srcloc !16
-  tail call void @iounmap(ptr noundef nonnull %37) #14
-  br label %43
+33:                                               ; preds = %30
+  %34 = getelementptr inbounds i8, ptr %0, i64 62
+  %35 = load i16, ptr %34, align 2
+  %36 = icmp eq i16 %35, 4202
+  %37 = select i1 %36, i8 91, i8 %31
+  br label %38
 
-43:                                               ; preds = %39, %.thread, %7
-  %44 = phi i32 [ 0, %7 ], [ 0, %39 ], [ -12, %.thread ]
-  ret i32 %44
+38:                                               ; preds = %33, %30
+  %39 = phi i8 [ %31, %30 ], [ %37, %33 ]
+  %40 = load i64, ptr %2, align 8
+  %41 = tail call ptr @ioremap(i64 noundef %40, i64 noundef 128) #14
+  %42 = icmp eq ptr %41, null
+  br i1 %42, label %47, label %43
+
+43:                                               ; preds = %38
+  %44 = zext nneg i8 %39 to i32
+  %45 = getelementptr i8, ptr %41, i64 76
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %44, ptr elementtype(i32) %45) #14, !srcloc !17
+  %46 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %45) #14, !srcloc !16
+  tail call void @iounmap(ptr noundef nonnull %41) #14
+  br label %47
+
+47:                                               ; preds = %43, %38, %7
+  %48 = phi i32 [ 0, %7 ], [ 0, %43 ], [ -12, %38 ]
+  ret i32 %48
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

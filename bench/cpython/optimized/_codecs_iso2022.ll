@@ -1853,7 +1853,7 @@ define internal zeroext i16 @ksx1001_encoder(ptr nocapture noundef readonly %cod
 entry:
   %0 = load i32, ptr %data, align 4
   %cmp = icmp ult i32 %0, 65536
-  br i1 %cmp, label %if.then, label %return
+  br i1 %cmp, label %if.then, label %if.end44
 
 if.then:                                          ; preds = %entry
   %modstate = getelementptr inbounds i8, ptr %codec, i64 72
@@ -1865,7 +1865,7 @@ if.then:                                          ; preds = %entry
   %arrayidx = getelementptr %struct.unim_index, ptr %2, i64 %idxprom
   %3 = load ptr, ptr %arrayidx, align 8
   %cmp1.not = icmp eq ptr %3, null
-  br i1 %cmp1.not, label %return, label %land.lhs.true
+  br i1 %cmp1.not, label %if.end44, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then
   %and = and i32 %0, 255
@@ -1873,25 +1873,28 @@ land.lhs.true:                                    ; preds = %if.then
   %4 = load i8, ptr %bottom, align 8
   %conv = zext i8 %4 to i32
   %cmp7.not = icmp ult i32 %and, %conv
-  br i1 %cmp7.not, label %return, label %land.lhs.true9
+  br i1 %cmp7.not, label %if.end44, label %land.lhs.true9
 
 land.lhs.true9:                                   ; preds = %land.lhs.true
   %top = getelementptr inbounds i8, ptr %arrayidx, i64 9
   %5 = load i8, ptr %top, align 1
   %conv16 = zext i8 %5 to i32
   %cmp17.not = icmp ugt i32 %and, %conv16
-  br i1 %cmp17.not, label %return, label %land.lhs.true19
+  br i1 %cmp17.not, label %if.end44, label %land.lhs.true19
 
 land.lhs.true19:                                  ; preds = %land.lhs.true9
   %sub = sub nsw i32 %and, %conv
   %idxprom34 = zext i32 %sub to i64
   %arrayidx35 = getelementptr i16, ptr %3, i64 %idxprom34
   %6 = load i16, ptr %arrayidx35, align 2
-  %spec.select = tail call i16 @llvm.smax.i16(i16 %6, i16 -1)
+  %tobool.not = icmp sgt i16 %6, -1
+  br i1 %tobool.not, label %return, label %if.end44
+
+if.end44:                                         ; preds = %if.then, %land.lhs.true, %land.lhs.true9, %land.lhs.true19, %entry
   br label %return
 
-return:                                           ; preds = %land.lhs.true19, %entry, %land.lhs.true9, %land.lhs.true, %if.then
-  %retval.0 = phi i16 [ -1, %if.then ], [ -1, %land.lhs.true ], [ -1, %land.lhs.true9 ], [ -1, %entry ], [ %spec.select, %land.lhs.true19 ]
+return:                                           ; preds = %land.lhs.true19, %if.end44
+  %retval.0 = phi i16 [ -1, %if.end44 ], [ %6, %land.lhs.true19 ]
   ret i16 %retval.0
 }
 
@@ -2079,7 +2082,7 @@ define internal zeroext i16 @jisx0208_encoder(ptr nocapture noundef readonly %co
 entry:
   %0 = load i32, ptr %data, align 4
   %cmp = icmp ult i32 %0, 65536
-  br i1 %cmp, label %if.then, label %return
+  br i1 %cmp, label %if.then, label %if.end47
 
 if.then:                                          ; preds = %entry
   %cmp1 = icmp eq i32 %0, 65340
@@ -2095,7 +2098,7 @@ if.else:                                          ; preds = %if.then
   %arrayidx = getelementptr %struct.unim_index, ptr %2, i64 %idxprom
   %3 = load ptr, ptr %arrayidx, align 8
   %cmp3.not = icmp eq ptr %3, null
-  br i1 %cmp3.not, label %return, label %land.lhs.true
+  br i1 %cmp3.not, label %if.end47, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.else
   %and = and i32 %0, 255
@@ -2103,25 +2106,28 @@ land.lhs.true:                                    ; preds = %if.else
   %4 = load i8, ptr %bottom, align 8
   %conv = zext i8 %4 to i32
   %cmp9.not = icmp ult i32 %and, %conv
-  br i1 %cmp9.not, label %return, label %land.lhs.true11
+  br i1 %cmp9.not, label %if.end47, label %land.lhs.true11
 
 land.lhs.true11:                                  ; preds = %land.lhs.true
   %top = getelementptr inbounds i8, ptr %arrayidx, i64 9
   %5 = load i8, ptr %top, align 1
   %conv18 = zext i8 %5 to i32
   %cmp19.not = icmp ugt i32 %and, %conv18
-  br i1 %cmp19.not, label %return, label %land.lhs.true21
+  br i1 %cmp19.not, label %if.end47, label %land.lhs.true21
 
 land.lhs.true21:                                  ; preds = %land.lhs.true11
   %sub = sub nsw i32 %and, %conv
   %idxprom36 = zext i32 %sub to i64
   %arrayidx37 = getelementptr i16, ptr %3, i64 %idxprom36
   %6 = load i16, ptr %arrayidx37, align 2
-  %spec.select = tail call i16 @llvm.smax.i16(i16 %6, i16 -1)
+  %tobool.not = icmp sgt i16 %6, -1
+  br i1 %tobool.not, label %return, label %if.end47
+
+if.end47:                                         ; preds = %land.lhs.true21, %land.lhs.true11, %land.lhs.true, %if.else, %entry
   br label %return
 
-return:                                           ; preds = %land.lhs.true21, %entry, %if.else, %land.lhs.true, %land.lhs.true11, %if.then
-  %retval.0 = phi i16 [ 8512, %if.then ], [ -1, %land.lhs.true11 ], [ -1, %land.lhs.true ], [ -1, %if.else ], [ -1, %entry ], [ %spec.select, %land.lhs.true21 ]
+return:                                           ; preds = %land.lhs.true21, %if.then, %if.end47
+  %retval.0 = phi i16 [ -1, %if.end47 ], [ 8512, %if.then ], [ %6, %land.lhs.true21 ]
   ret i16 %retval.0
 }
 
@@ -2369,7 +2375,7 @@ define internal zeroext i16 @gb2312_encoder(ptr nocapture noundef readonly %code
 entry:
   %0 = load i32, ptr %data, align 4
   %cmp = icmp ult i32 %0, 65536
-  br i1 %cmp, label %if.then, label %return
+  br i1 %cmp, label %if.then, label %if.end44
 
 if.then:                                          ; preds = %entry
   %modstate = getelementptr inbounds i8, ptr %codec, i64 72
@@ -2381,7 +2387,7 @@ if.then:                                          ; preds = %entry
   %arrayidx = getelementptr %struct.unim_index, ptr %2, i64 %idxprom
   %3 = load ptr, ptr %arrayidx, align 8
   %cmp1.not = icmp eq ptr %3, null
-  br i1 %cmp1.not, label %return, label %land.lhs.true
+  br i1 %cmp1.not, label %if.end44, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then
   %and = and i32 %0, 255
@@ -2389,25 +2395,28 @@ land.lhs.true:                                    ; preds = %if.then
   %4 = load i8, ptr %bottom, align 8
   %conv = zext i8 %4 to i32
   %cmp7.not = icmp ult i32 %and, %conv
-  br i1 %cmp7.not, label %return, label %land.lhs.true9
+  br i1 %cmp7.not, label %if.end44, label %land.lhs.true9
 
 land.lhs.true9:                                   ; preds = %land.lhs.true
   %top = getelementptr inbounds i8, ptr %arrayidx, i64 9
   %5 = load i8, ptr %top, align 1
   %conv16 = zext i8 %5 to i32
   %cmp17.not = icmp ugt i32 %and, %conv16
-  br i1 %cmp17.not, label %return, label %land.lhs.true19
+  br i1 %cmp17.not, label %if.end44, label %land.lhs.true19
 
 land.lhs.true19:                                  ; preds = %land.lhs.true9
   %sub = sub nsw i32 %and, %conv
   %idxprom34 = zext i32 %sub to i64
   %arrayidx35 = getelementptr i16, ptr %3, i64 %idxprom34
   %6 = load i16, ptr %arrayidx35, align 2
-  %spec.select = tail call i16 @llvm.smax.i16(i16 %6, i16 -1)
+  %tobool.not = icmp sgt i16 %6, -1
+  br i1 %tobool.not, label %return, label %if.end44
+
+if.end44:                                         ; preds = %if.then, %land.lhs.true, %land.lhs.true9, %land.lhs.true19, %entry
   br label %return
 
-return:                                           ; preds = %land.lhs.true19, %entry, %land.lhs.true9, %land.lhs.true, %if.then
-  %retval.0 = phi i16 [ -1, %if.then ], [ -1, %land.lhs.true ], [ -1, %land.lhs.true9 ], [ -1, %entry ], [ %spec.select, %land.lhs.true19 ]
+return:                                           ; preds = %land.lhs.true19, %if.end44
+  %retval.0 = phi i16 [ -1, %if.end44 ], [ %6, %land.lhs.true19 ]
   ret i16 %retval.0
 }
 
@@ -2783,7 +2792,7 @@ sw.bb:                                            ; preds = %entry
 if.then:                                          ; preds = %sw.bb
   %shr.mask = and i32 %1, -65536
   %cmp1 = icmp eq i32 %shr.mask, 131072
-  br i1 %cmp1, label %if.then2, label %return
+  br i1 %cmp1, label %if.then2, label %if.end56
 
 if.then2:                                         ; preds = %if.then
   %cmp3 = icmp eq ptr %config, inttoptr (i64 2000 to ptr)
@@ -2802,7 +2811,7 @@ if.else:                                          ; preds = %if.then2
   %arrayidx = getelementptr %struct.unim_index, ptr %3, i64 %idxprom
   %4 = load ptr, ptr %arrayidx, align 8
   %cmp7.not = icmp eq ptr %4, null
-  br i1 %cmp7.not, label %return, label %land.lhs.true8
+  br i1 %cmp7.not, label %if.end56, label %land.lhs.true8
 
 land.lhs.true8:                                   ; preds = %if.else
   %and10 = and i32 %1, 255
@@ -2810,20 +2819,24 @@ land.lhs.true8:                                   ; preds = %if.else
   %5 = load i8, ptr %bottom, align 8
   %conv = zext i8 %5 to i32
   %cmp17.not = icmp ult i32 %and10, %conv
-  br i1 %cmp17.not, label %return, label %land.lhs.true19
+  br i1 %cmp17.not, label %if.end56, label %land.lhs.true19
 
 land.lhs.true19:                                  ; preds = %land.lhs.true8
   %top = getelementptr inbounds i8, ptr %arrayidx, i64 9
   %6 = load i8, ptr %top, align 1
   %conv28 = zext i8 %6 to i32
   %cmp29.not = icmp ugt i32 %and10, %conv28
-  br i1 %cmp29.not, label %return, label %land.lhs.true31
+  br i1 %cmp29.not, label %if.end56, label %land.lhs.true31
 
 land.lhs.true31:                                  ; preds = %land.lhs.true19
   %sub = sub nsw i32 %and10, %conv
   %idxprom49 = zext i32 %sub to i64
   %arrayidx50 = getelementptr i16, ptr %4, i64 %idxprom49
   %7 = load i16, ptr %arrayidx50, align 2
+  %cmp52.not = icmp eq i16 %7, -1
+  br i1 %cmp52.not, label %if.end56, label %return
+
+if.end56:                                         ; preds = %land.lhs.true31, %land.lhs.true19, %land.lhs.true8, %if.else, %if.then
   br label %return
 
 if.end57:                                         ; preds = %sw.bb
@@ -3011,18 +3024,20 @@ for.end.i88:                                      ; preds = %for.inc.i82, %if.el
   %arrayidx22.i91 = getelementptr %struct.pair_encodemap, ptr %26, i64 %idxprom21.i90
   %28 = load i32, ptr %arrayidx22.i91, align 4
   %cmp24.i92 = icmp eq i32 %conv.i69, %28
-  br i1 %cmp24.i92, label %find_pairencmap.exit98, label %return
+  br i1 %cmp24.i92, label %find_pairencmap.exit98, label %find_pairencmap.exit98.thread
 
 find_pairencmap.exit98:                           ; preds = %for.end.i88
   %code.i95 = getelementptr inbounds i8, ptr %arrayidx22.i91, i64 4
   %29 = load i16, ptr %code.i95, align 4
   %.fr = freeze i16 %29
   %cmp230 = icmp eq i16 %.fr, -3
-  %spec.select = select i1 %cmp230, i16 -1, i16 %.fr
+  br i1 %cmp230, label %find_pairencmap.exit98.thread, label %return
+
+find_pairencmap.exit98.thread:                    ; preds = %for.end.i88, %find_pairencmap.exit98
   br label %return
 
-return:                                           ; preds = %find_pairencmap.exit98, %land.lhs.true60, %land.lhs.true60, %land.lhs.true60, %land.lhs.true60, %land.lhs.true60, %land.lhs.true60, %land.lhs.true60, %land.lhs.true60, %land.lhs.true60, %land.lhs.true60, %for.end.i88, %land.lhs.true31, %entry, %find_pairencmap.exit, %if.else154, %land.lhs.true162, %land.lhs.true173, %land.lhs.true184, %land.lhs.true127, %if.then, %if.else, %land.lhs.true8, %land.lhs.true19, %if.then2, %if.end214
-  %retval.0 = phi i16 [ %coded.0, %if.end214 ], [ -1, %if.then2 ], [ -1, %land.lhs.true19 ], [ -1, %land.lhs.true8 ], [ -1, %if.else ], [ -1, %if.then ], [ -1, %land.lhs.true60 ], [ -1, %land.lhs.true60 ], [ -1, %land.lhs.true60 ], [ -1, %land.lhs.true60 ], [ -1, %land.lhs.true60 ], [ -1, %land.lhs.true60 ], [ -1, %land.lhs.true60 ], [ -1, %land.lhs.true60 ], [ -1, %land.lhs.true60 ], [ -1, %land.lhs.true60 ], [ %13, %land.lhs.true127 ], [ -1, %land.lhs.true184 ], [ -1, %land.lhs.true173 ], [ -1, %land.lhs.true162 ], [ -1, %if.else154 ], [ %24, %find_pairencmap.exit ], [ -1, %entry ], [ %7, %land.lhs.true31 ], [ -1, %for.end.i88 ], [ %spec.select, %find_pairencmap.exit98 ]
+return:                                           ; preds = %land.lhs.true60, %land.lhs.true60, %land.lhs.true60, %land.lhs.true60, %land.lhs.true60, %land.lhs.true60, %land.lhs.true60, %land.lhs.true60, %land.lhs.true60, %land.lhs.true60, %find_pairencmap.exit98.thread, %find_pairencmap.exit98, %entry, %find_pairencmap.exit, %if.else154, %land.lhs.true162, %land.lhs.true173, %land.lhs.true184, %land.lhs.true127, %land.lhs.true31, %if.then2, %if.end214, %if.end56
+  %retval.0 = phi i16 [ -1, %if.end56 ], [ %coded.0, %if.end214 ], [ -1, %if.then2 ], [ %7, %land.lhs.true31 ], [ -1, %land.lhs.true60 ], [ -1, %land.lhs.true60 ], [ -1, %land.lhs.true60 ], [ -1, %land.lhs.true60 ], [ -1, %land.lhs.true60 ], [ -1, %land.lhs.true60 ], [ -1, %land.lhs.true60 ], [ -1, %land.lhs.true60 ], [ -1, %land.lhs.true60 ], [ -1, %land.lhs.true60 ], [ %13, %land.lhs.true127 ], [ -1, %land.lhs.true184 ], [ -1, %land.lhs.true173 ], [ -1, %land.lhs.true162 ], [ -1, %if.else154 ], [ %24, %find_pairencmap.exit ], [ -1, %entry ], [ -1, %find_pairencmap.exit98.thread ], [ %.fr, %find_pairencmap.exit98 ]
   ret i16 %retval.0
 }
 

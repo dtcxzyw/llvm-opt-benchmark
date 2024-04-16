@@ -5157,7 +5157,7 @@ check_host_whitelist.exit.thread.sink.split:      ; preds = %90, %91, %check_htt
   tail call void @php_url_free(ptr noundef nonnull %27) #16
   br label %check_host_whitelist.exit.thread
 
-check_host_whitelist.exit.thread:                 ; preds = %check_host_whitelist.exit.thread.sink.split, %check_host_whitelist.exit, %13, %22
+check_host_whitelist.exit.thread:                 ; preds = %check_host_whitelist.exit.thread.sink.split, %13, %22, %check_host_whitelist.exit
   %104 = getelementptr inbounds i8, ptr %0, i64 64
   %105 = load ptr, ptr %2, align 8
   %.not46 = icmp eq ptr %105, null
@@ -5272,13 +5272,15 @@ define internal fastcc void @handle_arg(ptr noundef %0, ptr noundef %1, ptr noun
   %37 = load i64, ptr %36, align 8
   %38 = tail call i32 @strncasecmp(ptr noundef nonnull %35, ptr noundef nonnull @.str.16, i64 noundef %37) #17
   %39 = icmp eq i32 %38, 0
-  %spec.select = zext i1 %39 to i32
-  br label %40
+  br i1 %39, label %41, label %40
 
 40:                                               ; preds = %33, %22
-  %.sink = phi i32 [ 0, %22 ], [ %spec.select, %33 ]
-  %41 = getelementptr inbounds i8, ptr %0, i64 156
-  store i32 %.sink, ptr %41, align 4
+  br label %41
+
+41:                                               ; preds = %33, %40
+  %.sink = phi i32 [ 0, %40 ], [ 1, %33 ]
+  %42 = getelementptr inbounds i8, ptr %0, i64 156
+  store i32 %.sink, ptr %42, align 4
   ret void
 }
 

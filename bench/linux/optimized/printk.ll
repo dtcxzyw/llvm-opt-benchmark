@@ -5252,7 +5252,7 @@ define internal fastcc i32 @try_enable_preferred_console(ptr noundef %0, i1 noun
   %45 = load ptr, ptr %44, align 8
   %46 = tail call i32 %41(ptr noundef %0, ptr noundef %45) #26
   %47 = icmp eq i32 %46, 0
-  br i1 %47, label %.loopexit, label %69
+  br i1 %47, label %.loopexit, label %70
 
 .loopexit:                                        ; preds = %18, %43, %.loopexit5
   %48 = getelementptr inbounds i8, ptr %0, i64 72
@@ -5261,12 +5261,12 @@ define internal fastcc i32 @try_enable_preferred_console(ptr noundef %0, i1 noun
   store i16 %50, ptr %48, align 8
   %51 = load i32, ptr @preferred_console, align 4
   %52 = icmp eq i32 %7, %51
-  br i1 %52, label %53, label %69
+  br i1 %52, label %53, label %70
 
 53:                                               ; preds = %.loopexit
   %54 = or i16 %49, 6
   store i16 %54, ptr %48, align 8
-  br label %69
+  br label %70
 
 55:                                               ; preds = %31, %25, %11
   %56 = add nuw nsw i32 %7, 1
@@ -5286,12 +5286,14 @@ define internal fastcc i32 @try_enable_preferred_console(ptr noundef %0, i1 noun
   %66 = getelementptr inbounds i8, ptr %60, i64 20
   %67 = load i8, ptr %66, align 4, !range !32, !noundef !33
   %68 = icmp eq i8 %67, %3
-  %spec.select = select i1 %68, i32 0, i32 -2
-  br label %69
+  br i1 %68, label %70, label %69
 
-69:                                               ; preds = %65, %59, %53, %.loopexit, %43
-  %70 = phi i32 [ %46, %43 ], [ 0, %53 ], [ 0, %.loopexit ], [ -2, %59 ], [ %spec.select, %65 ]
-  ret i32 %70
+69:                                               ; preds = %65, %59
+  br label %70
+
+70:                                               ; preds = %69, %65, %53, %.loopexit, %43
+  %71 = phi i32 [ -2, %69 ], [ %46, %43 ], [ 0, %53 ], [ 0, %.loopexit ], [ 0, %65 ]
+  ret i32 %71
 }
 
 ; Function Attrs: null_pointer_is_valid

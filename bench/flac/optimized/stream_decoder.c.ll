@@ -5219,7 +5219,7 @@ return.loopexit:                                  ; preds = %while.body, %while.
   br label %return
 
 return:                                           ; preds = %sw.bb1, %sw.bb, %while.body, %return.loopexit
-  %retval.0 = phi i32 [ 0, %while.body ], [ 0, %sw.bb1 ], [ 0, %sw.bb ], [ 1, %return.loopexit ]
+  %retval.0 = phi i32 [ 1, %return.loopexit ], [ 0, %while.body ], [ 0, %sw.bb ], [ 0, %sw.bb1 ]
   ret i32 %retval.0
 }
 
@@ -6208,8 +6208,8 @@ seek_to_absolute_sample_.exit:                    ; preds = %if.end253.split.us.
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %upper_bound.i)
   br label %return.sink.split.sink.split
 
-return.sink.split.sink.split:                     ; preds = %sw.bb.i, %sw.bb1.i, %while.body.i, %land.lhs.true.i.i, %FLAC__stream_decoder_flush.exit.i, %if.else59.i, %seek_to_absolute_sample_.exit, %return.sink.split.i, %if.end24
-  %retval.0.ph.ph = phi i32 [ 0, %if.end24 ], [ %retval.0.i67, %seek_to_absolute_sample_.exit ], [ 0, %return.sink.split.i ], [ 0, %FLAC__stream_decoder_flush.exit.i ], [ 1, %if.else59.i ], [ 0, %land.lhs.true.i.i ], [ 0, %while.body.i ], [ 0, %sw.bb1.i ], [ 0, %sw.bb.i ]
+return.sink.split.sink.split:                     ; preds = %sw.bb1.i, %sw.bb.i, %while.body.i, %land.lhs.true.i.i, %FLAC__stream_decoder_flush.exit.i, %if.else59.i, %seek_to_absolute_sample_.exit, %return.sink.split.i, %if.end24
+  %retval.0.ph.ph = phi i32 [ 0, %if.end24 ], [ %retval.0.i67, %seek_to_absolute_sample_.exit ], [ 0, %return.sink.split.i ], [ 0, %FLAC__stream_decoder_flush.exit.i ], [ 1, %if.else59.i ], [ 0, %land.lhs.true.i.i ], [ 0, %while.body.i ], [ 0, %sw.bb.i ], [ 0, %sw.bb1.i ]
   %148 = load ptr, ptr %private_, align 8
   br label %return.sink.split
 
@@ -7068,7 +7068,7 @@ return:                                           ; preds = %for.body, %if.end43
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @read_metadata_picture_(ptr nocapture noundef readonly %decoder, ptr noundef %obj) unnamed_addr #0 {
+define internal fastcc noundef i32 @read_metadata_picture_(ptr nocapture noundef readonly %decoder, ptr noundef %obj) unnamed_addr #0 {
 entry:
   %x = alloca i32, align 4
   %private_ = getelementptr inbounds i8, ptr %decoder, i64 8
@@ -7288,19 +7288,21 @@ if.then117:                                       ; preds = %if.end111
 
 if.end120:                                        ; preds = %if.end111
   %cmp122.not = icmp eq i32 %47, 0
-  br i1 %cmp122.not, label %return, label %if.then124
+  br i1 %cmp122.not, label %if.end133, label %if.then124
 
 if.then124:                                       ; preds = %if.end120
   %52 = load ptr, ptr %private_, align 8
   %input126 = getelementptr inbounds i8, ptr %52, i64 88
   %53 = load ptr, ptr %input126, align 8
   %call129 = call i32 @FLAC__bitreader_read_byte_block_aligned_no_crc(ptr noundef %53, ptr noundef nonnull %call.i, i32 noundef %47) #21
-  %tobool130.not = icmp ne i32 %call129, 0
-  %spec.select = zext i1 %tobool130.not to i32
+  %tobool130.not = icmp eq i32 %call129, 0
+  br i1 %tobool130.not, label %return, label %if.end133
+
+if.end133:                                        ; preds = %if.then124, %if.end120
   br label %return
 
-return:                                           ; preds = %if.then124, %if.end120, %if.end95, %if.end89, %if.end83, %if.end77, %if.end68, %if.then60, %if.end33, %if.then25, %if.end, %entry, %if.then117, %if.then108, %if.then54, %if.then46, %if.then21, %if.then14
-  %retval.0 = phi i32 [ 0, %if.then14 ], [ 0, %if.then21 ], [ 0, %if.then46 ], [ 0, %if.then54 ], [ 0, %if.then108 ], [ 0, %if.then117 ], [ 0, %entry ], [ 0, %if.end ], [ 0, %if.then25 ], [ 0, %if.end33 ], [ 0, %if.then60 ], [ 0, %if.end68 ], [ 0, %if.end77 ], [ 0, %if.end83 ], [ 0, %if.end89 ], [ 0, %if.end95 ], [ 1, %if.end120 ], [ %spec.select, %if.then124 ]
+return:                                           ; preds = %if.then124, %if.end95, %if.end89, %if.end83, %if.end77, %if.end68, %if.then60, %if.end33, %if.then25, %if.end, %entry, %if.end133, %if.then117, %if.then108, %if.then54, %if.then46, %if.then21, %if.then14
+  %retval.0 = phi i32 [ 0, %if.then14 ], [ 0, %if.then21 ], [ 0, %if.then46 ], [ 0, %if.then54 ], [ 0, %if.then108 ], [ 0, %if.then117 ], [ 1, %if.end133 ], [ 0, %entry ], [ 0, %if.end ], [ 0, %if.then25 ], [ 0, %if.end33 ], [ 0, %if.then60 ], [ 0, %if.end68 ], [ 0, %if.end77 ], [ 0, %if.end83 ], [ 0, %if.end89 ], [ 0, %if.end95 ], [ 0, %if.then124 ]
   ret i32 %retval.0
 }
 

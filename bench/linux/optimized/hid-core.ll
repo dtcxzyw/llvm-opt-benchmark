@@ -2046,7 +2046,7 @@ define internal void @usbhid_request(ptr noundef %0, ptr noundef %1, i32 noundef
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @usbhid_raw_request(ptr nocapture noundef readonly %0, i8 noundef zeroext %1, ptr noundef %2, i64 noundef %3, i8 noundef zeroext %4, i32 noundef %5) #0 align 16 {
-  switch i32 %5, label %83 [
+  switch i32 %5, label %84 [
     i32 1, label %7
     i32 9, label %41
   ]
@@ -2086,7 +2086,7 @@ define internal i32 @usbhid_raw_request(ptr nocapture noundef readonly %0, i8 no
   %38 = and i1 %20, %37
   %39 = zext i1 %38 to i32
   %40 = add nuw i32 %36, %39
-  br label %83
+  br label %84
 
 41:                                               ; preds = %6
   %42 = zext i8 %1 to i16
@@ -2108,39 +2108,41 @@ define internal i32 @usbhid_raw_request(ptr nocapture noundef readonly %0, i8 no
   %56 = load i32, ptr %55, align 4
   %57 = and i32 %56, 131072
   %58 = icmp eq i32 %57, 0
-  %spec.select = select i1 %58, i8 %1, i8 0
-  br label %59
+  br i1 %58, label %59, label %60
 
 59:                                               ; preds = %54, %41
-  %60 = phi i8 [ %1, %41 ], [ %spec.select, %54 ]
-  %61 = zext i8 %4 to i16
-  %62 = getelementptr i8, ptr %48, i64 -168
-  store i8 %60, ptr %2, align 1
-  %63 = icmp eq i8 %60, 0
-  %64 = sext i1 %63 to i64
-  %65 = add i64 %64, %3
-  %66 = zext i1 %63 to i64
-  %67 = getelementptr i8, ptr %2, i64 %66
-  %68 = load i32, ptr %62, align 8
-  %69 = shl i32 %68, 8
-  %70 = or i32 %69, -2147483648
-  %71 = shl nuw i16 %61, 8
-  %72 = add i16 %71, 256
-  %73 = or disjoint i16 %72, %42
-  %74 = getelementptr inbounds i8, ptr %52, i64 2
-  %75 = load i8, ptr %74, align 2
-  %76 = zext i8 %75 to i16
-  %77 = trunc i64 %65 to i16
-  %78 = tail call i32 @usb_control_msg(ptr noundef %62, i32 noundef %70, i8 noundef zeroext 9, i8 noundef zeroext 33, i16 noundef zeroext %73, i16 noundef zeroext %76, ptr noundef %67, i16 noundef zeroext %77, i32 noundef 5000) #17
-  %79 = icmp sgt i32 %78, 0
-  %80 = and i1 %63, %79
-  %81 = zext i1 %80 to i32
-  %82 = add nuw i32 %78, %81
-  br label %83
+  br label %60
 
-83:                                               ; preds = %59, %7, %6
-  %84 = phi i32 [ %82, %59 ], [ %40, %7 ], [ -5, %6 ]
-  ret i32 %84
+60:                                               ; preds = %59, %54
+  %61 = phi i8 [ %1, %59 ], [ 0, %54 ]
+  %62 = zext i8 %4 to i16
+  %63 = getelementptr i8, ptr %48, i64 -168
+  store i8 %61, ptr %2, align 1
+  %64 = icmp eq i8 %61, 0
+  %65 = sext i1 %64 to i64
+  %66 = add i64 %65, %3
+  %67 = zext i1 %64 to i64
+  %68 = getelementptr i8, ptr %2, i64 %67
+  %69 = load i32, ptr %63, align 8
+  %70 = shl i32 %69, 8
+  %71 = or i32 %70, -2147483648
+  %72 = shl nuw i16 %62, 8
+  %73 = add i16 %72, 256
+  %74 = or disjoint i16 %73, %42
+  %75 = getelementptr inbounds i8, ptr %52, i64 2
+  %76 = load i8, ptr %75, align 2
+  %77 = zext i8 %76 to i16
+  %78 = trunc i64 %66 to i16
+  %79 = tail call i32 @usb_control_msg(ptr noundef %63, i32 noundef %71, i8 noundef zeroext 9, i8 noundef zeroext 33, i16 noundef zeroext %74, i16 noundef zeroext %77, ptr noundef %68, i16 noundef zeroext %78, i32 noundef 5000) #17
+  %80 = icmp sgt i32 %79, 0
+  %81 = and i1 %64, %80
+  %82 = zext i1 %81 to i32
+  %83 = add nuw i32 %79, %82
+  br label %84
+
+84:                                               ; preds = %60, %7, %6
+  %85 = phi i32 [ %83, %60 ], [ %40, %7 ], [ -5, %6 ]
+  ret i32 %85
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -85,7 +85,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.63 = private unnamed_addr constant [82 x i8] c"tar-based phar \22%s\22 cannot be created, contents of file \22%s\22 could not be written\00", align 1
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden i32 @phar_is_tar(ptr nocapture noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define hidden noundef i32 @phar_is_tar(ptr nocapture noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 148
   br label %.lr.ph.i
 
@@ -127,7 +127,7 @@ phar_tar_number.exit:                             ; preds = %7, %.lr.ph24.i, %13
   %.017.lcssa.i = phi i32 [ 0, %.critedge.i ], [ %16, %13 ], [ %.01722.i, %.lr.ph24.i ], [ 0, %7 ]
   %18 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(6) @.str, i64 noundef 5) #15
   %.not = icmp eq i32 %18, 0
-  br i1 %.not, label %31, label %19
+  br i1 %.not, label %32, label %19
 
 19:                                               ; preds = %phar_tar_number.exit
   %.sroa.0.0.copyload = load i64, ptr %3, align 1
@@ -147,28 +147,31 @@ phar_tar_number.exit:                             ; preds = %7, %.lr.ph24.i, %13
 
 phar_tar_checksum.exit:                           ; preds = %.lr.ph.i22
   %23 = icmp eq i32 %.017.lcssa.i, %22
+  %24 = zext i1 %23 to i32
   store i64 %.sroa.0.0.copyload, ptr %3, align 1
-  br i1 %23, label %31, label %24
+  br i1 %23, label %31, label %25
 
-24:                                               ; preds = %phar_tar_checksum.exit
-  %25 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 47) #15
-  %.not20 = icmp eq ptr %25, null
-  %spec.select = select i1 %.not20, ptr %1, ptr %25
-  %26 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %spec.select, ptr noundef nonnull dereferenceable(1) @.str.1) #15
-  %.not21 = icmp eq ptr %26, null
-  br i1 %.not21, label %31, label %27
+25:                                               ; preds = %phar_tar_checksum.exit
+  %26 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 47) #15
+  %.not20 = icmp eq ptr %26, null
+  %spec.select = select i1 %.not20, ptr %1, ptr %26
+  %27 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %spec.select, ptr noundef nonnull dereferenceable(1) @.str.1) #15
+  %.not21 = icmp eq ptr %27, null
+  br i1 %.not21, label %31, label %28
 
-27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %26, i64 4
-  %29 = load i8, ptr %28, align 1
-  %switch.selectcmp.case1 = icmp eq i8 %29, 0
-  %switch.selectcmp.case2 = icmp eq i8 %29, 46
-  %switch.selectcmp = or i1 %switch.selectcmp.case1, %switch.selectcmp.case2
-  %30 = zext i1 %switch.selectcmp to i32
-  br label %31
+28:                                               ; preds = %25
+  %29 = getelementptr inbounds i8, ptr %27, i64 4
+  %30 = load i8, ptr %29, align 1
+  switch i8 %30, label %31 [
+    i8 0, label %32
+    i8 46, label %32
+  ]
 
-31:                                               ; preds = %27, %phar_tar_checksum.exit, %24, %phar_tar_number.exit
-  %.0 = phi i32 [ 0, %phar_tar_number.exit ], [ 0, %24 ], [ 1, %phar_tar_checksum.exit ], [ %30, %27 ]
+31:                                               ; preds = %28, %25, %phar_tar_checksum.exit
+  br label %32
+
+32:                                               ; preds = %28, %28, %phar_tar_number.exit, %31
+  %.0 = phi i32 [ %24, %31 ], [ 0, %phar_tar_number.exit ], [ 1, %28 ], [ 1, %28 ]
   ret i32 %.0
 }
 
@@ -2888,7 +2891,7 @@ declare zeroext i1 @phar_metadata_tracker_has_data(ptr noundef, i32 noundef) loc
 declare void @zend_hash_apply_with_argument(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @phar_tar_setupmetadata(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+define internal noundef i32 @phar_tar_setupmetadata(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
@@ -2920,7 +2923,7 @@ define internal i32 @phar_tar_setupmetadata(ptr nocapture noundef readonly %0, p
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 296
   %21 = tail call i32 @phar_tar_setmetadata(ptr noundef nonnull %20, ptr noundef nonnull %7, ptr noundef %6), !range !5
-  br label %.thread
+  br label %81
 
 22:                                               ; preds = %14
   %23 = icmp ugt i32 %9, 30
@@ -2935,15 +2938,17 @@ define internal i32 @phar_tar_setupmetadata(ptr nocapture noundef readonly %0, p
   %30 = add nsw i64 %25, -30
   %31 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %28, ptr noundef nonnull %29, i64 noundef %30) #16
   %.not105 = icmp eq ptr %31, null
-  %spec.select = zext i1 %.not105 to i32
-  br label %.thread
+  br i1 %.not105, label %81, label %.thread
+
+.thread:                                          ; preds = %16, %24, %22
+  br label %81
 
 32:                                               ; preds = %11, %2
   %33 = getelementptr inbounds i8, ptr %7, i64 154
   %34 = load i16, ptr %33, align 2
   %35 = and i16 %34, 2
   %.not106 = icmp eq i16 %35, 0
-  br i1 %.not106, label %.thread, label %36
+  br i1 %.not106, label %81, label %36
 
 36:                                               ; preds = %32
   %37 = getelementptr inbounds i8, ptr %7, i64 56
@@ -2968,7 +2973,7 @@ define internal i32 @phar_tar_setupmetadata(ptr nocapture noundef readonly %0, p
   %53 = call i32 @zend_hash_str_del(ptr noundef nonnull %49, ptr noundef %50, i64 noundef %51) #16
   %54 = load ptr, ptr %4, align 8
   call void @_efree(ptr noundef %54) #16
-  br label %.thread
+  br label %81
 
 55:                                               ; preds = %36
   %56 = call ptr @zend_hash_str_find(ptr noundef nonnull %49, ptr noundef %50, i64 noundef %51) #16
@@ -2980,7 +2985,7 @@ define internal i32 @phar_tar_setupmetadata(ptr nocapture noundef readonly %0, p
   %59 = call i32 @phar_tar_setmetadata(ptr noundef nonnull %41, ptr noundef nonnull %58, ptr noundef %6), !range !5
   %60 = load ptr, ptr %4, align 8
   call void @_efree(ptr noundef %60) #16
-  br label %.thread
+  br label %81
 
 61:                                               ; preds = %55
   %62 = load ptr, ptr %4, align 8
@@ -3013,7 +3018,7 @@ define internal i32 @phar_tar_setupmetadata(ptr nocapture noundef readonly %0, p
   call void @_efree(ptr noundef %75) #16
   %76 = load ptr, ptr %37, align 8
   %77 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef %6, i64 noundef 0, ptr noundef nonnull @.str.53, ptr noundef %76) #16
-  br label %.thread
+  br label %81
 
 78:                                               ; preds = %73, %71
   %79 = phi ptr [ %72, %71 ], [ %74, %73 ]
@@ -3040,10 +3045,10 @@ define internal i32 @phar_tar_setupmetadata(ptr nocapture noundef readonly %0, p
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %79, i64 156
   store i32 0, ptr %.sroa.8.0..sroa_idx, align 1
   %80 = call i32 @phar_tar_setmetadata(ptr noundef nonnull %41, ptr noundef nonnull %79, ptr noundef %6), !range !5
-  br label %.thread
+  br label %81
 
-.thread:                                          ; preds = %16, %24, %32, %22, %78, %.thread115, %57, %52, %17
-  %.093 = phi i32 [ %59, %57 ], [ 2, %.thread115 ], [ %80, %78 ], [ 0, %52 ], [ %21, %17 ], [ 0, %22 ], [ 0, %32 ], [ %spec.select, %24 ], [ 0, %16 ]
+81:                                               ; preds = %32, %24, %78, %.thread115, %57, %52, %.thread, %17
+  %.093 = phi i32 [ %59, %57 ], [ 2, %.thread115 ], [ %80, %78 ], [ 0, %52 ], [ 0, %.thread ], [ %21, %17 ], [ 1, %24 ], [ 0, %32 ]
   ret i32 %.093
 }
 

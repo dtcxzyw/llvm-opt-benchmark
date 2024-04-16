@@ -11287,16 +11287,18 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit7: ; preds = %i
           to label %invoke.cont14 unwind label %lpad13
 
 invoke.cont14:                                    ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit7
-  br i1 %call15, label %land.end, label %lor.lhs.false
+  br i1 %call15, label %land.rhs, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %invoke.cont14
   %9 = load i8, ptr %knownInFormat, align 1
   %tobool16 = trunc i8 %9 to i1
-  %spec.select = and i1 %lnot, %tobool16
+  br i1 %tobool16, label %land.rhs, label %land.end
+
+land.rhs:                                         ; preds = %lor.lhs.false, %invoke.cont14
   br label %land.end
 
-land.end:                                         ; preds = %lor.lhs.false, %invoke.cont14
-  %10 = phi i1 [ %lnot, %invoke.cont14 ], [ %spec.select, %lor.lhs.false ]
+land.end:                                         ; preds = %land.rhs, %lor.lhs.false
+  %10 = phi i1 [ false, %lor.lhs.false ], [ %lnot, %land.rhs ]
   %d_value.i.i8 = getelementptr inbounds i8, ptr %ref.tmp11, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i8)
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit10 unwind label %terminate.lpad.i.i.i.i9

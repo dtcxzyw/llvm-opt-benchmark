@@ -327,14 +327,14 @@ define dso_local noundef zeroext i1 @pfn_modify_allowed(i64 noundef %0, i64 %1) 
   %3 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 72), align 8
   %4 = and i64 %3, 1125899906842624
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %83, label %6
+  br i1 %5, label %84, label %6
 
 6:                                                ; preds = %2
   %7 = icmp ne i64 %1, 0
   %8 = and i64 %1, 1
   %9 = icmp eq i64 %8, 0
   %10 = and i1 %7, %9
-  br i1 %10, label %11, label %83
+  br i1 %10, label %11, label %84
 
 11:                                               ; preds = %6
   %12 = icmp ult i64 %0, 4503599627370496
@@ -448,7 +448,7 @@ define dso_local noundef zeroext i1 @pfn_modify_allowed(i64 noundef %0, i64 %1) 
 72:                                               ; preds = %69, %61
   %73 = phi i32 [ %62, %61 ], [ %71, %69 ]
   %74 = icmp eq i32 %73, 0
-  br i1 %74, label %.thread, label %83
+  br i1 %74, label %.thread, label %84
 
 .thread:                                          ; preds = %42, %16, %11, %72
   %75 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 29), align 8
@@ -461,11 +461,14 @@ define dso_local noundef zeroext i1 @pfn_modify_allowed(i64 noundef %0, i64 %1) 
 
 81:                                               ; preds = %.thread
   %82 = tail call zeroext i1 @capable(i32 noundef 21) #10
-  br label %83
+  br i1 %82, label %83, label %84
 
-83:                                               ; preds = %81, %.thread, %72, %6, %2
-  %84 = phi i1 [ true, %2 ], [ true, %6 ], [ true, %72 ], [ true, %.thread ], [ %82, %81 ]
-  ret i1 %84
+83:                                               ; preds = %81, %.thread
+  br label %84
+
+84:                                               ; preds = %83, %81, %72, %6, %2
+  %85 = phi i1 [ true, %83 ], [ true, %2 ], [ true, %6 ], [ true, %72 ], [ false, %81 ]
+  ret i1 %85
 }
 
 ; Function Attrs: null_pointer_is_valid

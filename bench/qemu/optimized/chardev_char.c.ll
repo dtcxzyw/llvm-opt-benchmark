@@ -1659,17 +1659,19 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   %has_logappend.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr %has_logappend.i, align 8
   %tobool3.i = trunc i8 %2 to i1
-  br i1 %tobool3.i, label %land.lhs.true4.i, label %if.end.i
+  br i1 %tobool3.i, label %land.lhs.true4.i, label %if.else.i
 
 land.lhs.true4.i:                                 ; preds = %if.then.i
   %logappend.i = getelementptr inbounds i8, ptr %0, i64 9
   %3 = load i8, ptr %logappend.i, align 1
   %tobool5.i = trunc i8 %3 to i1
-  %spec.select.i = select i1 %tobool5.i, i32 1025, i32 513
+  br i1 %tobool5.i, label %if.end.i, label %if.else.i
+
+if.else.i:                                        ; preds = %land.lhs.true4.i, %if.then.i
   br label %if.end.i
 
-if.end.i:                                         ; preds = %land.lhs.true4.i, %if.then.i
-  %flags.0.i = phi i32 [ 513, %if.then.i ], [ %spec.select.i, %land.lhs.true4.i ]
+if.end.i:                                         ; preds = %if.else.i, %land.lhs.true4.i
+  %flags.0.i = phi i32 [ 513, %if.else.i ], [ 1025, %land.lhs.true4.i ]
   %call9.i = call i32 @qemu_create(ptr noundef nonnull %1, i32 noundef %flags.0.i, i32 noundef 438, ptr noundef nonnull %local_err) #13
   %logfd.i = getelementptr inbounds i8, ptr %call.i, i64 112
   store i32 %call9.i, ptr %logfd.i, align 8

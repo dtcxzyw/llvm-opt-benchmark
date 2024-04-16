@@ -395,8 +395,8 @@ if.then5:                                         ; preds = %if.then3
 
 if.else:                                          ; preds = %if.end
   %call9 = tail call noalias ptr @g_malloc0_n(i64 noundef %0, i64 noundef 1) #10
-  %tobool10.not.not35.not = icmp eq i64 %len, 0
-  br i1 %tobool10.not.not35.not, label %cleanup, label %while.body.lr.ph
+  %tobool10.not.not33 = icmp eq i64 %len, 0
+  br i1 %tobool10.not.not33, label %cleanup, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.else
   %key = getelementptr inbounds i8, ptr %cipher, i64 32
@@ -406,9 +406,9 @@ while.body.lr.ph:                                 ; preds = %if.else
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end26
-  %in.addr.038 = phi ptr [ %in, %while.body.lr.ph ], [ %add.ptr29, %if.end26 ]
-  %out.addr.037 = phi ptr [ %out, %while.body.lr.ph ], [ %add.ptr31, %if.end26 ]
-  %len.addr.036 = phi i64 [ %len, %while.body.lr.ph ], [ %sub, %if.end26 ]
+  %in.addr.036 = phi ptr [ %in, %while.body.lr.ph ], [ %add.ptr29, %if.end26 ]
+  %out.addr.035 = phi ptr [ %out, %while.body.lr.ph ], [ %add.ptr31, %if.end26 ]
+  %len.addr.034 = phi i64 [ %len, %while.body.lr.ph ], [ %sub, %if.end26 ]
   %2 = load ptr, ptr %key, align 8
   store ptr %2, ptr %gkey, align 8
   %3 = load i64, ptr %nkey, align 8
@@ -422,7 +422,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 if.then15:                                        ; preds = %while.body
   %call16 = call ptr @gnutls_strerror(i32 noundef %call12) #11
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 119, ptr noundef nonnull @__func__.qcrypto_gnutls_cipher_encrypt, ptr noundef nonnull @.str.4, ptr noundef %call16) #9
-  br label %cleanup
+  br label %cleanup.thread
 
 if.end17:                                         ; preds = %while.body
   %5 = load ptr, ptr %handle11, align 8
@@ -430,7 +430,7 @@ if.end17:                                         ; preds = %while.body
   call void @gnutls_cipher_set_iv(ptr noundef %5, ptr noundef %call9, i64 noundef %6) #9
   %7 = load ptr, ptr %handle11, align 8
   %8 = load i64, ptr %blocksize, align 8
-  %call21 = call i32 @gnutls_cipher_encrypt2(ptr noundef %7, ptr noundef %in.addr.038, i64 noundef %8, ptr noundef %out.addr.037, i64 noundef %8) #9
+  %call21 = call i32 @gnutls_cipher_encrypt2(ptr noundef %7, ptr noundef %in.addr.036, i64 noundef %8, ptr noundef %out.addr.035, i64 noundef %8) #9
   %cmp22.not = icmp eq i32 %call21, 0
   %9 = load ptr, ptr %handle11, align 8
   call void @gnutls_cipher_deinit(ptr noundef %9) #9
@@ -439,23 +439,26 @@ if.end17:                                         ; preds = %while.body
 if.then24:                                        ; preds = %if.end17
   %call25 = call ptr @gnutls_strerror(i32 noundef %call21) #11
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 131, ptr noundef nonnull @__func__.qcrypto_gnutls_cipher_encrypt, ptr noundef nonnull @.str.10, ptr noundef %call25) #9
-  br label %cleanup
+  br label %cleanup.thread
 
 if.end26:                                         ; preds = %if.end17
   %10 = load i64, ptr %blocksize, align 8
-  %sub = sub i64 %len.addr.036, %10
-  %add.ptr29 = getelementptr i8, ptr %in.addr.038, i64 %10
-  %add.ptr31 = getelementptr i8, ptr %out.addr.037, i64 %10
-  %tobool10.not.not.not = icmp eq i64 %sub, 0
-  br i1 %tobool10.not.not.not, label %cleanup, label %while.body, !llvm.loop !5
+  %sub = sub i64 %len.addr.034, %10
+  %add.ptr29 = getelementptr i8, ptr %in.addr.036, i64 %10
+  %add.ptr31 = getelementptr i8, ptr %out.addr.035, i64 %10
+  %tobool10.not.not = icmp eq i64 %sub, 0
+  br i1 %tobool10.not.not, label %cleanup, label %while.body, !llvm.loop !5
 
-cleanup:                                          ; preds = %if.end26, %if.else, %if.then24, %if.then15
-  %tobool10.not.not33 = phi i32 [ -1, %if.then24 ], [ -1, %if.then15 ], [ 0, %if.else ], [ 0, %if.end26 ]
+cleanup.thread:                                   ; preds = %if.then24, %if.then15
   call void @g_free(ptr noundef %call9) #9
   br label %return
 
-return:                                           ; preds = %cleanup, %if.then3, %if.then5, %if.then
-  %retval.1 = phi i32 [ -1, %if.then ], [ -1, %if.then5 ], [ 0, %if.then3 ], [ %tobool10.not.not33, %cleanup ]
+cleanup:                                          ; preds = %if.end26, %if.else
+  call void @g_free(ptr noundef %call9) #9
+  br label %return
+
+return:                                           ; preds = %if.then3, %cleanup, %cleanup.thread, %if.then5, %if.then
+  %retval.1 = phi i32 [ -1, %if.then ], [ -1, %if.then5 ], [ -1, %cleanup.thread ], [ 0, %cleanup ], [ 0, %if.then3 ]
   ret i32 %retval.1
 }
 
@@ -492,8 +495,8 @@ if.then5:                                         ; preds = %if.then3
 
 if.else:                                          ; preds = %if.end
   %call9 = tail call noalias ptr @g_malloc0_n(i64 noundef %0, i64 noundef 1) #10
-  %tobool10.not.not35.not = icmp eq i64 %len, 0
-  br i1 %tobool10.not.not35.not, label %cleanup, label %while.body.lr.ph
+  %tobool10.not.not33 = icmp eq i64 %len, 0
+  br i1 %tobool10.not.not33, label %cleanup, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.else
   %key = getelementptr inbounds i8, ptr %cipher, i64 32
@@ -503,9 +506,9 @@ while.body.lr.ph:                                 ; preds = %if.else
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end26
-  %in.addr.038 = phi ptr [ %in, %while.body.lr.ph ], [ %add.ptr29, %if.end26 ]
-  %out.addr.037 = phi ptr [ %out, %while.body.lr.ph ], [ %add.ptr31, %if.end26 ]
-  %len.addr.036 = phi i64 [ %len, %while.body.lr.ph ], [ %sub, %if.end26 ]
+  %in.addr.036 = phi ptr [ %in, %while.body.lr.ph ], [ %add.ptr29, %if.end26 ]
+  %out.addr.035 = phi ptr [ %out, %while.body.lr.ph ], [ %add.ptr31, %if.end26 ]
+  %len.addr.034 = phi i64 [ %len, %while.body.lr.ph ], [ %sub, %if.end26 ]
   %2 = load ptr, ptr %key, align 8
   store ptr %2, ptr %gkey, align 8
   %3 = load i64, ptr %nkey, align 8
@@ -519,7 +522,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 if.then15:                                        ; preds = %while.body
   %call16 = call ptr @gnutls_strerror(i32 noundef %call12) #11
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 180, ptr noundef nonnull @__func__.qcrypto_gnutls_cipher_decrypt, ptr noundef nonnull @.str.4, ptr noundef %call16) #9
-  br label %cleanup
+  br label %cleanup.thread
 
 if.end17:                                         ; preds = %while.body
   %5 = load ptr, ptr %handle11, align 8
@@ -527,7 +530,7 @@ if.end17:                                         ; preds = %while.body
   call void @gnutls_cipher_set_iv(ptr noundef %5, ptr noundef %call9, i64 noundef %6) #9
   %7 = load ptr, ptr %handle11, align 8
   %8 = load i64, ptr %blocksize, align 8
-  %call21 = call i32 @gnutls_cipher_decrypt2(ptr noundef %7, ptr noundef %in.addr.038, i64 noundef %8, ptr noundef %out.addr.037, i64 noundef %8) #9
+  %call21 = call i32 @gnutls_cipher_decrypt2(ptr noundef %7, ptr noundef %in.addr.036, i64 noundef %8, ptr noundef %out.addr.035, i64 noundef %8) #9
   %cmp22.not = icmp eq i32 %call21, 0
   %9 = load ptr, ptr %handle11, align 8
   call void @gnutls_cipher_deinit(ptr noundef %9) #9
@@ -536,23 +539,26 @@ if.end17:                                         ; preds = %while.body
 if.then24:                                        ; preds = %if.end17
   %call25 = call ptr @gnutls_strerror(i32 noundef %call21) #11
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 192, ptr noundef nonnull @__func__.qcrypto_gnutls_cipher_decrypt, ptr noundef nonnull @.str.10, ptr noundef %call25) #9
-  br label %cleanup
+  br label %cleanup.thread
 
 if.end26:                                         ; preds = %if.end17
   %10 = load i64, ptr %blocksize, align 8
-  %sub = sub i64 %len.addr.036, %10
-  %add.ptr29 = getelementptr i8, ptr %in.addr.038, i64 %10
-  %add.ptr31 = getelementptr i8, ptr %out.addr.037, i64 %10
-  %tobool10.not.not.not = icmp eq i64 %sub, 0
-  br i1 %tobool10.not.not.not, label %cleanup, label %while.body, !llvm.loop !7
+  %sub = sub i64 %len.addr.034, %10
+  %add.ptr29 = getelementptr i8, ptr %in.addr.036, i64 %10
+  %add.ptr31 = getelementptr i8, ptr %out.addr.035, i64 %10
+  %tobool10.not.not = icmp eq i64 %sub, 0
+  br i1 %tobool10.not.not, label %cleanup, label %while.body, !llvm.loop !7
 
-cleanup:                                          ; preds = %if.end26, %if.else, %if.then24, %if.then15
-  %tobool10.not.not33 = phi i32 [ -1, %if.then24 ], [ -1, %if.then15 ], [ 0, %if.else ], [ 0, %if.end26 ]
+cleanup.thread:                                   ; preds = %if.then24, %if.then15
   call void @g_free(ptr noundef %call9) #9
   br label %return
 
-return:                                           ; preds = %cleanup, %if.then3, %if.then5, %if.then
-  %retval.1 = phi i32 [ -1, %if.then ], [ -1, %if.then5 ], [ 0, %if.then3 ], [ %tobool10.not.not33, %cleanup ]
+cleanup:                                          ; preds = %if.end26, %if.else
+  call void @g_free(ptr noundef %call9) #9
+  br label %return
+
+return:                                           ; preds = %if.then3, %cleanup, %cleanup.thread, %if.then5, %if.then
+  %retval.1 = phi i32 [ -1, %if.then ], [ -1, %if.then5 ], [ -1, %cleanup.thread ], [ 0, %cleanup ], [ 0, %if.then3 ]
   ret i32 %retval.1
 }
 

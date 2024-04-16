@@ -152,7 +152,7 @@ entry:
   %1 = load ptr, ptr %args, align 8, !noalias !4
   %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %1, align 8
   %cmp.i.i.i = icmp ugt i64 %agg.tmp.sroa.0.0.copyload.i, -844424930131969
-  br i1 %cmp.i.i.i, label %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i, label %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_9JSMapImplILNS0_8CellKindE48EEEEENS0_6HandleIT_EEv.exit
+  br i1 %cmp.i.i.i, label %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i, label %cond.false.i
 
 _ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i: ; preds = %entry
   %and.i.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i, 281474976710655
@@ -160,15 +160,18 @@ _ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exi
   %bf.load.i.i.i.i.i.i.i.i.i.i = load i32, ptr %2, align 4
   %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i = and i32 %bf.load.i.i.i.i.i.i.i.i.i.i, -16777216
   %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i, 805306368
-  %spec.select.i = select i1 %cmp.i.i.i.i.i.i.i.i, ptr %1, ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E
+  br i1 %cmp.i.i.i.i.i.i.i.i, label %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_9JSMapImplILNS0_8CellKindE48EEEEENS0_6HandleIT_EEv.exit, label %cond.false.i
+
+cond.false.i:                                     ; preds = %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i, %entry
+  %.pre = load i64, ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E, align 8
+  %.pre3 = and i64 %.pre, 281474976710655
+  %3 = icmp ugt i64 %.pre, -844424930131969
   br label %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_9JSMapImplILNS0_8CellKindE48EEEEENS0_6HandleIT_EEv.exit
 
-_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_9JSMapImplILNS0_8CellKindE48EEEEENS0_6HandleIT_EEv.exit: ; preds = %entry, %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i
-  %retval.sroa.0.0.i = phi ptr [ @_ZN6hermes2vm15HandleRootOwner12nullPointer_E, %entry ], [ %spec.select.i, %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i ]
-  %3 = load i64, ptr %retval.sroa.0.0.i, align 8
-  %cmp.i.i = icmp ugt i64 %3, -844424930131969
-  %and.i.i = and i64 %3, 281474976710655
-  %tobool.i = icmp ne i64 %and.i.i, 0
+_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_9JSMapImplILNS0_8CellKindE48EEEEENS0_6HandleIT_EEv.exit: ; preds = %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i, %cond.false.i
+  %and.i.i.pre-phi = phi i64 [ %and.i.i.i, %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i ], [ %.pre3, %cond.false.i ]
+  %cmp.i.i = phi i1 [ true, %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i ], [ %3, %cond.false.i ]
+  %tobool.i = icmp ne i64 %and.i.i.pre-phi, 0
   %4 = and i1 %cmp.i.i, %tobool.i
   br i1 %4, label %if.end, label %if.then
 
@@ -186,7 +189,7 @@ if.then:                                          ; preds = %_ZNK6hermes2vm10Nat
   br label %return
 
 if.end:                                           ; preds = %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_9JSMapImplILNS0_8CellKindE48EEEEENS0_6HandleIT_EEv.exit
-  %6 = inttoptr i64 %and.i.i to ptr
+  %6 = inttoptr i64 %and.i.i.pre-phi to ptr
   %storage_.i = getelementptr inbounds i8, ptr %6, i64 20
   %agg.tmp.sroa.0.0.copyload.i.i4.i = load i32, ptr %storage_.i, align 4
   %7 = ptrtoint ptr %runtime to i64
@@ -210,7 +213,7 @@ entry:
   %1 = load ptr, ptr %args, align 8
   %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %1, align 8
   %cmp.i.i.i = icmp ugt i64 %agg.tmp.sroa.0.0.copyload.i, -844424930131969
-  br i1 %cmp.i.i.i, label %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i, label %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_9JSMapImplILNS0_8CellKindE48EEEEENS0_6HandleIT_EEv.exit
+  br i1 %cmp.i.i.i, label %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i, label %cond.false.i
 
 _ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i: ; preds = %entry
   %and.i.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i, 281474976710655
@@ -218,15 +221,18 @@ _ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exi
   %bf.load.i.i.i.i.i.i.i.i.i.i = load i32, ptr %2, align 4
   %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i = and i32 %bf.load.i.i.i.i.i.i.i.i.i.i, -16777216
   %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i, 805306368
-  %spec.select.i = select i1 %cmp.i.i.i.i.i.i.i.i, ptr %1, ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E
+  br i1 %cmp.i.i.i.i.i.i.i.i, label %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_9JSMapImplILNS0_8CellKindE48EEEEENS0_6HandleIT_EEv.exit, label %cond.false.i
+
+cond.false.i:                                     ; preds = %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i, %entry
+  %.pre = load i64, ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E, align 8
+  %.pre4 = and i64 %.pre, 281474976710655
+  %3 = icmp ugt i64 %.pre, -844424930131969
   br label %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_9JSMapImplILNS0_8CellKindE48EEEEENS0_6HandleIT_EEv.exit
 
-_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_9JSMapImplILNS0_8CellKindE48EEEEENS0_6HandleIT_EEv.exit: ; preds = %entry, %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i
-  %retval.sroa.0.0.i = phi ptr [ @_ZN6hermes2vm15HandleRootOwner12nullPointer_E, %entry ], [ %spec.select.i, %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i ]
-  %3 = load i64, ptr %retval.sroa.0.0.i, align 8
-  %cmp.i.i = icmp ugt i64 %3, -844424930131969
-  %and.i.i = and i64 %3, 281474976710655
-  %tobool.i = icmp ne i64 %and.i.i, 0
+_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_9JSMapImplILNS0_8CellKindE48EEEEENS0_6HandleIT_EEv.exit: ; preds = %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i, %cond.false.i
+  %and.i.i.pre-phi = phi i64 [ %and.i.i.i, %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i ], [ %.pre4, %cond.false.i ]
+  %cmp.i.i = phi i1 [ true, %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i ], [ %3, %cond.false.i ]
+  %tobool.i = icmp ne i64 %and.i.i.pre-phi, 0
   %4 = and i1 %cmp.i.i, %tobool.i
   br i1 %4, label %if.end, label %if.then
 
@@ -249,7 +255,7 @@ if.end:                                           ; preds = %_ZNK6hermes2vm10Nat
   %cmp.i.not = icmp eq i32 %6, 0
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %1, i64 -8
   %retval.sroa.0.0.i3 = select i1 %cmp.i.not, ptr @_ZN6hermes2vm15HandleRootOwner15undefinedValue_E, ptr %incdec.ptr.i.i.i
-  %7 = inttoptr i64 %and.i.i to ptr
+  %7 = inttoptr i64 %and.i.i.pre-phi to ptr
   %storage_.i = getelementptr inbounds i8, ptr %7, i64 20
   %agg.tmp.sroa.0.0.copyload.i.i.i.i = load i32, ptr %storage_.i, align 4
   %cmp.i.not.i.i.i.i.i.i = icmp eq i32 %agg.tmp.sroa.0.0.copyload.i.i.i.i, 0
@@ -299,7 +305,7 @@ entry:
   %1 = load ptr, ptr %args, align 8, !noalias !4
   %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %1, align 8
   %cmp.i.i.i = icmp ugt i64 %agg.tmp.sroa.0.0.copyload.i, -844424930131969
-  br i1 %cmp.i.i.i, label %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i, label %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_9JSMapImplILNS0_8CellKindE48EEEEENS0_6HandleIT_EEv.exit
+  br i1 %cmp.i.i.i, label %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i, label %cond.false.i
 
 _ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i: ; preds = %entry
   %and.i.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i, 281474976710655
@@ -307,15 +313,19 @@ _ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exi
   %bf.load.i.i.i.i.i.i.i.i.i.i = load i32, ptr %2, align 4
   %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i = and i32 %bf.load.i.i.i.i.i.i.i.i.i.i, -16777216
   %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i, 805306368
-  %spec.select.i = select i1 %cmp.i.i.i.i.i.i.i.i, ptr %1, ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E
+  br i1 %cmp.i.i.i.i.i.i.i.i, label %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_9JSMapImplILNS0_8CellKindE48EEEEENS0_6HandleIT_EEv.exit, label %cond.false.i
+
+cond.false.i:                                     ; preds = %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i, %entry
+  %.pre = load i64, ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E, align 8
+  %.pre9 = and i64 %.pre, 281474976710655
+  %3 = icmp ugt i64 %.pre, -844424930131969
   br label %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_9JSMapImplILNS0_8CellKindE48EEEEENS0_6HandleIT_EEv.exit
 
-_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_9JSMapImplILNS0_8CellKindE48EEEEENS0_6HandleIT_EEv.exit: ; preds = %entry, %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i
-  %retval.sroa.0.0.i = phi ptr [ @_ZN6hermes2vm15HandleRootOwner12nullPointer_E, %entry ], [ %spec.select.i, %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i ]
-  %3 = load i64, ptr %retval.sroa.0.0.i, align 8
-  %cmp.i.i = icmp ugt i64 %3, -844424930131969
-  %and.i.i = and i64 %3, 281474976710655
-  %tobool.i = icmp ne i64 %and.i.i, 0
+_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_9JSMapImplILNS0_8CellKindE48EEEEENS0_6HandleIT_EEv.exit: ; preds = %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i, %cond.false.i
+  %and.i.i.pre-phi = phi i64 [ %and.i.i.i, %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i ], [ %.pre9, %cond.false.i ]
+  %cmp.i.i = phi i1 [ true, %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i ], [ %3, %cond.false.i ]
+  %retval.sroa.0.0.i = phi ptr [ %1, %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i ], [ @_ZN6hermes2vm15HandleRootOwner12nullPointer_E, %cond.false.i ]
+  %tobool.i = icmp ne i64 %and.i.i.pre-phi, 0
   %4 = and i1 %cmp.i.i, %tobool.i
   br i1 %4, label %if.end, label %if.then
 
@@ -407,7 +417,7 @@ entry:
   %1 = load ptr, ptr %args, align 8
   %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %1, align 8
   %cmp.i.i.i = icmp ugt i64 %agg.tmp.sroa.0.0.copyload.i, -844424930131969
-  br i1 %cmp.i.i.i, label %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i, label %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_9JSMapImplILNS0_8CellKindE48EEEEENS0_6HandleIT_EEv.exit
+  br i1 %cmp.i.i.i, label %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i, label %cond.false.i
 
 _ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i: ; preds = %entry
   %and.i.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i, 281474976710655
@@ -415,15 +425,19 @@ _ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exi
   %bf.load.i.i.i.i.i.i.i.i.i.i = load i32, ptr %2, align 4
   %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i = and i32 %bf.load.i.i.i.i.i.i.i.i.i.i, -16777216
   %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i, 805306368
-  %spec.select.i = select i1 %cmp.i.i.i.i.i.i.i.i, ptr %1, ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E
+  br i1 %cmp.i.i.i.i.i.i.i.i, label %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_9JSMapImplILNS0_8CellKindE48EEEEENS0_6HandleIT_EEv.exit, label %cond.false.i
+
+cond.false.i:                                     ; preds = %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i, %entry
+  %.pre = load i64, ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E, align 8
+  %.pre24 = and i64 %.pre, 281474976710655
+  %3 = icmp ugt i64 %.pre, -844424930131969
   br label %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_9JSMapImplILNS0_8CellKindE48EEEEENS0_6HandleIT_EEv.exit
 
-_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_9JSMapImplILNS0_8CellKindE48EEEEENS0_6HandleIT_EEv.exit: ; preds = %entry, %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i
-  %retval.sroa.0.0.i = phi ptr [ @_ZN6hermes2vm15HandleRootOwner12nullPointer_E, %entry ], [ %spec.select.i, %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i ]
-  %3 = load i64, ptr %retval.sroa.0.0.i, align 8
-  %cmp.i.i = icmp ugt i64 %3, -844424930131969
-  %and.i.i = and i64 %3, 281474976710655
-  %tobool.i = icmp ne i64 %and.i.i, 0
+_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_9JSMapImplILNS0_8CellKindE48EEEEENS0_6HandleIT_EEv.exit: ; preds = %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i, %cond.false.i
+  %and.i.i.pre-phi = phi i64 [ %and.i.i.i, %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i ], [ %.pre24, %cond.false.i ]
+  %cmp.i.i = phi i1 [ true, %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i ], [ %3, %cond.false.i ]
+  %retval.sroa.0.0.i = phi ptr [ %1, %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i ], [ @_ZN6hermes2vm15HandleRootOwner12nullPointer_E, %cond.false.i ]
+  %tobool.i = icmp ne i64 %and.i.i.pre-phi, 0
   %4 = and i1 %cmp.i.i, %tobool.i
   br i1 %4, label %if.end, label %if.then
 
@@ -458,25 +472,25 @@ _ZN6hermes2vm5vmisaINS0_8CallableEEEbNS0_11HermesValueE.exit.i: ; preds = %land.
   %bf.load.i.i.i.i.i.i.i.i.i.i8 = load i32, ptr %7, align 4
   %8 = add i32 %bf.load.i.i.i.i.i.i.i.i.i.i8, -1140850688
   %9 = icmp ult i32 %8, 150994944
-  %spec.select.i9 = select i1 %9, ptr %incdec.ptr.i.i.i, ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E
+  %spec.select.i = select i1 %9, ptr %incdec.ptr.i.i.i, ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E
   br label %_ZNK6hermes2vm10NativeArgs10dyncastArgINS0_8CallableEEENS0_6HandleIT_EEj.exit
 
 _ZNK6hermes2vm10NativeArgs10dyncastArgINS0_8CallableEEENS0_6HandleIT_EEj.exit: ; preds = %if.end, %land.lhs.true.i, %_ZN6hermes2vm5vmisaINS0_8CallableEEEbNS0_11HermesValueE.exit.i
-  %retval.sroa.0.0.i4 = phi ptr [ @_ZN6hermes2vm15HandleRootOwner12nullPointer_E, %if.end ], [ @_ZN6hermes2vm15HandleRootOwner12nullPointer_E, %land.lhs.true.i ], [ %spec.select.i9, %_ZN6hermes2vm5vmisaINS0_8CallableEEEbNS0_11HermesValueE.exit.i ]
+  %retval.sroa.0.0.i4 = phi ptr [ @_ZN6hermes2vm15HandleRootOwner12nullPointer_E, %if.end ], [ @_ZN6hermes2vm15HandleRootOwner12nullPointer_E, %land.lhs.true.i ], [ %spec.select.i, %_ZN6hermes2vm5vmisaINS0_8CallableEEEbNS0_11HermesValueE.exit.i ]
   %10 = load i64, ptr %retval.sroa.0.0.i4, align 8
-  %cmp.i.i10 = icmp ugt i64 %10, -844424930131969
-  %and.i.i11 = and i64 %10, 281474976710655
-  %tobool.i12 = icmp ne i64 %and.i.i11, 0
-  %11 = and i1 %cmp.i.i10, %tobool.i12
+  %cmp.i.i9 = icmp ugt i64 %10, -844424930131969
+  %and.i.i10 = and i64 %10, 281474976710655
+  %tobool.i11 = icmp ne i64 %and.i.i10, 0
+  %11 = and i1 %cmp.i.i9, %tobool.i11
   br i1 %11, label %if.end12, label %if.then9
 
 if.then9:                                         ; preds = %_ZNK6hermes2vm10NativeArgs10dyncastArgINS0_8CallableEEENS0_6HandleIT_EEj.exit
-  %rightKind_.i3.i14 = getelementptr inbounds i8, ptr %ref.tmp10, i64 24
-  store i32 1, ptr %rightKind_.i3.i14, align 8
-  %leftSize_.i4.i15 = getelementptr inbounds i8, ptr %ref.tmp10, i64 32
-  store i64 52, ptr %leftSize_.i4.i15, align 8
-  %rightSize_.i5.i16 = getelementptr inbounds i8, ptr %ref.tmp10, i64 40
-  store i64 0, ptr %rightSize_.i5.i16, align 8
+  %rightKind_.i3.i13 = getelementptr inbounds i8, ptr %ref.tmp10, i64 24
+  store i32 1, ptr %rightKind_.i3.i13, align 8
+  %leftSize_.i4.i14 = getelementptr inbounds i8, ptr %ref.tmp10, i64 32
+  store i64 52, ptr %leftSize_.i4.i14, align 8
+  %rightSize_.i5.i15 = getelementptr inbounds i8, ptr %ref.tmp10, i64 40
+  store i64 0, ptr %rightSize_.i5.i15, align 8
   store ptr @.str.7, ptr %ref.tmp10, align 8
   %12 = getelementptr inbounds i8, ptr %ref.tmp10, i64 8
   store i32 3, ptr %12, align 8
@@ -484,10 +498,10 @@ if.then9:                                         ; preds = %_ZNK6hermes2vm10Nat
   br label %return
 
 if.end12:                                         ; preds = %_ZNK6hermes2vm10NativeArgs10dyncastArgINS0_8CallableEEENS0_6HandleIT_EEj.exit
-  %cmp.i22 = icmp ugt i32 %6, 1
-  %incdec.ptr.i.i.i23 = getelementptr inbounds i8, ptr %1, i64 -16
-  %retval.sroa.0.0.i24 = select i1 %cmp.i22, ptr %incdec.ptr.i.i.i23, ptr @_ZN6hermes2vm15HandleRootOwner15undefinedValue_E
-  %call24 = tail call noundef i32 @_ZN6hermes2vm9JSMapImplILNS0_8CellKindE48EE7forEachENS0_6HandleIS3_EERNS0_7RuntimeENS4_INS0_8CallableEEENS4_INS0_11HermesValueEEE(ptr nonnull %retval.sroa.0.0.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %retval.sroa.0.0.i4, ptr nonnull %retval.sroa.0.0.i24)
+  %cmp.i21 = icmp ugt i32 %6, 1
+  %incdec.ptr.i.i.i22 = getelementptr inbounds i8, ptr %1, i64 -16
+  %retval.sroa.0.0.i23 = select i1 %cmp.i21, ptr %incdec.ptr.i.i.i22, ptr @_ZN6hermes2vm15HandleRootOwner15undefinedValue_E
+  %call24 = tail call noundef i32 @_ZN6hermes2vm9JSMapImplILNS0_8CellKindE48EE7forEachENS0_6HandleIS3_EERNS0_7RuntimeENS4_INS0_8CallableEEENS4_INS0_11HermesValueEEE(ptr nonnull %retval.sroa.0.0.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %retval.sroa.0.0.i4, ptr nonnull %retval.sroa.0.0.i23)
   %cmp = icmp ne i32 %call24, 0
   %spec.select = zext i1 %cmp to i32
   br label %return
@@ -506,7 +520,7 @@ entry:
   %1 = load ptr, ptr %args, align 8
   %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %1, align 8
   %cmp.i.i.i = icmp ugt i64 %agg.tmp.sroa.0.0.copyload.i, -844424930131969
-  br i1 %cmp.i.i.i, label %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i, label %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_9JSMapImplILNS0_8CellKindE48EEEEENS0_6HandleIT_EEv.exit
+  br i1 %cmp.i.i.i, label %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i, label %cond.false.i
 
 _ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i: ; preds = %entry
   %and.i.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i, 281474976710655
@@ -514,15 +528,18 @@ _ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exi
   %bf.load.i.i.i.i.i.i.i.i.i.i = load i32, ptr %2, align 4
   %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i = and i32 %bf.load.i.i.i.i.i.i.i.i.i.i, -16777216
   %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i, 805306368
-  %spec.select.i = select i1 %cmp.i.i.i.i.i.i.i.i, ptr %1, ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E
+  br i1 %cmp.i.i.i.i.i.i.i.i, label %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_9JSMapImplILNS0_8CellKindE48EEEEENS0_6HandleIT_EEv.exit, label %cond.false.i
+
+cond.false.i:                                     ; preds = %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i, %entry
+  %.pre = load i64, ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E, align 8
+  %.pre4 = and i64 %.pre, 281474976710655
+  %3 = icmp ugt i64 %.pre, -844424930131969
   br label %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_9JSMapImplILNS0_8CellKindE48EEEEENS0_6HandleIT_EEv.exit
 
-_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_9JSMapImplILNS0_8CellKindE48EEEEENS0_6HandleIT_EEv.exit: ; preds = %entry, %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i
-  %retval.sroa.0.0.i = phi ptr [ @_ZN6hermes2vm15HandleRootOwner12nullPointer_E, %entry ], [ %spec.select.i, %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i ]
-  %3 = load i64, ptr %retval.sroa.0.0.i, align 8
-  %cmp.i.i = icmp ugt i64 %3, -844424930131969
-  %and.i.i = and i64 %3, 281474976710655
-  %tobool.i = icmp ne i64 %and.i.i, 0
+_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_9JSMapImplILNS0_8CellKindE48EEEEENS0_6HandleIT_EEv.exit: ; preds = %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i, %cond.false.i
+  %and.i.i.pre-phi = phi i64 [ %and.i.i.i, %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i ], [ %.pre4, %cond.false.i ]
+  %cmp.i.i = phi i1 [ true, %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i ], [ %3, %cond.false.i ]
+  %tobool.i = icmp ne i64 %and.i.i.pre-phi, 0
   %4 = and i1 %cmp.i.i, %tobool.i
   br i1 %4, label %if.end, label %if.then
 
@@ -545,7 +562,7 @@ if.end:                                           ; preds = %_ZNK6hermes2vm10Nat
   %cmp.i.not = icmp eq i32 %6, 0
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %1, i64 -8
   %retval.sroa.0.0.i3 = select i1 %cmp.i.not, ptr @_ZN6hermes2vm15HandleRootOwner15undefinedValue_E, ptr %incdec.ptr.i.i.i
-  %7 = inttoptr i64 %and.i.i to ptr
+  %7 = inttoptr i64 %and.i.i.pre-phi to ptr
   %storage_.i = getelementptr inbounds i8, ptr %7, i64 20
   %agg.tmp.sroa.0.0.copyload.i.i.i.i = load i32, ptr %storage_.i, align 4
   %cmp.i.not.i.i.i.i.i.i = icmp eq i32 %agg.tmp.sroa.0.0.copyload.i.i.i.i, 0
@@ -593,7 +610,7 @@ entry:
   %1 = load ptr, ptr %args, align 8
   %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %1, align 8
   %cmp.i.i.i = icmp ugt i64 %agg.tmp.sroa.0.0.copyload.i, -844424930131969
-  br i1 %cmp.i.i.i, label %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i, label %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_9JSMapImplILNS0_8CellKindE48EEEEENS0_6HandleIT_EEv.exit
+  br i1 %cmp.i.i.i, label %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i, label %cond.false.i
 
 _ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i: ; preds = %entry
   %and.i.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i, 281474976710655
@@ -601,15 +618,18 @@ _ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exi
   %bf.load.i.i.i.i.i.i.i.i.i.i = load i32, ptr %2, align 4
   %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i = and i32 %bf.load.i.i.i.i.i.i.i.i.i.i, -16777216
   %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i, 805306368
-  %spec.select.i = select i1 %cmp.i.i.i.i.i.i.i.i, ptr %1, ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E
+  br i1 %cmp.i.i.i.i.i.i.i.i, label %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_9JSMapImplILNS0_8CellKindE48EEEEENS0_6HandleIT_EEv.exit, label %cond.false.i
+
+cond.false.i:                                     ; preds = %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i, %entry
+  %.pre = load i64, ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E, align 8
+  %.pre4 = and i64 %.pre, 281474976710655
+  %3 = icmp ugt i64 %.pre, -844424930131969
   br label %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_9JSMapImplILNS0_8CellKindE48EEEEENS0_6HandleIT_EEv.exit
 
-_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_9JSMapImplILNS0_8CellKindE48EEEEENS0_6HandleIT_EEv.exit: ; preds = %entry, %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i
-  %retval.sroa.0.0.i = phi ptr [ @_ZN6hermes2vm15HandleRootOwner12nullPointer_E, %entry ], [ %spec.select.i, %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i ]
-  %3 = load i64, ptr %retval.sroa.0.0.i, align 8
-  %cmp.i.i = icmp ugt i64 %3, -844424930131969
-  %and.i.i = and i64 %3, 281474976710655
-  %tobool.i = icmp ne i64 %and.i.i, 0
+_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_9JSMapImplILNS0_8CellKindE48EEEEENS0_6HandleIT_EEv.exit: ; preds = %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i, %cond.false.i
+  %and.i.i.pre-phi = phi i64 [ %and.i.i.i, %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i ], [ %.pre4, %cond.false.i ]
+  %cmp.i.i = phi i1 [ true, %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i ], [ %3, %cond.false.i ]
+  %tobool.i = icmp ne i64 %and.i.i.pre-phi, 0
   %4 = and i1 %cmp.i.i, %tobool.i
   br i1 %4, label %if.end, label %if.then
 
@@ -632,7 +652,7 @@ if.end:                                           ; preds = %_ZNK6hermes2vm10Nat
   %cmp.i.not = icmp eq i32 %6, 0
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %1, i64 -8
   %retval.sroa.0.0.i3 = select i1 %cmp.i.not, ptr @_ZN6hermes2vm15HandleRootOwner15undefinedValue_E, ptr %incdec.ptr.i.i.i
-  %7 = inttoptr i64 %and.i.i to ptr
+  %7 = inttoptr i64 %and.i.i.pre-phi to ptr
   %storage_.i = getelementptr inbounds i8, ptr %7, i64 20
   %agg.tmp.sroa.0.0.copyload.i.i.i.i = load i32, ptr %storage_.i, align 4
   %cmp.i.not.i.i.i.i.i.i = icmp eq i32 %agg.tmp.sroa.0.0.copyload.i.i.i.i, 0
@@ -682,7 +702,7 @@ entry:
   %1 = load ptr, ptr %args, align 8, !noalias !4
   %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %1, align 8
   %cmp.i.i.i = icmp ugt i64 %agg.tmp.sroa.0.0.copyload.i, -844424930131969
-  br i1 %cmp.i.i.i, label %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i, label %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_9JSMapImplILNS0_8CellKindE48EEEEENS0_6HandleIT_EEv.exit
+  br i1 %cmp.i.i.i, label %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i, label %cond.false.i
 
 _ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i: ; preds = %entry
   %and.i.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i, 281474976710655
@@ -690,15 +710,19 @@ _ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exi
   %bf.load.i.i.i.i.i.i.i.i.i.i = load i32, ptr %2, align 4
   %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i = and i32 %bf.load.i.i.i.i.i.i.i.i.i.i, -16777216
   %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i, 805306368
-  %spec.select.i = select i1 %cmp.i.i.i.i.i.i.i.i, ptr %1, ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E
+  br i1 %cmp.i.i.i.i.i.i.i.i, label %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_9JSMapImplILNS0_8CellKindE48EEEEENS0_6HandleIT_EEv.exit, label %cond.false.i
+
+cond.false.i:                                     ; preds = %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i, %entry
+  %.pre = load i64, ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E, align 8
+  %.pre9 = and i64 %.pre, 281474976710655
+  %3 = icmp ugt i64 %.pre, -844424930131969
   br label %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_9JSMapImplILNS0_8CellKindE48EEEEENS0_6HandleIT_EEv.exit
 
-_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_9JSMapImplILNS0_8CellKindE48EEEEENS0_6HandleIT_EEv.exit: ; preds = %entry, %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i
-  %retval.sroa.0.0.i = phi ptr [ @_ZN6hermes2vm15HandleRootOwner12nullPointer_E, %entry ], [ %spec.select.i, %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i ]
-  %3 = load i64, ptr %retval.sroa.0.0.i, align 8
-  %cmp.i.i = icmp ugt i64 %3, -844424930131969
-  %and.i.i = and i64 %3, 281474976710655
-  %tobool.i = icmp ne i64 %and.i.i, 0
+_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_9JSMapImplILNS0_8CellKindE48EEEEENS0_6HandleIT_EEv.exit: ; preds = %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i, %cond.false.i
+  %and.i.i.pre-phi = phi i64 [ %and.i.i.i, %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i ], [ %.pre9, %cond.false.i ]
+  %cmp.i.i = phi i1 [ true, %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i ], [ %3, %cond.false.i ]
+  %retval.sroa.0.0.i = phi ptr [ %1, %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i ], [ @_ZN6hermes2vm15HandleRootOwner12nullPointer_E, %cond.false.i ]
+  %tobool.i = icmp ne i64 %and.i.i.pre-phi, 0
   %4 = and i1 %cmp.i.i, %tobool.i
   br i1 %4, label %if.end, label %if.then
 
@@ -789,7 +813,7 @@ entry:
   %1 = load ptr, ptr %args, align 8
   %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %1, align 8
   %cmp.i.i.i = icmp ugt i64 %agg.tmp.sroa.0.0.copyload.i, -844424930131969
-  br i1 %cmp.i.i.i, label %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i, label %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_9JSMapImplILNS0_8CellKindE48EEEEENS0_6HandleIT_EEv.exit
+  br i1 %cmp.i.i.i, label %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i, label %cond.false.i
 
 _ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i: ; preds = %entry
   %and.i.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i, 281474976710655
@@ -797,15 +821,19 @@ _ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exi
   %bf.load.i.i.i.i.i.i.i.i.i.i = load i32, ptr %2, align 4
   %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i = and i32 %bf.load.i.i.i.i.i.i.i.i.i.i, -16777216
   %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i, 805306368
-  %spec.select.i = select i1 %cmp.i.i.i.i.i.i.i.i, ptr %1, ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E
+  br i1 %cmp.i.i.i.i.i.i.i.i, label %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_9JSMapImplILNS0_8CellKindE48EEEEENS0_6HandleIT_EEv.exit, label %cond.false.i
+
+cond.false.i:                                     ; preds = %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i, %entry
+  %.pre = load i64, ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E, align 8
+  %.pre11 = and i64 %.pre, 281474976710655
+  %3 = icmp ugt i64 %.pre, -844424930131969
   br label %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_9JSMapImplILNS0_8CellKindE48EEEEENS0_6HandleIT_EEv.exit
 
-_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_9JSMapImplILNS0_8CellKindE48EEEEENS0_6HandleIT_EEv.exit: ; preds = %entry, %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i
-  %retval.sroa.0.0.i = phi ptr [ @_ZN6hermes2vm15HandleRootOwner12nullPointer_E, %entry ], [ %spec.select.i, %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i ]
-  %3 = load i64, ptr %retval.sroa.0.0.i, align 8
-  %cmp.i.i = icmp ugt i64 %3, -844424930131969
-  %and.i.i = and i64 %3, 281474976710655
-  %tobool.i = icmp ne i64 %and.i.i, 0
+_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_9JSMapImplILNS0_8CellKindE48EEEEENS0_6HandleIT_EEv.exit: ; preds = %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i, %cond.false.i
+  %and.i.i.pre-phi = phi i64 [ %and.i.i.i, %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i ], [ %.pre11, %cond.false.i ]
+  %cmp.i.i = phi i1 [ true, %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i ], [ %3, %cond.false.i ]
+  %retval.sroa.0.0.i = phi ptr [ %1, %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i ], [ @_ZN6hermes2vm15HandleRootOwner12nullPointer_E, %cond.false.i ]
+  %tobool.i = icmp ne i64 %and.i.i.pre-phi, 0
   %4 = and i1 %cmp.i.i, %tobool.i
   br i1 %4, label %if.end, label %if.then
 
@@ -832,41 +860,41 @@ if.end:                                           ; preds = %_ZNK6hermes2vm10Nat
   %cmp.i.i4 = icmp ult i64 %7, -1970324836974592
   %8 = and i64 %7, 9223372036854775807
   %cmp = icmp eq i64 %8, 0
-  %9 = and i1 %cmp.i.i4, %cmp
-  %key.sroa.0.0 = select i1 %9, ptr @_ZN6hermes2vm15HandleRootOwner10zeroValue_E, ptr %retval.sroa.0.0.i3
+  %or.cond = and i1 %cmp.i.i4, %cmp
+  %key.sroa.0.0 = select i1 %or.cond, ptr @_ZN6hermes2vm15HandleRootOwner10zeroValue_E, ptr %retval.sroa.0.0.i3
   %cmp.i6 = icmp ugt i32 %6, 1
   %incdec.ptr.i.i.i7 = getelementptr inbounds i8, ptr %1, i64 -16
   %retval.sroa.0.0.i8 = select i1 %cmp.i6, ptr %incdec.ptr.i.i.i7, ptr @_ZN6hermes2vm15HandleRootOwner15undefinedValue_E
-  %10 = inttoptr i64 %and.i.i to ptr
-  %storage_.i = getelementptr inbounds i8, ptr %10, i64 20
+  %9 = inttoptr i64 %and.i.i.pre-phi to ptr
+  %storage_.i = getelementptr inbounds i8, ptr %9, i64 20
   %agg.tmp.sroa.0.0.copyload.i.i.i.i = load i32, ptr %storage_.i, align 4
   %cmp.i.not.i.i.i.i.i.i = icmp eq i32 %agg.tmp.sroa.0.0.copyload.i.i.i.i, 0
-  %11 = ptrtoint ptr %runtime to i64
+  %10 = ptrtoint ptr %runtime to i64
   %conv.i.i.i.i.i.i.i = zext i32 %agg.tmp.sroa.0.0.copyload.i.i.i.i to i64
-  %add.i.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i.i, %11
-  %12 = or i64 %add.i.i.i.i.i.i.i, -281474976710656
-  %or.i.i.i.i.i.i = select i1 %cmp.i.not.i.i.i.i.i.i, i64 -281474976710656, i64 %12
+  %add.i.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i.i, %10
+  %11 = or i64 %add.i.i.i.i.i.i.i, -281474976710656
+  %or.i.i.i.i.i.i = select i1 %cmp.i.not.i.i.i.i.i.i, i64 -281474976710656, i64 %11
   %topGCScope_.i.i.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 8
-  %13 = load ptr, ptr %topGCScope_.i.i.i.i.i, align 8
-  %next_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 192
-  %14 = load ptr, ptr %next_.i.i.i.i.i.i.i.i, align 8
-  %curChunkEnd_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 200
-  %15 = load ptr, ptr %curChunkEnd_.i.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i = icmp ult ptr %14, %15
+  %12 = load ptr, ptr %topGCScope_.i.i.i.i.i, align 8
+  %next_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 192
+  %13 = load ptr, ptr %next_.i.i.i.i.i.i.i.i, align 8
+  %curChunkEnd_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 200
+  %14 = load ptr, ptr %curChunkEnd_.i.i.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i.i.i = icmp ult ptr %13, %14
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.end
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %incdec.ptr.i.i.i.i.i.i.i, ptr %next_.i.i.i.i.i.i.i.i, align 8
-  store i64 %or.i.i.i.i.i.i, ptr %14, align 8
+  store i64 %or.i.i.i.i.i.i, ptr %13, align 8
   br label %_ZN6hermes2vm9JSMapImplILNS0_8CellKindE48EE8addValueENS0_6HandleIS3_EERNS0_7RuntimeENS4_INS0_11HermesValueEEES9_.exit
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.end
-  %call7.i.i.i.i.i.i.i = tail call noundef ptr @_ZN6hermes2vm7GCScope15_newChunkAndPHVENS0_11HermesValueE(ptr noundef nonnull align 8 dereferenceable(212) %13, i64 %or.i.i.i.i.i.i) #5
+  %call7.i.i.i.i.i.i.i = tail call noundef ptr @_ZN6hermes2vm7GCScope15_newChunkAndPHVENS0_11HermesValueE(ptr noundef nonnull align 8 dereferenceable(212) %12, i64 %or.i.i.i.i.i.i) #5
   br label %_ZN6hermes2vm9JSMapImplILNS0_8CellKindE48EE8addValueENS0_6HandleIS3_EERNS0_7RuntimeENS4_INS0_11HermesValueEEES9_.exit
 
 _ZN6hermes2vm9JSMapImplILNS0_8CellKindE48EE8addValueENS0_6HandleIS3_EERNS0_7RuntimeENS4_INS0_11HermesValueEEES9_.exit: ; preds = %if.then.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i
-  %retval.0.i.i.i.i.i.i.i = phi ptr [ %14, %if.then.i.i.i.i.i.i.i ], [ %call7.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
+  %retval.0.i.i.i.i.i.i.i = phi ptr [ %13, %if.then.i.i.i.i.i.i.i ], [ %call7.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
   %call18.i = tail call noundef i32 @_ZN6hermes2vm14OrderedHashMap6insertENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES7_(ptr %retval.0.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %key.sroa.0.0, ptr nonnull %retval.sroa.0.0.i8) #5
   %retval.sroa.0.0.copyload.i = load i64, ptr %retval.sroa.0.0.i, align 8
   br label %return
@@ -937,7 +965,7 @@ entry:
   %1 = load ptr, ptr %args, align 8, !noalias !4
   %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %1, align 8
   %cmp.i.i.i = icmp ugt i64 %agg.tmp.sroa.0.0.copyload.i, -844424930131969
-  br i1 %cmp.i.i.i, label %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i, label %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_9JSMapImplILNS0_8CellKindE48EEEEENS0_6HandleIT_EEv.exit
+  br i1 %cmp.i.i.i, label %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i, label %cond.false.i
 
 _ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i: ; preds = %entry
   %and.i.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i, 281474976710655
@@ -945,15 +973,19 @@ _ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exi
   %bf.load.i.i.i.i.i.i.i.i.i.i = load i32, ptr %2, align 4
   %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i = and i32 %bf.load.i.i.i.i.i.i.i.i.i.i, -16777216
   %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i, 805306368
-  %spec.select.i = select i1 %cmp.i.i.i.i.i.i.i.i, ptr %1, ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E
+  br i1 %cmp.i.i.i.i.i.i.i.i, label %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_9JSMapImplILNS0_8CellKindE48EEEEENS0_6HandleIT_EEv.exit, label %cond.false.i
+
+cond.false.i:                                     ; preds = %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i, %entry
+  %.pre = load i64, ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E, align 8
+  %.pre9 = and i64 %.pre, 281474976710655
+  %3 = icmp ugt i64 %.pre, -844424930131969
   br label %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_9JSMapImplILNS0_8CellKindE48EEEEENS0_6HandleIT_EEv.exit
 
-_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_9JSMapImplILNS0_8CellKindE48EEEEENS0_6HandleIT_EEv.exit: ; preds = %entry, %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i
-  %retval.sroa.0.0.i = phi ptr [ @_ZN6hermes2vm15HandleRootOwner12nullPointer_E, %entry ], [ %spec.select.i, %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i ]
-  %3 = load i64, ptr %retval.sroa.0.0.i, align 8
-  %cmp.i.i = icmp ugt i64 %3, -844424930131969
-  %and.i.i = and i64 %3, 281474976710655
-  %tobool.i = icmp ne i64 %and.i.i, 0
+_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_9JSMapImplILNS0_8CellKindE48EEEEENS0_6HandleIT_EEv.exit: ; preds = %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i, %cond.false.i
+  %and.i.i.pre-phi = phi i64 [ %and.i.i.i, %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i ], [ %.pre9, %cond.false.i ]
+  %cmp.i.i = phi i1 [ true, %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i ], [ %3, %cond.false.i ]
+  %retval.sroa.0.0.i = phi ptr [ %1, %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i ], [ @_ZN6hermes2vm15HandleRootOwner12nullPointer_E, %cond.false.i ]
+  %tobool.i = icmp ne i64 %and.i.i.pre-phi, 0
   %4 = and i1 %cmp.i.i, %tobool.i
   br i1 %4, label %if.end, label %if.then
 
@@ -1092,7 +1124,7 @@ if.end:                                           ; preds = %entry
   %5 = load ptr, ptr %args, align 8, !noalias !4
   %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %5, align 8
   %cmp.i.i.i9 = icmp ugt i64 %agg.tmp.sroa.0.0.copyload.i, -844424930131969
-  br i1 %cmp.i.i.i9, label %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i, label %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_9JSMapImplILNS0_8CellKindE48EEEEENS0_6HandleIT_EEv.exit
+  br i1 %cmp.i.i.i9, label %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i, label %cond.false.i
 
 _ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i: ; preds = %if.end
   %and.i.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i, 281474976710655
@@ -1100,15 +1132,19 @@ _ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exi
   %bf.load.i.i.i.i.i.i.i.i.i.i = load i32, ptr %6, align 4
   %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i = and i32 %bf.load.i.i.i.i.i.i.i.i.i.i, -16777216
   %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i, 805306368
-  %spec.select.i = select i1 %cmp.i.i.i.i.i.i.i.i, ptr %5, ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E
+  br i1 %cmp.i.i.i.i.i.i.i.i, label %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_9JSMapImplILNS0_8CellKindE48EEEEENS0_6HandleIT_EEv.exit, label %cond.false.i
+
+cond.false.i:                                     ; preds = %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i, %if.end
+  %.pre = load i64, ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E, align 8
+  %.pre57 = and i64 %.pre, 281474976710655
+  %7 = icmp ugt i64 %.pre, -844424930131969
   br label %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_9JSMapImplILNS0_8CellKindE48EEEEENS0_6HandleIT_EEv.exit
 
-_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_9JSMapImplILNS0_8CellKindE48EEEEENS0_6HandleIT_EEv.exit: ; preds = %if.end, %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i
-  %retval.sroa.0.0.i = phi ptr [ @_ZN6hermes2vm15HandleRootOwner12nullPointer_E, %if.end ], [ %spec.select.i, %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i ]
-  %7 = load i64, ptr %retval.sroa.0.0.i, align 8
-  %cmp.i.i10 = icmp ugt i64 %7, -844424930131969
-  %and.i.i = and i64 %7, 281474976710655
-  %tobool.i = icmp ne i64 %and.i.i, 0
+_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_9JSMapImplILNS0_8CellKindE48EEEEENS0_6HandleIT_EEv.exit: ; preds = %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i, %cond.false.i
+  %and.i.i.pre-phi = phi i64 [ %and.i.i.i, %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i ], [ %.pre57, %cond.false.i ]
+  %cmp.i.i10 = phi i1 [ true, %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i ], [ %7, %cond.false.i ]
+  %retval.sroa.0.0.i = phi ptr [ %5, %_ZN6hermes2vm5vmisaINS0_9JSMapImplILNS0_8CellKindE48EEEEEbNS0_11HermesValueE.exit.i ], [ @_ZN6hermes2vm15HandleRootOwner12nullPointer_E, %cond.false.i ]
+  %tobool.i = icmp ne i64 %and.i.i.pre-phi, 0
   %8 = and i1 %cmp.i.i10, %tobool.i
   br i1 %8, label %if.end9, label %if.then6
 
@@ -1242,25 +1278,25 @@ _ZN6hermes2vm5vmisaINS0_8CallableEEEbNS0_11HermesValueE.exit.i: ; preds = %_ZN6h
   %bf.load.i.i.i.i.i.i.i.i.i.i38 = load i32, ptr %28, align 4
   %29 = add i32 %bf.load.i.i.i.i.i.i.i.i.i.i38, -1140850688
   %30 = icmp ult i32 %29, 150994944
-  %spec.select.i39 = select i1 %30, ptr %retval.0.i.i.i.i.i.i, ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E
+  %spec.select.i = select i1 %30, ptr %retval.0.i.i.i.i.i.i, ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E
   br label %_ZN6hermes2vm6HandleINS0_8CallableEE10dyn_vmcastERKNS0_10HandleBaseE.exit
 
 _ZN6hermes2vm6HandleINS0_8CallableEE10dyn_vmcastERKNS0_10HandleBaseE.exit: ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit, %_ZN6hermes2vm5vmisaINS0_8CallableEEEbNS0_11HermesValueE.exit.i
-  %retval.sroa.0.0.i36 = phi ptr [ @_ZN6hermes2vm15HandleRootOwner12nullPointer_E, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit ], [ %spec.select.i39, %_ZN6hermes2vm5vmisaINS0_8CallableEEEbNS0_11HermesValueE.exit.i ]
+  %retval.sroa.0.0.i36 = phi ptr [ @_ZN6hermes2vm15HandleRootOwner12nullPointer_E, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit ], [ %spec.select.i, %_ZN6hermes2vm5vmisaINS0_8CallableEEEbNS0_11HermesValueE.exit.i ]
   %31 = load i64, ptr %retval.sroa.0.0.i36, align 8
-  %cmp.i.i40 = icmp ugt i64 %31, -844424930131969
-  %and.i.i41 = and i64 %31, 281474976710655
-  %tobool.i42 = icmp ne i64 %and.i.i41, 0
-  %32 = and i1 %cmp.i.i40, %tobool.i42
+  %cmp.i.i39 = icmp ugt i64 %31, -844424930131969
+  %and.i.i40 = and i64 %31, 281474976710655
+  %tobool.i41 = icmp ne i64 %and.i.i40, 0
+  %32 = and i1 %cmp.i.i39, %tobool.i41
   br i1 %32, label %if.end53, label %if.then50
 
 if.then50:                                        ; preds = %_ZN6hermes2vm6HandleINS0_8CallableEE10dyn_vmcastERKNS0_10HandleBaseE.exit
-  %rightKind_.i3.i44 = getelementptr inbounds i8, ptr %ref.tmp51, i64 24
-  store i32 1, ptr %rightKind_.i3.i44, align 8
-  %leftSize_.i4.i45 = getelementptr inbounds i8, ptr %ref.tmp51, i64 32
-  store i64 38, ptr %leftSize_.i4.i45, align 8
-  %rightSize_.i5.i46 = getelementptr inbounds i8, ptr %ref.tmp51, i64 40
-  store i64 0, ptr %rightSize_.i5.i46, align 8
+  %rightKind_.i3.i43 = getelementptr inbounds i8, ptr %ref.tmp51, i64 24
+  store i32 1, ptr %rightKind_.i3.i43, align 8
+  %leftSize_.i4.i44 = getelementptr inbounds i8, ptr %ref.tmp51, i64 32
+  store i64 38, ptr %leftSize_.i4.i44, align 8
+  %rightSize_.i5.i45 = getelementptr inbounds i8, ptr %ref.tmp51, i64 40
+  store i64 0, ptr %rightSize_.i5.i45, align 8
   store ptr @.str.2, ptr %ref.tmp51, align 8
   %33 = getelementptr inbounds i8, ptr %ref.tmp51, i64 8
   store i32 3, ptr %33, align 8
@@ -1269,17 +1305,17 @@ if.then50:                                        ; preds = %_ZN6hermes2vm6Handl
 
 if.end53:                                         ; preds = %_ZN6hermes2vm6HandleINS0_8CallableEE10dyn_vmcastERKNS0_10HandleBaseE.exit
   %34 = load i32, ptr %argCount_.i, align 8
-  %cmp.i52.not = icmp eq i32 %34, 0
+  %cmp.i51.not = icmp eq i32 %34, 0
   %35 = load ptr, ptr %args, align 8
-  %incdec.ptr.i.i.i53 = getelementptr inbounds i8, ptr %35, i64 -8
-  %retval.sroa.0.0.i54 = select i1 %cmp.i52.not, ptr @_ZN6hermes2vm15HandleRootOwner15undefinedValue_E, ptr %incdec.ptr.i.i.i53
+  %incdec.ptr.i.i.i52 = getelementptr inbounds i8, ptr %35, i64 -8
+  %retval.sroa.0.0.i53 = select i1 %cmp.i51.not, ptr @_ZN6hermes2vm15HandleRootOwner15undefinedValue_E, ptr %incdec.ptr.i.i.i52
   store ptr %runtime, ptr %agg.tmp59, align 8
   %36 = getelementptr inbounds i8, ptr %agg.tmp59, i64 8
   store i64 %22, ptr %36, align 8
   %37 = getelementptr inbounds i8, ptr %agg.tmp59, i64 16
   %38 = ptrtoint ptr %retval.sroa.0.0.i36 to i64
   store i64 %38, ptr %37, align 8
-  %call64 = call fastcc { i32, i64 } @"_ZN6hermes2vm22addEntriesFromIterableIZNS0_14mapConstructorEPvRNS0_7RuntimeENS0_10NativeArgsEE3$_0EENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES4_NS0_6HandleINS0_8JSObjectEEENSC_IS8_EET_"(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %retval.sroa.0.0.i, ptr nonnull %retval.sroa.0.0.i54, ptr noundef nonnull byval(%class.anon) align 8 %agg.tmp59)
+  %call64 = call fastcc { i32, i64 } @"_ZN6hermes2vm22addEntriesFromIterableIZNS0_14mapConstructorEPvRNS0_7RuntimeENS0_10NativeArgsEE3$_0EENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES4_NS0_6HandleINS0_8JSObjectEEENSC_IS8_EET_"(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %retval.sroa.0.0.i, ptr nonnull %retval.sroa.0.0.i53, ptr noundef nonnull byval(%class.anon) align 8 %agg.tmp59)
   %39 = extractvalue { i32, i64 } %call64, 0
   %40 = extractvalue { i32, i64 } %call64, 1
   br label %cleanup
@@ -1704,7 +1740,7 @@ entry:
   %1 = load ptr, ptr %args, align 8, !noalias !4
   %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %1, align 8
   %cmp.i.i.i = icmp ugt i64 %agg.tmp.sroa.0.0.copyload.i, -844424930131969
-  br i1 %cmp.i.i.i, label %_ZN6hermes2vm5vmisaINS0_17JSMapIteratorImplILNS0_8CellKindE50EEEEEbNS0_11HermesValueE.exit.i, label %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_17JSMapIteratorImplILNS0_8CellKindE50EEEEENS0_6HandleIT_EEv.exit
+  br i1 %cmp.i.i.i, label %_ZN6hermes2vm5vmisaINS0_17JSMapIteratorImplILNS0_8CellKindE50EEEEEbNS0_11HermesValueE.exit.i, label %cond.false.i
 
 _ZN6hermes2vm5vmisaINS0_17JSMapIteratorImplILNS0_8CellKindE50EEEEEbNS0_11HermesValueE.exit.i: ; preds = %entry
   %and.i.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i, 281474976710655
@@ -1712,15 +1748,19 @@ _ZN6hermes2vm5vmisaINS0_17JSMapIteratorImplILNS0_8CellKindE50EEEEEbNS0_11HermesV
   %bf.load.i.i.i.i.i.i.i.i.i.i = load i32, ptr %2, align 4
   %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i = and i32 %bf.load.i.i.i.i.i.i.i.i.i.i, -16777216
   %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i, 838860800
-  %spec.select.i = select i1 %cmp.i.i.i.i.i.i.i.i, ptr %1, ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E
+  br i1 %cmp.i.i.i.i.i.i.i.i, label %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_17JSMapIteratorImplILNS0_8CellKindE50EEEEENS0_6HandleIT_EEv.exit, label %cond.false.i
+
+cond.false.i:                                     ; preds = %_ZN6hermes2vm5vmisaINS0_17JSMapIteratorImplILNS0_8CellKindE50EEEEEbNS0_11HermesValueE.exit.i, %entry
+  %.pre = load i64, ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E, align 8
+  %.pre4 = and i64 %.pre, 281474976710655
+  %3 = icmp ugt i64 %.pre, -844424930131969
   br label %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_17JSMapIteratorImplILNS0_8CellKindE50EEEEENS0_6HandleIT_EEv.exit
 
-_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_17JSMapIteratorImplILNS0_8CellKindE50EEEEENS0_6HandleIT_EEv.exit: ; preds = %entry, %_ZN6hermes2vm5vmisaINS0_17JSMapIteratorImplILNS0_8CellKindE50EEEEEbNS0_11HermesValueE.exit.i
-  %retval.sroa.0.0.i = phi ptr [ @_ZN6hermes2vm15HandleRootOwner12nullPointer_E, %entry ], [ %spec.select.i, %_ZN6hermes2vm5vmisaINS0_17JSMapIteratorImplILNS0_8CellKindE50EEEEEbNS0_11HermesValueE.exit.i ]
-  %3 = load i64, ptr %retval.sroa.0.0.i, align 8
-  %cmp.i.i = icmp ugt i64 %3, -844424930131969
-  %and.i.i = and i64 %3, 281474976710655
-  %tobool.i = icmp ne i64 %and.i.i, 0
+_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_17JSMapIteratorImplILNS0_8CellKindE50EEEEENS0_6HandleIT_EEv.exit: ; preds = %_ZN6hermes2vm5vmisaINS0_17JSMapIteratorImplILNS0_8CellKindE50EEEEEbNS0_11HermesValueE.exit.i, %cond.false.i
+  %and.i.i.pre-phi = phi i64 [ %and.i.i.i, %_ZN6hermes2vm5vmisaINS0_17JSMapIteratorImplILNS0_8CellKindE50EEEEEbNS0_11HermesValueE.exit.i ], [ %.pre4, %cond.false.i ]
+  %cmp.i.i = phi i1 [ true, %_ZN6hermes2vm5vmisaINS0_17JSMapIteratorImplILNS0_8CellKindE50EEEEEbNS0_11HermesValueE.exit.i ], [ %3, %cond.false.i ]
+  %retval.sroa.0.0.i = phi ptr [ %1, %_ZN6hermes2vm5vmisaINS0_17JSMapIteratorImplILNS0_8CellKindE50EEEEEbNS0_11HermesValueE.exit.i ], [ @_ZN6hermes2vm15HandleRootOwner12nullPointer_E, %cond.false.i ]
+  %tobool.i = icmp ne i64 %and.i.i.pre-phi, 0
   %4 = and i1 %cmp.i.i, %tobool.i
   br i1 %4, label %if.end, label %if.then
 

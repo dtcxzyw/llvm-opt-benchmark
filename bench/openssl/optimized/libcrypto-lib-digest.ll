@@ -48,12 +48,12 @@ land.lhs.true:                                    ; preds = %if.then
   br i1 %cmp3.not, label %if.end, label %if.then4
 
 if.then4:                                         ; preds = %land.lhs.true
-  tail call void %2(ptr noundef nonnull %0) #8
+  tail call void %2(ptr noundef nonnull %0) #7
   br label %if.end
 
 if.end:                                           ; preds = %if.then4, %land.lhs.true, %if.then
   store ptr null, ptr %algctx, align 8
-  tail call void @EVP_MD_CTX_set_flags(ptr noundef nonnull %ctx, i32 noundef 2) #8
+  tail call void @EVP_MD_CTX_set_flags(ptr noundef nonnull %ctx, i32 noundef 2) #7
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end, %entry
@@ -69,7 +69,7 @@ if.then.i:                                        ; preds = %if.end9
   br i1 %cmp2.not.i, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then.i
-  %call.i = tail call i32 @EVP_MD_CTX_test_flags(ptr noundef nonnull %ctx, i32 noundef 2) #8
+  %call.i = tail call i32 @EVP_MD_CTX_test_flags(ptr noundef nonnull %ctx, i32 noundef 2) #7
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.then3.i, label %if.end.i
 
@@ -77,7 +77,7 @@ if.then3.i:                                       ; preds = %land.lhs.true.i
   %5 = load ptr, ptr %digest.i, align 8
   %cleanup5.i = getelementptr inbounds i8, ptr %5, i64 64
   %6 = load ptr, ptr %cleanup5.i, align 8
-  %call6.i = tail call i32 %6(ptr noundef nonnull %ctx) #8
+  %call6.i = tail call i32 %6(ptr noundef nonnull %ctx) #7
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then3.i, %land.lhs.true.i, %if.then.i
@@ -94,7 +94,7 @@ land.lhs.true8.i:                                 ; preds = %if.end.i
   br i1 %cmp10.i, label %land.lhs.true11.i, label %cleanup_old_md_data.exit
 
 land.lhs.true11.i:                                ; preds = %land.lhs.true8.i
-  %call12.i = tail call i32 @EVP_MD_CTX_test_flags(ptr noundef nonnull %ctx, i32 noundef 4) #8
+  %call12.i = tail call i32 @EVP_MD_CTX_test_flags(ptr noundef nonnull %ctx, i32 noundef 4) #7
   %tobool13.i = icmp eq i32 %call12.i, 0
   %tobool14.i = icmp ne i32 %force, 0
   %or.cond.i = or i1 %tobool14.i, %tobool13.i
@@ -106,7 +106,7 @@ if.then15.i:                                      ; preds = %land.lhs.true11.i
   %ctx_size18.i = getelementptr inbounds i8, ptr %11, i64 76
   %12 = load i32, ptr %ctx_size18.i, align 4
   %conv.i = sext i32 %12 to i64
-  tail call void @CRYPTO_clear_free(ptr noundef %10, i64 noundef %conv.i, ptr noundef nonnull @.str, i32 noundef 37) #8
+  tail call void @CRYPTO_clear_free(ptr noundef %10, i64 noundef %conv.i, ptr noundef nonnull @.str, i32 noundef 37) #7
   store ptr null, ptr %md_data.i, align 8
   br label %cleanup_old_md_data.exit
 
@@ -121,7 +121,7 @@ if.then10:                                        ; preds = %cleanup_old_md_data
 if.end12:                                         ; preds = %land.lhs.true11.i, %if.then10, %cleanup_old_md_data.exit
   %engine = getelementptr inbounds i8, ptr %ctx, i64 16
   %13 = load ptr, ptr %engine, align 8
-  %call = tail call i32 @ENGINE_finish(ptr noundef %13) #8
+  %call = tail call i32 @ENGINE_finish(ptr noundef %13) #7
   store ptr null, ptr %engine, align 8
   %tobool14.not = icmp eq i32 %keep_fetched, 0
   br i1 %tobool14.not, label %if.then15, label %if.end17
@@ -153,7 +153,7 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %if.end.i17
   br i1 %cmp2.i, label %EVP_MD_free.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %CRYPTO_DOWN_REF.exit.i, %CRYPTO_DOWN_REF.exit.thread.i
-  tail call void @evp_md_free_int(ptr noundef nonnull %14) #8
+  tail call void @evp_md_free_int(ptr noundef nonnull %14) #7
   br label %EVP_MD_free.exit
 
 EVP_MD_free.exit:                                 ; preds = %if.then15, %lor.lhs.false.i, %CRYPTO_DOWN_REF.exit.i, %if.end4.i
@@ -196,7 +196,7 @@ CRYPTO_DOWN_REF.exit:                             ; preds = %if.end
   br i1 %cmp2, label %return, label %if.end4
 
 if.end4:                                          ; preds = %CRYPTO_DOWN_REF.exit.thread, %CRYPTO_DOWN_REF.exit
-  tail call void @evp_md_free_int(ptr noundef nonnull %md) #8
+  tail call void @evp_md_free_int(ptr noundef nonnull %md) #7
   br label %return
 
 return:                                           ; preds = %CRYPTO_DOWN_REF.exit, %entry, %lor.lhs.false, %if.end4
@@ -210,20 +210,20 @@ entry:
   br i1 %cmp.i, label %evp_md_ctx_reset_ex.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %call.i = tail call i32 @EVP_MD_CTX_test_flags(ptr noundef nonnull %ctx, i32 noundef 1024) #8
+  %call.i = tail call i32 @EVP_MD_CTX_test_flags(ptr noundef nonnull %ctx, i32 noundef 1024) #7
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.then1.i, label %if.end3.i
 
 if.then1.i:                                       ; preds = %if.end.i
   %pctx.i = getelementptr inbounds i8, ptr %ctx, i64 40
   %0 = load ptr, ptr %pctx.i, align 8
-  tail call void @EVP_PKEY_CTX_free(ptr noundef %0) #8
+  tail call void @EVP_PKEY_CTX_free(ptr noundef %0) #7
   store ptr null, ptr %pctx.i, align 8
   br label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.then1.i, %if.end.i
   tail call void @evp_md_ctx_clear_digest(ptr noundef nonnull %ctx, i32 noundef 0, i32 noundef 0)
-  tail call void @OPENSSL_cleanse(ptr noundef nonnull %ctx, i64 noundef 72) #8
+  tail call void @OPENSSL_cleanse(ptr noundef nonnull %ctx, i64 noundef 72) #7
   br label %evp_md_ctx_reset_ex.exit
 
 evp_md_ctx_reset_ex.exit:                         ; preds = %entry, %if.end3.i
@@ -233,35 +233,35 @@ evp_md_ctx_reset_ex.exit:                         ; preds = %entry, %if.end3.i
 ; Function Attrs: nounwind uwtable
 define ptr @evp_md_ctx_new_ex(ptr noundef %pkey, ptr noundef readonly %id, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 72, ptr noundef nonnull @.str, i32 noundef 132) #8
+  %call.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 72, ptr noundef nonnull @.str, i32 noundef 132) #7
   %cmp = icmp eq ptr %call.i, null
   br i1 %cmp, label %return.critedge, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call1 = tail call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %libctx, ptr noundef %pkey, ptr noundef %propq) #8
+  %call1 = tail call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %libctx, ptr noundef %pkey, ptr noundef %propq) #7
   %cmp2 = icmp eq ptr %call1, null
   br i1 %cmp2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.lhs.false
-  tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 113, ptr noundef nonnull @__func__.evp_md_ctx_new_ex) #8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 524294, ptr noundef null) #8
-  tail call void @EVP_PKEY_CTX_free(ptr noundef null) #8
-  %call.i.i.i = tail call i32 @EVP_MD_CTX_test_flags(ptr noundef nonnull %call.i, i32 noundef 1024) #8
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 113, ptr noundef nonnull @__func__.evp_md_ctx_new_ex) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 524294, ptr noundef null) #7
+  tail call void @EVP_PKEY_CTX_free(ptr noundef null) #7
+  %call.i.i.i = tail call i32 @EVP_MD_CTX_test_flags(ptr noundef nonnull %call.i, i32 noundef 1024) #7
   %tobool.not.i.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %if.then1.i.i.i, label %EVP_MD_CTX_reset.exit.i
 
 if.then1.i.i.i:                                   ; preds = %if.then
   %pctx.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 40
   %0 = load ptr, ptr %pctx.i.i.i, align 8
-  tail call void @EVP_PKEY_CTX_free(ptr noundef %0) #8
+  tail call void @EVP_PKEY_CTX_free(ptr noundef %0) #7
   store ptr null, ptr %pctx.i.i.i, align 8
   br label %EVP_MD_CTX_reset.exit.i
 
 EVP_MD_CTX_reset.exit.i:                          ; preds = %if.then1.i.i.i, %if.then
   tail call void @evp_md_ctx_clear_digest(ptr noundef nonnull %call.i, i32 noundef 0, i32 noundef 0)
-  tail call void @OPENSSL_cleanse(ptr noundef nonnull %call.i, i64 noundef 72) #8
-  tail call void @CRYPTO_free(ptr noundef nonnull %call.i, ptr noundef nonnull @.str, i32 noundef 141) #8
+  tail call void @OPENSSL_cleanse(ptr noundef nonnull %call.i, i64 noundef 72) #7
+  tail call void @CRYPTO_free(ptr noundef nonnull %call.i, ptr noundef nonnull @.str, i32 noundef 141) #7
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -272,38 +272,38 @@ land.lhs.true:                                    ; preds = %if.end
   %data = getelementptr inbounds i8, ptr %id, i64 8
   %1 = load ptr, ptr %data, align 8
   %2 = load i32, ptr %id, align 8
-  %call4 = tail call i32 @EVP_PKEY_CTX_set1_id(ptr noundef nonnull %call1, ptr noundef %1, i32 noundef %2) #8
+  %call4 = tail call i32 @EVP_PKEY_CTX_set1_id(ptr noundef nonnull %call1, ptr noundef %1, i32 noundef %2) #7
   %cmp5 = icmp slt i32 %call4, 1
   br i1 %cmp5, label %if.end.i.i.i8, label %if.end7
 
 if.end.i.i.i8:                                    ; preds = %land.lhs.true
-  tail call void @EVP_PKEY_CTX_free(ptr noundef nonnull %call1) #8
-  %call.i.i.i9 = tail call i32 @EVP_MD_CTX_test_flags(ptr noundef nonnull %call.i, i32 noundef 1024) #8
+  tail call void @EVP_PKEY_CTX_free(ptr noundef nonnull %call1) #7
+  %call.i.i.i9 = tail call i32 @EVP_MD_CTX_test_flags(ptr noundef nonnull %call.i, i32 noundef 1024) #7
   %tobool.not.i.i.i10 = icmp eq i32 %call.i.i.i9, 0
   br i1 %tobool.not.i.i.i10, label %if.then1.i.i.i12, label %EVP_MD_CTX_free.exit14
 
 if.then1.i.i.i12:                                 ; preds = %if.end.i.i.i8
   %pctx.i.i.i13 = getelementptr inbounds i8, ptr %call.i, i64 40
   %3 = load ptr, ptr %pctx.i.i.i13, align 8
-  tail call void @EVP_PKEY_CTX_free(ptr noundef %3) #8
+  tail call void @EVP_PKEY_CTX_free(ptr noundef %3) #7
   store ptr null, ptr %pctx.i.i.i13, align 8
   br label %EVP_MD_CTX_free.exit14
 
 EVP_MD_CTX_free.exit14:                           ; preds = %if.end.i.i.i8, %if.then1.i.i.i12
   tail call void @evp_md_ctx_clear_digest(ptr noundef nonnull %call.i, i32 noundef 0, i32 noundef 0)
-  tail call void @OPENSSL_cleanse(ptr noundef nonnull %call.i, i64 noundef 72) #8
-  tail call void @CRYPTO_free(ptr noundef nonnull %call.i, ptr noundef nonnull @.str, i32 noundef 141) #8
+  tail call void @OPENSSL_cleanse(ptr noundef nonnull %call.i, i64 noundef 72) #7
+  tail call void @CRYPTO_free(ptr noundef nonnull %call.i, ptr noundef nonnull @.str, i32 noundef 141) #7
   br label %return
 
 if.end7:                                          ; preds = %land.lhs.true, %if.end
-  tail call void @EVP_MD_CTX_set_pkey_ctx(ptr noundef nonnull %call.i, ptr noundef nonnull %call1) #8
+  tail call void @EVP_MD_CTX_set_pkey_ctx(ptr noundef nonnull %call.i, ptr noundef nonnull %call1) #7
   br label %return
 
 return.critedge:                                  ; preds = %entry
-  tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 113, ptr noundef nonnull @__func__.evp_md_ctx_new_ex) #8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 524294, ptr noundef null) #8
-  tail call void @EVP_PKEY_CTX_free(ptr noundef null) #8
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 113, ptr noundef nonnull @__func__.evp_md_ctx_new_ex) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 524294, ptr noundef null) #7
+  tail call void @EVP_PKEY_CTX_free(ptr noundef null) #7
   br label %return
 
 return:                                           ; preds = %return.critedge, %EVP_MD_CTX_reset.exit.i, %EVP_MD_CTX_free.exit14, %if.end7
@@ -314,7 +314,7 @@ return:                                           ; preds = %return.critedge, %E
 ; Function Attrs: nounwind uwtable
 define noalias ptr @EVP_MD_CTX_new() local_unnamed_addr #0 {
 entry:
-  %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 72, ptr noundef nonnull @.str, i32 noundef 132) #8
+  %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 72, ptr noundef nonnull @.str, i32 noundef 132) #7
   ret ptr %call
 }
 
@@ -339,21 +339,21 @@ entry:
   br i1 %cmp, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  %call.i.i = tail call i32 @EVP_MD_CTX_test_flags(ptr noundef nonnull %ctx, i32 noundef 1024) #8
+  %call.i.i = tail call i32 @EVP_MD_CTX_test_flags(ptr noundef nonnull %ctx, i32 noundef 1024) #7
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %if.then1.i.i, label %EVP_MD_CTX_reset.exit
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
   %pctx.i.i = getelementptr inbounds i8, ptr %ctx, i64 40
   %0 = load ptr, ptr %pctx.i.i, align 8
-  tail call void @EVP_PKEY_CTX_free(ptr noundef %0) #8
+  tail call void @EVP_PKEY_CTX_free(ptr noundef %0) #7
   store ptr null, ptr %pctx.i.i, align 8
   br label %EVP_MD_CTX_reset.exit
 
 EVP_MD_CTX_reset.exit:                            ; preds = %if.end.i.i, %if.then1.i.i
   tail call void @evp_md_ctx_clear_digest(ptr noundef nonnull %ctx, i32 noundef 0, i32 noundef 0)
-  tail call void @OPENSSL_cleanse(ptr noundef nonnull %ctx, i64 noundef 72) #8
-  tail call void @CRYPTO_free(ptr noundef nonnull %ctx, ptr noundef nonnull @.str, i32 noundef 141) #8
+  tail call void @OPENSSL_cleanse(ptr noundef nonnull %ctx, i64 noundef 72) #7
+  tail call void @CRYPTO_free(ptr noundef nonnull %ctx, ptr noundef nonnull @.str, i32 noundef 141) #7
   br label %return
 
 return:                                           ; preds = %entry, %EVP_MD_CTX_reset.exit
@@ -379,9 +379,9 @@ if.then:                                          ; preds = %entry
   br i1 %cmp1.not, label %if.then6, label %if.end
 
 if.then6:                                         ; preds = %if.then
-  tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 148, ptr noundef nonnull @__func__.evp_md_ctx_free_algctx) #8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 134, ptr noundef null) #8
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 148, ptr noundef nonnull @__func__.evp_md_ctx_free_algctx) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 134, ptr noundef null) #7
   br label %return
 
 if.end:                                           ; preds = %if.then
@@ -391,7 +391,7 @@ if.end:                                           ; preds = %if.then
   br i1 %cmp8.not, label %if.end14, label %if.then10
 
 if.then10:                                        ; preds = %if.end
-  tail call void %2(ptr noundef nonnull %0) #8
+  tail call void %2(ptr noundef nonnull %0) #7
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then10, %if.end
@@ -441,21 +441,21 @@ if.then:                                          ; preds = %land.lhs.true18
   ]
 
 if.then24:                                        ; preds = %if.then
-  %call = tail call i32 @EVP_DigestSignInit(ptr noundef nonnull %ctx, ptr noundef null, ptr noundef %type, ptr noundef %impl, ptr noundef null) #8
+  %call = tail call i32 @EVP_DigestSignInit(ptr noundef nonnull %ctx, ptr noundef null, ptr noundef %type, ptr noundef %impl, ptr noundef null) #7
   br label %return
 
 if.then28:                                        ; preds = %if.then
-  %call29 = tail call i32 @EVP_DigestVerifyInit(ptr noundef nonnull %ctx, ptr noundef null, ptr noundef %type, ptr noundef %impl, ptr noundef null) #8
+  %call29 = tail call i32 @EVP_DigestVerifyInit(ptr noundef nonnull %ctx, ptr noundef null, ptr noundef %type, ptr noundef %impl, ptr noundef null) #7
   br label %return
 
 if.end30:                                         ; preds = %if.then
-  tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 179, ptr noundef nonnull @__func__.evp_md_init_internal) #8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 189, ptr noundef null) #8
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 179, ptr noundef nonnull @__func__.evp_md_init_internal) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 189, ptr noundef null) #7
   br label %return
 
 if.end31:                                         ; preds = %land.lhs.true, %land.lhs.true18, %entry
-  tail call void @EVP_MD_CTX_clear_flags(ptr noundef nonnull %ctx, i32 noundef 2050) #8
+  tail call void @EVP_MD_CTX_clear_flags(ptr noundef nonnull %ctx, i32 noundef 2050) #7
   %cmp32.not = icmp eq ptr %type, null
   br i1 %cmp32.not, label %if.else, label %if.then33
 
@@ -470,9 +470,9 @@ if.else:                                          ; preds = %if.end31
   br i1 %cmp34, label %if.then35, label %if.end38
 
 if.then35:                                        ; preds = %if.else
-  tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 191, ptr noundef nonnull @__func__.evp_md_init_internal) #8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 139, ptr noundef null) #8
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 191, ptr noundef nonnull @__func__.evp_md_init_internal) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 139, ptr noundef null) #7
   br label %return
 
 if.end38:                                         ; preds = %if.else, %if.then33
@@ -495,14 +495,14 @@ land.lhs.true43:                                  ; preds = %land.lhs.true40
   br i1 %cmp47, label %skip_to_init, label %if.end49
 
 if.end49:                                         ; preds = %land.lhs.true43, %land.lhs.true40, %if.end38
-  %call51 = tail call i32 @ENGINE_finish(ptr noundef %4) #8
+  %call51 = tail call i32 @ENGINE_finish(ptr noundef %4) #7
   store ptr null, ptr %engine, align 8
   %cmp53 = icmp eq ptr %impl, null
   br i1 %cmp53, label %lor.lhs.false59, label %if.then79
 
 lor.lhs.false59:                                  ; preds = %if.end49
   %8 = load i32, ptr %type.addr.0, align 8
-  %call56 = tail call ptr @ENGINE_get_digest_engine(i32 noundef %8) #8
+  %call56 = tail call ptr @ENGINE_get_digest_engine(i32 noundef %8) #7
   %9 = load ptr, ptr %engine, align 8
   %cmp61 = icmp ne ptr %9, null
   %cmp63 = icmp ne ptr %call56, null
@@ -542,7 +542,7 @@ if.end.i:                                         ; preds = %if.then.i
   br i1 %cmp8.not.i, label %if.end14.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.end.i
-  tail call void %14(ptr noundef nonnull %12) #8
+  tail call void %14(ptr noundef nonnull %12) #7
   br label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.then10.i, %if.end.i
@@ -550,9 +550,9 @@ if.end14.i:                                       ; preds = %if.then10.i, %if.en
   br label %if.end82
 
 evp_md_ctx_free_algctx.exit:                      ; preds = %if.then.i
-  tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 148, ptr noundef nonnull @__func__.evp_md_ctx_free_algctx) #8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 134, ptr noundef null) #8
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 148, ptr noundef nonnull @__func__.evp_md_ctx_free_algctx) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 134, ptr noundef null) #7
   br label %return
 
 if.end82:                                         ; preds = %if.end14.i, %if.then79
@@ -592,7 +592,7 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %if.end.i118
   br i1 %cmp2.i, label %EVP_MD_free.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %CRYPTO_DOWN_REF.exit.i, %CRYPTO_DOWN_REF.exit.thread.i
-  tail call void @evp_md_free_int(ptr noundef nonnull %16) #8
+  tail call void @evp_md_free_int(ptr noundef nonnull %16) #7
   br label %EVP_MD_free.exit
 
 EVP_MD_free.exit:                                 ; preds = %if.end87, %lor.lhs.false.i, %CRYPTO_DOWN_REF.exit.i, %if.end4.i
@@ -612,7 +612,7 @@ if.then.i121:                                     ; preds = %if.end90
   br i1 %cmp2.not.i, label %if.end.i122, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then.i121
-  %call.i = tail call i32 @EVP_MD_CTX_test_flags(ptr noundef nonnull %ctx, i32 noundef 2) #8
+  %call.i = tail call i32 @EVP_MD_CTX_test_flags(ptr noundef nonnull %ctx, i32 noundef 2) #7
   %tobool.not.i = icmp eq i32 %call.i, 0
   %.pre160.pre165 = load ptr, ptr %digest.i119, align 8
   br i1 %tobool.not.i, label %if.then3.i, label %if.end.i122
@@ -620,7 +620,7 @@ land.lhs.true.i:                                  ; preds = %if.then.i121
 if.then3.i:                                       ; preds = %land.lhs.true.i
   %cleanup5.i = getelementptr inbounds i8, ptr %.pre160.pre165, i64 64
   %21 = load ptr, ptr %cleanup5.i, align 8
-  %call6.i = tail call i32 %21(ptr noundef nonnull %ctx) #8
+  %call6.i = tail call i32 %21(ptr noundef nonnull %ctx) #7
   %.pre160.pre = load ptr, ptr %digest.i119, align 8
   br label %if.end.i122
 
@@ -638,13 +638,13 @@ land.lhs.true8.i:                                 ; preds = %if.end.i122
   br i1 %cmp10.i, label %land.lhs.true11.i, label %cleanup_old_md_data.exit
 
 land.lhs.true11.i:                                ; preds = %land.lhs.true8.i
-  %call12.i = tail call i32 @EVP_MD_CTX_test_flags(ptr noundef nonnull %ctx, i32 noundef 4) #8
+  %call12.i = tail call i32 @EVP_MD_CTX_test_flags(ptr noundef nonnull %ctx, i32 noundef 4) #7
   %24 = load ptr, ptr %md_data.i, align 8
   %25 = load ptr, ptr %digest.i119, align 8
   %ctx_size18.i = getelementptr inbounds i8, ptr %25, i64 76
   %26 = load i32, ptr %ctx_size18.i, align 4
   %conv.i = sext i32 %26 to i64
-  tail call void @CRYPTO_clear_free(ptr noundef %24, i64 noundef %conv.i, ptr noundef nonnull @.str, i32 noundef 37) #8
+  tail call void @CRYPTO_clear_free(ptr noundef %24, i64 noundef %conv.i, ptr noundef nonnull @.str, i32 noundef 37) #7
   store ptr null, ptr %md_data.i, align 8
   %.pre = load ptr, ptr %digest.i119, align 8
   br label %cleanup_old_md_data.exit
@@ -661,9 +661,9 @@ if.then93:                                        ; preds = %cleanup_old_md_data
   br i1 %cmp94.not, label %if.then100, label %if.end124.thread
 
 if.then100:                                       ; preds = %if.then93
-  tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 252, ptr noundef nonnull @__func__.evp_md_init_internal) #8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 134, ptr noundef null) #8
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 252, ptr noundef nonnull @__func__.evp_md_init_internal) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 134, ptr noundef null) #7
   br label %return
 
 if.else102:                                       ; preds = %cleanup_old_md_data.exit
@@ -683,19 +683,19 @@ if.then111:                                       ; preds = %if.end107
   br i1 %cmp113.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %if.then111
-  %call116 = tail call ptr @OBJ_nid2sn(i32 noundef %30) #8
+  %call116 = tail call ptr @OBJ_nid2sn(i32 noundef %30) #7
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then111, %cond.true
   %cond = phi ptr [ %call116, %cond.true ], [ @.str.6, %if.then111 ]
-  %call.i123 = tail call ptr @evp_generic_fetch(ptr noundef null, i32 noundef 1, ptr noundef %cond, ptr noundef nonnull @.str.7, ptr noundef nonnull @evp_md_from_algorithm, ptr noundef nonnull @evp_md_up_ref, ptr noundef nonnull @evp_md_free) #8
+  %call.i123 = tail call ptr @evp_generic_fetch(ptr noundef null, i32 noundef 1, ptr noundef %cond, ptr noundef nonnull @.str.7, ptr noundef nonnull @evp_md_from_algorithm, ptr noundef nonnull @evp_md_up_ref, ptr noundef nonnull @evp_md_free) #7
   %cmp118 = icmp eq ptr %call.i123, null
   br i1 %cmp118, label %if.then120, label %if.end124
 
 if.then120:                                       ; preds = %cond.end
-  tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 272, ptr noundef nonnull @__func__.evp_md_init_internal) #8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 134, ptr noundef null) #8
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 272, ptr noundef nonnull @__func__.evp_md_init_internal) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 134, ptr noundef null) #7
   br label %return
 
 if.end124.thread:                                 ; preds = %if.end107, %if.then93
@@ -752,8 +752,8 @@ if.then144:                                       ; preds = %if.end139
   %newctx = getelementptr inbounds i8, ptr %type.addr.1172, i64 128
   %38 = load ptr, ptr %newctx, align 8
   %39 = load ptr, ptr %prov125174, align 8
-  %call147 = tail call ptr @ossl_provider_ctx(ptr noundef %39) #8
-  %call148 = tail call ptr %38(ptr noundef %call147) #8
+  %call147 = tail call ptr @ossl_provider_ctx(ptr noundef %39) #7
+  %call148 = tail call ptr %38(ptr noundef %call147) #7
   store ptr %call148, ptr %algctx141, align 8
   %cmp151 = icmp eq ptr %call148, null
   br i1 %cmp151, label %if.then153, label %if.then144.if.end155_crit_edge
@@ -763,9 +763,9 @@ if.then144.if.end155_crit_edge:                   ; preds = %if.then144
   br label %if.end155
 
 if.then153:                                       ; preds = %if.then144
-  tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 293, ptr noundef nonnull @__func__.evp_md_init_internal) #8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 134, ptr noundef null) #8
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 293, ptr noundef nonnull @__func__.evp_md_init_internal) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 134, ptr noundef null) #7
   br label %return
 
 if.end155:                                        ; preds = %if.then144.if.end155_crit_edge, %if.end139
@@ -777,24 +777,24 @@ if.end155:                                        ; preds = %if.then144.if.end15
   br i1 %cmp157, label %if.then159, label %if.end160
 
 if.then159:                                       ; preds = %if.end155
-  tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 299, ptr noundef nonnull @__func__.evp_md_init_internal) #8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 134, ptr noundef null) #8
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 299, ptr noundef nonnull @__func__.evp_md_init_internal) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 134, ptr noundef null) #7
   br label %return
 
 if.end160:                                        ; preds = %if.end155
-  %call164 = tail call i32 %42(ptr noundef nonnull %40, ptr noundef %params) #8
+  %call164 = tail call i32 %42(ptr noundef nonnull %40, ptr noundef %params) #7
   br label %return
 
 if.then169:                                       ; preds = %EVP_MD_free.exit
-  %call170 = tail call i32 @ENGINE_init(ptr noundef nonnull %impl) #8
+  %call170 = tail call i32 @ENGINE_init(ptr noundef nonnull %impl) #7
   %tobool171.not = icmp eq i32 %call170, 0
   br i1 %tobool171.not, label %if.then172, label %if.then178
 
 if.then172:                                       ; preds = %if.then169
-  tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 312, ptr noundef nonnull @__func__.evp_md_init_internal) #8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 134, ptr noundef null) #8
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 312, ptr noundef nonnull @__func__.evp_md_init_internal) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 134, ptr noundef null) #7
   br label %return
 
 if.end175:                                        ; preds = %EVP_MD_free.exit
@@ -804,15 +804,15 @@ if.end175:                                        ; preds = %EVP_MD_free.exit
 if.then178:                                       ; preds = %if.then169, %if.end175
   %impl.addr.0159 = phi ptr [ %tmpimpl.0154, %if.end175 ], [ %impl, %if.then169 ]
   %43 = load i32, ptr %type.addr.0, align 8
-  %call180 = tail call ptr @ENGINE_get_digest(ptr noundef nonnull %impl.addr.0159, i32 noundef %43) #8
+  %call180 = tail call ptr @ENGINE_get_digest(ptr noundef nonnull %impl.addr.0159, i32 noundef %43) #7
   %cmp181 = icmp eq ptr %call180, null
   br i1 %cmp181, label %if.then183, label %if.end190
 
 if.then183:                                       ; preds = %if.then178
-  tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 324, ptr noundef nonnull @__func__.evp_md_init_internal) #8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 134, ptr noundef null) #8
-  %call184 = tail call i32 @ENGINE_finish(ptr noundef nonnull %impl.addr.0159) #8
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 324, ptr noundef nonnull @__func__.evp_md_init_internal) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 134, ptr noundef null) #7
+  %call184 = tail call i32 @ENGINE_finish(ptr noundef nonnull %impl.addr.0159) #7
   br label %return
 
 if.end190:                                        ; preds = %if.end175, %if.then178
@@ -834,7 +834,7 @@ if.then.i131:                                     ; preds = %if.then194
   br i1 %cmp2.not.i133, label %if.end.i137, label %land.lhs.true.i134
 
 land.lhs.true.i134:                               ; preds = %if.then.i131
-  %call.i135 = tail call i32 @EVP_MD_CTX_test_flags(ptr noundef nonnull %ctx, i32 noundef 2) #8
+  %call.i135 = tail call i32 @EVP_MD_CTX_test_flags(ptr noundef nonnull %ctx, i32 noundef 2) #7
   %tobool.not.i136 = icmp eq i32 %call.i135, 0
   br i1 %tobool.not.i136, label %if.then3.i148, label %if.end.i137
 
@@ -842,7 +842,7 @@ if.then3.i148:                                    ; preds = %land.lhs.true.i134
   %46 = load ptr, ptr %digest83, align 8
   %cleanup5.i149 = getelementptr inbounds i8, ptr %46, i64 64
   %47 = load ptr, ptr %cleanup5.i149, align 8
-  %call6.i150 = tail call i32 %47(ptr noundef nonnull %ctx) #8
+  %call6.i150 = tail call i32 %47(ptr noundef nonnull %ctx) #7
   br label %if.end.i137
 
 if.end.i137:                                      ; preds = %if.then3.i148, %land.lhs.true.i134, %if.then.i131
@@ -859,13 +859,13 @@ land.lhs.true8.i140:                              ; preds = %if.end.i137
   br i1 %cmp10.i142, label %land.lhs.true11.i143, label %cleanup_old_md_data.exit151
 
 land.lhs.true11.i143:                             ; preds = %land.lhs.true8.i140
-  %call12.i144 = tail call i32 @EVP_MD_CTX_test_flags(ptr noundef nonnull %ctx, i32 noundef 4) #8
+  %call12.i144 = tail call i32 @EVP_MD_CTX_test_flags(ptr noundef nonnull %ctx, i32 noundef 4) #7
   %51 = load ptr, ptr %md_data.i138, align 8
   %52 = load ptr, ptr %digest83, align 8
   %ctx_size18.i146 = getelementptr inbounds i8, ptr %52, i64 76
   %53 = load i32, ptr %ctx_size18.i146, align 4
   %conv.i147 = sext i32 %53 to i64
-  tail call void @CRYPTO_clear_free(ptr noundef %51, i64 noundef %conv.i147, ptr noundef nonnull @.str, i32 noundef 37) #8
+  tail call void @CRYPTO_clear_free(ptr noundef %51, i64 noundef %conv.i147, ptr noundef nonnull @.str, i32 noundef 37) #7
   store ptr null, ptr %md_data.i138, align 8
   br label %cleanup_old_md_data.exit151
 
@@ -890,7 +890,7 @@ if.then201:                                       ; preds = %land.lhs.true199
   store ptr %56, ptr %update202, align 8
   %57 = load i32, ptr %ctx_size, align 4
   %conv204 = sext i32 %57 to i64
-  %call205 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef %conv204, ptr noundef nonnull @.str, i32 noundef 345) #8
+  %call205 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef %conv204, ptr noundef nonnull @.str, i32 noundef 345) #7
   %md_data = getelementptr inbounds i8, ptr %ctx, i64 32
   store ptr %call205, ptr %md_data, align 8
   %cmp207 = icmp eq ptr %call205, null
@@ -918,7 +918,7 @@ lor.lhs.false241:                                 ; preds = %land.lhs.true216, %
   br i1 %cmp244, label %if.then246, label %if.end256
 
 if.then246:                                       ; preds = %land.lhs.true216, %lor.lhs.false241
-  %call248 = tail call i32 @EVP_PKEY_CTX_ctrl(ptr noundef nonnull %58, i32 noundef -1, i32 noundef 496, i32 noundef 7, i32 noundef 0, ptr noundef nonnull %ctx) #8
+  %call248 = tail call i32 @EVP_PKEY_CTX_ctrl(ptr noundef nonnull %58, i32 noundef -1, i32 noundef 496, i32 noundef 7, i32 noundef 0, ptr noundef nonnull %ctx) #7
   %cmp249 = icmp slt i32 %call248, 1
   %cmp252 = icmp ne i32 %call248, -2
   %or.cond1 = and i1 %cmp249, %cmp252
@@ -936,7 +936,7 @@ if.end261:                                        ; preds = %if.end256
   %62 = load ptr, ptr %digest262, align 8
   %init = getelementptr inbounds i8, ptr %62, i64 32
   %63 = load ptr, ptr %init, align 8
-  %call263 = tail call i32 %63(ptr noundef nonnull %ctx) #8
+  %call263 = tail call i32 %63(ptr noundef nonnull %ctx) #7
   br label %return
 
 return:                                           ; preds = %evp_md_ctx_free_algctx.exit, %if.end256, %if.then246, %if.then201, %if.else102, %if.end261, %if.then183, %if.then172, %if.end160, %if.then159, %if.then153, %if.then120, %if.then100, %if.then35, %if.end30, %if.then28, %if.then24
@@ -951,20 +951,20 @@ entry:
   br i1 %cmp.i.i, label %EVP_MD_CTX_reset.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  %call.i.i = tail call i32 @EVP_MD_CTX_test_flags(ptr noundef nonnull %ctx, i32 noundef 1024) #8
+  %call.i.i = tail call i32 @EVP_MD_CTX_test_flags(ptr noundef nonnull %ctx, i32 noundef 1024) #7
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %if.then1.i.i, label %if.end3.i.i
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
   %pctx.i.i = getelementptr inbounds i8, ptr %ctx, i64 40
   %0 = load ptr, ptr %pctx.i.i, align 8
-  tail call void @EVP_PKEY_CTX_free(ptr noundef %0) #8
+  tail call void @EVP_PKEY_CTX_free(ptr noundef %0) #7
   store ptr null, ptr %pctx.i.i, align 8
   br label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %if.then1.i.i, %if.end.i.i
   tail call void @evp_md_ctx_clear_digest(ptr noundef nonnull %ctx, i32 noundef 0, i32 noundef 0)
-  tail call void @OPENSSL_cleanse(ptr noundef nonnull %ctx, i64 noundef 72) #8
+  tail call void @OPENSSL_cleanse(ptr noundef nonnull %ctx, i64 noundef 72) #7
   br label %EVP_MD_CTX_reset.exit
 
 EVP_MD_CTX_reset.exit:                            ; preds = %entry, %if.end3.i.i
@@ -993,9 +993,9 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 392, ptr noundef nonnull @__func__.EVP_DigestUpdate) #8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 189, ptr noundef null) #8
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 392, ptr noundef nonnull @__func__.EVP_DigestUpdate) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 189, ptr noundef null) #7
   br label %return
 
 if.end3:                                          ; preds = %if.end
@@ -1027,17 +1027,17 @@ if.then25:                                        ; preds = %land.lhs.true22
   ]
 
 if.then29:                                        ; preds = %if.then25
-  %call = tail call i32 @EVP_DigestSignUpdate(ptr noundef nonnull %ctx, ptr noundef %data, i64 noundef %count) #8
+  %call = tail call i32 @EVP_DigestSignUpdate(ptr noundef nonnull %ctx, ptr noundef %data, i64 noundef %count) #7
   br label %return
 
 if.then34:                                        ; preds = %if.then25
-  %call35 = tail call i32 @EVP_DigestVerifyUpdate(ptr noundef nonnull %ctx, ptr noundef %data, i64 noundef %count) #8
+  %call35 = tail call i32 @EVP_DigestVerifyUpdate(ptr noundef nonnull %ctx, ptr noundef %data, i64 noundef %count) #7
   br label %return
 
 if.end36:                                         ; preds = %if.then25
-  tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 411, ptr noundef nonnull @__func__.EVP_DigestUpdate) #8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 189, ptr noundef null) #8
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 411, ptr noundef nonnull @__func__.EVP_DigestUpdate) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 189, ptr noundef null) #7
   br label %return
 
 if.end37:                                         ; preds = %land.lhs.true, %land.lhs.true22, %if.end3
@@ -1062,21 +1062,21 @@ if.end47:                                         ; preds = %lor.lhs.false39
   br i1 %cmp49, label %if.then50, label %if.end51
 
 if.then50:                                        ; preds = %if.end47
-  tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 421, ptr noundef nonnull @__func__.EVP_DigestUpdate) #8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 189, ptr noundef null) #8
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 421, ptr noundef nonnull @__func__.EVP_DigestUpdate) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 189, ptr noundef null) #7
   br label %return
 
 if.end51:                                         ; preds = %if.end47
   %algctx54 = getelementptr inbounds i8, ptr %ctx, i64 56
   %7 = load ptr, ptr %algctx54, align 8
-  %call55 = tail call i32 %6(ptr noundef %7, ptr noundef %data, i64 noundef %count) #8
+  %call55 = tail call i32 %6(ptr noundef %7, ptr noundef %data, i64 noundef %count) #7
   br label %return
 
 legacy:                                           ; preds = %if.end37, %lor.lhs.false39
   %update = getelementptr inbounds i8, ptr %ctx, i64 48
   %8 = load ptr, ptr %update, align 8
-  %call56 = tail call i32 %8(ptr noundef nonnull %ctx, ptr noundef %data, i64 noundef %count) #8
+  %call56 = tail call i32 %8(ptr noundef nonnull %ctx, ptr noundef %data, i64 noundef %count) #7
   br label %return
 
 return:                                           ; preds = %entry, %legacy, %if.end51, %if.then50, %if.end36, %if.then34, %if.then29, %if.then2
@@ -1096,20 +1096,20 @@ entry:
   br i1 %cmp.i.i, label %EVP_MD_CTX_reset.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  %call.i.i = tail call i32 @EVP_MD_CTX_test_flags(ptr noundef nonnull %ctx, i32 noundef 1024) #8
+  %call.i.i = tail call i32 @EVP_MD_CTX_test_flags(ptr noundef nonnull %ctx, i32 noundef 1024) #7
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %if.then1.i.i, label %if.end3.i.i
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
   %pctx.i.i = getelementptr inbounds i8, ptr %ctx, i64 40
   %0 = load ptr, ptr %pctx.i.i, align 8
-  tail call void @EVP_PKEY_CTX_free(ptr noundef %0) #8
+  tail call void @EVP_PKEY_CTX_free(ptr noundef %0) #7
   store ptr null, ptr %pctx.i.i, align 8
   br label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %if.then1.i.i, %if.end.i.i
   tail call void @evp_md_ctx_clear_digest(ptr noundef nonnull %ctx, i32 noundef 0, i32 noundef 0)
-  tail call void @OPENSSL_cleanse(ptr noundef nonnull %ctx, i64 noundef 72) #8
+  tail call void @OPENSSL_cleanse(ptr noundef nonnull %ctx, i64 noundef 72) #7
   br label %EVP_MD_CTX_reset.exit
 
 EVP_MD_CTX_reset.exit:                            ; preds = %entry, %if.end3.i.i
@@ -1130,7 +1130,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call i32 @EVP_MD_get_size(ptr noundef nonnull %0) #8
+  %call = tail call i32 @EVP_MD_get_size(ptr noundef nonnull %0) #7
   %cmp2 = icmp slt i32 %call, 0
   br i1 %cmp2, label %return, label %if.end4
 
@@ -1152,7 +1152,7 @@ if.end9:                                          ; preds = %if.end4
 if.then13:                                        ; preds = %if.end9
   %4 = getelementptr inbounds i8, ptr %params, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %4, i8 0, i64 48, i1 false)
-  call void @OSSL_PARAM_construct_size_t(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.1, ptr noundef nonnull %mdsize) #8
+  call void @OSSL_PARAM_construct_size_t(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.1, ptr noundef nonnull %mdsize) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
   %pctx1.i = getelementptr inbounds i8, ptr %ctx, i64 40
   %5 = load ptr, ptr %pctx1.i, align 8
@@ -1181,7 +1181,7 @@ land.lhs.true7.i:                                 ; preds = %land.lhs.true5.i
   br i1 %cmp9.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true7.i
-  %call.i = call i32 %9(ptr noundef nonnull %7, ptr noundef nonnull %params) #8
+  %call.i = call i32 %9(ptr noundef nonnull %7, ptr noundef nonnull %params) #7
   br label %EVP_MD_CTX_get_params.exit
 
 if.end.i:                                         ; preds = %land.lhs.true7.i, %land.lhs.true5.i, %land.lhs.true.i, %if.then13
@@ -1198,7 +1198,7 @@ land.lhs.true16.i:                                ; preds = %if.end.i
 if.then19.i:                                      ; preds = %land.lhs.true16.i
   %algctx22.i = getelementptr inbounds i8, ptr %ctx, i64 56
   %12 = load ptr, ptr %algctx22.i, align 8
-  %call23.i = call i32 %11(ptr noundef %12, ptr noundef nonnull %params) #8
+  %call23.i = call i32 %11(ptr noundef %12, ptr noundef nonnull %params) #7
   br label %EVP_MD_CTX_get_params.exit
 
 EVP_MD_CTX_get_params.exit:                       ; preds = %if.then.i, %if.then19.i
@@ -1218,9 +1218,9 @@ if.end17:                                         ; preds = %EVP_MD_CTX_get_para
   br i1 %cmp19, label %if.then21, label %if.end22
 
 if.then21:                                        ; preds = %if.end17
-  call void @ERR_new() #8
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 467, ptr noundef nonnull @__func__.EVP_DigestFinal_ex) #8
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 188, ptr noundef null) #8
+  call void @ERR_new() #7
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 467, ptr noundef nonnull @__func__.EVP_DigestFinal_ex) #7
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 188, ptr noundef null) #7
   br label %return
 
 if.end22:                                         ; preds = %if.end17
@@ -1231,16 +1231,16 @@ if.end22:                                         ; preds = %if.end17
   br i1 %cmp23.not, label %if.end26, label %if.then25
 
 if.then25:                                        ; preds = %if.end22
-  call void @ERR_new() #8
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 472, ptr noundef nonnull @__func__.EVP_DigestFinal_ex) #8
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 188, ptr noundef null) #8
+  call void @ERR_new() #7
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 472, ptr noundef nonnull @__func__.EVP_DigestFinal_ex) #7
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 188, ptr noundef null) #7
   br label %return
 
 if.end26:                                         ; preds = %if.end22
   %algctx = getelementptr inbounds i8, ptr %ctx, i64 56
   %16 = load ptr, ptr %algctx, align 8
   %17 = load i64, ptr %mdsize, align 8
-  %call29 = call i32 %14(ptr noundef %16, ptr noundef %md, ptr noundef nonnull %size, i64 noundef %17) #8
+  %call29 = call i32 %14(ptr noundef %16, ptr noundef %md, ptr noundef nonnull %size, i64 noundef %17) #7
   %18 = load i64, ptr %flags, align 8
   %or = or i64 %18, 2048
   store i64 %or, ptr %flags, align 8
@@ -1258,9 +1258,9 @@ if.then36:                                        ; preds = %if.then33
   br label %return
 
 if.else:                                          ; preds = %if.then33
-  call void @ERR_new() #8
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 484, ptr noundef nonnull @__func__.EVP_DigestFinal_ex) #8
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 188, ptr noundef null) #8
+  call void @ERR_new() #7
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 484, ptr noundef nonnull @__func__.EVP_DigestFinal_ex) #7
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 188, ptr noundef null) #7
   br label %return
 
 legacy:                                           ; preds = %if.end4
@@ -1268,13 +1268,13 @@ legacy:                                           ; preds = %if.end4
   br i1 %cmp40, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %legacy
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 493) #9
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 493) #8
   unreachable
 
 cond.end:                                         ; preds = %legacy
   %final = getelementptr inbounds i8, ptr %1, i64 48
   %20 = load ptr, ptr %final, align 8
-  %call43 = tail call i32 %20(ptr noundef nonnull %ctx, ptr noundef %md) #8
+  %call43 = tail call i32 %20(ptr noundef nonnull %ctx, ptr noundef %md) #7
   %cmp44.not = icmp eq ptr %isize, null
   br i1 %cmp44.not, label %if.end48, label %if.then46
 
@@ -1290,8 +1290,8 @@ if.end48:                                         ; preds = %if.then46, %cond.en
   br i1 %tobool50.not, label %if.end55, label %if.then51
 
 if.then51:                                        ; preds = %if.end48
-  %call54 = tail call i32 %22(ptr noundef nonnull %ctx) #8
-  tail call void @EVP_MD_CTX_set_flags(ptr noundef nonnull %ctx, i32 noundef 2) #8
+  %call54 = tail call i32 %22(ptr noundef nonnull %ctx) #7
+  tail call void @EVP_MD_CTX_set_flags(ptr noundef nonnull %ctx, i32 noundef 2) #7
   %.pre29 = load ptr, ptr %digest, align 8
   br label %if.end55
 
@@ -1302,7 +1302,7 @@ if.end55:                                         ; preds = %if.then51, %if.end4
   %ctx_size = getelementptr inbounds i8, ptr %23, i64 76
   %25 = load i32, ptr %ctx_size, align 4
   %conv57 = sext i32 %25 to i64
-  tail call void @OPENSSL_cleanse(ptr noundef %24, i64 noundef %conv57) #8
+  tail call void @OPENSSL_cleanse(ptr noundef %24, i64 noundef %conv57) #7
   br label %return
 
 return:                                           ; preds = %if.end.i, %land.lhs.true16.i, %if.end26, %if.else, %if.then36, %EVP_MD_CTX_get_params.exit, %if.end, %entry, %if.end55, %if.then25, %if.then21
@@ -1350,7 +1350,7 @@ land.lhs.true7:                                   ; preds = %land.lhs.true5
   br i1 %cmp9.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true7
-  %call = tail call i32 %4(ptr noundef nonnull %2, ptr noundef %params) #8
+  %call = tail call i32 %4(ptr noundef nonnull %2, ptr noundef %params) #7
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true, %land.lhs.true7, %land.lhs.true5, %entry
@@ -1368,7 +1368,7 @@ land.lhs.true16:                                  ; preds = %if.end
 if.then19:                                        ; preds = %land.lhs.true16
   %algctx22 = getelementptr inbounds i8, ptr %ctx, i64 56
   %7 = load ptr, ptr %algctx22, align 8
-  %call23 = tail call i32 %6(ptr noundef %7, ptr noundef %params) #8
+  %call23 = tail call i32 %6(ptr noundef %7, ptr noundef %params) #7
   br label %return
 
 return:                                           ; preds = %if.end, %land.lhs.true16, %if.then19, %if.then
@@ -1395,9 +1395,9 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 513, ptr noundef nonnull @__func__.EVP_DigestFinalXOF) #8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 218, ptr noundef null) #8
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 513, ptr noundef nonnull @__func__.EVP_DigestFinalXOF) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 218, ptr noundef null) #7
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -1413,9 +1413,9 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp6, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %if.end4
-  tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 521, ptr noundef nonnull @__func__.EVP_DigestFinalXOF) #8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 188, ptr noundef null) #8
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 521, ptr noundef nonnull @__func__.EVP_DigestFinalXOF) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 188, ptr noundef null) #7
   br label %return
 
 if.end8:                                          ; preds = %if.end4
@@ -1426,16 +1426,16 @@ if.end8:                                          ; preds = %if.end4
   br i1 %cmp9.not, label %if.end11, label %if.then10
 
 if.then10:                                        ; preds = %if.end8
-  tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 526, ptr noundef nonnull @__func__.EVP_DigestFinalXOF) #8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 188, ptr noundef null) #8
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 526, ptr noundef nonnull @__func__.EVP_DigestFinalXOF) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 188, ptr noundef null) #7
   br label %return
 
 if.end11:                                         ; preds = %if.end8
-  call void @OSSL_PARAM_construct_size_t(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.3, ptr noundef nonnull %size.addr) #8
+  call void @OSSL_PARAM_construct_size_t(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.3, ptr noundef nonnull %size.addr) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
   %arrayidx13 = getelementptr inbounds i8, ptr %params, i64 40
-  call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp14) #8
+  call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp14) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx13, ptr noundef nonnull align 8 dereferenceable(40) %tmp14, i64 40, i1 false)
   %pctx1.i = getelementptr inbounds i8, ptr %ctx, i64 40
   %4 = load ptr, ptr %pctx1.i, align 8
@@ -1464,7 +1464,7 @@ land.lhs.true7.i:                                 ; preds = %land.lhs.true5.i
   br i1 %cmp9.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true7.i
-  %call.i = call i32 %8(ptr noundef nonnull %6, ptr noundef nonnull %params) #8
+  %call.i = call i32 %8(ptr noundef nonnull %6, ptr noundef nonnull %params) #7
   br label %EVP_MD_CTX_set_params.exit
 
 if.end.i:                                         ; preds = %land.lhs.true7.i, %land.lhs.true5.i, %land.lhs.true.i, %if.end11
@@ -1477,7 +1477,7 @@ if.end.i:                                         ; preds = %land.lhs.true7.i, %
 if.then19.i:                                      ; preds = %if.end.i
   %algctx22.i = getelementptr inbounds i8, ptr %ctx, i64 56
   %11 = load ptr, ptr %algctx22.i, align 8
-  %call23.i = call i32 %10(ptr noundef %11, ptr noundef nonnull %params) #8
+  %call23.i = call i32 %10(ptr noundef %11, ptr noundef nonnull %params) #7
   br label %EVP_MD_CTX_set_params.exit
 
 EVP_MD_CTX_set_params.exit:                       ; preds = %if.then.i, %if.then19.i
@@ -1496,7 +1496,7 @@ if.then16:                                        ; preds = %EVP_MD_CTX_set_para
   %algctx = getelementptr inbounds i8, ptr %ctx, i64 56
   %14 = load ptr, ptr %algctx, align 8
   %15 = load i64, ptr %size.addr, align 8
-  %call19 = call i32 %13(ptr noundef %14, ptr noundef %md, ptr noundef nonnull %size.addr, i64 noundef %15) #8
+  %call19 = call i32 %13(ptr noundef %14, ptr noundef %md, ptr noundef nonnull %size.addr, i64 noundef %15) #7
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then16, %EVP_MD_CTX_set_params.exit
@@ -1519,7 +1519,7 @@ land.lhs.true26:                                  ; preds = %legacy
   %md_ctrl = getelementptr inbounds i8, ptr %0, i64 80
   %18 = load ptr, ptr %md_ctrl, align 8
   %conv = trunc nuw nsw i64 %size to i32
-  %call28 = tail call i32 %18(ptr noundef nonnull %ctx, i32 noundef 3, i32 noundef %conv, ptr noundef null) #8
+  %call28 = tail call i32 %18(ptr noundef nonnull %ctx, i32 noundef 3, i32 noundef %conv, ptr noundef null) #7
   %tobool29.not = icmp eq i32 %call28, 0
   br i1 %tobool29.not, label %if.else, label %if.then30
 
@@ -1527,7 +1527,7 @@ if.then30:                                        ; preds = %land.lhs.true26
   %19 = load ptr, ptr %digest, align 8
   %final = getelementptr inbounds i8, ptr %19, i64 48
   %20 = load ptr, ptr %final, align 8
-  %call32 = tail call i32 %20(ptr noundef nonnull %ctx, ptr noundef %md) #8
+  %call32 = tail call i32 %20(ptr noundef nonnull %ctx, ptr noundef %md) #7
   %21 = load ptr, ptr %digest, align 8
   %cleanup = getelementptr inbounds i8, ptr %21, i64 64
   %22 = load ptr, ptr %cleanup, align 8
@@ -1535,8 +1535,8 @@ if.then30:                                        ; preds = %land.lhs.true26
   br i1 %cmp34.not, label %if.end40, label %if.then36
 
 if.then36:                                        ; preds = %if.then30
-  %call39 = tail call i32 %22(ptr noundef nonnull %ctx) #8
-  tail call void @EVP_MD_CTX_set_flags(ptr noundef nonnull %ctx, i32 noundef 2) #8
+  %call39 = tail call i32 %22(ptr noundef nonnull %ctx) #7
+  tail call void @EVP_MD_CTX_set_flags(ptr noundef nonnull %ctx, i32 noundef 2) #7
   %.pre25 = load ptr, ptr %digest, align 8
   br label %if.end40
 
@@ -1547,13 +1547,13 @@ if.end40:                                         ; preds = %if.then36, %if.then
   %ctx_size = getelementptr inbounds i8, ptr %23, i64 76
   %25 = load i32, ptr %ctx_size, align 4
   %conv42 = sext i32 %25 to i64
-  tail call void @OPENSSL_cleanse(ptr noundef %24, i64 noundef %conv42) #8
+  tail call void @OPENSSL_cleanse(ptr noundef %24, i64 noundef %conv42) #7
   br label %return
 
 if.else:                                          ; preds = %land.lhs.true26, %legacy
-  tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 556, ptr noundef nonnull @__func__.EVP_DigestFinalXOF) #8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 178, ptr noundef null) #8
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 556, ptr noundef nonnull @__func__.EVP_DigestFinalXOF) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 178, ptr noundef null) #7
   br label %return
 
 return:                                           ; preds = %if.end40, %if.else, %if.end20, %if.then10, %if.then7, %if.then
@@ -1593,7 +1593,7 @@ land.lhs.true7:                                   ; preds = %land.lhs.true5
   br i1 %cmp9.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true7
-  %call = tail call i32 %4(ptr noundef nonnull %2, ptr noundef %params) #8
+  %call = tail call i32 %4(ptr noundef nonnull %2, ptr noundef %params) #7
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true, %land.lhs.true7, %land.lhs.true5, %entry
@@ -1611,7 +1611,7 @@ land.lhs.true16:                                  ; preds = %if.end
 if.then19:                                        ; preds = %land.lhs.true16
   %algctx22 = getelementptr inbounds i8, ptr %ctx, i64 56
   %7 = load ptr, ptr %algctx22, align 8
-  %call23 = tail call i32 %6(ptr noundef %7, ptr noundef %params) #8
+  %call23 = tail call i32 %6(ptr noundef %7, ptr noundef %params) #7
   br label %return
 
 return:                                           ; preds = %if.end, %land.lhs.true16, %if.then19, %if.then
@@ -1630,9 +1630,9 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 566, ptr noundef nonnull @__func__.EVP_DigestSqueeze) #8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 218, ptr noundef null) #8
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 566, ptr noundef nonnull @__func__.EVP_DigestSqueeze) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 218, ptr noundef null) #7
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -1642,9 +1642,9 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %if.end
-  tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 571, ptr noundef nonnull @__func__.EVP_DigestSqueeze) #8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 148, ptr noundef null) #8
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 571, ptr noundef nonnull @__func__.EVP_DigestSqueeze) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 148, ptr noundef null) #7
   br label %return
 
 if.end4:                                          ; preds = %if.end
@@ -1654,15 +1654,15 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp6, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %if.end4
-  tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 576, ptr noundef nonnull @__func__.EVP_DigestSqueeze) #8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 144, ptr noundef null) #8
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 576, ptr noundef nonnull @__func__.EVP_DigestSqueeze) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 144, ptr noundef null) #7
   br label %return
 
 if.end8:                                          ; preds = %if.end4
   %algctx = getelementptr inbounds i8, ptr %ctx, i64 56
   %3 = load ptr, ptr %algctx, align 8
-  %call = call i32 %2(ptr noundef %3, ptr noundef %md, ptr noundef nonnull %size.addr, i64 noundef %size) #8
+  %call = call i32 %2(ptr noundef %3, ptr noundef %md, ptr noundef nonnull %size.addr, i64 noundef %size) #7
   br label %return
 
 return:                                           ; preds = %if.end8, %if.then7, %if.then3, %if.then
@@ -1673,7 +1673,7 @@ return:                                           ; preds = %if.end8, %if.then7,
 ; Function Attrs: nounwind uwtable
 define ptr @EVP_MD_CTX_dup(ptr noundef %in) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 72, ptr noundef nonnull @.str, i32 noundef 132) #8
+  %call.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 72, ptr noundef nonnull @.str, i32 noundef 132) #7
   %cmp.not = icmp eq ptr %call.i, null
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
@@ -1683,21 +1683,21 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool.not, label %if.end.i.i.i, label %if.end
 
 if.end.i.i.i:                                     ; preds = %land.lhs.true
-  %call.i.i.i = tail call i32 @EVP_MD_CTX_test_flags(ptr noundef nonnull %call.i, i32 noundef 1024) #8
+  %call.i.i.i = tail call i32 @EVP_MD_CTX_test_flags(ptr noundef nonnull %call.i, i32 noundef 1024) #7
   %tobool.not.i.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %if.then1.i.i.i, label %EVP_MD_CTX_free.exit
 
 if.then1.i.i.i:                                   ; preds = %if.end.i.i.i
   %pctx.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 40
   %0 = load ptr, ptr %pctx.i.i.i, align 8
-  tail call void @EVP_PKEY_CTX_free(ptr noundef %0) #8
+  tail call void @EVP_PKEY_CTX_free(ptr noundef %0) #7
   store ptr null, ptr %pctx.i.i.i, align 8
   br label %EVP_MD_CTX_free.exit
 
 EVP_MD_CTX_free.exit:                             ; preds = %if.end.i.i.i, %if.then1.i.i.i
   tail call void @evp_md_ctx_clear_digest(ptr noundef nonnull %call.i, i32 noundef 0, i32 noundef 0)
-  tail call void @OPENSSL_cleanse(ptr noundef nonnull %call.i, i64 noundef 72) #8
-  tail call void @CRYPTO_free(ptr noundef nonnull %call.i, ptr noundef nonnull @.str, i32 noundef 141) #8
+  tail call void @OPENSSL_cleanse(ptr noundef nonnull %call.i, i64 noundef 72) #7
+  tail call void @CRYPTO_free(ptr noundef nonnull %call.i, ptr noundef nonnull @.str, i32 noundef 141) #7
   br label %if.end
 
 if.end:                                           ; preds = %EVP_MD_CTX_free.exit, %land.lhs.true, %entry
@@ -1712,9 +1712,9 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 606, ptr noundef nonnull @__func__.EVP_MD_CTX_copy_ex) #8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 786690, ptr noundef null) #8
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 606, ptr noundef nonnull @__func__.EVP_MD_CTX_copy_ex) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 786690, ptr noundef null) #7
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -1728,20 +1728,20 @@ if.then2:                                         ; preds = %if.end
   br i1 %cmp.i.i, label %EVP_MD_CTX_reset.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then2
-  %call.i.i = tail call i32 @EVP_MD_CTX_test_flags(ptr noundef nonnull %out, i32 noundef 1024) #8
+  %call.i.i = tail call i32 @EVP_MD_CTX_test_flags(ptr noundef nonnull %out, i32 noundef 1024) #7
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %if.then1.i.i, label %if.end3.i.i
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
   %pctx.i.i = getelementptr inbounds i8, ptr %out, i64 40
   %1 = load ptr, ptr %pctx.i.i, align 8
-  tail call void @EVP_PKEY_CTX_free(ptr noundef %1) #8
+  tail call void @EVP_PKEY_CTX_free(ptr noundef %1) #7
   store ptr null, ptr %pctx.i.i, align 8
   br label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %if.then1.i.i, %if.end.i.i
   tail call void @evp_md_ctx_clear_digest(ptr noundef nonnull %out, i32 noundef 0, i32 noundef 0)
-  tail call void @OPENSSL_cleanse(ptr noundef nonnull %out, i64 noundef 72) #8
+  tail call void @OPENSSL_cleanse(ptr noundef nonnull %out, i64 noundef 72) #7
   br label %EVP_MD_CTX_reset.exit
 
 EVP_MD_CTX_reset.exit:                            ; preds = %if.then2, %if.end3.i.i
@@ -1771,7 +1771,7 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %if.end.i
   br i1 %cmp2.i, label %if.end6, label %if.end4.i
 
 if.end4.i:                                        ; preds = %CRYPTO_DOWN_REF.exit.i, %CRYPTO_DOWN_REF.exit.thread.i
-  tail call void @evp_md_free_int(ptr noundef nonnull %2) #8
+  tail call void @evp_md_free_int(ptr noundef nonnull %2) #7
   br label %if.end6
 
 if.end6:                                          ; preds = %if.end4.i, %CRYPTO_DOWN_REF.exit.i, %lor.lhs.false.i, %EVP_MD_CTX_reset.exit
@@ -1798,9 +1798,9 @@ if.end12:                                         ; preds = %lor.lhs.false
   br i1 %cmp14, label %if.then15, label %if.end16
 
 if.then15:                                        ; preds = %if.end12
-  tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 624, ptr noundef nonnull @__func__.EVP_MD_CTX_copy_ex) #8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 190, ptr noundef null) #8
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 624, ptr noundef nonnull @__func__.EVP_MD_CTX_copy_ex) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 190, ptr noundef null) #7
   br label %return
 
 if.end16:                                         ; preds = %if.end12
@@ -1808,14 +1808,14 @@ if.end16:                                         ; preds = %if.end12
   br i1 %cmp.i75, label %evp_md_ctx_reset_ex.exit, label %if.end.i76
 
 if.end.i76:                                       ; preds = %if.end16
-  %call.i = tail call i32 @EVP_MD_CTX_test_flags(ptr noundef nonnull %out, i32 noundef 1024) #8
+  %call.i = tail call i32 @EVP_MD_CTX_test_flags(ptr noundef nonnull %out, i32 noundef 1024) #7
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.then1.i, label %if.end3.i
 
 if.then1.i:                                       ; preds = %if.end.i76
   %pctx.i = getelementptr inbounds i8, ptr %out, i64 40
   %8 = load ptr, ptr %pctx.i, align 8
-  tail call void @EVP_PKEY_CTX_free(ptr noundef %8) #8
+  tail call void @EVP_PKEY_CTX_free(ptr noundef %8) #7
   store ptr null, ptr %pctx.i, align 8
   br label %if.end3.i
 
@@ -1854,7 +1854,7 @@ CRYPTO_DOWN_REF.exit.i84:                         ; preds = %if.end.i81
   br i1 %cmp2.i85, label %if.end26, label %if.end4.i86
 
 if.end4.i86:                                      ; preds = %CRYPTO_DOWN_REF.exit.i84, %CRYPTO_DOWN_REF.exit.thread.i87
-  tail call void @evp_md_free_int(ptr noundef nonnull %9) #8
+  tail call void @evp_md_free_int(ptr noundef nonnull %9) #7
   br label %if.end26
 
 if.end26:                                         ; preds = %if.end4.i86, %CRYPTO_DOWN_REF.exit.i84, %lor.lhs.false.i78, %evp_md_ctx_reset_ex.exit
@@ -1891,48 +1891,48 @@ if.then39:                                        ; preds = %if.end35
   %17 = load ptr, ptr %digest, align 8
   %dupctx41 = getelementptr inbounds i8, ptr %17, i64 184
   %18 = load ptr, ptr %dupctx41, align 8
-  %call43 = tail call ptr %18(ptr noundef nonnull %16) #8
+  %call43 = tail call ptr %18(ptr noundef nonnull %16) #7
   store ptr %call43, ptr %algctx, align 8
   %cmp46 = icmp eq ptr %call43, null
   br i1 %cmp46, label %if.then48, label %clone_pkey
 
 if.then48:                                        ; preds = %if.then39
-  tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 643, ptr noundef nonnull @__func__.EVP_MD_CTX_copy_ex) #8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 190, ptr noundef null) #8
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 643, ptr noundef nonnull @__func__.EVP_MD_CTX_copy_ex) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 190, ptr noundef null) #7
   br label %return
 
 clone_pkey:                                       ; preds = %if.end35, %if.then39, %if.end6
-  tail call void @EVP_MD_CTX_clear_flags(ptr noundef nonnull %out, i32 noundef 1024) #8
+  tail call void @EVP_MD_CTX_clear_flags(ptr noundef nonnull %out, i32 noundef 1024) #7
   %pctx51 = getelementptr inbounds i8, ptr %in, i64 40
   %19 = load ptr, ptr %pctx51, align 8
   %cmp52.not = icmp eq ptr %19, null
   br i1 %cmp52.not, label %return, label %if.then54
 
 if.then54:                                        ; preds = %clone_pkey
-  %call56 = tail call ptr @EVP_PKEY_CTX_dup(ptr noundef nonnull %19) #8
+  %call56 = tail call ptr @EVP_PKEY_CTX_dup(ptr noundef nonnull %19) #7
   %pctx57 = getelementptr inbounds i8, ptr %out, i64 40
   store ptr %call56, ptr %pctx57, align 8
   %cmp59 = icmp eq ptr %call56, null
   br i1 %cmp59, label %if.end.i.i94, label %return
 
 if.end.i.i94:                                     ; preds = %if.then54
-  tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 655, ptr noundef nonnull @__func__.EVP_MD_CTX_copy_ex) #8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 190, ptr noundef null) #8
-  %call.i.i95 = tail call i32 @EVP_MD_CTX_test_flags(ptr noundef nonnull %out, i32 noundef 1024) #8
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 655, ptr noundef nonnull @__func__.EVP_MD_CTX_copy_ex) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 190, ptr noundef null) #7
+  %call.i.i95 = tail call i32 @EVP_MD_CTX_test_flags(ptr noundef nonnull %out, i32 noundef 1024) #7
   %tobool.not.i.i96 = icmp eq i32 %call.i.i95, 0
   br i1 %tobool.not.i.i96, label %if.then1.i.i98, label %EVP_MD_CTX_reset.exit100
 
 if.then1.i.i98:                                   ; preds = %if.end.i.i94
   %20 = load ptr, ptr %pctx57, align 8
-  tail call void @EVP_PKEY_CTX_free(ptr noundef %20) #8
+  tail call void @EVP_PKEY_CTX_free(ptr noundef %20) #7
   store ptr null, ptr %pctx57, align 8
   br label %EVP_MD_CTX_reset.exit100
 
 EVP_MD_CTX_reset.exit100:                         ; preds = %if.end.i.i94, %if.then1.i.i98
   tail call void @evp_md_ctx_clear_digest(ptr noundef nonnull %out, i32 noundef 0, i32 noundef 0)
-  tail call void @OPENSSL_cleanse(ptr noundef nonnull %out, i64 noundef 72) #8
+  tail call void @OPENSSL_cleanse(ptr noundef nonnull %out, i64 noundef 72) #7
   br label %return
 
 legacy:                                           ; preds = %if.end7, %lor.lhs.false
@@ -1942,7 +1942,7 @@ legacy:                                           ; preds = %if.end7, %lor.lhs.f
   br i1 %tobool65.not, label %if.end71, label %land.lhs.true66
 
 land.lhs.true66:                                  ; preds = %legacy
-  %call68 = tail call i32 @ENGINE_init(ptr noundef nonnull %21) #8
+  %call68 = tail call i32 @ENGINE_init(ptr noundef nonnull %21) #7
   %tobool69.not = icmp eq i32 %call68, 0
   br i1 %tobool69.not, label %if.then70, label %land.lhs.true66.if.end71_crit_edge
 
@@ -1951,9 +1951,9 @@ land.lhs.true66.if.end71_crit_edge:               ; preds = %land.lhs.true66
   br label %if.end71
 
 if.then70:                                        ; preds = %land.lhs.true66
-  tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 669, ptr noundef nonnull @__func__.EVP_MD_CTX_copy_ex) #8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 524326, ptr noundef null) #8
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 669, ptr noundef nonnull @__func__.EVP_MD_CTX_copy_ex) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 524326, ptr noundef null) #7
   br label %return
 
 if.end71:                                         ; preds = %land.lhs.true66.if.end71_crit_edge, %legacy
@@ -1966,27 +1966,27 @@ if.end71:                                         ; preds = %land.lhs.true66.if.
 if.then76:                                        ; preds = %if.end71
   %md_data = getelementptr inbounds i8, ptr %out, i64 32
   %24 = load ptr, ptr %md_data, align 8
-  tail call void @EVP_MD_CTX_set_flags(ptr noundef nonnull %out, i32 noundef 4) #8
+  tail call void @EVP_MD_CTX_set_flags(ptr noundef nonnull %out, i32 noundef 4) #7
   br label %if.end.i.i102
 
 if.end.i.i102:                                    ; preds = %if.then76, %if.end71
   %tmp_buf.0 = phi ptr [ %24, %if.then76 ], [ null, %if.end71 ]
-  %call.i.i103 = tail call i32 @EVP_MD_CTX_test_flags(ptr noundef nonnull %out, i32 noundef 1024) #8
+  %call.i.i103 = tail call i32 @EVP_MD_CTX_test_flags(ptr noundef nonnull %out, i32 noundef 1024) #7
   %tobool.not.i.i104 = icmp eq i32 %call.i.i103, 0
   br i1 %tobool.not.i.i104, label %if.then1.i.i106, label %EVP_MD_CTX_reset.exit108
 
 if.then1.i.i106:                                  ; preds = %if.end.i.i102
   %pctx.i.i107 = getelementptr inbounds i8, ptr %out, i64 40
   %25 = load ptr, ptr %pctx.i.i107, align 8
-  tail call void @EVP_PKEY_CTX_free(ptr noundef %25) #8
+  tail call void @EVP_PKEY_CTX_free(ptr noundef %25) #7
   store ptr null, ptr %pctx.i.i107, align 8
   br label %EVP_MD_CTX_reset.exit108
 
 EVP_MD_CTX_reset.exit108:                         ; preds = %if.end.i.i102, %if.then1.i.i106
   tail call void @evp_md_ctx_clear_digest(ptr noundef nonnull %out, i32 noundef 0, i32 noundef 0)
-  tail call void @OPENSSL_cleanse(ptr noundef nonnull %out, i64 noundef 72) #8
+  tail call void @OPENSSL_cleanse(ptr noundef nonnull %out, i64 noundef 72) #7
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr noundef nonnull align 8 dereferenceable(72) %in, i64 72, i1 false)
-  tail call void @EVP_MD_CTX_clear_flags(ptr noundef nonnull %out, i32 noundef 1024) #8
+  tail call void @EVP_MD_CTX_clear_flags(ptr noundef nonnull %out, i32 noundef 1024) #7
   %md_data79 = getelementptr inbounds i8, ptr %out, i64 32
   %pctx80 = getelementptr inbounds i8, ptr %out, i64 40
   %md_data81 = getelementptr inbounds i8, ptr %in, i64 32
@@ -2012,7 +2012,7 @@ if.then88:                                        ; preds = %if.then86
 
 if.else90:                                        ; preds = %if.then86
   %conv93 = sext i32 %28 to i64
-  %call94 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %conv93, ptr noundef nonnull @.str, i32 noundef 696) #8
+  %call94 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %conv93, ptr noundef nonnull @.str, i32 noundef 696) #7
   store ptr %call94, ptr %md_data79, align 8
   %cmp97 = icmp eq ptr %call94, null
   br i1 %cmp97, label %return, label %if.else90.if.end101_crit_edge
@@ -2042,25 +2042,25 @@ if.end107:                                        ; preds = %if.end101, %land.lh
   br i1 %tobool110.not, label %if.end120, label %if.then111
 
 if.then111:                                       ; preds = %if.end107
-  %call113 = tail call ptr @EVP_PKEY_CTX_dup(ptr noundef nonnull %34) #8
+  %call113 = tail call ptr @EVP_PKEY_CTX_dup(ptr noundef nonnull %34) #7
   store ptr %call113, ptr %pctx80, align 8
   %tobool116.not = icmp eq ptr %call113, null
   br i1 %tobool116.not, label %if.end.i.i110, label %if.end120
 
 if.end.i.i110:                                    ; preds = %if.then111
-  %call.i.i111 = tail call i32 @EVP_MD_CTX_test_flags(ptr noundef nonnull %out, i32 noundef 1024) #8
+  %call.i.i111 = tail call i32 @EVP_MD_CTX_test_flags(ptr noundef nonnull %out, i32 noundef 1024) #7
   %tobool.not.i.i112 = icmp eq i32 %call.i.i111, 0
   br i1 %tobool.not.i.i112, label %if.then1.i.i114, label %EVP_MD_CTX_reset.exit116
 
 if.then1.i.i114:                                  ; preds = %if.end.i.i110
   %35 = load ptr, ptr %pctx80, align 8
-  tail call void @EVP_PKEY_CTX_free(ptr noundef %35) #8
+  tail call void @EVP_PKEY_CTX_free(ptr noundef %35) #7
   store ptr null, ptr %pctx80, align 8
   br label %EVP_MD_CTX_reset.exit116
 
 EVP_MD_CTX_reset.exit116:                         ; preds = %if.end.i.i110, %if.then1.i.i114
   tail call void @evp_md_ctx_clear_digest(ptr noundef nonnull %out, i32 noundef 0, i32 noundef 0)
-  tail call void @OPENSSL_cleanse(ptr noundef nonnull %out, i64 noundef 72) #8
+  tail call void @OPENSSL_cleanse(ptr noundef nonnull %out, i64 noundef 72) #7
   br label %return
 
 if.end120:                                        ; preds = %if.then111, %if.end107
@@ -2071,7 +2071,7 @@ if.end120:                                        ; preds = %if.then111, %if.end
   br i1 %tobool122.not, label %return, label %if.then123
 
 if.then123:                                       ; preds = %if.end120
-  %call126 = tail call i32 %37(ptr noundef nonnull %out, ptr noundef nonnull %in) #8
+  %call126 = tail call i32 %37(ptr noundef nonnull %out, ptr noundef nonnull %in) #7
   br label %return
 
 return:                                           ; preds = %if.end120, %if.else90, %clone_pkey, %if.then54, %if.then123, %EVP_MD_CTX_reset.exit116, %if.then70, %EVP_MD_CTX_reset.exit100, %if.then48, %if.then15, %if.then
@@ -2086,20 +2086,20 @@ entry:
   br i1 %cmp.i.i, label %EVP_MD_CTX_reset.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  %call.i.i = tail call i32 @EVP_MD_CTX_test_flags(ptr noundef nonnull %out, i32 noundef 1024) #8
+  %call.i.i = tail call i32 @EVP_MD_CTX_test_flags(ptr noundef nonnull %out, i32 noundef 1024) #7
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %if.then1.i.i, label %if.end3.i.i
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
   %pctx.i.i = getelementptr inbounds i8, ptr %out, i64 40
   %0 = load ptr, ptr %pctx.i.i, align 8
-  tail call void @EVP_PKEY_CTX_free(ptr noundef %0) #8
+  tail call void @EVP_PKEY_CTX_free(ptr noundef %0) #7
   store ptr null, ptr %pctx.i.i, align 8
   br label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %if.then1.i.i, %if.end.i.i
   tail call void @evp_md_ctx_clear_digest(ptr noundef nonnull %out, i32 noundef 0, i32 noundef 0)
-  tail call void @OPENSSL_cleanse(ptr noundef nonnull %out, i64 noundef 72) #8
+  tail call void @OPENSSL_cleanse(ptr noundef nonnull %out, i64 noundef 72) #7
   br label %EVP_MD_CTX_reset.exit
 
 EVP_MD_CTX_reset.exit:                            ; preds = %entry, %if.end3.i.i
@@ -2135,12 +2135,12 @@ declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_
 ; Function Attrs: nounwind uwtable
 define i32 @EVP_Digest(ptr noundef %data, i64 noundef %count, ptr noundef %md, ptr noundef %size, ptr noundef %type, ptr noundef %impl) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 72, ptr noundef nonnull @.str, i32 noundef 132) #8
+  %call.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 72, ptr noundef nonnull @.str, i32 noundef 132) #7
   %cmp = icmp eq ptr %call.i, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  tail call void @EVP_MD_CTX_set_flags(ptr noundef nonnull %call.i, i32 noundef 1) #8
+  tail call void @EVP_MD_CTX_set_flags(ptr noundef nonnull %call.i, i32 noundef 1) #7
   %call.i6 = tail call fastcc i32 @evp_md_init_internal(ptr noundef nonnull %call.i, ptr noundef %type, ptr noundef null, ptr noundef %impl)
   %tobool.not = icmp eq i32 %call.i6, 0
   br i1 %tobool.not, label %if.end.i.i.i, label %land.lhs.true
@@ -2158,21 +2158,21 @@ land.rhs:                                         ; preds = %land.lhs.true
 
 if.end.i.i.i:                                     ; preds = %if.end, %land.lhs.true, %land.rhs
   %land.ext = phi i32 [ 0, %land.lhs.true ], [ 0, %if.end ], [ %0, %land.rhs ]
-  %call.i.i.i = tail call i32 @EVP_MD_CTX_test_flags(ptr noundef nonnull %call.i, i32 noundef 1024) #8
+  %call.i.i.i = tail call i32 @EVP_MD_CTX_test_flags(ptr noundef nonnull %call.i, i32 noundef 1024) #7
   %tobool.not.i.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %if.then1.i.i.i, label %EVP_MD_CTX_free.exit
 
 if.then1.i.i.i:                                   ; preds = %if.end.i.i.i
   %pctx.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 40
   %1 = load ptr, ptr %pctx.i.i.i, align 8
-  tail call void @EVP_PKEY_CTX_free(ptr noundef %1) #8
+  tail call void @EVP_PKEY_CTX_free(ptr noundef %1) #7
   store ptr null, ptr %pctx.i.i.i, align 8
   br label %EVP_MD_CTX_free.exit
 
 EVP_MD_CTX_free.exit:                             ; preds = %if.end.i.i.i, %if.then1.i.i.i
   tail call void @evp_md_ctx_clear_digest(ptr noundef nonnull %call.i, i32 noundef 0, i32 noundef 0)
-  tail call void @OPENSSL_cleanse(ptr noundef nonnull %call.i, i64 noundef 72) #8
-  tail call void @CRYPTO_free(ptr noundef nonnull %call.i, ptr noundef nonnull @.str, i32 noundef 141) #8
+  tail call void @OPENSSL_cleanse(ptr noundef nonnull %call.i, i64 noundef 72) #7
+  tail call void @CRYPTO_free(ptr noundef nonnull %call.i, ptr noundef nonnull @.str, i32 noundef 141) #7
   br label %return
 
 return:                                           ; preds = %entry, %EVP_MD_CTX_free.exit
@@ -2184,7 +2184,7 @@ return:                                           ; preds = %entry, %EVP_MD_CTX_
 define i32 @EVP_Q_digest(ptr noundef %libctx, ptr noundef %name, ptr noundef %propq, ptr noundef %data, i64 noundef %datalen, ptr noundef %md, ptr noundef writeonly %mdlen) local_unnamed_addr #0 {
 entry:
   %temp = alloca i32, align 4
-  %call.i = tail call ptr @evp_generic_fetch(ptr noundef %libctx, i32 noundef 1, ptr noundef %name, ptr noundef %propq, ptr noundef nonnull @evp_md_from_algorithm, ptr noundef nonnull @evp_md_up_ref, ptr noundef nonnull @evp_md_free) #8
+  %call.i = tail call ptr @evp_generic_fetch(ptr noundef %libctx, i32 noundef 1, ptr noundef %name, ptr noundef %propq, ptr noundef nonnull @evp_md_from_algorithm, ptr noundef nonnull @evp_md_up_ref, ptr noundef nonnull @evp_md_free) #7
   store i32 0, ptr %temp, align 4
   %cmp.not = icmp eq ptr %call.i, null
   br i1 %cmp.not, label %if.end, label %lor.lhs.false.i
@@ -2211,7 +2211,7 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %if.end.i
   br i1 %cmp2.i, label %if.end, label %if.end4.i
 
 if.end4.i:                                        ; preds = %CRYPTO_DOWN_REF.exit.i, %CRYPTO_DOWN_REF.exit.thread.i
-  call void @evp_md_free_int(ptr noundef nonnull %call.i) #8
+  call void @evp_md_free_int(ptr noundef nonnull %call.i) #7
   br label %if.end
 
 if.end:                                           ; preds = %if.end4.i, %CRYPTO_DOWN_REF.exit.i, %lor.lhs.false.i, %entry
@@ -2232,7 +2232,7 @@ if.end4:                                          ; preds = %if.then3, %if.end
 ; Function Attrs: nounwind uwtable
 define ptr @EVP_MD_fetch(ptr noundef %ctx, ptr noundef %algorithm, ptr noundef %properties) local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @evp_generic_fetch(ptr noundef %ctx, i32 noundef 1, ptr noundef %algorithm, ptr noundef %properties, ptr noundef nonnull @evp_md_from_algorithm, ptr noundef nonnull @evp_md_up_ref, ptr noundef nonnull @evp_md_free) #8
+  %call = tail call ptr @evp_generic_fetch(ptr noundef %ctx, i32 noundef 1, ptr noundef %algorithm, ptr noundef %properties, ptr noundef nonnull @evp_md_from_algorithm, ptr noundef nonnull @evp_md_up_ref, ptr noundef nonnull @evp_md_free) #7
   ret ptr %call
 }
 
@@ -2249,7 +2249,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp1.not, label %return, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %call = tail call i32 %0(ptr noundef %params) #8
+  %call = tail call i32 %0(ptr noundef %params) #7
   br label %return
 
 return:                                           ; preds = %entry, %land.lhs.true, %if.then
@@ -2270,9 +2270,9 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp1.not, label %return, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %call = tail call ptr @EVP_MD_get0_provider(ptr noundef nonnull %digest) #8
-  %call3 = tail call ptr @ossl_provider_ctx(ptr noundef %call) #8
-  %call4 = tail call ptr %0(ptr noundef %call3) #8
+  %call = tail call ptr @EVP_MD_get0_provider(ptr noundef nonnull %digest) #7
+  %call3 = tail call ptr @ossl_provider_ctx(ptr noundef %call) #7
+  %call4 = tail call ptr %0(ptr noundef %call3) #7
   br label %return
 
 return:                                           ; preds = %entry, %land.lhs.true, %if.then
@@ -2297,10 +2297,10 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp1.not, label %return, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %call = tail call ptr @EVP_MD_get0_provider(ptr noundef nonnull %md) #8
-  %call2 = tail call ptr @ossl_provider_ctx(ptr noundef %call) #8
+  %call = tail call ptr @EVP_MD_get0_provider(ptr noundef nonnull %md) #7
+  %call2 = tail call ptr @ossl_provider_ctx(ptr noundef %call) #7
   %1 = load ptr, ptr %settable_ctx_params, align 8
-  %call4 = tail call ptr %1(ptr noundef null, ptr noundef %call2) #8
+  %call4 = tail call ptr %1(ptr noundef null, ptr noundef %call2) #7
   br label %return
 
 return:                                           ; preds = %entry, %land.lhs.true, %if.then
@@ -2342,7 +2342,7 @@ land.lhs.true8:                                   ; preds = %land.lhs.true6
   br i1 %cmp10.not, label %if.end17, label %if.then11
 
 if.then11:                                        ; preds = %land.lhs.true8
-  %call = tail call ptr %4(ptr noundef nonnull %2) #8
+  %call = tail call ptr %4(ptr noundef nonnull %2) #7
   br label %return
 
 if.end17:                                         ; preds = %land.lhs.true, %land.lhs.true8, %land.lhs.true6, %if.end
@@ -2358,14 +2358,14 @@ land.lhs.true19:                                  ; preds = %if.end17
   br i1 %cmp21.not, label %return, label %if.then22
 
 if.then22:                                        ; preds = %land.lhs.true19
-  %call24 = tail call ptr @EVP_MD_get0_provider(ptr noundef nonnull %5) #8
-  %call25 = tail call ptr @ossl_provider_ctx(ptr noundef %call24) #8
+  %call24 = tail call ptr @EVP_MD_get0_provider(ptr noundef nonnull %5) #7
+  %call25 = tail call ptr @ossl_provider_ctx(ptr noundef %call24) #7
   %7 = load ptr, ptr %digest, align 8
   %settable_ctx_params27 = getelementptr inbounds i8, ptr %7, i64 224
   %8 = load ptr, ptr %settable_ctx_params27, align 8
   %algctx28 = getelementptr inbounds i8, ptr %ctx, i64 56
   %9 = load ptr, ptr %algctx28, align 8
-  %call29 = tail call ptr %8(ptr noundef %9, ptr noundef %call25) #8
+  %call29 = tail call ptr %8(ptr noundef %9, ptr noundef %call25) #7
   br label %return
 
 return:                                           ; preds = %if.end17, %land.lhs.true19, %entry, %if.then22, %if.then11
@@ -2386,10 +2386,10 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp1.not, label %return, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %call = tail call ptr @EVP_MD_get0_provider(ptr noundef nonnull %md) #8
-  %call2 = tail call ptr @ossl_provider_ctx(ptr noundef %call) #8
+  %call = tail call ptr @EVP_MD_get0_provider(ptr noundef nonnull %md) #7
+  %call2 = tail call ptr @ossl_provider_ctx(ptr noundef %call) #7
   %1 = load ptr, ptr %gettable_ctx_params, align 8
-  %call4 = tail call ptr %1(ptr noundef null, ptr noundef %call2) #8
+  %call4 = tail call ptr %1(ptr noundef null, ptr noundef %call2) #7
   br label %return
 
 return:                                           ; preds = %entry, %land.lhs.true, %if.then
@@ -2431,7 +2431,7 @@ land.lhs.true8:                                   ; preds = %land.lhs.true6
   br i1 %cmp10.not, label %if.end17, label %if.then11
 
 if.then11:                                        ; preds = %land.lhs.true8
-  %call = tail call ptr %4(ptr noundef nonnull %2) #8
+  %call = tail call ptr %4(ptr noundef nonnull %2) #7
   br label %return
 
 if.end17:                                         ; preds = %land.lhs.true, %land.lhs.true8, %land.lhs.true6, %if.end
@@ -2447,14 +2447,14 @@ land.lhs.true19:                                  ; preds = %if.end17
   br i1 %cmp21.not, label %return, label %if.then22
 
 if.then22:                                        ; preds = %land.lhs.true19
-  %call24 = tail call ptr @EVP_MD_get0_provider(ptr noundef nonnull %5) #8
-  %call25 = tail call ptr @ossl_provider_ctx(ptr noundef %call24) #8
+  %call24 = tail call ptr @EVP_MD_get0_provider(ptr noundef nonnull %5) #7
+  %call25 = tail call ptr @ossl_provider_ctx(ptr noundef %call24) #7
   %7 = load ptr, ptr %digest, align 8
   %gettable_ctx_params27 = getelementptr inbounds i8, ptr %7, i64 232
   %8 = load ptr, ptr %gettable_ctx_params27, align 8
   %algctx28 = getelementptr inbounds i8, ptr %ctx, i64 56
   %9 = load ptr, ptr %algctx28, align 8
-  %call29 = tail call ptr %8(ptr noundef %9, ptr noundef %call25) #8
+  %call29 = tail call ptr %8(ptr noundef %9, ptr noundef %call25) #7
   br label %return
 
 return:                                           ; preds = %if.end17, %land.lhs.true19, %entry, %if.then22, %if.then11
@@ -2475,9 +2475,9 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 890, ptr noundef nonnull @__func__.EVP_MD_CTX_ctrl) #8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 786690, ptr noundef null) #8
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 890, ptr noundef nonnull @__func__.EVP_MD_CTX_ctrl) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 786690, ptr noundef null) #7
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -2493,7 +2493,7 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %cmp3, label %legacy, label %if.end5
 
 if.end5:                                          ; preds = %land.lhs.true, %if.end
-  switch i32 %cmd, label %return [
+  switch i32 %cmd, label %conclude.thread [
     i32 3, label %sw.bb
     i32 2, label %sw.bb6
     i32 29, label %sw.bb10
@@ -2502,14 +2502,14 @@ if.end5:                                          ; preds = %land.lhs.true, %if.
 sw.bb:                                            ; preds = %if.end5
   %conv = sext i32 %p1 to i64
   store i64 %conv, ptr %sz, align 8
-  call void @OSSL_PARAM_construct_size_t(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.3, ptr noundef nonnull %sz) #8
+  call void @OSSL_PARAM_construct_size_t(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.3, ptr noundef nonnull %sz) #7
   br label %if.then15.critedge
 
 sw.bb6:                                           ; preds = %if.end5
   %tobool.not = icmp eq i32 %p1, 0
   %cond = select i1 %tobool.not, i32 9999, i32 %p1
   %conv9 = sext i32 %cond to i64
-  call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp8, ptr noundef nonnull @.str.4, ptr noundef %p2, i64 noundef %conv9) #8
+  call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp8, ptr noundef nonnull @.str.4, ptr noundef %p2, i64 noundef %conv9) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp8, i64 40, i1 false)
   %pctx1.i = getelementptr inbounds i8, ptr %ctx, i64 40
   %2 = load ptr, ptr %pctx1.i, align 8
@@ -2538,29 +2538,29 @@ land.lhs.true7.i:                                 ; preds = %land.lhs.true5.i
   br i1 %cmp9.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true7.i
-  %call.i = call i32 %6(ptr noundef nonnull %4, ptr noundef nonnull %params) #8
+  %call.i = call i32 %6(ptr noundef nonnull %4, ptr noundef nonnull %params) #7
   br label %conclude
 
 if.end.i:                                         ; preds = %land.lhs.true7.i, %land.lhs.true5.i, %land.lhs.true.i, %sw.bb6
   %7 = load ptr, ptr %digest, align 8
   %cmp15.not.i = icmp eq ptr %7, null
-  br i1 %cmp15.not.i, label %return, label %land.lhs.true16.i
+  br i1 %cmp15.not.i, label %conclude.thread, label %land.lhs.true16.i
 
 land.lhs.true16.i:                                ; preds = %if.end.i
   %get_ctx_params.i = getelementptr inbounds i8, ptr %7, i64 208
   %8 = load ptr, ptr %get_ctx_params.i, align 8
   %cmp18.not.i = icmp eq ptr %8, null
-  br i1 %cmp18.not.i, label %return, label %if.then19.i
+  br i1 %cmp18.not.i, label %conclude.thread, label %if.then19.i
 
 if.then19.i:                                      ; preds = %land.lhs.true16.i
   %algctx22.i = getelementptr inbounds i8, ptr %ctx, i64 56
   %9 = load ptr, ptr %algctx22.i, align 8
-  %call23.i = call i32 %8(ptr noundef %9, ptr noundef nonnull %params) #8
+  %call23.i = call i32 %8(ptr noundef %9, ptr noundef nonnull %params) #7
   br label %conclude
 
 sw.bb10:                                          ; preds = %if.end5
   %conv13 = sext i32 %p1 to i64
-  call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp12, ptr noundef nonnull @.str.5, ptr noundef %p2, i64 noundef %conv13) #8
+  call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp12, ptr noundef nonnull @.str.5, ptr noundef %p2, i64 noundef %conv13) #7
   br label %if.then15.critedge
 
 if.then15.critedge:                               ; preds = %sw.bb, %sw.bb10
@@ -2593,24 +2593,24 @@ land.lhs.true7.i23:                               ; preds = %land.lhs.true5.i20
   br i1 %cmp9.not.i25, label %if.end.i29, label %if.then.i26
 
 if.then.i26:                                      ; preds = %land.lhs.true7.i23
-  %call.i27 = call i32 %14(ptr noundef nonnull %12, ptr noundef nonnull %params) #8
+  %call.i27 = call i32 %14(ptr noundef nonnull %12, ptr noundef nonnull %params) #7
   br label %conclude
 
 if.end.i29:                                       ; preds = %land.lhs.true7.i23, %land.lhs.true5.i20, %land.lhs.true.i19, %if.then15.critedge
   %15 = load ptr, ptr %digest, align 8
   %cmp15.not.i31 = icmp eq ptr %15, null
-  br i1 %cmp15.not.i31, label %return, label %land.lhs.true16.i32
+  br i1 %cmp15.not.i31, label %conclude.thread, label %land.lhs.true16.i32
 
 land.lhs.true16.i32:                              ; preds = %if.end.i29
   %set_ctx_params.i = getelementptr inbounds i8, ptr %15, i64 200
   %16 = load ptr, ptr %set_ctx_params.i, align 8
   %cmp18.not.i33 = icmp eq ptr %16, null
-  br i1 %cmp18.not.i33, label %return, label %if.then19.i34
+  br i1 %cmp18.not.i33, label %conclude.thread, label %if.then19.i34
 
 if.then19.i34:                                    ; preds = %land.lhs.true16.i32
   %algctx22.i35 = getelementptr inbounds i8, ptr %ctx, i64 56
   %17 = load ptr, ptr %algctx22.i35, align 8
-  %call23.i36 = call i32 %16(ptr noundef %17, ptr noundef nonnull %params) #8
+  %call23.i36 = call i32 %16(ptr noundef %17, ptr noundef nonnull %params) #7
   br label %conclude
 
 legacy:                                           ; preds = %land.lhs.true
@@ -2620,23 +2620,26 @@ legacy:                                           ; preds = %land.lhs.true
   br i1 %cmp20, label %if.then22, label %if.end23
 
 if.then22:                                        ; preds = %legacy
-  tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 925, ptr noundef nonnull @__func__.EVP_MD_CTX_ctrl) #8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 132, ptr noundef null) #8
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 925, ptr noundef nonnull @__func__.EVP_MD_CTX_ctrl) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 132, ptr noundef null) #7
   br label %return
 
 if.end23:                                         ; preds = %legacy
-  %call26 = tail call i32 %18(ptr noundef nonnull %ctx, i32 noundef %cmd, i32 noundef %p1, ptr noundef %p2) #8
+  %call26 = tail call i32 %18(ptr noundef nonnull %ctx, i32 noundef %cmd, i32 noundef %p1, ptr noundef %p2) #7
   br label %conclude
 
 conclude:                                         ; preds = %if.then19.i34, %if.then.i26, %if.then19.i, %if.then.i, %if.end23
   %ret.0 = phi i32 [ %call26, %if.end23 ], [ %call.i, %if.then.i ], [ %call23.i, %if.then19.i ], [ %call.i27, %if.then.i26 ], [ %call23.i36, %if.then19.i34 ]
   %ret.0.fr = freeze i32 %ret.0
-  %spec.select = call i32 @llvm.smax.i32(i32 %ret.0.fr, i32 0)
+  %cmp27 = icmp slt i32 %ret.0.fr, 1
+  br i1 %cmp27, label %conclude.thread, label %return
+
+conclude.thread:                                  ; preds = %if.end.i29, %land.lhs.true16.i32, %if.end.i, %land.lhs.true16.i, %if.end5, %conclude
   br label %return
 
-return:                                           ; preds = %conclude, %if.end.i29, %land.lhs.true16.i32, %if.end.i, %land.lhs.true16.i, %if.end5, %if.then22, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.then22 ], [ 0, %if.end5 ], [ 0, %land.lhs.true16.i ], [ 0, %if.end.i ], [ 0, %land.lhs.true16.i32 ], [ 0, %if.end.i29 ], [ %spec.select, %conclude ]
+return:                                           ; preds = %conclude.thread, %conclude, %if.then22, %if.then
+  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.then22 ], [ 0, %conclude.thread ], [ %ret.0.fr, %conclude ]
   ret i32 %retval.0
 }
 
@@ -2647,7 +2650,7 @@ declare void @OSSL_PARAM_construct_octet_string(ptr sret(%struct.ossl_param_st) 
 ; Function Attrs: nounwind uwtable
 define noalias ptr @evp_md_new() local_unnamed_addr #0 {
 entry:
-  %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 240, ptr noundef nonnull @.str, i32 noundef 938) #8
+  %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 240, ptr noundef nonnull @.str, i32 noundef 938) #7
   %cmp.not = icmp eq ptr %call, null
   br i1 %cmp.not, label %return, label %land.lhs.true
 
@@ -2677,21 +2680,21 @@ entry:
   %tmp8.i = alloca %struct.ossl_param_st, align 8
   %implementation = getelementptr inbounds i8, ptr %algodef, i64 16
   %0 = load ptr, ptr %implementation, align 8
-  %call.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 240, ptr noundef nonnull @.str, i32 noundef 938) #8
+  %call.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 240, ptr noundef nonnull @.str, i32 noundef 938) #7
   %cmp.not.i = icmp eq ptr %call.i, null
   br i1 %cmp.not.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1015, ptr noundef nonnull @__func__.evp_md_from_algorithm) #8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 524294, ptr noundef null) #8
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1015, ptr noundef nonnull @__func__.evp_md_from_algorithm) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 524294, ptr noundef null) #7
   br label %return
 
 if.end:                                           ; preds = %entry
   %refcnt.i = getelementptr inbounds i8, ptr %call.i, i64 120
   store atomic i32 1, ptr %refcnt.i seq_cst, align 4
   store i32 0, ptr %call.i, align 8
-  %call2 = tail call i32 @evp_names_do_all(ptr noundef %prov, i32 noundef %name_id, ptr noundef nonnull @set_legacy_nid, ptr noundef nonnull %call.i) #8
+  %call2 = tail call i32 @evp_names_do_all(ptr noundef %prov, i32 noundef %name_id, ptr noundef nonnull @set_legacy_nid, ptr noundef nonnull %call.i) #7
   %tobool.not = icmp eq i32 %call2, 0
   br i1 %tobool.not, label %lor.lhs.false.i, label %lor.lhs.false
 
@@ -2701,9 +2704,9 @@ lor.lhs.false:                                    ; preds = %if.end
   br i1 %cmp4, label %lor.lhs.false.i, label %if.end6
 
 lor.lhs.false.i:                                  ; preds = %if.end, %lor.lhs.false
-  tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1023, ptr noundef nonnull @__func__.evp_md_from_algorithm) #8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 786691, ptr noundef null) #8
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1023, ptr noundef nonnull @__func__.evp_md_from_algorithm) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 786691, ptr noundef null) #7
   %origin.i = getelementptr inbounds i8, ptr %call.i, i64 24
   %2 = load i32, ptr %origin.i, align 8
   %cmp1.not.i = icmp eq i32 %2, 0
@@ -2723,13 +2726,13 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %if.end.i
   br i1 %cmp2.i, label %return, label %if.end4.i
 
 if.end4.i:                                        ; preds = %CRYPTO_DOWN_REF.exit.i, %CRYPTO_DOWN_REF.exit.thread.i
-  tail call void @evp_md_free_int(ptr noundef nonnull %call.i) #8
+  tail call void @evp_md_free_int(ptr noundef nonnull %call.i) #7
   br label %return
 
 if.end6:                                          ; preds = %lor.lhs.false
   %name_id7 = getelementptr inbounds i8, ptr %call.i, i64 88
   store i32 %name_id, ptr %name_id7, align 8
-  %call8 = tail call ptr @ossl_algorithm_get1_first_name(ptr noundef nonnull %algodef) #8
+  %call8 = tail call ptr @ossl_algorithm_get1_first_name(ptr noundef nonnull %algodef) #7
   %type_name = getelementptr inbounds i8, ptr %call.i, i64 96
   store ptr %call8, ptr %type_name, align 8
   %cmp9 = icmp eq ptr %call8, null
@@ -2755,7 +2758,7 @@ CRYPTO_DOWN_REF.exit.i95:                         ; preds = %if.end.i92
   br i1 %cmp2.i96, label %return, label %if.end4.i97
 
 if.end4.i97:                                      ; preds = %CRYPTO_DOWN_REF.exit.i95, %CRYPTO_DOWN_REF.exit.thread.i98
-  tail call void @evp_md_free_int(ptr noundef nonnull %call.i) #8
+  tail call void @evp_md_free_int(ptr noundef nonnull %call.i) #7
   br label %return
 
 if.end11:                                         ; preds = %if.end6
@@ -2998,13 +3001,13 @@ CRYPTO_DOWN_REF.exit.i107:                        ; preds = %if.end.i104
   br i1 %cmp2.i108, label %EVP_MD_free.exit111, label %if.end4.i109
 
 if.end4.i109:                                     ; preds = %CRYPTO_DOWN_REF.exit.i107, %CRYPTO_DOWN_REF.exit.thread.i110
-  tail call void @evp_md_free_int(ptr noundef nonnull %call.i) #8
+  tail call void @evp_md_free_int(ptr noundef nonnull %call.i) #7
   br label %EVP_MD_free.exit111
 
 EVP_MD_free.exit111:                              ; preds = %lor.lhs.false.i101, %CRYPTO_DOWN_REF.exit.i107, %if.end4.i109
-  tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1120, ptr noundef nonnull @__func__.evp_md_from_algorithm) #8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 193, ptr noundef null) #8
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1120, ptr noundef nonnull @__func__.evp_md_from_algorithm) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 193, ptr noundef null) #7
   br label %return
 
 if.end112:                                        ; preds = %for.end, %for.end, %land.lhs.true108
@@ -3014,7 +3017,7 @@ if.end112:                                        ; preds = %for.end, %for.end, 
   br i1 %cmp114.not, label %if.end117, label %if.then115
 
 if.then115:                                       ; preds = %if.end112
-  %call116 = tail call i32 @ossl_provider_up_ref(ptr noundef nonnull %prov) #8
+  %call116 = tail call i32 @ossl_provider_up_ref(ptr noundef nonnull %prov) #7
   br label %if.end117
 
 if.end117:                                        ; preds = %if.then115, %if.end112
@@ -3032,21 +3035,21 @@ if.end117:                                        ; preds = %if.then115, %if.end
   store i32 0, ptr %algid_absent.i, align 4
   store i64 0, ptr %blksz.i, align 8
   store i64 0, ptr %mdsize.i, align 8
-  call void @OSSL_PARAM_construct_size_t(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp.i, ptr noundef nonnull @.str.8, ptr noundef nonnull %blksz.i) #8
+  call void @OSSL_PARAM_construct_size_t(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp.i, ptr noundef nonnull @.str.8, ptr noundef nonnull %blksz.i) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i, i64 40, i1 false)
   %arrayidx1.i = getelementptr inbounds i8, ptr %params.i, i64 40
-  call void @OSSL_PARAM_construct_size_t(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp2.i, ptr noundef nonnull @.str.1, ptr noundef nonnull %mdsize.i) #8
+  call void @OSSL_PARAM_construct_size_t(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp2.i, ptr noundef nonnull @.str.1, ptr noundef nonnull %mdsize.i) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx1.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp2.i, i64 40, i1 false)
   %arrayidx3.i = getelementptr inbounds i8, ptr %params.i, i64 80
-  call void @OSSL_PARAM_construct_int(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp4.i, ptr noundef nonnull @.str.9, ptr noundef nonnull %xof.i) #8
+  call void @OSSL_PARAM_construct_int(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp4.i, ptr noundef nonnull @.str.9, ptr noundef nonnull %xof.i) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %arrayidx3.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp4.i, i64 40, i1 false)
   %arrayidx5.i = getelementptr inbounds i8, ptr %params.i, i64 120
-  call void @OSSL_PARAM_construct_int(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp6.i, ptr noundef nonnull @.str.10, ptr noundef nonnull %algid_absent.i) #8
+  call void @OSSL_PARAM_construct_int(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp6.i, ptr noundef nonnull @.str.10, ptr noundef nonnull %algid_absent.i) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx5.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp6.i, i64 40, i1 false)
   %arrayidx7.i = getelementptr inbounds i8, ptr %params.i, i64 160
-  call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp8.i) #8
+  call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp8.i) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %arrayidx7.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp8.i, i64 40, i1 false)
-  %call.i112 = call i32 @evp_do_md_getparams(ptr noundef nonnull %call.i, ptr noundef nonnull %params.i) #8
+  %call.i112 = call i32 @evp_do_md_getparams(ptr noundef nonnull %call.i, ptr noundef nonnull %params.i) #7
   %cmp.i113 = icmp sgt i32 %call.i112, 0
   %39 = load i64, ptr %mdsize.i, align 8
   %cmp9.i = icmp ult i64 %39, 2147483648
@@ -3129,13 +3132,13 @@ CRYPTO_DOWN_REF.exit.i121:                        ; preds = %if.end.i118
   br i1 %cmp2.i122, label %EVP_MD_free.exit125, label %if.end4.i123
 
 if.end4.i123:                                     ; preds = %CRYPTO_DOWN_REF.exit.i121, %CRYPTO_DOWN_REF.exit.thread.i124
-  call void @evp_md_free_int(ptr noundef nonnull %call.i) #8
+  call void @evp_md_free_int(ptr noundef nonnull %call.i) #7
   br label %EVP_MD_free.exit125
 
 EVP_MD_free.exit125:                              ; preds = %lor.lhs.false.i115, %CRYPTO_DOWN_REF.exit.i121, %if.end4.i123
-  call void @ERR_new() #8
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1129, ptr noundef nonnull @__func__.evp_md_from_algorithm) #8
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 225, ptr noundef null) #8
+  call void @ERR_new() #7
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1129, ptr noundef nonnull @__func__.evp_md_from_algorithm) #7
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 225, ptr noundef null) #7
   br label %return
 
 return:                                           ; preds = %evp_md_cache_constants.exit.thread, %if.end4.i97, %CRYPTO_DOWN_REF.exit.i95, %lor.lhs.false.i89, %if.end4.i, %CRYPTO_DOWN_REF.exit.i, %lor.lhs.false.i, %EVP_MD_free.exit125, %EVP_MD_free.exit111, %if.then
@@ -3187,7 +3190,7 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %if.end.i
   br i1 %cmp2.i, label %EVP_MD_free.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %CRYPTO_DOWN_REF.exit.i, %CRYPTO_DOWN_REF.exit.thread.i
-  tail call void @evp_md_free_int(ptr noundef nonnull %md) #8
+  tail call void @evp_md_free_int(ptr noundef nonnull %md) #7
   br label %EVP_MD_free.exit
 
 EVP_MD_free.exit:                                 ; preds = %entry, %lor.lhs.false.i, %CRYPTO_DOWN_REF.exit.i, %if.end4.i
@@ -3199,7 +3202,7 @@ declare void @evp_md_free_int(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define void @EVP_MD_do_all_provided(ptr noundef %libctx, ptr noundef %fn, ptr noundef %arg) local_unnamed_addr #0 {
 entry:
-  tail call void @evp_generic_do_all(ptr noundef %libctx, i32 noundef 1, ptr noundef %fn, ptr noundef %arg, ptr noundef nonnull @evp_md_from_algorithm, ptr noundef nonnull @evp_md_up_ref, ptr noundef nonnull @evp_md_free) #8
+  tail call void @evp_generic_do_all(ptr noundef %libctx, i32 noundef 1, ptr noundef %fn, ptr noundef %arg, ptr noundef nonnull @evp_md_from_algorithm, ptr noundef nonnull @evp_md_up_ref, ptr noundef nonnull @evp_md_free) #7
   ret void
 }
 
@@ -3226,7 +3229,7 @@ declare i32 @evp_names_do_all(ptr noundef, i32 noundef, ptr noundef, ptr noundef
 ; Function Attrs: nounwind uwtable
 define internal void @set_legacy_nid(ptr noundef %name, ptr nocapture noundef %vlegacy_nid) #0 {
 entry:
-  %call = tail call ptr @OBJ_NAME_get(ptr noundef %name, i32 noundef 1) #8
+  %call = tail call ptr @OBJ_NAME_get(ptr noundef %name, i32 noundef 1) #7
   %0 = load i32, ptr %vlegacy_nid, align 4
   %cmp = icmp eq i32 %0, -1
   %cmp1 = icmp eq ptr %call, null
@@ -3234,7 +3237,7 @@ entry:
   br i1 %or.cond, label %return, label %if.end3
 
 if.end3:                                          ; preds = %entry
-  %call4 = tail call i32 @EVP_MD_get_type(ptr noundef nonnull %call) #8
+  %call4 = tail call i32 @EVP_MD_get_type(ptr noundef nonnull %call) #7
   %1 = load i32, ptr %vlegacy_nid, align 4
   %cmp5.not = icmp eq i32 %1, 0
   %cmp6.not = icmp eq i32 %1, %call4
@@ -3265,9 +3268,6 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #7
-
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
@@ -3275,9 +3275,8 @@ attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #4 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
-attributes #9 = { noreturn nounwind }
+attributes #7 = { nounwind }
+attributes #8 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -98,7 +98,7 @@ return:                                           ; preds = %X509_TRUST_get0.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @obj_trust(i32 noundef %id, ptr noundef %x, i32 noundef %flags) #1 {
+define internal noundef i32 @obj_trust(i32 noundef %id, ptr noundef %x, i32 noundef %flags) #1 {
 entry:
   %aux = getelementptr inbounds i8, ptr %x, i64 336
   %0 = load ptr, ptr %aux, align 8
@@ -208,21 +208,25 @@ if.end41:                                         ; preds = %entry, %land.lhs.tr
 if.end45:                                         ; preds = %if.end41
   %call.i = tail call i32 @X509_check_purpose(ptr noundef %x, i32 noundef -1, i32 noundef 0) #6
   %cmp.not.i = icmp eq i32 %call.i, 1
+  br i1 %cmp.not.i, label %if.end.i, label %return
+
+if.end.i:                                         ; preds = %if.end45
   %and.i = and i32 %flags, 4
   %cmp1.i = icmp eq i32 %and.i, 0
-  %or.cond.i = and i1 %cmp1.i, %cmp.not.i
-  br i1 %or.cond.i, label %land.lhs.true.i, label %return
+  br i1 %cmp1.i, label %land.lhs.true.i, label %if.else.i
 
-land.lhs.true.i:                                  ; preds = %if.end45
+land.lhs.true.i:                                  ; preds = %if.end.i
   %ex_flags.i = getelementptr inbounds i8, ptr %x, i64 232
   %11 = load i32, ptr %ex_flags.i, align 8
   %and2.i = and i32 %11, 8192
   %tobool.not.i = icmp eq i32 %and2.i, 0
-  %spec.select.i = select i1 %tobool.not.i, i32 3, i32 1
+  br i1 %tobool.not.i, label %if.else.i, label %return
+
+if.else.i:                                        ; preds = %land.lhs.true.i, %if.end.i
   br label %return
 
-return:                                           ; preds = %for.body, %for.body.us, %for.body23, %for.cond18, %for.body23.us, %lor.lhs.false31.us, %for.cond18.preheader, %land.lhs.true.i, %if.end45, %if.end41
-  %retval.0 = phi i32 [ 3, %if.end41 ], [ 3, %if.end45 ], [ %spec.select.i, %land.lhs.true.i ], [ 2, %for.cond18.preheader ], [ 1, %for.body23.us ], [ 2, %lor.lhs.false31.us ], [ 1, %for.body23 ], [ 2, %for.cond18 ], [ 2, %for.body.us ], [ 2, %for.body ]
+return:                                           ; preds = %for.body, %for.body.us, %for.body23, %for.cond18, %for.body23.us, %lor.lhs.false31.us, %for.cond18.preheader, %if.else.i, %land.lhs.true.i, %if.end45, %if.end41
+  %retval.0 = phi i32 [ 3, %if.end41 ], [ 3, %if.else.i ], [ 3, %if.end45 ], [ 1, %land.lhs.true.i ], [ 2, %for.cond18.preheader ], [ 1, %for.body23.us ], [ 2, %lor.lhs.false31.us ], [ 1, %for.body23 ], [ 2, %for.cond18 ], [ 2, %for.body.us ], [ 2, %for.body ]
   ret i32 %retval.0
 }
 
@@ -579,30 +583,34 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @trust_compat(ptr nocapture readnone %trust, ptr noundef %x, i32 noundef %flags) #1 {
+define internal noundef i32 @trust_compat(ptr nocapture readnone %trust, ptr noundef %x, i32 noundef %flags) #1 {
 entry:
   %call = tail call i32 @X509_check_purpose(ptr noundef %x, i32 noundef -1, i32 noundef 0) #6
   %cmp.not = icmp eq i32 %call, 1
+  br i1 %cmp.not, label %if.end, label %return
+
+if.end:                                           ; preds = %entry
   %and = and i32 %flags, 4
   %cmp1 = icmp eq i32 %and, 0
-  %or.cond = and i1 %cmp1, %cmp.not
-  br i1 %or.cond, label %land.lhs.true, label %return
+  br i1 %cmp1, label %land.lhs.true, label %if.else
 
-land.lhs.true:                                    ; preds = %entry
+land.lhs.true:                                    ; preds = %if.end
   %ex_flags = getelementptr inbounds i8, ptr %x, i64 232
   %0 = load i32, ptr %ex_flags, align 8
   %and2 = and i32 %0, 8192
   %tobool.not = icmp eq i32 %and2, 0
-  %spec.select = select i1 %tobool.not, i32 3, i32 1
+  br i1 %tobool.not, label %if.else, label %return
+
+if.else:                                          ; preds = %land.lhs.true, %if.end
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %entry
-  %retval.0 = phi i32 [ 3, %entry ], [ %spec.select, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %entry, %if.else
+  %retval.0 = phi i32 [ 3, %if.else ], [ 3, %entry ], [ 1, %land.lhs.true ]
   ret i32 %retval.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @trust_1oidany(ptr nocapture noundef readonly %trust, ptr noundef %x, i32 noundef %flags) #1 {
+define internal noundef i32 @trust_1oidany(ptr nocapture noundef readonly %trust, ptr noundef %x, i32 noundef %flags) #1 {
 entry:
   %or = or i32 %flags, 24
   %arg1 = getelementptr inbounds i8, ptr %trust, i64 24
@@ -612,7 +620,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @trust_1oid(ptr nocapture noundef readonly %trust, ptr noundef %x, i32 noundef %flags) #1 {
+define internal noundef i32 @trust_1oid(ptr nocapture noundef readonly %trust, ptr noundef %x, i32 noundef %flags) #1 {
 entry:
   %and = and i32 %flags, -25
   %arg1 = getelementptr inbounds i8, ptr %trust, i64 24

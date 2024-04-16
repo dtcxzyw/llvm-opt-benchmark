@@ -158,7 +158,7 @@ declare ptr @ossl_lib_ctx_get_data(ptr noundef, i32 noundef) local_unnamed_addr 
 declare ptr @CRYPTO_THREAD_lock_new() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @provider_create_child_cb(ptr noundef %prov, ptr noundef %cbdata) #0 {
+define internal noundef i32 @provider_create_child_cb(ptr noundef %prov, ptr noundef %cbdata) #0 {
 entry:
   %call = tail call ptr @ossl_lib_ctx_get_data(ptr noundef %cbdata, i32 noundef 18) #2
   %cmp = icmp eq ptr %call, null
@@ -184,9 +184,8 @@ if.end3:                                          ; preds = %if.end
 if.then7:                                         ; preds = %if.end3
   tail call void @ossl_provider_free(ptr noundef nonnull %call5) #2
   %call8 = tail call i32 @ossl_provider_activate(ptr noundef nonnull %call5, i32 noundef 0, i32 noundef 1) #2
-  %tobool9.not = icmp ne i32 %call8, 0
-  %spec.select = zext i1 %tobool9.not to i32
-  br label %err
+  %tobool9.not = icmp eq i32 %call8, 0
+  br i1 %tobool9.not, label %err, label %if.end27
 
 if.else:                                          ; preds = %if.end3
   %call12 = tail call ptr @ossl_provider_new(ptr noundef %cbdata, ptr noundef %call4, ptr noundef nonnull @ossl_child_provider_init, ptr noundef null, i32 noundef 1) #2
@@ -210,15 +209,18 @@ if.end19:                                         ; preds = %if.end15
 lor.lhs.false:                                    ; preds = %if.end19
   %call22 = tail call i32 @ossl_provider_add_to_store(ptr noundef nonnull %call12, ptr noundef null, i32 noundef 0) #2
   %tobool23.not = icmp eq i32 %call22, 0
-  br i1 %tobool23.not, label %if.then24, label %err
+  br i1 %tobool23.not, label %if.then24, label %if.end27
 
 if.then24:                                        ; preds = %lor.lhs.false, %if.end19
   %call25 = tail call i32 @ossl_provider_deactivate(ptr noundef nonnull %call12, i32 noundef 0) #2
   tail call void @ossl_provider_free(ptr noundef nonnull %call12) #2
   br label %err
 
-err:                                              ; preds = %if.then7, %lor.lhs.false, %if.else, %if.then24, %if.then18
-  %ret.0 = phi i32 [ 0, %if.else ], [ 0, %if.then24 ], [ 0, %if.then18 ], [ 1, %lor.lhs.false ], [ %spec.select, %if.then7 ]
+if.end27:                                         ; preds = %lor.lhs.false, %if.then7
+  br label %err
+
+err:                                              ; preds = %if.else, %if.then7, %if.end27, %if.then24, %if.then18
+  %ret.0 = phi i32 [ 1, %if.end27 ], [ 0, %if.then7 ], [ 0, %if.else ], [ 0, %if.then24 ], [ 0, %if.then18 ]
   %2 = load ptr, ptr %lock, align 8
   %call29 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %2) #2
   br label %return
@@ -229,7 +231,7 @@ return:                                           ; preds = %if.end, %entry, %er
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @provider_remove_child_cb(ptr noundef %prov, ptr noundef %cbdata) #0 {
+define internal noundef i32 @provider_remove_child_cb(ptr noundef %prov, ptr noundef %cbdata) #0 {
 entry:
   %call = tail call ptr @ossl_lib_ctx_get_data(ptr noundef %cbdata, i32 noundef 18) #2
   %cmp = icmp eq ptr %call, null
@@ -247,16 +249,18 @@ if.end5:                                          ; preds = %if.end
   tail call void @ossl_provider_free(ptr noundef nonnull %call2) #2
   %call6 = tail call i32 @ossl_provider_is_child(ptr noundef nonnull %call2) #2
   %tobool.not = icmp eq i32 %call6, 0
-  br i1 %tobool.not, label %return, label %land.lhs.true
+  br i1 %tobool.not, label %if.end10, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end5
   %call7 = tail call i32 @ossl_provider_deactivate(ptr noundef nonnull %call2, i32 noundef 1) #2
-  %tobool8.not = icmp ne i32 %call7, 0
-  %spec.select = zext i1 %tobool8.not to i32
+  %tobool8.not = icmp eq i32 %call7, 0
+  br i1 %tobool8.not, label %return, label %if.end10
+
+if.end10:                                         ; preds = %land.lhs.true, %if.end5
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %if.end5, %if.end, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 0, %if.end ], [ 1, %if.end5 ], [ %spec.select, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %if.end, %entry, %if.end10
+  %retval.0 = phi i32 [ 1, %if.end10 ], [ 0, %entry ], [ 0, %if.end ], [ 0, %land.lhs.true ]
   ret i32 %retval.0
 }
 

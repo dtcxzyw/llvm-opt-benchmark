@@ -1484,10 +1484,10 @@ declare ptr @X509_REQ_it() #2
 declare ptr @GENERAL_NAME_it() #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ossl_cmp_msg_cb(i32 noundef %operation, ptr nocapture noundef readonly %pval, ptr nocapture readnone %it, ptr nocapture noundef %exarg) #1 {
+define internal noundef i32 @ossl_cmp_msg_cb(i32 noundef %operation, ptr nocapture noundef readonly %pval, ptr nocapture readnone %it, ptr nocapture noundef %exarg) #1 {
 entry:
   %0 = load ptr, ptr %pval, align 8
-  switch i32 %operation, label %return [
+  switch i32 %operation, label %sw.epilog [
     i32 3, label %sw.bb
     i32 15, label %sw.bb1
     i32 16, label %sw.bb3
@@ -1498,7 +1498,7 @@ sw.bb:                                            ; preds = %entry
   %propq = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %propq, align 8
   tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str.8, i32 noundef 336) #5
-  br label %return
+  br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
   %libctx = getelementptr inbounds i8, ptr %exarg, i64 32
@@ -1506,24 +1506,26 @@ sw.bb1:                                           ; preds = %entry
   %propq2 = getelementptr inbounds i8, ptr %exarg, i64 40
   %3 = load ptr, ptr %propq2, align 8
   %call = tail call i32 @ossl_cmp_msg_set0_libctx(ptr noundef %0, ptr noundef %2, ptr noundef %3) #5
-  %tobool.not = icmp ne i32 %call, 0
-  %spec.select = zext i1 %tobool.not to i32
-  br label %return
+  %tobool.not = icmp eq i32 %call, 0
+  br i1 %tobool.not, label %return, label %sw.epilog
 
 sw.bb3:                                           ; preds = %entry
   %libctx5 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %libctx5, align 8
   store ptr %4, ptr %exarg, align 8
-  br label %return
+  br label %sw.epilog
 
 sw.bb6:                                           ; preds = %entry
   %propq8 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load ptr, ptr %propq8, align 8
   store ptr %5, ptr %exarg, align 8
+  br label %sw.epilog
+
+sw.epilog:                                        ; preds = %entry, %sw.bb1, %sw.bb6, %sw.bb3, %sw.bb
   br label %return
 
-return:                                           ; preds = %sw.bb1, %sw.bb, %sw.bb3, %sw.bb6, %entry
-  %retval.0 = phi i32 [ 1, %entry ], [ 1, %sw.bb6 ], [ 1, %sw.bb3 ], [ 1, %sw.bb ], [ %spec.select, %sw.bb1 ]
+return:                                           ; preds = %sw.bb1, %sw.epilog
+  %retval.0 = phi i32 [ 1, %sw.epilog ], [ 0, %sw.bb1 ]
   ret i32 %retval.0
 }
 

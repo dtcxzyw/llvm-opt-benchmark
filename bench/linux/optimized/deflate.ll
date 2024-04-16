@@ -124,13 +124,13 @@ define dso_local noundef i32 @zlib_deflateInit2(ptr noundef %0, i32 noundef %1, 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @zlib_deflateReset(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %68, label %3
+  br i1 %2, label %69, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %68, label %7
+  br i1 %6, label %69, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %0, i64 40
@@ -157,80 +157,82 @@ define dso_local noundef i32 @zlib_deflateReset(ptr noundef %0) local_unnamed_ad
 
 18:                                               ; preds = %7
   %19 = icmp eq i32 %.fr, 0
-  %spec.select = select i1 %19, i32 42, i32 113
-  br label %20
+  br i1 %19, label %20, label %21
 
-20:                                               ; preds = %18, %.thread
-  %21 = phi i32 [ 42, %.thread ], [ %spec.select, %18 ]
-  %22 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 80
-  store i64 1, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %5, i64 52
-  store i32 0, ptr %24, align 4
+20:                                               ; preds = %.thread, %18
+  br label %21
+
+21:                                               ; preds = %18, %20
+  %22 = phi i32 [ 42, %20 ], [ 113, %18 ]
+  %23 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %22, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %0, i64 80
+  store i64 1, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %5, i64 52
+  store i32 0, ptr %25, align 4
   tail call void @zlib_tr_init(ptr noundef nonnull %5) #10
-  %25 = getelementptr inbounds i8, ptr %5, i64 56
-  %26 = load i32, ptr %25, align 8
-  %27 = zext i32 %26 to i64
-  %28 = shl nuw nsw i64 %27, 1
-  %29 = getelementptr inbounds i8, ptr %5, i64 80
-  store i64 %28, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %5, i64 96
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %5, i64 108
-  %33 = load i32, ptr %32, align 4
-  %34 = add i32 %33, -1
-  %35 = zext i32 %34 to i64
-  %36 = getelementptr i16, ptr %31, i64 %35
-  store i16 0, ptr %36, align 2
-  %37 = load ptr, ptr %30, align 8
-  %38 = load i32, ptr %32, align 4
-  %39 = add i32 %38, -1
-  %40 = zext i32 %39 to i64
-  %41 = shl nuw nsw i64 %40, 1
-  tail call void @llvm.memset.p0.i64(ptr align 1 %37, i8 0, i64 %41, i1 false)
-  %42 = getelementptr inbounds i8, ptr %5, i64 172
-  %43 = load i32, ptr %42, align 4
-  %44 = sext i32 %43 to i64
-  %45 = getelementptr [10 x %struct.config_s], ptr @configuration_table, i64 0, i64 %44, i32 1
-  %46 = load i16, ptr %45, align 2
-  %47 = zext i16 %46 to i32
-  %48 = getelementptr inbounds i8, ptr %5, i64 168
-  store i32 %47, ptr %48, align 8
-  %49 = getelementptr [10 x %struct.config_s], ptr @configuration_table, i64 0, i64 %44
-  %50 = load i16, ptr %49, align 16
-  %51 = zext i16 %50 to i32
-  %52 = getelementptr inbounds i8, ptr %5, i64 180
-  store i32 %51, ptr %52, align 4
-  %53 = getelementptr [10 x %struct.config_s], ptr @configuration_table, i64 0, i64 %44, i32 2
-  %54 = load i16, ptr %53, align 4
-  %55 = zext i16 %54 to i32
-  %56 = getelementptr inbounds i8, ptr %5, i64 184
-  store i32 %55, ptr %56, align 8
-  %57 = getelementptr [10 x %struct.config_s], ptr @configuration_table, i64 0, i64 %44, i32 3
-  %58 = load i16, ptr %57, align 2
-  %59 = zext i16 %58 to i32
-  %60 = getelementptr inbounds i8, ptr %5, i64 164
-  store i32 %59, ptr %60, align 4
-  %61 = getelementptr inbounds i8, ptr %5, i64 148
-  store i32 0, ptr %61, align 4
-  %62 = getelementptr inbounds i8, ptr %5, i64 128
-  store i64 0, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %5, i64 156
-  store i32 0, ptr %63, align 4
-  %64 = getelementptr inbounds i8, ptr %5, i64 160
-  store i32 2, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %5, i64 136
+  %26 = getelementptr inbounds i8, ptr %5, i64 56
+  %27 = load i32, ptr %26, align 8
+  %28 = zext i32 %27 to i64
+  %29 = shl nuw nsw i64 %28, 1
+  %30 = getelementptr inbounds i8, ptr %5, i64 80
+  store i64 %29, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %5, i64 96
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds i8, ptr %5, i64 108
+  %34 = load i32, ptr %33, align 4
+  %35 = add i32 %34, -1
+  %36 = zext i32 %35 to i64
+  %37 = getelementptr i16, ptr %32, i64 %36
+  store i16 0, ptr %37, align 2
+  %38 = load ptr, ptr %31, align 8
+  %39 = load i32, ptr %33, align 4
+  %40 = add i32 %39, -1
+  %41 = zext i32 %40 to i64
+  %42 = shl nuw nsw i64 %41, 1
+  tail call void @llvm.memset.p0.i64(ptr align 1 %38, i8 0, i64 %42, i1 false)
+  %43 = getelementptr inbounds i8, ptr %5, i64 172
+  %44 = load i32, ptr %43, align 4
+  %45 = sext i32 %44 to i64
+  %46 = getelementptr [10 x %struct.config_s], ptr @configuration_table, i64 0, i64 %45, i32 1
+  %47 = load i16, ptr %46, align 2
+  %48 = zext i16 %47 to i32
+  %49 = getelementptr inbounds i8, ptr %5, i64 168
+  store i32 %48, ptr %49, align 8
+  %50 = getelementptr [10 x %struct.config_s], ptr @configuration_table, i64 0, i64 %45
+  %51 = load i16, ptr %50, align 16
+  %52 = zext i16 %51 to i32
+  %53 = getelementptr inbounds i8, ptr %5, i64 180
+  store i32 %52, ptr %53, align 4
+  %54 = getelementptr [10 x %struct.config_s], ptr @configuration_table, i64 0, i64 %45, i32 2
+  %55 = load i16, ptr %54, align 4
+  %56 = zext i16 %55 to i32
+  %57 = getelementptr inbounds i8, ptr %5, i64 184
+  store i32 %56, ptr %57, align 8
+  %58 = getelementptr [10 x %struct.config_s], ptr @configuration_table, i64 0, i64 %45, i32 3
+  %59 = load i16, ptr %58, align 2
+  %60 = zext i16 %59 to i32
+  %61 = getelementptr inbounds i8, ptr %5, i64 164
+  store i32 %60, ptr %61, align 4
+  %62 = getelementptr inbounds i8, ptr %5, i64 148
+  store i32 0, ptr %62, align 4
+  %63 = getelementptr inbounds i8, ptr %5, i64 128
+  store i64 0, ptr %63, align 8
+  %64 = getelementptr inbounds i8, ptr %5, i64 156
+  store i32 0, ptr %64, align 4
+  %65 = getelementptr inbounds i8, ptr %5, i64 160
   store i32 2, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %5, i64 144
-  store i32 0, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %5, i64 104
+  %66 = getelementptr inbounds i8, ptr %5, i64 136
+  store i32 2, ptr %66, align 8
+  %67 = getelementptr inbounds i8, ptr %5, i64 144
   store i32 0, ptr %67, align 8
-  br label %68
+  %68 = getelementptr inbounds i8, ptr %5, i64 104
+  store i32 0, ptr %68, align 8
+  br label %69
 
-68:                                               ; preds = %20, %3, %1
-  %69 = phi i32 [ 0, %20 ], [ -2, %3 ], [ -2, %1 ]
-  ret i32 %69
+69:                                               ; preds = %21, %3, %1
+  %70 = phi i32 [ 0, %21 ], [ -2, %3 ], [ -2, %1 ]
+  ret i32 %70
 }
 
 ; Function Attrs: null_pointer_is_valid

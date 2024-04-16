@@ -754,17 +754,19 @@ define noundef i32 @mca_sharedfp_individual_create_buff(ptr nocapture noundef wr
   %8 = tail call noalias ptr @malloc(i64 noundef %7) #9
   store ptr %8, ptr %1, align 8
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %13, label %10
+  br i1 %9, label %14, label %10
 
 10:                                               ; preds = %5
   %11 = tail call noalias ptr @malloc(i64 noundef %7) #9
   store ptr %11, ptr %0, align 8
   %12 = icmp eq ptr %11, null
-  %spec.select = select i1 %12, i32 -2, i32 0
-  br label %13
+  br i1 %12, label %14, label %13
 
-13:                                               ; preds = %10, %4, %5
-  %.0 = phi i32 [ -2, %5 ], [ 0, %4 ], [ %spec.select, %10 ]
+13:                                               ; preds = %10, %4
+  br label %14
+
+14:                                               ; preds = %10, %5, %13
+  %.0 = phi i32 [ 0, %13 ], [ -2, %5 ], [ -2, %10 ]
   ret i32 %.0
 }
 

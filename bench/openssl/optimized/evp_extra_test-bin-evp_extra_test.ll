@@ -5489,48 +5489,48 @@ sw.bb3:                                           ; preds = %if.end
 sw.bb8:                                           ; preds = %if.end
   %call7 = tail call ptr @EVP_aes_128_ofb() #8
   %cmp9.not = icmp eq ptr %call7, null
-  br i1 %cmp9.not, label %sw.epilog.sink.split, label %sw.epilog
+  br i1 %cmp9.not, label %cond.false11, label %sw.epilog
 
-cond.false11:                                     ; preds = %if.end
+cond.false11:                                     ; preds = %if.end, %sw.bb8
   br label %sw.epilog.sink.split
 
 sw.bb18:                                          ; preds = %if.end
   %call17 = tail call ptr @EVP_aes_128_cfb128() #8
   %cmp19.not = icmp eq ptr %call17, null
-  br i1 %cmp19.not, label %sw.epilog.sink.split, label %sw.epilog
+  br i1 %cmp19.not, label %cond.false21, label %sw.epilog
 
-cond.false21:                                     ; preds = %if.end
+cond.false21:                                     ; preds = %if.end, %sw.bb18
   br label %sw.epilog.sink.split
 
 sw.bb28:                                          ; preds = %if.end
   %call27 = tail call ptr @EVP_aes_128_gcm() #8
   %cmp29.not = icmp eq ptr %call27, null
-  br i1 %cmp29.not, label %sw.epilog.sink.split, label %sw.epilog
+  br i1 %cmp29.not, label %cond.false31, label %sw.epilog
 
-cond.false31:                                     ; preds = %if.end
+cond.false31:                                     ; preds = %if.end, %sw.bb28
   br label %sw.epilog.sink.split
 
 sw.bb38:                                          ; preds = %if.end
   %call37 = tail call ptr @EVP_aes_128_ccm() #8
   %cmp39.not = icmp eq ptr %call37, null
-  br i1 %cmp39.not, label %sw.epilog.sink.split, label %sw.epilog
+  br i1 %cmp39.not, label %cond.false41, label %sw.epilog
 
-cond.false41:                                     ; preds = %if.end
+cond.false41:                                     ; preds = %if.end, %sw.bb38
   br label %sw.epilog.sink.split
 
 sw.bb48:                                          ; preds = %if.end
   %call47 = tail call ptr @EVP_aes_128_ocb() #8
   %cmp49.not = icmp eq ptr %call47, null
-  br i1 %cmp49.not, label %sw.epilog.sink.split, label %sw.epilog
+  br i1 %cmp49.not, label %cond.false51, label %sw.epilog
 
-cond.false51:                                     ; preds = %if.end
+cond.false51:                                     ; preds = %if.end, %sw.bb48
   br label %sw.epilog.sink.split
 
-sw.epilog.sink.split:                             ; preds = %sw.bb48, %sw.bb38, %sw.bb28, %sw.bb18, %sw.bb8, %sw.bb3, %if.end, %cond.false11, %cond.false21, %cond.false31, %cond.false41, %cond.false51
-  %.str.510.sink = phi ptr [ @.str.505, %if.end ], [ @.str.505, %sw.bb3 ], [ @.str.506, %sw.bb8 ], [ @.str.506, %cond.false11 ], [ @.str.507, %sw.bb18 ], [ @.str.507, %cond.false21 ], [ @.str.508, %sw.bb28 ], [ @.str.508, %cond.false31 ], [ @.str.509, %sw.bb38 ], [ @.str.509, %cond.false41 ], [ @.str.510, %sw.bb48 ], [ @.str.510, %cond.false51 ]
-  %ref_iv.0.ph = phi ptr [ %cbc_state, %if.end ], [ %cbc_state, %sw.bb3 ], [ %ofb_state, %sw.bb8 ], [ %ofb_state, %cond.false11 ], [ %cfb_state, %sw.bb18 ], [ %cfb_state, %cond.false21 ], [ %gcm_state, %sw.bb28 ], [ %gcm_state, %cond.false31 ], [ %ccm_state, %sw.bb38 ], [ %ccm_state, %cond.false41 ], [ %ocb_state, %sw.bb48 ], [ %ocb_state, %cond.false51 ]
-  %ref_len.0.ph = phi i64 [ 16, %if.end ], [ 16, %sw.bb3 ], [ 16, %sw.bb8 ], [ 16, %cond.false11 ], [ 16, %sw.bb18 ], [ 16, %cond.false21 ], [ 12, %sw.bb28 ], [ 12, %cond.false31 ], [ 7, %sw.bb38 ], [ 7, %cond.false41 ], [ 12, %sw.bb48 ], [ 12, %cond.false51 ]
-  %tobool123.not.ph = phi i1 [ false, %if.end ], [ false, %sw.bb3 ], [ false, %sw.bb8 ], [ false, %cond.false11 ], [ false, %sw.bb18 ], [ false, %cond.false21 ], [ true, %sw.bb28 ], [ true, %cond.false31 ], [ true, %sw.bb38 ], [ true, %cond.false41 ], [ true, %sw.bb48 ], [ true, %cond.false51 ]
+sw.epilog.sink.split:                             ; preds = %sw.bb3, %if.end, %cond.false11, %cond.false21, %cond.false31, %cond.false41, %cond.false51
+  %.str.510.sink = phi ptr [ @.str.510, %cond.false51 ], [ @.str.509, %cond.false41 ], [ @.str.508, %cond.false31 ], [ @.str.507, %cond.false21 ], [ @.str.506, %cond.false11 ], [ @.str.505, %if.end ], [ @.str.505, %sw.bb3 ]
+  %ref_iv.0.ph = phi ptr [ %ocb_state, %cond.false51 ], [ %ccm_state, %cond.false41 ], [ %gcm_state, %cond.false31 ], [ %cfb_state, %cond.false21 ], [ %ofb_state, %cond.false11 ], [ %cbc_state, %if.end ], [ %cbc_state, %sw.bb3 ]
+  %ref_len.0.ph = phi i64 [ 12, %cond.false51 ], [ 7, %cond.false41 ], [ 12, %cond.false31 ], [ 16, %cond.false21 ], [ 16, %cond.false11 ], [ 16, %if.end ], [ 16, %sw.bb3 ]
+  %tobool123.not.ph = phi i1 [ true, %cond.false51 ], [ true, %cond.false41 ], [ true, %cond.false31 ], [ false, %cond.false21 ], [ false, %cond.false11 ], [ false, %if.end ], [ false, %sw.bb3 ]
   %1 = load ptr, ptr @testctx, align 8
   %call52 = tail call ptr @EVP_CIPHER_fetch(ptr noundef %1, ptr noundef nonnull %.str.510.sink, ptr noundef null) #8
   br label %sw.epilog
@@ -6313,8 +6313,8 @@ if.then113:                                       ; preds = %if.then.i, %entry, 
   br label %if.end114
 
 if.end114:                                        ; preds = %if.end102, %land.lhs.true91, %if.end87, %if.then113
-  %testresult.044 = phi i32 [ 0, %if.then113 ], [ 1, %land.lhs.true91 ], [ 1, %if.end87 ], [ 1, %if.end102 ]
-  %type.042 = phi ptr [ %type.0.ph, %if.then113 ], [ %call1, %land.lhs.true91 ], [ %call1, %if.end87 ], [ %call1, %if.end102 ]
+  %testresult.044 = phi i32 [ 0, %if.then113 ], [ 1, %if.end87 ], [ 1, %land.lhs.true91 ], [ 1, %if.end102 ]
+  %type.042 = phi ptr [ %type.0.ph, %if.then113 ], [ %call1, %if.end87 ], [ %call1, %land.lhs.true91 ], [ %call1, %if.end102 ]
   call void @EVP_CIPHER_CTX_free(ptr noundef %call) #8
   call void @EVP_CIPHER_free(ptr noundef %type.042) #8
   ret i32 %testresult.044
@@ -8941,7 +8941,7 @@ declare ptr @EVP_PKEY_CTX_new_id(i32 noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @EVP_PKEY_up_ref(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @get_cmac_val(ptr noundef %pkey, ptr noundef %mac) unnamed_addr #1 {
+define internal fastcc noundef i32 @get_cmac_val(ptr noundef %pkey, ptr noundef %mac) unnamed_addr #1 {
 entry:
   %msg = alloca [12 x i8], align 1
   %maclen = alloca i64, align 8
@@ -8950,7 +8950,7 @@ entry:
   store i64 16, ptr %maclen, align 8
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.16, i32 noundef 2549, ptr noundef nonnull @.str.311, ptr noundef %call) #8
   %tobool.not = icmp eq i32 %call1, 0
-  br i1 %tobool.not, label %if.end, label %lor.lhs.false
+  br i1 %tobool.not, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
   %0 = load ptr, ptr @testctx, align 8
@@ -8959,7 +8959,7 @@ lor.lhs.false:                                    ; preds = %entry
   %conv = zext i1 %cmp to i32
   %call3 = tail call i32 @test_true(ptr noundef nonnull @.str.16, i32 noundef 2551, ptr noundef nonnull @.str.312, i32 noundef %conv) #8
   %tobool4.not = icmp eq i32 %call3, 0
-  br i1 %tobool4.not, label %if.end, label %lor.lhs.false5
+  br i1 %tobool4.not, label %if.then, label %lor.lhs.false5
 
 lor.lhs.false5:                                   ; preds = %lor.lhs.false
   %call6 = call i32 @EVP_DigestSignUpdate(ptr noundef %call, ptr noundef nonnull %msg, i64 noundef 12) #8
@@ -8967,7 +8967,7 @@ lor.lhs.false5:                                   ; preds = %lor.lhs.false
   %conv8 = zext i1 %cmp7 to i32
   %call9 = call i32 @test_true(ptr noundef nonnull @.str.16, i32 noundef 2552, ptr noundef nonnull @.str.313, i32 noundef %conv8) #8
   %tobool10.not = icmp eq i32 %call9, 0
-  br i1 %tobool10.not, label %if.end, label %lor.lhs.false11
+  br i1 %tobool10.not, label %if.then, label %lor.lhs.false11
 
 lor.lhs.false11:                                  ; preds = %lor.lhs.false5
   %call12 = call i32 @EVP_DigestSignFinal(ptr noundef %call, ptr noundef %mac, ptr noundef nonnull %maclen) #8
@@ -8975,17 +8975,19 @@ lor.lhs.false11:                                  ; preds = %lor.lhs.false5
   %conv14 = zext i1 %cmp13 to i32
   %call15 = call i32 @test_true(ptr noundef nonnull @.str.16, i32 noundef 2553, ptr noundef nonnull @.str.314, i32 noundef %conv14) #8
   %tobool16.not = icmp eq i32 %call15, 0
-  br i1 %tobool16.not, label %if.end, label %lor.lhs.false17
+  br i1 %tobool16.not, label %if.then, label %lor.lhs.false17
 
 lor.lhs.false17:                                  ; preds = %lor.lhs.false11
   %1 = load i64, ptr %maclen, align 8
   %call18 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.16, i32 noundef 2554, ptr noundef nonnull @.str.315, ptr noundef nonnull @.str.316, i64 noundef %1, i64 noundef 16) #8
-  %tobool19.not = icmp ne i32 %call18, 0
-  %spec.select = zext i1 %tobool19.not to i32
+  %tobool19.not = icmp eq i32 %call18, 0
+  br i1 %tobool19.not, label %if.then, label %if.end
+
+if.then:                                          ; preds = %lor.lhs.false17, %lor.lhs.false11, %lor.lhs.false5, %lor.lhs.false, %entry
   br label %if.end
 
-if.end:                                           ; preds = %lor.lhs.false17, %entry, %lor.lhs.false, %lor.lhs.false5, %lor.lhs.false11
-  %ret.0 = phi i32 [ 0, %lor.lhs.false11 ], [ 0, %lor.lhs.false5 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ %spec.select, %lor.lhs.false17 ]
+if.end:                                           ; preds = %if.then, %lor.lhs.false17
+  %ret.0 = phi i32 [ 1, %lor.lhs.false17 ], [ 0, %if.then ]
   call void @EVP_MD_CTX_free(ptr noundef %call) #8
   ret i32 %ret.0
 }

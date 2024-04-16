@@ -47114,7 +47114,7 @@ if.else:                                          ; preds = %if.end.i.i.i
   %conv20.i.i.i.i.i = sext i32 %conv7.i.i.i.i.i to i64
   %add21.i.i.i.i.i = add nsw i64 %div12.i28.i.i.i, %conv20.i.i.i.i.i
   %cmp.i.i.i.i = icmp sgt i64 %add18.i.i.i.i.i, %add18.i.i.i.i
-  br i1 %cmp.i.i.i.i, label %cleanup, label %if.else.i.i.i.i
+  br i1 %cmp.i.i.i.i, label %_ZN6duckdb8LessThan9OperationINS_10interval_tEEEbRKT_S5_.exit.thread, label %if.else.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.else
   %cmp2.i.i.i.i = icmp slt i64 %add18.i.i.i.i.i, %add18.i.i.i.i
@@ -47122,18 +47122,20 @@ if.else.i.i.i.i:                                  ; preds = %if.else
 
 if.end4.i.i.i.i:                                  ; preds = %if.else.i.i.i.i
   %cmp5.i.i.i.i = icmp sgt i64 %add21.i.i.i.i.i, %add21.i.i.i.i
-  br i1 %cmp5.i.i.i.i, label %cleanup, label %_ZN6duckdb8LessThan9OperationINS_10interval_tEEEbRKT_S5_.exit
+  br i1 %cmp5.i.i.i.i, label %_ZN6duckdb8LessThan9OperationINS_10interval_tEEEbRKT_S5_.exit.thread, label %_ZN6duckdb8LessThan9OperationINS_10interval_tEEEbRKT_S5_.exit
 
 _ZN6duckdb8LessThan9OperationINS_10interval_tEEEbRKT_S5_.exit: ; preds = %if.end4.i.i.i.i
   %cmp8.i.i.i.i = icmp sge i64 %add21.i.i.i.i.i, %add21.i.i.i.i
   %cmp12.i.i.i.i = icmp sgt i64 %sub15.i30.i.i.i, %sub15.i.i.i.i
   %spec.select.i.i.i.i = select i1 %cmp8.i.i.i.i, i1 %cmp12.i.i.i.i, i1 false
   %cond.fr = freeze i1 %spec.select.i.i.i.i
-  %spec.select = select i1 %cond.fr, i32 -1, i32 1
+  br i1 %cond.fr, label %_ZN6duckdb8LessThan9OperationINS_10interval_tEEEbRKT_S5_.exit.thread, label %cleanup
+
+_ZN6duckdb8LessThan9OperationINS_10interval_tEEEbRKT_S5_.exit.thread: ; preds = %_ZN6duckdb8LessThan9OperationINS_10interval_tEEEbRKT_S5_.exit, %if.end4.i.i.i.i, %if.else
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZN6duckdb8LessThan9OperationINS_10interval_tEEEbRKT_S5_.exit, %if.else, %if.end4.i.i.i.i, %if.else.i.i.i.i, %if.end.i.i.i, %land.lhs.true5.i.i.i
-  %retval.0 = phi i32 [ 0, %land.lhs.true5.i.i.i ], [ 1, %if.else.i.i.i.i ], [ 0, %if.end.i.i.i ], [ -1, %if.end4.i.i.i.i ], [ -1, %if.else ], [ %spec.select, %_ZN6duckdb8LessThan9OperationINS_10interval_tEEEbRKT_S5_.exit ]
+cleanup:                                          ; preds = %_ZN6duckdb8LessThan9OperationINS_10interval_tEEEbRKT_S5_.exit.thread, %_ZN6duckdb8LessThan9OperationINS_10interval_tEEEbRKT_S5_.exit, %if.else.i.i.i.i, %if.end.i.i.i, %land.lhs.true5.i.i.i
+  %retval.0 = phi i32 [ -1, %_ZN6duckdb8LessThan9OperationINS_10interval_tEEEbRKT_S5_.exit.thread ], [ 1, %_ZN6duckdb8LessThan9OperationINS_10interval_tEEEbRKT_S5_.exit ], [ 0, %land.lhs.true5.i.i.i ], [ 1, %if.else.i.i.i.i ], [ 0, %if.end.i.i.i ]
   ret i32 %retval.0
 }
 
@@ -48482,7 +48484,7 @@ lor.lhs.false:                                    ; preds = %entry
   %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8, !tbaa !1424
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
-  br i1 %cmp.i, label %cleanup, label %if.end.i
+  br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false
   %1 = load i8, ptr %0, align 1, !tbaa !25
@@ -48493,11 +48495,13 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #28
   %call6.i.fr = freeze i32 %call6.i
   %cmp7.i = icmp eq i32 %call6.i.fr, 0
-  %spec.select = select i1 %cmp7.i, ptr %_M_impl.i, ptr null
+  br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %cleanup
+
+_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false, %if.end.i, %entry
-  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ null, %if.end.i ], [ %_M_impl.i, %lor.lhs.false ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
+cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit.thread, %_ZNKSt9type_infoeqERKS_.exit, %if.end.i, %entry
+  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %_ZNKSt9type_infoeqERKS_.exit ], [ null, %if.end.i ]
   ret ptr %retval.0
 }
 

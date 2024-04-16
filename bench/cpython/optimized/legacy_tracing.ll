@@ -1303,7 +1303,7 @@ if.end.i15:                                       ; preds = %if.then3
 
 _PyEval_SetOpcodeTrace.exit.thread:               ; preds = %if.end.i15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %events.i)
-  br label %return
+  br label %8
 
 _PyEval_SetOpcodeTrace.exit:                      ; preds = %if.end.i15
   %and9.i = and i32 %7, -65
@@ -1312,12 +1312,14 @@ _PyEval_SetOpcodeTrace.exit:                      ; preds = %if.end.i15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %events.i)
   %call11.i.fr = freeze i32 %call11.i
   %cmp5.not = icmp eq i32 %call11.i.fr, 0
-  %spec.select = select i1 %cmp5.not, ptr @_Py_NoneStruct, ptr null
+  br i1 %cmp5.not, label %8, label %return
+
+8:                                                ; preds = %_PyEval_SetOpcodeTrace.exit.thread, %_PyEval_SetOpcodeTrace.exit
   br label %return
 
 if.end8:                                          ; preds = %lor.lhs.false
-  %8 = load i32, ptr %call, align 8
-  %add.i = add i32 %8, 1
+  %9 = load i32, ptr %call, align 8
+  %add.i = add i32 %9, 1
   %cmp.i17 = icmp eq i32 %add.i, 0
   br i1 %cmp.i17, label %Py_INCREF.exit, label %if.end.i18
 
@@ -1327,21 +1329,21 @@ if.end.i18:                                       ; preds = %if.end8
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %if.end8, %if.end.i18
-  %9 = phi ptr [ %3, %if.end8 ], [ %.pre, %if.end.i18 ]
+  %10 = phi ptr [ %3, %if.end8 ], [ %.pre, %if.end.i18 ]
   %c_traceobj = getelementptr inbounds i8, ptr %2, i64 96
-  %10 = load ptr, ptr %c_traceobj, align 8
+  %11 = load ptr, ptr %c_traceobj, align 8
   %event = getelementptr inbounds i8, ptr %self, i64 24
-  %11 = load i32, ptr %event, align 8
-  %call10 = tail call i32 %9(ptr noundef %10, ptr noundef nonnull %call, i32 noundef %11, ptr noundef nonnull @_Py_NoneStruct) #4
+  %12 = load i32, ptr %event, align 8
+  %call10 = tail call i32 %10(ptr noundef %11, ptr noundef nonnull %call, i32 noundef %12, ptr noundef nonnull @_Py_NoneStruct) #4
   %f_lineno = getelementptr inbounds i8, ptr %call, i64 40
   store i32 0, ptr %f_lineno, align 8
-  %12 = load i64, ptr %call, align 8
-  %13 = and i64 %12, 2147483648
-  %cmp.i15.not = icmp eq i64 %13, 0
+  %13 = load i64, ptr %call, align 8
+  %14 = and i64 %13, 2147483648
+  %cmp.i15.not = icmp eq i64 %14, 0
   br i1 %cmp.i15.not, label %if.end.i, label %Py_DECREF.exit
 
 if.end.i:                                         ; preds = %Py_INCREF.exit
-  %dec.i = add i64 %12, -1
+  %dec.i = add i64 %13, -1
   store i64 %dec.i, ptr %call, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then1.i, label %Py_DECREF.exit
@@ -1355,8 +1357,8 @@ Py_DECREF.exit:                                   ; preds = %Py_INCREF.exit, %if
   %_Py_NoneStruct.13 = select i1 %tobool11.not, ptr @_Py_NoneStruct, ptr null
   br label %return
 
-return:                                           ; preds = %_PyEval_SetOpcodeTrace.exit, %_PyEval_SetOpcodeTrace.exit.thread19, %_PyEval_SetOpcodeTrace.exit.thread, %Py_DECREF.exit, %if.then
-  %retval.0 = phi ptr [ null, %if.then ], [ %_Py_NoneStruct.13, %Py_DECREF.exit ], [ null, %_PyEval_SetOpcodeTrace.exit.thread19 ], [ @_Py_NoneStruct, %_PyEval_SetOpcodeTrace.exit.thread ], [ %spec.select, %_PyEval_SetOpcodeTrace.exit ]
+return:                                           ; preds = %8, %_PyEval_SetOpcodeTrace.exit, %_PyEval_SetOpcodeTrace.exit.thread19, %Py_DECREF.exit, %if.then
+  %retval.0 = phi ptr [ null, %if.then ], [ %_Py_NoneStruct.13, %Py_DECREF.exit ], [ @_Py_NoneStruct, %8 ], [ null, %_PyEval_SetOpcodeTrace.exit ], [ null, %_PyEval_SetOpcodeTrace.exit.thread19 ]
   ret ptr %retval.0
 }
 

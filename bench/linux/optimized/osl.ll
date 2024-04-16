@@ -242,7 +242,7 @@ define dso_local void @acpi_os_printf(ptr nocapture noundef readonly %0, ...) #1
   %3 = call i32 @vsprintf(ptr noundef nonnull @acpi_os_vprintf.buffer, ptr noundef %0, ptr noundef nonnull %2) #20
   %4 = load i8, ptr @acpi_os_vprintf.buffer, align 16
   %5 = icmp eq i8 %4, 1
-  br i1 %5, label %6, label %9
+  br i1 %5, label %6, label %8
 
 6:                                                ; preds = %1
   %7 = load i8, ptr getelementptr inbounds ([512 x i8], ptr @acpi_os_vprintf.buffer, i64 0, i64 1), align 1
@@ -258,11 +258,11 @@ define dso_local void @acpi_os_printf(ptr nocapture noundef readonly %0, ...) #1
     i8 99, label %9
   ]
 
-8:                                                ; preds = %6
+8:                                                ; preds = %6, %1
   br label %9
 
-9:                                                ; preds = %1, %8, %6, %6, %6, %6, %6, %6, %6, %6, %6
-  %10 = phi ptr [ @.str, %6 ], [ @.str, %6 ], [ @.str, %6 ], [ @.str, %6 ], [ @.str, %6 ], [ @.str, %6 ], [ @.str, %6 ], [ @.str, %6 ], [ @.str, %6 ], [ @.str.1, %1 ], [ @.str.1, %8 ]
+9:                                                ; preds = %8, %6, %6, %6, %6, %6, %6, %6, %6, %6
+  %10 = phi ptr [ @.str.1, %8 ], [ @.str, %6 ], [ @.str, %6 ], [ @.str, %6 ], [ @.str, %6 ], [ @.str, %6 ], [ @.str, %6 ], [ @.str, %6 ], [ @.str, %6 ], [ @.str, %6 ]
   %11 = call i32 (ptr, ...) @_printk(ptr noundef nonnull %10, ptr noundef nonnull @acpi_os_vprintf.buffer) #21
   call void @llvm.va_end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #20
@@ -280,7 +280,7 @@ define dso_local void @acpi_os_vprintf(ptr nocapture noundef readonly %0, ptr no
   %3 = tail call i32 @vsprintf(ptr noundef nonnull @acpi_os_vprintf.buffer, ptr noundef %0, ptr noundef %1) #20
   %4 = load i8, ptr @acpi_os_vprintf.buffer, align 16
   %5 = icmp eq i8 %4, 1
-  br i1 %5, label %6, label %9
+  br i1 %5, label %6, label %8
 
 6:                                                ; preds = %2
   %7 = load i8, ptr getelementptr inbounds ([512 x i8], ptr @acpi_os_vprintf.buffer, i64 0, i64 1), align 1
@@ -296,11 +296,11 @@ define dso_local void @acpi_os_vprintf(ptr nocapture noundef readonly %0, ptr no
     i8 99, label %9
   ]
 
-8:                                                ; preds = %6
+8:                                                ; preds = %6, %2
   br label %9
 
-9:                                                ; preds = %2, %8, %6, %6, %6, %6, %6, %6, %6, %6, %6
-  %10 = phi ptr [ @.str, %6 ], [ @.str, %6 ], [ @.str, %6 ], [ @.str, %6 ], [ @.str, %6 ], [ @.str, %6 ], [ @.str, %6 ], [ @.str, %6 ], [ @.str, %6 ], [ @.str.1, %2 ], [ @.str.1, %8 ]
+9:                                                ; preds = %8, %6, %6, %6, %6, %6, %6, %6, %6, %6
+  %10 = phi ptr [ @.str.1, %8 ], [ @.str, %6 ], [ @.str, %6 ], [ @.str, %6 ], [ @.str, %6 ], [ @.str, %6 ], [ @.str, %6 ], [ @.str, %6 ], [ @.str, %6 ], [ @.str, %6 ]
   %11 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull %10, ptr noundef nonnull @acpi_os_vprintf.buffer) #21
   ret void
 }
@@ -1874,13 +1874,13 @@ define dso_local noundef i32 @acpi_check_resource_conflict(ptr nocapture noundef
 
 23:                                               ; preds = %20
   %24 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.18) #21
+  br label %25
+
+25:                                               ; preds = %23, %20
   br label %26
 
-25:                                               ; preds = %20
-  br label %26
-
-26:                                               ; preds = %23, %25, %20, %12, %9, %1
-  %27 = phi i32 [ 0, %1 ], [ 0, %9 ], [ 0, %12 ], [ -16, %20 ], [ 0, %23 ], [ 0, %25 ]
+26:                                               ; preds = %25, %20, %12, %9, %1
+  %27 = phi i32 [ 0, %25 ], [ 0, %1 ], [ 0, %9 ], [ 0, %12 ], [ -16, %20 ]
   ret i32 %27
 }
 
@@ -1908,13 +1908,13 @@ define dso_local noundef i32 @acpi_check_region(i64 noundef %0, i64 noundef %1, 
 
 12:                                               ; preds = %9
   %13 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.18) #21
+  br label %14
+
+14:                                               ; preds = %12, %9
   br label %15
 
-14:                                               ; preds = %9
-  br label %15
-
-15:                                               ; preds = %12, %14, %9, %6, %3
-  %16 = phi i32 [ 0, %3 ], [ 0, %6 ], [ -16, %9 ], [ 0, %12 ], [ 0, %14 ]
+15:                                               ; preds = %14, %9, %6, %3
+  %16 = phi i32 [ 0, %14 ], [ 0, %3 ], [ 0, %6 ], [ -16, %9 ]
   ret i32 %16
 }
 

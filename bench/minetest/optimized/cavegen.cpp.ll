@@ -602,21 +602,23 @@ if.else176:                                       ; preds = %lor.lhs.false133, %
   %c_top178 = getelementptr inbounds i8, ptr %biome.1, i64 136
   %61 = load i16, ptr %c_top178, align 8, !tbaa !107
   %cmp180 = icmp eq i16 %29, %61
-  br i1 %cmp180, label %cleanup, label %lor.lhs.false181
+  br i1 %cmp180, label %if.then186, label %lor.lhs.false181
 
 lor.lhs.false181:                                 ; preds = %if.else176
   %c_filler183 = getelementptr inbounds i8, ptr %biome.1, i64 138
   %62 = load i16, ptr %c_filler183, align 2, !tbaa !105
   %cmp185 = icmp eq i16 %29, %62
-  %spec.select = select i1 %cmp185, i8 1, i8 %is_top_filler_above.0290
+  br i1 %cmp185, label %if.then186, label %cleanup
+
+if.then186:                                       ; preds = %lor.lhs.false181, %if.else176
   br label %cleanup
 
-cleanup:                                          ; preds = %lor.lhs.false181, %if.else176, %if.then165, %if.else161, %if.then155, %if.then143, %if.then139, %if.then116, %if.then111, %if.end93, %lor.lhs.false88, %lor.lhs.false, %if.end
-  %is_top_filler_above.3 = phi i8 [ 0, %lor.lhs.false88 ], [ 0, %lor.lhs.false ], [ 0, %if.end ], [ 0, %if.end93 ], [ 1, %if.then143 ], [ 1, %if.then155 ], [ 1, %if.then165 ], [ 0, %if.then116 ], [ 0, %if.then111 ], [ %is_top_filler_above.0290, %if.then139 ], [ %is_top_filler_above.0290, %if.else161 ], [ 1, %if.else176 ], [ %spec.select, %lor.lhs.false181 ]
-  %is_under_tunnel.2 = phi i8 [ %is_under_tunnel.0293, %lor.lhs.false88 ], [ %is_under_tunnel.0293, %lor.lhs.false ], [ %is_under_tunnel.0293, %if.end ], [ %is_under_tunnel.0293, %if.end93 ], [ %is_under_tunnel.0293, %if.then143 ], [ %is_under_tunnel.0293, %if.then155 ], [ %is_under_tunnel.0293, %if.then165 ], [ 1, %if.then116 ], [ 1, %if.then111 ], [ 0, %if.then139 ], [ 0, %if.else161 ], [ %is_under_tunnel.0293, %if.else176 ], [ %is_under_tunnel.0293, %lor.lhs.false181 ]
-  %is_under_river.2 = phi i8 [ %is_under_river.0294, %lor.lhs.false88 ], [ %is_under_river.0294, %lor.lhs.false ], [ %is_under_river.0294, %if.end ], [ 1, %if.end93 ], [ %is_under_river.0294, %if.then143 ], [ %is_under_river.0294, %if.then155 ], [ %is_under_river.0294, %if.then165 ], [ %is_under_river.0294, %if.then116 ], [ %is_under_river.0294, %if.then111 ], [ 0, %if.then139 ], [ %is_under_river.0294, %if.else161 ], [ %is_under_river.0294, %if.else176 ], [ %is_under_river.0294, %lor.lhs.false181 ]
-  %column_is_open.2 = phi i8 [ 1, %lor.lhs.false88 ], [ 1, %lor.lhs.false ], [ 1, %if.end ], [ 1, %if.end93 ], [ %column_is_open.0295, %if.then143 ], [ %column_is_open.0295, %if.then155 ], [ %column_is_open.0295, %if.then165 ], [ %column_is_open.0295, %if.then116 ], [ %column_is_open.0295, %if.then111 ], [ 0, %if.then139 ], [ 0, %if.else161 ], [ 0, %if.else176 ], [ 0, %lor.lhs.false181 ]
-  %nplaced.2 = phi i16 [ %nplaced.0296, %lor.lhs.false88 ], [ %nplaced.0296, %lor.lhs.false ], [ %nplaced.0296, %if.end ], [ %nplaced.0296, %if.end93 ], [ %inc148, %if.then143 ], [ %inc160, %if.then155 ], [ %inc171, %if.then165 ], [ %nplaced.0296, %if.then116 ], [ %nplaced.0296, %if.then111 ], [ %nplaced.0296, %if.then139 ], [ %nplaced.0296, %if.else161 ], [ %nplaced.0296, %if.else176 ], [ %nplaced.0296, %lor.lhs.false181 ]
+cleanup:                                          ; preds = %if.then186, %lor.lhs.false181, %if.then165, %if.else161, %if.then155, %if.then143, %if.then139, %if.then116, %if.then111, %if.end93, %lor.lhs.false88, %lor.lhs.false, %if.end
+  %is_top_filler_above.3 = phi i8 [ 0, %lor.lhs.false88 ], [ 0, %lor.lhs.false ], [ 0, %if.end ], [ 0, %if.end93 ], [ 1, %if.then143 ], [ 1, %if.then155 ], [ 1, %if.then165 ], [ 0, %if.then116 ], [ 0, %if.then111 ], [ %is_top_filler_above.0290, %if.then139 ], [ %is_top_filler_above.0290, %if.else161 ], [ 1, %if.then186 ], [ %is_top_filler_above.0290, %lor.lhs.false181 ]
+  %is_under_tunnel.2 = phi i8 [ %is_under_tunnel.0293, %lor.lhs.false88 ], [ %is_under_tunnel.0293, %lor.lhs.false ], [ %is_under_tunnel.0293, %if.end ], [ %is_under_tunnel.0293, %if.end93 ], [ %is_under_tunnel.0293, %if.then143 ], [ %is_under_tunnel.0293, %if.then155 ], [ %is_under_tunnel.0293, %if.then165 ], [ 1, %if.then116 ], [ 1, %if.then111 ], [ 0, %if.then139 ], [ 0, %if.else161 ], [ %is_under_tunnel.0293, %if.then186 ], [ %is_under_tunnel.0293, %lor.lhs.false181 ]
+  %is_under_river.2 = phi i8 [ %is_under_river.0294, %lor.lhs.false88 ], [ %is_under_river.0294, %lor.lhs.false ], [ %is_under_river.0294, %if.end ], [ 1, %if.end93 ], [ %is_under_river.0294, %if.then143 ], [ %is_under_river.0294, %if.then155 ], [ %is_under_river.0294, %if.then165 ], [ %is_under_river.0294, %if.then116 ], [ %is_under_river.0294, %if.then111 ], [ 0, %if.then139 ], [ %is_under_river.0294, %if.else161 ], [ %is_under_river.0294, %if.then186 ], [ %is_under_river.0294, %lor.lhs.false181 ]
+  %column_is_open.2 = phi i8 [ 1, %lor.lhs.false88 ], [ 1, %lor.lhs.false ], [ 1, %if.end ], [ 1, %if.end93 ], [ %column_is_open.0295, %if.then143 ], [ %column_is_open.0295, %if.then155 ], [ %column_is_open.0295, %if.then165 ], [ %column_is_open.0295, %if.then116 ], [ %column_is_open.0295, %if.then111 ], [ 0, %if.then139 ], [ 0, %if.else161 ], [ 0, %if.then186 ], [ 0, %lor.lhs.false181 ]
+  %nplaced.2 = phi i16 [ %nplaced.0296, %lor.lhs.false88 ], [ %nplaced.0296, %lor.lhs.false ], [ %nplaced.0296, %if.end ], [ %nplaced.0296, %if.end93 ], [ %inc148, %if.then143 ], [ %inc160, %if.then155 ], [ %inc171, %if.then165 ], [ %nplaced.0296, %if.then116 ], [ %nplaced.0296, %if.then111 ], [ %nplaced.0296, %if.then139 ], [ %nplaced.0296, %if.else161 ], [ %nplaced.0296, %if.then186 ], [ %nplaced.0296, %lor.lhs.false181 ]
   %dec = add i16 %y.0299, -1
   %63 = load i16, ptr %m_ystride, align 4, !tbaa !17
   %conv191 = zext i16 %63 to i32
@@ -2507,7 +2509,7 @@ if.else:                                          ; preds = %if.then
   %18 = load i32, ptr %seed, align 8, !tbaa !134
   %call32 = tail call nsz noundef float @_Z13NoisePerlin3DPK11NoiseParamsfffi(ptr noundef %17, float noundef %conv27, float noundef %conv29, float noundef %conv31, i32 noundef %18)
   %cmp = fcmp nsz olt float %call32, 0x3FD99999A0000000
-  br i1 %cmp, label %land.lhs.true, label %cond.end
+  br i1 %cmp, label %land.lhs.true, label %cond.false
 
 land.lhs.true:                                    ; preds = %if.else
   %Y33 = getelementptr inbounds i8, ptr %this, i64 88
@@ -2517,11 +2519,13 @@ land.lhs.true:                                    ; preds = %if.else
   %20 = load i32, ptr %water_level, align 4, !tbaa !135
   %sub = add nsw i32 %20, -256
   %cmp35 = icmp sgt i32 %sub, %conv34
-  %spec.select1 = select i1 %cmp35, ptr %lavanode, ptr %waternode
+  br i1 %cmp35, label %cond.end, label %cond.false
+
+cond.false:                                       ; preds = %land.lhs.true, %if.else
   br label %cond.end
 
-cond.end:                                         ; preds = %land.lhs.true, %if.else
-  %cond-lvalue = phi ptr [ %waternode, %if.else ], [ %spec.select1, %land.lhs.true ]
+cond.end:                                         ; preds = %cond.false, %land.lhs.true
+  %cond-lvalue = phi ptr [ %waternode, %cond.false ], [ %lavanode, %land.lhs.true ]
   %21 = load i32, ptr %cond-lvalue, align 4, !tbaa.struct !101
   %liquidnode.sroa.0.0.extract.trunc = trunc i32 %21 to i16
   %liquidnode.sroa.7.0.extract.shift = and i32 %21, -16777216

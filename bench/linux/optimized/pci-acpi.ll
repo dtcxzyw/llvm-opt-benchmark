@@ -1005,7 +1005,7 @@ define internal fastcc ptr @acpi_pci_find_companion(ptr noundef %0) unnamed_addr
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %45, label %6
+  br i1 %5, label %46, label %6
 
 6:                                                ; preds = %1
   tail call void @down_read(ptr noundef nonnull @pci_acpi_companion_lookup_sem) #9
@@ -1021,7 +1021,7 @@ define internal fastcc ptr @acpi_pci_find_companion(ptr noundef %0) unnamed_addr
   %10 = tail call ptr %7(ptr noundef %2) #9
   tail call void @up_read(ptr noundef nonnull @pci_acpi_companion_lookup_sem) #9
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %12, label %45
+  br i1 %11, label %12, label %46
 
 12:                                               ; preds = %.thread, %9
   %13 = getelementptr i8, ptr %0, i64 -111
@@ -1060,12 +1060,14 @@ define internal fastcc ptr @acpi_pci_find_companion(ptr noundef %0) unnamed_addr
   %42 = getelementptr inbounds i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
-  %spec.select = select i1 %44, ptr null, ptr %30
-  br label %45
+  br i1 %44, label %46, label %45
 
-45:                                               ; preds = %39, %12, %32, %9, %1
-  %46 = phi ptr [ null, %1 ], [ %10, %9 ], [ %30, %32 ], [ null, %12 ], [ %spec.select, %39 ]
-  ret ptr %46
+45:                                               ; preds = %39, %32, %12
+  br label %46
+
+46:                                               ; preds = %45, %39, %9, %1
+  %47 = phi ptr [ %30, %45 ], [ null, %1 ], [ %10, %9 ], [ null, %39 ]
+  ret ptr %47
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1244,19 +1246,22 @@ select.unfold:                                    ; preds = %48, %46
   store ptr null, ptr %2, align 8, !annotation !5
   %66 = call i32 @acpi_dev_get_property(ptr noundef nonnull %53, ptr noundef nonnull @.str.3, i32 noundef 1, ptr noundef nonnull %2) #9
   %67 = icmp eq i32 %66, 0
-  br i1 %67, label %68, label %.thread5
+  br i1 %67, label %68, label %73
 
 68:                                               ; preds = %65
   %69 = load ptr, ptr %2, align 8
   %70 = getelementptr inbounds i8, ptr %69, i64 8
   %71 = load i64, ptr %70, align 8
   %72 = icmp eq i64 %71, 1
+  br i1 %72, label %.thread5, label %73
+
+73:                                               ; preds = %68, %65
   br label %.thread5
 
-.thread5:                                         ; preds = %36, %42, %48, %25, %68, %65, %62, %55, %select.unfold, %20, %17, %5, %1
-  %73 = phi i1 [ false, %5 ], [ false, %1 ], [ false, %17 ], [ true, %20 ], [ false, %select.unfold ], [ false, %55 ], [ false, %62 ], [ false, %65 ], [ %72, %68 ], [ false, %25 ], [ false, %48 ], [ false, %42 ], [ false, %36 ]
+.thread5:                                         ; preds = %36, %42, %48, %25, %73, %68, %62, %55, %select.unfold, %20, %17, %5, %1
+  %74 = phi i1 [ false, %73 ], [ false, %5 ], [ false, %1 ], [ false, %17 ], [ true, %20 ], [ false, %select.unfold ], [ false, %55 ], [ false, %62 ], [ true, %68 ], [ false, %25 ], [ false, %48 ], [ false, %42 ], [ false, %36 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
-  ret i1 %73
+  ret i1 %74
 }
 
 ; Function Attrs: null_pointer_is_valid

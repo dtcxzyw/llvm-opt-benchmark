@@ -11805,12 +11805,12 @@ define linkonce_odr hidden noundef i64 @_ZNK6casadi8BinarySX2opEv(ptr noundef no
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK6casadi8BinarySX8is_equalEPKNS_6SXNodeEx(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #6 comdat align 2 {
   %4 = icmp eq ptr %1, null
-  br i1 %4, label %_ZN6casadi17operation_checkerINS_11CommCheckerEEEbx.exit, label %5
+  br i1 %4, label %.thread, label %5
 
 5:                                                ; preds = %3
   %6 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN6casadi6SXNodeE, ptr nonnull @_ZTIN6casadi8BinarySXE, i64 0) #25
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %_ZN6casadi17operation_checkerINS_11CommCheckerEEEbx.exit, label %8
+  br i1 %7, label %.thread, label %8
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %6, i64 16
@@ -11818,7 +11818,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK6casadi8BinarySX8is_equalEPKN
   %11 = getelementptr inbounds i8, ptr %0, i64 16
   %12 = load i8, ptr %11, align 8
   %.not = icmp eq i8 %10, %12
-  br i1 %.not, label %13, label %_ZN6casadi17operation_checkerINS_11CommCheckerEEEbx.exit
+  br i1 %.not, label %13, label %.thread
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds i8, ptr %6, i64 24
@@ -11846,7 +11846,7 @@ _ZN6casadi6SXElem8is_equalERKS0_S2_x.exit.thread: ; preds = %13, %_ZN6casadi6SXE
   %28 = load ptr, ptr %26, align 8
   %29 = load ptr, ptr %27, align 8
   %30 = icmp eq ptr %28, %29
-  br i1 %30, label %_ZN6casadi17operation_checkerINS_11CommCheckerEEEbx.exit, label %31
+  br i1 %30, label %.thread, label %31
 
 31:                                               ; preds = %_ZN6casadi6SXElem8is_equalERKS0_S2_x.exit.thread
   %32 = icmp sgt i64 %2, 1
@@ -11857,7 +11857,7 @@ _ZN6casadi6SXElem8is_equalERKS0_S2_x.exit15:      ; preds = %31
   %34 = getelementptr inbounds i8, ptr %33, i64 144
   %35 = load ptr, ptr %34, align 8
   %36 = tail call noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef %29, i64 noundef %16)
-  br i1 %36, label %_ZN6casadi17operation_checkerINS_11CommCheckerEEEbx.exit, label %_ZN6casadi6SXElem8is_equalERKS0_S2_x.exit.thread21
+  br i1 %36, label %.thread, label %_ZN6casadi6SXElem8is_equalERKS0_S2_x.exit.thread21
 
 _ZN6casadi6SXElem8is_equalERKS0_S2_x.exit.thread21: ; preds = %31, %20, %_ZN6casadi6SXElem8is_equalERKS0_S2_x.exit15, %_ZN6casadi6SXElem8is_equalERKS0_S2_x.exit
   %37 = load i8, ptr %11, align 8
@@ -11894,21 +11894,24 @@ _ZN6casadi6SXElem8is_equalERKS0_S2_x.exit17.thread: ; preds = %38, %_ZN6casadi6S
   %50 = load ptr, ptr %14, align 8
   %51 = load ptr, ptr %49, align 8
   %52 = icmp eq ptr %50, %51
-  br i1 %52, label %_ZN6casadi17operation_checkerINS_11CommCheckerEEEbx.exit, label %53
+  br i1 %52, label %.thread, label %53
 
 53:                                               ; preds = %_ZN6casadi6SXElem8is_equalERKS0_S2_x.exit17.thread
   %54 = icmp sgt i64 %2, 1
-  br i1 %54, label %55, label %_ZN6casadi17operation_checkerINS_11CommCheckerEEEbx.exit
+  br i1 %54, label %_ZN6casadi6SXElem8is_equalERKS0_S2_x.exit19, label %_ZN6casadi17operation_checkerINS_11CommCheckerEEEbx.exit
 
-55:                                               ; preds = %53
-  %56 = load ptr, ptr %50, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 144
-  %58 = load ptr, ptr %57, align 8
-  %59 = tail call noundef zeroext i1 %58(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef %51, i64 noundef %16)
-  br label %_ZN6casadi17operation_checkerINS_11CommCheckerEEEbx.exit
+_ZN6casadi6SXElem8is_equalERKS0_S2_x.exit19:      ; preds = %53
+  %55 = load ptr, ptr %50, align 8
+  %56 = getelementptr inbounds i8, ptr %55, i64 144
+  %57 = load ptr, ptr %56, align 8
+  %58 = tail call noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef %51, i64 noundef %16)
+  br i1 %58, label %.thread, label %_ZN6casadi17operation_checkerINS_11CommCheckerEEEbx.exit
 
-_ZN6casadi17operation_checkerINS_11CommCheckerEEEbx.exit: ; preds = %43, %_ZN6casadi6SXElem8is_equalERKS0_S2_x.exit.thread, %3, %55, %53, %_ZN6casadi6SXElem8is_equalERKS0_S2_x.exit17.thread, %_ZN6casadi6SXElem8is_equalERKS0_S2_x.exit.thread21, %_ZN6casadi6SXElem8is_equalERKS0_S2_x.exit17, %_ZN6casadi6SXElem8is_equalERKS0_S2_x.exit15, %8, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %8 ], [ true, %_ZN6casadi6SXElem8is_equalERKS0_S2_x.exit15 ], [ false, %_ZN6casadi6SXElem8is_equalERKS0_S2_x.exit17 ], [ false, %_ZN6casadi6SXElem8is_equalERKS0_S2_x.exit.thread21 ], [ %59, %55 ], [ true, %_ZN6casadi6SXElem8is_equalERKS0_S2_x.exit17.thread ], [ false, %53 ], [ false, %3 ], [ true, %_ZN6casadi6SXElem8is_equalERKS0_S2_x.exit.thread ], [ false, %43 ]
+_ZN6casadi17operation_checkerINS_11CommCheckerEEEbx.exit: ; preds = %53, %43, %_ZN6casadi6SXElem8is_equalERKS0_S2_x.exit.thread21, %_ZN6casadi6SXElem8is_equalERKS0_S2_x.exit19, %_ZN6casadi6SXElem8is_equalERKS0_S2_x.exit17
+  br label %.thread
+
+.thread:                                          ; preds = %_ZN6casadi6SXElem8is_equalERKS0_S2_x.exit17.thread, %_ZN6casadi6SXElem8is_equalERKS0_S2_x.exit.thread, %3, %_ZN6casadi6SXElem8is_equalERKS0_S2_x.exit19, %_ZN6casadi6SXElem8is_equalERKS0_S2_x.exit15, %8, %5, %_ZN6casadi17operation_checkerINS_11CommCheckerEEEbx.exit
+  %.0 = phi i1 [ false, %_ZN6casadi17operation_checkerINS_11CommCheckerEEEbx.exit ], [ false, %5 ], [ false, %8 ], [ true, %_ZN6casadi6SXElem8is_equalERKS0_S2_x.exit15 ], [ true, %_ZN6casadi6SXElem8is_equalERKS0_S2_x.exit19 ], [ false, %3 ], [ true, %_ZN6casadi6SXElem8is_equalERKS0_S2_x.exit.thread ], [ true, %_ZN6casadi6SXElem8is_equalERKS0_S2_x.exit17.thread ]
   ret i1 %.0
 }
 

@@ -162,12 +162,12 @@ return:                                           ; preds = %entry, %cond.false,
 define ptr @SSL_get_srtp_profiles(ptr noundef readonly %s) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %s, null
-  br i1 %cmp, label %return, label %cond.false
+  br i1 %cmp, label %if.end18, label %cond.false
 
 cond.false:                                       ; preds = %entry
   %0 = load i32, ptr %s, align 8
   %cmp1 = icmp eq i32 %0, 0
-  br i1 %cmp1, label %if.then, label %return
+  br i1 %cmp1, label %if.then, label %if.end18
 
 if.then:                                          ; preds = %cond.false
   %srtp_profiles = getelementptr inbounds i8, ptr %s, i64 2800
@@ -179,15 +179,19 @@ if.else:                                          ; preds = %if.then
   %ctx = getelementptr inbounds i8, ptr %s, i64 8
   %2 = load ptr, ptr %ctx, align 8
   %cmp10.not = icmp eq ptr %2, null
-  br i1 %cmp10.not, label %return, label %land.lhs.true
+  br i1 %cmp10.not, label %if.end18, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.else
   %srtp_profiles12 = getelementptr inbounds i8, ptr %2, i64 960
   %3 = load ptr, ptr %srtp_profiles12, align 8
+  %cmp13.not = icmp eq ptr %3, null
+  br i1 %cmp13.not, label %if.end18, label %return
+
+if.end18:                                         ; preds = %entry, %cond.false, %land.lhs.true, %if.else
   br label %return
 
-return:                                           ; preds = %entry, %cond.false, %land.lhs.true, %if.else, %if.then
-  %retval.0 = phi ptr [ %1, %if.then ], [ null, %if.else ], [ %3, %land.lhs.true ], [ null, %cond.false ], [ null, %entry ]
+return:                                           ; preds = %land.lhs.true, %if.then, %if.end18
+  %retval.0 = phi ptr [ null, %if.end18 ], [ %1, %if.then ], [ %3, %land.lhs.true ]
   ret ptr %retval.0
 }
 

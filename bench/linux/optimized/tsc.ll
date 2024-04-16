@@ -949,36 +949,40 @@ define dso_local noundef i32 @unsynchronized_tsc() local_unnamed_addr #6 align 1
   %3 = icmp eq i64 %2, 0
   %4 = load i1, ptr @tsc_unstable, align 4
   %5 = select i1 %3, i1 true, i1 %4
-  br i1 %5, label %22, label %6
+  br i1 %5, label %25, label %6
 
 6:                                                ; preds = %0
   %7 = tail call i32 @apic_is_clustered_box() #20
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %9, label %22
+  br i1 %8, label %9, label %25
 
 9:                                                ; preds = %6
   %10 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 0), align 8
   %11 = and i64 %10, 1099511627776
-  %12 = icmp ne i64 %11, 0
+  %12 = icmp eq i64 %11, 0
   %13 = load i32, ptr @tsc_clocksource_reliable, align 4
-  %14 = icmp ne i32 %13, 0
-  %.not4 = select i1 %12, i1 true, i1 %14
-  %15 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 1), align 1
-  %16 = icmp eq i8 %15, 0
-  %or.cond = select i1 %.not4, i1 true, i1 %16
-  br i1 %or.cond, label %22, label %17
+  %14 = icmp eq i32 %13, 0
+  %15 = select i1 %12, i1 %14, i1 false
+  br i1 %15, label %16, label %25
 
-17:                                               ; preds = %9
-  %18 = load i64, ptr @__cpu_possible_mask, align 8
-  %19 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %18) #23, !srcloc !43
-  %20 = and i64 %19, 4294967294
-  %21 = icmp ne i64 %20, 0
-  %spec.select = zext i1 %21 to i32
-  br label %22
+16:                                               ; preds = %9
+  %17 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 1), align 1
+  %18 = icmp eq i8 %17, 0
+  br i1 %18, label %24, label %19
 
-22:                                               ; preds = %17, %9, %6, %0
-  %23 = phi i32 [ 1, %0 ], [ 1, %6 ], [ 0, %9 ], [ %spec.select, %17 ]
-  ret i32 %23
+19:                                               ; preds = %16
+  %20 = load i64, ptr @__cpu_possible_mask, align 8
+  %21 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %20) #23, !srcloc !43
+  %22 = and i64 %21, 4294967294
+  %23 = icmp eq i64 %22, 0
+  br i1 %23, label %24, label %25
+
+24:                                               ; preds = %19, %16
+  br label %25
+
+25:                                               ; preds = %24, %19, %9, %6, %0
+  %26 = phi i32 [ 0, %24 ], [ 1, %0 ], [ 1, %6 ], [ 0, %9 ], [ 1, %19 ]
+  ret i32 %26
 }
 
 ; Function Attrs: null_pointer_is_valid

@@ -181,12 +181,14 @@ wmap_lookup.exit:                                 ; preds = %2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %12 = icmp eq i64 %.fr, 36
-  %spec.select = select i1 %12, i64 4, i64 %.fr
-  br label %13
+  br i1 %12, label %13, label %14
 
-13:                                               ; preds = %wmap_lookup.exit, %wmap_lookup.exit.thread
-  %14 = phi i64 [ 4, %wmap_lookup.exit.thread ], [ %spec.select, %wmap_lookup.exit ]
-  ret i64 %14
+13:                                               ; preds = %wmap_lookup.exit.thread, %wmap_lookup.exit
+  br label %14
+
+14:                                               ; preds = %wmap_lookup.exit, %13
+  %15 = phi i64 [ 4, %13 ], [ %.fr, %wmap_lookup.exit ]
+  ret i64 %15
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -260,12 +262,14 @@ wmap_lookup.exit:                                 ; preds = %2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %.fr = freeze i64 %11
   %12 = icmp eq i64 %.fr, 36
-  %spec.select = select i1 %12, i64 0, i64 20
-  br label %13
+  br i1 %12, label %13, label %14
 
-13:                                               ; preds = %wmap_lookup.exit, %wmap_lookup.exit.thread
-  %14 = phi i64 [ 0, %wmap_lookup.exit.thread ], [ %spec.select, %wmap_lookup.exit ]
-  ret i64 %14
+13:                                               ; preds = %wmap_lookup.exit.thread, %wmap_lookup.exit
+  br label %14
+
+14:                                               ; preds = %wmap_lookup.exit, %13
+  %15 = phi i64 [ 0, %13 ], [ 20, %wmap_lookup.exit ]
+  ret i64 %15
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

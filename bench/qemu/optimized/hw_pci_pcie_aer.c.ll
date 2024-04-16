@@ -863,8 +863,8 @@ if.else88:                                        ; preds = %if.then84
   tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 713, ptr noundef nonnull @__PRETTY_FUNCTION__.pcie_aer_inject_error) #15
   unreachable
 
-return:                                           ; preds = %if.end38.i.thread, %if.else64.i, %if.then54.i, %if.end38.i52, %if.then11.i41, %if.end38.i, %if.then11.i, %land.lhs.true.i, %if.then23.i, %pcie_aer_msg.exit, %if.then84, %if.end, %entry
-  %retval.0 = phi i32 [ -38, %entry ], [ -22, %if.end ], [ 0, %if.then84 ], [ 0, %pcie_aer_msg.exit ], [ 0, %if.then23.i ], [ 0, %land.lhs.true.i ], [ 0, %if.then11.i ], [ 0, %if.end38.i ], [ 0, %if.then11.i41 ], [ 0, %if.end38.i52 ], [ 0, %if.then54.i ], [ 0, %if.else64.i ], [ 0, %if.end38.i.thread ]
+return:                                           ; preds = %if.end38.i.thread, %if.else64.i, %if.then54.i, %land.lhs.true.i, %if.then23.i, %if.end38.i52, %if.then11.i41, %if.end38.i, %if.then11.i, %pcie_aer_msg.exit, %if.then84, %if.end, %entry
+  %retval.0 = phi i32 [ -38, %entry ], [ -22, %if.end ], [ 0, %if.then84 ], [ 0, %pcie_aer_msg.exit ], [ 0, %if.then11.i ], [ 0, %if.end38.i ], [ 0, %if.then11.i41 ], [ 0, %if.end38.i52 ], [ 0, %if.then23.i ], [ 0, %land.lhs.true.i ], [ 0, %if.then54.i ], [ 0, %if.else64.i ], [ 0, %if.end38.i.thread ]
   ret i32 %retval.0
 }
 

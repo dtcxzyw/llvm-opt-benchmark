@@ -3497,7 +3497,7 @@ default.unreachable5:                             ; preds = %tailrecurse
   %4 = getelementptr inbounds i8, ptr %.tr, i64 24
   %5 = load i64, ptr %4, align 8, !noundef !4
   %6 = icmp eq i64 %5, 1
-  br i1 %6, label %tailrecurse.backedge, label %.loopexit
+  br i1 %6, label %tailrecurse.backedge, label %.loopexit.loopexit
 
 7:                                                ; preds = %tailrecurse
   br label %tailrecurse.backedge
@@ -3511,11 +3511,11 @@ tailrecurse.backedge:                             ; preds = %3, %tailrecurse, %7
 9:                                                ; preds = %tailrecurse
   br label %tailrecurse.backedge
 
-.loopexit.loopexit:                               ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse
+.loopexit.loopexit:                               ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %3
   br label %.loopexit
 
-.loopexit:                                        ; preds = %3, %tailrecurse, %.loopexit.loopexit
-  %.0.shrunk = phi i1 [ true, %tailrecurse ], [ false, %3 ], [ false, %.loopexit.loopexit ]
+.loopexit:                                        ; preds = %tailrecurse, %.loopexit.loopexit
+  %.0.shrunk = phi i1 [ false, %.loopexit.loopexit ], [ true, %tailrecurse ]
   ret i1 %.0.shrunk
 }
 
@@ -4947,11 +4947,11 @@ tailrecurse.i:                                    ; preds = %tailrecurse.backedg
     i64 1, label %9
     i64 2, label %tailrecurse.backedge.i
     i64 3, label %11
-    i64 4, label %.loopexit.loopexit.i
+    i64 4, label %_ZN6ignore5Error5is_io17h0ea59c09bdae053fE.exit
     i64 5, label %.critedge
-    i64 6, label %.loopexit.loopexit.i
-    i64 7, label %.loopexit.loopexit.i
-    i64 8, label %.loopexit.loopexit.i
+    i64 6, label %_ZN6ignore5Error5is_io17h0ea59c09bdae053fE.exit
+    i64 7, label %_ZN6ignore5Error5is_io17h0ea59c09bdae053fE.exit
+    i64 8, label %_ZN6ignore5Error5is_io17h0ea59c09bdae053fE.exit
   ]
 
 default.unreachable:                              ; preds = %tailrecurse.i
@@ -4961,7 +4961,7 @@ default.unreachable:                              ; preds = %tailrecurse.i
   %6 = getelementptr inbounds i8, ptr %.tr.i, i64 24
   %7 = load i64, ptr %6, align 8, !noundef !4
   %8 = icmp eq i64 %7, 1
-  br i1 %8, label %tailrecurse.backedge.i, label %.loopexit.loopexit.i
+  br i1 %8, label %tailrecurse.backedge.i, label %_ZN6ignore5Error5is_io17h0ea59c09bdae053fE.exit
 
 9:                                                ; preds = %tailrecurse.i
   br label %tailrecurse.backedge.i
@@ -4975,7 +4975,7 @@ tailrecurse.backedge.i:                           ; preds = %11, %9, %5, %tailre
 11:                                               ; preds = %tailrecurse.i
   br label %tailrecurse.backedge.i
 
-.loopexit.loopexit.i:                             ; preds = %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %5
+_ZN6ignore5Error5is_io17h0ea59c09bdae053fE.exit:  ; preds = %5, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
   %12 = getelementptr inbounds i8, ptr %0, i64 16
@@ -4984,7 +4984,7 @@ tailrecurse.backedge.i:                           ; preds = %11, %9, %5, %tailre
   %15 = icmp eq i64 %13, %14
   br i1 %15, label %16, label %21
 
-16:                                               ; preds = %.loopexit.loopexit.i
+16:                                               ; preds = %_ZN6ignore5Error5is_io17h0ea59c09bdae053fE.exit
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hfcd4898c1b952c2bE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %13)
           to label %._crit_edge.i.i unwind label %17, !noalias !631
 
@@ -5004,8 +5004,8 @@ tailrecurse.backedge.i:                           ; preds = %11, %9, %5, %tailre
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #29
   unreachable
 
-21:                                               ; preds = %._crit_edge.i.i, %.loopexit.loopexit.i
-  %22 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %13, %.loopexit.loopexit.i ]
+21:                                               ; preds = %._crit_edge.i.i, %_ZN6ignore5Error5is_io17h0ea59c09bdae053fE.exit
+  %22 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %13, %_ZN6ignore5Error5is_io17h0ea59c09bdae053fE.exit ]
   %23 = getelementptr inbounds i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8, !alias.scope !626, !noalias !631, !nonnull !4, !noundef !4
   %25 = getelementptr inbounds { i64, [6 x i64] }, ptr %24, i64 %22

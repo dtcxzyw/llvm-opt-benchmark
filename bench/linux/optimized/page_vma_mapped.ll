@@ -682,7 +682,7 @@ define dso_local noundef i32 @page_mapped_in_vma(ptr noundef %0, ptr noundef %1)
   %38 = getelementptr inbounds i8, ptr %1, i64 8
   %39 = load i64, ptr %38, align 8
   %40 = icmp ult i64 %35, %39
-  br i1 %40, label %select.unfold, label %.thread
+  br i1 %40, label %47, label %.thread
 
 41:                                               ; preds = %26
   %42 = add i64 %18, -1
@@ -692,48 +692,48 @@ define dso_local noundef i32 @page_mapped_in_vma(ptr noundef %0, ptr noundef %1)
 
 45:                                               ; preds = %41
   %46 = load i64, ptr %1, align 8
-  br label %select.unfold
+  br label %47
 
-select.unfold:                                    ; preds = %37, %45
-  %47 = phi i64 [ %46, %45 ], [ %35, %37 ]
-  store i64 %47, ptr %12, align 8
-  %48 = icmp eq i64 %47, -14
-  br i1 %48, label %.thread, label %49
+47:                                               ; preds = %45, %37
+  %48 = phi i64 [ %35, %37 ], [ %46, %45 ]
+  store i64 %48, ptr %12, align 8
+  %49 = icmp eq i64 %48, -14
+  br i1 %49, label %.thread, label %50
 
-49:                                               ; preds = %select.unfold
-  %50 = call zeroext i1 @page_vma_mapped_walk(ptr noundef nonnull %3)
-  br i1 %50, label %51, label %.thread
+50:                                               ; preds = %47
+  %51 = call zeroext i1 @page_vma_mapped_walk(ptr noundef nonnull %3)
+  br i1 %51, label %52, label %.thread
 
-51:                                               ; preds = %49
-  %52 = load ptr, ptr %13, align 8
-  %53 = icmp eq ptr %52, null
-  br i1 %53, label %61, label %54
+52:                                               ; preds = %50
+  %53 = load ptr, ptr %13, align 8
+  %54 = icmp eq ptr %53, null
+  br i1 %54, label %62, label %55
 
-54:                                               ; preds = %51
-  %55 = load ptr, ptr %11, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 32
-  %57 = load i64, ptr %56, align 8
-  %58 = and i64 %57, 4194304
-  %59 = icmp eq i64 %58, 0
-  br i1 %59, label %60, label %61
+55:                                               ; preds = %52
+  %56 = load ptr, ptr %11, align 8
+  %57 = getelementptr inbounds i8, ptr %56, i64 32
+  %58 = load i64, ptr %57, align 8
+  %59 = and i64 %58, 4194304
+  %60 = icmp eq i64 %59, 0
+  br i1 %60, label %61, label %62
 
-60:                                               ; preds = %54
+61:                                               ; preds = %55
   call void @__rcu_read_unlock() #6
-  br label %61
+  br label %62
 
-61:                                               ; preds = %60, %54, %51
-  %62 = load ptr, ptr %14, align 8
-  %63 = icmp eq ptr %62, null
-  br i1 %63, label %.thread, label %64
+62:                                               ; preds = %61, %55, %52
+  %63 = load ptr, ptr %14, align 8
+  %64 = icmp eq ptr %63, null
+  br i1 %64, label %.thread, label %65
 
-64:                                               ; preds = %61
-  call void @_raw_spin_unlock(ptr noundef nonnull %62) #6
+65:                                               ; preds = %62
+  call void @_raw_spin_unlock(ptr noundef nonnull %63) #6
   br label %.thread
 
-.thread:                                          ; preds = %37, %31, %41, %64, %61, %49, %select.unfold
-  %65 = phi i32 [ 0, %select.unfold ], [ 0, %49 ], [ 1, %61 ], [ 1, %64 ], [ 0, %41 ], [ 0, %31 ], [ 0, %37 ]
+.thread:                                          ; preds = %31, %37, %41, %65, %62, %50, %47
+  %66 = phi i32 [ 0, %47 ], [ 0, %50 ], [ 1, %62 ], [ 1, %65 ], [ 0, %41 ], [ 0, %37 ], [ 0, %31 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3) #6
-  ret i32 %65
+  ret i32 %66
 }
 
 ; Function Attrs: null_pointer_is_valid

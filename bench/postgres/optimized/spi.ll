@@ -5005,22 +5005,22 @@ _SPI_find_ENR_by_name.exit.thread.i39:            ; preds = %_SPI_find_ENR_by_na
   %.phi.trans.insert.i41 = getelementptr inbounds i8, ptr %.pre.i40, i64 64
   %.pre14.i42 = load ptr, ptr %.phi.trans.insert.i41, align 8
   %70 = icmp eq ptr %.pre14.i42, null
-  br i1 %70, label %_SPI_find_ENR_by_name.exit.thread.thread.i43, label %74
+  br i1 %70, label %_SPI_find_ENR_by_name.exit.thread.thread.i43, label %SPI_register_relation.exit44
 
 _SPI_find_ENR_by_name.exit.thread.thread.i43:     ; preds = %_SPI_find_ENR_by_name.exit.thread.i39, %65
   %71 = tail call ptr @create_queryEnv() #15
   %72 = load ptr, ptr @_SPI_current, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 64
   store ptr %71, ptr %73, align 8
-  br label %74
+  br label %SPI_register_relation.exit44
 
-74:                                               ; preds = %_SPI_find_ENR_by_name.exit.thread.thread.i43, %_SPI_find_ENR_by_name.exit.thread.i39
-  %75 = phi ptr [ %71, %_SPI_find_ENR_by_name.exit.thread.thread.i43 ], [ %.pre14.i42, %_SPI_find_ENR_by_name.exit.thread.i39 ]
-  tail call void @register_ENR(ptr noundef %75, ptr noundef nonnull %43) #15
+SPI_register_relation.exit44:                     ; preds = %_SPI_find_ENR_by_name.exit.thread.i39, %_SPI_find_ENR_by_name.exit.thread.thread.i43
+  %74 = phi ptr [ %71, %_SPI_find_ENR_by_name.exit.thread.thread.i43 ], [ %.pre14.i42, %_SPI_find_ENR_by_name.exit.thread.i39 ]
+  tail call void @register_ENR(ptr noundef %74, ptr noundef nonnull %43) #15
   br label %SPI_register_relation.exit.thread
 
-SPI_register_relation.exit.thread:                ; preds = %_SPI_find_ENR_by_name.exit.i36, %63, %42, %_SPI_find_ENR_by_name.exit.i, %27, %6, %74, %39, %1
-  %.0 = phi i32 [ -6, %1 ], [ 17, %39 ], [ 17, %74 ], [ -12, %_SPI_find_ENR_by_name.exit.i ], [ -4, %27 ], [ -6, %6 ], [ -12, %_SPI_find_ENR_by_name.exit.i36 ], [ -4, %63 ], [ -6, %42 ]
+SPI_register_relation.exit.thread:                ; preds = %_SPI_find_ENR_by_name.exit.i36, %63, %42, %_SPI_find_ENR_by_name.exit.i, %27, %6, %39, %SPI_register_relation.exit44, %1
+  %.0 = phi i32 [ -6, %1 ], [ 17, %SPI_register_relation.exit44 ], [ 17, %39 ], [ -12, %_SPI_find_ENR_by_name.exit.i ], [ -4, %27 ], [ -6, %6 ], [ -12, %_SPI_find_ENR_by_name.exit.i36 ], [ -4, %63 ], [ -6, %42 ]
   ret i32 %.0
 }
 

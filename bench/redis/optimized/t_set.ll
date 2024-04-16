@@ -993,7 +993,7 @@ if.end41:                                         ; preds = %if.then35
   %conv42 = trunc i64 %len.addr.0 to i32
   %call43 = call ptr @lpFind(ptr noundef %6, ptr noundef nonnull %call37, ptr noundef nonnull %str.addr.0, i32 noundef %conv42, i32 noundef 0) #10
   %cmp44.not = icmp eq ptr %call43, null
-  br i1 %cmp44.not, label %return, label %if.then46
+  br i1 %cmp44.not, label %if.end72, label %if.then46
 
 if.then46:                                        ; preds = %if.end41
   %call47 = call ptr @lpDelete(ptr noundef %6, ptr noundef nonnull %call43, ptr noundef null) #10
@@ -1003,7 +1003,7 @@ if.then46:                                        ; preds = %if.end41
 if.then56:                                        ; preds = %if.end5
   %call58 = call i32 @string2ll(ptr noundef nonnull %str.addr.0, i64 noundef %len.addr.0, ptr noundef nonnull %llval57) #10
   %tobool59.not = icmp eq i32 %call58, 0
-  br i1 %tobool59.not, label %return, label %if.then60
+  br i1 %tobool59.not, label %if.end72, label %if.then60
 
 if.then60:                                        ; preds = %if.then56
   %ptr62 = getelementptr inbounds i8, ptr %setobj, i64 8
@@ -1012,17 +1012,19 @@ if.then60:                                        ; preds = %if.then56
   %call63 = call ptr @intsetRemove(ptr noundef %7, i64 noundef %8, ptr noundef nonnull %success61) #10
   store ptr %call63, ptr %ptr62, align 8
   %9 = load i32, ptr %success61, align 4
-  %tobool65.not = icmp ne i32 %9, 0
-  %spec.select = zext i1 %tobool65.not to i32
-  br label %return
+  %tobool65.not = icmp eq i32 %9, 0
+  br i1 %tobool65.not, label %if.end72, label %return
 
 if.else69:                                        ; preds = %if.end5
   call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 280, ptr noundef nonnull @.str.3) #10
   call void @abort() #11
   unreachable
 
-return:                                           ; preds = %if.then60, %if.then56, %if.end41, %if.then35, %if.end25, %if.then28, %if.then46, %if.then1
-  %retval.0 = phi i32 [ 1, %if.then46 ], [ %2, %if.then1 ], [ %conv17, %if.then28 ], [ %conv17, %if.end25 ], [ 0, %if.then35 ], [ 0, %if.end41 ], [ 0, %if.then56 ], [ %spec.select, %if.then60 ]
+if.end72:                                         ; preds = %if.end41, %if.then56, %if.then60
+  br label %return
+
+return:                                           ; preds = %if.then60, %if.then35, %if.end25, %if.then28, %if.end72, %if.then46, %if.then1
+  %retval.0 = phi i32 [ 1, %if.then46 ], [ 0, %if.end72 ], [ %2, %if.then1 ], [ %conv17, %if.then28 ], [ %conv17, %if.end25 ], [ 0, %if.then35 ], [ 1, %if.then60 ]
   ret i32 %retval.0
 }
 

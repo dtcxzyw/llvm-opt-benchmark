@@ -222,7 +222,7 @@ thread-pre-split:                                 ; preds = %1, %3
 
 .thread:                                          ; preds = %18
   store i64 1974748653749254, ptr @pat_msr_val, align 8
-  br label %41
+  br label %42
 
 19:                                               ; preds = %18
   store i1 true, ptr @pat_disabled, align 1
@@ -232,10 +232,10 @@ thread-pre-split:                                 ; preds = %1, %3
   store i32 %22, ptr @memory_caching_control, align 4
   %.pre.pre = load i1, ptr @pat_disabled, align 1
   store i64 1974748653749254, ptr @pat_msr_val, align 8
-  br i1 %.pre.pre, label %41, label %24
+  br i1 %.pre.pre, label %42, label %24
 
 23:                                               ; preds = %15
-  br i1 %.pre1, label %41, label %24
+  br i1 %.pre1, label %42, label %24
 
 24:                                               ; preds = %19, %23
   %25 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 1), align 1
@@ -248,26 +248,28 @@ thread-pre-split:                                 ; preds = %1, %3
   %30 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 2), align 2
   %31 = icmp ult i8 %30, 14
   %32 = select i1 %29, i1 %31, i1 false
-  br i1 %32, label %37, label %33
+  br i1 %32, label %38, label %33
 
 33:                                               ; preds = %27
   %34 = icmp eq i8 %28, 15
   %35 = icmp ult i8 %30, 7
   %36 = select i1 %34, i1 %35, i1 false
-  %spec.select = select i1 %36, i64 1971450118865158, i64 290206224317088006
-  br label %37
+  br i1 %36, label %38, label %37
 
-37:                                               ; preds = %33, %24, %27
-  %38 = phi i64 [ 1971450118865158, %27 ], [ 290206224317088006, %24 ], [ %spec.select, %33 ]
-  store i64 %38, ptr @pat_msr_val, align 8
-  %39 = load i32, ptr @memory_caching_control, align 4
-  %40 = or i32 %39, 2
-  store i32 %40, ptr @memory_caching_control, align 4
-  br label %41
+37:                                               ; preds = %33, %24
+  br label %38
 
-41:                                               ; preds = %.thread, %23, %19, %37
-  %42 = phi i64 [ %38, %37 ], [ 1974748653749254, %19 ], [ %16, %23 ], [ 1974748653749254, %.thread ]
-  tail call fastcc void @init_cache_modes(i64 noundef %42) #19
+38:                                               ; preds = %37, %33, %27
+  %39 = phi i64 [ 290206224317088006, %37 ], [ 1971450118865158, %33 ], [ 1971450118865158, %27 ]
+  store i64 %39, ptr @pat_msr_val, align 8
+  %40 = load i32, ptr @memory_caching_control, align 4
+  %41 = or i32 %40, 2
+  store i32 %41, ptr @memory_caching_control, align 4
+  br label %42
+
+42:                                               ; preds = %.thread, %23, %19, %38
+  %43 = phi i64 [ %39, %38 ], [ 1974748653749254, %19 ], [ %16, %23 ], [ 1974748653749254, %.thread ]
+  tail call fastcc void @init_cache_modes(i64 noundef %43) #19
   ret void
 }
 

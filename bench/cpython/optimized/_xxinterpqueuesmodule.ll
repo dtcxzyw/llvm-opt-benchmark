@@ -162,7 +162,7 @@ if.then40.i:                                      ; preds = %do.body38.i
   %call43.i = tail call i32 %visit(ptr noundef nonnull %4, ptr noundef %arg) #4
   br label %traverse_module_state.exit
 
-traverse_module_state.exit:                       ; preds = %if.then.i, %if.then7.i, %if.then18.i, %if.then29.i, %do.body38.i, %if.then40.i
+traverse_module_state.exit:                       ; preds = %if.then40.i, %do.body38.i, %if.then.i, %if.then7.i, %if.then18.i, %if.then29.i
   ret i32 0
 }
 
@@ -1216,7 +1216,7 @@ if.end4:                                          ; preds = %if.end
 set_external_queue_type.exit.thread:              ; preds = %if.end4
   %5 = load ptr, ptr @PyExc_TypeError, align 8
   call void @PyErr_SetString(ptr noundef %5, ptr noundef nonnull @.str.38) #4
-  br label %return
+  br label %7
 
 if.end.i:                                         ; preds = %if.end4
   %6 = load i32, ptr %0, align 8
@@ -1233,11 +1233,13 @@ set_external_queue_type.exit:                     ; preds = %if.end.i, %if.end.i
   %call4.i = call i32 @_PyCrossInterpreterData_RegisterClass(ptr noundef nonnull %0, ptr noundef nonnull @_queueobj_shared) #4
   %call4.i.fr = freeze i32 %call4.i
   %cmp = icmp slt i32 %call4.i.fr, 0
-  %spec.select = select i1 %cmp, ptr null, ptr @_Py_NoneStruct
+  br i1 %cmp, label %7, label %return
+
+7:                                                ; preds = %set_external_queue_type.exit.thread, %set_external_queue_type.exit
   br label %return
 
-return:                                           ; preds = %set_external_queue_type.exit, %set_external_queue_type.exit.thread, %entry, %if.then3
-  %retval.0 = phi ptr [ null, %if.then3 ], [ null, %entry ], [ null, %set_external_queue_type.exit.thread ], [ %spec.select, %set_external_queue_type.exit ]
+return:                                           ; preds = %7, %set_external_queue_type.exit, %entry, %if.then3
+  %retval.0 = phi ptr [ null, %if.then3 ], [ null, %entry ], [ null, %7 ], [ @_Py_NoneStruct, %set_external_queue_type.exit ]
   ret ptr %retval.0
 }
 

@@ -25895,7 +25895,7 @@ if.then:                                          ; preds = %entry
 
 if.then2:                                         ; preds = %if.then
   %cmp4 = fcmp ugt float %0, 1.000000e+00
-  br i1 %cmp4, label %if.end9, label %land.lhs.true
+  br i1 %cmp4, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then2
   %pixel_shift = getelementptr inbounds i8, ptr %scale_info, i64 16
@@ -25905,11 +25905,11 @@ land.lhs.true:                                    ; preds = %if.then2
   %cmp6 = fcmp oeq float %call, %2
   br i1 %cmp6, label %if.end9, label %if.else
 
-if.else:                                          ; preds = %land.lhs.true
+if.else:                                          ; preds = %land.lhs.true, %if.then2
   br label %if.end9
 
-if.end9:                                          ; preds = %if.then2, %land.lhs.true, %if.then, %if.else, %entry
-  %filter.addr.0 = phi i32 [ 5, %if.then ], [ %filter, %entry ], [ 6, %land.lhs.true ], [ 4, %if.then2 ], [ 4, %if.else ]
+if.end9:                                          ; preds = %land.lhs.true, %if.then, %if.else, %entry
+  %filter.addr.0 = phi i32 [ 4, %if.else ], [ 5, %if.then ], [ %filter, %entry ], [ 6, %land.lhs.true ]
   %filter_enum = getelementptr inbounds i8, ptr %samp, i64 68
   store i32 %filter.addr.0, ptr %filter_enum, align 4
   %idxprom = zext i32 %filter.addr.0 to i64

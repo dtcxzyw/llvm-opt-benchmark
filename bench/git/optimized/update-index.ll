@@ -3759,7 +3759,7 @@ if.end.thread.i:                                  ; preds = %land.lhs.true3.i
   br i1 %tobool7.not10.i, label %land.lhs.true13.i, label %if.end9.i.i
 
 if.then11.i:                                      ; preds = %if.end.i
-  br i1 %tobool.not, label %ce_mode_from_stat.exit, label %if.then11.i.land.lhs.true13.i_crit_edge
+  br i1 %tobool.not, label %if.end19.i, label %if.then11.i.land.lhs.true13.i_crit_edge
 
 if.then11.i.land.lhs.true13.i_crit_edge:          ; preds = %if.then11.i
   %ce_mode14.i.phi.trans.insert = getelementptr inbounds i8, ptr %old, i64 52
@@ -3771,7 +3771,9 @@ land.lhs.true13.i:                                ; preds = %if.then11.i.land.lh
   %and15.i.pre-phi = phi i32 [ %.pre20, %if.then11.i.land.lhs.true13.i_crit_edge ], [ %and4.i, %if.end.thread.i ]
   %7 = phi i32 [ %.pre, %if.then11.i.land.lhs.true13.i_crit_edge ], [ %4, %if.end.thread.i ]
   %cmp16.i = icmp eq i32 %and15.i.pre-phi, 32768
-  %spec.select.i = select i1 %cmp16.i, i32 %7, i32 33188
+  br i1 %cmp16.i, label %ce_mode_from_stat.exit, label %if.end19.i
+
+if.end19.i:                                       ; preds = %land.lhs.true13.i, %if.then11.i
   br label %ce_mode_from_stat.exit
 
 if.end20.i:                                       ; preds = %if.end.i
@@ -3795,8 +3797,8 @@ if.end9.i.i:                                      ; preds = %if.end3.i.i, %if.en
   %or.i.i = select i1 %tobool.not.i.i, i32 33188, i32 33261
   br label %ce_mode_from_stat.exit
 
-ce_mode_from_stat.exit:                           ; preds = %land.lhs.true3.i, %if.then11.i, %land.lhs.true13.i, %if.end20.i, %if.end.i.i, %if.end3.i.i, %if.end3.i.i, %if.end9.i.i
-  %retval.0.i = phi i32 [ %4, %land.lhs.true3.i ], [ 33188, %if.then11.i ], [ %or.i.i, %if.end9.i.i ], [ 40960, %if.end20.i ], [ 16384, %if.end.i.i ], [ 57344, %if.end3.i.i ], [ 57344, %if.end3.i.i ], [ %spec.select.i, %land.lhs.true13.i ]
+ce_mode_from_stat.exit:                           ; preds = %land.lhs.true3.i, %land.lhs.true13.i, %if.end19.i, %if.end20.i, %if.end.i.i, %if.end3.i.i, %if.end3.i.i, %if.end9.i.i
+  %retval.0.i = phi i32 [ 33188, %if.end19.i ], [ %4, %land.lhs.true3.i ], [ %7, %land.lhs.true13.i ], [ %or.i.i, %if.end9.i.i ], [ 40960, %if.end20.i ], [ 16384, %if.end.i.i ], [ 57344, %if.end3.i.i ], [ 57344, %if.end3.i.i ]
   %ce_mode = getelementptr inbounds i8, ptr %call4, i64 52
   store i32 %retval.0.i, ptr %ce_mode, align 4
   %oid = getelementptr inbounds i8, ptr %call4, i64 72

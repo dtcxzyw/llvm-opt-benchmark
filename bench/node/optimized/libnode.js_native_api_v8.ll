@@ -2422,8 +2422,8 @@ _ZNKSt6vectorI24napi_property_descriptorSaIS0_EE12_M_check_lenEmPKc.exit.i: ; pr
   %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
   %add.i.i = add nsw i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
   %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i
-  %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %add.i.i, i64 144115188075855871)
-  %cond.i.i = select i1 %cmp7.i.i, i64 144115188075855871, i64 %spec.select.i.i
+  %4 = tail call i64 @llvm.umin.i64(i64 %add.i.i, i64 144115188075855871)
+  %cond.i.i = select i1 %cmp7.i.i, i64 144115188075855871, i64 %4
   %cmp.not.i.i = icmp eq i64 %cond.i.i, 0
   br i1 %cmp.not.i.i, label %_ZNSt12_Vector_baseI24napi_property_descriptorSaIS0_EE11_M_allocateEm.exit.i, label %cond.true.i.i
 
@@ -15935,7 +15935,7 @@ entry:
   %2 = load i64, ptr %arrayidx.i, align 8
   %and.i.i = and i64 %2, 3
   %cmp.i.i = icmp eq i64 %and.i.i, 1
-  br i1 %cmp.i.i, label %if.end.i, label %return
+  br i1 %cmp.i.i, label %if.end.i, label %if.then
 
 if.end.i:                                         ; preds = %entry
   %sub.i18.i = add nsw i64 %2, -1
@@ -15945,7 +15945,7 @@ if.end.i:                                         ; preds = %entry
   %5 = inttoptr i64 %sub.i.i to ptr
   %6 = load i16, ptr %5, align 2
   %cmp.i.not = icmp eq i16 %6, 131
-  br i1 %cmp.i.not, label %if.end5.i, label %return
+  br i1 %cmp.i.not, label %if.end5.i, label %if.then
 
 if.end5.i:                                        ; preds = %if.end.i
   %sub.i.i41 = add i64 %2, 39
@@ -15953,11 +15953,13 @@ if.end5.i:                                        ; preds = %if.end.i
   %8 = load i64, ptr %7, align 8
   %shr.i.mask = and i64 %8, -4294967296
   %cmp7.i.not = icmp eq i64 %shr.i.mask, 21474836480
-  %spec.select = select i1 %cmp7.i.not, ptr null, ptr %arrayidx.i
+  br i1 %cmp7.i.not, label %return, label %if.then
+
+if.then:                                          ; preds = %entry, %if.end.i, %if.end5.i
   br label %return
 
-return:                                           ; preds = %if.end5.i, %if.end.i, %entry
-  %retval.0 = phi ptr [ %arrayidx.i, %entry ], [ %arrayidx.i, %if.end.i ], [ %spec.select, %if.end5.i ]
+return:                                           ; preds = %if.end5.i, %if.then
+  %retval.0 = phi ptr [ %arrayidx.i, %if.then ], [ null, %if.end5.i ]
   ret ptr %retval.0
 }
 

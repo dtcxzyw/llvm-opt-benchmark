@@ -1553,7 +1553,7 @@ define dso_local noundef zeroext i1 @sysfs_streq(ptr nocapture noundef readonly 
   %20 = phi i1 [ true, %2 ], [ false, %5 ], [ %16, %8 ], [ %16, %.preheader ]
   %21 = load i8, ptr %18, align 1
   %22 = icmp eq i8 %19, %21
-  br i1 %22, label %37, label %23
+  br i1 %22, label %38, label %23
 
 23:                                               ; preds = %.loopexit
   %24 = icmp eq i8 %21, 10
@@ -1564,7 +1564,7 @@ define dso_local noundef zeroext i1 @sysfs_streq(ptr nocapture noundef readonly 
   %27 = getelementptr i8, ptr %18, i64 1
   %28 = load i8, ptr %27, align 1
   %29 = icmp eq i8 %28, 0
-  br i1 %29, label %37, label %30
+  br i1 %29, label %38, label %30
 
 30:                                               ; preds = %26, %23
   %31 = icmp eq i8 %19, 10
@@ -1575,11 +1575,14 @@ define dso_local noundef zeroext i1 @sysfs_streq(ptr nocapture noundef readonly 
   %34 = load i8, ptr %33, align 1
   %35 = or i8 %34, %21
   %36 = icmp eq i8 %35, 0
-  br label %37
+  br i1 %36, label %38, label %37
 
-37:                                               ; preds = %32, %30, %26, %.loopexit
-  %38 = phi i1 [ true, %.loopexit ], [ true, %26 ], [ false, %30 ], [ %36, %32 ]
-  ret i1 %38
+37:                                               ; preds = %32, %30
+  br label %38
+
+38:                                               ; preds = %37, %32, %26, %.loopexit
+  %39 = phi i1 [ false, %37 ], [ true, %.loopexit ], [ true, %26 ], [ true, %32 ]
+  ret i1 %39
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)

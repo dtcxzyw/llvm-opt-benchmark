@@ -263,8 +263,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.161 = private unnamed_addr constant [8 x i8] c"INVALID\00", align 1
 @eth_endpoint_dissector_info = internal global %struct._et_dissector_info { ptr @eth_endpoint_get_filter_type }, align 8
 @.str.162 = private unnamed_addr constant [34 x i8] c"eth.addr eq %s and eth.addr eq %s\00", align 1
-@switch.table.eth_conv_get_filter_type = private unnamed_addr constant [3 x i64] [i64 8, i64 32, i64 8], align 8
-@switch.table.eth_conv_get_filter_type.2 = private unnamed_addr constant [3 x ptr] [ptr @.str.16, ptr @.str.4, ptr @.str.34], align 8
 
 ; Function Attrs: nounwind uwtable
 define ptr @get_eth_conversation_data(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
@@ -740,10 +738,10 @@ define internal i32 @capture_eth(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   %11 = getelementptr i8, ptr %0, i64 %10
   %.val = load i8, ptr %11, align 1
   %12 = getelementptr i8, ptr %11, i64 1
-  %.val71 = load i8, ptr %12, align 1
+  %.val70 = load i8, ptr %12, align 1
   %13 = zext i8 %.val to i16
   %14 = shl nuw i16 %13, 8
-  %15 = zext i8 %.val71 to i16
+  %15 = zext i8 %.val70 to i16
   %16 = or disjoint i16 %14, %15
   %17 = zext i16 %16 to i32
   %18 = icmp ult i16 %16, 1501
@@ -798,12 +796,12 @@ define internal i32 @capture_eth(ptr noundef %0, i32 noundef %1, i32 noundef %2,
 50:                                               ; preds = %8
   %51 = add i16 %16, -1501
   %or.cond = icmp ult i16 %51, 35
-  br i1 %or.cond, label %78, label %.thread73
+  br i1 %or.cond, label %78, label %.thread72
 
 52:                                               ; preds = %19, %23, %29, %35, %41
   %53 = add nsw i16 %16, -1
   %or.cond5 = icmp ult i16 %53, 1500
-  br i1 %or.cond5, label %54, label %.thread73
+  br i1 %or.cond5, label %54, label %.thread72
 
 54:                                               ; preds = %52
   %55 = sext i32 %6 to i64
@@ -824,26 +822,26 @@ define internal i32 @capture_eth(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   %66 = trunc i32 %6 to i16
   %67 = add i16 %16, %66
   %68 = zext i16 %67 to i32
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %68, i32 %2)
+  %spec.select81 = tail call i32 @llvm.smin.i32(i32 %68, i32 %2)
   %69 = load ptr, ptr @ipx_cap_handle, align 8
-  %70 = tail call i32 @call_capture_dissector(ptr noundef %69, ptr noundef nonnull %0, i32 noundef %6, i32 noundef %spec.select, ptr noundef %3, ptr noundef %4) #8
+  %70 = tail call i32 @call_capture_dissector(ptr noundef %69, ptr noundef nonnull %0, i32 noundef %6, i32 noundef %spec.select81, ptr noundef %3, ptr noundef %4) #8
   br label %78
 
-71:                                               ; preds = %54, %59
+71:                                               ; preds = %59, %54
   %72 = trunc i32 %6 to i16
   %73 = add i16 %16, %72
   %74 = zext i16 %73 to i32
-  %spec.select83 = tail call i32 @llvm.smin.i32(i32 %74, i32 %2)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %74, i32 %2)
   %75 = load ptr, ptr @llc_cap_handle, align 8
-  %76 = tail call i32 @call_capture_dissector(ptr noundef %75, ptr noundef nonnull %0, i32 noundef %6, i32 noundef %spec.select83, ptr noundef %3, ptr noundef %4) #8
+  %76 = tail call i32 @call_capture_dissector(ptr noundef %75, ptr noundef nonnull %0, i32 noundef %6, i32 noundef %spec.select, ptr noundef %3, ptr noundef %4) #8
   br label %78
 
-.thread73:                                        ; preds = %50, %52
+.thread72:                                        ; preds = %50, %52
   %77 = tail call i32 @try_capture_dissector(ptr noundef nonnull @.str.117, i32 noundef %17, ptr noundef nonnull %0, i32 noundef %6, i32 noundef %2, ptr noundef %3, ptr noundef %4) #8
   br label %78
 
-78:                                               ; preds = %50, %5, %.thread73, %71, %65, %47
-  %.061 = phi i32 [ %49, %47 ], [ %77, %.thread73 ], [ %76, %71 ], [ %70, %65 ], [ 0, %5 ], [ 0, %50 ]
+78:                                               ; preds = %50, %5, %.thread72, %71, %65, %47
+  %.061 = phi i32 [ %49, %47 ], [ %77, %.thread72 ], [ %76, %71 ], [ %70, %65 ], [ 0, %5 ], [ 0, %50 ]
   ret i32 %.061
 }
 
@@ -1705,32 +1703,43 @@ declare ptr @except_pop() local_unnamed_addr #1
 declare void @add_conversation_table_data_with_conv_id(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal nonnull ptr @eth_conv_get_filter_type(ptr nocapture noundef readonly %0, i32 noundef %1) #3 {
-  %3 = icmp ult i32 %1, 3
-  br i1 %3, label %switch.lookup, label %9
+define internal noundef nonnull ptr @eth_conv_get_filter_type(ptr nocapture noundef readonly %0, i32 noundef %1) #3 {
+  switch i32 %1, label %15 [
+    i32 0, label %3
+    i32 1, label %7
+    i32 2, label %11
+  ]
 
-switch.lookup:                                    ; preds = %2
-  %4 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table.eth_conv_get_filter_type, i64 0, i64 %4
-  %switch.load = load i64, ptr %switch.gep, align 8
-  %5 = zext nneg i32 %1 to i64
-  %switch.gep10 = getelementptr inbounds [3 x ptr], ptr @switch.table.eth_conv_get_filter_type.2, i64 0, i64 %5
-  %switch.load11 = load ptr, ptr %switch.gep10, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 %switch.load
-  %7 = load i32, ptr %6, align 8
-  %8 = icmp eq i32 %7, 1
-  %spec.select7 = select i1 %8, ptr %switch.load11, ptr @.str.161
-  br label %9
+3:                                                ; preds = %2
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = load i32, ptr %4, align 8
+  %6 = icmp eq i32 %5, 1
+  br i1 %6, label %16, label %15
 
-9:                                                ; preds = %2, %switch.lookup
-  %.0 = phi ptr [ @.str.161, %2 ], [ %spec.select7, %switch.lookup ]
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = load i32, ptr %8, align 8
+  %10 = icmp eq i32 %9, 1
+  br i1 %10, label %16, label %15
+
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = load i32, ptr %12, align 8
+  %14 = icmp eq i32 %13, 1
+  br i1 %14, label %16, label %15
+
+15:                                               ; preds = %7, %3, %2, %11
+  br label %16
+
+16:                                               ; preds = %11, %7, %3, %15
+  %.0 = phi ptr [ @.str.161, %15 ], [ @.str.16, %3 ], [ @.str.4, %7 ], [ @.str.34, %11 ]
   ret ptr %.0
 }
 
 declare void @add_endpoint_table_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal nonnull ptr @eth_endpoint_get_filter_type(ptr nocapture noundef readonly %0, i32 noundef %1) #3 {
+define internal noundef nonnull ptr @eth_endpoint_get_filter_type(ptr nocapture noundef readonly %0, i32 noundef %1) #3 {
   %3 = icmp eq i32 %1, 2
   br i1 %3, label %4, label %8
 
@@ -1738,11 +1747,13 @@ define internal nonnull ptr @eth_endpoint_get_filter_type(ptr nocapture noundef 
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 1
-  %spec.select = select i1 %7, ptr @.str.34, ptr @.str.161
-  br label %8
+  br i1 %7, label %9, label %8
 
 8:                                                ; preds = %4, %2
-  %.0 = phi ptr [ @.str.161, %2 ], [ %spec.select, %4 ]
+  br label %9
+
+9:                                                ; preds = %4, %8
+  %.0 = phi ptr [ @.str.161, %8 ], [ @.str.34, %4 ]
   ret ptr %.0
 }
 

@@ -2558,24 +2558,19 @@ if.then9:                                         ; preds = %if.end
 
 if.end13:                                         ; preds = %if.then9, %if.end
   %and = and i32 %.val15, 65536
-  %tobool15.not = icmp eq i32 %and, 0
+  %tobool15.not.not = icmp eq i32 %and, 0
   %6 = load ptr, ptr %arrayidx4, align 8
   %7 = getelementptr i8, ptr %6, i64 8
   %.val = load i16, ptr %7, align 1
   %conv = zext i16 %.val to i32
   store i32 %conv, ptr %action3, align 4
-  %cmp.not = icmp ne i16 %.val, 10
-  %or.cond.not16 = select i1 %tobool15.not, i1 %cmp.not, i1 false
-  %.mux = select i1 %or.cond.not16, i32 -22, i32 0
-  br i1 %tobool15.not, label %return, label %land.lhs.true26
-
-land.lhs.true26:                                  ; preds = %if.end13
-  %cmp28.not = icmp eq i16 %.val, 50
-  %spec.select = select i1 %cmp28.not, i32 0, i32 -22
+  %or.cond17.v = select i1 %tobool15.not.not, i16 10, i16 50
+  %or.cond17 = icmp eq i16 %.val, %or.cond17.v
+  %spec.select = select i1 %or.cond17, i32 0, i32 -22
   br label %return
 
-return:                                           ; preds = %land.lhs.true26, %if.end13, %entry, %lor.lhs.false
-  %retval.0 = phi i32 [ -22, %lor.lhs.false ], [ -22, %entry ], [ %.mux, %if.end13 ], [ %spec.select, %land.lhs.true26 ]
+return:                                           ; preds = %if.end13, %entry, %lor.lhs.false
+  %retval.0 = phi i32 [ -22, %lor.lhs.false ], [ -22, %entry ], [ %spec.select, %if.end13 ]
   ret i32 %retval.0
 }
 
@@ -3222,8 +3217,8 @@ switch.early.test:                                ; preds = %if.then76
   %13 = select i1 %switch.selectcmp, i32 0, i32 -22
   br label %return
 
-return:                                           ; preds = %switch.early.test, %if.end73, %if.then76, %if.then65, %if.end43, %sw.bb9, %if.end17, %sw.epilog, %if.end, %entry
-  %retval.0 = phi i32 [ -22, %entry ], [ -22, %if.end ], [ -22, %sw.epilog ], [ -22, %if.end17 ], [ -22, %sw.bb9 ], [ -22, %if.end43 ], [ -22, %if.then65 ], [ 0, %if.then76 ], [ 0, %if.end73 ], [ %13, %switch.early.test ]
+return:                                           ; preds = %if.end73, %if.then76, %switch.early.test, %if.then65, %if.end43, %sw.bb9, %if.end17, %sw.epilog, %if.end, %entry
+  %retval.0 = phi i32 [ -22, %entry ], [ -22, %if.end ], [ -22, %sw.epilog ], [ -22, %if.end17 ], [ -22, %sw.bb9 ], [ -22, %if.end43 ], [ -22, %if.then65 ], [ %13, %switch.early.test ], [ 0, %if.then76 ], [ 0, %if.end73 ]
   ret i32 %retval.0
 }
 

@@ -40,7 +40,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %cmp = icmp eq i64 %and.i, 4
-  br i1 %cmp, label %if.end25, label %lor.lhs.false
+  br i1 %cmp, label %if.then24, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then
   %vlen = getelementptr i8, ptr %env, i64 5288
@@ -50,11 +50,13 @@ lor.lhs.false:                                    ; preds = %if.then
   %sh_prom19 = sub nuw nsw i32 8, %6
   %shr20 = lshr i32 %conv17, %sh_prom19
   %cmp22 = icmp ult i32 %shr20, %shl
-  %spec.select = select i1 %cmp22, i1 true, i1 %tobool
+  br i1 %cmp22, label %if.then24, label %if.end25
+
+if.then24:                                        ; preds = %lor.lhs.false, %if.then
   br label %if.end25
 
-if.end25:                                         ; preds = %lor.lhs.false, %if.then, %entry
-  %vill.0.shrunk = phi i1 [ %tobool, %entry ], [ true, %if.then ], [ %spec.select, %lor.lhs.false ]
+if.end25:                                         ; preds = %lor.lhs.false, %if.then24, %entry
+  %vill.0.shrunk = phi i1 [ true, %if.then24 ], [ %tobool, %lor.lhs.false ], [ %tobool, %entry ]
   %elen = getelementptr i8, ptr %env, i64 5290
   %7 = load i16, ptr %elen, align 2
   %conv28 = zext i16 %7 to i32
@@ -83950,9 +83952,9 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %8 = shl nuw i64 1, %sh_prom.i16.us
   %9 = and i64 %7, %8
   %tobool7.not.us = icmp eq i64 %9, 0
-  %spec.select.us = select i1 %tobool7.not.us, i64 %5, i64 %s1
+  %spec.select = select i1 %tobool7.not.us, i64 %5, i64 %s1
   %add.ptr9.us = getelementptr i64, ptr %vd, i64 %indvars.iv23
-  store i64 %spec.select.us, ptr %add.ptr9.us, align 8
+  store i64 %spec.select, ptr %add.ptr9.us, align 8
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %exitcond27.not = icmp eq i64 %indvars.iv.next24, %wide.trip.count26
   br i1 %exitcond27.not, label %for.end, label %for.body.us, !llvm.loop !462

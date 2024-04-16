@@ -533,55 +533,57 @@ declare ptr @Ivy_And(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define noundef i32 @Ivy_ObjIsInTfi_rec(ptr noundef readonly %0, ptr noundef readnone %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = icmp eq ptr %0, %1
-  br i1 %4, label %._crit_edge, label %.lr.ph
+  br i1 %4, label %27, label %5
 
-.lr.ph:                                           ; preds = %3, %tailrecurse
-  %.tr2729 = phi i32 [ %15, %tailrecurse ], [ %2, %3 ]
-  %.tr28 = phi ptr [ %22, %tailrecurse ], [ %0, %3 ]
-  %5 = icmp eq i32 %.tr2729, 0
-  br i1 %5, label %._crit_edge, label %6
+5:                                                ; preds = %3
+  %6 = icmp eq i32 %2, 0
+  br i1 %6, label %27, label %7
 
-6:                                                ; preds = %.lr.ph
-  %7 = getelementptr i8, ptr %.tr28, i64 8
-  %.val20 = load i32, ptr %7, align 8
-  %8 = and i32 %.val20, 15
-  switch i32 %8, label %9 [
-    i32 4, label %._crit_edge
-    i32 1, label %._crit_edge
+7:                                                ; preds = %5
+  %8 = getelementptr i8, ptr %0, i64 8
+  %.val20 = load i32, ptr %8, align 8
+  %9 = and i32 %.val20, 15
+  switch i32 %9, label %10 [
+    i32 4, label %27
+    i32 1, label %27
   ]
 
-9:                                                ; preds = %6
-  %.val21 = load i32, ptr %.tr28, align 8
+10:                                               ; preds = %7
+  %.val21 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %.val21, 0
-  br i1 %.not, label %._crit_edge, label %10
+  br i1 %.not, label %27, label %11
 
-10:                                               ; preds = %9
-  %11 = getelementptr i8, ptr %.tr28, i64 16
-  %.val = load ptr, ptr %11, align 8
-  %12 = ptrtoint ptr %.val to i64
-  %13 = and i64 %12, -2
-  %14 = inttoptr i64 %13 to ptr
-  %15 = add nsw i32 %.tr2729, -1
-  %16 = tail call i32 @Ivy_ObjIsInTfi_rec(ptr noundef %14, ptr noundef %1, i32 noundef %15), !range !9
-  %.not16 = icmp eq i32 %16, 0
-  br i1 %.not16, label %17, label %._crit_edge
+11:                                               ; preds = %10
+  %12 = getelementptr i8, ptr %0, i64 16
+  %.val = load ptr, ptr %12, align 8
+  %13 = ptrtoint ptr %.val to i64
+  %14 = and i64 %13, -2
+  %15 = inttoptr i64 %14 to ptr
+  %16 = add nsw i32 %2, -1
+  %17 = tail call i32 @Ivy_ObjIsInTfi_rec(ptr noundef %15, ptr noundef %1, i32 noundef %16), !range !9
+  %.not16 = icmp eq i32 %17, 0
+  br i1 %.not16, label %18, label %27
 
-17:                                               ; preds = %10
-  %18 = add nsw i32 %8, -7
-  %narrow.i23 = icmp ult i32 %18, -2
-  br i1 %narrow.i23, label %._crit_edge, label %tailrecurse
+18:                                               ; preds = %11
+  %19 = add nsw i32 %9, -7
+  %narrow.i23 = icmp ult i32 %19, -2
+  br i1 %narrow.i23, label %26, label %20
 
-tailrecurse:                                      ; preds = %17
-  %19 = getelementptr i8, ptr %.tr28, i64 24
-  %.val19 = load ptr, ptr %19, align 8
-  %20 = ptrtoint ptr %.val19 to i64
-  %21 = and i64 %20, -2
-  %22 = inttoptr i64 %21 to ptr
-  %23 = icmp eq ptr %22, %1
-  br i1 %23, label %._crit_edge, label %.lr.ph
+20:                                               ; preds = %18
+  %21 = getelementptr i8, ptr %0, i64 24
+  %.val19 = load ptr, ptr %21, align 8
+  %22 = ptrtoint ptr %.val19 to i64
+  %23 = and i64 %22, -2
+  %24 = inttoptr i64 %23 to ptr
+  %25 = tail call i32 @Ivy_ObjIsInTfi_rec(ptr noundef %24, ptr noundef %1, i32 noundef %16), !range !9
+  %.not18 = icmp eq i32 %25, 0
+  br i1 %.not18, label %26, label %27
 
-._crit_edge:                                      ; preds = %tailrecurse, %9, %.lr.ph, %10, %17, %6, %6, %3
-  %.0 = phi i32 [ 1, %3 ], [ 0, %6 ], [ 0, %6 ], [ 0, %17 ], [ 1, %10 ], [ 0, %.lr.ph ], [ 0, %9 ], [ 1, %tailrecurse ]
+26:                                               ; preds = %20, %18
+  br label %27
+
+27:                                               ; preds = %7, %7, %20, %11, %5, %10, %3, %26
+  %.0 = phi i32 [ 0, %26 ], [ 1, %3 ], [ 0, %10 ], [ 0, %7 ], [ 0, %5 ], [ 1, %11 ], [ 1, %20 ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -934,18 +936,20 @@ Ivy_HaigObjCountClass.exit.i:                     ; preds = %.lr.ph.i.i, %26
   %45 = load ptr, ptr %6, align 8
   %46 = tail call i32 @Ivy_ManIsAcyclic(ptr noundef %45) #10
   %.not7 = icmp eq i32 %46, 0
-  %spec.select = select i1 %.not7, ptr @str, ptr @str.1
-  br label %.thread10.sink.split
+  br i1 %.not7, label %50, label %.thread10.sink.split
 
 .thread:                                          ; preds = %2
   %47 = getelementptr inbounds i8, ptr %0, i64 216
   %48 = load ptr, ptr %47, align 8
   %49 = tail call i32 @Ivy_ManIsAcyclic(ptr noundef %48) #10
   %.not79 = icmp eq i32 %49, 0
-  br i1 %.not79, label %.thread10.sink.split, label %.thread10
+  br i1 %.not79, label %50, label %.thread10
 
-.thread10.sink.split:                             ; preds = %.loopexit, %.thread
-  %str.1.sink = phi ptr [ @str, %.thread ], [ %spec.select, %.loopexit ]
+50:                                               ; preds = %.thread, %.loopexit
+  br label %.thread10.sink.split
+
+.thread10.sink.split:                             ; preds = %.loopexit, %50
+  %str.1.sink = phi ptr [ @str, %50 ], [ @str.1, %.loopexit ]
   %puts8 = tail call i32 @puts(ptr nonnull dereferenceable(1) %str.1.sink)
   br label %.thread10
 

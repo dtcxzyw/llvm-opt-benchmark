@@ -340,7 +340,7 @@ vwr_get_fpga_version.exit.thread:                 ; preds = %8, %.thread140.i
 vwr_get_fpga_version.exit.thread33:               ; preds = %decode_msg.exit.thread.i, %39
   call void @g_free(ptr noundef %12) #9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  br label %258
+  br label %155
 
 vwr_get_fpga_version.exit:                        ; preds = %.thread140.i, %45, %50, %152
   %.0101.i = phi i32 [ %..i, %45 ], [ %.121.i, %50 ], [ %142, %.thread140.i ], [ %.174.i, %152 ]
@@ -350,7 +350,7 @@ vwr_get_fpga_version.exit:                        ; preds = %.thread140.i, %45, 
     i32 0, label %155
   ]
 
-155:                                              ; preds = %vwr_get_fpga_version.exit
+155:                                              ; preds = %vwr_get_fpga_version.exit.thread33, %vwr_get_fpga_version.exit
   br label %258
 
 156:                                              ; preds = %vwr_get_fpga_version.exit
@@ -586,8 +586,8 @@ setup_defaults.exit:                              ; preds = %156, %161, %186, %1
   call void @wtap_add_generated_idb(ptr noundef nonnull %0) #9
   br label %258
 
-258:                                              ; preds = %vwr_get_fpga_version.exit.thread33, %vwr_get_fpga_version.exit.thread, %vwr_get_fpga_version.exit, %257, %155
-  %.0 = phi i32 [ 1, %257 ], [ %.0101.i, %vwr_get_fpga_version.exit ], [ -1, %vwr_get_fpga_version.exit.thread ], [ 0, %vwr_get_fpga_version.exit.thread33 ], [ 0, %155 ]
+258:                                              ; preds = %vwr_get_fpga_version.exit.thread, %vwr_get_fpga_version.exit, %257, %155
+  %.0 = phi i32 [ 0, %155 ], [ 1, %257 ], [ %.0101.i, %vwr_get_fpga_version.exit ], [ -1, %vwr_get_fpga_version.exit.thread ]
   ret i32 %.0
 }
 
@@ -3676,7 +3676,7 @@ get_signature_ts.exit.i76:                        ; preds = %1368, %1366, %find_
   %1735 = add i32 %.19940.i, 13
   %1736 = and i32 %.1700839873937.i, 255
   %1737 = icmp eq i32 %1736, 1
-  br i1 %1737, label %1738, label %1740
+  br i1 %1737, label %1738, label %1739
 
 1738:                                             ; preds = %.thread904.i
   switch i32 %5, label %1739 [
@@ -3684,11 +3684,11 @@ get_signature_ts.exit.i76:                        ; preds = %1368, %1366, %find_
     i32 0, label %1740
   ]
 
-1739:                                             ; preds = %1738
+1739:                                             ; preds = %1738, %.thread904.i
   br label %1740
 
-1740:                                             ; preds = %1739, %1738, %1738, %.thread904.i
-  %.sink1134.i = phi i8 [ %.1706837877935.i, %1738 ], [ %.1706837877935.i, %1738 ], [ 0, %.thread904.i ], [ 0, %1739 ]
+1740:                                             ; preds = %1739, %1738, %1738
+  %.sink1134.i = phi i8 [ 0, %1739 ], [ %.1706837877935.i, %1738 ], [ %.1706837877935.i, %1738 ]
   %1741 = sext i32 %1735 to i64
   %1742 = getelementptr i8, ptr %.0681843868939.i, i64 %1741
   store i8 %.sink1134.i, ptr %1742, align 1

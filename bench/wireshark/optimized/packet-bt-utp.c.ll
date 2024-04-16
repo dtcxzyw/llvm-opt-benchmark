@@ -1065,7 +1065,7 @@ declare void @dissector_add_for_decode_as_with_preference(ptr noundef, ptr nound
 declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @get_utp_version(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc noundef i32 @get_utp_version(ptr noundef %0) unnamed_addr #0 {
   %2 = tail call i32 @tvb_captured_length(ptr noundef %0) #8
   %3 = icmp ult i32 %2, 20
   br i1 %3, label %.thread, label %4
@@ -1109,7 +1109,7 @@ define internal fastcc i32 @get_utp_version(ptr noundef %0) unnamed_addr #0 {
   %.034 = phi i32 [ 20, %12 ], [ 23, %19 ]
   %.0 = phi i32 [ 1, %12 ], [ 0, %19 ]
   %.not38 = icmp eq i8 %.036, 0
-  br i1 %.not38, label %.thread, label %25
+  br i1 %.not38, label %34, label %25
 
 25:                                               ; preds = %24
   %26 = add nuw nsw i32 %.034, 2
@@ -1123,11 +1123,13 @@ define internal fastcc i32 @get_utp_version(ptr noundef %0) unnamed_addr #0 {
   %32 = icmp ugt i8 %29, 3
   %33 = icmp ult i8 %31, 4
   %or.cond8 = select i1 %32, i1 true, i1 %33
-  %spec.select = select i1 %or.cond8, i32 -1, i32 %.0
+  br i1 %or.cond8, label %.thread, label %34
+
+34:                                               ; preds = %28, %24
   br label %.thread
 
-.thread:                                          ; preds = %16, %19, %28, %24, %25, %12, %1
-  %.035 = phi i32 [ -1, %1 ], [ -1, %12 ], [ -1, %25 ], [ %.0, %24 ], [ %spec.select, %28 ], [ -1, %19 ], [ -1, %16 ]
+.thread:                                          ; preds = %16, %19, %28, %25, %12, %1, %34
+  %.035 = phi i32 [ %.0, %34 ], [ -1, %1 ], [ -1, %12 ], [ -1, %25 ], [ -1, %28 ], [ -1, %19 ], [ -1, %16 ]
   ret i32 %.035
 }
 

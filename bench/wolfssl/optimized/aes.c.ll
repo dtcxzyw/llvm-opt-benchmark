@@ -5127,7 +5127,7 @@ return:                                           ; preds = %entry, %AES_GCM_enc
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @wc_AesGcmDecrypt(ptr noundef %aes, ptr noundef %out, ptr noundef %in, i32 noundef %sz, ptr noundef %iv, i32 noundef %ivSz, ptr noundef readonly %authTag, i32 noundef %authTagSz, ptr noundef %authIn, i32 noundef %authInSz) local_unnamed_addr #4 {
+define noundef i32 @wc_AesGcmDecrypt(ptr noundef %aes, ptr noundef %out, ptr noundef %in, i32 noundef %sz, ptr noundef %iv, i32 noundef %ivSz, ptr noundef readonly %authTag, i32 noundef %authTagSz, ptr noundef %authIn, i32 noundef %authInSz) local_unnamed_addr #4 {
 entry:
   %counter.i = alloca [16 x i8], align 16
   %scratch.i = alloca [16 x i8], align 16
@@ -5388,7 +5388,7 @@ xorbuf.exit116.i:                                 ; preds = %for.body.i82.i, %if
 
 if.end38.i:                                       ; preds = %xorbuf.exit116.i, %while.end.i
   %cmp6.i117.i = icmp sgt i32 %authTagSz, 0
-  br i1 %cmp6.i117.i, label %for.body.preheader.i118.i, label %AES_GCM_decrypt_C.exit
+  br i1 %cmp6.i117.i, label %for.body.preheader.i118.i, label %ConstantCompare.exit.thread.i
 
 for.body.preheader.i118.i:                        ; preds = %if.end38.i
   %wide.trip.count.i119.i = zext nneg i32 %authTagSz to i64
@@ -5411,11 +5411,13 @@ for.body.i120.i:                                  ; preds = %for.body.i120.i, %f
 
 ConstantCompare.exit.i:                           ; preds = %for.body.i120.i
   %.not.i = icmp eq i32 %or.i.i, 0
-  %spec.select.i = select i1 %.not.i, i32 0, i32 -180
+  br i1 %.not.i, label %ConstantCompare.exit.thread.i, label %AES_GCM_decrypt_C.exit
+
+ConstantCompare.exit.thread.i:                    ; preds = %ConstantCompare.exit.i, %if.end38.i
   br label %AES_GCM_decrypt_C.exit
 
-AES_GCM_decrypt_C.exit:                           ; preds = %IncrementGcmCounter.exit.i, %if.end.i, %IncrementGcmCounter.exit71.i, %if.end38.i, %ConstantCompare.exit.i
-  %retval.0.i = phi i32 [ %call.i, %if.end.i ], [ %call30.i, %IncrementGcmCounter.exit71.i ], [ 0, %if.end38.i ], [ %spec.select.i, %ConstantCompare.exit.i ], [ %call16.i, %IncrementGcmCounter.exit.i ]
+AES_GCM_decrypt_C.exit:                           ; preds = %IncrementGcmCounter.exit.i, %if.end.i, %IncrementGcmCounter.exit71.i, %ConstantCompare.exit.i, %ConstantCompare.exit.thread.i
+  %retval.0.i = phi i32 [ %call.i, %if.end.i ], [ %call30.i, %IncrementGcmCounter.exit71.i ], [ 0, %ConstantCompare.exit.thread.i ], [ -180, %ConstantCompare.exit.i ], [ %call16.i, %IncrementGcmCounter.exit.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %counter.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %scratch.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %Tprime.i)
@@ -5433,21 +5435,16 @@ entry:
   %cmp = icmp eq ptr %aes, null
   %cmp1 = icmp eq ptr %iv, null
   %or.cond = or i1 %cmp, %cmp1
-  br i1 %or.cond, label %if.end9, label %if.end
+  br i1 %or.cond, label %if.end9, label %lor.lhs.false2
 
-if.end:                                           ; preds = %entry
-  %0 = and i32 %ivSz, -5
-  %or.cond.i = icmp eq i32 %0, 8
-  %cmp2.i = icmp eq i32 %ivSz, 16
-  %narrow.i.not.not = or i1 %cmp2.i, %or.cond.i
-  %spec.select10 = select i1 %narrow.i.not.not, i32 0, i32 -173
+lor.lhs.false2:                                   ; preds = %entry
   switch i32 %ivSz, label %if.end9 [
     i32 16, label %if.then4
     i32 12, label %if.then4
     i32 8, label %if.then4
   ]
 
-if.then4:                                         ; preds = %if.end, %if.end, %if.end
+if.then4:                                         ; preds = %lor.lhs.false2, %lor.lhs.false2, %lor.lhs.false2
   %reg = getelementptr inbounds i8, ptr %aes, i64 256
   %conv = zext nneg i32 %ivSz to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %reg, ptr nonnull align 1 %iv, i64 %conv, i1 false)
@@ -5461,9 +5458,9 @@ if.then4:                                         ; preds = %if.end, %if.end, %i
   store i32 %ivSz, ptr %nonceSz, align 8
   br label %if.end9
 
-if.end9:                                          ; preds = %if.end, %entry, %if.then4
-  %ret.013 = phi i32 [ %spec.select10, %if.then4 ], [ %spec.select10, %if.end ], [ -173, %entry ]
-  ret i32 %ret.013
+if.end9:                                          ; preds = %lor.lhs.false2, %entry, %if.then4
+  %ret.012 = phi i32 [ 0, %if.then4 ], [ -173, %entry ], [ -173, %lor.lhs.false2 ]
+  ret i32 %ret.012
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5485,33 +5482,30 @@ lor.lhs.false3:                                   ; preds = %lor.lhs.false2, %lo
   %cmp4 = icmp eq ptr %ivFixed, null
   %cmp5 = icmp ne i32 %ivFixedSz, 0
   %or.cond1 = and i1 %cmp4, %cmp5
-  br i1 %or.cond1, label %if.end24, label %if.end
+  br i1 %or.cond1, label %if.end24, label %lor.lhs.false6
 
-if.end:                                           ; preds = %lor.lhs.false3
-  %cmp9 = icmp eq i32 %ivFixedSz, 4
-  %or.cond2.not = or i1 %cmp4, %cmp9
-  br i1 %or.cond2.not, label %if.then11, label %if.end16
+lor.lhs.false6:                                   ; preds = %lor.lhs.false3
+  %cmp7 = icmp ne ptr %ivFixed, null
+  %cmp9 = icmp ne i32 %ivFixedSz, 4
+  %or.cond2 = and i1 %cmp7, %cmp9
+  br i1 %or.cond2, label %if.end24, label %if.then11
 
-if.then11:                                        ; preds = %if.end
+if.then11:                                        ; preds = %lor.lhs.false6
   %reg = getelementptr inbounds i8, ptr %aes, i64 256
   %tobool12.not = icmp eq i32 %ivFixedSz, 0
-  br i1 %tobool12.not, label %if.end14, label %if.then13
+  br i1 %tobool12.not, label %if.end16, label %if.then13
 
 if.then13:                                        ; preds = %if.then11
   %conv = zext i32 %ivFixedSz to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %reg, ptr align 1 %ivFixed, i64 %conv, i1 false)
-  br label %if.end14
+  br label %if.end16
 
-if.end14:                                         ; preds = %if.then11, %if.then13
+if.end16:                                         ; preds = %if.then11, %if.then13
   %idx.ext.pre-phi = phi i64 [ %conv, %if.then13 ], [ 0, %if.then11 ]
   %add.ptr = getelementptr inbounds i8, ptr %reg, i64 %idx.ext.pre-phi
   %sub = sub i32 %ivSz, %ivFixedSz
   %call15 = tail call i32 @wc_RNG_GenerateBlock(ptr noundef nonnull %rng, ptr noundef nonnull %add.ptr, i32 noundef %sub) #12
-  br label %if.end16
-
-if.end16:                                         ; preds = %if.end14, %if.end
-  %ret.1 = phi i32 [ %call15, %if.end14 ], [ -173, %if.end ]
-  %cmp17 = icmp eq i32 %ret.1, 0
+  %cmp17 = icmp eq i32 %call15, 0
   br i1 %cmp17, label %if.then19, label %if.end24
 
 if.then19:                                        ; preds = %if.end16
@@ -5525,9 +5519,9 @@ if.then19:                                        ; preds = %if.end16
   store i32 %ivSz, ptr %nonceSz, align 8
   br label %if.end24
 
-if.end24:                                         ; preds = %lor.lhs.false2, %lor.lhs.false3, %entry, %if.then19, %if.end16
-  %ret.126 = phi i32 [ 0, %if.then19 ], [ %ret.1, %if.end16 ], [ -173, %entry ], [ -173, %lor.lhs.false2 ], [ -173, %lor.lhs.false3 ]
-  ret i32 %ret.126
+if.end24:                                         ; preds = %lor.lhs.false2, %lor.lhs.false6, %lor.lhs.false3, %entry, %if.then19, %if.end16
+  %ret.125 = phi i32 [ 0, %if.then19 ], [ %call15, %if.end16 ], [ -173, %entry ], [ -173, %lor.lhs.false2 ], [ -173, %lor.lhs.false3 ], [ -173, %lor.lhs.false6 ]
+  ret i32 %ret.125
 }
 
 declare i32 @wc_RNG_GenerateBlock(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
@@ -5558,15 +5552,15 @@ lor.lhs.false7:                                   ; preds = %land.lhs.true, %lor
   %nonceSz = getelementptr inbounds i8, ptr %aes, i64 296
   %0 = load i32, ptr %nonceSz, align 8
   %cmp8.not = icmp eq i32 %0, %ivOutSz
-  br i1 %cmp8.not, label %if.end, label %if.end39
+  br i1 %cmp8.not, label %lor.lhs.false9, label %if.end39
 
-if.end:                                           ; preds = %lor.lhs.false7
-  %cmp10 = icmp ne ptr %authIn, null
-  %cmp12 = icmp eq i32 %authInSz, 0
-  %or.cond3.not = or i1 %cmp10, %cmp12
-  br i1 %or.cond3.not, label %if.then14, label %if.end39
+lor.lhs.false9:                                   ; preds = %lor.lhs.false7
+  %cmp10 = icmp eq ptr %authIn, null
+  %cmp12 = icmp ne i32 %authInSz, 0
+  %or.cond3 = and i1 %cmp10, %cmp12
+  br i1 %or.cond3, label %if.end39, label %if.then14
 
-if.then14:                                        ; preds = %if.end
+if.then14:                                        ; preds = %lor.lhs.false9
   %invokeCtr = getelementptr inbounds i8, ptr %aes, i64 288
   %1 = load i32, ptr %invokeCtr, align 16
   %inc = add i32 %1, 1
@@ -5582,7 +5576,7 @@ if.then18:                                        ; preds = %if.then14
   %cmp24 = icmp eq i32 %inc21, 0
   br i1 %cmp24, label %if.end39, label %if.then30
 
-if.then30:                                        ; preds = %if.then18, %if.then14
+if.then30:                                        ; preds = %if.then14, %if.then18
   %reg = getelementptr inbounds i8, ptr %aes, i64 256
   %conv = zext i32 %ivOutSz to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %ivOut, ptr nonnull align 16 %reg, i64 %conv, i1 false)
@@ -5605,8 +5599,8 @@ for.body.i:                                       ; preds = %for.cond.i
   %tobool.not.i = icmp eq i8 %inc.i, 0
   br i1 %tobool.not.i, label %for.cond.i, label %if.end39, !llvm.loop !30
 
-if.end39:                                         ; preds = %for.body.i, %for.cond.i, %if.end, %if.then18, %entry, %land.lhs.true, %lor.lhs.false5, %lor.lhs.false7, %if.then30
-  %ret.2 = phi i32 [ %call, %if.then30 ], [ -173, %lor.lhs.false7 ], [ -173, %lor.lhs.false5 ], [ -173, %land.lhs.true ], [ -173, %entry ], [ -260, %if.then18 ], [ -173, %if.end ], [ 0, %for.cond.i ], [ 0, %for.body.i ]
+if.end39:                                         ; preds = %for.body.i, %for.cond.i, %if.then18, %lor.lhs.false9, %lor.lhs.false7, %lor.lhs.false5, %land.lhs.true, %entry, %if.then30
+  %ret.2 = phi i32 [ %call, %if.then30 ], [ -173, %lor.lhs.false9 ], [ -173, %lor.lhs.false7 ], [ -173, %lor.lhs.false5 ], [ -173, %land.lhs.true ], [ -173, %entry ], [ -260, %if.then18 ], [ 0, %for.cond.i ], [ 0, %for.body.i ]
   ret i32 %ret.2
 }
 
@@ -5674,27 +5668,21 @@ lor.lhs.false3.i:                                 ; preds = %lor.lhs.false2.i, %
   %reg.i = getelementptr inbounds i8, ptr %aes, i64 256
   %call15.i = call i32 @wc_RNG_GenerateBlock(ptr noundef nonnull %rng, ptr noundef nonnull %reg.i, i32 noundef %ivSz) #12
   %cmp17.i = icmp eq i32 %call15.i, 0
-  br i1 %cmp17.i, label %lor.lhs.false7.i, label %for.cond.preheader.i
+  br i1 %cmp17.i, label %if.then30.i, label %for.cond.preheader.i
 
-lor.lhs.false7.i:                                 ; preds = %lor.lhs.false3.i
+if.then30.i:                                      ; preds = %lor.lhs.false3.i
+  %invokeCtr.i = getelementptr inbounds i8, ptr %aes, i64 288
   %cmp20.i = icmp ne i32 %ivSz, 12
   %cond.i = sext i1 %cmp20.i to i32
   %arrayidx23.i = getelementptr inbounds i8, ptr %aes, i64 292
   store i32 %cond.i, ptr %arrayidx23.i, align 4
   %nonceSz.i = getelementptr inbounds i8, ptr %aes, i64 296
   store i32 %ivSz, ptr %nonceSz.i, align 8
-  %cmp10.i = icmp ne ptr %authIn, null
-  %cmp12.i = icmp eq i32 %authInSz, 0
-  %or.cond3.not.i = or i1 %cmp10.i, %cmp12.i
-  br i1 %or.cond3.not.i, label %if.then30.i, label %for.cond.preheader.i
-
-if.then30.i:                                      ; preds = %lor.lhs.false7.i
-  %invokeCtr.i = getelementptr inbounds i8, ptr %aes, i64 288
   store i32 1, ptr %invokeCtr.i, align 16
   %conv.i = zext nneg i32 %ivSz to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %iv, ptr nonnull align 16 %reg.i, i64 %conv.i, i1 false)
-  %call.i22 = call i32 @wc_AesGcmEncrypt(ptr noundef nonnull %aes, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef nonnull %reg.i, i32 noundef %ivSz, ptr noundef nonnull %authTag, i32 noundef %authTagSz, ptr noundef %authIn, i32 noundef %authInSz)
-  %cmp33.i = icmp eq i32 %call.i22, 0
+  %call.i20 = call i32 @wc_AesGcmEncrypt(ptr noundef nonnull %aes, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef nonnull %reg.i, i32 noundef %ivSz, ptr noundef nonnull %authTag, i32 noundef %authTagSz, ptr noundef %authIn, i32 noundef %authInSz)
+  %cmp33.i = icmp eq i32 %call.i20, 0
   br i1 %cmp33.i, label %for.cond.i.i, label %for.cond.preheader.i
 
 for.cond.i.i:                                     ; preds = %if.then30.i, %for.body.i.i
@@ -5712,8 +5700,8 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
   %tobool.not.i.i = icmp eq i8 %inc.i.i, 0
   br i1 %tobool.not.i.i, label %for.cond.i.i, label %for.cond.preheader.i, !llvm.loop !30
 
-for.cond.preheader.i:                             ; preds = %for.body.i.i, %for.cond.i.i, %if.then30.i, %lor.lhs.false7.i, %wc_AesGcmSetKey.exit.thread, %lor.lhs.false3.i, %lor.lhs.false2.i
-  %ret.1 = phi i32 [ %call.i22, %if.then30.i ], [ -173, %lor.lhs.false7.i ], [ -173, %lor.lhs.false2.i ], [ %call15.i, %lor.lhs.false3.i ], [ %retval.0.i.ph, %wc_AesGcmSetKey.exit.thread ], [ 0, %for.cond.i.i ], [ 0, %for.body.i.i ]
+for.cond.preheader.i:                             ; preds = %for.body.i.i, %for.cond.i.i, %if.then30.i, %wc_AesGcmSetKey.exit.thread, %lor.lhs.false3.i, %lor.lhs.false2.i
+  %ret.1 = phi i32 [ %call.i20, %if.then30.i ], [ -173, %lor.lhs.false2.i ], [ %call15.i, %lor.lhs.false3.i ], [ %retval.0.i.ph, %wc_AesGcmSetKey.exit.thread ], [ 0, %for.cond.i.i ], [ 0, %for.body.i.i ]
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.body.i
@@ -5755,7 +5743,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define i32 @wc_GmacVerify(ptr noundef readonly %key, i32 noundef %keySz, ptr noundef %iv, i32 noundef %ivSz, ptr noundef %authIn, i32 noundef %authInSz, ptr noundef %authTag, i32 noundef %authTagSz) local_unnamed_addr #0 {
+define noundef i32 @wc_GmacVerify(ptr noundef readonly %key, i32 noundef %keySz, ptr noundef %iv, i32 noundef %ivSz, ptr noundef %authIn, i32 noundef %authInSz, ptr noundef %authTag, i32 noundef %authTagSz) local_unnamed_addr #0 {
 entry:
   %iv.i = alloca [16 x i8], align 16
   %aes = alloca [1 x %struct.Aes], align 16

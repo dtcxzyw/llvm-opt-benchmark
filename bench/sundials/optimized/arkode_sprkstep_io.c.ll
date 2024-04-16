@@ -307,7 +307,7 @@ define i32 @SPRKStepSetUseCompensatedSums(ptr noundef %0, i32 noundef %1) local_
   store ptr null, ptr %4, align 8
   %5 = call i32 @sprkStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.SPRKStepSetUseCompensatedSums, ptr noundef nonnull %3, ptr noundef nonnull %4) #5
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %6, label %22
+  br i1 %.not, label %6, label %23
 
 6:                                                ; preds = %2
   %.not7 = icmp eq i32 %1, 0
@@ -329,8 +329,7 @@ define i32 @SPRKStepSetUseCompensatedSums(ptr noundef %0, i32 noundef %1) local_
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @arkAllocVec(ptr noundef nonnull %9, ptr noundef %16, ptr noundef nonnull %12) #5
   %.not9 = icmp eq i32 %17, 0
-  %spec.select = select i1 %.not9, i32 -20, i32 0
-  br label %22
+  br i1 %.not9, label %23, label %22
 
 18:                                               ; preds = %6
   %19 = call i32 @arkSetUseCompensatedSums(ptr noundef %0, i32 noundef 0) #5
@@ -339,8 +338,11 @@ define i32 @SPRKStepSetUseCompensatedSums(ptr noundef %0, i32 noundef %1) local_
   store ptr @sprkStep_TakeStep, ptr %21, align 8
   br label %22
 
-22:                                               ; preds = %14, %18, %7, %2
-  %.0 = phi i32 [ %5, %2 ], [ 0, %7 ], [ 0, %18 ], [ %spec.select, %14 ]
+22:                                               ; preds = %7, %14, %18
+  br label %23
+
+23:                                               ; preds = %14, %2, %22
+  %.0 = phi i32 [ 0, %22 ], [ %5, %2 ], [ -20, %14 ]
   ret i32 %.0
 }
 

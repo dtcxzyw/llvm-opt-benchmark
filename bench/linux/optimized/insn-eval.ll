@@ -605,8 +605,8 @@ define dso_local ptr @insn_get_modrm_reg_ptr(ptr nocapture noundef readonly %0, 
   %25 = getelementptr i8, ptr %1, i64 %24
   br label %.thread2
 
-.thread2:                                         ; preds = %20, %17, %19
-  %26 = phi ptr [ null, %19 ], [ null, %17 ], [ %25, %20 ]
+.thread2:                                         ; preds = %19, %17, %20
+  %26 = phi ptr [ %25, %20 ], [ null, %17 ], [ null, %19 ]
   ret ptr %26
 }
 
@@ -1391,9 +1391,9 @@ define internal fastcc i32 @get_seg_base_limit(ptr noundef %0, ptr nocapture nou
   %76 = getelementptr inbounds i8, ptr %0, i64 81
   %77 = load i8, ptr %76, align 1
   %78 = icmp eq i8 %77, 2
-  br i1 %78, label %resolve_default_seg.exit, label %93
+  br i1 %78, label %resolve_default_seg.exit, label %79
 
-79:                                               ; preds = %74, %74, %74
+79:                                               ; preds = %75, %74, %74, %74
   br label %93
 
 80:                                               ; preds = %74
@@ -1434,8 +1434,8 @@ define internal fastcc i32 @get_seg_base_limit(ptr noundef %0, ptr nocapture nou
   %92 = select i1 %91, i32 0, i32 %64
   br label %93
 
-93:                                               ; preds = %75, %89, %9, %24, %31, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %88, %79, %73, %74, %74, %87, %80, %84, %84, %84, %84, %84, %84, %84, %84, %84, %84, %84, %84, %84, %84
-  %.ph = phi i32 [ 5, %84 ], [ 5, %84 ], [ 5, %84 ], [ 5, %84 ], [ 5, %84 ], [ 5, %84 ], [ 5, %84 ], [ 5, %84 ], [ 5, %84 ], [ 5, %84 ], [ 5, %84 ], [ 5, %84 ], [ 5, %84 ], [ 5, %84 ], [ 4, %80 ], [ 4, %87 ], [ 3, %74 ], [ 3, %74 ], [ 0, %73 ], [ 2, %88 ], [ 5, %30 ], [ 5, %30 ], [ 5, %30 ], [ 5, %30 ], [ 5, %30 ], [ 5, %30 ], [ 5, %30 ], [ 5, %30 ], [ 5, %30 ], [ 5, %30 ], [ 5, %30 ], [ 5, %30 ], [ 5, %30 ], [ 5, %30 ], [ 4, %31 ], [ 0, %24 ], [ %16, %9 ], [ %92, %89 ], [ 4, %75 ], [ 4, %79 ]
+93:                                               ; preds = %89, %9, %24, %31, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %88, %79, %73, %74, %74, %87, %80, %84, %84, %84, %84, %84, %84, %84, %84, %84, %84, %84, %84, %84, %84
+  %.ph = phi i32 [ 5, %84 ], [ 5, %84 ], [ 5, %84 ], [ 5, %84 ], [ 5, %84 ], [ 5, %84 ], [ 5, %84 ], [ 5, %84 ], [ 5, %84 ], [ 5, %84 ], [ 5, %84 ], [ 5, %84 ], [ 5, %84 ], [ 5, %84 ], [ 4, %80 ], [ 4, %87 ], [ 3, %74 ], [ 3, %74 ], [ 0, %73 ], [ 4, %79 ], [ 2, %88 ], [ 5, %30 ], [ 5, %30 ], [ 5, %30 ], [ 5, %30 ], [ 5, %30 ], [ 5, %30 ], [ 5, %30 ], [ 5, %30 ], [ 5, %30 ], [ 5, %30 ], [ 5, %30 ], [ 5, %30 ], [ 5, %30 ], [ 5, %30 ], [ 4, %31 ], [ 0, %24 ], [ %16, %9 ], [ %92, %89 ]
   %94 = tail call i64 @insn_get_seg_base(ptr noundef %1, i32 noundef %.ph)
   store i64 %94, ptr %3, align 8
   %95 = icmp eq i64 %94, -1
@@ -1593,7 +1593,7 @@ define internal fastcc i32 @get_seg_base_limit(ptr noundef %0, ptr nocapture nou
 
 .thread20:                                        ; preds = %115, %131, %.thread17, %.thread18, %98, %.thread14
   store i64 0, ptr %4, align 8
-  br label %resolve_default_seg.exit
+  br label %181
 
 .thread24:                                        ; preds = %171, %118, %.thread14
   %.ph23 = phi i64 [ -1, %.thread14 ], [ -1, %118 ], [ %178, %171 ]
@@ -1603,12 +1603,14 @@ define internal fastcc i32 @get_seg_base_limit(ptr noundef %0, ptr nocapture nou
 179:                                              ; preds = %171
   store i64 %.fr, ptr %4, align 8
   %180 = icmp eq i64 %.fr, 0
-  %spec.select = select i1 %180, i32 -22, i32 0
+  br i1 %180, label %181, label %resolve_default_seg.exit
+
+181:                                              ; preds = %.thread20, %179
   br label %resolve_default_seg.exit
 
-resolve_default_seg.exit:                         ; preds = %179, %74, %.thread24, %.thread20, %60, %75, %96, %93, %5
-  %181 = phi i32 [ -22, %5 ], [ -22, %93 ], [ 0, %96 ], [ %64, %60 ], [ -22, %75 ], [ 0, %.thread24 ], [ -22, %.thread20 ], [ -22, %74 ], [ %spec.select, %179 ]
-  ret i32 %181
+resolve_default_seg.exit:                         ; preds = %74, %181, %179, %.thread24, %60, %75, %96, %93, %5
+  %182 = phi i32 [ -22, %5 ], [ -22, %93 ], [ 0, %96 ], [ %64, %60 ], [ -22, %75 ], [ -22, %181 ], [ 0, %179 ], [ 0, %.thread24 ], [ -22, %74 ]
+  ret i32 %182
 }
 
 ; Function Attrs: null_pointer_is_valid

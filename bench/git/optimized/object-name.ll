@@ -149,7 +149,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @disambiguate_committish_only(ptr noundef %r, ptr noundef %oid, ptr nocapture readnone %cb_data) #0 {
+define internal noundef i32 @disambiguate_committish_only(ptr noundef %r, ptr noundef %oid, ptr nocapture readnone %cb_data) #0 {
 entry:
   %call = tail call i32 @oid_object_info(ptr noundef %r, ptr noundef %oid, ptr noundef null) #20
   switch i32 %call, label %if.then2 [
@@ -164,17 +164,19 @@ if.end3:                                          ; preds = %entry
   %call4 = tail call ptr @parse_object(ptr noundef %r, ptr noundef %oid) #20
   %call5 = tail call ptr @deref_tag(ptr noundef %r, ptr noundef %call4, ptr noundef null, i32 noundef 0) #20
   %tobool.not = icmp eq ptr %call5, null
-  br i1 %tobool.not, label %return, label %land.lhs.true
+  br i1 %tobool.not, label %if.end8, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end3
   %bf.load = load i32, ptr %call5, align 4
   %0 = and i32 %bf.load, 14
   %cmp6 = icmp eq i32 %0, 2
-  %spec.select = zext i1 %cmp6 to i32
+  br i1 %cmp6, label %return, label %if.end8
+
+if.end8:                                          ; preds = %land.lhs.true, %if.end3
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %if.end3, %entry, %if.then2
-  %retval.0 = phi i32 [ 0, %if.then2 ], [ %call, %entry ], [ 0, %if.end3 ], [ %spec.select, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %entry, %if.end8, %if.then2
+  %retval.0 = phi i32 [ 0, %if.then2 ], [ 0, %if.end8 ], [ %call, %entry ], [ 1, %land.lhs.true ]
   ret i32 %retval.0
 }
 
@@ -188,7 +190,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @disambiguate_treeish_only(ptr noundef %r, ptr noundef %oid, ptr nocapture readnone %cb_data) #0 {
+define internal noundef i32 @disambiguate_treeish_only(ptr noundef %r, ptr noundef %oid, ptr nocapture readnone %cb_data) #0 {
 entry:
   %call = tail call i32 @oid_object_info(ptr noundef %r, ptr noundef %oid, ptr noundef null) #20
   %0 = add i32 %call, -1
@@ -203,7 +205,7 @@ if.end4:                                          ; preds = %if.end
   %call5 = tail call ptr @parse_object(ptr noundef %r, ptr noundef %oid) #20
   %call6 = tail call ptr @deref_tag(ptr noundef %r, ptr noundef %call5, ptr noundef null, i32 noundef 0) #20
   %tobool.not = icmp eq ptr %call6, null
-  br i1 %tobool.not, label %return, label %land.lhs.true
+  br i1 %tobool.not, label %if.end14, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end4
   %bf.load = load i32, ptr %call6, align 4
@@ -211,11 +213,13 @@ land.lhs.true:                                    ; preds = %if.end4
   %bf.clear = and i32 %bf.lshr, 7
   %bf.clear.off = add nsw i32 %bf.clear, -1
   %switch = icmp ult i32 %bf.clear.off, 2
-  %spec.select = zext i1 %switch to i32
+  br i1 %switch, label %return, label %if.end14
+
+if.end14:                                         ; preds = %land.lhs.true, %if.end4
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %if.end4, %if.end, %entry
-  %retval.0 = phi i32 [ 1, %entry ], [ 0, %if.end ], [ 0, %if.end4 ], [ %spec.select, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %if.end, %entry, %if.end14
+  %retval.0 = phi i32 [ 0, %if.end14 ], [ 1, %entry ], [ 0, %if.end ], [ 1, %land.lhs.true ]
   ret i32 %retval.0
 }
 
@@ -418,18 +422,18 @@ for.body:                                         ; preds = %land.rhs
 if.end.i:                                         ; preds = %for.body
   %call.i = call i32 @bsearch_midx(ptr noundef nonnull %bin_pfx.i, ptr noundef nonnull %m.043, ptr noundef nonnull %first.i) #20
   %3 = load i32, ptr %first.i, align 4
-  %cmp17.i = icmp ult i32 %3, %2
-  br i1 %cmp17.i, label %land.rhs.i, label %unique_in_midx.exit
+  %cmp14.i = icmp ult i32 %3, %2
+  br i1 %cmp14.i, label %land.rhs.i, label %unique_in_midx.exit
 
 land.rhs.i:                                       ; preds = %if.end.i, %if.end9.i
-  %i.018.i = phi i32 [ %inc.i, %if.end9.i ], [ %3, %if.end.i ]
+  %i.015.i = phi i32 [ %inc.i, %if.end9.i ], [ %3, %if.end.i ]
   %bf.load.i = load i8, ptr %ambiguous, align 4
   %4 = and i8 %bf.load.i, 16
   %tobool1.not.i = icmp eq i8 %4, 0
   br i1 %tobool1.not.i, label %for.body.i, label %unique_in_midx.exit
 
 for.body.i:                                       ; preds = %land.rhs.i
-  %call2.i = call ptr @nth_midxed_object_oid(ptr noundef nonnull %oid.i, ptr noundef nonnull %m.043, i32 noundef %i.018.i) #20
+  %call2.i = call ptr @nth_midxed_object_oid(ptr noundef nonnull %oid.i, ptr noundef nonnull %m.043, i32 noundef %i.015.i) #20
   %5 = load i32, ptr %ds, align 8
   br label %do.body.i.i
 
@@ -451,22 +455,22 @@ if.end.i.i:                                       ; preds = %do.body.i.i
 
 do.end.i.i:                                       ; preds = %if.end.i.i
   %tobool.not.i.i = icmp eq i32 %sub.i.i, 0
-  br i1 %tobool.not.i.i, label %if.end9.i, label %match_hash.exit.i
+  br i1 %tobool.not.i.i, label %if.end9.i, label %if.then6.i.i
 
-match_hash.exit.i:                                ; preds = %do.end.i.i
+if.then6.i.i:                                     ; preds = %do.end.i.i
   %8 = load i8, ptr %incdec.ptr.i.i, align 1
   %9 = load i8, ptr %incdec.ptr3.i.i, align 1
   %xor7.i.i = xor i8 %9, %8
-  %tobool9.not.i.i = icmp ugt i8 %xor7.i.i, 15
-  br i1 %tobool9.not.i.i, label %unique_in_midx.exit, label %if.end9.i
+  %tobool9.not.i.i = icmp ult i8 %xor7.i.i, 16
+  br i1 %tobool9.not.i.i, label %if.end9.i, label %unique_in_midx.exit
 
-if.end9.i:                                        ; preds = %match_hash.exit.i, %do.end.i.i
+if.end9.i:                                        ; preds = %if.then6.i.i, %do.end.i.i
   call fastcc void @update_candidates(ptr noundef nonnull %ds, ptr noundef %call2.i)
-  %inc.i = add i32 %i.018.i, 1
+  %inc.i = add i32 %i.015.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %2
   br i1 %exitcond.not.i, label %unique_in_midx.exit, label %land.rhs.i, !llvm.loop !10
 
-unique_in_midx.exit:                              ; preds = %land.rhs.i, %match_hash.exit.i, %if.end9.i, %do.body.i.i, %for.body, %if.end.i
+unique_in_midx.exit:                              ; preds = %land.rhs.i, %if.then6.i.i, %if.end9.i, %do.body.i.i, %for.body, %if.end.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %first.i)
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %oid.i)
   %10 = load ptr, ptr %m.043, align 8
@@ -514,18 +518,18 @@ lor.lhs.false.i:                                  ; preds = %if.end.i14
 if.end4.i:                                        ; preds = %lor.lhs.false.i
   %call6.i = call i32 @bsearch_pack(ptr noundef nonnull %bin_pfx.i18, ptr noundef nonnull %p.046, ptr noundef nonnull %first.i10) #20
   %15 = load i32, ptr %first.i10, align 4
-  %cmp18.i = icmp ult i32 %15, %14
-  br i1 %cmp18.i, label %land.rhs.i21, label %unique_in_pack.exit
+  %cmp15.i = icmp ult i32 %15, %14
+  br i1 %cmp15.i, label %land.rhs.i21, label %unique_in_pack.exit
 
 land.rhs.i21:                                     ; preds = %if.end4.i, %if.end19.i
-  %i.019.i = phi i32 [ %inc.i38, %if.end19.i ], [ %15, %if.end4.i ]
+  %i.016.i = phi i32 [ %inc.i38, %if.end19.i ], [ %15, %if.end4.i ]
   %bf.load7.i = load i8, ptr %ambiguous, align 4
   %16 = and i8 %bf.load7.i, 16
   %tobool11.not.i = icmp eq i8 %16, 0
   br i1 %tobool11.not.i, label %for.body.i22, label %unique_in_pack.exit
 
 for.body.i22:                                     ; preds = %land.rhs.i21
-  %call12.i = call i32 @nth_packed_object_id(ptr noundef nonnull %oid.i11, ptr noundef nonnull %p.046, i32 noundef %i.019.i) #20
+  %call12.i = call i32 @nth_packed_object_id(ptr noundef nonnull %oid.i11, ptr noundef nonnull %p.046, i32 noundef %i.016.i) #20
   %17 = load i32, ptr %ds, align 8
   br label %do.body.i.i23
 
@@ -547,22 +551,22 @@ if.end.i.i28:                                     ; preds = %do.body.i.i23
 
 do.end.i.i33:                                     ; preds = %if.end.i.i28
   %tobool.not.i.i34 = icmp eq i32 %sub.i.i31, 0
-  br i1 %tobool.not.i.i34, label %if.end19.i, label %match_hash.exit.i35
+  br i1 %tobool.not.i.i34, label %if.end19.i, label %if.then6.i.i35
 
-match_hash.exit.i35:                              ; preds = %do.end.i.i33
+if.then6.i.i35:                                   ; preds = %do.end.i.i33
   %20 = load i8, ptr %incdec.ptr.i.i29, align 1
   %21 = load i8, ptr %incdec.ptr3.i.i30, align 1
   %xor7.i.i36 = xor i8 %21, %20
-  %tobool9.not.i.i37 = icmp ugt i8 %xor7.i.i36, 15
-  br i1 %tobool9.not.i.i37, label %unique_in_pack.exit, label %if.end19.i
+  %tobool9.not.i.i37 = icmp ult i8 %xor7.i.i36, 16
+  br i1 %tobool9.not.i.i37, label %if.end19.i, label %unique_in_pack.exit
 
-if.end19.i:                                       ; preds = %match_hash.exit.i35, %do.end.i.i33
+if.end19.i:                                       ; preds = %if.then6.i.i35, %do.end.i.i33
   call fastcc void @update_candidates(ptr noundef nonnull %ds, ptr noundef nonnull %oid.i11)
-  %inc.i38 = add i32 %i.019.i, 1
+  %inc.i38 = add i32 %i.016.i, 1
   %exitcond.not.i39 = icmp eq i32 %inc.i38, %14
   br i1 %exitcond.not.i39, label %unique_in_pack.exit, label %land.rhs.i21, !llvm.loop !12
 
-unique_in_pack.exit:                              ; preds = %land.rhs.i21, %match_hash.exit.i35, %if.end19.i, %do.body.i.i23, %for.body15, %if.end.i14, %lor.lhs.false.i, %if.end4.i
+unique_in_pack.exit:                              ; preds = %land.rhs.i21, %if.then6.i.i35, %if.end19.i, %do.body.i.i23, %for.body15, %if.end.i14, %lor.lhs.false.i, %if.end4.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %first.i10)
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %oid.i11)
   %next17 = getelementptr inbounds i8, ptr %p.046, i64 16
@@ -1870,14 +1874,14 @@ land.lhs.true.i:                                  ; preds = %if.end.i
 if.end4.i:                                        ; preds = %land.lhs.true.i, %if.end.i
   %and5.i = and i32 %1, 2
   %tobool6.not.i = icmp eq i32 %and5.i, 0
-  br i1 %tobool6.not.i, label %return, label %branch_interpret_allowed.exit
+  br i1 %tobool6.not.i, label %return, label %land.lhs.true7.i
 
-branch_interpret_allowed.exit:                    ; preds = %if.end4.i
+land.lhs.true7.i:                                 ; preds = %if.end4.i
   %call8.i = call i32 @starts_with(ptr noundef nonnull %call12, ptr noundef nonnull @.str.19) #20
-  %tobool9.not.i.not = icmp eq i32 %call8.i, 0
-  br i1 %tobool9.not.i.not, label %return, label %if.end23
+  %tobool9.not.i = icmp eq i32 %call8.i, 0
+  br i1 %tobool9.not.i, label %return, label %if.end23
 
-if.end23:                                         ; preds = %land.lhs.true.i, %if.end19, %branch_interpret_allowed.exit
+if.end23:                                         ; preds = %if.end19, %land.lhs.true.i, %land.lhs.true7.i
   %call.i13 = call ptr @get_main_ref_store(ptr noundef %r) #20
   %call1.i = call ptr @refs_shorten_unambiguous_ref(ptr noundef %call.i13, ptr noundef nonnull %call12, i32 noundef 0) #20
   %len2.i.i = getelementptr inbounds i8, ptr %buf, i64 8
@@ -1898,8 +1902,8 @@ set_shortened_ref.exit:                           ; preds = %if.end23, %if.then4
   %add = add nsw i32 %call, %at
   br label %return
 
-return:                                           ; preds = %if.end4.i, %branch_interpret_allowed.exit, %if.end, %entry, %set_shortened_ref.exit, %if.then16
-  %retval.0 = phi i32 [ %add, %set_shortened_ref.exit ], [ -1, %if.then16 ], [ -1, %entry ], [ -1, %if.end ], [ -1, %branch_interpret_allowed.exit ], [ -1, %if.end4.i ]
+return:                                           ; preds = %land.lhs.true7.i, %if.end4.i, %if.end, %entry, %set_shortened_ref.exit, %if.then16
+  %retval.0 = phi i32 [ %add, %set_shortened_ref.exit ], [ -1, %if.then16 ], [ -1, %entry ], [ -1, %if.end ], [ -1, %if.end4.i ], [ -1, %land.lhs.true7.i ]
   ret i32 %retval.0
 }
 

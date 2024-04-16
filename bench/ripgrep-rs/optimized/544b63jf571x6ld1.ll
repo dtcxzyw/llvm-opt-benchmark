@@ -1301,13 +1301,13 @@ define internal noundef i32 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u2
   %30 = tail call { ptr, i32 } @_ZN12aho_corasick3nfa13noncontiguous3NFA10iter_trans17h7c5b1c9aa0af2b98E(ptr noalias noundef nonnull readonly align 8 dereferenceable(440) %0, i32 noundef %2)
   %31 = extractvalue { ptr, i32 } %30, 1
   %32 = icmp eq i32 %31, 0
-  br i1 %32, label %.split56, label %.lr.ph.us
+  br i1 %32, label %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit.us.thread, label %.lr.ph.us
 
 33:                                               ; preds = %38
   %.sroa.2.0..sroa_idx.i.us = getelementptr inbounds i8, ptr %40, i64 5
   %.sroa.2.0.copyload.i.us = load i32, ptr %.sroa.2.0..sroa_idx.i.us, align 1, !noalias !34
   %34 = icmp eq i32 %.sroa.2.0.copyload.i.us, 0
-  br i1 %34, label %.split56, label %35
+  br i1 %34, label %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit.us.thread, label %35
 
 35:                                               ; preds = %.lr.ph.us, %33
   %.sroa.5.042.us = phi i32 [ %31, %.lr.ph.us ], [ %.sroa.2.0.copyload.i.us, %33 ]
@@ -1325,14 +1325,16 @@ define internal noundef i32 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u2
 41:                                               ; preds = %38
   %.sroa.814.1..sroa_idx.us.le = getelementptr inbounds i8, ptr %40, i64 1
   %42 = icmp eq i8 %.sroa.6.1.copyload.us, %3
-  br i1 %42, label %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit.us, label %.split56
+  br i1 %42, label %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit.us, label %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit.us.thread
 
 _ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit.us: ; preds = %41, %27
   %.0.i.us.in = phi ptr [ %28, %27 ], [ %.sroa.814.1..sroa_idx.us.le, %41 ]
   %.0.i.us = load i32, ptr %.0.i.us.in, align 1, !noalias !5
   %.0.i.us.fr = freeze i32 %.0.i.us
   %.not.us.not = icmp eq i32 %.0.i.us.fr, 1
-  %spec.select = select i1 %.not.us.not, i32 0, i32 %.0.i.us.fr
+  br i1 %.not.us.not, label %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit.us.thread, label %.split56
+
+_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit.us.thread: ; preds = %33, %29, %41, %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit.us
   br label %.split56
 
 .lr.ph.us:                                        ; preds = %29
@@ -1426,8 +1428,8 @@ _ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.
   %.not.not = icmp eq i32 %.0.i, 1
   br i1 %.not.not, label %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit.thread, label %.split56
 
-.split56:                                         ; preds = %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit, %33, %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit.us, %29, %41
-  %.us-phi58 = phi i32 [ 0, %41 ], [ 0, %29 ], [ %spec.select, %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit.us ], [ 0, %33 ], [ %.0.i, %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit ]
+.split56:                                         ; preds = %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit, %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit.us.thread, %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit.us
+  %.us-phi58 = phi i32 [ 0, %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit.us.thread ], [ %.0.i.us.fr, %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit.us ], [ %.0.i, %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit ]
   ret i32 %.us-phi58
 
 _ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit.thread: ; preds = %61, %52, %69, %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit

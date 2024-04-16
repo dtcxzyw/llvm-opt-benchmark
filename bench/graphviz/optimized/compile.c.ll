@@ -1124,7 +1124,7 @@ define internal i32 @convert(ptr nocapture noundef %0, i32 noundef %1, i32 nound
 5:                                                ; preds = %3
   %6 = load i32, ptr %0, align 8
   %7 = icmp sgt i32 %6, 258
-  br i1 %7, label %.thread75, label %21
+  br i1 %7, label %.thread69, label %21
 
 8:                                                ; preds = %3
   %9 = icmp eq i32 %1, 30
@@ -1133,19 +1133,19 @@ define internal i32 @convert(ptr nocapture noundef %0, i32 noundef %1, i32 nound
 10:                                               ; preds = %8
   %11 = load i32, ptr %0, align 8
   %12 = icmp slt i32 %11, 31
-  br i1 %12, label %72, label %.thread69
+  br i1 %12, label %72, label %.thread63
 
 13:                                               ; preds = %8
   %14 = icmp slt i32 %1, 31
-  %.pr72.pre = load i32, ptr %0, align 8
-  br i1 %14, label %.thread69, label %.thread71
+  %.pr66.pre = load i32, ptr %0, align 8
+  br i1 %14, label %.thread63, label %.thread65
 
-.thread69:                                        ; preds = %13, %10
-  %15 = phi i32 [ %11, %10 ], [ %.pr72.pre, %13 ]
+.thread63:                                        ; preds = %13, %10
+  %15 = phi i32 [ %11, %10 ], [ %.pr66.pre, %13 ]
   %16 = icmp eq i32 %15, 259
-  br i1 %16, label %17, label %.thread71
+  br i1 %16, label %17, label %.thread65
 
-17:                                               ; preds = %.thread69
+17:                                               ; preds = %.thread63
   %18 = getelementptr inbounds i8, ptr %0, i64 32
   %19 = load i64, ptr %18, align 8
   %20 = icmp eq i64 %19, 0
@@ -1155,23 +1155,23 @@ define internal i32 @convert(ptr nocapture noundef %0, i32 noundef %1, i32 nound
 
 21:                                               ; preds = %5
   %22 = icmp eq i32 %1, 259
-  br i1 %22, label %72, label %.thread71
+  br i1 %22, label %72, label %.thread65
 
-.thread71:                                        ; preds = %13, %.thread69, %21
-  %23 = phi i32 [ %6, %21 ], [ %.pr72.pre, %13 ], [ %15, %.thread69 ]
-  %not.78 = phi i32 [ -1, %21 ], [ -1, %13 ], [ 0, %.thread69 ]
+.thread65:                                        ; preds = %13, %.thread63, %21
+  %23 = phi i32 [ %6, %21 ], [ %.pr66.pre, %13 ], [ %15, %.thread63 ]
+  %not.72 = phi i32 [ -1, %21 ], [ -1, %13 ], [ 0, %.thread63 ]
   %24 = icmp eq i32 %23, 30
   br i1 %24, label %25, label %43
 
-25:                                               ; preds = %.thread71
+25:                                               ; preds = %.thread65
   %.not55 = icmp eq i32 %2, 0
-  br i1 %.not55, label %26, label %.thread75
+  br i1 %.not55, label %26, label %.thread69
 
 26:                                               ; preds = %25
   %27 = getelementptr inbounds i8, ptr %0, i64 32
   %28 = load i64, ptr %27, align 8
   %29 = inttoptr i64 %28 to ptr
-  switch i32 %1, label %.thread75 [
+  switch i32 %1, label %.thread69 [
     i32 29, label %30
     i32 27, label %35
     i32 28, label %40
@@ -1185,9 +1185,7 @@ define internal i32 @convert(ptr nocapture noundef %0, i32 noundef %1, i32 nound
   %32 = load i32, ptr %29, align 8
   %33 = and i32 %32, 3
   %34 = icmp eq i32 %33, 0
-  %not.80 = xor i1 %34, true
-  %spec.select64 = sext i1 %not.80 to i32
-  br label %72
+  br i1 %34, label %72, label %.thread69
 
 35:                                               ; preds = %26
   %.not58 = icmp eq i64 %28, 0
@@ -1197,9 +1195,7 @@ define internal i32 @convert(ptr nocapture noundef %0, i32 noundef %1, i32 nound
   %37 = load i32, ptr %29, align 8
   %38 = and i32 %37, 3
   %39 = icmp eq i32 %38, 1
-  %not.79 = xor i1 %39, true
-  %spec.select66 = sext i1 %not.79 to i32
-  br label %72
+  br i1 %39, label %72, label %.thread69
 
 40:                                               ; preds = %26
   %.not56 = icmp eq i64 %28, 0
@@ -1208,22 +1204,20 @@ define internal i32 @convert(ptr nocapture noundef %0, i32 noundef %1, i32 nound
 41:                                               ; preds = %40
   %.val = load i32, ptr %29, align 8
   %42 = and i32 %.val, 2
-  %.not57 = icmp ne i32 %42, 0
-  %not..not57 = xor i1 %.not57, true
-  %spec.select68 = sext i1 %not..not57 to i32
-  br label %72
+  %.not57 = icmp eq i32 %42, 0
+  br i1 %.not57, label %.thread69, label %72
 
-43:                                               ; preds = %.thread71
+43:                                               ; preds = %.thread65
   %44 = icmp eq i32 %1, 263
   br i1 %44, label %45, label %52
 
 45:                                               ; preds = %43
   %46 = icmp eq i32 %23, 31
-  br i1 %46, label %47, label %.thread75
+  br i1 %46, label %47, label %.thread69
 
 47:                                               ; preds = %45
   %.not54 = icmp eq i32 %2, 0
-  br i1 %.not54, label %48, label %.thread75
+  br i1 %.not54, label %48, label %.thread69
 
 48:                                               ; preds = %47
   %49 = getelementptr inbounds i8, ptr %0, i64 32
@@ -1240,7 +1234,7 @@ define internal i32 @convert(ptr nocapture noundef %0, i32 noundef %1, i32 nound
 
 55:                                               ; preds = %52
   %.not53 = icmp eq i32 %2, 0
-  br i1 %.not53, label %56, label %.thread75
+  br i1 %.not53, label %56, label %.thread69
 
 56:                                               ; preds = %55
   %57 = getelementptr inbounds i8, ptr %0, i64 32
@@ -1251,7 +1245,7 @@ define internal i32 @convert(ptr nocapture noundef %0, i32 noundef %1, i32 nound
 60:                                               ; preds = %56
   %61 = load i64, ptr %57, align 8
   tail call void (ptr, ...) @exerror(ptr noundef nonnull @.str.12, i64 noundef %61) #24
-  br label %.thread75
+  br label %.thread69
 
 62:                                               ; preds = %52
   %63 = icmp eq i32 %23, %1
@@ -1260,11 +1254,11 @@ define internal i32 @convert(ptr nocapture noundef %0, i32 noundef %1, i32 nound
 64:                                               ; preds = %62
   %65 = icmp eq i32 %23, 263
   %or.cond5 = and i1 %53, %65
-  br i1 %or.cond5, label %66, label %.thread75
+  br i1 %or.cond5, label %66, label %.thread69
 
 66:                                               ; preds = %64
   %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %67, label %.thread75
+  br i1 %.not, label %67, label %.thread69
 
 67:                                               ; preds = %66
   %68 = getelementptr inbounds i8, ptr %0, i64 32
@@ -1274,19 +1268,19 @@ define internal i32 @convert(ptr nocapture noundef %0, i32 noundef %1, i32 nound
   store i64 %71, ptr %68, align 8
   br label %72
 
-72:                                               ; preds = %41, %36, %31, %17, %62, %56, %40, %35, %30, %21, %10, %67, %48
-  %73 = phi i1 [ true, %48 ], [ true, %67 ], [ true, %10 ], [ %20, %17 ], [ true, %21 ], [ true, %30 ], [ true, %35 ], [ true, %40 ], [ true, %56 ], [ true, %62 ], [ %34, %31 ], [ %39, %36 ], [ %.not57, %41 ]
-  %.048 = phi i32 [ 0, %48 ], [ 0, %67 ], [ 0, %10 ], [ %spec.select60, %17 ], [ 0, %21 ], [ 0, %30 ], [ 0, %35 ], [ 0, %40 ], [ 0, %56 ], [ 0, %62 ], [ %spec.select64, %31 ], [ %spec.select66, %36 ], [ %spec.select68, %41 ]
+72:                                               ; preds = %40, %41, %35, %36, %30, %31, %17, %62, %56, %21, %10, %67, %48
+  %73 = phi i1 [ true, %48 ], [ true, %67 ], [ true, %10 ], [ %20, %17 ], [ true, %21 ], [ true, %56 ], [ true, %62 ], [ true, %31 ], [ true, %30 ], [ true, %36 ], [ true, %35 ], [ true, %41 ], [ true, %40 ]
+  %.048 = phi i32 [ 0, %48 ], [ 0, %67 ], [ 0, %10 ], [ %spec.select60, %17 ], [ 0, %21 ], [ 0, %56 ], [ 0, %62 ], [ 0, %31 ], [ 0, %30 ], [ 0, %36 ], [ 0, %35 ], [ 0, %41 ], [ 0, %40 ]
   %74 = icmp eq i32 %2, 0
   %or.cond3 = and i1 %74, %73
-  br i1 %or.cond3, label %75, label %.thread75
+  br i1 %or.cond3, label %75, label %.thread69
 
 75:                                               ; preds = %72
   store i32 %1, ptr %0, align 8
-  br label %.thread75
+  br label %.thread69
 
-.thread75:                                        ; preds = %25, %64, %60, %45, %26, %47, %55, %66, %72, %75, %5
-  %.0 = phi i32 [ -1, %5 ], [ %.048, %75 ], [ %.048, %72 ], [ 0, %66 ], [ 0, %55 ], [ -1, %64 ], [ -1, %60 ], [ -1, %45 ], [ 0, %47 ], [ -1, %26 ], [ %not.78, %25 ]
+.thread69:                                        ; preds = %25, %64, %60, %45, %31, %36, %41, %26, %47, %55, %66, %72, %75, %5
+  %.0 = phi i32 [ -1, %5 ], [ %.048, %75 ], [ %.048, %72 ], [ 0, %66 ], [ 0, %55 ], [ -1, %64 ], [ -1, %60 ], [ -1, %45 ], [ 0, %47 ], [ -1, %31 ], [ -1, %36 ], [ -1, %41 ], [ -1, %26 ], [ %not.72, %25 ]
   ret i32 %.0
 }
 

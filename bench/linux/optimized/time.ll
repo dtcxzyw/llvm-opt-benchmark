@@ -38,12 +38,12 @@ define dso_local i64 @profile_pc(ptr nocapture noundef readonly %0) #0 align 16 
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 3
   %7 = icmp eq i64 %6, 0
-  br i1 %7, label %8, label %22
+  br i1 %7, label %8, label %21
 
 8:                                                ; preds = %1
   %9 = tail call i32 @in_lock_functions(i64 noundef %3) #5
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %22, label %11
+  br i1 %10, label %21, label %11
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds i8, ptr %0, i64 152
@@ -51,18 +51,20 @@ define dso_local i64 @profile_pc(ptr nocapture noundef readonly %0) #0 align 16 
   %14 = inttoptr i64 %13 to ptr
   %15 = load i64, ptr %14, align 8
   %16 = icmp ult i64 %15, 4194304
-  br i1 %16, label %17, label %22
+  br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %11
   %18 = getelementptr i8, ptr %14, i64 8
   %19 = load i64, ptr %18, align 8
   %20 = icmp ult i64 %19, 4194304
-  %21 = select i1 %20, i64 %3, i64 %19
-  br label %22
+  br i1 %20, label %21, label %.thread
 
-22:                                               ; preds = %11, %17, %1, %8
-  %23 = phi i64 [ %3, %8 ], [ %3, %1 ], [ %15, %11 ], [ %21, %17 ]
-  ret i64 %23
+21:                                               ; preds = %17, %8, %1
+  br label %.thread
+
+.thread:                                          ; preds = %11, %21, %17
+  %22 = phi i64 [ %3, %21 ], [ %19, %17 ], [ %15, %11 ]
+  ret i64 %22
 }
 
 ; Function Attrs: null_pointer_is_valid

@@ -509,7 +509,7 @@ declare ptr @sk_value(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @sk_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @PEM_X509_INFO_write_bio(ptr noundef %bp, ptr noundef %xi, ptr noundef %enc, ptr noundef %kstr, i32 noundef %klen, ptr noundef %cb, ptr noundef %u) local_unnamed_addr #0 {
+define hidden noundef i32 @PEM_X509_INFO_write_bio(ptr noundef %bp, ptr noundef %xi, ptr noundef %enc, ptr noundef %kstr, i32 noundef %klen, ptr noundef %cb, ptr noundef %u) local_unnamed_addr #0 {
 entry:
   %ctx = alloca %struct.evp_cipher_ctx_st, align 8
   %buf = alloca [1024 x i8], align 16
@@ -587,16 +587,18 @@ if.else:                                          ; preds = %land.lhs.true, %if.
 if.end38:                                         ; preds = %if.end22, %if.else, %if.end5
   %6 = load ptr, ptr %xi, align 8
   %cmp39.not = icmp eq ptr %6, null
-  br i1 %cmp39.not, label %err, label %land.lhs.true41
+  br i1 %cmp39.not, label %if.end47, label %land.lhs.true41
 
 land.lhs.true41:                                  ; preds = %if.end38
   %call43 = call i32 @PEM_write_bio_X509(ptr noundef %bp, ptr noundef nonnull %6) #4
-  %cmp44 = icmp sgt i32 %call43, 0
-  %spec.select = zext i1 %cmp44 to i32
+  %cmp44 = icmp slt i32 %call43, 1
+  br i1 %cmp44, label %err, label %if.end47
+
+if.end47:                                         ; preds = %land.lhs.true41, %if.end38
   br label %err
 
-err:                                              ; preds = %land.lhs.true41, %if.end38, %if.else, %if.end22, %if.then21, %if.then12, %if.then4
-  %ret.0 = phi i32 [ 0, %if.then4 ], [ 0, %if.then12 ], [ 0, %if.then21 ], [ 0, %if.end22 ], [ 0, %if.else ], [ 1, %if.end38 ], [ %spec.select, %land.lhs.true41 ]
+err:                                              ; preds = %land.lhs.true41, %if.else, %if.end22, %if.end47, %if.then21, %if.then12, %if.then4
+  %ret.0 = phi i32 [ 0, %if.then4 ], [ 0, %if.then12 ], [ 0, %if.then21 ], [ 0, %if.end22 ], [ 0, %land.lhs.true41 ], [ 1, %if.end47 ], [ 0, %if.else ]
   call void @OPENSSL_cleanse(ptr noundef nonnull %ctx, i64 noundef 152) #4
   call void @OPENSSL_cleanse(ptr noundef nonnull %buf, i64 noundef 1024) #4
   ret i32 %ret.0

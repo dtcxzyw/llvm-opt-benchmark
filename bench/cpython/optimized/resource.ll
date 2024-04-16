@@ -133,16 +133,20 @@ entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %m) #6
   %0 = load ptr, ptr %call.i, align 8
   %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %return, label %if.then
+  br i1 %tobool.not, label %do.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %call.i3 = tail call ptr @PyModule_GetState(ptr noundef %m) #6
   %1 = load ptr, ptr %call.i3, align 8
   %call3 = tail call i32 %visit(ptr noundef %1, ptr noundef %arg) #6
+  %tobool4.not = icmp eq i32 %call3, 0
+  br i1 %tobool4.not, label %do.end, label %return
+
+do.end:                                           ; preds = %entry, %if.then
   br label %return
 
-return:                                           ; preds = %if.then, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ %call3, %if.then ]
+return:                                           ; preds = %if.then, %do.end
+  %retval.0 = phi i32 [ 0, %do.end ], [ %call3, %if.then ]
   ret i32 %retval.0
 }
 
@@ -606,7 +610,7 @@ declare i64 @PyLong_AsLong(ptr noundef) local_unnamed_addr #1
 declare i32 @PySys_Audit(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @py2rlimit(ptr noundef %limits, ptr nocapture noundef writeonly %rl_out) unnamed_addr #0 {
+define internal fastcc noundef i32 @py2rlimit(ptr noundef %limits, ptr nocapture noundef writeonly %rl_out) unnamed_addr #0 {
 entry:
   %call = tail call ptr @PySequence_Tuple(ptr noundef %limits) #6
   %tobool.not = icmp eq ptr %call, null
@@ -620,7 +624,7 @@ if.end:                                           ; preds = %entry
 if.then2:                                         ; preds = %if.end
   %0 = load ptr, ptr @PyExc_ValueError, align 8
   tail call void @PyErr_SetString(ptr noundef %0, ptr noundef nonnull @.str.14) #6
-  br label %return.sink.split
+  br label %error
 
 if.end3:                                          ; preds = %if.end
   %call4 = tail call ptr @PyTuple_GetItem(ptr noundef nonnull %call, i64 noundef 0) #6
@@ -633,7 +637,7 @@ if.end3:                                          ; preds = %if.end
 land.lhs.true:                                    ; preds = %if.end3
   %call9 = tail call ptr @PyErr_Occurred() #6
   %tobool10.not = icmp eq ptr %call9, null
-  br i1 %tobool10.not, label %if.end12, label %return.sink.split
+  br i1 %tobool10.not, label %if.end12, label %error
 
 if.end12:                                         ; preds = %land.lhs.true, %if.end3
   %call13 = tail call i64 @PyLong_AsLong(ptr noundef %call5) #6
@@ -644,12 +648,14 @@ if.end12:                                         ; preds = %land.lhs.true, %if.
 
 land.lhs.true16:                                  ; preds = %if.end12
   %call17 = tail call ptr @PyErr_Occurred() #6
-  %tobool18.not = icmp ne ptr %call17, null
-  %spec.select = sext i1 %tobool18.not to i32
+  %tobool18.not = icmp eq ptr %call17, null
+  br i1 %tobool18.not, label %return.sink.split, label %error
+
+error:                                            ; preds = %land.lhs.true16, %land.lhs.true, %if.then2
   br label %return.sink.split
 
-return.sink.split:                                ; preds = %land.lhs.true16, %if.then2, %land.lhs.true, %if.end12
-  %retval.0.ph = phi i32 [ 0, %if.end12 ], [ -1, %land.lhs.true ], [ -1, %if.then2 ], [ %spec.select, %land.lhs.true16 ]
+return.sink.split:                                ; preds = %if.end12, %land.lhs.true16, %error
+  %retval.0.ph = phi i32 [ -1, %error ], [ 0, %land.lhs.true16 ], [ 0, %if.end12 ]
   tail call void @_Py_DecRef(ptr noundef nonnull %call) #6
   br label %return
 

@@ -72,17 +72,19 @@ define noundef i32 @_ZN5folly10closeNoIntEi(i32 noundef %fd) local_unnamed_addr 
 entry:
   %call = tail call i32 @close(i32 noundef %fd)
   %cmp.i = icmp eq i32 %call, -1
-  br i1 %cmp.i, label %land.lhs.true.i, label %_ZN5follyL17filterCloseReturnEi.exit
+  br i1 %cmp.i, label %land.lhs.true.i, label %if.end.i
 
 land.lhs.true.i:                                  ; preds = %entry
   %call.i = tail call ptr @__errno_location() #20
   %0 = load i32, ptr %call.i, align 4, !tbaa !7
-  %cmp1.i = icmp ne i32 %0, 4
-  %spec.select = sext i1 %cmp1.i to i32
+  %cmp1.i = icmp eq i32 %0, 4
+  br i1 %cmp1.i, label %_ZN5follyL17filterCloseReturnEi.exit, label %if.end.i
+
+if.end.i:                                         ; preds = %land.lhs.true.i, %entry
   br label %_ZN5follyL17filterCloseReturnEi.exit
 
-_ZN5follyL17filterCloseReturnEi.exit:             ; preds = %land.lhs.true.i, %entry
-  %retval.0.i = phi i32 [ %call, %entry ], [ %spec.select, %land.lhs.true.i ]
+_ZN5follyL17filterCloseReturnEi.exit:             ; preds = %if.end.i, %land.lhs.true.i
+  %retval.0.i = phi i32 [ %call, %if.end.i ], [ 0, %land.lhs.true.i ]
   ret i32 %retval.0.i
 }
 
@@ -93,17 +95,19 @@ define noundef i32 @_ZN5folly10closeNoIntENS_13NetworkSocketE(i32 %fd.coerce) lo
 entry:
   %call = tail call noundef i32 @_ZN5folly6netops5closeENS_13NetworkSocketE(i32 %fd.coerce)
   %cmp.i = icmp eq i32 %call, -1
-  br i1 %cmp.i, label %land.lhs.true.i, label %_ZN5follyL17filterCloseReturnEi.exit
+  br i1 %cmp.i, label %land.lhs.true.i, label %if.end.i
 
 land.lhs.true.i:                                  ; preds = %entry
   %call.i = tail call ptr @__errno_location() #20
   %0 = load i32, ptr %call.i, align 4, !tbaa !7
-  %cmp1.i = icmp ne i32 %0, 4
-  %spec.select = sext i1 %cmp1.i to i32
+  %cmp1.i = icmp eq i32 %0, 4
+  br i1 %cmp1.i, label %_ZN5follyL17filterCloseReturnEi.exit, label %if.end.i
+
+if.end.i:                                         ; preds = %land.lhs.true.i, %entry
   br label %_ZN5follyL17filterCloseReturnEi.exit
 
-_ZN5follyL17filterCloseReturnEi.exit:             ; preds = %land.lhs.true.i, %entry
-  %retval.0.i = phi i32 [ %call, %entry ], [ %spec.select, %land.lhs.true.i ]
+_ZN5follyL17filterCloseReturnEi.exit:             ; preds = %if.end.i, %land.lhs.true.i
+  %retval.0.i = phi i32 [ %call, %if.end.i ], [ 0, %land.lhs.true.i ]
   ret i32 %retval.0.i
 }
 

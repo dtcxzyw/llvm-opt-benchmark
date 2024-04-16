@@ -1914,14 +1914,18 @@ do.body17:                                        ; preds = %if.then8, %do.body6
   %m_module = getelementptr inbounds i8, ptr %m, i64 32
   %4 = load ptr, ptr %m_module, align 8
   %tobool18.not = icmp eq ptr %4, null
-  br i1 %tobool18.not, label %return, label %if.then19
+  br i1 %tobool18.not, label %do.end27, label %if.then19
 
 if.then19:                                        ; preds = %do.body17
   %call22 = tail call i32 %visit(ptr noundef nonnull %4, ptr noundef %arg) #5
+  %tobool23.not = icmp eq i32 %call22, 0
+  br i1 %tobool23.not, label %do.end27, label %return
+
+do.end27:                                         ; preds = %do.body17, %if.then19
   br label %return
 
-return:                                           ; preds = %if.then19, %do.body17, %if.then8, %PyCFunction_GET_CLASS.exit21
-  %retval.0 = phi i32 [ %call2, %PyCFunction_GET_CLASS.exit21 ], [ %call11, %if.then8 ], [ 0, %do.body17 ], [ %call22, %if.then19 ]
+return:                                           ; preds = %if.then19, %if.then8, %PyCFunction_GET_CLASS.exit21, %do.end27
+  %retval.0 = phi i32 [ 0, %do.end27 ], [ %call2, %PyCFunction_GET_CLASS.exit21 ], [ %call11, %if.then8 ], [ %call22, %if.then19 ]
   ret i32 %retval.0
 }
 

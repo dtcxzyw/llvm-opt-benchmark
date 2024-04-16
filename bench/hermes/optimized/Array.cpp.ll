@@ -9686,7 +9686,7 @@ for.body136:                                      ; preds = %for.end121, %for.co
   %63 = load i32, ptr %endIndex_.i, align 4
   %cmp2.i = icmp ugt i32 %63, %i133.0263
   %or.cond.i = select i1 %cmp.not.i, i1 %cmp2.i, i1 false
-  br i1 %or.cond.i, label %cond.true.i, label %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit216
+  br i1 %or.cond.i, label %cond.true.i, label %sw.bb36.i182
 
 cond.true.i:                                      ; preds = %for.body136
   %indexedStorage_.i.i166 = getelementptr inbounds i8, ptr %61, i64 28
@@ -9800,14 +9800,14 @@ sw.bb29.i183:                                     ; preds = %_ZNK6hermes2vm9Arra
   %or.i.i14.i186 = or disjoint i64 %conv.i13.i185, -1407374883553280
   br label %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit216
 
-sw.bb36.i182:                                     ; preds = %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit
+sw.bb36.i182:                                     ; preds = %for.body136, %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit
   br label %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit216
 
 sw.bb39.i180:                                     ; preds = %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit
   br label %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit216
 
-_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit216: ; preds = %for.body136, %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit, %sw.bb.i210, %sw.bb4.i205, %sw.bb8.i200, %sw.bb12.i194, %sw.bb18.i191, %sw.bb22.i187, %sw.bb29.i183, %sw.bb36.i182, %sw.bb39.i180
-  %retval.sroa.0.0.i181 = phi i64 [ -1548112371908608, %sw.bb39.i180 ], [ %or.i.i14.i186, %sw.bb29.i183 ], [ %or.i.i.i190, %sw.bb22.i187 ], [ %73, %sw.bb18.i191 ], [ %retval.sroa.0.0.i.i199, %sw.bb12.i194 ], [ %or.i.i.i8.i204, %sw.bb8.i200 ], [ %or.i.i.i4.i209, %sw.bb4.i205 ], [ %or.i.i.i.i214, %sw.bb.i210 ], [ -1688849860263936, %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit ], [ -1970324836974592, %sw.bb36.i182 ], [ -1970324836974592, %for.body136 ]
+_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit216: ; preds = %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit, %sw.bb.i210, %sw.bb4.i205, %sw.bb8.i200, %sw.bb12.i194, %sw.bb18.i191, %sw.bb22.i187, %sw.bb29.i183, %sw.bb36.i182, %sw.bb39.i180
+  %retval.sroa.0.0.i181 = phi i64 [ -1548112371908608, %sw.bb39.i180 ], [ -1970324836974592, %sw.bb36.i182 ], [ %or.i.i14.i186, %sw.bb29.i183 ], [ %or.i.i.i190, %sw.bb22.i187 ], [ %73, %sw.bb18.i191 ], [ %retval.sroa.0.0.i.i199, %sw.bb12.i194 ], [ %or.i.i.i8.i204, %sw.bb8.i200 ], [ %or.i.i.i4.i209, %sw.bb4.i205 ], [ %or.i.i.i.i214, %sw.bb.i210 ], [ -1688849860263936, %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit ]
   store i64 %retval.sroa.0.0.i181, ptr %retval.0.i.i.i.i.i.i74, align 8
   %conv.i217 = uitofp i32 %i133.0263 to double
   store double %conv.i217, ptr %retval.0.i.i.i.i.i.i65, align 8

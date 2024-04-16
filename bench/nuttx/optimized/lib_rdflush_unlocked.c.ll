@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define i32 @lib_rdflush_unlocked(ptr noundef %0) local_unnamed_addr #0 {
+define noundef i32 @lib_rdflush_unlocked(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %6
@@ -12,19 +12,19 @@ define i32 @lib_rdflush_unlocked(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = tail call ptr @__errno() #2
   store i32 9, ptr %5, align 4
-  br label %33
+  br label %35
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %33, label %10
+  br i1 %9, label %35, label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %0, i64 120
   %12 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %12, %8
-  br i1 %.not, label %33, label %13
+  br i1 %.not, label %34, label %13
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds i8, ptr %0, i64 112
@@ -60,11 +60,14 @@ define i32 @lib_rdflush_unlocked(ptr noundef %0) local_unnamed_addr #0 {
 
 32:                                               ; preds = %28, %26
   %.0 = phi i32 [ %27, %26 ], [ %31, %28 ]
-  %.0.lobit = ashr i32 %.0, 31
-  br label %33
+  %33 = icmp slt i32 %.0, 0
+  br i1 %33, label %35, label %34
 
-33:                                               ; preds = %32, %10, %6, %4
-  %.016 = phi i32 [ -1, %4 ], [ 0, %6 ], [ 0, %10 ], [ %.0.lobit, %32 ]
+34:                                               ; preds = %32, %10
+  br label %35
+
+35:                                               ; preds = %32, %6, %34, %4
+  %.016 = phi i32 [ -1, %4 ], [ 0, %34 ], [ 0, %6 ], [ -1, %32 ]
   ret i32 %.016
 }
 

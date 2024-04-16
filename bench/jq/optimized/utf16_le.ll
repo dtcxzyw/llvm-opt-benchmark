@@ -30,7 +30,7 @@ define internal i32 @utf16le_mbc_enc_len(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @utf16le_is_mbc_newline(ptr noundef readonly %0, ptr noundef readnone %1) #0 {
+define internal noundef i32 @utf16le_is_mbc_newline(ptr noundef readonly %0, ptr noundef readnone %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1
   %4 = icmp ult ptr %3, %1
   br i1 %4, label %5, label %11
@@ -43,11 +43,13 @@ define internal i32 @utf16le_is_mbc_newline(ptr noundef readonly %0, ptr noundef
 8:                                                ; preds = %5
   %9 = load i8, ptr %3, align 1
   %10 = icmp eq i8 %9, 0
-  %spec.select = zext i1 %10 to i32
-  br label %11
+  br i1 %10, label %12, label %11
 
-11:                                               ; preds = %8, %2, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %2 ], [ %spec.select, %8 ]
+11:                                               ; preds = %5, %8, %2
+  br label %12
+
+12:                                               ; preds = %8, %11
+  %.0 = phi i32 [ 0, %11 ], [ 1, %8 ]
   ret i32 %.0
 }
 

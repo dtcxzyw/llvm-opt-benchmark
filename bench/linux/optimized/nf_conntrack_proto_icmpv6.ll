@@ -448,13 +448,15 @@ define internal noundef i32 @icmpv6_tuple_to_nlattr(ptr noundef %0, ptr nocaptur
   store i8 %17, ptr %3, align 1
   %18 = call i32 @nla_put(ptr noundef %0, i32 noundef 9, i32 noundef 1, ptr noundef nonnull %3) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #9
-  %19 = icmp ne i32 %18, 0
-  %spec.select = sext i1 %19 to i32
-  br label %20
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %21, label %20
 
-20:                                               ; preds = %15, %2, %10
-  %21 = phi i32 [ -1, %10 ], [ -1, %2 ], [ %spec.select, %15 ]
-  ret i32 %21
+20:                                               ; preds = %15, %10, %2
+  br label %21
+
+21:                                               ; preds = %20, %15
+  %22 = phi i32 [ -1, %20 ], [ 0, %15 ]
+  ret i32 %22
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

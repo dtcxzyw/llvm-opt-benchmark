@@ -51,7 +51,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_QAuthZListRule_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_QAuthZListRule_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i9 = alloca i32, align 4
   %value.i = alloca i32, align 4
@@ -72,7 +72,7 @@ if.end:                                           ; preds = %entry
 if.end3:                                          ; preds = %if.end
   %has_format = getelementptr inbounds i8, ptr %obj, i64 12
   %call4 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %has_format) #4
-  br i1 %call4, label %if.then5, label %return
+  br i1 %call4, label %if.then5, label %if.end9
 
 if.then5:                                         ; preds = %if.end3
   %format = getelementptr inbounds i8, ptr %obj, i64 16
@@ -83,10 +83,13 @@ if.then5:                                         ; preds = %if.end3
   %3 = load i32, ptr %value.i9, align 4
   store i32 %3, ptr %format, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i9)
+  br i1 %call.i10, label %if.end9, label %return
+
+if.end9:                                          ; preds = %if.then5, %if.end3
   br label %return
 
-return:                                           ; preds = %if.then5, %if.end3, %if.end, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end ], [ true, %if.end3 ], [ %call.i10, %if.then5 ]
+return:                                           ; preds = %if.then5, %if.end, %entry, %if.end9
+  %retval.0 = phi i1 [ true, %if.end9 ], [ false, %entry ], [ false, %if.end ], [ false, %if.then5 ]
   ret i1 %retval.0
 }
 
@@ -109,9 +112,9 @@ if.end:                                           ; preds = %entry
 
 if.then1:                                         ; preds = %if.end
   %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
-  br i1 %call2, label %out_obj.thread19, label %if.else
+  br i1 %call2, label %out_obj.thread, label %if.else
 
-out_obj.thread19:                                 ; preds = %if.then1
+out_obj.thread:                                   ; preds = %if.then1
   tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br label %return
 
@@ -121,7 +124,7 @@ if.else:                                          ; preds = %if.then1
 
 if.end5:                                          ; preds = %if.end
   %call.i = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str, ptr noundef nonnull %0, ptr noundef %errp) #4
-  br i1 %call.i, label %if.end.i, label %out_obj.thread
+  br i1 %call.i, label %if.end.i, label %out_obj.thread16
 
 if.end.i:                                         ; preds = %if.end5
   %policy.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -132,14 +135,14 @@ if.end.i:                                         ; preds = %if.end5
   %2 = load i32, ptr %value.i.i, align 4
   store i32 %2, ptr %policy.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i.i)
-  br i1 %call.i.i, label %if.end3.i, label %out_obj.thread
+  br i1 %call.i.i, label %if.end3.i, label %out_obj.thread16
 
 if.end3.i:                                        ; preds = %if.end.i
   %has_format.i = getelementptr inbounds i8, ptr %0, i64 12
   %call4.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %has_format.i) #4
-  br i1 %call4.i, label %visit_type_QAuthZListRule_members.exit, label %out_obj
+  br i1 %call4.i, label %if.then5.i, label %out_obj
 
-visit_type_QAuthZListRule_members.exit:           ; preds = %if.end3.i
+if.then5.i:                                       ; preds = %if.end3.i
   %format.i = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i9.i)
   %3 = load i32, ptr %format.i, align 4
@@ -148,18 +151,18 @@ visit_type_QAuthZListRule_members.exit:           ; preds = %if.end3.i
   %4 = load i32, ptr %value.i9.i, align 4
   store i32 %4, ptr %format.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i9.i)
-  br i1 %call.i10.i, label %out_obj, label %out_obj.thread
+  br i1 %call.i10.i, label %out_obj, label %out_obj.thread16
 
-out_obj.thread:                                   ; preds = %visit_type_QAuthZListRule_members.exit, %if.end5, %if.end.i
+out_obj.thread16:                                 ; preds = %if.then5.i, %if.end.i, %if.end5
   call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br label %land.lhs.true
 
-out_obj:                                          ; preds = %if.end3.i, %visit_type_QAuthZListRule_members.exit
+out_obj:                                          ; preds = %if.end3.i, %if.then5.i
   %call9 = call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
   call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br i1 %call9, label %return, label %land.lhs.true
 
-land.lhs.true:                                    ; preds = %out_obj.thread, %out_obj
+land.lhs.true:                                    ; preds = %out_obj.thread16, %out_obj
   %call11 = call zeroext i1 @visit_is_input(ptr noundef %v) #4
   br i1 %call11, label %if.then12, label %return
 
@@ -169,8 +172,8 @@ if.then12:                                        ; preds = %land.lhs.true
   store ptr null, ptr %obj, align 8
   br label %return
 
-return:                                           ; preds = %out_obj.thread19, %out_obj, %land.lhs.true, %if.then12, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %if.then12 ], [ false, %land.lhs.true ], [ true, %out_obj ], [ true, %out_obj.thread19 ]
+return:                                           ; preds = %out_obj.thread, %out_obj, %land.lhs.true, %if.then12, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.then12 ], [ false, %land.lhs.true ], [ true, %out_obj ], [ true, %out_obj.thread ]
   ret i1 %retval.0
 }
 
@@ -266,15 +269,18 @@ if.then:                                          ; preds = %entry
 if.end3:                                          ; preds = %if.then, %entry
   %has_rules = getelementptr inbounds i8, ptr %obj, i64 8
   %call4 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.5, ptr noundef nonnull %has_rules) #4
-  br i1 %call4, label %if.then5, label %return
+  br i1 %call4, label %if.then5, label %if.end9
 
 if.then5:                                         ; preds = %if.end3
   %rules = getelementptr inbounds i8, ptr %obj, i64 16
   %call6 = call zeroext i1 @visit_type_QAuthZListRuleList(ptr noundef %v, ptr noundef nonnull @.str.5, ptr noundef nonnull %rules, ptr noundef %errp)
+  br i1 %call6, label %if.end9, label %return
+
+if.end9:                                          ; preds = %if.then5, %if.end3
   br label %return
 
-return:                                           ; preds = %if.then5, %if.end3, %if.then
-  %retval.0 = phi i1 [ false, %if.then ], [ true, %if.end3 ], [ %call6, %if.then5 ]
+return:                                           ; preds = %if.then5, %if.then, %if.end9
+  %retval.0 = phi i1 [ true, %if.end9 ], [ false, %if.then ], [ false, %if.then5 ]
   ret i1 %retval.0
 }
 
@@ -292,9 +298,9 @@ if.end:                                           ; preds = %entry
 
 if.then1:                                         ; preds = %if.end
   %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
-  br i1 %call2, label %out_obj.thread19, label %if.else
+  br i1 %call2, label %out_obj.thread, label %if.else
 
-out_obj.thread19:                                 ; preds = %if.then1
+out_obj.thread:                                   ; preds = %if.then1
   tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br label %return
 
@@ -315,28 +321,28 @@ if.then.i:                                        ; preds = %if.end5
   %2 = load i32, ptr %value.i.i, align 4
   store i32 %2, ptr %policy.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i.i)
-  br i1 %call.i.i, label %if.end3.i, label %out_obj.thread
+  br i1 %call.i.i, label %if.end3.i, label %out_obj.thread16
 
 if.end3.i:                                        ; preds = %if.then.i, %if.end5
   %has_rules.i = getelementptr inbounds i8, ptr %0, i64 8
   %call4.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.5, ptr noundef nonnull %has_rules.i) #4
-  br i1 %call4.i, label %visit_type_AuthZListProperties_members.exit, label %out_obj
+  br i1 %call4.i, label %if.then5.i, label %out_obj
 
-visit_type_AuthZListProperties_members.exit:      ; preds = %if.end3.i
+if.then5.i:                                       ; preds = %if.end3.i
   %rules.i = getelementptr inbounds i8, ptr %0, i64 16
   %call6.i = call zeroext i1 @visit_type_QAuthZListRuleList(ptr noundef %v, ptr noundef nonnull @.str.5, ptr noundef nonnull %rules.i, ptr noundef %errp)
-  br i1 %call6.i, label %out_obj, label %out_obj.thread
+  br i1 %call6.i, label %out_obj, label %out_obj.thread16
 
-out_obj.thread:                                   ; preds = %visit_type_AuthZListProperties_members.exit, %if.then.i
+out_obj.thread16:                                 ; preds = %if.then5.i, %if.then.i
   call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br label %land.lhs.true
 
-out_obj:                                          ; preds = %if.end3.i, %visit_type_AuthZListProperties_members.exit
+out_obj:                                          ; preds = %if.end3.i, %if.then5.i
   %call9 = call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
   call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br i1 %call9, label %return, label %land.lhs.true
 
-land.lhs.true:                                    ; preds = %out_obj.thread, %out_obj
+land.lhs.true:                                    ; preds = %out_obj.thread16, %out_obj
   %call11 = call zeroext i1 @visit_is_input(ptr noundef %v) #4
   br i1 %call11, label %if.then12, label %return
 
@@ -346,15 +352,15 @@ if.then12:                                        ; preds = %land.lhs.true
   store ptr null, ptr %obj, align 8
   br label %return
 
-return:                                           ; preds = %out_obj.thread19, %out_obj, %land.lhs.true, %if.then12, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %if.then12 ], [ false, %land.lhs.true ], [ true, %out_obj ], [ true, %out_obj.thread19 ]
+return:                                           ; preds = %out_obj.thread, %out_obj, %land.lhs.true, %if.then12, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.then12 ], [ false, %land.lhs.true ], [ true, %out_obj ], [ true, %out_obj.thread ]
   ret i1 %retval.0
 }
 
 declare void @qapi_free_AuthZListProperties(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_AuthZListFileProperties_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_AuthZListFileProperties_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.6, ptr noundef %obj, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -362,15 +368,18 @@ entry:
 if.end:                                           ; preds = %entry
   %has_refresh = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %has_refresh) #4
-  br i1 %call1, label %if.then2, label %return
+  br i1 %call1, label %if.then2, label %if.end6
 
 if.then2:                                         ; preds = %if.end
   %refresh = getelementptr inbounds i8, ptr %obj, i64 9
   %call3 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %refresh, ptr noundef %errp) #4
+  br i1 %call3, label %if.end6, label %return
+
+if.end6:                                          ; preds = %if.then2, %if.end
   br label %return
 
-return:                                           ; preds = %if.then2, %if.end, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ true, %if.end ], [ %call3, %if.then2 ]
+return:                                           ; preds = %if.then2, %entry, %if.end6
+  %retval.0 = phi i1 [ true, %if.end6 ], [ false, %entry ], [ false, %if.then2 ]
   ret i1 %retval.0
 }
 
@@ -389,9 +398,9 @@ if.end:                                           ; preds = %entry
 
 if.then1:                                         ; preds = %if.end
   %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
-  br i1 %call2, label %out_obj.thread19, label %if.else
+  br i1 %call2, label %out_obj.thread, label %if.else
 
-out_obj.thread19:                                 ; preds = %if.then1
+out_obj.thread:                                   ; preds = %if.then1
   tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br label %return
 
@@ -401,28 +410,28 @@ if.else:                                          ; preds = %if.then1
 
 if.end5:                                          ; preds = %if.end
   %call.i = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.6, ptr noundef nonnull %0, ptr noundef %errp) #4
-  br i1 %call.i, label %if.end.i, label %out_obj.thread
+  br i1 %call.i, label %if.end.i, label %out_obj.thread16
 
 if.end.i:                                         ; preds = %if.end5
   %has_refresh.i = getelementptr inbounds i8, ptr %0, i64 8
   %call1.i = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %has_refresh.i) #4
-  br i1 %call1.i, label %visit_type_AuthZListFileProperties_members.exit, label %out_obj
+  br i1 %call1.i, label %if.then2.i, label %out_obj
 
-visit_type_AuthZListFileProperties_members.exit:  ; preds = %if.end.i
+if.then2.i:                                       ; preds = %if.end.i
   %refresh.i = getelementptr inbounds i8, ptr %0, i64 9
   %call3.i = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %refresh.i, ptr noundef %errp) #4
-  br i1 %call3.i, label %out_obj, label %out_obj.thread
+  br i1 %call3.i, label %out_obj, label %out_obj.thread16
 
-out_obj.thread:                                   ; preds = %visit_type_AuthZListFileProperties_members.exit, %if.end5
+out_obj.thread16:                                 ; preds = %if.then2.i, %if.end5
   tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br label %land.lhs.true
 
-out_obj:                                          ; preds = %if.end.i, %visit_type_AuthZListFileProperties_members.exit
+out_obj:                                          ; preds = %if.end.i, %if.then2.i
   %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
   tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br i1 %call9, label %return, label %land.lhs.true
 
-land.lhs.true:                                    ; preds = %out_obj.thread, %out_obj
+land.lhs.true:                                    ; preds = %out_obj.thread16, %out_obj
   %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #4
   br i1 %call11, label %if.then12, label %return
 
@@ -432,8 +441,8 @@ if.then12:                                        ; preds = %land.lhs.true
   store ptr null, ptr %obj, align 8
   br label %return
 
-return:                                           ; preds = %out_obj.thread19, %out_obj, %land.lhs.true, %if.then12, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %if.then12 ], [ false, %land.lhs.true ], [ true, %out_obj ], [ true, %out_obj.thread19 ]
+return:                                           ; preds = %out_obj.thread, %out_obj, %land.lhs.true, %if.then12, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.then12 ], [ false, %land.lhs.true ], [ true, %out_obj ], [ true, %out_obj.thread ]
   ret i1 %retval.0
 }
 

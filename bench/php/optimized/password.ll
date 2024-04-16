@@ -812,15 +812,17 @@ php_password_algo_find.exit:                      ; preds = %php_password_algo_e
   %40 = getelementptr inbounds i8, ptr %.0.i28, i64 40
   %41 = load ptr, ptr %40, align 8
   %.not26 = icmp eq ptr %41, null
-  br i1 %.not26, label %php_password_algo_extract_ident.exit.thread, label %42
+  br i1 %.not26, label %44, label %42
 
 42:                                               ; preds = %39
   %43 = tail call zeroext i1 %41(ptr noundef nonnull %0) #12
-  %spec.select = select i1 %43, ptr %.0.i28, ptr %1
+  br i1 %43, label %44, label %php_password_algo_extract_ident.exit.thread
+
+44:                                               ; preds = %42, %39
   br label %php_password_algo_extract_ident.exit.thread
 
-php_password_algo_extract_ident.exit.thread:      ; preds = %7, %2, %3, %42, %38, %39
-  %.0 = phi ptr [ %1, %38 ], [ %.0.i28, %39 ], [ %spec.select, %42 ], [ %1, %3 ], [ %1, %2 ], [ %1, %7 ]
+php_password_algo_extract_ident.exit.thread:      ; preds = %7, %2, %3, %44, %42, %38
+  %.0 = phi ptr [ %.0.i28, %44 ], [ %1, %42 ], [ %1, %38 ], [ %1, %3 ], [ %1, %2 ], [ %1, %7 ]
   ret ptr %.0
 }
 

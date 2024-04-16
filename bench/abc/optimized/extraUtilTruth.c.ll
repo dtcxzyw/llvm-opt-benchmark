@@ -2328,14 +2328,14 @@ define i32 @Extra_TruthMinCofSuppOverlap(ptr nocapture noundef readonly %0, i32 
   br label %12
 
 10:                                               ; preds = %Extra_TruthSupport.exit51
-  %11 = add nuw nsw i32 %.0153, 1
+  %11 = add nuw nsw i32 %.0151, 1
   %exitcond.not = icmp eq i32 %11, %1
   br i1 %exitcond.not, label %Extra_TruthSupport.exit51._crit_edge, label %12, !llvm.loop !83
 
 12:                                               ; preds = %.lr.ph, %10
-  %.0153 = phi i32 [ 0, %.lr.ph ], [ %11, %10 ]
-  %.030152 = phi i32 [ 32, %.lr.ph ], [ %spec.select37, %10 ]
-  %.031151 = phi i32 [ -1, %.lr.ph ], [ %spec.select, %10 ]
+  %.0151 = phi i32 [ 0, %.lr.ph ], [ %11, %10 ]
+  %.030150 = phi i32 [ 32, %.lr.ph ], [ %spec.select37, %10 ]
+  %.031149 = phi i32 [ -1, %.lr.ph ], [ %spec.select, %10 ]
   br i1 %8, label %select.unfold.i, label %.lr.ph.i.preheader
 
 select.unfold.i:                                  ; preds = %12, %select.unfold.i
@@ -2349,12 +2349,12 @@ select.unfold.i:                                  ; preds = %12, %select.unfold.
   br i1 %16, label %select.unfold.i, label %.lr.ph.i.preheader, !llvm.loop !27
 
 .lr.ph.i.preheader:                               ; preds = %select.unfold.i, %12
-  tail call void @Extra_TruthCofactor0(ptr noundef nonnull @Extra_TruthMinCofSuppOverlap.uCofactor, i32 noundef %1, i32 noundef %.0153)
+  tail call void @Extra_TruthCofactor0(ptr noundef nonnull @Extra_TruthMinCofSuppOverlap.uCofactor, i32 noundef %1, i32 noundef %.0151)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %Extra_TruthVarInSupport.exit.thread
   %.011.i = phi i32 [ %.1.i, %Extra_TruthVarInSupport.exit.thread ], [ 0, %.lr.ph.i.preheader ]
-  %.0810.i = phi i32 [ %64, %Extra_TruthVarInSupport.exit.thread ], [ 0, %.lr.ph.i.preheader ]
+  %.0810.i = phi i32 [ %65, %Extra_TruthVarInSupport.exit.thread ], [ 0, %.lr.ph.i.preheader ]
   switch i32 %.0810.i, label %46 [
     i32 0, label %.preheader63.i
     i32 1, label %.preheader65.i
@@ -2461,7 +2461,7 @@ select.unfold.i:                                  ; preds = %12, %select.unfold.
   %.not104.i = icmp eq i32 %47, 31
   %49 = shl i32 2, %47
   %50 = sext i32 %49 to i64
-  br i1 %.not104.i, label %Extra_TruthVarInSupport.exit.thread, label %.preheader.us.preheader.i
+  br i1 %.not104.i, label %Extra_TruthVarInSupport.exit, label %.preheader.us.preheader.i
 
 .preheader.us.preheader.i:                        ; preds = %.preheader.lr.ph.i
   %51 = sext i32 %48 to i64
@@ -2499,53 +2499,57 @@ Extra_TruthVarInSupport.exit.thread116:           ; preds = %.lr.ph.i52, %.lr.ph
   %62 = shl nuw i32 1, %.0810.i
   br label %Extra_TruthVarInSupport.exit.thread
 
-Extra_TruthVarInSupport.exit.thread:              ; preds = %41, %35, %29, %23, %17, %._crit_edge.us.i, %.preheader.lr.ph.i, %.preheader74.i, %.preheader71.i, %.preheader68.i, %.preheader65.i, %.preheader63.i, %46, %Extra_TruthVarInSupport.exit.thread116
-  %63 = phi i32 [ %62, %Extra_TruthVarInSupport.exit.thread116 ], [ 0, %46 ], [ 0, %.preheader63.i ], [ 0, %.preheader65.i ], [ 0, %.preheader68.i ], [ 0, %.preheader71.i ], [ 0, %.preheader74.i ], [ 0, %.preheader.lr.ph.i ], [ 0, %._crit_edge.us.i ], [ 0, %17 ], [ 0, %23 ], [ 0, %29 ], [ 0, %35 ], [ 0, %41 ]
-  %.1.i = or i32 %63, %.011.i
-  %64 = add nuw nsw i32 %.0810.i, 1
-  %exitcond.not.i = icmp eq i32 %64, %1
+Extra_TruthVarInSupport.exit:                     ; preds = %.preheader.lr.ph.i
+  %63 = shl nuw nsw i32 1, %.0810.i
+  br label %Extra_TruthVarInSupport.exit.thread
+
+Extra_TruthVarInSupport.exit.thread:              ; preds = %41, %35, %29, %23, %17, %._crit_edge.us.i, %46, %.preheader63.i, %.preheader65.i, %.preheader68.i, %.preheader71.i, %.preheader74.i, %Extra_TruthVarInSupport.exit, %Extra_TruthVarInSupport.exit.thread116
+  %64 = phi i32 [ %63, %Extra_TruthVarInSupport.exit ], [ %62, %Extra_TruthVarInSupport.exit.thread116 ], [ 0, %.preheader74.i ], [ 0, %.preheader71.i ], [ 0, %.preheader68.i ], [ 0, %.preheader65.i ], [ 0, %.preheader63.i ], [ 0, %46 ], [ 0, %._crit_edge.us.i ], [ 0, %17 ], [ 0, %23 ], [ 0, %29 ], [ 0, %35 ], [ 0, %41 ]
+  %.1.i = or i32 %64, %.011.i
+  %65 = add nuw nsw i32 %.0810.i, 1
+  %exitcond.not.i = icmp eq i32 %65, %1
   br i1 %exitcond.not.i, label %Extra_TruthSupport.exit, label %.lr.ph.i, !llvm.loop !39
 
 Extra_TruthSupport.exit:                          ; preds = %Extra_TruthVarInSupport.exit.thread
-  %65 = and i32 %.1.i, 1431655765
-  %66 = lshr i32 %.1.i, 1
-  %67 = and i32 %66, 1431655765
-  %68 = add nuw i32 %67, %65
-  %69 = and i32 %68, 858993459
-  %70 = lshr i32 %68, 2
-  %71 = and i32 %70, 858993459
-  %72 = add nuw nsw i32 %71, %69
-  %73 = and i32 %72, 117901063
-  %74 = lshr i32 %72, 4
-  %75 = and i32 %74, 117901063
-  %76 = add nuw nsw i32 %75, %73
-  %77 = and i32 %76, 983055
-  %78 = lshr i32 %76, 8
-  %79 = and i32 %78, 983055
-  %80 = add nuw nsw i32 %79, %77
-  %81 = and i32 %80, 31
-  %82 = lshr i32 %80, 16
-  %83 = add nuw nsw i32 %81, %82
+  %66 = and i32 %.1.i, 1431655765
+  %67 = lshr i32 %.1.i, 1
+  %68 = and i32 %67, 1431655765
+  %69 = add nuw i32 %68, %66
+  %70 = and i32 %69, 858993459
+  %71 = lshr i32 %69, 2
+  %72 = and i32 %71, 858993459
+  %73 = add nuw nsw i32 %72, %70
+  %74 = and i32 %73, 117901063
+  %75 = lshr i32 %73, 4
+  %76 = and i32 %75, 117901063
+  %77 = add nuw nsw i32 %76, %74
+  %78 = and i32 %77, 983055
+  %79 = lshr i32 %77, 8
+  %80 = and i32 %79, 983055
+  %81 = add nuw nsw i32 %80, %78
+  %82 = and i32 %81, 31
+  %83 = lshr i32 %81, 16
+  %84 = add nuw nsw i32 %82, %83
   br i1 %8, label %select.unfold.i40, label %.lr.ph.i45.preheader
 
 select.unfold.i40:                                ; preds = %Extra_TruthSupport.exit, %select.unfold.i40
   %indvars.iv.i41 = phi i64 [ %indvars.iv.next.i42, %select.unfold.i40 ], [ %9, %Extra_TruthSupport.exit ]
   %indvars.iv.next.i42 = add nsw i64 %indvars.iv.i41, -1
-  %84 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv.next.i42
-  %85 = load i32, ptr %84, align 4
-  %86 = getelementptr inbounds i32, ptr @Extra_TruthMinCofSuppOverlap.uCofactor, i64 %indvars.iv.next.i42
-  store i32 %85, ptr %86, align 4
-  %87 = icmp ugt i64 %indvars.iv.i41, 1
-  br i1 %87, label %select.unfold.i40, label %.lr.ph.i45.preheader, !llvm.loop !27
+  %85 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv.next.i42
+  %86 = load i32, ptr %85, align 4
+  %87 = getelementptr inbounds i32, ptr @Extra_TruthMinCofSuppOverlap.uCofactor, i64 %indvars.iv.next.i42
+  store i32 %86, ptr %87, align 4
+  %88 = icmp ugt i64 %indvars.iv.i41, 1
+  br i1 %88, label %select.unfold.i40, label %.lr.ph.i45.preheader, !llvm.loop !27
 
 .lr.ph.i45.preheader:                             ; preds = %select.unfold.i40, %Extra_TruthSupport.exit
-  tail call void @Extra_TruthCofactor1(ptr noundef nonnull @Extra_TruthMinCofSuppOverlap.uCofactor, i32 noundef %1, i32 noundef %.0153)
+  tail call void @Extra_TruthCofactor1(ptr noundef nonnull @Extra_TruthMinCofSuppOverlap.uCofactor, i32 noundef %1, i32 noundef %.0151)
   br label %.lr.ph.i45
 
 .lr.ph.i45:                                       ; preds = %.lr.ph.i45.preheader, %Extra_TruthVarInSupport.exit111.thread
   %.011.i46 = phi i32 [ %.1.i49, %Extra_TruthVarInSupport.exit111.thread ], [ 0, %.lr.ph.i45.preheader ]
-  %.0810.i47 = phi i32 [ %135, %Extra_TruthVarInSupport.exit111.thread ], [ 0, %.lr.ph.i45.preheader ]
-  switch i32 %.0810.i47, label %117 [
+  %.0810.i47 = phi i32 [ %137, %Extra_TruthVarInSupport.exit111.thread ], [ 0, %.lr.ph.i45.preheader ]
+  switch i32 %.0810.i47, label %118 [
     i32 0, label %.preheader63.i90
     i32 1, label %.preheader65.i82
     i32 2, label %.preheader68.i74
@@ -2568,195 +2572,199 @@ select.unfold.i40:                                ; preds = %Extra_TruthSupport.
 .preheader63.i90:                                 ; preds = %.lr.ph.i45
   br i1 %8, label %.lr.ph96.i93, label %Extra_TruthVarInSupport.exit111.thread
 
-88:                                               ; preds = %.lr.ph96.i93
+89:                                               ; preds = %.lr.ph96.i93
   %indvars.iv.next133.i96 = add nuw nsw i64 %indvars.iv132.i94, 1
   %exitcond136.not.i97 = icmp eq i64 %indvars.iv.next133.i96, %9
   br i1 %exitcond136.not.i97, label %Extra_TruthVarInSupport.exit111.thread, label %.lr.ph96.i93, !llvm.loop !30
 
-.lr.ph96.i93:                                     ; preds = %.preheader63.i90, %88
-  %indvars.iv132.i94 = phi i64 [ %indvars.iv.next133.i96, %88 ], [ 0, %.preheader63.i90 ]
-  %89 = getelementptr inbounds i32, ptr @Extra_TruthMinCofSuppOverlap.uCofactor, i64 %indvars.iv132.i94
-  %90 = load i32, ptr %89, align 4
-  %91 = lshr i32 %90, 1
-  %92 = xor i32 %91, %90
-  %93 = and i32 %92, 1431655765
-  %.not60.i95 = icmp eq i32 %93, 0
-  br i1 %.not60.i95, label %88, label %Extra_TruthVarInSupport.exit111.thread125
+.lr.ph96.i93:                                     ; preds = %.preheader63.i90, %89
+  %indvars.iv132.i94 = phi i64 [ %indvars.iv.next133.i96, %89 ], [ 0, %.preheader63.i90 ]
+  %90 = getelementptr inbounds i32, ptr @Extra_TruthMinCofSuppOverlap.uCofactor, i64 %indvars.iv132.i94
+  %91 = load i32, ptr %90, align 4
+  %92 = lshr i32 %91, 1
+  %93 = xor i32 %92, %91
+  %94 = and i32 %93, 1431655765
+  %.not60.i95 = icmp eq i32 %94, 0
+  br i1 %.not60.i95, label %89, label %Extra_TruthVarInSupport.exit111.thread125
 
-94:                                               ; preds = %.lr.ph91.i85
+95:                                               ; preds = %.lr.ph91.i85
   %indvars.iv.next128.i88 = add nuw nsw i64 %indvars.iv127.i86, 1
   %exitcond131.not.i89 = icmp eq i64 %indvars.iv.next128.i88, %9
   br i1 %exitcond131.not.i89, label %Extra_TruthVarInSupport.exit111.thread, label %.lr.ph91.i85, !llvm.loop !31
 
-.lr.ph91.i85:                                     ; preds = %.preheader65.i82, %94
-  %indvars.iv127.i86 = phi i64 [ %indvars.iv.next128.i88, %94 ], [ 0, %.preheader65.i82 ]
-  %95 = getelementptr inbounds i32, ptr @Extra_TruthMinCofSuppOverlap.uCofactor, i64 %indvars.iv127.i86
-  %96 = load i32, ptr %95, align 4
-  %97 = lshr i32 %96, 2
-  %98 = xor i32 %97, %96
-  %99 = and i32 %98, 858993459
-  %.not59.i87 = icmp eq i32 %99, 0
-  br i1 %.not59.i87, label %94, label %Extra_TruthVarInSupport.exit111.thread125
+.lr.ph91.i85:                                     ; preds = %.preheader65.i82, %95
+  %indvars.iv127.i86 = phi i64 [ %indvars.iv.next128.i88, %95 ], [ 0, %.preheader65.i82 ]
+  %96 = getelementptr inbounds i32, ptr @Extra_TruthMinCofSuppOverlap.uCofactor, i64 %indvars.iv127.i86
+  %97 = load i32, ptr %96, align 4
+  %98 = lshr i32 %97, 2
+  %99 = xor i32 %98, %97
+  %100 = and i32 %99, 858993459
+  %.not59.i87 = icmp eq i32 %100, 0
+  br i1 %.not59.i87, label %95, label %Extra_TruthVarInSupport.exit111.thread125
 
-100:                                              ; preds = %.lr.ph86.i77
+101:                                              ; preds = %.lr.ph86.i77
   %indvars.iv.next123.i80 = add nuw nsw i64 %indvars.iv122.i78, 1
   %exitcond126.not.i81 = icmp eq i64 %indvars.iv.next123.i80, %9
   br i1 %exitcond126.not.i81, label %Extra_TruthVarInSupport.exit111.thread, label %.lr.ph86.i77, !llvm.loop !32
 
-.lr.ph86.i77:                                     ; preds = %.preheader68.i74, %100
-  %indvars.iv122.i78 = phi i64 [ %indvars.iv.next123.i80, %100 ], [ 0, %.preheader68.i74 ]
-  %101 = getelementptr inbounds i32, ptr @Extra_TruthMinCofSuppOverlap.uCofactor, i64 %indvars.iv122.i78
-  %102 = load i32, ptr %101, align 4
-  %103 = lshr i32 %102, 4
-  %104 = xor i32 %103, %102
-  %105 = and i32 %104, 252645135
-  %.not58.i79 = icmp eq i32 %105, 0
-  br i1 %.not58.i79, label %100, label %Extra_TruthVarInSupport.exit111.thread125
+.lr.ph86.i77:                                     ; preds = %.preheader68.i74, %101
+  %indvars.iv122.i78 = phi i64 [ %indvars.iv.next123.i80, %101 ], [ 0, %.preheader68.i74 ]
+  %102 = getelementptr inbounds i32, ptr @Extra_TruthMinCofSuppOverlap.uCofactor, i64 %indvars.iv122.i78
+  %103 = load i32, ptr %102, align 4
+  %104 = lshr i32 %103, 4
+  %105 = xor i32 %104, %103
+  %106 = and i32 %105, 252645135
+  %.not58.i79 = icmp eq i32 %106, 0
+  br i1 %.not58.i79, label %101, label %Extra_TruthVarInSupport.exit111.thread125
 
-106:                                              ; preds = %.lr.ph81.i69
+107:                                              ; preds = %.lr.ph81.i69
   %indvars.iv.next118.i72 = add nuw nsw i64 %indvars.iv117.i70, 1
   %exitcond121.not.i73 = icmp eq i64 %indvars.iv.next118.i72, %9
   br i1 %exitcond121.not.i73, label %Extra_TruthVarInSupport.exit111.thread, label %.lr.ph81.i69, !llvm.loop !33
 
-.lr.ph81.i69:                                     ; preds = %.preheader71.i66, %106
-  %indvars.iv117.i70 = phi i64 [ %indvars.iv.next118.i72, %106 ], [ 0, %.preheader71.i66 ]
-  %107 = getelementptr inbounds i32, ptr @Extra_TruthMinCofSuppOverlap.uCofactor, i64 %indvars.iv117.i70
-  %108 = load i32, ptr %107, align 4
-  %109 = lshr i32 %108, 8
-  %110 = xor i32 %109, %108
-  %111 = and i32 %110, 16711935
-  %.not57.i71 = icmp eq i32 %111, 0
-  br i1 %.not57.i71, label %106, label %Extra_TruthVarInSupport.exit111.thread125
+.lr.ph81.i69:                                     ; preds = %.preheader71.i66, %107
+  %indvars.iv117.i70 = phi i64 [ %indvars.iv.next118.i72, %107 ], [ 0, %.preheader71.i66 ]
+  %108 = getelementptr inbounds i32, ptr @Extra_TruthMinCofSuppOverlap.uCofactor, i64 %indvars.iv117.i70
+  %109 = load i32, ptr %108, align 4
+  %110 = lshr i32 %109, 8
+  %111 = xor i32 %110, %109
+  %112 = and i32 %111, 16711935
+  %.not57.i71 = icmp eq i32 %112, 0
+  br i1 %.not57.i71, label %107, label %Extra_TruthVarInSupport.exit111.thread125
 
-112:                                              ; preds = %.lr.ph.i61
+113:                                              ; preds = %.lr.ph.i61
   %indvars.iv.next.i64 = add nuw nsw i64 %indvars.iv.i62, 1
   %exitcond.not.i65 = icmp eq i64 %indvars.iv.next.i64, %9
   br i1 %exitcond.not.i65, label %Extra_TruthVarInSupport.exit111.thread, label %.lr.ph.i61, !llvm.loop !34
 
-.lr.ph.i61:                                       ; preds = %.preheader74.i57, %112
-  %indvars.iv.i62 = phi i64 [ %indvars.iv.next.i64, %112 ], [ 0, %.preheader74.i57 ]
-  %113 = getelementptr inbounds i32, ptr @Extra_TruthMinCofSuppOverlap.uCofactor, i64 %indvars.iv.i62
-  %114 = load i32, ptr %113, align 4
-  %115 = and i32 %114, 65535
-  %116 = lshr i32 %114, 16
-  %.not.i63 = icmp eq i32 %115, %116
-  br i1 %.not.i63, label %112, label %Extra_TruthVarInSupport.exit111.thread125
+.lr.ph.i61:                                       ; preds = %.preheader74.i57, %113
+  %indvars.iv.i62 = phi i64 [ %indvars.iv.next.i64, %113 ], [ 0, %.preheader74.i57 ]
+  %114 = getelementptr inbounds i32, ptr @Extra_TruthMinCofSuppOverlap.uCofactor, i64 %indvars.iv.i62
+  %115 = load i32, ptr %114, align 4
+  %116 = and i32 %115, 65535
+  %117 = lshr i32 %115, 16
+  %.not.i63 = icmp eq i32 %116, %117
+  br i1 %.not.i63, label %113, label %Extra_TruthVarInSupport.exit111.thread125
 
-117:                                              ; preds = %.lr.ph.i45
-  %118 = add nsw i32 %.0810.i47, -5
-  %119 = shl nuw i32 1, %118
+118:                                              ; preds = %.lr.ph.i45
+  %119 = add nsw i32 %.0810.i47, -5
+  %120 = shl nuw i32 1, %119
   br i1 %8, label %.preheader.lr.ph.i98, label %Extra_TruthVarInSupport.exit111.thread
 
-.preheader.lr.ph.i98:                             ; preds = %117
-  %.not104.i99 = icmp eq i32 %118, 31
-  %120 = shl i32 2, %118
-  %121 = sext i32 %120 to i64
-  br i1 %.not104.i99, label %Extra_TruthVarInSupport.exit111.thread, label %.preheader.us.preheader.i100
+.preheader.lr.ph.i98:                             ; preds = %118
+  %.not104.i99 = icmp eq i32 %119, 31
+  %121 = shl i32 2, %119
+  %122 = sext i32 %121 to i64
+  br i1 %.not104.i99, label %Extra_TruthVarInSupport.exit111, label %.preheader.us.preheader.i100
 
 .preheader.us.preheader.i100:                     ; preds = %.preheader.lr.ph.i98
-  %122 = sext i32 %119 to i64
-  %smax.i101 = tail call i32 @llvm.smax.i32(i32 %119, i32 1)
+  %123 = sext i32 %120 to i64
+  %smax.i101 = tail call i32 @llvm.smax.i32(i32 %120, i32 1)
   %wide.trip.count140.i102 = zext nneg i32 %smax.i101 to i64
   br label %.preheader.us.i103
 
 .preheader.us.i103:                               ; preds = %._crit_edge.us.i110, %.preheader.us.preheader.i100
-  %.052103.us.i104 = phi i32 [ %131, %._crit_edge.us.i110 ], [ 0, %.preheader.us.preheader.i100 ]
-  %.054102.us.i105 = phi ptr [ %130, %._crit_edge.us.i110 ], [ @Extra_TruthMinCofSuppOverlap.uCofactor, %.preheader.us.preheader.i100 ]
-  br label %124
+  %.052103.us.i104 = phi i32 [ %132, %._crit_edge.us.i110 ], [ 0, %.preheader.us.preheader.i100 ]
+  %.054102.us.i105 = phi ptr [ %131, %._crit_edge.us.i110 ], [ @Extra_TruthMinCofSuppOverlap.uCofactor, %.preheader.us.preheader.i100 ]
+  br label %125
 
-123:                                              ; preds = %124
+124:                                              ; preds = %125
   %indvars.iv.next138.i108 = add nuw nsw i64 %indvars.iv137.i106, 1
   %exitcond141.not.i109 = icmp eq i64 %indvars.iv.next138.i108, %wide.trip.count140.i102
-  br i1 %exitcond141.not.i109, label %._crit_edge.us.i110, label %124, !llvm.loop !35
+  br i1 %exitcond141.not.i109, label %._crit_edge.us.i110, label %125, !llvm.loop !35
 
-124:                                              ; preds = %123, %.preheader.us.i103
-  %indvars.iv137.i106 = phi i64 [ 0, %.preheader.us.i103 ], [ %indvars.iv.next138.i108, %123 ]
-  %125 = getelementptr inbounds i32, ptr %.054102.us.i105, i64 %indvars.iv137.i106
-  %126 = load i32, ptr %125, align 4
-  %127 = add nuw nsw i64 %indvars.iv137.i106, %122
-  %128 = getelementptr inbounds i32, ptr %.054102.us.i105, i64 %127
-  %129 = load i32, ptr %128, align 4
-  %.not61.us.i107 = icmp eq i32 %126, %129
-  br i1 %.not61.us.i107, label %123, label %Extra_TruthVarInSupport.exit111.thread125
+125:                                              ; preds = %124, %.preheader.us.i103
+  %indvars.iv137.i106 = phi i64 [ 0, %.preheader.us.i103 ], [ %indvars.iv.next138.i108, %124 ]
+  %126 = getelementptr inbounds i32, ptr %.054102.us.i105, i64 %indvars.iv137.i106
+  %127 = load i32, ptr %126, align 4
+  %128 = add nuw nsw i64 %indvars.iv137.i106, %123
+  %129 = getelementptr inbounds i32, ptr %.054102.us.i105, i64 %128
+  %130 = load i32, ptr %129, align 4
+  %.not61.us.i107 = icmp eq i32 %127, %130
+  br i1 %.not61.us.i107, label %124, label %Extra_TruthVarInSupport.exit111.thread125
 
-._crit_edge.us.i110:                              ; preds = %123
-  %130 = getelementptr inbounds i32, ptr %.054102.us.i105, i64 %121
-  %131 = add nsw i32 %.052103.us.i104, %120
-  %132 = icmp slt i32 %131, %spec.select.i
-  br i1 %132, label %.preheader.us.i103, label %Extra_TruthVarInSupport.exit111.thread, !llvm.loop !36
+._crit_edge.us.i110:                              ; preds = %124
+  %131 = getelementptr inbounds i32, ptr %.054102.us.i105, i64 %122
+  %132 = add nsw i32 %.052103.us.i104, %121
+  %133 = icmp slt i32 %132, %spec.select.i
+  br i1 %133, label %.preheader.us.i103, label %Extra_TruthVarInSupport.exit111.thread, !llvm.loop !36
 
-Extra_TruthVarInSupport.exit111.thread125:        ; preds = %.lr.ph.i61, %.lr.ph81.i69, %.lr.ph86.i77, %.lr.ph91.i85, %.lr.ph96.i93, %124
-  %133 = shl nuw i32 1, %.0810.i47
+Extra_TruthVarInSupport.exit111.thread125:        ; preds = %.lr.ph.i61, %.lr.ph81.i69, %.lr.ph86.i77, %.lr.ph91.i85, %.lr.ph96.i93, %125
+  %134 = shl nuw i32 1, %.0810.i47
   br label %Extra_TruthVarInSupport.exit111.thread
 
-Extra_TruthVarInSupport.exit111.thread:           ; preds = %112, %106, %100, %94, %88, %._crit_edge.us.i110, %.preheader.lr.ph.i98, %.preheader74.i57, %.preheader71.i66, %.preheader68.i74, %.preheader65.i82, %.preheader63.i90, %117, %Extra_TruthVarInSupport.exit111.thread125
-  %134 = phi i32 [ %133, %Extra_TruthVarInSupport.exit111.thread125 ], [ 0, %117 ], [ 0, %.preheader63.i90 ], [ 0, %.preheader65.i82 ], [ 0, %.preheader68.i74 ], [ 0, %.preheader71.i66 ], [ 0, %.preheader74.i57 ], [ 0, %.preheader.lr.ph.i98 ], [ 0, %._crit_edge.us.i110 ], [ 0, %88 ], [ 0, %94 ], [ 0, %100 ], [ 0, %106 ], [ 0, %112 ]
-  %.1.i49 = or i32 %134, %.011.i46
-  %135 = add nuw nsw i32 %.0810.i47, 1
-  %exitcond.not.i50 = icmp eq i32 %135, %1
+Extra_TruthVarInSupport.exit111:                  ; preds = %.preheader.lr.ph.i98
+  %135 = shl nuw nsw i32 1, %.0810.i47
+  br label %Extra_TruthVarInSupport.exit111.thread
+
+Extra_TruthVarInSupport.exit111.thread:           ; preds = %113, %107, %101, %95, %89, %._crit_edge.us.i110, %118, %.preheader63.i90, %.preheader65.i82, %.preheader68.i74, %.preheader71.i66, %.preheader74.i57, %Extra_TruthVarInSupport.exit111, %Extra_TruthVarInSupport.exit111.thread125
+  %136 = phi i32 [ %135, %Extra_TruthVarInSupport.exit111 ], [ %134, %Extra_TruthVarInSupport.exit111.thread125 ], [ 0, %.preheader74.i57 ], [ 0, %.preheader71.i66 ], [ 0, %.preheader68.i74 ], [ 0, %.preheader65.i82 ], [ 0, %.preheader63.i90 ], [ 0, %118 ], [ 0, %._crit_edge.us.i110 ], [ 0, %89 ], [ 0, %95 ], [ 0, %101 ], [ 0, %107 ], [ 0, %113 ]
+  %.1.i49 = or i32 %136, %.011.i46
+  %137 = add nuw nsw i32 %.0810.i47, 1
+  %exitcond.not.i50 = icmp eq i32 %137, %1
   br i1 %exitcond.not.i50, label %Extra_TruthSupport.exit51, label %.lr.ph.i45, !llvm.loop !39
 
 Extra_TruthSupport.exit51:                        ; preds = %Extra_TruthVarInSupport.exit111.thread
-  %136 = and i32 %.1.i49, 1431655765
-  %137 = lshr i32 %.1.i49, 1
-  %138 = and i32 %137, 1431655765
-  %139 = add nuw i32 %138, %136
-  %140 = and i32 %139, 858993459
-  %141 = lshr i32 %139, 2
+  %138 = and i32 %.1.i49, 1431655765
+  %139 = lshr i32 %.1.i49, 1
+  %140 = and i32 %139, 1431655765
+  %141 = add nuw i32 %140, %138
   %142 = and i32 %141, 858993459
-  %143 = add nuw nsw i32 %142, %140
-  %144 = and i32 %143, 117901063
-  %145 = lshr i32 %143, 4
+  %143 = lshr i32 %141, 2
+  %144 = and i32 %143, 858993459
+  %145 = add nuw nsw i32 %144, %142
   %146 = and i32 %145, 117901063
-  %147 = add nuw nsw i32 %146, %144
-  %148 = and i32 %147, 983055
-  %149 = lshr i32 %147, 8
+  %147 = lshr i32 %145, 4
+  %148 = and i32 %147, 117901063
+  %149 = add nuw nsw i32 %148, %146
   %150 = and i32 %149, 983055
-  %151 = add nuw nsw i32 %150, %148
-  %152 = and i32 %151, 31
-  %153 = lshr i32 %151, 16
-  %154 = add nuw nsw i32 %152, %153
-  %155 = and i32 %.1.i49, %.1.i
-  %156 = and i32 %155, 1431655765
-  %157 = lshr i32 %155, 1
+  %151 = lshr i32 %149, 8
+  %152 = and i32 %151, 983055
+  %153 = add nuw nsw i32 %152, %150
+  %154 = and i32 %153, 31
+  %155 = lshr i32 %153, 16
+  %156 = add nuw nsw i32 %154, %155
+  %157 = and i32 %.1.i49, %.1.i
   %158 = and i32 %157, 1431655765
-  %159 = add nuw i32 %158, %156
-  %160 = and i32 %159, 858993459
-  %161 = lshr i32 %159, 2
+  %159 = lshr i32 %157, 1
+  %160 = and i32 %159, 1431655765
+  %161 = add nuw i32 %160, %158
   %162 = and i32 %161, 858993459
-  %163 = add nuw nsw i32 %162, %160
-  %164 = and i32 %163, 117901063
-  %165 = lshr i32 %163, 4
+  %163 = lshr i32 %161, 2
+  %164 = and i32 %163, 858993459
+  %165 = add nuw nsw i32 %164, %162
   %166 = and i32 %165, 117901063
-  %167 = add nuw nsw i32 %166, %164
-  %168 = and i32 %167, 983055
-  %169 = lshr i32 %167, 8
+  %167 = lshr i32 %165, 4
+  %168 = and i32 %167, 117901063
+  %169 = add nuw nsw i32 %168, %166
   %170 = and i32 %169, 983055
-  %171 = add nuw nsw i32 %170, %168
-  %172 = and i32 %171, 31
-  %173 = lshr i32 %171, 16
-  %174 = add nuw nsw i32 %172, %173
-  %175 = icmp sgt i32 %.030152, %174
-  %176 = icmp ult i32 %83, 6
-  %or.cond = select i1 %175, i1 %176, i1 false
-  %177 = icmp ult i32 %154, 6
-  %or.cond3 = select i1 %or.cond, i1 %177, i1 false
-  %spec.select = select i1 %or.cond3, i32 %.0153, i32 %.031151
-  %spec.select37 = select i1 %or.cond3, i32 %174, i32 %.030152
-  %178 = icmp eq i32 %spec.select37, 0
-  br i1 %178, label %Extra_TruthSupport.exit51._crit_edge, label %10
+  %171 = lshr i32 %169, 8
+  %172 = and i32 %171, 983055
+  %173 = add nuw nsw i32 %172, %170
+  %174 = and i32 %173, 31
+  %175 = lshr i32 %173, 16
+  %176 = add nuw nsw i32 %174, %175
+  %177 = icmp sgt i32 %.030150, %176
+  %178 = icmp ult i32 %84, 6
+  %or.cond = select i1 %177, i1 %178, i1 false
+  %179 = icmp ult i32 %156, 6
+  %or.cond3 = select i1 %or.cond, i1 %179, i1 false
+  %spec.select = select i1 %or.cond3, i32 %.0151, i32 %.031149
+  %spec.select37 = select i1 %or.cond3, i32 %176, i32 %.030150
+  %180 = icmp eq i32 %spec.select37, 0
+  br i1 %180, label %Extra_TruthSupport.exit51._crit_edge, label %10
 
 Extra_TruthSupport.exit51._crit_edge:             ; preds = %10, %Extra_TruthSupport.exit51, %3
   %.233 = phi i32 [ -1, %3 ], [ %spec.select, %Extra_TruthSupport.exit51 ], [ %spec.select, %10 ]
   %.2 = phi i32 [ 32, %3 ], [ %spec.select37, %10 ], [ 0, %Extra_TruthSupport.exit51 ]
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %180, label %179
+  br i1 %.not, label %182, label %181
 
-179:                                              ; preds = %Extra_TruthSupport.exit51._crit_edge
+181:                                              ; preds = %Extra_TruthSupport.exit51._crit_edge
   store i32 %.233, ptr %2, align 4
-  br label %180
+  br label %182
 
-180:                                              ; preds = %179, %Extra_TruthSupport.exit51._crit_edge
+182:                                              ; preds = %181, %Extra_TruthSupport.exit51._crit_edge
   ret i32 %.2
 }
 

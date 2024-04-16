@@ -1222,7 +1222,7 @@ define dso_local noundef i32 @avc_has_extended_perms(i32 noundef %0, i32 noundef
   tail call void asm sideeffect "821: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 821b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 821) #21, !srcloc !31
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.285, i32 1034, i32 2305, i64 12) #21, !srcloc !32
   tail call void asm sideeffect "822: nop\0A\09.pushsection .discard.instr_end\0A\09.long 822b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 822) #21, !srcloc !33
-  br label %.thread26
+  br label %213
 
 16:                                               ; preds = %7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %8, i8 0, i64 20, i1 false), !annotation !11
@@ -1531,18 +1531,20 @@ avc_denied.exit:                                  ; preds = %151, %146, %137
   %210 = phi i32 [ %206, %205 ], [ 0, %194 ], [ %158, %167 ], [ %158, %171 ]
   %211 = call i32 @slow_avc_audit(i32 noundef %0, i32 noundef %1, i16 noundef zeroext %2, i32 noundef %3, i32 noundef %209, i32 noundef %210, i32 noundef %155, ptr noundef %6), !range !42
   %212 = icmp eq i32 %211, 0
-  %spec.select = select i1 %212, i32 %155, i32 %211
-  br label %.thread26
+  br i1 %212, label %.thread26, label %213
 
-.thread26:                                        ; preds = %.thread24, %194, %190, %171, %205, %15
-  %213 = phi i32 [ -13, %15 ], [ %155, %205 ], [ %155, %171 ], [ 0, %190 ], [ 0, %194 ], [ %spec.select, %.thread24 ]
+.thread26:                                        ; preds = %194, %190, %171, %205, %.thread24
+  br label %213
+
+213:                                              ; preds = %.thread26, %.thread24, %15
+  %214 = phi i32 [ -13, %15 ], [ %155, %.thread26 ], [ %211, %.thread24 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %13) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #21
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8) #21
-  ret i32 %213
+  ret i32 %214
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -2129,13 +2131,15 @@ define dso_local noundef i32 @avc_has_perm(i32 noundef %0, i32 noundef %1, i16 n
 26:                                               ; preds = %22
   %27 = call i32 @slow_avc_audit(i32 noundef %0, i32 noundef %1, i16 noundef zeroext %2, i32 noundef %3, i32 noundef %24, i32 noundef %23, i32 noundef %7, ptr noundef %4), !range !42
   %28 = icmp eq i32 %27, 0
-  %spec.select = select i1 %28, i32 %7, i32 %27
-  br label %.thread
+  br i1 %28, label %.thread, label %29
 
-.thread:                                          ; preds = %26, %22
-  %29 = phi i32 [ %7, %22 ], [ %spec.select, %26 ]
+.thread:                                          ; preds = %22, %26
+  br label %29
+
+29:                                               ; preds = %26, %.thread
+  %30 = phi i32 [ %7, %.thread ], [ %27, %26 ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #21
-  ret i32 %29
+  ret i32 %30
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none)

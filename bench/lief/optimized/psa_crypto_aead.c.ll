@@ -107,11 +107,11 @@ define internal fastcc i32 @psa_aead_setup(ptr noundef %0, ptr nocapture noundef
   %9 = load i16, ptr %1, align 8
   %10 = call ptr @mbedtls_cipher_info_from_psa(i32 noundef %3, i16 noundef zeroext %9, i64 noundef %8, ptr noundef nonnull %5) #3
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %63, label %12
+  br i1 %11, label %62, label %12
 
 12:                                               ; preds = %4
   %13 = and i32 %3, -4161537
-  switch i32 %13, label %63 [
+  switch i32 %13, label %62 [
     i32 88080640, label %14
     i32 88080896, label %23
     i32 83887360, label %32
@@ -122,7 +122,7 @@ define internal fastcc i32 @psa_aead_setup(ptr noundef %0, ptr nocapture noundef
   %15 = load i16, ptr %1, align 8
   %16 = and i16 %15, 30464
   %.not55 = icmp eq i16 %16, 9216
-  br i1 %.not55, label %17, label %63
+  br i1 %.not55, label %17, label %62
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds i8, ptr %0, i64 8
@@ -132,14 +132,14 @@ define internal fastcc i32 @psa_aead_setup(ptr noundef %0, ptr nocapture noundef
   %21 = call i32 @mbedtls_ccm_setkey(ptr noundef nonnull %18, i32 noundef %19, ptr noundef %2, i32 noundef %20) #3
   %22 = call i32 @mbedtls_to_psa_error(i32 noundef %21) #3
   %.not56 = icmp eq i32 %22, 0
-  br i1 %.not56, label %37, label %63
+  br i1 %.not56, label %37, label %62
 
 23:                                               ; preds = %12
   store i32 89129472, ptr %0, align 8
   %24 = load i16, ptr %1, align 8
   %25 = and i16 %24, 30464
   %.not53 = icmp eq i16 %25, 9216
-  br i1 %.not53, label %26, label %63
+  br i1 %.not53, label %26, label %62
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds i8, ptr %0, i64 8
@@ -149,12 +149,12 @@ define internal fastcc i32 @psa_aead_setup(ptr noundef %0, ptr nocapture noundef
   %30 = call i32 @mbedtls_gcm_setkey(ptr noundef nonnull %27, i32 noundef %28, ptr noundef %2, i32 noundef %29) #3
   %31 = call i32 @mbedtls_to_psa_error(i32 noundef %30) #3
   %.not54 = icmp eq i32 %31, 0
-  br i1 %.not54, label %37, label %63
+  br i1 %.not54, label %37, label %62
 
 32:                                               ; preds = %12
   store i32 84935936, ptr %0, align 8
   %.not = icmp eq i32 %3, 84935936
-  br i1 %.not, label %33, label %63
+  br i1 %.not, label %33, label %62
 
 33:                                               ; preds = %32
   %34 = getelementptr inbounds i8, ptr %0, i64 8
@@ -162,7 +162,7 @@ define internal fastcc i32 @psa_aead_setup(ptr noundef %0, ptr nocapture noundef
   %35 = call i32 @mbedtls_chachapoly_setkey(ptr noundef nonnull %34, ptr noundef %2) #3
   %36 = call i32 @mbedtls_to_psa_error(i32 noundef %35) #3
   %.not52 = icmp eq i32 %36, 0
-  br i1 %.not52, label %37, label %63
+  br i1 %.not52, label %37, label %62
 
 37:                                               ; preds = %33, %26, %17
   %38 = load i16, ptr %1, align 8
@@ -181,24 +181,24 @@ define internal fastcc i32 @psa_aead_setup(ptr noundef %0, ptr nocapture noundef
   %.not59 = icmp eq i32 %13, 88080896
   %spec.select = or i1 %.not58, %.not59
   %48 = and i1 %spec.select, %46
-  br i1 %48, label %63, label %53
+  br i1 %48, label %62, label %53
 
 .thread:                                          ; preds = %37
   %49 = icmp eq i16 %38, 8196
   %.not57 = icmp eq i32 %13, 83887360
   %50 = and i1 %.not57, %49
   %51 = and i1 %46, %50
-  br i1 %51, label %63, label %.thread66
+  br i1 %51, label %62, label %.thread66
 
 .thread66:                                        ; preds = %.thread
   %52 = getelementptr inbounds i8, ptr %0, i64 4
   store i16 %38, ptr %52, align 4
-  br label %56
+  br label %._crit_edge
 
 53:                                               ; preds = %47
   %54 = getelementptr inbounds i8, ptr %0, i64 4
   store i16 %38, ptr %54, align 4
-  br i1 %41, label %55, label %56
+  br i1 %41, label %55, label %._crit_edge
 
 55:                                               ; preds = %53
   switch i32 %13, label %.thread68 [
@@ -206,28 +206,28 @@ define internal fastcc i32 @psa_aead_setup(ptr noundef %0, ptr nocapture noundef
     i32 88080896, label %.thread72
   ]
 
-56:                                               ; preds = %.thread66, %53
-  %57 = icmp eq i16 %38, 8196
-  br i1 %57, label %59, label %.thread68
+._crit_edge:                                      ; preds = %53, %.thread66
+  %56 = icmp eq i16 %38, 8196
+  %.not61.not = icmp eq i32 %13, 83887360
+  %57 = trunc nuw nsw i32 %45 to i8
+  %or.cond = and i1 %.not61.not, %56
+  br i1 %or.cond, label %59, label %.thread68
 
 .thread72:                                        ; preds = %55, %55
   %58 = trunc nuw nsw i32 %45 to i8
-  br label %.thread68
+  br label %59
 
-59:                                               ; preds = %56
-  %.not61.not = icmp eq i32 %13, 83887360
-  %60 = trunc nuw nsw i32 %45 to i8
-  %spec.select75 = select i1 %.not61.not, i8 %60, i8 0
-  br label %.thread68
+.thread68:                                        ; preds = %55, %._crit_edge
+  br label %59
 
-.thread68:                                        ; preds = %59, %55, %56, %.thread72
-  %61 = phi i8 [ %58, %.thread72 ], [ 0, %56 ], [ 0, %55 ], [ %spec.select75, %59 ]
-  %62 = getelementptr inbounds i8, ptr %0, i64 7
-  store i8 %61, ptr %62, align 1
-  br label %63
+59:                                               ; preds = %._crit_edge, %.thread72, %.thread68
+  %60 = phi i8 [ 0, %.thread68 ], [ %58, %.thread72 ], [ %57, %._crit_edge ]
+  %61 = getelementptr inbounds i8, ptr %0, i64 7
+  store i8 %60, ptr %61, align 1
+  br label %62
 
-63:                                               ; preds = %.thread, %47, %12, %33, %32, %26, %23, %17, %14, %4, %.thread68
-  %.049 = phi i32 [ 0, %.thread68 ], [ -134, %4 ], [ -135, %14 ], [ %22, %17 ], [ -135, %23 ], [ %31, %26 ], [ -134, %32 ], [ %36, %33 ], [ -134, %12 ], [ -135, %47 ], [ -135, %.thread ]
+62:                                               ; preds = %.thread, %47, %12, %33, %32, %26, %23, %17, %14, %4, %59
+  %.049 = phi i32 [ 0, %59 ], [ -134, %4 ], [ -135, %14 ], [ %22, %17 ], [ -135, %23 ], [ %31, %26 ], [ -134, %32 ], [ %36, %33 ], [ -134, %12 ], [ -135, %47 ], [ -135, %.thread ]
   ret i32 %.049
 }
 

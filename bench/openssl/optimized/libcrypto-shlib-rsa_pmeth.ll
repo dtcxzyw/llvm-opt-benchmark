@@ -817,7 +817,7 @@ entry:
   %call = tail call ptr @EVP_PKEY_get0_RSA(ptr noundef %1) #8
   %pad_mode1 = getelementptr inbounds i8, ptr %0, i64 28
   %2 = load i32, ptr %pad_mode1, align 4
-  switch i32 %2, label %if.end20 [
+  switch i32 %2, label %if.else18 [
     i32 4, label %if.then
     i32 1, label %land.lhs.true
   ]
@@ -863,11 +863,13 @@ land.lhs.true:                                    ; preds = %entry
   %implicit_rejection = getelementptr inbounds i8, ptr %0, i64 80
   %11 = load i32, ptr %implicit_rejection, align 8
   %cmp15 = icmp eq i32 %11, 0
-  %spec.select = select i1 %cmp15, i32 8, i32 1
+  br i1 %cmp15, label %if.end20, label %if.else18
+
+if.else18:                                        ; preds = %entry, %land.lhs.true
   br label %if.end20
 
-if.end20:                                         ; preds = %land.lhs.true, %entry
-  %pad_mode.0 = phi i32 [ %2, %entry ], [ %spec.select, %land.lhs.true ]
+if.end20:                                         ; preds = %land.lhs.true, %if.else18
+  %pad_mode.0 = phi i32 [ %2, %if.else18 ], [ 8, %land.lhs.true ]
   %conv21 = trunc i64 %inlen to i32
   %call22 = tail call i32 @RSA_private_decrypt(i32 noundef %conv21, ptr noundef %in, ptr noundef %out, ptr noundef %call, i32 noundef %pad_mode.0) #8
   br label %if.end23

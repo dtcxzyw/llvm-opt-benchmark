@@ -5059,12 +5059,12 @@ define dso_local void @update_slurmd_logging(i32 noundef %0) local_unnamed_addr 
   %28 = getelementptr inbounds i8, ptr %21, i64 4352
   %29 = load i32, ptr %28, align 8
   %.not17 = icmp eq i32 %29, 10
-  br i1 %.not17, label %30, label %38
+  br i1 %.not17, label %30, label %39
 
 30:                                               ; preds = %16
   %31 = load i8, ptr %25, align 8
   %32 = trunc i8 %31 to i1
-  br i1 %32, label %33, label %38
+  br i1 %32, label %33, label %39
 
 33:                                               ; preds = %30
   %34 = load i32, ptr %22, align 8
@@ -5075,31 +5075,33 @@ define dso_local void @update_slurmd_logging(i32 noundef %0) local_unnamed_addr 
   %36 = getelementptr inbounds i8, ptr %21, i64 4328
   %37 = load ptr, ptr %36, align 8
   %.not19 = icmp eq ptr %37, null
-  %spec.select = select i1 %.not19, i32 %34, i32 1
-  br label %38
+  br i1 %.not19, label %39, label %38
 
-38:                                               ; preds = %35, %33, %30, %16
-  %.sink21 = phi i32 [ %29, %16 ], [ 0, %30 ], [ 1, %33 ], [ %spec.select, %35 ]
-  %39 = getelementptr inbounds i8, ptr %3, i64 4392
-  store i32 %.sink21, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %21, i64 4388
-  %41 = getelementptr inbounds i8, ptr %21, i64 4328
-  %42 = load ptr, ptr %41, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %2, ptr noundef nonnull align 4 dereferenceable(20) %40, i64 20, i1 false)
-  %43 = tail call i32 @log_alter(ptr noundef nonnull byval(%struct.log_options_t) align 8 %2, i32 noundef 24, ptr noundef %42) #19
-  %44 = getelementptr inbounds i8, ptr %5, i64 600
-  %45 = load i16, ptr %44, align 8
-  %46 = zext i16 %45 to i32
-  tail call void @log_set_timefmt(i32 noundef %46) #19
-  %47 = tail call i32 @get_log_level() #19
-  %48 = icmp sgt i32 %47, 4
-  br i1 %48, label %49, label %50
+38:                                               ; preds = %35, %33
+  br label %39
 
-49:                                               ; preds = %38
+39:                                               ; preds = %35, %30, %16, %38
+  %.sink21 = phi i32 [ 1, %38 ], [ %29, %16 ], [ 0, %30 ], [ %34, %35 ]
+  %40 = getelementptr inbounds i8, ptr %3, i64 4392
+  store i32 %.sink21, ptr %40, align 4
+  %41 = getelementptr inbounds i8, ptr %21, i64 4388
+  %42 = getelementptr inbounds i8, ptr %21, i64 4328
+  %43 = load ptr, ptr %42, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %2, ptr noundef nonnull align 4 dereferenceable(20) %41, i64 20, i1 false)
+  %44 = tail call i32 @log_alter(ptr noundef nonnull byval(%struct.log_options_t) align 8 %2, i32 noundef 24, ptr noundef %43) #19
+  %45 = getelementptr inbounds i8, ptr %5, i64 600
+  %46 = load i16, ptr %45, align 8
+  %47 = zext i16 %46 to i32
+  tail call void @log_set_timefmt(i32 noundef %47) #19
+  %48 = tail call i32 @get_log_level() #19
+  %49 = icmp sgt i32 %48, 4
+  br i1 %49, label %50, label %51
+
+50:                                               ; preds = %39
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.34) #19
-  br label %50
+  br label %51
 
-50:                                               ; preds = %49, %38
+51:                                               ; preds = %50, %39
   ret void
 }
 

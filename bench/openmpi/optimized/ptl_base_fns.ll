@@ -2400,53 +2400,53 @@ send_connect_ack.exit.thread:                     ; preds = %construct_message.e
   %282 = load i32, ptr %17, align 4
   %283 = call i32 @getsockopt(i32 noundef %282, i32 noundef 1, i32 noundef 20, ptr noundef nonnull %7, ptr noundef nonnull %8) #20
   %.not.i.i36 = icmp eq i32 %283, 0
-  br i1 %.not.i.i36, label %pmix_ptl_base_set_timeout.exit.i, label %pmix_ptl_base_set_timeout.exit.thread.i
+  br i1 %.not.i.i36, label %284, label %pmix_ptl_base_set_timeout.exit.thread.i
 
-pmix_ptl_base_set_timeout.exit.i:                 ; preds = %281
-  %284 = load i32, ptr getelementptr inbounds (%struct.pmix_ptl_base_t, ptr @pmix_ptl_base, i64 0, i32 42), align 8
-  %285 = sext i32 %284 to i64
-  store i64 %285, ptr %6, align 8
+284:                                              ; preds = %281
+  %285 = load i32, ptr getelementptr inbounds (%struct.pmix_ptl_base_t, ptr @pmix_ptl_base, i64 0, i32 42), align 8
+  %286 = sext i32 %285 to i64
+  store i64 %286, ptr %6, align 8
   store i64 0, ptr %27, align 8
-  %286 = load i32, ptr %17, align 4
-  %287 = call i32 @setsockopt(i32 noundef %286, i32 noundef 1, i32 noundef 20, ptr noundef nonnull %6, i32 noundef 16) #20
-  %.not6.i.i = icmp eq i32 %287, 0
+  %287 = load i32, ptr %17, align 4
+  %288 = call i32 @setsockopt(i32 noundef %287, i32 noundef 1, i32 noundef 20, ptr noundef nonnull %6, i32 noundef 16) #20
+  %.not6.i.i = icmp eq i32 %288, 0
+  br i1 %.not6.i.i, label %pmix_ptl_base_set_timeout.exit.i, label %pmix_ptl_base_set_timeout.exit.thread.i
+
+pmix_ptl_base_set_timeout.exit.i:                 ; preds = %284
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  %288 = load i32, ptr %17, align 4
-  %289 = call i32 @pmix_ptl_base_recv_blocking(i32 noundef %288, ptr noundef nonnull %9, i64 noundef 4) #20
-  %.not.i = icmp eq i32 %289, 0
-  br i1 %.not.i, label %304, label %292
+  %289 = load i32, ptr %17, align 4
+  %290 = call i32 @pmix_ptl_base_recv_blocking(i32 noundef %289, ptr noundef nonnull %9, i64 noundef 4) #20
+  %.not.i = icmp eq i32 %290, 0
+  br i1 %.not.i, label %304, label %293
 
-pmix_ptl_base_set_timeout.exit.thread.i:          ; preds = %281
+pmix_ptl_base_set_timeout.exit.thread.i:          ; preds = %284, %281
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  %290 = load i32, ptr %17, align 4
-  %291 = call i32 @pmix_ptl_base_recv_blocking(i32 noundef %290, ptr noundef nonnull %9, i64 noundef 4) #20
-  %.not32.i = icmp eq i32 %291, 0
-  br i1 %.not32.i, label %304, label %recv_connect_ack.exit.thread
+  %291 = load i32, ptr %17, align 4
+  %292 = call i32 @pmix_ptl_base_recv_blocking(i32 noundef %291, ptr noundef nonnull %9, i64 noundef 4) #20
+  %.not32.i = icmp eq i32 %292, 0
+  br i1 %.not32.i, label %304, label %recv_connect_ack.exit.thread47
 
-292:                                              ; preds = %pmix_ptl_base_set_timeout.exit.i
-  br i1 %.not6.i.i, label %293, label %recv_connect_ack.exit.thread
-
-293:                                              ; preds = %292
+293:                                              ; preds = %pmix_ptl_base_set_timeout.exit.i
   %294 = load i32, ptr %17, align 4
   %295 = load i32, ptr %8, align 4
   %296 = call i32 @setsockopt(i32 noundef %294, i32 noundef 1, i32 noundef 20, ptr noundef nonnull %7, i32 noundef %295) #20
   %.not26.i = icmp eq i32 %296, 0
-  br i1 %.not26.i, label %recv_connect_ack.exit.thread, label %297
+  br i1 %.not26.i, label %recv_connect_ack.exit.thread47, label %297
 
 297:                                              ; preds = %293
   %298 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_ptl_base_framework, i64 0, i32 11), align 4
   %or.cond3.i = icmp ult i32 %298, 64
-  br i1 %or.cond3.i, label %299, label %recv_connect_ack.exit.thread
+  br i1 %or.cond3.i, label %299, label %recv_connect_ack.exit.thread47
 
 299:                                              ; preds = %297
   %300 = zext nneg i32 %298 to i64
   %301 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %300, i32 2
   %302 = load i32, ptr %301, align 4
   %303 = icmp sgt i32 %302, 1
-  br i1 %303, label %recv_connect_ack.exit, label %recv_connect_ack.exit.thread
+  br i1 %303, label %recv_connect_ack.exit, label %recv_connect_ack.exit.thread47
 
 304:                                              ; preds = %pmix_ptl_base_set_timeout.exit.thread.i, %pmix_ptl_base_set_timeout.exit.i
-  %.03033.i = phi i1 [ false, %pmix_ptl_base_set_timeout.exit.thread.i ], [ %.not6.i.i, %pmix_ptl_base_set_timeout.exit.i ]
+  %.03033.i = phi i1 [ false, %pmix_ptl_base_set_timeout.exit.thread.i ], [ true, %pmix_ptl_base_set_timeout.exit.i ]
   %305 = load i32, ptr %9, align 4
   %306 = call i32 @ntohl(i32 noundef %305) #22
   %307 = load ptr, ptr getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i64 0, i32 4), align 8
@@ -2511,26 +2511,26 @@ pmix_ptl_base_client_handshake.exit.i:            ; preds = %331, %328, %312, %3
   br label %336
 
 336:                                              ; preds = %334, %pmix_ptl_base_client_handshake.exit.i
-  br i1 %.03033.i, label %337, label %recv_connect_ack.exit.thread47
+  br i1 %.03033.i, label %337, label %recv_connect_ack.exit.thread
 
 337:                                              ; preds = %336
   %338 = load i32, ptr %17, align 4
   %339 = load i32, ptr %8, align 4
   %340 = call i32 @setsockopt(i32 noundef %338, i32 noundef 1, i32 noundef 20, ptr noundef nonnull %7, i32 noundef %339) #20
   %.not25.i = icmp eq i32 %340, 0
-  br i1 %.not25.i, label %recv_connect_ack.exit.thread47, label %341
+  br i1 %.not25.i, label %recv_connect_ack.exit.thread, label %341
 
 341:                                              ; preds = %337
   %342 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_ptl_base_framework, i64 0, i32 11), align 4
   %or.cond5.i = icmp ult i32 %342, 64
-  br i1 %or.cond5.i, label %343, label %recv_connect_ack.exit.thread47
+  br i1 %or.cond5.i, label %343, label %recv_connect_ack.exit.thread
 
 343:                                              ; preds = %341
   %344 = zext nneg i32 %342 to i64
   %345 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %344, i32 2
   %346 = load i32, ptr %345, align 4
   %347 = icmp sgt i32 %346, 1
-  br i1 %347, label %recv_connect_ack.exit.thread49, label %recv_connect_ack.exit.thread47
+  br i1 %347, label %recv_connect_ack.exit.thread49, label %recv_connect_ack.exit.thread
 
 recv_connect_ack.exit.thread49:                   ; preds = %343
   call void (i32, ptr, ...) @pmix_output(i32 noundef %342, ptr noundef nonnull @.str.62) #20
@@ -2539,18 +2539,18 @@ recv_connect_ack.exit.thread49:                   ; preds = %343
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   br label %.loopexit
 
-recv_connect_ack.exit.thread:                     ; preds = %292, %297, %299, %293, %pmix_ptl_base_set_timeout.exit.thread.i
-  %.ph = phi i32 [ %291, %pmix_ptl_base_set_timeout.exit.thread.i ], [ %289, %293 ], [ %289, %299 ], [ %289, %297 ], [ %289, %292 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  br label %348
-
-recv_connect_ack.exit.thread47:                   ; preds = %336, %341, %343, %337
+recv_connect_ack.exit.thread:                     ; preds = %336, %341, %343, %337
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   br label %.loopexit
+
+recv_connect_ack.exit.thread47:                   ; preds = %297, %299, %293, %pmix_ptl_base_set_timeout.exit.thread.i
+  %.ph = phi i32 [ %292, %pmix_ptl_base_set_timeout.exit.thread.i ], [ %290, %293 ], [ %290, %299 ], [ %290, %297 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  br label %348
 
 recv_connect_ack.exit:                            ; preds = %299
   call void (i32, ptr, ...) @pmix_output(i32 noundef %298, ptr noundef nonnull @.str.62) #20
@@ -2559,8 +2559,8 @@ recv_connect_ack.exit:                            ; preds = %299
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   br label %348
 
-348:                                              ; preds = %recv_connect_ack.exit, %recv_connect_ack.exit.thread
-  %349 = phi i32 [ %.ph, %recv_connect_ack.exit.thread ], [ %289, %recv_connect_ack.exit ]
+348:                                              ; preds = %recv_connect_ack.exit, %recv_connect_ack.exit.thread47
+  %349 = phi i32 [ %.ph, %recv_connect_ack.exit.thread47 ], [ %290, %recv_connect_ack.exit ]
   %350 = load i32, ptr %17, align 4
   %351 = icmp sgt i32 %350, -1
   br i1 %351, label %352, label %356
@@ -2582,8 +2582,8 @@ recv_connect_ack.exit:                            ; preds = %299
   %361 = icmp slt i32 %359, %360
   br i1 %361, label %29, label %.loopexit
 
-.loopexit:                                        ; preds = %356, %358, %29, %recv_connect_ack.exit.thread49, %recv_connect_ack.exit.thread47, %271, %268, %4
-  %.023 = phi i32 [ %16, %4 ], [ %.0.i39, %268 ], [ %.0.i39, %271 ], [ 0, %recv_connect_ack.exit.thread47 ], [ 0, %recv_connect_ack.exit.thread49 ], [ %349, %356 ], [ -1367, %358 ], [ %30, %29 ]
+.loopexit:                                        ; preds = %356, %358, %29, %recv_connect_ack.exit.thread49, %recv_connect_ack.exit.thread, %271, %268, %4
+  %.023 = phi i32 [ %16, %4 ], [ %.0.i39, %268 ], [ %.0.i39, %271 ], [ 0, %recv_connect_ack.exit.thread ], [ 0, %recv_connect_ack.exit.thread49 ], [ %349, %356 ], [ -1367, %358 ], [ %30, %29 ]
   ret i32 %.023
 }
 

@@ -502,7 +502,7 @@ declare void @strbuf_release(ptr noundef) local_unnamed_addr #1
 declare i32 @for_each_ref(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @add_info_ref(ptr noundef %path, ptr noundef %oid, i32 %flag, ptr noundef %cb_data) #0 {
+define internal noundef i32 @add_info_ref(ptr noundef %path, ptr noundef %oid, i32 %flag, ptr noundef %cb_data) #0 {
 entry:
   %0 = load ptr, ptr @the_repository, align 8
   %call = tail call ptr @parse_object(ptr noundef %0, ptr noundef %oid) #13
@@ -519,23 +519,26 @@ if.end4:                                          ; preds = %if.end
   %bf.load = load i32, ptr %call, align 4
   %1 = and i32 %bf.load, 14
   %cmp5 = icmp eq i32 %1, 8
-  br i1 %cmp5, label %if.then6, label %return
+  br i1 %cmp5, label %if.then6, label %if.end17
 
 if.then6:                                         ; preds = %if.end4
   %2 = load ptr, ptr @the_repository, align 8
   %call7 = tail call ptr @deref_tag(ptr noundef %2, ptr noundef nonnull %call, ptr noundef %path, i32 noundef 0) #13
   %tobool8.not = icmp eq ptr %call7, null
-  br i1 %tobool8.not, label %return, label %if.then9
+  br i1 %tobool8.not, label %if.end17, label %if.then9
 
 if.then9:                                         ; preds = %if.then6
   %oid10 = getelementptr inbounds i8, ptr %call7, i64 4
   %call11 = tail call ptr @oid_to_hex(ptr noundef nonnull %oid10) #13
   %call12 = tail call i32 (ptr, ptr, ...) @uic_printf(ptr noundef %cb_data, ptr noundef nonnull @.str.7, ptr noundef %call11, ptr noundef %path)
-  %call12.lobit = ashr i32 %call12, 31
+  %cmp13 = icmp slt i32 %call12, 0
+  br i1 %cmp13, label %return, label %if.end17
+
+if.end17:                                         ; preds = %if.then6, %if.then9, %if.end4
   br label %return
 
-return:                                           ; preds = %if.then9, %if.end4, %if.then6, %if.end, %entry
-  %retval.0 = phi i32 [ -1, %entry ], [ -1, %if.end ], [ 0, %if.then6 ], [ 0, %if.end4 ], [ %call12.lobit, %if.then9 ]
+return:                                           ; preds = %if.then9, %if.end, %entry, %if.end17
+  %retval.0 = phi i32 [ 0, %if.end17 ], [ -1, %entry ], [ -1, %if.end ], [ -1, %if.then9 ]
   ret i32 %retval.0
 }
 

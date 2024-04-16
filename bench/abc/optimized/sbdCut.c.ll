@@ -4381,60 +4381,60 @@ define i32 @Sbd_StoObjBestCut(ptr nocapture noundef readonly %0, i32 noundef %1,
 
 9:                                                ; preds = %.lr.ph, %Sbd_CutCompare2.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Sbd_CutCompare2.exit.thread ]
-  %.04558 = phi ptr [ null, %.lr.ph ], [ %.146, %Sbd_CutCompare2.exit.thread ]
+  %.04559 = phi ptr [ null, %.lr.ph ], [ %.146, %Sbd_CutCompare2.exit.thread ]
   %.phi.trans.insert = getelementptr inbounds [501 x ptr], ptr %8, i64 0, i64 %indvars.iv
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert69 = getelementptr inbounds i8, ptr %.pre, i64 20
-  %.pre70 = load i32, ptr %.phi.trans.insert69, align 4
-  %.pre71 = lshr i32 %.pre70, 28
-  %.not51 = icmp eq i32 %.pre71, %2
-  %or.cond73 = select i1 %.not, i1 true, i1 %.not51
-  br i1 %or.cond73, label %._crit_edge68, label %Sbd_CutCompare2.exit.thread
+  %.phi.trans.insert72 = getelementptr inbounds i8, ptr %.pre, i64 20
+  %.pre73 = load i32, ptr %.phi.trans.insert72, align 4
+  %.pre74 = lshr i32 %.pre73, 28
+  %.not51 = icmp eq i32 %.pre74, %2
+  %or.cond76 = select i1 %.not, i1 true, i1 %.not51
+  br i1 %or.cond76, label %._crit_edge71, label %Sbd_CutCompare2.exit.thread
 
-._crit_edge68:                                    ; preds = %9
+._crit_edge71:                                    ; preds = %9
   %10 = load i32, ptr %0, align 8
-  %11 = icmp sgt i32 %.pre71, %10
-  %12 = and i32 %.pre70, 261120
+  %11 = icmp sgt i32 %.pre74, %10
+  %12 = and i32 %.pre73, 261120
   %13 = icmp eq i32 %12, 0
   %or.cond = and i1 %11, %13
   br i1 %or.cond, label %14, label %Sbd_CutCompare2.exit.thread
 
-14:                                               ; preds = %._crit_edge68
-  %15 = lshr i32 %.pre70, 18
+14:                                               ; preds = %._crit_edge71
+  %15 = lshr i32 %.pre73, 18
   %16 = and i32 %15, 1023
   %.not52.not = icmp slt i32 %16, %10
   br i1 %.not52.not, label %17, label %Sbd_CutCompare2.exit.thread
 
 17:                                               ; preds = %14
-  %18 = icmp eq ptr %.04558, null
-  br i1 %18, label %Sbd_CutCompare2.exit.thread, label %19
+  %18 = icmp eq ptr %.04559, null
+  br i1 %18, label %Sbd_CutCompare2.exit.thread56, label %19
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %.04558, i64 20
+  %20 = getelementptr inbounds i8, ptr %.04559, i64 20
   %21 = load i32, ptr %20, align 4
   %22 = lshr i32 %21, 9
   %23 = and i32 %22, 511
-  %24 = lshr i32 %.pre70, 9
+  %24 = lshr i32 %.pre73, 9
   %25 = and i32 %24, 1
   %26 = icmp ult i32 %23, %25
   br i1 %26, label %Sbd_CutCompare2.exit.thread, label %27
 
 27:                                               ; preds = %19
   %28 = icmp ugt i32 %23, %25
-  br i1 %28, label %Sbd_CutCompare2.exit.thread, label %29
+  br i1 %28, label %Sbd_CutCompare2.exit.thread56, label %29
 
 29:                                               ; preds = %27
   %30 = and i32 %21, 511
-  %31 = and i32 %.pre70, 511
+  %31 = and i32 %.pre73, 511
   %32 = icmp ult i32 %30, %31
   br i1 %32, label %Sbd_CutCompare2.exit.thread, label %33
 
 33:                                               ; preds = %29
   %34 = icmp ugt i32 %30, %31
-  br i1 %34, label %Sbd_CutCompare2.exit.thread, label %35
+  br i1 %34, label %Sbd_CutCompare2.exit.thread56, label %35
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds i8, ptr %.04558, i64 12
+  %36 = getelementptr inbounds i8, ptr %.04559, i64 12
   %37 = load i32, ptr %36, align 4
   %38 = getelementptr inbounds i8, ptr %.pre, i64 12
   %39 = load i32, ptr %38, align 4
@@ -4443,10 +4443,10 @@ define i32 @Sbd_StoObjBestCut(ptr nocapture noundef readonly %0, i32 noundef %1,
 
 41:                                               ; preds = %35
   %42 = icmp sgt i32 %37, %39
-  br i1 %42, label %Sbd_CutCompare2.exit.thread, label %43
+  br i1 %42, label %Sbd_CutCompare2.exit.thread56, label %43
 
 43:                                               ; preds = %41
-  %44 = getelementptr inbounds i8, ptr %.04558, i64 16
+  %44 = getelementptr inbounds i8, ptr %.04559, i64 16
   %45 = load i32, ptr %44, align 8
   %46 = getelementptr inbounds i8, ptr %.pre, i64 16
   %47 = load i32, ptr %46, align 8
@@ -4455,54 +4455,50 @@ define i32 @Sbd_StoObjBestCut(ptr nocapture noundef readonly %0, i32 noundef %1,
 
 49:                                               ; preds = %43
   %50 = icmp sgt i32 %45, %47
-  br i1 %50, label %Sbd_CutCompare2.exit.thread, label %51
+  %51 = lshr i32 %21, 28
+  %52 = icmp ugt i32 %51, %.pre74
+  %or.cond65 = or i1 %50, %52
+  br i1 %or.cond65, label %Sbd_CutCompare2.exit.thread56, label %Sbd_CutCompare2.exit.thread
 
-51:                                               ; preds = %49
-  %52 = lshr i32 %21, 28
-  %53 = icmp ult i32 %52, %.pre71
-  br i1 %53, label %Sbd_CutCompare2.exit.thread, label %Sbd_CutCompare2.exit
-
-Sbd_CutCompare2.exit:                             ; preds = %51
-  %54 = icmp ugt i32 %52, %.pre71
-  %spec.select = select i1 %54, ptr %.pre, ptr %.04558
+Sbd_CutCompare2.exit.thread56:                    ; preds = %49, %41, %33, %27, %17
   br label %Sbd_CutCompare2.exit.thread
 
-Sbd_CutCompare2.exit.thread:                      ; preds = %9, %Sbd_CutCompare2.exit, %49, %41, %33, %27, %51, %43, %35, %29, %19, %17, %._crit_edge68, %14
-  %.146 = phi ptr [ %.04558, %14 ], [ %.04558, %._crit_edge68 ], [ %.pre, %17 ], [ %.04558, %19 ], [ %.04558, %29 ], [ %.04558, %35 ], [ %.04558, %43 ], [ %.04558, %51 ], [ %.pre, %27 ], [ %.pre, %33 ], [ %.pre, %41 ], [ %.pre, %49 ], [ %spec.select, %Sbd_CutCompare2.exit ], [ %.04558, %9 ]
+Sbd_CutCompare2.exit.thread:                      ; preds = %9, %49, %43, %35, %29, %19, %._crit_edge71, %14, %Sbd_CutCompare2.exit.thread56
+  %.146 = phi ptr [ %.pre, %Sbd_CutCompare2.exit.thread56 ], [ %.04559, %14 ], [ %.04559, %._crit_edge71 ], [ %.04559, %19 ], [ %.04559, %29 ], [ %.04559, %35 ], [ %.04559, %43 ], [ %.04559, %49 ], [ %.04559, %9 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %Sbd_CutCompare2.exit.thread
-  %55 = icmp eq ptr %.146, null
-  br i1 %55, label %.loopexit, label %.preheader
+  %53 = icmp eq ptr %.146, null
+  br i1 %53, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge
-  %56 = getelementptr inbounds i8, ptr %.146, i64 20
-  %57 = load i32, ptr %56, align 4
-  %58 = lshr i32 %57, 28
-  %.not63 = icmp ult i32 %57, 268435456
-  br i1 %.not63, label %.loopexit, label %.lr.ph61
+  %54 = getelementptr inbounds i8, ptr %.146, i64 20
+  %55 = load i32, ptr %54, align 4
+  %56 = lshr i32 %55, 28
+  %.not66 = icmp ult i32 %55, 268435456
+  br i1 %.not66, label %.loopexit, label %.lr.ph62
 
-.lr.ph61:                                         ; preds = %.preheader
-  %59 = getelementptr inbounds i8, ptr %.146, i64 24
-  br label %60
+.lr.ph62:                                         ; preds = %.preheader
+  %57 = getelementptr inbounds i8, ptr %.146, i64 24
+  br label %58
 
-60:                                               ; preds = %.lr.ph61, %60
-  %indvars.iv65 = phi i64 [ 0, %.lr.ph61 ], [ %indvars.iv.next66, %60 ]
-  %61 = getelementptr inbounds [10 x i32], ptr %59, i64 0, i64 %indvars.iv65
-  %62 = load i32, ptr %61, align 4
-  %63 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv65
-  store i32 %62, ptr %63, align 4
-  %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
-  %64 = load i32, ptr %56, align 4
-  %65 = lshr i32 %64, 28
-  %66 = zext nneg i32 %65 to i64
-  %67 = icmp ult i64 %indvars.iv.next66, %66
-  br i1 %67, label %60, label %.loopexit, !llvm.loop !56
+58:                                               ; preds = %.lr.ph62, %58
+  %indvars.iv68 = phi i64 [ 0, %.lr.ph62 ], [ %indvars.iv.next69, %58 ]
+  %59 = getelementptr inbounds [10 x i32], ptr %57, i64 0, i64 %indvars.iv68
+  %60 = load i32, ptr %59, align 4
+  %61 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv68
+  store i32 %60, ptr %61, align 4
+  %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
+  %62 = load i32, ptr %54, align 4
+  %63 = lshr i32 %62, 28
+  %64 = zext nneg i32 %63 to i64
+  %65 = icmp ult i64 %indvars.iv.next69, %64
+  br i1 %65, label %58, label %.loopexit, !llvm.loop !56
 
-.loopexit:                                        ; preds = %60, %4, %.preheader, %._crit_edge
-  %.047 = phi i32 [ -1, %._crit_edge ], [ %58, %.preheader ], [ -1, %4 ], [ %65, %60 ]
+.loopexit:                                        ; preds = %58, %4, %.preheader, %._crit_edge
+  %.047 = phi i32 [ -1, %._crit_edge ], [ %56, %.preheader ], [ -1, %4 ], [ %63, %58 ]
   ret i32 %.047
 }
 

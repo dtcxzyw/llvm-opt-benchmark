@@ -922,20 +922,20 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   store i8 %xor8.i.i.i.i, ptr %arrayidx2.i.i.i.i, align 1
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %wide.trip.count.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i, label %ctr_BCC_final.exit.i, label %for.body.i.i.i.i, !llvm.loop !15
+  br i1 %exitcond.not.i.i.i.i, label %ctr_BCC_blocks.exit.i.i, label %for.body.i.i.i.i, !llvm.loop !15
 
-ctr_BCC_final.exit.i:                             ; preds = %for.body.i.i.i.i
+ctr_BCC_blocks.exit.i.i:                          ; preds = %for.body.i.i.i.i
   %18 = load ptr, ptr %ctx_df.i.i.i, align 8
   %call.i.i.i.i = call i32 @EVP_CipherUpdate(ptr noundef %18, ptr noundef nonnull %KX.i.i, ptr noundef nonnull %outlen.i.i.i.i, ptr noundef nonnull %KX.i.i, i32 noundef %num_of_blk.0.i.i.i) #7
   %tobool.not.i.i.i.i = icmp eq i32 %call.i.i.i.i, 0
   %19 = load i32, ptr %outlen.i.i.i.i, align 4
   %cmp5.not.i.i.i.i = icmp ne i32 %19, %num_of_blk.0.i.i.i
-  %or.cond.i.i.not.not.i.not.i = select i1 %tobool.not.i.i.i.i, i1 true, i1 %cmp5.not.i.i.i.i
+  %or.cond.i.i.not.i.i = select i1 %tobool.not.i.i.i.i, i1 true, i1 %cmp5.not.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %outlen.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %in_tmp.i.i.i)
-  br i1 %or.cond.i.i.not.not.i.not.i, label %ctr_df.exit.thread, label %if.end41.i
+  br i1 %or.cond.i.i.not.i.i, label %ctr_df.exit.thread, label %if.end41.i
 
-if.end41.i:                                       ; preds = %ctr_BCC_final.exit.i, %lor.lhs.false37.i
+if.end41.i:                                       ; preds = %ctr_BCC_blocks.exit.i.i, %lor.lhs.false37.i
   %20 = load ptr, ptr %0, align 8
   %call43.i = call i32 @EVP_CipherInit_ex(ptr noundef %20, ptr noundef null, ptr noundef null, ptr noundef nonnull %KX.i.i, ptr noundef null, i32 noundef -1) #7
   %tobool44.not.i = icmp eq i32 %call43.i, 0
@@ -965,28 +965,27 @@ if.end59.i:                                       ; preds = %if.end46.i
 if.end72.i:                                       ; preds = %if.end59.i
   %26 = load i64, ptr %keylen, align 8
   %cmp74.not.i = icmp eq i64 %26, 16
-  br i1 %cmp74.not.i, label %ctr_df.exit.thread120, label %ctr_df.exit
+  br i1 %cmp74.not.i, label %ctr_df.exit, label %if.then76.i
 
-ctr_df.exit.thread120:                            ; preds = %if.end72.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %outlen.i)
-  br label %if.end39
-
-ctr_df.exit.thread:                               ; preds = %ctr_BCC_init.exit.i, %ctr_BCC_final.exit.i, %lor.lhs.false34.i, %lor.lhs.false31.i, %lor.lhs.false.i, %if.end.i, %if.end41.i, %if.end46.i, %if.end59.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %outlen.i)
-  br label %return
-
-ctr_df.exit:                                      ; preds = %if.end72.i
+if.then76.i:                                      ; preds = %if.end72.i
   %27 = load ptr, ptr %0, align 8
   %add.ptr80.i = getelementptr inbounds i8, ptr %0, i64 160
   %call84.i = call i32 @EVP_CipherUpdate(ptr noundef %27, ptr noundef nonnull %add.ptr80.i, ptr noundef nonnull %outlen.i, ptr noundef nonnull %add.ptr63.i, i32 noundef 16) #7
   %tobool85.i = icmp eq i32 %call84.i, 0
   %28 = load i32, ptr %outlen.i, align 4
   %cmp87.i = icmp ne i32 %28, 16
-  %or.cond2.not.i.not = select i1 %tobool85.i, i1 true, i1 %cmp87.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %outlen.i)
-  br i1 %or.cond2.not.i.not, label %return, label %if.end39
+  %or.cond2.i = select i1 %tobool85.i, i1 true, i1 %cmp87.i
+  br i1 %or.cond2.i, label %ctr_df.exit.thread, label %ctr_df.exit
 
-if.end39:                                         ; preds = %ctr_df.exit.thread120, %ctr_df.exit, %if.then25
+ctr_df.exit.thread:                               ; preds = %ctr_BCC_init.exit.i, %lor.lhs.false34.i, %lor.lhs.false31.i, %lor.lhs.false.i, %if.end.i, %if.end41.i, %if.end46.i, %if.end59.i, %if.then76.i, %ctr_BCC_blocks.exit.i.i
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %outlen.i)
+  br label %return
+
+ctr_df.exit:                                      ; preds = %if.end72.i, %if.then76.i
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %outlen.i)
+  br label %if.end39
+
+if.end39:                                         ; preds = %ctr_df.exit, %if.then25
   %tobool40.not = icmp eq i64 %in1len, 0
   br i1 %tobool40.not, label %if.end45, label %if.then41
 
@@ -1160,8 +1159,8 @@ lor.lhs.false51:                                  ; preds = %if.end45
   %spec.select = zext i1 %tobool55.not to i32
   br label %return
 
-return:                                           ; preds = %ctr_df.exit.thread, %lor.lhs.false51, %if.end45, %ctr_df.exit, %if.end
-  %retval.0 = phi i32 [ 0, %if.end ], [ 0, %ctr_df.exit ], [ 0, %if.end45 ], [ %spec.select, %lor.lhs.false51 ], [ 0, %ctr_df.exit.thread ]
+return:                                           ; preds = %ctr_df.exit.thread, %lor.lhs.false51, %if.end45, %if.end
+  %retval.0 = phi i32 [ 0, %if.end ], [ 0, %if.end45 ], [ %spec.select, %lor.lhs.false51 ], [ 0, %ctr_df.exit.thread ]
   ret i32 %retval.0
 }
 

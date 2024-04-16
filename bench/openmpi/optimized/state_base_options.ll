@@ -281,7 +281,7 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %.lr.ph124, %99, %10
   br label %115
 
 115:                                              ; preds = %.lr.ph122, %.loopexit119
-  %116 = phi ptr [ %112, %.lr.ph122 ], [ %379, %.loopexit119 ]
+  %116 = phi ptr [ %112, %.lr.ph122 ], [ %380, %.loopexit119 ]
   %117 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %116, i32 noundef 61) #7
   %.not110 = icmp eq ptr %117, null
   br i1 %.not110, label %128, label %118
@@ -300,7 +300,7 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %.lr.ph124, %99, %10
   %126 = load ptr, ptr %125, align 8
   %127 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1, ptr noundef nonnull @.str.2, ptr noundef %126, ptr noundef nonnull @.str.3) #6
   call void @PMIx_Argv_free(ptr noundef nonnull %111) #6
-  br label %388
+  br label %389
 
 128:                                              ; preds = %118, %115
   %.099 = phi ptr [ %119, %118 ], [ null, %115 ]
@@ -444,7 +444,7 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %.lr.ph124, %99, %10
   %225 = load ptr, ptr %224, align 8
   %226 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1, ptr noundef nonnull @.str.2, ptr noundef %225, ptr noundef nonnull @.str.3) #6
   call void @PMIx_Argv_free(ptr noundef nonnull %111) #6
-  br label %388
+  br label %389
 
 227:                                              ; preds = %218
   %228 = call i64 @strtol(ptr nocapture noundef nonnull %.099, ptr noundef null, i32 noundef 10) #6
@@ -668,7 +668,7 @@ pmix_pointer_array_get_item.exit116.thread:       ; preds = %.lr.ph, %pmix_point
   %363 = getelementptr inbounds ptr, ptr %111, i64 %362
   %364 = load ptr, ptr %363, align 8
   %365 = call fastcc zeroext i1 @pmix_check_cli_option(ptr noundef %364, ptr noundef nonnull @.str.24)
-  br i1 %365, label %366, label %373
+  br i1 %365, label %366, label %374
 
 366:                                              ; preds = %360
   %367 = icmp eq ptr %.099, null
@@ -677,26 +677,28 @@ pmix_pointer_array_get_item.exit116.thread:       ; preds = %.lr.ph, %pmix_point
 368:                                              ; preds = %366
   %369 = load i8, ptr %.099, align 1
   %370 = icmp eq i8 %369, 0
-  %spec.select = select i1 %370, ptr @.str.25, ptr %.099
-  br label %371
+  br i1 %370, label %371, label %372
 
 371:                                              ; preds = %368, %366
-  %.1 = phi ptr [ @.str.25, %366 ], [ %spec.select, %368 ]
-  %372 = call i32 @prte_set_attribute(ptr noundef nonnull %113, i16 noundef zeroext 308, i1 noundef zeroext false, ptr noundef nonnull %.1, i16 noundef zeroext 3) #6
+  br label %372
+
+372:                                              ; preds = %371, %368
+  %.1 = phi ptr [ @.str.25, %371 ], [ %.099, %368 ]
+  %373 = call i32 @prte_set_attribute(ptr noundef nonnull %113, i16 noundef zeroext 308, i1 noundef zeroext false, ptr noundef nonnull %.1, i16 noundef zeroext 3) #6
   br label %.loopexit119
 
-373:                                              ; preds = %360
-  %374 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str, ptr noundef nonnull @.str.26, i32 noundef 1, ptr noundef nonnull @.str.2, ptr noundef nonnull %1) #6
-  br label %388
+374:                                              ; preds = %360
+  %375 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str, ptr noundef nonnull @.str.26, i32 noundef 1, ptr noundef nonnull @.str.2, ptr noundef nonnull %1) #6
+  br label %389
 
-.loopexit119:                                     ; preds = %pmix_pointer_array_get_item.exit116.thread, %227, %135, %163, %185, %207, %257, %278, %276, %308, %304, %324, %344, %371, %355, %333, %315, %289, %293, %265, %196, %174, %146, %153
-  %375 = load i32, ptr %3, align 4
-  %376 = add nsw i32 %375, 1
-  store i32 %376, ptr %3, align 4
-  %377 = sext i32 %376 to i64
-  %378 = getelementptr inbounds ptr, ptr %111, i64 %377
-  %379 = load ptr, ptr %378, align 8
-  %.not109 = icmp eq ptr %379, null
+.loopexit119:                                     ; preds = %pmix_pointer_array_get_item.exit116.thread, %227, %135, %163, %185, %207, %257, %278, %276, %308, %304, %324, %344, %372, %355, %333, %315, %289, %293, %265, %196, %174, %146, %153
+  %376 = load i32, ptr %3, align 4
+  %377 = add nsw i32 %376, 1
+  store i32 %377, ptr %3, align 4
+  %378 = sext i32 %377 to i64
+  %379 = getelementptr inbounds ptr, ptr %111, i64 %378
+  %380 = load ptr, ptr %379, align 8
+  %.not109 = icmp eq ptr %380, null
   br i1 %.not109, label %._crit_edge, label %115, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.loopexit119, %110
@@ -704,24 +706,24 @@ pmix_pointer_array_get_item.exit116.thread:       ; preds = %.lr.ph, %pmix_point
   br label %.loopexit
 
 .loopexit:                                        ; preds = %pmix_pointer_array_get_item.exit.thread, %.preheader, %83, %._crit_edge
-  %380 = getelementptr inbounds i8, ptr %0, i64 784
-  %381 = call zeroext i1 @prte_get_attribute(ptr noundef nonnull %380, i16 noundef zeroext 306, ptr noundef null, i16 noundef zeroext 1) #6
-  br i1 %381, label %382, label %388
+  %381 = getelementptr inbounds i8, ptr %0, i64 784
+  %382 = call zeroext i1 @prte_get_attribute(ptr noundef nonnull %381, i16 noundef zeroext 306, ptr noundef null, i16 noundef zeroext 1) #6
+  br i1 %382, label %383, label %389
 
-382:                                              ; preds = %.loopexit
-  %383 = call zeroext i1 @prte_get_attribute(ptr noundef nonnull %380, i16 noundef zeroext 305, ptr noundef null, i16 noundef zeroext 1) #6
-  br i1 %383, label %388, label %384
+383:                                              ; preds = %.loopexit
+  %384 = call zeroext i1 @prte_get_attribute(ptr noundef nonnull %381, i16 noundef zeroext 305, ptr noundef null, i16 noundef zeroext 1) #6
+  br i1 %384, label %389, label %385
 
-384:                                              ; preds = %382
-  %385 = call zeroext i1 @prte_get_attribute(ptr noundef nonnull %380, i16 noundef zeroext 219, ptr noundef null, i16 noundef zeroext 1) #6
-  br i1 %385, label %388, label %386
+385:                                              ; preds = %383
+  %386 = call zeroext i1 @prte_get_attribute(ptr noundef nonnull %381, i16 noundef zeroext 219, ptr noundef null, i16 noundef zeroext 1) #6
+  br i1 %386, label %389, label %387
 
-386:                                              ; preds = %384
-  %387 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, i32 noundef 1) #6
-  br label %388
+387:                                              ; preds = %385
+  %388 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, i32 noundef 1) #6
+  br label %389
 
-388:                                              ; preds = %.loopexit, %382, %384, %386, %373, %221, %122
-  %.0 = phi i32 [ -43, %386 ], [ -5, %122 ], [ -5, %221 ], [ -43, %373 ], [ 0, %384 ], [ 0, %382 ], [ 0, %.loopexit ]
+389:                                              ; preds = %.loopexit, %383, %385, %387, %374, %221, %122
+  %.0 = phi i32 [ -43, %387 ], [ -5, %122 ], [ -5, %221 ], [ -43, %374 ], [ 0, %385 ], [ 0, %383 ], [ 0, %.loopexit ]
   ret i32 %.0
 }
 

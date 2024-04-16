@@ -14,12 +14,12 @@ target triple = "x86_64-pc-linux-gnu"
 @pmix_none_module = external global %struct.pmix_psec_module_t, align 8
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @component_open() #0 {
+define internal noundef i32 @component_open() #0 {
   %1 = alloca ptr, align 8
   store ptr null, ptr %1, align 8
   %2 = tail call i32 @pmix_mca_base_var_find(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef null, ptr noundef null) #5
   %3 = icmp slt i32 %2, 0
-  br i1 %3, label %13, label %4
+  br i1 %3, label %14, label %4
 
 4:                                                ; preds = %0
   %5 = call i32 @pmix_mca_base_var_get_value(i32 noundef %2, ptr noundef nonnull %1, ptr noundef null, ptr noundef null) #5
@@ -40,11 +40,13 @@ define internal i32 @component_open() #0 {
 11:                                               ; preds = %9
   %12 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) @.str.2) #6
   %.not7 = icmp eq ptr %12, null
-  %spec.select = sext i1 %.not7 to i32
-  br label %13
+  br i1 %.not7, label %13, label %14
 
-13:                                               ; preds = %11, %4, %7, %9, %0
-  %.0 = phi i32 [ -1, %0 ], [ -1, %9 ], [ -1, %7 ], [ -1, %4 ], [ %spec.select, %11 ]
+13:                                               ; preds = %11, %9, %7, %4
+  br label %14
+
+14:                                               ; preds = %11, %0, %13
+  %.0 = phi i32 [ -1, %13 ], [ -1, %0 ], [ 0, %11 ]
   ret i32 %.0
 }
 

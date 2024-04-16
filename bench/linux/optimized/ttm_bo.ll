@@ -1384,7 +1384,7 @@ define dso_local i32 @ttm_bo_validate(ptr noundef %0, ptr noundef %1, ptr nounde
 
 14:                                               ; preds = %10
   %15 = tail call i32 @ttm_bo_pipeline_gutting(ptr noundef %0) #6
-  br label %54
+  br label %56
 
 16:                                               ; preds = %10, %3
   %17 = getelementptr inbounds i8, ptr %0, i64 384
@@ -1394,13 +1394,13 @@ define dso_local i32 @ttm_bo_validate(ptr noundef %0, ptr noundef %1, ptr nounde
 
 20:                                               ; preds = %16
   %21 = tail call zeroext i1 @ttm_resource_compat(ptr noundef nonnull %18, ptr noundef %1) #6
-  br i1 %21, label %54, label %22
+  br i1 %21, label %56, label %22
 
 22:                                               ; preds = %20, %16
   %23 = getelementptr inbounds i8, ptr %0, i64 420
   %24 = load i32, ptr %23, align 4
   %25 = icmp eq i32 %24, 0
-  br i1 %25, label %26, label %54
+  br i1 %25, label %26, label %56
 
 26:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
@@ -1409,12 +1409,12 @@ define dso_local i32 @ttm_bo_validate(ptr noundef %0, ptr noundef %1, ptr nounde
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, i8 0, i64 16, i1 false), !annotation !20
   %27 = call i32 @ttm_bo_mem_space(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %6, ptr noundef %2)
   %28 = icmp eq i32 %27, 0
-  br i1 %28, label %29, label %.thread11
+  br i1 %28, label %29, label %.thread12
 
-.thread11:                                        ; preds = %26
+.thread12:                                        ; preds = %26
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
-  br label %54
+  br label %56
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds i8, ptr %4, i64 16
@@ -1427,7 +1427,7 @@ define dso_local i32 @ttm_bo_validate(ptr noundef %0, ptr noundef %1, ptr nounde
   %35 = call fastcc i32 @ttm_bo_handle_move_mem(ptr noundef %0, ptr noundef %34, i1 noundef zeroext false, ptr noundef %2, ptr noundef nonnull %7)
   switch i32 %35, label %47 [
     i32 -72, label %36
-    i32 0, label %.thread10
+    i32 0, label %.thread11
   ]
 
 36:                                               ; preds = %33
@@ -1441,7 +1441,7 @@ define dso_local i32 @ttm_bo_validate(ptr noundef %0, ptr noundef %1, ptr nounde
   store ptr %7, ptr %32, align 8
   %37 = call i32 @ttm_bo_mem_space(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %2)
   %38 = icmp eq i32 %37, 0
-  br i1 %38, label %39, label %.thread12
+  br i1 %38, label %39, label %.thread13
 
 39:                                               ; preds = %36
   %40 = load ptr, ptr %5, align 8
@@ -1451,23 +1451,23 @@ define dso_local i32 @ttm_bo_validate(ptr noundef %0, ptr noundef %1, ptr nounde
 
 43:                                               ; preds = %39
   call void @ttm_resource_free(ptr noundef %0, ptr noundef nonnull %5) #6
-  br label %.thread12
+  br label %.thread13
 
-.thread12:                                        ; preds = %36, %43
+.thread13:                                        ; preds = %36, %43
   %.ph = phi i32 [ %41, %43 ], [ %37, %36 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #6
   call void @ttm_resource_free(ptr noundef %0, ptr noundef nonnull %6) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
-  br label %54
+  br label %56
 
 44:                                               ; preds = %39
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #6
   br label %33
 
-.thread10:                                        ; preds = %33
+.thread11:                                        ; preds = %33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
   %45 = load ptr, ptr %17, align 8
@@ -1478,21 +1478,25 @@ define dso_local i32 @ttm_bo_validate(ptr noundef %0, ptr noundef %1, ptr nounde
   call void @ttm_resource_free(ptr noundef %0, ptr noundef nonnull %6) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
-  br label %54
+  br label %56
 
-48:                                               ; preds = %.thread10
+48:                                               ; preds = %.thread11
   %49 = getelementptr inbounds i8, ptr %45, i64 16
   %50 = load i32, ptr %49, align 8
   %51 = icmp eq i32 %50, 0
-  br i1 %51, label %52, label %54
+  br i1 %51, label %52, label %55
 
-52:                                               ; preds = %48, %.thread10
+52:                                               ; preds = %48, %.thread11
   %53 = call i32 @ttm_tt_create(ptr noundef %0, i1 noundef zeroext true) #6
-  br label %54
+  %54 = icmp eq i32 %53, 0
+  br i1 %54, label %55, label %56
 
-54:                                               ; preds = %47, %.thread12, %.thread11, %52, %48, %22, %20, %14
-  %55 = phi i32 [ %15, %14 ], [ 0, %20 ], [ -22, %22 ], [ %35, %47 ], [ 0, %48 ], [ %53, %52 ], [ %27, %.thread11 ], [ %.ph, %.thread12 ]
-  ret i32 %55
+55:                                               ; preds = %52, %48
+  br label %56
+
+56:                                               ; preds = %47, %.thread13, %.thread12, %55, %52, %22, %20, %14
+  %57 = phi i32 [ 0, %55 ], [ %15, %14 ], [ 0, %20 ], [ -22, %22 ], [ %35, %47 ], [ %53, %52 ], [ %27, %.thread12 ], [ %.ph, %.thread13 ]
+  ret i32 %57
 }
 
 ; Function Attrs: null_pointer_is_valid

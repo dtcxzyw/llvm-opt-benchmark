@@ -102,7 +102,7 @@ if.then:                                          ; preds = %entry
   %r.sroa.0.0.copyload = load ptr, ptr %arrayidx.i.i.i.i, align 8
   %5 = load ptr, ptr %this, align 8
   %call3 = tail call noundef zeroext i1 @_ZNK11ast_manager9are_equalEP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %5, ptr noundef %r.sroa.0.0.copyload, ptr noundef %e)
-  br label %return
+  br i1 %call3, label %if.end6, label %return
 
 if.else:                                          ; preds = %entry
   %m_vars.i.i = getelementptr inbounds i8, ptr %0, i64 32
@@ -188,10 +188,13 @@ _ZN12substitution6insertEP3varjRK11expr_offset.exit: ; preds = %lor.lhs.false.i.
   store i32 %22, ptr %m_timestamp2.i.i.i11, align 8
   %m_state.i.i = getelementptr inbounds i8, ptr %0, i64 120
   store i32 2, ptr %m_state.i.i, align 8
+  br label %if.end6
+
+if.end6:                                          ; preds = %if.then, %_ZN12substitution6insertEP3varjRK11expr_offset.exit
   br label %return
 
-return:                                           ; preds = %if.then, %_ZN12substitution6insertEP3varjRK11expr_offset.exit
-  %retval.0 = phi i1 [ true, %_ZN12substitution6insertEP3varjRK11expr_offset.exit ], [ %call3, %if.then ]
+return:                                           ; preds = %if.then, %if.end6
+  %retval.0 = phi i1 [ true, %if.end6 ], [ false, %if.then ]
   ret i1 %retval.0
 }
 

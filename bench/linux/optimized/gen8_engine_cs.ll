@@ -224,7 +224,7 @@ define dso_local i32 @gen11_emit_flush_rcs(ptr noundef %0, i32 noundef %1) local
 .thread:                                          ; preds = %6
   %9 = ptrtoint ptr %7 to i64
   %10 = trunc i64 %9 to i32
-  br label %28
+  br label %27
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds i8, ptr %7, i64 12
@@ -239,31 +239,31 @@ define dso_local i32 @gen11_emit_flush_rcs(ptr noundef %0, i32 noundef %1) local
 15:                                               ; preds = %11, %2
   %16 = and i64 %3, 1
   %17 = icmp eq i64 %16, 0
-  br i1 %17, label %28, label %18
+  br i1 %17, label %27, label %18
 
 18:                                               ; preds = %15
   %19 = tail call ptr @intel_ring_begin(ptr noundef %0, i32 noundef 6) #5
   %20 = icmp ugt ptr %19, inttoptr (i64 -4096 to ptr)
-  br i1 %20, label %21, label %24
+  br i1 %20, label %.thread3, label %23
 
-21:                                               ; preds = %18
-  %22 = ptrtoint ptr %19 to i64
-  %23 = trunc i64 %22 to i32
-  br label %28
+.thread3:                                         ; preds = %18
+  %21 = ptrtoint ptr %19 to i64
+  %22 = trunc i64 %21 to i32
+  br label %27
 
-24:                                               ; preds = %18
-  %25 = getelementptr inbounds i8, ptr %19, i64 12
-  tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(24) %25, i8 0, i64 12, i1 false)
+23:                                               ; preds = %18
+  %24 = getelementptr inbounds i8, ptr %19, i64 12
+  tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(24) %24, i8 0, i64 12, i1 false)
   store i32 2046820356, ptr %19, align 4
-  %26 = getelementptr i8, ptr %19, i64 4
-  store i32 540298268, ptr %26, align 4
-  %27 = getelementptr i8, ptr %19, i64 8
-  store i32 208, ptr %27, align 4
-  br label %28
+  %25 = getelementptr i8, ptr %19, i64 4
+  store i32 540298268, ptr %25, align 4
+  %26 = getelementptr i8, ptr %19, i64 8
+  store i32 208, ptr %26, align 4
+  br label %27
 
-28:                                               ; preds = %.thread, %21, %24, %15
-  %29 = phi i32 [ 0, %15 ], [ %23, %21 ], [ 0, %24 ], [ %10, %.thread ]
-  ret i32 %29
+27:                                               ; preds = %15, %23, %.thread3, %.thread
+  %28 = phi i32 [ %10, %.thread ], [ %22, %.thread3 ], [ 0, %23 ], [ 0, %15 ]
+  ret i32 %28
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
@@ -413,7 +413,7 @@ define dso_local i32 @gen12_emit_flush_rcs(ptr noundef %0, i32 noundef %1) local
   %45 = load i32, ptr %44, align 4
   %46 = and i32 %45, 2048
   %47 = icmp eq i32 %46, 0
-  br i1 %47, label %.thread11, label %48
+  br i1 %47, label %.thread10, label %48
 
 48:                                               ; preds = %41, %29
   %49 = tail call ptr @intel_ring_begin(ptr noundef %0, i32 noundef 6) #5
@@ -428,15 +428,15 @@ define dso_local i32 @gen12_emit_flush_rcs(ptr noundef %0, i32 noundef %1) local
   store i32 1, ptr %53, align 4
   %54 = getelementptr i8, ptr %49, i64 8
   store i32 208, ptr %54, align 4
-  br label %.thread11
+  br label %.thread10
 
 55:                                               ; preds = %48
   %56 = ptrtoint ptr %49 to i64
   %57 = trunc i64 %56 to i32
   %58 = icmp eq i32 %57, 0
-  br i1 %58, label %.thread11, label %.thread13
+  br i1 %58, label %.thread10, label %.thread12
 
-.thread11:                                        ; preds = %51, %41, %55
+.thread10:                                        ; preds = %41, %51, %55
   %59 = getelementptr inbounds i8, ptr %0, i64 72
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 7176
@@ -460,11 +460,11 @@ define dso_local i32 @gen12_emit_flush_rcs(ptr noundef %0, i32 noundef %1) local
   %79 = icmp eq i64 %78, 0
   br i1 %79, label %80, label %82
 
-80:                                               ; preds = %.thread11
+80:                                               ; preds = %.thread10
   %81 = and i32 %72, 137379840
   br label %88
 
-82:                                               ; preds = %.thread11
+82:                                               ; preds = %.thread10
   %83 = getelementptr inbounds i8, ptr %4, i64 56
   %84 = load i8, ptr %83, align 8
   %85 = icmp eq i8 %84, 5
@@ -481,7 +481,7 @@ define dso_local i32 @gen12_emit_flush_rcs(ptr noundef %0, i32 noundef %1) local
 92:                                               ; preds = %88
   %93 = ptrtoint ptr %90 to i64
   %94 = trunc i64 %93 to i32
-  br label %.thread13
+  br label %.thread12
 
 95:                                               ; preds = %88
   %96 = getelementptr inbounds i8, ptr %90, i64 12
@@ -497,7 +497,7 @@ define dso_local i32 @gen12_emit_flush_rcs(ptr noundef %0, i32 noundef %1) local
 .thread:                                          ; preds = %8, %95, %16, %11
   %100 = and i64 %5, 1
   %101 = icmp eq i64 %100, 0
-  br i1 %101, label %.thread13, label %102
+  br i1 %101, label %.thread12, label %102
 
 102:                                              ; preds = %.thread
   %103 = load ptr, ptr %3, align 8
@@ -550,9 +550,9 @@ define dso_local i32 @gen12_emit_flush_rcs(ptr noundef %0, i32 noundef %1) local
   %136 = ptrtoint ptr %129 to i64
   %137 = trunc i64 %136 to i32
   %138 = icmp eq i32 %137, 0
-  br i1 %138, label %.thread15, label %.thread13
+  br i1 %138, label %.thread15, label %.thread12
 
-.thread15:                                        ; preds = %131, %121, %135
+.thread15:                                        ; preds = %121, %131, %135
   %139 = load ptr, ptr %4, align 8
   %140 = getelementptr inbounds i8, ptr %139, i64 7168
   %141 = load ptr, ptr %140, align 8
@@ -588,8 +588,8 @@ define dso_local i32 @gen12_emit_flush_rcs(ptr noundef %0, i32 noundef %1) local
   %158 = getelementptr i8, ptr %157, i64 7188
   %159 = load i32, ptr %158, align 4
   %160 = and i32 %159, 4096
-  %.not21 = icmp eq i32 %160, 0
-  br i1 %.not21, label %161, label %.thread16
+  %.not24 = icmp eq i32 %160, 0
+  br i1 %.not24, label %161, label %.thread16
 
 161:                                              ; preds = %156
   %162 = getelementptr inbounds i8, ptr %157, i64 7168
@@ -610,7 +610,7 @@ define dso_local i32 @gen12_emit_flush_rcs(ptr noundef %0, i32 noundef %1) local
 172:                                              ; preds = %.thread16
   %173 = ptrtoint ptr %170 to i64
   %174 = trunc i64 %173 to i32
-  br label %.thread13
+  br label %.thread12
 
 175:                                              ; preds = %.thread16
   %176 = getelementptr i8, ptr %170, i64 4
@@ -661,8 +661,8 @@ define dso_local i32 @gen12_emit_flush_rcs(ptr noundef %0, i32 noundef %1) local
   %195 = getelementptr i8, ptr %194, i64 7188
   %196 = load i32, ptr %195, align 4
   %197 = and i32 %196, 4096
-  %.not22 = icmp eq i32 %197, 0
-  br i1 %.not22, label %198, label %.thread20
+  %.not25 = icmp eq i32 %197, 0
+  br i1 %.not25, label %198, label %.thread20
 
 198:                                              ; preds = %.thread19
   %199 = getelementptr inbounds i8, ptr %194, i64 7168
@@ -693,13 +693,13 @@ define dso_local i32 @gen12_emit_flush_rcs(ptr noundef %0, i32 noundef %1) local
   store i32 0, ptr %213, align 4
   br label %.thread20
 
-.thread20:                                        ; preds = %175, %205, %198, %.thread19
+.thread20:                                        ; preds = %175, %.thread19, %198, %205
   %215 = phi ptr [ %214, %205 ], [ %180, %198 ], [ %180, %.thread19 ], [ %180, %175 ]
   store i32 41943296, ptr %215, align 4
-  br label %.thread13
+  br label %.thread12
 
-.thread13:                                        ; preds = %55, %92, %135, %172, %.thread20, %.thread
-  %216 = phi i32 [ 0, %.thread ], [ %174, %172 ], [ 0, %.thread20 ], [ %137, %135 ], [ %57, %55 ], [ %94, %92 ]
+.thread12:                                        ; preds = %135, %172, %55, %92, %.thread, %.thread20
+  %216 = phi i32 [ 0, %.thread20 ], [ 0, %.thread ], [ %57, %55 ], [ %94, %92 ], [ %137, %135 ], [ %174, %172 ]
   ret i32 %216
 }
 

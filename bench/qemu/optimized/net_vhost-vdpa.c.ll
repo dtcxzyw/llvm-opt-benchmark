@@ -1349,7 +1349,7 @@ return:                                           ; preds = %vhost_vdpa_cvq_map_
 define internal i32 @vhost_vdpa_net_cvq_load(ptr noundef %nc) #0 {
 entry:
   %cfg.i = alloca %struct.virtio_net_rss_config, align 4
-  %data.i62 = alloca [4 x %struct.iovec], align 16
+  %data.i61 = alloca [4 x %struct.iovec], align 16
   %on.addr.i59.i = alloca i8, align 1
   %data.i60.i = alloca %struct.iovec, align 8
   %on.addr.i54.i = alloca i8, align 1
@@ -1524,31 +1524,31 @@ if.end6.i:                                        ; preds = %if.end.i
 
 if.then9.i:                                       ; preds = %if.end6.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %cfg.i)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %data.i62)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %data.i61)
   %14 = getelementptr inbounds i8, ptr %cfg.i, i64 8
   store i64 0, ptr %14, align 4
   %rss_data.i = getelementptr inbounds i8, ptr %call.i, i64 9160
   %15 = load i8, ptr %rss_data.i, align 8
   %tobool.i = trunc i8 %15 to i1
-  br i1 %tobool.i, label %lor.lhs.false.i64, label %vhost_vdpa_net_load_rss.exit.thread
+  br i1 %tobool.i, label %lor.lhs.false.i63, label %vhost_vdpa_net_load_rss.exit.thread
 
-lor.lhs.false.i64:                                ; preds = %if.then9.i
+lor.lhs.false.i63:                                ; preds = %if.then9.i
   %hash_types.i = getelementptr inbounds i8, ptr %call.i, i64 9164
   %16 = load i32, ptr %hash_types.i, align 4
-  %cmp.i65 = icmp eq i32 %16, 0
-  br i1 %cmp.i65, label %vhost_vdpa_net_load_rss.exit.thread, label %if.end.i66
+  %cmp.i64 = icmp eq i32 %16, 0
+  br i1 %cmp.i64, label %vhost_vdpa_net_load_rss.exit.thread, label %if.end.i65
 
-if.end.i66:                                       ; preds = %lor.lhs.false.i64
+if.end.i65:                                       ; preds = %lor.lhs.false.i63
   %indirections_len.i = getelementptr inbounds i8, ptr %call.i, i64 9208
   %17 = load i16, ptr %indirections_len.i, align 8
   %conv.i = zext i16 %17 to i64
-  %call.i67 = call noalias ptr @g_malloc_n(i64 noundef %conv.i, i64 noundef 2) #16
+  %call.i66 = call noalias ptr @g_malloc_n(i64 noundef %conv.i, i64 noundef 2) #16
   %18 = load i32, ptr %hash_types.i, align 4
   store i32 %18, ptr %cfg.i, align 4
   %19 = load i16, ptr %indirections_len.i, align 8
-  %sub.i68 = add i16 %19, -1
+  %sub.i67 = add i16 %19, -1
   %indirection_table_mask.i = getelementptr inbounds i8, ptr %cfg.i, i64 4
-  store i16 %sub.i68, ptr %indirection_table_mask.i, align 4
+  store i16 %sub.i67, ptr %indirection_table_mask.i, align 4
   %default_queue.i = getelementptr inbounds i8, ptr %call.i, i64 9224
   %20 = load i16, ptr %default_queue.i, align 8
   %unclassified_queue.i = getelementptr inbounds i8, ptr %cfg.i, i64 6
@@ -1556,7 +1556,7 @@ if.end.i66:                                       ; preds = %lor.lhs.false.i64
   %cmp1919.not.i = icmp eq i16 %19, 0
   br i1 %cmp1919.not.i, label %vhost_vdpa_net_load_rss.exit, label %for.body.lr.ph.i
 
-for.body.lr.ph.i:                                 ; preds = %if.end.i66
+for.body.lr.ph.i:                                 ; preds = %if.end.i65
   %indirections_table.i = getelementptr inbounds i8, ptr %call.i, i64 9216
   %21 = load ptr, ptr %indirections_table.i, align 8
   %wide.trip.count.i = zext i16 %19 to i64
@@ -1564,54 +1564,54 @@ for.body.lr.ph.i:                                 ; preds = %if.end.i66
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %arrayidx.i69 = getelementptr i16, ptr %21, i64 %indvars.iv.i
-  %22 = load i16, ptr %arrayidx.i69, align 2
-  %arrayidx24.i = getelementptr i16, ptr %call.i67, i64 %indvars.iv.i
+  %arrayidx.i68 = getelementptr i16, ptr %21, i64 %indvars.iv.i
+  %22 = load i16, ptr %arrayidx.i68, align 2
+  %arrayidx24.i = getelementptr i16, ptr %call.i66, i64 %indvars.iv.i
   store i16 %22, ptr %arrayidx24.i, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %vhost_vdpa_net_load_rss.exit.loopexit, label %for.body.i, !llvm.loop !12
 
-vhost_vdpa_net_load_rss.exit.thread:              ; preds = %lor.lhs.false.i64, %if.then9.i
+vhost_vdpa_net_load_rss.exit.thread:              ; preds = %lor.lhs.false.i63, %if.then9.i
   call void @g_free(ptr noundef null) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %cfg.i)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %data.i62)
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %data.i61)
   br label %vhost_vdpa_net_load_mq.exit.thread
 
 vhost_vdpa_net_load_rss.exit.loopexit:            ; preds = %for.body.i
   %23 = shl nuw nsw i64 %wide.trip.count.i, 1
   br label %vhost_vdpa_net_load_rss.exit
 
-vhost_vdpa_net_load_rss.exit:                     ; preds = %vhost_vdpa_net_load_rss.exit.loopexit, %if.end.i66
-  %conv32.i.pre-phi = phi i64 [ 0, %if.end.i66 ], [ %23, %vhost_vdpa_net_load_rss.exit.loopexit ]
+vhost_vdpa_net_load_rss.exit:                     ; preds = %vhost_vdpa_net_load_rss.exit.loopexit, %if.end.i65
+  %conv32.i.pre-phi = phi i64 [ 0, %if.end.i65 ], [ %23, %vhost_vdpa_net_load_rss.exit.loopexit ]
   %24 = load i16, ptr %curr_queue_pairs.i, align 2
   %max_tx_vq.i = getelementptr inbounds i8, ptr %cfg.i, i64 10
   store i16 %24, ptr %max_tx_vq.i, align 2
   %hash_key_length.i = getelementptr inbounds i8, ptr %cfg.i, i64 12
   store i8 40, ptr %hash_key_length.i, align 4
-  store ptr %cfg.i, ptr %data.i62, align 16
-  %iov_len.i71 = getelementptr inbounds i8, ptr %data.i62, i64 8
-  store i64 8, ptr %iov_len.i71, align 8
-  %arrayinit.element.i72 = getelementptr inbounds i8, ptr %data.i62, i64 16
-  store ptr %call.i67, ptr %arrayinit.element.i72, align 16
-  %iov_len29.i73 = getelementptr inbounds i8, ptr %data.i62, i64 24
-  store i64 %conv32.i.pre-phi, ptr %iov_len29.i73, align 8
-  %arrayinit.element33.i = getelementptr inbounds i8, ptr %data.i62, i64 32
+  store ptr %cfg.i, ptr %data.i61, align 16
+  %iov_len.i70 = getelementptr inbounds i8, ptr %data.i61, i64 8
+  store i64 8, ptr %iov_len.i70, align 8
+  %arrayinit.element.i71 = getelementptr inbounds i8, ptr %data.i61, i64 16
+  store ptr %call.i66, ptr %arrayinit.element.i71, align 16
+  %iov_len29.i72 = getelementptr inbounds i8, ptr %data.i61, i64 24
+  store i64 %conv32.i.pre-phi, ptr %iov_len29.i72, align 8
+  %arrayinit.element33.i = getelementptr inbounds i8, ptr %data.i61, i64 32
   store ptr %max_tx_vq.i, ptr %arrayinit.element33.i, align 16
-  %iov_len36.i = getelementptr inbounds i8, ptr %data.i62, i64 40
+  %iov_len36.i = getelementptr inbounds i8, ptr %data.i61, i64 40
   store i64 3, ptr %iov_len36.i, align 8
-  %arrayinit.element37.i = getelementptr inbounds i8, ptr %data.i62, i64 48
+  %arrayinit.element37.i = getelementptr inbounds i8, ptr %data.i61, i64 48
   %key.i = getelementptr inbounds i8, ptr %call.i, i64 9168
   store ptr %key.i, ptr %arrayinit.element37.i, align 16
-  %iov_len40.i = getelementptr inbounds i8, ptr %data.i62, i64 56
+  %iov_len40.i = getelementptr inbounds i8, ptr %data.i61, i64 56
   store i64 40, ptr %iov_len40.i, align 8
-  %call45.i = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull %nc, ptr noundef nonnull %out_cursor, ptr noundef nonnull %in_cursor, i8 noundef zeroext 4, i8 noundef zeroext 1, ptr noundef nonnull %data.i62, i64 noundef 4), !range !11
-  %spec.select.i75 = trunc i64 %call45.i to i32
-  call void @g_free(ptr noundef %call.i67) #13
+  %call45.i = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull %nc, ptr noundef nonnull %out_cursor, ptr noundef nonnull %in_cursor, i8 noundef zeroext 4, i8 noundef zeroext 1, ptr noundef nonnull %data.i61, i64 noundef 4), !range !11
+  %spec.select.i74 = trunc i64 %call45.i to i32
+  call void @g_free(ptr noundef %call.i66) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %cfg.i)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %data.i62)
-  %cmp12.i = icmp slt i32 %spec.select.i75, 0
-  br i1 %cmp12.i, label %vhost_vdpa_net_load_mq.exit.thread84, label %vhost_vdpa_net_load_mq.exit.thread
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %data.i61)
+  %cmp12.i = icmp slt i32 %spec.select.i74, 0
+  br i1 %cmp12.i, label %vhost_vdpa_net_load_mq.exit.thread83, label %vhost_vdpa_net_load_mq.exit.thread
 
 if.else.i:                                        ; preds = %if.end6.i
   %and.i.i21.i = and i64 %n.val17.i38, 144115188075855872
@@ -1676,15 +1676,15 @@ vhost_vdpa_net_load_rss.exit.i:                   ; preds = %lor.lhs.false.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %cfg.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %data.i.i)
   %cmp28.i = icmp slt i32 %spec.select.i.i, 0
-  br i1 %cmp28.i, label %vhost_vdpa_net_load_mq.exit.thread84, label %vhost_vdpa_net_load_mq.exit.thread
+  br i1 %cmp28.i, label %vhost_vdpa_net_load_mq.exit.thread83, label %vhost_vdpa_net_load_mq.exit.thread
 
 vhost_vdpa_net_load_mq.exit.thread:               ; preds = %if.end10, %vhost_vdpa_net_load_rss.exit.thread, %vhost_vdpa_net_load_rss.exit.i, %vhost_vdpa_net_load_rss.exit.thread.i, %if.else.i, %vhost_vdpa_net_load_rss.exit
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %mq.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %data.i33)
   br label %if.end20
 
-vhost_vdpa_net_load_mq.exit.thread84:             ; preds = %vhost_vdpa_net_load_rss.exit, %vhost_vdpa_net_load_rss.exit.i
-  %retval.0.i39.ph = phi i32 [ %spec.select.i.i, %vhost_vdpa_net_load_rss.exit.i ], [ %spec.select.i75, %vhost_vdpa_net_load_rss.exit ]
+vhost_vdpa_net_load_mq.exit.thread83:             ; preds = %vhost_vdpa_net_load_rss.exit, %vhost_vdpa_net_load_rss.exit.i
+  %retval.0.i39.ph = phi i32 [ %spec.select.i.i, %vhost_vdpa_net_load_rss.exit.i ], [ %spec.select.i74, %vhost_vdpa_net_load_rss.exit ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %mq.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %data.i33)
   br label %return
@@ -1752,28 +1752,28 @@ if.then2.i:                                       ; preds = %land.lhs.true.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %data.i.i50)
   store i8 0, ptr %on.addr.i.i, align 1
   store ptr %on.addr.i.i, ptr %data.i.i50, align 8
-  %iov_len.i.i59 = getelementptr inbounds i8, ptr %data.i.i50, i64 8
-  store i64 1, ptr %iov_len.i.i59, align 8
-  %call.i.i60 = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull %nc, ptr noundef nonnull %out_cursor, ptr noundef nonnull %in_cursor, i8 noundef zeroext 0, i8 noundef zeroext 0, ptr noundef nonnull %data.i.i50, i64 noundef 1), !range !11
-  %retval.0.i.i = trunc i64 %call.i.i60 to i32
+  %iov_len.i.i58 = getelementptr inbounds i8, ptr %data.i.i50, i64 8
+  store i64 1, ptr %iov_len.i.i58, align 8
+  %call.i.i59 = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull %nc, ptr noundef nonnull %out_cursor, ptr noundef nonnull %in_cursor, i8 noundef zeroext 0, i8 noundef zeroext 0, ptr noundef nonnull %data.i.i50, i64 noundef 1), !range !11
+  %retval.0.i.i = trunc i64 %call.i.i59 to i32
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %on.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %data.i.i50)
-  %cmp.i61 = icmp slt i32 %retval.0.i.i, 0
-  br i1 %cmp.i61, label %return, label %if.end11.i54
+  %cmp.i60 = icmp slt i32 %retval.0.i.i, 0
+  br i1 %cmp.i60, label %return, label %if.end11.i54
 
 if.end11.i54:                                     ; preds = %if.then2.i, %land.lhs.true.i, %if.end.i53
   %multi_overflow.i = getelementptr inbounds i8, ptr %call.i, i64 640
   %34 = load i8, ptr %multi_overflow.i, align 8
   %tobool14.not.i = icmp eq i8 %34, 0
-  br i1 %tobool14.not.i, label %lor.lhs.false.i58, label %if.then17.i
+  br i1 %tobool14.not.i, label %lor.lhs.false.i57, label %if.then17.i
 
-lor.lhs.false.i58:                                ; preds = %if.end11.i54
+lor.lhs.false.i57:                                ; preds = %if.end11.i54
   %allmulti.i = getelementptr inbounds i8, ptr %call.i, i64 621
   %35 = load i8, ptr %allmulti.i, align 1
   %tobool16.not.i = icmp eq i8 %35, 0
   br i1 %tobool16.not.i, label %if.end31.i, label %if.then17.i
 
-if.then17.i:                                      ; preds = %lor.lhs.false.i58, %if.end11.i54
+if.then17.i:                                      ; preds = %lor.lhs.false.i57, %if.end11.i54
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %on.addr.i37.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %data.i38.i)
   store i8 1, ptr %on.addr.i37.i, align 1
@@ -1787,7 +1787,7 @@ if.then17.i:                                      ; preds = %lor.lhs.false.i58, 
   %cmp20.i = icmp slt i32 %retval.0.i41.i, 0
   br i1 %cmp20.i, label %return, label %if.end31.i
 
-if.end31.i:                                       ; preds = %if.then17.i, %lor.lhs.false.i58
+if.end31.i:                                       ; preds = %if.then17.i, %lor.lhs.false.i57
   %n.val.i55 = load i64, ptr %9, align 8
   %and.i.i42.i = and i64 %n.val.i55, 1048576
   %tobool.i.i43.not.i = icmp eq i64 %and.i.i42.i, 0
@@ -1857,9 +1857,9 @@ if.end65.i:                                       ; preds = %if.then57.i, %if.en
   %nobcast.i = getelementptr inbounds i8, ptr %call.i, i64 625
   %39 = load i8, ptr %nobcast.i, align 1
   %tobool66.not.i = icmp eq i8 %39, 0
-  br i1 %tobool66.not.i, label %if.end40, label %vhost_vdpa_net_load_rx.exit
+  br i1 %tobool66.not.i, label %if.end40, label %if.then67.i
 
-vhost_vdpa_net_load_rx.exit:                      ; preds = %if.end65.i
+if.then67.i:                                      ; preds = %if.end65.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %on.addr.i59.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %data.i60.i)
   store i8 1, ptr %on.addr.i59.i, align 1
@@ -1870,10 +1870,10 @@ vhost_vdpa_net_load_rx.exit:                      ; preds = %if.end65.i
   %retval.0.i63.i = trunc i64 %call.i62.i to i32
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %on.addr.i59.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %data.i60.i)
-  %tobool32.not = icmp sgt i32 %retval.0.i63.i, -1
-  br i1 %tobool32.not, label %if.end40, label %return
+  %cmp70.i = icmp slt i32 %retval.0.i63.i, 0
+  br i1 %cmp70.i, label %return, label %if.end40
 
-if.end40:                                         ; preds = %if.end65.i, %if.end31.i, %if.end30, %vhost_vdpa_net_load_rx.exit
+if.end40:                                         ; preds = %if.end65.i, %if.then67.i, %if.end31.i, %if.end30
   %call41 = call fastcc i32 @vhost_vdpa_net_load_vlan(ptr noundef nonnull %nc, ptr noundef nonnull %call.i, ptr noundef nonnull %out_cursor, ptr noundef nonnull %in_cursor)
   %tobool42.not = icmp eq i32 %call41, 0
   br i1 %tobool42.not, label %if.end50, label %return
@@ -1891,23 +1891,23 @@ if.end50:                                         ; preds = %if.end40
 
 if.end62:                                         ; preds = %if.end50, %if.end
   %42 = load ptr, ptr %dev, align 8
-  %vq_index6495 = getelementptr inbounds i8, ptr %42, i64 444
-  %43 = load i32, ptr %vq_index6495, align 4
-  %cmp6596 = icmp sgt i32 %43, 0
-  br i1 %cmp6596, label %for.body, label %return
+  %vq_index6490 = getelementptr inbounds i8, ptr %42, i64 444
+  %43 = load i32, ptr %vq_index6490, align 4
+  %cmp6591 = icmp sgt i32 %43, 0
+  br i1 %cmp6591, label %for.body, label %return
 
 for.body:                                         ; preds = %if.end62, %for.body
-  %i.097 = phi i32 [ %inc, %for.body ], [ 0, %if.end62 ]
-  %call67 = call i32 @vhost_vdpa_set_vring_ready(ptr noundef nonnull %vhost_vdpa, i32 noundef %i.097) #13
-  %inc = add nuw nsw i32 %i.097, 1
+  %i.092 = phi i32 [ %inc, %for.body ], [ 0, %if.end62 ]
+  %call67 = call i32 @vhost_vdpa_set_vring_ready(ptr noundef nonnull %vhost_vdpa, i32 noundef %i.092) #13
+  %inc = add nuw nsw i32 %i.092, 1
   %44 = load ptr, ptr %dev, align 8
   %vq_index64 = getelementptr inbounds i8, ptr %44, i64 444
   %45 = load i32, ptr %vq_index64, align 4
   %cmp65 = icmp slt i32 %inc, %45
   br i1 %cmp65, label %for.body, label %return, !llvm.loop !14
 
-return:                                           ; preds = %for.body, %if.end62, %if.then57.i, %if.then47.i, %if.then37.i, %if.then17.i, %if.then2.i, %vhost_vdpa_net_load_mq.exit.thread84, %if.end50, %if.end40, %vhost_vdpa_net_load_rx.exit, %vhost_vdpa_net_load_offloads.exit, %vhost_vdpa_net_load_mq.exit, %vhost_vdpa_net_load_mac.exit
-  %retval.0 = phi i32 [ %retval.0.i, %vhost_vdpa_net_load_mac.exit ], [ %conv5.i, %vhost_vdpa_net_load_mq.exit ], [ %spec.select.i48, %vhost_vdpa_net_load_offloads.exit ], [ %retval.0.i63.i, %vhost_vdpa_net_load_rx.exit ], [ %call41, %if.end40 ], [ %conv52, %if.end50 ], [ %retval.0.i39.ph, %vhost_vdpa_net_load_mq.exit.thread84 ], [ %retval.0.i58.i, %if.then57.i ], [ %retval.0.i53.i, %if.then47.i ], [ %retval.0.i48.i, %if.then37.i ], [ %retval.0.i41.i, %if.then17.i ], [ %retval.0.i.i, %if.then2.i ], [ 0, %if.end62 ], [ 0, %for.body ]
+return:                                           ; preds = %for.body, %if.end62, %if.then67.i, %if.then57.i, %if.then47.i, %if.then37.i, %if.then17.i, %if.then2.i, %vhost_vdpa_net_load_mq.exit.thread83, %if.end50, %if.end40, %vhost_vdpa_net_load_offloads.exit, %vhost_vdpa_net_load_mq.exit, %vhost_vdpa_net_load_mac.exit
+  %retval.0 = phi i32 [ %retval.0.i, %vhost_vdpa_net_load_mac.exit ], [ %conv5.i, %vhost_vdpa_net_load_mq.exit ], [ %spec.select.i48, %vhost_vdpa_net_load_offloads.exit ], [ %call41, %if.end40 ], [ %conv52, %if.end50 ], [ %retval.0.i39.ph, %vhost_vdpa_net_load_mq.exit.thread83 ], [ %retval.0.i63.i, %if.then67.i ], [ %retval.0.i58.i, %if.then57.i ], [ %retval.0.i53.i, %if.then47.i ], [ %retval.0.i48.i, %if.then37.i ], [ %retval.0.i41.i, %if.then17.i ], [ %retval.0.i.i, %if.then2.i ], [ 0, %if.end62 ], [ 0, %for.body ]
   ret i32 %retval.0
 }
 

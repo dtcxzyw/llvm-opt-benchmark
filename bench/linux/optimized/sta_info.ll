@@ -6979,7 +6979,7 @@ define dso_local i32 @sta_get_expected_throughput(ptr noundef %0) local_unnamed_
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
 define dso_local void @ieee80211_sta_set_expected_throughput(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #8 align 16 {
   %3 = icmp eq i32 %1, 0
-  br i1 %3, label %13, label %4
+  br i1 %3, label %12, label %4
 
 4:                                                ; preds = %2
   %5 = zext i32 %1 to i64
@@ -6991,13 +6991,13 @@ define dso_local void @ieee80211_sta_set_expected_throughput(ptr nocapture nound
   %11 = icmp ugt i64 %10, %5
   br i1 %11, label %13, label %12
 
-12:                                               ; preds = %4
+12:                                               ; preds = %4, %2
   br label %13
 
-13:                                               ; preds = %2, %12, %4
-  %14 = phi i32 [ 48828, %4 ], [ 19531, %2 ], [ 19531, %12 ]
-  %15 = phi i32 [ 292968, %4 ], [ 97656, %2 ], [ 97656, %12 ]
-  %16 = phi i8 [ 0, %4 ], [ 1, %2 ], [ 1, %12 ]
+13:                                               ; preds = %12, %4
+  %14 = phi i32 [ 19531, %12 ], [ 48828, %4 ]
+  %15 = phi i32 [ 97656, %12 ], [ 292968, %4 ]
+  %16 = phi i8 [ 1, %12 ], [ 0, %4 ]
   %17 = getelementptr i8, ptr %0, i64 -1368
   store i32 %14, ptr %17, align 8
   %18 = getelementptr i8, ptr %0, i64 -1360

@@ -815,7 +815,7 @@ if.end.i:                                         ; preds = %if.then.i, %if.then
   br i1 %tobool.not.i, label %lor.lhs.false.i, label %if.then7.i
 
 lor.lhs.false.i:                                  ; preds = %if.end.i
-  br i1 %cmp.i, label %land.lhs.true.i, label %check_auto_color.exit
+  br i1 %cmp.i, label %land.lhs.true.i, label %if.end12.i
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
   %call3.i = tail call i32 @pager_in_use() #15
@@ -823,16 +823,18 @@ land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
   %5 = load i32, ptr @pager_use_color, align 4
   %tobool6.i = icmp ne i32 %5, 0
   %or.cond.i = select i1 %tobool4.i, i1 %tobool6.i, i1 false
-  br i1 %or.cond.i, label %if.then7.i, label %check_auto_color.exit
+  br i1 %or.cond.i, label %if.then7.i, label %if.end12.i
 
 if.then7.i:                                       ; preds = %land.lhs.true.i, %if.end.i
   %call8.i = tail call i32 @is_terminal_dumb() #15
   %tobool9.not.i = icmp eq i32 %call8.i, 0
-  %spec.select.i = zext i1 %tobool9.not.i to i32
+  br i1 %tobool9.not.i, label %check_auto_color.exit, label %if.end12.i
+
+if.end12.i:                                       ; preds = %if.then7.i, %land.lhs.true.i, %lor.lhs.false.i
   br label %check_auto_color.exit
 
-check_auto_color.exit:                            ; preds = %lor.lhs.false.i, %land.lhs.true.i, %if.then7.i
-  %retval.0.i = phi i32 [ 0, %land.lhs.true.i ], [ 0, %lor.lhs.false.i ], [ %spec.select.i, %if.then7.i ]
+check_auto_color.exit:                            ; preds = %if.then7.i, %if.end12.i
+  %retval.0.i = phi i32 [ 0, %if.end12.i ], [ 1, %if.then7.i ]
   store i32 %retval.0.i, ptr %arrayidx, align 4
   br label %return
 

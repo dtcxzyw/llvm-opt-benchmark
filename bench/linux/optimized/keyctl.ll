@@ -879,7 +879,7 @@ define dso_local i64 @keyctl_describe_key(i32 noundef %0, ptr noundef %1, i64 no
 14:                                               ; preds = %11, %8, %6
   %15 = phi ptr [ inttoptr (i64 -13 to ptr), %8 ], [ %12, %11 ], [ %4, %6 ]
   %16 = ptrtoint ptr %15 to i64
-  br label %74
+  br label %75
 
 17:                                               ; preds = %11, %3
   %18 = phi ptr [ %12, %11 ], [ %4, %3 ]
@@ -906,7 +906,7 @@ define dso_local i64 @keyctl_describe_key(i32 noundef %0, ptr noundef %1, i64 no
   %39 = load i32, ptr %38, align 8
   %40 = tail call noalias ptr (i32, ptr, ...) @kasprintf(i32 noundef 3264, ptr noundef nonnull @.str, ptr noundef %27, i32 noundef %32, i32 noundef %37, i32 noundef %39) #11
   %41 = icmp eq ptr %40, null
-  br i1 %41, label %72, label %42
+  br i1 %41, label %73, label %42
 
 42:                                               ; preds = %17
   %43 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #11
@@ -917,7 +917,7 @@ define dso_local i64 @keyctl_describe_key(i32 noundef %0, ptr noundef %1, i64 no
   %48 = icmp eq ptr %1, null
   %49 = icmp ugt i64 %47, %2
   %50 = select i1 %48, i1 true, i1 %49
-  br i1 %50, label %70, label %51
+  br i1 %50, label %71, label %51
 
 51:                                               ; preds = %42
   %52 = shl i64 %43, 32
@@ -954,22 +954,24 @@ define dso_local i64 @keyctl_describe_key(i32 noundef %0, ptr noundef %1, i64 no
   %67 = getelementptr i8, ptr %1, i64 %53
   %68 = tail call i64 @_copy_to_user(ptr noundef %67, ptr noundef %66, i64 noundef %62) #11
   %69 = icmp eq i64 %68, 0
-  %spec.select = select i1 %69, i64 %47, i64 -14
-  br label %70
+  br i1 %69, label %71, label %70
 
-70:                                               ; preds = %65, %55, %56, %64, %42
-  %71 = phi i64 [ %47, %42 ], [ -14, %64 ], [ -14, %56 ], [ -14, %55 ], [ %spec.select, %65 ]
+70:                                               ; preds = %65, %64, %56, %55
+  br label %71
+
+71:                                               ; preds = %70, %65, %42
+  %72 = phi i64 [ -14, %70 ], [ %47, %65 ], [ %47, %42 ]
   tail call void @kfree(ptr noundef nonnull %40) #11
-  br label %72
+  br label %73
 
-72:                                               ; preds = %70, %17
-  %73 = phi i64 [ %71, %70 ], [ -12, %17 ]
+73:                                               ; preds = %71, %17
+  %74 = phi i64 [ %72, %71 ], [ -12, %17 ]
   tail call void @key_put(ptr noundef %21) #11
-  br label %74
+  br label %75
 
-74:                                               ; preds = %72, %14
-  %75 = phi i64 [ %16, %14 ], [ %73, %72 ]
-  ret i64 %75
+75:                                               ; preds = %73, %14
+  %76 = phi i64 [ %16, %14 ], [ %74, %73 ]
+  ret i64 %76
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -1319,13 +1321,13 @@ define dso_local i64 @keyctl_chown_key(i32 noundef %0, i32 noundef %1, i32 nound
   %5 = icmp eq i32 %2, -1
   %6 = and i32 %2, %1
   %7 = icmp eq i32 %6, -1
-  br i1 %7, label %107, label %8
+  br i1 %7, label %108, label %8
 
 8:                                                ; preds = %3
   %9 = tail call ptr @lookup_user_key(i32 noundef %0, i64 noundef 3, i32 noundef 6) #11
   %10 = icmp ugt ptr %9, inttoptr (i64 -4096 to ptr)
   %11 = ptrtoint ptr %9 to i64
-  br i1 %10, label %107, label %12
+  br i1 %10, label %108, label %12
 
 12:                                               ; preds = %8
   %13 = and i64 %11, -2
@@ -1354,146 +1356,146 @@ define dso_local i64 @keyctl_chown_key(i32 noundef %0, i32 noundef %1, i32 nound
   %25 = tail call i32 @in_group_p(i32 %2) #11
   %26 = icmp ne i32 %25, 0
   %or.cond = select i1 %26, i1 %.old, i1 false
-  br i1 %or.cond, label %select.unfold, label %.thread
+  br i1 %or.cond, label %29, label %.thread
 
 27:                                               ; preds = %20, %19
-  br i1 %.old, label %select.unfold, label %.thread
+  br i1 %.old, label %29, label %.thread
 
 .thread:                                          ; preds = %24, %27
   %28 = tail call zeroext i1 @capable(i32 noundef 21) #11
-  br i1 %28, label %select.unfold, label %101
+  br i1 %28, label %29, label %102
 
-select.unfold:                                    ; preds = %24, %.thread, %27
-  br i1 %4, label %97, label %29
+29:                                               ; preds = %24, %27, %.thread
+  br i1 %4, label %98, label %30
 
-29:                                               ; preds = %select.unfold
-  %30 = getelementptr inbounds i8, ptr %14, i64 104
-  %31 = load i32, ptr %30, align 8
-  %32 = icmp eq i32 %31, %1
-  br i1 %32, label %97, label %33
+30:                                               ; preds = %29
+  %31 = getelementptr inbounds i8, ptr %14, i64 104
+  %32 = load i32, ptr %31, align 8
+  %33 = icmp eq i32 %32, %1
+  br i1 %33, label %98, label %34
 
-33:                                               ; preds = %29
-  %34 = tail call ptr @key_user_lookup(i32 %1) #11
-  %35 = icmp eq ptr %34, null
-  br i1 %35, label %101, label %36
+34:                                               ; preds = %30
+  %35 = tail call ptr @key_user_lookup(i32 %1) #11
+  %36 = icmp eq ptr %35, null
+  br i1 %36, label %102, label %37
 
-36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %14, i64 128
-  %38 = load volatile i64, ptr %37, align 8
-  %39 = and i64 %38, 4
-  %40 = icmp eq i64 %39, 0
-  br i1 %40, label %83, label %41
+37:                                               ; preds = %34
+  %38 = getelementptr inbounds i8, ptr %14, i64 128
+  %39 = load volatile i64, ptr %38, align 8
+  %40 = and i64 %39, 4
+  %41 = icmp eq i64 %40, 0
+  br i1 %41, label %84, label %42
 
-41:                                               ; preds = %36
-  %42 = icmp eq i32 %1, 0
-  %43 = load i32, ptr @key_quota_root_maxkeys, align 4
-  %44 = load i32, ptr @key_quota_maxkeys, align 4
-  %45 = select i1 %42, i32 %43, i32 %44
-  %46 = load i32, ptr @key_quota_root_maxbytes, align 4
-  %47 = load i32, ptr @key_quota_maxbytes, align 4
-  %48 = getelementptr inbounds i8, ptr %34, i64 56
-  tail call void @_raw_spin_lock(ptr noundef %48) #11
-  %49 = getelementptr inbounds i8, ptr %34, i64 76
-  %50 = load i32, ptr %49, align 4
-  %51 = add i32 %50, 1
-  %52 = icmp ugt i32 %51, %45
-  br i1 %52, label %106, label %53
+42:                                               ; preds = %37
+  %43 = icmp eq i32 %1, 0
+  %44 = load i32, ptr @key_quota_root_maxkeys, align 4
+  %45 = load i32, ptr @key_quota_maxkeys, align 4
+  %46 = select i1 %43, i32 %44, i32 %45
+  %47 = load i32, ptr @key_quota_root_maxbytes, align 4
+  %48 = load i32, ptr @key_quota_maxbytes, align 4
+  %49 = getelementptr inbounds i8, ptr %35, i64 56
+  tail call void @_raw_spin_lock(ptr noundef %49) #11
+  %50 = getelementptr inbounds i8, ptr %35, i64 76
+  %51 = load i32, ptr %50, align 4
+  %52 = add i32 %51, 1
+  %53 = icmp ugt i32 %52, %46
+  br i1 %53, label %107, label %54
 
-53:                                               ; preds = %41
-  %54 = select i1 %42, i32 %46, i32 %47
-  %55 = getelementptr inbounds i8, ptr %34, i64 80
-  %56 = load i32, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %14, i64 116
-  %58 = load i16, ptr %57, align 4
-  %59 = zext i16 %58 to i32
-  %60 = add i32 %56, %59
-  %61 = icmp ugt i32 %60, %54
-  %62 = icmp slt i32 %60, %56
-  %63 = or i1 %61, %62
-  br i1 %63, label %106, label %64
+54:                                               ; preds = %42
+  %55 = select i1 %43, i32 %47, i32 %48
+  %56 = getelementptr inbounds i8, ptr %35, i64 80
+  %57 = load i32, ptr %56, align 8
+  %58 = getelementptr inbounds i8, ptr %14, i64 116
+  %59 = load i16, ptr %58, align 4
+  %60 = zext i16 %59 to i32
+  %61 = add i32 %57, %60
+  %62 = icmp ugt i32 %61, %55
+  %63 = icmp slt i32 %61, %57
+  %64 = or i1 %62, %63
+  br i1 %64, label %107, label %65
 
-64:                                               ; preds = %53
-  store i32 %51, ptr %49, align 4
-  %65 = load i16, ptr %57, align 4
-  %66 = zext i16 %65 to i32
-  %67 = add i32 %56, %66
-  store i32 %67, ptr %55, align 8
-  tail call void @_raw_spin_unlock(ptr noundef %48) #11
-  %68 = getelementptr inbounds i8, ptr %14, i64 72
-  %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 56
-  tail call void @_raw_spin_lock(ptr noundef %70) #11
-  %71 = load ptr, ptr %68, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 76
-  %73 = load i32, ptr %72, align 4
-  %74 = add i32 %73, -1
-  store i32 %74, ptr %72, align 4
-  %75 = load i16, ptr %57, align 4
-  %76 = zext i16 %75 to i32
-  %77 = load ptr, ptr %68, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 80
-  %79 = load i32, ptr %78, align 8
-  %80 = sub i32 %79, %76
-  store i32 %80, ptr %78, align 8
-  %81 = load ptr, ptr %68, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 56
-  tail call void @_raw_spin_unlock(ptr noundef %82) #11
-  br label %83
+65:                                               ; preds = %54
+  store i32 %52, ptr %50, align 4
+  %66 = load i16, ptr %58, align 4
+  %67 = zext i16 %66 to i32
+  %68 = add i32 %57, %67
+  store i32 %68, ptr %56, align 8
+  tail call void @_raw_spin_unlock(ptr noundef %49) #11
+  %69 = getelementptr inbounds i8, ptr %14, i64 72
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr inbounds i8, ptr %70, i64 56
+  tail call void @_raw_spin_lock(ptr noundef %71) #11
+  %72 = load ptr, ptr %69, align 8
+  %73 = getelementptr inbounds i8, ptr %72, i64 76
+  %74 = load i32, ptr %73, align 4
+  %75 = add i32 %74, -1
+  store i32 %75, ptr %73, align 4
+  %76 = load i16, ptr %58, align 4
+  %77 = zext i16 %76 to i32
+  %78 = load ptr, ptr %69, align 8
+  %79 = getelementptr inbounds i8, ptr %78, i64 80
+  %80 = load i32, ptr %79, align 8
+  %81 = sub i32 %80, %77
+  store i32 %81, ptr %79, align 8
+  %82 = load ptr, ptr %69, align 8
+  %83 = getelementptr inbounds i8, ptr %82, i64 56
+  tail call void @_raw_spin_unlock(ptr noundef %83) #11
+  br label %84
 
-83:                                               ; preds = %64, %36
-  %84 = getelementptr inbounds i8, ptr %14, i64 72
-  %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 64
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %86, ptr elementtype(i32) %86) #11, !srcloc !16
-  %87 = getelementptr inbounds i8, ptr %34, i64 64
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %87, ptr elementtype(i32) %87) #11, !srcloc !17
-  %88 = getelementptr inbounds i8, ptr %14, i64 120
-  %89 = load i16, ptr %88, align 8
-  %90 = icmp eq i16 %89, 0
-  br i1 %90, label %95, label %91
+84:                                               ; preds = %65, %37
+  %85 = getelementptr inbounds i8, ptr %14, i64 72
+  %86 = load ptr, ptr %85, align 8
+  %87 = getelementptr inbounds i8, ptr %86, i64 64
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %87, ptr elementtype(i32) %87) #11, !srcloc !16
+  %88 = getelementptr inbounds i8, ptr %35, i64 64
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %88, ptr elementtype(i32) %88) #11, !srcloc !17
+  %89 = getelementptr inbounds i8, ptr %14, i64 120
+  %90 = load i16, ptr %89, align 8
+  %91 = icmp eq i16 %90, 0
+  br i1 %91, label %96, label %92
 
-91:                                               ; preds = %83
-  %92 = load ptr, ptr %84, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 68
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %93, ptr elementtype(i32) %93) #11, !srcloc !16
-  %94 = getelementptr inbounds i8, ptr %34, i64 68
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %94, ptr elementtype(i32) %94) #11, !srcloc !17
-  br label %95
+92:                                               ; preds = %84
+  %93 = load ptr, ptr %85, align 8
+  %94 = getelementptr inbounds i8, ptr %93, i64 68
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %94, ptr elementtype(i32) %94) #11, !srcloc !16
+  %95 = getelementptr inbounds i8, ptr %35, i64 68
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %95, ptr elementtype(i32) %95) #11, !srcloc !17
+  br label %96
 
-95:                                               ; preds = %91, %83
-  %96 = load ptr, ptr %84, align 8
-  store ptr %34, ptr %84, align 8
-  store i32 %1, ptr %30, align 8
-  br label %97
+96:                                               ; preds = %92, %84
+  %97 = load ptr, ptr %85, align 8
+  store ptr %35, ptr %85, align 8
+  store i32 %1, ptr %31, align 8
+  br label %98
 
-97:                                               ; preds = %95, %29, %select.unfold
-  %98 = phi ptr [ null, %29 ], [ %96, %95 ], [ null, %select.unfold ]
-  br i1 %5, label %101, label %99
+98:                                               ; preds = %96, %30, %29
+  %99 = phi ptr [ null, %30 ], [ %97, %96 ], [ null, %29 ]
+  br i1 %5, label %102, label %100
 
-99:                                               ; preds = %97
-  %100 = getelementptr inbounds i8, ptr %14, i64 108
-  store i32 %2, ptr %100, align 4
-  br label %101
+100:                                              ; preds = %98
+  %101 = getelementptr inbounds i8, ptr %14, i64 108
+  store i32 %2, ptr %101, align 4
+  br label %102
 
-101:                                              ; preds = %.thread, %106, %99, %97, %33
-  %102 = phi i64 [ -122, %106 ], [ -12, %33 ], [ 0, %99 ], [ 0, %97 ], [ -13, %.thread ]
-  %103 = phi ptr [ %34, %106 ], [ null, %33 ], [ %98, %99 ], [ %98, %97 ], [ null, %.thread ]
+102:                                              ; preds = %.thread, %107, %100, %98, %34
+  %103 = phi i64 [ -122, %107 ], [ -12, %34 ], [ 0, %100 ], [ 0, %98 ], [ -13, %.thread ]
+  %104 = phi ptr [ %35, %107 ], [ null, %34 ], [ %99, %100 ], [ %99, %98 ], [ null, %.thread ]
   tail call void @up_write(ptr noundef %15) #11
   tail call void @key_put(ptr noundef %14) #11
-  %104 = icmp eq ptr %103, null
-  br i1 %104, label %107, label %105
+  %105 = icmp eq ptr %104, null
+  br i1 %105, label %108, label %106
 
-105:                                              ; preds = %101
-  tail call void @key_user_put(ptr noundef nonnull %103) #11
-  br label %107
+106:                                              ; preds = %102
+  tail call void @key_user_put(ptr noundef nonnull %104) #11
+  br label %108
 
-106:                                              ; preds = %53, %41
-  tail call void @_raw_spin_unlock(ptr noundef %48) #11
-  br label %101
+107:                                              ; preds = %54, %42
+  tail call void @_raw_spin_unlock(ptr noundef %49) #11
+  br label %102
 
-107:                                              ; preds = %105, %101, %8, %3
-  %108 = phi i64 [ 0, %3 ], [ %102, %105 ], [ %102, %101 ], [ %11, %8 ]
-  ret i64 %108
+108:                                              ; preds = %106, %102, %8, %3
+  %109 = phi i64 [ 0, %3 ], [ %103, %106 ], [ %103, %102 ], [ %11, %8 ]
+  ret i64 %109
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -2537,17 +2539,17 @@ declare dso_local i32 @keyring_restrict(ptr noundef, ptr noundef, ptr noundef) l
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i64 @keyctl_capabilities(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = icmp eq i64 %1, 0
-  br i1 %3, label %26, label %4
+  br i1 %3, label %24, label %4
 
 4:                                                ; preds = %2
   %5 = tail call i64 @llvm.umin.i64(i64 %1, i64 2)
   %6 = tail call i64 @_copy_to_user(ptr noundef %0, ptr noundef nonnull @keyrings_capabilities, i64 noundef %5) #11
   %7 = icmp eq i64 %6, 0
-  br i1 %7, label %8, label %26
+  br i1 %7, label %8, label %.thread
 
 8:                                                ; preds = %4
   %9 = icmp ugt i64 %1, 2
-  br i1 %9, label %10, label %26
+  br i1 %9, label %10, label %24
 
 10:                                               ; preds = %8
   %11 = getelementptr i8, ptr %0, i64 %5
@@ -2557,7 +2559,7 @@ define dso_local noundef i64 @keyctl_capabilities(ptr noundef %0, i64 noundef %1
   %15 = icmp sgt i64 %14, -1
   %16 = icmp uge i64 %14, %13
   %17 = and i1 %15, %16
-  br i1 %17, label %18, label %23
+  br i1 %17, label %18, label %.thread
 
 18:                                               ; preds = %10
   tail call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+20)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x0f,0x01,0xcb\0A6651:\0A.popsection\0A", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !21
@@ -2567,17 +2569,15 @@ define dso_local noundef i64 @keyctl_capabilities(ptr noundef %0, i64 noundef %1
   %22 = extractvalue { i64, ptr, i64 } %20, 2
   tail call void @llvm.write_register.i64(metadata !0, i64 %22)
   tail call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+20)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x0f,0x01,0xca\0A6651:\0A.popsection\0A", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !23
-  br label %23
+  %23 = icmp eq i64 %21, 0
+  br i1 %23, label %24, label %.thread
 
-23:                                               ; preds = %18, %10
-  %24 = phi i64 [ %21, %18 ], [ %12, %10 ]
-  %25 = icmp eq i64 %24, 0
-  %spec.select = select i1 %25, i64 2, i64 -14
-  br label %26
+24:                                               ; preds = %18, %8, %2
+  br label %.thread
 
-26:                                               ; preds = %23, %2, %8, %4
-  %27 = phi i64 [ -14, %4 ], [ 2, %8 ], [ 2, %2 ], [ %spec.select, %23 ]
-  ret i64 %27
+.thread:                                          ; preds = %10, %24, %18, %4
+  %25 = phi i64 [ 2, %24 ], [ -14, %4 ], [ -14, %18 ], [ -14, %10 ]
+  ret i64 %25
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -3201,7 +3201,7 @@ define internal fastcc i64 @__se_sys_keyctl(i64 noundef %0, i64 noundef %1, i64 
 345:                                              ; preds = %5
   %346 = inttoptr i64 %1 to ptr
   %347 = icmp eq i64 %2, 0
-  br i1 %347, label %keyctl_keyring_clear.exit, label %348
+  br i1 %347, label %368, label %348
 
 348:                                              ; preds = %345
   %349 = tail call i64 @llvm.umin.i64(i64 %2, i64 2)
@@ -3211,7 +3211,7 @@ define internal fastcc i64 @__se_sys_keyctl(i64 noundef %0, i64 noundef %1, i64 
 
 352:                                              ; preds = %348
   %353 = icmp ugt i64 %2, 2
-  br i1 %353, label %354, label %keyctl_keyring_clear.exit
+  br i1 %353, label %354, label %368
 
 354:                                              ; preds = %352
   %355 = getelementptr i8, ptr %346, i64 %349
@@ -3221,7 +3221,7 @@ define internal fastcc i64 @__se_sys_keyctl(i64 noundef %0, i64 noundef %1, i64 
   %359 = icmp sgt i64 %358, -1
   %360 = icmp uge i64 %358, %357
   %361 = and i1 %359, %360
-  br i1 %361, label %362, label %367
+  br i1 %361, label %362, label %keyctl_keyring_clear.exit
 
 362:                                              ; preds = %354
   tail call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+20)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x0f,0x01,0xcb\0A6651:\0A.popsection\0A", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !21
@@ -3231,17 +3231,15 @@ define internal fastcc i64 @__se_sys_keyctl(i64 noundef %0, i64 noundef %1, i64 
   %366 = extractvalue { i64, ptr, i64 } %364, 2
   tail call void @llvm.write_register.i64(metadata !0, i64 %366)
   tail call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+20)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x0f,0x01,0xca\0A6651:\0A.popsection\0A", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !23
-  br label %367
+  %367 = icmp eq i64 %365, 0
+  br i1 %367, label %368, label %keyctl_keyring_clear.exit
 
-367:                                              ; preds = %362, %354
-  %368 = phi i64 [ %365, %362 ], [ %356, %354 ]
-  %369 = icmp eq i64 %368, 0
-  %spec.select = select i1 %369, i64 2, i64 -14
+368:                                              ; preds = %362, %352, %345
   br label %keyctl_keyring_clear.exit
 
-keyctl_keyring_clear.exit:                        ; preds = %313, %296, %294, %253, %248, %238, %236, %159, %130, %101, %82, %80, %367, %345, %352, %348, %339, %333, %327, %322, %320, %315, %287, %269, %267, %263, %260, %256, %222, %220, %218, %202, %180, %176, %171, %167, %161, %124, %107, %70, %68, %56, %50, %42, %39, %31, %19, %11, %5
-  %370 = phi i64 [ %344, %339 ], [ %338, %333 ], [ %332, %327 ], [ %326, %322 ], [ %319, %315 ], [ %288, %287 ], [ %274, %269 ], [ %268, %267 ], [ %266, %263 ], [ %262, %260 ], [ %259, %256 ], [ %226, %222 ], [ %175, %171 ], [ %170, %167 ], [ %166, %161 ], [ %74, %70 ], [ %45, %42 ], [ -22, %320 ], [ %24, %19 ], [ %32, %31 ], [ %41, %39 ], [ %51, %50 ], [ %57, %56 ], [ %69, %68 ], [ %108, %107 ], [ %125, %124 ], [ -22, %176 ], [ %203, %202 ], [ %219, %218 ], [ %221, %220 ], [ -14, %348 ], [ -95, %5 ], [ %18, %11 ], [ %184, %180 ], [ 2, %352 ], [ 2, %345 ], [ %spec.select, %367 ], [ %79, %82 ], [ %102, %101 ], [ %79, %80 ], [ %131, %130 ], [ %160, %159 ], [ %237, %236 ], [ %255, %253 ], [ %252, %248 ], [ -12, %238 ], [ %293, %296 ], [ %314, %313 ], [ %293, %294 ]
-  ret i64 %370
+keyctl_keyring_clear.exit:                        ; preds = %354, %313, %296, %294, %253, %248, %238, %236, %159, %130, %101, %82, %80, %368, %362, %348, %339, %333, %327, %322, %320, %315, %287, %269, %267, %263, %260, %256, %222, %220, %218, %202, %180, %176, %171, %167, %161, %124, %107, %70, %68, %56, %50, %42, %39, %31, %19, %11, %5
+  %369 = phi i64 [ %344, %339 ], [ %338, %333 ], [ %332, %327 ], [ %326, %322 ], [ %319, %315 ], [ %288, %287 ], [ %274, %269 ], [ %268, %267 ], [ %266, %263 ], [ %262, %260 ], [ %259, %256 ], [ %226, %222 ], [ %175, %171 ], [ %170, %167 ], [ %166, %161 ], [ %74, %70 ], [ %45, %42 ], [ -22, %320 ], [ %24, %19 ], [ %32, %31 ], [ %41, %39 ], [ %51, %50 ], [ %57, %56 ], [ %69, %68 ], [ %108, %107 ], [ %125, %124 ], [ -22, %176 ], [ %203, %202 ], [ %219, %218 ], [ %221, %220 ], [ 2, %368 ], [ -14, %348 ], [ -14, %362 ], [ -95, %5 ], [ %18, %11 ], [ %184, %180 ], [ %79, %82 ], [ %102, %101 ], [ %79, %80 ], [ %131, %130 ], [ %160, %159 ], [ %237, %236 ], [ %255, %253 ], [ %252, %248 ], [ -12, %238 ], [ %293, %296 ], [ %314, %313 ], [ %293, %294 ], [ -14, %354 ]
+  ret i64 %369
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

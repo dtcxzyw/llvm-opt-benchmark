@@ -1782,13 +1782,14 @@ is_same_mpsse_instance.exit:                      ; preds = %48
   %53 = load i32, ptr %17, align 4
   %54 = getelementptr inbounds i8, ptr %33, i64 16
   %55 = load i32, ptr %54, align 4
-  %56 = icmp ne i32 %53, %55
-  %cond.fr = freeze i1 %56
-  %spec.select = select i1 %cond.fr, ptr null, ptr %33
-  br label %is_same_mpsse_instance.exit.thread
+  %.not15 = icmp eq i32 %53, %55
+  br i1 %.not15, label %56, label %is_same_mpsse_instance.exit.thread
 
-is_same_mpsse_instance.exit.thread:               ; preds = %is_same_mpsse_instance.exit, %34, %38, %43, %48, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %48 ], [ null, %43 ], [ null, %38 ], [ null, %34 ], [ %spec.select, %is_same_mpsse_instance.exit ]
+is_same_mpsse_instance.exit.thread:               ; preds = %34, %38, %43, %48, %is_same_mpsse_instance.exit, %3
+  br label %56
+
+56:                                               ; preds = %is_same_mpsse_instance.exit, %is_same_mpsse_instance.exit.thread
+  %.0 = phi ptr [ null, %is_same_mpsse_instance.exit.thread ], [ %33, %is_same_mpsse_instance.exit ]
   ret ptr %.0
 }
 

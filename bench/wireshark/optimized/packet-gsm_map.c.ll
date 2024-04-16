@@ -11886,11 +11886,13 @@ define internal fastcc ptr @gsm_map_get_matching_tcap_info(ptr nocapture noundef
   %35 = getelementptr inbounds i8, ptr %34, i64 40
   %36 = load i32, ptr %35, align 8
   %37 = icmp eq i32 %33, %36
-  %spec.select = select i1 %37, ptr %30, ptr null
-  br label %38
+  br i1 %37, label %39, label %38
 
-38:                                               ; preds = %31, %1, %5, %19
-  %.0 = phi ptr [ null, %19 ], [ null, %5 ], [ null, %1 ], [ %spec.select, %31 ]
+38:                                               ; preds = %19, %31, %5, %1
+  br label %39
+
+39:                                               ; preds = %31, %38
+  %.0 = phi ptr [ null, %38 ], [ %30, %31 ]
   ret ptr %.0
 }
 

@@ -871,19 +871,22 @@ if.end420:                                        ; preds = %if.end413, %if.then
   %21 = load i32, ptr @show_deleted, align 4
   %tobool425 = icmp ne i32 %21, 0
   %or.cond9 = select i1 %or.cond8, i1 true, i1 %tobool425
-  br i1 %or.cond9, label %if.end432, label %lor.lhs.false426
+  br i1 %or.cond9, label %if.then431, label %lor.lhs.false426
 
 lor.lhs.false426:                                 ; preds = %if.end420
   %22 = load i32, ptr %dir, align 8
   %and = and i32 %22, 1
-  %tobool428 = icmp eq i32 %and, 0
+  %tobool428 = icmp ne i32 %and, 0
   %23 = load i32, ptr @show_killed, align 4
-  %tobool430 = icmp eq i32 %23, 0
-  %or.cond10.not = select i1 %tobool428, i1 %tobool430, i1 false
+  %tobool430 = icmp ne i32 %23, 0
+  %or.cond10 = select i1 %tobool428, i1 true, i1 %tobool430
+  br i1 %or.cond10, label %if.then431, label %if.end432
+
+if.then431:                                       ; preds = %lor.lhs.false426, %if.end420
   br label %if.end432
 
-if.end432:                                        ; preds = %lor.lhs.false426, %if.end420
-  %tobool445.not = phi i1 [ false, %if.end420 ], [ %or.cond10.not, %lor.lhs.false426 ]
+if.end432:                                        ; preds = %lor.lhs.false426, %if.then431
+  %tobool445.not = phi i1 [ false, %if.then431 ], [ true, %lor.lhs.false426 ]
   %24 = load i32, ptr @show_unmerged, align 4
   %tobool433.not = icmp eq i32 %24, 0
   br i1 %tobool433.not, label %if.end435, label %if.end435.thread

@@ -119,24 +119,24 @@ define dso_local void @ieee80211_aes_cmac_256(ptr noundef %0, ptr noundef %1, pt
 define dso_local ptr @ieee80211_aes_cmac_key_setup(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = tail call ptr @crypto_alloc_shash(ptr noundef nonnull @.str, i32 noundef 0, i32 noundef 0) #4
   %4 = icmp ugt ptr %3, inttoptr (i64 -4096 to ptr)
-  br i1 %4, label %13, label %5
+  br i1 %4, label %.thread, label %5
 
 5:                                                ; preds = %2
   %6 = trunc i64 %1 to i32
   %7 = tail call i32 @crypto_shash_setkey(ptr noundef %3, ptr noundef %0, i32 noundef %6) #4
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %13, label %9
+  br i1 %8, label %.thread, label %9
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %3, i64 8
   tail call void @crypto_destroy_tfm(ptr noundef %3, ptr noundef %10) #4
   %11 = sext i32 %7 to i64
   %12 = inttoptr i64 %11 to ptr
-  br label %13
+  br label %.thread
 
-13:                                               ; preds = %5, %9, %2
-  %14 = phi ptr [ %3, %2 ], [ %12, %9 ], [ %3, %5 ]
-  ret ptr %14
+.thread:                                          ; preds = %5, %2, %9
+  %13 = phi ptr [ %12, %9 ], [ %3, %2 ], [ %3, %5 ]
+  ret ptr %13
 }
 
 ; Function Attrs: null_pointer_is_valid

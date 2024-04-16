@@ -93,13 +93,13 @@ define internal noundef i32 @virtio_gpu_plane_prepare_fb(ptr nocapture noundef r
   %6 = getelementptr inbounds i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %37, label %9
+  br i1 %8, label %38, label %9
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %7, i64 160
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %37, label %13
+  br i1 %12, label %38, label %13
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds i8, ptr %0, i64 1224
@@ -111,7 +111,7 @@ define internal noundef i32 @virtio_gpu_plane_prepare_fb(ptr nocapture noundef r
   %18 = getelementptr inbounds i8, ptr %11, i64 415
   %19 = load i8, ptr %18, align 1, !range !8, !noundef !9
   %20 = icmp eq i8 %19, 0
-  br i1 %20, label %37, label %21
+  br i1 %20, label %38, label %21
 
 21:                                               ; preds = %17, %13
   %22 = getelementptr inbounds i8, ptr %11, i64 412
@@ -134,12 +134,14 @@ define internal noundef i32 @virtio_gpu_plane_prepare_fb(ptr nocapture noundef r
   %35 = getelementptr inbounds i8, ptr %7, i64 192
   store ptr %34, ptr %35, align 8
   %36 = icmp eq ptr %34, null
-  %spec.select = select i1 %36, i32 -12, i32 0
-  br label %37
+  br i1 %36, label %38, label %37
 
-37:                                               ; preds = %31, %21, %25, %17, %9, %2
-  %38 = phi i32 [ 0, %2 ], [ 0, %17 ], [ 0, %9 ], [ 0, %25 ], [ 0, %21 ], [ %spec.select, %31 ]
-  ret i32 %38
+37:                                               ; preds = %31, %25, %21
+  br label %38
+
+38:                                               ; preds = %37, %31, %17, %9, %2
+  %39 = phi i32 [ 0, %37 ], [ 0, %2 ], [ 0, %17 ], [ 0, %9 ], [ -12, %31 ]
+  ret i32 %39
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

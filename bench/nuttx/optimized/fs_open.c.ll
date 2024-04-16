@@ -20,7 +20,7 @@ define i32 @file_open(ptr noundef %0, ptr noundef %1, i32 noundef %2, ...) local
 define internal fastcc i32 @file_vopen(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.inode_search_s, align 8
   %7 = icmp eq ptr %1, null
-  br i1 %7, label %97, label %8
+  br i1 %7, label %96, label %8
 
 8:                                                ; preds = %5
   %9 = and i32 %2, 4
@@ -69,7 +69,7 @@ define internal fastcc i32 @file_vopen(ptr noundef %0, ptr noundef %1, i32 nound
   store i8 %35, ptr %32, align 8
   %36 = call i32 @inode_find(ptr noundef nonnull %6) #6
   %37 = icmp slt i32 %36, 0
-  br i1 %37, label %95, label %38
+  br i1 %37, label %94, label %38
 
 38:                                               ; preds = %26
   %39 = load ptr, ptr %29, align 8
@@ -80,18 +80,18 @@ define internal fastcc i32 @file_vopen(ptr noundef %0, ptr noundef %1, i32 nound
   %44 = and i16 %43, 15
   %45 = icmp eq i16 %44, 8
   %or.cond = select i1 %41, i1 %45, i1 false
-  br i1 %or.cond, label %97, label %._crit_edge
+  br i1 %or.cond, label %96, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %38
   %46 = getelementptr i8, ptr %39, i64 26
   %47 = getelementptr i8, ptr %39, i64 32
   %.val55 = load ptr, ptr %47, align 8
   %48 = icmp eq i16 %44, 0
-  br i1 %48, label %67, label %49
+  br i1 %48, label %inode_checkflags.exit, label %49
 
 49:                                               ; preds = %._crit_edge
   %50 = icmp eq ptr %.val55, null
-  br i1 %50, label %inode_checkflags.exit, label %51
+  br i1 %50, label %inode_checkflags.exit.thread, label %51
 
 51:                                               ; preds = %49
   %52 = and i32 %2, 1
@@ -108,110 +108,110 @@ define internal fastcc i32 @file_vopen(ptr noundef %0, ptr noundef %1, i32 nound
   %57 = getelementptr inbounds i8, ptr %.val55, i64 40
   %58 = load ptr, ptr %57, align 8
   %.not11.i = icmp eq ptr %58, null
-  br i1 %.not11.i, label %inode_checkflags.exit, label %59
+  br i1 %.not11.i, label %inode_checkflags.exit.thread, label %59
 
 59:                                               ; preds = %56, %53, %51
   %60 = and i32 %2, 2
   %.not12.i = icmp eq i32 %60, 0
-  br i1 %.not12.i, label %67, label %61
+  br i1 %.not12.i, label %inode_checkflags.exit, label %61
 
 61:                                               ; preds = %59
   %62 = getelementptr inbounds i8, ptr %.val55, i64 24
   %63 = load ptr, ptr %62, align 8
   %.not13.i = icmp eq ptr %63, null
-  br i1 %.not13.i, label %64, label %67
+  br i1 %.not13.i, label %64, label %inode_checkflags.exit
 
 64:                                               ; preds = %61
   %65 = getelementptr inbounds i8, ptr %.val55, i64 40
   %66 = load ptr, ptr %65, align 8
   %.not14.i = icmp eq ptr %66, null
-  br i1 %.not14.i, label %inode_checkflags.exit, label %67
+  br i1 %.not14.i, label %inode_checkflags.exit.thread, label %inode_checkflags.exit
 
-67:                                               ; preds = %._crit_edge, %61, %59, %64
+inode_checkflags.exit:                            ; preds = %59, %61, %64, %._crit_edge
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   store i32 %2, ptr %0, align 8
-  %68 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %39, ptr %68, align 8
-  %69 = and i32 %2, 2048
-  %.not50 = icmp eq i32 %69, 0
-  br i1 %.not50, label %73, label %70
+  %67 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %39, ptr %67, align 8
+  %68 = and i32 %2, 2048
+  %.not50 = icmp eq i32 %68, 0
+  br i1 %.not50, label %72, label %69
 
-70:                                               ; preds = %67
-  %71 = load ptr, ptr %30, align 8
-  %72 = call i32 @dir_allocate(ptr noundef nonnull %0, ptr noundef %71) #6
-  br label %87
+69:                                               ; preds = %inode_checkflags.exit
+  %70 = load ptr, ptr %30, align 8
+  %71 = call i32 @dir_allocate(ptr noundef nonnull %0, ptr noundef %70) #6
+  br label %86
 
-73:                                               ; preds = %67
-  %74 = load i16, ptr %46, align 2
-  %75 = and i16 %74, 15
-  switch i16 %75, label %inode_checkflags.exit [
-    i16 3, label %76
-    i16 1, label %82
-    i16 10, label %82
+72:                                               ; preds = %inode_checkflags.exit
+  %73 = load i16, ptr %46, align 2
+  %74 = and i16 %73, 15
+  switch i16 %74, label %inode_checkflags.exit.thread [
+    i16 3, label %75
+    i16 1, label %81
+    i16 10, label %81
   ]
 
-76:                                               ; preds = %73
-  %77 = load ptr, ptr %47, align 8
-  %78 = load ptr, ptr %77, align 8
-  %.not52 = icmp eq ptr %78, null
-  br i1 %.not52, label %.thread.thread, label %79
+75:                                               ; preds = %72
+  %76 = load ptr, ptr %47, align 8
+  %77 = load ptr, ptr %76, align 8
+  %.not52 = icmp eq ptr %77, null
+  br i1 %.not52, label %.thread.thread, label %78
 
-79:                                               ; preds = %76
-  %80 = load ptr, ptr %30, align 8
-  %81 = call i32 %78(ptr noundef nonnull %0, ptr noundef %80, i32 noundef %2, i32 noundef %28) #6
-  br label %87
+78:                                               ; preds = %75
+  %79 = load ptr, ptr %30, align 8
+  %80 = call i32 %77(ptr noundef nonnull %0, ptr noundef %79, i32 noundef %2, i32 noundef %28) #6
+  br label %86
 
-82:                                               ; preds = %73, %73
-  %83 = load ptr, ptr %47, align 8
-  %84 = load ptr, ptr %83, align 8
-  %.not51 = icmp eq ptr %84, null
-  br i1 %.not51, label %.thread.thread, label %85
+81:                                               ; preds = %72, %72
+  %82 = load ptr, ptr %47, align 8
+  %83 = load ptr, ptr %82, align 8
+  %.not51 = icmp eq ptr %83, null
+  br i1 %.not51, label %.thread.thread, label %84
 
-85:                                               ; preds = %82
-  %86 = call i32 %84(ptr noundef nonnull %0) #6
-  br label %87
+84:                                               ; preds = %81
+  %85 = call i32 %83(ptr noundef nonnull %0) #6
+  br label %86
 
-87:                                               ; preds = %79, %85, %70
-  %.0 = phi i32 [ %72, %70 ], [ %81, %79 ], [ %86, %85 ]
-  %88 = icmp eq i32 %.0, -21
-  br i1 %88, label %89, label %.thread
+86:                                               ; preds = %78, %84, %69
+  %.0 = phi i32 [ %71, %69 ], [ %80, %78 ], [ %85, %84 ]
+  %87 = icmp eq i32 %.0, -21
+  br i1 %87, label %88, label %.thread
 
-89:                                               ; preds = %87
-  %90 = load ptr, ptr %30, align 8
-  %91 = call i32 @dir_allocate(ptr noundef nonnull %0, ptr noundef %90) #6
+88:                                               ; preds = %86
+  %89 = load ptr, ptr %30, align 8
+  %90 = call i32 @dir_allocate(ptr noundef nonnull %0, ptr noundef %89) #6
   br label %.thread
 
-.thread:                                          ; preds = %89, %87
-  %.1 = phi i32 [ %91, %89 ], [ %.0, %87 ]
-  %92 = icmp slt i32 %.1, 0
-  br i1 %92, label %inode_checkflags.exit, label %.thread.thread
+.thread:                                          ; preds = %88, %86
+  %.1 = phi i32 [ %90, %88 ], [ %.0, %86 ]
+  %91 = icmp slt i32 %.1, 0
+  br i1 %91, label %inode_checkflags.exit.thread, label %.thread.thread
 
-.thread.thread:                                   ; preds = %76, %82, %.thread
-  %93 = load ptr, ptr %31, align 8
-  %.not53 = icmp eq ptr %93, null
-  br i1 %.not53, label %97, label %.sink.split
+.thread.thread:                                   ; preds = %75, %81, %.thread
+  %92 = load ptr, ptr %31, align 8
+  %.not53 = icmp eq ptr %92, null
+  br i1 %.not53, label %96, label %.sink.split
 
-inode_checkflags.exit:                            ; preds = %73, %64, %56, %49, %.thread
-  %.2 = phi i32 [ %.1, %.thread ], [ -6, %49 ], [ -13, %56 ], [ -13, %64 ], [ -6, %73 ]
-  %94 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr null, ptr %94, align 8
+inode_checkflags.exit.thread:                     ; preds = %72, %56, %64, %49, %.thread
+  %.2 = phi i32 [ %.1, %.thread ], [ -13, %56 ], [ -13, %64 ], [ -6, %49 ], [ -6, %72 ]
+  %93 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr null, ptr %93, align 8
   call void @inode_release(ptr noundef nonnull %39) #6
-  br label %95
+  br label %94
 
-95:                                               ; preds = %26, %inode_checkflags.exit
-  %.3 = phi i32 [ %36, %26 ], [ %.2, %inode_checkflags.exit ]
-  %96 = load ptr, ptr %31, align 8
-  %.not54 = icmp eq ptr %96, null
-  br i1 %.not54, label %97, label %.sink.split
+94:                                               ; preds = %26, %inode_checkflags.exit.thread
+  %.3 = phi i32 [ %36, %26 ], [ %.2, %inode_checkflags.exit.thread ]
+  %95 = load ptr, ptr %31, align 8
+  %.not54 = icmp eq ptr %95, null
+  br i1 %.not54, label %96, label %.sink.split
 
-.sink.split:                                      ; preds = %95, %.thread.thread
-  %.sink = phi ptr [ %93, %.thread.thread ], [ %96, %95 ]
-  %.039.ph = phi i32 [ 0, %.thread.thread ], [ %.3, %95 ]
+.sink.split:                                      ; preds = %94, %.thread.thread
+  %.sink = phi ptr [ %92, %.thread.thread ], [ %95, %94 ]
+  %.039.ph = phi i32 [ 0, %.thread.thread ], [ %.3, %94 ]
   call void @free(ptr noundef nonnull %.sink)
-  br label %97
+  br label %96
 
-97:                                               ; preds = %.sink.split, %38, %95, %.thread.thread, %5
-  %.039 = phi i32 [ -22, %5 ], [ 0, %.thread.thread ], [ %.3, %95 ], [ -40, %38 ], [ %.039.ph, %.sink.split ]
+96:                                               ; preds = %.sink.split, %38, %94, %.thread.thread, %5
+  %.039 = phi i32 [ -22, %5 ], [ 0, %.thread.thread ], [ %.3, %94 ], [ -40, %38 ], [ %.039.ph, %.sink.split ]
   ret i32 %.039
 }
 

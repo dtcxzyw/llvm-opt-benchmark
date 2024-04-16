@@ -870,8 +870,8 @@ define dso_local void @EventTriggerDDLCommandStart(ptr noundef %0) local_unnamed
   %12 = tail call i32 @CreateCommandTag(ptr noundef %0) #13
   %13 = getelementptr inbounds i8, ptr %9, i64 4
   %14 = load i32, ptr %13, align 4
-  %.not33.i = icmp sgt i32 %14, 0
-  br i1 %.not33.i, label %.lr.ph.i, label %EventTriggerCommonSetup.exit.thread
+  %.not31.i = icmp sgt i32 %14, 0
+  br i1 %.not31.i, label %.lr.ph.i, label %EventTriggerCommonSetup.exit.thread
 
 .lr.ph.i:                                         ; preds = %11
   %15 = getelementptr inbounds i8, ptr %9, i64 16
@@ -879,7 +879,7 @@ define dso_local void @EventTriggerDDLCommandStart(ptr noundef %0) local_unnamed
 
 .lr.ph.split.i:                                   ; preds = %filter_event_trigger.exit.thread.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %filter_event_trigger.exit.thread.i ], [ 0, %.lr.ph.i ]
-  %.02534.i = phi ptr [ %.1.i, %filter_event_trigger.exit.thread.i ], [ null, %.lr.ph.i ]
+  %.02532.i = phi ptr [ %.1.i, %filter_event_trigger.exit.thread.i ], [ null, %.lr.ph.i ]
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr %union.ListCell, ptr %16, i64 %indvars.iv.i
   %18 = load ptr, ptr %17, align 8
@@ -901,43 +901,43 @@ define dso_local void @EventTriggerDDLCommandStart(ptr noundef %0) local_unnamed
   %28 = getelementptr inbounds i8, ptr %18, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
-  br i1 %30, label %filter_event_trigger.exit.thread31.i, label %filter_event_trigger.exit.i
+  br i1 %30, label %filter_event_trigger.exit.i, label %31
 
-filter_event_trigger.exit.i:                      ; preds = %27
-  %31 = tail call zeroext i1 @bms_is_member(i32 noundef %12, ptr noundef nonnull %29) #13
-  br i1 %31, label %filter_event_trigger.exit.thread31.i, label %filter_event_trigger.exit.thread.i
+31:                                               ; preds = %27
+  %32 = tail call zeroext i1 @bms_is_member(i32 noundef %12, ptr noundef nonnull %29) #13
+  br i1 %32, label %filter_event_trigger.exit.i, label %filter_event_trigger.exit.thread.i
 
-filter_event_trigger.exit.thread31.i:             ; preds = %filter_event_trigger.exit.i, %27
-  %32 = load i32, ptr %18, align 8
-  %33 = tail call ptr @lappend_oid(ptr noundef %.02534.i, i32 noundef %32) #13
+filter_event_trigger.exit.i:                      ; preds = %31, %27
+  %33 = load i32, ptr %18, align 8
+  %34 = tail call ptr @lappend_oid(ptr noundef %.02532.i, i32 noundef %33) #13
   br label %filter_event_trigger.exit.thread.i
 
-filter_event_trigger.exit.thread.i:               ; preds = %filter_event_trigger.exit.thread31.i, %filter_event_trigger.exit.i, %25, %23
-  %.1.i = phi ptr [ %33, %filter_event_trigger.exit.thread31.i ], [ %.02534.i, %filter_event_trigger.exit.i ], [ %.02534.i, %23 ], [ %.02534.i, %25 ]
+filter_event_trigger.exit.thread.i:               ; preds = %filter_event_trigger.exit.i, %31, %25, %23
+  %.1.i = phi ptr [ %34, %filter_event_trigger.exit.i ], [ %.02532.i, %23 ], [ %.02532.i, %25 ], [ %.02532.i, %31 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %34 = load i32, ptr %13, align 4
-  %35 = sext i32 %34 to i64
-  %.not.i = icmp slt i64 %indvars.iv.next.i, %35
+  %35 = load i32, ptr %13, align 4
+  %36 = sext i32 %35 to i64
+  %.not.i = icmp slt i64 %indvars.iv.next.i, %36
   br i1 %.not.i, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %filter_event_trigger.exit.thread.i
-  %36 = icmp eq ptr %.1.i, null
-  br i1 %36, label %EventTriggerCommonSetup.exit.thread, label %37
+  %37 = icmp eq ptr %.1.i, null
+  br i1 %37, label %EventTriggerCommonSetup.exit.thread, label %38
 
-37:                                               ; preds = %._crit_edge.i
+38:                                               ; preds = %._crit_edge.i
   store i32 425, ptr %2, align 8
-  %38 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr @.str.3, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %2, i64 16
-  store ptr %0, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %2, i64 24
-  store i32 %12, ptr %40, align 8
+  %39 = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr @.str.3, ptr %39, align 8
+  %40 = getelementptr inbounds i8, ptr %2, i64 16
+  store ptr %0, ptr %40, align 8
+  %41 = getelementptr inbounds i8, ptr %2, i64 24
+  store i32 %12, ptr %41, align 8
   call fastcc void @EventTriggerInvoke(ptr noundef nonnull %.1.i, ptr noundef nonnull %2)
   call void @list_free(ptr noundef nonnull %.1.i) #13
   call void @CommandCounterIncrement() #13
   br label %EventTriggerCommonSetup.exit.thread
 
-EventTriggerCommonSetup.exit.thread:              ; preds = %11, %._crit_edge.i, %8, %1, %5, %37
+EventTriggerCommonSetup.exit.thread:              ; preds = %11, %._crit_edge.i, %8, %1, %5, %38
   ret void
 }
 
@@ -1040,8 +1040,8 @@ define dso_local void @EventTriggerDDLCommandEnd(ptr noundef %0) local_unnamed_a
   %14 = tail call i32 @CreateCommandTag(ptr noundef %0) #13
   %15 = getelementptr inbounds i8, ptr %11, i64 4
   %16 = load i32, ptr %15, align 4
-  %.not33.i = icmp sgt i32 %16, 0
-  br i1 %.not33.i, label %.lr.ph.i, label %EventTriggerCommonSetup.exit.thread
+  %.not31.i = icmp sgt i32 %16, 0
+  br i1 %.not31.i, label %.lr.ph.i, label %EventTriggerCommonSetup.exit.thread
 
 .lr.ph.i:                                         ; preds = %13
   %17 = getelementptr inbounds i8, ptr %11, i64 16
@@ -1049,7 +1049,7 @@ define dso_local void @EventTriggerDDLCommandEnd(ptr noundef %0) local_unnamed_a
 
 .lr.ph.split.i:                                   ; preds = %filter_event_trigger.exit.thread.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %filter_event_trigger.exit.thread.i ], [ 0, %.lr.ph.i ]
-  %.02534.i = phi ptr [ %.1.i, %filter_event_trigger.exit.thread.i ], [ null, %.lr.ph.i ]
+  %.02532.i = phi ptr [ %.1.i, %filter_event_trigger.exit.thread.i ], [ null, %.lr.ph.i ]
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr %union.ListCell, ptr %18, i64 %indvars.iv.i
   %20 = load ptr, ptr %19, align 8
@@ -1071,43 +1071,43 @@ define dso_local void @EventTriggerDDLCommandEnd(ptr noundef %0) local_unnamed_a
   %30 = getelementptr inbounds i8, ptr %20, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %filter_event_trigger.exit.thread31.i, label %filter_event_trigger.exit.i
+  br i1 %32, label %filter_event_trigger.exit.i, label %33
 
-filter_event_trigger.exit.i:                      ; preds = %29
-  %33 = tail call zeroext i1 @bms_is_member(i32 noundef %14, ptr noundef nonnull %31) #13
-  br i1 %33, label %filter_event_trigger.exit.thread31.i, label %filter_event_trigger.exit.thread.i
+33:                                               ; preds = %29
+  %34 = tail call zeroext i1 @bms_is_member(i32 noundef %14, ptr noundef nonnull %31) #13
+  br i1 %34, label %filter_event_trigger.exit.i, label %filter_event_trigger.exit.thread.i
 
-filter_event_trigger.exit.thread31.i:             ; preds = %filter_event_trigger.exit.i, %29
-  %34 = load i32, ptr %20, align 8
-  %35 = tail call ptr @lappend_oid(ptr noundef %.02534.i, i32 noundef %34) #13
+filter_event_trigger.exit.i:                      ; preds = %33, %29
+  %35 = load i32, ptr %20, align 8
+  %36 = tail call ptr @lappend_oid(ptr noundef %.02532.i, i32 noundef %35) #13
   br label %filter_event_trigger.exit.thread.i
 
-filter_event_trigger.exit.thread.i:               ; preds = %filter_event_trigger.exit.thread31.i, %filter_event_trigger.exit.i, %27, %25
-  %.1.i = phi ptr [ %35, %filter_event_trigger.exit.thread31.i ], [ %.02534.i, %filter_event_trigger.exit.i ], [ %.02534.i, %25 ], [ %.02534.i, %27 ]
+filter_event_trigger.exit.thread.i:               ; preds = %filter_event_trigger.exit.i, %33, %27, %25
+  %.1.i = phi ptr [ %36, %filter_event_trigger.exit.i ], [ %.02532.i, %25 ], [ %.02532.i, %27 ], [ %.02532.i, %33 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %36 = load i32, ptr %15, align 4
-  %37 = sext i32 %36 to i64
-  %.not.i = icmp slt i64 %indvars.iv.next.i, %37
+  %37 = load i32, ptr %15, align 4
+  %38 = sext i32 %37 to i64
+  %.not.i = icmp slt i64 %indvars.iv.next.i, %38
   br i1 %.not.i, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %filter_event_trigger.exit.thread.i
-  %38 = icmp eq ptr %.1.i, null
-  br i1 %38, label %EventTriggerCommonSetup.exit.thread, label %39
+  %39 = icmp eq ptr %.1.i, null
+  br i1 %39, label %EventTriggerCommonSetup.exit.thread, label %40
 
-39:                                               ; preds = %._crit_edge.i
+40:                                               ; preds = %._crit_edge.i
   store i32 425, ptr %2, align 8
-  %40 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr @.str.4, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %2, i64 16
-  store ptr %0, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %2, i64 24
-  store i32 %14, ptr %42, align 8
+  %41 = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr @.str.4, ptr %41, align 8
+  %42 = getelementptr inbounds i8, ptr %2, i64 16
+  store ptr %0, ptr %42, align 8
+  %43 = getelementptr inbounds i8, ptr %2, i64 24
+  store i32 %14, ptr %43, align 8
   tail call void @CommandCounterIncrement() #13
   call fastcc void @EventTriggerInvoke(ptr noundef nonnull %.1.i, ptr noundef nonnull %2)
   call void @list_free(ptr noundef nonnull %.1.i) #13
   br label %EventTriggerCommonSetup.exit.thread
 
-EventTriggerCommonSetup.exit.thread:              ; preds = %13, %._crit_edge.i, %10, %1, %5, %39
+EventTriggerCommonSetup.exit.thread:              ; preds = %13, %._crit_edge.i, %10, %1, %5, %40
   ret void
 }
 
@@ -1142,8 +1142,8 @@ define dso_local void @EventTriggerSQLDrop(ptr noundef %0) local_unnamed_addr #0
   %18 = call i32 @CreateCommandTag(ptr noundef %0) #13
   %19 = getelementptr inbounds i8, ptr %15, i64 4
   %20 = load i32, ptr %19, align 4
-  %.not33.i = icmp sgt i32 %20, 0
-  br i1 %.not33.i, label %.lr.ph.i, label %EventTriggerCommonSetup.exit.thread
+  %.not31.i = icmp sgt i32 %20, 0
+  br i1 %.not31.i, label %.lr.ph.i, label %EventTriggerCommonSetup.exit.thread
 
 .lr.ph.i:                                         ; preds = %17
   %21 = getelementptr inbounds i8, ptr %15, i64 16
@@ -1151,7 +1151,7 @@ define dso_local void @EventTriggerSQLDrop(ptr noundef %0) local_unnamed_addr #0
 
 .lr.ph.split.i:                                   ; preds = %filter_event_trigger.exit.thread.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %filter_event_trigger.exit.thread.i ], [ 0, %.lr.ph.i ]
-  %.02534.i = phi ptr [ %.1.i, %filter_event_trigger.exit.thread.i ], [ null, %.lr.ph.i ]
+  %.02532.i = phi ptr [ %.1.i, %filter_event_trigger.exit.thread.i ], [ null, %.lr.ph.i ]
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr %union.ListCell, ptr %22, i64 %indvars.iv.i
   %24 = load ptr, ptr %23, align 8
@@ -1173,68 +1173,68 @@ define dso_local void @EventTriggerSQLDrop(ptr noundef %0) local_unnamed_addr #0
   %34 = getelementptr inbounds i8, ptr %24, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
-  br i1 %36, label %filter_event_trigger.exit.thread31.i, label %filter_event_trigger.exit.i
+  br i1 %36, label %filter_event_trigger.exit.i, label %37
 
-filter_event_trigger.exit.i:                      ; preds = %33
-  %37 = call zeroext i1 @bms_is_member(i32 noundef %18, ptr noundef nonnull %35) #13
-  br i1 %37, label %filter_event_trigger.exit.thread31.i, label %filter_event_trigger.exit.thread.i
+37:                                               ; preds = %33
+  %38 = call zeroext i1 @bms_is_member(i32 noundef %18, ptr noundef nonnull %35) #13
+  br i1 %38, label %filter_event_trigger.exit.i, label %filter_event_trigger.exit.thread.i
 
-filter_event_trigger.exit.thread31.i:             ; preds = %filter_event_trigger.exit.i, %33
-  %38 = load i32, ptr %24, align 8
-  %39 = call ptr @lappend_oid(ptr noundef %.02534.i, i32 noundef %38) #13
+filter_event_trigger.exit.i:                      ; preds = %37, %33
+  %39 = load i32, ptr %24, align 8
+  %40 = call ptr @lappend_oid(ptr noundef %.02532.i, i32 noundef %39) #13
   br label %filter_event_trigger.exit.thread.i
 
-filter_event_trigger.exit.thread.i:               ; preds = %filter_event_trigger.exit.thread31.i, %filter_event_trigger.exit.i, %31, %29
-  %.1.i = phi ptr [ %39, %filter_event_trigger.exit.thread31.i ], [ %.02534.i, %filter_event_trigger.exit.i ], [ %.02534.i, %29 ], [ %.02534.i, %31 ]
+filter_event_trigger.exit.thread.i:               ; preds = %filter_event_trigger.exit.i, %37, %31, %29
+  %.1.i = phi ptr [ %40, %filter_event_trigger.exit.i ], [ %.02532.i, %29 ], [ %.02532.i, %31 ], [ %.02532.i, %37 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %40 = load i32, ptr %19, align 4
-  %41 = sext i32 %40 to i64
-  %.not.i = icmp slt i64 %indvars.iv.next.i, %41
+  %41 = load i32, ptr %19, align 4
+  %42 = sext i32 %41 to i64
+  %.not.i = icmp slt i64 %indvars.iv.next.i, %42
   br i1 %.not.i, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %filter_event_trigger.exit.thread.i
-  %42 = icmp eq ptr %.1.i, null
-  br i1 %42, label %EventTriggerCommonSetup.exit.thread, label %43
+  %43 = icmp eq ptr %.1.i, null
+  br i1 %43, label %EventTriggerCommonSetup.exit.thread, label %44
 
-43:                                               ; preds = %._crit_edge.i
+44:                                               ; preds = %._crit_edge.i
   store i32 425, ptr %2, align 8
-  %44 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr @.str.5, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %2, i64 16
-  store ptr %0, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %2, i64 24
-  store i32 %18, ptr %46, align 8
+  %45 = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr @.str.5, ptr %45, align 8
+  %46 = getelementptr inbounds i8, ptr %2, i64 16
+  store ptr %0, ptr %46, align 8
+  %47 = getelementptr inbounds i8, ptr %2, i64 24
+  store i32 %18, ptr %47, align 8
   call void @CommandCounterIncrement() #13
-  %47 = load ptr, ptr @currentEventTriggerState, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 16
-  store i8 1, ptr %48, align 8
-  %49 = load ptr, ptr @PG_exception_stack, align 8
-  %50 = load ptr, ptr @error_context_stack, align 8
-  %51 = call i32 @__sigsetjmp(ptr noundef nonnull %3, i32 noundef 0) #16
-  %.not = icmp eq i32 %51, 0
-  br i1 %.not, label %52, label %.critedge
+  %48 = load ptr, ptr @currentEventTriggerState, align 8
+  %49 = getelementptr inbounds i8, ptr %48, i64 16
+  store i8 1, ptr %49, align 8
+  %50 = load ptr, ptr @PG_exception_stack, align 8
+  %51 = load ptr, ptr @error_context_stack, align 8
+  %52 = call i32 @__sigsetjmp(ptr noundef nonnull %3, i32 noundef 0) #16
+  %.not = icmp eq i32 %52, 0
+  br i1 %.not, label %53, label %.critedge
 
-52:                                               ; preds = %43
+53:                                               ; preds = %44
   store ptr %3, ptr @PG_exception_stack, align 8
   call fastcc void @EventTriggerInvoke(ptr noundef nonnull %.1.i, ptr noundef nonnull %2)
-  %53 = load ptr, ptr @currentEventTriggerState, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 16
-  store i8 0, ptr %54, align 8
-  store ptr %49, ptr @PG_exception_stack, align 8
-  store ptr %50, ptr @error_context_stack, align 8
+  %54 = load ptr, ptr @currentEventTriggerState, align 8
+  %55 = getelementptr inbounds i8, ptr %54, i64 16
+  store i8 0, ptr %55, align 8
+  store ptr %50, ptr @PG_exception_stack, align 8
+  store ptr %51, ptr @error_context_stack, align 8
   call void @list_free(ptr noundef nonnull %.1.i) #13
   br label %EventTriggerCommonSetup.exit.thread
 
-.critedge:                                        ; preds = %43
-  store ptr %49, ptr @PG_exception_stack, align 8
-  store ptr %50, ptr @error_context_stack, align 8
-  %55 = load ptr, ptr @currentEventTriggerState, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 16
-  store i8 0, ptr %56, align 8
+.critedge:                                        ; preds = %44
+  store ptr %50, ptr @PG_exception_stack, align 8
+  store ptr %51, ptr @error_context_stack, align 8
+  %56 = load ptr, ptr @currentEventTriggerState, align 8
+  %57 = getelementptr inbounds i8, ptr %56, i64 16
+  store i8 0, ptr %57, align 8
   call void @pg_re_throw() #17
   unreachable
 
-EventTriggerCommonSetup.exit.thread:              ; preds = %17, %._crit_edge.i, %14, %11, %1, %6, %52
+EventTriggerCommonSetup.exit.thread:              ; preds = %17, %._crit_edge.i, %14, %11, %1, %6, %53
   ret void
 }
 
@@ -1250,7 +1250,7 @@ define dso_local void @EventTriggerOnLogin() local_unnamed_addr #0 {
   %2 = alloca [1 x %struct.ScanKeyData], align 16
   %3 = load i8, ptr @IsUnderPostmaster, align 1
   %4 = trunc i8 %3 to i1
-  br i1 %4, label %5, label %92
+  br i1 %4, label %5, label %93
 
 5:                                                ; preds = %0
   %6 = load i8, ptr @event_triggers, align 1
@@ -1258,24 +1258,24 @@ define dso_local void @EventTriggerOnLogin() local_unnamed_addr #0 {
   %8 = load i32, ptr @MyDatabaseId, align 4
   %9 = icmp ne i32 %8, 0
   %or.cond = select i1 %7, i1 %9, i1 false
-  br i1 %or.cond, label %10, label %92
+  br i1 %or.cond, label %10, label %93
 
 10:                                               ; preds = %5
   %11 = load i8, ptr @MyDatabaseHasLoginEventTriggers, align 1
   %12 = trunc i8 %11 to i1
-  br i1 %12, label %13, label %92
+  br i1 %12, label %13, label %93
 
 13:                                               ; preds = %10
   tail call void @StartTransactionCommand() #13
   %14 = tail call ptr @EventCacheLookup(i32 noundef 4) #13
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %46, label %16
+  br i1 %15, label %47, label %16
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds i8, ptr %14, i64 4
   %18 = load i32, ptr %17, align 4
-  %.not33.i = icmp sgt i32 %18, 0
-  br i1 %.not33.i, label %.lr.ph.i, label %46
+  %.not31.i = icmp sgt i32 %18, 0
+  br i1 %.not31.i, label %.lr.ph.i, label %47
 
 .lr.ph.i:                                         ; preds = %16
   %19 = getelementptr inbounds i8, ptr %14, i64 16
@@ -1283,7 +1283,7 @@ define dso_local void @EventTriggerOnLogin() local_unnamed_addr #0 {
 
 .lr.ph.split.i:                                   ; preds = %filter_event_trigger.exit.thread.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %filter_event_trigger.exit.thread.i ], [ 0, %.lr.ph.i ]
-  %.02534.i = phi ptr [ %.1.i, %filter_event_trigger.exit.thread.i ], [ null, %.lr.ph.i ]
+  %.02532.i = phi ptr [ %.1.i, %filter_event_trigger.exit.thread.i ], [ null, %.lr.ph.i ]
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr %union.ListCell, ptr %20, i64 %indvars.iv.i
   %22 = load ptr, ptr %21, align 8
@@ -1305,140 +1305,140 @@ define dso_local void @EventTriggerOnLogin() local_unnamed_addr #0 {
   %32 = getelementptr inbounds i8, ptr %22, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %filter_event_trigger.exit.thread31.i, label %filter_event_trigger.exit.i
+  br i1 %34, label %filter_event_trigger.exit.i, label %35
 
-filter_event_trigger.exit.i:                      ; preds = %31
-  %35 = tail call zeroext i1 @bms_is_member(i32 noundef 162, ptr noundef nonnull %33) #13
-  br i1 %35, label %filter_event_trigger.exit.thread31.i, label %filter_event_trigger.exit.thread.i
+35:                                               ; preds = %31
+  %36 = tail call zeroext i1 @bms_is_member(i32 noundef 162, ptr noundef nonnull %33) #13
+  br i1 %36, label %filter_event_trigger.exit.i, label %filter_event_trigger.exit.thread.i
 
-filter_event_trigger.exit.thread31.i:             ; preds = %filter_event_trigger.exit.i, %31
-  %36 = load i32, ptr %22, align 8
-  %37 = tail call ptr @lappend_oid(ptr noundef %.02534.i, i32 noundef %36) #13
+filter_event_trigger.exit.i:                      ; preds = %35, %31
+  %37 = load i32, ptr %22, align 8
+  %38 = tail call ptr @lappend_oid(ptr noundef %.02532.i, i32 noundef %37) #13
   br label %filter_event_trigger.exit.thread.i
 
-filter_event_trigger.exit.thread.i:               ; preds = %filter_event_trigger.exit.thread31.i, %filter_event_trigger.exit.i, %29, %27
-  %.1.i = phi ptr [ %37, %filter_event_trigger.exit.thread31.i ], [ %.02534.i, %filter_event_trigger.exit.i ], [ %.02534.i, %27 ], [ %.02534.i, %29 ]
+filter_event_trigger.exit.thread.i:               ; preds = %filter_event_trigger.exit.i, %35, %29, %27
+  %.1.i = phi ptr [ %38, %filter_event_trigger.exit.i ], [ %.02532.i, %27 ], [ %.02532.i, %29 ], [ %.02532.i, %35 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %38 = load i32, ptr %17, align 4
-  %39 = sext i32 %38 to i64
-  %.not.i = icmp slt i64 %indvars.iv.next.i, %39
+  %39 = load i32, ptr %17, align 4
+  %40 = sext i32 %39 to i64
+  %.not.i = icmp slt i64 %indvars.iv.next.i, %40
   br i1 %.not.i, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %filter_event_trigger.exit.thread.i
-  %40 = icmp eq ptr %.1.i, null
-  br i1 %40, label %46, label %41
+  %41 = icmp eq ptr %.1.i, null
+  br i1 %41, label %47, label %42
 
-41:                                               ; preds = %._crit_edge.i
+42:                                               ; preds = %._crit_edge.i
   store i32 425, ptr %1, align 8
-  %42 = getelementptr inbounds i8, ptr %1, i64 8
-  store ptr @.str.6, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %1, i64 16
-  store ptr null, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %1, i64 24
-  store i32 162, ptr %44, align 8
-  %45 = tail call ptr @GetTransactionSnapshot() #13
-  tail call void @PushActiveSnapshot(ptr noundef %45) #13
+  %43 = getelementptr inbounds i8, ptr %1, i64 8
+  store ptr @.str.6, ptr %43, align 8
+  %44 = getelementptr inbounds i8, ptr %1, i64 16
+  store ptr null, ptr %44, align 8
+  %45 = getelementptr inbounds i8, ptr %1, i64 24
+  store i32 162, ptr %45, align 8
+  %46 = tail call ptr @GetTransactionSnapshot() #13
+  tail call void @PushActiveSnapshot(ptr noundef %46) #13
   call fastcc void @EventTriggerInvoke(ptr noundef nonnull %.1.i, ptr noundef nonnull %1)
   call void @list_free(ptr noundef nonnull %.1.i) #13
   call void @PopActiveSnapshot() #13
-  br label %91
+  br label %92
 
-46:                                               ; preds = %13, %._crit_edge.i, %16
-  %47 = load i32, ptr @MyDatabaseId, align 4
-  %48 = tail call zeroext i1 @ConditionalLockSharedObject(i32 noundef 1262, i32 noundef %47, i16 noundef zeroext 0, i32 noundef 8) #13
-  br i1 %48, label %49, label %91
+47:                                               ; preds = %13, %._crit_edge.i, %16
+  %48 = load i32, ptr @MyDatabaseId, align 4
+  %49 = tail call zeroext i1 @ConditionalLockSharedObject(i32 noundef 1262, i32 noundef %48, i16 noundef zeroext 0, i32 noundef 8) #13
+  br i1 %49, label %50, label %92
 
-49:                                               ; preds = %46
-  %50 = tail call ptr @EventCacheLookup(i32 noundef 4) #13
-  %51 = icmp eq ptr %50, null
-  br i1 %51, label %64, label %52
+50:                                               ; preds = %47
+  %51 = tail call ptr @EventCacheLookup(i32 noundef 4) #13
+  %52 = icmp eq ptr %51, null
+  br i1 %52, label %65, label %53
 
-52:                                               ; preds = %49
-  %53 = getelementptr inbounds i8, ptr %50, i64 4
-  %54 = load i32, ptr %53, align 4
-  %.not33.i22 = icmp sgt i32 %54, 0
-  br i1 %.not33.i22, label %.lr.ph.i24, label %64
+53:                                               ; preds = %50
+  %54 = getelementptr inbounds i8, ptr %51, i64 4
+  %55 = load i32, ptr %54, align 4
+  %.not31.i22 = icmp sgt i32 %55, 0
+  br i1 %.not31.i22, label %.lr.ph.i24, label %65
 
-.lr.ph.i24:                                       ; preds = %52
-  %55 = getelementptr inbounds i8, ptr %50, i64 16
-  br label %filter_event_trigger.exit.thread31.us.i
+.lr.ph.i24:                                       ; preds = %53
+  %56 = getelementptr inbounds i8, ptr %51, i64 16
+  br label %filter_event_trigger.exit.us.i
 
-filter_event_trigger.exit.thread31.us.i:          ; preds = %filter_event_trigger.exit.thread31.us.i, %.lr.ph.i24
-  %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %filter_event_trigger.exit.thread31.us.i ], [ 0, %.lr.ph.i24 ]
-  %.02534.us.i = phi ptr [ %60, %filter_event_trigger.exit.thread31.us.i ], [ null, %.lr.ph.i24 ]
-  %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr %union.ListCell, ptr %56, i64 %indvars.iv38.i
-  %58 = load ptr, ptr %57, align 8
-  %59 = load i32, ptr %58, align 8
-  %60 = tail call ptr @lappend_oid(ptr noundef %.02534.us.i, i32 noundef %59) #13
-  %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
-  %61 = load i32, ptr %53, align 4
-  %62 = sext i32 %61 to i64
-  %.not.us.i = icmp slt i64 %indvars.iv.next39.i, %62
-  br i1 %.not.us.i, label %filter_event_trigger.exit.thread31.us.i, label %._crit_edge.i25, !llvm.loop !10
+filter_event_trigger.exit.us.i:                   ; preds = %filter_event_trigger.exit.us.i, %.lr.ph.i24
+  %indvars.iv36.i = phi i64 [ %indvars.iv.next37.i, %filter_event_trigger.exit.us.i ], [ 0, %.lr.ph.i24 ]
+  %.02532.us.i = phi ptr [ %61, %filter_event_trigger.exit.us.i ], [ null, %.lr.ph.i24 ]
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr %union.ListCell, ptr %57, i64 %indvars.iv36.i
+  %59 = load ptr, ptr %58, align 8
+  %60 = load i32, ptr %59, align 8
+  %61 = tail call ptr @lappend_oid(ptr noundef %.02532.us.i, i32 noundef %60) #13
+  %indvars.iv.next37.i = add nuw nsw i64 %indvars.iv36.i, 1
+  %62 = load i32, ptr %54, align 4
+  %63 = sext i32 %62 to i64
+  %.not.us.i = icmp slt i64 %indvars.iv.next37.i, %63
+  br i1 %.not.us.i, label %filter_event_trigger.exit.us.i, label %._crit_edge.i25, !llvm.loop !10
 
-._crit_edge.i25:                                  ; preds = %filter_event_trigger.exit.thread31.us.i
-  %63 = icmp eq ptr %60, null
-  br i1 %63, label %64, label %87
+._crit_edge.i25:                                  ; preds = %filter_event_trigger.exit.us.i
+  %64 = icmp eq ptr %61, null
+  br i1 %64, label %65, label %88
 
-64:                                               ; preds = %49, %._crit_edge.i25, %52
-  %65 = tail call ptr @table_open(i32 noundef 1262, i32 noundef 3) #13
-  %66 = load i32, ptr @MyDatabaseId, align 4
-  %67 = zext i32 %66 to i64
-  call void @ScanKeyInit(ptr noundef nonnull %2, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %67) #13
-  %68 = call ptr @systable_beginscan(ptr noundef %65, i32 noundef 2672, i1 noundef zeroext true, ptr noundef null, i32 noundef 1, ptr noundef nonnull %2) #13
-  %69 = call ptr @systable_getnext(ptr noundef %68) #13
-  %70 = call ptr @heap_copytuple(ptr noundef %69) #13
-  call void @systable_endscan(ptr noundef %68) #13
-  %.not21 = icmp eq ptr %70, null
-  br i1 %.not21, label %71, label %75
+65:                                               ; preds = %50, %._crit_edge.i25, %53
+  %66 = tail call ptr @table_open(i32 noundef 1262, i32 noundef 3) #13
+  %67 = load i32, ptr @MyDatabaseId, align 4
+  %68 = zext i32 %67 to i64
+  call void @ScanKeyInit(ptr noundef nonnull %2, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %68) #13
+  %69 = call ptr @systable_beginscan(ptr noundef %66, i32 noundef 2672, i1 noundef zeroext true, ptr noundef null, i32 noundef 1, ptr noundef nonnull %2) #13
+  %70 = call ptr @systable_getnext(ptr noundef %69) #13
+  %71 = call ptr @heap_copytuple(ptr noundef %70) #13
+  call void @systable_endscan(ptr noundef %69) #13
+  %.not21 = icmp eq ptr %71, null
+  br i1 %.not21, label %72, label %76
 
-71:                                               ; preds = %64
-  %72 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  call void @llvm.assume(i1 %72)
-  %73 = load i32, ptr @MyDatabaseId, align 4
-  %74 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17, i32 noundef %73) #13
+72:                                               ; preds = %65
+  %73 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  call void @llvm.assume(i1 %73)
+  %74 = load i32, ptr @MyDatabaseId, align 4
+  %75 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17, i32 noundef %74) #13
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 967, ptr noundef nonnull @__func__.EventTriggerOnLogin) #13
   unreachable
 
-75:                                               ; preds = %64
-  %76 = getelementptr inbounds i8, ptr %70, i64 16
-  %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 22
-  %79 = load i8, ptr %78, align 2
-  %80 = zext i8 %79 to i64
-  %81 = getelementptr i8, ptr %77, i64 %80
-  %82 = getelementptr inbounds i8, ptr %81, i64 79
-  %83 = load i8, ptr %82, align 1
-  %84 = trunc i8 %83 to i1
-  br i1 %84, label %85, label %86
+76:                                               ; preds = %65
+  %77 = getelementptr inbounds i8, ptr %71, i64 16
+  %78 = load ptr, ptr %77, align 8
+  %79 = getelementptr inbounds i8, ptr %78, i64 22
+  %80 = load i8, ptr %79, align 2
+  %81 = zext i8 %80 to i64
+  %82 = getelementptr i8, ptr %78, i64 %81
+  %83 = getelementptr inbounds i8, ptr %82, i64 79
+  %84 = load i8, ptr %83, align 1
+  %85 = trunc i8 %84 to i1
+  br i1 %85, label %86, label %87
 
-85:                                               ; preds = %75
-  store i8 0, ptr %82, align 1
-  call void @heap_inplace_update(ptr noundef %65, ptr noundef nonnull %70) #13
-  br label %86
+86:                                               ; preds = %76
+  store i8 0, ptr %83, align 1
+  call void @heap_inplace_update(ptr noundef %66, ptr noundef nonnull %71) #13
+  br label %87
 
-86:                                               ; preds = %85, %75
-  call void @table_close(ptr noundef %65, i32 noundef 3) #13
-  call void @heap_freetuple(ptr noundef nonnull %70) #13
-  br label %91
-
-87:                                               ; preds = %._crit_edge.i25
-  store i32 425, ptr %1, align 8
-  %88 = getelementptr inbounds i8, ptr %1, i64 8
-  store ptr @.str.6, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %1, i64 16
-  store ptr null, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %1, i64 24
-  store i32 162, ptr %90, align 8
-  tail call void @list_free(ptr noundef nonnull %60) #13
-  br label %91
-
-91:                                               ; preds = %46, %87, %86, %41
-  call void @CommitTransactionCommand() #13
+87:                                               ; preds = %86, %76
+  call void @table_close(ptr noundef %66, i32 noundef 3) #13
+  call void @heap_freetuple(ptr noundef nonnull %71) #13
   br label %92
 
-92:                                               ; preds = %0, %5, %10, %91
+88:                                               ; preds = %._crit_edge.i25
+  store i32 425, ptr %1, align 8
+  %89 = getelementptr inbounds i8, ptr %1, i64 8
+  store ptr @.str.6, ptr %89, align 8
+  %90 = getelementptr inbounds i8, ptr %1, i64 16
+  store ptr null, ptr %90, align 8
+  %91 = getelementptr inbounds i8, ptr %1, i64 24
+  store i32 162, ptr %91, align 8
+  tail call void @list_free(ptr noundef nonnull %61) #13
+  br label %92
+
+92:                                               ; preds = %47, %88, %87, %42
+  call void @CommitTransactionCommand() #13
+  br label %93
+
+93:                                               ; preds = %0, %5, %10, %92
   ret void
 }
 
@@ -1493,8 +1493,8 @@ define dso_local void @EventTriggerTableRewrite(ptr noundef %0, i32 noundef %1, 
   %17 = call i32 @CreateCommandTag(ptr noundef %0) #13
   %18 = getelementptr inbounds i8, ptr %14, i64 4
   %19 = load i32, ptr %18, align 4
-  %.not33.i = icmp sgt i32 %19, 0
-  br i1 %.not33.i, label %.lr.ph.i, label %EventTriggerCommonSetup.exit.thread
+  %.not31.i = icmp sgt i32 %19, 0
+  br i1 %.not31.i, label %.lr.ph.i, label %EventTriggerCommonSetup.exit.thread
 
 .lr.ph.i:                                         ; preds = %16
   %20 = getelementptr inbounds i8, ptr %14, i64 16
@@ -1502,7 +1502,7 @@ define dso_local void @EventTriggerTableRewrite(ptr noundef %0, i32 noundef %1, 
 
 .lr.ph.split.i:                                   ; preds = %filter_event_trigger.exit.thread.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %filter_event_trigger.exit.thread.i ], [ 0, %.lr.ph.i ]
-  %.02534.i = phi ptr [ %.1.i, %filter_event_trigger.exit.thread.i ], [ null, %.lr.ph.i ]
+  %.02532.i = phi ptr [ %.1.i, %filter_event_trigger.exit.thread.i ], [ null, %.lr.ph.i ]
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr %union.ListCell, ptr %21, i64 %indvars.iv.i
   %23 = load ptr, ptr %22, align 8
@@ -1524,74 +1524,74 @@ define dso_local void @EventTriggerTableRewrite(ptr noundef %0, i32 noundef %1, 
   %33 = getelementptr inbounds i8, ptr %23, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
-  br i1 %35, label %filter_event_trigger.exit.thread31.i, label %filter_event_trigger.exit.i
+  br i1 %35, label %filter_event_trigger.exit.i, label %36
 
-filter_event_trigger.exit.i:                      ; preds = %32
-  %36 = call zeroext i1 @bms_is_member(i32 noundef %17, ptr noundef nonnull %34) #13
-  br i1 %36, label %filter_event_trigger.exit.thread31.i, label %filter_event_trigger.exit.thread.i
+36:                                               ; preds = %32
+  %37 = call zeroext i1 @bms_is_member(i32 noundef %17, ptr noundef nonnull %34) #13
+  br i1 %37, label %filter_event_trigger.exit.i, label %filter_event_trigger.exit.thread.i
 
-filter_event_trigger.exit.thread31.i:             ; preds = %filter_event_trigger.exit.i, %32
-  %37 = load i32, ptr %23, align 8
-  %38 = call ptr @lappend_oid(ptr noundef %.02534.i, i32 noundef %37) #13
+filter_event_trigger.exit.i:                      ; preds = %36, %32
+  %38 = load i32, ptr %23, align 8
+  %39 = call ptr @lappend_oid(ptr noundef %.02532.i, i32 noundef %38) #13
   br label %filter_event_trigger.exit.thread.i
 
-filter_event_trigger.exit.thread.i:               ; preds = %filter_event_trigger.exit.thread31.i, %filter_event_trigger.exit.i, %30, %28
-  %.1.i = phi ptr [ %38, %filter_event_trigger.exit.thread31.i ], [ %.02534.i, %filter_event_trigger.exit.i ], [ %.02534.i, %28 ], [ %.02534.i, %30 ]
+filter_event_trigger.exit.thread.i:               ; preds = %filter_event_trigger.exit.i, %36, %30, %28
+  %.1.i = phi ptr [ %39, %filter_event_trigger.exit.i ], [ %.02532.i, %28 ], [ %.02532.i, %30 ], [ %.02532.i, %36 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %39 = load i32, ptr %18, align 4
-  %40 = sext i32 %39 to i64
-  %.not.i = icmp slt i64 %indvars.iv.next.i, %40
+  %40 = load i32, ptr %18, align 4
+  %41 = sext i32 %40 to i64
+  %.not.i = icmp slt i64 %indvars.iv.next.i, %41
   br i1 %.not.i, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %filter_event_trigger.exit.thread.i
-  %41 = icmp eq ptr %.1.i, null
-  br i1 %41, label %EventTriggerCommonSetup.exit.thread, label %42
+  %42 = icmp eq ptr %.1.i, null
+  br i1 %42, label %EventTriggerCommonSetup.exit.thread, label %43
 
-42:                                               ; preds = %._crit_edge.i
+43:                                               ; preds = %._crit_edge.i
   store i32 425, ptr %4, align 8
-  %43 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr @.str.7, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %0, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %4, i64 24
-  store i32 %17, ptr %45, align 8
-  %46 = load ptr, ptr @currentEventTriggerState, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 20
-  store i32 %1, ptr %47, align 4
-  %48 = getelementptr inbounds i8, ptr %46, i64 24
-  store i32 %2, ptr %48, align 8
-  %49 = load ptr, ptr @PG_exception_stack, align 8
-  %50 = load ptr, ptr @error_context_stack, align 8
-  %51 = call i32 @__sigsetjmp(ptr noundef nonnull %5, i32 noundef 0) #16
-  %.not = icmp eq i32 %51, 0
-  br i1 %.not, label %52, label %.critedge
+  %44 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr @.str.7, ptr %44, align 8
+  %45 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %0, ptr %45, align 8
+  %46 = getelementptr inbounds i8, ptr %4, i64 24
+  store i32 %17, ptr %46, align 8
+  %47 = load ptr, ptr @currentEventTriggerState, align 8
+  %48 = getelementptr inbounds i8, ptr %47, i64 20
+  store i32 %1, ptr %48, align 4
+  %49 = getelementptr inbounds i8, ptr %47, i64 24
+  store i32 %2, ptr %49, align 8
+  %50 = load ptr, ptr @PG_exception_stack, align 8
+  %51 = load ptr, ptr @error_context_stack, align 8
+  %52 = call i32 @__sigsetjmp(ptr noundef nonnull %5, i32 noundef 0) #16
+  %.not = icmp eq i32 %52, 0
+  br i1 %.not, label %53, label %.critedge
 
-52:                                               ; preds = %42
+53:                                               ; preds = %43
   store ptr %5, ptr @PG_exception_stack, align 8
   call fastcc void @EventTriggerInvoke(ptr noundef nonnull %.1.i, ptr noundef nonnull %4)
-  %53 = load ptr, ptr @currentEventTriggerState, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 20
-  store i32 0, ptr %54, align 4
-  %55 = getelementptr inbounds i8, ptr %53, i64 24
-  store i32 0, ptr %55, align 8
-  store ptr %49, ptr @PG_exception_stack, align 8
-  store ptr %50, ptr @error_context_stack, align 8
+  %54 = load ptr, ptr @currentEventTriggerState, align 8
+  %55 = getelementptr inbounds i8, ptr %54, i64 20
+  store i32 0, ptr %55, align 4
+  %56 = getelementptr inbounds i8, ptr %54, i64 24
+  store i32 0, ptr %56, align 8
+  store ptr %50, ptr @PG_exception_stack, align 8
+  store ptr %51, ptr @error_context_stack, align 8
   call void @list_free(ptr noundef nonnull %.1.i) #13
   call void @CommandCounterIncrement() #13
   br label %EventTriggerCommonSetup.exit.thread
 
-.critedge:                                        ; preds = %42
-  store ptr %49, ptr @PG_exception_stack, align 8
-  store ptr %50, ptr @error_context_stack, align 8
-  %56 = load ptr, ptr @currentEventTriggerState, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 20
-  store i32 0, ptr %57, align 4
-  %58 = getelementptr inbounds i8, ptr %56, i64 24
-  store i32 0, ptr %58, align 8
+.critedge:                                        ; preds = %43
+  store ptr %50, ptr @PG_exception_stack, align 8
+  store ptr %51, ptr @error_context_stack, align 8
+  %57 = load ptr, ptr @currentEventTriggerState, align 8
+  %58 = getelementptr inbounds i8, ptr %57, i64 20
+  store i32 0, ptr %58, align 4
+  %59 = getelementptr inbounds i8, ptr %57, i64 24
+  store i32 0, ptr %59, align 8
   call void @pg_re_throw() #17
   unreachable
 
-EventTriggerCommonSetup.exit.thread:              ; preds = %16, %._crit_edge.i, %13, %3, %8, %52
+EventTriggerCommonSetup.exit.thread:              ; preds = %16, %._crit_edge.i, %13, %3, %8, %53
   ret void
 }
 

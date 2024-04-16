@@ -239,7 +239,7 @@ define internal noundef i32 @auxiliary_match(ptr nocapture noundef readonly %0, 
   %4 = load ptr, ptr %3, align 8
   %5 = load i8, ptr %4, align 8
   %6 = icmp eq i8 %5, 0
-  br i1 %6, label %46, label %7
+  br i1 %6, label %48, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 80
@@ -251,7 +251,7 @@ define internal noundef i32 @auxiliary_match(ptr nocapture noundef readonly %0, 
   %11 = load ptr, ptr %0, align 8
   %12 = tail call ptr @strrchr(ptr noundef %11, i32 noundef 46) #7
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %.split7.us, label %.split.us.split
+  br i1 %13, label %.split6.us, label %.split.us.split
 
 .split.us.split:                                  ; preds = %.split.us
   %14 = ptrtoint ptr %12 to i64
@@ -259,61 +259,61 @@ define internal noundef i32 @auxiliary_match(ptr nocapture noundef readonly %0, 
   %16 = sub i64 %14, %15
   %17 = shl i64 %16, 32
   %18 = ashr exact i64 %17, 32
-  br label %.thread4.us
+  br label %.thread3.us
 
-.thread4.us:                                      ; preds = %.thread5.us, %.split.us.split
-  %19 = phi ptr [ %4, %.split.us.split ], [ %25, %.thread5.us ]
+.thread3.us:                                      ; preds = %25, %.split.us.split
+  %19 = phi ptr [ %4, %.split.us.split ], [ %26, %25 ]
   %20 = tail call i64 @strlen(ptr noundef %19) #7
   %21 = icmp eq i64 %20, %18
-  br i1 %21, label %22, label %.thread5.us
+  br i1 %21, label %22, label %25
 
-22:                                               ; preds = %.thread4.us
+22:                                               ; preds = %.thread3.us
   %23 = tail call i32 @strncmp(ptr noundef %11, ptr noundef %19, i64 noundef %18) #7
   %24 = icmp eq i32 %23, 0
-  br i1 %24, label %.split7.us, label %.thread5.us
+  br i1 %24, label %.split6.us, label %25
 
-.thread5.us:                                      ; preds = %22, %.thread4.us
-  %25 = getelementptr i8, ptr %19, i64 40
-  %26 = load i8, ptr %25, align 8
-  %27 = icmp eq i8 %26, 0
-  br i1 %27, label %.split7.us, label %.thread4.us, !llvm.loop !16
+25:                                               ; preds = %22, %.thread3.us
+  %26 = getelementptr i8, ptr %19, i64 40
+  %27 = load i8, ptr %26, align 8
+  %28 = icmp eq i8 %27, 0
+  br i1 %28, label %.split6.us, label %.thread3.us, !llvm.loop !16
 
 .split:                                           ; preds = %7
-  %28 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %9, i32 noundef 46) #7
-  %29 = icmp eq ptr %28, null
-  %30 = ptrtoint ptr %28 to i64
-  %31 = ptrtoint ptr %9 to i64
-  %32 = sub i64 %30, %31
-  %33 = shl i64 %32, 32
-  %34 = ashr exact i64 %33, 32
-  br i1 %29, label %.split7.us, label %.thread
+  %29 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %9, i32 noundef 46) #7
+  %30 = icmp eq ptr %29, null
+  %31 = ptrtoint ptr %29 to i64
+  %32 = ptrtoint ptr %9 to i64
+  %33 = sub i64 %31, %32
+  %34 = shl i64 %33, 32
+  %35 = ashr exact i64 %34, 32
+  br i1 %30, label %.split6.us, label %.thread
 
-.thread5:                                         ; preds = %.thread, %41
-  %35 = getelementptr i8, ptr %38, i64 40
-  %36 = load i8, ptr %35, align 8
-  %37 = icmp eq i8 %36, 0
-  br i1 %37, label %.split7.us, label %.thread, !llvm.loop !16
+36:                                               ; preds = %.thread, %43
+  %37 = getelementptr i8, ptr %40, i64 40
+  %38 = load i8, ptr %37, align 8
+  %39 = icmp eq i8 %38, 0
+  br i1 %39, label %.split6.us, label %.thread, !llvm.loop !16
 
-.thread:                                          ; preds = %.split, %.thread5
-  %38 = phi ptr [ %35, %.thread5 ], [ %4, %.split ]
-  %39 = tail call i64 @strlen(ptr noundef %38) #7
-  %40 = icmp eq i64 %39, %34
-  br i1 %40, label %41, label %.thread5
+.thread:                                          ; preds = %.split, %36
+  %40 = phi ptr [ %37, %36 ], [ %4, %.split ]
+  %41 = tail call i64 @strlen(ptr noundef %40) #7
+  %42 = icmp eq i64 %41, %35
+  br i1 %42, label %43, label %36
 
-41:                                               ; preds = %.thread
-  %42 = tail call i32 @strncmp(ptr noundef nonnull %9, ptr noundef %38, i64 noundef %34) #7
-  %43 = icmp eq i32 %42, 0
-  br i1 %43, label %.split7.us, label %.thread5
+43:                                               ; preds = %.thread
+  %44 = tail call i32 @strncmp(ptr noundef nonnull %9, ptr noundef %40, i64 noundef %35) #7
+  %45 = icmp eq i32 %44, 0
+  br i1 %45, label %.split6.us, label %36
 
-.split7.us:                                       ; preds = %41, %.thread5, %.thread5.us, %22, %.split, %.split.us
-  %.us-phi = phi ptr [ null, %.split.us ], [ null, %.split ], [ %19, %22 ], [ null, %.thread5.us ], [ %38, %41 ], [ null, %.thread5 ]
-  %44 = icmp ne ptr %.us-phi, null
-  %45 = zext i1 %44 to i32
-  br label %46
+.split6.us:                                       ; preds = %43, %36, %25, %22, %.split, %.split.us
+  %.us-phi = phi ptr [ null, %.split.us ], [ null, %.split ], [ null, %25 ], [ %19, %22 ], [ null, %36 ], [ %40, %43 ]
+  %46 = icmp ne ptr %.us-phi, null
+  %47 = zext i1 %46 to i32
+  br label %48
 
-46:                                               ; preds = %.split7.us, %2
-  %47 = phi i32 [ 0, %2 ], [ %45, %.split7.us ]
-  ret i32 %47
+48:                                               ; preds = %.split6.us, %2
+  %49 = phi i32 [ 0, %2 ], [ %47, %.split6.us ]
+  ret i32 %49
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -348,7 +348,7 @@ define internal i32 @auxiliary_bus_probe(ptr noundef %0) #0 align 16 {
 
 6:                                                ; preds = %1
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %0, ptr noundef nonnull @.str.12, i32 noundef %4) #6
-  br label %55
+  br label %57
 
 7:                                                ; preds = %1
   %8 = getelementptr i8, ptr %3, i64 -48
@@ -377,65 +377,65 @@ define internal i32 @auxiliary_bus_probe(ptr noundef %0) #0 align 16 {
   %23 = sub i64 %21, %22
   %24 = shl i64 %23, 32
   %25 = ashr exact i64 %24, 32
-  br label %.thread7.us
+  br label %.thread6.us
 
-.thread7.us:                                      ; preds = %.thread8.us, %.split.us.split
-  %26 = phi ptr [ %11, %.split.us.split ], [ %32, %.thread8.us ]
+.thread6.us:                                      ; preds = %32, %.split.us.split
+  %26 = phi ptr [ %11, %.split.us.split ], [ %33, %32 ]
   %27 = tail call i64 @strlen(ptr noundef %26) #7
   %28 = icmp eq i64 %27, %25
-  br i1 %28, label %29, label %.thread8.us
+  br i1 %28, label %29, label %32
 
-29:                                               ; preds = %.thread7.us
+29:                                               ; preds = %.thread6.us
   %30 = tail call i32 @strncmp(ptr noundef %18, ptr noundef %26, i64 noundef %25) #7
   %31 = icmp eq i32 %30, 0
-  br i1 %31, label %.loopexit, label %.thread8.us
+  br i1 %31, label %.loopexit, label %32
 
-.thread8.us:                                      ; preds = %29, %.thread7.us
-  %32 = getelementptr i8, ptr %26, i64 40
-  %33 = load i8, ptr %32, align 8
-  %34 = icmp eq i8 %33, 0
-  br i1 %34, label %.loopexit, label %.thread7.us, !llvm.loop !16
+32:                                               ; preds = %29, %.thread6.us
+  %33 = getelementptr i8, ptr %26, i64 40
+  %34 = load i8, ptr %33, align 8
+  %35 = icmp eq i8 %34, 0
+  br i1 %35, label %.loopexit, label %.thread6.us, !llvm.loop !16
 
 .split:                                           ; preds = %14
-  %35 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %16, i32 noundef 46) #7
-  %36 = icmp eq ptr %35, null
-  %37 = ptrtoint ptr %35 to i64
-  %38 = ptrtoint ptr %16 to i64
-  %39 = sub i64 %37, %38
-  %40 = shl i64 %39, 32
-  %41 = ashr exact i64 %40, 32
-  br i1 %36, label %.loopexit, label %.thread
+  %36 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %16, i32 noundef 46) #7
+  %37 = icmp eq ptr %36, null
+  %38 = ptrtoint ptr %36 to i64
+  %39 = ptrtoint ptr %16 to i64
+  %40 = sub i64 %38, %39
+  %41 = shl i64 %40, 32
+  %42 = ashr exact i64 %41, 32
+  br i1 %37, label %.loopexit, label %.thread
 
-.thread8:                                         ; preds = %.thread, %48
-  %42 = getelementptr i8, ptr %45, i64 40
-  %43 = load i8, ptr %42, align 8
-  %44 = icmp eq i8 %43, 0
-  br i1 %44, label %.loopexit, label %.thread, !llvm.loop !16
+43:                                               ; preds = %.thread, %50
+  %44 = getelementptr i8, ptr %47, i64 40
+  %45 = load i8, ptr %44, align 8
+  %46 = icmp eq i8 %45, 0
+  br i1 %46, label %.loopexit, label %.thread, !llvm.loop !16
 
-.thread:                                          ; preds = %.split, %.thread8
-  %45 = phi ptr [ %42, %.thread8 ], [ %11, %.split ]
-  %46 = tail call i64 @strlen(ptr noundef %45) #7
-  %47 = icmp eq i64 %46, %41
-  br i1 %47, label %48, label %.thread8
+.thread:                                          ; preds = %.split, %43
+  %47 = phi ptr [ %44, %43 ], [ %11, %.split ]
+  %48 = tail call i64 @strlen(ptr noundef %47) #7
+  %49 = icmp eq i64 %48, %42
+  br i1 %49, label %50, label %43
 
-48:                                               ; preds = %.thread
-  %49 = tail call i32 @strncmp(ptr noundef nonnull %16, ptr noundef %45, i64 noundef %41) #7
-  %50 = icmp eq i32 %49, 0
-  br i1 %50, label %.loopexit, label %.thread8
+50:                                               ; preds = %.thread
+  %51 = tail call i32 @strncmp(ptr noundef nonnull %16, ptr noundef %47, i64 noundef %42) #7
+  %52 = icmp eq i32 %51, 0
+  br i1 %52, label %.loopexit, label %43
 
-.loopexit:                                        ; preds = %48, %.thread8, %29, %.thread8.us, %.split, %.split.us, %7
-  %51 = phi ptr [ null, %7 ], [ null, %.split.us ], [ null, %.split ], [ null, %.thread8.us ], [ %26, %29 ], [ null, %.thread8 ], [ %45, %48 ]
-  %52 = tail call i32 %9(ptr noundef %0, ptr noundef %51) #7
-  %53 = icmp eq i32 %52, 0
-  br i1 %53, label %55, label %54
+.loopexit:                                        ; preds = %50, %43, %29, %32, %.split, %.split.us, %7
+  %53 = phi ptr [ null, %7 ], [ null, %.split.us ], [ null, %.split ], [ %26, %29 ], [ null, %32 ], [ %47, %50 ], [ null, %43 ]
+  %54 = tail call i32 %9(ptr noundef %0, ptr noundef %53) #7
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %57, label %56
 
-54:                                               ; preds = %.loopexit
+56:                                               ; preds = %.loopexit
   tail call void @dev_pm_domain_detach(ptr noundef %0, i1 noundef zeroext true) #7
-  br label %55
+  br label %57
 
-55:                                               ; preds = %54, %.loopexit, %6
-  %56 = phi i32 [ %4, %6 ], [ %52, %54 ], [ 0, %.loopexit ]
-  ret i32 %56
+57:                                               ; preds = %56, %.loopexit, %6
+  %58 = phi i32 [ %4, %6 ], [ %54, %56 ], [ 0, %.loopexit ]
+  ret i32 %58
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

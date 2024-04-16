@@ -2809,7 +2809,7 @@ define internal void @ppmd_write(ptr nocapture noundef readonly %0, i8 noundef z
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @compression_code_ppmd(ptr nocapture readnone %0, ptr nocapture noundef %1, i32 noundef %2) #0 {
+define internal noundef i32 @compression_code_ppmd(ptr nocapture readnone %0, ptr nocapture noundef %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 19264
@@ -2822,7 +2822,7 @@ define internal i32 @compression_code_ppmd(ptr nocapture readnone %0, ptr nocapt
   %10 = getelementptr inbounds i8, ptr %1, i64 32
   %11 = load i64, ptr %10, align 8
   %.not3239 = icmp eq i64 %11, 0
-  br i1 %.not3239, label %.critedge2.thread, label %.lr.ph
+  br i1 %.not3239, label %.critedge.thread44, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8
   %12 = load ptr, ptr %9, align 8
@@ -2856,12 +2856,12 @@ define internal i32 @compression_code_ppmd(ptr nocapture readnone %0, ptr nocapt
 
 .critedge:                                        ; preds = %18
   %28 = icmp eq i64 %26, 0
-  br i1 %28, label %.critedge.thread, label %.critedge2.thread
+  br i1 %28, label %.critedge.thread, label %.critedge.thread44
 
 .critedge.thread:                                 ; preds = %16, %.critedge
   %29 = load i32, ptr %5, align 8
   %30 = icmp eq i32 %29, 1
-  br i1 %30, label %.critedge2.thread, label %31
+  br i1 %30, label %.critedge.thread44, label %31
 
 31:                                               ; preds = %.critedge.thread
   %32 = getelementptr inbounds i8, ptr %5, i64 19240
@@ -2912,11 +2912,13 @@ define internal i32 @compression_code_ppmd(ptr nocapture readnone %0, ptr nocapt
   store i32 1, ptr %5, align 8
   %55 = load i64, ptr %6, align 8
   %56 = icmp eq i64 %55, 0
-  %spec.select = zext i1 %56 to i32
-  br label %.critedge2.thread
+  br i1 %56, label %.critedge.thread44, label %.critedge2.thread
 
-.critedge2.thread:                                ; preds = %41, %8, %52, %.critedge2, %.critedge.thread, %.critedge
-  %.030 = phi i32 [ 0, %.critedge ], [ 1, %.critedge.thread ], [ 0, %.critedge2 ], [ %spec.select, %52 ], [ 0, %8 ], [ 0, %41 ]
+.critedge2.thread:                                ; preds = %41, %52, %.critedge2
+  br label %.critedge.thread44
+
+.critedge.thread44:                               ; preds = %8, %52, %.critedge.thread, %.critedge, %.critedge2.thread
+  %.030 = phi i32 [ 0, %.critedge2.thread ], [ 0, %.critedge ], [ 1, %.critedge.thread ], [ 1, %52 ], [ 0, %8 ]
   ret i32 %.030
 }
 
@@ -2978,8 +2980,8 @@ define internal i32 @compression_code_copy(ptr nocapture readnone %0, ptr nocapt
   %27 = phi i64 [ %15, %8 ], [ %7, %3 ]
   %28 = icmp eq i32 %2, 0
   %29 = icmp eq i64 %27, 0
-  %narrow = select i1 %28, i1 %29, i1 false
-  %.022 = zext i1 %narrow to i32
+  %or.cond = select i1 %28, i1 %29, i1 false
+  %.022 = zext i1 %or.cond to i32
   ret i32 %.022
 }
 

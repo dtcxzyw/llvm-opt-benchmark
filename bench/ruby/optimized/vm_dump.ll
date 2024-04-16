@@ -517,11 +517,14 @@ control_frame_dump.exit:                          ; preds = %189, %.lr.ph.i, %86
 
 ._crit_edge:                                      ; preds = %control_frame_dump.exit, %.preheader
   %221 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.1) #13
-  %222 = icmp sgt i32 %221, -1
-  br label %223
+  %222 = icmp slt i32 %221, 0
+  br i1 %222, label %223, label %224
 
 223:                                              ; preds = %._crit_edge, %3
-  %.0 = phi i1 [ false, %3 ], [ %222, %._crit_edge ]
+  br label %224
+
+224:                                              ; preds = %._crit_edge, %223
+  %.0 = phi i1 [ false, %223 ], [ true, %._crit_edge ]
   ret i1 %.0
 }
 
@@ -605,11 +608,14 @@ define hidden noundef zeroext i1 @rb_vmdebug_env_dump_raw(ptr noundef %0, ptr no
 
 ._crit_edge27:                                    ; preds = %._crit_edge, %.preheader21
   %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.6) #13
-  %34 = icmp sgt i32 %33, -1
-  br label %.loopexit
+  %34 = icmp slt i32 %33, 0
+  br i1 %34, label %.loopexit, label %35
 
-.loopexit:                                        ; preds = %.lr.ph26, %15, %26, %29, %._crit_edge27, %3
-  %.019 = phi i1 [ false, %3 ], [ %34, %._crit_edge27 ], [ false, %29 ], [ false, %26 ], [ false, %15 ], [ false, %.lr.ph26 ]
+.loopexit:                                        ; preds = %.lr.ph26, %29, %26, %15, %._crit_edge27, %3
+  br label %35
+
+35:                                               ; preds = %._crit_edge27, %.loopexit
+  %.019 = phi i1 [ false, %.loopexit ], [ true, %._crit_edge27 ]
   ret i1 %.019
 }
 
@@ -769,13 +775,13 @@ define hidden noundef zeroext i1 @rb_vmdebug_debug_print_register(ptr nocapture 
   %22 = ptrtoint ptr %7 to i64
   %23 = sub i64 %21, %22
   %24 = ashr exact i64 %23, 3
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
-  %.pre = load i64, ptr %.phi.trans.insert, align 8
-  %25 = icmp ugt i64 %24, %.pre
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
+  %.pre.pre = load i64, ptr %.phi.trans.insert.phi.trans.insert, align 8
+  %25 = icmp ugt i64 %24, %.pre.pre
   %spec.select = select i1 %25, i64 -1, i64 %24
   %.inv = icmp sgt i64 %24, -1
   %.018 = select i1 %.inv, i64 %spec.select, i64 -1
-  %26 = getelementptr i64, ptr %7, i64 %.pre
+  %26 = getelementptr i64, ptr %7, i64 %.pre.pre
   %27 = ptrtoint ptr %26 to i64
   %28 = ptrtoint ptr %4 to i64
   %29 = sub i64 %27, %28
@@ -825,13 +831,13 @@ rb_vmdebug_debug_print_register.exit:             ; preds = %2, %12
   %25 = ptrtoint ptr %10 to i64
   %26 = sub i64 %24, %25
   %27 = ashr exact i64 %26, 3
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %5, i64 8
-  %.pre.i = load i64, ptr %.phi.trans.insert.i, align 8
-  %28 = icmp ugt i64 %27, %.pre.i
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %5, i64 8
+  %.pre.pre.i = load i64, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
+  %28 = icmp ugt i64 %27, %.pre.pre.i
   %spec.select.i = select i1 %28, i64 -1, i64 %27
   %.inv.i = icmp sgt i64 %27, -1
   %.018.i = select i1 %.inv.i, i64 %spec.select.i, i64 -1
-  %29 = getelementptr i64, ptr %10, i64 %.pre.i
+  %29 = getelementptr i64, ptr %10, i64 %.pre.pre.i
   %30 = ptrtoint ptr %29 to i64
   %31 = ptrtoint ptr %7 to i64
   %32 = sub i64 %30, %31
@@ -1079,11 +1085,11 @@ rb_ec_ractor_ptr.exit:                            ; preds = %50
 78:                                               ; preds = %75, %69
   %79 = call i32 @fputs(ptr noundef nonnull %20, ptr noundef %1)
   %.inv.i = icmp sgt i32 %79, -1
-  %spec.select109.i = select i1 %.inv.i, i32 %73, i32 -1
+  %spec.select.i = select i1 %.inv.i, i32 %73, i32 -1
   br label %print_machine_register.exit.i
 
 print_machine_register.exit.i:                    ; preds = %78, %75
-  %.0.i.i = phi i32 [ -1, %75 ], [ %spec.select109.i, %78 ]
+  %.0.i.i = phi i32 [ -1, %75 ], [ %spec.select.i, %78 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %20)
   %80 = getelementptr i8, ptr %0, i64 120
   %81 = load i64, ptr %80, align 8
@@ -1522,7 +1528,7 @@ print_machine_register.exit108.i:                 ; preds = %295, %292
   %297 = call i64 @fwrite(ptr nonnull @.str.36, i64 2, i64 1, ptr %1)
   br label %rb_dump_machine_register.exit
 
-rb_dump_machine_register.exit:                    ; preds = %65, %66, %print_machine_register.exit108.i
+rb_dump_machine_register.exit:                    ; preds = %print_machine_register.exit108.i, %66, %65
   %298 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.22) #13
   %299 = icmp slt i32 %298, 0
   br i1 %299, label %.loopexit241, label %300

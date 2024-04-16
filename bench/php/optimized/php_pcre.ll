@@ -8217,7 +8217,7 @@ define internal fastcc void @php_pcre_init_pcre2(i8 noundef zeroext %0) unnamed_
   %4 = tail call ptr @php_pcre2_general_context_create(ptr noundef nonnull @php_pcre_malloc, ptr noundef nonnull @php_pcre_free, ptr noundef null) #23
   store ptr %4, ptr @gctx, align 8
   %.not2 = icmp eq ptr %4, null
-  br i1 %.not2, label %29, label %5
+  br i1 %.not2, label %30, label %5
 
 5:                                                ; preds = %3, %1
   %6 = phi ptr [ %4, %3 ], [ %2, %1 ]
@@ -8229,7 +8229,7 @@ define internal fastcc void @php_pcre_init_pcre2(i8 noundef zeroext %0) unnamed_
   %9 = tail call ptr @php_pcre2_compile_context_create(ptr noundef nonnull %6) #23
   store ptr %9, ptr @cctx, align 8
   %.not4 = icmp eq ptr %9, null
-  br i1 %.not4, label %29, label %10
+  br i1 %.not4, label %30, label %10
 
 10:                                               ; preds = %8, %5
   %11 = phi ptr [ %9, %8 ], [ %7, %5 ]
@@ -8243,7 +8243,7 @@ define internal fastcc void @php_pcre_init_pcre2(i8 noundef zeroext %0) unnamed_
   %16 = tail call ptr @php_pcre2_match_context_create(ptr noundef %15) #23
   store ptr %16, ptr @mctx, align 8
   %.not6 = icmp eq ptr %16, null
-  br i1 %.not6, label %29, label %17
+  br i1 %.not6, label %30, label %17
 
 17:                                               ; preds = %14, %10
   %18 = icmp eq i8 %0, 0
@@ -8257,7 +8257,7 @@ define internal fastcc void @php_pcre_init_pcre2(i8 noundef zeroext %0) unnamed_
   %23 = tail call ptr @php_pcre2_jit_stack_create(i64 noundef 32768, i64 noundef 196608, ptr noundef %22) #23
   store ptr %23, ptr @jit_stack, align 8
   %.not7 = icmp eq ptr %23, null
-  br i1 %.not7, label %29, label %24
+  br i1 %.not7, label %30, label %24
 
 24:                                               ; preds = %21, %17
   %25 = load ptr, ptr @mdata, align 8
@@ -8268,11 +8268,14 @@ define internal fastcc void @php_pcre_init_pcre2(i8 noundef zeroext %0) unnamed_
   %27 = load ptr, ptr @gctx, align 8
   %28 = tail call ptr @php_pcre2_match_data_create(i32 noundef 32, ptr noundef %27) #23
   store ptr %28, ptr @mdata, align 8
-  %.not9 = icmp ne ptr %28, null
-  br label %29
+  %.not9 = icmp eq ptr %28, null
+  br i1 %.not9, label %30, label %29
 
-29:                                               ; preds = %26, %24, %21, %14, %8, %3
-  %.sink = phi i1 [ false, %3 ], [ false, %8 ], [ false, %14 ], [ false, %21 ], [ true, %24 ], [ %.not9, %26 ]
+29:                                               ; preds = %26, %24
+  br label %30
+
+30:                                               ; preds = %26, %21, %14, %8, %3, %29
+  %.sink = phi i1 [ true, %29 ], [ false, %3 ], [ false, %8 ], [ false, %14 ], [ false, %21 ], [ false, %26 ]
   store i1 %.sink, ptr @pcre2_init_ok, align 1
   ret void
 }

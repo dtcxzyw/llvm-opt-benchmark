@@ -30,8 +30,8 @@ entry:
   %spec.store.select1 = select i1 %tobool2.not, i32 36000, i32 %shr
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %outq, i8 0, i64 16, i1 false)
   %0 = load i32, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i64 0, i32 2), align 4
-  %cmp50 = icmp sgt i32 %0, 0
-  br i1 %cmp50, label %for.body.lr.ph, label %for.end
+  %cmp44 = icmp sgt i32 %0, 0
+  br i1 %cmp44, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
   %missing_object_cb.i = getelementptr inbounds i8, ptr %options.i, i64 8
@@ -90,7 +90,7 @@ if.then32:                                        ; preds = %land.lhs.true26
   %cmp.i36 = icmp eq i16 %7, -32768
   %11 = icmp ne i16 %8, -32768
   %cmp7.not.i = xor i1 %cmp.i36, %11
-  br i1 %cmp7.not.i, label %if.end.i, label %should_break.exit.thread43
+  br i1 %cmp7.not.i, label %if.end.i, label %if.then37
 
 if.end.i:                                         ; preds = %if.then32
   %oid_valid.i = getelementptr inbounds i8, ptr %3, i64 82
@@ -189,21 +189,21 @@ if.end44.i:                                       ; preds = %if.end31.i
 if.end49.i:                                       ; preds = %if.end44.i
   %19 = load i64, ptr %size.i, align 8
   %20 = load i64, ptr %src_copied.i, align 8
-  %spec.select43.i = call i64 @llvm.umin.i64(i64 %19, i64 %20)
+  %spec.select.i = call i64 @llvm.umin.i64(i64 %19, i64 %20)
   %21 = load i64, ptr %size32.i, align 8
   %22 = load i64, ptr %literal_added.i, align 8
-  %add.i = add i64 %22, %spec.select43.i
+  %add.i = add i64 %22, %spec.select.i
   %cmp57.i = icmp ult i64 %21, %add.i
-  %spec.select44.i = call i64 @llvm.usub.sat.i64(i64 %21, i64 %spec.select43.i)
-  %23 = select i1 %cmp57.i, i64 %spec.select44.i, i64 %22
-  %sub68.i = sub i64 %19, %spec.select43.i
+  %spec.select43.i = call i64 @llvm.usub.sat.i64(i64 %21, i64 %spec.select.i)
+  %23 = select i1 %cmp57.i, i64 %spec.select43.i, i64 %22
+  %sub68.i = sub i64 %19, %spec.select.i
   %conv69.i = uitofp i64 %sub68.i to double
   %mul.i = fmul double %conv69.i, 6.000000e+04
   %conv71.i = uitofp i64 %19 to double
   %div.i = fdiv double %mul.i, %conv71.i
   %conv72.i = fptosi double %div.i to i32
   %cmp73.i = icmp slt i32 %spec.store.select, %conv72.i
-  br i1 %cmp73.i, label %should_break.exit.thread43, label %if.end76.i
+  br i1 %cmp73.i, label %if.then37, label %if.end76.i
 
 if.end76.i:                                       ; preds = %if.end49.i
   %add77.i = add i64 %23, %sub68.i
@@ -218,35 +218,29 @@ if.end86.i:                                       ; preds = %if.end76.i
   %mul89.i = mul i64 %19, %conv88.i
   %conv90.i = uitofp i64 %mul89.i to double
   %cmp93.i = fcmp ogt double %mul.i, %conv90.i
-  br i1 %cmp93.i, label %should_break.exit, label %should_break.exit.thread43
+  br i1 %cmp93.i, label %land.lhs.true95.i, label %if.then37
 
-should_break.exit.thread:                         ; preds = %oideq.exit.i, %lor.lhs.false.i, %if.end25.i, %if.end31.i, %if.end44.i, %if.end76.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %src_copied.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %literal_added.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %options.i)
-  br label %if.end63
-
-should_break.exit.thread43:                       ; preds = %if.end49.i, %if.end86.i, %if.then32
-  %score.0.ph = phi i32 [ 60000, %if.then32 ], [ %conv72.i, %if.end86.i ], [ %conv72.i, %if.end49.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %src_copied.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %literal_added.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %options.i)
-  br label %if.then37
-
-should_break.exit:                                ; preds = %if.end86.i
+land.lhs.true95.i:                                ; preds = %if.end86.i
   %mul96.i = mul i64 %23, 20
   %cmp97.i = icmp ult i64 %mul96.i, %sub68.i
-  %cmp101.i = icmp ult i64 %mul96.i, %spec.select43.i
-  %or.cond.not.i.not = and i1 %cmp97.i, %cmp101.i
+  %cmp101.i = icmp ult i64 %mul96.i, %spec.select.i
+  %or.cond.i = and i1 %cmp97.i, %cmp101.i
+  br i1 %or.cond.i, label %should_break.exit.thread, label %if.then37
+
+should_break.exit.thread:                         ; preds = %oideq.exit.i, %lor.lhs.false.i, %if.end25.i, %if.end31.i, %if.end44.i, %if.end76.i, %land.lhs.true95.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %src_copied.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %literal_added.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %options.i)
-  br i1 %or.cond.not.i.not, label %if.end63, label %if.then37
+  %.pre = load ptr, ptr %2, align 8
+  br label %if.end63
 
-if.then37:                                        ; preds = %should_break.exit.thread43, %should_break.exit
-  %score.047 = phi i32 [ %score.0.ph, %should_break.exit.thread43 ], [ %conv72.i, %should_break.exit ]
-  %cmp38 = icmp slt i32 %score.047, %spec.store.select1
-  %24 = trunc i32 %score.047 to i16
+if.then37:                                        ; preds = %if.end86.i, %land.lhs.true95.i, %if.end49.i, %if.then32
+  %score.0 = phi i32 [ %conv72.i, %if.end49.i ], [ 60000, %if.then32 ], [ %conv72.i, %land.lhs.true95.i ], [ %conv72.i, %if.end86.i ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %src_copied.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %literal_added.i)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %options.i)
+  %cmp38 = icmp slt i32 %score.0, %spec.store.select1
+  %24 = trunc i32 %score.0 to i16
   %25 = load ptr, ptr %2, align 8
   %path43 = getelementptr inbounds i8, ptr %25, i64 40
   %26 = load ptr, ptr %path43, align 8
@@ -279,8 +273,8 @@ if.then37:                                        ; preds = %should_break.exit.t
   call void @free(ptr noundef nonnull %2) #11
   br label %for.inc
 
-if.end63:                                         ; preds = %land.lhs.true19, %land.lhs.true19, %land.lhs.true13, %land.lhs.true13, %should_break.exit.thread, %should_break.exit, %land.lhs.true26, %land.lhs.true, %for.body
-  %33 = load ptr, ptr %2, align 8
+if.end63:                                         ; preds = %land.lhs.true19, %land.lhs.true19, %land.lhs.true13, %land.lhs.true13, %should_break.exit.thread, %land.lhs.true26, %land.lhs.true, %for.body
+  %33 = phi ptr [ %3, %land.lhs.true19 ], [ %3, %land.lhs.true19 ], [ %3, %land.lhs.true13 ], [ %3, %land.lhs.true13 ], [ %.pre, %should_break.exit.thread ], [ %3, %land.lhs.true26 ], [ %3, %land.lhs.true ], [ %3, %for.body ]
   call void @diff_free_filespec_data(ptr noundef %33) #11
   %two65 = getelementptr inbounds i8, ptr %2, i64 8
   %34 = load ptr, ptr %two65, align 8

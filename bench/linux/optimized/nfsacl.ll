@@ -752,7 +752,7 @@ define internal i32 @cmp_acl_entry(ptr nocapture noundef readonly %0, ptr nocapt
   %7 = sext i16 %3 to i32
   %8 = sext i16 %4 to i32
   %9 = sub nsw i32 %7, %8
-  br label %27
+  br label %28
 
 10:                                               ; preds = %2
   switch i16 %3, label %27 [
@@ -766,12 +766,11 @@ define internal i32 @cmp_acl_entry(ptr nocapture noundef readonly %0, ptr nocapt
   %14 = load i32, ptr %12, align 4
   %15 = load i32, ptr %13, align 4
   %16 = icmp ugt i32 %14, %15
-  br i1 %16, label %27, label %17
+  br i1 %16, label %28, label %17
 
 17:                                               ; preds = %11
   %18 = icmp ult i32 %14, %15
-  %spec.select6 = sext i1 %18 to i32
-  br label %27
+  br i1 %18, label %28, label %27
 
 19:                                               ; preds = %10
   %20 = getelementptr inbounds i8, ptr %0, i64 4
@@ -779,16 +778,18 @@ define internal i32 @cmp_acl_entry(ptr nocapture noundef readonly %0, ptr nocapt
   %22 = load i32, ptr %20, align 4
   %23 = load i32, ptr %21, align 4
   %24 = icmp ugt i32 %22, %23
-  br i1 %24, label %27, label %25
+  br i1 %24, label %28, label %25
 
 25:                                               ; preds = %19
   %26 = icmp ult i32 %22, %23
-  %spec.select = sext i1 %26 to i32
-  br label %27
+  br i1 %26, label %28, label %27
 
-27:                                               ; preds = %17, %10, %25, %19, %11, %6
-  %28 = phi i32 [ %9, %6 ], [ 1, %11 ], [ 1, %19 ], [ %spec.select, %25 ], [ 0, %10 ], [ %spec.select6, %17 ]
-  ret i32 %28
+27:                                               ; preds = %17, %10, %25
+  br label %28
+
+28:                                               ; preds = %27, %25, %19, %17, %11, %6
+  %29 = phi i32 [ %9, %6 ], [ 0, %27 ], [ 1, %11 ], [ -1, %17 ], [ 1, %19 ], [ -1, %25 ]
+  ret i32 %29
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

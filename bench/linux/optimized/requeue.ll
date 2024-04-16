@@ -127,7 +127,7 @@ define dso_local i32 @futex_requeue(ptr noundef %0, i32 noundef %1, ptr noundef 
   call void @_raw_spin_lock(ptr noundef %57) #10
   br i1 %58, label %.loopexit.split.us, label %86
 
-61:                                               ; preds = %.split167.us, %.split167
+61:                                               ; preds = %.split168.us, %.split168
   %62 = call i32 @get_futex_key(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %10, i32 noundef 0) #10
   %63 = icmp eq i32 %62, 0
   br i1 %63, label %.preheader46.split, label %.loopexit47, !prof !10
@@ -186,9 +186,9 @@ define dso_local i32 @futex_requeue(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %36, label %.thread.split.split.us.split.us, label %.thread.split.split.us.split
 
 .thread.split.split.us.split.us:                  ; preds = %.thread.split.split.us
-  br i1 %90, label %.split.us, label %.lr.ph578, !prof !11
+  br i1 %90, label %.split.us, label %.lr.ph579, !prof !11
 
-.lr.ph578:                                        ; preds = %.thread.split.split.us.split.us, %98
+.lr.ph579:                                        ; preds = %.thread.split.split.us.split.us, %98
   call void @_raw_spin_unlock(ptr noundef %84) #10
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %79, ptr elementtype(i32) %79) #10, !srcloc !12
   %91 = call i64 @llvm.read_register.i64(metadata !0)
@@ -201,7 +201,7 @@ define dso_local i32 @futex_requeue(ptr noundef %0, i32 noundef %1, ptr noundef 
   %97 = icmp eq i32 %96, 0
   br i1 %97, label %98, label %.thread18
 
-98:                                               ; preds = %.lr.ph578
+98:                                               ; preds = %.lr.ph579
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #10
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %79, ptr elementtype(i32) %79) #10, !srcloc !9
   call void @_raw_spin_lock(ptr noundef %82) #10
@@ -209,7 +209,7 @@ define dso_local i32 @futex_requeue(ptr noundef %0, i32 noundef %1, ptr noundef 
   store i32 0, ptr %14, align 4, !annotation !14
   %99 = call i32 @futex_get_value_locked(ptr noundef nonnull %14, ptr noundef %0) #10
   %100 = icmp eq i32 %99, 0
-  br i1 %100, label %.split.us, label %.lr.ph578, !prof !15
+  br i1 %100, label %.split.us, label %.lr.ph579, !prof !15
 
 .thread.split.split.us.split:                     ; preds = %.thread.split.split.us
   br i1 %90, label %.split.us, label %101, !prof !8
@@ -225,9 +225,9 @@ define dso_local i32 @futex_requeue(ptr noundef %0, i32 noundef %1, ptr noundef 
   %107 = trunc i64 %106 to i32
   call void @llvm.write_register.i64(metadata !0, i64 %105)
   %108 = icmp eq i32 %107, 0
-  br i1 %108, label %.split167.us, label %.thread18
+  br i1 %108, label %.split168.us, label %.thread18
 
-.split167.us:                                     ; preds = %101
+.split168.us:                                     ; preds = %101
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #10
   br label %61
 
@@ -284,10 +284,10 @@ define dso_local i32 @futex_requeue(ptr noundef %0, i32 noundef %1, ptr noundef 
   %129 = trunc i64 %128 to i32
   call void @llvm.write_register.i64(metadata !0, i64 %127)
   %130 = icmp eq i32 %129, 0
-  br i1 %130, label %.split167, label %.thread18
+  br i1 %130, label %.split168, label %.thread18
 
-.thread18:                                        ; preds = %123, %101, %.lr.ph, %.lr.ph578
-  %.us-phi165 = phi i32 [ %96, %.lr.ph578 ], [ %118, %.lr.ph ], [ %107, %101 ], [ %129, %123 ]
+.thread18:                                        ; preds = %123, %101, %.lr.ph, %.lr.ph579
+  %.us-phi166 = phi i32 [ %96, %.lr.ph579 ], [ %118, %.lr.ph ], [ %107, %101 ], [ %129, %123 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #10
   br label %.loopexit47
 
@@ -302,7 +302,7 @@ define dso_local i32 @futex_requeue(ptr noundef %0, i32 noundef %1, ptr noundef 
   call void @_raw_spin_unlock(ptr noundef %84) #10
   br i1 %.fr, label %352, label %347
 
-.split167:                                        ; preds = %123
+.split168:                                        ; preds = %123
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #10
   br label %61
 
@@ -330,7 +330,7 @@ define dso_local i32 @futex_requeue(ptr noundef %0, i32 noundef %1, ptr noundef 
 142:                                              ; preds = %139
   %143 = call ptr @futex_top_waiter(ptr noundef %134, ptr noundef nonnull %10) #10
   %144 = icmp eq ptr %143, null
-  br i1 %144, label %.loopexit50.thread375, label %145
+  br i1 %144, label %.loopexit50.thread376, label %145
 
 145:                                              ; preds = %142
   %146 = getelementptr inbounds i8, ptr %143, i64 104
@@ -485,7 +485,7 @@ select.unfold28:                                  ; preds = %193, %199
   %209 = and i1 %206, %208
   br i1 %209, label %.preheader, label %.thread40
 
-.loopexit50.thread375:                            ; preds = %142
+.loopexit50.thread376:                            ; preds = %142
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #10
   %210 = getelementptr inbounds i8, ptr %134, i64 8
@@ -514,10 +514,10 @@ select.unfold28:                                  ; preds = %193, %199
   %224 = phi ptr [ %205, %.preheader ], [ %217, %.loopexit50.thread ]
   br label %.preheader.split
 
-.preheader.split.us.preheader:                    ; preds = %.loopexit50.thread375, %.preheader
-  %225 = phi i32 [ %.ph, %.preheader ], [ 0, %.loopexit50.thread375 ]
-  %226 = phi ptr [ %204, %.preheader ], [ %210, %.loopexit50.thread375 ]
-  %227 = phi ptr [ %205, %.preheader ], [ %211, %.loopexit50.thread375 ]
+.preheader.split.us.preheader:                    ; preds = %.loopexit50.thread376, %.preheader
+  %225 = phi i32 [ %.ph, %.preheader ], [ 0, %.loopexit50.thread376 ]
+  %226 = phi ptr [ %204, %.preheader ], [ %210, %.loopexit50.thread376 ]
+  %227 = phi ptr [ %205, %.preheader ], [ %211, %.loopexit50.thread376 ]
   br label %.preheader.split.us
 
 .preheader.split.us:                              ; preds = %.preheader.split.us.preheader, %.thread36.us
@@ -629,7 +629,7 @@ select.unfold28:                                  ; preds = %193, %199
   %292 = getelementptr i8, ptr %230, i64 16
   %293 = load ptr, ptr %292, align 8
   %294 = call i32 @rt_mutex_start_proxy_lock(ptr noundef %290, ptr noundef %291, ptr noundef %293) #10
-  switch i32 %294, label %.split268.us [
+  switch i32 %294, label %.split269.us [
     i32 1, label %297
     i32 0, label %295
   ]
@@ -710,7 +710,7 @@ select.unfold28:                                  ; preds = %193, %199
   call fastcc void @requeue_futex(ptr noundef %307, ptr noundef %134, ptr noundef %135, ptr noundef nonnull %11)
   br label %.thread36
 
-.split268.us:                                     ; preds = %.thread41.us
+.split269.us:                                     ; preds = %.thread41.us
   store ptr null, ptr %253, align 8
   %338 = load ptr, ptr %12, align 8
   call void @put_pi_state(ptr noundef %338) #10
@@ -725,9 +725,9 @@ select.unfold28:                                  ; preds = %193, %199
   %343 = select i1 %340, i1 %342, i1 false
   br i1 %343, label %.preheader.split, label %.thread40, !llvm.loop !22
 
-.thread40:                                        ; preds = %324, %.thread36, %.thread37, %.thread36.us, %269, %265, %260, %256, %252, %248, %.loopexit50.thread375, %.loopexit50.thread, %.split268.us, %.loopexit50
-  %344 = phi i32 [ %228, %.split268.us ], [ %.ph, %.loopexit50 ], [ 0, %.loopexit50.thread ], [ 0, %.loopexit50.thread375 ], [ %228, %256 ], [ %228, %260 ], [ %228, %265 ], [ %300, %.thread36.us ], [ %228, %252 ], [ %228, %248 ], [ %228, %269 ], [ %305, %.thread37 ], [ %339, %.thread36 ], [ %305, %324 ]
-  %345 = phi i32 [ %294, %.split268.us ], [ 0, %.loopexit50 ], [ 0, %.loopexit50.thread ], [ 0, %.loopexit50.thread375 ], [ -22, %256 ], [ -22, %260 ], [ -22, %265 ], [ %299, %.thread36.us ], [ -22, %252 ], [ -22, %248 ], [ -22, %269 ], [ -22, %.thread37 ], [ 0, %.thread36 ], [ -22, %324 ]
+.thread40:                                        ; preds = %324, %.thread36, %.thread37, %.thread36.us, %269, %265, %260, %256, %252, %248, %.loopexit50.thread376, %.loopexit50.thread, %.split269.us, %.loopexit50
+  %344 = phi i32 [ %228, %.split269.us ], [ %.ph, %.loopexit50 ], [ 0, %.loopexit50.thread ], [ 0, %.loopexit50.thread376 ], [ %228, %256 ], [ %228, %260 ], [ %228, %265 ], [ %300, %.thread36.us ], [ %228, %252 ], [ %228, %248 ], [ %228, %269 ], [ %305, %.thread37 ], [ %339, %.thread36 ], [ %305, %324 ]
+  %345 = phi i32 [ %294, %.split269.us ], [ 0, %.loopexit50 ], [ 0, %.loopexit50.thread ], [ 0, %.loopexit50.thread376 ], [ -22, %256 ], [ -22, %260 ], [ -22, %265 ], [ %299, %.thread36.us ], [ -22, %252 ], [ -22, %248 ], [ -22, %269 ], [ -22, %.thread37 ], [ 0, %.thread36 ], [ -22, %324 ]
   %346 = load ptr, ptr %12, align 8
   call void @put_pi_state(ptr noundef %346) #10
   call void @_raw_spin_unlock(ptr noundef %137) #10
@@ -751,15 +751,15 @@ select.unfold28:                                  ; preds = %193, %199
   %353 = phi i32 [ %344, %.thread40 ], [ %348, %347 ], [ 0, %.loopexit ], [ 0, %.thread20 ]
   %354 = phi i32 [ %345, %.thread40 ], [ %349, %347 ], [ %.ph32, %.loopexit ], [ -11, %.thread20 ]
   %355 = phi ptr [ %135, %.thread40 ], [ %351, %347 ], [ %135, %.loopexit ], [ %79, %.thread20 ]
-  %.fr475 = freeze i32 %354
+  %.fr476 = freeze i32 %354
   call void @wake_up_q(ptr noundef nonnull %13) #10
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %355, ptr elementtype(i32) %355) #10, !srcloc !12
-  %356 = icmp eq i32 %.fr475, 0
-  %spec.select = select i1 %356, i32 %353, i32 %.fr475
+  %356 = icmp eq i32 %.fr476, 0
+  %spec.select = select i1 %356, i32 %353, i32 %.fr476
   br label %.loopexit47
 
 .loopexit47:                                      ; preds = %select.unfold28, %50, %.preheader46.split.us, %61, %.preheader46.split, %75, %352, %28, %.thread34, %.thread18, %25, %21, %8
-  %357 = phi i32 [ -22, %8 ], [ -22, %21 ], [ -12, %25 ], [ %.us-phi165, %.thread18 ], [ %194, %.thread34 ], [ %37, %28 ], [ %spec.select, %352 ], [ -22, %75 ], [ %64, %.preheader46.split ], [ %62, %61 ], [ -22, %50 ], [ %39, %.preheader46.split.us ], [ %202, %select.unfold28 ]
+  %357 = phi i32 [ -22, %8 ], [ -22, %21 ], [ -12, %25 ], [ %.us-phi166, %.thread18 ], [ %194, %.thread34 ], [ %37, %28 ], [ %spec.select, %352 ], [ -22, %75 ], [ %64, %.preheader46.split ], [ %62, %61 ], [ -22, %50 ], [ %39, %.preheader46.split.us ], [ %202, %select.unfold28 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #10
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #10
@@ -940,13 +940,13 @@ define internal fastcc void @futex_requeue_pi_complete(ptr noundef %0, i32 nound
   tail call void asm sideeffect "308: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 308b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 308) #10, !srcloc !31
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 146, i32 2307, i64 12) #10, !srcloc !32
   tail call void asm sideeffect "309: nop\0A\09.pushsection .discard.instr_end\0A\09.long 309b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 309) #10, !srcloc !33
+  br label %22
+
+22:                                               ; preds = %21, %.lr.ph.split
   br label %23
 
-22:                                               ; preds = %.lr.ph.split
-  br label %23
-
-23:                                               ; preds = %21, %22, %.lr.ph.split
-  %24 = phi i32 [ 0, %.lr.ph.split ], [ 1, %21 ], [ 1, %22 ]
+23:                                               ; preds = %22, %.lr.ph.split
+  %24 = phi i32 [ 1, %22 ], [ 0, %.lr.ph.split ]
   %25 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %3, i32 %24, ptr elementtype(i32) %3, i32 %20) #10, !srcloc !17
   %26 = extractvalue { i8, i32 } %25, 0
   %27 = icmp ult i8 %26, 2

@@ -734,7 +734,7 @@ entry:
   %expiration_time_ = getelementptr inbounds i8, ptr %this, i64 344
   %0 = load i64, ptr %expiration_time_, align 8
   %cmp.not = icmp eq i64 %0, 0
-  br i1 %cmp.not, label %return, label %if.then
+  br i1 %cmp.not, label %if.end6, label %if.then
 
 if.then:                                          ; preds = %entry
   %dbimpl_ = getelementptr inbounds i8, ptr %this, i64 72
@@ -745,11 +745,14 @@ if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef i64 %2(ptr noundef nonnull align 8 dereferenceable(32) %call)
   %3 = load i64, ptr %expiration_time_, align 8
-  %cmp4.not = icmp uge i64 %call2, %3
+  %cmp4.not = icmp ult i64 %call2, %3
+  br i1 %cmp4.not, label %if.end6, label %return
+
+if.end6:                                          ; preds = %if.then, %entry
   br label %return
 
-return:                                           ; preds = %if.then, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ %cmp4.not, %if.then ]
+return:                                           ; preds = %if.then, %if.end6
+  %retval.0 = phi i1 [ false, %if.end6 ], [ true, %if.then ]
   ret i1 %retval.0
 }
 
@@ -3420,14 +3423,14 @@ call.i6.noexc:                                    ; preds = %if.then.i
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 152
   %9 = load ptr, ptr %vfn.i, align 8
   %call2.i8 = invoke noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(32) %call.i67)
-          to label %invoke.cont10 unwind label %lpad5
+          to label %call2.i.noexc unwind label %lpad5
 
-invoke.cont10:                                    ; preds = %call.i6.noexc
+call2.i.noexc:                                    ; preds = %call.i6.noexc
   %10 = load i64, ptr %expiration_time_.i, align 8
-  %cmp4.not.i.not = icmp ult i64 %call2.i8, %10
-  br i1 %cmp4.not.i.not, label %if.then16, label %invoke.cont14
+  %cmp4.not.i = icmp ult i64 %call2.i8, %10
+  br i1 %cmp4.not.i, label %if.then16, label %invoke.cont14
 
-invoke.cont14:                                    ; preds = %invoke.cont10
+invoke.cont14:                                    ; preds = %call2.i.noexc
   store i8 12, ptr %agg.result, align 8
   %subcode_4.i = getelementptr inbounds i8, ptr %agg.result, i64 1
   %state_16.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -3441,7 +3444,7 @@ _ZN7rocksdb6StatusaSEOS0_.exit:                   ; preds = %invoke.cont14
   tail call void @_ZdaPv(ptr noundef nonnull %11) #21
   br label %if.else39
 
-if.then16:                                        ; preds = %invoke.cont10
+if.then16:                                        ; preds = %call2.i.noexc
   %txn_state_ = getelementptr inbounds i8, ptr %this, i64 48
   %12 = cmpxchg ptr %txn_state_, i32 0, i32 3 seq_cst seq_cst, align 4
   %13 = extractvalue { i32, i1 } %12, 1
@@ -4058,9 +4061,9 @@ if.end:                                           ; preds = %entry
   %expiration_time_.i = getelementptr inbounds i8, ptr %this, i64 344
   %0 = load i64, ptr %expiration_time_.i, align 8
   %cmp.not.i = icmp eq i64 %0, 0
-  br i1 %cmp.not.i, label %if.else, label %_ZNK7rocksdb22PessimisticTransaction9IsExpiredEv.exit
+  br i1 %cmp.not.i, label %if.else, label %if.then.i
 
-_ZNK7rocksdb22PessimisticTransaction9IsExpiredEv.exit: ; preds = %if.end
+if.then.i:                                        ; preds = %if.end
   %dbimpl_.i = getelementptr inbounds i8, ptr %this, i64 72
   %1 = load ptr, ptr %dbimpl_.i, align 8
   %call.i2 = tail call noundef ptr @_ZNK7rocksdb6DBImpl14GetSystemClockEv(ptr noundef nonnull align 64 dereferenceable(6660) %1)
@@ -4069,10 +4072,10 @@ _ZNK7rocksdb22PessimisticTransaction9IsExpiredEv.exit: ; preds = %if.end
   %2 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef i64 %2(ptr noundef nonnull align 8 dereferenceable(32) %call.i2)
   %3 = load i64, ptr %expiration_time_.i, align 8
-  %cmp4.not.i.not = icmp ult i64 %call2.i, %3
-  br i1 %cmp4.not.i.not, label %if.then6, label %if.then4
+  %cmp4.not.i = icmp ult i64 %call2.i, %3
+  br i1 %cmp4.not.i, label %if.then6, label %if.then4
 
-if.then4:                                         ; preds = %_ZNK7rocksdb22PessimisticTransaction9IsExpiredEv.exit
+if.then4:                                         ; preds = %if.then.i
   store i8 12, ptr %agg.result, align 8, !alias.scope !94
   %subcode_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 1
   store i8 0, ptr %subcode_.i.i, align 1, !alias.scope !94
@@ -4082,7 +4085,7 @@ if.then4:                                         ; preds = %_ZNK7rocksdb22Pessi
   store i32 0, ptr %sev_.i.i, align 2, !alias.scope !94
   br label %return
 
-if.then6:                                         ; preds = %_ZNK7rocksdb22PessimisticTransaction9IsExpiredEv.exit
+if.then6:                                         ; preds = %if.then.i
   %state_.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false)
@@ -4522,9 +4525,9 @@ entry:
   %expiration_time_.i = getelementptr inbounds i8, ptr %this, i64 344
   %0 = load i64, ptr %expiration_time_.i, align 8
   %cmp.not.i = icmp eq i64 %0, 0
-  br i1 %cmp.not.i, label %if.else, label %_ZNK7rocksdb22PessimisticTransaction9IsExpiredEv.exit
+  br i1 %cmp.not.i, label %if.else, label %if.then.i
 
-_ZNK7rocksdb22PessimisticTransaction9IsExpiredEv.exit: ; preds = %entry
+if.then.i:                                        ; preds = %entry
   %dbimpl_.i = getelementptr inbounds i8, ptr %this, i64 72
   %1 = load ptr, ptr %dbimpl_.i, align 8
   %call.i = tail call noundef ptr @_ZNK7rocksdb6DBImpl14GetSystemClockEv(ptr noundef nonnull align 64 dereferenceable(6660) %1)
@@ -4533,10 +4536,10 @@ _ZNK7rocksdb22PessimisticTransaction9IsExpiredEv.exit: ; preds = %entry
   %2 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef i64 %2(ptr noundef nonnull align 8 dereferenceable(32) %call.i)
   %3 = load i64, ptr %expiration_time_.i, align 8
-  %cmp4.not.i.not = icmp ult i64 %call2.i, %3
-  br i1 %cmp4.not.i.not, label %if.then2, label %if.then
+  %cmp4.not.i = icmp ult i64 %call2.i, %3
+  br i1 %cmp4.not.i, label %if.then2, label %if.then
 
-if.then:                                          ; preds = %_ZNK7rocksdb22PessimisticTransaction9IsExpiredEv.exit
+if.then:                                          ; preds = %if.then.i
   store i8 12, ptr %agg.result, align 8, !alias.scope !97
   %subcode_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 1
   store i8 0, ptr %subcode_.i.i, align 1, !alias.scope !97
@@ -4546,7 +4549,7 @@ if.then:                                          ; preds = %_ZNK7rocksdb22Pessi
   store i32 0, ptr %sev_.i.i, align 2, !alias.scope !97
   br label %return
 
-if.then2:                                         ; preds = %_ZNK7rocksdb22PessimisticTransaction9IsExpiredEv.exit
+if.then2:                                         ; preds = %if.then.i
   %txn_state_ = getelementptr inbounds i8, ptr %this, i64 48
   %4 = cmpxchg ptr %txn_state_, i32 0, i32 3 seq_cst seq_cst, align 4
   %5 = extractvalue { i32, i1 } %4, 1

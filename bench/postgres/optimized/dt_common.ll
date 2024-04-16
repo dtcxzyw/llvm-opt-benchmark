@@ -1695,11 +1695,11 @@ define i32 @DecodeDateTime(ptr nocapture noundef readonly %0, ptr nocapture noun
 
 31:                                               ; preds = %.lr.ph, %565
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %565 ]
-  %.0266423 = phi i32 [ 0, %.lr.ph ], [ %.1, %565 ]
-  %.0267422 = phi i32 [ 0, %.lr.ph ], [ %.3, %565 ]
-  %.0270418 = phi i32 [ 2, %.lr.ph ], [ %.2272, %565 ]
-  %.0273417 = phi i1 [ false, %.lr.ph ], [ %.2275, %565 ]
-  %.0276416 = phi i1 [ false, %.lr.ph ], [ %.2278, %565 ]
+  %.0266424 = phi i32 [ 0, %.lr.ph ], [ %.1, %565 ]
+  %.0267423 = phi i32 [ 0, %.lr.ph ], [ %.3, %565 ]
+  %.0270419 = phi i32 [ 2, %.lr.ph ], [ %.2272, %565 ]
+  %.0273418 = phi i1 [ false, %.lr.ph ], [ %.2275, %565 ]
+  %.0276417 = phi i1 [ false, %.lr.ph ], [ %.2278, %565 ]
   %32 = getelementptr i32, ptr %1, i64 %indvars.iv
   %33 = load i32, ptr %32, align 4
   switch i32 %33, label %.loopexit [
@@ -1712,7 +1712,7 @@ define i32 @DecodeDateTime(ptr nocapture noundef readonly %0, ptr nocapture noun
   ]
 
 34:                                               ; preds = %31
-  %35 = icmp eq i32 %.0267422, 31
+  %35 = icmp eq i32 %.0267423, 31
   br i1 %35, label %36, label %73
 
 36:                                               ; preds = %34
@@ -1772,9 +1772,9 @@ define i32 @DecodeDateTime(ptr nocapture noundef readonly %0, ptr nocapture noun
   br label %560
 
 73:                                               ; preds = %34
-  %74 = and i32 %.0266423, 14
+  %74 = and i32 %.0266424, 14
   %75 = icmp eq i32 %74, 14
-  %76 = icmp ne i32 %.0267422, 0
+  %76 = icmp ne i32 %.0267423, 0
   %or.cond = select i1 %75, i1 true, i1 %76
   br i1 %or.cond, label %77, label %150
 
@@ -1793,9 +1793,9 @@ define i32 @DecodeDateTime(ptr nocapture noundef readonly %0, ptr nocapture noun
   br i1 %or.cond3, label %88, label %105
 
 88:                                               ; preds = %77
-  %.not325 = icmp ne i32 %.0267422, 3
+  %.not325 = icmp ne i32 %.0267423, 3
   %or.cond337.not397 = and i1 %.not325, %76
-  %89 = and i32 %.0266423, 7168
+  %89 = and i32 %.0266424, 7168
   %90 = icmp eq i32 %89, 7168
   %or.cond339 = select i1 %or.cond337.not397, i1 true, i1 %90
   br i1 %or.cond339, label %.loopexit, label %91
@@ -1815,7 +1815,7 @@ define i32 @DecodeDateTime(ptr nocapture noundef readonly %0, ptr nocapture noun
   %97 = load ptr, ptr %80, align 8
   %98 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %97) #17
   %99 = trunc i64 %98 to i32
-  %100 = call fastcc i32 @DecodeNumberField(i32 noundef %99, ptr noundef %97, i32 noundef %.0266423, ptr noundef nonnull %13, ptr noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %14), !range !21
+  %100 = call fastcc i32 @DecodeNumberField(i32 noundef %99, ptr noundef %97, i32 noundef %.0266424, ptr noundef nonnull %13, ptr noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %14), !range !21
   store i32 %100, ptr %32, align 4
   %101 = icmp slt i32 %100, 0
   br i1 %101, label %.loopexit, label %102
@@ -1934,7 +1934,7 @@ DecodePosixTimezone.exit.thread:                  ; preds = %.critedge.i, %Decod
 150:                                              ; preds = %73
   %151 = getelementptr ptr, ptr %0, i64 %indvars.iv
   %152 = load ptr, ptr %151, align 8
-  %153 = call fastcc i32 @DecodeDate(ptr noundef %152, i32 noundef %.0266423, ptr noundef nonnull %13, ptr noundef %4, i1 noundef zeroext %6), !range !23
+  %153 = call fastcc i32 @DecodeDate(ptr noundef %152, i32 noundef %.0266424, ptr noundef nonnull %13, ptr noundef %4, i1 noundef zeroext %6), !range !23
   %.not323 = icmp eq i32 %153, 0
   br i1 %.not323, label %560, label %.loopexit
 
@@ -1973,7 +1973,7 @@ DecodePosixTimezone.exit.thread:                  ; preds = %.critedge.i, %Decod
 
 173:                                              ; preds = %169
   %174 = icmp eq i64 %indvars.iv, 0
-  %175 = and i32 %.0266423, 32
+  %175 = and i32 %.0266424, 32
   %.not320 = icmp eq i32 %175, 0
   %or.cond330 = select i1 %174, i1 true, i1 %.not320
   br i1 %or.cond330, label %195, label %176
@@ -2013,7 +2013,7 @@ DecodePosixTimezone.exit.thread:                  ; preds = %.critedge.i, %Decod
   br label %560
 
 197:                                              ; preds = %31
-  %.not307 = icmp eq i32 %.0267422, 0
+  %.not307 = icmp eq i32 %.0267423, 0
   %198 = getelementptr ptr, ptr %0, i64 %indvars.iv
   %199 = load ptr, ptr %198, align 8
   br i1 %.not307, label %286, label %200
@@ -2028,14 +2028,14 @@ DecodePosixTimezone.exit.thread:                  ; preds = %.critedge.i, %Decod
   ]
 
 204:                                              ; preds = %200
-  switch i32 %.0267422, label %.loopexit [
+  switch i32 %.0267423, label %.loopexit [
     i32 18, label %214
     i32 31, label %227
     i32 3, label %277
   ]
 
 205:                                              ; preds = %200
-  switch i32 %.0267422, label %.loopexit [
+  switch i32 %.0267423, label %.loopexit [
     i32 25, label %206
     i32 23, label %207
     i32 21, label %211
@@ -2053,7 +2053,7 @@ DecodePosixTimezone.exit.thread:                  ; preds = %.critedge.i, %Decod
   br label %285
 
 207:                                              ; preds = %205
-  %208 = and i32 %.0266423, 1026
+  %208 = and i32 %.0266424, 1026
   %or.cond331.not = icmp eq i32 %208, 1026
   br i1 %or.cond331.not, label %209, label %210
 
@@ -2191,7 +2191,7 @@ DecodePosixTimezone.exit.thread:                  ; preds = %.critedge.i, %Decod
   %278 = load ptr, ptr %198, align 8
   %279 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %278) #17
   %280 = trunc i64 %279 to i32
-  %281 = or i32 %.0266423, 14
+  %281 = or i32 %.0266424, 14
   %282 = call fastcc i32 @DecodeNumberField(i32 noundef %280, ptr noundef %278, i32 noundef %281, ptr noundef nonnull %13, ptr noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %14), !range !21
   store i32 %282, ptr %32, align 4
   %283 = icmp sgt i32 %282, -1
@@ -2209,13 +2209,13 @@ DecodePosixTimezone.exit.thread:                  ; preds = %.critedge.i, %Decod
   %288 = trunc i64 %287 to i32
   %289 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %199, i32 noundef 46) #17
   %.not308 = icmp ne ptr %289, null
-  %290 = and i32 %.0266423, 14
+  %290 = and i32 %.0266424, 14
   %.not309 = icmp eq i32 %290, 0
   %or.cond332 = select i1 %.not308, i1 %.not309, i1 false
   br i1 %or.cond332, label %291, label %293
 
 291:                                              ; preds = %286
-  %292 = call fastcc i32 @DecodeDate(ptr noundef %199, i32 noundef %.0266423, ptr noundef nonnull %13, ptr noundef %4, i1 noundef zeroext %6), !range !23
+  %292 = call fastcc i32 @DecodeDate(ptr noundef %199, i32 noundef %.0266424, ptr noundef nonnull %13, ptr noundef %4, i1 noundef zeroext %6), !range !23
   %.not310 = icmp eq i32 %292, 0
   br i1 %.not310, label %560, label %.loopexit
 
@@ -2231,7 +2231,7 @@ DecodePosixTimezone.exit.thread:                  ; preds = %.critedge.i, %Decod
   br i1 %298, label %299, label %302
 
 299:                                              ; preds = %294
-  %300 = call fastcc i32 @DecodeNumberField(i32 noundef %288, ptr noundef %199, i32 noundef %.0266423, ptr noundef nonnull %13, ptr noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %14), !range !21
+  %300 = call fastcc i32 @DecodeNumberField(i32 noundef %288, ptr noundef %199, i32 noundef %.0266424, ptr noundef nonnull %13, ptr noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %14), !range !21
   store i32 %300, ptr %32, align 4
   %301 = icmp slt i32 %300, 0
   br i1 %301, label %.loopexit, label %560
@@ -2241,13 +2241,13 @@ DecodePosixTimezone.exit.thread:                  ; preds = %.critedge.i, %Decod
   br i1 %303, label %304, label %307
 
 304:                                              ; preds = %302
-  %305 = call fastcc i32 @DecodeNumberField(i32 noundef %288, ptr noundef %199, i32 noundef %.0266423, ptr noundef nonnull %13, ptr noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %14), !range !21
+  %305 = call fastcc i32 @DecodeNumberField(i32 noundef %288, ptr noundef %199, i32 noundef %.0266424, ptr noundef nonnull %13, ptr noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %14), !range !21
   store i32 %305, ptr %32, align 4
   %306 = icmp slt i32 %305, 0
   br i1 %306, label %.loopexit, label %560
 
 307:                                              ; preds = %302
-  %308 = call fastcc i32 @DecodeNumber(i32 noundef %288, ptr noundef %199, i32 noundef %.0266423, ptr noundef nonnull %13, ptr noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %14, i1 noundef zeroext %6), !range !21
+  %308 = call fastcc i32 @DecodeNumber(i32 noundef %288, ptr noundef %199, i32 noundef %.0266424, ptr noundef nonnull %13, ptr noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %14, i1 noundef zeroext %6), !range !21
   %.not311 = icmp eq i32 %308, 0
   br i1 %.not311, label %560, label %.loopexit
 
@@ -2403,9 +2403,9 @@ GetCurrentDateTime.exit:                          ; preds = %350, %351
 
 375:                                              ; preds = %371
   store i32 320, ptr %373, align 4
-  %.pre437 = load i32, ptr %27, align 4
-  %.pre438 = load i32, ptr %25, align 8
-  %.pre439 = load i32, ptr %26, align 4
+  %.pre438 = load i32, ptr %27, align 4
+  %.pre439 = load i32, ptr %25, align 8
+  %.pre440 = load i32, ptr %26, align 4
   br label %GetCurrentDateTime.exit354
 
 376:                                              ; preds = %371
@@ -2440,9 +2440,9 @@ GetCurrentDateTime.exit:                          ; preds = %350, %351
   br label %GetCurrentDateTime.exit354
 
 GetCurrentDateTime.exit354:                       ; preds = %375, %376
-  %396 = phi i32 [ %.pre439, %375 ], [ %384, %376 ]
-  %397 = phi i32 [ %.pre438, %375 ], [ %382, %376 ]
-  %398 = phi i32 [ %.pre437, %375 ], [ %379, %376 ]
+  %396 = phi i32 [ %.pre440, %375 ], [ %384, %376 ]
+  %397 = phi i32 [ %.pre439, %375 ], [ %382, %376 ]
+  %398 = phi i32 [ %.pre438, %375 ], [ %379, %376 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   %399 = icmp sgt i32 %397, 2
   %.015.v.i = select i1 %399, i32 1, i32 13
@@ -2573,8 +2573,8 @@ GetCurrentDateTime.exit365:                       ; preds = %443, %444
 468:                                              ; preds = %464
   store i32 320, ptr %466, align 4
   %.pre = load i32, ptr %27, align 4
-  %.pre435 = load i32, ptr %25, align 8
-  %.pre436 = load i32, ptr %26, align 4
+  %.pre436 = load i32, ptr %25, align 8
+  %.pre437 = load i32, ptr %26, align 4
   br label %GetCurrentDateTime.exit367
 
 469:                                              ; preds = %464
@@ -2609,8 +2609,8 @@ GetCurrentDateTime.exit365:                       ; preds = %443, %444
   br label %GetCurrentDateTime.exit367
 
 GetCurrentDateTime.exit367:                       ; preds = %468, %469
-  %489 = phi i32 [ %.pre436, %468 ], [ %477, %469 ]
-  %490 = phi i32 [ %.pre435, %468 ], [ %475, %469 ]
+  %489 = phi i32 [ %.pre437, %468 ], [ %477, %469 ]
+  %490 = phi i32 [ %.pre436, %468 ], [ %475, %469 ]
   %491 = phi i32 [ %.pre, %468 ], [ %472, %469 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   %492 = icmp sgt i32 %490, 2
@@ -2687,14 +2687,14 @@ GetCurrentDateTime.exit367:                       ; preds = %468, %469
   br label %560
 
 534:                                              ; preds = %342
-  %535 = and i32 %.0266423, 2
+  %535 = and i32 %.0266424, 2
   %.not305 = icmp eq i32 %535, 0
   br i1 %.not305, label %542, label %536
 
 536:                                              ; preds = %534
-  %537 = and i32 %.0266423, 8
+  %537 = and i32 %.0266424, 8
   %.not306 = icmp ne i32 %537, 0
-  %or.cond334.not = select i1 %.0273417, i1 true, i1 %.not306
+  %or.cond334.not = select i1 %.0273418, i1 true, i1 %.not306
   br i1 %or.cond334.not, label %542, label %538
 
 538:                                              ; preds = %536
@@ -2751,7 +2751,7 @@ GetCurrentDateTime.exit367:                       ; preds = %468, %469
 
 556:                                              ; preds = %342
   store i32 0, ptr %13, align 4
-  %557 = and i32 %.0266423, 14
+  %557 = and i32 %.0266424, 14
   %.not300 = icmp eq i32 %557, 14
   %.not301 = icmp ult i64 %indvars.iv, %30
   %or.cond341 = and i1 %.not301, %.not300
@@ -2767,25 +2767,25 @@ GetCurrentDateTime.exit367:                       ; preds = %468, %469
   ]
 
 560:                                              ; preds = %558, %558, %558, %342, %542, %543, %547, %550, %552, %554, %555, %532, %533, %GetCurrentDateTime.exit367, %GetCurrentDateTime.exit365, %GetCurrentDateTime.exit354, %GetCurrentDateTime.exit, %285, %299, %307, %304, %291, %191, %195, %161, %166, %150, %102, %146, %72
-  %.1277 = phi i1 [ %.0276416, %555 ], [ %.0276416, %554 ], [ %553, %552 ], [ %.0276416, %550 ], [ %.0276416, %547 ], [ %.0276416, %543 ], [ %.0276416, %542 ], [ %.0276416, %533 ], [ %.0276416, %532 ], [ %.0276416, %GetCurrentDateTime.exit367 ], [ %.0276416, %GetCurrentDateTime.exit365 ], [ %.0276416, %GetCurrentDateTime.exit354 ], [ %.0276416, %GetCurrentDateTime.exit ], [ %.0276416, %285 ], [ %.0276416, %299 ], [ %.0276416, %304 ], [ %.0276416, %307 ], [ %.0276416, %291 ], [ %.0276416, %191 ], [ %.0276416, %195 ], [ %.0276416, %166 ], [ %.0276416, %161 ], [ %.0276416, %72 ], [ %.0276416, %102 ], [ %.0276416, %146 ], [ %.0276416, %150 ], [ %.0276416, %342 ], [ %.0276416, %558 ], [ %.0276416, %558 ], [ %.0276416, %558 ]
-  %.1274 = phi i1 [ %.0273417, %555 ], [ %.0273417, %554 ], [ %.0273417, %552 ], [ %.0273417, %550 ], [ %.0273417, %547 ], [ %.0273417, %543 ], [ true, %542 ], [ %.0273417, %533 ], [ %.0273417, %532 ], [ %.0273417, %GetCurrentDateTime.exit367 ], [ %.0273417, %GetCurrentDateTime.exit365 ], [ %.0273417, %GetCurrentDateTime.exit354 ], [ %.0273417, %GetCurrentDateTime.exit ], [ %.0273417, %285 ], [ %.0273417, %299 ], [ %.0273417, %304 ], [ %.0273417, %307 ], [ %.0273417, %291 ], [ %.0273417, %191 ], [ %.0273417, %195 ], [ %.0273417, %166 ], [ %.0273417, %161 ], [ %.0273417, %72 ], [ %.0273417, %102 ], [ %.0273417, %146 ], [ %.0273417, %150 ], [ %.0273417, %342 ], [ %.0273417, %558 ], [ %.0273417, %558 ], [ %.0273417, %558 ]
-  %.1271 = phi i32 [ %.0270418, %555 ], [ %.0270418, %554 ], [ %.0270418, %552 ], [ %.0270418, %550 ], [ %.0270418, %547 ], [ %.0270418, %543 ], [ %.0270418, %542 ], [ %.0270418, %533 ], [ %.0270418, %532 ], [ %.0270418, %GetCurrentDateTime.exit367 ], [ %.0270418, %GetCurrentDateTime.exit365 ], [ %.0270418, %GetCurrentDateTime.exit354 ], [ %.0270418, %GetCurrentDateTime.exit ], [ %.0270418, %285 ], [ %.0270418, %299 ], [ %.0270418, %304 ], [ %.0270418, %307 ], [ %.0270418, %291 ], [ %.0270418, %191 ], [ %.0270418, %195 ], [ %.0270418, %166 ], [ %.0270418, %161 ], [ %.0270418, %72 ], [ %.0270418, %102 ], [ %.0270418, %146 ], [ %.0270418, %150 ], [ %340, %342 ], [ %.0270418, %558 ], [ %.0270418, %558 ], [ %.0270418, %558 ]
-  %.2 = phi i32 [ %340, %555 ], [ %.0267422, %554 ], [ %.0267422, %552 ], [ %.0267422, %550 ], [ %.0267422, %547 ], [ %.0267422, %543 ], [ %.0267422, %542 ], [ %.0267422, %533 ], [ %.0267422, %532 ], [ %.0267422, %GetCurrentDateTime.exit367 ], [ %.0267422, %GetCurrentDateTime.exit365 ], [ %.0267422, %GetCurrentDateTime.exit354 ], [ %.0267422, %GetCurrentDateTime.exit ], [ 0, %285 ], [ 0, %299 ], [ 0, %304 ], [ 0, %307 ], [ 0, %291 ], [ %.0267422, %191 ], [ %.0267422, %195 ], [ %.0267422, %166 ], [ %.0267422, %161 ], [ 0, %72 ], [ 0, %102 ], [ 0, %146 ], [ 0, %150 ], [ %.0267422, %342 ], [ %340, %558 ], [ %340, %558 ], [ %340, %558 ]
+  %.1277 = phi i1 [ %.0276417, %555 ], [ %.0276417, %554 ], [ %553, %552 ], [ %.0276417, %550 ], [ %.0276417, %547 ], [ %.0276417, %543 ], [ %.0276417, %542 ], [ %.0276417, %533 ], [ %.0276417, %532 ], [ %.0276417, %GetCurrentDateTime.exit367 ], [ %.0276417, %GetCurrentDateTime.exit365 ], [ %.0276417, %GetCurrentDateTime.exit354 ], [ %.0276417, %GetCurrentDateTime.exit ], [ %.0276417, %285 ], [ %.0276417, %299 ], [ %.0276417, %304 ], [ %.0276417, %307 ], [ %.0276417, %291 ], [ %.0276417, %191 ], [ %.0276417, %195 ], [ %.0276417, %166 ], [ %.0276417, %161 ], [ %.0276417, %72 ], [ %.0276417, %102 ], [ %.0276417, %146 ], [ %.0276417, %150 ], [ %.0276417, %342 ], [ %.0276417, %558 ], [ %.0276417, %558 ], [ %.0276417, %558 ]
+  %.1274 = phi i1 [ %.0273418, %555 ], [ %.0273418, %554 ], [ %.0273418, %552 ], [ %.0273418, %550 ], [ %.0273418, %547 ], [ %.0273418, %543 ], [ true, %542 ], [ %.0273418, %533 ], [ %.0273418, %532 ], [ %.0273418, %GetCurrentDateTime.exit367 ], [ %.0273418, %GetCurrentDateTime.exit365 ], [ %.0273418, %GetCurrentDateTime.exit354 ], [ %.0273418, %GetCurrentDateTime.exit ], [ %.0273418, %285 ], [ %.0273418, %299 ], [ %.0273418, %304 ], [ %.0273418, %307 ], [ %.0273418, %291 ], [ %.0273418, %191 ], [ %.0273418, %195 ], [ %.0273418, %166 ], [ %.0273418, %161 ], [ %.0273418, %72 ], [ %.0273418, %102 ], [ %.0273418, %146 ], [ %.0273418, %150 ], [ %.0273418, %342 ], [ %.0273418, %558 ], [ %.0273418, %558 ], [ %.0273418, %558 ]
+  %.1271 = phi i32 [ %.0270419, %555 ], [ %.0270419, %554 ], [ %.0270419, %552 ], [ %.0270419, %550 ], [ %.0270419, %547 ], [ %.0270419, %543 ], [ %.0270419, %542 ], [ %.0270419, %533 ], [ %.0270419, %532 ], [ %.0270419, %GetCurrentDateTime.exit367 ], [ %.0270419, %GetCurrentDateTime.exit365 ], [ %.0270419, %GetCurrentDateTime.exit354 ], [ %.0270419, %GetCurrentDateTime.exit ], [ %.0270419, %285 ], [ %.0270419, %299 ], [ %.0270419, %304 ], [ %.0270419, %307 ], [ %.0270419, %291 ], [ %.0270419, %191 ], [ %.0270419, %195 ], [ %.0270419, %166 ], [ %.0270419, %161 ], [ %.0270419, %72 ], [ %.0270419, %102 ], [ %.0270419, %146 ], [ %.0270419, %150 ], [ %340, %342 ], [ %.0270419, %558 ], [ %.0270419, %558 ], [ %.0270419, %558 ]
+  %.2 = phi i32 [ %340, %555 ], [ %.0267423, %554 ], [ %.0267423, %552 ], [ %.0267423, %550 ], [ %.0267423, %547 ], [ %.0267423, %543 ], [ %.0267423, %542 ], [ %.0267423, %533 ], [ %.0267423, %532 ], [ %.0267423, %GetCurrentDateTime.exit367 ], [ %.0267423, %GetCurrentDateTime.exit365 ], [ %.0267423, %GetCurrentDateTime.exit354 ], [ %.0267423, %GetCurrentDateTime.exit ], [ 0, %285 ], [ 0, %299 ], [ 0, %304 ], [ 0, %307 ], [ 0, %291 ], [ %.0267423, %191 ], [ %.0267423, %195 ], [ %.0267423, %166 ], [ %.0267423, %161 ], [ 0, %72 ], [ 0, %102 ], [ 0, %146 ], [ 0, %150 ], [ %.0267423, %342 ], [ %340, %558 ], [ %340, %558 ], [ %340, %558 ]
   %561 = load i32, ptr %13, align 4
-  %562 = and i32 %561, %.0266423
+  %562 = and i32 %561, %.0266424
   %.not329 = icmp eq i32 %562, 0
   br i1 %.not329, label %563, label %.loopexit
 
 563:                                              ; preds = %560
-  %564 = or i32 %561, %.0266423
+  %564 = or i32 %561, %.0266424
   br label %565
 
 565:                                              ; preds = %DecodeSpecial.exit, %563
-  %.2278 = phi i1 [ %.0276416, %DecodeSpecial.exit ], [ %.1277, %563 ]
-  %.2275 = phi i1 [ %.0273417, %DecodeSpecial.exit ], [ %.1274, %563 ]
-  %.2272 = phi i32 [ %.0270418, %DecodeSpecial.exit ], [ %.1271, %563 ]
-  %.3 = phi i32 [ %.0267422, %DecodeSpecial.exit ], [ %.2, %563 ]
-  %.1 = phi i32 [ %.0266423, %DecodeSpecial.exit ], [ %564, %563 ]
+  %.2278 = phi i1 [ %.0276417, %DecodeSpecial.exit ], [ %.1277, %563 ]
+  %.2275 = phi i1 [ %.0273418, %DecodeSpecial.exit ], [ %.1274, %563 ]
+  %.2272 = phi i32 [ %.0270419, %DecodeSpecial.exit ], [ %.1271, %563 ]
+  %.3 = phi i32 [ %.0267423, %DecodeSpecial.exit ], [ %.2, %563 ]
+  %.1 = phi i32 [ %.0266424, %DecodeSpecial.exit ], [ %564, %563 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %31, !llvm.loop !24
@@ -2805,8 +2805,8 @@ GetCurrentDateTime.exit367:                       ; preds = %468, %469
   br label %584
 
 ._crit_edge.thread:                               ; preds = %7, %._crit_edge
-  %.0266.lcssa446 = phi i32 [ %.1, %._crit_edge ], [ 0, %7 ]
-  %.0270.lcssa444 = phi i32 [ %.2272, %._crit_edge ], [ 2, %7 ]
+  %.0266.lcssa447 = phi i32 [ %.1, %._crit_edge ], [ 0, %7 ]
+  %.0270.lcssa445 = phi i32 [ %.2272, %._crit_edge ], [ 2, %7 ]
   %572 = load i8, ptr %14, align 1
   %573 = trunc i8 %572 to i1
   br i1 %573, label %574, label %584
@@ -2832,9 +2832,9 @@ GetCurrentDateTime.exit367:                       ; preds = %468, %469
   br label %584
 
 584:                                              ; preds = %._crit_edge.thread, %580, %582, %578, %570
-  %.0266.lcssa445 = phi i32 [ %.0266.lcssa446, %._crit_edge.thread ], [ %.0266.lcssa446, %580 ], [ %.0266.lcssa446, %582 ], [ %.0266.lcssa446, %578 ], [ %.1, %570 ]
-  %.0270.lcssa443 = phi i32 [ %.0270.lcssa444, %._crit_edge.thread ], [ %.0270.lcssa444, %580 ], [ %.0270.lcssa444, %582 ], [ %.0270.lcssa444, %578 ], [ %.2272, %570 ]
-  %cond = icmp eq i32 %.0270.lcssa443, 2
+  %.0266.lcssa446 = phi i32 [ %.0266.lcssa447, %._crit_edge.thread ], [ %.0266.lcssa447, %580 ], [ %.0266.lcssa447, %582 ], [ %.0266.lcssa447, %578 ], [ %.1, %570 ]
+  %.0270.lcssa444 = phi i32 [ %.0270.lcssa445, %._crit_edge.thread ], [ %.0270.lcssa445, %580 ], [ %.0270.lcssa445, %582 ], [ %.0270.lcssa445, %578 ], [ %.2272, %570 ]
+  %cond = icmp eq i32 %.0270.lcssa444, 2
   br i1 %cond, label %594, label %585
 
 585:                                              ; preds = %584
@@ -2843,7 +2843,7 @@ GetCurrentDateTime.exit367:                       ; preds = %468, %469
   br i1 %587, label %.loopexit, label %588
 
 588:                                              ; preds = %585
-  switch i32 %.0270.lcssa443, label %594 [
+  switch i32 %.0270.lcssa444, label %594 [
     i32 0, label %589
     i32 1, label %591
   ]
@@ -2868,15 +2868,15 @@ GetCurrentDateTime.exit367:                       ; preds = %468, %469
 594:                                              ; preds = %.sink.split, %589, %584, %588, %591
   %595 = load i32, ptr %3, align 4
   %596 = icmp eq i32 %595, 2
-  br i1 %596, label %597, label %.loopexit
+  br i1 %596, label %597, label %628
 
 597:                                              ; preds = %594
-  %598 = and i32 %.0266.lcssa445, 14
+  %598 = and i32 %.0266.lcssa446, 14
   %.not296 = icmp eq i32 %598, 14
   br i1 %.not296, label %603, label %599
 
 599:                                              ; preds = %597
-  %600 = and i32 %.0266.lcssa445, 7168
+  %600 = and i32 %.0266.lcssa446, 7168
   %601 = icmp eq i32 %600, 7168
   %602 = select i1 %601, i32 1, i32 -1
   br label %.loopexit
@@ -2914,16 +2914,16 @@ GetCurrentDateTime.exit367:                       ; preds = %468, %469
   %624 = getelementptr [2 x [13 x i32]], ptr @day_tab, i64 0, i64 %619, i64 %623
   %625 = load i32, ptr %624, align 4
   %626 = icmp sgt i32 %605, %625
-  br i1 %626, label %.loopexit, label %627
+  %627 = and i32 %.0266.lcssa446, 268435488
+  %or.cond336.not = icmp eq i32 %627, 268435456
+  %or.cond398 = select i1 %626, i1 true, i1 %or.cond336.not
+  br i1 %or.cond398, label %.loopexit, label %628
 
-627:                                              ; preds = %618
-  %628 = and i32 %.0266.lcssa445, 268435488
-  %or.cond336.not = icmp eq i32 %628, 268435456
-  %spec.select = sext i1 %or.cond336.not to i32
+628:                                              ; preds = %618, %594
   br label %.loopexit
 
-.loopexit:                                        ; preds = %88, %560, %31, %342, %558, %556, %307, %304, %299, %291, %205, %277, %258, %224, %217, %204, %200, %169, %158, %163, %166, %154, %150, %96, %94, %91, %42, %36, %.thread, %DecodePosixTimezone.exit.thread, %627, %594, %603, %618, %585, %566, %599
-  %.0 = phi i32 [ %602, %599 ], [ -1, %566 ], [ -1, %585 ], [ -1, %618 ], [ -1, %603 ], [ 0, %594 ], [ %spec.select, %627 ], [ -1, %DecodePosixTimezone.exit.thread ], [ -1, %.thread ], [ -1, %88 ], [ -1, %560 ], [ -1, %31 ], [ -1, %342 ], [ -1, %558 ], [ -1, %556 ], [ -1, %307 ], [ -1, %304 ], [ -1, %299 ], [ -1, %291 ], [ -1, %205 ], [ -1, %277 ], [ -1, %258 ], [ -1, %224 ], [ -1, %217 ], [ -1, %200 ], [ 1, %204 ], [ -1, %169 ], [ -1, %158 ], [ -1, %163 ], [ -1, %166 ], [ -1, %154 ], [ -1, %150 ], [ -1, %96 ], [ -1, %94 ], [ -1, %91 ], [ -1, %42 ], [ -1, %36 ]
+.loopexit:                                        ; preds = %88, %560, %31, %342, %558, %556, %307, %304, %299, %291, %205, %277, %258, %224, %217, %204, %200, %169, %158, %163, %166, %154, %150, %96, %94, %91, %42, %36, %.thread, %DecodePosixTimezone.exit.thread, %603, %618, %585, %566, %628, %599
+  %.0 = phi i32 [ %602, %599 ], [ 0, %628 ], [ -1, %566 ], [ -1, %585 ], [ -1, %618 ], [ -1, %603 ], [ -1, %DecodePosixTimezone.exit.thread ], [ -1, %.thread ], [ -1, %88 ], [ -1, %560 ], [ -1, %31 ], [ -1, %342 ], [ -1, %558 ], [ -1, %556 ], [ -1, %307 ], [ -1, %304 ], [ -1, %299 ], [ -1, %291 ], [ -1, %205 ], [ -1, %277 ], [ -1, %258 ], [ -1, %224 ], [ -1, %217 ], [ -1, %200 ], [ 1, %204 ], [ -1, %169 ], [ -1, %158 ], [ -1, %163 ], [ -1, %166 ], [ -1, %154 ], [ -1, %150 ], [ -1, %96 ], [ -1, %94 ], [ -1, %91 ], [ -1, %42 ], [ -1, %36 ]
   ret i32 %.0
 }
 
@@ -4529,12 +4529,12 @@ define internal fastcc i32 @pgtypes_defmt_scan(ptr nocapture noundef writeonly %
 .lr.ph.i.preheader:                               ; preds = %11
   %13 = getelementptr i8, ptr %3, i64 1
   %14 = load i8, ptr %13, align 1
-  %.not45.i43 = icmp eq i8 %14, 0
-  br i1 %.not45.i43, label %.critedge.i, label %.lr.ph
+  %.not45.i42 = icmp eq i8 %14, 0
+  br i1 %.not45.i42, label %.critedge.i, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.03751.i44 = phi i32 [ %15, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %15 = add i32 %.03751.i44, 2
+  %.03751.i43 = phi i32 [ %15, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
+  %15 = add i32 %.03751.i43, 2
   %16 = sext i32 %15 to i64
   %17 = getelementptr i8, ptr %3, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -4600,45 +4600,45 @@ define internal fastcc i32 @pgtypes_defmt_scan(ptr nocapture noundef writeonly %
   %46 = getelementptr i8, ptr %24, i64 1
   %47 = icmp eq ptr %46, %.1.i
   %or.cond.i = and i1 %47, %45
-  br i1 %or.cond.i, label %find_end_token.exit, label %find_end_token.exit.thread39
+  br i1 %or.cond.i, label %find_end_token.exit, label %find_end_token.exit.thread38
 
 find_end_token.exit:                              ; preds = %43
   %48 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.140.i) #17
   %49 = getelementptr i8, ptr %.140.i, i64 %48
   %.not = icmp eq ptr %49, null
-  br i1 %.not, label %find_end_token.exit.thread39, label %find_end_token.exit.thread
+  br i1 %.not, label %find_end_token.exit.thread38, label %find_end_token.exit.thread
 
 find_end_token.exit.thread:                       ; preds = %42, %11, %find_end_token.exit
-  %.0.i38 = phi ptr [ %49, %find_end_token.exit ], [ %.041.i, %42 ], [ %3, %11 ]
-  %50 = load i8, ptr %.0.i38, align 1
-  store i8 0, ptr %.0.i38, align 1
+  %.0.i37 = phi ptr [ %49, %find_end_token.exit ], [ %.041.i, %42 ], [ %3, %11 ]
+  %50 = load i8, ptr %.0.i37, align 1
+  store i8 0, ptr %.0.i37, align 1
   switch i32 %1, label %76 [
     i32 6, label %.preheader
-    i32 11, label %.preheader42
+    i32 11, label %.preheader41
     i32 1, label %72
   ]
 
-.preheader42:                                     ; preds = %find_end_token.exit.thread
+.preheader41:                                     ; preds = %find_end_token.exit.thread
   %.026.lcssa.promoted = load ptr, ptr %.026, align 8
   %51 = load i8, ptr %.026.lcssa.promoted, align 1
   %52 = icmp eq i8 %51, 32
-  br i1 %52, label %.lr.ph46, label %._crit_edge
+  br i1 %52, label %.lr.ph45, label %._crit_edge
 
 .preheader:                                       ; preds = %find_end_token.exit.thread
-  %.026.lcssa.promoted47 = load ptr, ptr %.026, align 8
-  %53 = load i8, ptr %.026.lcssa.promoted47, align 1
+  %.026.lcssa.promoted46 = load ptr, ptr %.026, align 8
+  %53 = load i8, ptr %.026.lcssa.promoted46, align 1
   %54 = icmp eq i8 %53, 32
-  br i1 %54, label %.lr.ph48, label %._crit_edge49
+  br i1 %54, label %.lr.ph47, label %._crit_edge48
 
-.lr.ph48:                                         ; preds = %.preheader, %.lr.ph48
-  %55 = phi ptr [ %56, %.lr.ph48 ], [ %.026.lcssa.promoted47, %.preheader ]
+.lr.ph47:                                         ; preds = %.preheader, %.lr.ph47
+  %55 = phi ptr [ %56, %.lr.ph47 ], [ %.026.lcssa.promoted46, %.preheader ]
   %56 = getelementptr i8, ptr %55, i64 1
   store ptr %56, ptr %.026, align 8
   %57 = load i8, ptr %56, align 1
   %58 = icmp eq i8 %57, 32
-  br i1 %58, label %.lr.ph48, label %._crit_edge49, !llvm.loop !45
+  br i1 %58, label %.lr.ph47, label %._crit_edge48, !llvm.loop !45
 
-._crit_edge49:                                    ; preds = %.lr.ph48, %.preheader
+._crit_edge48:                                    ; preds = %.lr.ph47, %.preheader
   %59 = tail call ptr @__errno_location() #19
   store i32 0, ptr %59, align 4
   %60 = load ptr, ptr %.026, align 8
@@ -4649,15 +4649,15 @@ find_end_token.exit.thread:                       ; preds = %42, %11, %find_end_
   %.not30 = icmp ne i32 %63, 0
   br label %76
 
-.lr.ph46:                                         ; preds = %.preheader42, %.lr.ph46
-  %64 = phi ptr [ %65, %.lr.ph46 ], [ %.026.lcssa.promoted, %.preheader42 ]
+.lr.ph45:                                         ; preds = %.preheader41, %.lr.ph45
+  %64 = phi ptr [ %65, %.lr.ph45 ], [ %.026.lcssa.promoted, %.preheader41 ]
   %65 = getelementptr i8, ptr %64, i64 1
   store ptr %65, ptr %.026, align 8
   %66 = load i8, ptr %65, align 1
   %67 = icmp eq i8 %66, 32
-  br i1 %67, label %.lr.ph46, label %._crit_edge, !llvm.loop !46
+  br i1 %67, label %.lr.ph45, label %._crit_edge, !llvm.loop !46
 
-._crit_edge:                                      ; preds = %.lr.ph46, %.preheader42
+._crit_edge:                                      ; preds = %.lr.ph45, %.preheader41
   %68 = tail call ptr @__errno_location() #19
   store i32 0, ptr %68, align 4
   %69 = load ptr, ptr %.026, align 8
@@ -4674,8 +4674,8 @@ find_end_token.exit.thread:                       ; preds = %42, %11, %find_end_
   %75 = icmp eq ptr %74, null
   br label %76
 
-76:                                               ; preds = %72, %._crit_edge, %._crit_edge49, %find_end_token.exit.thread
-  %.025.shrunk = phi i1 [ false, %find_end_token.exit.thread ], [ %.not30, %._crit_edge49 ], [ %.not29, %._crit_edge ], [ %75, %72 ]
+76:                                               ; preds = %72, %._crit_edge, %._crit_edge48, %find_end_token.exit.thread
+  %.025.shrunk = phi i1 [ false, %find_end_token.exit.thread ], [ %.not30, %._crit_edge48 ], [ %.not29, %._crit_edge ], [ %75, %72 ]
   %.025 = zext i1 %.025.shrunk to i32
   %77 = load ptr, ptr %5, align 8
   %.not31 = icmp eq ptr %77, null
@@ -4684,17 +4684,19 @@ find_end_token.exit.thread:                       ; preds = %42, %11, %find_end_
 78:                                               ; preds = %76
   %79 = load i8, ptr %77, align 1
   %.not32 = icmp eq i8 %79, 0
-  %spec.select35 = select i1 %.not32, ptr %.0.i38, ptr %77
-  br label %80
+  br i1 %.not32, label %80, label %81
 
 80:                                               ; preds = %78, %76
-  %storemerge = phi ptr [ %.0.i38, %76 ], [ %spec.select35, %78 ]
-  store ptr %storemerge, ptr %.026, align 8
-  store i8 %50, ptr %.0.i38, align 1
-  br label %find_end_token.exit.thread39
+  br label %81
 
-find_end_token.exit.thread39:                     ; preds = %43, %find_end_token.exit, %80
-  %.0 = phi i32 [ %.025, %80 ], [ 1, %find_end_token.exit ], [ 1, %43 ]
+81:                                               ; preds = %78, %80
+  %storemerge = phi ptr [ %.0.i37, %80 ], [ %77, %78 ]
+  store ptr %storemerge, ptr %.026, align 8
+  store i8 %50, ptr %.0.i37, align 1
+  br label %find_end_token.exit.thread38
+
+find_end_token.exit.thread38:                     ; preds = %43, %find_end_token.exit, %81
+  %.0 = phi i32 [ %.025, %81 ], [ 1, %find_end_token.exit ], [ 1, %43 ]
   ret i32 %.0
 }
 

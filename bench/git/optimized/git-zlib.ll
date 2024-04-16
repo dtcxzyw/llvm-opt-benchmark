@@ -435,14 +435,14 @@ land.lhs.true:                                    ; preds = %zlib_post_call.exit
   br i1 %tobool8.not, label %land.lhs.true9, label %for.end
 
 land.lhs.true9:                                   ; preds = %land.lhs.true
-  switch i32 %call, label %zerr_to_string.exit [
+  switch i32 %call, label %sw.default.i [
     i32 -5, label %for.cond.backedge
     i32 0, label %for.cond.backedge
     i32 1, label %return
-    i32 -2, label %zerr_to_string.exit.loopexit88
-    i32 -6, label %zerr_to_string.exit.loopexit38
-    i32 2, label %zerr_to_string.exit.loopexit60
-    i32 -3, label %zerr_to_string.exit.loopexit
+    i32 -2, label %sw.bb4.i
+    i32 -6, label %zerr_to_string.exit.loopexit89
+    i32 2, label %zerr_to_string.exit
+    i32 -3, label %sw.bb3.i
   ]
 
 for.cond.backedge:                                ; preds = %land.lhs.true9, %land.lhs.true9
@@ -462,29 +462,20 @@ for.end:                                          ; preds = %zlib_post_call.exit
 sw.bb2.i:                                         ; preds = %for.end
   br label %zerr_to_string.exit
 
-sw.bb3.i:                                         ; preds = %for.end
+sw.bb3.i:                                         ; preds = %land.lhs.true9, %for.end
   br label %zerr_to_string.exit
 
-sw.bb4.i:                                         ; preds = %for.end
+sw.bb4.i:                                         ; preds = %land.lhs.true9, %for.end
   br label %zerr_to_string.exit
 
-sw.default.i:                                     ; preds = %for.end
+sw.default.i:                                     ; preds = %land.lhs.true9, %for.end
   br label %zerr_to_string.exit
 
-zerr_to_string.exit.loopexit38:                   ; preds = %land.lhs.true9
+zerr_to_string.exit.loopexit89:                   ; preds = %land.lhs.true9
   br label %zerr_to_string.exit
 
-zerr_to_string.exit.loopexit60:                   ; preds = %land.lhs.true9
-  br label %zerr_to_string.exit
-
-zerr_to_string.exit.loopexit:                     ; preds = %land.lhs.true9
-  br label %zerr_to_string.exit
-
-zerr_to_string.exit.loopexit88:                   ; preds = %land.lhs.true9
-  br label %zerr_to_string.exit
-
-zerr_to_string.exit:                              ; preds = %land.lhs.true9, %zerr_to_string.exit.loopexit88, %zerr_to_string.exit.loopexit, %for.end, %zerr_to_string.exit.loopexit60, %zerr_to_string.exit.loopexit38, %sw.bb2.i, %sw.bb3.i, %sw.bb4.i, %sw.default.i
-  %retval.0.i = phi ptr [ @.str.15, %zerr_to_string.exit.loopexit38 ], [ @.str.16, %sw.bb2.i ], [ @.str.16, %zerr_to_string.exit.loopexit60 ], [ @.str.15, %for.end ], [ @.str.17, %sw.bb3.i ], [ @.str.17, %zerr_to_string.exit.loopexit ], [ @.str.18, %sw.bb4.i ], [ @.str.18, %zerr_to_string.exit.loopexit88 ], [ @.str.19, %land.lhs.true9 ], [ @.str.19, %sw.default.i ]
+zerr_to_string.exit:                              ; preds = %land.lhs.true9, %zerr_to_string.exit.loopexit89, %for.end, %sw.bb2.i, %sw.bb3.i, %sw.bb4.i, %sw.default.i
+  %retval.0.i = phi ptr [ @.str.19, %sw.default.i ], [ @.str.18, %sw.bb4.i ], [ @.str.17, %sw.bb3.i ], [ @.str.15, %for.end ], [ @.str.16, %sw.bb2.i ], [ @.str.15, %zerr_to_string.exit.loopexit89 ], [ @.str.16, %land.lhs.true9 ]
   %msg = getelementptr inbounds i8, ptr %strm, i64 48
   %17 = load ptr, ptr %msg, align 8
   %tobool18.not = icmp eq ptr %17, null
@@ -952,14 +943,14 @@ land.lhs.true:                                    ; preds = %zlib_post_call.exit
   br i1 %tobool8.not, label %land.lhs.true9, label %for.end
 
 land.lhs.true9:                                   ; preds = %land.lhs.true
-  switch i32 %call, label %zerr_to_string.exit [
+  switch i32 %call, label %sw.default.i [
     i32 -5, label %for.cond.backedge
     i32 0, label %for.cond.backedge
     i32 1, label %return
-    i32 -2, label %zerr_to_string.exit.loopexit88
-    i32 -6, label %zerr_to_string.exit.loopexit38
-    i32 2, label %zerr_to_string.exit.loopexit60
-    i32 -3, label %zerr_to_string.exit.loopexit
+    i32 -2, label %sw.bb4.i
+    i32 -6, label %zerr_to_string.exit.loopexit89
+    i32 2, label %zerr_to_string.exit
+    i32 -3, label %sw.bb3.i
   ]
 
 for.cond.backedge:                                ; preds = %land.lhs.true9, %land.lhs.true9
@@ -979,29 +970,20 @@ for.end:                                          ; preds = %zlib_post_call.exit
 sw.bb2.i:                                         ; preds = %for.end
   br label %zerr_to_string.exit
 
-sw.bb3.i:                                         ; preds = %for.end
+sw.bb3.i:                                         ; preds = %land.lhs.true9, %for.end
   br label %zerr_to_string.exit
 
-sw.bb4.i:                                         ; preds = %for.end
+sw.bb4.i:                                         ; preds = %land.lhs.true9, %for.end
   br label %zerr_to_string.exit
 
-sw.default.i:                                     ; preds = %for.end
+sw.default.i:                                     ; preds = %land.lhs.true9, %for.end
   br label %zerr_to_string.exit
 
-zerr_to_string.exit.loopexit38:                   ; preds = %land.lhs.true9
+zerr_to_string.exit.loopexit89:                   ; preds = %land.lhs.true9
   br label %zerr_to_string.exit
 
-zerr_to_string.exit.loopexit60:                   ; preds = %land.lhs.true9
-  br label %zerr_to_string.exit
-
-zerr_to_string.exit.loopexit:                     ; preds = %land.lhs.true9
-  br label %zerr_to_string.exit
-
-zerr_to_string.exit.loopexit88:                   ; preds = %land.lhs.true9
-  br label %zerr_to_string.exit
-
-zerr_to_string.exit:                              ; preds = %land.lhs.true9, %zerr_to_string.exit.loopexit88, %zerr_to_string.exit.loopexit, %for.end, %zerr_to_string.exit.loopexit60, %zerr_to_string.exit.loopexit38, %sw.bb2.i, %sw.bb3.i, %sw.bb4.i, %sw.default.i
-  %retval.0.i = phi ptr [ @.str.15, %zerr_to_string.exit.loopexit38 ], [ @.str.16, %sw.bb2.i ], [ @.str.16, %zerr_to_string.exit.loopexit60 ], [ @.str.15, %for.end ], [ @.str.17, %sw.bb3.i ], [ @.str.17, %zerr_to_string.exit.loopexit ], [ @.str.18, %sw.bb4.i ], [ @.str.18, %zerr_to_string.exit.loopexit88 ], [ @.str.19, %land.lhs.true9 ], [ @.str.19, %sw.default.i ]
+zerr_to_string.exit:                              ; preds = %land.lhs.true9, %zerr_to_string.exit.loopexit89, %for.end, %sw.bb2.i, %sw.bb3.i, %sw.bb4.i, %sw.default.i
+  %retval.0.i = phi ptr [ @.str.19, %sw.default.i ], [ @.str.18, %sw.bb4.i ], [ @.str.17, %sw.bb3.i ], [ @.str.15, %for.end ], [ @.str.16, %sw.bb2.i ], [ @.str.15, %zerr_to_string.exit.loopexit89 ], [ @.str.16, %land.lhs.true9 ]
   %msg = getelementptr inbounds i8, ptr %strm, i64 48
   %17 = load ptr, ptr %msg, align 8
   %tobool18.not = icmp eq ptr %17, null

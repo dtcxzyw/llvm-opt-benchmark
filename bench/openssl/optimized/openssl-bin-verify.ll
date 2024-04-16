@@ -579,9 +579,9 @@ if.end:                                           ; preds = %if.then2, %if.then
 
 sw.bb:                                            ; preds = %if.end
   tail call void @policies_print(ptr noundef %ctx) #2
-  br label %return
+  br label %sw.bb12
 
-sw.bb12:                                          ; preds = %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end
+sw.bb12:                                          ; preds = %sw.bb, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end
   br label %return
 
 if.end13:                                         ; preds = %entry
@@ -602,8 +602,8 @@ if.then21:                                        ; preds = %if.end19
   tail call void @ERR_clear_error() #2
   br label %return
 
-return:                                           ; preds = %if.end19, %if.then21, %if.end, %sw.bb12, %sw.bb
-  %retval.0 = phi i32 [ 0, %if.end ], [ 1, %sw.bb ], [ 1, %sw.bb12 ], [ %ok, %if.then21 ], [ %ok, %if.end19 ]
+return:                                           ; preds = %if.end19, %if.then21, %if.end, %sw.bb12
+  %retval.0 = phi i32 [ 0, %if.end ], [ 1, %sw.bb12 ], [ %ok, %if.then21 ], [ %ok, %if.end19 ]
   ret i32 %retval.0
 }
 

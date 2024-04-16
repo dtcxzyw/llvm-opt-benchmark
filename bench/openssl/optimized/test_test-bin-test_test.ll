@@ -592,15 +592,15 @@ test_case.exit60.thread:                          ; preds = %lor.lhs.false45
 lor.lhs.false49:                                  ; preds = %lor.lhs.false45
   %call50 = tail call i32 @test_int_ge(ptr noundef nonnull @.str.24, i32 noundef 48, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.41, i32 noundef 5, i32 noundef 8) #4
   %cmp.not.i61 = icmp eq i32 %call50, 0
-  br i1 %cmp.not.i61, label %return, label %13
+  br i1 %cmp.not.i61, label %return, label %test_case.exit65.thread
 
-13:                                               ; preds = %lor.lhs.false49
-  %14 = load ptr, ptr @stderr, align 8
-  %call.i63 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.46, i32 noundef 0) #5
+test_case.exit65.thread:                          ; preds = %lor.lhs.false49
+  %13 = load ptr, ptr @stderr, align 8
+  %call.i63 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.46, i32 noundef 0) #5
   br label %return
 
-return:                                           ; preds = %13, %lor.lhs.false49, %test_case.exit60.thread, %test_case.exit55.thread, %test_case.exit50.thread, %test_case.exit45.thread, %test_case.exit40.thread, %test_case.exit35.thread, %test_case.exit30.thread, %test_case.exit25.thread, %test_case.exit20.thread, %test_case.exit15.thread, %test_case.exit10.thread, %test_case.exit5.thread, %test_case.exit.thread
-  %retval.0 = phi i32 [ 0, %test_case.exit.thread ], [ 0, %test_case.exit5.thread ], [ 0, %test_case.exit10.thread ], [ 0, %test_case.exit15.thread ], [ 0, %test_case.exit20.thread ], [ 0, %test_case.exit25.thread ], [ 0, %test_case.exit30.thread ], [ 0, %test_case.exit35.thread ], [ 0, %test_case.exit40.thread ], [ 0, %test_case.exit45.thread ], [ 0, %test_case.exit50.thread ], [ 0, %test_case.exit55.thread ], [ 0, %test_case.exit60.thread ], [ 0, %13 ], [ 1, %lor.lhs.false49 ]
+return:                                           ; preds = %test_case.exit.thread, %test_case.exit5.thread, %test_case.exit10.thread, %test_case.exit15.thread, %test_case.exit20.thread, %test_case.exit25.thread, %test_case.exit30.thread, %test_case.exit35.thread, %test_case.exit40.thread, %test_case.exit45.thread, %test_case.exit50.thread, %test_case.exit55.thread, %test_case.exit60.thread, %test_case.exit65.thread, %lor.lhs.false49
+  %retval.0 = phi i32 [ 1, %lor.lhs.false49 ], [ 0, %test_case.exit65.thread ], [ 0, %test_case.exit60.thread ], [ 0, %test_case.exit55.thread ], [ 0, %test_case.exit50.thread ], [ 0, %test_case.exit45.thread ], [ 0, %test_case.exit40.thread ], [ 0, %test_case.exit35.thread ], [ 0, %test_case.exit30.thread ], [ 0, %test_case.exit25.thread ], [ 0, %test_case.exit20.thread ], [ 0, %test_case.exit15.thread ], [ 0, %test_case.exit10.thread ], [ 0, %test_case.exit5.thread ], [ 0, %test_case.exit.thread ]
   ret i32 %retval.0
 }
 
@@ -739,15 +739,15 @@ test_case.exit60.thread:                          ; preds = %lor.lhs.false45
 lor.lhs.false49:                                  ; preds = %lor.lhs.false45
   %call50 = tail call i32 @test_uint_ge(ptr noundef nonnull @.str.24, i32 noundef 71, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.65, i32 noundef 1, i32 noundef 11) #4
   %cmp.not.i61 = icmp eq i32 %call50, 0
-  br i1 %cmp.not.i61, label %return, label %13
+  br i1 %cmp.not.i61, label %return, label %test_case.exit65.thread
 
-13:                                               ; preds = %lor.lhs.false49
-  %14 = load ptr, ptr @stderr, align 8
-  %call.i63 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.70, i32 noundef 0) #5
+test_case.exit65.thread:                          ; preds = %lor.lhs.false49
+  %13 = load ptr, ptr @stderr, align 8
+  %call.i63 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.70, i32 noundef 0) #5
   br label %return
 
-return:                                           ; preds = %13, %lor.lhs.false49, %test_case.exit60.thread, %test_case.exit55.thread, %test_case.exit50.thread, %test_case.exit45.thread, %test_case.exit40.thread, %test_case.exit35.thread, %test_case.exit30.thread, %test_case.exit25.thread, %test_case.exit20.thread, %test_case.exit15.thread, %test_case.exit10.thread, %test_case.exit5.thread, %test_case.exit.thread
-  %retval.0 = phi i32 [ 0, %test_case.exit.thread ], [ 0, %test_case.exit5.thread ], [ 0, %test_case.exit10.thread ], [ 0, %test_case.exit15.thread ], [ 0, %test_case.exit20.thread ], [ 0, %test_case.exit25.thread ], [ 0, %test_case.exit30.thread ], [ 0, %test_case.exit35.thread ], [ 0, %test_case.exit40.thread ], [ 0, %test_case.exit45.thread ], [ 0, %test_case.exit50.thread ], [ 0, %test_case.exit55.thread ], [ 0, %test_case.exit60.thread ], [ 0, %13 ], [ 1, %lor.lhs.false49 ]
+return:                                           ; preds = %test_case.exit.thread, %test_case.exit5.thread, %test_case.exit10.thread, %test_case.exit15.thread, %test_case.exit20.thread, %test_case.exit25.thread, %test_case.exit30.thread, %test_case.exit35.thread, %test_case.exit40.thread, %test_case.exit45.thread, %test_case.exit50.thread, %test_case.exit55.thread, %test_case.exit60.thread, %test_case.exit65.thread, %lor.lhs.false49
+  %retval.0 = phi i32 [ 1, %lor.lhs.false49 ], [ 0, %test_case.exit65.thread ], [ 0, %test_case.exit60.thread ], [ 0, %test_case.exit55.thread ], [ 0, %test_case.exit50.thread ], [ 0, %test_case.exit45.thread ], [ 0, %test_case.exit40.thread ], [ 0, %test_case.exit35.thread ], [ 0, %test_case.exit30.thread ], [ 0, %test_case.exit25.thread ], [ 0, %test_case.exit20.thread ], [ 0, %test_case.exit15.thread ], [ 0, %test_case.exit10.thread ], [ 0, %test_case.exit5.thread ], [ 0, %test_case.exit.thread ]
   ret i32 %retval.0
 }
 
@@ -886,15 +886,15 @@ test_case.exit60.thread:                          ; preds = %lor.lhs.false45
 lor.lhs.false49:                                  ; preds = %lor.lhs.false45
   %call50 = tail call i32 @test_char_ge(ptr noundef nonnull @.str.24, i32 noundef 94, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.88, i8 noundef signext 110, i8 noundef signext 119) #4
   %cmp.not.i61 = icmp eq i32 %call50, 0
-  br i1 %cmp.not.i61, label %return, label %13
+  br i1 %cmp.not.i61, label %return, label %test_case.exit65.thread
 
-13:                                               ; preds = %lor.lhs.false49
-  %14 = load ptr, ptr @stderr, align 8
-  %call.i63 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.93, i32 noundef 0) #5
+test_case.exit65.thread:                          ; preds = %lor.lhs.false49
+  %13 = load ptr, ptr @stderr, align 8
+  %call.i63 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.93, i32 noundef 0) #5
   br label %return
 
-return:                                           ; preds = %13, %lor.lhs.false49, %test_case.exit60.thread, %test_case.exit55.thread, %test_case.exit50.thread, %test_case.exit45.thread, %test_case.exit40.thread, %test_case.exit35.thread, %test_case.exit30.thread, %test_case.exit25.thread, %test_case.exit20.thread, %test_case.exit15.thread, %test_case.exit10.thread, %test_case.exit5.thread, %test_case.exit.thread
-  %retval.0 = phi i32 [ 0, %test_case.exit.thread ], [ 0, %test_case.exit5.thread ], [ 0, %test_case.exit10.thread ], [ 0, %test_case.exit15.thread ], [ 0, %test_case.exit20.thread ], [ 0, %test_case.exit25.thread ], [ 0, %test_case.exit30.thread ], [ 0, %test_case.exit35.thread ], [ 0, %test_case.exit40.thread ], [ 0, %test_case.exit45.thread ], [ 0, %test_case.exit50.thread ], [ 0, %test_case.exit55.thread ], [ 0, %test_case.exit60.thread ], [ 0, %13 ], [ 1, %lor.lhs.false49 ]
+return:                                           ; preds = %test_case.exit.thread, %test_case.exit5.thread, %test_case.exit10.thread, %test_case.exit15.thread, %test_case.exit20.thread, %test_case.exit25.thread, %test_case.exit30.thread, %test_case.exit35.thread, %test_case.exit40.thread, %test_case.exit45.thread, %test_case.exit50.thread, %test_case.exit55.thread, %test_case.exit60.thread, %test_case.exit65.thread, %lor.lhs.false49
+  %retval.0 = phi i32 [ 1, %lor.lhs.false49 ], [ 0, %test_case.exit65.thread ], [ 0, %test_case.exit60.thread ], [ 0, %test_case.exit55.thread ], [ 0, %test_case.exit50.thread ], [ 0, %test_case.exit45.thread ], [ 0, %test_case.exit40.thread ], [ 0, %test_case.exit35.thread ], [ 0, %test_case.exit30.thread ], [ 0, %test_case.exit25.thread ], [ 0, %test_case.exit20.thread ], [ 0, %test_case.exit15.thread ], [ 0, %test_case.exit10.thread ], [ 0, %test_case.exit5.thread ], [ 0, %test_case.exit.thread ]
   ret i32 %retval.0
 }
 
@@ -1033,15 +1033,15 @@ test_case.exit60.thread:                          ; preds = %lor.lhs.false45
 lor.lhs.false49:                                  ; preds = %lor.lhs.false45
   %call50 = tail call i32 @test_uchar_ge(ptr noundef nonnull @.str.24, i32 noundef 117, ptr noundef nonnull @.str.111, ptr noundef nonnull @.str.110, i8 noundef zeroext 37, i8 noundef zeroext 88) #4
   %cmp.not.i61 = icmp eq i32 %call50, 0
-  br i1 %cmp.not.i61, label %return, label %13
+  br i1 %cmp.not.i61, label %return, label %test_case.exit65.thread
 
-13:                                               ; preds = %lor.lhs.false49
-  %14 = load ptr, ptr @stderr, align 8
-  %call.i63 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.115, i32 noundef 0) #5
+test_case.exit65.thread:                          ; preds = %lor.lhs.false49
+  %13 = load ptr, ptr @stderr, align 8
+  %call.i63 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.115, i32 noundef 0) #5
   br label %return
 
-return:                                           ; preds = %13, %lor.lhs.false49, %test_case.exit60.thread, %test_case.exit55.thread, %test_case.exit50.thread, %test_case.exit45.thread, %test_case.exit40.thread, %test_case.exit35.thread, %test_case.exit30.thread, %test_case.exit25.thread, %test_case.exit20.thread, %test_case.exit15.thread, %test_case.exit10.thread, %test_case.exit5.thread, %test_case.exit.thread
-  %retval.0 = phi i32 [ 0, %test_case.exit.thread ], [ 0, %test_case.exit5.thread ], [ 0, %test_case.exit10.thread ], [ 0, %test_case.exit15.thread ], [ 0, %test_case.exit20.thread ], [ 0, %test_case.exit25.thread ], [ 0, %test_case.exit30.thread ], [ 0, %test_case.exit35.thread ], [ 0, %test_case.exit40.thread ], [ 0, %test_case.exit45.thread ], [ 0, %test_case.exit50.thread ], [ 0, %test_case.exit55.thread ], [ 0, %test_case.exit60.thread ], [ 0, %13 ], [ 1, %lor.lhs.false49 ]
+return:                                           ; preds = %test_case.exit.thread, %test_case.exit5.thread, %test_case.exit10.thread, %test_case.exit15.thread, %test_case.exit20.thread, %test_case.exit25.thread, %test_case.exit30.thread, %test_case.exit35.thread, %test_case.exit40.thread, %test_case.exit45.thread, %test_case.exit50.thread, %test_case.exit55.thread, %test_case.exit60.thread, %test_case.exit65.thread, %lor.lhs.false49
+  %retval.0 = phi i32 [ 1, %lor.lhs.false49 ], [ 0, %test_case.exit65.thread ], [ 0, %test_case.exit60.thread ], [ 0, %test_case.exit55.thread ], [ 0, %test_case.exit50.thread ], [ 0, %test_case.exit45.thread ], [ 0, %test_case.exit40.thread ], [ 0, %test_case.exit35.thread ], [ 0, %test_case.exit30.thread ], [ 0, %test_case.exit25.thread ], [ 0, %test_case.exit20.thread ], [ 0, %test_case.exit15.thread ], [ 0, %test_case.exit10.thread ], [ 0, %test_case.exit5.thread ], [ 0, %test_case.exit.thread ]
   ret i32 %retval.0
 }
 
@@ -1180,15 +1180,15 @@ test_case.exit60.thread:                          ; preds = %lor.lhs.false45
 lor.lhs.false49:                                  ; preds = %lor.lhs.false45
   %call50 = tail call i32 @test_long_ge(ptr noundef nonnull @.str.24, i32 noundef 140, ptr noundef nonnull @.str.130, ptr noundef nonnull @.str.133, i64 noundef 12345, i64 noundef 84325677) #4
   %cmp.not.i61 = icmp eq i32 %call50, 0
-  br i1 %cmp.not.i61, label %return, label %13
+  br i1 %cmp.not.i61, label %return, label %test_case.exit65.thread
 
-13:                                               ; preds = %lor.lhs.false49
-  %14 = load ptr, ptr @stderr, align 8
-  %call.i63 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.138, i32 noundef 0) #5
+test_case.exit65.thread:                          ; preds = %lor.lhs.false49
+  %13 = load ptr, ptr @stderr, align 8
+  %call.i63 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.138, i32 noundef 0) #5
   br label %return
 
-return:                                           ; preds = %13, %lor.lhs.false49, %test_case.exit60.thread, %test_case.exit55.thread, %test_case.exit50.thread, %test_case.exit45.thread, %test_case.exit40.thread, %test_case.exit35.thread, %test_case.exit30.thread, %test_case.exit25.thread, %test_case.exit20.thread, %test_case.exit15.thread, %test_case.exit10.thread, %test_case.exit5.thread, %test_case.exit.thread
-  %retval.0 = phi i32 [ 0, %test_case.exit.thread ], [ 0, %test_case.exit5.thread ], [ 0, %test_case.exit10.thread ], [ 0, %test_case.exit15.thread ], [ 0, %test_case.exit20.thread ], [ 0, %test_case.exit25.thread ], [ 0, %test_case.exit30.thread ], [ 0, %test_case.exit35.thread ], [ 0, %test_case.exit40.thread ], [ 0, %test_case.exit45.thread ], [ 0, %test_case.exit50.thread ], [ 0, %test_case.exit55.thread ], [ 0, %test_case.exit60.thread ], [ 0, %13 ], [ 1, %lor.lhs.false49 ]
+return:                                           ; preds = %test_case.exit.thread, %test_case.exit5.thread, %test_case.exit10.thread, %test_case.exit15.thread, %test_case.exit20.thread, %test_case.exit25.thread, %test_case.exit30.thread, %test_case.exit35.thread, %test_case.exit40.thread, %test_case.exit45.thread, %test_case.exit50.thread, %test_case.exit55.thread, %test_case.exit60.thread, %test_case.exit65.thread, %lor.lhs.false49
+  %retval.0 = phi i32 [ 1, %lor.lhs.false49 ], [ 0, %test_case.exit65.thread ], [ 0, %test_case.exit60.thread ], [ 0, %test_case.exit55.thread ], [ 0, %test_case.exit50.thread ], [ 0, %test_case.exit45.thread ], [ 0, %test_case.exit40.thread ], [ 0, %test_case.exit35.thread ], [ 0, %test_case.exit30.thread ], [ 0, %test_case.exit25.thread ], [ 0, %test_case.exit20.thread ], [ 0, %test_case.exit15.thread ], [ 0, %test_case.exit10.thread ], [ 0, %test_case.exit5.thread ], [ 0, %test_case.exit.thread ]
   ret i32 %retval.0
 }
 
@@ -1327,15 +1327,15 @@ test_case.exit60.thread:                          ; preds = %lor.lhs.false45
 lor.lhs.false49:                                  ; preds = %lor.lhs.false45
   %call50 = tail call i32 @test_ulong_ge(ptr noundef nonnull @.str.24, i32 noundef 163, ptr noundef nonnull @.str.157, ptr noundef nonnull @.str.156, i64 noundef 22, i64 noundef 100000000) #4
   %cmp.not.i61 = icmp eq i32 %call50, 0
-  br i1 %cmp.not.i61, label %return, label %13
+  br i1 %cmp.not.i61, label %return, label %test_case.exit65.thread
 
-13:                                               ; preds = %lor.lhs.false49
-  %14 = load ptr, ptr @stderr, align 8
-  %call.i63 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.161, i32 noundef 0) #5
+test_case.exit65.thread:                          ; preds = %lor.lhs.false49
+  %13 = load ptr, ptr @stderr, align 8
+  %call.i63 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.161, i32 noundef 0) #5
   br label %return
 
-return:                                           ; preds = %13, %lor.lhs.false49, %test_case.exit60.thread, %test_case.exit55.thread, %test_case.exit50.thread, %test_case.exit45.thread, %test_case.exit40.thread, %test_case.exit35.thread, %test_case.exit30.thread, %test_case.exit25.thread, %test_case.exit20.thread, %test_case.exit15.thread, %test_case.exit10.thread, %test_case.exit5.thread, %test_case.exit.thread
-  %retval.0 = phi i32 [ 0, %test_case.exit.thread ], [ 0, %test_case.exit5.thread ], [ 0, %test_case.exit10.thread ], [ 0, %test_case.exit15.thread ], [ 0, %test_case.exit20.thread ], [ 0, %test_case.exit25.thread ], [ 0, %test_case.exit30.thread ], [ 0, %test_case.exit35.thread ], [ 0, %test_case.exit40.thread ], [ 0, %test_case.exit45.thread ], [ 0, %test_case.exit50.thread ], [ 0, %test_case.exit55.thread ], [ 0, %test_case.exit60.thread ], [ 0, %13 ], [ 1, %lor.lhs.false49 ]
+return:                                           ; preds = %test_case.exit.thread, %test_case.exit5.thread, %test_case.exit10.thread, %test_case.exit15.thread, %test_case.exit20.thread, %test_case.exit25.thread, %test_case.exit30.thread, %test_case.exit35.thread, %test_case.exit40.thread, %test_case.exit45.thread, %test_case.exit50.thread, %test_case.exit55.thread, %test_case.exit60.thread, %test_case.exit65.thread, %lor.lhs.false49
+  %retval.0 = phi i32 [ 1, %lor.lhs.false49 ], [ 0, %test_case.exit65.thread ], [ 0, %test_case.exit60.thread ], [ 0, %test_case.exit55.thread ], [ 0, %test_case.exit50.thread ], [ 0, %test_case.exit45.thread ], [ 0, %test_case.exit40.thread ], [ 0, %test_case.exit35.thread ], [ 0, %test_case.exit30.thread ], [ 0, %test_case.exit25.thread ], [ 0, %test_case.exit20.thread ], [ 0, %test_case.exit15.thread ], [ 0, %test_case.exit10.thread ], [ 0, %test_case.exit5.thread ], [ 0, %test_case.exit.thread ]
   ret i32 %retval.0
 }
 
@@ -1474,15 +1474,15 @@ test_case.exit60.thread:                          ; preds = %lor.lhs.false45
 lor.lhs.false49:                                  ; preds = %lor.lhs.false45
   %call50 = tail call i32 @test_size_t_ge(ptr noundef nonnull @.str.24, i32 noundef 186, ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.178, i64 noundef 33, i64 noundef 52) #4
   %cmp.not.i61 = icmp eq i32 %call50, 0
-  br i1 %cmp.not.i61, label %return, label %13
+  br i1 %cmp.not.i61, label %return, label %test_case.exit65.thread
 
-13:                                               ; preds = %lor.lhs.false49
-  %14 = load ptr, ptr @stderr, align 8
-  %call.i63 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.183, i32 noundef 0) #5
+test_case.exit65.thread:                          ; preds = %lor.lhs.false49
+  %13 = load ptr, ptr @stderr, align 8
+  %call.i63 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.183, i32 noundef 0) #5
   br label %return
 
-return:                                           ; preds = %13, %lor.lhs.false49, %test_case.exit60.thread, %test_case.exit55.thread, %test_case.exit50.thread, %test_case.exit45.thread, %test_case.exit40.thread, %test_case.exit35.thread, %test_case.exit30.thread, %test_case.exit25.thread, %test_case.exit20.thread, %test_case.exit15.thread, %test_case.exit10.thread, %test_case.exit5.thread, %test_case.exit.thread
-  %retval.0 = phi i32 [ 0, %test_case.exit.thread ], [ 0, %test_case.exit5.thread ], [ 0, %test_case.exit10.thread ], [ 0, %test_case.exit15.thread ], [ 0, %test_case.exit20.thread ], [ 0, %test_case.exit25.thread ], [ 0, %test_case.exit30.thread ], [ 0, %test_case.exit35.thread ], [ 0, %test_case.exit40.thread ], [ 0, %test_case.exit45.thread ], [ 0, %test_case.exit50.thread ], [ 0, %test_case.exit55.thread ], [ 0, %test_case.exit60.thread ], [ 0, %13 ], [ 1, %lor.lhs.false49 ]
+return:                                           ; preds = %test_case.exit.thread, %test_case.exit5.thread, %test_case.exit10.thread, %test_case.exit15.thread, %test_case.exit20.thread, %test_case.exit25.thread, %test_case.exit30.thread, %test_case.exit35.thread, %test_case.exit40.thread, %test_case.exit45.thread, %test_case.exit50.thread, %test_case.exit55.thread, %test_case.exit60.thread, %test_case.exit65.thread, %lor.lhs.false49
+  %retval.0 = phi i32 [ 1, %lor.lhs.false49 ], [ 0, %test_case.exit65.thread ], [ 0, %test_case.exit60.thread ], [ 0, %test_case.exit55.thread ], [ 0, %test_case.exit50.thread ], [ 0, %test_case.exit45.thread ], [ 0, %test_case.exit40.thread ], [ 0, %test_case.exit35.thread ], [ 0, %test_case.exit30.thread ], [ 0, %test_case.exit25.thread ], [ 0, %test_case.exit20.thread ], [ 0, %test_case.exit15.thread ], [ 0, %test_case.exit10.thread ], [ 0, %test_case.exit5.thread ], [ 0, %test_case.exit.thread ]
   ret i32 %retval.0
 }
 
@@ -1621,15 +1621,15 @@ test_case.exit60.thread:                          ; preds = %lor.lhs.false45
 lor.lhs.false49:                                  ; preds = %lor.lhs.false45
   %call50 = tail call i32 @test_time_t_ge(ptr noundef nonnull @.str.24, i32 noundef 209, ptr noundef nonnull @.str.197, ptr noundef nonnull @.str.200, i64 noundef 33, i64 noundef 52) #4
   %cmp.not.i61 = icmp eq i32 %call50, 0
-  br i1 %cmp.not.i61, label %return, label %13
+  br i1 %cmp.not.i61, label %return, label %test_case.exit65.thread
 
-13:                                               ; preds = %lor.lhs.false49
-  %14 = load ptr, ptr @stderr, align 8
-  %call.i63 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.205, i32 noundef 0) #5
+test_case.exit65.thread:                          ; preds = %lor.lhs.false49
+  %13 = load ptr, ptr @stderr, align 8
+  %call.i63 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.205, i32 noundef 0) #5
   br label %return
 
-return:                                           ; preds = %13, %lor.lhs.false49, %test_case.exit60.thread, %test_case.exit55.thread, %test_case.exit50.thread, %test_case.exit45.thread, %test_case.exit40.thread, %test_case.exit35.thread, %test_case.exit30.thread, %test_case.exit25.thread, %test_case.exit20.thread, %test_case.exit15.thread, %test_case.exit10.thread, %test_case.exit5.thread, %test_case.exit.thread
-  %retval.0 = phi i32 [ 0, %test_case.exit.thread ], [ 0, %test_case.exit5.thread ], [ 0, %test_case.exit10.thread ], [ 0, %test_case.exit15.thread ], [ 0, %test_case.exit20.thread ], [ 0, %test_case.exit25.thread ], [ 0, %test_case.exit30.thread ], [ 0, %test_case.exit35.thread ], [ 0, %test_case.exit40.thread ], [ 0, %test_case.exit45.thread ], [ 0, %test_case.exit50.thread ], [ 0, %test_case.exit55.thread ], [ 0, %test_case.exit60.thread ], [ 0, %13 ], [ 1, %lor.lhs.false49 ]
+return:                                           ; preds = %test_case.exit.thread, %test_case.exit5.thread, %test_case.exit10.thread, %test_case.exit15.thread, %test_case.exit20.thread, %test_case.exit25.thread, %test_case.exit30.thread, %test_case.exit35.thread, %test_case.exit40.thread, %test_case.exit45.thread, %test_case.exit50.thread, %test_case.exit55.thread, %test_case.exit60.thread, %test_case.exit65.thread, %lor.lhs.false49
+  %retval.0 = phi i32 [ 1, %lor.lhs.false49 ], [ 0, %test_case.exit65.thread ], [ 0, %test_case.exit60.thread ], [ 0, %test_case.exit55.thread ], [ 0, %test_case.exit50.thread ], [ 0, %test_case.exit45.thread ], [ 0, %test_case.exit40.thread ], [ 0, %test_case.exit35.thread ], [ 0, %test_case.exit30.thread ], [ 0, %test_case.exit25.thread ], [ 0, %test_case.exit20.thread ], [ 0, %test_case.exit15.thread ], [ 0, %test_case.exit10.thread ], [ 0, %test_case.exit5.thread ], [ 0, %test_case.exit.thread ]
   ret i32 %retval.0
 }
 
@@ -1772,15 +1772,15 @@ test_case.exit60.thread:                          ; preds = %lor.lhs.false45
 lor.lhs.false49:                                  ; preds = %lor.lhs.false45
   %call50 = call i32 @test_ptr_ne(ptr noundef nonnull @.str.24, i32 noundef 235, ptr noundef nonnull @.str.216, ptr noundef nonnull @.str.216, ptr noundef nonnull %x, ptr noundef nonnull %x) #4
   %cmp.not.i61 = icmp eq i32 %call50, 0
-  br i1 %cmp.not.i61, label %return, label %13
+  br i1 %cmp.not.i61, label %return, label %test_case.exit65.thread
 
-13:                                               ; preds = %lor.lhs.false49
-  %14 = load ptr, ptr @stderr, align 8
-  %call.i63 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.222, i32 noundef 0) #5
+test_case.exit65.thread:                          ; preds = %lor.lhs.false49
+  %13 = load ptr, ptr @stderr, align 8
+  %call.i63 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.222, i32 noundef 0) #5
   br label %return
 
-return:                                           ; preds = %13, %lor.lhs.false49, %test_case.exit60.thread, %test_case.exit55.thread, %test_case.exit50.thread, %test_case.exit45.thread, %test_case.exit40.thread, %test_case.exit35.thread, %test_case.exit30.thread, %test_case.exit25.thread, %test_case.exit20.thread, %test_case.exit15.thread, %test_case.exit10.thread, %test_case.exit5.thread, %test_case.exit.thread
-  %retval.0 = phi i32 [ 0, %test_case.exit.thread ], [ 0, %test_case.exit5.thread ], [ 0, %test_case.exit10.thread ], [ 0, %test_case.exit15.thread ], [ 0, %test_case.exit20.thread ], [ 0, %test_case.exit25.thread ], [ 0, %test_case.exit30.thread ], [ 0, %test_case.exit35.thread ], [ 0, %test_case.exit40.thread ], [ 0, %test_case.exit45.thread ], [ 0, %test_case.exit50.thread ], [ 0, %test_case.exit55.thread ], [ 0, %test_case.exit60.thread ], [ 0, %13 ], [ 1, %lor.lhs.false49 ]
+return:                                           ; preds = %test_case.exit.thread, %test_case.exit5.thread, %test_case.exit10.thread, %test_case.exit15.thread, %test_case.exit20.thread, %test_case.exit25.thread, %test_case.exit30.thread, %test_case.exit35.thread, %test_case.exit40.thread, %test_case.exit45.thread, %test_case.exit50.thread, %test_case.exit55.thread, %test_case.exit60.thread, %test_case.exit65.thread, %lor.lhs.false49
+  %retval.0 = phi i32 [ 1, %lor.lhs.false49 ], [ 0, %test_case.exit65.thread ], [ 0, %test_case.exit60.thread ], [ 0, %test_case.exit55.thread ], [ 0, %test_case.exit50.thread ], [ 0, %test_case.exit45.thread ], [ 0, %test_case.exit40.thread ], [ 0, %test_case.exit35.thread ], [ 0, %test_case.exit30.thread ], [ 0, %test_case.exit25.thread ], [ 0, %test_case.exit20.thread ], [ 0, %test_case.exit15.thread ], [ 0, %test_case.exit10.thread ], [ 0, %test_case.exit5.thread ], [ 0, %test_case.exit.thread ]
   ret i32 %retval.0
 }
 
@@ -1819,15 +1819,15 @@ test_case.exit10.thread:                          ; preds = %lor.lhs.false5
 lor.lhs.false9:                                   ; preds = %lor.lhs.false5
   %call10 = tail call i32 @test_false(ptr noundef nonnull @.str.24, i32 noundef 248, ptr noundef nonnull @.str.25, i32 noundef 1) #4
   %cmp.not.i11 = icmp eq i32 %call10, 0
-  br i1 %cmp.not.i11, label %return, label %3
+  br i1 %cmp.not.i11, label %return, label %test_case.exit15.thread
 
-3:                                                ; preds = %lor.lhs.false9
-  %4 = load ptr, ptr @stderr, align 8
-  %call.i13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.227, i32 noundef 0) #5
+test_case.exit15.thread:                          ; preds = %lor.lhs.false9
+  %3 = load ptr, ptr @stderr, align 8
+  %call.i13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.227, i32 noundef 0) #5
   br label %return
 
-return:                                           ; preds = %3, %lor.lhs.false9, %test_case.exit10.thread, %test_case.exit5.thread, %test_case.exit.thread
-  %retval.0 = phi i32 [ 0, %test_case.exit.thread ], [ 0, %test_case.exit5.thread ], [ 0, %test_case.exit10.thread ], [ 0, %3 ], [ 1, %lor.lhs.false9 ]
+return:                                           ; preds = %test_case.exit.thread, %test_case.exit5.thread, %test_case.exit10.thread, %test_case.exit15.thread, %lor.lhs.false9
+  %retval.0 = phi i32 [ 1, %lor.lhs.false9 ], [ 0, %test_case.exit15.thread ], [ 0, %test_case.exit10.thread ], [ 0, %test_case.exit5.thread ], [ 0, %test_case.exit.thread ]
   ret i32 %retval.0
 }
 
@@ -1966,15 +1966,15 @@ test_case.exit60.thread:                          ; preds = %lor.lhs.false45
 lor.lhs.false49:                                  ; preds = %lor.lhs.false45
   %call50 = tail call i32 @test_str_eq(ptr noundef nonnull @.str.24, i32 noundef 273, ptr noundef nonnull @.str.251, ptr noundef nonnull @.str.252, ptr noundef nonnull @.str.253, ptr noundef nonnull @.str.254) #4
   %cmp.not.i61 = icmp eq i32 %call50, 0
-  br i1 %cmp.not.i61, label %return, label %13
+  br i1 %cmp.not.i61, label %return, label %test_case.exit65.thread
 
-13:                                               ; preds = %lor.lhs.false49
-  %14 = load ptr, ptr @stderr, align 8
-  %call.i63 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.250, i32 noundef 0) #5
+test_case.exit65.thread:                          ; preds = %lor.lhs.false49
+  %13 = load ptr, ptr @stderr, align 8
+  %call.i63 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.250, i32 noundef 0) #5
   br label %return
 
-return:                                           ; preds = %13, %lor.lhs.false49, %test_case.exit60.thread, %test_case.exit55.thread, %test_case.exit50.thread, %test_case.exit45.thread, %test_case.exit40.thread, %test_case.exit35.thread, %test_case.exit30.thread, %test_case.exit25.thread, %test_case.exit20.thread, %test_case.exit15.thread, %test_case.exit10.thread, %test_case.exit5.thread, %test_case.exit.thread
-  %retval.0 = phi i32 [ 0, %test_case.exit.thread ], [ 0, %test_case.exit5.thread ], [ 0, %test_case.exit10.thread ], [ 0, %test_case.exit15.thread ], [ 0, %test_case.exit20.thread ], [ 0, %test_case.exit25.thread ], [ 0, %test_case.exit30.thread ], [ 0, %test_case.exit35.thread ], [ 0, %test_case.exit40.thread ], [ 0, %test_case.exit45.thread ], [ 0, %test_case.exit50.thread ], [ 0, %test_case.exit55.thread ], [ 0, %test_case.exit60.thread ], [ 0, %13 ], [ 1, %lor.lhs.false49 ]
+return:                                           ; preds = %test_case.exit.thread, %test_case.exit5.thread, %test_case.exit10.thread, %test_case.exit15.thread, %test_case.exit20.thread, %test_case.exit25.thread, %test_case.exit30.thread, %test_case.exit35.thread, %test_case.exit40.thread, %test_case.exit45.thread, %test_case.exit50.thread, %test_case.exit55.thread, %test_case.exit60.thread, %test_case.exit65.thread, %lor.lhs.false49
+  %retval.0 = phi i32 [ 1, %lor.lhs.false49 ], [ 0, %test_case.exit65.thread ], [ 0, %test_case.exit60.thread ], [ 0, %test_case.exit55.thread ], [ 0, %test_case.exit50.thread ], [ 0, %test_case.exit45.thread ], [ 0, %test_case.exit40.thread ], [ 0, %test_case.exit35.thread ], [ 0, %test_case.exit30.thread ], [ 0, %test_case.exit25.thread ], [ 0, %test_case.exit20.thread ], [ 0, %test_case.exit15.thread ], [ 0, %test_case.exit10.thread ], [ 0, %test_case.exit5.thread ], [ 0, %test_case.exit.thread ]
   ret i32 %retval.0
 }
 
@@ -2083,15 +2083,15 @@ test_case.exit45.thread:                          ; preds = %lor.lhs.false33
 lor.lhs.false37:                                  ; preds = %lor.lhs.false33
   %call38 = tail call i32 @test_mem_eq(ptr noundef nonnull @.str.24, i32 noundef 295, ptr noundef nonnull @.str.258, ptr noundef nonnull @.str.231, ptr noundef nonnull @.str.259, i64 noundef 4, ptr noundef nonnull @test_memory.buf, i64 noundef 4) #4
   %cmp.not.i46 = icmp eq i32 %call38, 1
-  br i1 %cmp.not.i46, label %return, label %10
+  br i1 %cmp.not.i46, label %return, label %test_case.exit50.thread
 
-10:                                               ; preds = %lor.lhs.false37
-  %11 = load ptr, ptr @stderr, align 8
-  %call.i48 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.267, i32 noundef 1) #5
+test_case.exit50.thread:                          ; preds = %lor.lhs.false37
+  %10 = load ptr, ptr @stderr, align 8
+  %call.i48 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.267, i32 noundef 1) #5
   br label %return
 
-return:                                           ; preds = %10, %lor.lhs.false37, %test_case.exit45.thread, %test_case.exit40.thread, %test_case.exit35.thread, %test_case.exit30.thread, %test_case.exit25.thread, %test_case.exit20.thread, %test_case.exit15.thread, %test_case.exit10.thread, %test_case.exit5.thread, %test_case.exit.thread
-  %retval.0 = phi i32 [ 0, %test_case.exit.thread ], [ 0, %test_case.exit5.thread ], [ 0, %test_case.exit10.thread ], [ 0, %test_case.exit15.thread ], [ 0, %test_case.exit20.thread ], [ 0, %test_case.exit25.thread ], [ 0, %test_case.exit30.thread ], [ 0, %test_case.exit35.thread ], [ 0, %test_case.exit40.thread ], [ 0, %test_case.exit45.thread ], [ 0, %10 ], [ 1, %lor.lhs.false37 ]
+return:                                           ; preds = %test_case.exit.thread, %test_case.exit5.thread, %test_case.exit10.thread, %test_case.exit15.thread, %test_case.exit20.thread, %test_case.exit25.thread, %test_case.exit30.thread, %test_case.exit35.thread, %test_case.exit40.thread, %test_case.exit45.thread, %test_case.exit50.thread, %lor.lhs.false37
+  %retval.0 = phi i32 [ 1, %lor.lhs.false37 ], [ 0, %test_case.exit50.thread ], [ 0, %test_case.exit45.thread ], [ 0, %test_case.exit40.thread ], [ 0, %test_case.exit35.thread ], [ 0, %test_case.exit30.thread ], [ 0, %test_case.exit25.thread ], [ 0, %test_case.exit20.thread ], [ 0, %test_case.exit15.thread ], [ 0, %test_case.exit10.thread ], [ 0, %test_case.exit5.thread ], [ 0, %test_case.exit.thread ]
   ret i32 %retval.0
 }
 

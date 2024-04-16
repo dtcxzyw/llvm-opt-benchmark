@@ -956,8 +956,8 @@ define dso_local ptr @drm_gem_get_pages(ptr nocapture noundef readonly %0) #0 al
   %76 = getelementptr inbounds i8, ptr %2, i64 8
   br label %77
 
-77:                                               ; preds = %124, %75
-  %78 = phi i64 [ 0, %75 ], [ %126, %124 ]
+77:                                               ; preds = %125, %75
+  %78 = phi i64 [ 0, %75 ], [ %127, %125 ]
   %79 = getelementptr ptr, ptr %19, i64 %78
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr inbounds i8, ptr %80, i64 8
@@ -968,11 +968,11 @@ define dso_local ptr @drm_gem_get_pages(ptr nocapture noundef readonly %0) #0 al
 
 85:                                               ; preds = %77
   %86 = add nsw i64 %82, -1
-  br label %106
+  br label %107
 
 87:                                               ; preds = %77
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hugetlb_optimize_vmemmap_key, i32 2) #11
-          to label %103 [label %88], !srcloc !43
+          to label %104 [label %88], !srcloc !43
 
 88:                                               ; preds = %87
   %89 = ptrtoint ptr %80 to i64
@@ -993,69 +993,71 @@ define dso_local ptr @drm_gem_get_pages(ptr nocapture noundef readonly %0) #0 al
   %100 = icmp eq i64 %99, 0
   %101 = add nsw i64 %98, -1
   %102 = inttoptr i64 %101 to ptr
-  %spec.select = select i1 %100, ptr %80, ptr %102
-  br label %103
+  br i1 %100, label %103, label %104
 
-103:                                              ; preds = %96, %88, %92, %87
-  %104 = phi ptr [ %80, %87 ], [ %80, %92 ], [ %80, %88 ], [ %spec.select, %96 ]
-  %105 = ptrtoint ptr %104 to i64
-  br label %106
+103:                                              ; preds = %96, %92, %88
+  br label %104
 
-106:                                              ; preds = %103, %85
-  %107 = phi i64 [ %86, %85 ], [ %105, %103 ]
-  %108 = inttoptr i64 %107 to ptr
-  %109 = load i8, ptr %2, align 8
-  %110 = add i8 %109, 1
-  store i8 %110, ptr %2, align 8
-  %111 = zext i8 %109 to i64
-  %112 = getelementptr [15 x ptr], ptr %76, i64 0, i64 %111
-  store ptr %108, ptr %112, align 8
-  %113 = icmp eq i8 %110, 15
-  br i1 %113, label %114, label %116
+104:                                              ; preds = %103, %96, %87
+  %105 = phi ptr [ %102, %96 ], [ %80, %103 ], [ %80, %87 ]
+  %106 = ptrtoint ptr %105 to i64
+  br label %107
 
-114:                                              ; preds = %106
+107:                                              ; preds = %104, %85
+  %108 = phi i64 [ %86, %85 ], [ %106, %104 ]
+  %109 = inttoptr i64 %108 to ptr
+  %110 = load i8, ptr %2, align 8
+  %111 = add i8 %110, 1
+  store i8 %111, ptr %2, align 8
+  %112 = zext i8 %110 to i64
+  %113 = getelementptr [15 x ptr], ptr %76, i64 0, i64 %112
+  store ptr %109, ptr %113, align 8
+  %114 = icmp eq i8 %111, 15
+  br i1 %114, label %115, label %117
+
+115:                                              ; preds = %107
   call void @check_move_unevictable_folios(ptr noundef nonnull %2) #11
   call void @__folio_batch_release(ptr noundef nonnull %2) #11
-  %115 = call i32 @__SCT__cond_resched() #11
-  br label %116
+  %116 = call i32 @__SCT__cond_resched() #11
+  br label %117
 
-116:                                              ; preds = %114, %106
-  %117 = load volatile i64, ptr %108, align 8
-  %118 = and i64 %117, 64
-  %119 = icmp eq i64 %118, 0
-  br i1 %119, label %124, label %120
+117:                                              ; preds = %115, %107
+  %118 = load volatile i64, ptr %109, align 8
+  %119 = and i64 %118, 64
+  %120 = icmp eq i64 %119, 0
+  br i1 %120, label %125, label %121
 
-120:                                              ; preds = %116
-  %121 = getelementptr inbounds i8, ptr %108, i64 100
-  %122 = load i32, ptr %121, align 4
-  %123 = zext i32 %122 to i64
-  br label %124
+121:                                              ; preds = %117
+  %122 = getelementptr inbounds i8, ptr %109, i64 100
+  %123 = load i32, ptr %122, align 4
+  %124 = zext i32 %123 to i64
+  br label %125
 
-124:                                              ; preds = %120, %116
-  %125 = phi i64 [ %123, %120 ], [ 1, %116 ]
-  %126 = add i64 %125, %78
-  %127 = icmp slt i64 %126, %25
-  br i1 %127, label %77, label %128, !llvm.loop !44
+125:                                              ; preds = %121, %117
+  %126 = phi i64 [ %124, %121 ], [ 1, %117 ]
+  %127 = add i64 %126, %78
+  %128 = icmp slt i64 %127, %25
+  br i1 %128, label %77, label %129, !llvm.loop !44
 
-128:                                              ; preds = %124
+129:                                              ; preds = %125
   %.pr = load i8, ptr %2, align 8
-  %129 = icmp eq i8 %.pr, 0
-  br i1 %129, label %.thread9, label %130
+  %130 = icmp eq i8 %.pr, 0
+  br i1 %130, label %.thread9, label %131
 
-130:                                              ; preds = %128
+131:                                              ; preds = %129
   call void @check_move_unevictable_folios(ptr noundef nonnull %2) #11
   call void @__folio_batch_release(ptr noundef nonnull %2) #11
-  %131 = call i32 @__SCT__cond_resched() #11
+  %132 = call i32 @__SCT__cond_resched() #11
   br label %.thread9
 
-.thread9:                                         ; preds = %72, %130, %128
+.thread9:                                         ; preds = %72, %131, %129
   call void @kvfree(ptr noundef nonnull %19) #11
   br label %.loopexit10
 
 .loopexit10:                                      ; preds = %70, %21, %.thread9, %15, %6
-  %132 = phi ptr [ inttoptr (i64 -22 to ptr), %6 ], [ %26, %.thread9 ], [ inttoptr (i64 -12 to ptr), %15 ], [ %19, %21 ], [ %19, %70 ]
+  %133 = phi ptr [ inttoptr (i64 -22 to ptr), %6 ], [ %26, %.thread9 ], [ inttoptr (i64 -12 to ptr), %15 ], [ %19, %21 ], [ %19, %70 ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #11
-  ret ptr %132
+  ret ptr %133
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -1107,13 +1109,13 @@ define dso_local void @drm_gem_put_pages(ptr nocapture noundef readonly %0, ptr 
   %25 = getelementptr inbounds i8, ptr %5, i64 8
   br label %26
 
-26:                                               ; preds = %84, %24
-  %27 = phi i32 [ 0, %24 ], [ %86, %84 ]
+26:                                               ; preds = %85, %24
+  %27 = phi i32 [ 0, %24 ], [ %87, %85 ]
   %28 = sext i32 %27 to i64
   %29 = getelementptr ptr, ptr %1, i64 %28
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
-  br i1 %31, label %84, label %32
+  br i1 %31, label %85, label %32
 
 32:                                               ; preds = %26
   %33 = getelementptr inbounds i8, ptr %30, i64 8
@@ -1124,11 +1126,11 @@ define dso_local void @drm_gem_put_pages(ptr nocapture noundef readonly %0, ptr 
 
 37:                                               ; preds = %32
   %38 = add nsw i64 %34, -1
-  br label %58
+  br label %59
 
 39:                                               ; preds = %32
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hugetlb_optimize_vmemmap_key, i32 2) #11
-          to label %55 [label %40], !srcloc !43
+          to label %56 [label %40], !srcloc !43
 
 40:                                               ; preds = %39
   %41 = ptrtoint ptr %30 to i64
@@ -1149,81 +1151,83 @@ define dso_local void @drm_gem_put_pages(ptr nocapture noundef readonly %0, ptr 
   %52 = icmp eq i64 %51, 0
   %53 = add nsw i64 %50, -1
   %54 = inttoptr i64 %53 to ptr
-  %spec.select = select i1 %52, ptr %30, ptr %54
-  br label %55
+  br i1 %52, label %55, label %56
 
-55:                                               ; preds = %48, %40, %44, %39
-  %56 = phi ptr [ %30, %39 ], [ %30, %44 ], [ %30, %40 ], [ %spec.select, %48 ]
-  %57 = ptrtoint ptr %56 to i64
-  br label %58
+55:                                               ; preds = %48, %44, %40
+  br label %56
 
-58:                                               ; preds = %55, %37
-  %59 = phi i64 [ %38, %37 ], [ %57, %55 ]
-  %60 = inttoptr i64 %59 to ptr
-  br i1 %2, label %61, label %63
+56:                                               ; preds = %55, %48, %39
+  %57 = phi ptr [ %54, %48 ], [ %30, %55 ], [ %30, %39 ]
+  %58 = ptrtoint ptr %57 to i64
+  br label %59
 
-61:                                               ; preds = %58
-  %62 = call zeroext i1 @folio_mark_dirty(ptr noundef %60) #11
-  br label %63
+59:                                               ; preds = %56, %37
+  %60 = phi i64 [ %38, %37 ], [ %58, %56 ]
+  %61 = inttoptr i64 %60 to ptr
+  br i1 %2, label %62, label %64
 
-63:                                               ; preds = %61, %58
-  br i1 %3, label %64, label %65
+62:                                               ; preds = %59
+  %63 = call zeroext i1 @folio_mark_dirty(ptr noundef %61) #11
+  br label %64
 
-64:                                               ; preds = %63
-  call void @folio_mark_accessed(ptr noundef %60) #11
-  br label %65
+64:                                               ; preds = %62, %59
+  br i1 %3, label %65, label %66
 
-65:                                               ; preds = %64, %63
-  %66 = load i8, ptr %5, align 8
-  %67 = add i8 %66, 1
-  store i8 %67, ptr %5, align 8
-  %68 = zext i8 %66 to i64
-  %69 = getelementptr [15 x ptr], ptr %25, i64 0, i64 %68
-  store ptr %60, ptr %69, align 8
-  %70 = icmp eq i8 %67, 15
-  br i1 %70, label %71, label %73
+65:                                               ; preds = %64
+  call void @folio_mark_accessed(ptr noundef %61) #11
+  br label %66
 
-71:                                               ; preds = %65
+66:                                               ; preds = %65, %64
+  %67 = load i8, ptr %5, align 8
+  %68 = add i8 %67, 1
+  store i8 %68, ptr %5, align 8
+  %69 = zext i8 %67 to i64
+  %70 = getelementptr [15 x ptr], ptr %25, i64 0, i64 %69
+  store ptr %61, ptr %70, align 8
+  %71 = icmp eq i8 %68, 15
+  br i1 %71, label %72, label %74
+
+72:                                               ; preds = %66
   call void @check_move_unevictable_folios(ptr noundef nonnull %5) #11
   call void @__folio_batch_release(ptr noundef nonnull %5) #11
-  %72 = call i32 @__SCT__cond_resched() #11
-  br label %73
+  %73 = call i32 @__SCT__cond_resched() #11
+  br label %74
 
-73:                                               ; preds = %71, %65
-  %74 = load volatile i64, ptr %60, align 8
-  %75 = and i64 %74, 64
-  %76 = icmp eq i64 %75, 0
-  br i1 %76, label %80, label %77
+74:                                               ; preds = %72, %66
+  %75 = load volatile i64, ptr %61, align 8
+  %76 = and i64 %75, 64
+  %77 = icmp eq i64 %76, 0
+  br i1 %77, label %81, label %78
 
-77:                                               ; preds = %73
-  %78 = getelementptr inbounds i8, ptr %60, i64 100
-  %79 = load i32, ptr %78, align 4
-  br label %80
+78:                                               ; preds = %74
+  %79 = getelementptr inbounds i8, ptr %61, i64 100
+  %80 = load i32, ptr %79, align 4
+  br label %81
 
-80:                                               ; preds = %77, %73
-  %81 = phi i32 [ %79, %77 ], [ 1, %73 ]
-  %82 = add i32 %27, -1
-  %83 = add i32 %82, %81
-  br label %84
+81:                                               ; preds = %78, %74
+  %82 = phi i32 [ %80, %78 ], [ 1, %74 ]
+  %83 = add i32 %27, -1
+  %84 = add i32 %83, %82
+  br label %85
 
-84:                                               ; preds = %80, %26
-  %85 = phi i32 [ %83, %80 ], [ %27, %26 ]
-  %86 = add i32 %85, 1
-  %87 = icmp slt i32 %86, %21
-  br i1 %87, label %26, label %88, !llvm.loop !48
+85:                                               ; preds = %81, %26
+  %86 = phi i32 [ %84, %81 ], [ %27, %26 ]
+  %87 = add i32 %86, 1
+  %88 = icmp slt i32 %87, %21
+  br i1 %88, label %26, label %89, !llvm.loop !48
 
-88:                                               ; preds = %84
+89:                                               ; preds = %85
   %.pr = load i8, ptr %5, align 8
-  %89 = icmp eq i8 %.pr, 0
-  br i1 %89, label %.thread, label %90
+  %90 = icmp eq i8 %.pr, 0
+  br i1 %90, label %.thread, label %91
 
-90:                                               ; preds = %88
+91:                                               ; preds = %89
   call void @check_move_unevictable_folios(ptr noundef nonnull %5) #11
   call void @__folio_batch_release(ptr noundef nonnull %5) #11
-  %91 = call i32 @__SCT__cond_resched() #11
+  %92 = call i32 @__SCT__cond_resched() #11
   br label %.thread
 
-.thread:                                          ; preds = %18, %90, %88
+.thread:                                          ; preds = %18, %91, %89
   call void @kvfree(ptr noundef %1) #11
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #11
   ret void

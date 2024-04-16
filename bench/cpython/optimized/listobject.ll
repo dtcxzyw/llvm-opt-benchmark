@@ -4555,14 +4555,18 @@ list_clear.exit.i:                                ; preds = %Py_XDECREF.exit.i.i
 
 if.end.i:                                         ; preds = %list_clear.exit.i, %skip_optional
   %cmp1.not.i = icmp eq ptr %iterable.0, null
-  br i1 %cmp1.not.i, label %exit, label %if.then2.i
+  br i1 %cmp1.not.i, label %if.end6.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
   %call.i = tail call fastcc i32 @list_extend(ptr noundef %self, ptr noundef nonnull %iterable.0), !range !7
+  %cmp3.i = icmp slt i32 %call.i, 0
+  br i1 %cmp3.i, label %exit, label %if.end6.i
+
+if.end6.i:                                        ; preds = %if.then2.i, %if.end.i
   br label %exit
 
-exit:                                             ; preds = %if.then2.i, %if.end.i, %lor.lhs.false12, %lor.lhs.false4
-  %return_value.0 = phi i32 [ -1, %lor.lhs.false12 ], [ -1, %lor.lhs.false4 ], [ 0, %if.end.i ], [ %call.i, %if.then2.i ]
+exit:                                             ; preds = %if.end6.i, %if.then2.i, %lor.lhs.false12, %lor.lhs.false4
+  %return_value.0 = phi i32 [ -1, %lor.lhs.false12 ], [ -1, %lor.lhs.false4 ], [ 0, %if.end6.i ], [ -1, %if.then2.i ]
   ret i32 %return_value.0
 }
 
@@ -4649,14 +4653,14 @@ list_clear.exit.i:                                ; preds = %Py_XDECREF.exit.i.i
 
 if.end.i10:                                       ; preds = %list_clear.exit.i, %if.then14
   %cmp1.not.i = icmp eq ptr %0, null
-  br i1 %cmp1.not.i, label %return, label %list___init___impl.exit
+  br i1 %cmp1.not.i, label %return, label %if.then2.i
 
-list___init___impl.exit:                          ; preds = %if.end.i10
+if.then2.i:                                       ; preds = %if.end.i10
   %call.i = tail call fastcc i32 @list_extend(ptr noundef nonnull %call9, ptr noundef nonnull %0), !range !7
-  %tobool16.not = icmp eq i32 %call.i, 0
-  br i1 %tobool16.not, label %return, label %if.then17
+  %cmp3.i = icmp slt i32 %call.i, 0
+  br i1 %cmp3.i, label %if.then17, label %return
 
-if.then17:                                        ; preds = %list___init___impl.exit
+if.then17:                                        ; preds = %if.then2.i
   %6 = load i64, ptr %call9, align 8
   %7 = and i64 %6, 2147483648
   %cmp.i21.not = icmp eq i64 %7, 0
@@ -4672,8 +4676,8 @@ if.then1.i:                                       ; preds = %if.end.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call9) #10
   br label %return
 
-return:                                           ; preds = %if.end.i10, %if.end12, %list___init___impl.exit, %if.end.i, %if.then1.i, %if.then17, %if.end8, %lor.lhs.false4, %lor.lhs.false
-  %retval.0 = phi ptr [ null, %lor.lhs.false ], [ null, %lor.lhs.false4 ], [ null, %if.end8 ], [ null, %if.then17 ], [ null, %if.then1.i ], [ null, %if.end.i ], [ %call9, %list___init___impl.exit ], [ %call9, %if.end12 ], [ %call9, %if.end.i10 ]
+return:                                           ; preds = %if.then2.i, %if.end.i10, %if.end12, %if.end.i, %if.then1.i, %if.then17, %if.end8, %lor.lhs.false4, %lor.lhs.false
+  %retval.0 = phi ptr [ null, %lor.lhs.false ], [ null, %lor.lhs.false4 ], [ null, %if.end8 ], [ null, %if.then17 ], [ null, %if.then1.i ], [ null, %if.end.i ], [ %call9, %if.end12 ], [ %call9, %if.end.i10 ], [ %call9, %if.then2.i ]
   ret ptr %retval.0
 }
 
@@ -4729,14 +4733,18 @@ entry:
   %it_seq = getelementptr inbounds i8, ptr %it, i64 24
   %0 = load ptr, ptr %it_seq, align 8
   %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %return, label %if.then
+  br i1 %tobool.not, label %do.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %call = tail call i32 %visit(ptr noundef nonnull %0, ptr noundef %arg) #10
+  %tobool2.not = icmp eq i32 %call, 0
+  br i1 %tobool2.not, label %do.end, label %return
+
+do.end:                                           ; preds = %entry, %if.then
   br label %return
 
-return:                                           ; preds = %if.then, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ %call, %if.then ]
+return:                                           ; preds = %if.then, %do.end
+  %retval.0 = phi i32 [ 0, %do.end ], [ %call, %if.then ]
   ret i32 %retval.0
 }
 
@@ -4832,14 +4840,18 @@ entry:
   %it_seq = getelementptr inbounds i8, ptr %it, i64 24
   %0 = load ptr, ptr %it_seq, align 8
   %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %return, label %if.then
+  br i1 %tobool.not, label %do.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %call = tail call i32 %visit(ptr noundef nonnull %0, ptr noundef %arg) #10
+  %tobool2.not = icmp eq i32 %call, 0
+  br i1 %tobool2.not, label %do.end, label %return
+
+do.end:                                           ; preds = %entry, %if.then
   br label %return
 
-return:                                           ; preds = %if.then, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ %call, %if.then ]
+return:                                           ; preds = %if.then, %do.end
+  %retval.0 = phi i32 [ 0, %do.end ], [ %call, %if.then ]
   ret i32 %retval.0
 }
 
@@ -9046,7 +9058,7 @@ entry:
   %it_seq = getelementptr inbounds i8, ptr %it, i64 24
   %0 = load ptr, ptr %it_seq, align 8
   %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.end, label %lor.lhs.false
+  br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
   %it_index = getelementptr inbounds i8, ptr %it, i64 16
@@ -9055,11 +9067,13 @@ lor.lhs.false:                                    ; preds = %entry
   %2 = getelementptr i8, ptr %0, i64 16
   %.val = load i64, ptr %2, align 8
   %cmp2 = icmp slt i64 %.val, %add
-  %spec.select = select i1 %cmp2, i64 0, i64 %add
+  br i1 %cmp2, label %if.then, label %if.end
+
+if.then:                                          ; preds = %lor.lhs.false, %entry
   br label %if.end
 
-if.end:                                           ; preds = %lor.lhs.false, %entry
-  %len.0 = phi i64 [ 0, %entry ], [ %spec.select, %lor.lhs.false ]
+if.end:                                           ; preds = %if.then, %lor.lhs.false
+  %len.0 = phi i64 [ 0, %if.then ], [ %add, %lor.lhs.false ]
   %call3 = tail call ptr @PyLong_FromSsize_t(i64 noundef %len.0) #10
   ret ptr %call3
 }

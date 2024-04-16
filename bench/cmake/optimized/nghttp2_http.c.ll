@@ -1103,12 +1103,12 @@ define dso_local i32 @nghttp2_http_on_trailer_headers(ptr nocapture noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @nghttp2_http_on_remote_end_stream(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local noundef i32 @nghttp2_http_on_remote_end_stream(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 212
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 16384
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %5, label %11
+  br i1 %.not, label %5, label %12
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 48
@@ -1119,12 +1119,14 @@ define dso_local i32 @nghttp2_http_on_remote_end_stream(ptr nocapture noundef re
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %0, i64 56
   %10 = load i64, ptr %9, align 8
-  %.not6 = icmp ne i64 %7, %10
-  %spec.select = sext i1 %.not6 to i32
-  br label %11
+  %.not6 = icmp eq i64 %7, %10
+  br i1 %.not6, label %11, label %12
 
-11:                                               ; preds = %8, %5, %1
-  %.0 = phi i32 [ -1, %1 ], [ 0, %5 ], [ %spec.select, %8 ]
+11:                                               ; preds = %8, %5
+  br label %12
+
+12:                                               ; preds = %8, %1, %11
+  %.0 = phi i32 [ 0, %11 ], [ -1, %1 ], [ -1, %8 ]
   ret i32 %.0
 }
 

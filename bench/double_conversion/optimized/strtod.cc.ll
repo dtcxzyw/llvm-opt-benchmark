@@ -937,7 +937,7 @@ _ZN17double_conversionL18SanitizedDoubletofEd.exit40: ; preds = %if.then.i34, %i
 if.else:                                          ; preds = %_ZN17double_conversionL18SanitizedDoubletofEd.exit40
   %4 = bitcast double %retval.0.i177488 to i64
   %cmp.i41 = icmp eq i64 %4, 9218868437227405312
-  br i1 %cmp.i41, label %if.end11, label %if.end.i42
+  br i1 %cmp.i41, label %if.then2.i55, label %if.end.i42
 
 if.end.i42:                                       ; preds = %if.else
   %cmp3.not.i43 = icmp sgt i64 %4, -1
@@ -958,7 +958,7 @@ if.then.i53:                                      ; preds = %_ZNK17double_conver
   %cmp1.i54 = fcmp ult double %retval.0.i48, 0x47EFFFFFF0000000
   br i1 %cmp1.i54, label %if.end11, label %if.then2.i55
 
-if.then2.i55:                                     ; preds = %if.then.i53
+if.then2.i55:                                     ; preds = %if.else, %if.then.i53
   br label %if.end11
 
 if.else3.i57:                                     ; preds = %land.lhs.true.i44, %_ZNK17double_conversion6Double10NextDoubleEv.exit51
@@ -966,8 +966,8 @@ if.else3.i57:                                     ; preds = %land.lhs.true.i44, 
   %conv4.i58 = fptrunc double %retval.0.i4893 to float
   br label %if.end11
 
-if.end11:                                         ; preds = %if.else, %if.else3.i57, %if.then2.i55, %if.then.i53, %_ZN17double_conversionL18SanitizedDoubletofEd.exit40
-  %f4.0 = phi float [ %retval.0.i37, %_ZN17double_conversionL18SanitizedDoubletofEd.exit40 ], [ %conv4.i58, %if.else3.i57 ], [ 0x47EFFFFFE0000000, %if.then.i53 ], [ 0x7FF0000000000000, %if.then2.i55 ], [ 0x7FF0000000000000, %if.else ]
+if.end11:                                         ; preds = %if.else3.i57, %if.then2.i55, %if.then.i53, %_ZN17double_conversionL18SanitizedDoubletofEd.exit40
+  %f4.0 = phi float [ %retval.0.i37, %_ZN17double_conversionL18SanitizedDoubletofEd.exit40 ], [ 0x7FF0000000000000, %if.then2.i55 ], [ %conv4.i58, %if.else3.i57 ], [ 0x47EFFFFFE0000000, %if.then.i53 ]
   %cmp12 = fcmp oeq float %retval.0.i29, %f4.0
   br i1 %cmp12, label %return, label %if.end14
 

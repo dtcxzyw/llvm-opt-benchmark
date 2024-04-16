@@ -20,48 +20,50 @@ define hidden noundef i32 @output_xml(ptr nocapture noundef readonly %0, ptr nou
 4:                                                ; preds = %2
   %5 = tail call i32 @strcasecmp(ptr noundef nonnull %1, ptr noundef nonnull @.str) #7
   %.not12 = icmp eq i32 %5, 0
-  %spec.select = select i1 %.not12, ptr @.str.1, ptr %1
-  br label %6
+  br i1 %.not12, label %6, label %7
 
 6:                                                ; preds = %4, %2
-  %.0 = phi ptr [ @.str.1, %2 ], [ %spec.select, %4 ]
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0, ptr noundef nonnull dereferenceable(2) @.str.1) #7
-  %.not13 = icmp eq i32 %7, 0
-  br i1 %.not13, label %13, label %8
+  br label %7
 
-8:                                                ; preds = %6
-  %9 = call i32 @stat(ptr noundef nonnull %.0, ptr noundef nonnull %3) #8
-  %.not14 = icmp eq i32 %9, 0
-  br i1 %.not14, label %10, label %13
+7:                                                ; preds = %6, %4
+  %.0 = phi ptr [ %1, %4 ], [ @.str.1, %6 ]
+  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0, ptr noundef nonnull dereferenceable(2) @.str.1) #7
+  %.not13 = icmp eq i32 %8, 0
+  br i1 %.not13, label %14, label %9
 
-10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
-  %12 = load i32, ptr %11, align 8
-  %.not15 = icmp eq i32 %12, 0
-  br i1 %.not15, label %.sink.split, label %13
+9:                                                ; preds = %7
+  %10 = call i32 @stat(ptr noundef nonnull %.0, ptr noundef nonnull %3) #8
+  %.not14 = icmp eq i32 %10, 0
+  br i1 %.not14, label %11, label %14
 
-13:                                               ; preds = %10, %8, %6
-  %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 96
-  %16 = load i64, ptr %15, align 8
-  %17 = tail call i32 @hwloc_topology_export_xml(ptr noundef %14, ptr noundef nonnull %.0, i64 noundef %16) #8
-  %18 = icmp slt i32 %17, 0
-  br i1 %18, label %19, label %24
+11:                                               ; preds = %9
+  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = load i32, ptr %12, align 8
+  %.not15 = icmp eq i32 %13, 0
+  br i1 %.not15, label %.sink.split, label %14
 
-19:                                               ; preds = %13
-  %20 = tail call ptr @__errno_location() #9
-  %21 = load i32, ptr %20, align 4
+14:                                               ; preds = %11, %9, %7
+  %15 = load ptr, ptr %0, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 96
+  %17 = load i64, ptr %16, align 8
+  %18 = tail call i32 @hwloc_topology_export_xml(ptr noundef %15, ptr noundef nonnull %.0, i64 noundef %17) #8
+  %19 = icmp slt i32 %18, 0
+  br i1 %19, label %20, label %25
+
+20:                                               ; preds = %14
+  %21 = tail call ptr @__errno_location() #9
+  %22 = load i32, ptr %21, align 4
   br label %.sink.split
 
-.sink.split:                                      ; preds = %10, %19
-  %.sink17 = phi i32 [ %21, %19 ], [ 17, %10 ]
+.sink.split:                                      ; preds = %11, %20
+  %.sink17 = phi i32 [ %22, %20 ], [ 17, %11 ]
   %.sink = load ptr, ptr @stderr, align 8
-  %22 = tail call ptr @strerror(i32 noundef %.sink17) #8
-  %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.sink, ptr noundef nonnull @.str.2, ptr noundef nonnull %.0, ptr noundef %22) #10
-  br label %24
+  %23 = tail call ptr @strerror(i32 noundef %.sink17) #8
+  %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.sink, ptr noundef nonnull @.str.2, ptr noundef nonnull %.0, ptr noundef %23) #10
+  br label %25
 
-24:                                               ; preds = %.sink.split, %13
-  %.010 = phi i32 [ 0, %13 ], [ -1, %.sink.split ]
+25:                                               ; preds = %.sink.split, %14
+  %.010 = phi i32 [ 0, %14 ], [ -1, %.sink.split ]
   ret i32 %.010
 }
 

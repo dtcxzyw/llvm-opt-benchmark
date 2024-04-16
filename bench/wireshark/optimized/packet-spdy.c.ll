@@ -1425,7 +1425,7 @@ spdy_save_header_block.exit.i:                    ; preds = %405, %402
   %.0.i204.i = phi ptr [ %.0188256.i, %510 ], [ %521, %519 ]
   %513 = load i8, ptr %.0.i204.i, align 1
   switch i8 %513, label %514 [
-    i8 0, label %spdy_parse_content_type.exit.i
+    i8 0, label %.loopexit.i.i
     i8 59, label %.loopexit26.i.i
   ]
 
@@ -1445,7 +1445,7 @@ spdy_save_header_block.exit.i:                    ; preds = %405, %402
 
 .critedge.i.i:                                    ; preds = %514
   %522 = icmp eq i8 %513, 0
-  br i1 %522, label %spdy_parse_content_type.exit.i, label %.loopexit26.i.i
+  br i1 %522, label %.loopexit.i.i, label %.loopexit26.i.i
 
 .loopexit26.i.i:                                  ; preds = %512, %.critedge.i.i
   store i8 0, ptr %.0.i204.i, align 1
@@ -1471,11 +1471,13 @@ spdy_save_header_block.exit.i:                    ; preds = %405, %402
 
 530:                                              ; preds = %525
   %.not25.i.i = icmp eq i8 %523, 0
-  %spec.select.i.i = select i1 %.not25.i.i, ptr null, ptr %.1.i.i
+  br i1 %.not25.i.i, label %.loopexit.i.i, label %spdy_parse_content_type.exit.i
+
+.loopexit.i.i:                                    ; preds = %512, %530, %.critedge.i.i
   br label %spdy_parse_content_type.exit.i
 
-spdy_parse_content_type.exit.i:                   ; preds = %512, %530, %.critedge.i.i
-  %.018.i.i = phi ptr [ null, %.critedge.i.i ], [ %spec.select.i.i, %530 ], [ null, %512 ]
+spdy_parse_content_type.exit.i:                   ; preds = %.loopexit.i.i, %530
+  %.018.i.i = phi ptr [ null, %.loopexit.i.i ], [ %.1.i.i, %530 ]
   %531 = icmp ne ptr %.0182246337.i, null
   %532 = zext i1 %531 to i32
   %533 = getelementptr inbounds i8, ptr %.0.i, i64 24

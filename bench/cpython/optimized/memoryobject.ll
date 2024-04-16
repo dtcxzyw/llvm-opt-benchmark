@@ -1129,14 +1129,18 @@ entry:
   %obj = getelementptr inbounds i8, ptr %_self, i64 40
   %0 = load ptr, ptr %obj, align 8
   %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %return, label %if.then
+  br i1 %tobool.not, label %do.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %call = tail call i32 %visit(ptr noundef nonnull %0, ptr noundef %arg) #11
+  %tobool3.not = icmp eq i32 %call, 0
+  br i1 %tobool3.not, label %do.end, label %return
+
+do.end:                                           ; preds = %entry, %if.then
   br label %return
 
-return:                                           ; preds = %if.then, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ %call, %if.then ]
+return:                                           ; preds = %if.then, %do.end
+  %retval.0 = phi i32 [ 0, %do.end ], [ %call, %if.then ]
   ret i32 %retval.0
 }
 
@@ -1375,28 +1379,30 @@ sw.bb2.i:                                         ; preds = %init_suboffsets.exi
   %25 = load ptr, ptr %shape.i, align 8
   %26 = load i64, ptr %25, align 8
   %cmp.i19 = icmp eq i64 %26, 1
-  br i1 %cmp.i19, label %init_flags.exit, label %lor.lhs.false.i
+  br i1 %cmp.i19, label %if.then.i23, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %sw.bb2.i
   %27 = load ptr, ptr %strides.i, align 8
   %28 = load i64, ptr %27, align 8
   %29 = load i64, ptr %itemsize4.i, align 8
   %cmp4.i = icmp eq i64 %28, %29
-  %spec.select14.i = select i1 %cmp4.i, i32 6, i32 0
+  br i1 %cmp4.i, label %if.then.i23, label %init_flags.exit
+
+if.then.i23:                                      ; preds = %lor.lhs.false.i, %sw.bb2.i
   br label %init_flags.exit
 
 sw.default.i:                                     ; preds = %init_suboffsets.exit
-  %call.i23 = tail call i32 @PyBuffer_IsContiguous(ptr noundef nonnull %view, i8 noundef signext 67) #11
-  %tobool.not.i24 = icmp eq i32 %call.i23, 0
-  %spec.select.i25 = select i1 %tobool.not.i24, i32 0, i32 2
+  %call.i24 = tail call i32 @PyBuffer_IsContiguous(ptr noundef nonnull %view, i8 noundef signext 67) #11
+  %tobool.not.i25 = icmp eq i32 %call.i24, 0
+  %spec.select.i26 = select i1 %tobool.not.i25, i32 0, i32 2
   %call9.i = tail call i32 @PyBuffer_IsContiguous(ptr noundef nonnull %view, i8 noundef signext 70) #11
   %tobool10.not.i = icmp eq i32 %call9.i, 0
-  %or12.i = or disjoint i32 %spec.select.i25, 4
-  %spec.select15.i = select i1 %tobool10.not.i, i32 %spec.select.i25, i32 %or12.i
+  %or12.i = or disjoint i32 %spec.select.i26, 4
+  %spec.select14.i = select i1 %tobool10.not.i, i32 %spec.select.i26, i32 %or12.i
   br label %init_flags.exit
 
-init_flags.exit:                                  ; preds = %init_suboffsets.exit, %sw.bb2.i, %lor.lhs.false.i, %sw.default.i
-  %flags.1.i = phi i32 [ 14, %init_suboffsets.exit ], [ 6, %sw.bb2.i ], [ %spec.select14.i, %lor.lhs.false.i ], [ %spec.select15.i, %sw.default.i ]
+init_flags.exit:                                  ; preds = %init_suboffsets.exit, %lor.lhs.false.i, %if.then.i23, %sw.default.i
+  %flags.1.i = phi i32 [ 6, %if.then.i23 ], [ 0, %lor.lhs.false.i ], [ 14, %init_suboffsets.exit ], [ %spec.select14.i, %sw.default.i ]
   %30 = load ptr, ptr %suboffsets.i, align 8
   %tobool14.not.i = icmp eq ptr %30, null
   %or16.i = and i32 %flags.1.i, -23
@@ -1917,8 +1923,8 @@ if.end12.i:                                       ; preds = %Py_DECREF.exit39.i
   %itemsize13.i = getelementptr inbounds i8, ptr %call9.i, i64 80
   store i64 %28, ptr %itemsize13.i, align 8
   %29 = load i32, ptr %ndim.i, align 4
-  %cmp1567.i = icmp sgt i32 %29, 0
-  br i1 %cmp1567.i, label %for.body.lr.ph.i, label %for.end.i
+  %cmp1568.i = icmp sgt i32 %29, 0
+  br i1 %cmp1568.i, label %for.body.lr.ph.i, label %for.end.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end12.i
   %shape.i = getelementptr inbounds i8, ptr %call.i, i64 104
@@ -2031,32 +2037,34 @@ sw.bb2.i.i:                                       ; preds = %if.end25.i
   %51 = load ptr, ptr %shape.i59.i, align 8
   %52 = load i64, ptr %51, align 8
   %cmp.i60.i = icmp eq i64 %52, 1
-  br i1 %cmp.i60.i, label %init_flags.exit.thread.i, label %lor.lhs.false.i.i
+  br i1 %cmp.i60.i, label %if.then.i63.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %sw.bb2.i.i
   %53 = load ptr, ptr %strides.i.i, align 8
   %54 = load i64, ptr %53, align 8
   %55 = load i64, ptr %itemsize13.i, align 8
   %cmp4.i.i = icmp eq i64 %54, %55
-  %spec.select14.i.i = select i1 %cmp4.i.i, i32 6, i32 0
+  br i1 %cmp4.i.i, label %if.then.i63.i, label %init_flags.exit.thread.i
+
+if.then.i63.i:                                    ; preds = %lor.lhs.false.i.i, %sw.bb2.i.i
   br label %init_flags.exit.thread.i
 
 init_flags.exit.i:                                ; preds = %if.end25.i
-  %call.i63.i = tail call i32 @PyBuffer_IsContiguous(ptr noundef nonnull %view.i, i8 noundef signext 67) #11
-  %tobool.not.i.i = icmp eq i32 %call.i63.i, 0
+  %call.i64.i = tail call i32 @PyBuffer_IsContiguous(ptr noundef nonnull %view.i, i8 noundef signext 67) #11
+  %tobool.not.i.i = icmp eq i32 %call.i64.i, 0
   %spec.select.i.i = select i1 %tobool.not.i.i, i32 0, i32 2
   %call9.i.i = tail call i32 @PyBuffer_IsContiguous(ptr noundef nonnull %view.i, i8 noundef signext 70) #11
   %tobool10.not.i.i = icmp eq i32 %call9.i.i, 0
   %or12.i.i = or disjoint i32 %spec.select.i.i, 4
-  %spec.select15.i.i = select i1 %tobool10.not.i.i, i32 %spec.select.i.i, i32 %or12.i.i
-  %.pre71.i = load ptr, ptr %suboffsets.i, align 8
-  %.pre71.fr.i = freeze ptr %.pre71.i
-  %56 = icmp eq ptr %.pre71.fr.i, null
-  %spec.select.i = select i1 %56, i32 %spec.select15.i.i, i32 16
+  %spec.select14.i.i = select i1 %tobool10.not.i.i, i32 %spec.select.i.i, i32 %or12.i.i
+  %.pre72.i = load ptr, ptr %suboffsets.i, align 8
+  %.pre72.fr.i = freeze ptr %.pre72.i
+  %56 = icmp eq ptr %.pre72.fr.i, null
+  %spec.select.i = select i1 %56, i32 %spec.select14.i.i, i32 16
   br label %init_flags.exit.thread.i
 
-init_flags.exit.thread.i:                         ; preds = %init_flags.exit.i, %lor.lhs.false.i.i, %sw.bb2.i.i, %if.end25.i
-  %57 = phi i32 [ %spec.select14.i.i, %lor.lhs.false.i.i ], [ 6, %sw.bb2.i.i ], [ 14, %if.end25.i ], [ %spec.select.i, %init_flags.exit.i ]
+init_flags.exit.thread.i:                         ; preds = %init_flags.exit.i, %if.then.i63.i, %lor.lhs.false.i.i, %if.end25.i
+  %57 = phi i32 [ 14, %if.end25.i ], [ 0, %lor.lhs.false.i.i ], [ 6, %if.then.i63.i ], [ %spec.select.i, %init_flags.exit.i ]
   %flags18.i.i = getelementptr inbounds i8, ptr %call9.i, i64 40
   store i32 %57, ptr %flags18.i.i, align 8
   %call26.i = tail call fastcc i32 @copy_buffer(ptr noundef nonnull %view.i, ptr noundef nonnull %view1), !range !10
@@ -2531,14 +2539,18 @@ entry:
   %it_seq = getelementptr inbounds i8, ptr %self, i64 24
   %0 = load ptr, ptr %it_seq, align 8
   %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %return, label %if.then
+  br i1 %tobool.not, label %do.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %call = tail call i32 %visit(ptr noundef nonnull %0, ptr noundef %arg) #11
+  %tobool2.not = icmp eq i32 %call, 0
+  br i1 %tobool2.not, label %do.end, label %return
+
+do.end:                                           ; preds = %entry, %if.then
   br label %return
 
-return:                                           ; preds = %if.then, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ %call, %if.then ]
+return:                                           ; preds = %if.then, %do.end
+  %retval.0 = phi i32 [ 0, %do.end ], [ %call, %if.then ]
   ret i32 %retval.0
 }
 
@@ -2839,14 +2851,18 @@ entry:
   %mbuf = getelementptr inbounds i8, ptr %_self, i64 24
   %0 = load ptr, ptr %mbuf, align 8
   %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %return, label %if.then
+  br i1 %tobool.not, label %do.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %call = tail call i32 %visit(ptr noundef nonnull %0, ptr noundef %arg) #11
+  %tobool2.not = icmp eq i32 %call, 0
+  br i1 %tobool2.not, label %do.end, label %return
+
+do.end:                                           ; preds = %entry, %if.then
   br label %return
 
-return:                                           ; preds = %if.then, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ %call, %if.then ]
+return:                                           ; preds = %if.then, %do.end
+  %retval.0 = phi i32 [ 0, %do.end ], [ %call, %if.then ]
   ret i32 %retval.0
 }
 
@@ -3465,7 +3481,7 @@ sw.bb2:                                           ; preds = %entry
   %1 = load ptr, ptr %shape, align 8
   %2 = load i64, ptr %1, align 8
   %cmp = icmp eq i64 %2, 1
-  br i1 %cmp, label %sw.epilog, label %lor.lhs.false
+  br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %sw.bb2
   %strides = getelementptr inbounds i8, ptr %mv, i64 112
@@ -3474,7 +3490,9 @@ lor.lhs.false:                                    ; preds = %sw.bb2
   %itemsize = getelementptr inbounds i8, ptr %mv, i64 80
   %5 = load i64, ptr %itemsize, align 8
   %cmp4 = icmp eq i64 %4, %5
-  %spec.select14 = select i1 %cmp4, i32 6, i32 0
+  br i1 %cmp4, label %if.then, label %sw.epilog
+
+if.then:                                          ; preds = %lor.lhs.false, %sw.bb2
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry
@@ -3485,11 +3503,11 @@ sw.default:                                       ; preds = %entry
   %call9 = tail call i32 @PyBuffer_IsContiguous(ptr noundef nonnull %view1, i8 noundef signext 70) #11
   %tobool10.not = icmp eq i32 %call9, 0
   %or12 = or disjoint i32 %spec.select, 4
-  %spec.select15 = select i1 %tobool10.not, i32 %spec.select, i32 %or12
+  %spec.select14 = select i1 %tobool10.not, i32 %spec.select, i32 %or12
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.default, %lor.lhs.false, %sw.bb2, %entry
-  %flags.1 = phi i32 [ 14, %entry ], [ 6, %sw.bb2 ], [ %spec.select14, %lor.lhs.false ], [ %spec.select15, %sw.default ]
+sw.epilog:                                        ; preds = %sw.default, %entry, %lor.lhs.false, %if.then
+  %flags.1 = phi i32 [ 6, %if.then ], [ 0, %lor.lhs.false ], [ 14, %entry ], [ %spec.select14, %sw.default ]
   %suboffsets = getelementptr inbounds i8, ptr %mv, i64 120
   %6 = load ptr, ptr %suboffsets, align 8
   %tobool14.not = icmp eq ptr %6, null
@@ -8530,13 +8548,15 @@ sw.bb2.i:                                         ; preds = %if.end42
   %14 = load ptr, ptr %shape, align 8
   %15 = load i64, ptr %14, align 8
   %cmp.i26 = icmp eq i64 %15, 1
-  br i1 %cmp.i26, label %init_flags.exit.thread, label %lor.lhs.false.i27
+  br i1 %cmp.i26, label %if.then.i, label %lor.lhs.false.i27
 
 lor.lhs.false.i27:                                ; preds = %sw.bb2.i
   %16 = load ptr, ptr %strides, align 8
   %17 = load i64, ptr %16, align 8
   %cmp4.i28 = icmp eq i64 %17, %11
-  %spec.select14.i = select i1 %cmp4.i28, i32 6, i32 0
+  br i1 %cmp4.i28, label %if.then.i, label %init_flags.exit.thread
+
+if.then.i:                                        ; preds = %lor.lhs.false.i27, %sw.bb2.i
   br label %init_flags.exit.thread
 
 init_flags.exit:                                  ; preds = %if.end42
@@ -8547,15 +8567,15 @@ init_flags.exit:                                  ; preds = %if.end42
   %call9.i = tail call i32 @PyBuffer_IsContiguous(ptr noundef nonnull %view1.i, i8 noundef signext 70) #11
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   %or12.i = or disjoint i32 %spec.select.i29, 4
-  %spec.select15.i = select i1 %tobool10.not.i, i32 %spec.select.i29, i32 %or12.i
+  %spec.select14.i = select i1 %tobool10.not.i, i32 %spec.select.i29, i32 %or12.i
   %.pre = load ptr, ptr %suboffsets, align 8
   %.pre.fr = freeze ptr %.pre
   %18 = icmp eq ptr %.pre.fr, null
-  %spec.select = select i1 %18, i32 %spec.select15.i, i32 16
+  %spec.select = select i1 %18, i32 %spec.select14.i, i32 16
   br label %init_flags.exit.thread
 
-init_flags.exit.thread:                           ; preds = %init_flags.exit, %lor.lhs.false.i27, %sw.bb2.i, %if.end42
-  %19 = phi i32 [ %spec.select14.i, %lor.lhs.false.i27 ], [ 6, %sw.bb2.i ], [ 14, %if.end42 ], [ %spec.select, %init_flags.exit ]
+init_flags.exit.thread:                           ; preds = %init_flags.exit, %if.end42, %lor.lhs.false.i27, %if.then.i
+  %19 = phi i32 [ 14, %if.end42 ], [ 0, %lor.lhs.false.i27 ], [ 6, %if.then.i ], [ %spec.select, %init_flags.exit ]
   %flags18.i = getelementptr inbounds i8, ptr %mv, i64 40
   store i32 %19, ptr %flags18.i, align 8
   br label %out
@@ -8746,7 +8766,7 @@ sw.bb2.i:                                         ; preds = %if.end15
   %24 = load ptr, ptr %shape.i17, align 8
   %25 = load i64, ptr %24, align 8
   %cmp.i = icmp eq i64 %25, 1
-  br i1 %cmp.i, label %init_flags.exit, label %lor.lhs.false.i
+  br i1 %cmp.i, label %if.then.i20, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %sw.bb2.i
   %strides.i18 = getelementptr inbounds i8, ptr %mv, i64 112
@@ -8755,21 +8775,23 @@ lor.lhs.false.i:                                  ; preds = %sw.bb2.i
   %itemsize.i19 = getelementptr inbounds i8, ptr %mv, i64 80
   %28 = load i64, ptr %itemsize.i19, align 8
   %cmp4.i = icmp eq i64 %27, %28
-  %spec.select14.i = select i1 %cmp4.i, i32 6, i32 0
+  br i1 %cmp4.i, label %if.then.i20, label %init_flags.exit
+
+if.then.i20:                                      ; preds = %lor.lhs.false.i, %sw.bb2.i
   br label %init_flags.exit
 
 sw.default.i:                                     ; preds = %if.end15
   %call.i = tail call i32 @PyBuffer_IsContiguous(ptr noundef nonnull %view1, i8 noundef signext 67) #11
-  %tobool.not.i20 = icmp eq i32 %call.i, 0
-  %spec.select.i = select i1 %tobool.not.i20, i32 0, i32 2
-  %call9.i21 = tail call i32 @PyBuffer_IsContiguous(ptr noundef nonnull %view1, i8 noundef signext 70) #11
-  %tobool10.not.i22 = icmp eq i32 %call9.i21, 0
+  %tobool.not.i21 = icmp eq i32 %call.i, 0
+  %spec.select.i = select i1 %tobool.not.i21, i32 0, i32 2
+  %call9.i22 = tail call i32 @PyBuffer_IsContiguous(ptr noundef nonnull %view1, i8 noundef signext 70) #11
+  %tobool10.not.i23 = icmp eq i32 %call9.i22, 0
   %or12.i = or disjoint i32 %spec.select.i, 4
-  %spec.select15.i = select i1 %tobool10.not.i22, i32 %spec.select.i, i32 %or12.i
+  %spec.select14.i = select i1 %tobool10.not.i23, i32 %spec.select.i, i32 %or12.i
   br label %init_flags.exit
 
-init_flags.exit:                                  ; preds = %if.end15, %sw.bb2.i, %lor.lhs.false.i, %sw.default.i
-  %flags.1.i = phi i32 [ 14, %if.end15 ], [ 6, %sw.bb2.i ], [ %spec.select14.i, %lor.lhs.false.i ], [ %spec.select15.i, %sw.default.i ]
+init_flags.exit:                                  ; preds = %if.end15, %lor.lhs.false.i, %if.then.i20, %sw.default.i
+  %flags.1.i = phi i32 [ 6, %if.then.i20 ], [ 0, %lor.lhs.false.i ], [ 14, %if.end15 ], [ %spec.select14.i, %sw.default.i ]
   %suboffsets.i = getelementptr inbounds i8, ptr %mv, i64 120
   %29 = load ptr, ptr %suboffsets.i, align 8
   %tobool14.not.i = icmp eq ptr %29, null

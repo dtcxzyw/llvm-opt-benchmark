@@ -1636,11 +1636,7 @@ invoke.cont46:                                    ; preds = %invoke.cont41
 
 if.then49:                                        ; preds = %invoke.cont46
   %call51 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %result, ptr noundef nonnull align 8 dereferenceable(64) %resString)
-          to label %cleanup147.thread105 unwind label %lpad42
-
-cleanup147.thread105:                             ; preds = %if.then49
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %resString) #18
-  br label %cleanup154
+          to label %cleanup147.thread unwind label %lpad42
 
 lpad18:                                           ; preds = %invoke.cont21, %invoke.cont19, %invoke.cont17, %if.end151, %invoke.cont38, %if.then31, %invoke.cont27
   %26 = landingpad { ptr, i32 }
@@ -1662,7 +1658,7 @@ invoke.cont53:                                    ; preds = %if.end52
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #18
   %28 = load i32, ptr %status, align 4
   %cmp.i65 = icmp sgt i32 %28, 0
-  br i1 %cmp.i65, label %cleanup147.thread, label %invoke.cont59
+  br i1 %cmp.i65, label %cleanup147, label %invoke.cont59
 
 invoke.cont59:                                    ; preds = %invoke.cont53
   %fUnion.i.i67 = getelementptr inbounds i8, ptr %resString, i64 8
@@ -1674,7 +1670,7 @@ invoke.cont59:                                    ; preds = %invoke.cont53
   %31 = load i32, ptr %fLength.i70, align 4
   %cond.i71 = select i1 %cmp.i.i68, i32 %31, i32 %shr.i.i69
   %cmp61.not = icmp eq i32 %cond.i71, 0
-  br i1 %cmp61.not, label %cleanup147.thread, label %if.then62
+  br i1 %cmp61.not, label %cleanup147, label %if.then62
 
 if.then62:                                        ; preds = %invoke.cont59
   invoke void @_ZN6icu_7513MessageFormatC1ERKNS_13UnicodeStringERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(816) %msg, ptr noundef nonnull align 8 dereferenceable(64) %resString, ptr noundef nonnull align 8 dereferenceable(217) %inLocale, ptr noundef nonnull align 4 dereferenceable(4) %status)
@@ -1855,7 +1851,11 @@ arraydestroy.body132:                             ; preds = %arraydestroy.body13
   %arraydestroy.element134 = getelementptr inbounds i8, ptr %arraydestroy.elementPast133, i64 -112
   call void @_ZN6icu_7511FormattableD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %arraydestroy.element134) #18
   %arraydestroy.done135 = icmp eq ptr %arraydestroy.element134, %args
-  br i1 %arraydestroy.done135, label %cleanup147, label %arraydestroy.body132
+  br i1 %arraydestroy.done135, label %arraydestroy.done136, label %arraydestroy.body132
+
+arraydestroy.done136:                             ; preds = %arraydestroy.body132
+  call void @_ZN6icu_7513MessageFormatD1Ev(ptr noundef nonnull align 8 dereferenceable(816) %msg) #18
+  br i1 %cmp.i94, label %cleanup147, label %cleanup147.thread
 
 ehcleanup:                                        ; preds = %lpad119, %lpad112, %lpad78
   %.pn = phi { ptr, i32 } [ %41, %lpad112 ], [ %40, %lpad78 ], [ %46, %lpad119 ]
@@ -1878,26 +1878,26 @@ ehcleanup145:                                     ; preds = %arraydestroy.body, 
   call void @_ZN6icu_7513MessageFormatD1Ev(ptr noundef nonnull align 8 dereferenceable(816) %msg) #18
   br label %ehcleanup150
 
-cleanup147.thread:                                ; preds = %invoke.cont59, %invoke.cont53
+cleanup147.thread:                                ; preds = %arraydestroy.done136, %if.then49
+  %retval.2.ph = phi ptr [ %call51, %if.then49 ], [ %result, %arraydestroy.done136 ]
+  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %resString) #18
+  br label %cleanup154
+
+cleanup147:                                       ; preds = %invoke.cont53, %invoke.cont59, %arraydestroy.done136
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %resString) #18
   br label %if.end151
-
-cleanup147:                                       ; preds = %arraydestroy.body132
-  call void @_ZN6icu_7513MessageFormatD1Ev(ptr noundef nonnull align 8 dereferenceable(816) %msg) #18
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %resString) #18
-  br i1 %cmp.i94, label %if.end151, label %cleanup154
 
 ehcleanup150:                                     ; preds = %ehcleanup145, %lpad42
   %.pn22 = phi { ptr, i32 } [ %27, %lpad42 ], [ %.pn.pn.pn, %ehcleanup145 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %resString) #18
   br label %ehcleanup155
 
-if.end151:                                        ; preds = %cleanup147.thread, %cleanup147, %invoke.cont29
+if.end151:                                        ; preds = %cleanup147, %invoke.cont29
   %call153 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %result, ptr noundef nonnull align 8 dereferenceable(64) %ID)
           to label %cleanup154 unwind label %lpad18
 
-cleanup154:                                       ; preds = %cleanup147.thread105, %if.end151, %cleanup147
-  %retval.3 = phi ptr [ %result, %cleanup147 ], [ %result, %if.end151 ], [ %call51, %cleanup147.thread105 ]
+cleanup154:                                       ; preds = %cleanup147.thread, %if.end151
+  %retval.3 = phi ptr [ %result, %if.end151 ], [ %retval.2.ph, %cleanup147.thread ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ID) #18
   br label %cleanup156
 

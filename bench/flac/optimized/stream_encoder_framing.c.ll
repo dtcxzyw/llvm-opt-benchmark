@@ -1002,7 +1002,7 @@ declare i32 @FLAC__bitwriter_write_unary_unsigned(ptr noundef, i32 noundef) loca
 declare i32 @FLAC__bitwriter_write_raw_int64(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i32 @FLAC__subframe_add_fixed(ptr nocapture noundef readonly %subframe, i32 noundef %residual_samples, i32 noundef %subframe_bps, i32 noundef %wasted_bits, ptr noundef %bw) local_unnamed_addr #0 {
+define hidden noundef i32 @FLAC__subframe_add_fixed(ptr nocapture noundef readonly %subframe, i32 noundef %residual_samples, i32 noundef %subframe_bps, i32 noundef %wasted_bits, ptr noundef %bw) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr @FLAC__SUBFRAME_TYPE_FIXED_BYTE_ALIGNED_MASK, align 4
   %order = getelementptr inbounds i8, ptr %subframe, i64 24
@@ -1032,8 +1032,8 @@ if.then5:                                         ; preds = %if.end
 
 if.end10:                                         ; preds = %if.then5, %if.end
   %5 = load i32, ptr %order, align 8
-  %cmp25.not = icmp eq i32 %5, 0
-  br i1 %cmp25.not, label %for.end, label %for.body.lr.ph
+  %cmp22.not = icmp eq i32 %5, 0
+  br i1 %cmp22.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end10
   %warmup = getelementptr inbounds i8, ptr %subframe, i64 32
@@ -1064,20 +1064,20 @@ for.end:                                          ; preds = %for.cond, %if.end10
 if.end.i:                                         ; preds = %for.end
   %11 = load i32, ptr %subframe, align 8
   %switch.i = icmp ult i32 %11, 2
-  br i1 %switch.i, label %add_entropy_coding_method_.exit, label %return
+  br i1 %switch.i, label %sw.bb.i, label %sw.epilog
 
-add_entropy_coding_method_.exit:                  ; preds = %if.end.i
+sw.bb.i:                                          ; preds = %if.end.i
   %data.i = getelementptr inbounds i8, ptr %subframe, i64 8
   %12 = load i32, ptr %data.i, align 8
   %13 = load i32, ptr @FLAC__ENTROPY_CODING_METHOD_PARTITIONED_RICE_ORDER_LEN, align 4
   %call2.i = tail call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %bw, i32 noundef %12, i32 noundef %13) #5
-  %tobool3.not.i.not = icmp eq i32 %call2.i, 0
-  br i1 %tobool3.not.i.not, label %return, label %if.end19
+  %tobool3.not.i = icmp eq i32 %call2.i, 0
+  br i1 %tobool3.not.i, label %return, label %if.end19
 
-if.end19:                                         ; preds = %add_entropy_coding_method_.exit
+if.end19:                                         ; preds = %sw.bb.i
   %.pr = load i32, ptr %subframe, align 8
   %switch = icmp ult i32 %.pr, 2
-  br i1 %switch, label %sw.bb, label %return
+  br i1 %switch, label %sw.bb, label %sw.epilog
 
 sw.bb:                                            ; preds = %if.end19
   %residual = getelementptr inbounds i8, ptr %subframe, i64 64
@@ -1092,15 +1092,19 @@ sw.bb:                                            ; preds = %if.end19
   %cmp31 = icmp eq i32 %.pr, 1
   %conv = zext i1 %cmp31 to i32
   %call32 = tail call fastcc i32 @add_residual_partitioned_rice_(ptr noundef %bw, ptr noundef %14, i32 noundef %residual_samples, i32 noundef %15, ptr noundef %17, ptr noundef %18, i32 noundef %19, i32 noundef %conv), !range !10
+  %tobool33.not = icmp eq i32 %call32, 0
+  br i1 %tobool33.not, label %return, label %sw.epilog
+
+sw.epilog:                                        ; preds = %if.end.i, %if.end19, %sw.bb
   br label %return
 
-return:                                           ; preds = %for.body, %if.end.i, %for.end, %sw.bb, %if.end19, %add_entropy_coding_method_.exit, %if.then5, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 0, %if.then5 ], [ 0, %add_entropy_coding_method_.exit ], [ 1, %if.end19 ], [ %call32, %sw.bb ], [ 0, %for.end ], [ 1, %if.end.i ], [ 0, %for.body ]
+return:                                           ; preds = %for.body, %sw.bb.i, %for.end, %sw.bb, %if.then5, %entry, %sw.epilog
+  %retval.0 = phi i32 [ 1, %sw.epilog ], [ 0, %entry ], [ 0, %if.then5 ], [ 0, %sw.bb ], [ 0, %for.end ], [ 0, %sw.bb.i ], [ 0, %for.body ]
   ret i32 %retval.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @add_residual_partitioned_rice_(ptr noundef %bw, ptr noundef %residual, i32 noundef %residual_samples, i32 noundef %predictor_order, ptr nocapture noundef readonly %rice_parameters, ptr nocapture noundef readonly %raw_bits, i32 noundef %partition_order, i32 noundef %is_extended) unnamed_addr #0 {
+define internal fastcc noundef i32 @add_residual_partitioned_rice_(ptr noundef %bw, ptr noundef %residual, i32 noundef %residual_samples, i32 noundef %predictor_order, ptr nocapture noundef readonly %rice_parameters, ptr nocapture noundef readonly %raw_bits, i32 noundef %partition_order, i32 noundef %is_extended) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq i32 %is_extended, 0
   %0 = load i32, ptr @FLAC__ENTROPY_CODING_METHOD_PARTITIONED_RICE2_PARAMETER_LEN, align 4
@@ -1126,9 +1130,8 @@ if.then7:                                         ; preds = %if.then
 if.end:                                           ; preds = %if.then7
   %6 = load i32, ptr %rice_parameters, align 4
   %call12 = tail call i32 @FLAC__bitwriter_write_rice_signed_block(ptr noundef %bw, ptr noundef %residual, i32 noundef %residual_samples, i32 noundef %6) #5
-  %tobool13.not = icmp ne i32 %call12, 0
-  %spec.select48 = zext i1 %tobool13.not to i32
-  br label %return
+  %tobool13.not = icmp eq i32 %call12, 0
+  br i1 %tobool13.not, label %return, label %if.end32
 
 if.else:                                          ; preds = %if.then
   %call16 = tail call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %bw, i32 noundef %cond5, i32 noundef %cond) #5
@@ -1143,26 +1146,29 @@ if.end19:                                         ; preds = %if.else
   br i1 %tobool22.not, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end19
-  %cmp2556.not = icmp eq i32 %residual_samples, 0
-  br i1 %cmp2556.not, label %return, label %for.body.preheader
+  %cmp2554.not = icmp eq i32 %residual_samples, 0
+  br i1 %cmp2554.not, label %if.end32, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %for.cond.preheader
   %wide.trip.count = zext i32 %residual_samples to i64
   br label %for.body
 
 for.cond:                                         ; preds = %for.body
-  %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
-  %exitcond66.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count
-  br i1 %exitcond66.not, label %return, label %for.body, !llvm.loop !11
+  %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
+  %exitcond62.not = icmp eq i64 %indvars.iv.next60, %wide.trip.count
+  br i1 %exitcond62.not, label %if.end32, label %for.body, !llvm.loop !11
 
 for.body:                                         ; preds = %for.body.preheader, %for.cond
-  %indvars.iv63 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next64, %for.cond ]
-  %arrayidx26 = getelementptr inbounds i32, ptr %residual, i64 %indvars.iv63
+  %indvars.iv59 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next60, %for.cond ]
+  %arrayidx26 = getelementptr inbounds i32, ptr %residual, i64 %indvars.iv59
   %9 = load i32, ptr %arrayidx26, align 4
   %10 = load i32, ptr %raw_bits, align 4
   %call28 = tail call i32 @FLAC__bitwriter_write_raw_int32(ptr noundef %bw, i32 noundef %9, i32 noundef %10) #5
   %tobool29.not = icmp eq i32 %call28, 0
   br i1 %tobool29.not, label %return, label %for.cond
+
+if.end32:                                         ; preds = %for.cond, %for.cond.preheader, %if.end
+  br label %return
 
 if.else33:                                        ; preds = %entry
   %add = add i32 %predictor_order, %residual_samples
@@ -1171,13 +1177,13 @@ if.else33:                                        ; preds = %entry
   br label %for.body37
 
 for.body37:                                       ; preds = %if.else33, %if.end84
-  %k_last.055 = phi i32 [ 0, %if.else33 ], [ %add41, %if.end84 ]
-  %i34.054 = phi i32 [ 0, %if.else33 ], [ %inc86, %if.end84 ]
-  %cmp38 = icmp eq i32 %i34.054, 0
+  %k_last.053 = phi i32 [ 0, %if.else33 ], [ %add41, %if.end84 ]
+  %i34.052 = phi i32 [ 0, %if.else33 ], [ %inc86, %if.end84 ]
+  %cmp38 = icmp eq i32 %i34.052, 0
   %sub = select i1 %cmp38, i32 %predictor_order, i32 0
   %spec.select = sub i32 %shr, %sub
-  %add41 = add i32 %spec.select, %k_last.055
-  %idxprom42 = zext i32 %i34.054 to i64
+  %add41 = add i32 %spec.select, %k_last.053
+  %idxprom42 = zext i32 %i34.052 to i64
   %arrayidx43 = getelementptr inbounds i32, ptr %raw_bits, i64 %idxprom42
   %12 = load i32, ptr %arrayidx43, align 4
   %cmp44 = icmp eq i32 %12, 0
@@ -1191,7 +1197,7 @@ if.then45:                                        ; preds = %for.body37
   br i1 %tobool49.not, label %return, label %if.end51
 
 if.end51:                                         ; preds = %if.then45
-  %idx.ext = zext i32 %k_last.055 to i64
+  %idx.ext = zext i32 %k_last.053 to i64
   %add.ptr = getelementptr inbounds i32, ptr %residual, i64 %idx.ext
   %14 = load i32, ptr %arrayidx47, align 4
   %call55 = tail call i32 @FLAC__bitwriter_write_rice_signed_block(ptr noundef %bw, ptr noundef %add.ptr, i32 noundef %spec.select, i32 noundef %14) #5
@@ -1210,11 +1216,11 @@ if.end63:                                         ; preds = %if.else59
   br i1 %tobool67.not, label %return, label %for.cond70.preheader
 
 for.cond70.preheader:                             ; preds = %if.end63
-  %cmp7152 = icmp ult i32 %k_last.055, %add41
-  br i1 %cmp7152, label %for.body72.preheader, label %if.end84
+  %cmp7150 = icmp ult i32 %k_last.053, %add41
+  br i1 %cmp7150, label %for.body72.preheader, label %if.end84
 
 for.body72.preheader:                             ; preds = %for.cond70.preheader
-  %16 = zext i32 %k_last.055 to i64
+  %16 = zext i32 %k_last.053 to i64
   br label %for.body72
 
 for.cond70:                                       ; preds = %for.body72
@@ -1233,18 +1239,18 @@ for.body72:                                       ; preds = %for.body72.preheade
   br i1 %tobool78.not, label %return, label %for.cond70
 
 if.end84:                                         ; preds = %for.cond70, %for.cond70.preheader, %if.end51
-  %inc86 = add i32 %i34.054, 1
+  %inc86 = add i32 %i34.052, 1
   %i34.0.highbits = lshr i32 %inc86, %partition_order
   %cmp36 = icmp eq i32 %i34.0.highbits, 0
   br i1 %cmp36, label %for.body37, label %return, !llvm.loop !13
 
-return:                                           ; preds = %if.end84, %if.end63, %if.else59, %if.end51, %if.then45, %for.body72, %for.body, %for.cond, %for.cond.preheader, %if.end, %if.end19, %if.else, %if.then7
-  %retval.0 = phi i32 [ 0, %if.then7 ], [ 0, %if.else ], [ 0, %if.end19 ], [ %spec.select48, %if.end ], [ 1, %for.cond.preheader ], [ 0, %for.body ], [ 1, %for.cond ], [ 0, %for.body72 ], [ 1, %if.end84 ], [ 0, %if.end63 ], [ 0, %if.else59 ], [ 0, %if.end51 ], [ 0, %if.then45 ]
+return:                                           ; preds = %if.end84, %if.end63, %if.else59, %if.end51, %if.then45, %for.body72, %for.body, %if.end19, %if.else, %if.end, %if.then7, %if.end32
+  %retval.0 = phi i32 [ 1, %if.end32 ], [ 0, %if.then7 ], [ 0, %if.end ], [ 0, %if.else ], [ 0, %if.end19 ], [ 0, %for.body ], [ 0, %for.body72 ], [ 1, %if.end84 ], [ 0, %if.end63 ], [ 0, %if.else59 ], [ 0, %if.end51 ], [ 0, %if.then45 ]
   ret i32 %retval.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i32 @FLAC__subframe_add_lpc(ptr nocapture noundef readonly %subframe, i32 noundef %residual_samples, i32 noundef %subframe_bps, i32 noundef %wasted_bits, ptr noundef %bw) local_unnamed_addr #0 {
+define hidden noundef i32 @FLAC__subframe_add_lpc(ptr nocapture noundef readonly %subframe, i32 noundef %residual_samples, i32 noundef %subframe_bps, i32 noundef %wasted_bits, ptr noundef %bw) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr @FLAC__SUBFRAME_TYPE_LPC_BYTE_ALIGNED_MASK, align 4
   %order = getelementptr inbounds i8, ptr %subframe, i64 24
@@ -1275,8 +1281,8 @@ if.then5:                                         ; preds = %if.end
 
 if.end11:                                         ; preds = %if.then5, %if.end
   %5 = load i32, ptr %order, align 8
-  %cmp37.not = icmp eq i32 %5, 0
-  br i1 %cmp37.not, label %for.end, label %for.body.lr.ph
+  %cmp34.not = icmp eq i32 %5, 0
+  br i1 %cmp34.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end11
   %warmup = getelementptr inbounds i8, ptr %subframe, i64 168
@@ -1316,23 +1322,23 @@ if.end21:                                         ; preds = %for.end
 
 for.cond26.preheader:                             ; preds = %if.end21
   %13 = load i32, ptr %order, align 8
-  %cmp2839.not = icmp eq i32 %13, 0
-  br i1 %cmp2839.not, label %for.end39, label %for.body29.lr.ph
+  %cmp2836.not = icmp eq i32 %13, 0
+  br i1 %cmp2836.not, label %for.end39, label %for.body29.lr.ph
 
 for.body29.lr.ph:                                 ; preds = %for.cond26.preheader
   %qlp_coeff = getelementptr inbounds i8, ptr %subframe, i64 36
   br label %for.body29
 
 for.cond26:                                       ; preds = %for.body29
-  %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
+  %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %14 = load i32, ptr %order, align 8
   %15 = zext i32 %14 to i64
-  %cmp28 = icmp ult i64 %indvars.iv.next44, %15
+  %cmp28 = icmp ult i64 %indvars.iv.next41, %15
   br i1 %cmp28, label %for.body29, label %for.end39, !llvm.loop !15
 
 for.body29:                                       ; preds = %for.body29.lr.ph, %for.cond26
-  %indvars.iv43 = phi i64 [ 0, %for.body29.lr.ph ], [ %indvars.iv.next44, %for.cond26 ]
-  %arrayidx31 = getelementptr inbounds [32 x i32], ptr %qlp_coeff, i64 0, i64 %indvars.iv43
+  %indvars.iv40 = phi i64 [ 0, %for.body29.lr.ph ], [ %indvars.iv.next41, %for.cond26 ]
+  %arrayidx31 = getelementptr inbounds [32 x i32], ptr %qlp_coeff, i64 0, i64 %indvars.iv40
   %16 = load i32, ptr %arrayidx31, align 4
   %17 = load i32, ptr %qlp_coeff_precision, align 4
   %call33 = tail call i32 @FLAC__bitwriter_write_raw_int32(ptr noundef %bw, i32 noundef %16, i32 noundef %17) #5
@@ -1349,20 +1355,20 @@ for.end39:                                        ; preds = %for.cond26, %for.co
 if.end.i:                                         ; preds = %for.end39
   %20 = load i32, ptr %subframe, align 8
   %switch.i = icmp ult i32 %20, 2
-  br i1 %switch.i, label %add_entropy_coding_method_.exit, label %return
+  br i1 %switch.i, label %sw.bb.i, label %sw.epilog
 
-add_entropy_coding_method_.exit:                  ; preds = %if.end.i
+sw.bb.i:                                          ; preds = %if.end.i
   %data.i = getelementptr inbounds i8, ptr %subframe, i64 8
   %21 = load i32, ptr %data.i, align 8
   %22 = load i32, ptr @FLAC__ENTROPY_CODING_METHOD_PARTITIONED_RICE_ORDER_LEN, align 4
   %call2.i = tail call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %bw, i32 noundef %21, i32 noundef %22) #5
-  %tobool3.not.i.not = icmp eq i32 %call2.i, 0
-  br i1 %tobool3.not.i.not, label %return, label %if.end43
+  %tobool3.not.i = icmp eq i32 %call2.i, 0
+  br i1 %tobool3.not.i, label %return, label %if.end43
 
-if.end43:                                         ; preds = %add_entropy_coding_method_.exit
+if.end43:                                         ; preds = %sw.bb.i
   %.pr = load i32, ptr %subframe, align 8
   %switch = icmp ult i32 %.pr, 2
-  br i1 %switch, label %sw.bb, label %return
+  br i1 %switch, label %sw.bb, label %sw.epilog
 
 sw.bb:                                            ; preds = %if.end43
   %residual = getelementptr inbounds i8, ptr %subframe, i64 424
@@ -1377,10 +1383,14 @@ sw.bb:                                            ; preds = %if.end43
   %cmp55 = icmp eq i32 %.pr, 1
   %conv = zext i1 %cmp55 to i32
   %call56 = tail call fastcc i32 @add_residual_partitioned_rice_(ptr noundef %bw, ptr noundef %23, i32 noundef %residual_samples, i32 noundef %24, ptr noundef %26, ptr noundef %27, i32 noundef %28, i32 noundef %conv), !range !10
+  %tobool57.not = icmp eq i32 %call56, 0
+  br i1 %tobool57.not, label %return, label %sw.epilog
+
+sw.epilog:                                        ; preds = %if.end.i, %if.end43, %sw.bb
   br label %return
 
-return:                                           ; preds = %for.body, %for.body29, %if.end.i, %for.end39, %sw.bb, %if.end43, %add_entropy_coding_method_.exit, %if.end21, %for.end, %if.then5, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 0, %if.then5 ], [ 0, %for.end ], [ 0, %if.end21 ], [ 0, %add_entropy_coding_method_.exit ], [ 1, %if.end43 ], [ %call56, %sw.bb ], [ 0, %for.end39 ], [ 1, %if.end.i ], [ 0, %for.body29 ], [ 0, %for.body ]
+return:                                           ; preds = %for.body, %for.body29, %sw.bb.i, %for.end39, %sw.bb, %if.end21, %for.end, %if.then5, %entry, %sw.epilog
+  %retval.0 = phi i32 [ 1, %sw.epilog ], [ 0, %entry ], [ 0, %if.then5 ], [ 0, %for.end ], [ 0, %if.end21 ], [ 0, %sw.bb ], [ 0, %for.end39 ], [ 0, %sw.bb.i ], [ 0, %for.body29 ], [ 0, %for.body ]
   ret i32 %retval.0
 }
 

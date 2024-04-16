@@ -11650,18 +11650,18 @@ define internal void @plpgsql_param_compile(ptr nocapture noundef readonly %0, p
   %20 = getelementptr inbounds i8, ptr %6, i64 16
   store ptr %4, ptr %20, align 8
   %21 = load i32, ptr %18, align 4
-  switch i32 %21, label %43 [
+  switch i32 %21, label %45 [
     i32 0, label %22
-    i32 3, label %44
-    i32 4, label %31
-    i32 2, label %40
+    i32 3, label %46
+    i32 4, label %32
+    i32 2, label %42
   ]
 
 22:                                               ; preds = %5
   %23 = getelementptr inbounds i8, ptr %10, i64 72
   %24 = load ptr, ptr %23, align 8
   %.not22 = icmp eq ptr %24, %1
-  br i1 %.not22, label %44, label %25
+  br i1 %.not22, label %31, label %25
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds i8, ptr %18, i64 32
@@ -11669,45 +11669,49 @@ define internal void @plpgsql_param_compile(ptr nocapture noundef readonly %0, p
   %28 = getelementptr inbounds i8, ptr %27, i64 16
   %29 = load i16, ptr %28, align 8
   %30 = icmp eq i16 %29, -1
-  %spec.select = select i1 %30, ptr @plpgsql_param_eval_var_ro, ptr @plpgsql_param_eval_var
-  br label %44
+  br i1 %30, label %46, label %31
 
-31:                                               ; preds = %5
-  %32 = getelementptr inbounds i8, ptr %10, i64 72
-  %33 = load ptr, ptr %32, align 8
-  %.not21 = icmp eq ptr %33, %1
-  br i1 %.not21, label %44, label %34
+31:                                               ; preds = %25, %22
+  br label %46
 
-34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %18, i64 32
-  %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 16
-  %38 = load i16, ptr %37, align 8
-  %39 = icmp eq i16 %38, -1
-  %spec.select23 = select i1 %39, ptr @plpgsql_param_eval_generic_ro, ptr @plpgsql_param_eval_generic
-  br label %44
+32:                                               ; preds = %5
+  %33 = getelementptr inbounds i8, ptr %10, i64 72
+  %34 = load ptr, ptr %33, align 8
+  %.not21 = icmp eq ptr %34, %1
+  br i1 %.not21, label %41, label %35
 
-40:                                               ; preds = %5
-  %41 = getelementptr inbounds i8, ptr %10, i64 72
-  %42 = load ptr, ptr %41, align 8
-  %.not = icmp eq ptr %42, %1
-  br i1 %.not, label %43, label %44
+35:                                               ; preds = %32
+  %36 = getelementptr inbounds i8, ptr %18, i64 32
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds i8, ptr %37, i64 16
+  %39 = load i16, ptr %38, align 8
+  %40 = icmp eq i16 %39, -1
+  br i1 %40, label %46, label %41
 
-43:                                               ; preds = %5, %40
-  br label %44
+41:                                               ; preds = %35, %32
+  br label %46
 
-44:                                               ; preds = %34, %25, %40, %31, %5, %22, %43
-  %plpgsql_param_eval_recfield.sink = phi ptr [ @plpgsql_param_eval_generic, %43 ], [ @plpgsql_param_eval_var, %22 ], [ @plpgsql_param_eval_recfield, %5 ], [ @plpgsql_param_eval_generic, %31 ], [ @plpgsql_param_eval_generic_ro, %40 ], [ %spec.select, %25 ], [ %spec.select23, %34 ]
-  %45 = getelementptr inbounds i8, ptr %6, i64 24
-  store ptr %plpgsql_param_eval_recfield.sink, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %6, i64 32
-  store ptr null, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %6, i64 40
-  store i32 %12, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %1, i64 12
-  %49 = load i32, ptr %48, align 4
-  %50 = getelementptr inbounds i8, ptr %6, i64 44
-  store i32 %49, ptr %50, align 4
+42:                                               ; preds = %5
+  %43 = getelementptr inbounds i8, ptr %10, i64 72
+  %44 = load ptr, ptr %43, align 8
+  %.not = icmp eq ptr %44, %1
+  br i1 %.not, label %45, label %46
+
+45:                                               ; preds = %5, %42
+  br label %46
+
+46:                                               ; preds = %42, %35, %5, %25, %45, %41, %31
+  %plpgsql_param_eval_recfield.sink = phi ptr [ @plpgsql_param_eval_generic, %45 ], [ @plpgsql_param_eval_generic, %41 ], [ @plpgsql_param_eval_var, %31 ], [ @plpgsql_param_eval_var_ro, %25 ], [ @plpgsql_param_eval_recfield, %5 ], [ @plpgsql_param_eval_generic_ro, %35 ], [ @plpgsql_param_eval_generic_ro, %42 ]
+  %47 = getelementptr inbounds i8, ptr %6, i64 24
+  store ptr %plpgsql_param_eval_recfield.sink, ptr %47, align 8
+  %48 = getelementptr inbounds i8, ptr %6, i64 32
+  store ptr null, ptr %48, align 8
+  %49 = getelementptr inbounds i8, ptr %6, i64 40
+  store i32 %12, ptr %49, align 8
+  %50 = getelementptr inbounds i8, ptr %1, i64 12
+  %51 = load i32, ptr %50, align 4
+  %52 = getelementptr inbounds i8, ptr %6, i64 44
+  store i32 %51, ptr %52, align 4
   call void @ExprEvalPushStep(ptr noundef %2, ptr noundef nonnull %6) #11
   ret void
 }

@@ -865,7 +865,7 @@ if.else196:                                       ; preds = %if.else148
 
 if.then199:                                       ; preds = %if.else196
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1000, ptr noundef nonnull @__func__.net_init_tap, ptr noundef nonnull @.str.16) #15
-  br label %cleanup
+  br label %return.critedge
 
 if.end200:                                        ; preds = %if.else196
   %tobool201.not = icmp eq ptr %12, null
@@ -980,7 +980,7 @@ if.then22.i:                                      ; preds = %if.then20.i
 
 net_tap_init.exit:                                ; preds = %do.end.i, %land.rhs.i, %if.then22.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %err.i)
-  br label %cleanup
+  br label %return.critedge
 
 if.end231:                                        ; preds = %if.then20.i, %land.lhs.true16.i, %land.lhs.true.i, %if.end11.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %err.i)
@@ -1001,7 +1001,7 @@ if.then240:                                       ; preds = %land.lhs.true237
 if.then244:                                       ; preds = %if.then240
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1027, ptr noundef nonnull @__func__.net_init_tap, ptr noundef nonnull @.str.20) #15
   %call245 = call i32 @close(i32 noundef %call.i) #15
-  br label %cleanup
+  br label %return.critedge
 
 if.end247:                                        ; preds = %if.then240, %land.lhs.true237, %if.end231
   %cond260 = select i1 %cmp220.not, ptr %downscript.0, ptr @.str.19
@@ -1014,18 +1014,22 @@ if.end247:                                        ; preds = %if.then240, %land.l
 if.then262:                                       ; preds = %if.end247
   call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %55) #15
   %call263 = call i32 @close(i32 noundef %call.i) #15
-  br label %cleanup
+  br label %return.critedge
 
-cleanup:                                          ; preds = %for.cond217, %if.end216, %net_tap_init.exit, %if.then262, %if.then244, %if.then199
-  %default_script.1 = phi ptr [ %default_script.0, %net_tap_init.exit ], [ %default_script.0, %if.then262 ], [ %default_script.0, %if.then244 ], [ null, %if.then199 ], [ %default_script.0, %if.end216 ], [ %default_script.0, %for.cond217 ]
-  %default_downscript.1 = phi ptr [ %default_downscript.0, %net_tap_init.exit ], [ %default_downscript.0, %if.then262 ], [ %default_downscript.0, %if.then244 ], [ null, %if.then199 ], [ %default_downscript.0, %if.end216 ], [ %default_downscript.0, %for.cond217 ]
-  %not.switch = phi i32 [ -1, %net_tap_init.exit ], [ -1, %if.then262 ], [ -1, %if.then244 ], [ -1, %if.then199 ], [ 0, %if.end216 ], [ 0, %for.cond217 ]
-  call void @g_free(ptr noundef %default_downscript.1) #15
-  call void @g_free(ptr noundef %default_script.1) #15
+cleanup:                                          ; preds = %for.cond217, %if.end216
+  call void @g_free(ptr noundef %default_downscript.0) #15
+  call void @g_free(ptr noundef %default_script.0) #15
   br label %return
 
-return:                                           ; preds = %cleanup, %if.end53, %if.end190, %if.end170, %if.end37, %if.then193, %if.then188, %if.then183, %if.then169, %for.end147, %if.then83, %if.then55, %if.then51, %if.then45, %if.then36, %if.then10
-  %retval.1 = phi i32 [ -1, %if.then10 ], [ -1, %if.then36 ], [ -1, %if.then51 ], [ -1, %if.then55 ], [ -1, %if.then45 ], [ -1, %if.then83 ], [ %ret.1, %for.end147 ], [ -1, %if.then169 ], [ -1, %if.then188 ], [ -1, %if.then193 ], [ -1, %if.then183 ], [ -1, %if.end37 ], [ -1, %if.end170 ], [ 0, %if.end190 ], [ 0, %if.end53 ], [ %not.switch, %cleanup ]
+return.critedge:                                  ; preds = %if.then199, %if.then244, %if.then262, %net_tap_init.exit
+  %default_script.1.ph = phi ptr [ null, %if.then199 ], [ %default_script.0, %if.then244 ], [ %default_script.0, %if.then262 ], [ %default_script.0, %net_tap_init.exit ]
+  %default_downscript.1.ph = phi ptr [ null, %if.then199 ], [ %default_downscript.0, %if.then244 ], [ %default_downscript.0, %if.then262 ], [ %default_downscript.0, %net_tap_init.exit ]
+  call void @g_free(ptr noundef %default_downscript.1.ph) #15
+  call void @g_free(ptr noundef %default_script.1.ph) #15
+  br label %return
+
+return:                                           ; preds = %if.end53, %if.end190, %cleanup, %return.critedge, %if.end170, %if.end37, %if.then193, %if.then188, %if.then183, %if.then169, %for.end147, %if.then83, %if.then55, %if.then51, %if.then45, %if.then36, %if.then10
+  %retval.1 = phi i32 [ -1, %if.then10 ], [ -1, %if.then36 ], [ -1, %if.then51 ], [ -1, %if.then55 ], [ -1, %if.then45 ], [ -1, %if.then83 ], [ %ret.1, %for.end147 ], [ -1, %if.then169 ], [ -1, %if.then188 ], [ -1, %if.then193 ], [ -1, %if.then183 ], [ -1, %if.end37 ], [ -1, %if.end170 ], [ -1, %return.critedge ], [ 0, %cleanup ], [ 0, %if.end190 ], [ 0, %if.end53 ]
   ret i32 %retval.1
 }
 

@@ -226,8 +226,8 @@ if.end87:                                         ; preds = %land.lhs.true83, %i
   %templates88 = getelementptr inbounds i8, ptr %it, i64 16
   %tcount90 = getelementptr inbounds i8, ptr %it, i64 24
   %15 = load i64, ptr %tcount90, align 8
-  %cmp91107 = icmp sgt i64 %15, 0
-  br i1 %cmp91107, label %for.body.preheader, label %if.end87.for.end_crit_edge
+  %cmp91106 = icmp sgt i64 %15, 0
+  br i1 %cmp91106, label %for.body.preheader, label %if.end87.for.end_crit_edge
 
 if.end87.for.end_crit_edge:                       ; preds = %if.end87
   %.pre = load i32, ptr %seqcontlen, align 4
@@ -239,8 +239,8 @@ for.body.preheader:                               ; preds = %if.end87
 
 for.body:                                         ; preds = %for.body.preheader, %if.end96
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %if.end96 ]
-  %tt.0109 = phi ptr [ %16, %for.body.preheader ], [ %incdec.ptr, %if.end96 ]
-  %call93 = call ptr @asn1_do_adb(ptr noundef %pval, ptr noundef %tt.0109, i32 noundef 1) #11
+  %tt.0108 = phi ptr [ %16, %for.body.preheader ], [ %incdec.ptr, %if.end96 ]
+  %call93 = call ptr @asn1_do_adb(ptr noundef %pval, ptr noundef %tt.0108, i32 noundef 1) #11
   %tobool94.not = icmp eq ptr %call93, null
   br i1 %tobool94.not, label %return, label %if.end96
 
@@ -250,7 +250,7 @@ if.end96:                                         ; preds = %for.body
   %17 = load i32, ptr %seqcontlen, align 4
   %add = add nsw i32 %17, %call98
   store i32 %add, ptr %seqcontlen, align 4
-  %incdec.ptr = getelementptr inbounds i8, ptr %tt.0109, i64 40
+  %incdec.ptr = getelementptr inbounds i8, ptr %tt.0108, i64 40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = load i64, ptr %tcount90, align 8
   %cmp91 = icmp sgt i64 %18, %indvars.iv.next
@@ -266,27 +266,27 @@ if.end102:                                        ; preds = %for.end
   %20 = load i32, ptr %seqcontlen, align 4
   call void @ASN1_put_object(ptr noundef nonnull %out, i32 noundef %ndef.0, i32 noundef %20, i32 noundef %spec.select103, i32 noundef %spec.select102) #11
   %21 = load i64, ptr %tcount90, align 8
-  %cmp107110 = icmp sgt i64 %21, 0
-  br i1 %cmp107110, label %for.body109.preheader, label %for.end121
+  %cmp107109 = icmp sgt i64 %21, 0
+  br i1 %cmp107109, label %for.body109.preheader, label %for.end121
 
 for.body109.preheader:                            ; preds = %if.end102
   %22 = load ptr, ptr %templates88, align 8
   br label %for.body109
 
 for.body109:                                      ; preds = %for.body109.preheader, %if.end115
-  %indvars.iv115 = phi i64 [ 0, %for.body109.preheader ], [ %indvars.iv.next116, %if.end115 ]
-  %tt.1112 = phi ptr [ %22, %for.body109.preheader ], [ %incdec.ptr119, %if.end115 ]
-  %call112 = call ptr @asn1_do_adb(ptr noundef %pval, ptr noundef %tt.1112, i32 noundef 1) #11
+  %indvars.iv114 = phi i64 [ 0, %for.body109.preheader ], [ %indvars.iv.next115, %if.end115 ]
+  %tt.1111 = phi ptr [ %22, %for.body109.preheader ], [ %incdec.ptr119, %if.end115 ]
+  %call112 = call ptr @asn1_do_adb(ptr noundef %pval, ptr noundef %tt.1111, i32 noundef 1) #11
   %tobool113.not = icmp eq ptr %call112, null
   br i1 %tobool113.not, label %return, label %if.end115
 
 if.end115:                                        ; preds = %for.body109
   %call116 = call ptr @asn1_get_field_ptr(ptr noundef %pval, ptr noundef nonnull %call112) #11
   %call117 = call fastcc i32 @asn1_template_ex_i2d(ptr noundef %call116, ptr noundef nonnull %out, ptr noundef nonnull %call112, i32 noundef -1, i32 noundef %spec.select102)
-  %incdec.ptr119 = getelementptr inbounds i8, ptr %tt.1112, i64 40
-  %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
+  %incdec.ptr119 = getelementptr inbounds i8, ptr %tt.1111, i64 40
+  %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %23 = load i64, ptr %tcount90, align 8
-  %cmp107 = icmp sgt i64 %23, %indvars.iv.next116
+  %cmp107 = icmp sgt i64 %23, %indvars.iv.next115
   br i1 %cmp107, label %for.body109, label %for.end121, !llvm.loop !9
 
 for.end121:                                       ; preds = %if.end115, %if.end102
@@ -297,16 +297,18 @@ if.then124:                                       ; preds = %for.end121
   br label %if.end126
 
 if.end126:                                        ; preds = %if.then124, %for.end121
-  br i1 %tobool82.not, label %return, label %land.lhs.true128
+  br i1 %tobool82.not, label %if.end132, label %land.lhs.true128
 
 land.lhs.true128:                                 ; preds = %if.end126
   %call129 = call i32 %asn1_cb.0(i32 noundef 7, ptr noundef %pval, ptr noundef nonnull %it, ptr noundef null) #11
   %tobool130.not = icmp eq i32 %call129, 0
-  %spec.select104 = select i1 %tobool130.not, i32 0, i32 %call99
+  br i1 %tobool130.not, label %return, label %if.end132
+
+if.end132:                                        ; preds = %land.lhs.true128, %if.end126
   br label %return
 
-return:                                           ; preds = %for.body, %for.body109, %land.lhs.true128, %land.lhs.true38, %if.end36, %if.end8, %if.end126, %for.end, %land.lhs.true83, %sw.bb66, %if.end50, %if.then56, %land.lhs.true20, %land.lhs.true, %if.then74, %sw.bb43, %if.then32, %sw.bb16, %if.end14, %if.then12
-  %retval.0 = phi i32 [ %14, %if.then74 ], [ %call45, %sw.bb43 ], [ %call35, %if.then32 ], [ %call17, %sw.bb16 ], [ %call, %if.then12 ], [ %call15, %if.end14 ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true20 ], [ %call51, %if.then56 ], [ %call51, %if.end50 ], [ 0, %sw.bb66 ], [ 0, %land.lhs.true83 ], [ %call99, %for.end ], [ %call99, %if.end126 ], [ 0, %if.end8 ], [ 0, %if.end36 ], [ 0, %land.lhs.true38 ], [ %spec.select104, %land.lhs.true128 ], [ 0, %for.body109 ], [ 0, %for.body ]
+return:                                           ; preds = %for.body, %for.body109, %land.lhs.true38, %if.end36, %if.end8, %land.lhs.true128, %for.end, %land.lhs.true83, %sw.bb66, %if.end50, %if.then56, %land.lhs.true20, %land.lhs.true, %if.end132, %if.then74, %sw.bb43, %if.then32, %sw.bb16, %if.end14, %if.then12
+  %retval.0 = phi i32 [ %14, %if.then74 ], [ %call99, %if.end132 ], [ %call45, %sw.bb43 ], [ %call35, %if.then32 ], [ %call17, %sw.bb16 ], [ %call, %if.then12 ], [ %call15, %if.end14 ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true20 ], [ %call51, %if.then56 ], [ %call51, %if.end50 ], [ 0, %sw.bb66 ], [ 0, %land.lhs.true83 ], [ %call99, %for.end ], [ 0, %land.lhs.true128 ], [ 0, %if.end8 ], [ 0, %if.end36 ], [ 0, %land.lhs.true38 ], [ 0, %for.body109 ], [ 0, %for.body ]
   ret i32 %retval.0
 }
 

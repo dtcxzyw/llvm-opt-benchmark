@@ -354,17 +354,17 @@ land.lhs.true:                                    ; preds = %if.end12
   %call26 = tail call ptr @__errno_location() #12
   %10 = load i32, ptr %call26, align 4
   %cmp27 = icmp eq i32 %10, 4
-  br i1 %cmp27, label %if.then28, label %return
+  br i1 %cmp27, label %if.then28, label %if.end30
 
 if.then28:                                        ; preds = %land.lhs.true
   store i32 115, ptr %call26, align 4
   br label %return
 
-if.end30:                                         ; preds = %if.end12
+if.end30:                                         ; preds = %if.end12, %land.lhs.true
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %if.end12, %if.end6, %if.end30, %if.then28, %if.then4
-  %retval.0 = phi i32 [ -1, %if.then4 ], [ -1, %if.then28 ], [ -1, %if.end6 ], [ %call21, %if.end12 ], [ -1, %land.lhs.true ], [ -1, %if.end30 ]
+return:                                           ; preds = %if.end12, %if.end6, %if.end30, %if.then28, %if.then4
+  %retval.0 = phi i32 [ -1, %if.then4 ], [ -1, %if.then28 ], [ -1, %if.end30 ], [ -1, %if.end6 ], [ %call21, %if.end12 ]
   ret i32 %retval.0
 }
 

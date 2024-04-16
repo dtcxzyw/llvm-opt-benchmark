@@ -14,29 +14,31 @@ define hidden void @_ZN5alloc3fmt6format17hbd61d7081acab390E(ptr sret({ { { i64,
   %7 = load i64, ptr %6, align 8, !noundef !3
   switch i64 %5, label %10 [
     i64 0, label %8
-    i64 1, label %11
+    i64 1, label %12
   ]
 
 8:                                                ; preds = %2
   %9 = icmp eq i64 %7, 0
-  %spec.select1 = select i1 %9, ptr @anon.dcad8c5f8359063c439e66b57159ef61.0, ptr null
-  br label %10
+  br i1 %9, label %11, label %10
 
-10:                                               ; preds = %8, %11, %2, %13
-  %.sroa.4.0 = phi i64 [ %16, %13 ], [ undef, %2 ], [ undef, %11 ], [ 0, %8 ]
-  %.sroa.0.0 = phi ptr [ %14, %13 ], [ null, %2 ], [ null, %11 ], [ %spec.select1, %8 ]
+10:                                               ; preds = %2, %12, %8
+  br label %11
+
+11:                                               ; preds = %8, %14, %10
+  %.sroa.4.0 = phi i64 [ undef, %10 ], [ %17, %14 ], [ 0, %8 ]
+  %.sroa.0.0 = phi ptr [ null, %10 ], [ %15, %14 ], [ @anon.dcad8c5f8359063c439e66b57159ef61.0, %8 ]
   tail call void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h5170a93d695c5e4aE"(ptr sret({ { { i64, ptr, {} }, i64 } }) align 8 %0, ptr align 1 %.sroa.0.0, i64 %.sroa.4.0, ptr nonnull align 8 %1)
   ret void
 
-11:                                               ; preds = %2
-  %12 = icmp eq i64 %7, 0
-  br i1 %12, label %13, label %10
+12:                                               ; preds = %2
+  %13 = icmp eq i64 %7, 0
+  br i1 %13, label %14, label %10
 
-13:                                               ; preds = %11
-  %14 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
-  %15 = getelementptr inbounds i8, ptr %3, i64 8
-  %16 = load i64, ptr %15, align 8, !noundef !3
-  br label %10
+14:                                               ; preds = %12
+  %15 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
+  %16 = getelementptr inbounds i8, ptr %3, i64 8
+  %17 = load i64, ptr %16, align 8, !noundef !3
+  br label %11
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

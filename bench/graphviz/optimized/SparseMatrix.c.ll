@@ -5644,7 +5644,7 @@ define noundef ptr @SparseMatrix_remove_diagonal(ptr noundef %0) local_unnamed_a
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define noundef ptr @SparseMatrix_divide_row_by_degree(ptr noundef readonly %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %.loopexit58, label %2
+  br i1 %.not, label %64, label %2
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds i8, ptr %0, i64 24
@@ -5653,11 +5653,11 @@ define noundef ptr @SparseMatrix_divide_row_by_degree(ptr noundef readonly %0) l
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8
-  switch i32 %8, label %.loopexit58 [
+  switch i32 %8, label %64 [
     i32 1, label %9
     i32 2, label %32
-    i32 4, label %64
-    i32 8, label %64
+    i32 4, label %.loopexit58
+    i32 8, label %.loopexit58
   ]
 
 9:                                                ; preds = %2
@@ -5775,11 +5775,11 @@ define noundef ptr @SparseMatrix_divide_row_by_degree(ptr noundef readonly %0) l
   %63 = icmp slt i64 %indvars.iv.next, %62
   br i1 %63, label %.lr.ph, label %.loopexit59.loopexit
 
-64:                                               ; preds = %2, %2
-  br label %.loopexit58
+.loopexit58:                                      ; preds = %.loopexit59, %.loopexit, %32, %9, %2, %2
+  br label %64
 
-.loopexit58:                                      ; preds = %.loopexit59, %.loopexit, %32, %9, %2, %1, %64
-  %.0 = phi ptr [ null, %1 ], [ null, %2 ], [ %0, %64 ], [ %0, %9 ], [ %0, %32 ], [ %0, %.loopexit ], [ %0, %.loopexit59 ]
+64:                                               ; preds = %2, %1, %.loopexit58
+  %.0 = phi ptr [ %0, %.loopexit58 ], [ null, %1 ], [ null, %2 ]
   ret ptr %.0
 }
 

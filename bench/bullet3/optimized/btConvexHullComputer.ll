@@ -872,7 +872,7 @@ if.then16:                                        ; preds = %if.end12
 
 lor.lhs.false:                                    ; preds = %if.then16
   %cmp26 = icmp eq i32 %11, %12
-  br i1 %cmp26, label %land.lhs.true27, label %if.end37.sink.split
+  br i1 %cmp26, label %land.lhs.true27, label %if.else
 
 land.lhs.true27:                                  ; preds = %lor.lhs.false
   %y29 = getelementptr inbounds i8, ptr %9, i64 108
@@ -880,11 +880,13 @@ land.lhs.true27:                                  ; preds = %lor.lhs.false
   %y31 = getelementptr inbounds i8, ptr %6, i64 108
   %14 = load i32, ptr %y31, align 4
   %cmp32 = icmp slt i32 %13, %14
-  %spec.select = select i1 %cmp32, ptr %9, ptr %6
+  br i1 %cmp32, label %if.end37.sink.split, label %if.else
+
+if.else:                                          ; preds = %land.lhs.true27, %lor.lhs.false
   br label %if.end37.sink.split
 
-if.end37.sink.split:                              ; preds = %land.lhs.true27, %lor.lhs.false, %if.then16
-  %.sink = phi ptr [ %9, %if.then16 ], [ %6, %lor.lhs.false ], [ %spec.select, %land.lhs.true27 ]
+if.end37.sink.split:                              ; preds = %if.then16, %land.lhs.true27, %if.else
+  %.sink = phi ptr [ %6, %if.else ], [ %9, %land.lhs.true27 ], [ %9, %if.then16 ]
   store ptr %.sink, ptr %h1, align 8
   br label %if.end37
 
@@ -904,7 +906,7 @@ if.then39:                                        ; preds = %if.end37
 
 lor.lhs.false45:                                  ; preds = %if.then39
   %cmp50 = icmp eq i32 %16, %17
-  br i1 %cmp50, label %land.lhs.true51, label %if.end63.sink.split
+  br i1 %cmp50, label %land.lhs.true51, label %if.else59
 
 land.lhs.true51:                                  ; preds = %lor.lhs.false45
   %y53 = getelementptr inbounds i8, ptr %9, i64 108
@@ -912,11 +914,13 @@ land.lhs.true51:                                  ; preds = %lor.lhs.false45
   %y55 = getelementptr inbounds i8, ptr %6, i64 108
   %19 = load i32, ptr %y55, align 4
   %cmp56 = icmp sgt i32 %18, %19
-  %spec.select576 = select i1 %cmp56, ptr %9, ptr %6
+  br i1 %cmp56, label %if.end63.sink.split, label %if.else59
+
+if.else59:                                        ; preds = %land.lhs.true51, %lor.lhs.false45
   br label %if.end63.sink.split
 
-if.end63.sink.split:                              ; preds = %land.lhs.true51, %lor.lhs.false45, %if.then39
-  %.sink575 = phi ptr [ %9, %if.then39 ], [ %6, %lor.lhs.false45 ], [ %spec.select576, %land.lhs.true51 ]
+if.end63.sink.split:                              ; preds = %if.then39, %land.lhs.true51, %if.else59
+  %.sink575 = phi ptr [ %6, %if.else59 ], [ %9, %land.lhs.true51 ], [ %9, %if.then39 ]
   store ptr %.sink575, ptr %maxXy, align 8
   br label %if.end63
 
@@ -967,17 +971,17 @@ while.body.outer:                                 ; preds = %while.body.outer.ba
   br i1 %cmp81.not428, label %if.end111, label %if.then82.preheader
 
 if.then82.preheader:                              ; preds = %while.body.outer
-  %y90675 = getelementptr inbounds i8, ptr %cond427, i64 108
-  %29 = load i32, ptr %y90675, align 4
-  %sub93676 = sub nsw i32 %29, %28
-  %cmp94677 = icmp slt i32 %sub93676, 1
-  br i1 %cmp94677, label %land.lhs.true95.lr.ph, label %if.end111
+  %y90674 = getelementptr inbounds i8, ptr %cond427, i64 108
+  %29 = load i32, ptr %y90674, align 4
+  %sub93675 = sub nsw i32 %29, %28
+  %cmp94676 = icmp slt i32 %sub93675, 1
+  br i1 %cmp94676, label %land.lhs.true95.lr.ph, label %if.end111
 
 land.lhs.true95.lr.ph:                            ; preds = %if.then82.preheader
-  %point83672 = getelementptr inbounds i8, ptr %cond427, i64 104
-  %30 = load i32, ptr %point83672, align 8
+  %point83671 = getelementptr inbounds i8, ptr %cond427, i64 104
+  %30 = load i32, ptr %point83671, align 8
   %.pre523 = load i32, ptr %point75423, align 8
-  %sub87673 = sub nsw i32 %30, %.pre523
+  %sub87672 = sub nsw i32 %30, %.pre523
   br label %land.lhs.true95
 
 if.then82:                                        ; preds = %if.then103
@@ -991,28 +995,28 @@ if.then82:                                        ; preds = %if.then103
   br i1 %cmp94, label %land.lhs.true95, label %if.end111, !llvm.loop !7
 
 land.lhs.true95:                                  ; preds = %land.lhs.true95.lr.ph, %if.then82
-  %sub93685 = phi i32 [ %sub93676, %land.lhs.true95.lr.ph ], [ %sub93, %if.then82 ]
+  %sub93684 = phi i32 [ %sub93675, %land.lhs.true95.lr.ph ], [ %sub93, %if.then82 ]
   %33 = phi i32 [ %29, %land.lhs.true95.lr.ph ], [ %32, %if.then82 ]
-  %sub87673.pn = phi i32 [ %sub87673, %land.lhs.true95.lr.ph ], [ %sub87, %if.then82 ]
+  %sub87672.pn = phi i32 [ %sub87672, %land.lhs.true95.lr.ph ], [ %sub87, %if.then82 ]
   %34 = phi i32 [ %30, %land.lhs.true95.lr.ph ], [ %31, %if.then82 ]
-  %point83683 = phi ptr [ %point83672, %land.lhs.true95.lr.ph ], [ %point83, %if.then82 ]
-  %dx.0429682 = phi i32 [ %dx.0.ph, %land.lhs.true95.lr.ph ], [ %mul109, %if.then82 ]
-  %v0.1430681 = phi ptr [ %v0.1.ph, %land.lhs.true95.lr.ph ], [ %cond433678, %if.then82 ]
-  %point75431680 = phi ptr [ %point75423, %land.lhs.true95.lr.ph ], [ %point83683, %if.then82 ]
-  %sub77432679 = phi i32 [ %sub77425, %land.lhs.true95.lr.ph ], [ %sub77, %if.then82 ]
-  %cond433678 = phi ptr [ %cond427, %land.lhs.true95.lr.ph ], [ %cond, %if.then82 ]
+  %point83682 = phi ptr [ %point83671, %land.lhs.true95.lr.ph ], [ %point83, %if.then82 ]
+  %dx.0429681 = phi i32 [ %dx.0.ph, %land.lhs.true95.lr.ph ], [ %mul109, %if.then82 ]
+  %v0.1430680 = phi ptr [ %v0.1.ph, %land.lhs.true95.lr.ph ], [ %cond433677, %if.then82 ]
+  %point75431679 = phi ptr [ %point75423, %land.lhs.true95.lr.ph ], [ %point83682, %if.then82 ]
+  %sub77432678 = phi i32 [ %sub77425, %land.lhs.true95.lr.ph ], [ %sub77, %if.then82 ]
+  %cond433677 = phi ptr [ %cond427, %land.lhs.true95.lr.ph ], [ %cond, %if.then82 ]
   %35 = phi i32 [ %.pre523, %land.lhs.true95.lr.ph ], [ %34, %if.then82 ]
-  %mul88684 = mul nsw i32 %sub87673.pn, %sign.0463
+  %mul88683 = mul nsw i32 %sub87672.pn, %sign.0463
   %cmp96 = icmp eq i32 %34, %35
   br i1 %cmp96, label %if.then103, label %lor.lhs.false97
 
 lor.lhs.false97:                                  ; preds = %land.lhs.true95
-  %cmp98 = icmp slt i32 %mul88684, 0
+  %cmp98 = icmp slt i32 %mul88683, 0
   br i1 %cmp98, label %land.lhs.true99, label %if.end111
 
 land.lhs.true99:                                  ; preds = %lor.lhs.false97
-  %mul100 = mul nsw i32 %sub93685, %dx.0429682
-  %mul101 = mul nsw i32 %mul88684, %sub77432679
+  %mul100 = mul nsw i32 %sub93684, %dx.0429681
+  %mul101 = mul nsw i32 %mul88683, %sub77432678
   %cmp102.not = icmp sgt i32 %mul100, %mul101
   br i1 %cmp102.not, label %if.end111, label %if.then103
 
@@ -1020,16 +1024,16 @@ if.then103:                                       ; preds = %land.lhs.true99, %l
   %sub108 = sub nsw i32 %26, %34
   %mul109 = mul nsw i32 %sub108, %sign.0463
   %sub77 = sub nsw i32 %27, %33
-  %cond.in = getelementptr inbounds i8, ptr %cond433678, i64 %cond.in.idx
+  %cond.in = getelementptr inbounds i8, ptr %cond433677, i64 %cond.in.idx
   %cond = load ptr, ptr %cond.in, align 8
-  %cmp81.not = icmp eq ptr %cond, %cond433678
+  %cmp81.not = icmp eq ptr %cond, %cond433677
   br i1 %cmp81.not, label %if.end111, label %if.then82, !llvm.loop !7
 
 if.end111:                                        ; preds = %if.then82, %lor.lhs.false97, %land.lhs.true99, %if.then103, %if.then82.preheader, %while.body.outer
-  %dx.0.lcssa = phi i32 [ %dx.0.ph, %while.body.outer ], [ %dx.0.ph, %if.then82.preheader ], [ %mul109, %if.then103 ], [ %dx.0429682, %land.lhs.true99 ], [ %dx.0429682, %lor.lhs.false97 ], [ %mul109, %if.then82 ]
-  %v0.1.lcssa = phi ptr [ %v0.1.ph, %while.body.outer ], [ %v0.1.ph, %if.then82.preheader ], [ %cond433678, %if.then103 ], [ %v0.1430681, %land.lhs.true99 ], [ %v0.1430681, %lor.lhs.false97 ], [ %cond433678, %if.then82 ]
-  %point75.lcssa = phi ptr [ %point75423, %while.body.outer ], [ %point75423, %if.then82.preheader ], [ %point83683, %if.then103 ], [ %point75431680, %land.lhs.true99 ], [ %point75431680, %lor.lhs.false97 ], [ %point83683, %if.then82 ]
-  %sub77.lcssa = phi i32 [ %sub77425, %while.body.outer ], [ %sub77425, %if.then82.preheader ], [ %sub77, %if.then103 ], [ %sub77432679, %land.lhs.true99 ], [ %sub77432679, %lor.lhs.false97 ], [ %sub77, %if.then82 ]
+  %dx.0.lcssa = phi i32 [ %dx.0.ph, %while.body.outer ], [ %dx.0.ph, %if.then82.preheader ], [ %mul109, %if.then103 ], [ %dx.0429681, %land.lhs.true99 ], [ %dx.0429681, %lor.lhs.false97 ], [ %mul109, %if.then82 ]
+  %v0.1.lcssa = phi ptr [ %v0.1.ph, %while.body.outer ], [ %v0.1.ph, %if.then82.preheader ], [ %cond433677, %if.then103 ], [ %v0.1430680, %land.lhs.true99 ], [ %v0.1430680, %lor.lhs.false97 ], [ %cond433677, %if.then82 ]
+  %point75.lcssa = phi ptr [ %point75423, %while.body.outer ], [ %point75423, %if.then82.preheader ], [ %point83682, %if.then103 ], [ %point75431679, %land.lhs.true99 ], [ %point75431679, %lor.lhs.false97 ], [ %point83682, %if.then82 ]
+  %sub77.lcssa = phi i32 [ %sub77425, %while.body.outer ], [ %sub77425, %if.then82.preheader ], [ %sub77, %if.then103 ], [ %sub77432678, %land.lhs.true99 ], [ %sub77432678, %lor.lhs.false97 ], [ %sub77, %if.then82 ]
   %cond118.in = getelementptr inbounds i8, ptr %v1.2.ph, i64 %cond.in.idx
   %cond118 = load ptr, ptr %cond118.in, align 8
   %cmp119.not = icmp eq ptr %cond118, %v1.2.ph
@@ -1087,10 +1091,10 @@ while.body155.outer.split.us:                     ; preds = %if.then194.split.us
   %v1.3.ph.lcssa186 = phi ptr [ %v1.1472, %while.body155.preheader ], [ %cond169414, %if.then194.split.us ]
   %v0.2.ph.lcssa = phi ptr [ %v0.0473, %while.body155.preheader ], [ %v0.2.lcssa.us, %if.then194.split.us ]
   %.lcssa182 = phi i32 [ %39, %while.body155.preheader ], [ %48, %if.then194.split.us ]
-  %cond210.in.us661 = getelementptr inbounds i8, ptr %v0.2.ph.lcssa, i64 %cond169.in.idx
-  %cond210.us662 = load ptr, ptr %cond210.in.us661, align 8
-  %cmp211.not.us663 = icmp eq ptr %cond210.us662, %v0.2.ph.lcssa
-  br i1 %cmp211.not.us663, label %if.end300, label %if.then212.us.lr.ph
+  %cond210.in.us660 = getelementptr inbounds i8, ptr %v0.2.ph.lcssa, i64 %cond169.in.idx
+  %cond210.us661 = load ptr, ptr %cond210.in.us660, align 8
+  %cmp211.not.us662 = icmp eq ptr %cond210.us661, %v0.2.ph.lcssa
+  br i1 %cmp211.not.us662, label %if.end300, label %if.then212.us.lr.ph
 
 if.then212.us.lr.ph:                              ; preds = %while.body155.outer.split.us
   %y160.us.phi.trans.insert = getelementptr inbounds i8, ptr %v0.2.ph.lcssa, i64 108
@@ -1098,18 +1102,18 @@ if.then212.us.lr.ph:                              ; preds = %while.body155.outer
   br label %if.then212.us
 
 if.then212.us:                                    ; preds = %if.then212.us.lr.ph, %if.then244.us
-  %cond210.us667 = phi ptr [ %cond210.us662, %if.then212.us.lr.ph ], [ %cond210.us, %if.then244.us ]
-  %v0.2.us665 = phi ptr [ %v0.2.ph.lcssa, %if.then212.us.lr.ph ], [ %cond210.us667, %if.then244.us ]
-  %dx.1.us664 = phi i32 [ %dx.1.ph.lcssa, %if.then212.us.lr.ph ], [ %mul232.us, %if.then244.us ]
+  %cond210.us666 = phi ptr [ %cond210.us661, %if.then212.us.lr.ph ], [ %cond210.us, %if.then244.us ]
+  %v0.2.us664 = phi ptr [ %v0.2.ph.lcssa, %if.then212.us.lr.ph ], [ %cond210.us666, %if.then244.us ]
+  %dx.1.us663 = phi i32 [ %dx.1.ph.lcssa, %if.then212.us.lr.ph ], [ %mul232.us, %if.then244.us ]
   %41 = phi i32 [ %.pre521, %if.then212.us.lr.ph ], [ %44, %if.then244.us ]
-  %sub161.us666 = sub nsw i32 %.lcssa182, %41
-  %point159.us = getelementptr inbounds i8, ptr %v0.2.us665, i64 104
-  %point214.us = getelementptr inbounds i8, ptr %cond210.us667, i64 104
+  %sub161.us665 = sub nsw i32 %.lcssa182, %41
+  %point159.us = getelementptr inbounds i8, ptr %v0.2.us664, i64 104
+  %point214.us = getelementptr inbounds i8, ptr %cond210.us666, i64 104
   %42 = load i32, ptr %point214.us, align 8
   %43 = load i32, ptr %point159.us, align 8
   %sub218.us = sub nsw i32 %42, %43
   %mul219.us = mul nsw i32 %sub218.us, %sign.0463
-  %y222.us = getelementptr inbounds i8, ptr %cond210.us667, i64 108
+  %y222.us = getelementptr inbounds i8, ptr %cond210.us666, i64 108
   %44 = load i32, ptr %y222.us, align 4
   %sub225.us = sub nsw i32 %44, %41
   %sub231.us = sub nsw i32 %40, %42
@@ -1128,15 +1132,15 @@ lor.lhs.false238.us:                              ; preds = %land.lhs.true236.us
   br i1 %cmp239.us, label %land.lhs.true240.us, label %if.end300
 
 land.lhs.true240.us:                              ; preds = %lor.lhs.false238.us
-  %mul241.us = mul nsw i32 %sub225.us, %dx.1.us664
-  %mul242.us = mul nsw i32 %mul219.us, %sub161.us666
+  %mul241.us = mul nsw i32 %sub225.us, %dx.1.us663
+  %mul242.us = mul nsw i32 %mul219.us, %sub161.us665
   %cmp243.us = icmp slt i32 %mul241.us, %mul242.us
   br i1 %cmp243.us, label %if.then244.us, label %if.end300
 
 if.then244.us:                                    ; preds = %land.lhs.true240.us, %land.lhs.true236.us
-  %cond210.in.us = getelementptr inbounds i8, ptr %cond210.us667, i64 %cond169.in.idx
+  %cond210.in.us = getelementptr inbounds i8, ptr %cond210.us666, i64 %cond169.in.idx
   %cond210.us = load ptr, ptr %cond210.in.us, align 8
-  %cmp211.not.us = icmp eq ptr %cond210.us, %cond210.us667
+  %cmp211.not.us = icmp eq ptr %cond210.us, %cond210.us666
   br i1 %cmp211.not.us, label %if.end300, label %if.then212.us, !llvm.loop !8
 
 while.body155.outer.split:                        ; preds = %while.body155.preheader, %if.then194.split.us
@@ -1232,21 +1236,21 @@ lor.lhs.false188.us.lr.ph.split.split:            ; preds = %lor.lhs.false188.us
 
 if.then212.us199.lr.ph:                           ; preds = %lor.lhs.false188.us.lr.ph.split.split
   %55 = load i32, ptr %point157413, align 8
-  %point214.us200639 = getelementptr inbounds i8, ptr %cond210.us197367, i64 104
-  %56 = load i32, ptr %point214.us200639, align 8
-  %y222.us203642 = getelementptr inbounds i8, ptr %cond210.us197367, i64 108
-  %57 = load i32, ptr %y222.us203642, align 4
-  %sub225.us204643 = sub nsw i32 %57, %49
-  %sub231.us205644 = sub nsw i32 %55, %56
-  %mul232.us206645 = mul nsw i32 %sub231.us205644, %sign.0463
-  %cmp233.us207646 = icmp slt i32 %mul232.us206645, 0
-  %cmp235.us208647 = icmp sgt i32 %sub225.us204643, 0
-  %or.cond1.us209648 = select i1 %cmp233.us207646, i1 %cmp235.us208647, i1 false
-  br i1 %or.cond1.us209648, label %land.lhs.true236.us210.lr.ph, label %if.end300
+  %point214.us200638 = getelementptr inbounds i8, ptr %cond210.us197367, i64 104
+  %56 = load i32, ptr %point214.us200638, align 8
+  %y222.us203641 = getelementptr inbounds i8, ptr %cond210.us197367, i64 108
+  %57 = load i32, ptr %y222.us203641, align 4
+  %sub225.us204642 = sub nsw i32 %57, %49
+  %sub231.us205643 = sub nsw i32 %55, %56
+  %mul232.us206644 = mul nsw i32 %sub231.us205643, %sign.0463
+  %cmp233.us207645 = icmp slt i32 %mul232.us206644, 0
+  %cmp235.us208646 = icmp sgt i32 %sub225.us204642, 0
+  %or.cond1.us209647 = select i1 %cmp233.us207645, i1 %cmp235.us208646, i1 false
+  br i1 %or.cond1.us209647, label %land.lhs.true236.us210.lr.ph, label %if.end300
 
 land.lhs.true236.us210.lr.ph:                     ; preds = %if.then212.us199.lr.ph
   %.pre520 = load i32, ptr %point159.us192262, align 8
-  %sub218.us201640 = sub nsw i32 %56, %.pre520
+  %sub218.us201639 = sub nsw i32 %56, %.pre520
   br label %land.lhs.true236.us210
 
 if.then212.us199:                                 ; preds = %if.then244.us218
@@ -1265,34 +1269,34 @@ if.then212.us199:                                 ; preds = %if.then244.us218
   br i1 %or.cond1.us209, label %land.lhs.true236.us210, label %if.end300
 
 land.lhs.true236.us210:                           ; preds = %land.lhs.true236.us210.lr.ph, %if.then212.us199
-  %mul232.us206655 = phi i32 [ %mul232.us206645, %land.lhs.true236.us210.lr.ph ], [ %mul232.us206, %if.then212.us199 ]
-  %sub225.us204654 = phi i32 [ %sub225.us204643, %land.lhs.true236.us210.lr.ph ], [ %sub225.us204, %if.then212.us199 ]
+  %mul232.us206654 = phi i32 [ %mul232.us206644, %land.lhs.true236.us210.lr.ph ], [ %mul232.us206, %if.then212.us199 ]
+  %sub225.us204653 = phi i32 [ %sub225.us204642, %land.lhs.true236.us210.lr.ph ], [ %sub225.us204, %if.then212.us199 ]
   %60 = phi i32 [ %57, %land.lhs.true236.us210.lr.ph ], [ %59, %if.then212.us199 ]
-  %sub218.us201640.pn = phi i32 [ %sub218.us201640, %land.lhs.true236.us210.lr.ph ], [ %sub218.us201, %if.then212.us199 ]
+  %sub218.us201639.pn = phi i32 [ %sub218.us201639, %land.lhs.true236.us210.lr.ph ], [ %sub218.us201, %if.then212.us199 ]
   %61 = phi i32 [ %56, %land.lhs.true236.us210.lr.ph ], [ %58, %if.then212.us199 ]
-  %sub161.us194268369652 = phi i32 [ %sub161.us194264, %land.lhs.true236.us210.lr.ph ], [ %sub161.us194, %if.then212.us199 ]
-  %v0.2.us191266371651 = phi ptr [ %v0.2.ph412, %land.lhs.true236.us210.lr.ph ], [ %cond210.us197373649, %if.then212.us199 ]
-  %dx.1.us190265372650 = phi i32 [ %dx.1.ph410, %land.lhs.true236.us210.lr.ph ], [ %mul232.us206655, %if.then212.us199 ]
-  %cond210.us197373649 = phi ptr [ %cond210.us197367, %land.lhs.true236.us210.lr.ph ], [ %cond210.us197, %if.then212.us199 ]
+  %sub161.us194268369651 = phi i32 [ %sub161.us194264, %land.lhs.true236.us210.lr.ph ], [ %sub161.us194, %if.then212.us199 ]
+  %v0.2.us191266371650 = phi ptr [ %v0.2.ph412, %land.lhs.true236.us210.lr.ph ], [ %cond210.us197373648, %if.then212.us199 ]
+  %dx.1.us190265372649 = phi i32 [ %dx.1.ph410, %land.lhs.true236.us210.lr.ph ], [ %mul232.us206654, %if.then212.us199 ]
+  %cond210.us197373648 = phi ptr [ %cond210.us197367, %land.lhs.true236.us210.lr.ph ], [ %cond210.us197, %if.then212.us199 ]
   %62 = phi i32 [ %.pre520, %land.lhs.true236.us210.lr.ph ], [ %61, %if.then212.us199 ]
-  %mul219.us202653 = mul nsw i32 %sub218.us201640.pn, %sign.0463
+  %mul219.us202652 = mul nsw i32 %sub218.us201639.pn, %sign.0463
   %cmp237.us211 = icmp eq i32 %61, %62
   br i1 %cmp237.us211, label %if.then244.us218, label %lor.lhs.false238.us212
 
 lor.lhs.false238.us212:                           ; preds = %land.lhs.true236.us210
-  %cmp239.us213 = icmp slt i32 %mul219.us202653, 0
+  %cmp239.us213 = icmp slt i32 %mul219.us202652, 0
   br i1 %cmp239.us213, label %land.lhs.true240.us214, label %if.end300
 
 land.lhs.true240.us214:                           ; preds = %lor.lhs.false238.us212
-  %mul241.us215 = mul nsw i32 %sub225.us204654, %dx.1.us190265372650
-  %mul242.us216 = mul nsw i32 %mul219.us202653, %sub161.us194268369652
+  %mul241.us215 = mul nsw i32 %sub225.us204653, %dx.1.us190265372649
+  %mul242.us216 = mul nsw i32 %mul219.us202652, %sub161.us194268369651
   %cmp243.us217 = icmp slt i32 %mul241.us215, %mul242.us216
   br i1 %cmp243.us217, label %if.then244.us218, label %if.end300
 
 if.then244.us218:                                 ; preds = %land.lhs.true240.us214, %land.lhs.true236.us210
-  %cond210.in.us196 = getelementptr inbounds i8, ptr %cond210.us197373649, i64 %cond169.in.idx
+  %cond210.in.us196 = getelementptr inbounds i8, ptr %cond210.us197373648, i64 %cond169.in.idx
   %cond210.us197 = load ptr, ptr %cond210.in.us196, align 8
-  %cmp211.not.us198 = icmp eq ptr %cond210.us197, %cond210.us197373649
+  %cmp211.not.us198 = icmp eq ptr %cond210.us197, %cond210.us197373648
   br i1 %cmp211.not.us198, label %if.end300, label %if.then212.us199
 
 if.then194.split.us:                              ; preds = %if.then244.us218.us, %lor.lhs.false188.us.lr.ph.split.us.split, %while.body155.outer.split.split.us
@@ -1316,22 +1320,22 @@ if.then212.lr.ph:                                 ; preds = %while.body155.outer
   %64 = load i32, ptr %point157413, align 8
   %.in.phi.trans.insert = getelementptr inbounds i8, ptr %v0.2.ph412, i64 108
   %.pre = load i32, ptr %.in.phi.trans.insert, align 4
-  %point214619 = getelementptr inbounds i8, ptr %cond210248, i64 104
-  %65 = load i32, ptr %point214619, align 8
-  %y222622 = getelementptr inbounds i8, ptr %cond210248, i64 108
-  %66 = load i32, ptr %y222622, align 4
-  %sub225623 = sub nsw i32 %66, %.pre
-  %sub231624 = sub nsw i32 %64, %65
-  %mul232625 = mul nsw i32 %sub231624, %sign.0463
-  %cmp233626 = icmp slt i32 %mul232625, 0
-  %cmp235627 = icmp sgt i32 %sub225623, 0
-  %or.cond1628 = select i1 %cmp233626, i1 %cmp235627, i1 false
-  br i1 %or.cond1628, label %land.lhs.true236.lr.ph, label %if.end300
+  %point214618 = getelementptr inbounds i8, ptr %cond210248, i64 104
+  %65 = load i32, ptr %point214618, align 8
+  %y222621 = getelementptr inbounds i8, ptr %cond210248, i64 108
+  %66 = load i32, ptr %y222621, align 4
+  %sub225622 = sub nsw i32 %66, %.pre
+  %sub231623 = sub nsw i32 %64, %65
+  %mul232624 = mul nsw i32 %sub231623, %sign.0463
+  %cmp233625 = icmp slt i32 %mul232624, 0
+  %cmp235626 = icmp sgt i32 %sub225622, 0
+  %or.cond1627 = select i1 %cmp233625, i1 %cmp235626, i1 false
+  br i1 %or.cond1627, label %land.lhs.true236.lr.ph, label %if.end300
 
 land.lhs.true236.lr.ph:                           ; preds = %if.then212.lr.ph
   %point159252.phi.trans.insert = getelementptr inbounds i8, ptr %v0.2.ph412, i64 104
   %.pre519 = load i32, ptr %point159252.phi.trans.insert, align 8
-  %sub218620 = sub nsw i32 %65, %.pre519
+  %sub218619 = sub nsw i32 %65, %.pre519
   br label %land.lhs.true236
 
 if.then212:                                       ; preds = %if.then244
@@ -1349,35 +1353,35 @@ if.then212:                                       ; preds = %if.then244
   br i1 %or.cond1, label %land.lhs.true236, label %if.end300, !llvm.loop !8
 
 land.lhs.true236:                                 ; preds = %land.lhs.true236.lr.ph, %if.then212
-  %mul232635 = phi i32 [ %mul232625, %land.lhs.true236.lr.ph ], [ %mul232, %if.then212 ]
-  %sub225634 = phi i32 [ %sub225623, %land.lhs.true236.lr.ph ], [ %sub225, %if.then212 ]
+  %mul232634 = phi i32 [ %mul232624, %land.lhs.true236.lr.ph ], [ %mul232, %if.then212 ]
+  %sub225633 = phi i32 [ %sub225622, %land.lhs.true236.lr.ph ], [ %sub225, %if.then212 ]
   %69 = phi i32 [ %66, %land.lhs.true236.lr.ph ], [ %68, %if.then212 ]
-  %sub218620.pn = phi i32 [ %sub218620, %land.lhs.true236.lr.ph ], [ %sub218, %if.then212 ]
+  %sub218619.pn = phi i32 [ %sub218619, %land.lhs.true236.lr.ph ], [ %sub218, %if.then212 ]
   %70 = phi i32 [ %65, %land.lhs.true236.lr.ph ], [ %67, %if.then212 ]
   %.pre.pn = phi i32 [ %.pre, %land.lhs.true236.lr.ph ], [ %69, %if.then212 ]
-  %dx.1250631 = phi i32 [ %dx.1.ph410, %land.lhs.true236.lr.ph ], [ %mul232635, %if.then212 ]
-  %v0.2251630 = phi ptr [ %v0.2.ph412, %land.lhs.true236.lr.ph ], [ %cond210254629, %if.then212 ]
-  %cond210254629 = phi ptr [ %cond210248, %land.lhs.true236.lr.ph ], [ %cond210, %if.then212 ]
+  %dx.1250630 = phi i32 [ %dx.1.ph410, %land.lhs.true236.lr.ph ], [ %mul232634, %if.then212 ]
+  %v0.2251629 = phi ptr [ %v0.2.ph412, %land.lhs.true236.lr.ph ], [ %cond210254628, %if.then212 ]
+  %cond210254628 = phi ptr [ %cond210248, %land.lhs.true236.lr.ph ], [ %cond210, %if.then212 ]
   %71 = phi i32 [ %.pre519, %land.lhs.true236.lr.ph ], [ %70, %if.then212 ]
-  %sub161253632 = sub nsw i32 %46, %.pre.pn
-  %mul219633 = mul nsw i32 %sub218620.pn, %sign.0463
+  %sub161253631 = sub nsw i32 %46, %.pre.pn
+  %mul219632 = mul nsw i32 %sub218619.pn, %sign.0463
   %cmp237 = icmp eq i32 %70, %71
   br i1 %cmp237, label %if.then244, label %lor.lhs.false238
 
 lor.lhs.false238:                                 ; preds = %land.lhs.true236
-  %cmp239 = icmp slt i32 %mul219633, 0
+  %cmp239 = icmp slt i32 %mul219632, 0
   br i1 %cmp239, label %land.lhs.true240, label %if.end300
 
 land.lhs.true240:                                 ; preds = %lor.lhs.false238
-  %mul241 = mul nsw i32 %sub225634, %dx.1250631
-  %mul242 = mul nsw i32 %mul219633, %sub161253632
+  %mul241 = mul nsw i32 %sub225633, %dx.1250630
+  %mul242 = mul nsw i32 %mul219632, %sub161253631
   %cmp243 = icmp slt i32 %mul241, %mul242
   br i1 %cmp243, label %if.then244, label %if.end300
 
 if.then244:                                       ; preds = %land.lhs.true240, %land.lhs.true236
-  %cond210.in = getelementptr inbounds i8, ptr %cond210254629, i64 %cond169.in.idx
+  %cond210.in = getelementptr inbounds i8, ptr %cond210254628, i64 %cond169.in.idx
   %cond210 = load ptr, ptr %cond210.in, align 8
-  %cmp211.not = icmp eq ptr %cond210, %cond210254629
+  %cmp211.not = icmp eq ptr %cond210, %cond210254628
   br i1 %cmp211.not, label %if.end300, label %if.then212, !llvm.loop !8
 
 if.else248:                                       ; preds = %if.else152
@@ -1434,7 +1438,7 @@ land.rhs290:                                      ; preds = %land.lhs.true286
 
 if.end300:                                        ; preds = %land.rhs290, %while.cond277, %land.lhs.true286, %if.then244, %land.lhs.true240, %lor.lhs.false238, %if.then212, %if.then244.us218, %if.then212.us199, %lor.lhs.false238.us212, %land.lhs.true240.us214, %if.then244.us, %if.then212.us, %lor.lhs.false238.us, %land.lhs.true240.us, %if.then120, %lor.lhs.false143, %land.lhs.true145, %if.end111, %if.end202.us195.us, %if.then212.us199.us, %lor.lhs.false238.us212.us, %land.lhs.true240.us214.us, %if.then212.lr.ph, %if.then212.us199.lr.ph, %while.body155.outer.split.us, %while.body155.outer.split.split, %lor.lhs.false188.us.lr.ph.split.split
   %v1.4 = phi ptr [ %v1.3.ph411, %lor.lhs.false188.us.lr.ph.split.split ], [ %v1.3.ph411, %while.body155.outer.split.split ], [ %v1.3.ph.lcssa186, %while.body155.outer.split.us ], [ %v1.3.ph411, %if.then212.us199.lr.ph ], [ %v1.3.ph411, %if.then212.lr.ph ], [ %v1.3.ph411, %land.lhs.true240.us214.us ], [ %v1.3.ph411, %lor.lhs.false238.us212.us ], [ %v1.3.ph411, %if.then212.us199.us ], [ %v1.3.ph411, %if.end202.us195.us ], [ %v1.2.ph, %if.end111 ], [ %v1.2.ph, %land.lhs.true145 ], [ %v1.2.ph, %lor.lhs.false143 ], [ %v1.2.ph, %if.then120 ], [ %v1.3.ph.lcssa186, %land.lhs.true240.us ], [ %v1.3.ph.lcssa186, %lor.lhs.false238.us ], [ %v1.3.ph.lcssa186, %if.then212.us ], [ %v1.3.ph.lcssa186, %if.then244.us ], [ %v1.3.ph411, %land.lhs.true240.us214 ], [ %v1.3.ph411, %lor.lhs.false238.us212 ], [ %v1.3.ph411, %if.then212.us199 ], [ %v1.3.ph411, %if.then244.us218 ], [ %v1.3.ph411, %if.then212 ], [ %v1.3.ph411, %lor.lhs.false238 ], [ %v1.3.ph411, %land.lhs.true240 ], [ %v1.3.ph411, %if.then244 ], [ %w1276.0, %land.lhs.true286 ], [ %w1276.0, %while.cond277 ], [ %w1276.0, %land.rhs290 ]
-  %v0.3 = phi ptr [ %v0.2.ph412, %lor.lhs.false188.us.lr.ph.split.split ], [ %v0.2.ph412, %while.body155.outer.split.split ], [ %v0.2.ph.lcssa, %while.body155.outer.split.us ], [ %v0.2.ph412, %if.then212.us199.lr.ph ], [ %v0.2.ph412, %if.then212.lr.ph ], [ %v0.2.us191266.us397, %land.lhs.true240.us214.us ], [ %v0.2.us191266.us397, %lor.lhs.false238.us212.us ], [ %v0.2.us191266.us397, %if.then212.us199.us ], [ %v0.2.us191266.us397, %if.end202.us195.us ], [ %v0.1.lcssa, %if.end111 ], [ %v0.1.lcssa, %land.lhs.true145 ], [ %v0.1.lcssa, %lor.lhs.false143 ], [ %v0.1.lcssa, %if.then120 ], [ %cond210.us667, %if.then244.us ], [ %v0.2.us665, %if.then212.us ], [ %v0.2.us665, %lor.lhs.false238.us ], [ %v0.2.us665, %land.lhs.true240.us ], [ %cond210.us197373649, %if.then244.us218 ], [ %cond210.us197373649, %if.then212.us199 ], [ %v0.2.us191266371651, %lor.lhs.false238.us212 ], [ %v0.2.us191266371651, %land.lhs.true240.us214 ], [ %cond210254629, %if.then244 ], [ %v0.2251630, %land.lhs.true240 ], [ %v0.2251630, %lor.lhs.false238 ], [ %cond210254629, %if.then212 ], [ %w0254.0, %land.lhs.true286 ], [ %w0254.0, %while.cond277 ], [ %w0254.0, %land.rhs290 ]
+  %v0.3 = phi ptr [ %v0.2.ph412, %lor.lhs.false188.us.lr.ph.split.split ], [ %v0.2.ph412, %while.body155.outer.split.split ], [ %v0.2.ph.lcssa, %while.body155.outer.split.us ], [ %v0.2.ph412, %if.then212.us199.lr.ph ], [ %v0.2.ph412, %if.then212.lr.ph ], [ %v0.2.us191266.us397, %land.lhs.true240.us214.us ], [ %v0.2.us191266.us397, %lor.lhs.false238.us212.us ], [ %v0.2.us191266.us397, %if.then212.us199.us ], [ %v0.2.us191266.us397, %if.end202.us195.us ], [ %v0.1.lcssa, %if.end111 ], [ %v0.1.lcssa, %land.lhs.true145 ], [ %v0.1.lcssa, %lor.lhs.false143 ], [ %v0.1.lcssa, %if.then120 ], [ %cond210.us666, %if.then244.us ], [ %v0.2.us664, %if.then212.us ], [ %v0.2.us664, %lor.lhs.false238.us ], [ %v0.2.us664, %land.lhs.true240.us ], [ %cond210.us197373648, %if.then244.us218 ], [ %cond210.us197373648, %if.then212.us199 ], [ %v0.2.us191266371650, %lor.lhs.false238.us212 ], [ %v0.2.us191266371650, %land.lhs.true240.us214 ], [ %cond210254628, %if.then244 ], [ %v0.2251629, %land.lhs.true240 ], [ %v0.2251629, %lor.lhs.false238 ], [ %cond210254628, %if.then212 ], [ %w0254.0, %land.lhs.true286 ], [ %w0254.0, %while.cond277 ], [ %w0254.0, %land.rhs290 ]
   br i1 %tobool255.not, label %for.body, label %for.end, !llvm.loop !11
 
 for.end:                                          ; preds = %if.end300
@@ -1918,7 +1922,7 @@ land.rhs39:                                       ; preds = %do.body32
 
 if.then46:                                        ; preds = %land.rhs39
   %tobool47.not = icmp eq ptr %e.1520, null
-  br i1 %tobool47.not, label %if.end55, label %lor.rhs48
+  br i1 %tobool47.not, label %if.then53, label %lor.rhs48
 
 lor.rhs48:                                        ; preds = %if.then46
   %36 = load ptr, ptr %e.1520, align 8
@@ -1929,7 +1933,7 @@ if.then.i244:                                     ; preds = %lor.rhs48
   %prev2.i239 = getelementptr inbounds i8, ptr %e.1520, i64 8
   %37 = load ptr, ptr %prev2.i239, align 8
   %cmp3.i240 = icmp eq ptr %37, %e.1
-  br i1 %cmp3.i240, label %if.then4.i245, label %if.end55
+  br i1 %cmp3.i240, label %if.then4.i245, label %if.then53
 
 if.then4.i245:                                    ; preds = %if.then.i244
   %target.i265 = getelementptr inbounds i8, ptr %e.1520, i64 24
@@ -1972,11 +1976,13 @@ if.then4.i245:                                    ; preds = %if.then.i244
   %mul4.i.i300 = mul i64 %sub17.i42.i295.neg, %conv10.i
   %add7.i.i303 = add i64 %mul.i48.i299, %mul4.i.i300
   %cmp12.i304 = icmp sgt i64 %add7.i.i303, 0
-  %spec.select = select i1 %cmp12.i304, ptr %e.1, ptr %e.1520
+  br i1 %cmp12.i304, label %if.then53, label %if.end55
+
+if.then53:                                        ; preds = %if.then4.i245, %if.then.i244, %if.then46
   br label %if.end55
 
-if.end55:                                         ; preds = %if.then4.i245, %if.then46, %if.then.i244, %lor.rhs48, %do.body32, %land.rhs39
-  %e.1519 = phi ptr [ %e.1520, %lor.rhs48 ], [ %e.1520, %do.body32 ], [ %e.1520, %land.rhs39 ], [ %e.1, %if.then.i244 ], [ %e.1, %if.then46 ], [ %spec.select, %if.then4.i245 ]
+if.end55:                                         ; preds = %lor.rhs48, %if.then4.i245, %do.body32, %if.then53, %land.rhs39
+  %e.1519 = phi ptr [ %e.1520, %lor.rhs48 ], [ %e.1520, %if.then4.i245 ], [ %e.1520, %do.body32 ], [ %e.1, %if.then53 ], [ %e.1520, %land.rhs39 ]
   %47 = load ptr, ptr %e.1, align 8
   %cmp59.not = icmp eq ptr %47, %30
   br i1 %cmp59.not, label %if.end61.loopexit, label %do.body32, !llvm.loop !14

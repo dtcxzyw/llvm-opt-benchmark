@@ -1106,10 +1106,10 @@ define noundef i32 @pmix_show_help_norender(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc i32 @match(ptr noundef readonly %0, ptr noundef readonly %1) unnamed_addr #4 {
+define internal fastcc noundef i32 @match(ptr noundef readonly %0, ptr noundef readonly %1) unnamed_addr #4 {
   %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1) #23
   %4 = icmp eq i32 %3, 0
-  br i1 %4, label %29, label %5
+  br i1 %4, label %30, label %5
 
 5:                                                ; preds = %2
   %6 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 42) #23
@@ -1119,12 +1119,12 @@ define internal fastcc i32 @match(ptr noundef readonly %0, ptr noundef readonly 
 7:                                                ; preds = %5
   %8 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 42) #23
   %.not34 = icmp eq ptr %8, null
-  br i1 %.not34, label %29, label %9
+  br i1 %.not34, label %30, label %9
 
 9:                                                ; preds = %7, %5
   %10 = tail call noalias ptr @strdup(ptr noundef %0) #18
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %29, label %12
+  br i1 %11, label %30, label %12
 
 12:                                               ; preds = %9
   %13 = tail call noalias ptr @strdup(ptr noundef %1) #18
@@ -1158,22 +1158,24 @@ define internal fastcc i32 @match(ptr noundef readonly %0, ptr noundef readonly 
 
 25:                                               ; preds = %21
   %26 = tail call i32 @strncmp(ptr noundef nonnull %10, ptr noundef nonnull %13, i64 noundef %spec.select) #23
-  %27 = icmp ne i32 %26, 0
-  %spec.select37 = sext i1 %27 to i32
-  br label %28
+  %27 = icmp eq i32 %26, 0
+  br i1 %27, label %28, label %29
 
 28:                                               ; preds = %25, %21
-  %.027 = phi i32 [ 0, %21 ], [ %spec.select37, %25 ]
+  br label %29
+
+29:                                               ; preds = %28, %25
+  %.027 = phi i32 [ 0, %28 ], [ -1, %25 ]
   tail call void @free(ptr noundef nonnull %10) #18
   br label %.sink.split
 
-.sink.split:                                      ; preds = %12, %28
-  %.sink = phi ptr [ %13, %28 ], [ %10, %12 ]
-  %.026.ph = phi i32 [ %.027, %28 ], [ -29, %12 ]
+.sink.split:                                      ; preds = %12, %29
+  %.sink = phi ptr [ %13, %29 ], [ %10, %12 ]
+  %.026.ph = phi i32 [ %.027, %29 ], [ -29, %12 ]
   tail call void @free(ptr noundef nonnull %.sink) #18
-  br label %29
+  br label %30
 
-29:                                               ; preds = %.sink.split, %7, %9, %2
+30:                                               ; preds = %.sink.split, %7, %9, %2
   %.026 = phi i32 [ 0, %2 ], [ -29, %9 ], [ -1, %7 ], [ %.026.ph, %.sink.split ]
   ret i32 %.026
 }

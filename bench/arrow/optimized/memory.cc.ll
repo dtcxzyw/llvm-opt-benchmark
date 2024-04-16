@@ -1634,7 +1634,7 @@ entry:
   %is_open_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i8, ptr %is_open_, align 8
   %tobool = trunc i8 %0 to i1
-  br i1 %tobool, label %if.then, label %return
+  br i1 %tobool, label %if.then, label %if.end15
 
 if.then:                                          ; preds = %entry
   store i8 0, ptr %is_open_, align 8
@@ -1643,7 +1643,7 @@ if.then:                                          ; preds = %entry
   %capacity_ = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load i64, ptr %capacity_, align 8
   %cmp = icmp slt i64 %1, %2
-  br i1 %cmp, label %_ZN5arrow6StatusD2Ev.exit, label %return
+  br i1 %cmp, label %_ZN5arrow6StatusD2Ev.exit, label %if.end15
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %if.then
   %buffer_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -1653,10 +1653,14 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %if.then
   %4 = load ptr, ptr %vfn, align 8
   call void %4(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(80) %3, i64 noundef %1, i1 noundef zeroext false)
   %5 = load ptr, ptr %ref.tmp, align 8, !noalias !17
+  %cmp.i = icmp eq ptr %5, null
+  br i1 %cmp.i, label %if.end15, label %return
+
+if.end15:                                         ; preds = %_ZN5arrow6StatusD2Ev.exit, %if.then, %entry
   br label %return
 
-return:                                           ; preds = %_ZN5arrow6StatusD2Ev.exit, %entry, %if.then
-  %storemerge = phi ptr [ null, %if.then ], [ null, %entry ], [ %5, %_ZN5arrow6StatusD2Ev.exit ]
+return:                                           ; preds = %_ZN5arrow6StatusD2Ev.exit, %if.end15
+  %storemerge = phi ptr [ null, %if.end15 ], [ %5, %_ZN5arrow6StatusD2Ev.exit ]
   store ptr %storemerge, ptr %agg.result, align 8
   ret void
 }
@@ -1674,7 +1678,7 @@ entry:
   %is_open_.i = getelementptr inbounds i8, ptr %3, i64 24
   %4 = load i8, ptr %is_open_.i, align 8, !noalias !20
   %tobool.i = trunc i8 %4 to i1
-  br i1 %tobool.i, label %if.then.i, label %_ZN5arrow2io18BufferOutputStream5CloseEv.exit
+  br i1 %tobool.i, label %if.then.i, label %if.end15.i
 
 if.then.i:                                        ; preds = %entry
   store i8 0, ptr %is_open_.i, align 8, !noalias !20
@@ -1683,7 +1687,7 @@ if.then.i:                                        ; preds = %entry
   %capacity_.i = getelementptr inbounds i8, ptr %3, i64 32
   %6 = load i64, ptr %capacity_.i, align 8, !noalias !20
   %cmp.i = icmp slt i64 %5, %6
-  br i1 %cmp.i, label %_ZN5arrow6StatusD2Ev.exit.i, label %_ZN5arrow2io18BufferOutputStream5CloseEv.exit
+  br i1 %cmp.i, label %_ZN5arrow6StatusD2Ev.exit.i, label %if.end15.i
 
 _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %if.then.i
   %buffer_.i = getelementptr inbounds i8, ptr %3, i64 8
@@ -1693,10 +1697,14 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %if.then.i
   %8 = load ptr, ptr %vfn.i, align 8, !noalias !20
   call void %8(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(80) %7, i64 noundef %5, i1 noundef zeroext false), !noalias !20
   %9 = load ptr, ptr %ref.tmp.i, align 8, !noalias !23
+  %cmp.i.i = icmp eq ptr %9, null
+  br i1 %cmp.i.i, label %if.end15.i, label %_ZN5arrow2io18BufferOutputStream5CloseEv.exit
+
+if.end15.i:                                       ; preds = %_ZN5arrow6StatusD2Ev.exit.i, %if.then.i, %entry
   br label %_ZN5arrow2io18BufferOutputStream5CloseEv.exit
 
-_ZN5arrow2io18BufferOutputStream5CloseEv.exit:    ; preds = %_ZN5arrow6StatusD2Ev.exit.i, %entry, %if.then.i
-  %storemerge.i = phi ptr [ null, %if.then.i ], [ null, %entry ], [ %9, %_ZN5arrow6StatusD2Ev.exit.i ]
+_ZN5arrow2io18BufferOutputStream5CloseEv.exit:    ; preds = %_ZN5arrow6StatusD2Ev.exit.i, %if.end15.i
+  %storemerge.i = phi ptr [ null, %if.end15.i ], [ %9, %_ZN5arrow6StatusD2Ev.exit.i ]
   store ptr %storemerge.i, ptr %agg.result, align 8, !alias.scope !20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   ret void
@@ -7952,7 +7960,7 @@ lor.lhs.false:                                    ; preds = %entry
   %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
-  br i1 %cmp.i, label %return, label %if.end.i
+  br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false
   %1 = load i8, ptr %0, align 1
@@ -7963,11 +7971,13 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #29
   %call6.i.fr = freeze i32 %call6.i
   %cmp7.i = icmp eq i32 %call6.i.fr, 0
-  %spec.select = select i1 %cmp7.i, ptr %_M_impl.i, ptr null
+  br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %return
+
+_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %lor.lhs.false, %_ZNKSt9type_infoeqERKS_.exit
   br label %return
 
-return:                                           ; preds = %_ZNKSt9type_infoeqERKS_.exit, %if.end.i, %lor.lhs.false, %entry
-  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %lor.lhs.false ], [ null, %if.end.i ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
+return:                                           ; preds = %if.end.i, %_ZNKSt9type_infoeqERKS_.exit.thread, %_ZNKSt9type_infoeqERKS_.exit, %entry
+  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %_ZNKSt9type_infoeqERKS_.exit ], [ null, %if.end.i ]
   ret ptr %retval.0
 }
 

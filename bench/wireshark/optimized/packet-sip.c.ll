@@ -2756,27 +2756,31 @@ define internal noundef i32 @dissect_sip_tcp_heur(ptr noundef %0, ptr noundef %1
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %4, %8
-  %.022 = phi i32 [ %10, %8 ], [ %5, %4 ]
-  %.not21 = phi i32 [ 1, %8 ], [ 0, %4 ]
-  %.01720 = phi i32 [ %9, %8 ], [ 0, %4 ]
-  %7 = tail call fastcc i32 @dissect_sip_common(ptr noundef %0, i32 noundef %.01720, i32 noundef %.022, ptr noundef %1, ptr noundef %2, i32 noundef %.not21, i32 noundef 1)
-  switch i32 %7, label %8 [
-    i32 -2, label %.loopexit
-    i32 -1, label %.loopexit.loopexit
+.lr.ph:                                           ; preds = %4, %10
+  %.022 = phi i32 [ %12, %10 ], [ %5, %4 ]
+  %.not21 = phi i1 [ true, %10 ], [ false, %4 ]
+  %.01720 = phi i32 [ %11, %10 ], [ 0, %4 ]
+  %7 = zext i1 %.not21 to i32
+  %8 = tail call fastcc i32 @dissect_sip_common(ptr noundef %0, i32 noundef %.01720, i32 noundef %.022, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef 1)
+  switch i32 %8, label %10 [
+    i32 -2, label %9
+    i32 -1, label %.loopexit
   ]
 
-8:                                                ; preds = %.lr.ph
-  %9 = add i32 %7, %.01720
-  %10 = sub i32 %.022, %7
-  %11 = icmp sgt i32 %10, 0
-  br i1 %11, label %.lr.ph, label %.loopexit, !llvm.loop !15
+9:                                                ; preds = %.lr.ph
+  br i1 %.not21, label %.loopexit, label %14
 
-.loopexit.loopexit:                               ; preds = %.lr.ph
-  br label %.loopexit
+10:                                               ; preds = %.lr.ph
+  %11 = add i32 %8, %.01720
+  %12 = sub i32 %.022, %8
+  %13 = icmp sgt i32 %12, 0
+  br i1 %13, label %.lr.ph, label %.loopexit, !llvm.loop !15
 
-.loopexit:                                        ; preds = %8, %.lr.ph, %.loopexit.loopexit, %4
-  %.016 = phi i32 [ 1, %4 ], [ %.not21, %.lr.ph ], [ 1, %8 ], [ 1, %.loopexit.loopexit ]
+.loopexit:                                        ; preds = %10, %.lr.ph, %4, %9
+  br label %14
+
+14:                                               ; preds = %9, %.loopexit
+  %.016 = phi i32 [ 1, %.loopexit ], [ 0, %9 ]
   ret i32 %.016
 }
 
@@ -2975,8 +2979,8 @@ thread-pre-split.i:                               ; preds = %57
   br i1 %100, label %select.unfold, label %101
 
 101:                                              ; preds = %98
-  %.pr61.i = load i32, ptr @strict_sip_version, align 4
-  %.not52.i = icmp eq i32 %.pr61.i, 0
+  %.pr60.i = load i32, ptr @strict_sip_version, align 4
+  %.not52.i = icmp eq i32 %.pr60.i, 0
   br i1 %.not52.i, label %.thread.i, label %sip_parse_line.exit
 
 .thread.i:                                        ; preds = %101, %93
@@ -2984,12 +2988,12 @@ thread-pre-split.i:                               ; preds = %57
   %103 = icmp eq i32 %102, -1
   br i1 %103, label %select.unfold, label %sip_parse_line.exit
 
-select.unfold:                                    ; preds = %.thread.i, %80, %42, %46, %65, %73, %66, %87, %89, %98, %95
-  %.01594.ph = phi i32 [ %51, %89 ], [ %51, %95 ], [ %51, %98 ], [ %51, %87 ], [ %51, %65 ], [ %51, %73 ], [ %51, %66 ], [ 0, %46 ], [ 0, %42 ], [ %51, %80 ], [ %51, %.thread.i ]
+select.unfold:                                    ; preds = %80, %42, %46, %65, %73, %66, %87, %89, %.thread.i, %98, %95
+  %.01594.ph = phi i32 [ %51, %89 ], [ %51, %95 ], [ %51, %98 ], [ %51, %.thread.i ], [ %51, %87 ], [ %51, %65 ], [ %51, %73 ], [ %51, %66 ], [ 0, %46 ], [ 0, %42 ], [ %51, %80 ]
   br i1 %.not, label %1633, label %112
 
-sip_parse_line.exit:                              ; preds = %101, %80, %.thread.i
-  %.0.i = phi i32 [ 0, %101 ], [ 1, %80 ], [ 0, %.thread.i ]
+sip_parse_line.exit:                              ; preds = %101, %.thread.i, %80
+  %.0.i = phi i32 [ 1, %80 ], [ 0, %.thread.i ], [ 0, %101 ]
   %.not1398 = icmp eq i32 %6, 0
   br i1 %.not1398, label %112, label %104
 
@@ -3007,8 +3011,8 @@ sip_parse_line.exit:                              ; preds = %101, %80, %.thread.
   br i1 %.not1399, label %1633, label %112
 
 112:                                              ; preds = %sip_parse_line.exit, %104, %108, %select.unfold
-  %.0.i1600 = phi i32 [ %.0.i, %sip_parse_line.exit ], [ %.0.i, %104 ], [ %.0.i, %108 ], [ 2, %select.unfold ]
-  %.015941598 = phi i32 [ %51, %sip_parse_line.exit ], [ %51, %104 ], [ %51, %108 ], [ %.01594.ph, %select.unfold ]
+  %.0.i1599 = phi i32 [ %.0.i, %sip_parse_line.exit ], [ %.0.i, %104 ], [ %.0.i, %108 ], [ 2, %select.unfold ]
+  %.015941597 = phi i32 [ %51, %sip_parse_line.exit ], [ %51, %104 ], [ %51, %108 ], [ %.01594.ph, %select.unfold ]
   %113 = getelementptr inbounds i8, ptr %3, i64 408
   %114 = load ptr, ptr %113, align 8
   %115 = call noalias ptr @wmem_alloc0(ptr noundef %114, i64 noundef 64) #15
@@ -3062,15 +3066,15 @@ sip_parse_line.exit:                              ; preds = %101, %80, %.thread.
   br label %147
 
 147:                                              ; preds = %129, %139, %126, %112
-  switch i32 %.0.i1600, label %236 [
+  switch i32 %.0.i1599, label %236 [
     i32 0, label %148
     i32 1, label %192
   ]
 
 148:                                              ; preds = %147
   %149 = call ptr @wmem_packet_scope() #15
-  %150 = call ptr @tvb_get_string_enc(ptr noundef %149, ptr noundef %0, i32 noundef %1, i32 noundef %.015941598, i32 noundef 2) #15
-  %151 = zext i32 %.015941598 to i64
+  %150 = call ptr @tvb_get_string_enc(ptr noundef %149, ptr noundef %0, i32 noundef %1, i32 noundef %.015941597, i32 noundef 2) #15
+  %151 = zext i32 %.015941597 to i64
   br label %152
 
 152:                                              ; preds = %160, %148
@@ -3089,14 +3093,14 @@ sip_parse_line.exit:                              ; preds = %101, %80, %.thread.
 160:                                              ; preds = %157, %152
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 18
-  br i1 %exitcond.not.i, label %.loopexit2099, label %152, !llvm.loop !16
+  br i1 %exitcond.not.i, label %.loopexit2098, label %152, !llvm.loop !16
 
 sip_is_known_request.exit:                        ; preds = %157
   %161 = trunc nuw nsw i64 %indvars.iv.i to i32
-  br label %.loopexit2099
+  br label %.loopexit2098
 
-.loopexit2099:                                    ; preds = %160, %sip_is_known_request.exit
-  %.015921605 = phi i32 [ %161, %sip_is_known_request.exit ], [ 0, %160 ]
+.loopexit2098:                                    ; preds = %160, %sip_is_known_request.exit
+  %.015921604 = phi i32 [ %161, %sip_is_known_request.exit ], [ 0, %160 ]
   %162 = phi ptr [ @.str.992, %sip_is_known_request.exit ], [ @.str.993, %160 ]
   %163 = load ptr, ptr %121, align 8
   %164 = load ptr, ptr %113, align 8
@@ -3110,20 +3114,20 @@ sip_is_known_request.exit:                        ; preds = %157
   %.not1406 = icmp eq ptr %170, null
   br i1 %.not1406, label %176, label %171
 
-171:                                              ; preds = %.loopexit2099
+171:                                              ; preds = %.loopexit2098
   %172 = load i32, ptr @hf_Request_Line, align 4
   %173 = call ptr @proto_tree_add_item(ptr noundef nonnull %170, i32 noundef %172, ptr noundef %0, i32 noundef %1, i32 noundef %37, i32 noundef 2) #15
   %174 = load i32, ptr @ett_sip_reqresp, align 4
   %175 = call ptr @proto_item_add_subtree(ptr noundef %173, i32 noundef %174) #15
   br label %176
 
-176:                                              ; preds = %171, %.loopexit2099
-  %.01280 = phi ptr [ %175, %171 ], [ null, %.loopexit2099 ]
+176:                                              ; preds = %171, %.loopexit2098
+  %.01280 = phi ptr [ %175, %171 ], [ null, %.loopexit2098 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %15)
   %177 = load i32, ptr @hf_sip_Method, align 4
   %178 = call ptr @wmem_packet_scope() #15
-  %179 = call ptr @proto_tree_add_item_ret_string(ptr noundef %.01280, i32 noundef %177, ptr noundef %0, i32 noundef %1, i32 noundef %.015941598, i32 noundef 0, ptr noundef %178, ptr noundef nonnull %14) #15
+  %179 = call ptr @proto_tree_add_item_ret_string(ptr noundef %.01280, i32 noundef %177, ptr noundef %0, i32 noundef %1, i32 noundef %.015941597, i32 noundef 0, ptr noundef %178, ptr noundef nonnull %14) #15
   %180 = load ptr, ptr %14, align 8
   %181 = load ptr, ptr @stat_info, align 8
   store ptr %180, ptr %181, align 8
@@ -3132,7 +3136,7 @@ sip_is_known_request.exit:                        ; preds = %157
 
 182:                                              ; preds = %176
   %183 = add i32 %1, 1
-  %184 = add i32 %183, %.015941598
+  %184 = add i32 %183, %.015941597
   store i32 0, ptr %15, align 4
   %185 = getelementptr inbounds i8, ptr %15, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %185, i8 -1, i64 56, i1 false)
@@ -3241,35 +3245,35 @@ dfilter_sip_status_line.exit:                     ; preds = %223, %231
 250:                                              ; preds = %dfilter_sip_status_line.exit, %dfilter_sip_request_line.exit
   %251 = phi ptr [ %207, %dfilter_sip_status_line.exit ], [ %170, %dfilter_sip_request_line.exit ]
   %252 = phi ptr [ %205, %dfilter_sip_status_line.exit ], [ %168, %dfilter_sip_request_line.exit ]
-  %.115931609 = phi i32 [ 0, %dfilter_sip_status_line.exit ], [ %.015921605, %dfilter_sip_request_line.exit ]
+  %.115931608 = phi i32 [ 0, %dfilter_sip_status_line.exit ], [ %.015921604, %dfilter_sip_request_line.exit ]
   %.21282 = phi ptr [ %.11281, %dfilter_sip_status_line.exit ], [ %.01280, %dfilter_sip_request_line.exit ]
   %253 = load i32, ptr %16, align 4
   %.neg = add i32 %2, %1
   %254 = sub i32 %.neg, %253
   store i32 -1, ptr %17, align 4
   %255 = icmp sgt i32 %254, 0
-  br i1 %255, label %.lr.ph1763, label %.loopexit1659
+  br i1 %255, label %.lr.ph1762, label %.loopexit1658
 
-.lr.ph1763:                                       ; preds = %250, %.critedge
-  %.012671762 = phi i32 [ %272, %.critedge ], [ %254, %250 ]
-  %.012691761 = phi i32 [ %271, %.critedge ], [ %253, %250 ]
-  %256 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef %.012691761, i32 noundef -1, ptr noundef nonnull %16, i32 noundef 0) #15
+.lr.ph1762:                                       ; preds = %250, %.critedge
+  %.012671761 = phi i32 [ %272, %.critedge ], [ %254, %250 ]
+  %.012691760 = phi i32 [ %271, %.critedge ], [ %253, %250 ]
+  %256 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef %.012691760, i32 noundef -1, ptr noundef nonnull %16, i32 noundef 0) #15
   %257 = icmp eq i32 %256, 0
   %258 = load i32, ptr %16, align 4
-  br i1 %257, label %.loopexit1659, label %259
+  br i1 %257, label %.loopexit1658, label %259
 
-259:                                              ; preds = %.lr.ph1763
+259:                                              ; preds = %.lr.ph1762
   %260 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %258) #15
   %261 = icmp sgt i32 %260, 0
-  br i1 %261, label %.preheader1658, label %.critedge
+  br i1 %261, label %.preheader1657, label %.critedge
 
-.preheader1658:                                   ; preds = %259
+.preheader1657:                                   ; preds = %259
   %262 = load i32, ptr %16, align 4
   %263 = call i32 @tvb_offset_exists(ptr noundef %0, i32 noundef %262) #15
-  %.not14071759 = icmp eq i32 %263, 0
-  br i1 %.not14071759, label %.critedge, label %.lr.ph
+  %.not14071758 = icmp eq i32 %263, 0
+  br i1 %.not14071758, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader1658, %266
+.lr.ph:                                           ; preds = %.preheader1657, %266
   %264 = load i32, ptr %16, align 4
   %265 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %264) #15
   switch i8 %265, label %.critedge [
@@ -3285,18 +3289,18 @@ dfilter_sip_status_line.exit:                     ; preds = %223, %231
   %.not1407 = icmp eq i32 %270, 0
   br i1 %.not1407, label %.critedge, label %.lr.ph, !llvm.loop !17
 
-.critedge:                                        ; preds = %266, %.lr.ph, %.preheader1658, %259
+.critedge:                                        ; preds = %266, %.lr.ph, %.preheader1657, %259
   %271 = load i32, ptr %16, align 4
-  %.neg1408 = add i32 %.012671762, %.012691761
+  %.neg1408 = add i32 %.012671761, %.012691760
   %272 = sub i32 %.neg1408, %271
   %273 = icmp sgt i32 %272, 0
-  br i1 %273, label %.lr.ph1763, label %.loopexit1659, !llvm.loop !18
+  br i1 %273, label %.lr.ph1762, label %.loopexit1658, !llvm.loop !18
 
-.loopexit1659:                                    ; preds = %.critedge, %.lr.ph1763, %250
-  %.012671756 = phi i32 [ %254, %250 ], [ %272, %.critedge ], [ %.012671762, %.lr.ph1763 ]
-  %.11270 = phi i32 [ %253, %250 ], [ %271, %.critedge ], [ %258, %.lr.ph1763 ]
+.loopexit1658:                                    ; preds = %.critedge, %.lr.ph1762, %250
+  %.012671755 = phi i32 [ %254, %250 ], [ %272, %.critedge ], [ %.012671761, %.lr.ph1762 ]
+  %.11270 = phi i32 [ %253, %250 ], [ %271, %.critedge ], [ %258, %.lr.ph1762 ]
   %274 = sub i32 %.11270, %253
-  %275 = add i32 %274, %.012671756
+  %275 = add i32 %274, %.012671755
   %276 = load i32, ptr @hf_sip_msg_hdr, align 4
   %277 = call ptr @proto_tree_add_item(ptr noundef %251, i32 noundef %276, ptr noundef %0, i32 noundef %253, i32 noundef %274, i32 noundef 2) #15
   %278 = load i32, ptr @ett_sip_hdr, align 4
@@ -3306,17 +3310,17 @@ dfilter_sip_status_line.exit:                     ; preds = %223, %231
   %.not1409 = icmp eq i32 %281, 0
   br i1 %.not1409, label %284, label %282
 
-282:                                              ; preds = %.loopexit1659
+282:                                              ; preds = %.loopexit1658
   %283 = load i32, ptr @sip_follow_tap, align 4
   call void @tap_queue_packet(i32 noundef %283, ptr noundef %3, ptr noundef %0) #15
   br label %284
 
-284:                                              ; preds = %282, %.loopexit1659
+284:                                              ; preds = %282, %.loopexit1658
   store i32 -1, ptr %17, align 4
   %285 = icmp sgt i32 %275, 0
-  br i1 %285, label %.lr.ph1894, label %.loopexit1657
+  br i1 %285, label %.lr.ph1893, label %.loopexit1656
 
-.lr.ph1894:                                       ; preds = %284
+.lr.ph1893:                                       ; preds = %284
   %.not1411 = icmp eq ptr %279, null
   %286 = getelementptr inbounds i8, ptr %25, i64 16
   %287 = getelementptr inbounds i8, ptr %25, i64 32
@@ -3337,45 +3341,45 @@ dfilter_sip_status_line.exit:                     ; preds = %223, %231
   %302 = getelementptr inbounds i8, ptr %22, i64 32
   br label %303
 
-303:                                              ; preds = %.lr.ph1894, %1224
-  %.012661892 = phi i32 [ %253, %.lr.ph1894 ], [ %1225, %1224 ]
-  %.112681891 = phi i32 [ %275, %.lr.ph1894 ], [ %1226, %1224 ]
-  %.012851890 = phi ptr [ null, %.lr.ph1894 ], [ %.21287, %1224 ]
-  %.012901889 = phi ptr [ null, %.lr.ph1894 ], [ %.21292, %1224 ]
-  %.013081888 = phi i8 [ 0, %.lr.ph1894 ], [ %.21310, %1224 ]
-  %.013161887 = phi i8 [ 0, %.lr.ph1894 ], [ %.11317, %1224 ]
-  %.013201886 = phi i8 [ 0, %.lr.ph1894 ], [ %.21322, %1224 ]
-  %.013241885 = phi i32 [ 0, %.lr.ph1894 ], [ %.11325, %1224 ]
-  %.013261884 = phi i8 [ 0, %.lr.ph1894 ], [ %.11327, %1224 ]
-  %.013281883 = phi ptr [ null, %.lr.ph1894 ], [ %.11329, %1224 ]
-  %.013311882 = phi ptr [ null, %.lr.ph1894 ], [ %.11332, %1224 ]
-  %.013331881 = phi ptr [ null, %.lr.ph1894 ], [ %.11334, %1224 ]
-  %.015811880 = phi i8 [ 0, %.lr.ph1894 ], [ %.31584, %1224 ]
-  %.015851879 = phi i8 [ 0, %.lr.ph1894 ], [ %.71591, %1224 ]
-  %304 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef %.012661892, i32 noundef -1, ptr noundef nonnull %16, i32 noundef 0) #15
+303:                                              ; preds = %.lr.ph1893, %1224
+  %.012661891 = phi i32 [ %253, %.lr.ph1893 ], [ %1225, %1224 ]
+  %.112681890 = phi i32 [ %275, %.lr.ph1893 ], [ %1226, %1224 ]
+  %.012851889 = phi ptr [ null, %.lr.ph1893 ], [ %.21287, %1224 ]
+  %.012901888 = phi ptr [ null, %.lr.ph1893 ], [ %.21292, %1224 ]
+  %.013081887 = phi i8 [ 0, %.lr.ph1893 ], [ %.21310, %1224 ]
+  %.013161886 = phi i8 [ 0, %.lr.ph1893 ], [ %.11317, %1224 ]
+  %.013201885 = phi i8 [ 0, %.lr.ph1893 ], [ %.21322, %1224 ]
+  %.013241884 = phi i32 [ 0, %.lr.ph1893 ], [ %.11325, %1224 ]
+  %.013261883 = phi i8 [ 0, %.lr.ph1893 ], [ %.11327, %1224 ]
+  %.013281882 = phi ptr [ null, %.lr.ph1893 ], [ %.11329, %1224 ]
+  %.013311881 = phi ptr [ null, %.lr.ph1893 ], [ %.11332, %1224 ]
+  %.013331880 = phi ptr [ null, %.lr.ph1893 ], [ %.11334, %1224 ]
+  %.015811879 = phi i8 [ 0, %.lr.ph1893 ], [ %.31584, %1224 ]
+  %.015851878 = phi i8 [ 0, %.lr.ph1893 ], [ %.71591, %1224 ]
+  %304 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef %.012661891, i32 noundef -1, ptr noundef nonnull %16, i32 noundef 0) #15
   %305 = icmp eq i32 %304, 0
   br i1 %305, label %306, label %308
 
 306:                                              ; preds = %303
   %307 = load i32, ptr %16, align 4
-  br label %.loopexit1657
+  br label %.loopexit1656
 
 308:                                              ; preds = %303
-  %309 = add i32 %304, %.012661892
+  %309 = add i32 %304, %.012661891
   %310 = load i32, ptr %16, align 4
   %311 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %310) #15
   %312 = icmp slt i32 %311, 1
-  br i1 %312, label %.critedge2, label %.preheader1656
+  br i1 %312, label %.critedge2, label %.preheader1655
 
-.preheader1656:                                   ; preds = %308
+.preheader1655:                                   ; preds = %308
   %313 = load i32, ptr %16, align 4
   %314 = call i32 @tvb_offset_exists(ptr noundef %0, i32 noundef %313) #15
-  %.not14101765 = icmp eq i32 %314, 0
-  br i1 %.not14101765, label %.critedge2, label %.lr.ph1768
+  %.not14101764 = icmp eq i32 %314, 0
+  br i1 %.not14101764, label %.critedge2, label %.lr.ph1767
 
-.lr.ph1768:                                       ; preds = %.preheader1656, %317
-  %.112721767 = phi i32 [ %322, %317 ], [ %304, %.preheader1656 ]
-  %.013181766 = phi i32 [ %323, %317 ], [ %309, %.preheader1656 ]
+.lr.ph1767:                                       ; preds = %.preheader1655, %317
+  %.112721766 = phi i32 [ %322, %317 ], [ %304, %.preheader1655 ]
+  %.013181765 = phi i32 [ %323, %317 ], [ %309, %.preheader1655 ]
   %315 = load i32, ptr %16, align 4
   %316 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %315) #15
   switch i8 %316, label %.critedge2 [
@@ -3383,22 +3387,22 @@ dfilter_sip_status_line.exit:                     ; preds = %223, %231
     i8 9, label %317
   ]
 
-317:                                              ; preds = %.lr.ph1768, %.lr.ph1768
+317:                                              ; preds = %.lr.ph1767, %.lr.ph1767
   %318 = load i32, ptr %16, align 4
   %319 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef %318, i32 noundef -1, ptr noundef nonnull %16, i32 noundef 0) #15
-  %320 = sub i32 %.112721767, %.013181766
+  %320 = sub i32 %.112721766, %.013181765
   %321 = add i32 %320, %318
   %322 = add i32 %321, %319
-  %323 = add i32 %322, %.012661892
+  %323 = add i32 %322, %.012661891
   %324 = load i32, ptr %16, align 4
   %325 = call i32 @tvb_offset_exists(ptr noundef %0, i32 noundef %324) #15
   %.not1410 = icmp eq i32 %325, 0
-  br i1 %.not1410, label %.critedge2, label %.lr.ph1768, !llvm.loop !19
+  br i1 %.not1410, label %.critedge2, label %.lr.ph1767, !llvm.loop !19
 
-.critedge2:                                       ; preds = %317, %.lr.ph1768, %.preheader1656, %308
-  %.11319 = phi i32 [ %309, %308 ], [ %309, %.preheader1656 ], [ %323, %317 ], [ %.013181766, %.lr.ph1768 ]
-  %.21273 = phi i32 [ %304, %308 ], [ %304, %.preheader1656 ], [ %322, %317 ], [ %.112721767, %.lr.ph1768 ]
-  %326 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.012661892, i32 noundef %.21273, i8 noundef zeroext 58) #15
+.critedge2:                                       ; preds = %317, %.lr.ph1767, %.preheader1655, %308
+  %.11319 = phi i32 [ %309, %308 ], [ %309, %.preheader1655 ], [ %323, %317 ], [ %.013181765, %.lr.ph1767 ]
+  %.21273 = phi i32 [ %304, %308 ], [ %304, %.preheader1655 ], [ %322, %317 ], [ %.112721766, %.lr.ph1767 ]
+  %326 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.012661891, i32 noundef %.21273, i8 noundef zeroext 58) #15
   %327 = icmp eq i32 %326, -1
   br i1 %327, label %328, label %330
 
@@ -3407,9 +3411,9 @@ dfilter_sip_status_line.exit:                     ; preds = %223, %231
   br label %.critedge1490
 
 330:                                              ; preds = %.critedge2
-  %331 = sub i32 %326, %.012661892
+  %331 = sub i32 %326, %.012661891
   %332 = call ptr @wmem_packet_scope() #15
-  %333 = call ptr @tvb_get_string_enc(ptr noundef %332, ptr noundef %0, i32 noundef %.012661892, i32 noundef %331, i32 noundef 2) #15
+  %333 = call ptr @tvb_get_string_enc(ptr noundef %332, ptr noundef %0, i32 noundef %.012661891, i32 noundef %331, i32 noundef 2) #15
   %334 = call ptr @ascii_strdown_inplace(ptr noundef %333) #15
   %335 = icmp ugt i32 %331, 1
   br i1 %335, label %336, label %341
@@ -3513,39 +3517,39 @@ sip_is_known_sip_header.exit:                     ; preds = %336, %.loopexit.loo
   %364 = phi i32 [ %355, %sip_is_known_sip_header.exit.thread ], [ %360, %sip_is_known_sip_header.exit ]
   %365 = load ptr, ptr @sip_custom_header_fields_hash, align 8
   %.not1461 = icmp eq ptr %365, null
-  br i1 %.not1461, label %.thread1616, label %366
+  br i1 %.not1461, label %.thread1615, label %366
 
 366:                                              ; preds = %362
   %367 = call ptr @g_hash_table_lookup(ptr noundef nonnull %365, ptr noundef %333) #15
   %.not1462 = icmp eq ptr %367, null
-  br i1 %.not1462, label %.thread1616, label %368
+  br i1 %.not1462, label %.thread1615, label %368
 
 368:                                              ; preds = %366
   %369 = load i32, ptr %367, align 4
   %370 = load i32, ptr %16, align 4
-  %371 = sub i32 %370, %.012661892
-  %372 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef %279, i32 noundef %369, ptr noundef %0, i32 noundef %.012661892, i32 noundef %371, i32 noundef %364, i32 noundef %363)
+  %371 = sub i32 %370, %.012661891
+  %372 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef %279, i32 noundef %369, ptr noundef %0, i32 noundef %.012661891, i32 noundef %371, i32 noundef %364, i32 noundef %363)
   br label %.critedge1490
 
-.thread1616:                                      ; preds = %362, %366
+.thread1615:                                      ; preds = %362, %366
   %373 = load i32, ptr %16, align 4
-  %374 = sub i32 %373, %.012661892
+  %374 = sub i32 %373, %.012661891
   %375 = load i32, ptr @ett_sip_ext_hdr, align 4
   %376 = load ptr, ptr %113, align 8
-  %377 = call ptr @tvb_format_text(ptr noundef %376, ptr noundef %0, i32 noundef %.012661892, i32 noundef %.21273) #15
-  %378 = call ptr @proto_tree_add_subtree(ptr noundef %279, ptr noundef %0, i32 noundef %.012661892, i32 noundef %374, i32 noundef %375, ptr noundef nonnull %23, ptr noundef %377) #15
+  %377 = call ptr @tvb_format_text(ptr noundef %376, ptr noundef %0, i32 noundef %.012661891, i32 noundef %.21273) #15
+  %378 = call ptr @proto_tree_add_subtree(ptr noundef %279, ptr noundef %0, i32 noundef %.012661891, i32 noundef %374, i32 noundef %375, ptr noundef nonnull %23, ptr noundef %377) #15
   %379 = load ptr, ptr @ext_hdr_subdissector_table, align 8
   %380 = call ptr @dissector_get_string_handle(ptr noundef %379, ptr noundef %333) #15
   %.not1463 = icmp eq ptr %380, null
   br i1 %.not1463, label %385, label %381
 
-381:                                              ; preds = %.thread1616
+381:                                              ; preds = %.thread1615
   %382 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %364, i32 noundef %363) #15
   %383 = load ptr, ptr @ext_hdr_subdissector_table, align 8
   %384 = call i32 @dissector_try_string(ptr noundef %383, ptr noundef %333, ptr noundef %382, ptr noundef nonnull %3, ptr noundef %378, ptr noundef null) #15
   br label %.critedge1490
 
-385:                                              ; preds = %.thread1616
+385:                                              ; preds = %.thread1615
   %386 = load ptr, ptr %23, align 8
   %387 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %3, ptr noundef %386, ptr noundef nonnull @ei_sip_unrecognized_header, ptr noundef nonnull @.str.999, ptr noundef %333) #15
   br label %.critedge1490
@@ -3553,9 +3557,9 @@ sip_is_known_sip_header.exit:                     ; preds = %336, %.loopexit.loo
 388:                                              ; preds = %sip_is_known_sip_header.exit
   %389 = load i32, ptr getelementptr inbounds ([127 x i32], ptr @hf_header_array, i64 0, i64 118), align 8
   %390 = load i32, ptr %16, align 4
-  %391 = sub i32 %390, %.012661892
-  %392 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef %279, i32 noundef %389, ptr noundef %0, i32 noundef %.012661892, i32 noundef %391, i32 noundef %360, i32 noundef %361)
-  call fastcc void @sip_proto_set_format_text(ptr noundef %279, ptr noundef %392, ptr noundef %0, i32 noundef %.012661892, i32 noundef %.21273)
+  %391 = sub i32 %390, %.012661891
+  %392 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef %279, i32 noundef %389, ptr noundef %0, i32 noundef %.012661891, i32 noundef %391, i32 noundef %360, i32 noundef %361)
+  call fastcc void @sip_proto_set_format_text(ptr noundef %279, ptr noundef %392, ptr noundef %0, i32 noundef %.012661891, i32 noundef %.21273)
   %393 = load i32, ptr @ett_sip_element, align 4
   %394 = call ptr @proto_item_add_subtree(ptr noundef %392, i32 noundef %393) #15
   store i32 0, ptr %22, align 4
@@ -3576,8 +3580,8 @@ sip_is_known_sip_header.exit:                     ; preds = %336, %.loopexit.loo
 
 403:                                              ; preds = %397
   %404 = call ptr @wmem_packet_scope() #15
-  %reass.sub1909 = sub i32 %401, %399
-  %405 = add i32 %reass.sub1909, 1
+  %reass.sub1908 = sub i32 %401, %399
+  %405 = add i32 %reass.sub1908, 1
   %406 = call ptr @tvb_get_string_enc(ptr noundef %404, ptr noundef %0, i32 noundef %399, i32 noundef %405, i32 noundef 2) #15
   %407 = load ptr, ptr @stat_info, align 8
   %408 = getelementptr inbounds i8, ptr %407, i64 40
@@ -3589,23 +3593,23 @@ sip_is_known_sip_header.exit:                     ; preds = %336, %.loopexit.loo
   br label %411
 
 411:                                              ; preds = %409, %388
-  %.1 = phi i32 [ %410, %409 ], [ %.012661892, %388 ]
+  %.1 = phi i32 [ %410, %409 ], [ %.012661891, %388 ]
   %412 = icmp slt i32 %.1, %.11319
-  br i1 %412, label %.lr.ph1878, label %.critedge1490
+  br i1 %412, label %.lr.ph1877, label %.critedge1490
 
-.lr.ph1878:                                       ; preds = %411, %414
-  %.013141876 = phi i32 [ %415, %414 ], [ %.1, %411 ]
-  %413 = call i32 @tvb_strneql(ptr noundef %0, i32 noundef %.013141876, ptr noundef nonnull @.str.1000, i64 noundef 4) #15
+.lr.ph1877:                                       ; preds = %411, %414
+  %.013141875 = phi i32 [ %415, %414 ], [ %.1, %411 ]
+  %413 = call i32 @tvb_strneql(ptr noundef %0, i32 noundef %.013141875, ptr noundef nonnull @.str.1000, i64 noundef 4) #15
   %.not1460 = icmp eq i32 %413, 0
   br i1 %.not1460, label %.critedge6, label %414
 
-414:                                              ; preds = %.lr.ph1878
-  %415 = add i32 %.013141876, 1
-  %exitcond2083.not = icmp eq i32 %415, %.11319
-  br i1 %exitcond2083.not, label %.critedge1490, label %.lr.ph1878, !llvm.loop !21
+414:                                              ; preds = %.lr.ph1877
+  %415 = add i32 %.013141875, 1
+  %exitcond2082.not = icmp eq i32 %415, %.11319
+  br i1 %exitcond2082.not, label %.critedge1490, label %.lr.ph1877, !llvm.loop !21
 
-.critedge6:                                       ; preds = %.lr.ph1878
-  %416 = add i32 %.013141876, 4
+.critedge6:                                       ; preds = %.lr.ph1877
+  %416 = add i32 %.013141875, 4
   %417 = sub i32 %.11319, %416
   %418 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %416, i32 noundef %417, i8 noundef zeroext 59) #15
   %419 = icmp eq i32 %418, -1
@@ -3632,7 +3636,7 @@ sip_is_known_sip_header.exit:                     ; preds = %336, %.loopexit.loo
   br label %proto_item_set_hidden.exit
 
 proto_item_set_hidden.exit:                       ; preds = %.critedge6, %425, %428
-  switch i32 %.115931609, label %.critedge1490 [
+  switch i32 %.115931608, label %.critedge1490 [
     i32 6, label %432
     i32 15, label %432
     i32 12, label %432
@@ -3646,9 +3650,9 @@ proto_item_set_hidden.exit:                       ; preds = %.critedge6, %425, %
 434:                                              ; preds = %sip_is_known_sip_header.exit
   %435 = load i32, ptr getelementptr inbounds ([127 x i32], ptr @hf_header_array, i64 0, i64 30), align 8
   %436 = load i32, ptr %16, align 4
-  %437 = sub i32 %436, %.012661892
-  %438 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef %279, i32 noundef %435, ptr noundef %0, i32 noundef %.012661892, i32 noundef %437, i32 noundef %360, i32 noundef %361)
-  call fastcc void @sip_proto_set_format_text(ptr noundef %279, ptr noundef %438, ptr noundef %0, i32 noundef %.012661892, i32 noundef %.21273)
+  %437 = sub i32 %436, %.012661891
+  %438 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef %279, i32 noundef %435, ptr noundef %0, i32 noundef %.012661891, i32 noundef %437, i32 noundef %360, i32 noundef %361)
+  call fastcc void @sip_proto_set_format_text(ptr noundef %279, ptr noundef %438, ptr noundef %0, i32 noundef %.012661891, i32 noundef %.21273)
   %439 = load i32, ptr @ett_sip_element, align 4
   %440 = call ptr @proto_item_add_subtree(ptr noundef %438, i32 noundef %439) #15
   store i32 0, ptr %22, align 4
@@ -3682,23 +3686,23 @@ proto_item_set_hidden.exit:                       ; preds = %.critedge6, %425, %
   br label %457
 
 457:                                              ; preds = %455, %434
-  %.2 = phi i32 [ %456, %455 ], [ %.012661892, %434 ]
+  %.2 = phi i32 [ %456, %455 ], [ %.012661891, %434 ]
   %458 = icmp slt i32 %.2, %.11319
-  br i1 %458, label %.lr.ph1875, label %.critedge1490
+  br i1 %458, label %.lr.ph1874, label %.critedge1490
 
-.lr.ph1875:                                       ; preds = %457, %460
-  %.113151873 = phi i32 [ %461, %460 ], [ %.2, %457 ]
-  %459 = call i32 @tvb_strneql(ptr noundef %0, i32 noundef %.113151873, ptr noundef nonnull @.str.1000, i64 noundef 4) #15
+.lr.ph1874:                                       ; preds = %457, %460
+  %.113151872 = phi i32 [ %461, %460 ], [ %.2, %457 ]
+  %459 = call i32 @tvb_strneql(ptr noundef %0, i32 noundef %.113151872, ptr noundef nonnull @.str.1000, i64 noundef 4) #15
   %.not1458 = icmp eq i32 %459, 0
   br i1 %.not1458, label %.critedge11, label %460
 
-460:                                              ; preds = %.lr.ph1875
-  %461 = add i32 %.113151873, 1
-  %exitcond2082.not = icmp eq i32 %461, %.11319
-  br i1 %exitcond2082.not, label %.critedge1490, label %.lr.ph1875, !llvm.loop !22
+460:                                              ; preds = %.lr.ph1874
+  %461 = add i32 %.113151872, 1
+  %exitcond2081.not = icmp eq i32 %461, %.11319
+  br i1 %exitcond2081.not, label %.critedge1490, label %.lr.ph1874, !llvm.loop !22
 
-.critedge11:                                      ; preds = %.lr.ph1875
-  %462 = add i32 %.113151873, 4
+.critedge11:                                      ; preds = %.lr.ph1874
+  %462 = add i32 %.113151872, 4
   %463 = sub i32 %.11319, %462
   %464 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %462, i32 noundef %463, i8 noundef zeroext 59) #15
   %465 = icmp eq i32 %464, -1
@@ -3730,9 +3734,9 @@ proto_item_set_hidden.exit:                       ; preds = %.critedge6, %425, %
 479:                                              ; preds = %478
   %480 = load i32, ptr getelementptr inbounds ([127 x i32], ptr @hf_header_array, i64 0, i64 49), align 4
   %481 = load i32, ptr %16, align 4
-  %482 = sub i32 %481, %.012661892
-  %483 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef nonnull %279, i32 noundef %480, ptr noundef %0, i32 noundef %.012661892, i32 noundef %482, i32 noundef %360, i32 noundef %361)
-  call fastcc void @sip_proto_set_format_text(ptr noundef nonnull %279, ptr noundef %483, ptr noundef %0, i32 noundef %.012661892, i32 noundef %.21273)
+  %482 = sub i32 %481, %.012661891
+  %483 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef nonnull %279, i32 noundef %480, ptr noundef %0, i32 noundef %.012661891, i32 noundef %482, i32 noundef %360, i32 noundef %361)
+  call fastcc void @sip_proto_set_format_text(ptr noundef nonnull %279, ptr noundef %483, ptr noundef %0, i32 noundef %.012661891, i32 noundef %.21273)
   %484 = load i32, ptr @ett_sip_element, align 4
   %485 = call ptr @proto_item_add_subtree(ptr noundef %483, i32 noundef %484) #15
   store i32 0, ptr %22, align 4
@@ -3752,9 +3756,9 @@ proto_item_set_hidden.exit:                       ; preds = %.critedge6, %425, %
 491:                                              ; preds = %490
   %492 = load i32, ptr getelementptr inbounds ([127 x i32], ptr @hf_header_array, i64 0, i64 51), align 4
   %493 = load i32, ptr %16, align 4
-  %494 = sub i32 %493, %.012661892
-  %495 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef nonnull %279, i32 noundef %492, ptr noundef %0, i32 noundef %.012661892, i32 noundef %494, i32 noundef %360, i32 noundef %361)
-  call fastcc void @sip_proto_set_format_text(ptr noundef nonnull %279, ptr noundef %495, ptr noundef %0, i32 noundef %.012661892, i32 noundef %.21273)
+  %494 = sub i32 %493, %.012661891
+  %495 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef nonnull %279, i32 noundef %492, ptr noundef %0, i32 noundef %.012661891, i32 noundef %494, i32 noundef %360, i32 noundef %361)
+  call fastcc void @sip_proto_set_format_text(ptr noundef nonnull %279, ptr noundef %495, ptr noundef %0, i32 noundef %.012661891, i32 noundef %.21273)
   %496 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %360, i32 noundef %361, i8 noundef zeroext 62) #15
   %.not1453 = icmp eq i32 %496, -1
   br i1 %.not1453, label %.critedge1490, label %497
@@ -3778,9 +3782,9 @@ proto_item_set_hidden.exit:                       ; preds = %.critedge6, %425, %
 505:                                              ; preds = %504
   %506 = load i32, ptr getelementptr inbounds ([127 x i32], ptr @hf_header_array, i64 0, i64 34), align 8
   %507 = load i32, ptr %16, align 4
-  %508 = sub i32 %507, %.012661892
-  %509 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef nonnull %279, i32 noundef %506, ptr noundef %0, i32 noundef %.012661892, i32 noundef %508, i32 noundef %360, i32 noundef %361)
-  call fastcc void @sip_proto_set_format_text(ptr noundef nonnull %279, ptr noundef %509, ptr noundef %0, i32 noundef %.012661892, i32 noundef %.21273)
+  %508 = sub i32 %507, %.012661891
+  %509 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef nonnull %279, i32 noundef %506, ptr noundef %0, i32 noundef %.012661891, i32 noundef %508, i32 noundef %360, i32 noundef %361)
+  call fastcc void @sip_proto_set_format_text(ptr noundef nonnull %279, ptr noundef %509, ptr noundef %0, i32 noundef %.012661891, i32 noundef %.21273)
   %510 = load i32, ptr @ett_sip_hist, align 4
   %511 = call ptr @proto_item_add_subtree(ptr noundef %509, i32 noundef %510) #15
   %512 = call fastcc i32 @dissect_sip_history_info(ptr noundef %0, ptr noundef %511, i32 noundef %360, i32 noundef %.11319)
@@ -3792,9 +3796,9 @@ proto_item_set_hidden.exit:                       ; preds = %.critedge6, %425, %
 514:                                              ; preds = %513
   %515 = load i32, ptr getelementptr inbounds ([127 x i32], ptr @hf_header_array, i64 0, i64 54), align 8
   %516 = load i32, ptr %16, align 4
-  %517 = sub i32 %516, %.012661892
-  %518 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef nonnull %279, i32 noundef %515, ptr noundef %0, i32 noundef %.012661892, i32 noundef %517, i32 noundef %360, i32 noundef %361)
-  call fastcc void @sip_proto_set_format_text(ptr noundef nonnull %279, ptr noundef %518, ptr noundef %0, i32 noundef %.012661892, i32 noundef %.21273)
+  %517 = sub i32 %516, %.012661891
+  %518 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef nonnull %279, i32 noundef %515, ptr noundef %0, i32 noundef %.012661891, i32 noundef %517, i32 noundef %360, i32 noundef %361)
+  call fastcc void @sip_proto_set_format_text(ptr noundef nonnull %279, ptr noundef %518, ptr noundef %0, i32 noundef %.012661891, i32 noundef %.21273)
   %519 = load i32, ptr @ett_sip_element, align 4
   %520 = call ptr @proto_item_add_subtree(ptr noundef %518, i32 noundef %519) #15
   call fastcc void @dissect_sip_p_charging_func_addresses(ptr noundef %0, ptr noundef %520, i32 noundef %360, i32 noundef %.11319)
@@ -3806,9 +3810,9 @@ proto_item_set_hidden.exit:                       ; preds = %.critedge6, %425, %
 522:                                              ; preds = %521
   %523 = load i32, ptr getelementptr inbounds ([127 x i32], ptr @hf_header_array, i64 0, i64 63), align 4
   %524 = load i32, ptr %16, align 4
-  %525 = sub i32 %524, %.012661892
-  %526 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef nonnull %279, i32 noundef %523, ptr noundef %0, i32 noundef %.012661892, i32 noundef %525, i32 noundef %360, i32 noundef %361)
-  call fastcc void @sip_proto_set_format_text(ptr noundef nonnull %279, ptr noundef %526, ptr noundef %0, i32 noundef %.012661892, i32 noundef %.21273)
+  %525 = sub i32 %524, %.012661891
+  %526 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef nonnull %279, i32 noundef %523, ptr noundef %0, i32 noundef %.012661891, i32 noundef %525, i32 noundef %360, i32 noundef %361)
+  call fastcc void @sip_proto_set_format_text(ptr noundef nonnull %279, ptr noundef %526, ptr noundef %0, i32 noundef %.012661891, i32 noundef %.21273)
   %527 = load i32, ptr @ett_sip_element, align 4
   %528 = call ptr @proto_item_add_subtree(ptr noundef %526, i32 noundef %527) #15
   store i32 0, ptr %22, align 4
@@ -3828,9 +3832,9 @@ proto_item_set_hidden.exit:                       ; preds = %.critedge6, %425, %
 534:                                              ; preds = %533
   %535 = load i32, ptr getelementptr inbounds ([127 x i32], ptr @hf_header_array, i64 0, i64 71), align 4
   %536 = load i32, ptr %16, align 4
-  %537 = sub i32 %536, %.012661892
-  %538 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef nonnull %279, i32 noundef %535, ptr noundef %0, i32 noundef %.012661892, i32 noundef %537, i32 noundef %360, i32 noundef %361)
-  call fastcc void @sip_proto_set_format_text(ptr noundef nonnull %279, ptr noundef %538, ptr noundef %0, i32 noundef %.012661892, i32 noundef %.21273)
+  %537 = sub i32 %536, %.012661891
+  %538 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef nonnull %279, i32 noundef %535, ptr noundef %0, i32 noundef %.012661891, i32 noundef %537, i32 noundef %360, i32 noundef %361)
+  call fastcc void @sip_proto_set_format_text(ptr noundef nonnull %279, ptr noundef %538, ptr noundef %0, i32 noundef %.012661891, i32 noundef %.21273)
   %539 = load i32, ptr @ett_sip_element, align 4
   %540 = call ptr @proto_item_add_subtree(ptr noundef %538, i32 noundef %539) #15
   store i32 0, ptr %22, align 4
@@ -3850,9 +3854,9 @@ proto_item_set_hidden.exit:                       ; preds = %.critedge6, %425, %
 546:                                              ; preds = %545
   %547 = load i32, ptr getelementptr inbounds ([127 x i32], ptr @hf_header_array, i64 0, i64 119), align 4
   %548 = load i32, ptr %16, align 4
-  %549 = sub i32 %548, %.012661892
-  %550 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef nonnull %279, i32 noundef %547, ptr noundef %0, i32 noundef %.012661892, i32 noundef %549, i32 noundef %360, i32 noundef %361)
-  call fastcc void @sip_proto_set_format_text(ptr noundef nonnull %279, ptr noundef %550, ptr noundef %0, i32 noundef %.012661892, i32 noundef %.21273)
+  %549 = sub i32 %548, %.012661891
+  %550 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef nonnull %279, i32 noundef %547, ptr noundef %0, i32 noundef %.012661891, i32 noundef %549, i32 noundef %360, i32 noundef %361)
+  call fastcc void @sip_proto_set_format_text(ptr noundef nonnull %279, ptr noundef %550, ptr noundef %0, i32 noundef %.012661891, i32 noundef %.21273)
   %551 = load i32, ptr @ett_sip_element, align 4
   %552 = call ptr @proto_item_add_subtree(ptr noundef %550, i32 noundef %551) #15
   store i32 0, ptr %22, align 4
@@ -3872,23 +3876,23 @@ proto_item_set_hidden.exit:                       ; preds = %.critedge6, %425, %
   %560 = add nsw i32 %557, 1
   %561 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %560, i32 noundef 1, i8 noundef zeroext 59) #15
   %.not1444 = icmp eq i32 %561, 0
-  br i1 %.not1444, label %.critedge1490, label %.preheader1647
+  br i1 %.not1444, label %.critedge1490, label %.preheader1646
 
-.preheader1647:                                   ; preds = %559
+.preheader1646:                                   ; preds = %559
   %562 = icmp ne i32 %560, -1
   %563 = icmp slt i32 %560, %.11319
   %564 = select i1 %562, i1 %563, i1 false
-  br i1 %564, label %.lr.ph1871, label %.critedge1490
+  br i1 %564, label %.lr.ph1870, label %.critedge1490
 
-.lr.ph1871:                                       ; preds = %.preheader1647, %575
-  %.012831870 = phi i32 [ %576, %575 ], [ %560, %.preheader1647 ]
-  %565 = add nuw i32 %.012831870, 1
+.lr.ph1870:                                       ; preds = %.preheader1646, %575
+  %.012831869 = phi i32 [ %576, %575 ], [ %560, %.preheader1646 ]
+  %565 = add nuw i32 %.012831869, 1
   %566 = call i32 @tvb_strncaseeql(ptr noundef %0, i32 noundef %565, ptr noundef nonnull @.str.1002, i64 noundef 12) #15
   %567 = icmp eq i32 %566, 0
   br i1 %567, label %568, label %575
 
-568:                                              ; preds = %.lr.ph1871
-  %569 = add i32 %.012831870, 13
+568:                                              ; preds = %.lr.ph1870
+  %569 = add i32 %.012831869, 13
   %570 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %569, i32 noundef -1, i8 noundef zeroext 34) #15
   %.not1445 = icmp eq i32 %570, -1
   br i1 %.not1445, label %.critedge1490, label %571
@@ -3899,12 +3903,12 @@ proto_item_set_hidden.exit:                       ; preds = %.critedge6, %425, %
   %574 = call ptr @proto_tree_add_item(ptr noundef %556, i32 noundef %572, ptr noundef %0, i32 noundef %569, i32 noundef %573, i32 noundef 2) #15
   br label %575
 
-575:                                              ; preds = %571, %.lr.ph1871
+575:                                              ; preds = %571, %.lr.ph1870
   %576 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %565, i32 noundef -1, i8 noundef zeroext 59) #15
   %577 = icmp ne i32 %576, -1
   %578 = icmp slt i32 %576, %.11319
   %579 = select i1 %577, i1 %578, i1 false
-  br i1 %579, label %.lr.ph1871, label %.critedge1490, !llvm.loop !23
+  br i1 %579, label %.lr.ph1870, label %.critedge1490, !llvm.loop !23
 
 580:                                              ; preds = %sip_is_known_sip_header.exit
   %581 = call ptr @wmem_packet_scope() #15
@@ -3912,9 +3916,9 @@ proto_item_set_hidden.exit:                       ; preds = %.critedge6, %425, %
   %583 = call zeroext i1 @ws_strtou32(ptr noundef %582, ptr noundef null, ptr noundef nonnull %24) #15
   %584 = load i32, ptr getelementptr inbounds ([127 x i32], ptr @hf_header_array, i64 0, i64 99), align 4
   %585 = load i32, ptr %16, align 4
-  %586 = sub i32 %585, %.012661892
+  %586 = sub i32 %585, %.012661891
   %587 = load i32, ptr %24, align 4
-  %588 = call ptr @proto_tree_add_uint(ptr noundef %279, i32 noundef %584, ptr noundef %0, i32 noundef %.012661892, i32 noundef %586, i32 noundef %587) #15
+  %588 = call ptr @proto_tree_add_uint(ptr noundef %279, i32 noundef %584, ptr noundef %0, i32 noundef %.012661891, i32 noundef %586, i32 noundef %587) #15
   br i1 %583, label %.critedge1490, label %589
 
 589:                                              ; preds = %580
@@ -3934,26 +3938,26 @@ proto_item_set_hidden.exit:                       ; preds = %.critedge6, %425, %
 598:                                              ; preds = %591
   %599 = load i32, ptr getelementptr inbounds ([127 x i32], ptr @hf_header_array, i64 0, i64 23), align 4
   %600 = load i32, ptr %16, align 4
-  %601 = sub i32 %600, %.012661892
-  %602 = call ptr @proto_tree_add_string(ptr noundef nonnull %279, i32 noundef %599, ptr noundef %0, i32 noundef %.012661892, i32 noundef %601, ptr noundef %593) #15
-  call fastcc void @sip_proto_set_format_text(ptr noundef nonnull %279, ptr noundef %602, ptr noundef %0, i32 noundef %.012661892, i32 noundef %.21273)
+  %601 = sub i32 %600, %.012661891
+  %602 = call ptr @proto_tree_add_string(ptr noundef nonnull %279, i32 noundef %599, ptr noundef %0, i32 noundef %.012661891, i32 noundef %601, ptr noundef %593) #15
+  call fastcc void @sip_proto_set_format_text(ptr noundef nonnull %279, ptr noundef %602, ptr noundef %0, i32 noundef %.012661891, i32 noundef %.21273)
   %603 = load i32, ptr @ett_sip_cseq, align 4
   %604 = call ptr @proto_item_add_subtree(ptr noundef %602, i32 noundef %603) #15
   br label %605
 
 605:                                              ; preds = %598, %591
-  %.11286 = phi ptr [ %604, %598 ], [ %.012851890, %591 ]
+  %.11286 = phi ptr [ %604, %598 ], [ %.012851889, %591 ]
   %606 = icmp sgt i32 %361, 0
-  br i1 %606, label %.lr.ph1861.preheader, label %.loopexit
+  br i1 %606, label %.lr.ph1860.preheader, label %.loopexit
 
-.lr.ph1861.preheader:                             ; preds = %605
+.lr.ph1860.preheader:                             ; preds = %605
   %607 = sub i32 %.11319, %360
-  %wide.trip.count2077 = zext nneg i32 %361 to i64
-  br label %.lr.ph1861
+  %wide.trip.count2076 = zext nneg i32 %361 to i64
+  br label %.lr.ph1860
 
-.lr.ph1861:                                       ; preds = %.lr.ph1861.preheader, %618
-  %indvars.iv2074 = phi i64 [ 0, %.lr.ph1861.preheader ], [ %indvars.iv.next2075, %618 ]
-  %608 = getelementptr i8, ptr %593, i64 %indvars.iv2074
+.lr.ph1860:                                       ; preds = %.lr.ph1860.preheader, %618
+  %indvars.iv2073 = phi i64 [ 0, %.lr.ph1860.preheader ], [ %indvars.iv.next2074, %618 ]
+  %608 = getelementptr i8, ptr %593, i64 %indvars.iv2073
   %609 = load i8, ptr %608, align 1
   %610 = zext i8 %609 to i64
   %611 = getelementptr i16, ptr %298, i64 %610
@@ -3962,57 +3966,57 @@ proto_item_set_hidden.exit:                       ; preds = %.critedge6, %425, %
   %.not1440 = icmp eq i16 %613, 0
   br i1 %.not1440, label %614, label %618
 
-614:                                              ; preds = %.lr.ph1861
-  %615 = trunc nuw nsw i64 %indvars.iv2074 to i32
+614:                                              ; preds = %.lr.ph1860
+  %615 = trunc nuw nsw i64 %indvars.iv2073 to i32
   %616 = load i32, ptr @hf_sip_cseq_seq_no, align 4
   %617 = call ptr @proto_tree_add_uint(ptr noundef %.11286, i32 noundef %616, ptr noundef %0, i32 noundef %360, i32 noundef %615, i32 noundef %595) #15
   br label %.loopexit
 
-618:                                              ; preds = %.lr.ph1861
-  %indvars.iv.next2075 = add nuw nsw i64 %indvars.iv2074, 1
-  %exitcond2078.not = icmp eq i64 %indvars.iv.next2075, %wide.trip.count2077
-  br i1 %exitcond2078.not, label %.loopexit, label %.lr.ph1861, !llvm.loop !24
+618:                                              ; preds = %.lr.ph1860
+  %indvars.iv.next2074 = add nuw nsw i64 %indvars.iv2073, 1
+  %exitcond2077.not = icmp eq i64 %indvars.iv.next2074, %wide.trip.count2076
+  br i1 %exitcond2077.not, label %.loopexit, label %.lr.ph1860, !llvm.loop !24
 
 .loopexit:                                        ; preds = %618, %605, %614
-  %.012991680 = phi i32 [ %615, %614 ], [ 0, %605 ], [ %607, %618 ]
-  %619 = icmp slt i32 %.012991680, %361
-  br i1 %619, label %.lr.ph1865.preheader, label %._crit_edge1866
+  %.012991679 = phi i32 [ %615, %614 ], [ 0, %605 ], [ %607, %618 ]
+  %619 = icmp slt i32 %.012991679, %361
+  br i1 %619, label %.lr.ph1864.preheader, label %._crit_edge1865
 
-.lr.ph1865.preheader:                             ; preds = %.loopexit
-  %620 = zext i32 %.012991680 to i64
-  br label %.lr.ph1865
+.lr.ph1864.preheader:                             ; preds = %.loopexit
+  %620 = zext i32 %.012991679 to i64
+  br label %.lr.ph1864
 
-.lr.ph1865:                                       ; preds = %.lr.ph1865.preheader, %627
-  %indvars.iv2079 = phi i64 [ %620, %.lr.ph1865.preheader ], [ %indvars.iv.next2080, %627 ]
-  %621 = getelementptr i8, ptr %593, i64 %indvars.iv2079
+.lr.ph1864:                                       ; preds = %.lr.ph1864.preheader, %627
+  %indvars.iv2078 = phi i64 [ %620, %.lr.ph1864.preheader ], [ %indvars.iv.next2079, %627 ]
+  %621 = getelementptr i8, ptr %593, i64 %indvars.iv2078
   %622 = load i8, ptr %621, align 1
   %623 = zext i8 %622 to i64
   %624 = getelementptr i16, ptr %298, i64 %623
   %625 = load i16, ptr %624, align 2
   %626 = and i16 %625, 2
   %.not1441 = icmp eq i16 %626, 0
-  br i1 %.not1441, label %627, label %._crit_edge1866.loopexit
+  br i1 %.not1441, label %627, label %._crit_edge1865.loopexit
 
-627:                                              ; preds = %.lr.ph1865
-  %indvars.iv.next2080 = add nuw nsw i64 %indvars.iv2079, 1
-  %628 = trunc nuw i64 %indvars.iv.next2080 to i32
+627:                                              ; preds = %.lr.ph1864
+  %indvars.iv.next2079 = add nuw nsw i64 %indvars.iv2078, 1
+  %628 = trunc nuw i64 %indvars.iv.next2079 to i32
   %629 = icmp sgt i32 %361, %628
-  br i1 %629, label %.lr.ph1865, label %._crit_edge1866.thread, !llvm.loop !25
+  br i1 %629, label %.lr.ph1864, label %._crit_edge1865.thread, !llvm.loop !25
 
-._crit_edge1866.loopexit:                         ; preds = %.lr.ph1865
-  %630 = trunc nuw i64 %indvars.iv2079 to i32
-  br label %._crit_edge1866
+._crit_edge1865.loopexit:                         ; preds = %.lr.ph1864
+  %630 = trunc nuw i64 %indvars.iv2078 to i32
+  br label %._crit_edge1865
 
-._crit_edge1866:                                  ; preds = %._crit_edge1866.loopexit, %.loopexit
-  %.11300.lcssa = phi i32 [ %.012991680, %.loopexit ], [ %630, %._crit_edge1866.loopexit ]
+._crit_edge1865:                                  ; preds = %._crit_edge1865.loopexit, %.loopexit
+  %.11300.lcssa = phi i32 [ %.012991679, %.loopexit ], [ %630, %._crit_edge1865.loopexit ]
   %631 = icmp eq i32 %.11300.lcssa, %361
-  br i1 %631, label %._crit_edge1866.thread, label %633
+  br i1 %631, label %._crit_edge1865.thread, label %633
 
-._crit_edge1866.thread:                           ; preds = %._crit_edge1866, %627
-  %632 = sub i32 %.012661892, %1
+._crit_edge1865.thread:                           ; preds = %._crit_edge1865, %627
+  %632 = sub i32 %.012661891, %1
   br label %1633
 
-633:                                              ; preds = %._crit_edge1866
+633:                                              ; preds = %._crit_edge1865
   %634 = sub i32 %361, %.11300.lcssa
   %635 = icmp sgt i32 %634, 16
   br i1 %635, label %636, label %644
@@ -4020,11 +4024,11 @@ proto_item_set_hidden.exit:                       ; preds = %.critedge6, %425, %
 636:                                              ; preds = %633
   %637 = load i32, ptr getelementptr inbounds ([127 x i32], ptr @hf_header_array, i64 0, i64 23), align 4
   %638 = load i32, ptr %16, align 4
-  %639 = sub i32 %638, %.012661892
+  %639 = sub i32 %638, %.012661891
   %640 = zext nneg i32 %.11300.lcssa to i64
   %641 = getelementptr i8, ptr %593, i64 %640
-  %642 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %279, i32 noundef %637, ptr noundef %0, i32 noundef %.012661892, i32 noundef %639, ptr noundef %641, ptr noundef nonnull @.str.1003, ptr noundef nonnull @.str.354, i32 noundef %634) #15
-  %643 = sub i32 %.012661892, %1
+  %642 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %279, i32 noundef %637, ptr noundef %0, i32 noundef %.012661891, i32 noundef %639, ptr noundef %641, ptr noundef nonnull @.str.1003, ptr noundef nonnull @.str.354, i32 noundef %634) #15
+  %643 = sub i32 %.012661891, %1
   br label %1633
 
 644:                                              ; preds = %633
@@ -4042,25 +4046,25 @@ proto_item_set_hidden.exit:                       ; preds = %.critedge6, %425, %
 652:                                              ; preds = %649
   %653 = load i32, ptr getelementptr inbounds ([127 x i32], ptr @hf_header_array, i64 0, i64 81), align 4
   %654 = load i32, ptr %16, align 4
-  %655 = sub i32 %654, %.012661892
-  %656 = call ptr @proto_tree_add_string(ptr noundef nonnull %279, i32 noundef %653, ptr noundef %0, i32 noundef %.012661892, i32 noundef %655, ptr noundef %651) #15
-  call fastcc void @sip_proto_set_format_text(ptr noundef nonnull %279, ptr noundef %656, ptr noundef %0, i32 noundef %.012661892, i32 noundef %.21273)
+  %655 = sub i32 %654, %.012661891
+  %656 = call ptr @proto_tree_add_string(ptr noundef nonnull %279, i32 noundef %653, ptr noundef %0, i32 noundef %.012661891, i32 noundef %655, ptr noundef %651) #15
+  call fastcc void @sip_proto_set_format_text(ptr noundef nonnull %279, ptr noundef %656, ptr noundef %0, i32 noundef %.012661891, i32 noundef %.21273)
   %657 = load i32, ptr @ett_sip_rack, align 4
   %658 = call ptr @proto_item_add_subtree(ptr noundef %656, i32 noundef %657) #15
   br label %659
 
 659:                                              ; preds = %652, %649
-  %.11291 = phi ptr [ %658, %652 ], [ %.012901889, %649 ]
+  %.11291 = phi ptr [ %658, %652 ], [ %.012901888, %649 ]
   %660 = icmp sgt i32 %361, 0
-  br i1 %660, label %.lr.ph1841.preheader, label %.loopexit1650
+  br i1 %660, label %.lr.ph1840.preheader, label %.loopexit1649
 
-.lr.ph1841.preheader:                             ; preds = %659
+.lr.ph1840.preheader:                             ; preds = %659
   %661 = sub i32 %.11319, %360
   %wide.trip.count = zext nneg i32 %361 to i64
-  br label %.lr.ph1841
+  br label %.lr.ph1840
 
-.lr.ph1841:                                       ; preds = %.lr.ph1841.preheader, %674
-  %indvars.iv = phi i64 [ 0, %.lr.ph1841.preheader ], [ %indvars.iv.next, %674 ]
+.lr.ph1840:                                       ; preds = %.lr.ph1840.preheader, %674
+  %indvars.iv = phi i64 [ 0, %.lr.ph1840.preheader ], [ %indvars.iv.next, %674 ]
   %662 = getelementptr i8, ptr %651, i64 %indvars.iv
   %663 = load i8, ptr %662, align 1
   %664 = zext i8 %663 to i64
@@ -4070,59 +4074,59 @@ proto_item_set_hidden.exit:                       ; preds = %.critedge6, %425, %
   %.not1433 = icmp eq i16 %667, 0
   br i1 %.not1433, label %668, label %674
 
-668:                                              ; preds = %.lr.ph1841
+668:                                              ; preds = %.lr.ph1840
   %669 = trunc nuw nsw i64 %indvars.iv to i32
   %670 = load i32, ptr @hf_sip_rack_rseq_no, align 4
   %671 = call i64 @strtoul(ptr nocapture noundef nonnull %651, ptr noundef null, i32 noundef 10) #15
   %672 = trunc i64 %671 to i32
   %673 = call ptr @proto_tree_add_uint(ptr noundef %.11291, i32 noundef %670, ptr noundef %0, i32 noundef %360, i32 noundef %669, i32 noundef %672) #15
-  br label %.loopexit1650
+  br label %.loopexit1649
 
-674:                                              ; preds = %.lr.ph1841
+674:                                              ; preds = %.lr.ph1840
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit1650, label %.lr.ph1841, !llvm.loop !26
+  br i1 %exitcond.not, label %.loopexit1649, label %.lr.ph1840, !llvm.loop !26
 
-.loopexit1650:                                    ; preds = %674, %659, %668
-  %.213011676 = phi i32 [ %669, %668 ], [ 0, %659 ], [ %661, %674 ]
-  %675 = icmp slt i32 %.213011676, %361
-  br i1 %675, label %.lr.ph1844.preheader, label %._crit_edge
+.loopexit1649:                                    ; preds = %674, %659, %668
+  %.213011675 = phi i32 [ %669, %668 ], [ 0, %659 ], [ %661, %674 ]
+  %675 = icmp slt i32 %.213011675, %361
+  br i1 %675, label %.lr.ph1843.preheader, label %._crit_edge
 
-.lr.ph1844.preheader:                             ; preds = %.loopexit1650
-  %676 = zext i32 %.213011676 to i64
-  br label %.lr.ph1844
+.lr.ph1843.preheader:                             ; preds = %.loopexit1649
+  %676 = zext i32 %.213011675 to i64
+  br label %.lr.ph1843
 
-.lr.ph1844:                                       ; preds = %.lr.ph1844.preheader, %679
-  %indvars.iv2065 = phi i64 [ %676, %.lr.ph1844.preheader ], [ %indvars.iv.next2066, %679 ]
-  %677 = getelementptr i8, ptr %651, i64 %indvars.iv2065
+.lr.ph1843:                                       ; preds = %.lr.ph1843.preheader, %679
+  %indvars.iv2064 = phi i64 [ %676, %.lr.ph1843.preheader ], [ %indvars.iv.next2065, %679 ]
+  %677 = getelementptr i8, ptr %651, i64 %indvars.iv2064
   %678 = load i8, ptr %677, align 1
   switch i8 %678, label %._crit_edge.loopexit [
     i8 32, label %679
     i8 9, label %679
   ]
 
-679:                                              ; preds = %.lr.ph1844, %.lr.ph1844
-  %indvars.iv.next2066 = add nuw nsw i64 %indvars.iv2065, 1
-  %680 = trunc nuw i64 %indvars.iv.next2066 to i32
+679:                                              ; preds = %.lr.ph1843, %.lr.ph1843
+  %indvars.iv.next2065 = add nuw nsw i64 %indvars.iv2064, 1
+  %680 = trunc nuw i64 %indvars.iv.next2065 to i32
   %681 = icmp sgt i32 %361, %680
-  br i1 %681, label %.lr.ph1844, label %._crit_edge1855, !llvm.loop !27
+  br i1 %681, label %.lr.ph1843, label %._crit_edge1854, !llvm.loop !27
 
-._crit_edge.loopexit:                             ; preds = %.lr.ph1844
-  %682 = trunc nuw i64 %indvars.iv2065 to i32
+._crit_edge.loopexit:                             ; preds = %.lr.ph1843
+  %682 = trunc nuw i64 %indvars.iv2064 to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.loopexit1650
-  %.31302.lcssa = phi i32 [ %.213011676, %.loopexit1650 ], [ %682, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.loopexit1649
+  %.31302.lcssa = phi i32 [ %.213011675, %.loopexit1649 ], [ %682, %._crit_edge.loopexit ]
   %683 = icmp slt i32 %.31302.lcssa, %361
-  br i1 %683, label %.lr.ph1850.preheader, label %.loopexit1649
+  br i1 %683, label %.lr.ph1849.preheader, label %.loopexit1648
 
-.lr.ph1850.preheader:                             ; preds = %._crit_edge
+.lr.ph1849.preheader:                             ; preds = %._crit_edge
   %684 = zext i32 %.31302.lcssa to i64
-  br label %.lr.ph1850
+  br label %.lr.ph1849
 
-.lr.ph1850:                                       ; preds = %.lr.ph1850.preheader, %700
-  %indvars.iv2068 = phi i64 [ %684, %.lr.ph1850.preheader ], [ %indvars.iv.next2069, %700 ]
-  %685 = getelementptr i8, ptr %651, i64 %indvars.iv2068
+.lr.ph1849:                                       ; preds = %.lr.ph1849.preheader, %700
+  %indvars.iv2067 = phi i64 [ %684, %.lr.ph1849.preheader ], [ %indvars.iv.next2068, %700 ]
+  %685 = getelementptr i8, ptr %651, i64 %indvars.iv2067
   %686 = load i8, ptr %685, align 1
   %687 = zext i8 %686 to i64
   %688 = getelementptr i16, ptr %298, i64 %687
@@ -4131,8 +4135,8 @@ proto_item_set_hidden.exit:                       ; preds = %.critedge6, %425, %
   %.not1436 = icmp eq i16 %690, 0
   br i1 %.not1436, label %691, label %700
 
-691:                                              ; preds = %.lr.ph1850
-  %692 = trunc nuw i64 %indvars.iv2068 to i32
+691:                                              ; preds = %.lr.ph1849
+  %692 = trunc nuw i64 %indvars.iv2067 to i32
   %693 = load i32, ptr @hf_sip_rack_cseq_no, align 4
   %694 = add i32 %.31302.lcssa, %360
   %695 = sub nsw i32 %692, %.31302.lcssa
@@ -4140,55 +4144,55 @@ proto_item_set_hidden.exit:                       ; preds = %.critedge6, %425, %
   %697 = call i64 @strtoul(ptr nocapture noundef %696, ptr noundef null, i32 noundef 10) #15
   %698 = trunc i64 %697 to i32
   %699 = call ptr @proto_tree_add_uint(ptr noundef %.11291, i32 noundef %693, ptr noundef %0, i32 noundef %694, i32 noundef %695, i32 noundef %698) #15
-  br label %.loopexit1649
+  br label %.loopexit1648
 
-700:                                              ; preds = %.lr.ph1850
-  %indvars.iv.next2069 = add nuw nsw i64 %indvars.iv2068, 1
-  %701 = trunc nuw i64 %indvars.iv.next2069 to i32
+700:                                              ; preds = %.lr.ph1849
+  %indvars.iv.next2068 = add nuw nsw i64 %indvars.iv2067, 1
+  %701 = trunc nuw i64 %indvars.iv.next2068 to i32
   %702 = icmp sgt i32 %361, %701
-  br i1 %702, label %.lr.ph1850, label %.loopexit1649, !llvm.loop !28
+  br i1 %702, label %.lr.ph1849, label %.loopexit1648, !llvm.loop !28
 
-.loopexit1649:                                    ; preds = %700, %._crit_edge, %691
-  %.413031678 = phi i32 [ %692, %691 ], [ %.31302.lcssa, %._crit_edge ], [ %701, %700 ]
-  %703 = icmp slt i32 %.413031678, %361
-  br i1 %703, label %.lr.ph1854.preheader, label %._crit_edge1855
+.loopexit1648:                                    ; preds = %700, %._crit_edge, %691
+  %.413031677 = phi i32 [ %692, %691 ], [ %.31302.lcssa, %._crit_edge ], [ %701, %700 ]
+  %703 = icmp slt i32 %.413031677, %361
+  br i1 %703, label %.lr.ph1853.preheader, label %._crit_edge1854
 
-.lr.ph1854.preheader:                             ; preds = %.loopexit1649
-  %704 = zext i32 %.413031678 to i64
-  br label %.lr.ph1854
+.lr.ph1853.preheader:                             ; preds = %.loopexit1648
+  %704 = zext i32 %.413031677 to i64
+  br label %.lr.ph1853
 
-.lr.ph1854:                                       ; preds = %.lr.ph1854.preheader, %711
-  %indvars.iv2071 = phi i64 [ %704, %.lr.ph1854.preheader ], [ %indvars.iv.next2072, %711 ]
-  %705 = getelementptr i8, ptr %651, i64 %indvars.iv2071
+.lr.ph1853:                                       ; preds = %.lr.ph1853.preheader, %711
+  %indvars.iv2070 = phi i64 [ %704, %.lr.ph1853.preheader ], [ %indvars.iv.next2071, %711 ]
+  %705 = getelementptr i8, ptr %651, i64 %indvars.iv2070
   %706 = load i8, ptr %705, align 1
   %707 = zext i8 %706 to i64
   %708 = getelementptr i16, ptr %298, i64 %707
   %709 = load i16, ptr %708, align 2
   %710 = and i16 %709, 2
   %.not1437 = icmp eq i16 %710, 0
-  br i1 %.not1437, label %711, label %._crit_edge1855.loopexit.split.loop.exit
+  br i1 %.not1437, label %711, label %._crit_edge1854.loopexit.split.loop.exit
 
-711:                                              ; preds = %.lr.ph1854
-  %indvars.iv.next2072 = add nuw nsw i64 %indvars.iv2071, 1
-  %712 = trunc nuw i64 %indvars.iv.next2072 to i32
+711:                                              ; preds = %.lr.ph1853
+  %indvars.iv.next2071 = add nuw nsw i64 %indvars.iv2070, 1
+  %712 = trunc nuw i64 %indvars.iv.next2071 to i32
   %713 = icmp sgt i32 %361, %712
-  br i1 %713, label %.lr.ph1854, label %._crit_edge1855, !llvm.loop !29
+  br i1 %713, label %.lr.ph1853, label %._crit_edge1854, !llvm.loop !29
 
-._crit_edge1855.loopexit.split.loop.exit:         ; preds = %.lr.ph1854
-  %714 = trunc nuw i64 %indvars.iv2071 to i32
-  br label %._crit_edge1855
+._crit_edge1854.loopexit.split.loop.exit:         ; preds = %.lr.ph1853
+  %714 = trunc nuw i64 %indvars.iv2070 to i32
+  br label %._crit_edge1854
 
-._crit_edge1855:                                  ; preds = %679, %711, %._crit_edge1855.loopexit.split.loop.exit, %.loopexit1649
-  %.51304.lcssa = phi i32 [ %.413031678, %.loopexit1649 ], [ %714, %._crit_edge1855.loopexit.split.loop.exit ], [ %361, %711 ], [ %361, %679 ]
+._crit_edge1854:                                  ; preds = %679, %711, %._crit_edge1854.loopexit.split.loop.exit, %.loopexit1648
+  %.51304.lcssa = phi i32 [ %.413031677, %.loopexit1648 ], [ %714, %._crit_edge1854.loopexit.split.loop.exit ], [ %361, %711 ], [ %361, %679 ]
   %715 = icmp eq i32 %.51304.lcssa, %.21273
   br i1 %715, label %716, label %718
 
-716:                                              ; preds = %._crit_edge1855
-  %717 = sub i32 %.012661892, %1
+716:                                              ; preds = %._crit_edge1854
+  %717 = sub i32 %.012661891, %1
   br label %1633
 
-718:                                              ; preds = %._crit_edge1855
-  %.not1438 = icmp eq ptr %.012851890, null
+718:                                              ; preds = %._crit_edge1854
+  %.not1438 = icmp eq ptr %.012851889, null
   br i1 %.not1438, label %.critedge1490, label %719
 
 719:                                              ; preds = %718
@@ -4206,12 +4210,12 @@ proto_item_set_hidden.exit:                       ; preds = %.critedge6, %425, %
   store ptr %726, ptr %728, align 8
   %729 = load i32, ptr getelementptr inbounds ([127 x i32], ptr @hf_header_array, i64 0, i64 14), align 8
   %730 = load i32, ptr %16, align 4
-  %731 = sub i32 %730, %.012661892
-  %732 = call ptr @proto_tree_add_string(ptr noundef %279, i32 noundef %729, ptr noundef %0, i32 noundef %.012661892, i32 noundef %731, ptr noundef %726) #15
+  %731 = sub i32 %730, %.012661891
+  %732 = call ptr @proto_tree_add_string(ptr noundef %279, i32 noundef %729, ptr noundef %0, i32 noundef %.012661891, i32 noundef %731, ptr noundef %726) #15
   %733 = load i32, ptr @hf_sip_call_id_gen, align 4
   %734 = load i32, ptr %16, align 4
-  %735 = sub i32 %734, %.012661892
-  %736 = call ptr @proto_tree_add_string(ptr noundef %279, i32 noundef %733, ptr noundef %0, i32 noundef %.012661892, i32 noundef %735, ptr noundef %726) #15
+  %735 = sub i32 %734, %.012661891
+  %736 = call ptr @proto_tree_add_string(ptr noundef %279, i32 noundef %733, ptr noundef %0, i32 noundef %.012661891, i32 noundef %735, ptr noundef %726) #15
   %.not.i1518 = icmp eq ptr %736, null
   br i1 %.not.i1518, label %proto_item_set_hidden.exit1522, label %737
 
@@ -4246,26 +4250,26 @@ proto_item_set_generated.exit:                    ; preds = %737, %740
   br label %proto_item_set_hidden.exit1522
 
 proto_item_set_hidden.exit1522:                   ; preds = %proto_item_set_generated.exit, %724, %747, %745
-  call fastcc void @sip_proto_set_format_text(ptr noundef %279, ptr noundef %732, ptr noundef %0, i32 noundef %.012661892, i32 noundef %.21273)
+  call fastcc void @sip_proto_set_format_text(ptr noundef %279, ptr noundef %732, ptr noundef %0, i32 noundef %.012661891, i32 noundef %.21273)
   br label %.critedge1490
 
 751:                                              ; preds = %sip_is_known_sip_header.exit
   %752 = sext i32 %361 to i64
   %753 = call i32 @tvb_strneql(ptr noundef %0, i32 noundef %360, ptr noundef nonnull @.str.1004, i64 noundef %752) #15
   %754 = icmp eq i32 %753, 0
-  %spec.select1493 = select i1 %754, i8 1, i8 %.013201886
+  %spec.select1493 = select i1 %754, i8 1, i8 %.013201885
   %755 = load i32, ptr getelementptr inbounds ([127 x i32], ptr @hf_header_array, i64 0, i64 27), align 4
   %756 = load i32, ptr %16, align 4
-  %757 = sub i32 %756, %.012661892
-  call fastcc void @sip_proto_tree_add_uint(ptr noundef %279, i32 noundef %755, ptr noundef %0, i32 noundef %.012661892, i32 noundef %757, i32 noundef %360, i32 noundef %361)
+  %757 = sub i32 %756, %.012661891
+  call fastcc void @sip_proto_tree_add_uint(ptr noundef %279, i32 noundef %755, ptr noundef %0, i32 noundef %.012661891, i32 noundef %757, i32 noundef %360, i32 noundef %361)
   br label %.critedge1490
 
 758:                                              ; preds = %sip_is_known_sip_header.exit
   %759 = load i32, ptr getelementptr inbounds ([127 x i32], ptr @hf_header_array, i64 0, i64 22), align 8
   %760 = load i32, ptr %16, align 4
-  %761 = sub i32 %760, %.012661892
-  %762 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef %279, i32 noundef %759, ptr noundef %0, i32 noundef %.012661892, i32 noundef %761, i32 noundef %360, i32 noundef %361)
-  call fastcc void @sip_proto_set_format_text(ptr noundef %279, ptr noundef %762, ptr noundef %0, i32 noundef %.012661892, i32 noundef %.21273)
+  %761 = sub i32 %760, %.012661891
+  %762 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef %279, i32 noundef %759, ptr noundef %0, i32 noundef %.012661891, i32 noundef %761, i32 noundef %360, i32 noundef %361)
+  call fastcc void @sip_proto_set_format_text(ptr noundef %279, ptr noundef %762, ptr noundef %0, i32 noundef %.012661891, i32 noundef %.21273)
   %763 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %360, i32 noundef %361, i8 noundef zeroext 59) #15
   %.not1430 = icmp eq i32 %763, -1
   br i1 %.not1430, label %774, label %764
@@ -4296,10 +4300,10 @@ proto_item_set_hidden.exit1522:                   ; preds = %proto_item_set_gene
   %781 = call zeroext i1 @ws_strtou32(ptr noundef %780, ptr noundef null, ptr noundef nonnull %17) #15
   %782 = load i32, ptr getelementptr inbounds ([127 x i32], ptr @hf_header_array, i64 0, i64 21), align 4
   %783 = load i32, ptr %16, align 4
-  %784 = sub i32 %783, %.012661892
+  %784 = sub i32 %783, %.012661891
   %785 = load i32, ptr %17, align 4
-  %786 = call ptr @proto_tree_add_uint(ptr noundef %279, i32 noundef %782, ptr noundef %0, i32 noundef %.012661892, i32 noundef %784, i32 noundef %785) #15
-  call fastcc void @sip_proto_set_format_text(ptr noundef %279, ptr noundef %786, ptr noundef %0, i32 noundef %.012661892, i32 noundef %.21273)
+  %786 = call ptr @proto_tree_add_uint(ptr noundef %279, i32 noundef %782, ptr noundef %0, i32 noundef %.012661891, i32 noundef %784, i32 noundef %785) #15
+  call fastcc void @sip_proto_set_format_text(ptr noundef %279, ptr noundef %786, ptr noundef %0, i32 noundef %.012661891, i32 noundef %.21273)
   br i1 %781, label %.critedge1490, label %787
 
 787:                                              ; preds = %778
@@ -4316,35 +4320,35 @@ proto_item_set_hidden.exit1522:                   ; preds = %proto_item_set_gene
   br i1 %.not.i1523, label %.critedge1490, label %795
 
 795:                                              ; preds = %789
-  %796 = sub i32 %793, %.012661892
+  %796 = sub i32 %793, %.012661891
   %797 = call ptr @wmem_packet_scope() #15
   %798 = call ptr @tvb_get_string_enc(ptr noundef %797, ptr noundef %0, i32 noundef %360, i32 noundef %361, i32 noundef 2) #15
   %799 = call i64 @strtoul(ptr nocapture noundef %798, ptr noundef null, i32 noundef 10) #15
   %800 = trunc i64 %799 to i32
-  %801 = call ptr @proto_tree_add_uint(ptr noundef %279, i32 noundef %792, ptr noundef %0, i32 noundef %.012661892, i32 noundef %796, i32 noundef %800) #15
+  %801 = call ptr @proto_tree_add_uint(ptr noundef %279, i32 noundef %792, ptr noundef %0, i32 noundef %.012661891, i32 noundef %796, i32 noundef %800) #15
   br label %.critedge1490
 
 802:                                              ; preds = %sip_is_known_sip_header.exit
   %803 = load i32, ptr getelementptr inbounds ([127 x i32], ptr @hf_header_array, i64 0, i64 17), align 4
   %804 = load i32, ptr %16, align 4
-  %805 = sub i32 %804, %.012661892
-  %806 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef %279, i32 noundef %803, ptr noundef %0, i32 noundef %.012661892, i32 noundef %805, i32 noundef %360, i32 noundef %361)
-  call fastcc void @sip_proto_set_format_text(ptr noundef %279, ptr noundef %806, ptr noundef %0, i32 noundef %.012661892, i32 noundef %.21273)
+  %805 = sub i32 %804, %.012661891
+  %806 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef %279, i32 noundef %803, ptr noundef %0, i32 noundef %.012661891, i32 noundef %805, i32 noundef %360, i32 noundef %361)
+  call fastcc void @sip_proto_set_format_text(ptr noundef %279, ptr noundef %806, ptr noundef %0, i32 noundef %.012661891, i32 noundef %.21273)
   %807 = load i32, ptr @ett_sip_element, align 4
   %808 = call ptr @proto_item_add_subtree(ptr noundef %806, i32 noundef %807) #15
   %809 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %360) #15
   %810 = icmp eq i8 %809, 42
-  br i1 %810, label %.critedge1490, label %.preheader1651
+  br i1 %810, label %.critedge1490, label %.preheader1650
 
-.preheader1651:                                   ; preds = %802
+.preheader1650:                                   ; preds = %802
   %811 = load i32, ptr %16, align 4
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
   %812 = sub i32 %811, %360
   %813 = call i32 @tvb_skip_wsp(ptr noundef %0, i32 noundef %360, i32 noundef %812) #15
-  %.not.i15251828 = icmp slt i32 %813, %811
-  br i1 %.not.i15251828, label %.lr.ph1832, label %dissect_sip_contact_item.exit.thread
+  %.not.i15251827 = icmp slt i32 %813, %811
+  br i1 %.not.i15251827, label %.lr.ph1831, label %dissect_sip_contact_item.exit.thread
 
 814:                                              ; preds = %881
   %815 = add nuw i32 %.083.i, 1
@@ -4355,21 +4359,21 @@ proto_item_set_hidden.exit1522:                   ; preds = %proto_item_set_gene
   %817 = sub i32 %816, %815
   %818 = call i32 @tvb_skip_wsp(ptr noundef %0, i32 noundef %815, i32 noundef %817) #15
   %.not.i1525 = icmp slt i32 %818, %816
-  br i1 %.not.i1525, label %.lr.ph1832, label %dissect_sip_contact_item.exit.thread, !llvm.loop !30
+  br i1 %.not.i1525, label %.lr.ph1831, label %dissect_sip_contact_item.exit.thread, !llvm.loop !30
 
-.lr.ph1832:                                       ; preds = %.preheader1651, %814
-  %819 = phi i32 [ %818, %814 ], [ %813, %.preheader1651 ]
-  %820 = phi i32 [ %816, %814 ], [ %811, %.preheader1651 ]
-  %.113091831 = phi i8 [ %878, %814 ], [ %.013081888, %.preheader1651 ]
-  %.115821830 = phi i8 [ %.21583, %814 ], [ %.015811880, %.preheader1651 ]
-  %.115861829 = phi i8 [ %.6, %814 ], [ %.015851879, %.preheader1651 ]
+.lr.ph1831:                                       ; preds = %.preheader1650, %814
+  %819 = phi i32 [ %818, %814 ], [ %813, %.preheader1650 ]
+  %820 = phi i32 [ %816, %814 ], [ %811, %.preheader1650 ]
+  %.113091830 = phi i8 [ %878, %814 ], [ %.013081887, %.preheader1650 ]
+  %.115821829 = phi i8 [ %.21583, %814 ], [ %.015811879, %.preheader1650 ]
+  %.115861828 = phi i8 [ %.6, %814 ], [ %.015851878, %.preheader1650 ]
   store i32 0, ptr %11, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %295, i8 -1, i64 56, i1 false)
   %821 = call fastcc i32 @dissect_sip_name_addr_or_addr_spec(ptr noundef %0, i32 noundef %819, i32 noundef %820, ptr noundef nonnull %11)
   %822 = icmp eq i32 %821, -1
   br i1 %822, label %dissect_sip_contact_item.exit.thread, label %823
 
-823:                                              ; preds = %.lr.ph1832
+823:                                              ; preds = %.lr.ph1831
   %824 = call fastcc ptr @display_sip_uri(ptr noundef %0, ptr noundef %808, ptr noundef %3, ptr noundef nonnull %11, ptr noundef nonnull @sip_contact_uri)
   %825 = load i32, ptr %296, align 4
   %826 = sub i32 %820, %825
@@ -4393,7 +4397,7 @@ proto_item_set_hidden.exit1522:                   ; preds = %proto_item_set_gene
   br label %835
 
 835:                                              ; preds = %871, %.thread.i1527
-  %.21587 = phi i8 [ %.115861829, %.thread.i1527 ], [ %.31588, %871 ]
+  %.21587 = phi i8 [ %.115861828, %.thread.i1527 ], [ %.31588, %871 ]
   %.080.i = phi i32 [ %834, %.thread.i1527 ], [ %spec.select96.i, %871 ]
   %.078.i = phi i32 [ %834, %.thread.i1527 ], [ %872, %871 ]
   %.076.i = phi i32 [ 0, %.thread.i1527 ], [ %.177103.i, %871 ]
@@ -4467,11 +4471,11 @@ proto_item_set_hidden.exit1522:                   ; preds = %proto_item_set_gene
   %868 = load i32, ptr %12, align 4
   %869 = icmp eq i32 %868, 0
   %870 = zext i1 %869 to i8
-  %spec.select1634 = add i8 %.21587, %870
+  %spec.select1633 = add i8 %.21587, %870
   br label %871
 
 871:                                              ; preds = %867, %.thread100.i
-  %.31588 = phi i8 [ %.21587, %.thread100.i ], [ %spec.select1634, %867 ]
+  %.31588 = phi i8 [ %.21587, %.thread100.i ], [ %spec.select1633, %867 ]
   %.1.i = phi i32 [ %.0.i1528, %.thread100.i ], [ 1, %867 ]
   %872 = add i32 %.181.i, 1
   %.not94.i = icmp eq i32 %.177103.i, 0
@@ -4488,15 +4492,15 @@ proto_item_set_hidden.exit1522:                   ; preds = %proto_item_set_gene
   br i1 %.not95.i, label %.loopexit.sink.split.i, label %dissect_sip_contact_item.exit
 
 .loopexit.sink.split.i:                           ; preds = %875, %832, %829
-  %.51590 = phi i8 [ %.115861829, %832 ], [ %.41589, %875 ], [ %.115861829, %829 ]
+  %.51590 = phi i8 [ %.115861828, %832 ], [ %.41589, %875 ], [ %.115861828, %829 ]
   %.083.ph.i = phi i32 [ %820, %832 ], [ %.3.i, %875 ], [ %827, %829 ]
-  %876 = add i8 %.115821830, 1
+  %876 = add i8 %.115821829, 1
   br label %dissect_sip_contact_item.exit
 
-dissect_sip_contact_item.exit.thread:             ; preds = %.lr.ph1832, %814, %.preheader1651
-  %.11586.lcssa = phi i8 [ %.015851879, %.preheader1651 ], [ %.6, %814 ], [ %.115861829, %.lr.ph1832 ]
-  %.11582.lcssa = phi i8 [ %.015811880, %.preheader1651 ], [ %.21583, %814 ], [ %.115821830, %.lr.ph1832 ]
-  %.11309.lcssa = phi i8 [ %.013081888, %.preheader1651 ], [ %878, %814 ], [ %.113091831, %.lr.ph1832 ]
+dissect_sip_contact_item.exit.thread:             ; preds = %.lr.ph1831, %814, %.preheader1650
+  %.11586.lcssa = phi i8 [ %.015851878, %.preheader1650 ], [ %.6, %814 ], [ %.115861828, %.lr.ph1831 ]
+  %.11582.lcssa = phi i8 [ %.015811879, %.preheader1650 ], [ %.21583, %814 ], [ %.115821829, %.lr.ph1831 ]
+  %.11309.lcssa = phi i8 [ %.013081887, %.preheader1650 ], [ %878, %814 ], [ %.113091830, %.lr.ph1831 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 60, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
@@ -4504,7 +4508,7 @@ dissect_sip_contact_item.exit.thread:             ; preds = %.lr.ph1832, %814, %
 
 dissect_sip_contact_item.exit:                    ; preds = %861, %875, %.loopexit.sink.split.i
   %.6 = phi i8 [ %.51590, %.loopexit.sink.split.i ], [ %.41589, %875 ], [ %.21587, %861 ]
-  %.21583 = phi i8 [ %876, %.loopexit.sink.split.i ], [ %.115821830, %875 ], [ %.115821830, %861 ]
+  %.21583 = phi i8 [ %876, %.loopexit.sink.split.i ], [ %.115821829, %875 ], [ %.115821829, %861 ]
   %.083.i = phi i32 [ %.083.ph.i, %.loopexit.sink.split.i ], [ %.3.i, %875 ], [ %863, %861 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 60, ptr nonnull %11)
@@ -4513,7 +4517,7 @@ dissect_sip_contact_item.exit:                    ; preds = %861, %875, %.loopex
   br i1 %.not1428, label %.critedge1490, label %877
 
 877:                                              ; preds = %dissect_sip_contact_item.exit
-  %878 = add i8 %.113091831, 1
+  %878 = add i8 %.113091830, 1
   %879 = load i32, ptr %16, align 4
   %880 = icmp eq i32 %.083.i, %879
   br i1 %880, label %.critedge1490, label %881
@@ -4537,10 +4541,10 @@ dissect_sip_contact_item.exit:                    ; preds = %861, %875, %.loopex
   br i1 %.not.i1530, label %sip_proto_set_format_text.exit, label %sip_proto_tree_add_string.exit
 
 sip_proto_tree_add_string.exit:                   ; preds = %884
-  %890 = sub i32 %888, %.012661892
+  %890 = sub i32 %888, %.012661891
   %891 = call ptr @wmem_packet_scope() #15
   %892 = call ptr @tvb_get_string_enc(ptr noundef %891, ptr noundef %0, i32 noundef %360, i32 noundef %361, i32 noundef 2) #15
-  %893 = call ptr @proto_tree_add_string(ptr noundef nonnull %279, i32 noundef %887, ptr noundef %0, i32 noundef %.012661892, i32 noundef %890, ptr noundef %892) #15
+  %893 = call ptr @proto_tree_add_string(ptr noundef nonnull %279, i32 noundef %887, ptr noundef %0, i32 noundef %.012661891, i32 noundef %890, ptr noundef %892) #15
   %894 = icmp ne ptr %279, %893
   %895 = icmp ne ptr %893, null
   %or.cond.i1532 = and i1 %894, %895
@@ -4556,18 +4560,18 @@ sip_proto_tree_add_string.exit:                   ; preds = %884
 
 901:                                              ; preds = %896
   %902 = call ptr @wmem_packet_scope() #15
-  %903 = call ptr @tvb_format_text(ptr noundef %902, ptr noundef %0, i32 noundef %.012661892, i32 noundef %.21273) #15
+  %903 = call ptr @tvb_format_text(ptr noundef %902, ptr noundef %0, i32 noundef %.012661891, i32 noundef %.21273) #15
   call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef nonnull %893, ptr noundef nonnull @.str.1024, ptr noundef %903) #15
   br label %sip_proto_set_format_text.exit
 
 sip_proto_set_format_text.exit:                   ; preds = %884, %sip_proto_tree_add_string.exit, %896, %901
-  %.0.i15311627 = phi ptr [ %893, %sip_proto_tree_add_string.exit ], [ %893, %896 ], [ %893, %901 ], [ %279, %884 ]
+  %.0.i15311626 = phi ptr [ %893, %sip_proto_tree_add_string.exit ], [ %893, %896 ], [ %893, %901 ], [ %279, %884 ]
   %904 = load i32, ptr @ett_sip_element, align 4
-  %905 = call ptr @proto_item_add_subtree(ptr noundef %.0.i15311627, i32 noundef %904) #15
+  %905 = call ptr @proto_item_add_subtree(ptr noundef %.0.i15311626, i32 noundef %904) #15
   %906 = load i32, ptr @hf_sip_auth, align 4
   %907 = load i32, ptr %16, align 4
-  %908 = sub i32 %907, %.012661892
-  %909 = call ptr @proto_tree_add_item(ptr noundef nonnull %279, i32 noundef %906, ptr noundef %0, i32 noundef %.012661892, i32 noundef %908, i32 noundef 2) #15
+  %908 = sub i32 %907, %.012661891
+  %909 = call ptr @proto_tree_add_item(ptr noundef nonnull %279, i32 noundef %906, ptr noundef %0, i32 noundef %.012661891, i32 noundef %908, i32 noundef 2) #15
   %.not.i1534 = icmp eq ptr %909, null
   br i1 %.not.i1534, label %proto_item_set_hidden.exit1536, label %910
 
@@ -4597,24 +4601,24 @@ proto_item_set_hidden.exit1536:                   ; preds = %sip_proto_set_forma
   %920 = load i32, ptr @hf_sip_auth_scheme, align 4
   %921 = sub i32 %919, %360
   %922 = call ptr @proto_tree_add_item(ptr noundef %905, i32 noundef %920, ptr noundef %0, i32 noundef %360, i32 noundef %921, i32 noundef 2) #15
-  %.pre2085 = sub i32 %.11319, %919
+  %.pre2084 = sub i32 %.11319, %919
   br label %923
 
 923:                                              ; preds = %917, %918
-  %.pre-phi = phi i32 [ %361, %917 ], [ %.pre2085, %918 ]
+  %.pre-phi = phi i32 [ %361, %917 ], [ %.pre2084, %918 ]
   %.11294 = phi i32 [ %360, %917 ], [ %919, %918 ]
   %924 = call i32 @tvb_skip_wsp(ptr noundef %0, i32 noundef %.11294, i32 noundef %.pre-phi) #15
-  %.not.i15371780 = icmp slt i32 %924, %.11319
-  br i1 %.not.i15371780, label %.lr.ph1781, label %dissect_sip_authorization_item.exit.thread
+  %.not.i15371779 = icmp slt i32 %924, %.11319
+  br i1 %.not.i15371779, label %.lr.ph1780, label %dissect_sip_authorization_item.exit.thread
 
 925:                                              ; preds = %1061
   %926 = add nuw i32 %.142.i, 1
   %927 = sub i32 %.11319, %926
   %928 = call i32 @tvb_skip_wsp(ptr noundef %0, i32 noundef %926, i32 noundef %927) #15
   %.not.i1537 = icmp slt i32 %928, %.11319
-  br i1 %.not.i1537, label %.lr.ph1781, label %dissect_sip_authorization_item.exit.thread.sink.split, !llvm.loop !32
+  br i1 %.not.i1537, label %.lr.ph1780, label %dissect_sip_authorization_item.exit.thread.sink.split, !llvm.loop !32
 
-.lr.ph1781:                                       ; preds = %923, %925
+.lr.ph1780:                                       ; preds = %923, %925
   %929 = phi ptr [ %1048, %925 ], [ null, %923 ]
   %930 = phi ptr [ %1049, %925 ], [ null, %923 ]
   %931 = phi ptr [ %1050, %925 ], [ null, %923 ]
@@ -4631,7 +4635,7 @@ proto_item_set_hidden.exit1536:                   ; preds = %sip_proto_set_forma
   %942 = icmp eq i32 %941, -1
   br i1 %942, label %dissect_sip_authorization_item.exit.thread.sink.split, label %943
 
-943:                                              ; preds = %.lr.ph1781
+943:                                              ; preds = %.lr.ph1780
   %944 = add i32 %941, -1
   %945 = call i32 @tvb_skip_wsp_return(ptr noundef %0, i32 noundef %944) #15
   %946 = call ptr @wmem_packet_scope() #15
@@ -4836,30 +4840,30 @@ dissect_sip_authorization_item.exit:              ; preds = %970, %991, %997, %1
   %.not1425 = icmp eq i8 %1062, 44
   br i1 %.not1425, label %925, label %dissect_sip_authorization_item.exit.thread.sink.split
 
-dissect_sip_authorization_item.exit.thread.sink.split: ; preds = %dissect_sip_authorization_item.exit, %1061, %925, %.lr.ph1781
-  %.lcssa2144.sink = phi ptr [ %936, %.lr.ph1781 ], [ %1055, %925 ], [ %1055, %1061 ], [ %1055, %dissect_sip_authorization_item.exit ]
-  %.lcssa2147.sink = phi ptr [ %935, %.lr.ph1781 ], [ %1054, %925 ], [ %1054, %1061 ], [ %1054, %dissect_sip_authorization_item.exit ]
-  %.lcssa2150.sink = phi ptr [ %934, %.lr.ph1781 ], [ %1053, %925 ], [ %1053, %1061 ], [ %1053, %dissect_sip_authorization_item.exit ]
-  %.lcssa2153.sink = phi ptr [ %933, %.lr.ph1781 ], [ %1052, %925 ], [ %1052, %1061 ], [ %1052, %dissect_sip_authorization_item.exit ]
-  %.lcssa2156.sink = phi ptr [ %932, %.lr.ph1781 ], [ %1051, %925 ], [ %1051, %1061 ], [ %1051, %dissect_sip_authorization_item.exit ]
-  %.lcssa2159.sink = phi ptr [ %931, %.lr.ph1781 ], [ %1050, %925 ], [ %1050, %1061 ], [ %1050, %dissect_sip_authorization_item.exit ]
-  %.lcssa2162.sink = phi ptr [ %930, %.lr.ph1781 ], [ %1049, %925 ], [ %1049, %1061 ], [ %1049, %dissect_sip_authorization_item.exit ]
-  %.lcssa2165.sink = phi ptr [ %929, %.lr.ph1781 ], [ %1048, %925 ], [ %1048, %1061 ], [ %1048, %dissect_sip_authorization_item.exit ]
-  %.ph2261 = phi ptr [ %938, %.lr.ph1781 ], [ %1056, %925 ], [ %1056, %1061 ], [ %1056, %dissect_sip_authorization_item.exit ]
-  store ptr %.lcssa2144.sink, ptr %286, align 8
-  store ptr %.lcssa2147.sink, ptr %287, align 8
-  store ptr %.lcssa2150.sink, ptr %288, align 8
-  store ptr %.lcssa2153.sink, ptr %289, align 8
-  store ptr %.lcssa2156.sink, ptr %290, align 8
-  store ptr %.lcssa2159.sink, ptr %291, align 8
-  store ptr %.lcssa2162.sink, ptr %292, align 8
-  store ptr %.lcssa2165.sink, ptr %293, align 8
+dissect_sip_authorization_item.exit.thread.sink.split: ; preds = %dissect_sip_authorization_item.exit, %1061, %925, %.lr.ph1780
+  %.lcssa2143.sink = phi ptr [ %936, %.lr.ph1780 ], [ %1055, %925 ], [ %1055, %1061 ], [ %1055, %dissect_sip_authorization_item.exit ]
+  %.lcssa2146.sink = phi ptr [ %935, %.lr.ph1780 ], [ %1054, %925 ], [ %1054, %1061 ], [ %1054, %dissect_sip_authorization_item.exit ]
+  %.lcssa2149.sink = phi ptr [ %934, %.lr.ph1780 ], [ %1053, %925 ], [ %1053, %1061 ], [ %1053, %dissect_sip_authorization_item.exit ]
+  %.lcssa2152.sink = phi ptr [ %933, %.lr.ph1780 ], [ %1052, %925 ], [ %1052, %1061 ], [ %1052, %dissect_sip_authorization_item.exit ]
+  %.lcssa2155.sink = phi ptr [ %932, %.lr.ph1780 ], [ %1051, %925 ], [ %1051, %1061 ], [ %1051, %dissect_sip_authorization_item.exit ]
+  %.lcssa2158.sink = phi ptr [ %931, %.lr.ph1780 ], [ %1050, %925 ], [ %1050, %1061 ], [ %1050, %dissect_sip_authorization_item.exit ]
+  %.lcssa2161.sink = phi ptr [ %930, %.lr.ph1780 ], [ %1049, %925 ], [ %1049, %1061 ], [ %1049, %dissect_sip_authorization_item.exit ]
+  %.lcssa2164.sink = phi ptr [ %929, %.lr.ph1780 ], [ %1048, %925 ], [ %1048, %1061 ], [ %1048, %dissect_sip_authorization_item.exit ]
+  %.ph2260 = phi ptr [ %938, %.lr.ph1780 ], [ %1056, %925 ], [ %1056, %1061 ], [ %1056, %dissect_sip_authorization_item.exit ]
+  store ptr %.lcssa2143.sink, ptr %286, align 8
+  store ptr %.lcssa2146.sink, ptr %287, align 8
+  store ptr %.lcssa2149.sink, ptr %288, align 8
+  store ptr %.lcssa2152.sink, ptr %289, align 8
+  store ptr %.lcssa2155.sink, ptr %290, align 8
+  store ptr %.lcssa2158.sink, ptr %291, align 8
+  store ptr %.lcssa2161.sink, ptr %292, align 8
+  store ptr %.lcssa2164.sink, ptr %293, align 8
   br label %dissect_sip_authorization_item.exit.thread
 
 dissect_sip_authorization_item.exit.thread:       ; preds = %dissect_sip_authorization_item.exit.thread.sink.split, %923
-  %1063 = phi ptr [ null, %923 ], [ %.lcssa2159.sink, %dissect_sip_authorization_item.exit.thread.sink.split ]
-  %1064 = phi ptr [ null, %923 ], [ %.lcssa2165.sink, %dissect_sip_authorization_item.exit.thread.sink.split ]
-  %1065 = phi ptr [ null, %923 ], [ %.ph2261, %dissect_sip_authorization_item.exit.thread.sink.split ]
+  %1063 = phi ptr [ null, %923 ], [ %.lcssa2158.sink, %dissect_sip_authorization_item.exit.thread.sink.split ]
+  %1064 = phi ptr [ null, %923 ], [ %.lcssa2164.sink, %dissect_sip_authorization_item.exit.thread.sink.split ]
+  %1065 = phi ptr [ null, %923 ], [ %.ph2260, %dissect_sip_authorization_item.exit.thread.sink.split ]
   store ptr %1065, ptr %25, align 8
   %1066 = icmp ne ptr %1064, null
   %1067 = load i32, ptr @global_sip_validate_authorization, align 4
@@ -4889,9 +4893,9 @@ dissect_sip_authorization_item.exit.thread:       ; preds = %dissect_sip_authori
   br i1 %.not1427, label %1081, label %.critedge1490
 
 1081:                                             ; preds = %1073
-  %1082 = sub i32 %.11319, %.012661892
+  %1082 = sub i32 %.11319, %.012661891
   %1083 = load ptr, ptr %1078, align 8
-  %1084 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %4, ptr noundef %3, ptr noundef nonnull @ei_sip_authorization_invalid, ptr noundef %0, i32 noundef %.012661892, i32 noundef %1082, ptr noundef nonnull @.str.1005, ptr noundef %1083) #15
+  %1084 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %4, ptr noundef %3, ptr noundef nonnull @ei_sip_authorization_invalid, ptr noundef %0, i32 noundef %.012661891, i32 noundef %1082, ptr noundef nonnull @.str.1005, ptr noundef %1083) #15
   br label %.critedge1490
 
 1085:                                             ; preds = %sip_is_known_sip_header.exit
@@ -4900,9 +4904,9 @@ dissect_sip_authorization_item.exit.thread:       ; preds = %dissect_sip_authori
 1086:                                             ; preds = %1085
   %1087 = load i32, ptr getelementptr inbounds ([127 x i32], ptr @hf_header_array, i64 0, i64 100), align 16
   %1088 = load i32, ptr %16, align 4
-  %1089 = sub i32 %1088, %.012661892
-  %1090 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef nonnull %279, i32 noundef %1087, ptr noundef %0, i32 noundef %.012661892, i32 noundef %1089, i32 noundef %360, i32 noundef %361)
-  call fastcc void @sip_proto_set_format_text(ptr noundef nonnull %279, ptr noundef %1090, ptr noundef %0, i32 noundef %.012661892, i32 noundef %.21273)
+  %1089 = sub i32 %1088, %.012661891
+  %1090 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef nonnull %279, i32 noundef %1087, ptr noundef %0, i32 noundef %.012661891, i32 noundef %1089, i32 noundef %360, i32 noundef %361)
+  call fastcc void @sip_proto_set_format_text(ptr noundef nonnull %279, ptr noundef %1090, ptr noundef %0, i32 noundef %.012661891, i32 noundef %.21273)
   %1091 = load i32, ptr @ett_sip_route, align 4
   %1092 = call ptr @proto_item_add_subtree(ptr noundef %1090, i32 noundef %1091) #15
   call fastcc void @dissect_sip_route_header(ptr noundef %0, ptr noundef %1092, ptr noundef %3, ptr noundef nonnull @sip_route_uri, i32 noundef %360, i32 noundef %.11319)
@@ -4914,9 +4918,9 @@ dissect_sip_authorization_item.exit.thread:       ; preds = %dissect_sip_authori
 1094:                                             ; preds = %1093
   %1095 = load i32, ptr getelementptr inbounds ([127 x i32], ptr @hf_header_array, i64 0, i64 84), align 16
   %1096 = load i32, ptr %16, align 4
-  %1097 = sub i32 %1096, %.012661892
-  %1098 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef nonnull %279, i32 noundef %1095, ptr noundef %0, i32 noundef %.012661892, i32 noundef %1097, i32 noundef %360, i32 noundef %361)
-  call fastcc void @sip_proto_set_format_text(ptr noundef nonnull %279, ptr noundef %1098, ptr noundef %0, i32 noundef %.012661892, i32 noundef %.21273)
+  %1097 = sub i32 %1096, %.012661891
+  %1098 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef nonnull %279, i32 noundef %1095, ptr noundef %0, i32 noundef %.012661891, i32 noundef %1097, i32 noundef %360, i32 noundef %361)
+  call fastcc void @sip_proto_set_format_text(ptr noundef nonnull %279, ptr noundef %1098, ptr noundef %0, i32 noundef %.012661891, i32 noundef %.21273)
   %1099 = load i32, ptr @ett_sip_route, align 4
   %1100 = call ptr @proto_item_add_subtree(ptr noundef %1098, i32 noundef %1099) #15
   call fastcc void @dissect_sip_route_header(ptr noundef %0, ptr noundef %1100, ptr noundef %3, ptr noundef nonnull @sip_record_route_uri, i32 noundef %360, i32 noundef %.11319)
@@ -4928,9 +4932,9 @@ dissect_sip_authorization_item.exit.thread:       ; preds = %dissect_sip_authori
 1102:                                             ; preds = %1101
   %1103 = load i32, ptr getelementptr inbounds ([127 x i32], ptr @hf_header_array, i64 0, i64 107), align 4
   %1104 = load i32, ptr %16, align 4
-  %1105 = sub i32 %1104, %.012661892
-  %1106 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef nonnull %279, i32 noundef %1103, ptr noundef %0, i32 noundef %.012661892, i32 noundef %1105, i32 noundef %360, i32 noundef %361)
-  call fastcc void @sip_proto_set_format_text(ptr noundef nonnull %279, ptr noundef %1106, ptr noundef %0, i32 noundef %.012661892, i32 noundef %.21273)
+  %1105 = sub i32 %1104, %.012661891
+  %1106 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef nonnull %279, i32 noundef %1103, ptr noundef %0, i32 noundef %.012661891, i32 noundef %1105, i32 noundef %360, i32 noundef %361)
+  call fastcc void @sip_proto_set_format_text(ptr noundef nonnull %279, ptr noundef %1106, ptr noundef %0, i32 noundef %.012661891, i32 noundef %.21273)
   %1107 = load i32, ptr @ett_sip_route, align 4
   %1108 = call ptr @proto_item_add_subtree(ptr noundef %1106, i32 noundef %1107) #15
   call fastcc void @dissect_sip_route_header(ptr noundef %0, ptr noundef %1108, ptr noundef %3, ptr noundef nonnull @sip_service_route_uri, i32 noundef %360, i32 noundef %.11319)
@@ -4942,9 +4946,9 @@ dissect_sip_authorization_item.exit.thread:       ; preds = %dissect_sip_authori
 1110:                                             ; preds = %1109
   %1111 = load i32, ptr getelementptr inbounds ([127 x i32], ptr @hf_header_array, i64 0, i64 70), align 8
   %1112 = load i32, ptr %16, align 4
-  %1113 = sub i32 %1112, %.012661892
-  %1114 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef nonnull %279, i32 noundef %1111, ptr noundef %0, i32 noundef %.012661892, i32 noundef %1113, i32 noundef %360, i32 noundef %361)
-  call fastcc void @sip_proto_set_format_text(ptr noundef nonnull %279, ptr noundef %1114, ptr noundef %0, i32 noundef %.012661892, i32 noundef %.21273)
+  %1113 = sub i32 %1112, %.012661891
+  %1114 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef nonnull %279, i32 noundef %1111, ptr noundef %0, i32 noundef %.012661891, i32 noundef %1113, i32 noundef %360, i32 noundef %361)
+  call fastcc void @sip_proto_set_format_text(ptr noundef nonnull %279, ptr noundef %1114, ptr noundef %0, i32 noundef %.012661891, i32 noundef %.21273)
   %1115 = load i32, ptr @ett_sip_route, align 4
   %1116 = call ptr @proto_item_add_subtree(ptr noundef %1114, i32 noundef %1115) #15
   call fastcc void @dissect_sip_route_header(ptr noundef %0, ptr noundef %1116, ptr noundef %3, ptr noundef nonnull @sip_path_uri, i32 noundef %360, i32 noundef %.11319)
@@ -4956,9 +4960,9 @@ dissect_sip_authorization_item.exit.thread:       ; preds = %dissect_sip_authori
 1118:                                             ; preds = %1117
   %1119 = load i32, ptr getelementptr inbounds ([127 x i32], ptr @hf_header_array, i64 0, i64 122), align 8
   %1120 = load i32, ptr %16, align 4
-  %1121 = sub i32 %1120, %.012661892
-  %1122 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef nonnull %279, i32 noundef %1119, ptr noundef %0, i32 noundef %.012661892, i32 noundef %1121, i32 noundef %360, i32 noundef %361)
-  call fastcc void @sip_proto_set_format_text(ptr noundef nonnull %279, ptr noundef %1122, ptr noundef %0, i32 noundef %.012661892, i32 noundef %.21273)
+  %1121 = sub i32 %1120, %.012661891
+  %1122 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef nonnull %279, i32 noundef %1119, ptr noundef %0, i32 noundef %.012661891, i32 noundef %1121, i32 noundef %360, i32 noundef %361)
+  call fastcc void @sip_proto_set_format_text(ptr noundef nonnull %279, ptr noundef %1122, ptr noundef %0, i32 noundef %.012661891, i32 noundef %.21273)
   %1123 = load i32, ptr @ett_sip_via, align 4
   %1124 = call ptr @proto_item_add_subtree(ptr noundef %1122, i32 noundef %1123) #15
   call fastcc void @dissect_sip_via_header(ptr noundef %0, ptr noundef %1124, i32 noundef %360, i32 noundef %.11319, ptr noundef %3)
@@ -4970,9 +4974,9 @@ dissect_sip_authorization_item.exit.thread:       ; preds = %dissect_sip_authori
 1126:                                             ; preds = %1125
   %1127 = load i32, ptr getelementptr inbounds ([127 x i32], ptr @hf_header_array, i64 0, i64 82), align 8
   %1128 = load i32, ptr %16, align 4
-  %1129 = sub i32 %1128, %.012661892
-  %1130 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef nonnull %279, i32 noundef %1127, ptr noundef %0, i32 noundef %.012661892, i32 noundef %1129, i32 noundef %360, i32 noundef %361)
-  call fastcc void @sip_proto_set_format_text(ptr noundef nonnull %279, ptr noundef %1130, ptr noundef %0, i32 noundef %.012661892, i32 noundef %.21273)
+  %1129 = sub i32 %1128, %.012661891
+  %1130 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef nonnull %279, i32 noundef %1127, ptr noundef %0, i32 noundef %.012661891, i32 noundef %1129, i32 noundef %360, i32 noundef %361)
+  call fastcc void @sip_proto_set_format_text(ptr noundef nonnull %279, ptr noundef %1130, ptr noundef %0, i32 noundef %.012661891, i32 noundef %.21273)
   %1131 = load i32, ptr @ett_sip_reason, align 4
   %1132 = call ptr @proto_item_add_subtree(ptr noundef %1130, i32 noundef %1131) #15
   call fastcc void @dissect_sip_reason_header(ptr noundef %0, ptr noundef %1132, ptr noundef %3, i32 noundef %360, i32 noundef %.11319)
@@ -4981,9 +4985,9 @@ dissect_sip_authorization_item.exit.thread:       ; preds = %dissect_sip_authori
 1133:                                             ; preds = %sip_is_known_sip_header.exit
   %1134 = load i32, ptr getelementptr inbounds ([127 x i32], ptr @hf_header_array, i64 0, i64 19), align 4
   %1135 = load i32, ptr %16, align 4
-  %1136 = sub i32 %1135, %.012661892
-  %1137 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef %279, i32 noundef %1134, ptr noundef %0, i32 noundef %.012661892, i32 noundef %1136, i32 noundef %360, i32 noundef %361)
-  call fastcc void @sip_proto_set_format_text(ptr noundef %279, ptr noundef %1137, ptr noundef %0, i32 noundef %.012661892, i32 noundef %.21273)
+  %1136 = sub i32 %1135, %.012661891
+  %1137 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef %279, i32 noundef %1134, ptr noundef %0, i32 noundef %.012661891, i32 noundef %1136, i32 noundef %360, i32 noundef %361)
+  call fastcc void @sip_proto_set_format_text(ptr noundef %279, ptr noundef %1137, ptr noundef %0, i32 noundef %.012661891, i32 noundef %.21273)
   %1138 = call ptr @wmem_packet_scope() #15
   %1139 = call ptr @tvb_get_string_enc(ptr noundef %1138, ptr noundef %0, i32 noundef %360, i32 noundef %361, i32 noundef 2) #15
   %1140 = call ptr @ascii_strdown_inplace(ptr noundef %1139) #15
@@ -4992,71 +4996,71 @@ dissect_sip_authorization_item.exit.thread:       ; preds = %dissect_sip_authori
 1141:                                             ; preds = %sip_is_known_sip_header.exit
   %1142 = load i32, ptr getelementptr inbounds ([127 x i32], ptr @hf_header_array, i64 0, i64 102), align 8
   %1143 = load i32, ptr %16, align 4
-  %1144 = sub i32 %1143, %.012661892
-  %1145 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef %279, i32 noundef %1142, ptr noundef %0, i32 noundef %.012661892, i32 noundef %1144, i32 noundef %360, i32 noundef %361)
-  call fastcc void @sip_proto_set_format_text(ptr noundef %279, ptr noundef %1145, ptr noundef %0, i32 noundef %.012661892, i32 noundef %.21273)
+  %1144 = sub i32 %1143, %.012661891
+  %1145 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef %279, i32 noundef %1142, ptr noundef %0, i32 noundef %.012661891, i32 noundef %1144, i32 noundef %360, i32 noundef %361)
+  call fastcc void @sip_proto_set_format_text(ptr noundef %279, ptr noundef %1145, ptr noundef %0, i32 noundef %.012661891, i32 noundef %.21273)
   %1146 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %360, i32 noundef %361, i8 noundef zeroext 44) #15
   %1147 = icmp slt i32 %1146, %.11319
-  br i1 %1147, label %.lr.ph1779, label %.critedge1490
+  br i1 %1147, label %.lr.ph1778, label %.critedge1490
 
-.lr.ph1779:                                       ; preds = %1141, %.lr.ph1779
-  %.013051778 = phi i32 [ %1153, %.lr.ph1779 ], [ %360, %1141 ]
-  %1148 = sub i32 %.11319, %.013051778
-  %1149 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.013051778, i32 noundef %1148, i8 noundef zeroext 44) #15
+.lr.ph1778:                                       ; preds = %1141, %.lr.ph1778
+  %.013051777 = phi i32 [ %1153, %.lr.ph1778 ], [ %360, %1141 ]
+  %1148 = sub i32 %.11319, %.013051777
+  %1149 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.013051777, i32 noundef %1148, i8 noundef zeroext 44) #15
   %1150 = icmp eq i32 %1149, -1
   %spec.select1495 = select i1 %1150, i32 %.11319, i32 %1149
   %1151 = load i32, ptr @ett_sip_security_client, align 4
   %1152 = call ptr @proto_item_add_subtree(ptr noundef %1145, i32 noundef %1151) #15
-  call fastcc void @dissect_sip_sec_mechanism(ptr noundef %0, ptr noundef %3, ptr noundef %1152, i32 noundef %.013051778, i32 noundef %spec.select1495)
+  call fastcc void @dissect_sip_sec_mechanism(ptr noundef %0, ptr noundef %3, ptr noundef %1152, i32 noundef %.013051777, i32 noundef %spec.select1495)
   %1153 = add i32 %spec.select1495, 1
   %1154 = icmp slt i32 %1153, %.11319
-  br i1 %1154, label %.lr.ph1779, label %.critedge1490, !llvm.loop !36
+  br i1 %1154, label %.lr.ph1778, label %.critedge1490, !llvm.loop !36
 
 1155:                                             ; preds = %sip_is_known_sip_header.exit
   %1156 = load i32, ptr getelementptr inbounds ([127 x i32], ptr @hf_header_array, i64 0, i64 103), align 4
   %1157 = load i32, ptr %16, align 4
-  %1158 = sub i32 %1157, %.012661892
-  %1159 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef %279, i32 noundef %1156, ptr noundef %0, i32 noundef %.012661892, i32 noundef %1158, i32 noundef %360, i32 noundef %361)
-  call fastcc void @sip_proto_set_format_text(ptr noundef %279, ptr noundef %1159, ptr noundef %0, i32 noundef %.012661892, i32 noundef %.21273)
+  %1158 = sub i32 %1157, %.012661891
+  %1159 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef %279, i32 noundef %1156, ptr noundef %0, i32 noundef %.012661891, i32 noundef %1158, i32 noundef %360, i32 noundef %361)
+  call fastcc void @sip_proto_set_format_text(ptr noundef %279, ptr noundef %1159, ptr noundef %0, i32 noundef %.012661891, i32 noundef %.21273)
   %1160 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %360, i32 noundef %361, i8 noundef zeroext 44) #15
   %1161 = icmp slt i32 %1160, %.11319
-  br i1 %1161, label %.lr.ph1777, label %.critedge1490
+  br i1 %1161, label %.lr.ph1776, label %.critedge1490
 
-.lr.ph1777:                                       ; preds = %1155, %.lr.ph1777
-  %.113061776 = phi i32 [ %1167, %.lr.ph1777 ], [ %360, %1155 ]
-  %1162 = sub i32 %.11319, %.113061776
-  %1163 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.113061776, i32 noundef %1162, i8 noundef zeroext 44) #15
+.lr.ph1776:                                       ; preds = %1155, %.lr.ph1776
+  %.113061775 = phi i32 [ %1167, %.lr.ph1776 ], [ %360, %1155 ]
+  %1162 = sub i32 %.11319, %.113061775
+  %1163 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.113061775, i32 noundef %1162, i8 noundef zeroext 44) #15
   %1164 = icmp eq i32 %1163, -1
   %spec.select1496 = select i1 %1164, i32 %.11319, i32 %1163
   %1165 = load i32, ptr @ett_sip_security_server, align 4
   %1166 = call ptr @proto_item_add_subtree(ptr noundef %1159, i32 noundef %1165) #15
-  call fastcc void @dissect_sip_sec_mechanism(ptr noundef %0, ptr noundef %3, ptr noundef %1166, i32 noundef %.113061776, i32 noundef %spec.select1496)
+  call fastcc void @dissect_sip_sec_mechanism(ptr noundef %0, ptr noundef %3, ptr noundef %1166, i32 noundef %.113061775, i32 noundef %spec.select1496)
   %1167 = add i32 %spec.select1496, 1
   %1168 = icmp slt i32 %1167, %.11319
-  br i1 %1168, label %.lr.ph1777, label %.critedge1490, !llvm.loop !37
+  br i1 %1168, label %.lr.ph1776, label %.critedge1490, !llvm.loop !37
 
 1169:                                             ; preds = %sip_is_known_sip_header.exit
   %1170 = load i32, ptr getelementptr inbounds ([127 x i32], ptr @hf_header_array, i64 0, i64 104), align 16
   %1171 = load i32, ptr %16, align 4
-  %1172 = sub i32 %1171, %.012661892
-  %1173 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef %279, i32 noundef %1170, ptr noundef %0, i32 noundef %.012661892, i32 noundef %1172, i32 noundef %360, i32 noundef %361)
-  call fastcc void @sip_proto_set_format_text(ptr noundef %279, ptr noundef %1173, ptr noundef %0, i32 noundef %.012661892, i32 noundef %.21273)
+  %1172 = sub i32 %1171, %.012661891
+  %1173 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef %279, i32 noundef %1170, ptr noundef %0, i32 noundef %.012661891, i32 noundef %1172, i32 noundef %360, i32 noundef %361)
+  call fastcc void @sip_proto_set_format_text(ptr noundef %279, ptr noundef %1173, ptr noundef %0, i32 noundef %.012661891, i32 noundef %.21273)
   %1174 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %360, i32 noundef %361, i8 noundef zeroext 44) #15
   %1175 = icmp slt i32 %1174, %.11319
-  br i1 %1175, label %.lr.ph1775, label %.critedge1490
+  br i1 %1175, label %.lr.ph1774, label %.critedge1490
 
-.lr.ph1775:                                       ; preds = %1169, %.lr.ph1775
-  %.213071774 = phi i32 [ %1181, %.lr.ph1775 ], [ %360, %1169 ]
-  %1176 = sub i32 %.11319, %.213071774
-  %1177 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.213071774, i32 noundef %1176, i8 noundef zeroext 44) #15
+.lr.ph1774:                                       ; preds = %1169, %.lr.ph1774
+  %.213071773 = phi i32 [ %1181, %.lr.ph1774 ], [ %360, %1169 ]
+  %1176 = sub i32 %.11319, %.213071773
+  %1177 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.213071773, i32 noundef %1176, i8 noundef zeroext 44) #15
   %1178 = icmp eq i32 %1177, -1
   %spec.select1497 = select i1 %1178, i32 %.11319, i32 %1177
   %1179 = load i32, ptr @ett_sip_security_verify, align 4
   %1180 = call ptr @proto_item_add_subtree(ptr noundef %1173, i32 noundef %1179) #15
-  call fastcc void @dissect_sip_sec_mechanism(ptr noundef %0, ptr noundef %3, ptr noundef %1180, i32 noundef %.213071774, i32 noundef %spec.select1497)
+  call fastcc void @dissect_sip_sec_mechanism(ptr noundef %0, ptr noundef %3, ptr noundef %1180, i32 noundef %.213071773, i32 noundef %spec.select1497)
   %1181 = add i32 %spec.select1497, 1
   %1182 = icmp slt i32 %1181, %.11319
-  br i1 %1182, label %.lr.ph1775, label %.critedge1490, !llvm.loop !38
+  br i1 %1182, label %.lr.ph1774, label %.critedge1490, !llvm.loop !38
 
 1183:                                             ; preds = %sip_is_known_sip_header.exit
   br i1 %.not1411, label %.critedge1490, label %1184
@@ -5064,9 +5068,9 @@ dissect_sip_authorization_item.exit.thread:       ; preds = %dissect_sip_authori
 1184:                                             ; preds = %1183
   %1185 = load i32, ptr getelementptr inbounds ([127 x i32], ptr @hf_header_array, i64 0, i64 109), align 4
   %1186 = load i32, ptr %16, align 4
-  %1187 = sub i32 %1186, %.012661892
-  %1188 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef nonnull %279, i32 noundef %1185, ptr noundef %0, i32 noundef %.012661892, i32 noundef %1187, i32 noundef %360, i32 noundef %361)
-  call fastcc void @sip_proto_set_format_text(ptr noundef nonnull %279, ptr noundef %1188, ptr noundef %0, i32 noundef %.012661892, i32 noundef %.21273)
+  %1187 = sub i32 %1186, %.012661891
+  %1188 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef nonnull %279, i32 noundef %1185, ptr noundef %0, i32 noundef %.012661891, i32 noundef %1187, i32 noundef %360, i32 noundef %361)
+  call fastcc void @sip_proto_set_format_text(ptr noundef nonnull %279, ptr noundef %1188, ptr noundef %0, i32 noundef %.012661891, i32 noundef %.21273)
   %1189 = load i32, ptr @ett_sip_session_id, align 4
   %1190 = call ptr @proto_item_add_subtree(ptr noundef %1188, i32 noundef %1189) #15
   call fastcc void @dissect_sip_session_id_header(ptr noundef %0, ptr noundef %1190, i32 noundef %360, i32 noundef %.11319, ptr noundef %3)
@@ -5078,9 +5082,9 @@ dissect_sip_authorization_item.exit.thread:       ; preds = %dissect_sip_authori
 1192:                                             ; preds = %1191
   %1193 = load i32, ptr getelementptr inbounds ([127 x i32], ptr @hf_header_array, i64 0, i64 47), align 4
   %1194 = load i32, ptr %16, align 4
-  %1195 = sub i32 %1194, %.012661892
-  %1196 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef nonnull %279, i32 noundef %1193, ptr noundef %0, i32 noundef %.012661892, i32 noundef %1195, i32 noundef %360, i32 noundef %361)
-  call fastcc void @sip_proto_set_format_text(ptr noundef nonnull %279, ptr noundef %1196, ptr noundef %0, i32 noundef %.012661892, i32 noundef %.21273)
+  %1195 = sub i32 %1194, %.012661891
+  %1196 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef nonnull %279, i32 noundef %1193, ptr noundef %0, i32 noundef %.012661891, i32 noundef %1195, i32 noundef %360, i32 noundef %361)
+  call fastcc void @sip_proto_set_format_text(ptr noundef nonnull %279, ptr noundef %1196, ptr noundef %0, i32 noundef %.012661891, i32 noundef %.21273)
   %1197 = load i32, ptr @ett_sip_p_access_net_info, align 4
   %1198 = call ptr @proto_item_add_subtree(ptr noundef %1196, i32 noundef %1197) #15
   call void @dissect_sip_p_access_network_info_header(ptr noundef %0, ptr noundef %3, ptr noundef %1198, i32 noundef %360, i32 noundef %.11319)
@@ -5092,9 +5096,9 @@ dissect_sip_authorization_item.exit.thread:       ; preds = %dissect_sip_authori
 1200:                                             ; preds = %1199
   %1201 = load i32, ptr getelementptr inbounds ([127 x i32], ptr @hf_header_array, i64 0, i64 55), align 4
   %1202 = load i32, ptr %16, align 4
-  %1203 = sub i32 %1202, %.012661892
-  %1204 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef nonnull %279, i32 noundef %1201, ptr noundef %0, i32 noundef %.012661892, i32 noundef %1203, i32 noundef %360, i32 noundef %361)
-  call fastcc void @sip_proto_set_format_text(ptr noundef nonnull %279, ptr noundef %1204, ptr noundef %0, i32 noundef %.012661892, i32 noundef %.21273)
+  %1203 = sub i32 %1202, %.012661891
+  %1204 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef nonnull %279, i32 noundef %1201, ptr noundef %0, i32 noundef %.012661891, i32 noundef %1203, i32 noundef %360, i32 noundef %361)
+  call fastcc void @sip_proto_set_format_text(ptr noundef nonnull %279, ptr noundef %1204, ptr noundef %0, i32 noundef %.012661891, i32 noundef %.21273)
   %1205 = load i32, ptr @ett_sip_p_charging_vector, align 4
   %1206 = call ptr @proto_item_add_subtree(ptr noundef %1204, i32 noundef %1205) #15
   call fastcc void @dissect_sip_p_charging_vector_header(ptr noundef %0, ptr noundef %1206, i32 noundef %360, i32 noundef %.11319)
@@ -5106,9 +5110,9 @@ dissect_sip_authorization_item.exit.thread:       ; preds = %dissect_sip_authori
 1208:                                             ; preds = %1207
   %1209 = load i32, ptr getelementptr inbounds ([127 x i32], ptr @hf_header_array, i64 0, i64 28), align 16
   %1210 = load i32, ptr %16, align 4
-  %1211 = sub i32 %1210, %.012661892
-  %1212 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef nonnull %279, i32 noundef %1209, ptr noundef %0, i32 noundef %.012661892, i32 noundef %1211, i32 noundef %360, i32 noundef %361)
-  call fastcc void @sip_proto_set_format_text(ptr noundef nonnull %279, ptr noundef %1212, ptr noundef %0, i32 noundef %.012661892, i32 noundef %.21273)
+  %1211 = sub i32 %1210, %.012661891
+  %1212 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef nonnull %279, i32 noundef %1209, ptr noundef %0, i32 noundef %.012661891, i32 noundef %1211, i32 noundef %360, i32 noundef %361)
+  call fastcc void @sip_proto_set_format_text(ptr noundef nonnull %279, ptr noundef %1212, ptr noundef %0, i32 noundef %.012661891, i32 noundef %.21273)
   %1213 = load i32, ptr @ett_sip_feature_caps, align 4
   %1214 = call ptr @proto_item_add_subtree(ptr noundef %1212, i32 noundef %1213) #15
   call fastcc void @dissect_sip_p_feature_caps(ptr noundef %0, ptr noundef %1214, i32 noundef %360, i32 noundef %.11319)
@@ -5119,25 +5123,25 @@ dissect_sip_authorization_item.exit.thread:       ; preds = %dissect_sip_authori
   %1217 = getelementptr [127 x i32], ptr @hf_header_array, i64 0, i64 %1216
   %1218 = load i32, ptr %1217, align 4
   %1219 = load i32, ptr %16, align 4
-  %1220 = sub i32 %1219, %.012661892
-  %1221 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef %279, i32 noundef %1218, ptr noundef %0, i32 noundef %.012661892, i32 noundef %1220, i32 noundef %360, i32 noundef %361)
-  call fastcc void @sip_proto_set_format_text(ptr noundef %279, ptr noundef %1221, ptr noundef %0, i32 noundef %.012661892, i32 noundef %.21273)
+  %1220 = sub i32 %1219, %.012661891
+  %1221 = call fastcc ptr @sip_proto_tree_add_string(ptr noundef %279, i32 noundef %1218, ptr noundef %0, i32 noundef %.012661891, i32 noundef %1220, i32 noundef %360, i32 noundef %361)
+  call fastcc void @sip_proto_set_format_text(ptr noundef %279, ptr noundef %1221, ptr noundef %0, i32 noundef %.012661891, i32 noundef %.21273)
   br label %.critedge1490
 
-.critedge1490:                                    ; preds = %.lr.ph1775, %.lr.ph1777, %.lr.ph1779, %dissect_sip_contact_item.exit, %877, %881, %568, %575, %460, %414, %1169, %1155, %1141, %.preheader1647, %457, %411, %dissect_sip_contact_item.exit.thread, %795, %789, %474, %471, %.critedge11, %802, %381, %385, %368, %1207, %1208, %1199, %1200, %1191, %1192, %1183, %1184, %1125, %1126, %1117, %1118, %1109, %1110, %1101, %1102, %1093, %1094, %1085, %1086, %883, %dissect_sip_authorization_item.exit.thread, %1073, %1081, %1071, %proto_item_set_hidden.exit1536, %778, %787, %718, %719, %580, %589, %545, %555, %559, %546, %533, %543, %534, %521, %531, %522, %513, %514, %504, %505, %490, %497, %500, %491, %478, %488, %479, %432, %proto_item_set_hidden.exit, %1215, %1133, %774, %751, %proto_item_set_hidden.exit1522, %644, %328
-  %.71591 = phi i8 [ %.015851879, %328 ], [ %.015851879, %1215 ], [ %.015851879, %1207 ], [ %.015851879, %1208 ], [ %.015851879, %1199 ], [ %.015851879, %1200 ], [ %.015851879, %1191 ], [ %.015851879, %1192 ], [ %.015851879, %1183 ], [ %.015851879, %1184 ], [ %.015851879, %1133 ], [ %.015851879, %1125 ], [ %.015851879, %1126 ], [ %.015851879, %1117 ], [ %.015851879, %1118 ], [ %.015851879, %1109 ], [ %.015851879, %1110 ], [ %.015851879, %1101 ], [ %.015851879, %1102 ], [ %.015851879, %1093 ], [ %.015851879, %1094 ], [ %.015851879, %1085 ], [ %.015851879, %1086 ], [ %.015851879, %883 ], [ %.015851879, %proto_item_set_hidden.exit1536 ], [ %.015851879, %1071 ], [ %.015851879, %1081 ], [ %.015851879, %1073 ], [ %.015851879, %dissect_sip_authorization_item.exit.thread ], [ %.015851879, %802 ], [ %.015851879, %778 ], [ %.015851879, %787 ], [ %.015851879, %774 ], [ %.015851879, %751 ], [ %.015851879, %proto_item_set_hidden.exit1522 ], [ %.015851879, %718 ], [ %.015851879, %719 ], [ %.015851879, %644 ], [ %.015851879, %580 ], [ %.015851879, %589 ], [ %.015851879, %545 ], [ %.015851879, %546 ], [ %.015851879, %559 ], [ %.015851879, %555 ], [ %.015851879, %533 ], [ %.015851879, %534 ], [ %.015851879, %543 ], [ %.015851879, %521 ], [ %.015851879, %522 ], [ %.015851879, %531 ], [ %.015851879, %513 ], [ %.015851879, %514 ], [ %.015851879, %504 ], [ %.015851879, %505 ], [ %.015851879, %490 ], [ %.015851879, %491 ], [ %.015851879, %497 ], [ %.015851879, %500 ], [ %.015851879, %478 ], [ %.015851879, %479 ], [ %.015851879, %488 ], [ %.015851879, %proto_item_set_hidden.exit ], [ %.015851879, %432 ], [ %.015851879, %385 ], [ %.015851879, %381 ], [ %.015851879, %368 ], [ %.015851879, %.critedge11 ], [ %.015851879, %471 ], [ %.015851879, %474 ], [ %.015851879, %789 ], [ %.015851879, %795 ], [ %.11586.lcssa, %dissect_sip_contact_item.exit.thread ], [ %.015851879, %411 ], [ %.015851879, %457 ], [ %.015851879, %.preheader1647 ], [ %.015851879, %1141 ], [ %.015851879, %1155 ], [ %.015851879, %1169 ], [ %.015851879, %414 ], [ %.015851879, %460 ], [ %.015851879, %575 ], [ %.015851879, %568 ], [ %.6, %881 ], [ %.6, %877 ], [ %.6, %dissect_sip_contact_item.exit ], [ %.015851879, %.lr.ph1779 ], [ %.015851879, %.lr.ph1777 ], [ %.015851879, %.lr.ph1775 ]
-  %.31584 = phi i8 [ %.015811880, %328 ], [ %.015811880, %1215 ], [ %.015811880, %1207 ], [ %.015811880, %1208 ], [ %.015811880, %1199 ], [ %.015811880, %1200 ], [ %.015811880, %1191 ], [ %.015811880, %1192 ], [ %.015811880, %1183 ], [ %.015811880, %1184 ], [ %.015811880, %1133 ], [ %.015811880, %1125 ], [ %.015811880, %1126 ], [ %.015811880, %1117 ], [ %.015811880, %1118 ], [ %.015811880, %1109 ], [ %.015811880, %1110 ], [ %.015811880, %1101 ], [ %.015811880, %1102 ], [ %.015811880, %1093 ], [ %.015811880, %1094 ], [ %.015811880, %1085 ], [ %.015811880, %1086 ], [ %.015811880, %883 ], [ %.015811880, %proto_item_set_hidden.exit1536 ], [ %.015811880, %1071 ], [ %.015811880, %1081 ], [ %.015811880, %1073 ], [ %.015811880, %dissect_sip_authorization_item.exit.thread ], [ %.015811880, %802 ], [ %.015811880, %778 ], [ %.015811880, %787 ], [ %.015811880, %774 ], [ %.015811880, %751 ], [ %.015811880, %proto_item_set_hidden.exit1522 ], [ %.015811880, %718 ], [ %.015811880, %719 ], [ %.015811880, %644 ], [ %.015811880, %580 ], [ %.015811880, %589 ], [ %.015811880, %545 ], [ %.015811880, %546 ], [ %.015811880, %559 ], [ %.015811880, %555 ], [ %.015811880, %533 ], [ %.015811880, %534 ], [ %.015811880, %543 ], [ %.015811880, %521 ], [ %.015811880, %522 ], [ %.015811880, %531 ], [ %.015811880, %513 ], [ %.015811880, %514 ], [ %.015811880, %504 ], [ %.015811880, %505 ], [ %.015811880, %490 ], [ %.015811880, %491 ], [ %.015811880, %497 ], [ %.015811880, %500 ], [ %.015811880, %478 ], [ %.015811880, %479 ], [ %.015811880, %488 ], [ %.015811880, %proto_item_set_hidden.exit ], [ %.015811880, %432 ], [ %.015811880, %385 ], [ %.015811880, %381 ], [ %.015811880, %368 ], [ %.015811880, %.critedge11 ], [ %.015811880, %471 ], [ %.015811880, %474 ], [ %.015811880, %789 ], [ %.015811880, %795 ], [ %.11582.lcssa, %dissect_sip_contact_item.exit.thread ], [ %.015811880, %411 ], [ %.015811880, %457 ], [ %.015811880, %.preheader1647 ], [ %.015811880, %1141 ], [ %.015811880, %1155 ], [ %.015811880, %1169 ], [ %.015811880, %414 ], [ %.015811880, %460 ], [ %.015811880, %575 ], [ %.015811880, %568 ], [ %.21583, %881 ], [ %.21583, %877 ], [ %.21583, %dissect_sip_contact_item.exit ], [ %.015811880, %.lr.ph1779 ], [ %.015811880, %.lr.ph1777 ], [ %.015811880, %.lr.ph1775 ]
-  %.11334 = phi ptr [ %.013331881, %328 ], [ %.013331881, %1215 ], [ %.013331881, %1207 ], [ %.013331881, %1208 ], [ %.013331881, %1199 ], [ %.013331881, %1200 ], [ %.013331881, %1191 ], [ %.013331881, %1192 ], [ %.013331881, %1183 ], [ %.013331881, %1184 ], [ %1140, %1133 ], [ %.013331881, %1125 ], [ %.013331881, %1126 ], [ %.013331881, %1117 ], [ %.013331881, %1118 ], [ %.013331881, %1109 ], [ %.013331881, %1110 ], [ %.013331881, %1101 ], [ %.013331881, %1102 ], [ %.013331881, %1093 ], [ %.013331881, %1094 ], [ %.013331881, %1085 ], [ %.013331881, %1086 ], [ %.013331881, %883 ], [ %.013331881, %proto_item_set_hidden.exit1536 ], [ %.013331881, %1071 ], [ %.013331881, %1081 ], [ %.013331881, %1073 ], [ %.013331881, %dissect_sip_authorization_item.exit.thread ], [ %.013331881, %802 ], [ %.013331881, %778 ], [ %.013331881, %787 ], [ %.013331881, %774 ], [ %.013331881, %751 ], [ %.013331881, %proto_item_set_hidden.exit1522 ], [ %.013331881, %718 ], [ %.013331881, %719 ], [ %.013331881, %644 ], [ %.013331881, %580 ], [ %.013331881, %589 ], [ %.013331881, %545 ], [ %.013331881, %546 ], [ %.013331881, %559 ], [ %.013331881, %555 ], [ %.013331881, %533 ], [ %.013331881, %534 ], [ %.013331881, %543 ], [ %.013331881, %521 ], [ %.013331881, %522 ], [ %.013331881, %531 ], [ %.013331881, %513 ], [ %.013331881, %514 ], [ %.013331881, %504 ], [ %.013331881, %505 ], [ %.013331881, %490 ], [ %.013331881, %491 ], [ %.013331881, %497 ], [ %.013331881, %500 ], [ %.013331881, %478 ], [ %.013331881, %479 ], [ %.013331881, %488 ], [ %.013331881, %proto_item_set_hidden.exit ], [ %.013331881, %432 ], [ %.013331881, %385 ], [ %.013331881, %381 ], [ %.013331881, %368 ], [ %.013331881, %.critedge11 ], [ %.013331881, %471 ], [ %.013331881, %474 ], [ %.013331881, %789 ], [ %.013331881, %795 ], [ %.013331881, %dissect_sip_contact_item.exit.thread ], [ %.013331881, %411 ], [ %.013331881, %457 ], [ %.013331881, %.preheader1647 ], [ %.013331881, %1141 ], [ %.013331881, %1155 ], [ %.013331881, %1169 ], [ %.013331881, %414 ], [ %.013331881, %460 ], [ %.013331881, %575 ], [ %.013331881, %568 ], [ %.013331881, %881 ], [ %.013331881, %877 ], [ %.013331881, %dissect_sip_contact_item.exit ], [ %.013331881, %.lr.ph1779 ], [ %.013331881, %.lr.ph1777 ], [ %.013331881, %.lr.ph1775 ]
-  %.11332 = phi ptr [ %.013311882, %328 ], [ %.013311882, %1215 ], [ %.013311882, %1207 ], [ %.013311882, %1208 ], [ %.013311882, %1199 ], [ %.013311882, %1200 ], [ %.013311882, %1191 ], [ %.013311882, %1192 ], [ %.013311882, %1183 ], [ %.013311882, %1184 ], [ %.013311882, %1133 ], [ %.013311882, %1125 ], [ %.013311882, %1126 ], [ %.013311882, %1117 ], [ %.013311882, %1118 ], [ %.013311882, %1109 ], [ %.013311882, %1110 ], [ %.013311882, %1101 ], [ %.013311882, %1102 ], [ %.013311882, %1093 ], [ %.013311882, %1094 ], [ %.013311882, %1085 ], [ %.013311882, %1086 ], [ %.013311882, %883 ], [ %.013311882, %proto_item_set_hidden.exit1536 ], [ %.013311882, %1071 ], [ %.013311882, %1081 ], [ %.013311882, %1073 ], [ %.013311882, %dissect_sip_authorization_item.exit.thread ], [ %.013311882, %802 ], [ %.013311882, %778 ], [ %.013311882, %787 ], [ %777, %774 ], [ %.013311882, %751 ], [ %.013311882, %proto_item_set_hidden.exit1522 ], [ %.013311882, %718 ], [ %.013311882, %719 ], [ %.013311882, %644 ], [ %.013311882, %580 ], [ %.013311882, %589 ], [ %.013311882, %545 ], [ %.013311882, %546 ], [ %.013311882, %559 ], [ %.013311882, %555 ], [ %.013311882, %533 ], [ %.013311882, %534 ], [ %.013311882, %543 ], [ %.013311882, %521 ], [ %.013311882, %522 ], [ %.013311882, %531 ], [ %.013311882, %513 ], [ %.013311882, %514 ], [ %.013311882, %504 ], [ %.013311882, %505 ], [ %.013311882, %490 ], [ %.013311882, %491 ], [ %.013311882, %497 ], [ %.013311882, %500 ], [ %.013311882, %478 ], [ %.013311882, %479 ], [ %.013311882, %488 ], [ %.013311882, %proto_item_set_hidden.exit ], [ %.013311882, %432 ], [ %.013311882, %385 ], [ %.013311882, %381 ], [ %.013311882, %368 ], [ %.013311882, %.critedge11 ], [ %.013311882, %471 ], [ %.013311882, %474 ], [ %.013311882, %789 ], [ %.013311882, %795 ], [ %.013311882, %dissect_sip_contact_item.exit.thread ], [ %.013311882, %411 ], [ %.013311882, %457 ], [ %.013311882, %.preheader1647 ], [ %.013311882, %1141 ], [ %.013311882, %1155 ], [ %.013311882, %1169 ], [ %.013311882, %414 ], [ %.013311882, %460 ], [ %.013311882, %575 ], [ %.013311882, %568 ], [ %.013311882, %881 ], [ %.013311882, %877 ], [ %.013311882, %dissect_sip_contact_item.exit ], [ %.013311882, %.lr.ph1779 ], [ %.013311882, %.lr.ph1777 ], [ %.013311882, %.lr.ph1775 ]
-  %.11329 = phi ptr [ %.013281883, %328 ], [ %.013281883, %1215 ], [ %.013281883, %1207 ], [ %.013281883, %1208 ], [ %.013281883, %1199 ], [ %.013281883, %1200 ], [ %.013281883, %1191 ], [ %.013281883, %1192 ], [ %.013281883, %1183 ], [ %.013281883, %1184 ], [ %.013281883, %1133 ], [ %.013281883, %1125 ], [ %.013281883, %1126 ], [ %.013281883, %1117 ], [ %.013281883, %1118 ], [ %.013281883, %1109 ], [ %.013281883, %1110 ], [ %.013281883, %1101 ], [ %.013281883, %1102 ], [ %.013281883, %1093 ], [ %.013281883, %1094 ], [ %.013281883, %1085 ], [ %.013281883, %1086 ], [ %.013281883, %883 ], [ %.013281883, %proto_item_set_hidden.exit1536 ], [ %.013281883, %1071 ], [ %.013281883, %1081 ], [ %.013281883, %1073 ], [ %.013281883, %dissect_sip_authorization_item.exit.thread ], [ %.013281883, %802 ], [ %.013281883, %778 ], [ %.013281883, %787 ], [ %.013281883, %774 ], [ %.013281883, %751 ], [ %726, %proto_item_set_hidden.exit1522 ], [ %.013281883, %718 ], [ %.013281883, %719 ], [ %.013281883, %644 ], [ %.013281883, %580 ], [ %.013281883, %589 ], [ %.013281883, %545 ], [ %.013281883, %546 ], [ %.013281883, %559 ], [ %.013281883, %555 ], [ %.013281883, %533 ], [ %.013281883, %534 ], [ %.013281883, %543 ], [ %.013281883, %521 ], [ %.013281883, %522 ], [ %.013281883, %531 ], [ %.013281883, %513 ], [ %.013281883, %514 ], [ %.013281883, %504 ], [ %.013281883, %505 ], [ %.013281883, %490 ], [ %.013281883, %491 ], [ %.013281883, %497 ], [ %.013281883, %500 ], [ %.013281883, %478 ], [ %.013281883, %479 ], [ %.013281883, %488 ], [ %.013281883, %proto_item_set_hidden.exit ], [ %.013281883, %432 ], [ %.013281883, %385 ], [ %.013281883, %381 ], [ %.013281883, %368 ], [ %.013281883, %.critedge11 ], [ %.013281883, %471 ], [ %.013281883, %474 ], [ %.013281883, %789 ], [ %.013281883, %795 ], [ %.013281883, %dissect_sip_contact_item.exit.thread ], [ %.013281883, %411 ], [ %.013281883, %457 ], [ %.013281883, %.preheader1647 ], [ %.013281883, %1141 ], [ %.013281883, %1155 ], [ %.013281883, %1169 ], [ %.013281883, %414 ], [ %.013281883, %460 ], [ %.013281883, %575 ], [ %.013281883, %568 ], [ %.013281883, %881 ], [ %.013281883, %877 ], [ %.013281883, %dissect_sip_contact_item.exit ], [ %.013281883, %.lr.ph1779 ], [ %.013281883, %.lr.ph1777 ], [ %.013281883, %.lr.ph1775 ]
-  %.11327 = phi i8 [ %.013261884, %328 ], [ %.013261884, %1215 ], [ %.013261884, %1207 ], [ %.013261884, %1208 ], [ %.013261884, %1199 ], [ %.013261884, %1200 ], [ %.013261884, %1191 ], [ %.013261884, %1192 ], [ %.013261884, %1183 ], [ %.013261884, %1184 ], [ %.013261884, %1133 ], [ %.013261884, %1125 ], [ %.013261884, %1126 ], [ %.013261884, %1117 ], [ %.013261884, %1118 ], [ %.013261884, %1109 ], [ %.013261884, %1110 ], [ %.013261884, %1101 ], [ %.013261884, %1102 ], [ %.013261884, %1093 ], [ %.013261884, %1094 ], [ %.013261884, %1085 ], [ %.013261884, %1086 ], [ %.013261884, %883 ], [ %.013261884, %proto_item_set_hidden.exit1536 ], [ %.013261884, %1071 ], [ %.013261884, %1081 ], [ %.013261884, %1073 ], [ %.013261884, %dissect_sip_authorization_item.exit.thread ], [ %.013261884, %802 ], [ %.013261884, %778 ], [ %.013261884, %787 ], [ %.013261884, %774 ], [ %.013261884, %751 ], [ %.013261884, %proto_item_set_hidden.exit1522 ], [ %.013261884, %718 ], [ %.013261884, %719 ], [ 1, %644 ], [ %.013261884, %580 ], [ %.013261884, %589 ], [ %.013261884, %545 ], [ %.013261884, %546 ], [ %.013261884, %559 ], [ %.013261884, %555 ], [ %.013261884, %533 ], [ %.013261884, %534 ], [ %.013261884, %543 ], [ %.013261884, %521 ], [ %.013261884, %522 ], [ %.013261884, %531 ], [ %.013261884, %513 ], [ %.013261884, %514 ], [ %.013261884, %504 ], [ %.013261884, %505 ], [ %.013261884, %490 ], [ %.013261884, %491 ], [ %.013261884, %497 ], [ %.013261884, %500 ], [ %.013261884, %478 ], [ %.013261884, %479 ], [ %.013261884, %488 ], [ %.013261884, %proto_item_set_hidden.exit ], [ %.013261884, %432 ], [ %.013261884, %385 ], [ %.013261884, %381 ], [ %.013261884, %368 ], [ %.013261884, %.critedge11 ], [ %.013261884, %471 ], [ %.013261884, %474 ], [ %.013261884, %789 ], [ %.013261884, %795 ], [ %.013261884, %dissect_sip_contact_item.exit.thread ], [ %.013261884, %411 ], [ %.013261884, %457 ], [ %.013261884, %.preheader1647 ], [ %.013261884, %1141 ], [ %.013261884, %1155 ], [ %.013261884, %1169 ], [ %.013261884, %414 ], [ %.013261884, %460 ], [ %.013261884, %575 ], [ %.013261884, %568 ], [ %.013261884, %881 ], [ %.013261884, %877 ], [ %.013261884, %dissect_sip_contact_item.exit ], [ %.013261884, %.lr.ph1779 ], [ %.013261884, %.lr.ph1777 ], [ %.013261884, %.lr.ph1775 ]
-  %.11325 = phi i32 [ %.013241885, %328 ], [ %.013241885, %1215 ], [ %.013241885, %1207 ], [ %.013241885, %1208 ], [ %.013241885, %1199 ], [ %.013241885, %1200 ], [ %.013241885, %1191 ], [ %.013241885, %1192 ], [ %.013241885, %1183 ], [ %.013241885, %1184 ], [ %.013241885, %1133 ], [ %.013241885, %1125 ], [ %.013241885, %1126 ], [ %.013241885, %1117 ], [ %.013241885, %1118 ], [ %.013241885, %1109 ], [ %.013241885, %1110 ], [ %.013241885, %1101 ], [ %.013241885, %1102 ], [ %.013241885, %1093 ], [ %.013241885, %1094 ], [ %.013241885, %1085 ], [ %.013241885, %1086 ], [ %.013241885, %883 ], [ %.013241885, %proto_item_set_hidden.exit1536 ], [ %.013241885, %1071 ], [ %.013241885, %1081 ], [ %.013241885, %1073 ], [ %.013241885, %dissect_sip_authorization_item.exit.thread ], [ %.013241885, %802 ], [ %.013241885, %778 ], [ %.013241885, %787 ], [ %.013241885, %774 ], [ %.013241885, %751 ], [ %.013241885, %proto_item_set_hidden.exit1522 ], [ %.013241885, %718 ], [ %.013241885, %719 ], [ %595, %644 ], [ %.013241885, %580 ], [ %.013241885, %589 ], [ %.013241885, %545 ], [ %.013241885, %546 ], [ %.013241885, %559 ], [ %.013241885, %555 ], [ %.013241885, %533 ], [ %.013241885, %534 ], [ %.013241885, %543 ], [ %.013241885, %521 ], [ %.013241885, %522 ], [ %.013241885, %531 ], [ %.013241885, %513 ], [ %.013241885, %514 ], [ %.013241885, %504 ], [ %.013241885, %505 ], [ %.013241885, %490 ], [ %.013241885, %491 ], [ %.013241885, %497 ], [ %.013241885, %500 ], [ %.013241885, %478 ], [ %.013241885, %479 ], [ %.013241885, %488 ], [ %.013241885, %proto_item_set_hidden.exit ], [ %.013241885, %432 ], [ %.013241885, %385 ], [ %.013241885, %381 ], [ %.013241885, %368 ], [ %.013241885, %.critedge11 ], [ %.013241885, %471 ], [ %.013241885, %474 ], [ %.013241885, %789 ], [ %.013241885, %795 ], [ %.013241885, %dissect_sip_contact_item.exit.thread ], [ %.013241885, %411 ], [ %.013241885, %457 ], [ %.013241885, %.preheader1647 ], [ %.013241885, %1141 ], [ %.013241885, %1155 ], [ %.013241885, %1169 ], [ %.013241885, %414 ], [ %.013241885, %460 ], [ %.013241885, %575 ], [ %.013241885, %568 ], [ %.013241885, %881 ], [ %.013241885, %877 ], [ %.013241885, %dissect_sip_contact_item.exit ], [ %.013241885, %.lr.ph1779 ], [ %.013241885, %.lr.ph1777 ], [ %.013241885, %.lr.ph1775 ]
-  %.21322 = phi i8 [ %.013201886, %328 ], [ %.013201886, %1215 ], [ %.013201886, %1207 ], [ %.013201886, %1208 ], [ %.013201886, %1199 ], [ %.013201886, %1200 ], [ %.013201886, %1191 ], [ %.013201886, %1192 ], [ %.013201886, %1183 ], [ %.013201886, %1184 ], [ %.013201886, %1133 ], [ %.013201886, %1125 ], [ %.013201886, %1126 ], [ %.013201886, %1117 ], [ %.013201886, %1118 ], [ %.013201886, %1109 ], [ %.013201886, %1110 ], [ %.013201886, %1101 ], [ %.013201886, %1102 ], [ %.013201886, %1093 ], [ %.013201886, %1094 ], [ %.013201886, %1085 ], [ %.013201886, %1086 ], [ %.013201886, %883 ], [ %.013201886, %proto_item_set_hidden.exit1536 ], [ %.013201886, %1071 ], [ %.013201886, %1081 ], [ %.013201886, %1073 ], [ %.013201886, %dissect_sip_authorization_item.exit.thread ], [ %.013201886, %802 ], [ %.013201886, %778 ], [ %.013201886, %787 ], [ %.013201886, %774 ], [ %spec.select1493, %751 ], [ %.013201886, %proto_item_set_hidden.exit1522 ], [ %.013201886, %718 ], [ %.013201886, %719 ], [ %.013201886, %644 ], [ %.013201886, %580 ], [ %.013201886, %589 ], [ %.013201886, %545 ], [ %.013201886, %546 ], [ %.013201886, %559 ], [ %.013201886, %555 ], [ %.013201886, %533 ], [ %.013201886, %534 ], [ %.013201886, %543 ], [ %.013201886, %521 ], [ %.013201886, %522 ], [ %.013201886, %531 ], [ %.013201886, %513 ], [ %.013201886, %514 ], [ %.013201886, %504 ], [ %.013201886, %505 ], [ %.013201886, %490 ], [ %.013201886, %491 ], [ %.013201886, %497 ], [ %.013201886, %500 ], [ %.013201886, %478 ], [ %.013201886, %479 ], [ %.013201886, %488 ], [ %.013201886, %proto_item_set_hidden.exit ], [ %.013201886, %432 ], [ %.013201886, %385 ], [ %.013201886, %381 ], [ %.013201886, %368 ], [ %.013201886, %.critedge11 ], [ %.013201886, %471 ], [ %.013201886, %474 ], [ %.013201886, %789 ], [ %.013201886, %795 ], [ %.013201886, %dissect_sip_contact_item.exit.thread ], [ %.013201886, %411 ], [ %.013201886, %457 ], [ %.013201886, %.preheader1647 ], [ %.013201886, %1141 ], [ %.013201886, %1155 ], [ %.013201886, %1169 ], [ %.013201886, %414 ], [ %.013201886, %460 ], [ %.013201886, %575 ], [ %.013201886, %568 ], [ %.013201886, %881 ], [ %.013201886, %877 ], [ %.013201886, %dissect_sip_contact_item.exit ], [ %.013201886, %.lr.ph1779 ], [ %.013201886, %.lr.ph1777 ], [ %.013201886, %.lr.ph1775 ]
-  %.11317 = phi i8 [ %.013161887, %328 ], [ %.013161887, %1215 ], [ %.013161887, %1207 ], [ %.013161887, %1208 ], [ %.013161887, %1199 ], [ %.013161887, %1200 ], [ %.013161887, %1191 ], [ %.013161887, %1192 ], [ %.013161887, %1183 ], [ %.013161887, %1184 ], [ %.013161887, %1133 ], [ %.013161887, %1125 ], [ %.013161887, %1126 ], [ %.013161887, %1117 ], [ %.013161887, %1118 ], [ %.013161887, %1109 ], [ %.013161887, %1110 ], [ %.013161887, %1101 ], [ %.013161887, %1102 ], [ %.013161887, %1093 ], [ %.013161887, %1094 ], [ %.013161887, %1085 ], [ %.013161887, %1086 ], [ %.013161887, %883 ], [ %.013161887, %proto_item_set_hidden.exit1536 ], [ %.013161887, %1071 ], [ %.013161887, %1081 ], [ %.013161887, %1073 ], [ %.013161887, %dissect_sip_authorization_item.exit.thread ], [ 1, %802 ], [ %.013161887, %778 ], [ %.013161887, %787 ], [ %.013161887, %774 ], [ %.013161887, %751 ], [ %.013161887, %proto_item_set_hidden.exit1522 ], [ %.013161887, %718 ], [ %.013161887, %719 ], [ %.013161887, %644 ], [ %.013161887, %580 ], [ %.013161887, %589 ], [ %.013161887, %545 ], [ %.013161887, %546 ], [ %.013161887, %559 ], [ %.013161887, %555 ], [ %.013161887, %533 ], [ %.013161887, %534 ], [ %.013161887, %543 ], [ %.013161887, %521 ], [ %.013161887, %522 ], [ %.013161887, %531 ], [ %.013161887, %513 ], [ %.013161887, %514 ], [ %.013161887, %504 ], [ %.013161887, %505 ], [ %.013161887, %490 ], [ %.013161887, %491 ], [ %.013161887, %497 ], [ %.013161887, %500 ], [ %.013161887, %478 ], [ %.013161887, %479 ], [ %.013161887, %488 ], [ %.013161887, %proto_item_set_hidden.exit ], [ %.013161887, %432 ], [ %.013161887, %385 ], [ %.013161887, %381 ], [ %.013161887, %368 ], [ %.013161887, %.critedge11 ], [ %.013161887, %471 ], [ %.013161887, %474 ], [ %.013161887, %789 ], [ %.013161887, %795 ], [ %.013161887, %dissect_sip_contact_item.exit.thread ], [ %.013161887, %411 ], [ %.013161887, %457 ], [ %.013161887, %.preheader1647 ], [ %.013161887, %1141 ], [ %.013161887, %1155 ], [ %.013161887, %1169 ], [ %.013161887, %414 ], [ %.013161887, %460 ], [ %.013161887, %575 ], [ %.013161887, %568 ], [ %.013161887, %881 ], [ %.013161887, %877 ], [ %.013161887, %dissect_sip_contact_item.exit ], [ %.013161887, %.lr.ph1779 ], [ %.013161887, %.lr.ph1777 ], [ %.013161887, %.lr.ph1775 ]
-  %.21310 = phi i8 [ %.013081888, %328 ], [ %.013081888, %1215 ], [ %.013081888, %1207 ], [ %.013081888, %1208 ], [ %.013081888, %1199 ], [ %.013081888, %1200 ], [ %.013081888, %1191 ], [ %.013081888, %1192 ], [ %.013081888, %1183 ], [ %.013081888, %1184 ], [ %.013081888, %1133 ], [ %.013081888, %1125 ], [ %.013081888, %1126 ], [ %.013081888, %1117 ], [ %.013081888, %1118 ], [ %.013081888, %1109 ], [ %.013081888, %1110 ], [ %.013081888, %1101 ], [ %.013081888, %1102 ], [ %.013081888, %1093 ], [ %.013081888, %1094 ], [ %.013081888, %1085 ], [ %.013081888, %1086 ], [ %.013081888, %883 ], [ %.013081888, %proto_item_set_hidden.exit1536 ], [ %.013081888, %1071 ], [ %.013081888, %1081 ], [ %.013081888, %1073 ], [ %.013081888, %dissect_sip_authorization_item.exit.thread ], [ %.013081888, %802 ], [ %.013081888, %778 ], [ %.013081888, %787 ], [ %.013081888, %774 ], [ %.013081888, %751 ], [ %.013081888, %proto_item_set_hidden.exit1522 ], [ %.013081888, %718 ], [ %.013081888, %719 ], [ %.013081888, %644 ], [ %.013081888, %580 ], [ %.013081888, %589 ], [ %.013081888, %545 ], [ %.013081888, %546 ], [ %.013081888, %559 ], [ %.013081888, %555 ], [ %.013081888, %533 ], [ %.013081888, %534 ], [ %.013081888, %543 ], [ %.013081888, %521 ], [ %.013081888, %522 ], [ %.013081888, %531 ], [ %.013081888, %513 ], [ %.013081888, %514 ], [ %.013081888, %504 ], [ %.013081888, %505 ], [ %.013081888, %490 ], [ %.013081888, %491 ], [ %.013081888, %497 ], [ %.013081888, %500 ], [ %.013081888, %478 ], [ %.013081888, %479 ], [ %.013081888, %488 ], [ %.013081888, %proto_item_set_hidden.exit ], [ %.013081888, %432 ], [ %.013081888, %385 ], [ %.013081888, %381 ], [ %.013081888, %368 ], [ %.013081888, %.critedge11 ], [ %.013081888, %471 ], [ %.013081888, %474 ], [ %.013081888, %789 ], [ %.013081888, %795 ], [ %.11309.lcssa, %dissect_sip_contact_item.exit.thread ], [ %.013081888, %411 ], [ %.013081888, %457 ], [ %.013081888, %.preheader1647 ], [ %.013081888, %1141 ], [ %.013081888, %1155 ], [ %.013081888, %1169 ], [ %.013081888, %414 ], [ %.013081888, %460 ], [ %.013081888, %575 ], [ %.013081888, %568 ], [ %.113091831, %dissect_sip_contact_item.exit ], [ %878, %877 ], [ %878, %881 ], [ %.013081888, %.lr.ph1779 ], [ %.013081888, %.lr.ph1777 ], [ %.013081888, %.lr.ph1775 ]
-  %.21292 = phi ptr [ %.012901889, %328 ], [ %.012901889, %1215 ], [ %.012901889, %1207 ], [ %.012901889, %1208 ], [ %.012901889, %1199 ], [ %.012901889, %1200 ], [ %.012901889, %1191 ], [ %.012901889, %1192 ], [ %.012901889, %1183 ], [ %.012901889, %1184 ], [ %.012901889, %1133 ], [ %.012901889, %1125 ], [ %.012901889, %1126 ], [ %.012901889, %1117 ], [ %.012901889, %1118 ], [ %.012901889, %1109 ], [ %.012901889, %1110 ], [ %.012901889, %1101 ], [ %.012901889, %1102 ], [ %.012901889, %1093 ], [ %.012901889, %1094 ], [ %.012901889, %1085 ], [ %.012901889, %1086 ], [ %.012901889, %883 ], [ %.012901889, %proto_item_set_hidden.exit1536 ], [ %.012901889, %1071 ], [ %.012901889, %1081 ], [ %.012901889, %1073 ], [ %.012901889, %dissect_sip_authorization_item.exit.thread ], [ %.012901889, %802 ], [ %.012901889, %778 ], [ %.012901889, %787 ], [ %.012901889, %774 ], [ %.012901889, %751 ], [ %.012901889, %proto_item_set_hidden.exit1522 ], [ %.11291, %718 ], [ %.11291, %719 ], [ %.012901889, %644 ], [ %.012901889, %580 ], [ %.012901889, %589 ], [ %.012901889, %545 ], [ %.012901889, %546 ], [ %.012901889, %559 ], [ %.012901889, %555 ], [ %.012901889, %533 ], [ %.012901889, %534 ], [ %.012901889, %543 ], [ %.012901889, %521 ], [ %.012901889, %522 ], [ %.012901889, %531 ], [ %.012901889, %513 ], [ %.012901889, %514 ], [ %.012901889, %504 ], [ %.012901889, %505 ], [ %.012901889, %490 ], [ %.012901889, %491 ], [ %.012901889, %497 ], [ %.012901889, %500 ], [ %.012901889, %478 ], [ %.012901889, %479 ], [ %.012901889, %488 ], [ %.012901889, %proto_item_set_hidden.exit ], [ %.012901889, %432 ], [ %.012901889, %385 ], [ %.012901889, %381 ], [ %.012901889, %368 ], [ %.012901889, %.critedge11 ], [ %.012901889, %471 ], [ %.012901889, %474 ], [ %.012901889, %789 ], [ %.012901889, %795 ], [ %.012901889, %dissect_sip_contact_item.exit.thread ], [ %.012901889, %411 ], [ %.012901889, %457 ], [ %.012901889, %.preheader1647 ], [ %.012901889, %1141 ], [ %.012901889, %1155 ], [ %.012901889, %1169 ], [ %.012901889, %414 ], [ %.012901889, %460 ], [ %.012901889, %575 ], [ %.012901889, %568 ], [ %.012901889, %881 ], [ %.012901889, %877 ], [ %.012901889, %dissect_sip_contact_item.exit ], [ %.012901889, %.lr.ph1779 ], [ %.012901889, %.lr.ph1777 ], [ %.012901889, %.lr.ph1775 ]
-  %.21287 = phi ptr [ %.012851890, %328 ], [ %.012851890, %1215 ], [ %.012851890, %1207 ], [ %.012851890, %1208 ], [ %.012851890, %1199 ], [ %.012851890, %1200 ], [ %.012851890, %1191 ], [ %.012851890, %1192 ], [ %.012851890, %1183 ], [ %.012851890, %1184 ], [ %.012851890, %1133 ], [ %.012851890, %1125 ], [ %.012851890, %1126 ], [ %.012851890, %1117 ], [ %.012851890, %1118 ], [ %.012851890, %1109 ], [ %.012851890, %1110 ], [ %.012851890, %1101 ], [ %.012851890, %1102 ], [ %.012851890, %1093 ], [ %.012851890, %1094 ], [ %.012851890, %1085 ], [ %.012851890, %1086 ], [ %.012851890, %883 ], [ %.012851890, %proto_item_set_hidden.exit1536 ], [ %.012851890, %1071 ], [ %.012851890, %1081 ], [ %.012851890, %1073 ], [ %.012851890, %dissect_sip_authorization_item.exit.thread ], [ %.012851890, %802 ], [ %.012851890, %778 ], [ %.012851890, %787 ], [ %.012851890, %774 ], [ %.012851890, %751 ], [ %.012851890, %proto_item_set_hidden.exit1522 ], [ null, %718 ], [ %.012851890, %719 ], [ %.11286, %644 ], [ %.012851890, %580 ], [ %.012851890, %589 ], [ %.012851890, %545 ], [ %.012851890, %546 ], [ %.012851890, %559 ], [ %.012851890, %555 ], [ %.012851890, %533 ], [ %.012851890, %534 ], [ %.012851890, %543 ], [ %.012851890, %521 ], [ %.012851890, %522 ], [ %.012851890, %531 ], [ %.012851890, %513 ], [ %.012851890, %514 ], [ %.012851890, %504 ], [ %.012851890, %505 ], [ %.012851890, %490 ], [ %.012851890, %491 ], [ %.012851890, %497 ], [ %.012851890, %500 ], [ %.012851890, %478 ], [ %.012851890, %479 ], [ %.012851890, %488 ], [ %.012851890, %proto_item_set_hidden.exit ], [ %.012851890, %432 ], [ %.012851890, %385 ], [ %.012851890, %381 ], [ %.012851890, %368 ], [ %.012851890, %.critedge11 ], [ %.012851890, %471 ], [ %.012851890, %474 ], [ %.012851890, %789 ], [ %.012851890, %795 ], [ %.012851890, %dissect_sip_contact_item.exit.thread ], [ %.012851890, %411 ], [ %.012851890, %457 ], [ %.012851890, %.preheader1647 ], [ %.012851890, %1141 ], [ %.012851890, %1155 ], [ %.012851890, %1169 ], [ %.012851890, %414 ], [ %.012851890, %460 ], [ %.012851890, %575 ], [ %.012851890, %568 ], [ %.012851890, %881 ], [ %.012851890, %877 ], [ %.012851890, %dissect_sip_contact_item.exit ], [ %.012851890, %.lr.ph1779 ], [ %.012851890, %.lr.ph1777 ], [ %.012851890, %.lr.ph1775 ]
-  %.3 = phi i32 [ %.012661892, %328 ], [ %.012661892, %1215 ], [ %.012661892, %1207 ], [ %.012661892, %1208 ], [ %.012661892, %1199 ], [ %.012661892, %1200 ], [ %.012661892, %1191 ], [ %.012661892, %1192 ], [ %.012661892, %1183 ], [ %.012661892, %1184 ], [ %.012661892, %1133 ], [ %.012661892, %1125 ], [ %.012661892, %1126 ], [ %.012661892, %1117 ], [ %.012661892, %1118 ], [ %.012661892, %1109 ], [ %.012661892, %1110 ], [ %.012661892, %1101 ], [ %.012661892, %1102 ], [ %.012661892, %1093 ], [ %.012661892, %1094 ], [ %.012661892, %1085 ], [ %.012661892, %1086 ], [ %.012661892, %883 ], [ %.012661892, %proto_item_set_hidden.exit1536 ], [ %.012661892, %1071 ], [ %.012661892, %1081 ], [ %.012661892, %1073 ], [ %.012661892, %dissect_sip_authorization_item.exit.thread ], [ %.012661892, %802 ], [ %.012661892, %778 ], [ %.012661892, %787 ], [ %.012661892, %774 ], [ %.012661892, %751 ], [ %.012661892, %proto_item_set_hidden.exit1522 ], [ %.012661892, %718 ], [ %.012661892, %719 ], [ %.012661892, %644 ], [ %.012661892, %580 ], [ %.012661892, %589 ], [ %.012661892, %545 ], [ %.012661892, %546 ], [ %.012661892, %559 ], [ %.012661892, %555 ], [ %.012661892, %533 ], [ %.012661892, %534 ], [ %.012661892, %543 ], [ %.012661892, %521 ], [ %.012661892, %522 ], [ %.012661892, %531 ], [ %.012661892, %513 ], [ %.012661892, %514 ], [ %.012661892, %504 ], [ %.012661892, %505 ], [ %.012661892, %490 ], [ %.012661892, %491 ], [ %.012661892, %497 ], [ %.012661892, %500 ], [ %.012661892, %478 ], [ %.012661892, %479 ], [ %.012661892, %488 ], [ %.1, %proto_item_set_hidden.exit ], [ %.1, %432 ], [ %.012661892, %385 ], [ %.012661892, %381 ], [ %.012661892, %368 ], [ %.2, %.critedge11 ], [ %.2, %471 ], [ %.2, %474 ], [ %.012661892, %789 ], [ %.012661892, %795 ], [ %.012661892, %dissect_sip_contact_item.exit.thread ], [ %.1, %411 ], [ %.2, %457 ], [ %.012661892, %.preheader1647 ], [ %.012661892, %1141 ], [ %.012661892, %1155 ], [ %.012661892, %1169 ], [ %.1, %414 ], [ %.2, %460 ], [ %.012661892, %575 ], [ %.012661892, %568 ], [ %.012661892, %881 ], [ %.012661892, %877 ], [ %.012661892, %dissect_sip_contact_item.exit ], [ %.012661892, %.lr.ph1779 ], [ %.012661892, %.lr.ph1777 ], [ %.012661892, %.lr.ph1775 ]
+.critedge1490:                                    ; preds = %.lr.ph1774, %.lr.ph1776, %.lr.ph1778, %dissect_sip_contact_item.exit, %877, %881, %568, %575, %460, %414, %1169, %1155, %1141, %.preheader1646, %457, %411, %dissect_sip_contact_item.exit.thread, %795, %789, %474, %471, %.critedge11, %802, %381, %385, %368, %1207, %1208, %1199, %1200, %1191, %1192, %1183, %1184, %1125, %1126, %1117, %1118, %1109, %1110, %1101, %1102, %1093, %1094, %1085, %1086, %883, %dissect_sip_authorization_item.exit.thread, %1073, %1081, %1071, %proto_item_set_hidden.exit1536, %778, %787, %718, %719, %580, %589, %545, %555, %559, %546, %533, %543, %534, %521, %531, %522, %513, %514, %504, %505, %490, %497, %500, %491, %478, %488, %479, %432, %proto_item_set_hidden.exit, %1215, %1133, %774, %751, %proto_item_set_hidden.exit1522, %644, %328
+  %.71591 = phi i8 [ %.015851878, %328 ], [ %.015851878, %1215 ], [ %.015851878, %1207 ], [ %.015851878, %1208 ], [ %.015851878, %1199 ], [ %.015851878, %1200 ], [ %.015851878, %1191 ], [ %.015851878, %1192 ], [ %.015851878, %1183 ], [ %.015851878, %1184 ], [ %.015851878, %1133 ], [ %.015851878, %1125 ], [ %.015851878, %1126 ], [ %.015851878, %1117 ], [ %.015851878, %1118 ], [ %.015851878, %1109 ], [ %.015851878, %1110 ], [ %.015851878, %1101 ], [ %.015851878, %1102 ], [ %.015851878, %1093 ], [ %.015851878, %1094 ], [ %.015851878, %1085 ], [ %.015851878, %1086 ], [ %.015851878, %883 ], [ %.015851878, %proto_item_set_hidden.exit1536 ], [ %.015851878, %1071 ], [ %.015851878, %1081 ], [ %.015851878, %1073 ], [ %.015851878, %dissect_sip_authorization_item.exit.thread ], [ %.015851878, %802 ], [ %.015851878, %778 ], [ %.015851878, %787 ], [ %.015851878, %774 ], [ %.015851878, %751 ], [ %.015851878, %proto_item_set_hidden.exit1522 ], [ %.015851878, %718 ], [ %.015851878, %719 ], [ %.015851878, %644 ], [ %.015851878, %580 ], [ %.015851878, %589 ], [ %.015851878, %545 ], [ %.015851878, %546 ], [ %.015851878, %559 ], [ %.015851878, %555 ], [ %.015851878, %533 ], [ %.015851878, %534 ], [ %.015851878, %543 ], [ %.015851878, %521 ], [ %.015851878, %522 ], [ %.015851878, %531 ], [ %.015851878, %513 ], [ %.015851878, %514 ], [ %.015851878, %504 ], [ %.015851878, %505 ], [ %.015851878, %490 ], [ %.015851878, %491 ], [ %.015851878, %497 ], [ %.015851878, %500 ], [ %.015851878, %478 ], [ %.015851878, %479 ], [ %.015851878, %488 ], [ %.015851878, %proto_item_set_hidden.exit ], [ %.015851878, %432 ], [ %.015851878, %385 ], [ %.015851878, %381 ], [ %.015851878, %368 ], [ %.015851878, %.critedge11 ], [ %.015851878, %471 ], [ %.015851878, %474 ], [ %.015851878, %789 ], [ %.015851878, %795 ], [ %.11586.lcssa, %dissect_sip_contact_item.exit.thread ], [ %.015851878, %411 ], [ %.015851878, %457 ], [ %.015851878, %.preheader1646 ], [ %.015851878, %1141 ], [ %.015851878, %1155 ], [ %.015851878, %1169 ], [ %.015851878, %414 ], [ %.015851878, %460 ], [ %.015851878, %575 ], [ %.015851878, %568 ], [ %.6, %881 ], [ %.6, %877 ], [ %.6, %dissect_sip_contact_item.exit ], [ %.015851878, %.lr.ph1778 ], [ %.015851878, %.lr.ph1776 ], [ %.015851878, %.lr.ph1774 ]
+  %.31584 = phi i8 [ %.015811879, %328 ], [ %.015811879, %1215 ], [ %.015811879, %1207 ], [ %.015811879, %1208 ], [ %.015811879, %1199 ], [ %.015811879, %1200 ], [ %.015811879, %1191 ], [ %.015811879, %1192 ], [ %.015811879, %1183 ], [ %.015811879, %1184 ], [ %.015811879, %1133 ], [ %.015811879, %1125 ], [ %.015811879, %1126 ], [ %.015811879, %1117 ], [ %.015811879, %1118 ], [ %.015811879, %1109 ], [ %.015811879, %1110 ], [ %.015811879, %1101 ], [ %.015811879, %1102 ], [ %.015811879, %1093 ], [ %.015811879, %1094 ], [ %.015811879, %1085 ], [ %.015811879, %1086 ], [ %.015811879, %883 ], [ %.015811879, %proto_item_set_hidden.exit1536 ], [ %.015811879, %1071 ], [ %.015811879, %1081 ], [ %.015811879, %1073 ], [ %.015811879, %dissect_sip_authorization_item.exit.thread ], [ %.015811879, %802 ], [ %.015811879, %778 ], [ %.015811879, %787 ], [ %.015811879, %774 ], [ %.015811879, %751 ], [ %.015811879, %proto_item_set_hidden.exit1522 ], [ %.015811879, %718 ], [ %.015811879, %719 ], [ %.015811879, %644 ], [ %.015811879, %580 ], [ %.015811879, %589 ], [ %.015811879, %545 ], [ %.015811879, %546 ], [ %.015811879, %559 ], [ %.015811879, %555 ], [ %.015811879, %533 ], [ %.015811879, %534 ], [ %.015811879, %543 ], [ %.015811879, %521 ], [ %.015811879, %522 ], [ %.015811879, %531 ], [ %.015811879, %513 ], [ %.015811879, %514 ], [ %.015811879, %504 ], [ %.015811879, %505 ], [ %.015811879, %490 ], [ %.015811879, %491 ], [ %.015811879, %497 ], [ %.015811879, %500 ], [ %.015811879, %478 ], [ %.015811879, %479 ], [ %.015811879, %488 ], [ %.015811879, %proto_item_set_hidden.exit ], [ %.015811879, %432 ], [ %.015811879, %385 ], [ %.015811879, %381 ], [ %.015811879, %368 ], [ %.015811879, %.critedge11 ], [ %.015811879, %471 ], [ %.015811879, %474 ], [ %.015811879, %789 ], [ %.015811879, %795 ], [ %.11582.lcssa, %dissect_sip_contact_item.exit.thread ], [ %.015811879, %411 ], [ %.015811879, %457 ], [ %.015811879, %.preheader1646 ], [ %.015811879, %1141 ], [ %.015811879, %1155 ], [ %.015811879, %1169 ], [ %.015811879, %414 ], [ %.015811879, %460 ], [ %.015811879, %575 ], [ %.015811879, %568 ], [ %.21583, %881 ], [ %.21583, %877 ], [ %.21583, %dissect_sip_contact_item.exit ], [ %.015811879, %.lr.ph1778 ], [ %.015811879, %.lr.ph1776 ], [ %.015811879, %.lr.ph1774 ]
+  %.11334 = phi ptr [ %.013331880, %328 ], [ %.013331880, %1215 ], [ %.013331880, %1207 ], [ %.013331880, %1208 ], [ %.013331880, %1199 ], [ %.013331880, %1200 ], [ %.013331880, %1191 ], [ %.013331880, %1192 ], [ %.013331880, %1183 ], [ %.013331880, %1184 ], [ %1140, %1133 ], [ %.013331880, %1125 ], [ %.013331880, %1126 ], [ %.013331880, %1117 ], [ %.013331880, %1118 ], [ %.013331880, %1109 ], [ %.013331880, %1110 ], [ %.013331880, %1101 ], [ %.013331880, %1102 ], [ %.013331880, %1093 ], [ %.013331880, %1094 ], [ %.013331880, %1085 ], [ %.013331880, %1086 ], [ %.013331880, %883 ], [ %.013331880, %proto_item_set_hidden.exit1536 ], [ %.013331880, %1071 ], [ %.013331880, %1081 ], [ %.013331880, %1073 ], [ %.013331880, %dissect_sip_authorization_item.exit.thread ], [ %.013331880, %802 ], [ %.013331880, %778 ], [ %.013331880, %787 ], [ %.013331880, %774 ], [ %.013331880, %751 ], [ %.013331880, %proto_item_set_hidden.exit1522 ], [ %.013331880, %718 ], [ %.013331880, %719 ], [ %.013331880, %644 ], [ %.013331880, %580 ], [ %.013331880, %589 ], [ %.013331880, %545 ], [ %.013331880, %546 ], [ %.013331880, %559 ], [ %.013331880, %555 ], [ %.013331880, %533 ], [ %.013331880, %534 ], [ %.013331880, %543 ], [ %.013331880, %521 ], [ %.013331880, %522 ], [ %.013331880, %531 ], [ %.013331880, %513 ], [ %.013331880, %514 ], [ %.013331880, %504 ], [ %.013331880, %505 ], [ %.013331880, %490 ], [ %.013331880, %491 ], [ %.013331880, %497 ], [ %.013331880, %500 ], [ %.013331880, %478 ], [ %.013331880, %479 ], [ %.013331880, %488 ], [ %.013331880, %proto_item_set_hidden.exit ], [ %.013331880, %432 ], [ %.013331880, %385 ], [ %.013331880, %381 ], [ %.013331880, %368 ], [ %.013331880, %.critedge11 ], [ %.013331880, %471 ], [ %.013331880, %474 ], [ %.013331880, %789 ], [ %.013331880, %795 ], [ %.013331880, %dissect_sip_contact_item.exit.thread ], [ %.013331880, %411 ], [ %.013331880, %457 ], [ %.013331880, %.preheader1646 ], [ %.013331880, %1141 ], [ %.013331880, %1155 ], [ %.013331880, %1169 ], [ %.013331880, %414 ], [ %.013331880, %460 ], [ %.013331880, %575 ], [ %.013331880, %568 ], [ %.013331880, %881 ], [ %.013331880, %877 ], [ %.013331880, %dissect_sip_contact_item.exit ], [ %.013331880, %.lr.ph1778 ], [ %.013331880, %.lr.ph1776 ], [ %.013331880, %.lr.ph1774 ]
+  %.11332 = phi ptr [ %.013311881, %328 ], [ %.013311881, %1215 ], [ %.013311881, %1207 ], [ %.013311881, %1208 ], [ %.013311881, %1199 ], [ %.013311881, %1200 ], [ %.013311881, %1191 ], [ %.013311881, %1192 ], [ %.013311881, %1183 ], [ %.013311881, %1184 ], [ %.013311881, %1133 ], [ %.013311881, %1125 ], [ %.013311881, %1126 ], [ %.013311881, %1117 ], [ %.013311881, %1118 ], [ %.013311881, %1109 ], [ %.013311881, %1110 ], [ %.013311881, %1101 ], [ %.013311881, %1102 ], [ %.013311881, %1093 ], [ %.013311881, %1094 ], [ %.013311881, %1085 ], [ %.013311881, %1086 ], [ %.013311881, %883 ], [ %.013311881, %proto_item_set_hidden.exit1536 ], [ %.013311881, %1071 ], [ %.013311881, %1081 ], [ %.013311881, %1073 ], [ %.013311881, %dissect_sip_authorization_item.exit.thread ], [ %.013311881, %802 ], [ %.013311881, %778 ], [ %.013311881, %787 ], [ %777, %774 ], [ %.013311881, %751 ], [ %.013311881, %proto_item_set_hidden.exit1522 ], [ %.013311881, %718 ], [ %.013311881, %719 ], [ %.013311881, %644 ], [ %.013311881, %580 ], [ %.013311881, %589 ], [ %.013311881, %545 ], [ %.013311881, %546 ], [ %.013311881, %559 ], [ %.013311881, %555 ], [ %.013311881, %533 ], [ %.013311881, %534 ], [ %.013311881, %543 ], [ %.013311881, %521 ], [ %.013311881, %522 ], [ %.013311881, %531 ], [ %.013311881, %513 ], [ %.013311881, %514 ], [ %.013311881, %504 ], [ %.013311881, %505 ], [ %.013311881, %490 ], [ %.013311881, %491 ], [ %.013311881, %497 ], [ %.013311881, %500 ], [ %.013311881, %478 ], [ %.013311881, %479 ], [ %.013311881, %488 ], [ %.013311881, %proto_item_set_hidden.exit ], [ %.013311881, %432 ], [ %.013311881, %385 ], [ %.013311881, %381 ], [ %.013311881, %368 ], [ %.013311881, %.critedge11 ], [ %.013311881, %471 ], [ %.013311881, %474 ], [ %.013311881, %789 ], [ %.013311881, %795 ], [ %.013311881, %dissect_sip_contact_item.exit.thread ], [ %.013311881, %411 ], [ %.013311881, %457 ], [ %.013311881, %.preheader1646 ], [ %.013311881, %1141 ], [ %.013311881, %1155 ], [ %.013311881, %1169 ], [ %.013311881, %414 ], [ %.013311881, %460 ], [ %.013311881, %575 ], [ %.013311881, %568 ], [ %.013311881, %881 ], [ %.013311881, %877 ], [ %.013311881, %dissect_sip_contact_item.exit ], [ %.013311881, %.lr.ph1778 ], [ %.013311881, %.lr.ph1776 ], [ %.013311881, %.lr.ph1774 ]
+  %.11329 = phi ptr [ %.013281882, %328 ], [ %.013281882, %1215 ], [ %.013281882, %1207 ], [ %.013281882, %1208 ], [ %.013281882, %1199 ], [ %.013281882, %1200 ], [ %.013281882, %1191 ], [ %.013281882, %1192 ], [ %.013281882, %1183 ], [ %.013281882, %1184 ], [ %.013281882, %1133 ], [ %.013281882, %1125 ], [ %.013281882, %1126 ], [ %.013281882, %1117 ], [ %.013281882, %1118 ], [ %.013281882, %1109 ], [ %.013281882, %1110 ], [ %.013281882, %1101 ], [ %.013281882, %1102 ], [ %.013281882, %1093 ], [ %.013281882, %1094 ], [ %.013281882, %1085 ], [ %.013281882, %1086 ], [ %.013281882, %883 ], [ %.013281882, %proto_item_set_hidden.exit1536 ], [ %.013281882, %1071 ], [ %.013281882, %1081 ], [ %.013281882, %1073 ], [ %.013281882, %dissect_sip_authorization_item.exit.thread ], [ %.013281882, %802 ], [ %.013281882, %778 ], [ %.013281882, %787 ], [ %.013281882, %774 ], [ %.013281882, %751 ], [ %726, %proto_item_set_hidden.exit1522 ], [ %.013281882, %718 ], [ %.013281882, %719 ], [ %.013281882, %644 ], [ %.013281882, %580 ], [ %.013281882, %589 ], [ %.013281882, %545 ], [ %.013281882, %546 ], [ %.013281882, %559 ], [ %.013281882, %555 ], [ %.013281882, %533 ], [ %.013281882, %534 ], [ %.013281882, %543 ], [ %.013281882, %521 ], [ %.013281882, %522 ], [ %.013281882, %531 ], [ %.013281882, %513 ], [ %.013281882, %514 ], [ %.013281882, %504 ], [ %.013281882, %505 ], [ %.013281882, %490 ], [ %.013281882, %491 ], [ %.013281882, %497 ], [ %.013281882, %500 ], [ %.013281882, %478 ], [ %.013281882, %479 ], [ %.013281882, %488 ], [ %.013281882, %proto_item_set_hidden.exit ], [ %.013281882, %432 ], [ %.013281882, %385 ], [ %.013281882, %381 ], [ %.013281882, %368 ], [ %.013281882, %.critedge11 ], [ %.013281882, %471 ], [ %.013281882, %474 ], [ %.013281882, %789 ], [ %.013281882, %795 ], [ %.013281882, %dissect_sip_contact_item.exit.thread ], [ %.013281882, %411 ], [ %.013281882, %457 ], [ %.013281882, %.preheader1646 ], [ %.013281882, %1141 ], [ %.013281882, %1155 ], [ %.013281882, %1169 ], [ %.013281882, %414 ], [ %.013281882, %460 ], [ %.013281882, %575 ], [ %.013281882, %568 ], [ %.013281882, %881 ], [ %.013281882, %877 ], [ %.013281882, %dissect_sip_contact_item.exit ], [ %.013281882, %.lr.ph1778 ], [ %.013281882, %.lr.ph1776 ], [ %.013281882, %.lr.ph1774 ]
+  %.11327 = phi i8 [ %.013261883, %328 ], [ %.013261883, %1215 ], [ %.013261883, %1207 ], [ %.013261883, %1208 ], [ %.013261883, %1199 ], [ %.013261883, %1200 ], [ %.013261883, %1191 ], [ %.013261883, %1192 ], [ %.013261883, %1183 ], [ %.013261883, %1184 ], [ %.013261883, %1133 ], [ %.013261883, %1125 ], [ %.013261883, %1126 ], [ %.013261883, %1117 ], [ %.013261883, %1118 ], [ %.013261883, %1109 ], [ %.013261883, %1110 ], [ %.013261883, %1101 ], [ %.013261883, %1102 ], [ %.013261883, %1093 ], [ %.013261883, %1094 ], [ %.013261883, %1085 ], [ %.013261883, %1086 ], [ %.013261883, %883 ], [ %.013261883, %proto_item_set_hidden.exit1536 ], [ %.013261883, %1071 ], [ %.013261883, %1081 ], [ %.013261883, %1073 ], [ %.013261883, %dissect_sip_authorization_item.exit.thread ], [ %.013261883, %802 ], [ %.013261883, %778 ], [ %.013261883, %787 ], [ %.013261883, %774 ], [ %.013261883, %751 ], [ %.013261883, %proto_item_set_hidden.exit1522 ], [ %.013261883, %718 ], [ %.013261883, %719 ], [ 1, %644 ], [ %.013261883, %580 ], [ %.013261883, %589 ], [ %.013261883, %545 ], [ %.013261883, %546 ], [ %.013261883, %559 ], [ %.013261883, %555 ], [ %.013261883, %533 ], [ %.013261883, %534 ], [ %.013261883, %543 ], [ %.013261883, %521 ], [ %.013261883, %522 ], [ %.013261883, %531 ], [ %.013261883, %513 ], [ %.013261883, %514 ], [ %.013261883, %504 ], [ %.013261883, %505 ], [ %.013261883, %490 ], [ %.013261883, %491 ], [ %.013261883, %497 ], [ %.013261883, %500 ], [ %.013261883, %478 ], [ %.013261883, %479 ], [ %.013261883, %488 ], [ %.013261883, %proto_item_set_hidden.exit ], [ %.013261883, %432 ], [ %.013261883, %385 ], [ %.013261883, %381 ], [ %.013261883, %368 ], [ %.013261883, %.critedge11 ], [ %.013261883, %471 ], [ %.013261883, %474 ], [ %.013261883, %789 ], [ %.013261883, %795 ], [ %.013261883, %dissect_sip_contact_item.exit.thread ], [ %.013261883, %411 ], [ %.013261883, %457 ], [ %.013261883, %.preheader1646 ], [ %.013261883, %1141 ], [ %.013261883, %1155 ], [ %.013261883, %1169 ], [ %.013261883, %414 ], [ %.013261883, %460 ], [ %.013261883, %575 ], [ %.013261883, %568 ], [ %.013261883, %881 ], [ %.013261883, %877 ], [ %.013261883, %dissect_sip_contact_item.exit ], [ %.013261883, %.lr.ph1778 ], [ %.013261883, %.lr.ph1776 ], [ %.013261883, %.lr.ph1774 ]
+  %.11325 = phi i32 [ %.013241884, %328 ], [ %.013241884, %1215 ], [ %.013241884, %1207 ], [ %.013241884, %1208 ], [ %.013241884, %1199 ], [ %.013241884, %1200 ], [ %.013241884, %1191 ], [ %.013241884, %1192 ], [ %.013241884, %1183 ], [ %.013241884, %1184 ], [ %.013241884, %1133 ], [ %.013241884, %1125 ], [ %.013241884, %1126 ], [ %.013241884, %1117 ], [ %.013241884, %1118 ], [ %.013241884, %1109 ], [ %.013241884, %1110 ], [ %.013241884, %1101 ], [ %.013241884, %1102 ], [ %.013241884, %1093 ], [ %.013241884, %1094 ], [ %.013241884, %1085 ], [ %.013241884, %1086 ], [ %.013241884, %883 ], [ %.013241884, %proto_item_set_hidden.exit1536 ], [ %.013241884, %1071 ], [ %.013241884, %1081 ], [ %.013241884, %1073 ], [ %.013241884, %dissect_sip_authorization_item.exit.thread ], [ %.013241884, %802 ], [ %.013241884, %778 ], [ %.013241884, %787 ], [ %.013241884, %774 ], [ %.013241884, %751 ], [ %.013241884, %proto_item_set_hidden.exit1522 ], [ %.013241884, %718 ], [ %.013241884, %719 ], [ %595, %644 ], [ %.013241884, %580 ], [ %.013241884, %589 ], [ %.013241884, %545 ], [ %.013241884, %546 ], [ %.013241884, %559 ], [ %.013241884, %555 ], [ %.013241884, %533 ], [ %.013241884, %534 ], [ %.013241884, %543 ], [ %.013241884, %521 ], [ %.013241884, %522 ], [ %.013241884, %531 ], [ %.013241884, %513 ], [ %.013241884, %514 ], [ %.013241884, %504 ], [ %.013241884, %505 ], [ %.013241884, %490 ], [ %.013241884, %491 ], [ %.013241884, %497 ], [ %.013241884, %500 ], [ %.013241884, %478 ], [ %.013241884, %479 ], [ %.013241884, %488 ], [ %.013241884, %proto_item_set_hidden.exit ], [ %.013241884, %432 ], [ %.013241884, %385 ], [ %.013241884, %381 ], [ %.013241884, %368 ], [ %.013241884, %.critedge11 ], [ %.013241884, %471 ], [ %.013241884, %474 ], [ %.013241884, %789 ], [ %.013241884, %795 ], [ %.013241884, %dissect_sip_contact_item.exit.thread ], [ %.013241884, %411 ], [ %.013241884, %457 ], [ %.013241884, %.preheader1646 ], [ %.013241884, %1141 ], [ %.013241884, %1155 ], [ %.013241884, %1169 ], [ %.013241884, %414 ], [ %.013241884, %460 ], [ %.013241884, %575 ], [ %.013241884, %568 ], [ %.013241884, %881 ], [ %.013241884, %877 ], [ %.013241884, %dissect_sip_contact_item.exit ], [ %.013241884, %.lr.ph1778 ], [ %.013241884, %.lr.ph1776 ], [ %.013241884, %.lr.ph1774 ]
+  %.21322 = phi i8 [ %.013201885, %328 ], [ %.013201885, %1215 ], [ %.013201885, %1207 ], [ %.013201885, %1208 ], [ %.013201885, %1199 ], [ %.013201885, %1200 ], [ %.013201885, %1191 ], [ %.013201885, %1192 ], [ %.013201885, %1183 ], [ %.013201885, %1184 ], [ %.013201885, %1133 ], [ %.013201885, %1125 ], [ %.013201885, %1126 ], [ %.013201885, %1117 ], [ %.013201885, %1118 ], [ %.013201885, %1109 ], [ %.013201885, %1110 ], [ %.013201885, %1101 ], [ %.013201885, %1102 ], [ %.013201885, %1093 ], [ %.013201885, %1094 ], [ %.013201885, %1085 ], [ %.013201885, %1086 ], [ %.013201885, %883 ], [ %.013201885, %proto_item_set_hidden.exit1536 ], [ %.013201885, %1071 ], [ %.013201885, %1081 ], [ %.013201885, %1073 ], [ %.013201885, %dissect_sip_authorization_item.exit.thread ], [ %.013201885, %802 ], [ %.013201885, %778 ], [ %.013201885, %787 ], [ %.013201885, %774 ], [ %spec.select1493, %751 ], [ %.013201885, %proto_item_set_hidden.exit1522 ], [ %.013201885, %718 ], [ %.013201885, %719 ], [ %.013201885, %644 ], [ %.013201885, %580 ], [ %.013201885, %589 ], [ %.013201885, %545 ], [ %.013201885, %546 ], [ %.013201885, %559 ], [ %.013201885, %555 ], [ %.013201885, %533 ], [ %.013201885, %534 ], [ %.013201885, %543 ], [ %.013201885, %521 ], [ %.013201885, %522 ], [ %.013201885, %531 ], [ %.013201885, %513 ], [ %.013201885, %514 ], [ %.013201885, %504 ], [ %.013201885, %505 ], [ %.013201885, %490 ], [ %.013201885, %491 ], [ %.013201885, %497 ], [ %.013201885, %500 ], [ %.013201885, %478 ], [ %.013201885, %479 ], [ %.013201885, %488 ], [ %.013201885, %proto_item_set_hidden.exit ], [ %.013201885, %432 ], [ %.013201885, %385 ], [ %.013201885, %381 ], [ %.013201885, %368 ], [ %.013201885, %.critedge11 ], [ %.013201885, %471 ], [ %.013201885, %474 ], [ %.013201885, %789 ], [ %.013201885, %795 ], [ %.013201885, %dissect_sip_contact_item.exit.thread ], [ %.013201885, %411 ], [ %.013201885, %457 ], [ %.013201885, %.preheader1646 ], [ %.013201885, %1141 ], [ %.013201885, %1155 ], [ %.013201885, %1169 ], [ %.013201885, %414 ], [ %.013201885, %460 ], [ %.013201885, %575 ], [ %.013201885, %568 ], [ %.013201885, %881 ], [ %.013201885, %877 ], [ %.013201885, %dissect_sip_contact_item.exit ], [ %.013201885, %.lr.ph1778 ], [ %.013201885, %.lr.ph1776 ], [ %.013201885, %.lr.ph1774 ]
+  %.11317 = phi i8 [ %.013161886, %328 ], [ %.013161886, %1215 ], [ %.013161886, %1207 ], [ %.013161886, %1208 ], [ %.013161886, %1199 ], [ %.013161886, %1200 ], [ %.013161886, %1191 ], [ %.013161886, %1192 ], [ %.013161886, %1183 ], [ %.013161886, %1184 ], [ %.013161886, %1133 ], [ %.013161886, %1125 ], [ %.013161886, %1126 ], [ %.013161886, %1117 ], [ %.013161886, %1118 ], [ %.013161886, %1109 ], [ %.013161886, %1110 ], [ %.013161886, %1101 ], [ %.013161886, %1102 ], [ %.013161886, %1093 ], [ %.013161886, %1094 ], [ %.013161886, %1085 ], [ %.013161886, %1086 ], [ %.013161886, %883 ], [ %.013161886, %proto_item_set_hidden.exit1536 ], [ %.013161886, %1071 ], [ %.013161886, %1081 ], [ %.013161886, %1073 ], [ %.013161886, %dissect_sip_authorization_item.exit.thread ], [ 1, %802 ], [ %.013161886, %778 ], [ %.013161886, %787 ], [ %.013161886, %774 ], [ %.013161886, %751 ], [ %.013161886, %proto_item_set_hidden.exit1522 ], [ %.013161886, %718 ], [ %.013161886, %719 ], [ %.013161886, %644 ], [ %.013161886, %580 ], [ %.013161886, %589 ], [ %.013161886, %545 ], [ %.013161886, %546 ], [ %.013161886, %559 ], [ %.013161886, %555 ], [ %.013161886, %533 ], [ %.013161886, %534 ], [ %.013161886, %543 ], [ %.013161886, %521 ], [ %.013161886, %522 ], [ %.013161886, %531 ], [ %.013161886, %513 ], [ %.013161886, %514 ], [ %.013161886, %504 ], [ %.013161886, %505 ], [ %.013161886, %490 ], [ %.013161886, %491 ], [ %.013161886, %497 ], [ %.013161886, %500 ], [ %.013161886, %478 ], [ %.013161886, %479 ], [ %.013161886, %488 ], [ %.013161886, %proto_item_set_hidden.exit ], [ %.013161886, %432 ], [ %.013161886, %385 ], [ %.013161886, %381 ], [ %.013161886, %368 ], [ %.013161886, %.critedge11 ], [ %.013161886, %471 ], [ %.013161886, %474 ], [ %.013161886, %789 ], [ %.013161886, %795 ], [ %.013161886, %dissect_sip_contact_item.exit.thread ], [ %.013161886, %411 ], [ %.013161886, %457 ], [ %.013161886, %.preheader1646 ], [ %.013161886, %1141 ], [ %.013161886, %1155 ], [ %.013161886, %1169 ], [ %.013161886, %414 ], [ %.013161886, %460 ], [ %.013161886, %575 ], [ %.013161886, %568 ], [ %.013161886, %881 ], [ %.013161886, %877 ], [ %.013161886, %dissect_sip_contact_item.exit ], [ %.013161886, %.lr.ph1778 ], [ %.013161886, %.lr.ph1776 ], [ %.013161886, %.lr.ph1774 ]
+  %.21310 = phi i8 [ %.013081887, %328 ], [ %.013081887, %1215 ], [ %.013081887, %1207 ], [ %.013081887, %1208 ], [ %.013081887, %1199 ], [ %.013081887, %1200 ], [ %.013081887, %1191 ], [ %.013081887, %1192 ], [ %.013081887, %1183 ], [ %.013081887, %1184 ], [ %.013081887, %1133 ], [ %.013081887, %1125 ], [ %.013081887, %1126 ], [ %.013081887, %1117 ], [ %.013081887, %1118 ], [ %.013081887, %1109 ], [ %.013081887, %1110 ], [ %.013081887, %1101 ], [ %.013081887, %1102 ], [ %.013081887, %1093 ], [ %.013081887, %1094 ], [ %.013081887, %1085 ], [ %.013081887, %1086 ], [ %.013081887, %883 ], [ %.013081887, %proto_item_set_hidden.exit1536 ], [ %.013081887, %1071 ], [ %.013081887, %1081 ], [ %.013081887, %1073 ], [ %.013081887, %dissect_sip_authorization_item.exit.thread ], [ %.013081887, %802 ], [ %.013081887, %778 ], [ %.013081887, %787 ], [ %.013081887, %774 ], [ %.013081887, %751 ], [ %.013081887, %proto_item_set_hidden.exit1522 ], [ %.013081887, %718 ], [ %.013081887, %719 ], [ %.013081887, %644 ], [ %.013081887, %580 ], [ %.013081887, %589 ], [ %.013081887, %545 ], [ %.013081887, %546 ], [ %.013081887, %559 ], [ %.013081887, %555 ], [ %.013081887, %533 ], [ %.013081887, %534 ], [ %.013081887, %543 ], [ %.013081887, %521 ], [ %.013081887, %522 ], [ %.013081887, %531 ], [ %.013081887, %513 ], [ %.013081887, %514 ], [ %.013081887, %504 ], [ %.013081887, %505 ], [ %.013081887, %490 ], [ %.013081887, %491 ], [ %.013081887, %497 ], [ %.013081887, %500 ], [ %.013081887, %478 ], [ %.013081887, %479 ], [ %.013081887, %488 ], [ %.013081887, %proto_item_set_hidden.exit ], [ %.013081887, %432 ], [ %.013081887, %385 ], [ %.013081887, %381 ], [ %.013081887, %368 ], [ %.013081887, %.critedge11 ], [ %.013081887, %471 ], [ %.013081887, %474 ], [ %.013081887, %789 ], [ %.013081887, %795 ], [ %.11309.lcssa, %dissect_sip_contact_item.exit.thread ], [ %.013081887, %411 ], [ %.013081887, %457 ], [ %.013081887, %.preheader1646 ], [ %.013081887, %1141 ], [ %.013081887, %1155 ], [ %.013081887, %1169 ], [ %.013081887, %414 ], [ %.013081887, %460 ], [ %.013081887, %575 ], [ %.013081887, %568 ], [ %.113091830, %dissect_sip_contact_item.exit ], [ %878, %877 ], [ %878, %881 ], [ %.013081887, %.lr.ph1778 ], [ %.013081887, %.lr.ph1776 ], [ %.013081887, %.lr.ph1774 ]
+  %.21292 = phi ptr [ %.012901888, %328 ], [ %.012901888, %1215 ], [ %.012901888, %1207 ], [ %.012901888, %1208 ], [ %.012901888, %1199 ], [ %.012901888, %1200 ], [ %.012901888, %1191 ], [ %.012901888, %1192 ], [ %.012901888, %1183 ], [ %.012901888, %1184 ], [ %.012901888, %1133 ], [ %.012901888, %1125 ], [ %.012901888, %1126 ], [ %.012901888, %1117 ], [ %.012901888, %1118 ], [ %.012901888, %1109 ], [ %.012901888, %1110 ], [ %.012901888, %1101 ], [ %.012901888, %1102 ], [ %.012901888, %1093 ], [ %.012901888, %1094 ], [ %.012901888, %1085 ], [ %.012901888, %1086 ], [ %.012901888, %883 ], [ %.012901888, %proto_item_set_hidden.exit1536 ], [ %.012901888, %1071 ], [ %.012901888, %1081 ], [ %.012901888, %1073 ], [ %.012901888, %dissect_sip_authorization_item.exit.thread ], [ %.012901888, %802 ], [ %.012901888, %778 ], [ %.012901888, %787 ], [ %.012901888, %774 ], [ %.012901888, %751 ], [ %.012901888, %proto_item_set_hidden.exit1522 ], [ %.11291, %718 ], [ %.11291, %719 ], [ %.012901888, %644 ], [ %.012901888, %580 ], [ %.012901888, %589 ], [ %.012901888, %545 ], [ %.012901888, %546 ], [ %.012901888, %559 ], [ %.012901888, %555 ], [ %.012901888, %533 ], [ %.012901888, %534 ], [ %.012901888, %543 ], [ %.012901888, %521 ], [ %.012901888, %522 ], [ %.012901888, %531 ], [ %.012901888, %513 ], [ %.012901888, %514 ], [ %.012901888, %504 ], [ %.012901888, %505 ], [ %.012901888, %490 ], [ %.012901888, %491 ], [ %.012901888, %497 ], [ %.012901888, %500 ], [ %.012901888, %478 ], [ %.012901888, %479 ], [ %.012901888, %488 ], [ %.012901888, %proto_item_set_hidden.exit ], [ %.012901888, %432 ], [ %.012901888, %385 ], [ %.012901888, %381 ], [ %.012901888, %368 ], [ %.012901888, %.critedge11 ], [ %.012901888, %471 ], [ %.012901888, %474 ], [ %.012901888, %789 ], [ %.012901888, %795 ], [ %.012901888, %dissect_sip_contact_item.exit.thread ], [ %.012901888, %411 ], [ %.012901888, %457 ], [ %.012901888, %.preheader1646 ], [ %.012901888, %1141 ], [ %.012901888, %1155 ], [ %.012901888, %1169 ], [ %.012901888, %414 ], [ %.012901888, %460 ], [ %.012901888, %575 ], [ %.012901888, %568 ], [ %.012901888, %881 ], [ %.012901888, %877 ], [ %.012901888, %dissect_sip_contact_item.exit ], [ %.012901888, %.lr.ph1778 ], [ %.012901888, %.lr.ph1776 ], [ %.012901888, %.lr.ph1774 ]
+  %.21287 = phi ptr [ %.012851889, %328 ], [ %.012851889, %1215 ], [ %.012851889, %1207 ], [ %.012851889, %1208 ], [ %.012851889, %1199 ], [ %.012851889, %1200 ], [ %.012851889, %1191 ], [ %.012851889, %1192 ], [ %.012851889, %1183 ], [ %.012851889, %1184 ], [ %.012851889, %1133 ], [ %.012851889, %1125 ], [ %.012851889, %1126 ], [ %.012851889, %1117 ], [ %.012851889, %1118 ], [ %.012851889, %1109 ], [ %.012851889, %1110 ], [ %.012851889, %1101 ], [ %.012851889, %1102 ], [ %.012851889, %1093 ], [ %.012851889, %1094 ], [ %.012851889, %1085 ], [ %.012851889, %1086 ], [ %.012851889, %883 ], [ %.012851889, %proto_item_set_hidden.exit1536 ], [ %.012851889, %1071 ], [ %.012851889, %1081 ], [ %.012851889, %1073 ], [ %.012851889, %dissect_sip_authorization_item.exit.thread ], [ %.012851889, %802 ], [ %.012851889, %778 ], [ %.012851889, %787 ], [ %.012851889, %774 ], [ %.012851889, %751 ], [ %.012851889, %proto_item_set_hidden.exit1522 ], [ null, %718 ], [ %.012851889, %719 ], [ %.11286, %644 ], [ %.012851889, %580 ], [ %.012851889, %589 ], [ %.012851889, %545 ], [ %.012851889, %546 ], [ %.012851889, %559 ], [ %.012851889, %555 ], [ %.012851889, %533 ], [ %.012851889, %534 ], [ %.012851889, %543 ], [ %.012851889, %521 ], [ %.012851889, %522 ], [ %.012851889, %531 ], [ %.012851889, %513 ], [ %.012851889, %514 ], [ %.012851889, %504 ], [ %.012851889, %505 ], [ %.012851889, %490 ], [ %.012851889, %491 ], [ %.012851889, %497 ], [ %.012851889, %500 ], [ %.012851889, %478 ], [ %.012851889, %479 ], [ %.012851889, %488 ], [ %.012851889, %proto_item_set_hidden.exit ], [ %.012851889, %432 ], [ %.012851889, %385 ], [ %.012851889, %381 ], [ %.012851889, %368 ], [ %.012851889, %.critedge11 ], [ %.012851889, %471 ], [ %.012851889, %474 ], [ %.012851889, %789 ], [ %.012851889, %795 ], [ %.012851889, %dissect_sip_contact_item.exit.thread ], [ %.012851889, %411 ], [ %.012851889, %457 ], [ %.012851889, %.preheader1646 ], [ %.012851889, %1141 ], [ %.012851889, %1155 ], [ %.012851889, %1169 ], [ %.012851889, %414 ], [ %.012851889, %460 ], [ %.012851889, %575 ], [ %.012851889, %568 ], [ %.012851889, %881 ], [ %.012851889, %877 ], [ %.012851889, %dissect_sip_contact_item.exit ], [ %.012851889, %.lr.ph1778 ], [ %.012851889, %.lr.ph1776 ], [ %.012851889, %.lr.ph1774 ]
+  %.3 = phi i32 [ %.012661891, %328 ], [ %.012661891, %1215 ], [ %.012661891, %1207 ], [ %.012661891, %1208 ], [ %.012661891, %1199 ], [ %.012661891, %1200 ], [ %.012661891, %1191 ], [ %.012661891, %1192 ], [ %.012661891, %1183 ], [ %.012661891, %1184 ], [ %.012661891, %1133 ], [ %.012661891, %1125 ], [ %.012661891, %1126 ], [ %.012661891, %1117 ], [ %.012661891, %1118 ], [ %.012661891, %1109 ], [ %.012661891, %1110 ], [ %.012661891, %1101 ], [ %.012661891, %1102 ], [ %.012661891, %1093 ], [ %.012661891, %1094 ], [ %.012661891, %1085 ], [ %.012661891, %1086 ], [ %.012661891, %883 ], [ %.012661891, %proto_item_set_hidden.exit1536 ], [ %.012661891, %1071 ], [ %.012661891, %1081 ], [ %.012661891, %1073 ], [ %.012661891, %dissect_sip_authorization_item.exit.thread ], [ %.012661891, %802 ], [ %.012661891, %778 ], [ %.012661891, %787 ], [ %.012661891, %774 ], [ %.012661891, %751 ], [ %.012661891, %proto_item_set_hidden.exit1522 ], [ %.012661891, %718 ], [ %.012661891, %719 ], [ %.012661891, %644 ], [ %.012661891, %580 ], [ %.012661891, %589 ], [ %.012661891, %545 ], [ %.012661891, %546 ], [ %.012661891, %559 ], [ %.012661891, %555 ], [ %.012661891, %533 ], [ %.012661891, %534 ], [ %.012661891, %543 ], [ %.012661891, %521 ], [ %.012661891, %522 ], [ %.012661891, %531 ], [ %.012661891, %513 ], [ %.012661891, %514 ], [ %.012661891, %504 ], [ %.012661891, %505 ], [ %.012661891, %490 ], [ %.012661891, %491 ], [ %.012661891, %497 ], [ %.012661891, %500 ], [ %.012661891, %478 ], [ %.012661891, %479 ], [ %.012661891, %488 ], [ %.1, %proto_item_set_hidden.exit ], [ %.1, %432 ], [ %.012661891, %385 ], [ %.012661891, %381 ], [ %.012661891, %368 ], [ %.2, %.critedge11 ], [ %.2, %471 ], [ %.2, %474 ], [ %.012661891, %789 ], [ %.012661891, %795 ], [ %.012661891, %dissect_sip_contact_item.exit.thread ], [ %.1, %411 ], [ %.2, %457 ], [ %.012661891, %.preheader1646 ], [ %.012661891, %1141 ], [ %.012661891, %1155 ], [ %.012661891, %1169 ], [ %.1, %414 ], [ %.2, %460 ], [ %.012661891, %575 ], [ %.012661891, %568 ], [ %.012661891, %881 ], [ %.012661891, %877 ], [ %.012661891, %dissect_sip_contact_item.exit ], [ %.012661891, %.lr.ph1778 ], [ %.012661891, %.lr.ph1776 ], [ %.012661891, %.lr.ph1774 ]
   br i1 %312, label %1222, label %1224
 
 1222:                                             ; preds = %.critedge1490
@@ -5146,22 +5150,22 @@ dissect_sip_authorization_item.exit.thread:       ; preds = %dissect_sip_authori
 
 1224:                                             ; preds = %1222, %.critedge1490
   %1225 = load i32, ptr %16, align 4
-  %.neg1464 = add i32 %.3, %.112681891
+  %.neg1464 = add i32 %.3, %.112681890
   %1226 = sub i32 %.neg1464, %1225
   %1227 = icmp sgt i32 %1226, 0
-  br i1 %1227, label %303, label %.loopexit1657, !llvm.loop !39
+  br i1 %1227, label %303, label %.loopexit1656, !llvm.loop !39
 
-.loopexit1657:                                    ; preds = %1224, %284, %306
-  %.015851748 = phi i8 [ %.015851879, %306 ], [ 0, %284 ], [ %.71591, %1224 ]
-  %.015811742 = phi i8 [ %.015811880, %306 ], [ 0, %284 ], [ %.31584, %1224 ]
-  %.013331736 = phi ptr [ %.013331881, %306 ], [ null, %284 ], [ %.11334, %1224 ]
-  %.013311730 = phi ptr [ %.013311882, %306 ], [ null, %284 ], [ %.11332, %1224 ]
-  %.013281724 = phi ptr [ %.013281883, %306 ], [ null, %284 ], [ %.11329, %1224 ]
-  %.013261718 = phi i8 [ %.013261884, %306 ], [ 0, %284 ], [ %.11327, %1224 ]
-  %.013241712 = phi i32 [ %.013241885, %306 ], [ 0, %284 ], [ %.11325, %1224 ]
-  %.013201706 = phi i8 [ %.013201886, %306 ], [ 0, %284 ], [ %.21322, %1224 ]
-  %.013161700 = phi i8 [ %.013161887, %306 ], [ 0, %284 ], [ %.11317, %1224 ]
-  %.013081694 = phi i8 [ %.013081888, %306 ], [ 0, %284 ], [ %.21310, %1224 ]
+.loopexit1656:                                    ; preds = %1224, %284, %306
+  %.015851747 = phi i8 [ %.015851878, %306 ], [ 0, %284 ], [ %.71591, %1224 ]
+  %.015811741 = phi i8 [ %.015811879, %306 ], [ 0, %284 ], [ %.31584, %1224 ]
+  %.013331735 = phi ptr [ %.013331880, %306 ], [ null, %284 ], [ %.11334, %1224 ]
+  %.013311729 = phi ptr [ %.013311881, %306 ], [ null, %284 ], [ %.11332, %1224 ]
+  %.013281723 = phi ptr [ %.013281882, %306 ], [ null, %284 ], [ %.11329, %1224 ]
+  %.013261717 = phi i8 [ %.013261883, %306 ], [ 0, %284 ], [ %.11327, %1224 ]
+  %.013241711 = phi i32 [ %.013241884, %306 ], [ 0, %284 ], [ %.11325, %1224 ]
+  %.013201705 = phi i8 [ %.013201885, %306 ], [ 0, %284 ], [ %.21322, %1224 ]
+  %.013161699 = phi i8 [ %.013161886, %306 ], [ 0, %284 ], [ %.11317, %1224 ]
+  %.013081693 = phi i8 [ %.013081887, %306 ], [ 0, %284 ], [ %.21310, %1224 ]
   %.4 = phi i32 [ %307, %306 ], [ %253, %284 ], [ %1225, %1224 ]
   %1228 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.4) #15
   %1229 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.4) #15
@@ -5171,26 +5175,26 @@ dissect_sip_authorization_item.exit.thread:       ; preds = %dissect_sip_authori
   %spec.select1505 = call i32 @llvm.smin.i32(i32 %1229, i32 %1230)
   %.01276 = select i1 %.not1465, i32 %1229, i32 %spec.select1505
   %.11275 = select i1 %.not1465, i32 %1228, i32 %spec.select1498
-  %.not1466 = icmp eq ptr %.013281724, null
+  %.not1466 = icmp eq ptr %.013281723, null
   br i1 %.not1466, label %1231, label %1235
 
-1231:                                             ; preds = %.loopexit1657
+1231:                                             ; preds = %.loopexit1656
   %1232 = load ptr, ptr %113, align 8
   %1233 = call noalias ptr @wmem_strdup(ptr noundef %1232, ptr noundef nonnull @.str.990) #15
   %1234 = call ptr @expert_add_info(ptr noundef %3, ptr noundef %279, ptr noundef nonnull @ei_sip_call_id_invalid) #15
   br label %1235
 
-1235:                                             ; preds = %1231, %.loopexit1657
-  %.21330 = phi ptr [ %.013281724, %.loopexit1657 ], [ %1233, %1231 ]
-  %.not1467 = icmp eq i8 %.013201706, 0
-  %1236 = select i1 %.not1467, i8 0, i8 %.015811742
-  %spec.select1635 = add i8 %1236, %.015851748
-  %1237 = icmp eq i32 %.115931609, 13
+1235:                                             ; preds = %1231, %.loopexit1656
+  %.21330 = phi ptr [ %.013281723, %.loopexit1656 ], [ %1233, %1231 ]
+  %.not1467 = icmp eq i8 %.013201705, 0
+  %1236 = select i1 %.not1467, i8 0, i8 %.015811741
+  %spec.select1634 = add i8 %1236, %.015851747
+  %1237 = icmp eq i32 %.115931608, 13
   br i1 %1237, label %1238, label %1262
 
 1238:                                             ; preds = %1235
-  %1239 = icmp ne i8 %.013161700, 0
-  %1240 = icmp ne i8 %.013201706, 0
+  %1239 = icmp ne i8 %.013161699, 0
+  %1240 = icmp ne i8 %.013201705, 0
   %or.cond22 = select i1 %1239, i1 %1240, i1 false
   br i1 %or.cond22, label %1241, label %1243
 
@@ -5200,20 +5204,20 @@ dissect_sip_authorization_item.exit.thread:       ; preds = %dissect_sip_authori
   br label %1262
 
 1243:                                             ; preds = %1238
-  %.not1468 = icmp eq i8 %spec.select1635, 0
+  %.not1468 = icmp eq i8 %spec.select1634, 0
   %1244 = load ptr, ptr %121, align 8
   br i1 %.not1468, label %1256, label %1245
 
 1245:                                             ; preds = %1243
-  %1246 = zext i8 %spec.select1635 to i32
-  %1247 = icmp eq i8 %spec.select1635, 1
+  %1246 = zext i8 %spec.select1634 to i32
+  %1247 = icmp eq i8 %spec.select1634, 1
   %1248 = select i1 %1247, ptr @.str.990, ptr @.str.1008
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %1244, i32 noundef 25, ptr noundef nonnull @.str.1007, i32 noundef %1246, ptr noundef nonnull %1248) #15
-  %1249 = icmp ugt i8 %.013081694, %spec.select1635
+  %1249 = icmp ugt i8 %.013081693, %spec.select1634
   br i1 %1249, label %1250, label %1262
 
 1250:                                             ; preds = %1245
-  %1251 = zext i8 %.013081694 to i32
+  %1251 = zext i8 %.013081693 to i32
   %1252 = load ptr, ptr %121, align 8
   %1253 = sub nsw i32 %1251, %1246
   %1254 = icmp eq i32 %1253, 1
@@ -5222,7 +5226,7 @@ dissect_sip_authorization_item.exit.thread:       ; preds = %dissect_sip_authori
   br label %1262
 
 1256:                                             ; preds = %1243
-  %.not1469 = icmp eq i8 %.013081694, 0
+  %.not1469 = icmp eq i8 %.013081693, 0
   br i1 %.not1469, label %1257, label %1258
 
 1257:                                             ; preds = %1256
@@ -5230,14 +5234,14 @@ dissect_sip_authorization_item.exit.thread:       ; preds = %dissect_sip_authori
   br label %1262
 
 1258:                                             ; preds = %1256
-  %1259 = zext i8 %.013081694 to i32
-  %1260 = icmp eq i8 %.013081694, 1
+  %1259 = zext i8 %.013081693 to i32
+  %1260 = icmp eq i8 %.013081693, 1
   %1261 = select i1 %1260, ptr @.str.990, ptr @.str.1008
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %1244, i32 noundef 25, ptr noundef nonnull @.str.1011, i32 noundef %1259, ptr noundef nonnull %1261) #15
   br label %1262
 
 1262:                                             ; preds = %1241, %1257, %1258, %1245, %1250, %1235
-  %1263 = icmp eq i32 %.0.i1600, 1
+  %1263 = icmp eq i32 %.0.i1599, 1
   %1264 = load ptr, ptr @stat_info, align 8
   %1265 = icmp ne ptr %1264, null
   %or.cond24 = select i1 %1263, i1 %1265, i1 false
@@ -5270,20 +5274,20 @@ dissect_sip_authorization_item.exit.thread:       ; preds = %dissect_sip_authori
   br i1 %or.cond1499, label %1282, label %1300
 
 1282:                                             ; preds = %1277
-  %.not1470 = icmp eq i8 %spec.select1635, 0
+  %.not1470 = icmp eq i8 %spec.select1634, 0
   br i1 %.not1470, label %1295, label %1283
 
 1283:                                             ; preds = %1282
-  %1284 = zext i8 %spec.select1635 to i32
+  %1284 = zext i8 %spec.select1634 to i32
   %1285 = load ptr, ptr %121, align 8
-  %1286 = icmp eq i8 %spec.select1635, 1
+  %1286 = icmp eq i8 %spec.select1634, 1
   %1287 = select i1 %1286, ptr @.str.990, ptr @.str.1008
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %1285, i32 noundef 25, ptr noundef nonnull @.str.1013, i32 noundef %1284, ptr noundef nonnull %1287) #15
-  %1288 = icmp ugt i8 %.013081694, %spec.select1635
+  %1288 = icmp ugt i8 %.013081693, %spec.select1634
   br i1 %1288, label %1289, label %1300
 
 1289:                                             ; preds = %1283
-  %1290 = zext i8 %.013081694 to i32
+  %1290 = zext i8 %.013081693 to i32
   %1291 = load ptr, ptr %121, align 8
   %1292 = sub nsw i32 %1290, %1284
   %1293 = icmp eq i32 %1292, 1
@@ -5293,8 +5297,8 @@ dissect_sip_authorization_item.exit.thread:       ; preds = %dissect_sip_authori
 
 1295:                                             ; preds = %1282
   %1296 = load ptr, ptr %121, align 8
-  %1297 = zext i8 %.013081694 to i32
-  %1298 = icmp eq i8 %.013081694, 1
+  %1297 = zext i8 %.013081693 to i32
+  %1298 = icmp eq i8 %.013081693, 1
   %1299 = select i1 %1298, ptr @.str.990, ptr @.str.1008
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %1296, i32 noundef 25, ptr noundef nonnull @.str.1011, i32 noundef %1297, ptr noundef nonnull %1299) #15
   br label %1300
@@ -5304,7 +5308,7 @@ dissect_sip_authorization_item.exit.thread:       ; preds = %dissect_sip_authori
   call void @col_append_str(ptr noundef %1301, i32 noundef 25, ptr noundef nonnull @.str.1015) #15
   %1302 = load ptr, ptr %121, align 8
   call void @col_set_fence(ptr noundef %1302, i32 noundef 25) #15
-  %1303 = icmp eq i32 %.0.i1600, 0
+  %1303 = icmp eq i32 %.0.i1599, 0
   %1304 = load ptr, ptr %18, align 8
   br i1 %1303, label %1305, label %1313
 
@@ -5314,7 +5318,7 @@ dissect_sip_authorization_item.exit.thread:       ; preds = %dissect_sip_authori
   br i1 %1307, label %1308, label %.split
 
 1308:                                             ; preds = %1305
-  %1309 = call fastcc i32 @sip_find_invite(ptr noundef nonnull %3, ptr noundef %.21330, i8 noundef zeroext %.013261718, ptr noundef nonnull %20)
+  %1309 = call fastcc i32 @sip_find_invite(ptr noundef nonnull %3, ptr noundef %.21330, i8 noundef zeroext %.013261717, ptr noundef nonnull %20)
   %1310 = load i32, ptr %20, align 4
   %1311 = load ptr, ptr @stat_info, align 8
   %1312 = getelementptr inbounds i8, ptr %1311, i64 16
@@ -5327,8 +5331,8 @@ dissect_sip_authorization_item.exit.thread:       ; preds = %dissect_sip_authori
 
 .split:                                           ; preds = %1305, %1308, %1313
   %1314 = phi ptr [ %1304, %1313 ], [ %1304, %1305 ], [ %.pre, %1308 ]
-  %.013351633 = phi i32 [ 0, %1313 ], [ 0, %1305 ], [ %1309, %1308 ]
-  %1315 = call fastcc i32 @sip_is_packet_resend(ptr noundef nonnull %3, ptr noundef %1314, ptr noundef %.21330, i8 noundef zeroext %.013261718, i32 noundef %.013241712, i32 noundef %.0.i1600)
+  %.013351632 = phi i32 [ 0, %1313 ], [ 0, %1305 ], [ %1309, %1308 ]
+  %1315 = call fastcc i32 @sip_is_packet_resend(ptr noundef nonnull %3, ptr noundef %1314, ptr noundef %.21330, i8 noundef zeroext %.013261717, i32 noundef %.013241711, i32 noundef %.0.i1599)
   br label %1410
 
 .split1338:                                       ; preds = %1313
@@ -5342,7 +5346,7 @@ dissect_sip_authorization_item.exit.thread:       ; preds = %dissect_sip_authori
   %1319 = load i8, ptr %123, align 4
   %1320 = and i8 %1319, 1
   %.not50.i1544 = icmp ne i8 %1320, 0
-  %.not51.i1545 = icmp eq i8 %.013261718, 0
+  %.not51.i1545 = icmp eq i8 %.013261717, 0
   %or.cond.i1546 = or i1 %.not51.i1545, %.not50.i1544
   br i1 %or.cond.i1546, label %sip_find_request.exit, label %1321
 
@@ -5409,7 +5413,7 @@ dissect_sip_authorization_item.exit.thread:       ; preds = %dissect_sip_authori
 
 1362:                                             ; preds = %1338
   %1363 = load i32, ptr %1361, align 8
-  %1364 = icmp eq i32 %1363, %.013241712
+  %1364 = icmp eq i32 %1363, %.013241711
   br i1 %1364, label %1365, label %1377
 
 1365:                                             ; preds = %1362
@@ -5477,12 +5481,12 @@ sip_find_request.exit:                            ; preds = %.split1338, %1318, 
   %.0.i1543 = phi i32 [ %1337, %1333 ], [ %.045.i, %1391 ], [ 0, %.split1338 ], [ 0, %1318 ], [ 0, %1327 ], [ 0, %1338 ]
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %9)
   %1408 = load ptr, ptr %18, align 8
-  %1409 = call fastcc i32 @sip_is_packet_resend(ptr noundef nonnull %3, ptr noundef %1408, ptr noundef %.21330, i8 noundef zeroext %.013261718, i32 noundef %.013241712, i32 noundef 1)
+  %1409 = call fastcc i32 @sip_is_packet_resend(ptr noundef nonnull %3, ptr noundef %1408, ptr noundef %.21330, i8 noundef zeroext %.013261717, i32 noundef %.013241711, i32 noundef 1)
   br label %1410
 
 1410:                                             ; preds = %.split, %sip_find_request.exit
   %phi.call = phi i32 [ %1315, %.split ], [ %1409, %sip_find_request.exit ]
-  %.11336 = phi i32 [ %.013351633, %.split ], [ %.0.i1543, %sip_find_request.exit ]
+  %.11336 = phi i32 [ %.013351632, %.split ], [ %.0.i1543, %sip_find_request.exit ]
   %1411 = icmp ne i32 %phi.call, 0
   %1412 = zext i1 %1411 to i32
   %1413 = load ptr, ptr @stat_info, align 8
@@ -5518,16 +5522,16 @@ sip_find_request.exit:                            ; preds = %.split1338, %1318, 
   store ptr %1429, ptr %1427, align 8
   %1430 = getelementptr inbounds i8, ptr %19, i64 24
   store ptr %26, ptr %1430, align 8
-  %.not1472 = icmp eq ptr %.013331736, null
+  %.not1472 = icmp eq ptr %.013331735, null
   br i1 %.not1472, label %1446, label %1431
 
 1431:                                             ; preds = %1421
-  %1432 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.013331736, ptr noundef nonnull dereferenceable(5) @.str.1016, i64 noundef 4) #16
+  %1432 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.013331735, ptr noundef nonnull dereferenceable(5) @.str.1016, i64 noundef 4) #16
   %.not1473 = icmp eq i32 %1432, 0
   br i1 %.not1473, label %1435, label %1433
 
 1433:                                             ; preds = %1431
-  %1434 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.013331736, ptr noundef nonnull dereferenceable(8) @.str.1017, i64 noundef 7) #16
+  %1434 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.013331735, ptr noundef nonnull dereferenceable(8) @.str.1017, i64 noundef 7) #16
   %.not1474 = icmp eq i32 %1434, 0
   br i1 %.not1474, label %1435, label %1446
 
@@ -5575,11 +5579,11 @@ sip_find_request.exit:                            ; preds = %.split1338, %1318, 
 1453:                                             ; preds = %.sink.split, %1446, %1437, %1441
   %.01284 = phi ptr [ null, %1446 ], [ null, %1437 ], [ null, %1441 ], [ %1452, %.sink.split ]
   %.01277 = phi ptr [ %1447, %1446 ], [ %1436, %1437 ], [ %1442, %1441 ], [ %.01277.ph, %.sink.split ]
-  %.not1479 = icmp eq ptr %.013311730, null
+  %.not1479 = icmp eq ptr %.013311729, null
   br i1 %.not1479, label %.critedge1504, label %1454
 
 1454:                                             ; preds = %1453
-  %1455 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.013311730, ptr noundef nonnull dereferenceable(16) @.str.1019) #16
+  %1455 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.013311729, ptr noundef nonnull dereferenceable(16) @.str.1019) #16
   %.not1480 = icmp eq i32 %1455, 0
   br i1 %.not1480, label %1456, label %1478
 
@@ -5630,12 +5634,12 @@ sip_find_request.exit:                            ; preds = %.split1338, %1318, 
 
 1478:                                             ; preds = %1475, %1463, %1471, %1473, %1469, %1459, %1454
   %1479 = load ptr, ptr @media_type_dissector_table, align 8
-  %1480 = call i32 @dissector_try_string(ptr noundef %1479, ptr noundef nonnull %.013311730, ptr noundef %.01277, ptr noundef nonnull %3, ptr noundef %.01284, ptr noundef nonnull %19) #15
+  %1480 = call i32 @dissector_try_string(ptr noundef %1479, ptr noundef nonnull %.013311729, ptr noundef %.01277, ptr noundef nonnull %3, ptr noundef %.01284, ptr noundef nonnull %19) #15
   %.not1481 = icmp eq i32 %1480, 0
   br i1 %.not1481, label %1481, label %.critedge1502
 
 1481:                                             ; preds = %1478
-  %1482 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.013311730, ptr noundef nonnull dereferenceable(11) @.str.1020, i64 noundef 10) #16
+  %1482 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.013311729, ptr noundef nonnull dereferenceable(11) @.str.1020, i64 noundef 10) #16
   %.not1482 = icmp eq i32 %1482, 0
   br i1 %.not1482, label %1483, label %.critedge1504
 
@@ -5653,21 +5657,21 @@ sip_find_request.exit:                            ; preds = %.split1338, %1318, 
 
 .preheader:                                       ; preds = %.critedge1504
   %1489 = call i32 @tvb_offset_exists(ptr noundef %.01277, i32 noundef 0) #15
-  %.not14841906 = icmp eq i32 %1489, 0
-  br i1 %.not14841906, label %.critedge1502, label %.lr.ph1908
+  %.not14841905 = icmp eq i32 %1489, 0
+  br i1 %.not14841905, label %.critedge1502, label %.lr.ph1907
 
-.lr.ph1908:                                       ; preds = %.preheader, %.lr.ph1908
-  %.01907 = phi i32 [ %1494, %.lr.ph1908 ], [ 0, %.preheader ]
-  %1490 = call i32 @tvb_find_line_end(ptr noundef %.01277, i32 noundef %.01907, i32 noundef -1, ptr noundef nonnull %16, i32 noundef 0) #15
+.lr.ph1907:                                       ; preds = %.preheader, %.lr.ph1907
+  %.01906 = phi i32 [ %1494, %.lr.ph1907 ], [ 0, %.preheader ]
+  %1490 = call i32 @tvb_find_line_end(ptr noundef %.01277, i32 noundef %.01906, i32 noundef -1, ptr noundef nonnull %16, i32 noundef 0) #15
   %1491 = load i32, ptr %16, align 4
-  %1492 = sub i32 %1491, %.01907
-  %1493 = call ptr @proto_tree_add_format_text(ptr noundef %.01284, ptr noundef %.01277, i32 noundef %.01907, i32 noundef %1492) #15
+  %1492 = sub i32 %1491, %.01906
+  %1493 = call ptr @proto_tree_add_format_text(ptr noundef %.01284, ptr noundef %.01277, i32 noundef %.01906, i32 noundef %1492) #15
   %1494 = load i32, ptr %16, align 4
   %1495 = call i32 @tvb_offset_exists(ptr noundef %.01277, i32 noundef %1494) #15
   %.not1484 = icmp eq i32 %1495, 0
-  br i1 %.not1484, label %.critedge1502, label %.lr.ph1908, !llvm.loop !40
+  br i1 %.not1484, label %.critedge1502, label %.lr.ph1907, !llvm.loop !40
 
-.critedge1502:                                    ; preds = %.lr.ph1908, %.preheader, %1478, %.critedge1504, %1483
+.critedge1502:                                    ; preds = %.lr.ph1907, %.preheader, %1478, %.critedge1504, %1483
   %1496 = add i32 %.11275, %.4
   br label %1497
 
@@ -5972,8 +5976,8 @@ tvb_raw_text_add.exit:                            ; preds = %1619, %.lr.ph95.spl
   %1632 = sub i32 %.5, %1
   br label %1633
 
-1633:                                             ; preds = %236, %242, %108, %select.unfold, %39, %36, %27, %29, %1631, %716, %636, %._crit_edge1866.thread
-  %.01265 = phi i32 [ %1632, %1631 ], [ %717, %716 ], [ %632, %._crit_edge1866.thread ], [ %643, %636 ], [ -2, %29 ], [ -2, %27 ], [ -2, %36 ], [ -2, %39 ], [ -2, %select.unfold ], [ -1, %108 ], [ %2, %242 ], [ %2, %236 ]
+1633:                                             ; preds = %236, %242, %108, %select.unfold, %39, %36, %27, %29, %1631, %716, %636, %._crit_edge1865.thread
+  %.01265 = phi i32 [ %1632, %1631 ], [ %717, %716 ], [ %632, %._crit_edge1865.thread ], [ %643, %636 ], [ -2, %29 ], [ -2, %27 ], [ -2, %36 ], [ -2, %39 ], [ -2, %select.unfold ], [ -1, %108 ], [ %2, %242 ], [ %2, %236 ]
   ret i32 %.01265
 }
 
@@ -8765,7 +8769,7 @@ declare ptr @g_hash_table_new(ptr noundef, ptr noundef) local_unnamed_addr #1
 define internal i32 @sip_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #11 {
   %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1) #16
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %4, label %addresses_equal.exit.thread
+  br i1 %.not, label %4, label %addresses_equal.exit
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 128
@@ -8773,7 +8777,7 @@ define internal i32 @sip_equal(ptr nocapture noundef readonly %0, ptr nocapture 
   %7 = load i32, ptr %5, align 8
   %8 = load i32, ptr %6, align 8
   %9 = icmp eq i32 %7, %8
-  br i1 %9, label %10, label %addresses_equal.exit.thread
+  br i1 %9, label %10, label %addresses_equal.exit
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds i8, ptr %0, i64 132
@@ -8781,71 +8785,71 @@ define internal i32 @sip_equal(ptr nocapture noundef readonly %0, ptr nocapture 
   %13 = getelementptr inbounds i8, ptr %1, i64 132
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %12, %14
-  br i1 %15, label %16, label %addresses_equal.exit.thread
+  br i1 %15, label %16, label %addresses_equal.exit
 
 16:                                               ; preds = %10
   %17 = icmp eq i32 %12, 0
-  br i1 %17, label %addresses_equal.exit.thread20, label %addresses_equal.exit
+  br i1 %17, label %25, label %18
 
-addresses_equal.exit:                             ; preds = %16
-  %18 = getelementptr inbounds i8, ptr %0, i64 136
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 136
-  %21 = load ptr, ptr %20, align 8
-  %22 = sext i32 %12 to i64
-  %bcmp.i = tail call i32 @bcmp(ptr %19, ptr %21, i64 %22)
-  %.not28 = icmp eq i32 %bcmp.i, 0
-  br i1 %.not28, label %addresses_equal.exit.thread20, label %addresses_equal.exit.thread
+18:                                               ; preds = %16
+  %19 = getelementptr inbounds i8, ptr %0, i64 136
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds i8, ptr %1, i64 136
+  %22 = load ptr, ptr %21, align 8
+  %23 = sext i32 %12 to i64
+  %bcmp.i = tail call i32 @bcmp(ptr %20, ptr %22, i64 %23)
+  %24 = icmp eq i32 %bcmp.i, 0
+  br i1 %24, label %25, label %addresses_equal.exit
 
-addresses_equal.exit.thread20:                    ; preds = %16, %addresses_equal.exit
-  %23 = getelementptr inbounds i8, ptr %0, i64 152
-  %24 = load i32, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 152
-  %26 = load i32, ptr %25, align 8
-  %27 = icmp eq i32 %24, %26
-  br i1 %27, label %28, label %addresses_equal.exit.thread
+25:                                               ; preds = %18, %16
+  %26 = getelementptr inbounds i8, ptr %0, i64 152
+  %27 = load i32, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %1, i64 152
+  %29 = load i32, ptr %28, align 8
+  %30 = icmp eq i32 %27, %29
+  br i1 %30, label %31, label %addresses_equal.exit
 
-28:                                               ; preds = %addresses_equal.exit.thread20
-  %29 = getelementptr inbounds i8, ptr %0, i64 160
-  %30 = getelementptr inbounds i8, ptr %1, i64 160
-  %31 = load i32, ptr %29, align 8
-  %32 = load i32, ptr %30, align 8
-  %33 = icmp eq i32 %31, %32
-  br i1 %33, label %34, label %addresses_equal.exit.thread
+31:                                               ; preds = %25
+  %32 = getelementptr inbounds i8, ptr %0, i64 160
+  %33 = getelementptr inbounds i8, ptr %1, i64 160
+  %34 = load i32, ptr %32, align 8
+  %35 = load i32, ptr %33, align 8
+  %36 = icmp eq i32 %34, %35
+  br i1 %36, label %37, label %addresses_equal.exit
 
-34:                                               ; preds = %28
-  %35 = getelementptr inbounds i8, ptr %0, i64 164
-  %36 = load i32, ptr %35, align 4
-  %37 = getelementptr inbounds i8, ptr %1, i64 164
-  %38 = load i32, ptr %37, align 4
-  %39 = icmp eq i32 %36, %38
-  br i1 %39, label %40, label %addresses_equal.exit.thread
+37:                                               ; preds = %31
+  %38 = getelementptr inbounds i8, ptr %0, i64 164
+  %39 = load i32, ptr %38, align 4
+  %40 = getelementptr inbounds i8, ptr %1, i64 164
+  %41 = load i32, ptr %40, align 4
+  %42 = icmp eq i32 %39, %41
+  br i1 %42, label %43, label %addresses_equal.exit
 
-40:                                               ; preds = %34
-  %41 = icmp eq i32 %36, 0
-  br i1 %41, label %addresses_equal.exit17.thread25, label %addresses_equal.exit17
+43:                                               ; preds = %37
+  %44 = icmp eq i32 %39, 0
+  br i1 %44, label %52, label %45
 
-addresses_equal.exit17:                           ; preds = %40
-  %42 = getelementptr inbounds i8, ptr %0, i64 168
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %1, i64 168
-  %45 = load ptr, ptr %44, align 8
-  %46 = sext i32 %36 to i64
-  %bcmp.i15 = tail call i32 @bcmp(ptr %43, ptr %45, i64 %46)
-  %.not29 = icmp eq i32 %bcmp.i15, 0
-  br i1 %.not29, label %addresses_equal.exit17.thread25, label %addresses_equal.exit.thread
+45:                                               ; preds = %43
+  %46 = getelementptr inbounds i8, ptr %0, i64 168
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds i8, ptr %1, i64 168
+  %49 = load ptr, ptr %48, align 8
+  %50 = sext i32 %39 to i64
+  %bcmp.i15 = tail call i32 @bcmp(ptr %47, ptr %49, i64 %50)
+  %51 = icmp eq i32 %bcmp.i15, 0
+  br i1 %51, label %52, label %addresses_equal.exit
 
-addresses_equal.exit17.thread25:                  ; preds = %40, %addresses_equal.exit17
-  %47 = getelementptr inbounds i8, ptr %0, i64 184
-  %48 = load i32, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %1, i64 184
-  %50 = load i32, ptr %49, align 8
-  %51 = icmp eq i32 %48, %50
-  %52 = zext i1 %51 to i32
-  br label %addresses_equal.exit.thread
+52:                                               ; preds = %45, %43
+  %53 = getelementptr inbounds i8, ptr %0, i64 184
+  %54 = load i32, ptr %53, align 8
+  %55 = getelementptr inbounds i8, ptr %1, i64 184
+  %56 = load i32, ptr %55, align 8
+  %57 = icmp eq i32 %54, %56
+  %58 = zext i1 %57 to i32
+  br label %addresses_equal.exit
 
-addresses_equal.exit.thread:                      ; preds = %28, %34, %4, %10, %addresses_equal.exit, %addresses_equal.exit.thread20, %addresses_equal.exit17, %addresses_equal.exit17.thread25, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %addresses_equal.exit17 ], [ 0, %addresses_equal.exit.thread20 ], [ 0, %addresses_equal.exit ], [ %52, %addresses_equal.exit17.thread25 ], [ 0, %10 ], [ 0, %4 ], [ 0, %34 ], [ 0, %28 ]
+addresses_equal.exit:                             ; preds = %45, %37, %31, %18, %10, %4, %25, %52, %2
+  %.0 = phi i32 [ 0, %2 ], [ 0, %25 ], [ %58, %52 ], [ 0, %4 ], [ 0, %10 ], [ 0, %18 ], [ 0, %31 ], [ 0, %37 ], [ 0, %45 ]
   ret i32 %.0
 }
 

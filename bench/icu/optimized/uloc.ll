@@ -5960,16 +5960,18 @@ define ptr @uloc_toUnicodeLocaleKey_75(ptr noundef %keyword) local_unnamed_addr 
 entry:
   %call = tail call ptr @ulocimp_toBcpKey_75(ptr noundef %keyword)
   %cmp = icmp eq ptr %call, null
-  br i1 %cmp, label %land.lhs.true, label %return
+  br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
   %call1 = tail call signext i8 @ultag_isUnicodeLocaleKey_75(ptr noundef %keyword, i32 noundef -1)
   %tobool.not = icmp eq i8 %call1, 0
-  %spec.select = select i1 %tobool.not, ptr null, ptr %keyword
+  br i1 %tobool.not, label %if.end, label %return
+
+if.end:                                           ; preds = %land.lhs.true, %entry
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %entry
-  %retval.0 = phi ptr [ %call, %entry ], [ %spec.select, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %if.end
+  %retval.0 = phi ptr [ %call, %if.end ], [ %keyword, %land.lhs.true ]
   ret ptr %retval.0
 }
 
@@ -5982,16 +5984,18 @@ define ptr @uloc_toUnicodeLocaleType_75(ptr noundef %keyword, ptr noundef %value
 entry:
   %call = tail call ptr @ulocimp_toBcpType_75(ptr noundef %keyword, ptr noundef %value, ptr noundef null, ptr noundef null)
   %cmp = icmp eq ptr %call, null
-  br i1 %cmp, label %land.lhs.true, label %return
+  br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
   %call1 = tail call signext i8 @ultag_isUnicodeLocaleType_75(ptr noundef %value, i32 noundef -1)
   %tobool.not = icmp eq i8 %call1, 0
-  %spec.select = select i1 %tobool.not, ptr null, ptr %value
+  br i1 %tobool.not, label %if.end, label %return
+
+if.end:                                           ; preds = %land.lhs.true, %entry
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %entry
-  %retval.0 = phi ptr [ %call, %entry ], [ %spec.select, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %if.end
+  %retval.0 = phi ptr [ %call, %if.end ], [ %value, %land.lhs.true ]
   ret ptr %retval.0
 }
 
@@ -6042,7 +6046,7 @@ define ptr @uloc_toLegacyType_75(ptr noundef %keyword, ptr noundef %value) local
 entry:
   %call = tail call ptr @ulocimp_toLegacyType_75(ptr noundef %keyword, ptr noundef %value, ptr noundef null, ptr noundef null)
   %cmp = icmp eq ptr %call, null
-  br i1 %cmp, label %while.cond.i, label %return
+  br i1 %cmp, label %while.cond.i, label %if.end3
 
 while.cond.i:                                     ; preds = %entry, %if.end17.i
   %p.0.i = phi ptr [ %incdec.ptr.i, %if.end17.i ], [ %value, %entry ]
@@ -6057,7 +6061,7 @@ while.cond.i:                                     ; preds = %entry, %if.end17.i
 
 if.then.i:                                        ; preds = %while.cond.i, %while.cond.i, %while.cond.i
   %cmp6.i = icmp eq i32 %alphaNumLen.0.i, 0
-  br i1 %cmp6.i, label %return, label %if.end17.i
+  br i1 %cmp6.i, label %if.end3, label %if.end17.i
 
 if.else.i:                                        ; preds = %while.cond.i
   %call.i = tail call signext i8 @uprv_isASCIILetter_75(i8 noundef signext %0)
@@ -6068,10 +6072,10 @@ lor.lhs.false9.i:                                 ; preds = %if.else.i
   %1 = load i8, ptr %p.0.i, align 1
   %2 = add i8 %1, -48
   %or.cond.i = icmp ult i8 %2, 10
-  br i1 %or.cond.i, label %if.then14.i, label %return
+  br i1 %or.cond.i, label %if.then14.i, label %if.end3
 
 if.then14.i:                                      ; preds = %lor.lhs.false9.i, %if.else.i
-  %inc.i = add i32 %alphaNumLen.0.i, 1
+  %inc.i = add nsw i32 %alphaNumLen.0.i, 1
   br label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.then14.i, %if.then.i
@@ -6081,11 +6085,13 @@ if.end17.i:                                       ; preds = %if.then14.i, %if.th
 
 _ZL22isWellFormedLegacyTypePKc.exit:              ; preds = %while.cond.i
   %cmp18.i.not = icmp eq i32 %alphaNumLen.0.i, 0
-  %spec.select = select i1 %cmp18.i.not, ptr null, ptr %value
+  br i1 %cmp18.i.not, label %if.end3, label %return
+
+if.end3:                                          ; preds = %lor.lhs.false9.i, %if.then.i, %_ZL22isWellFormedLegacyTypePKc.exit, %entry
   br label %return
 
-return:                                           ; preds = %lor.lhs.false9.i, %if.then.i, %_ZL22isWellFormedLegacyTypePKc.exit, %entry
-  %retval.0 = phi ptr [ %call, %entry ], [ %spec.select, %_ZL22isWellFormedLegacyTypePKc.exit ], [ null, %if.then.i ], [ null, %lor.lhs.false9.i ]
+return:                                           ; preds = %_ZL22isWellFormedLegacyTypePKc.exit, %if.end3
+  %retval.0 = phi ptr [ %call, %if.end3 ], [ %value, %_ZL22isWellFormedLegacyTypePKc.exit ]
   ret ptr %retval.0
 }
 

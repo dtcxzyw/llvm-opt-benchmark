@@ -99,7 +99,7 @@ declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #1
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_no_scts_in_certificate() #0 {
+define internal noundef i32 @test_no_scts_in_certificate() #0 {
 entry:
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @.str.4)
   %cmp = icmp eq ptr %call, null
@@ -131,7 +131,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_one_sct_in_certificate() #0 {
+define internal noundef i32 @test_one_sct_in_certificate() #0 {
 entry:
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @.str.5)
   %cmp = icmp eq ptr %call, null
@@ -167,7 +167,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_multiple_scts_in_certificate() #0 {
+define internal noundef i32 @test_multiple_scts_in_certificate() #0 {
 entry:
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @.str.6)
   %cmp = icmp eq ptr %call, null
@@ -203,7 +203,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_verify_one_sct() #0 {
+define internal noundef i32 @test_verify_one_sct() #0 {
 entry:
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @.str.7)
   %cmp = icmp eq ptr %call, null
@@ -239,7 +239,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_verify_multiple_scts() #0 {
+define internal noundef i32 @test_verify_multiple_scts() #0 {
 entry:
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @.str.8)
   %cmp = icmp eq ptr %call, null
@@ -275,7 +275,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_verify_fails_for_future_sct() #0 {
+define internal noundef i32 @test_verify_fails_for_future_sct() #0 {
 entry:
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @.str.9)
   %cmp = icmp eq ptr %call, null
@@ -313,7 +313,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_decode_tls_sct() #0 {
+define internal noundef i32 @test_decode_tls_sct() #0 {
 entry:
   %tls_sct_list = alloca [123 x i8], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(123) %tls_sct_list, ptr noundef nonnull align 16 dereferenceable(123) @__const.test_decode_tls_sct.tls_sct_list, i64 123, i1 false)
@@ -347,7 +347,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_encode_tls_sct() #0 {
+define internal noundef i32 @test_encode_tls_sct() #0 {
 entry:
   %log_id = alloca [45 x i8], align 16
   %extensions = alloca [1 x i8], align 1
@@ -491,7 +491,7 @@ return:                                           ; preds = %lor.lhs.false, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @execute_cert_test(ptr nocapture noundef readonly %fixture) unnamed_addr #0 {
+define internal fastcc noundef i32 @execute_cert_test(ptr nocapture noundef readonly %fixture) unnamed_addr #0 {
 entry:
   %actual_output.i68 = alloca ptr, align 8
   %actual_output.i = alloca ptr, align 8
@@ -728,7 +728,7 @@ if.end64:                                         ; preds = %if.then53, %for.end
   %tls_sct_list65 = getelementptr inbounds i8, ptr %fixture, i64 56
   %12 = load ptr, ptr %tls_sct_list65, align 8
   %cmp66.not = icmp eq ptr %12, null
-  br i1 %cmp66.not, label %end, label %if.then67
+  br i1 %cmp66.not, label %if.end100, label %if.then67
 
 if.then67:                                        ; preds = %if.end64
   store ptr %12, ptr %p, align 8
@@ -799,14 +799,16 @@ if.end92:                                         ; preds = %compare_sct_list_pr
   %21 = load i64, ptr %tls_sct_list_len69, align 8
   %22 = load ptr, ptr %tls_sct_list, align 8
   %call96 = call i32 @test_mem_eq(ptr noundef nonnull @.str.16, i32 noundef 318, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, ptr noundef %20, i64 noundef %21, ptr noundef %22, i64 noundef %conv) #8
-  %tobool97.not = icmp ne i32 %call96, 0
-  %spec.select = zext i1 %tobool97.not to i32
+  %tobool97.not = icmp eq i32 %call96, 0
+  br i1 %tobool97.not, label %end, label %if.end100
+
+if.end100:                                        ; preds = %if.end92, %if.end64
   br label %end
 
-end:                                              ; preds = %for.body, %compare_sct_list_printout.exit.thread, %compare_extension_printout.exit.thread, %if.end92, %if.end64, %compare_sct_list_printout.exit, %if.then79, %if.then67, %if.else, %if.then53, %compare_extension_printout.exit, %if.then29, %load_pem_cert.exit63, %load_pem_cert.exit, %read_text_file.exit
-  %issuer.2 = phi ptr [ %issuer.1, %compare_sct_list_printout.exit ], [ %issuer.1, %if.then79 ], [ %issuer.1, %if.then67 ], [ %issuer.0, %if.then53 ], [ %issuer.0, %compare_extension_printout.exit ], [ %issuer.0, %if.then29 ], [ %issuer.0, %if.else ], [ %cert.1.i62, %load_pem_cert.exit63 ], [ null, %load_pem_cert.exit ], [ null, %read_text_file.exit ], [ %issuer.1, %if.end64 ], [ %issuer.1, %if.end92 ], [ %issuer.0, %compare_extension_printout.exit.thread ], [ %issuer.1, %compare_sct_list_printout.exit.thread ], [ %issuer.0, %for.body ]
-  %cert.1 = phi ptr [ %cert.0, %compare_sct_list_printout.exit ], [ %cert.0, %if.then79 ], [ %cert.0, %if.then67 ], [ %cert.1.i, %if.then53 ], [ %cert.1.i, %compare_extension_printout.exit ], [ %cert.1.i, %if.then29 ], [ %cert.1.i, %if.else ], [ %cert.1.i, %load_pem_cert.exit63 ], [ %cert.1.i, %load_pem_cert.exit ], [ null, %read_text_file.exit ], [ %cert.0, %if.end64 ], [ %cert.0, %if.end92 ], [ %cert.1.i, %compare_extension_printout.exit.thread ], [ %cert.0, %compare_sct_list_printout.exit.thread ], [ %cert.1.i, %for.body ]
-  %success.0 = phi i32 [ 0, %compare_sct_list_printout.exit ], [ 0, %if.then79 ], [ 0, %if.then67 ], [ 0, %if.then53 ], [ 0, %compare_extension_printout.exit ], [ 0, %if.then29 ], [ 0, %if.else ], [ 0, %load_pem_cert.exit63 ], [ 0, %load_pem_cert.exit ], [ 0, %read_text_file.exit ], [ 1, %if.end64 ], [ %spec.select, %if.end92 ], [ 0, %compare_extension_printout.exit.thread ], [ 0, %compare_sct_list_printout.exit.thread ], [ 0, %for.body ]
+end:                                              ; preds = %for.body, %compare_sct_list_printout.exit.thread, %compare_extension_printout.exit.thread, %if.end92, %compare_sct_list_printout.exit, %if.then79, %if.then67, %if.else, %if.then53, %compare_extension_printout.exit, %if.then29, %load_pem_cert.exit63, %load_pem_cert.exit, %read_text_file.exit, %if.end100
+  %issuer.2 = phi ptr [ %issuer.1, %if.end100 ], [ %issuer.1, %if.end92 ], [ %issuer.1, %compare_sct_list_printout.exit ], [ %issuer.1, %if.then79 ], [ %issuer.1, %if.then67 ], [ %issuer.0, %if.then53 ], [ %issuer.0, %compare_extension_printout.exit ], [ %issuer.0, %if.then29 ], [ %issuer.0, %if.else ], [ %cert.1.i62, %load_pem_cert.exit63 ], [ null, %load_pem_cert.exit ], [ null, %read_text_file.exit ], [ %issuer.0, %compare_extension_printout.exit.thread ], [ %issuer.1, %compare_sct_list_printout.exit.thread ], [ %issuer.0, %for.body ]
+  %cert.1 = phi ptr [ %cert.0, %if.end100 ], [ %cert.0, %if.end92 ], [ %cert.0, %compare_sct_list_printout.exit ], [ %cert.0, %if.then79 ], [ %cert.0, %if.then67 ], [ %cert.1.i, %if.then53 ], [ %cert.1.i, %compare_extension_printout.exit ], [ %cert.1.i, %if.then29 ], [ %cert.1.i, %if.else ], [ %cert.1.i, %load_pem_cert.exit63 ], [ %cert.1.i, %load_pem_cert.exit ], [ null, %read_text_file.exit ], [ %cert.1.i, %compare_extension_printout.exit.thread ], [ %cert.0, %compare_sct_list_printout.exit.thread ], [ %cert.1.i, %for.body ]
+  %success.0 = phi i32 [ 1, %if.end100 ], [ 0, %if.end92 ], [ 0, %compare_sct_list_printout.exit ], [ 0, %if.then79 ], [ 0, %if.then67 ], [ 0, %if.then53 ], [ 0, %compare_extension_printout.exit ], [ 0, %if.then29 ], [ 0, %if.else ], [ 0, %load_pem_cert.exit63 ], [ 0, %load_pem_cert.exit ], [ 0, %read_text_file.exit ], [ 0, %compare_extension_printout.exit.thread ], [ 0, %compare_sct_list_printout.exit.thread ], [ 0, %for.body ]
   call void @X509_free(ptr noundef %cert.1) #8
   call void @X509_free(ptr noundef %issuer.2) #8
   %23 = load ptr, ptr %scts, align 8

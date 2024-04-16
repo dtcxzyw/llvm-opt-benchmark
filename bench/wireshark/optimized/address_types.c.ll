@@ -853,40 +853,42 @@ address_type_get_length.exit:                     ; preds = %2
   %10 = tail call i32 %9(ptr noundef nonnull %1) #16
   %.fr = freeze i32 %10
   %11 = icmp slt i32 %.fr, 1
-  %spec.select = select i1 %11, i32 256, i32 %.fr
-  br label %address_type_get_length.exit.thread
+  br i1 %11, label %address_type_get_length.exit.thread, label %12
 
-address_type_get_length.exit.thread:              ; preds = %address_type_get_length.exit, %2
-  %12 = phi i32 [ 256, %2 ], [ %spec.select, %address_type_get_length.exit ]
-  %13 = zext nneg i32 %12 to i64
-  %14 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef %13) #16
-  %.not = icmp eq ptr %14, null
-  br i1 %.not, label %address_to_str_buf.exit, label %15
+address_type_get_length.exit.thread:              ; preds = %2, %address_type_get_length.exit
+  br label %12
 
-15:                                               ; preds = %address_type_get_length.exit.thread
-  %16 = load i32, ptr %1, align 8
-  %17 = sext i32 %16 to i64
-  %18 = getelementptr [45 x ptr], ptr @type_list, i64 0, i64 %17
-  %19 = load ptr, ptr %18, align 8
-  %20 = icmp eq ptr %19, null
-  br i1 %20, label %25, label %21
+12:                                               ; preds = %address_type_get_length.exit, %address_type_get_length.exit.thread
+  %13 = phi i32 [ 256, %address_type_get_length.exit.thread ], [ %.fr, %address_type_get_length.exit ]
+  %14 = zext nneg i32 %13 to i64
+  %15 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef %14) #16
+  %.not = icmp eq ptr %15, null
+  br i1 %.not, label %address_to_str_buf.exit, label %16
 
-21:                                               ; preds = %15
-  %22 = getelementptr inbounds i8, ptr %19, i64 24
-  %23 = load ptr, ptr %22, align 8
-  %24 = icmp eq ptr %23, null
-  br i1 %24, label %25, label %26
+16:                                               ; preds = %12
+  %17 = load i32, ptr %1, align 8
+  %18 = sext i32 %17 to i64
+  %19 = getelementptr [45 x ptr], ptr @type_list, i64 0, i64 %18
+  %20 = load ptr, ptr %19, align 8
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %26, label %22
 
-25:                                               ; preds = %21, %15
-  store i8 0, ptr %14, align 1
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds i8, ptr %20, i64 24
+  %24 = load ptr, ptr %23, align 8
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %26, label %27
+
+26:                                               ; preds = %22, %16
+  store i8 0, ptr %15, align 1
   br label %address_to_str_buf.exit
 
-26:                                               ; preds = %21
-  %27 = tail call i32 %23(ptr noundef nonnull %1, ptr noundef nonnull %14, i32 noundef %12) #16
+27:                                               ; preds = %22
+  %28 = tail call i32 %24(ptr noundef nonnull %1, ptr noundef nonnull %15, i32 noundef %13) #16
   br label %address_to_str_buf.exit
 
-address_to_str_buf.exit:                          ; preds = %address_type_get_length.exit.thread, %25, %26
-  ret ptr %14
+address_to_str_buf.exit:                          ; preds = %12, %26, %27
+  ret ptr %15
 }
 
 declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #6
@@ -1101,14 +1103,14 @@ define ptr @address_with_resolution_to_str(ptr noundef %0, ptr noundef %1) local
   %11 = getelementptr inbounds i8, ptr %6, i64 64
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %address_type_get_length.exit.thread.i, label %14
+  br i1 %13, label %address_type_get_length.exit.i, label %14
 
 14:                                               ; preds = %10
   %15 = icmp ne i32 %3, 1
   %16 = load i32, ptr @gbl_resolv_flags, align 4
   %17 = icmp ne i32 %16, 0
   %or.cond = select i1 %15, i1 true, i1 %17
-  br i1 %or.cond, label %18, label %address_type_get_length.exit.thread.i
+  br i1 %or.cond, label %18, label %address_type_get_length.exit.i
 
 18:                                               ; preds = %14
   %19 = and i32 %3, -2
@@ -1120,26 +1122,26 @@ define ptr @address_with_resolution_to_str(ptr noundef %0, ptr noundef %1) local
   %22 = load i32, ptr getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i64 0, i32 1), align 4
   %23 = icmp ne i32 %22, 0
   %or.cond3 = select i1 %21, i1 true, i1 %23
-  br i1 %or.cond3, label %44, label %address_type_get_length.exit.thread.i
+  br i1 %or.cond3, label %44, label %address_type_get_length.exit.i
 
 24:                                               ; preds = %18
   %.old = load i32, ptr getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i64 0, i32 1), align 4
   %.old2.not = icmp eq i32 %.old, 0
-  br i1 %.old2.not, label %address_type_get_length.exit.thread.i, label %44
+  br i1 %.old2.not, label %address_type_get_length.exit.i, label %44
 
-address_type_get_length.exit.thread.i:            ; preds = %20, %14, %24, %10
+address_type_get_length.exit.i:                   ; preds = %10, %24, %14, %20
   %25 = getelementptr inbounds i8, ptr %6, i64 32
   %26 = load ptr, ptr %25, align 8
   %27 = tail call i32 %26(ptr noundef nonnull %1) #16
   %.fr.i = freeze i32 %27
   %28 = icmp slt i32 %.fr.i, 1
-  %spec.select.i = select i1 %28, i32 256, i32 %.fr.i
-  %29 = zext nneg i32 %spec.select.i to i64
+  %spec.select = select i1 %28, i32 256, i32 %.fr.i
+  %29 = zext nneg i32 %spec.select to i64
   %30 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef %29) #16
   %.not.i = icmp eq ptr %30, null
   br i1 %.not.i, label %address_to_str.exit, label %31
 
-31:                                               ; preds = %address_type_get_length.exit.thread.i
+31:                                               ; preds = %address_type_get_length.exit.i
   %32 = load i32, ptr %1, align 8
   %33 = sext i32 %32 to i64
   %34 = getelementptr [45 x ptr], ptr @type_list, i64 0, i64 %33
@@ -1158,7 +1160,7 @@ address_type_get_length.exit.thread.i:            ; preds = %20, %14, %24, %10
   br label %address_to_str.exit
 
 42:                                               ; preds = %37
-  %43 = tail call i32 %39(ptr noundef nonnull %1, ptr noundef nonnull %30, i32 noundef %spec.select.i) #16
+  %43 = tail call i32 %39(ptr noundef nonnull %1, ptr noundef nonnull %30, i32 noundef %spec.select) #16
   br label %address_to_str.exit
 
 44:                                               ; preds = %24, %20
@@ -1243,8 +1245,8 @@ address_type_get_length.exit.thread.i:            ; preds = %20, %14, %24, %10
   store i8 0, ptr %101, align 1
   br label %address_to_str.exit
 
-address_to_str.exit:                              ; preds = %88, %83, %79, %77, %64, %63, %44, %42, %41, %address_type_get_length.exit.thread.i, %8
-  %.0 = phi ptr [ %9, %8 ], [ null, %address_type_get_length.exit.thread.i ], [ %30, %41 ], [ %30, %42 ], [ %54, %44 ], [ %54, %63 ], [ %54, %64 ], [ %54, %77 ], [ %54, %79 ], [ %54, %83 ], [ %54, %88 ]
+address_to_str.exit:                              ; preds = %88, %83, %79, %77, %64, %63, %44, %42, %41, %address_type_get_length.exit.i, %8
+  %.0 = phi ptr [ %9, %8 ], [ null, %address_type_get_length.exit.i ], [ %30, %41 ], [ %30, %42 ], [ %54, %44 ], [ %54, %63 ], [ %54, %64 ], [ %54, %77 ], [ %54, %79 ], [ %54, %83 ], [ %54, %88 ]
   ret ptr %.0
 }
 
@@ -1319,40 +1321,42 @@ address_type_get_length.exit.i:                   ; preds = %set_address_tvb.exi
   %25 = call i32 %24(ptr noundef nonnull %5) #16
   %.fr.i = freeze i32 %25
   %26 = icmp slt i32 %.fr.i, 1
-  %spec.select.i = select i1 %26, i32 256, i32 %.fr.i
-  br label %address_type_get_length.exit.thread.i
+  br i1 %26, label %address_type_get_length.exit.thread.i, label %27
 
 address_type_get_length.exit.thread.i:            ; preds = %address_type_get_length.exit.i, %set_address_tvb.exit
-  %27 = phi i32 [ 256, %set_address_tvb.exit ], [ %spec.select.i, %address_type_get_length.exit.i ]
-  %28 = zext nneg i32 %27 to i64
-  %29 = call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef %28) #16
-  %.not.i10 = icmp eq ptr %29, null
-  br i1 %.not.i10, label %address_to_str.exit, label %30
+  br label %27
 
-30:                                               ; preds = %address_type_get_length.exit.thread.i
-  %31 = load i32, ptr %5, align 8
-  %32 = sext i32 %31 to i64
-  %33 = getelementptr [45 x ptr], ptr @type_list, i64 0, i64 %32
-  %34 = load ptr, ptr %33, align 8
-  %35 = icmp eq ptr %34, null
-  br i1 %35, label %40, label %36
+27:                                               ; preds = %address_type_get_length.exit.thread.i, %address_type_get_length.exit.i
+  %28 = phi i32 [ 256, %address_type_get_length.exit.thread.i ], [ %.fr.i, %address_type_get_length.exit.i ]
+  %29 = zext nneg i32 %28 to i64
+  %30 = call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef %29) #16
+  %.not.i10 = icmp eq ptr %30, null
+  br i1 %.not.i10, label %address_to_str.exit, label %31
 
-36:                                               ; preds = %30
-  %37 = getelementptr inbounds i8, ptr %34, i64 24
-  %38 = load ptr, ptr %37, align 8
-  %39 = icmp eq ptr %38, null
-  br i1 %39, label %40, label %41
+31:                                               ; preds = %27
+  %32 = load i32, ptr %5, align 8
+  %33 = sext i32 %32 to i64
+  %34 = getelementptr [45 x ptr], ptr @type_list, i64 0, i64 %33
+  %35 = load ptr, ptr %34, align 8
+  %36 = icmp eq ptr %35, null
+  br i1 %36, label %41, label %37
 
-40:                                               ; preds = %36, %30
-  store i8 0, ptr %29, align 1
+37:                                               ; preds = %31
+  %38 = getelementptr inbounds i8, ptr %35, i64 24
+  %39 = load ptr, ptr %38, align 8
+  %40 = icmp eq ptr %39, null
+  br i1 %40, label %41, label %42
+
+41:                                               ; preds = %37, %31
+  store i8 0, ptr %30, align 1
   br label %address_to_str.exit
 
-41:                                               ; preds = %36
-  %42 = call i32 %38(ptr noundef nonnull %5, ptr noundef nonnull %29, i32 noundef %27) #16
+42:                                               ; preds = %37
+  %43 = call i32 %39(ptr noundef nonnull %5, ptr noundef nonnull %30, i32 noundef %28) #16
   br label %address_to_str.exit
 
-address_to_str.exit:                              ; preds = %41, %40, %address_type_get_length.exit.thread.i, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %address_type_get_length.exit.thread.i ], [ %29, %40 ], [ %29, %41 ]
+address_to_str.exit:                              ; preds = %42, %41, %27, %4
+  %.0 = phi ptr [ null, %4 ], [ null, %27 ], [ %30, %41 ], [ %30, %42 ]
   ret ptr %.0
 }
 
@@ -1390,40 +1394,42 @@ address_type_get_length.exit.i:                   ; preds = %set_address_tvb.exi
   %17 = call i32 %16(ptr noundef nonnull %6) #16
   %.fr.i = freeze i32 %17
   %18 = icmp slt i32 %.fr.i, 1
-  %spec.select.i = select i1 %18, i32 256, i32 %.fr.i
-  br label %address_type_get_length.exit.thread.i
+  br i1 %18, label %address_type_get_length.exit.thread.i, label %19
 
 address_type_get_length.exit.thread.i:            ; preds = %address_type_get_length.exit.i, %set_address_tvb.exit
-  %19 = phi i32 [ 256, %set_address_tvb.exit ], [ %spec.select.i, %address_type_get_length.exit.i ]
-  %20 = zext nneg i32 %19 to i64
-  %21 = call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef %20) #16
-  %.not.i4 = icmp eq ptr %21, null
-  br i1 %.not.i4, label %address_to_str.exit, label %22
+  br label %19
 
-22:                                               ; preds = %address_type_get_length.exit.thread.i
-  %23 = load i32, ptr %6, align 8
-  %24 = sext i32 %23 to i64
-  %25 = getelementptr [45 x ptr], ptr @type_list, i64 0, i64 %24
-  %26 = load ptr, ptr %25, align 8
-  %27 = icmp eq ptr %26, null
-  br i1 %27, label %32, label %28
+19:                                               ; preds = %address_type_get_length.exit.thread.i, %address_type_get_length.exit.i
+  %20 = phi i32 [ 256, %address_type_get_length.exit.thread.i ], [ %.fr.i, %address_type_get_length.exit.i ]
+  %21 = zext nneg i32 %20 to i64
+  %22 = call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef %21) #16
+  %.not.i4 = icmp eq ptr %22, null
+  br i1 %.not.i4, label %address_to_str.exit, label %23
 
-28:                                               ; preds = %22
-  %29 = getelementptr inbounds i8, ptr %26, i64 24
-  %30 = load ptr, ptr %29, align 8
-  %31 = icmp eq ptr %30, null
-  br i1 %31, label %32, label %33
+23:                                               ; preds = %19
+  %24 = load i32, ptr %6, align 8
+  %25 = sext i32 %24 to i64
+  %26 = getelementptr [45 x ptr], ptr @type_list, i64 0, i64 %25
+  %27 = load ptr, ptr %26, align 8
+  %28 = icmp eq ptr %27, null
+  br i1 %28, label %33, label %29
 
-32:                                               ; preds = %28, %22
-  store i8 0, ptr %21, align 1
+29:                                               ; preds = %23
+  %30 = getelementptr inbounds i8, ptr %27, i64 24
+  %31 = load ptr, ptr %30, align 8
+  %32 = icmp eq ptr %31, null
+  br i1 %32, label %33, label %34
+
+33:                                               ; preds = %29, %23
+  store i8 0, ptr %22, align 1
   br label %address_to_str.exit
 
-33:                                               ; preds = %28
-  %34 = call i32 %30(ptr noundef nonnull %6, ptr noundef nonnull %21, i32 noundef %19) #16
+34:                                               ; preds = %29
+  %35 = call i32 %31(ptr noundef nonnull %6, ptr noundef nonnull %22, i32 noundef %20) #16
   br label %address_to_str.exit
 
-address_to_str.exit:                              ; preds = %address_type_get_length.exit.thread.i, %32, %33
-  ret ptr %21
+address_to_str.exit:                              ; preds = %19, %33, %34
+  ret ptr %22
 }
 
 ; Function Attrs: nounwind uwtable

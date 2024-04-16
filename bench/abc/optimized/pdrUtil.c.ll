@@ -1287,13 +1287,13 @@ define noundef i32 @Pdr_SetIsInit(ptr nocapture noundef readonly %0, i32 noundef
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Pdr_SetCompare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #12 {
+define noundef i32 @Pdr_SetCompare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #12 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, 0
-  br i1 %7, label %.lr.ph, label %.critedge.thread41
+  br i1 %7, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %2
   %8 = getelementptr inbounds i8, ptr %4, i64 16
@@ -1304,63 +1304,69 @@ define i32 @Pdr_SetCompare(ptr nocapture noundef readonly %0, ptr nocapture noun
   %smax = tail call i32 @llvm.smax.i32(i32 %9, i32 0)
   %wide.trip.count = zext nneg i32 %smax to i64
   %wide.trip.count37 = zext nneg i32 %6 to i64
-  %exitcond.not52 = icmp slt i32 %9, 1
-  br i1 %exitcond.not52, label %.critedge, label %.lr.ph54
+  %exitcond.not53 = icmp slt i32 %9, 1
+  br i1 %exitcond.not53, label %.critedge, label %.lr.ph55
 
 13:                                               ; preds = %21
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %..critedge_crit_edge, label %.lr.ph54, !llvm.loop !21
+  br i1 %exitcond.not, label %.critedge.loopexit, label %.lr.ph55, !llvm.loop !21
 
-.lr.ph54:                                         ; preds = %.lr.ph, %13
-  %indvars.iv53 = phi i64 [ %indvars.iv.next, %13 ], [ 0, %.lr.ph ]
-  %14 = getelementptr inbounds [0 x i32], ptr %10, i64 0, i64 %indvars.iv53
+.lr.ph55:                                         ; preds = %.lr.ph, %13
+  %indvars.iv54 = phi i64 [ %indvars.iv.next, %13 ], [ 0, %.lr.ph ]
+  %14 = getelementptr inbounds [0 x i32], ptr %10, i64 0, i64 %indvars.iv54
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds [0 x i32], ptr %11, i64 0, i64 %indvars.iv53
+  %16 = getelementptr inbounds [0 x i32], ptr %11, i64 0, i64 %indvars.iv54
   %17 = load i32, ptr %16, align 4
   %18 = icmp sgt i32 %15, %17
   br i1 %18, label %.loopexit, label %19
 
-19:                                               ; preds = %.lr.ph54
+19:                                               ; preds = %.lr.ph55
   %20 = icmp slt i32 %15, %17
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %19
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv53, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv54, 1
   %exitcond38.not = icmp eq i64 %indvars.iv.next, %wide.trip.count37
-  br i1 %exitcond38.not, label %.critedge.thread, label %13, !llvm.loop !21
+  br i1 %exitcond38.not, label %.critedge.thread.loopexit, label %13, !llvm.loop !21
 
-..critedge_crit_edge:                             ; preds = %13
+.critedge.loopexit:                               ; preds = %13
   %22 = icmp ult i64 %indvars.iv.next, %12
   br label %.critedge
 
-.critedge:                                        ; preds = %..critedge_crit_edge, %.lr.ph
-  %.lcssa = phi i1 [ %22, %..critedge_crit_edge ], [ true, %.lr.ph ]
-  %23 = icmp eq i32 %9, %6
+.critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph, %2
+  %.0.lcssa = phi i32 [ 0, %2 ], [ %smax, %.lr.ph ], [ %smax, %.critedge.loopexit ]
+  %.lcssa = phi i1 [ false, %2 ], [ true, %.lr.ph ], [ %22, %.critedge.loopexit ]
+  %23 = icmp eq i32 %.0.lcssa, %6
   br i1 %23, label %.critedge.thread, label %28
 
-.critedge.thread41:                               ; preds = %2
-  %24 = icmp eq i32 %6, 0
-  br i1 %24, label %.critedge.thread, label %.loopexit
+.critedge.thread.loopexit:                        ; preds = %21
+  %24 = icmp ult i64 %indvars.iv.next, %12
+  br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %21, %.critedge.thread41, %.critedge
+.critedge.thread:                                 ; preds = %.critedge.thread.loopexit, %.critedge
+  %.lcssa44 = phi i1 [ %.lcssa, %.critedge ], [ %24, %.critedge.thread.loopexit ]
+  %.0.lcssa42 = phi i32 [ %.0.lcssa, %.critedge ], [ %6, %.critedge.thread.loopexit ]
   %25 = getelementptr inbounds i8, ptr %4, i64 16
   %26 = load i32, ptr %25, align 8
   %27 = icmp slt i32 %6, %26
-  %.mux = sext i1 %27 to i32
-  br label %.loopexit
+  br i1 %27, label %.loopexit, label %28
 
-28:                                               ; preds = %.critedge
-  br i1 %.lcssa, label %29, label %.loopexit
+28:                                               ; preds = %.critedge.thread, %.critedge
+  %.lcssa43 = phi i1 [ %.lcssa44, %.critedge.thread ], [ %.lcssa, %.critedge ]
+  %.0.lcssa41 = phi i32 [ %.0.lcssa42, %.critedge.thread ], [ %.0.lcssa, %.critedge ]
+  br i1 %.lcssa43, label %29, label %33
 
 29:                                               ; preds = %28
   %30 = getelementptr inbounds i8, ptr %4, i64 16
   %31 = load i32, ptr %30, align 8
-  %32 = icmp eq i32 %smax, %31
-  %spec.select = zext i1 %32 to i32
+  %32 = icmp eq i32 %.0.lcssa41, %31
+  br i1 %32, label %.loopexit, label %33
+
+33:                                               ; preds = %29, %28
   br label %.loopexit
 
-.loopexit:                                        ; preds = %19, %.lr.ph54, %.critedge.thread41, %.critedge.thread, %29, %28
-  %.023 = phi i32 [ %.mux, %.critedge.thread ], [ 0, %28 ], [ %spec.select, %29 ], [ 0, %.critedge.thread41 ], [ 1, %19 ], [ -1, %.lr.ph54 ]
+.loopexit:                                        ; preds = %19, %.lr.ph55, %29, %.critedge.thread, %33
+  %.023 = phi i32 [ 0, %33 ], [ -1, %.critedge.thread ], [ 1, %29 ], [ 1, %19 ], [ -1, %.lr.ph55 ]
   ret i32 %.023
 }
 

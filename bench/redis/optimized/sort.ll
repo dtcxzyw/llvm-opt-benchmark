@@ -781,7 +781,7 @@ if.end181:                                        ; preds = %if.else179, %if.the
 
 land.lhs.true188:                                 ; preds = %if.end181
   %tobool189.not = icmp eq ptr %storekey.0.lcssa, null
-  br i1 %tobool189.not, label %lor.lhs.false190, label %if.end199
+  br i1 %tobool189.not, label %lor.lhs.false190, label %if.then192
 
 lor.lhs.false190:                                 ; preds = %land.lhs.true188
   %flags = getelementptr inbounds i8, ptr %c, i64 8
@@ -790,7 +790,7 @@ lor.lhs.false190:                                 ; preds = %land.lhs.true188
   %tobool191.not = icmp eq i64 %and, 0
   br i1 %tobool191.not, label %if.end199, label %if.then192
 
-if.then192:                                       ; preds = %lor.lhs.false190
+if.then192:                                       ; preds = %lor.lhs.false190, %land.lhs.true188
   br label %if.end199
 
 if.end193:                                        ; preds = %if.end181
@@ -803,12 +803,12 @@ if.then198:                                       ; preds = %if.end193
   %bf.load200.pre = load i32, ptr %sortval.0, align 8
   br label %if.end199
 
-if.end199:                                        ; preds = %lor.lhs.false190, %if.then192, %land.lhs.true188, %if.then198, %if.end193
-  %alpha.2553 = phi i32 [ %alpha.0.lcssa, %if.then198 ], [ %alpha.0.lcssa, %if.end193 ], [ %alpha.0.lcssa, %lor.lhs.false190 ], [ 1, %if.then192 ], [ 1, %land.lhs.true188 ]
-  %tobool288.old.not552 = phi i1 [ %tobool288.old.not, %if.then198 ], [ %tobool288.old.not, %if.end193 ], [ false, %lor.lhs.false190 ], [ true, %if.then192 ], [ true, %land.lhs.true188 ]
-  %tobool288550 = phi i1 [ %tobool182.not, %if.then198 ], [ %tobool182.not, %if.end193 ], [ true, %lor.lhs.false190 ], [ false, %if.then192 ], [ false, %land.lhs.true188 ]
-  %sortby.3549 = phi ptr [ %sortby.0.lcssa, %if.then198 ], [ %sortby.0.lcssa, %if.end193 ], [ %sortby.0.lcssa, %lor.lhs.false190 ], [ null, %if.then192 ], [ null, %land.lhs.true188 ]
-  %bf.load200 = phi i32 [ %bf.load200.pre, %if.then198 ], [ %bf.load194.pre, %if.end193 ], [ %bf.load194.pre, %lor.lhs.false190 ], [ %bf.load194.pre, %if.then192 ], [ %bf.load194.pre, %land.lhs.true188 ]
+if.end199:                                        ; preds = %lor.lhs.false190, %if.then192, %if.then198, %if.end193
+  %alpha.2553 = phi i32 [ %alpha.0.lcssa, %if.then198 ], [ %alpha.0.lcssa, %if.end193 ], [ %alpha.0.lcssa, %lor.lhs.false190 ], [ 1, %if.then192 ]
+  %tobool288.old.not552 = phi i1 [ %tobool288.old.not, %if.then198 ], [ %tobool288.old.not, %if.end193 ], [ false, %lor.lhs.false190 ], [ true, %if.then192 ]
+  %tobool288550 = phi i1 [ %tobool182.not, %if.then198 ], [ %tobool182.not, %if.end193 ], [ true, %lor.lhs.false190 ], [ false, %if.then192 ]
+  %sortby.3549 = phi ptr [ %sortby.0.lcssa, %if.then198 ], [ %sortby.0.lcssa, %if.end193 ], [ %sortby.0.lcssa, %lor.lhs.false190 ], [ null, %if.then192 ]
+  %bf.load200 = phi i32 [ %bf.load200.pre, %if.then198 ], [ %bf.load194.pre, %if.end193 ], [ %bf.load194.pre, %lor.lhs.false190 ], [ %bf.load194.pre, %if.then192 ]
   %bf.clear201 = and i32 %bf.load200, 15
   switch i32 %bf.clear201, label %sw.default [
     i32 1, label %sw.bb
@@ -1299,7 +1299,7 @@ if.then549:                                       ; preds = %if.else538, %if.els
   %79 = load ptr, ptr %eptr, align 8
   %80 = load i8, ptr %79, align 1
   %cmp557.not = icmp eq i8 %80, 0
-  br i1 %cmp557.not, label %lor.lhs.false559, label %if.end584
+  br i1 %cmp557.not, label %lor.lhs.false559, label %if.then567
 
 lor.lhs.false559:                                 ; preds = %if.then549
   %call560 = tail call ptr @__errno_location() #15
@@ -1307,7 +1307,9 @@ lor.lhs.false559:                                 ; preds = %if.then549
   %cmp561 = icmp eq i32 %81, 34
   %82 = fcmp uno double %call551, 0.000000e+00
   %or.cond327 = select i1 %cmp561, i1 true, i1 %82
-  %spec.select = select i1 %or.cond327, i32 1, i32 %int_conversion_error.0477
+  br i1 %or.cond327, label %if.then567, label %if.end584
+
+if.then567:                                       ; preds = %lor.lhs.false559, %if.then549
   br label %if.end584
 
 if.then575:                                       ; preds = %if.else538
@@ -1324,8 +1326,8 @@ if.else581:                                       ; preds = %if.else538
   call void @abort() #14
   unreachable
 
-if.end584:                                        ; preds = %lor.lhs.false559, %if.then549, %if.then575
-  %int_conversion_error.1 = phi i32 [ %int_conversion_error.0477, %if.then575 ], [ 1, %if.then549 ], [ %spec.select, %lor.lhs.false559 ]
+if.end584:                                        ; preds = %lor.lhs.false559, %if.then575, %if.then567
+  %int_conversion_error.1 = phi i32 [ 1, %if.then567 ], [ %int_conversion_error.0477, %if.then575 ], [ %int_conversion_error.0477, %lor.lhs.false559 ]
   br i1 %tobool514.not, label %for.inc, label %if.then586
 
 if.then586:                                       ; preds = %if.end584.thread395, %if.end584

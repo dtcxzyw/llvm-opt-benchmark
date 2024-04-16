@@ -6195,8 +6195,8 @@ cond.true.i:                                      ; preds = %entry
 lor.lhs.false:                                    ; preds = %entry, %cond.true.i
   %m_kind.i.i.i3 = getelementptr inbounds i8, ptr %r, i64 4
   %bf.load.i.i.i4 = load i32, ptr %m_kind.i.i.i3, align 4
-  %trunc148 = trunc i32 %bf.load.i.i.i4 to i16
-  switch i16 %trunc148, label %if.else [
+  %trunc147 = trunc i32 %bf.load.i.i.i4 to i16
+  switch i16 %trunc147, label %if.else [
     i16 0, label %cond.true.i10
     i16 2, label %if.then
   ]
@@ -6263,11 +6263,11 @@ _ZN11ast_manager7inc_refEP3ast.exit.i.i24:        ; preds = %invoke.cont8
   %10 = load i32, ptr %m_ref_count.i.i.i.i25, align 4
   %inc.i.i.i.i26 = add i32 %10, 1
   store i32 %inc.i.i.i.i26, ptr %m_ref_count.i.i.i.i25, align 4
-  %.pre149 = load ptr, ptr %m, align 8
+  %.pre148 = load ptr, ptr %m, align 8
   br label %invoke.cont11
 
 invoke.cont11:                                    ; preds = %_ZN11ast_manager7inc_refEP3ast.exit.i.i24, %invoke.cont8
-  %11 = phi ptr [ %.pre149, %_ZN11ast_manager7inc_refEP3ast.exit.i.i24 ], [ %9, %invoke.cont8 ]
+  %11 = phi ptr [ %.pre148, %_ZN11ast_manager7inc_refEP3ast.exit.i.i24 ], [ %9, %invoke.cont8 ]
   %call2.i2829 = invoke noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %11, i32 noundef 0, i32 noundef 2, ptr noundef %call.i1.i21, ptr noundef %call2.i)
           to label %invoke.cont18 unwind label %lpad13
 
@@ -6464,19 +6464,20 @@ if.else:                                          ; preds = %lor.lhs.false, %con
   %m_true.i = getelementptr inbounds i8, ptr %44, i64 856
   %45 = load ptr, ptr %m_true.i, align 8
   %cmp.i = icmp eq ptr %45, %r
-  br i1 %cmp.i, label %if.end, label %lor.lhs.false35
+  br i1 %cmp.i, label %if.then38, label %lor.lhs.false35
 
 lor.lhs.false35:                                  ; preds = %if.else
   %m_false.i = getelementptr inbounds i8, ptr %44, i64 864
   %46 = load ptr, ptr %m_false.i, align 8
   %cmp.i64 = icmp eq ptr %46, %r
-  %spec.select = select i1 %cmp.i64, ptr %r, ptr %l
-  %spec.select147 = select i1 %cmp.i64, ptr %l, ptr %r
+  br i1 %cmp.i64, label %if.then38, label %if.end
+
+if.then38:                                        ; preds = %lor.lhs.false35, %if.else
   br label %if.end
 
-if.end:                                           ; preds = %lor.lhs.false35, %if.else
-  %l.addr.0 = phi ptr [ %r, %if.else ], [ %spec.select, %lor.lhs.false35 ]
-  %r.addr.0 = phi ptr [ %l, %if.else ], [ %spec.select147, %lor.lhs.false35 ]
+if.end:                                           ; preds = %if.then38, %lor.lhs.false35
+  %l.addr.0 = phi ptr [ %r, %if.then38 ], [ %l, %lor.lhs.false35 ]
+  %r.addr.0 = phi ptr [ %l, %if.then38 ], [ %r, %lor.lhs.false35 ]
   %cmp.i66 = icmp eq ptr %45, %l.addr.0
   br i1 %cmp.i66, label %if.then41, label %if.else45
 

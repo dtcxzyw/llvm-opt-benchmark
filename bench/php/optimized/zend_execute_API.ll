@@ -288,7 +288,7 @@ declare i32 @__sigsetjmp(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare void @zend_hash_reverse_apply(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @zval_call_destructor(ptr nocapture noundef readonly %0) #4 {
+define internal noundef i32 @zval_call_destructor(ptr nocapture noundef readonly %0) #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 8
   %4 = icmp eq i8 %3, 12
@@ -310,11 +310,13 @@ define internal i32 @zval_call_destructor(ptr nocapture noundef readonly %0) #4 
   %11 = load ptr, ptr %.0, align 8
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 1
-  %spec.select = zext i1 %13 to i32
-  br label %14
+  br i1 %13, label %15, label %14
 
 14:                                               ; preds = %10, %7
-  %.08 = phi i32 [ 0, %7 ], [ %spec.select, %10 ]
+  br label %15
+
+15:                                               ; preds = %10, %14
+  %.08 = phi i32 [ 0, %14 ], [ 1, %10 ]
   ret i32 %.08
 }
 

@@ -4609,13 +4609,15 @@ define internal noundef i32 @gss_key_timeout(ptr noundef %0) #2 align 16 {
   %12 = add i64 %2, %9
   %13 = sub i64 %11, %12
   %14 = icmp slt i64 %13, 0
-  %spec.select = select i1 %14, i32 -13, i32 0
-  br label %15
+  br i1 %14, label %15, label %16
 
 15:                                               ; preds = %7, %1
-  %16 = phi i32 [ -13, %1 ], [ %spec.select, %7 ]
+  br label %16
+
+16:                                               ; preds = %15, %7
+  %17 = phi i32 [ -13, %15 ], [ 0, %7 ]
   tail call void @__rcu_read_unlock() #18
-  ret i32 %16
+  ret i32 %17
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

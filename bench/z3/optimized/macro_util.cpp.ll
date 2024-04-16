@@ -5690,8 +5690,7 @@ sw.bb26.i.i.i:                                    ; preds = %for.end.i.i.i, %if.
   %__first.addr.2.i.i.i = phi ptr [ %incdec.ptr25.i.i.i, %if.end24.i.i.i ], [ %__first.addr.0.lcssa.i.i.i, %for.end.i.i.i ]
   %14 = load ptr, ptr %__first.addr.2.i.i.i, align 8
   %cmp.i31.i.i.i = icmp eq ptr %14, %4
-  %spec.select.i.i.i = select i1 %cmp.i31.i.i.i, ptr %__first.addr.2.i.i.i, ptr %add.ptr.i18
-  br label %invoke.cont17
+  br i1 %cmp.i31.i.i.i, label %invoke.cont17, label %cleanup
 
 invoke.cont17.loopexit.split.loop.exit:           ; preds = %if.end.i.i.i
   %incdec.ptr.i.i.i.le = getelementptr inbounds i8, ptr %__first.addr.049.i.i.i, i64 8
@@ -5706,7 +5705,7 @@ invoke.cont17.loopexit.split.loop.exit121:        ; preds = %if.end7.i.i.i
   br label %invoke.cont17
 
 invoke.cont17:                                    ; preds = %for.body.i.i.i, %invoke.cont17.loopexit.split.loop.exit, %invoke.cont17.loopexit.split.loop.exit119, %invoke.cont17.loopexit.split.loop.exit121, %sw.bb.i.i.i, %sw.bb21.i.i.i, %sw.bb26.i.i.i
-  %retval.0.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i, %sw.bb.i.i.i ], [ %__first.addr.1.i.i.i, %sw.bb21.i.i.i ], [ %spec.select.i.i.i, %sw.bb26.i.i.i ], [ %incdec.ptr.i.i.i.le, %invoke.cont17.loopexit.split.loop.exit ], [ %incdec.ptr4.i.i.i.le, %invoke.cont17.loopexit.split.loop.exit119 ], [ %incdec.ptr8.i.i.i.le, %invoke.cont17.loopexit.split.loop.exit121 ], [ %__first.addr.049.i.i.i, %for.body.i.i.i ]
+  %retval.0.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i, %sw.bb.i.i.i ], [ %__first.addr.1.i.i.i, %sw.bb21.i.i.i ], [ %__first.addr.2.i.i.i, %sw.bb26.i.i.i ], [ %incdec.ptr.i.i.i.le, %invoke.cont17.loopexit.split.loop.exit ], [ %incdec.ptr4.i.i.i.le, %invoke.cont17.loopexit.split.loop.exit119 ], [ %incdec.ptr8.i.i.i.le, %invoke.cont17.loopexit.split.loop.exit121 ], [ %__first.addr.049.i.i.i, %for.body.i.i.i ]
   %cmp = icmp eq ptr %retval.0.i.i.i, %add.ptr.i18
   br i1 %cmp, label %cleanup, label %if.end43
 
@@ -5906,9 +5905,9 @@ if.end43.cleanup_crit_edge:                       ; preds = %if.end43
   %.pre = load ptr, ptr %todo, align 8
   br label %cleanup
 
-cleanup:                                          ; preds = %while.body, %for.end.i.i.i, %invoke.cont17, %if.end43.cleanup_crit_edge
-  %35 = phi ptr [ %.pre, %if.end43.cleanup_crit_edge ], [ %3, %invoke.cont17 ], [ %3, %for.end.i.i.i ], [ %3, %while.body ]
-  %cmp.i.lcssa = phi i1 [ true, %if.end43.cleanup_crit_edge ], [ false, %invoke.cont17 ], [ false, %for.end.i.i.i ], [ false, %while.body ]
+cleanup:                                          ; preds = %while.body, %sw.bb26.i.i.i, %for.end.i.i.i, %invoke.cont17, %if.end43.cleanup_crit_edge
+  %35 = phi ptr [ %.pre, %if.end43.cleanup_crit_edge ], [ %3, %invoke.cont17 ], [ %3, %for.end.i.i.i ], [ %3, %sw.bb26.i.i.i ], [ %3, %while.body ]
+  %cmp.i.lcssa = phi i1 [ true, %if.end43.cleanup_crit_edge ], [ false, %invoke.cont17 ], [ false, %for.end.i.i.i ], [ false, %sw.bb26.i.i.i ], [ false, %while.body ]
   %cmp.not.i.i.i.i = icmp eq ptr %35, %m_initial_buffer.i.i
   %cmp.i.i.i.i.i = icmp eq ptr %35, null
   %or.cond.i.i.i.i = or i1 %cmp.not.i.i.i.i, %cmp.i.i.i.i.i

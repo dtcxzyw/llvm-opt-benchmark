@@ -31,8 +31,8 @@ lzma2_bound.exit:                                 ; preds = %3
   %12 = add nuw i64 %11, 92
   br label %lzma2_bound.exit.thread
 
-lzma2_bound.exit.thread:                          ; preds = %lzma2_bound.exit, %3, %1
-  %13 = phi i64 [ 0, %1 ], [ 0, %3 ], [ %12, %lzma2_bound.exit ]
+lzma2_bound.exit.thread:                          ; preds = %1, %3, %lzma2_bound.exit
+  %13 = phi i64 [ %12, %lzma2_bound.exit ], [ 0, %3 ], [ 0, %1 ]
   ret i64 %13
 }
 
@@ -57,7 +57,7 @@ lzma2_bound.exit.i:                               ; preds = %3
   br label %lzma_block_buffer_bound64.exit
 
 lzma_block_buffer_bound64.exit:                   ; preds = %1, %3, %lzma2_bound.exit.i
-  %13 = phi i64 [ 0, %1 ], [ 0, %3 ], [ %12, %lzma2_bound.exit.i ]
+  %13 = phi i64 [ %12, %lzma2_bound.exit.i ], [ 0, %3 ], [ 0, %1 ]
   ret i64 %13
 }
 

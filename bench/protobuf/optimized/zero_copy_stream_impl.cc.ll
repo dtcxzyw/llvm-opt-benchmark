@@ -1003,7 +1003,7 @@ entry:
   %call3 = tail call noundef i64 @_ZNKSi6gcountEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
   %conv4 = trunc i64 %call3 to i32
   %cmp = icmp eq i32 %conv4, 0
-  br i1 %cmp, label %land.lhs.true, label %return
+  br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
   %2 = load ptr, ptr %input_, align 8
@@ -1012,7 +1012,7 @@ land.lhs.true:                                    ; preds = %entry
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %2, i64 %vbase.offset
   %call6 = tail call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr)
-  br i1 %call6, label %land.lhs.true7, label %return
+  br i1 %call6, label %land.lhs.true7, label %if.end
 
 land.lhs.true7:                                   ; preds = %land.lhs.true
   %3 = load ptr, ptr %input_, align 8
@@ -1021,12 +1021,13 @@ land.lhs.true7:                                   ; preds = %land.lhs.true
   %vbase.offset11 = load i64, ptr %vbase.offset.ptr10, align 8
   %add.ptr12 = getelementptr inbounds i8, ptr %3, i64 %vbase.offset11
   %call13 = tail call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE3eofEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr12)
-  %not.call13 = xor i1 %call13, true
-  %spec.select = sext i1 %not.call13 to i32
+  br i1 %call13, label %if.end, label %return
+
+if.end:                                           ; preds = %land.lhs.true7, %land.lhs.true, %entry
   br label %return
 
-return:                                           ; preds = %land.lhs.true7, %entry, %land.lhs.true
-  %retval.0 = phi i32 [ 0, %land.lhs.true ], [ %conv4, %entry ], [ %spec.select, %land.lhs.true7 ]
+return:                                           ; preds = %land.lhs.true7, %if.end
+  %retval.0 = phi i32 [ %conv4, %if.end ], [ -1, %land.lhs.true7 ]
   ret i32 %retval.0
 }
 

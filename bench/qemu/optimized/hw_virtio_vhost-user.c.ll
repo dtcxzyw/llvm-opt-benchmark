@@ -1372,7 +1372,7 @@ return:                                           ; preds = %if.end5, %if.end19,
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @vhost_user_set_mem_table(ptr nocapture noundef readonly %dev, ptr nocapture readnone %mem) #0 {
 entry:
-  %msg_reply.i22 = alloca %struct.VhostUserMsg, align 4
+  %msg_reply.i21 = alloca %struct.VhostUserMsg, align 4
   %_now.i.i.i = alloca %struct.timeval, align 8
   %fds.i = alloca [8 x i32], align 16
   %fd_num.i = alloca i64, align 8
@@ -1390,17 +1390,17 @@ entry:
   br i1 %tobool, label %land.end, label %land.end.thread
 
 land.end.thread:                                  ; preds = %entry
-  %protocol_features31 = getelementptr inbounds i8, ptr %dev, i64 480
-  %2 = load i64, ptr %protocol_features31, align 8
-  %and.i32 = and i64 %2, 8
-  %tobool.i33 = icmp ne i64 %and.i32, 0
-  %and.i2034 = and i64 %2, 32768
-  %tobool.i2135.not = icmp eq i64 %and.i2034, 0
+  %protocol_features30 = getelementptr inbounds i8, ptr %dev, i64 480
+  %2 = load i64, ptr %protocol_features30, align 8
+  %and.i31 = and i64 %2, 8
+  %tobool.i32 = icmp ne i64 %and.i31, 0
+  %and.i1933 = and i64 %2, 32768
+  %tobool.i2034.not = icmp eq i64 %and.i1933, 0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1084) %msg, i8 0, i64 1084, i1 false)
   %3 = getelementptr inbounds i8, ptr %msg, i64 4
-  %spec.select38 = select i1 %tobool.i33, i32 9, i32 1
-  store i32 %spec.select38, ptr %3, align 4
-  br i1 %tobool.i2135.not, label %if.else, label %if.then14
+  %spec.select37 = select i1 %tobool.i32, i32 9, i32 1
+  store i32 %spec.select37, ptr %3, align 4
+  br i1 %tobool.i2034.not, label %if.else, label %if.then14
 
 land.end:                                         ; preds = %entry
   %handler = getelementptr inbounds i8, ptr %0, i64 72
@@ -1410,8 +1410,8 @@ land.end:                                         ; preds = %entry
   %5 = load i64, ptr %protocol_features, align 8
   %and.i = and i64 %5, 8
   %tobool.i = icmp ne i64 %and.i, 0
-  %and.i20 = and i64 %5, 32768
-  %tobool.i21.not = icmp eq i64 %and.i20, 0
+  %and.i19 = and i64 %5, 32768
+  %tobool.i20.not = icmp eq i64 %and.i19, 0
   br i1 %tobool1.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.end
@@ -1469,7 +1469,7 @@ if.then.i:                                        ; preds = %if.then
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.then
-  br i1 %tobool.i21.not, label %if.else.i, label %if.then32.i
+  br i1 %tobool.i20.not, label %if.else.i, label %if.then32.i
 
 if.then32.i:                                      ; preds = %if.end.i
   %call34.i = call fastcc i32 @vhost_user_add_remove_regions(ptr noundef nonnull %dev, ptr noundef nonnull %msg.i, i1 noundef zeroext %tobool.i, i1 noundef zeroext true), !range !5
@@ -1638,16 +1638,17 @@ if.end:                                           ; preds = %land.end
   %45 = getelementptr inbounds i8, ptr %msg, i64 4
   %spec.select = select i1 %tobool.i, i32 9, i32 1
   store i32 %spec.select, ptr %45, align 4
-  br i1 %tobool.i21.not, label %if.else, label %if.then14
+  br i1 %tobool.i20.not, label %if.else, label %if.then14
 
 if.then14:                                        ; preds = %land.end.thread, %if.end
-  %tobool.i3640 = phi i1 [ %tobool.i33, %land.end.thread ], [ %tobool.i, %if.end ]
-  %call16 = call fastcc i32 @vhost_user_add_remove_regions(ptr noundef nonnull %dev, ptr noundef nonnull %msg, i1 noundef zeroext %tobool.i3640, i1 noundef zeroext false), !range !5
-  br label %return
+  %tobool.i3539 = phi i1 [ %tobool.i32, %land.end.thread ], [ %tobool.i, %if.end ]
+  %call16 = call fastcc i32 @vhost_user_add_remove_regions(ptr noundef nonnull %dev, ptr noundef nonnull %msg, i1 noundef zeroext %tobool.i3539, i1 noundef zeroext false), !range !5
+  %cmp = icmp slt i32 %call16, 0
+  br i1 %cmp, label %return, label %if.end33
 
 if.else:                                          ; preds = %land.end.thread, %if.end
   %46 = phi ptr [ %3, %land.end.thread ], [ %45, %if.end ]
-  %tobool.i3639 = phi i1 [ %tobool.i33, %land.end.thread ], [ %tobool.i, %if.end ]
+  %tobool.i3538 = phi i1 [ %tobool.i32, %land.end.thread ], [ %tobool.i, %if.end ]
   %call19 = call fastcc i32 @vhost_user_fill_set_mem_table_msg(ptr noundef nonnull %0, ptr noundef nonnull %dev, ptr noundef nonnull %msg, ptr noundef nonnull %fds, ptr noundef nonnull %fd_num, i1 noundef zeroext false), !range !6
   %cmp20 = icmp slt i32 %call19, 0
   br i1 %cmp20, label %return, label %if.end22
@@ -1656,29 +1657,30 @@ if.end22:                                         ; preds = %if.else
   %47 = load i64, ptr %fd_num, align 8
   %conv = trunc i64 %47 to i32
   %call24 = call fastcc i32 @vhost_user_write(ptr noundef nonnull %dev, ptr noundef nonnull %msg, ptr noundef nonnull %fds, i32 noundef %conv)
-  %cmp25 = icmp sgt i32 %call24, -1
-  %brmerge.not = select i1 %cmp25, i1 %tobool.i3639, i1 false
-  %call24.mux = select i1 %cmp25, i32 0, i32 %call24
-  br i1 %brmerge.not, label %if.then30, label %return
+  %cmp25 = icmp slt i32 %call24, 0
+  br i1 %cmp25, label %return, label %if.end28
 
-if.then30:                                        ; preds = %if.end22
-  call void @llvm.lifetime.start.p0(i64 1084, ptr nonnull %msg_reply.i22)
+if.end28:                                         ; preds = %if.end22
+  br i1 %tobool.i3538, label %if.then30, label %if.end33
+
+if.then30:                                        ; preds = %if.end28
+  call void @llvm.lifetime.start.p0(i64 1084, ptr nonnull %msg_reply.i21)
   %48 = load i32, ptr %46, align 1
-  %and.i23 = and i32 %48, 8
-  %cmp.i24 = icmp eq i32 %and.i23, 0
-  br i1 %cmp.i24, label %process_message_reply.exit, label %if.end.i25
+  %and.i22 = and i32 %48, 8
+  %cmp.i23 = icmp eq i32 %and.i22, 0
+  br i1 %cmp.i23, label %process_message_reply.exit, label %if.end.i24
 
-if.end.i25:                                       ; preds = %if.then30
-  %dev.val.i26 = load ptr, ptr %opaque, align 8
-  %49 = getelementptr i8, ptr %dev.val.i26, i64 8
-  %dev.val.val.i27 = load ptr, ptr %49, align 8
-  %dev.val.val.val.i28 = load ptr, ptr %dev.val.val.i27, align 8
-  %call.i29 = call fastcc i32 @vhost_user_read(ptr %dev.val.val.val.i28, ptr noundef nonnull %msg_reply.i22)
-  %cmp1.i = icmp slt i32 %call.i29, 0
+if.end.i24:                                       ; preds = %if.then30
+  %dev.val.i25 = load ptr, ptr %opaque, align 8
+  %49 = getelementptr i8, ptr %dev.val.i25, i64 8
+  %dev.val.val.i26 = load ptr, ptr %49, align 8
+  %dev.val.val.val.i27 = load ptr, ptr %dev.val.val.i26, align 8
+  %call.i28 = call fastcc i32 @vhost_user_read(ptr %dev.val.val.val.i27, ptr noundef nonnull %msg_reply.i21)
+  %cmp1.i = icmp slt i32 %call.i28, 0
   br i1 %cmp1.i, label %process_message_reply.exit, label %if.end3.i
 
-if.end3.i:                                        ; preds = %if.end.i25
-  %50 = load i32, ptr %msg_reply.i22, align 4
+if.end3.i:                                        ; preds = %if.end.i24
+  %50 = load i32, ptr %msg_reply.i21, align 4
   %51 = load i32, ptr %msg, align 4
   %cmp7.not.i = icmp eq i32 %50, %51
   br i1 %cmp7.not.i, label %if.end13.i, label %if.then8.i
@@ -1688,19 +1690,22 @@ if.then8.i:                                       ; preds = %if.end3.i
   br label %process_message_reply.exit
 
 if.end13.i:                                       ; preds = %if.end3.i
-  %payload.i = getelementptr inbounds i8, ptr %msg_reply.i22, i64 12
+  %payload.i = getelementptr inbounds i8, ptr %msg_reply.i21, i64 12
   %52 = load i64, ptr %payload.i, align 4
   %tobool.not.i = icmp eq i64 %52, 0
   %cond.i = select i1 %tobool.not.i, i32 0, i32 -5
   br label %process_message_reply.exit
 
-process_message_reply.exit:                       ; preds = %if.then30, %if.end.i25, %if.then8.i, %if.end13.i
-  %retval.0.i30 = phi i32 [ -71, %if.then8.i ], [ %cond.i, %if.end13.i ], [ 0, %if.then30 ], [ %call.i29, %if.end.i25 ]
-  call void @llvm.lifetime.end.p0(i64 1084, ptr nonnull %msg_reply.i22)
+process_message_reply.exit:                       ; preds = %if.then30, %if.end.i24, %if.then8.i, %if.end13.i
+  %retval.0.i29 = phi i32 [ -71, %if.then8.i ], [ %cond.i, %if.end13.i ], [ 0, %if.then30 ], [ %call.i28, %if.end.i24 ]
+  call void @llvm.lifetime.end.p0(i64 1084, ptr nonnull %msg_reply.i21)
   br label %return
 
-return:                                           ; preds = %if.then14, %if.end22, %if.else, %process_message_reply.exit, %vhost_user_set_mem_table_postcopy.exit
-  %retval.0 = phi i32 [ %retval.0.i, %vhost_user_set_mem_table_postcopy.exit ], [ %retval.0.i30, %process_message_reply.exit ], [ %call19, %if.else ], [ %call24.mux, %if.end22 ], [ %call16, %if.then14 ]
+if.end33:                                         ; preds = %if.end28, %if.then14
+  br label %return
+
+return:                                           ; preds = %if.end22, %if.else, %if.then14, %if.end33, %process_message_reply.exit, %vhost_user_set_mem_table_postcopy.exit
+  %retval.0 = phi i32 [ %retval.0.i, %vhost_user_set_mem_table_postcopy.exit ], [ 0, %if.end33 ], [ %retval.0.i29, %process_message_reply.exit ], [ %call16, %if.then14 ], [ %call19, %if.else ], [ %call24, %if.end22 ]
   ret i32 %retval.0
 }
 
@@ -5376,7 +5381,7 @@ send_add_regions.exit:                            ; preds = %if.end86.i, %if.the
   br label %if.end19
 
 if.end19:                                         ; preds = %send_add_regions.exit, %if.end8
-  br i1 %track_ramblocks, label %if.then21, label %return
+  br i1 %track_ramblocks, label %if.then21, label %if.end30
 
 if.then21:                                        ; preds = %if.end19
   %postcopy_client_bases = getelementptr inbounds i8, ptr %0, i64 96
@@ -5385,7 +5390,10 @@ if.then21:                                        ; preds = %if.end19
   %payload = getelementptr inbounds i8, ptr %msg, i64 12
   store i64 0, ptr %payload, align 1
   %call26 = call fastcc i32 @vhost_user_write(ptr noundef %dev, ptr noundef %msg, ptr noundef null, i32 noundef 0)
-  %spec.select = call i32 @llvm.smin.i32(i32 %call26, i32 0)
+  %cmp27 = icmp slt i32 %call26, 0
+  br i1 %cmp27, label %return, label %if.end30
+
+if.end30:                                         ; preds = %if.then21, %if.end19
   br label %return
 
 err:                                              ; preds = %send_add_regions.exit.thread, %send_remove_regions.exit.thread
@@ -5397,8 +5405,8 @@ if.then32:                                        ; preds = %err
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(4096) %postcopy_client_bases33, ptr noundef nonnull align 16 dereferenceable(4096) %shadow_pcb, i64 4096, i1 false)
   br label %return
 
-return:                                           ; preds = %if.then21, %err, %if.then32, %if.end19
-  %retval.0 = phi i32 [ 0, %if.end19 ], [ %ret.0, %if.then32 ], [ %ret.0, %err ], [ %spec.select, %if.then21 ]
+return:                                           ; preds = %err, %if.then32, %if.then21, %if.end30
+  %retval.0 = phi i32 [ 0, %if.end30 ], [ %call26, %if.then21 ], [ %ret.0, %if.then32 ], [ %ret.0, %err ]
   ret i32 %retval.0
 }
 

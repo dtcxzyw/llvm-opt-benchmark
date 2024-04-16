@@ -2517,15 +2517,15 @@ invoke.cont353:                                   ; preds = %if.else351
 if.end358:                                        ; preds = %invoke.cont353, %if.then347
   %71 = load i32, ptr %sign, align 4
   %cmp360.not = icmp eq i32 %71, 9
-  %spec.select336 = select i1 %cmp360.not, i32 0, i32 %71
+  %spec.select334 = select i1 %cmp360.not, i32 0, i32 %71
   %72 = getelementptr inbounds i8, ptr %this, i64 176
-  store i32 %spec.select336, ptr %72, align 8
+  store i32 %spec.select334, ptr %72, align 8
   %decimal = getelementptr inbounds i8, ptr %macros, i64 164
   %73 = load i32, ptr %decimal, align 4
   %cmp369.not = icmp eq i32 %73, 2
-  %.sink330 = select i1 %cmp369.not, i32 0, i32 %73
+  %.sink328 = select i1 %cmp369.not, i32 0, i32 %73
   %74 = getelementptr inbounds i8, ptr %this, i64 36
-  store i32 %.sink330, ptr %74, align 4
+  store i32 %.sink328, ptr %74, align 4
   %useCurrency = getelementptr inbounds i8, ptr %this, i64 32
   store i8 %frombool6, ptr %useCurrency, align 8
   %75 = load i32, ptr %notation.i, align 4
@@ -2614,11 +2614,12 @@ _ZN6icu_7512LocalPointerINS_6number4impl22MutablePatternModifierEE12adoptInstead
   %affixProvider430 = getelementptr inbounds i8, ptr %macros, i64 224
   %83 = load ptr, ptr %affixProvider430, align 8
   %cmp431.not = icmp eq ptr %83, null
-  %brmerge328 = select i1 %cmp431.not, i1 true, i1 %cmp
-  %fPatternInfo.mux = select i1 %cmp431.not, ptr %fPatternInfo, ptr %affixProvider430
-  br i1 %brmerge328, label %cond.end447, label %lor.lhs.false434
+  br i1 %cmp431.not, label %cond.false443, label %land.lhs.true432
 
-lor.lhs.false434:                                 ; preds = %_ZN6icu_7512LocalPointerINS_6number4impl22MutablePatternModifierEE12adoptInsteadEPS3_.exit
+land.lhs.true432:                                 ; preds = %_ZN6icu_7512LocalPointerINS_6number4impl22MutablePatternModifierEE12adoptInsteadEPS3_.exit
+  br i1 %cmp, label %cond.end447, label %lor.lhs.false434
+
+lor.lhs.false434:                                 ; preds = %land.lhs.true432
   %vtable = load ptr, ptr %83, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %84 = load ptr, ptr %vfn, align 8
@@ -2627,11 +2628,13 @@ lor.lhs.false434:                                 ; preds = %_ZN6icu_7512LocalPo
 
 invoke.cont437:                                   ; preds = %lor.lhs.false434
   %85 = xor i1 %cmp.i210, %call438
-  %spec.select329 = select i1 %85, ptr %fPatternInfo, ptr %affixProvider430
+  br i1 %85, label %cond.false443, label %cond.end447
+
+cond.false443:                                    ; preds = %invoke.cont437, %_ZN6icu_7512LocalPointerINS_6number4impl22MutablePatternModifierEE12adoptInsteadEPS3_.exit
   br label %cond.end447
 
-cond.end447:                                      ; preds = %invoke.cont437, %_ZN6icu_7512LocalPointerINS_6number4impl22MutablePatternModifierEE12adoptInsteadEPS3_.exit
-  %cond448.in = phi ptr [ %fPatternInfo.mux, %_ZN6icu_7512LocalPointerINS_6number4impl22MutablePatternModifierEE12adoptInsteadEPS3_.exit ], [ %spec.select329, %invoke.cont437 ]
+cond.end447:                                      ; preds = %land.lhs.true432, %invoke.cont437, %cond.false443
+  %cond448.in = phi ptr [ %fPatternInfo, %cond.false443 ], [ %affixProvider430, %invoke.cont437 ], [ %affixProvider430, %land.lhs.true432 ]
   %cond448 = load ptr, ptr %cond448.in, align 8
   invoke void @_ZN6icu_756number4impl22MutablePatternModifier14setPatternInfoEPKNS1_20AffixPatternProviderENS_22FormattedStringBuilder5FieldE(ptr noundef nonnull align 8 dereferenceable(392) %call415, ptr noundef %cond448, i8 0)
           to label %invoke.cont450 unwind label %lpad66
@@ -2971,18 +2974,18 @@ delete.notnull.i288:                              ; preds = %if.end675
 
 if.end680:                                        ; preds = %delete.notnull.i288, %if.end675
   store ptr %call649, ptr %fCompactHandler, align 8
-  %.pre331 = load i32, ptr %status, align 4
-  %123 = icmp slt i32 %.pre331, 1
+  %.pre329 = load i32, ptr %status, align 4
+  %123 = icmp slt i32 %.pre329, 1
   br i1 %123, label %if.end685, label %cleanup699
 
 if.end685:                                        ; preds = %if.end641, %if.end680
-  %chain.5335 = phi ptr [ %call649, %if.end680 ], [ %chain.4, %if.end641 ]
+  %chain.5333 = phi ptr [ %call649, %if.end680 ], [ %chain.4, %if.end641 ]
   br i1 %safe, label %if.then687, label %if.else695
 
 if.then687:                                       ; preds = %if.end685
   %fImmutablePatternModifier688 = getelementptr inbounds i8, ptr %this, i64 560
   %124 = load ptr, ptr %fImmutablePatternModifier688, align 8
-  invoke void @_ZN6icu_756number4impl24ImmutablePatternModifier10addToChainEPKNS1_19MicroPropsGeneratorE(ptr noundef nonnull align 8 dereferenceable(32) %124, ptr noundef %chain.5335)
+  invoke void @_ZN6icu_756number4impl24ImmutablePatternModifier10addToChainEPKNS1_19MicroPropsGeneratorE(ptr noundef nonnull align 8 dereferenceable(32) %124, ptr noundef %chain.5333)
           to label %invoke.cont691 unwind label %lpad66
 
 invoke.cont691:                                   ; preds = %if.then687
@@ -2990,7 +2993,7 @@ invoke.cont691:                                   ; preds = %if.then687
   br label %cleanup699
 
 if.else695:                                       ; preds = %if.end685
-  %call697 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6icu_756number4impl22MutablePatternModifier10addToChainEPKNS1_19MicroPropsGeneratorE(ptr noundef nonnull align 8 dereferenceable(392) %call415, ptr noundef %chain.5335)
+  %call697 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6icu_756number4impl22MutablePatternModifier10addToChainEPKNS1_19MicroPropsGeneratorE(ptr noundef nonnull align 8 dereferenceable(392) %call415, ptr noundef %chain.5333)
           to label %cleanup699 unwind label %lpad66
 
 cleanup699:                                       ; preds = %new.cont, %if.then.i, %new.cont667.thread, %cleanup609, %delete.notnull.i242, %invoke.cont691, %if.else695, %if.end680, %new.cont667, %if.end636, %if.end477, %invoke.cont292, %invoke.cont195, %invoke.cont169, %if.then674, %if.then427, %if.then404, %if.then205, %if.then189

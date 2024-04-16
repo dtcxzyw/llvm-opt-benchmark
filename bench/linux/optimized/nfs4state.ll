@@ -5301,11 +5301,11 @@ define internal fastcc noundef i32 @nfs4_recovery_handle_error(ptr noundef %0, i
   %4 = getelementptr inbounds i8, ptr %0, i64 320
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %4, i32 4, ptr elementtype(i8) %4) #17, !srcloc !6
   tail call void @nfs_expire_all_delegations(ptr noundef %0) #17
-  br label %102
+  br label %101
 
 5:                                                ; preds = %2
   tail call fastcc void @nfs4_state_end_reclaim_reboot(ptr noundef %0)
-  br label %102
+  br label %101
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 320
@@ -5413,7 +5413,7 @@ nfs4_state_mark_reclaim_reboot.exit.thread:       ; preds = %.preheader7.i, %34,
 
 nfs4_state_mark_reclaim_helper.exit:              ; preds = %.loopexit10.i, %6
   tail call void @__rcu_read_unlock() #17
-  br label %102
+  br label %101
 
 54:                                               ; preds = %2
   %55 = getelementptr inbounds i8, ptr %0, i64 320
@@ -5511,23 +5511,23 @@ nfs4_state_mark_reclaim_nograce.exit.thread:      ; preds = %.preheader7.i3, %.l
 
 nfs4_state_mark_reclaim_helper.exit8:             ; preds = %.loopexit10.i7, %54
   tail call void @__rcu_read_unlock() #17
-  br label %102
+  br label %101
 
 97:                                               ; preds = %2, %2, %2, %2, %2, %2
   %98 = getelementptr inbounds i8, ptr %0, i64 320
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %98, i32 64, ptr elementtype(i8) %98) #17, !srcloc !6
-  br label %102
+  br label %101
 
 99:                                               ; preds = %2
   %100 = getelementptr i8, ptr %0, i64 321
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %100, i32 4, ptr elementtype(i8) %100) #17, !srcloc !6
+  br label %101
+
+101:                                              ; preds = %99, %97, %nfs4_state_mark_reclaim_helper.exit8, %nfs4_state_mark_reclaim_helper.exit, %5, %3, %2
   br label %102
 
-101:                                              ; preds = %2
-  br label %102
-
-102:                                              ; preds = %3, %5, %nfs4_state_mark_reclaim_helper.exit, %nfs4_state_mark_reclaim_helper.exit8, %97, %99, %101, %2
-  %103 = phi i32 [ %1, %2 ], [ 0, %99 ], [ 0, %97 ], [ 0, %nfs4_state_mark_reclaim_helper.exit8 ], [ 0, %nfs4_state_mark_reclaim_helper.exit ], [ 0, %5 ], [ 0, %3 ], [ 0, %101 ]
+102:                                              ; preds = %101, %2
+  %103 = phi i32 [ 0, %101 ], [ %1, %2 ]
   ret i32 %103
 }
 

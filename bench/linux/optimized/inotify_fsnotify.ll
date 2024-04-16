@@ -107,7 +107,7 @@ define internal noundef i32 @inotify_merge(ptr nocapture noundef readonly %0, pt
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 32768
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %9, label %32
+  br i1 %8, label %9, label %33
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 16
@@ -133,19 +133,21 @@ define internal noundef i32 @inotify_merge(ptr nocapture noundef readonly %0, pt
 
 25:                                               ; preds = %19
   %26 = icmp eq i32 %21, 0
-  br i1 %26, label %32, label %27
+  br i1 %26, label %33, label %27
 
 27:                                               ; preds = %25
   %28 = getelementptr inbounds i8, ptr %4, i64 32
   %29 = getelementptr inbounds i8, ptr %1, i64 32
   %30 = tail call i32 @strcmp(ptr noundef %28, ptr noundef %29) #8
   %31 = icmp eq i32 %30, 0
-  %spec.select = zext i1 %31 to i32
-  br label %32
+  br i1 %31, label %33, label %32
 
-32:                                               ; preds = %27, %9, %13, %19, %25, %2
-  %33 = phi i32 [ 0, %2 ], [ 1, %25 ], [ 0, %19 ], [ 0, %13 ], [ 0, %9 ], [ %spec.select, %27 ]
-  ret i32 %33
+32:                                               ; preds = %27, %19, %13, %9
+  br label %33
+
+33:                                               ; preds = %32, %27, %25, %2
+  %34 = phi i32 [ 0, %32 ], [ 0, %2 ], [ 1, %27 ], [ 1, %25 ]
+  ret i32 %34
 }
 
 ; Function Attrs: null_pointer_is_valid

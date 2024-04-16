@@ -6466,17 +6466,19 @@ if.end.i:                                         ; preds = %if.then6.i, %if.the
   %ct.0.i = phi ptr [ %arrayidx.i.i, %if.then6.i ], [ %call.i, %if.then.i ]
   %and9.i = and i32 %8, -58720256
   %cmp10.i = icmp eq i32 %and9.i, 8388608
-  br i1 %cmp10.i, label %land.lhs.true.i, label %if.then
+  br i1 %cmp10.i, label %land.lhs.true.i, label %if.end15.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
   %size.i = getelementptr inbounds i8, ptr %ct.0.i, i64 4
   %9 = load i32, ptr %size.i, align 4
   %cmp12.i = icmp eq i32 %9, 8
-  %spec.select.i = select i1 %cmp12.i, i32 12, i32 11
+  br i1 %cmp12.i, label %if.then, label %if.end15.i
+
+if.end15.i:                                       ; preds = %land.lhs.true.i, %if.end.i
   br label %if.then
 
-if.then:                                          ; preds = %if.end.i, %land.lhs.true.i
-  %retval.0.i.ph = phi i32 [ %spec.select.i, %land.lhs.true.i ], [ 11, %if.end.i ]
+if.then:                                          ; preds = %if.end15.i, %land.lhs.true.i
+  %retval.0.i.ph = phi i32 [ 12, %land.lhs.true.i ], [ 11, %if.end15.i ]
   %10 = load ptr, ptr %1, align 8
   %idxprom.i = zext nneg i32 %retval.0.i.ph to i64
   %arrayidx.i = getelementptr inbounds %struct.CType, ptr %10, i64 %idxprom.i
@@ -6564,17 +6566,19 @@ if.end.i:                                         ; preds = %if.then6.i, %if.the
   %ct.0.i = phi ptr [ %arrayidx.i.i, %if.then6.i ], [ %call.i, %if.then.i ]
   %and9.i = and i32 %10, -58720256
   %cmp10.i = icmp eq i32 %and9.i, 8388608
-  br i1 %cmp10.i, label %land.lhs.true.i, label %crec_bit64_type.exit
+  br i1 %cmp10.i, label %land.lhs.true.i, label %if.end15.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
   %size.i = getelementptr inbounds i8, ptr %ct.0.i, i64 4
   %11 = load i32, ptr %size.i, align 4
   %cmp12.i = icmp eq i32 %11, 8
-  %spec.select.i = select i1 %cmp12.i, i32 12, i32 11
+  br i1 %cmp12.i, label %crec_bit64_type.exit, label %if.end15.i
+
+if.end15.i:                                       ; preds = %land.lhs.true.i, %if.end.i
   br label %crec_bit64_type.exit
 
-crec_bit64_type.exit:                             ; preds = %for.body, %if.end.i, %land.lhs.true.i
-  %retval.0.i = phi i32 [ 11, %if.end.i ], [ 0, %for.body ], [ %spec.select.i, %land.lhs.true.i ]
+crec_bit64_type.exit:                             ; preds = %for.body, %land.lhs.true.i, %if.end15.i
+  %retval.0.i = phi i32 [ 11, %if.end15.i ], [ 12, %land.lhs.true.i ], [ 0, %for.body ]
   %spec.select = tail call i32 @llvm.umax.i32(i32 %id.037, i32 %retval.0.i)
   %inc = add i32 %i.036, 1
   %12 = load ptr, ptr %base, align 8
@@ -6741,17 +6745,19 @@ if.end.i:                                         ; preds = %if.then6.i, %if.the
   %ct.0.i = phi ptr [ %arrayidx.i.i, %if.then6.i ], [ %call.i, %if.then.i ]
   %and9.i = and i32 %15, -58720256
   %cmp10.i = icmp eq i32 %and9.i, 8388608
-  br i1 %cmp10.i, label %land.lhs.true.i, label %if.then22
+  br i1 %cmp10.i, label %land.lhs.true.i, label %if.end15.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
   %size.i = getelementptr inbounds i8, ptr %ct.0.i, i64 4
   %16 = load i32, ptr %size.i, align 4
   %cmp12.i = icmp eq i32 %16, 8
-  %spec.select.i = select i1 %cmp12.i, i32 12, i32 11
+  br i1 %cmp12.i, label %if.then22, label %if.end15.i
+
+if.end15.i:                                       ; preds = %land.lhs.true.i, %if.end.i
   br label %if.then22
 
-if.then22:                                        ; preds = %if.end.i, %land.lhs.true.i
-  %retval.0.i.ph = phi i32 [ %spec.select.i, %land.lhs.true.i ], [ 11, %if.end.i ]
+if.then22:                                        ; preds = %if.end15.i, %land.lhs.true.i
+  %retval.0.i.ph = phi i32 [ 12, %land.lhs.true.i ], [ 11, %if.end15.i ]
   %17 = load ptr, ptr %1, align 8
   %idxprom.i = zext nneg i32 %retval.0.i.ph to i64
   %arrayidx.i = getelementptr inbounds %struct.CType, ptr %17, i64 %idxprom.i
@@ -6815,8 +6821,8 @@ entry:
   %.val = load i64, ptr %2, align 8
   %shr.i = ashr i64 %.val, 47
   %3 = and i64 %shr.i, 4294967295
-  %cmp.i = icmp eq i64 %3, 4294967285
-  br i1 %cmp.i, label %if.then.i, label %crec_bit64_type.exit
+  %cmp.i.not.not = icmp eq i64 %3, 4294967285
+  br i1 %cmp.i.not.not, label %if.then.i, label %crec_bit64_type.exit
 
 if.then.i:                                        ; preds = %entry
   %and.i = and i64 %.val, 140737488355327
@@ -6843,17 +6849,19 @@ if.end.i:                                         ; preds = %if.then6.i, %if.the
   %ct.0.i = phi ptr [ %arrayidx.i.i, %if.then6.i ], [ %call.i, %if.then.i ]
   %and9.i = and i32 %8, -58720256
   %cmp10.i = icmp eq i32 %and9.i, 8388608
-  br i1 %cmp10.i, label %land.lhs.true.i, label %crec_bit64_type.exit
+  br i1 %cmp10.i, label %land.lhs.true.i, label %if.end15.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
   %size.i = getelementptr inbounds i8, ptr %ct.0.i, i64 4
   %9 = load i32, ptr %size.i, align 4
   %cmp12.i = icmp eq i32 %9, 8
-  %spec.select.i = select i1 %cmp12.i, i32 12, i32 11
+  br i1 %cmp12.i, label %crec_bit64_type.exit, label %if.end15.i
+
+if.end15.i:                                       ; preds = %land.lhs.true.i, %if.end.i
   br label %crec_bit64_type.exit
 
-crec_bit64_type.exit:                             ; preds = %entry, %if.end.i, %land.lhs.true.i
-  %retval.0.i = phi i32 [ 11, %if.end.i ], [ 0, %entry ], [ %spec.select.i, %land.lhs.true.i ]
+crec_bit64_type.exit:                             ; preds = %entry, %land.lhs.true.i, %if.end15.i
+  %retval.0.i = phi i64 [ 11, %if.end15.i ], [ 12, %land.lhs.true.i ], [ 0, %entry ]
   %base = getelementptr inbounds i8, ptr %J, i64 160
   %10 = load ptr, ptr %base, align 8
   %arrayidx1 = getelementptr inbounds i8, ptr %10, i64 4
@@ -6898,21 +6906,18 @@ if.end:                                           ; preds = %if.else, %if.then4
   br label %if.end16
 
 if.else14:                                        ; preds = %crec_bit64_type.exit
-  %tobool15.not = icmp eq i32 %retval.0.i, 0
-  %cond = select i1 %tobool15.not, i32 8, i32 16
+  %cond = select i1 %cmp.i.not.not, i32 16, i32 8
   br label %if.end16
 
 if.end16:                                         ; preds = %if.else14, %if.end
   %n.0 = phi i32 [ %conv, %if.end ], [ %cond, %if.else14 ]
   %spec.select55 = call i32 @llvm.abs.i32(i32 %n.0, i1 false)
   %spec.store.select = call i32 @llvm.umin.i32(i32 %spec.select55, i32 254)
-  %tobool26.not = icmp eq i32 %retval.0.i, 0
-  br i1 %tobool26.not, label %if.else43, label %if.then27
+  br i1 %cmp.i.not.not, label %if.then27, label %if.else43
 
 if.then27:                                        ; preds = %if.end16
   %16 = load ptr, ptr %1, align 8
-  %idxprom.i = zext nneg i32 %retval.0.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.CType, ptr %16, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds %struct.CType, ptr %16, i64 %retval.0.i
   %17 = load ptr, ptr %base, align 8
   %18 = load i32, ptr %17, align 4
   %19 = load ptr, ptr %rd, align 8
@@ -7018,24 +7023,26 @@ if.end:                                           ; preds = %if.then, %entry
 
 if.then11:                                        ; preds = %if.end
   %cmp14 = icmp eq i32 %and8, 0
-  br i1 %cmp14, label %land.lhs.true, label %if.end28
+  br i1 %cmp14, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %if.then11
   %size = getelementptr inbounds i8, ptr %ct.0, i64 4
   %9 = load i32, ptr %size, align 4
   %cmp16 = icmp ult i32 %9, 5
-  br i1 %cmp16, label %land.lhs.true18, label %if.end28
+  br i1 %cmp16, label %land.lhs.true18, label %if.else
 
 land.lhs.true18:                                  ; preds = %land.lhs.true
   %cmp20 = icmp ne i32 %9, 4
   %and24 = and i32 %8, 8388608
   %tobool.not = icmp eq i32 %and24, 0
   %or.cond22 = or i1 %tobool.not, %cmp20
-  %spec.select = select i1 %or.cond22, i64 216, i64 336
+  br i1 %or.cond22, label %if.end28, label %if.else
+
+if.else:                                          ; preds = %land.lhs.true18, %land.lhs.true, %if.then11
   br label %if.end28
 
-if.end28:                                         ; preds = %land.lhs.true18, %if.then11, %land.lhs.true
-  %.sink24 = phi i64 [ 336, %land.lhs.true ], [ 336, %if.then11 ], [ %spec.select, %land.lhs.true18 ]
+if.end28:                                         ; preds = %land.lhs.true18, %if.else
+  %.sink24 = phi i64 [ 336, %if.else ], [ 216, %land.lhs.true18 ]
   %10 = load ptr, ptr %1, align 8
   %arrayidx.i49 = getelementptr inbounds i8, ptr %10, i64 %.sink24
   %base = getelementptr inbounds i8, ptr %J, i64 160

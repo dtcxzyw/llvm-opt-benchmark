@@ -2324,10 +2324,10 @@ define i32 @Extra_bddVarIsInCube(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %.not18 = icmp eq i32 %6, 2147483647
   br i1 %.not18, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %2, %33
-  %7 = phi i32 [ %36, %33 ], [ %6, %2 ]
-  %8 = phi ptr [ %35, %33 ], [ %5, %2 ]
-  %.01319 = phi i64 [ %.1.in, %33 ], [ %3, %2 ]
+.lr.ph:                                           ; preds = %2, %34
+  %7 = phi i32 [ %37, %34 ], [ %6, %2 ]
+  %8 = phi ptr [ %36, %34 ], [ %5, %2 ]
+  %.01319 = phi i64 [ %.1.in, %34 ], [ %3, %2 ]
   %9 = getelementptr inbounds i8, ptr %8, i64 16
   %10 = getelementptr inbounds i8, ptr %8, i64 24
   %11 = load ptr, ptr %10, align 8
@@ -2361,19 +2361,21 @@ define i32 @Extra_bddVarIsInCube(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %30 = inttoptr i64 %29 to ptr
   %31 = load i32, ptr %30, align 8
   %32 = icmp eq i32 %31, 2147483647
-  %spec.select = select i1 %32, i64 %17, i64 %14
-  br label %33
+  br i1 %32, label %34, label %33
 
 33:                                               ; preds = %28, %27
-  %.1.in = phi i64 [ %14, %27 ], [ %spec.select, %28 ]
-  %34 = and i64 %.1.in, -2
-  %35 = inttoptr i64 %34 to ptr
-  %36 = load i32, ptr %35, align 8
-  %.not = icmp eq i32 %36, 2147483647
+  br label %34
+
+34:                                               ; preds = %28, %33
+  %.1.in = phi i64 [ %14, %33 ], [ %17, %28 ]
+  %35 = and i64 %.1.in, -2
+  %36 = inttoptr i64 %35 to ptr
+  %37 = load i32, ptr %36, align 8
+  %.not = icmp eq i32 %37, 2147483647
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !34
 
-.loopexit:                                        ; preds = %33, %2, %20, %21
-  %.0 = phi i32 [ 0, %20 ], [ %26, %21 ], [ -1, %2 ], [ -1, %33 ]
+.loopexit:                                        ; preds = %34, %2, %20, %21
+  %.0 = phi i32 [ 0, %20 ], [ %26, %21 ], [ -1, %2 ], [ -1, %34 ]
   ret i32 %.0
 }
 

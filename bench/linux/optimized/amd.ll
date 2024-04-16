@@ -269,8 +269,7 @@ define dso_local noundef i32 @amd_get_highest_perf() #0 align 16 {
   %5 = icmp eq i8 %4, 48
   %6 = icmp sgt i8 %3, 111
   %7 = or i1 %6, %5
-  %spec.select1 = select i1 %7, i32 166, i32 255
-  br label %15
+  br i1 %7, label %16, label %15
 
 8:                                                ; preds = %0
   %9 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 2), align 2
@@ -279,12 +278,14 @@ define dso_local noundef i32 @amd_get_highest_perf() #0 align 16 {
   %12 = add i8 %9, -64
   %13 = icmp ult i8 %12, 48
   %14 = or i1 %11, %13
-  %spec.select = select i1 %14, i32 166, i32 255
-  br label %15
+  br i1 %14, label %16, label %15
 
 15:                                               ; preds = %2, %8, %0
-  %16 = phi i32 [ 255, %0 ], [ %spec.select, %8 ], [ %spec.select1, %2 ]
-  ret i32 %16
+  br label %16
+
+16:                                               ; preds = %15, %8, %2
+  %17 = phi i32 [ 255, %15 ], [ 166, %2 ], [ 166, %8 ]
+  ret i32 %17
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

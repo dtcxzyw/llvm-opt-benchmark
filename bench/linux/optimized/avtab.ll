@@ -230,13 +230,13 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
 define dso_local noundef ptr @avtab_search_node(ptr noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 16 {
   %3 = icmp eq ptr %0, null
-  br i1 %3, label %.thread7, label %4
+  br i1 %3, label %.thread9, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %.thread7, label %8
+  br i1 %7, label %.thread9, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 16
@@ -291,7 +291,7 @@ define dso_local noundef ptr @avtab_search_node(ptr noundef readonly %0, ptr noc
   %58 = getelementptr ptr, ptr %56, i64 %57
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %59, null
-  br i1 %60, label %.thread7, label %61
+  br i1 %60, label %.thread9, label %61
 
 61:                                               ; preds = %8
   %62 = getelementptr inbounds i8, ptr %1, i64 6
@@ -299,67 +299,67 @@ define dso_local noundef ptr @avtab_search_node(ptr noundef readonly %0, ptr noc
   %64 = and i16 %63, 32767
   br label %65
 
-65:                                               ; preds = %.critedge, %61
-  %66 = phi ptr [ %59, %61 ], [ %92, %.critedge ]
+65:                                               ; preds = %.thread5, %61
+  %66 = phi ptr [ %59, %61 ], [ %92, %.thread5 ]
   %67 = load i16, ptr %66, align 2
-  %.not = icmp eq i16 %36, %67
-  br i1 %.not, label %68, label %81
+  %68 = icmp eq i16 %36, %67
+  br i1 %68, label %69, label %.thread
 
-68:                                               ; preds = %65
-  %69 = getelementptr inbounds i8, ptr %66, i64 2
-  %70 = load i16, ptr %69, align 2
-  %71 = icmp eq i16 %25, %70
-  br i1 %71, label %72, label %.thread
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds i8, ptr %66, i64 2
+  %71 = load i16, ptr %70, align 2
+  %72 = icmp eq i16 %25, %71
+  br i1 %72, label %73, label %.thread11
 
-72:                                               ; preds = %68
-  %73 = getelementptr inbounds i8, ptr %66, i64 4
-  %74 = load i16, ptr %73, align 2
-  %75 = icmp eq i16 %12, %74
-  br i1 %75, label %76, label %83
+73:                                               ; preds = %69
+  %74 = getelementptr inbounds i8, ptr %66, i64 4
+  %75 = load i16, ptr %74, align 2
+  %76 = icmp eq i16 %12, %75
+  br i1 %76, label %77, label %82
 
-76:                                               ; preds = %72
-  %77 = getelementptr inbounds i8, ptr %66, i64 6
-  %78 = load i16, ptr %77, align 2
-  %79 = and i16 %64, %78
-  %80 = icmp eq i16 %79, 0
-  br i1 %80, label %83, label %.thread7
+77:                                               ; preds = %73
+  %78 = getelementptr inbounds i8, ptr %66, i64 6
+  %79 = load i16, ptr %78, align 2
+  %80 = and i16 %64, %79
+  %81 = icmp eq i16 %80, 0
+  br i1 %81, label %82, label %.thread9
 
-81:                                               ; preds = %65
-  %82 = icmp ult i16 %36, %67
-  br i1 %82, label %.thread7, label %.critedge
+82:                                               ; preds = %77, %73
+  %83 = icmp ult i16 %25, %71
+  br i1 %83, label %.thread9, label %86
 
-83:                                               ; preds = %76, %72
-  %84 = icmp ult i16 %25, %70
-  br i1 %84, label %.thread7, label %86
+.thread11:                                        ; preds = %69
+  %84 = icmp ult i16 %25, %71
+  br i1 %84, label %.thread9, label %.thread5
 
-.thread:                                          ; preds = %68
-  %85 = icmp ult i16 %25, %70
-  br i1 %85, label %.thread7, label %.critedge
+.thread:                                          ; preds = %65
+  %85 = icmp ult i16 %36, %67
+  br i1 %85, label %.thread9, label %.thread5
 
-86:                                               ; preds = %83
-  br i1 %71, label %87, label %.critedge
+86:                                               ; preds = %82
+  br i1 %72, label %87, label %.thread5
 
 87:                                               ; preds = %86
   %88 = getelementptr inbounds i8, ptr %66, i64 4
   %89 = load i16, ptr %88, align 2
   %90 = icmp ult i16 %12, %89
-  br i1 %90, label %.thread7, label %.critedge
+  br i1 %90, label %.thread9, label %.thread5
 
-.critedge:                                        ; preds = %.thread, %81, %86, %87
+.thread5:                                         ; preds = %.thread11, %.thread, %87, %86
   %91 = getelementptr inbounds i8, ptr %66, i64 16
   %92 = load ptr, ptr %91, align 8
   %93 = icmp eq ptr %92, null
-  br i1 %93, label %.thread7, label %65, !llvm.loop !8
+  br i1 %93, label %.thread9, label %65, !llvm.loop !8
 
-.thread7:                                         ; preds = %83, %87, %76, %.critedge, %.thread, %81, %8, %4, %2
-  %94 = phi ptr [ null, %4 ], [ null, %2 ], [ null, %8 ], [ null, %81 ], [ null, %.thread ], [ null, %83 ], [ null, %87 ], [ %66, %76 ], [ null, %.critedge ]
+.thread9:                                         ; preds = %82, %87, %.thread, %77, %.thread5, %.thread11, %8, %4, %2
+  %94 = phi ptr [ null, %4 ], [ null, %2 ], [ null, %8 ], [ null, %.thread11 ], [ null, %82 ], [ null, %87 ], [ null, %.thread ], [ %66, %77 ], [ null, %.thread5 ]
   ret ptr %94
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
 define dso_local noundef ptr @avtab_search_node_next(ptr noundef readonly %0, i16 noundef zeroext %1) local_unnamed_addr #2 align 16 {
   %3 = icmp eq ptr %0, null
-  br i1 %3, label %.thread6, label %4
+  br i1 %3, label %.thread8, label %4
 
 4:                                                ; preds = %2
   %5 = load i64, ptr %0, align 8
@@ -372,62 +372,62 @@ define dso_local noundef ptr @avtab_search_node_next(ptr noundef readonly %0, i1
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %.thread6, label %.lr.ph
+  br i1 %14, label %.thread8, label %.lr.ph
 
-.lr.ph:                                           ; preds = %4, %.critedge.backedge
-  %15 = phi ptr [ %41, %.critedge.backedge ], [ %13, %4 ]
+.lr.ph:                                           ; preds = %4, %.thread4
+  %15 = phi ptr [ %41, %.thread4 ], [ %13, %4 ]
   %16 = load i16, ptr %15, align 2
-  %.not = icmp eq i16 %16, %6
-  br i1 %.not, label %17, label %30
+  %17 = icmp eq i16 %16, %6
+  br i1 %17, label %18, label %.thread
 
-17:                                               ; preds = %.lr.ph
-  %18 = getelementptr inbounds i8, ptr %15, i64 2
-  %19 = load i16, ptr %18, align 2
-  %20 = icmp eq i16 %19, %8
-  br i1 %20, label %21, label %.thread
+18:                                               ; preds = %.lr.ph
+  %19 = getelementptr inbounds i8, ptr %15, i64 2
+  %20 = load i16, ptr %19, align 2
+  %21 = icmp eq i16 %20, %8
+  br i1 %21, label %22, label %.thread17
 
-21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %15, i64 4
-  %23 = load i16, ptr %22, align 2
-  %24 = icmp eq i16 %23, %10
-  br i1 %24, label %25, label %32
+22:                                               ; preds = %18
+  %23 = getelementptr inbounds i8, ptr %15, i64 4
+  %24 = load i16, ptr %23, align 2
+  %25 = icmp eq i16 %24, %10
+  br i1 %25, label %26, label %31
 
-25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %15, i64 6
-  %27 = load i16, ptr %26, align 2
-  %28 = and i16 %11, %27
-  %29 = icmp eq i16 %28, 0
-  br i1 %29, label %32, label %.thread6
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds i8, ptr %15, i64 6
+  %28 = load i16, ptr %27, align 2
+  %29 = and i16 %11, %28
+  %30 = icmp eq i16 %29, 0
+  br i1 %30, label %31, label %.thread8
 
-30:                                               ; preds = %.lr.ph
-  %31 = icmp ugt i16 %16, %6
-  br i1 %31, label %.thread6, label %.critedge.backedge
+31:                                               ; preds = %26, %22
+  %32 = icmp ugt i16 %20, %8
+  br i1 %32, label %.thread8, label %35
 
-32:                                               ; preds = %25, %21
-  %33 = icmp ugt i16 %19, %8
-  br i1 %33, label %.thread6, label %35
+.thread17:                                        ; preds = %18
+  %33 = icmp ugt i16 %20, %8
+  br i1 %33, label %.thread8, label %.thread4
 
-.thread:                                          ; preds = %17
-  %34 = icmp ugt i16 %19, %8
-  br i1 %34, label %.thread6, label %.critedge.backedge
+.thread:                                          ; preds = %.lr.ph
+  %34 = icmp ugt i16 %16, %6
+  br i1 %34, label %.thread8, label %.thread4
 
-35:                                               ; preds = %32
-  br i1 %20, label %36, label %.critedge.backedge
+35:                                               ; preds = %31
+  br i1 %21, label %36, label %.thread4
 
 36:                                               ; preds = %35
   %37 = getelementptr inbounds i8, ptr %15, i64 4
   %38 = load i16, ptr %37, align 2
   %39 = icmp ugt i16 %38, %10
-  br i1 %39, label %.thread6, label %.critedge.backedge
+  br i1 %39, label %.thread8, label %.thread4
 
-.critedge.backedge:                               ; preds = %.thread, %30, %36, %35
+.thread4:                                         ; preds = %.thread17, %.thread, %35, %36
   %40 = getelementptr inbounds i8, ptr %15, i64 16
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, null
-  br i1 %42, label %.thread6, label %.lr.ph
+  br i1 %42, label %.thread8, label %.lr.ph
 
-.thread6:                                         ; preds = %.critedge.backedge, %25, %36, %32, %.thread, %30, %4, %2
-  %43 = phi ptr [ null, %2 ], [ null, %4 ], [ null, %30 ], [ null, %.thread ], [ null, %.critedge.backedge ], [ %15, %25 ], [ null, %36 ], [ null, %32 ]
+.thread8:                                         ; preds = %.thread4, %26, %.thread, %36, %31, %.thread17, %4, %2
+  %43 = phi ptr [ null, %2 ], [ null, %4 ], [ null, %.thread17 ], [ null, %.thread4 ], [ %15, %26 ], [ null, %.thread ], [ null, %36 ], [ null, %31 ]
   ret ptr %43
 }
 
@@ -516,7 +516,7 @@ define dso_local void @avtab_init(ptr nocapture noundef writeonly %0) local_unna
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @avtab_alloc(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = icmp eq i32 %1, 0
-  br i1 %3, label %24, label %4
+  br i1 %3, label %.thread1, label %4
 
 4:                                                ; preds = %2
   %5 = icmp ugt i32 %1, 3
@@ -531,7 +531,7 @@ define dso_local noundef i32 @avtab_alloc(ptr nocapture noundef writeonly %0, i3
   %12 = trunc i64 %11 to i32
   %13 = tail call i32 @llvm.umin.i32(i32 %12, i32 65536)
   %14 = icmp ugt i32 %9, 31
-  br i1 %14, label %24, label %.thread
+  br i1 %14, label %.thread1, label %.thread
 
 .thread:                                          ; preds = %4, %6
   %15 = phi i32 [ %13, %6 ], [ 2, %4 ]
@@ -540,7 +540,7 @@ define dso_local noundef i32 @avtab_alloc(ptr nocapture noundef writeonly %0, i3
   %18 = tail call noalias ptr @kvmalloc_node(i64 noundef %17, i32 noundef 3520, i32 noundef -1) #15
   store ptr %18, ptr %0, align 8
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %24, label %20
+  br i1 %19, label %.thread1, label %20
 
 20:                                               ; preds = %.thread
   %21 = getelementptr inbounds i8, ptr %0, i64 12
@@ -548,11 +548,11 @@ define dso_local noundef i32 @avtab_alloc(ptr nocapture noundef writeonly %0, i3
   %22 = add nsw i32 %15, -1
   %23 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %22, ptr %23, align 8
-  br label %24
+  br label %.thread1
 
-24:                                               ; preds = %6, %.thread, %20, %2
-  %25 = phi i32 [ 0, %2 ], [ 0, %20 ], [ 0, %6 ], [ -12, %.thread ]
-  ret i32 %25
+.thread1:                                         ; preds = %6, %20, %2, %.thread
+  %24 = phi i32 [ -12, %.thread ], [ 0, %2 ], [ 0, %20 ], [ 0, %6 ]
+  ret i32 %24
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1147,7 +1147,7 @@ define internal noundef i32 @avtab_insertf(ptr noundef %0, ptr nocapture noundef
   %64 = getelementptr ptr, ptr %62, i64 %63
   %65 = load ptr, ptr %64, align 8
   %66 = icmp eq ptr %65, null
-  br i1 %66, label %.thread10, label %67
+  br i1 %66, label %.thread9, label %67
 
 67:                                               ; preds = %14
   %68 = getelementptr inbounds i8, ptr %1, i64 6
@@ -1157,64 +1157,64 @@ define internal noundef i32 @avtab_insertf(ptr noundef %0, ptr nocapture noundef
   %72 = icmp eq i16 %71, 0
   br label %76
 
-.thread12:                                        ; preds = %.thread, %96, %97, %102
+.thread7:                                         ; preds = %.thread15, %.thread, %99, %98
   %73 = getelementptr inbounds i8, ptr %77, i64 16
   %74 = load ptr, ptr %73, align 8
   %75 = icmp eq ptr %74, null
-  br i1 %75, label %.thread10, label %76, !llvm.loop !16
+  br i1 %75, label %.thread9, label %76, !llvm.loop !16
 
-76:                                               ; preds = %.thread12, %67
-  %77 = phi ptr [ %65, %67 ], [ %74, %.thread12 ]
-  %78 = phi ptr [ null, %67 ], [ %77, %.thread12 ]
+76:                                               ; preds = %.thread7, %67
+  %77 = phi ptr [ %65, %67 ], [ %74, %.thread7 ]
+  %78 = phi ptr [ null, %67 ], [ %77, %.thread7 ]
   %79 = load i16, ptr %77, align 2
-  %.not = icmp eq i16 %42, %79
-  br i1 %.not, label %80, label %102
+  %80 = icmp eq i16 %42, %79
+  br i1 %80, label %81, label %.thread
 
-80:                                               ; preds = %76
-  %81 = getelementptr inbounds i8, ptr %77, i64 2
-  %82 = load i16, ptr %81, align 2
-  %83 = icmp eq i16 %31, %82
-  br i1 %83, label %84, label %.thread
+81:                                               ; preds = %76
+  %82 = getelementptr inbounds i8, ptr %77, i64 2
+  %83 = load i16, ptr %82, align 2
+  %84 = icmp eq i16 %31, %83
+  br i1 %84, label %85, label %.thread15
 
-84:                                               ; preds = %80
-  %85 = getelementptr inbounds i8, ptr %77, i64 4
-  %86 = load i16, ptr %85, align 2
-  %87 = icmp eq i16 %18, %86
-  br i1 %87, label %88, label %93
+85:                                               ; preds = %81
+  %86 = getelementptr inbounds i8, ptr %77, i64 4
+  %87 = load i16, ptr %86, align 2
+  %88 = icmp eq i16 %18, %87
+  br i1 %88, label %89, label %94
 
-88:                                               ; preds = %84
-  %89 = getelementptr inbounds i8, ptr %77, i64 6
-  %90 = load i16, ptr %89, align 2
-  %91 = and i16 %70, %90
-  %92 = icmp eq i16 %91, 0
-  br i1 %92, label %93, label %101
+89:                                               ; preds = %85
+  %90 = getelementptr inbounds i8, ptr %77, i64 6
+  %91 = load i16, ptr %90, align 2
+  %92 = and i16 %70, %91
+  %93 = icmp eq i16 %92, 0
+  br i1 %93, label %94, label %103
 
-93:                                               ; preds = %88, %84
-  %94 = icmp ult i16 %31, %82
-  br i1 %94, label %.thread10, label %96
+94:                                               ; preds = %89, %85
+  %95 = icmp ult i16 %31, %83
+  br i1 %95, label %.thread9, label %98
 
-.thread:                                          ; preds = %80
-  %95 = icmp ult i16 %31, %82
-  br i1 %95, label %.thread10, label %.thread12
+.thread15:                                        ; preds = %81
+  %96 = icmp ult i16 %31, %83
+  br i1 %96, label %.thread9, label %.thread7
 
-96:                                               ; preds = %93
-  br i1 %83, label %97, label %.thread12
+.thread:                                          ; preds = %76
+  %97 = icmp ult i16 %42, %79
+  br i1 %97, label %.thread9, label %.thread7
 
-97:                                               ; preds = %96
-  %98 = getelementptr inbounds i8, ptr %77, i64 4
-  %99 = load i16, ptr %98, align 2
-  %100 = icmp ult i16 %18, %99
-  br i1 %100, label %.thread10, label %.thread12
+98:                                               ; preds = %94
+  br i1 %84, label %99, label %.thread7
 
-101:                                              ; preds = %88
-  br i1 %72, label %132, label %.thread10
+99:                                               ; preds = %98
+  %100 = getelementptr inbounds i8, ptr %77, i64 4
+  %101 = load i16, ptr %100, align 2
+  %102 = icmp ult i16 %18, %101
+  br i1 %102, label %.thread9, label %.thread7
 
-102:                                              ; preds = %76
-  %103 = icmp ult i16 %42, %79
-  br i1 %103, label %.thread10, label %.thread12
+103:                                              ; preds = %89
+  br i1 %72, label %132, label %.thread9
 
-.thread10:                                        ; preds = %93, %97, %102, %.thread12, %.thread, %101, %14
-  %104 = phi ptr [ null, %14 ], [ %78, %101 ], [ %78, %.thread ], [ %78, %93 ], [ %78, %97 ], [ %78, %102 ], [ %77, %.thread12 ]
+.thread9:                                         ; preds = %94, %99, %.thread, %.thread7, %.thread15, %103, %14
+  %104 = phi ptr [ null, %14 ], [ %78, %103 ], [ %78, %.thread15 ], [ %78, %94 ], [ %78, %99 ], [ %78, %.thread ], [ %77, %.thread7 ]
   %105 = icmp eq ptr %104, null
   %106 = getelementptr inbounds i8, ptr %104, i64 16
   %107 = select i1 %105, ptr %64, ptr %106
@@ -1223,7 +1223,7 @@ define internal noundef i32 @avtab_insertf(ptr noundef %0, ptr nocapture noundef
   %110 = icmp eq ptr %109, null
   br i1 %110, label %132, label %111
 
-111:                                              ; preds = %.thread10
+111:                                              ; preds = %.thread9
   %112 = load i64, ptr %1, align 2
   store i64 %112, ptr %109, align 8
   %113 = and i64 %112, 504403158265495552
@@ -1264,8 +1264,8 @@ define internal noundef i32 @avtab_insertf(ptr noundef %0, ptr nocapture noundef
   store i32 %131, ptr %11, align 8
   br label %132
 
-132:                                              ; preds = %127, %119, %.thread10, %101, %10, %6, %4
-  %133 = phi i32 [ -22, %10 ], [ -22, %6 ], [ -22, %4 ], [ -12, %119 ], [ 0, %127 ], [ -12, %.thread10 ], [ -17, %101 ]
+132:                                              ; preds = %127, %119, %.thread9, %103, %10, %6, %4
+  %133 = phi i32 [ -22, %10 ], [ -22, %6 ], [ -22, %4 ], [ -12, %119 ], [ 0, %127 ], [ -12, %.thread9 ], [ -17, %103 ]
   ret i32 %133
 }
 

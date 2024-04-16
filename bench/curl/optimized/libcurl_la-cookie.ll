@@ -2037,7 +2037,7 @@ declare i32 @psl_is_cookie_domain_acceptable(ptr noundef, ptr noundef, ptr nound
 declare void @Curl_psl_release(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @bad_domain(ptr noundef %domain, i64 noundef %len) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @bad_domain(ptr noundef %domain, i64 noundef %len) unnamed_addr #0 {
 entry:
   %cmp = icmp eq i64 %len, 9
   br i1 %cmp, label %land.lhs.true, label %if.else
@@ -2050,18 +2050,21 @@ land.lhs.true:                                    ; preds = %entry
 if.else:                                          ; preds = %land.lhs.true, %entry
   %call1 = tail call ptr @memchr(ptr noundef %domain, i32 noundef 46, i64 noundef %len) #13
   %tobool2.not = icmp eq ptr %call1, null
-  br i1 %tobool2.not, label %return, label %if.then3
+  br i1 %tobool2.not, label %if.end7, label %if.then3
 
 if.then3:                                         ; preds = %if.else
   %sub.ptr.lhs.cast = ptrtoint ptr %call1 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %domain to i64
   %sub.ptr.sub.neg = add i64 %sub.ptr.rhs.cast, %len
   %sub = sub i64 %sub.ptr.sub.neg, %sub.ptr.lhs.cast
-  %cmp4 = icmp ult i64 %sub, 2
+  %cmp4 = icmp ugt i64 %sub, 1
+  br i1 %cmp4, label %return, label %if.end7
+
+if.end7:                                          ; preds = %if.else, %if.then3
   br label %return
 
-return:                                           ; preds = %if.then3, %if.else, %land.lhs.true
-  %retval.0 = phi i1 [ false, %land.lhs.true ], [ true, %if.else ], [ %cmp4, %if.then3 ]
+return:                                           ; preds = %if.then3, %land.lhs.true, %if.end7
+  %retval.0 = phi i1 [ true, %if.end7 ], [ false, %land.lhs.true ], [ false, %if.then3 ]
   ret i1 %retval.0
 }
 

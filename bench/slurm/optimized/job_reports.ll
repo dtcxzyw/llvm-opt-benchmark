@@ -1858,7 +1858,7 @@ declare i32 @list_transfer(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @xstrcmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @_match_job_group(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
+define internal noundef i32 @_match_job_group(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1872,11 +1872,13 @@ define internal i32 @_match_job_group(ptr nocapture noundef readonly %0, ptr noc
   %11 = getelementptr inbounds i8, ptr %0, i64 20
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %10, %12
-  %spec.select = zext i1 %13 to i32
-  br label %14
+  br i1 %13, label %15, label %14
 
 14:                                               ; preds = %8, %2
-  %.0 = phi i32 [ 0, %2 ], [ %spec.select, %8 ]
+  br label %15
+
+15:                                               ; preds = %8, %14
+  %.0 = phi i32 [ 0, %14 ], [ 1, %8 ]
   ret i32 %.0
 }
 

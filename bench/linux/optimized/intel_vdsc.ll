@@ -513,7 +513,7 @@ define dso_local i32 @intel_dsc_compute_params(ptr noundef %0) local_unnamed_add
 309:                                              ; preds = %71
   %310 = and i16 %6, -80
   %311 = icmp eq i16 %310, 128
-  br i1 %311, label %312, label %315
+  br i1 %311, label %312, label %314
 
 312:                                              ; preds = %309
   %313 = load i8, ptr %76, align 1
@@ -523,11 +523,11 @@ define dso_local i32 @intel_dsc_compute_params(ptr noundef %0) local_unnamed_add
     i8 12, label %315
   ]
 
-314:                                              ; preds = %312
+314:                                              ; preds = %312, %309
   br label %315
 
-315:                                              ; preds = %309, %314, %312, %312, %312
-  %316 = phi i32 [ 1, %312 ], [ 1, %312 ], [ 1, %312 ], [ 0, %309 ], [ 0, %314 ]
+315:                                              ; preds = %314, %312, %312, %312
+  %316 = phi i32 [ 0, %314 ], [ 1, %312 ], [ 1, %312 ], [ 1, %312 ]
   %317 = tail call i32 @drm_dsc_setup_rc_params(ptr noundef %4, i32 noundef %316) #8
   %318 = icmp eq i32 %317, 0
   br i1 %318, label %.loopexit, label %334

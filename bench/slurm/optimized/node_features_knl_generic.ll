@@ -3798,7 +3798,7 @@ _knl_numa_token.exit81:                           ; preds = %67
 declare i32 @xstrcmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define zeroext i1 @node_features_p_changeable_feature(ptr noundef %0) local_unnamed_addr #0 {
+define noundef zeroext i1 @node_features_p_changeable_feature(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call fastcc zeroext i16 @_knl_mcdram_token(ptr noundef %0), !range !6
   %.not = icmp eq i16 %2, 0
   br i1 %.not, label %3, label %_knl_numa_token.exit
@@ -3806,30 +3806,33 @@ define zeroext i1 @node_features_p_changeable_feature(ptr noundef %0) local_unna
 3:                                                ; preds = %1
   %4 = tail call i32 @xstrcasecmp(ptr noundef %0, ptr noundef nonnull @.str.62) #15
   %.not.i = icmp eq i32 %4, 0
-  br i1 %.not.i, label %_knl_numa_token.exit, label %5
+  br i1 %.not.i, label %_knl_numa_token.exit.thread, label %5
 
 5:                                                ; preds = %3
   %6 = tail call i32 @xstrcasecmp(ptr noundef %0, ptr noundef nonnull @.str.68) #15
   %.not10.i = icmp eq i32 %6, 0
-  br i1 %.not10.i, label %_knl_numa_token.exit, label %7
+  br i1 %.not10.i, label %_knl_numa_token.exit.thread, label %7
 
 7:                                                ; preds = %5
   %8 = tail call i32 @xstrcasecmp(ptr noundef %0, ptr noundef nonnull @.str.70) #15
   %.not11.i = icmp eq i32 %8, 0
-  br i1 %.not11.i, label %_knl_numa_token.exit, label %9
+  br i1 %.not11.i, label %_knl_numa_token.exit.thread, label %9
 
 9:                                                ; preds = %7
   %10 = tail call i32 @xstrcasecmp(ptr noundef %0, ptr noundef nonnull @.str.64) #15
   %.not12.i = icmp eq i32 %10, 0
-  br i1 %.not12.i, label %_knl_numa_token.exit, label %11
+  br i1 %.not12.i, label %_knl_numa_token.exit.thread, label %11
 
 11:                                               ; preds = %9
   %12 = tail call i32 @xstrcasecmp(ptr noundef %0, ptr noundef nonnull @.str.66) #15
   %.not13.i = icmp eq i32 %12, 0
+  br i1 %.not13.i, label %_knl_numa_token.exit.thread, label %_knl_numa_token.exit
+
+_knl_numa_token.exit.thread:                      ; preds = %3, %5, %7, %9, %11
   br label %_knl_numa_token.exit
 
-_knl_numa_token.exit:                             ; preds = %11, %9, %7, %5, %3, %1
-  %.0 = phi i1 [ true, %1 ], [ true, %3 ], [ true, %5 ], [ true, %7 ], [ true, %9 ], [ %.not13.i, %11 ]
+_knl_numa_token.exit:                             ; preds = %_knl_numa_token.exit.thread, %11, %1
+  %.0 = phi i1 [ true, %1 ], [ true, %_knl_numa_token.exit.thread ], [ false, %11 ]
   ret i1 %.0
 }
 

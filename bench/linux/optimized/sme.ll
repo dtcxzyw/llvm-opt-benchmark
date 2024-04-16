@@ -1485,11 +1485,11 @@ define internal void @disconnect_work(ptr nocapture readnone %0) #0 align 16 {
 7:                                                ; preds = %6, %1
   %8 = load ptr, ptr @cfg80211_rdev_list, align 8
   %9 = icmp eq ptr %8, @cfg80211_rdev_list
-  br i1 %9, label %39, label %.preheader4
+  br i1 %9, label %40, label %.preheader4
 
 .preheader4:                                      ; preds = %7, %.loopexit
-  %10 = phi ptr [ %34, %.loopexit ], [ %8, %7 ]
-  %11 = phi i8 [ %33, %.loopexit ], [ 1, %7 ]
+  %10 = phi ptr [ %35, %.loopexit ], [ %8, %7 ]
+  %11 = phi i8 [ %34, %.loopexit ], [ 1, %7 ]
   %12 = getelementptr i8, ptr %10, i64 952
   tail call void @mutex_lock(ptr noundef %12) #12
   %13 = getelementptr i8, ptr %10, i64 2088
@@ -1497,9 +1497,9 @@ define internal void @disconnect_work(ptr nocapture readnone %0) #0 align 16 {
   %15 = icmp eq ptr %14, %13
   br i1 %15, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %.preheader4, %29
-  %16 = phi ptr [ %31, %29 ], [ %14, %.preheader4 ]
-  %17 = phi i8 [ %30, %29 ], [ %11, %.preheader4 ]
+.preheader:                                       ; preds = %.preheader4, %30
+  %16 = phi ptr [ %32, %30 ], [ %14, %.preheader4 ]
+  %17 = phi i8 [ %31, %30 ], [ %11, %.preheader4 ]
   %18 = getelementptr i8, ptr %16, i64 -16
   %19 = getelementptr i8, ptr %16, i64 64
   %20 = load ptr, ptr %19, align 8
@@ -1515,32 +1515,34 @@ define internal void @disconnect_work(ptr nocapture readnone %0) #0 align 16 {
 
 27:                                               ; preds = %22
   %28 = tail call zeroext i1 @cfg80211_beaconing_iface_active(ptr noundef %18) #12
-  %spec.select = select i1 %28, i8 0, i8 %17
-  br label %29
+  br i1 %28, label %29, label %30
 
-29:                                               ; preds = %27, %.preheader, %22
-  %30 = phi i8 [ 0, %22 ], [ 0, %.preheader ], [ %spec.select, %27 ]
-  %31 = load ptr, ptr %16, align 8
-  %32 = icmp eq ptr %31, %13
-  br i1 %32, label %.loopexit, label %.preheader, !llvm.loop !63
+29:                                               ; preds = %27, %22, %.preheader
+  br label %30
 
-.loopexit:                                        ; preds = %29, %.preheader4
-  %33 = phi i8 [ %11, %.preheader4 ], [ %30, %29 ]
+30:                                               ; preds = %29, %27
+  %31 = phi i8 [ 0, %29 ], [ %17, %27 ]
+  %32 = load ptr, ptr %16, align 8
+  %33 = icmp eq ptr %32, %13
+  br i1 %33, label %.loopexit, label %.preheader, !llvm.loop !63
+
+.loopexit:                                        ; preds = %30, %.preheader4
+  %34 = phi i8 [ %11, %.preheader4 ], [ %31, %30 ]
   tail call void @mutex_unlock(ptr noundef %12) #12
-  %34 = load ptr, ptr %10, align 8
-  %35 = icmp eq ptr %34, @cfg80211_rdev_list
-  br i1 %35, label %36, label %.preheader4, !llvm.loop !64
+  %35 = load ptr, ptr %10, align 8
+  %36 = icmp eq ptr %35, @cfg80211_rdev_list
+  br i1 %36, label %37, label %.preheader4, !llvm.loop !64
 
-36:                                               ; preds = %.loopexit
-  %37 = and i8 %33, 1
-  %38 = icmp eq i8 %37, 0
-  br i1 %38, label %40, label %39
+37:                                               ; preds = %.loopexit
+  %38 = and i8 %34, 1
+  %39 = icmp eq i8 %38, 0
+  br i1 %39, label %41, label %40
 
-39:                                               ; preds = %36, %7
+40:                                               ; preds = %37, %7
   tail call void @regulatory_hint_disconnect() #12
-  br label %40
+  br label %41
 
-40:                                               ; preds = %39, %36
+41:                                               ; preds = %40, %37
   tail call void @rtnl_unlock() #12
   ret void
 }

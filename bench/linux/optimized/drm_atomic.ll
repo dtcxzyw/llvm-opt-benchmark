@@ -878,7 +878,7 @@ define dso_local ptr @drm_atomic_get_plane_state(ptr noundef %0, ptr noundef %1)
   %29 = getelementptr %struct.__drm_planes_state, ptr %26, i64 %28, i32 1
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
-  br i1 %31, label %32, label %77
+  br i1 %31, label %32, label %78
 
 32:                                               ; preds = %24
   %33 = getelementptr inbounds i8, ptr %1, i64 32
@@ -890,7 +890,7 @@ define dso_local ptr @drm_atomic_get_plane_state(ptr noundef %0, ptr noundef %1)
 37:                                               ; preds = %32
   %38 = sext i32 %35 to i64
   %39 = inttoptr i64 %38 to ptr
-  br label %77
+  br label %78
 
 40:                                               ; preds = %32
   %41 = getelementptr inbounds i8, ptr %1, i64 184
@@ -899,7 +899,7 @@ define dso_local ptr @drm_atomic_get_plane_state(ptr noundef %0, ptr noundef %1)
   %44 = load ptr, ptr %43, align 8
   %45 = tail call ptr %44(ptr noundef %1) #10
   %46 = icmp eq ptr %45, null
-  br i1 %46, label %77, label %47
+  br i1 %46, label %78, label %47
 
 47:                                               ; preds = %40
   %48 = load ptr, ptr %25, align 8
@@ -943,12 +943,14 @@ define dso_local ptr @drm_atomic_get_plane_state(ptr noundef %0, ptr noundef %1)
 74:                                               ; preds = %65
   %75 = tail call ptr @drm_atomic_get_crtc_state(ptr noundef %0, ptr noundef nonnull %72)
   %76 = icmp ugt ptr %75, inttoptr (i64 -4096 to ptr)
-  %spec.select = select i1 %76, ptr %75, ptr %45
-  br label %77
+  br i1 %76, label %78, label %77
 
-77:                                               ; preds = %74, %65, %40, %37, %24
-  %78 = phi ptr [ %39, %37 ], [ %30, %24 ], [ inttoptr (i64 -12 to ptr), %40 ], [ %45, %65 ], [ %spec.select, %74 ]
-  ret ptr %78
+77:                                               ; preds = %74, %65
+  br label %78
+
+78:                                               ; preds = %77, %74, %40, %37, %24
+  %79 = phi ptr [ %39, %37 ], [ %45, %77 ], [ %75, %74 ], [ %30, %24 ], [ inttoptr (i64 -12 to ptr), %40 ]
+  ret ptr %79
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1496,17 +1498,19 @@ define dso_local ptr @drm_atomic_get_connector_state(ptr noundef %0, ptr noundef
   %80 = getelementptr inbounds i8, ptr %55, i64 8
   %81 = load ptr, ptr %80, align 8
   %82 = icmp eq ptr %81, null
-  br i1 %82, label %.thread, label %83
+  br i1 %82, label %86, label %83
 
 83:                                               ; preds = %75
   %84 = tail call ptr @drm_atomic_get_crtc_state(ptr noundef %0, ptr noundef nonnull %81)
   %85 = icmp ugt ptr %84, inttoptr (i64 -4096 to ptr)
-  %spec.select = select i1 %85, ptr %84, ptr %55
+  br i1 %85, label %.thread, label %86
+
+86:                                               ; preds = %83, %75
   br label %.thread
 
-.thread:                                          ; preds = %22, %83, %75, %50, %43, %31, %13
-  %86 = phi ptr [ %15, %13 ], [ %48, %43 ], [ inttoptr (i64 -12 to ptr), %50 ], [ inttoptr (i64 -12 to ptr), %31 ], [ %55, %75 ], [ %spec.select, %83 ], [ inttoptr (i64 -12 to ptr), %22 ]
-  ret ptr %86
+.thread:                                          ; preds = %22, %86, %83, %50, %43, %31, %13
+  %87 = phi ptr [ %15, %13 ], [ %55, %86 ], [ %84, %83 ], [ %48, %43 ], [ inttoptr (i64 -12 to ptr), %50 ], [ inttoptr (i64 -12 to ptr), %31 ], [ inttoptr (i64 -12 to ptr), %22 ]
+  ret ptr %87
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

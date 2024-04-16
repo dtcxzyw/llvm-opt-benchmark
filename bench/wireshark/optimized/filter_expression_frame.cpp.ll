@@ -1105,41 +1105,56 @@ define void @_ZN21FilterExpressionFrame13updateWidgetsEv(ptr nocapture noundef n
 _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i:      ; preds = %16
   %18 = atomicrmw sub ptr %17, i32 1 seq_cst, align 4
   %.not.i.i = icmp eq i32 %18, 1
-  br i1 %.not.i.i, label %_ZN7QStringD2Ev.exit.sink.split, label %_ZN7QStringD2Ev.exit
+  br i1 %.not.i.i, label %19, label %_ZN7QStringD2Ev.exit
 
-.critedge:                                        ; preds = %1
-  %19 = load ptr, ptr %2, align 8
-  %.not.i.i.i4 = icmp eq ptr %19, null
-  br i1 %.not.i.i.i4, label %_ZN7QStringD2Ev.exit, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i5
-
-_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i5:     ; preds = %.critedge
-  %20 = atomicrmw sub ptr %19, i32 1 seq_cst, align 4
-  %.not.i.i6 = icmp eq i32 %20, 1
-  br i1 %.not.i.i6, label %_ZN7QStringD2Ev.exit.sink.split, label %_ZN7QStringD2Ev.exit
-
-.critedge2:                                       ; preds = %10
-  %21 = load ptr, ptr %2, align 8
-  %.not.i.i.i8 = icmp eq ptr %21, null
-  br i1 %.not.i.i.i8, label %_ZN7QStringD2Ev.exit, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i9
-
-_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i9:     ; preds = %.critedge2
-  %22 = atomicrmw sub ptr %21, i32 1 seq_cst, align 4
-  %.not.i.i10 = icmp eq i32 %22, 1
-  br i1 %.not.i.i10, label %_ZN7QStringD2Ev.exit.sink.split, label %_ZN7QStringD2Ev.exit
-
-_ZN7QStringD2Ev.exit.sink.split:                  ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i9, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i5, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i
-  %.0.ph = phi i1 [ %.not3, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i ], [ false, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i5 ], [ true, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i9 ]
-  %.sink = load ptr, ptr %2, align 8
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %.sink, i64 noundef 2, i64 noundef 8) #11
+19:                                               ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i
+  %20 = load ptr, ptr %2, align 8
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %20, i64 noundef 2, i64 noundef 8) #11
   br label %_ZN7QStringD2Ev.exit
 
-_ZN7QStringD2Ev.exit:                             ; preds = %_ZN7QStringD2Ev.exit.sink.split, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i9, %.critedge2, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i5, %.critedge, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i, %16
-  %.0 = phi i1 [ %.not3, %16 ], [ %.not3, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i ], [ false, %.critedge ], [ false, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i5 ], [ true, %.critedge2 ], [ true, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i9 ], [ %.0.ph, %_ZN7QStringD2Ev.exit.sink.split ]
-  %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 120
-  %25 = load ptr, ptr %24, align 8
-  %26 = call noundef ptr @_ZNK16QDialogButtonBox6buttonENS_14StandardButtonE(ptr noundef nonnull align 8 dereferenceable(40) %25, i32 noundef 1024)
-  call void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %26, i1 noundef zeroext %.0)
+_ZN7QStringD2Ev.exit:                             ; preds = %16, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i, %19
+  br i1 %.not3, label %_ZN7QStringD2Ev.exit11, label %_ZN7QStringD2Ev.exit7
+
+.critedge:                                        ; preds = %1
+  %21 = load ptr, ptr %2, align 8
+  %.not.i.i.i4 = icmp eq ptr %21, null
+  br i1 %.not.i.i.i4, label %_ZN7QStringD2Ev.exit7, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i5
+
+_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i5:     ; preds = %.critedge
+  %22 = atomicrmw sub ptr %21, i32 1 seq_cst, align 4
+  %.not.i.i6 = icmp eq i32 %22, 1
+  br i1 %.not.i.i6, label %23, label %_ZN7QStringD2Ev.exit7
+
+23:                                               ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i5
+  %24 = load ptr, ptr %2, align 8
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %24, i64 noundef 2, i64 noundef 8) #11
+  br label %_ZN7QStringD2Ev.exit7
+
+_ZN7QStringD2Ev.exit7:                            ; preds = %23, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i5, %.critedge, %_ZN7QStringD2Ev.exit
+  br label %_ZN7QStringD2Ev.exit11
+
+.critedge2:                                       ; preds = %10
+  %25 = load ptr, ptr %2, align 8
+  %.not.i.i.i8 = icmp eq ptr %25, null
+  br i1 %.not.i.i.i8, label %_ZN7QStringD2Ev.exit11, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i9
+
+_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i9:     ; preds = %.critedge2
+  %26 = atomicrmw sub ptr %25, i32 1 seq_cst, align 4
+  %.not.i.i10 = icmp eq i32 %26, 1
+  br i1 %.not.i.i10, label %27, label %_ZN7QStringD2Ev.exit11
+
+27:                                               ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i9
+  %28 = load ptr, ptr %2, align 8
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %28, i64 noundef 2, i64 noundef 8) #11
+  br label %_ZN7QStringD2Ev.exit11
+
+_ZN7QStringD2Ev.exit11:                           ; preds = %27, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i9, %.critedge2, %_ZN7QStringD2Ev.exit7, %_ZN7QStringD2Ev.exit
+  %.0 = phi i1 [ false, %_ZN7QStringD2Ev.exit7 ], [ true, %_ZN7QStringD2Ev.exit ], [ true, %.critedge2 ], [ true, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i9 ], [ true, %27 ]
+  %29 = load ptr, ptr %3, align 8
+  %30 = getelementptr inbounds i8, ptr %29, i64 120
+  %31 = load ptr, ptr %30, align 8
+  %32 = call noundef ptr @_ZNK16QDialogButtonBox6buttonENS_14StandardButtonE(ptr noundef nonnull align 8 dereferenceable(40) %31, i32 noundef 1024)
+  call void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %32, i1 noundef zeroext %.0)
   ret void
 }
 

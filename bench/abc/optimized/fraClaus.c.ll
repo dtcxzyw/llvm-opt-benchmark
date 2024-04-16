@@ -4747,7 +4747,7 @@ define void @Fra_ClausSimInfoRecord(ptr nocapture noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Fra_ClausSimInfoCheck(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #10 {
+define noundef i32 @Fra_ClausSimInfoCheck(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #10 {
   %4 = alloca [16 x ptr], align 16
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.lr.ph, label %._crit_edge.thread
@@ -4840,12 +4840,12 @@ define i32 @Fra_ClausSimInfoCheck(ptr nocapture noundef readonly %0, ptr nocaptu
   %.0.lcssa = phi i64 [ 0, %._crit_edge ], [ %42, %._crit_edge55.loopexit ]
   %43 = and i32 %25, 31
   %.not = icmp eq i32 %43, 0
-  br i1 %.not, label %.loopexit, label %.preheader
+  br i1 %.not, label %60, label %.preheader
 
 ._crit_edge55.thread:                             ; preds = %._crit_edge.thread
   %44 = and i32 %29, 31
   %.not80 = icmp eq i32 %44, 0
-  br i1 %.not80, label %.loopexit, label %._crit_edge60
+  br i1 %.not80, label %60, label %._crit_edge60
 
 .preheader:                                       ; preds = %._crit_edge55
   br i1 %5, label %.lr.ph59, label %._crit_edge60
@@ -4878,12 +4878,14 @@ define i32 @Fra_ClausSimInfoCheck(ptr nocapture noundef readonly %0, ptr nocaptu
   %57 = sub nsw i32 32, %56
   %58 = lshr i32 -1, %57
   %59 = and i32 %.141.lcssa, %58
-  %.not43 = icmp ne i32 %59, 0
-  %spec.select = zext i1 %.not43 to i32
+  %.not43 = icmp eq i32 %59, 0
+  br i1 %.not43, label %60, label %.loopexit
+
+60:                                               ; preds = %._crit_edge55.thread, %._crit_edge60, %._crit_edge55
   br label %.loopexit
 
-.loopexit:                                        ; preds = %._crit_edge53.us, %._crit_edge.thread, %._crit_edge55.thread, %.preheader47.lr.ph, %._crit_edge60, %._crit_edge55
-  %.039 = phi i32 [ 0, %._crit_edge55 ], [ %spec.select, %._crit_edge60 ], [ 1, %.preheader47.lr.ph ], [ 0, %._crit_edge55.thread ], [ 1, %._crit_edge.thread ], [ 1, %._crit_edge53.us ]
+.loopexit:                                        ; preds = %._crit_edge53.us, %._crit_edge.thread, %.preheader47.lr.ph, %._crit_edge60, %60
+  %.039 = phi i32 [ 0, %60 ], [ 1, %._crit_edge60 ], [ 1, %.preheader47.lr.ph ], [ 1, %._crit_edge.thread ], [ 1, %._crit_edge53.us ]
   ret i32 %.039
 }
 

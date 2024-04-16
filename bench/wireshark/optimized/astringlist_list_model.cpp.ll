@@ -1787,7 +1787,7 @@ _ZN17QArrayDataPointerIiE5derefEv.exit.i.i:       ; preds = %_ZNK23QListSpecialM
   br label %_ZN5QListIiED2Ev.exit
 
 _ZN5QListIiED2Ev.exit:                            ; preds = %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i, %152
-  br i1 %.0.i.i.i, label %154, label %.thread
+  br i1 %.0.i.i.i, label %154, label %174
 
 154:                                              ; preds = %_ZN5QListIiED2Ev.exit
   store i32 0, ptr %9, align 4
@@ -1826,8 +1826,8 @@ _ZNKSt8_Rb_treeIiSt4pairIKiN35AStringListListSortFilterProxyModel25AStringListLi
   %168 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 36
   %spec.select.i = select i1 %167, ptr %9, ptr %168
   %.0.i.pr.pre = load i32, ptr %spec.select.i, align 4
-  switch i32 %.0.i.pr.pre, label %174 [
-    i32 1, label %.thread
+  switch i32 %.0.i.pr.pre, label %.thread [
+    i32 1, label %174
     i32 2, label %173
     i32 3, label %.critedge
   ]
@@ -1838,23 +1838,23 @@ _ZNKSt8_Rb_treeIiSt4pairIKiN35AStringListListSortFilterProxyModel25AStringListLi
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
   br label %_ZN7QStringD2Ev.exit29
 
-171:                                              ; preds = %.thread
+171:                                              ; preds = %174
   %172 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 173:                                              ; preds = %164
-  br label %.thread
+  br label %174
 
-174:                                              ; preds = %164
-  br label %.thread
+.thread:                                          ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiN35AStringListListSortFilterProxyModel25AStringListListFilterTypeEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %156, %154, %164
+  br label %174
 
-.thread:                                          ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiN35AStringListListSortFilterProxyModel25AStringListListFilterTypeEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %156, %154, %164, %173, %174, %_ZN5QListIiED2Ev.exit
-  %.0 = phi ptr [ @_ZL16AIsEquivalentToBRK8QVariantS1_N2Qt15CaseSensitivityE, %173 ], [ @_ZL10AContainsBRK8QVariantS1_N2Qt15CaseSensitivityE, %_ZN5QListIiED2Ev.exit ], [ @_ZL12AStartsWithBRK8QVariantS1_N2Qt15CaseSensitivityE, %164 ], [ @_ZL10AContainsBRK8QVariantS1_N2Qt15CaseSensitivityE, %154 ], [ @_ZL10AContainsBRK8QVariantS1_N2Qt15CaseSensitivityE, %174 ], [ @_ZL10AContainsBRK8QVariantS1_N2Qt15CaseSensitivityE, %156 ], [ @_ZL10AContainsBRK8QVariantS1_N2Qt15CaseSensitivityE, %_ZNKSt8_Rb_treeIiSt4pairIKiN35AStringListListSortFilterProxyModel25AStringListListFilterTypeEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i ]
+174:                                              ; preds = %164, %173, %.thread, %_ZN5QListIiED2Ev.exit
+  %.0 = phi ptr [ @_ZL10AContainsBRK8QVariantS1_N2Qt15CaseSensitivityE, %.thread ], [ @_ZL16AIsEquivalentToBRK8QVariantS1_N2Qt15CaseSensitivityE, %173 ], [ @_ZL10AContainsBRK8QVariantS1_N2Qt15CaseSensitivityE, %_ZN5QListIiED2Ev.exit ], [ @_ZL12AStartsWithBRK8QVariantS1_N2Qt15CaseSensitivityE, %164 ]
   invoke void @_ZN8QVariantC1ERK7QString(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(24) %6)
           to label %175 unwind label %171
 
-175:                                              ; preds = %.thread
+175:                                              ; preds = %174
   invoke void @_ZN8QVariantC1ERK7QString(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(24) %30)
           to label %176 unwind label %185
 

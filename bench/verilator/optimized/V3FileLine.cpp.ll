@@ -1244,10 +1244,10 @@ _ZNSt13unordered_mapISt6bitsetILm119EEtSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS
 47:                                               ; preds = %46
   unreachable
 
-48:                                               ; preds = %77, %72, %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, %39, %37, %35
+48:                                               ; preds = %78, %72, %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, %39, %37, %35
   %49 = landingpad { ptr, i32 }
           cleanup
-  br label %92
+  br label %93
 
 50:                                               ; preds = %40
   %51 = landingpad { ptr, i32 }
@@ -1273,7 +1273,7 @@ _ZNSt13unordered_mapISt6bitsetILm119EEtSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS
 57:                                               ; preds = %56, %50
   %.pn.pn = phi { ptr, i32 } [ %.pn, %56 ], [ %51, %50 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #20
-  br label %92
+  br label %93
 
 58:                                               ; preds = %26
   %59 = trunc nuw i64 %34 to i16
@@ -1311,73 +1311,73 @@ _ZNKSt6vectorISt6bitsetILm119EESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %
   %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %73, i64 1)
   %74 = add nsw i64 %.sroa.speculated.i.i.i, %73
   %75 = icmp ult i64 %74, %73
-  %spec.select.i.i.i = call i64 @llvm.umin.i64(i64 %74, i64 576460752303423487)
-  %76 = select i1 %75, i64 576460752303423487, i64 %spec.select.i.i.i
-  %.not.i.i.i12 = icmp eq i64 %76, 0
-  br i1 %.not.i.i.i12, label %_ZNSt12_Vector_baseISt6bitsetILm119EESaIS1_EE11_M_allocateEm.exit.i.i, label %77
+  %76 = call i64 @llvm.umin.i64(i64 %74, i64 576460752303423487)
+  %77 = select i1 %75, i64 576460752303423487, i64 %76
+  %.not.i.i.i12 = icmp eq i64 %77, 0
+  br i1 %.not.i.i.i12, label %_ZNSt12_Vector_baseISt6bitsetILm119EESaIS1_EE11_M_allocateEm.exit.i.i, label %78
 
-77:                                               ; preds = %_ZNKSt6vectorISt6bitsetILm119EESaIS1_EE12_M_check_lenEmPKc.exit.i.i
-  %78 = shl nuw nsw i64 %76, 4
-  %79 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %78) #24
+78:                                               ; preds = %_ZNKSt6vectorISt6bitsetILm119EESaIS1_EE12_M_check_lenEmPKc.exit.i.i
+  %79 = shl nuw nsw i64 %77, 4
+  %80 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %79) #24
           to label %_ZNSt12_Vector_baseISt6bitsetILm119EESaIS1_EE11_M_allocateEm.exit.i.i unwind label %48
 
-_ZNSt12_Vector_baseISt6bitsetILm119EESaIS1_EE11_M_allocateEm.exit.i.i: ; preds = %77, %_ZNKSt6vectorISt6bitsetILm119EESaIS1_EE12_M_check_lenEmPKc.exit.i.i
-  %80 = phi ptr [ null, %_ZNKSt6vectorISt6bitsetILm119EESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %79, %77 ]
-  %81 = getelementptr inbounds %"class.std::bitset", ptr %80, i64 %73
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+_ZNSt12_Vector_baseISt6bitsetILm119EESaIS1_EE11_M_allocateEm.exit.i.i: ; preds = %78, %_ZNKSt6vectorISt6bitsetILm119EESaIS1_EE12_M_check_lenEmPKc.exit.i.i
+  %81 = phi ptr [ null, %_ZNKSt6vectorISt6bitsetILm119EESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %80, %78 ]
+  %82 = getelementptr inbounds %"class.std::bitset", ptr %81, i64 %73
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   %.not10.i.i.i.i.i = icmp eq ptr %67, %60
   br i1 %.not10.i.i.i.i.i, label %_ZNSt6vectorISt6bitsetILm119EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_baseISt6bitsetILm119EESaIS1_EE11_M_allocateEm.exit.i.i, %.lr.ph.i.i.i.i.i
-  %.012.i.i.i.i.i = phi ptr [ %83, %.lr.ph.i.i.i.i.i ], [ %80, %_ZNSt12_Vector_baseISt6bitsetILm119EESaIS1_EE11_M_allocateEm.exit.i.i ]
-  %.0911.i.i.i.i.i = phi ptr [ %82, %.lr.ph.i.i.i.i.i ], [ %67, %_ZNSt12_Vector_baseISt6bitsetILm119EESaIS1_EE11_M_allocateEm.exit.i.i ]
+  %.012.i.i.i.i.i = phi ptr [ %84, %.lr.ph.i.i.i.i.i ], [ %81, %_ZNSt12_Vector_baseISt6bitsetILm119EESaIS1_EE11_M_allocateEm.exit.i.i ]
+  %.0911.i.i.i.i.i = phi ptr [ %83, %.lr.ph.i.i.i.i.i ], [ %67, %_ZNSt12_Vector_baseISt6bitsetILm119EESaIS1_EE11_M_allocateEm.exit.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i, i64 16, i1 false), !alias.scope !16
-  %82 = getelementptr inbounds i8, ptr %.0911.i.i.i.i.i, i64 16
-  %83 = getelementptr inbounds i8, ptr %.012.i.i.i.i.i, i64 16
-  %.not.i.i.i.i.i = icmp eq ptr %82, %60
+  %83 = getelementptr inbounds i8, ptr %.0911.i.i.i.i.i, i64 16
+  %84 = getelementptr inbounds i8, ptr %.012.i.i.i.i.i, i64 16
+  %.not.i.i.i.i.i = icmp eq ptr %83, %60
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorISt6bitsetILm119EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !20
 
 _ZNSt6vectorISt6bitsetILm119EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseISt6bitsetILm119EESaIS1_EE11_M_allocateEm.exit.i.i
-  %.0.lcssa.i.i.i.i.i = phi ptr [ %80, %_ZNSt12_Vector_baseISt6bitsetILm119EESaIS1_EE11_M_allocateEm.exit.i.i ], [ %83, %.lr.ph.i.i.i.i.i ]
-  %84 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 16
+  %.0.lcssa.i.i.i.i.i = phi ptr [ %81, %_ZNSt12_Vector_baseISt6bitsetILm119EESaIS1_EE11_M_allocateEm.exit.i.i ], [ %84, %.lr.ph.i.i.i.i.i ]
+  %85 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 16
   %.not.i23.i.i = icmp eq ptr %67, null
-  br i1 %.not.i23.i.i, label %_ZNSt6vectorISt6bitsetILm119EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %85
+  br i1 %.not.i23.i.i, label %_ZNSt6vectorISt6bitsetILm119EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %86
 
-85:                                               ; preds = %_ZNSt6vectorISt6bitsetILm119EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i
+86:                                               ; preds = %_ZNSt6vectorISt6bitsetILm119EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i
   call void @_ZdlPv(ptr noundef nonnull %67) #25
   br label %_ZNSt6vectorISt6bitsetILm119EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
-_ZNSt6vectorISt6bitsetILm119EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %85, %_ZNSt6vectorISt6bitsetILm119EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i
-  store ptr %80, ptr %27, align 8
-  store ptr %84, ptr %28, align 8
-  %86 = getelementptr inbounds %"class.std::bitset", ptr %80, i64 %76
-  store ptr %86, ptr %61, align 8
+_ZNSt6vectorISt6bitsetILm119EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %86, %_ZNSt6vectorISt6bitsetILm119EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i
+  store ptr %81, ptr %27, align 8
+  store ptr %85, ptr %28, align 8
+  %87 = getelementptr inbounds %"class.std::bitset", ptr %81, i64 %77
+  store ptr %87, ptr %61, align 8
   br label %_ZNSt6vectorISt6bitsetILm119EESaIS1_EE9push_backERKS1_.exit
 
 _ZNSt6vectorISt6bitsetILm119EESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorISt6bitsetILm119EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %63, %_ZNSt13unordered_mapISt6bitsetILm119EEtSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_tEEE7emplaceIJRS7_iEEES6_INSt8__detail14_Node_iteratorIS8_Lb0ELb0EEEbEDpOT_.exit
-  %87 = load i16, ptr %24, align 2
-  %88 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %89 = trunc i8 %88 to i1
-  br i1 %89, label %90, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit
+  %88 = load i16, ptr %24, align 2
+  %89 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
+  %90 = trunc i8 %89 to i1
+  br i1 %90, label %91, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit
 
-90:                                               ; preds = %_ZNSt6vectorISt6bitsetILm119EESaIS1_EE9push_backERKS1_.exit
-  %91 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #20
+91:                                               ; preds = %_ZNSt6vectorISt6bitsetILm119EESaIS1_EE9push_backERKS1_.exit
+  %92 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #20
   br label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit
 
-_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit: ; preds = %_ZNSt6vectorISt6bitsetILm119EESaIS1_EE9push_backERKS1_.exit, %90
-  ret i16 %87
+_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit: ; preds = %_ZNSt6vectorISt6bitsetILm119EESaIS1_EE9push_backERKS1_.exit, %91
+  ret i16 %88
 
-92:                                               ; preds = %57, %48
+93:                                               ; preds = %57, %48
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %57 ], [ %49, %48 ]
-  %93 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
-  %94 = trunc i8 %93 to i1
-  br i1 %94, label %95, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit14
+  %94 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1
+  %95 = trunc i8 %94 to i1
+  br i1 %95, label %96, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit14
 
-95:                                               ; preds = %92
-  %96 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #20
+96:                                               ; preds = %93
+  %97 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #20
   br label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit14
 
-_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit14: ; preds = %92, %95
+_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit14: ; preds = %93, %96
   resume { ptr, i32 } %.pn.pn.pn
 }
 
@@ -5904,7 +5904,7 @@ _ZNKSt6bitsetILm119EE4testEm.exit:                ; preds = %2
   %12 = shl nuw i64 1, %11
   %13 = and i64 %10, %12
   %.not = icmp eq i64 %13, 0
-  br i1 %.not, label %50, label %14
+  br i1 %.not, label %51, label %14
 
 14:                                               ; preds = %_ZNKSt6bitsetILm119EE4testEm.exit
   %15 = load atomic i8, ptr @_ZGVZN8FileLine15defaultFileLineEvE1s acquire, align 8
@@ -5950,7 +5950,7 @@ _ZNKSt6bitsetILm119EE4testEm.exit2:               ; preds = %_ZN8FileLine15defau
   %33 = shl nuw i64 1, %32
   %34 = and i64 %31, %33
   %.not3 = icmp eq i64 %34, 0
-  br i1 %.not3, label %50, label %35
+  br i1 %.not3, label %51, label %35
 
 35:                                               ; preds = %_ZNKSt6bitsetILm119EE4testEm.exit2
   %36 = call noundef zeroext i1 @_ZNK11V3ErrorCode9lintErrorEv(ptr noundef nonnull align 1 dereferenceable(1) %3)
@@ -5965,7 +5965,7 @@ _ZNKSt6bitsetILm119EE4testEm.exit2:               ; preds = %_ZN8FileLine15defau
   %41 = load i64, ptr %40, align 8
   %42 = and i64 %41, 1024
   %.not4 = icmp eq i64 %42, 0
-  br i1 %.not4, label %50, label %43
+  br i1 %.not4, label %51, label %43
 
 43:                                               ; preds = %39, %37
   %44 = load i8, ptr %3, align 1
@@ -5978,10 +5978,13 @@ _ZNKSt6bitsetILm119EE4testEm.exit2:               ; preds = %_ZN8FileLine15defau
   %48 = load i64, ptr %47, align 8
   %49 = and i64 %48, 8192
   %.not5 = icmp eq i64 %49, 0
-  br label %50
+  br i1 %.not5, label %51, label %50
 
-50:                                               ; preds = %46, %43, %39, %_ZNKSt6bitsetILm119EE4testEm.exit2, %_ZNKSt6bitsetILm119EE4testEm.exit
-  %.0 = phi i1 [ true, %_ZNKSt6bitsetILm119EE4testEm.exit ], [ true, %_ZNKSt6bitsetILm119EE4testEm.exit2 ], [ true, %39 ], [ false, %43 ], [ %.not5, %46 ]
+50:                                               ; preds = %46, %43
+  br label %51
+
+51:                                               ; preds = %46, %39, %_ZNKSt6bitsetILm119EE4testEm.exit2, %_ZNKSt6bitsetILm119EE4testEm.exit, %50
+  %.0 = phi i1 [ false, %50 ], [ true, %_ZNKSt6bitsetILm119EE4testEm.exit ], [ true, %_ZNKSt6bitsetILm119EE4testEm.exit2 ], [ true, %39 ], [ true, %46 ]
   ret i1 %.0
 }
 

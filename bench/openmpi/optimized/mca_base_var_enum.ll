@@ -538,9 +538,9 @@ define internal noundef i32 @mca_base_var_enum_verbose_vfs(ptr nocapture readnon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mca_base_var_enum_verbose_sfv(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #1 {
+define internal noundef i32 @mca_base_var_enum_verbose_sfv(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #1 {
   %or.cond = icmp ugt i32 %1, 100
-  br i1 %or.cond, label %17, label %.preheader
+  br i1 %or.cond, label %18, label %.preheader
 
 .preheader:                                       ; preds = %3
   %4 = load ptr, ptr getelementptr inbounds ([9 x %struct.mca_base_var_enum_value_t], ptr @verbose_values, i64 0, i64 0, i32 1), align 8
@@ -569,12 +569,12 @@ define internal i32 @mca_base_var_enum_verbose_sfv(ptr nocapture readnone %0, i3
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi ptr [ %4, %.lr.ph.preheader ], [ %9, %.lr.ph ]
   %.not19 = icmp eq ptr %2, null
-  br i1 %.not19, label %17, label %12
+  br i1 %.not19, label %18, label %12
 
 12:                                               ; preds = %.lr.ph._crit_edge
   %13 = tail call noalias ptr @strdup(ptr noundef nonnull %.lcssa) #16
   store ptr %13, ptr %2, align 8
-  br label %17
+  br label %18
 
 ._crit_edge:                                      ; preds = %.lr.ph28, %.preheader
   %.not18 = icmp eq ptr %2, null
@@ -583,11 +583,13 @@ define internal i32 @mca_base_var_enum_verbose_sfv(ptr nocapture readnone %0, i3
 14:                                               ; preds = %._crit_edge
   %15 = tail call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %2, ptr noundef nonnull @.str.20, i32 noundef %1) #16
   %16 = icmp slt i32 %15, 0
-  %spec.select = select i1 %16, i32 -2, i32 0
-  br label %17
+  br i1 %16, label %18, label %17
 
-17:                                               ; preds = %14, %._crit_edge, %.lr.ph._crit_edge, %12, %3
-  %.014 = phi i32 [ -18, %3 ], [ 0, %12 ], [ 0, %.lr.ph._crit_edge ], [ 0, %._crit_edge ], [ %spec.select, %14 ]
+17:                                               ; preds = %14, %._crit_edge
+  br label %18
+
+18:                                               ; preds = %14, %.lr.ph._crit_edge, %12, %3, %17
+  %.014 = phi i32 [ 0, %17 ], [ -18, %3 ], [ 0, %12 ], [ 0, %.lr.ph._crit_edge ], [ -2, %14 ]
   ret i32 %.014
 }
 

@@ -5722,7 +5722,7 @@ uuid_string.exit:                                 ; preds = %1839, %1932, %.thre
   %2074 = getelementptr inbounds i8, ptr %2073, i64 1784
   %2075 = load ptr, ptr %2074, align 8
   %2076 = tail call zeroext i1 @has_capability_noaudit(ptr noundef %2073, i32 noundef 34) #16
-  br i1 %2076, label %2077, label %widen_string.exit.thread.i77
+  br i1 %2076, label %2077, label %2089
 
 2077:                                             ; preds = %2071
   %2078 = getelementptr inbounds i8, ptr %2075, i64 24
@@ -5730,7 +5730,7 @@ uuid_string.exit:                                 ; preds = %1839, %1932, %.thre
   %2080 = load i32, ptr %2078, align 8
   %2081 = load i32, ptr %2079, align 8
   %2082 = icmp eq i32 %2080, %2081
-  br i1 %2082, label %2083, label %widen_string.exit.thread.i77
+  br i1 %2082, label %2083, label %2089
 
 2083:                                             ; preds = %2077
   %2084 = getelementptr inbounds i8, ptr %2075, i64 28
@@ -5738,22 +5738,24 @@ uuid_string.exit:                                 ; preds = %1839, %1932, %.thre
   %2086 = load i32, ptr %2084, align 4
   %2087 = load i32, ptr %2085, align 4
   %2088 = icmp eq i32 %2086, %2087
-  %2089 = ptrtoint ptr %3 to i64
-  %2090 = select i1 %2088, i64 %2089, i64 0
+  br i1 %2088, label %widen_string.exit.thread.i77, label %2089
+
+2089:                                             ; preds = %2083, %2077, %2071
   br label %widen_string.exit.thread.i77
 
-widen_string.exit.thread.i77:                     ; preds = %2083, %2077, %2071, %1982
-  %2091 = phi i64 [ 0, %1982 ], [ %2090, %2083 ], [ 0, %2071 ], [ 0, %2077 ]
-  %2092 = and i64 %4, -280512904036353
-  %2093 = or disjoint i64 %2092, 17729624997888
-  %2094 = shl i64 %4, 32
-  %2095 = ashr i64 %2094, 40
-  %2096 = and i64 %2095, 4294967295
-  %2097 = icmp eq i64 %2096, 4294967295
-  %2098 = and i64 %2093, -262856293482241
-  %2099 = or disjoint i64 %2098, 68719480832
-  %2100 = select i1 %2097, i64 %2099, i64 %2093
-  %2101 = tail call fastcc ptr @number(ptr noundef %1, ptr noundef %2, i64 noundef %2091, i64 %2100)
+widen_string.exit.thread.i77:                     ; preds = %2089, %2083, %1982
+  %2090 = phi ptr [ null, %1982 ], [ null, %2089 ], [ %3, %2083 ]
+  %2091 = and i64 %4, -280512904036353
+  %2092 = or disjoint i64 %2091, 17729624997888
+  %2093 = shl i64 %4, 32
+  %2094 = ashr i64 %2093, 40
+  %2095 = and i64 %2094, 4294967295
+  %2096 = icmp eq i64 %2095, 4294967295
+  %2097 = and i64 %2092, -262856293482241
+  %2098 = or disjoint i64 %2097, 68719480832
+  %2099 = select i1 %2096, i64 %2098, i64 %2092
+  %2100 = ptrtoint ptr %2090 to i64
+  %2101 = tail call fastcc ptr @number(ptr noundef %1, ptr noundef %2, i64 noundef %2100, i64 %2099)
   br label %hex_string.exit
 
 2102:                                             ; preds = %5

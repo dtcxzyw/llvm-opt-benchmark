@@ -1241,24 +1241,24 @@ if.end49.i:                                       ; preds = %create_cert_store.e
 if.then51.i:                                      ; preds = %if.end49.i
   %call52.i = call ptr @load_certs_multifile(ptr noundef nonnull %untrusted, ptr noundef null, ptr noundef nonnull @.str.171, ptr noundef %vpm) #7
   %cmp53.i = icmp eq ptr %call52.i, null
-  br i1 %cmp53.i, label %if.then60.i, label %err.i
+  br i1 %cmp53.i, label %if.then60.i, label %lor.lhs.false54.i
 
-err.i:                                            ; preds = %if.then51.i
+lor.lhs.false54.i:                                ; preds = %if.then51.i
   %call55.i = call ptr @TS_VERIFY_CTX_set_certs(ptr noundef nonnull %ctx.0.i, ptr noundef nonnull %call52.i) #7
   %cmp56.i = icmp eq ptr %call55.i, null
   br i1 %cmp56.i, label %if.then60.i, label %create_verify_ctx.exit
 
-if.then60.i:                                      ; preds = %err.i, %if.then51.i, %create_cert_store.exit.i, %if.end35.i, %if.end31.i, %if.then27.i, %if.then20.i, %if.then12.i, %if.then5.i, %if.then.i
-  %request.128.i = phi ptr [ %request.0.i, %err.i ], [ %call32.i, %if.end35.i ], [ null, %if.end31.i ], [ null, %if.then27.i ], [ null, %if.then20.i ], [ %request.0.i, %if.then51.i ], [ %request.0.i, %create_cert_store.exit.i ], [ null, %if.then12.i ], [ null, %if.then5.i ], [ null, %if.then.i ]
-  %input.126.i = phi ptr [ %input.0.i, %err.i ], [ %call28.i, %if.end35.i ], [ %call28.i, %if.end31.i ], [ null, %if.then27.i ], [ null, %if.then20.i ], [ %input.0.i, %if.then51.i ], [ %input.0.i, %create_cert_store.exit.i ], [ null, %if.then12.i ], [ null, %if.then5.i ], [ null, %if.then.i ]
-  %ctx.124.i = phi ptr [ %ctx.0.i, %err.i ], [ null, %if.end35.i ], [ null, %if.end31.i ], [ null, %if.then27.i ], [ %call.i, %if.then20.i ], [ %ctx.0.i, %if.then51.i ], [ %ctx.0.i, %create_cert_store.exit.i ], [ %call.i, %if.then12.i ], [ %call.i, %if.then5.i ], [ null, %if.then.i ]
-  call void @TS_VERIFY_CTX_free(ptr noundef %ctx.124.i) #7
+if.then60.i:                                      ; preds = %lor.lhs.false54.i, %if.then51.i, %create_cert_store.exit.i, %if.end35.i, %if.end31.i, %if.then27.i, %if.then20.i, %if.then12.i, %if.then5.i, %if.then.i
+  %ctx.1.ph.i = phi ptr [ null, %if.end35.i ], [ null, %if.end31.i ], [ null, %if.then27.i ], [ %call.i, %if.then20.i ], [ %ctx.0.i, %lor.lhs.false54.i ], [ %ctx.0.i, %if.then51.i ], [ %ctx.0.i, %create_cert_store.exit.i ], [ %call.i, %if.then12.i ], [ %call.i, %if.then5.i ], [ null, %if.then.i ]
+  %input.1.ph.i = phi ptr [ %call28.i, %if.end35.i ], [ %call28.i, %if.end31.i ], [ null, %if.then27.i ], [ null, %if.then20.i ], [ %input.0.i, %lor.lhs.false54.i ], [ %input.0.i, %if.then51.i ], [ %input.0.i, %create_cert_store.exit.i ], [ null, %if.then12.i ], [ null, %if.then5.i ], [ null, %if.then.i ]
+  %request.1.ph.i = phi ptr [ %call32.i, %if.end35.i ], [ null, %if.end31.i ], [ null, %if.then27.i ], [ null, %if.then20.i ], [ %request.0.i, %lor.lhs.false54.i ], [ %request.0.i, %if.then51.i ], [ %request.0.i, %create_cert_store.exit.i ], [ null, %if.then12.i ], [ null, %if.then5.i ], [ null, %if.then.i ]
+  call void @TS_VERIFY_CTX_free(ptr noundef %ctx.1.ph.i) #7
   br label %create_verify_ctx.exit
 
-create_verify_ctx.exit:                           ; preds = %if.end49.i, %err.i, %if.then60.i
-  %request.127.i = phi ptr [ %request.0.i, %err.i ], [ %request.128.i, %if.then60.i ], [ %request.0.i, %if.end49.i ]
-  %input.125.i = phi ptr [ %input.0.i, %err.i ], [ %input.126.i, %if.then60.i ], [ %input.0.i, %if.end49.i ]
-  %ctx.2.i = phi ptr [ %ctx.0.i, %err.i ], [ null, %if.then60.i ], [ %ctx.0.i, %if.end49.i ]
+create_verify_ctx.exit:                           ; preds = %if.end49.i, %lor.lhs.false54.i, %if.then60.i
+  %request.127.i = phi ptr [ %request.1.ph.i, %if.then60.i ], [ %request.0.i, %if.end49.i ], [ %request.0.i, %lor.lhs.false54.i ]
+  %input.125.i = phi ptr [ %input.1.ph.i, %if.then60.i ], [ %input.0.i, %if.end49.i ], [ %input.0.i, %lor.lhs.false54.i ]
+  %ctx.2.i = phi ptr [ null, %if.then60.i ], [ %ctx.0.i, %if.end49.i ], [ %ctx.0.i, %lor.lhs.false54.i ]
   call void @BIO_free_all(ptr noundef %input.125.i) #7
   call void @TS_REQ_free(ptr noundef %request.127.i) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %imprint_len.i)

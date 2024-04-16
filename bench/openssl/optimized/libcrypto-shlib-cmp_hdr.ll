@@ -608,7 +608,7 @@ declare i32 @ossl_cmp_print_log(i32 noundef, ptr noundef, ptr noundef, ptr nound
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_cmp_hdr_init(ptr noundef %ctx, ptr noundef %hdr) local_unnamed_addr #0 {
+define noundef i32 @ossl_cmp_hdr_init(ptr noundef %ctx, ptr noundef %hdr) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ne ptr %ctx, null
   %cmp1 = icmp ne ptr %hdr, null
@@ -841,16 +841,18 @@ if.end92:                                         ; preds = %if.end87
   %freeText = getelementptr inbounds i8, ptr %ctx, i64 304
   %20 = load ptr, ptr %freeText, align 8
   %cmp93.not = icmp eq ptr %20, null
-  br i1 %cmp93.not, label %return, label %land.lhs.true95
+  br i1 %cmp93.not, label %if.end100, label %land.lhs.true95
 
 land.lhs.true95:                                  ; preds = %if.end92
   %call97 = tail call i32 @ossl_cmp_hdr_push1_freeText(ptr noundef nonnull %hdr, ptr noundef nonnull %20)
-  %tobool98.not = icmp ne i32 %call97, 0
-  %spec.select = zext i1 %tobool98.not to i32
+  %tobool98.not = icmp eq i32 %call97, 0
+  br i1 %tobool98.not, label %return, label %if.end100
+
+if.end100:                                        ; preds = %land.lhs.true95, %if.end92
   br label %return
 
-return:                                           ; preds = %if.then.i, %land.lhs.true.i, %ossl_cmp_hdr_set1_recipient.exit.thread, %ossl_cmp_hdr_set1_sender.exit.thread, %land.lhs.true95, %if.end92, %if.end87, %if.end83, %ossl_cmp_hdr_set_transactionID.exit, %land.lhs.true, %ossl_cmp_hdr_update_messageTime.exit, %ossl_cmp_hdr_set_pvno.exit, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 0, %ossl_cmp_hdr_set_pvno.exit ], [ 0, %ossl_cmp_hdr_update_messageTime.exit ], [ 0, %land.lhs.true ], [ 0, %ossl_cmp_hdr_set_transactionID.exit ], [ 0, %if.end83 ], [ 0, %if.end87 ], [ 1, %if.end92 ], [ %spec.select, %land.lhs.true95 ], [ 0, %ossl_cmp_hdr_set1_sender.exit.thread ], [ 0, %ossl_cmp_hdr_set1_recipient.exit.thread ], [ 0, %land.lhs.true.i ], [ 0, %if.then.i ]
+return:                                           ; preds = %if.then.i, %land.lhs.true.i, %ossl_cmp_hdr_set1_recipient.exit.thread, %ossl_cmp_hdr_set1_sender.exit.thread, %land.lhs.true95, %if.end87, %if.end83, %ossl_cmp_hdr_set_transactionID.exit, %land.lhs.true, %ossl_cmp_hdr_update_messageTime.exit, %ossl_cmp_hdr_set_pvno.exit, %entry, %if.end100
+  %retval.0 = phi i32 [ 1, %if.end100 ], [ 0, %entry ], [ 0, %ossl_cmp_hdr_set_pvno.exit ], [ 0, %ossl_cmp_hdr_update_messageTime.exit ], [ 0, %land.lhs.true ], [ 0, %ossl_cmp_hdr_set_transactionID.exit ], [ 0, %if.end83 ], [ 0, %if.end87 ], [ 0, %land.lhs.true95 ], [ 0, %ossl_cmp_hdr_set1_sender.exit.thread ], [ 0, %ossl_cmp_hdr_set1_recipient.exit.thread ], [ 0, %land.lhs.true.i ], [ 0, %if.then.i ]
   ret i32 %retval.0
 }
 

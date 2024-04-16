@@ -2365,11 +2365,10 @@ define internal fastcc void @dissect_fcels_prlilo_payload(ptr noundef %0, i8 nou
   %or.cond4 = or i1 %19, %18
   %20 = icmp eq i8 %3, 36
   %dissect_fcp_flags.rep_flags.dissect_fcp_flags.req_flags.i = select i1 %16, ptr @dissect_fcp_flags.rep_flags, ptr @dissect_fcp_flags.req_flags
-  %spec.select = select i1 %17, ptr @hf_fcels_prlilo_originator_pa, ptr @hf_fcels_prlilo_3rd_party_originator_pa
   br label %21
 
-21:                                               ; preds = %.lr.ph, %59
-  %.02 = phi i32 [ 0, %.lr.ph ], [ %60, %59 ]
+21:                                               ; preds = %.lr.ph, %61
+  %.02 = phi i32 [ 0, %.lr.ph ], [ %62, %61 ]
   %22 = load i32, ptr @ett_fcels_prli_svcpg, align 4
   %23 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %6, ptr noundef %0, i32 noundef 4, i32 noundef 16, i32 noundef %22, ptr noundef null, ptr noundef nonnull @.str.586, i32 noundef %.02) #3
   %24 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #3
@@ -2388,7 +2387,7 @@ define internal fastcc void @dissect_fcels_prlilo_payload(ptr noundef %0, i8 nou
 
 dissect_prlilo_flags.exit.thread:                 ; preds = %21
   %33 = tail call ptr @proto_tree_add_bitmask_value_with_flags(ptr noundef %23, ptr noundef %0, i32 noundef 6, i32 noundef %30, i32 noundef %31, ptr noundef nonnull @dissect_prlilo_flags.tprlo_flags, i64 noundef %32, i32 noundef 12) #3
-  br label %39
+  br label %40
 
 34:                                               ; preds = %21
   br label %dissect_prlilo_flags.exit
@@ -2401,47 +2400,53 @@ dissect_prlilo_flags.exit:                        ; preds = %21, %34
 36:                                               ; preds = %dissect_prlilo_flags.exit
   %37 = load i32, ptr @hf_fcels_prlilo_response_code, align 4
   %38 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %37, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef 0) #3
-  br label %39
+  br label %41
 
-39:                                               ; preds = %dissect_prlilo_flags.exit, %dissect_prlilo_flags.exit.thread, %36
-  %hf_fcels_prlilo_3rd_party_originator_pa.sink = phi ptr [ @hf_fcels_prlilo_originator_pa, %36 ], [ @hf_fcels_prlilo_3rd_party_originator_pa, %dissect_prlilo_flags.exit.thread ], [ %spec.select, %dissect_prlilo_flags.exit ]
-  %40 = load i32, ptr %hf_fcels_prlilo_3rd_party_originator_pa.sink, align 4
-  %41 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %40, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0) #3
-  %42 = load i32, ptr @hf_fcels_prlilo_responder_pa, align 4
-  %43 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %42, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef 0) #3
-  %44 = icmp eq i8 %24, 8
-  br i1 %44, label %45, label %51
+39:                                               ; preds = %dissect_prlilo_flags.exit
+  br i1 %17, label %41, label %40
 
-45:                                               ; preds = %39
-  %46 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 18) #3
-  %47 = load i32, ptr @hf_fcels_fcpflags, align 4
-  %48 = load i32, ptr @ett_fcels_fcpflags, align 4
-  %49 = zext i16 %46 to i64
-  %50 = tail call ptr @proto_tree_add_bitmask_value_with_flags(ptr noundef %23, ptr noundef %0, i32 noundef 16, i32 noundef %47, i32 noundef %48, ptr noundef nonnull %dissect_fcp_flags.rep_flags.dissect_fcp_flags.req_flags.i, i64 noundef %49, i32 noundef 4) #3
-  br label %59
+40:                                               ; preds = %dissect_prlilo_flags.exit.thread, %39
+  br label %41
 
-51:                                               ; preds = %39
-  br i1 %or.cond4, label %55, label %52
+41:                                               ; preds = %39, %36, %40
+  %hf_fcels_prlilo_3rd_party_originator_pa.sink = phi ptr [ @hf_fcels_prlilo_3rd_party_originator_pa, %40 ], [ @hf_fcels_prlilo_originator_pa, %36 ], [ @hf_fcels_prlilo_originator_pa, %39 ]
+  %42 = load i32, ptr %hf_fcels_prlilo_3rd_party_originator_pa.sink, align 4
+  %43 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %42, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0) #3
+  %44 = load i32, ptr @hf_fcels_prlilo_responder_pa, align 4
+  %45 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %44, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef 0) #3
+  %46 = icmp eq i8 %24, 8
+  br i1 %46, label %47, label %53
 
-52:                                               ; preds = %51
-  %53 = load i32, ptr @hf_fcels_prlilo_service_parameter_response, align 4
-  %54 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %53, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef 0) #3
-  br label %59
+47:                                               ; preds = %41
+  %48 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 18) #3
+  %49 = load i32, ptr @hf_fcels_fcpflags, align 4
+  %50 = load i32, ptr @ett_fcels_fcpflags, align 4
+  %51 = zext i16 %48 to i64
+  %52 = tail call ptr @proto_tree_add_bitmask_value_with_flags(ptr noundef %23, ptr noundef %0, i32 noundef 16, i32 noundef %49, i32 noundef %50, ptr noundef nonnull %dissect_fcp_flags.rep_flags.dissect_fcp_flags.req_flags.i, i64 noundef %51, i32 noundef 4) #3
+  br label %61
 
-55:                                               ; preds = %51
-  br i1 %20, label %56, label %59
+53:                                               ; preds = %41
+  br i1 %or.cond4, label %57, label %54
 
-56:                                               ; preds = %55
-  %57 = load i32, ptr @hf_fcels_prlilo_3rd_party_n_port_id, align 4
-  %58 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %57, ptr noundef %0, i32 noundef 17, i32 noundef 3, i32 noundef 0) #3
-  br label %59
+54:                                               ; preds = %53
+  %55 = load i32, ptr @hf_fcels_prlilo_service_parameter_response, align 4
+  %56 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %55, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef 0) #3
+  br label %61
 
-59:                                               ; preds = %45, %55, %56, %52
-  %60 = add nuw nsw i32 %.02, 1
-  %exitcond.not = icmp eq i32 %60, %15
+57:                                               ; preds = %53
+  br i1 %20, label %58, label %61
+
+58:                                               ; preds = %57
+  %59 = load i32, ptr @hf_fcels_prlilo_3rd_party_n_port_id, align 4
+  %60 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %59, ptr noundef %0, i32 noundef 17, i32 noundef 3, i32 noundef 0) #3
+  br label %61
+
+61:                                               ; preds = %47, %57, %58, %54
+  %62 = add nuw nsw i32 %.02, 1
+  %exitcond.not = icmp eq i32 %62, %15
   br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %59, %4
+._crit_edge:                                      ; preds = %61, %4
   ret void
 }
 

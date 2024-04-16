@@ -462,7 +462,7 @@ define hidden i64 @ps_gc_user(ptr nocapture readnone %0, i64 noundef %1, ptr noc
 ps_call_handler.exit.thread:                      ; preds = %3
   store i8 0, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 47), align 4
   tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4) #10
-  br label %22
+  br label %21
 
 9:                                                ; preds = %3
   store i8 1, ptr getelementptr inbounds (%struct._php_ps_globals, ptr @ps_globals, i64 0, i32 47), align 4
@@ -500,11 +500,11 @@ ps_call_handler.exit:                             ; preds = %12, %14, %18
   %20 = load i64, ptr %5, align 8
   br label %22
 
-21:                                               ; preds = %ps_call_handler.exit
+21:                                               ; preds = %ps_call_handler.exit.thread, %ps_call_handler.exit
   br label %22
 
-22:                                               ; preds = %ps_call_handler.exit.thread, %ps_call_handler.exit, %21, %19
-  %.sink = phi i64 [ %20, %19 ], [ 1, %ps_call_handler.exit ], [ -1, %ps_call_handler.exit.thread ], [ -1, %21 ]
+22:                                               ; preds = %ps_call_handler.exit, %21, %19
+  %.sink = phi i64 [ -1, %21 ], [ %20, %19 ], [ 1, %ps_call_handler.exit ]
   store i64 %.sink, ptr %2, align 8
   ret i64 %.sink
 }

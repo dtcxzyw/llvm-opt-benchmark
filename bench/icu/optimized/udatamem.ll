@@ -205,15 +205,19 @@ return:                                           ; preds = %entry, %land.lhs.tr
 define ptr @udata_getRawMemory_75(ptr noundef readonly %pData) local_unnamed_addr #6 {
 entry:
   %cmp.not = icmp eq ptr %pData, null
-  br i1 %cmp.not, label %return, label %land.lhs.true
+  br i1 %cmp.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
   %pHeader = getelementptr inbounds i8, ptr %pData, i64 8
   %0 = load ptr, ptr %pHeader, align 8
+  %cmp1.not = icmp eq ptr %0, null
+  br i1 %cmp1.not, label %if.else, label %return
+
+if.else:                                          ; preds = %land.lhs.true, %entry
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ %0, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %if.else
+  %retval.0 = phi ptr [ null, %if.else ], [ %0, %land.lhs.true ]
   ret ptr %retval.0
 }
 

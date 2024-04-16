@@ -27548,8 +27548,8 @@ entry:
   store i8 48, ptr %zero, align 1
   %3 = lshr i64 %fspecs.coerce.fr, 32
   %4 = trunc nuw i64 %3 to i32
-  %bf.lshr132 = lshr i64 %fspecs.coerce.fr, 40
-  %bf.cast = trunc i64 %bf.lshr132 to i8
+  %bf.lshr134 = lshr i64 %fspecs.coerce.fr, 40
+  %bf.cast = trunc i64 %bf.lshr134 to i8
   store i8 %bf.cast, ptr %sign, align 1
   %cmp.i = icmp sgt i64 %add.i.i.i, -1
   %5 = trunc i64 %fspecs.coerce.fr to i32
@@ -30646,8 +30646,8 @@ entry:
   store i8 48, ptr %zero, align 1
   %4 = lshr i64 %fspecs.coerce.fr, 32
   %5 = trunc nuw i64 %4 to i32
-  %bf.lshr134 = lshr i64 %fspecs.coerce.fr, 40
-  %bf.cast = trunc i64 %bf.lshr134 to i8
+  %bf.lshr136 = lshr i64 %fspecs.coerce.fr, 40
+  %bf.cast = trunc i64 %bf.lshr136 to i8
   store i8 %bf.cast, ptr %sign, align 1
   %cmp.i = icmp sgt i32 %sub.i.i.i, -1
   %6 = trunc i64 %fspecs.coerce.fr to i32
@@ -30809,8 +30809,8 @@ if.end78:                                         ; preds = %cond.end, %_ZZN3fmt
   br i1 %cmp82, label %_ZN3fmt3v106detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit52, label %if.else131
 
 _ZN3fmt3v106detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit52: ; preds = %if.end78
-  %narrow133 = add nuw i32 %11, %add
-  %add87 = zext i32 %narrow133 to i64
+  %narrow135 = add nuw i32 %11, %add
+  %add87 = zext i32 %narrow135 to i64
   %sub90 = sub nsw i32 %6, %add13
   store i32 %sub90, ptr %num_zeros88, align 4
   %26 = and i32 %5, 524288
@@ -35199,8 +35199,8 @@ entry:
   store i8 48, ptr %zero, align 1
   %2 = lshr i64 %fspecs.coerce.fr, 32
   %3 = trunc nuw i64 %2 to i32
-  %bf.lshr132 = lshr i64 %fspecs.coerce.fr, 40
-  %bf.cast = trunc i64 %bf.lshr132 to i8
+  %bf.lshr134 = lshr i64 %fspecs.coerce.fr, 40
+  %bf.cast = trunc i64 %bf.lshr134 to i8
   store i8 %bf.cast, ptr %sign, align 1
   %cmp.i = icmp sgt i32 %1, -1
   %4 = trunc i64 %fspecs.coerce.fr to i32
@@ -39606,7 +39606,7 @@ do.end:                                           ; preds = %land.lhs.true7, %do
 
 if.end14:                                         ; preds = %do.end
   %cmp15 = icmp eq i64 %sub.ptr.sub, 10
-  br i1 %cmp15, label %land.lhs.true16, label %return
+  br i1 %cmp15, label %land.lhs.true16, label %cond.false
 
 land.lhs.true16:                                  ; preds = %if.end14
   %conv17 = zext i32 %value.0 to i64
@@ -39617,11 +39617,13 @@ land.lhs.true16:                                  ; preds = %if.end14
   %conv21 = and i64 %sub20, 4294967294
   %add22 = add nuw nsw i64 %conv21, %mul18
   %cmp23 = icmp ult i64 %add22, 2147483648
-  %spec.select = select i1 %cmp23, i32 %add, i32 %error_value
+  br i1 %cmp23, label %return, label %cond.false
+
+cond.false:                                       ; preds = %land.lhs.true16, %if.end14
   br label %return
 
-return:                                           ; preds = %land.lhs.true16, %if.end14, %do.end
-  %retval.0 = phi i32 [ %add, %do.end ], [ %error_value, %if.end14 ], [ %spec.select, %land.lhs.true16 ]
+return:                                           ; preds = %cond.false, %land.lhs.true16, %do.end
+  %retval.0 = phi i32 [ %add, %do.end ], [ %error_value, %cond.false ], [ %add, %land.lhs.true16 ]
   ret i32 %retval.0
 
 terminate.lpad:                                   ; preds = %invoke.cont.i
@@ -49678,8 +49680,8 @@ entry:
   store i32 %1, ptr %significand_size, align 4
   %2 = lshr i64 %fspecs.coerce.fr, 32
   %3 = trunc nuw i64 %2 to i32
-  %bf.lshr133 = lshr i64 %fspecs.coerce.fr, 40
-  %bf.cast = trunc i64 %bf.lshr133 to i8
+  %bf.lshr135 = lshr i64 %fspecs.coerce.fr, 40
+  %bf.cast = trunc i64 %bf.lshr135 to i8
   store i8 %bf.cast, ptr %sign, align 1
   %cmp.i = icmp sgt i32 %1, -1
   %4 = trunc i64 %fspecs.coerce.fr to i32
@@ -49800,9 +49802,9 @@ if.end27:                                         ; preds = %if.else, %if.then25
   %cond37 = select i1 %cmp36, i64 4, i64 3
   %exp_digits.0 = select i1 %cmp34, i64 %cond37, i64 2
   %tobool39.not.not = icmp eq i8 %12, 0
-  %spec.select134 = select i1 %tobool39.not.not, i64 2, i64 3
+  %spec.select136 = select i1 %tobool39.not.not, i64 2, i64 3
   %add42 = add nuw nsw i64 %size.0, %exp_digits.0
-  %add45 = add nuw nsw i64 %add42, %spec.select134
+  %add45 = add nuw nsw i64 %add42, %spec.select136
   %13 = and i32 %3, 65536
   %bf.cast49.not = icmp eq i32 %13, 0
   %cond50 = select i1 %bf.cast49.not, i8 101, i8 69

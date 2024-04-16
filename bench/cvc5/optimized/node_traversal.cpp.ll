@@ -411,8 +411,8 @@ while.body.lr.ph:                                 ; preds = %entry
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.body
 
-while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
-  %2 = phi ptr [ %1, %while.body.lr.ph ], [ %31, %while.cond.backedge ]
+while.body:                                       ; preds = %while.body.lr.ph, %cleanup
+  %2 = phi ptr [ %1, %while.body.lr.ph ], [ %38, %cleanup ]
   %add.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 -8
   %3 = load ptr, ptr %add.ptr.i.i, align 8
   store ptr %3, ptr %back, align 8
@@ -495,7 +495,7 @@ if.then15:                                        ; preds = %if.end.i
   %20 = load ptr, ptr %_M_finish.i.i, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %20, i64 -8
   store ptr %incdec.ptr.i, ptr %_M_finish.i.i, align 8
-  br label %while.cond.backedge, !llvm.loop !9
+  br label %cleanup, !llvm.loop !9
 
 if.end:                                           ; preds = %if.end.i
   %call.i9 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_bESaIS7_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS6_(ptr noundef nonnull align 1 dereferenceable(1) %d_visited, ptr noundef nonnull align 8 dereferenceable(8) %back)
@@ -578,8 +578,8 @@ _ZNKSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE12_M_check_lenEmPKc.ex
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
   %add.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
-  %spec.select.i.i.i.i = call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 1152921504606846975)
-  %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 1152921504606846975, i64 %spec.select.i.i.i.i
+  %29 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 1152921504606846975)
+  %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 1152921504606846975, i64 %29
   %cmp.not.i.i.i.i27 = icmp eq i64 %cond.i.i.i.i, 0
   br i1 %cmp.not.i.i.i.i27, label %invoke.cont.i.i.i, label %cond.true.i.i.i.i
 
@@ -598,8 +598,8 @@ invoke.cont.i.i.i:                                ; preds = %cond.true.i.i.i.i, 
 for.inc.i.i.i.i.i.i.i.i:                          ; preds = %invoke.cont.i.i.i, %for.inc.i.i.i.i.i.i.i.i
   %__cur.09.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i ], [ %cond.i19.i.i.i, %invoke.cont.i.i.i ]
   %__first.addr.08.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i ], [ %28, %invoke.cont.i.i.i ]
-  %29 = load ptr, ptr %__first.addr.08.i.i.i.i.i.i.i.i, align 8
-  store ptr %29, ptr %__cur.09.i.i.i.i.i.i.i.i, align 8
+  %30 = load ptr, ptr %__first.addr.08.i.i.i.i.i.i.i.i, align 8
+  store ptr %30, ptr %__cur.09.i.i.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i.i.i.i.i.i, i64 8
   %incdec.ptr1.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i, %25
@@ -628,64 +628,64 @@ invoke.cont28:                                    ; preds = %_ZNSt6vectorIN4cvc5
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !14
 
 for.end:                                          ; preds = %invoke.cont28, %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit
-  %30 = load i32, ptr %d_order32, align 8
-  %cmp29 = icmp eq i32 %30, 0
-  br i1 %cmp29, label %return, label %for.end.while.cond.backedge_crit_edge
+  %31 = load i32, ptr %d_order32, align 8
+  %cmp29 = icmp eq i32 %31, 0
+  br i1 %cmp29, label %return, label %for.end.cleanup_crit_edge
 
-for.end.while.cond.backedge_crit_edge:            ; preds = %for.end
+for.end.cleanup_crit_edge:                        ; preds = %for.end
   %.pre69 = load ptr, ptr %_M_finish.i.i, align 8
-  br label %while.cond.backedge
-
-while.cond.backedge:                              ; preds = %for.end.while.cond.backedge_crit_edge, %if.then15, %if.then35
-  %31 = phi ptr [ %.pre69, %for.end.while.cond.backedge_crit_edge ], [ %incdec.ptr.i, %if.then15 ], [ %incdec.ptr.i32, %if.then35 ]
-  %32 = load ptr, ptr %this, align 8
-  %cmp.i.i = icmp eq ptr %32, %31
-  br i1 %cmp.i.i, label %while.end, label %while.body
+  br label %cleanup
 
 if.else:                                          ; preds = %for.cond.i.i.i.i, %for.body.i.i, %if.end.i.i.i.i
-  %33 = phi ptr [ %.pre, %if.end.i.i.i.i ], [ %3, %for.body.i.i ], [ %.pre, %for.cond.i.i.i.i ]
+  %32 = phi ptr [ %.pre, %if.end.i.i.i.i ], [ %3, %for.body.i.i ], [ %.pre, %for.cond.i.i.i.i ]
   %retval.sroa.0.1.i.i = phi ptr [ %9, %if.end.i.i.i.i ], [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %15, %for.cond.i.i.i.i ]
-  %34 = load i32, ptr %d_order32, align 8
-  %cmp33 = icmp eq i32 %34, 0
+  %33 = load i32, ptr %d_order32, align 8
+  %cmp33 = icmp eq i32 %33, 0
   br i1 %cmp33, label %if.then35, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.else
   %second = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i, i64 16
-  %35 = load i8, ptr %second, align 8
-  %tobool = trunc i8 %35 to i1
+  %34 = load i8, ptr %second, align 8
+  %tobool = trunc i8 %34 to i1
   br i1 %tobool, label %if.then35, label %if.else37
 
 if.then35:                                        ; preds = %lor.lhs.false, %if.else
-  %36 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i32 = getelementptr inbounds i8, ptr %36, i64 -8
+  %35 = load ptr, ptr %_M_finish.i.i, align 8
+  %incdec.ptr.i32 = getelementptr inbounds i8, ptr %35, i64 -8
   store ptr %incdec.ptr.i32, ptr %_M_finish.i.i, align 8
-  br label %while.cond.backedge
+  br label %cleanup
 
 if.else37:                                        ; preds = %lor.lhs.false
   %second.le = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i, i64 16
   store i8 1, ptr %second.le, align 8
-  %37 = load ptr, ptr %d_current, align 8
-  %cmp.not.i34 = icmp eq ptr %37, %33
-  br i1 %cmp.not.i34, label %cleanup.thread, label %if.then.i35
+  %36 = load ptr, ptr %d_current, align 8
+  %cmp.not.i34 = icmp eq ptr %36, %32
+  br i1 %cmp.not.i34, label %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit37, label %if.then.i35
 
 if.then.i35:                                      ; preds = %if.else37
-  store ptr %33, ptr %d_current, align 8
-  br label %cleanup.thread
+  store ptr %32, ptr %d_current, align 8
+  br label %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit37
 
-cleanup.thread:                                   ; preds = %if.then.i35, %if.else37
-  %38 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i39 = getelementptr inbounds i8, ptr %38, i64 -8
+_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit37: ; preds = %if.else37, %if.then.i35
+  %37 = load ptr, ptr %_M_finish.i.i, align 8
+  %incdec.ptr.i39 = getelementptr inbounds i8, ptr %37, i64 -8
   store ptr %incdec.ptr.i39, ptr %_M_finish.i.i, align 8
   br label %return
 
-while.end:                                        ; preds = %while.cond.backedge, %entry
-  %39 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
-  %guard.uninitialized.i.i = icmp eq i8 %39, 0
+cleanup:                                          ; preds = %for.end.cleanup_crit_edge, %if.then35, %if.then15
+  %38 = phi ptr [ %.pre69, %for.end.cleanup_crit_edge ], [ %incdec.ptr.i32, %if.then35 ], [ %incdec.ptr.i, %if.then15 ]
+  %39 = load ptr, ptr %this, align 8
+  %cmp.i.i = icmp eq ptr %39, %38
+  br i1 %cmp.i.i, label %while.end, label %while.body
+
+while.end:                                        ; preds = %cleanup, %entry
+  %40 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
+  %guard.uninitialized.i.i = icmp eq i8 %40, 0
   br i1 %guard.uninitialized.i.i, label %init.check.i.i, label %_ZN4cvc58internal12NodeTemplateILb0EEC2Ev.exit, !prof !4
 
 init.check.i.i:                                   ; preds = %while.end
-  %40 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #17
-  %tobool.not.i.i40 = icmp eq i32 %40, 0
+  %41 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #17
+  %tobool.not.i.i40 = icmp eq i32 %41, 0
   br i1 %tobool.not.i.i40, label %_ZN4cvc58internal12NodeTemplateILb0EEC2Ev.exit, label %init.i.i
 
 init.i.i:                                         ; preds = %init.check.i.i
@@ -703,23 +703,23 @@ invoke.cont.i.i:                                  ; preds = %init.i.i
   br label %_ZN4cvc58internal12NodeTemplateILb0EEC2Ev.exit
 
 lpad.i.i:                                         ; preds = %init.i.i
-  %41 = landingpad { ptr, i32 }
+  %42 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #17
-  resume { ptr, i32 } %41
+  resume { ptr, i32 } %42
 
 _ZN4cvc58internal12NodeTemplateILb0EEC2Ev.exit:   ; preds = %while.end, %init.check.i.i, %invoke.cont.i.i
-  %42 = load ptr, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
+  %43 = load ptr, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   %d_current47 = getelementptr inbounds i8, ptr %this, i64 88
-  %43 = load ptr, ptr %d_current47, align 8
-  %cmp.not.i41 = icmp eq ptr %43, %42
+  %44 = load ptr, ptr %d_current47, align 8
+  %cmp.not.i41 = icmp eq ptr %44, %43
   br i1 %cmp.not.i41, label %return, label %if.then.i42
 
 if.then.i42:                                      ; preds = %_ZN4cvc58internal12NodeTemplateILb0EEC2Ev.exit
-  store ptr %42, ptr %d_current47, align 8
+  store ptr %43, ptr %d_current47, align 8
   br label %return
 
-return:                                           ; preds = %for.end, %if.then.i42, %_ZN4cvc58internal12NodeTemplateILb0EEC2Ev.exit, %cleanup.thread
+return:                                           ; preds = %for.end, %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit37, %if.then.i42, %_ZN4cvc58internal12NodeTemplateILb0EEC2Ev.exit
   ret void
 }
 

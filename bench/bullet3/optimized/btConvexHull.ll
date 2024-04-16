@@ -2464,42 +2464,42 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 
 if.then.i:                                        ; preds = %for.body.i
   %cmp1.i = icmp eq i32 %m.015.i, -1
-  %5 = trunc nuw nsw i64 %indvars.iv.i to i32
-  br i1 %cmp1.i, label %for.inc.i, label %lor.lhs.false.i
+  br i1 %cmp1.i, label %if.then7.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then.i
   %arrayidx.i = getelementptr inbounds %class.btVector3, ptr %p, i64 %indvars.iv.i
-  %6 = load float, ptr %arrayidx.i, align 4
+  %5 = load float, ptr %arrayidx.i, align 4
   %arrayidx5.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
-  %7 = load float, ptr %arrayidx5.i.i.i, align 4
+  %6 = load float, ptr %arrayidx5.i.i.i, align 4
   %arrayidx10.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
-  %8 = load float, ptr %arrayidx10.i.i.i, align 4
+  %7 = load float, ptr %arrayidx10.i.i.i, align 4
   %idxprom3.i = sext i32 %m.015.i to i64
   %arrayidx4.i = getelementptr inbounds %class.btVector3, ptr %p, i64 %idxprom3.i
-  %9 = load float, ptr %arrayidx4.i, align 4
+  %8 = load float, ptr %arrayidx4.i, align 4
   %arrayidx5.i.i9.i = getelementptr inbounds i8, ptr %arrayidx4.i, i64 4
-  %10 = load float, ptr %arrayidx5.i.i9.i, align 4
+  %9 = load float, ptr %arrayidx5.i.i9.i, align 4
   %arrayidx10.i.i12.i = getelementptr inbounds i8, ptr %arrayidx4.i, i64 8
-  %11 = load float, ptr %arrayidx10.i.i12.i, align 4
-  %12 = insertelement <2 x float> poison, float %7, i64 0
-  %13 = insertelement <2 x float> %12, float %10, i64 1
-  %14 = fmul <2 x float> %3, %13
-  %15 = insertelement <2 x float> poison, float %6, i64 0
-  %16 = insertelement <2 x float> %15, float %9, i64 1
-  %17 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %16, <2 x float> %2, <2 x float> %14)
-  %18 = insertelement <2 x float> poison, float %8, i64 0
-  %19 = insertelement <2 x float> %18, float %11, i64 1
-  %20 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %19, <2 x float> %1, <2 x float> %17)
-  %21 = extractelement <2 x float> %20, i64 0
-  %22 = extractelement <2 x float> %20, i64 1
-  %cmp6.i = fcmp ogt float %21, %22
+  %10 = load float, ptr %arrayidx10.i.i12.i, align 4
+  %11 = insertelement <2 x float> poison, float %6, i64 0
+  %12 = insertelement <2 x float> %11, float %9, i64 1
+  %13 = fmul <2 x float> %3, %12
+  %14 = insertelement <2 x float> poison, float %5, i64 0
+  %15 = insertelement <2 x float> %14, float %8, i64 1
+  %16 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %15, <2 x float> %2, <2 x float> %13)
+  %17 = insertelement <2 x float> poison, float %7, i64 0
+  %18 = insertelement <2 x float> %17, float %10, i64 1
+  %19 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %18, <2 x float> %1, <2 x float> %16)
+  %20 = extractelement <2 x float> %19, i64 0
+  %21 = extractelement <2 x float> %19, i64 1
+  %cmp6.i = fcmp ogt float %20, %21
   br i1 %cmp6.i, label %if.then7.i, label %for.inc.i
 
-if.then7.i:                                       ; preds = %lor.lhs.false.i
+if.then7.i:                                       ; preds = %lor.lhs.false.i, %if.then.i
+  %22 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %for.inc.i
 
-for.inc.i:                                        ; preds = %if.then7.i, %lor.lhs.false.i, %if.then.i, %for.body.i
-  %m.1.i = phi i32 [ %m.015.i, %lor.lhs.false.i ], [ %m.015.i, %for.body.i ], [ %5, %if.then.i ], [ %5, %if.then7.i ]
+for.inc.i:                                        ; preds = %if.then7.i, %lor.lhs.false.i, %for.body.i
+  %m.1.i = phi i32 [ %22, %if.then7.i ], [ %m.015.i, %lor.lhs.false.i ], [ %m.015.i, %for.body.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_Z14maxdirfilteredI9btVector3EiPKT_iRS2_R20btAlignedObjectArrayIiE.exit, label %for.body.i, !llvm.loop !18
@@ -2623,42 +2623,42 @@ for.body.i93:                                     ; preds = %for.inc.i111, %for.
 
 if.then.i98:                                      ; preds = %for.body.i93
   %cmp1.i99 = icmp eq i32 %m.015.i95, -1
-  %68 = trunc nuw nsw i64 %indvars.iv.i94 to i32
-  br i1 %cmp1.i99, label %for.inc.i111, label %lor.lhs.false.i100
+  br i1 %cmp1.i99, label %if.then7.i115, label %lor.lhs.false.i100
 
 lor.lhs.false.i100:                               ; preds = %if.then.i98
   %arrayidx.i101 = getelementptr inbounds %class.btVector3, ptr %p, i64 %indvars.iv.i94
-  %69 = load float, ptr %arrayidx.i101, align 4
+  %68 = load float, ptr %arrayidx.i101, align 4
   %arrayidx5.i.i.i102 = getelementptr inbounds i8, ptr %arrayidx.i101, i64 4
-  %70 = load float, ptr %arrayidx5.i.i.i102, align 4
+  %69 = load float, ptr %arrayidx5.i.i.i102, align 4
   %arrayidx10.i.i.i104 = getelementptr inbounds i8, ptr %arrayidx.i101, i64 8
-  %71 = load float, ptr %arrayidx10.i.i.i104, align 4
+  %70 = load float, ptr %arrayidx10.i.i.i104, align 4
   %idxprom3.i105 = sext i32 %m.015.i95 to i64
   %arrayidx4.i106 = getelementptr inbounds %class.btVector3, ptr %p, i64 %idxprom3.i105
-  %72 = load float, ptr %arrayidx4.i106, align 4
+  %71 = load float, ptr %arrayidx4.i106, align 4
   %arrayidx5.i.i9.i107 = getelementptr inbounds i8, ptr %arrayidx4.i106, i64 4
-  %73 = load float, ptr %arrayidx5.i.i9.i107, align 4
+  %72 = load float, ptr %arrayidx5.i.i9.i107, align 4
   %arrayidx10.i.i12.i109 = getelementptr inbounds i8, ptr %arrayidx4.i106, i64 8
-  %74 = load float, ptr %arrayidx10.i.i12.i109, align 4
-  %75 = insertelement <2 x float> poison, float %70, i64 0
-  %76 = insertelement <2 x float> %75, float %73, i64 1
-  %77 = fmul <2 x float> %66, %76
-  %78 = insertelement <2 x float> poison, float %69, i64 0
-  %79 = insertelement <2 x float> %78, float %72, i64 1
-  %80 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %79, <2 x float> %64, <2 x float> %77)
-  %81 = insertelement <2 x float> poison, float %71, i64 0
-  %82 = insertelement <2 x float> %81, float %74, i64 1
-  %83 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %82, <2 x float> %62, <2 x float> %80)
-  %84 = extractelement <2 x float> %83, i64 0
-  %85 = extractelement <2 x float> %83, i64 1
-  %cmp6.i110 = fcmp ogt float %84, %85
+  %73 = load float, ptr %arrayidx10.i.i12.i109, align 4
+  %74 = insertelement <2 x float> poison, float %69, i64 0
+  %75 = insertelement <2 x float> %74, float %72, i64 1
+  %76 = fmul <2 x float> %66, %75
+  %77 = insertelement <2 x float> poison, float %68, i64 0
+  %78 = insertelement <2 x float> %77, float %71, i64 1
+  %79 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %78, <2 x float> %64, <2 x float> %76)
+  %80 = insertelement <2 x float> poison, float %70, i64 0
+  %81 = insertelement <2 x float> %80, float %73, i64 1
+  %82 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %81, <2 x float> %62, <2 x float> %79)
+  %83 = extractelement <2 x float> %82, i64 0
+  %84 = extractelement <2 x float> %82, i64 1
+  %cmp6.i110 = fcmp ogt float %83, %84
   br i1 %cmp6.i110, label %if.then7.i115, label %for.inc.i111
 
-if.then7.i115:                                    ; preds = %lor.lhs.false.i100
+if.then7.i115:                                    ; preds = %lor.lhs.false.i100, %if.then.i98
+  %85 = trunc nuw nsw i64 %indvars.iv.i94 to i32
   br label %for.inc.i111
 
-for.inc.i111:                                     ; preds = %if.then7.i115, %lor.lhs.false.i100, %if.then.i98, %for.body.i93
-  %m.1.i112 = phi i32 [ %m.015.i95, %lor.lhs.false.i100 ], [ %m.015.i95, %for.body.i93 ], [ %68, %if.then.i98 ], [ %68, %if.then7.i115 ]
+for.inc.i111:                                     ; preds = %if.then7.i115, %lor.lhs.false.i100, %for.body.i93
+  %m.1.i112 = phi i32 [ %85, %if.then7.i115 ], [ %m.015.i95, %lor.lhs.false.i100 ], [ %m.015.i95, %for.body.i93 ]
   %indvars.iv.next.i113 = add nuw nsw i64 %indvars.iv.i94, 1
   %exitcond.not.i114 = icmp eq i64 %indvars.iv.next.i113, %wide.trip.count.i
   br i1 %exitcond.not.i114, label %_Z14maxdirfilteredI9btVector3EiPKT_iRS2_R20btAlignedObjectArrayIiE.exit116, label %for.body.i93, !llvm.loop !18
@@ -2725,42 +2725,42 @@ for.body.i183:                                    ; preds = %for.inc.i201, %for.
 
 if.then.i188:                                     ; preds = %for.body.i183
   %cmp1.i189 = icmp eq i32 %m.015.i185, -1
-  %97 = trunc nuw nsw i64 %indvars.iv.i184 to i32
-  br i1 %cmp1.i189, label %for.inc.i201, label %lor.lhs.false.i190
+  br i1 %cmp1.i189, label %if.then7.i205, label %lor.lhs.false.i190
 
 lor.lhs.false.i190:                               ; preds = %if.then.i188
   %arrayidx.i191 = getelementptr inbounds %class.btVector3, ptr %p, i64 %indvars.iv.i184
-  %98 = load float, ptr %arrayidx.i191, align 4
+  %97 = load float, ptr %arrayidx.i191, align 4
   %arrayidx5.i.i.i192 = getelementptr inbounds i8, ptr %arrayidx.i191, i64 4
-  %99 = load float, ptr %arrayidx5.i.i.i192, align 4
+  %98 = load float, ptr %arrayidx5.i.i.i192, align 4
   %arrayidx10.i.i.i194 = getelementptr inbounds i8, ptr %arrayidx.i191, i64 8
-  %100 = load float, ptr %arrayidx10.i.i.i194, align 4
+  %99 = load float, ptr %arrayidx10.i.i.i194, align 4
   %idxprom3.i195 = sext i32 %m.015.i185 to i64
   %arrayidx4.i196 = getelementptr inbounds %class.btVector3, ptr %p, i64 %idxprom3.i195
-  %101 = load float, ptr %arrayidx4.i196, align 4
+  %100 = load float, ptr %arrayidx4.i196, align 4
   %arrayidx5.i.i9.i197 = getelementptr inbounds i8, ptr %arrayidx4.i196, i64 4
-  %102 = load float, ptr %arrayidx5.i.i9.i197, align 4
+  %101 = load float, ptr %arrayidx5.i.i9.i197, align 4
   %arrayidx10.i.i12.i199 = getelementptr inbounds i8, ptr %arrayidx4.i196, i64 8
-  %103 = load float, ptr %arrayidx10.i.i12.i199, align 4
-  %104 = insertelement <2 x float> poison, float %99, i64 0
-  %105 = insertelement <2 x float> %104, float %102, i64 1
-  %106 = fmul <2 x float> %95, %105
-  %107 = insertelement <2 x float> poison, float %98, i64 0
-  %108 = insertelement <2 x float> %107, float %101, i64 1
-  %109 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %108, <2 x float> %93, <2 x float> %106)
-  %110 = insertelement <2 x float> poison, float %100, i64 0
-  %111 = insertelement <2 x float> %110, float %103, i64 1
-  %112 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %111, <2 x float> %91, <2 x float> %109)
-  %113 = extractelement <2 x float> %112, i64 0
-  %114 = extractelement <2 x float> %112, i64 1
-  %cmp6.i200 = fcmp ogt float %113, %114
+  %102 = load float, ptr %arrayidx10.i.i12.i199, align 4
+  %103 = insertelement <2 x float> poison, float %98, i64 0
+  %104 = insertelement <2 x float> %103, float %101, i64 1
+  %105 = fmul <2 x float> %95, %104
+  %106 = insertelement <2 x float> poison, float %97, i64 0
+  %107 = insertelement <2 x float> %106, float %100, i64 1
+  %108 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %107, <2 x float> %93, <2 x float> %105)
+  %109 = insertelement <2 x float> poison, float %99, i64 0
+  %110 = insertelement <2 x float> %109, float %102, i64 1
+  %111 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %110, <2 x float> %91, <2 x float> %108)
+  %112 = extractelement <2 x float> %111, i64 0
+  %113 = extractelement <2 x float> %111, i64 1
+  %cmp6.i200 = fcmp ogt float %112, %113
   br i1 %cmp6.i200, label %if.then7.i205, label %for.inc.i201
 
-if.then7.i205:                                    ; preds = %lor.lhs.false.i190
+if.then7.i205:                                    ; preds = %lor.lhs.false.i190, %if.then.i188
+  %114 = trunc nuw nsw i64 %indvars.iv.i184 to i32
   br label %for.inc.i201
 
-for.inc.i201:                                     ; preds = %if.then7.i205, %lor.lhs.false.i190, %if.then.i188, %for.body.i183
-  %m.1.i202 = phi i32 [ %m.015.i185, %lor.lhs.false.i190 ], [ %m.015.i185, %for.body.i183 ], [ %97, %if.then.i188 ], [ %97, %if.then7.i205 ]
+for.inc.i201:                                     ; preds = %if.then7.i205, %lor.lhs.false.i190, %for.body.i183
+  %m.1.i202 = phi i32 [ %114, %if.then7.i205 ], [ %m.015.i185, %lor.lhs.false.i190 ], [ %m.015.i185, %for.body.i183 ]
   %indvars.iv.next.i203 = add nuw nsw i64 %indvars.iv.i184, 1
   %exitcond.not.i204 = icmp eq i64 %indvars.iv.next.i203, %wide.trip.count.i
   br i1 %exitcond.not.i204, label %_Z14maxdirfilteredI9btVector3EiPKT_iRS2_R20btAlignedObjectArrayIiE.exit206, label %for.body.i183, !llvm.loop !18

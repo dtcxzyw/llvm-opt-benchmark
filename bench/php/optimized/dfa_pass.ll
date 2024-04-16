@@ -1823,7 +1823,7 @@ define hidden void @zend_dfa_optimize_op_array(ptr noundef %0, ptr noundef %1, p
   %669 = getelementptr inbounds i8, ptr %67, i64 24
   %670 = load i32, ptr %669, align 4
   %671 = icmp eq i32 %670, -1
-  br i1 %671, label %672, label %can_elide_return_type_check.exit.thread
+  br i1 %671, label %672, label %can_elide_return_type_check.exit.thread1584
 
 672:                                              ; preds = %666
   %673 = load ptr, ptr %52, align 8
@@ -1842,8 +1842,8 @@ define hidden void @zend_dfa_optimize_op_array(ptr noundef %0, ptr noundef %1, p
   %684 = load i32, ptr %683, align 8
   %685 = xor i32 %684, -1
   %686 = and i32 %.018.i, %685
-  switch i32 %686, label %can_elide_return_type_check.exit.thread [
-    i32 0, label %can_elide_return_type_check.exit.thread1584
+  switch i32 %686, label %can_elide_return_type_check.exit.thread1584 [
+    i32 0, label %can_elide_return_type_check.exit.thread
     i32 256, label %687
   ]
 
@@ -1854,19 +1854,19 @@ define hidden void @zend_dfa_optimize_op_array(ptr noundef %0, ptr noundef %1, p
   %690 = and i32 %684, 29360128
   %.not22.i = icmp eq i32 %690, 0
   %or.cond.i = or i1 %.not22.i, %.not21.i
-  br i1 %or.cond.i, label %can_elide_return_type_check.exit.thread, label %can_elide_return_type_check.exit
+  br i1 %or.cond.i, label %can_elide_return_type_check.exit.thread1584, label %can_elide_return_type_check.exit
 
 can_elide_return_type_check.exit:                 ; preds = %687
   %691 = load ptr, ptr %682, align 8
   %692 = call fastcc zeroext i1 @can_elide_list_type(ptr noundef %673, ptr noundef nonnull %0, ptr noundef nonnull %676, ptr %691, i32 %684)
-  br i1 %692, label %can_elide_return_type_check.exit.thread1584, label %can_elide_return_type_check.exit.thread
+  br i1 %692, label %can_elide_return_type_check.exit.thread, label %can_elide_return_type_check.exit.thread1584
 
-can_elide_return_type_check.exit.thread1584:      ; preds = %672, %can_elide_return_type_check.exit
+can_elide_return_type_check.exit.thread:          ; preds = %672, %can_elide_return_type_check.exit
   call void @zend_ssa_unlink_use_chain(ptr noundef nonnull %2, i32 noundef %60, i32 noundef %664) #10
   %693 = icmp sgt i32 %668, -1
   br i1 %693, label %694, label %705
 
-694:                                              ; preds = %can_elide_return_type_check.exit.thread1584
+694:                                              ; preds = %can_elide_return_type_check.exit.thread
   %695 = load ptr, ptr %49, align 8
   %696 = zext nneg i32 %668 to i64
   %697 = getelementptr inbounds %struct._zend_ssa_op, ptr %695, i64 %696
@@ -1882,7 +1882,7 @@ can_elide_return_type_check.exit.thread1584:      ; preds = %672, %can_elide_ret
   store i32 %668, ptr %704, align 4
   br label %705
 
-705:                                              ; preds = %694, %can_elide_return_type_check.exit.thread1584
+705:                                              ; preds = %694, %can_elide_return_type_check.exit.thread
   %706 = load ptr, ptr %47, align 8
   %707 = getelementptr inbounds %struct._zend_ssa_var, ptr %706, i64 %indvars.iv, i32 2
   store i32 -1, ptr %707, align 8
@@ -1909,11 +1909,11 @@ can_elide_return_type_check.exit.thread1584:      ; preds = %672, %can_elide_ret
   store i32 -1, ptr %718, align 8
   br label %.thread
 
-can_elide_return_type_check.exit.thread:          ; preds = %672, %687, %can_elide_return_type_check.exit, %666
+can_elide_return_type_check.exit.thread1584:      ; preds = %687, %672, %can_elide_return_type_check.exit, %666
   %719 = icmp sgt i32 %668, -1
   br i1 %719, label %720, label %.thread
 
-720:                                              ; preds = %can_elide_return_type_check.exit.thread
+720:                                              ; preds = %can_elide_return_type_check.exit.thread1584
   %721 = load ptr, ptr %49, align 8
   %722 = zext nneg i32 %668 to i64
   %723 = getelementptr inbounds %struct._zend_ssa_op, ptr %721, i64 %722
@@ -1971,8 +1971,8 @@ can_elide_return_type_check.exit.thread:          ; preds = %672, %687, %can_eli
   store i32 -1, ptr %753, align 8
   br label %.thread
 
-.thread:                                          ; preds = %510, %296, %74, %408, %172, %642, %644, %629, %602, %589, %547, %549, %526, %517, %498, %500, %477, %455, %456, %442, %333, %335, %312, %303, %284, %286, %271, %219, %220, %206, %120, %75, %79, %84, %113, %.thread1549, %.thread1524, %357, %507, %558, %556, %520, %463, %466, %470, %473, %237, %234, %230, %227, %306, %342, %344, %293, %655, %658, %663, %can_elide_return_type_check.exit.thread, %720, %726, %730, %734, %705, %609, %652, %654, %87, %102, %98
-  %.8 = phi i32 [ %.71619, %102 ], [ %.71619, %98 ], [ %.71619, %87 ], [ %.71619, %237 ], [ %.71619, %234 ], [ %.71619, %230 ], [ %.71619, %227 ], [ %.71619, %344 ], [ %.71619, %342 ], [ %.71619, %306 ], [ %.71619, %293 ], [ %.71619, %473 ], [ %.71619, %470 ], [ %.71619, %466 ], [ %.71619, %463 ], [ %.71619, %558 ], [ %.71619, %556 ], [ %.71619, %520 ], [ %.71619, %507 ], [ %.71619, %357 ], [ %.71619, %609 ], [ %.71619, %652 ], [ %.71619, %654 ], [ 1, %705 ], [ 1, %734 ], [ %.71619, %730 ], [ %.71619, %726 ], [ %.71619, %720 ], [ %.71619, %can_elide_return_type_check.exit.thread ], [ %.71619, %663 ], [ %.71619, %658 ], [ %.71619, %655 ], [ %.71619, %.thread1524 ], [ %.71619, %.thread1549 ], [ %.71619, %113 ], [ %.71619, %84 ], [ %.71619, %79 ], [ %.71619, %75 ], [ %.71619, %120 ], [ %.71619, %206 ], [ %.71619, %220 ], [ %.71619, %219 ], [ %.71619, %271 ], [ %.71619, %286 ], [ %.71619, %284 ], [ %.71619, %303 ], [ %.71619, %312 ], [ %.71619, %335 ], [ %.71619, %333 ], [ %.71619, %442 ], [ %.71619, %456 ], [ %.71619, %455 ], [ %.71619, %477 ], [ %.71619, %500 ], [ %.71619, %498 ], [ %.71619, %517 ], [ %.71619, %526 ], [ %.71619, %549 ], [ %.71619, %547 ], [ %.71619, %589 ], [ %.71619, %602 ], [ %.71619, %629 ], [ %.71619, %644 ], [ %.71619, %642 ], [ %.71619, %172 ], [ %.71619, %408 ], [ %.71619, %74 ], [ %.71619, %296 ], [ %.71619, %510 ]
+.thread:                                          ; preds = %510, %296, %74, %408, %172, %642, %644, %629, %602, %589, %547, %549, %526, %517, %498, %500, %477, %455, %456, %442, %333, %335, %312, %303, %284, %286, %271, %219, %220, %206, %120, %75, %79, %84, %113, %.thread1549, %.thread1524, %357, %507, %558, %556, %520, %463, %466, %470, %473, %237, %234, %230, %227, %306, %342, %344, %293, %655, %658, %663, %can_elide_return_type_check.exit.thread1584, %720, %726, %730, %734, %705, %609, %652, %654, %87, %102, %98
+  %.8 = phi i32 [ %.71619, %102 ], [ %.71619, %98 ], [ %.71619, %87 ], [ %.71619, %237 ], [ %.71619, %234 ], [ %.71619, %230 ], [ %.71619, %227 ], [ %.71619, %344 ], [ %.71619, %342 ], [ %.71619, %306 ], [ %.71619, %293 ], [ %.71619, %473 ], [ %.71619, %470 ], [ %.71619, %466 ], [ %.71619, %463 ], [ %.71619, %558 ], [ %.71619, %556 ], [ %.71619, %520 ], [ %.71619, %507 ], [ %.71619, %357 ], [ %.71619, %609 ], [ %.71619, %652 ], [ %.71619, %654 ], [ 1, %705 ], [ 1, %734 ], [ %.71619, %730 ], [ %.71619, %726 ], [ %.71619, %720 ], [ %.71619, %can_elide_return_type_check.exit.thread1584 ], [ %.71619, %663 ], [ %.71619, %658 ], [ %.71619, %655 ], [ %.71619, %.thread1524 ], [ %.71619, %.thread1549 ], [ %.71619, %113 ], [ %.71619, %84 ], [ %.71619, %79 ], [ %.71619, %75 ], [ %.71619, %120 ], [ %.71619, %206 ], [ %.71619, %220 ], [ %.71619, %219 ], [ %.71619, %271 ], [ %.71619, %286 ], [ %.71619, %284 ], [ %.71619, %303 ], [ %.71619, %312 ], [ %.71619, %335 ], [ %.71619, %333 ], [ %.71619, %442 ], [ %.71619, %456 ], [ %.71619, %455 ], [ %.71619, %477 ], [ %.71619, %500 ], [ %.71619, %498 ], [ %.71619, %517 ], [ %.71619, %526 ], [ %.71619, %549 ], [ %.71619, %547 ], [ %.71619, %589 ], [ %.71619, %602 ], [ %.71619, %629 ], [ %.71619, %644 ], [ %.71619, %642 ], [ %.71619, %172 ], [ %.71619, %408 ], [ %.71619, %74 ], [ %.71619, %296 ], [ %.71619, %510 ]
   %754 = getelementptr inbounds i8, ptr %65, i64 28
   %755 = load i8, ptr %754, align 4
   %756 = icmp eq i8 %755, 31
@@ -4724,18 +4724,18 @@ define internal fastcc zeroext i1 @can_elide_return_type_check(ptr noundef %0, p
   %20 = and i32 %14, 29360128
   %.not22 = icmp eq i32 %20, 0
   %or.cond = or i1 %.not22, %.not21
-  br i1 %or.cond, label %25, label %21
+  br i1 %or.cond, label %24, label %21
 
 21:                                               ; preds = %17
   %22 = load ptr, ptr %12, align 8
   %23 = tail call fastcc zeroext i1 @can_elide_list_type(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %6, ptr %22, i32 %14)
   br label %25
 
-24:                                               ; preds = %2
+24:                                               ; preds = %2, %17
   br label %25
 
-25:                                               ; preds = %17, %2, %24, %21
-  %.0 = phi i1 [ %23, %21 ], [ true, %2 ], [ false, %17 ], [ false, %24 ]
+25:                                               ; preds = %2, %24, %21
+  %.0 = phi i1 [ %23, %21 ], [ false, %24 ], [ true, %2 ]
   ret i1 %.0
 }
 
@@ -4745,8 +4745,8 @@ declare void @zend_ssa_replace_use_chain(ptr noundef, i32 noundef, i32 noundef, 
 define internal fastcc zeroext i1 @opline_supports_assign_contraction(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 28
   %7 = load i8, ptr %6, align 4
-  switch i8 %7, label %.thread.fold.split [
-    i8 68, label %.thread
+  switch i8 %7, label %.thread [
+    i8 68, label %64
     i8 -127, label %8
     i8 -126, label %8
     i8 60, label %8
@@ -4770,19 +4770,19 @@ define internal fastcc zeroext i1 @opline_supports_assign_contraction(ptr nounde
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 960
   %.not48 = icmp eq i32 %14, 0
-  br label %.thread
+  br label %64
 
 15:                                               ; preds = %5, %5
   %16 = getelementptr inbounds i8, ptr %2, i64 29
   %17 = load i8, ptr %16, align 1
   %.not47 = icmp eq i8 %17, 8
-  br i1 %.not47, label %18, label %.thread
+  br i1 %.not47, label %18, label %64
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %2, i64 8
   %20 = load i32, ptr %19, align 8
   %21 = icmp ne i32 %20, %4
-  br label %.thread
+  br label %64
 
 22:                                               ; preds = %5
   %23 = getelementptr inbounds i8, ptr %2, i64 29
@@ -4794,19 +4794,19 @@ define internal fastcc zeroext i1 @opline_supports_assign_contraction(ptr nounde
   %26 = getelementptr inbounds i8, ptr %2, i64 8
   %27 = load i32, ptr %26, align 8
   %.not45 = icmp eq i32 %27, %4
-  br i1 %.not45, label %.thread, label %28
+  br i1 %.not45, label %64, label %28
 
 28:                                               ; preds = %25, %22
   %29 = getelementptr inbounds i8, ptr %2, i64 30
   %30 = load i8, ptr %29, align 2
   %.not46 = icmp eq i8 %30, 8
-  br i1 %.not46, label %31, label %.thread
+  br i1 %.not46, label %31, label %64
 
 31:                                               ; preds = %28
   %32 = getelementptr inbounds i8, ptr %2, i64 12
   %33 = load i32, ptr %32, align 4
   %34 = icmp ne i32 %33, %4
-  br label %.thread
+  br label %64
 
 35:                                               ; preds = %5
   %36 = getelementptr inbounds i8, ptr %2, i64 20
@@ -4819,13 +4819,13 @@ define internal fastcc zeroext i1 @opline_supports_assign_contraction(ptr nounde
   %39 = getelementptr inbounds i8, ptr %2, i64 29
   %40 = load i8, ptr %39, align 1
   %.not = icmp eq i8 %40, 8
-  br i1 %.not, label %41, label %.thread
+  br i1 %.not, label %41, label %64
 
 41:                                               ; preds = %38
   %42 = getelementptr inbounds i8, ptr %2, i64 8
   %43 = load i32, ptr %42, align 8
   %44 = icmp ne i32 %43, %4
-  br label %.thread
+  br label %64
 
 45:                                               ; preds = %5, %5, %5, %5, %5
   %46 = getelementptr inbounds i8, ptr %2, i64 29
@@ -4850,14 +4850,13 @@ define internal fastcc zeroext i1 @opline_supports_assign_contraction(ptr nounde
   %61 = sext i32 %60 to i64
   %62 = getelementptr inbounds %struct._zend_ssa_op, ptr %55, i64 %61
   %63 = tail call zeroext i1 @zend_may_throw(ptr noundef nonnull %2, ptr noundef %62, ptr noundef %0, ptr noundef %1) #10
-  %not. = xor i1 %63, true
-  br label %.thread
+  br i1 %63, label %64, label %.thread
 
-.thread.fold.split:                               ; preds = %5
-  br label %.thread
+.thread:                                          ; preds = %5, %35, %53, %49, %45
+  br label %64
 
-.thread:                                          ; preds = %5, %.thread.fold.split, %35, %53, %45, %49, %38, %41, %25, %31, %28, %15, %18, %8
-  %.0 = phi i1 [ %.not48, %8 ], [ false, %5 ], [ true, %15 ], [ %21, %18 ], [ false, %25 ], [ true, %28 ], [ %34, %31 ], [ true, %38 ], [ %44, %41 ], [ true, %49 ], [ true, %45 ], [ %not., %53 ], [ true, %35 ], [ true, %.thread.fold.split ]
+64:                                               ; preds = %5, %53, %38, %41, %25, %31, %28, %15, %18, %.thread, %8
+  %.0 = phi i1 [ %.not48, %8 ], [ true, %.thread ], [ false, %5 ], [ true, %15 ], [ %21, %18 ], [ false, %25 ], [ true, %28 ], [ %34, %31 ], [ true, %38 ], [ %44, %41 ], [ false, %53 ]
   ret i1 %.0
 }
 

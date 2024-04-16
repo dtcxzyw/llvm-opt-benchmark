@@ -375,15 +375,18 @@ define noundef zeroext i1 @_ZN7mitsuba4util15detect_debuggerEv() local_unnamed_a
 12:                                               ; preds = %0
   %13 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) @.str.5) #21
   %.not1 = icmp eq ptr %13, null
-  br i1 %.not1, label %14, label %16
+  br i1 %.not1, label %14, label %17
 
 14:                                               ; preds = %12
   %15 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) @.str.6) #21
-  %.not2 = icmp ne ptr %15, null
-  br label %16
+  %.not2 = icmp eq ptr %15, null
+  br i1 %.not2, label %16, label %17
 
-16:                                               ; preds = %14, %0, %12
-  %.0 = phi i1 [ true, %12 ], [ false, %0 ], [ %.not2, %14 ]
+16:                                               ; preds = %14, %0
+  br label %17
+
+17:                                               ; preds = %12, %14, %16
+  %.0 = phi i1 [ false, %16 ], [ true, %14 ], [ true, %12 ]
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #18
   ret i1 %.0
 }

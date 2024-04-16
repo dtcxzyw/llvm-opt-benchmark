@@ -77,8 +77,8 @@ if.then10:                                        ; preds = %if.end4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 147, ptr noundef null) #3
   br label %return
 
-return:                                           ; preds = %if.then.i, %land.lhs.true4.i, %if.end4, %if.then10, %if.end
-  %retval.0 = phi i32 [ -2, %if.end ], [ -2, %if.then10 ], [ %call8, %if.end4 ], [ -2, %if.then.i ], [ -1, %land.lhs.true4.i ]
+return:                                           ; preds = %land.lhs.true4.i, %if.then.i, %if.end4, %if.then10, %if.end
+  %retval.0 = phi i32 [ -2, %if.end ], [ -2, %if.then10 ], [ %call8, %if.end4 ], [ -1, %land.lhs.true4.i ], [ -2, %if.then.i ]
   ret i32 %retval.0
 }
 
@@ -159,8 +159,8 @@ sw.bb5:                                           ; preds = %if.end
   %spec.store.select = select i1 %or.cond, i32 -1, i32 %4
   br label %return
 
-return:                                           ; preds = %if.then.i, %land.lhs.true4.i, %sw.bb, %sw.bb5, %if.end
-  %retval.0 = phi i32 [ %spec.store.select, %sw.bb5 ], [ -2, %sw.bb ], [ -1, %if.end ], [ -2, %if.then.i ], [ -1, %land.lhs.true4.i ]
+return:                                           ; preds = %land.lhs.true4.i, %if.then.i, %sw.bb, %sw.bb5, %if.end
+  %retval.0 = phi i32 [ %spec.store.select, %sw.bb5 ], [ -2, %sw.bb ], [ -1, %if.end ], [ -1, %land.lhs.true4.i ], [ -2, %if.then.i ]
   ret i32 %retval.0
 }
 
@@ -256,8 +256,8 @@ if.then12:                                        ; preds = %if.end5
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 147, ptr noundef null) #3
   br label %return
 
-return:                                           ; preds = %if.then.i, %land.lhs.true4.i, %if.end5, %if.then12, %if.end
-  %retval.0 = phi i32 [ -2, %if.end ], [ -2, %if.then12 ], [ %call9, %if.end5 ], [ -2, %if.then.i ], [ -1, %land.lhs.true4.i ]
+return:                                           ; preds = %land.lhs.true4.i, %if.then.i, %if.end5, %if.then12, %if.end
+  %retval.0 = phi i32 [ -2, %if.end ], [ -2, %if.then12 ], [ %call9, %if.end5 ], [ -1, %land.lhs.true4.i ], [ -2, %if.then.i ]
   ret i32 %retval.0
 }
 
@@ -330,8 +330,8 @@ if.then7:                                         ; preds = %sw.bb5
   store i32 %conv, ptr %plen, align 4
   br label %return
 
-return:                                           ; preds = %if.then.i, %land.lhs.true4.i, %sw.bb, %if.then7, %sw.bb5, %if.end
-  %retval.0 = phi i32 [ 1, %if.then7 ], [ -2, %sw.bb ], [ -1, %sw.bb5 ], [ -1, %if.end ], [ -2, %if.then.i ], [ -1, %land.lhs.true4.i ]
+return:                                           ; preds = %land.lhs.true4.i, %if.then.i, %sw.bb, %if.then7, %sw.bb5, %if.end
+  %retval.0 = phi i32 [ 1, %if.then7 ], [ -2, %sw.bb ], [ -1, %sw.bb5 ], [ -1, %if.end ], [ -1, %land.lhs.true4.i ], [ -2, %if.then.i ]
   ret i32 %retval.0
 }
 
@@ -395,8 +395,8 @@ sw.bb5:                                           ; preds = %if.end
   call void @CRYPTO_free(ptr noundef %ukm, ptr noundef nonnull @.str.1, i32 noundef 235) #3
   br label %return
 
-return:                                           ; preds = %if.then.i, %land.lhs.true4.i, %if.end, %sw.bb, %sw.bb5
-  %retval.0 = phi i32 [ 1, %sw.bb5 ], [ -2, %sw.bb ], [ %call4, %if.end ], [ -2, %if.then.i ], [ -1, %land.lhs.true4.i ]
+return:                                           ; preds = %land.lhs.true4.i, %if.then.i, %if.end, %sw.bb, %sw.bb5
+  %retval.0 = phi i32 [ 1, %sw.bb5 ], [ -2, %sw.bb ], [ %call4, %if.end ], [ -1, %land.lhs.true4.i ], [ -2, %if.then.i ]
   ret i32 %retval.0
 }
 
@@ -467,8 +467,8 @@ sw.bb5:                                           ; preds = %if.end
   %spec.select = select i1 %cmp6, i32 %conv, i32 -1
   br label %return
 
-return:                                           ; preds = %if.then.i, %land.lhs.true4.i, %sw.bb5, %sw.bb, %if.end
-  %retval.0 = phi i32 [ -2, %sw.bb ], [ %spec.select, %sw.bb5 ], [ -1, %if.end ], [ -2, %if.then.i ], [ -1, %land.lhs.true4.i ]
+return:                                           ; preds = %land.lhs.true4.i, %if.then.i, %sw.bb5, %sw.bb, %if.end
+  %retval.0 = phi i32 [ -2, %sw.bb ], [ %spec.select, %sw.bb5 ], [ -1, %if.end ], [ -1, %land.lhs.true4.i ], [ -2, %if.then.i ]
   ret i32 %retval.0
 }
 

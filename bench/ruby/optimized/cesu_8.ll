@@ -149,18 +149,20 @@ define internal i32 @mbc_enc_len(ptr noundef readonly %0, ptr noundef readnone %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @is_mbc_newline(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture readnone %2) #2 {
+define internal noundef i32 @is_mbc_newline(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture readnone %2) #2 {
   %4 = icmp ult ptr %0, %1
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %3
   %6 = load i8, ptr %0, align 1
   %7 = icmp eq i8 %6, 10
-  %spec.select = zext i1 %7 to i32
-  br label %8
+  br i1 %7, label %9, label %8
 
 8:                                                ; preds = %5, %3
-  %.0 = phi i32 [ 0, %3 ], [ %spec.select, %5 ]
+  br label %9
+
+9:                                                ; preds = %5, %8
+  %.0 = phi i32 [ 0, %8 ], [ 1, %5 ]
   ret i32 %.0
 }
 
@@ -538,9 +540,9 @@ define internal i32 @get_ctype_code_range(i32 noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal ptr @left_adjust_char_head(ptr noundef readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #5 {
+define internal noundef ptr @left_adjust_char_head(ptr noundef readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #5 {
   %.not = icmp ugt ptr %1, %0
-  br i1 %.not, label %.preheader32, label %41
+  br i1 %.not, label %.preheader32, label %42
 
 .preheader32:                                     ; preds = %4, %.preheader32
   %.024 = phi ptr [ %9, %.preheader32 ], [ %1, %4 ]
@@ -601,11 +603,13 @@ define internal ptr @left_adjust_char_head(ptr noundef readnone %0, ptr noundef 
   %.masked31 = and i32 %35, 61440
   %.mask30 = or disjoint i32 %39, %.masked31
   %40 = icmp eq i32 %.mask30, 55296
-  %spec.select = select i1 %40, ptr %.0, ptr %.024
-  br label %41
+  br i1 %40, label %42, label %41
 
-41:                                               ; preds = %33, %10, %11, %16, %29, %4
-  %.025 = phi ptr [ %1, %4 ], [ %.024, %29 ], [ %.024, %16 ], [ %.024, %11 ], [ %.024, %10 ], [ %spec.select, %33 ]
+41:                                               ; preds = %29, %33, %16, %11, %10
+  br label %42
+
+42:                                               ; preds = %33, %4, %41
+  %.025 = phi ptr [ %.024, %41 ], [ %1, %4 ], [ %.0, %33 ]
   ret ptr %.025
 }
 

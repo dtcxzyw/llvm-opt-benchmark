@@ -3161,7 +3161,7 @@ entry:
   %0 = load ptr, ptr %m_simplex, align 8
   %rank = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load i32, ptr %rank, align 8
-  switch i32 %1, label %return [
+  switch i32 %1, label %sw.epilog [
     i32 1, label %for.cond.preheader
     i32 2, label %sw.bb15
     i32 3, label %sw.bb60
@@ -3229,7 +3229,7 @@ if.end13:                                         ; preds = %if.end
   store ptr %15, ptr %arrayidx3.i14, align 8
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
   %exitcond163.not = icmp eq i64 %indvars.iv.next161, 3
-  br i1 %exitcond163.not, label %return, label %for.body, !llvm.loop !28
+  br i1 %exitcond163.not, label %sw.epilog, label %for.body, !llvm.loop !28
 
 sw.bb15:                                          ; preds = %entry
   %arrayidx17 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3335,7 +3335,7 @@ if.end54:                                         ; preds = %if.end45
 for.inc57:                                        ; preds = %for.body28, %if.end54
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %return, label %for.body28, !llvm.loop !29
+  br i1 %exitcond.not, label %sw.epilog, label %for.body28, !llvm.loop !29
 
 sw.bb60:                                          ; preds = %entry
   %arrayidx64 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3388,7 +3388,7 @@ sw.bb60:                                          ; preds = %entry
   %87 = tail call float @llvm.fmuladd.f32(float %86, float %86, float %mul5.i.i87)
   %88 = tail call noundef float @llvm.fmuladd.f32(float %83, float %83, float %87)
   %cmp89 = fcmp ogt float %88, 0.000000e+00
-  br i1 %cmp89, label %if.then90, label %return
+  br i1 %cmp89, label %if.then90, label %sw.epilog
 
 if.then90:                                        ; preds = %sw.bb60
   call void @_ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3(ptr noundef nonnull align 16 dereferenceable(484) %this, ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 16 dereferenceable(16) %n)
@@ -3440,7 +3440,7 @@ if.end103:                                        ; preds = %if.end94
   %idxprom2.i115 = zext i32 %101 to i64
   %arrayidx3.i116 = getelementptr inbounds [4 x ptr], ptr %m_free.i93, i64 0, i64 %idxprom2.i115
   store ptr %100, ptr %arrayidx3.i116, align 8
-  br label %return
+  br label %sw.epilog
 
 sw.bb106:                                         ; preds = %entry
   %102 = load ptr, ptr %0, align 8
@@ -3501,11 +3501,11 @@ sw.bb106:                                         ; preds = %entry
   %cmp145 = fcmp ueq float %125, 0.000000e+00
   br i1 %cmp145, label %sw.epilog, label %return
 
-sw.epilog:                                        ; preds = %sw.bb106
+sw.epilog:                                        ; preds = %for.inc57, %if.end13, %sw.bb106, %sw.bb60, %if.end103, %entry
   br label %return
 
-return:                                           ; preds = %for.inc57, %if.end45, %if.then41, %if.end13, %if.end, %for.body, %entry, %if.end103, %sw.bb60, %sw.bb106, %if.end94, %if.then90, %sw.epilog
-  %retval.0 = phi i1 [ true, %if.then90 ], [ true, %if.end94 ], [ true, %sw.bb106 ], [ false, %sw.bb60 ], [ false, %if.end103 ], [ false, %entry ], [ false, %sw.epilog ], [ false, %if.end13 ], [ true, %if.end ], [ true, %for.body ], [ false, %for.inc57 ], [ true, %if.end45 ], [ true, %if.then41 ]
+return:                                           ; preds = %if.end45, %if.then41, %if.end, %for.body, %sw.bb106, %if.end94, %if.then90, %sw.epilog
+  %retval.0 = phi i1 [ false, %sw.epilog ], [ true, %if.then90 ], [ true, %if.end94 ], [ true, %sw.bb106 ], [ true, %for.body ], [ true, %if.end ], [ true, %if.then41 ], [ true, %if.end45 ]
   ret i1 %retval.0
 }
 

@@ -388,23 +388,25 @@ define hidden noundef i32 @ps_delete_files(ptr nocapture noundef readonly %0, pt
   %36 = getelementptr inbounds i8, ptr %4, i64 36
   %37 = load i32, ptr %36, align 4
   %.not5 = icmp eq i32 %37, -1
-  br i1 %.not5, label %ps_files_path_create.exit.thread, label %ps_files_close.exit
+  br i1 %.not5, label %43, label %ps_files_close.exit
 
 ps_files_close.exit:                              ; preds = %.loopexit
   %38 = tail call i32 @close(i32 noundef %37) #15
   store i32 -1, ptr %36, align 4
   %39 = call i32 @unlink(ptr noundef nonnull %3) #15
   %40 = icmp eq i32 %39, -1
-  br i1 %40, label %41, label %ps_files_path_create.exit.thread
+  br i1 %40, label %41, label %43
 
 41:                                               ; preds = %ps_files_close.exit
   %42 = call i32 @access(ptr noundef nonnull %3, i32 noundef 0) #15
   %.not6 = icmp eq i32 %42, 0
-  %spec.select = sext i1 %.not6 to i32
+  br i1 %.not6, label %ps_files_path_create.exit.thread, label %43
+
+43:                                               ; preds = %ps_files_close.exit, %41, %.loopexit
   br label %ps_files_path_create.exit.thread
 
-ps_files_path_create.exit.thread:                 ; preds = %2, %5, %10, %41, %.loopexit, %ps_files_close.exit
-  %.0 = phi i32 [ 0, %ps_files_close.exit ], [ 0, %.loopexit ], [ %spec.select, %41 ], [ -1, %10 ], [ -1, %5 ], [ -1, %2 ]
+ps_files_path_create.exit.thread:                 ; preds = %2, %5, %10, %41, %43
+  %.0 = phi i32 [ 0, %43 ], [ -1, %41 ], [ -1, %10 ], [ -1, %5 ], [ -1, %2 ]
   ret i32 %.0
 }
 

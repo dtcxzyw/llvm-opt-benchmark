@@ -634,11 +634,11 @@ define void @ext_toolbar_register_update_cb(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ext_toolbar_find_item(ptr noundef readonly %0, ptr noundef readonly %1) #1 {
+define internal noundef i32 @ext_toolbar_find_item(ptr noundef readonly %0, ptr noundef readonly %1) #1 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
-  br i1 %or.cond, label %14, label %5
+  br i1 %or.cond, label %15, label %5
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr %0, align 8
@@ -651,12 +651,14 @@ define internal i32 @ext_toolbar_find_item(ptr noundef readonly %0, ptr noundef 
   %10 = getelementptr inbounds i8, ptr %1, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 @g_strcmp0(ptr noundef %9, ptr noundef %11) #11
-  %13 = icmp ne i32 %12, 0
-  %spec.select = sext i1 %13 to i32
-  br label %14
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %15, label %14
 
-14:                                               ; preds = %7, %5, %2
-  %.0 = phi i32 [ -1, %2 ], [ -1, %5 ], [ %spec.select, %7 ]
+14:                                               ; preds = %7, %5
+  br label %15
+
+15:                                               ; preds = %7, %2, %14
+  %.0 = phi i32 [ -1, %14 ], [ -1, %2 ], [ 0, %7 ]
   ret i32 %.0
 }
 

@@ -5500,7 +5500,7 @@ if.end27:                                         ; preds = %do.body24
 
 land.lhs.true:                                    ; preds = %if.then15
   %cmp40 = icmp ult ptr %add.ptr1077, %add.ptr
-  br i1 %cmp40, label %if.then41, label %if.then104
+  br i1 %cmp40, label %if.then41, label %if.then104.loopexit
 
 if.then41:                                        ; preds = %land.lhs.true
   %4 = load i16, ptr %add.ptr1077, align 2
@@ -5620,14 +5620,14 @@ if.end101:                                        ; preds = %if.end83
   %cmp103 = icmp ult i32 %c.4, 65536
   br i1 %cmp103, label %if.then104, label %if.else109
 
-if.then104.loopexit:                              ; preds = %if.then41
+if.then104.loopexit:                              ; preds = %if.then41, %land.lhs.true
   br label %if.then104
 
-if.then104:                                       ; preds = %land.lhs.true, %if.then41, %if.then104.loopexit, %if.then12, %land.lhs.true49, %if.end101
-  %target.addr.288103 = phi ptr [ %target.addr.2, %if.end101 ], [ %target.addr.0.ph132, %land.lhs.true49 ], [ %target.addr.0.ph132, %if.then12 ], [ %target.addr.0.ph132, %if.then41 ], [ %target.addr.0.ph132, %land.lhs.true ], [ %target.addr.0.ph132, %if.then104.loopexit ]
-  %c.489101 = phi i32 [ %c.4, %if.end101 ], [ 92, %land.lhs.true49 ], [ 39, %if.then12 ], [ 92, %if.then41 ], [ 92, %land.lhs.true ], [ 92, %if.then104.loopexit ]
-  %quoted.190100 = phi i8 [ %quoted.1, %if.end101 ], [ 0, %land.lhs.true49 ], [ %conv13, %if.then12 ], [ 1, %if.then41 ], [ 0, %land.lhs.true ], [ 0, %if.then104.loopexit ]
-  %source.addr.59198 = phi ptr [ %source.addr.5, %if.end101 ], [ %add.ptr1077, %land.lhs.true49 ], [ %add.ptr10, %if.then12 ], [ %add.ptr1077, %if.then41 ], [ %add.ptr1077, %land.lhs.true ], [ %add.ptr1077, %if.then104.loopexit ]
+if.then104:                                       ; preds = %if.then41, %if.then104.loopexit, %if.then12, %land.lhs.true49, %if.end101
+  %target.addr.288103 = phi ptr [ %target.addr.2, %if.end101 ], [ %target.addr.0.ph132, %land.lhs.true49 ], [ %target.addr.0.ph132, %if.then12 ], [ %target.addr.0.ph132, %if.then104.loopexit ], [ %target.addr.0.ph132, %if.then41 ]
+  %c.489101 = phi i32 [ %c.4, %if.end101 ], [ 92, %land.lhs.true49 ], [ 39, %if.then12 ], [ 92, %if.then104.loopexit ], [ 92, %if.then41 ]
+  %quoted.190100 = phi i8 [ %quoted.1, %if.end101 ], [ 0, %land.lhs.true49 ], [ %conv13, %if.then12 ], [ 0, %if.then104.loopexit ], [ 1, %if.then41 ]
+  %source.addr.59198 = phi ptr [ %source.addr.5, %if.end101 ], [ %add.ptr1077, %land.lhs.true49 ], [ %add.ptr10, %if.then12 ], [ %add.ptr1077, %if.then104.loopexit ], [ %add.ptr1077, %if.then41 ]
   %conv105 = trunc nuw i32 %c.489101 to i16
   store i16 %conv105, ptr %target.addr.288103, align 2
   br label %do.end122

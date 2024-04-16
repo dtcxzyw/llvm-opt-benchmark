@@ -401,7 +401,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @kmac_get_ctx_params(ptr noundef %vmacctx, ptr noundef %params) #0 {
+define internal noundef i32 @kmac_get_ctx_params(ptr noundef %vmacctx, ptr noundef %params) #0 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str.5) #7
   %cmp.not = icmp eq ptr %call, null
@@ -417,19 +417,21 @@ land.lhs.true:                                    ; preds = %entry
 if.end:                                           ; preds = %land.lhs.true, %entry
   %call2 = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str.6) #7
   %cmp3.not = icmp eq ptr %call2, null
-  br i1 %cmp3.not, label %return, label %if.then4
+  br i1 %cmp3.not, label %if.end11, label %if.then4
 
 if.then4:                                         ; preds = %if.end
   %digest = getelementptr inbounds i8, ptr %vmacctx, i64 16
   %call5 = tail call ptr @ossl_prov_digest_md(ptr noundef nonnull %digest) #7
   %call6 = tail call i32 @EVP_MD_get_block_size(ptr noundef %call5) #7
   %call7 = tail call i32 @OSSL_PARAM_set_int(ptr noundef nonnull %call2, i32 noundef %call6) #7
-  %tobool8.not = icmp ne i32 %call7, 0
-  %spec.select = zext i1 %tobool8.not to i32
+  %tobool8.not = icmp eq i32 %call7, 0
+  br i1 %tobool8.not, label %return, label %if.end11
+
+if.end11:                                         ; preds = %if.then4, %if.end
   br label %return
 
-return:                                           ; preds = %if.then4, %if.end, %land.lhs.true
-  %retval.0 = phi i32 [ 0, %land.lhs.true ], [ 1, %if.end ], [ %spec.select, %if.then4 ]
+return:                                           ; preds = %if.then4, %land.lhs.true, %if.end11
+  %retval.0 = phi i32 [ 1, %if.end11 ], [ 0, %land.lhs.true ], [ 0, %if.then4 ]
   ret i32 %retval.0
 }
 
@@ -545,7 +547,13 @@ get_encode_size.exit.i:                           ; preds = %while.body.i.i, %if
   %add.i = add nuw nsw i64 %3, 1
   %add1.i = add nuw nsw i64 %add.i, %conv.i
   %cmp2.i = icmp ugt i64 %add1.i, 516
-  br i1 %cmp2.i, label %6, label %if.end.i
+  br i1 %cmp2.i, label %encode_string.exit.thread, label %if.end.i
+
+encode_string.exit.thread:                        ; preds = %get_encode_size.exit.i
+  call void @ERR_new() #7
+  call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 511, ptr noundef nonnull @__func__.encode_string) #7
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 202, ptr noundef null) #7
+  br label %return
 
 if.end.i:                                         ; preds = %get_encode_size.exit.i
   %conv5.i = trunc i32 %spec.store.select.i.i to i8
@@ -574,14 +582,8 @@ encode_string.exit:                               ; preds = %if.end29, %for.end.
   store i64 %storemerge.i, ptr %custom_len, align 8
   br label %return
 
-6:                                                ; preds = %get_encode_size.exit.i
-  call void @ERR_new() #7
-  call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 511, ptr noundef nonnull @__func__.encode_string) #7
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 202, ptr noundef null) #7
-  br label %return
-
-return:                                           ; preds = %6, %encode_string.exit, %if.end22, %land.lhs.true18, %if.then7, %land.lhs.true, %entry, %if.then28, %if.then13
-  %retval.0 = phi i32 [ 0, %if.then13 ], [ 0, %if.then28 ], [ 1, %entry ], [ 0, %land.lhs.true ], [ 0, %if.then7 ], [ 0, %land.lhs.true18 ], [ 1, %if.end22 ], [ 0, %6 ], [ 1, %encode_string.exit ]
+return:                                           ; preds = %if.end22, %encode_string.exit, %encode_string.exit.thread, %land.lhs.true18, %if.then7, %land.lhs.true, %entry, %if.then28, %if.then13
+  %retval.0 = phi i32 [ 0, %if.then13 ], [ 0, %if.then28 ], [ 1, %entry ], [ 0, %land.lhs.true ], [ 0, %if.then7 ], [ 0, %land.lhs.true18 ], [ 0, %encode_string.exit.thread ], [ 1, %encode_string.exit ], [ 1, %if.end22 ]
   ret i32 %retval.0
 }
 

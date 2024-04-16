@@ -402,9 +402,9 @@ define internal noundef i32 @pmix_mca_base_var_enum_verbose_vfs(ptr nocapture re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pmix_mca_base_var_enum_verbose_sfv(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #1 {
+define internal noundef i32 @pmix_mca_base_var_enum_verbose_sfv(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #1 {
   %or.cond = icmp ugt i32 %1, 100
-  br i1 %or.cond, label %16, label %.preheader
+  br i1 %or.cond, label %17, label %.preheader
 
 .preheader:                                       ; preds = %3
   %4 = load ptr, ptr getelementptr inbounds ([9 x %struct.pmix_mca_base_var_enum_value_t], ptr @verbose_values, i64 0, i64 0, i32 1), align 8
@@ -434,7 +434,7 @@ define internal i32 @pmix_mca_base_var_enum_verbose_sfv(ptr nocapture readnone %
   %.lcssa = phi ptr [ %4, %.lr.ph.preheader ], [ %9, %.lr.ph ]
   %12 = tail call noalias ptr @strdup(ptr noundef nonnull %.lcssa) #20
   store ptr %12, ptr %2, align 8
-  br label %16
+  br label %17
 
 ._crit_edge:                                      ; preds = %.lr.ph26, %.preheader
   %.not17 = icmp eq ptr %2, null
@@ -443,11 +443,13 @@ define internal i32 @pmix_mca_base_var_enum_verbose_sfv(ptr nocapture readnone %
 13:                                               ; preds = %._crit_edge
   %14 = tail call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %2, ptr noundef nonnull @.str.14, i32 noundef %1) #20
   %15 = icmp slt i32 %14, 0
-  %spec.select = select i1 %15, i32 -29, i32 0
-  br label %16
+  br i1 %15, label %17, label %16
 
-16:                                               ; preds = %13, %._crit_edge, %3, %.lr.ph._crit_edge
-  %.013 = phi i32 [ 0, %.lr.ph._crit_edge ], [ -65, %3 ], [ 0, %._crit_edge ], [ %spec.select, %13 ]
+16:                                               ; preds = %13, %._crit_edge
+  br label %17
+
+17:                                               ; preds = %13, %3, %16, %.lr.ph._crit_edge
+  %.013 = phi i32 [ 0, %.lr.ph._crit_edge ], [ 0, %16 ], [ -65, %3 ], [ -29, %13 ]
   ret i32 %.013
 }
 

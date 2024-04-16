@@ -64741,7 +64741,7 @@ if.end16:                                         ; preds = %if.then12, %while.e
   %sub.i.i.i8.i.i.i24 = sub nsw i64 23, %conv.i.i.i7.i.i.i23
   %cond.i.i9.i.i.i25 = select i1 %tobool.i.i.i5.i.i.i21, i64 %12, i64 %sub.i.i.i8.i.i.i24
   %cmp.i.i.i26 = icmp eq i64 %cond.i.i.i.i.i19, %cond.i.i9.i.i.i25
-  br i1 %cmp.i.i.i26, label %_ZN5eastl19rb_base_compare_eboINS_8equal_toINS_12basic_stringIc17CountingAllocatorEEEELb1EE7compareIS4_EEbRKT_SA_.exit32, label %return
+  br i1 %cmp.i.i.i26, label %_ZN5eastl19rb_base_compare_eboINS_8equal_toINS_12basic_stringIc17CountingAllocatorEEEELb1EE7compareIS4_EEbRKT_SA_.exit32, label %if.end21
 
 _ZN5eastl19rb_base_compare_eboINS_8equal_toINS_12basic_stringIc17CountingAllocatorEEEELb1EE7compareIS4_EEbRKT_SA_.exit32: ; preds = %if.end16
   %mValue17 = getelementptr inbounds i8, ptr %pLowerBound.1, i64 32
@@ -64751,13 +64751,14 @@ _ZN5eastl19rb_base_compare_eboINS_8equal_toINS_12basic_stringIc17CountingAllocat
   %spec.select.i.i14.i.i.i29 = select i1 %tobool.i.i.i5.i.i.i21, ptr %14, ptr %key
   %bcmp.i.i.i30 = tail call i32 @bcmp(ptr %spec.select.i.i.i.i.i28, ptr %spec.select.i.i14.i.i.i29, i64 %cond.i.i.i.i.i19)
   %cmp6.i.i.i31 = icmp eq i32 %bcmp.i.i.i30, 0
-  %spec.select43 = zext i1 %cmp6.i.i.i31 to i8
-  %spec.select44 = select i1 %cmp6.i.i.i31, ptr %pLowerBound.0.lcssa42, ptr %pLowerBound.1
+  br i1 %cmp6.i.i.i31, label %return, label %if.end21
+
+if.end21:                                         ; preds = %if.end16, %_ZN5eastl19rb_base_compare_eboINS_8equal_toINS_12basic_stringIc17CountingAllocatorEEEELb1EE7compareIS4_EEbRKT_SA_.exit32
   br label %return
 
-return:                                           ; preds = %_ZN5eastl19rb_base_compare_eboINS_8equal_toINS_12basic_stringIc17CountingAllocatorEEEELb1EE7compareIS4_EEbRKT_SA_.exit32, %if.end16, %if.then7
-  %.sink = phi i8 [ 1, %if.then7 ], [ 0, %if.end16 ], [ %spec.select43, %_ZN5eastl19rb_base_compare_eboINS_8equal_toINS_12basic_stringIc17CountingAllocatorEEEELb1EE7compareIS4_EEbRKT_SA_.exit32 ]
-  %retval.0 = phi ptr [ %pLowerBound.0.lcssa41, %if.then7 ], [ %pLowerBound.1, %if.end16 ], [ %spec.select44, %_ZN5eastl19rb_base_compare_eboINS_8equal_toINS_12basic_stringIc17CountingAllocatorEEEELb1EE7compareIS4_EEbRKT_SA_.exit32 ]
+return:                                           ; preds = %_ZN5eastl19rb_base_compare_eboINS_8equal_toINS_12basic_stringIc17CountingAllocatorEEEELb1EE7compareIS4_EEbRKT_SA_.exit32, %if.then7, %if.end21
+  %.sink = phi i8 [ 0, %if.end21 ], [ 1, %if.then7 ], [ 1, %_ZN5eastl19rb_base_compare_eboINS_8equal_toINS_12basic_stringIc17CountingAllocatorEEEELb1EE7compareIS4_EEbRKT_SA_.exit32 ]
+  %retval.0 = phi ptr [ %pLowerBound.1, %if.end21 ], [ %pLowerBound.0.lcssa41, %if.then7 ], [ %pLowerBound.0.lcssa42, %_ZN5eastl19rb_base_compare_eboINS_8equal_toINS_12basic_stringIc17CountingAllocatorEEEELb1EE7compareIS4_EEbRKT_SA_.exit32 ]
   store i8 %.sink, ptr %canInsert, align 1
   ret ptr %retval.0
 }

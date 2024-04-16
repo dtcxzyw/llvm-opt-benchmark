@@ -3258,7 +3258,7 @@ sw.bb38:                                          ; preds = %if.end36, %for.end.
   %__first.sroa.0.2 = phi ptr [ %__first.sroa.0.0.lcssa, %for.end.sw.bb38_crit_edge ], [ %incdec.ptr.i173, %if.end36 ]
   %71 = load i16, ptr %__first.sroa.0.2, align 2, !tbaa !27
   %cmp.i.i.i174 = icmp eq i16 %71, %70
-  br i1 %cmp.i.i.i174, label %land.lhs.true.i.i.i175, label %cleanup
+  br i1 %cmp.i.i.i174, label %land.lhs.true.i.i.i175, label %if.end43
 
 land.lhs.true.i.i.i175:                           ; preds = %sw.bb38
   %Y.i.i.i176 = getelementptr inbounds i8, ptr %__first.sroa.0.2, i64 2
@@ -3266,7 +3266,7 @@ land.lhs.true.i.i.i175:                           ; preds = %sw.bb38
   %Y5.i.i.i177 = getelementptr inbounds i8, ptr %__pred.coerce, i64 2
   %73 = load i16, ptr %Y5.i.i.i177, align 2, !tbaa !29
   %cmp7.i.i.i178 = icmp eq i16 %72, %73
-  br i1 %cmp7.i.i.i178, label %_ZNK3irr4core8vector3dIsEeqERKS2_.exit.i.i179, label %cleanup
+  br i1 %cmp7.i.i.i178, label %_ZNK3irr4core8vector3dIsEeqERKS2_.exit.i.i179, label %if.end43
 
 _ZNK3irr4core8vector3dIsEeqERKS2_.exit.i.i179:    ; preds = %land.lhs.true.i.i.i175
   %Z.i.i.i180 = getelementptr inbounds i8, ptr %__first.sroa.0.2, i64 4
@@ -3274,7 +3274,7 @@ _ZNK3irr4core8vector3dIsEeqERKS2_.exit.i.i179:    ; preds = %land.lhs.true.i.i.i
   %Z9.i.i.i181 = getelementptr inbounds i8, ptr %__pred.coerce, i64 4
   %75 = load i16, ptr %Z9.i.i.i181, align 2, !tbaa !30
   %cmp11.i.i.i182 = icmp eq i16 %74, %75
-  br i1 %cmp11.i.i.i182, label %land.rhs.i.i183, label %cleanup
+  br i1 %cmp11.i.i.i182, label %land.rhs.i.i183, label %if.end43
 
 land.rhs.i.i183:                                  ; preds = %_ZNK3irr4core8vector3dIsEeqERKS2_.exit.i.i179
   %MaxEdge.i.i184 = getelementptr inbounds i8, ptr %__first.sroa.0.2, i64 6
@@ -3282,7 +3282,7 @@ land.rhs.i.i183:                                  ; preds = %_ZNK3irr4core8vecto
   %76 = load i16, ptr %MaxEdge.i.i184, align 2, !tbaa !27
   %77 = load i16, ptr %MaxEdge3.i.i185, align 2, !tbaa !27
   %cmp.i6.i.i186 = icmp eq i16 %76, %77
-  br i1 %cmp.i6.i.i186, label %land.lhs.true.i7.i.i187, label %cleanup
+  br i1 %cmp.i6.i.i186, label %land.lhs.true.i7.i.i187, label %if.end43
 
 land.lhs.true.i7.i.i187:                          ; preds = %land.rhs.i.i183
   %Y.i8.i.i188 = getelementptr inbounds i8, ptr %__first.sroa.0.2, i64 8
@@ -3290,7 +3290,7 @@ land.lhs.true.i7.i.i187:                          ; preds = %land.rhs.i.i183
   %Y5.i9.i.i189 = getelementptr inbounds i8, ptr %__pred.coerce, i64 8
   %79 = load i16, ptr %Y5.i9.i.i189, align 2, !tbaa !29
   %cmp7.i10.i.i190 = icmp eq i16 %78, %79
-  br i1 %cmp7.i10.i.i190, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIK9VoxelAreaEclINS_17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEEEbT_.exit195, label %cleanup
+  br i1 %cmp7.i10.i.i190, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIK9VoxelAreaEclINS_17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEEEbT_.exit195, label %if.end43
 
 _ZN9__gnu_cxx5__ops16_Iter_equals_valIK9VoxelAreaEclINS_17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEEEbT_.exit195: ; preds = %land.lhs.true.i7.i.i187
   %Z.i12.i.i192 = getelementptr inbounds i8, ptr %__first.sroa.0.2, i64 10
@@ -3298,7 +3298,9 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIK9VoxelAreaEclINS_17__normal_iteratorIPS2_
   %Z9.i13.i.i193 = getelementptr inbounds i8, ptr %__pred.coerce, i64 10
   %81 = load i16, ptr %Z9.i13.i.i193, align 2, !tbaa !30
   %cmp11.i14.i.i194 = icmp eq i16 %80, %81
-  %spec.select = select i1 %cmp11.i14.i.i194, ptr %__first.sroa.0.2, ptr %__last.coerce
+  br i1 %cmp11.i14.i.i194, label %cleanup, label %if.end43
+
+if.end43:                                         ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIK9VoxelAreaEclINS_17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEEEbT_.exit195, %land.lhs.true.i7.i.i187, %land.rhs.i.i183, %_ZNK3irr4core8vector3dIsEeqERKS2_.exit.i.i179, %land.lhs.true.i.i.i175, %sw.bb38
   br label %cleanup
 
 cleanup.loopexit.split.loop.exit:                 ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIK9VoxelAreaEclINS_17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEEEbT_.exit76
@@ -3313,8 +3315,8 @@ cleanup.loopexit.split.loop.exit15:               ; preds = %_ZN9__gnu_cxx5__ops
   %incdec.ptr.i100.le = getelementptr inbounds i8, ptr %__first.sroa.0.0223, i64 54
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIK9VoxelAreaEclINS_17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEEEbT_.exit, %cleanup.loopexit.split.loop.exit, %cleanup.loopexit.split.loop.exit13, %cleanup.loopexit.split.loop.exit15, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIK9VoxelAreaEclINS_17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEEEbT_.exit195, %sw.bb38, %land.lhs.true.i.i.i175, %_ZNK3irr4core8vector3dIsEeqERKS2_.exit.i.i179, %land.rhs.i.i183, %land.lhs.true.i7.i.i187, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIK9VoxelAreaEclINS_17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEEEbT_.exit172, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIK9VoxelAreaEclINS_17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEEEbT_.exit149, %for.end
-  %retval.sroa.0.0.in.sroa.speculated = phi ptr [ %__first.sroa.0.0.lcssa, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIK9VoxelAreaEclINS_17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEEEbT_.exit149 ], [ %__first.sroa.0.1, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIK9VoxelAreaEclINS_17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEEEbT_.exit172 ], [ %__last.coerce, %for.end ], [ %__last.coerce, %land.lhs.true.i7.i.i187 ], [ %__last.coerce, %land.rhs.i.i183 ], [ %__last.coerce, %_ZNK3irr4core8vector3dIsEeqERKS2_.exit.i.i179 ], [ %__last.coerce, %land.lhs.true.i.i.i175 ], [ %__last.coerce, %sw.bb38 ], [ %spec.select, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIK9VoxelAreaEclINS_17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEEEbT_.exit195 ], [ %incdec.ptr.i.le, %cleanup.loopexit.split.loop.exit ], [ %incdec.ptr.i77.le, %cleanup.loopexit.split.loop.exit13 ], [ %incdec.ptr.i100.le, %cleanup.loopexit.split.loop.exit15 ], [ %__first.sroa.0.0223, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIK9VoxelAreaEclINS_17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEEEbT_.exit ]
+cleanup:                                          ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIK9VoxelAreaEclINS_17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEEEbT_.exit, %cleanup.loopexit.split.loop.exit, %cleanup.loopexit.split.loop.exit13, %cleanup.loopexit.split.loop.exit15, %if.end43, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIK9VoxelAreaEclINS_17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEEEbT_.exit195, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIK9VoxelAreaEclINS_17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEEEbT_.exit172, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIK9VoxelAreaEclINS_17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEEEbT_.exit149, %for.end
+  %retval.sroa.0.0.in.sroa.speculated = phi ptr [ %__first.sroa.0.0.lcssa, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIK9VoxelAreaEclINS_17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEEEbT_.exit149 ], [ %__first.sroa.0.1, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIK9VoxelAreaEclINS_17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEEEbT_.exit172 ], [ %__first.sroa.0.2, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIK9VoxelAreaEclINS_17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEEEbT_.exit195 ], [ %__last.coerce, %if.end43 ], [ %__last.coerce, %for.end ], [ %incdec.ptr.i.le, %cleanup.loopexit.split.loop.exit ], [ %incdec.ptr.i77.le, %cleanup.loopexit.split.loop.exit13 ], [ %incdec.ptr.i100.le, %cleanup.loopexit.split.loop.exit15 ], [ %__first.sroa.0.0223, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIK9VoxelAreaEclINS_17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEEEbT_.exit ]
   ret ptr %retval.sroa.0.0.in.sroa.speculated
 }
 

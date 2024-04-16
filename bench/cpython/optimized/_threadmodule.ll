@@ -1109,14 +1109,18 @@ do.body39:                                        ; preds = %if.then30, %do.body
   %thread_handle_type = getelementptr inbounds i8, ptr %module.val, i64 32
   %5 = load ptr, ptr %thread_handle_type, align 8
   %tobool40.not = icmp eq ptr %5, null
-  br i1 %tobool40.not, label %return, label %if.then41
+  br i1 %tobool40.not, label %do.end49, label %if.then41
 
 if.then41:                                        ; preds = %do.body39
   %call44 = tail call i32 %visit(ptr noundef nonnull %5, ptr noundef %arg) #8
+  %tobool45.not = icmp eq i32 %call44, 0
+  br i1 %tobool45.not, label %do.end49, label %return
+
+do.end49:                                         ; preds = %do.body39, %if.then41
   br label %return
 
-return:                                           ; preds = %if.then41, %do.body39, %if.then30, %if.then19, %if.then8, %if.then
-  %retval.0 = phi i32 [ %call2, %if.then ], [ %call11, %if.then8 ], [ %call22, %if.then19 ], [ %call33, %if.then30 ], [ 0, %do.body39 ], [ %call44, %if.then41 ]
+return:                                           ; preds = %if.then41, %if.then30, %if.then19, %if.then8, %if.then, %do.end49
+  %retval.0 = phi i32 [ 0, %do.end49 ], [ %call2, %if.then ], [ %call11, %if.then8 ], [ %call22, %if.then19 ], [ %call33, %if.then30 ], [ %call44, %if.then41 ]
   ret i32 %retval.0
 }
 
@@ -2832,14 +2836,18 @@ entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val3 = load ptr, ptr %0, align 8
   %tobool.not = icmp eq ptr %self.val3, null
-  br i1 %tobool.not, label %return, label %if.then
+  br i1 %tobool.not, label %do.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %call2 = tail call i32 %visit(ptr noundef nonnull %self.val3, ptr noundef %arg) #8
+  %tobool3.not = icmp eq i32 %call2, 0
+  br i1 %tobool3.not, label %do.end, label %return
+
+do.end:                                           ; preds = %entry, %if.then
   br label %return
 
-return:                                           ; preds = %if.then, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ %call2, %if.then ]
+return:                                           ; preds = %if.then, %do.end
+  %retval.0 = phi i32 [ 0, %do.end ], [ %call2, %if.then ]
   ret i32 %retval.0
 }
 
@@ -3160,14 +3168,18 @@ entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val3 = load ptr, ptr %0, align 8
   %tobool.not = icmp eq ptr %self.val3, null
-  br i1 %tobool.not, label %return, label %if.then
+  br i1 %tobool.not, label %do.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %call2 = tail call i32 %visit(ptr noundef nonnull %self.val3, ptr noundef %arg) #8
+  %tobool3.not = icmp eq i32 %call2, 0
+  br i1 %tobool3.not, label %do.end, label %return
+
+do.end:                                           ; preds = %entry, %if.then
   br label %return
 
-return:                                           ; preds = %if.then, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ %call2, %if.then ]
+return:                                           ; preds = %if.then, %do.end
+  %retval.0 = phi i32 [ 0, %do.end ], [ %call2, %if.then ]
   ret i32 %retval.0
 }
 
@@ -3273,23 +3285,25 @@ return:                                           ; preds = %if.end, %if.then4, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @rlock_is_owned(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef nonnull ptr @rlock_is_owned(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   %call = tail call i64 @PyThread_get_thread_ident_ex() #8
   %rlock_count = getelementptr inbounds i8, ptr %self, i64 32
   %0 = load i64, ptr %rlock_count, align 8
   %cmp.not = icmp eq i64 %0, 0
-  br i1 %cmp.not, label %return, label %land.lhs.true
+  br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
   %rlock_owner = getelementptr inbounds i8, ptr %self, i64 24
   %1 = load i64, ptr %rlock_owner, align 8
   %cmp1 = icmp eq i64 %1, %call
-  %spec.select = select i1 %cmp1, ptr @_Py_TrueStruct, ptr @_Py_FalseStruct
+  br i1 %cmp1, label %return, label %if.end
+
+if.end:                                           ; preds = %land.lhs.true, %entry
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %entry
-  %retval.0 = phi ptr [ @_Py_FalseStruct, %entry ], [ %spec.select, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %if.end
+  %retval.0 = phi ptr [ @_Py_FalseStruct, %if.end ], [ @_Py_TrueStruct, %land.lhs.true ]
   ret ptr %retval.0
 }
 
@@ -3643,14 +3657,18 @@ do.body28:                                        ; preds = %if.then19, %do.body
   %dummies = getelementptr inbounds i8, ptr %self, i64 48
   %3 = load ptr, ptr %dummies, align 8
   %tobool29.not = icmp eq ptr %3, null
-  br i1 %tobool29.not, label %return, label %if.then30
+  br i1 %tobool29.not, label %do.end38, label %if.then30
 
 if.then30:                                        ; preds = %do.body28
   %call33 = tail call i32 %visit(ptr noundef nonnull %3, ptr noundef %arg) #8
+  %tobool34.not = icmp eq i32 %call33, 0
+  br i1 %tobool34.not, label %do.end38, label %return
+
+do.end38:                                         ; preds = %do.body28, %if.then30
   br label %return
 
-return:                                           ; preds = %if.then30, %do.body28, %if.then19, %if.then8, %if.then
-  %retval.0 = phi i32 [ %call2, %if.then ], [ %call11, %if.then8 ], [ %call22, %if.then19 ], [ 0, %do.body28 ], [ %call33, %if.then30 ]
+return:                                           ; preds = %if.then30, %if.then19, %if.then8, %if.then, %do.end38
+  %retval.0 = phi i32 [ 0, %do.end38 ], [ %call2, %if.then ], [ %call11, %if.then8 ], [ %call22, %if.then19 ], [ %call33, %if.then30 ]
   ret i32 %retval.0
 }
 

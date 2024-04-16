@@ -2398,7 +2398,7 @@ _bit_overlap_internal.exit:                       ; preds = %8, %16, %2, %.split
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @bit_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define noundef i32 @bit_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -2424,7 +2424,7 @@ define i32 @bit_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef r
 
 15:                                               ; preds = %.preheader
   %16 = icmp slt i64 %.018, %4
-  br i1 %16, label %17, label %.loopexit
+  br i1 %16, label %17, label %28
 
 17:                                               ; preds = %15
   %18 = and i64 %4, 63
@@ -2439,11 +2439,13 @@ define i32 @bit_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   %26 = xor i64 %25, %23
   %27 = and i64 %26, %19
   %.not22 = icmp eq i64 %27, 0
-  %spec.select = zext i1 %.not22 to i32
+  br i1 %.not22, label %28, label %.loopexit
+
+28:                                               ; preds = %17, %15
   br label %.loopexit
 
-.loopexit:                                        ; preds = %8, %17, %15, %2
-  %.0 = phi i32 [ 0, %2 ], [ 1, %15 ], [ %spec.select, %17 ], [ 0, %8 ]
+.loopexit:                                        ; preds = %8, %17, %2, %28
+  %.0 = phi i32 [ 1, %28 ], [ 0, %2 ], [ 0, %17 ], [ 0, %8 ]
   ret i32 %.0
 }
 

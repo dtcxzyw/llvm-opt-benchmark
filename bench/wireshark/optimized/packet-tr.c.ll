@@ -163,8 +163,6 @@ target triple = "x86_64-pc-linux-gnu"
 @tr_ct_dissector_info = internal global %struct._ct_dissector_info { ptr @tr_conv_get_filter_type }, align 8
 @.str.91 = private unnamed_addr constant [8 x i8] c"INVALID\00", align 1
 @tr_endpoint_dissector_info = internal global %struct._et_dissector_info { ptr @tr_endpoint_get_filter_type }, align 8
-@switch.table.tr_conv_get_filter_type = private unnamed_addr constant [3 x i64] [i64 8, i64 32, i64 8], align 8
-@switch.table.tr_conv_get_filter_type.2 = private unnamed_addr constant [3 x ptr] [ptr @.str.20, ptr @.str.17, ptr @.str.23], align 8
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_tr() local_unnamed_addr #0 {
@@ -1337,32 +1335,43 @@ declare ptr @wmem_strbuf_get_str(ptr noundef) local_unnamed_addr #1
 declare void @add_conversation_table_data(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal nonnull ptr @tr_conv_get_filter_type(ptr nocapture noundef readonly %0, i32 noundef %1) #5 {
-  %3 = icmp ult i32 %1, 3
-  br i1 %3, label %switch.lookup, label %9
+define internal noundef nonnull ptr @tr_conv_get_filter_type(ptr nocapture noundef readonly %0, i32 noundef %1) #5 {
+  switch i32 %1, label %15 [
+    i32 0, label %3
+    i32 1, label %7
+    i32 2, label %11
+  ]
 
-switch.lookup:                                    ; preds = %2
-  %4 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table.tr_conv_get_filter_type, i64 0, i64 %4
-  %switch.load = load i64, ptr %switch.gep, align 8
-  %5 = zext nneg i32 %1 to i64
-  %switch.gep10 = getelementptr inbounds [3 x ptr], ptr @switch.table.tr_conv_get_filter_type.2, i64 0, i64 %5
-  %switch.load11 = load ptr, ptr %switch.gep10, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 %switch.load
-  %7 = load i32, ptr %6, align 8
-  %8 = icmp eq i32 %7, 1
-  %spec.select7 = select i1 %8, ptr %switch.load11, ptr @.str.91
-  br label %9
+3:                                                ; preds = %2
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = load i32, ptr %4, align 8
+  %6 = icmp eq i32 %5, 1
+  br i1 %6, label %16, label %15
 
-9:                                                ; preds = %2, %switch.lookup
-  %.0 = phi ptr [ @.str.91, %2 ], [ %spec.select7, %switch.lookup ]
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = load i32, ptr %8, align 8
+  %10 = icmp eq i32 %9, 1
+  br i1 %10, label %16, label %15
+
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = load i32, ptr %12, align 8
+  %14 = icmp eq i32 %13, 1
+  br i1 %14, label %16, label %15
+
+15:                                               ; preds = %7, %3, %2, %11
+  br label %16
+
+16:                                               ; preds = %11, %7, %3, %15
+  %.0 = phi ptr [ @.str.91, %15 ], [ @.str.20, %3 ], [ @.str.17, %7 ], [ @.str.23, %11 ]
   ret ptr %.0
 }
 
 declare void @add_endpoint_table_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal nonnull ptr @tr_endpoint_get_filter_type(ptr nocapture noundef readonly %0, i32 noundef %1) #5 {
+define internal noundef nonnull ptr @tr_endpoint_get_filter_type(ptr nocapture noundef readonly %0, i32 noundef %1) #5 {
   %3 = icmp eq i32 %1, 2
   br i1 %3, label %4, label %8
 
@@ -1370,11 +1379,13 @@ define internal nonnull ptr @tr_endpoint_get_filter_type(ptr nocapture noundef r
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 1
-  %spec.select = select i1 %7, ptr @.str.23, ptr @.str.91
-  br label %8
+  br i1 %7, label %9, label %8
 
 8:                                                ; preds = %4, %2
-  %.0 = phi ptr [ @.str.91, %2 ], [ %spec.select, %4 ]
+  br label %9
+
+9:                                                ; preds = %4, %8
+  %.0 = phi ptr [ @.str.91, %8 ], [ @.str.23, %4 ]
   ret ptr %.0
 }
 

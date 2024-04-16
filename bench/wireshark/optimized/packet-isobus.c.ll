@@ -4583,7 +4583,7 @@ define internal i32 @address_combination_hash(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @address_combination_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal noundef i32 @address_combination_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
   %3 = load i8, ptr %0, align 1
   %4 = load i8, ptr %1, align 1
   %5 = icmp eq i8 %3, %4
@@ -4595,11 +4595,13 @@ define internal i32 @address_combination_equal(ptr nocapture noundef readonly %0
   %9 = getelementptr inbounds i8, ptr %1, i64 1
   %10 = load i8, ptr %9, align 1
   %11 = icmp eq i8 %8, %10
-  %spec.select = zext i1 %11 to i32
-  br label %12
+  br i1 %11, label %13, label %12
 
 12:                                               ; preds = %6, %2
-  %.0 = phi i32 [ 0, %2 ], [ %spec.select, %6 ]
+  br label %13
+
+13:                                               ; preds = %6, %12
+  %.0 = phi i32 [ 0, %12 ], [ 1, %6 ]
   ret i32 %.0
 }
 

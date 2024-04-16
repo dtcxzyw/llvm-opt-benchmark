@@ -356,7 +356,7 @@ define internal noundef i32 @archive_write_mtree_options(ptr nocapture noundef r
   %4 = getelementptr inbounds i8, ptr %0, i64 248
   %5 = load ptr, ptr %4, align 8
   %6 = load i8, ptr %1, align 1
-  switch i8 %6, label %.thread80 [
+  switch i8 %6, label %.thread73 [
     i8 97, label %7
     i8 99, label %10
     i8 100, label %13
@@ -365,22 +365,22 @@ define internal noundef i32 @archive_write_mtree_options(ptr nocapture noundef r
     i8 105, label %31
     i8 108, label %40
     i8 109, label %43
-    i8 110, label %52
-    i8 114, label %55
-    i8 115, label %67
-    i8 116, label %94
-    i8 117, label %100
+    i8 110, label %53
+    i8 114, label %56
+    i8 115, label %68
+    i8 116, label %99
+    i8 117, label %105
   ]
 
 7:                                                ; preds = %3
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(4) @.str.4) #16
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %.thread, label %.thread80
+  br i1 %9, label %.thread, label %.thread73
 
 10:                                               ; preds = %3
   %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(6) @.str.5) #16
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %.thread, label %.thread80
+  br i1 %12, label %.thread, label %.thread73
 
 13:                                               ; preds = %3
   %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.6) #16
@@ -390,19 +390,19 @@ define internal noundef i32 @archive_write_mtree_options(ptr nocapture noundef r
 16:                                               ; preds = %13
   %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(8) @.str.7) #16
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %.thread80
+  br i1 %18, label %19, label %.thread73
 
 19:                                               ; preds = %16
   %.not48 = icmp ne ptr %2, null
   %20 = zext i1 %.not48 to i32
   %21 = getelementptr inbounds i8, ptr %5, i64 292
   store i32 %20, ptr %21, align 4
-  br label %.thread80
+  br label %.thread73
 
 22:                                               ; preds = %3
   %23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(6) @.str.8) #16
   %24 = icmp eq i32 %23, 0
-  br i1 %24, label %.thread, label %.thread80
+  br i1 %24, label %.thread, label %.thread73
 
 25:                                               ; preds = %3
   %26 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(4) @.str.9) #16
@@ -412,7 +412,7 @@ define internal noundef i32 @archive_write_mtree_options(ptr nocapture noundef r
 28:                                               ; preds = %25
   %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(6) @.str.10) #16
   %30 = icmp eq i32 %29, 0
-  br i1 %30, label %.thread, label %.thread80
+  br i1 %30, label %.thread, label %.thread73
 
 31:                                               ; preds = %3
   %32 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.11) #16
@@ -424,17 +424,17 @@ define internal noundef i32 @archive_write_mtree_options(ptr nocapture noundef r
   %35 = zext i1 %.not47 to i32
   %36 = getelementptr inbounds i8, ptr %5, i64 296
   store i32 %35, ptr %36, align 8
-  br label %.thread80
+  br label %.thread73
 
 37:                                               ; preds = %31
   %38 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(6) @.str.12) #16
   %39 = icmp eq i32 %38, 0
-  br i1 %39, label %.thread, label %.thread80
+  br i1 %39, label %.thread, label %.thread73
 
 40:                                               ; preds = %3
   %41 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.13) #16
   %42 = icmp eq i32 %41, 0
-  br i1 %42, label %.thread, label %.thread80
+  br i1 %42, label %.thread, label %.thread73
 
 43:                                               ; preds = %3
   %44 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(4) @.str.14) #16
@@ -444,152 +444,162 @@ define internal noundef i32 @archive_write_mtree_options(ptr nocapture noundef r
 46:                                               ; preds = %43
   %47 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(10) @.str.15) #16
   %48 = icmp eq i32 %47, 0
-  %spec.select60 = select i1 %48, i32 256, i32 0
-  br label %49
+  br i1 %48, label %49, label %50
 
 49:                                               ; preds = %46, %43
-  %.0 = phi i32 [ 256, %43 ], [ %spec.select60, %46 ]
-  %50 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.16) #16
-  %51 = icmp eq i32 %50, 0
-  br i1 %51, label %.thread, label %112
+  br label %50
 
-52:                                               ; preds = %3
-  %53 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(6) @.str.17) #16
-  %54 = icmp eq i32 %53, 0
-  br i1 %54, label %.thread, label %.thread80
+50:                                               ; preds = %49, %46
+  %.0 = phi i32 [ 256, %49 ], [ 0, %46 ]
+  %51 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.16) #16
+  %52 = icmp eq i32 %51, 0
+  br i1 %52, label %.thread, label %117
 
-55:                                               ; preds = %3
-  %56 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(10) @.str.18) #16
-  %57 = icmp eq i32 %56, 0
-  br i1 %57, label %.thread, label %58
+53:                                               ; preds = %3
+  %54 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(6) @.str.17) #16
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %.thread, label %.thread73
 
-58:                                               ; preds = %55
-  %59 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(16) @.str.19) #16
-  %60 = icmp eq i32 %59, 0
-  br i1 %60, label %.thread, label %61
+56:                                               ; preds = %3
+  %57 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(10) @.str.18) #16
+  %58 = icmp eq i32 %57, 0
+  br i1 %58, label %.thread, label %59
 
-61:                                               ; preds = %58
-  %62 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.20) #16
-  %63 = icmp eq i32 %62, 0
-  br i1 %63, label %.thread, label %64
+59:                                               ; preds = %56
+  %60 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(16) @.str.19) #16
+  %61 = icmp eq i32 %60, 0
+  br i1 %61, label %.thread, label %62
 
-64:                                               ; preds = %61
-  %65 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(13) @.str.21) #16
-  %66 = icmp eq i32 %65, 0
-  br i1 %66, label %.thread, label %.thread80
+62:                                               ; preds = %59
+  %63 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.20) #16
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %.thread, label %65
 
-67:                                               ; preds = %3
-  %68 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.22) #16
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %73, label %70
+65:                                               ; preds = %62
+  %66 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(13) @.str.21) #16
+  %67 = icmp eq i32 %66, 0
+  br i1 %67, label %.thread, label %.thread73
 
-70:                                               ; preds = %67
-  %71 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(11) @.str.23) #16
-  %72 = icmp eq i32 %71, 0
-  %spec.select62 = select i1 %72, i32 16384, i32 0
-  br label %73
+68:                                               ; preds = %3
+  %69 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.22) #16
+  %70 = icmp eq i32 %69, 0
+  br i1 %70, label %74, label %71
 
-73:                                               ; preds = %70, %67
-  %.1 = phi i32 [ 16384, %67 ], [ %spec.select62, %70 ]
-  %74 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.24) #16
-  %75 = icmp eq i32 %74, 0
-  br i1 %75, label %79, label %76
+71:                                               ; preds = %68
+  %72 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(11) @.str.23) #16
+  %73 = icmp eq i32 %72, 0
+  br i1 %73, label %74, label %75
 
-76:                                               ; preds = %73
-  %77 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(13) @.str.25) #16
-  %78 = icmp eq i32 %77, 0
-  %spec.select63 = select i1 %78, i32 8388608, i32 %.1
-  br label %79
+74:                                               ; preds = %71, %68
+  br label %75
 
-79:                                               ; preds = %76, %73
-  %.2 = phi i32 [ 8388608, %73 ], [ %spec.select63, %76 ]
-  %80 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.26) #16
-  %81 = icmp eq i32 %80, 0
-  br i1 %81, label %85, label %82
+75:                                               ; preds = %74, %71
+  %.1 = phi i32 [ 16384, %74 ], [ 0, %71 ]
+  %76 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.24) #16
+  %77 = icmp eq i32 %76, 0
+  br i1 %77, label %81, label %78
 
-82:                                               ; preds = %79
-  %83 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(13) @.str.27) #16
+78:                                               ; preds = %75
+  %79 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(13) @.str.25) #16
+  %80 = icmp eq i32 %79, 0
+  br i1 %80, label %81, label %82
+
+81:                                               ; preds = %78, %75
+  br label %82
+
+82:                                               ; preds = %81, %78
+  %.2 = phi i32 [ 8388608, %81 ], [ %.1, %78 ]
+  %83 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.26) #16
   %84 = icmp eq i32 %83, 0
-  %spec.select64 = select i1 %84, i32 16777216, i32 %.2
-  br label %85
+  br i1 %84, label %88, label %85
 
-85:                                               ; preds = %82, %79
-  %.3 = phi i32 [ 16777216, %79 ], [ %spec.select64, %82 ]
-  %86 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.28) #16
+85:                                               ; preds = %82
+  %86 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(13) @.str.27) #16
   %87 = icmp eq i32 %86, 0
-  br i1 %87, label %91, label %88
+  br i1 %87, label %88, label %89
 
-88:                                               ; preds = %85
-  %89 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(13) @.str.29) #16
-  %90 = icmp eq i32 %89, 0
-  %spec.select65 = select i1 %90, i32 33554432, i32 %.3
-  br label %91
+88:                                               ; preds = %85, %82
+  br label %89
 
-91:                                               ; preds = %88, %85
-  %.4 = phi i32 [ 33554432, %85 ], [ %spec.select65, %88 ]
-  %92 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.30) #16
-  %93 = icmp eq i32 %92, 0
-  br i1 %93, label %.thread, label %112
+89:                                               ; preds = %88, %85
+  %.3 = phi i32 [ 16777216, %88 ], [ %.2, %85 ]
+  %90 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.28) #16
+  %91 = icmp eq i32 %90, 0
+  br i1 %91, label %95, label %92
 
-94:                                               ; preds = %3
-  %95 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.31) #16
-  %96 = icmp eq i32 %95, 0
-  br i1 %96, label %.thread, label %97
+92:                                               ; preds = %89
+  %93 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(13) @.str.29) #16
+  %94 = icmp eq i32 %93, 0
+  br i1 %94, label %95, label %96
 
-97:                                               ; preds = %94
-  %98 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.32) #16
-  %99 = icmp eq i32 %98, 0
-  br i1 %99, label %.thread, label %.thread80
+95:                                               ; preds = %92, %89
+  br label %96
 
-100:                                              ; preds = %3
-  %101 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(4) @.str.33) #16
-  %102 = icmp eq i32 %101, 0
-  br i1 %102, label %.thread, label %103
+96:                                               ; preds = %95, %92
+  %.4 = phi i32 [ 33554432, %95 ], [ %.3, %92 ]
+  %97 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.30) #16
+  %98 = icmp eq i32 %97, 0
+  br i1 %98, label %.thread, label %117
 
-103:                                              ; preds = %100
-  %104 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(6) @.str.34) #16
-  %105 = icmp eq i32 %104, 0
-  br i1 %105, label %.thread, label %106
+99:                                               ; preds = %3
+  %100 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.31) #16
+  %101 = icmp eq i32 %100, 0
+  br i1 %101, label %.thread, label %102
 
-106:                                              ; preds = %103
-  %107 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(8) @.str.35) #16
-  %108 = icmp eq i32 %107, 0
-  br i1 %108, label %109, label %.thread80
+102:                                              ; preds = %99
+  %103 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.32) #16
+  %104 = icmp eq i32 %103, 0
+  br i1 %104, label %.thread, label %.thread73
 
-109:                                              ; preds = %106
+105:                                              ; preds = %3
+  %106 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(4) @.str.33) #16
+  %107 = icmp eq i32 %106, 0
+  br i1 %107, label %.thread, label %108
+
+108:                                              ; preds = %105
+  %109 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(6) @.str.34) #16
+  %110 = icmp eq i32 %109, 0
+  br i1 %110, label %.thread, label %111
+
+111:                                              ; preds = %108
+  %112 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(8) @.str.35) #16
+  %113 = icmp eq i32 %112, 0
+  br i1 %113, label %114, label %.thread73
+
+114:                                              ; preds = %111
   %.not = icmp ne ptr %2, null
-  %110 = zext i1 %.not to i32
-  %111 = getelementptr inbounds i8, ptr %5, i64 300
-  store i32 %110, ptr %111, align 4
-  br label %.thread80
+  %115 = zext i1 %.not to i32
+  %116 = getelementptr inbounds i8, ptr %5, i64 300
+  store i32 %115, ptr %116, align 4
+  br label %.thread73
 
-112:                                              ; preds = %91, %49
-  %.5 = phi i32 [ %.0, %49 ], [ %.4, %91 ]
+117:                                              ; preds = %96, %50
+  %.5 = phi i32 [ %.0, %50 ], [ %.4, %96 ]
   %.not49 = icmp eq i32 %.5, 0
-  br i1 %.not49, label %.thread80, label %.thread
+  br i1 %.not49, label %.thread73, label %.thread
 
-.thread:                                          ; preds = %64, %97, %91, %52, %49, %40, %37, %28, %22, %10, %7, %103, %100, %94, %58, %61, %55, %25, %13, %112
-  %.578 = phi i32 [ %.5, %112 ], [ 2097152, %103 ], [ 1048576, %100 ], [ 262144, %94 ], [ 8192, %58 ], [ 8192, %61 ], [ 134217728, %55 ], [ 16, %25 ], [ 2, %13 ], [ -1, %7 ], [ 1, %10 ], [ 8, %22 ], [ 32, %28 ], [ 67108864, %37 ], [ 65536, %40 ], [ 512, %49 ], [ 1024, %52 ], [ 32768, %91 ], [ 524288, %97 ], [ 8192, %64 ]
+.thread:                                          ; preds = %102, %96, %53, %50, %40, %37, %28, %22, %10, %7, %59, %62, %65, %108, %105, %99, %56, %25, %13, %117
+  %.571 = phi i32 [ %.5, %117 ], [ 2097152, %108 ], [ 1048576, %105 ], [ 262144, %99 ], [ 134217728, %56 ], [ 16, %25 ], [ 2, %13 ], [ 8192, %65 ], [ 8192, %62 ], [ 8192, %59 ], [ -1, %7 ], [ 1, %10 ], [ 8, %22 ], [ 32, %28 ], [ 67108864, %37 ], [ 65536, %40 ], [ 512, %50 ], [ 1024, %53 ], [ 32768, %96 ], [ 524288, %102 ]
   %.not50 = icmp eq ptr %2, null
-  br i1 %.not50, label %117, label %113
+  br i1 %.not50, label %122, label %118
 
-113:                                              ; preds = %.thread
-  %114 = getelementptr inbounds i8, ptr %5, i64 288
-  %115 = load i32, ptr %114, align 8
-  %116 = or i32 %115, %.578
-  store i32 %116, ptr %114, align 8
-  br label %.thread80
-
-117:                                              ; preds = %.thread
-  %118 = xor i32 %.578, -1
+118:                                              ; preds = %.thread
   %119 = getelementptr inbounds i8, ptr %5, i64 288
   %120 = load i32, ptr %119, align 8
-  %121 = and i32 %120, %118
+  %121 = or i32 %120, %.571
   store i32 %121, ptr %119, align 8
-  br label %.thread80
+  br label %.thread73
 
-.thread80:                                        ; preds = %64, %97, %52, %40, %37, %28, %22, %10, %7, %16, %106, %3, %112, %113, %117, %109, %34, %19
-  %.046 = phi i32 [ 0, %109 ], [ 0, %34 ], [ 0, %19 ], [ 0, %117 ], [ 0, %113 ], [ -20, %112 ], [ -20, %3 ], [ -20, %106 ], [ -20, %16 ], [ -20, %7 ], [ -20, %10 ], [ -20, %22 ], [ -20, %28 ], [ -20, %37 ], [ -20, %40 ], [ -20, %52 ], [ -20, %97 ], [ -20, %64 ]
+122:                                              ; preds = %.thread
+  %123 = xor i32 %.571, -1
+  %124 = getelementptr inbounds i8, ptr %5, i64 288
+  %125 = load i32, ptr %124, align 8
+  %126 = and i32 %125, %123
+  store i32 %126, ptr %124, align 8
+  br label %.thread73
+
+.thread73:                                        ; preds = %102, %53, %40, %37, %28, %22, %10, %7, %16, %65, %111, %3, %117, %118, %122, %114, %34, %19
+  %.046 = phi i32 [ 0, %114 ], [ 0, %34 ], [ 0, %19 ], [ 0, %122 ], [ 0, %118 ], [ -20, %117 ], [ -20, %3 ], [ -20, %111 ], [ -20, %65 ], [ -20, %16 ], [ -20, %7 ], [ -20, %10 ], [ -20, %22 ], [ -20, %28 ], [ -20, %37 ], [ -20, %40 ], [ -20, %53 ], [ -20, %102 ]
   ret i32 %.046
 }
 

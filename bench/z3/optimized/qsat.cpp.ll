@@ -9345,12 +9345,10 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit28:       ; preds = %_ZN7obj_refI4expr11
   br i1 %or.cond, label %if.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit28
-  %cmp.i32 = icmp eq ptr %10, %6
-  br i1 %cmp.i32, label %land.lhs.true27, label %if.end
-
-land.lhs.true27:                                  ; preds = %lor.lhs.false
+  %cmp.i32 = icmp ne ptr %10, %6
   %cmp.i34 = icmp ne ptr %9, %7
-  %spec.select = select i1 %cmp.i34, i1 %valid.062, i1 false
+  %or.cond76.not = select i1 %cmp.i32, i1 true, i1 %cmp.i34
+  %spec.select = select i1 %or.cond76.not, i1 %valid.062, i1 false
   br label %if.end
 
 lpad6:                                            ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit, %for.body
@@ -9360,8 +9358,8 @@ lpad6:                                            ; preds = %_ZN7obj_refI4expr11
   call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %val_a) #19
   resume { ptr, i32 } %11
 
-if.end:                                           ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit28, %lor.lhs.false, %land.lhs.true27
-  %valid.1 = phi i1 [ %spec.select, %land.lhs.true27 ], [ %valid.062, %lor.lhs.false ], [ false, %_ZN7obj_refI4expr11ast_managerED2Ev.exit28 ]
+if.end:                                           ; preds = %lor.lhs.false, %_ZN7obj_refI4expr11ast_managerED2Ev.exit28
+  %valid.1 = phi i1 [ false, %_ZN7obj_refI4expr11ast_managerED2Ev.exit28 ], [ %spec.select, %lor.lhs.false ]
   %tobool.not.i.i35 = icmp eq ptr %7, null
   br i1 %tobool.not.i.i35, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit43, label %if.then.i.i.i36
 

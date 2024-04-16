@@ -8036,28 +8036,30 @@ rb_check_arity.exit:                              ; preds = %3
   %12 = getelementptr i8, ptr %1, i64 16
   %13 = load i64, ptr %12, align 8
   %14 = icmp eq i64 %13, 4
-  %spec.select = select i1 %14, i64 %9, i64 %13
-  br label %15
+  br i1 %14, label %15, label %16
 
 15:                                               ; preds = %11, %rb_check_arity.exit
-  %.0 = phi i64 [ %9, %rb_check_arity.exit ], [ %spec.select, %11 ]
-  %16 = tail call fastcc i64 @rlimit_resource_value(i64 noundef %9)
-  store i64 %16, ptr %4, align 8
-  %17 = tail call fastcc i64 @rlimit_resource_value(i64 noundef %.0)
-  %18 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 %17, ptr %18, align 8
-  %19 = tail call fastcc i32 @rlimit_resource_type(i64 noundef %7)
-  %20 = call i32 @setrlimit(i32 noundef %19, ptr noundef nonnull %4) #26
-  %21 = icmp slt i32 %20, 0
-  br i1 %21, label %22, label %25
+  br label %16
 
-22:                                               ; preds = %15
-  %23 = call ptr @rb_errno_ptr() #26
-  %24 = load i32, ptr %23, align 4
-  call void @rb_syserr_fail(i32 noundef %24, ptr noundef nonnull @.str.75) #28
+16:                                               ; preds = %15, %11
+  %.0 = phi i64 [ %9, %15 ], [ %13, %11 ]
+  %17 = tail call fastcc i64 @rlimit_resource_value(i64 noundef %9)
+  store i64 %17, ptr %4, align 8
+  %18 = tail call fastcc i64 @rlimit_resource_value(i64 noundef %.0)
+  %19 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 %18, ptr %19, align 8
+  %20 = tail call fastcc i32 @rlimit_resource_type(i64 noundef %7)
+  %21 = call i32 @setrlimit(i32 noundef %20, ptr noundef nonnull %4) #26
+  %22 = icmp slt i32 %21, 0
+  br i1 %22, label %23, label %26
+
+23:                                               ; preds = %16
+  %24 = call ptr @rb_errno_ptr() #26
+  %25 = load i32, ptr %24, align 4
+  call void @rb_syserr_fail(i32 noundef %25, ptr noundef nonnull @.str.75) #28
   unreachable
 
-25:                                               ; preds = %15
+26:                                               ; preds = %16
   ret i64 4
 }
 

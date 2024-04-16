@@ -492,7 +492,7 @@ copy_address.exit33:                              ; preds = %50, %copy_address.e
   %58 = load i32, ptr %56, align 8
   %59 = load i32, ptr %57, align 8
   %60 = icmp eq i32 %58, %59
-  br i1 %60, label %61, label %addresses_equal.exit.thread
+  br i1 %60, label %61, label %addresses_equal.exit
 
 61:                                               ; preds = %copy_address.exit33
   %62 = getelementptr inbounds i8, ptr %0, i64 68
@@ -500,45 +500,47 @@ copy_address.exit33:                              ; preds = %50, %copy_address.e
   %64 = getelementptr inbounds i8, ptr %1, i64 212
   %65 = load i32, ptr %64, align 4
   %66 = icmp eq i32 %63, %65
-  br i1 %66, label %67, label %addresses_equal.exit.thread
+  br i1 %66, label %67, label %addresses_equal.exit
 
 67:                                               ; preds = %61
   %68 = icmp eq i32 %63, 0
-  br i1 %68, label %addresses_equal.exit.thread36, label %addresses_equal.exit
+  br i1 %68, label %76, label %69
 
-addresses_equal.exit:                             ; preds = %67
-  %69 = getelementptr inbounds i8, ptr %0, i64 72
-  %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %1, i64 216
-  %72 = load ptr, ptr %71, align 8
-  %73 = sext i32 %63 to i64
-  %bcmp.i = tail call i32 @bcmp(ptr %70, ptr %72, i64 %73)
-  %.not = icmp eq i32 %bcmp.i, 0
-  br i1 %.not, label %addresses_equal.exit.thread36, label %addresses_equal.exit.thread
+69:                                               ; preds = %67
+  %70 = getelementptr inbounds i8, ptr %0, i64 72
+  %71 = load ptr, ptr %70, align 8
+  %72 = getelementptr inbounds i8, ptr %1, i64 216
+  %73 = load ptr, ptr %72, align 8
+  %74 = sext i32 %63 to i64
+  %bcmp.i = tail call i32 @bcmp(ptr %71, ptr %73, i64 %74)
+  %75 = icmp eq i32 %bcmp.i, 0
+  br i1 %75, label %76, label %addresses_equal.exit
 
-addresses_equal.exit.thread36:                    ; preds = %67, %addresses_equal.exit
-  %74 = load i32, ptr %19, align 8
-  %75 = getelementptr inbounds i8, ptr %1, i64 284
-  %76 = load i32, ptr %75, align 4
-  %77 = icmp ne i32 %74, %76
-  %spec.select = zext i1 %77 to i32
-  br label %addresses_equal.exit.thread
+76:                                               ; preds = %69, %67
+  %77 = load i32, ptr %19, align 8
+  %78 = getelementptr inbounds i8, ptr %1, i64 284
+  %79 = load i32, ptr %78, align 4
+  %80 = icmp eq i32 %77, %79
+  br i1 %80, label %81, label %addresses_equal.exit
 
-addresses_equal.exit.thread:                      ; preds = %copy_address.exit33, %61, %addresses_equal.exit.thread36, %addresses_equal.exit
-  %storemerge = phi i32 [ 1, %addresses_equal.exit ], [ %spec.select, %addresses_equal.exit.thread36 ], [ 1, %61 ], [ 1, %copy_address.exit33 ]
+addresses_equal.exit:                             ; preds = %69, %61, %copy_address.exit33, %76
+  br label %81
+
+81:                                               ; preds = %76, %addresses_equal.exit
+  %storemerge = phi i32 [ 1, %addresses_equal.exit ], [ 0, %76 ]
   store i32 %storemerge, ptr %6, align 8
-  %78 = getelementptr inbounds i8, ptr %12, i64 8
-  %79 = load i32, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %0, i64 24
-  %81 = zext nneg i32 %storemerge to i64
-  %82 = getelementptr [2 x i32], ptr %80, i64 0, i64 %81
-  %83 = load i32, ptr %82, align 4
-  %84 = add i32 %83, %79
-  store i32 %84, ptr %82, align 4
-  %85 = getelementptr inbounds i8, ptr %0, i64 16
-  %86 = load ptr, ptr %85, align 8
-  %87 = tail call ptr @g_list_prepend(ptr noundef %86, ptr noundef nonnull %6) #9
-  store ptr %87, ptr %85, align 8
+  %82 = getelementptr inbounds i8, ptr %12, i64 8
+  %83 = load i32, ptr %82, align 8
+  %84 = getelementptr inbounds i8, ptr %0, i64 24
+  %85 = zext nneg i32 %storemerge to i64
+  %86 = getelementptr [2 x i32], ptr %84, i64 0, i64 %85
+  %87 = load i32, ptr %86, align 4
+  %88 = add i32 %87, %83
+  store i32 %88, ptr %86, align 4
+  %89 = getelementptr inbounds i8, ptr %0, i64 16
+  %90 = load ptr, ptr %89, align 8
+  %91 = tail call ptr @g_list_prepend(ptr noundef %90, ptr noundef nonnull %6) #9
+  store ptr %91, ptr %89, align 8
   ret i32 0
 }
 

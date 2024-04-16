@@ -1213,7 +1213,7 @@ if.end.i.i.i.i.i.i:                               ; preds = %if.then.i.i69.i.i
   %dec.i.i.i.i.i.i = add i32 %61, -1
   store i32 %dec.i.i.i.i.i.i, ptr %depth.i.i.i.i.i.i, align 4
   %cmp2.not.i.i.i.i.i.i = icmp eq i32 %dec.i.i.i.i.i.i, 0
-  br i1 %cmp2.not.i.i.i.i.i.i, label %while.end.i.i.i.i.i.i, label %try_poll_mode.exit
+  br i1 %cmp2.not.i.i.i.i.i.i, label %while.end.i.i.i.i.i.i, label %run_poll_handlers.exit.i
 
 while.end.i.i.i.i.i.i:                            ; preds = %if.end.i.i.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i.i.i release, align 8
@@ -1222,32 +1222,30 @@ while.end.i.i.i.i.i.i:                            ; preds = %if.end.i.i.i.i.i.i
   %waiting.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 8
   %62 = load atomic i8, ptr %waiting.i.i.i.i.i.i monotonic, align 8
   %tobool.i.i.i.i.i.i = trunc i8 %62 to i1
-  br i1 %tobool.i.i.i.i.i.i, label %while.end21.i.i.i.i.i.i, label %try_poll_mode.exit
+  br i1 %tobool.i.i.i.i.i.i, label %while.end21.i.i.i.i.i.i, label %run_poll_handlers.exit.i
 
 while.end21.i.i.i.i.i.i:                          ; preds = %while.end.i.i.i.i.i.i
   store atomic i8 0, ptr %waiting.i.i.i.i.i.i monotonic, align 8
   call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #10
-  br label %try_poll_mode.exit
+  br label %run_poll_handlers.exit.i
 
-try_poll_mode.exit.thread:                        ; preds = %cond.end10, %land.lhs.true.i, %if.end.i62
-  %tobool14.not104 = icmp eq i64 %cond11, 0
+run_poll_handlers.exit.i:                         ; preds = %while.end21.i.i.i.i.i.i, %while.end.i.i.i.i.i.i, %if.end.i.i.i.i.i.i
+  br i1 %progress.074.i.i, label %try_poll_mode.exit, label %try_poll_mode.exit.thread
+
+try_poll_mode.exit.thread:                        ; preds = %cond.end10, %land.lhs.true.i, %if.end.i62, %run_poll_handlers.exit.i
+  %timeout.6.ph = phi i64 [ %cond11, %land.lhs.true.i ], [ %cond11, %if.end.i62 ], [ %cond11, %cond.end10 ], [ %timeout.4, %run_poll_handlers.exit.i ]
+  %tobool14.not104 = icmp eq i64 %timeout.6.ph, 0
   br i1 %tobool14.not104, label %lor.lhs.false, label %while.end
 
-try_poll_mode.exit:                               ; preds = %if.end.i.i.i.i.i.i, %while.end.i.i.i.i.i.i, %while.end21.i.i.i.i.i.i
-  %tobool14.not = icmp ne i64 %timeout.4, 0
-  %brmerge.not = select i1 %tobool14.not, i1 %progress.074.i.i, i1 false
-  br i1 %brmerge.not, label %if.else17, label %if.end18
+try_poll_mode.exit:                               ; preds = %run_poll_handlers.exit.i
+  %tobool14.not = icmp eq i64 %timeout.4, 0
+  br i1 %tobool14.not, label %lor.lhs.false, label %if.else17
 
 if.else17:                                        ; preds = %try_poll_mode.exit
   call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 630, ptr noundef nonnull @__PRETTY_FUNCTION__.aio_poll) #12
   unreachable
 
-if.end18:                                         ; preds = %try_poll_mode.exit
-  br i1 %tobool14.not, label %while.end, label %lor.lhs.false
-
-while.end:                                        ; preds = %try_poll_mode.exit.thread, %if.end18
-  %timeout.5107114 = phi i64 [ %cond11, %try_poll_mode.exit.thread ], [ %timeout.4, %if.end18 ]
-  %retval.0.i64108112 = phi i1 [ false, %try_poll_mode.exit.thread ], [ %progress.074.i.i, %if.end18 ]
+while.end:                                        ; preds = %try_poll_mode.exit.thread
   %notify_me = getelementptr inbounds i8, ptr %ctx, i64 168
   %63 = load atomic i32, ptr %notify_me monotonic, align 8
   %add = add i32 %63, 2
@@ -1259,8 +1257,8 @@ while.end:                                        ; preds = %try_poll_mode.exit.
   %tobool38 = trunc i8 %64 to i1
   br i1 %tobool38, label %lor.lhs.false.thread, label %if.then46
 
-lor.lhs.false:                                    ; preds = %if.end18, %try_poll_mode.exit.thread
-  %retval.0.i64108113120 = phi i1 [ false, %try_poll_mode.exit.thread ], [ %progress.074.i.i, %if.end18 ]
+lor.lhs.false:                                    ; preds = %try_poll_mode.exit, %try_poll_mode.exit.thread
+  %retval.0.i64108113120 = phi i1 [ false, %try_poll_mode.exit.thread ], [ true, %try_poll_mode.exit ]
   %fdmon_ops = getelementptr inbounds i8, ptr %ctx, i64 576
   %65 = load ptr, ptr %fdmon_ops, align 8
   %need_wait = getelementptr inbounds i8, ptr %65, i64 16
@@ -1269,17 +1267,17 @@ lor.lhs.false:                                    ; preds = %if.end18, %try_poll
   br i1 %call45, label %if.then46, label %if.end72
 
 lor.lhs.false.thread:                             ; preds = %while.end
-  %fdmon_ops154 = getelementptr inbounds i8, ptr %ctx, i64 576
-  %67 = load ptr, ptr %fdmon_ops154, align 8
-  %need_wait155 = getelementptr inbounds i8, ptr %67, i64 16
-  %68 = load ptr, ptr %need_wait155, align 8
-  %call45156 = call zeroext i1 %68(ptr noundef nonnull %ctx) #10
-  br i1 %call45156, label %if.then46, label %while.end60
+  %fdmon_ops153 = getelementptr inbounds i8, ptr %ctx, i64 576
+  %67 = load ptr, ptr %fdmon_ops153, align 8
+  %need_wait154 = getelementptr inbounds i8, ptr %67, i64 16
+  %68 = load ptr, ptr %need_wait154, align 8
+  %call45155 = call zeroext i1 %68(ptr noundef nonnull %ctx) #10
+  br i1 %call45155, label %if.then46, label %while.end60
 
 if.then46:                                        ; preds = %lor.lhs.false.thread, %while.end, %lor.lhs.false
-  %timeout.6124 = phi i64 [ 0, %lor.lhs.false ], [ %timeout.5107114, %while.end ], [ 0, %lor.lhs.false.thread ]
+  %timeout.7124 = phi i64 [ 0, %lor.lhs.false ], [ %timeout.6.ph, %while.end ], [ 0, %lor.lhs.false.thread ]
   %tobool14.not109111122 = phi i1 [ true, %lor.lhs.false ], [ false, %while.end ], [ false, %lor.lhs.false.thread ]
-  %retval.0.i64108113119 = phi i1 [ %retval.0.i64108113120, %lor.lhs.false ], [ %retval.0.i64108112, %while.end ], [ %retval.0.i64108112, %lor.lhs.false.thread ]
+  %retval.0.i64108113119 = phi i1 [ %retval.0.i64108113120, %lor.lhs.false ], [ false, %while.end ], [ false, %lor.lhs.false.thread ]
   %poll_started.i = getelementptr inbounds i8, ptr %ctx, i64 568
   %69 = load i8, ptr %poll_started.i, align 8
   %70 = trunc i8 %69 to i1
@@ -1376,22 +1374,22 @@ for.inc.i:                                        ; preds = %aio_add_poll_ready_
 
 poll_set_started.exit:                            ; preds = %for.inc.i
   call void @qemu_lockcnt_dec(ptr noundef nonnull %list_lock) #10
-  %spec.select = select i1 %progress.1.i, i64 0, i64 %timeout.6124
-  %spec.select131 = select i1 %progress.1.i, i1 true, i1 %retval.0.i64108113119
+  %spec.select = select i1 %progress.1.i, i64 0, i64 %timeout.7124
+  %spec.select131 = or i1 %retval.0.i64108113119, %progress.1.i
   br label %if.end49
 
 if.end49:                                         ; preds = %poll_set_started.exit, %if.then46, %poll_set_started.exit.thread127
-  %timeout.7 = phi i64 [ %timeout.6124, %poll_set_started.exit.thread127 ], [ %timeout.6124, %if.then46 ], [ %spec.select, %poll_set_started.exit ]
+  %timeout.8 = phi i64 [ %timeout.7124, %poll_set_started.exit.thread127 ], [ %timeout.7124, %if.then46 ], [ %spec.select, %poll_set_started.exit ]
   %progress.0 = phi i1 [ %retval.0.i64108113119, %poll_set_started.exit.thread127 ], [ %retval.0.i64108113119, %if.then46 ], [ %spec.select131, %poll_set_started.exit ]
   %fdmon_ops50 = getelementptr inbounds i8, ptr %ctx, i64 576
   %80 = load ptr, ptr %fdmon_ops50, align 8
   %wait = getelementptr inbounds i8, ptr %80, i64 8
   %81 = load ptr, ptr %wait, align 8
-  %call51 = call i32 %81(ptr noundef %ctx, ptr noundef nonnull %ready_list, i64 noundef %timeout.7) #10
+  %call51 = call i32 %81(ptr noundef %ctx, ptr noundef nonnull %ready_list, i64 noundef %timeout.8) #10
   br i1 %tobool14.not109111122, label %if.end72, label %while.end60
 
 while.end60:                                      ; preds = %lor.lhs.false.thread, %if.end49
-  %progress.1129 = phi i1 [ %progress.0, %if.end49 ], [ %retval.0.i64108112, %lor.lhs.false.thread ]
+  %progress.1129 = phi i1 [ %progress.0, %if.end49 ], [ false, %lor.lhs.false.thread ]
   %notify_me61 = getelementptr inbounds i8, ptr %ctx, i64 168
   %82 = load atomic i32, ptr %notify_me61 monotonic, align 8
   %sub = add i32 %82, -2

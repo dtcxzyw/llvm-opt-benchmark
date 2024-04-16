@@ -772,7 +772,7 @@ define internal fastcc void @dom_setup_parser_encoding_implicitly(ptr nocapture 
   %33 = getelementptr inbounds i8, ptr %6, i64 %spec.store.select.i
   %34 = call i32 @lxb_html_encoding_determine(ptr noundef nonnull %5, ptr noundef %6, ptr noundef %33) #11
   %.not19.i = icmp eq i32 %34, 0
-  br i1 %.not19.i, label %35, label %.sink.split.i
+  br i1 %.not19.i, label %35, label %49
 
 35:                                               ; preds = %32
   %36 = getelementptr inbounds i8, ptr %5, i64 32
@@ -782,7 +782,7 @@ define internal fastcc void @dom_setup_parser_encoding_implicitly(ptr nocapture 
   %38 = icmp eq i64 %.val21.i, 0
   %39 = icmp eq ptr %.val.i, null
   %40 = select i1 %38, i1 true, i1 %39
-  br i1 %40, label %.sink.split.i, label %41
+  br i1 %40, label %49, label %41
 
 41:                                               ; preds = %35
   %42 = load ptr, ptr %.val.i, align 8
@@ -793,50 +793,52 @@ define internal fastcc void @dom_setup_parser_encoding_implicitly(ptr nocapture 
   %47 = sub i64 %45, %46
   %48 = call ptr @lxb_encoding_data_by_pre_name(ptr noundef %42, i64 noundef %47) #11
   %.not20.i = icmp eq ptr %48, null
-  %spec.select.i = select i1 %.not20.i, ptr getelementptr inbounds ([43 x %struct.lxb_encoding_data], ptr @lxb_encoding_res_map, i64 0, i64 27), ptr %48
+  br i1 %.not20.i, label %49, label %.sink.split.i
+
+49:                                               ; preds = %41, %35, %32
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %41, %35, %32
-  %.sroa.0.0.ph.i = phi ptr [ getelementptr inbounds ([43 x %struct.lxb_encoding_data], ptr @lxb_encoding_res_map, i64 0, i64 27), %35 ], [ getelementptr inbounds ([43 x %struct.lxb_encoding_data], ptr @lxb_encoding_res_map, i64 0, i64 27), %32 ], [ %spec.select.i, %41 ]
-  %49 = call ptr @lxb_html_encoding_destroy(ptr noundef nonnull %5, i1 noundef zeroext false) #11
+.sink.split.i:                                    ; preds = %49, %41
+  %.sroa.0.0.ph.i = phi ptr [ getelementptr inbounds ([43 x %struct.lxb_encoding_data], ptr @lxb_encoding_res_map, i64 0, i64 27), %49 ], [ %48, %41 ]
+  %50 = call ptr @lxb_html_encoding_destroy(ptr noundef nonnull %5, i1 noundef zeroext false) #11
   br label %dom_setup_parser_encoding_manually.exit
 
 dom_setup_parser_encoding_manually.exit:          ; preds = %16, %23, %27, %.thread22.i, %.sink.split.i
   %.sroa.0.0.i = phi ptr [ getelementptr inbounds ([43 x %struct.lxb_encoding_data], ptr @lxb_encoding_res_map, i64 0, i64 27), %16 ], [ getelementptr inbounds ([43 x %struct.lxb_encoding_data], ptr @lxb_encoding_res_map, i64 0, i64 25), %23 ], [ getelementptr inbounds ([43 x %struct.lxb_encoding_data], ptr @lxb_encoding_res_map, i64 0, i64 26), %27 ], [ getelementptr inbounds ([43 x %struct.lxb_encoding_data], ptr @lxb_encoding_res_map, i64 0, i64 27), %.thread22.i ], [ %.sroa.0.0.ph.i, %.sink.split.i ]
   %.sroa.7.0.i = phi i64 [ 3, %16 ], [ 2, %23 ], [ 2, %27 ], [ 0, %.thread22.i ], [ 0, %.sink.split.i ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
-  %50 = load ptr, ptr %0, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 %.sroa.7.0.i
-  store ptr %51, ptr %0, align 8
-  %52 = load i64, ptr %1, align 8
-  %53 = sub i64 %52, %.sroa.7.0.i
-  store i64 %53, ptr %1, align 8
-  %54 = getelementptr inbounds i8, ptr %2, i64 152
-  store ptr %.sroa.0.0.i, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %2, i64 4256
-  %56 = getelementptr inbounds i8, ptr %2, i64 64
-  %57 = getelementptr inbounds i8, ptr %2, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %57, i8 0, i64 56, i1 false)
-  %58 = getelementptr inbounds i8, ptr %2, i64 72
-  store ptr %55, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %2, i64 80
-  store i64 4096, ptr %59, align 8
-  store ptr %.sroa.0.0.i, ptr %56, align 8
-  %60 = getelementptr inbounds i8, ptr %2, i64 96
-  store ptr @dom_setup_parser_encoding_manually.replacement_codepoint, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %2, i64 104
-  store i64 1, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %2, i64 144
-  %63 = load ptr, ptr %62, align 8
-  %64 = icmp eq ptr %63, %.sroa.0.0.i
-  %65 = zext i1 %64 to i8
-  store i8 %65, ptr %2, align 8
-  %spec.select.i9 = select i1 %64, ptr null, ptr %55
-  %spec.select18.i = select i1 %64, ptr %6, ptr null
-  %66 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr %spec.select.i9, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr %spec.select18.i, ptr %67, align 8
+  %51 = load ptr, ptr %0, align 8
+  %52 = getelementptr inbounds i8, ptr %51, i64 %.sroa.7.0.i
+  store ptr %52, ptr %0, align 8
+  %53 = load i64, ptr %1, align 8
+  %54 = sub i64 %53, %.sroa.7.0.i
+  store i64 %54, ptr %1, align 8
+  %55 = getelementptr inbounds i8, ptr %2, i64 152
+  store ptr %.sroa.0.0.i, ptr %55, align 8
+  %56 = getelementptr inbounds i8, ptr %2, i64 4256
+  %57 = getelementptr inbounds i8, ptr %2, i64 64
+  %58 = getelementptr inbounds i8, ptr %2, i64 88
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %58, i8 0, i64 56, i1 false)
+  %59 = getelementptr inbounds i8, ptr %2, i64 72
+  store ptr %56, ptr %59, align 8
+  %60 = getelementptr inbounds i8, ptr %2, i64 80
+  store i64 4096, ptr %60, align 8
+  store ptr %.sroa.0.0.i, ptr %57, align 8
+  %61 = getelementptr inbounds i8, ptr %2, i64 96
+  store ptr @dom_setup_parser_encoding_manually.replacement_codepoint, ptr %61, align 8
+  %62 = getelementptr inbounds i8, ptr %2, i64 104
+  store i64 1, ptr %62, align 8
+  %63 = getelementptr inbounds i8, ptr %2, i64 144
+  %64 = load ptr, ptr %63, align 8
+  %65 = icmp eq ptr %64, %.sroa.0.0.i
+  %66 = zext i1 %65 to i8
+  store i8 %66, ptr %2, align 8
+  %spec.select.i = select i1 %65, ptr null, ptr %56
+  %spec.select18.i = select i1 %65, ptr %6, ptr null
+  %67 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %spec.select.i, ptr %67, align 8
+  %68 = getelementptr inbounds i8, ptr %3, i64 16
+  store ptr %spec.select18.i, ptr %68, align 8
   ret void
 }
 
@@ -880,11 +882,11 @@ define internal fastcc noundef zeroext i1 @dom_parse_decode_encode_step(ptr noun
   %25 = sub i64 %22, %24
   %26 = add i64 %.neg.i, %25
   %27 = call fastcc zeroext i1 @dom_process_parse_chunk(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %26, ptr noundef %.03140.i, i64 noundef %25, ptr noundef %6, ptr noundef %7)
-  br i1 %27, label %28, label %dom_decode_encode_fast_path.exit
+  br i1 %27, label %28, label %.loopexit.i
 
 28:                                               ; preds = %21
   %29 = call fastcc zeroext i1 @dom_process_parse_chunk(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef 3, ptr noundef nonnull @.str.108, i64 noundef 0, ptr noundef %6, ptr noundef %7)
-  br i1 %29, label %30, label %dom_decode_encode_fast_path.exit
+  br i1 %29, label %30, label %.loopexit.i
 
 30:                                               ; preds = %28
   %31 = load ptr, ptr %11, align 8
@@ -905,10 +907,13 @@ define internal fastcc noundef zeroext i1 @dom_parse_decode_encode_step(ptr noun
   %36 = ptrtoint ptr %.1.i to i64
   %37 = sub i64 %35, %36
   %38 = call fastcc zeroext i1 @dom_process_parse_chunk(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %37, ptr noundef %.1.i, i64 noundef %37, ptr noundef %6, ptr noundef %7)
+  br i1 %38, label %dom_decode_encode_fast_path.exit, label %.loopexit.i
+
+.loopexit.i:                                      ; preds = %28, %21, %34
   br label %dom_decode_encode_fast_path.exit
 
-dom_decode_encode_fast_path.exit:                 ; preds = %21, %28, %14, %._crit_edge.i, %34
-  %.0.i = phi i1 [ true, %._crit_edge.i ], [ %38, %34 ], [ true, %14 ], [ false, %28 ], [ false, %21 ]
+dom_decode_encode_fast_path.exit:                 ; preds = %14, %._crit_edge.i, %34, %.loopexit.i
+  %.0.i = phi i1 [ false, %.loopexit.i ], [ true, %34 ], [ true, %._crit_edge.i ], [ true, %14 ]
   %storemerge.i = load ptr, ptr %11, align 8
   store ptr %storemerge.i, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
@@ -961,8 +966,8 @@ dom_decode_encode_fast_path.exit:                 ; preds = %21, %28, %14, %._cr
   br i1 %65, label %49, label %dom_decode_encode_slow_path.exit
 
 dom_decode_encode_slow_path.exit:                 ; preds = %64, %55
-  %storemerge.i18 = load ptr, ptr %9, align 8
-  store ptr %storemerge.i18, ptr %3, align 8
+  %storemerge.i19 = load ptr, ptr %9, align 8
+  store ptr %storemerge.i19, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   br label %66
@@ -1046,7 +1051,7 @@ lxb_encoding_decode_finish.exit:                  ; preds = %10, %18, %22, %26, 
   %.val30 = load i64, ptr %51, align 8
   %52 = getelementptr inbounds i8, ptr %3, i64 160
   %53 = call fastcc zeroext i1 @dom_process_parse_chunk(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %.val30, ptr noundef nonnull %52, i64 noundef %.val, ptr noundef %4, ptr noundef %5)
-  br i1 %53, label %54, label %66
+  br i1 %53, label %54, label %67
 
 54:                                               ; preds = %lxb_encoding_decode_finish.exit, %42, %6
   %55 = getelementptr inbounds i8, ptr %3, i64 8
@@ -1070,10 +1075,13 @@ lxb_encoding_encode_finish.exit:                  ; preds = %54, %59
   %64 = getelementptr i8, ptr %3, i64 88
   %.val29 = load i64, ptr %64, align 8
   %65 = call fastcc zeroext i1 @dom_process_parse_chunk(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %.val31, ptr noundef nonnull %63, i64 noundef %.val29, ptr noundef %4, ptr noundef %5)
-  br label %66
+  br i1 %65, label %66, label %67
 
-66:                                               ; preds = %62, %lxb_encoding_encode_finish.exit, %42
-  %.0 = phi i1 [ false, %42 ], [ true, %lxb_encoding_encode_finish.exit ], [ %65, %62 ]
+66:                                               ; preds = %62, %lxb_encoding_encode_finish.exit
+  br label %67
+
+67:                                               ; preds = %62, %42, %66
+  %.0 = phi i1 [ true, %66 ], [ false, %42 ], [ false, %62 ]
   ret i1 %.0
 }
 
@@ -1914,7 +1922,7 @@ define internal i32 @dom_write_output_stream(ptr noundef %0, ptr noundef %1, i64
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dom_common_save(ptr noundef %0, ptr %.112.val, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @dom_common_save(ptr noundef %0, ptr %.112.val, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.lxb_encoding_encode_t, align 8
   %4 = alloca %struct.lxb_encoding_decode_t, align 8
   %5 = alloca [4096 x i8], align 16
@@ -1987,7 +1995,7 @@ lxb_encoding_encode_init.exit:                    ; preds = %12, %2, %lxb_encodi
   store ptr %0, ptr %37, align 8
   %38 = call i32 @dom_html5_serialize(ptr noundef nonnull %8, ptr noundef %1) #11
   %.not = icmp eq i32 %38, 0
-  br i1 %.not, label %39, label %87
+  br i1 %.not, label %39, label %88
 
 39:                                               ; preds = %lxb_encoding_encode_init.exit
   %40 = getelementptr inbounds i8, ptr %4, i64 60
@@ -2051,7 +2059,7 @@ lxb_encoding_decode_finish.exit:                  ; preds = %lxb_encoding_decode
   %.val25 = load i64, ptr %72, align 8
   %73 = call i32 %69(ptr noundef %71, ptr noundef nonnull %5, i64 noundef %.val25) #11
   %.not21 = icmp eq i32 %73, 0
-  br i1 %.not21, label %74, label %87
+  br i1 %.not21, label %74, label %88
 
 74:                                               ; preds = %63, %lxb_encoding_decode_finish.exit
   %75 = load ptr, ptr %3, align 8
@@ -2075,12 +2083,14 @@ lxb_encoding_encode_finish.exit:                  ; preds = %74, %78
   %84 = getelementptr inbounds i8, ptr %0, i64 48
   %85 = load ptr, ptr %84, align 8
   %86 = call i32 %83(ptr noundef %85, ptr noundef nonnull %5, i64 noundef %.val26) #11
-  %.not23 = icmp ne i32 %86, 0
-  %spec.select = sext i1 %.not23 to i32
-  br label %87
+  %.not23 = icmp eq i32 %86, 0
+  br i1 %.not23, label %87, label %88
 
-87:                                               ; preds = %81, %lxb_encoding_encode_finish.exit, %63, %lxb_encoding_encode_init.exit
-  %.0 = phi i32 [ -1, %lxb_encoding_encode_init.exit ], [ -1, %63 ], [ 0, %lxb_encoding_encode_finish.exit ], [ %spec.select, %81 ]
+87:                                               ; preds = %81, %lxb_encoding_encode_finish.exit
+  br label %88
+
+88:                                               ; preds = %81, %63, %lxb_encoding_encode_init.exit, %87
+  %.0 = phi i32 [ 0, %87 ], [ -1, %lxb_encoding_encode_init.exit ], [ -1, %63 ], [ -1, %81 ]
   ret i32 %.0
 }
 

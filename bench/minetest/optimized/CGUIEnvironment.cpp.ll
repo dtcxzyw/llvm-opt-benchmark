@@ -5075,7 +5075,7 @@ define noundef ptr @_ZN3irr3gui15CGUIEnvironment7addFontERKNS_4core6stringIcEEPN
 entry:
   %f = alloca %"struct.irr::gui::CGUIEnvironment::SFont", align 8
   %tobool.not = icmp eq ptr %font, null
-  br i1 %tobool.not, label %return, label %if.then
+  br i1 %tobool.not, label %if.end9, label %if.then
 
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %f) #23
@@ -5166,7 +5166,7 @@ _ZN3irr4core5arrayINS_3gui15CGUIEnvironment5SFontEE9push_backERKS4_.exit: ; pred
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZN3irr4core5arrayINS_3gui15CGUIEnvironment5SFontEE9push_backERKS4_.exit, %if.then2
-  %spec.select = phi ptr [ %3, %if.then2 ], [ %font, %_ZN3irr4core5arrayINS_3gui15CGUIEnvironment5SFontEE9push_backERKS4_.exit ]
+  %retval.0 = phi ptr [ %3, %if.then2 ], [ undef, %_ZN3irr4core5arrayINS_3gui15CGUIEnvironment5SFontEE9push_backERKS4_.exit ]
   %11 = load ptr, ptr %InternalName.i.i, align 8, !tbaa !3
   %cmp.i.i.i.i.i.i = icmp eq ptr %11, %1
   br i1 %cmp.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -5198,10 +5198,13 @@ if.then.i.i.i3.i.i:                               ; preds = %_ZN3irr4core6string
 
 _ZN3irr3gui15CGUIEnvironment5SFontD2Ev.exit:      ; preds = %if.then.i.i.i3.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i4.i.i
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %f) #23
+  br i1 %cmp.not.not, label %if.end9, label %return
+
+if.end9:                                          ; preds = %_ZN3irr3gui15CGUIEnvironment5SFontD2Ev.exit, %entry
   br label %return
 
-return:                                           ; preds = %_ZN3irr3gui15CGUIEnvironment5SFontD2Ev.exit, %entry
-  %retval.1 = phi ptr [ null, %entry ], [ %spec.select, %_ZN3irr3gui15CGUIEnvironment5SFontD2Ev.exit ]
+return:                                           ; preds = %if.end9, %_ZN3irr3gui15CGUIEnvironment5SFontD2Ev.exit
+  %retval.1 = phi ptr [ %retval.0, %_ZN3irr3gui15CGUIEnvironment5SFontD2Ev.exit ], [ %font, %if.end9 ]
   ret ptr %retval.1
 }
 

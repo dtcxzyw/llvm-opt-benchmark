@@ -3052,7 +3052,7 @@ declare i16 @_ZN2v86Object14DefinePropertyENS_5LocalINS_7ContextEEENS1_INS_4Name
 declare void @_ZN2v818PropertyDescriptorD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i16 @_ZN4node32InitializeBaseContextForSnapshotEN2v85LocalINS0_7ContextEEE(ptr nonnull %context.coerce) local_unnamed_addr #3 {
+define dso_local noundef i16 @_ZN4node32InitializeBaseContextForSnapshotEN2v85LocalINS0_7ContextEEE(ptr nonnull %context.coerce) local_unnamed_addr #3 {
 entry:
   %handle_scope = alloca %"class.v8::HandleScope", align 8
   %call3 = tail call noundef ptr @_ZN2v87Context10GetIsolateEv(ptr noundef nonnull align 1 dereferenceable(1) %context.coerce) #12
@@ -3083,16 +3083,18 @@ _ZN4node21FIXED_ONE_BYTE_STRINGILi16EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERA
 
 if.end:                                           ; preds = %_ZN4node21FIXED_ONE_BYTE_STRINGILi16EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit
   %call42 = call noundef zeroext i1 @_ZNK2v85Value8IsObjectEv(ptr noundef nonnull align 1 dereferenceable(1) %call34) #12
-  br i1 %call42, label %land.rhs, label %cleanup69
+  br i1 %call42, label %land.rhs, label %cleanup.cont
 
 land.rhs:                                         ; preds = %if.end
   %call62 = call i16 @_ZN2v86Object6DeleteENS_5LocalINS_7ContextEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call34, ptr nonnull %context.coerce, ptr %call.i.i5) #12
   %tobool.i = trunc i16 %call62 to i1
-  %spec.select = select i1 %tobool.i, i16 257, i16 0
+  br i1 %tobool.i, label %cleanup.cont, label %cleanup69
+
+cleanup.cont:                                     ; preds = %if.end, %land.rhs
   br label %cleanup69
 
-cleanup69:                                        ; preds = %land.rhs, %if.end, %_ZN4node21FIXED_ONE_BYTE_STRINGILi16EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit
-  %retval.sroa.0.1 = phi i16 [ 0, %_ZN4node21FIXED_ONE_BYTE_STRINGILi16EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit ], [ 257, %if.end ], [ %spec.select, %land.rhs ]
+cleanup69:                                        ; preds = %_ZN4node21FIXED_ONE_BYTE_STRINGILi16EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit, %land.rhs, %cleanup.cont
+  %retval.sroa.0.1 = phi i16 [ 257, %cleanup.cont ], [ 0, %land.rhs ], [ 0, %_ZN4node21FIXED_ONE_BYTE_STRINGILi16EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit ]
   call void @_ZN2v87Context4ExitEv(ptr noundef nonnull align 1 dereferenceable(1) %context.coerce) #12
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope) #12
   ret i16 %retval.sroa.0.1

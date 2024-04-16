@@ -226,7 +226,7 @@ unload_providers.exit:                            ; preds = %if.end7.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_explicit_EVP_MD_fetch_by_name() #1 {
+define internal noundef i32 @test_explicit_EVP_MD_fetch_by_name() #1 {
 entry:
   %call = tail call fastcc i32 @test_explicit_EVP_MD_fetch(ptr noundef nonnull @.str.38), !range !7
   ret i32 %call
@@ -235,7 +235,7 @@ entry:
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_explicit_EVP_MD_fetch_by_X509_ALGOR(i32 noundef %idx) #1 {
+define internal noundef i32 @test_explicit_EVP_MD_fetch_by_X509_ALGOR(i32 noundef %idx) #1 {
 entry:
   %obj = alloca ptr, align 8
   %id = alloca [50 x i8], align 16
@@ -352,14 +352,14 @@ unload_providers.exit:                            ; preds = %if.end7.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_explicit_EVP_CIPHER_fetch_by_name() #1 {
+define internal noundef i32 @test_explicit_EVP_CIPHER_fetch_by_name() #1 {
 entry:
   %call = tail call fastcc i32 @test_explicit_EVP_CIPHER_fetch(ptr noundef nonnull @.str.68), !range !7
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_explicit_EVP_CIPHER_fetch_by_X509_ALGOR(i32 noundef %idx) #1 {
+define internal noundef i32 @test_explicit_EVP_CIPHER_fetch_by_X509_ALGOR(i32 noundef %idx) #1 {
 entry:
   %obj = alloca ptr, align 8
   %id = alloca [50 x i8], align 16
@@ -619,7 +619,7 @@ declare i32 @OSSL_PROVIDER_unload(ptr noundef) local_unnamed_addr #2
 declare void @OPENSSL_thread_stop_ex(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @test_explicit_EVP_MD_fetch(ptr noundef %id) unnamed_addr #1 {
+define internal fastcc noundef i32 @test_explicit_EVP_MD_fetch(ptr noundef %id) unnamed_addr #1 {
 entry:
   %ctx = alloca ptr, align 8
   %prov = alloca [2 x ptr], align 16
@@ -659,17 +659,19 @@ if.end7:                                          ; preds = %if.then3
 
 if.end13:                                         ; preds = %if.end7
   tail call void @EVP_MD_free(ptr noundef %call1) #7
-  br label %err
+  br label %if.end18
 
 if.else:                                          ; preds = %if.end
   %call14 = tail call i32 @test_ptr_null(ptr noundef nonnull @.str.32, i32 noundef 190, ptr noundef nonnull @.str.36, ptr noundef %call1) #7
-  %tobool15.not = icmp ne i32 %call14, 0
-  %spec.select = zext i1 %tobool15.not to i32
+  %tobool15.not = icmp eq i32 %call14, 0
+  br i1 %tobool15.not, label %err, label %if.end18
+
+if.end18:                                         ; preds = %if.else, %if.end13
   br label %err
 
-err:                                              ; preds = %if.else, %if.end13, %if.end7, %if.then3, %land.lhs.true
-  %md.0 = phi ptr [ %call1, %if.end7 ], [ %call1, %if.then3 ], [ null, %land.lhs.true ], [ %call1, %if.end13 ], [ %call1, %if.else ]
-  %ret.0 = phi i32 [ 0, %if.end7 ], [ 0, %if.then3 ], [ 0, %land.lhs.true ], [ 1, %if.end13 ], [ %spec.select, %if.else ]
+err:                                              ; preds = %if.else, %if.end7, %if.then3, %land.lhs.true, %if.end18
+  %md.0 = phi ptr [ %call1, %if.end18 ], [ %call1, %if.end7 ], [ %call1, %if.then3 ], [ %call1, %if.else ], [ null, %land.lhs.true ]
+  %ret.0 = phi i32 [ 1, %if.end18 ], [ 0, %if.end7 ], [ 0, %if.then3 ], [ 0, %if.else ], [ 0, %land.lhs.true ]
   tail call void @EVP_MD_free(ptr noundef %md.0) #7
   %2 = load ptr, ptr %prov, align 16
   %cmp.not.i = icmp eq ptr %2, null
@@ -839,7 +841,7 @@ declare i32 @EVP_CipherFinal_ex(ptr noundef, ptr noundef, ptr noundef) local_unn
 declare void @EVP_CIPHER_CTX_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @test_explicit_EVP_CIPHER_fetch(ptr noundef %id) unnamed_addr #1 {
+define internal fastcc noundef i32 @test_explicit_EVP_CIPHER_fetch(ptr noundef %id) unnamed_addr #1 {
 entry:
   %ctx = alloca ptr, align 8
   %prov = alloca [2 x ptr], align 16
@@ -879,17 +881,19 @@ if.end7:                                          ; preds = %if.then3
 
 if.end13:                                         ; preds = %if.end7
   tail call void @EVP_CIPHER_free(ptr noundef %call1) #7
-  br label %err
+  br label %if.end18
 
 if.else:                                          ; preds = %if.end
   %call14 = tail call i32 @test_ptr_null(ptr noundef nonnull @.str.32, i32 noundef 307, ptr noundef nonnull @.str.57, ptr noundef %call1) #7
-  %tobool15.not = icmp ne i32 %call14, 0
-  %spec.select = zext i1 %tobool15.not to i32
+  %tobool15.not = icmp eq i32 %call14, 0
+  br i1 %tobool15.not, label %err, label %if.end18
+
+if.end18:                                         ; preds = %if.else, %if.end13
   br label %err
 
-err:                                              ; preds = %if.else, %if.end13, %if.end7, %if.then3, %land.lhs.true
-  %cipher.0 = phi ptr [ %call1, %if.end7 ], [ %call1, %if.then3 ], [ null, %land.lhs.true ], [ %call1, %if.end13 ], [ %call1, %if.else ]
-  %ret.0 = phi i32 [ 0, %if.end7 ], [ 0, %if.then3 ], [ 0, %land.lhs.true ], [ 1, %if.end13 ], [ %spec.select, %if.else ]
+err:                                              ; preds = %if.else, %if.end7, %if.then3, %land.lhs.true, %if.end18
+  %cipher.0 = phi ptr [ %call1, %if.end18 ], [ %call1, %if.end7 ], [ %call1, %if.then3 ], [ %call1, %if.else ], [ null, %land.lhs.true ]
+  %ret.0 = phi i32 [ 1, %if.end18 ], [ 0, %if.end7 ], [ 0, %if.then3 ], [ 0, %if.else ], [ 0, %land.lhs.true ]
   tail call void @EVP_CIPHER_free(ptr noundef %cipher.0) #7
   %2 = load ptr, ptr %prov, align 16
   %cmp.not.i = icmp eq ptr %2, null

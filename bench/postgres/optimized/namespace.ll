@@ -1220,118 +1220,118 @@ declare signext i8 @get_rel_relkind(i32 noundef) local_unnamed_addr #2
 define dso_local void @RangeVarAdjustRelationPersistence(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 33
   %4 = load i8, ptr %3, align 1
-  switch i8 %4, label %33 [
+  switch i8 %4, label %35 [
     i8 116, label %5
-    i8 112, label %17
+    i8 112, label %18
   ]
 
 5:                                                ; preds = %2
   %6 = load i32, ptr @myTempNamespace, align 4
   %.not.i = icmp eq i32 %6, 0
-  br i1 %.not.i, label %isTempOrTempToastNamespace.exit.thread, label %isTempOrTempToastNamespace.exit
+  br i1 %.not.i, label %isTempOrTempToastNamespace.exit, label %7
 
-isTempOrTempToastNamespace.exit:                  ; preds = %5
-  %7 = icmp eq i32 %6, %1
-  %8 = load i32, ptr @myTempToastNamespace, align 4
-  %9 = icmp eq i32 %8, %1
-  %or.cond.i = select i1 %7, i1 true, i1 %9
-  br i1 %or.cond.i, label %isAnyTempNamespace.exit.thread, label %isTempOrTempToastNamespace.exit.thread
+7:                                                ; preds = %5
+  %8 = icmp eq i32 %6, %1
+  %9 = load i32, ptr @myTempToastNamespace, align 4
+  %10 = icmp eq i32 %9, %1
+  %or.cond.i = select i1 %8, i1 true, i1 %10
+  br i1 %or.cond.i, label %isTempOrTempToastNamespace.exit.thread, label %isTempOrTempToastNamespace.exit
 
-isTempOrTempToastNamespace.exit.thread:           ; preds = %5, %isTempOrTempToastNamespace.exit
-  %10 = tail call zeroext i1 @isAnyTempNamespace(i32 noundef %1)
-  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %11)
-  %12 = tail call i32 @errcode(i32 noundef 101056644) #18
-  br i1 %10, label %13, label %15
+isTempOrTempToastNamespace.exit:                  ; preds = %7, %5
+  %11 = tail call zeroext i1 @isAnyTempNamespace(i32 noundef %1)
+  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
+  tail call void @llvm.assume(i1 %12)
+  %13 = tail call i32 @errcode(i32 noundef 101056644) #18
+  br i1 %11, label %14, label %16
 
-13:                                               ; preds = %isTempOrTempToastNamespace.exit.thread
-  %14 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9) #18
+14:                                               ; preds = %isTempOrTempToastNamespace.exit
+  %15 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9) #18
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 841, ptr noundef nonnull @__func__.RangeVarAdjustRelationPersistence) #18
   unreachable
 
-15:                                               ; preds = %isTempOrTempToastNamespace.exit.thread
-  %16 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10) #18
+16:                                               ; preds = %isTempOrTempToastNamespace.exit
+  %17 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10) #18
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 845, ptr noundef nonnull @__func__.RangeVarAdjustRelationPersistence) #18
   unreachable
 
-17:                                               ; preds = %2
-  %18 = load i32, ptr @myTempNamespace, align 4
-  %.not.i6 = icmp eq i32 %18, 0
-  br i1 %.not.i6, label %isTempOrTempToastNamespace.exit9.thread, label %isTempOrTempToastNamespace.exit9
+18:                                               ; preds = %2
+  %19 = load i32, ptr @myTempNamespace, align 4
+  %.not.i6 = icmp eq i32 %19, 0
+  br i1 %.not.i6, label %isTempOrTempToastNamespace.exit9, label %20
 
-isTempOrTempToastNamespace.exit9:                 ; preds = %17
-  %19 = icmp eq i32 %18, %1
-  %20 = load i32, ptr @myTempToastNamespace, align 4
-  %21 = icmp eq i32 %20, %1
-  %or.cond.i7 = select i1 %19, i1 true, i1 %21
-  br i1 %or.cond.i7, label %22, label %isTempOrTempToastNamespace.exit9.thread
+20:                                               ; preds = %18
+  %21 = icmp eq i32 %19, %1
+  %22 = load i32, ptr @myTempToastNamespace, align 4
+  %23 = icmp eq i32 %22, %1
+  %or.cond.i7 = select i1 %21, i1 true, i1 %23
+  br i1 %or.cond.i7, label %24, label %isTempOrTempToastNamespace.exit9
 
-22:                                               ; preds = %isTempOrTempToastNamespace.exit9
+24:                                               ; preds = %20
   store i8 116, ptr %3, align 1
-  br label %isAnyTempNamespace.exit.thread
+  br label %isTempOrTempToastNamespace.exit.thread
 
-isTempOrTempToastNamespace.exit9.thread:          ; preds = %17, %isTempOrTempToastNamespace.exit9
-  %23 = tail call ptr @get_namespace_name(i32 noundef %1) #18
-  %.not.i10 = icmp eq ptr %23, null
-  br i1 %.not.i10, label %isAnyTempNamespace.exit.thread, label %24
+isTempOrTempToastNamespace.exit9:                 ; preds = %20, %18
+  %25 = tail call ptr @get_namespace_name(i32 noundef %1) #18
+  %.not.i10 = icmp eq ptr %25, null
+  br i1 %.not.i10, label %isTempOrTempToastNamespace.exit.thread, label %26
 
-24:                                               ; preds = %isTempOrTempToastNamespace.exit9.thread
-  %25 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(9) @.str.25, i64 noundef 8) #19
-  %26 = icmp eq i32 %25, 0
-  br i1 %26, label %isAnyTempNamespace.exit.thread18, label %isAnyTempNamespace.exit
-
-isAnyTempNamespace.exit.thread18:                 ; preds = %24
-  tail call void @pfree(ptr noundef nonnull %23) #18
-  br label %29
-
-isAnyTempNamespace.exit:                          ; preds = %24
-  %27 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(15) @.str.26, i64 noundef 14) #19
+26:                                               ; preds = %isTempOrTempToastNamespace.exit9
+  %27 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(9) @.str.25, i64 noundef 8) #19
   %28 = icmp eq i32 %27, 0
-  tail call void @pfree(ptr noundef nonnull %23) #18
-  br i1 %28, label %29, label %isAnyTempNamespace.exit.thread
+  br i1 %28, label %isAnyTempNamespace.exit.thread18, label %isAnyTempNamespace.exit
 
-29:                                               ; preds = %isAnyTempNamespace.exit.thread18, %isAnyTempNamespace.exit
-  %30 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %30)
-  %31 = tail call i32 @errcode(i32 noundef 101056644) #18
-  %32 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9) #18
+isAnyTempNamespace.exit.thread18:                 ; preds = %26
+  tail call void @pfree(ptr noundef nonnull %25) #18
+  br label %31
+
+isAnyTempNamespace.exit:                          ; preds = %26
+  %29 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(15) @.str.26, i64 noundef 14) #19
+  %30 = icmp eq i32 %29, 0
+  tail call void @pfree(ptr noundef nonnull %25) #18
+  br i1 %30, label %31, label %isTempOrTempToastNamespace.exit.thread
+
+31:                                               ; preds = %isAnyTempNamespace.exit.thread18, %isAnyTempNamespace.exit
+  %32 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
+  tail call void @llvm.assume(i1 %32)
+  %33 = tail call i32 @errcode(i32 noundef 101056644) #18
+  %34 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9) #18
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 854, ptr noundef nonnull @__func__.RangeVarAdjustRelationPersistence) #18
   unreachable
 
-33:                                               ; preds = %2
-  %34 = tail call ptr @get_namespace_name(i32 noundef %1) #18
-  %.not.i12 = icmp eq ptr %34, null
-  br i1 %.not.i12, label %isAnyTempNamespace.exit.thread, label %35
+35:                                               ; preds = %2
+  %36 = tail call ptr @get_namespace_name(i32 noundef %1) #18
+  %.not.i12 = icmp eq ptr %36, null
+  br i1 %.not.i12, label %isTempOrTempToastNamespace.exit.thread, label %37
 
-35:                                               ; preds = %33
-  %36 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %34, ptr noundef nonnull dereferenceable(9) @.str.25, i64 noundef 8) #19
-  %37 = icmp eq i32 %36, 0
-  br i1 %37, label %isAnyTempNamespace.exit14.thread20, label %isAnyTempNamespace.exit14
-
-isAnyTempNamespace.exit14.thread20:               ; preds = %35
-  tail call void @pfree(ptr noundef nonnull %34) #18
-  br label %40
-
-isAnyTempNamespace.exit14:                        ; preds = %35
-  %38 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %34, ptr noundef nonnull dereferenceable(15) @.str.26, i64 noundef 14) #19
+37:                                               ; preds = %35
+  %38 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %36, ptr noundef nonnull dereferenceable(9) @.str.25, i64 noundef 8) #19
   %39 = icmp eq i32 %38, 0
-  tail call void @pfree(ptr noundef nonnull %34) #18
-  br i1 %39, label %40, label %isAnyTempNamespace.exit.thread
+  br i1 %39, label %isAnyTempNamespace.exit14.thread20, label %isAnyTempNamespace.exit14
 
-40:                                               ; preds = %isAnyTempNamespace.exit14.thread20, %isAnyTempNamespace.exit14
-  %41 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %41)
-  %42 = tail call i32 @errcode(i32 noundef 101056644) #18
-  %43 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11) #18
+isAnyTempNamespace.exit14.thread20:               ; preds = %37
+  tail call void @pfree(ptr noundef nonnull %36) #18
+  br label %42
+
+isAnyTempNamespace.exit14:                        ; preds = %37
+  %40 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %36, ptr noundef nonnull dereferenceable(15) @.str.26, i64 noundef 14) #19
+  %41 = icmp eq i32 %40, 0
+  tail call void @pfree(ptr noundef nonnull %36) #18
+  br i1 %41, label %42, label %isTempOrTempToastNamespace.exit.thread
+
+42:                                               ; preds = %isAnyTempNamespace.exit14.thread20, %isAnyTempNamespace.exit14
+  %43 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
+  tail call void @llvm.assume(i1 %43)
+  %44 = tail call i32 @errcode(i32 noundef 101056644) #18
+  %45 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11) #18
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 860, ptr noundef nonnull @__func__.RangeVarAdjustRelationPersistence) #18
   unreachable
 
-isAnyTempNamespace.exit.thread:                   ; preds = %33, %isTempOrTempToastNamespace.exit9.thread, %isAnyTempNamespace.exit14, %22, %isAnyTempNamespace.exit, %isTempOrTempToastNamespace.exit
+isTempOrTempToastNamespace.exit.thread:           ; preds = %35, %isTempOrTempToastNamespace.exit9, %7, %isAnyTempNamespace.exit14, %24, %isAnyTempNamespace.exit
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @isTempOrTempToastNamespace(i32 noundef %0) local_unnamed_addr #4 {
+define dso_local noundef zeroext i1 @isTempOrTempToastNamespace(i32 noundef %0) local_unnamed_addr #4 {
   %2 = load i32, ptr @myTempNamespace, align 4
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %7, label %3
@@ -1341,10 +1341,13 @@ define dso_local zeroext i1 @isTempOrTempToastNamespace(i32 noundef %0) local_un
   %5 = load i32, ptr @myTempToastNamespace, align 4
   %6 = icmp eq i32 %5, %0
   %or.cond = select i1 %4, i1 true, i1 %6
-  br label %7
+  br i1 %or.cond, label %8, label %7
 
 7:                                                ; preds = %3, %1
-  %.0 = phi i1 [ false, %1 ], [ %or.cond, %3 ]
+  br label %8
+
+8:                                                ; preds = %3, %7
+  %.0 = phi i1 [ false, %7 ], [ true, %3 ]
   ret i1 %.0
 }
 
@@ -1700,9 +1703,9 @@ define dso_local ptr @FuncnameGetCandidates(ptr noundef %0, i32 noundef %1, ptr 
   %24 = getelementptr inbounds i8, ptr %23, i64 64
   %25 = load i32, ptr %24, align 8
   %26 = icmp sgt i32 %25, 0
-  br i1 %26, label %.lr.ph310, label %._crit_edge
+  br i1 %26, label %.lr.ph307, label %._crit_edge
 
-.lr.ph310:                                        ; preds = %20
+.lr.ph307:                                        ; preds = %20
   %27 = getelementptr inbounds i8, ptr %23, i64 80
   %28 = icmp eq i32 %.0177, 0
   %.not213 = icmp eq ptr %2, null
@@ -1713,11 +1716,11 @@ define dso_local ptr @FuncnameGetCandidates(ptr noundef %0, i32 noundef %1, ptr 
   %32 = getelementptr inbounds i8, ptr %23, i64 61
   br label %33
 
-33:                                               ; preds = %.lr.ph310, %.thread250
-  %indvars.iv338 = phi i64 [ 0, %.lr.ph310 ], [ %indvars.iv.next339, %.thread250 ]
-  %.0171306 = phi ptr [ null, %.lr.ph310 ], [ %.3, %.thread250 ]
-  %.0173302 = phi i1 [ false, %.lr.ph310 ], [ %.4, %.thread250 ]
-  %34 = getelementptr [0 x ptr], ptr %27, i64 0, i64 %indvars.iv338
+33:                                               ; preds = %.lr.ph307, %.thread248
+  %indvars.iv335 = phi i64 [ 0, %.lr.ph307 ], [ %indvars.iv.next336, %.thread248 ]
+  %.0171303 = phi ptr [ null, %.lr.ph307 ], [ %.3, %.thread248 ]
+  %.0173299 = phi i1 [ false, %.lr.ph307 ], [ %.4, %.thread248 ]
+  %34 = getelementptr [0 x ptr], ptr %27, i64 0, i64 %indvars.iv335
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 64
   %37 = getelementptr inbounds i8, ptr %35, i64 80
@@ -1736,20 +1739,20 @@ define dso_local ptr @FuncnameGetCandidates(ptr noundef %0, i32 noundef %1, ptr 
   %48 = getelementptr inbounds i8, ptr %42, i64 68
   %49 = load i32, ptr %48, align 4
   %.not210 = icmp eq i32 %49, %.0177
-  br i1 %.not210, label %.loopexit278, label %.thread250
+  br i1 %.not210, label %.loopexit275, label %.thread248
 
 50:                                               ; preds = %33
   %51 = load ptr, ptr @activeSearchPath, align 8
   %.not207 = icmp eq ptr %51, null
-  br i1 %.not207, label %.thread250, label %.lr.ph
+  br i1 %.not207, label %.thread248, label %.lr.ph
 
 .lr.ph:                                           ; preds = %50
   %52 = getelementptr inbounds i8, ptr %51, i64 4
   %53 = load i32, ptr %52, align 4
   %54 = icmp sgt i32 %53, 0
-  br i1 %54, label %.lr.ph292, label %.thread250
+  br i1 %54, label %.lr.ph289, label %.thread248
 
-.lr.ph292:                                        ; preds = %.lr.ph
+.lr.ph289:                                        ; preds = %.lr.ph
   %55 = load i32, ptr @myTempNamespace, align 4
   %56 = getelementptr inbounds i8, ptr %42, i64 68
   %57 = getelementptr inbounds i8, ptr %51, i64 16
@@ -1757,33 +1760,33 @@ define dso_local ptr @FuncnameGetCandidates(ptr noundef %0, i32 noundef %1, ptr 
   %59 = load i32, ptr %56, align 4
   %.not209 = icmp eq i32 %59, %55
   %.not209.fr = freeze i1 %.not209
-  br i1 %.not209.fr, label %.thread250, label %.lr.ph292.split.preheader
+  br i1 %.not209.fr, label %.thread248, label %.lr.ph289.split.preheader
 
-.lr.ph292.split.preheader:                        ; preds = %.lr.ph292
+.lr.ph289.split.preheader:                        ; preds = %.lr.ph289
   %wide.trip.count = zext nneg i32 %53 to i64
-  br label %.lr.ph292.split
+  br label %.lr.ph289.split
 
-.lr.ph292.split:                                  ; preds = %.lr.ph292.split.preheader, %62
-  %indvars.iv = phi i64 [ 0, %.lr.ph292.split.preheader ], [ %indvars.iv.next, %62 ]
+.lr.ph289.split:                                  ; preds = %.lr.ph289.split.preheader, %62
+  %indvars.iv = phi i64 [ 0, %.lr.ph289.split.preheader ], [ %indvars.iv.next, %62 ]
   %60 = getelementptr %union.ListCell, ptr %58, i64 %indvars.iv
   %61 = load i32, ptr %60, align 8
-  %.not311 = icmp eq i32 %59, %61
-  br i1 %.not311, label %.loopexit278.loopexit, label %62
+  %.not308 = icmp eq i32 %59, %61
+  br i1 %.not308, label %.loopexit275.loopexit, label %62
 
-62:                                               ; preds = %.lr.ph292.split
+62:                                               ; preds = %.lr.ph289.split
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread250, label %.lr.ph292.split
+  br i1 %exitcond.not, label %.thread248, label %.lr.ph289.split
 
-.loopexit278.loopexit:                            ; preds = %.lr.ph292.split
-  %indvars326 = trunc i64 %indvars.iv to i32
-  br label %.loopexit278
+.loopexit275.loopexit:                            ; preds = %.lr.ph289.split
+  %indvars323 = trunc i64 %indvars.iv to i32
+  br label %.loopexit275
 
-.loopexit278:                                     ; preds = %.loopexit278.loopexit, %47
-  %.1188 = phi i32 [ 0, %47 ], [ %indvars326, %.loopexit278.loopexit ]
+.loopexit275:                                     ; preds = %.loopexit275.loopexit, %47
+  %.1188 = phi i32 [ 0, %47 ], [ %indvars323, %.loopexit275.loopexit ]
   br i1 %5, label %63, label %87
 
-63:                                               ; preds = %.loopexit278
+63:                                               ; preds = %.loopexit275
   %64 = call i64 @SysCacheGetAttr(i32 noundef 44, ptr noundef nonnull %36, i16 noundef signext 21, ptr noundef nonnull %15) #18
   %65 = load i8, ptr %15, align 1
   %66 = trunc i8 %65 to i1
@@ -1824,9 +1827,9 @@ define dso_local ptr @FuncnameGetCandidates(ptr noundef %0, i32 noundef %1, ptr 
   %86 = getelementptr i8, ptr %69, i64 24
   br label %87
 
-87:                                               ; preds = %63, %85, %.loopexit278
-  %.0190 = phi i32 [ %46, %63 ], [ %71, %85 ], [ %46, %.loopexit278 ]
-  %.0189 = phi ptr [ %43, %63 ], [ %86, %85 ], [ %43, %.loopexit278 ]
+87:                                               ; preds = %63, %85, %.loopexit275
+  %.0190 = phi i32 [ %46, %63 ], [ %71, %85 ], [ %46, %.loopexit275 ]
+  %.0189 = phi ptr [ %43, %63 ], [ %86, %85 ], [ %43, %.loopexit275 ]
   br i1 %.not213, label %198, label %88
 
 88:                                               ; preds = %87
@@ -1834,7 +1837,7 @@ define dso_local ptr @FuncnameGetCandidates(ptr noundef %0, i32 noundef %1, ptr 
   %90 = load i32, ptr %89, align 4
   %.not216 = icmp ne i32 %90, 0
   %brmerge.not = and i1 %.not216, %3
-  br i1 %brmerge.not, label %.thread250, label %91
+  br i1 %brmerge.not, label %.thread248, label %91
 
 91:                                               ; preds = %88
   %92 = icmp sgt i32 %.0190, %1
@@ -1847,7 +1850,7 @@ define dso_local ptr @FuncnameGetCandidates(ptr noundef %0, i32 noundef %1, ptr 
   %96 = sext i16 %95 to i32
   %97 = add i32 %96, %1
   %98 = icmp slt i32 %97, %.0190
-  br i1 %98, label %.thread250, label %99
+  br i1 %98, label %.thread248, label %99
 
 99:                                               ; preds = %91, %93
   %.0182 = phi i8 [ 1, %93 ], [ 0, %91 ]
@@ -1856,7 +1859,7 @@ define dso_local ptr @FuncnameGetCandidates(ptr noundef %0, i32 noundef %1, ptr 
 
 100:                                              ; preds = %99
   %101 = trunc nuw i8 %.0182 to i1
-  br i1 %101, label %list_length.exit.i, label %.thread250
+  br i1 %101, label %list_length.exit.i, label %.thread248
 
 list_length.exit.i:                               ; preds = %100, %99
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
@@ -2096,7 +2099,7 @@ MatchNamedCall.exit.thread:                       ; preds = %.split.us.i, %.spli
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12)
-  br label %.thread250
+  br label %.thread248
 
 MatchNamedCall.exit:                              ; preds = %197, %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
@@ -2116,13 +2119,13 @@ MatchNamedCall.exit:                              ; preds = %197, %._crit_edge.i
   %201 = load i32, ptr %200, align 4
   %202 = icmp ne i32 %201, 0
   %203 = zext i1 %202 to i8
-  %204 = or i1 %.0173302, %202
+  %204 = or i1 %.0173299, %202
   br label %205
 
 205:                                              ; preds = %198, %199
   %.0185 = phi i8 [ %203, %199 ], [ 0, %198 ]
   %.0180 = phi i32 [ %201, %199 ], [ 0, %198 ]
-  %.1174 = phi i1 [ %204, %199 ], [ %.0173302, %198 ]
+  %.1174 = phi i1 [ %204, %199 ], [ %.0173299, %198 ]
   %brmerge234 = or i1 %.not214, %.not233
   br i1 %brmerge234, label %212, label %206
 
@@ -2132,7 +2135,7 @@ MatchNamedCall.exit:                              ; preds = %197, %._crit_edge.i
   %209 = sext i16 %208 to i32
   %210 = add i32 %209, %1
   %211 = icmp slt i32 %210, %.0190
-  br i1 %211, label %.thread250, label %212
+  br i1 %211, label %.thread248, label %212
 
 212:                                              ; preds = %205, %206
   %.1183 = phi i8 [ 1, %206 ], [ 0, %205 ]
@@ -2147,10 +2150,10 @@ MatchNamedCall.exit:                              ; preds = %197, %._crit_edge.i
 
 215:                                              ; preds = %213
   %216 = trunc nuw i8 %.1183 to i1
-  br i1 %216, label %217, label %.thread250
+  br i1 %216, label %217, label %.thread248
 
 217:                                              ; preds = %MatchNamedCall.exit, %212, %213, %215
-  %.1246 = phi ptr [ null, %212 ], [ null, %213 ], [ null, %215 ], [ %116, %MatchNamedCall.exit ]
+  %.1244 = phi ptr [ null, %212 ], [ null, %213 ], [ null, %215 ], [ %116, %MatchNamedCall.exit ]
   %.1186 = phi i8 [ %.0185, %212 ], [ %.0185, %213 ], [ %.0185, %215 ], [ 0, %MatchNamedCall.exit ]
   %.2184 = phi i8 [ %.1183, %212 ], [ %.1183, %213 ], [ %.1183, %215 ], [ %.0182, %MatchNamedCall.exit ]
   %.1181 = phi i32 [ %.0180, %212 ], [ %.0180, %213 ], [ %.0180, %215 ], [ 0, %MatchNamedCall.exit ]
@@ -2170,44 +2173,44 @@ MatchNamedCall.exit:                              ; preds = %197, %._crit_edge.i
   %227 = getelementptr inbounds i8, ptr %222, i64 20
   store i32 %218, ptr %227, align 4
   %228 = getelementptr inbounds i8, ptr %222, i64 32
-  store ptr %.1246, ptr %228, align 8
-  %.not218 = icmp eq ptr %.1246, null
-  br i1 %.not218, label %238, label %.preheader272
+  store ptr %.1244, ptr %228, align 8
+  %.not218 = icmp eq ptr %.1244, null
+  br i1 %.not218, label %238, label %.preheader269
 
-.preheader272:                                    ; preds = %217
+.preheader269:                                    ; preds = %217
   %229 = icmp sgt i32 %.0190, 0
-  br i1 %229, label %.lr.ph295, label %.loopexit273
+  br i1 %229, label %.lr.ph292, label %.loopexit270
 
-.lr.ph295:                                        ; preds = %.preheader272
+.lr.ph292:                                        ; preds = %.preheader269
   %230 = getelementptr inbounds i8, ptr %222, i64 40
-  %wide.trip.count332 = zext nneg i32 %.0190 to i64
+  %wide.trip.count329 = zext nneg i32 %.0190 to i64
   br label %231
 
-231:                                              ; preds = %.lr.ph295, %231
-  %indvars.iv329 = phi i64 [ 0, %.lr.ph295 ], [ %indvars.iv.next330, %231 ]
-  %232 = getelementptr i32, ptr %.1246, i64 %indvars.iv329
+231:                                              ; preds = %.lr.ph292, %231
+  %indvars.iv326 = phi i64 [ 0, %.lr.ph292 ], [ %indvars.iv.next327, %231 ]
+  %232 = getelementptr i32, ptr %.1244, i64 %indvars.iv326
   %233 = load i32, ptr %232, align 4
   %234 = sext i32 %233 to i64
   %235 = getelementptr i32, ptr %.0189, i64 %234
   %236 = load i32, ptr %235, align 4
-  %237 = getelementptr [0 x i32], ptr %230, i64 0, i64 %indvars.iv329
+  %237 = getelementptr [0 x i32], ptr %230, i64 0, i64 %indvars.iv326
   store i32 %236, ptr %237, align 4
-  %indvars.iv.next330 = add nuw nsw i64 %indvars.iv329, 1
-  %exitcond333.not = icmp eq i64 %indvars.iv.next330, %wide.trip.count332
-  br i1 %exitcond333.not, label %.loopexit273, label %231, !llvm.loop !10
+  %indvars.iv.next327 = add nuw nsw i64 %indvars.iv326, 1
+  %exitcond330.not = icmp eq i64 %indvars.iv.next327, %wide.trip.count329
+  br i1 %exitcond330.not, label %.loopexit270, label %231, !llvm.loop !10
 
 238:                                              ; preds = %217
   %239 = getelementptr inbounds i8, ptr %222, i64 40
   %240 = sext i32 %.0190 to i64
   %241 = shl nsw i64 %240, 2
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %239, ptr align 4 %.0189, i64 %241, i1 false)
-  br label %.loopexit273
+  br label %.loopexit270
 
-.loopexit273:                                     ; preds = %231, %.preheader272, %238
+.loopexit270:                                     ; preds = %231, %.preheader269, %238
   %242 = trunc nuw i8 %.1186 to i1
-  br i1 %242, label %.lr.ph297, label %250
+  br i1 %242, label %.lr.ph294, label %250
 
-.lr.ph297:                                        ; preds = %.loopexit273
+.lr.ph294:                                        ; preds = %.loopexit270
   %reass.sub = sub i32 %218, %.0190
   %243 = add i32 %reass.sub, 1
   %244 = getelementptr inbounds i8, ptr %222, i64 24
@@ -2217,54 +2220,54 @@ MatchNamedCall.exit:                              ; preds = %197, %._crit_edge.i
   %247 = sext i32 %245 to i64
   br label %248
 
-248:                                              ; preds = %.lr.ph297, %248
-  %indvars.iv334 = phi i64 [ %247, %.lr.ph297 ], [ %indvars.iv.next335, %248 ]
-  %249 = getelementptr [0 x i32], ptr %246, i64 0, i64 %indvars.iv334
+248:                                              ; preds = %.lr.ph294, %248
+  %indvars.iv331 = phi i64 [ %247, %.lr.ph294 ], [ %indvars.iv.next332, %248 ]
+  %249 = getelementptr [0 x i32], ptr %246, i64 0, i64 %indvars.iv331
   store i32 %.1181, ptr %249, align 4
-  %indvars.iv.next335 = add nsw i64 %indvars.iv334, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next335 to i32
-  %exitcond337.not = icmp eq i32 %218, %lftr.wideiv
-  br i1 %exitcond337.not, label %.loopexit271, label %248, !llvm.loop !11
+  %indvars.iv.next332 = add nsw i64 %indvars.iv331, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next332 to i32
+  %exitcond334.not = icmp eq i32 %218, %lftr.wideiv
+  br i1 %exitcond334.not, label %.loopexit268, label %248, !llvm.loop !11
 
-250:                                              ; preds = %.loopexit273
+250:                                              ; preds = %.loopexit270
   %251 = getelementptr inbounds i8, ptr %222, i64 24
   store i32 0, ptr %251, align 8
-  br label %.loopexit271
+  br label %.loopexit268
 
-.loopexit271:                                     ; preds = %248, %250
+.loopexit268:                                     ; preds = %248, %250
   %252 = trunc nuw i8 %.2184 to i1
   %253 = sub i32 %.0190, %1
   %254 = select i1 %252, i32 %253, i32 0
   %255 = getelementptr inbounds i8, ptr %222, i64 28
   store i32 %254, ptr %255, align 4
-  %.not219 = icmp eq ptr %.0171306, null
-  br i1 %.not219, label %.thread255, label %256
+  %.not219 = icmp eq ptr %.0171303, null
+  br i1 %.not219, label %.thread253, label %256
 
-256:                                              ; preds = %.loopexit271
+256:                                              ; preds = %.loopexit268
   %or.cond3.not = or i1 %28, %.3176
-  br i1 %or.cond3.not, label %257, label %.thread255
+  br i1 %or.cond3.not, label %257, label %.thread253
 
 257:                                              ; preds = %256
   %258 = load i8, ptr %32, align 1
   %259 = trunc i8 %258 to i1
   %.not236 = xor i1 %259, true
   %brmerge237 = or i1 %.3176, %.not236
-  br i1 %brmerge237, label %.lr.ph300, label %260
+  br i1 %brmerge237, label %.lr.ph297, label %260
 
 260:                                              ; preds = %257
-  %261 = getelementptr inbounds i8, ptr %.0171306, i64 20
+  %261 = getelementptr inbounds i8, ptr %.0171303, i64 20
   %262 = load i32, ptr %261, align 4
   %263 = icmp eq i32 %218, %262
-  br i1 %263, label %264, label %.thread255
+  br i1 %263, label %264, label %.thread253
 
 264:                                              ; preds = %260
   %265 = getelementptr inbounds i8, ptr %222, i64 40
-  %266 = getelementptr inbounds i8, ptr %.0171306, i64 40
+  %266 = getelementptr inbounds i8, ptr %.0171303, i64 40
   %bcmp = call i32 @bcmp(ptr nonnull %265, ptr nonnull %266, i64 %220)
   %267 = icmp eq i32 %bcmp, 0
-  br i1 %267, label %select.unfold, label %.thread255
+  br i1 %267, label %.loopexit267, label %.thread253
 
-.lr.ph300:                                        ; preds = %257
+.lr.ph297:                                        ; preds = %257
   %268 = load i32, ptr %227, align 4
   %269 = sub i32 %268, %254
   %270 = getelementptr inbounds i8, ptr %222, i64 40
@@ -2272,70 +2275,70 @@ MatchNamedCall.exit:                              ; preds = %197, %._crit_edge.i
   %272 = shl nsw i64 %271, 2
   br label %273
 
-273:                                              ; preds = %.lr.ph300, %283
-  %.0168299 = phi ptr [ %.0171306, %.lr.ph300 ], [ %284, %283 ]
-  %274 = getelementptr inbounds i8, ptr %.0168299, i64 20
+273:                                              ; preds = %.lr.ph297, %283
+  %.0168296 = phi ptr [ %.0171303, %.lr.ph297 ], [ %284, %283 ]
+  %274 = getelementptr inbounds i8, ptr %.0168296, i64 20
   %275 = load i32, ptr %274, align 4
-  %276 = getelementptr inbounds i8, ptr %.0168299, i64 28
+  %276 = getelementptr inbounds i8, ptr %.0168296, i64 28
   %277 = load i32, ptr %276, align 4
   %278 = sub i32 %275, %277
   %279 = icmp eq i32 %269, %278
   br i1 %279, label %280, label %283
 
 280:                                              ; preds = %273
-  %281 = getelementptr inbounds i8, ptr %.0168299, i64 40
+  %281 = getelementptr inbounds i8, ptr %.0168296, i64 40
   %bcmp221 = call i32 @bcmp(ptr nonnull %270, ptr nonnull %281, i64 %272)
   %282 = icmp eq i32 %bcmp221, 0
-  br i1 %282, label %select.unfold, label %283
+  br i1 %282, label %.loopexit267, label %283
 
 283:                                              ; preds = %273, %280
-  %284 = load ptr, ptr %.0168299, align 8
+  %284 = load ptr, ptr %.0168296, align 8
   %.not = icmp eq ptr %284, null
-  br i1 %.not, label %.thread255, label %273, !llvm.loop !12
+  br i1 %.not, label %.thread253, label %273, !llvm.loop !12
 
-select.unfold:                                    ; preds = %280, %264
-  %.1 = phi ptr [ %.0171306, %264 ], [ %.0168299, %280 ]
+.loopexit267:                                     ; preds = %280, %264
+  %.1 = phi ptr [ %.0171303, %264 ], [ %.0168296, %280 ]
   %285 = getelementptr inbounds i8, ptr %.1, i64 8
   %286 = load i32, ptr %285, align 8
   %.not223 = icmp eq i32 %.1188, %286
   br i1 %.not223, label %287, label %293
 
-287:                                              ; preds = %select.unfold
+287:                                              ; preds = %.loopexit267
   %288 = getelementptr inbounds i8, ptr %.1, i64 24
   %289 = load i32, ptr %288, align 8
   br i1 %242, label %290, label %.critedge
 
 290:                                              ; preds = %287
   %291 = icmp eq i32 %289, 0
-  br i1 %291, label %.thread263, label %.thread260.thread
+  br i1 %291, label %.thread260, label %.thread257.thread263
 
 .critedge:                                        ; preds = %287
   %292 = icmp sgt i32 %289, 0
-  br i1 %292, label %.thread260.thread267, label %.thread260.thread
+  br i1 %292, label %.thread257.thread, label %.thread257.thread263
 
-293:                                              ; preds = %select.unfold
+293:                                              ; preds = %.loopexit267
   %294 = sub i32 %.1188, %286
   %295 = icmp sgt i32 %294, 0
-  br i1 %295, label %.thread263, label %.thread260
+  br i1 %295, label %.thread260, label %.thread257
 
-.thread263:                                       ; preds = %290, %293
+.thread260:                                       ; preds = %290, %293
   call void @pfree(ptr noundef %222) #18
-  br label %.thread250
+  br label %.thread248
 
-.thread260:                                       ; preds = %293
+.thread257:                                       ; preds = %293
   %296 = icmp slt i32 %294, 0
-  br i1 %296, label %.thread260.thread267, label %.thread260.thread
+  br i1 %296, label %.thread257.thread, label %.thread257.thread263
 
-.thread260.thread267:                             ; preds = %.critedge, %.thread260
-  %297 = icmp eq ptr %.1, %.0171306
+.thread257.thread:                                ; preds = %.critedge, %.thread257
+  %297 = icmp eq ptr %.1, %.0171303
   br i1 %297, label %298, label %.preheader
 
-298:                                              ; preds = %.thread260.thread267
-  %299 = load ptr, ptr %.0171306, align 8
+298:                                              ; preds = %.thread257.thread
+  %299 = load ptr, ptr %.0171303, align 8
   br label %.loopexit
 
-.preheader:                                       ; preds = %.thread260.thread267, %300
-  %.0 = phi ptr [ %301, %300 ], [ %.0171306, %.thread260.thread267 ]
+.preheader:                                       ; preds = %.thread257.thread, %300
+  %.0 = phi ptr [ %301, %300 ], [ %.0171303, %.thread257.thread ]
   %.not224 = icmp eq ptr %.0, null
   br i1 %.not224, label %.loopexit, label %300
 
@@ -2350,32 +2353,32 @@ select.unfold:                                    ; preds = %280, %264
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %303, %298
-  %.1172 = phi ptr [ %299, %298 ], [ %.0171306, %303 ], [ %.0171306, %.preheader ]
+  %.1172 = phi ptr [ %299, %298 ], [ %.0171303, %303 ], [ %.0171303, %.preheader ]
   call void @pfree(ptr noundef nonnull %.1) #18
-  br label %.thread255
+  br label %.thread253
 
-.thread260.thread:                                ; preds = %290, %.critedge, %.thread260
+.thread257.thread263:                             ; preds = %290, %.critedge, %.thread257
   %305 = getelementptr inbounds i8, ptr %.1, i64 12
   store i32 0, ptr %305, align 4
   call void @pfree(ptr noundef %222) #18
-  br label %.thread250
+  br label %.thread248
 
-.thread255:                                       ; preds = %283, %264, %260, %.loopexit, %256, %.loopexit271
-  %.2 = phi ptr [ %.0171306, %256 ], [ %.1172, %.loopexit ], [ null, %.loopexit271 ], [ %.0171306, %260 ], [ %.0171306, %264 ], [ %.0171306, %283 ]
+.thread253:                                       ; preds = %283, %260, %264, %.loopexit, %256, %.loopexit268
+  %.2 = phi ptr [ %.0171303, %256 ], [ %.1172, %.loopexit ], [ null, %.loopexit268 ], [ %.0171303, %264 ], [ %.0171303, %260 ], [ %.0171303, %283 ]
   store ptr %.2, ptr %222, align 8
-  br label %.thread250
+  br label %.thread248
 
-.thread250:                                       ; preds = %62, %.lr.ph292, %50, %.lr.ph, %MatchNamedCall.exit.thread, %88, %215, %206, %100, %93, %47, %.thread255, %.thread260.thread, %.thread263
-  %.4 = phi i1 [ %.0173302, %47 ], [ %.0173302, %93 ], [ %.3176, %.thread255 ], [ %.3176, %.thread263 ], [ %.3176, %.thread260.thread ], [ %.0173302, %100 ], [ %.1174, %206 ], [ %.2175, %215 ], [ %.0173302, %88 ], [ %.0173302, %MatchNamedCall.exit.thread ], [ %.0173302, %50 ], [ %.0173302, %.lr.ph ], [ %.0173302, %.lr.ph292 ], [ %.0173302, %62 ]
-  %.3 = phi ptr [ %.0171306, %47 ], [ %.0171306, %93 ], [ %222, %.thread255 ], [ %.0171306, %.thread263 ], [ %.0171306, %.thread260.thread ], [ %.0171306, %100 ], [ %.0171306, %206 ], [ %.0171306, %215 ], [ %.0171306, %88 ], [ %.0171306, %MatchNamedCall.exit.thread ], [ %.0171306, %50 ], [ %.0171306, %.lr.ph ], [ %.0171306, %.lr.ph292 ], [ %.0171306, %62 ]
-  %indvars.iv.next339 = add nuw nsw i64 %indvars.iv338, 1
+.thread248:                                       ; preds = %62, %.lr.ph289, %50, %.lr.ph, %MatchNamedCall.exit.thread, %88, %215, %206, %100, %93, %47, %.thread253, %.thread257.thread263, %.thread260
+  %.4 = phi i1 [ %.0173299, %47 ], [ %.0173299, %93 ], [ %.3176, %.thread253 ], [ %.3176, %.thread260 ], [ %.3176, %.thread257.thread263 ], [ %.0173299, %100 ], [ %.1174, %206 ], [ %.2175, %215 ], [ %.0173299, %88 ], [ %.0173299, %MatchNamedCall.exit.thread ], [ %.0173299, %50 ], [ %.0173299, %.lr.ph ], [ %.0173299, %.lr.ph289 ], [ %.0173299, %62 ]
+  %.3 = phi ptr [ %.0171303, %47 ], [ %.0171303, %93 ], [ %222, %.thread253 ], [ %.0171303, %.thread260 ], [ %.0171303, %.thread257.thread263 ], [ %.0171303, %100 ], [ %.0171303, %206 ], [ %.0171303, %215 ], [ %.0171303, %88 ], [ %.0171303, %MatchNamedCall.exit.thread ], [ %.0171303, %50 ], [ %.0171303, %.lr.ph ], [ %.0171303, %.lr.ph289 ], [ %.0171303, %62 ]
+  %indvars.iv.next336 = add nuw nsw i64 %indvars.iv335, 1
   %306 = load i32, ptr %24, align 8
   %307 = sext i32 %306 to i64
-  %308 = icmp slt i64 %indvars.iv.next339, %307
+  %308 = icmp slt i64 %indvars.iv.next336, %307
   br i1 %308, label %33, label %._crit_edge, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %.thread250, %20
-  %.0171.lcssa = phi ptr [ null, %20 ], [ %.3, %.thread250 ]
+._crit_edge:                                      ; preds = %.thread248, %20
+  %.0171.lcssa = phi ptr [ null, %20 ], [ %.3, %.thread248 ]
   call void @ReleaseCatCacheList(ptr noundef nonnull %23) #18
   br label %309
 
@@ -2813,7 +2816,7 @@ define dso_local ptr @OpernameGetCandidates(ptr noundef %0, i8 noundef signext %
   %55 = getelementptr i8, ptr %.0116.us, i64 44
   %56 = load i32, ptr %55, align 4
   %57 = icmp eq i32 %54, %56
-  br i1 %57, label %select.unfold.us, label %58
+  br i1 %57, label %.loopexit.us, label %58
 
 58:                                               ; preds = %53, %49
   %59 = load ptr, ptr %.0116.us, align 8
@@ -2832,16 +2835,16 @@ define dso_local ptr @OpernameGetCandidates(ptr noundef %0, i8 noundef signext %
   %67 = getelementptr i8, ptr %.073119.us, i64 44
   %68 = load i32, ptr %67, align 4
   %69 = icmp eq i32 %66, %68
-  br i1 %69, label %select.unfold.us, label %.thread104.us
+  br i1 %69, label %.loopexit.us, label %.thread104.us
 
-select.unfold.us:                                 ; preds = %53, %64
+.loopexit.us:                                     ; preds = %53, %64
   %.1.us = phi ptr [ %.073119.us, %64 ], [ %.0116.us, %53 ]
   %70 = getelementptr inbounds i8, ptr %.1.us, i64 8
   %71 = load i32, ptr %70, align 8
   %72 = icmp slt i32 %71, %indvars157.le
   br i1 %72, label %.thread101.us, label %73
 
-73:                                               ; preds = %select.unfold.us
+73:                                               ; preds = %.loopexit.us
   store i32 %indvars157.le, ptr %70, align 8
   %74 = load i32, ptr %36, align 4
   %75 = getelementptr inbounds i8, ptr %.1.us, i64 12
@@ -2879,9 +2882,9 @@ select.unfold.us:                                 ; preds = %53, %64
   %exitcond.not = icmp eq i64 %indvars.iv.next156, %wide.trip.count
   br i1 %exitcond.not, label %.thread101.us, label %.lr.ph114.split.us131
 
-.thread101.us:                                    ; preds = %91, %.lr.ph114.us, %.lr.ph.us, %.thread104.us, %73, %select.unfold.us, %37
-  %.179.us = phi i32 [ %.078118.us, %37 ], [ %78, %.thread104.us ], [ %.078118.us, %select.unfold.us ], [ %.078118.us, %73 ], [ %.078118.us, %.lr.ph.us ], [ %.078118.us, %.lr.ph114.us ], [ %.078118.us, %91 ]
-  %.174.us = phi ptr [ %.073119.us, %37 ], [ %77, %.thread104.us ], [ %.073119.us, %select.unfold.us ], [ %.073119.us, %73 ], [ %.073119.us, %.lr.ph.us ], [ %.073119.us, %.lr.ph114.us ], [ %.073119.us, %91 ]
+.thread101.us:                                    ; preds = %91, %.lr.ph114.us, %.lr.ph.us, %.thread104.us, %73, %.loopexit.us, %37
+  %.179.us = phi i32 [ %.078118.us, %37 ], [ %78, %.thread104.us ], [ %.078118.us, %.loopexit.us ], [ %.078118.us, %73 ], [ %.078118.us, %.lr.ph.us ], [ %.078118.us, %.lr.ph114.us ], [ %.078118.us, %91 ]
+  %.174.us = phi ptr [ %.073119.us, %37 ], [ %77, %.thread104.us ], [ %.073119.us, %.loopexit.us ], [ %.073119.us, %73 ], [ %.073119.us, %.lr.ph.us ], [ %.073119.us, %.lr.ph114.us ], [ %.073119.us, %91 ]
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
   %92 = load i32, ptr %15, align 8
   %93 = sext i32 %92 to i64
@@ -5099,37 +5102,37 @@ declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) 
 define dso_local zeroext i1 @isOtherTempNamespace(i32 noundef %0) local_unnamed_addr #0 {
   %2 = load i32, ptr @myTempNamespace, align 4
   %.not.i = icmp eq i32 %2, 0
-  br i1 %.not.i, label %isTempOrTempToastNamespace.exit.thread, label %isTempOrTempToastNamespace.exit
+  br i1 %.not.i, label %isTempOrTempToastNamespace.exit, label %3
 
-isTempOrTempToastNamespace.exit:                  ; preds = %1
-  %3 = icmp eq i32 %2, %0
-  %4 = load i32, ptr @myTempToastNamespace, align 4
-  %5 = icmp eq i32 %4, %0
-  %or.cond.i = select i1 %3, i1 true, i1 %5
-  br i1 %or.cond.i, label %isAnyTempNamespace.exit, label %isTempOrTempToastNamespace.exit.thread
+3:                                                ; preds = %1
+  %4 = icmp eq i32 %2, %0
+  %5 = load i32, ptr @myTempToastNamespace, align 4
+  %6 = icmp eq i32 %5, %0
+  %or.cond.i = select i1 %4, i1 true, i1 %6
+  br i1 %or.cond.i, label %isAnyTempNamespace.exit, label %isTempOrTempToastNamespace.exit
 
-isTempOrTempToastNamespace.exit.thread:           ; preds = %1, %isTempOrTempToastNamespace.exit
-  %6 = tail call ptr @get_namespace_name(i32 noundef %0) #18
-  %.not.i2 = icmp eq ptr %6, null
-  br i1 %.not.i2, label %isAnyTempNamespace.exit, label %7
+isTempOrTempToastNamespace.exit:                  ; preds = %3, %1
+  %7 = tail call ptr @get_namespace_name(i32 noundef %0) #18
+  %.not.i2 = icmp eq ptr %7, null
+  br i1 %.not.i2, label %isAnyTempNamespace.exit, label %8
 
-7:                                                ; preds = %isTempOrTempToastNamespace.exit.thread
-  %8 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(9) @.str.25, i64 noundef 8) #19
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %13, label %10
+8:                                                ; preds = %isTempOrTempToastNamespace.exit
+  %9 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(9) @.str.25, i64 noundef 8) #19
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %14, label %11
 
-10:                                               ; preds = %7
-  %11 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(15) @.str.26, i64 noundef 14) #19
-  %12 = icmp eq i32 %11, 0
-  br label %13
+11:                                               ; preds = %8
+  %12 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(15) @.str.26, i64 noundef 14) #19
+  %13 = icmp eq i32 %12, 0
+  br label %14
 
-13:                                               ; preds = %10, %7
-  %14 = phi i1 [ true, %7 ], [ %12, %10 ]
-  tail call void @pfree(ptr noundef nonnull %6) #18
+14:                                               ; preds = %11, %8
+  %15 = phi i1 [ true, %8 ], [ %13, %11 ]
+  tail call void @pfree(ptr noundef nonnull %7) #18
   br label %isAnyTempNamespace.exit
 
-isAnyTempNamespace.exit:                          ; preds = %13, %isTempOrTempToastNamespace.exit.thread, %isTempOrTempToastNamespace.exit
-  %.0 = phi i1 [ false, %isTempOrTempToastNamespace.exit ], [ %14, %13 ], [ false, %isTempOrTempToastNamespace.exit.thread ]
+isAnyTempNamespace.exit:                          ; preds = %3, %14, %isTempOrTempToastNamespace.exit
+  %.0 = phi i1 [ %15, %14 ], [ false, %isTempOrTempToastNamespace.exit ], [ false, %3 ]
   ret i1 %.0
 }
 
@@ -6949,38 +6952,38 @@ define dso_local i64 @pg_is_other_temp_schema(ptr nocapture noundef readonly %0)
   %4 = trunc i64 %3 to i32
   %5 = load i32, ptr @myTempNamespace, align 4
   %.not.i.i = icmp eq i32 %5, 0
-  br i1 %.not.i.i, label %isTempOrTempToastNamespace.exit.thread.i, label %isTempOrTempToastNamespace.exit.i
+  br i1 %.not.i.i, label %isTempOrTempToastNamespace.exit.i, label %6
 
-isTempOrTempToastNamespace.exit.i:                ; preds = %1
-  %6 = icmp eq i32 %5, %4
-  %7 = load i32, ptr @myTempToastNamespace, align 4
-  %8 = icmp eq i32 %7, %4
-  %or.cond.i.i = select i1 %6, i1 true, i1 %8
-  br i1 %or.cond.i.i, label %isOtherTempNamespace.exit, label %isTempOrTempToastNamespace.exit.thread.i
+6:                                                ; preds = %1
+  %7 = icmp eq i32 %5, %4
+  %8 = load i32, ptr @myTempToastNamespace, align 4
+  %9 = icmp eq i32 %8, %4
+  %or.cond.i.i = select i1 %7, i1 true, i1 %9
+  br i1 %or.cond.i.i, label %isOtherTempNamespace.exit, label %isTempOrTempToastNamespace.exit.i
 
-isTempOrTempToastNamespace.exit.thread.i:         ; preds = %isTempOrTempToastNamespace.exit.i, %1
-  %9 = tail call ptr @get_namespace_name(i32 noundef %4) #18
-  %.not.i2.i = icmp eq ptr %9, null
-  br i1 %.not.i2.i, label %isOtherTempNamespace.exit, label %10
+isTempOrTempToastNamespace.exit.i:                ; preds = %6, %1
+  %10 = tail call ptr @get_namespace_name(i32 noundef %4) #18
+  %.not.i2.i = icmp eq ptr %10, null
+  br i1 %.not.i2.i, label %isOtherTempNamespace.exit, label %11
 
-10:                                               ; preds = %isTempOrTempToastNamespace.exit.thread.i
-  %11 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(9) @.str.25, i64 noundef 8) #19
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %17, label %13
+11:                                               ; preds = %isTempOrTempToastNamespace.exit.i
+  %12 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(9) @.str.25, i64 noundef 8) #19
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %18, label %14
 
-13:                                               ; preds = %10
-  %14 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(15) @.str.26, i64 noundef 14) #19
-  %15 = icmp eq i32 %14, 0
-  %16 = zext i1 %15 to i64
-  br label %17
+14:                                               ; preds = %11
+  %15 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(15) @.str.26, i64 noundef 14) #19
+  %16 = icmp eq i32 %15, 0
+  %17 = zext i1 %16 to i64
+  br label %18
 
-17:                                               ; preds = %13, %10
-  %18 = phi i64 [ 1, %10 ], [ %16, %13 ]
-  tail call void @pfree(ptr noundef nonnull %9) #18
+18:                                               ; preds = %14, %11
+  %19 = phi i64 [ 1, %11 ], [ %17, %14 ]
+  tail call void @pfree(ptr noundef nonnull %10) #18
   br label %isOtherTempNamespace.exit
 
-isOtherTempNamespace.exit:                        ; preds = %isTempOrTempToastNamespace.exit.i, %isTempOrTempToastNamespace.exit.thread.i, %17
-  %.0.i = phi i64 [ 0, %isTempOrTempToastNamespace.exit.i ], [ %18, %17 ], [ 0, %isTempOrTempToastNamespace.exit.thread.i ]
+isOtherTempNamespace.exit:                        ; preds = %6, %isTempOrTempToastNamespace.exit.i, %18
+  %.0.i = phi i64 [ %19, %18 ], [ 0, %isTempOrTempToastNamespace.exit.i ], [ 0, %6 ]
   ret i64 %.0.i
 }
 

@@ -234,8 +234,8 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %child_path, ptr noundef nonnull align 8 dereferenceable(24) @__const.convert_to_sparse_rec.child_path, i64 24, i1 false)
   %call = tail call i32 @path_in_sparse_checkout(ptr noundef %ct_path, ptr noundef %istate) #12
   %tobool.not = icmp eq i32 %call, 0
-  %cmp42 = icmp slt i32 %start, %end
-  %0 = and i1 %tobool.not, %cmp42
+  %cmp41 = icmp slt i32 %start, %end
+  %0 = and i1 %tobool.not, %cmp41
   br i1 %0, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
@@ -252,27 +252,28 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %5 = load i32, ptr %ce_flags, align 8
   %6 = and i32 %5, 12288
   %tobool2.not = icmp eq i32 %6, 0
-  br i1 %tobool2.not, label %for.inc, label %for.cond19.preheader
+  br i1 %tobool2.not, label %lor.lhs.false, label %for.cond19.preheader
 
-for.inc:                                          ; preds = %for.body
+lor.lhs.false:                                    ; preds = %for.body
   %ce_mode = getelementptr inbounds i8, ptr %4, i64 52
   %7 = load i32, ptr %ce_mode, align 4
   %and3 = and i32 %7, 61440
-  %cmp4 = icmp ne i32 %and3, 57344
+  %cmp4 = icmp eq i32 %and3, 57344
   %and7 = and i32 %5, 1073741824
-  %tobool8.not = icmp ne i32 %and7, 0
-  %or.cond.not = and i1 %tobool8.not, %cmp4
+  %tobool8.not = icmp eq i32 %and7, 0
+  %or.cond = or i1 %tobool8.not, %cmp4
+  br i1 %or.cond, label %for.cond19.preheader, label %for.inc
+
+for.inc:                                          ; preds = %lor.lhs.false
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %cmp = icmp slt i64 %indvars.iv.next, %3
-  %8 = select i1 %or.cond.not, i1 %cmp, i1 false
-  br i1 %8, label %for.body, label %for.end, !llvm.loop !8
+  br i1 %cmp, label %for.body, label %if.then12, !llvm.loop !8
 
-for.end:                                          ; preds = %for.inc, %entry
-  %tobool1.lcssa = phi i1 [ %tobool.not, %entry ], [ %or.cond.not, %for.inc ]
-  br i1 %tobool1.lcssa, label %if.then12, label %for.cond19.preheader
+for.end:                                          ; preds = %entry
+  br i1 %tobool.not, label %if.then12, label %for.cond19.preheader
 
-for.cond19.preheader:                             ; preds = %for.body, %for.end
-  br i1 %cmp42, label %for.body21.lr.ph, label %for.end57
+for.cond19.preheader:                             ; preds = %for.body, %lor.lhs.false, %for.end
+  br i1 %cmp41, label %for.body21.lr.ph, label %for.end57
 
 for.body21.lr.ph:                                 ; preds = %for.cond19.preheader
   %len2.i = getelementptr inbounds i8, ptr %child_path, i64 8
@@ -280,27 +281,27 @@ for.body21.lr.ph:                                 ; preds = %for.cond19.preheade
   %down = getelementptr inbounds i8, ptr %ct, i64 48
   br label %for.body21
 
-if.then12:                                        ; preds = %for.end
+if.then12:                                        ; preds = %for.inc, %for.end
   %oid.i = getelementptr inbounds i8, ptr %ct, i64 4
   %call.i = tail call ptr @make_cache_entry(ptr noundef %istate, i32 noundef 16384, ptr noundef nonnull %oid.i, ptr noundef %ct_path, i32 noundef 0, i32 noundef 0) #12
   %ce_flags.i = getelementptr inbounds i8, ptr %call.i, i64 56
-  %9 = load i32, ptr %ce_flags.i, align 8
-  %or.i = or i32 %9, 1073741824
+  %8 = load i32, ptr %ce_flags.i, align 8
+  %or.i = or i32 %8, 1073741824
   store i32 %or.i, ptr %ce_flags.i, align 8
-  %10 = load ptr, ptr %istate, align 8
+  %9 = load ptr, ptr %istate, align 8
   %idxprom16 = sext i32 %num_converted to i64
-  %arrayidx17 = getelementptr inbounds ptr, ptr %10, i64 %idxprom16
+  %arrayidx17 = getelementptr inbounds ptr, ptr %9, i64 %idxprom16
   store ptr %call.i, ptr %arrayidx17, align 8
   br label %return
 
 for.body21:                                       ; preds = %for.body21.lr.ph, %for.cond19.backedge
-  %num_converted.addr.046 = phi i32 [ %num_converted, %for.body21.lr.ph ], [ %num_converted.addr.0.be, %for.cond19.backedge ]
-  %i.145 = phi i32 [ %start, %for.body21.lr.ph ], [ %i.1.be, %for.cond19.backedge ]
-  %11 = load ptr, ptr %istate, align 8
-  %idxprom24 = sext i32 %i.145 to i64
-  %arrayidx25 = getelementptr inbounds ptr, ptr %11, i64 %idxprom24
-  %12 = load ptr, ptr %arrayidx25, align 8
-  %name = getelementptr inbounds i8, ptr %12, i64 108
+  %num_converted.addr.045 = phi i32 [ %num_converted, %for.body21.lr.ph ], [ %num_converted.addr.0.be, %for.cond19.backedge ]
+  %i.144 = phi i32 [ %start, %for.body21.lr.ph ], [ %i.1.be, %for.cond19.backedge ]
+  %10 = load ptr, ptr %istate, align 8
+  %idxprom24 = sext i32 %i.144 to i64
+  %arrayidx25 = getelementptr inbounds ptr, ptr %10, i64 %idxprom24
+  %11 = load ptr, ptr %arrayidx25, align 8
+  %name = getelementptr inbounds i8, ptr %11, i64 108
   %add.ptr = getelementptr inbounds i8, ptr %name, i64 %ct_pathlen
   %call26 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr, i32 noundef 47) #13
   %tobool27.not = icmp eq ptr %call26, null
@@ -320,12 +321,12 @@ if.end30.if.then33_crit_edge:                     ; preds = %if.end30
   br label %if.then33
 
 if.then33:                                        ; preds = %if.end30.if.then33_crit_edge, %for.body21
-  %13 = phi ptr [ %.pre, %if.end30.if.then33_crit_edge ], [ %11, %for.body21 ]
-  %inc35 = add nsw i32 %num_converted.addr.046, 1
-  %idxprom36 = sext i32 %num_converted.addr.046 to i64
-  %arrayidx37 = getelementptr inbounds ptr, ptr %13, i64 %idxprom36
-  store ptr %12, ptr %arrayidx37, align 8
-  %inc38 = add nsw i32 %i.145, 1
+  %12 = phi ptr [ %.pre, %if.end30.if.then33_crit_edge ], [ %10, %for.body21 ]
+  %inc35 = add nsw i32 %num_converted.addr.045, 1
+  %idxprom36 = sext i32 %num_converted.addr.045 to i64
+  %arrayidx37 = getelementptr inbounds ptr, ptr %12, i64 %idxprom36
+  store ptr %11, ptr %arrayidx37, align 8
+  %inc38 = add nsw i32 %i.144, 1
   br label %for.cond19.backedge
 
 for.cond19.backedge:                              ; preds = %if.then33, %strbuf_setlen.exit
@@ -336,12 +337,12 @@ for.cond19.backedge:                              ; preds = %if.then33, %strbuf_
 
 if.end39:                                         ; preds = %if.end30
   store i64 0, ptr %len2.i, align 8
-  %14 = load ptr, ptr %buf.i, align 8
-  %cmp3.not.i = icmp eq ptr %14, @strbuf_slopbuf
+  %13 = load ptr, ptr %buf.i, align 8
+  %cmp3.not.i = icmp eq ptr %13, @strbuf_slopbuf
   br i1 %cmp3.not.i, label %strbuf_setlen.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end39
-  store i8 0, ptr %14, align 1
+  store i8 0, ptr %13, align 1
   br label %strbuf_setlen.exit
 
 strbuf_setlen.exit:                               ; preds = %if.end39, %if.then4.i
@@ -349,17 +350,17 @@ strbuf_setlen.exit:                               ; preds = %if.end39, %if.then4
   %reass.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast45
   %add = add i64 %reass.sub, 1
   call void @strbuf_add(ptr noundef nonnull %child_path, ptr noundef nonnull %name, i64 noundef %add) #12
-  %15 = load ptr, ptr %down, align 8
+  %14 = load ptr, ptr %down, align 8
   %idxprom47 = zext nneg i32 %call29 to i64
-  %arrayidx48 = getelementptr inbounds ptr, ptr %15, i64 %idxprom47
-  %16 = load ptr, ptr %arrayidx48, align 8
-  %17 = load ptr, ptr %16, align 8
-  %18 = load i32, ptr %17, align 8
-  %add49 = add nsw i32 %18, %i.145
-  %19 = load ptr, ptr %buf.i, align 8
-  %20 = load i64, ptr %len2.i, align 8
-  %call54 = call fastcc i32 @convert_to_sparse_rec(ptr noundef nonnull %istate, i32 noundef %num_converted.addr.046, i32 noundef %i.145, i32 noundef %add49, ptr noundef %19, i64 noundef %20, ptr noundef nonnull %17)
-  %add55 = add nsw i32 %call54, %num_converted.addr.046
+  %arrayidx48 = getelementptr inbounds ptr, ptr %14, i64 %idxprom47
+  %15 = load ptr, ptr %arrayidx48, align 8
+  %16 = load ptr, ptr %15, align 8
+  %17 = load i32, ptr %16, align 8
+  %add49 = add nsw i32 %17, %i.144
+  %18 = load ptr, ptr %buf.i, align 8
+  %19 = load i64, ptr %len2.i, align 8
+  %call54 = call fastcc i32 @convert_to_sparse_rec(ptr noundef nonnull %istate, i32 noundef %num_converted.addr.045, i32 noundef %i.144, i32 noundef %add49, ptr noundef %18, i64 noundef %19, ptr noundef nonnull %16)
+  %add55 = add nsw i32 %call54, %num_converted.addr.045
   br label %for.cond19.backedge
 
 for.end57:                                        ; preds = %for.cond19.backedge, %for.cond19.preheader

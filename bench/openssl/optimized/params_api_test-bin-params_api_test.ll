@@ -199,7 +199,7 @@ entry:
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_param_int(i32 noundef %n) #0 {
+define internal noundef i32 @test_param_int(i32 noundef %n) #0 {
 entry:
   %in = alloca i32, align 4
   %out = alloca i32, align 4
@@ -255,7 +255,7 @@ return:                                           ; preds = %if.end29, %if.end22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_param_long(i32 noundef %n) #0 {
+define internal noundef i32 @test_param_long(i32 noundef %n) #0 {
 entry:
   %in = alloca i64, align 8
   %out = alloca i64, align 8
@@ -311,7 +311,7 @@ return:                                           ; preds = %if.end29, %if.end22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_param_uint(i32 noundef %n) #0 {
+define internal noundef i32 @test_param_uint(i32 noundef %n) #0 {
 entry:
   %in = alloca i32, align 4
   %out = alloca i32, align 4
@@ -367,7 +367,7 @@ return:                                           ; preds = %if.end29, %if.end22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_param_ulong(i32 noundef %n) #0 {
+define internal noundef i32 @test_param_ulong(i32 noundef %n) #0 {
 entry:
   %in = alloca i64, align 8
   %out = alloca i64, align 8
@@ -423,7 +423,7 @@ return:                                           ; preds = %if.end29, %if.end22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_param_int32(i32 noundef %n) #0 {
+define internal noundef i32 @test_param_int32(i32 noundef %n) #0 {
 entry:
   %in = alloca i32, align 4
   %out = alloca i32, align 4
@@ -479,7 +479,7 @@ return:                                           ; preds = %if.end29, %if.end22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_param_uint32(i32 noundef %n) #0 {
+define internal noundef i32 @test_param_uint32(i32 noundef %n) #0 {
 entry:
   %in = alloca i32, align 4
   %out = alloca i32, align 4
@@ -535,7 +535,7 @@ return:                                           ; preds = %if.end29, %if.end22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_param_size_t(i32 noundef %n) #0 {
+define internal noundef i32 @test_param_size_t(i32 noundef %n) #0 {
 entry:
   %in = alloca i64, align 8
   %out = alloca i64, align 8
@@ -591,7 +591,7 @@ return:                                           ; preds = %if.end29, %if.end22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_param_time_t(i32 noundef %n) #0 {
+define internal noundef i32 @test_param_time_t(i32 noundef %n) #0 {
 entry:
   %in = alloca i64, align 8
   %out = alloca i64, align 8
@@ -647,7 +647,7 @@ return:                                           ; preds = %if.end29, %if.end22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_param_int64(i32 noundef %n) #0 {
+define internal noundef i32 @test_param_int64(i32 noundef %n) #0 {
 entry:
   %in = alloca i64, align 8
   %out = alloca i64, align 8
@@ -703,7 +703,7 @@ return:                                           ; preds = %if.end29, %if.end22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_param_uint64(i32 noundef %n) #0 {
+define internal noundef i32 @test_param_uint64(i32 noundef %n) #0 {
 entry:
   %in = alloca i64, align 8
   %out = alloca i64, align 8
@@ -1491,7 +1491,7 @@ if.end353:                                        ; preds = %if.then352, %err
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_param_modified() #0 {
+define internal noundef i32 @test_param_modified() #0 {
 entry:
   %param = alloca [3 x %struct.ossl_param_st], align 16
   %a = alloca i32, align 4
@@ -1556,7 +1556,7 @@ if.end:                                           ; preds = %land.lhs.true32, %l
   %conv44 = zext i1 %cmp43 to i32
   %call45 = call i32 @test_false(ptr noundef nonnull @.str.17, i32 noundef 695, ptr noundef nonnull @.str.28, i32 noundef %conv44) #4
   %tobool46.not = icmp eq i32 %call45, 0
-  br i1 %tobool46.not, label %land.lhs.true47, label %return
+  br i1 %tobool46.not, label %land.lhs.true47, label %if.end86
 
 land.lhs.true47:                                  ; preds = %if.end
   %call49 = call i32 @OSSL_PARAM_set_int32(ptr noundef nonnull %param, i32 noundef 4321) #4
@@ -1564,7 +1564,7 @@ land.lhs.true47:                                  ; preds = %if.end
   %conv51 = zext i1 %cmp50 to i32
   %call52 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 696, ptr noundef nonnull @.str.140, i32 noundef %conv51) #4
   %tobool53.not = icmp eq i32 %call52, 0
-  br i1 %tobool53.not, label %land.lhs.true54, label %return
+  br i1 %tobool53.not, label %land.lhs.true54, label %if.end86
 
 land.lhs.true54:                                  ; preds = %land.lhs.true47
   %call56 = call i32 @OSSL_PARAM_modified(ptr noundef nonnull %param) #4
@@ -1572,7 +1572,7 @@ land.lhs.true54:                                  ; preds = %land.lhs.true47
   %conv58 = zext i1 %cmp57 to i32
   %call59 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 697, ptr noundef nonnull @.str.28, i32 noundef %conv58) #4
   %tobool60.not = icmp eq i32 %call59, 0
-  br i1 %tobool60.not, label %land.lhs.true61, label %return
+  br i1 %tobool60.not, label %land.lhs.true61, label %if.end86
 
 land.lhs.true61:                                  ; preds = %land.lhs.true54
   %call64 = call i32 @OSSL_PARAM_modified(ptr noundef nonnull %arrayidx) #4
@@ -1580,7 +1580,7 @@ land.lhs.true61:                                  ; preds = %land.lhs.true54
   %conv66 = zext i1 %cmp65 to i32
   %call67 = call i32 @test_false(ptr noundef nonnull @.str.17, i32 noundef 698, ptr noundef nonnull @.str.138, i32 noundef %conv66) #4
   %tobool68.not = icmp eq i32 %call67, 0
-  br i1 %tobool68.not, label %land.lhs.true69, label %return
+  br i1 %tobool68.not, label %land.lhs.true69, label %if.end86
 
 land.lhs.true69:                                  ; preds = %land.lhs.true61
   %call72 = call i32 @OSSL_PARAM_set_int32(ptr noundef nonnull %arrayidx, i32 noundef 2) #4
@@ -1588,19 +1588,21 @@ land.lhs.true69:                                  ; preds = %land.lhs.true61
   %conv74 = zext i1 %cmp73 to i32
   %call75 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 699, ptr noundef nonnull @.str.141, i32 noundef %conv74) #4
   %tobool76.not = icmp eq i32 %call75, 0
-  br i1 %tobool76.not, label %land.lhs.true77, label %return
+  br i1 %tobool76.not, label %land.lhs.true77, label %if.end86
 
 land.lhs.true77:                                  ; preds = %land.lhs.true69
   %call80 = call i32 @OSSL_PARAM_modified(ptr noundef nonnull %arrayidx) #4
   %cmp81 = icmp ne i32 %call80, 0
   %conv82 = zext i1 %cmp81 to i32
   %call83 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 700, ptr noundef nonnull @.str.138, i32 noundef %conv82) #4
-  %tobool84.not = icmp ne i32 %call83, 0
-  %spec.select = zext i1 %tobool84.not to i32
+  %tobool84.not = icmp eq i32 %call83, 0
+  br i1 %tobool84.not, label %return, label %if.end86
+
+if.end86:                                         ; preds = %land.lhs.true77, %land.lhs.true69, %land.lhs.true61, %land.lhs.true54, %land.lhs.true47, %if.end
   br label %return
 
-return:                                           ; preds = %land.lhs.true77, %if.end, %land.lhs.true47, %land.lhs.true54, %land.lhs.true61, %land.lhs.true69, %land.lhs.true32
-  %retval.0 = phi i32 [ 0, %land.lhs.true32 ], [ 1, %land.lhs.true69 ], [ 1, %land.lhs.true61 ], [ 1, %land.lhs.true54 ], [ 1, %land.lhs.true47 ], [ 1, %if.end ], [ %spec.select, %land.lhs.true77 ]
+return:                                           ; preds = %land.lhs.true77, %land.lhs.true32, %if.end86
+  %retval.0 = phi i32 [ 1, %if.end86 ], [ 0, %land.lhs.true32 ], [ 0, %land.lhs.true77 ]
   ret i32 %retval.0
 }
 
@@ -1749,7 +1751,7 @@ declare i32 @test_mem_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr
 declare i32 @OSSL_PARAM_get_int(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @test_param_type_extra(ptr noundef %param, ptr noundef %cmp, i64 noundef %width) unnamed_addr #0 {
+define internal fastcc noundef i32 @test_param_type_extra(ptr noundef %param, ptr noundef %cmp, i64 noundef %width) unnamed_addr #0 {
 entry:
   %i32 = alloca i32, align 4
   %i64 = alloca i64, align 8
@@ -1854,7 +1856,7 @@ if.then74:                                        ; preds = %if.end70
 
 if.end87:                                         ; preds = %if.then74, %if.end70
   %cmp88 = icmp ult i64 %width, 8
-  br i1 %cmp88, label %if.then90, label %return
+  br i1 %cmp88, label %if.then90, label %if.end134
 
 if.then90:                                        ; preds = %if.end87
   br i1 %cmp5, label %if.then92, label %if.else109
@@ -1908,12 +1910,14 @@ if.end126:                                        ; preds = %lor.lhs.false121, %
   %cmp128 = icmp ne i32 %call127, 0
   %conv129 = zext i1 %cmp128 to i32
   %call130 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 134, ptr noundef nonnull @.str.28, i32 noundef %conv129) #4
-  %tobool131.not = icmp ne i32 %call130, 0
-  %spec.select = zext i1 %tobool131.not to i32
+  %tobool131.not = icmp eq i32 %call130, 0
+  br i1 %tobool131.not, label %return, label %if.end134
+
+if.end134:                                        ; preds = %if.end126, %if.end87
   br label %return
 
-return:                                           ; preds = %if.end126, %if.end87, %if.else109, %lor.lhs.false115, %lor.lhs.false121, %if.then92, %lor.lhs.false98, %lor.lhs.false104, %if.then74, %if.end58, %if.then50, %if.end41, %land.lhs.true19, %lor.lhs.false25, %land.lhs.true33, %land.lhs.true, %lor.lhs.false
-  %retval.0 = phi i32 [ 0, %lor.lhs.false ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true33 ], [ 0, %lor.lhs.false25 ], [ 0, %land.lhs.true19 ], [ 0, %if.end41 ], [ 0, %if.then50 ], [ 0, %if.end58 ], [ 0, %if.then74 ], [ 0, %lor.lhs.false104 ], [ 0, %lor.lhs.false98 ], [ 0, %if.then92 ], [ 0, %lor.lhs.false121 ], [ 0, %lor.lhs.false115 ], [ 0, %if.else109 ], [ 1, %if.end87 ], [ %spec.select, %if.end126 ]
+return:                                           ; preds = %if.end126, %if.else109, %lor.lhs.false115, %lor.lhs.false121, %if.then92, %lor.lhs.false98, %lor.lhs.false104, %if.then74, %if.end58, %if.then50, %if.end41, %land.lhs.true19, %lor.lhs.false25, %land.lhs.true33, %land.lhs.true, %lor.lhs.false, %if.end134
+  %retval.0 = phi i32 [ 1, %if.end134 ], [ 0, %lor.lhs.false ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true33 ], [ 0, %lor.lhs.false25 ], [ 0, %land.lhs.true19 ], [ 0, %if.end41 ], [ 0, %if.then50 ], [ 0, %if.end58 ], [ 0, %if.then74 ], [ 0, %lor.lhs.false104 ], [ 0, %lor.lhs.false98 ], [ 0, %if.then92 ], [ 0, %lor.lhs.false121 ], [ 0, %lor.lhs.false115 ], [ 0, %if.else109 ], [ 0, %if.end126 ]
   ret i32 %retval.0
 }
 

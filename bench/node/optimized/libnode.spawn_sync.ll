@@ -405,7 +405,7 @@ if.end34:                                         ; preds = %_ZNK4node20SyncProc
   %writable_.i = getelementptr inbounds i8, ptr %this, i64 9
   %5 = load i8, ptr %writable_.i, align 1
   %tobool.i9 = trunc i8 %5 to i1
-  br i1 %tobool.i9, label %if.then36, label %return
+  br i1 %tobool.i9, label %if.then36, label %if.end43
 
 if.then36:                                        ; preds = %if.end34
   %6 = load i32, ptr %lifecycle_, align 8
@@ -420,11 +420,14 @@ do.body4.i.i13:                                   ; preds = %if.then36
 _ZNK4node20SyncProcessStdioPipe9uv_streamEv.exit14: ; preds = %if.then36
   %uv_pipe_.i.i12 = getelementptr inbounds i8, ptr %this, i64 48
   %call39 = tail call i32 @uv_read_start(ptr noundef nonnull %uv_pipe_.i.i12, ptr noundef nonnull @_ZN4node20SyncProcessStdioPipe13AllocCallbackEP11uv_handle_smP8uv_buf_t, ptr noundef nonnull @_ZN4node20SyncProcessStdioPipe12ReadCallbackEP11uv_stream_slPK8uv_buf_t) #25
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %call39, i32 0)
+  %cmp40 = icmp slt i32 %call39, 0
+  br i1 %cmp40, label %return, label %if.end43
+
+if.end43:                                         ; preds = %_ZNK4node20SyncProcessStdioPipe9uv_streamEv.exit14, %if.end34
   br label %return
 
-return:                                           ; preds = %_ZNK4node20SyncProcessStdioPipe9uv_streamEv.exit14, %if.end34, %_ZNK4node20SyncProcessStdioPipe9uv_streamEv.exit8, %_ZNK4node20SyncProcessStdioPipe9uv_streamEv.exit
-  %retval.0 = phi i32 [ %call23, %_ZNK4node20SyncProcessStdioPipe9uv_streamEv.exit ], [ %call30, %_ZNK4node20SyncProcessStdioPipe9uv_streamEv.exit8 ], [ 0, %if.end34 ], [ %spec.select, %_ZNK4node20SyncProcessStdioPipe9uv_streamEv.exit14 ]
+return:                                           ; preds = %_ZNK4node20SyncProcessStdioPipe9uv_streamEv.exit14, %_ZNK4node20SyncProcessStdioPipe9uv_streamEv.exit8, %_ZNK4node20SyncProcessStdioPipe9uv_streamEv.exit, %if.end43
+  %retval.0 = phi i32 [ 0, %if.end43 ], [ %call23, %_ZNK4node20SyncProcessStdioPipe9uv_streamEv.exit ], [ %call30, %_ZNK4node20SyncProcessStdioPipe9uv_streamEv.exit8 ], [ %call39, %_ZNK4node20SyncProcessStdioPipe9uv_streamEv.exit14 ]
   ret i32 %retval.0
 }
 
@@ -871,8 +874,8 @@ _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i: ; preds = %if.else.i.i.
   %.sroa.speculated.i.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i.i, i64 1)
   %add.i.i.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i.i
   %cmp7.i.i.i.i.i.i = icmp ult i64 %add.i.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i.i
-  %spec.select.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i, i64 1152921504606846975)
-  %cond.i.i.i.i.i.i = select i1 %cmp7.i.i.i.i.i.i, i64 1152921504606846975, i64 %spec.select.i.i.i.i.i.i
+  %4 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i, i64 1152921504606846975)
+  %cond.i.i.i.i.i.i = select i1 %cmp7.i.i.i.i.i.i, i64 1152921504606846975, i64 %4
   %cmp.not.i.i.i.i.i.i = icmp eq i64 %cond.i.i.i.i.i.i, 0
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i.i.i.i, label %cond.true.i.i.i.i.i.i
 
@@ -3366,12 +3369,12 @@ if.then.i.i:                                      ; preds = %if.else.i
 _ZNKSt6vectorISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.else.i
   %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 %sub)
   %add.i.i = add nuw nsw i64 %.sroa.speculated.i.i, %sub.ptr.div.i
-  %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %add.i.i, i64 1152921504606846975)
-  %mul.i.i.i.i = shl nuw nsw i64 %spec.select.i.i, 3
+  %4 = tail call i64 @llvm.umin.i64(i64 %add.i.i, i64 1152921504606846975)
+  %mul.i.i.i.i = shl nuw nsw i64 %4, 3
   %call5.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #28
   %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i
-  %4 = shl nuw nsw i64 %sub, 3
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %add.ptr.i, i8 0, i64 %4, i1 false)
+  %5 = shl nuw nsw i64 %sub, 3
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %add.ptr.i, i8 0, i64 %5, i1 false)
   %cmp.not5.i.i.i.i = icmp eq ptr %1, %0
   br i1 %cmp.not5.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit.i, label %for.body.i.i.i.i
 
@@ -3380,8 +3383,8 @@ for.body.i.i.i.i:                                 ; preds = %_ZNKSt6vectorISt10u
   %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %1, %_ZNKSt6vectorISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
-  %5 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !18, !noalias !15
-  store i64 %5, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !15, !noalias !18
+  %6 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !18, !noalias !15
+  store i64 %6, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !15, !noalias !18
   store ptr null, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !18, !noalias !15
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 8
   %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 8
@@ -3400,7 +3403,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_dele
   store ptr %call5.i.i.i.i, ptr %this, align 8
   %add.ptr34.i = getelementptr inbounds %"class.std::unique_ptr.274", ptr %add.ptr.i, i64 %sub
   store ptr %add.ptr34.i, ptr %_M_finish.i, align 8
-  %add.ptr37.i = getelementptr inbounds %"class.std::unique_ptr.274", ptr %call5.i.i.i.i, i64 %spec.select.i.i
+  %add.ptr37.i = getelementptr inbounds %"class.std::unique_ptr.274", ptr %call5.i.i.i.i, i64 %4
   store ptr %add.ptr37.i, ptr %_M_end_of_storage.i, align 8
   br label %if.end6
 
@@ -3415,15 +3418,15 @@ if.then5:                                         ; preds = %if.else
 
 for.body.i.i.i.i18:                               ; preds = %if.then5, %_ZSt8_DestroyISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i19, %_ZSt8_DestroyISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i ], [ %add.ptr, %if.then5 ]
-  %6 = load ptr, ptr %__first.addr.04.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %6, null
+  %7 = load ptr, ptr %__first.addr.04.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZSt8_DestroyISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i, label %delete.notnull.i.i.i.i.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i:                     ; preds = %for.body.i.i.i.i18
-  %lifecycle_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 584
-  %7 = load i32, ptr %lifecycle_.i.i.i.i.i.i.i.i, align 8
-  %8 = and i32 %7, -5
-  %spec.select.not.i.i.i.i.i.i.i.i = icmp eq i32 %8, 0
+  %lifecycle_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 584
+  %8 = load i32, ptr %lifecycle_.i.i.i.i.i.i.i.i, align 8
+  %9 = and i32 %8, -5
+  %spec.select.not.i.i.i.i.i.i.i.i = icmp eq i32 %9, 0
   br i1 %spec.select.not.i.i.i.i.i.i.i.i, label %do.end7.i.i.i.i.i.i.i.i, label %do.body6.i.i.i.i.i.i.i.i
 
 do.body6.i.i.i.i.i.i.i.i:                         ; preds = %delete.notnull.i.i.i.i.i.i.i
@@ -3432,21 +3435,21 @@ do.body6.i.i.i.i.i.i.i.i:                         ; preds = %delete.notnull.i.i.
   unreachable
 
 do.end7.i.i.i.i.i.i.i.i:                          ; preds = %delete.notnull.i.i.i.i.i.i.i
-  %first_output_buffer_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 32
-  %9 = load ptr, ptr %first_output_buffer_.i.i.i.i.i.i.i.i, align 8
-  %cmp8.not3.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
+  %first_output_buffer_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 32
+  %10 = load ptr, ptr %first_output_buffer_.i.i.i.i.i.i.i.i, align 8
+  %cmp8.not3.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %cmp8.not3.i.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN4node20SyncProcessStdioPipeEEclEPS1_.exit.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i:                         ; preds = %do.end7.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i
-  %buf.04.i.i.i.i.i.i.i.i = phi ptr [ %10, %for.body.i.i.i.i.i.i.i.i ], [ %9, %do.end7.i.i.i.i.i.i.i.i ]
+  %buf.04.i.i.i.i.i.i.i.i = phi ptr [ %11, %for.body.i.i.i.i.i.i.i.i ], [ %10, %do.end7.i.i.i.i.i.i.i.i ]
   %next_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %buf.04.i.i.i.i.i.i.i.i, i64 65544
-  %10 = load ptr, ptr %next_.i.i.i.i.i.i.i.i.i, align 8
+  %11 = load ptr, ptr %next_.i.i.i.i.i.i.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %buf.04.i.i.i.i.i.i.i.i) #27
-  %cmp8.not.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
+  %cmp8.not.i.i.i.i.i.i.i.i = icmp eq ptr %11, null
   br i1 %cmp8.not.i.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN4node20SyncProcessStdioPipeEEclEPS1_.exit.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i, !llvm.loop !5
 
 _ZNKSt14default_deleteIN4node20SyncProcessStdioPipeEEclEPS1_.exit.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i.i, %do.end7.i.i.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef %6) #27
+  tail call void @_ZdlPv(ptr noundef %7) #27
   br label %_ZSt8_DestroyISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN4node20SyncProcessStdioPipeEEclEPS1_.exit.i.i.i.i.i.i, %for.body.i.i.i.i18
@@ -3956,8 +3959,8 @@ _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i.i: ; preds = %if.else.i.
   %.sroa.speculated.i.i.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i.i.i, i64 1)
   %add.i.i.i.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i.i.i
   %cmp7.i.i.i.i.i.i.i = icmp ult i64 %add.i.i.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i.i.i
-  %spec.select.i.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i.i, i64 1152921504606846975)
-  %cond.i.i.i.i.i.i.i = select i1 %cmp7.i.i.i.i.i.i.i, i64 1152921504606846975, i64 %spec.select.i.i.i.i.i.i.i
+  %4 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i.i, i64 1152921504606846975)
+  %cond.i.i.i.i.i.i.i = select i1 %cmp7.i.i.i.i.i.i.i, i64 1152921504606846975, i64 %4
   %cmp.not.i.i.i.i.i.i.i = icmp eq i64 %cond.i.i.i.i.i.i.i, 0
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i.i.i.i.i, label %cond.true.i.i.i.i.i.i.i
 
@@ -4151,9 +4154,6 @@ entry:
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #22
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #23

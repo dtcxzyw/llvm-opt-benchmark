@@ -3376,7 +3376,6 @@ entry:
   %dir.i = alloca %struct.dir_struct, align 8
   %call = tail call fastcc i32 @check_changes_tracked_files(ptr noundef %ps), !range !6
   %tobool.not = icmp ne i32 %call, 0
-  %spec.select = zext i1 %tobool.not to i32
   %tobool1.not = icmp eq i32 %include_untracked, 0
   br i1 %tobool1.not, label %if.end5, label %land.lhs.true
 
@@ -3403,7 +3402,7 @@ if.end.i:                                         ; preds = %if.then.i, %land.lh
 get_untracked_files.exit.thread:                  ; preds = %if.end.i
   call void @dir_clear(ptr noundef nonnull %dir.i) #14
   call void @llvm.lifetime.end.p0(i64 312, ptr nonnull %dir.i)
-  br label %if.end5
+  br label %14
 
 for.body.lr.ph.i:                                 ; preds = %if.end.i
   %entries.i = getelementptr inbounds i8, ptr %dir.i, i64 16
@@ -3457,11 +3456,14 @@ get_untracked_files.exit:                         ; preds = %strbuf_addch.exit.i
   call void @llvm.lifetime.end.p0(i64 312, ptr nonnull %dir.i)
   %13 = and i64 %indvars.iv.next.i, 4294967295
   %tobool3.not = icmp eq i64 %13, 0
-  %spec.select7 = select i1 %tobool3.not, i32 %spec.select, i32 1
+  br i1 %tobool3.not, label %14, label %if.end5
+
+14:                                               ; preds = %get_untracked_files.exit.thread, %get_untracked_files.exit
   br label %if.end5
 
-if.end5:                                          ; preds = %get_untracked_files.exit, %get_untracked_files.exit.thread, %entry
-  %ret.1 = phi i32 [ %spec.select, %entry ], [ %spec.select, %get_untracked_files.exit.thread ], [ %spec.select7, %get_untracked_files.exit ]
+if.end5:                                          ; preds = %14, %get_untracked_files.exit, %entry
+  %ret.1.shrunk = phi i1 [ %tobool.not, %entry ], [ %tobool.not, %14 ], [ true, %get_untracked_files.exit ]
+  %ret.1 = zext i1 %ret.1.shrunk to i32
   ret i32 %ret.1
 }
 

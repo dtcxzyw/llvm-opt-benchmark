@@ -4075,7 +4075,7 @@ define internal void @uart_set_termios(ptr noundef %0, ptr noundef %1) #0 align 
   %9 = getelementptr inbounds i8, ptr %4, i64 432
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %103, label %12
+  br i1 %11, label %104, label %12
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds i8, ptr %10, i64 272
@@ -4131,7 +4131,7 @@ define internal void @uart_set_termios(ptr noundef %0, ptr noundef %1) #0 align 
   %51 = and i32 %50, %30
   %52 = icmp ne i32 %51, 0
   %53 = select i1 %52, i1 true, i1 %31
-  br i1 %53, label %54, label %103
+  br i1 %53, label %54, label %104
 
 54:                                               ; preds = %47, %41, %35, %29
   tail call fastcc void @uart_change_line_settings(ptr noundef %0, ptr noundef %4, ptr noundef %1)
@@ -4151,18 +4151,18 @@ define internal void @uart_set_termios(ptr noundef %0, ptr noundef %1) #0 align 
   %66 = and i32 %65, -7
   store i32 %66, ptr %64, align 8
   %67 = icmp eq i32 %65, %66
-  br i1 %67, label %101, label %68
+  br i1 %67, label %102, label %68
 
 68:                                               ; preds = %62
   %69 = getelementptr inbounds i8, ptr %10, i64 400
   %70 = load i32, ptr %69, align 8
   %71 = and i32 %70, 1
   %72 = icmp eq i32 %71, 0
-  br i1 %72, label %94, label %101
+  br i1 %72, label %95, label %102
 
 73:                                               ; preds = %54
   %74 = select i1 %58, i1 true, i1 %60
-  br i1 %74, label %103, label %75
+  br i1 %74, label %104, label %75
 
 75:                                               ; preds = %73
   %76 = icmp sgt i32 %55, -1
@@ -4173,42 +4173,44 @@ define internal void @uart_set_termios(ptr noundef %0, ptr noundef %1) #0 align 
   %79 = load volatile i64, ptr %78, align 8
   %80 = and i64 %79, 1
   %81 = icmp eq i64 %80, 0
-  %spec.select = select i1 %81, i32 6, i32 2
-  br label %82
+  br i1 %81, label %82, label %83
 
 82:                                               ; preds = %77, %75
-  %83 = phi i32 [ 6, %75 ], [ %spec.select, %77 ]
-  %84 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %10) #19
-  %85 = getelementptr inbounds i8, ptr %10, i64 288
-  %86 = load i32, ptr %85, align 8
-  %87 = or i32 %86, %83
-  store i32 %87, ptr %85, align 8
-  %88 = icmp eq i32 %86, %87
-  br i1 %88, label %101, label %89
+  br label %83
 
-89:                                               ; preds = %82
-  %90 = getelementptr inbounds i8, ptr %10, i64 400
-  %91 = load i32, ptr %90, align 8
-  %92 = and i32 %91, 1
-  %93 = icmp eq i32 %92, 0
-  br i1 %93, label %94, label %101
+83:                                               ; preds = %82, %77
+  %84 = phi i32 [ 2, %77 ], [ 6, %82 ]
+  %85 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %10) #19
+  %86 = getelementptr inbounds i8, ptr %10, i64 288
+  %87 = load i32, ptr %86, align 8
+  %88 = or i32 %87, %84
+  store i32 %88, ptr %86, align 8
+  %89 = icmp eq i32 %87, %88
+  br i1 %89, label %102, label %90
 
-94:                                               ; preds = %89, %68
-  %95 = phi i32 [ %66, %68 ], [ %87, %89 ]
-  %96 = phi i64 [ %63, %68 ], [ %84, %89 ]
-  %97 = getelementptr inbounds i8, ptr %10, i64 304
-  %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 8
-  %100 = load ptr, ptr %99, align 8
-  tail call void %100(ptr noundef nonnull %10, i32 noundef %95) #19
-  br label %101
+90:                                               ; preds = %83
+  %91 = getelementptr inbounds i8, ptr %10, i64 400
+  %92 = load i32, ptr %91, align 8
+  %93 = and i32 %92, 1
+  %94 = icmp eq i32 %93, 0
+  br i1 %94, label %95, label %102
 
-101:                                              ; preds = %94, %89, %82, %68, %62
-  %102 = phi i64 [ %63, %62 ], [ %63, %68 ], [ %84, %82 ], [ %84, %89 ], [ %96, %94 ]
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %10, i64 noundef %102) #19
-  br label %103
+95:                                               ; preds = %90, %68
+  %96 = phi i32 [ %66, %68 ], [ %88, %90 ]
+  %97 = phi i64 [ %63, %68 ], [ %85, %90 ]
+  %98 = getelementptr inbounds i8, ptr %10, i64 304
+  %99 = load ptr, ptr %98, align 8
+  %100 = getelementptr inbounds i8, ptr %99, i64 8
+  %101 = load ptr, ptr %100, align 8
+  tail call void %101(ptr noundef nonnull %10, i32 noundef %96) #19
+  br label %102
 
-103:                                              ; preds = %101, %73, %47, %2
+102:                                              ; preds = %95, %90, %83, %68, %62
+  %103 = phi i64 [ %63, %62 ], [ %63, %68 ], [ %85, %83 ], [ %85, %90 ], [ %97, %95 ]
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %10, i64 noundef %103) #19
+  br label %104
+
+104:                                              ; preds = %102, %73, %47, %2
   tail call void @mutex_unlock(ptr noundef %8) #19
   ret void
 }
@@ -5512,7 +5514,7 @@ define internal i32 @uart_set_info_user(ptr noundef %0, ptr noundef %1) #0 align
   br label %163
 
 163:                                              ; preds = %162, %153
-  br i1 %85, label %164, label %.thread12
+  br i1 %85, label %164, label %.thread11
 
 164:                                              ; preds = %163
   %165 = getelementptr inbounds i8, ptr %8, i64 8
@@ -5561,19 +5563,19 @@ define internal i32 @uart_set_info_user(ptr noundef %0, ptr noundef %1) #0 align
   %196 = ptrtoint ptr %195 to i64
   store i64 %196, ptr %167, align 8
   %197 = icmp eq i32 %185, 0
-  br i1 %197, label %.thread12, label %198
+  br i1 %197, label %.thread11, label %198
 
 198:                                              ; preds = %184
   %199 = load ptr, ptr %133, align 8
   %200 = getelementptr inbounds i8, ptr %199, i64 160
   %201 = load ptr, ptr %200, align 8
   %202 = icmp eq ptr %201, null
-  br i1 %202, label %.thread12, label %203
+  br i1 %202, label %.thread11, label %203
 
 203:                                              ; preds = %198
   %204 = tail call i32 %201(ptr noundef nonnull %8) #19
   %205 = icmp eq i32 %204, 0
-  br i1 %205, label %.thread12, label %206
+  br i1 %205, label %.thread11, label %206
 
 206:                                              ; preds = %203
   store i64 %166, ptr %165, align 8
@@ -5596,16 +5598,16 @@ define internal i32 @uart_set_info_user(ptr noundef %0, ptr noundef %1) #0 align
   store i32 0, ptr %169, align 8
   br label %.thread10
 
-.thread12:                                        ; preds = %184, %198, %203, %163
+.thread11:                                        ; preds = %184, %198, %203, %163
   br i1 %84, label %214, label %217
 
-214:                                              ; preds = %.thread12
+214:                                              ; preds = %.thread11
   %215 = load i32, ptr %19, align 4
   %216 = getelementptr inbounds i8, ptr %8, i64 168
   store i32 %215, ptr %216, align 8
   br label %217
 
-217:                                              ; preds = %214, %.thread12
+217:                                              ; preds = %214, %.thread11
   %218 = load i64, ptr %39, align 8
   %219 = and i64 %218, 536870912
   %220 = icmp eq i64 %219, 0
@@ -6334,7 +6336,7 @@ define internal fastcc i32 @uart_startup(ptr noundef %0, ptr noundef %1, i1 noun
   %11 = getelementptr inbounds i8, ptr %10, i64 296
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %145, label %14
+  br i1 %13, label %.thread14, label %14
 
 14:                                               ; preds = %8
   %15 = getelementptr inbounds i8, ptr %1, i64 376
@@ -6365,13 +6367,13 @@ define internal fastcc i32 @uart_startup(ptr noundef %0, ptr noundef %1, i1 noun
 28:                                               ; preds = %27, %14
   %29 = tail call i64 @get_zeroed_page(i32 noundef 3264) #19
   %30 = icmp eq i64 %29, 0
-  br i1 %30, label %145, label %31
+  br i1 %30, label %.thread14, label %31
 
 31:                                               ; preds = %28
   %32 = getelementptr inbounds i8, ptr %1, i64 400
   %33 = load volatile i32, ptr %32, align 4
   %34 = icmp eq i32 %33, 0
-  br i1 %34, label %.thread15, label %.lr.ph, !prof !25
+  br i1 %34, label %.thread13, label %.lr.ph, !prof !25
 
 .lr.ph:                                           ; preds = %31, %41
   %35 = phi i32 [ %42, %41 ], [ %33, %31 ]
@@ -6386,25 +6388,25 @@ define internal fastcc i32 @uart_startup(ptr noundef %0, ptr noundef %1, i1 noun
 41:                                               ; preds = %.lr.ph
   %42 = extractvalue { i8, i32 } %37, 1
   %43 = icmp eq i32 %42, 0
-  br i1 %43, label %.thread15, label %.lr.ph, !prof !27, !llvm.loop !28
+  br i1 %43, label %.thread13, label %.lr.ph, !prof !27, !llvm.loop !28
 
 44:                                               ; preds = %.lr.ph
   %45 = load ptr, ptr %9, align 8
   %46 = icmp eq ptr %45, null
-  br i1 %46, label %.thread15, label %47
+  br i1 %46, label %.thread13, label %47
 
 47:                                               ; preds = %44
   %48 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %45) #19
-  br label %.thread15
+  br label %.thread13
 
-.thread15:                                        ; preds = %41, %31, %47, %44
+.thread13:                                        ; preds = %41, %31, %47, %44
   %49 = phi i64 [ 0, %44 ], [ %48, %47 ], [ 0, %31 ], [ 0, %41 ]
   %50 = getelementptr inbounds i8, ptr %1, i64 384
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, null
   br i1 %52, label %53, label %69
 
-53:                                               ; preds = %.thread15
+53:                                               ; preds = %.thread13
   %54 = inttoptr i64 %29 to ptr
   store ptr %54, ptr %50, align 8
   %55 = getelementptr inbounds i8, ptr %1, i64 396
@@ -6431,7 +6433,7 @@ define internal fastcc i32 @uart_startup(ptr noundef %0, ptr noundef %1, i1 noun
   %68 = tail call i32 @__wake_up(ptr noundef %67, i32 noundef 3, i32 noundef 1, ptr noundef null) #19
   br label %83
 
-69:                                               ; preds = %.thread15
+69:                                               ; preds = %.thread13
   %70 = icmp eq ptr %10, null
   br i1 %70, label %82, label %71
 
@@ -6551,17 +6553,17 @@ define internal fastcc i32 @uart_startup(ptr noundef %0, ptr noundef %1, i1 noun
 143:                                              ; preds = %83
   %144 = tail call zeroext i1 @capable(i32 noundef 21) #19
   %spec.select = select i1 %144, i32 1, i32 %88
-  br label %145
+  br label %.thread14
 
-145:                                              ; preds = %8, %28, %143
-  %146 = phi i32 [ 1, %8 ], [ -12, %28 ], [ %spec.select, %143 ]
-  %147 = getelementptr inbounds i8, ptr %0, i64 416
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %147, i32 2, ptr elementtype(i8) %147) #19, !srcloc !17
+.thread14:                                        ; preds = %143, %28, %8
+  %145 = phi i32 [ -12, %28 ], [ 1, %8 ], [ %spec.select, %143 ]
+  %146 = getelementptr inbounds i8, ptr %0, i64 416
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %146, i32 2, ptr elementtype(i8) %146) #19, !srcloc !17
   br label %.thread16
 
-.thread16:                                        ; preds = %121, %122, %142, %145, %3
-  %148 = phi i32 [ 0, %3 ], [ %146, %145 ], [ 0, %142 ], [ 0, %122 ], [ 0, %121 ]
-  ret i32 %148
+.thread16:                                        ; preds = %142, %122, %121, %.thread14, %3
+  %147 = phi i32 [ 0, %3 ], [ %145, %.thread14 ], [ 0, %121 ], [ 0, %122 ], [ 0, %142 ]
+  ret i32 %147
 }
 
 ; Function Attrs: null_pointer_is_valid

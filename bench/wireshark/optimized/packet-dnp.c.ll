@@ -4517,7 +4517,7 @@ declare void @nstime_copy(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @udp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dnp3_udp_check_header(ptr nocapture readnone %0, ptr noundef %1, i32 %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dnp3_udp_check_header(ptr nocapture readnone %0, ptr noundef %1, i32 %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %1) #6
   %6 = icmp sgt i32 %5, 9
   br i1 %6, label %7, label %.thread.i
@@ -4537,7 +4537,7 @@ define internal i32 @dnp3_udp_check_header(ptr nocapture readnone %0, ptr nounde
 
 13:                                               ; preds = %.thread.i
   %14 = icmp sgt i32 %5, 1
-  br i1 %14, label %15, label %check_dnp3_header.exit
+  br i1 %14, label %15, label %18
 
 15:                                               ; preds = %13
   %16 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 1) #6
@@ -4545,11 +4545,13 @@ define internal i32 @dnp3_udp_check_header(ptr nocapture readnone %0, ptr nounde
   %17 = icmp ult i32 %5, 10
   %or.cond.i = select i1 %17, i1 true, i1 %.01422.i
   %or.cond18.i = select i1 %.not16.i, i1 %or.cond.i, i1 false
-  %spec.select = zext i1 %or.cond18.i to i32
+  br i1 %or.cond18.i, label %18, label %check_dnp3_header.exit
+
+18:                                               ; preds = %15, %13
   br label %check_dnp3_header.exit
 
-check_dnp3_header.exit:                           ; preds = %15, %13, %.thread.i
-  %.0.i = phi i32 [ 0, %.thread.i ], [ 1, %13 ], [ %spec.select, %15 ]
+check_dnp3_header.exit:                           ; preds = %.thread.i, %15, %18
+  %.0.i = phi i32 [ 1, %18 ], [ 0, %.thread.i ], [ 0, %15 ]
   ret i32 %.0.i
 }
 

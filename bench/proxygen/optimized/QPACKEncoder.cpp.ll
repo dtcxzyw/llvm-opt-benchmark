@@ -2872,7 +2872,7 @@ entry:
 
 lor.rhs.i:                                        ; preds = %entry
   %call4.i = tail call noundef zeroext i1 @_ZNK5folly5IOBuf5emptyEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-  br i1 %call4.i, label %_ZNK5folly10IOBufQueue5emptyEv.exit, label %_ZNK5folly10IOBufQueue5emptyEv.exit.thread
+  br i1 %call4.i, label %_ZNK5folly10IOBufQueue5emptyEv.exit, label %_ZNK5folly10IOBufQueue5emptyEv.exit.thread2
 
 _ZNK5folly10IOBufQueue5emptyEv.exit:              ; preds = %lor.rhs.i
   %cachePtr_.i = getelementptr inbounds i8, ptr %this, i64 576
@@ -2882,11 +2882,13 @@ _ZNK5folly10IOBufQueue5emptyEv.exit:              ; preds = %lor.rhs.i
   %3 = load ptr, ptr %tailStart_.i, align 8
   %cmp.i = icmp eq ptr %2, %3
   %cond.fr = freeze i1 %cmp.i
-  %spec.select = select i1 %cond.fr, i8 0, i8 7
-  br label %_ZNK5folly10IOBufQueue5emptyEv.exit.thread
+  br i1 %cond.fr, label %_ZNK5folly10IOBufQueue5emptyEv.exit.thread, label %_ZNK5folly10IOBufQueue5emptyEv.exit.thread2
 
-_ZNK5folly10IOBufQueue5emptyEv.exit.thread:       ; preds = %_ZNK5folly10IOBufQueue5emptyEv.exit, %lor.rhs.i, %entry
-  %4 = phi i8 [ 0, %entry ], [ 7, %lor.rhs.i ], [ %spec.select, %_ZNK5folly10IOBufQueue5emptyEv.exit ]
+_ZNK5folly10IOBufQueue5emptyEv.exit.thread:       ; preds = %entry, %_ZNK5folly10IOBufQueue5emptyEv.exit
+  br label %_ZNK5folly10IOBufQueue5emptyEv.exit.thread2
+
+_ZNK5folly10IOBufQueue5emptyEv.exit.thread2:      ; preds = %lor.rhs.i, %_ZNK5folly10IOBufQueue5emptyEv.exit, %_ZNK5folly10IOBufQueue5emptyEv.exit.thread
+  %4 = phi i8 [ 0, %_ZNK5folly10IOBufQueue5emptyEv.exit.thread ], [ 7, %_ZNK5folly10IOBufQueue5emptyEv.exit ], [ 7, %lor.rhs.i ]
   ret i8 %4
 }
 

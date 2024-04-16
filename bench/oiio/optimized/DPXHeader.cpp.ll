@@ -2347,13 +2347,13 @@ _ZNK3dpx13GenericHeader15ImageDescriptorEi.exit:  ; preds = %entry
   %idxprom.i = zext nneg i32 %element to i64
   %descriptor.i = getelementptr inbounds [8 x %"struct.dpx::ImageElement"], ptr %chan.i, i64 0, i64 %idxprom.i, i32 5
   %1 = load i8, ptr %descriptor.i, align 4
-  %cmp = icmp eq i8 %1, 50
-  %2 = icmp eq i8 %1, 100
-  %spec.select = or i1 %cmp, %2
+  %switch.selectcmp.case1 = icmp eq i8 %1, 50
+  %switch.selectcmp.case2 = icmp eq i8 %1, 100
+  %switch.selectcmp = or i1 %switch.selectcmp.case1, %switch.selectcmp.case2
   br label %return
 
-return:                                           ; preds = %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ %spec.select, %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit ]
+return:                                           ; preds = %entry, %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit
+  %retval.0 = phi i1 [ %switch.selectcmp, %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit ], [ false, %entry ]
   ret i1 %retval.0
 }
 

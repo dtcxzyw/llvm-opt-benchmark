@@ -3534,13 +3534,18 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   %1037 = call ptr @excast(ptr noundef %1035, ptr noundef nonnull %1026, i32 noundef %1036, ptr noundef null, i32 noundef 0)
   br label %.loopexit1006
 
-1038:                                             ; preds = %yy_reduce_print.exit, %yy_reduce_print.exit, %yy_reduce_print.exit, %yy_reduce_print.exit, %yy_reduce_print.exit, %yy_reduce_print.exit, %yy_reduce_print.exit, %yy_reduce_print.exit, %yy_reduce_print.exit, %yy_reduce_print.exit
+.sink.split1107:                                  ; preds = %1158, %1148
+  %.sink1108 = phi ptr [ %1152, %1148 ], [ %1160, %1158 ]
+  store ptr %.sink1108, ptr %.2703, align 8
+  br label %1038
+
+1038:                                             ; preds = %.sink.split1107, %1156, %yy_reduce_print.exit, %yy_reduce_print.exit, %yy_reduce_print.exit, %yy_reduce_print.exit, %yy_reduce_print.exit, %yy_reduce_print.exit, %yy_reduce_print.exit, %yy_reduce_print.exit, %yy_reduce_print.exit, %yy_reduce_print.exit
   br label %1039
 
-1039:                                             ; preds = %1156, %1158, %1148, %yy_reduce_print.exit, %yy_reduce_print.exit, %yy_reduce_print.exit, %yy_reduce_print.exit, %yy_reduce_print.exit, %yy_reduce_print.exit, %1038
-  %.not844 = phi i32 [ 263, %yy_reduce_print.exit ], [ 263, %yy_reduce_print.exit ], [ 263, %yy_reduce_print.exit ], [ 263, %yy_reduce_print.exit ], [ 263, %yy_reduce_print.exit ], [ 263, %yy_reduce_print.exit ], [ 259, %1148 ], [ 259, %1158 ], [ 259, %1156 ], [ 259, %1038 ]
-  %.not847 = phi i1 [ false, %yy_reduce_print.exit ], [ false, %yy_reduce_print.exit ], [ false, %yy_reduce_print.exit ], [ false, %yy_reduce_print.exit ], [ false, %yy_reduce_print.exit ], [ false, %yy_reduce_print.exit ], [ true, %1148 ], [ true, %1158 ], [ true, %1156 ], [ true, %1038 ]
-  %.0715 = phi i32 [ 259, %yy_reduce_print.exit ], [ 259, %yy_reduce_print.exit ], [ 259, %yy_reduce_print.exit ], [ 259, %yy_reduce_print.exit ], [ 259, %yy_reduce_print.exit ], [ 259, %yy_reduce_print.exit ], [ 0, %1148 ], [ 0, %1158 ], [ 0, %1156 ], [ 0, %1038 ]
+1039:                                             ; preds = %yy_reduce_print.exit, %yy_reduce_print.exit, %yy_reduce_print.exit, %yy_reduce_print.exit, %yy_reduce_print.exit, %yy_reduce_print.exit, %1038
+  %.not844 = phi i32 [ 259, %1038 ], [ 263, %yy_reduce_print.exit ], [ 263, %yy_reduce_print.exit ], [ 263, %yy_reduce_print.exit ], [ 263, %yy_reduce_print.exit ], [ 263, %yy_reduce_print.exit ], [ 263, %yy_reduce_print.exit ]
+  %.not847 = phi i1 [ true, %1038 ], [ false, %yy_reduce_print.exit ], [ false, %yy_reduce_print.exit ], [ false, %yy_reduce_print.exit ], [ false, %yy_reduce_print.exit ], [ false, %yy_reduce_print.exit ], [ false, %yy_reduce_print.exit ]
+  %.0715 = phi i32 [ 0, %1038 ], [ 259, %yy_reduce_print.exit ], [ 259, %yy_reduce_print.exit ], [ 259, %yy_reduce_print.exit ], [ 259, %yy_reduce_print.exit ], [ 259, %yy_reduce_print.exit ], [ 259, %yy_reduce_print.exit ]
   %1040 = getelementptr inbounds i8, ptr %.2703, i64 -16
   %1041 = load ptr, ptr %1040, align 8
   %1042 = load i32, ptr %1041, align 8
@@ -3741,7 +3746,7 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   store i32 1, ptr %1136, align 8
   %1138 = getelementptr inbounds i8, ptr %1135, i64 32
   store ptr %1128, ptr %1138, align 8
-  br label %.sink.split1107
+  br label %.sink.split1109
 
 1139:                                             ; preds = %1126
   %1140 = icmp sgt i32 %1129, 258
@@ -3750,14 +3755,14 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
 1141:                                             ; preds = %1139
   %1142 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
   %1143 = call ptr @excast(ptr noundef %1142, ptr noundef nonnull %1128, i32 noundef 259, ptr noundef null, i32 noundef 0)
-  br label %.sink.split1107
+  br label %.sink.split1109
 
-.sink.split1107:                                  ; preds = %1131, %1141
-  %.sink1108 = phi ptr [ %1143, %1141 ], [ %1135, %1131 ]
-  store ptr %.sink1108, ptr %1127, align 8
+.sink.split1109:                                  ; preds = %1131, %1141
+  %.sink1110 = phi ptr [ %1143, %1141 ], [ %1135, %1131 ]
+  store ptr %.sink1110, ptr %1127, align 8
   br label %1144
 
-1144:                                             ; preds = %.sink.split1107, %1139
+1144:                                             ; preds = %.sink.split1109, %1139
   %1145 = load ptr, ptr %.2703, align 8
   %1146 = load i32, ptr %1145, align 8
   %1147 = icmp eq i32 %1146, 263
@@ -3776,18 +3781,16 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   store i32 1, ptr %1153, align 8
   %1155 = getelementptr inbounds i8, ptr %1152, i64 32
   store ptr %1145, ptr %1155, align 8
-  store ptr %1152, ptr %.2703, align 8
-  br label %1039
+  br label %.sink.split1107
 
 1156:                                             ; preds = %1144
   %1157 = icmp sgt i32 %1146, 258
-  br i1 %1157, label %1039, label %1158
+  br i1 %1157, label %1038, label %1158
 
 1158:                                             ; preds = %1156
   %1159 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
   %1160 = call ptr @excast(ptr noundef %1159, ptr noundef nonnull %1145, i32 noundef 259, ptr noundef null, i32 noundef 0)
-  store ptr %1160, ptr %.2703, align 8
-  br label %1039
+  br label %.sink.split1107
 
 1161:                                             ; preds = %yy_reduce_print.exit
   %1162 = getelementptr inbounds i8, ptr %.2703, i64 -16
@@ -3879,7 +3882,7 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   store i32 1, ptr %1204, align 8
   %1206 = getelementptr inbounds i8, ptr %1203, i64 32
   store ptr %1196, ptr %1206, align 8
-  br label %.sink.split1109
+  br label %.sink.split1111
 
 1207:                                             ; preds = %1194
   %1208 = add i32 %1197, -259
@@ -3889,14 +3892,14 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
 1209:                                             ; preds = %1207
   %1210 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
   %1211 = call ptr @excast(ptr noundef %1210, ptr noundef nonnull %1196, i32 noundef 259, ptr noundef null, i32 noundef 0)
-  br label %.sink.split1109
+  br label %.sink.split1111
 
-.sink.split1109:                                  ; preds = %1199, %1209
-  %.sink1110 = phi ptr [ %1211, %1209 ], [ %1203, %1199 ]
-  store ptr %.sink1110, ptr %1195, align 8
+.sink.split1111:                                  ; preds = %1199, %1209
+  %.sink1112 = phi ptr [ %1211, %1209 ], [ %1203, %1199 ]
+  store ptr %.sink1112, ptr %1195, align 8
   br label %1212
 
-1212:                                             ; preds = %.sink.split1109, %1207
+1212:                                             ; preds = %.sink.split1111, %1207
   %1213 = load ptr, ptr %1183, align 8
   %1214 = load i32, ptr %1213, align 8
   %1215 = load ptr, ptr %.2703, align 8
@@ -5856,8 +5859,8 @@ yydestruct.exit957.thread:                        ; preds = %2329, %yydestruct.e
   %.not9061017 = icmp eq ptr %.5, %.3
   %2352 = load i32, ptr @ex_debug, align 4
   %2353 = icmp eq i32 %2352, 0
-  %or.cond1114 = select i1 %.not9061017, i1 true, i1 %2353
-  br i1 %or.cond1114, label %._crit_edge, label %.lr.ph1019.split
+  %or.cond1116 = select i1 %.not9061017, i1 true, i1 %2353
+  br i1 %or.cond1116, label %._crit_edge, label %.lr.ph1019.split
 
 .lr.ph1019.split:                                 ; preds = %yydestruct.exit957.thread, %yydestruct.exit967
   %2354 = phi i32 [ %2370, %yydestruct.exit967 ], [ 1, %yydestruct.exit957.thread ]
@@ -7220,7 +7223,7 @@ agxbputc.exit:                                    ; preds = %.thread35.i, %116
   %133 = sext i8 %132 to i32
   %134 = add nsw i32 %133, -65
   %135 = icmp ult i32 %134, 26
-  br i1 %135, label %.loopexit165, label %.loopexit
+  br i1 %135, label %.loopexit165.loopexit, label %.loopexit
 
 .loopexit:                                        ; preds = %127, %agxbputc.exit, %62, %131, %72
   %.6 = phi ptr [ %64, %131 ], [ %64, %72 ], [ %64, %62 ], [ %.5, %agxbputc.exit ], [ %123, %127 ]
@@ -7239,11 +7242,11 @@ agxbputc.exit:                                    ; preds = %.thread35.i, %116
 .loopexit354:                                     ; preds = %62, %62
   br label %.loopexit165
 
-.loopexit165.loopexit:                            ; preds = %62, %62
+.loopexit165.loopexit:                            ; preds = %62, %62, %131
   br label %.loopexit165
 
-.loopexit165:                                     ; preds = %131, %62, %62, %62, %.loopexit165.loopexit, %.loopexit354, %.loopexit292
-  %.2113 = phi i32 [ 260, %.loopexit292 ], [ 263, %.loopexit354 ], [ 262, %62 ], [ 262, %62 ], [ 262, %62 ], [ 259, %131 ], [ 259, %.loopexit165.loopexit ]
+.loopexit165:                                     ; preds = %62, %62, %62, %.loopexit165.loopexit, %.loopexit354, %.loopexit292
+  %.2113 = phi i32 [ 260, %.loopexit292 ], [ 263, %.loopexit354 ], [ 259, %.loopexit165.loopexit ], [ 262, %62 ], [ 262, %62 ], [ 262, %62 ]
   %138 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
   %139 = getelementptr inbounds i8, ptr %138, i64 184
   tail call fastcc void @agxbputc(ptr noundef nonnull %139, i8 noundef signext %63)

@@ -3634,23 +3634,25 @@ entry:
   %0 = load i32, ptr %master, align 8
   %and = and i32 %0, 64
   %tobool.not = icmp eq i32 %and, 0
-  br i1 %tobool.not, label %return, label %land.lhs.true
+  br i1 %tobool.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
   %promoted_slave = getelementptr inbounds i8, ptr %master, i64 312
   %1 = load ptr, ptr %promoted_slave, align 8
   %tobool1.not = icmp eq ptr %1, null
-  br i1 %tobool1.not, label %return, label %land.lhs.true2
+  br i1 %tobool1.not, label %if.else, label %land.lhs.true2
 
 land.lhs.true2:                                   ; preds = %land.lhs.true
   %failover_state = getelementptr inbounds i8, ptr %master, i64 272
   %2 = load i32, ptr %failover_state, align 8
   %cmp = icmp sgt i32 %2, 4
-  %spec.select = select i1 %cmp, ptr %1, ptr %master
+  br i1 %cmp, label %return, label %if.else
+
+if.else:                                          ; preds = %land.lhs.true2, %land.lhs.true, %entry
   br label %return
 
-return:                                           ; preds = %land.lhs.true2, %entry, %land.lhs.true
-  %.pn = phi ptr [ %master, %land.lhs.true ], [ %master, %entry ], [ %spec.select, %land.lhs.true2 ]
+return:                                           ; preds = %land.lhs.true2, %if.else
+  %.pn = phi ptr [ %master, %if.else ], [ %1, %land.lhs.true2 ]
   %retval.0.in = getelementptr inbounds i8, ptr %.pn, i64 32
   %retval.0 = load ptr, ptr %retval.0.in, align 8
   ret ptr %retval.0
@@ -4712,23 +4714,25 @@ while.body:                                       ; preds = %entry, %while.end16
   %7 = load i32, ptr %call24, align 8
   %and.i = and i32 %7, 64
   %tobool.not.i = icmp eq i32 %and.i, 0
-  br i1 %tobool.not.i, label %sentinelGetCurrentMasterAddress.exit, label %land.lhs.true.i
+  br i1 %tobool.not.i, label %if.else.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %while.body
   %promoted_slave.i = getelementptr inbounds i8, ptr %call24, i64 312
   %8 = load ptr, ptr %promoted_slave.i, align 8
   %tobool1.not.i = icmp eq ptr %8, null
-  br i1 %tobool1.not.i, label %sentinelGetCurrentMasterAddress.exit, label %land.lhs.true2.i
+  br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true2.i
 
 land.lhs.true2.i:                                 ; preds = %land.lhs.true.i
   %failover_state.i = getelementptr inbounds i8, ptr %call24, i64 272
   %9 = load i32, ptr %failover_state.i, align 8
   %cmp.i = icmp sgt i32 %9, 4
-  %spec.select.i = select i1 %cmp.i, ptr %8, ptr %call24
+  br i1 %cmp.i, label %sentinelGetCurrentMasterAddress.exit, label %if.else.i
+
+if.else.i:                                        ; preds = %land.lhs.true2.i, %land.lhs.true.i, %while.body
   br label %sentinelGetCurrentMasterAddress.exit
 
-sentinelGetCurrentMasterAddress.exit:             ; preds = %while.body, %land.lhs.true.i, %land.lhs.true2.i
-  %.pn.i = phi ptr [ %call24, %land.lhs.true.i ], [ %call24, %while.body ], [ %spec.select.i, %land.lhs.true2.i ]
+sentinelGetCurrentMasterAddress.exit:             ; preds = %land.lhs.true2.i, %if.else.i
+  %.pn.i = phi ptr [ %call24, %if.else.i ], [ %8, %land.lhs.true2.i ]
   %retval.0.in.i = getelementptr inbounds i8, ptr %.pn.i, i64 32
   %retval.0.i = load ptr, ptr %retval.0.in.i, align 8
   %call26 = tail call ptr @sdsempty() #28
@@ -7821,23 +7825,25 @@ cond.end:                                         ; preds = %entry, %cond.false
   %cond = phi ptr [ %1, %cond.false ], [ %ri, %entry ]
   %and.i = and i32 %2, 64
   %tobool.not.i = icmp eq i32 %and.i, 0
-  br i1 %tobool.not.i, label %sentinelGetCurrentMasterAddress.exit, label %land.lhs.true.i
+  br i1 %tobool.not.i, label %if.else.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %cond.end
   %promoted_slave.i = getelementptr inbounds i8, ptr %cond, i64 312
   %3 = load ptr, ptr %promoted_slave.i, align 8
   %tobool1.not.i = icmp eq ptr %3, null
-  br i1 %tobool1.not.i, label %sentinelGetCurrentMasterAddress.exit, label %land.lhs.true2.i
+  br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true2.i
 
 land.lhs.true2.i:                                 ; preds = %land.lhs.true.i
   %failover_state.i = getelementptr inbounds i8, ptr %cond, i64 272
   %4 = load i32, ptr %failover_state.i, align 8
   %cmp.i = icmp sgt i32 %4, 4
-  %spec.select.i = select i1 %cmp.i, ptr %3, ptr %cond
+  br i1 %cmp.i, label %sentinelGetCurrentMasterAddress.exit, label %if.else.i
+
+if.else.i:                                        ; preds = %land.lhs.true2.i, %land.lhs.true.i, %cond.end
   br label %sentinelGetCurrentMasterAddress.exit
 
-sentinelGetCurrentMasterAddress.exit:             ; preds = %cond.end, %land.lhs.true.i, %land.lhs.true2.i
-  %.pn.i = phi ptr [ %cond, %land.lhs.true.i ], [ %cond, %cond.end ], [ %spec.select.i, %land.lhs.true2.i ]
+sentinelGetCurrentMasterAddress.exit:             ; preds = %land.lhs.true2.i, %if.else.i
+  %.pn.i = phi ptr [ %cond, %if.else.i ], [ %3, %land.lhs.true2.i ]
   %retval.0.in.i = getelementptr inbounds i8, ptr %.pn.i, i64 32
   %retval.0.i = load ptr, ptr %retval.0.in.i, align 8
   %link = getelementptr inbounds i8, ptr %ri, i64 40
@@ -7899,14 +7905,14 @@ if.end20:                                         ; preds = %if.else14, %if.end1
   %master.i = getelementptr inbounds i8, ptr %ri, i64 216
   %21 = load ptr, ptr %master.i, align 8
   %tobool.not.i15 = icmp eq ptr %21, null
-  %spec.select.i16 = select i1 %tobool.not.i15, ptr %ri, ptr %21
-  %renamed_commands.i = getelementptr inbounds i8, ptr %spec.select.i16, i64 120
+  %spec.select.i = select i1 %tobool.not.i15, ptr %ri, ptr %21
+  %renamed_commands.i = getelementptr inbounds i8, ptr %spec.select.i, i64 120
   %22 = load ptr, ptr %renamed_commands.i, align 8
   %call3.i = call ptr @dictFetchValue(ptr noundef %22, ptr noundef %call.i) #28
   call void @sdsfree(ptr noundef %call.i) #28
   %tobool4.not.i = icmp eq ptr %call3.i, null
-  %cond.i17 = select i1 %tobool4.not.i, ptr @.str.203, ptr %call3.i
-  %call28 = call i32 (ptr, ptr, ptr, ptr, ...) @redisAsyncCommand(ptr noundef %20, ptr noundef nonnull @sentinelPublishReplyCallback, ptr noundef nonnull %ri, ptr noundef nonnull @.str.147, ptr noundef nonnull %cond.i17, ptr noundef nonnull @.str.159, ptr noundef nonnull %payload) #28
+  %cond.i16 = select i1 %tobool4.not.i, ptr @.str.203, ptr %call3.i
+  %call28 = call i32 (ptr, ptr, ptr, ptr, ...) @redisAsyncCommand(ptr noundef %20, ptr noundef nonnull @sentinelPublishReplyCallback, ptr noundef nonnull %ri, ptr noundef nonnull @.str.147, ptr noundef nonnull %cond.i16, ptr noundef nonnull @.str.159, ptr noundef nonnull %payload) #28
   %cmp29.not = icmp eq i32 %call28, 0
   br i1 %cmp29.not, label %if.end31, label %return
 
@@ -10250,23 +10256,25 @@ if.else179:                                       ; preds = %if.end171
   %38 = load i32, ptr %call175, align 8
   %and.i = and i32 %38, 64
   %tobool.not.i197 = icmp eq i32 %and.i, 0
-  br i1 %tobool.not.i197, label %sentinelGetCurrentMasterAddress.exit, label %land.lhs.true.i
+  br i1 %tobool.not.i197, label %if.else.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.else179
   %promoted_slave.i = getelementptr inbounds i8, ptr %call175, i64 312
   %39 = load ptr, ptr %promoted_slave.i, align 8
   %tobool1.not.i = icmp eq ptr %39, null
-  br i1 %tobool1.not.i, label %sentinelGetCurrentMasterAddress.exit, label %land.lhs.true2.i
+  br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true2.i
 
 land.lhs.true2.i:                                 ; preds = %land.lhs.true.i
   %failover_state.i = getelementptr inbounds i8, ptr %call175, i64 272
   %40 = load i32, ptr %failover_state.i, align 8
   %cmp.i = icmp sgt i32 %40, 4
-  %spec.select.i = select i1 %cmp.i, ptr %39, ptr %call175
+  br i1 %cmp.i, label %sentinelGetCurrentMasterAddress.exit, label %if.else.i
+
+if.else.i:                                        ; preds = %land.lhs.true2.i, %land.lhs.true.i, %if.else179
   br label %sentinelGetCurrentMasterAddress.exit
 
-sentinelGetCurrentMasterAddress.exit:             ; preds = %if.else179, %land.lhs.true.i, %land.lhs.true2.i
-  %.pn.i = phi ptr [ %call175, %land.lhs.true.i ], [ %call175, %if.else179 ], [ %spec.select.i, %land.lhs.true2.i ]
+sentinelGetCurrentMasterAddress.exit:             ; preds = %land.lhs.true2.i, %if.else.i
+  %.pn.i = phi ptr [ %call175, %if.else.i ], [ %39, %land.lhs.true2.i ]
   %retval.0.in.i = getelementptr inbounds i8, ptr %.pn.i, i64 32
   %retval.0.i = load ptr, ptr %retval.0.in.i, align 8
   tail call void @addReplyArrayLen(ptr noundef nonnull %c, i64 noundef 2) #28
@@ -12677,7 +12685,7 @@ declare void @dictSetUnsignedIntegerVal(ptr noundef, i64 noundef) local_unnamed_
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @sentinelGetLeader(ptr noundef %master, i64 noundef %epoch) local_unnamed_addr #0 {
 entry:
-  %existing.i35 = alloca ptr, align 8
+  %existing.i34 = alloca ptr, align 8
   %existing.i = alloca ptr, align 8
   %leader_epoch = alloca i64, align 8
   %0 = load i32, ptr %master, align 8
@@ -12702,13 +12710,13 @@ cond.end:                                         ; preds = %entry
   %4 = trunc i64 %add to i32
   %conv7 = add i32 %4, 1
   %call9 = tail call ptr @dictGetIterator(ptr noundef %1) #28
-  %call1056 = tail call ptr @dictNext(ptr noundef %call9) #28
-  %cmp.not57 = icmp eq ptr %call1056, null
-  br i1 %cmp.not57, label %while.end, label %while.body
+  %call1054 = tail call ptr @dictNext(ptr noundef %call9) #28
+  %cmp.not55 = icmp eq ptr %call1054, null
+  br i1 %cmp.not55, label %while.end, label %while.body
 
 while.body:                                       ; preds = %cond.end, %if.end
-  %call1058 = phi ptr [ %call10, %if.end ], [ %call1056, %cond.end ]
-  %call12 = call ptr @dictGetVal(ptr noundef nonnull %call1058) #28
+  %call1056 = phi ptr [ %call10, %if.end ], [ %call1054, %cond.end ]
+  %call12 = call ptr @dictGetVal(ptr noundef nonnull %call1056) #28
   %leader = getelementptr inbounds i8, ptr %call12, i64 248
   %5 = load ptr, ptr %leader, align 8
   %cmp13.not = icmp eq ptr %5, null
@@ -12760,29 +12768,29 @@ if.end:                                           ; preds = %sentinelLeaderIncr.
 while.end:                                        ; preds = %if.end, %cond.end
   call void @dictReleaseIterator(ptr noundef %call9) #28
   %call20 = call ptr @dictGetIterator(ptr noundef %call) #28
-  %call2259 = call ptr @dictNext(ptr noundef %call20) #28
-  %cmp23.not60 = icmp eq ptr %call2259, null
-  br i1 %cmp23.not60, label %while.end32.thread, label %while.body25
+  %call2257 = call ptr @dictNext(ptr noundef %call20) #28
+  %cmp23.not58 = icmp eq ptr %call2257, null
+  br i1 %cmp23.not58, label %while.end32.thread, label %while.body25
 
 while.end32.thread:                               ; preds = %while.end
   call void @dictReleaseIterator(ptr noundef %call20) #28
   br label %if.end37
 
 while.body25:                                     ; preds = %while.end, %if.end31
-  %call2263 = phi ptr [ %call22, %if.end31 ], [ %call2259, %while.end ]
-  %max_votes.062 = phi i64 [ %max_votes.1, %if.end31 ], [ 0, %while.end ]
-  %winner.061 = phi ptr [ %winner.1, %if.end31 ], [ null, %while.end ]
-  %call26 = call i64 @dictGetUnsignedIntegerVal(ptr noundef nonnull %call2263) #28
-  %cmp27 = icmp ugt i64 %call26, %max_votes.062
+  %call2261 = phi ptr [ %call22, %if.end31 ], [ %call2257, %while.end ]
+  %max_votes.060 = phi i64 [ %max_votes.1, %if.end31 ], [ 0, %while.end ]
+  %winner.059 = phi ptr [ %winner.1, %if.end31 ], [ null, %while.end ]
+  %call26 = call i64 @dictGetUnsignedIntegerVal(ptr noundef nonnull %call2261) #28
+  %cmp27 = icmp ugt i64 %call26, %max_votes.060
   br i1 %cmp27, label %if.then29, label %if.end31
 
 if.then29:                                        ; preds = %while.body25
-  %call30 = call ptr @dictGetKey(ptr noundef nonnull %call2263) #28
+  %call30 = call ptr @dictGetKey(ptr noundef nonnull %call2261) #28
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then29, %while.body25
-  %winner.1 = phi ptr [ %call30, %if.then29 ], [ %winner.061, %while.body25 ]
-  %max_votes.1 = phi i64 [ %call26, %if.then29 ], [ %max_votes.062, %while.body25 ]
+  %winner.1 = phi ptr [ %call30, %if.then29 ], [ %winner.059, %while.body25 ]
+  %max_votes.1 = phi i64 [ %call26, %if.then29 ], [ %max_votes.060, %while.body25 ]
   %call22 = call ptr @dictNext(ptr noundef %call20) #28
   %cmp23.not = icmp eq ptr %call22, null
   br i1 %cmp23.not, label %while.end32, label %while.body25, !llvm.loop !67
@@ -12797,9 +12805,9 @@ if.else:                                          ; preds = %while.end32
 
 if.end37:                                         ; preds = %while.end32.thread, %while.end32, %if.else
   %sentinel.sink = phi ptr [ %winner.1, %while.end32 ], [ @sentinel, %while.end32.thread ], [ @sentinel, %if.else ]
-  %tobool33.not72 = phi i1 [ false, %while.end32 ], [ true, %while.end32.thread ], [ true, %if.else ]
-  %max_votes.0.lcssa70 = phi i64 [ %max_votes.1, %while.end32 ], [ 0, %while.end32.thread ], [ %max_votes.1, %if.else ]
-  %winner.0.lcssa68 = phi ptr [ %winner.1, %while.end32 ], [ null, %while.end32.thread ], [ null, %if.else ]
+  %tobool33.not70 = phi i1 [ false, %while.end32 ], [ true, %while.end32.thread ], [ true, %if.else ]
+  %max_votes.0.lcssa68 = phi i64 [ %max_votes.1, %while.end32 ], [ 0, %while.end32.thread ], [ %max_votes.1, %if.else ]
+  %winner.0.lcssa66 = phi ptr [ %winner.1, %while.end32 ], [ null, %while.end32.thread ], [ null, %if.else ]
   %call36 = call ptr @sentinelVoteLeader(ptr noundef nonnull %master, i64 noundef %epoch, ptr noundef nonnull %sentinel.sink, ptr noundef nonnull %leader_epoch)
   %tobool38.not = icmp ne ptr %call36, null
   %10 = load i64, ptr %leader_epoch, align 8
@@ -12808,68 +12816,68 @@ if.end37:                                         ; preds = %while.end32.thread,
   br i1 %or.cond, label %if.then42, label %if.end50
 
 if.then42:                                        ; preds = %if.end37
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %existing.i35)
-  %call.i36 = call ptr @dictAddRaw(ptr noundef %call, ptr noundef nonnull %call36, ptr noundef nonnull %existing.i35) #28
-  %11 = load ptr, ptr %existing.i35, align 8
-  %tobool.not.i37 = icmp eq ptr %11, null
-  br i1 %tobool.not.i37, label %if.else.i43, label %if.then.i38
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %existing.i34)
+  %call.i35 = call ptr @dictAddRaw(ptr noundef %call, ptr noundef nonnull %call36, ptr noundef nonnull %existing.i34) #28
+  %11 = load ptr, ptr %existing.i34, align 8
+  %tobool.not.i36 = icmp eq ptr %11, null
+  br i1 %tobool.not.i36, label %if.else.i42, label %if.then.i37
 
-if.then.i38:                                      ; preds = %if.then42
-  %call1.i39 = call i64 @dictGetUnsignedIntegerVal(ptr noundef nonnull %11) #28
-  %12 = load ptr, ptr %existing.i35, align 8
-  %add.i40 = add i64 %call1.i39, 1
-  call void @dictSetUnsignedIntegerVal(ptr noundef %12, i64 noundef %add.i40) #28
-  %sext = shl i64 %add.i40, 32
+if.then.i37:                                      ; preds = %if.then42
+  %call1.i38 = call i64 @dictGetUnsignedIntegerVal(ptr noundef nonnull %11) #28
+  %12 = load ptr, ptr %existing.i34, align 8
+  %add.i39 = add i64 %call1.i38, 1
+  call void @dictSetUnsignedIntegerVal(ptr noundef %12, i64 noundef %add.i39) #28
+  %sext = shl i64 %add.i39, 32
   %13 = ashr exact i64 %sext, 32
-  br label %sentinelLeaderIncr.exit47
+  br label %sentinelLeaderIncr.exit46
 
-if.else.i43:                                      ; preds = %if.then42
-  %cmp.not.i44 = icmp eq ptr %call.i36, null
-  br i1 %cmp.not.i44, label %cond.false.i46, label %cond.end.i45
+if.else.i42:                                      ; preds = %if.then42
+  %cmp.not.i43 = icmp eq ptr %call.i35, null
+  br i1 %cmp.not.i43, label %cond.false.i45, label %cond.end.i44
 
-cond.false.i46:                                   ; preds = %if.else.i43
+cond.false.i45:                                   ; preds = %if.else.i42
   call void @_serverAssert(ptr noundef nonnull @.str.415, ptr noundef nonnull @.str.21, i32 noundef 4793) #28
   call void @abort() #29
   unreachable
 
-cond.end.i45:                                     ; preds = %if.else.i43
-  call void @dictSetUnsignedIntegerVal(ptr noundef nonnull %call.i36, i64 noundef 1) #28
-  br label %sentinelLeaderIncr.exit47
+cond.end.i44:                                     ; preds = %if.else.i42
+  call void @dictSetUnsignedIntegerVal(ptr noundef nonnull %call.i35, i64 noundef 1) #28
+  br label %sentinelLeaderIncr.exit46
 
-sentinelLeaderIncr.exit47:                        ; preds = %if.then.i38, %cond.end.i45
-  %retval.0.i42 = phi i64 [ %13, %if.then.i38 ], [ 1, %cond.end.i45 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %existing.i35)
-  %cmp46 = icmp uge i64 %max_votes.0.lcssa70, %retval.0.i42
-  %brmerge.not = and i1 %cmp46, %tobool33.not72
-  %retval.0.i42.mux = call i64 @llvm.umax.i64(i64 %max_votes.0.lcssa70, i64 %retval.0.i42)
-  %call36.mux = select i1 %cmp46, ptr %winner.0.lcssa68, ptr %call36
+sentinelLeaderIncr.exit46:                        ; preds = %if.then.i37, %cond.end.i44
+  %retval.0.i41 = phi i64 [ %13, %if.then.i37 ], [ 1, %cond.end.i44 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %existing.i34)
+  %cmp46 = icmp uge i64 %max_votes.0.lcssa68, %retval.0.i41
+  %brmerge.not = and i1 %cmp46, %tobool33.not70
+  %retval.0.i41.mux = call i64 @llvm.umax.i64(i64 %max_votes.0.lcssa68, i64 %retval.0.i41)
+  %call36.mux = select i1 %cmp46, ptr %winner.0.lcssa66, ptr %call36
   br i1 %brmerge.not, label %cond.end66, label %land.lhs.true53
 
 if.end50:                                         ; preds = %if.end37
-  br i1 %tobool33.not72, label %cond.end66, label %land.lhs.true53
+  br i1 %tobool33.not70, label %cond.end66, label %land.lhs.true53
 
-land.lhs.true53:                                  ; preds = %sentinelLeaderIncr.exit47, %if.end50
-  %max_votes.252 = phi i64 [ %max_votes.0.lcssa70, %if.end50 ], [ %retval.0.i42.mux, %sentinelLeaderIncr.exit47 ]
-  %winner.251 = phi ptr [ %winner.0.lcssa68, %if.end50 ], [ %call36.mux, %sentinelLeaderIncr.exit47 ]
+land.lhs.true53:                                  ; preds = %sentinelLeaderIncr.exit46, %if.end50
+  %max_votes.251 = phi i64 [ %max_votes.0.lcssa68, %if.end50 ], [ %retval.0.i41.mux, %sentinelLeaderIncr.exit46 ]
+  %winner.250 = phi ptr [ %winner.0.lcssa66, %if.end50 ], [ %call36.mux, %sentinelLeaderIncr.exit46 ]
   %div32 = lshr i32 %conv7, 1
   %add51 = add nuw i32 %div32, 1
   %conv54 = zext i32 %add51 to i64
-  %cmp55 = icmp ult i64 %max_votes.252, %conv54
+  %cmp55 = icmp ult i64 %max_votes.251, %conv54
   br i1 %cmp55, label %cond.end66, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true53
   %quorum = getelementptr inbounds i8, ptr %master, i64 168
   %14 = load i32, ptr %quorum, align 8
   %conv57 = zext i32 %14 to i64
-  %cmp58 = icmp ult i64 %max_votes.252, %conv57
+  %cmp58 = icmp ult i64 %max_votes.251, %conv57
   br i1 %cmp58, label %cond.end66, label %cond.true63
 
 cond.true63:                                      ; preds = %lor.lhs.false
-  %call64 = call ptr @sdsnew(ptr noundef nonnull %winner.251) #28
+  %call64 = call ptr @sdsnew(ptr noundef nonnull %winner.250) #28
   br label %cond.end66
 
-cond.end66:                                       ; preds = %sentinelLeaderIncr.exit47, %lor.lhs.false, %land.lhs.true53, %if.end50, %cond.true63
-  %cond = phi ptr [ %call64, %cond.true63 ], [ null, %if.end50 ], [ null, %land.lhs.true53 ], [ null, %lor.lhs.false ], [ null, %sentinelLeaderIncr.exit47 ]
+cond.end66:                                       ; preds = %sentinelLeaderIncr.exit46, %land.lhs.true53, %lor.lhs.false, %if.end50, %cond.true63
+  %cond = phi ptr [ %call64, %cond.true63 ], [ null, %if.end50 ], [ null, %lor.lhs.false ], [ null, %land.lhs.true53 ], [ null, %sentinelLeaderIncr.exit46 ]
   call void @sdsfree(ptr noundef %call36) #28
   call void @dictRelease(ptr noundef %call) #28
   ret ptr %cond

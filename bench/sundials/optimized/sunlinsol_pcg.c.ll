@@ -309,7 +309,7 @@ define i32 @SUNLinSolSolve_PCG(ptr nocapture noundef readonly %0, ptr nocapture 
 
 ._crit_edge.thread:                               ; preds = %58
   store i32 0, ptr %28, align 4
-  br label %105
+  br label %104
 
 .lr.ph:                                           ; preds = %58
   %61 = add nsw i32 %7, -1
@@ -419,11 +419,11 @@ define i32 @SUNLinSolSolve_PCG(ptr nocapture noundef readonly %0, ptr nocapture 
   %103 = fcmp olt double %84, %48
   br i1 %103, label %105, label %104
 
-104:                                              ; preds = %._crit_edge
+104:                                              ; preds = %._crit_edge.thread, %._crit_edge
   br label %105
 
-105:                                              ; preds = %102, %104, %._crit_edge, %._crit_edge.thread, %91, %._crit_edge210, %54, %50, %35
-  %.sink.sink = phi i32 [ %93, %91 ], [ %66, %._crit_edge210 ], [ %56, %54 ], [ 0, %50 ], [ %37, %35 ], [ 0, %102 ], [ 801, %._crit_edge ], [ 802, %._crit_edge.thread ], [ 802, %104 ]
+105:                                              ; preds = %102, %104, %._crit_edge, %91, %._crit_edge210, %54, %50, %35
+  %.sink.sink = phi i32 [ %93, %91 ], [ %66, %._crit_edge210 ], [ %56, %54 ], [ 0, %50 ], [ %37, %35 ], [ 802, %104 ], [ 0, %102 ], [ 801, %._crit_edge ]
   %106 = load ptr, ptr %0, align 8
   %107 = getelementptr inbounds i8, ptr %106, i64 24
   store i32 %.sink.sink, ptr %107, align 8

@@ -1806,12 +1806,12 @@ declare zeroext i16 @BIO_ADDR_rawport(ptr noundef) local_unnamed_addr #1
 declare ptr @EVP_Q_mac(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @verify_stateless_cookie_callback(ptr noundef %ssl, ptr nocapture noundef readonly %cookie, i64 noundef %cookie_len) local_unnamed_addr #0 {
+define noundef i32 @verify_stateless_cookie_callback(ptr noundef %ssl, ptr nocapture noundef readonly %cookie, i64 noundef %cookie_len) local_unnamed_addr #0 {
 entry:
   %result = alloca [64 x i8], align 16
   %resultlength = alloca i64, align 8
   %.b = load i1, ptr @cookie_initialized, align 4
-  br i1 %.b, label %land.lhs.true, label %return
+  br i1 %.b, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
   %call = call i32 @generate_stateless_cookie_callback(ptr noundef %ssl, ptr noundef nonnull %result, ptr noundef nonnull %resultlength), !range !14
@@ -1819,16 +1819,18 @@ land.lhs.true:                                    ; preds = %entry
   %0 = load i64, ptr %resultlength, align 8
   %cmp = icmp eq i64 %0, %cookie_len
   %or.cond = select i1 %tobool1.not, i1 %cmp, i1 false
-  br i1 %or.cond, label %land.lhs.true3, label %return
+  br i1 %or.cond, label %land.lhs.true3, label %if.end
 
 land.lhs.true3:                                   ; preds = %land.lhs.true
   %bcmp = call i32 @bcmp(ptr nonnull %result, ptr %cookie, i64 %cookie_len)
   %cmp6 = icmp eq i32 %bcmp, 0
-  %spec.select = zext i1 %cmp6 to i32
+  br i1 %cmp6, label %return, label %if.end
+
+if.end:                                           ; preds = %land.lhs.true3, %land.lhs.true, %entry
   br label %return
 
-return:                                           ; preds = %land.lhs.true3, %entry, %land.lhs.true
-  %retval.0 = phi i32 [ 0, %land.lhs.true ], [ 0, %entry ], [ %spec.select, %land.lhs.true3 ]
+return:                                           ; preds = %land.lhs.true3, %if.end
+  %retval.0 = phi i32 [ 0, %if.end ], [ 1, %land.lhs.true3 ]
   ret i32 %retval.0
 }
 
@@ -1852,7 +1854,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @verify_cookie_callback(ptr noundef %ssl, ptr nocapture noundef readonly %cookie, i32 noundef %cookie_len) local_unnamed_addr #0 {
+define noundef i32 @verify_cookie_callback(ptr noundef %ssl, ptr nocapture noundef readonly %cookie, i32 noundef %cookie_len) local_unnamed_addr #0 {
 entry:
   %result.i = alloca [64 x i8], align 16
   %resultlength.i = alloca i64, align 8
@@ -1860,7 +1862,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %result.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %resultlength.i)
   %.b.i = load i1, ptr @cookie_initialized, align 4
-  br i1 %.b.i, label %land.lhs.true.i, label %verify_stateless_cookie_callback.exit
+  br i1 %.b.i, label %land.lhs.true.i, label %if.end.i
 
 land.lhs.true.i:                                  ; preds = %entry
   %call.i = call i32 @generate_stateless_cookie_callback(ptr noundef %ssl, ptr noundef nonnull %result.i, ptr noundef nonnull %resultlength.i), !range !14
@@ -1868,16 +1870,18 @@ land.lhs.true.i:                                  ; preds = %entry
   %0 = load i64, ptr %resultlength.i, align 8
   %cmp.i = icmp eq i64 %0, %conv
   %or.cond.i = select i1 %tobool1.not.i, i1 %cmp.i, i1 false
-  br i1 %or.cond.i, label %land.lhs.true3.i, label %verify_stateless_cookie_callback.exit
+  br i1 %or.cond.i, label %land.lhs.true3.i, label %if.end.i
 
 land.lhs.true3.i:                                 ; preds = %land.lhs.true.i
   %bcmp.i = call i32 @bcmp(ptr nonnull %result.i, ptr %cookie, i64 %conv)
   %cmp6.i = icmp eq i32 %bcmp.i, 0
-  %spec.select.i = zext i1 %cmp6.i to i32
+  br i1 %cmp6.i, label %verify_stateless_cookie_callback.exit, label %if.end.i
+
+if.end.i:                                         ; preds = %land.lhs.true3.i, %land.lhs.true.i, %entry
   br label %verify_stateless_cookie_callback.exit
 
-verify_stateless_cookie_callback.exit:            ; preds = %entry, %land.lhs.true.i, %land.lhs.true3.i
-  %retval.0.i = phi i32 [ 0, %land.lhs.true.i ], [ 0, %entry ], [ %spec.select.i, %land.lhs.true3.i ]
+verify_stateless_cookie_callback.exit:            ; preds = %land.lhs.true3.i, %if.end.i
+  %retval.0.i = phi i32 [ 0, %if.end.i ], [ 1, %land.lhs.true3.i ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %result.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %resultlength.i)
   ret i32 %retval.0.i

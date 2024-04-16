@@ -1635,21 +1635,20 @@ define internal i32 @pairingheap_SpGistSearchItem_cmp(ptr nocapture noundef read
   %34 = trunc i8 %33 to i1
   %35 = getelementptr inbounds i8, ptr %1, i64 59
   %36 = load i8, ptr %35, align 1
-  %37 = and i8 %36, 1
-  br i1 %34, label %38, label %40
+  %37 = trunc i8 %36 to i1
+  br i1 %34, label %38, label %39
 
 38:                                               ; preds = %.loopexit
-  %39 = xor i8 %37, 1
-  %spec.select33 = zext nneg i8 %39 to i32
+  br i1 %37, label %.thread32, label %.thread
+
+39:                                               ; preds = %.loopexit
+  br i1 %37, label %.thread, label %.thread32
+
+.thread32:                                        ; preds = %38, %39
   br label %.thread
 
-40:                                               ; preds = %.loopexit
-  %41 = zext nneg i8 %37 to i32
-  %spec.select = sub nsw i32 0, %41
-  br label %.thread
-
-.thread:                                          ; preds = %24, %25, %38, %40, %11, %10, %28
-  %.029 = phi i32 [ %30, %28 ], [ -1, %10 ], [ 1, %11 ], [ %spec.select, %40 ], [ %spec.select33, %38 ], [ -1, %24 ], [ 1, %25 ]
+.thread:                                          ; preds = %24, %25, %39, %38, %11, %10, %.thread32, %28
+  %.029 = phi i32 [ 0, %.thread32 ], [ %30, %28 ], [ -1, %10 ], [ 1, %11 ], [ 1, %38 ], [ -1, %39 ], [ -1, %24 ], [ 1, %25 ]
   ret i32 %.029
 }
 

@@ -107,10 +107,10 @@ loop.preheader:                                   ; preds = %if.end11
   %tobool.not.i68 = icmp eq ptr %cb, null
   %cb7.i = getelementptr inbounds i8, ptr %cb, i64 16
   %arg.i = getelementptr inbounds i8, ptr %cb, i64 8
-  %brmerge130 = icmp slt i32 %bits, 1025
-  %.mux131 = select i1 %cmp.i.i41, i32 64, i32 128
-  %spec.select132 = select i1 %cmp4.i.i45, i32 384, i32 %..i.i48
-  %retval.0.i.i50 = select i1 %brmerge130, i32 %.mux131, i32 %spec.select132
+  %brmerge131 = icmp slt i32 %bits, 1025
+  %.mux132 = select i1 %cmp.i.i41, i32 64, i32 128
+  %spec.select133 = select i1 %cmp4.i.i45, i32 384, i32 %..i.i48
+  %retval.0.i.i50 = select i1 %brmerge131, i32 %.mux132, i32 %spec.select133
   %sub.i51 = add nsw i32 %retval.0.i.i50, -1
   %idxprom.i52 = zext nneg i32 %sub.i51 to i64
   %arrayidx.i53 = getelementptr inbounds [2048 x i16], ptr @primes, i64 0, i64 %idxprom.i52
@@ -135,7 +135,7 @@ if.then17:                                        ; preds = %loop
   %sub1.i = xor i64 %conv.i, -1
   %call281.i = tail call i32 @BN_priv_rand_ex(ptr noundef %ret, i32 noundef %bits, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef %ctx) #4
   %tobool.not82.i = icmp eq i32 %call281.i, 0
-  br i1 %tobool.not82.i, label %err, label %if.end.lr.ph.i
+  br i1 %tobool.not82.i, label %err.loopexit259, label %if.end.lr.ph.i
 
 if.end.lr.ph.i:                                   ; preds = %if.then17
   br i1 %tobool26.not.i, label %if.end.lr.ph.split.us.split.i, label %if.end.i
@@ -401,8 +401,8 @@ for.inc70.i:                                      ; preds = %for.body23.i
   br i1 %exitcond138.not.i, label %for.end72.split.i, label %for.body23.i, !llvm.loop !6
 
 for.end72.split.i:                                ; preds = %for.inc70.i.us, %for.inc70.i, %for.inc70.us49.i, %for.body23.us38.i
-  %delta.0.i124 = phi i64 [ %delta.0.i, %for.body23.us38.i ], [ %delta.0.i, %for.inc70.us49.i ], [ %delta.0.i, %for.inc70.i ], [ %delta.0.i.us, %for.inc70.i.us ]
-  %call73.i = tail call i32 @BN_add_word(ptr noundef %ret, i64 noundef %delta.0.i124) #4
+  %delta.0.i125 = phi i64 [ %delta.0.i, %for.body23.us38.i ], [ %delta.0.i, %for.inc70.us49.i ], [ %delta.0.i, %for.inc70.i ], [ %delta.0.i.us, %for.inc70.i.us ]
+  %call73.i = tail call i32 @BN_add_word(ptr noundef %ret, i64 noundef %delta.0.i125) #4
   %tobool74.not.i = icmp eq i32 %call73.i, 0
   br i1 %tobool74.not.i, label %err, label %if.end76.i
 
@@ -625,7 +625,7 @@ probable_prime_dh.exit:                           ; preds = %for.inc115.i, %for.
   %call118.i = tail call i32 @BN_add_word(ptr noundef %ret, i64 noundef %.us-phi.i) #4
   %tobool119.not.i.not = icmp eq i32 %call118.i, 0
   tail call void @BN_CTX_end(ptr noundef %ctx) #4
-  br i1 %tobool119.not.i.not, label %err, label %if.end27
+  br i1 %tobool119.not.i.not, label %err.loopexit259, label %if.end27
 
 if.end27:                                         ; preds = %if.end76.i, %if.end76.us.i, %if.end76.us.us.i, %probable_prime_dh.exit
   %inc = add nuw nsw i32 %c1.0, 1
@@ -633,7 +633,7 @@ if.end27:                                         ; preds = %if.end76.i, %if.end
 
 if.end.i69:                                       ; preds = %if.end27
   %28 = load i32, ptr %cb, align 8
-  switch i32 %28, label %err [
+  switch i32 %28, label %err.loopexit259 [
     i32 1, label %sw.bb.i
     i32 2, label %BN_GENCB_call.exit
   ]
@@ -652,7 +652,7 @@ BN_GENCB_call.exit:                               ; preds = %if.end.i69
   %31 = load ptr, ptr %cb7.i, align 8
   %call.i = tail call i32 %31(i32 noundef 0, i32 noundef %c1.0, ptr noundef nonnull %cb) #4
   %tobool29.not = icmp eq i32 %call.i, 0
-  br i1 %tobool29.not, label %err, label %if.end31
+  br i1 %tobool29.not, label %err.loopexit259, label %if.end31
 
 if.end31:                                         ; preds = %sw.bb.i, %if.end27, %if.end4.i, %BN_GENCB_call.exit
   br i1 %tobool, label %if.else41, label %if.then33
@@ -660,7 +660,7 @@ if.end31:                                         ; preds = %sw.bb.i, %if.end27,
 if.then33:                                        ; preds = %if.end31
   %call34 = tail call fastcc i32 @bn_is_prime_int(ptr noundef %ret, i32 noundef %..i, ptr noundef %ctx, i32 noundef 0, ptr noundef %cb)
   switch i32 %call34, label %err [
-    i32 -1, label %err.loopexit260
+    i32 -1, label %err.loopexit259
     i32 0, label %loop.backedge
   ]
 
@@ -670,10 +670,10 @@ loop.backedge:                                    ; preds = %for.body, %if.end53
 if.else41:                                        ; preds = %if.end31
   %call42 = tail call i32 @BN_rshift1(ptr noundef nonnull %call12, ptr noundef %ret) #4
   %tobool43.not = icmp eq i32 %call42, 0
-  br i1 %tobool43.not, label %err, label %for.body
+  br i1 %tobool43.not, label %err.loopexit259, label %for.body
 
 for.body:                                         ; preds = %if.else41, %for.inc
-  %i.0129 = phi i32 [ %inc65, %for.inc ], [ 0, %if.else41 ]
+  %i.0130 = phi i32 [ %inc65, %for.inc ], [ 0, %if.else41 ]
   %call47 = tail call fastcc i32 @bn_is_prime_int(ptr noundef %ret, i32 noundef 1, ptr noundef %ctx, i32 noundef 0, ptr noundef %cb)
   switch i32 %call47, label %if.end53 [
     i32 -1, label %err
@@ -714,15 +714,15 @@ BN_GENCB_call.exit82:                             ; preds = %if.end.i72
   br i1 %tobool62.not, label %err, label %for.inc
 
 for.inc:                                          ; preds = %sw.bb.i77, %if.end60, %if.end4.i80, %BN_GENCB_call.exit82
-  %inc65 = add nuw nsw i32 %i.0129, 1
+  %inc65 = add nuw nsw i32 %i.0130, 1
   %exitcond.not = icmp eq i32 %inc65, %..i
   br i1 %exitcond.not, label %err, label %for.body, !llvm.loop !9
 
-err.loopexit260:                                  ; preds = %if.then33
+err.loopexit259:                                  ; preds = %probable_prime_dh.exit, %BN_GENCB_call.exit, %if.else41, %if.then33, %if.then17, %if.end.i69
   br label %err
 
-err:                                              ; preds = %if.end.i69, %if.then17, %if.else41, %BN_GENCB_call.exit, %probable_prime_dh.exit, %for.end72.split.i, %if.end.i, %again.backedge.i, %for.end72.split.us.split.split.us.us.split.us.i, %again.backedge.us.i, %for.body.us.i, %for.end72.split.us.us.us.i, %again.backedge.us.us.i, %for.body.us.us.i, %if.end.i72, %for.inc, %if.end53, %for.body, %BN_GENCB_call.exit82, %for.body.i, %if.then33, %err.loopexit260, %probable_prime_dh.exit.thread, %if.end11
-  %found.0 = phi i32 [ 0, %if.end11 ], [ 0, %probable_prime_dh.exit.thread ], [ 1, %if.then33 ], [ 0, %for.body.i ], [ 0, %if.end.i72 ], [ 1, %for.inc ], [ 0, %BN_GENCB_call.exit82 ], [ 0, %if.end53 ], [ 0, %for.body ], [ 0, %for.body.us.us.i ], [ 0, %again.backedge.us.us.i ], [ 0, %for.end72.split.us.us.us.i ], [ 0, %for.body.us.i ], [ 0, %again.backedge.us.i ], [ 0, %for.end72.split.us.split.split.us.us.split.us.i ], [ 0, %again.backedge.i ], [ 0, %if.end.i ], [ 0, %for.end72.split.i ], [ 0, %probable_prime_dh.exit ], [ 0, %BN_GENCB_call.exit ], [ 0, %if.else41 ], [ 0, %if.then17 ], [ 0, %if.end.i69 ], [ 0, %err.loopexit260 ]
+err:                                              ; preds = %for.end72.split.i, %if.end.i, %again.backedge.i, %for.end72.split.us.split.split.us.us.split.us.i, %again.backedge.us.i, %for.body.us.i, %for.end72.split.us.us.us.i, %again.backedge.us.us.i, %for.body.us.us.i, %if.end.i72, %if.end53, %for.body, %BN_GENCB_call.exit82, %for.inc, %for.body.i, %if.then33, %err.loopexit259, %probable_prime_dh.exit.thread, %if.end11
+  %found.0 = phi i32 [ 0, %if.end11 ], [ 0, %probable_prime_dh.exit.thread ], [ 0, %err.loopexit259 ], [ 1, %if.then33 ], [ 0, %for.body.i ], [ 1, %for.inc ], [ 0, %BN_GENCB_call.exit82 ], [ 0, %for.body ], [ 0, %if.end53 ], [ 0, %if.end.i72 ], [ 0, %for.body.us.us.i ], [ 0, %again.backedge.us.us.i ], [ 0, %for.end72.split.us.us.us.i ], [ 0, %for.body.us.i ], [ 0, %again.backedge.us.i ], [ 0, %for.end72.split.us.split.split.us.us.split.us.i ], [ 0, %again.backedge.i ], [ 0, %if.end.i ], [ 0, %for.end72.split.i ]
   tail call void @CRYPTO_free(ptr noundef nonnull %call8, ptr noundef nonnull @.str, i32 noundef 204) #4
   tail call void @BN_CTX_end(ptr noundef %ctx) #4
   br label %return

@@ -820,7 +820,7 @@ return:                                           ; preds = %if.end21, %if.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @BN_mul(ptr noundef %r, ptr noundef %a, ptr noundef %b, ptr noundef %ctx) local_unnamed_addr #0 {
+define noundef i32 @BN_mul(ptr noundef %r, ptr noundef %a, ptr noundef %b, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @bn_mul_fixed_top(ptr noundef %r, ptr noundef %a, ptr noundef %b, ptr noundef %ctx), !range !8
   tail call void @bn_correct_top(ptr noundef %r) #4
@@ -828,7 +828,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @bn_mul_fixed_top(ptr noundef %r, ptr noundef readonly %a, ptr noundef readonly %b, ptr noundef %ctx) local_unnamed_addr #0 {
+define noundef i32 @bn_mul_fixed_top(ptr noundef %r, ptr noundef readonly %a, ptr noundef readonly %b, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %top1 = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load i32, ptr %top1, align 8
@@ -974,16 +974,18 @@ end:                                              ; preds = %if.end99, %if.end91
   %neg105 = getelementptr inbounds i8, ptr %rr.0, i64 16
   store i32 %xor, ptr %neg105, align 8
   %cmp106.not = icmp eq ptr %rr.0, %r
-  br i1 %cmp106.not, label %err, label %land.lhs.true108
+  br i1 %cmp106.not, label %if.end113, label %land.lhs.true108
 
 land.lhs.true108:                                 ; preds = %end
   %call109 = tail call ptr @BN_copy(ptr noundef %r, ptr noundef nonnull %rr.0) #4
-  %cmp110 = icmp ne ptr %call109, null
-  %spec.select = zext i1 %cmp110 to i32
+  %cmp110 = icmp eq ptr %call109, null
+  br i1 %cmp110, label %err, label %if.end113
+
+if.end113:                                        ; preds = %land.lhs.true108, %end
   br label %err
 
-err:                                              ; preds = %land.lhs.true108, %end, %if.end94, %if.end78, %if.else72, %if.end59, %if.then54, %if.then31, %if.then15, %if.then7
-  %ret.0 = phi i32 [ 0, %if.then7 ], [ 0, %if.then15 ], [ 0, %if.then31 ], [ 0, %if.then54 ], [ 0, %if.end59 ], [ 0, %if.else72 ], [ 0, %if.end78 ], [ 0, %if.end94 ], [ 1, %end ], [ %spec.select, %land.lhs.true108 ]
+err:                                              ; preds = %land.lhs.true108, %if.end94, %if.end78, %if.else72, %if.end59, %if.then54, %if.then31, %if.then15, %if.then7, %if.end113
+  %ret.0 = phi i32 [ 0, %if.then7 ], [ 0, %if.then15 ], [ 0, %land.lhs.true108 ], [ 1, %if.end113 ], [ 0, %if.then31 ], [ 0, %if.then54 ], [ 0, %if.end59 ], [ 0, %if.else72 ], [ 0, %if.end78 ], [ 0, %if.end94 ]
   tail call void @BN_CTX_end(ptr noundef %ctx) #4
   br label %return
 

@@ -7848,7 +7848,7 @@ hwloc__get_dmi_id_info.exit:                      ; preds = %hwloc_checkat.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @hwloc_linux_backend_get_pci_busid_cpuset(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
+define internal noundef i32 @hwloc_linux_backend_get_pci_busid_cpuset(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
   %4 = alloca [256 x i8], align 16
   %5 = load i32, ptr %1, align 4
   %6 = getelementptr inbounds i8, ptr %1, i64 4
@@ -7869,12 +7869,14 @@ define internal i32 @hwloc_linux_backend_get_pci_busid_cpuset(ptr nocapture noun
 
 19:                                               ; preds = %3
   %20 = call i32 @hwloc_bitmap_iszero(ptr noundef %2) #29
-  %.not9 = icmp ne i32 %20, 0
-  %spec.select = sext i1 %.not9 to i32
-  br label %21
+  %.not9 = icmp eq i32 %20, 0
+  br i1 %.not9, label %22, label %21
 
 21:                                               ; preds = %19, %3
-  %.0 = phi i32 [ -1, %3 ], [ %spec.select, %19 ]
+  br label %22
+
+22:                                               ; preds = %19, %21
+  %.0 = phi i32 [ -1, %21 ], [ 0, %19 ]
   ret i32 %.0
 }
 
@@ -8081,8 +8083,8 @@ hwloc_access.exit44.thread.i:                     ; preds = %hwloc_access.exit39
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %91)
   br label %hwloc_open.exit.i.i.i
 
-hwloc_open.exit.i.i.i:                            ; preds = %111, %.thread92.i, %.thread80.i, %.thread89.i
-  %.1.i8.i.i.i.i.i = phi ptr [ @.str.119, %.thread80.i ], [ getelementptr inbounds ([31 x i8], ptr @.str.119, i64 0, i64 1), %.thread92.i ], [ getelementptr inbounds ([31 x i8], ptr @.str.119, i64 0, i64 1), %.thread89.i ], [ @.str.119, %111 ]
+hwloc_open.exit.i.i.i:                            ; preds = %.thread89.i, %.thread92.i, %111, %.thread80.i
+  %.1.i8.i.i.i.i.i = phi ptr [ @.str.119, %.thread80.i ], [ @.str.119, %111 ], [ getelementptr inbounds ([31 x i8], ptr @.str.119, i64 0, i64 1), %.thread92.i ], [ getelementptr inbounds ([31 x i8], ptr @.str.119, i64 0, i64 1), %.thread89.i ]
   %112 = tail call i32 (i32, ptr, i32, ...) @openat(i32 noundef %99, ptr noundef nonnull %.1.i8.i.i.i.i.i, i32 noundef 0) #26
   %113 = icmp slt i32 %112, 0
   br i1 %113, label %118, label %114
@@ -8103,8 +8105,8 @@ hwloc_access.exit49.i:                            ; preds = %114
   %120 = call i64 @strtoul(ptr nocapture noundef nonnull %91, ptr noundef null, i32 noundef 10) #26
   %121 = trunc i64 %120 to i32
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %91)
-  %spec.select93.i = select i1 %100, ptr getelementptr inbounds ([24 x i8], ptr @.str.113, i64 0, i64 1), ptr @.str.113
-  %122 = tail call i32 @faccessat(i32 noundef %99, ptr noundef nonnull %spec.select93.i, i32 noundef 5, i32 noundef 0) #26
+  %spec.select.i = select i1 %100, ptr getelementptr inbounds ([24 x i8], ptr @.str.113, i64 0, i64 1), ptr @.str.113
+  %122 = tail call i32 @faccessat(i32 noundef %99, ptr noundef nonnull %spec.select.i, i32 noundef 5, i32 noundef 0) #26
   %.not20.i = icmp eq i32 %122, 0
   br i1 %.not20.i, label %123, label %147
 

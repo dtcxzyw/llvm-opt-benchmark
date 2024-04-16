@@ -3758,7 +3758,7 @@ tailrecurse:                                      ; preds = %27, %3
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %15, %10, %5, %tailrecurse, %.loopexit.loopexit, %31
-  %.0 = phi i32 [ %., %31 ], [ 0, %tailrecurse ], [ 0, %18 ], [ 0, %15 ], [ 0, %10 ], [ 0, %5 ], [ 1, %.loopexit.loopexit ]
+  %.0 = phi i32 [ %., %31 ], [ 1, %.loopexit.loopexit ], [ 0, %tailrecurse ], [ 0, %5 ], [ 0, %10 ], [ 0, %15 ], [ 0, %18 ]
   ret i32 %.0
 }
 

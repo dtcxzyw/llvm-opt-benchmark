@@ -1895,7 +1895,7 @@ define dso_local i64 @FSE_decompress_wksp_bmi2(ptr noundef %0, i64 noundef %1, p
   %387 = sub i64 %385, %386
   br label %.thread36
 
-.thread36:                                        ; preds = %324, %375, %.thread39, %60, %67, %125, %382, %138
+.thread36:                                        ; preds = %324, %375, %.thread39, %60, %125, %67, %382, %138
   %388 = phi i64 [ %387, %382 ], [ %30, %138 ], [ -20, %125 ], [ -1, %67 ], [ -72, %60 ], [ -70, %.thread39 ], [ -70, %375 ], [ -70, %324 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
@@ -2524,19 +2524,19 @@ define internal fastcc i64 @FSE_decompress_wksp_body_bmi2(ptr noundef %0, i64 no
   br i1 %186, label %192, label %.thread38
 
 .thread38:                                        ; preds = %176, %192, %161, %135
-  %.lcssa95 = phi i64 [ %140, %135 ], [ %155, %161 ], [ %262, %192 ], [ %155, %176 ]
-  %.lcssa94 = phi i64 [ %139, %135 ], [ %154, %161 ], [ %243, %192 ], [ %154, %176 ]
-  %.lcssa93 = phi ptr [ %0, %135 ], [ %151, %161 ], [ %264, %192 ], [ %151, %176 ]
+  %.lcssa94 = phi i64 [ %140, %135 ], [ %155, %161 ], [ %262, %192 ], [ %155, %176 ]
+  %.lcssa93 = phi i64 [ %139, %135 ], [ %154, %161 ], [ %243, %192 ], [ %154, %176 ]
+  %.lcssa92 = phi ptr [ %0, %135 ], [ %151, %161 ], [ %264, %192 ], [ %151, %176 ]
   %187 = phi i32 [ %137, %135 ], [ %152, %161 ], [ %260, %192 ], [ %178, %176 ]
   %188 = phi i64 [ %138, %135 ], [ %153, %161 ], [ %183, %192 ], [ %183, %176 ]
   %189 = phi ptr [ %149, %135 ], [ %143, %161 ], [ %182, %192 ], [ %182, %176 ]
   store ptr %189, ptr %141, align 8
   store i64 %188, ptr %8, align 8
-  store i64 %.lcssa94, ptr %9, align 8
-  store i64 %.lcssa95, ptr %10, align 8
+  store i64 %.lcssa93, ptr %9, align 8
+  store i64 %.lcssa94, ptr %10, align 8
   %190 = getelementptr i8, ptr %53, i64 -2
-  %191 = icmp ugt ptr %.lcssa93, %190
-  br i1 %191, label %.thread35, label %.lr.ph115
+  %191 = icmp ugt ptr %.lcssa92, %190
+  br i1 %191, label %.thread35, label %.lr.ph114
 
 192:                                              ; preds = %176
   %193 = getelementptr %struct.FSE_decode_t, ptr %146, i64 %154
@@ -2618,11 +2618,11 @@ define internal fastcc i64 @FSE_decompress_wksp_body_bmi2(ptr noundef %0, i64 no
   %265 = icmp ugt i32 %260, 64
   br i1 %265, label %.thread38, label %.lr.ph, !llvm.loop !18
 
-.lr.ph115:                                        ; preds = %.thread38, %370
-  %266 = phi ptr [ %342, %370 ], [ %.lcssa93, %.thread38 ]
-  %267 = phi i64 [ %288, %370 ], [ %.lcssa94, %.thread38 ]
+.lr.ph114:                                        ; preds = %.thread38, %370
+  %266 = phi ptr [ %342, %370 ], [ %.lcssa92, %.thread38 ]
+  %267 = phi i64 [ %288, %370 ], [ %.lcssa93, %.thread38 ]
   %268 = phi i64 [ %373, %370 ], [ %188, %.thread38 ]
-  %269 = phi i64 [ %341, %370 ], [ %.lcssa95, %.thread38 ]
+  %269 = phi i64 [ %341, %370 ], [ %.lcssa94, %.thread38 ]
   %270 = phi ptr [ %372, %370 ], [ %189, %.thread38 ]
   %271 = phi i32 [ %371, %370 ], [ %187, %.thread38 ]
   %272 = getelementptr %struct.FSE_decode_t, ptr %146, i64 %267
@@ -2647,7 +2647,7 @@ define internal fastcc i64 @FSE_decompress_wksp_body_bmi2(ptr noundef %0, i64 no
   %290 = icmp ugt i32 %286, 64
   br i1 %290, label %317, label %291
 
-291:                                              ; preds = %.lr.ph115
+291:                                              ; preds = %.lr.ph114
   %292 = icmp ult ptr %270, %142
   br i1 %292, label %296, label %293
 
@@ -2684,7 +2684,7 @@ define internal fastcc i64 @FSE_decompress_wksp_body_bmi2(ptr noundef %0, i64 no
   %316 = load i64, ptr %315, align 1
   br label %319
 
-317:                                              ; preds = %.lr.ph115
+317:                                              ; preds = %.lr.ph114
   %318 = getelementptr %struct.FSE_decode_t, ptr %148, i64 %269, i32 1
   br label %377
 
@@ -2761,25 +2761,25 @@ define internal fastcc i64 @FSE_decompress_wksp_body_bmi2(ptr noundef %0, i64 no
   %372 = phi ptr [ %143, %349 ], [ %368, %363 ]
   %373 = phi i64 [ %322, %349 ], [ %369, %363 ]
   %374 = icmp ugt ptr %342, %190
-  br i1 %374, label %.thread35, label %.lr.ph115
+  br i1 %374, label %.thread35, label %.lr.ph114
 
 375:                                              ; preds = %324
   %376 = getelementptr %struct.FSE_decode_t, ptr %146, i64 %288, i32 1
   br label %377
 
 377:                                              ; preds = %375, %317
-  %.sink288 = phi ptr [ %376, %375 ], [ %318, %317 ]
-  %.sink287 = phi i64 [ 3, %375 ], [ 2, %317 ]
-  %.sink286 = phi ptr [ %342, %375 ], [ %289, %317 ]
-  %378 = load i8, ptr %.sink288, align 2
-  %379 = getelementptr i8, ptr %266, i64 %.sink287
-  store i8 %378, ptr %.sink286, align 1
+  %.sink287 = phi ptr [ %376, %375 ], [ %318, %317 ]
+  %.sink286 = phi i64 [ 3, %375 ], [ 2, %317 ]
+  %.sink285 = phi ptr [ %342, %375 ], [ %289, %317 ]
+  %378 = load i8, ptr %.sink287, align 2
+  %379 = getelementptr i8, ptr %266, i64 %.sink286
+  store i8 %378, ptr %.sink285, align 1
   %380 = ptrtoint ptr %379 to i64
   %381 = ptrtoint ptr %0 to i64
   %382 = sub i64 %380, %381
   br label %.thread35
 
-.thread35:                                        ; preds = %319, %370, %.thread38, %56, %62, %120, %377, %133
+.thread35:                                        ; preds = %319, %370, %.thread38, %56, %120, %62, %377, %133
   %383 = phi i64 [ %382, %377 ], [ %25, %133 ], [ -20, %120 ], [ -1, %62 ], [ -72, %56 ], [ -70, %.thread38 ], [ -70, %370 ], [ -70, %319 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #13
@@ -2896,9 +2896,9 @@ define internal fastcc i64 @FSE_decompress_wksp_body_bmi2(ptr noundef %0, i64 no
   %450 = getelementptr i8, ptr %449, i64 -1
   %451 = load i8, ptr %450, align 1
   %452 = icmp eq i8 %451, 0
-  br i1 %452, label %BIT_initDStream.exit.thread, label %BIT_initDStream.exit.thread41
+  br i1 %452, label %BIT_initDStream.exit.thread, label %BIT_initDStream.exit.thread40
 
-BIT_initDStream.exit.thread41:                    ; preds = %448
+BIT_initDStream.exit.thread40:                    ; preds = %448
   %453 = getelementptr inbounds i8, ptr %11, i64 8
   %454 = zext i8 %451 to i32
   %455 = call i32 @llvm.ctlz.i32(i32 %454, i1 true), !range !15
@@ -2914,7 +2914,7 @@ BIT_initDStream.exit:                             ; preds = %390
   %461 = icmp ult i64 %25, -119
   br i1 %461, label %462, label %BIT_initDStream.exit.thread
 
-462:                                              ; preds = %BIT_initDStream.exit.thread41, %BIT_initDStream.exit
+462:                                              ; preds = %BIT_initDStream.exit.thread40, %BIT_initDStream.exit
   call fastcc void @FSE_initDState(ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef %43)
   call fastcc void @FSE_initDState(ptr noundef nonnull %13, ptr noundef nonnull %11, ptr noundef %43)
   %463 = getelementptr inbounds i8, ptr %11, i64 8
@@ -2932,9 +2932,9 @@ BIT_initDStream.exit:                             ; preds = %390
   %475 = load ptr, ptr %474, align 8
   %476 = load ptr, ptr %468, align 8
   %477 = icmp ugt i32 %464, 64
-  br i1 %477, label %.thread43, label %.lr.ph126
+  br i1 %477, label %.thread42, label %.lr.ph125
 
-.lr.ph126:                                        ; preds = %462, %519
+.lr.ph125:                                        ; preds = %462, %519
   %478 = phi ptr [ %595, %519 ], [ %0, %462 ]
   %479 = phi i32 [ %583, %519 ], [ %464, %462 ]
   %480 = phi i64 [ %510, %519 ], [ %465, %462 ]
@@ -2944,14 +2944,14 @@ BIT_initDStream.exit:                             ; preds = %390
   %484 = icmp ult ptr %483, %469
   br i1 %484, label %488, label %485
 
-485:                                              ; preds = %.lr.ph126
+485:                                              ; preds = %.lr.ph125
   %486 = lshr i32 %479, 3
   %487 = and i32 %479, 7
   br label %503
 
-488:                                              ; preds = %.lr.ph126
+488:                                              ; preds = %.lr.ph125
   %489 = icmp eq ptr %483, %470
-  br i1 %489, label %.thread43, label %490
+  br i1 %489, label %.thread42, label %490
 
 490:                                              ; preds = %488
   %491 = lshr i32 %479, 3
@@ -2979,22 +2979,22 @@ BIT_initDStream.exit:                             ; preds = %390
   %511 = icmp eq i32 %506, 0
   %512 = icmp ult ptr %478, %54
   %513 = and i1 %512, %511
-  br i1 %513, label %519, label %.thread43
+  br i1 %513, label %519, label %.thread42
 
-.thread43:                                        ; preds = %503, %519, %488, %462
-  %.lcssa69 = phi i64 [ %467, %462 ], [ %482, %488 ], [ %593, %519 ], [ %482, %503 ]
-  %.lcssa68 = phi i64 [ %466, %462 ], [ %481, %488 ], [ %573, %519 ], [ %481, %503 ]
+.thread42:                                        ; preds = %503, %519, %488, %462
+  %.lcssa68 = phi i64 [ %467, %462 ], [ %482, %488 ], [ %593, %519 ], [ %482, %503 ]
+  %.lcssa67 = phi i64 [ %466, %462 ], [ %481, %488 ], [ %573, %519 ], [ %481, %503 ]
   %.lcssa = phi ptr [ %0, %462 ], [ %478, %488 ], [ %595, %519 ], [ %478, %503 ]
   %514 = phi i32 [ %464, %462 ], [ %479, %488 ], [ %583, %519 ], [ %505, %503 ]
   %515 = phi i64 [ %465, %462 ], [ %480, %488 ], [ %510, %519 ], [ %510, %503 ]
   %516 = phi ptr [ %476, %462 ], [ %470, %488 ], [ %509, %519 ], [ %509, %503 ]
   store ptr %516, ptr %468, align 8
   store i64 %515, ptr %11, align 8
-  store i64 %.lcssa68, ptr %12, align 8
-  store i64 %.lcssa69, ptr %13, align 8
+  store i64 %.lcssa67, ptr %12, align 8
+  store i64 %.lcssa68, ptr %13, align 8
   %517 = getelementptr i8, ptr %53, i64 -2
   %518 = icmp ugt ptr %.lcssa, %517
-  br i1 %518, label %BIT_initDStream.exit.thread, label %.lr.ph147
+  br i1 %518, label %BIT_initDStream.exit.thread, label %.lr.ph146
 
 519:                                              ; preds = %503
   %520 = getelementptr %struct.FSE_decode_t, ptr %473, i64 %481
@@ -3078,15 +3078,15 @@ BIT_initDStream.exit:                             ; preds = %390
   store i8 %579, ptr %594, align 1
   %595 = getelementptr i8, ptr %478, i64 4
   %596 = icmp ugt i32 %583, 64
-  br i1 %596, label %.thread43, label %.lr.ph126, !llvm.loop !18
+  br i1 %596, label %.thread42, label %.lr.ph125, !llvm.loop !18
 
-.lr.ph147:                                        ; preds = %.thread43, %703
-  %597 = phi ptr [ %675, %703 ], [ %.lcssa, %.thread43 ]
-  %598 = phi i64 [ %620, %703 ], [ %.lcssa68, %.thread43 ]
-  %599 = phi i64 [ %706, %703 ], [ %515, %.thread43 ]
-  %600 = phi i64 [ %674, %703 ], [ %.lcssa69, %.thread43 ]
-  %601 = phi ptr [ %705, %703 ], [ %516, %.thread43 ]
-  %602 = phi i32 [ %704, %703 ], [ %514, %.thread43 ]
+.lr.ph146:                                        ; preds = %.thread42, %703
+  %597 = phi ptr [ %675, %703 ], [ %.lcssa, %.thread42 ]
+  %598 = phi i64 [ %620, %703 ], [ %.lcssa67, %.thread42 ]
+  %599 = phi i64 [ %706, %703 ], [ %515, %.thread42 ]
+  %600 = phi i64 [ %674, %703 ], [ %.lcssa68, %.thread42 ]
+  %601 = phi ptr [ %705, %703 ], [ %516, %.thread42 ]
+  %602 = phi i32 [ %704, %703 ], [ %514, %.thread42 ]
   %603 = getelementptr %struct.FSE_decode_t, ptr %473, i64 %598
   %604 = load i16, ptr %603, align 2
   %605 = getelementptr inbounds i8, ptr %603, i64 2
@@ -3110,7 +3110,7 @@ BIT_initDStream.exit:                             ; preds = %390
   %622 = icmp ugt i32 %610, 64
   br i1 %622, label %649, label %623
 
-623:                                              ; preds = %.lr.ph147
+623:                                              ; preds = %.lr.ph146
   %624 = icmp ult ptr %601, %469
   br i1 %624, label %628, label %625
 
@@ -3147,7 +3147,7 @@ BIT_initDStream.exit:                             ; preds = %390
   %648 = load i64, ptr %647, align 1
   br label %651
 
-649:                                              ; preds = %.lr.ph147
+649:                                              ; preds = %.lr.ph146
   %650 = getelementptr %struct.FSE_decode_t, ptr %475, i64 %600, i32 1
   br label %710
 
@@ -3225,26 +3225,26 @@ BIT_initDStream.exit:                             ; preds = %390
   %705 = phi ptr [ %470, %682 ], [ %701, %696 ]
   %706 = phi i64 [ %654, %682 ], [ %702, %696 ]
   %707 = icmp ugt ptr %675, %517
-  br i1 %707, label %BIT_initDStream.exit.thread, label %.lr.ph147
+  br i1 %707, label %BIT_initDStream.exit.thread, label %.lr.ph146
 
 708:                                              ; preds = %656
   %709 = getelementptr %struct.FSE_decode_t, ptr %473, i64 %620, i32 1
   br label %710
 
 710:                                              ; preds = %708, %649
-  %.sink291 = phi ptr [ %709, %708 ], [ %650, %649 ]
-  %.sink290 = phi i64 [ 3, %708 ], [ 2, %649 ]
-  %.sink289 = phi ptr [ %675, %708 ], [ %621, %649 ]
-  %711 = load i8, ptr %.sink291, align 2
-  %712 = getelementptr i8, ptr %597, i64 %.sink290
-  store i8 %711, ptr %.sink289, align 1
+  %.sink290 = phi ptr [ %709, %708 ], [ %650, %649 ]
+  %.sink289 = phi i64 [ 3, %708 ], [ 2, %649 ]
+  %.sink288 = phi ptr [ %675, %708 ], [ %621, %649 ]
+  %711 = load i8, ptr %.sink290, align 2
+  %712 = getelementptr i8, ptr %597, i64 %.sink289
+  store i8 %711, ptr %.sink288, align 1
   %713 = ptrtoint ptr %712 to i64
   %714 = ptrtoint ptr %0 to i64
   %715 = sub i64 %713, %714
   br label %BIT_initDStream.exit.thread
 
-BIT_initDStream.exit.thread:                      ; preds = %651, %703, %.thread43, %384, %390, %448, %710, %BIT_initDStream.exit
-  %716 = phi i64 [ %715, %710 ], [ %25, %BIT_initDStream.exit ], [ -20, %448 ], [ -1, %390 ], [ -72, %384 ], [ -70, %.thread43 ], [ -70, %703 ], [ -70, %651 ]
+BIT_initDStream.exit.thread:                      ; preds = %651, %703, %.thread42, %384, %448, %390, %710, %BIT_initDStream.exit
+  %716 = phi i64 [ %715, %710 ], [ %25, %BIT_initDStream.exit ], [ -20, %448 ], [ -1, %390 ], [ -72, %384 ], [ -70, %.thread42 ], [ -70, %703 ], [ -70, %651 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #13
@@ -3270,7 +3270,7 @@ define internal fastcc noundef i64 @BIT_initDStream(ptr nocapture noundef writeo
 
 5:                                                ; preds = %3
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  br label %85
+  br label %86
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 24
@@ -3298,8 +3298,7 @@ define internal fastcc noundef i64 @BIT_initDStream(ptr nocapture noundef writeo
   %23 = select i1 %18, i32 0, i32 %22
   %24 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %23, ptr %24, align 8
-  %spec.select = select i1 %18, i64 -1, i64 %2
-  br label %85
+  br i1 %18, label %86, label %85
 
 25:                                               ; preds = %6
   %26 = getelementptr inbounds i8, ptr %0, i64 16
@@ -3387,7 +3386,7 @@ define internal fastcc noundef i64 @BIT_initDStream(ptr nocapture noundef writeo
   %79 = select i1 %74, i32 0, i32 %78
   %80 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %79, ptr %80, align 8
-  br i1 %74, label %85, label %81
+  br i1 %74, label %86, label %81
 
 81:                                               ; preds = %70
   %82 = trunc nuw nsw i64 %2 to i32
@@ -3397,9 +3396,12 @@ define internal fastcc noundef i64 @BIT_initDStream(ptr nocapture noundef writeo
   store i32 %84, ptr %80, align 8
   br label %85
 
-85:                                               ; preds = %11, %81, %70, %5
-  %86 = phi i64 [ -72, %5 ], [ -20, %70 ], [ %2, %81 ], [ %spec.select, %11 ]
-  ret i64 %86
+85:                                               ; preds = %81, %11
+  br label %86
+
+86:                                               ; preds = %85, %70, %11, %5
+  %87 = phi i64 [ -72, %5 ], [ -1, %11 ], [ %2, %85 ], [ -20, %70 ]
+  ret i64 %87
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)

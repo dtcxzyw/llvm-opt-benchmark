@@ -750,96 +750,100 @@ sw.bb2:                                           ; preds = %entry, %entry, %ent
   %0 = and i16 %leftTy.sroa.0.0.extract.trunc, -127
   %tobool3.not.i = icmp eq i16 %0, 0
   %1 = and i1 %tobool.not.i, %tobool3.not.i
-  br i1 %1, label %land.lhs.true, label %return
+  br i1 %1, label %land.lhs.true, label %sw.epilog
 
 land.lhs.true:                                    ; preds = %sw.bb2
-  %tobool.not.i3 = icmp ne i16 %rightTy.sroa.0.0.extract.trunc, 0
+  %tobool.not.i2 = icmp ne i16 %rightTy.sroa.0.0.extract.trunc, 0
   %2 = and i16 %rightTy.sroa.0.0.extract.trunc, -127
-  %tobool3.not.i4 = icmp eq i16 %2, 0
-  %3 = and i1 %tobool.not.i3, %tobool3.not.i4
-  %spec.select = select i1 %3, i32 0, i32 3
-  br label %return
+  %tobool3.not.i3 = icmp eq i16 %2, 0
+  %3 = and i1 %tobool.not.i2, %tobool3.not.i3
+  br i1 %3, label %return, label %sw.epilog
 
 sw.bb4:                                           ; preds = %entry, %entry, %entry
-  %tobool.not.i5 = icmp ne i16 %leftTy.sroa.0.0.extract.trunc, 0
+  %tobool.not.i4 = icmp ne i16 %leftTy.sroa.0.0.extract.trunc, 0
   %4 = and i16 %leftTy.sroa.0.0.extract.trunc, -127
-  %tobool3.not.i6 = icmp eq i16 %4, 0
-  %5 = and i1 %tobool.not.i5, %tobool3.not.i6
-  br i1 %5, label %lor.lhs.false, label %return
+  %tobool3.not.i5 = icmp eq i16 %4, 0
+  %5 = and i1 %tobool.not.i4, %tobool3.not.i5
+  br i1 %5, label %lor.lhs.false, label %sw.epilog
 
 lor.lhs.false:                                    ; preds = %sw.bb4
-  %tobool.not.i7 = icmp ne i16 %rightTy.sroa.0.0.extract.trunc, 0
+  %tobool.not.i6 = icmp ne i16 %rightTy.sroa.0.0.extract.trunc, 0
   %6 = and i16 %rightTy.sroa.0.0.extract.trunc, -127
-  %tobool3.not.i8 = icmp eq i16 %6, 0
-  %7 = and i1 %tobool.not.i7, %tobool3.not.i8
+  %tobool3.not.i7 = icmp eq i16 %6, 0
+  %7 = and i1 %tobool.not.i6, %tobool3.not.i7
+  br i1 %7, label %if.end8, label %sw.epilog
+
+if.end8:                                          ; preds = %lor.lhs.false
   %not.i.i.i = and i32 %leftTy.coerce, 64
   %tobool.not.i.i.i.not = icmp eq i32 %not.i.i.i, 0
-  %or.cond54 = select i1 %7, i1 %tobool.not.i.i.i.not, i1 false
-  br i1 %or.cond54, label %lor.lhs.false10, label %return
+  br i1 %tobool.not.i.i.i.not, label %lor.lhs.false10, label %return
 
-lor.lhs.false10:                                  ; preds = %lor.lhs.false
-  %not.i.i.i10 = and i32 %rightTy.coerce, 64
-  %tobool.not.i.i.i11.not = icmp eq i32 %not.i.i.i10, 0
-  %spec.select1 = select i1 %tobool.not.i.i.i11.not, i32 0, i32 3
+lor.lhs.false10:                                  ; preds = %if.end8
+  %not.i.i.i9 = and i32 %rightTy.coerce, 64
+  %tobool.not.i.i.i10.not = icmp eq i32 %not.i.i.i9, 0
+  %spec.select = select i1 %tobool.not.i.i.i10.not, i32 0, i32 3
   br label %return
 
 sw.bb14:                                          ; preds = %entry
-  %tobool.not.i12 = icmp ne i16 %leftTy.sroa.0.0.extract.trunc, 0
+  %tobool.not.i11 = icmp ne i16 %leftTy.sroa.0.0.extract.trunc, 0
   %8 = and i16 %leftTy.sroa.0.0.extract.trunc, -127
-  %tobool3.not.i13 = icmp eq i16 %8, 0
-  %9 = and i1 %tobool.not.i12, %tobool3.not.i13
-  br i1 %9, label %lor.lhs.false16, label %return
+  %tobool3.not.i12 = icmp eq i16 %8, 0
+  %9 = and i1 %tobool.not.i11, %tobool3.not.i12
+  br i1 %9, label %lor.lhs.false16, label %sw.epilog
 
 lor.lhs.false16:                                  ; preds = %sw.bb14
-  %tobool.not.i14 = icmp ne i16 %rightTy.sroa.0.0.extract.trunc, 0
+  %tobool.not.i13 = icmp ne i16 %rightTy.sroa.0.0.extract.trunc, 0
   %10 = and i16 %rightTy.sroa.0.0.extract.trunc, -127
-  %tobool3.not.i15 = icmp eq i16 %10, 0
-  %11 = and i1 %tobool.not.i14, %tobool3.not.i15
-  br i1 %11, label %if.end19, label %return
+  %tobool3.not.i14 = icmp eq i16 %10, 0
+  %11 = and i1 %tobool.not.i13, %tobool3.not.i14
+  br i1 %11, label %if.end19, label %sw.epilog
 
 if.end19:                                         ; preds = %lor.lhs.false16
   %cmp.i = icmp eq i16 %leftTy.sroa.0.0.extract.trunc, 16
-  %cmp.i16 = icmp eq i16 %rightTy.sroa.0.0.extract.trunc, 16
-  %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.i16
+  %cmp.i15 = icmp eq i16 %rightTy.sroa.0.0.extract.trunc, 16
+  %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.i15
   br i1 %or.cond, label %return, label %sw.bb25
 
 sw.bb25:                                          ; preds = %if.end19, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry
-  %tobool.not.i17 = icmp ne i16 %leftTy.sroa.0.0.extract.trunc, 0
+  %tobool.not.i16 = icmp ne i16 %leftTy.sroa.0.0.extract.trunc, 0
   %12 = and i16 %leftTy.sroa.0.0.extract.trunc, -127
-  %tobool3.not.i18 = icmp eq i16 %12, 0
-  %13 = and i1 %tobool.not.i17, %tobool3.not.i18
-  br i1 %13, label %lor.lhs.false27, label %return
+  %tobool3.not.i17 = icmp eq i16 %12, 0
+  %13 = and i1 %tobool.not.i16, %tobool3.not.i17
+  br i1 %13, label %lor.lhs.false27, label %sw.epilog
 
 lor.lhs.false27:                                  ; preds = %sw.bb25
-  %tobool.not.i19 = icmp ne i16 %rightTy.sroa.0.0.extract.trunc, 0
+  %tobool.not.i18 = icmp ne i16 %rightTy.sroa.0.0.extract.trunc, 0
   %14 = and i16 %rightTy.sroa.0.0.extract.trunc, -127
-  %tobool3.not.i20 = icmp eq i16 %14, 0
-  %15 = and i1 %tobool.not.i19, %tobool3.not.i20
-  br i1 %15, label %if.end30, label %return
+  %tobool3.not.i19 = icmp eq i16 %14, 0
+  %15 = and i1 %tobool.not.i18, %tobool3.not.i19
+  br i1 %15, label %if.end30, label %sw.epilog
 
 if.end30:                                         ; preds = %lor.lhs.false27
-  %cmp.i21 = icmp eq i16 %leftTy.sroa.0.0.extract.trunc, 64
-  %cmp.i22 = icmp eq i16 %rightTy.sroa.0.0.extract.trunc, 64
-  %or.cond53 = select i1 %cmp.i21, i1 %cmp.i22, i1 false
-  br i1 %or.cond53, label %return, label %if.end35
+  %cmp.i20 = icmp eq i16 %leftTy.sroa.0.0.extract.trunc, 64
+  %cmp.i21 = icmp eq i16 %rightTy.sroa.0.0.extract.trunc, 64
+  %or.cond52 = select i1 %cmp.i20, i1 %cmp.i21, i1 false
+  br i1 %or.cond52, label %return, label %if.end35
 
 if.end35:                                         ; preds = %if.end30
-  %not.i.i.i24 = and i32 %leftTy.coerce, 64
-  %tobool.not.i.i.i25.not = icmp eq i32 %not.i.i.i24, 0
-  br i1 %tobool.not.i.i.i25.not, label %lor.lhs.false37, label %return
+  %not.i.i.i23 = and i32 %leftTy.coerce, 64
+  %tobool.not.i.i.i24.not = icmp eq i32 %not.i.i.i23, 0
+  br i1 %tobool.not.i.i.i24.not, label %lor.lhs.false37, label %return
 
 lor.lhs.false37:                                  ; preds = %if.end35
-  %not.i.i.i27 = and i32 %rightTy.coerce, 64
-  %tobool.not.i.i.i28.not = icmp eq i32 %not.i.i.i27, 0
-  %spec.select2 = select i1 %tobool.not.i.i.i28.not, i32 0, i32 3
+  %not.i.i.i26 = and i32 %rightTy.coerce, 64
+  %tobool.not.i.i.i27.not = icmp eq i32 %not.i.i.i26, 0
+  %spec.select1 = select i1 %tobool.not.i.i.i27.not, i32 0, i32 3
   br label %return
 
 sw.default:                                       ; preds = %entry
   tail call void @_ZN6hermes12hermes_fatalEPKc(ptr noundef nonnull @.str.46) #17
   unreachable
 
-return:                                           ; preds = %if.end30, %lor.lhs.false37, %lor.lhs.false10, %land.lhs.true, %sw.bb2, %lor.lhs.false, %sw.bb4, %lor.lhs.false16, %sw.bb14, %lor.lhs.false27, %sw.bb25, %if.end35, %if.end19, %entry, %entry, %sw.bb1
-  %retval.0 = phi i32 [ 0, %sw.bb1 ], [ 3, %entry ], [ 3, %entry ], [ 0, %if.end19 ], [ 3, %if.end35 ], [ 3, %sw.bb25 ], [ 3, %lor.lhs.false27 ], [ 3, %sw.bb14 ], [ 3, %lor.lhs.false16 ], [ 3, %sw.bb4 ], [ 3, %lor.lhs.false ], [ 3, %sw.bb2 ], [ %spec.select1, %lor.lhs.false10 ], [ %spec.select2, %lor.lhs.false37 ], [ %spec.select, %land.lhs.true ], [ 0, %if.end30 ]
+sw.epilog:                                        ; preds = %sw.bb25, %lor.lhs.false27, %sw.bb14, %lor.lhs.false16, %sw.bb4, %lor.lhs.false, %sw.bb2, %land.lhs.true
+  br label %return
+
+return:                                           ; preds = %if.end30, %lor.lhs.false37, %lor.lhs.false10, %if.end35, %if.end19, %if.end8, %land.lhs.true, %entry, %entry, %sw.epilog, %sw.bb1
+  %retval.0 = phi i32 [ 3, %sw.epilog ], [ 0, %sw.bb1 ], [ 3, %entry ], [ 3, %entry ], [ 0, %land.lhs.true ], [ 3, %if.end8 ], [ 0, %if.end19 ], [ 3, %if.end35 ], [ %spec.select, %lor.lhs.false10 ], [ %spec.select1, %lor.lhs.false37 ], [ 0, %if.end30 ]
   ret i32 %retval.0
 }
 

@@ -997,7 +997,7 @@ _ZNK4YAML12EmitterState16CurGroupFlowTypeEv.exit.i: ; preds = %_ZN4YAML14Setting
   %flowType.i.i = getelementptr inbounds i8, ptr %15, i64 4
   %16 = load i32, ptr %flowType.i.i, align 4
   %cmp.i6 = icmp eq i32 %16, 1
-  br i1 %cmp.i6, label %invoke.cont14, label %if.end.i7
+  br i1 %cmp.i6, label %if.else, label %if.end.i7
 
 if.end.i7:                                        ; preds = %_ZNK4YAML12EmitterState16CurGroupFlowTypeEv.exit.i, %_ZN4YAML14SettingChangesaSEOS0_.exit
   %cmp2.i = icmp eq i32 %type, 1
@@ -1007,8 +1007,7 @@ if.end.i7:                                        ; preds = %_ZNK4YAML12EmitterS
   %18 = load i32, ptr %m_mapFmt.i, align 4
   %retval.0.i = select i1 %cmp2.i, i32 %17, i32 %18
   %cmp = icmp eq i32 %retval.0.i, 29
-  %spec.select = select i1 %cmp, i32 2, i32 1
-  br label %invoke.cont14
+  br i1 %cmp, label %invoke.cont14, label %if.else
 
 lpad8:                                            ; preds = %cond.true.i.i, %if.then.i.i13
   %19 = landingpad { ptr, i32 }
@@ -1016,8 +1015,11 @@ lpad8:                                            ; preds = %cond.true.i.i, %if.
   call void @_ZNSt10unique_ptrIN4YAML12EmitterState5GroupESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %pGroup) #14
   resume { ptr, i32 } %19
 
-invoke.cont14:                                    ; preds = %if.end.i7, %_ZNK4YAML12EmitterState16CurGroupFlowTypeEv.exit.i
-  %storemerge = phi i32 [ 1, %_ZNK4YAML12EmitterState16CurGroupFlowTypeEv.exit.i ], [ %spec.select, %if.end.i7 ]
+if.else:                                          ; preds = %_ZNK4YAML12EmitterState16CurGroupFlowTypeEv.exit.i, %if.end.i7
+  br label %invoke.cont14
+
+invoke.cont14:                                    ; preds = %if.end.i7, %if.else
+  %storemerge = phi i32 [ 1, %if.else ], [ 2, %if.end.i7 ]
   store i32 %storemerge, ptr %flowType.i, align 4
   %m_indent.i = getelementptr inbounds i8, ptr %this, i64 72
   %20 = load i64, ptr %m_indent.i, align 8
@@ -1054,8 +1056,8 @@ _ZNKSt6vectorISt10unique_ptrIN4YAML12EmitterState5GroupESt14default_deleteIS3_EE
   %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
   %add.i.i = add nsw i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
   %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i
-  %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %add.i.i, i64 1152921504606846975)
-  %cond.i.i = select i1 %cmp7.i.i, i64 1152921504606846975, i64 %spec.select.i.i
+  %23 = tail call i64 @llvm.umin.i64(i64 %add.i.i, i64 1152921504606846975)
+  %cond.i.i = select i1 %cmp7.i.i, i64 1152921504606846975, i64 %23
   %cmp.not.i.i12 = icmp eq i64 %cond.i.i, 0
   br i1 %cmp.not.i.i12, label %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML12EmitterState5GroupESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i, label %cond.true.i.i
 
@@ -1075,8 +1077,8 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
   %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %9, %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML12EmitterState5GroupESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !41)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !44)
-  %23 = load i64, ptr %__first.addr.06.i.i.i.i.i, align 8, !alias.scope !44, !noalias !41
-  store i64 %23, ptr %__cur.07.i.i.i.i.i, align 8, !alias.scope !41, !noalias !44
+  %24 = load i64, ptr %__first.addr.06.i.i.i.i.i, align 8, !alias.scope !44, !noalias !41
+  store i64 %24, ptr %__cur.07.i.i.i.i.i, align 8, !alias.scope !41, !noalias !44
   store ptr null, ptr %__first.addr.06.i.i.i.i.i, align 8, !alias.scope !44, !noalias !41
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 8
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 8
@@ -1746,8 +1748,8 @@ _ZNKSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EES
   %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
   %add.i.i = add nsw i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
   %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i
-  %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %add.i.i, i64 1152921504606846975)
-  %cond.i.i = select i1 %cmp7.i.i, i64 1152921504606846975, i64 %spec.select.i.i
+  %6 = tail call i64 @llvm.umin.i64(i64 %add.i.i, i64 1152921504606846975)
+  %cond.i.i = select i1 %cmp7.i.i, i64 1152921504606846975, i64 %6
   %cmp.not.i.i = icmp eq i64 %cond.i.i, 0
   br i1 %cmp.not.i.i, label %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i, label %cond.true.i.i
 
@@ -1759,8 +1761,8 @@ cond.true.i.i:                                    ; preds = %_ZNKSt6vectorISt10u
 _ZNSt12_Vector_baseISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i: ; preds = %cond.true.i.i, %_ZNKSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i
   %cond.i10.i = phi ptr [ null, %_ZNKSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i ], [ %call5.i.i.i.i40, %cond.true.i.i ]
   %add.ptr.i = getelementptr inbounds %"class.std::unique_ptr.11", ptr %cond.i10.i, i64 %sub.ptr.div.i.i.i
-  %6 = ptrtoint ptr %call.i to i64
-  store i64 %6, ptr %add.ptr.i, align 8
+  %7 = ptrtoint ptr %call.i to i64
+  store i64 %7, ptr %add.ptr.i, align 8
   %cmp.not5.i.i.i.i.i = icmp eq ptr %5, %1
   br i1 %cmp.not5.i.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i, label %for.body.i.i.i.i.i
 
@@ -1769,8 +1771,8 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
   %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %5, %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !50)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !53)
-  %7 = load i64, ptr %__first.addr.06.i.i.i.i.i, align 8, !alias.scope !53, !noalias !50
-  store i64 %7, ptr %__cur.07.i.i.i.i.i, align 8, !alias.scope !50, !noalias !53
+  %8 = load i64, ptr %__first.addr.06.i.i.i.i.i, align 8, !alias.scope !53, !noalias !50
+  store i64 %8, ptr %__cur.07.i.i.i.i.i, align 8, !alias.scope !50, !noalias !53
   store ptr null, ptr %__first.addr.06.i.i.i.i.i, align 8, !alias.scope !53, !noalias !50
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 8
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 8
@@ -1795,7 +1797,7 @@ if.then.i20.i:                                    ; preds = %_ZNSt6vectorISt10un
   br label %sw.epilog
 
 _ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit8: ; preds = %cond.true.i.i, %if.then.i.i
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
@@ -1810,33 +1812,33 @@ _ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit16:
   store i32 %value, ptr %m_oldSetting.i.i19, align 8, !noalias !59
   store i32 %value, ptr %fmt, align 4, !noalias !59
   %_M_finish.i.i.i20 = getelementptr inbounds i8, ptr %this, i64 160
-  %9 = load ptr, ptr %_M_finish.i.i.i20, align 8
+  %10 = load ptr, ptr %_M_finish.i.i.i20, align 8
   %_M_end_of_storage.i.i.i21 = getelementptr inbounds i8, ptr %this, i64 168
-  %10 = load ptr, ptr %_M_end_of_storage.i.i.i21, align 8
-  %cmp.not.i.i.i22 = icmp eq ptr %9, %10
+  %11 = load ptr, ptr %_M_end_of_storage.i.i.i21, align 8
+  %cmp.not.i.i.i22 = icmp eq ptr %10, %11
   br i1 %cmp.not.i.i.i22, label %if.else.i.i.i25, label %if.then.i.i.i23
 
 if.then.i.i.i23:                                  ; preds = %_ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit16
-  %11 = ptrtoint ptr %call.i17 to i64
-  store i64 %11, ptr %9, align 8
-  %12 = load ptr, ptr %_M_finish.i.i.i20, align 8
-  %incdec.ptr.i.i.i24 = getelementptr inbounds i8, ptr %12, i64 8
+  %12 = ptrtoint ptr %call.i17 to i64
+  store i64 %12, ptr %10, align 8
+  %13 = load ptr, ptr %_M_finish.i.i.i20, align 8
+  %incdec.ptr.i.i.i24 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %incdec.ptr.i.i.i24, ptr %_M_finish.i.i.i20, align 8
   br label %sw.epilog
 
 if.else.i.i.i25:                                  ; preds = %_ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit16
-  %13 = load ptr, ptr %m_globalModifiedSettings, align 8
-  %sub.ptr.lhs.cast.i.i.i42 = ptrtoint ptr %9 to i64
-  %sub.ptr.rhs.cast.i.i.i43 = ptrtoint ptr %13 to i64
+  %14 = load ptr, ptr %m_globalModifiedSettings, align 8
+  %sub.ptr.lhs.cast.i.i.i42 = ptrtoint ptr %10 to i64
+  %sub.ptr.rhs.cast.i.i.i43 = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i.i.i44 = sub i64 %sub.ptr.lhs.cast.i.i.i42, %sub.ptr.rhs.cast.i.i.i43
   %cmp.i.i45 = icmp eq i64 %sub.ptr.sub.i.i.i44, 9223372036854775800
-  br i1 %cmp.i.i45, label %if.then.i.i85, label %_ZNKSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i46
+  br i1 %cmp.i.i45, label %if.then.i.i84, label %_ZNKSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i46
 
-if.then.i.i85:                                    ; preds = %if.else.i.i.i25
+if.then.i.i84:                                    ; preds = %if.else.i.i.i25
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #18
-          to label %.noexc86 unwind label %_ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit37
+          to label %.noexc85 unwind label %_ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit37
 
-.noexc86:                                         ; preds = %if.then.i.i85
+.noexc85:                                         ; preds = %if.then.i.i84
   unreachable
 
 _ZNKSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i46: ; preds = %if.else.i.i.i25
@@ -1844,56 +1846,56 @@ _ZNKSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EES
   %.sroa.speculated.i.i48 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i47, i64 1)
   %add.i.i49 = add nsw i64 %.sroa.speculated.i.i48, %sub.ptr.div.i.i.i47
   %cmp7.i.i50 = icmp ult i64 %add.i.i49, %sub.ptr.div.i.i.i47
-  %spec.select.i.i51 = tail call i64 @llvm.umin.i64(i64 %add.i.i49, i64 1152921504606846975)
-  %cond.i.i52 = select i1 %cmp7.i.i50, i64 1152921504606846975, i64 %spec.select.i.i51
-  %cmp.not.i.i56 = icmp eq i64 %cond.i.i52, 0
-  br i1 %cmp.not.i.i56, label %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i59, label %cond.true.i.i57
+  %15 = tail call i64 @llvm.umin.i64(i64 %add.i.i49, i64 1152921504606846975)
+  %cond.i.i51 = select i1 %cmp7.i.i50, i64 1152921504606846975, i64 %15
+  %cmp.not.i.i55 = icmp eq i64 %cond.i.i51, 0
+  br i1 %cmp.not.i.i55, label %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i58, label %cond.true.i.i56
 
-cond.true.i.i57:                                  ; preds = %_ZNKSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i46
-  %mul.i.i.i.i58 = shl nuw nsw i64 %cond.i.i52, 3
-  %call5.i.i.i.i88 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i58) #17
-          to label %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i59 unwind label %_ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit37
+cond.true.i.i56:                                  ; preds = %_ZNKSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i46
+  %mul.i.i.i.i57 = shl nuw nsw i64 %cond.i.i51, 3
+  %call5.i.i.i.i87 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i57) #17
+          to label %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i58 unwind label %_ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit37
 
-_ZNSt12_Vector_baseISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i59: ; preds = %cond.true.i.i57, %_ZNKSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i46
-  %cond.i10.i60 = phi ptr [ null, %_ZNKSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i46 ], [ %call5.i.i.i.i88, %cond.true.i.i57 ]
-  %add.ptr.i61 = getelementptr inbounds %"class.std::unique_ptr.11", ptr %cond.i10.i60, i64 %sub.ptr.div.i.i.i47
-  %14 = ptrtoint ptr %call.i17 to i64
-  store i64 %14, ptr %add.ptr.i61, align 8
-  %cmp.not5.i.i.i.i.i62 = icmp eq ptr %13, %9
-  br i1 %cmp.not5.i.i.i.i.i62, label %_ZNSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i79, label %for.body.i.i.i.i.i63
+_ZNSt12_Vector_baseISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i58: ; preds = %cond.true.i.i56, %_ZNKSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i46
+  %cond.i10.i59 = phi ptr [ null, %_ZNKSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i46 ], [ %call5.i.i.i.i87, %cond.true.i.i56 ]
+  %add.ptr.i60 = getelementptr inbounds %"class.std::unique_ptr.11", ptr %cond.i10.i59, i64 %sub.ptr.div.i.i.i47
+  %16 = ptrtoint ptr %call.i17 to i64
+  store i64 %16, ptr %add.ptr.i60, align 8
+  %cmp.not5.i.i.i.i.i61 = icmp eq ptr %14, %10
+  br i1 %cmp.not5.i.i.i.i.i61, label %_ZNSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i78, label %for.body.i.i.i.i.i62
 
-for.body.i.i.i.i.i63:                             ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i59, %for.body.i.i.i.i.i63
-  %__cur.07.i.i.i.i.i64 = phi ptr [ %incdec.ptr1.i.i.i.i.i67, %for.body.i.i.i.i.i63 ], [ %cond.i10.i60, %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i59 ]
-  %__first.addr.06.i.i.i.i.i65 = phi ptr [ %incdec.ptr.i.i.i.i.i66, %for.body.i.i.i.i.i63 ], [ %13, %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i59 ]
+for.body.i.i.i.i.i62:                             ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i58, %for.body.i.i.i.i.i62
+  %__cur.07.i.i.i.i.i63 = phi ptr [ %incdec.ptr1.i.i.i.i.i66, %for.body.i.i.i.i.i62 ], [ %cond.i10.i59, %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i58 ]
+  %__first.addr.06.i.i.i.i.i64 = phi ptr [ %incdec.ptr.i.i.i.i.i65, %for.body.i.i.i.i.i62 ], [ %14, %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i58 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !62)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !65)
-  %15 = load i64, ptr %__first.addr.06.i.i.i.i.i65, align 8, !alias.scope !65, !noalias !62
-  store i64 %15, ptr %__cur.07.i.i.i.i.i64, align 8, !alias.scope !62, !noalias !65
-  store ptr null, ptr %__first.addr.06.i.i.i.i.i65, align 8, !alias.scope !65, !noalias !62
-  %incdec.ptr.i.i.i.i.i66 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i65, i64 8
-  %incdec.ptr1.i.i.i.i.i67 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i64, i64 8
-  %cmp.not.i.i.i.i.i68 = icmp eq ptr %incdec.ptr.i.i.i.i.i66, %9
-  br i1 %cmp.not.i.i.i.i.i68, label %_ZNSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i79, label %for.body.i.i.i.i.i63, !llvm.loop !55
+  %17 = load i64, ptr %__first.addr.06.i.i.i.i.i64, align 8, !alias.scope !65, !noalias !62
+  store i64 %17, ptr %__cur.07.i.i.i.i.i63, align 8, !alias.scope !62, !noalias !65
+  store ptr null, ptr %__first.addr.06.i.i.i.i.i64, align 8, !alias.scope !65, !noalias !62
+  %incdec.ptr.i.i.i.i.i65 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i64, i64 8
+  %incdec.ptr1.i.i.i.i.i66 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i63, i64 8
+  %cmp.not.i.i.i.i.i67 = icmp eq ptr %incdec.ptr.i.i.i.i.i65, %10
+  br i1 %cmp.not.i.i.i.i.i67, label %_ZNSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i78, label %for.body.i.i.i.i.i62, !llvm.loop !55
 
-_ZNSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i79: ; preds = %for.body.i.i.i.i.i63, %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i59
-  %__cur.0.lcssa.i.i.i.i.i70 = phi ptr [ %cond.i10.i60, %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i59 ], [ %incdec.ptr1.i.i.i.i.i67, %for.body.i.i.i.i.i63 ]
-  %incdec.ptr.i71 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i70, i64 8
-  %tobool.not.i.i81 = icmp eq ptr %13, null
-  br i1 %tobool.not.i.i81, label %.noexc26, label %if.then.i20.i82
+_ZNSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i78: ; preds = %for.body.i.i.i.i.i62, %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i58
+  %__cur.0.lcssa.i.i.i.i.i69 = phi ptr [ %cond.i10.i59, %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i58 ], [ %incdec.ptr1.i.i.i.i.i66, %for.body.i.i.i.i.i62 ]
+  %incdec.ptr.i70 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i69, i64 8
+  %tobool.not.i.i80 = icmp eq ptr %14, null
+  br i1 %tobool.not.i.i80, label %.noexc26, label %if.then.i20.i81
 
-if.then.i20.i82:                                  ; preds = %_ZNSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i79
-  tail call void @_ZdlPv(ptr noundef nonnull %13) #16
+if.then.i20.i81:                                  ; preds = %_ZNSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i78
+  tail call void @_ZdlPv(ptr noundef nonnull %14) #16
   br label %.noexc26
 
-.noexc26:                                         ; preds = %if.then.i20.i82, %_ZNSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i79
-  store ptr %cond.i10.i60, ptr %m_globalModifiedSettings, align 8
-  store ptr %incdec.ptr.i71, ptr %_M_finish.i.i.i20, align 8
-  %add.ptr19.i84 = getelementptr inbounds %"class.std::unique_ptr.11", ptr %cond.i10.i60, i64 %cond.i.i52
-  store ptr %add.ptr19.i84, ptr %_M_end_of_storage.i.i.i21, align 8
+.noexc26:                                         ; preds = %if.then.i20.i81, %_ZNSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i78
+  store ptr %cond.i10.i59, ptr %m_globalModifiedSettings, align 8
+  store ptr %incdec.ptr.i70, ptr %_M_finish.i.i.i20, align 8
+  %add.ptr19.i83 = getelementptr inbounds %"class.std::unique_ptr.11", ptr %cond.i10.i59, i64 %cond.i.i51
+  store ptr %add.ptr19.i83, ptr %_M_end_of_storage.i.i.i21, align 8
   br label %sw.epilog
 
-_ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit37: ; preds = %cond.true.i.i57, %if.then.i.i85
-  %16 = landingpad { ptr, i32 }
+_ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit37: ; preds = %cond.true.i.i56, %if.then.i.i84
+  %18 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
@@ -1901,12 +1903,12 @@ sw.epilog:                                        ; preds = %.noexc26, %if.then.
   ret void
 
 eh.resume:                                        ; preds = %_ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit37, %_ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit8
-  %call.i17.sink96 = phi ptr [ %call.i17, %_ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit37 ], [ %call.i, %_ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit8 ]
-  %.pn = phi { ptr, i32 } [ %16, %_ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit37 ], [ %8, %_ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit8 ]
-  %vtable.i.i35 = load ptr, ptr %call.i17.sink96, align 8
+  %call.i17.sink95 = phi ptr [ %call.i17, %_ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit37 ], [ %call.i, %_ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit8 ]
+  %.pn = phi { ptr, i32 } [ %18, %_ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit37 ], [ %9, %_ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit8 ]
+  %vtable.i.i35 = load ptr, ptr %call.i17.sink95, align 8
   %vfn.i.i36 = getelementptr inbounds i8, ptr %vtable.i.i35, i64 8
-  %17 = load ptr, ptr %vfn.i.i36, align 8
-  tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %call.i17.sink96) #14
+  %19 = load ptr, ptr %vfn.i.i36, align 8
+  tail call void %19(ptr noundef nonnull align 8 dereferenceable(8) %call.i17.sink95) #14
   resume { ptr, i32 } %.pn
 }
 
@@ -1978,8 +1980,8 @@ _ZNKSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EES
   %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
   %add.i.i = add nsw i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
   %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i
-  %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %add.i.i, i64 1152921504606846975)
-  %cond.i.i = select i1 %cmp7.i.i, i64 1152921504606846975, i64 %spec.select.i.i
+  %6 = tail call i64 @llvm.umin.i64(i64 %add.i.i, i64 1152921504606846975)
+  %cond.i.i = select i1 %cmp7.i.i, i64 1152921504606846975, i64 %6
   %cmp.not.i.i = icmp eq i64 %cond.i.i, 0
   br i1 %cmp.not.i.i, label %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i, label %cond.true.i.i
 
@@ -1991,8 +1993,8 @@ cond.true.i.i:                                    ; preds = %_ZNKSt6vectorISt10u
 _ZNSt12_Vector_baseISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i: ; preds = %cond.true.i.i, %_ZNKSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i
   %cond.i10.i = phi ptr [ null, %_ZNKSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i ], [ %call5.i.i.i.i40, %cond.true.i.i ]
   %add.ptr.i = getelementptr inbounds %"class.std::unique_ptr.11", ptr %cond.i10.i, i64 %sub.ptr.div.i.i.i
-  %6 = ptrtoint ptr %call.i to i64
-  store i64 %6, ptr %add.ptr.i, align 8
+  %7 = ptrtoint ptr %call.i to i64
+  store i64 %7, ptr %add.ptr.i, align 8
   %cmp.not5.i.i.i.i.i = icmp eq ptr %5, %1
   br i1 %cmp.not5.i.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i, label %for.body.i.i.i.i.i
 
@@ -2001,8 +2003,8 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
   %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %5, %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !70)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !73)
-  %7 = load i64, ptr %__first.addr.06.i.i.i.i.i, align 8, !alias.scope !73, !noalias !70
-  store i64 %7, ptr %__cur.07.i.i.i.i.i, align 8, !alias.scope !70, !noalias !73
+  %8 = load i64, ptr %__first.addr.06.i.i.i.i.i, align 8, !alias.scope !73, !noalias !70
+  store i64 %8, ptr %__cur.07.i.i.i.i.i, align 8, !alias.scope !70, !noalias !73
   store ptr null, ptr %__first.addr.06.i.i.i.i.i, align 8, !alias.scope !73, !noalias !70
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 8
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 8
@@ -2027,7 +2029,7 @@ if.then.i20.i:                                    ; preds = %_ZNSt6vectorISt10un
   br label %sw.epilog
 
 _ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit8: ; preds = %cond.true.i.i, %if.then.i.i
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
@@ -2042,33 +2044,33 @@ _ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit16:
   store i64 %value, ptr %m_oldSetting.i.i19, align 8, !noalias !78
   store i64 %value, ptr %fmt, align 8, !noalias !78
   %_M_finish.i.i.i20 = getelementptr inbounds i8, ptr %this, i64 160
-  %9 = load ptr, ptr %_M_finish.i.i.i20, align 8
+  %10 = load ptr, ptr %_M_finish.i.i.i20, align 8
   %_M_end_of_storage.i.i.i21 = getelementptr inbounds i8, ptr %this, i64 168
-  %10 = load ptr, ptr %_M_end_of_storage.i.i.i21, align 8
-  %cmp.not.i.i.i22 = icmp eq ptr %9, %10
+  %11 = load ptr, ptr %_M_end_of_storage.i.i.i21, align 8
+  %cmp.not.i.i.i22 = icmp eq ptr %10, %11
   br i1 %cmp.not.i.i.i22, label %if.else.i.i.i25, label %if.then.i.i.i23
 
 if.then.i.i.i23:                                  ; preds = %_ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit16
-  %11 = ptrtoint ptr %call.i17 to i64
-  store i64 %11, ptr %9, align 8
-  %12 = load ptr, ptr %_M_finish.i.i.i20, align 8
-  %incdec.ptr.i.i.i24 = getelementptr inbounds i8, ptr %12, i64 8
+  %12 = ptrtoint ptr %call.i17 to i64
+  store i64 %12, ptr %10, align 8
+  %13 = load ptr, ptr %_M_finish.i.i.i20, align 8
+  %incdec.ptr.i.i.i24 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %incdec.ptr.i.i.i24, ptr %_M_finish.i.i.i20, align 8
   br label %sw.epilog
 
 if.else.i.i.i25:                                  ; preds = %_ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit16
-  %13 = load ptr, ptr %m_globalModifiedSettings, align 8
-  %sub.ptr.lhs.cast.i.i.i42 = ptrtoint ptr %9 to i64
-  %sub.ptr.rhs.cast.i.i.i43 = ptrtoint ptr %13 to i64
+  %14 = load ptr, ptr %m_globalModifiedSettings, align 8
+  %sub.ptr.lhs.cast.i.i.i42 = ptrtoint ptr %10 to i64
+  %sub.ptr.rhs.cast.i.i.i43 = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i.i.i44 = sub i64 %sub.ptr.lhs.cast.i.i.i42, %sub.ptr.rhs.cast.i.i.i43
   %cmp.i.i45 = icmp eq i64 %sub.ptr.sub.i.i.i44, 9223372036854775800
-  br i1 %cmp.i.i45, label %if.then.i.i85, label %_ZNKSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i46
+  br i1 %cmp.i.i45, label %if.then.i.i84, label %_ZNKSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i46
 
-if.then.i.i85:                                    ; preds = %if.else.i.i.i25
+if.then.i.i84:                                    ; preds = %if.else.i.i.i25
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #18
-          to label %.noexc86 unwind label %_ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit37
+          to label %.noexc85 unwind label %_ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit37
 
-.noexc86:                                         ; preds = %if.then.i.i85
+.noexc85:                                         ; preds = %if.then.i.i84
   unreachable
 
 _ZNKSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i46: ; preds = %if.else.i.i.i25
@@ -2076,56 +2078,56 @@ _ZNKSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EES
   %.sroa.speculated.i.i48 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i47, i64 1)
   %add.i.i49 = add nsw i64 %.sroa.speculated.i.i48, %sub.ptr.div.i.i.i47
   %cmp7.i.i50 = icmp ult i64 %add.i.i49, %sub.ptr.div.i.i.i47
-  %spec.select.i.i51 = tail call i64 @llvm.umin.i64(i64 %add.i.i49, i64 1152921504606846975)
-  %cond.i.i52 = select i1 %cmp7.i.i50, i64 1152921504606846975, i64 %spec.select.i.i51
-  %cmp.not.i.i56 = icmp eq i64 %cond.i.i52, 0
-  br i1 %cmp.not.i.i56, label %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i59, label %cond.true.i.i57
+  %15 = tail call i64 @llvm.umin.i64(i64 %add.i.i49, i64 1152921504606846975)
+  %cond.i.i51 = select i1 %cmp7.i.i50, i64 1152921504606846975, i64 %15
+  %cmp.not.i.i55 = icmp eq i64 %cond.i.i51, 0
+  br i1 %cmp.not.i.i55, label %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i58, label %cond.true.i.i56
 
-cond.true.i.i57:                                  ; preds = %_ZNKSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i46
-  %mul.i.i.i.i58 = shl nuw nsw i64 %cond.i.i52, 3
-  %call5.i.i.i.i88 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i58) #17
-          to label %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i59 unwind label %_ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit37
+cond.true.i.i56:                                  ; preds = %_ZNKSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i46
+  %mul.i.i.i.i57 = shl nuw nsw i64 %cond.i.i51, 3
+  %call5.i.i.i.i87 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i57) #17
+          to label %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i58 unwind label %_ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit37
 
-_ZNSt12_Vector_baseISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i59: ; preds = %cond.true.i.i57, %_ZNKSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i46
-  %cond.i10.i60 = phi ptr [ null, %_ZNKSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i46 ], [ %call5.i.i.i.i88, %cond.true.i.i57 ]
-  %add.ptr.i61 = getelementptr inbounds %"class.std::unique_ptr.11", ptr %cond.i10.i60, i64 %sub.ptr.div.i.i.i47
-  %14 = ptrtoint ptr %call.i17 to i64
-  store i64 %14, ptr %add.ptr.i61, align 8
-  %cmp.not5.i.i.i.i.i62 = icmp eq ptr %13, %9
-  br i1 %cmp.not5.i.i.i.i.i62, label %_ZNSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i79, label %for.body.i.i.i.i.i63
+_ZNSt12_Vector_baseISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i58: ; preds = %cond.true.i.i56, %_ZNKSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i46
+  %cond.i10.i59 = phi ptr [ null, %_ZNKSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i46 ], [ %call5.i.i.i.i87, %cond.true.i.i56 ]
+  %add.ptr.i60 = getelementptr inbounds %"class.std::unique_ptr.11", ptr %cond.i10.i59, i64 %sub.ptr.div.i.i.i47
+  %16 = ptrtoint ptr %call.i17 to i64
+  store i64 %16, ptr %add.ptr.i60, align 8
+  %cmp.not5.i.i.i.i.i61 = icmp eq ptr %14, %10
+  br i1 %cmp.not5.i.i.i.i.i61, label %_ZNSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i78, label %for.body.i.i.i.i.i62
 
-for.body.i.i.i.i.i63:                             ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i59, %for.body.i.i.i.i.i63
-  %__cur.07.i.i.i.i.i64 = phi ptr [ %incdec.ptr1.i.i.i.i.i67, %for.body.i.i.i.i.i63 ], [ %cond.i10.i60, %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i59 ]
-  %__first.addr.06.i.i.i.i.i65 = phi ptr [ %incdec.ptr.i.i.i.i.i66, %for.body.i.i.i.i.i63 ], [ %13, %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i59 ]
+for.body.i.i.i.i.i62:                             ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i58, %for.body.i.i.i.i.i62
+  %__cur.07.i.i.i.i.i63 = phi ptr [ %incdec.ptr1.i.i.i.i.i66, %for.body.i.i.i.i.i62 ], [ %cond.i10.i59, %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i58 ]
+  %__first.addr.06.i.i.i.i.i64 = phi ptr [ %incdec.ptr.i.i.i.i.i65, %for.body.i.i.i.i.i62 ], [ %14, %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i58 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !81)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !84)
-  %15 = load i64, ptr %__first.addr.06.i.i.i.i.i65, align 8, !alias.scope !84, !noalias !81
-  store i64 %15, ptr %__cur.07.i.i.i.i.i64, align 8, !alias.scope !81, !noalias !84
-  store ptr null, ptr %__first.addr.06.i.i.i.i.i65, align 8, !alias.scope !84, !noalias !81
-  %incdec.ptr.i.i.i.i.i66 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i65, i64 8
-  %incdec.ptr1.i.i.i.i.i67 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i64, i64 8
-  %cmp.not.i.i.i.i.i68 = icmp eq ptr %incdec.ptr.i.i.i.i.i66, %9
-  br i1 %cmp.not.i.i.i.i.i68, label %_ZNSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i79, label %for.body.i.i.i.i.i63, !llvm.loop !55
+  %17 = load i64, ptr %__first.addr.06.i.i.i.i.i64, align 8, !alias.scope !84, !noalias !81
+  store i64 %17, ptr %__cur.07.i.i.i.i.i63, align 8, !alias.scope !81, !noalias !84
+  store ptr null, ptr %__first.addr.06.i.i.i.i.i64, align 8, !alias.scope !84, !noalias !81
+  %incdec.ptr.i.i.i.i.i65 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i64, i64 8
+  %incdec.ptr1.i.i.i.i.i66 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i63, i64 8
+  %cmp.not.i.i.i.i.i67 = icmp eq ptr %incdec.ptr.i.i.i.i.i65, %10
+  br i1 %cmp.not.i.i.i.i.i67, label %_ZNSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i78, label %for.body.i.i.i.i.i62, !llvm.loop !55
 
-_ZNSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i79: ; preds = %for.body.i.i.i.i.i63, %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i59
-  %__cur.0.lcssa.i.i.i.i.i70 = phi ptr [ %cond.i10.i60, %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i59 ], [ %incdec.ptr1.i.i.i.i.i67, %for.body.i.i.i.i.i63 ]
-  %incdec.ptr.i71 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i70, i64 8
-  %tobool.not.i.i81 = icmp eq ptr %13, null
-  br i1 %tobool.not.i.i81, label %.noexc26, label %if.then.i20.i82
+_ZNSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i78: ; preds = %for.body.i.i.i.i.i62, %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i58
+  %__cur.0.lcssa.i.i.i.i.i69 = phi ptr [ %cond.i10.i59, %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i58 ], [ %incdec.ptr1.i.i.i.i.i66, %for.body.i.i.i.i.i62 ]
+  %incdec.ptr.i70 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i69, i64 8
+  %tobool.not.i.i80 = icmp eq ptr %14, null
+  br i1 %tobool.not.i.i80, label %.noexc26, label %if.then.i20.i81
 
-if.then.i20.i82:                                  ; preds = %_ZNSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i79
-  tail call void @_ZdlPv(ptr noundef nonnull %13) #16
+if.then.i20.i81:                                  ; preds = %_ZNSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i78
+  tail call void @_ZdlPv(ptr noundef nonnull %14) #16
   br label %.noexc26
 
-.noexc26:                                         ; preds = %if.then.i20.i82, %_ZNSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i79
-  store ptr %cond.i10.i60, ptr %m_globalModifiedSettings, align 8
-  store ptr %incdec.ptr.i71, ptr %_M_finish.i.i.i20, align 8
-  %add.ptr19.i84 = getelementptr inbounds %"class.std::unique_ptr.11", ptr %cond.i10.i60, i64 %cond.i.i52
-  store ptr %add.ptr19.i84, ptr %_M_end_of_storage.i.i.i21, align 8
+.noexc26:                                         ; preds = %if.then.i20.i81, %_ZNSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i78
+  store ptr %cond.i10.i59, ptr %m_globalModifiedSettings, align 8
+  store ptr %incdec.ptr.i70, ptr %_M_finish.i.i.i20, align 8
+  %add.ptr19.i83 = getelementptr inbounds %"class.std::unique_ptr.11", ptr %cond.i10.i59, i64 %cond.i.i51
+  store ptr %add.ptr19.i83, ptr %_M_end_of_storage.i.i.i21, align 8
   br label %sw.epilog
 
-_ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit37: ; preds = %cond.true.i.i57, %if.then.i.i85
-  %16 = landingpad { ptr, i32 }
+_ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit37: ; preds = %cond.true.i.i56, %if.then.i.i84
+  %18 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
@@ -2133,12 +2135,12 @@ sw.epilog:                                        ; preds = %.noexc26, %if.then.
   ret void
 
 eh.resume:                                        ; preds = %_ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit37, %_ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit8
-  %call.i17.sink96 = phi ptr [ %call.i17, %_ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit37 ], [ %call.i, %_ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit8 ]
-  %.pn = phi { ptr, i32 } [ %16, %_ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit37 ], [ %8, %_ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit8 ]
-  %vtable.i.i35 = load ptr, ptr %call.i17.sink96, align 8
+  %call.i17.sink95 = phi ptr [ %call.i17, %_ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit37 ], [ %call.i, %_ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit8 ]
+  %.pn = phi { ptr, i32 } [ %18, %_ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit37 ], [ %9, %_ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit8 ]
+  %vtable.i.i35 = load ptr, ptr %call.i17.sink95, align 8
   %vfn.i.i36 = getelementptr inbounds i8, ptr %vtable.i.i35, i64 8
-  %17 = load ptr, ptr %vfn.i.i36, align 8
-  tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %call.i17.sink96) #14
+  %19 = load ptr, ptr %vfn.i.i36, align 8
+  tail call void %19(ptr noundef nonnull align 8 dereferenceable(8) %call.i17.sink95) #14
   resume { ptr, i32 } %.pn
 }
 

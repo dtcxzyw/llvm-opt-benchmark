@@ -82692,7 +82692,7 @@ entry:
   %add = add i64 %0, 4
   %1 = xor i64 %sub, %add
   %cmp2 = icmp ult i64 %1, 4096
-  br i1 %cmp2, label %if.then, label %if.end15
+  br i1 %cmp2, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   %2 = getelementptr i8, ptr %ctx, i64 144
@@ -82710,11 +82710,13 @@ if.then:                                          ; preds = %entry
   %5 = select i1 %3, i1 %4, i1 false
   %6 = icmp eq i32 %call1.i17, 1081102355
   %7 = select i1 %5, i1 %6, i1 false
-  %spec.select = select i1 %7, i32 16, i32 3
+  br i1 %7, label %if.end15, label %if.else
+
+if.else:                                          ; preds = %entry, %if.then
   br label %if.end15
 
-if.end15:                                         ; preds = %if.then, %entry
-  %.sink = phi i32 [ 3, %entry ], [ %spec.select, %if.then ]
+if.end15:                                         ; preds = %if.then, %if.else
+  %.sink = phi i32 [ 3, %if.else ], [ 16, %if.then ]
   tail call fastcc void @generate_exception(ptr noundef nonnull %ctx, i32 noundef %.sink)
   ret void
 }

@@ -988,55 +988,55 @@ match_owner_name_mbs.exit.thread:                 ; preds = %65, %49, %45, %.pre
   %.not17.i41 = icmp eq ptr %.016.i40, null
   br i1 %.not17.i41, label %match_owner_name_mbs.exit48.thread, label %.lr.ph.i42
 
-.lr.ph.i42:                                       ; preds = %.preheader.i39, %92
-  %.018.i43 = phi ptr [ %.0.i45, %92 ], [ %.016.i40, %.preheader.i39 ]
+.lr.ph.i42:                                       ; preds = %.preheader.i39, %93
+  %.018.i43 = phi ptr [ %.0.i45, %93 ], [ %.016.i40, %.preheader.i39 ]
   %80 = getelementptr inbounds i8, ptr %.018.i43, i64 16
   %81 = call i32 @archive_mstring_get_mbs(ptr noundef %0, ptr noundef nonnull %80, ptr noundef nonnull %3) #13
   %82 = icmp slt i32 %81, 0
-  br i1 %82, label %83, label %87
+  br i1 %82, label %83, label %88
 
 83:                                               ; preds = %.lr.ph.i42
   %84 = tail call ptr @__errno_location() #14
   %85 = load i32, ptr %84, align 4
   %86 = icmp eq i32 %85, 12
-  br i1 %86, label %97, label %87
+  br i1 %86, label %.thread58, label %88
 
-87:                                               ; preds = %83, %.lr.ph.i42
-  %88 = load ptr, ptr %3, align 8
-  %.not13.i44 = icmp eq ptr %88, null
-  br i1 %.not13.i44, label %92, label %89
+.thread58:                                        ; preds = %83
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 12, ptr noundef nonnull @.str.32) #13
+  %87 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 32768, ptr %87, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  br label %match_owner_id.exit.thread
 
-89:                                               ; preds = %87
-  %90 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %88, ptr noundef nonnull dereferenceable(1) %75) #15
-  %91 = icmp eq i32 %90, 0
-  br i1 %91, label %93, label %92
+88:                                               ; preds = %83, %.lr.ph.i42
+  %89 = load ptr, ptr %3, align 8
+  %.not13.i44 = icmp eq ptr %89, null
+  br i1 %.not13.i44, label %93, label %90
 
-92:                                               ; preds = %89, %87
+90:                                               ; preds = %88
+  %91 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %89, ptr noundef nonnull dereferenceable(1) %75) #15
+  %92 = icmp eq i32 %91, 0
+  br i1 %92, label %94, label %93
+
+93:                                               ; preds = %90, %88
   %.0.i45 = load ptr, ptr %.018.i43, align 8
   %.not.i46 = icmp eq ptr %.0.i45, null
   br i1 %.not.i46, label %match_owner_name_mbs.exit48.thread, label %.lr.ph.i42, !llvm.loop !14
 
-match_owner_name_mbs.exit48.thread:               ; preds = %92, %77, %73, %.preheader.i39
+match_owner_name_mbs.exit48.thread:               ; preds = %93, %77, %73, %.preheader.i39
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %match_owner_id.exit.thread
 
-93:                                               ; preds = %89
-  %94 = getelementptr inbounds i8, ptr %.018.i43, i64 8
-  %95 = load i32, ptr %94, align 8
-  %96 = add nsw i32 %95, 1
-  store i32 %96, ptr %94, align 8
+94:                                               ; preds = %90
+  %95 = getelementptr inbounds i8, ptr %.018.i43, i64 8
+  %96 = load i32, ptr %95, align 8
+  %97 = add nsw i32 %96, 1
+  store i32 %97, ptr %95, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %match_owner_id.exit.thread
 
-97:                                               ; preds = %83
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 12, ptr noundef nonnull @.str.32) #13
-  %98 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 32768, ptr %98, align 4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br label %match_owner_id.exit.thread
-
-match_owner_id.exit.thread:                       ; preds = %20, %39, %26, %7, %97, %93, %match_owner_name_mbs.exit48.thread, %.thread, %match_owner_name_mbs.exit.thread, %70
-  %.0 = phi i32 [ 0, %70 ], [ 1, %match_owner_name_mbs.exit.thread ], [ -30, %.thread ], [ 1, %match_owner_name_mbs.exit48.thread ], [ -30, %97 ], [ 0, %93 ], [ 1, %7 ], [ 1, %26 ], [ 1, %39 ], [ 1, %20 ]
+match_owner_id.exit.thread:                       ; preds = %20, %39, %26, %7, %70, %94, %.thread58, %match_owner_name_mbs.exit48.thread, %.thread, %match_owner_name_mbs.exit.thread
+  %.0 = phi i32 [ 1, %match_owner_name_mbs.exit.thread ], [ -30, %.thread ], [ 1, %match_owner_name_mbs.exit48.thread ], [ -30, %.thread58 ], [ 0, %94 ], [ 0, %70 ], [ 1, %7 ], [ 1, %26 ], [ 1, %39 ], [ 1, %20 ]
   ret i32 %.0
 }
 

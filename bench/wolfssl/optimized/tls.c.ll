@@ -2201,8 +2201,8 @@ if.end3.i.i:                                      ; preds = %if.then6.i
   store ptr null, ptr %next.i.i24, align 8
   br label %return
 
-return:                                           ; preds = %while.cond.i, %while.body.i19, %do.body.i, %if.then5.i, %if.end, %if.then6.i, %if.end3.i.i, %if.then5, %if.then16, %entry
-  %retval.0 = phi i32 [ -173, %entry ], [ -125, %if.then16 ], [ -125, %if.then5 ], [ -125, %if.then6.i ], [ 1, %if.end3.i.i ], [ -173, %if.end ], [ 1, %if.then5.i ], [ 1, %do.body.i ], [ 1, %while.body.i19 ], [ -173, %while.cond.i ]
+return:                                           ; preds = %while.body.i19, %while.cond.i, %do.body.i, %if.end3.i.i, %if.then5.i, %if.end, %if.then6.i, %if.then5, %if.then16, %entry
+  %retval.0 = phi i32 [ -173, %entry ], [ -125, %if.then16 ], [ -125, %if.then5 ], [ -125, %if.then6.i ], [ -173, %if.end ], [ 1, %if.then5.i ], [ 1, %if.end3.i.i ], [ 1, %do.body.i ], [ 1, %while.body.i19 ], [ -173, %while.cond.i ]
   ret i32 %retval.0
 }
 
@@ -2347,20 +2347,24 @@ if.end33:                                         ; preds = %if.end27
   %minDhKeySz = getelementptr inbounds i8, ptr %ssl, i64 1032
   %4 = load i16, ptr %minDhKeySz, align 8
   %cmp35 = icmp ult i16 %4, 257
-  br i1 %cmp35, label %land.lhs.true, label %return
+  br i1 %cmp35, label %land.lhs.true, label %if.end48
 
 land.lhs.true:                                    ; preds = %if.end33
   %maxDhKeySz = getelementptr inbounds i8, ptr %ssl, i64 1034
   %5 = load i16, ptr %maxDhKeySz, align 2
   %cmp39 = icmp ugt i16 %5, 255
-  br i1 %cmp39, label %if.then41, label %return
+  br i1 %cmp39, label %if.then41, label %if.end48
 
 if.then41:                                        ; preds = %land.lhs.true
   %call43 = tail call i32 @TLSX_UseSupportedCurve(ptr noundef %extensions, i16 noundef zeroext 256, ptr poison)
+  %cmp44.not = icmp eq i32 %call43, 1
+  br i1 %cmp44.not, label %if.end48, label %return
+
+if.end48:                                         ; preds = %if.then41, %land.lhs.true, %if.end33
   br label %return
 
-return:                                           ; preds = %for.body, %for.cond, %if.then41, %if.end33, %land.lhs.true, %if.end27, %if.end21, %if.end15, %if.end9
-  %retval.0 = phi i32 [ %call11, %if.end9 ], [ %call17, %if.end15 ], [ %call23, %if.end21 ], [ %call29, %if.end27 ], [ 1, %land.lhs.true ], [ 1, %if.end33 ], [ %call43, %if.then41 ], [ %call, %for.body ], [ 1, %for.cond ]
+return:                                           ; preds = %for.body, %for.cond, %if.then41, %if.end27, %if.end21, %if.end15, %if.end9, %if.end48
+  %retval.0 = phi i32 [ 1, %if.end48 ], [ %call11, %if.end9 ], [ %call17, %if.end15 ], [ %call23, %if.end21 ], [ %call29, %if.end27 ], [ %call43, %if.then41 ], [ %call, %for.body ], [ 1, %for.cond ]
   ret i32 %retval.0
 }
 
@@ -3217,8 +3221,8 @@ if.end3.i.i:                                      ; preds = %if.then6.i
   store ptr null, ptr %next.i.i22, align 8
   br label %return
 
-return:                                           ; preds = %while.cond.i, %while.body.i17, %do.body.i, %if.then5.i, %if.then6.i, %if.end3.i.i, %if.then1, %if.then10, %entry
-  %retval.0 = phi i32 [ -173, %entry ], [ -125, %if.then10 ], [ -125, %if.then1 ], [ -125, %if.then6.i ], [ 1, %if.end3.i.i ], [ 1, %if.then5.i ], [ 1, %do.body.i ], [ 1, %while.body.i17 ], [ -173, %while.cond.i ]
+return:                                           ; preds = %while.body.i17, %while.cond.i, %do.body.i, %if.end3.i.i, %if.then5.i, %if.then6.i, %if.then1, %if.then10, %entry
+  %retval.0 = phi i32 [ -173, %entry ], [ -125, %if.then10 ], [ -125, %if.then1 ], [ -125, %if.then6.i ], [ 1, %if.then5.i ], [ 1, %if.end3.i.i ], [ 1, %do.body.i ], [ 1, %while.body.i17 ], [ -173, %while.cond.i ]
   ret i32 %retval.0
 }
 
@@ -5668,8 +5672,8 @@ declare i32 @IsTLS(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @TLSX_PopulateExtensions(ptr noundef %ssl, i8 noundef zeroext %isServer) local_unnamed_addr #0 {
 entry:
-  %tobool.not.not = icmp eq i8 %isServer, 0
-  br i1 %tobool.not.not, label %if.then, label %do.end
+  %tobool.not = icmp eq i8 %isServer, 0
+  br i1 %tobool.not, label %if.then, label %do.end
 
 if.then:                                          ; preds = %entry
   %disallowEncThenMac = getelementptr inbounds i8, ptr %ssl, i64 1008
@@ -5789,63 +5793,64 @@ land.lhs.true33:                                  ; preds = %lor.lhs.false, %if.
   %16 = load ptr, ptr %ssl, align 16
   %extensions35 = getelementptr inbounds i8, ptr %16, i64 288
   %17 = load ptr, ptr %extensions35, align 8
-  %tobool.not4.i55 = icmp eq ptr %17, null
-  br i1 %tobool.not4.i55, label %land.lhs.true39, label %land.rhs.i56
+  %tobool.not4.i54 = icmp eq ptr %17, null
+  br i1 %tobool.not4.i54, label %land.lhs.true39, label %land.rhs.i55
 
-land.rhs.i56:                                     ; preds = %land.lhs.true33, %while.body.i59
-  %extension.05.i57 = phi ptr [ %19, %while.body.i59 ], [ %17, %land.lhs.true33 ]
-  %18 = load i32, ptr %extension.05.i57, align 8
-  %cmp.not.i58 = icmp eq i32 %18, 11
-  br i1 %cmp.not.i58, label %do.end, label %while.body.i59
+land.rhs.i55:                                     ; preds = %land.lhs.true33, %while.body.i58
+  %extension.05.i56 = phi ptr [ %19, %while.body.i58 ], [ %17, %land.lhs.true33 ]
+  %18 = load i32, ptr %extension.05.i56, align 8
+  %cmp.not.i57 = icmp eq i32 %18, 11
+  br i1 %cmp.not.i57, label %do.end, label %while.body.i58
 
-while.body.i59:                                   ; preds = %land.rhs.i56
-  %next.i60 = getelementptr inbounds i8, ptr %extension.05.i57, i64 24
-  %19 = load ptr, ptr %next.i60, align 8
-  %tobool.not.i61 = icmp eq ptr %19, null
-  br i1 %tobool.not.i61, label %land.lhs.true39, label %land.rhs.i56, !llvm.loop !16
+while.body.i58:                                   ; preds = %land.rhs.i55
+  %next.i59 = getelementptr inbounds i8, ptr %extension.05.i56, i64 24
+  %19 = load ptr, ptr %next.i59, align 8
+  %tobool.not.i60 = icmp eq ptr %19, null
+  br i1 %tobool.not.i60, label %land.lhs.true39, label %land.rhs.i55, !llvm.loop !16
 
-land.lhs.true39:                                  ; preds = %while.body.i59, %land.lhs.true33
+land.lhs.true39:                                  ; preds = %while.body.i58, %land.lhs.true33
   %extensions40 = getelementptr inbounds i8, ptr %ssl, i64 1200
   %20 = load ptr, ptr %extensions40, align 16
-  %tobool.not4.i64 = icmp eq ptr %20, null
-  br i1 %tobool.not4.i64, label %if.then44, label %land.rhs.i65
+  %tobool.not4.i63 = icmp eq ptr %20, null
+  br i1 %tobool.not4.i63, label %if.then44, label %land.rhs.i64
 
-land.rhs.i65:                                     ; preds = %land.lhs.true39, %while.body.i68
-  %extension.05.i66 = phi ptr [ %22, %while.body.i68 ], [ %20, %land.lhs.true39 ]
-  %21 = load i32, ptr %extension.05.i66, align 8
-  %cmp.not.i67 = icmp eq i32 %21, 11
-  br i1 %cmp.not.i67, label %do.end, label %while.body.i68
+land.rhs.i64:                                     ; preds = %land.lhs.true39, %while.body.i67
+  %extension.05.i65 = phi ptr [ %22, %while.body.i67 ], [ %20, %land.lhs.true39 ]
+  %21 = load i32, ptr %extension.05.i65, align 8
+  %cmp.not.i66 = icmp eq i32 %21, 11
+  br i1 %cmp.not.i66, label %do.end, label %while.body.i67
 
-while.body.i68:                                   ; preds = %land.rhs.i65
-  %next.i69 = getelementptr inbounds i8, ptr %extension.05.i66, i64 24
-  %22 = load ptr, ptr %next.i69, align 8
-  %tobool.not.i70 = icmp eq ptr %22, null
-  br i1 %tobool.not.i70, label %if.then44, label %land.rhs.i65, !llvm.loop !16
+while.body.i67:                                   ; preds = %land.rhs.i64
+  %next.i68 = getelementptr inbounds i8, ptr %extension.05.i65, i64 24
+  %22 = load ptr, ptr %next.i68, align 8
+  %tobool.not.i69 = icmp eq ptr %22, null
+  br i1 %tobool.not.i69, label %if.then44, label %land.rhs.i64, !llvm.loop !16
 
-if.then44:                                        ; preds = %while.body.i68, %land.lhs.true39
+if.then44:                                        ; preds = %while.body.i67, %land.lhs.true39
   %call46 = tail call i32 @TLSX_UsePointFormat(ptr noundef nonnull %extensions40, i8 noundef zeroext 0, ptr poison)
   %cmp47.not = icmp eq i32 %call46, 1
   br i1 %cmp47.not, label %do.end, label %return
 
-do.end:                                           ; preds = %land.rhs.i56, %land.rhs.i65, %lor.lhs.false, %if.then44, %entry
+do.end:                                           ; preds = %land.rhs.i55, %land.rhs.i64, %lor.lhs.false, %if.then44, %entry
   %extensions53 = getelementptr inbounds i8, ptr %ssl, i64 1200
+  %heap54 = getelementptr inbounds i8, ptr %ssl, i64 168
   %23 = load ptr, ptr %extensions53, align 8
-  %tobool.not4.i.i73 = icmp eq ptr %23, null
-  br i1 %tobool.not4.i.i73, label %if.end3.i, label %land.rhs.i.i74
+  %tobool.not4.i.i72 = icmp eq ptr %23, null
+  br i1 %tobool.not4.i.i72, label %if.end3.i, label %land.rhs.i.i73
 
-land.rhs.i.i74:                                   ; preds = %do.end, %while.body.i.i77
-  %extension.05.i.i75 = phi ptr [ %25, %while.body.i.i77 ], [ %23, %do.end ]
-  %24 = load i32, ptr %extension.05.i.i75, align 8
-  %cmp.not.i.i76 = icmp eq i32 %24, 13
-  br i1 %cmp.not.i.i76, label %TLSX_SetSignatureAlgorithms.exit, label %while.body.i.i77
+land.rhs.i.i73:                                   ; preds = %do.end, %while.body.i.i76
+  %extension.05.i.i74 = phi ptr [ %25, %while.body.i.i76 ], [ %23, %do.end ]
+  %24 = load i32, ptr %extension.05.i.i74, align 8
+  %cmp.not.i.i75 = icmp eq i32 %24, 13
+  br i1 %cmp.not.i.i75, label %if.end59, label %while.body.i.i76
 
-while.body.i.i77:                                 ; preds = %land.rhs.i.i74
-  %next.i.i78 = getelementptr inbounds i8, ptr %extension.05.i.i75, i64 24
-  %25 = load ptr, ptr %next.i.i78, align 8
-  %tobool.not.i.i79 = icmp eq ptr %25, null
-  br i1 %tobool.not.i.i79, label %if.end3.i, label %land.rhs.i.i74, !llvm.loop !16
+while.body.i.i76:                                 ; preds = %land.rhs.i.i73
+  %next.i.i77 = getelementptr inbounds i8, ptr %extension.05.i.i74, i64 24
+  %25 = load ptr, ptr %next.i.i77, align 8
+  %tobool.not.i.i78 = icmp eq ptr %25, null
+  br i1 %tobool.not.i.i78, label %if.end3.i, label %land.rhs.i.i73, !llvm.loop !16
 
-if.end3.i:                                        ; preds = %while.body.i.i77, %do.end
+if.end3.i:                                        ; preds = %while.body.i.i76, %do.end
   %call.i.i = tail call ptr @wolfSSL_Malloc(i64 noundef 16) #16
   %cmp.not.i8.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.not.i8.i, label %return, label %if.end7.i
@@ -5854,216 +5859,237 @@ if.end7.i:                                        ; preds = %if.end3.i
   %26 = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i64 0, ptr %26, align 8
   store ptr %ssl, ptr %call.i.i, align 8
-  %call.i.i.i80 = tail call ptr @wolfSSL_Malloc(i64 noundef 32) #16
-  %tobool.not.i.i.i81 = icmp eq ptr %call.i.i.i80, null
-  br i1 %tobool.not.i.i.i81, label %TLSX_SignatureAlgorithms_FreeAll.exit.i, label %if.end.i.i82
+  %call.i.i.i79 = tail call ptr @wolfSSL_Malloc(i64 noundef 32) #16
+  %tobool.not.i.i.i80 = icmp eq ptr %call.i.i.i79, null
+  br i1 %tobool.not.i.i.i80, label %TLSX_SignatureAlgorithms_FreeAll.exit.i, label %if.end.i.i81
 
-if.end.i.i82:                                     ; preds = %if.end7.i
-  store i32 13, ptr %call.i.i.i80, align 8
-  %data2.i.i.i83 = getelementptr inbounds i8, ptr %call.i.i.i80, i64 8
-  store ptr %call.i.i, ptr %data2.i.i.i83, align 8
-  %resp.i.i.i84 = getelementptr inbounds i8, ptr %call.i.i.i80, i64 20
-  store i8 0, ptr %resp.i.i.i84, align 4
-  %next.i.i.i85 = getelementptr inbounds i8, ptr %call.i.i.i80, i64 24
-  store ptr null, ptr %next.i.i.i85, align 8
+if.end.i.i81:                                     ; preds = %if.end7.i
+  store i32 13, ptr %call.i.i.i79, align 8
+  %data2.i.i.i82 = getelementptr inbounds i8, ptr %call.i.i.i79, i64 8
+  store ptr %call.i.i, ptr %data2.i.i.i82, align 8
+  %resp.i.i.i83 = getelementptr inbounds i8, ptr %call.i.i.i79, i64 20
+  store i8 0, ptr %resp.i.i.i83, align 4
+  %next.i.i.i84 = getelementptr inbounds i8, ptr %call.i.i.i79, i64 24
+  store ptr null, ptr %next.i.i.i84, align 8
   %27 = load ptr, ptr %extensions53, align 8
-  store ptr %27, ptr %next.i.i.i85, align 8
-  store ptr %call.i.i.i80, ptr %extensions53, align 8
-  br label %do.body.i.i86
+  store ptr %27, ptr %next.i.i.i84, align 8
+  store ptr %call.i.i.i79, ptr %extensions53, align 8
+  br label %do.body.i.i85
 
-do.body.i.i86:                                    ; preds = %land.lhs.true.i.i89, %if.end.i.i82
-  %extension.0.i.i87 = phi ptr [ %call.i.i.i80, %if.end.i.i82 ], [ %28, %land.lhs.true.i.i89 ]
-  %next1.i.i88 = getelementptr inbounds i8, ptr %extension.0.i.i87, i64 24
-  %28 = load ptr, ptr %next1.i.i88, align 8
+do.body.i.i85:                                    ; preds = %land.lhs.true.i.i88, %if.end.i.i81
+  %extension.0.i.i86 = phi ptr [ %call.i.i.i79, %if.end.i.i81 ], [ %28, %land.lhs.true.i.i88 ]
+  %next1.i.i87 = getelementptr inbounds i8, ptr %extension.0.i.i86, i64 24
+  %28 = load ptr, ptr %next1.i.i87, align 8
   %tobool.not.i9.i = icmp eq ptr %28, null
-  br i1 %tobool.not.i9.i, label %TLSX_SetSignatureAlgorithms.exit, label %land.lhs.true.i.i89
+  br i1 %tobool.not.i9.i, label %if.end59, label %land.lhs.true.i.i88
 
-land.lhs.true.i.i89:                              ; preds = %do.body.i.i86
+land.lhs.true.i.i88:                              ; preds = %do.body.i.i85
   %29 = load i32, ptr %28, align 8
-  %cmp4.i.i90 = icmp eq i32 %29, 13
-  br i1 %cmp4.i.i90, label %if.then5.i.i91, label %do.body.i.i86, !llvm.loop !15
+  %cmp4.i.i89 = icmp eq i32 %29, 13
+  br i1 %cmp4.i.i89, label %if.then5.i.i90, label %do.body.i.i85, !llvm.loop !15
 
-if.then5.i.i91:                                   ; preds = %land.lhs.true.i.i89
-  %next1.i.i88.le = getelementptr inbounds i8, ptr %extension.0.i.i87, i64 24
-  %next8.i.i93 = getelementptr inbounds i8, ptr %28, i64 24
-  %30 = load ptr, ptr %next8.i.i93, align 8
-  store ptr %30, ptr %next1.i.i88.le, align 8
-  store ptr null, ptr %next8.i.i93, align 8
+if.then5.i.i90:                                   ; preds = %land.lhs.true.i.i88
+  %next1.i.i87.le = getelementptr inbounds i8, ptr %extension.0.i.i86, i64 24
+  %next8.i.i92 = getelementptr inbounds i8, ptr %28, i64 24
+  %30 = load ptr, ptr %next8.i.i92, align 8
+  store ptr %30, ptr %next1.i.i87.le, align 8
+  store ptr null, ptr %next8.i.i92, align 8
   tail call void @TLSX_FreeAll(ptr noundef nonnull %28, ptr poison)
-  br label %TLSX_SetSignatureAlgorithms.exit
+  br label %if.end59
 
 TLSX_SignatureAlgorithms_FreeAll.exit.i:          ; preds = %if.end7.i
   tail call void @wolfSSL_Free(ptr noundef nonnull %call.i.i) #16
   br label %return
 
-TLSX_SetSignatureAlgorithms.exit:                 ; preds = %land.rhs.i.i74, %do.body.i.i86, %if.then5.i.i91
-  br i1 %tobool.not.not, label %land.lhs.true61, label %return
+if.end59:                                         ; preds = %land.rhs.i.i73, %do.body.i.i85, %if.then5.i.i90
+  br i1 %tobool.not, label %land.lhs.true61, label %if.end145
 
-land.lhs.true61:                                  ; preds = %TLSX_SetSignatureAlgorithms.exit
+land.lhs.true61:                                  ; preds = %if.end59
   %version62 = getelementptr inbounds i8, ptr %ssl, i64 694
   %31 = load i16, ptr %version62, align 2
   %call63 = tail call i32 @IsAtLeastTLSv1_3(i16 %31) #16
   %tobool64.not = icmp eq i32 %call63, 0
-  br i1 %tobool64.not, label %return, label %if.end.i
+  br i1 %tobool64.not, label %if.end145, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true61
-  %call.i.i.i95 = tail call ptr @wolfSSL_Malloc(i64 noundef 32) #16
-  %tobool.not.i.i.i96 = icmp eq ptr %call.i.i.i95, null
-  br i1 %tobool.not.i.i.i96, label %return, label %if.end.i.i97
+  %call.i.i.i94 = tail call ptr @wolfSSL_Malloc(i64 noundef 32) #16
+  %tobool.not.i.i.i95 = icmp eq ptr %call.i.i.i94, null
+  br i1 %tobool.not.i.i.i95, label %return, label %if.end.i.i96
 
-if.end.i.i97:                                     ; preds = %if.end.i
-  store i32 43, ptr %call.i.i.i95, align 8
-  %data2.i.i.i98 = getelementptr inbounds i8, ptr %call.i.i.i95, i64 8
-  store ptr %ssl, ptr %data2.i.i.i98, align 8
-  %resp.i.i.i99 = getelementptr inbounds i8, ptr %call.i.i.i95, i64 20
-  store i8 0, ptr %resp.i.i.i99, align 4
-  %next.i.i.i100 = getelementptr inbounds i8, ptr %call.i.i.i95, i64 24
-  store ptr null, ptr %next.i.i.i100, align 8
+if.end.i.i96:                                     ; preds = %if.end.i
+  store i32 43, ptr %call.i.i.i94, align 8
+  %data2.i.i.i97 = getelementptr inbounds i8, ptr %call.i.i.i94, i64 8
+  store ptr %ssl, ptr %data2.i.i.i97, align 8
+  %resp.i.i.i98 = getelementptr inbounds i8, ptr %call.i.i.i94, i64 20
+  store i8 0, ptr %resp.i.i.i98, align 4
+  %next.i.i.i99 = getelementptr inbounds i8, ptr %call.i.i.i94, i64 24
+  store ptr null, ptr %next.i.i.i99, align 8
   %32 = load ptr, ptr %extensions53, align 8
-  store ptr %32, ptr %next.i.i.i100, align 8
-  store ptr %call.i.i.i95, ptr %extensions53, align 8
-  br label %do.body.i.i101
+  store ptr %32, ptr %next.i.i.i99, align 8
+  store ptr %call.i.i.i94, ptr %extensions53, align 8
+  br label %do.body.i.i100
 
-do.body.i.i101:                                   ; preds = %land.lhs.true.i.i105, %if.end.i.i97
-  %extension.0.i.i102 = phi ptr [ %call.i.i.i95, %if.end.i.i97 ], [ %33, %land.lhs.true.i.i105 ]
-  %next1.i.i103 = getelementptr inbounds i8, ptr %extension.0.i.i102, i64 24
-  %33 = load ptr, ptr %next1.i.i103, align 8
-  %tobool.not.i.i104 = icmp eq ptr %33, null
-  br i1 %tobool.not.i.i104, label %if.end74, label %land.lhs.true.i.i105
+do.body.i.i100:                                   ; preds = %land.lhs.true.i.i104, %if.end.i.i96
+  %extension.0.i.i101 = phi ptr [ %call.i.i.i94, %if.end.i.i96 ], [ %33, %land.lhs.true.i.i104 ]
+  %next1.i.i102 = getelementptr inbounds i8, ptr %extension.0.i.i101, i64 24
+  %33 = load ptr, ptr %next1.i.i102, align 8
+  %tobool.not.i.i103 = icmp eq ptr %33, null
+  br i1 %tobool.not.i.i103, label %if.end74, label %land.lhs.true.i.i104
 
-land.lhs.true.i.i105:                             ; preds = %do.body.i.i101
+land.lhs.true.i.i104:                             ; preds = %do.body.i.i100
   %34 = load i32, ptr %33, align 8
-  %cmp4.i.i106 = icmp eq i32 %34, 43
-  br i1 %cmp4.i.i106, label %if.then5.i.i107, label %do.body.i.i101, !llvm.loop !15
+  %cmp4.i.i105 = icmp eq i32 %34, 43
+  br i1 %cmp4.i.i105, label %if.then5.i.i106, label %do.body.i.i100, !llvm.loop !15
 
-if.then5.i.i107:                                  ; preds = %land.lhs.true.i.i105
-  %next1.i.i103.le = getelementptr inbounds i8, ptr %extension.0.i.i102, i64 24
-  %next8.i.i109 = getelementptr inbounds i8, ptr %33, i64 24
-  %35 = load ptr, ptr %next8.i.i109, align 8
-  store ptr %35, ptr %next1.i.i103.le, align 8
-  store ptr null, ptr %next8.i.i109, align 8
+if.then5.i.i106:                                  ; preds = %land.lhs.true.i.i104
+  %next1.i.i102.le = getelementptr inbounds i8, ptr %extension.0.i.i101, i64 24
+  %next8.i.i108 = getelementptr inbounds i8, ptr %33, i64 24
+  %35 = load ptr, ptr %next8.i.i108, align 8
+  store ptr %35, ptr %next1.i.i102.le, align 8
+  store ptr null, ptr %next8.i.i108, align 8
   tail call void @TLSX_FreeAll(ptr noundef nonnull %33, ptr poison)
   br label %if.end74
 
-if.end74:                                         ; preds = %do.body.i.i101, %if.then5.i.i107
+if.end74:                                         ; preds = %do.body.i.i100, %if.then5.i.i106
   %certHashSigAlgoSz = getelementptr inbounds i8, ptr %ssl, i64 1084
   %36 = load i16, ptr %certHashSigAlgoSz, align 4
   %cmp76.not = icmp eq i16 %36, 0
   br i1 %cmp76.not, label %if.end88, label %do.end80
 
 do.end80:                                         ; preds = %if.end74
-  %call.i.i.i112 = tail call ptr @wolfSSL_Malloc(i64 noundef 32) #16
-  %tobool.not.i.i.i113 = icmp eq ptr %call.i.i.i112, null
-  br i1 %tobool.not.i.i.i113, label %return, label %if.end.i.i114
+  %37 = load ptr, ptr %heap54, align 8
+  %call83 = tail call fastcc i32 @TLSX_SetSignatureAlgorithmsCert(ptr noundef nonnull %extensions53, ptr noundef nonnull %ssl, ptr noundef %37), !range !48
+  %cmp84.not = icmp eq i32 %call83, 0
+  br i1 %cmp84.not, label %if.end88, label %return
 
-if.end.i.i114:                                    ; preds = %do.end80
-  store i32 50, ptr %call.i.i.i112, align 8
-  %data2.i.i.i115 = getelementptr inbounds i8, ptr %call.i.i.i112, i64 8
-  store ptr %ssl, ptr %data2.i.i.i115, align 8
-  %resp.i.i.i116 = getelementptr inbounds i8, ptr %call.i.i.i112, i64 20
-  store i8 0, ptr %resp.i.i.i116, align 4
-  %next.i.i.i117 = getelementptr inbounds i8, ptr %call.i.i.i112, i64 24
-  store ptr null, ptr %next.i.i.i117, align 8
-  %37 = load ptr, ptr %extensions53, align 8
-  store ptr %37, ptr %next.i.i.i117, align 8
-  store ptr %call.i.i.i112, ptr %extensions53, align 8
-  br label %do.body.i.i118
+if.end88:                                         ; preds = %do.end80, %if.end74
+  %38 = load ptr, ptr %extensions53, align 16
+  %tobool.not4.i110 = icmp eq ptr %38, null
+  br i1 %tobool.not4.i110, label %if.then93, label %land.rhs.i111
 
-do.body.i.i118:                                   ; preds = %land.lhs.true.i.i122, %if.end.i.i114
-  %extension.0.i.i119 = phi ptr [ %call.i.i.i112, %if.end.i.i114 ], [ %38, %land.lhs.true.i.i122 ]
-  %next1.i.i120 = getelementptr inbounds i8, ptr %extension.0.i.i119, i64 24
-  %38 = load ptr, ptr %next1.i.i120, align 8
-  %tobool.not.i.i121 = icmp eq ptr %38, null
-  br i1 %tobool.not.i.i121, label %if.end88, label %land.lhs.true.i.i122
+land.rhs.i111:                                    ; preds = %if.end88, %while.body.i114
+  %extension.05.i112 = phi ptr [ %40, %while.body.i114 ], [ %38, %if.end88 ]
+  %39 = load i32, ptr %extension.05.i112, align 8
+  %cmp.not.i113 = icmp eq i32 %39, 51
+  br i1 %cmp.not.i113, label %if.else128, label %while.body.i114
 
-land.lhs.true.i.i122:                             ; preds = %do.body.i.i118
-  %39 = load i32, ptr %38, align 8
-  %cmp4.i.i123 = icmp eq i32 %39, 50
-  br i1 %cmp4.i.i123, label %if.then5.i.i124, label %do.body.i.i118, !llvm.loop !15
+while.body.i114:                                  ; preds = %land.rhs.i111
+  %next.i115 = getelementptr inbounds i8, ptr %extension.05.i112, i64 24
+  %40 = load ptr, ptr %next.i115, align 8
+  %tobool.not.i116 = icmp eq ptr %40, null
+  br i1 %tobool.not.i116, label %if.then93, label %land.rhs.i111, !llvm.loop !16
 
-if.then5.i.i124:                                  ; preds = %land.lhs.true.i.i122
-  %next1.i.i120.le = getelementptr inbounds i8, ptr %extension.0.i.i119, i64 24
-  %next8.i.i126 = getelementptr inbounds i8, ptr %38, i64 24
-  %40 = load ptr, ptr %next8.i.i126, align 8
-  store ptr %40, ptr %next1.i.i120.le, align 8
-  store ptr null, ptr %next8.i.i126, align 8
-  tail call void @TLSX_FreeAll(ptr noundef nonnull %38, ptr poison)
-  br label %if.end88
-
-if.end88:                                         ; preds = %do.body.i.i118, %if.then5.i.i124, %if.end74
-  %41 = load ptr, ptr %extensions53, align 16
-  %tobool.not4.i128 = icmp eq ptr %41, null
-  br i1 %tobool.not4.i128, label %if.then93, label %land.rhs.i129
-
-land.rhs.i129:                                    ; preds = %if.end88, %while.body.i132
-  %extension.05.i130 = phi ptr [ %43, %while.body.i132 ], [ %41, %if.end88 ]
-  %42 = load i32, ptr %extension.05.i130, align 8
-  %cmp.not.i131 = icmp eq i32 %42, 51
-  br i1 %cmp.not.i131, label %if.else128, label %while.body.i132
-
-while.body.i132:                                  ; preds = %land.rhs.i129
-  %next.i133 = getelementptr inbounds i8, ptr %extension.05.i130, i64 24
-  %43 = load ptr, ptr %next.i133, align 8
-  %tobool.not.i134 = icmp eq ptr %43, null
-  br i1 %tobool.not.i134, label %if.then93, label %land.rhs.i129, !llvm.loop !16
-
-if.then93:                                        ; preds = %while.body.i132, %if.end88
+if.then93:                                        ; preds = %while.body.i114, %if.end88
   %numGroups = getelementptr inbounds i8, ptr %ssl, i64 1080
-  %44 = load i8, ptr %numGroups, align 8
-  %cmp95.not = icmp eq i8 %44, 0
+  %41 = load i8, ptr %numGroups, align 8
+  %cmp95.not = icmp eq i8 %41, 0
   br i1 %cmp95.not, label %if.then137, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.then93
   %group = getelementptr inbounds i8, ptr %ssl, i64 1060
-  %45 = zext i8 %44 to i64
+  %42 = zext i8 %41 to i64
   br label %for.cond103.preheader
 
 for.cond103.preheader:                            ; preds = %for.cond.preheader, %for.inc121
-  %indvars.iv192 = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next193, %for.inc121 ]
-  %arrayidx112 = getelementptr inbounds [10 x i16], ptr %group, i64 0, i64 %indvars.iv192
-  %46 = load i16, ptr %arrayidx112, align 2
+  %indvars.iv164 = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next165, %for.inc121 ]
+  %arrayidx112 = getelementptr inbounds [10 x i16], ptr %group, i64 0, i64 %indvars.iv164
+  %43 = load i16, ptr %arrayidx112, align 2
   br label %for.body107
 
 for.cond103:                                      ; preds = %for.body107
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp105.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %cmp105.not, label %for.inc121, label %for.body107, !llvm.loop !48
+  br i1 %cmp105.not, label %for.inc121, label %for.body107, !llvm.loop !49
 
 for.body107:                                      ; preds = %for.cond103.preheader, %for.cond103
   %indvars.iv = phi i64 [ 0, %for.cond103.preheader ], [ %indvars.iv.next, %for.cond103 ]
   %arrayidx = getelementptr inbounds [5 x i16], ptr @preferredGroup, i64 0, i64 %indvars.iv
-  %47 = load i16, ptr %arrayidx, align 2
-  %cmp114 = icmp ne i16 %47, %46
+  %44 = load i16, ptr %arrayidx, align 2
+  %cmp114 = icmp ne i16 %44, %43
   br i1 %cmp114, label %for.cond103, label %if.end133
 
 for.inc121:                                       ; preds = %for.cond103
-  %indvars.iv.next193 = add nuw nsw i64 %indvars.iv192, 1
-  %cmp100 = icmp ult i64 %indvars.iv.next193, %45
-  %48 = and i1 %cmp100, %cmp114
-  br i1 %48, label %for.cond103.preheader, label %return, !llvm.loop !49
+  %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
+  %cmp100 = icmp ult i64 %indvars.iv.next165, %42
+  %45 = and i1 %cmp100, %cmp114
+  br i1 %45, label %for.cond103.preheader, label %if.end145, !llvm.loop !50
 
-if.else128:                                       ; preds = %land.rhs.i129
-  %data = getelementptr inbounds i8, ptr %extension.05.i130, i64 8
-  %49 = load ptr, ptr %data, align 8
-  %tobool129.not = icmp eq ptr %49, null
-  br i1 %tobool129.not, label %return, label %if.then130
+if.else128:                                       ; preds = %land.rhs.i111
+  %data = getelementptr inbounds i8, ptr %extension.05.i112, i64 8
+  %46 = load ptr, ptr %data, align 8
+  %tobool129.not = icmp eq ptr %46, null
+  br i1 %tobool129.not, label %if.end145, label %if.then130
 
 if.then130:                                       ; preds = %if.else128
-  %50 = load i16, ptr %49, align 8
+  %47 = load i16, ptr %46, align 8
   br label %if.end133
 
 if.end133:                                        ; preds = %for.body107, %if.then130
-  %namedGroup.2 = phi i16 [ %50, %if.then130 ], [ %46, %for.body107 ]
+  %namedGroup.2 = phi i16 [ %47, %if.then130 ], [ %43, %for.body107 ]
   %cmp135.not = icmp eq i16 %namedGroup.2, 0
-  br i1 %cmp135.not, label %return, label %if.then137
+  br i1 %cmp135.not, label %if.end145, label %if.then137
 
 if.then137:                                       ; preds = %if.then93, %if.end133
-  %namedGroup.2162 = phi i16 [ %namedGroup.2, %if.end133 ], [ 23, %if.then93 ]
-  %call139 = tail call i32 @TLSX_KeyShare_Use(ptr noundef %ssl, i16 noundef zeroext %namedGroup.2162, i16 noundef zeroext 0, ptr noundef null, ptr noundef null, ptr noundef nonnull %extensions53)
+  %namedGroup.2138 = phi i16 [ %namedGroup.2, %if.end133 ], [ 23, %if.then93 ]
+  %call139 = tail call i32 @TLSX_KeyShare_Use(ptr noundef %ssl, i16 noundef zeroext %namedGroup.2138, i16 noundef zeroext 0, ptr noundef null, ptr noundef null, ptr noundef nonnull %extensions53)
+  %cmp140.not = icmp eq i32 %call139, 0
+  br i1 %cmp140.not, label %if.end145, label %return
+
+if.end145:                                        ; preds = %for.inc121, %if.else128, %if.end133, %if.then137, %land.lhs.true61, %if.end59
   br label %return
 
-return:                                           ; preds = %for.inc121, %if.else128, %if.end3.i, %TLSX_SignatureAlgorithms_FreeAll.exit.i, %do.end80, %if.end.i, %if.then.i, %if.then137, %TLSX_SetSignatureAlgorithms.exit, %land.lhs.true61, %if.end133, %if.then44, %if.then17
-  %retval.0 = phi i32 [ %call19, %if.then17 ], [ %call46, %if.then44 ], [ 0, %TLSX_SetSignatureAlgorithms.exit ], [ 0, %if.end133 ], [ 0, %land.lhs.true61 ], [ %call139, %if.then137 ], [ -125, %if.then.i ], [ -125, %if.end.i ], [ -125, %do.end80 ], [ -303, %if.end3.i ], [ -125, %TLSX_SignatureAlgorithms_FreeAll.exit.i ], [ 0, %if.else128 ], [ 0, %for.inc121 ]
+return:                                           ; preds = %if.end.i, %TLSX_SignatureAlgorithms_FreeAll.exit.i, %if.end3.i, %if.then.i, %if.then137, %do.end80, %if.then44, %if.then17, %if.end145
+  %retval.0 = phi i32 [ 0, %if.end145 ], [ %call19, %if.then17 ], [ %call46, %if.then44 ], [ %call83, %do.end80 ], [ %call139, %if.then137 ], [ -125, %if.then.i ], [ -125, %TLSX_SignatureAlgorithms_FreeAll.exit.i ], [ -303, %if.end3.i ], [ -125, %if.end.i ]
+  ret i32 %retval.0
+}
+
+; Function Attrs: nounwind uwtable
+define internal fastcc noundef i32 @TLSX_SetSignatureAlgorithmsCert(ptr noundef %extensions, ptr noundef %data, ptr nocapture noundef readnone %heap) unnamed_addr #0 {
+entry:
+  %cmp = icmp eq ptr %extensions, null
+  br i1 %cmp, label %return, label %if.end
+
+if.end:                                           ; preds = %entry
+  %call.i.i = tail call ptr @wolfSSL_Malloc(i64 noundef 32) #16
+  %tobool.not.i.i = icmp eq ptr %call.i.i, null
+  br i1 %tobool.not.i.i, label %return, label %if.end.i
+
+if.end.i:                                         ; preds = %if.end
+  store i32 50, ptr %call.i.i, align 8
+  %data2.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  store ptr %data, ptr %data2.i.i, align 8
+  %resp.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 20
+  store i8 0, ptr %resp.i.i, align 4
+  %next.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
+  store ptr null, ptr %next.i.i, align 8
+  %0 = load ptr, ptr %extensions, align 8
+  store ptr %0, ptr %next.i.i, align 8
+  store ptr %call.i.i, ptr %extensions, align 8
+  br label %do.body.i
+
+do.body.i:                                        ; preds = %land.lhs.true.i, %if.end.i
+  %extension.0.i = phi ptr [ %call.i.i, %if.end.i ], [ %1, %land.lhs.true.i ]
+  %next1.i = getelementptr inbounds i8, ptr %extension.0.i, i64 24
+  %1 = load ptr, ptr %next1.i, align 8
+  %tobool.not.i = icmp eq ptr %1, null
+  br i1 %tobool.not.i, label %return, label %land.lhs.true.i
+
+land.lhs.true.i:                                  ; preds = %do.body.i
+  %2 = load i32, ptr %1, align 8
+  %cmp4.i = icmp eq i32 %2, 50
+  br i1 %cmp4.i, label %if.then5.i, label %do.body.i, !llvm.loop !15
+
+if.then5.i:                                       ; preds = %land.lhs.true.i
+  %next1.i.le = getelementptr inbounds i8, ptr %extension.0.i, i64 24
+  %next8.i = getelementptr inbounds i8, ptr %1, i64 24
+  %3 = load ptr, ptr %next8.i, align 8
+  store ptr %3, ptr %next1.i.le, align 8
+  store ptr null, ptr %next8.i, align 8
+  tail call void @TLSX_FreeAll(ptr noundef nonnull %1, ptr poison)
+  br label %return
+
+return:                                           ; preds = %do.body.i, %if.then5.i, %if.end, %entry
+  %retval.0 = phi i32 [ -173, %entry ], [ 0, %if.then5.i ], [ -125, %if.end ], [ 0, %do.body.i ]
   ret i32 %retval.0
 }
 
@@ -6156,7 +6182,7 @@ if.end76:                                         ; preds = %if.end76.sink.split
   br i1 %tobool77.not, label %if.end86, label %if.then78
 
 if.then78:                                        ; preds = %if.end76
-  %call81 = call fastcc i32 @TLSX_GetSize(ptr noundef nonnull %6, ptr noundef nonnull %semaphore, i8 noundef zeroext %msgType, ptr noundef nonnull %length), !range !50
+  %call81 = call fastcc i32 @TLSX_GetSize(ptr noundef nonnull %6, ptr noundef nonnull %semaphore, i8 noundef zeroext %msgType, ptr noundef nonnull %length), !range !51
   %cmp82.not = icmp eq i32 %call81, 0
   br i1 %cmp82.not, label %if.end86, label %return
 
@@ -6172,7 +6198,7 @@ land.lhs.true:                                    ; preds = %if.end86
   br i1 %tobool91.not, label %if.end101, label %if.then92
 
 if.then92:                                        ; preds = %land.lhs.true
-  %call96 = call fastcc i32 @TLSX_GetSize(ptr noundef nonnull %8, ptr noundef nonnull %semaphore, i8 noundef zeroext %msgType, ptr noundef nonnull %length), !range !50
+  %call96 = call fastcc i32 @TLSX_GetSize(ptr noundef nonnull %8, ptr noundef nonnull %semaphore, i8 noundef zeroext %msgType, ptr noundef nonnull %length), !range !51
   %cmp97.not = icmp eq i32 %call96, 0
   br i1 %cmp97.not, label %if.end101, label %return
 
@@ -6262,7 +6288,7 @@ land.lhs.true:                                    ; preds = %while.body
 
 while.cond.backedge:                              ; preds = %land.lhs.true, %if.end
   %tobool.not = icmp eq ptr %2, null
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !51
+  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !52
 
 if.end:                                           ; preds = %while.body, %while.body, %land.lhs.true
   %4 = load i32, ptr %list.addr.069, align 8
@@ -6327,7 +6353,7 @@ sw.bb.i:                                          ; preds = %while.body.i
 sw.epilog.i:                                      ; preds = %sw.bb.i, %while.body.i
   %length.1.i = phi i16 [ %add6.i, %sw.bb.i ], [ %add.i, %while.body.i ]
   %tobool.not.i = icmp eq ptr %9, null
-  br i1 %tobool.not.i, label %TLSX_SNI_GetSize.exit, label %while.body.i, !llvm.loop !52
+  br i1 %tobool.not.i, label %TLSX_SNI_GetSize.exit, label %while.body.i, !llvm.loop !53
 
 TLSX_SNI_GetSize.exit:                            ; preds = %sw.epilog.i, %if.then24
   %length.0.lcssa.i = phi i16 [ 2, %if.then24 ], [ %length.1.i, %sw.epilog.i ]
@@ -6347,7 +6373,7 @@ while.body.i26:                                   ; preds = %sw.bb43, %while.bod
   %13 = load ptr, ptr %next.i27, align 8
   %add.i28 = add i16 %length.04.i, 2
   %tobool.not.i29 = icmp eq ptr %13, null
-  br i1 %tobool.not.i29, label %TLSX_SupportedCurve_GetSize.exit, label %while.body.i26, !llvm.loop !53
+  br i1 %tobool.not.i29, label %TLSX_SupportedCurve_GetSize.exit, label %while.body.i26, !llvm.loop !54
 
 TLSX_SupportedCurve_GetSize.exit:                 ; preds = %while.body.i26, %sw.bb43
   %length.0.lcssa.i30 = phi i16 [ 2, %sw.bb43 ], [ %add.i28, %while.body.i26 ]
@@ -6367,7 +6393,7 @@ while.body.i32:                                   ; preds = %sw.bb50, %while.bod
   %15 = load ptr, ptr %next.i35, align 8
   %add.i36 = add i16 %length.04.i33, 1
   %tobool.not.i37 = icmp eq ptr %15, null
-  br i1 %tobool.not.i37, label %TLSX_PointFormat_GetSize.exit, label %while.body.i32, !llvm.loop !54
+  br i1 %tobool.not.i37, label %TLSX_PointFormat_GetSize.exit, label %while.body.i32, !llvm.loop !55
 
 TLSX_PointFormat_GetSize.exit:                    ; preds = %while.body.i32, %sw.bb50
   %length.0.lcssa.i38 = phi i16 [ 1, %sw.bb50 ], [ %add.i36, %while.body.i32 ]
@@ -6484,7 +6510,7 @@ while.body.us.us.i:                               ; preds = %if.end.split.us.i, 
   %35 = add i16 %len.1.ph.us12.i, 4
   %conv22.us.i = add i16 %35, %34
   %cmp10.not.us.us.i = icmp eq ptr %32, null
-  br i1 %cmp10.not.us.us.i, label %TLSX_KeyShare_GetSize.exit, label %while.body.us.us.i, !llvm.loop !55
+  br i1 %cmp10.not.us.us.i, label %TLSX_KeyShare_GetSize.exit, label %while.body.us.us.i, !llvm.loop !56
 
 while.cond.outer.i:                               ; preds = %sw.bb96, %if.end16.split.i
   %len.1.ph.i = phi i16 [ %conv22.i, %if.end16.split.i ], [ 0, %sw.bb96 ]
@@ -6502,7 +6528,7 @@ while.body.i46:                                   ; preds = %while.cond.i
   %pubKey.i = getelementptr inbounds i8, ptr %list.addr.0.i, i64 40
   %37 = load ptr, ptr %pubKey.i, align 8
   %cmp13.i = icmp eq ptr %37, null
-  br i1 %cmp13.i, label %while.cond.i, label %if.end16.split.i, !llvm.loop !55
+  br i1 %cmp13.i, label %while.cond.i, label %if.end16.split.i, !llvm.loop !56
 
 if.end16.split.i:                                 ; preds = %while.body.i46
   %pubKeyLen.i = getelementptr inbounds i8, ptr %list.addr.0.i, i64 48
@@ -6510,7 +6536,7 @@ if.end16.split.i:                                 ; preds = %while.body.i46
   %39 = trunc i32 %38 to i16
   %40 = add i16 %len.1.ph.i, 4
   %conv22.i = add i16 %40, %39
-  br label %while.cond.outer.i, !llvm.loop !55
+  br label %while.cond.outer.i, !llvm.loop !56
 
 TLSX_KeyShare_GetSize.exit:                       ; preds = %while.body.us.us.i, %while.cond.i, %sw.bb96, %if.end.split.us.i
   %retval.0.i45 = phi i16 [ 2, %sw.bb96 ], [ 2, %if.end.split.us.i ], [ %len.1.ph.i, %while.cond.i ], [ %conv22.us.i, %while.body.us.us.i ]
@@ -6523,7 +6549,7 @@ sw.epilog:                                        ; preds = %if.else.i, %if.end3
   %or22 = or i8 %shl, %6
   store i8 %or22, ptr %arrayidx.le, align 1
   %tobool.not68 = icmp eq ptr %2, null
-  br i1 %tobool.not68, label %while.end, label %while.body.lr.ph, !llvm.loop !51
+  br i1 %tobool.not68, label %while.end, label %while.body.lr.ph, !llvm.loop !52
 
 while.end:                                        ; preds = %sw.epilog, %while.cond.backedge, %entry
   %length.0.ph.lcssa = phi i16 [ 0, %entry ], [ %length.0.ph74, %while.cond.backedge ], [ %length.2, %sw.epilog ]
@@ -6763,7 +6789,7 @@ land.lhs.true:                                    ; preds = %while.body
 
 while.cond.backedge:                              ; preds = %land.lhs.true, %if.end
   %tobool.not = icmp eq ptr %2, null
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !56
+  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !57
 
 if.end:                                           ; preds = %while.body, %while.body, %land.lhs.true
   %4 = load i32, ptr %list.addr.0114, align 8
@@ -6855,7 +6881,7 @@ sw.bb.i:                                          ; preds = %while.body.i
 sw.epilog.i:                                      ; preds = %sw.bb.i, %while.body.i
   %offset.1.i = phi i16 [ %add13.i, %sw.bb.i ], [ %inc.i, %while.body.i ]
   %tobool.not.i = icmp eq ptr %10, null
-  br i1 %tobool.not.i, label %TLSX_SNI_Write.exit, label %while.body.i, !llvm.loop !57
+  br i1 %tobool.not.i, label %TLSX_SNI_Write.exit, label %while.body.i, !llvm.loop !58
 
 TLSX_SNI_Write.exit:                              ; preds = %sw.epilog.i, %do.end
   %offset.0.lcssa.i = phi i16 [ 2, %do.end ], [ %offset.1.i, %sw.epilog.i ]
@@ -6893,7 +6919,7 @@ while.body.i39:                                   ; preds = %do.end60, %while.bo
   %next.i46 = getelementptr inbounds i8, ptr %list.addr.012.i, i64 8
   %16 = load ptr, ptr %next.i46, align 8
   %tobool.not.i47 = icmp eq ptr %16, null
-  br i1 %tobool.not.i47, label %TLSX_SupportedCurve_Write.exit, label %while.body.i39, !llvm.loop !58
+  br i1 %tobool.not.i47, label %TLSX_SupportedCurve_Write.exit, label %while.body.i39, !llvm.loop !59
 
 TLSX_SupportedCurve_Write.exit:                   ; preds = %while.body.i39, %do.end60
   %offset.0.lcssa.i48 = phi i16 [ 2, %do.end60 ], [ %add.i45, %while.body.i39 ]
@@ -6926,7 +6952,7 @@ while.body.i50:                                   ; preds = %do.end72, %while.bo
   %next.i54 = getelementptr inbounds i8, ptr %list.addr.07.i, i64 8
   %19 = load ptr, ptr %next.i54, align 8
   %tobool.not.i55 = icmp eq ptr %19, null
-  br i1 %tobool.not.i55, label %TLSX_PointFormat_Write.exit, label %while.body.i50, !llvm.loop !59
+  br i1 %tobool.not.i55, label %TLSX_PointFormat_Write.exit, label %while.body.i50, !llvm.loop !60
 
 TLSX_PointFormat_Write.exit:                      ; preds = %while.body.i50, %do.end72
   %offset.0.lcssa.i56 = phi i16 [ 1, %do.end72 ], [ %inc.i51, %while.body.i50 ]
@@ -7056,7 +7082,7 @@ for.inc.i.i:                                      ; preds = %if.then46.i.i, %lan
   %40 = phi i16 [ %32, %for.body.i.i ], [ %conv23.i.i, %if.end24.i.i ], [ %37, %land.lhs.true30.i.i ], [ %conv56.i.i, %if.then46.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 2
   %cmp4.i.i = icmp ult i64 %indvars.iv.next.i.i, %31
-  br i1 %cmp4.i.i, label %for.body.i.i, label %TLSX_SignatureAlgorithms_Write.exit, !llvm.loop !60
+  br i1 %cmp4.i.i, label %for.body.i.i, label %TLSX_SignatureAlgorithms_Write.exit, !llvm.loop !61
 
 TLSX_SignatureAlgorithms_Write.exit:              ; preds = %for.inc.i.i, %if.end.i, %if.end.i.i
   %add.i59 = add i16 %offset.0.ph, 6
@@ -7230,7 +7256,7 @@ while.body.us.us.i:                               ; preds = %if.end.split.us.i, 
   %65 = trunc i32 %64 to i16
   %conv37.us.i = add i16 %add25.us.i, %65
   %cmp10.not.us.us.i = icmp eq ptr %59, null
-  br i1 %cmp10.not.us.us.i, label %while.end.i, label %while.body.us.us.i, !llvm.loop !61
+  br i1 %cmp10.not.us.us.i, label %while.end.i, label %while.body.us.us.i, !llvm.loop !62
 
 while.cond.outer.i:                               ; preds = %if.end.i77, %if.end16.split.i
   %i.1.ph.i = phi i16 [ %conv37.i, %if.end16.split.i ], [ 0, %if.end.i77 ]
@@ -7248,7 +7274,7 @@ while.body.i79:                                   ; preds = %while.cond.i
   %pubKey.i = getelementptr inbounds i8, ptr %list.addr.0.i, i64 40
   %67 = load ptr, ptr %pubKey.i, align 8
   %cmp13.i = icmp eq ptr %67, null
-  br i1 %cmp13.i, label %while.cond.i, label %if.end16.split.i, !llvm.loop !61
+  br i1 %cmp13.i, label %while.cond.i, label %if.end16.split.i, !llvm.loop !62
 
 if.end16.split.i:                                 ; preds = %while.body.i79
   %pubKey.i.le = getelementptr inbounds i8, ptr %list.addr.0.i, i64 40
@@ -7282,7 +7308,7 @@ if.end16.split.i:                                 ; preds = %while.body.i79
   %72 = load i32, ptr %pubKeyLen.i, align 8
   %73 = trunc i32 %72 to i16
   %conv37.i = add i16 %add25.i, %73
-  br label %while.cond.outer.i, !llvm.loop !61
+  br label %while.cond.outer.i, !llvm.loop !62
 
 while.end.i:                                      ; preds = %while.body.us.us.i, %while.cond.i
   %.us-phi.i = phi i16 [ %i.1.ph.i, %while.cond.i ], [ %conv37.us.i, %while.body.us.us.i ]
@@ -7336,7 +7362,7 @@ sw.epilog:                                        ; preds = %do.end126, %if.end5
   %or35 = or i8 %shl173, %77
   store i8 %or35, ptr %arrayidx182, align 1
   %cmp185.not = icmp eq i32 %ret.1, 0
-  br i1 %cmp185.not, label %while.cond.outer, label %while.end, !llvm.loop !56
+  br i1 %cmp185.not, label %while.cond.outer, label %while.end, !llvm.loop !57
 
 while.end:                                        ; preds = %sw.epilog, %while.cond.outer, %while.cond.backedge
   %offset.3 = phi i16 [ %offset.0.ph, %while.cond.backedge ], [ %offset.0.ph, %while.cond.outer ], [ %offset.2, %sw.epilog ]
@@ -7457,7 +7483,7 @@ TLSX_SupportExtensions.exit:                      ; preds = %land.rhs.i
 if.then144:                                       ; preds = %land.rhs.i, %TLSX_SupportExtensions.exit
   %extensions = getelementptr inbounds i8, ptr %ssl, i64 1200
   %7 = load ptr, ptr %extensions, align 16
-  %call146 = call fastcc i32 @TLSX_GetSize(ptr noundef %7, ptr noundef nonnull %semaphore, i8 noundef zeroext %msgType, ptr noundef nonnull %length), !range !50
+  %call146 = call fastcc i32 @TLSX_GetSize(ptr noundef %7, ptr noundef nonnull %semaphore, i8 noundef zeroext %msgType, ptr noundef nonnull %length), !range !51
   %cmp147.not = icmp eq i32 %call146, 0
   br i1 %cmp147.not, label %if.then144.if.end151_crit_edge, label %return
 
@@ -7703,7 +7729,7 @@ if.end15:                                         ; preds = %if.end
   %conv2.i = zext i8 %add.ptr.val18 to i16
   %or.i = or disjoint i16 %shl.i, %conv2.i
   %cmp17 = icmp eq i16 %or.i, 43
-  br i1 %cmp17, label %if.then19, label %while.cond, !llvm.loop !62
+  br i1 %cmp17, label %if.then19, label %while.cond, !llvm.loop !63
 
 if.then19:                                        ; preds = %if.end15
   store i32 1, ptr %found, align 4
@@ -7712,7 +7738,7 @@ if.then19:                                        ; preds = %if.end15
   %version = getelementptr inbounds i8, ptr %ssl, i64 694
   %options = getelementptr inbounds i8, ptr %ssl, i64 1000
   %extensions = getelementptr inbounds i8, ptr %ssl, i64 1200
-  %call = tail call i32 @TLSX_SupportedVersions_Parse(ptr noundef %ssl, ptr noundef nonnull %add.ptr21, i16 noundef zeroext %or.i22, i8 noundef zeroext %msgType, ptr noundef nonnull %version, ptr noundef nonnull %options, ptr noundef nonnull %extensions), !range !50
+  %call = tail call i32 @TLSX_SupportedVersions_Parse(ptr noundef %ssl, ptr noundef nonnull %add.ptr21, i16 noundef zeroext %or.i22, i8 noundef zeroext %msgType, ptr noundef nonnull %version, ptr noundef nonnull %options, ptr noundef nonnull %extensions), !range !51
   br label %while.end
 
 while.end:                                        ; preds = %if.end, %while.body, %while.cond, %if.then19
@@ -8060,7 +8086,7 @@ lor.lhs.false104.i:                               ; preds = %lor.end.i, %lor.rhs
 if.then107.i:                                     ; preds = %lor.lhs.false104.i, %lor.end.i, %if.end73.i
   %matchStat.0.i = phi i8 [ 1, %lor.lhs.false104.i ], [ 2, %lor.end.i ], [ 3, %if.end73.i ]
   %add.ptr111.i = getelementptr inbounds i8, ptr %add.ptr97, i64 5
-  %call112.i = tail call i32 @TLSX_UseSNI(ptr noundef nonnull %extensions.i.i, i8 noundef zeroext 0, ptr noundef nonnull %add.ptr111.i, i16 noundef zeroext %or.i60.i, ptr poison), !range !63
+  %call112.i = tail call i32 @TLSX_UseSNI(ptr noundef nonnull %extensions.i.i, i8 noundef zeroext 0, ptr noundef nonnull %add.ptr111.i, i16 noundef zeroext %or.i60.i, ptr poison), !range !64
   %cmp113.not.i = icmp eq i32 %call112.i, 1
   br i1 %cmp113.not.i, label %if.end116.i, label %sw.epilog
 
@@ -8374,7 +8400,7 @@ for.inc.i.i:                                      ; preds = %if.then46.i.i, %lan
   %63 = phi i16 [ %55, %for.body.i.i ], [ %conv23.i.i, %if.end24.i.i ], [ %60, %land.lhs.true30.i.i ], [ %conv56.i.i, %if.then46.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 2
   %cmp4.i.i = icmp ult i64 %indvars.iv.next.i.i, %54
-  br i1 %cmp4.i.i, label %for.body.i.i, label %sw.epilog, !llvm.loop !60
+  br i1 %cmp4.i.i, label %for.body.i.i, label %sw.epilog, !llvm.loop !61
 
 do.end347:                                        ; preds = %if.end70
   %64 = load i16, ptr %version406, align 2
@@ -8546,7 +8572,7 @@ sw.epilog:                                        ; preds = %land.rhs.i.i.i195, 
   %conv13 = and i32 %add432, 65535
   %cmp15 = icmp ult i32 %conv13, %conv14
   %76 = select i1 %cmp11, i1 %cmp15, i1 false
-  br i1 %76, label %while.body, label %while.end, !llvm.loop !64
+  br i1 %76, label %while.body, label %while.end, !llvm.loop !65
 
 while.end.sink.split:                             ; preds = %if.else136.i, %if.then4.i, %lor.lhs.false.i
   %.sink = phi i32 [ 110, %lor.lhs.false.i ], [ 110, %if.then4.i ], [ 112, %if.else136.i ]
@@ -8685,7 +8711,7 @@ for.inc.us.i:                                     ; preds = %for.body.us.i
   %next.us.i = getelementptr inbounds i8, ptr %ctx_sni.035.us.i, i64 16
   %93 = load ptr, ptr %next.us.i, align 8
   %tobool10.not.us.i = icmp eq ptr %93, null
-  br i1 %tobool10.not.us.i, label %return, label %for.body.us.i, !llvm.loop !65
+  br i1 %tobool10.not.us.i, label %return, label %for.body.us.i, !llvm.loop !66
 
 for.cond29.preheader.i:                           ; preds = %for.inc.i, %cond.end8.i, %cond.end8.thread56.i
   %cond945.i = phi ptr [ %90, %cond.end8.i ], [ %88, %cond.end8.thread56.i ], [ %90, %for.inc.i ]
@@ -8733,7 +8759,7 @@ for.inc.i:                                        ; preds = %if.end.i240, %if.th
   %next.i = getelementptr inbounds i8, ptr %ctx_sni.035.i, i64 16
   %102 = load ptr, ptr %next.i, align 8
   %tobool10.not.i = icmp eq ptr %102, null
-  br i1 %tobool10.not.i, label %for.cond29.preheader.i, label %for.body.i, !llvm.loop !65
+  br i1 %tobool10.not.i, label %for.cond29.preheader.i, label %for.body.i, !llvm.loop !66
 
 for.body31.i:                                     ; preds = %for.cond29.preheader.i, %for.inc45.i
   %ssl_sni.038.i = phi ptr [ %106, %for.inc45.i ], [ %cond945.i, %for.cond29.preheader.i ]
@@ -8753,7 +8779,7 @@ for.inc45.i:                                      ; preds = %if.then36.i, %for.b
   %next46.i = getelementptr inbounds i8, ptr %ssl_sni.038.i, i64 16
   %106 = load ptr, ptr %next46.i, align 8
   %tobool30.not.i = icmp eq ptr %106, null
-  br i1 %tobool30.not.i, label %return, label %for.body31.i, !llvm.loop !66
+  br i1 %tobool30.not.i, label %return, label %for.body31.i, !llvm.loop !67
 
 return.sink.split.i:                              ; preds = %if.end.i240, %while.body.i27.i, %for.body.us.i, %if.then36.i
   %call43.i = tail call i32 @SendAlert(ptr noundef nonnull %ssl, i32 noundef 2, i32 noundef 40) #16
@@ -9223,10 +9249,10 @@ attributes #17 = { nounwind willreturn memory(read) }
 !45 = !{i32 -310, i32 1}
 !46 = !{i32 -421, i32 1}
 !47 = distinct !{!47, !5}
-!48 = distinct !{!48, !5}
+!48 = !{i32 -173, i32 1}
 !49 = distinct !{!49, !5}
-!50 = !{i32 -394, i32 1}
-!51 = distinct !{!51, !5}
+!50 = distinct !{!50, !5}
+!51 = !{i32 -394, i32 1}
 !52 = distinct !{!52, !5}
 !53 = distinct !{!53, !5}
 !54 = distinct !{!54, !5}
@@ -9238,7 +9264,8 @@ attributes #17 = { nounwind willreturn memory(read) }
 !60 = distinct !{!60, !5}
 !61 = distinct !{!61, !5}
 !62 = distinct !{!62, !5}
-!63 = !{i32 -173, i32 2}
-!64 = distinct !{!64, !5}
+!63 = distinct !{!63, !5}
+!64 = !{i32 -173, i32 2}
 !65 = distinct !{!65, !5}
 !66 = distinct !{!66, !5}
+!67 = distinct !{!67, !5}

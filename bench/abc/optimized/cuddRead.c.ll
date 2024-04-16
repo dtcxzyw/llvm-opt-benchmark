@@ -17,7 +17,7 @@ define noundef i32 @Cudd_addRead(ptr noundef %0, ptr noundef %1, ptr nocapture n
   %22 = load ptr, ptr %21, align 8
   %23 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull %16, ptr noundef nonnull %17) #5
   %cond = icmp eq i32 %23, 2
-  br i1 %cond, label %24, label %.loopexit230
+  br i1 %cond, label %24, label %._crit_edge273
 
 24:                                               ; preds = %15
   %25 = load i32, ptr %16, align 4
@@ -70,7 +70,7 @@ define noundef i32 @Cudd_addRead(ptr noundef %0, ptr noundef %1, ptr nocapture n
 46:                                               ; preds = %43
   %47 = getelementptr inbounds i8, ptr %1, i64 624
   store i32 1, ptr %47, align 8
-  br label %.loopexit230
+  br label %._crit_edge273
 
 48:                                               ; preds = %43
   %49 = load ptr, ptr %5, align 8
@@ -96,7 +96,7 @@ define noundef i32 @Cudd_addRead(ptr noundef %0, ptr noundef %1, ptr nocapture n
 59:                                               ; preds = %56
   %60 = getelementptr inbounds i8, ptr %1, i64 624
   store i32 1, ptr %60, align 8
-  br label %.loopexit230
+  br label %._crit_edge273
 
 61:                                               ; preds = %56, %33
   %.0190 = phi ptr [ %44, %56 ], [ %26, %33 ]
@@ -115,8 +115,8 @@ define noundef i32 @Cudd_addRead(ptr noundef %0, ptr noundef %1, ptr nocapture n
   %67 = phi i32 [ %68, %.lr.ph248 ], [ %65, %61 ]
   %68 = lshr i32 %67, 1
   %69 = add nuw nsw i32 %.0191246, 1
-  %.not280 = icmp ult i32 %67, 2
-  br i1 %.not280, label %._crit_edge249, label %.lr.ph248, !llvm.loop !6
+  %.not275 = icmp ult i32 %67, 2
+  br i1 %.not275, label %._crit_edge249, label %.lr.ph248, !llvm.loop !6
 
 ._crit_edge249:                                   ; preds = %.lr.ph248
   store i32 %68, ptr %17, align 4
@@ -151,7 +151,7 @@ define noundef i32 @Cudd_addRead(ptr noundef %0, ptr noundef %1, ptr nocapture n
 83:                                               ; preds = %80
   %84 = getelementptr inbounds i8, ptr %1, i64 624
   store i32 1, ptr %84, align 8
-  br label %.loopexit230
+  br label %._crit_edge273
 
 85:                                               ; preds = %80
   %86 = load ptr, ptr %6, align 8
@@ -177,7 +177,7 @@ define noundef i32 @Cudd_addRead(ptr noundef %0, ptr noundef %1, ptr nocapture n
 96:                                               ; preds = %93
   %97 = getelementptr inbounds i8, ptr %1, i64 624
   store i32 1, ptr %97, align 8
-  br label %.loopexit230
+  br label %._crit_edge273
 
 98:                                               ; preds = %93, %70
   %.0189 = phi ptr [ %81, %93 ], [ %63, %70 ]
@@ -210,7 +210,7 @@ define noundef i32 @Cudd_addRead(ptr noundef %0, ptr noundef %1, ptr nocapture n
 
 110:                                              ; preds = %106
   %111 = icmp eq ptr %107, null
-  br i1 %111, label %.loopexit230, label %112
+  br i1 %111, label %._crit_edge273, label %112
 
 112:                                              ; preds = %110
   %113 = ptrtoint ptr %107 to i64
@@ -233,7 +233,7 @@ define noundef i32 @Cudd_addRead(ptr noundef %0, ptr noundef %1, ptr nocapture n
 
 124:                                              ; preds = %120
   %125 = icmp eq ptr %121, null
-  br i1 %125, label %.loopexit230, label %126
+  br i1 %125, label %._crit_edge273, label %126
 
 126:                                              ; preds = %124
   %127 = ptrtoint ptr %121 to i64
@@ -258,13 +258,13 @@ define noundef i32 @Cudd_addRead(ptr noundef %0, ptr noundef %1, ptr nocapture n
   %137 = add nsw i32 %136, %13
   %138 = getelementptr inbounds i8, ptr %1, i64 448
   %139 = sext i32 %134 to i64
-  %wide.trip.count300 = sext i32 %.0191.lcssa to i64
+  %wide.trip.count295 = sext i32 %.0191.lcssa to i64
   br label %.preheader229
 
 .preheader229:                                    ; preds = %.preheader229.lr.ph, %161
-  %indvars.iv297 = phi i64 [ %139, %.preheader229.lr.ph ], [ %indvars.iv.next298, %161 ]
+  %indvars.iv292 = phi i64 [ %139, %.preheader229.lr.ph ], [ %indvars.iv.next293, %161 ]
   %.1256 = phi i32 [ %137, %.preheader229.lr.ph ], [ %168, %161 ]
-  %140 = getelementptr inbounds ptr, ptr %.0189, i64 %indvars.iv297
+  %140 = getelementptr inbounds ptr, ptr %.0189, i64 %indvars.iv292
   br label %141
 
 141:                                              ; preds = %.preheader229, %141
@@ -277,7 +277,7 @@ define noundef i32 @Cudd_addRead(ptr noundef %0, ptr noundef %1, ptr nocapture n
 
 145:                                              ; preds = %141
   %146 = icmp eq ptr %142, null
-  br i1 %146, label %.loopexit230, label %147
+  br i1 %146, label %._crit_edge273, label %147
 
 147:                                              ; preds = %145
   %148 = ptrtoint ptr %142 to i64
@@ -287,7 +287,7 @@ define noundef i32 @Cudd_addRead(ptr noundef %0, ptr noundef %1, ptr nocapture n
   %152 = load i32, ptr %151, align 4
   %153 = add i32 %152, 1
   store i32 %153, ptr %151, align 4
-  %154 = getelementptr inbounds ptr, ptr %.0, i64 %indvars.iv297
+  %154 = getelementptr inbounds ptr, ptr %.0, i64 %indvars.iv292
   br label %155
 
 155:                                              ; preds = %155, %147
@@ -300,7 +300,7 @@ define noundef i32 @Cudd_addRead(ptr noundef %0, ptr noundef %1, ptr nocapture n
 
 159:                                              ; preds = %155
   %160 = icmp eq ptr %156, null
-  br i1 %160, label %.loopexit230, label %161
+  br i1 %160, label %._crit_edge273, label %161
 
 161:                                              ; preds = %159
   %162 = ptrtoint ptr %156 to i64
@@ -310,10 +310,10 @@ define noundef i32 @Cudd_addRead(ptr noundef %0, ptr noundef %1, ptr nocapture n
   %166 = load i32, ptr %165, align 4
   %167 = add i32 %166, 1
   store i32 %167, ptr %165, align 4
-  %indvars.iv.next298 = add nsw i64 %indvars.iv297, 1
+  %indvars.iv.next293 = add nsw i64 %indvars.iv292, 1
   %168 = add nsw i32 %.1256, %14
-  %exitcond301.not = icmp eq i64 %indvars.iv.next298, %wide.trip.count300
-  br i1 %exitcond301.not, label %._crit_edge257, label %.preheader229, !llvm.loop !12
+  %exitcond296.not = icmp eq i64 %indvars.iv.next293, %wide.trip.count295
+  br i1 %exitcond296.not, label %._crit_edge257, label %.preheader229, !llvm.loop !12
 
 ._crit_edge257:                                   ; preds = %161, %._crit_edge254
   store i32 %.0192.lcssa, ptr %7, align 4
@@ -330,7 +330,7 @@ define noundef i32 @Cudd_addRead(ptr noundef %0, ptr noundef %1, ptr nocapture n
   store i32 %176, ptr %174, align 4
   %177 = call i32 @feof(ptr noundef %0) #5
   %.not224270 = icmp eq i32 %177, 0
-  br i1 %.not224270, label %.lr.ph272, label %.loopexit230
+  br i1 %.not224270, label %.lr.ph272, label %._crit_edge273
 
 .lr.ph272:                                        ; preds = %._crit_edge257
   %178 = ptrtoint ptr %20 to i64
@@ -345,8 +345,8 @@ define noundef i32 @Cudd_addRead(ptr noundef %0, ptr noundef %1, ptr nocapture n
 
 186:                                              ; preds = %.lr.ph272, %249
   %187 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %0, ptr noundef nonnull @.str.1, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18) #5
-  switch i32 %187, label %.loopexit230.loopexit341 [
-    i32 -1, label %.loopexit230
+  switch i32 %187, label %._crit_edge273.loopexit336 [
+    i32 -1, label %._crit_edge273
     i32 3, label %188
   ]
 
@@ -354,7 +354,7 @@ define noundef i32 @Cudd_addRead(ptr noundef %0, ptr noundef %1, ptr nocapture n
   %189 = load i32, ptr %16, align 4
   %190 = load i32, ptr %9, align 4
   %.not226 = icmp slt i32 %189, %190
-  br i1 %.not226, label %191, label %.loopexit230
+  br i1 %.not226, label %191, label %._crit_edge273.loopexit336
 
 191:                                              ; preds = %188
   %192 = load i32, ptr %17, align 4
@@ -363,7 +363,7 @@ define noundef i32 @Cudd_addRead(ptr noundef %0, ptr noundef %1, ptr nocapture n
   %195 = or i32 %192, %189
   %196 = icmp slt i32 %195, 0
   %or.cond3 = or i1 %194, %196
-  br i1 %or.cond3, label %.loopexit230, label %197
+  br i1 %or.cond3, label %._crit_edge273.loopexit336, label %197
 
 197:                                              ; preds = %191
   %198 = load i32, ptr %181, align 4
@@ -381,13 +381,13 @@ define noundef i32 @Cudd_addRead(ptr noundef %0, ptr noundef %1, ptr nocapture n
 
 .lr.ph262:                                        ; preds = %197, %207
   %200 = phi i32 [ %215, %207 ], [ %189, %197 ]
-  %indvars.iv302 = phi i64 [ %indvars.iv.next303, %207 ], [ %184, %197 ]
+  %indvars.iv297 = phi i64 [ %indvars.iv.next298, %207 ], [ %184, %197 ]
   %.0196259 = phi ptr [ %204, %207 ], [ %20, %197 ]
-  %indvars.iv.next303 = add nsw i64 %indvars.iv302, -1
+  %indvars.iv.next298 = add nsw i64 %indvars.iv297, -1
   %201 = and i32 %200, 1
   %.not228 = icmp eq i32 %201, 0
   %.0188..0190 = select i1 %.not228, ptr %.0188, ptr %.0190
-  %202 = getelementptr inbounds ptr, ptr %.0188..0190, i64 %indvars.iv.next303
+  %202 = getelementptr inbounds ptr, ptr %.0188..0190, i64 %indvars.iv.next298
   %203 = load ptr, ptr %202, align 8
   %204 = call ptr @Cudd_addApply(ptr noundef %1, ptr noundef nonnull @Cudd_addTimes, ptr noundef %.0196259, ptr noundef %203) #5
   %205 = icmp eq ptr %204, null
@@ -395,7 +395,7 @@ define noundef i32 @Cudd_addRead(ptr noundef %0, ptr noundef %1, ptr nocapture n
 
 206:                                              ; preds = %.lr.ph262
   call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %.0196259) #5
-  br label %.loopexit230
+  br label %._crit_edge273
 
 207:                                              ; preds = %.lr.ph262
   %208 = ptrtoint ptr %204 to i64
@@ -409,18 +409,18 @@ define noundef i32 @Cudd_addRead(ptr noundef %0, ptr noundef %1, ptr nocapture n
   %214 = load i32, ptr %16, align 4
   %215 = ashr i32 %214, 1
   store i32 %215, ptr %16, align 4
-  %216 = icmp sgt i64 %indvars.iv302, 1
+  %216 = icmp sgt i64 %indvars.iv297, 1
   br i1 %216, label %.lr.ph262, label %.preheader, !llvm.loop !13
 
 .lr.ph267:                                        ; preds = %.lr.ph267.preheader, %224
   %217 = phi i32 [ %.pre, %.lr.ph267.preheader ], [ %232, %224 ]
-  %indvars.iv305 = phi i64 [ %185, %.lr.ph267.preheader ], [ %indvars.iv.next306, %224 ]
+  %indvars.iv300 = phi i64 [ %185, %.lr.ph267.preheader ], [ %indvars.iv.next301, %224 ]
   %.1197265 = phi ptr [ %.0196.lcssa, %.lr.ph267.preheader ], [ %221, %224 ]
-  %indvars.iv.next306 = add nsw i64 %indvars.iv305, -1
+  %indvars.iv.next301 = add nsw i64 %indvars.iv300, -1
   %218 = and i32 %217, 1
   %.not227 = icmp eq i32 %218, 0
   %.0..0189 = select i1 %.not227, ptr %.0, ptr %.0189
-  %219 = getelementptr inbounds ptr, ptr %.0..0189, i64 %indvars.iv.next306
+  %219 = getelementptr inbounds ptr, ptr %.0..0189, i64 %indvars.iv.next301
   %220 = load ptr, ptr %219, align 8
   %221 = call ptr @Cudd_addApply(ptr noundef %1, ptr noundef nonnull @Cudd_addTimes, ptr noundef %.1197265, ptr noundef %220) #5
   %222 = icmp eq ptr %221, null
@@ -428,7 +428,7 @@ define noundef i32 @Cudd_addRead(ptr noundef %0, ptr noundef %1, ptr nocapture n
 
 223:                                              ; preds = %.lr.ph267
   call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %.1197265) #5
-  br label %.loopexit230
+  br label %._crit_edge273
 
 224:                                              ; preds = %.lr.ph267
   %225 = ptrtoint ptr %221 to i64
@@ -442,7 +442,7 @@ define noundef i32 @Cudd_addRead(ptr noundef %0, ptr noundef %1, ptr nocapture n
   %231 = load i32, ptr %17, align 4
   %232 = ashr i32 %231, 1
   store i32 %232, ptr %17, align 4
-  %233 = icmp sgt i64 %indvars.iv305, 1
+  %233 = icmp sgt i64 %indvars.iv300, 1
   br i1 %233, label %.lr.ph267, label %._crit_edge268, !llvm.loop !14
 
 ._crit_edge268:                                   ; preds = %224, %.preheader
@@ -454,7 +454,7 @@ define noundef i32 @Cudd_addRead(ptr noundef %0, ptr noundef %1, ptr nocapture n
 
 237:                                              ; preds = %._crit_edge268
   call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %.1197.lcssa) #5
-  br label %.loopexit230
+  br label %._crit_edge273
 
 238:                                              ; preds = %._crit_edge268
   %239 = ptrtoint ptr %235 to i64
@@ -472,7 +472,7 @@ define noundef i32 @Cudd_addRead(ptr noundef %0, ptr noundef %1, ptr nocapture n
 248:                                              ; preds = %238
   call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %.1197.lcssa) #5
   call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef nonnull %235) #5
-  br label %.loopexit230
+  br label %._crit_edge273
 
 249:                                              ; preds = %238
   %250 = ptrtoint ptr %246 to i64
@@ -489,13 +489,13 @@ define noundef i32 @Cudd_addRead(ptr noundef %0, ptr noundef %1, ptr nocapture n
   store ptr %246, ptr %2, align 8
   %257 = call i32 @feof(ptr noundef %0) #5
   %.not224 = icmp eq i32 %257, 0
-  br i1 %.not224, label %186, label %.loopexit230, !llvm.loop !15
+  br i1 %.not224, label %186, label %._crit_edge273, !llvm.loop !15
 
-.loopexit230.loopexit341:                         ; preds = %186
-  br label %.loopexit230
+._crit_edge273.loopexit336:                       ; preds = %186, %191, %188
+  br label %._crit_edge273
 
-.loopexit230:                                     ; preds = %124, %110, %159, %145, %191, %188, %249, %186, %.loopexit230.loopexit341, %._crit_edge257, %15, %248, %237, %223, %206, %96, %83, %59, %46
-  %.0198 = phi i32 [ 0, %46 ], [ 0, %59 ], [ 0, %83 ], [ 0, %96 ], [ 0, %206 ], [ 0, %223 ], [ 0, %237 ], [ 0, %248 ], [ 0, %15 ], [ 1, %._crit_edge257 ], [ 1, %186 ], [ 0, %191 ], [ 0, %188 ], [ 1, %249 ], [ 0, %.loopexit230.loopexit341 ], [ 0, %145 ], [ 0, %159 ], [ 0, %110 ], [ 0, %124 ]
+._crit_edge273:                                   ; preds = %124, %110, %159, %145, %186, %249, %._crit_edge273.loopexit336, %._crit_edge257, %15, %248, %237, %223, %206, %96, %83, %59, %46
+  %.0198 = phi i32 [ 0, %46 ], [ 0, %59 ], [ 0, %83 ], [ 0, %96 ], [ 0, %206 ], [ 0, %223 ], [ 0, %237 ], [ 0, %248 ], [ 0, %15 ], [ 1, %._crit_edge257 ], [ 0, %._crit_edge273.loopexit336 ], [ 1, %249 ], [ 1, %186 ], [ 0, %145 ], [ 0, %159 ], [ 0, %110 ], [ 0, %124 ]
   ret i32 %.0198
 }
 
@@ -533,7 +533,7 @@ define noundef i32 @Cudd_bddRead(ptr noundef %0, ptr noundef %1, ptr nocapture n
   %20 = inttoptr i64 %19 to ptr
   %21 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull %14, ptr noundef nonnull %15) #5
   %cond = icmp eq i32 %21, 2
-  br i1 %cond, label %22, label %.loopexit170
+  br i1 %cond, label %22, label %._crit_edge205
 
 22:                                               ; preds = %13
   %23 = load i32, ptr %14, align 4
@@ -585,7 +585,7 @@ define noundef i32 @Cudd_bddRead(ptr noundef %0, ptr noundef %1, ptr nocapture n
 43:                                               ; preds = %40
   %44 = getelementptr inbounds i8, ptr %1, i64 624
   store i32 1, ptr %44, align 8
-  br label %.loopexit170
+  br label %._crit_edge205
 
 45:                                               ; preds = %40, %30
   %.0139 = phi ptr [ %41, %40 ], [ %24, %30 ]
@@ -602,8 +602,8 @@ define noundef i32 @Cudd_bddRead(ptr noundef %0, ptr noundef %1, ptr nocapture n
   %50 = phi i32 [ %51, %.lr.ph180 ], [ %48, %45 ]
   %51 = lshr i32 %50, 1
   %52 = add nuw nsw i32 %.0140178, 1
-  %.not212 = icmp ult i32 %50, 2
-  br i1 %.not212, label %._crit_edge181, label %.lr.ph180, !llvm.loop !17
+  %.not207 = icmp ult i32 %50, 2
+  br i1 %.not207, label %._crit_edge181, label %.lr.ph180, !llvm.loop !17
 
 ._crit_edge181:                                   ; preds = %.lr.ph180
   store i32 %51, ptr %15, align 4
@@ -638,7 +638,7 @@ define noundef i32 @Cudd_bddRead(ptr noundef %0, ptr noundef %1, ptr nocapture n
 66:                                               ; preds = %63
   %67 = getelementptr inbounds i8, ptr %1, i64 624
   store i32 1, ptr %67, align 8
-  br label %.loopexit170
+  br label %._crit_edge205
 
 68:                                               ; preds = %63, %53
   %.0 = phi ptr [ %64, %63 ], [ %47, %53 ]
@@ -670,7 +670,7 @@ define noundef i32 @Cudd_bddRead(ptr noundef %0, ptr noundef %1, ptr nocapture n
 
 80:                                               ; preds = %76
   %81 = icmp eq ptr %77, null
-  br i1 %81, label %.loopexit170, label %82
+  br i1 %81, label %._crit_edge205, label %82
 
 82:                                               ; preds = %80
   %83 = ptrtoint ptr %77 to i64
@@ -695,13 +695,13 @@ define noundef i32 @Cudd_bddRead(ptr noundef %0, ptr noundef %1, ptr nocapture n
   %93 = add nsw i32 %92, %11
   %94 = getelementptr inbounds i8, ptr %1, i64 448
   %95 = sext i32 %90 to i64
-  %wide.trip.count228 = sext i32 %.0140.lcssa to i64
+  %wide.trip.count223 = sext i32 %.0140.lcssa to i64
   br label %.preheader169
 
 .preheader169:                                    ; preds = %.preheader169.lr.ph, %103
-  %indvars.iv225 = phi i64 [ %95, %.preheader169.lr.ph ], [ %indvars.iv.next226, %103 ]
+  %indvars.iv220 = phi i64 [ %95, %.preheader169.lr.ph ], [ %indvars.iv.next221, %103 ]
   %.1188 = phi i32 [ %93, %.preheader169.lr.ph ], [ %110, %103 ]
-  %96 = getelementptr inbounds ptr, ptr %.0, i64 %indvars.iv225
+  %96 = getelementptr inbounds ptr, ptr %.0, i64 %indvars.iv220
   br label %97
 
 97:                                               ; preds = %.preheader169, %97
@@ -714,7 +714,7 @@ define noundef i32 @Cudd_bddRead(ptr noundef %0, ptr noundef %1, ptr nocapture n
 
 101:                                              ; preds = %97
   %102 = icmp eq ptr %98, null
-  br i1 %102, label %.loopexit170, label %103
+  br i1 %102, label %._crit_edge205, label %103
 
 103:                                              ; preds = %101
   %104 = ptrtoint ptr %98 to i64
@@ -724,10 +724,10 @@ define noundef i32 @Cudd_bddRead(ptr noundef %0, ptr noundef %1, ptr nocapture n
   %108 = load i32, ptr %107, align 4
   %109 = add i32 %108, 1
   store i32 %109, ptr %107, align 4
-  %indvars.iv.next226 = add nsw i64 %indvars.iv225, 1
+  %indvars.iv.next221 = add nsw i64 %indvars.iv220, 1
   %110 = add nsw i32 %.1188, %12
-  %exitcond229.not = icmp eq i64 %indvars.iv.next226, %wide.trip.count228
-  br i1 %exitcond229.not, label %._crit_edge189, label %.preheader169, !llvm.loop !21
+  %exitcond224.not = icmp eq i64 %indvars.iv.next221, %wide.trip.count223
+  br i1 %exitcond224.not, label %._crit_edge189, label %.preheader169, !llvm.loop !21
 
 ._crit_edge189:                                   ; preds = %103, %._crit_edge186
   store i32 %.0141.lcssa, ptr %5, align 4
@@ -741,7 +741,7 @@ define noundef i32 @Cudd_bddRead(ptr noundef %0, ptr noundef %1, ptr nocapture n
   store i32 %115, ptr %113, align 4
   %116 = call i32 @feof(ptr noundef %0) #5
   %.not164202 = icmp eq i32 %116, 0
-  br i1 %.not164202, label %.lr.ph204, label %.loopexit170
+  br i1 %.not164202, label %.lr.ph204, label %._crit_edge205
 
 .lr.ph204:                                        ; preds = %._crit_edge189
   %117 = icmp sgt i32 %.0141.lcssa, 0
@@ -752,8 +752,8 @@ define noundef i32 @Cudd_bddRead(ptr noundef %0, ptr noundef %1, ptr nocapture n
 
 121:                                              ; preds = %.lr.ph204, %184
   %122 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull %14, ptr noundef nonnull %15) #5
-  switch i32 %122, label %.loopexit170.loopexit263 [
-    i32 -1, label %.loopexit170
+  switch i32 %122, label %._crit_edge205.loopexit258 [
+    i32 -1, label %._crit_edge205
     i32 2, label %123
   ]
 
@@ -761,7 +761,7 @@ define noundef i32 @Cudd_bddRead(ptr noundef %0, ptr noundef %1, ptr nocapture n
   %124 = load i32, ptr %14, align 4
   %125 = load i32, ptr %7, align 4
   %.not166 = icmp slt i32 %124, %125
-  br i1 %.not166, label %126, label %.loopexit170
+  br i1 %.not166, label %126, label %._crit_edge205.loopexit258
 
 126:                                              ; preds = %123
   %127 = load i32, ptr %15, align 4
@@ -770,7 +770,7 @@ define noundef i32 @Cudd_bddRead(ptr noundef %0, ptr noundef %1, ptr nocapture n
   %130 = or i32 %127, %124
   %131 = icmp slt i32 %130, 0
   %or.cond3 = or i1 %129, %131
-  br i1 %or.cond3, label %.loopexit170, label %132
+  br i1 %or.cond3, label %._crit_edge205.loopexit258, label %132
 
 132:                                              ; preds = %126
   %133 = load i32, ptr %113, align 4
@@ -783,7 +783,7 @@ define noundef i32 @Cudd_bddRead(ptr noundef %0, ptr noundef %1, ptr nocapture n
   br i1 %118, label %.lr.ph199.preheader, label %.preheader.._crit_edge200_crit_edge
 
 .preheader.._crit_edge200_crit_edge:              ; preds = %.preheader
-  %.pre236 = ptrtoint ptr %.0145.lcssa to i64
+  %.pre231 = ptrtoint ptr %.0145.lcssa to i64
   br label %._crit_edge200
 
 .lr.ph199.preheader:                              ; preds = %.preheader
@@ -792,12 +792,12 @@ define noundef i32 @Cudd_bddRead(ptr noundef %0, ptr noundef %1, ptr nocapture n
 
 .lr.ph194:                                        ; preds = %132, %145
   %135 = phi i32 [ %153, %145 ], [ %124, %132 ]
-  %indvars.iv230 = phi i64 [ %indvars.iv.next231, %145 ], [ %119, %132 ]
+  %indvars.iv225 = phi i64 [ %indvars.iv.next226, %145 ], [ %119, %132 ]
   %.0145191 = phi ptr [ %142, %145 ], [ %17, %132 ]
-  %indvars.iv.next231 = add nsw i64 %indvars.iv230, -1
+  %indvars.iv.next226 = add nsw i64 %indvars.iv225, -1
   %136 = and i32 %135, 1
   %.not168 = icmp eq i32 %136, 0
-  %137 = getelementptr inbounds ptr, ptr %.0139, i64 %indvars.iv.next231
+  %137 = getelementptr inbounds ptr, ptr %.0139, i64 %indvars.iv.next226
   %138 = load ptr, ptr %137, align 8
   %139 = ptrtoint ptr %138 to i64
   %140 = xor i64 %139, 1
@@ -809,7 +809,7 @@ define noundef i32 @Cudd_bddRead(ptr noundef %0, ptr noundef %1, ptr nocapture n
 
 144:                                              ; preds = %.lr.ph194
   call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %.0145191) #5
-  br label %.loopexit170
+  br label %._crit_edge205
 
 145:                                              ; preds = %.lr.ph194
   %146 = ptrtoint ptr %142 to i64
@@ -823,29 +823,29 @@ define noundef i32 @Cudd_bddRead(ptr noundef %0, ptr noundef %1, ptr nocapture n
   %152 = load i32, ptr %14, align 4
   %153 = ashr i32 %152, 1
   store i32 %153, ptr %14, align 4
-  %154 = icmp sgt i64 %indvars.iv230, 1
+  %154 = icmp sgt i64 %indvars.iv225, 1
   br i1 %154, label %.lr.ph194, label %.preheader, !llvm.loop !22
 
 .lr.ph199:                                        ; preds = %.lr.ph199.preheader, %165
   %155 = phi i32 [ %.pre, %.lr.ph199.preheader ], [ %173, %165 ]
-  %indvars.iv233 = phi i64 [ %120, %.lr.ph199.preheader ], [ %indvars.iv.next234, %165 ]
+  %indvars.iv228 = phi i64 [ %120, %.lr.ph199.preheader ], [ %indvars.iv.next229, %165 ]
   %.1146197 = phi ptr [ %.0145.lcssa, %.lr.ph199.preheader ], [ %162, %165 ]
-  %indvars.iv.next234 = add nsw i64 %indvars.iv233, -1
+  %indvars.iv.next229 = add nsw i64 %indvars.iv228, -1
   %156 = and i32 %155, 1
   %.not167 = icmp eq i32 %156, 0
-  %157 = getelementptr inbounds ptr, ptr %.0, i64 %indvars.iv.next234
+  %157 = getelementptr inbounds ptr, ptr %.0, i64 %indvars.iv.next229
   %158 = load ptr, ptr %157, align 8
   %159 = ptrtoint ptr %158 to i64
   %160 = xor i64 %159, 1
   %161 = inttoptr i64 %160 to ptr
-  %.sink250 = select i1 %.not167, ptr %161, ptr %158
-  %162 = call ptr @Cudd_bddAnd(ptr noundef %1, ptr noundef %.1146197, ptr noundef %.sink250) #5
+  %.sink245 = select i1 %.not167, ptr %161, ptr %158
+  %162 = call ptr @Cudd_bddAnd(ptr noundef %1, ptr noundef %.1146197, ptr noundef %.sink245) #5
   %163 = icmp eq ptr %162, null
   br i1 %163, label %164, label %165
 
 164:                                              ; preds = %.lr.ph199
   call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %.1146197) #5
-  br label %.loopexit170
+  br label %._crit_edge205
 
 165:                                              ; preds = %.lr.ph199
   %166 = ptrtoint ptr %162 to i64
@@ -859,11 +859,11 @@ define noundef i32 @Cudd_bddRead(ptr noundef %0, ptr noundef %1, ptr nocapture n
   %172 = load i32, ptr %15, align 4
   %173 = ashr i32 %172, 1
   store i32 %173, ptr %15, align 4
-  %174 = icmp sgt i64 %indvars.iv233, 1
+  %174 = icmp sgt i64 %indvars.iv228, 1
   br i1 %174, label %.lr.ph199, label %._crit_edge200, !llvm.loop !23
 
 ._crit_edge200:                                   ; preds = %165, %.preheader.._crit_edge200_crit_edge
-  %.pre-phi = phi i64 [ %.pre236, %.preheader.._crit_edge200_crit_edge ], [ %166, %165 ]
+  %.pre-phi = phi i64 [ %.pre231, %.preheader.._crit_edge200_crit_edge ], [ %166, %165 ]
   %.1146.lcssa = phi ptr [ %.0145.lcssa, %.preheader.._crit_edge200_crit_edge ], [ %162, %165 ]
   %175 = xor i64 %.pre-phi, 1
   %176 = inttoptr i64 %175 to ptr
@@ -877,7 +877,7 @@ define noundef i32 @Cudd_bddRead(ptr noundef %0, ptr noundef %1, ptr nocapture n
 
 183:                                              ; preds = %._crit_edge200
   call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %.1146.lcssa) #5
-  br label %.loopexit170
+  br label %._crit_edge205
 
 184:                                              ; preds = %._crit_edge200
   %185 = ptrtoint ptr %181 to i64
@@ -895,13 +895,13 @@ define noundef i32 @Cudd_bddRead(ptr noundef %0, ptr noundef %1, ptr nocapture n
   store ptr %187, ptr %2, align 8
   %194 = call i32 @feof(ptr noundef %0) #5
   %.not164 = icmp eq i32 %194, 0
-  br i1 %.not164, label %121, label %.loopexit170, !llvm.loop !24
+  br i1 %.not164, label %121, label %._crit_edge205, !llvm.loop !24
 
-.loopexit170.loopexit263:                         ; preds = %121
-  br label %.loopexit170
+._crit_edge205.loopexit258:                       ; preds = %121, %126, %123
+  br label %._crit_edge205
 
-.loopexit170:                                     ; preds = %80, %101, %126, %123, %184, %121, %.loopexit170.loopexit263, %._crit_edge189, %13, %183, %164, %144, %66, %43
-  %.0149 = phi i32 [ 0, %43 ], [ 0, %66 ], [ 0, %144 ], [ 0, %164 ], [ 0, %183 ], [ 0, %13 ], [ 1, %._crit_edge189 ], [ 1, %121 ], [ 0, %126 ], [ 0, %123 ], [ 1, %184 ], [ 0, %.loopexit170.loopexit263 ], [ 0, %101 ], [ 0, %80 ]
+._crit_edge205:                                   ; preds = %80, %101, %121, %184, %._crit_edge205.loopexit258, %._crit_edge189, %13, %183, %164, %144, %66, %43
+  %.0149 = phi i32 [ 0, %43 ], [ 0, %66 ], [ 0, %144 ], [ 0, %164 ], [ 0, %183 ], [ 0, %13 ], [ 1, %._crit_edge189 ], [ 0, %._crit_edge205.loopexit258 ], [ 1, %184 ], [ 1, %121 ], [ 0, %101 ], [ 0, %80 ]
   ret i32 %.0149
 }
 

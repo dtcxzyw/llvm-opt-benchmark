@@ -1789,11 +1789,11 @@ define internal fastcc noundef i32 @ar_update(i64 noundef %0, i64 noundef %1, pt
 ensure_ar_table.exit:                             ; preds = %.thread
   switch i32 %38, label %ar_add_direct_with_hash.exit [
     i32 0, label %43
-    i32 2, label %111
+    i32 2, label %110
   ]
 
 43:                                               ; preds = %ensure_ar_table.exit
-  br i1 %.not3248, label %44, label %100
+  br i1 %.not3248, label %44, label %99
 
 44:                                               ; preds = %43
   %45 = load i64, ptr %5, align 8
@@ -1814,7 +1814,7 @@ ensure_ar_table.exit:                             ; preds = %.thread
 
 .ar_compact_table.exit_crit_edge.i:               ; preds = %53
   %.pre23.i = shl nuw nsw i32 %49, 20
-  br label %85
+  br label %ar_add_direct_with_hash.exit.thread
 
 .lr.ph53.preheader.i.i:                           ; preds = %53
   %57 = getelementptr inbounds i8, ptr %56, i64 8
@@ -1891,89 +1891,89 @@ ar_cleared_entry.exit.thread.i.i:                 ; preds = %ar_cleared_entry.ex
   %83 = zext nneg i32 %82 to i64
   %84 = or disjoint i64 %81, %83
   store i64 %84, ptr %8, align 8
-  br label %85
+  br label %ar_add_direct_with_hash.exit.thread
 
-85:                                               ; preds = %.ar_compact_table.exit_crit_edge.i, %.loopexit.i.i
+ar_add_direct_with_hash.exit.thread:              ; preds = %.ar_compact_table.exit_crit_edge.i, %.loopexit.i.i
   %.pre-phi24.i = phi i32 [ %.pre23.i, %.ar_compact_table.exit_crit_edge.i ], [ %82, %.loopexit.i.i ]
   %.0.i = phi i32 [ %49, %.ar_compact_table.exit_crit_edge.i ], [ %51, %.loopexit.i.i ]
-  %86 = getelementptr inbounds i8, ptr %56, i64 8
-  %87 = zext nneg i32 %.0.i to i64
-  %88 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %86, i64 0, i64 %87
-  store i64 %45, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 8
-  store i64 %46, ptr %89, align 8
-  %90 = trunc i64 %7 to i8
-  %91 = getelementptr [8 x i8], ptr %56, i64 0, i64 %87
-  store i8 %90, ptr %91, align 1
-  %92 = load i64, ptr %8, align 8
-  %93 = and i64 %92, -16711681
-  %94 = add nuw nsw i32 %.pre-phi24.i, 1048576
-  %95 = zext nneg i32 %94 to i64
-  %96 = or disjoint i64 %93, %95
-  %97 = and i64 %92, 983040
-  %98 = add nuw nsw i64 %97, 65536
-  %99 = or i64 %96, %98
-  store i64 %99, ptr %8, align 8
+  %85 = getelementptr inbounds i8, ptr %56, i64 8
+  %86 = zext nneg i32 %.0.i to i64
+  %87 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %85, i64 0, i64 %86
+  store i64 %45, ptr %87, align 8
+  %88 = getelementptr inbounds i8, ptr %87, i64 8
+  store i64 %46, ptr %88, align 8
+  %89 = trunc i64 %7 to i8
+  %90 = getelementptr [8 x i8], ptr %56, i64 0, i64 %86
+  store i8 %89, ptr %90, align 1
+  %91 = load i64, ptr %8, align 8
+  %92 = and i64 %91, -16711681
+  %93 = add nuw nsw i32 %.pre-phi24.i, 1048576
+  %94 = zext nneg i32 %93 to i64
+  %95 = or disjoint i64 %92, %94
+  %96 = and i64 %91, 983040
+  %97 = add nuw nsw i64 %96, 65536
+  %98 = or i64 %95, %97
+  store i64 %98, ptr %8, align 8
   br label %ar_add_direct_with_hash.exit
 
-100:                                              ; preds = %43
-  %101 = add i64 %0, 24
-  %102 = inttoptr i64 %101 to ptr
-  %103 = getelementptr inbounds i8, ptr %102, i64 8
-  %104 = zext nneg i32 %.02946 to i64
-  %105 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %103, i64 0, i64 %104
-  %106 = load i64, ptr %5, align 8
-  %.not34 = icmp eq i64 %37, %106
-  br i1 %.not34, label %108, label %107
+99:                                               ; preds = %43
+  %100 = add i64 %0, 24
+  %101 = inttoptr i64 %100 to ptr
+  %102 = getelementptr inbounds i8, ptr %101, i64 8
+  %103 = zext nneg i32 %.02946 to i64
+  %104 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %102, i64 0, i64 %103
+  %105 = load i64, ptr %5, align 8
+  %.not34 = icmp eq i64 %37, %105
+  br i1 %.not34, label %107, label %106
 
-107:                                              ; preds = %100
-  store i64 %106, ptr %105, align 8
-  br label %108
+106:                                              ; preds = %99
+  store i64 %105, ptr %104, align 8
+  br label %107
 
-108:                                              ; preds = %107, %100
-  %109 = load i64, ptr %6, align 8
-  %110 = getelementptr inbounds i8, ptr %105, i64 8
-  store i64 %109, ptr %110, align 8
+107:                                              ; preds = %106, %99
+  %108 = load i64, ptr %6, align 8
+  %109 = getelementptr inbounds i8, ptr %104, i64 8
+  store i64 %108, ptr %109, align 8
   br label %ar_add_direct_with_hash.exit
 
-111:                                              ; preds = %ensure_ar_table.exit
-  br i1 %.not3248, label %ar_add_direct_with_hash.exit, label %112
+110:                                              ; preds = %ensure_ar_table.exit
+  br i1 %.not3248, label %ar_add_direct_with_hash.exit, label %111
 
-112:                                              ; preds = %111
-  %113 = add i64 %0, 24
-  %114 = inttoptr i64 %113 to ptr
-  %115 = getelementptr inbounds i8, ptr %114, i64 8
-  %116 = zext i32 %.02946 to i64
-  %117 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %115, i64 0, i64 %116
-  store i64 36, ptr %117, align 8
-  %118 = getelementptr [8 x i8], ptr %114, i64 0, i64 %116
-  store i8 -1, ptr %118, align 1
-  %119 = load i64, ptr %8, align 8
-  %120 = trunc i64 %119 to i32
-  %121 = lshr i32 %120, 16
-  %122 = and i32 %121, 15
-  %123 = add nsw i32 %122, -1
-  %.not.i42 = icmp eq i32 %123, 0
-  br i1 %.not.i42, label %129, label %124
+111:                                              ; preds = %110
+  %112 = add i64 %0, 24
+  %113 = inttoptr i64 %112 to ptr
+  %114 = getelementptr inbounds i8, ptr %113, i64 8
+  %115 = zext i32 %.02946 to i64
+  %116 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %114, i64 0, i64 %115
+  store i64 36, ptr %116, align 8
+  %117 = getelementptr [8 x i8], ptr %113, i64 0, i64 %115
+  store i8 -1, ptr %117, align 1
+  %118 = load i64, ptr %8, align 8
+  %119 = trunc i64 %118 to i32
+  %120 = lshr i32 %119, 16
+  %121 = and i32 %120, 15
+  %122 = add nsw i32 %121, -1
+  %.not.i42 = icmp eq i32 %122, 0
+  br i1 %.not.i42, label %128, label %123
 
-124:                                              ; preds = %112
-  %125 = sext i32 %123 to i64
-  %126 = and i64 %119, -983041
-  %127 = shl nsw i64 %125, 16
-  %128 = or i64 %127, %126
+123:                                              ; preds = %111
+  %124 = sext i32 %122 to i64
+  %125 = and i64 %118, -983041
+  %126 = shl nsw i64 %124, 16
+  %127 = or i64 %126, %125
   br label %RHASH_AR_TABLE_SIZE_DEC.exit
 
-129:                                              ; preds = %112
-  %130 = and i64 %119, -16711681
+128:                                              ; preds = %111
+  %129 = and i64 %118, -16711681
   br label %RHASH_AR_TABLE_SIZE_DEC.exit
 
-RHASH_AR_TABLE_SIZE_DEC.exit:                     ; preds = %124, %129
-  %storemerge.i = phi i64 [ %128, %124 ], [ %130, %129 ]
+RHASH_AR_TABLE_SIZE_DEC.exit:                     ; preds = %123, %128
+  %storemerge.i = phi i64 [ %127, %123 ], [ %129, %128 ]
   store i64 %storemerge.i, ptr %8, align 8
   br label %ar_add_direct_with_hash.exit
 
-ar_add_direct_with_hash.exit:                     ; preds = %85, %44, %ensure_ar_table.exit, %108, %RHASH_AR_TABLE_SIZE_DEC.exit, %111, %4
-  %.0 = phi i32 [ -1, %4 ], [ %.02847, %111 ], [ %.02847, %RHASH_AR_TABLE_SIZE_DEC.exit ], [ %.02847, %108 ], [ %.02847, %ensure_ar_table.exit ], [ %.02847, %85 ], [ -1, %44 ]
+ar_add_direct_with_hash.exit:                     ; preds = %ensure_ar_table.exit, %107, %RHASH_AR_TABLE_SIZE_DEC.exit, %110, %ar_add_direct_with_hash.exit.thread, %44, %4
+  %.0 = phi i32 [ -1, %4 ], [ -1, %44 ], [ %.02847, %ar_add_direct_with_hash.exit.thread ], [ %.02847, %110 ], [ %.02847, %RHASH_AR_TABLE_SIZE_DEC.exit ], [ %.02847, %107 ], [ %.02847, %ensure_ar_table.exit ]
   ret i32 %.0
 }
 
@@ -7942,7 +7942,7 @@ compact_after_delete.exit:                        ; preds = %RHASH_EMPTY_P.exit,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @rb_hash_compact_bang(i64 noundef %0) #0 {
+define internal noundef i64 @rb_hash_compact_bang(i64 noundef %0) #0 {
   %2 = and i64 %0, 7
   %3 = icmp ne i64 %2, 0
   %4 = icmp eq i64 %0, 0
@@ -8007,11 +8007,13 @@ RHASH_SIZE.exit:                                  ; preds = %14, %17
 RHASH_SIZE.exit13:                                ; preds = %25, %28
   %.0.i12 = phi i64 [ %27, %25 ], [ %32, %28 ]
   %.not10 = icmp eq i64 %.0.i, %.0.i12
-  %spec.select = select i1 %.not10, i64 4, i64 %0
-  br label %33
+  br i1 %.not10, label %33, label %34
 
 33:                                               ; preds = %RHASH_SIZE.exit13, %RHASH_SIZE.exit
-  %.0 = phi i64 [ 4, %RHASH_SIZE.exit ], [ %spec.select, %RHASH_SIZE.exit13 ]
+  br label %34
+
+34:                                               ; preds = %RHASH_SIZE.exit13, %33
+  %.0 = phi i64 [ 4, %33 ], [ %0, %RHASH_SIZE.exit13 ]
   ret i64 %.0
 }
 

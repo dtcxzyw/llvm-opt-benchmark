@@ -1942,7 +1942,7 @@ if.end5:                                          ; preds = %if.end
   %3 = load i8, ptr %can_destroy, align 8, !range !87
   %tobool.not = icmp eq i8 %3, 0
   %or.cond = select i1 %cmp6, i1 %tobool.not, i1 false
-  br i1 %or.cond, label %land.lhs.true7, label %return
+  br i1 %or.cond, label %land.lhs.true7, label %if.end10
 
 land.lhs.true7:                                   ; preds = %if.end5
   %4 = load ptr, ptr %this, align 8, !tbaa !14
@@ -1952,10 +1952,13 @@ land.lhs.true7:                                   ; preds = %if.end5
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 136
   %6 = load ptr, ptr %vfn, align 8
   %call8 = tail call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(8) %5)
+  br i1 %call8, label %if.end10, label %return
+
+if.end10:                                         ; preds = %land.lhs.true7, %if.end5
   br label %return
 
-return:                                           ; preds = %land.lhs.true7, %if.end5, %if.end, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end ], [ true, %if.end5 ], [ %call8, %land.lhs.true7 ]
+return:                                           ; preds = %if.end10, %land.lhs.true7, %if.end, %entry
+  %retval.0 = phi i1 [ true, %if.end10 ], [ false, %entry ], [ false, %if.end ], [ false, %land.lhs.true7 ]
   ret i1 %retval.0
 }
 
@@ -2971,7 +2974,7 @@ if.end5.i:                                        ; preds = %if.end.i
   %5 = load i8, ptr %can_destroy.i, align 8, !range !87
   %tobool.not.i = icmp eq i8 %5, 0
   %or.cond.i = select i1 %cmp6.i, i1 %tobool.not.i, i1 false
-  br i1 %or.cond.i, label %land.lhs.true7.i, label %return
+  br i1 %or.cond.i, label %land.lhs.true7.i, label %if.end10.i
 
 land.lhs.true7.i:                                 ; preds = %if.end5.i
   %6 = load ptr, ptr %handle_p, align 8, !tbaa !14
@@ -2981,10 +2984,13 @@ land.lhs.true7.i:                                 ; preds = %if.end5.i
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 136
   %8 = load ptr, ptr %vfn.i, align 8
   %call8.i = tail call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(8) %7)
+  br i1 %call8.i, label %if.end10.i, label %return
+
+if.end10.i:                                       ; preds = %land.lhs.true7.i, %if.end5.i
   br label %return
 
-return:                                           ; preds = %land.lhs.true7.i, %if.end5.i, %if.end.i, %if.end, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end ], [ false, %if.end.i ], [ true, %if.end5.i ], [ %call8.i, %land.lhs.true7.i ]
+return:                                           ; preds = %if.end10.i, %land.lhs.true7.i, %if.end.i, %if.end, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ true, %if.end10.i ], [ false, %if.end ], [ false, %if.end.i ], [ false, %land.lhs.true7.i ]
   ret i1 %retval.0
 }
 
@@ -4637,7 +4643,7 @@ lor.lhs.false:                                    ; preds = %entry
   %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8, !tbaa !176
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
-  br i1 %cmp.i, label %cleanup, label %if.end.i
+  br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false
   %1 = load i8, ptr %0, align 1, !tbaa !54
@@ -4648,11 +4654,13 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #26
   %call6.i.fr = freeze i32 %call6.i
   %cmp7.i = icmp eq i32 %call6.i.fr, 0
-  %spec.select = select i1 %cmp7.i, ptr %_M_impl.i, ptr null
+  br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %cleanup
+
+_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false, %if.end.i, %entry
-  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ null, %if.end.i ], [ %_M_impl.i, %lor.lhs.false ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
+cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit.thread, %_ZNKSt9type_infoeqERKS_.exit, %if.end.i, %entry
+  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %_ZNKSt9type_infoeqERKS_.exit ], [ null, %if.end.i ]
   ret ptr %retval.0
 }
 

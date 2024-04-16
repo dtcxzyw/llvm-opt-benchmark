@@ -61580,18 +61580,20 @@ invoke.cont282:                                   ; preds = %while.end12.i
   %sub.i.i = sub i64 %185, %front.0.lcssa.i
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub13.i)
   %cmp.i1446 = icmp eq i64 %.sroa.speculated.i.i, 10
-  br i1 %cmp.i1446, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit
+  br i1 %cmp.i1446, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.thread
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %invoke.cont282
   %add.ptr.i27.i = getelementptr inbounds i8, ptr %184, i64 %front.0.lcssa.i
   %bcmp.i1448 = call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %add.ptr.i27.i, ptr noundef nonnull dereferenceable(10) @.str.151, i64 10)
   %cmp.i.i1449 = icmp eq i32 %bcmp.i1448, 0
-  %spec.select2 = select i1 %cmp.i.i1449, i8 0, i8 %enable_prepends.019902163
+  br i1 %cmp.i.i1449, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.thread
+
+_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.thread: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %invoke.cont282
   br label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit
 
-_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %invoke.cont282
-  %188 = phi i1 [ false, %invoke.cont282 ], [ %cmp.i.i1449, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ]
-  %189 = phi i8 [ %enable_prepends.019902163, %invoke.cont282 ], [ %spec.select2, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ]
+_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit: ; preds = %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.thread, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
+  %188 = phi i1 [ false, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.thread ], [ true, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ]
+  %189 = phi i8 [ %enable_prepends.019902163, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.thread ], [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ]
   %190 = load ptr, ptr %_M_finish.i1451, align 8, !tbaa !190
   %cmp.not3.i.i.i.i = icmp eq ptr %183, %190
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i

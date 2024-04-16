@@ -364,11 +364,11 @@ return:                                           ; preds = %sw.bb, %entry, %lor
 declare ptr @sk_set_cmp_func(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @crl_cb(i32 noundef %operation, ptr nocapture noundef readonly %pval, ptr nocapture readnone %it, ptr nocapture readnone %exarg) #0 {
+define internal noundef i32 @crl_cb(i32 noundef %operation, ptr nocapture noundef readonly %pval, ptr nocapture readnone %it, ptr nocapture readnone %exarg) #0 {
 entry:
   %j.i = alloca i32, align 4
   %0 = load ptr, ptr %pval, align 8
-  switch i32 %operation, label %return [
+  switch i32 %operation, label %sw.epilog [
     i32 1, label %sw.bb
     i32 5, label %sw.bb1
     i32 3, label %sw.bb54
@@ -388,7 +388,7 @@ sw.bb:                                            ; preds = %entry
   store ptr null, ptr %issuers, align 8
   %crl_number = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %crl_number, i8 0, i64 16, i1 false)
-  br label %return
+  br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
   %call = tail call ptr @EVP_sha1() #11
@@ -721,13 +721,12 @@ if.end43:                                         ; preds = %for.inc54.i, %for.e
   %crl_init = getelementptr inbounds i8, ptr %46, i64 8
   %47 = load ptr, ptr %crl_init, align 8
   %tobool45.not = icmp eq ptr %47, null
-  br i1 %tobool45.not, label %return, label %if.then46
+  br i1 %tobool45.not, label %sw.epilog, label %if.then46
 
 if.then46:                                        ; preds = %if.end43
   %call49 = call i32 %47(ptr noundef nonnull %0) #11
-  %cmp50 = icmp ne i32 %call49, 0
-  %spec.select = zext i1 %cmp50 to i32
-  br label %return
+  %cmp50 = icmp eq i32 %call49, 0
+  br i1 %cmp50, label %return, label %sw.epilog
 
 sw.bb54:                                          ; preds = %entry
   %meth55 = getelementptr inbounds i8, ptr %0, i64 104
@@ -772,10 +771,13 @@ if.end74:                                         ; preds = %if.then72, %if.end6
   %issuers77 = getelementptr inbounds i8, ptr %0, i64 96
   %54 = load ptr, ptr %issuers77, align 8
   tail call void @sk_pop_free(ptr noundef %54, ptr noundef nonnull @GENERAL_NAMES_free) #11
+  br label %sw.epilog
+
+sw.epilog:                                        ; preds = %if.end43, %if.then46, %if.end74, %sw.bb, %entry
   br label %return
 
-return:                                           ; preds = %crl_set_issuers.exit, %if.then46, %entry, %sw.bb, %if.end74, %if.end43, %if.then57
-  %retval.0 = phi i32 [ 0, %crl_set_issuers.exit ], [ 0, %if.then57 ], [ 1, %if.end43 ], [ 1, %if.end74 ], [ 1, %sw.bb ], [ 1, %entry ], [ %spec.select, %if.then46 ]
+return:                                           ; preds = %crl_set_issuers.exit, %if.then57, %if.then46, %sw.epilog
+  %retval.0 = phi i32 [ 1, %sw.epilog ], [ 0, %crl_set_issuers.exit ], [ 0, %if.then46 ], [ 0, %if.then57 ]
   ret i32 %retval.0
 }
 

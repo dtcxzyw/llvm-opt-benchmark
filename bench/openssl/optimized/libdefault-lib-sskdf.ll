@@ -362,7 +362,7 @@ if.end.i:                                         ; preds = %if.end43
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp2.i.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp21.i.i)
   store i64 %8, ptr %kmac_out_len.addr.i.i, align 8
-  br i1 %tobool11.not.not, label %if.end.i.i, label %kmac_init.exit.thread44.i
+  br i1 %tobool11.not.not, label %if.end.i.i, label %if.end7.i
 
 if.end.i.i:                                       ; preds = %if.end.i
   call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp.i.i, ptr noundef nonnull @.str.3, ptr noundef nonnull %custom.0, i64 noundef %custom_len.0) #7
@@ -407,9 +407,14 @@ if.end19.i.i:                                     ; preds = %switch.early.test.i
 if.end26.i.i:                                     ; preds = %if.end19.i.i
   %17 = load i64, ptr %kmac_out_len.addr.i.i, align 8
   %cmp27.i.i = icmp ugt i64 %17, 64
-  br i1 %cmp27.i.i, label %kmac_init.exit.i, label %kmac_init.exit.thread44.i
+  br i1 %cmp27.i.i, label %if.then28.i.i, label %if.end7.i
 
-kmac_init.exit.thread.i:                          ; preds = %if.end19.i.i, %switch.early.test.i.i, %if.end.i.i
+if.then28.i.i:                                    ; preds = %if.end26.i.i
+  %call29.i.i = call noalias ptr @CRYPTO_zalloc(i64 noundef %17, ptr noundef nonnull @.str, i32 noundef 201) #7
+  %cmp30.i.i = icmp eq ptr %call29.i.i, null
+  br i1 %cmp30.i.i, label %kmac_init.exit.thread.i, label %if.end7.i
+
+kmac_init.exit.thread.i:                          ; preds = %if.then28.i.i, %if.end19.i.i, %switch.early.test.i.i, %if.end.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %kmac_out_len.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %params.i.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp.i.i)
@@ -417,28 +422,15 @@ kmac_init.exit.thread.i:                          ; preds = %if.end19.i.i, %swit
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp21.i.i)
   br label %if.else68.i
 
-kmac_init.exit.thread44.i:                        ; preds = %if.end26.i.i, %if.end.i
+if.end7.i:                                        ; preds = %if.then28.i.i, %if.end26.i.i, %if.end.i
+  %kmac_buffer.1.i = phi ptr [ null, %if.end.i ], [ null, %if.end26.i.i ], [ %call29.i.i, %if.then28.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %kmac_out_len.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %params.i.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp2.i.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp21.i.i)
-  br label %if.end7.i
-
-kmac_init.exit.i:                                 ; preds = %if.end26.i.i
-  %call29.i.i = call noalias ptr @CRYPTO_zalloc(i64 noundef %17, ptr noundef nonnull @.str, i32 noundef 201) #7
-  %cmp30.i.not.i = icmp eq ptr %call29.i.i, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %kmac_out_len.addr.i.i)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %params.i.i)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp.i.i)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp2.i.i)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp21.i.i)
-  br i1 %cmp30.i.not.i, label %if.else68.i, label %if.end7.i
-
-if.end7.i:                                        ; preds = %kmac_init.exit.i, %kmac_init.exit.thread44.i
-  %kmac_buffer.048.i = phi ptr [ null, %kmac_init.exit.thread44.i ], [ %call29.i.i, %kmac_init.exit.i ]
-  %cmp8.not.i = icmp eq ptr %kmac_buffer.048.i, null
-  %spec.select.i = select i1 %cmp8.not.i, ptr %mac_buf.i, ptr %kmac_buffer.048.i
+  %cmp8.not.i = icmp eq ptr %kmac_buffer.1.i, null
+  %spec.select.i = select i1 %cmp8.not.i, ptr %mac_buf.i, ptr %kmac_buffer.1.i
   %call11.i = call i32 @EVP_MAC_init(ptr noundef %7, ptr noundef nonnull %6, i64 noundef %5, ptr noundef null) #7
   %tobool12.not.i = icmp eq i32 %call11.i, 0
   br i1 %tobool12.not.i, label %end.i, label %if.end14.i
@@ -458,56 +450,56 @@ for.cond.preheader.i:                             ; preds = %lor.lhs.false17.i
   %arrayidx30.i = getelementptr inbounds i8, ptr %c.i, i64 2
   %arrayidx33.i = getelementptr inbounds i8, ptr %c.i, i64 3
   store <4 x i8> <i8 0, i8 0, i8 0, i8 1>, ptr %c.i, align 4
-  %call3460.i = call ptr @EVP_MAC_CTX_dup(ptr noundef %7) #7
-  %cmp35.not61.i = icmp eq ptr %call3460.i, null
-  br i1 %cmp35.not61.i, label %end.i, label %land.lhs.true37.i
+  %call3454.i = call ptr @EVP_MAC_CTX_dup(ptr noundef %7) #7
+  %cmp35.not55.i = icmp eq ptr %call3454.i, null
+  br i1 %cmp35.not55.i, label %end.i, label %land.lhs.true37.i
 
 land.lhs.true37.i:                                ; preds = %for.cond.preheader.i, %if.end64.i
-  %call3465.i = phi ptr [ %call34.i, %if.end64.i ], [ %call3460.i, %for.cond.preheader.i ]
-  %out.064.i = phi ptr [ %add.ptr.i, %if.end64.i ], [ %key, %for.cond.preheader.i ]
-  %len.063.i = phi i64 [ %sub.i, %if.end64.i ], [ %keylen, %for.cond.preheader.i ]
-  %counter.062.i = phi i64 [ %inc.i, %if.end64.i ], [ 1, %for.cond.preheader.i ]
-  %call39.i = call i32 @EVP_MAC_update(ptr noundef nonnull %call3465.i, ptr noundef nonnull %c.i, i64 noundef 4) #7
+  %call3459.i = phi ptr [ %call34.i, %if.end64.i ], [ %call3454.i, %for.cond.preheader.i ]
+  %out.058.i = phi ptr [ %add.ptr.i, %if.end64.i ], [ %key, %for.cond.preheader.i ]
+  %len.057.i = phi i64 [ %sub.i, %if.end64.i ], [ %keylen, %for.cond.preheader.i ]
+  %counter.056.i = phi i64 [ %inc.i, %if.end64.i ], [ 1, %for.cond.preheader.i ]
+  %call39.i = call i32 @EVP_MAC_update(ptr noundef nonnull %call3459.i, ptr noundef nonnull %c.i, i64 noundef 4) #7
   %tobool40.not.i = icmp eq i32 %call39.i, 0
   br i1 %tobool40.not.i, label %end.i, label %land.lhs.true41.i
 
 land.lhs.true41.i:                                ; preds = %land.lhs.true37.i
-  %call42.i = call i32 @EVP_MAC_update(ptr noundef nonnull %call3465.i, ptr noundef %9, i64 noundef %10) #7
+  %call42.i = call i32 @EVP_MAC_update(ptr noundef nonnull %call3459.i, ptr noundef %9, i64 noundef %10) #7
   %tobool43.not.i = icmp eq i32 %call42.i, 0
   br i1 %tobool43.not.i, label %end.i, label %land.lhs.true44.i
 
 land.lhs.true44.i:                                ; preds = %land.lhs.true41.i
-  %call45.i = call i32 @EVP_MAC_update(ptr noundef nonnull %call3465.i, ptr noundef %11, i64 noundef %12) #7
+  %call45.i = call i32 @EVP_MAC_update(ptr noundef nonnull %call3459.i, ptr noundef %11, i64 noundef %12) #7
   %tobool46.not.i = icmp eq i32 %call45.i, 0
   br i1 %tobool46.not.i, label %end.i, label %if.end48.i
 
 if.end48.i:                                       ; preds = %land.lhs.true44.i
-  %cmp49.not.i = icmp ult i64 %len.063.i, %call15.i
+  %cmp49.not.i = icmp ult i64 %len.057.i, %call15.i
   br i1 %cmp49.not.i, label %if.else.i, label %if.then51.i
 
 if.then51.i:                                      ; preds = %if.end48.i
-  %call52.i = call i32 @EVP_MAC_final(ptr noundef nonnull %call3465.i, ptr noundef %out.064.i, ptr noundef null, i64 noundef %len.063.i) #7
+  %call52.i = call i32 @EVP_MAC_final(ptr noundef nonnull %call3459.i, ptr noundef %out.058.i, ptr noundef null, i64 noundef %len.057.i) #7
   %tobool53.not.i = icmp eq i32 %call52.i, 0
   br i1 %tobool53.not.i, label %end.i, label %if.end55.i
 
 if.end55.i:                                       ; preds = %if.then51.i
-  %sub.i = sub i64 %len.063.i, %call15.i
+  %sub.i = sub i64 %len.057.i, %call15.i
   %cmp56.i = icmp eq i64 %sub.i, 0
   br i1 %cmp56.i, label %end.i, label %if.end64.i
 
 if.else.i:                                        ; preds = %if.end48.i
-  %call60.i = call i32 @EVP_MAC_final(ptr noundef nonnull %call3465.i, ptr noundef nonnull %spec.select.i, ptr noundef null, i64 noundef %call15.i) #7
+  %call60.i = call i32 @EVP_MAC_final(ptr noundef nonnull %call3459.i, ptr noundef nonnull %spec.select.i, ptr noundef null, i64 noundef %call15.i) #7
   %tobool61.not.i = icmp eq i32 %call60.i, 0
   br i1 %tobool61.not.i, label %end.i, label %if.end63.i
 
 if.end63.i:                                       ; preds = %if.else.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %out.064.i, ptr nonnull align 1 %spec.select.i, i64 %len.063.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %out.058.i, ptr nonnull align 1 %spec.select.i, i64 %len.057.i, i1 false)
   br label %end.i
 
 if.end64.i:                                       ; preds = %if.end55.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %out.064.i, i64 %call15.i
-  call void @EVP_MAC_CTX_free(ptr noundef nonnull %call3465.i) #7
-  %inc.i = add i64 %counter.062.i, 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %out.058.i, i64 %call15.i
+  call void @EVP_MAC_CTX_free(ptr noundef nonnull %call3459.i) #7
+  %inc.i = add i64 %counter.056.i, 1
   %shr.i = lshr i64 %inc.i, 24
   %conv.i = trunc i64 %shr.i to i8
   store i8 %conv.i, ptr %c.i, align 4
@@ -524,28 +516,28 @@ if.end64.i:                                       ; preds = %if.end55.i
   br i1 %cmp35.not.i, label %end.i, label %land.lhs.true37.i
 
 end.i:                                            ; preds = %if.end64.i, %if.end55.i, %if.then51.i, %land.lhs.true44.i, %land.lhs.true41.i, %land.lhs.true37.i, %if.end63.i, %if.else.i, %for.cond.preheader.i, %if.end14.i, %if.end7.i
-  %ret.0.i = phi i32 [ 0, %if.end14.i ], [ 0, %if.else.i ], [ 0, %if.end7.i ], [ 1, %if.end63.i ], [ 0, %for.cond.preheader.i ], [ 0, %land.lhs.true44.i ], [ 0, %land.lhs.true41.i ], [ 0, %land.lhs.true37.i ], [ 0, %if.end64.i ], [ 0, %if.then51.i ], [ 1, %if.end55.i ]
-  %ctx.0.i = phi ptr [ null, %if.end14.i ], [ %call3465.i, %if.else.i ], [ null, %if.end7.i ], [ %call3465.i, %if.end63.i ], [ null, %for.cond.preheader.i ], [ %call3465.i, %land.lhs.true44.i ], [ %call3465.i, %land.lhs.true41.i ], [ %call3465.i, %land.lhs.true37.i ], [ null, %if.end64.i ], [ %call3465.i, %if.then51.i ], [ %call3465.i, %if.end55.i ]
+  %ret.0.i = phi i32 [ 0, %if.end14.i ], [ 0, %if.else.i ], [ 0, %if.end7.i ], [ 1, %if.end63.i ], [ 0, %for.cond.preheader.i ], [ 1, %if.end55.i ], [ 0, %if.then51.i ], [ 0, %if.end64.i ], [ 0, %land.lhs.true37.i ], [ 0, %land.lhs.true41.i ], [ 0, %land.lhs.true44.i ]
+  %ctx.0.i = phi ptr [ null, %if.end14.i ], [ %call3459.i, %if.else.i ], [ null, %if.end7.i ], [ %call3459.i, %if.end63.i ], [ null, %for.cond.preheader.i ], [ %call3459.i, %if.end55.i ], [ %call3459.i, %if.then51.i ], [ null, %if.end64.i ], [ %call3459.i, %land.lhs.true37.i ], [ %call3459.i, %land.lhs.true41.i ], [ %call3459.i, %land.lhs.true44.i ]
   br i1 %cmp8.not.i, label %if.else68.i, label %if.then67.i
 
 if.then67.i:                                      ; preds = %end.i
-  call void @CRYPTO_clear_free(ptr noundef nonnull %kmac_buffer.048.i, i64 noundef %8, ptr noundef nonnull @.str, i32 noundef 280) #7
+  call void @CRYPTO_clear_free(ptr noundef nonnull %kmac_buffer.1.i, i64 noundef %8, ptr noundef nonnull @.str, i32 noundef 280) #7
   br label %if.end70.i
 
-if.else68.i:                                      ; preds = %end.i, %lor.lhs.false17.i, %kmac_init.exit.i, %kmac_init.exit.thread.i
-  %ctx.056.i = phi ptr [ %ctx.0.i, %end.i ], [ null, %lor.lhs.false17.i ], [ null, %kmac_init.exit.thread.i ], [ null, %kmac_init.exit.i ]
-  %ret.054.i = phi i32 [ %ret.0.i, %end.i ], [ 0, %lor.lhs.false17.i ], [ 0, %kmac_init.exit.thread.i ], [ 0, %kmac_init.exit.i ]
+if.else68.i:                                      ; preds = %end.i, %lor.lhs.false17.i, %kmac_init.exit.thread.i
+  %ctx.050.i = phi ptr [ %ctx.0.i, %end.i ], [ null, %lor.lhs.false17.i ], [ null, %kmac_init.exit.thread.i ]
+  %ret.048.i = phi i32 [ %ret.0.i, %end.i ], [ 0, %lor.lhs.false17.i ], [ 0, %kmac_init.exit.thread.i ]
   call void @OPENSSL_cleanse(ptr noundef nonnull %mac_buf.i, i64 noundef 64) #7
   br label %if.end70.i
 
 if.end70.i:                                       ; preds = %if.else68.i, %if.then67.i
-  %ctx.055.i = phi ptr [ %ctx.056.i, %if.else68.i ], [ %ctx.0.i, %if.then67.i ]
-  %ret.053.i = phi i32 [ %ret.054.i, %if.else68.i ], [ %ret.0.i, %if.then67.i ]
-  call void @EVP_MAC_CTX_free(ptr noundef %ctx.055.i) #7
+  %ctx.049.i = phi ptr [ %ctx.050.i, %if.else68.i ], [ %ctx.0.i, %if.then67.i ]
+  %ret.047.i = phi i32 [ %ret.048.i, %if.else68.i ], [ %ret.0.i, %if.then67.i ]
+  call void @EVP_MAC_CTX_free(ptr noundef %ctx.049.i) #7
   br label %SSKDF_mac_kdm.exit
 
 SSKDF_mac_kdm.exit:                               ; preds = %if.end43, %if.end70.i
-  %retval.0.i = phi i32 [ %ret.053.i, %if.end70.i ], [ 0, %if.end43 ]
+  %retval.0.i = phi i32 [ %ret.047.i, %if.end70.i ], [ 0, %if.end43 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %c.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %mac_buf.i)
   br label %return

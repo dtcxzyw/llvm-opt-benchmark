@@ -354,13 +354,14 @@ invoke.cont:                                      ; preds = %sw.bb2
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  %tobool.not.not = icmp eq ptr %call5, null
-  br i1 %tobool.not.not, label %cleanup, label %if.then
+  %tobool.not = icmp eq ptr %call5, null
+  br i1 %tobool.not, label %cleanup, label %cleanup.thread
 
-if.then:                                          ; preds = %invoke.cont4
+cleanup.thread:                                   ; preds = %invoke.cont4
   %mechanism6 = getelementptr inbounds i8, ptr %this, i64 656
   store i32 2, ptr %mechanism6, align 8
-  br label %cleanup
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s) #14
+  br label %return
 
 lpad:                                             ; preds = %sw.bb2
   %0 = landingpad { ptr, i32 }
@@ -374,9 +375,8 @@ lpad3:                                            ; preds = %invoke.cont
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s) #14
   br label %eh.resume
 
-cleanup:                                          ; preds = %invoke.cont4, %if.then
+cleanup:                                          ; preds = %invoke.cont4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s) #14
-  %spec.select = sext i1 %tobool.not.not to i32
   br label %return
 
 sw.bb7:                                           ; preds = %entry
@@ -392,8 +392,8 @@ if.then11:                                        ; preds = %sw.bb7
   store i32 2, ptr %mechanism12, align 8
   br label %return
 
-return:                                           ; preds = %cleanup, %sw.bb7, %entry, %if.then11, %sw.bb
-  %retval.1 = phi i32 [ 0, %if.then11 ], [ 0, %sw.bb ], [ -1, %entry ], [ -1, %sw.bb7 ], [ %spec.select, %cleanup ]
+return:                                           ; preds = %sw.bb7, %entry, %cleanup, %cleanup.thread, %if.then11, %sw.bb
+  %retval.1 = phi i32 [ 0, %if.then11 ], [ 0, %sw.bb ], [ 0, %cleanup.thread ], [ -1, %cleanup ], [ -1, %entry ], [ -1, %sw.bb7 ]
   ret i32 %retval.1
 
 eh.resume:                                        ; preds = %lpad3, %lpad
@@ -1557,8 +1557,8 @@ _ZNKSt6vectorIN3zmq18tcp_address_mask_tESaIS1_EE12_M_check_lenEmPKc.exit.i: ; pr
   %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
   %add.i.i = add nsw i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
   %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i
-  %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %add.i.i, i64 288230376151711743)
-  %cond.i.i = select i1 %cmp7.i.i, i64 288230376151711743, i64 %spec.select.i.i
+  %4 = tail call i64 @llvm.umin.i64(i64 %add.i.i, i64 288230376151711743)
+  %cond.i.i = select i1 %cmp7.i.i, i64 288230376151711743, i64 %4
   %cmp.not.i.i = icmp eq i64 %cond.i.i, 0
   br i1 %cmp.not.i.i, label %_ZNSt12_Vector_baseIN3zmq18tcp_address_mask_tESaIS1_EE11_M_allocateEm.exit.i, label %cond.true.i.i
 

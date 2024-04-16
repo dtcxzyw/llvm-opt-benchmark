@@ -220,7 +220,7 @@ define internal noundef i32 @linkstate_fill_reply(ptr noundef %0, ptr nocapture 
   %16 = call i32 @nla_put(ptr noundef %0, i32 noundef 2, i32 noundef 1, ptr noundef nonnull %9) #4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #4
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %58
+  br i1 %17, label %18, label %59
 
 18:                                               ; preds = %13, %3
   %19 = getelementptr inbounds i8, ptr %2, i64 12
@@ -234,7 +234,7 @@ define internal noundef i32 @linkstate_fill_reply(ptr noundef %0, ptr nocapture 
   %23 = call i32 @nla_put(ptr noundef %0, i32 noundef 3, i32 noundef 4, ptr noundef nonnull %8) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #4
   %24 = icmp eq i32 %23, 0
-  br i1 %24, label %25, label %58
+  br i1 %24, label %25, label %59
 
 25:                                               ; preds = %22, %18
   %26 = getelementptr inbounds i8, ptr %2, i64 16
@@ -248,7 +248,7 @@ define internal noundef i32 @linkstate_fill_reply(ptr noundef %0, ptr nocapture 
   %30 = call i32 @nla_put(ptr noundef %0, i32 noundef 4, i32 noundef 4, ptr noundef nonnull %7) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
   %31 = icmp eq i32 %30, 0
-  br i1 %31, label %32, label %58
+  br i1 %31, label %32, label %59
 
 32:                                               ; preds = %29, %25
   %33 = getelementptr inbounds i8, ptr %2, i64 32
@@ -265,7 +265,7 @@ define internal noundef i32 @linkstate_fill_reply(ptr noundef %0, ptr nocapture 
   %40 = call i32 @nla_put(ptr noundef %0, i32 noundef 5, i32 noundef 1, ptr noundef nonnull %6) #4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #4
   %41 = icmp eq i32 %40, 0
-  br i1 %41, label %42, label %58
+  br i1 %41, label %42, label %59
 
 42:                                               ; preds = %36
   %43 = getelementptr inbounds i8, ptr %2, i64 40
@@ -280,7 +280,7 @@ define internal noundef i32 @linkstate_fill_reply(ptr noundef %0, ptr nocapture 
   %48 = call i32 @nla_put(ptr noundef %0, i32 noundef 6, i32 noundef 1, ptr noundef nonnull %5) #4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #4
   %49 = icmp eq i32 %48, 0
-  br i1 %49, label %50, label %58
+  br i1 %49, label %50, label %59
 
 50:                                               ; preds = %46, %42, %32
   %51 = getelementptr inbounds i8, ptr %2, i64 24
@@ -295,12 +295,14 @@ define internal noundef i32 @linkstate_fill_reply(ptr noundef %0, ptr nocapture 
   %56 = call i32 @nla_put(ptr noundef %0, i32 noundef 7, i32 noundef 4, ptr noundef nonnull %4) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
   %57 = icmp eq i32 %56, 0
-  %spec.select = select i1 %57, i32 0, i32 -90
-  br label %58
+  br i1 %57, label %58, label %59
 
-58:                                               ; preds = %54, %50, %46, %36, %29, %22, %13
-  %59 = phi i32 [ -90, %13 ], [ -90, %22 ], [ -90, %29 ], [ -90, %36 ], [ -90, %46 ], [ 0, %50 ], [ %spec.select, %54 ]
-  ret i32 %59
+58:                                               ; preds = %54, %50
+  br label %59
+
+59:                                               ; preds = %58, %54, %46, %36, %29, %22, %13
+  %60 = phi i32 [ 0, %58 ], [ -90, %13 ], [ -90, %22 ], [ -90, %29 ], [ -90, %36 ], [ -90, %46 ], [ -90, %54 ]
+  ret i32 %60
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

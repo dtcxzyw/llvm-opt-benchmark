@@ -5170,19 +5170,19 @@ define internal fastcc ptr @_create_filtered_model(ptr noundef %0, ptr %1) unnam
   %8 = ptrtoint ptr %7 to i64
   %9 = and i64 %8, 4294967295
   %10 = icmp eq i64 %9, 2
-  br i1 %10, label %11, label %80
+  br i1 %10, label %11, label %81
 
 11:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #17
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #17
   %12 = tail call i32 @gtk_tree_model_iter_n_children(ptr noundef %0, ptr noundef null) #17
   %13 = icmp sgt i32 %12, 0
-  br i1 %13, label %14, label %78
+  br i1 %13, label %14, label %79
 
 14:                                               ; preds = %11
   %15 = tail call i32 @gtk_tree_model_iter_n_children(ptr noundef %0, ptr noundef null) #17
   %16 = icmp eq i32 %15, 1
-  br i1 %16, label %17, label %78
+  br i1 %16, label %17, label %79
 
 17:                                               ; preds = %14
   %18 = call i32 @gtk_tree_model_iter_children(ptr noundef %0, ptr noundef nonnull %3, ptr noundef null) #17
@@ -5262,7 +5262,7 @@ define internal fastcc ptr @_create_filtered_model(ptr noundef %0, ptr %1) unnam
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !tbaa.struct !72
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
-  br i1 %62, label %78, label %.loopexit
+  br i1 %62, label %79, label %.loopexit
 
 63:                                               ; preds = %54
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
@@ -5286,28 +5286,30 @@ define internal fastcc ptr @_create_filtered_model(ptr noundef %0, ptr %1) unnam
 72:                                               ; preds = %.loopexit
   %73 = call i32 @gtk_tree_model_iter_parent(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4) #17
   %74 = icmp eq i32 %73, 0
-  %spec.select = select i1 %74, ptr %4, ptr %3
-  br label %75
+  br i1 %74, label %75, label %76
 
 75:                                               ; preds = %72, %.loopexit
-  %76 = phi ptr [ %4, %.loopexit ], [ %spec.select, %72 ]
-  %77 = call ptr @gtk_tree_model_get_path(ptr noundef %0, ptr noundef nonnull %76) #17
-  br label %78
+  br label %76
 
-78:                                               ; preds = %75, %60, %14, %11
-  %79 = phi ptr [ null, %60 ], [ null, %11 ], [ null, %14 ], [ %77, %75 ]
+76:                                               ; preds = %75, %72
+  %77 = phi ptr [ %4, %75 ], [ %3, %72 ]
+  %78 = call ptr @gtk_tree_model_get_path(ptr noundef %0, ptr noundef nonnull %77) #17
+  br label %79
+
+79:                                               ; preds = %76, %60, %14, %11
+  %80 = phi ptr [ null, %60 ], [ null, %11 ], [ null, %14 ], [ %78, %76 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #17
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #17
-  br label %80
+  br label %81
 
-80:                                               ; preds = %78, %2
-  %81 = phi ptr [ %79, %78 ], [ null, %2 ]
-  %82 = call ptr @gtk_tree_model_filter_new(ptr noundef %0, ptr noundef %81) #17
-  call void @gtk_tree_path_free(ptr noundef %81) #17
-  %83 = tail call i64 @gtk_tree_model_filter_get_type() #19
-  %84 = call ptr @g_type_check_instance_cast(ptr noundef %82, i64 noundef %83) #17
-  call void @gtk_tree_model_filter_set_visible_column(ptr noundef %84, i32 noundef 4) #17
-  ret ptr %82
+81:                                               ; preds = %79, %2
+  %82 = phi ptr [ %80, %79 ], [ null, %2 ]
+  %83 = call ptr @gtk_tree_model_filter_new(ptr noundef %0, ptr noundef %82) #17
+  call void @gtk_tree_path_free(ptr noundef %82) #17
+  %84 = tail call i64 @gtk_tree_model_filter_get_type() #19
+  %85 = call ptr @g_type_check_instance_cast(ptr noundef %83, i64 noundef %84) #17
+  call void @gtk_tree_model_filter_set_visible_column(ptr noundef %85, i32 noundef 4) #17
+  ret ptr %83
 }
 
 declare ptr @gtk_tree_view_get_selection(ptr noundef) local_unnamed_addr #9

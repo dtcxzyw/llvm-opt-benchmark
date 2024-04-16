@@ -43,8 +43,8 @@ define i32 @llhttp__after_headers_complete(ptr nocapture noundef readonly %parse
 entry:
   %flags = getelementptr inbounds i8, ptr %parser, i64 80
   %0 = load i16, ptr %flags, align 8
-  %.fr24 = freeze i16 %0
-  %1 = and i16 %.fr24, 8
+  %.fr23 = freeze i16 %0
+  %1 = and i16 %.fr23, 8
   %tobool.not = icmp eq i16 %1, 0
   br i1 %tobool.not, label %lor.rhs, label %lor.end
 
@@ -68,13 +68,13 @@ land.lhs.true:                                    ; preds = %lor.end
   br i1 %cmp5, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true
-  %6 = and i16 %.fr24, 64
+  %6 = and i16 %.fr23, 64
   %tobool10 = icmp eq i16 %6, 0
   %or.cond = select i1 %tobool10, i1 %3, i1 false
   br i1 %or.cond, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false, %lor.end
-  %conv14 = zext i16 %.fr24 to i32
+  %conv14 = zext i16 %.fr23 to i32
   %and15 = and i32 %conv14, 64
   %tobool16.not = icmp eq i32 %and15, 0
   br i1 %tobool16.not, label %if.else, label %return
@@ -93,14 +93,16 @@ if.then28:                                        ; preds = %if.else23
   %type = getelementptr inbounds i8, ptr %parser, i64 72
   %7 = load i8, ptr %type, align 8
   %cmp30 = icmp eq i8 %7, 1
-  br i1 %cmp30, label %land.lhs.true32, label %return
+  br i1 %cmp30, label %land.lhs.true32, label %if.else44
 
 land.lhs.true32:                                  ; preds = %if.then28
   %lenient_flags = getelementptr inbounds i8, ptr %parser, i64 77
   %8 = load i8, ptr %lenient_flags, align 1
   %9 = and i8 %8, 10
   %or.cond14 = icmp eq i8 %9, 0
-  %spec.select = select i1 %or.cond14, i32 5, i32 4
+  br i1 %or.cond14, label %return, label %if.else44
+
+if.else44:                                        ; preds = %land.lhs.true32, %if.then28
   br label %return
 
 if.else45:                                        ; preds = %if.else23
@@ -112,7 +114,7 @@ if.then50:                                        ; preds = %if.else45
   %type.i = getelementptr inbounds i8, ptr %parser, i64 72
   %10 = load i8, ptr %type.i, align 8
   %cmp.i = icmp eq i8 %10, 1
-  br i1 %cmp.i, label %return, label %if.end.i
+  br i1 %cmp.i, label %llhttp_message_needs_eof.exit.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then50
   %status_code.i = getelementptr inbounds i8, ptr %parser, i64 82
@@ -121,18 +123,20 @@ if.end.i:                                         ; preds = %if.then50
   %conv2.i = zext i16 %.fr.i to i32
   %conv2.off.i = add nsw i32 %conv2.i, -100
   %cmp3.i = icmp ult i32 %conv2.off.i, 100
-  br i1 %cmp3.i, label %return, label %switch.early.test.i
+  br i1 %cmp3.i, label %llhttp_message_needs_eof.exit.thread, label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %if.end.i
   switch i16 %.fr.i, label %llhttp_message_needs_eof.exit [
-    i16 304, label %return
-    i16 204, label %return
+    i16 304, label %llhttp_message_needs_eof.exit.thread
+    i16 204, label %llhttp_message_needs_eof.exit.thread
   ]
 
 llhttp_message_needs_eof.exit:                    ; preds = %switch.early.test.i
-  %12 = and i16 %.fr24, 40
+  %12 = and i16 %.fr23, 40
   %tobool32.not.i.not = icmp eq i16 %12, 0
-  %spec.select23 = select i1 %tobool32.not.i.not, i32 4, i32 0
+  br i1 %tobool32.not.i.not, label %return, label %llhttp_message_needs_eof.exit.thread
+
+llhttp_message_needs_eof.exit.thread:             ; preds = %if.end.i, %switch.early.test.i, %switch.early.test.i, %if.then50, %llhttp_message_needs_eof.exit
   br label %return
 
 if.else54:                                        ; preds = %if.else45
@@ -142,8 +146,8 @@ if.else54:                                        ; preds = %if.else45
   %.15 = select i1 %cmp56, i32 0, i32 3
   br label %return
 
-return:                                           ; preds = %llhttp_message_needs_eof.exit, %if.end.i, %switch.early.test.i, %switch.early.test.i, %if.then50, %land.lhs.true32, %if.else54, %if.then28, %if.else, %if.end, %land.lhs.true, %lor.lhs.false
-  %retval.0 = phi i32 [ 1, %lor.lhs.false ], [ 1, %land.lhs.true ], [ 0, %if.end ], [ 2, %if.else ], [ 4, %if.then28 ], [ %.15, %if.else54 ], [ %spec.select, %land.lhs.true32 ], [ 0, %if.then50 ], [ 0, %switch.early.test.i ], [ 0, %switch.early.test.i ], [ 0, %if.end.i ], [ %spec.select23, %llhttp_message_needs_eof.exit ]
+return:                                           ; preds = %llhttp_message_needs_eof.exit.thread, %llhttp_message_needs_eof.exit, %if.else54, %land.lhs.true32, %if.else, %if.end, %land.lhs.true, %lor.lhs.false, %if.else44
+  %retval.0 = phi i32 [ 4, %if.else44 ], [ 1, %lor.lhs.false ], [ 1, %land.lhs.true ], [ 0, %if.end ], [ 2, %if.else ], [ 5, %land.lhs.true32 ], [ %.15, %if.else54 ], [ 0, %llhttp_message_needs_eof.exit.thread ], [ 4, %llhttp_message_needs_eof.exit ]
   ret i32 %retval.0
 }
 

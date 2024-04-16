@@ -91,13 +91,13 @@ sw.bb1.i:                                         ; preds = %if.end.i21
   %is_delta.i = getelementptr inbounds i8, ptr %oi.i, i64 72
   %5 = load i32, ptr %is_delta.i, align 8
   %tobool.not.i22 = icmp eq i32 %5, 0
-  br i1 %tobool.not.i22, label %land.lhs.true.i24, label %if.end
+  br i1 %tobool.not.i22, label %land.lhs.true.i24, label %sw.default.i
 
 land.lhs.true.i24:                                ; preds = %sw.bb1.i
   %6 = load i64, ptr @big_file_threshold, align 8
   %7 = load i64, ptr %size.i, align 8
   %cmp2.i = icmp ult i64 %6, %7
-  br i1 %cmp2.i, label %if.then3.i, label %if.end
+  br i1 %cmp2.i, label %if.then3.i, label %sw.default.i
 
 if.then3.i:                                       ; preds = %land.lhs.true.i24
   %8 = load ptr, ptr %u.i, align 8
@@ -109,7 +109,7 @@ if.then3.i:                                       ; preds = %land.lhs.true.i24
   store i64 %9, ptr %pos.i, align 8
   br label %if.end
 
-sw.default.i:                                     ; preds = %if.end.i21
+sw.default.i:                                     ; preds = %land.lhs.true.i24, %sw.bb1.i, %if.end.i21
   br label %if.end
 
 if.then:                                          ; preds = %lookup_replace_object.exit
@@ -118,8 +118,8 @@ if.then:                                          ; preds = %lookup_replace_obje
   call void @free(ptr noundef %call) #11
   br label %return
 
-if.end:                                           ; preds = %if.end.i21, %sw.bb1.i, %land.lhs.true.i24, %if.then3.i, %sw.default.i
-  %open_istream_incore.sink.i = phi ptr [ @open_istream_pack_non_delta, %if.then3.i ], [ @open_istream_loose, %if.end.i21 ], [ @open_istream_incore, %sw.bb1.i ], [ @open_istream_incore, %land.lhs.true.i24 ], [ @open_istream_incore, %sw.default.i ]
+if.end:                                           ; preds = %if.end.i21, %if.then3.i, %sw.default.i
+  %open_istream_incore.sink.i = phi ptr [ @open_istream_incore, %sw.default.i ], [ @open_istream_pack_non_delta, %if.then3.i ], [ @open_istream_loose, %if.end.i21 ]
   store ptr %open_istream_incore.sink.i, ptr %call, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %size.i)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %oi.i)
@@ -215,7 +215,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @stream_blob_to_fd(i32 noundef %fd, ptr noundef %oid, ptr noundef %filter, i32 noundef %can_seek) local_unnamed_addr #0 {
+define dso_local noundef i32 @stream_blob_to_fd(i32 noundef %fd, ptr noundef %oid, ptr noundef %filter, i32 noundef %can_seek) local_unnamed_addr #0 {
 entry:
   %type = alloca i32, align 4
   %sz = alloca i64, align 8
@@ -252,7 +252,7 @@ if.end9.lr.ph:                                    ; preds = %for.cond.preheader
 if.end9.us:                                       ; preds = %if.end9.lr.ph, %for.cond.backedge.us
   %call.i30.us = phi i64 [ %call.i.us, %for.cond.backedge.us ], [ %call.i27, %if.end9.lr.ph ]
   %tobool10.not.us = icmp eq i64 %call.i30.us, 0
-  br i1 %tobool10.not.us, label %close_and_exit, label %if.end12.us
+  br i1 %tobool10.not.us, label %if.end44, label %if.end12.us
 
 if.end12.us:                                      ; preds = %if.end9.us
   %call32.us = call i64 @write_in_full(i32 noundef %fd, ptr noundef nonnull %buf, i64 noundef %call.i30.us) #11
@@ -312,7 +312,7 @@ if.else:                                          ; preds = %land.lhs.true26, %i
 
 for.end36:                                        ; preds = %if.end9
   %tobool37.not = icmp eq i64 %kept.029, 0
-  br i1 %tobool37.not, label %close_and_exit, label %land.lhs.true38
+  br i1 %tobool37.not, label %if.end44, label %land.lhs.true38
 
 land.lhs.true38:                                  ; preds = %for.end36
   %sub = add nsw i64 %kept.029, -1
@@ -322,12 +322,14 @@ land.lhs.true38:                                  ; preds = %for.end36
 
 lor.lhs.false:                                    ; preds = %land.lhs.true38
   %call41 = call i64 @xwrite(i32 noundef %fd, ptr noundef nonnull @.str, i64 noundef 1) #11
-  %cmp42.not = icmp ne i64 %call41, 1
-  %spec.select = sext i1 %cmp42.not to i32
+  %cmp42.not = icmp eq i64 %call41, 1
+  br i1 %cmp42.not, label %if.end44, label %close_and_exit
+
+if.end44:                                         ; preds = %if.end9.us, %lor.lhs.false, %for.end36
   br label %close_and_exit
 
-close_and_exit:                                   ; preds = %for.cond.backedge, %land.lhs.true26, %if.else, %if.end9.us, %for.cond.backedge.us, %if.end12.us, %for.cond.preheader, %lor.lhs.false, %for.end36, %land.lhs.true38, %if.end3
-  %result.0 = phi i32 [ -1, %if.end3 ], [ -1, %land.lhs.true38 ], [ 0, %for.end36 ], [ %spec.select, %lor.lhs.false ], [ -1, %for.cond.preheader ], [ 0, %if.end9.us ], [ -1, %for.cond.backedge.us ], [ -1, %if.end12.us ], [ -1, %if.else ], [ -1, %land.lhs.true26 ], [ -1, %for.cond.backedge ]
+close_and_exit:                                   ; preds = %for.cond.backedge, %land.lhs.true26, %if.else, %for.cond.backedge.us, %if.end12.us, %for.cond.preheader, %land.lhs.true38, %lor.lhs.false, %if.end3, %if.end44
+  %result.0 = phi i32 [ -1, %if.end3 ], [ -1, %land.lhs.true38 ], [ -1, %lor.lhs.false ], [ 0, %if.end44 ], [ -1, %for.cond.preheader ], [ -1, %if.end12.us ], [ -1, %for.cond.backedge.us ], [ -1, %if.else ], [ -1, %land.lhs.true26 ], [ -1, %for.cond.backedge ]
   %close.i = getelementptr inbounds i8, ptr %call, i64 8
   %6 = load ptr, ptr %close.i, align 8
   %call.i22 = call i32 %6(ptr noundef nonnull %call) #11

@@ -709,21 +709,23 @@ do.cond.i6.i.i:                                   ; preds = %do.body.i2.i.i
 if.else7.i.i:                                     ; preds = %do.cond.i6.i.i
   %call8.i.i = call i32 @starts_with(ptr noundef nonnull %39, ptr noundef nonnull @.str.131) #17
   %tobool9.not.i.i = icmp eq i32 %call8.i.i, 0
-  br i1 %tobool9.not.i.i, label %lor.lhs.false10.i.i, label %if.end19.i.i
+  br i1 %tobool9.not.i.i, label %lor.lhs.false10.i.i, label %if.then16.i.i
 
 lor.lhs.false10.i.i:                              ; preds = %if.else7.i.i
   %call11.i.i = call i32 @starts_with(ptr noundef nonnull %39, ptr noundef nonnull @.str.132) #17
   %tobool12.not.i.i = icmp eq i32 %call11.i.i, 0
-  br i1 %tobool12.not.i.i, label %lor.lhs.false13.i.i, label %if.end19.i.i
+  br i1 %tobool12.not.i.i, label %lor.lhs.false13.i.i, label %if.then16.i.i
 
 lor.lhs.false13.i.i:                              ; preds = %lor.lhs.false10.i.i
   %call14.i.i = call i32 @starts_with(ptr noundef nonnull %39, ptr noundef nonnull @.str.133) #17
   %tobool15.not.i.i = icmp eq i32 %call14.i.i, 0
-  %spec.select.i.i = select i1 %tobool15.not.i.i, ptr %39, ptr @.str.126
+  br i1 %tobool15.not.i.i, label %if.end19.i.i, label %if.then16.i.i
+
+if.then16.i.i:                                    ; preds = %lor.lhs.false13.i.i, %lor.lhs.false10.i.i, %if.else7.i.i
   br label %if.end19.i.i
 
-if.end19.i.i:                                     ; preds = %do.body.i.i.i, %do.body.i2.i.i, %lor.lhs.false13.i.i, %lor.lhs.false10.i.i, %if.else7.i.i, %lor.lhs.false.i.i, %if.then2.i
-  %spec_src.2.i.i = phi ptr [ @.str.4, %lor.lhs.false.i.i ], [ @.str.4, %if.then2.i ], [ @.str.126, %lor.lhs.false10.i.i ], [ @.str.126, %if.else7.i.i ], [ %spec.select.i.i, %lor.lhs.false13.i.i ], [ %scevgep24.i.i, %do.body.i2.i.i ], [ %scevgep.i.i, %do.body.i.i.i ]
+if.end19.i.i:                                     ; preds = %do.body.i.i.i, %do.body.i2.i.i, %if.then16.i.i, %lor.lhs.false13.i.i, %lor.lhs.false.i.i, %if.then2.i
+  %spec_src.2.i.i = phi ptr [ %39, %lor.lhs.false13.i.i ], [ @.str.126, %if.then16.i.i ], [ @.str.4, %lor.lhs.false.i.i ], [ @.str.4, %if.then2.i ], [ %scevgep24.i.i, %do.body.i2.i.i ], [ %scevgep.i.i, %do.body.i.i.i ]
   %45 = load i8, ptr %spec_src.2.i.i, align 1
   %tobool20.not.i.i = icmp eq i8 %45, 0
   br i1 %tobool20.not.i.i, label %get_tracking_branch.exit.i, label %if.then21.i.i

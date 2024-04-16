@@ -3011,7 +3011,7 @@ print_exception_cause_and_context.exit.sink.split: ; preds = %if.end.i.i, %if.en
 print_exception_cause_and_context.exit:           ; preds = %print_exception_cause_and_context.exit.sink.split, %if.end13.i, %if.end.i30.i, %if.end25.i, %if.end.i.i
   %retval.0.i = phi i32 [ %err.0.i, %if.end13.i ], [ %err.0.i, %if.end.i30.i ], [ %err21.0.i, %if.end25.i ], [ %err21.0.i, %if.end.i.i ], [ %retval.0.i.ph, %print_exception_cause_and_context.exit.sink.split ]
   %cmp3 = icmp slt i32 %retval.0.i, 0
-  br i1 %cmp3, label %return.sink.split, label %if.end6
+  br i1 %cmp3, label %error, label %if.end6
 
 if.end6:                                          ; preds = %if.then1.i.i37, %if.end.i.i34, %if.then.i32, %if.end17.i, %if.end14.i, %Py_DECREF.exit44.i, %entry.split.i, %print_exception_cause_and_context.exit, %if.end
   %20 = load ptr, ptr %ctx, align 8
@@ -3026,7 +3026,7 @@ if.end6:                                          ; preds = %if.then1.i.i37, %if
 if.then.i:                                        ; preds = %if.end6
   %call.i.i = tail call i32 @PyFile_WriteString(ptr noundef nonnull @.str.40, ptr noundef %20) #8
   %cmp.i15.i = icmp slt i32 %call.i.i, 0
-  br i1 %cmp.i15.i, label %return.sink.split, label %if.end.i16.i
+  br i1 %cmp.i15.i, label %error, label %if.end.i16.i
 
 if.end.i16.i:                                     ; preds = %if.then.i
   %value.val.i.i = load ptr, ptr %21, align 8
@@ -3034,7 +3034,7 @@ if.end.i16.i:                                     ; preds = %if.then.i
   %24 = load ptr, ptr %tp_name.i.i, align 8
   %call2.i.i = tail call i32 @PyFile_WriteString(ptr noundef %24, ptr noundef %20) #8
   %cmp3.i.i = icmp slt i32 %call2.i.i, 0
-  br i1 %cmp3.i.i, label %return.sink.split, label %print_exception.exit
+  br i1 %cmp3.i.i, label %error, label %print_exception.exit
 
 if.end.i6:                                        ; preds = %if.end6
   %25 = load i32, ptr %value, align 8
@@ -3452,32 +3452,38 @@ if.end.i23.i:                                     ; preds = %if.end19.i
   %dec.i24.i = add i64 %63, -1
   store i64 %dec.i24.i, ptr %value, align 8
   %cmp.i25.i = icmp eq i64 %dec.i24.i, 0
-  br i1 %cmp.i25.i, label %return.sink.split.sink.split, label %return.sink.split
+  br i1 %cmp.i25.i, label %if.then1.i26.i, label %return.sink.split
+
+if.then1.i26.i:                                   ; preds = %if.end.i23.i
+  call void @_Py_Dealloc(ptr noundef nonnull %value) #8
+  br label %return.sink.split
 
 error.i:                                          ; preds = %if.end15.i, %Py_DECREF.exit.i.i, %if.then1.i79.i.i, %if.end.i76.i.i, %if.then64.i.i, %if.then49.i.i, %Py_DECREF.exit90.i.i, %if.then32.i.i, %if.end18.i.i, %Py_DECREF.exit108.i.i, %if.then5.i.i, %if.end11.i, %print_exception_file_and_line.exit.thread.i, %print_exception_traceback.exit.i
   %65 = load i64, ptr %value, align 8
   %66 = and i64 %65, 2147483648
   %cmp.i37.not.i = icmp eq i64 %66, 0
-  br i1 %cmp.i37.not.i, label %if.end.i.i11, label %return.sink.split
+  br i1 %cmp.i37.not.i, label %if.end.i.i11, label %error
 
 if.end.i.i11:                                     ; preds = %error.i
   %dec.i.i12 = add i64 %65, -1
   store i64 %dec.i.i12, ptr %value, align 8
   %cmp.i.i13 = icmp eq i64 %dec.i.i12, 0
-  br i1 %cmp.i.i13, label %return.sink.split.sink.split, label %return.sink.split
+  br i1 %cmp.i.i13, label %if.then1.i.i14, label %error
+
+if.then1.i.i14:                                   ; preds = %if.end.i.i11
+  call void @_Py_Dealloc(ptr noundef nonnull %value) #8
+  br label %error
 
 print_exception.exit:                             ; preds = %if.end.i16.i
   %call6.i.i = tail call i32 @PyFile_WriteString(ptr noundef nonnull @.str.41, ptr noundef %20) #8
-  %call6.i.i.lobit = ashr i32 %call6.i.i, 31
+  %cmp8 = icmp slt i32 %call6.i.i, 0
+  br i1 %cmp8, label %error, label %return.sink.split
+
+error:                                            ; preds = %if.end.i16.i, %if.then.i, %if.end.i.i11, %if.then1.i.i14, %error.i, %print_exception.exit, %print_exception_cause_and_context.exit
   br label %return.sink.split
 
-return.sink.split.sink.split:                     ; preds = %if.end.i.i11, %if.end.i23.i
-  %retval.0.ph.ph = phi i32 [ 0, %if.end.i23.i ], [ -1, %if.end.i.i11 ]
-  call void @_Py_Dealloc(ptr noundef nonnull %value) #8
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %print_exception.exit, %return.sink.split.sink.split, %print_exception_cause_and_context.exit, %error.i, %if.end.i.i11, %if.then.i, %if.end.i16.i, %if.end19.i, %if.end.i23.i
-  %retval.0.ph = phi i32 [ 0, %if.end.i23.i ], [ 0, %if.end19.i ], [ -1, %if.end.i16.i ], [ -1, %if.then.i ], [ -1, %if.end.i.i11 ], [ -1, %error.i ], [ -1, %print_exception_cause_and_context.exit ], [ %call6.i.i.lobit, %print_exception.exit ], [ %retval.0.ph.ph, %return.sink.split.sink.split ]
+return.sink.split:                                ; preds = %print_exception.exit, %if.end19.i, %if.then1.i26.i, %if.end.i23.i, %error
+  %retval.0.ph = phi i32 [ -1, %error ], [ 0, %if.end.i23.i ], [ 0, %if.then1.i26.i ], [ 0, %if.end19.i ], [ 0, %print_exception.exit ]
   %67 = load ptr, ptr %0, align 8
   %c_recursion_remaining.i.i = getelementptr inbounds i8, ptr %67, i64 44
   %68 = load i32, ptr %c_recursion_remaining.i.i, align 4

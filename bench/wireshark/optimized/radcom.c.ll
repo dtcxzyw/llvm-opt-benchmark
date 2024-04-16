@@ -230,7 +230,7 @@ declare i32 @wtap_read_bytes(ptr noundef, ptr noundef, i32 noundef, ptr noundef,
 declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @radcom_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
+define internal noundef i32 @radcom_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
   %7 = alloca [2 x i8], align 1
   %8 = load ptr, ptr %0, align 8
   %9 = tail call i64 @file_tell(ptr noundef %8) #4
@@ -238,7 +238,7 @@ define internal i32 @radcom_read(ptr nocapture noundef readonly %0, ptr nocaptur
   %10 = load ptr, ptr %0, align 8
   %11 = tail call fastcc i32 @radcom_read_rec(ptr noundef nonnull %0, ptr noundef %10, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4), !range !6
   %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %19, label %12
+  br i1 %.not, label %20, label %12
 
 12:                                               ; preds = %6
   %13 = getelementptr inbounds i8, ptr %0, i64 144
@@ -249,12 +249,14 @@ define internal i32 @radcom_read(ptr nocapture noundef readonly %0, ptr nocaptur
 16:                                               ; preds = %12
   %17 = load ptr, ptr %0, align 8
   %18 = call i32 @wtap_read_bytes(ptr noundef %17, ptr noundef nonnull %7, i32 noundef 2, ptr noundef %3, ptr noundef %4) #4
-  %.not12 = icmp ne i32 %18, 0
-  %spec.select = zext i1 %.not12 to i32
-  br label %19
+  %.not12 = icmp eq i32 %18, 0
+  br i1 %.not12, label %20, label %19
 
-19:                                               ; preds = %16, %12, %6
-  %.0 = phi i32 [ 0, %6 ], [ 1, %12 ], [ %spec.select, %16 ]
+19:                                               ; preds = %16, %12
+  br label %20
+
+20:                                               ; preds = %16, %6, %19
+  %.0 = phi i32 [ 1, %19 ], [ 0, %6 ], [ 0, %16 ]
   ret i32 %.0
 }
 

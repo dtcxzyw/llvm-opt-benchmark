@@ -644,11 +644,11 @@ if.end.i:                                         ; preds = %if.end
 
 if.then3.i:                                       ; preds = %if.end.i
   %cmp4.i = icmp ult i32 %conv, 14
-  br i1 %cmp4.i, label %return, label %scsi_parse_sense_buf.exit
+  br i1 %cmp4.i, label %sw.bb1.i, label %scsi_parse_sense_buf.exit
 
 if.else11.i:                                      ; preds = %if.end.i
   %cmp12.i = icmp ult i32 %conv, 4
-  br i1 %cmp12.i, label %return, label %scsi_parse_sense_buf.exit
+  br i1 %cmp12.i, label %sw.bb1.i, label %scsi_parse_sense_buf.exit
 
 scsi_parse_sense_buf.exit:                        ; preds = %if.then3.i, %if.else11.i
   %.sink13.i = phi i64 [ 2, %if.then3.i ], [ 1, %if.else11.i ]
@@ -666,7 +666,7 @@ scsi_parse_sense_buf.exit:                        ; preds = %if.then3.i, %if.els
     i8 7, label %sw.epilog.i
   ]
 
-sw.bb1.i:                                         ; preds = %scsi_parse_sense_buf.exit
+sw.bb1.i:                                         ; preds = %if.else11.i, %if.then3.i, %scsi_parse_sense_buf.exit
   br label %return
 
 sw.default.i:                                     ; preds = %scsi_parse_sense_buf.exit
@@ -718,8 +718,8 @@ sw.bb9.i:                                         ; preds = %sw.epilog.i
 sw.default10.i:                                   ; preds = %sw.epilog.i
   br label %return
 
-return:                                           ; preds = %if.else11.i, %if.then3.i, %sw.default10.i, %sw.bb9.i, %sw.bb8.i, %sw.bb7.i, %sw.bb6.i, %sw.bb5.i, %sw.bb4.i, %sw.epilog.i, %sw.epilog.i, %sw.epilog.i, %sw.epilog.i, %sw.default.i, %sw.bb1.i, %scsi_parse_sense_buf.exit, %scsi_parse_sense_buf.exit, %scsi_parse_sense_buf.exit, %entry
-  %retval.0 = phi i32 [ 5, %entry ], [ 5, %sw.default.i ], [ 5, %sw.default10.i ], [ 107, %sw.bb9.i ], [ 115, %sw.bb8.i ], [ 13, %sw.bb7.i ], [ 123, %sw.bb6.i ], [ 95, %sw.bb5.i ], [ 28, %sw.bb4.i ], [ 11, %scsi_parse_sense_buf.exit ], [ 11, %scsi_parse_sense_buf.exit ], [ 11, %scsi_parse_sense_buf.exit ], [ 22, %sw.epilog.i ], [ 22, %sw.epilog.i ], [ 22, %sw.epilog.i ], [ 22, %sw.epilog.i ], [ 125, %sw.bb1.i ], [ 125, %if.then3.i ], [ 125, %if.else11.i ]
+return:                                           ; preds = %sw.default10.i, %sw.bb9.i, %sw.bb8.i, %sw.bb7.i, %sw.bb6.i, %sw.bb5.i, %sw.bb4.i, %sw.epilog.i, %sw.epilog.i, %sw.epilog.i, %sw.epilog.i, %sw.default.i, %sw.bb1.i, %scsi_parse_sense_buf.exit, %scsi_parse_sense_buf.exit, %scsi_parse_sense_buf.exit, %entry
+  %retval.0 = phi i32 [ 5, %entry ], [ 5, %sw.default.i ], [ 5, %sw.default10.i ], [ 107, %sw.bb9.i ], [ 115, %sw.bb8.i ], [ 13, %sw.bb7.i ], [ 123, %sw.bb6.i ], [ 95, %sw.bb5.i ], [ 28, %sw.bb4.i ], [ 125, %sw.bb1.i ], [ 11, %scsi_parse_sense_buf.exit ], [ 11, %scsi_parse_sense_buf.exit ], [ 11, %scsi_parse_sense_buf.exit ], [ 22, %sw.epilog.i ], [ 22, %sw.epilog.i ], [ 22, %sw.epilog.i ], [ 22, %sw.epilog.i ]
   ret i32 %retval.0
 }
 

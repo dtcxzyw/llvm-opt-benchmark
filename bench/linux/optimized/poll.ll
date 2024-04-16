@@ -1375,7 +1375,7 @@ define internal fastcc noundef i32 @__io_poll_cancel(ptr noundef %0, ptr nocaptu
   %10 = add i32 %14, 1
   %11 = lshr i32 %10, %9
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %13, label %.loopexit20, !llvm.loop !39
+  br i1 %12, label %13, label %.thread16, !llvm.loop !39
 
 13:                                               ; preds = %.loopexit17, %7
   %14 = phi i32 [ 0, %7 ], [ %10, %.loopexit17 ]
@@ -1470,21 +1470,21 @@ define internal fastcc noundef i32 @__io_poll_cancel(ptr noundef %0, ptr nocaptu
 
 .loopexit:                                        ; preds = %71, %34
   tail call void @_raw_spin_unlock(ptr noundef %45) #10
-  br label %.loopexit20
+  br label %.thread16
 
 .thread:                                          ; preds = %24, %26, %60, %69
   %.ph10 = phi ptr [ %45, %69 ], [ %45, %60 ], [ %17, %26 ], [ %17, %24 ]
   %.ph11 = phi ptr [ %56, %69 ], [ %56, %60 ], [ %31, %26 ], [ %21, %24 ]
   tail call fastcc void @io_poll_cancel_req(ptr noundef nonnull %.ph11)
   %78 = icmp eq ptr %.ph10, null
-  br i1 %78, label %.loopexit20, label %79
+  br i1 %78, label %.thread16, label %79
 
 79:                                               ; preds = %.thread
   tail call void @_raw_spin_unlock(ptr noundef nonnull %.ph10) #10
-  br label %.loopexit20
+  br label %.thread16
 
-.loopexit20:                                      ; preds = %.loopexit17, %.thread, %.loopexit, %79
-  %80 = phi i32 [ 0, %79 ], [ -2, %.loopexit ], [ 0, %.thread ], [ -2, %.loopexit17 ]
+.thread16:                                        ; preds = %.loopexit17, %.loopexit, %.thread, %79
+  %80 = phi i32 [ 0, %79 ], [ 0, %.thread ], [ -2, %.loopexit ], [ -2, %.loopexit17 ]
   ret i32 %80
 }
 
@@ -1493,13 +1493,13 @@ define dso_local noundef i32 @io_poll_remove_prep(ptr nocapture noundef writeonl
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load i16, ptr %3, align 8
   %5 = icmp eq i16 %4, 0
-  br i1 %5, label %6, label %46
+  br i1 %5, label %6, label %47
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %1, i64 44
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %46
+  br i1 %9, label %10, label %47
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %1, i64 24
@@ -1507,7 +1507,7 @@ define dso_local noundef i32 @io_poll_remove_prep(ptr nocapture noundef writeonl
   %13 = icmp ugt i32 %12, 7
   %14 = icmp eq i32 %12, 1
   %15 = or i1 %13, %14
-  br i1 %15, label %46, label %16
+  br i1 %15, label %47, label %16
 
 16:                                               ; preds = %10
   %17 = getelementptr inbounds i8, ptr %1, i64 16
@@ -1529,7 +1529,7 @@ define dso_local noundef i32 @io_poll_remove_prep(ptr nocapture noundef writeonl
   store i64 %28, ptr %29, align 8
   %30 = icmp eq i64 %28, 0
   %31 = select i1 %24, i1 true, i1 %30
-  br i1 %31, label %32, label %46
+  br i1 %31, label %32, label %47
 
 32:                                               ; preds = %16
   %33 = icmp eq i8 %23, 0
@@ -1550,12 +1550,14 @@ define dso_local noundef i32 @io_poll_remove_prep(ptr nocapture noundef writeonl
 43:                                               ; preds = %32
   %44 = load i32, ptr %34, align 4
   %45 = icmp eq i32 %44, 0
-  %spec.select = select i1 %45, i32 0, i32 -22
-  br label %46
+  br i1 %45, label %46, label %47
 
-46:                                               ; preds = %43, %35, %16, %10, %6, %2
-  %47 = phi i32 [ -22, %6 ], [ -22, %2 ], [ -22, %10 ], [ -22, %16 ], [ 0, %35 ], [ %spec.select, %43 ]
-  ret i32 %47
+46:                                               ; preds = %43, %35
+  br label %47
+
+47:                                               ; preds = %46, %43, %16, %10, %6, %2
+  %48 = phi i32 [ 0, %46 ], [ -22, %6 ], [ -22, %2 ], [ -22, %10 ], [ -22, %16 ], [ -22, %43 ]
+  ret i32 %48
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)

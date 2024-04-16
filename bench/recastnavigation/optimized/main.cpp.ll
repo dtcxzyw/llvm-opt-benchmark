@@ -590,7 +590,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit605: ;
           cleanup
   br label %.body612
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %774, %685, %580, %978, %977, %976, %975, %974, %973, %958, %957, %956, %948, %946, %942, %939, %937, %925, %919, %765, %759, %680, %671, %664, %662, %.thread701, %625, %602, %600, %596, %.thread686, %594, %590, %_ZN9rcContext8resetLogEv.exit, %574, %570, %569, %567, %553, %529, %528, %526, %523, %522, %520, %516, %513, %511, %510, %505, %500, %498, %497, %496, %495, %494, %493, %492, %491, %490, %485, %449, %.thread684, %365, %356, %352, %351, %345, %343, %341, %340, %339, %338, %336, %335, %334, %333, %332, %331, %330, %329, %328, %327, %326, %324, %299, %289, %273, %270, %260, %258, %256
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %774, %685, %580, %978, %977, %976, %975, %974, %973, %958, %957, %956, %948, %946, %942, %939, %937, %925, %919, %765, %759, %680, %671, %664, %662, %.thread701, %625, %602, %600, %596, %.thread686, %594, %590, %_ZN9rcContext8resetLogEv.exit, %574, %570, %569, %567, %553, %529, %528, %526, %523, %522, %520, %516, %513, %511, %510, %505, %500, %498, %497, %496, %495, %494, %493, %492, %491, %490, %485, %449, %441, %365, %356, %352, %351, %345, %343, %341, %340, %339, %338, %336, %335, %334, %333, %332, %331, %330, %329, %328, %327, %326, %324, %299, %289, %273, %270, %260, %258, %256
   %lpad.loopexit838 = landingpad { ptr, i32 }
           cleanup
   br label %.body612
@@ -1102,13 +1102,13 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %380 = load i8, ptr %379, align 1
   %.fr = freeze i8 %380
   %.not792 = icmp eq i8 %.fr, 0
-  br i1 %.not792, label %.thread, label %381
+  br i1 %.not792, label %381, label %.thread
 
-381:                                              ; preds = %378
-  br label %.thread
+.thread:                                          ; preds = %374, %378
+  br label %381
 
-.thread:                                          ; preds = %374, %378, %381
-  %382 = phi float [ -1.000000e+00, %378 ], [ 1.000000e+00, %381 ], [ 1.000000e+00, %374 ]
+381:                                              ; preds = %378, %.thread
+  %382 = phi float [ 1.000000e+00, %.thread ], [ -1.000000e+00, %378 ]
   %383 = call float @llvm.fmuladd.f32(float %375, float %382, float %.0512)
   %384 = fcmp olt float %383, 0.000000e+00
   %385 = fcmp ogt float %383, 1.000000e+00
@@ -1119,18 +1119,18 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %.not540 = icmp eq i8 %389, 0
   br i1 %.not540, label %390, label %.thread672
 
-390:                                              ; preds = %.thread
+390:                                              ; preds = %381
   %391 = getelementptr inbounds i8, ptr %373, i64 80
   %392 = load i8, ptr %391, align 1
   %.fr793 = freeze i8 %392
   %.not794 = icmp eq i8 %.fr793, 0
-  br i1 %.not794, label %.thread672, label %393
+  br i1 %.not794, label %393, label %.thread672
 
-393:                                              ; preds = %390
-  br label %.thread672
+.thread672:                                       ; preds = %381, %390
+  br label %393
 
-.thread672:                                       ; preds = %.thread, %390, %393
-  %394 = phi float [ -1.000000e+00, %390 ], [ 1.000000e+00, %393 ], [ 1.000000e+00, %.thread ]
+393:                                              ; preds = %390, %.thread672
+  %394 = phi float [ 1.000000e+00, %.thread672 ], [ -1.000000e+00, %390 ]
   %395 = call float @llvm.fmuladd.f32(float %375, float %394, float %.0510)
   %396 = fcmp olt float %395, 0.000000e+00
   %397 = fcmp ogt float %395, 1.000000e+00
@@ -1141,18 +1141,18 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %.not541 = icmp eq i8 %401, 0
   br i1 %.not541, label %402, label %.thread675
 
-402:                                              ; preds = %.thread672
+402:                                              ; preds = %393
   %403 = getelementptr inbounds i8, ptr %373, i64 81
   %404 = load i8, ptr %403, align 1
   %.fr795 = freeze i8 %404
   %.not796 = icmp eq i8 %.fr795, 0
-  br i1 %.not796, label %.thread675, label %405
+  br i1 %.not796, label %405, label %.thread675
 
-405:                                              ; preds = %402
-  br label %.thread675
+.thread675:                                       ; preds = %393, %402
+  br label %405
 
-.thread675:                                       ; preds = %.thread672, %402, %405
-  %406 = phi float [ -1.000000e+00, %402 ], [ 1.000000e+00, %405 ], [ 1.000000e+00, %.thread672 ]
+405:                                              ; preds = %402, %.thread675
+  %406 = phi float [ 1.000000e+00, %.thread675 ], [ -1.000000e+00, %402 ]
   %407 = call float @llvm.fmuladd.f32(float %375, float %406, float %.0511)
   %408 = fcmp olt float %407, 0.000000e+00
   %409 = fcmp ogt float %407, 1.000000e+00
@@ -1163,18 +1163,18 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %.not542 = icmp eq i8 %413, 0
   br i1 %.not542, label %414, label %.thread678
 
-414:                                              ; preds = %.thread675
+414:                                              ; preds = %405
   %415 = getelementptr inbounds i8, ptr %373, i64 79
   %416 = load i8, ptr %415, align 1
   %.fr797 = freeze i8 %416
   %.not798 = icmp eq i8 %.fr797, 0
-  br i1 %.not798, label %.thread678, label %417
+  br i1 %.not798, label %417, label %.thread678
 
-417:                                              ; preds = %414
-  br label %.thread678
+.thread678:                                       ; preds = %405, %414
+  br label %417
 
-.thread678:                                       ; preds = %.thread675, %414, %417
-  %418 = phi float [ -1.000000e+00, %414 ], [ 1.000000e+00, %417 ], [ 1.000000e+00, %.thread675 ]
+417:                                              ; preds = %414, %.thread678
+  %418 = phi float [ 1.000000e+00, %.thread678 ], [ -1.000000e+00, %414 ]
   %419 = call float @llvm.fmuladd.f32(float %375, float %418, float %.0509)
   %420 = fcmp olt float %419, 0.000000e+00
   %421 = fcmp ogt float %419, 1.000000e+00
@@ -1185,18 +1185,18 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %.not543 = icmp eq i8 %425, 0
   br i1 %.not543, label %426, label %.thread681
 
-426:                                              ; preds = %.thread678
+426:                                              ; preds = %417
   %427 = getelementptr inbounds i8, ptr %373, i64 75
   %428 = load i8, ptr %427, align 1
   %.fr799 = freeze i8 %428
   %.not800 = icmp eq i8 %.fr799, 0
-  br i1 %.not800, label %.thread681, label %429
+  br i1 %.not800, label %429, label %.thread681
 
-429:                                              ; preds = %426
-  br label %.thread681
+.thread681:                                       ; preds = %417, %426
+  br label %429
 
-.thread681:                                       ; preds = %.thread678, %426, %429
-  %430 = phi float [ -1.000000e+00, %426 ], [ 1.000000e+00, %429 ], [ 1.000000e+00, %.thread678 ]
+429:                                              ; preds = %426, %.thread681
+  %430 = phi float [ 1.000000e+00, %.thread681 ], [ -1.000000e+00, %426 ]
   %431 = call float @llvm.fmuladd.f32(float %375, float %430, float %.0508)
   %432 = fcmp olt float %431, 0.000000e+00
   %433 = fcmp ogt float %431, 1.000000e+00
@@ -1207,18 +1207,18 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %.not544 = icmp eq i8 %437, 0
   br i1 %.not544, label %438, label %.thread684
 
-438:                                              ; preds = %.thread681
+438:                                              ; preds = %429
   %439 = getelementptr inbounds i8, ptr %373, i64 78
   %440 = load i8, ptr %439, align 1
   %.fr801 = freeze i8 %440
   %.not802 = icmp eq i8 %.fr801, 0
-  br i1 %.not802, label %.thread684, label %441
+  br i1 %.not802, label %441, label %.thread684
 
-441:                                              ; preds = %438
-  br label %.thread684
+.thread684:                                       ; preds = %429, %438
+  br label %441
 
-.thread684:                                       ; preds = %.thread681, %438, %441
-  %442 = phi float [ -1.000000e+00, %438 ], [ 1.000000e+00, %441 ], [ 1.000000e+00, %.thread681 ]
+441:                                              ; preds = %438, %.thread684
+  %442 = phi float [ 1.000000e+00, %.thread684 ], [ -1.000000e+00, %438 ]
   %443 = call float @llvm.fmuladd.f32(float %375, float %442, float %.0507)
   %444 = fcmp olt float %443, 0.000000e+00
   %445 = fcmp ogt float %443, 1.000000e+00
@@ -1227,7 +1227,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %448 = invoke i32 @SDL_GetModState()
           to label %449 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-449:                                              ; preds = %.thread684
+449:                                              ; preds = %441
   %450 = and i32 %448, 3
   %.not545 = icmp eq i32 %450, 0
   %.0387 = select i1 %.not545, float 2.200000e+01, float 8.800000e+01

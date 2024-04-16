@@ -632,7 +632,7 @@ return:                                           ; preds = %if.end9.i, %while.e
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @evmap_signal_del_(ptr noundef %base, i32 noundef %sig, ptr nocapture noundef readonly %ev) local_unnamed_addr #1 {
+define dso_local noundef i32 @evmap_signal_del_(ptr noundef %base, i32 noundef %sig, ptr nocapture noundef readonly %ev) local_unnamed_addr #1 {
 entry:
   %evsigsel = getelementptr inbounds i8, ptr %base, i64 32
   %0 = load ptr, ptr %evsigsel, align 8
@@ -669,7 +669,7 @@ if.end12:                                         ; preds = %if.end, %if.then3
   store ptr %5, ptr %.pre11, align 8
   %6 = load ptr, ptr %3, align 8
   %cmp19 = icmp eq ptr %6, null
-  br i1 %cmp19, label %if.then20, label %return
+  br i1 %cmp19, label %if.then20, label %if.end24
 
 if.then20:                                        ; preds = %if.end12
   %del = getelementptr inbounds i8, ptr %0, i64 24
@@ -678,11 +678,13 @@ if.then20:                                        ; preds = %if.end12
   %8 = load i32, ptr %ev_fd, align 8
   %call = tail call i32 %7(ptr noundef nonnull %base, i32 noundef %8, i16 noundef signext 0, i16 noundef signext 8, ptr noundef null) #7
   %cmp21 = icmp eq i32 %call, -1
-  %spec.select = select i1 %cmp21, i32 -1, i32 1
+  br i1 %cmp21, label %return, label %if.end24
+
+if.end24:                                         ; preds = %if.then20, %if.end12
   br label %return
 
-return:                                           ; preds = %if.then20, %if.end12, %entry, %lor.lhs.false
-  %retval.0 = phi i32 [ -1, %lor.lhs.false ], [ -1, %entry ], [ 1, %if.end12 ], [ %spec.select, %if.then20 ]
+return:                                           ; preds = %if.then20, %entry, %lor.lhs.false, %if.end24
+  %retval.0 = phi i32 [ 1, %if.end24 ], [ -1, %lor.lhs.false ], [ -1, %entry ], [ -1, %if.then20 ]
   ret i32 %retval.0
 }
 

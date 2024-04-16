@@ -2940,7 +2940,7 @@ if.end:                                           ; preds = %entry
   %m_info.i.i = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load ptr, ptr %m_info.i.i, align 8
   %cmp.i.i = icmp eq ptr %2, null
-  br i1 %cmp.i.i, label %return, label %_ZNK3app13get_decl_kindEv.exit
+  br i1 %cmp.i.i, label %sw.default, label %_ZNK3app13get_decl_kindEv.exit
 
 _ZNK3app13get_decl_kindEv.exit:                   ; preds = %if.end
   %m_kind.i.i.i = getelementptr inbounds i8, ptr %2, i64 4
@@ -2965,14 +2965,14 @@ sw.bb2:                                           ; preds = %_ZNK3app13get_decl_
   %bf.load.i.i.i.i = load i32, ptr %m_kind.i.i.i.i, align 4
   %bf.clear.i.i.i.i = and i32 %bf.load.i.i.i.i, 65535
   %cmp.i.i.i = icmp eq i32 %bf.clear.i.i.i.i, 0
-  br i1 %cmp.i.i.i, label %land.rhs.i.i.i, label %return
+  br i1 %cmp.i.i.i, label %land.rhs.i.i.i, label %if.end8
 
 land.rhs.i.i.i:                                   ; preds = %sw.bb2
   %5 = load ptr, ptr %m_decl.i.i, align 8
   %m_info.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 24
   %6 = load ptr, ptr %m_info.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %6, null
-  br i1 %tobool.not.i.i.i.i.i, label %return, label %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i
+  br i1 %tobool.not.i.i.i.i.i, label %if.end8, label %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i
 
 _ZNK17arith_recognizers6is_mulEPK4expr.exit.i:    ; preds = %land.rhs.i.i.i
   %7 = load i32, ptr %6, align 8
@@ -2981,13 +2981,13 @@ _ZNK17arith_recognizers6is_mulEPK4expr.exit.i:    ; preds = %land.rhs.i.i.i
   %8 = load i32, ptr %m_kind.i.i.i.i.i.i, align 4
   %cmp2.i.i.i.i.i.i = icmp eq i32 %8, 9
   %9 = select i1 %cmp.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i, i1 false
-  br i1 %9, label %land.lhs.true.i, label %return
+  br i1 %9, label %land.lhs.true.i, label %if.end8
 
 land.lhs.true.i:                                  ; preds = %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i
   %m_num_args.i.i = getelementptr inbounds i8, ptr %f, i64 24
   %10 = load i32, ptr %m_num_args.i.i, align 8
   %cmp.i = icmp eq i32 %10, 2
-  br i1 %cmp.i, label %land.lhs.true, label %return
+  br i1 %cmp.i, label %land.lhs.true, label %if.end8
 
 land.lhs.true:                                    ; preds = %land.lhs.true.i
   %m_args.i.i = getelementptr inbounds i8, ptr %f, i64 32
@@ -3022,7 +3022,7 @@ lor.lhs.false:                                    ; preds = %land.rhs.i.i.i6, %l
   %bf.load.i.i.i.i14 = load i32, ptr %m_kind.i.i.i.i13, align 4
   %bf.clear.i.i.i.i15 = and i32 %bf.load.i.i.i.i14, 65535
   %cmp.i.i.i16 = icmp eq i32 %bf.clear.i.i.i.i15, 0
-  br i1 %cmp.i.i.i16, label %land.rhs.i.i.i17, label %return
+  br i1 %cmp.i.i.i16, label %land.rhs.i.i.i17, label %if.end8
 
 land.rhs.i.i.i17:                                 ; preds = %lor.lhs.false
   %m_decl.i.i.i.i18 = getelementptr inbounds i8, ptr %12, i64 16
@@ -3030,7 +3030,7 @@ land.rhs.i.i.i17:                                 ; preds = %lor.lhs.false
   %m_info.i.i.i.i.i19 = getelementptr inbounds i8, ptr %18, i64 24
   %19 = load ptr, ptr %m_info.i.i.i.i.i19, align 8
   %tobool.not.i.i.i.i.i20 = icmp eq ptr %19, null
-  br i1 %tobool.not.i.i.i.i.i20, label %return, label %_ZNK10arith_util10is_numeralEPK4expr.exit25
+  br i1 %tobool.not.i.i.i.i.i20, label %if.end8, label %_ZNK10arith_util10is_numeralEPK4expr.exit25
 
 _ZNK10arith_util10is_numeralEPK4expr.exit25:      ; preds = %land.rhs.i.i.i17
   %20 = load i32, ptr %19, align 8
@@ -3039,15 +3039,16 @@ _ZNK10arith_util10is_numeralEPK4expr.exit25:      ; preds = %land.rhs.i.i.i17
   %21 = load i32, ptr %m_kind.i.i.i.i.i.i23, align 4
   %cmp2.i.i.i.i.i.i24 = icmp eq i32 %21, 0
   %22 = select i1 %cmp.i.i.i.i.i.i22, i1 %cmp2.i.i.i.i.i.i24, i1 false
-  %cond.fr = freeze i1 %22
-  %not.cond.fr = xor i1 %cond.fr, true
+  br i1 %22, label %return, label %if.end8
+
+if.end8:                                          ; preds = %land.rhs.i.i.i17, %lor.lhs.false, %land.rhs.i.i.i, %sw.bb2, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i, %land.lhs.true.i, %_ZNK10arith_util10is_numeralEPK4expr.exit25
   br label %return
 
-sw.default:                                       ; preds = %_ZNK3app13get_decl_kindEv.exit
+sw.default:                                       ; preds = %if.end, %_ZNK3app13get_decl_kindEv.exit
   br label %return
 
-return:                                           ; preds = %_ZNK10arith_util10is_numeralEPK4expr.exit25, %land.rhs.i.i.i17, %lor.lhs.false, %land.rhs.i.i.i, %sw.bb2, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i, %land.lhs.true.i, %if.end, %_ZNK10arith_util10is_numeralEPK4expr.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %entry, %sw.default
-  %retval.0 = phi i1 [ true, %entry ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK10arith_util10is_numeralEPK4expr.exit ], [ true, %sw.default ], [ true, %if.end ], [ true, %land.lhs.true.i ], [ true, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i ], [ true, %sw.bb2 ], [ true, %land.rhs.i.i.i ], [ true, %lor.lhs.false ], [ true, %land.rhs.i.i.i17 ], [ %not.cond.fr, %_ZNK10arith_util10is_numeralEPK4expr.exit25 ]
+return:                                           ; preds = %_ZNK10arith_util10is_numeralEPK4expr.exit, %_ZNK10arith_util10is_numeralEPK4expr.exit25, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %entry, %sw.default, %if.end8
+  %retval.0 = phi i1 [ true, %sw.default ], [ true, %if.end8 ], [ true, %entry ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK10arith_util10is_numeralEPK4expr.exit25 ], [ false, %_ZNK10arith_util10is_numeralEPK4expr.exit ]
   ret i1 %retval.0
 }
 
@@ -7474,7 +7475,7 @@ entry:
   %m_info.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %m_info.i.i, align 8
   %cmp.i.i = icmp eq ptr %1, null
-  br i1 %cmp.i.i, label %return, label %_ZNK3app13get_decl_kindEv.exit
+  br i1 %cmp.i.i, label %sw.default, label %_ZNK3app13get_decl_kindEv.exit
 
 _ZNK3app13get_decl_kindEv.exit:                   ; preds = %entry
   %m_kind.i.i.i = getelementptr inbounds i8, ptr %1, i64 4
@@ -7525,18 +7526,18 @@ sw.bb5:                                           ; preds = %_ZNK3app13get_decl_
   %bf.load.i.i.i.i6 = load i32, ptr %m_kind.i.i.i.i5, align 4
   %bf.clear.i.i.i.i7 = and i32 %bf.load.i.i.i.i6, 65535
   %cmp.i.i.i8 = icmp eq i32 %bf.clear.i.i.i.i7, 0
-  br i1 %cmp.i.i.i8, label %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i, label %return
+  br i1 %cmp.i.i.i8, label %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i, label %if.end12
 
 _ZNK17arith_recognizers6is_mulEPK4expr.exit.i:    ; preds = %sw.bb5
   %9 = load i32, ptr %1, align 8
   %cmp.i.i.i.i.i.i13 = icmp eq i32 %9, 5
-  br i1 %cmp.i.i.i.i.i.i13, label %land.lhs.true.i, label %return
+  br i1 %cmp.i.i.i.i.i.i13, label %land.lhs.true.i, label %if.end12
 
 land.lhs.true.i:                                  ; preds = %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i
   %m_num_args.i.i = getelementptr inbounds i8, ptr %f, i64 24
   %10 = load i32, ptr %m_num_args.i.i, align 8
   %cmp.i = icmp eq i32 %10, 2
-  br i1 %cmp.i, label %land.lhs.true, label %return
+  br i1 %cmp.i, label %land.lhs.true, label %if.end12
 
 land.lhs.true:                                    ; preds = %land.lhs.true.i
   %m_args.i.i = getelementptr inbounds i8, ptr %f, i64 32
@@ -7571,7 +7572,7 @@ lor.lhs.false:                                    ; preds = %land.rhs.i.i.i20, %
   %bf.load.i.i.i.i30 = load i32, ptr %m_kind.i.i.i.i29, align 4
   %bf.clear.i.i.i.i31 = and i32 %bf.load.i.i.i.i30, 65535
   %cmp.i.i.i32 = icmp eq i32 %bf.clear.i.i.i.i31, 0
-  br i1 %cmp.i.i.i32, label %land.rhs.i.i.i33, label %return
+  br i1 %cmp.i.i.i32, label %land.rhs.i.i.i33, label %if.end12
 
 land.rhs.i.i.i33:                                 ; preds = %lor.lhs.false
   %m_decl.i.i.i.i34 = getelementptr inbounds i8, ptr %12, i64 16
@@ -7579,7 +7580,7 @@ land.rhs.i.i.i33:                                 ; preds = %lor.lhs.false
   %m_info.i.i.i.i.i35 = getelementptr inbounds i8, ptr %18, i64 24
   %19 = load ptr, ptr %m_info.i.i.i.i.i35, align 8
   %tobool.not.i.i.i.i.i36 = icmp eq ptr %19, null
-  br i1 %tobool.not.i.i.i.i.i36, label %return, label %_ZNK10arith_util10is_numeralEPK4expr.exit41
+  br i1 %tobool.not.i.i.i.i.i36, label %if.end12, label %_ZNK10arith_util10is_numeralEPK4expr.exit41
 
 _ZNK10arith_util10is_numeralEPK4expr.exit41:      ; preds = %land.rhs.i.i.i33
   %20 = load i32, ptr %19, align 8
@@ -7588,15 +7589,16 @@ _ZNK10arith_util10is_numeralEPK4expr.exit41:      ; preds = %land.rhs.i.i.i33
   %21 = load i32, ptr %m_kind.i.i.i.i.i.i39, align 4
   %cmp2.i.i.i.i.i.i40 = icmp eq i32 %21, 0
   %22 = select i1 %cmp.i.i.i.i.i.i38, i1 %cmp2.i.i.i.i.i.i40, i1 false
-  %cond.fr47 = freeze i1 %22
-  %not.cond.fr47 = xor i1 %cond.fr47, true
+  br i1 %22, label %return, label %if.end12
+
+if.end12:                                         ; preds = %land.rhs.i.i.i33, %lor.lhs.false, %sw.bb5, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i, %land.lhs.true.i, %_ZNK10arith_util10is_numeralEPK4expr.exit41
   br label %return
 
-sw.default:                                       ; preds = %_ZNK3app13get_decl_kindEv.exit
+sw.default:                                       ; preds = %entry, %_ZNK3app13get_decl_kindEv.exit
   br label %return
 
-return:                                           ; preds = %_ZNK10arith_util10is_numeralEPK4expr.exit41, %_ZNK10arith_util10is_numeralEPK4expr.exit, %land.rhs.i.i.i33, %lor.lhs.false, %sw.bb5, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i, %land.lhs.true.i, %land.rhs.i.i.i, %sw.bb2, %entry, %_ZNK10arith_util10is_numeralEPK4expr.exit28, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %sw.default
-  %retval.0 = phi i1 [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK10arith_util10is_numeralEPK4expr.exit28 ], [ true, %sw.default ], [ true, %entry ], [ true, %sw.bb2 ], [ true, %land.rhs.i.i.i ], [ true, %land.lhs.true.i ], [ true, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i ], [ true, %sw.bb5 ], [ true, %lor.lhs.false ], [ true, %land.rhs.i.i.i33 ], [ %not.cond.fr, %_ZNK10arith_util10is_numeralEPK4expr.exit ], [ %not.cond.fr47, %_ZNK10arith_util10is_numeralEPK4expr.exit41 ]
+return:                                           ; preds = %_ZNK10arith_util10is_numeralEPK4expr.exit, %land.rhs.i.i.i, %sw.bb2, %_ZNK10arith_util10is_numeralEPK4expr.exit28, %_ZNK10arith_util10is_numeralEPK4expr.exit41, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %sw.default, %if.end12
+  %retval.0 = phi i1 [ true, %sw.default ], [ true, %if.end12 ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK10arith_util10is_numeralEPK4expr.exit41 ], [ false, %_ZNK10arith_util10is_numeralEPK4expr.exit28 ], [ true, %sw.bb2 ], [ true, %land.rhs.i.i.i ], [ %not.cond.fr, %_ZNK10arith_util10is_numeralEPK4expr.exit ]
   ret i1 %retval.0
 }
 
@@ -22257,7 +22259,7 @@ _ZNK17arith_recognizers10is_numeralEPK4expr.exit: ; preds = %land.rhs.i.i
   %3 = load i32, ptr %m_kind.i.i.i.i.i, align 4
   %cmp2.i.i.i.i.i = icmp eq i32 %3, 0
   %4 = select i1 %cmp.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
-  br i1 %4, label %if.end, label %lor.lhs.false
+  br i1 %4, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.rhs.i.i, %entry, %_ZNK17arith_recognizers10is_numeralEPK4expr.exit
   %m_kind.i.i.i1 = getelementptr inbounds i8, ptr %rhs, i64 4
@@ -22287,14 +22289,15 @@ land.lhs.true:                                    ; preds = %land.rhs.i.i5, %lor
   %10 = load i32, ptr %lhs, align 4
   %11 = load i32, ptr %rhs, align 4
   %cmp = icmp ugt i32 %10, %11
-  %spec.select = select i1 %cmp, ptr %rhs, ptr %lhs
-  %spec.select48 = select i1 %cmp, ptr %lhs, ptr %rhs
+  br i1 %cmp, label %if.then, label %if.end
+
+if.then:                                          ; preds = %land.lhs.true, %_ZNK17arith_recognizers10is_numeralEPK4expr.exit
   br label %if.end
 
-if.end:                                           ; preds = %land.lhs.true, %_ZNK17arith_recognizers10is_numeralEPK4expr.exit, %_ZNK17arith_recognizers10is_numeralEPK4expr.exit13
-  %lhs.addr.0 = phi ptr [ %lhs, %_ZNK17arith_recognizers10is_numeralEPK4expr.exit13 ], [ %rhs, %_ZNK17arith_recognizers10is_numeralEPK4expr.exit ], [ %spec.select, %land.lhs.true ]
-  %rhs.addr.0 = phi ptr [ %rhs, %_ZNK17arith_recognizers10is_numeralEPK4expr.exit13 ], [ %lhs, %_ZNK17arith_recognizers10is_numeralEPK4expr.exit ], [ %spec.select48, %land.lhs.true ]
-  %cmp5 = icmp eq ptr %lhs.addr.0, %rhs.addr.0
+if.end:                                           ; preds = %if.then, %land.lhs.true, %_ZNK17arith_recognizers10is_numeralEPK4expr.exit13
+  %lhs.addr.0 = phi ptr [ %rhs, %if.then ], [ %lhs, %_ZNK17arith_recognizers10is_numeralEPK4expr.exit13 ], [ %lhs, %land.lhs.true ]
+  %rhs.addr.0 = phi ptr [ %lhs, %if.then ], [ %rhs, %_ZNK17arith_recognizers10is_numeralEPK4expr.exit13 ], [ %rhs, %land.lhs.true ]
+  %cmp5 = icmp eq ptr %rhs, %lhs
   br i1 %cmp5, label %if.then6, label %if.end8
 
 if.then6:                                         ; preds = %if.end

@@ -1136,7 +1136,7 @@ define internal i32 @fiveco_hash(ptr nocapture noundef readonly %0) #3 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @fiveco_hash_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal noundef i32 @fiveco_hash_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
   %5 = icmp eq i32 %3, %4
@@ -1156,11 +1156,13 @@ define internal i32 @fiveco_hash_equal(ptr nocapture noundef readonly %0, ptr no
   %15 = getelementptr inbounds i8, ptr %1, i64 8
   %16 = load i64, ptr %15, align 8
   %17 = icmp eq i64 %14, %16
-  %spec.select = zext i1 %17 to i32
-  br label %18
+  br i1 %17, label %19, label %18
 
-18:                                               ; preds = %12, %2, %6
-  %.0 = phi i32 [ 0, %6 ], [ 0, %2 ], [ %spec.select, %12 ]
+18:                                               ; preds = %12, %6, %2
+  br label %19
+
+19:                                               ; preds = %12, %18
+  %.0 = phi i32 [ 0, %18 ], [ 1, %12 ]
   ret i32 %.0
 }
 

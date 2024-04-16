@@ -1622,12 +1622,12 @@ define dso_local noundef zeroext i1 @blk_attempt_plug_merge(ptr noundef %0, ptr 
   %6 = getelementptr inbounds i8, ptr %5, i64 2120
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %.loopexit, label %9
+  br i1 %8, label %28, label %9
 
 9:                                                ; preds = %3
   %10 = load ptr, ptr %7, align 8
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %.loopexit, label %12
+  br i1 %11, label %28, label %12
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds i8, ptr %7, i64 20
@@ -1642,7 +1642,7 @@ define dso_local noundef zeroext i1 @blk_attempt_plug_merge(ptr noundef %0, ptr 
 18:                                               ; preds = %14
   %19 = tail call fastcc i32 @blk_attempt_bio_merge(ptr noundef %0, ptr noundef nonnull %15, ptr noundef %1, i32 noundef %2, i1 noundef zeroext false), !range !41
   %20 = icmp eq i32 %19, 0
-  br label %.loopexit
+  br i1 %20, label %28, label %.loopexit
 
 21:                                               ; preds = %14
   %22 = load i8, ptr %13, align 4, !range !42, !noundef !43
@@ -1655,9 +1655,12 @@ define dso_local noundef zeroext i1 @blk_attempt_plug_merge(ptr noundef %0, ptr 
   %27 = icmp eq ptr %26, null
   br i1 %27, label %.loopexit, label %14, !llvm.loop !44
 
-.loopexit:                                        ; preds = %21, %24, %18, %9, %3
-  %28 = phi i1 [ false, %9 ], [ false, %3 ], [ %20, %18 ], [ false, %24 ], [ false, %21 ]
-  ret i1 %28
+.loopexit:                                        ; preds = %24, %21, %18
+  br label %28
+
+28:                                               ; preds = %.loopexit, %18, %9, %3
+  %29 = phi i1 [ false, %.loopexit ], [ false, %9 ], [ false, %3 ], [ true, %18 ]
+  ret i1 %29
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1830,31 +1833,31 @@ define internal fastcc noundef i32 @blk_attempt_bio_merge(ptr noundef %0, ptr no
 define dso_local noundef zeroext i1 @blk_bio_list_merge(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef %3) #0 align 16 {
   br label %5
 
-5:                                                ; preds = %12, %4
-  %6 = phi i32 [ 8, %4 ], [ %14, %12 ]
-  %7 = phi ptr [ %1, %4 ], [ %9, %12 ]
+5:                                                ; preds = %13, %4
+  %6 = phi i32 [ 8, %4 ], [ %15, %13 ]
+  %7 = phi ptr [ %1, %4 ], [ %9, %13 ]
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = icmp ne ptr %9, %1
-  %11 = icmp ne i32 %6, 0
-  %.not5 = select i1 %10, i1 %11, i1 false
-  br i1 %.not5, label %12, label %.loopexit
+  %10 = icmp eq ptr %9, %1
+  %11 = icmp eq i32 %6, 0
+  %12 = select i1 %10, i1 true, i1 %11
+  br i1 %12, label %.loopexit, label %13
 
-12:                                               ; preds = %5
-  %13 = getelementptr i8, ptr %9, i64 -72
-  %14 = add nsw i32 %6, -1
-  %15 = tail call fastcc i32 @blk_attempt_bio_merge(ptr noundef %0, ptr noundef %13, ptr noundef %2, i32 noundef %3, i1 noundef zeroext true), !range !41
-  switch i32 %15, label %5 [
+13:                                               ; preds = %5
+  %14 = getelementptr i8, ptr %9, i64 -72
+  %15 = add nsw i32 %6, -1
+  %16 = tail call fastcc i32 @blk_attempt_bio_merge(ptr noundef %0, ptr noundef %14, ptr noundef %2, i32 noundef %3, i1 noundef zeroext true), !range !41
+  switch i32 %16, label %5 [
     i32 2, label %.loopexit
     i32 0, label %.loopexit.loopexit
   ], !llvm.loop !45
 
-.loopexit.loopexit:                               ; preds = %12
+.loopexit.loopexit:                               ; preds = %13
   br label %.loopexit
 
-.loopexit:                                        ; preds = %5, %12, %.loopexit.loopexit
-  %16 = phi i1 [ false, %12 ], [ %.not5, %5 ], [ %.not5, %.loopexit.loopexit ]
-  ret i1 %16
+.loopexit:                                        ; preds = %5, %13, %.loopexit.loopexit
+  %17 = phi i1 [ true, %.loopexit.loopexit ], [ false, %13 ], [ false, %5 ]
+  ret i1 %17
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

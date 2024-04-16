@@ -797,11 +797,14 @@ define noundef zeroext i1 @_ZNK9ProtoNode10isExpandedEv(ptr nocapture noundef no
   %9 = getelementptr inbounds i8, ptr %5, i64 24
   %10 = load i32, ptr %9, align 8
   %11 = tail call i32 @tree_expanded(i32 noundef %10)
-  %.not6 = icmp ne i32 %11, 0
-  br label %12
+  %.not6 = icmp eq i32 %11, 0
+  br i1 %.not6, label %12, label %13
 
-12:                                               ; preds = %8, %1, %3, %6
-  %.0 = phi i1 [ false, %6 ], [ false, %3 ], [ false, %1 ], [ %.not6, %8 ]
+12:                                               ; preds = %8, %6, %3, %1
+  br label %13
+
+13:                                               ; preds = %8, %12
+  %.0 = phi i1 [ false, %12 ], [ true, %8 ]
   ret i1 %.0
 }
 

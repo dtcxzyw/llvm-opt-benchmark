@@ -97,7 +97,7 @@ define internal i32 @wol_fill_reply(ptr noundef %0, ptr nocapture noundef readon
   %9 = getelementptr inbounds i8, ptr %2, i64 12
   %10 = tail call i32 @ethnl_put_bitset32(ptr noundef %0, i32 noundef 2, ptr noundef %8, ptr noundef %9, i32 noundef 8, ptr noundef nonnull @wol_mode_names, i1 noundef zeroext %7) #8
   %11 = icmp slt i32 %10, 0
-  br i1 %11, label %20, label %12
+  br i1 %11, label %21, label %12
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds i8, ptr %2, i64 28
@@ -109,12 +109,14 @@ define internal i32 @wol_fill_reply(ptr noundef %0, ptr nocapture noundef readon
   %17 = getelementptr inbounds i8, ptr %2, i64 20
   %18 = tail call i32 @nla_put(ptr noundef %0, i32 noundef 3, i32 noundef 6, ptr noundef %17) #8
   %19 = icmp eq i32 %18, 0
-  %spec.select = select i1 %19, i32 0, i32 -90
-  br label %20
+  br i1 %19, label %20, label %21
 
-20:                                               ; preds = %16, %12, %3
-  %21 = phi i32 [ %10, %3 ], [ 0, %12 ], [ %spec.select, %16 ]
-  ret i32 %21
+20:                                               ; preds = %16, %12
+  br label %21
+
+21:                                               ; preds = %20, %16, %3
+  %22 = phi i32 [ 0, %20 ], [ %10, %3 ], [ -90, %16 ]
+  ret i32 %22
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)

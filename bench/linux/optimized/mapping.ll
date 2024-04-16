@@ -1988,47 +1988,49 @@ define dso_local zeroext i1 @dma_addressing_limited(ptr noundef %0) #0 align 16 
 10:                                               ; preds = %1
   %11 = load i64, ptr %8, align 8
   %12 = icmp eq i64 %11, 0
-  %spec.select = select i1 %12, i64 4294967295, i64 %11
-  br label %13
+  br i1 %12, label %13, label %14
 
 13:                                               ; preds = %10, %1
-  %14 = phi i64 [ 4294967295, %1 ], [ %spec.select, %10 ]
-  %15 = getelementptr inbounds i8, ptr %0, i64 576
-  %16 = load i64, ptr %15, align 8
-  %17 = icmp eq i64 %16, 0
-  %18 = tail call i64 @llvm.umin.i64(i64 %14, i64 %16)
-  %19 = select i1 %17, i64 %14, i64 %18
+  br label %14
+
+14:                                               ; preds = %13, %10
+  %15 = phi i64 [ 4294967295, %13 ], [ %11, %10 ]
+  %16 = getelementptr inbounds i8, ptr %0, i64 576
+  %17 = load i64, ptr %16, align 8
+  %18 = icmp eq i64 %17, 0
+  %19 = tail call i64 @llvm.umin.i64(i64 %15, i64 %17)
+  %20 = select i1 %18, i64 %15, i64 %19
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %27, label %20
+  br i1 %.not, label %28, label %21
 
-20:                                               ; preds = %13
-  %21 = getelementptr inbounds i8, ptr %6, i64 168
-  %22 = load ptr, ptr %21, align 8
-  %23 = icmp eq ptr %22, null
-  br i1 %23, label %.thread, label %24
+21:                                               ; preds = %14
+  %22 = getelementptr inbounds i8, ptr %6, i64 168
+  %23 = load ptr, ptr %22, align 8
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %.thread, label %25
 
-24:                                               ; preds = %20
-  %25 = tail call i64 %22(ptr noundef %0) #7
+25:                                               ; preds = %21
+  %26 = tail call i64 %23(ptr noundef %0) #7
   br label %.thread
 
-.thread:                                          ; preds = %24, %20
-  %.ph = phi i64 [ 4294967295, %20 ], [ %25, %24 ]
-  %26 = icmp ult i64 %19, %.ph
-  br label %33
+.thread:                                          ; preds = %25, %21
+  %.ph = phi i64 [ 4294967295, %21 ], [ %26, %25 ]
+  %27 = icmp ult i64 %20, %.ph
+  br label %34
 
-27:                                               ; preds = %13
-  %28 = tail call i64 @dma_direct_get_required_mask(ptr noundef %0) #7
-  %29 = icmp ult i64 %19, %28
-  br i1 %29, label %33, label %30, !prof !84
+28:                                               ; preds = %14
+  %29 = tail call i64 @dma_direct_get_required_mask(ptr noundef %0) #7
+  %30 = icmp ult i64 %20, %29
+  br i1 %30, label %34, label %31, !prof !84
 
-30:                                               ; preds = %27
-  %31 = tail call zeroext i1 @dma_direct_all_ram_mapped(ptr noundef %0) #7
-  %32 = xor i1 %31, true
-  br label %33
+31:                                               ; preds = %28
+  %32 = tail call zeroext i1 @dma_direct_all_ram_mapped(ptr noundef %0) #7
+  %33 = xor i1 %32, true
+  br label %34
 
-33:                                               ; preds = %.thread, %30, %27
-  %34 = phi i1 [ %32, %30 ], [ true, %27 ], [ %26, %.thread ]
-  ret i1 %34
+34:                                               ; preds = %.thread, %31, %28
+  %35 = phi i1 [ %33, %31 ], [ true, %28 ], [ %27, %.thread ]
+  ret i1 %35
 }
 
 ; Function Attrs: null_pointer_is_valid

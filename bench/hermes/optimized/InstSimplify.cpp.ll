@@ -84,7 +84,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %NumTombstones.i.i.i = getelementptr inbounds i8, ptr %returnValues.i.i.i, i64 12
   %InsertionPoint.i.i90.i = getelementptr inbounds i8, ptr %builder.i87.i, i64 8
   %InsertionPoint.i.i.i75.i = getelementptr inbounds i8, ptr %builder.i.i71.i, i64 8
-  %InsertionPoint.i.i.i.i52.i = getelementptr inbounds i8, ptr %builder.i.i.i45.i, i64 8
+  %InsertionPoint.i.i.i.i51.i = getelementptr inbounds i8, ptr %builder.i.i.i45.i, i64 8
   %InsertionPoint.i.i.i.i29.i = getelementptr inbounds i8, ptr %builder.i.i.i25.i, i64 8
   %InsertionPoint.i.i15.i = getelementptr inbounds i8, ptr %builder.i12.i, i64 8
   %InsertionPoint.i.i.i.i.i = getelementptr inbounds i8, ptr %builder.i.i.i.i, i64 8
@@ -593,75 +593,75 @@ _ZN12_GLOBAL__N_116simplifyAsNumberEPN6hermes12AsNumberInstE.exit.i: ; preds = %
 
 sw.bb11.i:                                        ; preds = %for.body8
   %call.i.i = call noundef zeroext i1 @_ZNK6hermes5Value10hasOneUserEv(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i) #9
-  br i1 %call.i.i, label %if.then.i65.i, label %if.then16.i.i
+  br i1 %call.i.i, label %if.then.i64.i, label %if.then16.i.i
 
-if.then.i65.i:                                    ; preds = %sw.bb11.i
+if.then.i64.i:                                    ; preds = %sw.bb11.i
   %Users.i.i.i = getelementptr inbounds i8, ptr %instIter.sroa.0.0, i64 24
   %67 = load ptr, ptr %Users.i.i.i, align 8
   %68 = load ptr, ptr %67, align 8
   %69 = icmp eq ptr %68, null
   %add.ptr5.i.i = getelementptr inbounds i8, ptr %68, i64 16
-  %spec.select1.i66.i = select i1 %69, ptr null, ptr %add.ptr5.i.i
-  %70 = load i8, ptr %spec.select1.i66.i, align 8
+  %spec.select1.i65.i = select i1 %69, ptr null, ptr %add.ptr5.i.i
+  %70 = load i8, ptr %spec.select1.i65.i, align 8
   %cmp.i.i.i.i.i.i.i.i.not.i.i.i = icmp eq i8 %70, 26
-  br i1 %cmp.i.i.i.i.i.i.i.i.not.i.i.i, label %_ZN12_GLOBAL__N_115isUnaryIncOrDecEPN6hermes5ValueE.exit.i.i, label %if.then16.i.i
+  br i1 %cmp.i.i.i.i.i.i.i.i.not.i.i.i, label %if.then.i.i66.i, label %if.then16.i.i
 
-_ZN12_GLOBAL__N_115isUnaryIncOrDecEPN6hermes5ValueE.exit.i.i: ; preds = %if.then.i65.i
-  %op_.i.i.i.i = getelementptr inbounds i8, ptr %spec.select1.i66.i, i64 116
+if.then.i.i66.i:                                  ; preds = %if.then.i64.i
+  %op_.i.i.i.i = getelementptr inbounds i8, ptr %spec.select1.i65.i, i64 116
   %71 = load i32, ptr %op_.i.i.i.i, align 4
   %call1.off.i.i.i = add i32 %71, -7
   %switch.i.i.i = icmp ult i32 %call1.off.i.i.i, 2
   br i1 %switch.i.i.i, label %if.end11.i67.i, label %if.then16.i.i
 
-if.end11.i67.i:                                   ; preds = %_ZN12_GLOBAL__N_115isUnaryIncOrDecEPN6hermes5ValueE.exit.i.i
+if.end11.i67.i:                                   ; preds = %if.then.i.i66.i
   %call.i.i68.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %instIter.sroa.0.0, i32 noundef 0) #9
   %cmp.i69.i = icmp eq ptr %call.i.i68.i, %add.ptr.i
   br i1 %cmp.i69.i, label %if.then16.i.i, label %_ZN12_GLOBAL__N_117simplifyAsNumericEPN6hermes13AsNumericInstE.exit.i
 
-if.then16.i.i:                                    ; preds = %if.end11.i67.i, %_ZN12_GLOBAL__N_115isUnaryIncOrDecEPN6hermes5ValueE.exit.i.i, %if.then.i65.i, %sw.bb11.i
+if.then16.i.i:                                    ; preds = %if.end11.i67.i, %if.then.i.i66.i, %if.then.i64.i, %sw.bb11.i
   %call.i.i.i47.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %instIter.sroa.0.0, i32 noundef 0) #9
   %valueType.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i47.i, i64 2
   %retval.sroa.0.0.copyload.i.i.i.i = load i32, ptr %valueType.i.i.i.i, align 2
   %72 = and i32 %retval.sroa.0.0.copyload.i.i.i.i, 65535
   %cmp.i.i.i.i = icmp eq i32 %72, 64
-  br i1 %cmp.i.i.i.i, label %_ZN12_GLOBAL__N_117simplifyAsNumericEPN6hermes13AsNumericInstE.exit.i, label %if.end.i.i48.i
+  br i1 %cmp.i.i.i.i, label %_ZN12_GLOBAL__N_117simplifyAsNumericEPN6hermes13AsNumericInstE.exit.i, label %if.end.i12.i.i
 
-if.end.i.i48.i:                                   ; preds = %if.then16.i.i
+if.end.i12.i.i:                                   ; preds = %if.then16.i.i
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %builder.i.i.i45.i)
-  %Parent.i.i.i.i49.i = getelementptr inbounds i8, ptr %instIter.sroa.0.0, i64 56
-  %73 = load ptr, ptr %Parent.i.i.i.i49.i, align 8
-  %Parent.i7.i.i.i50.i = getelementptr inbounds i8, ptr %73, i64 72
-  %74 = load ptr, ptr %Parent.i7.i.i.i50.i, align 8
-  %parent_.i.i.i.i.i51.i = getelementptr inbounds i8, ptr %74, i64 56
-  %75 = load ptr, ptr %parent_.i.i.i.i.i51.i, align 8
+  %Parent.i.i.i.i48.i = getelementptr inbounds i8, ptr %instIter.sroa.0.0, i64 56
+  %73 = load ptr, ptr %Parent.i.i.i.i48.i, align 8
+  %Parent.i7.i.i.i49.i = getelementptr inbounds i8, ptr %73, i64 72
+  %74 = load ptr, ptr %Parent.i7.i.i.i49.i, align 8
+  %parent_.i.i.i.i.i50.i = getelementptr inbounds i8, ptr %74, i64 56
+  %75 = load ptr, ptr %parent_.i.i.i.i.i50.i, align 8
   store ptr %75, ptr %builder.i.i.i45.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %InsertionPoint.i.i.i.i52.i, i8 0, i64 32, i1 false)
-  %call.i.i.i.i53.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %instIter.sroa.0.0, i32 noundef 0) #9
-  %76 = load i8, ptr %call.i.i.i.i53.i, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %InsertionPoint.i.i.i.i51.i, i8 0, i64 32, i1 false)
+  %call.i.i.i.i52.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %instIter.sroa.0.0, i32 noundef 0) #9
+  %76 = load i8, ptr %call.i.i.i.i52.i, align 8
   %77 = add i8 %76, -120
   %78 = icmp ult i8 %77, -11
-  br i1 %78, label %if.end7.i.i.i60.i, label %if.then.i.i.i54.i
+  br i1 %78, label %if.end7.i.i.i59.i, label %if.then.i.i.i53.i
 
-if.then.i.i.i54.i:                                ; preds = %if.end.i.i48.i
-  %call4.i.i.i55.i = call noundef ptr @_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE(ptr noundef nonnull align 8 dereferenceable(40) %builder.i.i.i45.i, ptr noundef nonnull %call.i.i.i.i53.i) #9
-  %tobool5.not.i.i.i56.i = icmp eq ptr %call4.i.i.i55.i, null
-  br i1 %tobool5.not.i.i.i56.i, label %if.end7.i.i.i60.i, label %_ZN12_GLOBAL__N_118reduceAsNumberLikeIN6hermes13AsNumericInstEEEPNS1_5ValueEPT_.exit.i.i.i
+if.then.i.i.i53.i:                                ; preds = %if.end.i12.i.i
+  %call4.i.i.i54.i = call noundef ptr @_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE(ptr noundef nonnull align 8 dereferenceable(40) %builder.i.i.i45.i, ptr noundef nonnull %call.i.i.i.i52.i) #9
+  %tobool5.not.i.i.i55.i = icmp eq ptr %call4.i.i.i54.i, null
+  br i1 %tobool5.not.i.i.i55.i, label %if.end7.i.i.i59.i, label %_ZN12_GLOBAL__N_118reduceAsNumberLikeIN6hermes13AsNumericInstEEEPNS1_5ValueEPT_.exit.i.i.i
 
-if.end7.i.i.i60.i:                                ; preds = %if.then.i.i.i54.i, %if.end.i.i48.i
-  %valueType.i.i.i.i61.i = getelementptr inbounds i8, ptr %call.i.i.i.i53.i, i64 2
-  %retval.sroa.0.0.copyload.i.i.i.i62.i = load i32, ptr %valueType.i.i.i.i61.i, align 2
-  %79 = and i32 %retval.sroa.0.0.copyload.i.i.i.i62.i, 65535
-  %cmp.i.i.i.i63.i = icmp eq i32 %79, 32
-  %spec.select.i.i.i64.i = select i1 %cmp.i.i.i.i63.i, ptr %call.i.i.i.i53.i, ptr %add.ptr.i
+if.end7.i.i.i59.i:                                ; preds = %if.then.i.i.i53.i, %if.end.i12.i.i
+  %valueType.i.i.i.i60.i = getelementptr inbounds i8, ptr %call.i.i.i.i52.i, i64 2
+  %retval.sroa.0.0.copyload.i.i.i.i61.i = load i32, ptr %valueType.i.i.i.i60.i, align 2
+  %79 = and i32 %retval.sroa.0.0.copyload.i.i.i.i61.i, 65535
+  %cmp.i.i.i.i62.i = icmp eq i32 %79, 32
+  %spec.select.i.i.i63.i = select i1 %cmp.i.i.i.i62.i, ptr %call.i.i.i.i52.i, ptr %add.ptr.i
   br label %_ZN12_GLOBAL__N_118reduceAsNumberLikeIN6hermes13AsNumericInstEEEPNS1_5ValueEPT_.exit.i.i.i
 
-_ZN12_GLOBAL__N_118reduceAsNumberLikeIN6hermes13AsNumericInstEEEPNS1_5ValueEPT_.exit.i.i.i: ; preds = %if.end7.i.i.i60.i, %if.then.i.i.i54.i
-  %retval.0.i.i.i57.i = phi ptr [ %call4.i.i.i55.i, %if.then.i.i.i54.i ], [ %spec.select.i.i.i64.i, %if.end7.i.i.i60.i ]
+_ZN12_GLOBAL__N_118reduceAsNumberLikeIN6hermes13AsNumericInstEEEPNS1_5ValueEPT_.exit.i.i.i: ; preds = %if.end7.i.i.i59.i, %if.then.i.i.i53.i
+  %retval.0.i.i.i56.i = phi ptr [ %call4.i.i.i54.i, %if.then.i.i.i53.i ], [ %spec.select.i.i.i63.i, %if.end7.i.i.i59.i ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %builder.i.i.i45.i)
   br label %_ZN12_GLOBAL__N_117simplifyAsNumericEPN6hermes13AsNumericInstE.exit.i
 
 _ZN12_GLOBAL__N_117simplifyAsNumericEPN6hermes13AsNumericInstE.exit.i: ; preds = %_ZN12_GLOBAL__N_118reduceAsNumberLikeIN6hermes13AsNumericInstEEEPNS1_5ValueEPT_.exit.i.i.i, %if.then16.i.i, %if.end11.i67.i
-  %reduced.1.i.i = phi ptr [ %call.i.i68.i, %if.end11.i67.i ], [ %retval.0.i.i.i57.i, %_ZN12_GLOBAL__N_118reduceAsNumberLikeIN6hermes13AsNumericInstEEEPNS1_5ValueEPT_.exit.i.i.i ], [ %call.i.i.i47.i, %if.then16.i.i ]
+  %reduced.1.i.i = phi ptr [ %call.i.i68.i, %if.end11.i67.i ], [ %retval.0.i.i.i56.i, %_ZN12_GLOBAL__N_118reduceAsNumberLikeIN6hermes13AsNumericInstEEEPNS1_5ValueEPT_.exit.i.i.i ], [ %call.i.i.i47.i, %if.then16.i.i ]
   %cmp23.i.i = icmp eq ptr %reduced.1.i.i, %add.ptr.i
   %spec.select = select i1 %cmp23.i.i, ptr null, ptr %reduced.1.i.i
   br label %if.then
@@ -680,18 +680,20 @@ sw.bb15.i:                                        ; preds = %for.body8
   %83 = load i8, ptr %call.i.i.i76.i, align 8
   %84 = add i8 %83, -120
   %85 = icmp ult i8 %84, -11
-  br i1 %85, label %_ZN12_GLOBAL__N_115simplifyAsInt32EPN6hermes11AsInt32InstE.exit.i.thread, label %_ZN12_GLOBAL__N_115simplifyAsInt32EPN6hermes11AsInt32InstE.exit.i
+  br i1 %85, label %_ZN12_GLOBAL__N_115simplifyAsInt32EPN6hermes11AsInt32InstE.exit.i.thread, label %if.then.i.i77.i
 
-_ZN12_GLOBAL__N_115simplifyAsInt32EPN6hermes11AsInt32InstE.exit.i.thread: ; preds = %sw.bb15.i
+if.then.i.i77.i:                                  ; preds = %sw.bb15.i
+  %call4.i.i78.i = call noundef ptr @_ZN6hermes11evalToInt32ERNS_9IRBuilderEPNS_7LiteralE(ptr noundef nonnull align 8 dereferenceable(40) %builder.i.i71.i, ptr noundef nonnull %call.i.i.i76.i) #9
+  %tobool5.not.i.i79.i = icmp eq ptr %call4.i.i78.i, null
+  br i1 %tobool5.not.i.i79.i, label %_ZN12_GLOBAL__N_115simplifyAsInt32EPN6hermes11AsInt32InstE.exit.i.thread, label %_ZN12_GLOBAL__N_115simplifyAsInt32EPN6hermes11AsInt32InstE.exit.i
+
+_ZN12_GLOBAL__N_115simplifyAsInt32EPN6hermes11AsInt32InstE.exit.i.thread: ; preds = %sw.bb15.i, %if.then.i.i77.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %builder.i.i71.i)
   br label %if.then
 
-_ZN12_GLOBAL__N_115simplifyAsInt32EPN6hermes11AsInt32InstE.exit.i: ; preds = %sw.bb15.i
-  %call4.i.i78.i = call noundef ptr @_ZN6hermes11evalToInt32ERNS_9IRBuilderEPNS_7LiteralE(ptr noundef nonnull align 8 dereferenceable(40) %builder.i.i71.i, ptr noundef nonnull %call.i.i.i76.i) #9
-  %tobool5.not.i.i79.i = icmp eq ptr %call4.i.i78.i, null
-  %spec.select.i = select i1 %tobool5.not.i.i79.i, ptr %add.ptr.i, ptr %call4.i.i78.i
+_ZN12_GLOBAL__N_115simplifyAsInt32EPN6hermes11AsInt32InstE.exit.i: ; preds = %if.then.i.i77.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %builder.i.i71.i)
-  %cmp.i82.i = icmp eq ptr %spec.select.i, %add.ptr.i
+  %cmp.i82.i = icmp eq ptr %call4.i.i78.i, %add.ptr.i
   br i1 %cmp.i82.i, label %if.then, label %if.end
 
 sw.bb19.i:                                        ; preds = %for.body8
@@ -1168,7 +1170,7 @@ if.then:                                          ; preds = %if.end5.i.i, %_ZN12
   br i1 %tobool.not, label %for.cond6, label %if.end, !llvm.loop !14
 
 if.end:                                           ; preds = %_ZN12_GLOBAL__N_116simplifyAsNumberEPN6hermes12AsNumberInstE.exit.i, %_ZN12_GLOBAL__N_115simplifyAsInt32EPN6hermes11AsInt32InstE.exit.i, %if.then
-  %retval.sroa.0.0.i38 = phi ptr [ %retval.sroa.0.0.i, %if.then ], [ %retval.0.i.i.i35.i, %_ZN12_GLOBAL__N_116simplifyAsNumberEPN6hermes12AsNumberInstE.exit.i ], [ %spec.select.i, %_ZN12_GLOBAL__N_115simplifyAsInt32EPN6hermes11AsInt32InstE.exit.i ]
+  %retval.sroa.0.0.i38 = phi ptr [ %retval.sroa.0.0.i, %if.then ], [ %retval.0.i.i.i35.i, %_ZN12_GLOBAL__N_116simplifyAsNumberEPN6hermes12AsNumberInstE.exit.i ], [ %call4.i.i78.i, %_ZN12_GLOBAL__N_115simplifyAsInt32EPN6hermes11AsInt32InstE.exit.i ]
   %cmp = icmp eq ptr %add.ptr.i, %retval.sroa.0.0.i38
   br i1 %cmp, label %for.cond6.outer.backedge, label %if.end20
 

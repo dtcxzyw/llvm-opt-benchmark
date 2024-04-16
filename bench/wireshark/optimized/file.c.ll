@@ -7536,7 +7536,7 @@ define hidden i32 @cf_can_write_with_wiretap(ptr nocapture noundef readonly %0) 
 declare i32 @wtap_dump_can_write(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @cf_can_save(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define hidden noundef i32 @cf_can_save(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 36
   %3 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %3, 0
@@ -7547,7 +7547,7 @@ define hidden i32 @cf_can_save(ptr nocapture noundef readonly %0) local_unnamed_
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @wtap_dump_can_write(ptr noundef %6, i32 noundef 0) #21
   %.not4 = icmp eq i32 %7, 0
-  br i1 %.not4, label %8, label %13
+  br i1 %.not4, label %8, label %14
 
 8:                                                ; preds = %4, %1
   %9 = getelementptr inbounds i8, ptr %0, i64 32
@@ -7558,21 +7558,23 @@ define hidden i32 @cf_can_save(ptr nocapture noundef readonly %0) local_unnamed_
 11:                                               ; preds = %8
   %12 = load i32, ptr %2, align 4
   %.not6 = icmp eq i32 %12, 0
-  %spec.select = zext i1 %.not6 to i32
-  br label %13
+  br i1 %.not6, label %14, label %13
 
-13:                                               ; preds = %11, %8, %4
-  %.0 = phi i32 [ 1, %4 ], [ 0, %8 ], [ %spec.select, %11 ]
+13:                                               ; preds = %11, %8
+  br label %14
+
+14:                                               ; preds = %11, %4, %13
+  %.0 = phi i32 [ 0, %13 ], [ 1, %4 ], [ 1, %11 ]
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @cf_can_save_as(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define hidden noundef i32 @cf_can_save_as(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @wtap_dump_can_write(ptr noundef %3, i32 noundef 0) #21
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %5, label %11
+  br i1 %.not, label %5, label %12
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 32
@@ -7584,11 +7586,13 @@ define hidden i32 @cf_can_save_as(ptr nocapture noundef readonly %0) local_unnam
   %9 = getelementptr inbounds i8, ptr %0, i64 36
   %10 = load i32, ptr %9, align 4
   %.not4 = icmp eq i32 %10, 0
-  %spec.select = zext i1 %.not4 to i32
-  br label %11
+  br i1 %.not4, label %12, label %11
 
-11:                                               ; preds = %8, %5, %1
-  %.0 = phi i32 [ 1, %1 ], [ 0, %5 ], [ %spec.select, %8 ]
+11:                                               ; preds = %8, %5
+  br label %12
+
+12:                                               ; preds = %8, %1, %11
+  %.0 = phi i32 [ 0, %11 ], [ 1, %1 ], [ 1, %8 ]
   ret i32 %.0
 }
 

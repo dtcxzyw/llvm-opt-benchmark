@@ -7560,8 +7560,8 @@ f_infinite_p.exit:                                ; preds = %rb_integer_type_p.e
   %21 = load i64, ptr @id_infinite_p, align 8
   %22 = tail call i64 @rb_funcallv(i64 noundef %4, i64 noundef %21, i32 noundef 0, ptr noundef null) #15
   %23 = and i64 %22, -5
-  %.not24 = icmp eq i64 %23, 0
-  br i1 %.not24, label %f_infinite_p.exit.thread, label %f_infinite_p.exit.thread13
+  %.not22 = icmp eq i64 %23, 0
+  br i1 %.not22, label %f_infinite_p.exit.thread, label %f_infinite_p.exit.thread13
 
 f_infinite_p.exit.thread:                         ; preds = %rb_integer_type_p.exit.i.i, %rb_integer_type_p.exit.i.i, %1, %rb_float_value_inline.exit.i, %f_infinite_p.exit
   %24 = getelementptr inbounds i8, ptr %2, i64 24
@@ -7571,7 +7571,7 @@ f_infinite_p.exit.thread:                         ; preds = %rb_integer_type_p.e
   %28 = and i64 %25, 3
   %29 = icmp eq i64 %28, 2
   %or.cond.i.i4 = or i1 %27, %29
-  br i1 %or.cond.i.i4, label %f_infinite_p.exit.thread13, label %30
+  br i1 %or.cond.i.i4, label %f_infinite_p.exit10.thread, label %30
 
 30:                                               ; preds = %f_infinite_p.exit.thread
   %31 = and i64 %25, 6
@@ -7585,8 +7585,8 @@ rb_integer_type_p.exit.i.i5:                      ; preds = %30
   %36 = load i64, ptr %35, align 8
   %37 = and i64 %36, 31
   switch i64 %37, label %f_infinite_p.exit10 [
-    i64 10, label %f_infinite_p.exit.thread13
-    i64 15, label %f_infinite_p.exit.thread13
+    i64 10, label %f_infinite_p.exit10.thread
+    i64 15, label %f_infinite_p.exit10.thread
     i64 4, label %rb_float_value_inline.exit.i9
   ]
 
@@ -7597,20 +7597,18 @@ rb_float_value_inline.exit.i9:                    ; preds = %rb_integer_type_p.e
   %41 = fcmp oeq double %40, 0x7FF0000000000000
   br i1 %41, label %f_infinite_p.exit.thread13, label %f_infinite_p.exit10.thread
 
-f_infinite_p.exit10.thread:                       ; preds = %rb_float_value_inline.exit.i9
-  br label %f_infinite_p.exit.thread13
-
 f_infinite_p.exit10:                              ; preds = %rb_integer_type_p.exit.i.i5, %30
   %42 = load i64, ptr @id_infinite_p, align 8
   %43 = tail call i64 @rb_funcallv(i64 noundef %25, i64 noundef %42, i32 noundef 0, ptr noundef null) #15
-  %.fr25 = freeze i64 %43
-  %44 = and i64 %.fr25, -5
+  %44 = and i64 %43, -5
   %.not = icmp eq i64 %44, 0
-  %spec.select = select i1 %.not, i64 4, i64 3
-  br label %f_infinite_p.exit.thread13
+  br i1 %.not, label %f_infinite_p.exit10.thread, label %f_infinite_p.exit.thread13
 
-f_infinite_p.exit.thread13:                       ; preds = %f_infinite_p.exit10, %rb_integer_type_p.exit.i.i5, %rb_integer_type_p.exit.i.i5, %f_infinite_p.exit.thread, %rb_float_value_inline.exit.i9, %rb_float_value_inline.exit.i, %f_infinite_p.exit10.thread, %f_infinite_p.exit
-  %.0 = phi i64 [ 3, %f_infinite_p.exit ], [ 3, %rb_float_value_inline.exit.i ], [ 3, %rb_float_value_inline.exit.i9 ], [ 4, %f_infinite_p.exit.thread ], [ 4, %rb_integer_type_p.exit.i.i5 ], [ 4, %rb_integer_type_p.exit.i.i5 ], [ 4, %f_infinite_p.exit10.thread ], [ %spec.select, %f_infinite_p.exit10 ]
+f_infinite_p.exit.thread13:                       ; preds = %rb_float_value_inline.exit.i9, %rb_float_value_inline.exit.i, %f_infinite_p.exit10, %f_infinite_p.exit
+  br label %f_infinite_p.exit10.thread
+
+f_infinite_p.exit10.thread:                       ; preds = %rb_integer_type_p.exit.i.i5, %rb_integer_type_p.exit.i.i5, %f_infinite_p.exit.thread, %rb_float_value_inline.exit.i9, %f_infinite_p.exit10, %f_infinite_p.exit.thread13
+  %.0 = phi i64 [ 3, %f_infinite_p.exit.thread13 ], [ 4, %f_infinite_p.exit10 ], [ 4, %rb_float_value_inline.exit.i9 ], [ 4, %f_infinite_p.exit.thread ], [ 4, %rb_integer_type_p.exit.i.i5 ], [ 4, %rb_integer_type_p.exit.i.i5 ]
   ret i64 %.0
 }
 

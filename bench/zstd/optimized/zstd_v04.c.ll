@@ -1117,12 +1117,12 @@ sw.bb.i:                                          ; preds = %if.end.i
   %cmp.i.i = icmp ugt i32 %shr.i.i, 131072
   %3 = lshr i32 %add.ptr.val.i.i, 24
   %4 = trunc nuw i32 %3 to i8
-  br i1 %cmp.i.i, label %ZSTD_decodeLiteralsBlock.exit.thread46, label %if.end.i.i
+  br i1 %cmp.i.i, label %ZSTD_decodeLiteralsBlock.exit.thread45, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %sw.bb.i
   %add.i.i = add nuw nsw i64 %conv4.i.i, 5
   %cmp6.i.i = icmp ugt i64 %add.i.i, %srcSize
-  br i1 %cmp6.i.i, label %ZSTD_decodeLiteralsBlock.exit.thread46, label %if.end9.i.i
+  br i1 %cmp6.i.i, label %ZSTD_decodeLiteralsBlock.exit.thread45, label %if.end9.i.i
 
 if.end9.i.i:                                      ; preds = %if.end.i.i
   %add.ptr10.i.i = getelementptr inbounds i8, ptr %src, i64 5
@@ -1139,7 +1139,7 @@ if.end5.i.i.i:                                    ; preds = %if.end9.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.end5.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %litBuffer.i, ptr nonnull align 1 %add.ptr10.i.i, i64 %conv.i.i, i1 false)
-  br label %ZSTD_decodeLiteralsBlock.exit.thread55
+  br label %ZSTD_decodeLiteralsBlock.exit.thread54
 
 if.end9.i.i.i:                                    ; preds = %if.end5.i.i.i
   %cmp10.i.i.i = icmp eq i32 %shr3.i.i, 1
@@ -1147,7 +1147,7 @@ if.end9.i.i.i:                                    ; preds = %if.end5.i.i.i
 
 if.then12.i.i.i:                                  ; preds = %if.end9.i.i.i
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %litBuffer.i, i8 %4, i64 %conv.i.i, i1 false)
-  br label %ZSTD_decodeLiteralsBlock.exit.thread55
+  br label %ZSTD_decodeLiteralsBlock.exit.thread54
 
 if.end14.i.i.i:                                   ; preds = %if.end9.i.i.i
   %mul.i.i.i = shl nuw nsw i32 %shr3.i.i, 4
@@ -1167,21 +1167,36 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %if
   store i32 %add.i.i.i, ptr %arrayidx26.i.i.i, align 4
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %ZSTD_decodeLiteralsBlock.exit, label %for.body.i.i.i, !llvm.loop !6
+  br i1 %exitcond.not.i.i.i, label %HUF_decompress.exit.i.i, label %for.body.i.i.i, !llvm.loop !6
 
-ZSTD_decodeLiteralsBlock.exit.thread55:           ; preds = %if.then8.i.i.i, %if.then12.i.i.i
+ZSTD_decodeLiteralsBlock.exit.thread54:           ; preds = %if.then8.i.i.i, %if.then12.i.i.i
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %Dtime.i.i.i)
-  %litPtr.i58 = getelementptr inbounds i8, ptr %dctx, i64 10344
-  store ptr %litBuffer.i, ptr %litPtr.i58, align 8
-  %litSize3.i59 = getelementptr inbounds i8, ptr %dctx, i64 10352
-  store i64 %conv.i.i, ptr %litSize3.i59, align 8
-  %add.ptr.i60 = getelementptr inbounds i8, ptr %litBuffer.i, i64 %conv.i.i
-  store i64 0, ptr %add.ptr.i60, align 1
+  %litPtr.i55 = getelementptr inbounds i8, ptr %dctx, i64 10344
+  store ptr %litBuffer.i, ptr %litPtr.i55, align 8
+  %litSize3.i56 = getelementptr inbounds i8, ptr %dctx, i64 10352
+  store i64 %conv.i.i, ptr %litSize3.i56, align 8
+  %add.ptr.i57 = getelementptr inbounds i8, ptr %litBuffer.i, i64 %conv.i.i
+  store i64 0, ptr %add.ptr.i57, align 1
   br label %if.end3
 
 HUF_decompress.exit.thread13.i.i:                 ; preds = %if.end9.i.i
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %Dtime.i.i.i)
-  br label %ZSTD_decodeLiteralsBlock.exit.thread46
+  br label %ZSTD_decodeLiteralsBlock.exit.thread45
+
+HUF_decompress.exit.i.i:                          ; preds = %for.body.i.i.i
+  %arrayidx27.i.i.i = getelementptr inbounds i8, ptr %Dtime.i.i.i, i64 4
+  %7 = load i32, ptr %arrayidx27.i.i.i, align 4
+  %shr28.i.i.i = lshr i32 %7, 4
+  %add30.i.i.i = add i32 %shr28.i.i.i, %7
+  %8 = load i32, ptr %Dtime.i.i.i, align 4
+  %cmp37.i.i.i = icmp ult i32 %add30.i.i.i, %8
+  %spec.select.i.i.i = zext i1 %cmp37.i.i.i to i64
+  %arrayidx42.i.i.i = getelementptr inbounds [3 x ptr], ptr @HUF_decompress.decompress, i64 0, i64 %spec.select.i.i.i
+  %9 = load ptr, ptr %arrayidx42.i.i.i, align 8
+  %call.i.i.i = tail call i64 %9(ptr noundef nonnull %litBuffer.i, i64 noundef %conv.i.i, ptr noundef nonnull %add.ptr10.i.i, i64 noundef %conv4.i.i) #22
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %Dtime.i.i.i)
+  %cmp.i.i.i.i = icmp ult i64 %call.i.i.i, -119
+  br i1 %cmp.i.i.i.i, label %ZSTD_decodeLiteralsBlock.exit, label %ZSTD_decodeLiteralsBlock.exit.thread45
 
 sw.bb7.i:                                         ; preds = %if.end.i
   %src.val36.i = load i32, ptr %src, align 1
@@ -1228,57 +1243,42 @@ sw.bb39.i:                                        ; preds = %if.end.i
   br i1 %cmp45.i, label %return, label %if.end48.i
 
 if.end48.i:                                       ; preds = %sw.bb39.i
-  %7 = lshr i32 %src.val.i, 24
-  %8 = trunc nuw i32 %7 to i8
+  %10 = lshr i32 %src.val.i, 24
+  %11 = trunc nuw i32 %10 to i8
   %conv44.i = zext nneg i32 %shr43.i to i64
   %litBuffer49.i = getelementptr inbounds i8, ptr %dctx, i64 10360
   %add52.i = add nuw nsw i64 %conv44.i, 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %litBuffer49.i, i8 %8, i64 %add52.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %litBuffer49.i, i8 %11, i64 %add52.i, i1 false)
   %litPtr55.i = getelementptr inbounds i8, ptr %dctx, i64 10344
   store ptr %litBuffer49.i, ptr %litPtr55.i, align 8
   %litSize56.i = getelementptr inbounds i8, ptr %dctx, i64 10352
   store i64 %conv44.i, ptr %litSize56.i, align 8
   br label %if.end3
 
-ZSTD_decodeLiteralsBlock.exit.thread46:           ; preds = %sw.bb.i, %if.end.i.i, %HUF_decompress.exit.thread13.i.i
-  %litPtr.i49 = getelementptr inbounds i8, ptr %dctx, i64 10344
-  store ptr %litBuffer.i, ptr %litPtr.i49, align 8
-  %litSize3.i50 = getelementptr inbounds i8, ptr %dctx, i64 10352
-  store i64 131072, ptr %litSize3.i50, align 8
-  %add.ptr.i51 = getelementptr inbounds i8, ptr %dctx, i64 141432
-  store i64 0, ptr %add.ptr.i51, align 1
+ZSTD_decodeLiteralsBlock.exit.thread45:           ; preds = %sw.bb.i, %if.end.i.i, %HUF_decompress.exit.thread13.i.i, %HUF_decompress.exit.i.i
+  %litPtr.i48 = getelementptr inbounds i8, ptr %dctx, i64 10344
+  store ptr %litBuffer.i, ptr %litPtr.i48, align 8
+  %litSize3.i49 = getelementptr inbounds i8, ptr %dctx, i64 10352
+  store i64 131072, ptr %litSize3.i49, align 8
+  %add.ptr.i50 = getelementptr inbounds i8, ptr %dctx, i64 141432
+  store i64 0, ptr %add.ptr.i50, align 1
   br label %return
 
-ZSTD_decodeLiteralsBlock.exit:                    ; preds = %for.body.i.i.i
-  %arrayidx27.i.i.i = getelementptr inbounds i8, ptr %Dtime.i.i.i, i64 4
-  %9 = load i32, ptr %arrayidx27.i.i.i, align 4
-  %shr28.i.i.i = lshr i32 %9, 4
-  %add30.i.i.i = add i32 %shr28.i.i.i, %9
-  %10 = load i32, ptr %Dtime.i.i.i, align 4
-  %cmp37.i.i.i = icmp ult i32 %add30.i.i.i, %10
-  %spec.select.i.i.i = zext i1 %cmp37.i.i.i to i64
-  %arrayidx42.i.i.i = getelementptr inbounds [3 x ptr], ptr @HUF_decompress.decompress, i64 0, i64 %spec.select.i.i.i
-  %11 = load ptr, ptr %arrayidx42.i.i.i, align 8
-  %call.i.i.i = tail call i64 %11(ptr noundef nonnull %litBuffer.i, i64 noundef %conv.i.i, ptr noundef nonnull %add.ptr10.i.i, i64 noundef %conv4.i.i) #22
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %Dtime.i.i.i)
-  %cmp.i.i.i.i = icmp ult i64 %call.i.i.i, -119
-  %spec.select.i = select i1 %cmp.i.i.i.i, i64 %conv.i.i, i64 131072
-  %spec.select38.i = select i1 %cmp.i.i.i.i, i64 %add.i.i, i64 -20
+ZSTD_decodeLiteralsBlock.exit:                    ; preds = %HUF_decompress.exit.i.i
   %litPtr.i = getelementptr inbounds i8, ptr %dctx, i64 10344
   store ptr %litBuffer.i, ptr %litPtr.i, align 8
   %litSize3.i = getelementptr inbounds i8, ptr %dctx, i64 10352
-  store i64 %spec.select.i, ptr %litSize3.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %litBuffer.i, i64 %spec.select.i
+  store i64 %conv.i.i, ptr %litSize3.i, align 8
+  %add.ptr.i = getelementptr inbounds i8, ptr %litBuffer.i, i64 %conv.i.i
   store i64 0, ptr %add.ptr.i, align 1
-  %cmp.i.i10 = icmp ult i64 %spec.select38.i, -119
-  br i1 %cmp.i.i10, label %if.end3, label %return
+  br label %if.end3
 
-if.end3:                                          ; preds = %if.end34.i, %if.end23.i, %if.end48.i, %ZSTD_decodeLiteralsBlock.exit.thread55, %ZSTD_decodeLiteralsBlock.exit
-  %12 = phi i64 [ %spec.select.i, %ZSTD_decodeLiteralsBlock.exit ], [ %conv.i.i, %ZSTD_decodeLiteralsBlock.exit.thread55 ], [ %conv11.i, %if.end34.i ], [ %conv11.i, %if.end23.i ], [ %conv44.i, %if.end48.i ]
-  %13 = phi ptr [ %litBuffer.i, %ZSTD_decodeLiteralsBlock.exit ], [ %litBuffer.i, %ZSTD_decodeLiteralsBlock.exit.thread55 ], [ %add.ptr35.i, %if.end34.i ], [ %litBuffer24.i, %if.end23.i ], [ %litBuffer49.i, %if.end48.i ]
-  %retval.0.i44 = phi i64 [ %add.i.i, %ZSTD_decodeLiteralsBlock.exit ], [ %add.i.i, %ZSTD_decodeLiteralsBlock.exit.thread55 ], [ %add38.i, %if.end34.i ], [ %add.i, %if.end23.i ], [ 4, %if.end48.i ]
-  %add.ptr = getelementptr inbounds i8, ptr %src, i64 %retval.0.i44
-  %sub = sub nsw i64 %srcSize, %retval.0.i44
+if.end3:                                          ; preds = %ZSTD_decodeLiteralsBlock.exit, %if.end34.i, %if.end23.i, %if.end48.i, %ZSTD_decodeLiteralsBlock.exit.thread54
+  %12 = phi i64 [ %conv.i.i, %ZSTD_decodeLiteralsBlock.exit ], [ %conv.i.i, %ZSTD_decodeLiteralsBlock.exit.thread54 ], [ %conv11.i, %if.end34.i ], [ %conv11.i, %if.end23.i ], [ %conv44.i, %if.end48.i ]
+  %13 = phi ptr [ %litBuffer.i, %ZSTD_decodeLiteralsBlock.exit ], [ %litBuffer.i, %ZSTD_decodeLiteralsBlock.exit.thread54 ], [ %add.ptr35.i, %if.end34.i ], [ %litBuffer24.i, %if.end23.i ], [ %litBuffer49.i, %if.end48.i ]
+  %retval.0.i43 = phi i64 [ %add.i.i, %ZSTD_decodeLiteralsBlock.exit ], [ %add.i.i, %ZSTD_decodeLiteralsBlock.exit.thread54 ], [ %add38.i, %if.end34.i ], [ %add.i, %if.end23.i ], [ 4, %if.end48.i ]
+  %add.ptr = getelementptr inbounds i8, ptr %src, i64 %retval.0.i43
+  %sub = sub nsw i64 %srcSize, %retval.0.i43
   %add.ptr1.i = getelementptr inbounds i8, ptr %dst, i64 %maxDstSize
   %add.ptr3.i = getelementptr inbounds i8, ptr %13, i64 %12
   %MLTable.i = getelementptr inbounds i8, ptr %dctx, i64 6152
@@ -1393,8 +1393,8 @@ sw.default.i.i:                                   ; preds = %if.end31.i.i
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %add.ptr26.i.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %call35.i.i = call fastcc i64 @FSE_readNCount(ptr noundef nonnull %norm.i.i, ptr noundef nonnull %max.i.i, ptr noundef nonnull %LLlog.i.i, ptr noundef nonnull %add.ptr26.i.i, i64 noundef %sub.ptr.sub.i.i)
-  %cmp.i.i.i.i33 = icmp ult i64 %call35.i.i, -119
-  br i1 %cmp.i.i.i.i33, label %if.end39.i.i, label %ZSTD_decodeSeqHeaders.exit.thread.i
+  %cmp.i.i.i.i32 = icmp ult i64 %call35.i.i, -119
+  br i1 %cmp.i.i.i.i32, label %if.end39.i.i, label %ZSTD_decodeSeqHeaders.exit.thread.i
 
 if.end39.i.i:                                     ; preds = %sw.default.i.i
   %24 = load i32, ptr %LLlog.i.i, align 4
@@ -1720,8 +1720,8 @@ if.end22.i.i.i:                                   ; preds = %if.end10.i.i.i
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.lhs.cast108.i.i
   %conv35.i.i.i = trunc i64 %sub.ptr.sub.i.i.i to i32
   %nbBytes.0.i.i.i = select i1 %cmp30.i.i.i, i32 %conv35.i.i.i, i32 %shr24.i.i.i
-  %mul.i.i.i32 = shl i32 %nbBytes.0.i.i.i, 3
-  %sub.i.i.i = sub i32 %add.i.i.i.i, %mul.i.i.i32
+  %mul.i.i.i31 = shl i32 %nbBytes.0.i.i.i, 3
+  %sub.i.i.i = sub i32 %add.i.i.i.i, %mul.i.i.i31
   br label %BIT_reloadDStream.exit.sink.split.i.i
 
 BIT_reloadDStream.exit.sink.split.i.i:            ; preds = %if.end22.i.i.i, %if.then4.i.i.i
@@ -1868,7 +1868,7 @@ if.end.i155.i:                                    ; preds = %if.end31.i, %if.end
   %litPtr.0302.i = phi ptr [ %13, %if.end.i155.lr.ph.i ], [ %add.ptr5.i.i, %if.end31.i ]
   %seqState.sroa.79.0301.i = phi ptr [ %add.ptr24.i.i, %if.end.i155.lr.ph.i ], [ %dumps.5.i.i, %if.end31.i ]
   %nbSeq.1300.i = phi i32 [ %conv.i.i16, %if.end.i155.lr.ph.i ], [ %dec.i, %if.end31.i ]
-  %seqState.sroa.76.0299.i = phi i64 [ 4, %if.end.i155.lr.ph.i ], [ %spec.select.i28, %if.end31.i ]
+  %seqState.sroa.76.0299.i = phi i64 [ 4, %if.end.i155.lr.ph.i ], [ %spec.select.i, %if.end31.i ]
   %seqState.sroa.40224.7298.i = phi ptr [ %seqState.sroa.40224.6331.i, %if.end.i155.lr.ph.i ], [ %seqState.sroa.40224.8.i, %if.end31.i ]
   %seqState.sroa.18.4297.i = phi i32 [ %seqState.sroa.18.3330.i, %if.end.i155.lr.ph.i ], [ %add.i.i.i97.i.i, %if.end31.i ]
   %seqState.sroa.0.5296.i = phi i64 [ %seqState.sroa.0.4329.i, %if.end.i155.lr.ph.i ], [ %seqState.sroa.0.6.i, %if.end31.i ]
@@ -2013,7 +2013,7 @@ if.end29.i.i:                                     ; preds = %if.end23.i.i, %for.
   %lnot.ext.i.i = zext i1 %tobool57.not.i.i to i32
   %or.i.i = or i32 %conv32.i171.i, %lnot.ext.i.i
   %tobool58.not.i.i = icmp eq i32 %or.i.i, 0
-  %spec.select.i28 = select i1 %tobool58.not.i.i, i64 %seqState.sroa.76.0299.i, i64 %sequence.sroa.3.0295.i
+  %spec.select.i = select i1 %tobool58.not.i.i, i64 %seqState.sroa.76.0299.i, i64 %sequence.sroa.3.0295.i
   %arrayidx.i80.i.i = getelementptr inbounds %struct.FSE_decode_t, ptr %add.ptr.i132332.i, i64 %seqState.sroa.71.0303.i
   %DInfo.sroa.0.0.copyload.i81.i.i = load i16, ptr %arrayidx.i80.i.i, align 2
   %DInfo.sroa.2.0.arrayidx.sroa_idx.i82.i.i = getelementptr inbounds i8, ptr %arrayidx.i80.i.i, i64 2
@@ -2157,8 +2157,8 @@ if.end50.i.i:                                     ; preds = %if.end39.i208.i
   %sub.i210.i = add i64 %add99.i.i, %sub.ptr.sub42.neg.i.i
   %cmp56.i.i = icmp ugt ptr %add.ptr54.i.i, %add.ptr3.i192.i
   %cmp58.i.i = icmp ult i64 %sub.i210.i, 4
-  %or.cond.i.i29 = or i1 %cmp56.i.i, %cmp58.i.i
-  br i1 %or.cond.i.i29, label %while.cond.preheader.i.i, label %if.end63.i201.i
+  %or.cond.i.i28 = or i1 %cmp56.i.i, %cmp58.i.i
+  br i1 %or.cond.i.i28, label %while.cond.preheader.i.i, label %if.end63.i201.i
 
 while.cond.preheader.i.i:                         ; preds = %if.end50.i.i
   %cmp6097.i.i = icmp ult ptr %add.ptr54.i.i, %add.ptr2.i.i
@@ -2279,8 +2279,8 @@ if.end31.i:                                       ; preds = %do.body.i84.i.i, %w
 for.end.i:                                        ; preds = %BIT_reloadDStream.exit.i
   %66 = icmp eq i32 %seqState.sroa.18.5.i, 64
   %cmp.i217.i = icmp eq ptr %seqState.sroa.40224.8.i, %ip.3.i.i
-  %or.cond.i30 = and i1 %66, %cmp.i217.i
-  br i1 %or.cond.i30, label %if.end37.i, label %return
+  %or.cond.i29 = and i1 %66, %cmp.i217.i
+  br i1 %or.cond.i29, label %if.end37.i, label %return
 
 if.end37.i:                                       ; preds = %for.end.i
   %sub.ptr.rhs.cast39.i = ptrtoint ptr %litPtr.0302.i to i64
@@ -2290,8 +2290,8 @@ if.end37.i:                                       ; preds = %for.end.i
 
 if.end43.i:                                       ; preds = %if.end37.i
   %add.ptr44.i = getelementptr inbounds i8, ptr %op.0306.i, i64 %sub.ptr.sub40.i
-  %cmp45.i31 = icmp ugt ptr %add.ptr44.i, %add.ptr1.i
-  br i1 %cmp45.i31, label %return, label %if.end47.i
+  %cmp45.i30 = icmp ugt ptr %add.ptr44.i, %add.ptr1.i
+  br i1 %cmp45.i30, label %return, label %if.end47.i
 
 if.end47.i:                                       ; preds = %if.end43.i
   %cmp48.not.i = icmp eq ptr %add.ptr3.i, %litPtr.0302.i
@@ -2312,8 +2312,8 @@ if.end54.i:                                       ; preds = %if.then51.i, %if.th
   %sub.ptr.sub57.i = sub i64 %sub.ptr.lhs.cast55.i, %sub.ptr.rhs.cast56.i
   br label %return
 
-return:                                           ; preds = %if.end31.i, %if.then32.i.i, %if.end22.i199.i, %if.end16.i.i, %if.end.i198.i, %ZSTD_decodeSequence.exit.i, %if.end.i, %sw.bb39.i, %if.then14.i, %if.end54.i, %if.end43.i, %if.end37.i, %for.end.i, %FSE_initDState.exit152.i, %FSE_initDState.exit102.i, %BIT_initDStream.exit.i, %sw.epilog.i40.i, %if.then2.i.i, %if.end.i25, %ZSTD_decodeSeqHeaders.exit.i, %ZSTD_decodeSeqHeaders.exit.thread.i, %ZSTD_decodeLiteralsBlock.exit.thread46, %ZSTD_decodeLiteralsBlock.exit, %entry
-  %retval.0 = phi i64 [ -20, %entry ], [ %spec.select38.i, %ZSTD_decodeLiteralsBlock.exit ], [ -20, %ZSTD_decodeLiteralsBlock.exit.thread46 ], [ %sub.ptr.sub57.i, %if.end54.i ], [ %sub.ptr.sub110.i.i, %ZSTD_decodeSeqHeaders.exit.i ], [ -20, %BIT_initDStream.exit.i ], [ -20, %if.end37.i ], [ -70, %if.end43.i ], [ %retval.0.i.ph.i, %ZSTD_decodeSeqHeaders.exit.thread.i ], [ -20, %if.then2.i.i ], [ -20, %sw.epilog.i40.i ], [ -20, %if.end.i25 ], [ -20, %for.end.i ], [ -20, %FSE_initDState.exit152.i ], [ -20, %FSE_initDState.exit102.i ], [ -20, %if.then14.i ], [ -20, %sw.bb39.i ], [ -20, %if.end.i ], [ -70, %ZSTD_decodeSequence.exit.i ], [ -20, %if.end.i198.i ], [ -70, %if.end16.i.i ], [ -20, %if.end22.i199.i ], [ -20, %if.then32.i.i ], [ -20, %if.end31.i ]
+return:                                           ; preds = %if.end31.i, %if.then32.i.i, %if.end22.i199.i, %if.end16.i.i, %if.end.i198.i, %ZSTD_decodeSequence.exit.i, %if.end.i, %sw.bb39.i, %if.then14.i, %if.end54.i, %if.end43.i, %if.end37.i, %for.end.i, %FSE_initDState.exit152.i, %FSE_initDState.exit102.i, %BIT_initDStream.exit.i, %sw.epilog.i40.i, %if.then2.i.i, %if.end.i25, %ZSTD_decodeSeqHeaders.exit.i, %ZSTD_decodeSeqHeaders.exit.thread.i, %ZSTD_decodeLiteralsBlock.exit.thread45, %entry
+  %retval.0 = phi i64 [ -20, %entry ], [ -20, %ZSTD_decodeLiteralsBlock.exit.thread45 ], [ %sub.ptr.sub57.i, %if.end54.i ], [ %sub.ptr.sub110.i.i, %ZSTD_decodeSeqHeaders.exit.i ], [ -20, %BIT_initDStream.exit.i ], [ -20, %if.end37.i ], [ -70, %if.end43.i ], [ %retval.0.i.ph.i, %ZSTD_decodeSeqHeaders.exit.thread.i ], [ -20, %if.then2.i.i ], [ -20, %sw.epilog.i40.i ], [ -20, %if.end.i25 ], [ -20, %for.end.i ], [ -20, %FSE_initDState.exit152.i ], [ -20, %FSE_initDState.exit102.i ], [ -20, %if.then14.i ], [ -20, %sw.bb39.i ], [ -20, %if.end.i ], [ -70, %ZSTD_decodeSequence.exit.i ], [ -20, %if.end.i198.i ], [ -70, %if.end16.i.i ], [ -20, %if.end22.i199.i ], [ -20, %if.then32.i.i ], [ -20, %if.end31.i ]
   ret i64 %retval.0
 }
 

@@ -4405,13 +4405,13 @@ define internal void @skl_set_cdclk(ptr noundef %0, ptr nocapture noundef readon
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.3, i32 999, i32 2313, i64 12) #15, !srcloc !132
   tail call void asm sideeffect "943: nop\0A\09.pushsection .discard.instr_end\0A\09.long 943b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 943) #15, !srcloc !133
   tail call void asm sideeffect "944: nop\0A\09.pushsection .discard.instr_end\0A\09.long 944b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 944) #15, !srcloc !134
+  br label %135
+
+135:                                              ; preds = %133, %122
   br label %136
 
-135:                                              ; preds = %122
-  br label %136
-
-136:                                              ; preds = %133, %135, %122
-  %137 = phi i32 [ 9, %122 ], [ 5, %133 ], [ 5, %135 ]
+136:                                              ; preds = %135, %122
+  %137 = phi i32 [ 5, %135 ], [ 9, %122 ]
   %138 = load ptr, ptr %97, align 8
   %139 = tail call i32 %138(ptr noundef %28, i32 442456, i1 noundef zeroext true) #15
   %140 = and i32 %139, -64
@@ -5767,7 +5767,7 @@ define internal void @bdw_get_cdclk(ptr noundef %0, ptr nocapture noundef writeo
   %12 = tail call i32 %11(ptr noundef %3, i32 270356, i1 noundef zeroext true) #15
   %13 = and i32 %12, 16777216
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %15, label %.thread
+  br i1 %14, label %15, label %16
 
 15:                                               ; preds = %10
   switch i32 %7, label %18 [
@@ -5776,7 +5776,7 @@ define internal void @bdw_get_cdclk(ptr noundef %0, ptr nocapture noundef writeo
     i32 134217728, label %.thread
   ]
 
-16:                                               ; preds = %15
+16:                                               ; preds = %10, %15
   br label %.thread
 
 17:                                               ; preds = %15
@@ -5785,9 +5785,9 @@ define internal void @bdw_get_cdclk(ptr noundef %0, ptr nocapture noundef writeo
 18:                                               ; preds = %15
   br label %.thread
 
-.thread:                                          ; preds = %10, %15, %2, %18, %17, %16
-  %.ph.sink = phi i32 [ 675000, %18 ], [ 540000, %17 ], [ 800000, %2 ], [ 337500, %15 ], [ 450000, %10 ], [ 450000, %16 ]
-  %19 = phi i8 [ 3, %18 ], [ 1, %17 ], [ 2, %2 ], [ 2, %15 ], [ 0, %10 ], [ 0, %16 ]
+.thread:                                          ; preds = %15, %2, %18, %17, %16
+  %.ph.sink = phi i32 [ 675000, %18 ], [ 540000, %17 ], [ 450000, %16 ], [ 800000, %2 ], [ 337500, %15 ]
+  %19 = phi i8 [ 3, %18 ], [ 1, %17 ], [ 0, %16 ], [ 2, %2 ], [ 2, %15 ]
   store i32 %.ph.sink, ptr %1, align 4
   %20 = getelementptr inbounds i8, ptr %1, i64 16
   store i8 %19, ptr %20, align 4
@@ -7078,16 +7078,16 @@ define internal void @pnv_get_cdclk(ptr noundef readonly %0, ptr nocapture nound
   %19 = phi ptr [ %17, %16 ], [ null, %14 ]
   %20 = zext i16 %8 to i32
   call void (ptr, ptr, ...) @_dev_err(ptr noundef %19, ptr noundef nonnull @.str.72, i32 noundef %20) #17
-  br label %23
+  br label %21
 
-21:                                               ; preds = %2
+21:                                               ; preds = %18, %2
   br label %23
 
 22:                                               ; preds = %2
   br label %23
 
-23:                                               ; preds = %18, %22, %21, %13, %12, %11, %2
-  %24 = phi i32 [ 166667, %22 ], [ 200000, %13 ], [ 444444, %12 ], [ 333333, %11 ], [ 266667, %2 ], [ 133333, %18 ], [ 133333, %21 ]
+23:                                               ; preds = %22, %21, %13, %12, %11, %2
+  %24 = phi i32 [ 166667, %22 ], [ 133333, %21 ], [ 200000, %13 ], [ 444444, %12 ], [ 333333, %11 ], [ 266667, %2 ]
   store i32 %24, ptr %1, align 4
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #15
   ret void

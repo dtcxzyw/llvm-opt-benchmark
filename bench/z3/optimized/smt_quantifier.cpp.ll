@@ -4752,7 +4752,7 @@ entry:
   %m_mbqi = getelementptr inbounds i8, ptr %0, i64 215
   %1 = load i8, ptr %m_mbqi, align 1
   %tobool = trunc i8 %1 to i1
-  br i1 %tobool, label %if.then, label %return
+  br i1 %tobool, label %if.then, label %if.end20
 
 if.then:                                          ; preds = %entry
   %call = tail call noundef i32 @_Z19get_verbosity_levelv()
@@ -4784,11 +4784,13 @@ if.end9:                                          ; preds = %if.then4, %if.else,
 if.else13:                                        ; preds = %if.end9
   %3 = load ptr, ptr %m_model_checker, align 8
   %call16 = tail call noundef zeroext i1 @_ZN3smt13model_checker17has_new_instancesEv(ptr noundef nonnull align 8 dereferenceable(184) %3)
-  %spec.select = select i1 %call16, i32 2, i32 1
+  br i1 %call16, label %return, label %if.end20
+
+if.end20:                                         ; preds = %if.else13, %entry
   br label %return
 
-return:                                           ; preds = %if.else13, %entry, %if.end9
-  %retval.0 = phi i32 [ 0, %if.end9 ], [ 1, %entry ], [ %spec.select, %if.else13 ]
+return:                                           ; preds = %if.else13, %if.end9, %if.end20
+  %retval.0 = phi i32 [ 1, %if.end20 ], [ 0, %if.end9 ], [ 2, %if.else13 ]
   ret i32 %retval.0
 }
 

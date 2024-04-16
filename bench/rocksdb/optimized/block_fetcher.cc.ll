@@ -1616,14 +1616,14 @@ entry:
   %0 = load ptr, ptr %cache_options_, align 8
   %1 = load ptr, ptr %0, align 8
   %cmp.i.not = icmp eq ptr %1, null
-  br i1 %cmp.i.not, label %return, label %land.lhs.true
+  br i1 %cmp.i.not, label %if.end22, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
   %vtable = load ptr, ptr %1, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %2 = load ptr, ptr %vfn, align 8
   %call5 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(8) %1)
-  br i1 %call5, label %return, label %if.then
+  br i1 %call5, label %if.end22, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
   %3 = load ptr, ptr %cache_options_, align 8
@@ -1674,11 +1674,14 @@ cleanup:                                          ; preds = %invoke.cont20, %if.
   %state_.i = getelementptr inbounds i8, ptr %status, i64 8
   %11 = load ptr, ptr %state_.i, align 8
   %cmp.not.i.i = icmp eq ptr %11, null
-  br i1 %cmp.not.i.i, label %return, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
+  br i1 %cmp.not.i.i, label %_ZN7rocksdb6StatusD2Ev.exit, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i: ; preds = %cleanup
   call void @_ZdaPv(ptr noundef nonnull %11) #16
-  br label %return
+  br label %_ZN7rocksdb6StatusD2Ev.exit
+
+_ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %cleanup, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
+  br i1 %cmp.i2.not, label %return, label %if.end22
 
 ehcleanup:                                        ; preds = %lpad19, %lpad
   %.pn = phi { ptr, i32 } [ %10, %lpad19 ], [ %7, %lpad ]
@@ -1694,8 +1697,11 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
 _ZN7rocksdb6StatusD2Ev.exit7:                     ; preds = %ehcleanup, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i6
   resume { ptr, i32 } %.pn
 
-return:                                           ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i, %cleanup, %entry, %land.lhs.true
-  %retval.1 = phi i1 [ false, %land.lhs.true ], [ false, %entry ], [ %cmp.i2.not, %cleanup ], [ %cmp.i2.not, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i ]
+if.end22:                                         ; preds = %_ZN7rocksdb6StatusD2Ev.exit, %land.lhs.true, %entry
+  br label %return
+
+return:                                           ; preds = %_ZN7rocksdb6StatusD2Ev.exit, %if.end22
+  %retval.1 = phi i1 [ false, %if.end22 ], [ true, %_ZN7rocksdb6StatusD2Ev.exit ]
   ret i1 %retval.1
 }
 
@@ -2030,14 +2036,14 @@ entry:
   %0 = load ptr, ptr %cache_options_, align 8
   %1 = load ptr, ptr %0, align 8
   %cmp.i.not = icmp eq ptr %1, null
-  br i1 %cmp.i.not, label %return, label %land.lhs.true
+  br i1 %cmp.i.not, label %if.end39, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
   %vtable = load ptr, ptr %1, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %2 = load ptr, ptr %vfn, align 8
   %call5 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(8) %1)
-  br i1 %call5, label %if.then, label %return
+  br i1 %call5, label %if.then, label %if.end39
 
 if.then:                                          ; preds = %land.lhs.true
   store ptr null, ptr %buf, align 8
@@ -2185,11 +2191,14 @@ lpad36:                                           ; preds = %invoke.cont34
 cleanup:                                          ; preds = %invoke.cont37, %land.lhs.true27, %invoke.cont25, %_ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEED2Ev.exit
   %26 = load ptr, ptr %buf, align 8
   %cmp.not.i15 = icmp eq ptr %26, null
-  br i1 %cmp.not.i15, label %return, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
+  br i1 %cmp.not.i15, label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
 
 _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i: ; preds = %cleanup
   call void @_ZdaPv(ptr noundef nonnull %26) #16
-  br label %return
+  br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit
+
+_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit: ; preds = %cleanup, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
+  br i1 %cmp.i4.not, label %return, label %if.end39
 
 ehcleanup:                                        ; preds = %lpad36, %lpad
   %.pn = phi { ptr, i32 } [ %22, %lpad ], [ %25, %lpad36 ]
@@ -2204,8 +2213,11 @@ _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit18: ; preds = %ehcleanup, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i17
   resume { ptr, i32 } %.pn
 
-return:                                           ; preds = %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i, %cleanup, %entry, %land.lhs.true
-  %retval.1 = phi i1 [ false, %land.lhs.true ], [ false, %entry ], [ %cmp.i4.not, %cleanup ], [ %cmp.i4.not, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i ]
+if.end39:                                         ; preds = %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit, %land.lhs.true, %entry
+  br label %return
+
+return:                                           ; preds = %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit, %if.end39
+  %retval.1 = phi i1 [ true, %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit ], [ false, %if.end39 ]
   ret i1 %retval.1
 }
 

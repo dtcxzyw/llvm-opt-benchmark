@@ -2722,8 +2722,8 @@ land.rhs216:                                      ; preds = %land.lhs.true211
 while.end228.loopexit23:                          ; preds = %land.rhs216
   br label %while.end228
 
-while.end228:                                     ; preds = %land.lhs.true211, %land.lhs.true206, %land.rhs216, %while.end228.loopexit23
-  %cur.8.lcssa = phi ptr [ %cur.893, %land.rhs216 ], [ %cur.893, %land.lhs.true211 ], [ %cur.893, %land.lhs.true206 ], [ %arrayidx217, %while.end228.loopexit23 ]
+while.end228:                                     ; preds = %land.rhs216, %land.lhs.true211, %land.lhs.true206, %while.end228.loopexit23
+  %cur.8.lcssa = phi ptr [ %arrayidx217, %while.end228.loopexit23 ], [ %cur.893, %land.lhs.true206 ], [ %cur.893, %land.lhs.true211 ], [ %cur.893, %land.rhs216 ]
   %cmp229.not = icmp eq ptr %cur.8.lcssa, %path
   br i1 %cmp229.not, label %return, label %while.cond232.preheader
 

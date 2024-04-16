@@ -3976,9 +3976,9 @@ if.end:                                           ; preds = %if.end.lr.ph, %sw.b
     i32 26, label %do.body11
     i32 23, label %sw.bb41
     i32 16, label %sw.bb47
-    i32 24, label %return.loopexit159
-    i32 22, label %return.loopexit159
-    i32 21, label %return.loopexit159
+    i32 24, label %return.loopexit158
+    i32 22, label %return.loopexit158
+    i32 21, label %return.loopexit158
   ]
 
 do.body:                                          ; preds = %if.end, %if.end.lr.ph.split.us
@@ -4037,7 +4037,7 @@ sw.bb41:                                          ; preds = %if.end
   %v45 = getelementptr inbounds i8, ptr %e.tr41, i64 8
   %8 = load ptr, ptr %v45, align 8
   %cmp = icmp eq ptr %8, null
-  br i1 %cmp, label %return, label %if.end
+  br i1 %cmp, label %return.loopexit158, label %if.end
 
 sw.bb47:                                          ; preds = %if.end
   %cmp48 = icmp eq i32 %targets_type.tr.ph66, 2
@@ -4060,11 +4060,11 @@ if.then54:                                        ; preds = %if.then49
 return.loopexit28.loopexit82:                     ; preds = %if.end.lr.ph.split.us, %if.end.lr.ph.split.us, %if.end.lr.ph.split.us
   br label %return
 
-return.loopexit159:                               ; preds = %if.end, %if.end, %if.end
+return.loopexit158:                               ; preds = %if.end, %if.end, %if.end, %sw.bb41
   br label %return
 
-return:                                           ; preds = %if.then54, %sw.bb47, %if.then49, %sw.bb41, %for.body26, %for.cond24, %for.body, %for.cond, %if.end, %return.loopexit159, %do.body11, %do.body, %if.end.lr.ph.split.us, %entry, %return.loopexit28.loopexit82, %cond.end21, %cond.end
-  %retval.0 = phi ptr [ null, %cond.end ], [ null, %cond.end21 ], [ null, %entry ], [ null, %return.loopexit28.loopexit82 ], [ %e.tr.ph65, %if.end.lr.ph.split.us ], [ null, %do.body ], [ null, %do.body11 ], [ %e.tr41, %if.end ], [ %call, %for.body ], [ null, %for.cond ], [ %call33, %for.body26 ], [ null, %for.cond24 ], [ null, %sw.bb41 ], [ null, %return.loopexit159 ], [ null, %if.then54 ], [ null, %if.then49 ], [ %e.tr41, %sw.bb47 ]
+return:                                           ; preds = %if.then54, %sw.bb47, %if.then49, %for.body26, %for.cond24, %for.body, %for.cond, %if.end, %return.loopexit158, %do.body11, %do.body, %if.end.lr.ph.split.us, %entry, %return.loopexit28.loopexit82, %cond.end21, %cond.end
+  %retval.0 = phi ptr [ null, %cond.end ], [ null, %cond.end21 ], [ null, %entry ], [ null, %return.loopexit28.loopexit82 ], [ %e.tr.ph65, %if.end.lr.ph.split.us ], [ null, %do.body ], [ null, %do.body11 ], [ null, %return.loopexit158 ], [ %e.tr41, %if.end ], [ %call, %for.body ], [ null, %for.cond ], [ %call33, %for.body26 ], [ null, %for.cond24 ], [ null, %if.then54 ], [ null, %if.then49 ], [ %e.tr41, %sw.bb47 ]
   ret ptr %retval.0
 }
 

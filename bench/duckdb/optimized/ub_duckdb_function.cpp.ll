@@ -3756,7 +3756,7 @@ sw.bb203.thread:                                  ; preds = %land.lhs.true182
   br label %return
 
 if.end186:                                        ; preds = %if.end173
-  switch i8 %27, label %return [
+  switch i8 %27, label %return.fold.split [
     i8 11, label %sw.bb
     i8 12, label %sw.bb189
     i8 13, label %sw.bb191
@@ -3913,11 +3913,11 @@ sw.bb.i365:                                       ; preds = %sw.bb211
   %call1.i366 = call fastcc noundef i64 @_ZN6duckdbL14TargetTypeCostERKNS_11LogicalTypeE(i8 %29), !range !89
   br label %return
 
-return.fold.split:                                ; preds = %land.lhs.true182
+return.fold.split:                                ; preds = %if.end186, %land.lhs.true182
   br label %return
 
-return:                                           ; preds = %for.body, %for.inc, %cleanup151, %if.end82, %cleanup127, %if.end186, %return.fold.split, %sw.bb.i365, %sw.bb211, %sw.bb209, %sw.bb205, %sw.bb.i354, %sw.bb203, %sw.bb.i350, %sw.bb201, %sw.bb.i347, %sw.bb199, %sw.bb.i344, %sw.bb197, %sw.bb.i341, %sw.bb195, %sw.bb.i338, %sw.bb193, %sw.bb.i335, %sw.bb191, %sw.bb.i332, %sw.bb189, %sw.bb.i, %sw.bb, %sw.bb203.thread, %land.lhs.true182, %land.lhs.true169, %if.then135, %for.cond.preheader, %land.lhs.true78, %if.end70, %if.then66, %if.then54, %if.then36, %if.then31, %if.then18, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit324, %if.end5, %if.then, %entry
-  %retval.8 = phi i64 [ %call1, %if.then ], [ %spec.select, %if.then18 ], [ %add, %if.then54 ], [ %call69, %if.then66 ], [ 1, %if.end5 ], [ -1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit324 ], [ %spec.select301, %if.then36 ], [ -1, %if.then31 ], [ 0, %if.end70 ], [ -1, %land.lhs.true78 ], [ -1, %if.then135 ], [ 101, %land.lhs.true169 ], [ 100, %land.lhs.true182 ], [ %call1.i, %sw.bb.i ], [ -1, %sw.bb ], [ %call1.i333, %sw.bb.i332 ], [ -1, %sw.bb189 ], [ %call1.i336, %sw.bb.i335 ], [ -1, %sw.bb191 ], [ %call1.i339, %sw.bb.i338 ], [ -1, %sw.bb193 ], [ %call1.i342, %sw.bb.i341 ], [ -1, %sw.bb195 ], [ %call1.i345, %sw.bb.i344 ], [ -1, %sw.bb197 ], [ %call1.i348, %sw.bb.i347 ], [ -1, %sw.bb199 ], [ %call1.i351, %sw.bb.i350 ], [ -1, %sw.bb201 ], [ %call1.i355, %sw.bb.i354 ], [ -1, %sw.bb203 ], [ %call1.i366, %sw.bb.i365 ], [ -1, %sw.bb211 ], [ 0, %entry ], [ %spec.select389, %sw.bb205 ], [ %spec.select390, %sw.bb209 ], [ -1, %sw.bb203.thread ], [ -1, %for.cond.preheader ], [ -1, %if.end186 ], [ -1, %return.fold.split ], [ %conv130, %cleanup127 ], [ 149, %if.end82 ], [ 0, %cleanup151 ], [ -1, %for.inc ], [ -1, %for.body ]
+return:                                           ; preds = %for.body, %for.inc, %cleanup151, %if.end82, %cleanup127, %return.fold.split, %sw.bb.i365, %sw.bb211, %sw.bb209, %sw.bb205, %sw.bb.i354, %sw.bb203, %sw.bb.i350, %sw.bb201, %sw.bb.i347, %sw.bb199, %sw.bb.i344, %sw.bb197, %sw.bb.i341, %sw.bb195, %sw.bb.i338, %sw.bb193, %sw.bb.i335, %sw.bb191, %sw.bb.i332, %sw.bb189, %sw.bb.i, %sw.bb, %sw.bb203.thread, %land.lhs.true182, %land.lhs.true169, %if.then135, %for.cond.preheader, %land.lhs.true78, %if.end70, %if.then66, %if.then54, %if.then36, %if.then31, %if.then18, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit324, %if.end5, %if.then, %entry
+  %retval.8 = phi i64 [ %call1, %if.then ], [ %spec.select, %if.then18 ], [ %add, %if.then54 ], [ %call69, %if.then66 ], [ 1, %if.end5 ], [ -1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit324 ], [ %spec.select301, %if.then36 ], [ -1, %if.then31 ], [ 0, %if.end70 ], [ -1, %land.lhs.true78 ], [ -1, %if.then135 ], [ 101, %land.lhs.true169 ], [ 100, %land.lhs.true182 ], [ %call1.i, %sw.bb.i ], [ -1, %sw.bb ], [ %call1.i333, %sw.bb.i332 ], [ -1, %sw.bb189 ], [ %call1.i336, %sw.bb.i335 ], [ -1, %sw.bb191 ], [ %call1.i339, %sw.bb.i338 ], [ -1, %sw.bb193 ], [ %call1.i342, %sw.bb.i341 ], [ -1, %sw.bb195 ], [ %call1.i345, %sw.bb.i344 ], [ -1, %sw.bb197 ], [ %call1.i348, %sw.bb.i347 ], [ -1, %sw.bb199 ], [ %call1.i351, %sw.bb.i350 ], [ -1, %sw.bb201 ], [ %call1.i355, %sw.bb.i354 ], [ -1, %sw.bb203 ], [ %call1.i366, %sw.bb.i365 ], [ -1, %sw.bb211 ], [ 0, %entry ], [ -1, %return.fold.split ], [ %spec.select389, %sw.bb205 ], [ %spec.select390, %sw.bb209 ], [ %conv130, %cleanup127 ], [ -1, %sw.bb203.thread ], [ -1, %for.cond.preheader ], [ 149, %if.end82 ], [ 0, %cleanup151 ], [ -1, %for.inc ], [ -1, %for.body ]
   ret i64 %retval.8
 
 eh.resume:                                        ; preds = %lpad146, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit330

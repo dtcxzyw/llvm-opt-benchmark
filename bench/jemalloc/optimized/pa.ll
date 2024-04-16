@@ -4,16 +4,19 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @pa_central_init(ptr noundef %central, ptr noundef %base, i1 noundef zeroext %hpa, ptr noundef %hpa_hooks) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @pa_central_init(ptr noundef %central, ptr noundef %base, i1 noundef zeroext %hpa, ptr noundef %hpa_hooks) local_unnamed_addr #0 {
 entry:
-  br i1 %hpa, label %if.then, label %return
+  br i1 %hpa, label %if.then, label %if.end5
 
 if.then:                                          ; preds = %entry
   %call = tail call zeroext i1 @hpa_central_init(ptr noundef %central, ptr noundef %base, ptr noundef %hpa_hooks) #4
+  br i1 %call, label %return, label %if.end5
+
+if.end5:                                          ; preds = %if.then, %entry
   br label %return
 
-return:                                           ; preds = %if.then, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ %call, %if.then ]
+return:                                           ; preds = %if.then, %if.end5
+  %retval.0 = phi i1 [ false, %if.end5 ], [ true, %if.then ]
   ret i1 %retval.0
 }
 

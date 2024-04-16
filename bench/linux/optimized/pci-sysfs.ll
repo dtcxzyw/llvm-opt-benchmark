@@ -187,13 +187,13 @@ define dso_local noundef i32 @pci_mmap_fits(ptr noundef %0, i32 noundef %1, ptr 
   %10 = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = icmp eq i64 %11, 0
-  br i1 %12, label %38, label %13
+  br i1 %12, label %40, label %13
 
 13:                                               ; preds = %4
   %14 = load i64, ptr %9, align 8
   %15 = add i64 %11, 1
   %16 = icmp eq i64 %15, %14
-  br i1 %16, label %38, label %17
+  br i1 %16, label %40, label %17
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds i8, ptr %2, i64 8
@@ -215,23 +215,25 @@ define dso_local noundef i32 @pci_mmap_fits(ptr noundef %0, i32 noundef %1, ptr 
   %30 = load i64, ptr %5, align 8
   %31 = lshr i64 %30, 12
   %32 = icmp ult i64 %24, %31
-  br i1 %32, label %38, label %.thread
+  br i1 %32, label %39, label %.thread
 
 .thread:                                          ; preds = %17, %29
   %33 = phi i64 [ %31, %29 ], [ 0, %17 ]
   %34 = add nuw nsw i64 %27, %33
-  %35 = icmp ult i64 %24, %34
+  %35 = icmp uge i64 %24, %34
   %36 = add i64 %22, %24
-  %37 = icmp ule i64 %36, %34
-  %.not5 = select i1 %35, i1 %37, i1 false
-  %spec.select = zext i1 %.not5 to i32
-  br label %38
+  %37 = icmp ugt i64 %36, %34
+  %38 = select i1 %35, i1 true, i1 %37
+  br i1 %38, label %39, label %40
 
-38:                                               ; preds = %.thread, %29, %13, %4
-  %39 = phi i32 [ 0, %13 ], [ 0, %4 ], [ 0, %29 ], [ %spec.select, %.thread ]
+39:                                               ; preds = %.thread, %29
+  br label %40
+
+40:                                               ; preds = %39, %.thread, %13, %4
+  %41 = phi i32 [ 0, %39 ], [ 0, %13 ], [ 1, %.thread ], [ 0, %4 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
-  ret i32 %39
+  ret i32 %41
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

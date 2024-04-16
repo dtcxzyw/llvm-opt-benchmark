@@ -1865,21 +1865,23 @@ return:                                           ; preds = %if.else175, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal nonnull ptr @rsa_settable_ctx_params(ptr noundef readonly %vprsactx, ptr nocapture readnone %provctx) #2 {
+define internal noundef nonnull ptr @rsa_settable_ctx_params(ptr noundef readonly %vprsactx, ptr nocapture readnone %provctx) #2 {
 entry:
   %cmp.not = icmp eq ptr %vprsactx, null
-  br i1 %cmp.not, label %return, label %land.lhs.true
+  br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
   %flag_allow_md = getelementptr inbounds i8, ptr %vprsactx, i64 28
   %bf.load = load i8, ptr %flag_allow_md, align 4
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
-  %spec.select = select i1 %tobool.not, ptr @settable_ctx_params_no_digest, ptr @settable_ctx_params
+  br i1 %tobool.not, label %return, label %if.end
+
+if.end:                                           ; preds = %land.lhs.true, %entry
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %entry
-  %retval.0 = phi ptr [ @settable_ctx_params, %entry ], [ %spec.select, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %if.end
+  %retval.0 = phi ptr [ @settable_ctx_params, %if.end ], [ @settable_ctx_params_no_digest, %land.lhs.true ]
   ret ptr %retval.0
 }
 

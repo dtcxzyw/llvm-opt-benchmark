@@ -603,7 +603,7 @@ declare void @Curl_bufref_set(ptr noundef, ptr noundef, i64 noundef, ptr noundef
 declare void @curl_free(ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Curl_auth_decode_digest_http_message(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define dso_local noundef i32 @Curl_auth_decode_digest_http_message(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
   %3 = alloca ptr, align 8
   %4 = alloca [256 x i8], align 16
   %5 = alloca [1024 x i8], align 16
@@ -685,7 +685,7 @@ define dso_local i32 @Curl_auth_decode_digest_http_message(ptr noundef %0, ptr n
   %41 = call ptr %40(ptr noundef nonnull %5) #10
   store ptr %41, ptr %1, align 8
   %.not97 = icmp eq ptr %41, null
-  br i1 %.not97, label %.loopexit100, label %122
+  br i1 %.not97, label %.loopexit99, label %122
 
 42:                                               ; preds = %35
   %43 = call i32 @curl_strequal(ptr noundef nonnull %4, ptr noundef nonnull @.str.5) #10
@@ -717,7 +717,7 @@ define dso_local i32 @Curl_auth_decode_digest_http_message(ptr noundef %0, ptr n
   %55 = call ptr %54(ptr noundef nonnull %5) #10
   store ptr %55, ptr %13, align 8
   %.not95 = icmp eq ptr %55, null
-  br i1 %.not95, label %.loopexit100, label %122
+  br i1 %.not95, label %.loopexit99, label %122
 
 56:                                               ; preds = %49
   %57 = call i32 @curl_strequal(ptr noundef nonnull %4, ptr noundef nonnull @.str.8) #10
@@ -732,7 +732,7 @@ define dso_local i32 @Curl_auth_decode_digest_http_message(ptr noundef %0, ptr n
   %62 = call ptr %61(ptr noundef nonnull %5) #10
   store ptr %62, ptr %16, align 8
   %.not94 = icmp eq ptr %62, null
-  br i1 %.not94, label %.loopexit100, label %122
+  br i1 %.not94, label %.loopexit99, label %122
 
 63:                                               ; preds = %56
   %64 = call i32 @curl_strequal(ptr noundef nonnull %4, ptr noundef nonnull @.str.9) #10
@@ -744,21 +744,21 @@ define dso_local i32 @Curl_auth_decode_digest_http_message(ptr noundef %0, ptr n
   %66 = load ptr, ptr @Curl_cstrdup, align 8
   %67 = call ptr %66(ptr noundef nonnull %5) #10
   %.not87 = icmp eq ptr %67, null
-  br i1 %.not87, label %.loopexit100, label %68
+  br i1 %.not87, label %.loopexit99, label %68
 
 68:                                               ; preds = %65
   %69 = call ptr @strtok_r(ptr noundef nonnull %67, ptr noundef nonnull @.str.10, ptr noundef nonnull %6) #10
-  %.not88104 = icmp eq ptr %69, null
-  br i1 %.not88104, label %._crit_edge, label %.preheader
+  %.not88103 = icmp eq ptr %69, null
+  br i1 %.not88103, label %._crit_edge, label %.preheader
 
 .preheader:                                       ; preds = %68, %76
-  %.0107 = phi ptr [ %77, %76 ], [ %69, %68 ]
-  %.157106 = phi i1 [ %.2, %76 ], [ %.056, %68 ]
-  %.159105 = phi i1 [ %.260, %76 ], [ %.058, %68 ]
+  %.0106 = phi ptr [ %77, %76 ], [ %69, %68 ]
+  %.157105 = phi i1 [ %.2, %76 ], [ %.056, %68 ]
+  %.159104 = phi i1 [ %.260, %76 ], [ %.058, %68 ]
   br label %70
 
 70:                                               ; preds = %.preheader, %.critedge6
-  %.1 = phi ptr [ %72, %.critedge6 ], [ %.0107, %.preheader ]
+  %.1 = phi ptr [ %72, %.critedge6 ], [ %.0106, %.preheader ]
   %71 = load i8, ptr %.1, align 1
   switch i8 %71, label %.critedge4 [
     i8 9, label %.critedge6
@@ -777,12 +777,12 @@ define dso_local i32 @Curl_auth_decode_digest_http_message(ptr noundef %0, ptr n
 74:                                               ; preds = %.critedge4
   %75 = call i32 @curl_strequal(ptr noundef nonnull %.1, ptr noundef nonnull @.str.12) #10
   %.not93 = icmp ne i32 %75, 0
-  %spec.select = select i1 %.not93, i1 true, i1 %.157106
+  %spec.select = select i1 %.not93, i1 true, i1 %.157105
   br label %76
 
 76:                                               ; preds = %74, %.critedge4
-  %.260 = phi i1 [ true, %.critedge4 ], [ %.159105, %74 ]
-  %.2 = phi i1 [ %.157106, %.critedge4 ], [ %spec.select, %74 ]
+  %.260 = phi i1 [ true, %.critedge4 ], [ %.159104, %74 ]
+  %.2 = phi i1 [ %.157105, %.critedge4 ], [ %spec.select, %74 ]
   %77 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.10, ptr noundef nonnull %6) #10
   %.not88 = icmp eq ptr %77, null
   br i1 %.not88, label %._crit_edge, label %.preheader, !llvm.loop !14
@@ -802,7 +802,7 @@ define dso_local i32 @Curl_auth_decode_digest_http_message(ptr noundef %0, ptr n
   %83 = call ptr %82(ptr noundef nonnull @.str.11) #10
   store ptr %83, ptr %19, align 8
   %.not90 = icmp eq ptr %83, null
-  br i1 %.not90, label %.loopexit100, label %122
+  br i1 %.not90, label %.loopexit99, label %122
 
 84:                                               ; preds = %._crit_edge
   br i1 %.157.lcssa, label %85, label %122
@@ -815,7 +815,7 @@ define dso_local i32 @Curl_auth_decode_digest_http_message(ptr noundef %0, ptr n
   %89 = call ptr %88(ptr noundef nonnull @.str.12) #10
   store ptr %89, ptr %19, align 8
   %.not89 = icmp eq ptr %89, null
-  br i1 %.not89, label %.loopexit100, label %122
+  br i1 %.not89, label %.loopexit99, label %122
 
 90:                                               ; preds = %63
   %91 = call i32 @curl_strequal(ptr noundef nonnull %4, ptr noundef nonnull @.str.13) #10
@@ -830,7 +830,7 @@ define dso_local i32 @Curl_auth_decode_digest_http_message(ptr noundef %0, ptr n
   %96 = call ptr %95(ptr noundef nonnull %5) #10
   store ptr %96, ptr %22, align 8
   %.not80 = icmp eq ptr %96, null
-  br i1 %.not80, label %.loopexit100, label %97
+  br i1 %.not80, label %.loopexit99, label %97
 
 97:                                               ; preds = %92
   %98 = call i32 @curl_strequal(ptr noundef nonnull %5, ptr noundef nonnull @.str.14) #10
@@ -880,7 +880,7 @@ define dso_local i32 @Curl_auth_decode_digest_http_message(ptr noundef %0, ptr n
 112:                                              ; preds = %109
   %113 = call i32 @curl_strequal(ptr noundef nonnull %5, ptr noundef nonnull @.str.19) #10
   %.not86 = icmp eq i32 %113, 0
-  br i1 %.not86, label %.loopexit100, label %114
+  br i1 %.not86, label %.loopexit99, label %114
 
 114:                                              ; preds = %112
   store i8 5, ptr %25, align 4
@@ -905,11 +905,11 @@ define dso_local i32 @Curl_auth_decode_digest_http_message(ptr noundef %0, ptr n
 122:                                              ; preds = %37, %51, %84, %85, %79, %119, %117, %115, %99, %105, %111, %114, %108, %102, %58, %44, %46
   %.361 = phi i1 [ %.058, %37 ], [ %.058, %46 ], [ %.058, %44 ], [ %.058, %51 ], [ %.058, %58 ], [ true, %79 ], [ false, %85 ], [ false, %84 ], [ %.058, %99 ], [ %.058, %102 ], [ %.058, %105 ], [ %.058, %108 ], [ %.058, %111 ], [ %.058, %114 ], [ %.058, %119 ], [ %.058, %117 ], [ %.058, %115 ]
   %.3 = phi i1 [ %.056, %37 ], [ %.056, %46 ], [ %.056, %44 ], [ %.056, %51 ], [ %.056, %58 ], [ %.157.lcssa, %79 ], [ true, %85 ], [ false, %84 ], [ %.056, %99 ], [ %.056, %102 ], [ %.056, %105 ], [ %.056, %108 ], [ %.056, %111 ], [ %.056, %114 ], [ %.056, %119 ], [ %.056, %117 ], [ %.056, %115 ]
-  %.promoted109 = load ptr, ptr %3, align 8
+  %.promoted108 = load ptr, ptr %3, align 8
   br label %123
 
 123:                                              ; preds = %.critedge10, %122
-  %124 = phi ptr [ %126, %.critedge10 ], [ %.promoted109, %122 ]
+  %124 = phi ptr [ %126, %.critedge10 ], [ %.promoted108, %122 ]
   %125 = load i8, ptr %124, align 1
   switch i8 %125, label %.loopexit [
     i8 9, label %.critedge10
@@ -937,27 +937,29 @@ define dso_local i32 @Curl_auth_decode_digest_http_message(ptr noundef %0, ptr n
   %131 = load i8, ptr %26, align 1
   %132 = and i8 %131, 1
   %.not = icmp eq i8 %132, 0
-  br i1 %.not, label %.loopexit100, label %133
+  br i1 %.not, label %.loopexit99, label %133
 
 133:                                              ; preds = %130, %129
   %134 = load ptr, ptr %1, align 8
   %.not69 = icmp eq ptr %134, null
-  br i1 %.not69, label %.loopexit100, label %135
+  br i1 %.not69, label %.loopexit99, label %135
 
 135:                                              ; preds = %133
   %136 = load ptr, ptr %19, align 8
   %.not70 = icmp eq ptr %136, null
-  br i1 %.not70, label %137, label %.loopexit100
+  br i1 %.not70, label %137, label %140
 
 137:                                              ; preds = %135
   %138 = load i8, ptr %25, align 4
   %139 = and i8 %138, 1
   %.not71 = icmp eq i8 %139, 0
-  %spec.select99 = select i1 %.not71, i32 0, i32 61
-  br label %.loopexit100
+  br i1 %.not71, label %140, label %.loopexit99
 
-.loopexit100:                                     ; preds = %112, %92, %85, %79, %65, %58, %51, %37, %137, %135, %133, %130
-  %.063 = phi i32 [ 61, %130 ], [ 61, %133 ], [ 0, %135 ], [ %spec.select99, %137 ], [ 61, %112 ], [ 27, %92 ], [ 27, %85 ], [ 27, %79 ], [ 27, %65 ], [ 27, %58 ], [ 27, %51 ], [ 27, %37 ]
+140:                                              ; preds = %137, %135
+  br label %.loopexit99
+
+.loopexit99:                                      ; preds = %112, %92, %85, %79, %65, %58, %51, %37, %137, %133, %130, %140
+  %.063 = phi i32 [ 0, %140 ], [ 61, %130 ], [ 61, %133 ], [ 61, %137 ], [ 61, %112 ], [ 27, %92 ], [ 27, %85 ], [ 27, %79 ], [ 27, %65 ], [ 27, %58 ], [ 27, %51 ], [ 27, %37 ]
   ret i32 %.063
 }
 

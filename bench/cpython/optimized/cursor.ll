@@ -2828,14 +2828,18 @@ do.body61:                                        ; preds = %if.then52, %do.body
   %statement = getelementptr inbounds i8, ptr %self, i64 72
   %6 = load ptr, ptr %statement, align 8
   %tobool62.not = icmp eq ptr %6, null
-  br i1 %tobool62.not, label %return, label %if.then63
+  br i1 %tobool62.not, label %do.end71, label %if.then63
 
 if.then63:                                        ; preds = %do.body61
   %call66 = tail call i32 %visit(ptr noundef nonnull %6, ptr noundef %arg) #7
+  %tobool67.not = icmp eq i32 %call66, 0
+  br i1 %tobool67.not, label %do.end71, label %return
+
+do.end71:                                         ; preds = %do.body61, %if.then63
   br label %return
 
-return:                                           ; preds = %if.then63, %do.body61, %if.then52, %if.then41, %if.then30, %if.then19, %if.then8, %if.then
-  %retval.0 = phi i32 [ %call2, %if.then ], [ %call11, %if.then8 ], [ %call22, %if.then19 ], [ %call33, %if.then30 ], [ %call44, %if.then41 ], [ %call55, %if.then52 ], [ 0, %do.body61 ], [ %call66, %if.then63 ]
+return:                                           ; preds = %if.then63, %if.then52, %if.then41, %if.then30, %if.then19, %if.then8, %if.then, %do.end71
+  %retval.0 = phi i32 [ 0, %do.end71 ], [ %call2, %if.then ], [ %call11, %if.then8 ], [ %call22, %if.then19 ], [ %call33, %if.then30 ], [ %call44, %if.then41 ], [ %call55, %if.then52 ], [ %call66, %if.then63 ]
   ret i32 %retval.0
 }
 
@@ -3622,16 +3626,18 @@ define internal ptr @pysqlite_cursor_fetchone(ptr noundef %self, ptr nocapture r
 entry:
   %call.i = tail call ptr @pysqlite_cursor_iternext(ptr noundef %self)
   %tobool.not.i = icmp eq ptr %call.i, null
-  br i1 %tobool.not.i, label %land.lhs.true.i, label %pysqlite_cursor_fetchone_impl.exit
+  br i1 %tobool.not.i, label %land.lhs.true.i, label %if.end.i
 
 land.lhs.true.i:                                  ; preds = %entry
   %call1.i = tail call ptr @PyErr_Occurred() #7
   %tobool2.not.i = icmp eq ptr %call1.i, null
-  %spec.select.i = select i1 %tobool2.not.i, ptr @_Py_NoneStruct, ptr null
+  br i1 %tobool2.not.i, label %pysqlite_cursor_fetchone_impl.exit, label %if.end.i
+
+if.end.i:                                         ; preds = %land.lhs.true.i, %entry
   br label %pysqlite_cursor_fetchone_impl.exit
 
-pysqlite_cursor_fetchone_impl.exit:               ; preds = %entry, %land.lhs.true.i
-  %retval.0.i = phi ptr [ %call.i, %entry ], [ %spec.select.i, %land.lhs.true.i ]
+pysqlite_cursor_fetchone_impl.exit:               ; preds = %land.lhs.true.i, %if.end.i
+  %retval.0.i = phi ptr [ %call.i, %if.end.i ], [ @_Py_NoneStruct, %land.lhs.true.i ]
   ret ptr %retval.0.i
 }
 
@@ -3642,20 +3648,22 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pysqlite_cursor_setoutputsize(ptr nocapture readnone %self, ptr nocapture readnone %args, i64 noundef %nargs) #0 {
+define internal noundef ptr @pysqlite_cursor_setoutputsize(ptr nocapture readnone %self, ptr nocapture readnone %args, i64 noundef %nargs) #0 {
 entry:
   %0 = add i64 %nargs, -1
   %or.cond = icmp ult i64 %0, 2
-  br i1 %or.cond, label %exit, label %lor.lhs.false
+  br i1 %or.cond, label %if.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
   %call = tail call i32 @_PyArg_CheckPositional(ptr noundef nonnull @.str.27, i64 noundef %nargs, i64 noundef 1, i64 noundef 2) #7
   %tobool.not = icmp eq i32 %call, 0
-  %spec.select = select i1 %tobool.not, ptr null, ptr @_Py_NoneStruct
+  br i1 %tobool.not, label %exit, label %if.end
+
+if.end:                                           ; preds = %entry, %lor.lhs.false
   br label %exit
 
-exit:                                             ; preds = %lor.lhs.false, %entry
-  %return_value.0 = phi ptr [ @_Py_NoneStruct, %entry ], [ %spec.select, %lor.lhs.false ]
+exit:                                             ; preds = %if.end, %lor.lhs.false
+  %return_value.0 = phi ptr [ null, %lor.lhs.false ], [ @_Py_NoneStruct, %if.end ]
   ret ptr %return_value.0
 }
 

@@ -1057,8 +1057,8 @@ if.then.i.i:                                      ; preds = %if.else.i
 _ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i:  ; preds = %if.else.i
   %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.sub.i, i64 %sub)
   %add.i.i = add nuw i64 %.sroa.speculated.i.i, %sub.ptr.sub.i
-  %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %add.i.i, i64 9223372036854775807)
-  %call5.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %spec.select.i.i) #22
+  %3 = tail call i64 @llvm.umin.i64(i64 %add.i.i, i64 9223372036854775807)
+  %call5.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %3) #22
   %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i
   store i8 0, ptr %add.ptr.i, align 1
   %sub.i.i.i23.i = add nsw i64 %sub, -1
@@ -1090,7 +1090,7 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit33.i: ; preds = %if.then.i32.
   store ptr %call5.i.i.i.i, ptr %this, align 8
   %add.ptr36.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %__new_size
   store ptr %add.ptr36.i, ptr %_M_finish.i, align 8
-  %add.ptr39.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %spec.select.i.i
+  %add.ptr39.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %3
   store ptr %add.ptr39.i, ptr %_M_end_of_storage.i, align 8
   br label %if.end6
 
@@ -1597,15 +1597,15 @@ if.end117:                                        ; preds = %if.end90
   %or.cond25 = select i1 %or.cond24, i1 %cmp125, i1 false
   %cmp128 = icmp eq i8 %3, 109
   %or.cond26 = select i1 %or.cond25, i1 %cmp128, i1 false
-  br i1 %or.cond26, label %land.lhs.true129, label %return
+  br i1 %or.cond26, label %land.lhs.true129, label %if.end208
 
 land.lhs.true129:                                 ; preds = %if.end117
   %call = call noundef zeroext i1 @_ZN4pugi4impl26parse_declaration_encodingEPKhmRS2_Rm(ptr noundef nonnull %data, i64 noundef %size, ptr noundef nonnull align 8 dereferenceable(8) %enc, ptr noundef nonnull align 8 dereferenceable(8) %enc_length)
-  br i1 %call, label %if.then130, label %return
+  br i1 %call, label %if.then130, label %if.end208
 
 if.then130:                                       ; preds = %land.lhs.true129
   %4 = load i64, ptr %enc_length, align 8
-  switch i64 %4, label %return [
+  switch i64 %4, label %if.end208 [
     i64 10, label %land.lhs.true132
     i64 6, label %land.lhs.true177
   ]
@@ -1615,110 +1615,110 @@ land.lhs.true132:                                 ; preds = %if.then130
   %6 = load i8, ptr %5, align 1
   %7 = and i8 %6, -33
   %cmp135 = icmp eq i8 %7, 73
-  br i1 %cmp135, label %land.lhs.true136, label %return
+  br i1 %cmp135, label %land.lhs.true136, label %if.end208
 
 land.lhs.true136:                                 ; preds = %land.lhs.true132
   %arrayidx137 = getelementptr inbounds i8, ptr %5, i64 1
   %8 = load i8, ptr %arrayidx137, align 1
   %9 = and i8 %8, -33
   %cmp140 = icmp eq i8 %9, 83
-  br i1 %cmp140, label %land.lhs.true141, label %return
+  br i1 %cmp140, label %land.lhs.true141, label %if.end208
 
 land.lhs.true141:                                 ; preds = %land.lhs.true136
   %arrayidx142 = getelementptr inbounds i8, ptr %5, i64 2
   %10 = load i8, ptr %arrayidx142, align 1
   %11 = and i8 %10, -33
   %cmp145 = icmp eq i8 %11, 79
-  br i1 %cmp145, label %land.lhs.true146, label %return
+  br i1 %cmp145, label %land.lhs.true146, label %if.end208
 
 land.lhs.true146:                                 ; preds = %land.lhs.true141
   %arrayidx147 = getelementptr inbounds i8, ptr %5, i64 3
   %12 = load i8, ptr %arrayidx147, align 1
   %cmp149 = icmp eq i8 %12, 45
-  br i1 %cmp149, label %land.lhs.true150, label %return
+  br i1 %cmp149, label %land.lhs.true150, label %if.end208
 
 land.lhs.true150:                                 ; preds = %land.lhs.true146
   %arrayidx151 = getelementptr inbounds i8, ptr %5, i64 4
   %13 = load i8, ptr %arrayidx151, align 1
   %cmp153 = icmp eq i8 %13, 56
-  br i1 %cmp153, label %land.lhs.true154, label %return
+  br i1 %cmp153, label %land.lhs.true154, label %if.end208
 
 land.lhs.true154:                                 ; preds = %land.lhs.true150
   %arrayidx155 = getelementptr inbounds i8, ptr %5, i64 5
   %14 = load i8, ptr %arrayidx155, align 1
   %cmp157 = icmp eq i8 %14, 56
-  br i1 %cmp157, label %land.lhs.true158, label %return
+  br i1 %cmp157, label %land.lhs.true158, label %if.end208
 
 land.lhs.true158:                                 ; preds = %land.lhs.true154
   %arrayidx159 = getelementptr inbounds i8, ptr %5, i64 6
   %15 = load i8, ptr %arrayidx159, align 1
   %cmp161 = icmp eq i8 %15, 53
-  br i1 %cmp161, label %land.lhs.true162, label %return
+  br i1 %cmp161, label %land.lhs.true162, label %if.end208
 
 land.lhs.true162:                                 ; preds = %land.lhs.true158
   %arrayidx163 = getelementptr inbounds i8, ptr %5, i64 7
   %16 = load i8, ptr %arrayidx163, align 1
   %cmp165 = icmp eq i8 %16, 57
-  br i1 %cmp165, label %land.lhs.true166, label %return
+  br i1 %cmp165, label %land.lhs.true166, label %if.end208
 
 land.lhs.true166:                                 ; preds = %land.lhs.true162
   %arrayidx167 = getelementptr inbounds i8, ptr %5, i64 8
   %17 = load i8, ptr %arrayidx167, align 1
   %cmp169 = icmp eq i8 %17, 45
-  br i1 %cmp169, label %land.lhs.true170, label %return
+  br i1 %cmp169, label %land.lhs.true170, label %if.end208
 
 land.lhs.true170:                                 ; preds = %land.lhs.true166
   %arrayidx171 = getelementptr inbounds i8, ptr %5, i64 9
-  br label %return.sink.split
+  %18 = load i8, ptr %arrayidx171, align 1
+  %cmp173 = icmp eq i8 %18, 49
+  br i1 %cmp173, label %return, label %if.end208
 
 land.lhs.true177:                                 ; preds = %if.then130
-  %18 = load ptr, ptr %enc, align 8
-  %19 = load i8, ptr %18, align 1
-  %20 = and i8 %19, -33
-  %cmp181 = icmp eq i8 %20, 76
-  br i1 %cmp181, label %land.lhs.true182, label %return
+  %19 = load ptr, ptr %enc, align 8
+  %20 = load i8, ptr %19, align 1
+  %21 = and i8 %20, -33
+  %cmp181 = icmp eq i8 %21, 76
+  br i1 %cmp181, label %land.lhs.true182, label %if.end208
 
 land.lhs.true182:                                 ; preds = %land.lhs.true177
-  %arrayidx183 = getelementptr inbounds i8, ptr %18, i64 1
-  %21 = load i8, ptr %arrayidx183, align 1
-  %22 = and i8 %21, -33
-  %cmp186 = icmp eq i8 %22, 65
-  br i1 %cmp186, label %land.lhs.true187, label %return
+  %arrayidx183 = getelementptr inbounds i8, ptr %19, i64 1
+  %22 = load i8, ptr %arrayidx183, align 1
+  %23 = and i8 %22, -33
+  %cmp186 = icmp eq i8 %23, 65
+  br i1 %cmp186, label %land.lhs.true187, label %if.end208
 
 land.lhs.true187:                                 ; preds = %land.lhs.true182
-  %arrayidx188 = getelementptr inbounds i8, ptr %18, i64 2
-  %23 = load i8, ptr %arrayidx188, align 1
-  %24 = and i8 %23, -33
-  %cmp191 = icmp eq i8 %24, 84
-  br i1 %cmp191, label %land.lhs.true192, label %return
+  %arrayidx188 = getelementptr inbounds i8, ptr %19, i64 2
+  %24 = load i8, ptr %arrayidx188, align 1
+  %25 = and i8 %24, -33
+  %cmp191 = icmp eq i8 %25, 84
+  br i1 %cmp191, label %land.lhs.true192, label %if.end208
 
 land.lhs.true192:                                 ; preds = %land.lhs.true187
-  %arrayidx193 = getelementptr inbounds i8, ptr %18, i64 3
-  %25 = load i8, ptr %arrayidx193, align 1
-  %26 = and i8 %25, -33
-  %cmp196 = icmp eq i8 %26, 73
-  br i1 %cmp196, label %land.lhs.true197, label %return
+  %arrayidx193 = getelementptr inbounds i8, ptr %19, i64 3
+  %26 = load i8, ptr %arrayidx193, align 1
+  %27 = and i8 %26, -33
+  %cmp196 = icmp eq i8 %27, 73
+  br i1 %cmp196, label %land.lhs.true197, label %if.end208
 
 land.lhs.true197:                                 ; preds = %land.lhs.true192
-  %arrayidx198 = getelementptr inbounds i8, ptr %18, i64 4
-  %27 = load i8, ptr %arrayidx198, align 1
-  %28 = and i8 %27, -33
-  %cmp201 = icmp eq i8 %28, 78
-  br i1 %cmp201, label %land.lhs.true202, label %return
+  %arrayidx198 = getelementptr inbounds i8, ptr %19, i64 4
+  %28 = load i8, ptr %arrayidx198, align 1
+  %29 = and i8 %28, -33
+  %cmp201 = icmp eq i8 %29, 78
+  br i1 %cmp201, label %land.lhs.true202, label %if.end208
 
 land.lhs.true202:                                 ; preds = %land.lhs.true197
-  %arrayidx203 = getelementptr inbounds i8, ptr %18, i64 5
-  br label %return.sink.split
+  %arrayidx203 = getelementptr inbounds i8, ptr %19, i64 5
+  %30 = load i8, ptr %arrayidx203, align 1
+  %cmp205 = icmp eq i8 %30, 49
+  br i1 %cmp205, label %return, label %if.end208
 
-return.sink.split:                                ; preds = %land.lhs.true202, %land.lhs.true170
-  %arrayidx171.sink = phi ptr [ %arrayidx171, %land.lhs.true170 ], [ %arrayidx203, %land.lhs.true202 ]
-  %29 = load i8, ptr %arrayidx171.sink, align 1
-  %cmp173 = icmp eq i8 %29, 49
-  %spec.select71 = select i1 %cmp173, i32 9, i32 1
+if.end208:                                        ; preds = %if.then130, %land.lhs.true132, %land.lhs.true136, %land.lhs.true141, %land.lhs.true146, %land.lhs.true150, %land.lhs.true154, %land.lhs.true158, %land.lhs.true162, %land.lhs.true166, %land.lhs.true170, %land.lhs.true177, %land.lhs.true182, %land.lhs.true187, %land.lhs.true192, %land.lhs.true197, %land.lhs.true202, %land.lhs.true129, %if.end117
   br label %return
 
-return:                                           ; preds = %return.sink.split, %if.then130, %land.lhs.true132, %land.lhs.true136, %land.lhs.true141, %land.lhs.true146, %land.lhs.true150, %land.lhs.true154, %land.lhs.true158, %land.lhs.true162, %land.lhs.true166, %if.end90, %if.end27, %if.end117, %land.lhs.true129, %land.lhs.true197, %land.lhs.true192, %land.lhs.true187, %land.lhs.true182, %land.lhs.true177, %if.end77, %if.end64, %if.end51, %if.end41, %if.end14, %if.end, %entry
-  %retval.0 = phi i32 [ 1, %entry ], [ 6, %if.end ], [ 5, %if.end14 ], [ %.mux, %if.end27 ], [ 1, %if.end41 ], [ 6, %if.end51 ], [ 5, %if.end64 ], [ 3, %if.end77 ], [ %.mux68.mux, %if.end90 ], [ 1, %land.lhs.true177 ], [ 1, %land.lhs.true182 ], [ 1, %land.lhs.true187 ], [ 1, %land.lhs.true192 ], [ 1, %land.lhs.true197 ], [ 1, %land.lhs.true129 ], [ 1, %if.end117 ], [ 1, %land.lhs.true166 ], [ 1, %land.lhs.true162 ], [ 1, %land.lhs.true158 ], [ 1, %land.lhs.true154 ], [ 1, %land.lhs.true150 ], [ 1, %land.lhs.true146 ], [ 1, %land.lhs.true141 ], [ 1, %land.lhs.true136 ], [ 1, %land.lhs.true132 ], [ 1, %if.then130 ], [ %spec.select71, %return.sink.split ]
+return:                                           ; preds = %if.end90, %if.end27, %land.lhs.true202, %land.lhs.true170, %if.end77, %if.end64, %if.end51, %if.end41, %if.end14, %if.end, %entry, %if.end208
+  %retval.0 = phi i32 [ 1, %if.end208 ], [ 1, %entry ], [ 6, %if.end ], [ 5, %if.end14 ], [ %.mux, %if.end27 ], [ 1, %if.end41 ], [ 6, %if.end51 ], [ 5, %if.end64 ], [ 3, %if.end77 ], [ %.mux68.mux, %if.end90 ], [ 9, %land.lhs.true170 ], [ 9, %land.lhs.true202 ]
   ret i32 %retval.0
 }
 

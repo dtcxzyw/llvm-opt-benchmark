@@ -1239,7 +1239,7 @@ define internal fastcc ptr @gvevent_find_cluster(ptr noundef readonly %0, ptr no
   %17 = getelementptr inbounds i8, ptr %1, i64 16
   %18 = load double, ptr %17, align 8
   %19 = fcmp ult double %18, %16
-  br i1 %19, label %.loopexit, label %20
+  br i1 %19, label %35, label %20
 
 20:                                               ; preds = %._crit_edge
   %21 = getelementptr inbounds i8, ptr %4, i64 56
@@ -1258,11 +1258,13 @@ define internal fastcc ptr @gvevent_find_cluster(ptr noundef readonly %0, ptr no
   %33 = load double, ptr %32, align 8
   %34 = fcmp ult double %22, %33
   %or.cond19 = select i1 %or.cond, i1 true, i1 %34
-  %spec.select = select i1 %or.cond19, ptr null, ptr %0
+  br i1 %or.cond19, label %35, label %.loopexit
+
+35:                                               ; preds = %20, %._crit_edge
   br label %.loopexit
 
-.loopexit:                                        ; preds = %11, %20, %._crit_edge
-  %.0 = phi ptr [ null, %._crit_edge ], [ %spec.select, %20 ], [ %14, %11 ]
+.loopexit:                                        ; preds = %11, %20, %35
+  %.0 = phi ptr [ null, %35 ], [ %0, %20 ], [ %14, %11 ]
   ret ptr %.0
 }
 

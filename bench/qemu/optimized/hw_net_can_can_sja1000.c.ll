@@ -1228,31 +1228,80 @@ if.then.i:                                        ; preds = %if.end2
   br i1 %tobool3.not.i, label %if.else78.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.then.i
-  br i1 %tobool81.not.i, label %if.else.i, label %can_sja_accept_filter.exit
+  br i1 %tobool81.not.i, label %if.else.i, label %if.then7.i
+
+if.then7.i:                                       ; preds = %if.then4.i
+  %shl.i.i = shl nuw nsw i32 %conv17.i73.i, 21
+  %conv2.i.i = zext i8 %9 to i32
+  %shl3.i.i = shl nuw nsw i32 %conv2.i.i, 13
+  %or.i.i = or disjoint i32 %shl3.i.i, %shl.i.i
+  %arrayidx5.i.i = getelementptr i8, ptr %client, i64 -143
+  %10 = load i8, ptr %arrayidx5.i.i, align 1
+  %conv6.i.i = zext i8 %10 to i32
+  %shl7.i.i = shl nuw nsw i32 %conv6.i.i, 5
+  %or9.i.i = or disjoint i32 %or.i.i, %shl7.i.i
+  %arrayidx10.i.i = getelementptr i8, ptr %client, i64 -142
+  %11 = load i8, ptr %arrayidx10.i.i, align 1
+  %12 = lshr i8 %11, 3
+  %shr.i.i = zext nneg i8 %12 to i32
+  %13 = and i8 %11, 4
+  %14 = zext nneg i8 %13 to i32
+  %15 = shl nuw nsw i32 %14, 28
+  %16 = or disjoint i32 %15, %shr.i.i
+  %spec.select.i = or disjoint i32 %16, %or9.i.i
+  store i32 %spec.select.i, ptr %filter.i, align 4
+  %17 = load i8, ptr %add.ptr111.i, align 1
+  %conv21.i.i = zext i8 %17 to i32
+  %shl22.i.i = shl nuw nsw i32 %conv21.i.i, 21
+  %can_mask.i.i = getelementptr inbounds i8, ptr %filter.i, i64 4
+  %arrayidx23.i.i = getelementptr i8, ptr %client, i64 -140
+  %18 = load i8, ptr %arrayidx23.i.i, align 1
+  %conv24.i.i = zext i8 %18 to i32
+  %shl25.i.i = shl nuw nsw i32 %conv24.i.i, 13
+  %or27.i.i = or disjoint i32 %shl25.i.i, %shl22.i.i
+  %arrayidx28.i.i = getelementptr i8, ptr %client, i64 -139
+  %19 = load i8, ptr %arrayidx28.i.i, align 1
+  %conv29.i.i = zext i8 %19 to i32
+  %shl30.i.i = shl nuw nsw i32 %conv29.i.i, 5
+  %or32.i.i = or disjoint i32 %or27.i.i, %shl30.i.i
+  %arrayidx33.i.i = getelementptr i8, ptr %client, i64 -138
+  %20 = load i8, ptr %arrayidx33.i.i, align 1
+  %21 = lshr i8 %20, 3
+  %shr35.i.i = zext nneg i8 %21 to i32
+  %or37.i.i = or disjoint i32 %or32.i.i, %shr35.i.i
+  %and39.i.i = xor i32 %or37.i.i, 536870911
+  %22 = and i8 %20, 4
+  %tobool44.not.i.i = icmp eq i8 %22, 0
+  %or85.i.i = or i32 %and39.i.i, 1073741824
+  %storemerge97.i = select i1 %tobool44.not.i.i, i32 %or85.i.i, i32 %and39.i.i
+  store i32 %storemerge97.i, ptr %can_mask.i.i, align 4
+  %call.i = call i32 @can_bus_filter_match(ptr noundef nonnull %filter.i, i32 noundef %7) #9
+  %tobool12.not.i = icmp eq i32 %call.i, 0
+  br i1 %tobool12.not.i, label %can_sja_accept_filter.exit.thread99, label %can_sja_accept_filter.exit.thread
 
 if.else.i:                                        ; preds = %if.then4.i
   %shl51.i.i = shl nuw nsw i32 %conv17.i73.i, 3
-  %10 = lshr i8 %9, 5
-  %shr55.i.i = zext nneg i8 %10 to i32
-  %11 = and i8 %9, 16
-  %12 = zext nneg i8 %11 to i32
-  %13 = shl nuw nsw i32 %12, 26
-  %14 = or disjoint i32 %13, %shr55.i.i
-  %spec.select104.i = or disjoint i32 %14, %shl51.i.i
+  %23 = lshr i8 %9, 5
+  %shr55.i.i = zext nneg i8 %23 to i32
+  %24 = and i8 %9, 16
+  %25 = zext nneg i8 %24 to i32
+  %26 = shl nuw nsw i32 %25, 26
+  %27 = or disjoint i32 %26, %shr55.i.i
+  %spec.select104.i = or disjoint i32 %27, %shl51.i.i
   store i32 %spec.select104.i, ptr %filter.i, align 4
-  %15 = load i8, ptr %add.ptr111.i, align 1
-  %conv67.i.i = zext i8 %15 to i32
+  %28 = load i8, ptr %add.ptr111.i, align 1
+  %conv67.i.i = zext i8 %28 to i32
   %shl68.i.i = shl nuw nsw i32 %conv67.i.i, 3
   %can_mask69.i.i = getelementptr inbounds i8, ptr %filter.i, i64 4
   %arrayidx70.i.i = getelementptr i8, ptr %client, i64 -140
-  %16 = load i8, ptr %arrayidx70.i.i, align 1
-  %conv71.i.i = zext i8 %16 to i32
+  %29 = load i8, ptr %arrayidx70.i.i, align 1
+  %conv71.i.i = zext i8 %29 to i32
   %shl72.i.i = shl nuw nsw i32 %conv71.i.i, 5
   %shl72.masked.i.i = and i32 %shl72.i.i, 2016
   %not76.i.i = or i32 %shl72.masked.i.i, %shl68.i.i
   %and77.i.i = xor i32 %not76.i.i, 2047
-  %17 = and i8 %16, 16
-  %tobool82.not.i.i = icmp eq i8 %17, 0
+  %30 = and i8 %29, 16
+  %tobool82.not.i.i = icmp eq i8 %30, 0
   %or85.i50.i = or disjoint i32 %and77.i.i, 1073741824
   %storemerge99.i = select i1 %tobool82.not.i.i, i32 %or85.i50.i, i32 %and77.i.i
   store i32 %storemerge99.i, ptr %can_mask69.i.i, align 4
@@ -1261,49 +1310,49 @@ if.else.i:                                        ; preds = %if.then4.i
   br i1 %tobool22.not.i, label %can_sja_accept_filter.exit.thread99, label %if.end24.i
 
 if.end24.i:                                       ; preds = %if.else.i
-  %18 = load i32, ptr %frames, align 8
-  %and26.i = and i32 %18, 1073741824
+  %31 = load i32, ptr %frames, align 8
+  %and26.i = and i32 %31, 1073741824
   %tobool27.not.i = icmp eq i32 %and26.i, 0
   br i1 %tobool27.not.i, label %if.end29.i, label %can_sja_accept_filter.exit.thread
 
 if.end29.i:                                       ; preds = %if.end24.i
   %can_dlc.i = getelementptr inbounds i8, ptr %frames, i64 4
-  %19 = load i8, ptr %can_dlc.i, align 4
-  %cmp.i = icmp eq i8 %19, 0
+  %32 = load i8, ptr %can_dlc.i, align 4
+  %cmp.i = icmp eq i8 %32, 0
   br i1 %cmp.i, label %can_sja_accept_filter.exit.thread, label %if.end33.i
 
 if.end33.i:                                       ; preds = %if.end29.i
   %data.i = getelementptr inbounds i8, ptr %frames, i64 8
-  %20 = load i8, ptr %data.i, align 8
+  %33 = load i8, ptr %data.i, align 8
   %arrayidx36.i = getelementptr i8, ptr %client, i64 -139
-  %21 = load i8, ptr %arrayidx36.i, align 1
-  %conv37.i = zext i8 %21 to i32
+  %34 = load i8, ptr %arrayidx36.i, align 1
+  %conv37.i = zext i8 %34 to i32
   %not.i = xor i32 %conv37.i, -1
   %arrayidx40.i = getelementptr i8, ptr %client, i64 -143
-  %22 = load i8, ptr %arrayidx40.i, align 1
-  %23 = xor i8 %22, %20
-  %24 = zext i8 %23 to i32
-  %25 = and i32 %24, %not.i
-  %cmp47.not.i = icmp eq i32 %25, 0
+  %35 = load i8, ptr %arrayidx40.i, align 1
+  %36 = xor i8 %35, %33
+  %37 = zext i8 %36 to i32
+  %38 = and i32 %37, %not.i
+  %cmp47.not.i = icmp eq i32 %38, 0
   br i1 %cmp47.not.i, label %if.end50.i, label %can_sja_accept_filter.exit.thread99
 
 if.end50.i:                                       ; preds = %if.end33.i
-  %cmp53.i = icmp eq i8 %19, 1
+  %cmp53.i = icmp eq i8 %32, 1
   br i1 %cmp53.i, label %can_sja_accept_filter.exit.thread, label %if.end56.i
 
 if.end56.i:                                       ; preds = %if.end50.i
   %arrayidx58.i = getelementptr i8, ptr %frames, i64 9
-  %26 = load i8, ptr %arrayidx58.i, align 1
+  %39 = load i8, ptr %arrayidx58.i, align 1
   %arrayidx61.i = getelementptr i8, ptr %client, i64 -138
-  %27 = load i8, ptr %arrayidx61.i, align 1
-  %conv62.i = zext i8 %27 to i32
+  %40 = load i8, ptr %arrayidx61.i, align 1
+  %conv62.i = zext i8 %40 to i32
   %not63.i = xor i32 %conv62.i, -1
   %arrayidx66.i = getelementptr i8, ptr %client, i64 -142
-  %28 = load i8, ptr %arrayidx66.i, align 1
-  %29 = xor i8 %28, %26
-  %30 = zext i8 %29 to i32
-  %31 = and i32 %30, %not63.i
-  %cmp73.i = icmp eq i32 %31, 0
+  %41 = load i8, ptr %arrayidx66.i, align 1
+  %42 = xor i8 %41, %39
+  %43 = zext i8 %42 to i32
+  %44 = and i32 %43, %not63.i
+  %cmp73.i = icmp eq i32 %44, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %filter.i)
   br i1 %cmp73.i, label %if.end17, label %if.then11
 
@@ -1316,13 +1365,13 @@ if.then82.i:                                      ; preds = %if.else78.i
   %shl3.i54.i = shl nuw nsw i32 %conv2.i53.i, 13
   %or.i55.i = or disjoint i32 %shl3.i54.i, %shl.i52.i
   store i32 %or.i55.i, ptr %filter.i, align 4
-  %32 = load i8, ptr %add.ptr111.i, align 1
-  %conv6.i56.i = zext i8 %32 to i32
+  %45 = load i8, ptr %add.ptr111.i, align 1
+  %conv6.i56.i = zext i8 %45 to i32
   %shl7.i57.i = shl nuw nsw i32 %conv6.i56.i, 21
   %can_mask.i58.i = getelementptr inbounds i8, ptr %filter.i, i64 4
   %arrayidx8.i.i = getelementptr i8, ptr %client, i64 -140
-  %33 = load i8, ptr %arrayidx8.i.i, align 1
-  %conv9.i.i = zext i8 %33 to i32
+  %46 = load i8, ptr %arrayidx8.i.i, align 1
+  %conv9.i.i = zext i8 %46 to i32
   %shl10.i.i = shl nuw nsw i32 %conv9.i.i, 13
   %or12.i.i = or disjoint i32 %shl10.i.i, %shl7.i57.i
   %and.i.i = xor i32 %or12.i.i, 536862720
@@ -1334,53 +1383,53 @@ if.then82.i:                                      ; preds = %if.else78.i
 if.end93.i:                                       ; preds = %if.then82.i
   %add.ptr96.i = getelementptr i8, ptr %client, i64 -143
   %add.ptr99.i = getelementptr i8, ptr %client, i64 -139
-  %34 = load i8, ptr %add.ptr96.i, align 1
-  %conv17.i59.i = zext i8 %34 to i32
+  %47 = load i8, ptr %add.ptr96.i, align 1
+  %conv17.i59.i = zext i8 %47 to i32
   %arrayidx20.i60.i = getelementptr i8, ptr %client, i64 -142
   %shl.i61.i = shl nuw nsw i32 %conv17.i59.i, 21
-  %35 = load i8, ptr %arrayidx20.i60.i, align 1
-  %conv2.i62.i = zext i8 %35 to i32
+  %48 = load i8, ptr %arrayidx20.i60.i, align 1
+  %conv2.i62.i = zext i8 %48 to i32
   %shl3.i63.i = shl nuw nsw i32 %conv2.i62.i, 13
   %or.i64.i = or disjoint i32 %shl3.i63.i, %shl.i61.i
   store i32 %or.i64.i, ptr %filter.i, align 4
-  %36 = load i8, ptr %add.ptr99.i, align 1
-  %conv6.i65.i = zext i8 %36 to i32
+  %49 = load i8, ptr %add.ptr99.i, align 1
+  %conv6.i65.i = zext i8 %49 to i32
   %shl7.i66.i = shl nuw nsw i32 %conv6.i65.i, 21
   %arrayidx8.i68.i = getelementptr i8, ptr %client, i64 -138
-  %37 = load i8, ptr %arrayidx8.i68.i, align 1
-  %conv9.i69.i = zext i8 %37 to i32
+  %50 = load i8, ptr %arrayidx8.i68.i, align 1
+  %conv9.i69.i = zext i8 %50 to i32
   %shl10.i70.i = shl nuw nsw i32 %conv9.i69.i, 13
   %or12.i71.i = or disjoint i32 %shl10.i70.i, %shl7.i66.i
   %and.i72.i = xor i32 %or12.i71.i, 536862720
   store i32 %and.i72.i, ptr %can_mask.i58.i, align 4
-  %38 = load i32, ptr %frames, align 8
-  %call101.i = call i32 @can_bus_filter_match(ptr noundef nonnull %filter.i, i32 noundef %38) #9
+  %51 = load i32, ptr %frames, align 8
+  %call101.i = call i32 @can_bus_filter_match(ptr noundef nonnull %filter.i, i32 noundef %51) #9
   %tobool102.not.i.not = icmp eq i32 %call101.i, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %filter.i)
   br i1 %tobool102.not.i.not, label %if.then11, label %if.end17
 
 if.else105.i:                                     ; preds = %if.else78.i
   %shl18.i.i = shl nuw nsw i32 %conv17.i73.i, 3
-  %39 = lshr i8 %9, 5
-  %shr.i75.i = zext nneg i8 %39 to i32
-  %40 = and i8 %9, 16
-  %41 = zext nneg i8 %40 to i32
-  %42 = shl nuw nsw i32 %41, 26
-  %43 = or disjoint i32 %42, %shr.i75.i
-  %spec.select105.i = or disjoint i32 %43, %shl18.i.i
+  %52 = lshr i8 %9, 5
+  %shr.i75.i = zext nneg i8 %52 to i32
+  %53 = and i8 %9, 16
+  %54 = zext nneg i8 %53 to i32
+  %55 = shl nuw nsw i32 %54, 26
+  %56 = or disjoint i32 %55, %shr.i75.i
+  %spec.select105.i = or disjoint i32 %56, %shl18.i.i
   store i32 %spec.select105.i, ptr %filter.i, align 4
-  %44 = load i8, ptr %add.ptr111.i, align 1
-  %conv32.i.i = zext i8 %44 to i32
+  %57 = load i8, ptr %add.ptr111.i, align 1
+  %conv32.i.i = zext i8 %57 to i32
   %shl33.i.i = shl nuw nsw i32 %conv32.i.i, 3
   %can_mask34.i.i = getelementptr inbounds i8, ptr %filter.i, i64 4
   %arrayidx35.i.i = getelementptr i8, ptr %client, i64 -140
-  %45 = load i8, ptr %arrayidx35.i.i, align 1
-  %46 = lshr i8 %45, 5
-  %shr37.i.i = zext nneg i8 %46 to i32
+  %58 = load i8, ptr %arrayidx35.i.i, align 1
+  %59 = lshr i8 %58, 5
+  %shr37.i.i = zext nneg i8 %59 to i32
   %or39.i.i = or disjoint i32 %shl33.i.i, %shr37.i.i
   %and42.i.i = xor i32 %or39.i.i, 2047
-  %47 = and i8 %45, 16
-  %tobool47.not.i.i = icmp eq i8 %47, 0
+  %60 = and i8 %58, 16
+  %tobool47.not.i.i = icmp eq i8 %60, 0
   %or50.i.i = or disjoint i32 %and42.i.i, 1073741824
   %storemerge101.i = select i1 %tobool47.not.i.i, i32 %or50.i.i, i32 %and42.i.i
   store i32 %storemerge101.i, ptr %can_mask34.i.i, align 4
@@ -1393,128 +1442,78 @@ if.else105.if.end154_crit_edge.i:                 ; preds = %if.else105.i
   %.pre.i = load i8, ptr %arrayidx20.i78.phi.trans.insert.i, align 1
   %arrayidx35.i89.phi.trans.insert.i = getelementptr i8, ptr %client, i64 -138
   %.pre107.i = load i8, ptr %arrayidx35.i89.phi.trans.insert.i, align 1
-  br label %if.end154.i
+  br label %can_sja_accept_filter.exit
 
 if.then115.i:                                     ; preds = %if.else105.i
-  %48 = load i8, ptr %arrayidx20.i74.i, align 1
-  %shl.i = shl i8 %48, 4
+  %61 = load i8, ptr %arrayidx20.i74.i, align 1
+  %shl.i = shl i8 %61, 4
   %arrayidx121.i = getelementptr i8, ptr %client, i64 -142
-  %49 = load i8, ptr %arrayidx121.i, align 1
-  %50 = and i8 %49, 15
-  %or41.i = or disjoint i8 %50, %shl.i
-  %51 = load i8, ptr %arrayidx35.i.i, align 1
-  %shl129.i = shl i8 %51, 4
+  %62 = load i8, ptr %arrayidx121.i, align 1
+  %63 = and i8 %62, 15
+  %or41.i = or disjoint i8 %63, %shl.i
+  %64 = load i8, ptr %arrayidx35.i.i, align 1
+  %shl129.i = shl i8 %64, 4
   %arrayidx132.i = getelementptr i8, ptr %client, i64 -138
-  %52 = load i8, ptr %arrayidx132.i, align 1
-  %53 = and i8 %52, 15
-  %or13642.i = or disjoint i8 %53, %shl129.i
-  %54 = xor i8 %or13642.i, -1
+  %65 = load i8, ptr %arrayidx132.i, align 1
+  %66 = and i8 %65, 15
+  %or13642.i = or disjoint i8 %66, %shl129.i
+  %67 = xor i8 %or13642.i, -1
   %data142.i = getelementptr inbounds i8, ptr %frames, i64 8
-  %55 = load i8, ptr %data142.i, align 8
-  %56 = xor i8 %55, %or41.i
-  %57 = and i8 %56, %54
-  %cmp150.i = icmp eq i8 %57, 0
-  br i1 %cmp150.i, label %can_sja_accept_filter.exit.thread, label %if.end154.i
+  %68 = load i8, ptr %data142.i, align 8
+  %69 = xor i8 %68, %or41.i
+  %70 = and i8 %69, %67
+  %cmp150.i = icmp eq i8 %70, 0
+  br i1 %cmp150.i, label %can_sja_accept_filter.exit.thread, label %can_sja_accept_filter.exit
 
-if.end154.i:                                      ; preds = %if.then115.i, %if.else105.if.end154_crit_edge.i
-  %58 = phi i8 [ %.pre107.i, %if.else105.if.end154_crit_edge.i ], [ %52, %if.then115.i ]
-  %59 = phi i8 [ %.pre.i, %if.else105.if.end154_crit_edge.i ], [ %49, %if.then115.i ]
+can_sja_accept_filter.exit.thread:                ; preds = %if.end24.i, %if.end29.i, %if.end50.i, %if.then82.i, %if.then115.i, %if.then7.i
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %filter.i)
+  br label %if.end17
+
+can_sja_accept_filter.exit.thread99:              ; preds = %if.then7.i, %if.else.i, %if.end33.i
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %filter.i)
+  br label %if.then11
+
+can_sja_accept_filter.exit:                       ; preds = %if.else105.if.end154_crit_edge.i, %if.then115.i
+  %71 = phi i8 [ %.pre107.i, %if.else105.if.end154_crit_edge.i ], [ %65, %if.then115.i ]
+  %72 = phi i8 [ %.pre.i, %if.else105.if.end154_crit_edge.i ], [ %62, %if.then115.i ]
   %add.ptr157.i = getelementptr i8, ptr %client, i64 -143
   %add.ptr160.i = getelementptr i8, ptr %client, i64 -139
-  %60 = load i8, ptr %add.ptr157.i, align 1
-  %conv17.i77.i = zext i8 %60 to i32
+  %73 = load i8, ptr %add.ptr157.i, align 1
+  %conv17.i77.i = zext i8 %73 to i32
   %shl18.i79.i = shl nuw nsw i32 %conv17.i77.i, 3
-  %61 = lshr i8 %59, 5
-  %shr.i80.i = zext nneg i8 %61 to i32
-  %62 = and i8 %59, 16
-  %63 = zext nneg i8 %62 to i32
-  %64 = shl nuw nsw i32 %63, 26
-  %65 = or disjoint i32 %64, %shr.i80.i
-  %spec.select106.i = or disjoint i32 %65, %shl18.i79.i
+  %74 = lshr i8 %72, 5
+  %shr.i80.i = zext nneg i8 %74 to i32
+  %75 = and i8 %72, 16
+  %76 = zext nneg i8 %75 to i32
+  %77 = shl nuw nsw i32 %76, 26
+  %78 = or disjoint i32 %77, %shr.i80.i
+  %spec.select106.i = or disjoint i32 %78, %shl18.i79.i
   store i32 %spec.select106.i, ptr %filter.i, align 4
-  %66 = load i8, ptr %add.ptr160.i, align 1
-  %conv32.i86.i = zext i8 %66 to i32
+  %79 = load i8, ptr %add.ptr160.i, align 1
+  %conv32.i86.i = zext i8 %79 to i32
   %shl33.i87.i = shl nuw nsw i32 %conv32.i86.i, 3
-  %67 = lshr i8 %58, 5
-  %shr37.i90.i = zext nneg i8 %67 to i32
+  %80 = lshr i8 %71, 5
+  %shr37.i90.i = zext nneg i8 %80 to i32
   %or39.i91.i = or disjoint i32 %shl33.i87.i, %shr37.i90.i
   %and42.i92.i = xor i32 %or39.i91.i, 2047
-  %68 = and i8 %58, 16
-  %tobool47.not.i93.i = icmp eq i8 %68, 0
+  %81 = and i8 %71, 16
+  %tobool47.not.i93.i = icmp eq i8 %81, 0
   %or50.i95.i = or disjoint i32 %and42.i92.i, 1073741824
   %storemerge103.i = select i1 %tobool47.not.i93.i, i32 %or50.i95.i, i32 %and42.i92.i
   store i32 %storemerge103.i, ptr %can_mask34.i.i, align 4
-  %69 = load i32, ptr %frames, align 8
-  %call162.i = call i32 @can_bus_filter_match(ptr noundef nonnull %filter.i, i32 noundef %69) #9
+  %82 = load i32, ptr %frames, align 8
+  %call162.i = call i32 @can_bus_filter_match(ptr noundef nonnull %filter.i, i32 noundef %82) #9
   %tobool163.not.i.not = icmp eq i32 %call162.i, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %filter.i)
   br i1 %tobool163.not.i.not, label %if.then11, label %if.end17
 
-can_sja_accept_filter.exit.thread:                ; preds = %if.end24.i, %if.end29.i, %if.end50.i, %if.then82.i, %if.then115.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %filter.i)
-  br label %if.end17
-
-can_sja_accept_filter.exit.thread99:              ; preds = %if.else.i, %if.end33.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %filter.i)
-  br label %if.then11
-
-can_sja_accept_filter.exit:                       ; preds = %if.then4.i
-  %shl.i.i = shl nuw nsw i32 %conv17.i73.i, 21
-  %conv2.i.i = zext i8 %9 to i32
-  %shl3.i.i = shl nuw nsw i32 %conv2.i.i, 13
-  %or.i.i = or disjoint i32 %shl3.i.i, %shl.i.i
-  %arrayidx5.i.i = getelementptr i8, ptr %client, i64 -143
-  %70 = load i8, ptr %arrayidx5.i.i, align 1
-  %conv6.i.i = zext i8 %70 to i32
-  %shl7.i.i = shl nuw nsw i32 %conv6.i.i, 5
-  %or9.i.i = or disjoint i32 %or.i.i, %shl7.i.i
-  %arrayidx10.i.i = getelementptr i8, ptr %client, i64 -142
-  %71 = load i8, ptr %arrayidx10.i.i, align 1
-  %72 = lshr i8 %71, 3
-  %shr.i.i = zext nneg i8 %72 to i32
-  %73 = and i8 %71, 4
-  %74 = zext nneg i8 %73 to i32
-  %75 = shl nuw nsw i32 %74, 28
-  %76 = or disjoint i32 %75, %shr.i.i
-  %spec.select.i = or disjoint i32 %76, %or9.i.i
-  store i32 %spec.select.i, ptr %filter.i, align 4
-  %77 = load i8, ptr %add.ptr111.i, align 1
-  %conv21.i.i = zext i8 %77 to i32
-  %shl22.i.i = shl nuw nsw i32 %conv21.i.i, 21
-  %can_mask.i.i = getelementptr inbounds i8, ptr %filter.i, i64 4
-  %arrayidx23.i.i = getelementptr i8, ptr %client, i64 -140
-  %78 = load i8, ptr %arrayidx23.i.i, align 1
-  %conv24.i.i = zext i8 %78 to i32
-  %shl25.i.i = shl nuw nsw i32 %conv24.i.i, 13
-  %or27.i.i = or disjoint i32 %shl25.i.i, %shl22.i.i
-  %arrayidx28.i.i = getelementptr i8, ptr %client, i64 -139
-  %79 = load i8, ptr %arrayidx28.i.i, align 1
-  %conv29.i.i = zext i8 %79 to i32
-  %shl30.i.i = shl nuw nsw i32 %conv29.i.i, 5
-  %or32.i.i = or disjoint i32 %or27.i.i, %shl30.i.i
-  %arrayidx33.i.i = getelementptr i8, ptr %client, i64 -138
-  %80 = load i8, ptr %arrayidx33.i.i, align 1
-  %81 = lshr i8 %80, 3
-  %shr35.i.i = zext nneg i8 %81 to i32
-  %or37.i.i = or disjoint i32 %or32.i.i, %shr35.i.i
-  %and39.i.i = xor i32 %or37.i.i, 536870911
-  %82 = and i8 %80, 4
-  %tobool44.not.i.i = icmp eq i8 %82, 0
-  %or85.i.i = or i32 %and39.i.i, 1073741824
-  %storemerge97.i = select i1 %tobool44.not.i.i, i32 %or85.i.i, i32 %and39.i.i
-  store i32 %storemerge97.i, ptr %can_mask.i.i, align 4
-  %call.i = call i32 @can_bus_filter_match(ptr noundef nonnull %filter.i, i32 noundef %7) #9
-  %tobool12.not.i.not = icmp eq i32 %call.i, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %filter.i)
-  br i1 %tobool12.not.i.not, label %if.then11, label %if.end17
-
-if.then11:                                        ; preds = %if.end154.i, %if.end93.i, %if.end56.i, %can_sja_accept_filter.exit.thread99, %can_sja_accept_filter.exit
+if.then11:                                        ; preds = %if.end93.i, %if.end56.i, %can_sja_accept_filter.exit.thread99, %can_sja_accept_filter.exit
   %83 = load i8, ptr %status_pel, align 1
   %84 = and i8 %83, -17
   store i8 %84, ptr %status_pel, align 1
   br label %return
 
-if.end17:                                         ; preds = %if.end154.i, %if.end93.i, %if.end56.i, %can_sja_accept_filter.exit.thread, %can_sja_accept_filter.exit
+if.end17:                                         ; preds = %if.end93.i, %if.end56.i, %can_sja_accept_filter.exit.thread, %can_sja_accept_filter.exit
   %can_dlc.i56 = getelementptr inbounds i8, ptr %frames, i64 4
   %85 = load i8, ptr %can_dlc.i56, align 4
   %conv.i = zext i8 %85 to i32

@@ -1916,17 +1916,19 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr) #26
   %0 = load i8, ptr %str, align 1, !tbaa !44
   %cmp = icmp eq i8 %0, 48
-  br i1 %cmp, label %land.lhs.true, label %if.end
+  br i1 %cmp, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %entry
   %arrayidx1 = getelementptr inbounds i8, ptr %str, i64 1
   %1 = load i8, ptr %arrayidx1, align 1, !tbaa !44
   %cmp3 = icmp eq i8 %1, 120
-  %spec.select = select i1 %cmp3, i32 16, i32 10
+  br i1 %cmp3, label %if.end, label %if.else
+
+if.else:                                          ; preds = %land.lhs.true, %entry
   br label %if.end
 
-if.end:                                           ; preds = %land.lhs.true, %entry
-  %.sink = phi i32 [ 10, %entry ], [ %spec.select, %land.lhs.true ]
+if.end:                                           ; preds = %if.else, %land.lhs.true
+  %.sink = phi i32 [ 10, %if.else ], [ 16, %land.lhs.true ]
   %call4 = call i64 @strtoull(ptr noundef nonnull %str, ptr noundef nonnull %endptr, i32 noundef %.sink) #26
   %2 = load ptr, ptr %endptr, align 8, !tbaa !16
   %3 = load i8, ptr %2, align 1, !tbaa !44

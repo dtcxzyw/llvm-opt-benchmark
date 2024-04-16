@@ -2935,18 +2935,19 @@ land.lhs.true64:                                  ; preds = %lor.lhs.false61, %l
   %d_differenceLogic = getelementptr inbounds i8, ptr %this, i64 84
   %29 = load i8, ptr %d_differenceLogic, align 4
   %tobool65 = trunc i8 %29 to i1
-  br i1 %tobool65, label %return, label %lor.lhs.false66
+  br i1 %tobool65, label %land.rhs69, label %lor.lhs.false66
 
 lor.lhs.false66:                                  ; preds = %land.lhs.true64
   %d_differenceLogic67 = getelementptr inbounds i8, ptr %other, i64 84
   %30 = load i8, ptr %d_differenceLogic67, align 4
   %tobool68 = trunc i8 %30 to i1
-  %not.tobool68 = xor i1 %tobool68, true
-  %spec.select = select i1 %not.tobool68, i1 %20, i1 false
+  br i1 %tobool68, label %return, label %land.rhs69
+
+land.rhs69:                                       ; preds = %lor.lhs.false66, %land.lhs.true64
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %lor.lhs.false66, %land.end40, %land.lhs.true42, %lor.lhs.false46, %lor.lhs.false51, %lor.lhs.false56, %lor.lhs.false61, %land.lhs.true64
-  %retval.0 = phi i1 [ false, %lor.lhs.false61 ], [ false, %lor.lhs.false56 ], [ false, %lor.lhs.false51 ], [ false, %lor.lhs.false46 ], [ %20, %land.lhs.true64 ], [ %20, %land.lhs.true42 ], [ %20, %land.end40 ], [ %spec.select, %lor.lhs.false66 ], [ false, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %land.end40, %land.lhs.true42, %lor.lhs.false46, %lor.lhs.false51, %lor.lhs.false56, %lor.lhs.false61, %lor.lhs.false66, %land.rhs69
+  %retval.0 = phi i1 [ false, %lor.lhs.false66 ], [ false, %lor.lhs.false61 ], [ false, %lor.lhs.false56 ], [ false, %lor.lhs.false51 ], [ false, %lor.lhs.false46 ], [ %20, %land.rhs69 ], [ %20, %land.lhs.true42 ], [ %20, %land.end40 ], [ false, %land.lhs.true ]
   ret i1 %retval.0
 
 eh.resume:                                        ; preds = %ehcleanup28, %ehcleanup, %cleanup.action30, %cleanup.action
@@ -3174,17 +3175,19 @@ land.lhs.true65:                                  ; preds = %lor.lhs.false62, %l
   %d_differenceLogic = getelementptr inbounds i8, ptr %this, i64 84
   %29 = load i8, ptr %d_differenceLogic, align 4
   %tobool66 = trunc i8 %29 to i1
-  br i1 %tobool66, label %lor.lhs.false67, label %return
+  br i1 %tobool66, label %lor.lhs.false67, label %land.rhs70
 
 lor.lhs.false67:                                  ; preds = %land.lhs.true65
   %d_differenceLogic68 = getelementptr inbounds i8, ptr %other, i64 84
   %30 = load i8, ptr %d_differenceLogic68, align 4
   %tobool69 = trunc i8 %30 to i1
-  %spec.select = select i1 %tobool69, i1 %20, i1 false
+  br i1 %tobool69, label %land.rhs70, label %return
+
+land.rhs70:                                       ; preds = %lor.lhs.false67, %land.lhs.true65
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %lor.lhs.false67, %land.end41, %land.lhs.true43, %lor.lhs.false47, %lor.lhs.false52, %lor.lhs.false57, %lor.lhs.false62, %land.lhs.true65
-  %retval.0 = phi i1 [ false, %lor.lhs.false62 ], [ false, %lor.lhs.false57 ], [ false, %lor.lhs.false52 ], [ false, %lor.lhs.false47 ], [ %20, %land.lhs.true65 ], [ %20, %land.lhs.true43 ], [ %20, %land.end41 ], [ %spec.select, %lor.lhs.false67 ], [ false, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %land.end41, %land.lhs.true43, %lor.lhs.false47, %lor.lhs.false52, %lor.lhs.false57, %lor.lhs.false62, %lor.lhs.false67, %land.rhs70
+  %retval.0 = phi i1 [ false, %lor.lhs.false67 ], [ false, %lor.lhs.false62 ], [ false, %lor.lhs.false57 ], [ false, %lor.lhs.false52 ], [ false, %lor.lhs.false47 ], [ %20, %land.rhs70 ], [ %20, %land.lhs.true43 ], [ %20, %land.end41 ], [ false, %land.lhs.true ]
   ret i1 %retval.0
 
 eh.resume:                                        ; preds = %ehcleanup28, %ehcleanup, %cleanup.action30, %cleanup.action

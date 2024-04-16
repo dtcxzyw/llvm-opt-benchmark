@@ -1149,7 +1149,7 @@ if.end6:                                          ; preds = %if.end3
   %priv_key = getelementptr inbounds i8, ptr %eckey, i64 40
   %1 = load ptr, ptr %priv_key, align 8
   %cmp7.not = icmp eq ptr %1, null
-  br i1 %cmp7.not, label %err, label %if.then8
+  br i1 %cmp7.not, label %if.end15, label %if.then8
 
 if.then8:                                         ; preds = %if.end6
   %call9 = tail call i32 @ossl_ec_key_private_check(ptr noundef nonnull %eckey), !range !6
@@ -1158,10 +1158,14 @@ if.then8:                                         ; preds = %if.end6
 
 lor.lhs.false:                                    ; preds = %if.then8
   %call11 = tail call i32 @ossl_ec_key_pairwise_check(ptr noundef nonnull %eckey, ptr noundef nonnull %call), !range !6
+  %tobool12.not = icmp eq i32 %call11, 0
+  br i1 %tobool12.not, label %err, label %if.end15
+
+if.end15:                                         ; preds = %lor.lhs.false, %if.end6
   br label %err
 
-err:                                              ; preds = %lor.lhs.false, %if.end6, %if.then8, %if.end3
-  %ok.0 = phi i32 [ 0, %if.then8 ], [ 0, %if.end3 ], [ 1, %if.end6 ], [ %call11, %lor.lhs.false ]
+err:                                              ; preds = %if.then8, %lor.lhs.false, %if.end3, %if.end15
+  %ok.0 = phi i32 [ 1, %if.end15 ], [ 0, %lor.lhs.false ], [ 0, %if.then8 ], [ 0, %if.end3 ]
   tail call void @BN_CTX_free(ptr noundef nonnull %call) #7
   br label %return
 

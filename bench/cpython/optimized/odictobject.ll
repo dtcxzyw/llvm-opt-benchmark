@@ -1883,14 +1883,18 @@ do.body16:                                        ; preds = %if.then7, %do.body5
   %di_result = getelementptr inbounds i8, ptr %di, i64 56
   %2 = load ptr, ptr %di_result, align 8
   %tobool17.not = icmp eq ptr %2, null
-  br i1 %tobool17.not, label %return, label %if.then18
+  br i1 %tobool17.not, label %do.end26, label %if.then18
 
 if.then18:                                        ; preds = %do.body16
   %call21 = tail call i32 %visit(ptr noundef nonnull %2, ptr noundef %arg) #7
+  %tobool22.not = icmp eq i32 %call21, 0
+  br i1 %tobool22.not, label %do.end26, label %return
+
+do.end26:                                         ; preds = %do.body16, %if.then18
   br label %return
 
-return:                                           ; preds = %if.then18, %do.body16, %if.then7, %if.then
-  %retval.0 = phi i32 [ %call, %if.then ], [ %call10, %if.then7 ], [ 0, %do.body16 ], [ %call21, %if.then18 ]
+return:                                           ; preds = %if.then18, %if.then7, %if.then, %do.end26
+  %retval.0 = phi i32 [ 0, %do.end26 ], [ %call, %if.then ], [ %call10, %if.then7 ], [ %call21, %if.then18 ]
   ret i32 %retval.0
 }
 
@@ -3765,7 +3769,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @mutablemapping_update(ptr noundef %self, ptr noundef readonly %args, ptr noundef %kwargs) #0 {
+define internal noundef ptr @mutablemapping_update(ptr noundef %self, ptr noundef readonly %args, ptr noundef %kwargs) #0 {
 entry:
   %cmp.not = icmp eq ptr %args, null
   br i1 %cmp.not, label %if.end8, label %cond.end
@@ -3820,13 +3824,13 @@ Py_DECREF.exit30:                                 ; preds = %Py_INCREF.exit, %if
 
 if.end8:                                          ; preds = %entry, %Py_DECREF.exit30, %if.end
   %cmp9.not = icmp eq ptr %kwargs, null
-  br i1 %cmp9.not, label %return, label %land.lhs.true
+  br i1 %cmp9.not, label %if.end21, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end8
   %6 = getelementptr i8, ptr %kwargs, i64 16
   %kwargs.val = load i64, ptr %6, align 8
   %tobool11.not = icmp eq i64 %kwargs.val, 0
-  br i1 %tobool11.not, label %return, label %if.then12
+  br i1 %tobool11.not, label %if.end21, label %if.then12
 
 if.then12:                                        ; preds = %land.lhs.true
   %call13 = tail call ptr @PyDict_Items(ptr noundef nonnull %kwargs) #7
@@ -3852,11 +3856,13 @@ if.then1.i:                                       ; preds = %if.end.i
 
 Py_DECREF.exit:                                   ; preds = %if.end16, %if.then1.i, %if.end.i
   %cmp18 = icmp eq i32 %call17, -1
-  %spec.select = select i1 %cmp18, ptr null, ptr @_Py_NoneStruct
+  br i1 %cmp18, label %return, label %if.end21
+
+if.end21:                                         ; preds = %Py_DECREF.exit, %land.lhs.true, %if.end8
   br label %return
 
-return:                                           ; preds = %Py_DECREF.exit, %if.end8, %land.lhs.true, %if.then12, %Py_DECREF.exit30, %if.then
-  %retval.0 = phi ptr [ null, %if.then ], [ null, %Py_DECREF.exit30 ], [ null, %if.then12 ], [ @_Py_NoneStruct, %land.lhs.true ], [ @_Py_NoneStruct, %if.end8 ], [ %spec.select, %Py_DECREF.exit ]
+return:                                           ; preds = %Py_DECREF.exit, %if.then12, %Py_DECREF.exit30, %if.end21, %if.then
+  %retval.0 = phi ptr [ null, %if.then ], [ @_Py_NoneStruct, %if.end21 ], [ null, %Py_DECREF.exit30 ], [ null, %if.then12 ], [ null, %Py_DECREF.exit ]
   ret ptr %retval.0
 }
 

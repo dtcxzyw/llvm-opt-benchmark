@@ -28,7 +28,7 @@ define noundef i32 @prte_mca_ess_slurm_component_query(ptr nocapture noundef wri
   %3 = load i8, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 10), align 4
   %4 = and i8 %3, 2
   %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %11, label %5
+  br i1 %.not, label %10, label %5
 
 5:                                                ; preds = %2
   %6 = tail call ptr @getenv(ptr noundef nonnull @.str) #3
@@ -38,13 +38,13 @@ define noundef i32 @prte_mca_ess_slurm_component_query(ptr nocapture noundef wri
   %or.cond = select i1 %7, i1 %9, i1 false
   br i1 %or.cond, label %11, label %10
 
-10:                                               ; preds = %5
+10:                                               ; preds = %5, %2
   br label %11
 
-11:                                               ; preds = %2, %5, %10
-  %storemerge5 = phi i32 [ 50, %5 ], [ -1, %2 ], [ -1, %10 ]
-  %storemerge = phi ptr [ @prte_ess_slurm_module, %5 ], [ null, %2 ], [ null, %10 ]
-  %.0 = phi i32 [ 0, %5 ], [ -1, %2 ], [ -1, %10 ]
+11:                                               ; preds = %5, %10
+  %storemerge5 = phi i32 [ -1, %10 ], [ 50, %5 ]
+  %storemerge = phi ptr [ null, %10 ], [ @prte_ess_slurm_module, %5 ]
+  %.0 = phi i32 [ -1, %10 ], [ 0, %5 ]
   store i32 %storemerge5, ptr %1, align 4
   store ptr %storemerge, ptr %0, align 8
   ret i32 %.0

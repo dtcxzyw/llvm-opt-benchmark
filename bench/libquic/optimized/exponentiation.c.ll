@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [130 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/bn/exponentiation.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @BN_exp(ptr noundef %r, ptr noundef %a, ptr noundef %p, ptr noundef %ctx) local_unnamed_addr #0 {
+define hidden noundef i32 @BN_exp(ptr noundef %r, ptr noundef %a, ptr noundef %p, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %flags = getelementptr inbounds i8, ptr %p, i64 20
   %0 = load i32, ptr %flags, align 4
@@ -88,16 +88,18 @@ for.inc:                                          ; preds = %if.end32, %if.then3
 
 for.end:                                          ; preds = %for.inc, %if.end27
   %cmp41.not = icmp eq ptr %rr.0, %r
-  br i1 %cmp41.not, label %err, label %land.lhs.true
+  br i1 %cmp41.not, label %if.end45, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.end
   %call42 = tail call ptr @BN_copy(ptr noundef %r, ptr noundef %rr.0) #7
-  %tobool43.not = icmp ne ptr %call42, null
-  %spec.select = zext i1 %tobool43.not to i32
+  %tobool43.not = icmp eq ptr %call42, null
+  br i1 %tobool43.not, label %err, label %if.end45
+
+if.end45:                                         ; preds = %land.lhs.true, %for.end
   br label %err
 
-err:                                              ; preds = %if.then35, %for.body, %land.lhs.true, %for.end, %if.else22, %if.then17, %if.end10, %if.end4
-  %ret.0 = phi i32 [ 0, %if.end4 ], [ 0, %if.end10 ], [ 0, %if.then17 ], [ 0, %if.else22 ], [ 1, %for.end ], [ %spec.select, %land.lhs.true ], [ 0, %for.body ], [ 0, %if.then35 ]
+err:                                              ; preds = %if.then35, %for.body, %land.lhs.true, %if.else22, %if.then17, %if.end10, %if.end4, %if.end45
+  %ret.0 = phi i32 [ 0, %if.end4 ], [ 0, %if.end10 ], [ 0, %if.then17 ], [ 1, %if.end45 ], [ 0, %land.lhs.true ], [ 0, %if.else22 ], [ 0, %for.body ], [ 0, %if.then35 ]
   tail call void @BN_CTX_end(ptr noundef %ctx) #7
   br label %return
 

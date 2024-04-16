@@ -135,7 +135,7 @@ entry:
   %1 = load ptr, ptr %args, align 8, !noalias !4
   %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %1, align 8
   %cmp.i.i.i = icmp ugt i64 %agg.tmp.sroa.0.0.copyload.i, -844424930131969
-  br i1 %cmp.i.i.i, label %_ZN6hermes2vm5vmisaINS0_13JSArrayBufferEEEbNS0_11HermesValueE.exit.i, label %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_13JSArrayBufferEEENS0_6HandleIT_EEv.exit
+  br i1 %cmp.i.i.i, label %_ZN6hermes2vm5vmisaINS0_13JSArrayBufferEEEbNS0_11HermesValueE.exit.i, label %cond.false.i
 
 _ZN6hermes2vm5vmisaINS0_13JSArrayBufferEEEbNS0_11HermesValueE.exit.i: ; preds = %entry
   %and.i.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i, 281474976710655
@@ -143,15 +143,18 @@ _ZN6hermes2vm5vmisaINS0_13JSArrayBufferEEEbNS0_11HermesValueE.exit.i: ; preds = 
   %bf.load.i.i.i.i.i.i.i.i.i.i = load i32, ptr %2, align 4
   %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i = and i32 %bf.load.i.i.i.i.i.i.i.i.i.i, -16777216
   %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i, 553648128
-  %spec.select.i = select i1 %cmp.i.i.i.i.i.i.i.i, ptr %1, ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E
+  br i1 %cmp.i.i.i.i.i.i.i.i, label %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_13JSArrayBufferEEENS0_6HandleIT_EEv.exit, label %cond.false.i
+
+cond.false.i:                                     ; preds = %_ZN6hermes2vm5vmisaINS0_13JSArrayBufferEEEbNS0_11HermesValueE.exit.i, %entry
+  %.pre = load i64, ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E, align 8
+  %.pre3 = and i64 %.pre, 281474976710655
+  %3 = icmp ugt i64 %.pre, -844424930131969
   br label %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_13JSArrayBufferEEENS0_6HandleIT_EEv.exit
 
-_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_13JSArrayBufferEEENS0_6HandleIT_EEv.exit: ; preds = %entry, %_ZN6hermes2vm5vmisaINS0_13JSArrayBufferEEEbNS0_11HermesValueE.exit.i
-  %retval.sroa.0.0.i = phi ptr [ @_ZN6hermes2vm15HandleRootOwner12nullPointer_E, %entry ], [ %spec.select.i, %_ZN6hermes2vm5vmisaINS0_13JSArrayBufferEEEbNS0_11HermesValueE.exit.i ]
-  %3 = load i64, ptr %retval.sroa.0.0.i, align 8
-  %cmp.i.i = icmp ugt i64 %3, -844424930131969
-  %and.i.i = and i64 %3, 281474976710655
-  %tobool.i = icmp ne i64 %and.i.i, 0
+_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_13JSArrayBufferEEENS0_6HandleIT_EEv.exit: ; preds = %_ZN6hermes2vm5vmisaINS0_13JSArrayBufferEEEbNS0_11HermesValueE.exit.i, %cond.false.i
+  %and.i.i.pre-phi = phi i64 [ %and.i.i.i, %_ZN6hermes2vm5vmisaINS0_13JSArrayBufferEEEbNS0_11HermesValueE.exit.i ], [ %.pre3, %cond.false.i ]
+  %cmp.i.i = phi i1 [ true, %_ZN6hermes2vm5vmisaINS0_13JSArrayBufferEEEbNS0_11HermesValueE.exit.i ], [ %3, %cond.false.i ]
+  %tobool.i = icmp ne i64 %and.i.i.pre-phi, 0
   %4 = and i1 %cmp.i.i, %tobool.i
   br i1 %4, label %if.end, label %if.then
 
@@ -169,7 +172,7 @@ if.then:                                          ; preds = %_ZNK6hermes2vm10Nat
   br label %return
 
 if.end:                                           ; preds = %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_13JSArrayBufferEEENS0_6HandleIT_EEv.exit
-  %6 = inttoptr i64 %and.i.i to ptr
+  %6 = inttoptr i64 %and.i.i.pre-phi to ptr
   %size_.i = getelementptr inbounds i8, ptr %6, i64 32
   %7 = load i32, ptr %size_.i, align 8
   %conv.i = uitofp i32 %7 to double
@@ -209,7 +212,7 @@ entry:
   %retval.sroa.0.0.i14 = select i1 %cmp.i12, ptr %incdec.ptr.i.i.i13, ptr @_ZN6hermes2vm15HandleRootOwner15undefinedValue_E
   %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %2, align 8
   %cmp.i.i.i = icmp ugt i64 %agg.tmp.sroa.0.0.copyload.i, -844424930131969
-  br i1 %cmp.i.i.i, label %_ZN6hermes2vm5vmisaINS0_13JSArrayBufferEEEbNS0_11HermesValueE.exit.i, label %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_13JSArrayBufferEEENS0_6HandleIT_EEv.exit
+  br i1 %cmp.i.i.i, label %_ZN6hermes2vm5vmisaINS0_13JSArrayBufferEEEbNS0_11HermesValueE.exit.i, label %cond.false.i
 
 _ZN6hermes2vm5vmisaINS0_13JSArrayBufferEEEbNS0_11HermesValueE.exit.i: ; preds = %entry
   %and.i.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i, 281474976710655
@@ -217,15 +220,19 @@ _ZN6hermes2vm5vmisaINS0_13JSArrayBufferEEEbNS0_11HermesValueE.exit.i: ; preds = 
   %bf.load.i.i.i.i.i.i.i.i.i.i = load i32, ptr %3, align 4
   %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i = and i32 %bf.load.i.i.i.i.i.i.i.i.i.i, -16777216
   %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i, 553648128
-  %spec.select.i = select i1 %cmp.i.i.i.i.i.i.i.i, ptr %2, ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E
+  br i1 %cmp.i.i.i.i.i.i.i.i, label %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_13JSArrayBufferEEENS0_6HandleIT_EEv.exit, label %cond.false.i
+
+cond.false.i:                                     ; preds = %_ZN6hermes2vm5vmisaINS0_13JSArrayBufferEEEbNS0_11HermesValueE.exit.i, %entry
+  %.pre = load i64, ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E, align 8
+  %.pre62 = and i64 %.pre, 281474976710655
+  %4 = icmp ugt i64 %.pre, -844424930131969
   br label %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_13JSArrayBufferEEENS0_6HandleIT_EEv.exit
 
-_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_13JSArrayBufferEEENS0_6HandleIT_EEv.exit: ; preds = %entry, %_ZN6hermes2vm5vmisaINS0_13JSArrayBufferEEEbNS0_11HermesValueE.exit.i
-  %retval.sroa.0.0.i15 = phi ptr [ @_ZN6hermes2vm15HandleRootOwner12nullPointer_E, %entry ], [ %spec.select.i, %_ZN6hermes2vm5vmisaINS0_13JSArrayBufferEEEbNS0_11HermesValueE.exit.i ]
-  %4 = load i64, ptr %retval.sroa.0.0.i15, align 8
-  %cmp.i.i = icmp ugt i64 %4, -844424930131969
-  %and.i.i = and i64 %4, 281474976710655
-  %tobool.i = icmp ne i64 %and.i.i, 0
+_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_13JSArrayBufferEEENS0_6HandleIT_EEv.exit: ; preds = %_ZN6hermes2vm5vmisaINS0_13JSArrayBufferEEEbNS0_11HermesValueE.exit.i, %cond.false.i
+  %and.i.i.pre-phi = phi i64 [ %and.i.i.i, %_ZN6hermes2vm5vmisaINS0_13JSArrayBufferEEEbNS0_11HermesValueE.exit.i ], [ %.pre62, %cond.false.i ]
+  %cmp.i.i = phi i1 [ true, %_ZN6hermes2vm5vmisaINS0_13JSArrayBufferEEEbNS0_11HermesValueE.exit.i ], [ %4, %cond.false.i ]
+  %retval.sroa.0.0.i15 = phi ptr [ %2, %_ZN6hermes2vm5vmisaINS0_13JSArrayBufferEEEbNS0_11HermesValueE.exit.i ], [ @_ZN6hermes2vm15HandleRootOwner12nullPointer_E, %cond.false.i ]
+  %tobool.i = icmp ne i64 %and.i.i.pre-phi, 0
   %5 = and i1 %cmp.i.i, %tobool.i
   br i1 %5, label %if.end, label %if.then
 
@@ -243,7 +250,7 @@ if.then:                                          ; preds = %_ZNK6hermes2vm10Nat
   br label %return
 
 if.end:                                           ; preds = %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_13JSArrayBufferEEENS0_6HandleIT_EEv.exit
-  %7 = inttoptr i64 %and.i.i to ptr
+  %7 = inttoptr i64 %and.i.i.pre-phi to ptr
   %size_.i = getelementptr inbounds i8, ptr %7, i64 32
   %8 = load i32, ptr %size_.i, align 8
   %conv = uitofp i32 %8 to double

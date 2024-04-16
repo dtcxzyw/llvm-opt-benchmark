@@ -2734,7 +2734,7 @@ define internal fastcc i32 @ext4_ind_truncate_ensure_credits(ptr noundef %0, ptr
   %40 = add nuw nsw i32 %39, %28
   %41 = tail call i32 @__ext4_journal_ensure_credits(ptr noundef %0, i32 noundef 12, i32 noundef %40, i32 noundef %3) #12
   %42 = icmp slt i32 %41, 1
-  br i1 %42, label %.thread9, label %43
+  br i1 %42, label %.thread10, label %43
 
 43:                                               ; preds = %27
   %44 = icmp eq ptr %2, null
@@ -2773,7 +2773,7 @@ define internal fastcc i32 @ext4_ind_truncate_ensure_credits(ptr noundef %0, ptr
 60:                                               ; preds = %48, %45
   %61 = phi i32 [ %49, %48 ], [ %46, %45 ]
   %62 = icmp slt i32 %61, 0
-  br i1 %62, label %.thread9, label %63
+  br i1 %62, label %.thread10, label %63
 
 63:                                               ; preds = %.thread, %60
   %64 = phi i1 [ false, %.thread ], [ true, %60 ]
@@ -2834,18 +2834,23 @@ define internal fastcc i32 @ext4_ind_truncate_ensure_credits(ptr noundef %0, ptr
 
 107:                                              ; preds = %105, %102
   %108 = icmp slt i32 %104, 1
-  %brmerge = or i1 %108, %44
-  %.mux = select i1 %108, i32 %104, i32 0
-  br i1 %brmerge, label %.thread9, label %109
+  br i1 %108, label %.thread10, label %109
 
 109:                                              ; preds = %107
-  %110 = load ptr, ptr %7, align 8
-  %111 = tail call i32 @__ext4_journal_get_write_access(ptr noundef nonnull @__func__.ext4_ind_truncate_ensure_credits, i32 noundef 749, ptr noundef %0, ptr noundef %110, ptr noundef nonnull %2, i32 noundef 1) #12
-  br label %.thread9
+  br i1 %44, label %114, label %110
 
-.thread9:                                         ; preds = %107, %27, %60, %109
-  %112 = phi i32 [ %.mux, %107 ], [ %111, %109 ], [ %61, %60 ], [ %41, %27 ]
-  ret i32 %112
+110:                                              ; preds = %109
+  %111 = load ptr, ptr %7, align 8
+  %112 = tail call i32 @__ext4_journal_get_write_access(ptr noundef nonnull @__func__.ext4_ind_truncate_ensure_credits, i32 noundef 749, ptr noundef %0, ptr noundef %111, ptr noundef nonnull %2, i32 noundef 1) #12
+  %113 = icmp eq i32 %112, 0
+  br i1 %113, label %114, label %.thread10, !prof !14
+
+114:                                              ; preds = %110, %109
+  br label %.thread10
+
+.thread10:                                        ; preds = %27, %60, %114, %110, %107
+  %115 = phi i32 [ 0, %114 ], [ %104, %107 ], [ %112, %110 ], [ %61, %60 ], [ %41, %27 ]
+  ret i32 %115
 }
 
 ; Function Attrs: null_pointer_is_valid

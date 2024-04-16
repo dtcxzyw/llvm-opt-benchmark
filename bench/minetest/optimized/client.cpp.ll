@@ -15506,28 +15506,29 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %for.body.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %1, i64 %sub.i
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %add.ptr.i.i.i, ptr noundef nonnull dereferenceable(4) @.str.59, i64 4)
   %cmp.i.i.i = icmp eq i32 %bcmp.i, 0
-  br i1 %cmp.i.i.i, label %invoke.cont, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.1
+  br i1 %cmp.i.i.i, label %cleanup.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.1
+
+cleanup.i:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.3, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.2, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
+  br label %invoke.cont
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.1: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
   %bcmp.i.1 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %add.ptr.i.i.i, ptr noundef nonnull dereferenceable(4) @.str.60, i64 4)
   %cmp.i.i.i.1 = icmp eq i32 %bcmp.i.1, 0
-  br i1 %cmp.i.i.i.1, label %invoke.cont, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.2
+  br i1 %cmp.i.i.i.1, label %cleanup.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.2
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.2: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.1
   %bcmp.i.2 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %add.ptr.i.i.i, ptr noundef nonnull dereferenceable(4) @.str.61, i64 4)
   %cmp.i.i.i.2 = icmp eq i32 %bcmp.i.2, 0
-  br i1 %cmp.i.i.i.2, label %invoke.cont, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.3
+  br i1 %cmp.i.i.i.2, label %cleanup.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.3
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.3: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.2
   %bcmp.i.3 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %add.ptr.i.i.i, ptr noundef nonnull dereferenceable(4) @.str.62, i64 4)
   %cmp.i.i.i.3 = icmp eq i32 %bcmp.i.3, 0
-  %spec.select = select i1 %cmp.i.i.i.3, ptr %1, ptr null
-  %spec.select28 = select i1 %cmp.i.i.i.3, i64 %sub.i, i64 0
-  br label %invoke.cont
+  br i1 %cmp.i.i.i.3, label %cleanup.i, label %invoke.cont
 
-invoke.cont:                                      ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.3, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.2, %for.body.i
-  %retval.sroa.3.2.i = phi ptr [ null, %for.body.i ], [ %1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.2 ], [ %1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.1 ], [ %1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ], [ %spec.select, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.3 ]
-  %retval.sroa.0.2.i = phi i64 [ 0, %for.body.i ], [ %sub.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.2 ], [ %sub.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.1 ], [ %sub.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ], [ %spec.select28, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.3 ]
+invoke.cont:                                      ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.3, %cleanup.i, %for.body.i
+  %retval.sroa.3.2.i = phi ptr [ %1, %cleanup.i ], [ null, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.3 ], [ null, %for.body.i ]
+  %retval.sroa.0.2.i = phi i64 [ %sub.i, %cleanup.i ], [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.3 ], [ 0, %for.body.i ]
   %call2.i.i.i266 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %name, i64 noundef 0, i64 noundef 0, ptr noundef %retval.sroa.3.2.i, i64 noundef %retval.sroa.0.2.i)
           to label %invoke.cont3 unwind label %lpad
 
@@ -16642,13 +16643,13 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i578: ; preds = %for.body.i572
   %add.ptr.i.i.i579 = getelementptr inbounds i8, ptr %135, i64 %sub.i576
   %bcmp.i580 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %add.ptr.i.i.i579, ptr noundef nonnull dereferenceable(3) @.str.87, i64 3)
   %cmp.i.i.i581 = icmp eq i32 %bcmp.i580, 0
-  %spec.select29 = select i1 %cmp.i.i.i581, ptr %135, ptr null
-  %spec.select30 = select i1 %cmp.i.i.i581, i64 %sub.i576, i64 0
+  %spec.select = select i1 %cmp.i.i.i581, ptr %135, ptr null
+  %spec.select28 = select i1 %cmp.i.i.i581, i64 %sub.i576, i64 0
   br label %invoke.cont177
 
 invoke.cont177:                                   ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i578, %for.body.i572
-  %retval.sroa.3.2.i585 = phi ptr [ null, %for.body.i572 ], [ %spec.select29, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i578 ]
-  %retval.sroa.0.2.i586 = phi i64 [ 0, %for.body.i572 ], [ %spec.select30, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i578 ]
+  %retval.sroa.3.2.i585 = phi ptr [ null, %for.body.i572 ], [ %spec.select, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i578 ]
+  %retval.sroa.0.2.i586 = phi i64 [ 0, %for.body.i572 ], [ %spec.select28, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i578 ]
   %call2.i.i.i596 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %name, i64 noundef 0, i64 noundef 0, ptr noundef %retval.sroa.3.2.i585, i64 noundef %retval.sroa.0.2.i586)
           to label %invoke.cont179 unwind label %lpad176
 

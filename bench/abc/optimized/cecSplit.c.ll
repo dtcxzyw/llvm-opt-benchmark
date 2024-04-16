@@ -2749,15 +2749,17 @@ define noundef i32 @Cec_GiaSplitTest(ptr noundef %0, i32 noundef %1, i32 noundef
 43:                                               ; preds = %.critedge
   %.032.lcssa.fr = freeze i32 %.032.lcssa
   %.not40 = icmp eq i32 %.032.lcssa.fr, 0
-  %spec.select78 = select i1 %.not40, i32 1, i32 -1
-  br label %.thread
+  br i1 %.not40, label %.thread, label %45
+
+.thread:                                          ; preds = %8, %43
+  br label %45
 
 44:                                               ; preds = %.critedge
   store ptr %.034.lcssa, ptr %9, align 8
-  br label %.thread
+  br label %45
 
-.thread:                                          ; preds = %43, %8, %44
-  %.2 = phi i32 [ 0, %44 ], [ 1, %8 ], [ %spec.select78, %43 ]
+45:                                               ; preds = %.thread, %43, %44
+  %.2 = phi i32 [ 0, %44 ], [ 1, %.thread ], [ -1, %43 ]
   ret i32 %.2
 }
 

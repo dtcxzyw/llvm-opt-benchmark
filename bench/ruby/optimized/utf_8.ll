@@ -102,18 +102,20 @@ define internal i32 @mbc_enc_len(ptr noundef readonly %0, ptr noundef readnone %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i32 @is_mbc_newline(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture readnone %2) #0 {
+define internal noundef i32 @is_mbc_newline(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture readnone %2) #0 {
   %4 = icmp ult ptr %0, %1
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %3
   %6 = load i8, ptr %0, align 1
   %7 = icmp eq i8 %6, 10
-  %spec.select = zext i1 %7 to i32
-  br label %8
+  br i1 %7, label %9, label %8
 
 8:                                                ; preds = %5, %3
-  %.0 = phi i32 [ 0, %3 ], [ %spec.select, %5 ]
+  br label %9
+
+9:                                                ; preds = %5, %8
+  %.0 = phi i32 [ 0, %8 ], [ 1, %5 ]
   ret i32 %.0
 }
 

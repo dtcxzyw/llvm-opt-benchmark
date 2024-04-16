@@ -1206,18 +1206,20 @@ define dso_local noundef i32 @led_init_default_state_get(ptr noundef %0) #0 alig
   %6 = load ptr, ptr %2, align 8
   %7 = call i32 @strcmp(ptr noundef %6, ptr noundef nonnull dereferenceable(5) @.str.21) #11
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %12, label %9
+  br i1 %8, label %13, label %9
 
 9:                                                ; preds = %5
   %10 = call i32 @strcmp(ptr noundef %6, ptr noundef nonnull dereferenceable(3) @.str.22) #11
   %11 = icmp eq i32 %10, 0
-  %spec.select = zext i1 %11 to i32
-  br label %12
+  br i1 %11, label %13, label %12
 
-12:                                               ; preds = %9, %1, %5
-  %13 = phi i32 [ 2, %5 ], [ 0, %1 ], [ %spec.select, %9 ]
+12:                                               ; preds = %9, %1
+  br label %13
+
+13:                                               ; preds = %12, %9, %5
+  %14 = phi i32 [ 0, %12 ], [ 2, %5 ], [ 1, %9 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
-  ret i32 %13
+  ret i32 %14
 }
 
 ; Function Attrs: null_pointer_is_valid

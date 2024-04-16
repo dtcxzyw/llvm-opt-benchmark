@@ -92,17 +92,19 @@ entry:
   %has_append = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load i8, ptr %has_append, align 8
   %tobool = trunc i8 %1 to i1
-  br i1 %tobool, label %land.lhs.true, label %if.end
+  br i1 %tobool, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %entry
   %append = getelementptr inbounds i8, ptr %0, i64 33
   %2 = load i8, ptr %append, align 1
   %tobool1 = trunc i8 %2 to i1
-  %spec.select = select i1 %tobool1, i32 1089, i32 577
+  br i1 %tobool1, label %if.end, label %if.else
+
+if.else:                                          ; preds = %land.lhs.true, %entry
   br label %if.end
 
-if.end:                                           ; preds = %land.lhs.true, %entry
-  %flags.0 = phi i32 [ 577, %entry ], [ %spec.select, %land.lhs.true ]
+if.end:                                           ; preds = %land.lhs.true, %if.else
+  %flags.0 = phi i32 [ 577, %if.else ], [ 1089, %land.lhs.true ]
   %out3 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %out3, align 8
   %call = tail call i32 @qmp_chardev_open_file_source(ptr noundef %3, i32 noundef %flags.0, ptr noundef %errp) #3

@@ -1191,14 +1191,14 @@ if.end352:                                        ; preds = %cleanup, %invoke.co
           to label %invoke.cont353 unwind label %lpad21
 
 invoke.cont353:                                   ; preds = %if.end352
-  br i1 %call354, label %land.lhs.true355, label %cleanup397
+  br i1 %call354, label %land.lhs.true355, label %if.end396
 
 land.lhs.true355:                                 ; preds = %invoke.cont353
   %call357 = invoke noundef zeroext i1 @_ZgtRK8rationali(ptr noundef nonnull align 8 dereferenceable(32) %yval, i32 noundef 0)
           to label %invoke.cont356 unwind label %lpad21
 
 invoke.cont356:                                   ; preds = %land.lhs.true355
-  br i1 %call357, label %invoke.cont359, label %cleanup397
+  br i1 %call357, label %invoke.cont359, label %if.end396
 
 invoke.cont359:                                   ; preds = %invoke.cont356
   %bf.load.i.i.i.i.i151 = load i8, ptr %m_kind.i1.i.i91, align 4
@@ -1207,7 +1207,7 @@ invoke.cont359:                                   ; preds = %invoke.cont356
   %66 = load i32, ptr %m_den.i.i90, align 8
   %cmp.i.i.i.i = icmp eq i32 %66, 1
   %67 = select i1 %cmp.i.i.i.i.i153, i1 %cmp.i.i.i.i, i1 false
-  br i1 %67, label %cleanup397, label %if.then361
+  br i1 %67, label %if.end396, label %if.then361
 
 if.then361:                                       ; preds = %invoke.cont359
   invoke void @_Z9numeratorRK8rational(ptr nonnull sret(%class.rational) align 8 %ynum, ptr noundef nonnull align 8 dereferenceable(32) %yval)
@@ -1266,9 +1266,9 @@ invoke.cont380:                                   ; preds = %invoke.cont378
           to label %invoke.cont382 unwind label %lpad381
 
 invoke.cont382:                                   ; preds = %invoke.cont380
+  %72 = xor i1 %call383, true
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %xyn) #11
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ryd) #11
-  %72 = zext i1 %call383 to i32
   br label %cleanup390
 
 lpad377:                                          ; preds = %invoke.cont376, %invoke.cont378
@@ -1283,10 +1283,11 @@ lpad381:                                          ; preds = %invoke.cont380
   br label %ehcleanup389
 
 cleanup390:                                       ; preds = %invoke.cont370, %invoke.cont366, %invoke.cont382
-  %cleanup.dest.slot.2 = phi i32 [ %72, %invoke.cont382 ], [ 0, %invoke.cont366 ], [ 0, %invoke.cont370 ]
+  %retval.3 = phi i32 [ 1, %invoke.cont382 ], [ 0, %invoke.cont366 ], [ 0, %invoke.cont370 ]
+  %cleanup.dest.slot.2 = phi i1 [ %72, %invoke.cont382 ], [ false, %invoke.cont366 ], [ false, %invoke.cont370 ]
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %yden) #11
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ynum) #11
-  br label %cleanup397
+  br i1 %cleanup.dest.slot.2, label %if.end396, label %cleanup397
 
 ehcleanup389:                                     ; preds = %lpad381, %lpad377
   %.pn57 = phi { ptr, i32 } [ %74, %lpad381 ], [ %73, %lpad377 ]
@@ -1303,8 +1304,11 @@ ehcleanup395:                                     ; preds = %ehcleanup391, %lpad
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ynum) #11
   br label %ehcleanup398
 
-cleanup397:                                       ; preds = %cleanup390, %cleanup.thread, %invoke.cont353, %invoke.cont356, %invoke.cont359, %invoke.cont241, %invoke.cont190, %invoke.cont152, %invoke.cont114, %invoke.cont87, %invoke.cont51
-  %retval.4 = phi i32 [ -1, %invoke.cont51 ], [ -1, %invoke.cont87 ], [ -1, %invoke.cont114 ], [ -1, %invoke.cont152 ], [ -1, %invoke.cont190 ], [ -1, %invoke.cont241 ], [ 0, %invoke.cont359 ], [ 0, %invoke.cont356 ], [ 0, %invoke.cont353 ], [ %retval.0.ph, %cleanup.thread ], [ %cleanup.dest.slot.2, %cleanup390 ]
+if.end396:                                        ; preds = %cleanup390, %invoke.cont359, %invoke.cont356, %invoke.cont353
+  br label %cleanup397
+
+cleanup397:                                       ; preds = %cleanup.thread, %cleanup390, %if.end396, %invoke.cont241, %invoke.cont190, %invoke.cont152, %invoke.cont114, %invoke.cont87, %invoke.cont51
+  %retval.4 = phi i32 [ -1, %invoke.cont51 ], [ -1, %invoke.cont87 ], [ -1, %invoke.cont114 ], [ -1, %invoke.cont152 ], [ -1, %invoke.cont190 ], [ -1, %invoke.cont241 ], [ 0, %if.end396 ], [ %retval.3, %cleanup390 ], [ %retval.0.ph, %cleanup.thread ]
   %75 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %75, ptr noundef nonnull align 8 dereferenceable(16) %rval)
           to label %.noexc.i unwind label %terminate.lpad.i

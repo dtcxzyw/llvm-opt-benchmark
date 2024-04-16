@@ -10875,13 +10875,15 @@ do.body111:                                       ; preds = %if.end102
 
 if.end123:                                        ; preds = %if.end102
   %cmp124.not = icmp eq ptr %plain, null
-  br i1 %cmp124.not, label %if.then141, label %if.then126
+  br i1 %cmp124.not, label %if.end135, label %if.then126
 
 if.then126:                                       ; preds = %if.end123
   %conv128 = zext nneg i32 %plainSz to i64
   %bcmp27 = call i32 @bcmp(ptr nonnull %plain, ptr nonnull %resultP, i64 %conv128)
   %tobool130.not = icmp eq i32 %bcmp27, 0
-  %spec.select = select i1 %tobool130.not, i32 0, i32 -12196
+  br i1 %tobool130.not, label %if.end135, label %if.then141
+
+if.end135:                                        ; preds = %if.then126, %if.end123
   br label %if.then141
 
 if.end139.thread:                                 ; preds = %entry
@@ -10899,8 +10901,8 @@ if.end139:                                        ; preds = %if.else
   call void @wc_AesFree(ptr noundef nonnull %enc) #19
   br label %if.end143
 
-if.then141:                                       ; preds = %if.then126, %if.end123, %if.end76, %if.then68, %do.body111, %do.body90, %do.body53, %do.body33
-  %ret.0.ph.ph = phi i32 [ %sub42, %do.body33 ], [ %sub62, %do.body53 ], [ %sub99, %do.body90 ], [ %sub120, %do.body111 ], [ -12159, %if.then68 ], [ -12162, %if.end76 ], [ 0, %if.end123 ], [ %spec.select, %if.then126 ]
+if.then141:                                       ; preds = %if.then126, %if.end76, %if.then68, %if.end135, %do.body111, %do.body90, %do.body53, %do.body33
+  %ret.0.ph.ph = phi i32 [ %sub42, %do.body33 ], [ %sub62, %do.body53 ], [ %sub99, %do.body90 ], [ %sub120, %do.body111 ], [ 0, %if.end135 ], [ -12159, %if.then68 ], [ -12162, %if.end76 ], [ -12196, %if.then126 ]
   call void @wc_AesFree(ptr noundef nonnull %enc) #19
   call void @wc_AesFree(ptr noundef nonnull %dec) #19
   br label %if.end143
@@ -13094,17 +13096,19 @@ if.end147:                                        ; preds = %if.end126
   %20 = load i32, ptr %agreeSz, align 4
   %21 = load i32, ptr %agreeSz2, align 4
   %cmp148.not = icmp eq i32 %20, %21
-  br i1 %cmp148.not, label %lor.lhs.false, label %done
+  br i1 %cmp148.not, label %lor.lhs.false, label %do.body155
 
 lor.lhs.false:                                    ; preds = %if.end147
   %conv152 = zext i32 %20 to i64
   %bcmp = call i32 @bcmp(ptr nonnull %agree, ptr nonnull %agree2, i64 %conv152)
   %tobool.not = icmp eq i32 %bcmp, 0
-  %spec.select = select i1 %tobool.not, i32 0, i32 -20026
+  br i1 %tobool.not, label %done, label %do.body155
+
+do.body155:                                       ; preds = %if.end147, %lor.lhs.false
   br label %done
 
-done:                                             ; preds = %lor.lhs.false, %if.end147, %do.body135, %do.body114, %do.body93, %do.body73, %do.body53, %do.body31, %do.body13, %do.body
-  %ret.0 = phi i32 [ %sub6, %do.body ], [ %sub22, %do.body13 ], [ %sub40, %do.body31 ], [ %sub62, %do.body53 ], [ %sub82, %do.body73 ], [ %sub102, %do.body93 ], [ %sub123, %do.body114 ], [ %sub144, %do.body135 ], [ -20026, %if.end147 ], [ %spec.select, %lor.lhs.false ]
+done:                                             ; preds = %lor.lhs.false, %do.body155, %do.body135, %do.body114, %do.body93, %do.body73, %do.body53, %do.body31, %do.body13, %do.body
+  %ret.0 = phi i32 [ %sub6, %do.body ], [ %sub22, %do.body13 ], [ %sub40, %do.body31 ], [ %sub62, %do.body53 ], [ %sub82, %do.body73 ], [ %sub102, %do.body93 ], [ %sub123, %do.body114 ], [ %sub144, %do.body135 ], [ -20026, %do.body155 ], [ 0, %lor.lhs.false ]
   %call159 = call i32 @wc_FreeDhKey(ptr noundef nonnull %key) #19
   %call161 = call i32 @wc_FreeDhKey(ptr noundef nonnull %key2) #19
   ret i32 %ret.0

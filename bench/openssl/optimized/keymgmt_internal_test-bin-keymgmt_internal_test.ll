@@ -689,18 +689,20 @@ lor.lhs.false:                                    ; preds = %if.end
   %conv.i = zext i1 %cmp.i to i32
   %call1.i = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 94, ptr noundef nonnull @.str.83, i32 noundef %conv.i) #3
   %tobool.not.i = icmp eq i32 %call1.i, 0
-  br i1 %tobool.not.i, label %get_ulong_via_BN.exit, label %lor.lhs.false.i
+  br i1 %tobool.not.i, label %if.then.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %lor.lhs.false
   %0 = load ptr, ptr %n.i, align 8
   %call2.i = call i32 @BN_bn2nativepad(ptr noundef %0, ptr noundef nonnull %arg, i32 noundef 8) #3
   %call3.i = call i32 @test_int_ge(ptr noundef nonnull @.str, i32 noundef 95, ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.85, i32 noundef %call2.i, i32 noundef 0) #3
-  %tobool4.not.i = icmp ne i32 %call3.i, 0
-  %spec.select.i = zext i1 %tobool4.not.i to i32
+  %tobool4.not.i = icmp eq i32 %call3.i, 0
+  br i1 %tobool4.not.i, label %if.then.i, label %get_ulong_via_BN.exit
+
+if.then.i:                                        ; preds = %lor.lhs.false.i, %lor.lhs.false
   br label %get_ulong_via_BN.exit
 
-get_ulong_via_BN.exit:                            ; preds = %lor.lhs.false, %lor.lhs.false.i
-  %ret.0.i = phi i32 [ 0, %lor.lhs.false ], [ %spec.select.i, %lor.lhs.false.i ]
+get_ulong_via_BN.exit:                            ; preds = %lor.lhs.false.i, %if.then.i
+  %ret.0.i = phi i32 [ 1, %lor.lhs.false.i ], [ 0, %if.then.i ]
   %1 = load ptr, ptr %n.i, align 8
   call void @BN_free(ptr noundef %1) #3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %n.i)
@@ -722,23 +724,25 @@ lor.lhs.false10:                                  ; preds = %lor.lhs.false6
   %conv.i35 = zext i1 %cmp.i34 to i32
   %call1.i36 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 94, ptr noundef nonnull @.str.83, i32 noundef %conv.i35) #3
   %tobool.not.i37 = icmp eq i32 %call1.i36, 0
-  br i1 %tobool.not.i37, label %get_ulong_via_BN.exit44, label %lor.lhs.false.i38
+  br i1 %tobool.not.i37, label %if.then.i43, label %lor.lhs.false.i38
 
 lor.lhs.false.i38:                                ; preds = %lor.lhs.false10
   %arrayidx11 = getelementptr inbounds i8, ptr %arg, i64 8
   %2 = load ptr, ptr %n.i32, align 8
   %call2.i39 = call i32 @BN_bn2nativepad(ptr noundef %2, ptr noundef nonnull %arrayidx11, i32 noundef 8) #3
   %call3.i40 = call i32 @test_int_ge(ptr noundef nonnull @.str, i32 noundef 95, ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.85, i32 noundef %call2.i39, i32 noundef 0) #3
-  %tobool4.not.i41 = icmp ne i32 %call3.i40, 0
-  %spec.select.i42 = zext i1 %tobool4.not.i41 to i32
+  %tobool4.not.i41 = icmp eq i32 %call3.i40, 0
+  br i1 %tobool4.not.i41, label %if.then.i43, label %get_ulong_via_BN.exit44
+
+if.then.i43:                                      ; preds = %lor.lhs.false.i38, %lor.lhs.false10
   br label %get_ulong_via_BN.exit44
 
-get_ulong_via_BN.exit44:                          ; preds = %lor.lhs.false10, %lor.lhs.false.i38
-  %ret.0.i43 = phi i32 [ 0, %lor.lhs.false10 ], [ %spec.select.i42, %lor.lhs.false.i38 ]
+get_ulong_via_BN.exit44:                          ; preds = %lor.lhs.false.i38, %if.then.i43
+  %ret.0.i42 = phi i32 [ 1, %lor.lhs.false.i38 ], [ 0, %if.then.i43 ]
   %3 = load ptr, ptr %n.i32, align 8
   call void @BN_free(ptr noundef %3) #3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %n.i32)
-  %call15 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 112, ptr noundef nonnull @.str.55, i32 noundef %ret.0.i43) #3
+  %call15 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 112, ptr noundef nonnull @.str.55, i32 noundef %ret.0.i42) #3
   %tobool16.not = icmp eq i32 %call15, 0
   br i1 %tobool16.not, label %return, label %lor.lhs.false17
 
@@ -756,23 +760,25 @@ lor.lhs.false21:                                  ; preds = %lor.lhs.false17
   %conv.i48 = zext i1 %cmp.i47 to i32
   %call1.i49 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 94, ptr noundef nonnull @.str.83, i32 noundef %conv.i48) #3
   %tobool.not.i50 = icmp eq i32 %call1.i49, 0
-  br i1 %tobool.not.i50, label %get_ulong_via_BN.exit57, label %lor.lhs.false.i51
+  br i1 %tobool.not.i50, label %if.then.i56, label %lor.lhs.false.i51
 
 lor.lhs.false.i51:                                ; preds = %lor.lhs.false21
   %arrayidx22 = getelementptr inbounds i8, ptr %arg, i64 16
   %4 = load ptr, ptr %n.i45, align 8
   %call2.i52 = call i32 @BN_bn2nativepad(ptr noundef %4, ptr noundef nonnull %arrayidx22, i32 noundef 8) #3
   %call3.i53 = call i32 @test_int_ge(ptr noundef nonnull @.str, i32 noundef 95, ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.85, i32 noundef %call2.i52, i32 noundef 0) #3
-  %tobool4.not.i54 = icmp ne i32 %call3.i53, 0
-  %spec.select.i55 = zext i1 %tobool4.not.i54 to i32
+  %tobool4.not.i54 = icmp eq i32 %call3.i53, 0
+  br i1 %tobool4.not.i54, label %if.then.i56, label %get_ulong_via_BN.exit57
+
+if.then.i56:                                      ; preds = %lor.lhs.false.i51, %lor.lhs.false21
   br label %get_ulong_via_BN.exit57
 
-get_ulong_via_BN.exit57:                          ; preds = %lor.lhs.false21, %lor.lhs.false.i51
-  %ret.0.i56 = phi i32 [ 0, %lor.lhs.false21 ], [ %spec.select.i55, %lor.lhs.false.i51 ]
+get_ulong_via_BN.exit57:                          ; preds = %lor.lhs.false.i51, %if.then.i56
+  %ret.0.i55 = phi i32 [ 1, %lor.lhs.false.i51 ], [ 0, %if.then.i56 ]
   %5 = load ptr, ptr %n.i45, align 8
   call void @BN_free(ptr noundef %5) #3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %n.i45)
-  %call26 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 114, ptr noundef nonnull @.str.58, i32 noundef %ret.0.i56) #3
+  %call26 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 114, ptr noundef nonnull @.str.58, i32 noundef %ret.0.i55) #3
   %tobool27.not = icmp eq i32 %call26, 0
   br i1 %tobool27.not, label %return, label %if.end29
 
@@ -790,23 +796,25 @@ lor.lhs.false33:                                  ; preds = %if.end29
   %conv.i61 = zext i1 %cmp.i60 to i32
   %call1.i62 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 94, ptr noundef nonnull @.str.83, i32 noundef %conv.i61) #3
   %tobool.not.i63 = icmp eq i32 %call1.i62, 0
-  br i1 %tobool.not.i63, label %get_ulong_via_BN.exit70, label %lor.lhs.false.i64
+  br i1 %tobool.not.i63, label %if.then.i69, label %lor.lhs.false.i64
 
 lor.lhs.false.i64:                                ; preds = %lor.lhs.false33
   %arrayidx34 = getelementptr inbounds i8, ptr %arg, i64 24
   %6 = load ptr, ptr %n.i58, align 8
   %call2.i65 = call i32 @BN_bn2nativepad(ptr noundef %6, ptr noundef nonnull %arrayidx34, i32 noundef 8) #3
   %call3.i66 = call i32 @test_int_ge(ptr noundef nonnull @.str, i32 noundef 95, ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.85, i32 noundef %call2.i65, i32 noundef 0) #3
-  %tobool4.not.i67 = icmp ne i32 %call3.i66, 0
-  %spec.select.i68 = zext i1 %tobool4.not.i67 to i32
+  %tobool4.not.i67 = icmp eq i32 %call3.i66, 0
+  br i1 %tobool4.not.i67, label %if.then.i69, label %get_ulong_via_BN.exit70
+
+if.then.i69:                                      ; preds = %lor.lhs.false.i64, %lor.lhs.false33
   br label %get_ulong_via_BN.exit70
 
-get_ulong_via_BN.exit70:                          ; preds = %lor.lhs.false33, %lor.lhs.false.i64
-  %ret.0.i69 = phi i32 [ 0, %lor.lhs.false33 ], [ %spec.select.i68, %lor.lhs.false.i64 ]
+get_ulong_via_BN.exit70:                          ; preds = %lor.lhs.false.i64, %if.then.i69
+  %ret.0.i68 = phi i32 [ 1, %lor.lhs.false.i64 ], [ 0, %if.then.i69 ]
   %7 = load ptr, ptr %n.i58, align 8
   call void @BN_free(ptr noundef %7) #3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %n.i58)
-  %call38 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 118, ptr noundef nonnull @.str.61, i32 noundef %ret.0.i69) #3
+  %call38 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 118, ptr noundef nonnull @.str.61, i32 noundef %ret.0.i68) #3
   %tobool39.not = icmp eq i32 %call38, 0
   br i1 %tobool39.not, label %return, label %lor.lhs.false40
 
@@ -926,7 +934,7 @@ declare void @EVP_KEYMGMT_free(ptr noundef) local_unnamed_addr #1
 declare ptr @OSSL_PARAM_locate_const(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @get_ulong_via_BN(ptr noundef %p, ptr noundef %goal) unnamed_addr #0 {
+define internal fastcc noundef i32 @get_ulong_via_BN(ptr noundef %p, ptr noundef %goal) unnamed_addr #0 {
 entry:
   %n = alloca ptr, align 8
   store ptr null, ptr %n, align 8
@@ -935,18 +943,20 @@ entry:
   %conv = zext i1 %cmp to i32
   %call1 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 94, ptr noundef nonnull @.str.83, i32 noundef %conv) #3
   %tobool.not = icmp eq i32 %call1, 0
-  br i1 %tobool.not, label %if.end, label %lor.lhs.false
+  br i1 %tobool.not, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
   %0 = load ptr, ptr %n, align 8
   %call2 = call i32 @BN_bn2nativepad(ptr noundef %0, ptr noundef %goal, i32 noundef 8) #3
   %call3 = call i32 @test_int_ge(ptr noundef nonnull @.str, i32 noundef 95, ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.85, i32 noundef %call2, i32 noundef 0) #3
-  %tobool4.not = icmp ne i32 %call3, 0
-  %spec.select = zext i1 %tobool4.not to i32
+  %tobool4.not = icmp eq i32 %call3, 0
+  br i1 %tobool4.not, label %if.then, label %if.end
+
+if.then:                                          ; preds = %lor.lhs.false, %entry
   br label %if.end
 
-if.end:                                           ; preds = %lor.lhs.false, %entry
-  %ret.0 = phi i32 [ 0, %entry ], [ %spec.select, %lor.lhs.false ]
+if.end:                                           ; preds = %if.then, %lor.lhs.false
+  %ret.0 = phi i32 [ 1, %lor.lhs.false ], [ 0, %if.then ]
   %1 = load ptr, ptr %n, align 8
   call void @BN_free(ptr noundef %1) #3
   ret i32 %ret.0

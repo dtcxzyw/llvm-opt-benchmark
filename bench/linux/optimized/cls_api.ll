@@ -481,7 +481,7 @@ define internal fastcc void @__tcf_chain_put(ptr noundef %0, i1 noundef zeroext 
 
 11:                                               ; preds = %7
   tail call void @mutex_unlock(ptr noundef %6) #14
-  br label %94
+  br label %95
 
 12:                                               ; preds = %7
   store i8 0, ptr %8, align 4
@@ -555,7 +555,7 @@ define internal fastcc void @__tcf_chain_put(ptr noundef %0, i1 noundef zeroext 
 
 54:                                               ; preds = %52, %._crit_edge
   %55 = icmp eq i32 %21, 0
-  br i1 %55, label %56, label %76
+  br i1 %55, label %56, label %77
 
 56:                                               ; preds = %54
   %57 = load ptr, ptr %4, align 8
@@ -581,57 +581,60 @@ define internal fastcc void @__tcf_chain_put(ptr noundef %0, i1 noundef zeroext 
   %69 = getelementptr inbounds i8, ptr %57, i64 48
   %70 = load volatile ptr, ptr %69, align 8
   %71 = icmp eq ptr %70, %69
-  br i1 %71, label %72, label %77
+  br i1 %71, label %72, label %76
 
 72:                                               ; preds = %68
   %73 = getelementptr inbounds i8, ptr %57, i64 72
   %74 = load volatile i32, ptr %73, align 4
   %75 = icmp eq i32 %74, 0
-  br label %77
+  br i1 %75, label %78, label %76
 
-76:                                               ; preds = %54
+76:                                               ; preds = %72, %68
+  br label %78
+
+77:                                               ; preds = %54
   tail call void @mutex_unlock(ptr noundef %6) #14
-  br label %94
+  br label %95
 
-77:                                               ; preds = %72, %68
-  %.ph = phi i1 [ %75, %72 ], [ false, %68 ]
+78:                                               ; preds = %76, %72
+  %.ph = phi i1 [ true, %72 ], [ false, %76 ]
   tail call void @mutex_unlock(ptr noundef %6) #14
-  %78 = icmp eq ptr %24, null
-  br i1 %78, label %84, label %79
+  %79 = icmp eq ptr %24, null
+  br i1 %79, label %85, label %80
 
-79:                                               ; preds = %77
-  %80 = getelementptr inbounds i8, ptr %24, i64 144
-  %81 = load ptr, ptr %80, align 8
-  tail call void %81(ptr noundef %26) #14
-  %82 = getelementptr inbounds i8, ptr %24, i64 192
-  %83 = load ptr, ptr %82, align 8
-  tail call void @module_put(ptr noundef %83) #14
-  br label %84
+80:                                               ; preds = %78
+  %81 = getelementptr inbounds i8, ptr %24, i64 144
+  %82 = load ptr, ptr %81, align 8
+  tail call void %82(ptr noundef %26) #14
+  %83 = getelementptr inbounds i8, ptr %24, i64 192
+  %84 = load ptr, ptr %83, align 8
+  tail call void @module_put(ptr noundef %84) #14
+  br label %85
 
-84:                                               ; preds = %79, %77
-  %85 = load ptr, ptr %4, align 8
-  %86 = icmp eq ptr %0, null
-  br i1 %86, label %89, label %87
+85:                                               ; preds = %80, %78
+  %86 = load ptr, ptr %4, align 8
+  %87 = icmp eq ptr %0, null
+  br i1 %87, label %90, label %88
 
-87:                                               ; preds = %84
-  %88 = getelementptr inbounds i8, ptr %0, i64 96
-  tail call void @kvfree_call_rcu(ptr noundef %88, ptr noundef nonnull %0) #14
-  br label %89
+88:                                               ; preds = %85
+  %89 = getelementptr inbounds i8, ptr %0, i64 96
+  tail call void @kvfree_call_rcu(ptr noundef %89, ptr noundef nonnull %0) #14
+  br label %90
 
-89:                                               ; preds = %87, %84
-  br i1 %.ph, label %90, label %94
+90:                                               ; preds = %88, %85
+  br i1 %.ph, label %91, label %95
 
-90:                                               ; preds = %89
-  tail call void @xa_destroy(ptr noundef %85) #14
-  %91 = icmp eq ptr %85, null
-  br i1 %91, label %94, label %92
+91:                                               ; preds = %90
+  tail call void @xa_destroy(ptr noundef %86) #14
+  %92 = icmp eq ptr %86, null
+  br i1 %92, label %95, label %93
 
-92:                                               ; preds = %90
-  %93 = getelementptr inbounds i8, ptr %85, i64 208
-  tail call void @kvfree_call_rcu(ptr noundef %93, ptr noundef nonnull %85) #14
-  br label %94
+93:                                               ; preds = %91
+  %94 = getelementptr inbounds i8, ptr %86, i64 208
+  tail call void @kvfree_call_rcu(ptr noundef %94, ptr noundef nonnull %86) #14
+  br label %95
 
-94:                                               ; preds = %76, %92, %90, %89, %11
+95:                                               ; preds = %77, %93, %91, %90, %11
   ret void
 }
 
@@ -2434,12 +2437,15 @@ define dso_local noundef i32 @tcf_exts_dump_stats(ptr noundef %0, ptr nocapture 
 
 11:                                               ; preds = %6
   %12 = tail call i32 @tcf_action_copy_stats(ptr noundef %0, ptr noundef nonnull %9, i32 noundef 1) #14
-  %.lobit = ashr i32 %12, 31
-  br label %.thread
+  %13 = icmp slt i32 %12, 0
+  br i1 %13, label %14, label %.thread
 
 .thread:                                          ; preds = %2, %11, %6
-  %13 = phi i32 [ 0, %6 ], [ %.lobit, %11 ], [ 0, %2 ]
-  ret i32 %13
+  br label %14
+
+14:                                               ; preds = %.thread, %11
+  %15 = phi i32 [ 0, %.thread ], [ -1, %11 ]
+  ret i32 %15
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -2971,8 +2977,7 @@ define dso_local i32 @tc_setup_cb_reoffload(ptr noundef %0, ptr noundef %1, i1 n
   %14 = load i32, ptr %7, align 4
   %15 = and i32 %14, 2
   %16 = icmp eq i32 %15, 0
-  %spec.select = select i1 %16, i32 0, i32 %10
-  br label %43
+  br i1 %16, label %43, label %44
 
 17:                                               ; preds = %9
   %18 = getelementptr inbounds i8, ptr %1, i64 56
@@ -3027,9 +3032,12 @@ define dso_local i32 @tc_setup_cb_reoffload(ptr noundef %0, ptr noundef %1, i1 n
   tail call void @_raw_spin_unlock(ptr noundef %18) #14
   br label %43
 
-43:                                               ; preds = %13, %12, %42
-  %44 = phi i32 [ 0, %42 ], [ 0, %12 ], [ %spec.select, %13 ]
-  ret i32 %44
+43:                                               ; preds = %42, %13, %12
+  br label %44
+
+44:                                               ; preds = %43, %13
+  %45 = phi i32 [ 0, %43 ], [ %10, %13 ]
+  ret i32 %45
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

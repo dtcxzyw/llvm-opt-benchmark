@@ -1253,12 +1253,14 @@ if.end:                                           ; preds = %entry
 if.then2:                                         ; preds = %if.end
   %call3 = call i64 @readlink(ptr noundef %path, ptr noundef nonnull %buffer, i64 noundef 255) #25
   %cmp4 = icmp sgt i64 %call3, 4
-  br i1 %cmp4, label %land.lhs.true, label %return
+  br i1 %cmp4, label %land.lhs.true, label %if.end8
 
 land.lhs.true:                                    ; preds = %if.then2
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) @.str.1, ptr noundef nonnull dereferenceable(5) %buffer, i64 5)
-  %tobool.not = icmp ne i32 %bcmp, 0
-  %spec.select = sext i1 %tobool.not to i32
+  %tobool.not = icmp eq i32 %bcmp, 0
+  br i1 %tobool.not, label %return, label %if.end8
+
+if.end8:                                          ; preds = %land.lhs.true, %if.then2
   br label %return
 
 if.end9:                                          ; preds = %if.end
@@ -1315,8 +1317,8 @@ if.end31:                                         ; preds = %do.cond.i, %while.e
   %. = sext i1 %tobool34.not to i32
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %if.end31, %while.end, %if.end13, %if.end9, %if.then2, %entry
-  %retval.0 = phi i32 [ -1, %entry ], [ -1, %if.then2 ], [ -1, %if.end9 ], [ -1, %if.end13 ], [ 0, %while.end ], [ %., %if.end31 ], [ %spec.select, %land.lhs.true ]
+return:                                           ; preds = %if.end31, %while.end, %if.end13, %if.end9, %land.lhs.true, %entry, %if.end8
+  %retval.0 = phi i32 [ -1, %if.end8 ], [ -1, %entry ], [ 0, %land.lhs.true ], [ -1, %if.end9 ], [ -1, %if.end13 ], [ 0, %while.end ], [ %., %if.end31 ]
   ret i32 %retval.0
 }
 
@@ -1666,11 +1668,11 @@ if.end3:                                          ; preds = %if.end
   %st_mode.i = getelementptr inbounds i8, ptr %st.i, i64 24
   %0 = load i32, ptr %st_mode.i, align 8
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %st.i)
-  %call.i8 = tail call i32 @get_shared_repository() #25
-  %cmp.i9 = icmp slt i32 %call.i8, 0
+  %call.i7 = tail call i32 @get_shared_repository() #25
+  %cmp.i8 = icmp slt i32 %call.i7, 0
   %call1.i = tail call i32 @get_shared_repository() #25
   %sub.i = sub nsw i32 0, %call1.i
-  %tweak.0.i = select i1 %cmp.i9, i32 %sub.i, i32 %call1.i
+  %tweak.0.i = select i1 %cmp.i8, i32 %sub.i, i32 %call1.i
   %and.i = and i32 %0, 128
   %tobool.not.i = icmp eq i32 %and.i, 0
   %and4.i = and i32 %tweak.0.i, -147
@@ -1705,17 +1707,19 @@ if.end13:                                         ; preds = %if.then6, %if.end3
   %xor = xor i32 %new_mode.0, %0
   %and14 = and i32 %xor, -61441
   %tobool15.not = icmp eq i32 %and14, 0
-  br i1 %tobool15.not, label %return, label %land.lhs.true
+  br i1 %tobool15.not, label %if.end20, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end13
   %and16 = and i32 %new_mode.0, -61441
   %call17 = tail call i32 @chmod(ptr noundef %path, i32 noundef %and16) #25
   %cmp18 = icmp slt i32 %call17, 0
-  %spec.select7 = select i1 %cmp18, i32 -2, i32 0
+  br i1 %cmp18, label %return, label %if.end20
+
+if.end20:                                         ; preds = %land.lhs.true, %if.end13
   br label %return
 
-return:                                           ; preds = %get_st_mode_bits.exit.thread, %land.lhs.true, %if.end13, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 0, %if.end13 ], [ %spec.select7, %land.lhs.true ], [ -1, %get_st_mode_bits.exit.thread ]
+return:                                           ; preds = %get_st_mode_bits.exit.thread, %land.lhs.true, %entry, %if.end20
+  %retval.0 = phi i32 [ 0, %if.end20 ], [ 0, %entry ], [ -2, %land.lhs.true ], [ -1, %get_st_mode_bits.exit.thread ]
   ret i32 %retval.0
 }
 

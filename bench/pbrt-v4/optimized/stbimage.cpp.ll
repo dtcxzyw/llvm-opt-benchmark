@@ -7818,7 +7818,7 @@ if.end48.i.i:                                     ; preds = %for.body.i.i
   store ptr %700, ptr %line1.i.i, align 16
   %line0.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i178, i64 8
   store ptr %700, ptr %line0.i.i, align 8
-  switch i32 %div.i.i, label %for.inc.i.i [
+  switch i32 %div.i.i, label %if.else96.i.i [
     i32 1, label %land.lhs.true68.i.i
     i32 2, label %land.lhs.true83.i.i
   ]
@@ -7840,11 +7840,11 @@ if.then94.i.i:                                    ; preds = %land.lhs.true83.i.i
   %701 = load ptr, ptr %resample_row_hv_2_kernel.i.i160, align 8
   br label %for.inc.i.i
 
-if.else96.i.i:                                    ; preds = %land.lhs.true83.i.i
+if.else96.i.i:                                    ; preds = %land.lhs.true83.i.i, %if.end48.i.i
   br label %for.inc.i.i
 
-for.inc.i.i:                                      ; preds = %if.else96.i.i, %if.then94.i.i, %land.lhs.true83.i.i, %land.lhs.true68.i.i, %if.end48.i.i
-  %_ZL14resample_row_1PhS_S_ii.sink.i.i = phi ptr [ %701, %if.then94.i.i ], [ %switch.select665.i.i, %land.lhs.true68.i.i ], [ @_ZL22stbi__resample_row_h_2PhS_S_ii, %land.lhs.true83.i.i ], [ @_ZL26stbi__resample_row_genericPhS_S_ii, %if.end48.i.i ], [ @_ZL26stbi__resample_row_genericPhS_S_ii, %if.else96.i.i ]
+for.inc.i.i:                                      ; preds = %if.else96.i.i, %if.then94.i.i, %land.lhs.true83.i.i, %land.lhs.true68.i.i
+  %_ZL14resample_row_1PhS_S_ii.sink.i.i = phi ptr [ @_ZL26stbi__resample_row_genericPhS_S_ii, %if.else96.i.i ], [ %701, %if.then94.i.i ], [ %switch.select665.i.i, %land.lhs.true68.i.i ], [ @_ZL22stbi__resample_row_h_2PhS_S_ii, %land.lhs.true83.i.i ]
   store ptr %_ZL14resample_row_1PhS_S_ii.sink.i.i, ptr %arrayidx.i.i178, align 16
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -9235,11 +9235,11 @@ if.end13:                                         ; preds = %if.end6
 
 if.then17:                                        ; preds = %if.end13
   store i32 %.pre, ptr %comp, align 4
-  %.pre47 = load i32, ptr %img_y, align 4
+  %.pre44 = load i32, ptr %img_y, align 4
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then17, %if.end13
-  %5 = phi i32 [ %.pre47, %if.then17 ], [ %4, %if.end13 ]
+  %5 = phi i32 [ %.pre44, %if.then17 ], [ %4, %if.end13 ]
   %6 = load i32, ptr %s, align 8
   %7 = load i32, ptr %ri, align 4
   %div = sdiv i32 %7, 8
@@ -9280,19 +9280,19 @@ land.lhs.true3.i:                                 ; preds = %_ZL21stbi__mul2size
 if.end.i21.i:                                     ; preds = %land.lhs.true3.i
   %.off = add i32 %7, 7
   %cmp2.i22.i = icmp ult i32 %.off, 15
-  br i1 %cmp2.i22.i, label %if.end.i.i.i, label %_ZL21stbi__mad4sizes_validiiiii.exit
+  br i1 %cmp2.i22.i, label %if.end.i.i.i, label %_ZL21stbi__mul2sizes_validii.exit27.i
 
-_ZL21stbi__mad4sizes_validiiiii.exit:             ; preds = %if.end.i21.i
+_ZL21stbi__mul2sizes_validii.exit27.i:            ; preds = %if.end.i21.i
   %div.i24.i = udiv i32 2147483647, %div
-  %cmp5.i25.not.i.not = icmp slt i32 %div.i24.i, %mul5.i
-  br i1 %cmp5.i25.not.i.not, label %if.then26, label %if.end.i.i.i
+  %cmp5.i25.not.i = icmp slt i32 %div.i24.i, %mul5.i
+  br i1 %cmp5.i25.not.i, label %if.then26, label %if.end.i.i.i
 
-if.then26:                                        ; preds = %land.lhs.true3.i, %land.lhs.true.i, %if.end19, %_ZL21stbi__mul2sizes_validii.exit.i, %_ZL21stbi__mul2sizes_validii.exit18.i, %_ZL21stbi__mad4sizes_validiiiii.exit
+if.then26:                                        ; preds = %_ZL21stbi__mul2sizes_validii.exit27.i, %_ZL21stbi__mul2sizes_validii.exit18.i, %_ZL21stbi__mul2sizes_validii.exit.i, %if.end19, %land.lhs.true.i, %land.lhs.true3.i
   %11 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZL22stbi__g_failure_reason)
   store ptr @.str.6, ptr %11, align 8
   br label %return
 
-if.end.i.i.i:                                     ; preds = %if.end.i21.i, %_ZL21stbi__mad4sizes_validiiiii.exit
+if.end.i.i.i:                                     ; preds = %if.end.i21.i, %_ZL21stbi__mul2sizes_validii.exit27.i
   br i1 %cmp2.i.i, label %if.end.i12.i.i, label %_ZL21stbi__mul2sizes_validii.exit.i.i
 
 _ZL21stbi__mul2sizes_validii.exit.i.i:            ; preds = %if.end.i.i.i
@@ -9309,21 +9309,21 @@ _ZL21stbi__mul2sizes_validii.exit18.i.i:          ; preds = %if.end.i12.i.i
   br i1 %cmp5.i16.not.i.i, label %if.then38, label %if.end.i21.i.i
 
 if.end.i21.i.i:                                   ; preds = %if.end.i12.i.i, %_ZL21stbi__mul2sizes_validii.exit18.i.i
-  br i1 %cmp2.i22.i, label %_ZL17stbi__malloc_mad4iiiii.exit, label %_ZL21stbi__mad4sizes_validiiiii.exit.i
+  br i1 %cmp2.i22.i, label %_ZL17stbi__malloc_mad4iiiii.exit, label %_ZL21stbi__mul2sizes_validii.exit27.i.i
 
-_ZL21stbi__mad4sizes_validiiiii.exit.i:           ; preds = %if.end.i21.i.i
+_ZL21stbi__mul2sizes_validii.exit27.i.i:          ; preds = %if.end.i21.i.i
   %div.i24.i.i = udiv i32 2147483647, %div
-  %cmp5.i25.not.i.not.i = icmp slt i32 %div.i24.i.i, %mul5.i
-  br i1 %cmp5.i25.not.i.not.i, label %if.then38, label %_ZL17stbi__malloc_mad4iiiii.exit
+  %cmp5.i25.not.i.i = icmp slt i32 %div.i24.i.i, %mul5.i
+  br i1 %cmp5.i25.not.i.i, label %if.then38, label %_ZL17stbi__malloc_mad4iiiii.exit
 
-_ZL17stbi__malloc_mad4iiiii.exit:                 ; preds = %if.end.i21.i.i, %_ZL21stbi__mad4sizes_validiiiii.exit.i
+_ZL17stbi__malloc_mad4iiiii.exit:                 ; preds = %if.end.i21.i.i, %_ZL21stbi__mul2sizes_validii.exit27.i.i
   %mul2.i = mul i32 %div, %mul5.i
   %conv.i36 = sext i32 %mul2.i to i64
   %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %conv.i36) #38
   %tobool37.not = icmp eq ptr %call.i.i, null
   br i1 %tobool37.not, label %if.then38, label %if.end42
 
-if.then38:                                        ; preds = %_ZL21stbi__mul2sizes_validii.exit.i.i, %_ZL21stbi__mul2sizes_validii.exit18.i.i, %_ZL21stbi__mad4sizes_validiiiii.exit.i, %_ZL17stbi__malloc_mad4iiiii.exit
+if.then38:                                        ; preds = %_ZL21stbi__mul2sizes_validii.exit.i.i, %_ZL21stbi__mul2sizes_validii.exit18.i.i, %_ZL21stbi__mul2sizes_validii.exit27.i.i, %_ZL17stbi__malloc_mad4iiiii.exit
   %12 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZL22stbi__g_failure_reason)
   store ptr @.str.8, ptr %12, align 8
   br label %return
@@ -21069,16 +21069,18 @@ land.lhs.true3:                                   ; preds = %if.end.i12, %_ZL21s
 
 if.end.i21:                                       ; preds = %land.lhs.true3
   %cmp2.i22 = icmp eq i32 %d, 0
-  br i1 %cmp2.i22, label %land.end, label %_ZL21stbi__mul2sizes_validii.exit27
+  br i1 %cmp2.i22, label %land.rhs, label %_ZL21stbi__mul2sizes_validii.exit27
 
 _ZL21stbi__mul2sizes_validii.exit27:              ; preds = %if.end.i21
   %div.i24 = udiv i32 2147483647, %d
-  %cmp5.i25.not = icmp sge i32 %div.i24, %mul5
-  %spec.select = zext i1 %cmp5.i25.not to i32
+  %cmp5.i25.not = icmp slt i32 %div.i24, %mul5
+  br i1 %cmp5.i25.not, label %land.end, label %land.rhs
+
+land.rhs:                                         ; preds = %if.end.i21, %_ZL21stbi__mul2sizes_validii.exit27
   br label %land.end
 
-land.end:                                         ; preds = %_ZL21stbi__mul2sizes_validii.exit27, %if.end.i21, %land.lhs.true3, %land.lhs.true, %entry, %_ZL21stbi__mul2sizes_validii.exit18, %_ZL21stbi__mul2sizes_validii.exit
-  %conv = phi i32 [ 0, %_ZL21stbi__mul2sizes_validii.exit18 ], [ 0, %_ZL21stbi__mul2sizes_validii.exit ], [ 0, %entry ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true3 ], [ 1, %if.end.i21 ], [ %spec.select, %_ZL21stbi__mul2sizes_validii.exit27 ]
+land.end:                                         ; preds = %land.lhs.true3, %land.lhs.true, %entry, %land.rhs, %_ZL21stbi__mul2sizes_validii.exit27, %_ZL21stbi__mul2sizes_validii.exit18, %_ZL21stbi__mul2sizes_validii.exit
+  %conv = phi i32 [ 0, %_ZL21stbi__mul2sizes_validii.exit27 ], [ 0, %_ZL21stbi__mul2sizes_validii.exit18 ], [ 0, %_ZL21stbi__mul2sizes_validii.exit ], [ 1, %land.rhs ], [ 0, %entry ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true3 ]
   ret i32 %conv
 }
 
@@ -21121,21 +21123,21 @@ land.lhs.true3.i:                                 ; preds = %_ZL21stbi__mul2size
 
 if.end.i21.i:                                     ; preds = %land.lhs.true3.i
   %cmp2.i22.i = icmp eq i32 %d, 0
-  br i1 %cmp2.i22.i, label %if.end, label %_ZL21stbi__mad4sizes_validiiiii.exit
+  br i1 %cmp2.i22.i, label %if.end, label %_ZL21stbi__mul2sizes_validii.exit27.i
 
-_ZL21stbi__mad4sizes_validiiiii.exit:             ; preds = %if.end.i21.i
+_ZL21stbi__mul2sizes_validii.exit27.i:            ; preds = %if.end.i21.i
   %div.i24.i = udiv i32 2147483647, %d
-  %cmp5.i25.not.i.not = icmp slt i32 %div.i24.i, %mul5.i
-  br i1 %cmp5.i25.not.i.not, label %return, label %if.end
+  %cmp5.i25.not.i = icmp slt i32 %div.i24.i, %mul5.i
+  br i1 %cmp5.i25.not.i, label %return, label %if.end
 
-if.end:                                           ; preds = %if.end.i21.i, %_ZL21stbi__mad4sizes_validiiiii.exit
+if.end:                                           ; preds = %_ZL21stbi__mul2sizes_validii.exit27.i, %if.end.i21.i
   %mul2 = mul nsw i32 %mul5.i, %d
   %conv = sext i32 %mul2 to i64
   %call.i = tail call noalias noundef ptr @malloc(i64 noundef %conv) #38
   br label %return
 
-return:                                           ; preds = %land.lhs.true3.i, %land.lhs.true.i, %entry, %_ZL21stbi__mul2sizes_validii.exit.i, %_ZL21stbi__mul2sizes_validii.exit18.i, %_ZL21stbi__mad4sizes_validiiiii.exit, %if.end
-  %retval.0 = phi ptr [ %call.i, %if.end ], [ null, %_ZL21stbi__mad4sizes_validiiiii.exit ], [ null, %_ZL21stbi__mul2sizes_validii.exit18.i ], [ null, %_ZL21stbi__mul2sizes_validii.exit.i ], [ null, %entry ], [ null, %land.lhs.true.i ], [ null, %land.lhs.true3.i ]
+return:                                           ; preds = %land.lhs.true3.i, %land.lhs.true.i, %entry, %_ZL21stbi__mul2sizes_validii.exit.i, %_ZL21stbi__mul2sizes_validii.exit18.i, %_ZL21stbi__mul2sizes_validii.exit27.i, %if.end
+  %retval.0 = phi ptr [ %call.i, %if.end ], [ null, %_ZL21stbi__mul2sizes_validii.exit27.i ], [ null, %_ZL21stbi__mul2sizes_validii.exit18.i ], [ null, %_ZL21stbi__mul2sizes_validii.exit.i ], [ null, %entry ], [ null, %land.lhs.true.i ], [ null, %land.lhs.true3.i ]
   ret ptr %retval.0
 }
 

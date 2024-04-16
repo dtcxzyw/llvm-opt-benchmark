@@ -284,24 +284,23 @@ define dso_local noundef i32 @tcp_twsk_unique(ptr noundef %0, ptr noundef %1, pt
   %34 = load i64, ptr %33, align 8
   %35 = getelementptr i8, ptr %1, i64 80
   %36 = load i64, ptr %35, align 8
-  %.fr13 = freeze i64 %36
-  %37 = xor i64 %.fr13, 72057594037927936
+  %37 = xor i64 %36, 72057594037927936
   %38 = or i64 %37, %34
   %39 = icmp eq i64 %38, 0
   br i1 %39, label %.thread, label %40
 
 40:                                               ; preds = %32
-  %41 = and i64 %.fr13, 4294967295
+  %41 = and i64 %36, 4294967295
   %42 = xor i64 %41, 4294901760
   %43 = or i64 %34, %42
   %44 = icmp eq i64 %43, 0
   br i1 %44, label %45, label %57
 
 45:                                               ; preds = %40
-  %46 = and i64 %.fr13, 1095216660480
+  %46 = and i64 %36, 1095216660480
   %47 = icmp eq i64 %46, 545460846592
-  %spec.select = or i1 %13, %47
-  br i1 %spec.select, label %.thread, label %58
+  %brmerge3 = or i1 %13, %47
+  br i1 %brmerge3, label %.thread, label %58
 
 48:                                               ; preds = %10
   %49 = load i32, ptr %1, align 8
@@ -312,20 +311,19 @@ define dso_local noundef i32 @tcp_twsk_unique(ptr noundef %0, ptr noundef %1, pt
 52:                                               ; preds = %48
   %53 = getelementptr inbounds i8, ptr %1, i64 4
   %54 = load i32, ptr %53, align 4
-  %.fr8 = freeze i32 %54
-  %55 = and i32 %.fr8, 255
+  %55 = and i32 %54, 255
   %56 = icmp eq i32 %55, 127
-  %spec.select1 = or i1 %13, %56
-  br i1 %spec.select1, label %.thread, label %58
+  %brmerge = or i1 %13, %56
+  br i1 %brmerge, label %.thread, label %58
 
 57:                                               ; preds = %40
   br i1 %13, label %.thread, label %58
 
-.thread:                                          ; preds = %25, %48, %17, %32, %52, %45, %57
+.thread:                                          ; preds = %25, %45, %52, %48, %17, %32, %57
   br label %58
 
-58:                                               ; preds = %.thread, %57, %45, %52, %3
-  %59 = phi i32 [ %8, %3 ], [ 2, %.thread ], [ 0, %57 ], [ 0, %45 ], [ 0, %52 ]
+58:                                               ; preds = %45, %52, %.thread, %57, %3
+  %59 = phi i32 [ %8, %3 ], [ 2, %.thread ], [ 0, %57 ], [ 0, %52 ], [ 0, %45 ]
   %60 = getelementptr inbounds i8, ptr %1, i64 232
   %61 = load i32, ptr %60, align 8
   %62 = icmp eq i32 %61, 0
@@ -1745,7 +1743,7 @@ define dso_local ptr @__tcp_md5_do_lookup(ptr noundef %0, i32 noundef %1, ptr no
 82:                                               ; preds = %72, %70, %59, %57, %32
   %83 = phi i8 [ %50, %72 ], [ 0, %70 ], [ %50, %59 ], [ 64, %57 ], [ %34, %32 ]
   %84 = icmp eq ptr %16, null
-  br i1 %84, label %.thread7, label %85
+  br i1 %84, label %.thread, label %85
 
 85:                                               ; preds = %82
   %86 = getelementptr inbounds i8, ptr %16, i64 36
@@ -1760,18 +1758,20 @@ define dso_local ptr @__tcp_md5_do_lookup(ptr noundef %0, i32 noundef %1, ptr no
   br i1 %91, label %.thread7, label %94
 
 93:                                               ; preds = %85
-  br i1 %91, label %94, label %.thread7
+  br i1 %91, label %94, label %.thread
 
 94:                                               ; preds = %92, %93
   %95 = getelementptr inbounds i8, ptr %16, i64 18
   %96 = load i8, ptr %95, align 2
   %97 = icmp ult i8 %96, %83
   %cond.fr = freeze i1 %97
-  %spec.select = select i1 %cond.fr, ptr %15, ptr %16
+  br i1 %cond.fr, label %.thread, label %.thread7
+
+.thread:                                          ; preds = %93, %82, %94
   br label %.thread7
 
-.thread7:                                         ; preds = %94, %93, %82, %92, %72, %59, %53, %32, %31, %27, %14
-  %98 = phi ptr [ %16, %14 ], [ %16, %32 ], [ %16, %27 ], [ %16, %31 ], [ %16, %72 ], [ %16, %59 ], [ %16, %53 ], [ %16, %92 ], [ %15, %82 ], [ %15, %93 ], [ %spec.select, %94 ]
+.thread7:                                         ; preds = %92, %.thread, %94, %72, %59, %53, %32, %31, %27, %14
+  %98 = phi ptr [ %16, %14 ], [ %16, %32 ], [ %16, %27 ], [ %16, %31 ], [ %16, %72 ], [ %16, %59 ], [ %16, %53 ], [ %15, %.thread ], [ %16, %94 ], [ %16, %92 ]
   %99 = load volatile ptr, ptr %15, align 8
   %100 = icmp eq ptr %99, null
   br i1 %100, label %.loopexit, label %14, !llvm.loop !29
@@ -1837,7 +1837,7 @@ define dso_local ptr @tcp_v4_md5_lookup(ptr noundef %0, ptr nocapture noundef re
 
 39:                                               ; preds = %24
   %40 = icmp eq ptr %11, null
-  br i1 %40, label %.thread5, label %41
+  br i1 %40, label %.thread, label %41
 
 41:                                               ; preds = %39
   %42 = getelementptr inbounds i8, ptr %11, i64 36
@@ -1852,18 +1852,20 @@ define dso_local ptr @tcp_v4_md5_lookup(ptr noundef %0, ptr nocapture noundef re
   br i1 %47, label %.thread5, label %50
 
 49:                                               ; preds = %41
-  br i1 %47, label %50, label %.thread5
+  br i1 %47, label %50, label %.thread
 
 50:                                               ; preds = %48, %49
   %51 = getelementptr inbounds i8, ptr %11, i64 18
   %52 = load i8, ptr %51, align 2
   %53 = icmp ult i8 %52, %26
   %cond.fr = freeze i1 %53
-  %spec.select = select i1 %cond.fr, ptr %10, ptr %11
+  br i1 %cond.fr, label %.thread, label %.thread5
+
+.thread:                                          ; preds = %49, %39, %50
   br label %.thread5
 
-.thread5:                                         ; preds = %50, %49, %39, %48, %24, %20, %.preheader
-  %54 = phi ptr [ %11, %.preheader ], [ %11, %24 ], [ %11, %20 ], [ %11, %48 ], [ %10, %39 ], [ %10, %49 ], [ %spec.select, %50 ]
+.thread5:                                         ; preds = %48, %.thread, %50, %24, %20, %.preheader
+  %54 = phi ptr [ %11, %.preheader ], [ %11, %24 ], [ %11, %20 ], [ %10, %.thread ], [ %11, %50 ], [ %11, %48 ]
   %55 = load volatile ptr, ptr %10, align 8
   %56 = icmp eq ptr %55, null
   br i1 %56, label %.loopexit, label %.preheader, !llvm.loop !29
@@ -2504,7 +2506,7 @@ define internal void @tcp_v4_reqsk_send_ack(ptr noundef %0, ptr noundef %1, ptr 
 
 61:                                               ; preds = %46
   %62 = icmp eq ptr %33, null
-  br i1 %62, label %.thread5, label %63
+  br i1 %62, label %.thread, label %63
 
 63:                                               ; preds = %61
   %64 = getelementptr inbounds i8, ptr %33, i64 36
@@ -2519,18 +2521,20 @@ define internal void @tcp_v4_reqsk_send_ack(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %69, label %.thread5, label %72
 
 71:                                               ; preds = %63
-  br i1 %69, label %72, label %.thread5
+  br i1 %69, label %72, label %.thread
 
 72:                                               ; preds = %70, %71
   %73 = getelementptr inbounds i8, ptr %33, i64 18
   %74 = load i8, ptr %73, align 2
   %75 = icmp ult i8 %74, %48
   %cond.fr = freeze i1 %75
-  %spec.select = select i1 %cond.fr, ptr %32, ptr %33
+  br i1 %cond.fr, label %.thread, label %.thread5
+
+.thread:                                          ; preds = %71, %61, %72
   br label %.thread5
 
-.thread5:                                         ; preds = %72, %71, %61, %70, %46, %42, %.preheader
-  %76 = phi ptr [ %33, %.preheader ], [ %33, %46 ], [ %33, %42 ], [ %33, %70 ], [ %32, %61 ], [ %32, %71 ], [ %spec.select, %72 ]
+.thread5:                                         ; preds = %70, %.thread, %72, %46, %42, %.preheader
+  %76 = phi ptr [ %33, %.preheader ], [ %33, %46 ], [ %33, %42 ], [ %32, %.thread ], [ %33, %72 ], [ %33, %70 ]
   %77 = load volatile ptr, ptr %32, align 8
   %78 = icmp eq ptr %77, null
   br i1 %78, label %79, label %.preheader, !llvm.loop !29
@@ -2792,7 +2796,7 @@ define internal void @tcp_v4_send_reset(ptr noundef %0, ptr noundef %1) #0 align
 
 137:                                              ; preds = %122
   %138 = icmp eq ptr %109, null
-  br i1 %138, label %.thread5.i, label %139
+  br i1 %138, label %.thread.i, label %139
 
 139:                                              ; preds = %137
   %140 = getelementptr inbounds i8, ptr %109, i64 36
@@ -2807,18 +2811,20 @@ define internal void @tcp_v4_send_reset(ptr noundef %0, ptr noundef %1) #0 align
   br i1 %145, label %.thread5.i, label %148
 
 147:                                              ; preds = %139
-  br i1 %145, label %148, label %.thread5.i
+  br i1 %145, label %148, label %.thread.i
 
 148:                                              ; preds = %147, %146
   %149 = getelementptr inbounds i8, ptr %109, i64 18
   %150 = load i8, ptr %149, align 2
   %151 = icmp ult i8 %150, %124
   %cond.fr.i = freeze i1 %151
-  %spec.select.i = select i1 %cond.fr.i, ptr %108, ptr %109
+  br i1 %cond.fr.i, label %.thread.i, label %.thread5.i
+
+.thread.i:                                        ; preds = %148, %147, %137
   br label %.thread5.i
 
-.thread5.i:                                       ; preds = %148, %147, %146, %137, %122, %118, %.preheader.i
-  %152 = phi ptr [ %109, %.preheader.i ], [ %109, %122 ], [ %109, %118 ], [ %109, %146 ], [ %108, %137 ], [ %108, %147 ], [ %spec.select.i, %148 ]
+.thread5.i:                                       ; preds = %.thread.i, %148, %146, %122, %118, %.preheader.i
+  %152 = phi ptr [ %109, %.preheader.i ], [ %109, %122 ], [ %109, %118 ], [ %108, %.thread.i ], [ %109, %148 ], [ %109, %146 ]
   %153 = load volatile ptr, ptr %108, align 8
   %154 = icmp eq ptr %153, null
   br i1 %154, label %tcp_md5_do_lookup.exit, label %.preheader.i, !llvm.loop !29
@@ -2925,7 +2931,7 @@ define internal void @tcp_v4_send_reset(ptr noundef %0, ptr noundef %1) #0 align
 
 229:                                              ; preds = %214
   %230 = icmp eq ptr %201, null
-  br i1 %230, label %.thread5.i12, label %231
+  br i1 %230, label %.thread.i14, label %231
 
 231:                                              ; preds = %229
   %232 = getelementptr inbounds i8, ptr %201, i64 36
@@ -2940,18 +2946,20 @@ define internal void @tcp_v4_send_reset(ptr noundef %0, ptr noundef %1) #0 align
   br i1 %237, label %.thread5.i12, label %240
 
 239:                                              ; preds = %231
-  br i1 %237, label %240, label %.thread5.i12
+  br i1 %237, label %240, label %.thread.i14
 
 240:                                              ; preds = %239, %238
   %241 = getelementptr inbounds i8, ptr %201, i64 18
   %242 = load i8, ptr %241, align 2
   %243 = icmp ult i8 %242, %216
   %cond.fr.i13 = freeze i1 %243
-  %spec.select.i14 = select i1 %cond.fr.i13, ptr %200, ptr %201
+  br i1 %cond.fr.i13, label %.thread.i14, label %.thread5.i12
+
+.thread.i14:                                      ; preds = %240, %239, %229
   br label %.thread5.i12
 
-.thread5.i12:                                     ; preds = %240, %239, %238, %229, %214, %210, %.preheader.i11
-  %244 = phi ptr [ %201, %.preheader.i11 ], [ %201, %214 ], [ %201, %210 ], [ %201, %238 ], [ %200, %229 ], [ %200, %239 ], [ %spec.select.i14, %240 ]
+.thread5.i12:                                     ; preds = %.thread.i14, %240, %238, %214, %210, %.preheader.i11
+  %244 = phi ptr [ %201, %.preheader.i11 ], [ %201, %214 ], [ %201, %210 ], [ %200, %.thread.i14 ], [ %201, %240 ], [ %201, %238 ]
   %245 = load volatile ptr, ptr %200, align 8
   %246 = icmp eq ptr %245, null
   br i1 %246, label %tcp_md5_do_lookup.exit15, label %.preheader.i11, !llvm.loop !29
@@ -3825,7 +3833,7 @@ define dso_local ptr @tcp_v4_syn_recv_sock(ptr noundef %0, ptr noundef %1, ptr n
 
 184:                                              ; preds = %169
   %185 = icmp eq ptr %156, null
-  br i1 %185, label %.thread14, label %186
+  br i1 %185, label %.thread, label %186
 
 186:                                              ; preds = %184
   %187 = getelementptr inbounds i8, ptr %156, i64 36
@@ -3840,18 +3848,20 @@ define dso_local ptr @tcp_v4_syn_recv_sock(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %192, label %.thread14, label %195
 
 194:                                              ; preds = %186
-  br i1 %192, label %195, label %.thread14
+  br i1 %192, label %195, label %.thread
 
 195:                                              ; preds = %193, %194
   %196 = getelementptr inbounds i8, ptr %156, i64 18
   %197 = load i8, ptr %196, align 2
   %198 = icmp ult i8 %197, %171
   %cond.fr = freeze i1 %198
-  %spec.select = select i1 %cond.fr, ptr %155, ptr %156
+  br i1 %cond.fr, label %.thread, label %.thread14
+
+.thread:                                          ; preds = %194, %184, %195
   br label %.thread14
 
-.thread14:                                        ; preds = %195, %194, %184, %193, %169, %165, %.preheader
-  %199 = phi ptr [ %156, %.preheader ], [ %156, %169 ], [ %156, %165 ], [ %156, %193 ], [ %155, %184 ], [ %155, %194 ], [ %spec.select, %195 ]
+.thread14:                                        ; preds = %193, %.thread, %195, %169, %165, %.preheader
+  %199 = phi ptr [ %156, %.preheader ], [ %156, %169 ], [ %156, %165 ], [ %155, %.thread ], [ %156, %195 ], [ %156, %193 ]
   %200 = load volatile ptr, ptr %155, align 8
   %201 = icmp eq ptr %200, null
   br i1 %201, label %202, label %.preheader, !llvm.loop !29
@@ -6507,7 +6517,7 @@ define internal fastcc i32 @tcp_inbound_hash(ptr noundef %0, ptr noundef readnon
 
 191:                                              ; preds = %176
   %192 = icmp eq ptr %163, null
-  br i1 %192, label %.thread5, label %193
+  br i1 %192, label %.thread, label %193
 
 193:                                              ; preds = %191
   %194 = getelementptr inbounds i8, ptr %163, i64 36
@@ -6522,18 +6532,20 @@ define internal fastcc i32 @tcp_inbound_hash(ptr noundef %0, ptr noundef readnon
   br i1 %199, label %.thread5, label %202
 
 201:                                              ; preds = %193
-  br i1 %199, label %202, label %.thread5
+  br i1 %199, label %202, label %.thread
 
 202:                                              ; preds = %200, %201
   %203 = getelementptr inbounds i8, ptr %163, i64 18
   %204 = load i8, ptr %203, align 2
   %205 = icmp ult i8 %204, %178
   %cond.fr = freeze i1 %205
-  %spec.select = select i1 %cond.fr, ptr %162, ptr %163
+  br i1 %cond.fr, label %.thread, label %.thread5
+
+.thread:                                          ; preds = %201, %191, %202
   br label %.thread5
 
-.thread5:                                         ; preds = %202, %201, %191, %200, %176, %172, %.preheader
-  %206 = phi ptr [ %163, %.preheader ], [ %163, %176 ], [ %163, %172 ], [ %163, %200 ], [ %162, %191 ], [ %162, %201 ], [ %spec.select, %202 ]
+.thread5:                                         ; preds = %200, %.thread, %202, %176, %172, %.preheader
+  %206 = phi ptr [ %163, %.preheader ], [ %163, %176 ], [ %163, %172 ], [ %162, %.thread ], [ %163, %202 ], [ %163, %200 ]
   %207 = load volatile ptr, ptr %162, align 8
   %208 = icmp eq ptr %207, null
   br i1 %208, label %209, label %.preheader, !llvm.loop !29

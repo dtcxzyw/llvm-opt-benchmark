@@ -1643,12 +1643,12 @@ define hidden noundef i32 @mbedtls_mpi_read_file(ptr noundef %0, i32 noundef %1,
 declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_mpi_write_file(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define hidden noundef i32 @mbedtls_mpi_write_file(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = alloca i64, align 8
   %6 = alloca [2484 x i8], align 16
   %7 = add i32 %2, -17
   %or.cond = icmp ult i32 %7, -15
-  br i1 %or.cond, label %24, label %8
+  br i1 %or.cond, label %25, label %8
 
 8:                                                ; preds = %4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2484) %6, i8 0, i64 2484, i1 false)
@@ -1673,20 +1673,22 @@ define hidden i32 @mbedtls_mpi_write_file(ptr noundef %0, ptr noundef %1, i32 no
 18:                                               ; preds = %10
   %19 = call i64 @fwrite(ptr noundef nonnull %spec.store.select, i64 noundef 1, i64 noundef %12, ptr noundef nonnull %3)
   %.not22 = icmp eq i64 %19, %12
-  br i1 %.not22, label %20, label %24
+  br i1 %.not22, label %20, label %25
 
 20:                                               ; preds = %18
   %21 = call i64 @fwrite(ptr noundef nonnull %6, i64 noundef 1, i64 noundef %16, ptr noundef nonnull %3)
   %.not23 = icmp eq i64 %21, %16
-  %spec.select = select i1 %.not23, i32 0, i32 -2
-  br label %24
+  br i1 %.not23, label %24, label %25
 
 22:                                               ; preds = %10
   %23 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, ptr noundef nonnull %spec.store.select, ptr noundef nonnull %6)
   br label %24
 
-24:                                               ; preds = %20, %8, %22, %18, %4
-  %.0 = phi i32 [ -4, %4 ], [ -2, %18 ], [ 0, %22 ], [ %9, %8 ], [ %spec.select, %20 ]
+24:                                               ; preds = %22, %20, %8
+  br label %25
+
+25:                                               ; preds = %18, %20, %4, %24
+  %.0 = phi i32 [ %9, %24 ], [ -4, %4 ], [ -2, %20 ], [ -2, %18 ]
   ret i32 %.0
 }
 
@@ -3346,11 +3348,11 @@ define hidden noundef i32 @mbedtls_mpi_mul_mpi(ptr noundef %0, ptr noundef reado
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %8 = icmp eq ptr %0, %1
   %.041.sroa.phi60.sroa.gep = getelementptr inbounds i8, ptr %2, i64 8
-  %.041.sroa.phi60.sroa.gep89 = getelementptr inbounds i8, ptr %2, i64 16
-  %.041.sroa.phi60.sroa.gep90 = getelementptr inbounds i8, ptr %5, i64 16
+  %.041.sroa.phi60.sroa.gep88 = getelementptr inbounds i8, ptr %2, i64 16
+  %.041.sroa.phi60.sroa.gep89 = getelementptr inbounds i8, ptr %5, i64 16
   %.042.sroa.phi50.sroa.gep = getelementptr inbounds i8, ptr %1, i64 8
-  %.042.sroa.phi50.sroa.gep93 = getelementptr inbounds i8, ptr %1, i64 16
-  %.042.sroa.phi50.sroa.gep94 = getelementptr inbounds i8, ptr %4, i64 16
+  %.042.sroa.phi50.sroa.gep92 = getelementptr inbounds i8, ptr %1, i64 16
+  %.042.sroa.phi50.sroa.gep93 = getelementptr inbounds i8, ptr %4, i64 16
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %3
@@ -3360,7 +3362,7 @@ define hidden noundef i32 @mbedtls_mpi_mul_mpi(ptr noundef %0, ptr noundef reado
 
 11:                                               ; preds = %9, %3
   %.042.sroa.phi50.sroa.phi = phi ptr [ %.042.sroa.phi50.sroa.gep, %3 ], [ %6, %9 ]
-  %.042.sroa.phi50.sroa.phi92 = phi ptr [ %.042.sroa.phi50.sroa.gep93, %3 ], [ %.042.sroa.phi50.sroa.gep94, %9 ]
+  %.042.sroa.phi50.sroa.phi91 = phi ptr [ %.042.sroa.phi50.sroa.gep92, %3 ], [ %.042.sroa.phi50.sroa.gep93, %9 ]
   %.042.sroa.phi50 = phi ptr [ %1, %3 ], [ %4, %9 ]
   %12 = icmp eq ptr %0, %2
   br i1 %12, label %13, label %15
@@ -3372,67 +3374,67 @@ define hidden noundef i32 @mbedtls_mpi_mul_mpi(ptr noundef %0, ptr noundef reado
 
 15:                                               ; preds = %13, %11
   %.041.sroa.phi60.sroa.phi = phi ptr [ %.041.sroa.phi60.sroa.gep, %11 ], [ %7, %13 ]
-  %.041.sroa.phi60.sroa.phi88 = phi ptr [ %.041.sroa.phi60.sroa.gep89, %11 ], [ %.041.sroa.phi60.sroa.gep90, %13 ]
+  %.041.sroa.phi60.sroa.phi87 = phi ptr [ %.041.sroa.phi60.sroa.gep88, %11 ], [ %.041.sroa.phi60.sroa.gep89, %13 ]
   %.041.sroa.phi60 = phi ptr [ %2, %11 ], [ %5, %13 ]
   %16 = load i64, ptr %.042.sroa.phi50.sroa.phi, align 8
-  %cond103 = icmp eq i64 %16, 0
-  br i1 %cond103, label %._crit_edge, label %.lr.ph
+  %cond102 = icmp eq i64 %16, 0
+  br i1 %cond102, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15
-  %17 = load ptr, ptr %.042.sroa.phi50.sroa.phi92, align 8
+  %17 = load ptr, ptr %.042.sroa.phi50.sroa.phi91, align 8
   %invariant.gep = getelementptr i8, ptr %17, i64 -8
   br label %18
 
 18:                                               ; preds = %.lr.ph, %20
-  %.039104 = phi i64 [ %16, %.lr.ph ], [ %21, %20 ]
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %.039104
+  %.039103 = phi i64 [ %16, %.lr.ph ], [ %21, %20 ]
+  %gep = getelementptr i64, ptr %invariant.gep, i64 %.039103
   %19 = load i64, ptr %gep, align 8
   %.not74 = icmp eq i64 %19, 0
   br i1 %.not74, label %20, label %._crit_edge
 
 20:                                               ; preds = %18
-  %21 = add i64 %.039104, -1
+  %21 = add i64 %.039103, -1
   %cond = icmp eq i64 %21, 0
   br i1 %cond, label %._crit_edge, label %18, !llvm.loop !49
 
-._crit_edge:                                      ; preds = %20, %18, %15
-  %.039.lcssa = phi i64 [ 0, %15 ], [ %.039104, %18 ], [ 0, %20 ]
-  %.037 = phi i32 [ 1, %15 ], [ 0, %18 ], [ 1, %20 ]
+._crit_edge:                                      ; preds = %18, %20, %15
+  %.039.lcssa = phi i64 [ 0, %15 ], [ 0, %20 ], [ %.039103, %18 ]
+  %.037 = phi i32 [ 1, %15 ], [ 1, %20 ], [ 0, %18 ]
   %22 = load i64, ptr %.041.sroa.phi60.sroa.phi, align 8
-  %cond80109 = icmp eq i64 %22, 0
-  br i1 %cond80109, label %._crit_edge113, label %.lr.ph112
+  %cond80108 = icmp eq i64 %22, 0
+  br i1 %cond80108, label %._crit_edge112, label %.lr.ph111
 
-.lr.ph112:                                        ; preds = %._crit_edge
-  %23 = load ptr, ptr %.041.sroa.phi60.sroa.phi88, align 8
-  %invariant.gep119 = getelementptr i8, ptr %23, i64 -8
+.lr.ph111:                                        ; preds = %._crit_edge
+  %23 = load ptr, ptr %.041.sroa.phi60.sroa.phi87, align 8
+  %invariant.gep118 = getelementptr i8, ptr %23, i64 -8
   br label %24
 
-24:                                               ; preds = %.lr.ph112, %26
-  %.038110 = phi i64 [ %22, %.lr.ph112 ], [ %27, %26 ]
-  %gep120 = getelementptr i64, ptr %invariant.gep119, i64 %.038110
-  %25 = load i64, ptr %gep120, align 8
+24:                                               ; preds = %.lr.ph111, %26
+  %.038109 = phi i64 [ %22, %.lr.ph111 ], [ %27, %26 ]
+  %gep119 = getelementptr i64, ptr %invariant.gep118, i64 %.038109
+  %25 = load i64, ptr %gep119, align 8
   %.not76 = icmp eq i64 %25, 0
-  br i1 %.not76, label %26, label %._crit_edge113.loopexit
+  br i1 %.not76, label %26, label %._crit_edge112.loopexit
 
 26:                                               ; preds = %24
-  %27 = add i64 %.038110, -1
+  %27 = add i64 %.038109, -1
   %cond80 = icmp eq i64 %27, 0
-  br i1 %cond80, label %._crit_edge113.loopexit, label %24, !llvm.loop !50
+  br i1 %cond80, label %._crit_edge112.loopexit, label %24, !llvm.loop !50
 
-._crit_edge113.loopexit:                          ; preds = %24, %26
-  %.038.lcssa.ph = phi i64 [ 0, %26 ], [ %.038110, %24 ]
-  %.1.ph = phi i32 [ 1, %26 ], [ %.037, %24 ]
+._crit_edge112.loopexit:                          ; preds = %26, %24
+  %.038.lcssa.ph = phi i64 [ %.038109, %24 ], [ 0, %26 ]
+  %.1.ph = phi i32 [ %.037, %24 ], [ 1, %26 ]
   %28 = icmp eq i32 %.1.ph, 0
-  br label %._crit_edge113
+  br label %._crit_edge112
 
-._crit_edge113:                                   ; preds = %._crit_edge113.loopexit, %._crit_edge
-  %.038.lcssa = phi i64 [ 0, %._crit_edge ], [ %.038.lcssa.ph, %._crit_edge113.loopexit ]
-  %.1 = phi i1 [ false, %._crit_edge ], [ %28, %._crit_edge113.loopexit ]
+._crit_edge112:                                   ; preds = %._crit_edge112.loopexit, %._crit_edge
+  %.038.lcssa = phi i64 [ 0, %._crit_edge ], [ %.038.lcssa.ph, %._crit_edge112.loopexit ]
+  %.1 = phi i1 [ false, %._crit_edge ], [ %28, %._crit_edge112.loopexit ]
   %29 = add i64 %.038.lcssa, %.039.lcssa
   %30 = icmp ugt i64 %29, 10000
   br i1 %30, label %mbedtls_mpi_grow.exit, label %31
 
-31:                                               ; preds = %._crit_edge113
+31:                                               ; preds = %._crit_edge112
   %32 = getelementptr inbounds i8, ptr %0, i64 8
   %33 = load i64, ptr %32, align 8
   %34 = icmp ult i64 %33, %29
@@ -3503,26 +3505,26 @@ mbedtls_mpi_lset.exit:                            ; preds = %._crit_edge.i, %56
   %60 = load ptr, ptr %59, align 8
   store i64 0, ptr %60, align 8
   store i32 1, ptr %0, align 8
-  %.not124 = icmp eq i64 %.038.lcssa, 0
-  br i1 %.not124, label %._crit_edge123, label %.lr.ph122
+  %.not123 = icmp eq i64 %.038.lcssa, 0
+  br i1 %.not123, label %._crit_edge122, label %.lr.ph121
 
-.lr.ph122:                                        ; preds = %mbedtls_mpi_lset.exit
+.lr.ph121:                                        ; preds = %mbedtls_mpi_lset.exit
   %61 = and i64 %.039.lcssa, 7
   %.not35.i = icmp ult i64 %.039.lcssa, 8
   %62 = lshr i64 %.039.lcssa, 3
   %.not3242.i = icmp eq i64 %61, 0
-  br i1 %.not35.i, label %.lr.ph122.split.us, label %.lr.ph.preheader.i
+  br i1 %.not35.i, label %.lr.ph121.split.us, label %.lr.ph.preheader.i
 
-.lr.ph122.split.us:                               ; preds = %.lr.ph122
-  br i1 %.not3242.i, label %._crit_edge123, label %.preheader34.i.us
+.lr.ph121.split.us:                               ; preds = %.lr.ph121
+  br i1 %.not3242.i, label %._crit_edge122, label %.preheader34.i.us
 
-.preheader34.i.us:                                ; preds = %.lr.ph122.split.us, %.lr.ph54.i.us.preheader
-  %.0121.us = phi i64 [ %76, %.lr.ph54.i.us.preheader ], [ 0, %.lr.ph122.split.us ]
+.preheader34.i.us:                                ; preds = %.lr.ph121.split.us, %.lr.ph54.i.us.preheader
+  %.0120.us = phi i64 [ %76, %.lr.ph54.i.us.preheader ], [ 0, %.lr.ph121.split.us ]
   %63 = load ptr, ptr %59, align 8
-  %64 = getelementptr inbounds i64, ptr %63, i64 %.0121.us
-  %65 = load ptr, ptr %.042.sroa.phi50.sroa.phi92, align 8
-  %66 = load ptr, ptr %.041.sroa.phi60.sroa.phi88, align 8
-  %67 = getelementptr inbounds i64, ptr %66, i64 %.0121.us
+  %64 = getelementptr inbounds i64, ptr %63, i64 %.0120.us
+  %65 = load ptr, ptr %.042.sroa.phi50.sroa.phi91, align 8
+  %66 = load ptr, ptr %.041.sroa.phi60.sroa.phi87, align 8
+  %67 = getelementptr inbounds i64, ptr %66, i64 %.0120.us
   %68 = load i64, ptr %67, align 8
   br label %.lr.ph47.i.us
 
@@ -3543,17 +3545,17 @@ mbedtls_mpi_lset.exit:                            ; preds = %._crit_edge.i, %56
   %74 = load i64, ptr %72, align 8
   %75 = add i64 %74, %71
   store i64 %75, ptr %72, align 8
-  %76 = add nuw i64 %.0121.us, 1
-  %exitcond133.not = icmp eq i64 %76, %.038.lcssa
-  br i1 %exitcond133.not, label %._crit_edge123, label %.preheader34.i.us, !llvm.loop !51
+  %76 = add nuw i64 %.0120.us, 1
+  %exitcond132.not = icmp eq i64 %76, %.038.lcssa
+  br i1 %exitcond132.not, label %._crit_edge122, label %.preheader34.i.us, !llvm.loop !51
 
-.lr.ph.preheader.i:                               ; preds = %.lr.ph122, %.preheader.i
-  %.0121 = phi i64 [ %90, %.preheader.i ], [ 0, %.lr.ph122 ]
+.lr.ph.preheader.i:                               ; preds = %.lr.ph121, %.preheader.i
+  %.0120 = phi i64 [ %90, %.preheader.i ], [ 0, %.lr.ph121 ]
   %77 = load ptr, ptr %59, align 8
-  %78 = getelementptr inbounds i64, ptr %77, i64 %.0121
-  %79 = load ptr, ptr %.042.sroa.phi50.sroa.phi92, align 8
-  %80 = load ptr, ptr %.041.sroa.phi60.sroa.phi88, align 8
-  %81 = getelementptr inbounds i64, ptr %80, i64 %.0121
+  %78 = getelementptr inbounds i64, ptr %77, i64 %.0120
+  %79 = load ptr, ptr %.042.sroa.phi50.sroa.phi91, align 8
+  %80 = load ptr, ptr %.041.sroa.phi60.sroa.phi87, align 8
+  %81 = getelementptr inbounds i64, ptr %80, i64 %.0120
   %82 = load i64, ptr %81, align 8
   br label %.lr.ph.i
 
@@ -3570,8 +3572,8 @@ mbedtls_mpi_lset.exit:                            ; preds = %._crit_edge.i, %56
   %85 = extractvalue { i64, ptr, ptr } %84, 0
   %86 = extractvalue { i64, ptr, ptr } %84, 1
   %87 = extractvalue { i64, ptr, ptr } %84, 2
-  %.not.i82 = icmp eq i64 %83, 0
-  br i1 %.not.i82, label %.preheader34.i.loopexit, label %.lr.ph.i, !llvm.loop !16
+  %.not.i81 = icmp eq i64 %83, 0
+  br i1 %.not.i81, label %.preheader34.i.loopexit, label %.lr.ph.i, !llvm.loop !16
 
 .preheader.i:                                     ; preds = %.lr.ph47.i, %.preheader34.i.loopexit
   %.128.lcssa.i = phi ptr [ %86, %.preheader34.i.loopexit ], [ %94, %.lr.ph47.i ]
@@ -3579,9 +3581,9 @@ mbedtls_mpi_lset.exit:                            ; preds = %._crit_edge.i, %56
   %88 = load i64, ptr %.128.lcssa.i, align 8
   %89 = add i64 %88, %.1.lcssa.i
   store i64 %89, ptr %.128.lcssa.i, align 8
-  %90 = add nuw i64 %.0121, 1
+  %90 = add nuw i64 %.0120, 1
   %exitcond.not = icmp eq i64 %90, %.038.lcssa
-  br i1 %exitcond.not, label %._crit_edge123, label %.lr.ph.preheader.i, !llvm.loop !51
+  br i1 %exitcond.not, label %._crit_edge122, label %.lr.ph.preheader.i, !llvm.loop !51
 
 .lr.ph47.i:                                       ; preds = %.preheader34.i.loopexit, %.lr.ph47.i
   %.046.i = phi i64 [ %91, %.lr.ph47.i ], [ %61, %.preheader34.i.loopexit ]
@@ -3596,50 +3598,50 @@ mbedtls_mpi_lset.exit:                            ; preds = %._crit_edge.i, %56
   %.not32.i = icmp eq i64 %91, 0
   br i1 %.not32.i, label %.preheader.i, label %.lr.ph47.i, !llvm.loop !18
 
-._crit_edge123:                                   ; preds = %.preheader.i, %.lr.ph54.i.us.preheader, %.lr.ph122.split.us, %mbedtls_mpi_lset.exit
+._crit_edge122:                                   ; preds = %.preheader.i, %.lr.ph54.i.us.preheader, %.lr.ph121.split.us, %mbedtls_mpi_lset.exit
   br i1 %.1, label %96, label %mbedtls_mpi_grow.exit.sink.split
 
-96:                                               ; preds = %._crit_edge123
+96:                                               ; preds = %._crit_edge122
   %97 = load i32, ptr %.042.sroa.phi50, align 8
   %98 = load i32, ptr %.041.sroa.phi60, align 8
   %99 = mul nsw i32 %98, %97
   br label %mbedtls_mpi_grow.exit.sink.split
 
-mbedtls_mpi_grow.exit.sink.split:                 ; preds = %._crit_edge123, %96
-  %.sink = phi i32 [ %99, %96 ], [ 1, %._crit_edge123 ]
+mbedtls_mpi_grow.exit.sink.split:                 ; preds = %._crit_edge122, %96
+  %.sink = phi i32 [ %99, %96 ], [ 1, %._crit_edge122 ]
   store i32 %.sink, ptr %0, align 8
   br label %mbedtls_mpi_grow.exit
 
-mbedtls_mpi_grow.exit:                            ; preds = %mbedtls_mpi_grow.exit.sink.split, %48, %35, %._crit_edge113, %13, %9
-  %.040 = phi i32 [ %10, %9 ], [ %14, %13 ], [ -16, %._crit_edge113 ], [ -16, %35 ], [ -16, %48 ], [ 0, %mbedtls_mpi_grow.exit.sink.split ]
-  %100 = load ptr, ptr %.041.sroa.phi60.sroa.gep90, align 8
-  %.not.i84 = icmp eq ptr %100, null
-  br i1 %.not.i84, label %mbedtls_mpi_free.exit, label %101
+mbedtls_mpi_grow.exit:                            ; preds = %mbedtls_mpi_grow.exit.sink.split, %48, %35, %._crit_edge112, %13, %9
+  %.040 = phi i32 [ %10, %9 ], [ %14, %13 ], [ -16, %._crit_edge112 ], [ -16, %35 ], [ -16, %48 ], [ 0, %mbedtls_mpi_grow.exit.sink.split ]
+  %100 = load ptr, ptr %.041.sroa.phi60.sroa.gep89, align 8
+  %.not.i83 = icmp eq ptr %100, null
+  br i1 %.not.i83, label %mbedtls_mpi_free.exit, label %101
 
 101:                                              ; preds = %mbedtls_mpi_grow.exit
   %102 = load i64, ptr %7, align 8
   %103 = shl i64 %102, 3
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %100, i64 noundef %103) #18
-  %104 = load ptr, ptr %.041.sroa.phi60.sroa.gep90, align 8
+  %104 = load ptr, ptr %.041.sroa.phi60.sroa.gep89, align 8
   call void @free(ptr noundef %104) #18
   br label %mbedtls_mpi_free.exit
 
 mbedtls_mpi_free.exit:                            ; preds = %mbedtls_mpi_grow.exit, %101
   store i32 1, ptr %5, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  %105 = load ptr, ptr %.042.sroa.phi50.sroa.gep94, align 8
-  %.not.i85 = icmp eq ptr %105, null
-  br i1 %.not.i85, label %mbedtls_mpi_free.exit86, label %106
+  %105 = load ptr, ptr %.042.sroa.phi50.sroa.gep93, align 8
+  %.not.i84 = icmp eq ptr %105, null
+  br i1 %.not.i84, label %mbedtls_mpi_free.exit85, label %106
 
 106:                                              ; preds = %mbedtls_mpi_free.exit
   %107 = load i64, ptr %6, align 8
   %108 = shl i64 %107, 3
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %105, i64 noundef %108) #18
-  %109 = load ptr, ptr %.042.sroa.phi50.sroa.gep94, align 8
+  %109 = load ptr, ptr %.042.sroa.phi50.sroa.gep93, align 8
   call void @free(ptr noundef %109) #18
-  br label %mbedtls_mpi_free.exit86
+  br label %mbedtls_mpi_free.exit85
 
-mbedtls_mpi_free.exit86:                          ; preds = %mbedtls_mpi_free.exit, %106
+mbedtls_mpi_free.exit85:                          ; preds = %mbedtls_mpi_free.exit, %106
   ret i32 %.040
 }
 

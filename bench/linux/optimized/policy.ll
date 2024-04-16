@@ -688,13 +688,13 @@ netlink_policy_dump_attr_size_estimate.exit:      ; preds = %4, %21, %22, %23, %
   %135 = call i32 @nla_put(ptr noundef %1, i32 noundef 6, i32 noundef 4, ptr noundef nonnull %8) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #7
   %136 = icmp eq i32 %135, 0
-  br i1 %136, label %137, label %145
+  br i1 %136, label %137, label %.thread
 
 137:                                              ; preds = %133, %130
   %138 = getelementptr inbounds i8, ptr %19, i64 8
   %139 = load i64, ptr %138, align 8
   %140 = icmp ult i64 %139, 65535
-  br i1 %140, label %141, label %.thread
+  br i1 %140, label %141, label %145
 
 141:                                              ; preds = %137
   %142 = trunc nuw nsw i64 %139 to i32
@@ -703,15 +703,15 @@ netlink_policy_dump_attr_size_estimate.exit:      ; preds = %4, %21, %22, %23, %
   %143 = call i32 @nla_put(ptr noundef %1, i32 noundef 7, i32 noundef 4, ptr noundef nonnull %7) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #7
   %144 = icmp eq i32 %143, 0
-  br i1 %144, label %.thread, label %145
+  br i1 %144, label %145, label %.thread
 
-.thread:                                          ; preds = %137, %141
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #7
-  br label %154
-
-145:                                              ; preds = %141, %133
+.thread:                                          ; preds = %133, %141
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #7
   br label %173
+
+145:                                              ; preds = %137, %141
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #7
+  br label %154
 
 146:                                              ; preds = %121
   %147 = getelementptr inbounds i8, ptr %2, i64 2
@@ -728,8 +728,8 @@ netlink_policy_dump_attr_size_estimate.exit:      ; preds = %4, %21, %22, %23, %
   %153 = icmp eq i32 %152, 0
   br i1 %153, label %154, label %173
 
-154:                                              ; preds = %.thread, %150, %146, %116, %111, %98, %70, %61, %57, %52, %38
-  %155 = phi i32 [ 15, %116 ], [ %107, %111 ], [ %81, %98 ], [ %55, %70 ], [ %55, %61 ], [ %55, %57 ], [ %55, %52 ], [ %125, %150 ], [ %125, %146 ], [ 1, %38 ], [ %125, %.thread ]
+154:                                              ; preds = %145, %150, %146, %116, %111, %98, %70, %61, %57, %52, %38
+  %155 = phi i32 [ 15, %116 ], [ %107, %111 ], [ %81, %98 ], [ %55, %70 ], [ %55, %61 ], [ %55, %57 ], [ %55, %52 ], [ %125, %145 ], [ %125, %150 ], [ %125, %146 ], [ 1, %38 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
   store i32 %155, ptr %5, align 4
   %156 = call i32 @nla_put(ptr noundef %1, i32 noundef 1, i32 noundef 4, ptr noundef nonnull %5) #7
@@ -766,7 +766,7 @@ netlink_policy_dump_attr_size_estimate.exit:      ; preds = %4, %21, %22, %23, %
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #7
   br label %173
 
-173:                                              ; preds = %145, %172, %171, %154, %150, %116, %111, %98, %70, %65
+173:                                              ; preds = %.thread, %172, %171, %154, %150, %116, %111, %98, %70, %65
   %174 = getelementptr inbounds i8, ptr %1, i64 200
   %175 = load ptr, ptr %174, align 8
   %176 = icmp ugt ptr %175, %33

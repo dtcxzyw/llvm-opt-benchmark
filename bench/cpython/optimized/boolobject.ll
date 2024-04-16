@@ -965,7 +965,7 @@ lor.lhs.false4:                                   ; preds = %if.end
 
 if.end8:                                          ; preds = %if.end
   %tobool9.not = icmp eq i64 %and.i, 0
-  br i1 %tobool9.not, label %return, label %if.then10
+  br i1 %tobool9.not, label %if.end16.thread, label %if.then10
 
 if.then10:                                        ; preds = %lor.lhs.false4, %if.end8
   %0 = load ptr, ptr %args, align 8
@@ -976,11 +976,13 @@ if.then10:                                        ; preds = %lor.lhs.false4, %if
 
 if.end16:                                         ; preds = %if.then10
   %tobool.not.i = icmp eq i32 %call11.fr, 0
-  %spec.select = select i1 %tobool.not.i, ptr @_Py_FalseStruct, ptr @_Py_TrueStruct
+  br i1 %tobool.not.i, label %if.end16.thread, label %return
+
+if.end16.thread:                                  ; preds = %if.end8, %if.end16
   br label %return
 
-return:                                           ; preds = %if.end16, %if.end8, %if.then10, %lor.lhs.false4, %lor.lhs.false
-  %retval.0 = phi ptr [ null, %lor.lhs.false ], [ null, %lor.lhs.false4 ], [ null, %if.then10 ], [ @_Py_FalseStruct, %if.end8 ], [ %spec.select, %if.end16 ]
+return:                                           ; preds = %if.end16.thread, %if.end16, %if.then10, %lor.lhs.false4, %lor.lhs.false
+  %retval.0 = phi ptr [ null, %lor.lhs.false ], [ null, %lor.lhs.false4 ], [ null, %if.then10 ], [ @_Py_FalseStruct, %if.end16.thread ], [ @_Py_TrueStruct, %if.end16 ]
   ret ptr %retval.0
 }
 

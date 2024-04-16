@@ -550,8 +550,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.366 = private unnamed_addr constant [8 x i8] c"INVALID\00", align 1
 @zbee_nwk_endpoint_dissector_info = internal global %struct._et_dissector_info { ptr @zbee_nwk_endpoint_get_filter_type }, align 8
 @.str.367 = private unnamed_addr constant [44 x i8] c"zbee_nwk.addr eq %s and zbee_nwk.addr eq %s\00", align 1
-@switch.table.zbee_nwk_conv_get_filter_type = private unnamed_addr constant [3 x i64] [i64 8, i64 32, i64 8], align 8
-@switch.table.zbee_nwk_conv_get_filter_type.6 = private unnamed_addr constant [3 x ptr] [ptr @.str.24, ptr @.str.22, ptr @.str.26], align 8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
 define hidden i32 @zbee_get_bit_field(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -2460,33 +2458,46 @@ declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 nound
 declare void @add_conversation_table_data(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal nonnull ptr @zbee_nwk_conv_get_filter_type(ptr nocapture noundef readonly %0, i32 noundef %1) #6 {
-  %3 = icmp ult i32 %1, 3
-  br i1 %3, label %switch.lookup, label %10
+define internal noundef nonnull ptr @zbee_nwk_conv_get_filter_type(ptr nocapture noundef readonly %0, i32 noundef %1) #6 {
+  switch i32 %1, label %18 [
+    i32 0, label %3
+    i32 1, label %8
+    i32 2, label %13
+  ]
 
-switch.lookup:                                    ; preds = %2
-  %4 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table.zbee_nwk_conv_get_filter_type, i64 0, i64 %4
-  %switch.load = load i64, ptr %switch.gep, align 8
-  %5 = zext nneg i32 %1 to i64
-  %switch.gep11 = getelementptr inbounds [3 x ptr], ptr @switch.table.zbee_nwk_conv_get_filter_type.6, i64 0, i64 %5
-  %switch.load12 = load ptr, ptr %switch.gep11, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 %switch.load
-  %7 = load i32, ptr %6, align 8
-  %8 = load i32, ptr @zbee_nwk_address_type, align 4
-  %9 = icmp eq i32 %7, %8
-  %spec.select7 = select i1 %9, ptr %switch.load12, ptr @.str.366
-  br label %10
+3:                                                ; preds = %2
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = load i32, ptr %4, align 8
+  %6 = load i32, ptr @zbee_nwk_address_type, align 4
+  %7 = icmp eq i32 %5, %6
+  br i1 %7, label %19, label %18
 
-10:                                               ; preds = %2, %switch.lookup
-  %.0 = phi ptr [ @.str.366, %2 ], [ %spec.select7, %switch.lookup ]
+8:                                                ; preds = %2
+  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = load i32, ptr %9, align 8
+  %11 = load i32, ptr @zbee_nwk_address_type, align 4
+  %12 = icmp eq i32 %10, %11
+  br i1 %12, label %19, label %18
+
+13:                                               ; preds = %2
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = load i32, ptr %14, align 8
+  %16 = load i32, ptr @zbee_nwk_address_type, align 4
+  %17 = icmp eq i32 %15, %16
+  br i1 %17, label %19, label %18
+
+18:                                               ; preds = %8, %3, %2, %13
+  br label %19
+
+19:                                               ; preds = %13, %8, %3, %18
+  %.0 = phi ptr [ @.str.366, %18 ], [ @.str.24, %3 ], [ @.str.22, %8 ], [ @.str.26, %13 ]
   ret ptr %.0
 }
 
 declare void @add_endpoint_table_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal nonnull ptr @zbee_nwk_endpoint_get_filter_type(ptr nocapture noundef readonly %0, i32 noundef %1) #6 {
+define internal noundef nonnull ptr @zbee_nwk_endpoint_get_filter_type(ptr nocapture noundef readonly %0, i32 noundef %1) #6 {
   %3 = icmp eq i32 %1, 2
   br i1 %3, label %4, label %9
 
@@ -2495,11 +2506,13 @@ define internal nonnull ptr @zbee_nwk_endpoint_get_filter_type(ptr nocapture nou
   %6 = load i32, ptr %5, align 8
   %7 = load i32, ptr @zbee_nwk_address_type, align 4
   %8 = icmp eq i32 %6, %7
-  %spec.select = select i1 %8, ptr @.str.26, ptr @.str.366
-  br label %9
+  br i1 %8, label %10, label %9
 
 9:                                                ; preds = %4, %2
-  %.0 = phi ptr [ @.str.366, %2 ], [ %spec.select, %4 ]
+  br label %10
+
+10:                                               ; preds = %4, %9
+  %.0 = phi ptr [ @.str.366, %9 ], [ @.str.26, %4 ]
   ret ptr %.0
 }
 

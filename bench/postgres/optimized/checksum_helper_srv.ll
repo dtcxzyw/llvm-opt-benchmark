@@ -172,9 +172,9 @@ declare i32 @pg_cryptohash_init(ptr noundef) local_unnamed_addr #1
 declare void @pg_cryptohash_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @pg_checksum_update(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local noundef i32 @pg_checksum_update(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = load i32, ptr %0, align 8
-  switch i32 %4, label %14 [
+  switch i32 %4, label %15 [
     i32 5, label %10
     i32 1, label %5
     i32 2, label %10
@@ -188,17 +188,20 @@ define dso_local i32 @pg_checksum_update(ptr nocapture noundef %0, ptr noundef %
   %8 = load i32, ptr %7, align 8
   %9 = tail call i32 %6(i32 noundef %8, ptr noundef %1, i64 noundef %2) #3
   store i32 %9, ptr %7, align 8
-  br label %14
+  br label %15
 
 10:                                               ; preds = %3, %3, %3, %3
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 @pg_cryptohash_update(ptr noundef %12, ptr noundef %1, i64 noundef %2) #3
-  %.lobit = ashr i32 %13, 31
-  br label %14
+  %14 = icmp slt i32 %13, 0
+  br i1 %14, label %16, label %15
 
-14:                                               ; preds = %10, %3, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %3 ], [ %.lobit, %10 ]
+15:                                               ; preds = %10, %5, %3
+  br label %16
+
+16:                                               ; preds = %10, %15
+  %.0 = phi i32 [ 0, %15 ], [ -1, %10 ]
   ret i32 %.0
 }
 

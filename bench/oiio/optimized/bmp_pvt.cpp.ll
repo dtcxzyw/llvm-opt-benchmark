@@ -170,7 +170,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %1 = load i32, ptr %this, align 4
-  switch i32 %1, label %return [
+  switch i32 %1, label %if.end136 [
     i32 40, label %if.then14
     i32 108, label %if.then14
     i32 124, label %if.then14
@@ -318,7 +318,7 @@ lor.lhs.false59:                                  ; preds = %lor.lhs.false57
 if.end62:                                         ; preds = %lor.lhs.false59
   %18 = load i32, ptr %this, align 4
   %cmp64.not = icmp eq i32 %18, 52
-  br i1 %cmp64.not, label %return, label %land.lhs.true65
+  br i1 %cmp64.not, label %if.end136, label %land.lhs.true65
 
 land.lhs.true65:                                  ; preds = %if.end62
   %alpha_mask = getelementptr inbounds i8, ptr %this, i64 52
@@ -335,7 +335,7 @@ land.lhs.true65.if.end69_crit_edge:               ; preds = %land.lhs.true65
 
 if.end69:                                         ; preds = %land.lhs.true65.if.end69_crit_edge, %lor.lhs.false43
   %.pr = phi i32 [ %.pr.pre, %land.lhs.true65.if.end69_crit_edge ], [ %12, %lor.lhs.false43 ]
-  switch i32 %.pr, label %return [
+  switch i32 %.pr, label %if.end136 [
     i32 108, label %if.then75
     i32 124, label %if.then75
   ]
@@ -460,7 +460,7 @@ lor.lhs.false99:                                  ; preds = %lor.lhs.false97
 if.end103:                                        ; preds = %lor.lhs.false99
   %.pr179 = load i32, ptr %this, align 4
   %cmp105 = icmp eq i32 %.pr179, 124
-  br i1 %cmp105, label %if.then106, label %return
+  br i1 %cmp105, label %if.then106, label %if.end136
 
 if.then106:                                       ; preds = %if.end103
   %intent = getelementptr inbounds i8, ptr %this, i64 108
@@ -496,7 +496,7 @@ lor.lhs.false112:                                 ; preds = %lor.lhs.false110
   %36 = load ptr, ptr %vfn.i160, align 8
   %call.i161 = tail call noundef i64 %36(ptr noundef nonnull align 8 dereferenceable(88) %fd, ptr noundef nonnull %reserved, i64 noundef 4)
   %cmp.i162 = icmp eq i64 %call.i161, 4
-  br label %return
+  br i1 %cmp.i162, label %if.end136, label %return
 
 if.then119:                                       ; preds = %if.end
   store i16 0, ptr %width16, align 2
@@ -543,10 +543,13 @@ if.end130:                                        ; preds = %lor.lhs.false126
   %conv133 = zext i16 %42 to i32
   %height134 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %conv133, ptr %height134, align 4
+  br label %if.end136
+
+if.end136:                                        ; preds = %if.end62, %if.end69, %if.end, %if.end130, %if.end103, %lor.lhs.false112
   br label %return
 
-return:                                           ; preds = %if.end62, %if.end69, %lor.lhs.false112, %if.end103, %if.end130, %if.end, %if.then119, %lor.lhs.false121, %lor.lhs.false123, %lor.lhs.false126, %if.then106, %lor.lhs.false108, %lor.lhs.false110, %if.then75, %lor.lhs.false77, %lor.lhs.false79, %lor.lhs.false81, %lor.lhs.false83, %lor.lhs.false85, %lor.lhs.false87, %lor.lhs.false89, %lor.lhs.false91, %lor.lhs.false93, %lor.lhs.false95, %lor.lhs.false97, %lor.lhs.false99, %land.lhs.true65, %if.then55, %lor.lhs.false57, %lor.lhs.false59, %if.then14, %lor.lhs.false16, %lor.lhs.false18, %lor.lhs.false20, %lor.lhs.false22, %lor.lhs.false24, %lor.lhs.false26, %lor.lhs.false28, %lor.lhs.false30, %lor.lhs.false32, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %lor.lhs.false32 ], [ false, %lor.lhs.false30 ], [ false, %lor.lhs.false28 ], [ false, %lor.lhs.false26 ], [ false, %lor.lhs.false24 ], [ false, %lor.lhs.false22 ], [ false, %lor.lhs.false20 ], [ false, %lor.lhs.false18 ], [ false, %lor.lhs.false16 ], [ false, %if.then14 ], [ false, %lor.lhs.false59 ], [ false, %lor.lhs.false57 ], [ false, %if.then55 ], [ false, %land.lhs.true65 ], [ false, %lor.lhs.false99 ], [ false, %lor.lhs.false97 ], [ false, %lor.lhs.false95 ], [ false, %lor.lhs.false93 ], [ false, %lor.lhs.false91 ], [ false, %lor.lhs.false89 ], [ false, %lor.lhs.false87 ], [ false, %lor.lhs.false85 ], [ false, %lor.lhs.false83 ], [ false, %lor.lhs.false81 ], [ false, %lor.lhs.false79 ], [ false, %lor.lhs.false77 ], [ false, %if.then75 ], [ false, %lor.lhs.false110 ], [ false, %lor.lhs.false108 ], [ false, %if.then106 ], [ false, %lor.lhs.false126 ], [ false, %lor.lhs.false123 ], [ false, %lor.lhs.false121 ], [ false, %if.then119 ], [ true, %if.end ], [ true, %if.end130 ], [ true, %if.end103 ], [ %cmp.i162, %lor.lhs.false112 ], [ true, %if.end69 ], [ true, %if.end62 ]
+return:                                           ; preds = %if.then119, %lor.lhs.false121, %lor.lhs.false123, %lor.lhs.false126, %if.then106, %lor.lhs.false108, %lor.lhs.false110, %lor.lhs.false112, %if.then75, %lor.lhs.false77, %lor.lhs.false79, %lor.lhs.false81, %lor.lhs.false83, %lor.lhs.false85, %lor.lhs.false87, %lor.lhs.false89, %lor.lhs.false91, %lor.lhs.false93, %lor.lhs.false95, %lor.lhs.false97, %lor.lhs.false99, %land.lhs.true65, %if.then55, %lor.lhs.false57, %lor.lhs.false59, %if.then14, %lor.lhs.false16, %lor.lhs.false18, %lor.lhs.false20, %lor.lhs.false22, %lor.lhs.false24, %lor.lhs.false26, %lor.lhs.false28, %lor.lhs.false30, %lor.lhs.false32, %entry, %if.end136
+  %retval.0 = phi i1 [ true, %if.end136 ], [ false, %entry ], [ false, %lor.lhs.false32 ], [ false, %lor.lhs.false30 ], [ false, %lor.lhs.false28 ], [ false, %lor.lhs.false26 ], [ false, %lor.lhs.false24 ], [ false, %lor.lhs.false22 ], [ false, %lor.lhs.false20 ], [ false, %lor.lhs.false18 ], [ false, %lor.lhs.false16 ], [ false, %if.then14 ], [ false, %lor.lhs.false59 ], [ false, %lor.lhs.false57 ], [ false, %if.then55 ], [ false, %land.lhs.true65 ], [ false, %lor.lhs.false99 ], [ false, %lor.lhs.false97 ], [ false, %lor.lhs.false95 ], [ false, %lor.lhs.false93 ], [ false, %lor.lhs.false91 ], [ false, %lor.lhs.false89 ], [ false, %lor.lhs.false87 ], [ false, %lor.lhs.false85 ], [ false, %lor.lhs.false83 ], [ false, %lor.lhs.false81 ], [ false, %lor.lhs.false79 ], [ false, %lor.lhs.false77 ], [ false, %if.then75 ], [ false, %lor.lhs.false112 ], [ false, %lor.lhs.false110 ], [ false, %lor.lhs.false108 ], [ false, %if.then106 ], [ false, %lor.lhs.false126 ], [ false, %lor.lhs.false123 ], [ false, %lor.lhs.false121 ], [ false, %if.then119 ]
   ret i1 %retval.0
 }
 

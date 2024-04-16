@@ -6964,18 +6964,20 @@ for.cond107.preheader:                            ; preds = %_ZNK14NodeDefManage
   %51 = load i16, ptr %arrayidx116, align 4, !tbaa !129
   %conv.i.i256 = zext i16 %51 to i64
   %cmp.i.i262 = icmp ugt i64 %sub.ptr.div.i.i.i, %conv.i.i256
-  br i1 %cmp.i.i262, label %land.lhs.true.i.i266, label %_ZNK14NodeDefManager3getERK7MapNode.exit270
+  br i1 %cmp.i.i262, label %land.lhs.true.i.i266, label %cond.false.i.i263
 
 land.lhs.true.i.i266:                             ; preds = %for.cond107.preheader
   %add.ptr.i.i.i267 = getelementptr inbounds %struct.ContentFeatures, ptr %47, i64 %conv.i.i256
   %_M_string_length.i.i.i.i268 = getelementptr inbounds i8, ptr %add.ptr.i.i.i267, i64 1456
   %52 = load i64, ptr %_M_string_length.i.i.i.i268, align 8, !tbaa !14
   %cmp.i.i.i269 = icmp eq i64 %52, 0
-  %spec.select = select i1 %cmp.i.i.i269, ptr %add.ptr.i14.i.i264, ptr %add.ptr.i.i.i267
+  br i1 %cmp.i.i.i269, label %cond.false.i.i263, label %_ZNK14NodeDefManager3getERK7MapNode.exit270
+
+cond.false.i.i263:                                ; preds = %land.lhs.true.i.i266, %for.cond107.preheader
   br label %_ZNK14NodeDefManager3getERK7MapNode.exit270
 
-_ZNK14NodeDefManager3getERK7MapNode.exit270:      ; preds = %land.lhs.true.i.i266, %for.cond107.preheader
-  %cond-lvalue.i.i265 = phi ptr [ %add.ptr.i14.i.i264, %for.cond107.preheader ], [ %spec.select, %land.lhs.true.i.i266 ]
+_ZNK14NodeDefManager3getERK7MapNode.exit270:      ; preds = %cond.false.i.i263, %land.lhs.true.i.i266
+  %cond-lvalue.i.i265 = phi ptr [ %add.ptr.i14.i.i264, %cond.false.i.i263 ], [ %add.ptr.i.i.i267, %land.lhs.true.i.i266 ]
   %walkable119 = getelementptr inbounds i8, ptr %cond-lvalue.i.i265, i64 3043
   %53 = load i8, ptr %walkable119, align 1, !tbaa !213, !range !243, !noundef !244
   %tobool120.not = icmp eq i8 %53, 0
@@ -6988,18 +6990,20 @@ if.end122:                                        ; preds = %_ZNK14NodeDefManage
   %54 = load i16, ptr %arrayidx126, align 4, !tbaa !129
   %conv.i.i274 = zext i16 %54 to i64
   %cmp.i.i280 = icmp ugt i64 %sub.ptr.div.i.i.i, %conv.i.i274
-  br i1 %cmp.i.i280, label %land.lhs.true.i.i284, label %_ZNK14NodeDefManager3getERK7MapNode.exit288
+  br i1 %cmp.i.i280, label %land.lhs.true.i.i284, label %cond.false.i.i281
 
 land.lhs.true.i.i284:                             ; preds = %if.end122
   %add.ptr.i.i.i285 = getelementptr inbounds %struct.ContentFeatures, ptr %47, i64 %conv.i.i274
   %_M_string_length.i.i.i.i286 = getelementptr inbounds i8, ptr %add.ptr.i.i.i285, i64 1456
   %55 = load i64, ptr %_M_string_length.i.i.i.i286, align 8, !tbaa !14
   %cmp.i.i.i287 = icmp eq i64 %55, 0
-  %spec.select1 = select i1 %cmp.i.i.i287, ptr %add.ptr.i14.i.i264, ptr %add.ptr.i.i.i285
+  br i1 %cmp.i.i.i287, label %cond.false.i.i281, label %_ZNK14NodeDefManager3getERK7MapNode.exit288
+
+cond.false.i.i281:                                ; preds = %land.lhs.true.i.i284, %if.end122
   br label %_ZNK14NodeDefManager3getERK7MapNode.exit288
 
-_ZNK14NodeDefManager3getERK7MapNode.exit288:      ; preds = %land.lhs.true.i.i284, %if.end122
-  %cond-lvalue.i.i283 = phi ptr [ %add.ptr.i14.i.i264, %if.end122 ], [ %spec.select1, %land.lhs.true.i.i284 ]
+_ZNK14NodeDefManager3getERK7MapNode.exit288:      ; preds = %cond.false.i.i281, %land.lhs.true.i.i284
+  %cond-lvalue.i.i283 = phi ptr [ %add.ptr.i14.i.i264, %cond.false.i.i281 ], [ %add.ptr.i.i.i285, %land.lhs.true.i.i284 ]
   %walkable129 = getelementptr inbounds i8, ptr %cond-lvalue.i.i283, i64 3043
   %56 = load i8, ptr %walkable129, align 1, !tbaa !213, !range !243, !noundef !244
   %tobool130.not = icmp eq i8 %56, 0
@@ -7029,18 +7033,20 @@ lor.lhs.false144:                                 ; preds = %do.body
 do.cond:                                          ; preds = %lor.lhs.false144
   %conv.i.i292 = zext i16 %58 to i64
   %cmp.i.i298 = icmp ugt i64 %sub.ptr.div.i.i.i, %conv.i.i292
-  br i1 %cmp.i.i298, label %land.lhs.true.i.i302, label %_ZNK14NodeDefManager3getERK7MapNode.exit306
+  br i1 %cmp.i.i298, label %land.lhs.true.i.i302, label %cond.false.i.i299
 
 land.lhs.true.i.i302:                             ; preds = %do.cond
   %add.ptr.i.i.i303 = getelementptr inbounds %struct.ContentFeatures, ptr %47, i64 %conv.i.i292
   %_M_string_length.i.i.i.i304 = getelementptr inbounds i8, ptr %add.ptr.i.i.i303, i64 1456
   %59 = load i64, ptr %_M_string_length.i.i.i.i304, align 8, !tbaa !14
   %cmp.i.i.i305 = icmp eq i64 %59, 0
-  %spec.select2 = select i1 %cmp.i.i.i305, ptr %add.ptr.i14.i.i264, ptr %add.ptr.i.i.i303
+  br i1 %cmp.i.i.i305, label %cond.false.i.i299, label %_ZNK14NodeDefManager3getERK7MapNode.exit306
+
+cond.false.i.i299:                                ; preds = %land.lhs.true.i.i302, %do.cond
   br label %_ZNK14NodeDefManager3getERK7MapNode.exit306
 
-_ZNK14NodeDefManager3getERK7MapNode.exit306:      ; preds = %land.lhs.true.i.i302, %do.cond
-  %cond-lvalue.i.i301 = phi ptr [ %add.ptr.i14.i.i264, %do.cond ], [ %spec.select2, %land.lhs.true.i.i302 ]
+_ZNK14NodeDefManager3getERK7MapNode.exit306:      ; preds = %cond.false.i.i299, %land.lhs.true.i.i302
+  %cond-lvalue.i.i301 = phi ptr [ %add.ptr.i14.i.i264, %cond.false.i.i299 ], [ %add.ptr.i.i.i303, %land.lhs.true.i.i302 ]
   %walkable152 = getelementptr inbounds i8, ptr %cond-lvalue.i.i301, i64 3043
   %60 = load i8, ptr %walkable152, align 1, !tbaa !213, !range !243, !noundef !244
   %tobool153.not = icmp eq i8 %60, 0
@@ -7165,18 +7171,20 @@ for.inc165.critedge:                              ; preds = %_ZNK14NodeDefManage
   %86 = load i16, ptr %arrayidx116.1, align 4, !tbaa !129
   %conv.i.i256.1 = zext i16 %86 to i64
   %cmp.i.i262.1 = icmp ugt i64 %sub.ptr.div.i.i.i, %conv.i.i256.1
-  br i1 %cmp.i.i262.1, label %land.lhs.true.i.i266.1, label %_ZNK14NodeDefManager3getERK7MapNode.exit270.1
+  br i1 %cmp.i.i262.1, label %land.lhs.true.i.i266.1, label %cond.false.i.i263.1
 
 land.lhs.true.i.i266.1:                           ; preds = %for.inc165.critedge
   %add.ptr.i.i.i267.1 = getelementptr inbounds %struct.ContentFeatures, ptr %47, i64 %conv.i.i256.1
   %_M_string_length.i.i.i.i268.1 = getelementptr inbounds i8, ptr %add.ptr.i.i.i267.1, i64 1456
   %87 = load i64, ptr %_M_string_length.i.i.i.i268.1, align 8, !tbaa !14
   %cmp.i.i.i269.1 = icmp eq i64 %87, 0
-  %spec.select3 = select i1 %cmp.i.i.i269.1, ptr %add.ptr.i14.i.i264, ptr %add.ptr.i.i.i267.1
+  br i1 %cmp.i.i.i269.1, label %cond.false.i.i263.1, label %_ZNK14NodeDefManager3getERK7MapNode.exit270.1
+
+cond.false.i.i263.1:                              ; preds = %land.lhs.true.i.i266.1, %for.inc165.critedge
   br label %_ZNK14NodeDefManager3getERK7MapNode.exit270.1
 
-_ZNK14NodeDefManager3getERK7MapNode.exit270.1:    ; preds = %land.lhs.true.i.i266.1, %for.inc165.critedge
-  %cond-lvalue.i.i265.1 = phi ptr [ %add.ptr.i14.i.i264, %for.inc165.critedge ], [ %spec.select3, %land.lhs.true.i.i266.1 ]
+_ZNK14NodeDefManager3getERK7MapNode.exit270.1:    ; preds = %cond.false.i.i263.1, %land.lhs.true.i.i266.1
+  %cond-lvalue.i.i265.1 = phi ptr [ %add.ptr.i14.i.i264, %cond.false.i.i263.1 ], [ %add.ptr.i.i.i267.1, %land.lhs.true.i.i266.1 ]
   %walkable119.1 = getelementptr inbounds i8, ptr %cond-lvalue.i.i265.1, i64 3043
   %88 = load i8, ptr %walkable119.1, align 1, !tbaa !213, !range !243, !noundef !244
   %tobool120.not.1 = icmp eq i8 %88, 0
@@ -7189,18 +7197,20 @@ if.end122.1:                                      ; preds = %_ZNK14NodeDefManage
   %89 = load i16, ptr %arrayidx126.1, align 4, !tbaa !129
   %conv.i.i274.1 = zext i16 %89 to i64
   %cmp.i.i280.1 = icmp ugt i64 %sub.ptr.div.i.i.i, %conv.i.i274.1
-  br i1 %cmp.i.i280.1, label %land.lhs.true.i.i284.1, label %_ZNK14NodeDefManager3getERK7MapNode.exit288.1
+  br i1 %cmp.i.i280.1, label %land.lhs.true.i.i284.1, label %cond.false.i.i281.1
 
 land.lhs.true.i.i284.1:                           ; preds = %if.end122.1
   %add.ptr.i.i.i285.1 = getelementptr inbounds %struct.ContentFeatures, ptr %47, i64 %conv.i.i274.1
   %_M_string_length.i.i.i.i286.1 = getelementptr inbounds i8, ptr %add.ptr.i.i.i285.1, i64 1456
   %90 = load i64, ptr %_M_string_length.i.i.i.i286.1, align 8, !tbaa !14
   %cmp.i.i.i287.1 = icmp eq i64 %90, 0
-  %spec.select4 = select i1 %cmp.i.i.i287.1, ptr %add.ptr.i14.i.i264, ptr %add.ptr.i.i.i285.1
+  br i1 %cmp.i.i.i287.1, label %cond.false.i.i281.1, label %_ZNK14NodeDefManager3getERK7MapNode.exit288.1
+
+cond.false.i.i281.1:                              ; preds = %land.lhs.true.i.i284.1, %if.end122.1
   br label %_ZNK14NodeDefManager3getERK7MapNode.exit288.1
 
-_ZNK14NodeDefManager3getERK7MapNode.exit288.1:    ; preds = %land.lhs.true.i.i284.1, %if.end122.1
-  %cond-lvalue.i.i283.1 = phi ptr [ %add.ptr.i14.i.i264, %if.end122.1 ], [ %spec.select4, %land.lhs.true.i.i284.1 ]
+_ZNK14NodeDefManager3getERK7MapNode.exit288.1:    ; preds = %cond.false.i.i281.1, %land.lhs.true.i.i284.1
+  %cond-lvalue.i.i283.1 = phi ptr [ %add.ptr.i14.i.i264, %cond.false.i.i281.1 ], [ %add.ptr.i.i.i285.1, %land.lhs.true.i.i284.1 ]
   %walkable129.1 = getelementptr inbounds i8, ptr %cond-lvalue.i.i283.1, i64 3043
   %91 = load i8, ptr %walkable129.1, align 1, !tbaa !213, !range !243, !noundef !244
   %tobool130.not.1 = icmp eq i8 %91, 0
@@ -7213,18 +7223,20 @@ for.inc165.critedge.1:                            ; preds = %_ZNK14NodeDefManage
   %92 = load i16, ptr %arrayidx116.2, align 4, !tbaa !129
   %conv.i.i256.2 = zext i16 %92 to i64
   %cmp.i.i262.2 = icmp ugt i64 %sub.ptr.div.i.i.i, %conv.i.i256.2
-  br i1 %cmp.i.i262.2, label %land.lhs.true.i.i266.2, label %_ZNK14NodeDefManager3getERK7MapNode.exit270.2
+  br i1 %cmp.i.i262.2, label %land.lhs.true.i.i266.2, label %cond.false.i.i263.2
 
 land.lhs.true.i.i266.2:                           ; preds = %for.inc165.critedge.1
   %add.ptr.i.i.i267.2 = getelementptr inbounds %struct.ContentFeatures, ptr %47, i64 %conv.i.i256.2
   %_M_string_length.i.i.i.i268.2 = getelementptr inbounds i8, ptr %add.ptr.i.i.i267.2, i64 1456
   %93 = load i64, ptr %_M_string_length.i.i.i.i268.2, align 8, !tbaa !14
   %cmp.i.i.i269.2 = icmp eq i64 %93, 0
-  %spec.select5 = select i1 %cmp.i.i.i269.2, ptr %add.ptr.i14.i.i264, ptr %add.ptr.i.i.i267.2
+  br i1 %cmp.i.i.i269.2, label %cond.false.i.i263.2, label %_ZNK14NodeDefManager3getERK7MapNode.exit270.2
+
+cond.false.i.i263.2:                              ; preds = %land.lhs.true.i.i266.2, %for.inc165.critedge.1
   br label %_ZNK14NodeDefManager3getERK7MapNode.exit270.2
 
-_ZNK14NodeDefManager3getERK7MapNode.exit270.2:    ; preds = %land.lhs.true.i.i266.2, %for.inc165.critedge.1
-  %cond-lvalue.i.i265.2 = phi ptr [ %add.ptr.i14.i.i264, %for.inc165.critedge.1 ], [ %spec.select5, %land.lhs.true.i.i266.2 ]
+_ZNK14NodeDefManager3getERK7MapNode.exit270.2:    ; preds = %cond.false.i.i263.2, %land.lhs.true.i.i266.2
+  %cond-lvalue.i.i265.2 = phi ptr [ %add.ptr.i14.i.i264, %cond.false.i.i263.2 ], [ %add.ptr.i.i.i267.2, %land.lhs.true.i.i266.2 ]
   %walkable119.2 = getelementptr inbounds i8, ptr %cond-lvalue.i.i265.2, i64 3043
   %94 = load i8, ptr %walkable119.2, align 1, !tbaa !213, !range !243, !noundef !244
   %tobool120.not.2 = icmp eq i8 %94, 0
@@ -7237,18 +7249,20 @@ if.end122.2:                                      ; preds = %_ZNK14NodeDefManage
   %95 = load i16, ptr %arrayidx126.2, align 4, !tbaa !129
   %conv.i.i274.2 = zext i16 %95 to i64
   %cmp.i.i280.2 = icmp ugt i64 %sub.ptr.div.i.i.i, %conv.i.i274.2
-  br i1 %cmp.i.i280.2, label %land.lhs.true.i.i284.2, label %_ZNK14NodeDefManager3getERK7MapNode.exit288.2
+  br i1 %cmp.i.i280.2, label %land.lhs.true.i.i284.2, label %cond.false.i.i281.2
 
 land.lhs.true.i.i284.2:                           ; preds = %if.end122.2
   %add.ptr.i.i.i285.2 = getelementptr inbounds %struct.ContentFeatures, ptr %47, i64 %conv.i.i274.2
   %_M_string_length.i.i.i.i286.2 = getelementptr inbounds i8, ptr %add.ptr.i.i.i285.2, i64 1456
   %96 = load i64, ptr %_M_string_length.i.i.i.i286.2, align 8, !tbaa !14
   %cmp.i.i.i287.2 = icmp eq i64 %96, 0
-  %spec.select6 = select i1 %cmp.i.i.i287.2, ptr %add.ptr.i14.i.i264, ptr %add.ptr.i.i.i285.2
+  br i1 %cmp.i.i.i287.2, label %cond.false.i.i281.2, label %_ZNK14NodeDefManager3getERK7MapNode.exit288.2
+
+cond.false.i.i281.2:                              ; preds = %land.lhs.true.i.i284.2, %if.end122.2
   br label %_ZNK14NodeDefManager3getERK7MapNode.exit288.2
 
-_ZNK14NodeDefManager3getERK7MapNode.exit288.2:    ; preds = %land.lhs.true.i.i284.2, %if.end122.2
-  %cond-lvalue.i.i283.2 = phi ptr [ %add.ptr.i14.i.i264, %if.end122.2 ], [ %spec.select6, %land.lhs.true.i.i284.2 ]
+_ZNK14NodeDefManager3getERK7MapNode.exit288.2:    ; preds = %cond.false.i.i281.2, %land.lhs.true.i.i284.2
+  %cond-lvalue.i.i283.2 = phi ptr [ %add.ptr.i14.i.i264, %cond.false.i.i281.2 ], [ %add.ptr.i.i.i285.2, %land.lhs.true.i.i284.2 ]
   %walkable129.2 = getelementptr inbounds i8, ptr %cond-lvalue.i.i283.2, i64 3043
   %97 = load i8, ptr %walkable129.2, align 1, !tbaa !213, !range !243, !noundef !244
   %tobool130.not.2 = icmp eq i8 %97, 0
@@ -7261,18 +7275,20 @@ for.inc165.critedge.2:                            ; preds = %_ZNK14NodeDefManage
   %98 = load i16, ptr %arrayidx116.3, align 4, !tbaa !129
   %conv.i.i256.3 = zext i16 %98 to i64
   %cmp.i.i262.3 = icmp ugt i64 %sub.ptr.div.i.i.i, %conv.i.i256.3
-  br i1 %cmp.i.i262.3, label %land.lhs.true.i.i266.3, label %_ZNK14NodeDefManager3getERK7MapNode.exit270.3
+  br i1 %cmp.i.i262.3, label %land.lhs.true.i.i266.3, label %cond.false.i.i263.3
 
 land.lhs.true.i.i266.3:                           ; preds = %for.inc165.critedge.2
   %add.ptr.i.i.i267.3 = getelementptr inbounds %struct.ContentFeatures, ptr %47, i64 %conv.i.i256.3
   %_M_string_length.i.i.i.i268.3 = getelementptr inbounds i8, ptr %add.ptr.i.i.i267.3, i64 1456
   %99 = load i64, ptr %_M_string_length.i.i.i.i268.3, align 8, !tbaa !14
   %cmp.i.i.i269.3 = icmp eq i64 %99, 0
-  %spec.select7 = select i1 %cmp.i.i.i269.3, ptr %add.ptr.i14.i.i264, ptr %add.ptr.i.i.i267.3
+  br i1 %cmp.i.i.i269.3, label %cond.false.i.i263.3, label %_ZNK14NodeDefManager3getERK7MapNode.exit270.3
+
+cond.false.i.i263.3:                              ; preds = %land.lhs.true.i.i266.3, %for.inc165.critedge.2
   br label %_ZNK14NodeDefManager3getERK7MapNode.exit270.3
 
-_ZNK14NodeDefManager3getERK7MapNode.exit270.3:    ; preds = %land.lhs.true.i.i266.3, %for.inc165.critedge.2
-  %cond-lvalue.i.i265.3 = phi ptr [ %add.ptr.i14.i.i264, %for.inc165.critedge.2 ], [ %spec.select7, %land.lhs.true.i.i266.3 ]
+_ZNK14NodeDefManager3getERK7MapNode.exit270.3:    ; preds = %cond.false.i.i263.3, %land.lhs.true.i.i266.3
+  %cond-lvalue.i.i265.3 = phi ptr [ %add.ptr.i14.i.i264, %cond.false.i.i263.3 ], [ %add.ptr.i.i.i267.3, %land.lhs.true.i.i266.3 ]
   %walkable119.3 = getelementptr inbounds i8, ptr %cond-lvalue.i.i265.3, i64 3043
   %100 = load i8, ptr %walkable119.3, align 1, !tbaa !213, !range !243, !noundef !244
   %tobool120.not.3 = icmp eq i8 %100, 0
@@ -7285,18 +7301,20 @@ if.end122.3:                                      ; preds = %_ZNK14NodeDefManage
   %101 = load i16, ptr %arrayidx126.3, align 4, !tbaa !129
   %conv.i.i274.3 = zext i16 %101 to i64
   %cmp.i.i280.3 = icmp ugt i64 %sub.ptr.div.i.i.i, %conv.i.i274.3
-  br i1 %cmp.i.i280.3, label %land.lhs.true.i.i284.3, label %_ZNK14NodeDefManager3getERK7MapNode.exit288.3
+  br i1 %cmp.i.i280.3, label %land.lhs.true.i.i284.3, label %cond.false.i.i281.3
 
 land.lhs.true.i.i284.3:                           ; preds = %if.end122.3
   %add.ptr.i.i.i285.3 = getelementptr inbounds %struct.ContentFeatures, ptr %47, i64 %conv.i.i274.3
   %_M_string_length.i.i.i.i286.3 = getelementptr inbounds i8, ptr %add.ptr.i.i.i285.3, i64 1456
   %102 = load i64, ptr %_M_string_length.i.i.i.i286.3, align 8, !tbaa !14
   %cmp.i.i.i287.3 = icmp eq i64 %102, 0
-  %spec.select8 = select i1 %cmp.i.i.i287.3, ptr %add.ptr.i14.i.i264, ptr %add.ptr.i.i.i285.3
+  br i1 %cmp.i.i.i287.3, label %cond.false.i.i281.3, label %_ZNK14NodeDefManager3getERK7MapNode.exit288.3
+
+cond.false.i.i281.3:                              ; preds = %land.lhs.true.i.i284.3, %if.end122.3
   br label %_ZNK14NodeDefManager3getERK7MapNode.exit288.3
 
-_ZNK14NodeDefManager3getERK7MapNode.exit288.3:    ; preds = %land.lhs.true.i.i284.3, %if.end122.3
-  %cond-lvalue.i.i283.3 = phi ptr [ %add.ptr.i14.i.i264, %if.end122.3 ], [ %spec.select8, %land.lhs.true.i.i284.3 ]
+_ZNK14NodeDefManager3getERK7MapNode.exit288.3:    ; preds = %cond.false.i.i281.3, %land.lhs.true.i.i284.3
+  %cond-lvalue.i.i283.3 = phi ptr [ %add.ptr.i14.i.i264, %cond.false.i.i281.3 ], [ %add.ptr.i.i.i285.3, %land.lhs.true.i.i284.3 ]
   %walkable129.3 = getelementptr inbounds i8, ptr %cond-lvalue.i.i283.3, i64 3043
   %103 = load i8, ptr %walkable129.3, align 1, !tbaa !213, !range !243, !noundef !244
   %tobool130.not.3 = icmp eq i8 %103, 0

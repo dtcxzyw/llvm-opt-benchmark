@@ -988,7 +988,7 @@ define hidden noundef i32 @FLAC__bitreader_skip_bits_no_crc(ptr nocapture nounde
 entry:
   %x = alloca i32, align 4
   %cmp.not = icmp eq i32 %bits, 0
-  br i1 %cmp.not, label %return, label %if.then
+  br i1 %cmp.not, label %if.end22, label %if.then
 
 if.then:                                          ; preds = %entry
   %consumed_bits = getelementptr inbounds i8, ptr %br, i64 24
@@ -1026,14 +1026,18 @@ if.end13:                                         ; preds = %if.then9
 if.end14:                                         ; preds = %if.end13, %if.end7
   %bits.addr.1 = phi i32 [ %rem, %if.end13 ], [ %bits.addr.0, %if.end7 ]
   %cmp15.not = icmp eq i32 %bits.addr.1, 0
-  br i1 %cmp15.not, label %return, label %if.then16
+  br i1 %cmp15.not, label %if.end22, label %if.then16
 
 if.then16:                                        ; preds = %if.end14
   %call17 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef nonnull %br, ptr noundef nonnull %x, i32 noundef %bits.addr.1), !range !7
+  %tobool18.not = icmp eq i32 %call17, 0
+  br i1 %tobool18.not, label %return, label %if.end22
+
+if.end22:                                         ; preds = %if.end14, %if.then16, %entry
   br label %return
 
-return:                                           ; preds = %if.then16, %entry, %if.end14, %if.then9, %if.then2
-  %retval.0 = phi i32 [ 0, %if.then2 ], [ 0, %if.then9 ], [ 1, %if.end14 ], [ 1, %entry ], [ %call17, %if.then16 ]
+return:                                           ; preds = %if.then16, %if.then9, %if.then2, %if.end22
+  %retval.0 = phi i32 [ 1, %if.end22 ], [ 0, %if.then2 ], [ 0, %if.then9 ], [ 0, %if.then16 ]
   ret i32 %retval.0
 }
 

@@ -481,39 +481,41 @@ declare i32 @PyState_AddModule(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @PyState_RemoveModule(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @execfunc(ptr noundef %m) #0 {
+define internal noundef i32 @execfunc(ptr noundef %m) #0 {
 entry:
   store ptr @PyUnicode_Type, ptr getelementptr inbounds ([2 x %struct.PyType_Slot], ptr @Str_Type_slots, i64 0, i64 0, i32 1), align 8
   %call = tail call ptr @PyType_FromSpec(ptr noundef nonnull @Example_Type_spec) #3
   %call1 = tail call i32 @PyModule_Add(ptr noundef %m, ptr noundef nonnull @.str.8, ptr noundef %call) #3
   %cmp.not = icmp eq i32 %call1, 0
-  br i1 %cmp.not, label %if.end, label %return
+  br i1 %cmp.not, label %if.end, label %fail
 
 if.end:                                           ; preds = %entry
   %call2 = tail call ptr @PyErr_NewException(ptr noundef nonnull @.str.9, ptr noundef null, ptr noundef null) #3
   %call3 = tail call i32 @PyModule_Add(ptr noundef %m, ptr noundef nonnull @.str.10, ptr noundef %call2) #3
   %cmp4.not = icmp eq i32 %call3, 0
-  br i1 %cmp4.not, label %if.end6, label %return
+  br i1 %cmp4.not, label %if.end6, label %fail
 
 if.end6:                                          ; preds = %if.end
   %call7 = tail call ptr @PyType_FromSpec(ptr noundef nonnull @Str_Type_spec) #3
   %call8 = tail call i32 @PyModule_Add(ptr noundef %m, ptr noundef nonnull @.str.11, ptr noundef %call7) #3
   %cmp9.not = icmp eq i32 %call8, 0
-  br i1 %cmp9.not, label %if.end11, label %return
+  br i1 %cmp9.not, label %if.end11, label %fail
 
 if.end11:                                         ; preds = %if.end6
   %call12 = tail call i32 @PyModule_AddIntConstant(ptr noundef %m, ptr noundef nonnull @.str.12, i64 noundef 1969) #3
   %cmp13.not = icmp eq i32 %call12, 0
-  br i1 %cmp13.not, label %if.end15, label %return
+  br i1 %cmp13.not, label %if.end15, label %fail
 
 if.end15:                                         ; preds = %if.end11
   %call16 = tail call i32 @PyModule_AddStringConstant(ptr noundef %m, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14) #3
-  %cmp17.not = icmp ne i32 %call16, 0
-  %spec.select = sext i1 %cmp17.not to i32
+  %cmp17.not = icmp eq i32 %call16, 0
+  br i1 %cmp17.not, label %return, label %fail
+
+fail:                                             ; preds = %if.end15, %if.end11, %if.end6, %if.end, %entry
   br label %return
 
-return:                                           ; preds = %if.end15, %entry, %if.end, %if.end6, %if.end11
-  %retval.0 = phi i32 [ -1, %if.end11 ], [ -1, %if.end6 ], [ -1, %if.end ], [ -1, %entry ], [ %spec.select, %if.end15 ]
+return:                                           ; preds = %if.end15, %fail
+  %retval.0 = phi i32 [ -1, %fail ], [ 0, %if.end15 ]
   ret i32 %retval.0
 }
 
@@ -562,14 +564,18 @@ entry:
   %x_attr = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %x_attr, align 8
   %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %return, label %if.then
+  br i1 %tobool.not, label %do.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %call = tail call i32 %visit(ptr noundef nonnull %0, ptr noundef %arg) #3
+  %tobool2.not = icmp eq i32 %call, 0
+  br i1 %tobool2.not, label %do.end, label %return
+
+do.end:                                           ; preds = %entry, %if.then
   br label %return
 
-return:                                           ; preds = %if.then, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ %call, %if.then ]
+return:                                           ; preds = %if.then, %do.end
+  %retval.0 = phi i32 [ 0, %do.end ], [ %call, %if.then ]
   ret i32 %retval.0
 }
 

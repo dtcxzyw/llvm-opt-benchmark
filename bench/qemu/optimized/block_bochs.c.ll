@@ -301,16 +301,14 @@ land.lhs.true4:                                   ; preds = %land.lhs.true
 land.lhs.true8:                                   ; preds = %land.lhs.true4
   %version = getelementptr inbounds i8, ptr %buf, i64 64
   %0 = load i32, ptr %version, align 1
-  %cmp10 = icmp eq i32 %0, 131072
-  br i1 %cmp10, label %return, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %land.lhs.true8
-  %cmp13 = icmp eq i32 %0, 65536
-  %spec.select = select i1 %cmp13, i32 100, i32 0
+  %1 = add i32 %0, -65536
+  %switch.and = and i32 %1, -65537
+  %switch.selectcmp = icmp eq i32 %switch.and, 0
+  %2 = select i1 %switch.selectcmp, i32 100, i32 0
   br label %return
 
-return:                                           ; preds = %lor.lhs.false, %if.end, %land.lhs.true, %land.lhs.true4, %land.lhs.true8, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 100, %land.lhs.true8 ], [ 0, %land.lhs.true4 ], [ 0, %land.lhs.true ], [ 0, %if.end ], [ %spec.select, %lor.lhs.false ]
+return:                                           ; preds = %if.end, %land.lhs.true, %land.lhs.true4, %land.lhs.true8, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ %2, %land.lhs.true8 ], [ 0, %land.lhs.true4 ], [ 0, %land.lhs.true ], [ 0, %if.end ]
   ret i32 %retval.0
 }
 

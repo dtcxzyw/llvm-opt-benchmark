@@ -2010,9 +2010,9 @@ define hidden void @proto_tree_set_fake_protocols(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @proto_field_is_referenced(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define noundef i32 @proto_field_is_referenced(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %36, label %3
+  br i1 %.not, label %37, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds i8, ptr %0, i64 40
@@ -2020,7 +2020,7 @@ define i32 @proto_field_is_referenced(ptr noundef readonly %0, i32 noundef %1) l
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8
   %.not16 = icmp eq i32 %7, 0
-  br i1 %.not16, label %8, label %36
+  br i1 %.not16, label %8, label %37
 
 8:                                                ; preds = %3
   %9 = icmp eq i32 %1, 0
@@ -2069,7 +2069,7 @@ define i32 @proto_field_is_referenced(ptr noundef readonly %0, i32 noundef %1) l
   %27 = getelementptr inbounds i8, ptr %24, i64 56
   %28 = load i32, ptr %27, align 8
   %.not18 = icmp eq i32 %28, 0
-  br i1 %.not18, label %29, label %36
+  br i1 %.not18, label %29, label %37
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds i8, ptr %24, i64 16
@@ -2081,11 +2081,13 @@ define i32 @proto_field_is_referenced(ptr noundef readonly %0, i32 noundef %1) l
   %34 = getelementptr inbounds i8, ptr %5, i64 12
   %35 = load i32, ptr %34, align 4
   %.not19 = icmp eq i32 %35, 0
-  %spec.select = zext i1 %.not19 to i32
-  br label %36
+  br i1 %.not19, label %37, label %36
 
-36:                                               ; preds = %33, %29, %26, %3, %2
-  %.0 = phi i32 [ 0, %2 ], [ 1, %3 ], [ 1, %26 ], [ 0, %29 ], [ %spec.select, %33 ]
+36:                                               ; preds = %33, %29
+  br label %37
+
+37:                                               ; preds = %33, %26, %3, %2, %36
+  %.0 = phi i32 [ 0, %36 ], [ 0, %2 ], [ 1, %3 ], [ 1, %26 ], [ 1, %33 ]
   ret i32 %.0
 }
 
@@ -27319,13 +27321,15 @@ proto_get_finfo_ptr_array.exit:                   ; preds = %3
   %11 = getelementptr inbounds i8, ptr %9, i64 8
   %12 = load i32, ptr %11, align 8
   %.fr = freeze i32 %12
-  %13 = icmp ne i32 %.fr, 0
-  %spec.select = zext i1 %13 to i32
-  br label %.thread
+  %13 = icmp eq i32 %.fr, 0
+  br i1 %13, label %.thread, label %14
 
-.thread:                                          ; preds = %10, %3, %2, %proto_get_finfo_ptr_array.exit
-  %14 = phi i32 [ 0, %proto_get_finfo_ptr_array.exit ], [ 0, %2 ], [ 0, %3 ], [ %spec.select, %10 ]
-  ret i32 %14
+.thread:                                          ; preds = %3, %2, %proto_get_finfo_ptr_array.exit, %10
+  br label %14
+
+14:                                               ; preds = %10, %.thread
+  %15 = phi i32 [ 0, %.thread ], [ 1, %10 ]
+  ret i32 %15
 }
 
 ; Function Attrs: nounwind uwtable
@@ -27646,13 +27650,13 @@ proto_get_first_protocol.exit:                    ; preds = %0
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 32
   %5 = load i32, ptr %4, align 8
-  %.not75 = icmp eq i32 %5, -1
-  br i1 %.not75, label %._crit_edge, label %.lr.ph
+  %.not76 = icmp eq i32 %5, -1
+  br i1 %.not76, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %proto_get_first_protocol.exit, %proto_get_next_protocol.exit
-  %.077 = phi i32 [ %167, %proto_get_next_protocol.exit ], [ %5, %proto_get_first_protocol.exit ]
-  %.176 = phi ptr [ %163, %proto_get_next_protocol.exit ], [ %1, %proto_get_first_protocol.exit ]
-  %6 = tail call ptr @find_protocol_by_id(i32 noundef %.077)
+  %.078 = phi i32 [ %168, %proto_get_next_protocol.exit ], [ %5, %proto_get_first_protocol.exit ]
+  %.177 = phi ptr [ %164, %proto_get_next_protocol.exit ], [ %1, %proto_get_first_protocol.exit ]
+  %6 = tail call ptr @find_protocol_by_id(i32 noundef %.078)
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 8
   %9 = load ptr, ptr %8, align 8
@@ -27662,14 +27666,14 @@ proto_get_first_protocol.exit:                    ; preds = %0
   %13 = load i32, ptr %12, align 8
   %.not34.i = icmp eq i32 %13, -1
   %.pre = load i32, ptr @gpa_hfinfo.0, align 8
-  %.pre125 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
-  %.fr78 = freeze i32 %.pre125
-  %.pre126 = load ptr, ptr @gpa_hfinfo.2, align 8
+  %.pre126 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
+  %.fr79 = freeze i32 %.pre126
+  %.pre127 = load ptr, ptr @gpa_hfinfo.2, align 8
   br i1 %.not34.i, label %proto_is_protocol_enabled_by_default.exit, label %tailrecurse.i.preheader
 
 tailrecurse.i.preheader:                          ; preds = %.lr.ph
-  %.not79 = icmp eq i32 %.fr78, 0
-  br i1 %.not79, label %tailrecurse.i.us, label %tailrecurse.i
+  %.not80 = icmp eq i32 %.fr79, 0
+  br i1 %.not80, label %tailrecurse.i.us, label %tailrecurse.i
 
 tailrecurse.i.us:                                 ; preds = %tailrecurse.i.preheader, %find_protocol_by_id.exit.us
   %14 = phi i32 [ %31, %find_protocol_by_id.exit.us ], [ %13, %tailrecurse.i.preheader ]
@@ -27680,7 +27684,7 @@ tailrecurse.i.us:                                 ; preds = %tailrecurse.i.prehe
 
 17:                                               ; preds = %tailrecurse.i.us
   %18 = zext nneg i32 %14 to i64
-  %19 = getelementptr ptr, ptr %.pre126, i64 %18
+  %19 = getelementptr ptr, ptr %.pre127, i64 %18
   %20 = load ptr, ptr %19, align 8
   %.not.i14.us = icmp eq ptr %20, null
   br i1 %.not.i14.us, label %.split55.us, label %21
@@ -27709,8 +27713,8 @@ find_protocol_by_id.exit.us:                      ; preds = %24, %21
 proto_is_protocol_enabled_by_default.exit.thread: ; preds = %find_protocol_by_id.exit.us
   %32 = getelementptr inbounds i8, ptr %29, i64 40
   %33 = load i32, ptr %32, align 8
-  %.not7132 = icmp eq i32 %33, 0
-  %34 = select i1 %.not7132, i32 70, i32 84
+  %.not7133 = icmp eq i32 %33, 0
+  %34 = select i1 %.not7133, i32 70, i32 84
   br label %.lr.ph.i.us.preheader
 
 tailrecurse.i:                                    ; preds = %tailrecurse.i.preheader, %find_protocol_by_id.exit
@@ -27734,7 +27738,7 @@ tailrecurse.i:                                    ; preds = %tailrecurse.i.prehe
 
 41:                                               ; preds = %39
   %42 = zext nneg i32 %35 to i64
-  %43 = getelementptr ptr, ptr %.pre126, i64 %42
+  %43 = getelementptr ptr, ptr %.pre127, i64 %42
   %44 = load ptr, ptr %43, align 8
   %.not.i14 = icmp eq ptr %44, null
   br i1 %.not.i14, label %.split55.us, label %45
@@ -27766,13 +27770,13 @@ find_protocol_by_id.exit:                         ; preds = %48, %45
   %54 = getelementptr inbounds i8, ptr %53, i64 48
   %55 = load i32, ptr %54, align 8
   %.not3.i = icmp eq i32 %55, -1
-  br i1 %.not3.i, label %proto_is_protocol_enabled_by_default.exit.thread137, label %tailrecurse.i
+  br i1 %.not3.i, label %proto_is_protocol_enabled_by_default.exit.thread139, label %tailrecurse.i
 
-proto_is_protocol_enabled_by_default.exit.thread137: ; preds = %find_protocol_by_id.exit
+proto_is_protocol_enabled_by_default.exit.thread139: ; preds = %find_protocol_by_id.exit
   %56 = getelementptr inbounds i8, ptr %53, i64 40
   %57 = load i32, ptr %56, align 8
-  %.not7140 = icmp eq i32 %57, 0
-  %58 = select i1 %.not7140, i32 70, i32 84
+  %.not7142 = icmp eq i32 %57, 0
+  %58 = select i1 %.not7142, i32 70, i32 84
   br label %.lr.ph.i.preheader
 
 proto_is_protocol_enabled_by_default.exit:        ; preds = %.lr.ph
@@ -27780,11 +27784,11 @@ proto_is_protocol_enabled_by_default.exit:        ; preds = %.lr.ph
   %60 = load i32, ptr %59, align 8
   %.not7 = icmp eq i32 %60, 0
   %61 = select i1 %.not7, i32 70, i32 84
-  %.not81 = icmp eq i32 %.fr78, 0
-  br i1 %.not81, label %.lr.ph.i.us.preheader, label %.lr.ph.i.preheader
+  %.not82 = icmp eq i32 %.fr79, 0
+  br i1 %.not82, label %.lr.ph.i.us.preheader, label %.lr.ph.i.preheader
 
-.lr.ph.i.preheader:                               ; preds = %proto_is_protocol_enabled_by_default.exit.thread137, %proto_is_protocol_enabled_by_default.exit
-  %62 = phi i32 [ %58, %proto_is_protocol_enabled_by_default.exit.thread137 ], [ %61, %proto_is_protocol_enabled_by_default.exit ]
+.lr.ph.i.preheader:                               ; preds = %proto_is_protocol_enabled_by_default.exit.thread139, %proto_is_protocol_enabled_by_default.exit
+  %62 = phi i32 [ %58, %proto_is_protocol_enabled_by_default.exit.thread139 ], [ %61, %proto_is_protocol_enabled_by_default.exit ]
   br label %.lr.ph.i
 
 .lr.ph.i.us.preheader:                            ; preds = %proto_is_protocol_enabled_by_default.exit.thread, %proto_is_protocol_enabled_by_default.exit
@@ -27800,7 +27804,7 @@ proto_is_protocol_enabled_by_default.exit:        ; preds = %.lr.ph
 
 tailrecurse.i10.us:                               ; preds = %.lr.ph.i.us
   %66 = icmp slt i32 %65, 1
-  br i1 %66, label %proto_is_protocol_enabled.exit.thread, label %67
+  br i1 %66, label %.loopexit, label %67
 
 67:                                               ; preds = %tailrecurse.i10.us
   %68 = icmp ugt i32 %.pre, %65
@@ -27808,7 +27812,7 @@ tailrecurse.i10.us:                               ; preds = %.lr.ph.i.us
 
 69:                                               ; preds = %67
   %70 = zext nneg i32 %65 to i64
-  %71 = getelementptr ptr, ptr %.pre126, i64 %70
+  %71 = getelementptr ptr, ptr %.pre127, i64 %70
   %72 = load ptr, ptr %71, align 8
   %.not.i17.us = icmp eq ptr %72, null
   br i1 %.not.i17.us, label %.split63.us, label %73
@@ -27830,7 +27834,7 @@ find_protocol_by_id.exit21.us:                    ; preds = %76, %73
   %80 = getelementptr inbounds i8, ptr %72, i64 24
   %81 = load ptr, ptr %80, align 8
   %82 = icmp eq ptr %81, null
-  br i1 %82, label %proto_is_protocol_enabled.exit.thread, label %.lr.ph.i.us
+  br i1 %82, label %.loopexit, label %.lr.ph.i.us
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %find_protocol_by_id.exit21
   %.tr7.i = phi ptr [ %103, %find_protocol_by_id.exit21 ], [ %6, %.lr.ph.i.preheader ]
@@ -27841,7 +27845,7 @@ find_protocol_by_id.exit21.us:                    ; preds = %76, %73
 
 tailrecurse.i10:                                  ; preds = %.lr.ph.i
   %85 = icmp slt i32 %84, 1
-  br i1 %85, label %proto_is_protocol_enabled.exit.thread, label %86
+  br i1 %85, label %.loopexit, label %86
 
 86:                                               ; preds = %tailrecurse.i10
   %87 = icmp ult i32 %.pre, %84
@@ -27861,7 +27865,7 @@ tailrecurse.i10:                                  ; preds = %.lr.ph.i
 
 91:                                               ; preds = %89
   %92 = zext nneg i32 %84 to i64
-  %93 = getelementptr ptr, ptr %.pre126, i64 %92
+  %93 = getelementptr ptr, ptr %.pre127, i64 %92
   %94 = load ptr, ptr %93, align 8
   %.not.i17 = icmp eq ptr %94, null
   br i1 %.not.i17, label %.split63.us, label %95
@@ -27891,149 +27895,152 @@ find_protocol_by_id.exit21:                       ; preds = %95, %98
   %102 = getelementptr inbounds i8, ptr %94, i64 24
   %103 = load ptr, ptr %102, align 8
   %104 = icmp eq ptr %103, null
-  br i1 %104, label %proto_is_protocol_enabled.exit.thread, label %.lr.ph.i
+  br i1 %104, label %.loopexit, label %.lr.ph.i
 
 proto_is_protocol_enabled.exit:                   ; preds = %.lr.ph.i, %.lr.ph.i.us
-  %.not81135 = phi i1 [ true, %.lr.ph.i.us ], [ false, %.lr.ph.i ]
+  %.not82137 = phi i1 [ true, %.lr.ph.i.us ], [ false, %.lr.ph.i ]
   %105 = phi i32 [ %63, %.lr.ph.i.us ], [ %62, %.lr.ph.i ]
   %.us-phi59 = phi ptr [ %.tr7.i.us, %.lr.ph.i.us ], [ %.tr7.i, %.lr.ph.i ]
   %106 = getelementptr inbounds i8, ptr %.us-phi59, i64 36
   %107 = load i32, ptr %106, align 4
   %.fr = freeze i32 %107
   %.not8 = icmp eq i32 %.fr, 0
-  %spec.select = select i1 %.not8, i32 70, i32 84
+  br i1 %.not8, label %proto_is_protocol_enabled.exit.thread, label %.loopexit
+
+proto_is_protocol_enabled.exit.thread:            ; preds = %proto_is_protocol_enabled.exit
   %108 = getelementptr inbounds i8, ptr %6, i64 32
   %109 = load i32, ptr %108, align 8
-  br i1 %.not81135, label %tailrecurse.i12.us.preheader, label %tailrecurse.i12.preheader
+  br i1 %.not82137, label %tailrecurse.i12.us.preheader, label %tailrecurse.i12.preheader
 
-proto_is_protocol_enabled.exit.thread:            ; preds = %find_protocol_by_id.exit21, %tailrecurse.i10, %find_protocol_by_id.exit21.us, %tailrecurse.i10.us
-  %.not81134 = phi i1 [ true, %tailrecurse.i10.us ], [ true, %find_protocol_by_id.exit21.us ], [ false, %tailrecurse.i10 ], [ false, %find_protocol_by_id.exit21 ]
-  %110 = phi i32 [ %63, %tailrecurse.i10.us ], [ %63, %find_protocol_by_id.exit21.us ], [ %62, %tailrecurse.i10 ], [ %62, %find_protocol_by_id.exit21 ]
-  %111 = getelementptr inbounds i8, ptr %6, i64 32
-  %112 = load i32, ptr %111, align 8
-  br i1 %.not81134, label %tailrecurse.i12.us.preheader, label %tailrecurse.i12.preheader
+.loopexit:                                        ; preds = %tailrecurse.i10, %find_protocol_by_id.exit21, %tailrecurse.i10.us, %find_protocol_by_id.exit21.us, %proto_is_protocol_enabled.exit
+  %.not82135 = phi i1 [ %.not82137, %proto_is_protocol_enabled.exit ], [ true, %find_protocol_by_id.exit21.us ], [ true, %tailrecurse.i10.us ], [ false, %find_protocol_by_id.exit21 ], [ false, %tailrecurse.i10 ]
+  %110 = phi i32 [ %105, %proto_is_protocol_enabled.exit ], [ %63, %find_protocol_by_id.exit21.us ], [ %63, %tailrecurse.i10.us ], [ %62, %find_protocol_by_id.exit21 ], [ %62, %tailrecurse.i10 ]
+  %111 = phi i32 [ 84, %proto_is_protocol_enabled.exit ], [ 70, %find_protocol_by_id.exit21.us ], [ 70, %tailrecurse.i10.us ], [ 70, %find_protocol_by_id.exit21 ], [ 70, %tailrecurse.i10 ]
+  %112 = getelementptr inbounds i8, ptr %6, i64 32
+  %113 = load i32, ptr %112, align 8
+  br i1 %.not82135, label %tailrecurse.i12.us.preheader, label %tailrecurse.i12.preheader
 
-tailrecurse.i12.preheader:                        ; preds = %proto_is_protocol_enabled.exit, %proto_is_protocol_enabled.exit.thread
-  %113 = phi i32 [ %109, %proto_is_protocol_enabled.exit ], [ %112, %proto_is_protocol_enabled.exit.thread ]
-  %114 = phi i32 [ %spec.select, %proto_is_protocol_enabled.exit ], [ 70, %proto_is_protocol_enabled.exit.thread ]
-  %115 = phi i32 [ %105, %proto_is_protocol_enabled.exit ], [ %110, %proto_is_protocol_enabled.exit.thread ]
+tailrecurse.i12.preheader:                        ; preds = %proto_is_protocol_enabled.exit.thread, %.loopexit
+  %114 = phi i32 [ %109, %proto_is_protocol_enabled.exit.thread ], [ %113, %.loopexit ]
+  %115 = phi i32 [ 70, %proto_is_protocol_enabled.exit.thread ], [ %111, %.loopexit ]
+  %116 = phi i32 [ %105, %proto_is_protocol_enabled.exit.thread ], [ %110, %.loopexit ]
   br label %tailrecurse.i12
 
-tailrecurse.i12.us.preheader:                     ; preds = %proto_is_protocol_enabled.exit, %proto_is_protocol_enabled.exit.thread
-  %116 = phi i32 [ %109, %proto_is_protocol_enabled.exit ], [ %112, %proto_is_protocol_enabled.exit.thread ]
-  %117 = phi i32 [ %spec.select, %proto_is_protocol_enabled.exit ], [ 70, %proto_is_protocol_enabled.exit.thread ]
-  %118 = phi i32 [ %105, %proto_is_protocol_enabled.exit ], [ %110, %proto_is_protocol_enabled.exit.thread ]
+tailrecurse.i12.us.preheader:                     ; preds = %proto_is_protocol_enabled.exit.thread, %.loopexit
+  %117 = phi i32 [ %109, %proto_is_protocol_enabled.exit.thread ], [ %113, %.loopexit ]
+  %118 = phi i32 [ 70, %proto_is_protocol_enabled.exit.thread ], [ %111, %.loopexit ]
+  %119 = phi i32 [ %105, %proto_is_protocol_enabled.exit.thread ], [ %110, %.loopexit ]
   br label %tailrecurse.i12.us
 
 tailrecurse.i12.us:                               ; preds = %tailrecurse.i12.us.preheader, %find_protocol_by_id.exit27.us
-  %.tr.i.us = phi i32 [ %135, %find_protocol_by_id.exit27.us ], [ %116, %tailrecurse.i12.us.preheader ]
-  %119 = icmp ne i32 %.tr.i.us, 0
-  tail call void @llvm.assume(i1 %119)
-  %120 = icmp ugt i32 %.pre, %.tr.i.us
-  br i1 %120, label %121, label %.split68.us
+  %.tr.i.us = phi i32 [ %136, %find_protocol_by_id.exit27.us ], [ %117, %tailrecurse.i12.us.preheader ]
+  %120 = icmp ne i32 %.tr.i.us, 0
+  tail call void @llvm.assume(i1 %120)
+  %121 = icmp ugt i32 %.pre, %.tr.i.us
+  br i1 %121, label %122, label %.split69.us
 
-121:                                              ; preds = %tailrecurse.i12.us
-  %122 = zext nneg i32 %.tr.i.us to i64
-  %123 = getelementptr ptr, ptr %.pre126, i64 %122
-  %124 = load ptr, ptr %123, align 8
-  %.not.i23.us = icmp eq ptr %124, null
-  br i1 %.not.i23.us, label %.split70.us, label %125
+122:                                              ; preds = %tailrecurse.i12.us
+  %123 = zext nneg i32 %.tr.i.us to i64
+  %124 = getelementptr ptr, ptr %.pre127, i64 %123
+  %125 = load ptr, ptr %124, align 8
+  %.not.i23.us = icmp eq ptr %125, null
+  br i1 %.not.i23.us, label %.split71.us, label %126
 
-125:                                              ; preds = %121
-  %126 = getelementptr inbounds i8, ptr %124, i64 16
-  %127 = load i32, ptr %126, align 8
-  %.not14.i24.us = icmp eq i32 %127, 1
-  br i1 %.not14.i24.us, label %find_protocol_by_id.exit27.us, label %128
+126:                                              ; preds = %122
+  %127 = getelementptr inbounds i8, ptr %125, i64 16
+  %128 = load i32, ptr %127, align 8
+  %.not14.i24.us = icmp eq i32 %128, 1
+  br i1 %.not14.i24.us, label %find_protocol_by_id.exit27.us, label %129
 
-128:                                              ; preds = %125
-  %129 = getelementptr inbounds i8, ptr %124, i64 20
-  %130 = load i32, ptr %129, align 4
-  %131 = and i32 %130, 16384
-  %.not15.i25.us = icmp eq i32 %131, 0
-  br i1 %.not15.i25.us, label %.split72.us, label %find_protocol_by_id.exit27.us
+129:                                              ; preds = %126
+  %130 = getelementptr inbounds i8, ptr %125, i64 20
+  %131 = load i32, ptr %130, align 4
+  %132 = and i32 %131, 16384
+  %.not15.i25.us = icmp eq i32 %132, 0
+  br i1 %.not15.i25.us, label %.split73.us, label %find_protocol_by_id.exit27.us
 
-find_protocol_by_id.exit27.us:                    ; preds = %128, %125
-  %132 = getelementptr inbounds i8, ptr %124, i64 24
-  %133 = load ptr, ptr %132, align 8
-  %134 = getelementptr inbounds i8, ptr %133, i64 48
-  %135 = load i32, ptr %134, align 8
-  %.not4.i.us = icmp eq i32 %135, -1
+find_protocol_by_id.exit27.us:                    ; preds = %129, %126
+  %133 = getelementptr inbounds i8, ptr %125, i64 24
+  %134 = load ptr, ptr %133, align 8
+  %135 = getelementptr inbounds i8, ptr %134, i64 48
+  %136 = load i32, ptr %135, align 8
+  %.not4.i.us = icmp eq i32 %136, -1
   br i1 %.not4.i.us, label %proto_can_toggle_protocol.exit, label %tailrecurse.i12.us
 
 tailrecurse.i12:                                  ; preds = %tailrecurse.i12.preheader, %find_protocol_by_id.exit27
-  %.tr.i = phi i32 [ %155, %find_protocol_by_id.exit27 ], [ %113, %tailrecurse.i12.preheader ]
-  %136 = icmp ne i32 %.tr.i, 0
-  tail call void @llvm.assume(i1 %136)
-  %137 = icmp ult i32 %.pre, %.tr.i
-  br i1 %137, label %138, label %139
+  %.tr.i = phi i32 [ %156, %find_protocol_by_id.exit27 ], [ %114, %tailrecurse.i12.preheader ]
+  %137 = icmp ne i32 %.tr.i, 0
+  tail call void @llvm.assume(i1 %137)
+  %138 = icmp ult i32 %.pre, %.tr.i
+  br i1 %138, label %139, label %140
 
-138:                                              ; preds = %tailrecurse.i12
+139:                                              ; preds = %tailrecurse.i12
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 8305, ptr noundef nonnull @__func__.find_protocol_by_id, ptr noundef nonnull @.str.2, i32 noundef %.tr.i) #34
   unreachable
 
-139:                                              ; preds = %tailrecurse.i12
-  %140 = icmp ugt i32 %.pre, %.tr.i
-  br i1 %140, label %141, label %.split68.us
+140:                                              ; preds = %tailrecurse.i12
+  %141 = icmp ugt i32 %.pre, %.tr.i
+  br i1 %141, label %142, label %.split69.us
 
-.split68.us:                                      ; preds = %139, %tailrecurse.i12.us
+.split69.us:                                      ; preds = %140, %tailrecurse.i12.us
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 8305, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5) #35
   unreachable
 
-141:                                              ; preds = %139
-  %142 = zext nneg i32 %.tr.i to i64
-  %143 = getelementptr ptr, ptr %.pre126, i64 %142
-  %144 = load ptr, ptr %143, align 8
-  %.not.i23 = icmp eq ptr %144, null
-  br i1 %.not.i23, label %.split70.us, label %145
+142:                                              ; preds = %140
+  %143 = zext nneg i32 %.tr.i to i64
+  %144 = getelementptr ptr, ptr %.pre127, i64 %143
+  %145 = load ptr, ptr %144, align 8
+  %.not.i23 = icmp eq ptr %145, null
+  br i1 %.not.i23, label %.split71.us, label %146
 
-.split70.us:                                      ; preds = %141, %121
+.split71.us:                                      ; preds = %142, %122
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 8305, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.5) #35
   unreachable
 
-145:                                              ; preds = %141
-  %146 = getelementptr inbounds i8, ptr %144, i64 16
-  %147 = load i32, ptr %146, align 8
-  %.not14.i24 = icmp eq i32 %147, 1
-  br i1 %.not14.i24, label %find_protocol_by_id.exit27, label %148
+146:                                              ; preds = %142
+  %147 = getelementptr inbounds i8, ptr %145, i64 16
+  %148 = load i32, ptr %147, align 8
+  %.not14.i24 = icmp eq i32 %148, 1
+  br i1 %.not14.i24, label %find_protocol_by_id.exit27, label %149
 
-148:                                              ; preds = %145
-  %149 = getelementptr inbounds i8, ptr %144, i64 20
-  %150 = load i32, ptr %149, align 4
-  %151 = and i32 %150, 16384
-  %.not15.i25 = icmp eq i32 %151, 0
-  br i1 %.not15.i25, label %.split72.us, label %find_protocol_by_id.exit27
+149:                                              ; preds = %146
+  %150 = getelementptr inbounds i8, ptr %145, i64 20
+  %151 = load i32, ptr %150, align 4
+  %152 = and i32 %151, 16384
+  %.not15.i25 = icmp eq i32 %152, 0
+  br i1 %.not15.i25, label %.split73.us, label %find_protocol_by_id.exit27
 
-.split72.us:                                      ; preds = %148, %128
+.split73.us:                                      ; preds = %149, %129
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.1, i32 noundef 8307, ptr noundef nonnull @.str.102) #35
   unreachable
 
-find_protocol_by_id.exit27:                       ; preds = %148, %145
-  %152 = getelementptr inbounds i8, ptr %144, i64 24
-  %153 = load ptr, ptr %152, align 8
-  %154 = getelementptr inbounds i8, ptr %153, i64 48
-  %155 = load i32, ptr %154, align 8
-  %.not4.i = icmp eq i32 %155, -1
+find_protocol_by_id.exit27:                       ; preds = %149, %146
+  %153 = getelementptr inbounds i8, ptr %145, i64 24
+  %154 = load ptr, ptr %153, align 8
+  %155 = getelementptr inbounds i8, ptr %154, i64 48
+  %156 = load i32, ptr %155, align 8
+  %.not4.i = icmp eq i32 %156, -1
   br i1 %.not4.i, label %proto_can_toggle_protocol.exit, label %tailrecurse.i12
 
 proto_can_toggle_protocol.exit:                   ; preds = %find_protocol_by_id.exit27, %find_protocol_by_id.exit27.us
-  %156 = phi i32 [ %117, %find_protocol_by_id.exit27.us ], [ %114, %find_protocol_by_id.exit27 ]
   %157 = phi i32 [ %118, %find_protocol_by_id.exit27.us ], [ %115, %find_protocol_by_id.exit27 ]
-  %.us-phi73 = phi ptr [ %133, %find_protocol_by_id.exit27.us ], [ %153, %find_protocol_by_id.exit27 ]
-  %158 = getelementptr inbounds i8, ptr %.us-phi73, i64 44
-  %159 = load i32, ptr %158, align 4
-  %.not9 = icmp eq i32 %159, 0
-  %160 = select i1 %.not9, i32 70, i32 84
-  %161 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.131, ptr noundef %7, ptr noundef %9, ptr noundef %11, i32 noundef %157, i32 noundef %156, i32 noundef %160)
-  %162 = getelementptr inbounds i8, ptr %.176, i64 8
-  %163 = load ptr, ptr %162, align 8
-  %164 = icmp eq ptr %163, null
-  br i1 %164, label %._crit_edge, label %proto_get_next_protocol.exit
+  %158 = phi i32 [ %119, %find_protocol_by_id.exit27.us ], [ %116, %find_protocol_by_id.exit27 ]
+  %.us-phi74 = phi ptr [ %134, %find_protocol_by_id.exit27.us ], [ %154, %find_protocol_by_id.exit27 ]
+  %159 = getelementptr inbounds i8, ptr %.us-phi74, i64 44
+  %160 = load i32, ptr %159, align 4
+  %.not9 = icmp eq i32 %160, 0
+  %161 = select i1 %.not9, i32 70, i32 84
+  %162 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.131, ptr noundef %7, ptr noundef %9, ptr noundef %11, i32 noundef %158, i32 noundef %157, i32 noundef %161)
+  %163 = getelementptr inbounds i8, ptr %.177, i64 8
+  %164 = load ptr, ptr %163, align 8
+  %165 = icmp eq ptr %164, null
+  br i1 %165, label %._crit_edge, label %proto_get_next_protocol.exit
 
 proto_get_next_protocol.exit:                     ; preds = %proto_can_toggle_protocol.exit
-  %165 = load ptr, ptr %163, align 8
-  %166 = getelementptr inbounds i8, ptr %165, i64 32
-  %167 = load i32, ptr %166, align 8
-  %.not = icmp eq i32 %167, -1
+  %166 = load ptr, ptr %164, align 8
+  %167 = getelementptr inbounds i8, ptr %166, i64 32
+  %168 = load i32, ptr %167, align 8
+  %.not = icmp eq i32 %168, -1
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %proto_can_toggle_protocol.exit, %proto_get_next_protocol.exit, %0, %proto_get_first_protocol.exit

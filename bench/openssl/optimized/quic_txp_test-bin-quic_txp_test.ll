@@ -673,7 +673,7 @@ sw.bb87:                                          ; preds = %for.cond
   %bf.clear2.i = and i32 %bf.load1.i, 255
   %call.i52 = call i32 @test_int_eq(ptr noundef nonnull @.str.71, i32 noundef 24, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.73, i32 noundef %bf.clear.i, i32 noundef %bf.clear2.i) #8
   %tobool.not.i53 = icmp eq i32 %call.i52, 0
-  br i1 %tobool.not.i53, label %if.end96.i, label %lor.lhs.false.i
+  br i1 %tobool.not.i53, label %if.then95.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %sw.bb87
   %bf.load3.i = load i32, ptr %42, align 8
@@ -684,7 +684,7 @@ lor.lhs.false.i:                                  ; preds = %sw.bb87
   %bf.clear7.i = and i32 %bf.lshr6.i, 1
   %call8.i = call i32 @test_int_eq(ptr noundef nonnull @.str.71, i32 noundef 25, ptr noundef nonnull @.str.74, ptr noundef nonnull @.str.75, i32 noundef %bf.clear4.i, i32 noundef %bf.clear7.i) #8
   %tobool9.not.i = icmp eq i32 %call8.i, 0
-  br i1 %tobool9.not.i, label %if.end96.i, label %lor.lhs.false10.i
+  br i1 %tobool9.not.i, label %if.then95.i, label %lor.lhs.false10.i
 
 lor.lhs.false10.i:                                ; preds = %lor.lhs.false.i
   %bf.load11.i = load i32, ptr %42, align 8
@@ -695,7 +695,7 @@ lor.lhs.false10.i:                                ; preds = %lor.lhs.false.i
   %bf.clear16.i = and i32 %bf.lshr15.i, 1
   %call17.i = call i32 @test_int_eq(ptr noundef nonnull @.str.71, i32 noundef 26, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.77, i32 noundef %bf.clear13.i, i32 noundef %bf.clear16.i) #8
   %tobool18.not.i = icmp eq i32 %call17.i, 0
-  br i1 %tobool18.not.i, label %if.end96.i, label %lor.lhs.false19.i
+  br i1 %tobool18.not.i, label %if.then95.i, label %lor.lhs.false19.i
 
 lor.lhs.false19.i:                                ; preds = %lor.lhs.false10.i
   %bf.load20.i = load i32, ptr %42, align 8
@@ -706,7 +706,7 @@ lor.lhs.false19.i:                                ; preds = %lor.lhs.false10.i
   %bf.clear25.i = and i32 %bf.lshr24.i, 15
   %call26.i = call i32 @test_int_eq(ptr noundef nonnull @.str.71, i32 noundef 27, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.79, i32 noundef %bf.clear22.i, i32 noundef %bf.clear25.i) #8
   %tobool27.not.i = icmp eq i32 %call26.i, 0
-  br i1 %tobool27.not.i, label %if.end96.i, label %lor.lhs.false28.i
+  br i1 %tobool27.not.i, label %if.then95.i, label %lor.lhs.false28.i
 
 lor.lhs.false28.i:                                ; preds = %lor.lhs.false19.i
   %bf.load29.i = load i32, ptr %42, align 8
@@ -717,7 +717,7 @@ lor.lhs.false28.i:                                ; preds = %lor.lhs.false19.i
   %bf.clear34.i = and i32 %bf.lshr33.i, 1
   %call35.i = call i32 @test_int_eq(ptr noundef nonnull @.str.71, i32 noundef 28, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, i32 noundef %bf.clear31.i, i32 noundef %bf.clear34.i) #8
   %tobool36.not.i = icmp eq i32 %call35.i, 0
-  br i1 %tobool36.not.i, label %if.end96.i, label %lor.lhs.false37.i
+  br i1 %tobool36.not.i, label %if.then95.i, label %lor.lhs.false37.i
 
 lor.lhs.false37.i:                                ; preds = %lor.lhs.false28.i
   %bf.load38.i = load i32, ptr %42, align 8
@@ -728,7 +728,7 @@ lor.lhs.false37.i:                                ; preds = %lor.lhs.false28.i
   %bf.clear43.i = and i32 %bf.lshr42.i, 1
   %call44.i54 = call i32 @test_int_eq(ptr noundef nonnull @.str.71, i32 noundef 29, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.83, i32 noundef %bf.clear40.i, i32 noundef %bf.clear43.i) #8
   %tobool45.not.i = icmp eq i32 %call44.i54, 0
-  br i1 %tobool45.not.i, label %if.end96.i, label %lor.lhs.false46.i
+  br i1 %tobool45.not.i, label %if.then95.i, label %lor.lhs.false46.i
 
 lor.lhs.false46.i:                                ; preds = %lor.lhs.false37.i
   %bf.load47.i = load i32, ptr %42, align 8
@@ -739,7 +739,7 @@ lor.lhs.false46.i:                                ; preds = %lor.lhs.false37.i
   %bf.clear52.i = and i32 %bf.lshr51.i, 15
   %call53.i = call i32 @test_int_eq(ptr noundef nonnull @.str.71, i32 noundef 30, ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.85, i32 noundef %bf.clear49.i, i32 noundef %bf.clear52.i) #8
   %tobool54.not.i = icmp eq i32 %call53.i, 0
-  br i1 %tobool54.not.i, label %if.end96.i, label %lor.lhs.false55.i
+  br i1 %tobool54.not.i, label %if.then95.i, label %lor.lhs.false55.i
 
 lor.lhs.false55.i:                                ; preds = %lor.lhs.false46.i
   %bf.load56.i = load i32, ptr %42, align 8
@@ -750,7 +750,7 @@ lor.lhs.false55.i:                                ; preds = %lor.lhs.false46.i
   %bf.clear61.i = and i32 %bf.lshr60.i, 3
   %call62.i = call i32 @test_int_eq(ptr noundef nonnull @.str.71, i32 noundef 31, ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.87, i32 noundef %bf.clear58.i, i32 noundef %bf.clear61.i) #8
   %tobool63.not.i = icmp eq i32 %call62.i, 0
-  br i1 %tobool63.not.i, label %if.end96.i, label %lor.lhs.false64.i
+  br i1 %tobool63.not.i, label %if.then95.i, label %lor.lhs.false64.i
 
 lor.lhs.false64.i:                                ; preds = %lor.lhs.false55.i
   %version.i = getelementptr inbounds i8, ptr %42, i64 4
@@ -759,7 +759,7 @@ lor.lhs.false64.i:                                ; preds = %lor.lhs.false55.i
   %45 = load i32, ptr %version65.i, align 4
   %call66.i55 = call i32 @test_uint_eq(ptr noundef nonnull @.str.71, i32 noundef 32, ptr noundef nonnull @.str.88, ptr noundef nonnull @.str.89, i32 noundef %44, i32 noundef %45) #8
   %tobool67.not.i = icmp eq i32 %call66.i55, 0
-  br i1 %tobool67.not.i, label %if.end96.i, label %lor.lhs.false68.i
+  br i1 %tobool67.not.i, label %if.then95.i, label %lor.lhs.false68.i
 
 lor.lhs.false68.i:                                ; preds = %lor.lhs.false64.i
   %dst_conn_id.i = getelementptr inbounds i8, ptr %42, i64 8
@@ -767,7 +767,7 @@ lor.lhs.false68.i:                                ; preds = %lor.lhs.false64.i
   %call70.i = call fastcc i32 @ossl_quic_conn_id_eq(ptr noundef nonnull %dst_conn_id.i, ptr noundef nonnull %dst_conn_id69.i), !range !5
   %call72.i = call i32 @test_true(ptr noundef nonnull @.str.71, i32 noundef 33, ptr noundef nonnull @.str.90, i32 noundef %call70.i) #8
   %tobool73.not.i = icmp eq i32 %call72.i, 0
-  br i1 %tobool73.not.i, label %if.end96.i, label %lor.lhs.false74.i
+  br i1 %tobool73.not.i, label %if.then95.i, label %lor.lhs.false74.i
 
 lor.lhs.false74.i:                                ; preds = %lor.lhs.false68.i
   %src_conn_id.i = getelementptr inbounds i8, ptr %42, i64 29
@@ -775,14 +775,14 @@ lor.lhs.false74.i:                                ; preds = %lor.lhs.false68.i
   %call76.i56 = call fastcc i32 @ossl_quic_conn_id_eq(ptr noundef nonnull %src_conn_id.i, ptr noundef nonnull %src_conn_id75.i), !range !5
   %call79.i = call i32 @test_true(ptr noundef nonnull @.str.71, i32 noundef 34, ptr noundef nonnull @.str.91, i32 noundef %call76.i56) #8
   %tobool80.not.i = icmp eq i32 %call79.i, 0
-  br i1 %tobool80.not.i, label %if.end96.i, label %lor.lhs.false81.i
+  br i1 %tobool80.not.i, label %if.then95.i, label %lor.lhs.false81.i
 
 lor.lhs.false81.i:                                ; preds = %lor.lhs.false74.i
   %pn.i = getelementptr inbounds i8, ptr %42, i64 50
   %pn82.i = getelementptr inbounds i8, ptr %43, i64 50
   %call84.i = call i32 @test_mem_eq(ptr noundef nonnull @.str.71, i32 noundef 35, ptr noundef nonnull @.str.92, ptr noundef nonnull @.str.93, ptr noundef nonnull %pn.i, i64 noundef 4, ptr noundef nonnull %pn82.i, i64 noundef 4) #8
   %tobool85.not.i = icmp eq i32 %call84.i, 0
-  br i1 %tobool85.not.i, label %if.end96.i, label %lor.lhs.false86.i
+  br i1 %tobool85.not.i, label %if.then95.i, label %lor.lhs.false86.i
 
 lor.lhs.false86.i:                                ; preds = %lor.lhs.false81.i
   %token_len.i = getelementptr inbounds i8, ptr %42, i64 64
@@ -791,7 +791,7 @@ lor.lhs.false86.i:                                ; preds = %lor.lhs.false81.i
   %47 = load i64, ptr %token_len87.i, align 8
   %call88.i = call i32 @test_size_t_eq(ptr noundef nonnull @.str.71, i32 noundef 36, ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.95, i64 noundef %46, i64 noundef %47) #8
   %tobool89.not.i = icmp eq i32 %call88.i, 0
-  br i1 %tobool89.not.i, label %if.end96.i, label %lor.lhs.false90.i
+  br i1 %tobool89.not.i, label %if.then95.i, label %lor.lhs.false90.i
 
 lor.lhs.false90.i:                                ; preds = %lor.lhs.false86.i
   %len91.i = getelementptr inbounds i8, ptr %42, i64 72
@@ -799,12 +799,14 @@ lor.lhs.false90.i:                                ; preds = %lor.lhs.false86.i
   %len92.i = getelementptr inbounds i8, ptr %43, i64 72
   %49 = load i64, ptr %len92.i, align 8
   %call93.i57 = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.71, i32 noundef 37, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i64 noundef %48, i64 noundef %49) #8
-  %tobool94.not.i58 = icmp ne i32 %call93.i57, 0
-  %spec.select43.i = zext i1 %tobool94.not.i58 to i32
+  %tobool94.not.i58 = icmp eq i32 %call93.i57, 0
+  br i1 %tobool94.not.i58, label %if.then95.i, label %if.end96.i
+
+if.then95.i:                                      ; preds = %lor.lhs.false90.i, %lor.lhs.false86.i, %lor.lhs.false81.i, %lor.lhs.false74.i, %lor.lhs.false68.i, %lor.lhs.false64.i, %lor.lhs.false55.i, %lor.lhs.false46.i, %lor.lhs.false37.i, %lor.lhs.false28.i, %lor.lhs.false19.i, %lor.lhs.false10.i, %lor.lhs.false.i, %sw.bb87
   br label %if.end96.i
 
-if.end96.i:                                       ; preds = %lor.lhs.false90.i, %lor.lhs.false86.i, %lor.lhs.false81.i, %lor.lhs.false74.i, %lor.lhs.false68.i, %lor.lhs.false64.i, %lor.lhs.false55.i, %lor.lhs.false46.i, %lor.lhs.false37.i, %lor.lhs.false28.i, %lor.lhs.false19.i, %lor.lhs.false10.i, %lor.lhs.false.i, %sw.bb87
-  %ok.0.i = phi i32 [ 0, %lor.lhs.false86.i ], [ 0, %lor.lhs.false81.i ], [ 0, %lor.lhs.false74.i ], [ 0, %lor.lhs.false68.i ], [ 0, %lor.lhs.false64.i ], [ 0, %lor.lhs.false55.i ], [ 0, %lor.lhs.false46.i ], [ 0, %lor.lhs.false37.i ], [ 0, %lor.lhs.false28.i ], [ 0, %lor.lhs.false19.i ], [ 0, %lor.lhs.false10.i ], [ 0, %lor.lhs.false.i ], [ 0, %sw.bb87 ], [ %spec.select43.i, %lor.lhs.false90.i ]
+if.end96.i:                                       ; preds = %if.then95.i, %lor.lhs.false90.i
+  %ok.0.i = phi i32 [ 1, %lor.lhs.false90.i ], [ 0, %if.then95.i ]
   %token_len97.i = getelementptr inbounds i8, ptr %42, i64 64
   %50 = load i64, ptr %token_len97.i, align 8
   %cmp98.not.i = icmp eq i64 %50, 0
@@ -834,7 +836,7 @@ land.lhs.true114.i:                               ; preds = %if.end110.i, %if.en
   %55 = load ptr, ptr %token115.i, align 8
   %call116.i = call i32 @test_ptr_null(ptr noundef nonnull @.str.71, i32 noundef 44, ptr noundef nonnull @.str.98, ptr noundef %55) #8
   %tobool117.not.i = icmp eq i32 %call116.i, 0
-  br i1 %tobool117.not.i, label %cmp_pkt_hdr.exit, label %lor.lhs.false118.i
+  br i1 %tobool117.not.i, label %if.then126.i, label %lor.lhs.false118.i
 
 lor.lhs.false118.i:                               ; preds = %land.lhs.true114.i, %if.end110.i, %land.lhs.true.i
   %ok.13.i = phi i32 [ %ok.14.i, %land.lhs.true114.i ], [ %spec.select.i, %if.end110.i ], [ %ok.0.i, %land.lhs.true.i ]
@@ -848,11 +850,13 @@ land.lhs.true122.i:                               ; preds = %lor.lhs.false118.i
   %57 = load ptr, ptr %token123.i, align 8
   %call124.i = call i32 @test_ptr_null(ptr noundef nonnull @.str.71, i32 noundef 45, ptr noundef nonnull @.str.99, ptr noundef %57) #8
   %tobool125.not.i = icmp eq i32 %call124.i, 0
-  %spec.select44.i = select i1 %tobool125.not.i, i32 0, i32 %ok.13.i
+  br i1 %tobool125.not.i, label %if.then126.i, label %cmp_pkt_hdr.exit
+
+if.then126.i:                                     ; preds = %land.lhs.true122.i, %land.lhs.true114.i
   br label %cmp_pkt_hdr.exit
 
-cmp_pkt_hdr.exit:                                 ; preds = %land.lhs.true114.i, %lor.lhs.false118.i, %land.lhs.true122.i
-  %ok.2.i = phi i32 [ %ok.13.i, %lor.lhs.false118.i ], [ 0, %land.lhs.true114.i ], [ %spec.select44.i, %land.lhs.true122.i ]
+cmp_pkt_hdr.exit:                                 ; preds = %lor.lhs.false118.i, %land.lhs.true122.i, %if.then126.i
+  %ok.2.i = phi i32 [ %ok.13.i, %land.lhs.true122.i ], [ 0, %if.then126.i ], [ %ok.13.i, %lor.lhs.false118.i ]
   %call94 = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 1343, ptr noundef nonnull @.str.15, i32 noundef %ok.2.i) #8
   %tobool95.not = icmp eq i32 %call94, 0
   br i1 %tobool95.not, label %if.end466.thread86, label %for.inc

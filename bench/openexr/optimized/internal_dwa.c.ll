@@ -296,7 +296,8 @@ if.end56:                                         ; preds = %for.end
   %29 = load i32, ptr %part_index, align 4
   %_dwaCompressionLevel = getelementptr inbounds i8, ptr %me, i64 204
   %call59 = tail call i32 @exr_get_dwa_compression_level(ptr noundef %28, i32 noundef %29, ptr noundef nonnull %_dwaCompressionLevel) #18
-  br label %return
+  %cmp60.not = icmp eq i32 %call59, 0
+  br i1 %cmp60.not, label %if.end146, label %return
 
 if.else:                                          ; preds = %initializeFuncs.exit
   %context65 = getelementptr inbounds i8, ptr %decode, i64 16
@@ -386,10 +387,13 @@ for.end118:                                       ; preds = %for.body104, %if.en
   %sub143 = add i32 %add142, %45
   %arrayidx145 = getelementptr inbounds i8, ptr %me, i64 36
   store i32 %sub143, ptr %arrayidx145, align 4
+  br label %if.end146
+
+if.end146:                                        ; preds = %if.end56, %for.end118
   br label %return
 
-return:                                           ; preds = %if.end56, %for.end118, %cond.end77, %for.end, %cond.end6
-  %retval.0 = phi i32 [ 1, %cond.end6 ], [ %call52, %for.end ], [ 1, %cond.end77 ], [ 0, %for.end118 ], [ %call59, %if.end56 ]
+return:                                           ; preds = %cond.end77, %if.end56, %for.end, %cond.end6, %if.end146
+  %retval.0 = phi i32 [ 0, %if.end146 ], [ 1, %cond.end6 ], [ %call52, %for.end ], [ %call59, %if.end56 ], [ 1, %cond.end77 ]
   ret i32 %retval.0
 }
 

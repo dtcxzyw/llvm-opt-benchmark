@@ -822,7 +822,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @jemalloc_purge() local_unnamed_addr #3 {
+define dso_local noundef i32 @jemalloc_purge() local_unnamed_addr #3 {
 entry:
   %tmp = alloca [32 x i8], align 16
   %narenas = alloca i32, align 4
@@ -831,18 +831,20 @@ entry:
   store i64 4, ptr %sz, align 8
   %call = call i32 @je_mallctl(ptr noundef nonnull @.str.6, ptr noundef nonnull %narenas, ptr noundef nonnull %sz, ptr noundef null, i64 noundef 0) #24
   %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %if.then, label %return
+  br i1 %tobool.not, label %if.then, label %if.end6
 
 if.then:                                          ; preds = %entry
   %0 = load i32, ptr %narenas, align 4
   %call1 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %tmp, i64 noundef 32, ptr noundef nonnull @.str.7, i32 noundef %0) #24
   %call3 = call i32 @je_mallctl(ptr noundef nonnull %tmp, ptr noundef null, ptr noundef null, ptr noundef null, i64 noundef 0) #24
-  %tobool4.not = icmp ne i32 %call3, 0
-  %spec.select = sext i1 %tobool4.not to i32
+  %tobool4.not = icmp eq i32 %call3, 0
+  br i1 %tobool4.not, label %return, label %if.end6
+
+if.end6:                                          ; preds = %if.then, %entry
   br label %return
 
-return:                                           ; preds = %if.then, %entry
-  %retval.0 = phi i32 [ -1, %entry ], [ %spec.select, %if.then ]
+return:                                           ; preds = %if.then, %if.end6
+  %retval.0 = phi i32 [ -1, %if.end6 ], [ 0, %if.then ]
   ret i32 %retval.0
 }
 

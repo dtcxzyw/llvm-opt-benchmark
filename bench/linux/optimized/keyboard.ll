@@ -3241,7 +3241,7 @@ define internal noundef zeroext i1 @kbd_match(ptr nocapture readnone %0, ptr nou
   %4 = load volatile i64, ptr %3, align 8
   %5 = and i64 %4, 262144
   %6 = icmp eq i64 %5, 0
-  br i1 %6, label %7, label %18
+  br i1 %6, label %7, label %19
 
 7:                                                ; preds = %2
   %8 = load volatile i64, ptr %3, align 8
@@ -3253,16 +3253,19 @@ define internal noundef zeroext i1 @kbd_match(ptr nocapture readnone %0, ptr nou
   %12 = getelementptr inbounds i8, ptr %1, i64 48
   %13 = tail call i64 @_find_next_bit(ptr noundef %12, i64 noundef 256, i64 noundef 0) #18
   %14 = icmp ult i64 %13, 256
-  br i1 %14, label %18, label %15
+  br i1 %14, label %19, label %15
 
 15:                                               ; preds = %11
   %16 = tail call i64 @_find_next_bit(ptr noundef %12, i64 noundef 507, i64 noundef 497) #18
   %17 = icmp ult i64 %16, 507
-  br label %18
+  br i1 %17, label %19, label %18
 
-18:                                               ; preds = %15, %7, %11, %2
-  %19 = phi i1 [ true, %2 ], [ true, %11 ], [ false, %7 ], [ %17, %15 ]
-  ret i1 %19
+18:                                               ; preds = %15, %7
+  br label %19
+
+19:                                               ; preds = %18, %15, %11, %2
+  %20 = phi i1 [ false, %18 ], [ true, %2 ], [ true, %11 ], [ true, %15 ]
+  ret i1 %20
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

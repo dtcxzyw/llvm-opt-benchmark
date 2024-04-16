@@ -211,41 +211,41 @@ define dso_local void @intel_dvo_init(ptr noundef %0) local_unnamed_addr #0 alig
 113:                                              ; preds = %101
   %114 = getelementptr inbounds i8, ptr %4, i64 136
   store i16 6, ptr %114, align 8
-  switch i32 %111, label %116 [
-    i32 2, label %.thread
-    i32 5, label %115
+  switch i32 %111, label %115 [
+    i32 2, label %118
+    i32 5, label %.thread
   ]
 
-115:                                              ; preds = %113
-  br label %.thread
+.thread:                                          ; preds = %101, %113
+  br label %118
 
-116:                                              ; preds = %113
+115:                                              ; preds = %113
   tail call void asm sideeffect "906: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 906b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 906) #7, !srcloc !11
-  %117 = load i32, ptr %110, align 8
-  %118 = sext i32 %117 to i64
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i64 noundef %118) #7
+  %116 = load i32, ptr %110, align 8
+  %117 = sext i32 %116 to i64
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i64 noundef %117) #7
   tail call void asm sideeffect "907: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 907b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 907) #7, !srcloc !12
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.11, i32 390, i32 2313, i64 12) #7, !srcloc !13
   tail call void asm sideeffect "908: nop\0A\09.pushsection .discard.instr_end\0A\09.long 908b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 908) #7, !srcloc !14
   tail call void asm sideeffect "909: nop\0A\09.pushsection .discard.instr_end\0A\09.long 909b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 909) #7, !srcloc !15
   %.pre = load i32, ptr %108, align 4
-  br label %.thread
+  br label %118
 
-.thread:                                          ; preds = %101, %116, %115, %113
-  %119 = phi i32 [ %.pre, %116 ], [ %107, %113 ], [ %107, %115 ], [ %107, %101 ]
-  %120 = phi i32 [ 0, %116 ], [ %111, %113 ], [ 3, %115 ], [ 3, %101 ]
+118:                                              ; preds = %115, %.thread, %113
+  %119 = phi i32 [ %.pre, %115 ], [ %107, %.thread ], [ %107, %113 ]
+  %120 = phi i32 [ 0, %115 ], [ 3, %.thread ], [ %111, %113 ]
   %121 = add i32 %119, 65
   %122 = tail call i32 (ptr, ptr, ptr, i32, ptr, ...) @drm_encoder_init(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull @intel_dvo_enc_funcs, i32 noundef %120, ptr noundef nonnull @.str, i32 noundef %121) #7
   %123 = icmp eq ptr %0, null
   br i1 %123, label %127, label %124
 
-124:                                              ; preds = %.thread
+124:                                              ; preds = %118
   %125 = getelementptr inbounds i8, ptr %0, i64 8
   %126 = load ptr, ptr %125, align 8
   br label %127
 
-127:                                              ; preds = %124, %.thread
-  %128 = phi ptr [ %126, %124 ], [ null, %.thread ]
+127:                                              ; preds = %124, %118
+  %128 = phi ptr [ %126, %124 ], [ null, %118 ]
   %129 = getelementptr inbounds i8, ptr %4, i64 24
   %130 = load i32, ptr %129, align 8
   %131 = getelementptr inbounds i8, ptr %4, i64 56

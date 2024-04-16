@@ -2940,19 +2940,19 @@ define internal fastcc ptr @find_fetch_type(ptr noundef %0, i64 noundef %1) unna
   store i64 0, ptr %3, align 8, !annotation !19
   %22 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %15, i32 noundef 47) #16
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %38, label %24
+  br i1 %23, label %.thread, label %24
 
 24:                                               ; preds = %21
   %25 = getelementptr i8, ptr %22, i64 1
   %26 = call i32 @kstrtoull(ptr noundef %25, i32 noundef 0, ptr noundef nonnull %3) #16
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %28, label %38
+  br i1 %27, label %28, label %.thread
 
 28:                                               ; preds = %24
   %29 = load i64, ptr %3, align 8
   %30 = add i64 %29, -8
   %31 = call i64 @llvm.fshl.i64(i64 %30, i64 %30, i64 61)
-  switch i64 %31, label %38 [
+  switch i64 %31, label %.thread [
     i64 0, label %35
     i64 1, label %32
     i64 3, label %33
@@ -2968,32 +2968,32 @@ define internal fastcc ptr @find_fetch_type(ptr noundef %0, i64 noundef %1) unna
 34:                                               ; preds = %28
   br label %35
 
-35:                                               ; preds = %34, %33, %32, %28
-  %36 = phi ptr [ @.str.113, %34 ], [ @.str.112, %33 ], [ @.str.111, %32 ], [ @.str.110, %28 ]
-  %37 = call fastcc ptr @find_fetch_type(ptr noundef nonnull %36, i64 noundef %1)
-  br label %38
-
-38:                                               ; preds = %35, %28, %24, %21
-  %spec.select = phi ptr [ null, %21 ], [ null, %24 ], [ null, %28 ], [ %37, %35 ]
+.thread:                                          ; preds = %21, %24, %28
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
   br label %.loopexit
 
-.preheader:                                       ; preds = %18, %42
-  %39 = phi i64 [ %40, %42 ], [ 0, %18 ]
-  %40 = add nuw nsw i64 %39, 1
-  %41 = icmp eq i64 %40, 17
-  br i1 %41, label %.loopexit, label %42, !llvm.loop !38
+35:                                               ; preds = %28, %32, %33, %34
+  %36 = phi ptr [ @.str.113, %34 ], [ @.str.112, %33 ], [ @.str.111, %32 ], [ @.str.110, %28 ]
+  %37 = call fastcc ptr @find_fetch_type(ptr noundef nonnull %36, i64 noundef %1)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
+  br label %.loopexit
 
-42:                                               ; preds = %.preheader
-  %43 = getelementptr [18 x %struct.fetch_type], ptr @probe_fetch_types, i64 0, i64 %40
-  %44 = load ptr, ptr %43, align 16
-  %45 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %44) #16
-  %46 = icmp eq i32 %45, 0
-  br i1 %46, label %.loopexit, label %.preheader, !llvm.loop !38
+.preheader:                                       ; preds = %18, %41
+  %38 = phi i64 [ %39, %41 ], [ 0, %18 ]
+  %39 = add nuw nsw i64 %38, 1
+  %40 = icmp eq i64 %39, 17
+  br i1 %40, label %.loopexit, label %41, !llvm.loop !38
 
-.loopexit:                                        ; preds = %.preheader, %42, %38, %18, %11, %8
-  %47 = phi ptr [ null, %11 ], [ null, %8 ], [ @probe_fetch_types, %18 ], [ %spec.select, %38 ], [ null, %.preheader ], [ %43, %42 ]
-  ret ptr %47
+41:                                               ; preds = %.preheader
+  %42 = getelementptr [18 x %struct.fetch_type], ptr @probe_fetch_types, i64 0, i64 %39
+  %43 = load ptr, ptr %42, align 16
+  %44 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %43) #16
+  %45 = icmp eq i32 %44, 0
+  br i1 %45, label %.loopexit, label %.preheader, !llvm.loop !38
+
+.loopexit:                                        ; preds = %.preheader, %41, %.thread, %35, %18, %11, %8
+  %46 = phi ptr [ %37, %35 ], [ null, %11 ], [ null, %8 ], [ @probe_fetch_types, %18 ], [ null, %.thread ], [ null, %.preheader ], [ %42, %41 ]
+  ret ptr %46
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

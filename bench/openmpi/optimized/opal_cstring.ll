@@ -226,14 +226,14 @@ declare ptr @__errno_location() local_unnamed_addr #6
 declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite) uwtable
-define i32 @opal_cstring_to_bool(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #8 {
+define noundef i32 @opal_cstring_to_bool(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds i8, ptr %0, i64 25
   %4 = tail call fastcc i32 @opal_str_to_bool_impl(ptr noundef nonnull %3, ptr noundef %1), !range !6
   ret i32 %4
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite) uwtable
-define internal fastcc i32 @opal_str_to_bool_impl(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #8 {
+define internal fastcc noundef i32 @opal_str_to_bool_impl(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %32, label %.preheader
 
@@ -267,32 +267,34 @@ define internal fastcc i32 @opal_str_to_bool_impl(ptr noundef readonly %0, ptr n
   %17 = tail call i32 @atoi(ptr nocapture noundef nonnull %.0) #13
   %18 = icmp ne i32 %17, 0
   %19 = zext i1 %18 to i8
-  br label %32
+  br label %33
 
 20:                                               ; preds = %14
   %21 = tail call i32 @strncasecmp(ptr noundef nonnull %.0, ptr noundef nonnull @.str.1, i64 noundef 3) #13
   %22 = icmp eq i32 %21, 0
-  br i1 %22, label %32, label %23
+  br i1 %22, label %33, label %23
 
 23:                                               ; preds = %20
   %24 = tail call i32 @strncasecmp(ptr noundef nonnull %.0, ptr noundef nonnull @.str.2, i64 noundef 4) #13
   %25 = icmp eq i32 %24, 0
-  br i1 %25, label %32, label %26
+  br i1 %25, label %33, label %26
 
 26:                                               ; preds = %23
   %27 = tail call i32 @strncasecmp(ptr noundef nonnull %.0, ptr noundef nonnull @.str.3, i64 noundef 2) #13
   %28 = icmp eq i32 %27, 0
-  br i1 %28, label %32, label %29
+  br i1 %28, label %33, label %29
 
 29:                                               ; preds = %26
   %30 = tail call i32 @strncasecmp(ptr noundef nonnull %.0, ptr noundef nonnull @.str.4, i64 noundef 5) #13
   %31 = icmp eq i32 %30, 0
-  %spec.select = select i1 %31, i32 0, i32 -5
-  br label %32
+  br i1 %31, label %33, label %32
 
-32:                                               ; preds = %29, %2, %13, %26, %20, %23, %16
-  %.sink = phi i8 [ %19, %16 ], [ 1, %23 ], [ 1, %20 ], [ 0, %26 ], [ 0, %13 ], [ 0, %2 ], [ 0, %29 ]
-  %.015 = phi i32 [ 0, %16 ], [ 0, %23 ], [ 0, %20 ], [ 0, %26 ], [ -5, %13 ], [ -5, %2 ], [ %spec.select, %29 ]
+32:                                               ; preds = %13, %29, %2
+  br label %33
+
+33:                                               ; preds = %26, %29, %20, %23, %32, %16
+  %.sink = phi i8 [ 0, %32 ], [ %19, %16 ], [ 1, %23 ], [ 1, %20 ], [ 0, %29 ], [ 0, %26 ]
+  %.015 = phi i32 [ -5, %32 ], [ 0, %16 ], [ 0, %23 ], [ 0, %20 ], [ 0, %29 ], [ 0, %26 ]
   store i8 %.sink, ptr %1, align 1
   ret i32 %.015
 }

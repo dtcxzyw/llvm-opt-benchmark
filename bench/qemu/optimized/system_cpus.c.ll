@@ -636,15 +636,18 @@ if.end:                                           ; preds = %entry
   %stopped.i = getelementptr inbounds i8, ptr %cpu, i64 203
   %1 = load i8, ptr %stopped.i, align 1
   %tobool.i = trunc i8 %1 to i1
-  br i1 %tobool.i, label %return, label %cpu_is_stopped.exit
+  br i1 %tobool.i, label %cpu_is_stopped.exit.thread, label %cpu_is_stopped.exit
 
 cpu_is_stopped.exit:                              ; preds = %if.end
   %call.i = tail call zeroext i1 @runstate_is_running() #15
   %call.i.fr = freeze i1 %call.i
+  br i1 %call.i.fr, label %return, label %cpu_is_stopped.exit.thread
+
+cpu_is_stopped.exit.thread:                       ; preds = %if.end, %cpu_is_stopped.exit
   br label %return
 
-return:                                           ; preds = %cpu_is_stopped.exit, %if.end, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end ], [ %call.i.fr, %cpu_is_stopped.exit ]
+return:                                           ; preds = %cpu_is_stopped.exit.thread, %cpu_is_stopped.exit, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %cpu_is_stopped.exit.thread ], [ true, %cpu_is_stopped.exit ]
   ret i1 %retval.0
 }
 

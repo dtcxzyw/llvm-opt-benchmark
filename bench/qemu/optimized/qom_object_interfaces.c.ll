@@ -343,7 +343,7 @@ entry:
   call void @visit_free(ptr noundef %call) #5
   %0 = load ptr, ptr %qobj, align 8
   %tobool.not.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i, label %qobject_check_type.exit, label %land.lhs.true.i
+  br i1 %tobool.not.i, label %if.else.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
   %obj.val.i = load i32, ptr %0, align 8
@@ -357,11 +357,13 @@ if.else.i.i:                                      ; preds = %land.lhs.true.i
 
 qobject_type.exit.i:                              ; preds = %land.lhs.true.i
   %cmp.i = icmp eq i32 %obj.val.i, 4
-  %spec.select.i = select i1 %cmp.i, ptr %0, ptr null
+  br i1 %cmp.i, label %qobject_check_type.exit, label %if.else.i
+
+if.else.i:                                        ; preds = %qobject_type.exit.i, %entry
   br label %qobject_check_type.exit
 
-qobject_check_type.exit:                          ; preds = %entry, %qobject_type.exit.i
-  %retval.0.i = phi ptr [ null, %entry ], [ %spec.select.i, %qobject_type.exit.i ]
+qobject_check_type.exit:                          ; preds = %qobject_type.exit.i, %if.else.i
+  %retval.0.i = phi ptr [ null, %if.else.i ], [ %0, %qobject_type.exit.i ]
   call void @qdict_del(ptr noundef %retval.0.i, ptr noundef nonnull @.str.10) #5
   call void @qdict_del(ptr noundef %retval.0.i, ptr noundef nonnull @.str.2) #5
   %call4 = call ptr @qobject_input_visitor_new(ptr noundef %retval.0.i) #5
@@ -381,9 +383,9 @@ lor.lhs.false.i:                                  ; preds = %qobject_check_type.
   %refcnt.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %7, 0
-  br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i10
+  br i1 %tobool1.not.i, label %if.else.i12, label %land.lhs.true.i10
 
-if.else.i:                                        ; preds = %lor.lhs.false.i
+if.else.i12:                                      ; preds = %lor.lhs.false.i
   call void @__assert_fail(ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.24, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #6
   unreachable
 

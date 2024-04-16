@@ -1372,93 +1372,95 @@ _Py_get_xoption.exit:                             ; preds = %land.lhs.true.i
 
 lor.lhs.false:                                    ; preds = %for.inc.i, %land.lhs.true, %_Py_get_xoption.exit
   %tobool.not.i = icmp eq i32 %10, 0
-  br i1 %tobool.not.i, label %if.end28.sink.split, label %if.end.i24
+  br i1 %tobool.not.i, label %if.then26, label %if.end.i24
 
 if.end.i24:                                       ; preds = %lor.lhs.false
   %call.i25 = call ptr @getenv(ptr noundef nonnull @.str.3) #17
   %tobool1.not.i = icmp eq ptr %call.i25, null
-  br i1 %tobool1.not.i, label %if.end28.sink.split, label %land.lhs.true.i26
+  br i1 %tobool1.not.i, label %if.then26, label %land.lhs.true.i26
 
 land.lhs.true.i26:                                ; preds = %if.end.i24
   %16 = load i8, ptr %call.i25, align 1
-  %cmp.not.i27 = icmp ne i8 %16, 0
-  %spec.select = zext i1 %cmp.not.i27 to i32
+  %cmp.not.i27 = icmp eq i8 %16, 0
+  br i1 %cmp.not.i27, label %if.then26, label %if.end28.sink.split
+
+if.then26:                                        ; preds = %lor.lhs.false, %land.lhs.true.i26, %if.end.i24
   br label %if.end28.sink.split
 
-if.end28.sink.split:                              ; preds = %land.lhs.true.i26, %lor.lhs.false, %if.end.i24, %_Py_get_xoption.exit
-  %.sink = phi i32 [ 1, %_Py_get_xoption.exit ], [ 0, %if.end.i24 ], [ 0, %lor.lhs.false ], [ %spec.select, %land.lhs.true.i26 ]
+if.end28.sink.split:                              ; preds = %_Py_get_xoption.exit, %land.lhs.true.i26, %if.then26
+  %.sink = phi i32 [ 0, %if.then26 ], [ 1, %land.lhs.true.i26 ], [ 1, %_Py_get_xoption.exit ]
   store i32 %.sink, ptr %dev_mode, align 8
   br label %if.end28
 
 if.end28:                                         ; preds = %if.end28.sink.split, %if.end15
-  %cmp11.i29 = icmp sgt i64 %12, 0
-  br i1 %cmp11.i29, label %for.body.lr.ph.i31, label %lor.lhs.false32
+  %cmp11.i30 = icmp sgt i64 %12, 0
+  br i1 %cmp11.i30, label %for.body.lr.ph.i32, label %lor.lhs.false32
 
-for.body.lr.ph.i31:                               ; preds = %if.end28
-  %items.i32 = getelementptr inbounds i8, ptr %cmdline, i64 24
-  %17 = load ptr, ptr %items.i32, align 8
-  br label %for.body.i33
+for.body.lr.ph.i32:                               ; preds = %if.end28
+  %items.i33 = getelementptr inbounds i8, ptr %cmdline, i64 24
+  %17 = load ptr, ptr %items.i33, align 8
+  br label %for.body.i34
 
-for.body.i33:                                     ; preds = %for.inc.i47, %for.body.lr.ph.i31
-  %i.012.i34 = phi i64 [ 0, %for.body.lr.ph.i31 ], [ %inc.i48, %for.inc.i47 ]
-  %arrayidx.i35 = getelementptr ptr, ptr %17, i64 %i.012.i34
-  %18 = load ptr, ptr %arrayidx.i35, align 8
-  %call.i36 = call ptr @wcschr(ptr noundef %18, i32 noundef 61) #18
-  %cmp1.not.i37 = icmp eq ptr %call.i36, null
-  br i1 %cmp1.not.i37, label %if.else.i53, label %if.then.i38
+for.body.i34:                                     ; preds = %for.inc.i48, %for.body.lr.ph.i32
+  %i.012.i35 = phi i64 [ 0, %for.body.lr.ph.i32 ], [ %inc.i49, %for.inc.i48 ]
+  %arrayidx.i36 = getelementptr ptr, ptr %17, i64 %i.012.i35
+  %18 = load ptr, ptr %arrayidx.i36, align 8
+  %call.i37 = call ptr @wcschr(ptr noundef %18, i32 noundef 61) #18
+  %cmp1.not.i38 = icmp eq ptr %call.i37, null
+  br i1 %cmp1.not.i38, label %if.else.i54, label %if.then.i39
 
-if.then.i38:                                      ; preds = %for.body.i33
-  %sub.ptr.lhs.cast.i39 = ptrtoint ptr %call.i36 to i64
-  %sub.ptr.rhs.cast.i40 = ptrtoint ptr %18 to i64
-  %sub.ptr.sub.i41 = sub i64 %sub.ptr.lhs.cast.i39, %sub.ptr.rhs.cast.i40
-  %sub.ptr.div.i42 = ashr exact i64 %sub.ptr.sub.i41, 2
-  br label %if.end.i43
+if.then.i39:                                      ; preds = %for.body.i34
+  %sub.ptr.lhs.cast.i40 = ptrtoint ptr %call.i37 to i64
+  %sub.ptr.rhs.cast.i41 = ptrtoint ptr %18 to i64
+  %sub.ptr.sub.i42 = sub i64 %sub.ptr.lhs.cast.i40, %sub.ptr.rhs.cast.i41
+  %sub.ptr.div.i43 = ashr exact i64 %sub.ptr.sub.i42, 2
+  br label %if.end.i44
 
-if.else.i53:                                      ; preds = %for.body.i33
-  %call2.i54 = call i64 @wcslen(ptr noundef %18) #18
-  br label %if.end.i43
+if.else.i54:                                      ; preds = %for.body.i34
+  %call2.i55 = call i64 @wcslen(ptr noundef %18) #18
+  br label %if.end.i44
 
-if.end.i43:                                       ; preds = %if.else.i53, %if.then.i38
-  %len.0.i44 = phi i64 [ %sub.ptr.div.i42, %if.then.i38 ], [ %call2.i54, %if.else.i53 ]
-  %call3.i45 = call i32 @wcsncmp(ptr noundef %18, ptr noundef nonnull @.str.4, i64 noundef %len.0.i44) #18
-  %cmp4.i46 = icmp eq i32 %call3.i45, 0
-  br i1 %cmp4.i46, label %land.lhs.true.i50, label %for.inc.i47
+if.end.i44:                                       ; preds = %if.else.i54, %if.then.i39
+  %len.0.i45 = phi i64 [ %sub.ptr.div.i43, %if.then.i39 ], [ %call2.i55, %if.else.i54 ]
+  %call3.i46 = call i32 @wcsncmp(ptr noundef %18, ptr noundef nonnull @.str.4, i64 noundef %len.0.i45) #18
+  %cmp4.i47 = icmp eq i32 %call3.i46, 0
+  br i1 %cmp4.i47, label %land.lhs.true.i51, label %for.inc.i48
 
-land.lhs.true.i50:                                ; preds = %if.end.i43
-  %arrayidx5.i51 = getelementptr i32, ptr @.str.4, i64 %len.0.i44
-  %19 = load i32, ptr %arrayidx5.i51, align 4
-  %cmp6.i52 = icmp eq i32 %19, 0
-  br i1 %cmp6.i52, label %_Py_get_xoption.exit55, label %for.inc.i47
+land.lhs.true.i51:                                ; preds = %if.end.i44
+  %arrayidx5.i52 = getelementptr i32, ptr @.str.4, i64 %len.0.i45
+  %19 = load i32, ptr %arrayidx5.i52, align 4
+  %cmp6.i53 = icmp eq i32 %19, 0
+  br i1 %cmp6.i53, label %_Py_get_xoption.exit56, label %for.inc.i48
 
-for.inc.i47:                                      ; preds = %land.lhs.true.i50, %if.end.i43
-  %inc.i48 = add nuw nsw i64 %i.012.i34, 1
-  %exitcond.not.i49 = icmp eq i64 %inc.i48, %12
-  br i1 %exitcond.not.i49, label %lor.lhs.false32, label %for.body.i33, !llvm.loop !10
+for.inc.i48:                                      ; preds = %land.lhs.true.i51, %if.end.i44
+  %inc.i49 = add nuw nsw i64 %i.012.i35, 1
+  %exitcond.not.i50 = icmp eq i64 %inc.i49, %12
+  br i1 %exitcond.not.i50, label %lor.lhs.false32, label %for.body.i34, !llvm.loop !10
 
-_Py_get_xoption.exit55:                           ; preds = %land.lhs.true.i50
+_Py_get_xoption.exit56:                           ; preds = %land.lhs.true.i51
   %tobool31.not = icmp eq ptr %18, null
   br i1 %tobool31.not, label %lor.lhs.false32, label %if.then36
 
-lor.lhs.false32:                                  ; preds = %for.inc.i47, %if.end28, %_Py_get_xoption.exit55
-  %tobool.not.i56 = icmp eq i32 %10, 0
-  br i1 %tobool.not.i56, label %if.end37, label %if.end.i57
+lor.lhs.false32:                                  ; preds = %for.inc.i48, %if.end28, %_Py_get_xoption.exit56
+  %tobool.not.i57 = icmp eq i32 %10, 0
+  br i1 %tobool.not.i57, label %if.end37, label %if.end.i58
 
-if.end.i57:                                       ; preds = %lor.lhs.false32
-  %call.i58 = call ptr @getenv(ptr noundef nonnull @.str.5) #17
-  %tobool1.not.i59 = icmp eq ptr %call.i58, null
-  br i1 %tobool1.not.i59, label %if.end37, label %land.lhs.true.i60
+if.end.i58:                                       ; preds = %lor.lhs.false32
+  %call.i59 = call ptr @getenv(ptr noundef nonnull @.str.5) #17
+  %tobool1.not.i60 = icmp eq ptr %call.i59, null
+  br i1 %tobool1.not.i60, label %if.end37, label %land.lhs.true.i61
 
-land.lhs.true.i60:                                ; preds = %if.end.i57
-  %20 = load i8, ptr %call.i58, align 1
-  %cmp.not.i61 = icmp eq i8 %20, 0
-  br i1 %cmp.not.i61, label %if.end37, label %if.then36
+land.lhs.true.i61:                                ; preds = %if.end.i58
+  %20 = load i8, ptr %call.i59, align 1
+  %cmp.not.i62 = icmp eq i8 %20, 0
+  br i1 %cmp.not.i62, label %if.end37, label %if.then36
 
-if.then36:                                        ; preds = %land.lhs.true.i60, %_Py_get_xoption.exit55
+if.then36:                                        ; preds = %land.lhs.true.i61, %_Py_get_xoption.exit56
   %warn_default_encoding = getelementptr inbounds i8, ptr %cmdline, i64 44
   store i32 1, ptr %warn_default_encoding, align 4
   br label %if.end37
 
-if.end37:                                         ; preds = %land.lhs.true.i60, %if.end.i57, %lor.lhs.false32, %if.then36
+if.end37:                                         ; preds = %if.end.i58, %land.lhs.true.i61, %lor.lhs.false32, %if.then36
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 0, i64 32, i1 false)
   br label %return
 
@@ -1520,7 +1522,7 @@ return:                                           ; preds = %land.lhs.true, %for
 }
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
-define hidden ptr @_Py_GetEnv(i32 noundef %use_environment, ptr nocapture noundef readonly %name) local_unnamed_addr #4 {
+define hidden noundef ptr @_Py_GetEnv(i32 noundef %use_environment, ptr nocapture noundef readonly %name) local_unnamed_addr #4 {
 entry:
   %tobool.not = icmp eq i32 %use_environment, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -1528,16 +1530,18 @@ entry:
 if.end:                                           ; preds = %entry
   %call = tail call ptr @getenv(ptr noundef %name) #17
   %tobool1.not = icmp eq ptr %call, null
-  br i1 %tobool1.not, label %return, label %land.lhs.true
+  br i1 %tobool1.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
   %0 = load i8, ptr %call, align 1
   %cmp.not = icmp eq i8 %0, 0
-  %spec.select = select i1 %cmp.not, ptr null, ptr %call
+  br i1 %cmp.not, label %if.else, label %return
+
+if.else:                                          ; preds = %land.lhs.true, %if.end
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %if.end, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ null, %if.end ], [ %spec.select, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %entry, %if.else
+  %retval.0 = phi ptr [ null, %if.else ], [ null, %entry ], [ %call, %land.lhs.true ]
   ret ptr %retval.0
 }
 
@@ -2167,17 +2171,19 @@ lor.lhs.false.i:                                  ; preds = %if.end
 
 _Py_str_to_int.exit.thread:                       ; preds = %lor.lhs.false.i, %if.end
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %endptr.i)
-  br label %if.end4
+  br label %if.then3
 
 _Py_str_to_int.exit:                              ; preds = %lor.lhs.false.i
   %conv13.i = trunc nsw i64 %call1.i to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %endptr.i)
   %cmp2 = icmp slt i32 %conv13.i, 0
-  %spec.select = select i1 %cmp2, i32 1, i32 %conv13.i
+  br i1 %cmp2, label %if.then3, label %if.end4
+
+if.then3:                                         ; preds = %_Py_str_to_int.exit.thread, %_Py_str_to_int.exit
   br label %if.end4
 
-if.end4:                                          ; preds = %_Py_str_to_int.exit, %_Py_str_to_int.exit.thread
-  %value.1 = phi i32 [ 1, %_Py_str_to_int.exit.thread ], [ %spec.select, %_Py_str_to_int.exit ]
+if.end4:                                          ; preds = %_Py_str_to_int.exit, %if.then3
+  %value.1 = phi i32 [ 1, %if.then3 ], [ %conv13.i, %_Py_str_to_int.exit ]
   %5 = load i32, ptr %flag, align 4
   %cmp5 = icmp slt i32 %5, %value.1
   br i1 %cmp5, label %if.then6, label %if.end7
@@ -2186,7 +2192,7 @@ if.then6:                                         ; preds = %if.end4
   store i32 %value.1, ptr %flag, align 4
   br label %if.end7
 
-if.end7:                                          ; preds = %land.lhs.true.i, %if.end.i, %entry, %if.then6, %if.end4
+if.end7:                                          ; preds = %if.end.i, %land.lhs.true.i, %entry, %if.then6, %if.end4
   ret void
 }
 
@@ -2638,7 +2644,7 @@ if.end.i42.i:                                     ; preds = %if.then1.i40.i
   br label %if.end7.i.i
 
 if.end7.i.i:                                      ; preds = %if.end.i42.i, %land.lhs.true.i.i38.i, %if.end.i.i35.i, %if.then.i32.i
-  %cmp10.i43.i = phi i1 [ false, %land.lhs.true.i.i38.i ], [ false, %if.end.i.i35.i ], [ false, %if.then.i32.i ], [ %53, %if.end.i42.i ]
+  %cmp10.i43.i = phi i1 [ false, %if.end.i.i35.i ], [ false, %land.lhs.true.i.i38.i ], [ false, %if.then.i32.i ], [ %53, %if.end.i42.i ]
   %54 = load i32, ptr %dev_mode.i.i, align 4, !noalias !20
   %tobool8.not.i.i = icmp eq i32 %54, 0
   %brmerge.i.i = select i1 %tobool8.not.i.i, i1 true, i1 %cmp10.i43.i

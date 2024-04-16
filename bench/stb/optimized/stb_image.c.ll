@@ -1422,7 +1422,7 @@ if.then95:                                        ; preds = %stbi__mul2sizes_val
   store ptr @.str.28, ptr %33, align 8
   br label %return
 
-if.end.i.i.i:                                     ; preds = %stbi__mul2sizes_valid.exit14.i, %if.end.i8.i
+if.end.i.i.i:                                     ; preds = %if.end.i8.i, %stbi__mul2sizes_valid.exit14.i
   br i1 %cmp2.i.i, label %if.end.i8.i.i, label %stbi__mul2sizes_valid.exit.i.i
 
 stbi__mul2sizes_valid.exit.i.i:                   ; preds = %if.end.i.i.i
@@ -4203,7 +4203,7 @@ if.then26:                                        ; preds = %stbi__mul2sizes_val
   store ptr @.str.28, ptr %11, align 8
   br label %return
 
-if.end.i.i.i:                                     ; preds = %stbi__mul2sizes_valid.exit27.i, %if.end.i21.i
+if.end.i.i.i:                                     ; preds = %if.end.i21.i, %stbi__mul2sizes_valid.exit27.i
   br i1 %cmp2.i.i, label %if.end.i12.i.i, label %stbi__mul2sizes_valid.exit.i.i
 
 stbi__mul2sizes_valid.exit.i.i:                   ; preds = %if.end.i.i.i
@@ -11933,14 +11933,14 @@ if.else:                                          ; preds = %if.end9
 
 if.then.i:                                        ; preds = %if.else
   tail call void @stbi__grow_buffer_unsafe(ptr noundef nonnull %j)
-  %.pre244 = load i32, ptr %code_buffer, align 8
-  %.pre245 = lshr i32 %.pre244, 23
-  %.pre246 = zext nneg i32 %.pre245 to i64
+  %.pre243 = load i32, ptr %code_buffer, align 8
+  %.pre244 = lshr i32 %.pre243, 23
+  %.pre245 = zext nneg i32 %.pre244 to i64
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.else
-  %idxprom.i.pre-phi = phi i64 [ %.pre246, %if.then.i ], [ %idxprom, %if.else ]
-  %12 = phi i32 [ %.pre244, %if.then.i ], [ %6, %if.else ]
+  %idxprom.i.pre-phi = phi i64 [ %.pre245, %if.then.i ], [ %idxprom, %if.else ]
+  %12 = phi i32 [ %.pre243, %if.then.i ], [ %6, %if.else ]
   %arrayidx.i = getelementptr inbounds [512 x i8], ptr %hac, i64 0, i64 %idxprom.i.pre-phi
   %13 = load i8, ptr %arrayidx.i, align 1
   %cmp1.not.i = icmp eq i8 %13, -1
@@ -12351,7 +12351,7 @@ if.end.i188:                                      ; preds = %if.end157
   tail call void @stbi__grow_buffer_unsafe(ptr noundef nonnull %j)
   %.pr.i189 = load i32, ptr %code_bits.i114, align 4
   %cmp2.i190 = icmp slt i32 %.pr.i189, 1
-  br i1 %cmp2.i190, label %if.end166, label %if.end.i188.stbi__jpeg_get_bit.exit191_crit_edge
+  br i1 %cmp2.i190, label %if.else162, label %if.end.i188.stbi__jpeg_get_bit.exit191_crit_edge
 
 if.end.i188.stbi__jpeg_get_bit.exit191_crit_edge: ; preds = %if.end.i188
   %.pre = load i32, ptr %code_buffer.i117, align 8
@@ -12364,13 +12364,15 @@ stbi__jpeg_get_bit.exit191:                       ; preds = %if.end.i188.stbi__j
   store i32 %shl.i184, ptr %code_buffer.i117, align 8
   %dec.i185 = add nsw i32 %63, -1
   store i32 %dec.i185, ptr %code_bits.i114, align 4
-  %tobool159.not233 = icmp slt i32 %62, 0
-  %spec.select = select i1 %tobool159.not233, i32 %conv161, i32 %sub164
+  %tobool159.not = icmp sgt i32 %62, -1
+  br i1 %tobool159.not, label %if.else162, label %if.end166
+
+if.else162:                                       ; preds = %if.end.i188, %stbi__jpeg_get_bit.exit191
   br label %if.end166
 
-if.end166:                                        ; preds = %stbi__jpeg_get_bit.exit191, %if.end.i188, %if.then140, %stbi__jpeg_get_bits.exit, %if.then137
-  %r124.0 = phi i32 [ 15, %if.then137 ], [ 64, %stbi__jpeg_get_bits.exit ], [ 64, %if.then140 ], [ %shr134, %if.end.i188 ], [ %shr134, %stbi__jpeg_get_bit.exit191 ]
-  %s125.0 = phi i32 [ 0, %if.then137 ], [ 0, %stbi__jpeg_get_bits.exit ], [ 0, %if.then140 ], [ %sub164, %if.end.i188 ], [ %spec.select, %stbi__jpeg_get_bit.exit191 ]
+if.end166:                                        ; preds = %stbi__jpeg_get_bit.exit191, %if.then140, %stbi__jpeg_get_bits.exit, %if.else162, %if.then137
+  %r124.0 = phi i32 [ 15, %if.then137 ], [ %shr134, %if.else162 ], [ 64, %stbi__jpeg_get_bits.exit ], [ 64, %if.then140 ], [ %shr134, %stbi__jpeg_get_bit.exit191 ]
+  %s125.0 = phi i32 [ 0, %if.then137 ], [ %sub164, %if.else162 ], [ 0, %stbi__jpeg_get_bits.exit ], [ 0, %if.then140 ], [ %conv161, %stbi__jpeg_get_bit.exit191 ]
   %64 = load i32, ptr %spec_end167, align 8
   %cmp168.not230 = icmp sgt i32 %k.3, %64
   br i1 %cmp168.not230, label %do.cond213, label %while.body.preheader
@@ -12380,10 +12382,10 @@ while.body.preheader:                             ; preds = %if.end166
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %if.end212
-  %indvars.iv240 = phi i64 [ %65, %while.body.preheader ], [ %indvars.iv.next241, %if.end212 ]
+  %indvars.iv239 = phi i64 [ %65, %while.body.preheader ], [ %indvars.iv.next240, %if.end212 ]
   %r124.1231 = phi i32 [ %r124.0, %while.body.preheader ], [ %r124.2, %if.end212 ]
-  %indvars.iv.next241 = add nsw i64 %indvars.iv240, 1
-  %arrayidx173 = getelementptr inbounds [79 x i8], ptr @stbi__jpeg_dezigzag, i64 0, i64 %indvars.iv240
+  %indvars.iv.next240 = add nsw i64 %indvars.iv239, 1
+  %arrayidx173 = getelementptr inbounds [79 x i8], ptr @stbi__jpeg_dezigzag, i64 0, i64 %indvars.iv239
   %66 = load i8, ptr %arrayidx173, align 1
   %idxprom174 = zext i8 %66 to i64
   %arrayidx175 = getelementptr inbounds i16, ptr %data, i64 %idxprom174
@@ -12438,10 +12440,10 @@ if.else205:                                       ; preds = %while.body
   br i1 %cmp206, label %if.then208, label %if.end210
 
 if.then208:                                       ; preds = %if.else205
-  %72 = trunc nsw i64 %indvars.iv.next241 to i32
+  %72 = trunc nsw i64 %indvars.iv.next240 to i32
   %conv209 = trunc i32 %s125.0 to i16
   store i16 %conv209, ptr %arrayidx175, align 2
-  %.pre243 = load i32, ptr %spec_end167, align 8
+  %.pre242 = load i32, ptr %spec_end167, align 8
   br label %do.cond213
 
 if.end210:                                        ; preds = %if.else205
@@ -12452,15 +12454,15 @@ if.end212:                                        ; preds = %if.end.i200, %stbi_
   %r124.2 = phi i32 [ %r124.1231, %if.then192 ], [ %r124.1231, %if.else197 ], [ %r124.1231, %if.then182 ], [ %r124.1231, %stbi__jpeg_get_bit.exit203 ], [ %dec211, %if.end210 ], [ %r124.1231, %if.end.i200 ]
   %73 = load i32, ptr %spec_end167, align 8
   %74 = sext i32 %73 to i64
-  %cmp168.not.not = icmp slt i64 %indvars.iv240, %74
+  %cmp168.not.not = icmp slt i64 %indvars.iv239, %74
   br i1 %cmp168.not.not, label %while.body, label %do.cond213.loopexit, !llvm.loop !99
 
 do.cond213.loopexit:                              ; preds = %if.end212
-  %75 = trunc nsw i64 %indvars.iv.next241 to i32
+  %75 = trunc nsw i64 %indvars.iv.next240 to i32
   br label %do.cond213
 
 do.cond213:                                       ; preds = %do.cond213.loopexit, %if.end166, %if.then208
-  %76 = phi i32 [ %.pre243, %if.then208 ], [ %64, %if.end166 ], [ %73, %do.cond213.loopexit ]
+  %76 = phi i32 [ %.pre242, %if.then208 ], [ %64, %if.end166 ], [ %73, %do.cond213.loopexit ]
   %k.5 = phi i32 [ %72, %if.then208 ], [ %k.3, %if.end166 ], [ %75, %do.cond213.loopexit ]
   %cmp215.not = icmp sgt i32 %k.5, %76
   br i1 %cmp215.not, label %return, label %do.body123, !llvm.loop !100
@@ -17796,7 +17798,7 @@ if.end47:                                         ; preds = %for.body
   store ptr %26, ptr %line1, align 16
   %line0 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   store ptr %26, ptr %line0, align 8
-  switch i32 %div, label %for.inc [
+  switch i32 %div, label %if.else103 [
     i32 1, label %land.lhs.true68
     i32 2, label %land.lhs.true87
   ]
@@ -17818,11 +17820,11 @@ if.then101:                                       ; preds = %land.lhs.true87
   %27 = load ptr, ptr %resample_row_hv_2_kernel, align 8
   br label %for.inc
 
-if.else103:                                       ; preds = %land.lhs.true87
+if.else103:                                       ; preds = %land.lhs.true87, %if.end47
   br label %for.inc
 
-for.inc:                                          ; preds = %if.end47, %land.lhs.true87, %land.lhs.true68, %if.else103, %if.then101
-  %resample_row_1.sink = phi ptr [ %27, %if.then101 ], [ %switch.select541, %land.lhs.true68 ], [ @stbi__resample_row_h_2, %land.lhs.true87 ], [ @stbi__resample_row_generic, %if.end47 ], [ @stbi__resample_row_generic, %if.else103 ]
+for.inc:                                          ; preds = %land.lhs.true87, %land.lhs.true68, %if.else103, %if.then101
+  %resample_row_1.sink = phi ptr [ @stbi__resample_row_generic, %if.else103 ], [ %27, %if.then101 ], [ %switch.select541, %land.lhs.true68 ], [ @stbi__resample_row_h_2, %land.lhs.true87 ]
   store ptr %resample_row_1.sink, ptr %arrayidx, align 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

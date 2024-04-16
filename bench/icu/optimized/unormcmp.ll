@@ -1056,7 +1056,7 @@ invoke.cont4:                                     ; preds = %invoke.cont2
   %8 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %8, i32 %shr.i.i
   %cmp6 = icmp slt i32 %call, %cond.i
-  br i1 %cmp6, label %if.then7, label %cleanup27
+  br i1 %cmp6, label %if.then7, label %if.end26
 
 if.then7:                                         ; preds = %invoke.cont4
   invoke void @_ZNK6icu_7513UnicodeString13tempSubStringEii(ptr nonnull sret(%"class.icu_75::UnicodeString") align 8 %unnormalized, ptr noundef nonnull align 8 dereferenceable(64) %str, i32 noundef %call, i32 noundef 2147483647)
@@ -1100,10 +1100,9 @@ invoke.cont15:                                    ; preds = %_ZNK6icu_7513Unicod
 
 invoke.cont19:                                    ; preds = %invoke.cont15
   %13 = load i32, ptr %pErrorCode, align 4
-  %cmp.i12 = icmp slt i32 %13, 1
+  %cmp.i12 = icmp sgt i32 %13, 0
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %unnormalized) #4
-  %spec.select = zext i1 %cmp.i12 to i8
-  br label %cleanup27
+  br i1 %cmp.i12, label %if.end26, label %cleanup27
 
 lpad10:                                           ; preds = %invoke.cont15
   %14 = landingpad { ptr, i32 }
@@ -1122,8 +1121,11 @@ ehcleanup:                                        ; preds = %lpad14, %lpad10
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %unnormalized) #4
   br label %ehcleanup28
 
-cleanup27:                                        ; preds = %invoke.cont19, %invoke.cont4, %invoke.cont2
-  %retval.1 = phi i8 [ 0, %invoke.cont2 ], [ 0, %invoke.cont4 ], [ %spec.select, %invoke.cont19 ]
+if.end26:                                         ; preds = %invoke.cont19, %invoke.cont4
+  br label %cleanup27
+
+cleanup27:                                        ; preds = %invoke.cont2, %invoke.cont19, %if.end26
+  %retval.1 = phi i8 [ 0, %if.end26 ], [ 1, %invoke.cont19 ], [ 0, %invoke.cont2 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %str) #4
   ret i8 %retval.1
 

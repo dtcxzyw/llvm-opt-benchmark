@@ -7806,7 +7806,7 @@ define noundef i32 @mouse_moved(ptr noundef %0, float noundef %1, float noundef 
   %16 = getelementptr inbounds i8, ptr %13, i64 204
   %17 = load i32, ptr %16, align 4, !tbaa !162
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %937, label %19
+  br i1 %18, label %938, label %19
 
 19:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #26
@@ -7938,7 +7938,7 @@ define noundef i32 @mouse_moved(ptr noundef %0, float noundef %1, float noundef 
   store i32 1, ptr %102, align 4, !tbaa !239
   call void @dt_control_change_cursor(i32 noundef 34) #26
   call void (...) @dt_control_queue_redraw_center() #26
-  br label %935
+  br label %936
 
 103:                                              ; preds = %94
   %104 = getelementptr inbounds i8, ptr %13, i64 180
@@ -8230,7 +8230,7 @@ define noundef i32 @mouse_moved(ptr noundef %0, float noundef %1, float noundef 
 301:                                              ; preds = %297, %111
   call void (...) @dt_control_queue_redraw_center() #26
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #26
-  br label %935
+  br label %936
 
 302:                                              ; preds = %107
   %303 = getelementptr inbounds i8, ptr %13, i64 176
@@ -8369,7 +8369,7 @@ define noundef i32 @mouse_moved(ptr noundef %0, float noundef %1, float noundef 
   store float %1, ptr %307, align 8, !tbaa !240
   store float %2, ptr %310, align 4, !tbaa !241
   call void (...) @dt_control_queue_redraw_center() #26
-  br label %935
+  br label %936
 
 400:                                              ; preds = %302, %103
   %401 = getelementptr inbounds i8, ptr %13, i64 192
@@ -8841,7 +8841,7 @@ define noundef i32 @mouse_moved(ptr noundef %0, float noundef %1, float noundef 
 
 751:                                              ; preds = %413, %750, %461, %456, %412
   call void (...) @dt_control_queue_redraw_center() #26
-  br label %935
+  br label %936
 
 752:                                              ; preds = %97, %94, %88
   %753 = icmp eq i32 %89, 0
@@ -8896,18 +8896,18 @@ define noundef i32 @mouse_moved(ptr noundef %0, float noundef %1, float noundef 
 768:                                              ; preds = %765, %764, %763, %762, %761, %760, %759, %758
   %769 = phi i32 [ 96, %760 ], [ 134, %762 ], [ 14, %764 ], [ 12, %765 ], [ 136, %763 ], [ 16, %761 ], [ 138, %759 ], [ 70, %758 ]
   call void @dt_control_change_cursor(i32 noundef %769) #26
-  %.pre31 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 12), align 8, !tbaa !222
+  %.pre30 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 12), align 8, !tbaa !222
   br label %770
 
 770:                                              ; preds = %768, %758
-  %771 = phi ptr [ %.pre31, %768 ], [ %90, %758 ]
+  %771 = phi ptr [ %.pre30, %768 ], [ %90, %758 ]
   %772 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.76, i32 noundef 5) #26
   call void @dt_control_hinter_message(ptr noundef %771, ptr noundef %772) #26
   br label %773
 
 773:                                              ; preds = %770, %766
   call void (...) @dt_control_queue_redraw_center() #26
-  br label %935
+  br label %936
 
 774:                                              ; preds = %754, %752
   call void @dt_control_change_cursor(i32 noundef 52) #26
@@ -8924,13 +8924,13 @@ define noundef i32 @mouse_moved(ptr noundef %0, float noundef %1, float noundef 
   %783 = getelementptr inbounds i8, ptr %13, i64 172
   %784 = load i32, ptr %783, align 4, !tbaa !183
   %785 = icmp eq i32 %784, 1
-  br i1 %785, label %786, label %931
+  br i1 %785, label %786, label %932
 
 786:                                              ; preds = %774
   %787 = getelementptr inbounds i8, ptr %13, i64 180
   %788 = load i32, ptr %787, align 4, !tbaa !246
   %789 = icmp eq i32 %788, 0
-  br i1 %789, label %790, label %931
+  br i1 %789, label %790, label %932
 
 790:                                              ; preds = %786
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #26
@@ -9062,11 +9062,11 @@ define noundef i32 @mouse_moved(ptr noundef %0, float noundef %1, float noundef 
 
 888:                                              ; preds = %880
   store i32 3, ptr %817, align 8, !tbaa !200
-  br label %926
+  br label %927
 
 889:                                              ; preds = %880, %871
   %890 = icmp slt i32 %872, 0
-  br i1 %890, label %891, label %926
+  br i1 %890, label %891, label %927
 
 891:                                              ; preds = %889
   %892 = getelementptr inbounds i8, ptr %15, i64 60
@@ -9120,44 +9120,45 @@ define noundef i32 @mouse_moved(ptr noundef %0, float noundef %1, float noundef 
   br i1 %922, label %924, label %923
 
 923:                                              ; preds = %918
-  %spec.select = select i1 %914, ptr @.str.78, ptr @.str.79
-  %spec.select1 = select i1 %914, i32 30, i32 52
-  br label %926
+  br i1 %914, label %927, label %926
 
 924:                                              ; preds = %918, %913
   %925 = phi i32 [ 1, %913 ], [ 3, %918 ]
   store i32 %925, ptr %818, align 8, !tbaa !243
-  br label %926
+  br label %927
 
-926:                                              ; preds = %923, %891, %924, %889, %888
-  %927 = phi ptr [ @.str.77, %889 ], [ @.str.77, %888 ], [ @.str.78, %924 ], [ @.str.79, %891 ], [ %spec.select, %923 ]
-  %928 = phi i32 [ 30, %889 ], [ 30, %888 ], [ 30, %924 ], [ 52, %891 ], [ %spec.select1, %923 ]
-  %929 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 12), align 8, !tbaa !222
-  %930 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %927, i32 noundef 5) #26
-  call void @dt_control_hinter_message(ptr noundef %929, ptr noundef %930) #26
-  call void @dt_control_change_cursor(i32 noundef %928) #26
+926:                                              ; preds = %923, %891
+  br label %927
+
+927:                                              ; preds = %926, %924, %923, %889, %888
+  %928 = phi ptr [ @.str.79, %926 ], [ @.str.77, %889 ], [ @.str.77, %888 ], [ @.str.78, %924 ], [ @.str.78, %923 ]
+  %929 = phi i32 [ 52, %926 ], [ 30, %889 ], [ 30, %888 ], [ 30, %924 ], [ 30, %923 ]
+  %930 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 12), align 8, !tbaa !222
+  %931 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %928, i32 noundef 5) #26
+  call void @dt_control_hinter_message(ptr noundef %930, ptr noundef %931) #26
+  call void @dt_control_change_cursor(i32 noundef %929) #26
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #26
-  br label %934
-
-931:                                              ; preds = %786, %774
-  %932 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 12), align 8, !tbaa !222
-  %933 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.80, i32 noundef 5) #26
-  call void @dt_control_hinter_message(ptr noundef %932, ptr noundef %933) #26
-  br label %934
-
-934:                                              ; preds = %931, %926
-  call void (...) @dt_control_queue_redraw_center() #26
   br label %935
 
-935:                                              ; preds = %934, %773, %751, %399, %301, %101
-  %936 = phi i32 [ 1, %301 ], [ 1, %399 ], [ 1, %751 ], [ 0, %934 ], [ 0, %773 ], [ 0, %101 ]
+932:                                              ; preds = %786, %774
+  %933 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 12), align 8, !tbaa !222
+  %934 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.80, i32 noundef 5) #26
+  call void @dt_control_hinter_message(ptr noundef %933, ptr noundef %934) #26
+  br label %935
+
+935:                                              ; preds = %932, %927
+  call void (...) @dt_control_queue_redraw_center() #26
+  br label %936
+
+936:                                              ; preds = %935, %773, %751, %399, %301, %101
+  %937 = phi i32 [ 1, %301 ], [ 1, %399 ], [ 1, %751 ], [ 0, %935 ], [ 0, %773 ], [ 0, %101 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #26
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #26
-  br label %937
+  br label %938
 
-937:                                              ; preds = %935, %6
-  %938 = phi i32 [ %936, %935 ], [ 0, %6 ]
-  ret i32 %938
+938:                                              ; preds = %936, %6
+  %939 = phi i32 [ %937, %936 ], [ 0, %6 ]
+  ret i32 %939
 }
 
 declare i32 @dt_dev_get_preview_size(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6

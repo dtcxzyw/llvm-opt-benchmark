@@ -99,7 +99,7 @@ target triple = "x86_64-pc-linux-gnu"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @rcsid], section "llvm.metadata"
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @file_trycdf(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden noundef i32 @file_trycdf(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct.cdf_info_t, align 8
   %4 = alloca %struct.cdf_header_t, align 8
   %5 = alloca %struct.cdf_sat_t, align 8
@@ -350,7 +350,7 @@ declare i32 @cdf_read_summary_info(ptr noundef, ptr noundef, ptr noundef, ptr no
 declare ptr @__errno_location() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cdf_check_summary_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef readonly %8, ptr nocapture noundef writeonly %9) unnamed_addr #0 {
+define internal fastcc noundef i32 @cdf_check_summary_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef readonly %8, ptr nocapture noundef writeonly %9) unnamed_addr #0 {
   %11 = alloca ptr, align 8
   %12 = alloca [256 x i8], align 16
   %13 = alloca %struct.timespec, align 8
@@ -467,267 +467,271 @@ cdf_clsid_to_mime.exit.thread.i:                  ; preds = %cdf_clsid_to_mime.e
   %83 = getelementptr inbounds i8, ptr %8, i64 80
   %84 = load i64, ptr %83, align 8
   %85 = icmp eq i64 %84, 790660
-  br i1 %85, label %86, label %cdf_clsid_to_mime.exit.i.i
+  br i1 %85, label %86, label %90
 
 86:                                               ; preds = %82
   %87 = getelementptr inbounds i8, ptr %8, i64 88
   %88 = load i64, ptr %87, align 8
   %89 = icmp eq i64 %88, 5044031582654955712
-  %spec.select114.i.i = select i1 %89, ptr @.str.30, ptr null
+  br i1 %89, label %cdf_clsid_to_mime.exit.i.i, label %90
+
+90:                                               ; preds = %86, %82
   br label %cdf_clsid_to_mime.exit.i.i
 
-cdf_clsid_to_mime.exit.i.i:                       ; preds = %86, %82, %cdf_clsid_to_mime.exit.thread.i
-  %.084.i.i = phi ptr [ null, %cdf_clsid_to_mime.exit.thread.i ], [ null, %82 ], [ %spec.select114.i.i, %86 ]
-  %.not113.i.i = icmp eq i64 %77, 0
-  br i1 %.not113.i.i, label %._crit_edge.i.i, label %.lr.ph111.i.i
+cdf_clsid_to_mime.exit.i.i:                       ; preds = %90, %86, %cdf_clsid_to_mime.exit.thread.i
+  %.084.i.i = phi ptr [ null, %cdf_clsid_to_mime.exit.thread.i ], [ null, %90 ], [ @.str.30, %86 ]
+  %.not112.i.i = icmp eq i64 %77, 0
+  br i1 %.not112.i.i, label %._crit_edge.i.i, label %.lr.ph110.i.i
 
-.lr.ph111.i.i:                                    ; preds = %cdf_clsid_to_mime.exit.i.i, %212
-  %.080110.i.i = phi i64 [ %213, %212 ], [ 0, %cdf_clsid_to_mime.exit.i.i ]
-  %.185109.i.i = phi ptr [ %.286.i.i, %212 ], [ %.084.i.i, %cdf_clsid_to_mime.exit.i.i ]
-  %90 = getelementptr inbounds %struct.cdf_property_info_t, ptr %76, i64 %.080110.i.i
-  %91 = load i32, ptr %90, align 8
-  %92 = call i32 @cdf_print_property_name(ptr noundef nonnull %14, i64 noundef 64, i32 noundef %91) #8
-  %93 = getelementptr inbounds i8, ptr %90, i64 4
-  %94 = load i32, ptr %93, align 4
-  switch i32 %94, label %cdf_file_summary_info.exit [
-    i32 1, label %212
-    i32 2, label %95
-    i32 3, label %105
-    i32 19, label %114
-    i32 4, label %123
-    i32 5, label %133
-    i32 30, label %142
-    i32 31, label %142
-    i32 64, label %186
-    i32 71, label %212
+.lr.ph110.i.i:                                    ; preds = %cdf_clsid_to_mime.exit.i.i, %213
+  %.080109.i.i = phi i64 [ %214, %213 ], [ 0, %cdf_clsid_to_mime.exit.i.i ]
+  %.185108.i.i = phi ptr [ %.286.i.i, %213 ], [ %.084.i.i, %cdf_clsid_to_mime.exit.i.i ]
+  %91 = getelementptr inbounds %struct.cdf_property_info_t, ptr %76, i64 %.080109.i.i
+  %92 = load i32, ptr %91, align 8
+  %93 = call i32 @cdf_print_property_name(ptr noundef nonnull %14, i64 noundef 64, i32 noundef %92) #8
+  %94 = getelementptr inbounds i8, ptr %91, i64 4
+  %95 = load i32, ptr %94, align 4
+  switch i32 %95, label %cdf_file_summary_info.exit [
+    i32 1, label %213
+    i32 2, label %96
+    i32 3, label %106
+    i32 19, label %115
+    i32 4, label %124
+    i32 5, label %134
+    i32 30, label %143
+    i32 31, label %143
+    i32 64, label %187
+    i32 71, label %213
   ]
 
-95:                                               ; preds = %.lr.ph111.i.i
-  %96 = load i32, ptr %24, align 4
-  %97 = and i32 %96, 1040
-  %98 = icmp eq i32 %97, 0
-  br i1 %98, label %99, label %212
+96:                                               ; preds = %.lr.ph110.i.i
+  %97 = load i32, ptr %24, align 4
+  %98 = and i32 %97, 1040
+  %99 = icmp eq i32 %98, 0
+  br i1 %99, label %100, label %213
 
-99:                                               ; preds = %95
-  %100 = getelementptr inbounds i8, ptr %90, i64 8
-  %101 = load i16, ptr %100, align 8
-  %102 = sext i16 %101 to i32
-  %103 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.25, ptr noundef nonnull %14, i32 noundef %102) #8
-  %104 = icmp eq i32 %103, -1
-  br i1 %104, label %cdf_file_summary_info.exit, label %212
+100:                                              ; preds = %96
+  %101 = getelementptr inbounds i8, ptr %91, i64 8
+  %102 = load i16, ptr %101, align 8
+  %103 = sext i16 %102 to i32
+  %104 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.25, ptr noundef nonnull %14, i32 noundef %103) #8
+  %105 = icmp eq i32 %104, -1
+  br i1 %105, label %cdf_file_summary_info.exit, label %213
 
-105:                                              ; preds = %.lr.ph111.i.i
-  %106 = load i32, ptr %24, align 4
-  %107 = and i32 %106, 1040
-  %108 = icmp eq i32 %107, 0
-  br i1 %108, label %109, label %212
+106:                                              ; preds = %.lr.ph110.i.i
+  %107 = load i32, ptr %24, align 4
+  %108 = and i32 %107, 1040
+  %109 = icmp eq i32 %108, 0
+  br i1 %109, label %110, label %213
 
-109:                                              ; preds = %105
-  %110 = getelementptr inbounds i8, ptr %90, i64 8
-  %111 = load i32, ptr %110, align 8
-  %112 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.26, ptr noundef nonnull %14, i32 noundef %111) #8
-  %113 = icmp eq i32 %112, -1
-  br i1 %113, label %cdf_file_summary_info.exit, label %212
+110:                                              ; preds = %106
+  %111 = getelementptr inbounds i8, ptr %91, i64 8
+  %112 = load i32, ptr %111, align 8
+  %113 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.26, ptr noundef nonnull %14, i32 noundef %112) #8
+  %114 = icmp eq i32 %113, -1
+  br i1 %114, label %cdf_file_summary_info.exit, label %213
 
-114:                                              ; preds = %.lr.ph111.i.i
-  %115 = load i32, ptr %24, align 4
-  %116 = and i32 %115, 1040
-  %117 = icmp eq i32 %116, 0
-  br i1 %117, label %118, label %212
+115:                                              ; preds = %.lr.ph110.i.i
+  %116 = load i32, ptr %24, align 4
+  %117 = and i32 %116, 1040
+  %118 = icmp eq i32 %117, 0
+  br i1 %118, label %119, label %213
 
-118:                                              ; preds = %114
-  %119 = getelementptr inbounds i8, ptr %90, i64 8
-  %120 = load i32, ptr %119, align 8
-  %121 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.27, ptr noundef nonnull %14, i32 noundef %120) #8
-  %122 = icmp eq i32 %121, -1
-  br i1 %122, label %cdf_file_summary_info.exit, label %212
+119:                                              ; preds = %115
+  %120 = getelementptr inbounds i8, ptr %91, i64 8
+  %121 = load i32, ptr %120, align 8
+  %122 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.27, ptr noundef nonnull %14, i32 noundef %121) #8
+  %123 = icmp eq i32 %122, -1
+  br i1 %123, label %cdf_file_summary_info.exit, label %213
 
-123:                                              ; preds = %.lr.ph111.i.i
-  %124 = load i32, ptr %24, align 4
-  %125 = and i32 %124, 1040
-  %126 = icmp eq i32 %125, 0
-  br i1 %126, label %127, label %212
+124:                                              ; preds = %.lr.ph110.i.i
+  %125 = load i32, ptr %24, align 4
+  %126 = and i32 %125, 1040
+  %127 = icmp eq i32 %126, 0
+  br i1 %127, label %128, label %213
 
-127:                                              ; preds = %123
-  %128 = getelementptr inbounds i8, ptr %90, i64 8
-  %129 = load float, ptr %128, align 8
-  %130 = fpext float %129 to double
-  %131 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.28, ptr noundef nonnull %14, double noundef %130) #8
-  %132 = icmp eq i32 %131, -1
-  br i1 %132, label %cdf_file_summary_info.exit, label %212
+128:                                              ; preds = %124
+  %129 = getelementptr inbounds i8, ptr %91, i64 8
+  %130 = load float, ptr %129, align 8
+  %131 = fpext float %130 to double
+  %132 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.28, ptr noundef nonnull %14, double noundef %131) #8
+  %133 = icmp eq i32 %132, -1
+  br i1 %133, label %cdf_file_summary_info.exit, label %213
 
-133:                                              ; preds = %.lr.ph111.i.i
-  %134 = load i32, ptr %24, align 4
-  %135 = and i32 %134, 1040
-  %136 = icmp eq i32 %135, 0
-  br i1 %136, label %137, label %212
+134:                                              ; preds = %.lr.ph110.i.i
+  %135 = load i32, ptr %24, align 4
+  %136 = and i32 %135, 1040
+  %137 = icmp eq i32 %136, 0
+  br i1 %137, label %138, label %213
 
-137:                                              ; preds = %133
-  %138 = getelementptr inbounds i8, ptr %90, i64 8
-  %139 = load double, ptr %138, align 8
-  %140 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.28, ptr noundef nonnull %14, double noundef %139) #8
-  %141 = icmp eq i32 %140, -1
-  br i1 %141, label %cdf_file_summary_info.exit, label %212
+138:                                              ; preds = %134
+  %139 = getelementptr inbounds i8, ptr %91, i64 8
+  %140 = load double, ptr %139, align 8
+  %141 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.28, ptr noundef nonnull %14, double noundef %140) #8
+  %142 = icmp eq i32 %141, -1
+  br i1 %142, label %cdf_file_summary_info.exit, label %213
 
-142:                                              ; preds = %.lr.ph111.i.i, %.lr.ph111.i.i
-  %143 = getelementptr inbounds i8, ptr %90, i64 8
-  %144 = load i32, ptr %143, align 8
-  %145 = icmp sgt i32 %144, 1
-  br i1 %145, label %.lr.ph.preheader.i.i, label %212
+143:                                              ; preds = %.lr.ph110.i.i, %.lr.ph110.i.i
+  %144 = getelementptr inbounds i8, ptr %91, i64 8
+  %145 = load i32, ptr %144, align 8
+  %146 = icmp sgt i32 %145, 1
+  br i1 %146, label %.lr.ph.preheader.i.i, label %213
 
-.lr.ph.preheader.i.i:                             ; preds = %142
-  %146 = icmp eq i32 %94, 31
-  %spec.select.i.i = select i1 %146, i64 2, i64 1
-  %147 = getelementptr inbounds i8, ptr %90, i64 16
-  %148 = load ptr, ptr %147, align 8
-  %149 = zext nneg i32 %144 to i64
-  %150 = getelementptr inbounds i8, ptr %148, i64 %149
+.lr.ph.preheader.i.i:                             ; preds = %143
+  %147 = icmp eq i32 %95, 31
+  %spec.select.i.i = select i1 %147, i64 2, i64 1
+  %148 = getelementptr inbounds i8, ptr %91, i64 16
+  %149 = load ptr, ptr %148, align 8
+  %150 = zext nneg i32 %145 to i64
+  %151 = getelementptr inbounds i8, ptr %149, i64 %150
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %165, %.lr.ph.preheader.i.i
-  %.082104.i.i = phi i64 [ %.1.i.i, %165 ], [ 0, %.lr.ph.preheader.i.i ]
-  %.083103.i.i = phi i32 [ %151, %165 ], [ %144, %.lr.ph.preheader.i.i ]
-  %.087102.i.i = phi ptr [ %166, %165 ], [ %148, %.lr.ph.preheader.i.i ]
-  %151 = add nsw i32 %.083103.i.i, -1
-  %.not96.i.i = icmp eq i32 %.083103.i.i, 0
-  br i1 %.not96.i.i, label %.critedge.i.i, label %152
+.lr.ph.i.i:                                       ; preds = %166, %.lr.ph.preheader.i.i
+  %.082103.i.i = phi i64 [ %.1.i.i, %166 ], [ 0, %.lr.ph.preheader.i.i ]
+  %.083102.i.i = phi i32 [ %152, %166 ], [ %145, %.lr.ph.preheader.i.i ]
+  %.087101.i.i = phi ptr [ %167, %166 ], [ %149, %.lr.ph.preheader.i.i ]
+  %152 = add nsw i32 %.083102.i.i, -1
+  %.not96.i.i = icmp eq i32 %.083102.i.i, 0
+  br i1 %.not96.i.i, label %.critedge.i.i, label %153
 
-152:                                              ; preds = %.lr.ph.i.i
-  %153 = load i8, ptr %.087102.i.i, align 1
-  %154 = icmp eq i8 %153, 0
-  br i1 %154, label %.critedge.i.i, label %155
+153:                                              ; preds = %.lr.ph.i.i
+  %154 = load i8, ptr %.087101.i.i, align 1
+  %155 = icmp eq i8 %154, 0
+  br i1 %155, label %.critedge.i.i, label %156
 
-155:                                              ; preds = %152
-  %156 = tail call ptr @__ctype_b_loc() #9
-  %157 = load ptr, ptr %156, align 8
-  %158 = zext i8 %153 to i64
-  %159 = getelementptr inbounds i16, ptr %157, i64 %158
-  %160 = load i16, ptr %159, align 2
-  %161 = and i16 %160, 16384
-  %.not97.i.i = icmp eq i16 %161, 0
-  br i1 %.not97.i.i, label %165, label %162
+156:                                              ; preds = %153
+  %157 = tail call ptr @__ctype_b_loc() #9
+  %158 = load ptr, ptr %157, align 8
+  %159 = zext i8 %154 to i64
+  %160 = getelementptr inbounds i16, ptr %158, i64 %159
+  %161 = load i16, ptr %160, align 2
+  %162 = and i16 %161, 16384
+  %.not97.i.i = icmp eq i16 %162, 0
+  br i1 %.not97.i.i, label %166, label %163
 
-162:                                              ; preds = %155
-  %163 = add nuw nsw i64 %.082104.i.i, 1
-  %164 = getelementptr inbounds [1024 x i8], ptr %15, i64 0, i64 %.082104.i.i
-  store i8 %153, ptr %164, align 1
-  br label %165
+163:                                              ; preds = %156
+  %164 = add nuw nsw i64 %.082103.i.i, 1
+  %165 = getelementptr inbounds [1024 x i8], ptr %15, i64 0, i64 %.082103.i.i
+  store i8 %154, ptr %165, align 1
+  br label %166
 
-165:                                              ; preds = %162, %155
-  %.1.i.i = phi i64 [ %163, %162 ], [ %.082104.i.i, %155 ]
-  %166 = getelementptr inbounds i8, ptr %.087102.i.i, i64 %spec.select.i.i
-  %167 = icmp ult ptr %166, %150
-  %168 = icmp ult i64 %.1.i.i, 1024
-  %or.cond3.i.i = select i1 %167, i1 %168, i1 false
+166:                                              ; preds = %163, %156
+  %.1.i.i = phi i64 [ %164, %163 ], [ %.082103.i.i, %156 ]
+  %167 = getelementptr inbounds i8, ptr %.087101.i.i, i64 %spec.select.i.i
+  %168 = icmp ult ptr %167, %151
+  %169 = icmp ult i64 %.1.i.i, 1024
+  %or.cond3.i.i = select i1 %168, i1 %169, i1 false
   br i1 %or.cond3.i.i, label %.lr.ph.i.i, label %.critedge.i.i
 
-.critedge.i.i:                                    ; preds = %165, %152, %.lr.ph.i.i
-  %.082.lcssa.ph.i.i = phi i64 [ %.082104.i.i, %.lr.ph.i.i ], [ %.082104.i.i, %152 ], [ %.1.i.i, %165 ]
-  %169 = icmp eq i64 %.082.lcssa.ph.i.i, 1024
-  %spec.select99.i.i = select i1 %169, i64 1023, i64 %.082.lcssa.ph.i.i
-  %170 = getelementptr inbounds [1024 x i8], ptr %15, i64 0, i64 %spec.select99.i.i
-  store i8 0, ptr %170, align 1
-  %171 = load i32, ptr %24, align 4
-  %172 = and i32 %171, 1040
-  %173 = icmp eq i32 %172, 0
-  br i1 %173, label %174, label %179
+.critedge.i.i:                                    ; preds = %166, %153, %.lr.ph.i.i
+  %.082.lcssa.ph.i.i = phi i64 [ %.082103.i.i, %.lr.ph.i.i ], [ %.082103.i.i, %153 ], [ %.1.i.i, %166 ]
+  %170 = icmp eq i64 %.082.lcssa.ph.i.i, 1024
+  %spec.select99.i.i = select i1 %170, i64 1023, i64 %.082.lcssa.ph.i.i
+  %171 = getelementptr inbounds [1024 x i8], ptr %15, i64 0, i64 %spec.select99.i.i
+  store i8 0, ptr %171, align 1
+  %172 = load i32, ptr %24, align 4
+  %173 = and i32 %172, 1040
+  %174 = icmp eq i32 %173, 0
+  br i1 %174, label %175, label %180
 
-174:                                              ; preds = %.critedge.i.i
-  %175 = load i8, ptr %15, align 16
-  %.not98.i.i = icmp eq i8 %175, 0
-  br i1 %.not98.i.i, label %212, label %176
+175:                                              ; preds = %.critedge.i.i
+  %176 = load i8, ptr %15, align 16
+  %.not98.i.i = icmp eq i8 %176, 0
+  br i1 %.not98.i.i, label %213, label %177
 
-176:                                              ; preds = %174
-  %177 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.29, ptr noundef nonnull %14, ptr noundef nonnull %15) #8
-  %178 = icmp eq i32 %177, -1
-  br i1 %178, label %cdf_file_summary_info.exit, label %212
+177:                                              ; preds = %175
+  %178 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.29, ptr noundef nonnull %14, ptr noundef nonnull %15) #8
+  %179 = icmp eq i32 %178, -1
+  br i1 %179, label %cdf_file_summary_info.exit, label %213
 
-179:                                              ; preds = %.critedge.i.i
-  %180 = icmp eq ptr %.185109.i.i, null
-  br i1 %180, label %181, label %212
+180:                                              ; preds = %.critedge.i.i
+  %181 = icmp eq ptr %.185108.i.i, null
+  br i1 %181, label %182, label %213
 
-181:                                              ; preds = %179
-  %182 = load i32, ptr %90, align 8
-  %183 = icmp eq i32 %182, 18
-  br i1 %183, label %184, label %212
+182:                                              ; preds = %180
+  %183 = load i32, ptr %91, align 8
+  %184 = icmp eq i32 %183, 18
+  br i1 %184, label %185, label %213
 
-184:                                              ; preds = %181
-  %185 = call fastcc ptr @cdf_app_to_mime(ptr noundef nonnull %15, ptr noundef nonnull @app2mime)
-  br label %212
+185:                                              ; preds = %182
+  %186 = call fastcc ptr @cdf_app_to_mime(ptr noundef nonnull %15, ptr noundef nonnull @app2mime)
+  br label %213
 
-186:                                              ; preds = %.lr.ph111.i.i
-  %187 = getelementptr inbounds i8, ptr %90, i64 8
-  %188 = load i64, ptr %187, align 8
-  %.not93.i.i = icmp eq i64 %188, 0
-  br i1 %.not93.i.i, label %212, label %189
+187:                                              ; preds = %.lr.ph110.i.i
+  %188 = getelementptr inbounds i8, ptr %91, i64 8
+  %189 = load i64, ptr %188, align 8
+  %.not93.i.i = icmp eq i64 %189, 0
+  br i1 %.not93.i.i, label %213, label %190
 
-189:                                              ; preds = %186
-  %190 = icmp slt i64 %188, 1000000000000000
-  br i1 %190, label %191, label %199
+190:                                              ; preds = %187
+  %191 = icmp slt i64 %189, 1000000000000000
+  br i1 %191, label %192, label %200
 
-191:                                              ; preds = %189
-  %192 = call i32 @cdf_print_elapsed_time(ptr noundef nonnull %16, i64 noundef 64, i64 noundef %188) #8
-  %193 = load i32, ptr %24, align 4
-  %194 = and i32 %193, 1040
-  %195 = icmp eq i32 %194, 0
-  br i1 %195, label %196, label %212
+192:                                              ; preds = %190
+  %193 = call i32 @cdf_print_elapsed_time(ptr noundef nonnull %16, i64 noundef 64, i64 noundef %189) #8
+  %194 = load i32, ptr %24, align 4
+  %195 = and i32 %194, 1040
+  %196 = icmp eq i32 %195, 0
+  br i1 %196, label %197, label %213
 
-196:                                              ; preds = %191
-  %197 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.29, ptr noundef nonnull %14, ptr noundef nonnull %16) #8
-  %198 = icmp eq i32 %197, -1
-  br i1 %198, label %cdf_file_summary_info.exit, label %212
+197:                                              ; preds = %192
+  %198 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.29, ptr noundef nonnull %14, ptr noundef nonnull %16) #8
+  %199 = icmp eq i32 %198, -1
+  br i1 %199, label %cdf_file_summary_info.exit, label %213
 
-199:                                              ; preds = %189
-  %200 = call i32 @cdf_timestamp_to_timespec(ptr noundef nonnull %13, i64 noundef %188) #8
-  %201 = call ptr @cdf_ctime(ptr noundef nonnull %13, ptr noundef nonnull %16) #8
-  %.not94.i.i = icmp eq ptr %201, null
-  br i1 %.not94.i.i, label %205, label %202
+200:                                              ; preds = %190
+  %201 = call i32 @cdf_timestamp_to_timespec(ptr noundef nonnull %13, i64 noundef %189) #8
+  %202 = call ptr @cdf_ctime(ptr noundef nonnull %13, ptr noundef nonnull %16) #8
+  %.not94.i.i = icmp eq ptr %202, null
+  br i1 %.not94.i.i, label %206, label %203
 
-202:                                              ; preds = %199
-  %203 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %201, i32 noundef 10) #10
-  %.not95.i.i = icmp eq ptr %203, null
-  br i1 %.not95.i.i, label %205, label %204
+203:                                              ; preds = %200
+  %204 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %202, i32 noundef 10) #10
+  %.not95.i.i = icmp eq ptr %204, null
+  br i1 %.not95.i.i, label %206, label %205
 
-204:                                              ; preds = %202
-  store i8 0, ptr %203, align 1
-  br label %205
+205:                                              ; preds = %203
+  store i8 0, ptr %204, align 1
+  br label %206
 
-205:                                              ; preds = %204, %202, %199
-  %206 = load i32, ptr %24, align 4
-  %207 = and i32 %206, 1040
-  %208 = icmp eq i32 %207, 0
-  br i1 %208, label %209, label %212
+206:                                              ; preds = %205, %203, %200
+  %207 = load i32, ptr %24, align 4
+  %208 = and i32 %207, 1040
+  %209 = icmp eq i32 %208, 0
+  br i1 %209, label %210, label %213
 
-209:                                              ; preds = %205
-  %210 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.29, ptr noundef nonnull %14, ptr noundef %201) #8
-  %211 = icmp eq i32 %210, -1
-  br i1 %211, label %cdf_file_summary_info.exit, label %212
+210:                                              ; preds = %206
+  %211 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.29, ptr noundef nonnull %14, ptr noundef %202) #8
+  %212 = icmp eq i32 %211, -1
+  br i1 %212, label %cdf_file_summary_info.exit, label %213
 
-212:                                              ; preds = %209, %205, %196, %191, %186, %184, %181, %179, %176, %174, %142, %137, %133, %127, %123, %118, %114, %109, %105, %99, %95, %.lr.ph111.i.i, %.lr.ph111.i.i
-  %.286.i.i = phi ptr [ %.185109.i.i, %196 ], [ %.185109.i.i, %191 ], [ %.185109.i.i, %209 ], [ %.185109.i.i, %205 ], [ %.185109.i.i, %186 ], [ %.185109.i.i, %176 ], [ %.185109.i.i, %174 ], [ %185, %184 ], [ null, %181 ], [ %.185109.i.i, %179 ], [ %.185109.i.i, %142 ], [ %.185109.i.i, %137 ], [ %.185109.i.i, %133 ], [ %.185109.i.i, %127 ], [ %.185109.i.i, %123 ], [ %.185109.i.i, %118 ], [ %.185109.i.i, %114 ], [ %.185109.i.i, %109 ], [ %.185109.i.i, %105 ], [ %.185109.i.i, %99 ], [ %.185109.i.i, %95 ], [ %.185109.i.i, %.lr.ph111.i.i ], [ %.185109.i.i, %.lr.ph111.i.i ]
-  %213 = add nuw i64 %.080110.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %213, %77
-  br i1 %exitcond.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph111.i.i
+213:                                              ; preds = %210, %206, %197, %192, %187, %185, %182, %180, %177, %175, %143, %138, %134, %128, %124, %119, %115, %110, %106, %100, %96, %.lr.ph110.i.i, %.lr.ph110.i.i
+  %.286.i.i = phi ptr [ %.185108.i.i, %197 ], [ %.185108.i.i, %192 ], [ %.185108.i.i, %210 ], [ %.185108.i.i, %206 ], [ %.185108.i.i, %187 ], [ %.185108.i.i, %177 ], [ %.185108.i.i, %175 ], [ %186, %185 ], [ null, %182 ], [ %.185108.i.i, %180 ], [ %.185108.i.i, %143 ], [ %.185108.i.i, %138 ], [ %.185108.i.i, %134 ], [ %.185108.i.i, %128 ], [ %.185108.i.i, %124 ], [ %.185108.i.i, %119 ], [ %.185108.i.i, %115 ], [ %.185108.i.i, %110 ], [ %.185108.i.i, %106 ], [ %.185108.i.i, %100 ], [ %.185108.i.i, %96 ], [ %.185108.i.i, %.lr.ph110.i.i ], [ %.185108.i.i, %.lr.ph110.i.i ]
+  %214 = add nuw i64 %.080109.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %214, %77
+  br i1 %exitcond.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph110.i.i
 
-._crit_edge.loopexit.i.i:                         ; preds = %212
+._crit_edge.loopexit.i.i:                         ; preds = %213
   %.pre.i.i = load i32, ptr %24, align 4
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.loopexit.i.i, %cdf_clsid_to_mime.exit.i.i
-  %214 = phi i32 [ %78, %cdf_clsid_to_mime.exit.i.i ], [ %.pre.i.i, %._crit_edge.loopexit.i.i ]
+  %215 = phi i32 [ %78, %cdf_clsid_to_mime.exit.i.i ], [ %.pre.i.i, %._crit_edge.loopexit.i.i ]
   %.185.lcssa.i.i = phi ptr [ %.084.i.i, %cdf_clsid_to_mime.exit.i.i ], [ %.286.i.i, %._crit_edge.loopexit.i.i ]
-  %215 = and i32 %214, 16
-  %.not.i20.i = icmp eq i32 %215, 0
-  br i1 %.not.i20.i, label %cdf_file_summary_info.exit, label %216
+  %216 = and i32 %215, 16
+  %.not.i20.i = icmp eq i32 %216, 0
+  br i1 %.not.i20.i, label %222, label %217
 
-216:                                              ; preds = %._crit_edge.i.i
-  %217 = icmp eq ptr %.185.lcssa.i.i, null
-  br i1 %217, label %cdf_file_summary_info.exit, label %218
+217:                                              ; preds = %._crit_edge.i.i
+  %218 = icmp eq ptr %.185.lcssa.i.i, null
+  br i1 %218, label %cdf_file_summary_info.exit, label %219
 
-218:                                              ; preds = %216
-  %219 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.17, ptr noundef nonnull %.185.lcssa.i.i) #8
-  %220 = icmp eq i32 %219, -1
-  %spec.select100.i.i = select i1 %220, i32 -1, i32 1
+219:                                              ; preds = %217
+  %220 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.17, ptr noundef nonnull %.185.lcssa.i.i) #8
+  %221 = icmp eq i32 %220, -1
+  br i1 %221, label %cdf_file_summary_info.exit, label %222
+
+222:                                              ; preds = %219, %._crit_edge.i.i
   br label %cdf_file_summary_info.exit
 
 cdf_file_summary_info.exit.thread:                ; preds = %10, %28, %31, %40, %48, %56, %cdf_clsid_to_mime.exit.i
@@ -735,187 +739,189 @@ cdf_file_summary_info.exit.thread:                ; preds = %10, %28, %31, %40, 
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
-  br label %224
+  br label %228
 
-cdf_file_summary_info.exit:                       ; preds = %.lr.ph111.i.i, %99, %109, %118, %127, %137, %176, %196, %209, %._crit_edge.i.i, %216, %218
-  %.0.i.i = phi i32 [ 0, %216 ], [ 1, %._crit_edge.i.i ], [ %spec.select100.i.i, %218 ], [ -1, %209 ], [ -1, %196 ], [ -1, %176 ], [ -1, %137 ], [ -1, %127 ], [ -1, %118 ], [ -1, %109 ], [ -1, %99 ], [ -1, %.lr.ph111.i.i ]
+cdf_file_summary_info.exit:                       ; preds = %.lr.ph110.i.i, %100, %110, %119, %128, %138, %177, %197, %210, %217, %219, %222
+  %223 = phi i1 [ true, %222 ], [ false, %217 ], [ false, %219 ], [ false, %210 ], [ false, %197 ], [ false, %177 ], [ false, %138 ], [ false, %128 ], [ false, %119 ], [ false, %110 ], [ false, %100 ], [ false, %.lr.ph110.i.i ]
+  %224 = phi i1 [ false, %222 ], [ true, %217 ], [ false, %219 ], [ false, %210 ], [ false, %197 ], [ false, %177 ], [ false, %138 ], [ false, %128 ], [ false, %119 ], [ false, %110 ], [ false, %100 ], [ false, %.lr.ph110.i.i ]
+  %.0.i.i = phi i32 [ 1, %222 ], [ 0, %217 ], [ -1, %219 ], [ -1, %210 ], [ -1, %197 ], [ -1, %177 ], [ -1, %138 ], [ -1, %128 ], [ -1, %119 ], [ -1, %110 ], [ -1, %100 ], [ -1, %.lr.ph110.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %16)
-  %221 = load ptr, ptr %18, align 8
-  call void @_efree(ptr noundef %221) #8
-  %222 = call i32 @llvm.umin.i32(i32 %.0.i.i, i32 -2)
+  %225 = load ptr, ptr %18, align 8
+  call void @_efree(ptr noundef %225) #8
+  %226 = call i32 @llvm.umin.i32(i32 %.0.i.i, i32 -2)
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
-  %223 = icmp slt i32 %222, 0
-  br i1 %223, label %224, label %225
+  %227 = icmp slt i32 %226, 0
+  br i1 %227, label %228, label %229
 
-224:                                              ; preds = %cdf_file_summary_info.exit.thread, %cdf_file_summary_info.exit
-  %.0.i51 = phi i32 [ %.0.i.ph, %cdf_file_summary_info.exit.thread ], [ %222, %cdf_file_summary_info.exit ]
+228:                                              ; preds = %cdf_file_summary_info.exit.thread, %cdf_file_summary_info.exit
+  %.0.i50 = phi i32 [ %.0.i.ph, %cdf_file_summary_info.exit.thread ], [ %226, %cdf_file_summary_info.exit ]
   store ptr @.str.14, ptr %9, align 8
   br label %cdf_file_catalog_info.exit
 
-225:                                              ; preds = %cdf_file_summary_info.exit
-  %226 = icmp eq i32 %.0.i.i, 1
-  br i1 %226, label %cdf_file_catalog_info.exit, label %.preheader
+229:                                              ; preds = %cdf_file_summary_info.exit
+  br i1 %223, label %cdf_file_catalog_info.exit, label %.preheader
 
-.preheader:                                       ; preds = %225
-  %227 = getelementptr inbounds i8, ptr %6, i64 8
-  br label %228
+.preheader:                                       ; preds = %229
+  %230 = getelementptr inbounds i8, ptr %6, i64 8
+  br label %231
 
-228:                                              ; preds = %.preheader, %240
-  %.03860 = phi i64 [ 0, %.preheader ], [ %246, %240 ]
-  %229 = load i64, ptr %227, align 8
-  %.not66 = icmp ult i64 %.03860, %229
-  br i1 %.not66, label %230, label %.critedge
+231:                                              ; preds = %.preheader, %243
+  %.03859 = phi i64 [ 0, %.preheader ], [ %249, %243 ]
+  %232 = load i64, ptr %230, align 8
+  %.not65 = icmp ult i64 %.03859, %232
+  br i1 %.not65, label %233, label %.critedge
 
-230:                                              ; preds = %228
-  %231 = load ptr, ptr %6, align 8
-  %232 = getelementptr inbounds %struct.cdf_directory_t, ptr %231, i64 %.03860
-  br label %233
+233:                                              ; preds = %231
+  %234 = load ptr, ptr %6, align 8
+  %235 = getelementptr inbounds %struct.cdf_directory_t, ptr %234, i64 %.03859
+  br label %236
 
-233:                                              ; preds = %230, %233
-  %.058 = phi i64 [ 0, %230 ], [ %239, %233 ]
-  %234 = getelementptr inbounds [32 x i16], ptr %232, i64 0, i64 %.058
-  %235 = load i16, ptr %234, align 2
-  %236 = call zeroext i16 @cdf_tole2(i16 noundef zeroext %235) #8
-  %237 = trunc i16 %236 to i8
-  %238 = getelementptr inbounds [32 x i8], ptr %20, i64 0, i64 %.058
-  store i8 %237, ptr %238, align 1
-  %239 = add nuw nsw i64 %.058, 1
-  %exitcond.not = icmp eq i64 %239, 32
-  br i1 %exitcond.not, label %240, label %233
+236:                                              ; preds = %233, %236
+  %.057 = phi i64 [ 0, %233 ], [ %242, %236 ]
+  %237 = getelementptr inbounds [32 x i16], ptr %235, i64 0, i64 %.057
+  %238 = load i16, ptr %237, align 2
+  %239 = call zeroext i16 @cdf_tole2(i16 noundef zeroext %238) #8
+  %240 = trunc i16 %239 to i8
+  %241 = getelementptr inbounds [32 x i8], ptr %20, i64 0, i64 %.057
+  store i8 %240, ptr %241, align 1
+  %242 = add nuw nsw i64 %.057, 1
+  %exitcond.not = icmp eq i64 %242, 32
+  br i1 %exitcond.not, label %243, label %236
 
-240:                                              ; preds = %233
-  %241 = load i32, ptr %24, align 4
-  %242 = and i32 %241, 1040
-  %243 = icmp eq i32 %242, 0
-  %244 = select i1 %243, ptr @name2desc, ptr @name2mime
-  %245 = call fastcc ptr @cdf_app_to_mime(ptr noundef nonnull %20, ptr noundef nonnull %244)
-  %246 = add nuw i64 %.03860, 1
-  %247 = icmp eq ptr %245, null
-  br i1 %247, label %228, label %.critedge.thread
+243:                                              ; preds = %236
+  %244 = load i32, ptr %24, align 4
+  %245 = and i32 %244, 1040
+  %246 = icmp eq i32 %245, 0
+  %247 = select i1 %246, ptr @name2desc, ptr @name2mime
+  %248 = call fastcc ptr @cdf_app_to_mime(ptr noundef nonnull %20, ptr noundef nonnull %247)
+  %249 = add nuw i64 %.03859, 1
+  %250 = icmp eq ptr %248, null
+  br i1 %250, label %231, label %.critedge.thread
 
-.critedge:                                        ; preds = %228
-  %248 = load i32, ptr %24, align 4
-  %249 = and i32 %248, 1040
-  %250 = icmp eq i32 %249, 0
-  br i1 %250, label %263, label %257
-
-.critedge.thread:                                 ; preds = %240
+.critedge:                                        ; preds = %231
   %251 = load i32, ptr %24, align 4
   %252 = and i32 %251, 1040
   %253 = icmp eq i32 %252, 0
-  br i1 %253, label %254, label %257
+  br i1 %253, label %266, label %260
 
-254:                                              ; preds = %.critedge.thread
-  %255 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.15, ptr noundef nonnull %245) #8
-  %256 = icmp eq i32 %255, -1
-  br i1 %256, label %cdf_file_catalog_info.exit, label %.thread52
+.critedge.thread:                                 ; preds = %243
+  %254 = load i32, ptr %24, align 4
+  %255 = and i32 %254, 1040
+  %256 = icmp eq i32 %255, 0
+  br i1 %256, label %257, label %260
 
-257:                                              ; preds = %.critedge.thread, %.critedge
-  %spec.store.select = phi ptr [ %245, %.critedge.thread ], [ @.str.16, %.critedge ]
-  %258 = phi i32 [ %251, %.critedge.thread ], [ %248, %.critedge ]
-  %259 = and i32 %258, 16
-  %.not = icmp eq i32 %259, 0
-  br i1 %.not, label %263, label %260
+257:                                              ; preds = %.critedge.thread
+  %258 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.15, ptr noundef nonnull %248) #8
+  %259 = icmp eq i32 %258, -1
+  br i1 %259, label %cdf_file_catalog_info.exit, label %.thread51
 
-260:                                              ; preds = %257
-  %261 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.17, ptr noundef nonnull %spec.store.select) #8
-  %262 = icmp eq i32 %261, -1
-  br i1 %262, label %cdf_file_catalog_info.exit, label %.thread52
+260:                                              ; preds = %.critedge.thread, %.critedge
+  %spec.store.select = phi ptr [ %248, %.critedge.thread ], [ @.str.16, %.critedge ]
+  %261 = phi i32 [ %254, %.critedge.thread ], [ %251, %.critedge ]
+  %262 = and i32 %261, 16
+  %.not = icmp eq i32 %262, 0
+  br i1 %.not, label %266, label %263
 
-.thread52:                                        ; preds = %254, %260
+263:                                              ; preds = %260
+  %264 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.17, ptr noundef nonnull %spec.store.select) #8
+  %265 = icmp eq i32 %264, -1
+  br i1 %265, label %cdf_file_catalog_info.exit, label %.thread51
+
+.thread51:                                        ; preds = %257, %263
   br label %cdf_file_catalog_info.exit
 
-263:                                              ; preds = %.critedge, %257
-  %264 = icmp eq i32 %.0.i.i, 0
-  br i1 %264, label %265, label %cdf_file_catalog_info.exit
+266:                                              ; preds = %.critedge, %260
+  br i1 %224, label %267, label %cdf_file_catalog_info.exit
 
-265:                                              ; preds = %263
-  %266 = call i32 @cdf_read_user_stream(ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef nonnull @.str.54, ptr noundef %7) #8
-  %267 = icmp eq i32 %266, -1
-  br i1 %267, label %cdf_file_catalog_info.exit, label %268
+267:                                              ; preds = %266
+  %268 = call i32 @cdf_read_user_stream(ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef nonnull @.str.54, ptr noundef %7) #8
+  %269 = icmp eq i32 %268, -1
+  br i1 %269, label %cdf_file_catalog_info.exit, label %270
 
-268:                                              ; preds = %265
+270:                                              ; preds = %267
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %12)
-  %269 = load i32, ptr %24, align 4
-  %270 = and i32 %269, 1040
-  %271 = icmp eq i32 %270, 0
-  br i1 %271, label %272, label %302
+  %271 = load i32, ptr %24, align 4
+  %272 = and i32 %271, 1040
+  %273 = icmp eq i32 %272, 0
+  br i1 %273, label %274, label %304
 
-272:                                              ; preds = %268
-  %273 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.55) #8
-  %274 = icmp eq i32 %273, -1
-  br i1 %274, label %cdf_file_catalog.exit.i, label %275
+274:                                              ; preds = %270
+  %275 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.55) #8
+  %276 = icmp eq i32 %275, -1
+  br i1 %276, label %cdf_file_catalog.exit.i, label %277
 
-275:                                              ; preds = %272
-  %276 = call i32 @cdf_unpack_catalog(ptr noundef %2, ptr noundef %7, ptr noundef nonnull %11) #8
-  %277 = icmp eq i32 %276, -1
-  br i1 %277, label %cdf_file_catalog.exit.i, label %278
+277:                                              ; preds = %274
+  %278 = call i32 @cdf_unpack_catalog(ptr noundef %2, ptr noundef %7, ptr noundef nonnull %11) #8
+  %279 = icmp eq i32 %278, -1
+  br i1 %279, label %cdf_file_catalog.exit.i, label %280
 
-278:                                              ; preds = %275
-  %279 = load ptr, ptr %11, align 8
-  %280 = getelementptr inbounds i8, ptr %279, i64 8
-  %281 = load i64, ptr %279, align 8
-  %282 = icmp ugt i64 %281, 1
-  br i1 %282, label %.lr.ph.i.i49, label %._crit_edge.i.i48
+280:                                              ; preds = %277
+  %281 = load ptr, ptr %11, align 8
+  %282 = getelementptr inbounds i8, ptr %281, i64 8
+  %283 = load i64, ptr %281, align 8
+  %284 = icmp ugt i64 %283, 1
+  br i1 %284, label %.lr.ph.i.i48, label %._crit_edge.i.i47
 
-283:                                              ; preds = %.lr.ph.i.i49
-  %284 = add nuw i64 %.01416.i.i, 1
-  %285 = load ptr, ptr %11, align 8
-  %286 = load i64, ptr %285, align 8
-  %287 = icmp ult i64 %284, %286
-  br i1 %287, label %.lr.ph.i.i49, label %._crit_edge.i.i48
+285:                                              ; preds = %.lr.ph.i.i48
+  %286 = add nuw i64 %.01416.i.i, 1
+  %287 = load ptr, ptr %11, align 8
+  %288 = load i64, ptr %287, align 8
+  %289 = icmp ult i64 %286, %288
+  br i1 %289, label %.lr.ph.i.i48, label %._crit_edge.i.i47
 
-.lr.ph.i.i49:                                     ; preds = %278, %283
-  %.01416.i.i = phi i64 [ %284, %283 ], [ 1, %278 ]
-  %288 = getelementptr inbounds %struct.cdf_catalog_entry_t, ptr %280, i64 %.01416.i.i
-  %289 = load i16, ptr %288, align 8
-  %290 = zext i16 %289 to i64
-  %291 = getelementptr inbounds i8, ptr %288, i64 16
-  %292 = call ptr @cdf_u16tos8(ptr noundef nonnull %12, i64 noundef %290, ptr noundef nonnull %291) #8
-  %293 = load ptr, ptr %11, align 8
-  %294 = load i64, ptr %293, align 8
-  %295 = add i64 %294, -1
-  %296 = icmp eq i64 %.01416.i.i, %295
-  %297 = select i1 %296, ptr @.str.57, ptr @.str.58
-  %298 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull @.str.56, ptr noundef %292, ptr noundef nonnull %297) #8
-  %299 = icmp eq i32 %298, -1
-  br i1 %299, label %300, label %283
+.lr.ph.i.i48:                                     ; preds = %280, %285
+  %.01416.i.i = phi i64 [ %286, %285 ], [ 1, %280 ]
+  %290 = getelementptr inbounds %struct.cdf_catalog_entry_t, ptr %282, i64 %.01416.i.i
+  %291 = load i16, ptr %290, align 8
+  %292 = zext i16 %291 to i64
+  %293 = getelementptr inbounds i8, ptr %290, i64 16
+  %294 = call ptr @cdf_u16tos8(ptr noundef nonnull %12, i64 noundef %292, ptr noundef nonnull %293) #8
+  %295 = load ptr, ptr %11, align 8
+  %296 = load i64, ptr %295, align 8
+  %297 = add i64 %296, -1
+  %298 = icmp eq i64 %.01416.i.i, %297
+  %299 = select i1 %298, ptr @.str.57, ptr @.str.58
+  %300 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull @.str.56, ptr noundef %294, ptr noundef nonnull %299) #8
+  %301 = icmp eq i32 %300, -1
+  br i1 %301, label %302, label %285
 
-300:                                              ; preds = %.lr.ph.i.i49
-  %301 = load ptr, ptr %11, align 8
-  call void @_efree(ptr noundef %301) #8
+302:                                              ; preds = %.lr.ph.i.i48
+  %303 = load ptr, ptr %11, align 8
+  call void @_efree(ptr noundef %303) #8
   br label %cdf_file_catalog.exit.i
 
-._crit_edge.i.i48:                                ; preds = %283, %278
-  %.lcssa.i.i = phi ptr [ %279, %278 ], [ %285, %283 ]
+._crit_edge.i.i47:                                ; preds = %285, %280
+  %.lcssa.i.i = phi ptr [ %281, %280 ], [ %287, %285 ]
   call void @_efree(ptr noundef nonnull %.lcssa.i.i) #8
+  br label %309
+
+304:                                              ; preds = %270
+  %305 = and i32 %271, 16
+  %.not.i.i = icmp eq i32 %305, 0
+  br i1 %.not.i.i, label %309, label %306
+
+306:                                              ; preds = %304
+  %307 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.59) #8
+  %308 = icmp eq i32 %307, -1
+  br i1 %308, label %cdf_file_catalog.exit.i, label %309
+
+309:                                              ; preds = %306, %304, %._crit_edge.i.i47
   br label %cdf_file_catalog.exit.i
 
-302:                                              ; preds = %268
-  %303 = and i32 %269, 16
-  %.not.i.i = icmp eq i32 %303, 0
-  br i1 %.not.i.i, label %cdf_file_catalog.exit.i, label %304
-
-304:                                              ; preds = %302
-  %305 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.59) #8
-  %306 = icmp eq i32 %305, -1
-  %spec.select.i.i45 = select i1 %306, i32 -1, i32 1
-  br label %cdf_file_catalog.exit.i
-
-cdf_file_catalog.exit.i:                          ; preds = %304, %302, %._crit_edge.i.i48, %300, %275, %272
-  %.0.i.i46 = phi i32 [ -1, %300 ], [ -1, %272 ], [ -1, %275 ], [ 1, %302 ], [ 1, %._crit_edge.i.i48 ], [ %spec.select.i.i45, %304 ]
+cdf_file_catalog.exit.i:                          ; preds = %309, %306, %302, %277, %274
+  %.0.i.i45 = phi i32 [ -1, %302 ], [ 1, %309 ], [ -1, %274 ], [ -1, %277 ], [ -1, %306 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %12)
   br label %cdf_file_catalog_info.exit
 
-cdf_file_catalog_info.exit:                       ; preds = %cdf_file_catalog.exit.i, %265, %.thread52, %263, %260, %254, %225, %224
-  %.039 = phi i32 [ %.0.i51, %224 ], [ 1, %225 ], [ -1, %254 ], [ -1, %260 ], [ %222, %263 ], [ 1, %.thread52 ], [ -1, %265 ], [ %.0.i.i46, %cdf_file_catalog.exit.i ]
+cdf_file_catalog_info.exit:                       ; preds = %cdf_file_catalog.exit.i, %267, %.thread51, %266, %263, %257, %229, %228
+  %.039 = phi i32 [ %.0.i50, %228 ], [ 1, %229 ], [ -1, %257 ], [ -1, %263 ], [ %226, %266 ], [ 1, %.thread51 ], [ -1, %267 ], [ %.0.i.i45, %cdf_file_catalog.exit.i ]
   ret i32 %.039
 }
 

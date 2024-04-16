@@ -1213,7 +1213,7 @@ declare i32 @cuddLinearAndSifting(ptr noundef, i32 noundef, i32 noundef) local_u
 declare i32 @cuddExact(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ddVarGroupCheck(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
+define internal noundef i32 @ddVarGroupCheck(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 328
   %5 = load ptr, ptr %4, align 8
   %6 = sext i32 %1 to i64
@@ -1224,7 +1224,7 @@ define internal i32 @ddVarGroupCheck(ptr noundef %0, i32 noundef %1, i32 noundef
   %11 = load i32, ptr %10, align 4
   %12 = tail call i32 @Cudd_bddIsVarToBeUngrouped(ptr noundef %0, i32 noundef %8) #10
   %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %13, label %50
+  br i1 %.not, label %13, label %51
 
 13:                                               ; preds = %3
   %14 = tail call i32 @Cudd_bddReadPairIndex(ptr noundef nonnull %0, i32 noundef %8) #10
@@ -1286,12 +1286,14 @@ ddIsVarHandled.exit.thread:                       ; preds = %31, %16, %ddIsVarHa
   %47 = load i32, ptr %46, align 8
   %48 = sub i32 %45, %47
   %49 = load i32, ptr @originalSize, align 4
-  %.not24 = icmp ule i32 %48, %49
-  %spec.select = zext i1 %.not24 to i32
-  br label %50
+  %.not24 = icmp ugt i32 %48, %49
+  br i1 %.not24, label %50, label %51
 
-50:                                               ; preds = %43, %13, %41, %ddIsVarHandled.exit27, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %ddIsVarHandled.exit27 ], [ 0, %41 ], [ 0, %13 ], [ %spec.select, %43 ]
+50:                                               ; preds = %ddIsVarHandled.exit27, %43, %41, %13
+  br label %51
+
+51:                                               ; preds = %43, %3, %50
+  %.0 = phi i32 [ 0, %50 ], [ 0, %3 ], [ 1, %43 ]
   ret i32 %.0
 }
 

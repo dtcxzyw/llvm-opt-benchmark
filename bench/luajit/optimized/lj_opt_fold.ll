@@ -2162,7 +2162,7 @@ entry:
   %3 = load i8, ptr %t, align 4
   %4 = and i8 %3, 31
   %cmp = icmp eq i8 %4, 10
-  br i1 %cmp, label %if.then, label %return
+  br i1 %cmp, label %if.then, label %if.end36
 
 if.then:                                          ; preds = %entry
   %ctype_state = getelementptr inbounds i8, ptr %J, i64 -344
@@ -2197,11 +2197,13 @@ ctype_raw.exit:                                   ; preds = %while.cond.i
   %and30 = and i32 %9, -134217728
   %cmp31 = icmp eq i32 %and30, 939524096
   %or.cond22 = or i1 %cmp31, %or.cond21
-  %spec.select = select i1 %or.cond22, i32 26, i32 25
+  br i1 %or.cond22, label %return, label %if.end36
+
+if.end36:                                         ; preds = %ctype_raw.exit, %entry
   br label %return
 
-return:                                           ; preds = %ctype_raw.exit, %entry
-  %.sink = phi i32 [ 25, %entry ], [ %spec.select, %ctype_raw.exit ]
+return:                                           ; preds = %ctype_raw.exit, %if.end36
+  %.sink = phi i32 [ 25, %if.end36 ], [ 26, %ctype_raw.exit ]
   %add.ptr37 = getelementptr inbounds i8, ptr %1, i64 %2
   %call38 = tail call i32 @lj_ir_kptr_(ptr noundef %J, i32 noundef %.sink, ptr noundef %add.ptr37) #11
   ret i32 %call38
@@ -3638,7 +3640,7 @@ entry:
   %0 = load i8, ptr %t, align 4
   %1 = and i8 %0, 31
   %cmp = icmp eq i8 %1, 14
-  br i1 %cmp, label %return, label %if.then
+  br i1 %cmp, label %if.end42, label %if.then
 
 if.then:                                          ; preds = %entry
   %t3 = getelementptr inbounds i8, ptr %J, i64 196
@@ -3659,11 +3661,13 @@ if.end:                                           ; preds = %if.then
 
 if.end23:                                         ; preds = %if.end
   %cmp33 = icmp eq i16 %4, %6
-  %spec.select = select i1 %cmp33, i16 %5, i16 0
+  br i1 %cmp33, label %return, label %if.end42
+
+if.end42:                                         ; preds = %if.end23, %entry
   br label %return
 
-return:                                           ; preds = %if.end, %if.end23, %entry, %if.then
-  %retval.0.shrunk = phi i16 [ 0, %if.then ], [ 0, %entry ], [ %spec.select, %if.end23 ], [ %6, %if.end ]
+return:                                           ; preds = %if.end, %if.end23, %if.then, %if.end42
+  %retval.0.shrunk = phi i16 [ 0, %if.end42 ], [ 0, %if.then ], [ %5, %if.end23 ], [ %6, %if.end ]
   %retval.0 = zext i16 %retval.0.shrunk to i32
   ret i32 %retval.0
 }
@@ -5417,13 +5421,13 @@ return:                                           ; preds = %if.end, %if.then20,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @fold_abc_invar(ptr nocapture noundef readonly %J) #6 {
+define internal noundef i32 @fold_abc_invar(ptr nocapture noundef readonly %J) #6 {
 entry:
   %t = getelementptr inbounds i8, ptr %J, i64 188
   %0 = load i8, ptr %t, align 4
   %1 = and i8 %0, 31
   %cmp = icmp eq i8 %1, 19
-  br i1 %cmp, label %return, label %land.lhs.true
+  br i1 %cmp, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
   %fold = getelementptr inbounds i8, ptr %J, i64 184
@@ -5431,7 +5435,7 @@ land.lhs.true:                                    ; preds = %entry
   %arrayidx = getelementptr inbounds i8, ptr %J, i64 436
   %3 = load i16, ptr %arrayidx, align 2
   %cmp6 = icmp ult i16 %2, %3
-  br i1 %cmp6, label %land.lhs.true8, label %return
+  br i1 %cmp6, label %land.lhs.true8, label %if.end
 
 land.lhs.true8:                                   ; preds = %land.lhs.true
   %ir = getelementptr inbounds i8, ptr %J, i64 32
@@ -5440,14 +5444,15 @@ land.lhs.true8:                                   ; preds = %land.lhs.true
   %arrayidx12 = getelementptr inbounds %union.IRIns, ptr %4, i64 %idxprom
   %t13 = getelementptr inbounds i8, ptr %arrayidx12, i64 4
   %5 = load i8, ptr %t13, align 4
-  %6 = lshr i8 %5, 4
-  %7 = and i8 %6, 4
-  %8 = xor i8 %7, 4
-  %spec.select = zext nneg i8 %8 to i32
+  %6 = and i8 %5, 64
+  %tobool.not = icmp eq i8 %6, 0
+  br i1 %tobool.not, label %return, label %if.end
+
+if.end:                                           ; preds = %land.lhs.true8, %land.lhs.true, %entry
   br label %return
 
-return:                                           ; preds = %land.lhs.true8, %entry, %land.lhs.true
-  %retval.0 = phi i32 [ 0, %land.lhs.true ], [ 0, %entry ], [ %spec.select, %land.lhs.true8 ]
+return:                                           ; preds = %land.lhs.true8, %if.end
+  %retval.0 = phi i32 [ 0, %if.end ], [ 4, %land.lhs.true8 ]
   ret i32 %retval.0
 }
 

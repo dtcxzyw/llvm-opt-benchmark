@@ -177,16 +177,18 @@ if.then:                                          ; preds = %sw.bb
 lor.lhs.false.i:                                  ; preds = %if.then
   %and2.i = and i32 %4, 2
   %tobool3.not.i = icmp eq i32 %and2.i, 0
-  br i1 %tobool3.not.i, label %sifive_uart_update_irq.exit, label %land.lhs.true.i
+  br i1 %tobool3.not.i, label %if.else.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
   %5 = load i8, ptr %rx_fifo_len, align 16
-  %tobool4.not.i = icmp ne i8 %5, 0
-  %spec.select.i = zext i1 %tobool4.not.i to i32
+  %tobool4.not.i = icmp eq i8 %5, 0
+  br i1 %tobool4.not.i, label %if.else.i, label %sifive_uart_update_irq.exit
+
+if.else.i:                                        ; preds = %land.lhs.true.i, %lor.lhs.false.i
   br label %sifive_uart_update_irq.exit
 
-sifive_uart_update_irq.exit:                      ; preds = %if.then, %lor.lhs.false.i, %land.lhs.true.i
-  %.sink5.i = phi i32 [ 1, %if.then ], [ 0, %lor.lhs.false.i ], [ %spec.select.i, %land.lhs.true.i ]
+sifive_uart_update_irq.exit:                      ; preds = %if.then, %land.lhs.true.i, %if.else.i
+  %.sink5.i = phi i32 [ 0, %if.else.i ], [ 1, %land.lhs.true.i ], [ 1, %if.then ]
   %irq7.i = getelementptr inbounds i8, ptr %opaque, i64 816
   %6 = load ptr, ptr %irq7.i, align 16
   tail call void @qemu_set_irq(ptr noundef %6, i32 noundef %.sink5.i) #8
@@ -208,13 +210,13 @@ sw.bb11:                                          ; preds = %entry
   %and2.i14 = and i32 %shr1.i, 7
   %10 = and i32 %8, 458752
   %cmp.not.i = icmp ne i32 %10, 0
-  %spec.select.i15 = zext i1 %cmp.not.i to i64
-  %rx_fifo_len.i16 = getelementptr inbounds i8, ptr %opaque, i64 1168
-  %11 = load i8, ptr %rx_fifo_len.i16, align 16
+  %spec.select.i = zext i1 %cmp.not.i to i64
+  %rx_fifo_len.i15 = getelementptr inbounds i8, ptr %opaque, i64 1168
+  %11 = load i8, ptr %rx_fifo_len.i15, align 16
   %12 = zext i8 %11 to i32
   %cmp6.i = icmp ult i32 %and2.i14, %12
-  %or9.i = or disjoint i64 %spec.select.i15, 2
-  %ret.1.i = select i1 %cmp6.i, i64 %or9.i, i64 %spec.select.i15
+  %or9.i = or disjoint i64 %spec.select.i, 2
+  %ret.1.i = select i1 %cmp6.i, i64 %or9.i, i64 %spec.select.i
   br label %return
 
 sw.bb12:                                          ; preds = %entry
@@ -237,8 +239,8 @@ sw.bb16:                                          ; preds = %entry
 
 do.body:                                          ; preds = %entry
   %16 = load i32, ptr @qemu_loglevel, align 4
-  %and.i17 = and i32 %16, 2048
-  %cmp.i.not = icmp eq i32 %and.i17, 0
+  %and.i16 = and i32 %16, 2048
+  %cmp.i.not = icmp eq i32 %and.i16, 0
   br i1 %cmp.i.not, label %return, label %if.then22
 
 if.then22:                                        ; preds = %do.body
@@ -279,17 +281,19 @@ sw.bb:                                            ; preds = %entry
 lor.lhs.false.i:                                  ; preds = %sw.bb
   %and2.i = and i32 %1, 2
   %tobool3.not.i = icmp eq i32 %and2.i, 0
-  br i1 %tobool3.not.i, label %sifive_uart_update_irq.exit, label %land.lhs.true.i
+  br i1 %tobool3.not.i, label %if.else.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
   %rx_fifo_len.i = getelementptr inbounds i8, ptr %opaque, i64 1168
   %2 = load i8, ptr %rx_fifo_len.i, align 16
-  %tobool4.not.i = icmp ne i8 %2, 0
-  %spec.select.i = zext i1 %tobool4.not.i to i32
+  %tobool4.not.i = icmp eq i8 %2, 0
+  br i1 %tobool4.not.i, label %if.else.i, label %sifive_uart_update_irq.exit
+
+if.else.i:                                        ; preds = %land.lhs.true.i, %lor.lhs.false.i
   br label %sifive_uart_update_irq.exit
 
-sifive_uart_update_irq.exit:                      ; preds = %sw.bb, %lor.lhs.false.i, %land.lhs.true.i
-  %.sink5.i = phi i32 [ 1, %sw.bb ], [ 0, %lor.lhs.false.i ], [ %spec.select.i, %land.lhs.true.i ]
+sifive_uart_update_irq.exit:                      ; preds = %sw.bb, %land.lhs.true.i, %if.else.i
+  %.sink5.i = phi i32 [ 0, %if.else.i ], [ 1, %land.lhs.true.i ], [ 1, %sw.bb ]
   %irq7.i = getelementptr inbounds i8, ptr %opaque, i64 816
   %3 = load ptr, ptr %irq7.i, align 16
   call void @qemu_set_irq(ptr noundef %3, i32 noundef %.sink5.i) #8
@@ -305,17 +309,19 @@ sw.bb2:                                           ; preds = %entry
 lor.lhs.false.i18:                                ; preds = %sw.bb2
   %and2.i19 = and i32 %conv, 2
   %tobool3.not.i20 = icmp eq i32 %and2.i19, 0
-  br i1 %tobool3.not.i20, label %sifive_uart_update_irq.exit25, label %land.lhs.true.i21
+  br i1 %tobool3.not.i20, label %if.else.i24, label %land.lhs.true.i21
 
 land.lhs.true.i21:                                ; preds = %lor.lhs.false.i18
   %rx_fifo_len.i22 = getelementptr inbounds i8, ptr %opaque, i64 1168
   %4 = load i8, ptr %rx_fifo_len.i22, align 16
-  %tobool4.not.i23 = icmp ne i8 %4, 0
-  %spec.select.i24 = zext i1 %tobool4.not.i23 to i32
+  %tobool4.not.i23 = icmp eq i8 %4, 0
+  br i1 %tobool4.not.i23, label %if.else.i24, label %sifive_uart_update_irq.exit25
+
+if.else.i24:                                      ; preds = %land.lhs.true.i21, %lor.lhs.false.i18
   br label %sifive_uart_update_irq.exit25
 
-sifive_uart_update_irq.exit25:                    ; preds = %sw.bb2, %lor.lhs.false.i18, %land.lhs.true.i21
-  %.sink5.i16 = phi i32 [ 1, %sw.bb2 ], [ 0, %lor.lhs.false.i18 ], [ %spec.select.i24, %land.lhs.true.i21 ]
+sifive_uart_update_irq.exit25:                    ; preds = %sw.bb2, %land.lhs.true.i21, %if.else.i24
+  %.sink5.i16 = phi i32 [ 0, %if.else.i24 ], [ 1, %land.lhs.true.i21 ], [ 1, %sw.bb2 ]
   %irq7.i17 = getelementptr inbounds i8, ptr %opaque, i64 816
   %5 = load ptr, ptr %irq7.i17, align 16
   tail call void @qemu_set_irq(ptr noundef %5, i32 noundef %.sink5.i16) #8
@@ -437,16 +443,18 @@ if.end:                                           ; preds = %entry
 lor.lhs.false.i:                                  ; preds = %if.end
   %and2.i = and i32 %2, 2
   %tobool3.not.i = icmp eq i32 %and2.i, 0
-  br i1 %tobool3.not.i, label %sifive_uart_update_irq.exit, label %land.lhs.true.i
+  br i1 %tobool3.not.i, label %if.else.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
   %3 = load i8, ptr %rx_fifo_len, align 16
-  %tobool4.not.i = icmp ne i8 %3, 0
-  %spec.select.i = zext i1 %tobool4.not.i to i32
+  %tobool4.not.i = icmp eq i8 %3, 0
+  br i1 %tobool4.not.i, label %if.else.i, label %sifive_uart_update_irq.exit
+
+if.else.i:                                        ; preds = %land.lhs.true.i, %lor.lhs.false.i
   br label %sifive_uart_update_irq.exit
 
-sifive_uart_update_irq.exit:                      ; preds = %if.end, %lor.lhs.false.i, %land.lhs.true.i
-  %.sink5.i = phi i32 [ 1, %if.end ], [ 0, %lor.lhs.false.i ], [ %spec.select.i, %land.lhs.true.i ]
+sifive_uart_update_irq.exit:                      ; preds = %if.end, %land.lhs.true.i, %if.else.i
+  %.sink5.i = phi i32 [ 0, %if.else.i ], [ 1, %land.lhs.true.i ], [ 1, %if.end ]
   %irq7.i = getelementptr inbounds i8, ptr %opaque, i64 816
   %4 = load ptr, ptr %irq7.i, align 16
   tail call void @qemu_set_irq(ptr noundef %4, i32 noundef %.sink5.i) #8

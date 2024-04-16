@@ -763,25 +763,27 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @nghttp2_session_callbacks_set_on_stream_close_callback(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @on_stream_close_callback(ptr noundef %session, i32 noundef %stream_id, i32 noundef %error_code, ptr nocapture noundef readonly %user_data) #0 {
+define internal noundef i32 @on_stream_close_callback(ptr noundef %session, i32 noundef %stream_id, i32 noundef %error_code, ptr nocapture noundef readonly %user_data) #0 {
 entry:
   %stream_data = getelementptr inbounds i8, ptr %user_data, i64 24
   %0 = load ptr, ptr %stream_data, align 8
   %stream_id1 = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load i32, ptr %stream_id1, align 8
   %cmp = icmp eq i32 %1, %stream_id
-  br i1 %cmp, label %if.then, label %return
+  br i1 %cmp, label %if.then, label %if.end5
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr @stderr, align 8
   %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.16, i32 noundef %stream_id, i32 noundef %error_code) #17
   %call2 = tail call i32 @nghttp2_session_terminate_session(ptr noundef %session, i32 noundef 0) #19
   %cmp3.not = icmp eq i32 %call2, 0
-  %spec.select = select i1 %cmp3.not, i32 0, i32 -902
+  br i1 %cmp3.not, label %if.end5, label %return
+
+if.end5:                                          ; preds = %if.then, %entry
   br label %return
 
-return:                                           ; preds = %if.then, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ %spec.select, %if.then ]
+return:                                           ; preds = %if.then, %if.end5
+  %retval.0 = phi i32 [ 0, %if.end5 ], [ -902, %if.then ]
   ret i32 %retval.0
 }
 

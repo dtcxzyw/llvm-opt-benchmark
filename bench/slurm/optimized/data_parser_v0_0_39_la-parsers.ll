@@ -3715,10 +3715,10 @@ define internal noundef i32 @_v39_dump_USER_ID(ptr nocapture readnone %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_v39_parse_USER_ID(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal noundef i32 @_v39_parse_USER_ID(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = tail call i32 @data_get_type(ptr noundef %2) #16
   %7 = icmp eq i32 %6, 1
-  br i1 %7, label %14, label %8
+  br i1 %7, label %15, label %8
 
 8:                                                ; preds = %5
   %9 = tail call i32 @data_convert_type(ptr noundef %2, i32 noundef 5) #16
@@ -3729,11 +3729,13 @@ define internal i32 @_v39_parse_USER_ID(ptr nocapture readnone %0, ptr noundef %
   %12 = tail call ptr @data_get_string(ptr noundef %2) #16
   %13 = tail call i32 @uid_from_string(ptr noundef %12, ptr noundef %1) #16
   %.not = icmp eq i32 %13, 0
-  %spec.select = select i1 %.not, i32 0, i32 9001
-  br label %14
+  br i1 %.not, label %15, label %14
 
-14:                                               ; preds = %11, %8, %5
-  %.0 = phi i32 [ 9001, %5 ], [ 9001, %8 ], [ %spec.select, %11 ]
+14:                                               ; preds = %8, %11
+  br label %15
+
+15:                                               ; preds = %11, %5, %14
+  %.0 = phi i32 [ 9001, %14 ], [ 9001, %5 ], [ 0, %11 ]
   ret i32 %.0
 }
 

@@ -2528,7 +2528,7 @@ Vec_IntTwoCountCommon.exit.us:                    ; preds = %96, %65
   %112 = load i32, ptr %111, align 4
   %113 = tail call noundef i32 @llvm.smax.i32(i32 %110, i32 %112)
   %114 = icmp slt i32 %.168117.us, %.0.lcssa.i.us
-  br i1 %114, label %119, label %115
+  br i1 %114, label %118, label %115
 
 115:                                              ; preds = %108
   %116 = icmp eq i32 %.168117.us, %.0.lcssa.i.us
@@ -2536,14 +2536,14 @@ Vec_IntTwoCountCommon.exit.us:                    ; preds = %96, %65
   %or.cond.us = select i1 %116, i1 %117, i1 false
   br i1 %or.cond.us, label %118, label %119
 
-118:                                              ; preds = %115
+118:                                              ; preds = %115, %108
   br label %119
 
-119:                                              ; preds = %118, %115, %108, %Vec_IntTwoCountCommon.exit.us, %61
-  %.279.us = phi ptr [ %.178114.us, %61 ], [ %.178114.us, %Vec_IntTwoCountCommon.exit.us ], [ %.178114.us, %115 ], [ %63, %108 ], [ %63, %118 ]
-  %.272.us = phi ptr [ %.171116.us, %61 ], [ %.171116.us, %Vec_IntTwoCountCommon.exit.us ], [ %.171116.us, %115 ], [ %58, %108 ], [ %58, %118 ]
-  %.269.us = phi i32 [ %.168117.us, %61 ], [ %.168117.us, %Vec_IntTwoCountCommon.exit.us ], [ %.168117.us, %115 ], [ %.0.lcssa.i.us, %108 ], [ %.168117.us, %118 ]
-  %.2.us = phi i32 [ %.1118.us, %61 ], [ %.1118.us, %Vec_IntTwoCountCommon.exit.us ], [ %.1118.us, %115 ], [ %113, %108 ], [ %113, %118 ]
+119:                                              ; preds = %118, %115, %Vec_IntTwoCountCommon.exit.us, %61
+  %.279.us = phi ptr [ %.178114.us, %61 ], [ %.178114.us, %Vec_IntTwoCountCommon.exit.us ], [ %63, %118 ], [ %.178114.us, %115 ]
+  %.272.us = phi ptr [ %.171116.us, %61 ], [ %.171116.us, %Vec_IntTwoCountCommon.exit.us ], [ %58, %118 ], [ %.171116.us, %115 ]
+  %.269.us = phi i32 [ %.168117.us, %61 ], [ %.168117.us, %Vec_IntTwoCountCommon.exit.us ], [ %.0.lcssa.i.us, %118 ], [ %.168117.us, %115 ]
+  %.2.us = phi i32 [ %.1118.us, %61 ], [ %.1118.us, %Vec_IntTwoCountCommon.exit.us ], [ %113, %118 ], [ %.1118.us, %115 ]
   %120 = icmp sgt i64 %indvars.iv141, 1
   br i1 %120, label %61, label %..critedge6.loopexit_crit_edge.us, !llvm.loop !43
 

@@ -16825,13 +16825,13 @@ define void @ImageDraw(ptr nocapture noundef readonly %0, ptr nocapture noundef 
   %11 = icmp eq ptr %10, null
   %.0187.sroa.gep192 = getelementptr inbounds i8, ptr %8, i64 8
   %.0187.sroa.gep193 = getelementptr inbounds i8, ptr %1, i64 8
-  br i1 %11, label %186, label %12
+  br i1 %11, label %187, label %12
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %186, label %16
+  br i1 %15, label %187, label %16
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds i8, ptr %0, i64 12
@@ -16847,7 +16847,7 @@ define void @ImageDraw(ptr nocapture noundef readonly %0, ptr nocapture noundef 
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, 0
   %or.cond8 = select i1 %or.cond5, i1 true, i1 %26
-  br i1 %or.cond8, label %186, label %27
+  br i1 %or.cond8, label %187, label %27
 
 27:                                               ; preds = %16
   %28 = getelementptr inbounds i8, ptr %0, i64 16
@@ -16867,7 +16867,7 @@ define void @ImageDraw(ptr nocapture noundef readonly %0, ptr nocapture noundef 
 
 36:                                               ; preds = %32
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.64) #49
-  br label %186
+  br label %187
 
 37:                                               ; preds = %32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
@@ -17022,223 +17022,223 @@ define void @ImageDraw(ptr nocapture noundef readonly %0, ptr nocapture noundef 
   %.sroa.20.12.vec.insert177 = insertelement <2 x float> %.sroa.20.7, float %.pre-phi, i64 1
   %.sroa.20.8 = select i1 %97, <2 x float> %.sroa.20.12.vec.insert177, <2 x float> %.sroa.20.7
   %98 = icmp ugt i32 %6, -16777217
-  br i1 %98, label %99, label %switch.edge
+  br i1 %98, label %99, label %102
 
 99:                                               ; preds = %93
   %100 = load i32, ptr %.0187.sroa.phi200.sroa.phi, align 4
   %101 = icmp ult i32 %100, 5
-  br i1 %101, label %switch.lookup, label %switch.edge
+  br i1 %101, label %switch.lookup, label %102
 
 switch.lookup:                                    ; preds = %99
   %switch.cast = trunc nuw i32 %100 to i5
   %switch.downshift = lshr i5 5, %switch.cast
   %switch.masked = trunc i5 %switch.downshift to i1
-  br label %switch.edge
+  br label %102
 
-switch.edge:                                      ; preds = %99, %switch.lookup, %93
-  %.0189 = phi i1 [ true, %93 ], [ %switch.masked, %switch.lookup ], [ true, %99 ]
-  %102 = load i32, ptr %33, align 4
-  %switch.tableidx = add i32 %102, -1
-  %103 = icmp ult i32 %switch.tableidx, 24
-  br i1 %103, label %switch.lookup279, label %105
+102:                                              ; preds = %switch.lookup, %99, %93
+  %.0189 = phi i1 [ true, %93 ], [ true, %99 ], [ %switch.masked, %switch.lookup ]
+  %103 = load i32, ptr %33, align 4
+  %switch.tableidx = add i32 %103, -1
+  %104 = icmp ult i32 %switch.tableidx, 24
+  br i1 %104, label %switch.lookup279, label %106
 
-switch.lookup279:                                 ; preds = %switch.edge
-  %104 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [24 x i32], ptr @switch.table.ImageDraw.27, i64 0, i64 %104
+switch.lookup279:                                 ; preds = %102
+  %105 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [24 x i32], ptr @switch.table.ImageDraw.27, i64 0, i64 %105
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %105
+  br label %106
 
-105:                                              ; preds = %switch.lookup279, %switch.edge
-  %.0.i = phi i32 [ 0, %switch.edge ], [ %switch.load, %switch.lookup279 ]
-  %106 = mul nsw i32 %.0.i, %94
-  %107 = sdiv i32 %106, 8
-  %108 = icmp slt i32 %94, 4
-  br i1 %108, label %109, label %GetPixelDataSize.exit
+106:                                              ; preds = %switch.lookup279, %102
+  %.0.i = phi i32 [ 0, %102 ], [ %switch.load, %switch.lookup279 ]
+  %107 = mul nsw i32 %.0.i, %94
+  %108 = sdiv i32 %107, 8
+  %109 = icmp slt i32 %94, 4
+  br i1 %109, label %110, label %GetPixelDataSize.exit
 
-109:                                              ; preds = %105
-  %110 = and i32 %102, -2
-  %or.cond3.i = icmp eq i32 %110, 14
-  br i1 %or.cond3.i, label %GetPixelDataSize.exit, label %111
+110:                                              ; preds = %106
+  %111 = and i32 %103, -2
+  %or.cond3.i = icmp eq i32 %111, 14
+  br i1 %or.cond3.i, label %GetPixelDataSize.exit, label %112
 
-111:                                              ; preds = %109
-  %112 = and i32 %102, -8
-  %or.cond5.i = icmp eq i32 %112, 16
-  %spec.select.i = select i1 %or.cond5.i, i32 16, i32 %107
+112:                                              ; preds = %110
+  %113 = and i32 %103, -8
+  %or.cond5.i = icmp eq i32 %113, 16
+  %spec.select.i = select i1 %or.cond5.i, i32 16, i32 %108
   br label %GetPixelDataSize.exit
 
-GetPixelDataSize.exit:                            ; preds = %105, %109, %111
-  %.016.i = phi i32 [ %107, %105 ], [ 8, %109 ], [ %spec.select.i, %111 ]
-  %113 = sdiv i32 %.016.i, %94
-  %114 = load i32, ptr %.0187.sroa.phi200.sroa.phi, align 4
-  %switch.tableidx281 = add i32 %114, -1
-  %115 = icmp ult i32 %switch.tableidx281, 24
-  br i1 %115, label %switch.lookup280, label %117
+GetPixelDataSize.exit:                            ; preds = %106, %110, %112
+  %.016.i = phi i32 [ %108, %106 ], [ 8, %110 ], [ %spec.select.i, %112 ]
+  %114 = sdiv i32 %.016.i, %94
+  %115 = load i32, ptr %.0187.sroa.phi200.sroa.phi, align 4
+  %switch.tableidx281 = add i32 %115, -1
+  %116 = icmp ult i32 %switch.tableidx281, 24
+  br i1 %116, label %switch.lookup280, label %118
 
 switch.lookup280:                                 ; preds = %GetPixelDataSize.exit
-  %116 = zext nneg i32 %switch.tableidx281 to i64
-  %switch.gep282 = getelementptr inbounds [24 x i32], ptr @switch.table.ImageDraw.27, i64 0, i64 %116
+  %117 = zext nneg i32 %switch.tableidx281 to i64
+  %switch.gep282 = getelementptr inbounds [24 x i32], ptr @switch.table.ImageDraw.27, i64 0, i64 %117
   %switch.load283 = load i32, ptr %switch.gep282, align 4
-  br label %117
+  br label %118
 
-117:                                              ; preds = %switch.lookup280, %GetPixelDataSize.exit
+118:                                              ; preds = %switch.lookup280, %GetPixelDataSize.exit
   %.0.i225 = phi i32 [ 0, %GetPixelDataSize.exit ], [ %switch.load283, %switch.lookup280 ]
-  %118 = mul nsw i32 %.0.i225, %67
-  %119 = sdiv i32 %118, 8
-  %120 = icmp slt i32 %67, 4
-  br i1 %120, label %121, label %GetPixelDataSize.exit230
+  %119 = mul nsw i32 %.0.i225, %67
+  %120 = sdiv i32 %119, 8
+  %121 = icmp slt i32 %67, 4
+  br i1 %121, label %122, label %GetPixelDataSize.exit230
 
-121:                                              ; preds = %117
-  %122 = and i32 %114, -2
-  %or.cond3.i227 = icmp eq i32 %122, 14
-  br i1 %or.cond3.i227, label %GetPixelDataSize.exit230, label %123
+122:                                              ; preds = %118
+  %123 = and i32 %115, -2
+  %or.cond3.i227 = icmp eq i32 %123, 14
+  br i1 %or.cond3.i227, label %GetPixelDataSize.exit230, label %124
 
-123:                                              ; preds = %121
-  %124 = and i32 %114, -8
-  %or.cond5.i228 = icmp eq i32 %124, 16
-  %spec.select.i229 = select i1 %or.cond5.i228, i32 16, i32 %119
+124:                                              ; preds = %122
+  %125 = and i32 %115, -8
+  %or.cond5.i228 = icmp eq i32 %125, 16
+  %spec.select.i229 = select i1 %or.cond5.i228, i32 16, i32 %120
   br label %GetPixelDataSize.exit230
 
-GetPixelDataSize.exit230:                         ; preds = %117, %121, %123
-  %.016.i226 = phi i32 [ %119, %117 ], [ 8, %121 ], [ %spec.select.i229, %123 ]
-  %125 = sdiv i32 %.016.i226, %67
-  %126 = load ptr, ptr %.0187.sroa.phi200, align 8
+GetPixelDataSize.exit230:                         ; preds = %118, %122, %124
+  %.016.i226 = phi i32 [ %120, %118 ], [ 8, %122 ], [ %spec.select.i229, %124 ]
+  %126 = sdiv i32 %.016.i226, %67
+  %127 = load ptr, ptr %.0187.sroa.phi200, align 8
   %.sroa.0101.4.vec.extract130 = extractelement <2 x float> %.sroa.0101.4, i64 1
-  %127 = fptosi float %.sroa.0101.4.vec.extract130 to i32
-  %128 = mul nsw i32 %67, %127
+  %128 = fptosi float %.sroa.0101.4.vec.extract130 to i32
+  %129 = mul nsw i32 %67, %128
   %.sroa.0101.0.vec.extract115 = extractelement <2 x float> %.sroa.0101.4, i64 0
-  %129 = fptosi float %.sroa.0101.0.vec.extract115 to i32
-  %130 = add nsw i32 %128, %129
-  %131 = mul nsw i32 %125, %130
-  %132 = sext i32 %131 to i64
-  %133 = getelementptr inbounds i8, ptr %126, i64 %132
-  %134 = load ptr, ptr %0, align 8
+  %130 = fptosi float %.sroa.0101.0.vec.extract115 to i32
+  %131 = add nsw i32 %129, %130
+  %132 = mul nsw i32 %126, %131
+  %133 = sext i32 %132 to i64
+  %134 = getelementptr inbounds i8, ptr %127, i64 %133
+  %135 = load ptr, ptr %0, align 8
   %.sroa.074.4.vec.extract96 = extractelement <2 x float> %.sroa.074.1, i64 1
-  %135 = fptosi float %.sroa.074.4.vec.extract96 to i32
-  %136 = mul nsw i32 %94, %135
+  %136 = fptosi float %.sroa.074.4.vec.extract96 to i32
+  %137 = mul nsw i32 %94, %136
   %.sroa.074.0.vec.extract85 = extractelement <2 x float> %.sroa.074.1, i64 0
-  %137 = fptosi float %.sroa.074.0.vec.extract85 to i32
-  %138 = add nsw i32 %136, %137
-  %139 = mul nsw i32 %113, %138
-  %140 = sext i32 %139 to i64
-  %141 = getelementptr inbounds i8, ptr %134, i64 %140
+  %138 = fptosi float %.sroa.074.0.vec.extract85 to i32
+  %139 = add nsw i32 %137, %138
+  %140 = mul nsw i32 %114, %139
+  %141 = sext i32 %140 to i64
+  %142 = getelementptr inbounds i8, ptr %135, i64 %141
   %.sroa.20.12.vec.extract179 = extractelement <2 x float> %.sroa.20.8, i64 1
-  %142 = fptosi float %.sroa.20.12.vec.extract179 to i32
-  %143 = icmp sgt i32 %142, 0
-  br i1 %143, label %.lr.ph242, label %._crit_edge
+  %143 = fptosi float %.sroa.20.12.vec.extract179 to i32
+  %144 = icmp sgt i32 %143, 0
+  br i1 %144, label %.lr.ph242, label %._crit_edge
 
 .lr.ph242:                                        ; preds = %GetPixelDataSize.exit230
   %.sroa.20.8.vec.extract154 = extractelement <2 x float> %.sroa.20.8, i64 0
-  %144 = fptosi float %.sroa.20.8.vec.extract154 to i32
-  %.fr256 = freeze i32 %144
-  %145 = mul nsw i32 %125, %.fr256
-  %146 = sext i32 %145 to i64
-  %147 = icmp sgt i32 %.fr256, 0
-  %148 = sext i32 %113 to i64
-  %149 = sext i32 %125 to i64
-  %150 = sext i32 %.016.i226 to i64
-  %151 = sext i32 %.016.i to i64
-  br i1 %147, label %.lr.ph242.split.us, label %.lr.ph242.split
+  %145 = fptosi float %.sroa.20.8.vec.extract154 to i32
+  %.fr256 = freeze i32 %145
+  %146 = mul nsw i32 %126, %.fr256
+  %147 = sext i32 %146 to i64
+  %148 = icmp sgt i32 %.fr256, 0
+  %149 = sext i32 %114 to i64
+  %150 = sext i32 %126 to i64
+  %151 = sext i32 %.016.i226 to i64
+  %152 = sext i32 %.016.i to i64
+  br i1 %148, label %.lr.ph242.split.us, label %.lr.ph242.split
 
 .lr.ph242.split.us:                               ; preds = %.lr.ph242
   br i1 %.0189, label %.lr.ph.us.us, label %.lr.ph242.split.us.split
 
 .lr.ph.us.us:                                     ; preds = %.lr.ph242.split.us, %..loopexit_crit_edge.split.us.us.us
-  %.0184241.us.us = phi i32 [ %163, %..loopexit_crit_edge.split.us.us.us ], [ 0, %.lr.ph242.split.us ]
-  %.0185238.us.us = phi ptr [ %162, %..loopexit_crit_edge.split.us.us.us ], [ %141, %.lr.ph242.split.us ]
-  %.0186235.us.us = phi ptr [ %161, %..loopexit_crit_edge.split.us.us.us ], [ %133, %.lr.ph242.split.us ]
-  br label %152
+  %.0184241.us.us = phi i32 [ %164, %..loopexit_crit_edge.split.us.us.us ], [ 0, %.lr.ph242.split.us ]
+  %.0185238.us.us = phi ptr [ %163, %..loopexit_crit_edge.split.us.us.us ], [ %142, %.lr.ph242.split.us ]
+  %.0186235.us.us = phi ptr [ %162, %..loopexit_crit_edge.split.us.us.us ], [ %134, %.lr.ph242.split.us ]
+  br label %153
 
-152:                                              ; preds = %152, %.lr.ph.us.us
-  %.0234.us.us.us = phi i32 [ 0, %.lr.ph.us.us ], [ %160, %152 ]
-  %.0182233.us.us.us = phi ptr [ %.0185238.us.us, %.lr.ph.us.us ], [ %158, %152 ]
-  %.0183232.us.us.us = phi ptr [ %.0186235.us.us, %.lr.ph.us.us ], [ %159, %152 ]
-  %153 = load i32, ptr %.0187.sroa.phi200.sroa.phi, align 4
-  %154 = call i32 @GetPixelColor(ptr noundef %.0183232.us.us.us, i32 noundef %153)
-  %155 = load i32, ptr %33, align 4
-  %156 = call i32 @GetPixelColor(ptr noundef %.0182233.us.us.us, i32 noundef %155)
-  %157 = call i32 @ColorAlphaBlend(i32 %156, i32 %154, i32 %6)
-  call void @SetPixelColor(ptr noundef %.0182233.us.us.us, i32 %157, i32 noundef %155)
-  %158 = getelementptr inbounds i8, ptr %.0182233.us.us.us, i64 %148
-  %159 = getelementptr inbounds i8, ptr %.0183232.us.us.us, i64 %149
-  %160 = add nuw nsw i32 %.0234.us.us.us, 1
-  %exitcond263.not = icmp eq i32 %160, %.fr256
-  br i1 %exitcond263.not, label %..loopexit_crit_edge.split.us.us.us, label %152
+153:                                              ; preds = %153, %.lr.ph.us.us
+  %.0234.us.us.us = phi i32 [ 0, %.lr.ph.us.us ], [ %161, %153 ]
+  %.0182233.us.us.us = phi ptr [ %.0185238.us.us, %.lr.ph.us.us ], [ %159, %153 ]
+  %.0183232.us.us.us = phi ptr [ %.0186235.us.us, %.lr.ph.us.us ], [ %160, %153 ]
+  %154 = load i32, ptr %.0187.sroa.phi200.sroa.phi, align 4
+  %155 = call i32 @GetPixelColor(ptr noundef %.0183232.us.us.us, i32 noundef %154)
+  %156 = load i32, ptr %33, align 4
+  %157 = call i32 @GetPixelColor(ptr noundef %.0182233.us.us.us, i32 noundef %156)
+  %158 = call i32 @ColorAlphaBlend(i32 %157, i32 %155, i32 %6)
+  call void @SetPixelColor(ptr noundef %.0182233.us.us.us, i32 %158, i32 noundef %156)
+  %159 = getelementptr inbounds i8, ptr %.0182233.us.us.us, i64 %149
+  %160 = getelementptr inbounds i8, ptr %.0183232.us.us.us, i64 %150
+  %161 = add nuw nsw i32 %.0234.us.us.us, 1
+  %exitcond263.not = icmp eq i32 %161, %.fr256
+  br i1 %exitcond263.not, label %..loopexit_crit_edge.split.us.us.us, label %153
 
-..loopexit_crit_edge.split.us.us.us:              ; preds = %152
-  %161 = getelementptr inbounds i8, ptr %.0186235.us.us, i64 %150
-  %162 = getelementptr inbounds i8, ptr %.0185238.us.us, i64 %151
-  %163 = add nuw nsw i32 %.0184241.us.us, 1
-  %exitcond264.not = icmp eq i32 %163, %142
+..loopexit_crit_edge.split.us.us.us:              ; preds = %153
+  %162 = getelementptr inbounds i8, ptr %.0186235.us.us, i64 %151
+  %163 = getelementptr inbounds i8, ptr %.0185238.us.us, i64 %152
+  %164 = add nuw nsw i32 %.0184241.us.us, 1
+  %exitcond264.not = icmp eq i32 %164, %143
   br i1 %exitcond264.not, label %._crit_edge, label %.lr.ph.us.us
 
 .lr.ph242.split.us.split:                         ; preds = %.lr.ph242.split.us, %..loopexit_crit_edge.split.us246
-  %.0184241.us = phi i32 [ %170, %..loopexit_crit_edge.split.us246 ], [ 0, %.lr.ph242.split.us ]
-  %.0185238.us = phi ptr [ %169, %..loopexit_crit_edge.split.us246 ], [ %141, %.lr.ph242.split.us ]
-  %.0186235.us = phi ptr [ %168, %..loopexit_crit_edge.split.us246 ], [ %133, %.lr.ph242.split.us ]
-  %164 = load i32, ptr %.0187.sroa.phi200.sroa.phi, align 4
-  %165 = load i32, ptr %33, align 4
-  %166 = icmp eq i32 %164, %165
-  br i1 %166, label %167, label %.lr.ph.us
+  %.0184241.us = phi i32 [ %171, %..loopexit_crit_edge.split.us246 ], [ 0, %.lr.ph242.split.us ]
+  %.0185238.us = phi ptr [ %170, %..loopexit_crit_edge.split.us246 ], [ %142, %.lr.ph242.split.us ]
+  %.0186235.us = phi ptr [ %169, %..loopexit_crit_edge.split.us246 ], [ %134, %.lr.ph242.split.us ]
+  %165 = load i32, ptr %.0187.sroa.phi200.sroa.phi, align 4
+  %166 = load i32, ptr %33, align 4
+  %167 = icmp eq i32 %165, %166
+  br i1 %167, label %168, label %.lr.ph.us
 
-167:                                              ; preds = %.lr.ph242.split.us.split
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0185238.us, ptr align 1 %.0186235.us, i64 %146, i1 false)
+168:                                              ; preds = %.lr.ph242.split.us.split
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0185238.us, ptr align 1 %.0186235.us, i64 %147, i1 false)
   br label %..loopexit_crit_edge.split.us246
 
-..loopexit_crit_edge.split.us246:                 ; preds = %.lr.ph.us, %167
-  %168 = getelementptr inbounds i8, ptr %.0186235.us, i64 %150
-  %169 = getelementptr inbounds i8, ptr %.0185238.us, i64 %151
-  %170 = add nuw nsw i32 %.0184241.us, 1
-  %exitcond262.not = icmp eq i32 %170, %142
+..loopexit_crit_edge.split.us246:                 ; preds = %.lr.ph.us, %168
+  %169 = getelementptr inbounds i8, ptr %.0186235.us, i64 %151
+  %170 = getelementptr inbounds i8, ptr %.0185238.us, i64 %152
+  %171 = add nuw nsw i32 %.0184241.us, 1
+  %exitcond262.not = icmp eq i32 %171, %143
   br i1 %exitcond262.not, label %._crit_edge, label %.lr.ph242.split.us.split
 
 .lr.ph.us:                                        ; preds = %.lr.ph242.split.us.split, %.lr.ph.us
-  %.0234.us243 = phi i32 [ %176, %.lr.ph.us ], [ 0, %.lr.ph242.split.us.split ]
-  %.0182233.us244 = phi ptr [ %174, %.lr.ph.us ], [ %.0185238.us, %.lr.ph242.split.us.split ]
-  %.0183232.us245 = phi ptr [ %175, %.lr.ph.us ], [ %.0186235.us, %.lr.ph242.split.us.split ]
-  %171 = load i32, ptr %.0187.sroa.phi200.sroa.phi, align 4
-  %172 = call i32 @GetPixelColor(ptr noundef %.0183232.us245, i32 noundef %171)
-  %173 = load i32, ptr %33, align 4
-  call void @SetPixelColor(ptr noundef %.0182233.us244, i32 %172, i32 noundef %173)
-  %174 = getelementptr inbounds i8, ptr %.0182233.us244, i64 %148
-  %175 = getelementptr inbounds i8, ptr %.0183232.us245, i64 %149
-  %176 = add nuw nsw i32 %.0234.us243, 1
-  %exitcond261.not = icmp eq i32 %176, %.fr256
+  %.0234.us243 = phi i32 [ %177, %.lr.ph.us ], [ 0, %.lr.ph242.split.us.split ]
+  %.0182233.us244 = phi ptr [ %175, %.lr.ph.us ], [ %.0185238.us, %.lr.ph242.split.us.split ]
+  %.0183232.us245 = phi ptr [ %176, %.lr.ph.us ], [ %.0186235.us, %.lr.ph242.split.us.split ]
+  %172 = load i32, ptr %.0187.sroa.phi200.sroa.phi, align 4
+  %173 = call i32 @GetPixelColor(ptr noundef %.0183232.us245, i32 noundef %172)
+  %174 = load i32, ptr %33, align 4
+  call void @SetPixelColor(ptr noundef %.0182233.us244, i32 %173, i32 noundef %174)
+  %175 = getelementptr inbounds i8, ptr %.0182233.us244, i64 %149
+  %176 = getelementptr inbounds i8, ptr %.0183232.us245, i64 %150
+  %177 = add nuw nsw i32 %.0234.us243, 1
+  %exitcond261.not = icmp eq i32 %177, %.fr256
   br i1 %exitcond261.not, label %..loopexit_crit_edge.split.us246, label %.lr.ph.us
 
 .lr.ph242.split:                                  ; preds = %.lr.ph242
-  %177 = icmp ne i32 %114, %102
-  %or.cond275.not = or i1 %177, %.0189
+  %178 = icmp ne i32 %115, %103
+  %or.cond275.not = or i1 %178, %.0189
   br i1 %or.cond275.not, label %._crit_edge, label %.lr.ph242.split.split.split
 
 .lr.ph242.split.split.split:                      ; preds = %.lr.ph242.split, %.loopexit
-  %.0184241 = phi i32 [ %184, %.loopexit ], [ 0, %.lr.ph242.split ]
-  %.0185238 = phi ptr [ %183, %.loopexit ], [ %141, %.lr.ph242.split ]
-  %.0186235 = phi ptr [ %182, %.loopexit ], [ %133, %.lr.ph242.split ]
-  %178 = load i32, ptr %.0187.sroa.phi200.sroa.phi, align 4
-  %179 = load i32, ptr %33, align 4
-  %180 = icmp eq i32 %178, %179
-  br i1 %180, label %181, label %.loopexit
+  %.0184241 = phi i32 [ %185, %.loopexit ], [ 0, %.lr.ph242.split ]
+  %.0185238 = phi ptr [ %184, %.loopexit ], [ %142, %.lr.ph242.split ]
+  %.0186235 = phi ptr [ %183, %.loopexit ], [ %134, %.lr.ph242.split ]
+  %179 = load i32, ptr %.0187.sroa.phi200.sroa.phi, align 4
+  %180 = load i32, ptr %33, align 4
+  %181 = icmp eq i32 %179, %180
+  br i1 %181, label %182, label %.loopexit
 
-181:                                              ; preds = %.lr.ph242.split.split.split
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0185238, ptr align 1 %.0186235, i64 %146, i1 false)
+182:                                              ; preds = %.lr.ph242.split.split.split
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0185238, ptr align 1 %.0186235, i64 %147, i1 false)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph242.split.split.split, %181
-  %182 = getelementptr inbounds i8, ptr %.0186235, i64 %150
-  %183 = getelementptr inbounds i8, ptr %.0185238, i64 %151
-  %184 = add nuw nsw i32 %.0184241, 1
-  %exitcond.not = icmp eq i32 %184, %142
+.loopexit:                                        ; preds = %.lr.ph242.split.split.split, %182
+  %183 = getelementptr inbounds i8, ptr %.0186235, i64 %151
+  %184 = getelementptr inbounds i8, ptr %.0185238, i64 %152
+  %185 = add nuw nsw i32 %.0184241, 1
+  %exitcond.not = icmp eq i32 %185, %143
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph242.split.split.split, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.loopexit, %..loopexit_crit_edge.split.us246, %..loopexit_crit_edge.split.us.us.us, %.lr.ph242.split, %GetPixelDataSize.exit230
-  br i1 %.0188, label %185, label %186
+  br i1 %.0188, label %186, label %187
 
-185:                                              ; preds = %._crit_edge
+186:                                              ; preds = %._crit_edge
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8
   call void @free(ptr noundef %.sroa.0.0.copyload) #49
-  br label %186
+  br label %187
 
-186:                                              ; preds = %._crit_edge, %185, %7, %12, %16, %36
+187:                                              ; preds = %._crit_edge, %186, %7, %12, %16, %36
   ret void
 }
 
@@ -28497,21 +28497,21 @@ define internal fastcc noundef i32 @stbi__expand_png_palette(ptr nocapture nound
 
 12:                                               ; preds = %3
   %13 = icmp eq i32 %2, 0
-  br i1 %13, label %stbi__malloc_mad2.exit, label %stbi__mad2sizes_valid.exit.i
+  br i1 %13, label %stbi__malloc_mad2.exit, label %stbi__mul2sizes_valid.exit.i.i
 
-stbi__mad2sizes_valid.exit.i:                     ; preds = %12
+stbi__mul2sizes_valid.exit.i.i:                   ; preds = %12
   %14 = udiv i32 2147483647, %2
-  %.not10.i.not.i = icmp slt i32 %14, %8
-  br i1 %.not10.i.not.i, label %stbi__malloc_mad2.exit.thread, label %stbi__malloc_mad2.exit
+  %.not10.i.i = icmp slt i32 %14, %8
+  br i1 %.not10.i.i, label %stbi__malloc_mad2.exit.thread, label %stbi__malloc_mad2.exit
 
-stbi__malloc_mad2.exit:                           ; preds = %12, %stbi__mad2sizes_valid.exit.i
+stbi__malloc_mad2.exit:                           ; preds = %12, %stbi__mul2sizes_valid.exit.i.i
   %15 = mul nsw i32 %8, %2
   %16 = sext i32 %15 to i64
   %17 = tail call noalias noundef ptr @malloc(i64 noundef %16) #50
   %18 = icmp eq ptr %17, null
   br i1 %18, label %stbi__malloc_mad2.exit.thread, label %19
 
-stbi__malloc_mad2.exit.thread:                    ; preds = %3, %stbi__mad2sizes_valid.exit.i, %stbi__malloc_mad2.exit
+stbi__malloc_mad2.exit.thread:                    ; preds = %3, %stbi__mul2sizes_valid.exit.i.i, %stbi__malloc_mad2.exit
   store ptr @.str.93, ptr @stbi__g_failure_reason, align 8
   br label %46
 
@@ -33978,7 +33978,7 @@ define internal fastcc void @stbir__set_sampler(ptr nocapture noundef %0, i32 no
 
 14:                                               ; preds = %10
   %15 = fcmp ugt float %12, 1.000000e+00
-  br i1 %15, label %30, label %16
+  br i1 %15, label %29, label %16
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds i8, ptr %5, i64 16
@@ -33995,11 +33995,11 @@ define internal fastcc void @stbir__set_sampler(ptr nocapture noundef %0, i32 no
   %28 = fcmp oeq float %27, %18
   br i1 %28, label %30, label %29
 
-29:                                               ; preds = %16
+29:                                               ; preds = %16, %14
   br label %30
 
-30:                                               ; preds = %14, %16, %10, %29, %8
-  %.0 = phi i32 [ 5, %10 ], [ %1, %8 ], [ 6, %16 ], [ 4, %14 ], [ 4, %29 ]
+30:                                               ; preds = %16, %10, %29, %8
+  %.0 = phi i32 [ 4, %29 ], [ 5, %10 ], [ %1, %8 ], [ 6, %16 ]
   %31 = getelementptr inbounds i8, ptr %0, i64 68
   store i32 %.0, ptr %31, align 4
   %32 = zext i32 %.0 to i64

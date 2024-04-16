@@ -123,7 +123,7 @@ define dso_local i32 @nf_conntrack_tcp_packet(ptr noundef %0, ptr noundef %1, i3
 21:                                               ; preds = %19
   %22 = call i32 @skb_copy_bits(ptr noundef nonnull %1, i32 noundef %2, ptr noundef nonnull %7, i32 noundef 20) #11
   %23 = icmp slt i32 %22, 0
-  br i1 %23, label %.thread, label %.thread25, !prof !6
+  br i1 %23, label %.thread, label %.thread24, !prof !6
 
 24:                                               ; preds = %5
   %25 = getelementptr inbounds i8, ptr %1, i64 200
@@ -131,9 +131,9 @@ define dso_local i32 @nf_conntrack_tcp_packet(ptr noundef %0, ptr noundef %1, i3
   %27 = sext i32 %2 to i64
   %28 = getelementptr i8, ptr %26, i64 %27
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %.thread, label %.thread25
+  br i1 %29, label %.thread, label %.thread24
 
-.thread25:                                        ; preds = %21, %24
+.thread24:                                        ; preds = %21, %24
   %30 = phi ptr [ %28, %24 ], [ %7, %21 ]
   %31 = getelementptr inbounds i8, ptr %30, i64 12
   %32 = load i16, ptr %31, align 4
@@ -144,14 +144,14 @@ define dso_local i32 @nf_conntrack_tcp_packet(ptr noundef %0, ptr noundef %1, i3
   %37 = trunc nuw i16 %36 to i8
   br i1 %35, label %43, label %38
 
-38:                                               ; preds = %.thread25
+38:                                               ; preds = %.thread24
   %39 = zext nneg i16 %34 to i32
   %40 = load i32, ptr %12, align 8
   %41 = sub i32 %40, %2
   %42 = icmp ult i32 %41, %39
   br i1 %42, label %43, label %44
 
-43:                                               ; preds = %38, %.thread25
+43:                                               ; preds = %38, %.thread24
   call void (ptr, ptr, i8, ptr, ...) @nf_l4proto_log_invalid(ptr noundef %1, ptr noundef %4, i8 noundef zeroext 6, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.4) #12
   br label %.thread
 
@@ -381,7 +381,7 @@ tcp_new.exit:                                     ; preds = %100, %133
   %196 = getelementptr [2 x [6 x [10 x i8]]], ptr @tcp_conntracks, i64 0, i64 %193, i64 %194, i64 %195
   %197 = load i8, ptr %196, align 1
   %198 = zext i8 %197 to i32
-  switch i8 %197, label %.thread29 [
+  switch i8 %197, label %.thread27 [
     i8 1, label %199
     i8 11, label %223
     i8 10, label %338
@@ -393,7 +393,7 @@ tcp_new.exit:                                     ; preds = %100, %133
 
 199:                                              ; preds = %191
   %200 = icmp ult i8 %170, 7
-  br i1 %200, label %.thread29, label %201
+  br i1 %200, label %.thread27, label %201
 
 201:                                              ; preds = %199
   %202 = getelementptr [2 x %struct.ip_ct_tcp_state], ptr %168, i64 0, i64 %193, i32 5
@@ -487,7 +487,7 @@ tcp_new.exit:                                     ; preds = %100, %133
   %266 = load i8, ptr %265, align 1
   %267 = and i8 %266, 8
   store i8 %267, ptr %265, align 1
-  br label %.thread29
+  br label %.thread27
 
 268:                                              ; preds = %234, %229, %225, %223
   %269 = trunc nuw nsw i32 %192 to i8
@@ -567,15 +567,15 @@ tcp_new.exit:                                     ; preds = %100, %133
 
 320:                                              ; preds = %317, %314
   %321 = icmp eq i8 %170, 6
-  br i1 %321, label %322, label %.thread26
+  br i1 %321, label %322, label %.thread25
 
 322:                                              ; preds = %320
   %323 = load i8, ptr %304, align 1
   %324 = or i8 %323, 64
   store i8 %324, ptr %304, align 1
-  br label %.thread26
+  br label %.thread25
 
-.thread26:                                        ; preds = %320, %322
+.thread25:                                        ; preds = %320, %322
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8) #11
   br label %335
 
@@ -594,7 +594,7 @@ tcp_new.exit:                                     ; preds = %100, %133
   store i32 %333, ptr %334, align 8
   br label %335
 
-335:                                              ; preds = %.thread26, %330, %325
+335:                                              ; preds = %.thread25, %330, %325
   call void @_raw_spin_unlock_bh(ptr noundef %167) #11
   %336 = getelementptr [10 x ptr], ptr @tcp_conntrack_names, i64 0, i64 %195
   %337 = load ptr, ptr %336, align 8
@@ -612,27 +612,27 @@ tcp_new.exit:                                     ; preds = %100, %133
   %342 = icmp eq i8 %170, 6
   %343 = icmp eq i32 %192, 3
   %344 = and i1 %342, %343
-  br i1 %344, label %345, label %.thread29
+  br i1 %344, label %345, label %.thread27
 
 345:                                              ; preds = %341
   %346 = getelementptr inbounds i8, ptr %0, i64 225
   %347 = load i8, ptr %346, align 1
   %348 = zext i1 %172 to i8
   %349 = icmp eq i8 %347, %348
-  br i1 %349, label %.thread29, label %350
+  br i1 %349, label %.thread27, label %350
 
 350:                                              ; preds = %345
   %351 = getelementptr inbounds i8, ptr %0, i64 227
   %352 = load i8, ptr %351, align 1
   %353 = icmp eq i8 %352, 0
-  br i1 %353, label %354, label %.thread29
+  br i1 %353, label %354, label %.thread27
 
 354:                                              ; preds = %350
   %355 = getelementptr inbounds i8, ptr %0, i64 243
   %356 = load i8, ptr %355, align 1
   %357 = and i8 %356, 64
   %358 = icmp eq i8 %357, 0
-  br i1 %358, label %.thread29, label %359
+  br i1 %358, label %.thread27, label %359
 
 359:                                              ; preds = %354
   %360 = and i8 %356, -65
@@ -646,28 +646,28 @@ tcp_new.exit:                                     ; preds = %100, %133
   %363 = load i8, ptr %362, align 1
   %364 = or i8 %363, -128
   store i8 %364, ptr %362, align 1
-  br label %.thread29
+  br label %.thread27
 
 365:                                              ; preds = %191
   %366 = icmp eq i32 %192, 3
   %367 = and i1 %172, %366
-  br i1 %367, label %368, label %.thread29
+  br i1 %367, label %368, label %.thread27
 
 368:                                              ; preds = %365
   %369 = getelementptr inbounds i8, ptr %0, i64 243
   %370 = load i8, ptr %369, align 1
   %371 = icmp sgt i8 %370, -1
   %372 = select i1 %371, i32 2, i32 3
-  br label %.thread29
+  br label %.thread27
 
 373:                                              ; preds = %191
   %374 = icmp eq i32 %192, 4
-  br i1 %374, label %375, label %.thread29
+  br i1 %374, label %375, label %.thread27
 
 375:                                              ; preds = %373
   %376 = add i8 %170, -4
   %377 = icmp ult i8 %376, 5
-  br i1 %377, label %.thread43, label %378
+  br i1 %377, label %.thread38, label %378
 
 378:                                              ; preds = %375
   %379 = xor i1 %172, true
@@ -677,13 +677,13 @@ tcp_new.exit:                                     ; preds = %100, %133
   %383 = load i8, ptr %382, align 1
   %384 = and i8 %383, 32
   %385 = icmp eq i8 %384, 0
-  br i1 %385, label %.thread32, label %386
+  br i1 %385, label %429, label %386
 
 386:                                              ; preds = %378
   %387 = getelementptr inbounds i8, ptr %0, i64 227
   %388 = load i8, ptr %387, align 1
   %389 = icmp eq i8 %388, 0
-  br i1 %389, label %.thread32, label %390
+  br i1 %389, label %429, label %390
 
 390:                                              ; preds = %386
   %391 = getelementptr inbounds i8, ptr %30, i64 4
@@ -694,13 +694,13 @@ tcp_new.exit:                                     ; preds = %100, %133
 
 395:                                              ; preds = %390
   %396 = icmp eq i8 %170, 3
-  br i1 %396, label %397, label %.thread29
+  br i1 %396, label %397, label %.thread27
 
 397:                                              ; preds = %395
   %398 = load volatile i64, ptr %69, align 8
   %399 = and i64 %398, 4
   %400 = icmp eq i64 %399, 0
-  br i1 %400, label %.thread29, label %401
+  br i1 %400, label %.thread27, label %401
 
 401:                                              ; preds = %397, %390
   %402 = getelementptr inbounds i8, ptr %381, i64 12
@@ -713,11 +713,16 @@ tcp_new.exit:                                     ; preds = %100, %133
   %407 = getelementptr inbounds i8, ptr %10, i64 2519
   %408 = load i8, ptr %407, align 1
   %409 = icmp eq i8 %408, 0
-  br i1 %409, label %429, label %410
+  br i1 %409, label %.thread28, label %410
+
+.thread28:                                        ; preds = %406
+  call void @_raw_spin_unlock_bh(ptr noundef %167) #11
+  call void (ptr, ptr, ptr, ptr, ...) @nf_ct_l4proto_log_invalid(ptr noundef %1, ptr noundef %0, ptr noundef %4, ptr noundef nonnull @.str.3) #12
+  br label %.thread
 
 410:                                              ; preds = %406, %401
   %411 = icmp eq i8 %170, 3
-  br i1 %411, label %412, label %.thread29
+  br i1 %411, label %412, label %.thread27
 
 412:                                              ; preds = %410
   %413 = load volatile i64, ptr %69, align 8
@@ -725,44 +730,39 @@ tcp_new.exit:                                     ; preds = %100, %133
   %415 = icmp eq i64 %414, 0
   %416 = icmp eq i32 %393, %403
   %417 = or i1 %416, %415
-  br i1 %417, label %.thread29, label %418
+  br i1 %417, label %.thread27, label %418
 
 418:                                              ; preds = %412
   %419 = icmp eq i8 %388, 3
-  br i1 %419, label %420, label %.thread32
+  br i1 %419, label %420, label %429
 
 420:                                              ; preds = %418
   %421 = getelementptr inbounds i8, ptr %0, i64 225
   %422 = load i8, ptr %421, align 1
   %423 = zext i1 %172 to i8
   %424 = icmp eq i8 %422, %423
-  br i1 %424, label %425, label %.thread32
+  br i1 %424, label %425, label %429
 
 425:                                              ; preds = %420
   %426 = getelementptr inbounds i8, ptr %0, i64 236
   %427 = load i32, ptr %426, align 4
   %428 = icmp eq i32 %393, %427
-  br i1 %428, label %.thread29, label %.thread32
+  br i1 %428, label %.thread27, label %429
 
-429:                                              ; preds = %406
-  call void @_raw_spin_unlock_bh(ptr noundef %167) #11
-  call void (ptr, ptr, ptr, ptr, ...) @nf_ct_l4proto_log_invalid(ptr noundef %1, ptr noundef %0, ptr noundef %4, ptr noundef nonnull @.str.3) #12
-  br label %.thread
-
-.thread32:                                        ; preds = %425, %418, %420, %386, %378
-  %430 = phi i32 [ 8, %386 ], [ 8, %378 ], [ 3, %425 ], [ 3, %418 ], [ 3, %420 ]
+429:                                              ; preds = %425, %420, %418, %386, %378
+  %430 = phi i32 [ 8, %386 ], [ 8, %378 ], [ 3, %418 ], [ 3, %420 ], [ 3, %425 ]
   %431 = load volatile i64, ptr %69, align 8
   %432 = and i64 %431, 2
   %433 = icmp eq i64 %432, 0
   br i1 %433, label %438, label %434
 
-434:                                              ; preds = %.thread32
+434:                                              ; preds = %429
   %435 = getelementptr inbounds i8, ptr %0, i64 227
   %436 = load i8, ptr %435, align 1
   %437 = icmp eq i8 %436, 0
   br i1 %437, label %446, label %438
 
-438:                                              ; preds = %434, %.thread32
+438:                                              ; preds = %434, %429
   %439 = load volatile i64, ptr %69, align 8
   %440 = and i64 %439, 4
   %441 = icmp eq i64 %440, 0
@@ -781,23 +781,23 @@ tcp_new.exit:                                     ; preds = %100, %133
   %450 = getelementptr inbounds i8, ptr %0, i64 236
   %451 = load i32, ptr %450, align 4
   %452 = icmp eq i32 %449, %451
-  br i1 %452, label %.thread43, label %453
+  br i1 %452, label %.thread38, label %453
 
 453:                                              ; preds = %446, %442, %438
   %454 = icmp eq i8 %170, 1
-  br i1 %454, label %455, label %.thread29
+  br i1 %454, label %455, label %.thread27
 
 455:                                              ; preds = %453
   %456 = getelementptr inbounds i8, ptr %0, i64 227
   %457 = load i8, ptr %456, align 1
   %458 = icmp eq i8 %457, 3
-  br i1 %458, label %459, label %.thread29
+  br i1 %458, label %459, label %.thread27
 
 459:                                              ; preds = %455
   %460 = getelementptr inbounds i8, ptr %0, i64 225
   %461 = load i8, ptr %460, align 1
   %462 = icmp eq i8 %461, 1
-  br i1 %462, label %463, label %.thread29
+  br i1 %462, label %463, label %.thread27
 
 463:                                              ; preds = %459
   %464 = getelementptr inbounds i8, ptr %30, i64 4
@@ -806,11 +806,11 @@ tcp_new.exit:                                     ; preds = %100, %133
   %467 = getelementptr inbounds i8, ptr %0, i64 232
   %468 = load i32, ptr %467, align 8
   %469 = icmp eq i32 %466, %468
-  br i1 %469, label %.thread43, label %.thread29
+  br i1 %469, label %.thread38, label %.thread27
 
-.thread29:                                        ; preds = %425, %410, %395, %412, %397, %463, %459, %455, %453, %373, %368, %365, %361, %354, %350, %345, %341, %241, %199, %191
-  %470 = phi i32 [ %198, %191 ], [ 8, %373 ], [ %430, %463 ], [ %430, %459 ], [ %430, %455 ], [ %430, %453 ], [ 2, %365 ], [ 9, %361 ], [ 7, %354 ], [ 7, %350 ], [ 7, %345 ], [ 7, %341 ], [ 2, %241 ], [ 1, %199 ], [ %372, %368 ], [ 8, %410 ], [ 8, %395 ], [ 8, %412 ], [ 8, %397 ], [ 8, %425 ]
-  %471 = phi i32 [ %171, %191 ], [ %171, %373 ], [ 1, %463 ], [ 1, %459 ], [ 1, %455 ], [ %171, %453 ], [ %171, %365 ], [ %171, %361 ], [ 6, %354 ], [ 6, %350 ], [ 6, %345 ], [ %171, %341 ], [ 1, %241 ], [ %171, %199 ], [ %171, %368 ], [ %171, %410 ], [ %171, %395 ], [ 3, %412 ], [ 3, %397 ], [ 3, %425 ]
+.thread27:                                        ; preds = %410, %395, %425, %412, %397, %463, %459, %455, %453, %373, %368, %365, %361, %354, %350, %345, %341, %241, %199, %191
+  %470 = phi i32 [ %198, %191 ], [ 8, %373 ], [ %430, %463 ], [ %430, %459 ], [ %430, %455 ], [ %430, %453 ], [ 2, %365 ], [ 9, %361 ], [ 7, %354 ], [ 7, %350 ], [ 7, %345 ], [ 7, %341 ], [ 2, %241 ], [ 1, %199 ], [ %372, %368 ], [ 8, %397 ], [ 8, %412 ], [ 8, %425 ], [ 8, %395 ], [ 8, %410 ]
+  %471 = phi i32 [ %171, %191 ], [ %171, %373 ], [ 1, %463 ], [ 1, %459 ], [ 1, %455 ], [ %171, %453 ], [ %171, %365 ], [ %171, %361 ], [ 6, %354 ], [ 6, %350 ], [ 6, %345 ], [ %171, %341 ], [ 1, %241 ], [ %171, %199 ], [ %171, %368 ], [ 3, %397 ], [ 3, %412 ], [ 3, %425 ], [ %171, %395 ], [ %171, %410 ]
   %472 = getelementptr [2 x %struct.ip_ct_tcp_state], ptr %168, i64 0, i64 %193
   %473 = xor i1 %172, true
   %474 = zext i1 %473 to i32
@@ -848,12 +848,12 @@ tcp_new.exit:                                     ; preds = %100, %133
   %506 = icmp eq i8 %505, 0
   br i1 %506, label %585, label %507
 
-507:                                              ; preds = %.thread29
+507:                                              ; preds = %.thread27
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %6, i8 0, i64 40, i1 false), !annotation !5
   %508 = add nsw i32 %491, -20
   %509 = icmp eq i32 %508, 0
-  br i1 %509, label %.thread35, label %510
+  br i1 %509, label %.thread31, label %510
 
 510:                                              ; preds = %507
   %511 = add i32 %2, 20
@@ -866,12 +866,12 @@ tcp_new.exit:                                     ; preds = %100, %133
 
 517:                                              ; preds = %510
   %518 = icmp eq ptr %1, null
-  br i1 %518, label %.thread35, label %519
+  br i1 %518, label %.thread31, label %519
 
 519:                                              ; preds = %517
   %520 = call i32 @skb_copy_bits(ptr noundef nonnull %1, i32 noundef %511, ptr noundef nonnull %6, i32 noundef %508) #11
   %521 = icmp slt i32 %520, 0
-  br i1 %521, label %.thread35, label %.thread36, !prof !6
+  br i1 %521, label %.thread31, label %.thread32, !prof !6
 
 522:                                              ; preds = %510
   %523 = getelementptr inbounds i8, ptr %1, i64 200
@@ -879,21 +879,21 @@ tcp_new.exit:                                     ; preds = %100, %133
   %525 = sext i32 %511 to i64
   %526 = getelementptr i8, ptr %524, i64 %525
   %527 = icmp eq ptr %526, null
-  br i1 %527, label %.thread35, label %.thread36
+  br i1 %527, label %.thread31, label %.thread32
 
-.thread36:                                        ; preds = %519, %522
+.thread32:                                        ; preds = %519, %522
   %528 = phi ptr [ %526, %522 ], [ %6, %519 ]
   %529 = icmp eq i32 %508, 12
   br i1 %529, label %530, label %533
 
-530:                                              ; preds = %.thread36
+530:                                              ; preds = %.thread32
   %531 = load i32, ptr %528, align 4
   %532 = icmp eq i32 %531, 168296705
-  br i1 %532, label %.thread35, label %.preheader
+  br i1 %532, label %.thread31, label %.preheader
 
-533:                                              ; preds = %.thread36
+533:                                              ; preds = %.thread32
   %534 = icmp ugt i16 %490, 20
-  br i1 %534, label %.preheader, label %.thread35
+  br i1 %534, label %.preheader, label %.thread31
 
 .preheader:                                       ; preds = %533, %530
   br label %535
@@ -904,7 +904,7 @@ tcp_new.exit:                                     ; preds = %100, %133
   %538 = getelementptr i8, ptr %537, i64 1
   %539 = load i8, ptr %537, align 1
   switch i8 %539, label %542 [
-    i8 0, label %.thread35
+    i8 0, label %.thread31
     i8 1, label %540
   ]
 
@@ -914,7 +914,7 @@ tcp_new.exit:                                     ; preds = %100, %133
 
 542:                                              ; preds = %535
   %543 = icmp eq i32 %536, 1
-  br i1 %543, label %.thread35, label %544
+  br i1 %543, label %.thread31, label %544
 
 544:                                              ; preds = %542
   %545 = getelementptr i8, ptr %537, i64 2
@@ -923,7 +923,7 @@ tcp_new.exit:                                     ; preds = %100, %133
   %548 = icmp ult i8 %546, 2
   %549 = icmp slt i32 %536, %547
   %550 = or i1 %548, %549
-  br i1 %550, label %.thread35, label %551
+  br i1 %550, label %.thread31, label %551
 
 551:                                              ; preds = %544
   %552 = icmp eq i8 %539, 5
@@ -955,7 +955,7 @@ tcp_new.exit:                                     ; preds = %100, %133
   %572 = select i1 %570, i32 %568, i32 %565
   %573 = add nuw nsw i64 %564, 8
   %574 = icmp ult i64 %573, %561
-  br i1 %574, label %562, label %.thread35, !llvm.loop !10
+  br i1 %574, label %562, label %.thread31, !llvm.loop !10
 
 575:                                              ; preds = %555, %551
   %576 = zext i8 %546 to i64
@@ -968,15 +968,15 @@ tcp_new.exit:                                     ; preds = %100, %133
   %581 = phi ptr [ %578, %575 ], [ %538, %540 ]
   %582 = phi i32 [ %579, %575 ], [ %541, %540 ]
   %583 = icmp sgt i32 %582, 0
-  br i1 %583, label %535, label %.thread35, !llvm.loop !7
+  br i1 %583, label %535, label %.thread31, !llvm.loop !7
 
-.thread35:                                        ; preds = %535, %544, %542, %580, %562, %519, %517, %533, %530, %522, %507
+.thread31:                                        ; preds = %535, %544, %542, %580, %562, %519, %517, %533, %530, %522, %507
   %584 = phi i32 [ %482, %507 ], [ %482, %522 ], [ %482, %530 ], [ %482, %533 ], [ %482, %517 ], [ %482, %519 ], [ %571, %562 ], [ %482, %580 ], [ %482, %542 ], [ %482, %544 ], [ %482, %535 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #11
   br label %585
 
-585:                                              ; preds = %.thread35, %.thread29
-  %586 = phi i32 [ %482, %.thread29 ], [ %584, %.thread35 ]
+585:                                              ; preds = %.thread31, %.thread27
+  %586 = phi i32 [ %482, %.thread27 ], [ %584, %.thread31 ]
   %587 = add i32 %482, -1
   %588 = call i32 @nf_ct_seq_offset(ptr noundef %0, i32 noundef %474, i32 noundef %587) #11
   %589 = sub i32 %482, %588
@@ -998,8 +998,8 @@ tcp_new.exit:                                     ; preds = %100, %133
   store i32 %502, ptr %472, align 4
   %600 = call i32 @llvm.umax.i32(i32 %486, i32 1)
   store i32 %600, ptr %591, align 4
-  %.val23 = load i16, ptr %31, align 4
-  call fastcc void @tcp_options(ptr noundef %1, i32 noundef %2, i16 %.val23, ptr noundef %472)
+  %.val22 = load i16, ptr %31, align 4
+  call fastcc void @tcp_options(ptr noundef %1, i32 noundef %2, i16 %.val22, ptr noundef %472)
   br i1 %172, label %601, label %613
 
 601:                                              ; preds = %598
@@ -1026,7 +1026,7 @@ tcp_new.exit:                                     ; preds = %100, %133
   %614 = load i16, ptr %31, align 4
   %615 = and i16 %614, 4096
   %616 = icmp eq i16 %615, 0
-  br i1 %616, label %.thread43, label %663
+  br i1 %616, label %.thread38, label %663
 
 617:                                              ; preds = %597
   store i32 %502, ptr %472, align 4
@@ -1076,8 +1076,8 @@ tcp_new.exit:                                     ; preds = %100, %133
   store i32 %502, ptr %472, align 4
   %645 = call i32 @llvm.umax.i32(i32 %486, i32 1)
   store i32 %645, ptr %591, align 4
-  %.val24 = load i16, ptr %31, align 4
-  call fastcc void @tcp_options(ptr noundef %1, i32 noundef %2, i16 %.val24, ptr noundef %472)
+  %.val23 = load i16, ptr %31, align 4
+  call fastcc void @tcp_options(ptr noundef %1, i32 noundef %2, i16 %.val23, ptr noundef %472)
   br i1 %172, label %646, label %663
 
 646:                                              ; preds = %643
@@ -1104,7 +1104,7 @@ tcp_new.exit:                                     ; preds = %100, %133
   %659 = load i16, ptr %31, align 4
   %660 = and i16 %659, 4096
   %661 = icmp eq i16 %660, 0
-  br i1 %661, label %.thread43, label %663
+  br i1 %661, label %.thread38, label %663
 
 662:                                              ; preds = %630, %628
   store i32 %590, ptr %476, align 4
@@ -1352,7 +1352,7 @@ tcp_new.exit:                                     ; preds = %100, %133
 
 816:                                              ; preds = %813, %811
   %817 = icmp eq i32 %192, 3
-  br i1 %817, label %818, label %.thread43
+  br i1 %817, label %818, label %.thread38
 
 818:                                              ; preds = %816
   %819 = getelementptr inbounds i8, ptr %0, i64 225
@@ -1390,7 +1390,7 @@ tcp_new.exit:                                     ; preds = %100, %133
   %841 = load i8, ptr %840, align 2
   %842 = add i8 %841, 1
   store i8 %842, ptr %840, align 2
-  br label %.thread43
+  br label %.thread38
 
 843:                                              ; preds = %835, %831, %827, %823, %818
   %844 = getelementptr inbounds i8, ptr %0, i64 228
@@ -1403,11 +1403,11 @@ tcp_new.exit:                                     ; preds = %100, %133
   store i16 %485, ptr %847, align 4
   %848 = getelementptr inbounds i8, ptr %0, i64 226
   store i8 0, ptr %848, align 2
-  br label %.thread43
+  br label %.thread38
 
 849:                                              ; preds = %752, %744, %732, %725, %720
   %850 = phi i32 [ %755, %752 ], [ %745, %744 ], [ %733, %732 ], [ %724, %720 ], [ %726, %725 ]
-  switch i32 %850, label %.thread43 [
+  switch i32 %850, label %.thread38 [
     i32 0, label %851
     i32 1, label %852
   ]
@@ -1421,7 +1421,7 @@ tcp_new.exit:                                     ; preds = %100, %133
   call void @_raw_spin_unlock_bh(ptr noundef %167) #11
   br label %.thread
 
-.thread43:                                        ; preds = %816, %843, %839, %658, %613, %849, %463, %446, %375
+.thread38:                                        ; preds = %816, %843, %839, %658, %613, %849, %463, %446, %375
   %853 = phi i32 [ %470, %849 ], [ 8, %375 ], [ %430, %446 ], [ %430, %463 ], [ %470, %613 ], [ %470, %658 ], [ %470, %839 ], [ %470, %843 ], [ %470, %816 ]
   %854 = phi i32 [ %471, %849 ], [ %171, %375 ], [ %171, %446 ], [ 1, %463 ], [ %471, %613 ], [ %471, %658 ], [ %471, %839 ], [ %471, %843 ], [ %471, %816 ]
   %855 = trunc nuw nsw i32 %192 to i8
@@ -1437,14 +1437,14 @@ tcp_new.exit:                                     ; preds = %100, %133
   %862 = and i1 %860, %861
   br i1 %862, label %863, label %867
 
-863:                                              ; preds = %.thread43
+863:                                              ; preds = %.thread38
   %864 = getelementptr [2 x %struct.ip_ct_tcp_state], ptr %168, i64 0, i64 %193, i32 5
   %865 = load i8, ptr %864, align 1
   %866 = or i8 %865, 4
   store i8 %866, ptr %864, align 1
   br label %867
 
-867:                                              ; preds = %863, %.thread43
+867:                                              ; preds = %863, %.thread38
   %868 = getelementptr inbounds i8, ptr %0, i64 226
   %869 = load i8, ptr %868, align 2
   %870 = getelementptr inbounds i8, ptr %10, i64 2518
@@ -1493,7 +1493,7 @@ tcp_new.exit:                                     ; preds = %100, %133
   %901 = load i16, ptr %900, align 8
   %902 = icmp eq i16 %901, 0
   %903 = zext nneg i32 %853 to i64
-  br i1 %902, label %904, label %._crit_edge68
+  br i1 %902, label %904, label %._crit_edge63
 
 904:                                              ; preds = %899
   %905 = getelementptr i32, ptr %11, i64 %903
@@ -1501,14 +1501,14 @@ tcp_new.exit:                                     ; preds = %100, %133
   %907 = getelementptr i8, ptr %10, i64 2508
   %908 = load i32, ptr %907, align 4
   %909 = icmp ugt i32 %906, %908
-  br i1 %909, label %914, label %._crit_edge68
+  br i1 %909, label %914, label %._crit_edge63
 
-._crit_edge68:                                    ; preds = %899, %904
+._crit_edge63:                                    ; preds = %899, %904
   %910 = getelementptr i32, ptr %11, i64 %903
   br label %911
 
-911:                                              ; preds = %._crit_edge68, %882
-  %912 = phi ptr [ %883, %882 ], [ %910, %._crit_edge68 ]
+911:                                              ; preds = %._crit_edge63, %882
+  %912 = phi ptr [ %883, %882 ], [ %910, %._crit_edge63 ]
   %913 = load i32, ptr %912, align 4
   br label %914
 
@@ -1568,8 +1568,8 @@ tcp_new.exit:                                     ; preds = %100, %133
   call void @__nf_ct_refresh_acct(ptr noundef %0, i32 noundef %3, ptr noundef %1, i32 noundef %946, i1 noundef zeroext true) #11
   br label %.thread
 
-.thread:                                          ; preds = %129, %97, %21, %19, %429, %945, %925, %923, %852, %851, %359, %338, %335, %220, %67, %59, %43, %24
-  %947 = phi i32 [ 1, %945 ], [ 1, %923 ], [ -1, %852 ], [ 1, %851 ], [ -1, %429 ], [ 1, %359 ], [ -1, %338 ], [ 1, %335 ], [ -1, %24 ], [ %222, %220 ], [ 1, %925 ], [ -1, %67 ], [ -1, %59 ], [ -1, %43 ], [ -1, %19 ], [ -1, %21 ], [ -1, %97 ], [ -1, %129 ]
+.thread:                                          ; preds = %129, %97, %21, %19, %.thread28, %945, %925, %923, %852, %851, %359, %338, %335, %220, %67, %59, %43, %24
+  %947 = phi i32 [ 1, %945 ], [ 1, %923 ], [ -1, %852 ], [ 1, %851 ], [ 1, %359 ], [ -1, %338 ], [ 1, %335 ], [ -1, %24 ], [ %222, %220 ], [ 1, %925 ], [ -1, %67 ], [ -1, %59 ], [ -1, %43 ], [ -1, %.thread28 ], [ -1, %19 ], [ -1, %21 ], [ -1, %97 ], [ -1, %129 ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #11
   ret i32 %947
 }

@@ -5178,11 +5178,14 @@ invoke.cont:                                      ; preds = %_ZNK7datalog15vecto
 
 invoke.cont12:                                    ; preds = %invoke.cont
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_int.i)
-  br i1 %call.i21, label %if.then14, label %cleanup
+  br i1 %call.i21, label %if.then14, label %if.end19
 
 if.then14:                                        ; preds = %invoke.cont12
   %call16 = invoke noundef zeroext i1 @_ZNK12old_interval8containsERK8rational(ptr noundef nonnull align 8 dereferenceable(112) %arrayidx.i.i16, ptr noundef nonnull align 8 dereferenceable(32) %v)
-          to label %cleanup unwind label %lpad
+          to label %invoke.cont15 unwind label %lpad
+
+invoke.cont15:                                    ; preds = %if.then14
+  br i1 %call16, label %if.end19, label %cleanup
 
 lpad:                                             ; preds = %invoke.cont, %if.then14
   %15 = landingpad { ptr, i32 }
@@ -5190,8 +5193,11 @@ lpad:                                             ; preds = %invoke.cont, %if.th
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %v) #20
   resume { ptr, i32 } %15
 
-cleanup:                                          ; preds = %if.then14, %invoke.cont12
-  %switch = phi i1 [ true, %invoke.cont12 ], [ %call16, %if.then14 ]
+if.end19:                                         ; preds = %invoke.cont12, %invoke.cont15
+  br label %cleanup
+
+cleanup:                                          ; preds = %invoke.cont15, %if.end19
+  %switch = phi i1 [ true, %if.end19 ], [ false, %invoke.cont15 ]
   %16 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %16, ptr noundef nonnull align 8 dereferenceable(16) %v)
           to label %.noexc.i unwind label %terminate.lpad.i

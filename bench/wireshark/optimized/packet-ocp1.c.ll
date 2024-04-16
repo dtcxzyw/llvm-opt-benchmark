@@ -756,7 +756,7 @@ define internal i32 @oca_handle_hash(ptr nocapture noundef readonly %0) #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @oca_handle_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal noundef i32 @oca_handle_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq i32 %3, %4
@@ -768,11 +768,13 @@ define internal i32 @oca_handle_equal(ptr nocapture noundef readonly %0, ptr noc
   %9 = getelementptr inbounds i8, ptr %1, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %8, %10
-  %spec.select = zext i1 %11 to i32
-  br label %12
+  br i1 %11, label %13, label %12
 
 12:                                               ; preds = %6, %2
-  %.0 = phi i32 [ 0, %2 ], [ %spec.select, %6 ]
+  br label %13
+
+13:                                               ; preds = %6, %12
+  %.0 = phi i32 [ 0, %12 ], [ 1, %6 ]
   ret i32 %.0
 }
 
@@ -4229,30 +4231,30 @@ define internal fastcc noundef i32 @decode_params_OcaTask(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @test_ocp1(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc noundef i32 @test_ocp1(ptr noundef %0) unnamed_addr #0 {
   %2 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
   %3 = icmp ult i32 %2, 10
-  br i1 %3, label %24, label %4
+  br i1 %3, label %25, label %4
 
 4:                                                ; preds = %1
   %5 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef 3, i32 noundef 0) #6
   %6 = icmp ult i32 %5, 9
-  br i1 %6, label %24, label %7
+  br i1 %6, label %25, label %7
 
 7:                                                ; preds = %4
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #6
   %.not = icmp eq i8 %8, 59
-  br i1 %.not, label %9, label %24
+  br i1 %.not, label %9, label %25
 
 9:                                                ; preds = %7
   %10 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef 1, i32 noundef 0) #6
   %.not13 = icmp eq i16 %10, 1
-  br i1 %.not13, label %11, label %24
+  br i1 %.not13, label %11, label %25
 
 11:                                               ; preds = %9
   %12 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 7) #6
   %13 = icmp ugt i8 %12, 4
-  br i1 %13, label %24, label %14
+  br i1 %13, label %25, label %14
 
 14:                                               ; preds = %11
   %15 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef 3, i32 noundef 0) #6
@@ -4270,11 +4272,13 @@ define internal fastcc i32 @test_ocp1(ptr noundef %0) unnamed_addr #0 {
   %22 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
   %23 = add i32 %15, 11
   %.not15 = icmp ugt i32 %22, %23
-  %spec.select = zext i1 %.not15 to i32
-  br label %24
+  br i1 %.not15, label %24, label %25
 
-24:                                               ; preds = %21, %14, %19, %11, %9, %7, %4, %1
-  %.0 = phi i32 [ 0, %1 ], [ 0, %4 ], [ 0, %7 ], [ 0, %9 ], [ 0, %11 ], [ 1, %19 ], [ 1, %14 ], [ %spec.select, %21 ]
+24:                                               ; preds = %19, %21, %14
+  br label %25
+
+25:                                               ; preds = %21, %11, %9, %7, %4, %1, %24
+  %.0 = phi i32 [ 1, %24 ], [ 0, %1 ], [ 0, %4 ], [ 0, %7 ], [ 0, %9 ], [ 0, %11 ], [ 0, %21 ]
   ret i32 %.0
 }
 

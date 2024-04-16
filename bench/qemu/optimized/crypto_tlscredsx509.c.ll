@@ -693,7 +693,7 @@ land.lhs.true31.i:                                ; preds = %for.end.i
 if.then.i65.i:                                    ; preds = %land.lhs.true31.i
   %cond.i66.i = select i1 %cmp39, ptr @.str.62, ptr @.str.63
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.17, i32 noundef 339, ptr noundef nonnull @__func__.qcrypto_tls_creds_check_cert_pair, ptr noundef nonnull %cond.i66.i, ptr noundef %11, ptr noundef %10) #9
-  br label %45
+  br label %qcrypto_tls_creds_check_cert_pair.exit.thread.i
 
 if.end.i62.i:                                     ; preds = %land.lhs.true31.i
   %36 = load i32, ptr %status.i.i, align 4
@@ -714,14 +714,14 @@ if.then5.i63.i:                                   ; preds = %if.end.i62.i
   %44 = extractelement <4 x i1> %40, i64 0
   %spec.store.select3.i.i = select i1 %44, ptr %spec.store.select2.i.i, ptr @.str.68
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.17, i32 noundef 364, ptr noundef nonnull @__func__.qcrypto_tls_creds_check_cert_pair, ptr noundef nonnull @.str.69, ptr noundef %11, ptr noundef %10, ptr noundef nonnull %spec.store.select3.i.i) #9
-  br label %45
+  br label %qcrypto_tls_creds_check_cert_pair.exit.thread.i
 
-qcrypto_tls_creds_check_cert_pair.exit.i:         ; preds = %if.end.i62.i
+qcrypto_tls_creds_check_cert_pair.exit.thread.i:  ; preds = %if.then5.i63.i, %if.then.i65.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %cert.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status.i.i)
   br label %if.then39.i
 
-45:                                               ; preds = %if.then5.i63.i, %if.then.i65.i
+qcrypto_tls_creds_check_cert_pair.exit.i:         ; preds = %if.end.i62.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %cert.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status.i.i)
   br label %if.then39.i
@@ -732,9 +732,9 @@ cleanup.i:                                        ; preds = %for.body.i, %if.end
   %tobool38.not.i = icmp eq ptr %cert.0.i, null
   br i1 %tobool38.not.i, label %if.end40.i, label %if.then39.i
 
-if.then39.i:                                      ; preds = %cleanup.i, %45, %qcrypto_tls_creds_check_cert_pair.exit.i, %land.lhs.true16.i
-  %ret.083.i = phi i32 [ %ret.0.i, %cleanup.i ], [ 0, %qcrypto_tls_creds_check_cert_pair.exit.i ], [ -1, %45 ], [ -1, %land.lhs.true16.i ]
-  %ncacerts.280.i = phi i64 [ %ncacerts.2.i, %cleanup.i ], [ %ncacerts.1.i, %qcrypto_tls_creds_check_cert_pair.exit.i ], [ %ncacerts.1.i, %45 ], [ %ncacerts.1.i, %land.lhs.true16.i ]
+if.then39.i:                                      ; preds = %cleanup.i, %qcrypto_tls_creds_check_cert_pair.exit.i, %qcrypto_tls_creds_check_cert_pair.exit.thread.i, %land.lhs.true16.i
+  %ret.083.i = phi i32 [ %ret.0.i, %cleanup.i ], [ 0, %qcrypto_tls_creds_check_cert_pair.exit.i ], [ -1, %qcrypto_tls_creds_check_cert_pair.exit.thread.i ], [ -1, %land.lhs.true16.i ]
+  %ncacerts.280.i = phi i64 [ %ncacerts.2.i, %cleanup.i ], [ %ncacerts.1.i, %qcrypto_tls_creds_check_cert_pair.exit.i ], [ %ncacerts.1.i, %qcrypto_tls_creds_check_cert_pair.exit.thread.i ], [ %ncacerts.1.i, %land.lhs.true16.i ]
   call void @gnutls_x509_crt_deinit(ptr noundef nonnull %cert.0.i) #9
   br label %if.end40.i
 
@@ -752,8 +752,8 @@ for.body43.i.preheader:                           ; preds = %for.end.i, %if.end4
 for.body43.i:                                     ; preds = %for.body43.i.preheader, %for.body43.i
   %i.194.i = phi i64 [ %inc46.i, %for.body43.i ], [ 0, %for.body43.i.preheader ]
   %arrayidx44.i = getelementptr [16 x ptr], ptr %cacerts.i, i64 0, i64 %i.194.i
-  %46 = load ptr, ptr %arrayidx44.i, align 8
-  call void @gnutls_x509_crt_deinit(ptr noundef %46) #9
+  %45 = load ptr, ptr %arrayidx44.i, align 8
+  call void @gnutls_x509_crt_deinit(ptr noundef %45) #9
   %inc46.i = add nuw nsw i64 %i.194.i, 1
   %exitcond95.not.i = icmp eq i64 %inc46.i, %ncacerts.281.i64
   br i1 %exitcond95.not.i, label %qcrypto_tls_creds_x509_sanity_check.exit, label %for.body43.i, !llvm.loop !8
@@ -780,34 +780,34 @@ if.then46:                                        ; preds = %if.end43
   br label %cleanup
 
 if.end48:                                         ; preds = %if.end43
-  %47 = load ptr, ptr %data, align 8
-  %48 = load ptr, ptr %cacert, align 8
-  %call50 = call i32 @gnutls_certificate_set_x509_trust_file(ptr noundef %47, ptr noundef %48, i32 noundef 1) #9
+  %46 = load ptr, ptr %data, align 8
+  %47 = load ptr, ptr %cacert, align 8
+  %call50 = call i32 @gnutls_certificate_set_x509_trust_file(ptr noundef %46, ptr noundef %47, i32 noundef 1) #9
   %cmp51 = icmp slt i32 %call50, 0
   br i1 %cmp51, label %if.then52, label %if.end54
 
 if.then52:                                        ; preds = %if.end48
-  %49 = load ptr, ptr %cacert, align 8
+  %48 = load ptr, ptr %cacert, align 8
   %call53 = call ptr @gnutls_strerror(i32 noundef %call50) #10
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.17, i32 noundef 596, ptr noundef nonnull @__func__.qcrypto_tls_creds_x509_load, ptr noundef nonnull @.str.19, ptr noundef %49, ptr noundef %call53) #9
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.17, i32 noundef 596, ptr noundef nonnull @__func__.qcrypto_tls_creds_x509_load, ptr noundef nonnull @.str.19, ptr noundef %48, ptr noundef %call53) #9
   br label %cleanup
 
 if.end54:                                         ; preds = %if.end48
-  %50 = load ptr, ptr %cert, align 8
-  %cmp55 = icmp ne ptr %50, null
-  %51 = load ptr, ptr %key, align 8
-  %cmp57 = icmp ne ptr %51, null
+  %49 = load ptr, ptr %cert, align 8
+  %cmp55 = icmp ne ptr %49, null
+  %50 = load ptr, ptr %key, align 8
+  %cmp57 = icmp ne ptr %50, null
   %or.cond = select i1 %cmp55, i1 %cmp57, i1 false
   br i1 %or.cond, label %if.then58, label %if.end73
 
 if.then58:                                        ; preds = %if.end54
   %passwordid = getelementptr inbounds i8, ptr %creds, i64 96
-  %52 = load ptr, ptr %passwordid, align 8
-  %tobool59.not = icmp eq ptr %52, null
+  %51 = load ptr, ptr %passwordid, align 8
+  %tobool59.not = icmp eq ptr %51, null
   br i1 %tobool59.not, label %if.end66, label %if.then60
 
 if.then60:                                        ; preds = %if.then58
-  %call62 = call ptr @qcrypto_secret_lookup_as_utf8(ptr noundef nonnull %52, ptr noundef %errp) #9
+  %call62 = call ptr @qcrypto_secret_lookup_as_utf8(ptr noundef nonnull %51, ptr noundef %errp) #9
   %tobool63.not = icmp eq ptr %call62, null
   br i1 %tobool63.not, label %cleanup, label %if.then60.if.end66_crit_edge
 
@@ -817,68 +817,68 @@ if.then60.if.end66_crit_edge:                     ; preds = %if.then60
   br label %if.end66
 
 if.end66:                                         ; preds = %if.then60.if.end66_crit_edge, %if.then58
-  %53 = phi ptr [ %.pre58, %if.then60.if.end66_crit_edge ], [ %51, %if.then58 ]
-  %54 = phi ptr [ %.pre, %if.then60.if.end66_crit_edge ], [ %50, %if.then58 ]
+  %52 = phi ptr [ %.pre58, %if.then60.if.end66_crit_edge ], [ %50, %if.then58 ]
+  %53 = phi ptr [ %.pre, %if.then60.if.end66_crit_edge ], [ %49, %if.then58 ]
   %password.0 = phi ptr [ %call62, %if.then60.if.end66_crit_edge ], [ null, %if.then58 ]
-  %55 = load ptr, ptr %data, align 8
-  %call68 = call i32 @gnutls_certificate_set_x509_key_file2(ptr noundef %55, ptr noundef %54, ptr noundef %53, i32 noundef 1, ptr noundef %password.0, i32 noundef 0) #9
+  %54 = load ptr, ptr %data, align 8
+  %call68 = call i32 @gnutls_certificate_set_x509_key_file2(ptr noundef %54, ptr noundef %53, ptr noundef %52, i32 noundef 1, ptr noundef %password.0, i32 noundef 0) #9
   call void @g_free(ptr noundef %password.0) #9
   %cmp69 = icmp slt i32 %call68, 0
   br i1 %cmp69, label %if.then70, label %if.end73
 
 if.then70:                                        ; preds = %if.end66
-  %56 = load ptr, ptr %cert, align 8
-  %57 = load ptr, ptr %key, align 8
+  %55 = load ptr, ptr %cert, align 8
+  %56 = load ptr, ptr %key, align 8
   %call71 = call ptr @gnutls_strerror(i32 noundef %call68) #10
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.17, i32 noundef 617, ptr noundef nonnull @__func__.qcrypto_tls_creds_x509_load, ptr noundef nonnull @.str.20, ptr noundef %56, ptr noundef %57, ptr noundef %call71) #9
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.17, i32 noundef 617, ptr noundef nonnull @__func__.qcrypto_tls_creds_x509_load, ptr noundef nonnull @.str.20, ptr noundef %55, ptr noundef %56, ptr noundef %call71) #9
   br label %cleanup
 
 if.end73:                                         ; preds = %if.end66, %if.end54
-  %58 = load ptr, ptr %cacrl, align 8
-  %cmp74.not = icmp eq ptr %58, null
+  %57 = load ptr, ptr %cacrl, align 8
+  %cmp74.not = icmp eq ptr %57, null
   br i1 %cmp74.not, label %if.end82, label %if.then75
 
 if.then75:                                        ; preds = %if.end73
-  %59 = load ptr, ptr %data, align 8
-  %call77 = call i32 @gnutls_certificate_set_x509_crl_file(ptr noundef %59, ptr noundef nonnull %58, i32 noundef 1) #9
+  %58 = load ptr, ptr %data, align 8
+  %call77 = call i32 @gnutls_certificate_set_x509_crl_file(ptr noundef %58, ptr noundef nonnull %57, i32 noundef 1) #9
   %cmp78 = icmp slt i32 %call77, 0
   br i1 %cmp78, label %if.then79, label %if.end82
 
 if.then79:                                        ; preds = %if.then75
-  %60 = load ptr, ptr %cacrl, align 8
+  %59 = load ptr, ptr %cacrl, align 8
   %call80 = call ptr @gnutls_strerror(i32 noundef %call77) #10
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.17, i32 noundef 628, ptr noundef nonnull @__func__.qcrypto_tls_creds_x509_load, ptr noundef nonnull @.str.21, ptr noundef %60, ptr noundef %call80) #9
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.17, i32 noundef 628, ptr noundef nonnull @__func__.qcrypto_tls_creds_x509_load, ptr noundef nonnull @.str.21, ptr noundef %59, ptr noundef %call80) #9
   br label %cleanup
 
 if.end82:                                         ; preds = %if.then75, %if.end73
-  %61 = load i32, ptr %endpoint, align 8
-  %cmp85 = icmp eq i32 %61, 1
+  %60 = load i32, ptr %endpoint, align 8
+  %cmp85 = icmp eq i32 %60, 1
   br i1 %cmp85, label %if.then86, label %cleanup
 
 if.then86:                                        ; preds = %if.end82
-  %62 = load ptr, ptr %dhparams, align 8
+  %61 = load ptr, ptr %dhparams, align 8
   %dh_params = getelementptr inbounds i8, ptr %creds, i64 56
-  %call89 = call i32 @qcrypto_tls_creds_get_dh_params_file(ptr noundef nonnull %creds, ptr noundef %62, ptr noundef nonnull %dh_params, ptr noundef %errp) #9
+  %call89 = call i32 @qcrypto_tls_creds_get_dh_params_file(ptr noundef nonnull %creds, ptr noundef %61, ptr noundef nonnull %dh_params, ptr noundef %errp) #9
   %cmp90 = icmp slt i32 %call89, 0
   br i1 %cmp90, label %cleanup, label %if.end92
 
 if.end92:                                         ; preds = %if.then86
-  %63 = load ptr, ptr %data, align 8
-  %64 = load ptr, ptr %dh_params, align 8
-  call void @gnutls_certificate_set_dh_params(ptr noundef %63, ptr noundef %64) #9
+  %62 = load ptr, ptr %data, align 8
+  %63 = load ptr, ptr %dh_params, align 8
+  call void @gnutls_certificate_set_dh_params(ptr noundef %62, ptr noundef %63) #9
   br label %cleanup
 
 cleanup:                                          ; preds = %qcrypto_tls_creds_x509_sanity_check.exit.thread, %if.end82, %if.end92, %if.then86, %if.then60, %qcrypto_tls_creds_x509_sanity_check.exit, %if.else, %lor.lhs.false25, %lor.lhs.false29, %if.then, %lor.lhs.false, %lor.lhs.false9, %lor.lhs.false13, %lor.lhs.false17, %if.then79, %if.then70, %if.then52, %if.then46
-  %65 = load ptr, ptr %cacert, align 8
+  %64 = load ptr, ptr %cacert, align 8
+  call void @g_free(ptr noundef %64) #9
+  %65 = load ptr, ptr %cacrl, align 8
   call void @g_free(ptr noundef %65) #9
-  %66 = load ptr, ptr %cacrl, align 8
+  %66 = load ptr, ptr %cert, align 8
   call void @g_free(ptr noundef %66) #9
-  %67 = load ptr, ptr %cert, align 8
+  %67 = load ptr, ptr %key, align 8
   call void @g_free(ptr noundef %67) #9
-  %68 = load ptr, ptr %key, align 8
+  %68 = load ptr, ptr %dhparams, align 8
   call void @g_free(ptr noundef %68) #9
-  %69 = load ptr, ptr %dhparams, align 8
-  call void @g_free(ptr noundef %69) #9
   ret void
 }
 
@@ -1094,7 +1094,7 @@ if.then2.i34:                                     ; preds = %if.then.i31
 if.else.i32:                                      ; preds = %if.then.i31
   %call3.i33 = call ptr @gnutls_strerror(i32 noundef %call.i25) #10
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.17, i32 noundef 151, ptr noundef nonnull @__func__.qcrypto_tls_creds_check_cert_key_usage, ptr noundef nonnull @.str.47, ptr noundef %certFile, ptr noundef %call3.i33) #9
-  br label %17
+  br label %qcrypto_tls_creds_check_cert_key_usage.exit.thread
 
 if.end4.i:                                        ; preds = %trace_qcrypto_tls_creds_x509_check_key_usage.exit.i.if.end4.i_crit_edge, %if.then2.i34
   %15 = phi i32 [ %.pre, %trace_qcrypto_tls_creds_x509_check_key_usage.exit.i.if.end4.i_crit_edge ], [ %cond.i35, %if.then2.i34 ]
@@ -1106,11 +1106,16 @@ if.then6.i:                                       ; preds = %if.end4.i
   %and.i = and i32 %15, 4
   %tobool7.i = icmp eq i32 %and.i, 0
   %or.cond.i = select i1 %tobool7.i, i1 %tobool9.i, i1 false
-  br i1 %or.cond.i, label %if.then10.i, label %qcrypto_tls_creds_check_cert_key_usage.exit.thread
+  br i1 %or.cond.i, label %if.then10.i, label %if.end13.thread
+
+if.end13.thread:                                  ; preds = %if.then6.i
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %usage.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %critical.i)
+  br label %return
 
 if.then10.i:                                      ; preds = %if.then6.i
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.17, i32 noundef 161, ptr noundef nonnull @__func__.qcrypto_tls_creds_check_cert_key_usage, ptr noundef nonnull @.str.48, ptr noundef %certFile) #9
-  br label %17
+  br label %qcrypto_tls_creds_check_cert_key_usage.exit.thread
 
 if.else13.i:                                      ; preds = %if.end4.i
   %and14.i = and i32 %15, 128
@@ -1120,7 +1125,7 @@ if.else13.i:                                      ; preds = %if.end4.i
 
 if.then18.i:                                      ; preds = %if.else13.i
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.17, i32 noundef 170, ptr noundef nonnull @__func__.qcrypto_tls_creds_check_cert_key_usage, ptr noundef nonnull @.str.49, ptr noundef %certFile) #9
-  br label %17
+  br label %qcrypto_tls_creds_check_cert_key_usage.exit.thread
 
 if.end20.i:                                       ; preds = %if.else13.i
   %and21.i = and i32 %15, 32
@@ -1130,14 +1135,9 @@ if.end20.i:                                       ; preds = %if.else13.i
 
 if.then25.i:                                      ; preds = %if.end20.i
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.17, i32 noundef 178, ptr noundef nonnull @__func__.qcrypto_tls_creds_check_cert_key_usage, ptr noundef nonnull @.str.50, ptr noundef %certFile) #9
-  br label %17
+  br label %qcrypto_tls_creds_check_cert_key_usage.exit.thread
 
-qcrypto_tls_creds_check_cert_key_usage.exit.thread: ; preds = %if.then6.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %usage.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %critical.i)
-  br label %return
-
-17:                                               ; preds = %if.else.i32, %if.then25.i, %if.then18.i, %if.then10.i
+qcrypto_tls_creds_check_cert_key_usage.exit.thread: ; preds = %if.then10.i, %if.then18.i, %if.then25.i, %if.else.i32
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %usage.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %critical.i)
   br label %return
@@ -1171,47 +1171,47 @@ if.then.i63:                                      ; preds = %for.cond.i
 if.then8.i:                                       ; preds = %for.cond.i
   %call9.i64 = call ptr @gnutls_strerror(i32 noundef %call.i47) #10
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.17, i32 noundef 221, ptr noundef nonnull @__func__.qcrypto_tls_creds_check_cert_key_purpose, ptr noundef nonnull @.str.53, ptr noundef %certFile, ptr noundef %call9.i64) #9
-  br label %33
+  br label %qcrypto_tls_creds_check_cert_key_purpose.exit.thread
 
 if.end10.i:                                       ; preds = %for.cond.i
-  %18 = load i64, ptr %size.i, align 8
-  %call11.i = call noalias ptr @g_malloc0_n(i64 noundef %18, i64 noundef 1) #12
+  %17 = load i64, ptr %size.i, align 8
+  %call11.i = call noalias ptr @g_malloc0_n(i64 noundef %17, i64 noundef 1) #12
   %call13.i = call i32 @gnutls_x509_crt_get_key_purpose_oid(ptr noundef %cert, i32 noundef %conv.i, ptr noundef %call11.i, ptr noundef nonnull %size.i, ptr noundef nonnull %purposeCritical.i) #9
   %cmp14.i = icmp slt i32 %call13.i, 0
-  %19 = load i32, ptr %purposeCritical.i, align 4
+  %18 = load i32, ptr %purposeCritical.i, align 4
   br i1 %cmp14.i, label %if.then16.i, label %if.end18.i
 
 if.then16.i:                                      ; preds = %if.end10.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i46)
-  %20 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i49 = icmp ne i32 %20, 0
-  %21 = load i16, ptr @_TRACE_QCRYPTO_TLS_CREDS_X509_CHECK_KEY_PURPOSE_DSTATE, align 2
-  %tobool4.i.i.i50 = icmp ne i16 %21, 0
+  %19 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i.i49 = icmp ne i32 %19, 0
+  %20 = load i16, ptr @_TRACE_QCRYPTO_TLS_CREDS_X509_CHECK_KEY_PURPOSE_DSTATE, align 2
+  %tobool4.i.i.i50 = icmp ne i16 %20, 0
   %or.cond.i.i.i51 = select i1 %tobool.i.i.i49, i1 %tobool4.i.i.i50, i1 false
   br i1 %or.cond.i.i.i51, label %land.lhs.true5.i.i.i53, label %trace_qcrypto_tls_creds_x509_check_key_purpose.exit.i
 
 land.lhs.true5.i.i.i53:                           ; preds = %if.then16.i
-  %22 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i54 = and i32 %22, 32768
+  %21 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i.i54 = and i32 %21, 32768
   %cmp.i.not.i.i.i55 = icmp eq i32 %and.i.i.i.i54, 0
   br i1 %cmp.i.not.i.i.i55, label %trace_qcrypto_tls_creds_x509_check_key_purpose.exit.i, label %if.then.i.i.i56
 
 if.then.i.i.i56:                                  ; preds = %land.lhs.true5.i.i.i53
-  %23 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i.i57 = trunc i8 %23 to i1
+  %22 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i.i57 = trunc i8 %22 to i1
   br i1 %tobool7.i.i.i57, label %if.then8.i.i.i59, label %if.else.i.i.i58
 
 if.then8.i.i.i59:                                 ; preds = %if.then.i.i.i56
   %call9.i.i.i60 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i46, ptr noundef null) #9
   %call10.i.i.i61 = call i32 @qemu_get_thread_id() #9
-  %24 = load i64, ptr %_now.i.i.i46, align 8
+  %23 = load i64, ptr %_now.i.i.i46, align 8
   %tv_usec.i.i.i62 = getelementptr inbounds i8, ptr %_now.i.i.i46, i64 8
-  %25 = load i64, ptr %tv_usec.i.i.i62, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.60, i32 noundef %call10.i.i.i61, i64 noundef %24, i64 noundef %25, ptr noundef %creds, ptr noundef %certFile, i32 noundef %call13.i, ptr noundef nonnull @.str.54, i32 noundef %19) #9
+  %24 = load i64, ptr %tv_usec.i.i.i62, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.60, i32 noundef %call10.i.i.i61, i64 noundef %23, i64 noundef %24, ptr noundef %creds, ptr noundef %certFile, i32 noundef %call13.i, ptr noundef nonnull @.str.54, i32 noundef %18) #9
   br label %trace_qcrypto_tls_creds_x509_check_key_purpose.exit.i
 
 if.else.i.i.i58:                                  ; preds = %if.then.i.i.i56
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.61, ptr noundef %creds, ptr noundef %certFile, i32 noundef %call13.i, ptr noundef nonnull @.str.54, i32 noundef %19) #9
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.61, ptr noundef %creds, ptr noundef %certFile, i32 noundef %call13.i, ptr noundef nonnull @.str.54, i32 noundef %18) #9
   br label %trace_qcrypto_tls_creds_x509_check_key_purpose.exit.i
 
 trace_qcrypto_tls_creds_x509_check_key_purpose.exit.i: ; preds = %if.else.i.i.i58, %if.then8.i.i.i59, %land.lhs.true5.i.i.i53, %if.then16.i
@@ -1219,44 +1219,44 @@ trace_qcrypto_tls_creds_x509_check_key_purpose.exit.i: ; preds = %if.else.i.i.i5
   call void @g_free(ptr noundef %call11.i) #9
   %call17.i = call ptr @gnutls_strerror(i32 noundef %call13.i) #10
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.17, i32 noundef 236, ptr noundef nonnull @__func__.qcrypto_tls_creds_check_cert_key_purpose, ptr noundef nonnull @.str.53, ptr noundef %certFile, ptr noundef %call17.i) #9
-  br label %33
+  br label %qcrypto_tls_creds_check_cert_key_purpose.exit.thread
 
 if.end18.i:                                       ; preds = %if.end10.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i33.i)
-  %26 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i34.i = icmp ne i32 %26, 0
-  %27 = load i16, ptr @_TRACE_QCRYPTO_TLS_CREDS_X509_CHECK_KEY_PURPOSE_DSTATE, align 2
-  %tobool4.i.i35.i = icmp ne i16 %27, 0
+  %25 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i34.i = icmp ne i32 %25, 0
+  %26 = load i16, ptr @_TRACE_QCRYPTO_TLS_CREDS_X509_CHECK_KEY_PURPOSE_DSTATE, align 2
+  %tobool4.i.i35.i = icmp ne i16 %26, 0
   %or.cond.i.i36.i = select i1 %tobool.i.i34.i, i1 %tobool4.i.i35.i, i1 false
   br i1 %or.cond.i.i36.i, label %land.lhs.true5.i.i37.i, label %trace_qcrypto_tls_creds_x509_check_key_purpose.exit47.i
 
 land.lhs.true5.i.i37.i:                           ; preds = %if.end18.i
-  %28 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i38.i = and i32 %28, 32768
+  %27 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i38.i = and i32 %27, 32768
   %cmp.i.not.i.i39.i = icmp eq i32 %and.i.i.i38.i, 0
   br i1 %cmp.i.not.i.i39.i, label %trace_qcrypto_tls_creds_x509_check_key_purpose.exit47.i, label %if.then.i.i40.i
 
 if.then.i.i40.i:                                  ; preds = %land.lhs.true5.i.i37.i
-  %29 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i41.i = trunc i8 %29 to i1
+  %28 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i41.i = trunc i8 %28 to i1
   br i1 %tobool7.i.i41.i, label %if.then8.i.i43.i, label %if.else.i.i42.i
 
 if.then8.i.i43.i:                                 ; preds = %if.then.i.i40.i
   %call9.i.i44.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i33.i, ptr noundef null) #9
   %call10.i.i45.i = call i32 @qemu_get_thread_id() #9
-  %30 = load i64, ptr %_now.i.i33.i, align 8
-  %31 = load i64, ptr %tv_usec.i.i46.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.60, i32 noundef %call10.i.i45.i, i64 noundef %30, i64 noundef %31, ptr noundef %creds, ptr noundef %certFile, i32 noundef %call13.i, ptr noundef %call11.i, i32 noundef %19) #9
+  %29 = load i64, ptr %_now.i.i33.i, align 8
+  %30 = load i64, ptr %tv_usec.i.i46.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.60, i32 noundef %call10.i.i45.i, i64 noundef %29, i64 noundef %30, ptr noundef %creds, ptr noundef %certFile, i32 noundef %call13.i, ptr noundef %call11.i, i32 noundef %18) #9
   br label %trace_qcrypto_tls_creds_x509_check_key_purpose.exit47.i
 
 if.else.i.i42.i:                                  ; preds = %if.then.i.i40.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.61, ptr noundef %creds, ptr noundef %certFile, i32 noundef %call13.i, ptr noundef %call11.i, i32 noundef %19) #9
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.61, ptr noundef %creds, ptr noundef %certFile, i32 noundef %call13.i, ptr noundef %call11.i, i32 noundef %18) #9
   br label %trace_qcrypto_tls_creds_x509_check_key_purpose.exit47.i
 
 trace_qcrypto_tls_creds_x509_check_key_purpose.exit47.i: ; preds = %if.else.i.i42.i, %if.then8.i.i43.i, %land.lhs.true5.i.i37.i, %if.end18.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i33.i)
-  %32 = load i32, ptr %purposeCritical.i, align 4
-  %tobool.not.i = icmp eq i32 %32, 0
+  %31 = load i32, ptr %purposeCritical.i, align 4
+  %tobool.not.i = icmp eq i32 %31, 0
   %spec.select30.i = select i1 %tobool.not.i, i32 %critical.0.i, i32 1
   %call21.i = call i32 @g_str_equal(ptr noundef %call11.i, ptr noundef nonnull @.str.55) #9
   %tobool22.not.i = icmp eq i32 %call21.i, 0
@@ -1288,7 +1288,7 @@ if.then35.i:                                      ; preds = %if.then.i63
 
 if.then39.i:                                      ; preds = %if.then35.i
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.17, i32 noundef 262, ptr noundef nonnull @__func__.qcrypto_tls_creds_check_cert_key_purpose, ptr noundef nonnull @.str.58, ptr noundef %certFile) #9
-  br label %33
+  br label %qcrypto_tls_creds_check_cert_key_purpose.exit.thread
 
 if.else42.i:                                      ; preds = %if.then.i63
   %tobool43.i = select i1 %cmp2.i, i1 true, i1 %allowClient.0.i
@@ -1297,20 +1297,20 @@ if.else42.i:                                      ; preds = %if.then.i63
 
 if.then46.i:                                      ; preds = %if.else42.i
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.17, i32 noundef 271, ptr noundef nonnull @__func__.qcrypto_tls_creds_check_cert_key_purpose, ptr noundef nonnull @.str.59, ptr noundef %certFile) #9
-  br label %33
+  br label %qcrypto_tls_creds_check_cert_key_purpose.exit.thread
+
+qcrypto_tls_creds_check_cert_key_purpose.exit.thread: ; preds = %if.then39.i, %if.then46.i, %if.then8.i, %trace_qcrypto_tls_creds_x509_check_key_purpose.exit.i
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %purposeCritical.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %size.i)
+  br label %return
 
 qcrypto_tls_creds_check_cert_key_purpose.exit:    ; preds = %if.then35.i, %if.else42.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %purposeCritical.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %size.i)
   br label %return
 
-33:                                               ; preds = %if.then39.i, %if.then46.i, %if.then8.i, %trace_qcrypto_tls_creds_x509_check_key_purpose.exit.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %purposeCritical.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %size.i)
-  br label %return
-
-return:                                           ; preds = %17, %qcrypto_tls_creds_check_cert_key_usage.exit.thread, %if.else15.i, %if.then13.i, %if.then7.i, %if.then2.i, %if.then11.i, %if.then5.i, %if.then.i, %33, %qcrypto_tls_creds_check_cert_key_purpose.exit
-  %retval.0 = phi i32 [ -1, %33 ], [ 0, %qcrypto_tls_creds_check_cert_key_purpose.exit ], [ -1, %if.then.i ], [ -1, %if.then5.i ], [ -1, %if.then11.i ], [ -1, %if.then2.i ], [ -1, %if.then7.i ], [ -1, %if.then13.i ], [ -1, %if.else15.i ], [ -1, %17 ], [ 0, %qcrypto_tls_creds_check_cert_key_usage.exit.thread ]
+return:                                           ; preds = %if.else15.i, %if.then13.i, %if.then7.i, %if.then2.i, %if.then11.i, %if.then5.i, %if.then.i, %if.end13.thread, %qcrypto_tls_creds_check_cert_key_purpose.exit, %qcrypto_tls_creds_check_cert_key_purpose.exit.thread, %qcrypto_tls_creds_check_cert_key_usage.exit.thread
+  %retval.0 = phi i32 [ -1, %qcrypto_tls_creds_check_cert_key_usage.exit.thread ], [ -1, %qcrypto_tls_creds_check_cert_key_purpose.exit.thread ], [ 0, %qcrypto_tls_creds_check_cert_key_purpose.exit ], [ 0, %if.end13.thread ], [ -1, %if.then.i ], [ -1, %if.then5.i ], [ -1, %if.then11.i ], [ -1, %if.then2.i ], [ -1, %if.then7.i ], [ -1, %if.then13.i ], [ -1, %if.else15.i ]
   ret i32 %retval.0
 }
 

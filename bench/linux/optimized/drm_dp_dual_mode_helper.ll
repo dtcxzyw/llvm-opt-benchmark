@@ -681,13 +681,13 @@ define dso_local noundef ptr @drm_dp_get_dual_mode_type_name(i32 noundef %0) #0 
   tail call void asm sideeffect "420: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 420b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 420) #9, !srcloc !10
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.18, i32 429, i32 2305, i64 12) #9, !srcloc !11
   tail call void asm sideeffect "421: nop\0A\09.pushsection .discard.instr_end\0A\09.long 421b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 421) #9, !srcloc !12
+  br label %8
+
+8:                                                ; preds = %7, %1
   br label %9
 
-8:                                                ; preds = %1
-  br label %9
-
-9:                                                ; preds = %7, %8, %6, %5, %4, %3, %2, %1
-  %10 = phi ptr [ @.str.17, %6 ], [ @.str.16, %5 ], [ @.str.15, %4 ], [ @.str.14, %3 ], [ @.str.13, %2 ], [ @.str.12, %1 ], [ @.str.19, %7 ], [ @.str.19, %8 ]
+9:                                                ; preds = %8, %6, %5, %4, %3, %2, %1
+  %10 = phi ptr [ @.str.19, %8 ], [ @.str.17, %6 ], [ @.str.16, %5 ], [ @.str.15, %4 ], [ @.str.14, %3 ], [ @.str.13, %2 ], [ @.str.12, %1 ]
   ret ptr %10
 }
 

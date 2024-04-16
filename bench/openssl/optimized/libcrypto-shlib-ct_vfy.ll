@@ -145,7 +145,7 @@ declare ptr @EVP_MD_CTX_new() local_unnamed_addr #1
 declare i32 @EVP_DigestVerifyInit_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @sct_ctx_update(ptr noundef %ctx, ptr nocapture noundef readonly %sctx, ptr nocapture noundef readonly %sct) unnamed_addr #0 {
+define internal fastcc noundef i32 @sct_ctx_update(ptr noundef %ctx, ptr nocapture noundef readonly %sctx, ptr nocapture noundef readonly %sct) unnamed_addr #0 {
 entry:
   %tmpbuf = alloca [12 x i8], align 1
   %entry_type = getelementptr inbounds i8, ptr %sct, i64 88
@@ -268,18 +268,20 @@ if.end90:                                         ; preds = %if.end86
 if.end105:                                        ; preds = %if.end90
   %8 = load i64, ptr %ext_len, align 8
   %tobool107.not = icmp eq i64 %8, 0
-  br i1 %tobool107.not, label %return, label %land.lhs.true108
+  br i1 %tobool107.not, label %if.end113, label %land.lhs.true108
 
 land.lhs.true108:                                 ; preds = %if.end105
   %ext = getelementptr inbounds i8, ptr %sct, i64 48
   %9 = load ptr, ptr %ext, align 8
   %call110 = call i32 @EVP_DigestUpdate(ptr noundef %ctx, ptr noundef %9, i64 noundef %8) #3
-  %tobool111.not = icmp ne i32 %call110, 0
-  %spec.select = zext i1 %tobool111.not to i32
+  %tobool111.not = icmp eq i32 %call110, 0
+  br i1 %tobool111.not, label %return, label %if.end113
+
+if.end113:                                        ; preds = %land.lhs.true108, %if.end105
   br label %return
 
-return:                                           ; preds = %land.lhs.true108, %if.end105, %if.end90, %if.end86, %if.end68, %if.end64, %if.else, %if.end5, %land.lhs.true, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 0, %land.lhs.true ], [ 0, %if.end5 ], [ 0, %if.else ], [ 0, %if.end64 ], [ 0, %if.end68 ], [ 0, %if.end86 ], [ 0, %if.end90 ], [ 1, %if.end105 ], [ %spec.select, %land.lhs.true108 ]
+return:                                           ; preds = %land.lhs.true108, %if.end90, %if.end86, %if.end68, %if.end64, %if.else, %if.end5, %land.lhs.true, %entry, %if.end113
+  %retval.0 = phi i32 [ 1, %if.end113 ], [ 0, %entry ], [ 0, %land.lhs.true ], [ 0, %if.end5 ], [ 0, %if.else ], [ 0, %if.end64 ], [ 0, %if.end68 ], [ 0, %if.end86 ], [ 0, %if.end90 ], [ 0, %land.lhs.true108 ]
   ret i32 %retval.0
 }
 

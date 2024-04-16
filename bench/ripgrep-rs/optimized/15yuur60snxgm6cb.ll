@@ -6412,15 +6412,15 @@ define noundef zeroext i1 @_ZN6ignore4walk14walkdir_is_dir17h7c5458122e9e18a9E(p
     i16 -24576, label %8
   ]
 
-7:                                                ; preds = %8, %1, %22, %18
-  %.0 = phi i1 [ %.0.i, %22 ], [ true, %1 ], [ false, %8 ], [ false, %18 ]
+7:                                                ; preds = %1, %22, %18
+  %.0 = phi i1 [ false, %18 ], [ %.0.i, %22 ], [ true, %1 ]
   ret i1 %.0
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds i8, ptr %0, i64 24
   %10 = load i64, ptr %9, align 8, !noundef !4
   %.not = icmp eq i64 %10, 0
-  br i1 %.not, label %11, label %7
+  br i1 %.not, label %11, label %18
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds i8, ptr %0, i64 8
@@ -6434,7 +6434,7 @@ define noundef zeroext i1 @_ZN6ignore4walk14walkdir_is_dir17h7c5458122e9e18a9E(p
   %17 = icmp eq i64 %16, 2
   br i1 %17, label %24, label %19
 
-18:                                               ; preds = %1
+18:                                               ; preds = %1, %8
   br label %7
 
 19:                                               ; preds = %11

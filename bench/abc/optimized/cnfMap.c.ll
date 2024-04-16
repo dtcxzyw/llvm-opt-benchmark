@@ -169,21 +169,21 @@ define void @Cnf_DeriveMapping(ptr nocapture noundef readonly %0) local_unnamed_
   %10 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %9, ptr %10, align 8
   %11 = icmp sgt i32 %.val52.val, 0
-  br i1 %11, label %.lr.ph63, label %.critedge
+  br i1 %11, label %.lr.ph64, label %.critedge
 
-.lr.ph63:                                         ; preds = %1
+.lr.ph64:                                         ; preds = %1
   %12 = getelementptr i8, ptr %0, i64 8
   br label %13
 
-13:                                               ; preds = %.lr.ph63, %123
-  %indvars.iv = phi i64 [ 0, %.lr.ph63 ], [ %indvars.iv.next, %123 ]
-  %14 = phi ptr [ %.val52, %.lr.ph63 ], [ %126, %123 ]
+13:                                               ; preds = %.lr.ph64, %124
+  %indvars.iv = phi i64 [ 0, %.lr.ph64 ], [ %indvars.iv.next, %124 ]
+  %14 = phi ptr [ %.val52, %.lr.ph64 ], [ %127, %124 ]
   %15 = getelementptr i8, ptr %14, i64 8
   %.val = load ptr, ptr %15, align 8
   %16 = getelementptr inbounds ptr, ptr %.val, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %123, label %19
+  br i1 %18, label %124, label %19
 
 19:                                               ; preds = %13
   %20 = getelementptr i8, ptr %17, i64 24
@@ -192,7 +192,7 @@ define void @Cnf_DeriveMapping(ptr nocapture noundef readonly %0) local_unnamed_
   %22 = and i32 %21, 7
   %23 = add nsw i32 %22, -7
   %narrow.i = icmp ult i32 %23, -2
-  br i1 %narrow.i, label %123, label %24
+  br i1 %narrow.i, label %124, label %24
 
 24:                                               ; preds = %19
   %25 = getelementptr i8, ptr %17, i64 40
@@ -201,21 +201,21 @@ define void @Cnf_DeriveMapping(ptr nocapture noundef readonly %0) local_unnamed_
   tail call void @llvm.assume(i1 %26)
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %24, %104
-  %.058 = phi ptr [ %106, %104 ], [ %.val54, %24 ]
-  %.04157 = phi i32 [ %105, %104 ], [ 0, %24 ]
-  %.04356 = phi ptr [ %.1, %104 ], [ null, %24 ]
+.lr.ph:                                           ; preds = %24, %105
+  %.058 = phi ptr [ %107, %105 ], [ %.val54, %24 ]
+  %.04157 = phi i32 [ %106, %105 ], [ 0, %24 ]
+  %.04356 = phi ptr [ %.1, %105 ], [ null, %24 ]
   %27 = getelementptr inbounds i8, ptr %.058, i64 4
   %28 = load i32, ptr %27, align 4
   %29 = and i32 %28, 268435456
   %30 = icmp eq i32 %29, 0
-  br i1 %30, label %104, label %31
+  br i1 %30, label %105, label %31
 
 31:                                               ; preds = %.lr.ph
   %32 = and i32 %28, -134217729
   store i32 %32, ptr %27, align 4
   %33 = icmp eq i32 %.04157, 0
-  br i1 %33, label %104, label %34
+  br i1 %33, label %105, label %34
 
 34:                                               ; preds = %31
   %35 = and i32 %28, -268369921
@@ -315,7 +315,7 @@ Cnf_CutAssignAreaFlow.exit:                       ; preds = %83, %34
 
 94:                                               ; preds = %91
   %95 = icmp eq i32 %92, %89
-  br i1 %95, label %96, label %104
+  br i1 %95, label %96, label %105
 
 96:                                               ; preds = %94
   %97 = getelementptr inbounds i8, ptr %.04356, i64 4
@@ -325,76 +325,78 @@ Cnf_CutAssignAreaFlow.exit:                       ; preds = %83, %34
   %101 = lshr i32 %88, 16
   %102 = and i32 %101, 2047
   %103 = icmp ult i32 %100, %102
-  %spec.select = select i1 %103, ptr %.058, ptr %.04356
-  br label %104
+  br i1 %103, label %104, label %105
 
-104:                                              ; preds = %96, %Cnf_CutAssignAreaFlow.exit, %91, %.lr.ph, %94, %31
-  %.1 = phi ptr [ %.04356, %.lr.ph ], [ %.04356, %31 ], [ %.04356, %94 ], [ %.058, %91 ], [ %.058, %Cnf_CutAssignAreaFlow.exit ], [ %spec.select, %96 ]
-  %105 = add nuw nsw i32 %.04157, 1
-  %106 = getelementptr inbounds i8, ptr %.058, i64 24
-  %107 = load i64, ptr %20, align 8
-  %108 = lshr i64 %107, 56
-  %109 = trunc nuw nsw i64 %108 to i32
-  %110 = icmp ult i32 %105, %109
-  br i1 %110, label %.lr.ph, label %._crit_edge, !llvm.loop !7
+104:                                              ; preds = %96, %91, %Cnf_CutAssignAreaFlow.exit
+  br label %105
 
-._crit_edge:                                      ; preds = %104
-  %111 = load i32, ptr %.1, align 4
-  %112 = icmp slt i32 %111, 1000000001
-  %113 = getelementptr inbounds i8, ptr %17, i64 36
-  %114 = load i32, ptr %113, align 4
-  %115 = sext i32 %114 to i64
-  %116 = getelementptr inbounds i32, ptr %calloc, i64 %115
-  br i1 %112, label %117, label %121
+105:                                              ; preds = %.lr.ph, %104, %96, %94, %31
+  %.1 = phi ptr [ %.04356, %.lr.ph ], [ %.04356, %31 ], [ %.058, %104 ], [ %.04356, %96 ], [ %.04356, %94 ]
+  %106 = add nuw nsw i32 %.04157, 1
+  %107 = getelementptr inbounds i8, ptr %.058, i64 24
+  %108 = load i64, ptr %20, align 8
+  %109 = lshr i64 %108, 56
+  %110 = trunc nuw nsw i64 %109 to i32
+  %111 = icmp ult i32 %106, %110
+  br i1 %111, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
-117:                                              ; preds = %._crit_edge
-  store i32 %111, ptr %116, align 4
-  %118 = getelementptr inbounds i8, ptr %.1, i64 4
-  %119 = load i32, ptr %118, align 4
-  %120 = or i32 %119, 134217728
-  store i32 %120, ptr %118, align 4
-  br label %123
+._crit_edge:                                      ; preds = %105
+  %112 = load i32, ptr %.1, align 4
+  %113 = icmp slt i32 %112, 1000000001
+  %114 = getelementptr inbounds i8, ptr %17, i64 36
+  %115 = load i32, ptr %114, align 4
+  %116 = sext i32 %115 to i64
+  %117 = getelementptr inbounds i32, ptr %calloc, i64 %116
+  br i1 %113, label %118, label %122
 
-121:                                              ; preds = %._crit_edge
-  store i32 1000000000, ptr %116, align 4
-  %122 = or i64 %107, 32
-  store i64 %122, ptr %20, align 8
-  br label %123
+118:                                              ; preds = %._crit_edge
+  store i32 %112, ptr %117, align 4
+  %119 = getelementptr inbounds i8, ptr %.1, i64 4
+  %120 = load i32, ptr %119, align 4
+  %121 = or i32 %120, 134217728
+  store i32 %121, ptr %119, align 4
+  br label %124
 
-123:                                              ; preds = %19, %13, %121, %117
+122:                                              ; preds = %._crit_edge
+  store i32 1000000000, ptr %117, align 4
+  %123 = or i64 %108, 32
+  store i64 %123, ptr %20, align 8
+  br label %124
+
+124:                                              ; preds = %19, %13, %122, %118
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %124 = load ptr, ptr %0, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 32
-  %126 = load ptr, ptr %125, align 8
-  %127 = getelementptr i8, ptr %126, i64 4
-  %.val51 = load i32, ptr %127, align 4
-  %128 = sext i32 %.val51 to i64
-  %129 = icmp slt i64 %indvars.iv.next, %128
-  br i1 %129, label %13, label %.critedge.loopexit, !llvm.loop !8
+  %125 = load ptr, ptr %0, align 8
+  %126 = getelementptr inbounds i8, ptr %125, i64 32
+  %127 = load ptr, ptr %126, align 8
+  %128 = getelementptr i8, ptr %127, i64 4
+  %.val51 = load i32, ptr %128, align 4
+  %129 = sext i32 %.val51 to i64
+  %130 = icmp slt i64 %indvars.iv.next, %129
+  br i1 %130, label %13, label %.critedge.loopexit, !llvm.loop !8
 
-.critedge.loopexit:                               ; preds = %123
+.critedge.loopexit:                               ; preds = %124
   %.pre = load ptr, ptr %10, align 8
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %1
-  %130 = phi ptr [ %.pre, %.critedge.loopexit ], [ %9, %1 ]
-  %.not.i55 = icmp eq ptr %130, null
-  br i1 %.not.i55, label %Vec_PtrFree.exit, label %131
+  %131 = phi ptr [ %.pre, %.critedge.loopexit ], [ %9, %1 ]
+  %.not.i55 = icmp eq ptr %131, null
+  br i1 %.not.i55, label %Vec_PtrFree.exit, label %132
 
-131:                                              ; preds = %.critedge
-  tail call void @free(ptr noundef nonnull %130) #8
+132:                                              ; preds = %.critedge
+  tail call void @free(ptr noundef nonnull %131) #8
   br label %Vec_PtrFree.exit
 
-Vec_PtrFree.exit:                                 ; preds = %.critedge, %131
+Vec_PtrFree.exit:                                 ; preds = %.critedge, %132
   tail call void @free(ptr noundef nonnull %7) #8
   %.not = icmp eq ptr %calloc, null
-  br i1 %.not, label %133, label %132
+  br i1 %.not, label %134, label %133
 
-132:                                              ; preds = %Vec_PtrFree.exit
+133:                                              ; preds = %Vec_PtrFree.exit
   tail call void @free(ptr noundef nonnull %calloc) #8
-  br label %133
+  br label %134
 
-133:                                              ; preds = %Vec_PtrFree.exit, %132
+134:                                              ; preds = %Vec_PtrFree.exit, %133
   ret void
 }
 

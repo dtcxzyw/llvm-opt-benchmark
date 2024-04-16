@@ -3703,13 +3703,14 @@ if.end23:                                         ; preds = %if.end15
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %val.addr.i34)
   store i16 %conv27, ptr %val.addr.i34, align 2
   %call.i35 = call i64 @fwrite(ptr noundef nonnull %val.addr.i34, i64 noundef 1, i64 noundef 2, ptr noundef %f)
-  %cmp.i36 = icmp ne i64 %call.i35, 2
+  %cmp.i36.not = icmp eq i64 %call.i35, 2
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %val.addr.i34)
-  %brmerge = or i1 %tobool.not, %cmp.i36
-  %not.cmp.i36 = xor i1 %cmp.i36, true
-  br i1 %brmerge, label %return, label %if.then33
+  br i1 %cmp.i36.not, label %if.end31, label %return
 
-if.then33:                                        ; preds = %if.end23
+if.end31:                                         ; preds = %if.end23
+  br i1 %tobool.not, label %if.end51, label %if.then33
+
+if.then33:                                        ; preds = %if.end31
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %val.addr.i38)
   store i16 22, ptr %val.addr.i38, align 2
   %call.i39 = call i64 @fwrite(ptr noundef nonnull %val.addr.i38, i64 noundef 1, i64 noundef 2, ptr noundef %f)
@@ -3737,11 +3738,13 @@ if.end42:                                         ; preds = %if.end37
 if.end46:                                         ; preds = %if.end42
   %call47 = tail call i64 @fwrite(ptr noundef nonnull @.str.93, i64 noundef 1, i64 noundef 16, ptr noundef %f)
   %cmp.not = icmp eq i64 %call47, 16
+  br i1 %cmp.not, label %if.end51, label %return
+
+if.end51:                                         ; preds = %if.end46, %if.end31
   br label %return
 
-return:                                           ; preds = %if.end46, %if.end23, %if.end42, %if.end37, %if.then33, %if.end15, %if.end10, %if.end6, %if.end, %entry
-  %retval.0.shrunk = phi i1 [ false, %entry ], [ false, %if.end ], [ false, %if.end6 ], [ false, %if.end10 ], [ false, %if.end15 ], [ %not.cmp.i36, %if.end23 ], [ false, %if.then33 ], [ false, %if.end37 ], [ false, %if.end42 ], [ %cmp.not, %if.end46 ]
-  %retval.0 = zext i1 %retval.0.shrunk to i32
+return:                                           ; preds = %if.end46, %if.end42, %if.end37, %if.then33, %if.end23, %if.end15, %if.end10, %if.end6, %if.end, %entry, %if.end51
+  %retval.0 = phi i32 [ 1, %if.end51 ], [ 0, %entry ], [ 0, %if.end ], [ 0, %if.end6 ], [ 0, %if.end10 ], [ 0, %if.end15 ], [ 0, %if.end23 ], [ 0, %if.then33 ], [ 0, %if.end37 ], [ 0, %if.end42 ], [ 0, %if.end46 ]
   ret i32 %retval.0
 }
 

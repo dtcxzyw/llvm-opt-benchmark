@@ -51942,7 +51942,7 @@ for.body.backedge:                                ; preds = %for.inc, %lor.lhs.f
 
 if.then46:                                        ; preds = %for.body.i101.preheader
   %cmp50 = icmp ugt i64 %sub.ptr.sub, 7
-  br i1 %cmp50, label %land.lhs.true51, label %if.end61
+  br i1 %cmp50, label %land.lhs.true51, label %if.else58
 
 land.lhs.true51:                                  ; preds = %if.then46
   %add.ptr52 = getelementptr inbounds i8, ptr %spec.select, i64 3
@@ -51955,11 +51955,13 @@ land.lhs.true51:                                  ; preds = %if.then46
   %op.rdx = or i8 %18, %xor14.i116.4
   %19 = and i8 %op.rdx, -33
   %20 = icmp eq i8 %19, 0
-  %spec.select1 = select i1 %20, i64 8, i64 3
+  br i1 %20, label %if.end61, label %if.else58
+
+if.else58:                                        ; preds = %land.lhs.true51, %if.then46
   br label %if.end61
 
-if.end61:                                         ; preds = %land.lhs.true51, %if.then46
-  %.sink = phi i64 [ 3, %if.then46 ], [ %spec.select1, %land.lhs.true51 ]
+if.end61:                                         ; preds = %if.else58, %land.lhs.true51
+  %.sink = phi i64 [ 3, %if.else58 ], [ 8, %land.lhs.true51 ]
   %add.ptr59 = getelementptr inbounds i8, ptr %spec.select, i64 %.sink
   %cond66 = select i1 %cmp, float 0xFFF0000000000000, float 0x7FF0000000000000
   store float %cond66, ptr %value, align 4, !tbaa !17
@@ -54282,7 +54284,7 @@ for.body.backedge:                                ; preds = %for.inc, %lor.lhs.f
 
 if.then45:                                        ; preds = %for.body.i99.preheader
   %cmp49 = icmp ugt i64 %sub.ptr.sub, 7
-  br i1 %cmp49, label %land.lhs.true50, label %if.end59
+  br i1 %cmp49, label %land.lhs.true50, label %if.else56
 
 land.lhs.true50:                                  ; preds = %if.then45
   %add.ptr51 = getelementptr inbounds i8, ptr %spec.select, i64 3
@@ -54295,11 +54297,13 @@ land.lhs.true50:                                  ; preds = %if.then45
   %op.rdx = or i8 %18, %xor14.i114.4
   %19 = and i8 %op.rdx, -33
   %20 = icmp eq i8 %19, 0
-  %spec.select1 = select i1 %20, i64 8, i64 3
+  br i1 %20, label %if.end59, label %if.else56
+
+if.else56:                                        ; preds = %land.lhs.true50, %if.then45
   br label %if.end59
 
-if.end59:                                         ; preds = %land.lhs.true50, %if.then45
-  %.sink = phi i64 [ 3, %if.then45 ], [ %spec.select1, %land.lhs.true50 ]
+if.end59:                                         ; preds = %if.else56, %land.lhs.true50
+  %.sink = phi i64 [ 3, %if.else56 ], [ 8, %land.lhs.true50 ]
   %add.ptr57 = getelementptr inbounds i8, ptr %spec.select, i64 %.sink
   %cond64 = select i1 %cmp, double 0xFFF0000000000000, double 0x7FF0000000000000
   store double %cond64, ptr %value, align 8, !tbaa !19

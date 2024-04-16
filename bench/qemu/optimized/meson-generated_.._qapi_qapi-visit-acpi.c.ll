@@ -28,7 +28,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @qapi_dummy_qapi_visit_acpi_c = dso_local local_unnamed_addr global i8 0, align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_AcpiTableOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_AcpiTableOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_sig = alloca i8, align 1
   %has_oem_id = alloca i8, align 1
@@ -136,14 +136,17 @@ if.then66:                                        ; preds = %if.end64
 
 if.end71:                                         ; preds = %if.then66, %if.end64
   %call72 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.8, ptr noundef nonnull %has_data) #4
-  br i1 %call72, label %if.then73, label %return
+  br i1 %call72, label %if.then73, label %if.end78
 
 if.then73:                                        ; preds = %if.end71
   %call75 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.8, ptr noundef nonnull %data, ptr noundef %errp) #4
+  br i1 %call75, label %if.end78, label %return
+
+if.end78:                                         ; preds = %if.then73, %if.end71
   br label %return
 
-return:                                           ; preds = %if.then73, %if.end71, %if.then66, %if.then60, %if.then53, %if.then47, %if.then40, %if.then33, %if.then27, %if.then
-  %retval.0 = phi i1 [ false, %if.then ], [ false, %if.then27 ], [ false, %if.then33 ], [ false, %if.then40 ], [ false, %if.then47 ], [ false, %if.then53 ], [ false, %if.then60 ], [ false, %if.then66 ], [ true, %if.end71 ], [ %call75, %if.then73 ]
+return:                                           ; preds = %if.then73, %if.then66, %if.then60, %if.then53, %if.then47, %if.then40, %if.then33, %if.then27, %if.then, %if.end78
+  %retval.0 = phi i1 [ true, %if.end78 ], [ false, %if.then ], [ false, %if.then27 ], [ false, %if.then33 ], [ false, %if.then40 ], [ false, %if.then47 ], [ false, %if.then53 ], [ false, %if.then60 ], [ false, %if.then66 ], [ false, %if.then73 ]
   ret i1 %retval.0
 }
 

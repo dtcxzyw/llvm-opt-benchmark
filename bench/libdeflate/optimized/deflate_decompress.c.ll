@@ -121,7 +121,7 @@ arch_select_decompress_func.exit:                 ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal i32 @deflate_decompress_default(ptr noalias noundef %d, ptr noalias noundef %in, i64 noundef %in_nbytes, ptr noalias noundef %out, i64 noundef %out_nbytes_avail, ptr noundef writeonly %actual_in_nbytes_ret, ptr noundef writeonly %actual_out_nbytes_ret) #2 {
+define internal noundef i32 @deflate_decompress_default(ptr noalias noundef %d, ptr noalias noundef %in, i64 noundef %in_nbytes, ptr noalias noundef %out, i64 noundef %out_nbytes_avail, ptr noundef writeonly %actual_in_nbytes_ret, ptr noundef writeonly %actual_out_nbytes_ret) #2 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %out, i64 %out_nbytes_avail
   %cond = tail call i64 @llvm.umin.i64(i64 %out_nbytes_avail, i64 299)
@@ -1299,20 +1299,22 @@ if.then1328:                                      ; preds = %if.end1326
   %sub.ptr.lhs.cast1329 = ptrtoint ptr %out_next.6 to i64
   %sub.ptr.sub1331 = sub i64 %sub.ptr.lhs.cast1329, %sub.ptr.rhs.cast920
   store i64 %sub.ptr.sub1331, ptr %actual_out_nbytes_ret, align 8
-  br label %return
+  br label %if.end1337
 
 if.else1332:                                      ; preds = %if.end1326
   %cmp1333.not = icmp eq ptr %out_next.6, %add.ptr
-  %spec.select = select i1 %cmp1333.not, i32 0, i32 2
+  br i1 %cmp1333.not, label %if.end1337, label %return
+
+if.end1337:                                       ; preds = %if.else1332, %if.then1328
   br label %return
 
-return:                                           ; preds = %if.end612, %if.end601, %do.end53, %if.end500, %if.end486, %if.end466, %if.end446, %if.then429, %do.end412, %for.end, %if.else39, %if.else129, %if.then280, %if.end897, %if.end1244, %if.end1190, %if.then1167, %if.else239, %if.else1110, %if.else1332, %if.then1328, %if.end1299
-  %retval.0 = phi i32 [ 1, %if.end1299 ], [ 0, %if.then1328 ], [ %spec.select, %if.else1332 ], [ 1, %if.else1110 ], [ 1, %if.else239 ], [ 1, %if.end1244 ], [ 3, %if.end1190 ], [ 3, %if.then1167 ], [ 1, %if.end897 ], [ 1, %if.then280 ], [ 1, %if.else129 ], [ 1, %if.else39 ], [ 1, %if.end612 ], [ 1, %if.end601 ], [ 1, %do.end53 ], [ 1, %if.end500 ], [ 3, %if.end486 ], [ 1, %if.end466 ], [ 1, %if.end446 ], [ 1, %if.then429 ], [ 1, %do.end412 ], [ 1, %for.end ]
+return:                                           ; preds = %if.end612, %if.end601, %do.end53, %if.end500, %if.end486, %if.end466, %if.end446, %if.then429, %do.end412, %for.end, %if.else39, %if.else129, %if.then280, %if.end897, %if.end1244, %if.end1190, %if.then1167, %if.else239, %if.else1110, %if.else1332, %if.end1299, %if.end1337
+  %retval.0 = phi i32 [ 0, %if.end1337 ], [ 1, %if.end1299 ], [ 2, %if.else1332 ], [ 1, %if.else1110 ], [ 1, %if.else239 ], [ 1, %if.end1244 ], [ 3, %if.end1190 ], [ 3, %if.then1167 ], [ 1, %if.end897 ], [ 1, %if.then280 ], [ 1, %if.else129 ], [ 1, %if.else39 ], [ 1, %if.end612 ], [ 1, %if.end601 ], [ 1, %do.end53 ], [ 1, %if.end500 ], [ 3, %if.end486 ], [ 1, %if.end466 ], [ 1, %if.end446 ], [ 1, %if.then429 ], [ 1, %do.end412 ], [ 1, %for.end ]
   ret i32 %retval.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal i32 @deflate_decompress_bmi2(ptr noalias noundef %d, ptr noalias noundef %in, i64 noundef %in_nbytes, ptr noalias noundef %out, i64 noundef %out_nbytes_avail, ptr noundef writeonly %actual_in_nbytes_ret, ptr noundef writeonly %actual_out_nbytes_ret) #3 {
+define internal noundef i32 @deflate_decompress_bmi2(ptr noalias noundef %d, ptr noalias noundef %in, i64 noundef %in_nbytes, ptr noalias noundef %out, i64 noundef %out_nbytes_avail, ptr noundef writeonly %actual_in_nbytes_ret, ptr noundef writeonly %actual_out_nbytes_ret) #3 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %out, i64 %out_nbytes_avail
   %cond = tail call i64 @llvm.umin.i64(i64 %out_nbytes_avail, i64 299)
@@ -2490,15 +2492,17 @@ if.then1328:                                      ; preds = %if.end1326
   %sub.ptr.lhs.cast1329 = ptrtoint ptr %out_next.6 to i64
   %sub.ptr.sub1331 = sub i64 %sub.ptr.lhs.cast1329, %sub.ptr.rhs.cast920
   store i64 %sub.ptr.sub1331, ptr %actual_out_nbytes_ret, align 8
-  br label %return
+  br label %if.end1337
 
 if.else1332:                                      ; preds = %if.end1326
   %cmp1333.not = icmp eq ptr %out_next.6, %add.ptr
-  %spec.select = select i1 %cmp1333.not, i32 0, i32 2
+  br i1 %cmp1333.not, label %if.end1337, label %return
+
+if.end1337:                                       ; preds = %if.else1332, %if.then1328
   br label %return
 
-return:                                           ; preds = %if.end612, %if.end601, %do.end53, %if.end500, %if.end486, %if.end466, %if.end446, %if.then429, %do.end412, %for.end, %if.else39, %if.else129, %if.then280, %if.end897, %if.end1244, %if.end1190, %if.then1167, %if.else239, %if.else1110, %if.else1332, %if.then1328, %if.end1299
-  %retval.0 = phi i32 [ 1, %if.end1299 ], [ 0, %if.then1328 ], [ %spec.select, %if.else1332 ], [ 1, %if.else1110 ], [ 1, %if.else239 ], [ 1, %if.end1244 ], [ 3, %if.end1190 ], [ 3, %if.then1167 ], [ 1, %if.end897 ], [ 1, %if.then280 ], [ 1, %if.else129 ], [ 1, %if.else39 ], [ 1, %if.end612 ], [ 1, %if.end601 ], [ 1, %do.end53 ], [ 1, %if.end500 ], [ 3, %if.end486 ], [ 1, %if.end466 ], [ 1, %if.end446 ], [ 1, %if.then429 ], [ 1, %do.end412 ], [ 1, %for.end ]
+return:                                           ; preds = %if.end612, %if.end601, %do.end53, %if.end500, %if.end486, %if.end466, %if.end446, %if.then429, %do.end412, %for.end, %if.else39, %if.else129, %if.then280, %if.end897, %if.end1244, %if.end1190, %if.then1167, %if.else239, %if.else1110, %if.else1332, %if.end1299, %if.end1337
+  %retval.0 = phi i32 [ 0, %if.end1337 ], [ 1, %if.end1299 ], [ 2, %if.else1332 ], [ 1, %if.else1110 ], [ 1, %if.else239 ], [ 1, %if.end1244 ], [ 3, %if.end1190 ], [ 3, %if.then1167 ], [ 1, %if.end897 ], [ 1, %if.then280 ], [ 1, %if.else129 ], [ 1, %if.else39 ], [ 1, %if.end612 ], [ 1, %if.end601 ], [ 1, %do.end53 ], [ 1, %if.end500 ], [ 3, %if.end486 ], [ 1, %if.end466 ], [ 1, %if.end446 ], [ 1, %if.then429 ], [ 1, %do.end412 ], [ 1, %for.end ]
   ret i32 %retval.0
 }
 

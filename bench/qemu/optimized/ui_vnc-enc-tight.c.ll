@@ -61,26 +61,28 @@ tailrecurse:                                      ; preds = %if.then61.i, %entry
   %h.tr = phi i32 [ %h, %entry ], [ %sub65.i, %if.then61.i ]
   %1 = load i8, ptr %bytes_per_pixel, align 1
   %cmp = icmp eq i8 %1, 4
-  br i1 %cmp, label %land.lhs.true, label %if.end
+  br i1 %cmp, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %tailrecurse
   %2 = load i8, ptr %rmax, align 8
   %cmp4 = icmp eq i8 %2, -1
-  br i1 %cmp4, label %land.lhs.true6, label %if.end
+  br i1 %cmp4, label %land.lhs.true6, label %if.else
 
 land.lhs.true6:                                   ; preds = %land.lhs.true
   %3 = load i8, ptr %bmax, align 2
   %cmp9 = icmp eq i8 %3, -1
-  br i1 %cmp9, label %land.lhs.true11, label %if.end
+  br i1 %cmp9, label %land.lhs.true11, label %if.else
 
 land.lhs.true11:                                  ; preds = %land.lhs.true6
   %4 = load i8, ptr %gmax, align 1
   %cmp14 = icmp eq i8 %4, -1
-  %spec.select = zext i1 %cmp14 to i8
+  br i1 %cmp14, label %if.end, label %if.else
+
+if.else:                                          ; preds = %land.lhs.true11, %land.lhs.true6, %land.lhs.true, %tailrecurse
   br label %if.end
 
-if.end:                                           ; preds = %land.lhs.true11, %tailrecurse, %land.lhs.true, %land.lhs.true6
-  %.sink = phi i8 [ 0, %land.lhs.true6 ], [ 0, %land.lhs.true ], [ 0, %tailrecurse ], [ %spec.select, %land.lhs.true11 ]
+if.end:                                           ; preds = %land.lhs.true11, %if.else
+  %.sink = phi i8 [ 0, %if.else ], [ 1, %land.lhs.true11 ]
   %5 = load ptr, ptr %tight18, align 8
   %pixel2417 = getelementptr inbounds i8, ptr %5, i64 6
   store i8 %.sink, ptr %pixel2417, align 2

@@ -5562,7 +5562,7 @@ declare zeroext i1 @ConditionVariableTimedSleep(ptr noundef, i64 noundef, i32 no
 declare zeroext i1 @ConditionVariableCancelSleep() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @check_primary_slot_name(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @check_primary_slot_name(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %8, label %5
@@ -5574,10 +5574,13 @@ define dso_local zeroext i1 @check_primary_slot_name(ptr nocapture noundef reado
 
 6:                                                ; preds = %5
   %7 = tail call zeroext i1 @ReplicationSlotValidateName(ptr noundef nonnull %4, i32 noundef 19) #23
-  br label %8
+  br i1 %7, label %8, label %9
 
-8:                                                ; preds = %6, %3, %5
-  %.0 = phi i1 [ true, %5 ], [ true, %3 ], [ %7, %6 ]
+8:                                                ; preds = %6, %5, %3
+  br label %9
+
+9:                                                ; preds = %6, %8
+  %.0 = phi i1 [ true, %8 ], [ false, %6 ]
   ret i1 %.0
 }
 
@@ -5637,11 +5640,13 @@ define dso_local void @assign_recovery_target(ptr noundef readonly %0, ptr nocap
 6:                                                ; preds = %5
   %strcmpload = load i8, ptr %0, align 1
   %.not3 = icmp eq i8 %strcmpload, 0
-  %spec.select = select i1 %.not3, i32 0, i32 5
-  br label %7
+  br i1 %.not3, label %7, label %8
 
 7:                                                ; preds = %6, %5
-  %storemerge = phi i32 [ 0, %5 ], [ %spec.select, %6 ]
+  br label %8
+
+8:                                                ; preds = %6, %7
+  %storemerge = phi i32 [ 0, %7 ], [ 5, %6 ]
   store i32 %storemerge, ptr @recoveryTarget, align 4
   ret void
 }
@@ -5871,11 +5876,13 @@ define dso_local void @assign_recovery_target_time(ptr noundef readonly %0, ptr 
 7:                                                ; preds = %6
   %strcmpload = load i8, ptr %0, align 1
   %.not3 = icmp eq i8 %strcmpload, 0
-  %spec.select = select i1 %.not3, i32 0, i32 2
-  br label %8
+  br i1 %.not3, label %8, label %9
 
 8:                                                ; preds = %7, %6
-  %storemerge = phi i32 [ 0, %6 ], [ %spec.select, %7 ]
+  br label %9
+
+9:                                                ; preds = %7, %8
+  %storemerge = phi i32 [ 0, %8 ], [ 2, %7 ]
   store i32 %storemerge, ptr @recoveryTarget, align 4
   ret void
 }

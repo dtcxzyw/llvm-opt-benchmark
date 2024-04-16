@@ -242,17 +242,19 @@ if.end50:                                         ; preds = %if.end
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 3712
   %cmp.i.i = icmp ugt i64 %sub.ptr.div.i.i.i, 126
-  br i1 %cmp.i.i, label %land.lhs.true.i.i, label %_ZNK14NodeDefManager3getERK7MapNode.exit
+  br i1 %cmp.i.i, label %land.lhs.true.i.i, label %cond.false.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end50
   %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 469168
   %7 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !13
   %cmp.i.i.i104 = icmp eq i64 %7, 0
-  %spec.select = select i1 %cmp.i.i.i104, i64 464000, i64 467712
+  br i1 %cmp.i.i.i104, label %cond.false.i.i, label %_ZNK14NodeDefManager3getERK7MapNode.exit
+
+cond.false.i.i:                                   ; preds = %land.lhs.true.i.i, %if.end50
   br label %_ZNK14NodeDefManager3getERK7MapNode.exit
 
-_ZNK14NodeDefManager3getERK7MapNode.exit:         ; preds = %land.lhs.true.i.i, %if.end50
-  %8 = phi i64 [ 464000, %if.end50 ], [ %spec.select, %land.lhs.true.i.i ]
+_ZNK14NodeDefManager3getERK7MapNode.exit:         ; preds = %cond.false.i.i, %land.lhs.true.i.i
+  %8 = phi i64 [ 464000, %cond.false.i.i ], [ 467712, %land.lhs.true.i.i ]
   %9 = getelementptr inbounds i8, ptr %6, i64 %8
   %light_propagates = getelementptr inbounds i8, ptr %9, i64 3039
   %10 = load i8, ptr %light_propagates, align 1, !tbaa !23, !range !60, !noundef !61

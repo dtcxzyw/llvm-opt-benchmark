@@ -650,8 +650,8 @@ define dso_local i32 @ethnl_tunnel_info_dumpit(ptr noundef %0, ptr noundef %1) l
   %spec.select = select i1 %71, i32 -90, i32 %70
   br label %72
 
-72:                                               ; preds = %.thread8, %68, %.loopexit
-  %73 = phi i32 [ %66, %.loopexit ], [ %spec.select, %68 ], [ 0, %.thread8 ]
+72:                                               ; preds = %68, %.loopexit, %.thread8
+  %73 = phi i32 [ %66, %.loopexit ], [ 0, %.thread8 ], [ %spec.select, %68 ]
   ret i32 %73
 }
 

@@ -5679,7 +5679,7 @@ _ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.e
   br i1 %call1.i.i.i.i.i.i, label %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit.if.then_crit_edge.i.i, label %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit.if.else9_crit_edge.i.i
 
 _ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit.if.then_crit_edge.i.i: ; preds = %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit.i.i
-  %.pre63.i.i = load i64, ptr %add.ptr, align 8
+  %.pre62.i.i = load i64, ptr %add.ptr, align 8
   br label %if.then.i.i
 
 _ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit.if.else9_crit_edge.i.i: ; preds = %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit.i.i
@@ -5687,7 +5687,7 @@ _ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.e
   br label %if.else9.i.i
 
 if.then.i.i:                                      ; preds = %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit.if.then_crit_edge.i.i, %while.body
-  %4 = phi i64 [ %.pre63.i.i, %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit.if.then_crit_edge.i.i ], [ %2, %while.body ]
+  %4 = phi i64 [ %.pre62.i.i, %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit.if.then_crit_edge.i.i ], [ %2, %while.body ]
   %5 = load i64, ptr %add.ptr7, align 8
   %cmp.i14.i.i = icmp ult i64 %4, %5
   br i1 %cmp.i14.i.i, label %_ZN5eastl6medianINS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEEEEOT_S7_S7_S7_.exit, label %if.end7.i15.i.i
@@ -5703,60 +5703,69 @@ _ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.e
   br i1 %call1.i.i.i.i19.i.i, label %_ZN5eastl6medianINS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEEEEOT_S7_S7_S7_.exit, label %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit21.if.else_crit_edge.i.i
 
 _ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit21.if.else_crit_edge.i.i: ; preds = %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit21.i.i
-  %.pre64.i.i = load i64, ptr %add.ptr7, align 8
+  %.pre63.i.i = load i64, ptr %add.ptr7, align 8
   br label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit21.if.else_crit_edge.i.i, %if.end7.i15.i.i
-  %7 = phi i64 [ %.pre64.i.i, %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit21.if.else_crit_edge.i.i ], [ %5, %if.end7.i15.i.i ]
+  %7 = phi i64 [ %.pre63.i.i, %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit21.if.else_crit_edge.i.i ], [ %5, %if.end7.i15.i.i ]
   %8 = load i64, ptr %first, align 8
   %cmp.i22.i.i = icmp ult i64 %8, %7
   br i1 %cmp.i22.i.i, label %_ZN5eastl6medianINS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEEEEOT_S7_S7_S7_.exit, label %if.end7.i23.i.i
 
 if.end7.i23.i.i:                                  ; preds = %if.else.i.i
   %cmp10.i24.i.i = icmp ugt i64 %8, %7
-  br i1 %cmp10.i24.i.i, label %_ZN5eastl6medianINS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEEEEOT_S7_S7_S7_.exit, label %return.sink.split.i.i
+  br i1 %cmp10.i24.i.i, label %if.else7.i.i, label %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit29.i.i
+
+_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit29.i.i: ; preds = %if.end7.i23.i.i
+  %arrayidx.i.i.i.i26.i.i = getelementptr inbounds [2 x ptr], ptr @__const._ZN5eastl8internal29variant_relational_comparison10call_indexINS_4lessIvEENS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEEJLm0ELm1EEEEbRKT0_SC_NS_16integer_sequenceImJXspT1_EEEE.visitors, i64 0, i64 %8
+  %9 = load ptr, ptr %arrayidx.i.i.i.i26.i.i, align 8
+  %call1.i.i.i.i27.i.i = tail call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(40) %first, ptr noundef nonnull align 8 dereferenceable(40) %add.ptr7)
+  br i1 %call1.i.i.i.i27.i.i, label %_ZN5eastl6medianINS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEEEEOT_S7_S7_S7_.exit, label %if.else7.i.i
+
+if.else7.i.i:                                     ; preds = %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit29.i.i, %if.end7.i23.i.i
+  br label %_ZN5eastl6medianINS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEEEEOT_S7_S7_S7_.exit
 
 if.else9.i.i:                                     ; preds = %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit.if.else9_crit_edge.i.i, %if.end7.i.i.i
-  %9 = phi i64 [ %.pre.i.i, %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit.if.else9_crit_edge.i.i ], [ %1, %if.end7.i.i.i ]
-  %10 = load i64, ptr %add.ptr7, align 8
-  %cmp.i30.i.i = icmp ult i64 %9, %10
+  %10 = phi i64 [ %.pre.i.i, %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit.if.else9_crit_edge.i.i ], [ %1, %if.end7.i.i.i ]
+  %11 = load i64, ptr %add.ptr7, align 8
+  %cmp.i30.i.i = icmp ult i64 %10, %11
   br i1 %cmp.i30.i.i, label %_ZN5eastl6medianINS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEEEEOT_S7_S7_S7_.exit, label %if.end7.i31.i.i
 
 if.end7.i31.i.i:                                  ; preds = %if.else9.i.i
-  %cmp10.i32.i.i = icmp ugt i64 %9, %10
+  %cmp10.i32.i.i = icmp ugt i64 %10, %11
   br i1 %cmp10.i32.i.i, label %if.else13.i.i, label %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit37.i.i
 
 _ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit37.i.i: ; preds = %if.end7.i31.i.i
-  %arrayidx.i.i.i.i34.i.i = getelementptr inbounds [2 x ptr], ptr @__const._ZN5eastl8internal29variant_relational_comparison10call_indexINS_4lessIvEENS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEEJLm0ELm1EEEEbRKT0_SC_NS_16integer_sequenceImJXspT1_EEEE.visitors, i64 0, i64 %9
-  %11 = load ptr, ptr %arrayidx.i.i.i.i34.i.i, align 8
-  %call1.i.i.i.i35.i.i = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(40) %first, ptr noundef nonnull align 8 dereferenceable(40) %add.ptr7)
+  %arrayidx.i.i.i.i34.i.i = getelementptr inbounds [2 x ptr], ptr @__const._ZN5eastl8internal29variant_relational_comparison10call_indexINS_4lessIvEENS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEEJLm0ELm1EEEEbRKT0_SC_NS_16integer_sequenceImJXspT1_EEEE.visitors, i64 0, i64 %10
+  %12 = load ptr, ptr %arrayidx.i.i.i.i34.i.i, align 8
+  %call1.i.i.i.i35.i.i = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(40) %first, ptr noundef nonnull align 8 dereferenceable(40) %add.ptr7)
   br i1 %call1.i.i.i.i35.i.i, label %_ZN5eastl6medianINS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEEEEOT_S7_S7_S7_.exit, label %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit37.if.else13_crit_edge.i.i
 
 _ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit37.if.else13_crit_edge.i.i: ; preds = %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit37.i.i
-  %.pre62.i.i = load i64, ptr %add.ptr7, align 8
+  %.pre61.i.i = load i64, ptr %add.ptr7, align 8
   br label %if.else13.i.i
 
 if.else13.i.i:                                    ; preds = %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit37.if.else13_crit_edge.i.i, %if.end7.i31.i.i
-  %12 = phi i64 [ %.pre62.i.i, %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit37.if.else13_crit_edge.i.i ], [ %10, %if.end7.i31.i.i ]
-  %13 = load i64, ptr %add.ptr, align 8
-  %cmp.i38.i.i = icmp ult i64 %13, %12
+  %13 = phi i64 [ %.pre61.i.i, %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit37.if.else13_crit_edge.i.i ], [ %11, %if.end7.i31.i.i ]
+  %14 = load i64, ptr %add.ptr, align 8
+  %cmp.i38.i.i = icmp ult i64 %14, %13
   br i1 %cmp.i38.i.i, label %_ZN5eastl6medianINS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEEEEOT_S7_S7_S7_.exit, label %if.end7.i39.i.i
 
 if.end7.i39.i.i:                                  ; preds = %if.else13.i.i
-  %cmp10.i40.i.i = icmp ugt i64 %13, %12
-  br i1 %cmp10.i40.i.i, label %_ZN5eastl6medianINS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEEEEOT_S7_S7_S7_.exit, label %return.sink.split.i.i
+  %cmp10.i40.i.i = icmp ugt i64 %14, %13
+  br i1 %cmp10.i40.i.i, label %if.end18.i.i, label %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit45.i.i
 
-return.sink.split.i.i:                            ; preds = %if.end7.i39.i.i, %if.end7.i23.i.i
-  %.sink.i.i = phi i64 [ %8, %if.end7.i23.i.i ], [ %13, %if.end7.i39.i.i ]
-  %b.sink65.i.i = phi ptr [ %first, %if.end7.i23.i.i ], [ %add.ptr, %if.end7.i39.i.i ]
-  %arrayidx.i.i.i.i42.i.i = getelementptr inbounds [2 x ptr], ptr @__const._ZN5eastl8internal29variant_relational_comparison10call_indexINS_4lessIvEENS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEEJLm0ELm1EEEEbRKT0_SC_NS_16integer_sequenceImJXspT1_EEEE.visitors, i64 0, i64 %.sink.i.i
-  %14 = load ptr, ptr %arrayidx.i.i.i.i42.i.i, align 8
-  %call1.i.i.i.i43.i.i = tail call noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(40) %b.sink65.i.i, ptr noundef nonnull align 8 dereferenceable(40) %add.ptr7)
-  %spec.select61.i.i = select i1 %call1.i.i.i.i43.i.i, ptr %add.ptr7, ptr %b.sink65.i.i
+_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit45.i.i: ; preds = %if.end7.i39.i.i
+  %arrayidx.i.i.i.i42.i.i = getelementptr inbounds [2 x ptr], ptr @__const._ZN5eastl8internal29variant_relational_comparison10call_indexINS_4lessIvEENS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEEJLm0ELm1EEEEbRKT0_SC_NS_16integer_sequenceImJXspT1_EEEE.visitors, i64 0, i64 %14
+  %15 = load ptr, ptr %arrayidx.i.i.i.i42.i.i, align 8
+  %call1.i.i.i.i43.i.i = tail call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr, ptr noundef nonnull align 8 dereferenceable(40) %add.ptr7)
+  br i1 %call1.i.i.i.i43.i.i, label %_ZN5eastl6medianINS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEEEEOT_S7_S7_S7_.exit, label %if.end18.i.i
+
+if.end18.i.i:                                     ; preds = %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit45.i.i, %if.end7.i39.i.i
   br label %_ZN5eastl6medianINS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEEEEOT_S7_S7_S7_.exit
 
-_ZN5eastl6medianINS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEEEEOT_S7_S7_S7_.exit: ; preds = %if.then.i.i, %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit21.i.i, %if.else.i.i, %if.end7.i23.i.i, %if.else9.i.i, %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit37.i.i, %if.else13.i.i, %if.end7.i39.i.i, %return.sink.split.i.i
-  %retval.0.i.i = phi ptr [ %add.ptr, %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit21.i.i ], [ %first, %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit37.i.i ], [ %add.ptr, %if.then.i.i ], [ %add.ptr7, %if.else.i.i ], [ %first, %if.end7.i23.i.i ], [ %first, %if.else9.i.i ], [ %add.ptr7, %if.else13.i.i ], [ %add.ptr, %if.end7.i39.i.i ], [ %spec.select61.i.i, %return.sink.split.i.i ]
+_ZN5eastl6medianINS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEEEEOT_S7_S7_S7_.exit: ; preds = %if.then.i.i, %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit21.i.i, %if.else.i.i, %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit29.i.i, %if.else7.i.i, %if.else9.i.i, %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit37.i.i, %if.else13.i.i, %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit45.i.i, %if.end18.i.i
+  %retval.0.i.i = phi ptr [ %first, %if.else7.i.i ], [ %add.ptr, %if.end18.i.i ], [ %add.ptr, %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit21.i.i ], [ %add.ptr7, %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit29.i.i ], [ %first, %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit37.i.i ], [ %add.ptr7, %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit45.i.i ], [ %add.ptr, %if.then.i.i ], [ %add.ptr7, %if.else.i.i ], [ %first, %if.else9.i.i ], [ %add.ptr7, %if.else13.i.i ]
   %call11 = tail call noundef ptr @_ZN5eastl13get_partitionIPNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEES5_EET_S7_S7_RKT0_(ptr noundef nonnull %first, ptr noundef nonnull %last.addr.021, ptr noundef nonnull align 8 dereferenceable(40) %retval.0.i.i)
   %dec = add nsw i64 %kRecursionCount.addr.020, -1
   tail call void @_ZN5eastl8Internal22quick_sort_impl_helperIPNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEElKS6_EEvT_S9_T0_(ptr noundef %call11, ptr noundef nonnull %last.addr.021, i64 noundef %dec)
@@ -5764,8 +5773,8 @@ _ZN5eastl6medianINS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEEEEOT_S7_S7_
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %cmp = icmp sgt i64 %sub.ptr.sub, 1120
   %cmp1 = icmp sgt i64 %kRecursionCount.addr.020, 1
-  %15 = and i1 %cmp1, %cmp
-  br i1 %15, label %while.body, label %while.end, !llvm.loop !15
+  %16 = and i1 %cmp1, %cmp
+  br i1 %16, label %while.body, label %while.end, !llvm.loop !15
 
 while.end:                                        ; preds = %_ZN5eastl6medianINS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEEEEOT_S7_S7_S7_.exit, %entry
   %kRecursionCount.addr.0.lcssa = phi i64 [ %kRecursionCount, %entry ], [ %dec, %_ZN5eastl6medianINS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEEEEOT_S7_S7_S7_.exit ]
@@ -6245,22 +6254,24 @@ for.body:                                         ; preds = %entry, %_ZN5eastl7v
 
 if.end7.i:                                        ; preds = %for.body
   %cmp10.i = icmp ugt i64 %0, %1
-  br i1 %cmp10.i, label %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit.thread, label %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit
+  br i1 %cmp10.i, label %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit.thread37, label %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit
 
 _ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit: ; preds = %if.end7.i
   %arrayidx.i.i.i.i = getelementptr inbounds [2 x ptr], ptr @__const._ZN5eastl8internal29variant_relational_comparison10call_indexINS_4lessIvEENS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEEJLm0ELm1EEEEbRKT0_SC_NS_16integer_sequenceImJXspT1_EEEE.visitors, i64 0, i64 %0
   %2 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   %call1.i.i.i.i = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr, ptr noundef nonnull align 8 dereferenceable(40) %add.ptr1)
-  %spec.select = select i1 %call1.i.i.i.i, i64 %sub, i64 %childPosition.044
-  br label %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit.thread
+  br i1 %call1.i.i.i.i, label %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit.thread, label %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit.thread37
 
-_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit.thread: ; preds = %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit, %if.end7.i, %for.body
-  %3 = phi i64 [ %sub, %for.body ], [ %childPosition.044, %if.end7.i ], [ %spec.select, %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit ]
+_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit.thread: ; preds = %for.body, %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit
+  br label %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit.thread37
+
+_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit.thread37: ; preds = %if.end7.i, %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit, %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit.thread
+  %3 = phi i64 [ %sub, %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit.thread ], [ %childPosition.044, %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit ], [ %childPosition.044, %if.end7.i ]
   %add.ptr2 = getelementptr inbounds %"class.eastl::variant.30", ptr %first, i64 %3
   %cmp.not.i = icmp eq i64 %position.addr.042, %3
   br i1 %cmp.not.i, label %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEaSILb1EvEERS4_OS4_.exit, label %if.then.i
 
-if.then.i:                                        ; preds = %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit.thread
+if.then.i:                                        ; preds = %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit.thread37
   %add.ptr4 = getelementptr inbounds %"class.eastl::variant.30", ptr %first, i64 %position.addr.042
   %4 = load i64, ptr %add.ptr2, align 8
   store i64 %4, ptr %add.ptr4, align 8
@@ -6295,7 +6306,7 @@ if.then10.i.i.i:                                  ; preds = %if.end7.i.i.i, %if.
   tail call void %7(i32 noundef 3, ptr noundef nonnull %mStorage4.i, ptr noundef nonnull %mStorage.i)
   br label %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEaSILb1EvEERS4_OS4_.exit
 
-_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEaSILb1EvEERS4_OS4_.exit: ; preds = %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit.thread, %if.end7.i.i.i, %if.then10.i.i.i
+_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEaSILb1EvEERS4_OS4_.exit: ; preds = %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit.thread37, %if.end7.i.i.i, %if.then10.i.i.i
   %childPosition.0.in = shl nsw i64 %3, 1
   %childPosition.0 = add nsw i64 %childPosition.0.in, 2
   %cmp = icmp slt i64 %childPosition.0, %heapSize

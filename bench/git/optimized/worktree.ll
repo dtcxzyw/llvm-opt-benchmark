@@ -1396,7 +1396,7 @@ land.end:                                         ; preds = %land.rhs, %skip_pre
 declare i32 @wt_status_check_bisect(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @is_shared_symref(ptr noundef %wt, ptr noundef %symref, ptr nocapture noundef readonly %target) local_unnamed_addr #0 {
+define dso_local noundef i32 @is_shared_symref(ptr noundef %wt, ptr noundef %symref, ptr nocapture noundef readonly %target) local_unnamed_addr #0 {
 entry:
   %state.i9 = alloca %struct.wt_status_state, align 8
   %state.i = alloca %struct.wt_status_state, align 8
@@ -1529,16 +1529,18 @@ if.end12:                                         ; preds = %is_worktree_being_b
   %tobool15 = icmp ne i32 %and, 0
   %tobool17 = icmp ne ptr %call14, null
   %or.cond = select i1 %tobool15, i1 %tobool17, i1 false
-  br i1 %or.cond, label %land.lhs.true18, label %return
+  br i1 %or.cond, label %land.lhs.true18, label %if.end22
 
 land.lhs.true18:                                  ; preds = %if.end12
   %call19 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call14, ptr noundef nonnull dereferenceable(1) %target) #19
   %tobool20.not = icmp eq i32 %call19, 0
-  %spec.select = zext i1 %tobool20.not to i32
+  br i1 %tobool20.not, label %return, label %if.end22
+
+if.end22:                                         ; preds = %land.lhs.true18, %if.end12
   br label %return
 
-return:                                           ; preds = %land.lhs.true18, %if.end12, %is_worktree_being_bisected.exit, %is_worktree_being_rebased.exit, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 1, %is_worktree_being_rebased.exit ], [ 1, %is_worktree_being_bisected.exit ], [ 0, %if.end12 ], [ %spec.select, %land.lhs.true18 ]
+return:                                           ; preds = %land.lhs.true18, %is_worktree_being_bisected.exit, %is_worktree_being_rebased.exit, %entry, %if.end22
+  %retval.0 = phi i32 [ 0, %if.end22 ], [ 0, %entry ], [ 1, %is_worktree_being_rebased.exit ], [ 1, %is_worktree_being_bisected.exit ], [ 1, %land.lhs.true18 ]
   ret i32 %retval.0
 }
 

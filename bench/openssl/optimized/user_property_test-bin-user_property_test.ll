@@ -151,7 +151,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @tmpmd_get_params(ptr noundef %params) #0 {
+define internal noundef i32 @tmpmd_get_params(ptr noundef %params) #0 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str.10) #4
   %cmp.not = icmp eq ptr %call, null
@@ -165,16 +165,18 @@ land.lhs.true:                                    ; preds = %entry
 if.end:                                           ; preds = %land.lhs.true, %entry
   %call2 = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str.11) #4
   %cmp3.not = icmp eq ptr %call2, null
-  br i1 %cmp3.not, label %return, label %land.lhs.true4
+  br i1 %cmp3.not, label %if.end8, label %land.lhs.true4
 
 land.lhs.true4:                                   ; preds = %if.end
   %call5 = tail call i32 @OSSL_PARAM_set_size_t(ptr noundef nonnull %call2, i64 noundef 1) #4
-  %tobool6.not = icmp ne i32 %call5, 0
-  %spec.select = zext i1 %tobool6.not to i32
+  %tobool6.not = icmp eq i32 %call5, 0
+  br i1 %tobool6.not, label %return, label %if.end8
+
+if.end8:                                          ; preds = %land.lhs.true4, %if.end
   br label %return
 
-return:                                           ; preds = %land.lhs.true4, %if.end, %land.lhs.true
-  %retval.0 = phi i32 [ 0, %land.lhs.true ], [ 1, %if.end ], [ %spec.select, %land.lhs.true4 ]
+return:                                           ; preds = %land.lhs.true4, %land.lhs.true, %if.end8
+  %retval.0 = phi i32 [ 1, %if.end8 ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true4 ]
   ret i32 %retval.0
 }
 

@@ -448,14 +448,14 @@ define internal fastcc i32 @SlruSelectLRUPage(ptr noundef %0, i64 noundef %1) un
   %33 = or disjoint i64 %15, 15
   br label %34
 
-34:                                               ; preds = %._crit_edge, %72
-  %indvars.iv100 = phi i64 [ %32, %._crit_edge ], [ %indvars.iv.next101, %72 ]
-  %.06793 = phi i32 [ 0, %._crit_edge ], [ %.1, %72 ]
-  %.06892 = phi i32 [ -1, %._crit_edge ], [ %.169, %72 ]
-  %.07091 = phi i64 [ 0, %._crit_edge ], [ %.171, %72 ]
-  %.07290 = phi i64 [ 0, %._crit_edge ], [ %.173, %72 ]
-  %.07489 = phi i32 [ -1, %._crit_edge ], [ %.175, %72 ]
-  %.07688 = phi i32 [ 0, %._crit_edge ], [ %.177, %72 ]
+34:                                               ; preds = %._crit_edge, %75
+  %indvars.iv100 = phi i64 [ %32, %._crit_edge ], [ %indvars.iv.next101, %75 ]
+  %.06793 = phi i32 [ 0, %._crit_edge ], [ %.1, %75 ]
+  %.06892 = phi i32 [ -1, %._crit_edge ], [ %.169, %75 ]
+  %.07091 = phi i64 [ 0, %._crit_edge ], [ %.171, %75 ]
+  %.07290 = phi i64 [ 0, %._crit_edge ], [ %.173, %75 ]
+  %.07489 = phi i32 [ -1, %._crit_edge ], [ %.175, %75 ]
+  %.07688 = phi i32 [ 0, %._crit_edge ], [ %.177, %75 ]
   %35 = load ptr, ptr %5, align 8
   %36 = getelementptr i32, ptr %35, i64 %indvars.iv100
   %37 = load i32, ptr %36, align 4
@@ -481,91 +481,94 @@ define internal fastcc i32 @SlruSelectLRUPage(ptr noundef %0, i64 noundef %1) un
   %49 = load i64, ptr %48, align 8
   %50 = load volatile i64, ptr %9, align 8
   %51 = icmp eq i64 %49, %50
-  br i1 %51, label %72, label %52
+  br i1 %51, label %75, label %52
 
 52:                                               ; preds = %46
   %53 = load ptr, ptr %5, align 8
   %54 = getelementptr i32, ptr %53, i64 %indvars.iv100
   %55 = load i32, ptr %54, align 4
   %56 = icmp eq i32 %55, 2
-  %57 = trunc nuw nsw i64 %indvars.iv100 to i32
-  br i1 %56, label %58, label %65
+  br i1 %56, label %57, label %66
 
-58:                                               ; preds = %52
-  %59 = icmp sgt i32 %.064, %.06892
-  br i1 %59, label %72, label %60
+57:                                               ; preds = %52
+  %58 = icmp sgt i32 %.064, %.06892
+  br i1 %58, label %64, label %59
 
-60:                                               ; preds = %58
-  %61 = icmp eq i32 %.064, %.06892
-  br i1 %61, label %62, label %72
+59:                                               ; preds = %57
+  %60 = icmp eq i32 %.064, %.06892
+  br i1 %60, label %61, label %75
 
-62:                                               ; preds = %60
-  %63 = load ptr, ptr %10, align 8
-  %64 = tail call zeroext i1 %63(i64 noundef %49, i64 noundef %.07091) #15
-  %spec.select = select i1 %64, i64 %49, i64 %.07091
-  %spec.select108 = select i1 %64, i32 %57, i32 %.06793
-  br label %72
+61:                                               ; preds = %59
+  %62 = load ptr, ptr %10, align 8
+  %63 = tail call zeroext i1 %62(i64 noundef %49, i64 noundef %.07091) #15
+  br i1 %63, label %64, label %75
 
-65:                                               ; preds = %52
-  %66 = icmp sgt i32 %.064, %.07489
-  br i1 %66, label %72, label %67
+64:                                               ; preds = %61, %57
+  %65 = trunc nuw nsw i64 %indvars.iv100 to i32
+  br label %75
 
-67:                                               ; preds = %65
-  %68 = icmp eq i32 %.064, %.07489
-  br i1 %68, label %69, label %72
+66:                                               ; preds = %52
+  %67 = icmp sgt i32 %.064, %.07489
+  br i1 %67, label %73, label %68
 
-69:                                               ; preds = %67
-  %70 = load ptr, ptr %10, align 8
-  %71 = tail call zeroext i1 %70(i64 noundef %49, i64 noundef %.07290) #15
-  %spec.select109 = select i1 %71, i32 %57, i32 %.07688
-  %spec.select110 = select i1 %71, i64 %49, i64 %.07290
-  br label %72
+68:                                               ; preds = %66
+  %69 = icmp eq i32 %.064, %.07489
+  br i1 %69, label %70, label %75
 
-72:                                               ; preds = %69, %62, %65, %58, %60, %67, %46
-  %.177 = phi i32 [ %.07688, %46 ], [ %.07688, %60 ], [ %.07688, %67 ], [ %.07688, %58 ], [ %57, %65 ], [ %.07688, %62 ], [ %spec.select109, %69 ]
-  %.175 = phi i32 [ %.07489, %46 ], [ %.07489, %60 ], [ %.07489, %67 ], [ %.07489, %58 ], [ %.064, %65 ], [ %.07489, %62 ], [ %.07489, %69 ]
-  %.173 = phi i64 [ %.07290, %46 ], [ %.07290, %60 ], [ %.07290, %67 ], [ %.07290, %58 ], [ %49, %65 ], [ %.07290, %62 ], [ %spec.select110, %69 ]
-  %.171 = phi i64 [ %.07091, %46 ], [ %.07091, %60 ], [ %.07091, %67 ], [ %49, %58 ], [ %.07091, %65 ], [ %spec.select, %62 ], [ %.07091, %69 ]
-  %.169 = phi i32 [ %.06892, %46 ], [ %.06892, %60 ], [ %.06892, %67 ], [ %.064, %58 ], [ %.06892, %65 ], [ %.06892, %62 ], [ %.06892, %69 ]
-  %.1 = phi i32 [ %.06793, %46 ], [ %.06793, %60 ], [ %.06793, %67 ], [ %57, %58 ], [ %.06793, %65 ], [ %spec.select108, %62 ], [ %.06793, %69 ]
+70:                                               ; preds = %68
+  %71 = load ptr, ptr %10, align 8
+  %72 = tail call zeroext i1 %71(i64 noundef %49, i64 noundef %.07290) #15
+  br i1 %72, label %73, label %75
+
+73:                                               ; preds = %70, %66
+  %74 = trunc nuw nsw i64 %indvars.iv100 to i32
+  br label %75
+
+75:                                               ; preds = %64, %61, %59, %73, %70, %68, %46
+  %.177 = phi i32 [ %.07688, %46 ], [ %.07688, %64 ], [ %.07688, %61 ], [ %.07688, %59 ], [ %74, %73 ], [ %.07688, %70 ], [ %.07688, %68 ]
+  %.175 = phi i32 [ %.07489, %46 ], [ %.07489, %64 ], [ %.07489, %61 ], [ %.07489, %59 ], [ %.064, %73 ], [ %.07489, %70 ], [ %.07489, %68 ]
+  %.173 = phi i64 [ %.07290, %46 ], [ %.07290, %64 ], [ %.07290, %61 ], [ %.07290, %59 ], [ %49, %73 ], [ %.07290, %70 ], [ %.07290, %68 ]
+  %.171 = phi i64 [ %.07091, %46 ], [ %49, %64 ], [ %.07091, %61 ], [ %.07091, %59 ], [ %.07091, %73 ], [ %.07091, %70 ], [ %.07091, %68 ]
+  %.169 = phi i32 [ %.06892, %46 ], [ %.064, %64 ], [ %.06892, %61 ], [ %.06892, %59 ], [ %.06892, %73 ], [ %.06892, %70 ], [ %.06892, %68 ]
+  %.1 = phi i32 [ %.06793, %46 ], [ %65, %64 ], [ %.06793, %61 ], [ %.06793, %59 ], [ %.06793, %73 ], [ %.06793, %70 ], [ %.06793, %68 ]
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
   %exitcond104.not = icmp eq i64 %indvars.iv100, %33
-  br i1 %exitcond104.not, label %73, label %34, !llvm.loop !9
+  br i1 %exitcond104.not, label %76, label %34, !llvm.loop !9
 
-73:                                               ; preds = %72
-  %74 = icmp slt i32 %.169, 0
-  br i1 %74, label %75, label %76
+76:                                               ; preds = %75
+  %77 = icmp slt i32 %.169, 0
+  br i1 %77, label %78, label %79
 
-75:                                               ; preds = %73
+78:                                               ; preds = %76
   %.val = load ptr, ptr %0, align 8
   tail call fastcc void @SimpleLruWaitIO(ptr %.val, i32 noundef %.177)
   br label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %75, %82
+.backedge.backedge:                               ; preds = %78, %85
   br label %.backedge
 
-76:                                               ; preds = %73
-  %77 = load ptr, ptr %11, align 8
-  %78 = sext i32 %.1 to i64
-  %79 = getelementptr i8, ptr %77, i64 %78
-  %80 = load i8, ptr %79, align 1
-  %81 = trunc i8 %80 to i1
-  br i1 %81, label %82, label %.loopexit
+79:                                               ; preds = %76
+  %80 = load ptr, ptr %11, align 8
+  %81 = sext i32 %.1 to i64
+  %82 = getelementptr i8, ptr %80, i64 %81
+  %83 = load i8, ptr %82, align 1
+  %84 = trunc i8 %83 to i1
+  br i1 %84, label %85, label %.loopexit
 
-82:                                               ; preds = %76
+85:                                               ; preds = %79
   tail call fastcc void @SlruInternalWritePage(ptr noundef nonnull %0, i32 noundef %.1, ptr noundef null)
   br label %.backedge.backedge
 
 .loopexit.loopexit:                               ; preds = %34
-  %83 = trunc nuw nsw i64 %indvars.iv100 to i32
+  %86 = trunc nuw nsw i64 %indvars.iv100 to i32
   br label %.loopexit
 
 .loopexit.loopexit95:                             ; preds = %22
-  %84 = trunc nuw nsw i64 %indvars.iv to i32
+  %87 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %76, %.loopexit.loopexit95, %.loopexit.loopexit
-  %.0 = phi i32 [ %83, %.loopexit.loopexit ], [ %84, %.loopexit.loopexit95 ], [ %.1, %76 ]
+.loopexit:                                        ; preds = %79, %.loopexit.loopexit95, %.loopexit.loopexit
+  %.0 = phi i32 [ %86, %.loopexit.loopexit ], [ %87, %.loopexit.loopexit95 ], [ %.1, %79 ]
   ret i32 %.0
 }
 

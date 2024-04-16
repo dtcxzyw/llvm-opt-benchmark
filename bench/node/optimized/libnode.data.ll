@@ -870,22 +870,26 @@ entry:
   %0 = load ptr, ptr %ptr_.i, align 8
   %error_code.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %error_code.i, align 8
-  switch i64 %1, label %return [
-    i64 0, label %return.sink.split
+  switch i64 %1, label %if.end [
+    i64 0, label %land.lhs.true
     i64 65280, label %land.lhs.true6
   ]
 
-land.lhs.true6:                                   ; preds = %entry
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %entry, %land.lhs.true6
-  %.sink7 = phi i32 [ 1, %land.lhs.true6 ], [ 0, %entry ]
+land.lhs.true:                                    ; preds = %entry
   %2 = load i32, ptr %0, align 8
-  %cmp3 = icmp ne i32 %2, %.sink7
+  %cmp3 = icmp eq i32 %2, 0
+  br i1 %cmp3, label %return, label %if.end
+
+land.lhs.true6:                                   ; preds = %entry
+  %3 = load i32, ptr %0, align 8
+  %cmp8 = icmp eq i32 %3, 1
+  br i1 %cmp8, label %return, label %if.end
+
+if.end:                                           ; preds = %entry, %land.lhs.true, %land.lhs.true6
   br label %return
 
-return:                                           ; preds = %return.sink.split, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ %cmp3, %return.sink.split ]
+return:                                           ; preds = %land.lhs.true, %land.lhs.true6, %if.end
+  %retval.0 = phi i1 [ true, %if.end ], [ false, %land.lhs.true6 ], [ false, %land.lhs.true ]
   ret i1 %retval.0
 }
 

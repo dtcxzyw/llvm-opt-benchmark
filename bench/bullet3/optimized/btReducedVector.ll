@@ -9327,23 +9327,25 @@ ehcleanup53:                                      ; preds = %ehcleanup52, %lpad
 define dso_local void @_ZNK15btReducedVector4testEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(68) %this) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef zeroext i1 @_ZNK15btReducedVector7testAddEv(ptr nonnull align 8 poison)
-  br i1 %call, label %land.lhs.true, label %if.end
+  br i1 %call, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %entry
   %call2 = tail call noundef zeroext i1 @_ZNK15btReducedVector9testMinusEv(ptr nonnull align 8 poison)
-  br i1 %call2, label %land.lhs.true3, label %if.end
+  br i1 %call2, label %land.lhs.true3, label %if.else
 
 land.lhs.true3:                                   ; preds = %land.lhs.true
   %call4 = tail call noundef zeroext i1 @_ZNK15btReducedVector7testDotEv(ptr nonnull align 8 poison)
-  br i1 %call4, label %land.rhs, label %if.end
+  br i1 %call4, label %land.rhs, label %if.else
 
 land.rhs:                                         ; preds = %land.lhs.true3
   %call5 = tail call noundef zeroext i1 @_ZNK15btReducedVector12testMultiplyEv(ptr nonnull align 8 poison)
-  %spec.select = select i1 %call5, ptr @str.5, ptr @str.4
+  br i1 %call5, label %if.end, label %if.else
+
+if.else:                                          ; preds = %land.lhs.true3, %land.lhs.true, %entry, %land.rhs
   br label %if.end
 
-if.end:                                           ; preds = %land.rhs, %entry, %land.lhs.true, %land.lhs.true3
-  %str.4.sink = phi ptr [ @str.4, %land.lhs.true3 ], [ @str.4, %land.lhs.true ], [ @str.4, %entry ], [ %spec.select, %land.rhs ]
+if.end:                                           ; preds = %land.rhs, %if.else
+  %str.4.sink = phi ptr [ @str.4, %if.else ], [ @str.5, %land.rhs ]
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) %str.4.sink)
   ret void
 }

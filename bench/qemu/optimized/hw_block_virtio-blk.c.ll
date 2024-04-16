@@ -3149,17 +3149,19 @@ if.then45:                                        ; preds = %get_physical_block_
   %discard_granularity46 = getelementptr inbounds i8, ptr %call.i, i64 568
   %20 = load i32, ptr %discard_granularity46, align 8
   %cmp47 = icmp eq i32 %20, -1
-  br i1 %cmp47, label %if.end52, label %lor.lhs.false
+  br i1 %cmp47, label %if.then51, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then45
   %report_discard_granularity = getelementptr inbounds i8, ptr %call.i, i64 649
   %21 = load i8, ptr %report_discard_granularity, align 1
   %tobool50 = trunc i8 %21 to i1
-  %spec.select = select i1 %tobool50, i32 %20, i32 %1
+  br i1 %tobool50, label %if.end52, label %if.then51
+
+if.then51:                                        ; preds = %lor.lhs.false, %if.then45
   br label %if.end52
 
-if.end52:                                         ; preds = %lor.lhs.false, %if.then45
-  %discard_granularity.0 = phi i32 [ %1, %if.then45 ], [ %spec.select, %lor.lhs.false ]
+if.end52:                                         ; preds = %if.then51, %lor.lhs.false
+  %discard_granularity.0 = phi i32 [ %1, %if.then51 ], [ %20, %lor.lhs.false ]
   %max_discard_sectors54 = getelementptr inbounds i8, ptr %call.i, i64 652
   %22 = load i32, ptr %max_discard_sectors54, align 4
   %blkcfg.36.blkcfg.36.blkcfg.36.max_discard_sectors.sroa_idx = getelementptr inbounds i8, ptr %blkcfg, i64 36

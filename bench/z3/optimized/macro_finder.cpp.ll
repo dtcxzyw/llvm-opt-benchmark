@@ -347,14 +347,14 @@ lor.lhs.false39:                                  ; preds = %if.end38
   %bf.load.i.i.i78 = load i32, ptr %m_kind.i.i.i34, align 4
   %bf.clear.i.i.i79 = and i32 %bf.load.i.i.i78, 65535
   %cmp.i.i80 = icmp eq i32 %bf.clear.i.i.i79, 0
-  br i1 %cmp.i.i80, label %land.rhs.i.i81, label %if.else70.invoke
+  br i1 %cmp.i.i80, label %land.rhs.i.i81, label %if.else70
 
 land.rhs.i.i81:                                   ; preds = %lor.lhs.false39
   %36 = load ptr, ptr %m_decl.i.i.i, align 8
   %m_info.i.i.i.i83 = getelementptr inbounds i8, ptr %36, i64 24
   %37 = load ptr, ptr %m_info.i.i.i.i83, align 8
   %tobool.not.i.i.i.i84 = icmp eq ptr %37, null
-  br i1 %tobool.not.i.i.i.i84, label %if.else70.invoke, label %invoke.cont41
+  br i1 %tobool.not.i.i.i.i84, label %if.else70, label %invoke.cont41
 
 invoke.cont41:                                    ; preds = %land.rhs.i.i81
   %38 = load i32, ptr %37, align 8
@@ -416,11 +416,13 @@ invoke.cont58:                                    ; preds = %invoke.cont41
   %48 = load i32, ptr %m_kind.i.i.i.i.i102, align 4
   %cmp2.i.i.i.i.i103 = icmp eq i32 %48, 2
   %49 = select i1 %cmp.i.i.i.i.i101, i1 %cmp2.i.i.i.i.i103, i1 false
-  %spec.select = select i1 %49, i32 3, i32 2
+  br i1 %49, label %if.else70.invoke, label %if.else70
+
+if.else70:                                        ; preds = %land.rhs.i.i81, %lor.lhs.false39, %invoke.cont58
   br label %if.else70.invoke
 
-if.else70.invoke:                                 ; preds = %invoke.cont58, %lor.lhs.false39, %land.rhs.i.i81
-  %50 = phi i32 [ 2, %land.rhs.i.i81 ], [ 2, %lor.lhs.false39 ], [ %spec.select, %invoke.cont58 ]
+if.else70.invoke:                                 ; preds = %invoke.cont58, %if.else70
+  %50 = phi i32 [ 2, %if.else70 ], [ 3, %invoke.cont58 ]
   %51 = load ptr, ptr %def, align 8
   %52 = load ptr, ptr %m_autil, align 8
   %53 = invoke noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %52, i32 noundef 5, i32 noundef %50, ptr noundef %24, ptr noundef %51)
@@ -1427,14 +1429,14 @@ lor.lhs.false39:                                  ; preds = %if.end38
   %bf.load.i.i.i76 = load i32, ptr %m_kind.i.i.i32, align 4
   %bf.clear.i.i.i77 = and i32 %bf.load.i.i.i76, 65535
   %cmp.i.i78 = icmp eq i32 %bf.clear.i.i.i77, 0
-  br i1 %cmp.i.i78, label %land.rhs.i.i79, label %if.else70.invoke
+  br i1 %cmp.i.i78, label %land.rhs.i.i79, label %if.else70
 
 land.rhs.i.i79:                                   ; preds = %lor.lhs.false39
   %36 = load ptr, ptr %m_decl.i.i.i, align 8
   %m_info.i.i.i.i81 = getelementptr inbounds i8, ptr %36, i64 24
   %37 = load ptr, ptr %m_info.i.i.i.i81, align 8
   %tobool.not.i.i.i.i82 = icmp eq ptr %37, null
-  br i1 %tobool.not.i.i.i.i82, label %if.else70.invoke, label %invoke.cont41
+  br i1 %tobool.not.i.i.i.i82, label %if.else70, label %invoke.cont41
 
 invoke.cont41:                                    ; preds = %land.rhs.i.i79
   %38 = load i32, ptr %37, align 8
@@ -1496,11 +1498,13 @@ invoke.cont58:                                    ; preds = %invoke.cont41
   %48 = load i32, ptr %m_kind.i.i.i.i.i100, align 4
   %cmp2.i.i.i.i.i101 = icmp eq i32 %48, 2
   %49 = select i1 %cmp.i.i.i.i.i99, i1 %cmp2.i.i.i.i.i101, i1 false
-  %spec.select = select i1 %49, i32 3, i32 2
+  br i1 %49, label %if.else70.invoke, label %if.else70
+
+if.else70:                                        ; preds = %land.rhs.i.i79, %lor.lhs.false39, %invoke.cont58
   br label %if.else70.invoke
 
-if.else70.invoke:                                 ; preds = %invoke.cont58, %lor.lhs.false39, %land.rhs.i.i79
-  %50 = phi i32 [ 2, %land.rhs.i.i79 ], [ 2, %lor.lhs.false39 ], [ %spec.select, %invoke.cont58 ]
+if.else70.invoke:                                 ; preds = %invoke.cont58, %if.else70
+  %50 = phi i32 [ 2, %if.else70 ], [ 3, %invoke.cont58 ]
   %51 = load ptr, ptr %def, align 8
   %52 = load ptr, ptr %m_autil, align 8
   %53 = invoke noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %52, i32 noundef 5, i32 noundef %50, ptr noundef %24, ptr noundef %51)

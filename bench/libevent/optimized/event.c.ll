@@ -424,25 +424,27 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  br i1 %tobool1.not, label %land.lhs.true, label %return
+  br i1 %tobool1.not, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %if.then
   %hth_n_entries = getelementptr inbounds i8, ptr %head, i64 12
   %2 = load i32, ptr %hth_n_entries, align 4
   %tobool2.not = icmp eq i32 %2, 0
-  br i1 %tobool2.not, label %land.lhs.true3, label %return
+  br i1 %tobool2.not, label %land.lhs.true3, label %if.else
 
 land.lhs.true3:                                   ; preds = %land.lhs.true
   %hth_load_limit = getelementptr inbounds i8, ptr %head, i64 16
   %3 = load i32, ptr %hth_load_limit, align 8
   %tobool4.not = icmp eq i32 %3, 0
-  br i1 %tobool4.not, label %land.lhs.true5, label %return
+  br i1 %tobool4.not, label %land.lhs.true5, label %if.else
 
 land.lhs.true5:                                   ; preds = %land.lhs.true3
   %hth_prime_idx = getelementptr inbounds i8, ptr %head, i64 20
   %4 = load i32, ptr %hth_prime_idx, align 4
-  %cmp = icmp ne i32 %4, -1
-  %spec.select = zext i1 %cmp to i32
+  %cmp = icmp eq i32 %4, -1
+  br i1 %cmp, label %return, label %if.else
+
+if.else:                                          ; preds = %land.lhs.true5, %land.lhs.true3, %land.lhs.true, %if.then
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -527,8 +529,8 @@ for.end56:                                        ; preds = %for.inc54
   %. = select i1 %cmp58.not, i32 0, i32 6
   br label %return
 
-return:                                           ; preds = %land.lhs.true5, %for.end56, %if.end25, %if.end20, %if.end15, %if.end, %lor.lhs.false, %lor.lhs.false11, %if.then, %land.lhs.true, %land.lhs.true3, %if.then51
-  %retval.0 = phi i32 [ %add52, %if.then51 ], [ 1, %land.lhs.true3 ], [ 1, %land.lhs.true ], [ 1, %if.then ], [ 2, %lor.lhs.false11 ], [ 2, %lor.lhs.false ], [ 2, %if.end ], [ 3, %if.end15 ], [ 4, %if.end20 ], [ 5, %if.end25 ], [ %., %for.end56 ], [ %spec.select, %land.lhs.true5 ]
+return:                                           ; preds = %for.end56, %if.end25, %if.end20, %if.end15, %if.end, %lor.lhs.false, %lor.lhs.false11, %land.lhs.true5, %if.then51, %if.else
+  %retval.0 = phi i32 [ %add52, %if.then51 ], [ 1, %if.else ], [ 0, %land.lhs.true5 ], [ 2, %lor.lhs.false11 ], [ 2, %lor.lhs.false ], [ 2, %if.end ], [ 3, %if.end15 ], [ 4, %if.end20 ], [ 5, %if.end25 ], [ %., %for.end56 ]
   ret i32 %retval.0
 }
 
@@ -6801,7 +6803,7 @@ if.then12:                                        ; preds = %if.end6
   %ev = getelementptr inbounds i8, ptr %retval.0.i45, i64 16
   %call13 = tail call i32 @event_assign(ptr noundef nonnull %ev, ptr noundef nonnull %base, i32 noundef -1, i16 noundef signext 0, ptr noundef nonnull @event_once_cb, ptr noundef nonnull %retval.0.i45), !range !16
   %cmp14 = icmp eq ptr %tv, null
-  br i1 %cmp14, label %do.body36, label %lor.lhs.false
+  br i1 %cmp14, label %if.then19, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then12
   %1 = load i64, ptr %tv, align 8
@@ -6811,7 +6813,10 @@ lor.lhs.false:                                    ; preds = %if.then12
 lor.lhs.false17:                                  ; preds = %lor.lhs.false
   %tv_usec = getelementptr inbounds i8, ptr %tv, i64 8
   %2 = load i64, ptr %tv_usec, align 8
-  %tobool18.not = icmp ne i64 %2, 0
+  %tobool18.not = icmp eq i64 %2, 0
+  br i1 %tobool18.not, label %if.then19, label %do.body36
+
+if.then19:                                        ; preds = %lor.lhs.false17, %if.then12
   br label %do.body36
 
 if.else:                                          ; preds = %if.end6
@@ -6838,8 +6843,8 @@ if.else.i35:                                      ; preds = %if.else30
   tail call void @free(ptr noundef nonnull %retval.0.i45) #26
   br label %return
 
-do.body36:                                        ; preds = %lor.lhs.false17, %if.then24, %lor.lhs.false, %if.then12
-  %tobool43.not = phi i1 [ true, %lor.lhs.false ], [ true, %if.then24 ], [ false, %if.then12 ], [ %tobool18.not, %lor.lhs.false17 ]
+do.body36:                                        ; preds = %if.then24, %if.then19, %lor.lhs.false17, %lor.lhs.false
+  %tobool43.not = phi i1 [ false, %if.then19 ], [ true, %lor.lhs.false ], [ true, %lor.lhs.false17 ], [ true, %if.then24 ]
   %th_base_lock = getelementptr inbounds i8, ptr %base, i64 952
   %4 = load ptr, ptr %th_base_lock, align 8
   %tobool37.not = icmp eq ptr %4, null

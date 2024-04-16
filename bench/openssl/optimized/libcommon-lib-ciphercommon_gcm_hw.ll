@@ -58,7 +58,7 @@ declare i32 @CRYPTO_gcm128_encrypt(ptr noundef, ptr noundef, ptr noundef, i64 no
 declare i32 @CRYPTO_gcm128_decrypt(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_gcm_cipher_final(ptr noundef %ctx, ptr noundef %tag) local_unnamed_addr #0 {
+define noundef i32 @ossl_gcm_cipher_final(ptr noundef %ctx, ptr noundef %tag) local_unnamed_addr #0 {
 entry:
   %enc = getelementptr inbounds i8, ptr %ctx, i64 84
   %bf.load = load i8, ptr %enc, align 4
@@ -71,18 +71,20 @@ if.then:                                          ; preds = %entry
   tail call void @CRYPTO_gcm128_tag(ptr noundef nonnull %gcm1, ptr noundef %tag, i64 noundef 16) #2
   %taglen = getelementptr inbounds i8, ptr %ctx, i64 24
   store i64 16, ptr %taglen, align 8
-  br label %return
+  br label %if.end4
 
 if.else:                                          ; preds = %entry
   %taglen2 = getelementptr inbounds i8, ptr %ctx, i64 24
   %0 = load i64, ptr %taglen2, align 8
   %call = tail call i32 @CRYPTO_gcm128_finish(ptr noundef nonnull %gcm1, ptr noundef %tag, i64 noundef %0) #2
   %cmp.not = icmp eq i32 %call, 0
-  %spec.select = zext i1 %cmp.not to i32
+  br i1 %cmp.not, label %if.end4, label %return
+
+if.end4:                                          ; preds = %if.else, %if.then
   br label %return
 
-return:                                           ; preds = %if.else, %if.then
-  %retval.0 = phi i32 [ 1, %if.then ], [ %spec.select, %if.else ]
+return:                                           ; preds = %if.else, %if.end4
+  %retval.0 = phi i32 [ 1, %if.end4 ], [ 0, %if.else ]
   ret i32 %retval.0
 }
 

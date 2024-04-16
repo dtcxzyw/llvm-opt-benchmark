@@ -407,7 +407,7 @@ if.end41:                                         ; preds = %for.cond.preheader,
   %len43 = getelementptr inbounds i8, ptr %priv_, i64 32
   %14 = load i64, ptr %len43, align 8
   %tobool44.not = icmp eq i64 %14, 0
-  br i1 %tobool44.not, label %return, label %while.body.lr.ph.i55
+  br i1 %tobool44.not, label %if.end52.thread, label %while.body.lr.ph.i55
 
 while.body.lr.ph.i55:                             ; preds = %if.end41
   %buf47 = getelementptr inbounds i8, ptr %priv_, i64 40
@@ -447,11 +447,14 @@ if.then4.i79:                                     ; preds = %consume_one.exit75
   br label %if.end52
 
 if.end52:                                         ; preds = %if.then4.i79, %consume_one.exit75
-  %spec.select = sext i1 %tobool2.not.i69 to i32
+  %19 = icmp eq i32 %call1.i68.fr, 0
+  br i1 %19, label %if.end52.thread, label %return
+
+if.end52.thread:                                  ; preds = %if.end41, %if.end52
   br label %return
 
-return:                                           ; preds = %for.body, %if.end52, %if.end41, %for.end, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ -1, %for.end ], [ 0, %if.end41 ], [ %spec.select, %if.end52 ], [ 1, %for.body ]
+return:                                           ; preds = %for.body, %if.end52.thread, %if.end52, %for.end, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ -1, %for.end ], [ 0, %if.end52.thread ], [ -1, %if.end52 ], [ 1, %for.body ]
   ret i32 %retval.0
 }
 

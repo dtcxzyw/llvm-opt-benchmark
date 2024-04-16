@@ -1351,7 +1351,7 @@ entry:
 if.end:                                           ; preds = %entry
   %2 = load i32, ptr %begin_.i, align 4
   %cmp4 = icmp eq i32 %call2, %2
-  br i1 %cmp4, label %land.lhs.true, label %return
+  br i1 %cmp4, label %land.lhs.true, label %if.end9
 
 land.lhs.true:                                    ; preds = %if.end
   %3 = load i32, ptr %end_.i, align 8
@@ -1390,7 +1390,7 @@ if.end9.i.i:                                      ; preds = %if.end.i.i
   br i1 %cmp10.not.i.i, label %for.cond.i.i.preheader, label %if.then11.i.i
 
 if.then11.i.i:                                    ; preds = %if.end9.i.i
-  %div12.i.i1617 = lshr i32 %call2, 6
+  %div12.i.i1415 = lshr i32 %call2, 6
   %sub13.i.i = sub nsw i32 %mul.i.i.i, %call2
   %sh_prom.i.i25.i.i = zext nneg i32 %sub13.i.i to i64
   %notmask.i.i26.i.i = shl nsw i64 -1, %sh_prom.i.i25.i.i
@@ -1398,13 +1398,13 @@ if.then11.i.i:                                    ; preds = %if.end9.i.i
   %sub.i28.i.i = sub nsw i32 64, %sub13.i.i
   %sh_prom.i29.i.i = zext nneg i32 %sub.i28.i.i to i64
   %shl.i30.i.i = shl i64 %sub.i.i27.i.i, %sh_prom.i29.i.i
-  %idxprom.i31.i.i = zext nneg i32 %div12.i.i1617 to i64
+  %idxprom.i31.i.i = zext nneg i32 %div12.i.i1415 to i64
   %arrayidx.i32.i.i = getelementptr inbounds i64, ptr %bits, i64 %idxprom.i31.i.i
   %7 = load i64, ptr %arrayidx.i32.i.i, align 8
   %8 = xor i64 %7, -1
   %9 = and i64 %shl.i30.i.i, %8
   %cmp.i33.i.i = icmp eq i64 %9, 0
-  br i1 %cmp.i33.i.i, label %for.cond.i.i.preheader, label %return
+  br i1 %cmp.i33.i.i, label %for.cond.i.i.preheader, label %if.end9
 
 for.cond.i.i.preheader:                           ; preds = %if.then11.i.i, %if.end9.i.i
   br label %for.cond.i.i
@@ -1421,7 +1421,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
   %arrayidx.i35.i.i = getelementptr inbounds i64, ptr %bits, i64 %idxprom.i34.i.i
   %10 = load i64, ptr %arrayidx.i35.i.i, align 8
   %cmp.i36.i.i = icmp eq i64 %10, -1
-  br i1 %cmp.i36.i.i, label %for.cond.i.i, label %return, !llvm.loop !5
+  br i1 %cmp.i36.i.i, label %for.cond.i.i, label %if.end9, !llvm.loop !5
 
 for.end.i.i:                                      ; preds = %for.cond.i.i
   %cmp25.not.i.i = icmp eq i32 %5, %3
@@ -1443,13 +1443,14 @@ _ZN8facebook5velox4bits8isAllSetEPKmiib.exit:     ; preds = %if.then3.i.i, %if.t
   %.sink47.i.i = phi i64 [ %12, %if.then26.i.i ], [ %and7.i.i, %if.then3.i.i ]
   %sub.i39.sink.i.i = xor i64 %sub.i39.sink.i.i.in, -1
   %13 = and i64 %.sink47.i.i, %sub.i39.sink.i.i
-  %.fr = freeze i64 %13
-  %cmp.i42.i.i = icmp eq i64 %.fr, 0
-  %spec.select = select i1 %cmp.i42.i.i, i32 0, i32 3
+  %cmp.i42.i.i = icmp eq i64 %13, 0
+  br i1 %cmp.i42.i.i, label %return, label %if.end9
+
+if.end9:                                          ; preds = %for.body.i.i, %if.then11.i.i, %_ZN8facebook5velox4bits8isAllSetEPKmiib.exit, %if.end
   br label %return
 
-return:                                           ; preds = %for.body.i.i, %_ZN8facebook5velox4bits8isAllSetEPKmiib.exit, %if.then11.i.i, %for.end.i.i, %land.lhs.true, %if.end, %entry
-  %retval.0 = phi i32 [ 1, %entry ], [ 3, %if.end ], [ 0, %land.lhs.true ], [ 0, %for.end.i.i ], [ 3, %if.then11.i.i ], [ %spec.select, %_ZN8facebook5velox4bits8isAllSetEPKmiib.exit ], [ 3, %for.body.i.i ]
+return:                                           ; preds = %for.end.i.i, %land.lhs.true, %_ZN8facebook5velox4bits8isAllSetEPKmiib.exit, %entry, %if.end9
+  %retval.0 = phi i32 [ 3, %if.end9 ], [ 1, %entry ], [ 0, %_ZN8facebook5velox4bits8isAllSetEPKmiib.exit ], [ 0, %land.lhs.true ], [ 0, %for.end.i.i ]
   ret i32 %retval.0
 }
 

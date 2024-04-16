@@ -1020,7 +1020,7 @@ return:                                           ; preds = %if.then208, %lor.lh
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @tls1_mac(ptr noundef %rl, ptr noundef %rec, ptr noundef %md, i32 noundef %sending) #0 {
+define internal noundef i32 @tls1_mac(ptr noundef %rl, ptr noundef %rec, ptr noundef %md, i32 noundef %sending) #0 {
 entry:
   %md_size = alloca i64, align 8
   %header = alloca [13 x i8], align 8
@@ -1175,17 +1175,19 @@ lor.lhs.false90:                                  ; preds = %lor.lhs.false85
 do.body:                                          ; preds = %lor.lhs.false90
   %14 = load i32, ptr %isdtls, align 8
   %tobool97.not = icmp eq i32 %14, 0
-  br i1 %tobool97.not, label %land.lhs.true98, label %end
+  br i1 %tobool97.not, label %land.lhs.true98, label %do.body103
 
 land.lhs.true98:                                  ; preds = %do.body
   %call99 = call i32 @tls_increment_sequence_ctr(ptr noundef nonnull %rl) #4
-  %tobool100.not = icmp ne i32 %call99, 0
-  %spec.select = zext i1 %tobool100.not to i32
+  %tobool100.not = icmp eq i32 %call99, 0
+  br i1 %tobool100.not, label %end, label %do.body103
+
+do.body103:                                       ; preds = %do.body, %land.lhs.true98
   br label %end
 
-end:                                              ; preds = %land.lhs.true98, %do.body, %if.end80, %lor.lhs.false85, %lor.lhs.false90, %if.then69, %land.lhs.true19, %if.else, %lor.lhs.false
-  %ret.0 = phi i32 [ 0, %if.end80 ], [ 0, %lor.lhs.false85 ], [ 0, %lor.lhs.false90 ], [ 0, %if.then69 ], [ 0, %land.lhs.true19 ], [ 0, %if.else ], [ 0, %lor.lhs.false ], [ 1, %do.body ], [ %spec.select, %land.lhs.true98 ]
-  %hmac.1 = phi ptr [ %hmac.0, %if.end80 ], [ %hmac.0, %lor.lhs.false85 ], [ %hmac.0, %lor.lhs.false90 ], [ %hmac.0, %if.then69 ], [ %hmac.0, %land.lhs.true19 ], [ null, %if.else ], [ %call9, %lor.lhs.false ], [ %hmac.0, %do.body ], [ %hmac.0, %land.lhs.true98 ]
+end:                                              ; preds = %land.lhs.true98, %if.end80, %lor.lhs.false85, %lor.lhs.false90, %if.then69, %land.lhs.true19, %if.else, %lor.lhs.false, %do.body103
+  %ret.0 = phi i32 [ 0, %if.end80 ], [ 0, %lor.lhs.false85 ], [ 0, %lor.lhs.false90 ], [ 1, %do.body103 ], [ 0, %land.lhs.true98 ], [ 0, %if.then69 ], [ 0, %land.lhs.true19 ], [ 0, %if.else ], [ 0, %lor.lhs.false ]
+  %hmac.1 = phi ptr [ %hmac.0, %if.end80 ], [ %hmac.0, %lor.lhs.false85 ], [ %hmac.0, %lor.lhs.false90 ], [ %hmac.0, %do.body103 ], [ %hmac.0, %land.lhs.true98 ], [ %hmac.0, %if.then69 ], [ %hmac.0, %land.lhs.true19 ], [ null, %if.else ], [ %call9, %lor.lhs.false ]
   call void @EVP_MD_CTX_free(ptr noundef %hmac.1) #4
   br label %return
 

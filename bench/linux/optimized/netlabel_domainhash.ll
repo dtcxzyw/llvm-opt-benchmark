@@ -374,7 +374,7 @@ define dso_local noundef i32 @netlbl_domhsh_add(ptr noundef %0, ptr noundef %1) 
   %165 = icmp eq ptr %130, null
   br i1 %165, label %.thread106, label %.thread108
 
-.thread106.thread:                                ; preds = %156, %160, %148, %157
+.thread106.thread:                                ; preds = %156, %148, %157, %160
   %166 = getelementptr inbounds i8, ptr %0, i64 28
   store i32 1, ptr %166, align 4
   %167 = getelementptr inbounds i8, ptr %0, i64 32
@@ -935,7 +935,7 @@ define internal fastcc ptr @netlbl_domhsh_search_def(ptr noundef readonly %0, i1
 
 47:                                               ; preds = %40
   %48 = icmp eq ptr %30, null
-  br i1 %48, label %.thread, label %64
+  br i1 %48, label %.thread, label %65
 
 .thread:                                          ; preds = %44, %.loopexit, %2, %47
   switch i16 %1, label %64 [
@@ -953,7 +953,7 @@ define internal fastcc ptr @netlbl_domhsh_search_def(ptr noundef readonly %0, i1
   %53 = getelementptr inbounds i8, ptr %50, i64 28
   %54 = load i32, ptr %53, align 4
   %55 = icmp eq i32 %54, 0
-  br i1 %55, label %56, label %64
+  br i1 %55, label %56, label %65
 
 56:                                               ; preds = %52, %49
   %cond = icmp eq i16 %1, 0
@@ -968,12 +968,14 @@ define internal fastcc ptr @netlbl_domhsh_search_def(ptr noundef readonly %0, i1
   %61 = getelementptr inbounds i8, ptr %58, i64 28
   %62 = load i32, ptr %61, align 4
   %63 = icmp eq i32 %62, 0
-  %spec.select = select i1 %63, ptr null, ptr %58
-  br label %64
+  br i1 %63, label %64, label %65
 
-64:                                               ; preds = %56, %60, %.thread, %57, %52, %47
-  %65 = phi ptr [ %30, %47 ], [ %50, %52 ], [ null, %57 ], [ null, %56 ], [ null, %.thread ], [ %spec.select, %60 ]
-  ret ptr %65
+64:                                               ; preds = %56, %60, %57, %.thread
+  br label %65
+
+65:                                               ; preds = %64, %60, %52, %47
+  %66 = phi ptr [ null, %64 ], [ %30, %47 ], [ %50, %52 ], [ %58, %60 ]
+  ret ptr %66
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1628,7 +1630,7 @@ define dso_local noundef i32 @netlbl_domhsh_remove_af4(ptr noundef readonly %0, 
   tail call void @kfree(ptr noundef %91) #10
   br label %94
 
-.thread:                                          ; preds = %43, %49, %46, %.loopexit20, %59, %.thread14, %53
+.thread:                                          ; preds = %43, %46, %49, %.loopexit20, %59, %.thread14, %53
   tail call void @__rcu_read_unlock() #10
   br label %94
 
@@ -1799,7 +1801,7 @@ define dso_local noundef i32 @netlbl_domhsh_remove_af6(ptr noundef readonly %0, 
   tail call void @kfree(ptr noundef %90) #10
   br label %93
 
-.thread:                                          ; preds = %43, %49, %46, %.loopexit20, %59, %.thread14, %53
+.thread:                                          ; preds = %43, %46, %49, %.loopexit20, %59, %.thread14, %53
   tail call void @__rcu_read_unlock() #10
   br label %93
 
@@ -1814,7 +1816,7 @@ declare dso_local ptr @netlbl_af6list_remove(ptr noundef, ptr noundef, ptr nound
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @netlbl_domhsh_remove(ptr noundef readonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #2 align 16 {
   tail call void @__rcu_read_lock() #10
-  switch i16 %1, label %55 [
+  switch i16 %1, label %56 [
     i16 2, label %4
     i16 0, label %4
   ]
@@ -1827,11 +1829,11 @@ define dso_local noundef i32 @netlbl_domhsh_remove(ptr noundef readonly %0, i16 
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #10
   %8 = and i64 %7, 4294967295
   %9 = icmp eq i64 %8, 0
-  br i1 %9, label %.loopexit14, label %.preheader13
+  br i1 %9, label %.loopexit13, label %.preheader12
 
-.preheader13:                                     ; preds = %6, %.preheader13
-  %10 = phi i64 [ %17, %.preheader13 ], [ 0, %6 ]
-  %11 = phi i32 [ %16, %.preheader13 ], [ 0, %6 ]
+.preheader12:                                     ; preds = %6, %.preheader12
+  %10 = phi i64 [ %17, %.preheader12 ], [ 0, %6 ]
+  %11 = phi i32 [ %16, %.preheader12 ], [ 0, %6 ]
   %12 = tail call i32 @llvm.fshl.i32(i32 %11, i32 %11, i32 4)
   %13 = getelementptr i8, ptr %0, i64 %10
   %14 = load i8, ptr %13, align 1
@@ -1839,10 +1841,10 @@ define dso_local noundef i32 @netlbl_domhsh_remove(ptr noundef readonly %0, i16 
   %16 = xor i32 %12, %15
   %17 = add nuw nsw i64 %10, 1
   %18 = icmp eq i64 %17, %8
-  br i1 %18, label %.loopexit14, label %.preheader13, !llvm.loop !13
+  br i1 %18, label %.loopexit13, label %.preheader12, !llvm.loop !13
 
-.loopexit14:                                      ; preds = %.preheader13, %6
-  %19 = phi i32 [ 0, %6 ], [ %16, %.preheader13 ]
+.loopexit13:                                      ; preds = %.preheader12, %6
+  %19 = phi i32 [ 0, %6 ], [ %16, %.preheader12 ]
   %20 = load volatile ptr, ptr @netlbl_domhsh, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 8
   %22 = load i32, ptr %21, align 8
@@ -1854,17 +1856,17 @@ define dso_local noundef i32 @netlbl_domhsh_remove(ptr noundef readonly %0, i16 
   %28 = getelementptr %struct.list_head, ptr %26, i64 %27
   %29 = load volatile ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, %28
-  br i1 %30, label %.loopexit11, label %.preheader10
+  br i1 %30, label %.loopexit10, label %.preheader9
 
-.preheader10:                                     ; preds = %.loopexit14, %43
-  %31 = phi ptr [ %44, %43 ], [ %29, %.loopexit14 ]
+.preheader9:                                      ; preds = %.loopexit13, %43
+  %31 = phi ptr [ %44, %43 ], [ %29, %.loopexit13 ]
   %32 = getelementptr i8, ptr %31, i64 -32
   %33 = getelementptr i8, ptr %31, i64 -4
   %34 = load i32, ptr %33, align 4
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %43, label %36
 
-36:                                               ; preds = %.preheader10
+36:                                               ; preds = %.preheader9
   %37 = getelementptr i8, ptr %31, i64 -8
   %38 = load i16, ptr %37, align 8
   switch i16 %38, label %43 [
@@ -1876,127 +1878,131 @@ define dso_local noundef i32 @netlbl_domhsh_remove(ptr noundef readonly %0, i16 
   %40 = load ptr, ptr %32, align 8
   %41 = tail call i32 @strcmp(ptr noundef %40, ptr noundef nonnull dereferenceable(1) %0) #10
   %42 = icmp eq i32 %41, 0
-  br i1 %42, label %.loopexit11, label %43
+  br i1 %42, label %.loopexit10, label %43
 
-43:                                               ; preds = %39, %36, %.preheader10
+43:                                               ; preds = %39, %36, %.preheader9
   %44 = load volatile ptr, ptr %31, align 8
   %45 = icmp eq ptr %44, %28
-  br i1 %45, label %.loopexit11, label %.preheader10, !llvm.loop !14
+  br i1 %45, label %.loopexit10, label %.preheader9, !llvm.loop !14
 
 46:                                               ; preds = %4
   %47 = load volatile ptr, ptr @netlbl_domhsh_def_ipv4, align 8
   %48 = icmp eq ptr %47, null
-  br i1 %48, label %.loopexit11, label %49
+  br i1 %48, label %53, label %49
 
 49:                                               ; preds = %46
   %50 = getelementptr inbounds i8, ptr %47, i64 28
   %51 = load i32, ptr %50, align 4
   %52 = icmp eq i32 %51, 0
-  %spec.select = select i1 %52, ptr null, ptr %47
-  br label %.loopexit11
+  br i1 %52, label %53, label %.loopexit10
 
-.loopexit11:                                      ; preds = %43, %39, %49, %46, %.loopexit14
-  %53 = phi ptr [ null, %.loopexit14 ], [ null, %46 ], [ %spec.select, %49 ], [ %32, %39 ], [ null, %43 ]
-  %54 = tail call i32 @netlbl_domhsh_remove_entry(ptr noundef %53, ptr noundef %2), !range !37
-  switch i32 %54, label %110 [
-    i32 -2, label %55
-    i32 0, label %55
+53:                                               ; preds = %49, %46
+  br label %.loopexit10
+
+.loopexit10:                                      ; preds = %43, %39, %53, %49, %.loopexit13
+  %54 = phi ptr [ null, %.loopexit13 ], [ null, %53 ], [ %47, %49 ], [ %32, %39 ], [ null, %43 ]
+  %55 = tail call i32 @netlbl_domhsh_remove_entry(ptr noundef %54, ptr noundef %2), !range !37
+  switch i32 %55, label %112 [
+    i32 -2, label %56
+    i32 0, label %56
   ]
 
-55:                                               ; preds = %.loopexit11, %.loopexit11, %3
-  %56 = phi i32 [ %54, %.loopexit11 ], [ -22, %3 ], [ %54, %.loopexit11 ]
-  switch i16 %1, label %110 [
-    i16 10, label %57
-    i16 0, label %57
+56:                                               ; preds = %.loopexit10, %.loopexit10, %3
+  %57 = phi i32 [ %55, %.loopexit10 ], [ -22, %3 ], [ %55, %.loopexit10 ]
+  switch i16 %1, label %112 [
+    i16 10, label %58
+    i16 0, label %58
   ]
 
-57:                                               ; preds = %55, %55
-  %58 = icmp eq ptr %0, null
-  br i1 %58, label %99, label %59
+58:                                               ; preds = %56, %56
+  %59 = icmp eq ptr %0, null
+  br i1 %59, label %100, label %60
 
-59:                                               ; preds = %57
-  %60 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #10
-  %61 = and i64 %60, 4294967295
-  %62 = icmp eq i64 %61, 0
-  br i1 %62, label %.loopexit9, label %.preheader8
+60:                                               ; preds = %58
+  %61 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #10
+  %62 = and i64 %61, 4294967295
+  %63 = icmp eq i64 %62, 0
+  br i1 %63, label %.loopexit8, label %.preheader7
 
-.preheader8:                                      ; preds = %59, %.preheader8
-  %63 = phi i64 [ %70, %.preheader8 ], [ 0, %59 ]
-  %64 = phi i32 [ %69, %.preheader8 ], [ 0, %59 ]
-  %65 = tail call i32 @llvm.fshl.i32(i32 %64, i32 %64, i32 4)
-  %66 = getelementptr i8, ptr %0, i64 %63
-  %67 = load i8, ptr %66, align 1
-  %68 = zext i8 %67 to i32
-  %69 = xor i32 %65, %68
-  %70 = add nuw nsw i64 %63, 1
-  %71 = icmp eq i64 %70, %61
-  br i1 %71, label %.loopexit9, label %.preheader8, !llvm.loop !13
+.preheader7:                                      ; preds = %60, %.preheader7
+  %64 = phi i64 [ %71, %.preheader7 ], [ 0, %60 ]
+  %65 = phi i32 [ %70, %.preheader7 ], [ 0, %60 ]
+  %66 = tail call i32 @llvm.fshl.i32(i32 %65, i32 %65, i32 4)
+  %67 = getelementptr i8, ptr %0, i64 %64
+  %68 = load i8, ptr %67, align 1
+  %69 = zext i8 %68 to i32
+  %70 = xor i32 %66, %69
+  %71 = add nuw nsw i64 %64, 1
+  %72 = icmp eq i64 %71, %62
+  br i1 %72, label %.loopexit8, label %.preheader7, !llvm.loop !13
 
-.loopexit9:                                       ; preds = %.preheader8, %59
-  %72 = phi i32 [ 0, %59 ], [ %69, %.preheader8 ]
-  %73 = load volatile ptr, ptr @netlbl_domhsh, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 8
-  %75 = load i32, ptr %74, align 8
-  %76 = add i32 %75, -1
-  %77 = and i32 %76, %72
-  %78 = load volatile ptr, ptr @netlbl_domhsh, align 8
-  %79 = load ptr, ptr %78, align 8
-  %80 = zext i32 %77 to i64
-  %81 = getelementptr %struct.list_head, ptr %79, i64 %80
-  %82 = load volatile ptr, ptr %81, align 8
-  %83 = icmp eq ptr %82, %81
-  br i1 %83, label %.loopexit, label %.preheader
+.loopexit8:                                       ; preds = %.preheader7, %60
+  %73 = phi i32 [ 0, %60 ], [ %70, %.preheader7 ]
+  %74 = load volatile ptr, ptr @netlbl_domhsh, align 8
+  %75 = getelementptr inbounds i8, ptr %74, i64 8
+  %76 = load i32, ptr %75, align 8
+  %77 = add i32 %76, -1
+  %78 = and i32 %77, %73
+  %79 = load volatile ptr, ptr @netlbl_domhsh, align 8
+  %80 = load ptr, ptr %79, align 8
+  %81 = zext i32 %78 to i64
+  %82 = getelementptr %struct.list_head, ptr %80, i64 %81
+  %83 = load volatile ptr, ptr %82, align 8
+  %84 = icmp eq ptr %83, %82
+  br i1 %84, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %.loopexit9, %96
-  %84 = phi ptr [ %97, %96 ], [ %82, %.loopexit9 ]
-  %85 = getelementptr i8, ptr %84, i64 -32
-  %86 = getelementptr i8, ptr %84, i64 -4
-  %87 = load i32, ptr %86, align 4
-  %88 = icmp eq i32 %87, 0
-  br i1 %88, label %96, label %89
+.preheader:                                       ; preds = %.loopexit8, %97
+  %85 = phi ptr [ %98, %97 ], [ %83, %.loopexit8 ]
+  %86 = getelementptr i8, ptr %85, i64 -32
+  %87 = getelementptr i8, ptr %85, i64 -4
+  %88 = load i32, ptr %87, align 4
+  %89 = icmp eq i32 %88, 0
+  br i1 %89, label %97, label %90
 
-89:                                               ; preds = %.preheader
-  %90 = getelementptr i8, ptr %84, i64 -8
-  %91 = load i16, ptr %90, align 8
-  switch i16 %91, label %96 [
-    i16 10, label %92
-    i16 0, label %92
+90:                                               ; preds = %.preheader
+  %91 = getelementptr i8, ptr %85, i64 -8
+  %92 = load i16, ptr %91, align 8
+  switch i16 %92, label %97 [
+    i16 10, label %93
+    i16 0, label %93
   ]
 
-92:                                               ; preds = %89, %89
-  %93 = load ptr, ptr %85, align 8
-  %94 = tail call i32 @strcmp(ptr noundef %93, ptr noundef nonnull dereferenceable(1) %0) #10
-  %95 = icmp eq i32 %94, 0
-  br i1 %95, label %.loopexit, label %96
+93:                                               ; preds = %90, %90
+  %94 = load ptr, ptr %86, align 8
+  %95 = tail call i32 @strcmp(ptr noundef %94, ptr noundef nonnull dereferenceable(1) %0) #10
+  %96 = icmp eq i32 %95, 0
+  br i1 %96, label %.loopexit, label %97
 
-96:                                               ; preds = %92, %89, %.preheader
-  %97 = load volatile ptr, ptr %84, align 8
-  %98 = icmp eq ptr %97, %81
-  br i1 %98, label %.loopexit, label %.preheader, !llvm.loop !14
+97:                                               ; preds = %93, %90, %.preheader
+  %98 = load volatile ptr, ptr %85, align 8
+  %99 = icmp eq ptr %98, %82
+  br i1 %99, label %.loopexit, label %.preheader, !llvm.loop !14
 
-99:                                               ; preds = %57
-  %100 = load volatile ptr, ptr @netlbl_domhsh_def_ipv6, align 8
-  %101 = icmp eq ptr %100, null
-  br i1 %101, label %.loopexit, label %102
+100:                                              ; preds = %58
+  %101 = load volatile ptr, ptr @netlbl_domhsh_def_ipv6, align 8
+  %102 = icmp eq ptr %101, null
+  br i1 %102, label %107, label %103
 
-102:                                              ; preds = %99
-  %103 = getelementptr inbounds i8, ptr %100, i64 28
-  %104 = load i32, ptr %103, align 4
-  %105 = icmp eq i32 %104, 0
-  %spec.select1 = select i1 %105, ptr null, ptr %100
+103:                                              ; preds = %100
+  %104 = getelementptr inbounds i8, ptr %101, i64 28
+  %105 = load i32, ptr %104, align 4
+  %106 = icmp eq i32 %105, 0
+  br i1 %106, label %107, label %.loopexit
+
+107:                                              ; preds = %103, %100
   br label %.loopexit
 
-.loopexit:                                        ; preds = %96, %92, %102, %99, %.loopexit9
-  %106 = phi ptr [ null, %.loopexit9 ], [ null, %99 ], [ %spec.select1, %102 ], [ %85, %92 ], [ null, %96 ]
-  %107 = tail call i32 @netlbl_domhsh_remove_entry(ptr noundef %106, ptr noundef %2), !range !37
-  %108 = icmp eq i32 %107, -2
-  %109 = select i1 %108, i32 %56, i32 %107
-  br label %110
+.loopexit:                                        ; preds = %97, %93, %107, %103, %.loopexit8
+  %108 = phi ptr [ null, %.loopexit8 ], [ null, %107 ], [ %101, %103 ], [ %86, %93 ], [ null, %97 ]
+  %109 = tail call i32 @netlbl_domhsh_remove_entry(ptr noundef %108, ptr noundef %2), !range !37
+  %110 = icmp eq i32 %109, -2
+  %111 = select i1 %110, i32 %57, i32 %109
+  br label %112
 
-110:                                              ; preds = %.loopexit, %55, %.loopexit11
-  %111 = phi i32 [ %54, %.loopexit11 ], [ %109, %.loopexit ], [ %56, %55 ]
+112:                                              ; preds = %.loopexit, %56, %.loopexit10
+  %113 = phi i32 [ %55, %.loopexit10 ], [ %111, %.loopexit ], [ %57, %56 ]
   tail call void @__rcu_read_unlock() #10
-  ret i32 %111
+  ret i32 %113
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

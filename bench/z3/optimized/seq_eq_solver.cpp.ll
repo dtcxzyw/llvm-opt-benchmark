@@ -3357,9 +3357,9 @@ if.end.i:                                         ; preds = %land.lhs.true.i, %c
           to label %call5.i.noexc unwind label %lpad7.loopexit.split-lp
 
 call5.i.noexc:                                    ; preds = %if.end.i
-  br i1 %call5.i5, label %invoke.cont8, label %cleanup65thread-pre-split
+  br i1 %call5.i5, label %land.lhs.true6.i, label %cleanup65thread-pre-split
 
-invoke.cont8:                                     ; preds = %call5.i.noexc
+land.lhs.true6.i:                                 ; preds = %call5.i.noexc
   %7 = load ptr, ptr %x, align 8
   %8 = load ptr, ptr %y, align 8
   %cmp.i12.i = icmp eq ptr %7, %8
@@ -3375,7 +3375,7 @@ lpad7.loopexit.split-lp:                          ; preds = %if.end24, %invoke.c
           cleanup
   br label %ehcleanup
 
-if.end:                                           ; preds = %land.lhs.true.i, %invoke.cont8
+if.end:                                           ; preds = %land.lhs.true.i, %land.lhs.true6.i
   %9 = load ptr, ptr %xs, align 8
   %cmp.i = icmp eq ptr %9, null
   br i1 %cmp.i, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit, label %if.end.i6
@@ -3577,14 +3577,14 @@ terminate.lpad.i:                                 ; preds = %if.then2.i.i.i
 cleanup65thread-pre-split.fold.split:             ; preds = %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit
   br label %cleanup65thread-pre-split
 
-cleanup65thread-pre-split:                        ; preds = %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit, %cleanup65thread-pre-split.fold.split, %if.end15, %call5.i.noexc, %invoke.cont34, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit.i, %cleanup, %if.then.i.i.i26, %if.then2.i.i.i
-  %retval.1.ph = phi i1 [ %retval.0, %if.then2.i.i.i ], [ %retval.0, %if.then.i.i.i26 ], [ %retval.0, %cleanup ], [ true, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit.i ], [ false, %invoke.cont34 ], [ true, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit ], [ false, %call5.i.noexc ], [ true, %if.end15 ], [ false, %cleanup65thread-pre-split.fold.split ]
+cleanup65thread-pre-split:                        ; preds = %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit, %cleanup65thread-pre-split.fold.split, %if.end15, %invoke.cont34, %call5.i.noexc, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit.i, %cleanup, %if.then.i.i.i26, %if.then2.i.i.i
+  %retval.1.ph = phi i1 [ %retval.0, %if.then2.i.i.i ], [ %retval.0, %if.then.i.i.i26 ], [ %retval.0, %cleanup ], [ true, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit.i ], [ false, %call5.i.noexc ], [ false, %invoke.cont34 ], [ true, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit ], [ true, %if.end15 ], [ false, %cleanup65thread-pre-split.fold.split ]
   %.pr = load ptr, ptr %y, align 8
   br label %cleanup65
 
-cleanup65:                                        ; preds = %cleanup65thread-pre-split, %invoke.cont8
-  %47 = phi ptr [ %.pr, %cleanup65thread-pre-split ], [ %8, %invoke.cont8 ]
-  %retval.1 = phi i1 [ %retval.1.ph, %cleanup65thread-pre-split ], [ false, %invoke.cont8 ]
+cleanup65:                                        ; preds = %cleanup65thread-pre-split, %land.lhs.true6.i
+  %47 = phi ptr [ %.pr, %cleanup65thread-pre-split ], [ %8, %land.lhs.true6.i ]
+  %retval.1 = phi i1 [ %retval.1.ph, %cleanup65thread-pre-split ], [ false, %land.lhs.true6.i ]
   %tobool.not.i.i29 = icmp eq ptr %47, null
   br i1 %tobool.not.i.i29, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit37, label %if.then.i.i.i30
 
@@ -4578,8 +4578,8 @@ return.sink.split:                                ; preds = %land.lhs.true.i37, 
   store ptr %26, ptr %s, align 8
   br label %return
 
-return:                                           ; preds = %return.sink.split, %if.end, %land.lhs.true.i37, %_ZNK8seq_util3str7is_itosEPK4expr.exit.i33, %land.rhs.i.i.i29, %land.lhs.true13, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit15, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5emptyEv.exit21
-  %retval.0 = phi i1 [ false, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5emptyEv.exit21 ], [ false, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit15 ], [ false, %land.lhs.true.i37 ], [ false, %_ZNK8seq_util3str7is_itosEPK4expr.exit.i33 ], [ false, %land.lhs.true13 ], [ false, %land.rhs.i.i.i29 ], [ false, %if.end ], [ true, %return.sink.split ]
+return:                                           ; preds = %return.sink.split, %land.rhs.i.i.i29, %land.lhs.true13, %_ZNK8seq_util3str7is_itosEPK4expr.exit.i33, %land.lhs.true.i37, %if.end, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit15, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5emptyEv.exit21
+  %retval.0 = phi i1 [ false, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5emptyEv.exit21 ], [ false, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit15 ], [ false, %if.end ], [ false, %land.lhs.true.i37 ], [ false, %_ZNK8seq_util3str7is_itosEPK4expr.exit.i33 ], [ false, %land.lhs.true13 ], [ false, %land.rhs.i.i.i29 ], [ true, %return.sink.split ]
   ret i1 %retval.0
 }
 
@@ -5397,16 +5397,19 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   %4 = load ptr, ptr %rs, align 8
   %5 = load ptr, ptr %e, align 8
   %call5 = tail call noundef zeroext i1 @_ZN3seq9eq_solver15match_binary_eqERK10ref_vectorI4expr11ast_managerES6_R7obj_refIS2_S3_ER10ptr_vectorIS2_ESC_S9_(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %x, ptr noundef nonnull align 8 dereferenceable(8) %xs, ptr noundef nonnull align 8 dereferenceable(8) %ys, ptr noundef nonnull align 8 dereferenceable(16) %y)
-  br i1 %call5, label %land.lhs.true6, label %return
+  br i1 %call5, label %land.lhs.true6, label %if.end9
 
 land.lhs.true6:                                   ; preds = %if.end
   %6 = load ptr, ptr %x, align 8
   %7 = load ptr, ptr %y, align 8
   %cmp.i12 = icmp eq ptr %6, %7
+  br i1 %cmp.i12, label %return, label %if.end9
+
+if.end9:                                          ; preds = %land.lhs.true6, %if.end
   br label %return
 
-return:                                           ; preds = %land.lhs.true6, %if.end, %land.lhs.true
-  %retval.0 = phi i1 [ true, %land.lhs.true ], [ false, %if.end ], [ %cmp.i12, %land.lhs.true6 ]
+return:                                           ; preds = %land.lhs.true6, %land.lhs.true, %if.end9
+  %retval.0 = phi i1 [ false, %if.end9 ], [ true, %land.lhs.true ], [ true, %land.lhs.true6 ]
   ret i1 %retval.0
 }
 

@@ -170,57 +170,58 @@ prte_hwloc_base_core_cpus.exit:                   ; preds = %hwloc_get_obj_by_ty
   %12 = getelementptr inbounds i8, ptr %9, i64 184
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 @hwloc_bitmap_isequal(ptr noundef %11, ptr noundef %13) #17
-  %.fr = freeze i32 %14
-  %.not.i = icmp eq i32 %.fr, 0
-  %spec.select = select i1 %.not.i, i32 2, i32 3
-  br label %prte_hwloc_base_core_cpus.exit.thread
+  %.not.i = icmp eq i32 %14, 0
+  br i1 %.not.i, label %15, label %prte_hwloc_base_core_cpus.exit.thread
 
-prte_hwloc_base_core_cpus.exit.thread:            ; preds = %prte_hwloc_base_core_cpus.exit, %4, %hwloc_get_obj_by_type.exit.i, %3
-  %.0 = phi i32 [ 3, %3 ], [ 3, %hwloc_get_obj_by_type.exit.i ], [ 3, %4 ], [ %spec.select, %prte_hwloc_base_core_cpus.exit ]
-  %15 = load i32, ptr @prte_hwloc_base_output, align 4
-  %or.cond = icmp ult i32 %15, 64
-  br i1 %or.cond, label %16, label %22
+prte_hwloc_base_core_cpus.exit.thread:            ; preds = %4, %hwloc_get_obj_by_type.exit.i, %prte_hwloc_base_core_cpus.exit, %3
+  br label %15
 
-16:                                               ; preds = %prte_hwloc_base_core_cpus.exit.thread
-  %17 = zext nneg i32 %15 to i64
-  %18 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %17, i32 2
-  %19 = load i32, ptr %18, align 4
-  %20 = icmp sgt i32 %19, 4
-  br i1 %20, label %21, label %22
+15:                                               ; preds = %prte_hwloc_base_core_cpus.exit.thread, %prte_hwloc_base_core_cpus.exit
+  %.0 = phi i32 [ 3, %prte_hwloc_base_core_cpus.exit.thread ], [ 2, %prte_hwloc_base_core_cpus.exit ]
+  %16 = load i32, ptr @prte_hwloc_base_output, align 4
+  %or.cond = icmp ult i32 %16, 64
+  br i1 %or.cond, label %17, label %23
 
-21:                                               ; preds = %16
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef %15, ptr noundef nonnull @.str, i32 noundef %2) #16
-  br label %22
+17:                                               ; preds = %15
+  %18 = zext nneg i32 %16 to i64
+  %19 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %18, i32 2
+  %20 = load i32, ptr %19, align 4
+  %21 = icmp sgt i32 %20, 4
+  br i1 %21, label %22, label %23
 
-22:                                               ; preds = %21, %16, %prte_hwloc_base_core_cpus.exit.thread
-  %23 = tail call i32 @hwloc_get_type_depth(ptr noundef %0, i32 noundef %.0) #16
-  %switch.i = icmp ugt i32 %23, -3
-  br i1 %switch.i, label %hwloc_get_obj_by_type.exit, label %24
+22:                                               ; preds = %17
+  tail call void (i32, ptr, ...) @pmix_output(i32 noundef %16, ptr noundef nonnull @.str, i32 noundef %2) #16
+  br label %23
 
-24:                                               ; preds = %22
-  %25 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %0, i32 noundef %23, i32 noundef %2) #17
+23:                                               ; preds = %22, %17, %15
+  %24 = tail call i32 @hwloc_get_type_depth(ptr noundef %0, i32 noundef %.0) #16
+  %switch.i = icmp ugt i32 %24, -3
+  br i1 %switch.i, label %hwloc_get_obj_by_type.exit, label %25
+
+25:                                               ; preds = %23
+  %26 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %0, i32 noundef %24, i32 noundef %2) #17
   br label %hwloc_get_obj_by_type.exit
 
-hwloc_get_obj_by_type.exit:                       ; preds = %22, %24
-  %.0.i13 = phi ptr [ %25, %24 ], [ null, %22 ]
-  %26 = load i32, ptr @prte_hwloc_base_output, align 4
-  %or.cond3 = icmp ult i32 %26, 64
-  br i1 %or.cond3, label %27, label %35
+hwloc_get_obj_by_type.exit:                       ; preds = %23, %25
+  %.0.i13 = phi ptr [ %26, %25 ], [ null, %23 ]
+  %27 = load i32, ptr @prte_hwloc_base_output, align 4
+  %or.cond3 = icmp ult i32 %27, 64
+  br i1 %or.cond3, label %28, label %36
 
-27:                                               ; preds = %hwloc_get_obj_by_type.exit
-  %28 = zext nneg i32 %26 to i64
-  %29 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %28, i32 2
-  %30 = load i32, ptr %29, align 4
-  %31 = icmp sgt i32 %30, 4
-  br i1 %31, label %32, label %35
+28:                                               ; preds = %hwloc_get_obj_by_type.exit
+  %29 = zext nneg i32 %27 to i64
+  %30 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %29, i32 2
+  %31 = load i32, ptr %30, align 4
+  %32 = icmp sgt i32 %31, 4
+  br i1 %32, label %33, label %36
 
-32:                                               ; preds = %27
-  %33 = icmp eq ptr %.0.i13, null
-  %34 = select i1 %33, ptr @.str.2, ptr @.str.3
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef %26, ptr noundef nonnull @.str.1, i32 noundef %2, ptr noundef nonnull %34) #16
-  br label %35
+33:                                               ; preds = %28
+  %34 = icmp eq ptr %.0.i13, null
+  %35 = select i1 %34, ptr @.str.2, ptr @.str.3
+  tail call void (i32, ptr, ...) @pmix_output(i32 noundef %27, ptr noundef nonnull @.str.1, i32 noundef %2, ptr noundef nonnull %35) #16
+  br label %36
 
-35:                                               ; preds = %32, %27, %hwloc_get_obj_by_type.exit
+36:                                               ; preds = %33, %28, %hwloc_get_obj_by_type.exit
   ret ptr %.0.i13
 }
 
@@ -276,8 +277,8 @@ define noundef ptr @prte_hwloc_base_generate_cpuset(ptr noundef %0, i1 noundef z
   %.not4649 = icmp sgt i32 %29, %33
   br i1 %.not4649, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %26, %72
-  %.050 = phi i32 [ %73, %72 ], [ %29, %26 ]
+.lr.ph:                                           ; preds = %26, %73
+  %.050 = phi i32 [ %74, %73 ], [ %29, %26 ]
   br i1 %1, label %prte_hwloc_base_core_cpus.exit.thread.i, label %34
 
 34:                                               ; preds = %.lr.ph
@@ -300,91 +301,92 @@ prte_hwloc_base_core_cpus.exit.i:                 ; preds = %hwloc_get_obj_by_ty
   %42 = getelementptr inbounds i8, ptr %39, i64 184
   %43 = load ptr, ptr %42, align 8
   %44 = tail call i32 @hwloc_bitmap_isequal(ptr noundef %41, ptr noundef %43) #17
-  %.fr.i = freeze i32 %44
-  %.not.i.i = icmp eq i32 %.fr.i, 0
-  %spec.select.i = select i1 %.not.i.i, i32 2, i32 3
-  br label %prte_hwloc_base_core_cpus.exit.thread.i
+  %.not.i.i = icmp eq i32 %44, 0
+  br i1 %.not.i.i, label %45, label %prte_hwloc_base_core_cpus.exit.thread.i
 
 prte_hwloc_base_core_cpus.exit.thread.i:          ; preds = %prte_hwloc_base_core_cpus.exit.i, %hwloc_get_obj_by_type.exit.i.i, %34, %.lr.ph
-  %.0.i = phi i32 [ 3, %.lr.ph ], [ 3, %hwloc_get_obj_by_type.exit.i.i ], [ 3, %34 ], [ %spec.select.i, %prte_hwloc_base_core_cpus.exit.i ]
-  %45 = load i32, ptr @prte_hwloc_base_output, align 4
-  %or.cond.i = icmp ult i32 %45, 64
-  br i1 %or.cond.i, label %46, label %52
+  br label %45
 
-46:                                               ; preds = %prte_hwloc_base_core_cpus.exit.thread.i
-  %47 = zext nneg i32 %45 to i64
-  %48 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %47, i32 2
-  %49 = load i32, ptr %48, align 4
-  %50 = icmp sgt i32 %49, 4
-  br i1 %50, label %51, label %52
+45:                                               ; preds = %prte_hwloc_base_core_cpus.exit.thread.i, %prte_hwloc_base_core_cpus.exit.i
+  %.0.i = phi i32 [ 3, %prte_hwloc_base_core_cpus.exit.thread.i ], [ 2, %prte_hwloc_base_core_cpus.exit.i ]
+  %46 = load i32, ptr @prte_hwloc_base_output, align 4
+  %or.cond.i = icmp ult i32 %46, 64
+  br i1 %or.cond.i, label %47, label %53
 
-51:                                               ; preds = %46
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef %45, ptr noundef nonnull @.str, i32 noundef %.050) #16
-  br label %52
+47:                                               ; preds = %45
+  %48 = zext nneg i32 %46 to i64
+  %49 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %48, i32 2
+  %50 = load i32, ptr %49, align 4
+  %51 = icmp sgt i32 %50, 4
+  br i1 %51, label %52, label %53
 
-52:                                               ; preds = %51, %46, %prte_hwloc_base_core_cpus.exit.thread.i
-  %53 = tail call i32 @hwloc_get_type_depth(ptr noundef %0, i32 noundef %.0.i) #16
-  %switch.i.i = icmp ugt i32 %53, -3
-  br i1 %switch.i.i, label %hwloc_get_obj_by_type.exit.i, label %54
+52:                                               ; preds = %47
+  tail call void (i32, ptr, ...) @pmix_output(i32 noundef %46, ptr noundef nonnull @.str, i32 noundef %.050) #16
+  br label %53
 
-54:                                               ; preds = %52
-  %55 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %0, i32 noundef %53, i32 noundef %.050) #17
+53:                                               ; preds = %52, %47, %45
+  %54 = tail call i32 @hwloc_get_type_depth(ptr noundef %0, i32 noundef %.0.i) #16
+  %switch.i.i = icmp ugt i32 %54, -3
+  br i1 %switch.i.i, label %hwloc_get_obj_by_type.exit.i, label %55
+
+55:                                               ; preds = %53
+  %56 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %0, i32 noundef %54, i32 noundef %.050) #17
   br label %hwloc_get_obj_by_type.exit.i
 
-hwloc_get_obj_by_type.exit.i:                     ; preds = %54, %52
-  %.0.i13.i = phi ptr [ %55, %54 ], [ null, %52 ]
-  %56 = load i32, ptr @prte_hwloc_base_output, align 4
-  %or.cond3.i = icmp ult i32 %56, 64
-  br i1 %or.cond3.i, label %57, label %prte_hwloc_base_get_pu.exit
+hwloc_get_obj_by_type.exit.i:                     ; preds = %55, %53
+  %.0.i13.i = phi ptr [ %56, %55 ], [ null, %53 ]
+  %57 = load i32, ptr @prte_hwloc_base_output, align 4
+  %or.cond3.i = icmp ult i32 %57, 64
+  br i1 %or.cond3.i, label %58, label %prte_hwloc_base_get_pu.exit
 
-57:                                               ; preds = %hwloc_get_obj_by_type.exit.i
-  %58 = zext nneg i32 %56 to i64
-  %59 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %58, i32 2
-  %60 = load i32, ptr %59, align 4
-  %61 = icmp sgt i32 %60, 4
-  br i1 %61, label %62, label %prte_hwloc_base_get_pu.exit
+58:                                               ; preds = %hwloc_get_obj_by_type.exit.i
+  %59 = zext nneg i32 %57 to i64
+  %60 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %59, i32 2
+  %61 = load i32, ptr %60, align 4
+  %62 = icmp sgt i32 %61, 4
+  br i1 %62, label %63, label %prte_hwloc_base_get_pu.exit
 
-62:                                               ; preds = %57
-  %63 = icmp eq ptr %.0.i13.i, null
-  %64 = select i1 %63, ptr @.str.2, ptr @.str.3
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef %56, ptr noundef nonnull @.str.1, i32 noundef %.050, ptr noundef nonnull %64) #16
+63:                                               ; preds = %58
+  %64 = icmp eq ptr %.0.i13.i, null
+  %65 = select i1 %64, ptr @.str.2, ptr @.str.3
+  tail call void (i32, ptr, ...) @pmix_output(i32 noundef %57, ptr noundef nonnull @.str.1, i32 noundef %.050, ptr noundef nonnull %65) #16
   br label %prte_hwloc_base_get_pu.exit
 
-prte_hwloc_base_get_pu.exit:                      ; preds = %hwloc_get_obj_by_type.exit.i, %57, %62
+prte_hwloc_base_get_pu.exit:                      ; preds = %hwloc_get_obj_by_type.exit.i, %58, %63
   %.not47 = icmp eq ptr %.0.i13.i, null
-  br i1 %.not47, label %72, label %65
+  br i1 %.not47, label %73, label %66
 
-65:                                               ; preds = %prte_hwloc_base_get_pu.exit
-  %66 = getelementptr inbounds i8, ptr %.0.i13.i, i64 184
-  %67 = load ptr, ptr %66, align 8
-  %68 = tail call ptr @hwloc_topology_get_allowed_cpuset(ptr noundef %0) #17
-  %69 = tail call i32 @hwloc_bitmap_and(ptr noundef %7, ptr noundef %67, ptr noundef %68) #16
-  %70 = tail call i32 @hwloc_bitmap_or(ptr noundef %6, ptr noundef %5, ptr noundef %7) #16
-  %71 = tail call i32 @hwloc_bitmap_copy(ptr noundef %5, ptr noundef %6) #16
-  br label %72
+66:                                               ; preds = %prte_hwloc_base_get_pu.exit
+  %67 = getelementptr inbounds i8, ptr %.0.i13.i, i64 184
+  %68 = load ptr, ptr %67, align 8
+  %69 = tail call ptr @hwloc_topology_get_allowed_cpuset(ptr noundef %0) #17
+  %70 = tail call i32 @hwloc_bitmap_and(ptr noundef %7, ptr noundef %68, ptr noundef %69) #16
+  %71 = tail call i32 @hwloc_bitmap_or(ptr noundef %6, ptr noundef %5, ptr noundef %7) #16
+  %72 = tail call i32 @hwloc_bitmap_copy(ptr noundef %5, ptr noundef %6) #16
+  br label %73
 
-72:                                               ; preds = %prte_hwloc_base_get_pu.exit, %65
-  %73 = add i32 %.050, 1
+73:                                               ; preds = %prte_hwloc_base_get_pu.exit, %66
+  %74 = add i32 %.050, 1
   %exitcond.not = icmp eq i32 %.050, %33
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !4
 
-.loopexit:                                        ; preds = %72, %26, %.lr.ph52, %14, %19
+.loopexit:                                        ; preds = %73, %26, %.lr.ph52, %14, %19
   tail call void @PMIx_Argv_free(ptr noundef %12) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %74 = tail call i32 @PMIx_Argv_count(ptr noundef %4) #16
-  %75 = sext i32 %74 to i64
-  %76 = icmp slt i64 %indvars.iv.next, %75
-  br i1 %76, label %.lr.ph52, label %._crit_edge, !llvm.loop !6
+  %75 = tail call i32 @PMIx_Argv_count(ptr noundef %4) #16
+  %76 = sext i32 %75 to i64
+  %77 = icmp slt i64 %indvars.iv.next, %76
+  br i1 %77, label %.lr.ph52, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.loopexit, %3
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %78, label %77
+  br i1 %.not, label %79, label %78
 
-77:                                               ; preds = %._crit_edge
+78:                                               ; preds = %._crit_edge
   tail call void @PMIx_Argv_free(ptr noundef nonnull %4) #16
-  br label %78
+  br label %79
 
-78:                                               ; preds = %77, %._crit_edge
+79:                                               ; preds = %78, %._crit_edge
   tail call void @hwloc_bitmap_free(ptr noundef %6) #16
   tail call void @hwloc_bitmap_free(ptr noundef %7) #16
   ret ptr %5

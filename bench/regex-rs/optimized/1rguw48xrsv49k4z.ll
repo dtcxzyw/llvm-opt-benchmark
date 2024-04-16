@@ -5850,7 +5850,7 @@ _ZN12regex_syntax3ast5Flags10flag_state17h6b0ba6635d5042f8E.exit92.i: ; preds = 
   br label %_ZN12regex_syntax3ast5Flags10flag_state17h6b0ba6635d5042f8E.exit92.thread.i
 
 _ZN12regex_syntax3ast5Flags10flag_state17h6b0ba6635d5042f8E.exit92.thread.i: ; preds = %1094, %_ZN12regex_syntax3ast5Flags10flag_state17h6b0ba6635d5042f8E.exit92.i, %1088, %1086
-  %1097 = phi i8 [ %1087, %1086 ], [ %1087, %1088 ], [ %1096, %_ZN12regex_syntax3ast5Flags10flag_state17h6b0ba6635d5042f8E.exit92.i ], [ %1087, %1094 ]
+  %1097 = phi i8 [ %1096, %_ZN12regex_syntax3ast5Flags10flag_state17h6b0ba6635d5042f8E.exit92.i ], [ %1087, %1088 ], [ %1087, %1086 ], [ %1087, %1094 ]
   %1098 = load i64, ptr %275, align 8, !noalias !427, !noundef !5
   %1099 = icmp eq i64 %1098, 0
   br i1 %1099, label %1100, label %1109

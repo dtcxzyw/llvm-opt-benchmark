@@ -2904,19 +2904,20 @@ if.then7:                                         ; preds = %if.else
   %3 = load atomic i64, ptr %this monotonic, align 8
   %and.i = and i64 %3, 9
   %cmp.i = icmp eq i64 %and.i, 0
-  br i1 %cmp.i, label %land.lhs.true.i, label %_ZN4absl5Mutex11TryLockSlowEv.exit
+  br i1 %cmp.i, label %land.lhs.true.i, label %if.end.i
 
 land.lhs.true.i:                                  ; preds = %if.then7
   %or.i = or disjoint i64 %3, 8
   %4 = cmpxchg ptr %this, i64 %3, i64 %or.i acquire monotonic, align 8
   %5 = extractvalue { i64, i1 } %4, 1
-  %not..i = xor i1 %5, true
-  %spec.select.i = zext i1 %not..i to i32
+  br i1 %5, label %_ZN4absl5Mutex11TryLockSlowEv.exit, label %if.end.i
+
+if.end.i:                                         ; preds = %land.lhs.true.i, %if.then7
   br label %_ZN4absl5Mutex11TryLockSlowEv.exit
 
-_ZN4absl5Mutex11TryLockSlowEv.exit:               ; preds = %if.then7, %land.lhs.true.i
-  %.sink.i = phi i32 [ 1, %if.then7 ], [ %spec.select.i, %land.lhs.true.i ]
-  %retval.0.i = phi i1 [ false, %if.then7 ], [ %5, %land.lhs.true.i ]
+_ZN4absl5Mutex11TryLockSlowEv.exit:               ; preds = %land.lhs.true.i, %if.end.i
+  %.sink.i = phi i32 [ 1, %if.end.i ], [ 0, %land.lhs.true.i ]
+  %retval.0.i = phi i1 [ false, %if.end.i ], [ true, %land.lhs.true.i ]
   tail call fastcc void @_ZN4abslL14PostSynchEventEPvi(ptr noundef nonnull %this, i32 noundef %.sink.i)
   br label %return
 
@@ -2931,19 +2932,20 @@ entry:
   %0 = load atomic i64, ptr %this monotonic, align 8
   %and = and i64 %0, 9
   %cmp = icmp eq i64 %and, 0
-  br i1 %cmp, label %land.lhs.true, label %return
+  br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
   %or = or disjoint i64 %0, 8
   %1 = cmpxchg ptr %this, i64 %0, i64 %or acquire monotonic, align 8
   %2 = extractvalue { i64, i1 } %1, 1
-  %not. = xor i1 %2, true
-  %spec.select = zext i1 %not. to i32
+  br i1 %2, label %return, label %if.end
+
+if.end:                                           ; preds = %land.lhs.true, %entry
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %entry
-  %.sink = phi i32 [ 1, %entry ], [ %spec.select, %land.lhs.true ]
-  %retval.0 = phi i1 [ false, %entry ], [ %2, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %if.end
+  %.sink = phi i32 [ 1, %if.end ], [ 0, %land.lhs.true ]
+  %retval.0 = phi i1 [ false, %if.end ], [ true, %land.lhs.true ]
   tail call fastcc void @_ZN4abslL14PostSynchEventEPvi(ptr noundef nonnull %this, i32 noundef %.sink)
   ret i1 %retval.0
 }

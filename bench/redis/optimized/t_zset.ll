@@ -2807,7 +2807,7 @@ lor.lhs.false12:                                  ; preds = %if.end10
   br i1 %tobool.not.i12, label %cond.false.i23, label %cond.true.i14
 
 cond.true.i14:                                    ; preds = %lor.lhs.false12
-  br i1 %cmp.i4.i13, label %return, label %if.end.i.i15
+  br i1 %cmp.i4.i13, label %zslLexValueLteMax.exit.thread49, label %if.end.i.i15
 
 if.end.i.i15:                                     ; preds = %cond.true.i14
   %19 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 91), align 8
@@ -2823,7 +2823,7 @@ if.end4.i.i19:                                    ; preds = %lor.lhs.false.i.i17
   %cmp5.i.i20 = icmp eq ptr %20, %16
   %cmp7.i.i21 = icmp eq ptr %19, %18
   %or.cond.i.i22 = or i1 %cmp7.i.i21, %cmp5.i.i20
-  br i1 %or.cond.i.i22, label %return, label %if.end9.i.i
+  br i1 %or.cond.i.i22, label %zslLexValueLteMax.exit.thread49, label %if.end9.i.i
 
 if.end9.i.i:                                      ; preds = %if.end4.i.i19
   %call.i.i = tail call i32 @sdscmp(ptr noundef %16, ptr noundef %18) #19
@@ -2847,7 +2847,7 @@ if.end4.i9.i28:                                   ; preds = %lor.lhs.false.i7.i2
   %cmp5.i10.i29 = icmp eq ptr %23, %16
   %cmp7.i11.i30 = icmp eq ptr %22, %18
   %or.cond.i12.i31 = or i1 %cmp7.i11.i30, %cmp5.i10.i29
-  br i1 %or.cond.i12.i31, label %return, label %if.end9.i13.i
+  br i1 %or.cond.i12.i31, label %zslLexValueLteMax.exit.thread49, label %if.end9.i13.i
 
 if.end9.i13.i:                                    ; preds = %if.end4.i9.i28
   %call.i14.i32 = tail call i32 @sdscmp(ptr noundef %16, ptr noundef %18) #19
@@ -2858,12 +2858,14 @@ if.end9.i13.i:                                    ; preds = %if.end4.i9.i28
 zslLexValueLteMax.exit:                           ; preds = %if.end9.i.i, %if.end9.i13.i
   %cond.i = phi i32 [ %21, %if.end9.i.i ], [ %25, %if.end9.i13.i ]
   %cond.i.fr = freeze i32 %cond.i
-  %tobool15.not = icmp ne i32 %cond.i.fr, 0
-  %spec.select = zext i1 %tobool15.not to i32
+  %tobool15.not = icmp eq i32 %cond.i.fr, 0
+  br i1 %tobool15.not, label %zslLexValueLteMax.exit.thread49, label %return
+
+zslLexValueLteMax.exit.thread49:                  ; preds = %if.end4.i9.i28, %if.end4.i.i19, %cond.true.i14, %zslLexValueLteMax.exit
   br label %return
 
-return:                                           ; preds = %zslLexValueLteMax.exit, %if.end4.i9.i28, %if.end4.i.i19, %cond.true.i14, %if.end.i5.i24, %lor.lhs.false.i7.i26, %cond.false.i23, %if.end.i.i15, %lor.lhs.false.i.i17, %if.end.i5.i, %lor.lhs.false.i7.i, %if.end.i.i, %lor.lhs.false.i.i, %cond.true.i, %if.end4.i, %if.end10, %if.end, %zslLexValueGteMin.exit, %sdscmplex.exit, %land.lhs.true, %lor.lhs.false3
-  %retval.0 = phi i32 [ 0, %lor.lhs.false3 ], [ 0, %land.lhs.true ], [ 0, %sdscmplex.exit ], [ 0, %zslLexValueGteMin.exit ], [ 0, %if.end ], [ 0, %if.end10 ], [ 0, %if.end4.i ], [ 0, %cond.true.i ], [ 0, %lor.lhs.false.i.i ], [ 0, %if.end.i.i ], [ 0, %lor.lhs.false.i7.i ], [ 0, %if.end.i5.i ], [ 1, %lor.lhs.false.i.i17 ], [ 1, %if.end.i.i15 ], [ 1, %cond.false.i23 ], [ 1, %lor.lhs.false.i7.i26 ], [ 1, %if.end.i5.i24 ], [ 0, %cond.true.i14 ], [ 0, %if.end4.i.i19 ], [ 0, %if.end4.i9.i28 ], [ %spec.select, %zslLexValueLteMax.exit ]
+return:                                           ; preds = %if.end.i5.i24, %lor.lhs.false.i7.i26, %cond.false.i23, %if.end.i.i15, %lor.lhs.false.i.i17, %if.end.i5.i, %lor.lhs.false.i7.i, %if.end.i.i, %lor.lhs.false.i.i, %cond.true.i, %if.end4.i, %zslLexValueLteMax.exit.thread49, %zslLexValueLteMax.exit, %if.end10, %if.end, %zslLexValueGteMin.exit, %sdscmplex.exit, %land.lhs.true, %lor.lhs.false3
+  %retval.0 = phi i32 [ 0, %lor.lhs.false3 ], [ 0, %land.lhs.true ], [ 0, %sdscmplex.exit ], [ 0, %zslLexValueGteMin.exit ], [ 0, %if.end ], [ 0, %if.end10 ], [ 0, %zslLexValueLteMax.exit.thread49 ], [ 1, %zslLexValueLteMax.exit ], [ 0, %if.end4.i ], [ 0, %cond.true.i ], [ 0, %lor.lhs.false.i.i ], [ 0, %if.end.i.i ], [ 0, %lor.lhs.false.i7.i ], [ 0, %if.end.i5.i ], [ 1, %lor.lhs.false.i.i17 ], [ 1, %if.end.i.i15 ], [ 1, %cond.false.i23 ], [ 1, %lor.lhs.false.i7.i26 ], [ 1, %if.end.i5.i24 ]
   ret i32 %retval.0
 }
 
@@ -5351,7 +5353,7 @@ if.end5:                                          ; preds = %entry, %zsetConvert
 declare i32 @lpSafeToAdd(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @zsetScore(ptr noundef readonly %zobj, ptr noundef %member, ptr noundef %score) local_unnamed_addr #0 {
+define dso_local noundef i32 @zsetScore(ptr noundef readonly %zobj, ptr noundef %member, ptr noundef %score) local_unnamed_addr #0 {
 entry:
   %tobool = icmp ne ptr %zobj, null
   %tobool1 = icmp ne ptr %member, null
@@ -5372,8 +5374,7 @@ if.then2:                                         ; preds = %if.end
   %0 = load ptr, ptr %ptr, align 8
   %call = tail call ptr @zzlFind(ptr noundef %0, ptr noundef nonnull %member, ptr noundef %score)
   %cmp3 = icmp eq ptr %call, null
-  %spec.select = sext i1 %cmp3 to i32
-  br label %return
+  br i1 %cmp3, label %return, label %if.end19
 
 if.then10:                                        ; preds = %if.end
   %ptr11 = getelementptr inbounds i8, ptr %zobj, i64 8
@@ -5387,15 +5388,18 @@ if.end15:                                         ; preds = %if.then10
   %call16 = tail call ptr @dictGetVal(ptr noundef nonnull %call12) #19
   %3 = load double, ptr %call16, align 8
   store double %3, ptr %score, align 8
-  br label %return
+  br label %if.end19
 
 if.else17:                                        ; preds = %if.end
   tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1374, ptr noundef nonnull @.str.9) #19
   tail call void @abort() #20
   unreachable
 
-return:                                           ; preds = %if.then2, %if.end15, %if.then10, %entry
-  %retval.0 = phi i32 [ -1, %entry ], [ -1, %if.then10 ], [ 0, %if.end15 ], [ %spec.select, %if.then2 ]
+if.end19:                                         ; preds = %if.then2, %if.end15
+  br label %return
+
+return:                                           ; preds = %if.then10, %if.then2, %entry, %if.end19
+  %retval.0 = phi i32 [ 0, %if.end19 ], [ -1, %entry ], [ -1, %if.then2 ], [ -1, %if.then10 ]
   ret i32 %retval.0
 }
 
@@ -7335,7 +7339,7 @@ if.end143:                                        ; preds = %if.then8.i, %if.end
 declare i32 @getLongFromObjectOrReply(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal fastcc i32 @zslParseRange(ptr nocapture noundef readonly %min, ptr nocapture noundef readonly %max, ptr nocapture noundef writeonly %spec) unnamed_addr #9 {
+define internal fastcc noundef i32 @zslParseRange(ptr nocapture noundef readonly %min, ptr nocapture noundef readonly %max, ptr nocapture noundef writeonly %spec) unnamed_addr #9 {
 entry:
   %eptr = alloca ptr, align 8
   %maxex = getelementptr inbounds i8, ptr %spec, i64 20
@@ -7398,7 +7402,7 @@ if.then35:                                        ; preds = %if.end29
   %conv37 = sitofp i64 %12 to double
   %max38 = getelementptr inbounds i8, ptr %spec, i64 8
   store double %conv37, ptr %max38, align 8
-  br label %return
+  br label %if.end72
 
 if.else39:                                        ; preds = %if.end29
   %13 = load i8, ptr %11, align 1
@@ -7419,7 +7423,7 @@ if.then45:                                        ; preds = %if.else39
 
 if.end57:                                         ; preds = %if.then45
   store i32 1, ptr %maxex, align 4
-  br label %return
+  br label %if.end72
 
 if.else59:                                        ; preds = %if.else39
   %call61 = call double @strtod(ptr noundef nonnull %11, ptr noundef nonnull %eptr) #19
@@ -7430,11 +7434,13 @@ if.else59:                                        ; preds = %if.else39
   %cmp65.not = icmp ne i8 %18, 0
   %19 = fcmp uno double %call61, 0.000000e+00
   %or.cond24 = select i1 %cmp65.not, i1 true, i1 %19
-  %spec.select = sext i1 %or.cond24 to i32
+  br i1 %or.cond24, label %return, label %if.end72
+
+if.end72:                                         ; preds = %if.else59, %if.end57, %if.then35
   br label %return
 
-return:                                           ; preds = %if.else59, %if.then35, %if.end57, %if.then45, %if.else16, %if.then6
-  %retval.0 = phi i32 [ -1, %if.then6 ], [ -1, %if.else16 ], [ -1, %if.then45 ], [ 0, %if.end57 ], [ 0, %if.then35 ], [ %spec.select, %if.else59 ]
+return:                                           ; preds = %if.else59, %if.then45, %if.else16, %if.then6, %if.end72
+  %retval.0 = phi i32 [ 0, %if.end72 ], [ -1, %if.then6 ], [ -1, %if.else16 ], [ -1, %if.then45 ], [ -1, %if.else59 ]
   ret i32 %retval.0
 }
 

@@ -1367,12 +1367,14 @@ sw.epilog:                                        ; preds = %sw.bb1, %sw.bb
   %engSize.0 = phi i64 [ %call3, %sw.bb1 ], [ %call, %sw.bb ]
   %tobool.not = icmp eq i64 %engSize.0, 0
   %add = add i64 %engSize.0, 192
-  %spec.select = select i1 %tobool.not, i64 0, i64 %add
-  br label %sw.epilog.thread
+  br i1 %tobool.not, label %sw.epilog.thread, label %1
 
-sw.epilog.thread:                                 ; preds = %sw.epilog, %entry
-  %1 = phi i64 [ 0, %entry ], [ %spec.select, %sw.epilog ]
-  ret i64 %1
+sw.epilog.thread:                                 ; preds = %entry, %sw.epilog
+  br label %1
+
+1:                                                ; preds = %sw.epilog, %sw.epilog.thread
+  %2 = phi i64 [ 0, %sw.epilog.thread ], [ %add, %sw.epilog ]
+  ret i64 %2
 }
 
 declare noundef i64 @_ZN3ue28noodSizeEPK9noodTable(ptr noundef) local_unnamed_addr #4

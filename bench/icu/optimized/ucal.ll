@@ -2343,16 +2343,12 @@ if.then5:                                         ; preds = %land.lhs.true
           to label %cond.end unwind label %lpad
 
 cond.end:                                         ; preds = %if.then5
-  %tobool15.not.not = icmp ne i8 %6, 0
-  br i1 %tobool15.not.not, label %if.then16, label %cleanup
+  %tobool15.not.not = icmp eq i8 %6, 0
+  br i1 %tobool15.not.not, label %return.sink.split, label %if.then16
 
 if.then16:                                        ; preds = %cond.end
   %call18 = invoke noundef double @_ZNK6icu_7518TimeZoneTransition7getTimeEv(ptr noundef nonnull align 8 dereferenceable(32) %tzt)
-          to label %invoke.cont17 unwind label %lpad
-
-invoke.cont17:                                    ; preds = %if.then16
-  store double %call18, ptr %transition, align 8
-  br label %cleanup
+          to label %cleanup unwind label %lpad
 
 lpad:                                             ; preds = %if.then5, %if.then16
   %7 = landingpad { ptr, i32 }
@@ -2360,13 +2356,17 @@ lpad:                                             ; preds = %if.then5, %if.then1
   call void @_ZN6icu_7518TimeZoneTransitionD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %tzt) #11
   resume { ptr, i32 } %7
 
-cleanup:                                          ; preds = %cond.end, %invoke.cont17
+cleanup:                                          ; preds = %if.then16
+  store double %call18, ptr %transition, align 8
+  br label %return.sink.split
+
+return.sink.split:                                ; preds = %cond.end, %cleanup
+  %retval.1.ph = phi i8 [ 1, %cleanup ], [ 0, %cond.end ]
   call void @_ZN6icu_7518TimeZoneTransitionD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %tzt) #11
-  %spec.select = zext i1 %tobool15.not.not to i8
   br label %return
 
-return:                                           ; preds = %cleanup, %if.end, %land.lhs.true, %entry
-  %retval.1 = phi i8 [ 0, %entry ], [ 0, %land.lhs.true ], [ 0, %if.end ], [ %spec.select, %cleanup ]
+return:                                           ; preds = %return.sink.split, %if.end, %land.lhs.true, %entry
+  %retval.1 = phi i8 [ 0, %entry ], [ 0, %land.lhs.true ], [ 0, %if.end ], [ %retval.1.ph, %return.sink.split ]
   ret i8 %retval.1
 }
 

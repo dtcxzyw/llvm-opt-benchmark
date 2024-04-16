@@ -4023,12 +4023,14 @@ define dso_local noundef i32 @generic_file_open(ptr nocapture noundef readonly %
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8
   %10 = icmp ugt i64 %9, 2147483647
-  %spec.select = select i1 %10, i32 -75, i32 0
-  br label %11
+  br i1 %10, label %12, label %11
 
 11:                                               ; preds = %7, %2
-  %12 = phi i32 [ 0, %2 ], [ %spec.select, %7 ]
-  ret i32 %12
+  br label %12
+
+12:                                               ; preds = %11, %7
+  %13 = phi i32 [ 0, %11 ], [ -75, %7 ]
+  ret i32 %13
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)

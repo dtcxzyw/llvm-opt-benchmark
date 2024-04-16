@@ -1539,13 +1539,13 @@ define internal fastcc void @_cpu_freq_setup_data(ptr nocapture noundef %0, i32 
 
 .thread21.i:                                      ; preds = %20
   store i32 1, ptr @_cpu_freq_current_state.freq_file, align 4
+  br label %24
+
+24:                                               ; preds = %.thread21.i, %18
   br label %25
 
-24:                                               ; preds = %18
-  br label %25
-
-25:                                               ; preds = %24, %.thread21.i, %.thread.i, %18
-  %.str.103.sink.i = phi ptr [ @.str.102, %18 ], [ @.str.102, %.thread.i ], [ @.str.103, %.thread21.i ], [ @.str.103, %24 ]
+25:                                               ; preds = %24, %.thread.i, %18
+  %.str.103.sink.i = phi ptr [ @.str.103, %24 ], [ @.str.102, %18 ], [ @.str.102, %.thread.i ]
   %26 = tail call fastcc i32 @_cpu_freq_get_scaling_freq(i32 noundef %1, ptr noundef nonnull %.str.103.sink.i)
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %_cpu_freq_current_state.exit.thread, label %28

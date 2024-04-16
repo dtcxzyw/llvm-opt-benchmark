@@ -1292,7 +1292,7 @@ lor.end:                                          ; preds = %lor.rhs, %if.end18
   store i8 %frombool, ptr %is_definition, align 1
   br label %if.end40
 
-if.else:                                          ; preds = %land.lhs.true.i, %while.end.i, %land.lhs.true4.i
+if.else:                                          ; preds = %while.end.i, %land.lhs.true.i, %land.lhs.true4.i
   %call.i.i = call noalias dereferenceable_or_null(144) ptr @calloc(i64 noundef 1, i64 noundef 144) #14
   %name1.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store ptr %call.i, ptr %name1.i.i, align 8
@@ -1852,7 +1852,7 @@ if.then5:                                         ; preds = %land.lhs.true4.i
   tail call fastcc void @mark_live(ptr noundef nonnull %7)
   br label %for.inc
 
-for.inc:                                          ; preds = %land.lhs.true4.i, %while.end.i, %land.lhs.true.i, %if.then5
+for.inc:                                          ; preds = %land.lhs.true4.i, %land.lhs.true.i, %while.end.i, %if.then5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = load i32, ptr %len, align 4
   %10 = sext i32 %9 to i64
@@ -5922,7 +5922,7 @@ return.loopexit:                                  ; preds = %tailrecurse
   br label %return
 
 return:                                           ; preds = %sw.bb2, %sw.bb, %tailrecurse, %return.loopexit
-  %retval.0 = phi i1 [ false, %tailrecurse ], [ false, %sw.bb2 ], [ false, %sw.bb ], [ true, %return.loopexit ]
+  %retval.0 = phi i1 [ true, %return.loopexit ], [ false, %tailrecurse ], [ false, %sw.bb ], [ false, %sw.bb2 ]
   ret i1 %retval.0
 }
 

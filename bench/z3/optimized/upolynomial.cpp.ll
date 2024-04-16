@@ -27322,7 +27322,7 @@ _ZNK6vectorI3mpzLb0EjE4sizeEv.exit.i102:          ; preds = %_ZNK6vectorI3mpzLb0
 
 if.then.i:                                        ; preds = %if.then34, %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit.i102, %invoke.cont35
   invoke void @_ZN11upolynomial12core_manager7factors9push_backERK7svectorI3mpzjEj(ptr noundef nonnull align 8 dereferenceable(48) %r, ptr noundef nonnull align 8 dereferenceable(8) %pp, i32 noundef 1)
-          to label %if.end79thread-pre-split unwind label %lpad30.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %invoke.cont36.thread unwind label %lpad30.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.else.i:                                        ; preds = %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit.i102
   %cmp2.i = icmp eq i32 %33, 3
@@ -27330,11 +27330,17 @@ if.else.i:                                        ; preds = %_ZNK6vectorI3mpzLb0
 
 if.then3.i:                                       ; preds = %if.else.i
   invoke void @_ZN11upolynomial7manager15factor_2_sqf_ppER7svectorI3mpzjERNS_12core_manager7factorsEj(ptr noundef nonnull align 8 dereferenceable(312) %this, ptr noundef nonnull align 8 dereferenceable(8) %pp, ptr noundef nonnull align 8 dereferenceable(48) %r, i32 noundef 1)
-          to label %if.end79thread-pre-split unwind label %lpad30.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %invoke.cont36.thread unwind label %lpad30.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.else4.i:                                       ; preds = %if.else.i
   %call5.i107 = invoke noundef zeroext i1 @_ZN11upolynomial18factor_square_freeERNS_12core_managerERK7svectorI3mpzjERNS0_7factorsEjRKN10polynomial13factor_paramsE(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef nonnull align 8 dereferenceable(8) %pp, ptr noundef nonnull align 8 dereferenceable(48) %r, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(12) %params)
-          to label %if.end79thread-pre-split unwind label %lpad30.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %invoke.cont36 unwind label %lpad30.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+
+invoke.cont36:                                    ; preds = %if.else4.i
+  br i1 %call5.i107, label %invoke.cont36.thread, label %if.end79thread-pre-split
+
+invoke.cont36.thread:                             ; preds = %if.then3.i, %if.then.i, %invoke.cont36
+  br label %if.end79thread-pre-split
 
 lpad7:                                            ; preds = %if.then.i2.i.i62, %if.else.i.i.i58, %invoke.cont6
   %34 = landingpad { ptr, i32 }
@@ -27352,37 +27358,37 @@ lpad30.loopexit:                                  ; preds = %for.body.i, %if.the
   br label %lpad30.body
 
 lpad30.loopexit.split-lp.loopexit:                ; preds = %if.then.i.i.i220, %for.body.i216
-  %lpad.loopexit384 = landingpad { ptr, i32 }
+  %lpad.loopexit383 = landingpad { ptr, i32 }
           cleanup
   br label %lpad30.body
 
 lpad30.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.body.i.i196
-  %lpad.loopexit387 = landingpad { ptr, i32 }
+  %lpad.loopexit386 = landingpad { ptr, i32 }
           cleanup
   br label %lpad30.body
 
 lpad30.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.body.i.i140
-  %lpad.loopexit389 = landingpad { ptr, i32 }
+  %lpad.loopexit388 = landingpad { ptr, i32 }
           cleanup
   br label %lpad30.body
 
 lpad30.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %if.then70, %while.body, %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit7.i159, %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit7.i171, %if.then10.i, %if.then.i238, %if.then3.i237, %if.else4.i235, %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit7.i258
-  %lpad.loopexit392 = landingpad { ptr, i32 }
+  %lpad.loopexit391 = landingpad { ptr, i32 }
           cleanup
   br label %lpad30.body
 
 lpad30.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.body.i.i
-  %lpad.loopexit394 = landingpad { ptr, i32 }
+  %lpad.loopexit393 = landingpad { ptr, i32 }
           cleanup
   br label %lpad30.body
 
 lpad30.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %invoke.cont.i, %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit7.i116, %if.else4.i, %if.then3.i, %if.then.i, %for.end.i, %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit7.i, %if.then76, %if.then51, %if.then42
-  %lpad.loopexit.split-lp395 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp394 = landingpad { ptr, i32 }
           cleanup
   br label %lpad30.body
 
 lpad30.body:                                      ; preds = %lpad30.loopexit, %lpad30.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad30.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad30.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad30.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad30.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad30.loopexit.split-lp.loopexit, %lpad.i
-  %eh.lpad-body = phi { ptr, i32 } [ %48, %lpad.i ], [ %lpad.loopexit, %lpad30.loopexit ], [ %lpad.loopexit384, %lpad30.loopexit.split-lp.loopexit ], [ %lpad.loopexit387, %lpad30.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit389, %lpad30.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit392, %lpad30.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit394, %lpad30.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp395, %lpad30.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %48, %lpad.i ], [ %lpad.loopexit, %lpad30.loopexit ], [ %lpad.loopexit383, %lpad30.loopexit.split-lp.loopexit ], [ %lpad.loopexit386, %lpad30.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit388, %lpad30.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit391, %lpad30.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit393, %lpad30.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp394, %lpad30.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN22_scoped_numeral_vectorI13mpzzp_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %D) #20
   call void @_ZN22_scoped_numeral_vectorI13mpzzp_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %B) #20
   call void @_ZN22_scoped_numeral_vectorI13mpzzp_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %A) #20
@@ -27416,16 +27422,16 @@ invoke.cont43:                                    ; preds = %if.then42
 
 while.condthread-pre-split:                       ; preds = %invoke.cont40
   %.pr377 = load ptr, ptr %A, align 8
-  %cmp.i.i.i120418 = icmp eq ptr %.pr377, null
-  br i1 %cmp.i.i.i120418, label %if.end79thread-pre-split, label %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit.i.i121.lr.ph
+  %cmp.i.i.i120417 = icmp eq ptr %.pr377, null
+  br i1 %cmp.i.i.i120417, label %if.end79thread-pre-split, label %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit.i.i121.lr.ph
 
 _ZNK6vectorI3mpzLb0EjE4sizeEv.exit.i.i121.lr.ph:  ; preds = %while.condthread-pre-split
   %m_z.i.i.i214 = getelementptr inbounds i8, ptr %this, i64 16
   br label %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit.i.i121
 
 _ZNK6vectorI3mpzLb0EjE4sizeEv.exit.i.i121:        ; preds = %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit.i.i121.lr.ph, %if.end78
-  %j.0420 = phi i32 [ 1, %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit.i.i121.lr.ph ], [ %inc, %if.end78 ]
-  %result.0419 = phi i1 [ true, %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit.i.i121.lr.ph ], [ %result.1, %if.end78 ]
+  %j.0419 = phi i32 [ 1, %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit.i.i121.lr.ph ], [ %inc, %if.end78 ]
+  %result.0418 = phi i1 [ true, %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit.i.i121.lr.ph ], [ %result.1, %if.end78 ]
   %38 = phi ptr [ %.pr377, %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit.i.i121.lr.ph ], [ %76, %if.end78 ]
   %arrayidx.i.i.i122 = getelementptr inbounds i8, ptr %38, i64 -4
   %39 = load i32, ptr %arrayidx.i.i.i122, align 4
@@ -27616,7 +27622,7 @@ _ZN13mpzzp_manager3negER3mpz.exit.i221:           ; preds = %if.then.i.i.i220, %
   br i1 %exitcond.not.i223, label %for.end.i224, label %for.body.i216, !llvm.loop !123
 
 for.end.i224:                                     ; preds = %_ZN13mpzzp_manager3negER3mpz.exit.i221
-  %rem.i = and i32 %j.0420, 1
+  %rem.i = and i32 %j.0419, 1
   %cmp9.not.i = icmp eq i32 %rem.i, 0
   br i1 %cmp9.not.i, label %invoke.cont57, label %if.then10.i
 
@@ -27636,23 +27642,25 @@ _ZNK6vectorI3mpzLb0EjE4sizeEv.exit.i230:          ; preds = %invoke.cont57
   br i1 %cmp.i232, label %if.then.i238, label %if.else.i233
 
 if.then.i238:                                     ; preds = %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit.i230, %invoke.cont57
-  invoke void @_ZN11upolynomial12core_manager7factors9push_backERK7svectorI3mpzjEj(ptr noundef nonnull align 8 dereferenceable(48) %r, ptr noundef nonnull align 8 dereferenceable(8) %pp, i32 noundef %j.0420)
-          to label %if.end73 unwind label %lpad30.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+  invoke void @_ZN11upolynomial12core_manager7factors9push_backERK7svectorI3mpzjEj(ptr noundef nonnull align 8 dereferenceable(48) %r, ptr noundef nonnull align 8 dereferenceable(8) %pp, i32 noundef %j.0419)
+          to label %invoke.cont58.thread unwind label %lpad30.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.else.i233:                                     ; preds = %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit.i230
   %cmp2.i234 = icmp eq i32 %70, 3
   br i1 %cmp2.i234, label %if.then3.i237, label %if.else4.i235
 
 if.then3.i237:                                    ; preds = %if.else.i233
-  invoke void @_ZN11upolynomial7manager15factor_2_sqf_ppER7svectorI3mpzjERNS_12core_manager7factorsEj(ptr noundef nonnull align 8 dereferenceable(312) %this, ptr noundef nonnull align 8 dereferenceable(8) %pp, ptr noundef nonnull align 8 dereferenceable(48) %r, i32 noundef %j.0420)
-          to label %if.end73 unwind label %lpad30.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+  invoke void @_ZN11upolynomial7manager15factor_2_sqf_ppER7svectorI3mpzjERNS_12core_manager7factorsEj(ptr noundef nonnull align 8 dereferenceable(312) %this, ptr noundef nonnull align 8 dereferenceable(8) %pp, ptr noundef nonnull align 8 dereferenceable(48) %r, i32 noundef %j.0419)
+          to label %invoke.cont58.thread unwind label %lpad30.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.else4.i235:                                    ; preds = %if.else.i233
-  %call5.i242 = invoke noundef zeroext i1 @_ZN11upolynomial18factor_square_freeERNS_12core_managerERK7svectorI3mpzjERNS0_7factorsEjRKN10polynomial13factor_paramsE(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef nonnull align 8 dereferenceable(8) %pp, ptr noundef nonnull align 8 dereferenceable(48) %r, i32 noundef %j.0420, ptr noundef nonnull align 4 dereferenceable(12) %params)
+  %call5.i242 = invoke noundef zeroext i1 @_ZN11upolynomial18factor_square_freeERNS_12core_managerERK7svectorI3mpzjERNS0_7factorsEjRKN10polynomial13factor_paramsE(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef nonnull align 8 dereferenceable(8) %pp, ptr noundef nonnull align 8 dereferenceable(48) %r, i32 noundef %j.0419, ptr noundef nonnull align 4 dereferenceable(12) %params)
           to label %invoke.cont58 unwind label %lpad30.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont58:                                    ; preds = %if.else4.i235
-  %spec.select383 = select i1 %call5.i242, i1 %result.0419, i1 false
+  br i1 %call5.i242, label %invoke.cont58.thread, label %if.end73
+
+invoke.cont58.thread:                             ; preds = %if.then3.i237, %if.then.i238, %invoke.cont58
   br label %if.end73
 
 invoke.cont67:                                    ; preds = %_ZN11upolynomial12core_manager4trimER7svectorI3mpzjE.exit.i187
@@ -27663,7 +27671,7 @@ invoke.cont67:                                    ; preds = %_ZN11upolynomial12c
   %71 = load i32, ptr %.pr.i190, align 8
   %cmp.i.i249 = icmp ne i32 %71, -1
   %.not = select i1 %cmp.i.i.i248, i1 true, i1 %cmp.i.i249
-  %rem = and i32 %j.0420, 1
+  %rem = and i32 %j.0419, 1
   %cmp69.not = icmp eq i32 %rem, 0
   %or.cond = select i1 %.not, i1 true, i1 %cmp69.not
   br i1 %or.cond, label %if.end73, label %if.then70
@@ -27672,8 +27680,8 @@ if.then70:                                        ; preds = %invoke.cont67
   invoke void @_ZN11upolynomial7manager9flip_signERNS_12core_manager7factorsE(ptr noundef nonnull align 8 dereferenceable(312) %this, ptr noundef nonnull align 8 dereferenceable(48) %r)
           to label %if.end73 unwind label %lpad30.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-if.end73:                                         ; preds = %invoke.cont58, %if.then3.i237, %if.then.i238, %invoke.cont67, %if.then70
-  %result.1 = phi i1 [ %result.0419, %if.then70 ], [ %result.0419, %invoke.cont67 ], [ %result.0419, %if.then.i238 ], [ %result.0419, %if.then3.i237 ], [ %spec.select383, %invoke.cont58 ]
+if.end73:                                         ; preds = %invoke.cont58.thread, %invoke.cont58, %invoke.cont67, %if.then70
+  %result.1 = phi i1 [ %result.0418, %if.then70 ], [ %result.0418, %invoke.cont67 ], [ %result.0418, %invoke.cont58.thread ], [ false, %invoke.cont58 ]
   %72 = load ptr, ptr %B, align 8
   %cmp.i.i250 = icmp eq ptr %72, null
   br i1 %cmp.i.i250, label %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit.i253, label %if.end.i.i251
@@ -27714,13 +27722,13 @@ if.end78:                                         ; preds = %invoke.cont74
   %76 = load ptr, ptr %D, align 8
   store ptr %76, ptr %A, align 8
   store ptr %38, ptr %D, align 8
-  %inc = add i32 %j.0420, 1
+  %inc = add i32 %j.0419, 1
   %cmp.i.i.i120 = icmp eq ptr %76, null
   br i1 %cmp.i.i.i120, label %if.end79, label %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit.i.i121, !llvm.loop !125
 
-if.end79thread-pre-split:                         ; preds = %invoke.cont45, %if.then.i, %if.then3.i, %if.else4.i, %while.condthread-pre-split, %invoke.cont45.thread
-  %.pre.i.i311.ph = phi ptr [ %38, %invoke.cont45.thread ], [ null, %while.condthread-pre-split ], [ null, %if.else4.i ], [ null, %if.then3.i ], [ null, %if.then.i ], [ %38, %invoke.cont45 ]
-  %result.2.ph = phi i1 [ %result.0419, %invoke.cont45.thread ], [ true, %while.condthread-pre-split ], [ %call5.i107, %if.else4.i ], [ true, %if.then3.i ], [ true, %if.then.i ], [ %result.0419, %invoke.cont45 ]
+if.end79thread-pre-split:                         ; preds = %invoke.cont45, %invoke.cont36, %invoke.cont36.thread, %while.condthread-pre-split, %invoke.cont45.thread
+  %.pre.i.i311.ph = phi ptr [ %38, %invoke.cont45.thread ], [ null, %while.condthread-pre-split ], [ null, %invoke.cont36 ], [ null, %invoke.cont36.thread ], [ %38, %invoke.cont45 ]
+  %result.2.ph = phi i1 [ %result.0418, %invoke.cont45.thread ], [ true, %while.condthread-pre-split ], [ false, %invoke.cont36 ], [ true, %invoke.cont36.thread ], [ %result.0418, %invoke.cont45 ]
   %.pr = load ptr, ptr %D, align 8
   br label %if.end79
 

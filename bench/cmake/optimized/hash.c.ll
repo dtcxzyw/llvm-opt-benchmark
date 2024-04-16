@@ -485,18 +485,20 @@ define dso_local i64 @Curl_hash_str(ptr noundef readonly %0, i64 noundef %1, i64
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @Curl_str_key_compare(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) local_unnamed_addr #4 {
+define dso_local noundef i64 @Curl_str_key_compare(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) local_unnamed_addr #4 {
   %5 = icmp eq i64 %1, %3
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %4
   %bcmp = tail call i32 @bcmp(ptr %0, ptr %2, i64 %1)
   %.not = icmp eq i32 %bcmp, 0
-  %spec.select = zext i1 %.not to i64
-  br label %7
+  br i1 %.not, label %8, label %7
 
 7:                                                ; preds = %6, %4
-  %.0 = phi i64 [ 0, %4 ], [ %spec.select, %6 ]
+  br label %8
+
+8:                                                ; preds = %6, %7
+  %.0 = phi i64 [ 0, %7 ], [ 1, %6 ]
   ret i64 %.0
 }
 

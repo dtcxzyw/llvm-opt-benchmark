@@ -1035,13 +1035,13 @@ sw.bb3:                                           ; preds = %if.end
   tail call void @ERR_new() #8
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 422, ptr noundef nonnull @__func__.ossl_x509_check_private_key) #8
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef 117, ptr noundef null) #8
+  br label %sw.default
+
+sw.default:                                       ; preds = %sw.bb3, %if.end
   br label %return
 
-sw.default:                                       ; preds = %if.end
-  br label %return
-
-return:                                           ; preds = %sw.bb3, %if.end, %sw.default, %sw.bb2, %sw.bb1, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %sw.bb2 ], [ 0, %sw.bb1 ], [ %call, %if.end ], [ 0, %sw.bb3 ], [ 0, %sw.default ]
+return:                                           ; preds = %if.end, %sw.default, %sw.bb2, %sw.bb1, %if.then
+  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %sw.default ], [ 0, %sw.bb2 ], [ 0, %sw.bb1 ], [ %call, %if.end ]
   ret i32 %retval.0
 }
 
@@ -1113,17 +1113,18 @@ if.end4.i:                                        ; preds = %if.end.i31
 if.then8.i:                                       ; preds = %if.end4.i
   %and.i = and i64 %flags, 131072
   %tobool13.not.i = icmp eq i64 %and.i, 0
-  %spec.select117 = select i1 %tobool13.not.i, i32 60, i32 0
-  br label %check_suite_b.exit
+  br i1 %tobool13.not.i, label %check_suite_b.exit, label %if.end30.i
 
 if.then18.i:                                      ; preds = %if.end4.i
   %and24.i = and i64 %flags, 65536
   %tobool25.not.i = icmp eq i64 %and24.i, 0
-  %spec.select.i = select i1 %tobool25.not.i, i32 60, i32 0
+  br i1 %tobool25.not.i, label %check_suite_b.exit, label %if.end30.i
+
+if.end30.i:                                       ; preds = %if.then8.i, %if.then18.i
   br label %check_suite_b.exit
 
-check_suite_b.exit:                               ; preds = %if.then8.i, %if.then6.thread, %if.then6, %lor.lhs.false.i, %if.end.i31, %if.end4.i, %if.then18.i
-  %retval.0.i32 = phi i32 [ 57, %lor.lhs.false.i ], [ 57, %if.then6 ], [ 58, %if.end.i31 ], [ 58, %if.end4.i ], [ %spec.select.i, %if.then18.i ], [ 57, %if.then6.thread ], [ %spec.select117, %if.then8.i ]
+check_suite_b.exit:                               ; preds = %if.then6.thread, %if.then6, %lor.lhs.false.i, %if.end.i31, %if.end4.i, %if.then8.i, %if.then18.i, %if.end30.i
+  %retval.0.i32 = phi i32 [ 0, %if.end30.i ], [ 57, %lor.lhs.false.i ], [ 57, %if.then6 ], [ 58, %if.end.i31 ], [ 60, %if.then8.i ], [ 60, %if.then18.i ], [ 58, %if.end4.i ], [ 57, %if.then6.thread ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %curve_name.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %curve_name_len.i)
   br label %return
@@ -1131,12 +1132,12 @@ check_suite_b.exit:                               ; preds = %if.then8.i, %if.the
 if.end8:                                          ; preds = %X509_get0_pubkey.exit
   %call9 = tail call i64 @X509_get_version(ptr noundef nonnull %x.addr.064) #8
   %cmp10.not = icmp eq i64 %call9, 2
-  br i1 %cmp10.not, label %if.end12, label %if.then35
+  br i1 %cmp10.not, label %if.end12, label %if.then35.thread
 
 if.end8.thread:                                   ; preds = %X509_get0_pubkey.exit.thread
   %call981 = tail call i64 @X509_get_version(ptr noundef null) #8
   %cmp10.not82 = icmp eq i64 %call981, 2
-  br i1 %cmp10.not82, label %if.end12.thread, label %if.then35
+  br i1 %cmp10.not82, label %if.end12.thread, label %if.then35.thread
 
 if.end12.thread:                                  ; preds = %if.end8.thread
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %curve_name.i33)
@@ -1181,13 +1182,13 @@ if.then18.i44:                                    ; preds = %if.end4.i42
   %tobool25.not.i46 = icmp eq i64 %and24.i45, 0
   br i1 %tobool25.not.i46, label %check_suite_b.exit54.thread, label %check_suite_b.exit54
 
-check_suite_b.exit54.thread:                      ; preds = %lor.lhs.false.i36, %if.end12, %if.end.i39, %if.then8.i49, %if.end4.i42, %if.end12.thread, %if.then18.i44
-  %retval.0.i48.ph = phi i32 [ 57, %if.end12.thread ], [ 58, %if.end4.i42 ], [ 60, %if.then8.i49 ], [ 58, %if.end.i39 ], [ 57, %if.end12 ], [ 57, %lor.lhs.false.i36 ], [ 60, %if.then18.i44 ]
+check_suite_b.exit54.thread:                      ; preds = %lor.lhs.false.i36, %if.end12, %if.end.i39, %if.then8.i49, %if.then18.i44, %if.end4.i42, %if.end12.thread
+  %retval.0.i48.ph = phi i32 [ 57, %if.end12.thread ], [ 58, %if.end4.i42 ], [ 60, %if.then18.i44 ], [ 60, %if.then8.i49 ], [ 58, %if.end.i39 ], [ 57, %if.end12 ], [ 57, %lor.lhs.false.i36 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %curve_name.i33)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %curve_name_len.i34)
   br label %if.then35
 
-check_suite_b.exit54:                             ; preds = %if.then18.i44, %if.end15.i52
+check_suite_b.exit54:                             ; preds = %if.end15.i52, %if.then18.i44
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %curve_name.i33)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %curve_name_len.i34)
   %call18107 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %chain) #8
@@ -1201,7 +1202,7 @@ for.body:                                         ; preds = %check_suite_b.exit5
   %call22 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %chain, i32 noundef %i.1110) #8
   %call23 = call i64 @X509_get_version(ptr noundef %call22) #8
   %cmp24.not = icmp eq i64 %call23, 2
-  br i1 %cmp24.not, label %if.end26, label %if.then35
+  br i1 %cmp24.not, label %if.end26, label %if.then35.thread
 
 if.end26:                                         ; preds = %for.body
   %cmp.i55 = icmp eq ptr %call22, null
@@ -1234,35 +1235,40 @@ end:                                              ; preds = %for.inc, %check_sui
   %cmp34.not = icmp eq i32 %call33, 0
   br i1 %cmp34.not, label %return, label %if.then35
 
-if.then35:                                        ; preds = %for.body, %X509_get0_pubkey.exit60, %check_suite_b.exit54.thread, %if.end8.thread, %if.end8, %end
-  %i.2102 = phi i32 [ %i.1.lcssa, %end ], [ 0, %check_suite_b.exit54.thread ], [ 0, %if.end8.thread ], [ 0, %if.end8 ], [ %i.1110, %X509_get0_pubkey.exit60 ], [ %i.1110, %for.body ]
-  %rv.0101 = phi i32 [ %call33, %end ], [ %retval.0.i48.ph, %check_suite_b.exit54.thread ], [ 56, %if.end8.thread ], [ 56, %if.end8 ], [ 56, %for.body ], [ %call28, %X509_get0_pubkey.exit60 ]
-  %rv.0101.fr = freeze i32 %rv.0101
-  %cmp37 = icmp eq i32 %rv.0101.fr, 60
+if.then35:                                        ; preds = %X509_get0_pubkey.exit60, %check_suite_b.exit54.thread, %end
+  %i.2102 = phi i32 [ %i.1.lcssa, %end ], [ 0, %check_suite_b.exit54.thread ], [ %i.1110, %X509_get0_pubkey.exit60 ]
+  %rv.0101 = phi i32 [ %call33, %end ], [ %retval.0.i48.ph, %check_suite_b.exit54.thread ], [ %call28, %X509_get0_pubkey.exit60 ]
+  %cmp37 = icmp eq i32 %rv.0101, 60
   %2 = load i64, ptr %tflags, align 8
   %cmp43.not = icmp eq i64 %2, %flags
   %spec.select28 = select i1 %cmp43.not, i32 60, i32 61
-  %spec.select103 = select i1 %cmp37, i32 %spec.select28, i32 %rv.0101.fr
+  %spec.select129 = select i1 %cmp37, i32 %spec.select28, i32 %rv.0101
+  %3 = add nsw i32 %rv.0101, -59
+  %4 = icmp ult i32 %3, 2
+  br label %if.then35.thread
+
+if.then35.thread:                                 ; preds = %for.body, %if.then35, %if.end8, %if.end8.thread
+  %rv.0101121 = phi i1 [ false, %if.end8.thread ], [ false, %if.end8 ], [ %4, %if.then35 ], [ false, %for.body ]
+  %i.2102120 = phi i32 [ 0, %if.end8.thread ], [ 0, %if.end8 ], [ %i.2102, %if.then35 ], [ %i.1110, %for.body ]
+  %5 = phi i32 [ 56, %if.end8.thread ], [ 56, %if.end8 ], [ %spec.select129, %if.then35 ], [ 56, %for.body ]
   %tobool46.not = icmp eq ptr %perror_depth, null
   br i1 %tobool46.not, label %return, label %if.then47
 
-if.then47:                                        ; preds = %if.then35
-  %3 = add nsw i32 %rv.0101.fr, -59
-  %or.cond = icmp ult i32 %3, 2
-  %tobool38 = icmp ne i32 %i.2102, 0
-  %or.cond1 = select i1 %or.cond, i1 %tobool38, i1 false
+if.then47:                                        ; preds = %if.then35.thread
+  %tobool38 = icmp ne i32 %i.2102120, 0
+  %or.cond1 = select i1 %rv.0101121, i1 %tobool38, i1 false
   %dec = sext i1 %or.cond1 to i32
-  %spec.select = add nsw i32 %i.2102, %dec
+  %spec.select = add nsw i32 %i.2102120, %dec
   store i32 %spec.select, ptr %perror_depth, align 4
   br label %return
 
-return:                                           ; preds = %end, %if.then47, %if.then35, %entry, %check_suite_b.exit
-  %retval.0 = phi i32 [ %retval.0.i32, %check_suite_b.exit ], [ 0, %entry ], [ %spec.select103, %if.then47 ], [ %spec.select103, %if.then35 ], [ 0, %end ]
+return:                                           ; preds = %end, %if.then47, %if.then35.thread, %entry, %check_suite_b.exit
+  %retval.0 = phi i32 [ %retval.0.i32, %check_suite_b.exit ], [ 0, %entry ], [ %5, %if.then47 ], [ %5, %if.then35.thread ], [ 0, %end ]
   ret i32 %retval.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @check_suite_b(ptr noundef %pkey, i32 noundef %sign_nid, ptr nocapture noundef %pflags) unnamed_addr #0 {
+define internal fastcc noundef i32 @check_suite_b(ptr noundef %pkey, i32 noundef %sign_nid, ptr nocapture noundef %pflags) unnamed_addr #0 {
 entry:
   %curve_name = alloca [80 x i8], align 16
   %curve_name_len = alloca i64, align 8
@@ -1301,7 +1307,7 @@ if.end12:                                         ; preds = %if.then8, %if.then8
 if.end15:                                         ; preds = %if.end12
   %and16 = and i64 %0, -65537
   store i64 %and16, ptr %pflags, align 8
-  br label %return
+  br label %if.end30
 
 if.then18:                                        ; preds = %if.end4
   switch i32 %sign_nid, label %return [
@@ -1313,11 +1319,13 @@ if.end23:                                         ; preds = %if.then18, %if.then
   %1 = load i64, ptr %pflags, align 8
   %and24 = and i64 %1, 65536
   %tobool25.not = icmp eq i64 %and24, 0
-  %spec.select = select i1 %tobool25.not, i32 60, i32 0
+  br i1 %tobool25.not, label %return, label %if.end30
+
+if.end30:                                         ; preds = %if.end23, %if.end15
   br label %return
 
-return:                                           ; preds = %if.end23, %if.end15, %if.end4, %if.then18, %if.end12, %if.then8, %if.end, %entry, %lor.lhs.false
-  %retval.0 = phi i32 [ 57, %lor.lhs.false ], [ 57, %entry ], [ 58, %if.end ], [ 59, %if.then8 ], [ 60, %if.end12 ], [ 59, %if.then18 ], [ 58, %if.end4 ], [ 0, %if.end15 ], [ %spec.select, %if.end23 ]
+return:                                           ; preds = %if.end4, %if.end23, %if.then18, %if.end12, %if.then8, %if.end, %entry, %lor.lhs.false, %if.end30
+  %retval.0 = phi i32 [ 0, %if.end30 ], [ 57, %lor.lhs.false ], [ 57, %entry ], [ 58, %if.end ], [ 59, %if.then8 ], [ 60, %if.end12 ], [ 59, %if.then18 ], [ 60, %if.end23 ], [ 58, %if.end4 ]
   ret i32 %retval.0
 }
 
@@ -1326,7 +1334,7 @@ declare i64 @X509_get_version(ptr noundef) local_unnamed_addr #1
 declare i32 @X509_get_signature_nid(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509_CRL_check_suiteb(ptr nocapture noundef readonly %crl, ptr noundef %pk, i64 noundef %flags) local_unnamed_addr #0 {
+define noundef i32 @X509_CRL_check_suiteb(ptr nocapture noundef readonly %crl, ptr noundef %pk, i64 noundef %flags) local_unnamed_addr #0 {
 entry:
   %flags.addr = alloca i64, align 8
   store i64 %flags, ptr %flags.addr, align 8

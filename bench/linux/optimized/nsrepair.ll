@@ -87,8 +87,8 @@ define dso_local i32 @acpi_ns_simple_repair(ptr nocapture noundef %0, i32 nounde
   %.pre15 = load i32, ptr %9, align 4
   br label %.thread
 
-.thread:                                          ; preds = %28, %..thread_crit_edge, %22, %17
-  %48 = phi i32 [ %.pre15, %..thread_crit_edge ], [ %10, %22 ], [ %10, %17 ], [ %10, %28 ]
+.thread:                                          ; preds = %28, %..thread_crit_edge, %17, %22
+  %48 = phi i32 [ %.pre15, %..thread_crit_edge ], [ %10, %17 ], [ %10, %22 ], [ %10, %28 ]
   %49 = and i32 %48, %1
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %51, label %.thread9

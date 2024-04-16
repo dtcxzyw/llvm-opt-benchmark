@@ -2659,13 +2659,13 @@ define i32 @Gia_ManQuantExistInt(ptr noundef %0, i32 noundef %1, ptr nocapture n
   %6 = alloca i32, align 4
   %7 = alloca [2 x i32], align 4
   %8 = icmp slt i32 %1, 2
-  br i1 %8, label %Vec_IntFind.exit.thread, label %9
+  br i1 %8, label %113, label %9
 
 9:                                                ; preds = %5
   %10 = getelementptr i8, ptr %2, i64 4
   %.val61 = load i32, ptr %10, align 4
   %11 = icmp eq i32 %.val61, 0
-  br i1 %11, label %Vec_IntFind.exit.thread, label %12
+  br i1 %11, label %113, label %12
 
 12:                                               ; preds = %9
   %13 = getelementptr i8, ptr %4, i64 4
@@ -2699,8 +2699,10 @@ define i32 @Gia_ManQuantExistInt(ptr noundef %0, i32 noundef %1, ptr nocapture n
 Vec_IntFind.exit:                                 ; preds = %20
   %25 = and i64 %indvars.iv.i, 4294967295
   %26 = icmp eq i64 %25, 4294967295
-  %spec.select = select i1 %26, i32 %1, i32 1
-  br label %Vec_IntFind.exit.thread
+  br i1 %26, label %Vec_IntFind.exit.thread, label %113
+
+Vec_IntFind.exit.thread:                          ; preds = %24, %15, %Vec_IntFind.exit
+  br label %113
 
 27:                                               ; preds = %12
   %28 = call ptr @Gia_ManQuantExist2Dup(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %6)
@@ -2900,10 +2902,10 @@ Vec_IntAppend.exit:                               ; preds = %Vec_IntPush.exit.i,
   %112 = sub nsw i32 %.val56, %.val
   store i32 %112, ptr %41, align 4
   call void @Gia_ManStop(ptr noundef %28) #15
-  br label %Vec_IntFind.exit.thread
+  br label %113
 
-Vec_IntFind.exit.thread:                          ; preds = %24, %Vec_IntFind.exit, %15, %9, %5, %Vec_IntAppend.exit
-  %.0 = phi i32 [ %111, %Vec_IntAppend.exit ], [ 0, %5 ], [ %1, %9 ], [ %1, %15 ], [ %spec.select, %Vec_IntFind.exit ], [ %1, %24 ]
+113:                                              ; preds = %Vec_IntFind.exit.thread, %Vec_IntFind.exit, %9, %5, %Vec_IntAppend.exit
+  %.0 = phi i32 [ %111, %Vec_IntAppend.exit ], [ 0, %5 ], [ %1, %9 ], [ %1, %Vec_IntFind.exit.thread ], [ 1, %Vec_IntFind.exit ]
   ret i32 %.0
 }
 

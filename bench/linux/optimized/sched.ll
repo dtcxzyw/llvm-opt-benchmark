@@ -9146,7 +9146,7 @@ define internal void @trace_event_raw_event_rpc_task_queued(ptr noundef %0, ptr 
 
 12:                                               ; preds = %9
   %13 = tail call zeroext i1 @__trace_trigger_soft_disabled(ptr noundef %0) #18
-  br i1 %13, label %75, label %14
+  br i1 %13, label %77, label %14
 
 14:                                               ; preds = %12, %9, %3
   %15 = icmp eq ptr %2, null
@@ -9169,7 +9169,7 @@ define internal void @trace_event_raw_event_rpc_task_queued(ptr noundef %0, ptr 
   %27 = add nsw i64 %26, 48
   %28 = call ptr @trace_event_buffer_reserve(ptr noundef nonnull %4, ptr noundef %0, i64 noundef %27) #18
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %75, label %30
+  br i1 %29, label %77, label %30
 
 30:                                               ; preds = %21
   %31 = shl i32 %25, 16
@@ -9198,49 +9198,51 @@ define internal void @trace_event_raw_event_rpc_task_queued(ptr noundef %0, ptr 
   %47 = getelementptr inbounds i8, ptr %1, i64 40
   %48 = load volatile i64, ptr %47, align 8
   %49 = icmp eq i64 %48, 0
-  br i1 %49, label %54, label %50
+  br i1 %49, label %55, label %50
 
 50:                                               ; preds = %40
   %51 = load volatile i64, ptr @jiffies, align 64
   %52 = sub i64 %51, %48
-  %53 = sub i64 %48, %51
-  %.inv = icmp slt i64 %52, 0
-  %spec.select = select i1 %.inv, i64 %53, i64 0
-  br label %54
+  %53 = icmp sgt i64 %52, -1
+  %54 = sub i64 %48, %51
+  br i1 %53, label %55, label %56
 
-54:                                               ; preds = %50, %40
-  %55 = phi i64 [ 0, %40 ], [ %spec.select, %50 ]
-  %56 = getelementptr inbounds i8, ptr %28, i64 16
-  store i64 %55, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %1, i64 48
-  %58 = load i64, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %28, i64 24
-  store i64 %58, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %1, i64 4
-  %61 = load i32, ptr %60, align 4
-  %62 = getelementptr inbounds i8, ptr %28, i64 32
-  store i32 %61, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %1, i64 216
-  %64 = load i16, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %28, i64 36
-  store i16 %64, ptr %65, align 4
-  %66 = getelementptr i8, ptr %28, i64 44
-  br i1 %15, label %72, label %67
+55:                                               ; preds = %50, %40
+  br label %56
 
-67:                                               ; preds = %54
-  %68 = getelementptr inbounds i8, ptr %2, i64 192
-  %69 = load ptr, ptr %68, align 8
-  %70 = icmp eq ptr %69, null
-  %71 = select i1 %70, ptr @.str.154, ptr %69
-  br label %72
+56:                                               ; preds = %55, %50
+  %57 = phi i64 [ 0, %55 ], [ %54, %50 ]
+  %58 = getelementptr inbounds i8, ptr %28, i64 16
+  store i64 %57, ptr %58, align 8
+  %59 = getelementptr inbounds i8, ptr %1, i64 48
+  %60 = load i64, ptr %59, align 8
+  %61 = getelementptr inbounds i8, ptr %28, i64 24
+  store i64 %60, ptr %61, align 8
+  %62 = getelementptr inbounds i8, ptr %1, i64 4
+  %63 = load i32, ptr %62, align 4
+  %64 = getelementptr inbounds i8, ptr %28, i64 32
+  store i32 %63, ptr %64, align 8
+  %65 = getelementptr inbounds i8, ptr %1, i64 216
+  %66 = load i16, ptr %65, align 8
+  %67 = getelementptr inbounds i8, ptr %28, i64 36
+  store i16 %66, ptr %67, align 4
+  %68 = getelementptr i8, ptr %28, i64 44
+  br i1 %15, label %74, label %69
 
-72:                                               ; preds = %67, %54
-  %73 = phi ptr [ %71, %67 ], [ @.str.154, %54 ]
-  %74 = call ptr @strcpy(ptr noundef %66, ptr noundef nonnull dereferenceable(1) %73) #18
+69:                                               ; preds = %56
+  %70 = getelementptr inbounds i8, ptr %2, i64 192
+  %71 = load ptr, ptr %70, align 8
+  %72 = icmp eq ptr %71, null
+  %73 = select i1 %72, ptr @.str.154, ptr %71
+  br label %74
+
+74:                                               ; preds = %69, %56
+  %75 = phi ptr [ %73, %69 ], [ @.str.154, %56 ]
+  %76 = call ptr @strcpy(ptr noundef %68, ptr noundef nonnull dereferenceable(1) %75) #18
   call void @trace_event_buffer_commit(ptr noundef nonnull %4) #18
-  br label %75
+  br label %77
 
-75:                                               ; preds = %72, %21, %12
+77:                                               ; preds = %74, %21, %12
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #18
   ret void
 }
@@ -9280,7 +9282,7 @@ define internal void @perf_trace_rpc_task_queued(ptr noundef %0, ptr noundef %1,
 25:                                               ; preds = %12
   %26 = load volatile ptr, ptr %21, align 8
   %27 = icmp eq ptr %26, null
-  br i1 %27, label %88, label %28
+  br i1 %27, label %90, label %28
 
 28:                                               ; preds = %25, %12
   store i32 0, ptr %5, align 4, !annotation !146
@@ -9289,7 +9291,7 @@ define internal void @perf_trace_rpc_task_queued(ptr noundef %0, ptr noundef %1,
   %31 = add i32 %30, -4
   %32 = call ptr @perf_trace_buf_alloc(i32 noundef %31, ptr noundef nonnull %4, ptr noundef nonnull %5) #18
   %33 = icmp eq ptr %32, null
-  br i1 %33, label %88, label %34
+  br i1 %33, label %90, label %34
 
 34:                                               ; preds = %28
   %35 = load ptr, ptr %4, align 8
@@ -9329,51 +9331,53 @@ define internal void @perf_trace_rpc_task_queued(ptr noundef %0, ptr noundef %1,
   %58 = getelementptr inbounds i8, ptr %1, i64 40
   %59 = load volatile i64, ptr %58, align 8
   %60 = icmp eq i64 %59, 0
-  br i1 %60, label %65, label %61
+  br i1 %60, label %66, label %61
 
 61:                                               ; preds = %51
   %62 = load volatile i64, ptr @jiffies, align 64
   %63 = sub i64 %62, %59
-  %64 = sub i64 %59, %62
-  %.inv = icmp slt i64 %63, 0
-  %spec.select = select i1 %.inv, i64 %64, i64 0
-  br label %65
+  %64 = icmp sgt i64 %63, -1
+  %65 = sub i64 %59, %62
+  br i1 %64, label %66, label %67
 
-65:                                               ; preds = %61, %51
-  %66 = phi i64 [ 0, %51 ], [ %spec.select, %61 ]
-  %67 = getelementptr inbounds i8, ptr %32, i64 16
-  store i64 %66, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %1, i64 48
-  %69 = load i64, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %32, i64 24
-  store i64 %69, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %1, i64 4
-  %72 = load i32, ptr %71, align 4
-  %73 = getelementptr inbounds i8, ptr %32, i64 32
-  store i32 %72, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %1, i64 216
-  %75 = load i16, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %32, i64 36
-  store i16 %75, ptr %76, align 4
-  %77 = getelementptr i8, ptr %32, i64 44
-  br i1 %6, label %83, label %78
+66:                                               ; preds = %61, %51
+  br label %67
 
-78:                                               ; preds = %65
-  %79 = getelementptr inbounds i8, ptr %2, i64 192
-  %80 = load ptr, ptr %79, align 8
-  %81 = icmp eq ptr %80, null
-  %82 = select i1 %81, ptr @.str.154, ptr %80
-  br label %83
+67:                                               ; preds = %66, %61
+  %68 = phi i64 [ 0, %66 ], [ %65, %61 ]
+  %69 = getelementptr inbounds i8, ptr %32, i64 16
+  store i64 %68, ptr %69, align 8
+  %70 = getelementptr inbounds i8, ptr %1, i64 48
+  %71 = load i64, ptr %70, align 8
+  %72 = getelementptr inbounds i8, ptr %32, i64 24
+  store i64 %71, ptr %72, align 8
+  %73 = getelementptr inbounds i8, ptr %1, i64 4
+  %74 = load i32, ptr %73, align 4
+  %75 = getelementptr inbounds i8, ptr %32, i64 32
+  store i32 %74, ptr %75, align 8
+  %76 = getelementptr inbounds i8, ptr %1, i64 216
+  %77 = load i16, ptr %76, align 8
+  %78 = getelementptr inbounds i8, ptr %32, i64 36
+  store i16 %77, ptr %78, align 4
+  %79 = getelementptr i8, ptr %32, i64 44
+  br i1 %6, label %85, label %80
 
-83:                                               ; preds = %78, %65
-  %84 = phi ptr [ %82, %78 ], [ @.str.154, %65 ]
-  %85 = call ptr @strcpy(ptr noundef %77, ptr noundef nonnull dereferenceable(1) %84) #18
-  %86 = load i32, ptr %5, align 4
-  %87 = load ptr, ptr %4, align 8
-  call void @perf_trace_run_bpf_submit(ptr noundef nonnull %32, i32 noundef %31, i32 noundef %86, ptr noundef %0, i64 noundef 1, ptr noundef %87, ptr noundef %21, ptr noundef null) #18
-  br label %88
+80:                                               ; preds = %67
+  %81 = getelementptr inbounds i8, ptr %2, i64 192
+  %82 = load ptr, ptr %81, align 8
+  %83 = icmp eq ptr %82, null
+  %84 = select i1 %83, ptr @.str.154, ptr %82
+  br label %85
 
-88:                                               ; preds = %83, %28, %25
+85:                                               ; preds = %80, %67
+  %86 = phi ptr [ %84, %80 ], [ @.str.154, %67 ]
+  %87 = call ptr @strcpy(ptr noundef %79, ptr noundef nonnull dereferenceable(1) %86) #18
+  %88 = load i32, ptr %5, align 4
+  %89 = load ptr, ptr %4, align 8
+  call void @perf_trace_run_bpf_submit(ptr noundef nonnull %32, i32 noundef %31, i32 noundef %88, ptr noundef %0, i64 noundef 1, ptr noundef %89, ptr noundef %21, ptr noundef null) #18
+  br label %90
+
+90:                                               ; preds = %85, %28, %25
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
   ret void
@@ -18452,19 +18456,21 @@ define dso_local i64 @rpc_task_timeout(ptr noundef %0) #5 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load volatile i64, ptr %2, align 8
   %4 = icmp eq i64 %3, 0
-  br i1 %4, label %9, label %5
+  br i1 %4, label %10, label %5
 
 5:                                                ; preds = %1
   %6 = load volatile i64, ptr @jiffies, align 64
   %7 = sub i64 %6, %3
-  %8 = sub i64 %3, %6
-  %.inv = icmp slt i64 %7, 0
-  %spec.select = select i1 %.inv, i64 %8, i64 0
-  br label %9
+  %8 = icmp sgt i64 %7, -1
+  %9 = sub i64 %3, %6
+  br i1 %8, label %10, label %11
 
-9:                                                ; preds = %5, %1
-  %10 = phi i64 [ 0, %1 ], [ %spec.select, %5 ]
-  ret i64 %10
+10:                                               ; preds = %5, %1
+  br label %11
+
+11:                                               ; preds = %10, %5
+  %12 = phi i64 [ 0, %10 ], [ %9, %5 ]
+  ret i64 %12
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -20659,13 +20665,13 @@ define dso_local noundef ptr @rpc_new_task(ptr nocapture noundef readonly %0) lo
   %22 = getelementptr inbounds i8, ptr %21, i64 24
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
-  br i1 %24, label %99, label %25
+  br i1 %24, label %100, label %25
 
 25:                                               ; preds = %19
   %26 = getelementptr inbounds i8, ptr %0, i64 48
   %27 = load ptr, ptr %26, align 8
   tail call void %23(ptr noundef %27) #18
-  br label %99
+  br label %100
 
 .thread:                                          ; preds = %1, %4, %15
   %28 = phi ptr [ %17, %15 ], [ %13, %4 ], [ %2, %1 ]
@@ -20751,39 +20757,41 @@ define dso_local noundef ptr @rpc_new_task(ptr nocapture noundef readonly %0) lo
 
 81:                                               ; preds = %80, %.thread7
   %82 = icmp eq i32 %76, 0
-  %spec.select = select i1 %82, ptr null, ptr %62
-  br label %83
+  br i1 %82, label %83, label %84
 
 83:                                               ; preds = %81, %.thread
-  %84 = phi ptr [ null, %.thread ], [ %spec.select, %81 ]
-  %85 = getelementptr inbounds i8, ptr %28, i64 176
-  store ptr %84, ptr %85, align 8
-  %86 = load ptr, ptr %35, align 8
-  %87 = load ptr, ptr %86, align 8
-  %88 = icmp eq ptr %87, null
-  br i1 %88, label %91, label %89
+  br label %84
 
-89:                                               ; preds = %83
-  %90 = getelementptr inbounds i8, ptr %28, i64 32
-  store ptr @rpc_prepare_task, ptr %90, align 8
-  br label %91
+84:                                               ; preds = %83, %81
+  %85 = phi ptr [ null, %83 ], [ %62, %81 ]
+  %86 = getelementptr inbounds i8, ptr %28, i64 176
+  store ptr %85, ptr %86, align 8
+  %87 = load ptr, ptr %35, align 8
+  %88 = load ptr, ptr %87, align 8
+  %89 = icmp eq ptr %88, null
+  br i1 %89, label %92, label %90
 
-91:                                               ; preds = %89, %83
-  %92 = load i8, ptr %44, align 2
-  %93 = and i8 %92, -61
-  %94 = or disjoint i8 %93, 40
-  store i8 %94, ptr %44, align 2
-  %95 = tail call i64 @ktime_get() #18
-  %96 = getelementptr inbounds i8, ptr %28, i64 200
-  store i64 %95, ptr %96, align 8
-  %97 = load i16, ptr %32, align 8
-  %98 = or i16 %97, %29
-  store i16 %98, ptr %32, align 8
-  br label %99
+90:                                               ; preds = %84
+  %91 = getelementptr inbounds i8, ptr %28, i64 32
+  store ptr @rpc_prepare_task, ptr %91, align 8
+  br label %92
 
-99:                                               ; preds = %91, %25, %19
-  %100 = phi ptr [ %28, %91 ], [ inttoptr (i64 -12 to ptr), %19 ], [ inttoptr (i64 -12 to ptr), %25 ]
-  ret ptr %100
+92:                                               ; preds = %90, %84
+  %93 = load i8, ptr %44, align 2
+  %94 = and i8 %93, -61
+  %95 = or disjoint i8 %94, 40
+  store i8 %95, ptr %44, align 2
+  %96 = tail call i64 @ktime_get() #18
+  %97 = getelementptr inbounds i8, ptr %28, i64 200
+  store i64 %96, ptr %97, align 8
+  %98 = load i16, ptr %32, align 8
+  %99 = or i16 %98, %29
+  store i16 %99, ptr %32, align 8
+  br label %100
+
+100:                                              ; preds = %92, %25, %19
+  %101 = phi ptr [ %28, %92 ], [ inttoptr (i64 -12 to ptr), %19 ], [ inttoptr (i64 -12 to ptr), %25 ]
+  ret ptr %101
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

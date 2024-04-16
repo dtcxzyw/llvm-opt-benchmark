@@ -1619,7 +1619,7 @@ define dso_local noundef i32 @krb5_etm_decrypt(ptr nocapture noundef readonly %0
 53:                                               ; preds = %46
   %54 = call fastcc i32 @krb5_cbc_cts_decrypt(ptr noundef %21, ptr noundef %20, ptr noundef nonnull %10)
   %55 = icmp eq i32 %54, 0
-  br i1 %55, label %56, label %.thread
+  br i1 %55, label %56, label %.thread3
 
 56:                                               ; preds = %53
   %57 = load ptr, ptr %35, align 8
@@ -1630,17 +1630,19 @@ define dso_local noundef i32 @krb5_etm_decrypt(ptr nocapture noundef readonly %0
   %61 = getelementptr inbounds i8, ptr %60, i64 44
   %62 = load i32, ptr %61, align 4
   store i32 %62, ptr %5, align 4
-  br label %.thread
+  br label %.thread3
 
 63:                                               ; preds = %39, %6
   %64 = phi i32 [ %37, %6 ], [ %44, %39 ]
   %.fr = freeze i32 %64
   %65 = icmp eq i32 %.fr, 393216
-  %spec.select = select i1 %65, i32 393216, i32 851968
-  br label %.thread
+  br i1 %65, label %.thread, label %.thread3
 
-.thread:                                          ; preds = %63, %53, %46, %56
-  %66 = phi i32 [ 0, %56 ], [ 393216, %46 ], [ 851968, %53 ], [ %spec.select, %63 ]
+.thread:                                          ; preds = %46, %63
+  br label %.thread3
+
+.thread3:                                         ; preds = %53, %.thread, %63, %56
+  %66 = phi i32 [ 0, %56 ], [ 393216, %.thread ], [ 851968, %63 ], [ 851968, %53 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %10) #8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #8

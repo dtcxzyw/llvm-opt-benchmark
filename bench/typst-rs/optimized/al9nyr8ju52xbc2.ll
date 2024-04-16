@@ -4693,7 +4693,7 @@ define internal fastcc noundef ptr @"_ZN8fdeflate8compress19Compressor$LT$W$GT$9
 .lr.ph:                                           ; preds = %20, %121
   %28 = phi i64 [ %122, %121 ], [ %21, %20 ]
   %29 = phi i8 [ %123, %121 ], [ %22, %20 ]
-  %.068 = phi i32 [ %124, %121 ], [ %23, %20 ]
+  %.069 = phi i32 [ %124, %121 ], [ %23, %20 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !836)
   %30 = and i8 %29, 63
   %31 = zext nneg i8 %30 to i64
@@ -4792,8 +4792,8 @@ define internal fastcc noundef ptr @"_ZN8fdeflate8compress19Compressor$LT$W$GT$9
   %85 = zext nneg i8 %84 to i64
   %86 = lshr i64 %68, %85
   %87 = icmp ugt i8 %83, 63
-  %spec.select.i59 = select i1 %87, i64 0, i64 %86
-  store i64 %spec.select.i59, ptr %10, align 8, !alias.scope !843
+  %spec.select.i58 = select i1 %87, i64 0, i64 %86
+  store i64 %spec.select.i58, ptr %10, align 8, !alias.scope !843
   br label %89
 
 88:                                               ; preds = %58
@@ -4801,7 +4801,7 @@ define internal fastcc noundef ptr @"_ZN8fdeflate8compress19Compressor$LT$W$GT$9
   unreachable
 
 89:                                               ; preds = %65, %80
-  %90 = phi i64 [ %74, %65 ], [ %spec.select.i59, %80 ]
+  %90 = phi i64 [ %74, %65 ], [ %spec.select.i58, %80 ]
   %91 = phi i8 [ %75, %65 ], [ %82, %80 ]
   %92 = getelementptr inbounds [256 x i8], ptr @anon.7ecc79529f1de7be2adfd1f3f2725567.139, i64 0, i64 %60
   %93 = load i8, ptr %92, align 1, !noundef !4
@@ -4844,7 +4844,7 @@ define internal fastcc noundef ptr @"_ZN8fdeflate8compress19Compressor$LT$W$GT$9
   %117 = zext nneg i8 %116 to i64
   %118 = lshr i64 %101, %117
   %119 = icmp ugt i8 %115, 63
-  %spec.select.i62 = select i1 %119, i64 0, i64 %118
+  %spec.select.i61 = select i1 %119, i64 0, i64 %118
   br label %"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_bits17he6fdca41e7ea426eE.exit.sink.split"
 
 120:                                              ; preds = %89
@@ -4852,18 +4852,18 @@ define internal fastcc noundef ptr @"_ZN8fdeflate8compress19Compressor$LT$W$GT$9
   unreachable
 
 "_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_bits17he6fdca41e7ea426eE.exit.sink.split": ; preds = %55, %112
-  %spec.select.i62.sink = phi i64 [ %spec.select.i62, %112 ], [ 0, %55 ]
-  store i64 %spec.select.i62.sink, ptr %10, align 8
+  %spec.select.i61.sink = phi i64 [ %spec.select.i61, %112 ], [ 0, %55 ]
+  store i64 %spec.select.i61.sink, ptr %10, align 8
   br label %"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_bits17he6fdca41e7ea426eE.exit"
 
-"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_bits17he6fdca41e7ea426eE.exit": ; preds = %36, %"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_bits17he6fdca41e7ea426eE.exit.sink.split", %109, %96, %52, %47, %77, %14
-  %.038 = phi ptr [ %15, %14 ], [ %78, %77 ], [ null, %47 ], [ %53, %52 ], [ null, %96 ], [ %110, %109 ], [ null, %"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_bits17he6fdca41e7ea426eE.exit.sink.split" ], [ %37, %36 ]
+"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_bits17he6fdca41e7ea426eE.exit": ; preds = %36, %"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_bits17he6fdca41e7ea426eE.exit.sink.split", %96, %47, %109, %77, %52, %14
+  %.038 = phi ptr [ %15, %14 ], [ %53, %52 ], [ %78, %77 ], [ %110, %109 ], [ null, %47 ], [ null, %96 ], [ null, %"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_bits17he6fdca41e7ea426eE.exit.sink.split" ], [ %37, %36 ]
   ret ptr %.038
 
 121:                                              ; preds = %.lr.ph, %39
   %122 = phi i64 [ %33, %.lr.ph ], [ %spec.select.i, %39 ]
   %123 = phi i8 [ %34, %.lr.ph ], [ %41, %39 ]
-  %124 = add i32 %.068, -258
+  %124 = add i32 %.069, -258
   %125 = icmp ugt i32 %124, 257
   br i1 %125, label %.lr.ph, label %._crit_edge
 }

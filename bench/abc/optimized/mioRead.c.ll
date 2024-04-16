@@ -711,17 +711,17 @@ Mio_LibraryReadInternal.exit:                     ; preds = %185, %184
 190:                                              ; preds = %Mio_LibraryReadInternal.exit
   tail call void @Mio_LibrarySortGates(ptr noundef %5)
   %191 = tail call ptr @Mio_LibraryReadGates(ptr noundef %5) #17
-  %.not69.i = icmp eq ptr %191, null
-  br i1 %.not69.i, label %._crit_edge.i, label %.lr.ph.i17
+  %.not64.i = icmp eq ptr %191, null
+  br i1 %.not64.i, label %._crit_edge.i, label %.lr.ph.i17
 
 .lr.ph.i17:                                       ; preds = %190
   %192 = getelementptr inbounds i8, ptr %5, i64 56
   br label %193
 
 193:                                              ; preds = %Mio_GateCompare.exit.i, %.lr.ph.i17
-  %.070.i = phi ptr [ %191, %.lr.ph.i17 ], [ %212, %Mio_GateCompare.exit.i ]
+  %.065.i = phi ptr [ %191, %.lr.ph.i17 ], [ %213, %Mio_GateCompare.exit.i ]
   %194 = load ptr, ptr %192, align 8
-  %195 = getelementptr inbounds i8, ptr %.070.i, i64 104
+  %195 = getelementptr inbounds i8, ptr %.065.i, i64 104
   %196 = load i64, ptr %195, align 8
   %.not.i.i18 = icmp eq i64 %196, -6148914691236517206
   br i1 %.not.i.i18, label %197, label %Mio_GateCompare.exit.i
@@ -733,278 +733,290 @@ Mio_LibraryReadInternal.exit:                     ; preds = %185, %184
 199:                                              ; preds = %197
   %200 = getelementptr inbounds i8, ptr %194, i64 8
   %201 = load double, ptr %200, align 8
-  %202 = getelementptr inbounds i8, ptr %.070.i, i64 8
+  %202 = getelementptr inbounds i8, ptr %.065.i, i64 8
   %203 = load double, ptr %202, align 8
   %204 = fcmp ogt double %201, %203
   br i1 %204, label %Mio_GateCompare.exit.i, label %205
 
 205:                                              ; preds = %199
   %206 = fcmp oeq double %201, %203
-  br i1 %206, label %207, label %Mio_GateCompare.exit.i
+  br i1 %206, label %207, label %212
 
 207:                                              ; preds = %205
   %208 = load ptr, ptr %194, align 8
-  %209 = load ptr, ptr %.070.i, align 8
+  %209 = load ptr, ptr %.065.i, align 8
   %210 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %208, ptr noundef nonnull dereferenceable(1) %209) #18
   %211 = icmp sgt i32 %210, 0
-  %spec.select.i.i = select i1 %211, ptr %.070.i, ptr %194
+  br i1 %211, label %Mio_GateCompare.exit.i, label %212
+
+212:                                              ; preds = %207, %205
   br label %Mio_GateCompare.exit.i
 
-Mio_GateCompare.exit.i:                           ; preds = %207, %205, %199, %197, %193
-  %.0.i.i = phi ptr [ %194, %193 ], [ %.070.i, %197 ], [ %.070.i, %199 ], [ %194, %205 ], [ %spec.select.i.i, %207 ]
+Mio_GateCompare.exit.i:                           ; preds = %212, %207, %199, %197, %193
+  %.0.i.i = phi ptr [ %194, %212 ], [ %194, %193 ], [ %.065.i, %197 ], [ %.065.i, %207 ], [ %.065.i, %199 ]
   store ptr %.0.i.i, ptr %192, align 8
-  %212 = tail call ptr @Mio_GateReadNext(ptr noundef nonnull %.070.i) #17
-  %.not.i19 = icmp eq ptr %212, null
+  %213 = tail call ptr @Mio_GateReadNext(ptr noundef nonnull %.065.i) #17
+  %.not.i19 = icmp eq ptr %213, null
   br i1 %.not.i19, label %._crit_edge.i, label %193, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %Mio_GateCompare.exit.i, %190
-  %213 = getelementptr inbounds i8, ptr %5, i64 56
-  %214 = load ptr, ptr %213, align 8
-  %215 = icmp eq ptr %214, null
-  br i1 %215, label %216, label %217
+  %214 = getelementptr inbounds i8, ptr %5, i64 56
+  %215 = load ptr, ptr %214, align 8
+  %216 = icmp eq ptr %215, null
+  br i1 %216, label %217, label %218
 
-216:                                              ; preds = %._crit_edge.i
+217:                                              ; preds = %._crit_edge.i
   %puts.i20 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.4)
   %puts42.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.9)
-  br label %217
+  br label %218
 
-217:                                              ; preds = %216, %._crit_edge.i
-  %218 = tail call ptr @Mio_LibraryReadGates(ptr noundef nonnull %5) #17
-  %.not4371.i = icmp eq ptr %218, null
-  br i1 %.not4371.i, label %._crit_edge75.i, label %.lr.ph74.i
+218:                                              ; preds = %217, %._crit_edge.i
+  %219 = tail call ptr @Mio_LibraryReadGates(ptr noundef nonnull %5) #17
+  %.not4367.i = icmp eq ptr %219, null
+  br i1 %.not4367.i, label %._crit_edge72.i, label %.lr.ph71.i
 
-.lr.ph74.i:                                       ; preds = %217
-  %219 = getelementptr inbounds i8, ptr %5, i64 64
-  br label %220
+.lr.ph71.i:                                       ; preds = %218
+  %220 = getelementptr inbounds i8, ptr %5, i64 64
+  br label %221
 
-220:                                              ; preds = %Mio_GateCompare.exit52.i, %.lr.ph74.i
-  %.172.i = phi ptr [ %218, %.lr.ph74.i ], [ %239, %Mio_GateCompare.exit52.i ]
-  %221 = load ptr, ptr %219, align 8
-  %222 = getelementptr inbounds i8, ptr %.172.i, i64 104
-  %223 = load i64, ptr %222, align 8
-  %.not.i49.i = icmp eq i64 %223, 6148914691236517205
-  br i1 %.not.i49.i, label %224, label %Mio_GateCompare.exit52.i
+221:                                              ; preds = %Mio_GateCompare.exit51.i, %.lr.ph71.i
+  %.168.i = phi ptr [ %219, %.lr.ph71.i ], [ %241, %Mio_GateCompare.exit51.i ]
+  %222 = load ptr, ptr %220, align 8
+  %223 = getelementptr inbounds i8, ptr %.168.i, i64 104
+  %224 = load i64, ptr %223, align 8
+  %.not.i49.i = icmp eq i64 %224, 6148914691236517205
+  br i1 %.not.i49.i, label %225, label %Mio_GateCompare.exit51.i
 
-224:                                              ; preds = %220
-  %225 = icmp eq ptr %221, null
-  br i1 %225, label %Mio_GateCompare.exit52.i, label %226
+225:                                              ; preds = %221
+  %226 = icmp eq ptr %222, null
+  br i1 %226, label %Mio_GateCompare.exit51.i, label %227
 
-226:                                              ; preds = %224
-  %227 = getelementptr inbounds i8, ptr %221, i64 8
-  %228 = load double, ptr %227, align 8
-  %229 = getelementptr inbounds i8, ptr %.172.i, i64 8
-  %230 = load double, ptr %229, align 8
-  %231 = fcmp ogt double %228, %230
-  br i1 %231, label %Mio_GateCompare.exit52.i, label %232
+227:                                              ; preds = %225
+  %228 = getelementptr inbounds i8, ptr %222, i64 8
+  %229 = load double, ptr %228, align 8
+  %230 = getelementptr inbounds i8, ptr %.168.i, i64 8
+  %231 = load double, ptr %230, align 8
+  %232 = fcmp ogt double %229, %231
+  br i1 %232, label %Mio_GateCompare.exit51.i, label %233
 
-232:                                              ; preds = %226
-  %233 = fcmp oeq double %228, %230
-  br i1 %233, label %234, label %Mio_GateCompare.exit52.i
+233:                                              ; preds = %227
+  %234 = fcmp oeq double %229, %231
+  br i1 %234, label %235, label %240
 
-234:                                              ; preds = %232
-  %235 = load ptr, ptr %221, align 8
-  %236 = load ptr, ptr %.172.i, align 8
-  %237 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %235, ptr noundef nonnull dereferenceable(1) %236) #18
-  %238 = icmp sgt i32 %237, 0
-  %spec.select.i51.i = select i1 %238, ptr %.172.i, ptr %221
-  br label %Mio_GateCompare.exit52.i
+235:                                              ; preds = %233
+  %236 = load ptr, ptr %222, align 8
+  %237 = load ptr, ptr %.168.i, align 8
+  %238 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %236, ptr noundef nonnull dereferenceable(1) %237) #18
+  %239 = icmp sgt i32 %238, 0
+  br i1 %239, label %Mio_GateCompare.exit51.i, label %240
 
-Mio_GateCompare.exit52.i:                         ; preds = %234, %232, %226, %224, %220
-  %.0.i50.i = phi ptr [ %221, %220 ], [ %.172.i, %224 ], [ %.172.i, %226 ], [ %221, %232 ], [ %spec.select.i51.i, %234 ]
-  store ptr %.0.i50.i, ptr %219, align 8
-  %239 = tail call ptr @Mio_GateReadNext(ptr noundef nonnull %.172.i) #17
-  %.not43.i = icmp eq ptr %239, null
-  br i1 %.not43.i, label %._crit_edge75.i, label %220, !llvm.loop !14
+240:                                              ; preds = %235, %233
+  br label %Mio_GateCompare.exit51.i
 
-._crit_edge75.i:                                  ; preds = %Mio_GateCompare.exit52.i, %217
-  %240 = getelementptr inbounds i8, ptr %5, i64 64
-  %241 = load ptr, ptr %240, align 8
-  %242 = icmp eq ptr %241, null
-  br i1 %242, label %243, label %244
+Mio_GateCompare.exit51.i:                         ; preds = %240, %235, %227, %225, %221
+  %.0.i50.i = phi ptr [ %222, %240 ], [ %222, %221 ], [ %.168.i, %225 ], [ %.168.i, %235 ], [ %.168.i, %227 ]
+  store ptr %.0.i50.i, ptr %220, align 8
+  %241 = tail call ptr @Mio_GateReadNext(ptr noundef nonnull %.168.i) #17
+  %.not43.i = icmp eq ptr %241, null
+  br i1 %.not43.i, label %._crit_edge72.i, label %221, !llvm.loop !14
 
-243:                                              ; preds = %._crit_edge75.i
+._crit_edge72.i:                                  ; preds = %Mio_GateCompare.exit51.i, %218
+  %242 = getelementptr inbounds i8, ptr %5, i64 64
+  %243 = load ptr, ptr %242, align 8
+  %244 = icmp eq ptr %243, null
+  br i1 %244, label %245, label %246
+
+245:                                              ; preds = %._crit_edge72.i
   %puts44.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.6)
   %puts45.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.9)
-  br label %244
+  br label %246
 
-244:                                              ; preds = %243, %._crit_edge75.i
-  %245 = tail call ptr @Mio_LibraryReadGates(ptr noundef nonnull %5) #17
-  %.not4676.i = icmp eq ptr %245, null
-  br i1 %.not4676.i, label %._crit_edge80.i, label %.lr.ph79.i
+246:                                              ; preds = %245, %._crit_edge72.i
+  %247 = tail call ptr @Mio_LibraryReadGates(ptr noundef nonnull %5) #17
+  %.not4673.i = icmp eq ptr %247, null
+  br i1 %.not4673.i, label %._crit_edge78.i, label %.lr.ph77.i
 
-.lr.ph79.i:                                       ; preds = %244
-  %246 = getelementptr inbounds i8, ptr %5, i64 72
-  %247 = getelementptr inbounds i8, ptr %5, i64 80
-  %248 = getelementptr inbounds i8, ptr %5, i64 88
-  %249 = getelementptr inbounds i8, ptr %5, i64 96
-  br label %250
+.lr.ph77.i:                                       ; preds = %246
+  %248 = getelementptr inbounds i8, ptr %5, i64 72
+  %249 = getelementptr inbounds i8, ptr %5, i64 80
+  %250 = getelementptr inbounds i8, ptr %5, i64 88
+  %251 = getelementptr inbounds i8, ptr %5, i64 96
+  br label %252
 
-250:                                              ; preds = %Mio_GateCompare.exit68.i, %.lr.ph79.i
-  %.277.i = phi ptr [ %245, %.lr.ph79.i ], [ %320, %Mio_GateCompare.exit68.i ]
-  %251 = load ptr, ptr %246, align 8
-  %252 = getelementptr inbounds i8, ptr %.277.i, i64 104
-  %253 = load i64, ptr %252, align 8
-  %.not.i53.i = icmp eq i64 %253, 8608480567731124087
-  br i1 %.not.i53.i, label %254, label %Mio_GateCompare.exit56.i
+252:                                              ; preds = %Mio_GateCompare.exit63.i, %.lr.ph77.i
+  %.274.i = phi ptr [ %247, %.lr.ph77.i ], [ %326, %Mio_GateCompare.exit63.i ]
+  %253 = load ptr, ptr %248, align 8
+  %254 = getelementptr inbounds i8, ptr %.274.i, i64 104
+  %255 = load i64, ptr %254, align 8
+  %.not.i52.i = icmp eq i64 %255, 8608480567731124087
+  br i1 %.not.i52.i, label %256, label %Mio_GateCompare.exit54.i
 
-254:                                              ; preds = %250
-  %255 = icmp eq ptr %251, null
-  br i1 %255, label %Mio_GateCompare.exit56.i, label %256
+256:                                              ; preds = %252
+  %257 = icmp eq ptr %253, null
+  br i1 %257, label %Mio_GateCompare.exit54.i, label %258
 
-256:                                              ; preds = %254
-  %257 = getelementptr inbounds i8, ptr %251, i64 8
-  %258 = load double, ptr %257, align 8
-  %259 = getelementptr inbounds i8, ptr %.277.i, i64 8
+258:                                              ; preds = %256
+  %259 = getelementptr inbounds i8, ptr %253, i64 8
   %260 = load double, ptr %259, align 8
-  %261 = fcmp ogt double %258, %260
-  br i1 %261, label %Mio_GateCompare.exit56.i, label %262
+  %261 = getelementptr inbounds i8, ptr %.274.i, i64 8
+  %262 = load double, ptr %261, align 8
+  %263 = fcmp ogt double %260, %262
+  br i1 %263, label %Mio_GateCompare.exit54.i, label %264
 
-262:                                              ; preds = %256
-  %263 = fcmp oeq double %258, %260
-  br i1 %263, label %264, label %Mio_GateCompare.exit56.i
+264:                                              ; preds = %258
+  %265 = fcmp oeq double %260, %262
+  br i1 %265, label %266, label %271
 
-264:                                              ; preds = %262
-  %265 = load ptr, ptr %251, align 8
-  %266 = load ptr, ptr %.277.i, align 8
-  %267 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %265, ptr noundef nonnull dereferenceable(1) %266) #18
-  %268 = icmp sgt i32 %267, 0
-  %spec.select.i55.i = select i1 %268, ptr %.277.i, ptr %251
-  br label %Mio_GateCompare.exit56.i
+266:                                              ; preds = %264
+  %267 = load ptr, ptr %253, align 8
+  %268 = load ptr, ptr %.274.i, align 8
+  %269 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %267, ptr noundef nonnull dereferenceable(1) %268) #18
+  %270 = icmp sgt i32 %269, 0
+  br i1 %270, label %Mio_GateCompare.exit54.i, label %271
 
-Mio_GateCompare.exit56.i:                         ; preds = %264, %262, %256, %254, %250
-  %.0.i54.i = phi ptr [ %251, %250 ], [ %.277.i, %254 ], [ %.277.i, %256 ], [ %251, %262 ], [ %spec.select.i55.i, %264 ]
-  store ptr %.0.i54.i, ptr %246, align 8
-  %269 = load ptr, ptr %247, align 8
-  %270 = load i64, ptr %252, align 8
-  %.not.i57.i = icmp eq i64 %270, -8608480567731124088
-  br i1 %.not.i57.i, label %271, label %Mio_GateCompare.exit60.i
+271:                                              ; preds = %266, %264
+  br label %Mio_GateCompare.exit54.i
 
-271:                                              ; preds = %Mio_GateCompare.exit56.i
-  %272 = icmp eq ptr %269, null
-  br i1 %272, label %Mio_GateCompare.exit60.i, label %273
+Mio_GateCompare.exit54.i:                         ; preds = %271, %266, %258, %256, %252
+  %.0.i53.i = phi ptr [ %253, %271 ], [ %253, %252 ], [ %.274.i, %256 ], [ %.274.i, %266 ], [ %.274.i, %258 ]
+  store ptr %.0.i53.i, ptr %248, align 8
+  %272 = load ptr, ptr %249, align 8
+  %273 = load i64, ptr %254, align 8
+  %.not.i55.i = icmp eq i64 %273, -8608480567731124088
+  br i1 %.not.i55.i, label %274, label %Mio_GateCompare.exit57.i
 
-273:                                              ; preds = %271
-  %274 = getelementptr inbounds i8, ptr %269, i64 8
-  %275 = load double, ptr %274, align 8
-  %276 = getelementptr inbounds i8, ptr %.277.i, i64 8
-  %277 = load double, ptr %276, align 8
-  %278 = fcmp ogt double %275, %277
-  br i1 %278, label %Mio_GateCompare.exit60.i, label %279
+274:                                              ; preds = %Mio_GateCompare.exit54.i
+  %275 = icmp eq ptr %272, null
+  br i1 %275, label %Mio_GateCompare.exit57.i, label %276
 
-279:                                              ; preds = %273
-  %280 = fcmp oeq double %275, %277
-  br i1 %280, label %281, label %Mio_GateCompare.exit60.i
+276:                                              ; preds = %274
+  %277 = getelementptr inbounds i8, ptr %272, i64 8
+  %278 = load double, ptr %277, align 8
+  %279 = getelementptr inbounds i8, ptr %.274.i, i64 8
+  %280 = load double, ptr %279, align 8
+  %281 = fcmp ogt double %278, %280
+  br i1 %281, label %Mio_GateCompare.exit57.i, label %282
 
-281:                                              ; preds = %279
-  %282 = load ptr, ptr %269, align 8
-  %283 = load ptr, ptr %.277.i, align 8
-  %284 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %282, ptr noundef nonnull dereferenceable(1) %283) #18
-  %285 = icmp sgt i32 %284, 0
-  %spec.select.i59.i = select i1 %285, ptr %.277.i, ptr %269
+282:                                              ; preds = %276
+  %283 = fcmp oeq double %278, %280
+  br i1 %283, label %284, label %289
+
+284:                                              ; preds = %282
+  %285 = load ptr, ptr %272, align 8
+  %286 = load ptr, ptr %.274.i, align 8
+  %287 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %285, ptr noundef nonnull dereferenceable(1) %286) #18
+  %288 = icmp sgt i32 %287, 0
+  br i1 %288, label %Mio_GateCompare.exit57.i, label %289
+
+289:                                              ; preds = %284, %282
+  br label %Mio_GateCompare.exit57.i
+
+Mio_GateCompare.exit57.i:                         ; preds = %289, %284, %276, %274, %Mio_GateCompare.exit54.i
+  %.0.i56.i = phi ptr [ %272, %289 ], [ %272, %Mio_GateCompare.exit54.i ], [ %.274.i, %274 ], [ %.274.i, %284 ], [ %.274.i, %276 ]
+  store ptr %.0.i56.i, ptr %249, align 8
+  %290 = load ptr, ptr %250, align 8
+  %291 = load i64, ptr %254, align 8
+  %.not.i58.i = icmp eq i64 %291, 1229782938247303441
+  br i1 %.not.i58.i, label %292, label %Mio_GateCompare.exit60.i
+
+292:                                              ; preds = %Mio_GateCompare.exit57.i
+  %293 = icmp eq ptr %290, null
+  br i1 %293, label %Mio_GateCompare.exit60.i, label %294
+
+294:                                              ; preds = %292
+  %295 = getelementptr inbounds i8, ptr %290, i64 8
+  %296 = load double, ptr %295, align 8
+  %297 = getelementptr inbounds i8, ptr %.274.i, i64 8
+  %298 = load double, ptr %297, align 8
+  %299 = fcmp ogt double %296, %298
+  br i1 %299, label %Mio_GateCompare.exit60.i, label %300
+
+300:                                              ; preds = %294
+  %301 = fcmp oeq double %296, %298
+  br i1 %301, label %302, label %307
+
+302:                                              ; preds = %300
+  %303 = load ptr, ptr %290, align 8
+  %304 = load ptr, ptr %.274.i, align 8
+  %305 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %303, ptr noundef nonnull dereferenceable(1) %304) #18
+  %306 = icmp sgt i32 %305, 0
+  br i1 %306, label %Mio_GateCompare.exit60.i, label %307
+
+307:                                              ; preds = %302, %300
   br label %Mio_GateCompare.exit60.i
 
-Mio_GateCompare.exit60.i:                         ; preds = %281, %279, %273, %271, %Mio_GateCompare.exit56.i
-  %.0.i58.i = phi ptr [ %269, %Mio_GateCompare.exit56.i ], [ %.277.i, %271 ], [ %.277.i, %273 ], [ %269, %279 ], [ %spec.select.i59.i, %281 ]
-  store ptr %.0.i58.i, ptr %247, align 8
-  %286 = load ptr, ptr %248, align 8
-  %287 = load i64, ptr %252, align 8
-  %.not.i61.i = icmp eq i64 %287, 1229782938247303441
-  br i1 %.not.i61.i, label %288, label %Mio_GateCompare.exit64.i
+Mio_GateCompare.exit60.i:                         ; preds = %307, %302, %294, %292, %Mio_GateCompare.exit57.i
+  %.0.i59.i = phi ptr [ %290, %307 ], [ %290, %Mio_GateCompare.exit57.i ], [ %.274.i, %292 ], [ %.274.i, %302 ], [ %.274.i, %294 ]
+  store ptr %.0.i59.i, ptr %250, align 8
+  %308 = load ptr, ptr %251, align 8
+  %309 = load i64, ptr %254, align 8
+  %.not.i61.i = icmp eq i64 %309, -1229782938247303442
+  br i1 %.not.i61.i, label %310, label %Mio_GateCompare.exit63.i
 
-288:                                              ; preds = %Mio_GateCompare.exit60.i
-  %289 = icmp eq ptr %286, null
-  br i1 %289, label %Mio_GateCompare.exit64.i, label %290
+310:                                              ; preds = %Mio_GateCompare.exit60.i
+  %311 = icmp eq ptr %308, null
+  br i1 %311, label %Mio_GateCompare.exit63.i, label %312
 
-290:                                              ; preds = %288
-  %291 = getelementptr inbounds i8, ptr %286, i64 8
-  %292 = load double, ptr %291, align 8
-  %293 = getelementptr inbounds i8, ptr %.277.i, i64 8
-  %294 = load double, ptr %293, align 8
-  %295 = fcmp ogt double %292, %294
-  br i1 %295, label %Mio_GateCompare.exit64.i, label %296
+312:                                              ; preds = %310
+  %313 = getelementptr inbounds i8, ptr %308, i64 8
+  %314 = load double, ptr %313, align 8
+  %315 = getelementptr inbounds i8, ptr %.274.i, i64 8
+  %316 = load double, ptr %315, align 8
+  %317 = fcmp ogt double %314, %316
+  br i1 %317, label %Mio_GateCompare.exit63.i, label %318
 
-296:                                              ; preds = %290
-  %297 = fcmp oeq double %292, %294
-  br i1 %297, label %298, label %Mio_GateCompare.exit64.i
+318:                                              ; preds = %312
+  %319 = fcmp oeq double %314, %316
+  br i1 %319, label %320, label %325
 
-298:                                              ; preds = %296
-  %299 = load ptr, ptr %286, align 8
-  %300 = load ptr, ptr %.277.i, align 8
-  %301 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %299, ptr noundef nonnull dereferenceable(1) %300) #18
-  %302 = icmp sgt i32 %301, 0
-  %spec.select.i63.i = select i1 %302, ptr %.277.i, ptr %286
-  br label %Mio_GateCompare.exit64.i
+320:                                              ; preds = %318
+  %321 = load ptr, ptr %308, align 8
+  %322 = load ptr, ptr %.274.i, align 8
+  %323 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %321, ptr noundef nonnull dereferenceable(1) %322) #18
+  %324 = icmp sgt i32 %323, 0
+  br i1 %324, label %Mio_GateCompare.exit63.i, label %325
 
-Mio_GateCompare.exit64.i:                         ; preds = %298, %296, %290, %288, %Mio_GateCompare.exit60.i
-  %.0.i62.i = phi ptr [ %286, %Mio_GateCompare.exit60.i ], [ %.277.i, %288 ], [ %.277.i, %290 ], [ %286, %296 ], [ %spec.select.i63.i, %298 ]
-  store ptr %.0.i62.i, ptr %248, align 8
-  %303 = load ptr, ptr %249, align 8
-  %304 = load i64, ptr %252, align 8
-  %.not.i65.i = icmp eq i64 %304, -1229782938247303442
-  br i1 %.not.i65.i, label %305, label %Mio_GateCompare.exit68.i
+325:                                              ; preds = %320, %318
+  br label %Mio_GateCompare.exit63.i
 
-305:                                              ; preds = %Mio_GateCompare.exit64.i
-  %306 = icmp eq ptr %303, null
-  br i1 %306, label %Mio_GateCompare.exit68.i, label %307
+Mio_GateCompare.exit63.i:                         ; preds = %325, %320, %312, %310, %Mio_GateCompare.exit60.i
+  %.0.i62.i = phi ptr [ %308, %325 ], [ %308, %Mio_GateCompare.exit60.i ], [ %.274.i, %310 ], [ %.274.i, %320 ], [ %.274.i, %312 ]
+  store ptr %.0.i62.i, ptr %251, align 8
+  %326 = tail call ptr @Mio_GateReadNext(ptr noundef nonnull %.274.i) #17
+  %.not46.i = icmp eq ptr %326, null
+  br i1 %.not46.i, label %._crit_edge78.i, label %252, !llvm.loop !15
 
-307:                                              ; preds = %305
-  %308 = getelementptr inbounds i8, ptr %303, i64 8
-  %309 = load double, ptr %308, align 8
-  %310 = getelementptr inbounds i8, ptr %.277.i, i64 8
-  %311 = load double, ptr %310, align 8
-  %312 = fcmp ogt double %309, %311
-  br i1 %312, label %Mio_GateCompare.exit68.i, label %313
+._crit_edge78.i:                                  ; preds = %Mio_GateCompare.exit63.i, %246
+  %327 = getelementptr inbounds i8, ptr %5, i64 80
+  %328 = load ptr, ptr %327, align 8
+  %329 = icmp eq ptr %328, null
+  br i1 %329, label %330, label %Mio_LibraryDetectSpecialGates.exit
 
-313:                                              ; preds = %307
-  %314 = fcmp oeq double %309, %311
-  br i1 %314, label %315, label %Mio_GateCompare.exit68.i
+330:                                              ; preds = %._crit_edge78.i
+  %331 = getelementptr inbounds i8, ptr %5, i64 72
+  %332 = load ptr, ptr %331, align 8
+  %333 = icmp eq ptr %332, null
+  br i1 %333, label %334, label %Mio_LibraryDetectSpecialGates.exit
 
-315:                                              ; preds = %313
-  %316 = load ptr, ptr %303, align 8
-  %317 = load ptr, ptr %.277.i, align 8
-  %318 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %316, ptr noundef nonnull dereferenceable(1) %317) #18
-  %319 = icmp sgt i32 %318, 0
-  %spec.select.i67.i = select i1 %319, ptr %.277.i, ptr %303
-  br label %Mio_GateCompare.exit68.i
+334:                                              ; preds = %330
+  %335 = getelementptr inbounds i8, ptr %5, i64 88
+  %336 = load ptr, ptr %335, align 8
+  %337 = icmp eq ptr %336, null
+  br i1 %337, label %338, label %Mio_LibraryDetectSpecialGates.exit
 
-Mio_GateCompare.exit68.i:                         ; preds = %315, %313, %307, %305, %Mio_GateCompare.exit64.i
-  %.0.i66.i = phi ptr [ %303, %Mio_GateCompare.exit64.i ], [ %.277.i, %305 ], [ %.277.i, %307 ], [ %303, %313 ], [ %spec.select.i67.i, %315 ]
-  store ptr %.0.i66.i, ptr %249, align 8
-  %320 = tail call ptr @Mio_GateReadNext(ptr noundef nonnull %.277.i) #17
-  %.not46.i = icmp eq ptr %320, null
-  br i1 %.not46.i, label %._crit_edge80.i, label %250, !llvm.loop !15
+338:                                              ; preds = %334
+  %339 = getelementptr inbounds i8, ptr %5, i64 96
+  %340 = load ptr, ptr %339, align 8
+  %341 = icmp eq ptr %340, null
+  br i1 %341, label %342, label %Mio_LibraryDetectSpecialGates.exit
 
-._crit_edge80.i:                                  ; preds = %Mio_GateCompare.exit68.i, %244
-  %321 = getelementptr inbounds i8, ptr %5, i64 80
-  %322 = load ptr, ptr %321, align 8
-  %323 = icmp eq ptr %322, null
-  br i1 %323, label %324, label %Mio_LibraryDetectSpecialGates.exit
-
-324:                                              ; preds = %._crit_edge80.i
-  %325 = getelementptr inbounds i8, ptr %5, i64 72
-  %326 = load ptr, ptr %325, align 8
-  %327 = icmp eq ptr %326, null
-  br i1 %327, label %328, label %Mio_LibraryDetectSpecialGates.exit
-
-328:                                              ; preds = %324
-  %329 = getelementptr inbounds i8, ptr %5, i64 88
-  %330 = load ptr, ptr %329, align 8
-  %331 = icmp eq ptr %330, null
-  br i1 %331, label %332, label %Mio_LibraryDetectSpecialGates.exit
-
-332:                                              ; preds = %328
-  %333 = getelementptr inbounds i8, ptr %5, i64 96
-  %334 = load ptr, ptr %333, align 8
-  %335 = icmp eq ptr %334, null
-  br i1 %335, label %336, label %Mio_LibraryDetectSpecialGates.exit
-
-336:                                              ; preds = %332
+342:                                              ; preds = %338
   %puts47.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.8)
   %puts48.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.9)
   br label %Mio_LibraryDetectSpecialGates.exit
 
-Mio_LibraryDetectSpecialGates.exit:               ; preds = %336, %332, %328, %324, %._crit_edge80.i, %189, %187
-  %.0 = phi ptr [ null, %187 ], [ null, %189 ], [ %5, %._crit_edge80.i ], [ %5, %324 ], [ %5, %328 ], [ %5, %332 ], [ %5, %336 ]
+Mio_LibraryDetectSpecialGates.exit:               ; preds = %342, %338, %334, %330, %._crit_edge78.i, %189, %187
+  %.0 = phi ptr [ null, %187 ], [ null, %189 ], [ %5, %._crit_edge78.i ], [ %5, %330 ], [ %5, %334 ], [ %5, %338 ], [ %5, %342 ]
   ret ptr %.0
 }
 

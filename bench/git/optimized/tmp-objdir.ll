@@ -753,14 +753,13 @@ ends_with.exit14:                                 ; preds = %ends_with.exit
 
 if.end8:                                          ; preds = %if.end
   %cmp.i.i.i17.not = icmp eq i64 %call.i.i, 4
-  br i1 %cmp.i.i.i17.not, label %ends_with.exit24, label %return
+  br i1 %cmp.i.i.i17.not, label %ends_with.exit24, label %ends_with.exit34.thread
 
 ends_with.exit24:                                 ; preds = %ends_with.exit14, %if.end8
   %2 = getelementptr i8, ptr %name, i64 %call.i.i
   %add.ptr.i.i.i20 = getelementptr i8, ptr %2, i64 -4
   %bcmp.i.i.i21 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %add.ptr.i.i.i20, ptr noundef nonnull dereferenceable(4) @.str.15, i64 4)
   %tobool.not.i.i.i22.not = icmp eq i32 %bcmp.i.i.i21, 0
-  %.mux = select i1 %tobool.not.i.i.i22.not, i32 3, i32 5
   br i1 %tobool.not.i.i.i22.not, label %return, label %ends_with.exit34
 
 ends_with.exit34:                                 ; preds = %ends_with.exit24
@@ -769,11 +768,13 @@ ends_with.exit34:                                 ; preds = %ends_with.exit24
   %bcmp.i.i.i31 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %add.ptr.i.i.i30, ptr noundef nonnull dereferenceable(4) @.str.16, i64 4)
   %bcmp.i.i.i31.fr = freeze i32 %bcmp.i.i.i31
   %tobool.not.i.i.i32.not = icmp eq i32 %bcmp.i.i.i31.fr, 0
-  %spec.select = select i1 %tobool.not.i.i.i32.not, i32 4, i32 5
+  br i1 %tobool.not.i.i.i32.not, label %return, label %ends_with.exit34.thread
+
+ends_with.exit34.thread:                          ; preds = %if.end8, %ends_with.exit34
   br label %return
 
-return:                                           ; preds = %ends_with.exit24, %if.end8, %ends_with.exit34, %ends_with.exit14, %ends_with.exit, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 1, %ends_with.exit ], [ 2, %ends_with.exit14 ], [ %.mux, %ends_with.exit24 ], [ %spec.select, %ends_with.exit34 ], [ 5, %if.end8 ]
+return:                                           ; preds = %ends_with.exit34.thread, %ends_with.exit34, %ends_with.exit24, %ends_with.exit14, %ends_with.exit, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ 1, %ends_with.exit ], [ 2, %ends_with.exit14 ], [ 3, %ends_with.exit24 ], [ 5, %ends_with.exit34.thread ], [ 4, %ends_with.exit34 ]
   ret i32 %retval.0
 }
 

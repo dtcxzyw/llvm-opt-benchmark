@@ -1063,7 +1063,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.754 = private unnamed_addr constant [10 x i8] c"Version 5\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @check_if_ndmp(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden noundef i32 @check_if_ndmp(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 284
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 10000
@@ -1073,7 +1073,7 @@ define hidden i32 @check_if_ndmp(ptr noundef %0, ptr nocapture noundef readonly 
   %6 = getelementptr inbounds i8, ptr %1, i64 288
   %7 = load i32, ptr %6, align 8
   %.not26 = icmp eq i32 %7, 10000
-  br i1 %.not26, label %8, label %.thread31
+  br i1 %.not26, label %8, label %35
 
 8:                                                ; preds = %5, %2
   %9 = tail call i32 @tvb_captured_length(ptr noundef %0) #7
@@ -1085,7 +1085,7 @@ define hidden i32 @check_if_ndmp(ptr noundef %0, ptr nocapture noundef readonly 
   %13 = and i32 %12, 2147483647
   %14 = add nsw i32 %13, -1000001
   %or.cond = icmp ult i32 %14, -999977
-  br i1 %or.cond, label %.thread31, label %15
+  br i1 %or.cond, label %35, label %15
 
 15:                                               ; preds = %11
   %16 = icmp ugt i32 %9, 11
@@ -1095,7 +1095,7 @@ define hidden i32 @check_if_ndmp(ptr noundef %0, ptr nocapture noundef readonly 
   %18 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 8) #7
   %19 = add i32 %18, -1893474001
   %or.cond3 = icmp ult i32 %19, -1577923201
-  br i1 %or.cond3, label %.thread31, label %20
+  br i1 %or.cond3, label %35, label %20
 
 20:                                               ; preds = %17
   %21 = icmp ugt i32 %9, 15
@@ -1104,7 +1104,7 @@ define hidden i32 @check_if_ndmp(ptr noundef %0, ptr nocapture noundef readonly 
 22:                                               ; preds = %20
   %23 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 12) #7
   %24 = icmp ugt i32 %23, 1
-  br i1 %24, label %.thread31, label %25
+  br i1 %24, label %35, label %25
 
 25:                                               ; preds = %22
   %26 = icmp ugt i32 %9, 19
@@ -1114,7 +1114,7 @@ define hidden i32 @check_if_ndmp(ptr noundef %0, ptr nocapture noundef readonly 
   %28 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 16) #7
   %29 = add i32 %28, -2570
   %or.cond5 = icmp ult i32 %29, -2569
-  br i1 %or.cond5, label %.thread31, label %30
+  br i1 %or.cond5, label %35, label %30
 
 30:                                               ; preds = %27
   %31 = icmp ugt i32 %9, 27
@@ -1122,12 +1122,14 @@ define hidden i32 @check_if_ndmp(ptr noundef %0, ptr nocapture noundef readonly 
 
 32:                                               ; preds = %30
   %33 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 24) #7
-  %34 = icmp ult i32 %33, 24
-  %spec.select = zext i1 %34 to i32
-  br label %.thread31
+  %34 = icmp ugt i32 %33, 23
+  br i1 %34, label %35, label %.thread31
 
-.thread31:                                        ; preds = %8, %15, %20, %25, %32, %30, %27, %22, %17, %11, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %11 ], [ 0, %17 ], [ 0, %22 ], [ 0, %27 ], [ 1, %30 ], [ %spec.select, %32 ], [ 1, %25 ], [ 1, %20 ], [ 1, %15 ], [ 1, %8 ]
+.thread31:                                        ; preds = %8, %15, %20, %25, %32, %30
+  br label %35
+
+35:                                               ; preds = %32, %27, %22, %17, %11, %5, %.thread31
+  %.0 = phi i32 [ 1, %.thread31 ], [ 0, %5 ], [ 0, %11 ], [ 0, %17 ], [ 0, %22 ], [ 0, %27 ], [ 0, %32 ]
   ret i32 %.0
 }
 
@@ -1173,7 +1175,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 define internal i32 @dissect_ndmp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = load i32, ptr @ndmp_defragment, align 4
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %check_ndmp_rm.exit.thread14, label %6
+  br i1 %.not, label %check_ndmp_rm.exit, label %6
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds i8, ptr %1, i64 284
@@ -1190,40 +1192,40 @@ define internal i32 @dissect_ndmp(ptr noundef %0, ptr noundef %1, ptr noundef %2
 12:                                               ; preds = %9, %6
   %13 = tail call i32 @tvb_captured_length(ptr noundef %0) #7
   %14 = icmp ugt i32 %13, 3
-  br i1 %14, label %check_ndmp_rm.exit, label %check_ndmp_rm.exit.thread14
+  br i1 %14, label %15, label %check_ndmp_rm.exit
 
-check_ndmp_rm.exit:                               ; preds = %12
-  %15 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #7
-  %16 = and i32 %15, 2147483647
-  %17 = add nsw i32 %16, -1000001
-  %or.cond.i = icmp ult i32 %17, -1000000
-  br i1 %or.cond.i, label %check_ndmp_rm.exit.thread, label %check_ndmp_rm.exit.thread14
+15:                                               ; preds = %12
+  %16 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #7
+  %17 = and i32 %16, 2147483647
+  %18 = add nsw i32 %17, -1000001
+  %or.cond.i = icmp ult i32 %18, -1000000
+  br i1 %or.cond.i, label %check_ndmp_rm.exit.thread, label %check_ndmp_rm.exit
 
-check_ndmp_rm.exit.thread14:                      ; preds = %12, %check_ndmp_rm.exit, %4
-  %18 = load i32, ptr @ndmp_desegment, align 4
-  %19 = icmp ne i32 %18, 0
-  %20 = load i32, ptr @ndmp_defragment, align 4
-  %21 = icmp ne i32 %20, 0
-  %or.cond = select i1 %19, i1 %21, i1 false
-  br i1 %or.cond, label %24, label %22
+check_ndmp_rm.exit:                               ; preds = %15, %12, %4
+  %19 = load i32, ptr @ndmp_desegment, align 4
+  %20 = icmp ne i32 %19, 0
+  %21 = load i32, ptr @ndmp_defragment, align 4
+  %22 = icmp ne i32 %21, 0
+  %or.cond = select i1 %20, i1 %22, i1 false
+  br i1 %or.cond, label %25, label %23
 
-22:                                               ; preds = %check_ndmp_rm.exit.thread14
-  %23 = tail call i32 @check_if_ndmp(ptr noundef %0, ptr noundef %1), !range !4
-  %.not11 = icmp eq i32 %23, 0
+23:                                               ; preds = %check_ndmp_rm.exit
+  %24 = tail call i32 @check_if_ndmp(ptr noundef %0, ptr noundef %1), !range !4
+  %.not11 = icmp eq i32 %24, 0
   br i1 %.not11, label %check_ndmp_rm.exit.thread, label %._crit_edge
 
-._crit_edge:                                      ; preds = %22
+._crit_edge:                                      ; preds = %23
   %.pre = load i32, ptr @ndmp_desegment, align 4
-  br label %24
+  br label %25
 
-24:                                               ; preds = %._crit_edge, %check_ndmp_rm.exit.thread14
-  %25 = phi i32 [ %.pre, %._crit_edge ], [ %18, %check_ndmp_rm.exit.thread14 ]
-  tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %25, i32 noundef 4, ptr noundef nonnull @get_ndmp_pdu_len, ptr noundef nonnull @dissect_ndmp_message, ptr noundef %3) #7
-  %26 = tail call i32 @tvb_captured_length(ptr noundef %0) #7
+25:                                               ; preds = %._crit_edge, %check_ndmp_rm.exit
+  %26 = phi i32 [ %.pre, %._crit_edge ], [ %19, %check_ndmp_rm.exit ]
+  tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %26, i32 noundef 4, ptr noundef nonnull @get_ndmp_pdu_len, ptr noundef nonnull @dissect_ndmp_message, ptr noundef %3) #7
+  %27 = tail call i32 @tvb_captured_length(ptr noundef %0) #7
   br label %check_ndmp_rm.exit.thread
 
-check_ndmp_rm.exit.thread:                        ; preds = %9, %22, %check_ndmp_rm.exit, %24
-  %.0 = phi i32 [ %26, %24 ], [ 0, %check_ndmp_rm.exit ], [ 0, %22 ], [ 0, %9 ]
+check_ndmp_rm.exit.thread:                        ; preds = %15, %9, %23, %25
+  %.0 = phi i32 [ %27, %25 ], [ 0, %23 ], [ 0, %9 ], [ 0, %15 ]
   ret i32 %.0
 }
 

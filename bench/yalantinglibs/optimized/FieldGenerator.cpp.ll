@@ -4507,7 +4507,7 @@ entry:
   %containing_type_.i = getelementptr inbounds i8, ptr %0, i64 80
   %1 = load ptr, ptr %containing_type_.i, align 8
   %tobool.not = icmp eq ptr %1, null
-  br i1 %tobool.not, label %return, label %land.lhs.true
+  br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
   %options_.i.i = getelementptr inbounds i8, ptr %1, i64 32
@@ -4515,11 +4515,13 @@ land.lhs.true:                                    ; preds = %entry
   %map_entry_.i.i.i = getelementptr inbounds i8, ptr %2, i64 75
   %3 = load i8, ptr %map_entry_.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
-  %not.tobool.i.i.i = xor i1 %tobool.i.i.i, true
+  br i1 %tobool.i.i.i, label %return, label %if.end
+
+if.end:                                           ; preds = %land.lhs.true, %entry
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ %not.tobool.i.i.i, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %if.end
+  %retval.0 = phi i1 [ true, %if.end ], [ false, %land.lhs.true ]
   ret i1 %retval.0
 }
 

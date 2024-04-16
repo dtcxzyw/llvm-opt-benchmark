@@ -2147,7 +2147,7 @@ if.end.i15.i:                                     ; preds = %PyObject_TypeCheck.
   %input.val11.i.i = load i32, ptr %11, align 8
   %12 = and i32 %input.val11.i.i, 64
   %tobool4.not.i.i = icmp eq i32 %12, 0
-  br i1 %tobool4.not.i.i, label %if.end6.i.i, label %if.end40.i
+  br i1 %tobool4.not.i.i, label %if.end6.i.i, label %if.else36.thread29.i
 
 if.end6.i.i:                                      ; preds = %if.end.i15.i
   %cond.i.i = select i1 %nfc.0.i, i32 4, i32 0
@@ -2168,7 +2168,7 @@ PyUnicode_DATA.exit.i.i:                          ; preds = %if.end.i.i.i, %if.e
   %retval.0.i.i.i = phi ptr [ %op.val3.i.i.i, %if.end.i.i.i ], [ %14, %if.end6.i.i ]
   %input.val.i.i = load i64, ptr %8, align 8
   %cmp1222.i.i = icmp sgt i64 %input.val.i.i, 0
-  br i1 %cmp1222.i.i, label %while.body.lr.ph.i.i, label %if.end40.i
+  br i1 %cmp1222.i.i, label %while.body.lr.ph.i.i, label %if.else36.thread29.i
 
 while.body.lr.ph.i.i:                             ; preds = %PyUnicode_DATA.exit.i.i
   switch i32 %bf.clear.i.i, label %while.body.i.i [
@@ -2327,8 +2327,10 @@ if.end33.i.i:                                     ; preds = %sw.bb32.i.i, %if.en
 is_normalized_quickcheck.exit.i:                  ; preds = %if.end33.us100.i.i, %if.end33.us59.i.i, %if.end33.i.i
   %retval.0.i.i = phi i32 [ %result.1.i.i, %if.end33.i.i ], [ %result.1.us60.i.i, %if.end33.us59.i.i ], [ %result.1.us101.i.i, %if.end33.us100.i.i ]
   %retval.0.i.fr.i = freeze i32 %retval.0.i.i
-  %cmp23.i = icmp eq i32 %retval.0.i.fr.i, 1
-  br i1 %cmp23.i, label %if.then24.i, label %if.else36.i
+  switch i32 %retval.0.i.fr.i, label %if.end40.i [
+    i32 1, label %if.then24.i
+    i32 0, label %if.else36.thread29.i
+  ]
 
 if.then24.i:                                      ; preds = %is_normalized_quickcheck.exit.i, %PyObject_TypeCheck.exit.i.i
   %cond.i = select i1 %nfc.0.i, ptr @nfc_nfkc, ptr @nfd_nfkd
@@ -2359,13 +2361,11 @@ Py_DECREF.exit.i:                                 ; preds = %if.then1.i.i, %if.e
   %cond35.i = select i1 %cmp33.i, ptr @_Py_TrueStruct, ptr @_Py_FalseStruct
   br label %if.end40.i
 
-if.else36.i:                                      ; preds = %is_normalized_quickcheck.exit.i
-  %cmp37.i = icmp eq i32 %retval.0.i.fr.i, 0
-  %spec.select.i = select i1 %cmp37.i, ptr @_Py_TrueStruct, ptr @_Py_FalseStruct
+if.else36.thread29.i:                             ; preds = %is_normalized_quickcheck.exit.i, %PyUnicode_DATA.exit.i.i, %if.end.i15.i
   br label %if.end40.i
 
-if.end40.i:                                       ; preds = %if.end23.us94.i.i, %while.body.us68.i.i, %if.end23.us57.i.i, %while.body.us31.i.i, %if.end23.i.i, %_getrecord_ex.exit.i.i, %if.else36.i, %Py_DECREF.exit.i, %PyUnicode_DATA.exit.i.i, %if.end.i15.i
-  %result.0.i = phi ptr [ %cond35.i, %Py_DECREF.exit.i ], [ @_Py_TrueStruct, %PyUnicode_DATA.exit.i.i ], [ @_Py_TrueStruct, %if.end.i15.i ], [ %spec.select.i, %if.else36.i ], [ @_Py_FalseStruct, %_getrecord_ex.exit.i.i ], [ @_Py_FalseStruct, %if.end23.i.i ], [ @_Py_FalseStruct, %while.body.us31.i.i ], [ @_Py_FalseStruct, %if.end23.us57.i.i ], [ @_Py_FalseStruct, %while.body.us68.i.i ], [ @_Py_FalseStruct, %if.end23.us94.i.i ]
+if.end40.i:                                       ; preds = %if.end23.us94.i.i, %while.body.us68.i.i, %if.end23.us57.i.i, %while.body.us31.i.i, %if.end23.i.i, %_getrecord_ex.exit.i.i, %if.else36.thread29.i, %Py_DECREF.exit.i, %is_normalized_quickcheck.exit.i
+  %result.0.i = phi ptr [ %cond35.i, %Py_DECREF.exit.i ], [ @_Py_TrueStruct, %if.else36.thread29.i ], [ @_Py_FalseStruct, %is_normalized_quickcheck.exit.i ], [ @_Py_FalseStruct, %_getrecord_ex.exit.i.i ], [ @_Py_FalseStruct, %if.end23.i.i ], [ @_Py_FalseStruct, %while.body.us31.i.i ], [ @_Py_FalseStruct, %if.end23.us57.i.i ], [ @_Py_FalseStruct, %while.body.us68.i.i ], [ @_Py_FalseStruct, %if.end23.us94.i.i ]
   %35 = load i32, ptr %result.0.i, align 8
   %add.i.i16.i = add i32 %35, 1
   %cmp.i.i17.i = icmp eq i32 %add.i.i16.i, 0
@@ -5240,14 +5240,18 @@ entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val3 = load ptr, ptr %0, align 8
   %tobool.not = icmp eq ptr %self.val3, null
-  br i1 %tobool.not, label %return, label %if.then
+  br i1 %tobool.not, label %do.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %call2 = tail call i32 %visit(ptr noundef nonnull %self.val3, ptr noundef %arg) #9
+  %tobool3.not = icmp eq i32 %call2, 0
+  br i1 %tobool3.not, label %do.end, label %return
+
+do.end:                                           ; preds = %entry, %if.then
   br label %return
 
-return:                                           ; preds = %if.then, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ %call2, %if.then ]
+return:                                           ; preds = %if.then, %do.end
+  %retval.0 = phi i32 [ 0, %do.end ], [ %call2, %if.then ]
   ret i32 %retval.0
 }
 

@@ -376,7 +376,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @EC_KEY_set_group(ptr nocapture noundef %key, ptr noundef %group) local_unnamed_addr #0 {
+define hidden noundef i32 @EC_KEY_set_group(ptr nocapture noundef %key, ptr noundef %group) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %key, align 8
   tail call void @EC_GROUP_free(ptr noundef %0) #8
@@ -389,16 +389,19 @@ if.end:                                           ; preds = %entry
   %priv_key = getelementptr inbounds i8, ptr %key, i64 16
   %1 = load ptr, ptr %priv_key, align 8
   %cmp4.not = icmp eq ptr %1, null
-  br i1 %cmp4.not, label %return, label %land.lhs.true
+  br i1 %cmp4.not, label %if.end10, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
   %call6 = tail call ptr @EC_GROUP_get0_order(ptr noundef %group) #8
   %call7 = tail call i32 @BN_cmp(ptr noundef nonnull %1, ptr noundef %call6) #8
-  %call7.lobit = lshr i32 %call7, 31
+  %cmp8 = icmp sgt i32 %call7, -1
+  br i1 %cmp8, label %return, label %if.end10
+
+if.end10:                                         ; preds = %land.lhs.true, %if.end
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %if.end, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 1, %if.end ], [ %call7.lobit, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %entry, %if.end10
+  %retval.0 = phi i32 [ 1, %if.end10 ], [ 0, %entry ], [ 0, %land.lhs.true ]
   ret i32 %retval.0
 }
 

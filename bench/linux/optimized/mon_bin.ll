@@ -1632,7 +1632,7 @@ define internal noundef i32 @mon_bin_vma_fault(ptr nocapture noundef %0) #0 alig
   %10 = load i32, ptr %9, align 4
   %11 = zext i32 %10 to i64
   %12 = icmp ult i64 %8, %11
-  br i1 %12, label %13, label %46
+  br i1 %12, label %13, label %47
 
 13:                                               ; preds = %1
   %14 = and i64 %7, 4503599627370495
@@ -1649,11 +1649,11 @@ define internal noundef i32 @mon_bin_vma_fault(ptr nocapture noundef %0) #0 alig
 23:                                               ; preds = %13
   %24 = add nsw i64 %20, -1
   %25 = inttoptr i64 %24 to ptr
-  br label %42
+  br label %43
 
 26:                                               ; preds = %13
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hugetlb_optimize_vmemmap_key, i32 2) #12
-          to label %42 [label %27], !srcloc !32
+          to label %43 [label %27], !srcloc !32
 
 27:                                               ; preds = %26
   %28 = ptrtoint ptr %18 to i64
@@ -1674,21 +1674,23 @@ define internal noundef i32 @mon_bin_vma_fault(ptr nocapture noundef %0) #0 alig
   %39 = icmp eq i64 %38, 0
   %40 = add nsw i64 %37, -1
   %41 = inttoptr i64 %40 to ptr
-  %spec.select = select i1 %39, ptr %18, ptr %41
-  br label %42
+  br i1 %39, label %42, label %43
 
-42:                                               ; preds = %35, %27, %31, %26, %23
-  %43 = phi ptr [ %25, %23 ], [ %18, %26 ], [ %18, %31 ], [ %18, %27 ], [ %spec.select, %35 ]
-  %44 = getelementptr inbounds i8, ptr %43, i64 52
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %44, ptr elementtype(i32) %44) #12, !srcloc !33
-  %45 = getelementptr inbounds i8, ptr %0, i64 80
-  store ptr %18, ptr %45, align 8
-  br label %46
+42:                                               ; preds = %35, %31, %27
+  br label %43
 
-46:                                               ; preds = %42, %1
-  %47 = phi i32 [ 0, %42 ], [ 2, %1 ]
+43:                                               ; preds = %42, %35, %26, %23
+  %44 = phi ptr [ %25, %23 ], [ %41, %35 ], [ %18, %42 ], [ %18, %26 ]
+  %45 = getelementptr inbounds i8, ptr %44, i64 52
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %45, ptr elementtype(i32) %45) #12, !srcloc !33
+  %46 = getelementptr inbounds i8, ptr %0, i64 80
+  store ptr %18, ptr %46, align 8
+  br label %47
+
+47:                                               ; preds = %43, %1
+  %48 = phi i32 [ 0, %43 ], [ 2, %1 ]
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %4, i64 noundef %5) #12
-  ret i32 %47
+  ret i32 %48
 }
 
 ; Function Attrs: null_pointer_is_valid

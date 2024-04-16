@@ -7701,7 +7701,7 @@ declare i64 @_php_stream_tell(ptr noundef) local_unnamed_addr #1
 declare void @zend_hash_apply(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @phar_flush_clean_deleted_apply(ptr nocapture noundef readonly %0) #13 {
+define internal noundef i32 @phar_flush_clean_deleted_apply(ptr nocapture noundef readonly %0) #13 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 112
   %4 = load i32, ptr %3, align 8
@@ -7711,13 +7711,15 @@ define internal i32 @phar_flush_clean_deleted_apply(ptr nocapture noundef readon
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %2, i64 154
   %8 = load i16, ptr %7, align 2
-  %9 = lshr i16 %8, 2
-  %.lobit = and i16 %9, 1
-  %spec.select = zext nneg i16 %.lobit to i32
-  br label %10
+  %9 = and i16 %8, 4
+  %.not = icmp eq i16 %9, 0
+  br i1 %.not, label %10, label %11
 
 10:                                               ; preds = %6, %1
-  %.0 = phi i32 [ 0, %1 ], [ %spec.select, %6 ]
+  br label %11
+
+11:                                               ; preds = %6, %10
+  %.0 = phi i32 [ 0, %10 ], [ 1, %6 ]
   ret i32 %.0
 }
 

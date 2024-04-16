@@ -13593,16 +13593,16 @@ exec_query.exit:                                  ; preds = %174, %180, %182, %1
 190:                                              ; preds = %188
   %191 = call i32 @PQresultStatus(ptr noundef nonnull %189) #12
   %192 = icmp eq i32 %191, 2
-  br i1 %192, label %.preheader179, label %.loopexit
+  br i1 %192, label %.preheader180, label %.loopexit
 
-.preheader179:                                    ; preds = %190
+.preheader180:                                    ; preds = %190
   %193 = load i32, ptr @_complete_from_query.list_index, align 4
   %194 = load ptr, ptr @_complete_from_query.result, align 8
   %195 = call i32 @PQntuples(ptr noundef %194) #12
   %196 = icmp slt i32 %193, %195
   br i1 %196, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.preheader179
+.lr.ph:                                           ; preds = %.preheader180
   br i1 %3, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
@@ -13648,7 +13648,7 @@ exec_query.exit:                                  ; preds = %174, %180, %182, %1
   %220 = call ptr @pg_strdup(ptr noundef %.0101.us) #12
   br label %447
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %.backedge180
+.lr.ph.split:                                     ; preds = %.lr.ph, %.backedge181
   %221 = load ptr, ptr @_complete_from_query.result, align 8
   %222 = load i32, ptr @_complete_from_query.list_index, align 4
   %223 = call i32 @PQgetisnull(ptr noundef %221, i32 noundef %222, i32 noundef 0) #12
@@ -13705,13 +13705,13 @@ exec_query.exit:                                  ; preds = %174, %180, %182, %1
   %or.cond.i148 = icmp ult i8 %251, 26
   %252 = icmp eq i8 %250, 95
   %or.cond11.i = or i1 %252, %or.cond.i148
-  br i1 %or.cond11.i, label %253, label %.backedge180
+  br i1 %or.cond11.i, label %253, label %.backedge181
 
 253:                                              ; preds = %249
   %254 = call i64 @strspn(ptr noundef nonnull %.0101, ptr noundef nonnull @.str.1544) #14
   %255 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0101) #14
   %.not.i149 = icmp eq i64 %254, %255
-  br i1 %.not.i149, label %256, label %.backedge180
+  br i1 %.not.i149, label %256, label %.backedge181
 
 256:                                              ; preds = %253
   %257 = call i32 @ScanKeywordLookup(ptr noundef nonnull %.0101, ptr noundef nonnull @ScanKeywords) #12
@@ -13722,31 +13722,31 @@ exec_query.exit:                                  ; preds = %174, %180, %182, %1
   %260 = zext nneg i32 %257 to i64
   %261 = getelementptr [0 x i8], ptr @ScanKeywordCategories, i64 0, i64 %260
   %262 = load i8, ptr %261, align 1
-  %.not10.i150.not = icmp eq i8 %262, 0
-  br i1 %.not10.i150.not, label %identifier_needs_quotes.exit.thread, label %.backedge180
+  %.not10.i150 = icmp eq i8 %262, 0
+  br i1 %.not10.i150, label %identifier_needs_quotes.exit.thread, label %.backedge181
 
-.backedge180:                                     ; preds = %282, %278, %253, %249, %259, %288
+.backedge181:                                     ; preds = %288, %282, %278, %259, %253, %249
   %263 = load i32, ptr @_complete_from_query.list_index, align 4
   %264 = load ptr, ptr @_complete_from_query.result, align 8
   %265 = call i32 @PQntuples(ptr noundef %264) #12
   %266 = icmp slt i32 %263, %265
   br i1 %266, label %.lr.ph.split, label %._crit_edge, !llvm.loop !26
 
-identifier_needs_quotes.exit.thread:              ; preds = %256, %259, %246
+identifier_needs_quotes.exit.thread:              ; preds = %259, %256, %246
   %.not146 = icmp eq ptr %.0100, null
-  br i1 %.not146, label %.thread167, label %275
+  br i1 %.not146, label %.thread168, label %275
 
 identifier_needs_quotes.exit.thread.thread:       ; preds = %245
-  %.not146216 = icmp eq ptr %.0100, null
-  br i1 %.not146216, label %.thread167.thread, label %275
+  %.not146217 = icmp eq ptr %.0100, null
+  br i1 %.not146217, label %.thread168.thread, label %275
 
-.thread167.thread:                                ; preds = %identifier_needs_quotes.exit.thread.thread
+.thread168.thread:                                ; preds = %identifier_needs_quotes.exit.thread.thread
   %267 = load i32, ptr @_complete_from_query.num_query_other, align 4
   %268 = add i32 %267, 1
   store i32 %268, ptr @_complete_from_query.num_query_other, align 4
   br label %.thread
 
-.thread167:                                       ; preds = %identifier_needs_quotes.exit.thread
+.thread168:                                       ; preds = %identifier_needs_quotes.exit.thread
   %269 = load i32, ptr @_complete_from_query.num_query_other, align 4
   %270 = add i32 %269, 1
   store i32 %270, ptr @_complete_from_query.num_query_other, align 4
@@ -13767,13 +13767,13 @@ identifier_needs_quotes.exit.thread.thread:       ; preds = %245
   %or.cond.i151 = icmp ult i8 %280, 26
   %281 = icmp eq i8 %279, 95
   %or.cond11.i152 = or i1 %281, %or.cond.i151
-  br i1 %or.cond11.i152, label %282, label %.backedge180
+  br i1 %or.cond11.i152, label %282, label %.backedge181
 
 282:                                              ; preds = %278
   %283 = call i64 @strspn(ptr noundef nonnull %.0100, ptr noundef nonnull @.str.1544) #14
   %284 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0100) #14
   %.not.i154 = icmp eq i64 %283, %284
-  br i1 %.not.i154, label %285, label %.backedge180
+  br i1 %.not.i154, label %285, label %.backedge181
 
 285:                                              ; preds = %282
   %286 = call i32 @ScanKeywordLookup(ptr noundef nonnull %.0100, ptr noundef nonnull @ScanKeywords) #12
@@ -13784,16 +13784,16 @@ identifier_needs_quotes.exit.thread.thread:       ; preds = %245
   %289 = zext nneg i32 %286 to i64
   %290 = getelementptr [0 x i8], ptr @ScanKeywordCategories, i64 0, i64 %289
   %291 = load i8, ptr %290, align 1
-  %.not10.i155.not = icmp eq i8 %291, 0
-  br i1 %.not10.i155.not, label %identifier_needs_quotes.exit156.thread, label %.backedge180
+  %.not10.i155 = icmp eq i8 %291, 0
+  br i1 %.not10.i155, label %identifier_needs_quotes.exit156.thread, label %.backedge181
 
-identifier_needs_quotes.exit156.thread:           ; preds = %285, %288, %275, %240
+identifier_needs_quotes.exit156.thread:           ; preds = %288, %285, %275, %240
   %292 = icmp eq ptr %.0101, null
   %293 = icmp ne ptr %.0100, null
   %or.cond9 = select i1 %292, i1 %293, i1 false
-  br i1 %or.cond9, label %.thread163, label %301
+  br i1 %or.cond9, label %.thread164, label %301
 
-.thread163:                                       ; preds = %identifier_needs_quotes.exit156.thread
+.thread164:                                       ; preds = %identifier_needs_quotes.exit156.thread
   %294 = load i32, ptr @_complete_from_query.num_schema_only, align 4
   %295 = add i32 %294, 1
   store i32 %295, ptr @_complete_from_query.num_schema_only, align 4
@@ -13813,15 +13813,15 @@ identifier_needs_quotes.exit156.thread:           ; preds = %285, %288, %275, %2
   %306 = load i8, ptr @_complete_from_query.objectquoted, align 1
   %307 = trunc i8 %306 to i1
   %.not.i157 = icmp eq ptr %.0100, null
-  br i1 %.not.i157, label %.thread89.i, label %308
+  br i1 %.not.i157, label %.loopexit95.i, label %308
 
 308:                                              ; preds = %301
   %309 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0100) #14
   br i1 %305, label %.thread.i, label %310
 
-310:                                              ; preds = %.thread163, %308
-  %311 = phi i64 [ %300, %.thread163 ], [ %309, %308 ]
-  %312 = phi i1 [ %299, %.thread163 ], [ %307, %308 ]
+310:                                              ; preds = %.thread164, %308
+  %311 = phi i64 [ %300, %.thread164 ], [ %309, %308 ]
+  %312 = phi i1 [ %299, %.thread164 ], [ %307, %308 ]
   %313 = add i64 %311, 2
   %314 = load i8, ptr %.0100, align 1
   %315 = add i8 %314, -97
@@ -13838,18 +13838,18 @@ identifier_needs_quotes.exit156.thread:           ; preds = %285, %288, %275, %2
 319:                                              ; preds = %317
   %320 = call i32 @ScanKeywordLookup(ptr noundef nonnull %.0100, ptr noundef nonnull @ScanKeywords) #12
   %321 = icmp sgt i32 %320, -1
-  br i1 %321, label %322, label %.thread89.i
+  br i1 %321, label %322, label %.loopexit95.i
 
 322:                                              ; preds = %319
   %323 = zext nneg i32 %320 to i64
   %324 = getelementptr [0 x i8], ptr @ScanKeywordCategories, i64 0, i64 %323
   %325 = load i8, ptr %324, align 1
-  %.not10.i.not.i = icmp eq i8 %325, 0
-  br i1 %.not10.i.not.i, label %.thread89.i, label %.thread.i
+  %.not10.i.i = icmp eq i8 %325, 0
+  br i1 %.not10.i.i, label %.loopexit95.i, label %.thread.i
 
-.thread.i:                                        ; preds = %.thread163, %322, %317, %310, %308
-  %326 = phi i64 [ %300, %.thread163 ], [ %311, %322 ], [ %311, %317 ], [ %311, %310 ], [ %309, %308 ]
-  %327 = phi i1 [ %299, %.thread163 ], [ %312, %322 ], [ %312, %317 ], [ %312, %310 ], [ %307, %308 ]
+.thread.i:                                        ; preds = %.thread164, %322, %317, %310, %308
+  %326 = phi i64 [ %300, %.thread164 ], [ %311, %322 ], [ %311, %317 ], [ %311, %310 ], [ %309, %308 ]
+  %327 = phi i1 [ %299, %.thread164 ], [ %312, %322 ], [ %312, %317 ], [ %312, %310 ], [ %307, %308 ]
   %328 = add i64 %326, 4
   br label %329
 
@@ -13858,7 +13858,7 @@ identifier_needs_quotes.exit156.thread:           ; preds = %285, %288, %275, %2
   %.054.i = phi ptr [ %.0100, %.thread.i ], [ %334, %333 ]
   %330 = load i8, ptr %.054.i, align 1
   switch i8 %330, label %333 [
-    i8 0, label %.thread89.i
+    i8 0, label %.loopexit95.i
     i8 34, label %331
   ]
 
@@ -13871,22 +13871,22 @@ identifier_needs_quotes.exit156.thread:           ; preds = %285, %288, %275, %2
   %334 = getelementptr i8, ptr %.054.i, i64 1
   br label %329, !llvm.loop !27
 
-.thread89.i:                                      ; preds = %329, %322, %319, %301
-  %.not.i157166 = phi i1 [ false, %322 ], [ true, %301 ], [ false, %319 ], [ false, %329 ]
-  %335 = phi i1 [ %312, %322 ], [ %307, %301 ], [ %312, %319 ], [ %327, %329 ]
-  %.163.i = phi i1 [ false, %322 ], [ %305, %301 ], [ false, %319 ], [ true, %329 ]
-  %.258.i = phi i64 [ %313, %322 ], [ 1, %301 ], [ %313, %319 ], [ %.056.i, %329 ]
-  br i1 %292, label %.thread97.i, label %336
+.loopexit95.i:                                    ; preds = %329, %322, %319, %301
+  %.not.i157167 = phi i1 [ true, %301 ], [ false, %319 ], [ false, %322 ], [ false, %329 ]
+  %335 = phi i1 [ %307, %301 ], [ %312, %319 ], [ %312, %322 ], [ %327, %329 ]
+  %.163.i = phi i1 [ %305, %301 ], [ false, %319 ], [ false, %322 ], [ true, %329 ]
+  %.258.i = phi i64 [ 1, %301 ], [ %313, %319 ], [ %313, %322 ], [ %.056.i, %329 ]
+  br i1 %292, label %.loopexit.i158, label %336
 
-336:                                              ; preds = %.thread167, %.thread89.i
-  %.0100212 = phi ptr [ null, %.thread167 ], [ %.0100, %.thread89.i ]
-  %.258.i175 = phi i64 [ 1, %.thread167 ], [ %.258.i, %.thread89.i ]
-  %.163.i173 = phi i1 [ %272, %.thread167 ], [ %.163.i, %.thread89.i ]
-  %337 = phi i1 [ %274, %.thread167 ], [ %335, %.thread89.i ]
-  %.not.i157166171 = phi i1 [ true, %.thread167 ], [ %.not.i157166, %.thread89.i ]
+336:                                              ; preds = %.thread168, %.loopexit95.i
+  %.0100213 = phi ptr [ null, %.thread168 ], [ %.0100, %.loopexit95.i ]
+  %.258.i176 = phi i64 [ 1, %.thread168 ], [ %.258.i, %.loopexit95.i ]
+  %.163.i174 = phi i1 [ %272, %.thread168 ], [ %.163.i, %.loopexit95.i ]
+  %337 = phi i1 [ %274, %.thread168 ], [ %335, %.loopexit95.i ]
+  %.not.i157167172 = phi i1 [ true, %.thread168 ], [ %.not.i157167, %.loopexit95.i ]
   %338 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0101) #14
-  %339 = add i64 %338, %.258.i175
-  br i1 %337, label %.thread91.i, label %340
+  %339 = add i64 %338, %.258.i176
+  br i1 %337, label %.thread89.i, label %340
 
 340:                                              ; preds = %336
   %341 = load i8, ptr %.0101, align 1
@@ -13894,35 +13894,35 @@ identifier_needs_quotes.exit156.thread:           ; preds = %285, %288, %275, %2
   %or.cond.i79.i = icmp ult i8 %342, 26
   %343 = icmp eq i8 %341, 95
   %or.cond11.i80.i = or i1 %343, %or.cond.i79.i
-  br i1 %or.cond11.i80.i, label %344, label %.thread91.i
+  br i1 %or.cond11.i80.i, label %344, label %.thread89.i
 
 344:                                              ; preds = %340
   %345 = call i64 @strspn(ptr noundef nonnull %.0101, ptr noundef nonnull @.str.1544) #14
   %.not.i82.i = icmp eq i64 %345, %338
-  br i1 %.not.i82.i, label %346, label %.thread91.i
+  br i1 %.not.i82.i, label %346, label %.thread89.i
 
 346:                                              ; preds = %344
   %347 = call i32 @ScanKeywordLookup(ptr noundef nonnull %.0101, ptr noundef nonnull @ScanKeywords) #12
   %348 = icmp sgt i32 %347, -1
-  br i1 %348, label %349, label %.thread97.i
+  br i1 %348, label %349, label %.loopexit.i158
 
 349:                                              ; preds = %346
   %350 = zext nneg i32 %347 to i64
   %351 = getelementptr [0 x i8], ptr @ScanKeywordCategories, i64 0, i64 %350
   %352 = load i8, ptr %351, align 1
-  %.not10.i83.not.i = icmp eq i8 %352, 0
-  br i1 %.not10.i83.not.i, label %.thread97.i, label %.thread91.i
+  %.not10.i83.i = icmp eq i8 %352, 0
+  br i1 %.not10.i83.i, label %.loopexit.i158, label %.thread89.i
 
-.thread91.i:                                      ; preds = %349, %344, %340, %336
+.thread89.i:                                      ; preds = %349, %344, %340, %336
   %353 = add i64 %339, 2
   br label %354
 
-354:                                              ; preds = %358, %.thread91.i
-  %.359.i = phi i64 [ %353, %.thread91.i ], [ %.460.i, %358 ]
-  %.053.i = phi ptr [ %.0101, %.thread91.i ], [ %359, %358 ]
+354:                                              ; preds = %358, %.thread89.i
+  %.359.i = phi i64 [ %353, %.thread89.i ], [ %.460.i, %358 ]
+  %.053.i = phi ptr [ %.0101, %.thread89.i ], [ %359, %358 ]
   %355 = load i8, ptr %.053.i, align 1
   switch i8 %355, label %358 [
-    i8 0, label %.thread97.i
+    i8 0, label %.loopexit.i158
     i8 34, label %356
   ]
 
@@ -13935,23 +13935,23 @@ identifier_needs_quotes.exit156.thread:           ; preds = %285, %288, %275, %2
   %359 = getelementptr i8, ptr %.053.i, i64 1
   br label %354, !llvm.loop !28
 
-.thread:                                          ; preds = %.thread167.thread, %.thread167
+.thread:                                          ; preds = %.thread168.thread, %.thread168
   %360 = call ptr @pg_malloc(i64 noundef 1) #12
   br label %requote_identifier.exit
 
-.thread97.i:                                      ; preds = %354, %349, %346, %.thread89.i
-  %.0100213 = phi ptr [ %.0100212, %349 ], [ %.0100, %.thread89.i ], [ %.0100212, %346 ], [ %.0100212, %354 ]
-  %.0101209 = phi ptr [ %.0101, %349 ], [ null, %.thread89.i ], [ %.0101, %346 ], [ %.0101, %354 ]
-  %.163.i174 = phi i1 [ %.163.i173, %349 ], [ %.163.i, %.thread89.i ], [ %.163.i173, %346 ], [ %.163.i173, %354 ]
-  %361 = phi i1 [ false, %349 ], [ true, %.thread89.i ], [ false, %346 ], [ false, %354 ]
-  %.not.i157166172 = phi i1 [ %.not.i157166171, %349 ], [ %.not.i157166, %.thread89.i ], [ %.not.i157166171, %346 ], [ %.not.i157166171, %354 ]
-  %.165.i = phi i1 [ false, %349 ], [ %335, %.thread89.i ], [ false, %346 ], [ true, %354 ]
-  %.561.i = phi i64 [ %339, %349 ], [ %.258.i, %.thread89.i ], [ %339, %346 ], [ %.359.i, %354 ]
+.loopexit.i158:                                   ; preds = %354, %349, %346, %.loopexit95.i
+  %.0100214 = phi ptr [ %.0100, %.loopexit95.i ], [ %.0100213, %346 ], [ %.0100213, %349 ], [ %.0100213, %354 ]
+  %.0101210 = phi ptr [ null, %.loopexit95.i ], [ %.0101, %346 ], [ %.0101, %349 ], [ %.0101, %354 ]
+  %.163.i175 = phi i1 [ %.163.i, %.loopexit95.i ], [ %.163.i174, %346 ], [ %.163.i174, %349 ], [ %.163.i174, %354 ]
+  %361 = phi i1 [ true, %.loopexit95.i ], [ false, %346 ], [ false, %349 ], [ false, %354 ]
+  %.not.i157167173 = phi i1 [ %.not.i157167, %.loopexit95.i ], [ %.not.i157167172, %346 ], [ %.not.i157167172, %349 ], [ %.not.i157167172, %354 ]
+  %.165.i = phi i1 [ %335, %.loopexit95.i ], [ false, %346 ], [ false, %349 ], [ true, %354 ]
+  %.561.i = phi i64 [ %.258.i, %.loopexit95.i ], [ %339, %346 ], [ %339, %349 ], [ %.359.i, %354 ]
   %362 = call ptr @pg_malloc(i64 noundef %.561.i) #12
-  br i1 %.not.i157166172, label %381, label %363
+  br i1 %.not.i157167173, label %381, label %363
 
-363:                                              ; preds = %.thread97.i
-  br i1 %.163.i174, label %364, label %366
+363:                                              ; preds = %.loopexit.i158
+  br i1 %.163.i175, label %364, label %366
 
 364:                                              ; preds = %363
   %365 = getelementptr i8, ptr %362, i64 1
@@ -13960,35 +13960,35 @@ identifier_needs_quotes.exit156.thread:           ; preds = %285, %288, %275, %2
 
 366:                                              ; preds = %364, %363
   %.055.i = phi ptr [ %365, %364 ], [ %362, %363 ]
-  %367 = load i8, ptr %.0100213, align 1
-  %.not7799.i = icmp eq i8 %367, 0
-  br i1 %.not7799.i, label %._crit_edge.i, label %.lr.ph.i158
+  %367 = load i8, ptr %.0100214, align 1
+  %.not7796.i = icmp eq i8 %367, 0
+  br i1 %.not7796.i, label %._crit_edge.i, label %.lr.ph.i159
 
-.lr.ph.i158:                                      ; preds = %366, %374
+.lr.ph.i159:                                      ; preds = %366, %374
   %368 = phi i8 [ %376, %374 ], [ %367, %366 ]
-  %.052101.i = phi ptr [ %375, %374 ], [ %.0100213, %366 ]
-  %.1100.i = phi ptr [ %.2.i, %374 ], [ %.055.i, %366 ]
-  %369 = getelementptr i8, ptr %.1100.i, i64 1
-  store i8 %368, ptr %.1100.i, align 1
-  %370 = load i8, ptr %.052101.i, align 1
+  %.05298.i = phi ptr [ %375, %374 ], [ %.0100214, %366 ]
+  %.197.i = phi ptr [ %.2.i, %374 ], [ %.055.i, %366 ]
+  %369 = getelementptr i8, ptr %.197.i, i64 1
+  store i8 %368, ptr %.197.i, align 1
+  %370 = load i8, ptr %.05298.i, align 1
   %371 = icmp eq i8 %370, 34
   br i1 %371, label %372, label %374
 
-372:                                              ; preds = %.lr.ph.i158
-  %373 = getelementptr i8, ptr %.1100.i, i64 2
+372:                                              ; preds = %.lr.ph.i159
+  %373 = getelementptr i8, ptr %.197.i, i64 2
   store i8 34, ptr %369, align 1
   br label %374
 
-374:                                              ; preds = %372, %.lr.ph.i158
-  %.2.i = phi ptr [ %373, %372 ], [ %369, %.lr.ph.i158 ]
-  %375 = getelementptr i8, ptr %.052101.i, i64 1
+374:                                              ; preds = %372, %.lr.ph.i159
+  %.2.i = phi ptr [ %373, %372 ], [ %369, %.lr.ph.i159 ]
+  %375 = getelementptr i8, ptr %.05298.i, i64 1
   %376 = load i8, ptr %375, align 1
   %.not77.i = icmp eq i8 %376, 0
-  br i1 %.not77.i, label %._crit_edge.i, label %.lr.ph.i158, !llvm.loop !29
+  br i1 %.not77.i, label %._crit_edge.i, label %.lr.ph.i159, !llvm.loop !29
 
 ._crit_edge.i:                                    ; preds = %374, %366
   %.1.lcssa.i = phi ptr [ %.055.i, %366 ], [ %.2.i, %374 ]
-  br i1 %.163.i174, label %377, label %379
+  br i1 %.163.i175, label %377, label %379
 
 377:                                              ; preds = %._crit_edge.i
   %378 = getelementptr i8, ptr %.1.lcssa.i, i64 1
@@ -13996,107 +13996,107 @@ identifier_needs_quotes.exit156.thread:           ; preds = %285, %288, %275, %2
   br label %379
 
 379:                                              ; preds = %377, %._crit_edge.i
-  %.3.i159 = phi ptr [ %378, %377 ], [ %.1.lcssa.i, %._crit_edge.i ]
-  %380 = getelementptr i8, ptr %.3.i159, i64 1
-  store i8 46, ptr %.3.i159, align 1
+  %.3.i160 = phi ptr [ %378, %377 ], [ %.1.lcssa.i, %._crit_edge.i ]
+  %380 = getelementptr i8, ptr %.3.i160, i64 1
+  store i8 46, ptr %.3.i160, align 1
   br i1 %361, label %requote_identifier.exit, label %382
 
-381:                                              ; preds = %.thread97.i
+381:                                              ; preds = %.loopexit.i158
   br i1 %361, label %requote_identifier.exit, label %382
 
 382:                                              ; preds = %379, %381
-  %.4.i230 = phi ptr [ %380, %379 ], [ %362, %381 ]
+  %.4.i231 = phi ptr [ %380, %379 ], [ %362, %381 ]
   br i1 %.165.i, label %383, label %385
 
 383:                                              ; preds = %382
-  %384 = getelementptr i8, ptr %.4.i230, i64 1
-  store i8 34, ptr %.4.i230, align 1
+  %384 = getelementptr i8, ptr %.4.i231, i64 1
+  store i8 34, ptr %.4.i231, align 1
   br label %385
 
 385:                                              ; preds = %383, %382
-  %.5.i = phi ptr [ %384, %383 ], [ %.4.i230, %382 ]
-  %386 = load i8, ptr %.0101209, align 1
-  %.not78102.i = icmp eq i8 %386, 0
-  br i1 %.not78102.i, label %._crit_edge107.i, label %.lr.ph106.i
+  %.5.i = phi ptr [ %384, %383 ], [ %.4.i231, %382 ]
+  %386 = load i8, ptr %.0101210, align 1
+  %.not7899.i = icmp eq i8 %386, 0
+  br i1 %.not7899.i, label %._crit_edge104.i, label %.lr.ph103.i
 
-.lr.ph106.i:                                      ; preds = %385, %393
+.lr.ph103.i:                                      ; preds = %385, %393
   %387 = phi i8 [ %395, %393 ], [ %386, %385 ]
-  %.0104.i = phi ptr [ %394, %393 ], [ %.0101209, %385 ]
-  %.6103.i = phi ptr [ %.7.i, %393 ], [ %.5.i, %385 ]
-  %388 = getelementptr i8, ptr %.6103.i, i64 1
-  store i8 %387, ptr %.6103.i, align 1
-  %389 = load i8, ptr %.0104.i, align 1
+  %.0101.i = phi ptr [ %394, %393 ], [ %.0101210, %385 ]
+  %.6100.i = phi ptr [ %.7.i, %393 ], [ %.5.i, %385 ]
+  %388 = getelementptr i8, ptr %.6100.i, i64 1
+  store i8 %387, ptr %.6100.i, align 1
+  %389 = load i8, ptr %.0101.i, align 1
   %390 = icmp eq i8 %389, 34
   br i1 %390, label %391, label %393
 
-391:                                              ; preds = %.lr.ph106.i
-  %392 = getelementptr i8, ptr %.6103.i, i64 2
+391:                                              ; preds = %.lr.ph103.i
+  %392 = getelementptr i8, ptr %.6100.i, i64 2
   store i8 34, ptr %388, align 1
   br label %393
 
-393:                                              ; preds = %391, %.lr.ph106.i
-  %.7.i = phi ptr [ %392, %391 ], [ %388, %.lr.ph106.i ]
-  %394 = getelementptr i8, ptr %.0104.i, i64 1
+393:                                              ; preds = %391, %.lr.ph103.i
+  %.7.i = phi ptr [ %392, %391 ], [ %388, %.lr.ph103.i ]
+  %394 = getelementptr i8, ptr %.0101.i, i64 1
   %395 = load i8, ptr %394, align 1
   %.not78.i = icmp eq i8 %395, 0
-  br i1 %.not78.i, label %._crit_edge107.i, label %.lr.ph106.i, !llvm.loop !30
+  br i1 %.not78.i, label %._crit_edge104.i, label %.lr.ph103.i, !llvm.loop !30
 
-._crit_edge107.i:                                 ; preds = %393, %385
+._crit_edge104.i:                                 ; preds = %393, %385
   %.6.lcssa.i = phi ptr [ %.5.i, %385 ], [ %.7.i, %393 ]
   br i1 %.165.i, label %396, label %requote_identifier.exit
 
-396:                                              ; preds = %._crit_edge107.i
+396:                                              ; preds = %._crit_edge104.i
   %397 = getelementptr i8, ptr %.6.lcssa.i, i64 1
   store i8 34, ptr %.6.lcssa.i, align 1
   br label %requote_identifier.exit
 
-requote_identifier.exit:                          ; preds = %379, %.thread, %381, %._crit_edge107.i, %396
-  %398 = phi ptr [ %362, %396 ], [ %362, %._crit_edge107.i ], [ %362, %381 ], [ %360, %.thread ], [ %362, %379 ]
-  %.8.i = phi ptr [ %397, %396 ], [ %.6.lcssa.i, %._crit_edge107.i ], [ %362, %381 ], [ %360, %.thread ], [ %380, %379 ]
+requote_identifier.exit:                          ; preds = %379, %.thread, %381, %._crit_edge104.i, %396
+  %398 = phi ptr [ %362, %396 ], [ %362, %._crit_edge104.i ], [ %362, %381 ], [ %360, %.thread ], [ %362, %379 ]
+  %.8.i = phi ptr [ %397, %396 ], [ %.6.lcssa.i, %._crit_edge104.i ], [ %362, %381 ], [ %360, %.thread ], [ %380, %379 ]
   store i8 0, ptr %.8.i, align 1
   br label %447
 
-._crit_edge:                                      ; preds = %.backedge180, %.preheader179
+._crit_edge:                                      ; preds = %.backedge181, %.preheader180
   %399 = load i32, ptr @_complete_from_query.list_index, align 4
   %400 = load ptr, ptr @_complete_from_query.result, align 8
   %401 = call i32 @PQntuples(ptr noundef %400) #12
   %402 = sub i32 %399, %401
   %.not138 = icmp eq ptr %1, null
-  br i1 %.not138, label %.loopexit177, label %403
+  br i1 %.not138, label %.loopexit178, label %403
 
 403:                                              ; preds = %._crit_edge
   %404 = getelementptr inbounds i8, ptr %1, i64 56
   %405 = load ptr, ptr %404, align 8
   %.not139 = icmp eq ptr %405, null
-  br i1 %.not139, label %.loopexit177, label %.preheader176
+  br i1 %.not139, label %.loopexit178, label %.preheader177
 
-.preheader176:                                    ; preds = %403
+.preheader177:                                    ; preds = %403
   %406 = load ptr, ptr %405, align 8
-  %.not140193 = icmp eq ptr %406, null
-  br i1 %.not140193, label %.loopexit177, label %.lr.ph196
+  %.not140194 = icmp eq ptr %406, null
+  br i1 %.not140194, label %.loopexit178, label %.lr.ph197
 
-.lr.ph196:                                        ; preds = %.preheader176, %.backedge178
-  %407 = phi ptr [ %411, %.backedge178 ], [ %406, %.preheader176 ]
-  %.099195 = phi ptr [ %408, %.backedge178 ], [ %405, %.preheader176 ]
-  %.0102194 = phi i32 [ %409, %.backedge178 ], [ %402, %.preheader176 ]
-  %408 = getelementptr i8, ptr %.099195, i64 8
-  %409 = add i32 %.0102194, -1
-  %410 = icmp sgt i32 %.0102194, 0
-  br i1 %410, label %.backedge178, label %412
+.lr.ph197:                                        ; preds = %.preheader177, %.backedge179
+  %407 = phi ptr [ %411, %.backedge179 ], [ %406, %.preheader177 ]
+  %.099196 = phi ptr [ %408, %.backedge179 ], [ %405, %.preheader177 ]
+  %.0102195 = phi i32 [ %409, %.backedge179 ], [ %402, %.preheader177 ]
+  %408 = getelementptr i8, ptr %.099196, i64 8
+  %409 = add i32 %.0102195, -1
+  %410 = icmp sgt i32 %.0102195, 0
+  br i1 %410, label %.backedge179, label %412
 
-.backedge178:                                     ; preds = %.lr.ph196, %412
+.backedge179:                                     ; preds = %.lr.ph197, %412
   %411 = load ptr, ptr %408, align 8
   %.not140 = icmp eq ptr %411, null
-  br i1 %.not140, label %.loopexit177, label %.lr.ph196, !llvm.loop !31
+  br i1 %.not140, label %.loopexit178, label %.lr.ph197, !llvm.loop !31
 
-412:                                              ; preds = %.lr.ph196
+412:                                              ; preds = %.lr.ph197
   %413 = load i32, ptr @_complete_from_query.list_index, align 4
   %414 = add i32 %413, 1
   store i32 %414, ptr @_complete_from_query.list_index, align 4
   %415 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #14
   %416 = call i32 @pg_strncasecmp(ptr noundef %4, ptr noundef nonnull %407, i64 noundef %415) #12
   %417 = icmp eq i32 %416, 0
-  br i1 %417, label %418, label %.backedge178
+  br i1 %417, label %418, label %.backedge179
 
 418:                                              ; preds = %412
   %419 = load i32, ptr @_complete_from_query.num_keywords, align 4
@@ -14106,31 +14106,31 @@ requote_identifier.exit:                          ; preds = %379, %.thread, %381
   %421 = call fastcc ptr @pg_strdup_keyword_case(ptr noundef nonnull %407, i8 %.val147)
   br label %447
 
-.loopexit177:                                     ; preds = %.backedge178, %.preheader176, %403, %._crit_edge
-  %.1 = phi i32 [ %402, %403 ], [ %402, %._crit_edge ], [ %402, %.preheader176 ], [ %409, %.backedge178 ]
+.loopexit178:                                     ; preds = %.backedge179, %.preheader177, %403, %._crit_edge
+  %.1 = phi i32 [ %402, %403 ], [ %402, %._crit_edge ], [ %402, %.preheader177 ], [ %409, %.backedge179 ]
   %.not141 = icmp eq ptr %2, null
   br i1 %.not141, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %.loopexit177
+.preheader:                                       ; preds = %.loopexit178
   %422 = load ptr, ptr %2, align 8
-  %.not142197 = icmp eq ptr %422, null
-  br i1 %.not142197, label %.loopexit, label %.lr.ph200
+  %.not142198 = icmp eq ptr %422, null
+  br i1 %.not142198, label %.loopexit, label %.lr.ph201
 
-.lr.ph200:                                        ; preds = %.preheader, %.backedge
+.lr.ph201:                                        ; preds = %.preheader, %.backedge
   %423 = phi ptr [ %427, %.backedge ], [ %422, %.preheader ]
-  %.097199 = phi ptr [ %424, %.backedge ], [ %2, %.preheader ]
-  %.2198 = phi i32 [ %425, %.backedge ], [ %.1, %.preheader ]
-  %424 = getelementptr i8, ptr %.097199, i64 8
-  %425 = add i32 %.2198, -1
-  %426 = icmp sgt i32 %.2198, 0
+  %.097200 = phi ptr [ %424, %.backedge ], [ %2, %.preheader ]
+  %.2199 = phi i32 [ %425, %.backedge ], [ %.1, %.preheader ]
+  %424 = getelementptr i8, ptr %.097200, i64 8
+  %425 = add i32 %.2199, -1
+  %426 = icmp sgt i32 %.2199, 0
   br i1 %426, label %.backedge, label %428
 
-.backedge:                                        ; preds = %.lr.ph200, %428
+.backedge:                                        ; preds = %.lr.ph201, %428
   %427 = load ptr, ptr %424, align 8
   %.not142 = icmp eq ptr %427, null
-  br i1 %.not142, label %.loopexit, label %.lr.ph200, !llvm.loop !32
+  br i1 %.not142, label %.loopexit, label %.lr.ph201, !llvm.loop !32
 
-428:                                              ; preds = %.lr.ph200
+428:                                              ; preds = %.lr.ph201
   %429 = load i32, ptr @_complete_from_query.list_index, align 4
   %430 = add i32 %429, 1
   store i32 %430, ptr @_complete_from_query.list_index, align 4
@@ -14147,7 +14147,7 @@ requote_identifier.exit:                          ; preds = %379, %.thread, %381
   %437 = call fastcc ptr @pg_strdup_keyword_case(ptr noundef nonnull %423, i8 %.val)
   br label %447
 
-.loopexit:                                        ; preds = %.backedge, %.preheader, %.loopexit177, %190, %188
+.loopexit:                                        ; preds = %.backedge, %.preheader, %.loopexit178, %190, %188
   %438 = load i32, ptr @_complete_from_query.num_schema_only, align 4
   %439 = icmp sgt i32 %438, 0
   %440 = load i32, ptr @_complete_from_query.num_query_other, align 4

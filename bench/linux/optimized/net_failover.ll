@@ -895,22 +895,24 @@ define internal noundef i32 @net_failover_slave_pre_register(ptr noundef %0, ptr
   %17 = phi ptr [ @.str.7, %12 ], [ @.str.6, %8 ]
   %18 = getelementptr inbounds i8, ptr %0, i64 296
   tail call void (ptr, ptr, ...) @netdev_err(ptr noundef %1, ptr noundef nonnull @.str.5, ptr noundef %18, ptr noundef nonnull %17) #12
-  br label %.thread
+  br label %25
 
 19:                                               ; preds = %12
   %20 = icmp eq ptr %4, null
-  br i1 %20, label %.thread, label %21
+  br i1 %20, label %25, label %21
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds i8, ptr %4, i64 96
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, @pci_bus_type
-  %spec.select = select i1 %24, i32 0, i32 -22
-  br label %.thread
+  br i1 %24, label %.thread, label %25
 
-.thread:                                          ; preds = %8, %21, %19, %16
-  %25 = phi i32 [ -22, %16 ], [ -22, %19 ], [ %spec.select, %21 ], [ 0, %8 ]
-  ret i32 %25
+.thread:                                          ; preds = %8, %21
+  br label %25
+
+25:                                               ; preds = %.thread, %21, %19, %16
+  %26 = phi i32 [ -22, %16 ], [ -22, %21 ], [ -22, %19 ], [ 0, %.thread ]
+  ret i32 %26
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1091,12 +1093,14 @@ define internal noundef i32 @net_failover_slave_pre_unregister(ptr noundef readn
   %7 = getelementptr i8, ptr %1, i64 2312
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, %0
-  %spec.select = select i1 %9, i32 0, i32 -19
-  br label %10
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %6, %2
-  %11 = phi i32 [ 0, %2 ], [ %spec.select, %6 ]
-  ret i32 %11
+  br label %11
+
+11:                                               ; preds = %10, %6
+  %12 = phi i32 [ 0, %10 ], [ -19, %6 ]
+  ret i32 %12
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

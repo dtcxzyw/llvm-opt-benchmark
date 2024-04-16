@@ -458,16 +458,18 @@ while.body.us.us:                                 ; preds = %while.body.lr.ph.sp
   %2 = load ptr, ptr %password, align 8
   %tobool14.us.us = icmp ne ptr %2, null
   %or.cond1.us.us = select i1 %or.cond.us.us, i1 %tobool14.us.us, i1 false
-  br i1 %or.cond1.us.us, label %land.lhs.true15.us.us, label %if.end25.us.us
+  br i1 %or.cond1.us.us, label %land.lhs.true15.us.us, label %if.else.us.us
 
 land.lhs.true15.us.us:                            ; preds = %while.body.us.us
   %call16.us.us = call i32 @credential_match(ptr noundef %c, ptr noundef nonnull %entry1, i32 noundef %match_password) #12
   %tobool17.not.us.us = icmp eq i32 %call16.us.us, 0
-  %spec.select = select i1 %tobool17.not.us.us, i32 %found_credential.011.us.us, i32 1
+  br i1 %tobool17.not.us.us, label %if.else.us.us, label %if.end25.us.us
+
+if.else.us.us:                                    ; preds = %land.lhs.true15.us.us, %while.body.us.us
   br label %if.end25.us.us
 
-if.end25.us.us:                                   ; preds = %land.lhs.true15.us.us, %while.body.us.us
-  %found_credential.1.us.us = phi i32 [ %found_credential.011.us.us, %while.body.us.us ], [ %spec.select, %land.lhs.true15.us.us ]
+if.end25.us.us:                                   ; preds = %land.lhs.true15.us.us, %if.else.us.us
+  %found_credential.1.us.us = phi i32 [ %found_credential.011.us.us, %if.else.us.us ], [ 1, %land.lhs.true15.us.us ]
   %call7.us.us = call i32 @strbuf_getline_lf(ptr noundef nonnull %line, ptr noundef nonnull %call) #12
   %cmp8.not.us.us = icmp eq i32 %call7.us.us, -1
   br i1 %cmp8.not.us.us, label %while.end, label %while.body.us.us, !llvm.loop !6

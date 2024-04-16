@@ -12041,14 +12041,14 @@ define internal fastcc noundef i32 @Abc_TgNextPermutation(ptr nocapture noundef 
   %7 = getelementptr inbounds i8, ptr %0, i64 76
   br label %8
 
-8:                                                ; preds = %.lr.ph, %66
-  %9 = phi i32 [ %3, %.lr.ph ], [ %67, %66 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %66 ]
+8:                                                ; preds = %.lr.ph, %67
+  %9 = phi i32 [ %3, %.lr.ph ], [ %68, %67 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %67 ]
   %10 = getelementptr inbounds %struct.TiedGroup_, ptr %5, i64 %indvars.iv
   %11 = getelementptr inbounds i8, ptr %10, i64 1
   %12 = load i8, ptr %11, align 1
   %13 = icmp eq i8 %12, 1
-  br i1 %13, label %66, label %14
+  br i1 %13, label %67, label %14
 
 14:                                               ; preds = %8
   %15 = sext i8 %12 to i32
@@ -12063,16 +12063,16 @@ define internal fastcc noundef i32 @Abc_TgNextPermutation(ptr nocapture noundef 
   %wide.trip.count.i = zext nneg i32 %15 to i64
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %40, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %40 ]
-  %.044.i = phi i32 [ -1, %.lr.ph.preheader.i ], [ %.1.i, %40 ]
+.lr.ph.i:                                         ; preds = %41, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %41 ]
+  %.044.i = phi i32 [ -1, %.lr.ph.preheader.i ], [ %.1.i, %41 ]
   %21 = getelementptr inbounds i8, ptr %19, i64 %indvars.iv.i
   %22 = load i8, ptr %21, align 1
   %23 = sext i8 %22 to i32
   %24 = trunc nuw nsw i64 %indvars.iv.i to i32
   %25 = add nsw i32 %23, %24
   %or.cond.i = icmp ult i32 %25, %15
-  br i1 %or.cond.i, label %26, label %40
+  br i1 %or.cond.i, label %26, label %41
 
 26:                                               ; preds = %.lr.ph.i
   %27 = getelementptr inbounds i8, ptr %18, i64 %indvars.iv.i
@@ -12081,7 +12081,7 @@ define internal fastcc noundef i32 @Abc_TgNextPermutation(ptr nocapture noundef 
   %30 = getelementptr inbounds i8, ptr %18, i64 %29
   %31 = load i8, ptr %30, align 1
   %32 = icmp sgt i8 %28, %31
-  br i1 %32, label %33, label %40
+  br i1 %32, label %33, label %41
 
 33:                                               ; preds = %26
   %34 = icmp slt i32 %.044.i, 0
@@ -12092,75 +12092,77 @@ define internal fastcc noundef i32 @Abc_TgNextPermutation(ptr nocapture noundef 
   %37 = getelementptr inbounds i8, ptr %18, i64 %36
   %38 = load i8, ptr %37, align 1
   %39 = icmp sgt i8 %28, %38
-  %spec.select.i = select i1 %39, i32 %24, i32 %.044.i
-  br label %40
+  br i1 %39, label %40, label %41
 
-40:                                               ; preds = %35, %33, %26, %.lr.ph.i
-  %.1.i = phi i32 [ %.044.i, %26 ], [ %.044.i, %.lr.ph.i ], [ %24, %33 ], [ %spec.select.i, %35 ]
+40:                                               ; preds = %35, %33
+  br label %41
+
+41:                                               ; preds = %40, %35, %26, %.lr.ph.i
+  %.1.i = phi i32 [ %24, %40 ], [ %.044.i, %35 ], [ %.044.i, %26 ], [ %.044.i, %.lr.ph.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.lr.ph47.i, label %.lr.ph.i, !llvm.loop !139
 
-.lr.ph47.i:                                       ; preds = %40
+.lr.ph47.i:                                       ; preds = %41
   %spec.store.select.i = tail call i32 @llvm.smax.i32(i32 %.1.i, i32 0)
-  %41 = zext nneg i32 %spec.store.select.i to i64
-  %42 = getelementptr inbounds i8, ptr %18, i64 %41
-  br label %43
+  %42 = zext nneg i32 %spec.store.select.i to i64
+  %43 = getelementptr inbounds i8, ptr %18, i64 %42
+  br label %44
 
-43:                                               ; preds = %52, %.lr.ph47.i
-  %indvars.iv50.i = phi i64 [ 0, %.lr.ph47.i ], [ %indvars.iv.next51.i, %52 ]
-  %44 = getelementptr inbounds i8, ptr %18, i64 %indvars.iv50.i
-  %45 = load i8, ptr %44, align 1
-  %46 = load i8, ptr %42, align 1
-  %47 = icmp sgt i8 %45, %46
-  br i1 %47, label %48, label %52
+44:                                               ; preds = %53, %.lr.ph47.i
+  %indvars.iv50.i = phi i64 [ 0, %.lr.ph47.i ], [ %indvars.iv.next51.i, %53 ]
+  %45 = getelementptr inbounds i8, ptr %18, i64 %indvars.iv50.i
+  %46 = load i8, ptr %45, align 1
+  %47 = load i8, ptr %43, align 1
+  %48 = icmp sgt i8 %46, %47
+  br i1 %48, label %49, label %53
 
-48:                                               ; preds = %43
-  %49 = getelementptr inbounds i8, ptr %19, i64 %indvars.iv50.i
-  %50 = load i8, ptr %49, align 1
-  %51 = sub i8 0, %50
-  store i8 %51, ptr %49, align 1
-  br label %52
+49:                                               ; preds = %44
+  %50 = getelementptr inbounds i8, ptr %19, i64 %indvars.iv50.i
+  %51 = load i8, ptr %50, align 1
+  %52 = sub i8 0, %51
+  store i8 %52, ptr %50, align 1
+  br label %53
 
-52:                                               ; preds = %48, %43
+53:                                               ; preds = %49, %44
   %indvars.iv.next51.i = add nuw nsw i64 %indvars.iv50.i, 1
   %exitcond54.not.i = icmp eq i64 %indvars.iv.next51.i, %wide.trip.count.i
-  br i1 %exitcond54.not.i, label %Abc_NextPermSwapC.exit, label %43, !llvm.loop !140
+  br i1 %exitcond54.not.i, label %Abc_NextPermSwapC.exit, label %44, !llvm.loop !140
 
-Abc_NextPermSwapC.exit:                           ; preds = %52, %14
-  %spec.store.select57.i = phi i32 [ 0, %14 ], [ %spec.store.select.i, %52 ]
-  %.pre-phi.i = phi i64 [ 0, %14 ], [ %41, %52 ]
-  %53 = getelementptr inbounds i8, ptr %19, i64 %.pre-phi.i
-  %54 = load i8, ptr %53, align 1
-  %55 = sext i8 %54 to i32
-  %56 = add nsw i32 %spec.store.select57.i, %55
-  %57 = icmp sgt i32 %56, -1
-  br i1 %57, label %58, label %63
+Abc_NextPermSwapC.exit:                           ; preds = %53, %14
+  %spec.store.select57.i = phi i32 [ 0, %14 ], [ %spec.store.select.i, %53 ]
+  %.pre-phi.i = phi i64 [ 0, %14 ], [ %42, %53 ]
+  %54 = getelementptr inbounds i8, ptr %19, i64 %.pre-phi.i
+  %55 = load i8, ptr %54, align 1
+  %56 = sext i8 %55 to i32
+  %57 = add nsw i32 %spec.store.select57.i, %56
+  %58 = icmp sgt i32 %57, -1
+  br i1 %58, label %59, label %64
 
-58:                                               ; preds = %Abc_NextPermSwapC.exit
-  %59 = tail call i32 @llvm.smin.i32(i32 %56, i32 %spec.store.select57.i)
-  %60 = load i8, ptr %10, align 1
-  %61 = sext i8 %60 to i32
-  %62 = add nsw i32 %59, %61
-  tail call fastcc void @Abc_TgSwapAdjacentSymGroups(ptr noundef nonnull %0, i32 noundef %62)
+59:                                               ; preds = %Abc_NextPermSwapC.exit
+  %60 = tail call i32 @llvm.smin.i32(i32 %57, i32 %spec.store.select57.i)
+  %61 = load i8, ptr %10, align 1
+  %62 = sext i8 %61 to i32
+  %63 = add nsw i32 %60, %62
+  tail call fastcc void @Abc_TgSwapAdjacentSymGroups(ptr noundef nonnull %0, i32 noundef %63)
   br label %.loopexit
 
-63:                                               ; preds = %Abc_NextPermSwapC.exit
-  %64 = load i8, ptr %10, align 1
-  %65 = sext i8 %64 to i32
-  tail call fastcc void @Abc_TgSwapAdjacentSymGroups(ptr noundef nonnull %0, i32 noundef %65)
+64:                                               ; preds = %Abc_NextPermSwapC.exit
+  %65 = load i8, ptr %10, align 1
+  %66 = sext i8 %65 to i32
+  tail call fastcc void @Abc_TgSwapAdjacentSymGroups(ptr noundef nonnull %0, i32 noundef %66)
   %.pre = load i32, ptr %2, align 8
-  br label %66
+  br label %67
 
-66:                                               ; preds = %8, %63
-  %67 = phi i32 [ %9, %8 ], [ %.pre, %63 ]
+67:                                               ; preds = %8, %64
+  %68 = phi i32 [ %9, %8 ], [ %.pre, %64 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %68 = sext i32 %67 to i64
-  %69 = icmp slt i64 %indvars.iv.next, %68
-  br i1 %69, label %8, label %.loopexit, !llvm.loop !141
+  %69 = sext i32 %68 to i64
+  %70 = icmp slt i64 %indvars.iv.next, %69
+  br i1 %70, label %8, label %.loopexit, !llvm.loop !141
 
-.loopexit:                                        ; preds = %66, %1, %58
-  %.0 = phi i32 [ 1, %58 ], [ 0, %1 ], [ 0, %66 ]
+.loopexit:                                        ; preds = %67, %1, %59
+  %.0 = phi i32 [ 1, %59 ], [ 0, %1 ], [ 0, %67 ]
   ret i32 %.0
 }
 

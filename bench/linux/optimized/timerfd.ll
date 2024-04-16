@@ -218,7 +218,7 @@ define dso_local noundef i64 @__x64_sys_timerfd_settime(ptr nocapture noundef re
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !12
   %14 = call i32 @get_itimerspec64(ptr noundef nonnull %2, ptr noundef %12) #8
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %16, label %28
+  br i1 %15, label %16, label %29
 
 16:                                               ; preds = %1
   %17 = trunc i64 %7 to i32
@@ -229,7 +229,7 @@ define dso_local noundef i64 @__x64_sys_timerfd_settime(ptr nocapture noundef re
 
 21:                                               ; preds = %16
   %22 = sext i32 %19 to i64
-  br label %28
+  br label %29
 
 23:                                               ; preds = %16
   %24 = icmp eq i64 %11, 0
@@ -238,14 +238,16 @@ define dso_local noundef i64 @__x64_sys_timerfd_settime(ptr nocapture noundef re
 25:                                               ; preds = %23
   %26 = call i32 @put_itimerspec64(ptr noundef nonnull %3, ptr noundef nonnull %13) #8
   %27 = icmp eq i32 %26, 0
-  %spec.select = select i1 %27, i64 0, i64 -14
-  br label %28
+  br i1 %27, label %28, label %29
 
-28:                                               ; preds = %25, %23, %21, %1
-  %29 = phi i64 [ %22, %21 ], [ -14, %1 ], [ 0, %23 ], [ %spec.select, %25 ]
+28:                                               ; preds = %25, %23
+  br label %29
+
+29:                                               ; preds = %28, %25, %21, %1
+  %30 = phi i64 [ %22, %21 ], [ 0, %28 ], [ -14, %1 ], [ -14, %25 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #8
-  ret i64 %29
+  ret i64 %30
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -270,7 +272,7 @@ define dso_local noundef i64 @__ia32_sys_timerfd_settime(ptr nocapture noundef r
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !12
   %16 = call i32 @get_itimerspec64(ptr noundef nonnull %2, ptr noundef %14) #8
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %30
+  br i1 %17, label %18, label %31
 
 18:                                               ; preds = %1
   %19 = trunc i64 %7 to i32
@@ -281,7 +283,7 @@ define dso_local noundef i64 @__ia32_sys_timerfd_settime(ptr nocapture noundef r
 
 23:                                               ; preds = %18
   %24 = sext i32 %21 to i64
-  br label %30
+  br label %31
 
 25:                                               ; preds = %18
   %26 = icmp eq i64 %13, 0
@@ -290,14 +292,16 @@ define dso_local noundef i64 @__ia32_sys_timerfd_settime(ptr nocapture noundef r
 27:                                               ; preds = %25
   %28 = call i32 @put_itimerspec64(ptr noundef nonnull %3, ptr noundef nonnull %15) #8
   %29 = icmp eq i32 %28, 0
-  %spec.select = select i1 %29, i64 0, i64 -14
-  br label %30
+  br i1 %29, label %30, label %31
 
-30:                                               ; preds = %27, %25, %23, %1
-  %31 = phi i64 [ %24, %23 ], [ -14, %1 ], [ 0, %25 ], [ %spec.select, %27 ]
+30:                                               ; preds = %27, %25
+  br label %31
+
+31:                                               ; preds = %30, %27, %23, %1
+  %32 = phi i64 [ %24, %23 ], [ 0, %30 ], [ -14, %1 ], [ -14, %27 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #8
-  ret i64 %31
+  ret i64 %32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -383,7 +387,7 @@ define dso_local noundef i64 @__x64_sys_timerfd_settime32(ptr nocapture noundef 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !12
   %14 = call i32 @get_old_itimerspec32(ptr noundef nonnull %2, ptr noundef %12) #8
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %16, label %28
+  br i1 %15, label %16, label %29
 
 16:                                               ; preds = %1
   %17 = trunc i64 %7 to i32
@@ -394,7 +398,7 @@ define dso_local noundef i64 @__x64_sys_timerfd_settime32(ptr nocapture noundef 
 
 21:                                               ; preds = %16
   %22 = sext i32 %19 to i64
-  br label %28
+  br label %29
 
 23:                                               ; preds = %16
   %24 = icmp eq i64 %11, 0
@@ -403,14 +407,16 @@ define dso_local noundef i64 @__x64_sys_timerfd_settime32(ptr nocapture noundef 
 25:                                               ; preds = %23
   %26 = call i32 @put_old_itimerspec32(ptr noundef nonnull %3, ptr noundef nonnull %13) #8
   %27 = icmp eq i32 %26, 0
-  %spec.select = select i1 %27, i64 0, i64 -14
-  br label %28
+  br i1 %27, label %28, label %29
 
-28:                                               ; preds = %25, %23, %21, %1
-  %29 = phi i64 [ %22, %21 ], [ -14, %1 ], [ 0, %23 ], [ %spec.select, %25 ]
+28:                                               ; preds = %25, %23
+  br label %29
+
+29:                                               ; preds = %28, %25, %21, %1
+  %30 = phi i64 [ %22, %21 ], [ 0, %28 ], [ -14, %1 ], [ -14, %25 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #8
-  ret i64 %29
+  ret i64 %30
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -435,7 +441,7 @@ define dso_local noundef i64 @__ia32_sys_timerfd_settime32(ptr nocapture noundef
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !12
   %16 = call i32 @get_old_itimerspec32(ptr noundef nonnull %2, ptr noundef %14) #8
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %30
+  br i1 %17, label %18, label %31
 
 18:                                               ; preds = %1
   %19 = trunc i64 %7 to i32
@@ -446,7 +452,7 @@ define dso_local noundef i64 @__ia32_sys_timerfd_settime32(ptr nocapture noundef
 
 23:                                               ; preds = %18
   %24 = sext i32 %21 to i64
-  br label %30
+  br label %31
 
 25:                                               ; preds = %18
   %26 = icmp eq i64 %13, 0
@@ -455,14 +461,16 @@ define dso_local noundef i64 @__ia32_sys_timerfd_settime32(ptr nocapture noundef
 27:                                               ; preds = %25
   %28 = call i32 @put_old_itimerspec32(ptr noundef nonnull %3, ptr noundef nonnull %15) #8
   %29 = icmp eq i32 %28, 0
-  %spec.select = select i1 %29, i64 0, i64 -14
-  br label %30
+  br i1 %29, label %30, label %31
 
-30:                                               ; preds = %27, %25, %23, %1
-  %31 = phi i64 [ %24, %23 ], [ -14, %1 ], [ 0, %25 ], [ %spec.select, %27 ]
+30:                                               ; preds = %27, %25
+  br label %31
+
+31:                                               ; preds = %30, %27, %23, %1
+  %32 = phi i64 [ %24, %23 ], [ 0, %30 ], [ -14, %1 ], [ -14, %27 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #8
-  ret i64 %31
+  ret i64 %32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

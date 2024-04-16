@@ -5694,7 +5694,7 @@ define internal noundef i32 @uhci_pci_resume_detect_interrupts_are_broken(ptr no
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 -124
   %5 = load i16, ptr %4, align 4
-  switch i16 %5, label %24 [
+  switch i16 %5, label %.loopexit1 [
     i16 6048, label %.loopexit
     i16 -32634, label %6
   ]
@@ -5703,14 +5703,14 @@ define internal noundef i32 @uhci_pci_resume_detect_interrupts_are_broken(ptr no
   %7 = getelementptr inbounds i8, ptr %0, i64 296
   %8 = load i32, ptr %7, align 8
   %9 = icmp sgt i32 %8, 0
-  br i1 %9, label %.preheader, label %.loopexit
+  br i1 %9, label %.preheader, label %.loopexit1
 
 10:                                               ; preds = %.preheader
   %11 = add nuw nsw i64 %15, 1
   %12 = load i32, ptr %7, align 8
   %13 = sext i32 %12 to i64
   %14 = icmp slt i64 %11, %13
-  br i1 %14, label %.preheader, label %.loopexit, !llvm.loop !97
+  br i1 %14, label %.preheader, label %.loopexit1, !llvm.loop !97
 
 .preheader:                                       ; preds = %6, %10
   %15 = phi i64 [ %11, %10 ], [ 0, %6 ]
@@ -5724,12 +5724,12 @@ define internal noundef i32 @uhci_pci_resume_detect_interrupts_are_broken(ptr no
   %23 = icmp eq i16 %22, 0
   br i1 %23, label %10, label %.loopexit
 
-24:                                               ; preds = %1
+.loopexit1:                                       ; preds = %10, %6, %1
   br label %.loopexit
 
-.loopexit:                                        ; preds = %10, %.preheader, %6, %24, %1
-  %25 = phi i32 [ 1, %1 ], [ 0, %6 ], [ 0, %24 ], [ 0, %10 ], [ 1, %.preheader ]
-  ret i32 %25
+.loopexit:                                        ; preds = %.preheader, %.loopexit1, %1
+  %24 = phi i32 [ 0, %.loopexit1 ], [ 1, %1 ], [ 1, %.preheader ]
+  ret i32 %24
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -6618,33 +6618,33 @@ define internal fastcc void @suspend_rh(ptr noundef %0, i32 noundef %1) unnamed_
   %9 = load i16, ptr %8, align 4
   %10 = and i16 %9, 1
   %11 = icmp eq i16 %10, 0
-  br i1 %11, label %.thread9, label %12
+  br i1 %11, label %.thread8, label %12
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds i8, ptr %5, i64 448
   %14 = load ptr, ptr %13, align 8
   %.fr = freeze ptr %14
   %.not = icmp eq ptr %.fr, null
-  %spec.select11 = select i1 %.not, i32 0, i32 8
-  %spec.select12 = select i1 %.not, i32 0, i32 2
-  br label %.thread9
+  %spec.select = select i1 %.not, i32 0, i32 8
+  %spec.select11 = select i1 %.not, i32 0, i32 2
+  br label %.thread8
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds i8, ptr %5, i64 1296
   %17 = load i8, ptr %16, align 8
   %18 = and i8 %17, 1
   %19 = icmp eq i8 %18, 0
-  br i1 %19, label %41, label %.thread9
+  br i1 %19, label %41, label %.thread8
 
-.thread9:                                         ; preds = %12, %7, %15
-  %20 = phi i32 [ 8, %15 ], [ 0, %7 ], [ %spec.select11, %12 ]
-  %21 = phi i32 [ 2, %15 ], [ 0, %7 ], [ %spec.select12, %12 ]
+.thread8:                                         ; preds = %12, %7, %15
+  %20 = phi i32 [ 8, %15 ], [ 0, %7 ], [ %spec.select, %12 ]
+  %21 = phi i32 [ 2, %15 ], [ 0, %7 ], [ %spec.select11, %12 ]
   %22 = getelementptr inbounds i8, ptr %0, i64 440
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %31, label %25
 
-25:                                               ; preds = %.thread9
+25:                                               ; preds = %.thread8
   %26 = tail call i32 %23(ptr noundef %0) #12
   %27 = icmp eq i32 %26, 0
   %28 = load i8, ptr @ignore_oc, align 1, !range !43
@@ -6652,7 +6652,7 @@ define internal fastcc void @suspend_rh(ptr noundef %0, i32 noundef %1) unnamed_
   %30 = select i1 %27, i1 %29, i1 false
   br i1 %30, label %34, label %41
 
-31:                                               ; preds = %.thread9
+31:                                               ; preds = %.thread8
   %32 = load i8, ptr @ignore_oc, align 1, !range !43, !noundef !44
   %33 = icmp eq i8 %32, 0
   br i1 %33, label %34, label %41
@@ -6666,14 +6666,14 @@ define internal fastcc void @suspend_rh(ptr noundef %0, i32 noundef %1) unnamed_
 38:                                               ; preds = %34
   %39 = tail call i32 %36(ptr noundef %0) #12
   %40 = icmp eq i32 %39, 0
-  %spec.select = select i1 %40, i32 %21, i32 0
-  %spec.select1 = select i1 %40, i32 %20, i32 0
+  %spec.select9 = select i1 %40, i32 %21, i32 0
+  %spec.select10 = select i1 %40, i32 %20, i32 0
   br label %41
 
 41:                                               ; preds = %38, %15, %25, %31, %34
   %42 = phi i1 [ false, %34 ], [ false, %31 ], [ false, %25 ], [ true, %15 ], [ false, %38 ]
-  %43 = phi i32 [ %21, %34 ], [ 0, %31 ], [ 0, %25 ], [ 0, %15 ], [ %spec.select, %38 ]
-  %44 = phi i32 [ %20, %34 ], [ 0, %31 ], [ 0, %25 ], [ 0, %15 ], [ %spec.select1, %38 ]
+  %43 = phi i32 [ %21, %34 ], [ 0, %31 ], [ 0, %25 ], [ 0, %15 ], [ %spec.select9, %38 ]
+  %44 = phi i32 [ %20, %34 ], [ 0, %31 ], [ 0, %25 ], [ 0, %15 ], [ %spec.select10, %38 ]
   %45 = icmp ne i32 %43, 0
   %46 = getelementptr inbounds i8, ptr %0, i64 200
   %47 = load i8, ptr %46, align 8

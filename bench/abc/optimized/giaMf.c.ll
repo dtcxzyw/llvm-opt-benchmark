@@ -15370,7 +15370,7 @@ define void @Mf_ManComputeMapping(ptr nocapture noundef %0) local_unnamed_addr #
   br i1 %43, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %40, %111
-  %.0103.i = phi float [ %.1.i, %111 ], [ 1.000000e+09, %40 ]
+  %.0104.i = phi float [ %.1.i, %111 ], [ 1.000000e+09, %40 ]
   %.041102.i = phi ptr [ %116, %111 ], [ %41, %40 ]
   %.042101.i = phi i32 [ %112, %111 ], [ 0, %40 ]
   %.043100.i = phi ptr [ %.144.i, %111 ], [ null, %40 ]
@@ -15492,14 +15492,14 @@ Mf_CutFlow.exit.i:                                ; preds = %92, %89, %85, %._cr
   %.188.i = phi i32 [ %.0.lcssa.i92.i, %Mf_CutFlow.exit.i ], [ %.08798.i, %Mf_CutAreaDerefed2.exit.i ]
   %99 = phi float [ %97, %Mf_CutFlow.exit.i ], [ %59, %Mf_CutAreaDerefed2.exit.i ]
   %100 = icmp eq ptr %.043100.i, null
-  br i1 %100, label %111, label %101
+  br i1 %100, label %110, label %101
 
 101:                                              ; preds = %98
-  %102 = fpext float %.0103.i to double
+  %102 = fpext float %.0104.i to double
   %103 = fpext float %99 to double
   %104 = fadd double %103, 5.000000e-03
   %105 = fcmp olt double %104, %102
-  br i1 %105, label %111, label %106
+  br i1 %105, label %110, label %106
 
 106:                                              ; preds = %101
   %107 = fadd double %103, -5.000000e-03
@@ -15508,13 +15508,13 @@ Mf_CutFlow.exit.i:                                ; preds = %92, %89, %85, %._cr
   %or.cond.i = select i1 %108, i1 %109, i1 false
   br i1 %or.cond.i, label %110, label %111
 
-110:                                              ; preds = %106
+110:                                              ; preds = %106, %101, %98
   br label %111
 
-111:                                              ; preds = %110, %106, %101, %98
-  %.186.i = phi i32 [ %.08599.i, %106 ], [ %.188.i, %101 ], [ %.188.i, %98 ], [ %.188.i, %110 ]
-  %.144.i = phi ptr [ %.043100.i, %106 ], [ %.041102.i, %101 ], [ %.041102.i, %98 ], [ %.041102.i, %110 ]
-  %.1.i = phi float [ %.0103.i, %106 ], [ %99, %101 ], [ %99, %98 ], [ %99, %110 ]
+111:                                              ; preds = %110, %106
+  %.186.i = phi i32 [ %.188.i, %110 ], [ %.08599.i, %106 ]
+  %.144.i = phi ptr [ %.041102.i, %110 ], [ %.043100.i, %106 ]
+  %.1.i = phi float [ %99, %110 ], [ %.0104.i, %106 ]
   %112 = add nuw nsw i32 %.042101.i, 1
   %.041.val.i = load i32, ptr %.041102.i, align 4
   %113 = and i32 %.041.val.i, 31
@@ -15534,8 +15534,8 @@ Mf_CutFlow.exit.i:                                ; preds = %92, %89, %85, %._cr
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %24, i64 12
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
   %.not48.i = icmp ult i32 %.pre.i, 65536
-  %or.cond110.i = select i1 %.not47.i, i1 true, i1 %.not48.i
-  br i1 %or.cond110.i, label %._crit_edge._crit_edge.i, label %120
+  %or.cond111.i = select i1 %.not47.i, i1 true, i1 %.not48.i
+  br i1 %or.cond111.i, label %._crit_edge._crit_edge.i, label %120
 
 120:                                              ; preds = %._crit_edge.i
   %121 = tail call i32 @Mf_CutRef_rec(ptr noundef nonnull %0, ptr noundef %.043.lcssa.i)

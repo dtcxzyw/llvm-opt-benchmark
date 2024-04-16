@@ -1129,95 +1129,91 @@ define dso_local ptr @hda_get_autocfg_input_label(ptr noundef %0, ptr noundef %1
   %24 = getelementptr [18 x %struct.auto_pin_cfg_item], ptr %4, i64 0, i64 %23, i32 1
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, %8
-  %spec.select1 = zext i1 %26 to i32
-  br label %27
+  br i1 %26, label %27, label %.thread
 
-27:                                               ; preds = %21, %10
-  %28 = phi i1 [ true, %10 ], [ %26, %21 ]
-  %29 = phi i32 [ 1, %10 ], [ %spec.select1, %21 ]
-  %30 = icmp eq i32 %8, 0
-  %31 = select i1 %28, i1 %30, i1 false
-  br i1 %31, label %32, label %.thread
+27:                                               ; preds = %10, %21
+  %28 = icmp eq i32 %8, 0
+  br i1 %28, label %29, label %.thread
 
-32:                                               ; preds = %27
-  %33 = load i16, ptr %6, align 4
-  %34 = tail call i32 @snd_hda_codec_get_pincfg(ptr noundef %0, i16 noundef zeroext %33) #11
-  %35 = lshr i32 %34, 24
-  %36 = and i32 %35, 63
-  %37 = and i32 %34, -1073741824
-  %38 = icmp ne i32 %37, 1073741824
-  %39 = icmp ult i32 %34, 1073741824
-  %40 = and i1 %39, %38
-  br i1 %40, label %41, label %.thread
+29:                                               ; preds = %27
+  %30 = load i16, ptr %6, align 4
+  %31 = tail call i32 @snd_hda_codec_get_pincfg(ptr noundef %0, i16 noundef zeroext %30) #11
+  %32 = lshr i32 %31, 24
+  %33 = and i32 %32, 63
+  %34 = and i32 %31, -1073741824
+  %35 = icmp ne i32 %34, 1073741824
+  %36 = icmp ult i32 %31, 1073741824
+  %37 = and i1 %36, %35
+  br i1 %37, label %38, label %.thread
 
-41:                                               ; preds = %32
-  %42 = and i32 %35, 48
-  switch i32 %42, label %43 [
+38:                                               ; preds = %29
+  %39 = and i32 %32, 48
+  switch i32 %39, label %40 [
     i32 16, label %.thread
     i32 32, label %.thread
   ]
 
-43:                                               ; preds = %41
-  %44 = add nsw i32 %36, -3
-  %45 = icmp ult i32 %44, -2
-  br i1 %45, label %.thread, label %46
+40:                                               ; preds = %38
+  %41 = add nsw i32 %33, -3
+  %42 = icmp ult i32 %41, -2
+  br i1 %42, label %.thread, label %43
 
-46:                                               ; preds = %43
-  %47 = getelementptr inbounds i8, ptr %1, i64 52
-  %48 = load i32, ptr %47, align 4
-  %49 = icmp sgt i32 %48, 0
-  br i1 %49, label %.preheader, label %.thread
+43:                                               ; preds = %40
+  %44 = getelementptr inbounds i8, ptr %1, i64 52
+  %45 = load i32, ptr %44, align 4
+  %46 = icmp sgt i32 %45, 0
+  br i1 %46, label %.preheader, label %.thread
 
-.preheader:                                       ; preds = %46, %.thread4
-  %50 = phi i64 [ %71, %.thread4 ], [ 0, %46 ]
-  %51 = phi i32 [ %70, %.thread4 ], [ 0, %46 ]
-  %52 = getelementptr [18 x %struct.auto_pin_cfg_item], ptr %4, i64 0, i64 %50
-  %53 = load i16, ptr %52, align 4
-  %54 = tail call i32 @snd_hda_codec_get_pincfg(ptr noundef %0, i16 noundef zeroext %53) #11
-  %55 = lshr i32 %54, 24
-  %56 = and i32 %55, 63
-  %57 = and i32 %54, -1073741824
-  %58 = icmp ne i32 %57, 1073741824
-  %59 = icmp ult i32 %54, 1073741824
-  %or.cond = and i1 %59, %58
-  br i1 %or.cond, label %60, label %.thread4
+.preheader:                                       ; preds = %43, %.thread4
+  %47 = phi i64 [ %68, %.thread4 ], [ 0, %43 ]
+  %48 = phi i32 [ %67, %.thread4 ], [ 0, %43 ]
+  %49 = getelementptr [18 x %struct.auto_pin_cfg_item], ptr %4, i64 0, i64 %47
+  %50 = load i16, ptr %49, align 4
+  %51 = tail call i32 @snd_hda_codec_get_pincfg(ptr noundef %0, i16 noundef zeroext %50) #11
+  %52 = lshr i32 %51, 24
+  %53 = and i32 %52, 63
+  %54 = and i32 %51, -1073741824
+  %55 = icmp ne i32 %54, 1073741824
+  %56 = icmp ult i32 %51, 1073741824
+  %or.cond = and i1 %56, %55
+  br i1 %or.cond, label %57, label %.thread4
 
-60:                                               ; preds = %.preheader
-  %61 = and i32 %55, 48
-  switch i32 %61, label %62 [
+57:                                               ; preds = %.preheader
+  %58 = and i32 %52, 48
+  switch i32 %58, label %59 [
     i32 16, label %.thread4
     i32 32, label %.thread4
   ]
 
-62:                                               ; preds = %60
-  %63 = icmp eq i32 %56, 2
-  %64 = select i1 %63, i32 5, i32 3
-  %65 = icmp eq i32 %56, 1
-  %66 = select i1 %65, i32 4, i32 %64
-  %67 = icmp eq i32 %51, 0
-  %68 = icmp eq i32 %51, %66
-  %69 = or i1 %67, %68
-  br i1 %69, label %.thread4, label %.thread
+59:                                               ; preds = %57
+  %60 = icmp eq i32 %53, 2
+  %61 = select i1 %60, i32 5, i32 3
+  %62 = icmp eq i32 %53, 1
+  %63 = select i1 %62, i32 4, i32 %61
+  %64 = icmp eq i32 %48, 0
+  %65 = icmp eq i32 %48, %63
+  %66 = or i1 %64, %65
+  br i1 %66, label %.thread4, label %.thread
 
-.thread4:                                         ; preds = %60, %60, %.preheader, %62
-  %70 = phi i32 [ %66, %62 ], [ %51, %.preheader ], [ %51, %60 ], [ %51, %60 ]
-  %71 = add nuw nsw i64 %50, 1
-  %72 = load i32, ptr %47, align 4
-  %73 = sext i32 %72 to i64
-  %74 = icmp slt i64 %71, %73
-  br i1 %74, label %.preheader, label %.thread, !llvm.loop !15
+.thread4:                                         ; preds = %57, %57, %.preheader, %59
+  %67 = phi i32 [ %63, %59 ], [ %48, %.preheader ], [ %48, %57 ], [ %48, %57 ]
+  %68 = add nuw nsw i64 %47, 1
+  %69 = load i32, ptr %44, align 4
+  %70 = sext i32 %69 to i64
+  %71 = icmp slt i64 %68, %70
+  br i1 %71, label %.preheader, label %.thread, !llvm.loop !15
 
-.thread:                                          ; preds = %.thread4, %62, %16, %46, %43, %41, %41, %32, %27
-  %75 = phi i32 [ %29, %27 ], [ 1, %43 ], [ 1, %41 ], [ 1, %41 ], [ 1, %32 ], [ 0, %46 ], [ 0, %16 ], [ 1, %62 ], [ 0, %.thread4 ]
-  %76 = getelementptr inbounds i8, ptr %0, i64 1432
-  %77 = load i32, ptr %76, align 8
-  %78 = lshr i32 %77, 18
-  %79 = and i32 %78, 1
-  %80 = or i32 %79, %75
-  %81 = load i16, ptr %6, align 4
-  %82 = icmp ne i32 %80, 0
-  %83 = tail call fastcc ptr @hda_get_input_pin_label(ptr noundef %0, ptr noundef %6, i16 noundef zeroext %81, i1 noundef zeroext %82)
-  ret ptr %83
+.thread:                                          ; preds = %.thread4, %59, %16, %21, %43, %40, %38, %38, %29, %27
+  %72 = phi i32 [ 1, %27 ], [ 1, %40 ], [ 1, %38 ], [ 1, %38 ], [ 1, %29 ], [ 0, %43 ], [ 0, %21 ], [ 0, %16 ], [ 1, %59 ], [ 0, %.thread4 ]
+  %73 = getelementptr inbounds i8, ptr %0, i64 1432
+  %74 = load i32, ptr %73, align 8
+  %75 = lshr i32 %74, 18
+  %76 = and i32 %75, 1
+  %77 = or i32 %76, %72
+  %78 = load i16, ptr %6, align 4
+  %79 = icmp ne i32 %77, 0
+  %80 = tail call fastcc ptr @hda_get_input_pin_label(ptr noundef %0, ptr noundef %6, i16 noundef zeroext %78, i1 noundef zeroext %79)
+  ret ptr %80
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
@@ -1259,14 +1255,14 @@ define internal fastcc ptr @hda_get_input_pin_label(ptr noundef %0, ptr noundef 
   %5 = tail call i32 @snd_hda_codec_get_pincfg(ptr noundef %0, i16 noundef zeroext %2) #11
   %6 = lshr i32 %5, 20
   %7 = and i32 %6, 15
-  switch i32 %7, label %51 [
+  switch i32 %7, label %49 [
     i32 10, label %8
     i32 8, label %39
     i32 9, label %.thread7
-    i32 3, label %47
-    i32 12, label %48
-    i32 13, label %49
-    i32 2, label %50
+    i32 3, label %45
+    i32 12, label %46
+    i32 13, label %47
+    i32 2, label %48
   ]
 
 8:                                                ; preds = %4
@@ -1333,13 +1329,15 @@ define internal fastcc ptr @hda_get_input_pin_label(ptr noundef %0, ptr noundef 
   br i1 %42, label %.thread7, label %43
 
 43:                                               ; preds = %40
-  %44 = icmp ult i32 %5, 1073741824
-  br i1 %44, label %45, label %.thread7
+  %44 = and i32 %5, -268435456
+  %or.cond = icmp eq i32 %44, 536870912
+  %spec.select = select i1 %or.cond, ptr @.str.34, ptr @.str.33
+  br label %.thread7
 
-45:                                               ; preds = %43
-  %46 = and i32 %5, 805306368
-  %cond = icmp eq i32 %46, 536870912
-  %spec.select = select i1 %cond, ptr @.str.34, ptr @.str.33
+45:                                               ; preds = %4
+  br label %.thread7
+
+46:                                               ; preds = %4
   br label %.thread7
 
 47:                                               ; preds = %4
@@ -1351,15 +1349,9 @@ define internal fastcc ptr @hda_get_input_pin_label(ptr noundef %0, ptr noundef 
 49:                                               ; preds = %4
   br label %.thread7
 
-50:                                               ; preds = %4
-  br label %.thread7
-
-51:                                               ; preds = %4
-  br label %.thread7
-
-.thread7:                                         ; preds = %45, %43, %40, %21, %51, %50, %49, %48, %47, %39, %36, %20, %15, %10, %4
-  %52 = phi ptr [ @.str.39, %51 ], [ @.str.31, %50 ], [ @.str.38, %49 ], [ @.str.37, %48 ], [ @.str.36, %47 ], [ %38, %36 ], [ @.str.30, %10 ], [ %19, %15 ], [ @.str.27, %20 ], [ @.str.33, %39 ], [ @.str.35, %4 ], [ @.str.32, %21 ], [ @.str.32, %40 ], [ @.str.33, %43 ], [ %spec.select, %45 ]
-  ret ptr %52
+.thread7:                                         ; preds = %43, %40, %21, %49, %48, %47, %46, %45, %39, %36, %20, %15, %10, %4
+  %50 = phi ptr [ @.str.39, %49 ], [ @.str.31, %48 ], [ @.str.38, %47 ], [ @.str.37, %46 ], [ @.str.36, %45 ], [ %38, %36 ], [ @.str.30, %10 ], [ %19, %15 ], [ @.str.27, %20 ], [ @.str.33, %39 ], [ @.str.35, %4 ], [ @.str.32, %21 ], [ @.str.32, %40 ], [ %spec.select, %43 ]
+  ret ptr %50
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1375,7 +1367,7 @@ define dso_local noundef i32 @snd_hda_get_pin_label(ptr noundef %0, i16 noundef 
 10:                                               ; preds = %9, %6
   %11 = and i32 %7, -1073741824
   %12 = icmp eq i32 %11, 1073741824
-  br i1 %12, label %103, label %13
+  br i1 %12, label %101, label %13
 
 13:                                               ; preds = %10
   %14 = lshr i32 %7, 20
@@ -1390,15 +1382,15 @@ define dso_local noundef i32 @snd_hda_get_pin_label(ptr noundef %0, i16 noundef 
 
 16:                                               ; preds = %13
   tail call fastcc void @fill_audio_out_name(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2, ptr noundef nonnull @.str.14, ptr noundef %3, i32 noundef %4, ptr noundef %5)
-  br label %103
+  br label %101
 
 17:                                               ; preds = %13
   tail call fastcc void @fill_audio_out_name(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2, ptr noundef nonnull @.str.15, ptr noundef %3, i32 noundef %4, ptr noundef %5)
-  br label %103
+  br label %101
 
 18:                                               ; preds = %13
   tail call fastcc void @fill_audio_out_name(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2, ptr noundef nonnull @.str.16, ptr noundef %3, i32 noundef %4, ptr noundef %5)
-  br label %103
+  br label %101
 
 19:                                               ; preds = %13, %13
   %20 = and i32 %7, 1056964608
@@ -1485,14 +1477,14 @@ define dso_local noundef i32 @snd_hda_get_pin_label(ptr noundef %0, i16 noundef 
   %68 = tail call i32 @snd_hda_codec_get_pincfg(ptr noundef %0, i16 noundef zeroext %1) #11
   %69 = lshr i32 %68, 20
   %70 = and i32 %69, 15
-  switch i32 %70, label %97 [
+  switch i32 %70, label %95 [
     i32 10, label %71
     i32 8, label %86
     i32 9, label %hda_get_input_pin_label.exit.thread
-    i32 3, label %93
-    i32 12, label %94
-    i32 13, label %95
-    i32 2, label %96
+    i32 3, label %91
+    i32 12, label %92
+    i32 13, label %93
+    i32 2, label %94
   ]
 
 71:                                               ; preds = %.loopexit
@@ -1529,13 +1521,15 @@ define dso_local noundef i32 @snd_hda_get_pin_label(ptr noundef %0, i16 noundef 
   br i1 %88, label %hda_get_input_pin_label.exit.thread, label %89
 
 89:                                               ; preds = %86
-  %90 = icmp ult i32 %68, 1073741824
-  br i1 %90, label %91, label %hda_get_input_pin_label.exit.thread
+  %90 = and i32 %68, -268435456
+  %or.cond.i = icmp eq i32 %90, 536870912
+  %spec.select.i = select i1 %or.cond.i, ptr @.str.34, ptr @.str.33
+  br label %hda_get_input_pin_label.exit.thread
 
-91:                                               ; preds = %89
-  %92 = and i32 %68, 805306368
-  %cond.i = icmp eq i32 %92, 536870912
-  %spec.select.i = select i1 %cond.i, ptr @.str.34, ptr @.str.33
+91:                                               ; preds = %.loopexit
+  br label %hda_get_input_pin_label.exit.thread
+
+92:                                               ; preds = %.loopexit
   br label %hda_get_input_pin_label.exit.thread
 
 93:                                               ; preds = %.loopexit
@@ -1547,27 +1541,21 @@ define dso_local noundef i32 @snd_hda_get_pin_label(ptr noundef %0, i16 noundef 
 95:                                               ; preds = %.loopexit
   br label %hda_get_input_pin_label.exit.thread
 
-96:                                               ; preds = %.loopexit
-  br label %hda_get_input_pin_label.exit.thread
-
-97:                                               ; preds = %.loopexit
-  br label %hda_get_input_pin_label.exit.thread
-
 hda_get_input_pin_label.exit:                     ; preds = %76, %78, %80, %81
   %.ph.i = phi i64 [ %85, %81 ], [ 0, %78 ], [ 0, %76 ], [ 1, %80 ]
-  %98 = getelementptr [5 x ptr], ptr @hda_get_input_pin_label.mic_names, i64 0, i64 %.ph.i
-  %99 = load ptr, ptr %98, align 8
+  %96 = getelementptr [5 x ptr], ptr @hda_get_input_pin_label.mic_names, i64 0, i64 %.ph.i
+  %97 = load ptr, ptr %96, align 8
   br label %hda_get_input_pin_label.exit.thread
 
-hda_get_input_pin_label.exit.thread:              ; preds = %41, %.preheader, %59, %hda_get_input_pin_label.exit, %91, %89, %86, %71, %.loopexit, %93, %94, %95, %96, %97, %25, %19
-  %100 = phi ptr [ %99, %hda_get_input_pin_label.exit ], [ %spec.select.i, %91 ], [ @.str.33, %89 ], [ @.str.32, %86 ], [ @.str.32, %71 ], [ @.str.35, %.loopexit ], [ @.str.36, %93 ], [ @.str.37, %94 ], [ @.str.38, %95 ], [ @.str.31, %96 ], [ @.str.39, %97 ], [ %22, %25 ], [ %22, %19 ], [ %61, %59 ], [ %22, %.preheader ], [ %22, %41 ]
-  %101 = sext i32 %4 to i64
-  %102 = tail call i64 @strscpy(ptr noundef %3, ptr noundef nonnull %100, i64 noundef %101) #11
-  br label %103
+hda_get_input_pin_label.exit.thread:              ; preds = %41, %.preheader, %59, %hda_get_input_pin_label.exit, %89, %86, %71, %.loopexit, %91, %92, %93, %94, %95, %25, %19
+  %98 = phi ptr [ %97, %hda_get_input_pin_label.exit ], [ %spec.select.i, %89 ], [ @.str.32, %86 ], [ @.str.32, %71 ], [ @.str.35, %.loopexit ], [ @.str.36, %91 ], [ @.str.37, %92 ], [ @.str.38, %93 ], [ @.str.31, %94 ], [ @.str.39, %95 ], [ %22, %25 ], [ %22, %19 ], [ %61, %59 ], [ %22, %.preheader ], [ %22, %41 ]
+  %99 = sext i32 %4 to i64
+  %100 = tail call i64 @strscpy(ptr noundef %3, ptr noundef nonnull %98, i64 noundef %99) #11
+  br label %101
 
-103:                                              ; preds = %hda_get_input_pin_label.exit.thread, %18, %17, %16, %10
-  %104 = phi i32 [ 1, %hda_get_input_pin_label.exit.thread ], [ 1, %18 ], [ 1, %17 ], [ 1, %16 ], [ 0, %10 ]
-  ret i32 %104
+101:                                              ; preds = %hda_get_input_pin_label.exit.thread, %18, %17, %16, %10
+  %102 = phi i32 [ 1, %hda_get_input_pin_label.exit.thread ], [ 1, %18 ], [ 1, %17 ], [ 1, %16 ], [ 0, %10 ]
+  ret i32 %102
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1733,7 +1721,7 @@ define internal fastcc void @fill_audio_out_name(ptr noundef %0, i16 noundef zer
   %100 = icmp ne i32 %99, 1073741824
   %101 = icmp ult i32 %.fr, 1073741824
   %or.cond = and i1 %101, %100
-  br i1 %or.cond, label %102, label %.thread35
+  br i1 %or.cond, label %102, label %.thread38
 
 102:                                              ; preds = %.thread27
   %103 = and i32 %97, 48
@@ -1744,18 +1732,18 @@ define internal fastcc void @fill_audio_out_name(ptr noundef %0, i16 noundef zer
 
 104:                                              ; preds = %102
   %105 = icmp eq i32 %98, 1
-  br i1 %105, label %.thread35, label %106
+  br i1 %105, label %.thread38, label %106
 
 106:                                              ; preds = %104
   %107 = icmp eq i32 %98, 2
   %spec.select = select i1 %107, ptr @.str.43, ptr @.str.40
   br label %.thread35
 
-.thread38:                                        ; preds = %102
+.thread38:                                        ; preds = %102, %.thread27, %104
   br label %.thread35
 
-.thread35:                                        ; preds = %106, %104, %.thread27, %102, %.thread38
-  %108 = phi ptr [ @.str.42, %102 ], [ @.str.40, %.thread27 ], [ @.str.40, %104 ], [ @.str.40, %.thread38 ], [ %spec.select, %106 ]
+.thread35:                                        ; preds = %106, %102, %.thread38
+  %108 = phi ptr [ @.str.40, %.thread38 ], [ @.str.42, %102 ], [ %spec.select, %106 ]
   %109 = icmp sgt i32 %95, 0
   br i1 %109, label %110, label %.thread25
 
@@ -1801,7 +1789,7 @@ define internal fastcc void @fill_audio_out_name(ptr noundef %0, i16 noundef zer
   %136 = icmp ne i32 %135, 1073741824
   %137 = icmp ult i32 %.fr64, 1073741824
   %or.cond59 = and i1 %137, %136
-  br i1 %or.cond59, label %138, label %.thread51
+  br i1 %or.cond59, label %138, label %.thread54
 
 138:                                              ; preds = %127
   %139 = and i32 %133, 48
@@ -1812,18 +1800,18 @@ define internal fastcc void @fill_audio_out_name(ptr noundef %0, i16 noundef zer
 
 140:                                              ; preds = %138
   %141 = icmp eq i32 %134, 1
-  br i1 %141, label %.thread51, label %142
+  br i1 %141, label %.thread54, label %142
 
 142:                                              ; preds = %140
   %143 = icmp eq i32 %134, 2
   %spec.select60 = select i1 %143, ptr @.str.43, ptr @.str.40
   br label %.thread51
 
-.thread54:                                        ; preds = %138
+.thread54:                                        ; preds = %138, %127, %140
   br label %.thread51
 
-.thread51:                                        ; preds = %142, %140, %127, %138, %.thread54
-  %144 = phi ptr [ @.str.42, %138 ], [ @.str.40, %127 ], [ @.str.40, %140 ], [ @.str.40, %.thread54 ], [ %spec.select60, %142 ]
+.thread51:                                        ; preds = %142, %138, %.thread54
+  %144 = phi ptr [ @.str.40, %.thread54 ], [ @.str.42, %138 ], [ %spec.select60, %142 ]
   %145 = icmp eq ptr %108, %144
   %146 = zext i1 %145 to i32
   %147 = add i32 %129, %146

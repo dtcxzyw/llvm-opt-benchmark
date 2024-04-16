@@ -50,11 +50,11 @@ define internal void @build_heap(ptr nocapture noundef readonly %0) #2 {
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   br label %tailrecurse.i
 
-tailrecurse.i:                                    ; preds = %30, %.lr.ph
-  %8 = phi i32 [ %7, %.lr.ph ], [ %.pre, %30 ]
-  %.tr35.i = phi i32 [ %.0, %.lr.ph ], [ %.1.i, %30 ]
+tailrecurse.i:                                    ; preds = %31, %.lr.ph
+  %8 = phi i32 [ %7, %.lr.ph ], [ %.pre, %31 ]
+  %.tr34.i = phi i32 [ %.0, %.lr.ph ], [ %.1.i, %31 ]
   %9 = load ptr, ptr %0, align 8
-  %10 = shl nsw i32 %.tr35.i, 1
+  %10 = shl nsw i32 %.tr34.i, 1
   %11 = or disjoint i32 %10, 1
   %.not.i = icmp sgt i32 %10, %8
   br i1 %.not.i, label %20, label %12
@@ -63,49 +63,51 @@ tailrecurse.i:                                    ; preds = %30, %.lr.ph
   %13 = sext i32 %10 to i64
   %14 = getelementptr inbounds %struct.heap_node_t, ptr %9, i64 %13
   %15 = load i64, ptr %14, align 8
-  %16 = sext i32 %.tr35.i to i64
+  %16 = sext i32 %.tr34.i to i64
   %17 = getelementptr inbounds %struct.heap_node_t, ptr %9, i64 %16
   %18 = load i64, ptr %17, align 8
   %19 = icmp slt i64 %15, %18
-  %spec.select34.i = select i1 %19, i32 %10, i32 %.tr35.i
-  br label %20
+  br i1 %19, label %21, label %20
 
 20:                                               ; preds = %12, %tailrecurse.i
-  %.0.i = phi i32 [ %.tr35.i, %tailrecurse.i ], [ %spec.select34.i, %12 ]
+  br label %21
+
+21:                                               ; preds = %20, %12
+  %.0.i = phi i32 [ %.tr34.i, %20 ], [ %10, %12 ]
   %.not32.not.i = icmp slt i32 %10, %8
-  br i1 %.not32.not.i, label %21, label %29
+  br i1 %.not32.not.i, label %22, label %30
 
-21:                                               ; preds = %20
-  %22 = sext i32 %11 to i64
-  %23 = getelementptr inbounds %struct.heap_node_t, ptr %9, i64 %22
-  %24 = load i64, ptr %23, align 8
-  %25 = sext i32 %.0.i to i64
-  %26 = getelementptr inbounds %struct.heap_node_t, ptr %9, i64 %25
-  %27 = load i64, ptr %26, align 8
-  %28 = icmp slt i64 %24, %27
-  %spec.select.i = select i1 %28, i32 %11, i32 %.0.i
-  br label %29
+22:                                               ; preds = %21
+  %23 = sext i32 %11 to i64
+  %24 = getelementptr inbounds %struct.heap_node_t, ptr %9, i64 %23
+  %25 = load i64, ptr %24, align 8
+  %26 = sext i32 %.0.i to i64
+  %27 = getelementptr inbounds %struct.heap_node_t, ptr %9, i64 %26
+  %28 = load i64, ptr %27, align 8
+  %29 = icmp slt i64 %25, %28
+  %spec.select.i = select i1 %29, i32 %11, i32 %.0.i
+  br label %30
 
-29:                                               ; preds = %21, %20
-  %.1.i = phi i32 [ %.0.i, %20 ], [ %spec.select.i, %21 ]
-  %.not33.i = icmp eq i32 %.1.i, %.tr35.i
-  br i1 %.not33.i, label %heapify.exit, label %30
+30:                                               ; preds = %22, %21
+  %.1.i = phi i32 [ %.0.i, %21 ], [ %spec.select.i, %22 ]
+  %.not33.i = icmp eq i32 %.1.i, %.tr34.i
+  br i1 %.not33.i, label %heapify.exit, label %31
 
-30:                                               ; preds = %29
-  %31 = sext i32 %.tr35.i to i64
-  %32 = getelementptr inbounds %struct.heap_node_t, ptr %9, i64 %31
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %32, i64 24, i1 false)
-  %33 = sext i32 %.1.i to i64
-  %34 = getelementptr inbounds %struct.heap_node_t, ptr %9, i64 %33
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %34, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
+31:                                               ; preds = %30
+  %32 = sext i32 %.tr34.i to i64
+  %33 = getelementptr inbounds %struct.heap_node_t, ptr %9, i64 %32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %33, i64 24, i1 false)
+  %34 = sext i32 %.1.i to i64
+  %35 = getelementptr inbounds %struct.heap_node_t, ptr %9, i64 %34
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef nonnull align 8 dereferenceable(24) %35, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %.pre = load i32, ptr %3, align 8
   br label %tailrecurse.i
 
-heapify.exit:                                     ; preds = %29
+heapify.exit:                                     ; preds = %30
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
-  %35 = icmp sgt i32 %.0.in4, 1
-  br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !4
+  %36 = icmp sgt i32 %.0.in4, 1
+  br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %heapify.exit, %1
   ret void
@@ -176,11 +178,11 @@ define void @ADIOI_Heap_extract_min(ptr nocapture noundef %0, ptr nocapture noun
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   br label %tailrecurse.i
 
-tailrecurse.i:                                    ; preds = %41, %4
-  %19 = phi i32 [ %18, %4 ], [ %.pre, %41 ]
-  %.tr35.i = phi i32 [ 0, %4 ], [ %.1.i, %41 ]
+tailrecurse.i:                                    ; preds = %42, %4
+  %19 = phi i32 [ %18, %4 ], [ %.pre, %42 ]
+  %.tr34.i = phi i32 [ 0, %4 ], [ %.1.i, %42 ]
   %20 = load ptr, ptr %0, align 8
-  %21 = shl nsw i32 %.tr35.i, 1
+  %21 = shl nsw i32 %.tr34.i, 1
   %22 = or disjoint i32 %21, 1
   %.not.i = icmp sgt i32 %21, %19
   br i1 %.not.i, label %31, label %23
@@ -189,46 +191,48 @@ tailrecurse.i:                                    ; preds = %41, %4
   %24 = sext i32 %21 to i64
   %25 = getelementptr inbounds %struct.heap_node_t, ptr %20, i64 %24
   %26 = load i64, ptr %25, align 8
-  %27 = sext i32 %.tr35.i to i64
+  %27 = sext i32 %.tr34.i to i64
   %28 = getelementptr inbounds %struct.heap_node_t, ptr %20, i64 %27
   %29 = load i64, ptr %28, align 8
   %30 = icmp slt i64 %26, %29
-  %spec.select34.i = select i1 %30, i32 %21, i32 %.tr35.i
-  br label %31
+  br i1 %30, label %32, label %31
 
 31:                                               ; preds = %23, %tailrecurse.i
-  %.0.i = phi i32 [ %.tr35.i, %tailrecurse.i ], [ %spec.select34.i, %23 ]
+  br label %32
+
+32:                                               ; preds = %31, %23
+  %.0.i = phi i32 [ %.tr34.i, %31 ], [ %21, %23 ]
   %.not32.not.i = icmp slt i32 %21, %19
-  br i1 %.not32.not.i, label %32, label %40
+  br i1 %.not32.not.i, label %33, label %41
 
-32:                                               ; preds = %31
-  %33 = sext i32 %22 to i64
-  %34 = getelementptr inbounds %struct.heap_node_t, ptr %20, i64 %33
-  %35 = load i64, ptr %34, align 8
-  %36 = sext i32 %.0.i to i64
-  %37 = getelementptr inbounds %struct.heap_node_t, ptr %20, i64 %36
-  %38 = load i64, ptr %37, align 8
-  %39 = icmp slt i64 %35, %38
-  %spec.select.i = select i1 %39, i32 %22, i32 %.0.i
-  br label %40
+33:                                               ; preds = %32
+  %34 = sext i32 %22 to i64
+  %35 = getelementptr inbounds %struct.heap_node_t, ptr %20, i64 %34
+  %36 = load i64, ptr %35, align 8
+  %37 = sext i32 %.0.i to i64
+  %38 = getelementptr inbounds %struct.heap_node_t, ptr %20, i64 %37
+  %39 = load i64, ptr %38, align 8
+  %40 = icmp slt i64 %36, %39
+  %spec.select.i = select i1 %40, i32 %22, i32 %.0.i
+  br label %41
 
-40:                                               ; preds = %32, %31
-  %.1.i = phi i32 [ %.0.i, %31 ], [ %spec.select.i, %32 ]
-  %.not33.i = icmp eq i32 %.1.i, %.tr35.i
-  br i1 %.not33.i, label %heapify.exit, label %41
+41:                                               ; preds = %33, %32
+  %.1.i = phi i32 [ %.0.i, %32 ], [ %spec.select.i, %33 ]
+  %.not33.i = icmp eq i32 %.1.i, %.tr34.i
+  br i1 %.not33.i, label %heapify.exit, label %42
 
-41:                                               ; preds = %40
-  %42 = sext i32 %.tr35.i to i64
-  %43 = getelementptr inbounds %struct.heap_node_t, ptr %20, i64 %42
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %43, i64 24, i1 false)
-  %44 = sext i32 %.1.i to i64
-  %45 = getelementptr inbounds %struct.heap_node_t, ptr %20, i64 %44
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %43, ptr noundef nonnull align 8 dereferenceable(24) %45, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %45, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
+42:                                               ; preds = %41
+  %43 = sext i32 %.tr34.i to i64
+  %44 = getelementptr inbounds %struct.heap_node_t, ptr %20, i64 %43
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %44, i64 24, i1 false)
+  %45 = sext i32 %.1.i to i64
+  %46 = getelementptr inbounds %struct.heap_node_t, ptr %20, i64 %45
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %44, ptr noundef nonnull align 8 dereferenceable(24) %46, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   %.pre = load i32, ptr %12, align 8
   br label %tailrecurse.i
 
-heapify.exit:                                     ; preds = %40
+heapify.exit:                                     ; preds = %41
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   ret void
 }

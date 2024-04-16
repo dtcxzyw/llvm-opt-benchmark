@@ -1101,14 +1101,18 @@ do.body17:                                        ; preds = %if.then8, %do.body6
   %buf = getelementptr inbounds i8, ptr %self, i64 16
   %2 = load ptr, ptr %buf, align 8
   %tobool18.not = icmp eq ptr %2, null
-  br i1 %tobool18.not, label %return, label %if.then19
+  br i1 %tobool18.not, label %do.end27, label %if.then19
 
 if.then19:                                        ; preds = %do.body17
   %call22 = tail call i32 %visit(ptr noundef nonnull %2, ptr noundef %arg) #8
+  %tobool23.not = icmp eq i32 %call22, 0
+  br i1 %tobool23.not, label %do.end27, label %return
+
+do.end27:                                         ; preds = %do.body17, %if.then19
   br label %return
 
-return:                                           ; preds = %if.then19, %do.body17, %if.then8, %if.then
-  %retval.0 = phi i32 [ %call2, %if.then ], [ %call11, %if.then8 ], [ 0, %do.body17 ], [ %call22, %if.then19 ]
+return:                                           ; preds = %if.then19, %if.then8, %if.then, %do.end27
+  %retval.0 = phi i32 [ 0, %do.end27 ], [ %call2, %if.then ], [ %call11, %if.then8 ], [ %call22, %if.then19 ]
   ret i32 %retval.0
 }
 
@@ -2661,7 +2665,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @bytesio_setstate(ptr noundef %self, ptr nocapture noundef readonly %state) #0 {
+define internal noundef ptr @bytesio_setstate(ptr noundef %self, ptr nocapture noundef readonly %state) #0 {
 entry:
   %0 = getelementptr i8, ptr %state, i64 8
   %state.val29 = load ptr, ptr %0, align 8
@@ -2771,7 +2775,7 @@ if.end34:                                         ; preds = %if.end31
   %arrayidx37 = getelementptr i8, ptr %state, i64 40
   %20 = load ptr, ptr %arrayidx37, align 8
   %cmp38.not = icmp eq ptr %20, @_Py_NoneStruct
-  br i1 %cmp38.not, label %return, label %if.then39
+  br i1 %cmp38.not, label %if.end59, label %if.then39
 
 if.then39:                                        ; preds = %if.end34
   %21 = getelementptr i8, ptr %20, i64 8
@@ -2798,8 +2802,7 @@ if.end47:                                         ; preds = %if.then39
 if.then50:                                        ; preds = %if.end47
   %call52 = tail call i32 @PyDict_Update(ptr noundef nonnull %26, ptr noundef %20) #8
   %cmp53 = icmp slt i32 %call52, 0
-  %spec.select = select i1 %cmp53, ptr null, ptr @_Py_NoneStruct
-  br label %return
+  br i1 %cmp53, label %return, label %if.end59
 
 if.else:                                          ; preds = %if.end47
   %27 = load i32, ptr %20, align 8
@@ -2813,10 +2816,13 @@ if.end.i.i:                                       ; preds = %if.else
 
 _Py_NewRef.exit:                                  ; preds = %if.else, %if.end.i.i
   store ptr %20, ptr %dict48, align 8
+  br label %if.end59
+
+if.end59:                                         ; preds = %_Py_NewRef.exit, %if.then50, %if.end34
   br label %return
 
-return:                                           ; preds = %if.end10, %check_exports.exit, %if.then50, %if.end34, %_Py_NewRef.exit, %land.lhs.true, %_io_BytesIO_write.exit, %if.then43, %if.then33, %if.then21, %if.then
-  %retval.0 = phi ptr [ null, %if.then ], [ null, %if.then33 ], [ null, %if.then43 ], [ null, %if.then21 ], [ null, %check_exports.exit ], [ null, %_io_BytesIO_write.exit ], [ null, %land.lhs.true ], [ @_Py_NoneStruct, %_Py_NewRef.exit ], [ @_Py_NoneStruct, %if.end34 ], [ %spec.select, %if.then50 ], [ null, %if.end10 ]
+return:                                           ; preds = %if.end10, %check_exports.exit, %if.then50, %land.lhs.true, %_io_BytesIO_write.exit, %if.end59, %if.then43, %if.then33, %if.then21, %if.then
+  %retval.0 = phi ptr [ null, %if.then ], [ null, %if.then33 ], [ @_Py_NoneStruct, %if.end59 ], [ null, %if.then43 ], [ null, %if.then21 ], [ null, %check_exports.exit ], [ null, %_io_BytesIO_write.exit ], [ null, %land.lhs.true ], [ null, %if.then50 ], [ null, %if.end10 ]
   ret ptr %retval.0
 }
 
@@ -2968,7 +2974,7 @@ return:                                           ; preds = %check_exports.exit,
 declare i32 @PyObject_GetBuffer(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @resize_buffer(ptr noundef %self, i64 noundef %size) unnamed_addr #0 {
+define internal fastcc noundef i32 @resize_buffer(ptr noundef %self, i64 noundef %size) unnamed_addr #0 {
 entry:
   %buf = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %buf, align 8
@@ -3032,21 +3038,24 @@ if.end.i:                                         ; preds = %if.then28
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 2147483648
   %cmp.i5.not.i = icmp eq i64 %6, 0
-  br i1 %cmp.i5.not.i, label %if.end.i.i, label %return
+  br i1 %cmp.i5.not.i, label %if.end.i.i, label %if.end41
 
 if.end.i.i:                                       ; preds = %if.end.i
   %dec.i.i = add i64 %5, -1
   store i64 %dec.i.i, ptr %4, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
-  br i1 %cmp.i.i, label %if.then1.i.i, label %return
+  br i1 %cmp.i.i, label %if.then1.i.i, label %if.end41
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %4) #8
-  br label %return
+  br label %if.end41
 
 if.else34:                                        ; preds = %if.end23
   %call36 = tail call i32 @_PyBytes_Resize(ptr noundef nonnull %buf, i64 noundef %alloc.0) #8
-  %call36.lobit = ashr i32 %call36, 31
+  %cmp37 = icmp slt i32 %call36, 0
+  br i1 %cmp37, label %return, label %if.end41
+
+if.end41:                                         ; preds = %if.end.i, %if.then1.i.i, %if.end.i.i, %if.else34
   br label %return
 
 overflow:                                         ; preds = %entry
@@ -3054,8 +3063,8 @@ overflow:                                         ; preds = %entry
   tail call void @PyErr_SetString(ptr noundef %7, ptr noundef nonnull @.str.26) #8
   br label %return
 
-return:                                           ; preds = %if.else34, %if.end.i, %if.then1.i.i, %if.end.i.i, %if.then28, %if.else, %overflow
-  %retval.0 = phi i32 [ -1, %overflow ], [ 0, %if.else ], [ -1, %if.then28 ], [ 0, %if.end.i.i ], [ 0, %if.then1.i.i ], [ 0, %if.end.i ], [ %call36.lobit, %if.else34 ]
+return:                                           ; preds = %if.then28, %if.else34, %if.else, %overflow, %if.end41
+  %retval.0 = phi i32 [ -1, %overflow ], [ 0, %if.end41 ], [ 0, %if.else ], [ -1, %if.else34 ], [ -1, %if.then28 ]
   ret i32 %retval.0
 }
 
@@ -3291,14 +3300,18 @@ do.body6:                                         ; preds = %if.then, %entry
   %source = getelementptr inbounds i8, ptr %self, i64 16
   %1 = load ptr, ptr %source, align 8
   %tobool7.not = icmp eq ptr %1, null
-  br i1 %tobool7.not, label %return, label %if.then8
+  br i1 %tobool7.not, label %do.end16, label %if.then8
 
 if.then8:                                         ; preds = %do.body6
   %call11 = tail call i32 %visit(ptr noundef nonnull %1, ptr noundef %arg) #8
+  %tobool12.not = icmp eq i32 %call11, 0
+  br i1 %tobool12.not, label %do.end16, label %return
+
+do.end16:                                         ; preds = %do.body6, %if.then8
   br label %return
 
-return:                                           ; preds = %if.then8, %do.body6, %if.then
-  %retval.0 = phi i32 [ %call2, %if.then ], [ 0, %do.body6 ], [ %call11, %if.then8 ]
+return:                                           ; preds = %if.then8, %if.then, %do.end16
+  %retval.0 = phi i32 [ 0, %do.end16 ], [ %call2, %if.then ], [ %call11, %if.then8 ]
   ret i32 %retval.0
 }
 

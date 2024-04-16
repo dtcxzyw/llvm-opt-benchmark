@@ -1524,18 +1524,20 @@ for.body:                                         ; preds = %for.inc, %for.body.
   %10 = load i16, ptr %arrayidx, align 4, !tbaa !94
   %conv.i.i = zext i16 %10 to i64
   %cmp.i.i = icmp ugt i64 %sub.ptr.div.i.i.i, %conv.i.i
-  br i1 %cmp.i.i, label %land.lhs.true.i.i, label %_ZNK14NodeDefManager3getERK7MapNode.exit
+  br i1 %cmp.i.i, label %land.lhs.true.i.i, label %cond.false.i.i
 
 land.lhs.true.i.i:                                ; preds = %for.body
   %add.ptr.i.i.i = getelementptr inbounds %struct.ContentFeatures, ptr %9, i64 %conv.i.i
   %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 1456
   %11 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !14
   %cmp.i.i.i = icmp eq i64 %11, 0
-  %spec.select = select i1 %cmp.i.i.i, ptr %add.ptr.i14.i.i, ptr %add.ptr.i.i.i
+  br i1 %cmp.i.i.i, label %cond.false.i.i, label %_ZNK14NodeDefManager3getERK7MapNode.exit
+
+cond.false.i.i:                                   ; preds = %land.lhs.true.i.i, %for.body
   br label %_ZNK14NodeDefManager3getERK7MapNode.exit
 
-_ZNK14NodeDefManager3getERK7MapNode.exit:         ; preds = %land.lhs.true.i.i, %for.body
-  %cond-lvalue.i.i = phi ptr [ %add.ptr.i14.i.i, %for.body ], [ %spec.select, %land.lhs.true.i.i ]
+_ZNK14NodeDefManager3getERK7MapNode.exit:         ; preds = %cond.false.i.i, %land.lhs.true.i.i
+  %cond-lvalue.i.i = phi ptr [ %add.ptr.i14.i.i, %cond.false.i.i ], [ %add.ptr.i.i.i, %land.lhs.true.i.i ]
   %walkable = getelementptr inbounds i8, ptr %cond-lvalue.i.i, i64 3043
   %12 = load i8, ptr %walkable, align 1, !tbaa !96, !range !127, !noundef !128
   %tobool.not = icmp eq i8 %12, 0
@@ -1866,18 +1868,20 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %34 = load i16, ptr %arrayidx.i, align 4, !tbaa !94
   %conv.i.i.i = zext i16 %34 to i64
   %cmp.i.i.i = icmp ugt i64 %sub.ptr.div.i.i.i.i, %conv.i.i.i
-  br i1 %cmp.i.i.i, label %land.lhs.true.i.i.i, label %_ZNK14NodeDefManager3getERK7MapNode.exit.i
+  br i1 %cmp.i.i.i, label %land.lhs.true.i.i.i, label %cond.false.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %for.body.i
   %add.ptr.i.i.i.i = getelementptr inbounds %struct.ContentFeatures, ptr %27, i64 %conv.i.i.i
   %_M_string_length.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 1456
   %35 = load i64, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !14
   %cmp.i.i.i.i = icmp eq i64 %35, 0
-  %spec.select = select i1 %cmp.i.i.i.i, ptr %add.ptr.i14.i.i.i, ptr %add.ptr.i.i.i.i
+  br i1 %cmp.i.i.i.i, label %cond.false.i.i.i, label %_ZNK14NodeDefManager3getERK7MapNode.exit.i
+
+cond.false.i.i.i:                                 ; preds = %land.lhs.true.i.i.i, %for.body.i
   br label %_ZNK14NodeDefManager3getERK7MapNode.exit.i
 
-_ZNK14NodeDefManager3getERK7MapNode.exit.i:       ; preds = %land.lhs.true.i.i.i, %for.body.i
-  %cond-lvalue.i.i.i = phi ptr [ %add.ptr.i14.i.i.i, %for.body.i ], [ %spec.select, %land.lhs.true.i.i.i ]
+_ZNK14NodeDefManager3getERK7MapNode.exit.i:       ; preds = %cond.false.i.i.i, %land.lhs.true.i.i.i
+  %cond-lvalue.i.i.i = phi ptr [ %add.ptr.i14.i.i.i, %cond.false.i.i.i ], [ %add.ptr.i.i.i.i, %land.lhs.true.i.i.i ]
   %walkable.i = getelementptr inbounds i8, ptr %cond-lvalue.i.i.i, i64 3043
   %36 = load i8, ptr %walkable.i, align 1, !tbaa !96, !range !127, !noundef !128
   %tobool.not.i = icmp eq i8 %36, 0

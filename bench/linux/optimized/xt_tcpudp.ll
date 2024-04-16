@@ -56,7 +56,7 @@ define internal noundef zeroext i1 @tcp_mt(ptr noundef %0, ptr nocapture noundef
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 28
   %7 = load i16, ptr %6, align 4
-  switch i16 %7, label %93 [
+  switch i16 %7, label %94 [
     i16 0, label %10
     i16 1, label %8
   ]
@@ -64,7 +64,7 @@ define internal noundef zeroext i1 @tcp_mt(ptr noundef %0, ptr nocapture noundef
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %1, i64 30
   store i8 1, ptr %9, align 2
-  br label %93
+  br label %94
 
 10:                                               ; preds = %2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %3, i8 0, i64 20, i1 false), !annotation !5
@@ -99,7 +99,7 @@ define internal noundef zeroext i1 @tcp_mt(ptr noundef %0, ptr nocapture noundef
 .thread:                                          ; preds = %22, %20, %25
   %31 = getelementptr inbounds i8, ptr %1, i64 30
   store i8 1, ptr %31, align 2
-  br label %93
+  br label %94
 
 .thread4:                                         ; preds = %22, %25
   %32 = phi ptr [ %29, %25 ], [ %3, %22 ]
@@ -116,7 +116,7 @@ define internal noundef zeroext i1 @tcp_mt(ptr noundef %0, ptr nocapture noundef
   %43 = icmp ule i16 %37, %35
   %44 = and i1 %42, %43
   %45 = xor i1 %44, %41
-  br i1 %45, label %46, label %93
+  br i1 %45, label %46, label %94
 
 46:                                               ; preds = %.thread4
   %47 = getelementptr inbounds i8, ptr %5, i64 4
@@ -132,7 +132,7 @@ define internal noundef zeroext i1 @tcp_mt(ptr noundef %0, ptr nocapture noundef
   %57 = icmp ule i16 %53, %50
   %58 = and i1 %56, %57
   %59 = xor i1 %55, %58
-  br i1 %59, label %60, label %93
+  br i1 %59, label %60, label %94
 
 60:                                               ; preds = %46
   %61 = getelementptr i8, ptr %32, i64 13
@@ -147,7 +147,7 @@ define internal noundef zeroext i1 @tcp_mt(ptr noundef %0, ptr nocapture noundef
   %70 = and i32 %69, 4
   %71 = icmp eq i32 %70, 0
   %72 = xor i1 %71, %68
-  br i1 %72, label %93, label %73
+  br i1 %72, label %94, label %73
 
 73:                                               ; preds = %60
   %74 = getelementptr inbounds i8, ptr %5, i64 8
@@ -166,7 +166,7 @@ define internal noundef zeroext i1 @tcp_mt(ptr noundef %0, ptr nocapture noundef
 83:                                               ; preds = %77
   %84 = getelementptr inbounds i8, ptr %1, i64 30
   store i8 1, ptr %84, align 2
-  br label %93
+  br label %94
 
 85:                                               ; preds = %77
   %86 = zext nneg i16 %81 to i32
@@ -176,12 +176,15 @@ define internal noundef zeroext i1 @tcp_mt(ptr noundef %0, ptr nocapture noundef
   %90 = icmp ne i32 %89, 0
   %91 = getelementptr inbounds i8, ptr %1, i64 30
   %92 = call fastcc zeroext i1 @tcp_find_option(i8 noundef zeroext %75, ptr noundef %0, i32 noundef %87, i32 noundef %88, i1 noundef zeroext %90, ptr noundef %91)
-  br label %93
+  br i1 %92, label %93, label %94
 
-93:                                               ; preds = %85, %73, %83, %60, %46, %.thread4, %.thread, %8, %2
-  %94 = phi i1 [ false, %.thread ], [ false, %83 ], [ false, %2 ], [ false, %8 ], [ false, %.thread4 ], [ false, %46 ], [ false, %60 ], [ true, %73 ], [ %92, %85 ]
+93:                                               ; preds = %85, %73
+  br label %94
+
+94:                                               ; preds = %93, %85, %83, %60, %46, %.thread4, %.thread, %8, %2
+  %95 = phi i1 [ false, %.thread ], [ false, %83 ], [ true, %93 ], [ false, %2 ], [ false, %8 ], [ false, %.thread4 ], [ false, %46 ], [ false, %60 ], [ false, %85 ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #7
-  ret i1 %94
+  ret i1 %95
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)

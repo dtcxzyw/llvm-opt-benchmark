@@ -26759,8 +26759,8 @@ sw.bb17.i:                                        ; preds = %entry
 sw.epilog.i:                                      ; preds = %entry
   br label %cond.end6
 
-cond.end6:                                        ; preds = %entry, %entry, %entry, %entry, %entry, %_ZN11flatbuffers8IsStructERKNS_4TypeE.exit, %sw.epilog.i, %sw.bb17.i, %sw.bb15.i, %sw.bb14.i, %sw.bb13.i, %sw.bb12.i, %sw.bb11.i, %sw.bb10.i, %sw.bb9.i, %sw.bb8.i, %sw.bb7.i, %sw.bb6.i, %sw.bb5.i, %cond.true2, %cond.true
-  %cond7 = phi i64 [ %3, %cond.true ], [ %mul, %cond.true2 ], [ 0, %sw.epilog.i ], [ 4, %sw.bb17.i ], [ 8, %sw.bb15.i ], [ 4, %sw.bb14.i ], [ 4, %sw.bb13.i ], [ 8, %sw.bb12.i ], [ 4, %sw.bb11.i ], [ 8, %sw.bb10.i ], [ 8, %sw.bb9.i ], [ 4, %sw.bb8.i ], [ 4, %sw.bb7.i ], [ 2, %sw.bb6.i ], [ 2, %sw.bb5.i ], [ 4, %_ZN11flatbuffers8IsStructERKNS_4TypeE.exit ], [ 1, %entry ], [ 1, %entry ], [ 1, %entry ], [ 1, %entry ], [ 1, %entry ]
+cond.end6:                                        ; preds = %_ZN11flatbuffers8IsStructERKNS_4TypeE.exit, %entry, %entry, %entry, %entry, %entry, %sw.epilog.i, %sw.bb17.i, %sw.bb15.i, %sw.bb14.i, %sw.bb13.i, %sw.bb12.i, %sw.bb11.i, %sw.bb10.i, %sw.bb9.i, %sw.bb8.i, %sw.bb7.i, %sw.bb6.i, %sw.bb5.i, %cond.true2, %cond.true
+  %cond7 = phi i64 [ %3, %cond.true ], [ %mul, %cond.true2 ], [ 0, %sw.epilog.i ], [ 4, %sw.bb17.i ], [ 8, %sw.bb15.i ], [ 4, %sw.bb14.i ], [ 4, %sw.bb13.i ], [ 8, %sw.bb12.i ], [ 4, %sw.bb11.i ], [ 8, %sw.bb10.i ], [ 8, %sw.bb9.i ], [ 4, %sw.bb8.i ], [ 4, %sw.bb7.i ], [ 2, %sw.bb6.i ], [ 2, %sw.bb5.i ], [ 1, %entry ], [ 1, %entry ], [ 1, %entry ], [ 1, %entry ], [ 1, %entry ], [ 4, %_ZN11flatbuffers8IsStructERKNS_4TypeE.exit ]
   ret i64 %cond7
 }
 
@@ -29033,8 +29033,8 @@ sw.bb17.i17:                                      ; preds = %entry
 sw.epilog.i30:                                    ; preds = %entry
   br label %return
 
-return:                                           ; preds = %entry, %entry, %entry, %entry, %entry, %if.then2, %if.then2, %if.then2, %if.then2, %if.then2, %_ZN11flatbuffers8IsStructERKNS_4TypeE.exit14, %_ZN11flatbuffers8IsStructERKNS_4TypeE.exit, %sw.epilog.i30, %sw.bb17.i17, %sw.bb15.i19, %sw.bb14.i20, %sw.bb13.i21, %sw.bb12.i22, %sw.bb11.i23, %sw.bb10.i24, %sw.bb9.i25, %sw.bb8.i26, %sw.bb7.i27, %sw.bb6.i28, %sw.bb5.i29, %sw.epilog.i, %sw.bb18.i, %sw.bb17.i, %sw.bb15.i, %sw.bb14.i, %sw.bb13.i, %sw.bb12.i, %sw.bb11.i, %sw.bb10.i, %sw.bb9.i, %sw.bb8.i, %sw.bb7.i, %sw.bb6.i, %sw.bb5.i, %cond.true, %if.then
-  %retval.0 = phi i64 [ %3, %if.then ], [ %7, %cond.true ], [ 0, %sw.epilog.i ], [ 4, %sw.bb18.i ], [ 4, %sw.bb17.i ], [ 8, %sw.bb15.i ], [ 4, %sw.bb14.i ], [ 4, %sw.bb13.i ], [ 8, %sw.bb12.i ], [ 4, %sw.bb11.i ], [ 8, %sw.bb10.i ], [ 8, %sw.bb9.i ], [ 4, %sw.bb8.i ], [ 4, %sw.bb7.i ], [ 2, %sw.bb6.i ], [ 2, %sw.bb5.i ], [ 0, %sw.epilog.i30 ], [ 4, %sw.bb17.i17 ], [ 8, %sw.bb15.i19 ], [ 4, %sw.bb14.i20 ], [ 4, %sw.bb13.i21 ], [ 8, %sw.bb12.i22 ], [ 4, %sw.bb11.i23 ], [ 8, %sw.bb10.i24 ], [ 8, %sw.bb9.i25 ], [ 4, %sw.bb8.i26 ], [ 4, %sw.bb7.i27 ], [ 2, %sw.bb6.i28 ], [ 2, %sw.bb5.i29 ], [ 4, %_ZN11flatbuffers8IsStructERKNS_4TypeE.exit ], [ 4, %_ZN11flatbuffers8IsStructERKNS_4TypeE.exit14 ], [ 1, %if.then2 ], [ 1, %if.then2 ], [ 1, %if.then2 ], [ 1, %if.then2 ], [ 1, %if.then2 ], [ 1, %entry ], [ 1, %entry ], [ 1, %entry ], [ 1, %entry ], [ 1, %entry ]
+return:                                           ; preds = %_ZN11flatbuffers8IsStructERKNS_4TypeE.exit, %entry, %entry, %entry, %entry, %entry, %_ZN11flatbuffers8IsStructERKNS_4TypeE.exit14, %if.then2, %if.then2, %if.then2, %if.then2, %if.then2, %sw.epilog.i30, %sw.bb17.i17, %sw.bb15.i19, %sw.bb14.i20, %sw.bb13.i21, %sw.bb12.i22, %sw.bb11.i23, %sw.bb10.i24, %sw.bb9.i25, %sw.bb8.i26, %sw.bb7.i27, %sw.bb6.i28, %sw.bb5.i29, %sw.epilog.i, %sw.bb18.i, %sw.bb17.i, %sw.bb15.i, %sw.bb14.i, %sw.bb13.i, %sw.bb12.i, %sw.bb11.i, %sw.bb10.i, %sw.bb9.i, %sw.bb8.i, %sw.bb7.i, %sw.bb6.i, %sw.bb5.i, %cond.true, %if.then
+  %retval.0 = phi i64 [ %3, %if.then ], [ %7, %cond.true ], [ 0, %sw.epilog.i ], [ 4, %sw.bb18.i ], [ 4, %sw.bb17.i ], [ 8, %sw.bb15.i ], [ 4, %sw.bb14.i ], [ 4, %sw.bb13.i ], [ 8, %sw.bb12.i ], [ 4, %sw.bb11.i ], [ 8, %sw.bb10.i ], [ 8, %sw.bb9.i ], [ 4, %sw.bb8.i ], [ 4, %sw.bb7.i ], [ 2, %sw.bb6.i ], [ 2, %sw.bb5.i ], [ 0, %sw.epilog.i30 ], [ 4, %sw.bb17.i17 ], [ 8, %sw.bb15.i19 ], [ 4, %sw.bb14.i20 ], [ 4, %sw.bb13.i21 ], [ 8, %sw.bb12.i22 ], [ 4, %sw.bb11.i23 ], [ 8, %sw.bb10.i24 ], [ 8, %sw.bb9.i25 ], [ 4, %sw.bb8.i26 ], [ 4, %sw.bb7.i27 ], [ 2, %sw.bb6.i28 ], [ 2, %sw.bb5.i29 ], [ 1, %if.then2 ], [ 1, %if.then2 ], [ 1, %if.then2 ], [ 1, %if.then2 ], [ 1, %if.then2 ], [ 4, %_ZN11flatbuffers8IsStructERKNS_4TypeE.exit14 ], [ 1, %entry ], [ 1, %entry ], [ 1, %entry ], [ 1, %entry ], [ 1, %entry ], [ 4, %_ZN11flatbuffers8IsStructERKNS_4TypeE.exit ]
   ret i64 %retval.0
 }
 
@@ -35839,13 +35839,15 @@ sw.bb38:                                          ; preds = %if.end36, %for.end
   %value.i.i.i48 = getelementptr inbounds i8, ptr %19, i64 160
   %20 = load i64, ptr %value.i.i.i48, align 8
   %cmp.i.i.i49 = icmp eq i64 %20, 0
-  br i1 %cmp.i.i.i49, label %return, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN11flatbuffers2ts11TsGenerator18UnionHasStringTypeERKNS2_7EnumDefEEUlPKNS2_7EnumValEE_EclINS_17__normal_iteratorIPKPS8_St6vectorISF_SaISF_EEEEEEbT_.exit53
+  br i1 %cmp.i.i.i49, label %if.end43, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN11flatbuffers2ts11TsGenerator18UnionHasStringTypeERKNS2_7EnumDefEEUlPKNS2_7EnumValEE_EclINS_17__normal_iteratorIPKPS8_St6vectorISF_SaISF_EEEEEEbT_.exit53
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZN11flatbuffers2ts11TsGenerator18UnionHasStringTypeERKNS2_7EnumDefEEUlPKNS2_7EnumValEE_EclINS_17__normal_iteratorIPKPS8_St6vectorISF_SaISF_EEEEEEbT_.exit53: ; preds = %sw.bb38
   %union_type.i.i51 = getelementptr inbounds i8, ptr %19, i64 56
   %21 = load i32, ptr %union_type.i.i51, align 8
   %cmp.i2.i.i52 = icmp eq i32 %21, 13
-  %spec.select = select i1 %cmp.i2.i.i52, ptr %__first.sroa.0.2, ptr %__last.coerce
+  br i1 %cmp.i2.i.i52, label %return, label %if.end43
+
+if.end43:                                         ; preds = %sw.bb38, %_ZN9__gnu_cxx5__ops10_Iter_predIZN11flatbuffers2ts11TsGenerator18UnionHasStringTypeERKNS2_7EnumDefEEUlPKNS2_7EnumValEE_EclINS_17__normal_iteratorIPKPS8_St6vectorISF_SaISF_EEEEEEbT_.exit53
   br label %return
 
 return.loopexit.split.loop.exit:                  ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN11flatbuffers2ts11TsGenerator18UnionHasStringTypeERKNS2_7EnumDefEEUlPKNS2_7EnumValEE_EclINS_17__normal_iteratorIPKPS8_St6vectorISF_SaISF_EEEEEEbT_.exit14
@@ -35860,8 +35862,8 @@ return.loopexit.split.loop.exit84:                ; preds = %_ZN9__gnu_cxx5__ops
   %incdec.ptr.i22.le = getelementptr inbounds i8, ptr %__first.sroa.0.075, i64 24
   br label %return
 
-return:                                           ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN11flatbuffers2ts11TsGenerator18UnionHasStringTypeERKNS2_7EnumDefEEUlPKNS2_7EnumValEE_EclINS_17__normal_iteratorIPKPS8_St6vectorISF_SaISF_EEEEEEbT_.exit, %return.loopexit.split.loop.exit, %return.loopexit.split.loop.exit82, %return.loopexit.split.loop.exit84, %_ZN9__gnu_cxx5__ops10_Iter_predIZN11flatbuffers2ts11TsGenerator18UnionHasStringTypeERKNS2_7EnumDefEEUlPKNS2_7EnumValEE_EclINS_17__normal_iteratorIPKPS8_St6vectorISF_SaISF_EEEEEEbT_.exit53, %sw.bb38, %for.end, %_ZN9__gnu_cxx5__ops10_Iter_predIZN11flatbuffers2ts11TsGenerator18UnionHasStringTypeERKNS2_7EnumDefEEUlPKNS2_7EnumValEE_EclINS_17__normal_iteratorIPKPS8_St6vectorISF_SaISF_EEEEEEbT_.exit46, %_ZN9__gnu_cxx5__ops10_Iter_predIZN11flatbuffers2ts11TsGenerator18UnionHasStringTypeERKNS2_7EnumDefEEUlPKNS2_7EnumValEE_EclINS_17__normal_iteratorIPKPS8_St6vectorISF_SaISF_EEEEEEbT_.exit39
-  %retval.sroa.0.0.in.sroa.speculated = phi ptr [ %__first.sroa.0.0.lcssa, %_ZN9__gnu_cxx5__ops10_Iter_predIZN11flatbuffers2ts11TsGenerator18UnionHasStringTypeERKNS2_7EnumDefEEUlPKNS2_7EnumValEE_EclINS_17__normal_iteratorIPKPS8_St6vectorISF_SaISF_EEEEEEbT_.exit39 ], [ %__first.sroa.0.1, %_ZN9__gnu_cxx5__ops10_Iter_predIZN11flatbuffers2ts11TsGenerator18UnionHasStringTypeERKNS2_7EnumDefEEUlPKNS2_7EnumValEE_EclINS_17__normal_iteratorIPKPS8_St6vectorISF_SaISF_EEEEEEbT_.exit46 ], [ %__last.coerce, %for.end ], [ %__last.coerce, %sw.bb38 ], [ %spec.select, %_ZN9__gnu_cxx5__ops10_Iter_predIZN11flatbuffers2ts11TsGenerator18UnionHasStringTypeERKNS2_7EnumDefEEUlPKNS2_7EnumValEE_EclINS_17__normal_iteratorIPKPS8_St6vectorISF_SaISF_EEEEEEbT_.exit53 ], [ %incdec.ptr.i.le, %return.loopexit.split.loop.exit ], [ %incdec.ptr.i15.le, %return.loopexit.split.loop.exit82 ], [ %incdec.ptr.i22.le, %return.loopexit.split.loop.exit84 ], [ %__first.sroa.0.075, %_ZN9__gnu_cxx5__ops10_Iter_predIZN11flatbuffers2ts11TsGenerator18UnionHasStringTypeERKNS2_7EnumDefEEUlPKNS2_7EnumValEE_EclINS_17__normal_iteratorIPKPS8_St6vectorISF_SaISF_EEEEEEbT_.exit ]
+return:                                           ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN11flatbuffers2ts11TsGenerator18UnionHasStringTypeERKNS2_7EnumDefEEUlPKNS2_7EnumValEE_EclINS_17__normal_iteratorIPKPS8_St6vectorISF_SaISF_EEEEEEbT_.exit, %return.loopexit.split.loop.exit, %return.loopexit.split.loop.exit82, %return.loopexit.split.loop.exit84, %for.end, %if.end43, %_ZN9__gnu_cxx5__ops10_Iter_predIZN11flatbuffers2ts11TsGenerator18UnionHasStringTypeERKNS2_7EnumDefEEUlPKNS2_7EnumValEE_EclINS_17__normal_iteratorIPKPS8_St6vectorISF_SaISF_EEEEEEbT_.exit53, %_ZN9__gnu_cxx5__ops10_Iter_predIZN11flatbuffers2ts11TsGenerator18UnionHasStringTypeERKNS2_7EnumDefEEUlPKNS2_7EnumValEE_EclINS_17__normal_iteratorIPKPS8_St6vectorISF_SaISF_EEEEEEbT_.exit46, %_ZN9__gnu_cxx5__ops10_Iter_predIZN11flatbuffers2ts11TsGenerator18UnionHasStringTypeERKNS2_7EnumDefEEUlPKNS2_7EnumValEE_EclINS_17__normal_iteratorIPKPS8_St6vectorISF_SaISF_EEEEEEbT_.exit39
+  %retval.sroa.0.0.in.sroa.speculated = phi ptr [ %__first.sroa.0.0.lcssa, %_ZN9__gnu_cxx5__ops10_Iter_predIZN11flatbuffers2ts11TsGenerator18UnionHasStringTypeERKNS2_7EnumDefEEUlPKNS2_7EnumValEE_EclINS_17__normal_iteratorIPKPS8_St6vectorISF_SaISF_EEEEEEbT_.exit39 ], [ %__first.sroa.0.1, %_ZN9__gnu_cxx5__ops10_Iter_predIZN11flatbuffers2ts11TsGenerator18UnionHasStringTypeERKNS2_7EnumDefEEUlPKNS2_7EnumValEE_EclINS_17__normal_iteratorIPKPS8_St6vectorISF_SaISF_EEEEEEbT_.exit46 ], [ %__first.sroa.0.2, %_ZN9__gnu_cxx5__ops10_Iter_predIZN11flatbuffers2ts11TsGenerator18UnionHasStringTypeERKNS2_7EnumDefEEUlPKNS2_7EnumValEE_EclINS_17__normal_iteratorIPKPS8_St6vectorISF_SaISF_EEEEEEbT_.exit53 ], [ %__last.coerce, %if.end43 ], [ %__last.coerce, %for.end ], [ %incdec.ptr.i.le, %return.loopexit.split.loop.exit ], [ %incdec.ptr.i15.le, %return.loopexit.split.loop.exit82 ], [ %incdec.ptr.i22.le, %return.loopexit.split.loop.exit84 ], [ %__first.sroa.0.075, %_ZN9__gnu_cxx5__ops10_Iter_predIZN11flatbuffers2ts11TsGenerator18UnionHasStringTypeERKNS2_7EnumDefEEUlPKNS2_7EnumValEE_EclINS_17__normal_iteratorIPKPS8_St6vectorISF_SaISF_EEEEEEbT_.exit ]
   ret ptr %retval.sroa.0.0.in.sroa.speculated
 }
 
@@ -37417,8 +37419,8 @@ _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_c
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %add.i, i64 288230376151711743)
-  %cond.i = select i1 %cmp7.i, i64 288230376151711743, i64 %spec.select.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 288230376151711743)
+  %cond.i = select i1 %cmp7.i, i64 288230376151711743, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 5
@@ -37484,10 +37486,10 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   ret void
 
 lpad:                                             ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  %4 = tail call ptr @__cxa_begin_catch(ptr %3) #21
+  %4 = extractvalue { ptr, i32 } %3, 0
+  %5 = tail call ptr @__cxa_begin_catch(ptr %4) #21
   %tobool.not = icmp eq ptr %cond.i17, null
   br i1 %tobool.not, label %if.end.thread, label %if.then.i29
 
@@ -37496,7 +37498,7 @@ if.end.thread:                                    ; preds = %lpad
   br label %invoke.cont19
 
 lpad17:                                           ; preds = %invoke.cont19
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
@@ -37510,13 +37512,13 @@ invoke.cont19:                                    ; preds = %if.then.i29, %if.en
           to label %unreachable unwind label %lpad17
 
 eh.resume:                                        ; preds = %lpad17
-  resume { ptr, i32 } %5
+  resume { ptr, i32 } %6
 
 terminate.lpad:                                   ; preds = %lpad17
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #24
+  %8 = extractvalue { ptr, i32 } %7, 0
+  tail call void @__clang_call_terminate(ptr %8) #24
   unreachable
 
 unreachable:                                      ; preds = %invoke.cont19

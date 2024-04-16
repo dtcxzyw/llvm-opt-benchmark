@@ -942,7 +942,7 @@ if.end424.thread:                                 ; preds = %if.end418
   %or421 = or i32 %23, 1
   store i32 %or421, ptr %output_option, align 4
   store i32 4, ptr @blame_date_mode, align 8
-  br label %sw.epilog441
+  br label %sw.bb427
 
 if.end424:                                        ; preds = %if.end418
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @blame_date_mode, ptr noundef nonnull align 8 dereferenceable(24) %date_mode, i64 24, i1 false)
@@ -967,7 +967,7 @@ if.end424.sw.epilog441_crit_edge:                 ; preds = %if.end424
 sw.bb426:                                         ; preds = %if.end424
   br label %sw.epilog441
 
-sw.bb427:                                         ; preds = %if.end424
+sw.bb427:                                         ; preds = %if.end424.thread, %if.end424
   br label %sw.epilog441
 
 sw.bb428:                                         ; preds = %if.end424
@@ -1007,8 +1007,8 @@ sw.bb437:                                         ; preds = %if.end424
   %add440 = add i64 %call439, 1
   br label %sw.epilog441
 
-sw.epilog441:                                     ; preds = %if.end424.thread, %if.end424, %if.end424.sw.epilog441_crit_edge, %sw.bb437, %sw.bb436, %sw.bb435, %_.exit, %sw.bb430, %sw.bb429, %sw.bb428, %sw.bb427, %sw.bb426
-  %25 = phi i64 [ %.pre, %if.end424.sw.epilog441_crit_edge ], [ %add440, %sw.bb437 ], [ 31, %sw.bb436 ], [ 17, %sw.bb435 ], [ %conv434, %_.exit ], [ 11, %sw.bb430 ], [ 11, %sw.bb429 ], [ 17, %sw.bb428 ], [ 26, %sw.bb426 ], [ 32, %if.end424 ], [ 26, %if.end424.thread ], [ 26, %sw.bb427 ]
+sw.epilog441:                                     ; preds = %if.end424, %if.end424.sw.epilog441_crit_edge, %sw.bb437, %sw.bb436, %sw.bb435, %_.exit, %sw.bb430, %sw.bb429, %sw.bb428, %sw.bb427, %sw.bb426
+  %25 = phi i64 [ %.pre, %if.end424.sw.epilog441_crit_edge ], [ %add440, %sw.bb437 ], [ 31, %sw.bb436 ], [ 17, %sw.bb435 ], [ %conv434, %_.exit ], [ 11, %sw.bb430 ], [ 11, %sw.bb429 ], [ 17, %sw.bb428 ], [ 26, %sw.bb427 ], [ 26, %sw.bb426 ], [ 32, %if.end424 ]
   %sub = add i64 %25, -1
   store i64 %sub, ptr @blame_date_width, align 8
   %find_copies_harder = getelementptr inbounds i8, ptr %revs, i64 1600
@@ -1409,7 +1409,7 @@ land.lhs.true556:                                 ; preds = %if.end554
   %77 = load i64, ptr %bottom, align 8
   %tobool559 = icmp ne i64 %77, 0
   %or.cond1 = select i1 %tobool557, i1 true, i1 %tobool559
-  br i1 %or.cond1, label %land.lhs.true556.split, label %if.end570
+  br i1 %or.cond1, label %land.lhs.true556.split, label %if.then569
 
 land.lhs.true556.split:                           ; preds = %land.lhs.true556
   %78 = load i32, ptr @git_gettext_enabled, align 4
@@ -1446,11 +1446,14 @@ if.then563:                                       ; preds = %if.end.i109, %if.th
   unreachable
 
 if.end566:                                        ; preds = %lor.lhs.false560
-  %spec.select175 = call i64 @llvm.smax.i64(i64 %.pr130, i64 1)
+  %cmp567 = icmp slt i64 %.pr130, 1
+  br i1 %cmp567, label %if.then569, label %if.end570
+
+if.then569:                                       ; preds = %land.lhs.true556, %if.end566
   br label %if.end570
 
-if.end570:                                        ; preds = %if.end566, %land.lhs.true556
-  %81 = phi i64 [ 1, %land.lhs.true556 ], [ %spec.select175, %if.end566 ]
+if.end570:                                        ; preds = %if.then569, %if.end566
+  %81 = phi i64 [ 1, %if.then569 ], [ %.pr130, %if.end566 ]
   %82 = load i64, ptr %top, align 8
   %cmp571 = icmp slt i64 %82, 1
   %cmp574 = icmp sgt i64 %82, %conv534
@@ -3651,9 +3654,6 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #14
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

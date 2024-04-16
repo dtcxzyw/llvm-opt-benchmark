@@ -2695,7 +2695,7 @@ declare ptr @wmem_file_scope() local_unnamed_addr #1
 declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @find_tn5250_conversation(ptr noundef %0) local_unnamed_addr #0 {
+define hidden noundef i32 @find_tn5250_conversation(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @find_conversation_pinfo(ptr noundef %0, i32 noundef 0) #5
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %6, label %3
@@ -2703,12 +2703,14 @@ define hidden i32 @find_tn5250_conversation(ptr noundef %0) local_unnamed_addr #
 3:                                                ; preds = %1
   %4 = load i32, ptr @proto_tn5250, align 4
   %5 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %2, i32 noundef %4) #5
-  %.not5 = icmp ne ptr %5, null
-  %spec.select = zext i1 %.not5 to i32
-  br label %6
+  %.not5 = icmp eq ptr %5, null
+  br i1 %.not5, label %6, label %7
 
 6:                                                ; preds = %3, %1
-  %.0 = phi i32 [ 0, %1 ], [ %spec.select, %3 ]
+  br label %7
+
+7:                                                ; preds = %3, %6
+  %.0 = phi i32 [ 0, %6 ], [ 1, %3 ]
   ret i32 %.0
 }
 

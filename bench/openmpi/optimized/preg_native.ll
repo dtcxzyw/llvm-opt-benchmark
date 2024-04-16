@@ -2009,7 +2009,7 @@ define internal noundef i32 @parse_nodes(ptr noundef readonly %0, ptr noundef %1
   %120 = ashr exact i64 %sext.i.i, 32
   %121 = getelementptr inbounds i8, ptr %106, i64 %120
   %122 = icmp ult ptr %.034.lcssa.i.i, %121
-  br i1 %122, label %123, label %regex_parse_value_ranges.exit.i
+  br i1 %122, label %123, label %135
 
 123:                                              ; preds = %._crit_edge.i.i
   %124 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_preg_base_framework, i64 0, i32 11), align 4
@@ -2039,11 +2039,11 @@ define internal noundef i32 @parse_nodes(ptr noundef readonly %0, ptr noundef %1
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef %134, ptr noundef nonnull @.str.10, i32 noundef 755) #18
   br label %regex_parse_value_ranges.exit.i
 
-135:                                              ; preds = %131
+135:                                              ; preds = %131, %._crit_edge.i.i
   br label %regex_parse_value_ranges.exit.i
 
-regex_parse_value_ranges.exit.i:                  ; preds = %113, %135, %133, %131, %._crit_edge.i.i, %115
-  %.0.i.i = phi i32 [ %114, %115 ], [ %132, %131 ], [ %132, %133 ], [ 0, %._crit_edge.i.i ], [ 0, %135 ], [ %114, %113 ]
+regex_parse_value_ranges.exit.i:                  ; preds = %113, %135, %133, %131, %115
+  %.0.i.i = phi i32 [ 0, %135 ], [ %114, %115 ], [ %132, %131 ], [ %132, %133 ], [ %114, %113 ]
   %.not136.i = icmp eq ptr %.0109.i, null
   br i1 %.not136.i, label %137, label %136
 

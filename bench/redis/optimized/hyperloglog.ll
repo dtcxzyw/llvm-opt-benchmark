@@ -2113,7 +2113,7 @@ return:                                           ; preds = %entry, %sw.bb1, %hl
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @hllMerge(ptr nocapture noundef %max, ptr nocapture noundef readonly %hll) local_unnamed_addr #1 {
+define dso_local noundef i32 @hllMerge(ptr nocapture noundef %max, ptr nocapture noundef readonly %hll) local_unnamed_addr #1 {
 entry:
   %ptr = getelementptr inbounds i8, ptr %hll, i64 8
   %0 = load ptr, ptr %ptr, align 8
@@ -2151,7 +2151,7 @@ if.then17:                                        ; preds = %do.body
 for.inc:                                          ; preds = %do.body, %if.then17
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next50, 16384
-  br i1 %exitcond.not, label %return, label %do.body, !llvm.loop !20
+  br i1 %exitcond.not, label %if.end92, label %do.body, !llvm.loop !20
 
 if.else:                                          ; preds = %entry
   %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 -1
@@ -2240,7 +2240,7 @@ if.else55:                                        ; preds = %while.body
   %conv65 = sext i32 %i.145 to i64
   %add66 = add nsw i64 %conv59, %conv65
   %cmp67 = icmp sgt i64 %add66, 16384
-  br i1 %cmp67, label %while.end87.loopexit, label %while.cond71.preheader
+  br i1 %cmp67, label %while.end87, label %while.cond71.preheader
 
 while.cond71.preheader:                           ; preds = %if.else55
   %16 = trunc nuw nsw i32 %and62 to i8
@@ -2275,16 +2275,18 @@ if.end86:                                         ; preds = %if.then42, %while.e
   %i.3 = phi i32 [ %add52, %if.then42 ], [ %19, %while.end ], [ %add35, %if.then29 ]
   %add.ptr54 = getelementptr inbounds i8, ptr %p.044, i64 %.sink
   %cmp23 = icmp ult ptr %add.ptr54, %add.ptr
-  br i1 %cmp23, label %while.body, label %while.end87.loopexit, !llvm.loop !22
+  br i1 %cmp23, label %while.body, label %while.end87, !llvm.loop !22
 
-while.end87.loopexit:                             ; preds = %if.else55, %if.end86
+while.end87:                                      ; preds = %if.end86, %if.else55
   %i.1.lcssa.ph = phi i32 [ %i.3, %if.end86 ], [ %i.145, %if.else55 ]
-  %20 = icmp ne i32 %i.1.lcssa.ph, 16384
-  %21 = sext i1 %20 to i32
+  %20 = icmp eq i32 %i.1.lcssa.ph, 16384
+  br i1 %20, label %if.end92, label %return
+
+if.end92:                                         ; preds = %for.inc, %while.end87
   br label %return
 
-return:                                           ; preds = %for.inc, %if.else, %sdslen.exit, %while.end87.loopexit
-  %retval.0 = phi i32 [ -1, %sdslen.exit ], [ %21, %while.end87.loopexit ], [ -1, %if.else ], [ 0, %for.inc ]
+return:                                           ; preds = %if.else, %sdslen.exit, %while.end87, %if.end92
+  %retval.0 = phi i32 [ 0, %if.end92 ], [ -1, %while.end87 ], [ -1, %sdslen.exit ], [ -1, %if.else ]
   ret i32 %retval.0
 }
 

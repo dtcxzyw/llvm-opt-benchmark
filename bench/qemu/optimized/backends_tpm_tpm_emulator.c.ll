@@ -288,35 +288,32 @@ if.end.i:                                         ; preds = %entry
   store i32 50331648, ptr %0, align 16
   %call3.us52.i.i = call i32 @qemu_chr_fe_write_all(ptr noundef nonnull %ctrl_chr.i.i, ptr noundef nonnull %0, i32 noundef 4) #12
   %cmp.us53.i.i = icmp slt i32 %call3.us52.i.i, 1
-  br i1 %cmp.us53.i.i, label %if.then1.critedge.i, label %if.end.i.i
+  br i1 %cmp.us53.i.i, label %qemu_lockable_auto_unlock.exit.i.i.i.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end.i
   %call10.i.i = call i32 @qemu_chr_fe_read_all(ptr noundef nonnull %ctrl_chr.i.i, ptr noundef nonnull %res.i, i32 noundef 4) #12
   %cmp12.i.i = icmp slt i32 %call10.i.i, 1
+  br i1 %cmp12.i.i, label %qemu_lockable_auto_unlock.exit.i.i.i.i, label %tpm_emulator_ctrlcmd.exit.i
+
+qemu_lockable_auto_unlock.exit.i.i.i.i:           ; preds = %if.end.i.i, %if.end.i
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex.i.i, ptr noundef nonnull @.str.11, i32 noundef 132) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %0)
   call void @llvm.stackrestore.p0(ptr %savedstack.i)
-  br i1 %cmp12.i.i, label %if.then1.i, label %if.else.i
-
-if.then1.critedge.i:                              ; preds = %if.end.i
-  call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex.i.i, ptr noundef nonnull @.str.11, i32 noundef 132) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %0)
-  call void @llvm.stackrestore.p0(ptr %savedstack.i)
-  br label %if.then1.i
-
-if.then1.i:                                       ; preds = %if.then1.critedge.i, %if.end.i.i
   %call2.i = tail call ptr @__errno_location() #14
   %5 = load i32, ptr %call2.i, align 4
   %call3.i = call ptr @strerror(i32 noundef %5) #12
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.65, ptr noundef %call3.i) #12
   br label %tpm_emulator_shutdown.exit
 
-if.else.i:                                        ; preds = %if.end.i.i
+tpm_emulator_ctrlcmd.exit.i:                      ; preds = %if.end.i.i
+  call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex.i.i, ptr noundef nonnull @.str.11, i32 noundef 132) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %0)
+  call void @llvm.stackrestore.p0(ptr %savedstack.i)
   %6 = load i32, ptr %res.i, align 4
   %cmp4.not.i = icmp eq i32 %6, 0
   br i1 %cmp4.not.i, label %tpm_emulator_shutdown.exit, label %if.then5.i
 
-if.then5.i:                                       ; preds = %if.else.i
+if.then5.i:                                       ; preds = %tpm_emulator_ctrlcmd.exit.i
   %7 = call noundef i32 @llvm.bswap.i32(i32 %6)
   br label %for.body.i.i
 
@@ -342,7 +339,7 @@ tpm_emulator_strerror.exit.i:                     ; preds = %for.cond.i.i, %if.t
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.66, i32 noundef %7, ptr noundef %retval.0.i.i) #12
   br label %tpm_emulator_shutdown.exit
 
-tpm_emulator_shutdown.exit:                       ; preds = %entry, %if.then1.i, %if.else.i, %tpm_emulator_strerror.exit.i
+tpm_emulator_shutdown.exit:                       ; preds = %entry, %qemu_lockable_auto_unlock.exit.i.i.i.i, %tpm_emulator_ctrlcmd.exit.i, %tpm_emulator_strerror.exit.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %res.i)
   %data_ioc = getelementptr inbounds i8, ptr %call.i, i64 152
   %10 = load ptr, ptr %data_ioc, align 8
@@ -518,30 +515,27 @@ if.end.i:                                         ; preds = %if.end
   store i32 738263040, ptr %add.ptr.us50.i.i, align 4
   %call3.us52.i.i = call i32 @qemu_chr_fe_write_all(ptr noundef nonnull %ctrl_chr.i.i, ptr noundef nonnull %0, i32 noundef 8) #12
   %cmp.us53.i.i = icmp slt i32 %call3.us52.i.i, 1
-  br i1 %cmp.us53.i.i, label %if.then3.critedge.i, label %if.end.i.i
+  br i1 %cmp.us53.i.i, label %qemu_lockable_auto_unlock.exit.i.i.i.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end.i
   %call10.i.i4 = call i32 @qemu_chr_fe_read_all(ptr noundef nonnull %ctrl_chr.i.i, ptr noundef nonnull %pls.i, i32 noundef 4) #12
   %cmp12.i.i = icmp slt i32 %call10.i.i4, 1
+  br i1 %cmp12.i.i, label %qemu_lockable_auto_unlock.exit.i.i.i.i, label %tpm_emulator_ctrlcmd.exit.i
+
+qemu_lockable_auto_unlock.exit.i.i.i.i:           ; preds = %if.end.i.i, %if.end.i
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex.i.i, ptr noundef nonnull @.str.11, i32 noundef 132) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %0)
   call void @llvm.stackrestore.p0(ptr %savedstack.i)
-  br i1 %cmp12.i.i, label %if.then3.i, label %if.end6.i
-
-if.then3.critedge.i:                              ; preds = %if.end.i
-  call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex.i.i, ptr noundef nonnull @.str.11, i32 noundef 132) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %0)
-  call void @llvm.stackrestore.p0(ptr %savedstack.i)
-  br label %if.then3.i
-
-if.then3.i:                                       ; preds = %if.then3.critedge.i, %if.end.i.i
   %call4.i = tail call ptr @__errno_location() #14
   %17 = load i32, ptr %call4.i, align 4
   %call5.i = call ptr @strerror(i32 noundef %17) #12
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.7, ptr noundef %call5.i) #12
   br label %tpm_emulator_lock_storage.exit
 
-if.end6.i:                                        ; preds = %if.end.i.i
+tpm_emulator_ctrlcmd.exit.i:                      ; preds = %if.end.i.i
+  call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex.i.i, ptr noundef nonnull @.str.11, i32 noundef 132) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %0)
+  call void @llvm.stackrestore.p0(ptr %savedstack.i)
   %18 = load i32, ptr %pls.i, align 4
   %19 = call noundef i32 @llvm.bswap.i32(i32 %18)
   store i32 %19, ptr %pls.i, align 4
@@ -553,8 +547,8 @@ for.cond.i.i:                                     ; preds = %for.body.i.i
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, 13
   br i1 %exitcond.not.i.i, label %tpm_emulator_strerror.exit.i, label %for.body.i.i, !llvm.loop !5
 
-for.body.i.i:                                     ; preds = %if.end6.i, %for.cond.i.i
-  %i.04.i.i = phi i64 [ %inc.i.i, %for.cond.i.i ], [ 0, %if.end6.i ]
+for.body.i.i:                                     ; preds = %tpm_emulator_ctrlcmd.exit.i, %for.cond.i.i
+  %i.04.i.i = phi i64 [ %inc.i.i, %for.cond.i.i ], [ 0, %tpm_emulator_ctrlcmd.exit.i ]
   %arrayidx.i.i = getelementptr [13 x %struct.tpm_error], ptr @tpm_errors, i64 0, i64 %i.04.i.i
   %20 = load i32, ptr %arrayidx.i.i, align 16
   %cmp2.i.i = icmp eq i32 %20, %19
@@ -570,7 +564,7 @@ tpm_emulator_strerror.exit.i:                     ; preds = %for.cond.i.i, %if.t
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.8, i32 noundef %19, ptr noundef %retval.0.i.i) #12
   br label %tpm_emulator_lock_storage.exit
 
-tpm_emulator_lock_storage.exit:                   ; preds = %trace_tpm_emulator_lock_storage_cmd_not_supt.exit.i, %if.then3.i, %if.end6.i, %tpm_emulator_strerror.exit.i
+tpm_emulator_lock_storage.exit:                   ; preds = %trace_tpm_emulator_lock_storage_cmd_not_supt.exit.i, %qemu_lockable_auto_unlock.exit.i.i.i.i, %tpm_emulator_ctrlcmd.exit.i, %tpm_emulator_strerror.exit.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %pls.i)
   br label %return
 
@@ -909,30 +903,27 @@ if.end6:                                          ; preds = %if.then4, %if.end
   store i32 %7, ptr %add.ptr.us50.i, align 4
   %call3.us52.i = call i32 @qemu_chr_fe_write_all(ptr noundef nonnull %ctrl_chr.i, ptr noundef nonnull %0, i32 noundef 8) #12
   %cmp.us53.i = icmp slt i32 %call3.us52.i, 1
-  br i1 %cmp.us53.i, label %if.then9.critedge, label %if.end.i
+  br i1 %cmp.us53.i, label %qemu_lockable_auto_unlock.exit.i.i.i, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end6
   %call10.i = call i32 @qemu_chr_fe_read_all(ptr noundef nonnull %ctrl_chr.i, ptr noundef nonnull %init, i32 noundef 4) #12
   %cmp12.i = icmp slt i32 %call10.i, 1
+  br i1 %cmp12.i, label %qemu_lockable_auto_unlock.exit.i.i.i, label %tpm_emulator_ctrlcmd.exit
+
+qemu_lockable_auto_unlock.exit.i.i.i:             ; preds = %if.end.i, %if.end6
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex.i, ptr noundef nonnull @.str.11, i32 noundef 132) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %0)
   call void @llvm.stackrestore.p0(ptr %savedstack)
-  br i1 %cmp12.i, label %if.then9, label %if.end12
-
-if.then9.critedge:                                ; preds = %if.end6
-  call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex.i, ptr noundef nonnull @.str.11, i32 noundef 132) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %0)
-  call void @llvm.stackrestore.p0(ptr %savedstack)
-  br label %if.then9
-
-if.then9:                                         ; preds = %if.then9.critedge, %if.end.i
   %call10 = tail call ptr @__errno_location() #14
   %10 = load i32, ptr %call10, align 4
   %call11 = call ptr @strerror(i32 noundef %10) #12
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.48, ptr noundef %call11) #12
   br label %return
 
-if.end12:                                         ; preds = %if.end.i
+tpm_emulator_ctrlcmd.exit:                        ; preds = %if.end.i
+  call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex.i, ptr noundef nonnull @.str.11, i32 noundef 132) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %0)
+  call void @llvm.stackrestore.p0(ptr %savedstack)
   %11 = load i32, ptr %init, align 4
   %12 = call noundef i32 @llvm.bswap.i32(i32 %11)
   %tobool15.not = icmp eq i32 %11, 0
@@ -943,8 +934,8 @@ for.cond.i:                                       ; preds = %for.body.i
   %exitcond.not.i = icmp eq i64 %inc.i, 13
   br i1 %exitcond.not.i, label %tpm_emulator_strerror.exit, label %for.body.i, !llvm.loop !5
 
-for.body.i:                                       ; preds = %if.end12, %for.cond.i
-  %i.04.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %if.end12 ]
+for.body.i:                                       ; preds = %tpm_emulator_ctrlcmd.exit, %for.cond.i
+  %i.04.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %tpm_emulator_ctrlcmd.exit ]
   %arrayidx.i = getelementptr [13 x %struct.tpm_error], ptr @tpm_errors, i64 0, i64 %i.04.i
   %13 = load i32, ptr %arrayidx.i, align 16
   %cmp2.i = icmp eq i32 %13, %12
@@ -960,8 +951,8 @@ tpm_emulator_strerror.exit:                       ; preds = %for.cond.i, %if.the
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.49, i32 noundef %12, ptr noundef %retval.0.i) #12
   br label %return
 
-return:                                           ; preds = %if.then9, %tpm_emulator_strerror.exit, %land.lhs.true, %if.end12
-  %retval.0 = phi i32 [ 0, %if.end12 ], [ -1, %land.lhs.true ], [ -1, %tpm_emulator_strerror.exit ], [ -1, %if.then9 ]
+return:                                           ; preds = %qemu_lockable_auto_unlock.exit.i.i.i, %tpm_emulator_strerror.exit, %land.lhs.true, %tpm_emulator_ctrlcmd.exit
+  %retval.0 = phi i32 [ 0, %tpm_emulator_ctrlcmd.exit ], [ -1, %land.lhs.true ], [ -1, %tpm_emulator_strerror.exit ], [ -1, %qemu_lockable_auto_unlock.exit.i.i.i ]
   ret i32 %retval.0
 }
 
@@ -981,30 +972,27 @@ entry:
   store i32 234881024, ptr %0, align 16
   %call3.us52.i = call i32 @qemu_chr_fe_write_all(ptr noundef nonnull %ctrl_chr.i, ptr noundef nonnull %0, i32 noundef 4) #12
   %cmp.us53.i = icmp slt i32 %call3.us52.i, 1
-  br i1 %cmp.us53.i, label %if.then.critedge, label %if.end.i
+  br i1 %cmp.us53.i, label %qemu_lockable_auto_unlock.exit.i.i.i, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %call10.i = call i32 @qemu_chr_fe_read_all(ptr noundef nonnull %ctrl_chr.i, ptr noundef nonnull %res, i32 noundef 4) #12
   %cmp12.i = icmp slt i32 %call10.i, 1
+  br i1 %cmp12.i, label %qemu_lockable_auto_unlock.exit.i.i.i, label %tpm_emulator_ctrlcmd.exit
+
+qemu_lockable_auto_unlock.exit.i.i.i:             ; preds = %if.end.i, %entry
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex.i, ptr noundef nonnull @.str.11, i32 noundef 132) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %0)
   call void @llvm.stackrestore.p0(ptr %savedstack)
-  br i1 %cmp12.i, label %if.then, label %if.end
-
-if.then.critedge:                                 ; preds = %entry
-  call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex.i, ptr noundef nonnull @.str.11, i32 noundef 132) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %0)
-  call void @llvm.stackrestore.p0(ptr %savedstack)
-  br label %if.then
-
-if.then:                                          ; preds = %if.then.critedge, %if.end.i
   %call2 = tail call ptr @__errno_location() #14
   %3 = load i32, ptr %call2, align 4
   %call3 = call ptr @strerror(i32 noundef %3) #12
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.36, ptr noundef %call3) #12
   br label %return
 
-if.end:                                           ; preds = %if.end.i
+tpm_emulator_ctrlcmd.exit:                        ; preds = %if.end.i
+  call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex.i, ptr noundef nonnull @.str.11, i32 noundef 132) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %0)
+  call void @llvm.stackrestore.p0(ptr %savedstack)
   %4 = load i32, ptr %res, align 4
   %5 = call noundef i32 @llvm.bswap.i32(i32 %4)
   store i32 %5, ptr %res, align 4
@@ -1016,8 +1004,8 @@ for.cond.i:                                       ; preds = %for.body.i
   %exitcond.not.i = icmp eq i64 %inc.i, 13
   br i1 %exitcond.not.i, label %tpm_emulator_strerror.exit, label %for.body.i, !llvm.loop !5
 
-for.body.i:                                       ; preds = %if.end, %for.cond.i
-  %i.04.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %if.end ]
+for.body.i:                                       ; preds = %tpm_emulator_ctrlcmd.exit, %for.cond.i
+  %i.04.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %tpm_emulator_ctrlcmd.exit ]
   %arrayidx.i = getelementptr [13 x %struct.tpm_error], ptr @tpm_errors, i64 0, i64 %i.04.i
   %6 = load i32, ptr %arrayidx.i, align 16
   %cmp2.i = icmp eq i32 %6, %5
@@ -1033,8 +1021,8 @@ tpm_emulator_strerror.exit:                       ; preds = %for.cond.i, %if.the
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.37, i32 noundef %5, ptr noundef %retval.0.i) #12
   br label %return
 
-return:                                           ; preds = %if.end, %tpm_emulator_strerror.exit, %if.then
-  %retval.0 = phi i32 [ -1, %if.then ], [ -1, %tpm_emulator_strerror.exit ], [ 0, %if.end ]
+return:                                           ; preds = %tpm_emulator_ctrlcmd.exit, %tpm_emulator_strerror.exit, %qemu_lockable_auto_unlock.exit.i.i.i
+  %retval.0 = phi i32 [ -1, %qemu_lockable_auto_unlock.exit.i.i.i ], [ -1, %tpm_emulator_strerror.exit ], [ 0, %tpm_emulator_ctrlcmd.exit ]
   ret i32 %retval.0
 }
 
@@ -1211,30 +1199,27 @@ if.end:                                           ; preds = %entry
   store i32 %1, ptr %add.ptr.us50.i, align 4
   %call3.us52.i = call i32 @qemu_chr_fe_write_all(ptr noundef nonnull %ctrl_chr.i, ptr noundef nonnull %0, i32 noundef 8) #12
   %cmp.us53.i = icmp slt i32 %call3.us52.i, 1
-  br i1 %cmp.us53.i, label %if.then6.critedge, label %if.end.i
+  br i1 %cmp.us53.i, label %qemu_lockable_auto_unlock.exit.i.i.i, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
   %call10.i = call i32 @qemu_chr_fe_read_all(ptr noundef nonnull %ctrl_chr.i, ptr noundef nonnull %psbs, i32 noundef 16) #12
   %cmp12.i = icmp slt i32 %call10.i, 1
+  br i1 %cmp12.i, label %qemu_lockable_auto_unlock.exit.i.i.i, label %tpm_emulator_ctrlcmd.exit
+
+qemu_lockable_auto_unlock.exit.i.i.i:             ; preds = %if.end.i, %if.end
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex.i, ptr noundef nonnull @.str.11, i32 noundef 132) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %0)
   call void @llvm.stackrestore.p0(ptr %savedstack)
-  br i1 %cmp12.i, label %if.then6, label %if.end9
-
-if.then6.critedge:                                ; preds = %if.end
-  call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex.i, ptr noundef nonnull @.str.11, i32 noundef 132) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %0)
-  call void @llvm.stackrestore.p0(ptr %savedstack)
-  br label %if.then6
-
-if.then6:                                         ; preds = %if.then6.critedge, %if.end.i
   %call7 = tail call ptr @__errno_location() #14
   %4 = load i32, ptr %call7, align 4
   %call8 = call ptr @strerror(i32 noundef %4) #12
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.52, ptr noundef %call8) #12
   br label %return
 
-if.end9:                                          ; preds = %if.end.i
+tpm_emulator_ctrlcmd.exit:                        ; preds = %if.end.i
+  call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex.i, ptr noundef nonnull @.str.11, i32 noundef 132) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %0)
+  call void @llvm.stackrestore.p0(ptr %savedstack)
   %5 = load i32, ptr %psbs, align 4
   %6 = call noundef i32 @llvm.bswap.i32(i32 %5)
   store i32 %6, ptr %psbs, align 4
@@ -1246,8 +1231,8 @@ for.cond.i:                                       ; preds = %for.body.i
   %exitcond.not.i = icmp eq i64 %inc.i, 13
   br i1 %exitcond.not.i, label %tpm_emulator_strerror.exit, label %for.body.i, !llvm.loop !5
 
-for.body.i:                                       ; preds = %if.end9, %for.cond.i
-  %i.04.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %if.end9 ]
+for.body.i:                                       ; preds = %tpm_emulator_ctrlcmd.exit, %for.cond.i
+  %i.04.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %tpm_emulator_ctrlcmd.exit ]
   %arrayidx.i = getelementptr [13 x %struct.tpm_error], ptr @tpm_errors, i64 0, i64 %i.04.i
   %7 = load i32, ptr %arrayidx.i, align 16
   %cmp2.i = icmp eq i32 %7, %6
@@ -1263,7 +1248,7 @@ tpm_emulator_strerror.exit:                       ; preds = %for.cond.i, %if.the
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.53, i32 noundef %6, ptr noundef %retval.0.i) #12
   br label %return
 
-if.end24:                                         ; preds = %if.end9
+if.end24:                                         ; preds = %tpm_emulator_ctrlcmd.exit
   %tobool.not = icmp eq ptr %actual_size, null
   %buffersize32.phi.trans.insert = getelementptr inbounds i8, ptr %psbs, i64 4
   %.pre = load i32, ptr %buffersize32.phi.trans.insert, align 4
@@ -1318,8 +1303,8 @@ trace_tpm_emulator_set_buffer_size.exit:          ; preds = %if.end30, %land.lhs
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   br label %return
 
-return:                                           ; preds = %entry, %trace_tpm_emulator_set_buffer_size.exit, %tpm_emulator_strerror.exit, %if.then6
-  %retval.0 = phi i32 [ -1, %if.then6 ], [ -1, %tpm_emulator_strerror.exit ], [ 0, %trace_tpm_emulator_set_buffer_size.exit ], [ -1, %entry ]
+return:                                           ; preds = %entry, %trace_tpm_emulator_set_buffer_size.exit, %tpm_emulator_strerror.exit, %qemu_lockable_auto_unlock.exit.i.i.i
+  %retval.0 = phi i32 [ -1, %qemu_lockable_auto_unlock.exit.i.i.i ], [ -1, %tpm_emulator_strerror.exit ], [ 0, %trace_tpm_emulator_set_buffer_size.exit ], [ -1, %entry ]
   ret i32 %retval.0
 }
 
@@ -1351,30 +1336,27 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr.us50.i, ptr noundef nonnull align 4 dereferenceable(12) %pgs, i64 12, i1 false)
   %call3.us52.i = call i32 @qemu_chr_fe_write_all(ptr noundef nonnull %ctrl_chr.i, ptr noundef nonnull %0, i32 noundef 16) #12
   %cmp.us53.i = icmp slt i32 %call3.us52.i, 1
-  br i1 %cmp.us53.i, label %if.then.critedge, label %if.end.i
+  br i1 %cmp.us53.i, label %qemu_lockable_auto_unlock.exit.i.i.i, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %call10.i = call i32 @qemu_chr_fe_read_all(ptr noundef nonnull %ctrl_chr.i, ptr noundef nonnull %pgs, i32 noundef 16) #12
   %cmp12.i = icmp slt i32 %call10.i, 1
+  br i1 %cmp12.i, label %qemu_lockable_auto_unlock.exit.i.i.i, label %tpm_emulator_ctrlcmd.exit
+
+qemu_lockable_auto_unlock.exit.i.i.i:             ; preds = %if.end.i, %entry
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex.i, ptr noundef nonnull @.str.11, i32 noundef 132) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %0)
   call void @llvm.stackrestore.p0(ptr %savedstack)
-  br i1 %cmp12.i, label %if.then, label %if.end
-
-if.then.critedge:                                 ; preds = %entry
-  call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex.i, ptr noundef nonnull @.str.11, i32 noundef 132) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %0)
-  call void @llvm.stackrestore.p0(ptr %savedstack)
-  br label %if.then
-
-if.then:                                          ; preds = %if.then.critedge, %if.end.i
   %call8 = tail call ptr @__errno_location() #14
   %4 = load i32, ptr %call8, align 4
   %call9 = call ptr @strerror(i32 noundef %4) #12
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.58, i32 noundef %conv, ptr noundef %call9) #12
   br label %return
 
-if.end:                                           ; preds = %if.end.i
+tpm_emulator_ctrlcmd.exit:                        ; preds = %if.end.i
+  call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex.i, ptr noundef nonnull @.str.11, i32 noundef 132) #12
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %0)
+  call void @llvm.stackrestore.p0(ptr %savedstack)
   %5 = load i32, ptr %pgs, align 4
   %6 = call noundef i32 @llvm.bswap.i32(i32 %5)
   %cmp12.not = icmp ne i32 %5, 0
@@ -1388,8 +1370,8 @@ for.cond.i:                                       ; preds = %for.body.i
   %exitcond.not.i = icmp eq i64 %inc.i, 13
   br i1 %exitcond.not.i, label %tpm_emulator_strerror.exit, label %for.body.i, !llvm.loop !5
 
-for.body.i:                                       ; preds = %if.end, %for.cond.i
-  %i.04.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %if.end ]
+for.body.i:                                       ; preds = %tpm_emulator_ctrlcmd.exit, %for.cond.i
+  %i.04.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %tpm_emulator_ctrlcmd.exit ]
   %arrayidx.i = getelementptr [13 x %struct.tpm_error], ptr @tpm_errors, i64 0, i64 %i.04.i
   %7 = load i32, ptr %arrayidx.i, align 16
   %cmp2.i = icmp eq i32 %7, %6
@@ -1405,7 +1387,7 @@ tpm_emulator_strerror.exit:                       ; preds = %for.cond.i, %if.the
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.59, i32 noundef %conv, i32 noundef %6, ptr noundef %retval.0.i) #12
   br label %return
 
-if.end19:                                         ; preds = %if.end
+if.end19:                                         ; preds = %tpm_emulator_ctrlcmd.exit
   %9 = load i32, ptr %offset, align 4
   %10 = call noundef i32 @llvm.bswap.i32(i32 %9)
   %length24 = getelementptr inbounds i8, ptr %pgs, i64 12
@@ -1486,8 +1468,8 @@ trace_tpm_emulator_get_state_blob.exit:           ; preds = %if.end50, %land.lhs
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   br label %return
 
-return:                                           ; preds = %trace_tpm_emulator_get_state_blob.exit, %if.then47, %if.then39, %if.then28, %tpm_emulator_strerror.exit, %if.then
-  %retval.0 = phi i32 [ -1, %if.then ], [ -1, %tpm_emulator_strerror.exit ], [ -1, %if.then28 ], [ -1, %if.then47 ], [ 0, %trace_tpm_emulator_get_state_blob.exit ], [ -1, %if.then39 ]
+return:                                           ; preds = %trace_tpm_emulator_get_state_blob.exit, %if.then47, %if.then39, %if.then28, %tpm_emulator_strerror.exit, %qemu_lockable_auto_unlock.exit.i.i.i
+  %retval.0 = phi i32 [ -1, %qemu_lockable_auto_unlock.exit.i.i.i ], [ -1, %tpm_emulator_strerror.exit ], [ -1, %if.then28 ], [ -1, %if.then47 ], [ 0, %trace_tpm_emulator_get_state_blob.exit ], [ -1, %if.then39 ]
   ret i32 %retval.0
 }
 
@@ -1584,21 +1566,24 @@ if.end.i.i:                                       ; preds = %if.end7.i
   store i32 268435456, ptr %1, align 16
   %call3.us52.i.i.i = call i32 @qemu_chr_fe_write_all(ptr noundef nonnull %ctrl_chr.i, ptr noundef nonnull %1, i32 noundef 4) #12
   %cmp.us53.i.i.i = icmp slt i32 %call3.us52.i.i.i, 1
-  br i1 %cmp.us53.i.i.i, label %tpm_emulator_ctrlcmd.exit.i.i, label %if.end.i.i.i
+  br i1 %cmp.us53.i.i.i, label %qemu_lockable_auto_unlock.exit.i.i.i.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.end.i.i
   %call10.i.i.i = call i32 @qemu_chr_fe_read_all(ptr noundef nonnull %ctrl_chr.i, ptr noundef nonnull %res.i.i, i32 noundef 4) #12
   %cmp12.i.i.i = icmp slt i32 %call10.i.i.i, 1
+  br i1 %cmp12.i.i.i, label %qemu_lockable_auto_unlock.exit.i.i.i.i.i, label %tpm_emulator_ctrlcmd.exit.i.i
+
+qemu_lockable_auto_unlock.exit.i.i.i.i.i:         ; preds = %if.end.i.i.i, %if.end.i.i
   br label %tpm_emulator_ctrlcmd.exit.i.i
 
-tpm_emulator_ctrlcmd.exit.i.i:                    ; preds = %if.end.i.i.i, %if.end.i.i
-  %tobool.not17.i.i.i = phi i1 [ true, %if.end.i.i ], [ %cmp12.i.i.i, %if.end.i.i.i ]
+tpm_emulator_ctrlcmd.exit.i.i:                    ; preds = %qemu_lockable_auto_unlock.exit.i.i.i.i.i, %if.end.i.i.i
+  %cmp4.i.i = phi i1 [ true, %qemu_lockable_auto_unlock.exit.i.i.i.i.i ], [ false, %if.end.i.i.i ]
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex.i.i.i, ptr noundef nonnull @.str.11, i32 noundef 132) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1)
   call void @llvm.stackrestore.p0(ptr %savedstack.i.i)
   %6 = load i32, ptr %res.i.i, align 4
   %cmp5.i.i = icmp ne i32 %6, 0
-  %or.cond.i.i = select i1 %tobool.not17.i.i.i, i1 true, i1 %cmp5.i.i
+  %or.cond.i.i = select i1 %cmp4.i.i, i1 true, i1 %cmp5.i.i
   br i1 %or.cond.i.i, label %if.then6.i.i, label %if.end9.i.i
 
 if.then6.i.i:                                     ; preds = %tpm_emulator_ctrlcmd.exit.i.i
@@ -1690,23 +1675,17 @@ sw.epilog.i:                                      ; preds = %sw.default.i, %sw.b
   store i32 16777216, ptr %0, align 16
   %call3.us52.i.i18.i = call i32 @qemu_chr_fe_write_all(ptr noundef nonnull %ctrl_chr.i, ptr noundef nonnull %0, i32 noundef 4) #12
   %cmp.us53.i.i19.i = icmp slt i32 %call3.us52.i.i18.i, 1
-  br i1 %cmp.us53.i.i19.i, label %if.then.critedge.i.i, label %if.end.i.i20.i
+  br i1 %cmp.us53.i.i19.i, label %tpm_emulator_probe_caps.exit.i, label %if.end.i.i20.i
 
 if.end.i.i20.i:                                   ; preds = %sw.epilog.i
   %call10.i.i21.i = call i32 @qemu_chr_fe_read_all(ptr noundef nonnull %ctrl_chr.i, ptr noundef nonnull %caps.i.i, i32 noundef 8) #12
   %cmp12.i.i22.i = icmp slt i32 %call10.i.i21.i, 1
+  br i1 %cmp12.i.i22.i, label %tpm_emulator_probe_caps.exit.i, label %tpm_emulator_ctrlcmd.exit.i23.i
+
+tpm_emulator_ctrlcmd.exit.i23.i:                  ; preds = %if.end.i.i20.i
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex.i.i.i, ptr noundef nonnull @.str.11, i32 noundef 132) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %0)
   call void @llvm.stackrestore.p0(ptr %savedstack.i16.i)
-  br i1 %cmp12.i.i22.i, label %tpm_emulator_probe_caps.exit.i, label %if.end.i23.i
-
-if.then.critedge.i.i:                             ; preds = %sw.epilog.i
-  call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex.i.i.i, ptr noundef nonnull @.str.11, i32 noundef 132) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %0)
-  call void @llvm.stackrestore.p0(ptr %savedstack.i16.i)
-  br label %tpm_emulator_probe_caps.exit.i
-
-if.end.i23.i:                                     ; preds = %if.end.i.i20.i
   %22 = load i64, ptr %caps.i.i, align 8
   %23 = call noundef i64 @llvm.bswap.i64(i64 %22)
   store i64 %23, ptr %caps.i.i, align 8
@@ -1718,7 +1697,7 @@ if.end.i23.i:                                     ; preds = %if.end.i.i20.i
   %or.cond.i.i.i.i = select i1 %tobool.i.i.i.i, i1 %tobool4.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %land.lhs.true5.i.i.i.i, label %lor.lhs.false.i
 
-land.lhs.true5.i.i.i.i:                           ; preds = %if.end.i23.i
+land.lhs.true5.i.i.i.i:                           ; preds = %tpm_emulator_ctrlcmd.exit.i23.i
   %26 = load i32, ptr @qemu_loglevel, align 4
   %and.i.i.i.i.i = and i32 %26, 32768
   %cmp.i.not.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -1742,14 +1721,17 @@ if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.92, i64 noundef %23) #12
   br label %lor.lhs.false.i
 
-tpm_emulator_probe_caps.exit.i:                   ; preds = %if.then.critedge.i.i, %if.end.i.i20.i
+tpm_emulator_probe_caps.exit.i:                   ; preds = %if.end.i.i20.i, %sw.epilog.i
+  call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex.i.i.i, ptr noundef nonnull @.str.11, i32 noundef 132) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %0)
+  call void @llvm.stackrestore.p0(ptr %savedstack.i16.i)
   %call1.i.i = tail call ptr @__errno_location() #14
   %30 = load i32, ptr %call1.i.i, align 4
   %call2.i26.i = call ptr @strerror(i32 noundef %30) #12
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.90, ptr noundef %call2.i26.i) #12
   br label %err30.i
 
-lor.lhs.false.i:                                  ; preds = %if.else.i.i.i.i, %if.then8.i.i.i.i, %land.lhs.true5.i.i.i.i, %if.end.i23.i
+lor.lhs.false.i:                                  ; preds = %if.else.i.i.i.i, %if.then8.i.i.i.i, %land.lhs.true5.i.i.i.i, %tpm_emulator_ctrlcmd.exit.i23.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i.i)
   %call25.i = call fastcc i32 @tpm_emulator_check_caps(ptr noundef nonnull %call.i3), !range !7
   %tobool26.not.i = icmp eq i32 %call25.i, 0
@@ -1892,40 +1874,37 @@ if.end:                                           ; preds = %entry
   store i32 150994944, ptr %0, align 16
   %call3.us52.i = call i32 @qemu_chr_fe_write_all(ptr noundef nonnull %ctrl_chr.i, ptr noundef nonnull %0, i32 noundef 4) #12
   %cmp.us53.i = icmp slt i32 %call3.us52.i, 1
-  br i1 %cmp.us53.i, label %if.then3.critedge, label %if.end.i
+  br i1 %cmp.us53.i, label %qemu_lockable_auto_unlock.exit.i.i.i, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
   %call10.i = call i32 @qemu_chr_fe_read_all(ptr noundef nonnull %ctrl_chr.i, ptr noundef nonnull %res, i32 noundef 4) #12
   %cmp12.i = icmp slt i32 %call10.i, 1
+  br i1 %cmp12.i, label %qemu_lockable_auto_unlock.exit.i.i.i, label %tpm_emulator_ctrlcmd.exit
+
+qemu_lockable_auto_unlock.exit.i.i.i:             ; preds = %if.end.i, %if.end
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex.i, ptr noundef nonnull @.str.11, i32 noundef 132) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %0)
   call void @llvm.stackrestore.p0(ptr %savedstack)
-  br i1 %cmp12.i, label %if.then3, label %if.else
-
-if.then3.critedge:                                ; preds = %if.end
-  call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex.i, ptr noundef nonnull @.str.11, i32 noundef 132) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %0)
-  call void @llvm.stackrestore.p0(ptr %savedstack)
-  br label %if.then3
-
-if.then3:                                         ; preds = %if.then3.critedge, %if.end.i
   %call4 = tail call ptr @__errno_location() #14
   %10 = load i32, ptr %call4, align 4
   %call5 = call ptr @strerror(i32 noundef %10) #12
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.100, ptr noundef %call5) #12
   br label %if.end10
 
-if.else:                                          ; preds = %if.end.i
+tpm_emulator_ctrlcmd.exit:                        ; preds = %if.end.i
+  call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex.i, ptr noundef nonnull @.str.11, i32 noundef 132) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %0)
+  call void @llvm.stackrestore.p0(ptr %savedstack)
   %11 = load i32, ptr %res, align 4
   %cmp6.not = icmp eq i32 %11, 0
   br i1 %cmp6.not, label %if.end10, label %if.then7
 
-if.then7:                                         ; preds = %if.else
+if.then7:                                         ; preds = %tpm_emulator_ctrlcmd.exit
   %12 = call noundef i32 @llvm.bswap.i32(i32 %11)
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.101, i32 noundef %12) #12
   br label %if.end10
 
-if.end10:                                         ; preds = %if.else, %if.then7, %if.then3, %trace_tpm_emulator_cancel_cmd_not_supt.exit
+if.end10:                                         ; preds = %tpm_emulator_ctrlcmd.exit, %if.then7, %qemu_lockable_auto_unlock.exit.i.i.i, %trace_tpm_emulator_cancel_cmd_not_supt.exit
   ret void
 }
 
@@ -1958,30 +1937,27 @@ if.end:                                           ; preds = %entry
   store i32 67108864, ptr %0, align 16
   %call3.us52.i = call i32 @qemu_chr_fe_write_all(ptr noundef nonnull %ctrl_chr.i, ptr noundef nonnull %0, i32 noundef 4) #12
   %cmp.us53.i = icmp slt i32 %call3.us52.i, 1
-  br i1 %cmp.us53.i, label %if.then6.critedge, label %if.end.i
+  br i1 %cmp.us53.i, label %qemu_lockable_auto_unlock.exit.i.i.i, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
   %call10.i = call i32 @qemu_chr_fe_read_all(ptr noundef nonnull %ctrl_chr.i, ptr noundef nonnull %est, i32 noundef 8) #12
   %cmp12.i = icmp slt i32 %call10.i, 1
+  br i1 %cmp12.i, label %qemu_lockable_auto_unlock.exit.i.i.i, label %tpm_emulator_ctrlcmd.exit
+
+qemu_lockable_auto_unlock.exit.i.i.i:             ; preds = %if.end.i, %if.end
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex.i, ptr noundef nonnull @.str.11, i32 noundef 132) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %0)
   call void @llvm.stackrestore.p0(ptr %savedstack)
-  br i1 %cmp12.i, label %if.then6, label %if.end9
-
-if.then6.critedge:                                ; preds = %if.end
-  call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex.i, ptr noundef nonnull @.str.11, i32 noundef 132) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %0)
-  call void @llvm.stackrestore.p0(ptr %savedstack)
-  br label %if.then6
-
-if.then6:                                         ; preds = %if.then6.critedge, %if.end.i
   %call7 = tail call ptr @__errno_location() #14
   %4 = load i32, ptr %call7, align 4
   %call8 = call ptr @strerror(i32 noundef %4) #12
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.104, ptr noundef %call8) #12
   br label %return
 
-if.end9:                                          ; preds = %if.end.i
+tpm_emulator_ctrlcmd.exit:                        ; preds = %if.end.i
+  call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex.i, ptr noundef nonnull @.str.11, i32 noundef 132) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %0)
+  call void @llvm.stackrestore.p0(ptr %savedstack)
   %bit = getelementptr inbounds i8, ptr %est, i64 4
   %5 = load i8, ptr %bit, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -1992,7 +1968,7 @@ if.end9:                                          ; preds = %if.end.i
   %or.cond.i.i = select i1 %tobool.i.i, i1 %tobool4.i.i, i1 false
   br i1 %or.cond.i.i, label %land.lhs.true5.i.i, label %trace_tpm_emulator_get_tpm_established_flag.exit
 
-land.lhs.true5.i.i:                               ; preds = %if.end9
+land.lhs.true5.i.i:                               ; preds = %tpm_emulator_ctrlcmd.exit
   %8 = load i32, ptr @qemu_loglevel, align 4
   %and.i.i.i = and i32 %8, 32768
   %cmp.i.not.i.i = icmp eq i32 %and.i.i.i, 0
@@ -2018,7 +1994,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.106, i32 noundef %conv12.i.i) #12
   br label %trace_tpm_emulator_get_tpm_established_flag.exit
 
-trace_tpm_emulator_get_tpm_established_flag.exit: ; preds = %if.end9, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
+trace_tpm_emulator_get_tpm_established_flag.exit: ; preds = %tpm_emulator_ctrlcmd.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %bf.load11 = load i8, ptr %established_flag_cached, align 8
   %12 = load i8, ptr %bit, align 4
@@ -2030,8 +2006,8 @@ trace_tpm_emulator_get_tpm_established_flag.exit: ; preds = %if.end9, %land.lhs.
   store i8 %bf.set20, ptr %established_flag_cached, align 8
   br label %return
 
-return:                                           ; preds = %trace_tpm_emulator_get_tpm_established_flag.exit, %if.then6, %if.then
-  %retval.0 = phi i1 [ %tobool4, %if.then ], [ false, %if.then6 ], [ %cmp15, %trace_tpm_emulator_get_tpm_established_flag.exit ]
+return:                                           ; preds = %trace_tpm_emulator_get_tpm_established_flag.exit, %qemu_lockable_auto_unlock.exit.i.i.i, %if.then
+  %retval.0 = phi i1 [ %tobool4, %if.then ], [ false, %qemu_lockable_auto_unlock.exit.i.i.i ], [ %cmp15, %trace_tpm_emulator_get_tpm_established_flag.exit ]
   ret i1 %retval.0
 }
 
@@ -2063,30 +2039,27 @@ if.end:                                           ; preds = %entry
   store i32 %5, ptr %add.ptr.us50.i, align 4
   %call3.us52.i = call i32 @qemu_chr_fe_write_all(ptr noundef nonnull %ctrl_chr.i, ptr noundef nonnull %0, i32 noundef 8) #12
   %cmp.us53.i = icmp slt i32 %call3.us52.i, 1
-  br i1 %cmp.us53.i, label %if.then3.critedge, label %if.end.i
+  br i1 %cmp.us53.i, label %qemu_lockable_auto_unlock.exit.i.i.i, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
   %call10.i = call i32 @qemu_chr_fe_read_all(ptr noundef nonnull %ctrl_chr.i, ptr noundef nonnull %reset_est, i32 noundef 4) #12
   %cmp12.i = icmp slt i32 %call10.i, 1
+  br i1 %cmp12.i, label %qemu_lockable_auto_unlock.exit.i.i.i, label %tpm_emulator_ctrlcmd.exit
+
+qemu_lockable_auto_unlock.exit.i.i.i:             ; preds = %if.end.i, %if.end
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex.i, ptr noundef nonnull @.str.11, i32 noundef 132) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %0)
   call void @llvm.stackrestore.p0(ptr %savedstack)
-  br i1 %cmp12.i, label %if.then3, label %if.end6
-
-if.then3.critedge:                                ; preds = %if.end
-  call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex.i, ptr noundef nonnull @.str.11, i32 noundef 132) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %0)
-  call void @llvm.stackrestore.p0(ptr %savedstack)
-  br label %if.then3
-
-if.then3:                                         ; preds = %if.then3.critedge, %if.end.i
   %call4 = tail call ptr @__errno_location() #14
   %6 = load i32, ptr %call4, align 4
   %call5 = call ptr @strerror(i32 noundef %6) #12
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.107, ptr noundef %call5) #12
   br label %return
 
-if.end6:                                          ; preds = %if.end.i
+tpm_emulator_ctrlcmd.exit:                        ; preds = %if.end.i
+  call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex.i, ptr noundef nonnull @.str.11, i32 noundef 132) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %0)
+  call void @llvm.stackrestore.p0(ptr %savedstack)
   %7 = load i32, ptr %reset_est, align 4
   %8 = call noundef i32 @llvm.bswap.i32(i32 %7)
   %tobool.not = icmp eq i32 %7, 0
@@ -2097,8 +2070,8 @@ for.cond.i:                                       ; preds = %for.body.i
   %exitcond.not.i = icmp eq i64 %inc.i, 13
   br i1 %exitcond.not.i, label %tpm_emulator_strerror.exit, label %for.body.i, !llvm.loop !5
 
-for.body.i:                                       ; preds = %if.end6, %for.cond.i
-  %i.04.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %if.end6 ]
+for.body.i:                                       ; preds = %tpm_emulator_ctrlcmd.exit, %for.cond.i
+  %i.04.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %tpm_emulator_ctrlcmd.exit ]
   %arrayidx.i = getelementptr [13 x %struct.tpm_error], ptr @tpm_errors, i64 0, i64 %i.04.i
   %9 = load i32, ptr %arrayidx.i, align 16
   %cmp2.i = icmp eq i32 %9, %8
@@ -2114,15 +2087,15 @@ tpm_emulator_strerror.exit:                       ; preds = %for.cond.i, %if.the
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.108, i32 noundef %8, ptr noundef %retval.0.i) #12
   br label %return
 
-if.end11:                                         ; preds = %if.end6
+if.end11:                                         ; preds = %tpm_emulator_ctrlcmd.exit
   %established_flag_cached = getelementptr inbounds i8, ptr %call.i, i64 240
   %bf.load = load i8, ptr %established_flag_cached, align 8
   %bf.clear = and i8 %bf.load, -3
   store i8 %bf.clear, ptr %established_flag_cached, align 8
   br label %return
 
-return:                                           ; preds = %entry, %if.end11, %tpm_emulator_strerror.exit, %if.then3
-  %retval.0 = phi i32 [ -1, %if.then3 ], [ -1, %tpm_emulator_strerror.exit ], [ 0, %if.end11 ], [ 0, %entry ]
+return:                                           ; preds = %entry, %if.end11, %tpm_emulator_strerror.exit, %qemu_lockable_auto_unlock.exit.i.i.i
+  %retval.0 = phi i32 [ -1, %qemu_lockable_auto_unlock.exit.i.i.i ], [ -1, %tpm_emulator_strerror.exit ], [ 0, %if.end11 ], [ 0, %entry ]
   ret i32 %retval.0
 }
 
@@ -2261,45 +2234,42 @@ trace_tpm_emulator_set_locality.exit.i:           ; preds = %if.else.i.i.i, %if.
   store i32 %17, ptr %add.ptr.us50.i.i, align 4
   %call3.us52.i.i = call i32 @qemu_chr_fe_write_all(ptr noundef nonnull %ctrl_chr.i.i, ptr noundef nonnull %0, i32 noundef 8) #12
   %cmp.us53.i.i = icmp slt i32 %call3.us52.i.i, 1
-  br i1 %cmp.us53.i.i, label %if.then6.critedge.i, label %if.end.i.i
+  br i1 %cmp.us53.i.i, label %qemu_lockable_auto_unlock.exit.i.i.i.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %trace_tpm_emulator_set_locality.exit.i
   %call10.i.i10 = call i32 @qemu_chr_fe_read_all(ptr noundef nonnull %ctrl_chr.i.i, ptr noundef nonnull %loc.i, i32 noundef 4) #12
   %cmp12.i.i = icmp slt i32 %call10.i.i10, 1
+  br i1 %cmp12.i.i, label %qemu_lockable_auto_unlock.exit.i.i.i.i, label %tpm_emulator_ctrlcmd.exit.i
+
+qemu_lockable_auto_unlock.exit.i.i.i.i:           ; preds = %if.end.i.i, %trace_tpm_emulator_set_locality.exit.i
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex.i.i, ptr noundef nonnull @.str.11, i32 noundef 132) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %0)
   call void @llvm.stackrestore.p0(ptr %savedstack.i)
-  br i1 %cmp12.i.i, label %if.then6.i, label %if.end9.i
-
-if.then6.critedge.i:                              ; preds = %trace_tpm_emulator_set_locality.exit.i
-  call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex.i.i, ptr noundef nonnull @.str.11, i32 noundef 132) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %0)
-  call void @llvm.stackrestore.p0(ptr %savedstack.i)
-  br label %if.then6.i
-
-if.then6.i:                                       ; preds = %if.then6.critedge.i, %if.end.i.i
   %call7.i = tail call ptr @__errno_location() #14
   %18 = load i32, ptr %call7.i, align 4
   %call8.i = call ptr @strerror(i32 noundef %18) #12
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 209, ptr noundef nonnull @__func__.tpm_emulator_set_locality, ptr noundef nonnull @.str.111, ptr noundef %call8.i) #12
   br label %tpm_emulator_set_locality.exit.thread
 
-if.end9.i:                                        ; preds = %if.end.i.i
+tpm_emulator_ctrlcmd.exit.i:                      ; preds = %if.end.i.i
+  call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex.i.i, ptr noundef nonnull @.str.11, i32 noundef 132) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %0)
+  call void @llvm.stackrestore.p0(ptr %savedstack.i)
   %19 = load i32, ptr %loc.i, align 4
   %20 = call noundef i32 @llvm.bswap.i32(i32 %19)
   store i32 %20, ptr %loc.i, align 4
   %cmp16.not.i = icmp eq i32 %19, 0
   br i1 %cmp16.not.i, label %if.end21.i, label %if.then18.i
 
-if.then18.i:                                      ; preds = %if.end9.i
+if.then18.i:                                      ; preds = %tpm_emulator_ctrlcmd.exit.i
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 216, ptr noundef nonnull @__func__.tpm_emulator_set_locality, ptr noundef nonnull @.str.112, i32 noundef %20) #12
   br label %tpm_emulator_set_locality.exit.thread
 
-if.end21.i:                                       ; preds = %if.end9.i
+if.end21.i:                                       ; preds = %tpm_emulator_ctrlcmd.exit.i
   store i8 %7, ptr %cur_locty_number.i, align 8
   br label %lor.lhs.false
 
-tpm_emulator_set_locality.exit.thread:            ; preds = %if.then6.i, %if.then18.i
+tpm_emulator_set_locality.exit.thread:            ; preds = %qemu_lockable_auto_unlock.exit.i.i.i.i, %if.then18.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %loc.i)
   br label %if.then
 

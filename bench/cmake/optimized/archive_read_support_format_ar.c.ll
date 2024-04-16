@@ -144,20 +144,20 @@ define internal noundef i32 @archive_read_format_ar_read_header(ptr noundef %0, 
 28:                                               ; preds = %26
   %bcmp149.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %3, ptr noundef nonnull dereferenceable(9) @.str.7, i64 9)
   %29 = icmp eq i32 %bcmp149.i, 0
-  br i1 %29, label %.thread.sink.split.i, label %30
+  br i1 %29, label %.thread.sink.split.i, label %thread-pre-split.thread.i
 
 .thread.sink.split.i:                             ; preds = %28, %24
   store i32 458754, ptr %22, align 8
+  br label %.thread.i
+
+.thread.i:                                        ; preds = %.thread.sink.split.i, %19
   br label %30
 
-.thread.i:                                        ; preds = %19
+thread-pre-split.thread.i:                        ; preds = %28, %19
   br label %30
 
-thread-pre-split.thread.i:                        ; preds = %19
-  br label %30
-
-30:                                               ; preds = %thread-pre-split.thread.i, %.thread.i, %.thread.sink.split.i, %28, %.thread216.i, %19
-  %.str.9.sink.i = phi ptr [ @.str.8, %19 ], [ @.str.8, %.thread216.i ], [ @.str.9, %.thread.sink.split.i ], [ @.str.9, %.thread.i ], [ @.str.2, %28 ], [ @.str.2, %thread-pre-split.thread.i ]
+30:                                               ; preds = %thread-pre-split.thread.i, %.thread.i, %.thread216.i, %19
+  %.str.9.sink.i = phi ptr [ @.str.9, %.thread.i ], [ @.str.2, %thread-pre-split.thread.i ], [ @.str.8, %19 ], [ @.str.8, %.thread216.i ]
   %31 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %.str.9.sink.i, ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %3, i64 15

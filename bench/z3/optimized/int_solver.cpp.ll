@@ -2567,7 +2567,7 @@ if.end103:                                        ; preds = %invoke.cont100, %in
   %78 = load i32, ptr %y.i122, align 8
   %cmp.i.i.i.i1.i = icmp eq i32 %78, 0
   %or.cond = select i1 %77, i1 %cmp.i.i.i.i1.i, i1 false
-  br i1 %or.cond, label %land.lhs.true106, label %cleanup
+  br i1 %or.cond, label %land.lhs.true106, label %if.end110
 
 land.lhs.true106:                                 ; preds = %if.end103
   %bf.load.i.i.i.i.i.i125 = load i8, ptr %m_kind.i.i.i.i.i.i124, align 4
@@ -2576,16 +2576,16 @@ land.lhs.true106:                                 ; preds = %if.end103
   %79 = load i32, ptr %m_den.i.i.i123, align 8
   %cmp.i.i.i.i.i128 = icmp eq i32 %79, 1
   %80 = select i1 %cmp.i.i.i.i.i.i127, i1 %cmp.i.i.i.i.i128, i1 false
-  br i1 %80, label %invoke.cont107, label %cleanup
-
-invoke.cont107:                                   ; preds = %land.lhs.true106
   %81 = load i32, ptr %y.i130, align 8
-  %.fr = freeze i32 %81
-  %cmp.i.i.i.i1.i131 = icmp ne i32 %.fr, 0
+  %cmp.i.i.i.i1.i131 = icmp eq i32 %81, 0
+  %or.cond184 = select i1 %80, i1 %cmp.i.i.i.i1.i131, i1 false
+  br i1 %or.cond184, label %if.end110, label %cleanup
+
+if.end110:                                        ; preds = %land.lhs.true106, %if.end103
   br label %cleanup
 
-cleanup:                                          ; preds = %invoke.cont107, %land.lhs.true106, %if.end103, %invoke.cont100, %invoke.cont89
-  %cleanup.dest.slot.0 = phi i1 [ true, %invoke.cont89 ], [ true, %invoke.cont100 ], [ false, %if.end103 ], [ true, %land.lhs.true106 ], [ %cmp.i.i.i.i1.i131, %invoke.cont107 ]
+cleanup:                                          ; preds = %land.lhs.true106, %invoke.cont100, %invoke.cont89, %if.end110
+  %switch = phi i1 [ true, %if.end110 ], [ false, %invoke.cont89 ], [ false, %invoke.cont100 ], [ false, %land.lhs.true106 ]
   %82 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %82, ptr noundef nonnull align 8 dereferenceable(16) %y.i130)
           to label %.noexc.i.i135 unwind label %terminate.lpad.i.i134
@@ -2650,7 +2650,7 @@ terminate.lpad.i1.i147:                           ; preds = %.noexc.i2.i148, %_Z
   unreachable
 
 _ZN2lp12numeric_pairI8rationalED2Ev.exit150:      ; preds = %.noexc.i2.i148
-  br i1 %cleanup.dest.slot.0, label %return, label %for.cond
+  br i1 %switch, label %for.cond, label %return
 
 for.end:                                          ; preds = %for.cond, %if.end58, %_ZNK2lp13static_matrixI8rationalNS_12numeric_pairIS1_EEE16column_container3endEv.exit
   %94 = load ptr, ptr %lra, align 8

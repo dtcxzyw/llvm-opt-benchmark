@@ -250,18 +250,20 @@ entry:
   %0 = load ptr, ptr @_ZN9grpc_core12_GLOBAL__N_129g_server_call_tracer_factory_E, align 8
   %spec.select = select i1 %cmp, ptr %0, ptr %call.i.i
   %tobool.not = icmp eq ptr %spec.select, null
-  br i1 %tobool.not, label %return, label %land.lhs.true
+  br i1 %tobool.not, label %if.end3, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
   %vtable = load ptr, ptr %spec.select, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %1 = load ptr, ptr %vfn, align 8
   %call1 = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(8) %spec.select, ptr noundef nonnull align 8 dereferenceable(8) %channel_args)
-  %spec.select5 = select i1 %call1, ptr %spec.select, ptr null
+  br i1 %call1, label %return, label %if.end3
+
+if.end3:                                          ; preds = %land.lhs.true, %entry
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ %spec.select5, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %if.end3
+  %retval.0 = phi ptr [ null, %if.end3 ], [ %spec.select, %land.lhs.true ]
   ret ptr %retval.0
 }
 
@@ -332,8 +334,8 @@ _ZNKSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE12_M_check_lenEmPKc.exit.i.
   %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
   %add.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
-  %spec.select.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 1152921504606846975)
-  %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 1152921504606846975, i64 %spec.select.i.i.i.i
+  %6 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 1152921504606846975)
+  %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 1152921504606846975, i64 %6
   %cmp.not.i.i.i.i = icmp eq i64 %cond.i.i.i.i, 0
   br i1 %cmp.not.i.i.i.i, label %_ZNSt12_Vector_baseIPN9grpc_core16ClientCallTracerESaIS2_EE11_M_allocateEm.exit.i.i.i, label %cond.true.i.i.i.i
 
@@ -371,9 +373,9 @@ _ZNSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE17_M_realloc_insertIJRKS2_EE
   br label %if.end12
 
 if.else7:                                         ; preds = %if.else
-  %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core14promise_detail7ContextINS_5ArenaEE8current_E)
-  %7 = load ptr, ptr %6, align 8
-  %cmp.not.i = icmp eq ptr %7, null
+  %7 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core14promise_detail7ContextINS_5ArenaEE8current_E)
+  %8 = load ptr, ptr %7, align 8
+  %cmp.not.i = icmp eq ptr %8, null
   br i1 %cmp.not.i, label %if.then.i, label %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit
 
 if.then.i:                                        ; preds = %if.else7
@@ -381,20 +383,20 @@ if.then.i:                                        ; preds = %if.else7
   unreachable
 
 _ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit:  ; preds = %if.else7
-  %8 = atomicrmw add ptr %7, i64 48 monotonic, align 8
-  %add2.i.i.i = add i64 %8, 48
-  %initial_zone_size_.i.i.i = getelementptr inbounds i8, ptr %7, i64 16
-  %9 = load i64, ptr %initial_zone_size_.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ugt i64 %add2.i.i.i, %9
+  %9 = atomicrmw add ptr %8, i64 48 monotonic, align 8
+  %add2.i.i.i = add i64 %9, 48
+  %initial_zone_size_.i.i.i = getelementptr inbounds i8, ptr %8, i64 16
+  %10 = load i64, ptr %initial_zone_size_.i.i.i, align 8
+  %cmp.not.i.i.i = icmp ugt i64 %add2.i.i.i, %10
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit
-  %add.ptr.i.i.i8 = getelementptr inbounds i8, ptr %7, i64 48
-  %add.ptr3.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i8, i64 %8
+  %add.ptr.i.i.i8 = getelementptr inbounds i8, ptr %8, i64 48
+  %add.ptr3.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i8, i64 %9
   br label %_ZN9grpc_core5Arena10ManagedNewINS_26DelegatingClientCallTracerEJRPNS_16ClientCallTracerEEEEPT_DpOT0_.exit
 
 if.else.i.i.i:                                    ; preds = %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit
-  %call4.i.i.i = tail call noundef ptr @_ZN9grpc_core5Arena9AllocZoneEm(ptr noundef nonnull align 8 dereferenceable(48) %7, i64 noundef 48)
+  %call4.i.i.i = tail call noundef ptr @_ZN9grpc_core5Arena9AllocZoneEm(ptr noundef nonnull align 8 dereferenceable(48) %8, i64 noundef 48)
   br label %_ZN9grpc_core5Arena10ManagedNewINS_26DelegatingClientCallTracerEJRPNS_16ClientCallTracerEEEEPT_DpOT0_.exit
 
 _ZN9grpc_core5Arena10ManagedNewINS_26DelegatingClientCallTracerEJRPNS_16ClientCallTracerEEEEPT_DpOT0_.exit: ; preds = %if.then.i.i.i, %if.else.i.i.i
@@ -414,30 +416,30 @@ _ZN9grpc_core5Arena10ManagedNewINS_26DelegatingClientCallTracerEJRPNS_16ClientCa
   store ptr %0, ptr %call5.i.i.i.i2.i.i1.i.i.i.i, align 8
   %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 32
   store ptr %add.ptr.i1.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i.i.i, align 8
-  %managed_new_head_.i = getelementptr inbounds i8, ptr %7, i64 32
+  %managed_new_head_.i = getelementptr inbounds i8, ptr %8, i64 32
   tail call void @_ZN9grpc_core5Arena16ManagedNewObject4LinkEPSt6atomicIPS1_E(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i, ptr noundef nonnull %managed_new_head_.i)
   store ptr %t.i.i.i.i, ptr %arrayidx, align 8
-  %10 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i, align 8
-  %11 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 8
-  %cmp.not.i.i12 = icmp eq ptr %10, %11
+  %11 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i, align 8
+  %12 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 8
+  %cmp.not.i.i12 = icmp eq ptr %11, %12
   br i1 %cmp.not.i.i12, label %if.else.i.i15, label %if.then.i.i13
 
 if.then.i.i13:                                    ; preds = %_ZN9grpc_core5Arena10ManagedNewINS_26DelegatingClientCallTracerEJRPNS_16ClientCallTracerEEEEPT_DpOT0_.exit
-  store ptr %tracer, ptr %10, align 8
-  %12 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i, align 8
-  %incdec.ptr.i.i14 = getelementptr inbounds i8, ptr %12, i64 8
+  store ptr %tracer, ptr %11, align 8
+  %13 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i, align 8
+  %incdec.ptr.i.i14 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %incdec.ptr.i.i14, ptr %_M_finish.i.i.i.i.i.i.i, align 8
   br label %if.end12
 
 if.else.i.i15:                                    ; preds = %_ZN9grpc_core5Arena10ManagedNewINS_26DelegatingClientCallTracerEJRPNS_16ClientCallTracerEEEEPT_DpOT0_.exit
-  %13 = load ptr, ptr %tracers_.i.i.i.i.i, align 8
-  %sub.ptr.lhs.cast.i.i.i.i.i16 = ptrtoint ptr %10 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i17 = ptrtoint ptr %13 to i64
+  %14 = load ptr, ptr %tracers_.i.i.i.i.i, align 8
+  %sub.ptr.lhs.cast.i.i.i.i.i16 = ptrtoint ptr %11 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i17 = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i.i.i.i.i18 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i16, %sub.ptr.rhs.cast.i.i.i.i.i17
   %cmp.i.i.i.i19 = icmp eq i64 %sub.ptr.sub.i.i.i.i.i18, 9223372036854775800
-  br i1 %cmp.i.i.i.i19, label %if.then.i.i.i.i43, label %_ZNKSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i20
+  br i1 %cmp.i.i.i.i19, label %if.then.i.i.i.i42, label %_ZNKSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i20
 
-if.then.i.i.i.i43:                                ; preds = %if.else.i.i15
+if.then.i.i.i.i42:                                ; preds = %if.else.i.i15
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #17
   unreachable
 
@@ -446,45 +448,45 @@ _ZNKSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE12_M_check_lenEmPKc.exit.i.
   %.sroa.speculated.i.i.i.i22 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i21, i64 1)
   %add.i.i.i.i23 = add nsw i64 %.sroa.speculated.i.i.i.i22, %sub.ptr.div.i.i.i.i.i21
   %cmp7.i.i.i.i24 = icmp ult i64 %add.i.i.i.i23, %sub.ptr.div.i.i.i.i.i21
-  %spec.select.i.i.i.i25 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i23, i64 1152921504606846975)
-  %cond.i.i.i.i26 = select i1 %cmp7.i.i.i.i24, i64 1152921504606846975, i64 %spec.select.i.i.i.i25
-  %cmp.not.i.i.i.i27 = icmp eq i64 %cond.i.i.i.i26, 0
-  br i1 %cmp.not.i.i.i.i27, label %_ZNSt12_Vector_baseIPN9grpc_core16ClientCallTracerESaIS2_EE11_M_allocateEm.exit.i.i.i31, label %cond.true.i.i.i.i28
+  %15 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i23, i64 1152921504606846975)
+  %cond.i.i.i.i25 = select i1 %cmp7.i.i.i.i24, i64 1152921504606846975, i64 %15
+  %cmp.not.i.i.i.i26 = icmp eq i64 %cond.i.i.i.i25, 0
+  br i1 %cmp.not.i.i.i.i26, label %_ZNSt12_Vector_baseIPN9grpc_core16ClientCallTracerESaIS2_EE11_M_allocateEm.exit.i.i.i30, label %cond.true.i.i.i.i27
 
-cond.true.i.i.i.i28:                              ; preds = %_ZNKSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i20
-  %mul.i.i.i.i.i.i29 = shl nuw nsw i64 %cond.i.i.i.i26, 3
-  %call5.i.i.i.i.i.i30 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i29) #18
-  br label %_ZNSt12_Vector_baseIPN9grpc_core16ClientCallTracerESaIS2_EE11_M_allocateEm.exit.i.i.i31
+cond.true.i.i.i.i27:                              ; preds = %_ZNKSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i20
+  %mul.i.i.i.i.i.i28 = shl nuw nsw i64 %cond.i.i.i.i25, 3
+  %call5.i.i.i.i.i.i29 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i28) #18
+  br label %_ZNSt12_Vector_baseIPN9grpc_core16ClientCallTracerESaIS2_EE11_M_allocateEm.exit.i.i.i30
 
-_ZNSt12_Vector_baseIPN9grpc_core16ClientCallTracerESaIS2_EE11_M_allocateEm.exit.i.i.i31: ; preds = %cond.true.i.i.i.i28, %_ZNKSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i20
-  %cond.i10.i.i.i32 = phi ptr [ %call5.i.i.i.i.i.i30, %cond.true.i.i.i.i28 ], [ null, %_ZNKSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i20 ]
-  %add.ptr.i.i.i33 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i32, i64 %sub.ptr.div.i.i.i.i.i21
-  store ptr %tracer, ptr %add.ptr.i.i.i33, align 8
-  %cmp.i.i.i.i.i.i34 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i18, 0
-  br i1 %cmp.i.i.i.i.i.i34, label %if.then.i.i.i.i.i.i42, label %_ZNSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i35
+_ZNSt12_Vector_baseIPN9grpc_core16ClientCallTracerESaIS2_EE11_M_allocateEm.exit.i.i.i30: ; preds = %cond.true.i.i.i.i27, %_ZNKSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i20
+  %cond.i10.i.i.i31 = phi ptr [ %call5.i.i.i.i.i.i29, %cond.true.i.i.i.i27 ], [ null, %_ZNKSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i20 ]
+  %add.ptr.i.i.i32 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i31, i64 %sub.ptr.div.i.i.i.i.i21
+  store ptr %tracer, ptr %add.ptr.i.i.i32, align 8
+  %cmp.i.i.i.i.i.i33 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i18, 0
+  br i1 %cmp.i.i.i.i.i.i33, label %if.then.i.i.i.i.i.i41, label %_ZNSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i34
 
-if.then.i.i.i.i.i.i42:                            ; preds = %_ZNSt12_Vector_baseIPN9grpc_core16ClientCallTracerESaIS2_EE11_M_allocateEm.exit.i.i.i31
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i32, ptr align 8 %13, i64 %sub.ptr.sub.i.i.i.i.i18, i1 false)
-  br label %_ZNSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i35
+if.then.i.i.i.i.i.i41:                            ; preds = %_ZNSt12_Vector_baseIPN9grpc_core16ClientCallTracerESaIS2_EE11_M_allocateEm.exit.i.i.i30
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i31, ptr align 8 %14, i64 %sub.ptr.sub.i.i.i.i.i18, i1 false)
+  br label %_ZNSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i34
 
-_ZNSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i35: ; preds = %if.then.i.i.i.i.i.i42, %_ZNSt12_Vector_baseIPN9grpc_core16ClientCallTracerESaIS2_EE11_M_allocateEm.exit.i.i.i31
-  %add.ptr.i.i.i.i.i.i36 = getelementptr inbounds i8, ptr %cond.i10.i.i.i32, i64 %sub.ptr.sub.i.i.i.i.i18
-  %incdec.ptr.i.i.i37 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i36, i64 8
-  %tobool.not.i.i.i.i38 = icmp eq ptr %13, null
-  br i1 %tobool.not.i.i.i.i38, label %_ZNSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i40, label %if.then.i18.i.i.i39
+_ZNSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i34: ; preds = %if.then.i.i.i.i.i.i41, %_ZNSt12_Vector_baseIPN9grpc_core16ClientCallTracerESaIS2_EE11_M_allocateEm.exit.i.i.i30
+  %add.ptr.i.i.i.i.i.i35 = getelementptr inbounds i8, ptr %cond.i10.i.i.i31, i64 %sub.ptr.sub.i.i.i.i.i18
+  %incdec.ptr.i.i.i36 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i35, i64 8
+  %tobool.not.i.i.i.i37 = icmp eq ptr %14, null
+  br i1 %tobool.not.i.i.i.i37, label %_ZNSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i39, label %if.then.i18.i.i.i38
 
-if.then.i18.i.i.i39:                              ; preds = %_ZNSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i35
-  tail call void @_ZdlPv(ptr noundef nonnull %13) #19
-  br label %_ZNSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i40
+if.then.i18.i.i.i38:                              ; preds = %_ZNSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i34
+  tail call void @_ZdlPv(ptr noundef nonnull %14) #19
+  br label %_ZNSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i39
 
-_ZNSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i40: ; preds = %if.then.i18.i.i.i39, %_ZNSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i35
-  store ptr %cond.i10.i.i.i32, ptr %tracers_.i.i.i.i.i, align 8
-  store ptr %incdec.ptr.i.i.i37, ptr %_M_finish.i.i.i.i.i.i.i, align 8
-  %add.ptr19.i.i.i41 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i32, i64 %cond.i.i.i.i26
-  store ptr %add.ptr19.i.i.i41, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 8
+_ZNSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i39: ; preds = %if.then.i18.i.i.i38, %_ZNSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i34
+  store ptr %cond.i10.i.i.i31, ptr %tracers_.i.i.i.i.i, align 8
+  store ptr %incdec.ptr.i.i.i36, ptr %_M_finish.i.i.i.i.i.i.i, align 8
+  %add.ptr19.i.i.i40 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i31, i64 %cond.i.i.i.i25
+  store ptr %add.ptr19.i.i.i40, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 8
   br label %if.end12
 
-if.end12:                                         ; preds = %_ZNSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i40, %if.then.i.i13, %_ZNSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %if.then.i.i, %if.then
+if.end12:                                         ; preds = %_ZNSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i39, %if.then.i.i13, %_ZNSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %if.then.i.i, %if.then
   ret void
 }
 
@@ -544,8 +546,8 @@ _ZNKSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE12_M_check_lenEmPKc.exit.i.
   %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
   %add.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
-  %spec.select.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 1152921504606846975)
-  %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 1152921504606846975, i64 %spec.select.i.i.i.i
+  %6 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 1152921504606846975)
+  %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 1152921504606846975, i64 %6
   %cmp.not.i.i.i.i = icmp eq i64 %cond.i.i.i.i, 0
   br i1 %cmp.not.i.i.i.i, label %_ZNSt12_Vector_baseIPN9grpc_core16ServerCallTracerESaIS2_EE11_M_allocateEm.exit.i.i.i, label %cond.true.i.i.i.i
 
@@ -583,9 +585,9 @@ _ZNSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE17_M_realloc_insertIJRKS2_EE
   br label %if.end16
 
 if.else9:                                         ; preds = %if.else
-  %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core14promise_detail7ContextINS_5ArenaEE8current_E)
-  %7 = load ptr, ptr %6, align 8
-  %cmp.not.i = icmp eq ptr %7, null
+  %7 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core14promise_detail7ContextINS_5ArenaEE8current_E)
+  %8 = load ptr, ptr %7, align 8
+  %cmp.not.i = icmp eq ptr %8, null
   br i1 %cmp.not.i, label %if.then.i, label %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit
 
 if.then.i:                                        ; preds = %if.else9
@@ -593,20 +595,20 @@ if.then.i:                                        ; preds = %if.else9
   unreachable
 
 _ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit:  ; preds = %if.else9
-  %8 = atomicrmw add ptr %7, i64 48 monotonic, align 8
-  %add2.i.i.i = add i64 %8, 48
-  %initial_zone_size_.i.i.i = getelementptr inbounds i8, ptr %7, i64 16
-  %9 = load i64, ptr %initial_zone_size_.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ugt i64 %add2.i.i.i, %9
+  %9 = atomicrmw add ptr %8, i64 48 monotonic, align 8
+  %add2.i.i.i = add i64 %9, 48
+  %initial_zone_size_.i.i.i = getelementptr inbounds i8, ptr %8, i64 16
+  %10 = load i64, ptr %initial_zone_size_.i.i.i, align 8
+  %cmp.not.i.i.i = icmp ugt i64 %add2.i.i.i, %10
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit
-  %add.ptr.i.i.i12 = getelementptr inbounds i8, ptr %7, i64 48
-  %add.ptr3.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i12, i64 %8
+  %add.ptr.i.i.i12 = getelementptr inbounds i8, ptr %8, i64 48
+  %add.ptr3.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i12, i64 %9
   br label %_ZN9grpc_core5Arena10ManagedNewINS_26DelegatingServerCallTracerEJRPNS_16ServerCallTracerEEEEPT_DpOT0_.exit
 
 if.else.i.i.i:                                    ; preds = %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit
-  %call4.i.i.i = tail call noundef ptr @_ZN9grpc_core5Arena9AllocZoneEm(ptr noundef nonnull align 8 dereferenceable(48) %7, i64 noundef 48)
+  %call4.i.i.i = tail call noundef ptr @_ZN9grpc_core5Arena9AllocZoneEm(ptr noundef nonnull align 8 dereferenceable(48) %8, i64 noundef 48)
   br label %_ZN9grpc_core5Arena10ManagedNewINS_26DelegatingServerCallTracerEJRPNS_16ServerCallTracerEEEEPT_DpOT0_.exit
 
 _ZN9grpc_core5Arena10ManagedNewINS_26DelegatingServerCallTracerEJRPNS_16ServerCallTracerEEEEPT_DpOT0_.exit: ; preds = %if.then.i.i.i, %if.else.i.i.i
@@ -626,32 +628,32 @@ _ZN9grpc_core5Arena10ManagedNewINS_26DelegatingServerCallTracerEJRPNS_16ServerCa
   store ptr %0, ptr %call5.i.i.i.i2.i.i1.i.i.i.i, align 8
   %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 32
   store ptr %add.ptr.i1.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i.i.i, align 8
-  %managed_new_head_.i = getelementptr inbounds i8, ptr %7, i64 32
+  %managed_new_head_.i = getelementptr inbounds i8, ptr %8, i64 32
   tail call void @_ZN9grpc_core5Arena16ManagedNewObject4LinkEPSt6atomicIPS1_E(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i, ptr noundef nonnull %managed_new_head_.i)
   store ptr %t.i.i.i.i, ptr %arrayidx, align 8
   %arrayidx14 = getelementptr inbounds i8, ptr %call_context, i64 48
   store ptr %t.i.i.i.i, ptr %arrayidx14, align 8
-  %10 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i, align 8
-  %11 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 8
-  %cmp.not.i.i16 = icmp eq ptr %10, %11
+  %11 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i, align 8
+  %12 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 8
+  %cmp.not.i.i16 = icmp eq ptr %11, %12
   br i1 %cmp.not.i.i16, label %if.else.i.i19, label %if.then.i.i17
 
 if.then.i.i17:                                    ; preds = %_ZN9grpc_core5Arena10ManagedNewINS_26DelegatingServerCallTracerEJRPNS_16ServerCallTracerEEEEPT_DpOT0_.exit
-  store ptr %tracer, ptr %10, align 8
-  %12 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i, align 8
-  %incdec.ptr.i.i18 = getelementptr inbounds i8, ptr %12, i64 8
+  store ptr %tracer, ptr %11, align 8
+  %13 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i, align 8
+  %incdec.ptr.i.i18 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %incdec.ptr.i.i18, ptr %_M_finish.i.i.i.i.i.i.i, align 8
   br label %if.end16
 
 if.else.i.i19:                                    ; preds = %_ZN9grpc_core5Arena10ManagedNewINS_26DelegatingServerCallTracerEJRPNS_16ServerCallTracerEEEEPT_DpOT0_.exit
-  %13 = load ptr, ptr %tracers_.i.i.i.i.i, align 8
-  %sub.ptr.lhs.cast.i.i.i.i.i20 = ptrtoint ptr %10 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i21 = ptrtoint ptr %13 to i64
+  %14 = load ptr, ptr %tracers_.i.i.i.i.i, align 8
+  %sub.ptr.lhs.cast.i.i.i.i.i20 = ptrtoint ptr %11 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i21 = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i.i.i.i.i22 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i20, %sub.ptr.rhs.cast.i.i.i.i.i21
   %cmp.i.i.i.i23 = icmp eq i64 %sub.ptr.sub.i.i.i.i.i22, 9223372036854775800
-  br i1 %cmp.i.i.i.i23, label %if.then.i.i.i.i47, label %_ZNKSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i24
+  br i1 %cmp.i.i.i.i23, label %if.then.i.i.i.i46, label %_ZNKSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i24
 
-if.then.i.i.i.i47:                                ; preds = %if.else.i.i19
+if.then.i.i.i.i46:                                ; preds = %if.else.i.i19
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #17
   unreachable
 
@@ -660,45 +662,45 @@ _ZNKSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE12_M_check_lenEmPKc.exit.i.
   %.sroa.speculated.i.i.i.i26 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i25, i64 1)
   %add.i.i.i.i27 = add nsw i64 %.sroa.speculated.i.i.i.i26, %sub.ptr.div.i.i.i.i.i25
   %cmp7.i.i.i.i28 = icmp ult i64 %add.i.i.i.i27, %sub.ptr.div.i.i.i.i.i25
-  %spec.select.i.i.i.i29 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i27, i64 1152921504606846975)
-  %cond.i.i.i.i30 = select i1 %cmp7.i.i.i.i28, i64 1152921504606846975, i64 %spec.select.i.i.i.i29
-  %cmp.not.i.i.i.i31 = icmp eq i64 %cond.i.i.i.i30, 0
-  br i1 %cmp.not.i.i.i.i31, label %_ZNSt12_Vector_baseIPN9grpc_core16ServerCallTracerESaIS2_EE11_M_allocateEm.exit.i.i.i35, label %cond.true.i.i.i.i32
+  %15 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i27, i64 1152921504606846975)
+  %cond.i.i.i.i29 = select i1 %cmp7.i.i.i.i28, i64 1152921504606846975, i64 %15
+  %cmp.not.i.i.i.i30 = icmp eq i64 %cond.i.i.i.i29, 0
+  br i1 %cmp.not.i.i.i.i30, label %_ZNSt12_Vector_baseIPN9grpc_core16ServerCallTracerESaIS2_EE11_M_allocateEm.exit.i.i.i34, label %cond.true.i.i.i.i31
 
-cond.true.i.i.i.i32:                              ; preds = %_ZNKSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i24
-  %mul.i.i.i.i.i.i33 = shl nuw nsw i64 %cond.i.i.i.i30, 3
-  %call5.i.i.i.i.i.i34 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i33) #18
-  br label %_ZNSt12_Vector_baseIPN9grpc_core16ServerCallTracerESaIS2_EE11_M_allocateEm.exit.i.i.i35
+cond.true.i.i.i.i31:                              ; preds = %_ZNKSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i24
+  %mul.i.i.i.i.i.i32 = shl nuw nsw i64 %cond.i.i.i.i29, 3
+  %call5.i.i.i.i.i.i33 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i32) #18
+  br label %_ZNSt12_Vector_baseIPN9grpc_core16ServerCallTracerESaIS2_EE11_M_allocateEm.exit.i.i.i34
 
-_ZNSt12_Vector_baseIPN9grpc_core16ServerCallTracerESaIS2_EE11_M_allocateEm.exit.i.i.i35: ; preds = %cond.true.i.i.i.i32, %_ZNKSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i24
-  %cond.i10.i.i.i36 = phi ptr [ %call5.i.i.i.i.i.i34, %cond.true.i.i.i.i32 ], [ null, %_ZNKSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i24 ]
-  %add.ptr.i.i.i37 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i36, i64 %sub.ptr.div.i.i.i.i.i25
-  store ptr %tracer, ptr %add.ptr.i.i.i37, align 8
-  %cmp.i.i.i.i.i.i38 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i22, 0
-  br i1 %cmp.i.i.i.i.i.i38, label %if.then.i.i.i.i.i.i46, label %_ZNSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i39
+_ZNSt12_Vector_baseIPN9grpc_core16ServerCallTracerESaIS2_EE11_M_allocateEm.exit.i.i.i34: ; preds = %cond.true.i.i.i.i31, %_ZNKSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i24
+  %cond.i10.i.i.i35 = phi ptr [ %call5.i.i.i.i.i.i33, %cond.true.i.i.i.i31 ], [ null, %_ZNKSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i24 ]
+  %add.ptr.i.i.i36 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i35, i64 %sub.ptr.div.i.i.i.i.i25
+  store ptr %tracer, ptr %add.ptr.i.i.i36, align 8
+  %cmp.i.i.i.i.i.i37 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i22, 0
+  br i1 %cmp.i.i.i.i.i.i37, label %if.then.i.i.i.i.i.i45, label %_ZNSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i38
 
-if.then.i.i.i.i.i.i46:                            ; preds = %_ZNSt12_Vector_baseIPN9grpc_core16ServerCallTracerESaIS2_EE11_M_allocateEm.exit.i.i.i35
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i36, ptr align 8 %13, i64 %sub.ptr.sub.i.i.i.i.i22, i1 false)
-  br label %_ZNSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i39
+if.then.i.i.i.i.i.i45:                            ; preds = %_ZNSt12_Vector_baseIPN9grpc_core16ServerCallTracerESaIS2_EE11_M_allocateEm.exit.i.i.i34
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i35, ptr align 8 %14, i64 %sub.ptr.sub.i.i.i.i.i22, i1 false)
+  br label %_ZNSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i38
 
-_ZNSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i39: ; preds = %if.then.i.i.i.i.i.i46, %_ZNSt12_Vector_baseIPN9grpc_core16ServerCallTracerESaIS2_EE11_M_allocateEm.exit.i.i.i35
-  %add.ptr.i.i.i.i.i.i40 = getelementptr inbounds i8, ptr %cond.i10.i.i.i36, i64 %sub.ptr.sub.i.i.i.i.i22
-  %incdec.ptr.i.i.i41 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i40, i64 8
-  %tobool.not.i.i.i.i42 = icmp eq ptr %13, null
-  br i1 %tobool.not.i.i.i.i42, label %_ZNSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i44, label %if.then.i18.i.i.i43
+_ZNSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i38: ; preds = %if.then.i.i.i.i.i.i45, %_ZNSt12_Vector_baseIPN9grpc_core16ServerCallTracerESaIS2_EE11_M_allocateEm.exit.i.i.i34
+  %add.ptr.i.i.i.i.i.i39 = getelementptr inbounds i8, ptr %cond.i10.i.i.i35, i64 %sub.ptr.sub.i.i.i.i.i22
+  %incdec.ptr.i.i.i40 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i39, i64 8
+  %tobool.not.i.i.i.i41 = icmp eq ptr %14, null
+  br i1 %tobool.not.i.i.i.i41, label %_ZNSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i43, label %if.then.i18.i.i.i42
 
-if.then.i18.i.i.i43:                              ; preds = %_ZNSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i39
-  tail call void @_ZdlPv(ptr noundef nonnull %13) #19
-  br label %_ZNSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i44
+if.then.i18.i.i.i42:                              ; preds = %_ZNSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i38
+  tail call void @_ZdlPv(ptr noundef nonnull %14) #19
+  br label %_ZNSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i43
 
-_ZNSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i44: ; preds = %if.then.i18.i.i.i43, %_ZNSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i39
-  store ptr %cond.i10.i.i.i36, ptr %tracers_.i.i.i.i.i, align 8
-  store ptr %incdec.ptr.i.i.i41, ptr %_M_finish.i.i.i.i.i.i.i, align 8
-  %add.ptr19.i.i.i45 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i36, i64 %cond.i.i.i.i30
-  store ptr %add.ptr19.i.i.i45, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 8
+_ZNSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i43: ; preds = %if.then.i18.i.i.i42, %_ZNSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i38
+  store ptr %cond.i10.i.i.i35, ptr %tracers_.i.i.i.i.i, align 8
+  store ptr %incdec.ptr.i.i.i40, ptr %_M_finish.i.i.i.i.i.i.i, align 8
+  %add.ptr19.i.i.i44 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i35, i64 %cond.i.i.i.i29
+  store ptr %add.ptr19.i.i.i44, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 8
   br label %if.end16
 
-if.end16:                                         ; preds = %_ZNSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i44, %if.then.i.i17, %_ZNSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %if.then.i.i, %if.then
+if.end16:                                         ; preds = %_ZNSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i43, %if.then.i.i17, %_ZNSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %if.then.i.i, %if.then
   ret void
 }
 
@@ -992,8 +994,8 @@ _ZNKSt6vectorIPN9grpc_core16ClientCallTracer17CallAttemptTracerESaIS3_EE12_M_che
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %spec.select.i.i.i = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
-  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %spec.select.i.i.i
+  %4 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %4
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
   br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIPN9grpc_core16ClientCallTracer17CallAttemptTracerESaIS3_EE11_M_allocateEm.exit.i.i, label %cond.true.i.i.i
 
@@ -1063,9 +1065,9 @@ for.end:                                          ; preds = %for.inc, %if.end.i
   %attempt_tracers.sroa.16.1.lcssa = phi ptr [ null, %if.end.i ], [ %attempt_tracers.sroa.16.2, %for.inc ]
   %attempt_tracers.sroa.9.1.lcssa = phi ptr [ null, %if.end.i ], [ %attempt_tracers.sroa.9.2, %for.inc ]
   %attempt_tracers.sroa.0.1.lcssa = phi ptr [ null, %if.end.i ], [ %attempt_tracers.sroa.0.2, %for.inc ]
-  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core14promise_detail7ContextINS_5ArenaEE8current_E)
-  %5 = load ptr, ptr %4, align 8
-  %cmp.not.i13 = icmp eq ptr %5, null
+  %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core14promise_detail7ContextINS_5ArenaEE8current_E)
+  %6 = load ptr, ptr %5, align 8
+  %cmp.not.i13 = icmp eq ptr %6, null
   br i1 %cmp.not.i13, label %if.then.i14, label %invoke.cont12
 
 if.then.i14:                                      ; preds = %for.end
@@ -1076,20 +1078,20 @@ if.then.i14:                                      ; preds = %for.end
   unreachable
 
 invoke.cont12:                                    ; preds = %for.end
-  %6 = atomicrmw add ptr %5, i64 48 monotonic, align 8
-  %add2.i.i.i = add i64 %6, 48
-  %initial_zone_size_.i.i.i = getelementptr inbounds i8, ptr %5, i64 16
-  %7 = load i64, ptr %initial_zone_size_.i.i.i, align 8
-  %cmp.not.i.i.i16 = icmp ugt i64 %add2.i.i.i, %7
+  %7 = atomicrmw add ptr %6, i64 48 monotonic, align 8
+  %add2.i.i.i = add i64 %7, 48
+  %initial_zone_size_.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
+  %8 = load i64, ptr %initial_zone_size_.i.i.i, align 8
+  %cmp.not.i.i.i16 = icmp ugt i64 %add2.i.i.i, %8
   br i1 %cmp.not.i.i.i16, label %if.else.i.i.i, label %if.then.i.i.i17
 
 if.then.i.i.i17:                                  ; preds = %invoke.cont12
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %5, i64 48
-  %add.ptr3.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %6
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %6, i64 48
+  %add.ptr3.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %7
   br label %_ZN9grpc_core5Arena3NewINS0_14ManagedNewImplINS_26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerEEEJSt6vectorIPNS_16ClientCallTracer17CallAttemptTracerESaIS9_EEEEEPT_DpOT0_.exit.i
 
 if.else.i.i.i:                                    ; preds = %invoke.cont12
-  %call4.i.i.i18 = invoke noundef ptr @_ZN9grpc_core5Arena9AllocZoneEm(ptr noundef nonnull align 8 dereferenceable(48) %5, i64 noundef 48)
+  %call4.i.i.i18 = invoke noundef ptr @_ZN9grpc_core5Arena9AllocZoneEm(ptr noundef nonnull align 8 dereferenceable(48) %6, i64 noundef 48)
           to label %_ZN9grpc_core5Arena3NewINS0_14ManagedNewImplINS_26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerEEEJSt6vectorIPNS_16ClientCallTracer17CallAttemptTracerESaIS9_EEEEEPT_DpOT0_.exit.i unwind label %lpad.loopexit.split-lp
 
 _ZN9grpc_core5Arena3NewINS0_14ManagedNewImplINS_26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerEEEJSt6vectorIPNS_16ClientCallTracer17CallAttemptTracerESaIS9_EEEEEPT_DpOT0_.exit.i: ; preds = %if.else.i.i.i, %if.then.i.i.i17
@@ -1105,7 +1107,7 @@ _ZN9grpc_core5Arena3NewINS0_14ManagedNewImplINS_26DelegatingClientCallTracer33De
   store ptr %attempt_tracers.sroa.9.1.lcssa, ptr %_M_finish.i.i.i.i.i.i.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 40
   store ptr %attempt_tracers.sroa.16.1.lcssa, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i, align 8
-  %managed_new_head_.i = getelementptr inbounds i8, ptr %5, i64 32
+  %managed_new_head_.i = getelementptr inbounds i8, ptr %6, i64 32
   tail call void @_ZN9grpc_core5Arena16ManagedNewObject4LinkEPSt6atomicIPS1_E(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i, ptr noundef nonnull %managed_new_head_.i)
   ret ptr %t.i.i.i.i
 }

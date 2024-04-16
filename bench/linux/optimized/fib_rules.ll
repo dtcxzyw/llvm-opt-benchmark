@@ -1901,7 +1901,7 @@ define dso_local i32 @fib_nl_delrule(ptr nocapture noundef readonly %0, ptr noun
 15:                                               ; preds = %3
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @fib_nl_delrule.__msg) #16
   %16 = icmp eq ptr %2, null
-  br i1 %16, label %.thread37, label %316
+  br i1 %16, label %.thread37, label %315
 
 17:                                               ; preds = %3
   %18 = load i8, ptr %12, align 4
@@ -1941,7 +1941,7 @@ define dso_local i32 @fib_nl_delrule(ptr nocapture noundef readonly %0, ptr noun
 36:                                               ; preds = %.thread, %34
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @fib_nl_delrule.__msg.4) #16
   %37 = icmp eq ptr %2, null
-  br i1 %37, label %.thread37, label %316
+  br i1 %37, label %.thread37, label %315
 
 38:                                               ; preds = %34
   %39 = load i32, ptr %1, align 4
@@ -1960,7 +1960,7 @@ define dso_local i32 @fib_nl_delrule(ptr nocapture noundef readonly %0, ptr noun
 .thread32.thread41:                               ; preds = %41
   store ptr @__nlmsg_parse.__msg, ptr %2, align 8
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @fib_nl_delrule.__msg.5) #16
-  br label %316
+  br label %315
 
 43:                                               ; preds = %38
   %44 = getelementptr i8, ptr %1, i64 28
@@ -1972,7 +1972,7 @@ define dso_local i32 @fib_nl_delrule(ptr nocapture noundef readonly %0, ptr noun
 .thread32:                                        ; preds = %43
   call void @do_trace_netlink_extack(ptr noundef nonnull @fib_nl_delrule.__msg.5) #16
   %48 = icmp eq ptr %2, null
-  br i1 %48, label %.sink.split, label %316
+  br i1 %48, label %.sink.split, label %315
 
 49:                                               ; preds = %43
   %.val = load ptr, ptr %8, align 8
@@ -2316,7 +2316,7 @@ define dso_local i32 @fib_nl_delrule(ptr nocapture noundef readonly %0, ptr noun
 265:                                              ; preds = %._crit_edge
   %266 = load ptr, ptr %83, align 8
   %267 = icmp eq ptr %266, %56
-  br i1 %267, label %.thread53, label %268
+  br i1 %267, label %274, label %268
 
 268:                                              ; preds = %265
   %269 = getelementptr inbounds i8, ptr %266, i64 76
@@ -2324,137 +2324,134 @@ define dso_local i32 @fib_nl_delrule(ptr nocapture noundef readonly %0, ptr noun
   %271 = getelementptr inbounds i8, ptr %83, i64 76
   %272 = load i32, ptr %271, align 4
   %273 = icmp eq i32 %270, %272
-  %spec.select = select i1 %273, ptr %266, ptr null
-  %274 = freeze ptr %spec.select
-  %275 = load ptr, ptr %56, align 8
-  %276 = icmp eq ptr %275, %56
-  br i1 %276, label %.loopexit, label %279
+  br i1 %273, label %275, label %274
 
-.thread53:                                        ; preds = %265
+274:                                              ; preds = %268, %265
+  br label %275
+
+275:                                              ; preds = %274, %268
+  %276 = phi ptr [ null, %274 ], [ %266, %268 ]
+  %.fr47 = freeze ptr %276
   %277 = load ptr, ptr %56, align 8
   %278 = icmp eq ptr %277, %56
-  br i1 %278, label %.loopexit, label %.split.us.preheader
+  br i1 %278, label %.loopexit, label %279
 
-279:                                              ; preds = %268
-  %280 = icmp eq ptr %274, null
-  br i1 %280, label %.split.us.preheader, label %.split
+279:                                              ; preds = %275
+  %280 = icmp eq ptr %.fr47, null
+  %281 = getelementptr i8, ptr %23, i64 24
+  br i1 %280, label %.split.us, label %.split
 
-.split.us.preheader:                              ; preds = %.thread53, %279
-  %281 = phi ptr [ %275, %279 ], [ %277, %.thread53 ]
-  %282 = getelementptr i8, ptr %23, i64 24
-  br label %.split.us
+.split.us:                                        ; preds = %279, %289
+  %282 = phi ptr [ %290, %289 ], [ %277, %279 ]
+  %283 = getelementptr inbounds i8, ptr %282, i64 56
+  %284 = load ptr, ptr %283, align 8
+  %285 = icmp eq ptr %284, %83
+  br i1 %285, label %286, label %289
 
-.split.us:                                        ; preds = %.split.us.preheader, %290
-  %283 = phi ptr [ %291, %290 ], [ %281, %.split.us.preheader ]
-  %284 = getelementptr inbounds i8, ptr %283, i64 56
-  %285 = load ptr, ptr %284, align 8
-  %286 = icmp eq ptr %285, %83
-  br i1 %286, label %287, label %290
-
-287:                                              ; preds = %.split.us
+286:                                              ; preds = %.split.us
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !37
-  store volatile ptr null, ptr %284, align 8
-  %288 = load i32, ptr %282, align 8
-  %289 = add i32 %288, 1
-  store i32 %289, ptr %282, align 8
-  br label %290
+  store volatile ptr null, ptr %283, align 8
+  %287 = load i32, ptr %281, align 8
+  %288 = add i32 %287, 1
+  store i32 %288, ptr %281, align 8
+  br label %289
 
-290:                                              ; preds = %287, %.split.us
-  %291 = load ptr, ptr %283, align 8
-  %292 = icmp eq ptr %291, %56
-  br i1 %292, label %.loopexit, label %.split.us, !llvm.loop !38
+289:                                              ; preds = %286, %.split.us
+  %290 = load ptr, ptr %282, align 8
+  %291 = icmp eq ptr %290, %56
+  br i1 %291, label %.loopexit, label %.split.us, !llvm.loop !38
 
-.split:                                           ; preds = %279, %298
-  %293 = phi ptr [ %299, %298 ], [ %275, %279 ]
-  %294 = getelementptr inbounds i8, ptr %293, i64 56
-  %295 = load ptr, ptr %294, align 8
-  %296 = icmp eq ptr %295, %83
-  br i1 %296, label %297, label %298
+.split:                                           ; preds = %279, %297
+  %292 = phi ptr [ %298, %297 ], [ %277, %279 ]
+  %293 = getelementptr inbounds i8, ptr %292, i64 56
+  %294 = load ptr, ptr %293, align 8
+  %295 = icmp eq ptr %294, %83
+  br i1 %295, label %296, label %297
 
-297:                                              ; preds = %.split
+296:                                              ; preds = %.split
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !37
-  store volatile ptr %274, ptr %294, align 8
-  br label %298
+  store volatile ptr %.fr47, ptr %293, align 8
+  br label %297
 
-298:                                              ; preds = %297, %.split
-  %299 = load ptr, ptr %293, align 8
-  %300 = icmp eq ptr %299, %56
-  br i1 %300, label %.loopexit, label %.split, !llvm.loop !38
+297:                                              ; preds = %296, %.split
+  %298 = load ptr, ptr %292, align 8
+  %299 = icmp eq ptr %298, %56
+  br i1 %299, label %.loopexit, label %.split, !llvm.loop !38
 
-.loopexit:                                        ; preds = %298, %290, %.thread53, %268, %._crit_edge
+.loopexit:                                        ; preds = %297, %289, %275, %._crit_edge
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #16
   store i64 0, ptr %4, align 8, !annotation !18
-  %301 = load i32, ptr %30, align 8
-  store i32 %301, ptr %4, align 8
-  %302 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr null, ptr %302, align 8
-  %303 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %83, ptr %303, align 8
-  %304 = getelementptr i8, ptr %23, i64 32
-  %305 = load i32, ptr %304, align 8
-  %306 = add i32 %305, 1
-  store i32 %306, ptr %304, align 8
-  %307 = call i32 @call_fib_notifiers(ptr noundef %11, i32 noundef 5, ptr noundef nonnull %4) #16
+  %300 = load i32, ptr %30, align 8
+  store i32 %300, ptr %4, align 8
+  %301 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr null, ptr %301, align 8
+  %302 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %83, ptr %302, align 8
+  %303 = getelementptr i8, ptr %23, i64 32
+  %304 = load i32, ptr %303, align 8
+  %305 = add i32 %304, 1
+  store i32 %305, ptr %303, align 8
+  %306 = call i32 @call_fib_notifiers(ptr noundef %11, i32 noundef 5, ptr noundef nonnull %4) #16
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #16
-  %308 = getelementptr inbounds i8, ptr %0, i64 52
-  %309 = load i32, ptr %308, align 4
-  call fastcc void @notify_rule_change(i32 noundef 33, ptr noundef nonnull %83, ptr noundef nonnull %30, ptr noundef %1, i32 noundef %309)
+  %307 = getelementptr inbounds i8, ptr %0, i64 52
+  %308 = load i32, ptr %307, align 4
+  call fastcc void @notify_rule_change(i32 noundef 33, ptr noundef nonnull %83, ptr noundef nonnull %30, ptr noundef %1, i32 noundef %308)
   call fastcc void @fib_rule_put(ptr noundef nonnull %83)
-  %310 = getelementptr i8, ptr %23, i64 104
-  %311 = load ptr, ptr %310, align 8
-  %312 = icmp eq ptr %311, null
-  br i1 %312, label %314, label %313
+  %309 = getelementptr i8, ptr %23, i64 104
+  %310 = load ptr, ptr %309, align 8
+  %311 = icmp eq ptr %310, null
+  br i1 %311, label %313, label %312
 
-313:                                              ; preds = %.loopexit
-  call void %311(ptr noundef nonnull %30) #16
-  br label %314
+312:                                              ; preds = %.loopexit
+  call void %310(ptr noundef nonnull %30) #16
+  br label %313
 
-314:                                              ; preds = %313, %.loopexit
-  %315 = load ptr, ptr %31, align 8
-  call void @module_put(ptr noundef %315) #16
+313:                                              ; preds = %312, %.loopexit
+  %314 = load ptr, ptr %31, align 8
+  call void @module_put(ptr noundef %314) #16
   call void @kfree(ptr noundef %59) #16
-  br label %329
+  br label %328
 
-316:                                              ; preds = %.thread32.thread41, %.thread32, %36, %15
-  %317 = phi ptr [ @fib_nl_delrule.__msg, %15 ], [ @fib_nl_delrule.__msg.4, %36 ], [ @fib_nl_delrule.__msg.5, %.thread32 ], [ @fib_nl_delrule.__msg.5, %.thread32.thread41 ]
-  %318 = phi i32 [ -22, %15 ], [ -97, %36 ], [ %46, %.thread32 ], [ -22, %.thread32.thread41 ]
-  %319 = phi ptr [ null, %15 ], [ null, %36 ], [ %30, %.thread32 ], [ %30, %.thread32.thread41 ]
-  store ptr %317, ptr %2, align 8
+315:                                              ; preds = %.thread32.thread41, %.thread32, %36, %15
+  %316 = phi ptr [ @fib_nl_delrule.__msg, %15 ], [ @fib_nl_delrule.__msg.4, %36 ], [ @fib_nl_delrule.__msg.5, %.thread32 ], [ @fib_nl_delrule.__msg.5, %.thread32.thread41 ]
+  %317 = phi i32 [ -22, %15 ], [ -97, %36 ], [ %46, %.thread32 ], [ -22, %.thread32.thread41 ]
+  %318 = phi ptr [ null, %15 ], [ null, %36 ], [ %30, %.thread32 ], [ %30, %.thread32.thread41 ]
+  store ptr %316, ptr %2, align 8
   br label %.thread35
 
 .thread37:                                        ; preds = %15, %36
   %.ph = phi i32 [ -97, %36 ], [ -22, %15 ]
   tail call void @kfree(ptr noundef null) #16
-  br label %329
+  br label %328
 
-.thread35:                                        ; preds = %222, %316, %236, %227, %225
-  %320 = phi ptr [ %59, %236 ], [ %59, %225 ], [ %59, %227 ], [ null, %316 ], [ %59, %222 ]
-  %321 = phi i32 [ %237, %236 ], [ -2, %225 ], [ -1, %227 ], [ %318, %316 ], [ -2, %222 ]
-  %322 = phi ptr [ %30, %236 ], [ %30, %225 ], [ %30, %227 ], [ %319, %316 ], [ %30, %222 ]
-  call void @kfree(ptr noundef %320) #16
-  %323 = icmp eq ptr %322, null
-  br i1 %323, label %329, label %324
+.thread35:                                        ; preds = %222, %315, %236, %227, %225
+  %319 = phi ptr [ %59, %236 ], [ %59, %225 ], [ %59, %227 ], [ null, %315 ], [ %59, %222 ]
+  %320 = phi i32 [ %237, %236 ], [ -2, %225 ], [ -1, %227 ], [ %317, %315 ], [ -2, %222 ]
+  %321 = phi ptr [ %30, %236 ], [ %30, %225 ], [ %30, %227 ], [ %318, %315 ], [ %30, %222 ]
+  call void @kfree(ptr noundef %319) #16
+  %322 = icmp eq ptr %321, null
+  br i1 %322, label %328, label %323
 
 .sink.split:                                      ; preds = %.thread32.thread, %.thread32, %..thread40_crit_edge, %53
   %.sink = phi ptr [ %59, %53 ], [ null, %.thread32 ], [ %.pre52, %..thread40_crit_edge ], [ null, %.thread32.thread ]
-  %.ph64 = phi i32 [ -2, %53 ], [ %46, %.thread32 ], [ %51, %..thread40_crit_edge ], [ -22, %.thread32.thread ]
+  %.ph59 = phi i32 [ -2, %53 ], [ %46, %.thread32 ], [ %51, %..thread40_crit_edge ], [ -22, %.thread32.thread ]
   call void @kfree(ptr noundef %.sink) #16
-  br label %324
+  br label %323
 
-324:                                              ; preds = %.sink.split, %.thread35
-  %325 = phi ptr [ %322, %.thread35 ], [ %30, %.sink.split ]
-  %326 = phi i32 [ %321, %.thread35 ], [ %.ph64, %.sink.split ]
-  %327 = getelementptr inbounds i8, ptr %325, i64 144
-  %328 = load ptr, ptr %327, align 8
-  call void @module_put(ptr noundef %328) #16
-  br label %329
+323:                                              ; preds = %.sink.split, %.thread35
+  %324 = phi ptr [ %321, %.thread35 ], [ %30, %.sink.split ]
+  %325 = phi i32 [ %320, %.thread35 ], [ %.ph59, %.sink.split ]
+  %326 = getelementptr inbounds i8, ptr %324, i64 144
+  %327 = load ptr, ptr %326, align 8
+  call void @module_put(ptr noundef %327) #16
+  br label %328
 
-329:                                              ; preds = %.thread37, %324, %.thread35, %314
-  %330 = phi i32 [ 0, %314 ], [ %321, %.thread35 ], [ %326, %324 ], [ %.ph, %.thread37 ]
+328:                                              ; preds = %.thread37, %323, %.thread35, %313
+  %329 = phi i32 [ 0, %313 ], [ %320, %.thread35 ], [ %325, %323 ], [ %.ph, %.thread37 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #16
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %6) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
-  ret i32 %330
+  ret i32 %329
 }
 
 ; Function Attrs: null_pointer_is_valid

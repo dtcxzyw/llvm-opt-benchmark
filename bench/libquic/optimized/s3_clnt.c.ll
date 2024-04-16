@@ -3278,7 +3278,7 @@ lor.lhs.false5:                                   ; preds = %lor.lhs.false
 if.then8:                                         ; preds = %lor.lhs.false5, %lor.lhs.false, %if.end
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 137, ptr noundef nonnull @.str, i32 noundef 1427) #11
   %call45 = call i32 @ssl3_send_alert(ptr noundef nonnull %ssl, i32 noundef 2, i32 noundef 50) #11
-  br label %return
+  br label %err
 
 if.end9:                                          ; preds = %lor.lhs.false5
   %call10 = call i64 @CBS_len(ptr noundef nonnull %ticket) #11
@@ -3302,7 +3302,7 @@ if.end14:                                         ; preds = %if.end9
 if.then16:                                        ; preds = %if.end14
   %call17 = call i32 @SSL_SESSION_to_bytes_for_ticket(ptr noundef %.pre, ptr noundef nonnull %bytes, ptr noundef nonnull %bytes_len) #11
   %tobool18.not = icmp eq i32 %call17, 0
-  br i1 %tobool18.not, label %return, label %if.end20
+  br i1 %tobool18.not, label %err, label %if.end20
 
 if.end20:                                         ; preds = %if.then16
   %4 = load ptr, ptr %bytes, align 8
@@ -3315,7 +3315,7 @@ if.end20:                                         ; preds = %if.then16
 
 if.then24:                                        ; preds = %if.end20
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 68, ptr noundef nonnull @.str, i32 noundef 1453) #11
-  br label %return
+  br label %err
 
 if.end25:                                         ; preds = %if.end20
   %7 = load ptr, ptr %session29.phi.trans.insert, align 8
@@ -3333,7 +3333,7 @@ if.end28:                                         ; preds = %if.end14, %if.end25
 
 if.then33:                                        ; preds = %if.end28
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 1463) #11
-  br label %return
+  br label %err
 
 if.end34:                                         ; preds = %if.end28
   %session29 = getelementptr inbounds i8, ptr %ssl, i64 184
@@ -3349,11 +3349,13 @@ if.end34:                                         ; preds = %if.end28
   %call40 = call ptr @EVP_sha256() #11
   %call41 = call i32 @EVP_Digest(ptr noundef %call36, i64 noundef %call37, ptr noundef nonnull %session_id, ptr noundef nonnull %session_id_length, ptr noundef %call40, ptr noundef null) #11
   %tobool42.not = icmp eq i32 %call41, 0
-  %spec.select = select i1 %tobool42.not, i32 -1, i32 1
+  br i1 %tobool42.not, label %err, label %return
+
+err:                                              ; preds = %if.end34, %if.then16, %if.then8, %if.then33, %if.then24
   br label %return
 
-return:                                           ; preds = %if.end34, %if.then24, %if.then33, %if.then8, %if.then16, %if.then13, %if.then
-  %retval.0 = phi i32 [ 1, %if.then13 ], [ %conv, %if.then ], [ -1, %if.then16 ], [ -1, %if.then8 ], [ -1, %if.then33 ], [ -1, %if.then24 ], [ %spec.select, %if.end34 ]
+return:                                           ; preds = %if.end34, %err, %if.then13, %if.then
+  %retval.0 = phi i32 [ -1, %err ], [ 1, %if.then13 ], [ %conv, %if.then ], [ 1, %if.end34 ]
   ret i32 %retval.0
 }
 

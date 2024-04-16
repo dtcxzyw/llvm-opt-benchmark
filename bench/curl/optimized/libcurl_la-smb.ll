@@ -138,7 +138,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @smb_connect(ptr nocapture noundef readonly %data, ptr nocapture readnone %done) #0 {
+define internal noundef i32 @smb_connect(ptr nocapture noundef readonly %data, ptr nocapture readnone %done) #0 {
 entry:
   %conn1 = getelementptr inbounds i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn1, align 8
@@ -189,7 +189,7 @@ if.end22:                                         ; preds = %if.then15
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %arrayidx = getelementptr inbounds i8, ptr %call18, i64 %sub.ptr.sub
   store i8 0, ptr %arrayidx, align 1
-  br label %return
+  br label %if.end33
 
 if.else:                                          ; preds = %if.end13
   %user26 = getelementptr inbounds i8, ptr %0, i64 864
@@ -201,11 +201,13 @@ if.else:                                          ; preds = %if.end13
   %domain28 = getelementptr inbounds i8, ptr %0, i64 872
   store ptr %call27, ptr %domain28, align 8
   %tobool30.not = icmp eq ptr %call27, null
-  %spec.select = select i1 %tobool30.not, i32 27, i32 0
+  br i1 %tobool30.not, label %return, label %if.end33
+
+if.end33:                                         ; preds = %if.else, %if.end22
   br label %return
 
-return:                                           ; preds = %if.else, %if.end22, %if.then15, %if.end, %entry
-  %retval.0 = phi i32 [ 67, %entry ], [ 27, %if.end ], [ 27, %if.then15 ], [ 0, %if.end22 ], [ %spec.select, %if.else ]
+return:                                           ; preds = %if.else, %if.then15, %if.end, %entry, %if.end33
+  %retval.0 = phi i32 [ 0, %if.end33 ], [ 67, %entry ], [ 27, %if.end ], [ 27, %if.then15 ], [ 27, %if.else ]
   ret i32 %retval.0
 }
 

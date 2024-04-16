@@ -17029,14 +17029,14 @@ nvme_parse_pid.exit.i:                            ; preds = %lor.lhs.false.i
   %.val.i.i = load i16, ptr %70, align 2
   %cmp.i13.i.i = icmp ugt i16 %.val.i.i, %retval.0.i.i.i
   %spec.select.i = select i1 %cmp.i13.i.i, i16 %retval.0.i12.i.i, i16 0
-  %spec.select19.i = select i1 %cmp.i13.i.i, i16 %retval.0.i.i.i, i16 0
+  %spec.select26.i = select i1 %cmp.i13.i.i, i16 %retval.0.i.i.i, i16 0
   %71 = zext i16 %spec.select.i to i64
-  %72 = zext i16 %spec.select19.i to i64
+  %72 = zext i16 %spec.select26.i to i64
   br label %if.end.i130
 
 if.end.i130:                                      ; preds = %nvme_parse_pid.exit.i, %lor.lhs.false.i, %if.then148
-  %ph.0.i = phi i64 [ 0, %lor.lhs.false.i ], [ %71, %nvme_parse_pid.exit.i ], [ 0, %if.then148 ]
-  %rg.0.i = phi i64 [ 0, %lor.lhs.false.i ], [ %72, %nvme_parse_pid.exit.i ], [ 0, %if.then148 ]
+  %ph.0.i = phi i64 [ 0, %lor.lhs.false.i ], [ 0, %if.then148 ], [ %71, %nvme_parse_pid.exit.i ]
+  %rg.0.i = phi i64 [ 0, %lor.lhs.false.i ], [ 0, %if.then148 ], [ %72, %nvme_parse_pid.exit.i ]
   %phs.i = getelementptr inbounds i8, ptr %60, i64 8800
   %73 = load ptr, ptr %phs.i, align 8
   %arrayidx.i131 = getelementptr i16, ptr %73, i64 %ph.0.i
@@ -17059,8 +17059,8 @@ if.end.i130:                                      ; preds = %nvme_parse_pid.exit
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end24.i, %if.end.i130
-  %nlb.addr.021.i = phi i32 [ %conv28.i, %if.end24.i ], [ %add, %if.end.i130 ]
-  %conv18.i = zext i32 %nlb.addr.021.i to i64
+  %nlb.addr.020.i = phi i32 [ %conv28.i, %if.end24.i ], [ %add, %if.end.i130 ]
+  %conv18.i = zext i32 %nlb.addr.020.i to i64
   %80 = load i64, ptr %arrayidx13.i, align 8
   %cmp19.i = icmp ugt i64 %80, %conv18.i
   br i1 %cmp19.i, label %if.then21.i, label %if.end24.i
@@ -17072,7 +17072,7 @@ if.then21.i:                                      ; preds = %while.body.i
 
 if.end24.i:                                       ; preds = %while.body.i
   %81 = trunc i64 %80 to i32
-  %conv28.i = sub i32 %nlb.addr.021.i, %81
+  %conv28.i = sub i32 %nlb.addr.020.i, %81
   %call29.i = tail call fastcc zeroext i1 @nvme_update_ruh(ptr noundef %n, ptr noundef %60, i16 noundef zeroext %63)
   %tobool.not.i133 = icmp eq i32 %conv28.i, 0
   br i1 %tobool.not.i133, label %if.end150, label %while.body.i, !llvm.loop !59

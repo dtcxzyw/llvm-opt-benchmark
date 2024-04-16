@@ -2199,7 +2199,7 @@ do.body.i.i:                                      ; preds = %if.end.i763.i, %if.
   %18 = shl nuw i64 1, %sh_prom.i.i760.i
   %19 = and i64 %18, %15
   %tobool.i761.not.i = icmp eq i64 %19, 0
-  br i1 %tobool.i761.not.i, label %return, label %if.end.i763.i
+  br i1 %tobool.i761.not.i, label %ringHasMatch.exit.thread45, label %if.end.i763.i
 
 if.end.i763.i:                                    ; preds = %do.body.i.i
   %indvars.iv.next19.i = add nuw nsw i64 %indvars.iv18.i, 1
@@ -2503,7 +2503,7 @@ mmbit_iterate_bounded.exit48.i:                   ; preds = %if.then.i157.i, %if
 if.end22.i:                                       ; preds = %if.else.i155.i, %mmbit_iterate_bounded.exit48.i, %get_flat_masks.exit520.i, %for.end.i.i, %if.end.i437.i, %if.end7.i
   %cmp.i.i39 = icmp eq i32 %add10.i, %sub14.i
   %or.cond278.i = or i1 %cmp16.i, %cmp.i.i39
-  br i1 %or.cond278.i, label %return, label %if.end.i.i
+  br i1 %or.cond278.i, label %ringHasMatch.exit.thread45, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end22.i
   %cmp.i52.i = icmp ult i32 %add.i, 257
@@ -2599,7 +2599,7 @@ if.end23.i117.i:                                  ; preds = %for.body.i109.i
 
 for.end.i93.i:                                    ; preds = %if.end23.i117.i, %if.end5.i80.i
   %cmp27.i94.i = icmp ugt i32 %spec.select274.i, %48
-  br i1 %cmp27.i94.i, label %if.then29.i96.i, label %return
+  br i1 %cmp27.i94.i, label %if.then29.i96.i, label %ringHasMatch.exit.thread45
 
 if.then29.i96.i:                                  ; preds = %for.end.i93.i
   %div31.i97265.i = lshr exact i32 %48, 3
@@ -2734,7 +2734,7 @@ if.else.i205.i:                                   ; preds = %for.cond.i180.i
   %cmp29.i208.i = icmp ugt i64 %add.i190.i, %conv4.i189.i
   %cmp34.i211.i = icmp eq i32 %level.i169.0.i, 0
   %or.cond277.i = or i1 %cmp34.i211.i, %cmp29.i208.i
-  br i1 %or.cond277.i, label %return, label %if.end37.i212.i
+  br i1 %or.cond277.i, label %ringHasMatch.exit.thread45, label %if.end37.i212.i
 
 if.end37.i212.i:                                  ; preds = %if.else.i205.i
   %dec33.i210.i = add i32 %level.i169.0.i, -1
@@ -2753,12 +2753,14 @@ if.end40.i216.i:                                  ; preds = %if.end37.i212.i, %i
 ringHasMatch.exit:                                ; preds = %if.then.i733.i, %if.end.i356.i, %get_flat_masks.exit427.i, %if.then24.i229.i
   %retval.0.i38 = phi i32 [ %conv2.i744.i, %if.then.i733.i ], [ %65, %if.then24.i229.i ], [ %spec.select29.i, %if.end.i356.i ], [ %spec.select30.i, %get_flat_masks.exit427.i ]
   %retval.0.i38.fr = freeze i32 %retval.0.i38
-  %tobool.not = icmp ne i32 %retval.0.i38.fr, 0
-  %spec.select50 = zext i1 %tobool.not to i32
+  %tobool.not = icmp eq i32 %retval.0.i38.fr, 0
+  br i1 %tobool.not, label %ringHasMatch.exit.thread45, label %return
+
+ringHasMatch.exit.thread45:                       ; preds = %if.else.i205.i, %do.body.i.i, %for.end.i93.i, %if.end22.i, %ringHasMatch.exit
   br label %return
 
-return:                                           ; preds = %if.else.i205.i, %for.body.i109.i, %do.body.i.i, %if.end.i763.i, %ringHasMatch.exit, %for.end.i93.i, %if.end22.i, %get_flat_masks.exit520.i, %if.end.i437.i, %mmbit_iterate_bounded.exit48.i, %if.end13, %if.end, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 2, %if.end ], [ 0, %if.end13 ], [ 1, %mmbit_iterate_bounded.exit48.i ], [ 1, %if.end.i437.i ], [ 1, %get_flat_masks.exit520.i ], [ 0, %if.end22.i ], [ 0, %for.end.i93.i ], [ %spec.select50, %ringHasMatch.exit ], [ 0, %do.body.i.i ], [ 1, %if.end.i763.i ], [ 1, %for.body.i109.i ], [ 0, %if.else.i205.i ]
+return:                                           ; preds = %for.body.i109.i, %if.end.i763.i, %get_flat_masks.exit520.i, %if.end.i437.i, %mmbit_iterate_bounded.exit48.i, %ringHasMatch.exit.thread45, %ringHasMatch.exit, %if.end13, %if.end, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ 2, %if.end ], [ 0, %if.end13 ], [ 0, %ringHasMatch.exit.thread45 ], [ 1, %ringHasMatch.exit ], [ 1, %mmbit_iterate_bounded.exit48.i ], [ 1, %if.end.i437.i ], [ 1, %get_flat_masks.exit520.i ], [ 1, %if.end.i763.i ], [ 1, %for.body.i109.i ]
   ret i32 %retval.0
 }
 
@@ -2881,7 +2883,7 @@ return:                                           ; preds = %while.body, %while.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @repeatHasMatchTrailer(ptr nocapture noundef readonly %info, ptr nocapture noundef readonly %ctrl, i64 noundef %offset) local_unnamed_addr #0 {
+define hidden noundef i32 @repeatHasMatchTrailer(ptr nocapture noundef readonly %info, ptr nocapture noundef readonly %ctrl, i64 noundef %offset) local_unnamed_addr #0 {
 entry:
   %repeatMax = getelementptr inbounds i8, ptr %info, i64 8
   %0 = load i32, ptr %repeatMax, align 4
@@ -2902,7 +2904,7 @@ if.end11:                                         ; preds = %if.end
   %conv14 = zext i32 %1 to i64
   %sub15 = sub i64 %2, %conv14
   %cmp16.not = icmp ugt i64 %sub15, %offset
-  br i1 %cmp16.not, label %return, label %if.then18
+  br i1 %cmp16.not, label %do.end31, label %if.then18
 
 if.then18:                                        ; preds = %if.end11
   %3 = xor i64 %offset, -1
@@ -2912,12 +2914,14 @@ if.then18:                                        ; preds = %if.end11
   %sh_prom = and i64 %sub21, 4294967295
   %shl = shl nuw i64 1, %sh_prom
   %and = and i64 %4, %shl
-  %tobool.not = icmp ne i64 %and, 0
-  %spec.select = zext i1 %tobool.not to i32
+  %tobool.not = icmp eq i64 %and, 0
+  br i1 %tobool.not, label %do.end31, label %return
+
+do.end31:                                         ; preds = %if.then18, %if.end11
   br label %return
 
-return:                                           ; preds = %if.then18, %if.end11, %if.end, %entry
-  %retval.0 = phi i32 [ 2, %entry ], [ 1, %if.end ], [ 0, %if.end11 ], [ %spec.select, %if.then18 ]
+return:                                           ; preds = %if.then18, %if.end, %entry, %do.end31
+  %retval.0 = phi i32 [ 0, %do.end31 ], [ 2, %entry ], [ 1, %if.end ], [ 1, %if.then18 ]
   ret i32 %retval.0
 }
 
@@ -7879,7 +7883,7 @@ return:                                           ; preds = %if.end.i2624, %whil
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @repeatHasMatchSparseOptimalP(ptr noundef %info, ptr nocapture noundef readonly %ctrl, ptr nocapture noundef readonly %state, i64 noundef %offset) local_unnamed_addr #7 {
+define hidden noundef i32 @repeatHasMatchSparseOptimalP(ptr noundef %info, ptr nocapture noundef readonly %ctrl, ptr nocapture noundef readonly %state, i64 noundef %offset) local_unnamed_addr #7 {
 entry:
   %0 = load i64, ptr %ctrl, align 8
   %repeatMin = getelementptr inbounds i8, ptr %info, i64 4
@@ -7908,10 +7912,10 @@ if.end12:                                         ; preds = %if.else
   %5 = getelementptr i8, ptr %ctrl, i64 8
   %ctrl.val = load i16, ptr %5, align 8
   %6 = getelementptr i8, ptr %ctrl, i64 10
-  %ctrl.val63 = load i16, ptr %6, align 2
-  %conv.i = zext i16 %ctrl.val63 to i32
+  %ctrl.val62 = load i16, ptr %6, align 2
+  %conv.i = zext i16 %ctrl.val62 to i32
   %conv1.i = zext i16 %ctrl.val to i32
-  %cmp.i = icmp ugt i16 %ctrl.val63, %ctrl.val
+  %cmp.i = icmp ugt i16 %ctrl.val62, %ctrl.val
   %sub.i = sub nsw i32 %conv.i, %conv1.i
   %sub12.i = select i1 %cmp.i, i32 0, i32 %4
   %retval.0.i = add i32 %sub.i, %sub12.i
@@ -7935,30 +7939,35 @@ if.end42:                                         ; preds = %if.end12
   %7 = and i1 %cmp52.not, %cmp58.not
   %.pn = select i1 %7, i32 0, i32 %4
   %patch_upper.0 = sub i32 %add51, %.pn
-  %cmp66.not = icmp ule i32 %patch_lower.0, %patch_upper.0
-  %reass.add64 = sub i32 %patch_upper.0, %div36
-  %reass.mul65 = mul i32 %reass.add64, %3
-  %add71 = add i32 %reass.mul65, %cond33
+  %cmp66.not = icmp ugt i32 %patch_lower.0, %patch_upper.0
+  %reass.add63 = sub i32 %patch_upper.0, %div36
+  %reass.mul64 = mul i32 %reass.add63, %3
+  %add71 = add i32 %reass.mul64, %cond33
   %mul73 = mul i32 %4, %3
-  %scan_end.0 = select i1 %cmp66.not, i32 %add71, i32 %mul73
+  %scan_end.0 = select i1 %cmp66.not, i32 %mul73, i32 %add71
   %reass.add = sub i32 %patch_lower.0, %div
   %reass.mul = mul i32 %reass.add, %3
   %add76 = add i32 %reass.mul, %spec.select
   %call77 = tail call fastcc signext i8 @sparseHasMatch(ptr noundef nonnull %info, ptr noundef %state, i32 noundef %add76, i32 noundef %scan_end.0), !range !28
-  %tobool78.not = icmp ne i8 %call77, 0
-  %brmerge = or i1 %tobool78.not, %cmp66.not
-  br i1 %brmerge, label %return, label %if.then82
+  %tobool78.not = icmp eq i8 %call77, 0
+  br i1 %tobool78.not, label %if.end80, label %return
 
-if.then82:                                        ; preds = %if.end42
+if.end80:                                         ; preds = %if.end42
+  br i1 %cmp66.not, label %if.then82, label %if.end92
+
+if.then82:                                        ; preds = %if.end80
   %sub85.neg = sub i32 %conv1.i, %4
   %mul86.neg = mul i32 %sub85.neg, %3
   %sub87 = add i32 %cond33, %mul86.neg
   %call88 = tail call fastcc signext i8 @sparseHasMatch(ptr noundef nonnull %info, ptr noundef %state, i32 noundef 0, i32 noundef %sub87), !range !28
+  %tobool89.not = icmp eq i8 %call88, 0
+  br i1 %tobool89.not, label %if.end92, label %return
+
+if.end92:                                         ; preds = %if.then82, %if.end80
   br label %return
 
-return:                                           ; preds = %if.then82, %if.end42, %if.end12, %if.else, %entry
-  %retval.0.shrunk = phi i8 [ 0, %entry ], [ 2, %if.else ], [ 0, %if.end12 ], [ %call77, %if.end42 ], [ %call88, %if.then82 ]
-  %retval.0 = zext nneg i8 %retval.0.shrunk to i32
+return:                                           ; preds = %if.then82, %if.end42, %if.end12, %if.else, %entry, %if.end92
+  %retval.0 = phi i32 [ 0, %if.end92 ], [ 0, %entry ], [ 2, %if.else ], [ 0, %if.end12 ], [ 1, %if.end42 ], [ 1, %if.then82 ]
   ret i32 %retval.0
 }
 

@@ -7607,16 +7607,19 @@ if.end17:                                         ; preds = %lor.lhs.false
   %8 = load ptr, ptr %cc, align 8
   %9 = load i8, ptr %8, align 8, !range !219, !noundef !125
   %tobool20.not = icmp eq i8 %9, 0
-  br i1 %tobool20.not, label %cleanup25, label %land.lhs.true
+  br i1 %tobool20.not, label %if.end24, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end17
   %source.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.copyload, i64 32
   %10 = load ptr, ptr %source.i.i, align 8
   %call.i = tail call fastcc noundef zeroext i1 @_ZN3ue2L9isInTableERKNS_13RoseBuildImplENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEENS_18rose_literal_tableE(ptr noundef nonnull align 8 dereferenceable(780) %build, ptr nonnull %10, i32 noundef 2)
+  br i1 %call.i, label %if.end24, label %cleanup25
+
+if.end24:                                         ; preds = %land.lhs.true, %if.end17
   br label %cleanup25
 
-cleanup25:                                        ; preds = %land.lhs.true, %if.end17, %lor.lhs.false, %if.end10, %_ZNK3ue211LeftEngInfocvbEv.exit, %if.end, %entry
-  %retval.1 = phi i1 [ false, %entry ], [ false, %_ZNK3ue211LeftEngInfocvbEv.exit ], [ false, %lor.lhs.false ], [ false, %if.end10 ], [ false, %if.end ], [ true, %if.end17 ], [ %call.i, %land.lhs.true ]
+cleanup25:                                        ; preds = %if.end24, %land.lhs.true, %lor.lhs.false, %if.end10, %_ZNK3ue211LeftEngInfocvbEv.exit, %if.end, %entry
+  %retval.1 = phi i1 [ false, %entry ], [ false, %_ZNK3ue211LeftEngInfocvbEv.exit ], [ false, %lor.lhs.false ], [ false, %if.end10 ], [ true, %if.end24 ], [ false, %land.lhs.true ], [ false, %if.end ]
   ret i1 %retval.1
 }
 

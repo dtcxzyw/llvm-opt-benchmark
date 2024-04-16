@@ -14807,7 +14807,7 @@ define internal i32 @dissect_s1ap_SubscriberProfileIDforRFP(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @s1ap_is_nbiot_ue(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc noundef i32 @s1ap_is_nbiot_ue(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca [3 x %struct._wmem_tree_key_t], align 16
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 408
@@ -14858,11 +14858,13 @@ s1ap_get_private_data.exit:                       ; preds = %1, %8
   %28 = load i32, ptr %26, align 4
   %29 = load i32, ptr %3, align 4
   %30 = icmp eq i32 %28, %29
-  %spec.select = zext i1 %30 to i32
-  br label %31
+  br i1 %30, label %32, label %31
 
-31:                                               ; preds = %27, %s1ap_get_private_data.exit, %14
-  %.0 = phi i32 [ 0, %14 ], [ 0, %s1ap_get_private_data.exit ], [ %spec.select, %27 ]
+31:                                               ; preds = %14, %27, %s1ap_get_private_data.exit
+  br label %32
+
+32:                                               ; preds = %27, %31
+  %.0 = phi i32 [ 0, %31 ], [ 1, %27 ]
   ret i32 %.0
 }
 

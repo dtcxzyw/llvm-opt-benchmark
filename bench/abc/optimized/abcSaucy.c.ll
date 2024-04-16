@@ -12288,7 +12288,7 @@ clear_undiffnons.exit.i53.i:                      ; preds = %.lr.ph.i36.i.i, %pi
   %363 = getelementptr inbounds i32, ptr %361, i64 %362
   %364 = load i32, ptr %363, align 4
   %365 = icmp eq i32 %364, %338
-  br i1 %365, label %366, label %410
+  br i1 %365, label %366, label %411
 
 366:                                              ; preds = %clear_undiffnons.exit.i53.i
   %.val35.i.i = load ptr, ptr %8, align 8
@@ -12349,171 +12349,177 @@ find_min.exit.i.i:                                ; preds = %.lr.ph.i.i.i.i.i, %
   %wide.trip.count.i.i56.i = zext nneg i32 %394 to i64
   br label %.lr.ph.i39.i.i
 
-.lr.ph.i39.i.i:                                   ; preds = %409, %.lr.ph.preheader.i.i55.i
-  %indvars.iv.i40.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i55.i ], [ %indvars.iv.next.i41.i.i, %409 ]
-  %.02023.i.i.i = phi i32 [ -1, %.lr.ph.preheader.i.i55.i ], [ %.1.i.i58.i, %409 ]
+.lr.ph.i39.i.i:                                   ; preds = %410, %.lr.ph.preheader.i.i55.i
+  %indvars.iv.i40.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i55.i ], [ %indvars.iv.next.i41.i.i, %410 ]
+  %.02023.i.i.i = phi i32 [ -1, %.lr.ph.preheader.i.i55.i ], [ %.1.i.i58.i, %410 ]
   %400 = getelementptr inbounds i32, ptr %395, i64 %indvars.iv.i40.i.i
   %401 = load i32, ptr %400, align 4
   %.not.i.i57.i = icmp sgt i32 %401, %398
-  br i1 %.not.i.i57.i, label %402, label %409
+  br i1 %.not.i.i57.i, label %402, label %410
 
 402:                                              ; preds = %.lr.ph.i39.i.i
   %.not22.i.i.i = icmp eq i32 %.02023.i.i.i, -1
-  %403 = trunc nuw nsw i64 %indvars.iv.i40.i.i to i32
-  br i1 %.not22.i.i.i, label %409, label %404
+  br i1 %.not22.i.i.i, label %408, label %403
 
-404:                                              ; preds = %402
-  %405 = sext i32 %.02023.i.i.i to i64
-  %406 = getelementptr inbounds i32, ptr %395, i64 %405
-  %407 = load i32, ptr %406, align 4
-  %408 = icmp sgt i32 %401, %407
-  %spec.select.i.i.i = select i1 %408, i32 %.02023.i.i.i, i32 %403
-  br label %409
+403:                                              ; preds = %402
+  %404 = sext i32 %.02023.i.i.i to i64
+  %405 = getelementptr inbounds i32, ptr %395, i64 %404
+  %406 = load i32, ptr %405, align 4
+  %407 = icmp sgt i32 %401, %406
+  br i1 %407, label %410, label %408
 
-409:                                              ; preds = %404, %402, %.lr.ph.i39.i.i
-  %.1.i.i58.i = phi i32 [ %.02023.i.i.i, %.lr.ph.i39.i.i ], [ %403, %402 ], [ %spec.select.i.i.i, %404 ]
+408:                                              ; preds = %403, %402
+  %409 = trunc nuw nsw i64 %indvars.iv.i40.i.i to i32
+  br label %410
+
+410:                                              ; preds = %408, %403, %.lr.ph.i39.i.i
+  %.1.i.i58.i = phi i32 [ %.02023.i.i.i, %.lr.ph.i39.i.i ], [ %.02023.i.i.i, %403 ], [ %409, %408 ]
   %indvars.iv.next.i41.i.i = add nuw nsw i64 %indvars.iv.i40.i.i, 1
   %exitcond.not.i.i59.i = icmp eq i64 %indvars.iv.next.i41.i.i, %wide.trip.count.i.i56.i
   br i1 %exitcond.not.i.i59.i, label %do_backtrack.exit, label %.lr.ph.i39.i.i, !llvm.loop !173
 
-410:                                              ; preds = %clear_undiffnons.exit.i53.i
-  %411 = load ptr, ptr %17, align 8
-  %412 = load i32, ptr %2, align 8
-  %413 = sext i32 %412 to i64
-  %414 = getelementptr inbounds i32, ptr %411, i64 %413
-  %415 = load i32, ptr %414, align 4
-  %416 = load ptr, ptr %8, align 8
-  %417 = sext i32 %415 to i64
-  %418 = getelementptr inbounds i32, ptr %416, i64 %417
-  %419 = load i32, ptr %418, align 4
-  %420 = getelementptr inbounds i32, ptr %361, i64 %417
-  %421 = sext i32 %419 to i64
-  %422 = getelementptr inbounds i32, ptr %420, i64 %421
-  %423 = load i32, ptr %422, align 4
-  %424 = icmp sgt i32 %419, 0
-  br i1 %424, label %.lr.ph.preheader.i43.i.i, label %do_backtrack.exit
+411:                                              ; preds = %clear_undiffnons.exit.i53.i
+  %412 = load ptr, ptr %17, align 8
+  %413 = load i32, ptr %2, align 8
+  %414 = sext i32 %413 to i64
+  %415 = getelementptr inbounds i32, ptr %412, i64 %414
+  %416 = load i32, ptr %415, align 4
+  %417 = load ptr, ptr %8, align 8
+  %418 = sext i32 %416 to i64
+  %419 = getelementptr inbounds i32, ptr %417, i64 %418
+  %420 = load i32, ptr %419, align 4
+  %421 = getelementptr inbounds i32, ptr %361, i64 %418
+  %422 = sext i32 %420 to i64
+  %423 = getelementptr inbounds i32, ptr %421, i64 %422
+  %424 = load i32, ptr %423, align 4
+  %425 = icmp sgt i32 %420, 0
+  br i1 %425, label %.lr.ph.preheader.i43.i.i, label %do_backtrack.exit
 
-.lr.ph.preheader.i43.i.i:                         ; preds = %410
-  %wide.trip.count.i44.i.i = zext nneg i32 %419 to i64
+.lr.ph.preheader.i43.i.i:                         ; preds = %411
+  %wide.trip.count.i44.i.i = zext nneg i32 %420 to i64
   br label %.lr.ph.i45.i.i
 
-.lr.ph.i45.i.i:                                   ; preds = %434, %.lr.ph.preheader.i43.i.i
-  %indvars.iv.i46.i.i = phi i64 [ 0, %.lr.ph.preheader.i43.i.i ], [ %indvars.iv.next.i50.i.i, %434 ]
-  %.02023.i47.i.i = phi i32 [ -1, %.lr.ph.preheader.i43.i.i ], [ %.1.i49.i.i, %434 ]
-  %425 = getelementptr inbounds i32, ptr %420, i64 %indvars.iv.i46.i.i
-  %426 = load i32, ptr %425, align 4
-  %.not.i48.i.i = icmp sgt i32 %426, %423
-  br i1 %.not.i48.i.i, label %427, label %434
+.lr.ph.i45.i.i:                                   ; preds = %436, %.lr.ph.preheader.i43.i.i
+  %indvars.iv.i46.i.i = phi i64 [ 0, %.lr.ph.preheader.i43.i.i ], [ %indvars.iv.next.i50.i.i, %436 ]
+  %.02023.i47.i.i = phi i32 [ -1, %.lr.ph.preheader.i43.i.i ], [ %.1.i49.i.i, %436 ]
+  %426 = getelementptr inbounds i32, ptr %421, i64 %indvars.iv.i46.i.i
+  %427 = load i32, ptr %426, align 4
+  %.not.i48.i.i = icmp sgt i32 %427, %424
+  br i1 %.not.i48.i.i, label %428, label %436
 
-427:                                              ; preds = %.lr.ph.i45.i.i
+428:                                              ; preds = %.lr.ph.i45.i.i
   %.not22.i52.i.i = icmp eq i32 %.02023.i47.i.i, -1
-  %428 = trunc nuw nsw i64 %indvars.iv.i46.i.i to i32
   br i1 %.not22.i52.i.i, label %434, label %429
 
-429:                                              ; preds = %427
+429:                                              ; preds = %428
   %430 = sext i32 %.02023.i47.i.i to i64
-  %431 = getelementptr inbounds i32, ptr %420, i64 %430
+  %431 = getelementptr inbounds i32, ptr %421, i64 %430
   %432 = load i32, ptr %431, align 4
-  %433 = icmp sgt i32 %426, %432
-  %spec.select.i53.i.i = select i1 %433, i32 %.02023.i47.i.i, i32 %428
-  br label %434
+  %433 = icmp sgt i32 %427, %432
+  br i1 %433, label %436, label %434
 
-434:                                              ; preds = %429, %427, %.lr.ph.i45.i.i
-  %.1.i49.i.i = phi i32 [ %.02023.i47.i.i, %.lr.ph.i45.i.i ], [ %428, %427 ], [ %spec.select.i53.i.i, %429 ]
+434:                                              ; preds = %429, %428
+  %435 = trunc nuw nsw i64 %indvars.iv.i46.i.i to i32
+  br label %436
+
+436:                                              ; preds = %434, %429, %.lr.ph.i45.i.i
+  %.1.i49.i.i = phi i32 [ %.02023.i47.i.i, %.lr.ph.i45.i.i ], [ %.02023.i47.i.i, %429 ], [ %435, %434 ]
   %indvars.iv.next.i50.i.i = add nuw nsw i64 %indvars.iv.i46.i.i, 1
   %exitcond.not.i51.i.i = icmp eq i64 %indvars.iv.next.i50.i.i, %wide.trip.count.i44.i.i
-  br i1 %exitcond.not.i51.i.i, label %orbit_prune.exit54.i.i, label %.lr.ph.i45.i.i, !llvm.loop !173
+  br i1 %exitcond.not.i51.i.i, label %orbit_prune.exit53.i.i, label %.lr.ph.i45.i.i, !llvm.loop !173
 
-orbit_prune.exit54.i.i:                           ; preds = %434
+orbit_prune.exit53.i.i:                           ; preds = %436
   %.not.i54.i = icmp eq i32 %.1.i49.i.i, -1
-  br i1 %.not.i54.i, label %do_backtrack.exit, label %435
+  br i1 %.not.i54.i, label %do_backtrack.exit, label %437
 
-435:                                              ; preds = %orbit_prune.exit54.i.i
-  %436 = add nsw i32 %.1.i49.i.i, %330
-  %437 = sext i32 %436 to i64
-  %438 = getelementptr inbounds i32, ptr %361, i64 %437
-  %439 = load i32, ptr %438, align 4
-  %440 = icmp eq i32 %439, %338
-  br i1 %440, label %441, label %do_backtrack.exit.thread
+437:                                              ; preds = %orbit_prune.exit53.i.i
+  %438 = add nsw i32 %.1.i49.i.i, %330
+  %439 = sext i32 %438 to i64
+  %440 = getelementptr inbounds i32, ptr %361, i64 %439
+  %441 = load i32, ptr %440, align 4
+  %442 = icmp eq i32 %441, %338
+  br i1 %442, label %443, label %do_backtrack.exit.thread
 
-441:                                              ; preds = %435
-  store i32 %364, ptr %438, align 4
-  %442 = load ptr, ptr %35, align 8
-  %443 = sext i32 %364 to i64
-  %444 = getelementptr inbounds i32, ptr %442, i64 %443
-  store i32 %436, ptr %444, align 4
-  %445 = load ptr, ptr %3, align 8
-  %446 = getelementptr inbounds i32, ptr %445, i64 %362
-  store i32 %338, ptr %446, align 4
-  %447 = load ptr, ptr %35, align 8
-  %448 = sext i32 %338 to i64
-  %449 = getelementptr inbounds i32, ptr %447, i64 %448
-  store i32 %335, ptr %449, align 4
-  %450 = load ptr, ptr %17, align 8
-  %451 = load i32, ptr %2, align 8
-  %452 = sext i32 %451 to i64
-  %453 = getelementptr inbounds i32, ptr %450, i64 %452
-  %454 = load i32, ptr %453, align 4
-  %455 = load ptr, ptr %8, align 8
-  %456 = sext i32 %454 to i64
-  %457 = getelementptr inbounds i32, ptr %455, i64 %456
-  %458 = load i32, ptr %457, align 4
-  %459 = load ptr, ptr %3, align 8
-  %460 = getelementptr inbounds i32, ptr %459, i64 %456
-  %461 = sext i32 %458 to i64
-  %462 = getelementptr inbounds i32, ptr %460, i64 %461
-  %463 = load i32, ptr %462, align 4
-  %464 = icmp sgt i32 %458, 0
-  br i1 %464, label %.lr.ph.preheader.i56.i.i, label %do_backtrack.exit
+443:                                              ; preds = %437
+  store i32 %364, ptr %440, align 4
+  %444 = load ptr, ptr %35, align 8
+  %445 = sext i32 %364 to i64
+  %446 = getelementptr inbounds i32, ptr %444, i64 %445
+  store i32 %438, ptr %446, align 4
+  %447 = load ptr, ptr %3, align 8
+  %448 = getelementptr inbounds i32, ptr %447, i64 %362
+  store i32 %338, ptr %448, align 4
+  %449 = load ptr, ptr %35, align 8
+  %450 = sext i32 %338 to i64
+  %451 = getelementptr inbounds i32, ptr %449, i64 %450
+  store i32 %335, ptr %451, align 4
+  %452 = load ptr, ptr %17, align 8
+  %453 = load i32, ptr %2, align 8
+  %454 = sext i32 %453 to i64
+  %455 = getelementptr inbounds i32, ptr %452, i64 %454
+  %456 = load i32, ptr %455, align 4
+  %457 = load ptr, ptr %8, align 8
+  %458 = sext i32 %456 to i64
+  %459 = getelementptr inbounds i32, ptr %457, i64 %458
+  %460 = load i32, ptr %459, align 4
+  %461 = load ptr, ptr %3, align 8
+  %462 = getelementptr inbounds i32, ptr %461, i64 %458
+  %463 = sext i32 %460 to i64
+  %464 = getelementptr inbounds i32, ptr %462, i64 %463
+  %465 = load i32, ptr %464, align 4
+  %466 = icmp sgt i32 %460, 0
+  br i1 %466, label %.lr.ph.preheader.i55.i.i, label %do_backtrack.exit
 
-.lr.ph.preheader.i56.i.i:                         ; preds = %441
-  %wide.trip.count.i57.i.i = zext nneg i32 %458 to i64
-  br label %.lr.ph.i58.i.i
+.lr.ph.preheader.i55.i.i:                         ; preds = %443
+  %wide.trip.count.i56.i.i = zext nneg i32 %460 to i64
+  br label %.lr.ph.i57.i.i
 
-.lr.ph.i58.i.i:                                   ; preds = %474, %.lr.ph.preheader.i56.i.i
-  %indvars.iv.i59.i.i = phi i64 [ 0, %.lr.ph.preheader.i56.i.i ], [ %indvars.iv.next.i63.i.i, %474 ]
-  %.02023.i60.i.i = phi i32 [ -1, %.lr.ph.preheader.i56.i.i ], [ %.1.i62.i.i, %474 ]
-  %465 = getelementptr inbounds i32, ptr %460, i64 %indvars.iv.i59.i.i
-  %466 = load i32, ptr %465, align 4
-  %.not.i61.i.i = icmp sgt i32 %466, %463
-  br i1 %.not.i61.i.i, label %467, label %474
+.lr.ph.i57.i.i:                                   ; preds = %477, %.lr.ph.preheader.i55.i.i
+  %indvars.iv.i58.i.i = phi i64 [ 0, %.lr.ph.preheader.i55.i.i ], [ %indvars.iv.next.i62.i.i, %477 ]
+  %.02023.i59.i.i = phi i32 [ -1, %.lr.ph.preheader.i55.i.i ], [ %.1.i61.i.i, %477 ]
+  %467 = getelementptr inbounds i32, ptr %462, i64 %indvars.iv.i58.i.i
+  %468 = load i32, ptr %467, align 4
+  %.not.i60.i.i = icmp sgt i32 %468, %465
+  br i1 %.not.i60.i.i, label %469, label %477
 
-467:                                              ; preds = %.lr.ph.i58.i.i
-  %.not22.i65.i.i = icmp eq i32 %.02023.i60.i.i, -1
-  %468 = trunc nuw nsw i64 %indvars.iv.i59.i.i to i32
-  br i1 %.not22.i65.i.i, label %474, label %469
+469:                                              ; preds = %.lr.ph.i57.i.i
+  %.not22.i64.i.i = icmp eq i32 %.02023.i59.i.i, -1
+  br i1 %.not22.i64.i.i, label %475, label %470
 
-469:                                              ; preds = %467
-  %470 = sext i32 %.02023.i60.i.i to i64
-  %471 = getelementptr inbounds i32, ptr %460, i64 %470
-  %472 = load i32, ptr %471, align 4
-  %473 = icmp sgt i32 %466, %472
-  %spec.select.i66.i.i = select i1 %473, i32 %.02023.i60.i.i, i32 %468
-  br label %474
+470:                                              ; preds = %469
+  %471 = sext i32 %.02023.i59.i.i to i64
+  %472 = getelementptr inbounds i32, ptr %462, i64 %471
+  %473 = load i32, ptr %472, align 4
+  %474 = icmp sgt i32 %468, %473
+  br i1 %474, label %477, label %475
 
-474:                                              ; preds = %469, %467, %.lr.ph.i58.i.i
-  %.1.i62.i.i = phi i32 [ %.02023.i60.i.i, %.lr.ph.i58.i.i ], [ %468, %467 ], [ %spec.select.i66.i.i, %469 ]
-  %indvars.iv.next.i63.i.i = add nuw nsw i64 %indvars.iv.i59.i.i, 1
-  %exitcond.not.i64.i.i = icmp eq i64 %indvars.iv.next.i63.i.i, %wide.trip.count.i57.i.i
-  br i1 %exitcond.not.i64.i.i, label %do_backtrack.exit, label %.lr.ph.i58.i.i, !llvm.loop !173
+475:                                              ; preds = %470, %469
+  %476 = trunc nuw nsw i64 %indvars.iv.i58.i.i to i32
+  br label %477
 
-do_backtrack.exit:                                ; preds = %474, %409, %theta_prune.exit.thread.i.i, %318, %find_min.exit.i.i, %386, %410, %orbit_prune.exit54.i.i, %441
-  %475 = phi i32 [ -1, %theta_prune.exit.thread.i.i ], [ -1, %318 ], [ -1, %orbit_prune.exit54.i.i ], [ -1, %386 ], [ %384, %find_min.exit.i.i ], [ -1, %441 ], [ -1, %410 ], [ %.1.i.i58.i, %409 ], [ %.1.i62.i.i, %474 ]
-  %.not9 = icmp eq i32 %475, -1
+477:                                              ; preds = %475, %470, %.lr.ph.i57.i.i
+  %.1.i61.i.i = phi i32 [ %.02023.i59.i.i, %.lr.ph.i57.i.i ], [ %.02023.i59.i.i, %470 ], [ %476, %475 ]
+  %indvars.iv.next.i62.i.i = add nuw nsw i64 %indvars.iv.i58.i.i, 1
+  %exitcond.not.i63.i.i = icmp eq i64 %indvars.iv.next.i62.i.i, %wide.trip.count.i56.i.i
+  br i1 %exitcond.not.i63.i.i, label %do_backtrack.exit, label %.lr.ph.i57.i.i, !llvm.loop !173
+
+do_backtrack.exit:                                ; preds = %477, %410, %theta_prune.exit.thread.i.i, %318, %find_min.exit.i.i, %386, %411, %orbit_prune.exit53.i.i, %443
+  %478 = phi i32 [ -1, %theta_prune.exit.thread.i.i ], [ -1, %318 ], [ -1, %orbit_prune.exit53.i.i ], [ -1, %386 ], [ %384, %find_min.exit.i.i ], [ -1, %443 ], [ -1, %411 ], [ %.1.i.i58.i, %410 ], [ %.1.i61.i.i, %477 ]
+  %.not9 = icmp eq i32 %478, -1
   br i1 %.not9, label %38, label %do_backtrack.exit.thread, !llvm.loop !174
 
-do_backtrack.exit.thread:                         ; preds = %435, %theta_prune.exit.i.i, %do_backtrack.exit
-  %476 = phi i32 [ %475, %do_backtrack.exit ], [ %.1.i49.i.i, %435 ], [ %311, %theta_prune.exit.i.i ]
-  %477 = load ptr, ptr %17, align 8
-  %478 = load i32, ptr %2, align 8
-  %479 = sext i32 %478 to i64
-  %480 = getelementptr inbounds i32, ptr %477, i64 %479
-  %481 = load i32, ptr %480, align 4
-  %482 = add nsw i32 %481, %476
+do_backtrack.exit.thread:                         ; preds = %437, %theta_prune.exit.i.i, %do_backtrack.exit
+  %479 = phi i32 [ %478, %do_backtrack.exit ], [ %.1.i49.i.i, %437 ], [ %311, %theta_prune.exit.i.i ]
+  %480 = load ptr, ptr %17, align 8
+  %481 = load i32, ptr %2, align 8
+  %482 = sext i32 %481 to i64
+  %483 = getelementptr inbounds i32, ptr %480, i64 %482
+  %484 = load i32, ptr %483, align 4
+  %485 = add nsw i32 %484, %479
   br label %.loopexit
 
 .loopexit:                                        ; preds = %38, %do_backtrack.exit.thread
-  %.0 = phi i32 [ %482, %do_backtrack.exit.thread ], [ -1, %38 ]
+  %.0 = phi i32 [ %485, %do_backtrack.exit.thread ], [ -1, %38 ]
   ret i32 %.0
 }
 

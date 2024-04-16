@@ -173,7 +173,7 @@ thunk_type_size.exit.us.loopexit200:              ; preds = %tailrecurse.i37.us,
   br label %thunk_type_size.exit.us
 
 thunk_type_size.exit.us:                          ; preds = %tailrecurse.i37.us, %thunk_type_size.exit.us.loopexit200, %thunk_type_size.exit.us.loopexit141, %thunk_type_size.exit.loopexit.us, %sw.bb10.i.us
-  %retval.0.i39.us = phi i32 [ %10, %sw.bb10.i.us ], [ 8, %thunk_type_size.exit.loopexit.us ], [ 4, %thunk_type_size.exit.us.loopexit141 ], [ %7, %thunk_type_size.exit.us.loopexit200 ], [ %..i.us, %tailrecurse.i37.us ]
+  %retval.0.i39.us = phi i32 [ %10, %sw.bb10.i.us ], [ 4, %thunk_type_size.exit.us.loopexit141 ], [ 8, %thunk_type_size.exit.loopexit.us ], [ %7, %thunk_type_size.exit.us.loopexit200 ], [ %..i.us, %tailrecurse.i37.us ]
   %accumulator.ret.tr.i.us = mul i32 %retval.0.i39.us, %accumulator.tr.i.us
   br label %tailrecurse.i41.us
 
@@ -786,7 +786,7 @@ if.end:                                           ; preds = %thunk_type_size.exi
 
 if.end.thread:                                    ; preds = %thunk_type_size.exit73
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12) #11
-  br i1 %cmp38122, label %for.body.preheader, label %if.end49
+  br i1 %cmp38122, label %for.body.preheader, label %if.else48
 
 for.body.preheader:                               ; preds = %if.end.thread
   %idx.ext170 = sext i32 %accumulator.ret.tr.i63 to i64
@@ -803,7 +803,7 @@ for.body.us:                                      ; preds = %for.body.us.prehead
   %add.ptr45.us = getelementptr i8, ptr %a.0123.us, i64 %idx.ext
   %inc.us = add nuw nsw i32 %i.0124.us, 1
   %exitcond168.not = icmp eq i32 %inc.us, %10
-  br i1 %exitcond168.not, label %if.end49, label %for.body.us, !llvm.loop !11
+  br i1 %exitcond168.not, label %for.end, label %for.body.us, !llvm.loop !11
 
 for.body:                                         ; preds = %for.body.preheader, %if.end43
   %i.0124 = phi i32 [ %inc, %if.end43 ], [ 0, %for.body.preheader ]
@@ -820,10 +820,16 @@ if.end43:                                         ; preds = %if.then42, %for.bod
   %add.ptr45 = getelementptr i8, ptr %a.0123, i64 %idx.ext170
   %inc = add nuw nsw i32 %i.0124, 1
   %exitcond.not = icmp eq i32 %inc, %10
-  br i1 %exitcond.not, label %if.end49, label %for.body, !llvm.loop !11
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
 
-if.end49:                                         ; preds = %if.end43, %for.body.us, %if.end.thread, %if.end
-  %.str.14.sink = phi ptr [ @.str.11, %if.end ], [ @.str.14, %if.end.thread ], [ @.str.11, %for.body.us ], [ @.str.14, %if.end43 ]
+for.end:                                          ; preds = %if.end43, %for.body.us
+  br i1 %cmp.not, label %if.end49, label %if.else48
+
+if.else48:                                        ; preds = %if.end.thread, %for.end
+  br label %if.end49
+
+if.end49:                                         ; preds = %for.end, %if.end, %if.else48
+  %.str.14.sink = phi ptr [ @.str.14, %if.else48 ], [ @.str.11, %if.end ], [ @.str.11, %for.end ]
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull %.str.14.sink) #11
   br label %tailrecurse.i74
 

@@ -324,7 +324,7 @@ define internal zeroext i16 @ptp_is_attribute_visible(ptr nocapture noundef read
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, 0
   %17 = select i1 %16, i16 0, i16 %9
-  br label %51
+  br label %52
 
 18:                                               ; preds = %3
   %19 = icmp eq ptr %1, @dev_attr_period
@@ -335,7 +335,7 @@ define internal zeroext i16 @ptp_is_attribute_visible(ptr nocapture noundef read
   %22 = load i32, ptr %21, align 4
   %23 = icmp eq i32 %22, 0
   %24 = select i1 %23, i16 0, i16 %9
-  br label %51
+  br label %52
 
 25:                                               ; preds = %18
   %26 = icmp eq ptr %1, @dev_attr_pps_enable
@@ -346,7 +346,7 @@ define internal zeroext i16 @ptp_is_attribute_visible(ptr nocapture noundef read
   %29 = load i32, ptr %28, align 4
   %30 = icmp eq i32 %29, 0
   %31 = select i1 %30, i16 0, i16 %9
-  br label %51
+  br label %52
 
 32:                                               ; preds = %25
   %33 = icmp eq ptr %1, @dev_attr_n_vclocks
@@ -359,11 +359,11 @@ define internal zeroext i16 @ptp_is_attribute_visible(ptr nocapture noundef read
   %38 = load i8, ptr %37, align 8, !range !11, !noundef !12
   %39 = icmp eq i8 %38, 0
   %40 = select i1 %39, i16 %9, i16 0
-  br label %51
+  br label %52
 
 41:                                               ; preds = %32
   %42 = icmp eq ptr %1, @dev_attr_max_phase_adjustment
-  br i1 %42, label %43, label %51
+  br i1 %42, label %43, label %52
 
 43:                                               ; preds = %41
   %44 = getelementptr inbounds i8, ptr %7, i64 80
@@ -375,12 +375,14 @@ define internal zeroext i16 @ptp_is_attribute_visible(ptr nocapture noundef read
   %48 = getelementptr inbounds i8, ptr %7, i64 88
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, null
-  %spec.select = select i1 %50, i16 0, i16 %9
-  br label %51
+  br i1 %50, label %51, label %52
 
-51:                                               ; preds = %47, %43, %41, %36, %27, %20, %13
-  %52 = phi i16 [ %9, %41 ], [ %17, %13 ], [ %24, %20 ], [ %31, %27 ], [ %40, %36 ], [ 0, %43 ], [ %spec.select, %47 ]
-  ret i16 %52
+51:                                               ; preds = %47, %43
+  br label %52
+
+52:                                               ; preds = %51, %47, %41, %36, %27, %20, %13
+  %53 = phi i16 [ %9, %47 ], [ 0, %51 ], [ %9, %41 ], [ %17, %13 ], [ %24, %20 ], [ %31, %27 ], [ %40, %36 ]
+  ret i16 %53
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

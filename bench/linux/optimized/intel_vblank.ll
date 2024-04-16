@@ -1005,7 +1005,7 @@ define dso_local void @intel_crtc_update_active_timings(ptr noundef %0, i1 nound
   %56 = and i32 %55, 1
   %57 = lshr i32 %52, %56
   %58 = add nsw i32 %57, -1
-  br label %71
+  br label %72
 
 59:                                               ; preds = %36
   %60 = getelementptr inbounds i8, ptr %45, i64 2624
@@ -1021,13 +1021,15 @@ define dso_local void @intel_crtc_update_active_timings(ptr noundef %0, i1 nound
   %68 = load i32, ptr %67, align 8
   %69 = and i32 %68, 64
   %70 = icmp eq i32 %69, 0
-  %spec.select = select i1 %70, i32 1, i32 2
-  br label %71
+  br i1 %70, label %71, label %72
 
-71:                                               ; preds = %66, %59, %49
-  %72 = phi i32 [ %58, %49 ], [ 1, %59 ], [ %spec.select, %66 ]
-  %73 = getelementptr inbounds i8, ptr %4, i64 2008
-  store i32 %72, ptr %73, align 8
+71:                                               ; preds = %66, %59
+  br label %72
+
+72:                                               ; preds = %71, %66, %49
+  %73 = phi i32 [ %58, %49 ], [ 1, %71 ], [ 2, %66 ]
+  %74 = getelementptr inbounds i8, ptr %4, i64 2008
+  store i32 %73, ptr %74, align 8
   call void @_raw_spin_unlock(ptr noundef %41) #10
   call void @_raw_spin_unlock_irqrestore(ptr noundef %39, i64 noundef %40) #10
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %3) #10

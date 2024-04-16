@@ -355,7 +355,7 @@ lor.lhs.false.i:                                  ; preds = %if.then33.i
 if.end41.i:                                       ; preds = %lor.lhs.false.i, %if.end31.i
   %20 = load i32, ptr @has_cert, align 4
   %tobool42.not.i = icmp eq i32 %20, 0
-  br i1 %tobool42.not.i, label %changepass.exit, label %if.then43.i
+  br i1 %tobool42.not.i, label %if.end52.i, label %if.then43.i
 
 if.then43.i:                                      ; preds = %if.end41.i
   %21 = load ptr, ptr %cert2.i, align 8
@@ -367,23 +367,24 @@ lor.lhs.false46.i:                                ; preds = %if.then43.i
   %22 = load ptr, ptr %cert2.i, align 8
   %call47.i = call i32 @X509_cmp(ptr noundef %13, ptr noundef %22) #5
   %call48.i = call i32 @test_int_eq(ptr noundef nonnull @.str.30, i32 noundef 90, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.54, i32 noundef %call47.i, i32 noundef 0) #5
-  %call48.i.fr = freeze i32 %call48.i
-  %tobool49.not.i.not = icmp ne i32 %call48.i.fr, 0
-  %23 = zext i1 %tobool49.not.i.not to i32
+  %tobool49.not.i = icmp eq i32 %call48.i, 0
+  br i1 %tobool49.not.i, label %changepass.exit, label %if.end52.i
+
+if.end52.i:                                       ; preds = %lor.lhs.false46.i, %if.end41.i
   br label %changepass.exit
 
-changepass.exit:                                  ; preds = %land.lhs.true41, %if.end.i, %if.end7.i, %if.end14.i, %if.end19.i, %if.end24.i, %if.then33.i, %lor.lhs.false.i, %if.end41.i, %if.then43.i, %lor.lhs.false46.i
-  %ret.0.i = phi i32 [ 0, %if.then43.i ], [ 0, %lor.lhs.false.i ], [ 0, %if.then33.i ], [ 0, %if.end24.i ], [ 0, %if.end19.i ], [ 0, %if.end14.i ], [ 0, %if.end7.i ], [ 0, %if.end.i ], [ 0, %land.lhs.true41 ], [ 1, %if.end41.i ], [ %23, %lor.lhs.false46.i ]
-  %bio.0.i = phi ptr [ %call3.i, %if.then43.i ], [ %call3.i, %lor.lhs.false.i ], [ %call3.i, %if.then33.i ], [ %call3.i, %if.end24.i ], [ %call3.i, %if.end19.i ], [ %call3.i, %if.end14.i ], [ %call3.i, %if.end7.i ], [ %call3.i, %if.end.i ], [ null, %land.lhs.true41 ], [ %call3.i, %if.end41.i ], [ %call3.i, %lor.lhs.false46.i ]
+changepass.exit:                                  ; preds = %land.lhs.true41, %if.end.i, %if.end7.i, %if.end14.i, %if.end19.i, %if.end24.i, %if.then33.i, %lor.lhs.false.i, %if.then43.i, %lor.lhs.false46.i, %if.end52.i
+  %not.tobool43.not = phi i32 [ 1, %if.end52.i ], [ 0, %lor.lhs.false46.i ], [ 0, %if.then43.i ], [ 0, %lor.lhs.false.i ], [ 0, %if.then33.i ], [ 0, %if.end24.i ], [ 0, %if.end19.i ], [ 0, %if.end14.i ], [ 0, %if.end7.i ], [ 0, %if.end.i ], [ 0, %land.lhs.true41 ]
+  %bio.0.i = phi ptr [ %call3.i, %if.end52.i ], [ %call3.i, %lor.lhs.false46.i ], [ %call3.i, %if.then43.i ], [ %call3.i, %lor.lhs.false.i ], [ %call3.i, %if.then33.i ], [ %call3.i, %if.end24.i ], [ %call3.i, %if.end19.i ], [ %call3.i, %if.end14.i ], [ %call3.i, %if.end7.i ], [ %call3.i, %if.end.i ], [ null, %land.lhs.true41 ]
   %call53.i = call i32 @BIO_free(ptr noundef %bio.0.i) #5
-  %24 = load ptr, ptr %p12new.i, align 8
-  call void @PKCS12_free(ptr noundef %24) #5
-  %25 = load ptr, ptr %key2.i, align 8
-  call void @EVP_PKEY_free(ptr noundef %25) #5
-  %26 = load ptr, ptr %cert2.i, align 8
-  call void @X509_free(ptr noundef %26) #5
-  %27 = load ptr, ptr %ca2.i, align 8
-  call void @OSSL_STACK_OF_X509_free(ptr noundef %27) #5
+  %23 = load ptr, ptr %p12new.i, align 8
+  call void @PKCS12_free(ptr noundef %23) #5
+  %24 = load ptr, ptr %key2.i, align 8
+  call void @EVP_PKEY_free(ptr noundef %24) #5
+  %25 = load ptr, ptr %cert2.i, align 8
+  call void @X509_free(ptr noundef %25) #5
+  %26 = load ptr, ptr %ca2.i, align 8
+  call void @OSSL_STACK_OF_X509_free(ptr noundef %26) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p12new.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %key2.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %cert2.i)
@@ -391,15 +392,15 @@ changepass.exit:                                  ; preds = %land.lhs.true41, %i
   br label %err
 
 err:                                              ; preds = %changepass.exit, %entry, %if.end39, %land.lhs.true30, %land.lhs.true35, %land.lhs.true19, %land.lhs.true24, %land.lhs.true, %land.lhs.true13, %if.end, %if.then
-  %cmp47 = phi i32 [ 0, %land.lhs.true35 ], [ 0, %land.lhs.true30 ], [ 0, %land.lhs.true24 ], [ 0, %land.lhs.true19 ], [ 0, %land.lhs.true13 ], [ 0, %land.lhs.true ], [ 0, %if.end ], [ 0, %if.then ], [ 1, %if.end39 ], [ 1, %entry ], [ %ret.0.i, %changepass.exit ]
+  %cmp47 = phi i32 [ 0, %land.lhs.true35 ], [ 0, %land.lhs.true30 ], [ 0, %land.lhs.true24 ], [ 0, %land.lhs.true19 ], [ 0, %land.lhs.true13 ], [ 0, %land.lhs.true ], [ 0, %if.end ], [ 0, %if.then ], [ 1, %if.end39 ], [ 1, %entry ], [ %not.tobool43.not, %changepass.exit ]
   %p12.1 = phi ptr [ %call, %land.lhs.true35 ], [ %call, %land.lhs.true30 ], [ %call, %land.lhs.true24 ], [ %call, %land.lhs.true19 ], [ %call, %land.lhs.true13 ], [ %call, %land.lhs.true ], [ %call, %if.end ], [ %call, %if.then ], [ %call, %if.end39 ], [ null, %entry ], [ %call, %changepass.exit ]
   call void @PKCS12_free(ptr noundef %p12.1) #5
-  %28 = load ptr, ptr %key, align 8
-  call void @EVP_PKEY_free(ptr noundef %28) #5
-  %29 = load ptr, ptr %cert, align 8
-  call void @X509_free(ptr noundef %29) #5
-  %30 = load ptr, ptr %ca, align 8
-  call void @OSSL_STACK_OF_X509_free(ptr noundef %30) #5
+  %27 = load ptr, ptr %key, align 8
+  call void @EVP_PKEY_free(ptr noundef %27) #5
+  %28 = load ptr, ptr %cert, align 8
+  call void @X509_free(ptr noundef %28) #5
+  %29 = load ptr, ptr %ca, align 8
+  call void @OSSL_STACK_OF_X509_free(ptr noundef %29) #5
   %call49 = call i32 @test_true(ptr noundef nonnull @.str.30, i32 noundef 134, ptr noundef nonnull @.str.37, i32 noundef %cmp47) #5
   ret i32 %call49
 }

@@ -3179,7 +3179,7 @@ entry:
   %meta = getelementptr inbounds i8, ptr %threadEntry, i64 32
   %1 = load ptr, ptr %meta, align 8, !tbaa !15
   %tobool.not = icmp eq ptr %1, null
-  br i1 %tobool.not, label %cond.end, label %land.lhs.true
+  br i1 %tobool.not, label %cond.false, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
   %mul4 = fmul double %conv, 1.700000e+00
@@ -3187,11 +3187,13 @@ land.lhs.true:                                    ; preds = %entry
   %elementsCapacity.i45 = getelementptr inbounds i8, ptr %1, i64 88
   %2 = load atomic i64, ptr %elementsCapacity.i45 monotonic, align 8
   %cmp.not = icmp ult i64 %2, %conv5
-  %spec.select = select i1 %cmp.not, i64 %conv1, i64 %conv5
+  br i1 %cmp.not, label %cond.false, label %cond.end
+
+cond.false:                                       ; preds = %land.lhs.true, %entry
   br label %cond.end
 
-cond.end:                                         ; preds = %land.lhs.true, %entry
-  %cond = phi i64 [ %conv1, %entry ], [ %spec.select, %land.lhs.true ]
+cond.end:                                         ; preds = %cond.false, %land.lhs.true
+  %cond = phi i64 [ %conv1, %cond.false ], [ %conv5, %land.lhs.true ]
   store i64 %cond, ptr %newCapacity, align 8, !tbaa !114
   %3 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS_13usingJEMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
   %guard.uninitialized.i.i = icmp eq i8 %3, 0

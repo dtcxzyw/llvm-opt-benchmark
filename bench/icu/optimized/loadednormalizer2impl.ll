@@ -93,53 +93,55 @@ define noundef signext i8 @_ZN6icu_7521LoadedNormalizer2Impl12isAcceptableEPvPKc
 entry:
   %3 = load i16, ptr %pInfo, align 2
   %cmp = icmp ugt i16 %3, 19
-  br i1 %cmp, label %land.lhs.true, label %return
+  br i1 %cmp, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %entry
   %isBigEndian = getelementptr inbounds i8, ptr %pInfo, i64 4
   %4 = load i8, ptr %isBigEndian, align 2
   %cmp4 = icmp eq i8 %4, 0
-  br i1 %cmp4, label %land.lhs.true5, label %return
+  br i1 %cmp4, label %land.lhs.true5, label %if.else
 
 land.lhs.true5:                                   ; preds = %land.lhs.true
   %charsetFamily = getelementptr inbounds i8, ptr %pInfo, i64 5
   %5 = load i8, ptr %charsetFamily, align 1
   %cmp7 = icmp eq i8 %5, 0
-  br i1 %cmp7, label %land.lhs.true8, label %return
+  br i1 %cmp7, label %land.lhs.true8, label %if.else
 
 land.lhs.true8:                                   ; preds = %land.lhs.true5
   %dataFormat = getelementptr inbounds i8, ptr %pInfo, i64 8
   %6 = load i8, ptr %dataFormat, align 2
   %cmp10 = icmp eq i8 %6, 78
-  br i1 %cmp10, label %land.lhs.true11, label %return
+  br i1 %cmp10, label %land.lhs.true11, label %if.else
 
 land.lhs.true11:                                  ; preds = %land.lhs.true8
   %arrayidx13 = getelementptr inbounds i8, ptr %pInfo, i64 9
   %7 = load i8, ptr %arrayidx13, align 1
   %cmp15 = icmp eq i8 %7, 114
-  br i1 %cmp15, label %land.lhs.true16, label %return
+  br i1 %cmp15, label %land.lhs.true16, label %if.else
 
 land.lhs.true16:                                  ; preds = %land.lhs.true11
   %arrayidx18 = getelementptr inbounds i8, ptr %pInfo, i64 10
   %8 = load i8, ptr %arrayidx18, align 2
   %cmp20 = icmp eq i8 %8, 109
-  br i1 %cmp20, label %land.lhs.true21, label %return
+  br i1 %cmp20, label %land.lhs.true21, label %if.else
 
 land.lhs.true21:                                  ; preds = %land.lhs.true16
   %arrayidx23 = getelementptr inbounds i8, ptr %pInfo, i64 11
   %9 = load i8, ptr %arrayidx23, align 1
   %cmp25 = icmp eq i8 %9, 50
-  br i1 %cmp25, label %land.lhs.true26, label %return
+  br i1 %cmp25, label %land.lhs.true26, label %if.else
 
 land.lhs.true26:                                  ; preds = %land.lhs.true21
   %formatVersion = getelementptr inbounds i8, ptr %pInfo, i64 12
   %10 = load i8, ptr %formatVersion, align 2
   %cmp29 = icmp eq i8 %10, 4
-  %spec.select = zext i1 %cmp29 to i8
+  br i1 %cmp29, label %return, label %if.else
+
+if.else:                                          ; preds = %land.lhs.true26, %land.lhs.true21, %land.lhs.true16, %land.lhs.true11, %land.lhs.true8, %land.lhs.true5, %land.lhs.true, %entry
   br label %return
 
-return:                                           ; preds = %land.lhs.true26, %entry, %land.lhs.true, %land.lhs.true5, %land.lhs.true8, %land.lhs.true11, %land.lhs.true16, %land.lhs.true21
-  %retval.0 = phi i8 [ 0, %land.lhs.true21 ], [ 0, %land.lhs.true16 ], [ 0, %land.lhs.true11 ], [ 0, %land.lhs.true8 ], [ 0, %land.lhs.true5 ], [ 0, %land.lhs.true ], [ 0, %entry ], [ %spec.select, %land.lhs.true26 ]
+return:                                           ; preds = %land.lhs.true26, %if.else
+  %retval.0 = phi i8 [ 0, %if.else ], [ 1, %land.lhs.true26 ]
   ret i8 %retval.0
 }
 

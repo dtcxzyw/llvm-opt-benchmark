@@ -1566,10 +1566,13 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i13:    ; preds = %_ZN7QStringD2Ev.exi
 
 _ZN7QStringD2Ev.exit15:                           ; preds = %_ZN7QStringD2Ev.exit, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i13, %42
   %44 = icmp slt i32 %35, 0
-  br label %45
+  br i1 %44, label %46, label %45
 
 45:                                               ; preds = %_ZN7QStringD2Ev.exit15, %3
-  %.0 = phi i1 [ false, %3 ], [ %44, %_ZN7QStringD2Ev.exit15 ]
+  br label %46
+
+46:                                               ; preds = %_ZN7QStringD2Ev.exit15, %45
+  %.0 = phi i1 [ false, %45 ], [ true, %_ZN7QStringD2Ev.exit15 ]
   ret i1 %.0
 }
 

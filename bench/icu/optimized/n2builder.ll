@@ -935,7 +935,7 @@ new.cont:                                         ; preds = %new.notnull, %_ZN6i
   %fUnion.i.i8 = getelementptr inbounds i8, ptr %call5, i64 8
   %18 = load i16, ptr %fUnion.i.i8, align 8
   %cmp.i.i9 = icmp ugt i16 %18, 31
-  br i1 %cmp.i.i9, label %land.lhs.true.i11, label %_ZN6icu_754Norm12setMappingCPEv.exit
+  br i1 %cmp.i.i9, label %land.lhs.true.i11, label %if.else.i
 
 land.lhs.true.i11:                                ; preds = %new.cont
   %cmp.i.i.i12 = icmp slt i16 %18, 0
@@ -948,11 +948,13 @@ land.lhs.true.i11:                                ; preds = %new.cont
   %cmp.i16 = icmp ult i32 %call5.i, 65536
   %cond.i = select i1 %cmp.i16, i32 1, i32 2
   %cmp6.i = icmp eq i32 %cond.i.i15, %cond.i
-  %spec.select.i = select i1 %cmp6.i, i32 %call5.i, i32 -1
+  br i1 %cmp6.i, label %_ZN6icu_754Norm12setMappingCPEv.exit, label %if.else.i
+
+if.else.i:                                        ; preds = %land.lhs.true.i11, %new.cont
   br label %_ZN6icu_754Norm12setMappingCPEv.exit
 
-_ZN6icu_754Norm12setMappingCPEv.exit:             ; preds = %new.cont, %land.lhs.true.i11
-  %.sink.i = phi i32 [ -1, %new.cont ], [ %spec.select.i, %land.lhs.true.i11 ]
+_ZN6icu_754Norm12setMappingCPEv.exit:             ; preds = %land.lhs.true.i11, %if.else.i
+  %.sink.i = phi i32 [ -1, %if.else.i ], [ %call5.i, %land.lhs.true.i11 ]
   %mappingCP7.i = getelementptr inbounds i8, ptr %call3, i64 16
   store i32 %.sink.i, ptr %mappingCP7.i, align 8
   %mappingSet = getelementptr inbounds i8, ptr %this, i64 200

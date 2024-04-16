@@ -35,7 +35,7 @@ define noundef i32 @prte_iof_base_select() local_unnamed_addr #0 {
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) @prte_iof, ptr noundef nonnull align 8 dereferenceable(56) %6, i64 56, i1 false)
   %7 = load ptr, ptr @prte_iof, align 8
   %.not6 = icmp eq ptr %7, null
-  br i1 %.not6, label %13, label %8
+  br i1 %.not6, label %12, label %8
 
 8:                                                ; preds = %5
   %9 = call i32 %7() #3
@@ -49,11 +49,11 @@ define noundef i32 @prte_iof_base_select() local_unnamed_addr #0 {
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef %11, ptr noundef nonnull @.str.2, i32 noundef 65) #3
   br label %13
 
-12:                                               ; preds = %8
+12:                                               ; preds = %8, %5
   br label %13
 
-13:                                               ; preds = %5, %10, %8, %0, %12
-  %.0 = phi i32 [ -13, %0 ], [ %9, %8 ], [ %9, %10 ], [ 0, %5 ], [ 0, %12 ]
+13:                                               ; preds = %10, %8, %0, %12
+  %.0 = phi i32 [ 0, %12 ], [ -13, %0 ], [ %9, %8 ], [ %9, %10 ]
   ret i32 %.0
 }
 

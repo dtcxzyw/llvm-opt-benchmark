@@ -25,7 +25,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @qapi_dummy_qapi_visit_machine_target_c = dso_local local_unnamed_addr global i8 0, align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_CpuModelInfo_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_CpuModelInfo_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_props = alloca i8, align 1
   %props = getelementptr inbounds i8, ptr %obj, i64 8
@@ -38,14 +38,17 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call2 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.1, ptr noundef nonnull %has_props) #4
-  br i1 %call2, label %if.then3, label %return
+  br i1 %call2, label %if.then3, label %if.end8
 
 if.then3:                                         ; preds = %if.end
   %call5 = call zeroext i1 @visit_type_any(ptr noundef %v, ptr noundef nonnull @.str.1, ptr noundef nonnull %props, ptr noundef %errp) #4
+  br i1 %call5, label %if.end8, label %return
+
+if.end8:                                          ; preds = %if.then3, %if.end
   br label %return
 
-return:                                           ; preds = %if.then3, %if.end, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ true, %if.end ], [ %call5, %if.then3 ]
+return:                                           ; preds = %if.then3, %entry, %if.end8
+  %retval.0 = phi i1 [ true, %if.end8 ], [ false, %entry ], [ false, %if.then3 ]
   ret i1 %retval.0
 }
 
@@ -69,9 +72,9 @@ if.end:                                           ; preds = %entry
 
 if.then1:                                         ; preds = %if.end
   %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
-  br i1 %call2, label %out_obj.thread19, label %if.else
+  br i1 %call2, label %out_obj.thread, label %if.else
 
-out_obj.thread19:                                 ; preds = %if.then1
+out_obj.thread:                                   ; preds = %if.then1
   tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br label %return
 
@@ -87,35 +90,28 @@ if.end5:                                          ; preds = %if.end
   %frombool.i = zext i1 %tobool.i to i8
   store i8 %frombool.i, ptr %has_props.i, align 1
   %call.i = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str, ptr noundef nonnull %0, ptr noundef %errp) #4
-  br i1 %call.i, label %if.end.i, label %visit_type_CpuModelInfo_members.exit.thread15
-
-visit_type_CpuModelInfo_members.exit.thread15:    ; preds = %if.end5
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_props.i)
-  br label %out_obj.thread
+  br i1 %call.i, label %if.end.i, label %out_obj.thread16
 
 if.end.i:                                         ; preds = %if.end5
   %call2.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.1, ptr noundef nonnull %has_props.i) #4
-  br i1 %call2.i, label %visit_type_CpuModelInfo_members.exit, label %visit_type_CpuModelInfo_members.exit.thread
+  br i1 %call2.i, label %if.then3.i, label %out_obj
 
-visit_type_CpuModelInfo_members.exit.thread:      ; preds = %if.end.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_props.i)
-  br label %out_obj
-
-visit_type_CpuModelInfo_members.exit:             ; preds = %if.end.i
+if.then3.i:                                       ; preds = %if.end.i
   %call5.i = call zeroext i1 @visit_type_any(ptr noundef %v, ptr noundef nonnull @.str.1, ptr noundef nonnull %props.i, ptr noundef %errp) #4
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_props.i)
-  br i1 %call5.i, label %out_obj, label %out_obj.thread
+  br i1 %call5.i, label %out_obj, label %out_obj.thread16
 
-out_obj.thread:                                   ; preds = %visit_type_CpuModelInfo_members.exit, %visit_type_CpuModelInfo_members.exit.thread15
+out_obj.thread16:                                 ; preds = %if.then3.i, %if.end5
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_props.i)
   call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br label %land.lhs.true
 
-out_obj:                                          ; preds = %visit_type_CpuModelInfo_members.exit, %visit_type_CpuModelInfo_members.exit.thread
+out_obj:                                          ; preds = %if.end.i, %if.then3.i
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_props.i)
   %call9 = call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
   call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br i1 %call9, label %return, label %land.lhs.true
 
-land.lhs.true:                                    ; preds = %out_obj.thread, %out_obj
+land.lhs.true:                                    ; preds = %out_obj.thread16, %out_obj
   %call11 = call zeroext i1 @visit_is_input(ptr noundef %v) #4
   br i1 %call11, label %if.then12, label %return
 
@@ -125,8 +121,8 @@ if.then12:                                        ; preds = %land.lhs.true
   store ptr null, ptr %obj, align 8
   br label %return
 
-return:                                           ; preds = %out_obj.thread19, %out_obj, %land.lhs.true, %if.then12, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %if.then12 ], [ false, %land.lhs.true ], [ true, %out_obj ], [ true, %out_obj.thread19 ]
+return:                                           ; preds = %out_obj.thread, %out_obj, %land.lhs.true, %if.then12, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.then12 ], [ false, %land.lhs.true ], [ true, %out_obj ], [ true, %out_obj.thread ]
   ret i1 %retval.0
 }
 

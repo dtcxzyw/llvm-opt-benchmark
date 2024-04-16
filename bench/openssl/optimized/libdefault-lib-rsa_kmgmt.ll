@@ -627,29 +627,23 @@ if.end.i:                                         ; preds = %land.rhs
 
 land.lhs.true.i:                                  ; preds = %if.end.i
   %call1.i = call i32 @ossl_rsa_pss_params_30_is_unrestricted(ptr noundef %call9) #5
-  %tobool2.not.i = icmp ne i32 %call1.i, 0
-  %spec.select.i = zext i1 %tobool2.not.i to i32
-  br label %if.end13
+  %tobool2.not.i = icmp eq i32 %call1.i, 0
+  br i1 %tobool2.not.i, label %return, label %if.end13
 
-if.end13:                                         ; preds = %land.lhs.true.i, %if.end.i, %if.end3
-  %ok.0 = phi i32 [ 1, %if.end3 ], [ 1, %if.end.i ], [ %spec.select.i, %land.lhs.true.i ]
+if.end13:                                         ; preds = %if.end.i, %land.lhs.true.i, %if.end3
   %and14 = and i32 %selection, 3
   %cmp15.not = icmp eq i32 %and14, 0
-  br i1 %cmp15.not, label %return, label %if.then16
+  br i1 %cmp15.not, label %return, label %land.rhs20
 
-if.then16:                                        ; preds = %if.end13
-  %tobool19.not = icmp eq i32 %ok.0, 0
-  br i1 %tobool19.not, label %return, label %land.rhs20
-
-land.rhs20:                                       ; preds = %if.then16
+land.rhs20:                                       ; preds = %if.end13
   %and17 = and i32 %selection, 1
   %call21 = call i32 @ossl_rsa_fromdata(ptr noundef nonnull %keydata, ptr noundef %params, i32 noundef %and17) #5
   %tobool22 = icmp ne i32 %call21, 0
-  %0 = zext i1 %tobool22 to i32
   br label %return
 
-return:                                           ; preds = %land.rhs, %if.end13, %land.rhs20, %if.then16, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ %ok.0, %if.end13 ], [ 0, %if.then16 ], [ %0, %land.rhs20 ], [ 0, %land.rhs ]
+return:                                           ; preds = %land.lhs.true.i, %land.rhs, %if.end13, %land.rhs20, %entry
+  %retval.0.shrunk = phi i1 [ false, %entry ], [ %cmp15.not, %if.end13 ], [ %tobool22, %land.rhs20 ], [ false, %land.rhs ], [ false, %land.lhs.true.i ]
+  %retval.0 = zext i1 %retval.0.shrunk to i32
   ret i32 %retval.0
 }
 

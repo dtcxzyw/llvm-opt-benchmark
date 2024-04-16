@@ -2284,18 +2284,20 @@ _ZN17ClientEnvironment15getActiveObjectEt.exit:   ; preds = %_ZNKSt3mapItSt10uni
   %retval.1.i.i.i = phi ptr [ %second.i.i.i, %cleanup.i.i.i ], [ @_ZN13ModifySafeMapItSt10unique_ptrI18ClientActiveObjectSt14default_deleteIS1_EEE10null_valueE, %_ZNKSt8_Rb_treeItSt4pairIKtSt10unique_ptrI18ClientActiveObjectSt14default_deleteIS3_EEESt10_Select1stIS7_ESt4lessItESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i35.i.i.i ], [ @_ZN13ModifySafeMapItSt10unique_ptrI18ClientActiveObjectSt14default_deleteIS1_EEE10null_valueE, %if.end8.i.i.i ], [ %spec.select.i.i.i, %_ZNKSt3mapItSt10unique_ptrI18ClientActiveObjectSt14default_deleteIS1_EESt4lessItESaISt4pairIKtS4_EEE4findERS8_.exit42.i.i.i ]
   %7 = load ptr, ptr %retval.1.i.i.i, align 8, !tbaa !65
   %tobool.not = icmp eq ptr %7, null
-  br i1 %tobool.not, label %cleanup, label %land.lhs.true
+  br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %_ZN17ClientEnvironment15getActiveObjectEt.exit
   %vtable = load ptr, ptr %7, align 8, !tbaa !12
   %8 = load ptr, ptr %vtable, align 8
   %call2 = tail call noundef i32 %8(ptr noundef nonnull align 8 dereferenceable(10) %7)
   %cmp = icmp eq i32 %call2, 101
-  %spec.select = select i1 %cmp, ptr %7, ptr null
+  br i1 %cmp, label %cleanup, label %if.end
+
+if.end:                                           ; preds = %land.lhs.true, %_ZN17ClientEnvironment15getActiveObjectEt.exit
   br label %cleanup
 
-cleanup:                                          ; preds = %land.lhs.true, %_ZN17ClientEnvironment15getActiveObjectEt.exit
-  %retval.0 = phi ptr [ null, %_ZN17ClientEnvironment15getActiveObjectEt.exit ], [ %spec.select, %land.lhs.true ]
+cleanup:                                          ; preds = %if.end, %land.lhs.true
+  %retval.0 = phi ptr [ null, %if.end ], [ %7, %land.lhs.true ]
   ret ptr %retval.0
 }
 

@@ -331,23 +331,25 @@ define internal void @nhmex_uncore_msr_disable_box(ptr nocapture noundef readonl
   %69 = icmp eq i32 %67, %68
   %70 = and i64 %45, -2147483649
   %cond.fr = freeze i1 %69
-  %spec.select = select i1 %cond.fr, i64 %45, i64 %70
-  br label %.thread5
+  br i1 %cond.fr, label %.thread5, label %71
 
-.thread5:                                         ; preds = %66, %37
-  %71 = phi i64 [ %45, %37 ], [ %spec.select, %66 ]
-  %72 = trunc i64 %71 to i32
-  %73 = lshr i64 %71, 32
-  %74 = trunc nuw i64 %73 to i32
-  tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %28, i32 %72, i32 %74) #8, !srcloc !5
+.thread5:                                         ; preds = %37, %66
+  br label %71
+
+71:                                               ; preds = %66, %.thread5
+  %72 = phi i64 [ %45, %.thread5 ], [ %70, %66 ]
+  %73 = trunc i64 %72 to i32
+  %74 = lshr i64 %72, 32
+  %75 = trunc nuw i64 %74 to i32
+  tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %28, i32 %73, i32 %75) #8, !srcloc !5
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #8
-          to label %.thread [label %75], !srcloc !6
+          to label %.thread [label %76], !srcloc !6
 
-75:                                               ; preds = %.thread5
-  tail call void @do_trace_write_msr(i32 noundef %28, i64 noundef %71, i32 noundef 0) #8
+76:                                               ; preds = %71
+  tail call void @do_trace_write_msr(i32 noundef %28, i64 noundef %72, i32 noundef 0) #8
   br label %.thread
 
-.thread:                                          ; preds = %1, %75, %.thread5, %26
+.thread:                                          ; preds = %1, %76, %71, %26
   ret void
 }
 
@@ -448,23 +450,25 @@ define internal void @nhmex_uncore_msr_enable_box(ptr nocapture noundef readonly
   %70 = icmp eq i32 %68, %69
   %71 = or i64 %46, 2147483648
   %cond.fr = freeze i1 %70
-  %spec.select = select i1 %cond.fr, i64 %46, i64 %71
-  br label %.thread5
+  br i1 %cond.fr, label %.thread5, label %72
 
-.thread5:                                         ; preds = %67, %37
-  %72 = phi i64 [ %46, %37 ], [ %spec.select, %67 ]
-  %73 = trunc i64 %72 to i32
-  %74 = lshr i64 %72, 32
-  %75 = trunc nuw i64 %74 to i32
-  tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %28, i32 %73, i32 %75) #8, !srcloc !5
+.thread5:                                         ; preds = %37, %67
+  br label %72
+
+72:                                               ; preds = %67, %.thread5
+  %73 = phi i64 [ %46, %.thread5 ], [ %71, %67 ]
+  %74 = trunc i64 %73 to i32
+  %75 = lshr i64 %73, 32
+  %76 = trunc nuw i64 %75 to i32
+  tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %28, i32 %74, i32 %76) #8, !srcloc !5
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #8
-          to label %.thread [label %76], !srcloc !6
+          to label %.thread [label %77], !srcloc !6
 
-76:                                               ; preds = %.thread5
-  tail call void @do_trace_write_msr(i32 noundef %28, i64 noundef %72, i32 noundef 0) #8
+77:                                               ; preds = %72
+  tail call void @do_trace_write_msr(i32 noundef %28, i64 noundef %73, i32 noundef 0) #8
   br label %.thread
 
-.thread:                                          ; preds = %1, %76, %.thread5, %26
+.thread:                                          ; preds = %1, %77, %72, %26
   ret void
 }
 

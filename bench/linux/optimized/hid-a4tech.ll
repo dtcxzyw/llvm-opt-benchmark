@@ -198,12 +198,14 @@ define internal noundef i32 @a4_input_mapping(ptr nocapture noundef readonly %0,
 12:                                               ; preds = %6
   %13 = load i32, ptr %3, align 4
   %14 = icmp eq i32 %13, 65720
-  %spec.select = sext i1 %14 to i32
-  br label %15
+  br i1 %14, label %16, label %15
 
 15:                                               ; preds = %12, %6
-  %16 = phi i32 [ 0, %6 ], [ %spec.select, %12 ]
-  ret i32 %16
+  br label %16
+
+16:                                               ; preds = %15, %12
+  %17 = phi i32 [ 0, %15 ], [ -1, %12 ]
+  ret i32 %17
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -238,12 +240,14 @@ define internal noundef i32 @a4_input_mapped(ptr nocapture noundef readonly %0, 
 24:                                               ; preds = %20
   %25 = load i32, ptr %3, align 4
   %26 = icmp eq i32 %25, 589831
-  %spec.select = sext i1 %26 to i32
-  br label %27
+  br i1 %26, label %28, label %27
 
 27:                                               ; preds = %24, %20
-  %28 = phi i32 [ 0, %20 ], [ %spec.select, %24 ]
-  ret i32 %28
+  br label %28
+
+28:                                               ; preds = %27, %24
+  %29 = phi i32 [ 0, %27 ], [ -1, %24 ]
+  ret i32 %29
 }
 
 ; Function Attrs: cold null_pointer_is_valid

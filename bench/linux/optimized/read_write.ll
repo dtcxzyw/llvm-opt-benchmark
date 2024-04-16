@@ -5232,9 +5232,9 @@ define dso_local i64 @vfs_copy_file_range(ptr noundef %0, i64 noundef %1, ptr no
   %123 = and i1 %120, %122
   br i1 %123, label %.thread, label %124
 
-124:                                              ; preds = %114, %118
+124:                                              ; preds = %118, %114
   %125 = icmp slt i64 %116, 0
-  br i1 %125, label %.thread37, label %126, !prof !8
+  br i1 %125, label %.thread34, label %126, !prof !8
 
 126:                                              ; preds = %124
   %127 = icmp slt i64 %1, 0
@@ -5243,12 +5243,12 @@ define dso_local i64 @vfs_copy_file_range(ptr noundef %0, i64 noundef %1, ptr no
 128:                                              ; preds = %126
   %129 = and i32 %36, 8192
   %130 = icmp eq i32 %129, 0
-  br i1 %130, label %.thread37, label %131
+  br i1 %130, label %.thread34, label %131
 
 131:                                              ; preds = %128
   %132 = sub i64 0, %1
   %133 = icmp ult i64 %116, %132
-  br i1 %133, label %140, label %.thread37
+  br i1 %133, label %140, label %.thread34
 
 134:                                              ; preds = %126
   %135 = add nuw i64 %116, %1
@@ -5258,14 +5258,14 @@ define dso_local i64 @vfs_copy_file_range(ptr noundef %0, i64 noundef %1, ptr no
 137:                                              ; preds = %134
   %138 = and i32 %36, 8192
   %139 = icmp eq i32 %138, 0
-  br i1 %139, label %.thread37, label %140
+  br i1 %139, label %.thread34, label %140
 
 140:                                              ; preds = %131, %134, %137
   %141 = tail call i32 @security_file_permission(ptr noundef %0, i32 noundef 4) #12
   %142 = icmp eq i32 %141, 0
-  br i1 %142, label %145, label %.thread37, !prof !42
+  br i1 %142, label %145, label %.thread34, !prof !42
 
-.thread37:                                        ; preds = %137, %131, %128, %124, %140
+.thread34:                                        ; preds = %137, %131, %128, %124, %140
   %143 = phi i32 [ %141, %140 ], [ -22, %124 ], [ -22, %137 ], [ -75, %131 ], [ -22, %128 ]
   %144 = sext i32 %143 to i64
   br label %.thread
@@ -5278,12 +5278,12 @@ define dso_local i64 @vfs_copy_file_range(ptr noundef %0, i64 noundef %1, ptr no
   %148 = load i32, ptr %40, align 4
   %149 = and i32 %148, 8192
   %150 = icmp eq i32 %149, 0
-  br i1 %150, label %.thread41, label %151
+  br i1 %150, label %.thread38, label %151
 
 151:                                              ; preds = %147
   %152 = sub i64 0, %3
   %153 = icmp ult i64 %116, %152
-  br i1 %153, label %161, label %.thread41
+  br i1 %153, label %161, label %.thread38
 
 154:                                              ; preds = %145
   %155 = add nuw i64 %116, %3
@@ -5294,14 +5294,14 @@ define dso_local i64 @vfs_copy_file_range(ptr noundef %0, i64 noundef %1, ptr no
   %158 = load i32, ptr %40, align 4
   %159 = and i32 %158, 8192
   %160 = icmp eq i32 %159, 0
-  br i1 %160, label %.thread41, label %161
+  br i1 %160, label %.thread38, label %161
 
 161:                                              ; preds = %151, %154, %157
   %162 = tail call i32 @security_file_permission(ptr noundef %2, i32 noundef 2) #12
   %163 = icmp eq i32 %162, 0
-  br i1 %163, label %166, label %.thread41, !prof !42
+  br i1 %163, label %166, label %.thread38, !prof !42
 
-.thread41:                                        ; preds = %147, %151, %157, %161
+.thread38:                                        ; preds = %147, %151, %157, %161
   %164 = phi i32 [ %162, %161 ], [ -22, %157 ], [ -75, %151 ], [ -22, %147 ]
   %165 = sext i32 %164 to i64
   br label %.thread
@@ -5565,8 +5565,8 @@ define dso_local i64 @vfs_copy_file_range(ptr noundef %0, i64 noundef %1, ptr no
   store i64 %330, ptr %328, align 8
   br label %.thread
 
-.thread:                                          ; preds = %56, %62, %63, %68, %74, %26, %22, %30, %39, %34, %44, %108, %103, %118, %324, %166, %.thread41, %.thread37, %6
-  %331 = phi i64 [ %144, %.thread37 ], [ %165, %.thread41 ], [ %249, %324 ], [ -22, %6 ], [ 0, %166 ], [ -18, %56 ], [ -18, %62 ], [ -1, %63 ], [ -26, %68 ], [ -75, %74 ], [ -9, %44 ], [ -9, %34 ], [ -9, %39 ], [ -22, %30 ], [ -21, %22 ], [ -21, %26 ], [ -27, %108 ], [ -27, %103 ], [ -22, %118 ]
+.thread:                                          ; preds = %56, %62, %63, %68, %118, %74, %26, %22, %30, %39, %34, %44, %108, %103, %324, %166, %.thread38, %.thread34, %6
+  %331 = phi i64 [ %144, %.thread34 ], [ %165, %.thread38 ], [ %249, %324 ], [ -22, %6 ], [ 0, %166 ], [ -18, %56 ], [ -18, %62 ], [ -1, %63 ], [ -26, %68 ], [ -22, %118 ], [ -75, %74 ], [ -9, %44 ], [ -9, %34 ], [ -9, %39 ], [ -22, %30 ], [ -21, %22 ], [ -21, %26 ], [ -27, %108 ], [ -27, %103 ]
   ret i64 %331
 }
 

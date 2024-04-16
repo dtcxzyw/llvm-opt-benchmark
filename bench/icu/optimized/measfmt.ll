@@ -3156,8 +3156,8 @@ if.then.i:                                        ; preds = %new.cont
 
 _ZN6icu_7510LocalArrayINS_13UnicodeStringEEC2EPS1_R10UErrorCode.exit: ; preds = %new.cont.thread, %new.cont, %if.then.i
   %7 = phi ptr [ %.ptr, %new.cont.thread ], [ null, %new.cont ], [ null, %if.then.i ]
-  %cmp49 = icmp sgt i32 %measureCount, 0
-  br i1 %cmp49, label %for.body.lr.ph, label %for.end
+  %cmp50 = icmp sgt i32 %measureCount, 0
+  br i1 %cmp50, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %_ZN6icu_7510LocalArrayINS_13UnicodeStringEEC2EPS1_R10UErrorCode.exit
   %cache = getelementptr inbounds i8, ptr %this, i64 328
@@ -3169,7 +3169,7 @@ for.body.lr.ph:                                   ; preds = %_ZN6icu_7510LocalAr
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %fieldPositionFoundIndex.050 = phi i32 [ -1, %for.body.lr.ph ], [ %fieldPositionFoundIndex.1, %for.inc ]
+  %fieldPositionFoundIndex.051 = phi i32 [ -1, %for.body.lr.ph ], [ %fieldPositionFoundIndex.1, %for.inc ]
   %9 = load ptr, ptr %cache, align 8
   %integerFormat.i = getelementptr inbounds i8, ptr %9, i64 64
   %cmp19 = icmp eq i64 %indvars.iv, %8
@@ -3177,7 +3177,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %ptr.i = getelementptr inbounds i8, ptr %10, i64 24
   %nf.0.in = select i1 %cmp19, ptr %ptr.i, ptr %integerFormat.i
   %nf.0 = load ptr, ptr %nf.0.in, align 8
-  %cmp24 = icmp eq i32 %fieldPositionFoundIndex.050, -1
+  %cmp24 = icmp eq i32 %fieldPositionFoundIndex.051, -1
   %arrayidx = getelementptr inbounds %"class.icu_75::Measure", ptr %measures, i64 %indvars.iv
   %arrayidx.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %7, i64 %indvars.iv
   br i1 %cmp24, label %if.then25, label %if.else
@@ -3211,21 +3211,19 @@ invoke.cont29:                                    ; preds = %if.then25
 if.end35:                                         ; preds = %invoke.cont29
   %12 = load i32, ptr %fBeginIndex.i30, align 4
   %cmp38.not = icmp eq i32 %12, 0
-  %13 = trunc nuw nsw i64 %indvars.iv to i32
-  br i1 %cmp38.not, label %lor.lhs.false, label %for.inc
-
-lor.lhs.false:                                    ; preds = %if.end35
-  %14 = load i32, ptr %fEndIndex.i31, align 8
-  %cmp41.not = icmp eq i32 %14, 0
-  %spec.select = select i1 %cmp41.not, i32 -1, i32 %13
+  %13 = load i32, ptr %fEndIndex.i31, align 8
+  %cmp41.not = icmp eq i32 %13, 0
+  %or.cond47 = select i1 %cmp38.not, i1 %cmp41.not, i1 false
+  %14 = trunc nuw nsw i64 %indvars.iv to i32
+  %spec.select = select i1 %or.cond47, i32 -1, i32 %14
   br label %for.inc
 
 if.else:                                          ; preds = %for.body
   %call50 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7513MeasureFormat13formatMeasureERKNS_7MeasureERKNS_12NumberFormatERNS_13UnicodeStringERNS_13FieldPositionER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(368) %this, ptr noundef nonnull align 8 dereferenceable(128) %arrayidx, ptr noundef nonnull align 8 dereferenceable(356) %nf.0, ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(20) %dontCare, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %for.inc unwind label %lpad16.loopexit
 
-for.inc:                                          ; preds = %lor.lhs.false, %if.end35, %if.else
-  %fieldPositionFoundIndex.1 = phi i32 [ %fieldPositionFoundIndex.050, %if.else ], [ %13, %if.end35 ], [ %spec.select, %lor.lhs.false ]
+for.inc:                                          ; preds = %if.end35, %if.else
+  %fieldPositionFoundIndex.1 = phi i32 [ %fieldPositionFoundIndex.051, %if.else ], [ %spec.select, %if.end35 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !12

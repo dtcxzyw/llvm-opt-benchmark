@@ -2082,15 +2082,14 @@ entry:
   %spec.select8 = select i1 %cmp2, ptr %sp, ptr %match
   %nmatch.addr.0 = select i1 %cmp, i32 %spec.select, i32 %nmatch
   %match.addr.0 = select i1 %cmp, ptr %spec.select8, ptr %match
-  %cmp611 = icmp eq i32 %anchor, 1
-  %cmp6 = or i1 %cmp611, %cmp
+  %cmp610 = icmp eq i32 %anchor, 1
+  %cmp6 = or i1 %cmp610, %cmp
   %cmp7 = icmp ne i32 %kind, 0
   %call = invoke noundef zeroext i1 @_ZN3re23NFA6SearchEN4absl7debian211string_viewES3_bbPS3_i(ptr noundef nonnull align 8 dereferenceable(233) %nfa, ptr %text.coerce0, i64 %text.coerce1, ptr %context.coerce0, i64 %context.coerce1, i1 noundef zeroext %cmp6, i1 noundef zeroext %cmp7, ptr noundef %match.addr.0, i32 noundef %nmatch.addr.0)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %brmerge.not = and i1 %cmp, %call
-  br i1 %brmerge.not, label %land.lhs.true, label %cleanup
+  br i1 %call, label %if.end9, label %cleanup
 
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
@@ -2098,18 +2097,24 @@ lpad:                                             ; preds = %entry
   call void @_ZN3re23NFAD1Ev(ptr noundef nonnull align 8 dereferenceable(233) %nfa) #18
   resume { ptr, i32 } %0
 
-land.lhs.true:                                    ; preds = %invoke.cont
+if.end9:                                          ; preds = %invoke.cont
+  br i1 %cmp, label %land.lhs.true, label %if.end19
+
+land.lhs.true:                                    ; preds = %if.end9
   %agg.tmp11.sroa.0.0.copyload = load ptr, ptr %spec.select8, align 8
   %spec.select8.sroa.sel.v.sroa.sel.v = select i1 %cmp2, ptr %sp, ptr %match
   %spec.select8.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %spec.select8.sroa.sel.v.sroa.sel.v, i64 8
   %agg.tmp11.sroa.2.0.copyload = load i64, ptr %spec.select8.sroa.sel.v.sroa.sel, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %agg.tmp11.sroa.0.0.copyload, i64 %agg.tmp11.sroa.2.0.copyload
-  %add.ptr.i10 = getelementptr inbounds i8, ptr %text.coerce0, i64 %text.coerce1
-  %cmp17.not = icmp eq ptr %add.ptr.i, %add.ptr.i10
+  %add.ptr.i9 = getelementptr inbounds i8, ptr %text.coerce0, i64 %text.coerce1
+  %cmp17.not = icmp eq ptr %add.ptr.i, %add.ptr.i9
+  br i1 %cmp17.not, label %if.end19, label %cleanup
+
+if.end19:                                         ; preds = %land.lhs.true, %if.end9
   br label %cleanup
 
-cleanup:                                          ; preds = %land.lhs.true, %invoke.cont
-  %retval.0 = phi i1 [ %call, %invoke.cont ], [ %cmp17.not, %land.lhs.true ]
+cleanup:                                          ; preds = %land.lhs.true, %invoke.cont, %if.end19
+  %retval.0 = phi i1 [ true, %if.end19 ], [ false, %invoke.cont ], [ false, %land.lhs.true ]
   call void @_ZN3re23NFAD1Ev(ptr noundef nonnull align 8 dereferenceable(233) %nfa) #18
   ret i1 %retval.0
 }

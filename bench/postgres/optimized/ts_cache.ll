@@ -1016,7 +1016,7 @@ declare ptr @stringToQualifiedNameList(ptr noundef, ptr noundef) local_unnamed_a
 declare i32 @get_ts_config_oid(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @check_default_text_search_config(ptr nocapture noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @check_default_text_search_config(ptr nocapture noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.ErrorSaveContext, align 8
   %5 = tail call zeroext i1 @IsTransactionState() #9
   %6 = load i32, ptr @MyDatabaseId, align 4
@@ -1038,18 +1038,18 @@ define dso_local zeroext i1 @check_default_text_search_config(ptr nocapture noun
 
 .thread:                                          ; preds = %8, %11
   %13 = icmp eq i32 %2, 12
-  br i1 %13, label %14, label %41
+  br i1 %13, label %14, label %42
 
 14:                                               ; preds = %.thread
   %15 = call zeroext i1 @errstart(i32 noundef 18, ptr noundef null) #9
-  br i1 %15, label %16, label %41
+  br i1 %15, label %16, label %42
 
 16:                                               ; preds = %14
   %17 = call i32 @errcode(i32 noundef 67137668) #9
   %18 = load ptr, ptr %0, align 8
   %19 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef %18) #9
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 635, ptr noundef nonnull @__func__.check_default_text_search_config) #9
-  br label %41
+  br label %42
 
 20:                                               ; preds = %11
   %21 = zext i32 %12 to i64
@@ -1083,11 +1083,14 @@ define dso_local zeroext i1 @check_default_text_search_config(ptr nocapture noun
   store ptr %39, ptr %0, align 8
   call void @pfree(ptr noundef %37) #9
   %40 = load ptr, ptr %0, align 8
-  %.not25 = icmp ne ptr %40, null
-  br label %41
+  %.not25 = icmp eq ptr %40, null
+  br i1 %.not25, label %42, label %41
 
-41:                                               ; preds = %26, %3, %.thread, %16, %14
-  %.0 = phi i1 [ true, %14 ], [ true, %16 ], [ false, %.thread ], [ true, %3 ], [ %.not25, %26 ]
+41:                                               ; preds = %26, %3
+  br label %42
+
+42:                                               ; preds = %26, %.thread, %16, %14, %41
+  %.0 = phi i1 [ true, %41 ], [ true, %14 ], [ true, %16 ], [ false, %.thread ], [ false, %26 ]
   ret i1 %.0
 }
 

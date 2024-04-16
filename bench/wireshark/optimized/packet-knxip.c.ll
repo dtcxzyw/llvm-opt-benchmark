@@ -2449,20 +2449,20 @@ define internal fastcc void @dissect_dibs(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not120.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !11
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
-  %.not121.i.i = icmp eq i8 %spec.select.i.i, 1
-  br i1 %.not121.i.i, label %146, label %143
+  switch i8 %spec.select.i.i, label %143 [
+    i8 1, label %146
+    i8 0, label %.thread139.i.i
+  ]
 
-143:                                              ; preds = %._crit_edge.i.i
-  %.not122.i.i = icmp eq i8 %spec.select.i.i, 0
-  %spec.select143.i.i = select i1 %.not122.i.i, ptr @.str.349, ptr @.str.348
-  br label %.thread139.i.i
+.thread139.i.i:                                   ; preds = %._crit_edge.i.i, %.thread.i.i
+  br label %143
 
-.thread139.i.i:                                   ; preds = %143, %.thread.i.i
-  %144 = phi ptr [ @.str.349, %.thread.i.i ], [ %spec.select143.i.i, %143 ]
+143:                                              ; preds = %.thread139.i.i, %._crit_edge.i.i
+  %144 = phi ptr [ @.str.349, %.thread139.i.i ], [ @.str.348, %._crit_edge.i.i ]
   %145 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %97, ptr noundef nonnull @ei_knxip_warning, ptr noundef nonnull %144) #9
   br label %146
 
-146:                                              ; preds = %.thread139.i.i, %._crit_edge.i.i
+146:                                              ; preds = %143, %._crit_edge.i.i
   %147 = add i32 %47, 3
   %.not123.i.i = icmp eq i8 %.0.i, 3
   br i1 %.not123.i.i, label %.thread131.i.i, label %148

@@ -1169,11 +1169,14 @@ if.then225:                                       ; preds = %if.end215, %if.end2
   %len = getelementptr inbounds i8, ptr %hdr, i64 72
   %28 = load i64, ptr %len, align 8
   %cmp226.not = icmp eq i64 %28, 0
-  br i1 %cmp226.not, label %return, label %land.lhs.true228
+  br i1 %cmp226.not, label %if.end233, label %land.lhs.true228
 
 land.lhs.true228:                                 ; preds = %if.then225
   %call230 = call i32 @WPACKET_reserve_bytes(ptr noundef %pkt, i64 noundef %28, ptr noundef null) #9
-  %tobool231.not = icmp ne i32 %call230, 0
+  %tobool231.not = icmp eq i32 %call230, 0
+  br i1 %tobool231.not, label %return, label %if.end233
+
+if.end233:                                        ; preds = %land.lhs.true228, %if.then225
   br label %return
 
 if.then239:                                       ; preds = %if.end215
@@ -1233,6 +1236,7 @@ land.lhs.true274:                                 ; preds = %if.end270
   %tobool277.not = icmp eq i32 %call276, 0
   %brmerge = or i1 %cmp.not, %tobool277.not
   %not.tobool277.not = xor i1 %tobool277.not, true
+  %.mux = zext i1 %not.tobool277.not to i32
   br i1 %brmerge, label %return, label %if.then283
 
 if.end279:                                        ; preds = %if.end270
@@ -1264,9 +1268,8 @@ if.then283:                                       ; preds = %land.lhs.true274, %
   store ptr %add.ptr293, ptr %raw_pn294, align 8
   br label %return
 
-return:                                           ; preds = %land.lhs.true228, %land.lhs.true274, %if.end279, %if.then283, %if.end248, %lor.lhs.false256, %lor.lhs.false259, %if.then239, %lor.lhs.false242, %if.then225, %if.end163, %lor.lhs.false179, %lor.lhs.false184, %lor.lhs.false190, %lor.lhs.false199, %lor.lhs.false205, %if.end116, %sw.bb, %land.lhs.true103, %if.else, %lor.lhs.false92, %if.end48, %lor.lhs.false70, %lor.lhs.false74, %lor.lhs.false77, %lor.lhs.false35, %if.end11, %land.lhs.true, %if.then2, %entry
-  %retval.0.shrunk = phi i1 [ false, %entry ], [ false, %if.then2 ], [ false, %land.lhs.true ], [ false, %if.end11 ], [ false, %lor.lhs.false35 ], [ false, %lor.lhs.false77 ], [ false, %lor.lhs.false74 ], [ false, %lor.lhs.false70 ], [ false, %if.end48 ], [ false, %lor.lhs.false92 ], [ false, %if.else ], [ false, %land.lhs.true103 ], [ false, %sw.bb ], [ false, %if.end116 ], [ false, %lor.lhs.false205 ], [ false, %lor.lhs.false199 ], [ false, %lor.lhs.false190 ], [ false, %lor.lhs.false184 ], [ false, %lor.lhs.false179 ], [ false, %if.end163 ], [ true, %if.then225 ], [ false, %lor.lhs.false242 ], [ false, %if.then239 ], [ false, %lor.lhs.false259 ], [ false, %lor.lhs.false256 ], [ false, %if.end248 ], [ %not.tobool277.not, %land.lhs.true274 ], [ true, %if.then283 ], [ true, %if.end279 ], [ %tobool231.not, %land.lhs.true228 ]
-  %retval.0 = zext i1 %retval.0.shrunk to i32
+return:                                           ; preds = %land.lhs.true274, %if.end279, %if.then283, %if.end248, %lor.lhs.false256, %lor.lhs.false259, %if.then239, %lor.lhs.false242, %land.lhs.true228, %if.end163, %lor.lhs.false179, %lor.lhs.false184, %lor.lhs.false190, %lor.lhs.false199, %lor.lhs.false205, %if.end116, %sw.bb, %land.lhs.true103, %if.else, %lor.lhs.false92, %if.end48, %lor.lhs.false70, %lor.lhs.false74, %lor.lhs.false77, %lor.lhs.false35, %if.end11, %land.lhs.true, %if.then2, %entry, %if.end233
+  %retval.0 = phi i32 [ 1, %if.end233 ], [ 0, %entry ], [ 0, %if.then2 ], [ 0, %land.lhs.true ], [ 0, %if.end11 ], [ 0, %lor.lhs.false35 ], [ 0, %lor.lhs.false77 ], [ 0, %lor.lhs.false74 ], [ 0, %lor.lhs.false70 ], [ 0, %if.end48 ], [ 0, %lor.lhs.false92 ], [ 0, %if.else ], [ 0, %land.lhs.true103 ], [ 0, %sw.bb ], [ 0, %if.end116 ], [ 0, %lor.lhs.false205 ], [ 0, %lor.lhs.false199 ], [ 0, %lor.lhs.false190 ], [ 0, %lor.lhs.false184 ], [ 0, %lor.lhs.false179 ], [ 0, %if.end163 ], [ 0, %land.lhs.true228 ], [ 0, %lor.lhs.false242 ], [ 0, %if.then239 ], [ 0, %lor.lhs.false259 ], [ 0, %lor.lhs.false256 ], [ 0, %if.end248 ], [ %.mux, %land.lhs.true274 ], [ 1, %if.then283 ], [ 1, %if.end279 ]
   ret i32 %retval.0
 }
 

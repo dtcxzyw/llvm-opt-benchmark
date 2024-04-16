@@ -1053,7 +1053,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_pkcs7_set1_propq(ptr nocapture noundef %p7, ptr noundef %propq) local_unnamed_addr #0 {
+define noundef i32 @ossl_pkcs7_set1_propq(ptr nocapture noundef %p7, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %propq1 = getelementptr inbounds i8, ptr %p7, i64 48
   %0 = load ptr, ptr %propq1, align 8
@@ -1067,17 +1067,19 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %cmp6.not = icmp eq ptr %propq, null
-  br i1 %cmp6.not, label %return, label %if.then7
+  br i1 %cmp6.not, label %if.end15, label %if.then7
 
 if.then7:                                         ; preds = %if.end
   %call = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %propq, ptr noundef nonnull @.str, i32 noundef 493) #7
   store ptr %call, ptr %propq1, align 8
-  %cmp12 = icmp ne ptr %call, null
-  %spec.select = zext i1 %cmp12 to i32
+  %cmp12 = icmp eq ptr %call, null
+  br i1 %cmp12, label %return, label %if.end15
+
+if.end15:                                         ; preds = %if.then7, %if.end
   br label %return
 
-return:                                           ; preds = %if.then7, %if.end
-  %retval.0 = phi i32 [ 1, %if.end ], [ %spec.select, %if.then7 ]
+return:                                           ; preds = %if.then7, %if.end15
+  %retval.0 = phi i32 [ 1, %if.end15 ], [ 0, %if.then7 ]
   ret i32 %retval.0
 }
 
@@ -1106,20 +1108,20 @@ if.then.i:                                        ; preds = %entry
 
 if.end.i:                                         ; preds = %if.then.i, %entry
   %cmp6.not.i = icmp eq ptr %1, null
-  br i1 %cmp6.not.i, label %if.end, label %ossl_pkcs7_set1_propq.exit
+  br i1 %cmp6.not.i, label %if.end, label %if.then7.i
 
-ossl_pkcs7_set1_propq.exit:                       ; preds = %if.end.i
+if.then7.i:                                       ; preds = %if.end.i
   %call.i = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %1, ptr noundef nonnull @.str, i32 noundef 493) #7
   store ptr %call.i, ptr %propq1.i, align 8
-  %cmp12.i.not = icmp eq ptr %call.i, null
-  br i1 %cmp12.i.not, label %return, label %if.end
+  %cmp12.i = icmp eq ptr %call.i, null
+  br i1 %cmp12.i, label %return, label %if.end
 
-if.end:                                           ; preds = %if.end.i, %ossl_pkcs7_set1_propq.exit
+if.end:                                           ; preds = %if.then7.i, %if.end.i
   tail call void @ossl_pkcs7_resolve_libctx(ptr noundef nonnull %to)
   br label %return
 
-return:                                           ; preds = %ossl_pkcs7_set1_propq.exit, %if.end
-  %retval.0 = phi i32 [ 1, %if.end ], [ 0, %ossl_pkcs7_set1_propq.exit ]
+return:                                           ; preds = %if.then7.i, %if.end
+  %retval.0 = phi i32 [ 1, %if.end ], [ 0, %if.then7.i ]
   ret i32 %retval.0
 }
 

@@ -855,7 +855,7 @@ cond.end:                                         ; preds = %cond.end.sink.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc i32 @zipEntrySafe(ptr noundef readnone %zl, i64 noundef %zlbytes, ptr noundef %p, ptr nocapture noundef writeonly %e, i32 noundef %validate_prevlen) unnamed_addr #1 {
+define internal fastcc noundef i32 @zipEntrySafe(ptr noundef readnone %zl, i64 noundef %zlbytes, ptr noundef %p, ptr nocapture noundef writeonly %e, i32 noundef %validate_prevlen) unnamed_addr #1 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %zl, i64 10
   %add.ptr1 = getelementptr inbounds i8, ptr %zl, i64 %zlbytes
@@ -994,7 +994,7 @@ do.end182:                                        ; preds = %if.else118, %if.els
 
 if.end192.sink.split:                             ; preds = %if.else124, %if.then144, %if.then158, %if.then151, %if.then137, %if.then56, %if.then89, %if.then68
   %or82.sink = phi i32 [ %or82, %if.then68 ], [ %or116, %if.then89 ], [ %and62, %if.then56 ], [ 2, %if.then137 ], [ 4, %if.then151 ], [ 8, %if.then158 ], [ 3, %if.then144 ], [ 1, %if.else124 ]
-  %.ph203.ph = phi i32 [ 2, %if.then68 ], [ 5, %if.then89 ], [ 1, %if.then56 ], [ 1, %if.then137 ], [ 1, %if.then151 ], [ 1, %if.then158 ], [ 1, %if.then144 ], [ 1, %if.else124 ]
+  %.ph202.ph = phi i32 [ 2, %if.then68 ], [ 5, %if.then89 ], [ 1, %if.then56 ], [ 1, %if.then137 ], [ 1, %if.then151 ], [ 1, %if.then158 ], [ 1, %if.then144 ], [ 1, %if.else124 ]
   %len83 = getelementptr inbounds i8, ptr %e, i64 12
   store i32 %or82.sink, ptr %len83, align 4
   %18 = zext i32 %or82.sink to i64
@@ -1002,13 +1002,13 @@ if.end192.sink.split:                             ; preds = %if.else124, %if.the
 
 if.end192:                                        ; preds = %if.end192.sink.split, %if.else160
   %.ph = phi i64 [ 0, %if.else160 ], [ %18, %if.end192.sink.split ]
-  %.ph203 = phi i32 [ 1, %if.else160 ], [ %.ph203.ph, %if.end192.sink.split ]
-  %add205 = add nuw nsw i32 %.ph203, %.
-  %headersize206 = getelementptr inbounds i8, ptr %e, i64 16
-  store i32 %add205, ptr %headersize206, align 8
-  %p185207 = getelementptr inbounds i8, ptr %e, i64 24
-  store ptr %p, ptr %p185207, align 8
-  %idx.ext194 = zext nneg i32 %add205 to i64
+  %.ph202 = phi i32 [ 1, %if.else160 ], [ %.ph202.ph, %if.end192.sink.split ]
+  %add204 = add nuw nsw i32 %.ph202, %.
+  %headersize205 = getelementptr inbounds i8, ptr %e, i64 16
+  store i32 %add204, ptr %headersize205, align 8
+  %p185206 = getelementptr inbounds i8, ptr %e, i64 24
+  store ptr %p, ptr %p185206, align 8
+  %idx.ext194 = zext nneg i32 %add204 to i64
   %add.ptr195 = getelementptr inbounds i8, ptr %p, i64 %idx.ext194
   %add.ptr198 = getelementptr inbounds i8, ptr %add.ptr195, i64 %.ph
   %cmp199 = icmp ult ptr %add.ptr198, %add.ptr
@@ -1018,16 +1018,18 @@ if.end192:                                        ; preds = %if.end192.sink.spli
 
 if.end216:                                        ; preds = %if.end192
   %tobool217.not = icmp eq i32 %validate_prevlen, 0
-  br i1 %tobool217.not, label %return, label %land.lhs.true218
+  br i1 %tobool217.not, label %if.end239, label %land.lhs.true218
 
 land.lhs.true218:                                 ; preds = %if.end216
   %idx.ext220 = zext i32 %4 to i64
   %idx.neg = sub nsw i64 0, %idx.ext220
   %add.ptr221 = getelementptr inbounds i8, ptr %p, i64 %idx.neg
-  %cmp222 = icmp uge ptr %add.ptr221, %add.ptr
-  %cmp229 = icmp ule ptr %add.ptr221, %add.ptr2
-  %spec.select188.not = select i1 %cmp222, i1 %cmp229, i1 false
-  %spec.select196 = zext i1 %spec.select188.not to i32
+  %cmp222 = icmp ult ptr %add.ptr221, %add.ptr
+  %cmp229 = icmp ugt ptr %add.ptr221, %add.ptr2
+  %spec.select188 = select i1 %cmp222, i1 true, i1 %cmp229
+  br i1 %spec.select188, label %return, label %if.end239
+
+if.end239:                                        ; preds = %land.lhs.true218, %if.end216
   br label %return
 
 if.end240:                                        ; preds = %entry
@@ -1088,8 +1090,8 @@ zipEncodingLenSize.exit:                          ; preds = %if.end24.i
 
 if.end315:                                        ; preds = %if.then33.i, %if.then38.i, %do.body286, %do.body286, %do.body286, %do.body286, %do.body286, %if.end.i, %if.end24.i
   %retval.0.i.ph = phi i32 [ 1, %if.end24.i ], [ 1, %if.end.i ], [ 1, %do.body286 ], [ 1, %do.body286 ], [ 1, %do.body286 ], [ 1, %do.body286 ], [ 1, %do.body286 ], [ 5, %if.then38.i ], [ 2, %if.then33.i ]
-  %lensize304198 = getelementptr inbounds i8, ptr %e, i64 8
-  store i32 %retval.0.i.ph, ptr %lensize304198, align 8
+  %lensize304197 = getelementptr inbounds i8, ptr %e, i64 8
+  store i32 %retval.0.i.ph, ptr %lensize304197, align 8
   %idx.ext320 = zext nneg i32 %retval.0.i.ph to i64
   %add.ptr321 = getelementptr inbounds i8, ptr %add.ptr268, i64 %idx.ext320
   %cmp322 = icmp ult ptr %add.ptr321, %add.ptr
@@ -1128,7 +1130,7 @@ if.then384:                                       ; preds = %do.body379
   ]
 
 if.then389:                                       ; preds = %if.then384
-  store i32 1, ptr %lensize304198, align 8
+  store i32 1, ptr %lensize304197, align 8
   %idx.ext392 = zext nneg i32 %.192 to i64
   %add.ptr393 = getelementptr inbounds i8, ptr %p, i64 %idx.ext392
   %31 = load i8, ptr %add.ptr393, align 1
@@ -1139,7 +1141,7 @@ if.then389:                                       ; preds = %if.then384
   br label %do.end517
 
 if.then403:                                       ; preds = %if.then384
-  store i32 2, ptr %lensize304198, align 8
+  store i32 2, ptr %lensize304197, align 8
   %idx.ext406 = zext nneg i32 %.192 to i64
   %add.ptr407 = getelementptr inbounds i8, ptr %p, i64 %idx.ext406
   %33 = load i8, ptr %add.ptr407, align 1
@@ -1155,7 +1157,7 @@ if.then403:                                       ; preds = %if.then384
   br label %do.end517
 
 if.then424:                                       ; preds = %if.then384
-  store i32 5, ptr %lensize304198, align 8
+  store i32 5, ptr %lensize304197, align 8
   %idx.ext427 = zext nneg i32 %.192 to i64
   %add.ptr428 = getelementptr inbounds i8, ptr %p, i64 %idx.ext427
   %arrayidx429 = getelementptr inbounds i8, ptr %add.ptr428, i64 1
@@ -1181,13 +1183,13 @@ if.then424:                                       ; preds = %if.then384
   br label %do.end517
 
 if.else453:                                       ; preds = %if.then384
-  store i32 0, ptr %lensize304198, align 8
+  store i32 0, ptr %lensize304197, align 8
   %len455 = getelementptr inbounds i8, ptr %e, i64 12
   store i32 0, ptr %len455, align 4
   br label %do.end517
 
 if.else459:                                       ; preds = %do.body379
-  store i32 1, ptr %lensize304198, align 8
+  store i32 1, ptr %lensize304197, align 8
   switch i8 %22, label %if.else495 [
     i8 -2, label %if.then465
     i8 -64, label %if.then472
@@ -1229,7 +1231,7 @@ if.else495:                                       ; preds = %if.else459
   br i1 %or.cond193, label %if.else507, label %do.end517
 
 if.else507:                                       ; preds = %if.else495
-  store i32 0, ptr %lensize304198, align 8
+  store i32 0, ptr %lensize304197, align 8
   br label %do.end517
 
 do.end517:                                        ; preds = %if.else495, %if.then403, %if.else453, %if.then424, %if.then389, %if.then472, %if.then486, %if.else507, %if.then493, %if.then479, %if.then465
@@ -1265,8 +1267,8 @@ if.end571:                                        ; preds = %land.lhs.true549, %
   store ptr %p, ptr %p572, align 8
   br label %return
 
-return:                                           ; preds = %do.end182, %zipEncodingLenSize.exit, %land.lhs.true218, %land.lhs.true549, %do.end517, %if.end315, %do.body255, %if.end240, %if.end216, %if.end192, %if.end571
-  %retval.0 = phi i32 [ 1, %if.end571 ], [ 0, %do.end182 ], [ 0, %if.end192 ], [ 1, %if.end216 ], [ 0, %if.end240 ], [ 0, %do.body255 ], [ 0, %zipEncodingLenSize.exit ], [ 0, %if.end315 ], [ 0, %do.end517 ], [ 0, %land.lhs.true549 ], [ %spec.select196, %land.lhs.true218 ]
+return:                                           ; preds = %do.end182, %zipEncodingLenSize.exit, %land.lhs.true549, %do.end517, %if.end315, %do.body255, %if.end240, %land.lhs.true218, %if.end192, %if.end571, %if.end239
+  %retval.0 = phi i32 [ 1, %if.end239 ], [ 1, %if.end571 ], [ 0, %do.end182 ], [ 0, %if.end192 ], [ 0, %land.lhs.true218 ], [ 0, %if.end240 ], [ 0, %do.body255 ], [ 0, %zipEncodingLenSize.exit ], [ 0, %if.end315 ], [ 0, %do.end517 ], [ 0, %land.lhs.true549 ]
   ret i32 %retval.0
 }
 

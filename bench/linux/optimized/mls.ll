@@ -673,10 +673,10 @@ define dso_local i32 @mls_context_to_sid(ptr noundef %0, i8 noundef zeroext %1, 
   %46 = getelementptr i8, ptr %0, i64 176
   br label %47
 
-47:                                               ; preds = %.loopexit21, %43
-  %48 = phi i1 [ true, %43 ], [ false, %.loopexit21 ]
-  %.sroa.phi.sroa.speculated = phi ptr [ %2, %43 ], [ %.sroa.5.0, %.loopexit21 ]
-  %49 = phi i64 [ 0, %43 ], [ 1, %.loopexit21 ]
+47:                                               ; preds = %.loopexit22, %43
+  %48 = phi i1 [ true, %43 ], [ false, %.loopexit22 ]
+  %.sroa.phi.sroa.speculated = phi ptr [ %2, %43 ], [ %.sroa.5.0, %.loopexit22 ]
+  %49 = phi i64 [ 0, %43 ], [ 1, %.loopexit22 ]
   %50 = icmp eq ptr %.sroa.phi.sroa.speculated, null
   br i1 %50, label %110, label %51
 
@@ -702,14 +702,14 @@ define dso_local i32 @mls_context_to_sid(ptr noundef %0, i8 noundef zeroext %1, 
   %63 = getelementptr [2 x %struct.mls_level], ptr %45, i64 0, i64 %49
   store i32 %62, ptr %63, align 8
   %64 = icmp eq ptr %57, null
-  br i1 %64, label %.loopexit21, label %65
+  br i1 %64, label %.loopexit22, label %65
 
 65:                                               ; preds = %60
   %66 = getelementptr inbounds i8, ptr %63, i64 8
   br label %67
 
-67:                                               ; preds = %.loopexit19, %65
-  %68 = phi ptr [ %57, %65 ], [ %74, %.loopexit19 ]
+67:                                               ; preds = %.loopexit20, %65
+  %68 = phi ptr [ %57, %65 ], [ %74, %.loopexit20 ]
   %69 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %68, i32 noundef 44) #10
   %70 = icmp eq ptr %69, null
   br i1 %70, label %73, label %71
@@ -746,11 +746,11 @@ define dso_local i32 @mls_context_to_sid(ptr noundef %0, i8 noundef zeroext %1, 
 
 89:                                               ; preds = %83
   %90 = icmp eq ptr %80, null
-  br i1 %90, label %.loopexit19, label %92
+  br i1 %90, label %.loopexit20, label %92
 
-.loopexit19:                                      ; preds = %101, %89
+.loopexit20:                                      ; preds = %101, %89
   %91 = icmp eq ptr %74, null
-  br i1 %91, label %.loopexit21, label %67, !llvm.loop !14
+  br i1 %91, label %.loopexit22, label %67, !llvm.loop !14
 
 92:                                               ; preds = %89
   %93 = tail call ptr @symtab_search(ptr noundef %46, ptr noundef nonnull %80) #10
@@ -772,7 +772,7 @@ define dso_local i32 @mls_context_to_sid(ptr noundef %0, i8 noundef zeroext %1, 
   %103 = load i32, ptr %93, align 4
   %104 = zext i32 %103 to i64
   %105 = icmp ult i64 %102, %104
-  br i1 %105, label %106, label %.loopexit19, !llvm.loop !15
+  br i1 %105, label %106, label %.loopexit20, !llvm.loop !15
 
 106:                                              ; preds = %101, %99
   %107 = phi i64 [ %100, %99 ], [ %102, %101 ]
@@ -780,12 +780,12 @@ define dso_local i32 @mls_context_to_sid(ptr noundef %0, i8 noundef zeroext %1, 
   %109 = icmp eq i32 %108, 0
   br i1 %109, label %101, label %.loopexit
 
-.loopexit21:                                      ; preds = %.loopexit19, %60
+.loopexit22:                                      ; preds = %.loopexit20, %60
   br i1 %48, label %47, label %110, !llvm.loop !16
 
-110:                                              ; preds = %.loopexit21, %47
+110:                                              ; preds = %.loopexit22, %47
   %111 = icmp eq ptr %.sroa.5.0, null
-  br i1 %111, label %112, label %.loopexit
+  br i1 %111, label %112, label %119
 
 112:                                              ; preds = %110
   %113 = load i32, ptr %45, align 8
@@ -794,11 +794,15 @@ define dso_local i32 @mls_context_to_sid(ptr noundef %0, i8 noundef zeroext %1, 
   %115 = getelementptr i8, ptr %3, i64 48
   %116 = getelementptr inbounds i8, ptr %3, i64 24
   %117 = tail call i32 @ebitmap_cpy(ptr noundef %115, ptr noundef %116) #10
+  %118 = icmp eq i32 %117, 0
+  br i1 %118, label %119, label %.loopexit
+
+119:                                              ; preds = %112, %110
   br label %.loopexit
 
-.loopexit:                                        ; preds = %56, %95, %92, %83, %79, %106, %112, %110, %37, %29, %21, %18, %16, %9
-  %118 = phi i32 [ %13, %9 ], [ -22, %16 ], [ -22, %18 ], [ %27, %21 ], [ %35, %37 ], [ 0, %29 ], [ 0, %110 ], [ %117, %112 ], [ %108, %106 ], [ -22, %95 ], [ -22, %92 ], [ %87, %83 ], [ -22, %79 ], [ -22, %56 ]
-  ret i32 %118
+.loopexit:                                        ; preds = %56, %95, %92, %83, %79, %106, %119, %112, %37, %29, %21, %18, %16, %9
+  %120 = phi i32 [ 0, %119 ], [ %13, %9 ], [ -22, %16 ], [ -22, %18 ], [ %117, %112 ], [ %27, %21 ], [ %35, %37 ], [ 0, %29 ], [ %108, %106 ], [ -22, %95 ], [ -22, %92 ], [ %87, %83 ], [ -22, %79 ], [ -22, %56 ]
+  ret i32 %120
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

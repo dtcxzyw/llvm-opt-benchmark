@@ -3704,13 +3704,15 @@ define hidden nonnull ptr @get_manuf_name(ptr noundef %0, i64 noundef %1) local_
   %6 = load i8, ptr %3, align 1
   %7 = and i8 %6, 2
   %.not5 = icmp eq i8 %7, 0
-  %spec.select = select i1 %.not5, i64 4, i64 13
-  br label %8
+  br i1 %.not5, label %8, label %9
 
 8:                                                ; preds = %5, %2
-  %.sink = phi i64 [ 4, %2 ], [ %spec.select, %5 ]
-  %9 = getelementptr inbounds i8, ptr %3, i64 %.sink
-  ret ptr %9
+  br label %9
+
+9:                                                ; preds = %5, %8
+  %.sink = phi i64 [ 4, %8 ], [ 13, %5 ]
+  %10 = getelementptr inbounds i8, ptr %3, i64 %.sink
+  ret ptr %10
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3803,19 +3805,21 @@ define nonnull ptr @tvb_get_manuf_name(ptr noundef %0, i32 noundef %1) local_unn
   %5 = call fastcc ptr @manuf_name_lookup(ptr noundef nonnull %3)
   %6 = load i32, ptr @gbl_resolv_flags, align 4
   %.not.i = icmp eq i32 %6, 0
-  br i1 %.not.i, label %get_manuf_name.exit, label %7
+  br i1 %.not.i, label %10, label %7
 
 7:                                                ; preds = %2
   %8 = load i8, ptr %5, align 1
   %9 = and i8 %8, 2
   %.not5.i = icmp eq i8 %9, 0
-  %spec.select.i = select i1 %.not5.i, i64 4, i64 13
+  br i1 %.not5.i, label %10, label %get_manuf_name.exit
+
+10:                                               ; preds = %7, %2
   br label %get_manuf_name.exit
 
-get_manuf_name.exit:                              ; preds = %2, %7
-  %.sink.i = phi i64 [ 4, %2 ], [ %spec.select.i, %7 ]
-  %10 = getelementptr inbounds i8, ptr %5, i64 %.sink.i
-  ret ptr %10
+get_manuf_name.exit:                              ; preds = %7, %10
+  %.sink.i = phi i64 [ 4, %10 ], [ 13, %7 ]
+  %11 = getelementptr inbounds i8, ptr %5, i64 %.sink.i
+  ret ptr %11
 }
 
 declare ptr @tvb_memcpy(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3

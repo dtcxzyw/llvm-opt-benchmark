@@ -598,12 +598,12 @@ define dso_local i32 @intel_renderstate_emit(ptr nocapture noundef readonly %0, 
   %5 = getelementptr inbounds i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %31, label %8
+  br i1 %7, label %33, label %8
 
 8:                                                ; preds = %2
   %9 = tail call i32 @_i915_vma_move_to_active(ptr noundef nonnull %6, ptr noundef %1, ptr noundef %1, i32 noundef 0) #6
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %11, label %31
+  br i1 %10, label %11, label %33
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds i8, ptr %4, i64 896
@@ -615,13 +615,13 @@ define dso_local i32 @intel_renderstate_emit(ptr nocapture noundef readonly %0, 
   %18 = load i32, ptr %17, align 4
   %19 = tail call i32 %13(ptr noundef %1, i64 noundef %16, i32 noundef %18, i32 noundef 1) #6
   %20 = icmp eq i32 %19, 0
-  br i1 %20, label %21, label %31
+  br i1 %20, label %21, label %33
 
 21:                                               ; preds = %11
   %22 = getelementptr inbounds i8, ptr %0, i64 84
   %23 = load i32, ptr %22, align 4
   %24 = icmp ugt i32 %23, 8
-  br i1 %24, label %25, label %31
+  br i1 %24, label %25, label %32
 
 25:                                               ; preds = %21
   %26 = load ptr, ptr %12, align 8
@@ -629,11 +629,15 @@ define dso_local i32 @intel_renderstate_emit(ptr nocapture noundef readonly %0, 
   %28 = load i32, ptr %27, align 8
   %29 = zext i32 %28 to i64
   %30 = tail call i32 %26(ptr noundef %1, i64 noundef %29, i32 noundef %23, i32 noundef 1) #6
-  br label %31
+  %31 = icmp eq i32 %30, 0
+  br i1 %31, label %32, label %33
 
-31:                                               ; preds = %25, %21, %11, %8, %2
-  %32 = phi i32 [ 0, %2 ], [ %9, %8 ], [ %19, %11 ], [ 0, %21 ], [ %30, %25 ]
-  ret i32 %32
+32:                                               ; preds = %25, %21
+  br label %33
+
+33:                                               ; preds = %32, %25, %11, %8, %2
+  %34 = phi i32 [ 0, %32 ], [ 0, %2 ], [ %9, %8 ], [ %19, %11 ], [ %30, %25 ]
+  ret i32 %34
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

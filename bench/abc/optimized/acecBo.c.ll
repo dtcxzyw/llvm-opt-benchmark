@@ -344,12 +344,12 @@ define noundef i32 @Acec_DetectBoothXorFanin(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Acec_DetectBoothOne(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define noundef i32 @Acec_DetectBoothOne(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = call i32 @Gia_ObjRecognizeExor(ptr noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %5) #10
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %40, label %7
+  br i1 %.not, label %41, label %7
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %4, align 8
@@ -378,7 +378,7 @@ define i32 @Acec_DetectBoothOne(ptr nocapture noundef readonly %0, ptr noundef %
   %24 = sdiv exact i64 %23, 12
   %25 = trunc i64 %24 to i32
   %26 = icmp eq i32 %19, %25
-  br i1 %26, label %40, label %27
+  br i1 %26, label %41, label %27
 
 27:                                               ; preds = %17, %7
   %28 = call i32 @Acec_DetectBoothXorFanin(ptr noundef %0, ptr noundef %.pre, ptr noundef %2), !range !4
@@ -397,11 +397,13 @@ define i32 @Acec_DetectBoothOne(ptr nocapture noundef readonly %0, ptr noundef %
   %37 = sdiv exact i64 %36, 12
   %38 = trunc i64 %37 to i32
   %39 = icmp eq i32 %31, %38
-  %spec.select = zext i1 %39 to i32
-  br label %40
+  br i1 %39, label %41, label %40
 
-40:                                               ; preds = %29, %27, %17, %3
-  %.0 = phi i32 [ 0, %3 ], [ 1, %17 ], [ 0, %27 ], [ %spec.select, %29 ]
+40:                                               ; preds = %29, %27
+  br label %41
+
+41:                                               ; preds = %29, %17, %3, %40
+  %.0 = phi i32 [ 0, %40 ], [ 0, %3 ], [ 1, %17 ], [ 1, %29 ]
   ret i32 %.0
 }
 
@@ -583,8 +585,8 @@ define void @Acec_DetectBoothTest(ptr nocapture noundef readonly %0) local_unnam
   %14 = getelementptr inbounds i8, ptr %6, i64 16
   br label %15
 
-15:                                               ; preds = %.lr.ph, %80
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %80 ]
+15:                                               ; preds = %.lr.ph, %83
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %83 ]
   %.val14 = load ptr, ptr %7, align 8
   %16 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val14, i64 %indvars.iv
   %.not = icmp eq ptr %.val14, null
@@ -597,14 +599,14 @@ define void @Acec_DetectBoothTest(ptr nocapture noundef readonly %0) local_unnam
   %19 = and i64 %.val, 536870911
   %20 = icmp eq i64 %19, 536870911
   %narrow.i.not = or i1 %.not.i, %20
-  br i1 %narrow.i.not, label %80, label %21
+  br i1 %narrow.i.not, label %83, label %21
 
 21:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %22 = call i32 @Gia_ObjRecognizeExor(ptr noundef nonnull %16, ptr noundef nonnull %4, ptr noundef nonnull %5) #10
   %.not.i15 = icmp eq i32 %22, 0
-  br i1 %.not.i15, label %Acec_DetectBoothOne.exit.thread, label %23
+  br i1 %.not.i15, label %53, label %23
 
 23:                                               ; preds = %21
   %24 = load ptr, ptr %4, align 8
@@ -631,105 +633,101 @@ define void @Acec_DetectBoothTest(ptr nocapture noundef readonly %0) local_unnam
   %38 = sdiv exact i64 %37, 12
   %39 = trunc i64 %38 to i32
   %40 = icmp eq i32 %34, %39
-  br i1 %40, label %Acec_DetectBoothOne.exit.thread23, label %41
-
-Acec_DetectBoothOne.exit.thread23:                ; preds = %33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %72
+  br i1 %40, label %Acec_DetectBoothOne.exit, label %41
 
 41:                                               ; preds = %33, %23
   %42 = call i32 @Acec_DetectBoothXorFanin(ptr noundef nonnull %0, ptr noundef %.pre.i, ptr noundef nonnull %6), !range !4
   %.not10.i = icmp eq i32 %42, 0
-  br i1 %.not10.i, label %Acec_DetectBoothOne.exit.thread, label %Acec_DetectBoothOne.exit
+  br i1 %.not10.i, label %53, label %43
 
-Acec_DetectBoothOne.exit.thread:                  ; preds = %21, %41
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %50
-
-Acec_DetectBoothOne.exit:                         ; preds = %41
-  %43 = load i32, ptr %11, align 8
-  %44 = load ptr, ptr %4, align 8
+43:                                               ; preds = %41
+  %44 = load i32, ptr %11, align 8
+  %45 = load ptr, ptr %4, align 8
   %.val.i = load ptr, ptr %7, align 8
-  %45 = ptrtoint ptr %44 to i64
-  %46 = ptrtoint ptr %.val.i to i64
-  %47 = sub i64 %45, %46
-  %48 = sdiv exact i64 %47, 12
-  %49 = trunc i64 %48 to i32
-  %.not29 = icmp eq i32 %43, %49
+  %46 = ptrtoint ptr %45 to i64
+  %47 = ptrtoint ptr %.val.i to i64
+  %48 = sub i64 %46, %47
+  %49 = sdiv exact i64 %48, 12
+  %50 = trunc i64 %49 to i32
+  %51 = icmp eq i32 %44, %50
+  br i1 %51, label %Acec_DetectBoothOne.exit, label %53
+
+Acec_DetectBoothOne.exit:                         ; preds = %33, %43
+  %52 = phi i32 [ %34, %33 ], [ %44, %43 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br i1 %.not29, label %72, label %50
+  br label %75
 
-50:                                               ; preds = %Acec_DetectBoothOne.exit.thread, %Acec_DetectBoothOne.exit
+53:                                               ; preds = %41, %43, %21
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %51 = call i32 @Gia_ObjRecognizeExor(ptr noundef nonnull %16, ptr noundef nonnull %2, ptr noundef nonnull %3) #10
-  %.not.i16 = icmp eq i32 %51, 0
-  br i1 %.not.i16, label %Acec_DetectBoothTwo.exit.thread, label %52
+  %54 = call i32 @Gia_ObjRecognizeExor(ptr noundef nonnull %16, ptr noundef nonnull %2, ptr noundef nonnull %3) #10
+  %.not.i16 = icmp eq i32 %54, 0
+  br i1 %.not.i16, label %Acec_DetectBoothTwo.exit.thread, label %55
 
-52:                                               ; preds = %50
-  %53 = load ptr, ptr %2, align 8
-  %54 = ptrtoint ptr %53 to i64
-  %55 = and i64 %54, -2
-  %56 = inttoptr i64 %55 to ptr
-  store ptr %56, ptr %2, align 8
-  %57 = load ptr, ptr %3, align 8
-  %58 = ptrtoint ptr %57 to i64
-  %59 = and i64 %58, -2
-  %60 = inttoptr i64 %59 to ptr
-  store ptr %60, ptr %3, align 8
-  %61 = call i32 @Acec_DetectBoothTwoXor(ptr noundef nonnull %0, ptr noundef %56, ptr noundef nonnull %6), !range !4
-  %.not9.i17 = icmp eq i32 %61, 0
-  %62 = load ptr, ptr %3, align 8
-  br i1 %.not9.i17, label %63, label %Acec_DetectBoothTwo.exit
+55:                                               ; preds = %53
+  %56 = load ptr, ptr %2, align 8
+  %57 = ptrtoint ptr %56 to i64
+  %58 = and i64 %57, -2
+  %59 = inttoptr i64 %58 to ptr
+  store ptr %59, ptr %2, align 8
+  %60 = load ptr, ptr %3, align 8
+  %61 = ptrtoint ptr %60 to i64
+  %62 = and i64 %61, -2
+  %63 = inttoptr i64 %62 to ptr
+  store ptr %63, ptr %3, align 8
+  %64 = call i32 @Acec_DetectBoothTwoXor(ptr noundef nonnull %0, ptr noundef %59, ptr noundef nonnull %6), !range !4
+  %.not9.i17 = icmp eq i32 %64, 0
+  %65 = load ptr, ptr %3, align 8
+  br i1 %.not9.i17, label %66, label %Acec_DetectBoothTwo.exit
 
-63:                                               ; preds = %52
-  %64 = call i32 @Acec_DetectBoothTwoXor(ptr noundef nonnull %0, ptr noundef %62, ptr noundef nonnull %6), !range !4
-  %.not10.i20 = icmp eq i32 %64, 0
-  br i1 %.not10.i20, label %Acec_DetectBoothTwo.exit.thread, label %65
+66:                                               ; preds = %55
+  %67 = call i32 @Acec_DetectBoothTwoXor(ptr noundef nonnull %0, ptr noundef %65, ptr noundef nonnull %6), !range !4
+  %.not10.i20 = icmp eq i32 %67, 0
+  br i1 %.not10.i20, label %Acec_DetectBoothTwo.exit.thread, label %68
 
-65:                                               ; preds = %63
-  %66 = load ptr, ptr %2, align 8
+68:                                               ; preds = %66
+  %69 = load ptr, ptr %2, align 8
   br label %Acec_DetectBoothTwo.exit
 
-Acec_DetectBoothTwo.exit.thread:                  ; preds = %50, %63
+Acec_DetectBoothTwo.exit.thread:                  ; preds = %53, %66
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br label %80
+  br label %83
 
-Acec_DetectBoothTwo.exit:                         ; preds = %52, %65
-  %.sink.i = phi ptr [ %66, %65 ], [ %62, %52 ]
+Acec_DetectBoothTwo.exit:                         ; preds = %55, %68
+  %.sink.i = phi ptr [ %69, %68 ], [ %65, %55 ]
   %.val.i18 = load ptr, ptr %7, align 8
-  %67 = ptrtoint ptr %.sink.i to i64
-  %68 = ptrtoint ptr %.val.i18 to i64
-  %69 = sub i64 %67, %68
-  %70 = sdiv exact i64 %69, 12
-  %71 = trunc i64 %70 to i32
-  store i32 %71, ptr %11, align 8
+  %70 = ptrtoint ptr %.sink.i to i64
+  %71 = ptrtoint ptr %.val.i18 to i64
+  %72 = sub i64 %70, %71
+  %73 = sdiv exact i64 %72, 12
+  %74 = trunc i64 %73 to i32
+  store i32 %74, ptr %11, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br label %72
+  br label %75
 
-72:                                               ; preds = %Acec_DetectBoothTwo.exit, %Acec_DetectBoothOne.exit.thread23, %Acec_DetectBoothOne.exit
-  %73 = phi i32 [ %71, %Acec_DetectBoothTwo.exit ], [ %34, %Acec_DetectBoothOne.exit.thread23 ], [ %43, %Acec_DetectBoothOne.exit ]
-  %74 = load i32, ptr %6, align 16
-  %75 = load i32, ptr %12, align 4
-  %76 = load i32, ptr %13, align 4
-  %77 = load i32, ptr %14, align 16
-  %78 = trunc nuw nsw i64 %indvars.iv to i32
-  %79 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %78, i32 noundef %74, i32 noundef %75, i32 noundef %73, i32 noundef %76, i32 noundef %77)
-  br label %80
+75:                                               ; preds = %Acec_DetectBoothTwo.exit, %Acec_DetectBoothOne.exit
+  %76 = phi i32 [ %74, %Acec_DetectBoothTwo.exit ], [ %52, %Acec_DetectBoothOne.exit ]
+  %77 = load i32, ptr %6, align 16
+  %78 = load i32, ptr %12, align 4
+  %79 = load i32, ptr %13, align 4
+  %80 = load i32, ptr %14, align 16
+  %81 = trunc nuw nsw i64 %indvars.iv to i32
+  %82 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %81, i32 noundef %77, i32 noundef %78, i32 noundef %76, i32 noundef %79, i32 noundef %80)
+  br label %83
 
-80:                                               ; preds = %Acec_DetectBoothTwo.exit.thread, %72, %17
+83:                                               ; preds = %Acec_DetectBoothTwo.exit.thread, %75, %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %81 = load i32, ptr %8, align 8
-  %82 = sext i32 %81 to i64
-  %83 = icmp slt i64 %indvars.iv.next, %82
-  br i1 %83, label %15, label %.critedge, !llvm.loop !5
+  %84 = load i32, ptr %8, align 8
+  %85 = sext i32 %84 to i64
+  %86 = icmp slt i64 %indvars.iv.next, %85
+  br i1 %86, label %15, label %.critedge, !llvm.loop !5
 
-.critedge:                                        ; preds = %15, %80, %1
+.critedge:                                        ; preds = %15, %83, %1
   ret void
 }
 

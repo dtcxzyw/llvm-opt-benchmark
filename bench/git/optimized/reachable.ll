@@ -78,14 +78,14 @@ entry:
   %0 = getelementptr i8, ptr %data, i64 24
   %data.val = load i32, ptr %0, align 8
   %tobool.not.i = icmp eq i32 %data.val, 0
-  br i1 %tobool.not.i, label %if.end, label %want_recent_object.exit
+  br i1 %tobool.not.i, label %if.end, label %land.lhs.true.i
 
-want_recent_object.exit:                          ; preds = %entry
+land.lhs.true.i:                                  ; preds = %entry
   %call.i = tail call i32 @has_object_kept_pack(ptr noundef %oid, i32 noundef 2) #8
-  %tobool1.not.i.not = icmp eq i32 %call.i, 0
-  br i1 %tobool1.not.i.not, label %if.end, label %return
+  %tobool1.not.i = icmp eq i32 %call.i, 0
+  br i1 %tobool1.not.i, label %if.end, label %return
 
-if.end:                                           ; preds = %entry, %want_recent_object.exit
+if.end:                                           ; preds = %land.lhs.true.i, %entry
   %1 = load ptr, ptr @the_repository, align 8
   %call1 = tail call ptr @lookup_object(ptr noundef %1, ptr noundef %oid) #8
   %tobool2.not = icmp eq ptr %call1, null
@@ -119,8 +119,8 @@ if.end15:                                         ; preds = %if.end5
   tail call fastcc void @add_recent_object(ptr noundef %oid, ptr noundef null, i64 noundef 0, i64 noundef %4, ptr noundef nonnull %data)
   br label %return
 
-return:                                           ; preds = %if.then7, %land.lhs.true, %want_recent_object.exit, %if.end15, %if.end11
-  %retval.0 = phi i32 [ -1, %if.end11 ], [ 0, %if.end15 ], [ 0, %want_recent_object.exit ], [ 0, %land.lhs.true ], [ 0, %if.then7 ]
+return:                                           ; preds = %land.lhs.true.i, %if.then7, %land.lhs.true, %if.end15, %if.end11
+  %retval.0 = phi i32 [ -1, %if.end11 ], [ 0, %if.end15 ], [ 0, %land.lhs.true ], [ 0, %if.then7 ], [ 0, %land.lhs.true.i ]
   ret i32 %retval.0
 }
 
@@ -134,14 +134,14 @@ entry:
   %1 = getelementptr i8, ptr %data, i64 24
   %data.val = load i32, ptr %1, align 8
   %tobool.not.i = icmp eq i32 %data.val, 0
-  br i1 %tobool.not.i, label %if.end, label %want_recent_object.exit
+  br i1 %tobool.not.i, label %if.end, label %land.lhs.true.i
 
-want_recent_object.exit:                          ; preds = %entry
+land.lhs.true.i:                                  ; preds = %entry
   %call.i = tail call i32 @has_object_kept_pack(ptr noundef %oid, i32 noundef 2) #8
-  %tobool1.not.i.not = icmp eq i32 %call.i, 0
-  br i1 %tobool1.not.i.not, label %if.end, label %return
+  %tobool1.not.i = icmp eq i32 %call.i, 0
+  br i1 %tobool1.not.i, label %if.end, label %return
 
-if.end:                                           ; preds = %entry, %want_recent_object.exit
+if.end:                                           ; preds = %land.lhs.true.i, %entry
   %2 = load ptr, ptr @the_repository, align 8
   %call2 = tail call ptr @lookup_object(ptr noundef %2, ptr noundef %oid) #8
   %tobool3.not = icmp eq ptr %call2, null
@@ -180,7 +180,7 @@ if.end16:                                         ; preds = %if.end14, %if.end6
   tail call fastcc void @add_recent_object(ptr noundef %oid, ptr noundef nonnull %p, i64 noundef %call17, i64 noundef %mtime.0, ptr noundef nonnull %data)
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %want_recent_object.exit, %if.end16
+return:                                           ; preds = %land.lhs.true.i, %land.lhs.true, %if.end16
   ret i32 0
 }
 

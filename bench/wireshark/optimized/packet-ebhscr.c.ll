@@ -608,7 +608,7 @@ define internal i32 @dissect_ebhscr(ptr noundef %0, ptr noundef %1, ptr noundef 
 18:                                               ; preds = %4
   %19 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %16, ptr noundef nonnull @ei_ebhscr_frame_header) #3
   %20 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
-  br label %348
+  br label %349
 
 21:                                               ; preds = %4
   %22 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #3
@@ -664,17 +664,17 @@ define internal i32 @dissect_ebhscr(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 62:                                               ; preds = %51, %47
   %63 = call i32 @tvb_captured_length(ptr noundef %0) #3
-  br label %348
+  br label %349
 
 64:                                               ; preds = %21
-  switch i8 %22, label %339 [
+  switch i8 %22, label %340 [
     i8 83, label %65
     i8 80, label %85
     i8 81, label %116
     i8 82, label %131
     i8 85, label %177
-    i8 86, label %206
-    i8 87, label %222
+    i8 86, label %207
+    i8 87, label %223
   ]
 
 65:                                               ; preds = %64
@@ -712,7 +712,7 @@ define internal i32 @dissect_ebhscr(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 dissect_ebhscr_can.exit:                          ; preds = %77, %79
   %84 = call i32 @tvb_captured_length(ptr noundef %0) #3
-  br label %346
+  br label %347
 
 85:                                               ; preds = %64
   %86 = load i32, ptr @hf_ebhscr_status, align 4
@@ -766,7 +766,7 @@ dissect_ebhscr_can.exit:                          ; preds = %77, %79
 
 dissect_ebhscr_eth.exit:                          ; preds = %100, %107, %110
   %115 = call i32 @tvb_captured_length(ptr noundef %0) #3
-  br label %346
+  br label %347
 
 116:                                              ; preds = %64
   %117 = icmp eq i32 %12, 32
@@ -789,7 +789,7 @@ dissect_ebhscr_eth.exit:                          ; preds = %100, %107, %110
 
 dissect_ebhscr_nmea.exit:                         ; preds = %116, %118
   %130 = call i32 @tvb_captured_length(ptr noundef %0) #3
-  br label %346
+  br label %347
 
 131:                                              ; preds = %64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
@@ -877,7 +877,7 @@ dissect_ebhscr_nmea.exit:                         ; preds = %116, %118
 dissect_ebhscr_ts.exit:                           ; preds = %138, %173
   %176 = call i32 @tvb_captured_length(ptr noundef %0) #3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  br label %346
+  br label %347
 
 177:                                              ; preds = %64
   %178 = load ptr, ptr %9, align 8
@@ -892,263 +892,265 @@ dissect_ebhscr_ts.exit:                           ; preds = %138, %173
   %183 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %181, ptr noundef nonnull @ei_ebhscr_info_status_flag) #3
   %184 = and i16 %23, 16
   %.not31.i = icmp eq i16 %184, 0
-  %spec.select.i = select i1 %.not31.i, ptr @.str.362, ptr @.str.361
-  br label %.thread.i
+  br i1 %.not31.i, label %.thread.i, label %185
 
 .thread.i:                                        ; preds = %182, %177
-  %.str.362.sink.i = phi ptr [ @.str.362, %177 ], [ %spec.select.i, %182 ]
-  %185 = load ptr, ptr %9, align 8
-  call void @col_set_str(ptr noundef %185, i32 noundef 25, ptr noundef nonnull %.str.362.sink.i) #3
-  %186 = load i32, ptr @hf_ebhscr_mjr_hdr, align 4
-  %187 = load i32, ptr @ett_ebhscr_mjr_hdr, align 4
-  %188 = call ptr @proto_tree_add_bitmask(ptr noundef %28, ptr noundef %0, i32 noundef 24, i32 noundef %186, i32 noundef %187, ptr noundef nonnull @lin_mjr_hdr_bits, i32 noundef 0) #3
-  %189 = icmp eq i32 %12, 32
-  br i1 %189, label %dissect_ebhscr_lin.exit, label %190
+  br label %185
 
-190:                                              ; preds = %.thread.i
-  %191 = load i32, ptr @hf_lin_payload, align 4
-  %192 = call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %191, ptr noundef %0, i32 noundef 32, i32 noundef %43, i32 noundef 0) #3
-  %193 = load i32, ptr @ett_lin_payload, align 4
-  %194 = call ptr @proto_item_add_subtree(ptr noundef %192, i32 noundef %193) #3
-  %195 = load i32, ptr @hf_lin_payload_pid, align 4
-  %196 = call ptr @proto_tree_add_item(ptr noundef %194, i32 noundef %195, ptr noundef %0, i32 noundef 32, i32 noundef 1, i32 noundef 0) #3
-  %197 = load i32, ptr @ett_lin_payload, align 4
-  %198 = call ptr @proto_item_add_subtree(ptr noundef %196, i32 noundef %197) #3
-  call void @proto_tree_add_bitmask_list(ptr noundef %198, ptr noundef %0, i32 noundef 32, i32 noundef 1, ptr noundef nonnull @lin_payload_pid_bits, i32 noundef 0) #3
-  %199 = load i32, ptr @hf_lin_payload_data, align 4
-  %200 = add i32 %12, -34
-  %201 = call ptr @proto_tree_add_item(ptr noundef %194, i32 noundef %199, ptr noundef %0, i32 noundef 33, i32 noundef %200, i32 noundef 0) #3
-  %202 = load i32, ptr @hf_lin_payload_checksum, align 4
-  %203 = add i32 %12, -1
-  %204 = call ptr @proto_tree_add_item(ptr noundef %194, i32 noundef %202, ptr noundef %0, i32 noundef %203, i32 noundef 1, i32 noundef 0) #3
+185:                                              ; preds = %.thread.i, %182
+  %.str.362.sink.i = phi ptr [ @.str.362, %.thread.i ], [ @.str.361, %182 ]
+  %186 = load ptr, ptr %9, align 8
+  call void @col_set_str(ptr noundef %186, i32 noundef 25, ptr noundef nonnull %.str.362.sink.i) #3
+  %187 = load i32, ptr @hf_ebhscr_mjr_hdr, align 4
+  %188 = load i32, ptr @ett_ebhscr_mjr_hdr, align 4
+  %189 = call ptr @proto_tree_add_bitmask(ptr noundef %28, ptr noundef %0, i32 noundef 24, i32 noundef %187, i32 noundef %188, ptr noundef nonnull @lin_mjr_hdr_bits, i32 noundef 0) #3
+  %190 = icmp eq i32 %12, 32
+  br i1 %190, label %dissect_ebhscr_lin.exit, label %191
+
+191:                                              ; preds = %185
+  %192 = load i32, ptr @hf_lin_payload, align 4
+  %193 = call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %192, ptr noundef %0, i32 noundef 32, i32 noundef %43, i32 noundef 0) #3
+  %194 = load i32, ptr @ett_lin_payload, align 4
+  %195 = call ptr @proto_item_add_subtree(ptr noundef %193, i32 noundef %194) #3
+  %196 = load i32, ptr @hf_lin_payload_pid, align 4
+  %197 = call ptr @proto_tree_add_item(ptr noundef %195, i32 noundef %196, ptr noundef %0, i32 noundef 32, i32 noundef 1, i32 noundef 0) #3
+  %198 = load i32, ptr @ett_lin_payload, align 4
+  %199 = call ptr @proto_item_add_subtree(ptr noundef %197, i32 noundef %198) #3
+  call void @proto_tree_add_bitmask_list(ptr noundef %199, ptr noundef %0, i32 noundef 32, i32 noundef 1, ptr noundef nonnull @lin_payload_pid_bits, i32 noundef 0) #3
+  %200 = load i32, ptr @hf_lin_payload_data, align 4
+  %201 = add i32 %12, -34
+  %202 = call ptr @proto_tree_add_item(ptr noundef %195, i32 noundef %200, ptr noundef %0, i32 noundef 33, i32 noundef %201, i32 noundef 0) #3
+  %203 = load i32, ptr @hf_lin_payload_checksum, align 4
+  %204 = add i32 %12, -1
+  %205 = call ptr @proto_tree_add_item(ptr noundef %195, i32 noundef %203, ptr noundef %0, i32 noundef %204, i32 noundef 1, i32 noundef 0) #3
   br label %dissect_ebhscr_lin.exit
 
-dissect_ebhscr_lin.exit:                          ; preds = %.thread.i, %190
-  %205 = call i32 @tvb_captured_length(ptr noundef %0) #3
-  br label %346
+dissect_ebhscr_lin.exit:                          ; preds = %185, %191
+  %206 = call i32 @tvb_captured_length(ptr noundef %0) #3
+  br label %347
 
-206:                                              ; preds = %64
-  %207 = load ptr, ptr %9, align 8
-  call void @col_set_str(ptr noundef %207, i32 noundef 25, ptr noundef nonnull @.str.363) #3
-  %208 = load i32, ptr @hf_ebhscr_status, align 4
-  %209 = load i32, ptr @ett_ebhscr_status, align 4
-  %210 = call ptr @proto_tree_add_bitmask(ptr noundef %28, ptr noundef %0, i32 noundef 2, i32 noundef %208, i32 noundef %209, ptr noundef nonnull @dio_status_bits, i32 noundef 0) #3
+207:                                              ; preds = %64
+  %208 = load ptr, ptr %9, align 8
+  call void @col_set_str(ptr noundef %208, i32 noundef 25, ptr noundef nonnull @.str.363) #3
+  %209 = load i32, ptr @hf_ebhscr_status, align 4
+  %210 = load i32, ptr @ett_ebhscr_status, align 4
+  %211 = call ptr @proto_tree_add_bitmask(ptr noundef %28, ptr noundef %0, i32 noundef 2, i32 noundef %209, i32 noundef %210, ptr noundef nonnull @dio_status_bits, i32 noundef 0) #3
   %.not.i117 = icmp eq i16 %24, 0
-  br i1 %.not.i117, label %213, label %211
+  br i1 %.not.i117, label %214, label %212
 
-211:                                              ; preds = %206
-  %212 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %210, ptr noundef nonnull @ei_ebhscr_err_status_flag) #3
-  br label %213
+212:                                              ; preds = %207
+  %213 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %211, ptr noundef nonnull @ei_ebhscr_err_status_flag) #3
+  br label %214
 
-213:                                              ; preds = %211, %206
-  %214 = load i32, ptr @hf_ebhscr_mjr_hdr, align 4
-  %215 = load i32, ptr @ett_ebhscr_mjr_hdr, align 4
-  %216 = call ptr @proto_tree_add_bitmask(ptr noundef %28, ptr noundef %0, i32 noundef 24, i32 noundef %214, i32 noundef %215, ptr noundef nonnull @dio_mjr_hdr_bits, i32 noundef 0) #3
-  %217 = icmp eq i32 %12, 32
-  br i1 %217, label %dissect_ebhscr_dio.exit, label %218
+214:                                              ; preds = %212, %207
+  %215 = load i32, ptr @hf_ebhscr_mjr_hdr, align 4
+  %216 = load i32, ptr @ett_ebhscr_mjr_hdr, align 4
+  %217 = call ptr @proto_tree_add_bitmask(ptr noundef %28, ptr noundef %0, i32 noundef 24, i32 noundef %215, i32 noundef %216, ptr noundef nonnull @dio_mjr_hdr_bits, i32 noundef 0) #3
+  %218 = icmp eq i32 %12, 32
+  br i1 %218, label %dissect_ebhscr_dio.exit, label %219
 
-218:                                              ; preds = %213
-  %219 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 32, i32 noundef %43) #3
-  %220 = call i32 @call_data_dissector(ptr noundef %219, ptr noundef nonnull %1, ptr noundef %2) #3
+219:                                              ; preds = %214
+  %220 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 32, i32 noundef %43) #3
+  %221 = call i32 @call_data_dissector(ptr noundef %220, ptr noundef nonnull %1, ptr noundef %2) #3
   br label %dissect_ebhscr_dio.exit
 
-dissect_ebhscr_dio.exit:                          ; preds = %213, %218
-  %221 = call i32 @tvb_captured_length(ptr noundef %0) #3
-  br label %346
+dissect_ebhscr_dio.exit:                          ; preds = %214, %219
+  %222 = call i32 @tvb_captured_length(ptr noundef %0) #3
+  br label %347
 
-222:                                              ; preds = %64
-  %223 = load ptr, ptr %9, align 8
-  call void @col_set_str(ptr noundef %223, i32 noundef 34, ptr noundef nonnull @.str.364) #3
-  %224 = load i32, ptr @ett_ebhscr_channel, align 4
-  %225 = call ptr @proto_item_add_subtree(ptr noundef %34, i32 noundef %224) #3
-  call void @proto_tree_add_bitmask_list(ptr noundef %225, ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @flexray_channel_bits, i32 noundef 0) #3
-  %226 = lshr i16 %23, 2
-  %227 = and i16 %226, 3
-  switch i16 %227, label %318 [
-    i16 0, label %228
-    i16 1, label %265
-    i16 2, label %296
+223:                                              ; preds = %64
+  %224 = load ptr, ptr %9, align 8
+  call void @col_set_str(ptr noundef %224, i32 noundef 34, ptr noundef nonnull @.str.364) #3
+  %225 = load i32, ptr @ett_ebhscr_channel, align 4
+  %226 = call ptr @proto_item_add_subtree(ptr noundef %34, i32 noundef %225) #3
+  call void @proto_tree_add_bitmask_list(ptr noundef %226, ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @flexray_channel_bits, i32 noundef 0) #3
+  %227 = lshr i16 %23, 2
+  %228 = and i16 %227, 3
+  switch i16 %228, label %319 [
+    i16 0, label %229
+    i16 1, label %266
+    i16 2, label %297
   ]
 
-228:                                              ; preds = %222
+229:                                              ; preds = %223
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
-  %229 = load i32, ptr @hf_ebhscr_status, align 4
-  %230 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %229, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #3
-  %231 = load i32, ptr @ett_ebhscr_status, align 4
-  %232 = call ptr @proto_item_add_subtree(ptr noundef %230, i32 noundef %231) #3
-  call void @proto_tree_add_bitmask_list(ptr noundef %232, ptr noundef %0, i32 noundef 2, i32 noundef 2, ptr noundef nonnull @flexray_frame_status_bits, i32 noundef 0) #3
-  %233 = load i32, ptr @hf_ebhscr_mjr_hdr, align 4
-  %234 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %233, ptr noundef %0, i32 noundef 24, i32 noundef 8, i32 noundef 0) #3
-  %235 = load i32, ptr @ett_ebhscr_mjr_hdr, align 4
-  %236 = call ptr @proto_item_add_subtree(ptr noundef %234, i32 noundef %235) #3
-  %237 = load i32, ptr @hf_flexray_slot_information, align 4
-  %238 = call ptr @proto_tree_add_item(ptr noundef %236, i32 noundef %237, ptr noundef %0, i32 noundef 24, i32 noundef 2, i32 noundef 0) #3
-  %239 = load i32, ptr @ett_ebhscr_mjr_hdr, align 4
-  %240 = call ptr @proto_item_add_subtree(ptr noundef %238, i32 noundef %239) #3
-  call void @proto_tree_add_bitmask_list(ptr noundef %240, ptr noundef %0, i32 noundef 24, i32 noundef 2, ptr noundef nonnull @flexray_mhdr_slot_information_bits, i32 noundef 0) #3
-  %241 = load i32, ptr @hf_flexray_frame_status, align 4
-  %242 = call ptr @proto_tree_add_item(ptr noundef %236, i32 noundef %241, ptr noundef %0, i32 noundef 26, i32 noundef 2, i32 noundef 0) #3
-  %243 = load i32, ptr @ett_ebhscr_mjr_hdr, align 4
-  %244 = call ptr @proto_item_add_subtree(ptr noundef %242, i32 noundef %243) #3
-  call void @proto_tree_add_bitmask_list(ptr noundef %244, ptr noundef %0, i32 noundef 26, i32 noundef 2, ptr noundef nonnull @flexray_mhdr_frame_status_bits, i32 noundef 0) #3
-  %245 = load i32, ptr @hf_flexray_supercycle_counter, align 4
-  %246 = call ptr @proto_tree_add_item(ptr noundef %236, i32 noundef %245, ptr noundef %0, i32 noundef 28, i32 noundef 4, i32 noundef 0) #3
-  %247 = call ptr @tvb_new_composite() #3
+  %230 = load i32, ptr @hf_ebhscr_status, align 4
+  %231 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %230, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #3
+  %232 = load i32, ptr @ett_ebhscr_status, align 4
+  %233 = call ptr @proto_item_add_subtree(ptr noundef %231, i32 noundef %232) #3
+  call void @proto_tree_add_bitmask_list(ptr noundef %233, ptr noundef %0, i32 noundef 2, i32 noundef 2, ptr noundef nonnull @flexray_frame_status_bits, i32 noundef 0) #3
+  %234 = load i32, ptr @hf_ebhscr_mjr_hdr, align 4
+  %235 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %234, ptr noundef %0, i32 noundef 24, i32 noundef 8, i32 noundef 0) #3
+  %236 = load i32, ptr @ett_ebhscr_mjr_hdr, align 4
+  %237 = call ptr @proto_item_add_subtree(ptr noundef %235, i32 noundef %236) #3
+  %238 = load i32, ptr @hf_flexray_slot_information, align 4
+  %239 = call ptr @proto_tree_add_item(ptr noundef %237, i32 noundef %238, ptr noundef %0, i32 noundef 24, i32 noundef 2, i32 noundef 0) #3
+  %240 = load i32, ptr @ett_ebhscr_mjr_hdr, align 4
+  %241 = call ptr @proto_item_add_subtree(ptr noundef %239, i32 noundef %240) #3
+  call void @proto_tree_add_bitmask_list(ptr noundef %241, ptr noundef %0, i32 noundef 24, i32 noundef 2, ptr noundef nonnull @flexray_mhdr_slot_information_bits, i32 noundef 0) #3
+  %242 = load i32, ptr @hf_flexray_frame_status, align 4
+  %243 = call ptr @proto_tree_add_item(ptr noundef %237, i32 noundef %242, ptr noundef %0, i32 noundef 26, i32 noundef 2, i32 noundef 0) #3
+  %244 = load i32, ptr @ett_ebhscr_mjr_hdr, align 4
+  %245 = call ptr @proto_item_add_subtree(ptr noundef %243, i32 noundef %244) #3
+  call void @proto_tree_add_bitmask_list(ptr noundef %245, ptr noundef %0, i32 noundef 26, i32 noundef 2, ptr noundef nonnull @flexray_mhdr_frame_status_bits, i32 noundef 0) #3
+  %246 = load i32, ptr @hf_flexray_supercycle_counter, align 4
+  %247 = call ptr @proto_tree_add_item(ptr noundef %237, i32 noundef %246, ptr noundef %0, i32 noundef 28, i32 noundef 4, i32 noundef 0) #3
+  %248 = call ptr @tvb_new_composite() #3
   store i8 1, ptr %6, align 1
-  %248 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #3
-  %249 = and i8 %248, 2
-  %.not.i.i = icmp eq i8 %249, 0
-  br i1 %.not.i.i, label %dissect_ebhscr_flexray_frame_packet.exit.i, label %250
+  %249 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #3
+  %250 = and i8 %249, 2
+  %.not.i.i = icmp eq i8 %250, 0
+  br i1 %.not.i.i, label %dissect_ebhscr_flexray_frame_packet.exit.i, label %251
 
-250:                                              ; preds = %228
+251:                                              ; preds = %229
   store i8 -127, ptr %6, align 1
   br label %dissect_ebhscr_flexray_frame_packet.exit.i
 
-dissect_ebhscr_flexray_frame_packet.exit.i:       ; preds = %250, %228
-  %251 = trunc i16 %23 to i8
-  %252 = lshr i8 %251, 5
-  %spec.select.i.i = and i8 %252, 1
-  %253 = lshr i8 %251, 3
-  %254 = and i8 %253, 2
-  %spec.select41.i.i = or disjoint i8 %spec.select.i.i, %254
-  %255 = lshr i16 %23, 6
-  %256 = trunc i16 %255 to i8
-  %257 = and i8 %256, 4
-  %spec.select42.i.i = or disjoint i8 %spec.select41.i.i, %257
-  %258 = and i8 %253, 24
-  %storemerge.i.i = or disjoint i8 %spec.select42.i.i, %258
-  %259 = getelementptr inbounds i8, ptr %6, i64 1
-  store i8 %storemerge.i.i, ptr %259, align 1
-  %260 = call ptr @tvb_new_real_data(ptr noundef nonnull %6, i32 noundef 2, i32 noundef 2) #3
-  call void @tvb_composite_append(ptr noundef %247, ptr noundef %260) #3
-  %261 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 32, i32 noundef %43) #3
-  call void @tvb_composite_append(ptr noundef %247, ptr noundef %261) #3
-  call void @tvb_composite_finalize(ptr noundef %247) #3
-  %262 = load ptr, ptr @flexray_handle, align 8
-  %263 = call i32 @call_dissector(ptr noundef %262, ptr noundef %247, ptr noundef nonnull %1, ptr noundef %2) #3
-  %264 = call i32 @tvb_captured_length(ptr noundef %0) #3
+dissect_ebhscr_flexray_frame_packet.exit.i:       ; preds = %251, %229
+  %252 = trunc i16 %23 to i8
+  %253 = lshr i8 %252, 5
+  %spec.select.i.i = and i8 %253, 1
+  %254 = lshr i8 %252, 3
+  %255 = and i8 %254, 2
+  %spec.select41.i.i = or disjoint i8 %spec.select.i.i, %255
+  %256 = lshr i16 %23, 6
+  %257 = trunc i16 %256 to i8
+  %258 = and i8 %257, 4
+  %spec.select42.i.i = or disjoint i8 %spec.select41.i.i, %258
+  %259 = and i8 %254, 24
+  %storemerge.i.i = or disjoint i8 %spec.select42.i.i, %259
+  %260 = getelementptr inbounds i8, ptr %6, i64 1
+  store i8 %storemerge.i.i, ptr %260, align 1
+  %261 = call ptr @tvb_new_real_data(ptr noundef nonnull %6, i32 noundef 2, i32 noundef 2) #3
+  call void @tvb_composite_append(ptr noundef %248, ptr noundef %261) #3
+  %262 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 32, i32 noundef %43) #3
+  call void @tvb_composite_append(ptr noundef %248, ptr noundef %262) #3
+  call void @tvb_composite_finalize(ptr noundef %248) #3
+  %263 = load ptr, ptr @flexray_handle, align 8
+  %264 = call i32 @call_dissector(ptr noundef %263, ptr noundef %248, ptr noundef nonnull %1, ptr noundef %2) #3
+  %265 = call i32 @tvb_captured_length(ptr noundef %0) #3
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
   br label %dissect_ebhscr_flexray.exit
 
-265:                                              ; preds = %222
+266:                                              ; preds = %223
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5)
-  %266 = load i32, ptr @hf_ebhscr_status, align 4
-  %267 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %266, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #3
-  %268 = load i32, ptr @ett_ebhscr_status, align 4
-  %269 = call ptr @proto_item_add_subtree(ptr noundef %267, i32 noundef %268) #3
-  call void @proto_tree_add_bitmask_list(ptr noundef %269, ptr noundef %0, i32 noundef 2, i32 noundef 2, ptr noundef nonnull @flexray_status_bits, i32 noundef 0) #3
-  %270 = load i32, ptr @hf_ebhscr_mjr_hdr, align 4
-  %271 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %270, ptr noundef %0, i32 noundef 24, i32 noundef 8, i32 noundef 0) #3
-  %272 = load i32, ptr @ett_ebhscr_mjr_hdr, align 4
-  %273 = call ptr @proto_item_add_subtree(ptr noundef %271, i32 noundef %272) #3
-  %274 = load i32, ptr @hf_flexray_slot_information, align 4
-  %275 = call ptr @proto_tree_add_item(ptr noundef %273, i32 noundef %274, ptr noundef %0, i32 noundef 24, i32 noundef 2, i32 noundef 0) #3
-  %276 = load i32, ptr @ett_ebhscr_mjr_hdr, align 4
-  %277 = call ptr @proto_item_add_subtree(ptr noundef %275, i32 noundef %276) #3
-  call void @proto_tree_add_bitmask_list(ptr noundef %277, ptr noundef %0, i32 noundef 24, i32 noundef 2, ptr noundef nonnull @flexray_mhdr_slot_information_bits, i32 noundef 0) #3
-  %278 = load i32, ptr @hf_flexray_frame_status, align 4
-  %279 = call ptr @proto_tree_add_item(ptr noundef %273, i32 noundef %278, ptr noundef %0, i32 noundef 26, i32 noundef 2, i32 noundef 0) #3
-  %280 = load i32, ptr @ett_ebhscr_mjr_hdr, align 4
-  %281 = call ptr @proto_item_add_subtree(ptr noundef %279, i32 noundef %280) #3
-  call void @proto_tree_add_bitmask_list(ptr noundef %281, ptr noundef %0, i32 noundef 26, i32 noundef 2, ptr noundef nonnull @flexray_mhdr_frame_status_bits, i32 noundef 0) #3
-  %282 = load i32, ptr @hf_flexray_symbol_length_and_status, align 4
-  %283 = call ptr @proto_tree_add_item(ptr noundef %273, i32 noundef %282, ptr noundef %0, i32 noundef 28, i32 noundef 1, i32 noundef 0) #3
-  %284 = load i32, ptr @ett_ebhscr_mjr_hdr, align 4
-  %285 = call ptr @proto_item_add_subtree(ptr noundef %283, i32 noundef %284) #3
-  call void @proto_tree_add_bitmask_list(ptr noundef %285, ptr noundef %0, i32 noundef 28, i32 noundef 1, ptr noundef nonnull @flexray_mhdr_symbol_length_and_status_bits, i32 noundef 0) #3
-  %286 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 28) #3
+  %267 = load i32, ptr @hf_ebhscr_status, align 4
+  %268 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %267, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #3
+  %269 = load i32, ptr @ett_ebhscr_status, align 4
+  %270 = call ptr @proto_item_add_subtree(ptr noundef %268, i32 noundef %269) #3
+  call void @proto_tree_add_bitmask_list(ptr noundef %270, ptr noundef %0, i32 noundef 2, i32 noundef 2, ptr noundef nonnull @flexray_status_bits, i32 noundef 0) #3
+  %271 = load i32, ptr @hf_ebhscr_mjr_hdr, align 4
+  %272 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %271, ptr noundef %0, i32 noundef 24, i32 noundef 8, i32 noundef 0) #3
+  %273 = load i32, ptr @ett_ebhscr_mjr_hdr, align 4
+  %274 = call ptr @proto_item_add_subtree(ptr noundef %272, i32 noundef %273) #3
+  %275 = load i32, ptr @hf_flexray_slot_information, align 4
+  %276 = call ptr @proto_tree_add_item(ptr noundef %274, i32 noundef %275, ptr noundef %0, i32 noundef 24, i32 noundef 2, i32 noundef 0) #3
+  %277 = load i32, ptr @ett_ebhscr_mjr_hdr, align 4
+  %278 = call ptr @proto_item_add_subtree(ptr noundef %276, i32 noundef %277) #3
+  call void @proto_tree_add_bitmask_list(ptr noundef %278, ptr noundef %0, i32 noundef 24, i32 noundef 2, ptr noundef nonnull @flexray_mhdr_slot_information_bits, i32 noundef 0) #3
+  %279 = load i32, ptr @hf_flexray_frame_status, align 4
+  %280 = call ptr @proto_tree_add_item(ptr noundef %274, i32 noundef %279, ptr noundef %0, i32 noundef 26, i32 noundef 2, i32 noundef 0) #3
+  %281 = load i32, ptr @ett_ebhscr_mjr_hdr, align 4
+  %282 = call ptr @proto_item_add_subtree(ptr noundef %280, i32 noundef %281) #3
+  call void @proto_tree_add_bitmask_list(ptr noundef %282, ptr noundef %0, i32 noundef 26, i32 noundef 2, ptr noundef nonnull @flexray_mhdr_frame_status_bits, i32 noundef 0) #3
+  %283 = load i32, ptr @hf_flexray_symbol_length_and_status, align 4
+  %284 = call ptr @proto_tree_add_item(ptr noundef %274, i32 noundef %283, ptr noundef %0, i32 noundef 28, i32 noundef 1, i32 noundef 0) #3
+  %285 = load i32, ptr @ett_ebhscr_mjr_hdr, align 4
+  %286 = call ptr @proto_item_add_subtree(ptr noundef %284, i32 noundef %285) #3
+  call void @proto_tree_add_bitmask_list(ptr noundef %286, ptr noundef %0, i32 noundef 28, i32 noundef 1, ptr noundef nonnull @flexray_mhdr_symbol_length_and_status_bits, i32 noundef 0) #3
+  %287 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 28) #3
   store i8 2, ptr %5, align 1
-  %287 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #3
-  %288 = and i8 %287, 2
-  %.not.i26.i = icmp eq i8 %288, 0
-  br i1 %.not.i26.i, label %dissect_ebhscr_flexray_symbol_packet.exit.i, label %289
+  %288 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #3
+  %289 = and i8 %288, 2
+  %.not.i26.i = icmp eq i8 %289, 0
+  br i1 %.not.i26.i, label %dissect_ebhscr_flexray_symbol_packet.exit.i, label %290
 
-289:                                              ; preds = %265
+290:                                              ; preds = %266
   store i8 -126, ptr %5, align 1
   br label %dissect_ebhscr_flexray_symbol_packet.exit.i
 
-dissect_ebhscr_flexray_symbol_packet.exit.i:      ; preds = %289, %265
-  %290 = and i8 %286, 127
-  %291 = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %290, ptr %291, align 1
-  %292 = call ptr @tvb_new_real_data(ptr noundef nonnull %5, i32 noundef 2, i32 noundef 2) #3
-  %293 = load ptr, ptr @flexray_handle, align 8
-  %294 = call i32 @call_dissector(ptr noundef %293, ptr noundef %292, ptr noundef nonnull %1, ptr noundef %2) #3
-  %295 = call i32 @tvb_captured_length(ptr noundef %0) #3
+dissect_ebhscr_flexray_symbol_packet.exit.i:      ; preds = %290, %266
+  %291 = and i8 %287, 127
+  %292 = getelementptr inbounds i8, ptr %5, i64 1
+  store i8 %291, ptr %292, align 1
+  %293 = call ptr @tvb_new_real_data(ptr noundef nonnull %5, i32 noundef 2, i32 noundef 2) #3
+  %294 = load ptr, ptr @flexray_handle, align 8
+  %295 = call i32 @call_dissector(ptr noundef %294, ptr noundef %293, ptr noundef nonnull %1, ptr noundef %2) #3
+  %296 = call i32 @tvb_captured_length(ptr noundef %0) #3
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5)
   br label %dissect_ebhscr_flexray.exit
 
-296:                                              ; preds = %222
-  %297 = call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef 28, i32 noundef 0) #3
-  %298 = load ptr, ptr %9, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %298, i32 noundef 25, ptr noundef nonnull @.str.365, i32 noundef %297) #3
-  %299 = load i32, ptr @hf_ebhscr_status, align 4
-  %300 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %299, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #3
-  %301 = load i32, ptr @ett_ebhscr_status, align 4
-  %302 = call ptr @proto_item_add_subtree(ptr noundef %300, i32 noundef %301) #3
-  call void @proto_tree_add_bitmask_list(ptr noundef %302, ptr noundef %0, i32 noundef 2, i32 noundef 2, ptr noundef nonnull @flexray_status_bits, i32 noundef 0) #3
-  %303 = load i32, ptr @hf_ebhscr_mjr_hdr, align 4
-  %304 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %303, ptr noundef %0, i32 noundef 24, i32 noundef 8, i32 noundef 0) #3
-  %305 = load i32, ptr @ett_ebhscr_mjr_hdr, align 4
-  %306 = call ptr @proto_item_add_subtree(ptr noundef %304, i32 noundef %305) #3
-  %307 = load i32, ptr @hf_flexray_slot_information, align 4
-  %308 = call ptr @proto_tree_add_item(ptr noundef %306, i32 noundef %307, ptr noundef %0, i32 noundef 24, i32 noundef 2, i32 noundef 0) #3
-  %309 = load i32, ptr @ett_ebhscr_mjr_hdr, align 4
-  %310 = call ptr @proto_item_add_subtree(ptr noundef %308, i32 noundef %309) #3
-  call void @proto_tree_add_bitmask_list(ptr noundef %310, ptr noundef %0, i32 noundef 24, i32 noundef 2, ptr noundef nonnull @flexray_mhdr_slot_information_bits, i32 noundef 0) #3
-  %311 = load i32, ptr @hf_flexray_frame_status, align 4
-  %312 = call ptr @proto_tree_add_item(ptr noundef %306, i32 noundef %311, ptr noundef %0, i32 noundef 26, i32 noundef 2, i32 noundef 0) #3
-  %313 = load i32, ptr @ett_ebhscr_mjr_hdr, align 4
-  %314 = call ptr @proto_item_add_subtree(ptr noundef %312, i32 noundef %313) #3
-  call void @proto_tree_add_bitmask_list(ptr noundef %314, ptr noundef %0, i32 noundef 26, i32 noundef 2, ptr noundef nonnull @flexray_mhdr_frame_status_bits, i32 noundef 0) #3
-  %315 = load i32, ptr @hf_flexray_supercycle_counter, align 4
-  %316 = call ptr @proto_tree_add_item(ptr noundef %306, i32 noundef %315, ptr noundef %0, i32 noundef 28, i32 noundef 4, i32 noundef 0) #3
-  %317 = call i32 @tvb_captured_length(ptr noundef %0) #3
+297:                                              ; preds = %223
+  %298 = call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef 28, i32 noundef 0) #3
+  %299 = load ptr, ptr %9, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %299, i32 noundef 25, ptr noundef nonnull @.str.365, i32 noundef %298) #3
+  %300 = load i32, ptr @hf_ebhscr_status, align 4
+  %301 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %300, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #3
+  %302 = load i32, ptr @ett_ebhscr_status, align 4
+  %303 = call ptr @proto_item_add_subtree(ptr noundef %301, i32 noundef %302) #3
+  call void @proto_tree_add_bitmask_list(ptr noundef %303, ptr noundef %0, i32 noundef 2, i32 noundef 2, ptr noundef nonnull @flexray_status_bits, i32 noundef 0) #3
+  %304 = load i32, ptr @hf_ebhscr_mjr_hdr, align 4
+  %305 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %304, ptr noundef %0, i32 noundef 24, i32 noundef 8, i32 noundef 0) #3
+  %306 = load i32, ptr @ett_ebhscr_mjr_hdr, align 4
+  %307 = call ptr @proto_item_add_subtree(ptr noundef %305, i32 noundef %306) #3
+  %308 = load i32, ptr @hf_flexray_slot_information, align 4
+  %309 = call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %308, ptr noundef %0, i32 noundef 24, i32 noundef 2, i32 noundef 0) #3
+  %310 = load i32, ptr @ett_ebhscr_mjr_hdr, align 4
+  %311 = call ptr @proto_item_add_subtree(ptr noundef %309, i32 noundef %310) #3
+  call void @proto_tree_add_bitmask_list(ptr noundef %311, ptr noundef %0, i32 noundef 24, i32 noundef 2, ptr noundef nonnull @flexray_mhdr_slot_information_bits, i32 noundef 0) #3
+  %312 = load i32, ptr @hf_flexray_frame_status, align 4
+  %313 = call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %312, ptr noundef %0, i32 noundef 26, i32 noundef 2, i32 noundef 0) #3
+  %314 = load i32, ptr @ett_ebhscr_mjr_hdr, align 4
+  %315 = call ptr @proto_item_add_subtree(ptr noundef %313, i32 noundef %314) #3
+  call void @proto_tree_add_bitmask_list(ptr noundef %315, ptr noundef %0, i32 noundef 26, i32 noundef 2, ptr noundef nonnull @flexray_mhdr_frame_status_bits, i32 noundef 0) #3
+  %316 = load i32, ptr @hf_flexray_supercycle_counter, align 4
+  %317 = call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %316, ptr noundef %0, i32 noundef 28, i32 noundef 4, i32 noundef 0) #3
+  %318 = call i32 @tvb_captured_length(ptr noundef %0) #3
   br label %dissect_ebhscr_flexray.exit
 
-318:                                              ; preds = %222
-  %319 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 25) #3
-  %320 = call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef 28, i32 noundef 0) #3
-  %321 = load ptr, ptr %9, align 8
-  %322 = zext i8 %319 to i32
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %321, i32 noundef 25, ptr noundef nonnull @.str.366, i32 noundef %322, i32 noundef %320) #3
-  %323 = load i32, ptr @hf_ebhscr_status, align 4
-  %324 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %323, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #3
-  %325 = load i32, ptr @ett_ebhscr_status, align 4
-  %326 = call ptr @proto_item_add_subtree(ptr noundef %324, i32 noundef %325) #3
-  call void @proto_tree_add_bitmask_list(ptr noundef %326, ptr noundef %0, i32 noundef 2, i32 noundef 2, ptr noundef nonnull @flexray_status_bits, i32 noundef 0) #3
-  %327 = load i32, ptr @hf_ebhscr_mjr_hdr, align 4
-  %328 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %327, ptr noundef %0, i32 noundef 24, i32 noundef 8, i32 noundef 0) #3
-  %329 = load i32, ptr @ett_ebhscr_mjr_hdr, align 4
-  %330 = call ptr @proto_item_add_subtree(ptr noundef %328, i32 noundef %329) #3
-  %331 = load i32, ptr @hf_flexray_POC_state, align 4
-  %332 = call ptr @proto_tree_add_item(ptr noundef %330, i32 noundef %331, ptr noundef %0, i32 noundef 24, i32 noundef 1, i32 noundef 0) #3
-  %333 = load i32, ptr @hf_flexray_following_cycle_counter, align 4
-  %334 = call ptr @proto_tree_add_item(ptr noundef %330, i32 noundef %333, ptr noundef %0, i32 noundef 25, i32 noundef 1, i32 noundef 0) #3
-  %335 = load i32, ptr @hf_flexray_supercycle_counter, align 4
-  %336 = call ptr @proto_tree_add_item(ptr noundef %330, i32 noundef %335, ptr noundef %0, i32 noundef 28, i32 noundef 4, i32 noundef 0) #3
-  %337 = call i32 @tvb_captured_length(ptr noundef %0) #3
-  br label %dissect_ebhscr_flexray.exit
-
-dissect_ebhscr_flexray.exit:                      ; preds = %dissect_ebhscr_flexray_frame_packet.exit.i, %dissect_ebhscr_flexray_symbol_packet.exit.i, %296, %318
+319:                                              ; preds = %223
+  %320 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 25) #3
+  %321 = call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef 28, i32 noundef 0) #3
+  %322 = load ptr, ptr %9, align 8
+  %323 = zext i8 %320 to i32
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %322, i32 noundef 25, ptr noundef nonnull @.str.366, i32 noundef %323, i32 noundef %321) #3
+  %324 = load i32, ptr @hf_ebhscr_status, align 4
+  %325 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %324, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #3
+  %326 = load i32, ptr @ett_ebhscr_status, align 4
+  %327 = call ptr @proto_item_add_subtree(ptr noundef %325, i32 noundef %326) #3
+  call void @proto_tree_add_bitmask_list(ptr noundef %327, ptr noundef %0, i32 noundef 2, i32 noundef 2, ptr noundef nonnull @flexray_status_bits, i32 noundef 0) #3
+  %328 = load i32, ptr @hf_ebhscr_mjr_hdr, align 4
+  %329 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %328, ptr noundef %0, i32 noundef 24, i32 noundef 8, i32 noundef 0) #3
+  %330 = load i32, ptr @ett_ebhscr_mjr_hdr, align 4
+  %331 = call ptr @proto_item_add_subtree(ptr noundef %329, i32 noundef %330) #3
+  %332 = load i32, ptr @hf_flexray_POC_state, align 4
+  %333 = call ptr @proto_tree_add_item(ptr noundef %331, i32 noundef %332, ptr noundef %0, i32 noundef 24, i32 noundef 1, i32 noundef 0) #3
+  %334 = load i32, ptr @hf_flexray_following_cycle_counter, align 4
+  %335 = call ptr @proto_tree_add_item(ptr noundef %331, i32 noundef %334, ptr noundef %0, i32 noundef 25, i32 noundef 1, i32 noundef 0) #3
+  %336 = load i32, ptr @hf_flexray_supercycle_counter, align 4
+  %337 = call ptr @proto_tree_add_item(ptr noundef %331, i32 noundef %336, ptr noundef %0, i32 noundef 28, i32 noundef 4, i32 noundef 0) #3
   %338 = call i32 @tvb_captured_length(ptr noundef %0) #3
-  br label %346
+  br label %dissect_ebhscr_flexray.exit
 
-339:                                              ; preds = %64
-  %340 = load i32, ptr @hf_ebhscr_status, align 4
-  %341 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %340, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #3
-  %342 = load i32, ptr @hf_ebhscr_mjr_hdr, align 4
-  %343 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %342, ptr noundef %0, i32 noundef 24, i32 noundef 8, i32 noundef 0) #3
-  %344 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 32, i32 noundef %43) #3
-  %345 = call i32 @call_data_dissector(ptr noundef %344, ptr noundef nonnull %1, ptr noundef %2) #3
-  br label %346
+dissect_ebhscr_flexray.exit:                      ; preds = %dissect_ebhscr_flexray_frame_packet.exit.i, %dissect_ebhscr_flexray_symbol_packet.exit.i, %297, %319
+  %339 = call i32 @tvb_captured_length(ptr noundef %0) #3
+  br label %347
 
-346:                                              ; preds = %dissect_ebhscr_eth.exit, %dissect_ebhscr_ts.exit, %dissect_ebhscr_dio.exit, %339, %dissect_ebhscr_flexray.exit, %dissect_ebhscr_lin.exit, %dissect_ebhscr_nmea.exit, %dissect_ebhscr_can.exit
-  %347 = call i32 @tvb_captured_length(ptr noundef %0) #3
-  br label %348
+340:                                              ; preds = %64
+  %341 = load i32, ptr @hf_ebhscr_status, align 4
+  %342 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %341, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #3
+  %343 = load i32, ptr @hf_ebhscr_mjr_hdr, align 4
+  %344 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %343, ptr noundef %0, i32 noundef 24, i32 noundef 8, i32 noundef 0) #3
+  %345 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 32, i32 noundef %43) #3
+  %346 = call i32 @call_data_dissector(ptr noundef %345, ptr noundef nonnull %1, ptr noundef %2) #3
+  br label %347
 
-348:                                              ; preds = %346, %62, %18
-  %.0 = phi i32 [ %20, %18 ], [ %63, %62 ], [ %347, %346 ]
+347:                                              ; preds = %dissect_ebhscr_eth.exit, %dissect_ebhscr_ts.exit, %dissect_ebhscr_dio.exit, %340, %dissect_ebhscr_flexray.exit, %dissect_ebhscr_lin.exit, %dissect_ebhscr_nmea.exit, %dissect_ebhscr_can.exit
+  %348 = call i32 @tvb_captured_length(ptr noundef %0) #3
+  br label %349
+
+349:                                              ; preds = %347, %62, %18
+  %.0 = phi i32 [ %20, %18 ], [ %63, %62 ], [ %348, %347 ]
   ret i32 %.0
 }
 

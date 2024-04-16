@@ -6261,49 +6261,49 @@ define internal i32 @strncat_from_utf8_to_utf8(ptr noundef %0, ptr noundef %1, i
   br label %21
 
 21:                                               ; preds = %unicode_to_utf8.exit, %13
-  %.0105 = phi i32 [ undef, %13 ], [ %.4109, %unicode_to_utf8.exit ]
-  %.088 = phi ptr [ %1, %13 ], [ %295, %unicode_to_utf8.exit ]
-  %.083 = phi ptr [ %16, %13 ], [ %293, %unicode_to_utf8.exit ]
-  %.080 = phi ptr [ %20, %13 ], [ %.3164, %unicode_to_utf8.exit ]
+  %.0104 = phi i32 [ undef, %13 ], [ %.4108, %unicode_to_utf8.exit ]
+  %.088 = phi ptr [ %1, %13 ], [ %296, %unicode_to_utf8.exit ]
+  %.083 = phi ptr [ %16, %13 ], [ %294, %unicode_to_utf8.exit ]
+  %.080 = phi ptr [ %20, %13 ], [ %.3166, %unicode_to_utf8.exit ]
   %.074 = phi i32 [ 0, %13 ], [ %spec.select94, %unicode_to_utf8.exit ]
-  %.073 = phi i64 [ %2, %13 ], [ %296, %unicode_to_utf8.exit ]
+  %.073 = phi i64 [ %2, %13 ], [ %297, %unicode_to_utf8.exit ]
   %22 = icmp eq i64 %.073, 0
-  br i1 %22, label %utf8_to_unicode.exit.thread121, label %.lr.ph.preheader
+  br i1 %22, label %utf8_to_unicode.exit.thread126, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %21
   %23 = load i8, ptr %.088, align 1
   %24 = icmp eq i8 %23, 0
-  br i1 %24, label %utf8_to_unicode.exit.thread121, label %.lr.ph277
+  br i1 %24, label %utf8_to_unicode.exit.thread126, label %.lr.ph280
 
 .lr.ph:                                           ; preds = %utf8_to_unicode.exit.thread
-  %25 = load i8, ptr %119, align 1
+  %25 = load i8, ptr %120, align 1
   %26 = icmp eq i8 %25, 0
-  br i1 %26, label %utf8_to_unicode.exit.thread121, label %.lr.ph277, !llvm.loop !60
+  br i1 %26, label %utf8_to_unicode.exit.thread126, label %.lr.ph280, !llvm.loop !60
 
-.lr.ph277:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph280:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %27 = phi i8 [ %25, %.lr.ph ], [ %23, %.lr.ph.preheader ]
-  %.189171276 = phi ptr [ %119, %.lr.ph ], [ %.088, %.lr.ph.preheader ]
-  %.1172275 = phi i64 [ %120, %.lr.ph ], [ %.073, %.lr.ph.preheader ]
+  %.189173279 = phi ptr [ %120, %.lr.ph ], [ %.088, %.lr.ph.preheader ]
+  %.1174278 = phi i64 [ %121, %.lr.ph ], [ %.073, %.lr.ph.preheader ]
   %28 = zext i8 %27 to i32
   %29 = zext i8 %27 to i64
   %30 = getelementptr inbounds [256 x i8], ptr @_utf8_to_unicode.utf8_count, i64 0, i64 %29
   %31 = load i8, ptr %30, align 1
   %32 = sext i8 %31 to i32
-  %33 = trunc i64 %.1172275 to i32
+  %33 = trunc i64 %.1174278 to i32
   %34 = icmp slt i32 %33, %32
   br i1 %34, label %.preheader.i, label %40
 
-.preheader.i:                                     ; preds = %.lr.ph277
+.preheader.i:                                     ; preds = %.lr.ph280
   %35 = icmp sgt i32 %33, 1
   br i1 %35, label %.lr.ph93.preheader.i, label %_utf8_to_unicode.exit
 
 .lr.ph93.preheader.i:                             ; preds = %.preheader.i
-  %wide.trip.count103.i = and i64 %.1172275, 2147483647
+  %wide.trip.count103.i = and i64 %.1174278, 2147483647
   br label %.lr.ph93.i
 
 .lr.ph93.i:                                       ; preds = %39, %.lr.ph93.preheader.i
   %indvars.iv100.i = phi i64 [ 1, %.lr.ph93.preheader.i ], [ %indvars.iv.next101.i, %39 ]
-  %36 = getelementptr inbounds i8, ptr %.189171276, i64 %indvars.iv100.i
+  %36 = getelementptr inbounds i8, ptr %.189173279, i64 %indvars.iv100.i
   %37 = load i8, ptr %36, align 1
   %38 = and i8 %37, -64
   %.not83.i = icmp eq i8 %38, -128
@@ -6314,7 +6314,7 @@ define internal i32 @strncat_from_utf8_to_utf8(ptr noundef %0, ptr noundef %1, i
   %exitcond104.not.i = icmp eq i64 %indvars.iv.next101.i, %wide.trip.count103.i
   br i1 %exitcond104.not.i, label %_utf8_to_unicode.exit, label %.lr.ph93.i, !llvm.loop !61
 
-40:                                               ; preds = %.lr.ph277
+40:                                               ; preds = %.lr.ph280
   switch i8 %31, label %99 [
     i8 1, label %41
     i8 2, label %43
@@ -6327,12 +6327,12 @@ define internal i32 @strncat_from_utf8_to_utf8(ptr noundef %0, ptr noundef %1, i
   br label %utf8_to_unicode.exit.thread
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %.189171276, i64 1
+  %44 = getelementptr inbounds i8, ptr %.189173279, i64 1
   %45 = load i8, ptr %44, align 1
   %46 = zext i8 %45 to i32
   %47 = and i32 %46, 192
   %.not81.i = icmp eq i32 %47, 128
-  br i1 %.not81.i, label %48, label %utf8_to_unicode.exit.thread121
+  br i1 %.not81.i, label %48, label %utf8_to_unicode.exit.thread126
 
 48:                                               ; preds = %43
   %49 = shl nuw nsw i32 %28, 6
@@ -6342,20 +6342,20 @@ define internal i32 @strncat_from_utf8_to_utf8(ptr noundef %0, ptr noundef %1, i
   br label %utf8_to_unicode.exit.thread
 
 53:                                               ; preds = %40
-  %54 = getelementptr inbounds i8, ptr %.189171276, i64 1
+  %54 = getelementptr inbounds i8, ptr %.189173279, i64 1
   %55 = load i8, ptr %54, align 1
   %56 = sext i8 %55 to i32
   %57 = and i32 %56, 192
   %.not79.i = icmp eq i32 %57, 128
-  br i1 %.not79.i, label %58, label %utf8_to_unicode.exit.thread121
+  br i1 %.not79.i, label %58, label %utf8_to_unicode.exit.thread126
 
 58:                                               ; preds = %53
-  %59 = getelementptr inbounds i8, ptr %.189171276, i64 2
+  %59 = getelementptr inbounds i8, ptr %.189173279, i64 2
   %60 = load i8, ptr %59, align 1
   %61 = zext i8 %60 to i32
   %62 = and i32 %61, 192
   %.not80.i = icmp eq i32 %62, 128
-  br i1 %.not80.i, label %63, label %utf8_to_unicode.exit.thread121
+  br i1 %.not80.i, label %63, label %utf8_to_unicode.exit.thread126
 
 63:                                               ; preds = %58
   %64 = shl nuw nsw i32 %28, 12
@@ -6366,31 +6366,31 @@ define internal i32 @strncat_from_utf8_to_utf8(ptr noundef %0, ptr noundef %1, i
   %69 = and i32 %61, 63
   %70 = or disjoint i32 %69, %68
   %71 = icmp ult i32 %70, 2048
-  br i1 %71, label %utf8_to_unicode.exit.thread121, label %_utf8_to_unicode.exit.thread113
+  br i1 %71, label %utf8_to_unicode.exit.thread126, label %115
 
 72:                                               ; preds = %40
-  %73 = getelementptr inbounds i8, ptr %.189171276, i64 1
+  %73 = getelementptr inbounds i8, ptr %.189173279, i64 1
   %74 = load i8, ptr %73, align 1
   %75 = sext i8 %74 to i32
   %76 = and i32 %75, 192
   %.not.i = icmp eq i32 %76, 128
-  br i1 %.not.i, label %77, label %utf8_to_unicode.exit.thread121
+  br i1 %.not.i, label %77, label %utf8_to_unicode.exit.thread126
 
 77:                                               ; preds = %72
-  %78 = getelementptr inbounds i8, ptr %.189171276, i64 2
+  %78 = getelementptr inbounds i8, ptr %.189173279, i64 2
   %79 = load i8, ptr %78, align 1
   %80 = sext i8 %79 to i32
   %81 = and i32 %80, 192
   %.not77.i = icmp eq i32 %81, 128
-  br i1 %.not77.i, label %82, label %utf8_to_unicode.exit.thread121
+  br i1 %.not77.i, label %82, label %utf8_to_unicode.exit.thread126
 
 82:                                               ; preds = %77
-  %83 = getelementptr inbounds i8, ptr %.189171276, i64 3
+  %83 = getelementptr inbounds i8, ptr %.189173279, i64 3
   %84 = load i8, ptr %83, align 1
   %85 = zext i8 %84 to i32
   %86 = and i32 %85, 192
   %.not78.i = icmp eq i32 %86, 128
-  br i1 %.not78.i, label %87, label %utf8_to_unicode.exit.thread121
+  br i1 %.not78.i, label %87, label %utf8_to_unicode.exit.thread126
 
 87:                                               ; preds = %82
   %88 = shl nuw nsw i32 %28, 18
@@ -6405,17 +6405,17 @@ define internal i32 @strncat_from_utf8_to_utf8(ptr noundef %0, ptr noundef %1, i
   %97 = or disjoint i32 %96, %92
   %98 = add nsw i32 %92, -1114112
   %or.cond86.i = icmp ult i32 %98, -1048576
-  br i1 %or.cond86.i, label %utf8_to_unicode.exit.thread121, label %utf8_to_unicode.exit.thread
+  br i1 %or.cond86.i, label %utf8_to_unicode.exit.thread126, label %utf8_to_unicode.exit.thread
 
 99:                                               ; preds = %40
   %100 = and i8 %27, -2
-  %or.cond.i99 = icmp eq i8 %100, -64
-  br i1 %or.cond.i99, label %106, label %101
+  %or.cond.i98 = icmp eq i8 %100, -64
+  br i1 %or.cond.i98, label %106, label %101
 
 101:                                              ; preds = %99
   %102 = add i8 %27, 11
-  %or.cond3.i100 = icmp ult i8 %102, 3
-  br i1 %or.cond3.i100, label %106, label %103
+  %or.cond3.i99 = icmp ult i8 %102, 3
+  br i1 %or.cond3.i99, label %106, label %103
 
 103:                                              ; preds = %101
   %104 = and i8 %27, -4
@@ -6423,23 +6423,23 @@ define internal i32 @strncat_from_utf8_to_utf8(ptr noundef %0, ptr noundef %1, i
   br i1 %or.cond5.i, label %106, label %105
 
 105:                                              ; preds = %103
-  %or.cond7.i101 = icmp eq i8 %100, -4
-  %..i = select i1 %or.cond7.i101, i32 6, i32 1
+  %or.cond7.i100 = icmp eq i8 %100, -4
+  %..i = select i1 %or.cond7.i100, i32 6, i32 1
   br label %106
 
 106:                                              ; preds = %105, %103, %101, %99
   %.066.i = phi i32 [ 2, %99 ], [ 4, %101 ], [ 5, %103 ], [ %..i, %105 ]
-  %spec.select.i102 = tail call i32 @llvm.smin.i32(i32 %.066.i, i32 %33)
-  %107 = icmp sgt i32 %spec.select.i102, 1
+  %spec.select.i101 = tail call i32 @llvm.smin.i32(i32 %.066.i, i32 %33)
+  %107 = icmp sgt i32 %spec.select.i101, 1
   br i1 %107, label %.lr.ph.preheader.i, label %_utf8_to_unicode.exit
 
 .lr.ph.preheader.i:                               ; preds = %106
-  %wide.trip.count.i = zext nneg i32 %spec.select.i102 to i64
+  %wide.trip.count.i = zext nneg i32 %spec.select.i101 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %111, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %111 ]
-  %108 = getelementptr inbounds i8, ptr %.189171276, i64 %indvars.iv.i
+  %108 = getelementptr inbounds i8, ptr %.189173279, i64 %indvars.iv.i
   %109 = load i8, ptr %108, align 1
   %110 = and i8 %109, -64
   %.not82.i = icmp eq i8 %110, -128
@@ -6459,361 +6459,362 @@ define internal i32 @strncat_from_utf8_to_utf8(ptr noundef %0, ptr noundef %1, i
   br label %_utf8_to_unicode.exit
 
 _utf8_to_unicode.exit:                            ; preds = %111, %39, %.preheader.i, %106, %.loopexit.loopexit.split.loop.exit.i, %.loopexit.loopexit105.split.loop.exit.i
-  %.2.i = phi i32 [ %33, %.preheader.i ], [ %spec.select.i102, %106 ], [ %112, %.loopexit.loopexit.split.loop.exit.i ], [ %113, %.loopexit.loopexit105.split.loop.exit.i ], [ %33, %39 ], [ %spec.select.i102, %111 ]
+  %.2.i = phi i32 [ %33, %.preheader.i ], [ %spec.select.i101, %106 ], [ %112, %.loopexit.loopexit.split.loop.exit.i ], [ %113, %.loopexit.loopexit105.split.loop.exit.i ], [ %33, %39 ], [ %spec.select.i101, %111 ]
   %114 = icmp eq i32 %.2.i, -3
   br i1 %114, label %utf8_to_unicode.exit.thread, label %utf8_to_unicode.exit
 
-_utf8_to_unicode.exit.thread113:                  ; preds = %63
-  %115 = and i32 %68, 63488
-  %or.cond.i = icmp eq i32 %115, 55296
-  br i1 %or.cond.i, label %utf8_to_unicode.exit.thread121, label %utf8_to_unicode.exit.thread
+115:                                              ; preds = %63
+  %116 = and i32 %68, 63488
+  %or.cond.i = icmp eq i32 %116, 55296
+  br i1 %or.cond.i, label %utf8_to_unicode.exit.thread126, label %utf8_to_unicode.exit.thread
 
 utf8_to_unicode.exit:                             ; preds = %_utf8_to_unicode.exit
-  %116 = sub nsw i32 0, %.2.i
-  %117 = icmp slt i32 %.2.i, 0
-  br i1 %117, label %utf8_to_unicode.exit.thread, label %utf8_to_unicode.exit.thread121
+  %117 = sub nsw i32 0, %.2.i
+  %118 = icmp slt i32 %.2.i, 0
+  br i1 %118, label %utf8_to_unicode.exit.thread, label %utf8_to_unicode.exit.thread126
 
-utf8_to_unicode.exit.thread:                      ; preds = %48, %41, %87, %_utf8_to_unicode.exit, %_utf8_to_unicode.exit.thread113, %utf8_to_unicode.exit
-  %.0.i120 = phi i32 [ %116, %utf8_to_unicode.exit ], [ 3, %_utf8_to_unicode.exit.thread113 ], [ 3, %_utf8_to_unicode.exit ], [ 2, %48 ], [ 1, %41 ], [ 4, %87 ]
-  %.2107112119 = phi i32 [ 65533, %utf8_to_unicode.exit ], [ %70, %_utf8_to_unicode.exit.thread113 ], [ 65533, %_utf8_to_unicode.exit ], [ %52, %48 ], [ %42, %41 ], [ %97, %87 ]
-  %118 = zext nneg i32 %.0.i120 to i64
-  %119 = getelementptr inbounds i8, ptr %.189171276, i64 %118
-  %120 = sub i64 %.1172275, %118
-  %121 = icmp eq i64 %120, 0
-  br i1 %121, label %utf8_to_unicode.exit.thread121, label %.lr.ph, !llvm.loop !60
+utf8_to_unicode.exit.thread:                      ; preds = %48, %41, %87, %115, %_utf8_to_unicode.exit, %utf8_to_unicode.exit
+  %.0.i125 = phi i32 [ %117, %utf8_to_unicode.exit ], [ 3, %_utf8_to_unicode.exit ], [ 3, %115 ], [ 2, %48 ], [ 1, %41 ], [ 4, %87 ]
+  %.2106112124 = phi i32 [ 65533, %utf8_to_unicode.exit ], [ 65533, %_utf8_to_unicode.exit ], [ %70, %115 ], [ %52, %48 ], [ %42, %41 ], [ %97, %87 ]
+  %119 = zext nneg i32 %.0.i125 to i64
+  %120 = getelementptr inbounds i8, ptr %.189173279, i64 %119
+  %121 = sub i64 %.1174278, %119
+  %122 = icmp eq i64 %121, 0
+  br i1 %122, label %utf8_to_unicode.exit.thread126, label %.lr.ph, !llvm.loop !60
 
-utf8_to_unicode.exit.thread121:                   ; preds = %utf8_to_unicode.exit.thread, %.lr.ph, %_utf8_to_unicode.exit.thread113, %utf8_to_unicode.exit, %87, %63, %43, %53, %58, %72, %77, %82, %.lr.ph.preheader, %21
-  %.189.lcssa = phi ptr [ %.088, %21 ], [ %.088, %.lr.ph.preheader ], [ %.189171276, %utf8_to_unicode.exit ], [ %.189171276, %_utf8_to_unicode.exit.thread113 ], [ %119, %.lr.ph ], [ %119, %utf8_to_unicode.exit.thread ], [ %.189171276, %87 ], [ %.189171276, %63 ], [ %.189171276, %43 ], [ %.189171276, %53 ], [ %.189171276, %58 ], [ %.189171276, %72 ], [ %.189171276, %77 ], [ %.189171276, %82 ]
-  %.1.lcssa = phi i64 [ 0, %21 ], [ %.073, %.lr.ph.preheader ], [ %.1172275, %utf8_to_unicode.exit ], [ %.1172275, %_utf8_to_unicode.exit.thread113 ], [ %120, %.lr.ph ], [ 0, %utf8_to_unicode.exit.thread ], [ %.1172275, %87 ], [ %.1172275, %63 ], [ %.1172275, %43 ], [ %.1172275, %53 ], [ %.1172275, %58 ], [ %.1172275, %72 ], [ %.1172275, %77 ], [ %.1172275, %82 ]
-  %.0.i125 = phi i32 [ 0, %21 ], [ 0, %.lr.ph.preheader ], [ %116, %utf8_to_unicode.exit ], [ -3, %_utf8_to_unicode.exit.thread113 ], [ 0, %.lr.ph ], [ 0, %utf8_to_unicode.exit.thread ], [ -4, %87 ], [ -3, %63 ], [ -1, %43 ], [ -1, %53 ], [ -2, %58 ], [ -1, %72 ], [ -2, %77 ], [ -3, %82 ]
-  %.2107112124 = phi i32 [ %.0105, %21 ], [ %.0105, %.lr.ph.preheader ], [ 65533, %utf8_to_unicode.exit ], [ %70, %_utf8_to_unicode.exit.thread113 ], [ %.2107112119, %.lr.ph ], [ %.2107112119, %utf8_to_unicode.exit.thread ], [ 65533, %87 ], [ 65533, %63 ], [ 65533, %43 ], [ 65533, %53 ], [ 65533, %58 ], [ 65533, %72 ], [ 65533, %77 ], [ 65533, %82 ]
-  %122 = icmp ult ptr %.088, %.189.lcssa
-  br i1 %122, label %123, label %148
+utf8_to_unicode.exit.thread126:                   ; preds = %utf8_to_unicode.exit.thread, %.lr.ph, %115, %utf8_to_unicode.exit, %87, %63, %43, %53, %58, %72, %77, %82, %.lr.ph.preheader, %21
+  %.189.lcssa = phi ptr [ %.088, %21 ], [ %.088, %.lr.ph.preheader ], [ %.189173279, %utf8_to_unicode.exit ], [ %.189173279, %115 ], [ %120, %.lr.ph ], [ %120, %utf8_to_unicode.exit.thread ], [ %.189173279, %87 ], [ %.189173279, %63 ], [ %.189173279, %43 ], [ %.189173279, %53 ], [ %.189173279, %58 ], [ %.189173279, %72 ], [ %.189173279, %77 ], [ %.189173279, %82 ]
+  %.1.lcssa = phi i64 [ 0, %21 ], [ %.073, %.lr.ph.preheader ], [ %.1174278, %utf8_to_unicode.exit ], [ %.1174278, %115 ], [ %121, %.lr.ph ], [ 0, %utf8_to_unicode.exit.thread ], [ %.1174278, %87 ], [ %.1174278, %63 ], [ %.1174278, %43 ], [ %.1174278, %53 ], [ %.1174278, %58 ], [ %.1174278, %72 ], [ %.1174278, %77 ], [ %.1174278, %82 ]
+  %.0.i130 = phi i32 [ 0, %21 ], [ 0, %.lr.ph.preheader ], [ %117, %utf8_to_unicode.exit ], [ -3, %115 ], [ 0, %.lr.ph ], [ 0, %utf8_to_unicode.exit.thread ], [ -4, %87 ], [ -3, %63 ], [ -1, %43 ], [ -1, %53 ], [ -2, %58 ], [ -1, %72 ], [ -2, %77 ], [ -3, %82 ]
+  %.2106112129 = phi i32 [ %.0104, %21 ], [ %.0104, %.lr.ph.preheader ], [ 65533, %utf8_to_unicode.exit ], [ %70, %115 ], [ %.2106112124, %.lr.ph ], [ %.2106112124, %utf8_to_unicode.exit.thread ], [ 65533, %87 ], [ 65533, %63 ], [ 65533, %43 ], [ 65533, %53 ], [ 65533, %58 ], [ 65533, %72 ], [ 65533, %77 ], [ 65533, %82 ]
+  %123 = icmp ult ptr %.088, %.189.lcssa
+  br i1 %123, label %124, label %149
 
-123:                                              ; preds = %utf8_to_unicode.exit.thread121
-  %124 = ptrtoint ptr %.189.lcssa to i64
-  %125 = ptrtoint ptr %.088 to i64
-  %126 = sub i64 %124, %125
-  %127 = getelementptr inbounds i8, ptr %.083, i64 %126
-  %128 = icmp ugt ptr %127, %.080
-  br i1 %128, label %129, label %146
+124:                                              ; preds = %utf8_to_unicode.exit.thread126
+  %125 = ptrtoint ptr %.189.lcssa to i64
+  %126 = ptrtoint ptr %.088 to i64
+  %127 = sub i64 %125, %126
+  %128 = getelementptr inbounds i8, ptr %.083, i64 %127
+  %129 = icmp ugt ptr %128, %.080
+  br i1 %129, label %130, label %147
 
-129:                                              ; preds = %123
-  %130 = load ptr, ptr %0, align 8
-  %131 = ptrtoint ptr %.083 to i64
-  %132 = ptrtoint ptr %130 to i64
-  %133 = sub i64 %131, %132
-  store i64 %133, ptr %7, align 8
-  %134 = load i64, ptr %17, align 8
-  %135 = add i64 %.1.lcssa, 1
-  %136 = add i64 %135, %134
-  %137 = tail call ptr @archive_string_ensure(ptr noundef nonnull %0, i64 noundef %136)
-  %138 = icmp eq ptr %137, null
-  br i1 %138, label %.loopexit, label %139
+130:                                              ; preds = %124
+  %131 = load ptr, ptr %0, align 8
+  %132 = ptrtoint ptr %.083 to i64
+  %133 = ptrtoint ptr %131 to i64
+  %134 = sub i64 %132, %133
+  store i64 %134, ptr %7, align 8
+  %135 = load i64, ptr %17, align 8
+  %136 = add i64 %.1.lcssa, 1
+  %137 = add i64 %136, %135
+  %138 = tail call ptr @archive_string_ensure(ptr noundef nonnull %0, i64 noundef %137)
+  %139 = icmp eq ptr %138, null
+  br i1 %139, label %.loopexit, label %140
 
-139:                                              ; preds = %129
-  %140 = load ptr, ptr %0, align 8
-  %141 = load i64, ptr %7, align 8
-  %142 = getelementptr inbounds i8, ptr %140, i64 %141
-  %143 = load i64, ptr %17, align 8
-  %144 = getelementptr inbounds i8, ptr %140, i64 %143
-  %145 = getelementptr inbounds i8, ptr %144, i64 -1
-  br label %146
+140:                                              ; preds = %130
+  %141 = load ptr, ptr %0, align 8
+  %142 = load i64, ptr %7, align 8
+  %143 = getelementptr inbounds i8, ptr %141, i64 %142
+  %144 = load i64, ptr %17, align 8
+  %145 = getelementptr inbounds i8, ptr %141, i64 %144
+  %146 = getelementptr inbounds i8, ptr %145, i64 -1
+  br label %147
 
-146:                                              ; preds = %139, %123
-  %.184 = phi ptr [ %142, %139 ], [ %.083, %123 ]
-  %.181 = phi ptr [ %145, %139 ], [ %.080, %123 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.184, ptr align 1 %.088, i64 %126, i1 false)
-  %147 = getelementptr inbounds i8, ptr %.184, i64 %126
-  br label %148
+147:                                              ; preds = %140, %124
+  %.184 = phi ptr [ %143, %140 ], [ %.083, %124 ]
+  %.181 = phi ptr [ %146, %140 ], [ %.080, %124 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.184, ptr align 1 %.088, i64 %127, i1 false)
+  %148 = getelementptr inbounds i8, ptr %.184, i64 %127
+  br label %149
 
-148:                                              ; preds = %146, %utf8_to_unicode.exit.thread121
-  %.285 = phi ptr [ %147, %146 ], [ %.083, %utf8_to_unicode.exit.thread121 ]
-  %.282 = phi ptr [ %.181, %146 ], [ %.080, %utf8_to_unicode.exit.thread121 ]
-  %149 = icmp slt i32 %.0.i125, 0
-  br i1 %149, label %150, label %.thread
+149:                                              ; preds = %147, %utf8_to_unicode.exit.thread126
+  %.285 = phi ptr [ %148, %147 ], [ %.083, %utf8_to_unicode.exit.thread126 ]
+  %.282 = phi ptr [ %.181, %147 ], [ %.080, %utf8_to_unicode.exit.thread126 ]
+  %150 = icmp slt i32 %.0.i130, 0
+  br i1 %150, label %151, label %.thread132
 
-150:                                              ; preds = %148
-  %151 = icmp eq i32 %.0.i125, -3
-  %152 = and i32 %.2107112124, -2048
-  %153 = icmp eq i32 %152, 55296
-  %or.cond3 = select i1 %151, i1 %153, i1 false
-  br i1 %or.cond3, label %154, label %178
+151:                                              ; preds = %149
+  %152 = icmp eq i32 %.0.i130, -3
+  %153 = and i32 %.2106112129, -2048
+  %154 = icmp eq i32 %153, 55296
+  %or.cond3 = select i1 %152, i1 %154, i1 false
+  br i1 %or.cond3, label %155, label %179
 
-154:                                              ; preds = %150
+155:                                              ; preds = %151
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store i32 0, ptr %5, align 4
-  %155 = call fastcc i32 @_utf8_to_unicode(ptr noundef nonnull %5, ptr noundef %.189.lcssa, i64 noundef %.1.lcssa), !range !17
-  %156 = icmp eq i32 %155, 3
-  %157 = load i32, ptr %5, align 4
-  %158 = and i32 %157, -1024
-  %159 = icmp eq i32 %158, 55296
-  %or.cond3.i = select i1 %156, i1 %159, i1 false
-  br i1 %or.cond3.i, label %160, label %174
+  %156 = call fastcc i32 @_utf8_to_unicode(ptr noundef nonnull %5, ptr noundef %.189.lcssa, i64 noundef %.1.lcssa), !range !17
+  %157 = icmp eq i32 %156, 3
+  %158 = load i32, ptr %5, align 4
+  %159 = and i32 %158, -1024
+  %160 = icmp eq i32 %159, 55296
+  %or.cond3.i = select i1 %157, i1 %160, i1 false
+  br i1 %or.cond3.i, label %161, label %175
 
-160:                                              ; preds = %154
+161:                                              ; preds = %155
   store i32 0, ptr %6, align 4
-  %161 = add i64 %.1.lcssa, -3
-  %162 = icmp ult i64 %161, 3
-  br i1 %162, label %cesu8_to_unicode.exit, label %163
+  %162 = add i64 %.1.lcssa, -3
+  %163 = icmp ult i64 %162, 3
+  br i1 %163, label %.thread.i, label %164
 
-163:                                              ; preds = %160
-  %164 = getelementptr inbounds i8, ptr %.189.lcssa, i64 3
-  %165 = call fastcc i32 @_utf8_to_unicode(ptr noundef nonnull %6, ptr noundef nonnull %164, i64 noundef %161), !range !17
-  %.fr.i = freeze i32 %165
-  %166 = icmp eq i32 %.fr.i, 3
-  %167 = load i32, ptr %6, align 4
-  %168 = and i32 %167, -1024
-  %169 = icmp eq i32 %168, 56320
-  %or.cond7.i = select i1 %166, i1 %169, i1 false
-  br i1 %or.cond7.i, label %170, label %176
+164:                                              ; preds = %161
+  %165 = getelementptr inbounds i8, ptr %.189.lcssa, i64 3
+  %166 = call fastcc i32 @_utf8_to_unicode(ptr noundef nonnull %6, ptr noundef nonnull %165, i64 noundef %162), !range !17
+  %.fr.i = freeze i32 %166
+  %167 = icmp eq i32 %.fr.i, 3
+  %168 = load i32, ptr %6, align 4
+  %169 = and i32 %168, -1024
+  %170 = icmp eq i32 %169, 56320
+  %or.cond7.i = select i1 %167, i1 %170, i1 false
+  br i1 %or.cond7.i, label %171, label %177
 
-170:                                              ; preds = %163
-  %171 = shl nuw nsw i32 %157, 10
-  %172 = add nsw i32 %171, -56613888
-  %173 = add nuw nsw i32 %172, %167
+171:                                              ; preds = %164
+  %172 = shl nuw nsw i32 %158, 10
+  %173 = add nsw i32 %172, -56613888
+  %174 = add nuw nsw i32 %173, %168
   br label %cesu8_to_unicode.exit
 
-174:                                              ; preds = %154
-  %175 = icmp eq i32 %158, 56320
-  %or.cond11.i = select i1 %156, i1 %175, i1 false
-  %spec.select146 = select i1 %or.cond11.i, i32 65533, i32 %157
-  %spec.select147 = select i1 %or.cond11.i, i32 -3, i32 %155
+175:                                              ; preds = %155
+  %176 = icmp eq i32 %159, 56320
+  %or.cond11.i = select i1 %157, i1 %176, i1 false
+  br i1 %or.cond11.i, label %.thread.i, label %cesu8_to_unicode.exit
+
+.thread.i:                                        ; preds = %175, %161
   br label %cesu8_to_unicode.exit
 
-176:                                              ; preds = %163
-  %177 = tail call i32 @llvm.abs.i32(i32 %.fr.i, i1 false)
-  %spec.select.i96 = sub i32 0, %177
+177:                                              ; preds = %164
+  %178 = tail call i32 @llvm.abs.i32(i32 %.fr.i, i1 false)
+  %spec.select.i = sub i32 0, %178
   br label %cesu8_to_unicode.exit
 
-cesu8_to_unicode.exit:                            ; preds = %174, %160, %170, %176
-  %.3108 = phi i32 [ 65533, %176 ], [ %173, %170 ], [ 65533, %160 ], [ %spec.select146, %174 ]
-  %.025.i = phi i32 [ %spec.select.i96, %176 ], [ 6, %170 ], [ -3, %160 ], [ %spec.select147, %174 ]
+cesu8_to_unicode.exit:                            ; preds = %171, %175, %.thread.i, %177
+  %.3107 = phi i32 [ 65533, %.thread.i ], [ 65533, %177 ], [ %174, %171 ], [ %158, %175 ]
+  %.025.i = phi i32 [ -3, %.thread.i ], [ %spec.select.i, %177 ], [ 6, %171 ], [ %156, %175 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  br label %178
+  br label %179
 
-178:                                              ; preds = %cesu8_to_unicode.exit, %150
-  %.4109 = phi i32 [ %.3108, %cesu8_to_unicode.exit ], [ %.2107112124, %150 ]
-  %.077 = phi i32 [ %.025.i, %cesu8_to_unicode.exit ], [ %.0.i125, %150 ]
+179:                                              ; preds = %cesu8_to_unicode.exit, %151
+  %.4108 = phi i32 [ %.3107, %cesu8_to_unicode.exit ], [ %.2106112129, %151 ]
+  %.077 = phi i32 [ %.025.i, %cesu8_to_unicode.exit ], [ %.0.i130, %151 ]
   %spec.select = tail call i32 @llvm.abs.i32(i32 %.077, i1 true)
   %.inv = icmp sgt i32 %.077, -1
   %spec.select94 = select i1 %.inv, i32 %.074, i32 -1
-  %179 = icmp ugt i32 %.4109, 1114111
-  %spec.store.select.i = select i1 %179, i32 65533, i32 %.4109
-  %180 = icmp ult i32 %spec.store.select.i, 128
-  %181 = icmp ult i32 %spec.store.select.i, 65536
-  %182 = add i64 %.1.lcssa, 1
-  br i1 %180, label %.split.us, label %.split
+  %180 = icmp ugt i32 %.4108, 1114111
+  %spec.store.select.i = select i1 %180, i32 65533, i32 %.4108
+  %181 = icmp ult i32 %spec.store.select.i, 128
+  %182 = icmp ult i32 %spec.store.select.i, 65536
+  %183 = add i64 %.1.lcssa, 1
+  br i1 %181, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %178
-  %183 = ptrtoint ptr %.285 to i64
-  %184 = icmp eq ptr %.282, %.285
-  br i1 %184, label %unicode_to_utf8.exit.thread.us.preheader, label %.split190.us
+.split.us:                                        ; preds = %179
+  %184 = ptrtoint ptr %.285 to i64
+  %185 = icmp eq ptr %.282, %.285
+  br i1 %185, label %unicode_to_utf8.exit.thread.us.preheader, label %.split193.us
 
 unicode_to_utf8.exit.thread.us.preheader:         ; preds = %.split.us
-  %.pre229 = load ptr, ptr %0, align 8
-  %.pre230 = load i64, ptr %17, align 8
+  %.pre232 = load ptr, ptr %0, align 8
+  %.pre233 = load i64, ptr %17, align 8
   br label %unicode_to_utf8.exit.thread.us
 
-unicode_to_utf8.exit.thread.us:                   ; preds = %unicode_to_utf8.exit.thread.us.preheader, %193
-  %185 = phi i64 [ %197, %193 ], [ %.pre230, %unicode_to_utf8.exit.thread.us.preheader ]
-  %186 = phi ptr [ %194, %193 ], [ %.pre229, %unicode_to_utf8.exit.thread.us.preheader ]
-  %187 = phi i64 [ %200, %193 ], [ %183, %unicode_to_utf8.exit.thread.us.preheader ]
-  %188 = ptrtoint ptr %186 to i64
-  %189 = sub i64 %187, %188
-  store i64 %189, ptr %7, align 8
-  %190 = add i64 %182, %185
-  %191 = tail call ptr @archive_string_ensure(ptr noundef nonnull %0, i64 noundef %190)
-  %192 = icmp eq ptr %191, null
-  br i1 %192, label %.loopexit, label %193
+unicode_to_utf8.exit.thread.us:                   ; preds = %unicode_to_utf8.exit.thread.us.preheader, %194
+  %186 = phi i64 [ %198, %194 ], [ %.pre233, %unicode_to_utf8.exit.thread.us.preheader ]
+  %187 = phi ptr [ %195, %194 ], [ %.pre232, %unicode_to_utf8.exit.thread.us.preheader ]
+  %188 = phi i64 [ %201, %194 ], [ %184, %unicode_to_utf8.exit.thread.us.preheader ]
+  %189 = ptrtoint ptr %187 to i64
+  %190 = sub i64 %188, %189
+  store i64 %190, ptr %7, align 8
+  %191 = add i64 %183, %186
+  %192 = tail call ptr @archive_string_ensure(ptr noundef nonnull %0, i64 noundef %191)
+  %193 = icmp eq ptr %192, null
+  br i1 %193, label %.loopexit, label %194
 
-193:                                              ; preds = %unicode_to_utf8.exit.thread.us
-  %194 = load ptr, ptr %0, align 8
-  %195 = load i64, ptr %7, align 8
-  %196 = getelementptr inbounds i8, ptr %194, i64 %195
-  %197 = load i64, ptr %17, align 8
-  %198 = getelementptr inbounds i8, ptr %194, i64 %197
-  %199 = getelementptr inbounds i8, ptr %198, i64 -1
-  %200 = ptrtoint ptr %196 to i64
-  %201 = icmp eq ptr %199, %196
-  br i1 %201, label %unicode_to_utf8.exit.thread.us, label %.split190.us, !llvm.loop !63
+194:                                              ; preds = %unicode_to_utf8.exit.thread.us
+  %195 = load ptr, ptr %0, align 8
+  %196 = load i64, ptr %7, align 8
+  %197 = getelementptr inbounds i8, ptr %195, i64 %196
+  %198 = load i64, ptr %17, align 8
+  %199 = getelementptr inbounds i8, ptr %195, i64 %198
+  %200 = getelementptr inbounds i8, ptr %199, i64 -1
+  %201 = ptrtoint ptr %197 to i64
+  %202 = icmp eq ptr %200, %197
+  br i1 %202, label %unicode_to_utf8.exit.thread.us, label %.split193.us, !llvm.loop !63
 
-.split190.us:                                     ; preds = %193, %.split.us
-  %.386.lcssa167.us = phi ptr [ %.285, %.split.us ], [ %196, %193 ]
-  %.3.lcssa162.us = phi ptr [ %.282, %.split.us ], [ %199, %193 ]
-  %.lcssa158.us = phi i64 [ %183, %.split.us ], [ %200, %193 ]
-  %202 = trunc nuw nsw i32 %spec.store.select.i to i8
-  %203 = getelementptr inbounds i8, ptr %.386.lcssa167.us, i64 1
-  store i8 %202, ptr %.386.lcssa167.us, align 1
+.split193.us:                                     ; preds = %194, %.split.us
+  %.386.lcssa169.us = phi ptr [ %.285, %.split.us ], [ %197, %194 ]
+  %.3.lcssa164.us = phi ptr [ %.282, %.split.us ], [ %200, %194 ]
+  %.lcssa160.us = phi i64 [ %184, %.split.us ], [ %201, %194 ]
+  %203 = trunc nuw nsw i32 %spec.store.select.i to i8
+  %204 = getelementptr inbounds i8, ptr %.386.lcssa169.us, i64 1
+  store i8 %203, ptr %.386.lcssa169.us, align 1
   br label %unicode_to_utf8.exit
 
-.split:                                           ; preds = %178
-  %204 = icmp ult i32 %spec.store.select.i, 2048
-  br i1 %204, label %.split.split.us, label %.split.split
+.split:                                           ; preds = %179
+  %205 = icmp ult i32 %spec.store.select.i, 2048
+  br i1 %205, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split
-  %205 = ptrtoint ptr %.282 to i64
-  %206 = ptrtoint ptr %.285 to i64
-  %207 = sub i64 %205, %206
-  %208 = icmp ult i64 %207, 2
-  br i1 %208, label %unicode_to_utf8.exit.thread.us196.preheader, label %.split198.us
+  %206 = ptrtoint ptr %.282 to i64
+  %207 = ptrtoint ptr %.285 to i64
+  %208 = sub i64 %206, %207
+  %209 = icmp ult i64 %208, 2
+  br i1 %209, label %unicode_to_utf8.exit.thread.us199.preheader, label %.split201.us
 
-unicode_to_utf8.exit.thread.us196.preheader:      ; preds = %.split.split.us
+unicode_to_utf8.exit.thread.us199.preheader:      ; preds = %.split.split.us
   %.pre = load ptr, ptr %0, align 8
-  %.pre228 = load i64, ptr %17, align 8
-  br label %unicode_to_utf8.exit.thread.us196
+  %.pre231 = load i64, ptr %17, align 8
+  br label %unicode_to_utf8.exit.thread.us199
 
-unicode_to_utf8.exit.thread.us196:                ; preds = %unicode_to_utf8.exit.thread.us196.preheader, %217
-  %209 = phi i64 [ %221, %217 ], [ %.pre228, %unicode_to_utf8.exit.thread.us196.preheader ]
-  %210 = phi ptr [ %218, %217 ], [ %.pre, %unicode_to_utf8.exit.thread.us196.preheader ]
-  %211 = phi i64 [ %225, %217 ], [ %206, %unicode_to_utf8.exit.thread.us196.preheader ]
-  %212 = ptrtoint ptr %210 to i64
-  %213 = sub i64 %211, %212
-  store i64 %213, ptr %7, align 8
-  %214 = add i64 %182, %209
-  %215 = tail call ptr @archive_string_ensure(ptr noundef nonnull %0, i64 noundef %214)
-  %216 = icmp eq ptr %215, null
-  br i1 %216, label %.loopexit, label %217
+unicode_to_utf8.exit.thread.us199:                ; preds = %unicode_to_utf8.exit.thread.us199.preheader, %218
+  %210 = phi i64 [ %222, %218 ], [ %.pre231, %unicode_to_utf8.exit.thread.us199.preheader ]
+  %211 = phi ptr [ %219, %218 ], [ %.pre, %unicode_to_utf8.exit.thread.us199.preheader ]
+  %212 = phi i64 [ %226, %218 ], [ %207, %unicode_to_utf8.exit.thread.us199.preheader ]
+  %213 = ptrtoint ptr %211 to i64
+  %214 = sub i64 %212, %213
+  store i64 %214, ptr %7, align 8
+  %215 = add i64 %183, %210
+  %216 = tail call ptr @archive_string_ensure(ptr noundef nonnull %0, i64 noundef %215)
+  %217 = icmp eq ptr %216, null
+  br i1 %217, label %.loopexit, label %218
 
-217:                                              ; preds = %unicode_to_utf8.exit.thread.us196
-  %218 = load ptr, ptr %0, align 8
-  %219 = load i64, ptr %7, align 8
-  %220 = getelementptr inbounds i8, ptr %218, i64 %219
-  %221 = load i64, ptr %17, align 8
-  %222 = getelementptr inbounds i8, ptr %218, i64 %221
-  %223 = getelementptr inbounds i8, ptr %222, i64 -1
-  %224 = ptrtoint ptr %223 to i64
-  %225 = ptrtoint ptr %220 to i64
-  %226 = sub i64 %224, %225
-  %227 = icmp ult i64 %226, 2
-  br i1 %227, label %unicode_to_utf8.exit.thread.us196, label %.split198.us, !llvm.loop !63
+218:                                              ; preds = %unicode_to_utf8.exit.thread.us199
+  %219 = load ptr, ptr %0, align 8
+  %220 = load i64, ptr %7, align 8
+  %221 = getelementptr inbounds i8, ptr %219, i64 %220
+  %222 = load i64, ptr %17, align 8
+  %223 = getelementptr inbounds i8, ptr %219, i64 %222
+  %224 = getelementptr inbounds i8, ptr %223, i64 -1
+  %225 = ptrtoint ptr %224 to i64
+  %226 = ptrtoint ptr %221 to i64
+  %227 = sub i64 %225, %226
+  %228 = icmp ult i64 %227, 2
+  br i1 %228, label %unicode_to_utf8.exit.thread.us199, label %.split201.us, !llvm.loop !63
 
-.split198.us:                                     ; preds = %217, %.split.split.us
-  %.386.lcssa166.us = phi ptr [ %.285, %.split.split.us ], [ %220, %217 ]
-  %.3.lcssa161.us = phi ptr [ %.282, %.split.split.us ], [ %223, %217 ]
-  %.lcssa157.us = phi i64 [ %206, %.split.split.us ], [ %225, %217 ]
-  %228 = lshr i32 %spec.store.select.i, 6
-  %229 = trunc nuw i32 %228 to i8
-  %230 = or disjoint i8 %229, -64
-  %231 = getelementptr inbounds i8, ptr %.386.lcssa166.us, i64 1
-  store i8 %230, ptr %.386.lcssa166.us, align 1
-  %232 = trunc i32 %spec.store.select.i to i8
-  %233 = and i8 %232, 63
-  %234 = or disjoint i8 %233, -128
-  %235 = getelementptr inbounds i8, ptr %.386.lcssa166.us, i64 2
-  store i8 %234, ptr %231, align 1
+.split201.us:                                     ; preds = %218, %.split.split.us
+  %.386.lcssa168.us = phi ptr [ %.285, %.split.split.us ], [ %221, %218 ]
+  %.3.lcssa163.us = phi ptr [ %.282, %.split.split.us ], [ %224, %218 ]
+  %.lcssa159.us = phi i64 [ %207, %.split.split.us ], [ %226, %218 ]
+  %229 = lshr i32 %spec.store.select.i, 6
+  %230 = trunc nuw i32 %229 to i8
+  %231 = or disjoint i8 %230, -64
+  %232 = getelementptr inbounds i8, ptr %.386.lcssa168.us, i64 1
+  store i8 %231, ptr %.386.lcssa168.us, align 1
+  %233 = trunc i32 %spec.store.select.i to i8
+  %234 = and i8 %233, 63
+  %235 = or disjoint i8 %234, -128
+  %236 = getelementptr inbounds i8, ptr %.386.lcssa168.us, i64 2
+  store i8 %235, ptr %232, align 1
   br label %unicode_to_utf8.exit
 
-.split.split:                                     ; preds = %.split, %283
-  %.386 = phi ptr [ %286, %283 ], [ %.285, %.split ]
-  %.3 = phi ptr [ %289, %283 ], [ %.282, %.split ]
-  %236 = ptrtoint ptr %.3 to i64
-  %237 = ptrtoint ptr %.386 to i64
-  %238 = sub i64 %236, %237
-  br i1 %181, label %239, label %255
+.split.split:                                     ; preds = %.split, %284
+  %.386 = phi ptr [ %287, %284 ], [ %.285, %.split ]
+  %.3 = phi ptr [ %290, %284 ], [ %.282, %.split ]
+  %237 = ptrtoint ptr %.3 to i64
+  %238 = ptrtoint ptr %.386 to i64
+  %239 = sub i64 %237, %238
+  br i1 %182, label %240, label %256
 
-239:                                              ; preds = %.split.split
-  %240 = icmp ult i64 %238, 3
-  br i1 %240, label %unicode_to_utf8.exit.thread, label %241
+240:                                              ; preds = %.split.split
+  %241 = icmp ult i64 %239, 3
+  br i1 %241, label %unicode_to_utf8.exit.thread, label %242
 
-241:                                              ; preds = %239
-  %242 = lshr i32 %spec.store.select.i, 12
-  %243 = trunc nuw i32 %242 to i8
-  %244 = or disjoint i8 %243, -32
-  %245 = getelementptr inbounds i8, ptr %.386, i64 1
-  store i8 %244, ptr %.386, align 1
-  %246 = lshr i32 %spec.store.select.i, 6
-  %247 = trunc i32 %246 to i8
-  %248 = and i8 %247, 63
-  %249 = or disjoint i8 %248, -128
-  %250 = getelementptr inbounds i8, ptr %.386, i64 2
-  store i8 %249, ptr %245, align 1
-  %251 = trunc i32 %spec.store.select.i to i8
-  %252 = and i8 %251, 63
-  %253 = or disjoint i8 %252, -128
-  %254 = getelementptr inbounds i8, ptr %.386, i64 3
-  store i8 %253, ptr %250, align 1
+242:                                              ; preds = %240
+  %243 = lshr i32 %spec.store.select.i, 12
+  %244 = trunc nuw i32 %243 to i8
+  %245 = or disjoint i8 %244, -32
+  %246 = getelementptr inbounds i8, ptr %.386, i64 1
+  store i8 %245, ptr %.386, align 1
+  %247 = lshr i32 %spec.store.select.i, 6
+  %248 = trunc i32 %247 to i8
+  %249 = and i8 %248, 63
+  %250 = or disjoint i8 %249, -128
+  %251 = getelementptr inbounds i8, ptr %.386, i64 2
+  store i8 %250, ptr %246, align 1
+  %252 = trunc i32 %spec.store.select.i to i8
+  %253 = and i8 %252, 63
+  %254 = or disjoint i8 %253, -128
+  %255 = getelementptr inbounds i8, ptr %.386, i64 3
+  store i8 %254, ptr %251, align 1
   br label %unicode_to_utf8.exit
 
-255:                                              ; preds = %.split.split
-  %256 = icmp ult i64 %238, 4
-  br i1 %256, label %unicode_to_utf8.exit.thread, label %257
+256:                                              ; preds = %.split.split
+  %257 = icmp ult i64 %239, 4
+  br i1 %257, label %unicode_to_utf8.exit.thread, label %258
 
-257:                                              ; preds = %255
-  %258 = lshr i32 %spec.store.select.i, 18
-  %259 = trunc nuw nsw i32 %258 to i8
-  %260 = or disjoint i8 %259, -16
-  %261 = getelementptr inbounds i8, ptr %.386, i64 1
-  store i8 %260, ptr %.386, align 1
-  %262 = lshr i32 %spec.store.select.i, 12
-  %263 = trunc i32 %262 to i8
-  %264 = and i8 %263, 63
-  %265 = or disjoint i8 %264, -128
-  %266 = getelementptr inbounds i8, ptr %.386, i64 2
-  store i8 %265, ptr %261, align 1
-  %267 = lshr i32 %spec.store.select.i, 6
-  %268 = trunc i32 %267 to i8
-  %269 = and i8 %268, 63
-  %270 = or disjoint i8 %269, -128
-  %271 = getelementptr inbounds i8, ptr %.386, i64 3
-  store i8 %270, ptr %266, align 1
-  %272 = trunc i32 %spec.store.select.i to i8
-  %273 = and i8 %272, 63
-  %274 = or disjoint i8 %273, -128
-  %275 = getelementptr inbounds i8, ptr %.386, i64 4
-  store i8 %274, ptr %271, align 1
+258:                                              ; preds = %256
+  %259 = lshr i32 %spec.store.select.i, 18
+  %260 = trunc nuw nsw i32 %259 to i8
+  %261 = or disjoint i8 %260, -16
+  %262 = getelementptr inbounds i8, ptr %.386, i64 1
+  store i8 %261, ptr %.386, align 1
+  %263 = lshr i32 %spec.store.select.i, 12
+  %264 = trunc i32 %263 to i8
+  %265 = and i8 %264, 63
+  %266 = or disjoint i8 %265, -128
+  %267 = getelementptr inbounds i8, ptr %.386, i64 2
+  store i8 %266, ptr %262, align 1
+  %268 = lshr i32 %spec.store.select.i, 6
+  %269 = trunc i32 %268 to i8
+  %270 = and i8 %269, 63
+  %271 = or disjoint i8 %270, -128
+  %272 = getelementptr inbounds i8, ptr %.386, i64 3
+  store i8 %271, ptr %267, align 1
+  %273 = trunc i32 %spec.store.select.i to i8
+  %274 = and i8 %273, 63
+  %275 = or disjoint i8 %274, -128
+  %276 = getelementptr inbounds i8, ptr %.386, i64 4
+  store i8 %275, ptr %272, align 1
   br label %unicode_to_utf8.exit
 
-unicode_to_utf8.exit.thread:                      ; preds = %255, %239
-  %276 = load ptr, ptr %0, align 8
-  %277 = ptrtoint ptr %276 to i64
-  %278 = sub i64 %237, %277
-  store i64 %278, ptr %7, align 8
-  %279 = load i64, ptr %17, align 8
-  %280 = add i64 %182, %279
-  %281 = tail call ptr @archive_string_ensure(ptr noundef nonnull %0, i64 noundef %280)
-  %282 = icmp eq ptr %281, null
-  br i1 %282, label %.loopexit, label %283
+unicode_to_utf8.exit.thread:                      ; preds = %256, %240
+  %277 = load ptr, ptr %0, align 8
+  %278 = ptrtoint ptr %277 to i64
+  %279 = sub i64 %238, %278
+  store i64 %279, ptr %7, align 8
+  %280 = load i64, ptr %17, align 8
+  %281 = add i64 %183, %280
+  %282 = tail call ptr @archive_string_ensure(ptr noundef nonnull %0, i64 noundef %281)
+  %283 = icmp eq ptr %282, null
+  br i1 %283, label %.loopexit, label %284
 
-283:                                              ; preds = %unicode_to_utf8.exit.thread
-  %284 = load ptr, ptr %0, align 8
-  %285 = load i64, ptr %7, align 8
-  %286 = getelementptr inbounds i8, ptr %284, i64 %285
-  %287 = load i64, ptr %17, align 8
-  %288 = getelementptr inbounds i8, ptr %284, i64 %287
-  %289 = getelementptr inbounds i8, ptr %288, i64 -1
+284:                                              ; preds = %unicode_to_utf8.exit.thread
+  %285 = load ptr, ptr %0, align 8
+  %286 = load i64, ptr %7, align 8
+  %287 = getelementptr inbounds i8, ptr %285, i64 %286
+  %288 = load i64, ptr %17, align 8
+  %289 = getelementptr inbounds i8, ptr %285, i64 %288
+  %290 = getelementptr inbounds i8, ptr %289, i64 -1
   br label %.split.split, !llvm.loop !63
 
-unicode_to_utf8.exit:                             ; preds = %257, %241, %.split198.us, %.split190.us
-  %.386169 = phi ptr [ %.386.lcssa167.us, %.split190.us ], [ %.386.lcssa166.us, %.split198.us ], [ %.386, %241 ], [ %.386, %257 ]
-  %.3164 = phi ptr [ %.3.lcssa162.us, %.split190.us ], [ %.3.lcssa161.us, %.split198.us ], [ %.3, %241 ], [ %.3, %257 ]
-  %290 = phi i64 [ %.lcssa158.us, %.split190.us ], [ %.lcssa157.us, %.split198.us ], [ %237, %241 ], [ %237, %257 ]
-  %.031.i = phi ptr [ %203, %.split190.us ], [ %235, %.split198.us ], [ %254, %241 ], [ %275, %257 ]
-  %291 = ptrtoint ptr %.031.i to i64
-  %292 = sub i64 %291, %290
-  %293 = getelementptr inbounds i8, ptr %.386169, i64 %292
-  %294 = zext nneg i32 %spec.select to i64
-  %295 = getelementptr inbounds i8, ptr %.189.lcssa, i64 %294
-  %296 = sub i64 %.1.lcssa, %294
+unicode_to_utf8.exit:                             ; preds = %258, %242, %.split201.us, %.split193.us
+  %.386171 = phi ptr [ %.386.lcssa169.us, %.split193.us ], [ %.386.lcssa168.us, %.split201.us ], [ %.386, %242 ], [ %.386, %258 ]
+  %.3166 = phi ptr [ %.3.lcssa164.us, %.split193.us ], [ %.3.lcssa163.us, %.split201.us ], [ %.3, %242 ], [ %.3, %258 ]
+  %291 = phi i64 [ %.lcssa160.us, %.split193.us ], [ %.lcssa159.us, %.split201.us ], [ %238, %242 ], [ %238, %258 ]
+  %.031.i = phi ptr [ %204, %.split193.us ], [ %236, %.split201.us ], [ %255, %242 ], [ %276, %258 ]
+  %292 = ptrtoint ptr %.031.i to i64
+  %293 = sub i64 %292, %291
+  %294 = getelementptr inbounds i8, ptr %.386171, i64 %293
+  %295 = zext nneg i32 %spec.select to i64
+  %296 = getelementptr inbounds i8, ptr %.189.lcssa, i64 %295
+  %297 = sub i64 %.1.lcssa, %295
   %.not = icmp eq i32 %.077, 0
-  br i1 %.not, label %.thread, label %21, !llvm.loop !64
+  br i1 %.not, label %.thread132, label %21, !llvm.loop !64
 
-.thread:                                          ; preds = %148, %unicode_to_utf8.exit
-  %.276135 = phi i32 [ %spec.select94, %unicode_to_utf8.exit ], [ %.074, %148 ]
-  %.487134 = phi ptr [ %293, %unicode_to_utf8.exit ], [ %.285, %148 ]
-  %297 = load ptr, ptr %0, align 8
-  %298 = ptrtoint ptr %.487134 to i64
-  %299 = ptrtoint ptr %297 to i64
-  %300 = sub i64 %298, %299
-  store i64 %300, ptr %7, align 8
-  %301 = getelementptr inbounds i8, ptr %297, i64 %300
-  store i8 0, ptr %301, align 1
+.thread132:                                       ; preds = %149, %unicode_to_utf8.exit
+  %.276141 = phi i32 [ %spec.select94, %unicode_to_utf8.exit ], [ %.074, %149 ]
+  %.487140 = phi ptr [ %294, %unicode_to_utf8.exit ], [ %.285, %149 ]
+  %298 = load ptr, ptr %0, align 8
+  %299 = ptrtoint ptr %.487140 to i64
+  %300 = ptrtoint ptr %298 to i64
+  %301 = sub i64 %299, %300
+  store i64 %301, ptr %7, align 8
+  %302 = getelementptr inbounds i8, ptr %298, i64 %301
+  store i8 0, ptr %302, align 1
   br label %.loopexit
 
-.loopexit:                                        ; preds = %129, %unicode_to_utf8.exit.thread, %unicode_to_utf8.exit.thread.us196, %unicode_to_utf8.exit.thread.us, %4, %.thread
-  %.0 = phi i32 [ %.276135, %.thread ], [ -1, %4 ], [ -1, %unicode_to_utf8.exit.thread.us ], [ -1, %unicode_to_utf8.exit.thread.us196 ], [ -1, %unicode_to_utf8.exit.thread ], [ -1, %129 ]
+.loopexit:                                        ; preds = %130, %unicode_to_utf8.exit.thread, %unicode_to_utf8.exit.thread.us199, %unicode_to_utf8.exit.thread.us, %4, %.thread132
+  %.0 = phi i32 [ %.276141, %.thread132 ], [ -1, %4 ], [ -1, %unicode_to_utf8.exit.thread.us ], [ -1, %unicode_to_utf8.exit.thread.us199 ], [ -1, %unicode_to_utf8.exit.thread ], [ -1, %130 ]
   ret i32 %.0
 }
 

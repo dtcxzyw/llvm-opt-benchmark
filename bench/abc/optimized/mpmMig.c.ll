@@ -243,7 +243,7 @@ Mig_ObjIsNode2.exit.i.i:                          ; preds = %.lr.ph
   %15 = getelementptr inbounds i8, ptr %.01421, i64 8
   %16 = load i32, ptr %15, align 4
   %17 = icmp ult i32 %16, -2
-  br i1 %17, label %Mig_ObjNodeType.exit, label %Mig_ObjIsAnd.exit.i
+  br i1 %17, label %Mig_ObjIsXor.exit.thread.i, label %Mig_ObjIsAnd.exit.i
 
 Mig_ObjIsAnd.exit.i:                              ; preds = %Mig_ObjIsNode2.exit.i.i
   %18 = load i32, ptr %.01421, align 4
@@ -255,11 +255,13 @@ Mig_ObjIsAnd.exit.i:                              ; preds = %Mig_ObjIsNode2.exit
 Mig_ObjIsXor.exit.i:                              ; preds = %Mig_ObjIsAnd.exit.i
   %21 = icmp ule i32 %19, %20
   %cond.fr.i = freeze i1 %21
-  %spec.select.i = select i1 %cond.fr.i, i32 3, i32 2
+  br i1 %cond.fr.i, label %Mig_ObjIsXor.exit.thread.i, label %Mig_ObjNodeType.exit
+
+Mig_ObjIsXor.exit.thread.i:                       ; preds = %Mig_ObjIsXor.exit.i, %Mig_ObjIsNode2.exit.i.i
   br label %Mig_ObjNodeType.exit
 
-Mig_ObjNodeType.exit:                             ; preds = %Mig_ObjIsNode2.exit.i.i, %Mig_ObjIsAnd.exit.i, %Mig_ObjIsXor.exit.i
-  %22 = phi i32 [ 1, %Mig_ObjIsAnd.exit.i ], [ %spec.select.i, %Mig_ObjIsXor.exit.i ], [ 3, %Mig_ObjIsNode2.exit.i.i ]
+Mig_ObjNodeType.exit:                             ; preds = %Mig_ObjIsAnd.exit.i, %Mig_ObjIsXor.exit.i, %Mig_ObjIsXor.exit.thread.i
+  %22 = phi i32 [ 1, %Mig_ObjIsAnd.exit.i ], [ 3, %Mig_ObjIsXor.exit.thread.i ], [ 2, %Mig_ObjIsXor.exit.i ]
   %23 = icmp eq i32 %22, %1
   %24 = zext i1 %23 to i32
   %25 = add nsw i32 %.123, %24
@@ -396,19 +398,19 @@ define i32 @Mig_ManXorNum(ptr nocapture noundef %0) local_unnamed_addr #4 {
   %11 = icmp ult i32 %.014.val20.i, -2
   br i1 %11, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %25
-  %.123.i = phi i32 [ %.2.i, %25 ], [ %.025.i, %.preheader.i ]
-  %.01421.i = phi ptr [ %26, %25 ], [ %9, %.preheader.i ]
+.lr.ph.i:                                         ; preds = %.preheader.i, %23
+  %.123.i = phi i32 [ %.2.i, %23 ], [ %.025.i, %.preheader.i ]
+  %.01421.i = phi ptr [ %24, %23 ], [ %9, %.preheader.i ]
   %12 = getelementptr i8, ptr %.01421.i, i64 4
   %.014.val19.i = load i32, ptr %12, align 4
   %13 = icmp ugt i32 %.014.val19.i, -3
-  br i1 %13, label %25, label %Mig_ObjIsNode2.exit.i.i.i
+  br i1 %13, label %23, label %Mig_ObjIsNode2.exit.i.i.i
 
 Mig_ObjIsNode2.exit.i.i.i:                        ; preds = %.lr.ph.i
   %14 = getelementptr inbounds i8, ptr %.01421.i, i64 8
   %15 = load i32, ptr %14, align 4
   %16 = icmp ult i32 %15, -2
-  br i1 %16, label %Mig_ObjNodeType.exit.i, label %Mig_ObjIsAnd.exit.i.i
+  br i1 %16, label %Mig_ObjIsXor.exit.thread.i.i, label %Mig_ObjIsAnd.exit.i.i
 
 Mig_ObjIsAnd.exit.i.i:                            ; preds = %Mig_ObjIsNode2.exit.i.i.i
   %17 = load i32, ptr %.01421.i, align 4
@@ -420,29 +422,29 @@ Mig_ObjIsAnd.exit.i.i:                            ; preds = %Mig_ObjIsNode2.exit
 Mig_ObjIsXor.exit.i.i:                            ; preds = %Mig_ObjIsAnd.exit.i.i
   %20 = icmp ule i32 %18, %19
   %cond.fr.i.i = freeze i1 %20
-  %spec.select.i.i = select i1 %cond.fr.i.i, i32 3, i32 2
+  br i1 %cond.fr.i.i, label %Mig_ObjIsXor.exit.thread.i.i, label %Mig_ObjNodeType.exit.i
+
+Mig_ObjIsXor.exit.thread.i.i:                     ; preds = %Mig_ObjIsXor.exit.i.i, %Mig_ObjIsNode2.exit.i.i.i
   br label %Mig_ObjNodeType.exit.i
 
-Mig_ObjNodeType.exit.i:                           ; preds = %Mig_ObjIsXor.exit.i.i, %Mig_ObjIsAnd.exit.i.i, %Mig_ObjIsNode2.exit.i.i.i
-  %21 = phi i32 [ 1, %Mig_ObjIsAnd.exit.i.i ], [ %spec.select.i.i, %Mig_ObjIsXor.exit.i.i ], [ 3, %Mig_ObjIsNode2.exit.i.i.i ]
-  %22 = icmp eq i32 %21, 2
-  %23 = zext i1 %22 to i32
-  %24 = add nsw i32 %.123.i, %23
-  br label %25
+Mig_ObjNodeType.exit.i:                           ; preds = %Mig_ObjIsXor.exit.thread.i.i, %Mig_ObjIsXor.exit.i.i, %Mig_ObjIsAnd.exit.i.i
+  %21 = phi i32 [ 0, %Mig_ObjIsAnd.exit.i.i ], [ 0, %Mig_ObjIsXor.exit.thread.i.i ], [ 1, %Mig_ObjIsXor.exit.i.i ]
+  %22 = add nsw i32 %21, %.123.i
+  br label %23
 
-25:                                               ; preds = %Mig_ObjNodeType.exit.i, %.lr.ph.i
-  %.2.i = phi i32 [ %24, %Mig_ObjNodeType.exit.i ], [ %.123.i, %.lr.ph.i ]
-  %26 = getelementptr inbounds i8, ptr %.01421.i, i64 16
-  %27 = getelementptr i8, ptr %.01421.i, i64 28
-  %.014.val.i = load i32, ptr %27, align 4
-  %28 = icmp ult i32 %.014.val.i, -2
-  br i1 %28, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !6
+23:                                               ; preds = %Mig_ObjNodeType.exit.i, %.lr.ph.i
+  %.2.i = phi i32 [ %22, %Mig_ObjNodeType.exit.i ], [ %.123.i, %.lr.ph.i ]
+  %24 = getelementptr inbounds i8, ptr %.01421.i, i64 16
+  %25 = getelementptr i8, ptr %.01421.i, i64 28
+  %.014.val.i = load i32, ptr %25, align 4
+  %26 = icmp ult i32 %.014.val.i, -2
+  br i1 %26, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !6
 
-._crit_edge.i:                                    ; preds = %25, %.preheader.i
-  %.1.lcssa.i = phi i32 [ %.025.i, %.preheader.i ], [ %.2.i, %25 ]
+._crit_edge.i:                                    ; preds = %23, %.preheader.i
+  %.1.lcssa.i = phi i32 [ %.025.i, %.preheader.i ], [ %.2.i, %23 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %29 = trunc nuw nsw i64 %indvars.iv.next.i to i32
-  store i32 %29, ptr %2, align 8
+  %27 = trunc nuw nsw i64 %indvars.iv.next.i to i32
+  store i32 %27, ptr %2, align 8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %Mig_ManTypeNum.exit, label %7, !llvm.loop !7
 
@@ -482,19 +484,19 @@ define i32 @Mig_ManMuxNum(ptr nocapture noundef %0) local_unnamed_addr #4 {
   %11 = icmp ult i32 %.014.val20.i, -2
   br i1 %11, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %24
-  %.123.i = phi i32 [ %.2.i, %24 ], [ %.025.i, %.preheader.i ]
-  %.01421.i = phi ptr [ %25, %24 ], [ %9, %.preheader.i ]
+.lr.ph.i:                                         ; preds = %.preheader.i, %23
+  %.123.i = phi i32 [ %.2.i, %23 ], [ %.025.i, %.preheader.i ]
+  %.01421.i = phi ptr [ %24, %23 ], [ %9, %.preheader.i ]
   %12 = getelementptr i8, ptr %.01421.i, i64 4
   %.014.val19.i = load i32, ptr %12, align 4
   %13 = icmp ugt i32 %.014.val19.i, -3
-  br i1 %13, label %24, label %Mig_ObjIsNode2.exit.i.i.i
+  br i1 %13, label %23, label %Mig_ObjIsNode2.exit.i.i.i
 
 Mig_ObjIsNode2.exit.i.i.i:                        ; preds = %.lr.ph.i
   %14 = getelementptr inbounds i8, ptr %.01421.i, i64 8
   %15 = load i32, ptr %14, align 4
   %16 = icmp ult i32 %15, -2
-  br i1 %16, label %Mig_ObjNodeType.exit.i, label %Mig_ObjIsAnd.exit.i.i
+  br i1 %16, label %Mig_ObjIsXor.exit.thread.i.i, label %Mig_ObjIsAnd.exit.i.i
 
 Mig_ObjIsAnd.exit.i.i:                            ; preds = %Mig_ObjIsNode2.exit.i.i.i
   %17 = load i32, ptr %.01421.i, align 4
@@ -506,27 +508,29 @@ Mig_ObjIsAnd.exit.i.i:                            ; preds = %Mig_ObjIsNode2.exit
 Mig_ObjIsXor.exit.i.i:                            ; preds = %Mig_ObjIsAnd.exit.i.i
   %20 = icmp ule i32 %18, %19
   %cond.fr.i.i = freeze i1 %20
+  br i1 %cond.fr.i.i, label %Mig_ObjIsXor.exit.thread.i.i, label %Mig_ObjNodeType.exit.i
+
+Mig_ObjIsXor.exit.thread.i.i:                     ; preds = %Mig_ObjIsXor.exit.i.i, %Mig_ObjIsNode2.exit.i.i.i
   br label %Mig_ObjNodeType.exit.i
 
-Mig_ObjNodeType.exit.i:                           ; preds = %Mig_ObjIsXor.exit.i.i, %Mig_ObjIsAnd.exit.i.i, %Mig_ObjIsNode2.exit.i.i.i
-  %21 = phi i1 [ false, %Mig_ObjIsAnd.exit.i.i ], [ %cond.fr.i.i, %Mig_ObjIsXor.exit.i.i ], [ true, %Mig_ObjIsNode2.exit.i.i.i ]
-  %22 = zext i1 %21 to i32
-  %23 = add nsw i32 %.123.i, %22
-  br label %24
+Mig_ObjNodeType.exit.i:                           ; preds = %Mig_ObjIsXor.exit.thread.i.i, %Mig_ObjIsXor.exit.i.i, %Mig_ObjIsAnd.exit.i.i
+  %21 = phi i32 [ 0, %Mig_ObjIsAnd.exit.i.i ], [ 1, %Mig_ObjIsXor.exit.thread.i.i ], [ 0, %Mig_ObjIsXor.exit.i.i ]
+  %22 = add nsw i32 %21, %.123.i
+  br label %23
 
-24:                                               ; preds = %Mig_ObjNodeType.exit.i, %.lr.ph.i
-  %.2.i = phi i32 [ %23, %Mig_ObjNodeType.exit.i ], [ %.123.i, %.lr.ph.i ]
-  %25 = getelementptr inbounds i8, ptr %.01421.i, i64 16
-  %26 = getelementptr i8, ptr %.01421.i, i64 28
-  %.014.val.i = load i32, ptr %26, align 4
-  %27 = icmp ult i32 %.014.val.i, -2
-  br i1 %27, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !6
+23:                                               ; preds = %Mig_ObjNodeType.exit.i, %.lr.ph.i
+  %.2.i = phi i32 [ %22, %Mig_ObjNodeType.exit.i ], [ %.123.i, %.lr.ph.i ]
+  %24 = getelementptr inbounds i8, ptr %.01421.i, i64 16
+  %25 = getelementptr i8, ptr %.01421.i, i64 28
+  %.014.val.i = load i32, ptr %25, align 4
+  %26 = icmp ult i32 %.014.val.i, -2
+  br i1 %26, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !6
 
-._crit_edge.i:                                    ; preds = %24, %.preheader.i
-  %.1.lcssa.i = phi i32 [ %.025.i, %.preheader.i ], [ %.2.i, %24 ]
+._crit_edge.i:                                    ; preds = %23, %.preheader.i
+  %.1.lcssa.i = phi i32 [ %.025.i, %.preheader.i ], [ %.2.i, %23 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %28 = trunc nuw nsw i64 %indvars.iv.next.i to i32
-  store i32 %28, ptr %2, align 8
+  %27 = trunc nuw nsw i64 %indvars.iv.next.i to i32
+  store i32 %27, ptr %2, align 8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %Mig_ManTypeNum.exit, label %7, !llvm.loop !7
 

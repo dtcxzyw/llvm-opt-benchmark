@@ -21,7 +21,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.ssl3_generate_key_block = private unnamed_addr constant [24 x i8] c"ssl3_generate_key_block\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ssl3_change_cipher_state(ptr noundef %s, i32 noundef %which) local_unnamed_addr #0 {
+define noundef i32 @ssl3_change_cipher_state(ptr noundef %s, i32 noundef %which) local_unnamed_addr #0 {
 entry:
   %and = and i32 %which, 1
   %cond = xor i32 %and, 1
@@ -30,13 +30,7 @@ entry:
   %new_hash = getelementptr inbounds i8, ptr %s, i64 768
   %1 = load ptr, ptr %new_hash, align 8
   %cmp3.not = icmp eq ptr %1, null
-  br i1 %cmp3.not, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 107, ptr noundef nonnull @__func__.ssl3_change_cipher_state) #8
-  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 786691, ptr noundef null) #8
-  br label %return
+  br i1 %cmp3.not, label %err.sink.split, label %if.end
 
 if.end:                                           ; preds = %entry
   %new_compression = getelementptr inbounds i8, ptr %s, i64 792
@@ -45,13 +39,7 @@ if.end:                                           ; preds = %entry
   %3 = load ptr, ptr %key_block, align 8
   %call = tail call i32 @EVP_MD_get_size(ptr noundef nonnull %1) #8
   %cmp12 = icmp slt i32 %call, 0
-  br i1 %cmp12, label %if.then14, label %if.end15
-
-if.then14:                                        ; preds = %if.end
-  tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 117, ptr noundef nonnull @__func__.ssl3_change_cipher_state) #8
-  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 786691, ptr noundef null) #8
-  br label %return
+  br i1 %cmp12, label %err.sink.split, label %if.end15
 
 if.end15:                                         ; preds = %if.end
   %conv16 = zext nneg i32 %call to i64
@@ -89,24 +77,27 @@ if.end40:                                         ; preds = %if.else, %if.then25
   %key_block_length = getelementptr inbounds i8, ptr %s, i64 744
   %4 = load i64, ptr %key_block_length, align 8
   %cmp43 = icmp ugt i64 %n.0, %4
-  br i1 %cmp43, label %if.then45, label %if.end46
-
-if.then45:                                        ; preds = %if.end40
-  tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 142, ptr noundef nonnull @__func__.ssl3_change_cipher_state) #8
-  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 786691, ptr noundef null) #8
-  br label %return
+  br i1 %cmp43, label %err.sink.split, label %if.end46
 
 if.end46:                                         ; preds = %if.end40
   %key.0 = getelementptr inbounds i8, ptr %3, i64 %add.pn
   %iv.0 = getelementptr inbounds i8, ptr %3, i64 %add28.pn
   %call47 = tail call i32 @ssl_set_new_record_layer(ptr noundef nonnull %s, i32 noundef 768, i32 noundef %cond, i32 noundef 3, ptr noundef null, i64 noundef 0, ptr noundef %key.0, i64 noundef %conv18, ptr noundef %iv.0, i64 noundef %conv20, ptr noundef %mac_secret.0, i64 noundef %conv16, ptr noundef %0, i64 noundef 0, i32 noundef 0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null) #8
-  %tobool48.not = icmp ne i32 %call47, 0
-  %spec.select = zext i1 %tobool48.not to i32
+  %tobool48.not = icmp eq i32 %call47, 0
+  br i1 %tobool48.not, label %err, label %return
+
+err.sink.split:                                   ; preds = %if.end40, %if.end, %entry
+  %.sink = phi i32 [ 107, %entry ], [ 117, %if.end ], [ 142, %if.end40 ]
+  tail call void @ERR_new() #8
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink, ptr noundef nonnull @__func__.ssl3_change_cipher_state) #8
+  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 786691, ptr noundef null) #8
+  br label %err
+
+err:                                              ; preds = %err.sink.split, %if.end46
   br label %return
 
-return:                                           ; preds = %if.end46, %if.then, %if.then14, %if.then45
-  %retval.0 = phi i32 [ 0, %if.then45 ], [ 0, %if.then14 ], [ 0, %if.then ], [ %spec.select, %if.end46 ]
+return:                                           ; preds = %if.end46, %err
+  %retval.0 = phi i32 [ 0, %err ], [ 1, %if.end46 ]
   ret i32 %retval.0
 }
 

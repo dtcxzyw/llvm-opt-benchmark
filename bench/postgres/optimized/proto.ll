@@ -1871,18 +1871,20 @@ column_in_column_list.exit43.i:                   ; preds = %112
   br i1 %116, label %column_in_column_list.exit43.thread.i, label %143
 
 column_in_column_list.exit43.thread.i:            ; preds = %column_in_column_list.exit43.i, %112
-  br i1 %96, label %.split41.i, label %117
+  br i1 %96, label %.split.i, label %117
 
 117:                                              ; preds = %column_in_column_list.exit43.thread.i
   %118 = load i16, ptr %113, align 2
   %119 = sext i16 %118 to i32
   %120 = add nsw i32 %119, 7
   %121 = tail call zeroext i1 @bms_is_member(i32 noundef %120, ptr noundef %.040.i) #8
-  %spec.select = zext i1 %121 to i8
+  br i1 %121, label %.split.i, label %.split41.i
+
+.split.i:                                         ; preds = %117, %column_in_column_list.exit43.thread.i
   br label %.split41.i
 
-.split41.i:                                       ; preds = %117, %column_in_column_list.exit43.thread.i
-  %.sink.i = phi i8 [ 1, %column_in_column_list.exit43.thread.i ], [ %spec.select, %117 ]
+.split41.i:                                       ; preds = %117, %.split.i
+  %.sink.i = phi i8 [ 1, %.split.i ], [ 0, %117 ]
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 1) #8
   %122 = load ptr, ptr %0, align 8
   %123 = load i32, ptr %6, align 8

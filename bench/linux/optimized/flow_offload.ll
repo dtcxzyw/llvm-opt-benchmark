@@ -1455,12 +1455,14 @@ define dso_local i32 @flow_indr_dev_setup_offload(ptr noundef %0, ptr noundef %1
   %71 = getelementptr inbounds i8, ptr %4, i64 32
   %72 = load volatile ptr, ptr %71, align 8
   %73 = icmp eq ptr %72, %71
-  %spec.select = select i1 %73, i32 -95, i32 %69
-  br label %74
+  br i1 %73, label %75, label %74
 
 74:                                               ; preds = %70, %.loopexit
-  %75 = phi i32 [ %69, %.loopexit ], [ %spec.select, %70 ]
-  ret i32 %75
+  br label %75
+
+75:                                               ; preds = %74, %70
+  %76 = phi i32 [ %69, %74 ], [ -95, %70 ]
+  ret i32 %76
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(readwrite, argmem: none)

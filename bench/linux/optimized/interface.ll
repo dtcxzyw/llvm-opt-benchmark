@@ -1463,7 +1463,7 @@ define dso_local i32 @rtc_set_time(ptr noundef %0, ptr noundef %1) #1 align 16 {
   %8 = getelementptr inbounds i8, ptr %0, i64 1224
   %9 = load i64, ptr %8, align 8
   %10 = icmp eq i64 %7, %9
-  br i1 %10, label %.thread, label %11
+  br i1 %10, label %32, label %11
 
 11:                                               ; preds = %5
   %12 = tail call i64 @rtc_tm_to_time64(ptr noundef %1) #13
@@ -1487,164 +1487,164 @@ define dso_local i32 @rtc_set_time(ptr noundef %0, ptr noundef %1) #1 align 16 {
   %26 = load i64, ptr %8, align 8
   br label %27
 
-27:                                               ; preds = %19, %25
+27:                                               ; preds = %25, %19
   %28 = phi i64 [ %24, %19 ], [ %26, %25 ]
   %29 = icmp sge i64 %12, %18
   %30 = icmp ule i64 %12, %28
   %31 = select i1 %29, i1 %30, i1 false
-  br i1 %31, label %.thread, label %trace_rtc_set_time.exit
+  br i1 %31, label %32, label %trace_rtc_set_time.exit
 
-.thread:                                          ; preds = %5, %27
-  %32 = getelementptr inbounds i8, ptr %0, i64 1248
-  %33 = load i64, ptr %32, align 8
-  %34 = icmp eq i64 %33, 0
-  br i1 %34, label %45, label %35
+32:                                               ; preds = %5, %27
+  %33 = getelementptr inbounds i8, ptr %0, i64 1248
+  %34 = load i64, ptr %33, align 8
+  %35 = icmp eq i64 %34, 0
+  br i1 %35, label %46, label %36
 
-35:                                               ; preds = %.thread
-  %36 = tail call i64 @rtc_tm_to_time64(ptr noundef %1) #13
-  %37 = load i64, ptr %6, align 8
-  %38 = icmp slt i64 %36, %37
-  br i1 %38, label %42, label %39
+36:                                               ; preds = %32
+  %37 = tail call i64 @rtc_tm_to_time64(ptr noundef %1) #13
+  %38 = load i64, ptr %6, align 8
+  %39 = icmp slt i64 %37, %38
+  br i1 %39, label %43, label %40
 
-39:                                               ; preds = %35
-  %40 = load i64, ptr %8, align 8
-  %41 = icmp ugt i64 %36, %40
-  br i1 %41, label %42, label %45
+40:                                               ; preds = %36
+  %41 = load i64, ptr %8, align 8
+  %42 = icmp ugt i64 %37, %41
+  br i1 %42, label %43, label %46
 
-42:                                               ; preds = %39, %35
-  %43 = load i64, ptr %32, align 8
-  %44 = sub i64 %36, %43
-  tail call void @rtc_time64_to_tm(i64 noundef %44, ptr noundef %1) #13
-  br label %45
+43:                                               ; preds = %40, %36
+  %44 = load i64, ptr %33, align 8
+  %45 = sub i64 %37, %44
+  tail call void @rtc_time64_to_tm(i64 noundef %45, ptr noundef %1) #13
+  br label %46
 
-45:                                               ; preds = %42, %39, %.thread
-  %46 = getelementptr inbounds i8, ptr %0, i64 1088
-  %47 = load i32, ptr %46, align 8
-  %48 = icmp eq i32 %47, 0
-  br i1 %48, label %68, label %49
+46:                                               ; preds = %43, %40, %32
+  %47 = getelementptr inbounds i8, ptr %0, i64 1088
+  %48 = load i32, ptr %47, align 8
+  %49 = icmp eq i32 %48, 0
+  br i1 %49, label %69, label %50
 
-49:                                               ; preds = %45
-  %50 = getelementptr inbounds i8, ptr %0, i64 752
-  %51 = tail call i32 @mutex_lock_interruptible(ptr noundef %50) #13
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %53, label %trace_rtc_set_time.exit
+50:                                               ; preds = %46
+  %51 = getelementptr inbounds i8, ptr %0, i64 752
+  %52 = tail call i32 @mutex_lock_interruptible(ptr noundef %51) #13
+  %53 = icmp eq i32 %52, 0
+  br i1 %53, label %54, label %trace_rtc_set_time.exit
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds i8, ptr %0, i64 1032
-  %55 = load i32, ptr %46, align 8
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %.thread10, label %57
+54:                                               ; preds = %50
+  %55 = getelementptr inbounds i8, ptr %0, i64 1032
+  %56 = load i32, ptr %47, align 8
+  %57 = icmp eq i32 %56, 0
+  br i1 %57, label %.thread9, label %58
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds i8, ptr %0, i64 1208
-  %59 = load volatile i64, ptr %58, align 8
-  %60 = and i64 %59, 16
-  %61 = icmp eq i64 %60, 0
-  br i1 %61, label %67, label %62
+58:                                               ; preds = %54
+  %59 = getelementptr inbounds i8, ptr %0, i64 1208
+  %60 = load volatile i64, ptr %59, align 8
+  %61 = and i64 %60, 16
+  %62 = icmp eq i64 %61, 0
+  br i1 %62, label %68, label %63
 
-62:                                               ; preds = %57
-  %63 = load volatile i64, ptr %58, align 8
-  %64 = and i64 %63, 1
-  %65 = icmp eq i64 %64, 0
-  br i1 %65, label %67, label %66
+63:                                               ; preds = %58
+  %64 = load volatile i64, ptr %59, align 8
+  %65 = and i64 %64, 1
+  %66 = icmp eq i64 %65, 0
+  br i1 %66, label %68, label %67
 
-66:                                               ; preds = %62
-  tail call fastcc void @rtc_timer_remove(ptr noundef %0, ptr noundef %54)
-  br label %.thread10
+67:                                               ; preds = %63
+  tail call fastcc void @rtc_timer_remove(ptr noundef %0, ptr noundef %55)
+  br label %.thread9
 
-.thread10:                                        ; preds = %66, %53
-  tail call void @mutex_unlock(ptr noundef %50) #13
-  br label %68
+.thread9:                                         ; preds = %67, %54
+  tail call void @mutex_unlock(ptr noundef %51) #13
+  br label %69
 
-67:                                               ; preds = %57, %62
-  tail call void @mutex_unlock(ptr noundef %50) #13
+68:                                               ; preds = %58, %63
+  tail call void @mutex_unlock(ptr noundef %51) #13
   br label %trace_rtc_set_time.exit
 
-68:                                               ; preds = %.thread10, %45
-  %69 = getelementptr inbounds i8, ptr %0, i64 752
-  %70 = tail call i32 @mutex_lock_interruptible(ptr noundef %69) #13
-  %71 = icmp eq i32 %70, 0
-  br i1 %71, label %72, label %trace_rtc_set_time.exit
+69:                                               ; preds = %.thread9, %46
+  %70 = getelementptr inbounds i8, ptr %0, i64 752
+  %71 = tail call i32 @mutex_lock_interruptible(ptr noundef %70) #13
+  %72 = icmp eq i32 %71, 0
+  br i1 %72, label %73, label %trace_rtc_set_time.exit
 
-72:                                               ; preds = %68
-  %73 = getelementptr inbounds i8, ptr %0, i64 744
-  %74 = load ptr, ptr %73, align 8
-  %75 = icmp eq ptr %74, null
-  br i1 %75, label %84, label %76
+73:                                               ; preds = %69
+  %74 = getelementptr inbounds i8, ptr %0, i64 744
+  %75 = load ptr, ptr %74, align 8
+  %76 = icmp eq ptr %75, null
+  br i1 %76, label %85, label %77
 
-76:                                               ; preds = %72
-  %77 = getelementptr inbounds i8, ptr %74, i64 16
-  %78 = load ptr, ptr %77, align 8
-  %79 = icmp eq ptr %78, null
-  br i1 %79, label %84, label %80
+77:                                               ; preds = %73
+  %78 = getelementptr inbounds i8, ptr %75, i64 16
+  %79 = load ptr, ptr %78, align 8
+  %80 = icmp eq ptr %79, null
+  br i1 %80, label %85, label %81
 
-80:                                               ; preds = %76
-  %81 = getelementptr inbounds i8, ptr %0, i64 64
-  %82 = load ptr, ptr %81, align 8
-  %83 = tail call i32 %78(ptr noundef %82, ptr noundef %1) #13
-  br label %84
+81:                                               ; preds = %77
+  %82 = getelementptr inbounds i8, ptr %0, i64 64
+  %83 = load ptr, ptr %82, align 8
+  %84 = tail call i32 %79(ptr noundef %83, ptr noundef %1) #13
+  br label %85
 
-84:                                               ; preds = %80, %76, %72
-  %85 = phi i32 [ %83, %80 ], [ -19, %72 ], [ -22, %76 ]
-  %86 = getelementptr inbounds i8, ptr %0, i64 64
-  %87 = load ptr, ptr %86, align 8
-  tail call void @pm_stay_awake(ptr noundef %87) #13
-  tail call void @mutex_unlock(ptr noundef %69) #13
-  %88 = getelementptr inbounds i8, ptr %0, i64 1168
-  %89 = load ptr, ptr @system_wq, align 8
-  %90 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %89, ptr noundef %88) #13
-  br i1 %48, label %94, label %91
+85:                                               ; preds = %81, %77, %73
+  %86 = phi i32 [ %84, %81 ], [ -19, %73 ], [ -22, %77 ]
+  %87 = getelementptr inbounds i8, ptr %0, i64 64
+  %88 = load ptr, ptr %87, align 8
+  tail call void @pm_stay_awake(ptr noundef %88) #13
+  tail call void @mutex_unlock(ptr noundef %70) #13
+  %89 = getelementptr inbounds i8, ptr %0, i64 1168
+  %90 = load ptr, ptr @system_wq, align 8
+  %91 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %90, ptr noundef %89) #13
+  br i1 %49, label %95, label %92
 
-91:                                               ; preds = %84
-  %92 = tail call i32 @rtc_update_irq_enable(ptr noundef %0, i32 noundef 1)
-  %93 = icmp eq i32 %92, 0
-  br i1 %93, label %94, label %trace_rtc_set_time.exit
+92:                                               ; preds = %85
+  %93 = tail call i32 @rtc_update_irq_enable(ptr noundef %0, i32 noundef 1)
+  %94 = icmp eq i32 %93, 0
+  br i1 %94, label %95, label %trace_rtc_set_time.exit
 
-94:                                               ; preds = %91, %84
-  %95 = phi i32 [ 0, %91 ], [ %85, %84 ]
-  %96 = tail call i64 @rtc_tm_to_time64(ptr noundef %1) #13
+95:                                               ; preds = %92, %85
+  %96 = phi i32 [ 0, %92 ], [ %86, %85 ]
+  %97 = tail call i64 @rtc_tm_to_time64(ptr noundef %1) #13
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_rtc_set_time, i64 0, i32 1), i32 2) #13
-          to label %trace_rtc_set_time.exit [label %97], !srcloc !29
+          to label %trace_rtc_set_time.exit [label %98], !srcloc !29
 
-97:                                               ; preds = %94
-  %98 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #13, !srcloc !39
-  %99 = zext i32 %98 to i64
-  %100 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %99) #13, !srcloc !31
-  %101 = icmp ult i8 %100, 2
-  tail call void @llvm.assume(i1 %101)
-  %102 = icmp eq i8 %100, 0
-  br i1 %102, label %trace_rtc_set_time.exit, label %103
+98:                                               ; preds = %95
+  %99 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #13, !srcloc !39
+  %100 = zext i32 %99 to i64
+  %101 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %100) #13, !srcloc !31
+  %102 = icmp ult i8 %101, 2
+  tail call void @llvm.assume(i1 %102)
+  %103 = icmp eq i8 %101, 0
+  br i1 %103, label %trace_rtc_set_time.exit, label %104
 
-103:                                              ; preds = %97
+104:                                              ; preds = %98
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #13, !srcloc !32
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !40
-  %104 = load volatile ptr, ptr getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_rtc_set_time, i64 0, i32 8), align 8
-  %105 = icmp eq ptr %104, null
-  br i1 %105, label %110, label %106
+  %105 = load volatile ptr, ptr getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_rtc_set_time, i64 0, i32 8), align 8
+  %106 = icmp eq ptr %105, null
+  br i1 %106, label %111, label %107
 
-106:                                              ; preds = %103
-  %107 = getelementptr inbounds i8, ptr %104, i64 8
-  %108 = load ptr, ptr %107, align 8
-  %109 = tail call i32 @__SCT__tp_func_rtc_set_time(ptr noundef %108, i64 noundef %96, i32 noundef %95) #13
-  br label %110
+107:                                              ; preds = %104
+  %108 = getelementptr inbounds i8, ptr %105, i64 8
+  %109 = load ptr, ptr %108, align 8
+  %110 = tail call i32 @__SCT__tp_func_rtc_set_time(ptr noundef %109, i64 noundef %97, i32 noundef %96) #13
+  br label %111
 
-110:                                              ; preds = %106, %103
+111:                                              ; preds = %107, %104
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !41
-  %111 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #13, !srcloc !35
-  %112 = icmp ult i8 %111, 2
-  tail call void @llvm.assume(i1 %112)
-  %113 = icmp eq i8 %111, 0
-  br i1 %113, label %trace_rtc_set_time.exit, label %114, !prof !20
+  %112 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #13, !srcloc !35
+  %113 = icmp ult i8 %112, 2
+  tail call void @llvm.assume(i1 %113)
+  %114 = icmp eq i8 %112, 0
+  br i1 %114, label %trace_rtc_set_time.exit, label %115, !prof !20
 
-114:                                              ; preds = %110
-  %115 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %116 = tail call i64 asm sideeffect "call __SCT__preempt_schedule_notrace", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %115) #13, !srcloc !42
-  tail call void @llvm.write_register.i64(metadata !0, i64 %116)
+115:                                              ; preds = %111
+  %116 = tail call i64 @llvm.read_register.i64(metadata !0)
+  %117 = tail call i64 asm sideeffect "call __SCT__preempt_schedule_notrace", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %116) #13, !srcloc !42
+  tail call void @llvm.write_register.i64(metadata !0, i64 %117)
   br label %trace_rtc_set_time.exit
 
-trace_rtc_set_time.exit:                          ; preds = %49, %114, %110, %97, %94, %67, %91, %68, %27, %2
-  %117 = phi i32 [ %3, %2 ], [ -34, %27 ], [ -22, %67 ], [ %70, %68 ], [ %92, %91 ], [ %95, %94 ], [ %95, %97 ], [ %95, %110 ], [ %95, %114 ], [ %51, %49 ]
-  ret i32 %117
+trace_rtc_set_time.exit:                          ; preds = %50, %115, %111, %98, %95, %68, %27, %92, %69, %2
+  %118 = phi i32 [ %3, %2 ], [ -22, %68 ], [ %71, %69 ], [ %93, %92 ], [ -34, %27 ], [ %96, %95 ], [ %96, %98 ], [ %96, %111 ], [ %96, %115 ], [ %52, %50 ]
+  ret i32 %118
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -2225,20 +2225,20 @@ define dso_local i32 @rtc_set_alarm(ptr noundef %0, ptr noundef %1) #1 align 16 
   %4 = getelementptr inbounds i8, ptr %0, i64 744
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %72, label %7
+  br i1 %6, label %73, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 1208
   %9 = load volatile i64, ptr %8, align 8
   %10 = and i64 %9, 1
   %11 = icmp eq i64 %10, 0
-  br i1 %11, label %72, label %12
+  br i1 %11, label %73, label %12
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds i8, ptr %1, i64 4
   %14 = tail call i32 @rtc_valid_tm(ptr noundef %13) #13
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %16, label %72
+  br i1 %15, label %16, label %73
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds i8, ptr %0, i64 1216
@@ -2246,7 +2246,7 @@ define dso_local i32 @rtc_set_alarm(ptr noundef %0, ptr noundef %1) #1 align 16 
   %19 = getelementptr inbounds i8, ptr %0, i64 1224
   %20 = load i64, ptr %19, align 8
   %21 = icmp eq i64 %18, %20
-  br i1 %21, label %.thread, label %22
+  br i1 %21, label %43, label %22
 
 22:                                               ; preds = %16
   %23 = tail call i64 @rtc_tm_to_time64(ptr noundef %13) #13
@@ -2270,69 +2270,69 @@ define dso_local i32 @rtc_set_alarm(ptr noundef %0, ptr noundef %1) #1 align 16 
   %37 = load i64, ptr %19, align 8
   br label %38
 
-38:                                               ; preds = %30, %36
+38:                                               ; preds = %36, %30
   %39 = phi i64 [ %35, %30 ], [ %37, %36 ]
   %40 = icmp sge i64 %23, %29
   %41 = icmp ule i64 %23, %39
   %42 = select i1 %40, i1 %41, i1 false
-  br i1 %42, label %.thread, label %72
+  br i1 %42, label %43, label %73
 
-.thread:                                          ; preds = %16, %38
-  %43 = getelementptr inbounds i8, ptr %0, i64 752
-  %44 = tail call i32 @mutex_lock_interruptible(ptr noundef %43) #13
-  %45 = icmp eq i32 %44, 0
-  br i1 %45, label %46, label %72
+43:                                               ; preds = %16, %38
+  %44 = getelementptr inbounds i8, ptr %0, i64 752
+  %45 = tail call i32 @mutex_lock_interruptible(ptr noundef %44) #13
+  %46 = icmp eq i32 %45, 0
+  br i1 %46, label %47, label %73
 
-46:                                               ; preds = %.thread
-  %47 = getelementptr inbounds i8, ptr %0, i64 968
-  %48 = getelementptr inbounds i8, ptr %0, i64 1024
-  %49 = load i32, ptr %48, align 8
-  %50 = icmp eq i32 %49, 0
-  br i1 %50, label %52, label %51
+47:                                               ; preds = %43
+  %48 = getelementptr inbounds i8, ptr %0, i64 968
+  %49 = getelementptr inbounds i8, ptr %0, i64 1024
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %53, label %52
 
-51:                                               ; preds = %46
-  tail call fastcc void @rtc_timer_remove(ptr noundef %0, ptr noundef %47)
-  br label %52
+52:                                               ; preds = %47
+  tail call fastcc void @rtc_timer_remove(ptr noundef %0, ptr noundef %48)
+  br label %53
 
-52:                                               ; preds = %51, %46
+53:                                               ; preds = %52, %47
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %3) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef align 4 dereferenceable(36) %13, i64 36, i1 false)
-  %53 = tail call i64 @rtc_tm_to_ktime(ptr noundef nonnull byval(%struct.rtc_time) align 8 %3) #13
+  %54 = tail call i64 @rtc_tm_to_ktime(ptr noundef nonnull byval(%struct.rtc_time) align 8 %3) #13
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %3) #13
-  %54 = load volatile i64, ptr %8, align 8
-  %55 = and i64 %54, 2
-  %56 = icmp eq i64 %55, 0
-  br i1 %56, label %62, label %57
+  %55 = load volatile i64, ptr %8, align 8
+  %56 = and i64 %55, 2
+  %57 = icmp eq i64 %56, 0
+  br i1 %57, label %63, label %58
 
-57:                                               ; preds = %52
-  %58 = load i32, ptr %13, align 4
-  %59 = sext i32 %58 to i64
-  %60 = mul nsw i64 %59, -1000000000
-  %61 = add i64 %60, %53
-  br label %62
+58:                                               ; preds = %53
+  %59 = load i32, ptr %13, align 4
+  %60 = sext i32 %59 to i64
+  %61 = mul nsw i64 %60, -1000000000
+  %62 = add i64 %61, %54
+  br label %63
 
-62:                                               ; preds = %57, %52
-  %63 = phi i64 [ %61, %57 ], [ %53, %52 ]
-  %64 = getelementptr inbounds i8, ptr %0, i64 992
-  store i64 %63, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 1000
-  store i64 0, ptr %65, align 8
-  %66 = load i8, ptr %1, align 4
-  %67 = icmp eq i8 %66, 0
-  br i1 %67, label %70, label %68
+63:                                               ; preds = %58, %53
+  %64 = phi i64 [ %62, %58 ], [ %54, %53 ]
+  %65 = getelementptr inbounds i8, ptr %0, i64 992
+  store i64 %64, ptr %65, align 8
+  %66 = getelementptr inbounds i8, ptr %0, i64 1000
+  store i64 0, ptr %66, align 8
+  %67 = load i8, ptr %1, align 4
+  %68 = icmp eq i8 %67, 0
+  br i1 %68, label %71, label %69
 
-68:                                               ; preds = %62
-  %69 = tail call fastcc i32 @rtc_timer_enqueue(ptr noundef %0, ptr noundef %47)
-  br label %70
+69:                                               ; preds = %63
+  %70 = tail call fastcc i32 @rtc_timer_enqueue(ptr noundef %0, ptr noundef %48)
+  br label %71
 
-70:                                               ; preds = %68, %62
-  %71 = phi i32 [ %69, %68 ], [ 0, %62 ]
-  tail call void @mutex_unlock(ptr noundef %43) #13
-  br label %72
+71:                                               ; preds = %69, %63
+  %72 = phi i32 [ %70, %69 ], [ 0, %63 ]
+  tail call void @mutex_unlock(ptr noundef %44) #13
+  br label %73
 
-72:                                               ; preds = %70, %.thread, %38, %12, %7, %2
-  %73 = phi i32 [ %71, %70 ], [ -19, %2 ], [ -22, %7 ], [ %14, %12 ], [ -34, %38 ], [ %44, %.thread ]
-  ret i32 %73
+73:                                               ; preds = %38, %71, %43, %12, %7, %2
+  %74 = phi i32 [ %72, %71 ], [ -19, %2 ], [ -22, %7 ], [ %14, %12 ], [ %45, %43 ], [ -34, %38 ]
+  ret i32 %74
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

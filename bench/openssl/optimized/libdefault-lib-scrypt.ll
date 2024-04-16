@@ -733,7 +733,7 @@ if.end56:                                         ; preds = %if.then50
 if.end57:                                         ; preds = %if.end56, %if.end47
   %call58 = call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %params, ptr noundef nonnull @.str.8) #7
   %cmp59.not = icmp eq ptr %call58, null
-  br i1 %cmp59.not, label %return, label %if.then60
+  br i1 %cmp59.not, label %if.end70, label %if.then60
 
 if.then60:                                        ; preds = %if.end57
   %data_type = getelementptr inbounds i8, ptr %call58, i64 8
@@ -749,20 +749,24 @@ lor.lhs.false62:                                  ; preds = %if.then60
   call void @CRYPTO_free(ptr noundef %15, ptr noundef nonnull @.str, i32 noundef 174) #7
   store ptr null, ptr %propq1.i, align 8
   %cmp.not.i = icmp eq ptr %14, null
-  br i1 %cmp.not.i, label %lor.lhs.false65, label %set_property_query.exit
+  br i1 %cmp.not.i, label %lor.lhs.false65, label %if.then.i46
 
-set_property_query.exit:                          ; preds = %lor.lhs.false62
+if.then.i46:                                      ; preds = %lor.lhs.false62
   %call.i47 = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %14, ptr noundef nonnull @.str, i32 noundef 177) #7
   store ptr %call.i47, ptr %propq1.i, align 8
-  %cmp5.i.not = icmp eq ptr %call.i47, null
-  br i1 %cmp5.i.not, label %return, label %lor.lhs.false65
+  %cmp5.i = icmp eq ptr %call.i47, null
+  br i1 %cmp5.i, label %return, label %lor.lhs.false65
 
-lor.lhs.false65:                                  ; preds = %lor.lhs.false62, %set_property_query.exit
+lor.lhs.false65:                                  ; preds = %if.then.i46, %lor.lhs.false62
   %call66 = call fastcc i32 @set_digest(ptr noundef nonnull %vctx), !range !4
+  %tobool67.not = icmp eq i32 %call66, 0
+  br i1 %tobool67.not, label %return, label %if.end70
+
+if.end70:                                         ; preds = %lor.lhs.false65, %if.end57
   br label %return
 
-return:                                           ; preds = %if.then4.i36, %if.then.i41, %if.then4.i, %if.then.i, %lor.lhs.false65, %if.end57, %if.then60, %set_property_query.exit, %if.then50, %if.then39, %if.then29, %if.then17, %entry
-  %retval.0 = phi i32 [ 1, %entry ], [ 0, %if.then17 ], [ 0, %if.then29 ], [ 0, %if.then39 ], [ 0, %if.then50 ], [ 0, %set_property_query.exit ], [ 0, %if.then60 ], [ 1, %if.end57 ], [ %call66, %lor.lhs.false65 ], [ 0, %if.then.i ], [ 0, %if.then4.i ], [ 0, %if.then.i41 ], [ 0, %if.then4.i36 ]
+return:                                           ; preds = %if.then.i46, %if.then4.i36, %if.then.i41, %if.then4.i, %if.then.i, %if.then60, %lor.lhs.false65, %if.then50, %if.then39, %if.then29, %if.then17, %entry, %if.end70
+  %retval.0 = phi i32 [ 1, %if.end70 ], [ 1, %entry ], [ 0, %if.then17 ], [ 0, %if.then29 ], [ 0, %if.then39 ], [ 0, %if.then50 ], [ 0, %lor.lhs.false65 ], [ 0, %if.then60 ], [ 0, %if.then.i ], [ 0, %if.then4.i ], [ 0, %if.then.i41 ], [ 0, %if.then4.i36 ], [ 0, %if.then.i46 ]
   ret i32 %retval.0
 }
 

@@ -551,11 +551,11 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dh_set_params(ptr noundef %key, ptr noundef %params) #0 {
+define internal noundef i32 @dh_set_params(ptr noundef %key, ptr noundef %params) #0 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %params, ptr noundef nonnull @.str.20) #7
   %cmp.not = icmp eq ptr %call, null
-  br i1 %cmp.not, label %return, label %land.lhs.true
+  br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
   %data_type = getelementptr inbounds i8, ptr %call, i64 8
@@ -569,12 +569,14 @@ lor.lhs.false:                                    ; preds = %land.lhs.true
   %data_size = getelementptr inbounds i8, ptr %call, i64 24
   %2 = load i64, ptr %data_size, align 8
   %call2 = tail call i32 @ossl_dh_buf2key(ptr noundef %key, ptr noundef %1, i64 noundef %2) #7
-  %tobool.not = icmp ne i32 %call2, 0
-  %spec.select = zext i1 %tobool.not to i32
+  %tobool.not = icmp eq i32 %call2, 0
+  br i1 %tobool.not, label %return, label %if.end
+
+if.end:                                           ; preds = %lor.lhs.false, %entry
   br label %return
 
-return:                                           ; preds = %lor.lhs.false, %entry, %land.lhs.true
-  %retval.0 = phi i32 [ 0, %land.lhs.true ], [ 1, %entry ], [ %spec.select, %lor.lhs.false ]
+return:                                           ; preds = %land.lhs.true, %lor.lhs.false, %if.end
+  %retval.0 = phi i32 [ 1, %if.end ], [ 0, %lor.lhs.false ], [ 0, %land.lhs.true ]
   ret i32 %retval.0
 }
 
@@ -1272,7 +1274,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare ptr @ossl_dh_get0_params(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dh_gen_common_set_params(ptr noundef %genctx, ptr noundef %params) unnamed_addr #0 {
+define internal fastcc noundef i32 @dh_gen_common_set_params(ptr noundef %genctx, ptr noundef %params) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %genctx, null
   br i1 %cmp, label %return, label %if.end
@@ -1372,17 +1374,19 @@ land.lhs.true:                                    ; preds = %if.end33
 if.end38:                                         ; preds = %land.lhs.true, %if.end33
   %call39 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %params, ptr noundef nonnull @.str.12) #7
   %cmp40.not = icmp eq ptr %call39, null
-  br i1 %cmp40.not, label %return, label %land.lhs.true41
+  br i1 %cmp40.not, label %if.end45, label %land.lhs.true41
 
 land.lhs.true41:                                  ; preds = %if.end38
   %priv_len = getelementptr inbounds i8, ptr %genctx, i64 76
   %call42 = tail call i32 @OSSL_PARAM_get_int(ptr noundef nonnull %call39, ptr noundef nonnull %priv_len) #7
-  %tobool43.not = icmp ne i32 %call42, 0
-  %spec.select = zext i1 %tobool43.not to i32
+  %tobool43.not = icmp eq i32 %call42, 0
+  br i1 %tobool43.not, label %return, label %if.end45
+
+if.end45:                                         ; preds = %land.lhs.true41, %if.end38
   br label %return
 
-return:                                           ; preds = %land.lhs.true41, %if.end38, %land.lhs.true, %if.end, %entry, %if.then31, %if.then9
-  %retval.0 = phi i32 [ 0, %if.then9 ], [ 0, %if.then31 ], [ 0, %entry ], [ 1, %if.end ], [ 0, %land.lhs.true ], [ 1, %if.end38 ], [ %spec.select, %land.lhs.true41 ]
+return:                                           ; preds = %land.lhs.true41, %land.lhs.true, %if.end, %entry, %if.end45, %if.then31, %if.then9
+  %retval.0 = phi i32 [ 0, %if.then9 ], [ 0, %if.then31 ], [ 1, %if.end45 ], [ 0, %entry ], [ 1, %if.end ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true41 ]
   ret i32 %retval.0
 }
 

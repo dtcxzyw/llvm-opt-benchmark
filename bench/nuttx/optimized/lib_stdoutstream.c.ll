@@ -19,16 +19,18 @@ define void @lib_stdoutstream(ptr nocapture noundef writeonly %0, ptr noundef %1
   %9 = load i16, ptr %8, align 8
   %10 = and i16 %9, 256
   %.not9 = icmp eq i16 %10, 0
-  %spec.select = select i1 %.not9, ptr @lib_noflush, ptr @stdoutstream_flush
-  br label %11
+  br i1 %.not9, label %11, label %12
 
 11:                                               ; preds = %7, %2
-  %lib_noflush.sink = phi ptr [ @lib_noflush, %2 ], [ %spec.select, %7 ]
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %lib_noflush.sink, ptr %12, align 8
+  br label %12
+
+12:                                               ; preds = %7, %11
+  %lib_noflush.sink = phi ptr [ @lib_noflush, %11 ], [ @stdoutstream_flush, %7 ]
+  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %lib_noflush.sink, ptr %13, align 8
   store i32 0, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %1, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %1, ptr %14, align 8
   ret void
 }
 

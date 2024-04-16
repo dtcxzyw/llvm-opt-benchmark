@@ -2901,55 +2901,55 @@ define internal zeroext i1 @check_simple_rowfilter_expr_walker(ptr noundef %0, p
 
 4:                                                ; preds = %2
   %5 = load i32, ptr %0, align 4
-  switch i32 %5, label %.thread51 [
+  switch i32 %5, label %.thread50 [
     i32 6, label %6
     i32 15, label %10
     i32 16, label %10
     i32 17, label %10
     i32 18, label %27
     i32 35, label %14
-    i32 1, label %.thread56
-    i32 7, label %.thread49
-    i32 13, label %.thread49
-    i32 19, label %.thread49
-    i32 25, label %.thread49
-    i32 29, label %.thread49
-    i32 30, label %.thread49
-    i32 32, label %.thread49
-    i32 33, label %.thread49
-    i32 34, label %.thread49
-    i32 36, label %.thread49
-    i32 37, label %.thread49
-    i32 39, label %.thread49
-    i32 45, label %.thread49
-    i32 46, label %.thread49
+    i32 1, label %.thread55
+    i32 7, label %.thread48
+    i32 13, label %.thread48
+    i32 19, label %.thread48
+    i32 25, label %.thread48
+    i32 29, label %.thread48
+    i32 30, label %.thread48
+    i32 32, label %.thread48
+    i32 33, label %.thread48
+    i32 34, label %.thread48
+    i32 36, label %.thread48
+    i32 37, label %.thread48
+    i32 39, label %.thread48
+    i32 45, label %.thread48
+    i32 46, label %.thread48
   ]
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load i16, ptr %7, align 8
   %9 = icmp sgt i16 %8, -1
-  br i1 %9, label %.thread49, label %.thread51
+  br i1 %9, label %.thread48, label %.thread50
 
 10:                                               ; preds = %4, %4, %4
   %11 = getelementptr inbounds i8, ptr %0, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = icmp ult i32 %12, 16384
-  br i1 %13, label %.thread49, label %.thread51
+  br i1 %13, label %.thread48, label %.thread50
 
 14:                                               ; preds = %4
   %15 = getelementptr inbounds i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %.thread49, label %.lr.ph
+  br i1 %.not, label %.thread48, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14
   %17 = getelementptr inbounds i8, ptr %16, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = icmp sgt i32 %18, 0
-  br i1 %19, label %.lr.ph62, label %.thread49
+  br i1 %19, label %.lr.ph61, label %.thread48
 
-.lr.ph62:                                         ; preds = %.lr.ph
+.lr.ph61:                                         ; preds = %.lr.ph
   %20 = getelementptr inbounds i8, ptr %16, i64 16
   %21 = load ptr, ptr %20, align 8
   %wide.trip.count = zext nneg i32 %18 to i64
@@ -2958,58 +2958,58 @@ define internal zeroext i1 @check_simple_rowfilter_expr_walker(ptr noundef %0, p
 22:                                               ; preds = %23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread49, label %23
+  br i1 %exitcond.not, label %.thread48, label %23
 
-23:                                               ; preds = %.lr.ph62, %22
-  %indvars.iv = phi i64 [ 0, %.lr.ph62 ], [ %indvars.iv.next, %22 ]
+23:                                               ; preds = %.lr.ph61, %22
+  %indvars.iv = phi i64 [ 0, %.lr.ph61 ], [ %indvars.iv.next, %22 ]
   %24 = getelementptr %union.ListCell, ptr %21, i64 %indvars.iv
   %25 = load i32, ptr %24, align 8
   %26 = icmp ugt i32 %25, 16383
-  br i1 %26, label %.thread51, label %22
+  br i1 %26, label %.thread50, label %22
 
 27:                                               ; preds = %4
   %28 = getelementptr inbounds i8, ptr %0, i64 4
   %29 = load i32, ptr %28, align 4
   %30 = icmp ult i32 %29, 16384
-  br i1 %30, label %.thread49, label %.thread51
+  br i1 %30, label %.thread48, label %.thread50
 
-.thread49:                                        ; preds = %22, %14, %.lr.ph, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %27, %6, %10
+.thread48:                                        ; preds = %22, %14, %.lr.ph, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %27, %6, %10
   %31 = tail call i32 @exprType(ptr noundef nonnull %0) #8
   %32 = icmp ugt i32 %31, 16383
-  br i1 %32, label %.thread51, label %33
+  br i1 %32, label %.thread50, label %33
 
-33:                                               ; preds = %.thread49
+33:                                               ; preds = %.thread48
   %34 = tail call zeroext i1 @check_functions_in_node(ptr noundef nonnull %0, ptr noundef nonnull @contain_mutable_or_user_functions_checker, ptr noundef %1) #8
-  br i1 %34, label %.thread51, label %35
+  br i1 %34, label %.thread50, label %35
 
 35:                                               ; preds = %33
   %36 = tail call i32 @exprCollation(ptr noundef nonnull %0) #8
   %37 = icmp ugt i32 %36, 16383
-  br i1 %37, label %.thread51, label %38
+  br i1 %37, label %.thread50, label %38
 
 38:                                               ; preds = %35
   %39 = tail call i32 @exprInputCollation(ptr noundef nonnull %0) #8
   %40 = icmp ugt i32 %39, 16383
-  br i1 %40, label %.thread51, label %.thread56
+  br i1 %40, label %.thread50, label %.thread55
 
-.thread51:                                        ; preds = %23, %27, %6, %10, %4, %38, %35, %33, %.thread49
-  %.154 = phi ptr [ @.str.30, %35 ], [ @.str.29, %33 ], [ @.str.28, %.thread49 ], [ @.str.27, %4 ], [ @.str.30, %38 ], [ @.str.26, %27 ], [ @.str.25, %6 ], [ @.str.26, %10 ], [ @.str.26, %23 ]
+.thread50:                                        ; preds = %23, %27, %6, %10, %4, %35, %38, %33, %.thread48
+  %.153 = phi ptr [ @.str.29, %33 ], [ @.str.28, %.thread48 ], [ @.str.27, %4 ], [ @.str.30, %38 ], [ @.str.30, %35 ], [ @.str.26, %27 ], [ @.str.25, %6 ], [ @.str.26, %10 ], [ @.str.26, %23 ]
   %41 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %41)
   %42 = tail call i32 @errcode(i32 noundef 1088) #8
   %43 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31) #8
-  %44 = tail call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.32, ptr noundef nonnull %.154) #8
+  %44 = tail call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.32, ptr noundef nonnull %.153) #8
   %45 = tail call i32 @exprLocation(ptr noundef nonnull %0) #8
   %46 = tail call i32 @parser_errposition(ptr noundef %1, i32 noundef %45) #8
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 585, ptr noundef nonnull @__func__.check_simple_rowfilter_expr_walker) #8
   unreachable
 
-.thread56:                                        ; preds = %4, %38
+.thread55:                                        ; preds = %4, %38
   %47 = tail call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @check_simple_rowfilter_expr_walker, ptr noundef %1) #8
   br label %48
 
-48:                                               ; preds = %2, %.thread56
-  %.0 = phi i1 [ %47, %.thread56 ], [ false, %2 ]
+48:                                               ; preds = %2, %.thread55
+  %.0 = phi i1 [ %47, %.thread55 ], [ false, %2 ]
   ret i1 %.0
 }
 

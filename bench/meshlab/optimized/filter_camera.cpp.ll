@@ -12546,14 +12546,14 @@ _ZNK3vcg4ShotIfNS_8Matrix44IfEEE7ProjectERKNS_6Point3IfEE.exit: ; preds = %_ZNK3
   %1520 = extractelement <2 x i1> %1519, i64 0
   %1521 = extractelement <2 x i1> %1519, i64 1
   %or.cond = select i1 %1520, i1 true, i1 %1521
-  br i1 %or.cond, label %1533, label %1522
+  br i1 %or.cond, label %1532, label %1522
 
 1522:                                             ; preds = %1518
   %1523 = load i32, ptr %1392, align 4
   %1524 = sitofp i32 %1523 to float
   %1525 = extractelement <2 x float> %1477, i64 0
   %1526 = fcmp ogt float %1525, %1524
-  br i1 %1526, label %1533, label %1527
+  br i1 %1526, label %1532, label %1527
 
 1527:                                             ; preds = %1522
   %1528 = load i32, ptr %1393, align 4
@@ -12562,11 +12562,11 @@ _ZNK3vcg4ShotIfNS_8Matrix44IfEEE7ProjectERKNS_6Point3IfEE.exit: ; preds = %_ZNK3
   %1531 = fcmp ogt float %1530, %1529
   br i1 %1531, label %1532, label %1533
 
-1532:                                             ; preds = %1527
+1532:                                             ; preds = %1527, %1522, %1518
   br label %1533
 
-1533:                                             ; preds = %1518, %1522, %1527, %1532, %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE7ProjectERKNS_6Point3IfEE.exit
-  %.2415 = phi float [ %.1414, %1527 ], [ %.1414, %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE7ProjectERKNS_6Point3IfEE.exit ], [ 0.000000e+00, %1522 ], [ 0.000000e+00, %1518 ], [ 0.000000e+00, %1532 ]
+1533:                                             ; preds = %1527, %1532, %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE7ProjectERKNS_6Point3IfEE.exit
+  %.2415 = phi float [ 0.000000e+00, %1532 ], [ %.1414, %1527 ], [ %.1414, %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE7ProjectERKNS_6Point3IfEE.exit ]
   %1534 = getelementptr inbounds i8, ptr %.sroa.01141.01454, i64 36
   store float %.2415, ptr %1534, align 4
   %1535 = getelementptr inbounds i8, ptr %.sroa.01141.01454, i64 48
@@ -15099,7 +15099,7 @@ define internal fastcc void @_ZNSt6vectorIS_IZN18FilterCameraPlugin11applyFilter
   %6 = sub i64 %4, %5
   %7 = sdiv exact i64 %6, 24
   %8 = icmp ult i64 %7, %1
-  br i1 %8, label %9, label %37
+  br i1 %8, label %9, label %38
 
 9:                                                ; preds = %2
   %10 = sub i64 %1, %7
@@ -15134,77 +15134,77 @@ _ZSt27__uninitialized_default_n_aIPSt6vectorIZN18FilterCameraPlugin11applyFilter
 _ZNKSt6vectorIS_IZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISE_EESaISG_EE12_M_check_lenEmSB_.exit.i: ; preds = %20
   %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %7, i64 %10)
   %23 = add nuw nsw i64 %.sroa.speculated.i.i, %7
-  %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %23, i64 384307168202282325)
-  %24 = mul nuw nsw i64 %spec.select.i.i, 24
-  %25 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %24) #27
-  %26 = getelementptr inbounds i8, ptr %25, i64 %6
-  %27 = mul nuw nsw i64 %10, 24
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %26, i8 0, i64 %27, i1 false)
+  %24 = tail call i64 @llvm.umin.i64(i64 %23, i64 384307168202282325)
+  %25 = mul nuw nsw i64 %24, 24
+  %26 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %25) #27
+  %27 = getelementptr inbounds i8, ptr %26, i64 %6
+  %28 = mul nuw nsw i64 %10, 24
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %27, i8 0, i64 %28, i1 false)
   %.not1.i.i.i.i.i = icmp eq ptr %.val, %.val4
   br i1 %.not1.i.i.i.i.i, label %_ZNSt6vectorIS_IZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISE_EESaISG_EE11_S_relocateEPSG_SJ_SJ_RSH_.exit.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNKSt6vectorIS_IZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISE_EESaISG_EE12_M_check_lenEmSB_.exit.i, %.lr.ph.i.i.i.i.i
-  %.03.i.i.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i.i.i ], [ %25, %_ZNKSt6vectorIS_IZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISE_EESaISG_EE12_M_check_lenEmSB_.exit.i ]
-  %.092.i.i.i.i.i = phi ptr [ %32, %.lr.ph.i.i.i.i.i ], [ %.val, %_ZNKSt6vectorIS_IZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISE_EESaISG_EE12_M_check_lenEmSB_.exit.i ]
+  %.03.i.i.i.i.i = phi ptr [ %34, %.lr.ph.i.i.i.i.i ], [ %26, %_ZNKSt6vectorIS_IZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISE_EESaISG_EE12_M_check_lenEmSB_.exit.i ]
+  %.092.i.i.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i.i.i ], [ %.val, %_ZNKSt6vectorIS_IZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISE_EESaISG_EE12_M_check_lenEmSB_.exit.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !83)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !86)
-  %28 = load <2 x ptr>, ptr %.092.i.i.i.i.i, align 8, !alias.scope !86, !noalias !83
-  store <2 x ptr> %28, ptr %.03.i.i.i.i.i, align 8, !alias.scope !83, !noalias !86
-  %29 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i, i64 16
-  %30 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i, i64 16
-  %31 = load ptr, ptr %30, align 8, !alias.scope !86, !noalias !83
-  store ptr %31, ptr %29, align 8, !alias.scope !83, !noalias !86
+  %29 = load <2 x ptr>, ptr %.092.i.i.i.i.i, align 8, !alias.scope !86, !noalias !83
+  store <2 x ptr> %29, ptr %.03.i.i.i.i.i, align 8, !alias.scope !83, !noalias !86
+  %30 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i, i64 16
+  %31 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i, i64 16
+  %32 = load ptr, ptr %31, align 8, !alias.scope !86, !noalias !83
+  store ptr %32, ptr %30, align 8, !alias.scope !83, !noalias !86
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.092.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !86, !noalias !83
-  %32 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i, i64 24
-  %33 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i, i64 24
-  %.not.i.i.i.i.i = icmp eq ptr %32, %.val4
+  %33 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i, i64 24
+  %34 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i, i64 24
+  %.not.i.i.i.i.i = icmp eq ptr %33, %.val4
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIS_IZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISE_EESaISG_EE11_S_relocateEPSG_SJ_SJ_RSH_.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !88
 
 _ZNSt6vectorIS_IZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISE_EESaISG_EE11_S_relocateEPSG_SJ_SJ_RSH_.exit.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNKSt6vectorIS_IZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISE_EESaISG_EE12_M_check_lenEmSB_.exit.i
   %.not.i38.i = icmp eq ptr %.val, null
-  br i1 %.not.i38.i, label %_ZNSt12_Vector_baseISt6vectorIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISF_EESaISH_EE13_M_deallocateEPSH_m.exit39.i, label %34
+  br i1 %.not.i38.i, label %_ZNSt12_Vector_baseISt6vectorIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISF_EESaISH_EE13_M_deallocateEPSH_m.exit39.i, label %35
 
-34:                                               ; preds = %_ZNSt6vectorIS_IZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISE_EESaISG_EE11_S_relocateEPSG_SJ_SJ_RSH_.exit.i
+35:                                               ; preds = %_ZNSt6vectorIS_IZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISE_EESaISG_EE11_S_relocateEPSG_SJ_SJ_RSH_.exit.i
   tail call void @_ZdlPv(ptr noundef nonnull %.val) #23
   br label %_ZNSt12_Vector_baseISt6vectorIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISF_EESaISH_EE13_M_deallocateEPSH_m.exit39.i
 
-_ZNSt12_Vector_baseISt6vectorIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISF_EESaISH_EE13_M_deallocateEPSH_m.exit39.i: ; preds = %34, %_ZNSt6vectorIS_IZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISE_EESaISG_EE11_S_relocateEPSG_SJ_SJ_RSH_.exit.i
-  store ptr %25, ptr %0, align 8
-  %35 = getelementptr inbounds %"class.std::vector.201", ptr %26, i64 %10
-  store ptr %35, ptr %3, align 8
-  %36 = getelementptr inbounds %"class.std::vector.201", ptr %25, i64 %spec.select.i.i
-  store ptr %36, ptr %11, align 8
+_ZNSt12_Vector_baseISt6vectorIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISF_EESaISH_EE13_M_deallocateEPSH_m.exit39.i: ; preds = %35, %_ZNSt6vectorIS_IZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISE_EESaISG_EE11_S_relocateEPSG_SJ_SJ_RSH_.exit.i
+  store ptr %26, ptr %0, align 8
+  %36 = getelementptr inbounds %"class.std::vector.201", ptr %27, i64 %10
+  store ptr %36, ptr %3, align 8
+  %37 = getelementptr inbounds %"class.std::vector.201", ptr %26, i64 %24
+  store ptr %37, ptr %11, align 8
   br label %_ZNSt6vectorIS_IZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISE_EESaISG_EE17_M_default_appendEm.exit
 
-37:                                               ; preds = %2
-  %38 = icmp ugt i64 %7, %1
-  br i1 %38, label %39, label %_ZNSt6vectorIS_IZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISE_EESaISG_EE17_M_default_appendEm.exit
+38:                                               ; preds = %2
+  %39 = icmp ugt i64 %7, %1
+  br i1 %39, label %40, label %_ZNSt6vectorIS_IZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISE_EESaISG_EE17_M_default_appendEm.exit
 
-39:                                               ; preds = %37
-  %40 = getelementptr inbounds %"class.std::vector.201", ptr %.val, i64 %1
-  %.not.i9 = icmp eq ptr %.val4, %40
+40:                                               ; preds = %38
+  %41 = getelementptr inbounds %"class.std::vector.201", ptr %.val, i64 %1
+  %.not.i9 = icmp eq ptr %.val4, %41
   br i1 %.not.i9, label %_ZNSt6vectorIS_IZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISE_EESaISG_EE17_M_default_appendEm.exit, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %39, %_ZSt8_DestroyISt6vectorIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISF_EEEvPT_.exit.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %42, %_ZSt8_DestroyISt6vectorIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISF_EEEvPT_.exit.i.i.i.i ], [ %40, %39 ]
+.lr.ph.i.i.i.i:                                   ; preds = %40, %_ZSt8_DestroyISt6vectorIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISF_EEEvPT_.exit.i.i.i.i
+  %.05.i.i.i.i = phi ptr [ %43, %_ZSt8_DestroyISt6vectorIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISF_EEEvPT_.exit.i.i.i.i ], [ %41, %40 ]
   %.0.val.i.i.i.i = load ptr, ptr %.05.i.i.i.i, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %.0.val.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt6vectorIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISF_EEEvPT_.exit.i.i.i.i, label %41
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt6vectorIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISF_EEEvPT_.exit.i.i.i.i, label %42
 
-41:                                               ; preds = %.lr.ph.i.i.i.i
+42:                                               ; preds = %.lr.ph.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %.0.val.i.i.i.i) #23
   br label %_ZSt8_DestroyISt6vectorIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISF_EEEvPT_.exit.i.i.i.i
 
-_ZSt8_DestroyISt6vectorIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISF_EEEvPT_.exit.i.i.i.i: ; preds = %41, %.lr.ph.i.i.i.i
-  %42 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 24
-  %.not.i.i.i.i = icmp eq ptr %42, %.val4
+_ZSt8_DestroyISt6vectorIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISF_EEEvPT_.exit.i.i.i.i: ; preds = %42, %.lr.ph.i.i.i.i
+  %43 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 24
+  %.not.i.i.i.i = icmp eq ptr %43, %.val4
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPSt6vectorIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISF_EESH_EvT_SJ_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !89
 
 _ZSt8_DestroyIPSt6vectorIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISF_EESH_EvT_SJ_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyISt6vectorIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISF_EEEvPT_.exit.i.i.i.i
-  store ptr %40, ptr %3, align 8
+  store ptr %41, ptr %3, align 8
   br label %_ZNSt6vectorIS_IZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISE_EESaISG_EE17_M_default_appendEm.exit
 
-_ZNSt6vectorIS_IZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISE_EESaISG_EE17_M_default_appendEm.exit: ; preds = %_ZSt8_DestroyIPSt6vectorIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISF_EESH_EvT_SJ_RSaIT0_E.exit.i, %39, %_ZNSt12_Vector_baseISt6vectorIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISF_EESaISH_EE13_M_deallocateEPSH_m.exit39.i, %_ZSt27__uninitialized_default_n_aIPSt6vectorIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISF_EEmSH_ET_SJ_T0_RSaIT1_E.exit.i, %37
+_ZNSt6vectorIS_IZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISE_EESaISG_EE17_M_default_appendEm.exit: ; preds = %_ZSt8_DestroyIPSt6vectorIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISF_EESH_EvT_SJ_RSaIT0_E.exit.i, %40, %_ZNSt12_Vector_baseISt6vectorIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISF_EESaISH_EE13_M_deallocateEPSH_m.exit39.i, %_ZSt27__uninitialized_default_n_aIPSt6vectorIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISF_EEmSH_ET_SJ_T0_RSaIT1_E.exit.i, %38
   ret void
 }
 

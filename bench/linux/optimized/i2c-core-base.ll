@@ -3203,7 +3203,7 @@ declare dso_local ptr @bus_find_device(ptr noundef, ptr noundef, ptr noundef, pt
 define internal noundef i32 @i2c_dev_or_parent_fwnode_match(ptr noundef %0, ptr noundef readnone %1) #1 align 16 {
   %3 = tail call ptr @__dev_fwnode(ptr noundef %0) #21
   %4 = icmp eq ptr %3, %1
-  br i1 %4, label %12, label %5
+  br i1 %4, label %13, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 64
@@ -3214,12 +3214,14 @@ define internal noundef i32 @i2c_dev_or_parent_fwnode_match(ptr noundef %0, ptr 
 9:                                                ; preds = %5
   %10 = tail call ptr @__dev_fwnode(ptr noundef nonnull %7) #21
   %11 = icmp eq ptr %10, %1
-  %spec.select = zext i1 %11 to i32
-  br label %12
+  br i1 %11, label %13, label %12
 
-12:                                               ; preds = %9, %5, %2
-  %13 = phi i32 [ 1, %2 ], [ 0, %5 ], [ %spec.select, %9 ]
-  ret i32 %13
+12:                                               ; preds = %9, %5
+  br label %13
+
+13:                                               ; preds = %12, %9, %2
+  %14 = phi i32 [ 0, %12 ], [ 1, %2 ], [ 1, %9 ]
+  ret i32 %14
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -5166,7 +5168,7 @@ define internal i32 @i2c_check_mux_children(ptr noundef %0, ptr noundef %1) #1 a
 
 6:                                                ; preds = %2
   %7 = tail call i32 @device_for_each_child(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @i2c_check_mux_children) #21
-  br label %27
+  br label %28
 
 8:                                                ; preds = %2
   %9 = icmp ne ptr %4, @i2c_client_type
@@ -5189,12 +5191,14 @@ define internal i32 @i2c_check_mux_children(ptr noundef %0, ptr noundef %1) #1 a
   %24 = or i16 %21, %23
   %25 = zext i16 %24 to i32
   %26 = icmp eq i32 %14, %25
-  %spec.select = select i1 %26, i32 -16, i32 0
-  br label %27
+  br i1 %26, label %28, label %27
 
-27:                                               ; preds = %13, %8, %6
-  %28 = phi i32 [ %7, %6 ], [ 0, %8 ], [ %spec.select, %13 ]
-  ret i32 %28
+27:                                               ; preds = %13, %8
+  br label %28
+
+28:                                               ; preds = %27, %13, %6
+  %29 = phi i32 [ %7, %6 ], [ 0, %27 ], [ -16, %13 ]
+  ret i32 %29
 }
 
 ; Function Attrs: null_pointer_is_valid

@@ -168,7 +168,7 @@ entry:
   %ts.i = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i)
   %and1.i = and i32 %flags, 2
-  %tobool2.not.i = icmp ne i32 %and1.i, 0
+  %tobool2.not.i = icmp eq i32 %and1.i, 0
   %0 = and i32 %flags, 3
   %or.cond.not.i = icmp eq i32 %0, 0
   br i1 %or.cond.not.i, label %if.then.i, label %if.end4.i
@@ -176,21 +176,21 @@ entry:
 if.then.i:                                        ; preds = %entry
   %call.i = call i32 @clock_gettime(i32 noundef 6, ptr noundef nonnull %ts.i) #8
   %cmp.i = icmp eq i32 %call.i, 0
-  %brmerge.i = or i1 %tobool2.not.i, %cmp.i
-  %.mux.i = select i1 %cmp.i, i32 6, i32 -1
-  br i1 %brmerge.i, label %evutil_configure_monotonic_time_.exit, label %land.lhs.true6.i
+  br i1 %cmp.i, label %evutil_configure_monotonic_time_.exit, label %if.end4.i
 
-if.end4.i:                                        ; preds = %entry
-  br i1 %tobool2.not.i, label %evutil_configure_monotonic_time_.exit, label %land.lhs.true6.i
+if.end4.i:                                        ; preds = %if.then.i, %entry
+  br i1 %tobool2.not.i, label %land.lhs.true6.i, label %if.end11.i
 
-land.lhs.true6.i:                                 ; preds = %if.end4.i, %if.then.i
+land.lhs.true6.i:                                 ; preds = %if.end4.i
   %call7.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i) #8
   %cmp8.i = icmp eq i32 %call7.i, 0
-  %spec.select.i = select i1 %cmp8.i, i32 1, i32 -1
+  br i1 %cmp8.i, label %evutil_configure_monotonic_time_.exit, label %if.end11.i
+
+if.end11.i:                                       ; preds = %land.lhs.true6.i, %if.end4.i
   br label %evutil_configure_monotonic_time_.exit
 
-evutil_configure_monotonic_time_.exit:            ; preds = %if.then.i, %if.end4.i, %land.lhs.true6.i
-  %.sink.i = phi i32 [ %.mux.i, %if.then.i ], [ -1, %if.end4.i ], [ %spec.select.i, %land.lhs.true6.i ]
+evutil_configure_monotonic_time_.exit:            ; preds = %if.then.i, %land.lhs.true6.i, %if.end11.i
+  %.sink.i = phi i32 [ -1, %if.end11.i ], [ 6, %if.then.i ], [ 1, %land.lhs.true6.i ]
   store i32 %.sink.i, ptr %timer, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i)
   ret i32 0
@@ -201,7 +201,7 @@ define dso_local noundef i32 @evutil_configure_monotonic_time_(ptr nocapture nou
 entry:
   %ts = alloca %struct.timespec, align 8
   %and1 = and i32 %flags, 2
-  %tobool2.not = icmp ne i32 %and1, 0
+  %tobool2.not = icmp eq i32 %and1, 0
   %0 = and i32 %flags, 3
   %or.cond.not = icmp eq i32 %0, 0
   br i1 %or.cond.not, label %if.then, label %if.end4
@@ -209,21 +209,21 @@ entry:
 if.then:                                          ; preds = %entry
   %call = call i32 @clock_gettime(i32 noundef 6, ptr noundef nonnull %ts) #8
   %cmp = icmp eq i32 %call, 0
-  %brmerge = or i1 %cmp, %tobool2.not
-  %.mux = select i1 %cmp, i32 6, i32 -1
-  br i1 %brmerge, label %return, label %land.lhs.true6
+  br i1 %cmp, label %return, label %if.end4
 
-if.end4:                                          ; preds = %entry
-  br i1 %tobool2.not, label %return, label %land.lhs.true6
+if.end4:                                          ; preds = %if.then, %entry
+  br i1 %tobool2.not, label %land.lhs.true6, label %if.end11
 
-land.lhs.true6:                                   ; preds = %if.then, %if.end4
+land.lhs.true6:                                   ; preds = %if.end4
   %call7 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts) #8
   %cmp8 = icmp eq i32 %call7, 0
-  %spec.select = select i1 %cmp8, i32 1, i32 -1
+  br i1 %cmp8, label %return, label %if.end11
+
+if.end11:                                         ; preds = %land.lhs.true6, %if.end4
   br label %return
 
-return:                                           ; preds = %land.lhs.true6, %if.then, %if.end4
-  %.sink = phi i32 [ %.mux, %if.then ], [ -1, %if.end4 ], [ %spec.select, %land.lhs.true6 ]
+return:                                           ; preds = %land.lhs.true6, %if.then, %if.end11
+  %.sink = phi i32 [ -1, %if.end11 ], [ 6, %if.then ], [ 1, %land.lhs.true6 ]
   store i32 %.sink, ptr %base, align 8
   ret i32 0
 }

@@ -537,7 +537,7 @@ if.end.i:                                         ; preds = %if.then.i
   %minLength.0.i = tail call i32 @llvm.umin.i32(i32 %and.i.i, i32 %and.i16.i)
   %result.0.i = select i1 %cmp7.i, i32 -1, i32 %..i
   %cmp14.not.i = icmp eq i32 %minLength.0.i, 0
-  br i1 %cmp14.not.i, label %_ZNK6icu_7512CollationKey9compareToERKS0_R10UErrorCode.exit, label %if.then15.i
+  br i1 %cmp14.not.i, label %if.end24.i, label %if.then15.i
 
 if.then15.i:                                      ; preds = %if.end.i
   %conv.i = zext nneg i32 %minLength.0.i to i64
@@ -546,12 +546,14 @@ if.then15.i:                                      ; preds = %if.end.i
   br i1 %cmp17.i, label %_ZNK6icu_7512CollationKey9compareToERKS0_R10UErrorCode.exit, label %if.else19.i
 
 if.else19.i:                                      ; preds = %if.then15.i
-  %cmp20.not.i = icmp eq i32 %call16.i, 0
-  %spec.select.i = select i1 %cmp20.not.i, i32 %result.0.i, i32 -1
+  %cmp20.i = icmp slt i32 %call16.i, 0
+  br i1 %cmp20.i, label %_ZNK6icu_7512CollationKey9compareToERKS0_R10UErrorCode.exit, label %if.end24.i
+
+if.end24.i:                                       ; preds = %if.else19.i, %if.end.i
   br label %_ZNK6icu_7512CollationKey9compareToERKS0_R10UErrorCode.exit
 
-_ZNK6icu_7512CollationKey9compareToERKS0_R10UErrorCode.exit: ; preds = %if.then.i, %if.end.i, %if.then15.i, %if.else19.i
-  %retval.0.i = phi i32 [ 0, %if.then.i ], [ 1, %if.then15.i ], [ %result.0.i, %if.end.i ], [ %spec.select.i, %if.else19.i ]
+_ZNK6icu_7512CollationKey9compareToERKS0_R10UErrorCode.exit: ; preds = %if.then.i, %if.then15.i, %if.else19.i, %if.end24.i
+  %retval.0.i = phi i32 [ %result.0.i, %if.end24.i ], [ 0, %if.then.i ], [ 1, %if.then15.i ], [ -1, %if.else19.i ]
   ret i32 %retval.0.i
 }
 
@@ -587,7 +589,7 @@ if.end:                                           ; preds = %if.then
   %minLength.0 = tail call i32 @llvm.umin.i32(i32 %and.i, i32 %and.i16)
   %result.0 = select i1 %cmp7, i32 -1, i32 %.
   %cmp14.not = icmp eq i32 %minLength.0, 0
-  br i1 %cmp14.not, label %return, label %if.then15
+  br i1 %cmp14.not, label %if.end24, label %if.then15
 
 if.then15:                                        ; preds = %if.end
   %conv = zext nneg i32 %minLength.0 to i64
@@ -596,12 +598,14 @@ if.then15:                                        ; preds = %if.end
   br i1 %cmp17, label %return, label %if.else19
 
 if.else19:                                        ; preds = %if.then15
-  %cmp20.not = icmp eq i32 %call16, 0
-  %spec.select = select i1 %cmp20.not, i32 %result.0, i32 -1
+  %cmp20 = icmp slt i32 %call16, 0
+  br i1 %cmp20, label %return, label %if.end24
+
+if.end24:                                         ; preds = %if.else19, %if.end
   br label %return
 
-return:                                           ; preds = %if.else19, %entry, %if.end, %if.then15, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ 1, %if.then15 ], [ %result.0, %if.end ], [ 0, %entry ], [ %spec.select, %if.else19 ]
+return:                                           ; preds = %entry, %if.else19, %if.then15, %if.then, %if.end24
+  %retval.0 = phi i32 [ %result.0, %if.end24 ], [ 0, %if.then ], [ 1, %if.then15 ], [ -1, %if.else19 ], [ 0, %entry ]
   ret i32 %retval.0
 }
 

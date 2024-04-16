@@ -4745,42 +4745,47 @@ define dso_local i32 @raxCompare(ptr nocapture noundef readonly %iter, ptr nocap
 entry:
   %0 = load i8, ptr %op, align 1
   %cmp = icmp eq i8 %0, 61
-  %arrayidx17.phi.trans.insert = getelementptr inbounds i8, ptr %op, i64 1
-  %.pre = load i8, ptr %arrayidx17.phi.trans.insert, align 1
-  br i1 %cmp, label %if.else16, label %if.end
+  br i1 %cmp, label %if.then, label %lor.lhs.false
 
-if.end:                                           ; preds = %entry
-  %cmp4 = icmp ne i8 %.pre, 61
-  switch i8 %0, label %if.else16 [
-    i8 62, label %if.end24
-    i8 60, label %if.end24.fold.split
-  ]
+lor.lhs.false:                                    ; preds = %entry
+  %arrayidx2 = getelementptr inbounds i8, ptr %op, i64 1
+  %1 = load i8, ptr %arrayidx2, align 1
+  %cmp4 = icmp eq i8 %1, 61
+  br i1 %cmp4, label %if.then, label %if.end
 
-if.else16:                                        ; preds = %entry, %if.end
-  %tobool.not2532 = phi i1 [ %cmp4, %if.end ], [ false, %entry ]
-  %cmp19.not = icmp eq i8 %.pre, 61
+if.then:                                          ; preds = %lor.lhs.false, %entry
+  br label %if.end
+
+if.end:                                           ; preds = %if.then, %lor.lhs.false
+  %tobool.not.not = phi i1 [ true, %if.then ], [ false, %lor.lhs.false ]
+  %cmp8 = icmp ne i8 %0, 62
+  br i1 %cmp8, label %if.else, label %if.end24
+
+if.else:                                          ; preds = %if.end
+  %cmp13 = icmp eq i8 %0, 60
+  br i1 %cmp13, label %if.end24, label %if.else16
+
+if.else16:                                        ; preds = %if.else
+  %arrayidx17 = getelementptr inbounds i8, ptr %op, i64 1
+  %2 = load i8, ptr %arrayidx17, align 1
+  %cmp19.not = icmp eq i8 %2, 61
   br i1 %cmp19.not, label %if.end24, label %return
 
-if.end24.fold.split:                              ; preds = %if.end
-  br label %if.end24
-
-if.end24:                                         ; preds = %if.end, %if.end24.fold.split, %if.else16
-  %cmp826 = phi i1 [ true, %if.else16 ], [ false, %if.end ], [ true, %if.end24.fold.split ]
-  %tobool.not24 = phi i1 [ %tobool.not2532, %if.else16 ], [ %cmp4, %if.end ], [ %cmp4, %if.end24.fold.split ]
-  %cmp31 = phi i1 [ true, %if.else16 ], [ true, %if.end ], [ false, %if.end24.fold.split ]
+if.end24:                                         ; preds = %if.else, %if.end, %if.else16
+  %cmp31 = phi i1 [ true, %if.else16 ], [ true, %if.end ], [ false, %if.else ]
   %key_len25 = getelementptr inbounds i8, ptr %iter, i64 32
-  %1 = load i64, ptr %key_len25, align 8
-  %cmp26 = icmp ugt i64 %1, %key_len
-  %key_len. = tail call i64 @llvm.umin.i64(i64 %1, i64 %key_len)
+  %3 = load i64, ptr %key_len25, align 8
+  %cmp26 = icmp ugt i64 %3, %key_len
+  %key_len. = tail call i64 @llvm.umin.i64(i64 %3, i64 %key_len)
   %key30 = getelementptr inbounds i8, ptr %iter, i64 16
-  %2 = load ptr, ptr %key30, align 8
-  %call = tail call i32 @memcmp(ptr noundef %2, ptr noundef %key, i64 noundef %key_len.) #27
-  %or.cond = and i1 %cmp826, %cmp31
+  %4 = load ptr, ptr %key30, align 8
+  %call = tail call i32 @memcmp(ptr noundef %4, ptr noundef %key, i64 noundef %key_len.) #27
+  %or.cond = and i1 %cmp8, %cmp31
   %cmp36 = icmp eq i32 %call, 0
   br i1 %or.cond, label %if.then35, label %if.end41
 
 if.then35:                                        ; preds = %if.end24
-  %cmp39 = icmp eq i64 %1, %key_len
+  %cmp39 = icmp eq i64 %3, %key_len
   %spec.select = and i1 %cmp36, %cmp39
   br label %return
 
@@ -4788,20 +4793,20 @@ if.end41:                                         ; preds = %if.end24
   br i1 %cmp36, label %if.then44, label %if.else63
 
 if.then44:                                        ; preds = %if.end41
-  %cmp47 = icmp ne i64 %1, %key_len
-  %or.cond33.not = or i1 %tobool.not24, %cmp47
-  br i1 %or.cond33.not, label %if.else50, label %return
+  %cmp47 = icmp eq i64 %3, %key_len
+  %or.cond22 = and i1 %tobool.not.not, %cmp47
+  br i1 %or.cond22, label %return, label %if.else50
 
 if.else50:                                        ; preds = %if.then44
   br i1 %cmp31, label %if.else56, label %if.then52
 
 if.then52:                                        ; preds = %if.else50
-  %cmp54 = icmp ult i64 %1, %key_len
+  %cmp54 = icmp ult i64 %3, %key_len
   br label %return
 
 if.else56:                                        ; preds = %if.else50
-  %not.cmp826 = xor i1 %cmp826, true
-  %narrow = and i1 %cmp26, %not.cmp826
+  %not.cmp823 = xor i1 %cmp8, true
+  %narrow = and i1 %cmp26, %not.cmp823
   br label %return
 
 if.else63:                                        ; preds = %if.end41
@@ -4809,7 +4814,7 @@ if.else63:                                        ; preds = %if.end41
   br i1 %cmp64, label %if.then66, label %if.else69
 
 if.then66:                                        ; preds = %if.else63
-  %not.cmp8 = xor i1 %cmp826, true
+  %not.cmp8 = xor i1 %cmp8, true
   br label %return
 
 if.else69:                                        ; preds = %if.else63

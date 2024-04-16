@@ -1743,7 +1743,7 @@ If_Dec10HasVar.exit.thread14.us.us.i:             ; preds = %45, %If_Dec10HasVar
   br i1 %exitcond52.not.i.us.us.i, label %If_Dec10HasVar.exit.thread.us.us.i, label %45, !llvm.loop !35
 
 If_Dec10HasVar.exit.thread.us.us.i:               ; preds = %._crit_edge.us.i.us.us.i, %52, %If_Dec10HasVar.exit.thread14.us.us.i, %If_Dec10HasVar.exit.us.us.i
-  %53 = phi i32 [ %51, %If_Dec10HasVar.exit.thread14.us.us.i ], [ %38, %If_Dec10HasVar.exit.us.us.i ], [ %.021.us.us.i, %52 ], [ %.021.us.us.i, %._crit_edge.us.i.us.us.i ]
+  %53 = phi i32 [ %38, %If_Dec10HasVar.exit.us.us.i ], [ %51, %If_Dec10HasVar.exit.thread14.us.us.i ], [ %.021.us.us.i, %52 ], [ %.021.us.us.i, %._crit_edge.us.i.us.us.i ]
   %indvars.iv.next48.i = add nuw nsw i64 %indvars.iv47.i, 1
   %exitcond51.not.i = icmp eq i64 %indvars.iv.next48.i, %wide.trip.count50.i
   br i1 %exitcond51.not.i, label %If_Dec10Support.exit, label %.lr.ph.split.us.split.us.i, !llvm.loop !36

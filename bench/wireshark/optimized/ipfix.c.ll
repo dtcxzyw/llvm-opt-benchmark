@@ -269,13 +269,15 @@ ipfix_read_message.exit:                          ; preds = %6
   %25 = call i32 @wtap_read_packet_bytes(ptr noundef %10, ptr noundef %2, i32 noundef %17, ptr noundef %3, ptr noundef %4) #5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   %.fr = freeze i32 %25
-  %.not = icmp ne i32 %.fr, 0
-  %spec.select = zext i1 %.not to i32
-  br label %26
+  %.not = icmp eq i32 %.fr, 0
+  br i1 %.not, label %26, label %27
 
-26:                                               ; preds = %ipfix_read_message.exit, %ipfix_read_message.exit.thread
-  %27 = phi i32 [ 0, %ipfix_read_message.exit.thread ], [ %spec.select, %ipfix_read_message.exit ]
-  ret i32 %27
+26:                                               ; preds = %ipfix_read_message.exit.thread, %ipfix_read_message.exit
+  br label %27
+
+27:                                               ; preds = %ipfix_read_message.exit, %26
+  %28 = phi i32 [ 0, %26 ], [ 1, %ipfix_read_message.exit ]
+  ret i32 %28
 }
 
 ; Function Attrs: nounwind uwtable

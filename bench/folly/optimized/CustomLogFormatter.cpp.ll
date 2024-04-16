@@ -994,7 +994,7 @@ if.end90:                                         ; preds = %_ZNSt7__cxx1112basi
 while.cond:                                       ; preds = %if.end90, %invoke.cont115
   %idx.0 = phi i64 [ %add120, %invoke.cont115 ], [ 0, %if.end90 ]
   %or.cond464.not = icmp ult i64 %idx.0, %93
-  br i1 %or.cond464.not, label %if.end.i.i, label %if.end105
+  br i1 %or.cond464.not, label %if.end.i.i, label %if.then103
 
 if.end.i.i:                                       ; preds = %while.cond
   %add.ptr.i.i = getelementptr i8, ptr %.fr.i, i64 %idx.0
@@ -1002,7 +1002,7 @@ if.end.i.i:                                       ; preds = %while.cond
   %sub.ptr.sub.i.i16.i = sub i64 %sub.ptr.lhs.cast.i336, %sub.ptr.rhs.cast.i.i15.i
   %call3.i.i = call noundef ptr @memchr(ptr noundef %add.ptr.i.i, i32 noundef 10, i64 noundef %sub.ptr.sub.i.i16.i) #24
   %cmp.i17.i = icmp eq ptr %call3.i.i, null
-  br i1 %cmp.i17.i, label %if.end105, label %_ZN5folly5qfindIPKcEEmRKNS_5RangeIT_EERKNS5_10value_typeE.exit.i
+  br i1 %cmp.i17.i, label %if.then103, label %_ZN5folly5qfindIPKcEEmRKNS_5RangeIT_EERKNS5_10value_typeE.exit.i
 
 _ZN5folly5qfindIPKcEEmRKNS_5RangeIT_EERKNS5_10value_typeE.exit.i: ; preds = %if.end.i.i
   %sub.ptr.lhs.cast.i18.i = ptrtoint ptr %call3.i.i to i64
@@ -1011,7 +1011,9 @@ _ZN5folly5qfindIPKcEEmRKNS_5RangeIT_EERKNS5_10value_typeE.exit.i: ; preds = %if.
   %add.i = add i64 %sub.ptr.sub.i19.i, %idx.0
   %cmp = icmp eq i64 %add.i, -1
   %or.cond = or i1 %cmp6.i, %cmp
-  %spec.select = select i1 %or.cond, i64 %93, i64 %add.i
+  br i1 %or.cond, label %if.then103, label %if.end105
+
+if.then103:                                       ; preds = %_ZN5folly5qfindIPKcEEmRKNS_5RangeIT_EERKNS5_10value_typeE.exit.i, %if.end.i.i, %while.cond
   br label %if.end105
 
 lpad98:                                           ; preds = %if.end90
@@ -1019,8 +1021,8 @@ lpad98:                                           ; preds = %if.end90
           cleanup
   br label %ehcleanup149
 
-if.end105:                                        ; preds = %_ZN5folly5qfindIPKcEEmRKNS_5RangeIT_EERKNS5_10value_typeE.exit.i, %while.cond, %if.end.i.i
-  %end.0 = phi i64 [ %93, %if.end.i.i ], [ %93, %while.cond ], [ %spec.select, %_ZN5folly5qfindIPKcEEmRKNS_5RangeIT_EERKNS5_10value_typeE.exit.i ]
+if.end105:                                        ; preds = %if.then103, %_ZN5folly5qfindIPKcEEmRKNS_5RangeIT_EERKNS5_10value_typeE.exit.i
+  %end.0 = phi i64 [ %93, %if.then103 ], [ %add.i, %_ZN5folly5qfindIPKcEEmRKNS_5RangeIT_EERKNS5_10value_typeE.exit.i ]
   %cmp.i350 = icmp ult i64 %93, %idx.0
   br i1 %cmp.i350, label %if.then.i, label %invoke.cont107, !prof !75
 

@@ -1328,8 +1328,8 @@ define dso_local i32 @get_device_system_crosststamp(ptr nocapture noundef readon
   store i64 %171, ptr %84, align 8
   br label %.thread11
 
-.thread11:                                        ; preds = %19, %.loopexit, %151, %142, %127, %111, %87, %95, %99, %170, %103, %57
-  %172 = phi i32 [ 0, %57 ], [ -22, %99 ], [ -22, %95 ], [ -22, %87 ], [ 0, %103 ], [ 0, %170 ], [ -75, %111 ], [ -75, %127 ], [ -75, %142 ], [ -75, %151 ], [ -19, %19 ], [ %17, %.loopexit ]
+.thread11:                                        ; preds = %19, %.loopexit, %170, %103, %87, %95, %99, %151, %142, %127, %111, %57
+  %172 = phi i32 [ 0, %57 ], [ -75, %111 ], [ -75, %127 ], [ -75, %142 ], [ -75, %151 ], [ -22, %99 ], [ -22, %95 ], [ -22, %87 ], [ 0, %103 ], [ 0, %170 ], [ -19, %19 ], [ %17, %.loopexit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
   ret i32 %172
 }
@@ -3742,15 +3742,15 @@ define dso_local i32 @do_adjtimex(ptr noundef %0) local_unnamed_addr #0 align 16
 
 15:                                               ; preds = %12
   %16 = tail call zeroext i1 @capable(i32 noundef 25) #10
-  br i1 %16, label %._crit_edge8, label %.thread
+  br i1 %16, label %._crit_edge6, label %.thread
 
-._crit_edge8:                                     ; preds = %15
-  %.pre9 = load i32, ptr %0, align 8
+._crit_edge6:                                     ; preds = %15
+  %.pre7 = load i32, ptr %0, align 8
   br label %29
 
 17:                                               ; preds = %1
   %18 = icmp eq i32 %6, 0
-  br i1 %18, label %.thread7, label %19
+  br i1 %18, label %.thread10, label %19
 
 19:                                               ; preds = %17
   %20 = tail call zeroext i1 @capable(i32 noundef 25) #10
@@ -3769,8 +3769,8 @@ define dso_local i32 @do_adjtimex(ptr noundef %0) local_unnamed_addr #0 align 16
   %28 = icmp ult i64 %27, -2001
   br i1 %28, label %.thread, label %29
 
-29:                                               ; preds = %._crit_edge8, %24, %21, %12
-  %30 = phi i32 [ %.pre9, %._crit_edge8 ], [ %.pre, %24 ], [ %.pre, %21 ], [ %6, %12 ]
+29:                                               ; preds = %._crit_edge6, %24, %21, %12
+  %30 = phi i32 [ %.pre7, %._crit_edge6 ], [ %.pre, %24 ], [ %.pre, %21 ], [ %6, %12 ]
   %31 = and i32 %30, 256
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %47, label %33
@@ -3803,16 +3803,16 @@ define dso_local i32 @do_adjtimex(ptr noundef %0) local_unnamed_addr #0 align 16
   %48 = phi i32 [ %40, %45 ], [ %40, %43 ], [ %30, %29 ]
   %49 = and i32 %48, 2
   %50 = icmp eq i32 %49, 0
-  br i1 %50, label %.thread7, label %51
+  br i1 %50, label %.thread10, label %51
 
 51:                                               ; preds = %47
   %52 = getelementptr inbounds i8, ptr %0, i64 16
   %53 = load i64, ptr %52, align 8
-  %54 = add i64 %53, 140737488355
-  %55 = icmp ult i64 %54, 281474976711
-  br i1 %55, label %.thread7, label %.thread
+  %54 = add i64 %53, -140737488356
+  %55 = icmp ult i64 %54, -281474976711
+  br i1 %55, label %.thread, label %.thread10
 
-.thread7:                                         ; preds = %17, %47, %51
+.thread10:                                        ; preds = %17, %51, %47
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !67
   tail call void @add_device_randomness(ptr noundef %0, i64 noundef 208) #10
   %56 = load i32, ptr %0, align 8
@@ -3820,7 +3820,7 @@ define dso_local i32 @do_adjtimex(ptr noundef %0) local_unnamed_addr #0 align 16
   %58 = icmp eq i32 %57, 0
   br i1 %58, label %86, label %59
 
-59:                                               ; preds = %.thread7
+59:                                               ; preds = %.thread10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
   %60 = getelementptr inbounds i8, ptr %0, i64 72
   %61 = load i64, ptr %60, align 8
@@ -3864,7 +3864,7 @@ define dso_local i32 @do_adjtimex(ptr noundef %0) local_unnamed_addr #0 align 16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
   br label %86
 
-86:                                               ; preds = %85, %.thread7
+86:                                               ; preds = %85, %.thread10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %2, i8 0, i64 96, i1 false)
   call void @ktime_get_real_ts64(ptr noundef nonnull %3)
   call void @add_device_randomness(ptr noundef nonnull %3, i64 noundef 16) #10
@@ -3950,8 +3950,8 @@ define dso_local i32 @do_adjtimex(ptr noundef %0) local_unnamed_addr #0 align 16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
   br label %.thread
 
-.thread:                                          ; preds = %45, %43, %35, %33, %24, %19, %15, %9, %127, %126, %51
-  %128 = phi i32 [ %91, %126 ], [ -22, %51 ], [ %69, %127 ], [ -22, %45 ], [ -22, %43 ], [ -22, %35 ], [ -1, %33 ], [ -22, %24 ], [ -1, %19 ], [ -1, %15 ], [ -22, %9 ]
+.thread:                                          ; preds = %51, %45, %43, %35, %33, %24, %19, %15, %9, %127, %126
+  %128 = phi i32 [ %91, %126 ], [ %69, %127 ], [ -22, %51 ], [ -22, %45 ], [ -22, %43 ], [ -22, %35 ], [ -1, %33 ], [ -22, %24 ], [ -1, %19 ], [ -1, %15 ], [ -22, %9 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %2) #10

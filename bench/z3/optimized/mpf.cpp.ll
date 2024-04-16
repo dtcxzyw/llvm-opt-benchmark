@@ -4233,9 +4233,9 @@ if.then17:                                        ; preds = %if.else15
   %bf.load.i117.pre = load i32, ptr %x, align 8
   %tobool.i116 = icmp slt i32 %bf.load.i117.pre, 0
   %xor2379 = xor i1 %xor74, %tobool.i116
-  %or.cond336 = select i1 %15, i1 %xor2379, i1 false
+  %or.cond335 = select i1 %15, i1 %xor2379, i1 false
   %bf.clear27 = and i32 %bf.load.i117.pre, 32767
-  br i1 %or.cond336, label %if.then25, label %if.else31
+  br i1 %or.cond335, label %if.then25, label %if.else31
 
 if.then25:                                        ; preds = %if.then17
   %bf.lshr29 = lshr i32 %bf.load.i117.pre, 15
@@ -4555,7 +4555,7 @@ invoke.cont133:                                   ; preds = %invoke.cont130
 if.then143:                                       ; preds = %invoke.cont133
   call void @_ZN15_scoped_numeralI11mpf_managerE4swapERS1_(ptr noundef nonnull align 8 dereferenceable(40) %a, ptr noundef nonnull align 8 dereferenceable(40) %b) #17
   %.pre = load i64, ptr %exponent.i255, align 8
-  %.pre333 = load i64, ptr %exponent.i253, align 8
+  %.pre332 = load i64, ptr %exponent.i253, align 8
   br label %invoke.cont168
 
 lpad112:                                          ; preds = %invoke.cont174, %invoke.cont168, %invoke.cont130, %invoke.cont118, %invoke.cont115, %invoke.cont
@@ -4564,7 +4564,7 @@ lpad112:                                          ; preds = %invoke.cont174, %in
   br label %ehcleanup
 
 invoke.cont168:                                   ; preds = %if.then143, %invoke.cont133
-  %49 = phi i64 [ %.pre333, %if.then143 ], [ %46, %invoke.cont133 ]
+  %49 = phi i64 [ %.pre332, %if.then143 ], [ %46, %invoke.cont133 ]
   %50 = phi i64 [ %.pre, %if.then143 ], [ %47, %invoke.cont133 ]
   %sub153 = sub nsw i64 %50, %49
   %bf.load154 = load i32, ptr %x, align 8
@@ -4719,18 +4719,23 @@ invoke.cont263:                                   ; preds = %if.else254
 
 invoke.cont266:                                   ; preds = %invoke.cont263
   %66 = and i32 %bf.load.i321.fr, %64
-  %spec.select332 = and i32 %66, -2147483648
-  br label %lor.end.thread328
+  %brmerge80.not.not = icmp sgt i32 %66, -1
+  br i1 %brmerge80.not.not, label %lor.end.thread328, label %lor.end.thread
 
 invoke.cont274:                                   ; preds = %invoke.cont263
   %67 = or i32 %bf.load.i321.fr, %64
   %brmerge81.not = icmp sgt i32 %67, -1
-  %spec.select331 = and i32 %bf.load.i321.fr, -2147483648
-  %spec.select337 = select i1 %brmerge81.not, i32 -2147483648, i32 %spec.select331
+  br i1 %brmerge81.not, label %lor.end.thread, label %lor.end
+
+lor.end.thread:                                   ; preds = %invoke.cont266, %invoke.cont274
   br label %lor.end.thread328
 
-lor.end.thread328:                                ; preds = %invoke.cont274, %invoke.cont266
-  %68 = phi i32 [ %spec.select332, %invoke.cont266 ], [ %spec.select337, %invoke.cont274 ]
+lor.end:                                          ; preds = %invoke.cont274
+  %spec.select331 = and i32 %bf.load.i321.fr, -2147483648
+  br label %lor.end.thread328
+
+lor.end.thread328:                                ; preds = %invoke.cont266, %lor.end, %lor.end.thread
+  %68 = phi i32 [ -2147483648, %lor.end.thread ], [ %spec.select331, %lor.end ], [ 0, %invoke.cont266 ]
   %bf.load283326 = load i32, ptr %o, align 8
   %bf.clear286 = and i32 %bf.load283326, 2147483647
   %bf.set287 = or disjoint i32 %bf.clear286, %68

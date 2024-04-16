@@ -996,7 +996,7 @@ if.else32:                                        ; preds = %if.else28
 
 if.end56.thread84:                                ; preds = %if.else32
   store i32 5, ptr @_ZL12g_input_kind, align 4
-  br label %sw.bb69.invoke
+  br label %sw.bb66
 
 if.else36:                                        ; preds = %if.else32
   %call37 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %last_dot.0.i, ptr noundef nonnull dereferenceable(3) @.str.52) #13
@@ -1005,7 +1005,7 @@ if.else36:                                        ; preds = %if.else32
 
 if.end56.thread85:                                ; preds = %if.else36
   store i32 6, ptr @_ZL12g_input_kind, align 4
-  br label %sw.bb69.invoke
+  br label %sw.bb69
 
 if.else40:                                        ; preds = %if.else36
   %call41 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %last_dot.0.i, ptr noundef nonnull dereferenceable(4) @.str.53) #13
@@ -1042,14 +1042,14 @@ sw.bb60:                                          ; preds = %if.end56.thread82, 
   %call62 = invoke noundef i32 @_Z11read_dimacsPKc(ptr noundef %12)
           to label %sw.epilog unwind label %lpad2.loopexit.split-lp.loopexit.split-lp
 
-sw.bb66:                                          ; preds = %if.end56
+sw.bb66:                                          ; preds = %if.end56.thread84, %if.end56
   br label %sw.bb69.invoke
 
-sw.bb69:                                          ; preds = %if.end56
+sw.bb69:                                          ; preds = %if.end56.thread85, %if.end56
   br label %sw.bb69.invoke
 
-sw.bb69.invoke:                                   ; preds = %if.end56.thread85, %if.end56.thread84, %if.end56, %if.end56.thread83, %sw.bb66, %sw.bb69
-  %22 = phi i32 [ 1, %if.end56.thread83 ], [ 1, %if.end56 ], [ 0, %if.end56.thread84 ], [ 0, %sw.bb66 ], [ 2, %if.end56.thread85 ], [ 2, %sw.bb69 ]
+sw.bb69.invoke:                                   ; preds = %if.end56, %if.end56.thread83, %sw.bb66, %sw.bb69
+  %22 = phi i32 [ 2, %sw.bb69 ], [ 0, %sw.bb66 ], [ 1, %if.end56.thread83 ], [ 1, %if.end56 ]
   %23 = invoke noundef i32 @_Z9parse_optPKc10opt_format(ptr noundef %12, i32 noundef %22)
           to label %sw.epilog unwind label %lpad2.loopexit.split-lp.loopexit.split-lp
 

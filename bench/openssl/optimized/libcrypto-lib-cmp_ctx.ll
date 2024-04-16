@@ -2072,13 +2072,15 @@ if.end:                                           ; preds = %entry
 
 if.then2:                                         ; preds = %if.end
   %tobool.not = icmp eq i32 %priv, 0
-  br i1 %tobool.not, label %return, label %land.lhs.true
+  br i1 %tobool.not, label %cond.false, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then2
   %newPkey_priv = getelementptr inbounds i8, ptr %ctx, i64 344
   %1 = load i32, ptr %newPkey_priv, align 8
   %tobool3.not = icmp eq i32 %1, 0
-  %spec.select = select i1 %tobool3.not, ptr null, ptr %0
+  br i1 %tobool3.not, label %return, label %cond.false
+
+cond.false:                                       ; preds = %land.lhs.true, %if.then2
   br label %return
 
 if.end5:                                          ; preds = %if.end
@@ -2100,8 +2102,8 @@ if.end14:                                         ; preds = %if.end5
   %3 = load ptr, ptr %pkey, align 8
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %if.then2, %cond.false10, %if.then7, %if.end14, %if.then
-  %retval.0 = phi ptr [ null, %if.then ], [ %3, %if.end14 ], [ %call, %cond.false10 ], [ null, %if.then7 ], [ %0, %if.then2 ], [ %spec.select, %land.lhs.true ]
+return:                                           ; preds = %cond.false10, %if.then7, %cond.false, %land.lhs.true, %if.end14, %if.then
+  %retval.0 = phi ptr [ null, %if.then ], [ %3, %if.end14 ], [ %0, %cond.false ], [ null, %land.lhs.true ], [ %call, %cond.false10 ], [ null, %if.then7 ]
   ret ptr %retval.0
 }
 

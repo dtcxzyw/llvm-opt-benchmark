@@ -250,7 +250,7 @@ exit:                                             ; preds = %land.lhs.true54, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_bisect_insort_right(ptr noundef %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @_bisect_insort_right(ptr noundef %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [5 x ptr], align 16
   %hi = alloca i64, align 8
@@ -397,8 +397,7 @@ if.end8.i:                                        ; preds = %if.end5.i
 if.then10.i:                                      ; preds = %if.end8.i
   %call11.i = call i32 @PyList_Insert(ptr noundef nonnull %4, i64 noundef %index.0.i, ptr noundef %5) #2
   %cmp12.i = icmp slt i32 %call11.i, 0
-  %spec.select.i = select i1 %cmp12.i, ptr null, ptr @_Py_NoneStruct
-  br label %exit
+  br i1 %cmp12.i, label %exit, label %if.end21.i
 
 if.else15.i:                                      ; preds = %if.end8.i
   %call.i.i = call ptr @PyModule_GetState(ptr noundef %module) #2
@@ -411,20 +410,23 @@ if.end20.i:                                       ; preds = %if.else15.i
   %18 = load i64, ptr %call17.i, align 8
   %19 = and i64 %18, 2147483648
   %cmp.i35.not.i = icmp eq i64 %19, 0
-  br i1 %cmp.i35.not.i, label %if.end.i.i, label %exit
+  br i1 %cmp.i35.not.i, label %if.end.i.i, label %if.end21.i
 
 if.end.i.i:                                       ; preds = %if.end20.i
   %dec.i.i = add i64 %18, -1
   store i64 %dec.i.i, ptr %call17.i, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
-  br i1 %cmp.i.i, label %if.then1.i.i, label %exit
+  br i1 %cmp.i.i, label %if.then1.i.i, label %if.end21.i
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
   call void @_Py_Dealloc(ptr noundef nonnull %call17.i) #2
+  br label %if.end21.i
+
+if.end21.i:                                       ; preds = %if.then1.i.i, %if.end.i.i, %if.end20.i, %if.then10.i
   br label %exit
 
-exit:                                             ; preds = %if.then1.i.i, %if.end.i.i, %if.end20.i, %if.else15.i, %if.then10.i, %if.end5.i, %if.else.i, %if.then37, %land.lhs.true26, %cond.end9
-  %return_value.0 = phi ptr [ null, %land.lhs.true26 ], [ null, %if.then37 ], [ null, %cond.end9 ], [ null, %if.else.i ], [ null, %if.end5.i ], [ null, %if.else15.i ], [ @_Py_NoneStruct, %if.end.i.i ], [ @_Py_NoneStruct, %if.then1.i.i ], [ @_Py_NoneStruct, %if.end20.i ], [ %spec.select.i, %if.then10.i ]
+exit:                                             ; preds = %if.end21.i, %if.else15.i, %if.then10.i, %if.end5.i, %if.else.i, %if.then37, %land.lhs.true26, %cond.end9
+  %return_value.0 = phi ptr [ null, %land.lhs.true26 ], [ null, %if.then37 ], [ null, %cond.end9 ], [ @_Py_NoneStruct, %if.end21.i ], [ null, %if.else.i ], [ null, %if.end5.i ], [ null, %if.then10.i ], [ null, %if.else15.i ]
   ret ptr %return_value.0
 }
 
@@ -554,7 +556,7 @@ exit:                                             ; preds = %land.lhs.true54, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_bisect_insort_left(ptr noundef %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @_bisect_insort_left(ptr noundef %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [5 x ptr], align 16
   %hi = alloca i64, align 8
@@ -701,8 +703,7 @@ if.end8.i:                                        ; preds = %if.end5.i
 if.then10.i:                                      ; preds = %if.end8.i
   %call11.i = call i32 @PyList_Insert(ptr noundef nonnull %4, i64 noundef %index.0.i, ptr noundef %5) #2
   %cmp12.i = icmp slt i32 %call11.i, 0
-  %spec.select.i = select i1 %cmp12.i, ptr null, ptr @_Py_NoneStruct
-  br label %exit
+  br i1 %cmp12.i, label %exit, label %if.end21.i
 
 if.else15.i:                                      ; preds = %if.end8.i
   %call.i.i = call ptr @PyModule_GetState(ptr noundef %module) #2
@@ -715,20 +716,23 @@ if.end20.i:                                       ; preds = %if.else15.i
   %18 = load i64, ptr %call17.i, align 8
   %19 = and i64 %18, 2147483648
   %cmp.i35.not.i = icmp eq i64 %19, 0
-  br i1 %cmp.i35.not.i, label %if.end.i.i, label %exit
+  br i1 %cmp.i35.not.i, label %if.end.i.i, label %if.end21.i
 
 if.end.i.i:                                       ; preds = %if.end20.i
   %dec.i.i = add i64 %18, -1
   store i64 %dec.i.i, ptr %call17.i, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
-  br i1 %cmp.i.i, label %if.then1.i.i, label %exit
+  br i1 %cmp.i.i, label %if.then1.i.i, label %if.end21.i
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
   call void @_Py_Dealloc(ptr noundef nonnull %call17.i) #2
+  br label %if.end21.i
+
+if.end21.i:                                       ; preds = %if.then1.i.i, %if.end.i.i, %if.end20.i, %if.then10.i
   br label %exit
 
-exit:                                             ; preds = %if.then1.i.i, %if.end.i.i, %if.end20.i, %if.else15.i, %if.then10.i, %if.end5.i, %if.else.i, %if.then37, %land.lhs.true26, %cond.end9
-  %return_value.0 = phi ptr [ null, %land.lhs.true26 ], [ null, %if.then37 ], [ null, %cond.end9 ], [ null, %if.else.i ], [ null, %if.end5.i ], [ null, %if.else15.i ], [ @_Py_NoneStruct, %if.end.i.i ], [ @_Py_NoneStruct, %if.then1.i.i ], [ @_Py_NoneStruct, %if.end20.i ], [ %spec.select.i, %if.then10.i ]
+exit:                                             ; preds = %if.end21.i, %if.else15.i, %if.then10.i, %if.end5.i, %if.else.i, %if.then37, %land.lhs.true26, %cond.end9
+  %return_value.0 = phi ptr [ null, %land.lhs.true26 ], [ null, %if.then37 ], [ null, %cond.end9 ], [ @_Py_NoneStruct, %if.end21.i ], [ null, %if.else.i ], [ null, %if.end5.i ], [ null, %if.then10.i ], [ null, %if.else15.i ]
   ret ptr %return_value.0
 }
 
@@ -785,17 +789,19 @@ if.end.i58:                                       ; preds = %land.lhs.true.i, %i
   %tp_as_mapping.i = getelementptr inbounds i8, ptr %list.val, i64 112
   %4 = load ptr, ptr %tp_as_mapping.i, align 8
   %tobool3.not.i = icmp eq ptr %4, null
-  br i1 %tobool3.not.i, label %get_sq_item.exit.thread, label %land.lhs.true4.i
+  br i1 %tobool3.not.i, label %if.else.i, label %land.lhs.true4.i
 
 land.lhs.true4.i:                                 ; preds = %if.end.i58
   %mp_subscript.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %mp_subscript.i, align 8
   %tobool6.not.i = icmp eq ptr %5, null
-  %spec.select.i = select i1 %tobool6.not.i, ptr @.str.13, ptr @.str.12
+  br i1 %tobool6.not.i, label %if.else.i, label %get_sq_item.exit.thread
+
+if.else.i:                                        ; preds = %land.lhs.true4.i, %if.end.i58
   br label %get_sq_item.exit.thread
 
-get_sq_item.exit.thread:                          ; preds = %if.end.i58, %land.lhs.true4.i
-  %msg.0.i = phi ptr [ @.str.13, %if.end.i58 ], [ %spec.select.i, %land.lhs.true4.i ]
+get_sq_item.exit.thread:                          ; preds = %land.lhs.true4.i, %if.else.i
+  %msg.0.i = phi ptr [ @.str.13, %if.else.i ], [ @.str.12, %land.lhs.true4.i ]
   %6 = load ptr, ptr @PyExc_TypeError, align 8
   %tp_name.i = getelementptr inbounds i8, ptr %list.val, i64 24
   %7 = load ptr, ptr %tp_name.i, align 8
@@ -1269,17 +1275,19 @@ if.end.i58:                                       ; preds = %land.lhs.true.i, %i
   %tp_as_mapping.i = getelementptr inbounds i8, ptr %list.val, i64 112
   %4 = load ptr, ptr %tp_as_mapping.i, align 8
   %tobool3.not.i = icmp eq ptr %4, null
-  br i1 %tobool3.not.i, label %get_sq_item.exit.thread, label %land.lhs.true4.i
+  br i1 %tobool3.not.i, label %if.else.i, label %land.lhs.true4.i
 
 land.lhs.true4.i:                                 ; preds = %if.end.i58
   %mp_subscript.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %mp_subscript.i, align 8
   %tobool6.not.i = icmp eq ptr %5, null
-  %spec.select.i = select i1 %tobool6.not.i, ptr @.str.13, ptr @.str.12
+  br i1 %tobool6.not.i, label %if.else.i, label %get_sq_item.exit.thread
+
+if.else.i:                                        ; preds = %land.lhs.true4.i, %if.end.i58
   br label %get_sq_item.exit.thread
 
-get_sq_item.exit.thread:                          ; preds = %if.end.i58, %land.lhs.true4.i
-  %msg.0.i = phi ptr [ @.str.13, %if.end.i58 ], [ %spec.select.i, %land.lhs.true4.i ]
+get_sq_item.exit.thread:                          ; preds = %land.lhs.true4.i, %if.else.i
+  %msg.0.i = phi ptr [ @.str.13, %if.else.i ], [ @.str.12, %land.lhs.true4.i ]
   %6 = load ptr, ptr @PyExc_TypeError, align 8
   %tp_name.i = getelementptr inbounds i8, ptr %list.val, i64 24
   %7 = load ptr, ptr %tp_name.i, align 8

@@ -36,18 +36,18 @@ if.end:                                           ; preds = %entry
 
 if.then3:                                         ; preds = %if.end
   %cmp4.not = icmp eq ptr %0, null
-  br i1 %cmp4.not, label %if.end22, label %land.lhs.true
+  br i1 %cmp4.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then3
   %2 = load i8, ptr %0, align 1
   %cmp5 = icmp eq i8 %2, 106
-  br i1 %cmp5, label %land.lhs.true6, label %if.end22
+  br i1 %cmp5, label %land.lhs.true6, label %if.else
 
 land.lhs.true6:                                   ; preds = %land.lhs.true
   %arrayidx7 = getelementptr inbounds i8, ptr %0, i64 1
   %3 = load i8, ptr %arrayidx7, align 1
   %cmp9 = icmp eq i8 %3, 97
-  br i1 %cmp9, label %land.lhs.true10, label %if.end22
+  br i1 %cmp9, label %land.lhs.true10, label %if.else
 
 land.lhs.true10:                                  ; preds = %land.lhs.true6
   %arrayidx11 = getelementptr inbounds i8, ptr %0, i64 2
@@ -57,12 +57,12 @@ land.lhs.true10:                                  ; preds = %land.lhs.true6
     i8 95, label %if.end22
   ]
 
-if.else:                                          ; preds = %land.lhs.true10
+if.else:                                          ; preds = %land.lhs.true10, %land.lhs.true6, %land.lhs.true, %if.then3
   br label %if.end22
 
-if.end22:                                         ; preds = %if.then3, %land.lhs.true, %land.lhs.true6, %land.lhs.true10, %land.lhs.true10, %if.else
-  %.sink = phi i8 [ 1, %land.lhs.true10 ], [ 1, %land.lhs.true10 ], [ 0, %land.lhs.true6 ], [ 0, %land.lhs.true ], [ 0, %if.then3 ], [ 0, %if.else ]
-  %cond.i = phi i64 [ 433760635709555203, %land.lhs.true10 ], [ 433760635709555203, %land.lhs.true10 ], [ 73751958669950983, %land.lhs.true6 ], [ 73751958669950983, %land.lhs.true ], [ 73751958669950983, %if.then3 ], [ 73751958669950983, %if.else ]
+if.end22:                                         ; preds = %land.lhs.true10, %land.lhs.true10, %if.else
+  %.sink = phi i8 [ 0, %if.else ], [ 1, %land.lhs.true10 ], [ 1, %land.lhs.true10 ]
+  %cond.i = phi i64 [ 73751958669950983, %if.else ], [ 433760635709555203, %land.lhs.true10 ], [ 433760635709555203, %land.lhs.true10 ]
   %locale21 = getelementptr inbounds i8, ptr %call, i64 74
   store i8 %.sink, ptr %locale21, align 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %call, ptr noundef nonnull align 16 dereferenceable(32) @_ZL21initialDynamicOffsets, i64 32, i1 false)

@@ -3110,7 +3110,7 @@ define internal noundef i32 @icl_get_dplls(ptr noundef %0, ptr nocapture noundef
   %7 = load i32, ptr %6, align 4
   %8 = tail call i32 @intel_port_to_phy(ptr noundef %5, i32 noundef %7) #13
   %9 = tail call zeroext i1 @intel_phy_is_combo(ptr noundef %5, i32 noundef %8) #13
-  br i1 %9, label %10, label %92
+  br i1 %9, label %10, label %93
 
 10:                                               ; preds = %3
   %11 = load ptr, ptr %1, align 8
@@ -3175,7 +3175,7 @@ define internal noundef i32 @icl_get_dplls(ptr noundef %0, ptr nocapture noundef
   %54 = tail call fastcc ptr @intel_find_shared_dpll(ptr noundef %0, ptr noundef %1, ptr noundef %53, i64 noundef %52)
   store ptr %54, ptr %19, align 8
   %55 = icmp eq ptr %54, null
-  br i1 %55, label %173, label %56
+  br i1 %55, label %175, label %56
 
 56:                                               ; preds = %47
   %57 = tail call fastcc ptr @intel_atomic_get_shared_dpll_state(ptr noundef %0)
@@ -3190,12 +3190,12 @@ define internal noundef i32 @icl_get_dplls(ptr noundef %0, ptr nocapture noundef
 64:                                               ; preds = %56
   %65 = getelementptr inbounds i8, ptr %61, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(136) %65, ptr noundef align 4 dereferenceable(136) %53, i64 136, i1 false)
-  %.pre8 = load i8, ptr %58, align 4
-  %.pre9 = zext i8 %.pre8 to i64
+  %.pre7 = load i8, ptr %58, align 4
+  %.pre8 = zext i8 %.pre7 to i64
   br label %66
 
 66:                                               ; preds = %64, %56
-  %.pre-phi = phi i64 [ %.pre9, %64 ], [ %60, %56 ]
+  %.pre-phi = phi i64 [ %.pre8, %64 ], [ %60, %56 ]
   %67 = getelementptr %struct.intel_shared_dpll_state, ptr %57, i64 %.pre-phi
   tail call fastcc void @intel_reference_shared_dpll_crtc(ptr noundef %1, ptr noundef nonnull %54, ptr noundef %67)
   %68 = load ptr, ptr %12, align 8
@@ -3225,168 +3225,172 @@ define internal noundef i32 @icl_get_dplls(ptr noundef %0, ptr nocapture noundef
 
 81:                                               ; preds = %78
   %82 = tail call zeroext i1 @intel_tc_port_in_dp_alt_mode(ptr noundef nonnull %79) #13
-  br i1 %82, label %.thread, label %83
+  br i1 %82, label %85, label %83
 
 83:                                               ; preds = %81
   %84 = tail call zeroext i1 @intel_tc_port_in_legacy_mode(ptr noundef nonnull %79) #13
-  %spec.select = zext i1 %84 to i64
+  br i1 %84, label %85, label %.thread
+
+85:                                               ; preds = %83, %81
   br label %.thread
 
-.thread:                                          ; preds = %66, %83, %81, %78
-  %85 = phi i64 [ 0, %78 ], [ 1, %81 ], [ %spec.select, %83 ], [ 0, %66 ]
-  %86 = getelementptr inbounds i8, ptr %72, i64 1064
-  %87 = getelementptr [2 x %struct.icl_port_dpll], ptr %86, i64 0, i64 %85
-  %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %72, i64 920
-  store ptr %88, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %72, i64 928
-  %91 = getelementptr inbounds i8, ptr %87, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(136) %90, ptr noundef align 8 dereferenceable(136) %91, i64 136, i1 false)
-  br label %173
+.thread:                                          ; preds = %66, %85, %83, %78
+  %86 = phi i64 [ 1, %85 ], [ 0, %83 ], [ 0, %78 ], [ 0, %66 ]
+  %87 = getelementptr inbounds i8, ptr %72, i64 1064
+  %88 = getelementptr [2 x %struct.icl_port_dpll], ptr %87, i64 0, i64 %86
+  %89 = load ptr, ptr %88, align 8
+  %90 = getelementptr inbounds i8, ptr %72, i64 920
+  store ptr %89, ptr %90, align 8
+  %91 = getelementptr inbounds i8, ptr %72, i64 928
+  %92 = getelementptr inbounds i8, ptr %88, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(136) %91, ptr noundef align 8 dereferenceable(136) %92, i64 136, i1 false)
+  br label %175
 
-92:                                               ; preds = %3
-  %93 = tail call zeroext i1 @intel_phy_is_tc(ptr noundef %5, i32 noundef %8) #13
-  br i1 %93, label %94, label %171
+93:                                               ; preds = %3
+  %94 = tail call zeroext i1 @intel_phy_is_tc(ptr noundef %5, i32 noundef %8) #13
+  br i1 %94, label %95, label %173
 
-94:                                               ; preds = %92
-  %95 = load ptr, ptr %4, align 8
-  %96 = getelementptr inbounds i8, ptr %0, i64 32
-  %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %1, i64 144
-  %99 = load i32, ptr %98, align 8
-  %100 = zext i32 %99 to i64
-  %101 = getelementptr %struct.__drm_crtcs_state, ptr %97, i64 %100, i32 3
-  %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 1064
-  %104 = getelementptr inbounds i8, ptr %102, i64 1072
-  %105 = tail call fastcc ptr @intel_find_shared_dpll(ptr noundef %0, ptr noundef %1, ptr noundef %104, i64 noundef 4)
-  store ptr %105, ptr %103, align 8
-  %106 = icmp eq ptr %105, null
-  br i1 %106, label %173, label %107
+95:                                               ; preds = %93
+  %96 = load ptr, ptr %4, align 8
+  %97 = getelementptr inbounds i8, ptr %0, i64 32
+  %98 = load ptr, ptr %97, align 8
+  %99 = getelementptr inbounds i8, ptr %1, i64 144
+  %100 = load i32, ptr %99, align 8
+  %101 = zext i32 %100 to i64
+  %102 = getelementptr %struct.__drm_crtcs_state, ptr %98, i64 %101, i32 3
+  %103 = load ptr, ptr %102, align 8
+  %104 = getelementptr inbounds i8, ptr %103, i64 1064
+  %105 = getelementptr inbounds i8, ptr %103, i64 1072
+  %106 = tail call fastcc ptr @intel_find_shared_dpll(ptr noundef %0, ptr noundef %1, ptr noundef %105, i64 noundef 4)
+  store ptr %106, ptr %104, align 8
+  %107 = icmp eq ptr %106, null
+  br i1 %107, label %175, label %108
 
-107:                                              ; preds = %94
-  %108 = tail call fastcc ptr @intel_atomic_get_shared_dpll_state(ptr noundef %0)
-  %109 = getelementptr inbounds i8, ptr %105, i64 140
-  %110 = load i8, ptr %109, align 4
-  %111 = zext i8 %110 to i64
-  %112 = getelementptr %struct.intel_shared_dpll_state, ptr %108, i64 %111
-  %113 = load i8, ptr %112, align 4
-  %114 = icmp eq i8 %113, 0
-  br i1 %114, label %115, label %117
+108:                                              ; preds = %95
+  %109 = tail call fastcc ptr @intel_atomic_get_shared_dpll_state(ptr noundef %0)
+  %110 = getelementptr inbounds i8, ptr %106, i64 140
+  %111 = load i8, ptr %110, align 4
+  %112 = zext i8 %111 to i64
+  %113 = getelementptr %struct.intel_shared_dpll_state, ptr %109, i64 %112
+  %114 = load i8, ptr %113, align 4
+  %115 = icmp eq i8 %114, 0
+  br i1 %115, label %116, label %118
 
-115:                                              ; preds = %107
-  %116 = getelementptr inbounds i8, ptr %112, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(136) %116, ptr noundef align 4 dereferenceable(136) %104, i64 136, i1 false)
-  %.pre = load i8, ptr %109, align 4
-  %.pre10 = zext i8 %.pre to i64
-  br label %117
+116:                                              ; preds = %108
+  %117 = getelementptr inbounds i8, ptr %113, i64 4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(136) %117, ptr noundef align 4 dereferenceable(136) %105, i64 136, i1 false)
+  %.pre = load i8, ptr %110, align 4
+  %.pre9 = zext i8 %.pre to i64
+  br label %118
 
-117:                                              ; preds = %115, %107
-  %.pre-phi11 = phi i64 [ %.pre10, %115 ], [ %111, %107 ]
-  %118 = getelementptr %struct.intel_shared_dpll_state, ptr %108, i64 %.pre-phi11
-  tail call fastcc void @intel_reference_shared_dpll_crtc(ptr noundef %1, ptr noundef nonnull %105, ptr noundef %118)
-  %119 = getelementptr i8, ptr %102, i64 1208
-  %120 = load i32, ptr %6, align 4
-  %121 = tail call i32 @intel_port_to_tc(ptr noundef %95, i32 noundef %120) #13
-  %122 = add i32 %121, 3
-  %123 = getelementptr i8, ptr %102, i64 1216
-  %124 = zext nneg i32 %122 to i64
-  %125 = shl nuw i64 1, %124
-  %126 = tail call fastcc ptr @intel_find_shared_dpll(ptr noundef %0, ptr noundef %1, ptr noundef %123, i64 noundef %125)
-  store ptr %126, ptr %119, align 8
-  %127 = icmp eq ptr %126, null
-  br i1 %127, label %128, label %135
+118:                                              ; preds = %116, %108
+  %.pre-phi10 = phi i64 [ %.pre9, %116 ], [ %112, %108 ]
+  %119 = getelementptr %struct.intel_shared_dpll_state, ptr %109, i64 %.pre-phi10
+  tail call fastcc void @intel_reference_shared_dpll_crtc(ptr noundef %1, ptr noundef nonnull %106, ptr noundef %119)
+  %120 = getelementptr i8, ptr %103, i64 1208
+  %121 = load i32, ptr %6, align 4
+  %122 = tail call i32 @intel_port_to_tc(ptr noundef %96, i32 noundef %121) #13
+  %123 = add i32 %122, 3
+  %124 = getelementptr i8, ptr %103, i64 1216
+  %125 = zext nneg i32 %123 to i64
+  %126 = shl nuw i64 1, %125
+  %127 = tail call fastcc ptr @intel_find_shared_dpll(ptr noundef %0, ptr noundef %1, ptr noundef %124, i64 noundef %126)
+  store ptr %127, ptr %120, align 8
+  %128 = icmp eq ptr %127, null
+  br i1 %128, label %129, label %136
 
-128:                                              ; preds = %117
-  %129 = load ptr, ptr %103, align 8
-  %130 = tail call fastcc ptr @intel_atomic_get_shared_dpll_state(ptr noundef %0)
-  %131 = getelementptr inbounds i8, ptr %129, i64 140
-  %132 = load i8, ptr %131, align 4
-  %133 = zext i8 %132 to i64
-  %134 = getelementptr %struct.intel_shared_dpll_state, ptr %130, i64 %133
-  tail call void @intel_unreference_shared_dpll_crtc(ptr noundef %1, ptr noundef %129, ptr noundef %134)
-  br label %173
+129:                                              ; preds = %118
+  %130 = load ptr, ptr %104, align 8
+  %131 = tail call fastcc ptr @intel_atomic_get_shared_dpll_state(ptr noundef %0)
+  %132 = getelementptr inbounds i8, ptr %130, i64 140
+  %133 = load i8, ptr %132, align 4
+  %134 = zext i8 %133 to i64
+  %135 = getelementptr %struct.intel_shared_dpll_state, ptr %131, i64 %134
+  tail call void @intel_unreference_shared_dpll_crtc(ptr noundef %1, ptr noundef %130, ptr noundef %135)
+  br label %175
 
-135:                                              ; preds = %117
-  %136 = tail call fastcc ptr @intel_atomic_get_shared_dpll_state(ptr noundef %0)
-  %137 = getelementptr inbounds i8, ptr %126, i64 140
-  %138 = load i8, ptr %137, align 4
-  %139 = zext i8 %138 to i64
-  %140 = getelementptr %struct.intel_shared_dpll_state, ptr %136, i64 %139
-  %141 = load i8, ptr %140, align 4
-  %142 = icmp eq i8 %141, 0
-  br i1 %142, label %143, label %145
+136:                                              ; preds = %118
+  %137 = tail call fastcc ptr @intel_atomic_get_shared_dpll_state(ptr noundef %0)
+  %138 = getelementptr inbounds i8, ptr %127, i64 140
+  %139 = load i8, ptr %138, align 4
+  %140 = zext i8 %139 to i64
+  %141 = getelementptr %struct.intel_shared_dpll_state, ptr %137, i64 %140
+  %142 = load i8, ptr %141, align 4
+  %143 = icmp eq i8 %142, 0
+  br i1 %143, label %144, label %146
 
-143:                                              ; preds = %135
-  %144 = getelementptr inbounds i8, ptr %140, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(136) %144, ptr noundef align 4 dereferenceable(136) %123, i64 136, i1 false)
-  %.pre7 = load i8, ptr %137, align 4
-  %.pre12 = zext i8 %.pre7 to i64
-  br label %145
+144:                                              ; preds = %136
+  %145 = getelementptr inbounds i8, ptr %141, i64 4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(136) %145, ptr noundef align 4 dereferenceable(136) %124, i64 136, i1 false)
+  %.pre6 = load i8, ptr %138, align 4
+  %.pre11 = zext i8 %.pre6 to i64
+  br label %146
 
-145:                                              ; preds = %143, %135
-  %.pre-phi13 = phi i64 [ %.pre12, %143 ], [ %139, %135 ]
-  %146 = getelementptr %struct.intel_shared_dpll_state, ptr %136, i64 %.pre-phi13
-  tail call fastcc void @intel_reference_shared_dpll_crtc(ptr noundef %1, ptr noundef nonnull %126, ptr noundef %146)
-  %147 = load ptr, ptr %96, align 8
-  %148 = load i32, ptr %98, align 8
-  %149 = zext i32 %148 to i64
-  %150 = getelementptr %struct.__drm_crtcs_state, ptr %147, i64 %149, i32 3
-  %151 = load ptr, ptr %150, align 8
-  %152 = getelementptr inbounds i8, ptr %2, i64 128
-  %153 = load i32, ptr %152, align 8
-  switch i32 %153, label %.thread6 [
-    i32 11, label %154
-    i32 10, label %157
-    i32 7, label %157
-    i32 8, label %157
-    i32 6, label %157
+146:                                              ; preds = %144, %136
+  %.pre-phi12 = phi i64 [ %.pre11, %144 ], [ %140, %136 ]
+  %147 = getelementptr %struct.intel_shared_dpll_state, ptr %137, i64 %.pre-phi12
+  tail call fastcc void @intel_reference_shared_dpll_crtc(ptr noundef %1, ptr noundef nonnull %127, ptr noundef %147)
+  %148 = load ptr, ptr %97, align 8
+  %149 = load i32, ptr %99, align 8
+  %150 = zext i32 %149 to i64
+  %151 = getelementptr %struct.__drm_crtcs_state, ptr %148, i64 %150, i32 3
+  %152 = load ptr, ptr %151, align 8
+  %153 = getelementptr inbounds i8, ptr %2, i64 128
+  %154 = load i32, ptr %153, align 8
+  switch i32 %154, label %.thread5 [
+    i32 11, label %155
+    i32 10, label %158
+    i32 7, label %158
+    i32 8, label %158
+    i32 6, label %158
   ]
 
-154:                                              ; preds = %145
-  %155 = getelementptr inbounds i8, ptr %2, i64 392
-  %156 = load ptr, ptr %155, align 8
-  br label %157
+155:                                              ; preds = %146
+  %156 = getelementptr inbounds i8, ptr %2, i64 392
+  %157 = load ptr, ptr %156, align 8
+  br label %158
 
-157:                                              ; preds = %154, %145, %145, %145, %145
-  %158 = phi ptr [ %156, %154 ], [ %2, %145 ], [ %2, %145 ], [ %2, %145 ], [ %2, %145 ]
-  %159 = icmp eq ptr %158, null
-  br i1 %159, label %.thread6, label %160
+158:                                              ; preds = %155, %146, %146, %146, %146
+  %159 = phi ptr [ %157, %155 ], [ %2, %146 ], [ %2, %146 ], [ %2, %146 ], [ %2, %146 ]
+  %160 = icmp eq ptr %159, null
+  br i1 %160, label %.thread5, label %161
 
-160:                                              ; preds = %157
-  %161 = tail call zeroext i1 @intel_tc_port_in_dp_alt_mode(ptr noundef nonnull %158) #13
-  br i1 %161, label %.thread6, label %162
+161:                                              ; preds = %158
+  %162 = tail call zeroext i1 @intel_tc_port_in_dp_alt_mode(ptr noundef nonnull %159) #13
+  br i1 %162, label %165, label %163
 
-162:                                              ; preds = %160
-  %163 = tail call zeroext i1 @intel_tc_port_in_legacy_mode(ptr noundef nonnull %158) #13
-  %spec.select1 = zext i1 %163 to i64
-  br label %.thread6
+163:                                              ; preds = %161
+  %164 = tail call zeroext i1 @intel_tc_port_in_legacy_mode(ptr noundef nonnull %159) #13
+  br i1 %164, label %165, label %.thread5
 
-.thread6:                                         ; preds = %145, %162, %160, %157
-  %164 = phi i64 [ 0, %157 ], [ 1, %160 ], [ %spec.select1, %162 ], [ 0, %145 ]
-  %165 = getelementptr inbounds i8, ptr %151, i64 1064
-  %166 = getelementptr [2 x %struct.icl_port_dpll], ptr %165, i64 0, i64 %164
-  %167 = load ptr, ptr %166, align 8
-  %168 = getelementptr inbounds i8, ptr %151, i64 920
-  store ptr %167, ptr %168, align 8
-  %169 = getelementptr inbounds i8, ptr %151, i64 928
-  %170 = getelementptr inbounds i8, ptr %166, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(136) %169, ptr noundef align 8 dereferenceable(136) %170, i64 136, i1 false)
-  br label %173
+165:                                              ; preds = %163, %161
+  br label %.thread5
 
-171:                                              ; preds = %92
+.thread5:                                         ; preds = %146, %165, %163, %158
+  %166 = phi i64 [ 1, %165 ], [ 0, %163 ], [ 0, %158 ], [ 0, %146 ]
+  %167 = getelementptr inbounds i8, ptr %152, i64 1064
+  %168 = getelementptr [2 x %struct.icl_port_dpll], ptr %167, i64 0, i64 %166
+  %169 = load ptr, ptr %168, align 8
+  %170 = getelementptr inbounds i8, ptr %152, i64 920
+  store ptr %169, ptr %170, align 8
+  %171 = getelementptr inbounds i8, ptr %152, i64 928
+  %172 = getelementptr inbounds i8, ptr %168, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(136) %171, ptr noundef align 8 dereferenceable(136) %172, i64 136, i1 false)
+  br label %175
+
+173:                                              ; preds = %93
   tail call void asm sideeffect "1098: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1098b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1098) #13, !srcloc !207
-  %172 = sext i32 %8 to i64
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, ptr noundef nonnull @.str.49, i64 noundef %172) #13
+  %174 = sext i32 %8 to i64
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, ptr noundef nonnull @.str.49, i64 noundef %174) #13
   tail call void asm sideeffect "1099: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1099b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1099) #13, !srcloc !208
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 3412, i32 2313, i64 12) #13, !srcloc !209
   tail call void asm sideeffect "1100: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1100b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1100) #13, !srcloc !210
   tail call void asm sideeffect "1101: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1101b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1101) #13, !srcloc !211
-  br label %173
+  br label %175
 
-173:                                              ; preds = %171, %.thread6, %128, %94, %.thread, %47
-  %174 = phi i32 [ -22, %171 ], [ 0, %.thread ], [ -22, %47 ], [ 0, %.thread6 ], [ -22, %128 ], [ -22, %94 ]
-  ret i32 %174
+175:                                              ; preds = %173, %.thread5, %129, %95, %.thread, %47
+  %176 = phi i32 [ -22, %173 ], [ 0, %.thread ], [ -22, %47 ], [ 0, %.thread5 ], [ -22, %129 ], [ -22, %95 ]
+  ret i32 %176
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -3463,23 +3467,25 @@ define internal void @icl_update_active_dpll(ptr nocapture noundef readonly %0, 
 
 19:                                               ; preds = %16
   %20 = tail call zeroext i1 @intel_tc_port_in_dp_alt_mode(ptr noundef nonnull %17) #13
-  br i1 %20, label %.thread, label %21
+  br i1 %20, label %23, label %21
 
 21:                                               ; preds = %19
   %22 = tail call zeroext i1 @intel_tc_port_in_legacy_mode(ptr noundef nonnull %17) #13
-  %spec.select = zext i1 %22 to i64
+  br i1 %22, label %23, label %.thread
+
+23:                                               ; preds = %21, %19
   br label %.thread
 
-.thread:                                          ; preds = %3, %21, %19, %16
-  %23 = phi i64 [ 0, %16 ], [ 1, %19 ], [ %spec.select, %21 ], [ 0, %3 ]
-  %24 = getelementptr inbounds i8, ptr %10, i64 1064
-  %25 = getelementptr [2 x %struct.icl_port_dpll], ptr %24, i64 0, i64 %23
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %10, i64 920
-  store ptr %26, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %10, i64 928
-  %29 = getelementptr inbounds i8, ptr %25, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(136) %28, ptr noundef align 8 dereferenceable(136) %29, i64 136, i1 false)
+.thread:                                          ; preds = %3, %23, %21, %16
+  %24 = phi i64 [ 1, %23 ], [ 0, %21 ], [ 0, %16 ], [ 0, %3 ]
+  %25 = getelementptr inbounds i8, ptr %10, i64 1064
+  %26 = getelementptr [2 x %struct.icl_port_dpll], ptr %25, i64 0, i64 %24
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %10, i64 920
+  store ptr %27, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %10, i64 928
+  %30 = getelementptr inbounds i8, ptr %26, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(136) %29, ptr noundef align 8 dereferenceable(136) %30, i64 136, i1 false)
   ret void
 }
 
@@ -7427,9 +7433,9 @@ define internal fastcc i32 @skl_ddi_wrpll_get_freq(ptr noundef readonly %0, ptr 
 21:                                               ; preds = %18, %16
   %22 = phi ptr [ %20, %18 ], [ null, %16 ]
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %22, i32 noundef 2, ptr noundef nonnull @.str.85) #13
-  br label %26
+  br label %23
 
-23:                                               ; preds = %2
+23:                                               ; preds = %21, %2
   br label %26
 
 24:                                               ; preds = %2
@@ -7442,8 +7448,8 @@ define internal fastcc i32 @skl_ddi_wrpll_get_freq(ptr noundef readonly %0, ptr 
   tail call void asm sideeffect "996: nop\0A\09.pushsection .discard.instr_end\0A\09.long 996b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 996) #13, !srcloc !306
   br label %62
 
-26:                                               ; preds = %21, %23, %15, %14, %2
-  %27 = phi i32 [ 3, %15 ], [ 2, %14 ], [ 1, %2 ], [ 7, %21 ], [ 7, %23 ]
+26:                                               ; preds = %23, %15, %14, %2
+  %27 = phi i32 [ 7, %23 ], [ 3, %15 ], [ 2, %14 ], [ 1, %2 ]
   %28 = lshr i32 %6, 5
   %29 = and i32 %28, 3
   switch i32 %29, label %default.unreachable3 [

@@ -1301,7 +1301,7 @@ if.end57:                                         ; preds = %sw.epilog.thread, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @choose_vector_type(ptr noundef %list, i32 noundef %vece, i32 noundef %size, i1 noundef zeroext %prefer_i64) unnamed_addr #1 {
+define internal fastcc noundef i32 @choose_vector_type(ptr noundef %list, i32 noundef %vece, i32 noundef %size, i1 noundef zeroext %prefer_i64) unnamed_addr #1 {
 entry:
   %0 = load i32, ptr @cpuinfo, align 4
   %and = and i32 %0, 1024
@@ -1400,22 +1400,24 @@ if.end33:                                         ; preds = %land.lhs.true30, %l
   %brmerge = or i1 %tobool35.not, %prefer_i64
   %cmp.i26 = icmp ult i32 %size, 8
   %or.cond39 = or i1 %cmp.i26, %brmerge
-  br i1 %or.cond39, label %return, label %if.end.i27
+  br i1 %or.cond39, label %if.end43, label %if.end.i27
 
 if.end.i27:                                       ; preds = %if.end33
   %rem.i29 = and i32 %size, 7
   %cmp1.i31 = icmp eq i32 %rem.i29, 0
   tail call void @llvm.assume(i1 %cmp1.i31)
   %cmp10.i33 = icmp ult i32 %size, 40
-  br i1 %cmp10.i33, label %land.lhs.true40, label %return
+  br i1 %cmp10.i33, label %land.lhs.true40, label %if.end43
 
 land.lhs.true40:                                  ; preds = %if.end.i27
   %call41 = tail call zeroext i1 @tcg_can_emit_vecop_list(ptr noundef %list, i32 noundef 3, i32 noundef %vece) #7
-  %spec.select = select i1 %call41, i32 3, i32 0
+  br i1 %call41, label %return, label %if.end43
+
+if.end43:                                         ; preds = %if.end33, %land.lhs.true40, %if.end.i27
   br label %return
 
-return:                                           ; preds = %land.lhs.true40, %if.end.i27, %if.end33, %land.lhs.true24, %land.lhs.true30, %land.lhs.true10, %land.lhs.true16
-  %retval.0 = phi i32 [ 5, %land.lhs.true16 ], [ 5, %land.lhs.true10 ], [ 4, %land.lhs.true30 ], [ 4, %land.lhs.true24 ], [ 0, %if.end33 ], [ 0, %if.end.i27 ], [ %spec.select, %land.lhs.true40 ]
+return:                                           ; preds = %land.lhs.true40, %land.lhs.true24, %land.lhs.true30, %land.lhs.true10, %land.lhs.true16, %if.end43
+  %retval.0 = phi i32 [ 0, %if.end43 ], [ 5, %land.lhs.true16 ], [ 5, %land.lhs.true10 ], [ 4, %land.lhs.true30 ], [ 4, %land.lhs.true24 ], [ 3, %land.lhs.true40 ]
   ret i32 %retval.0
 }
 

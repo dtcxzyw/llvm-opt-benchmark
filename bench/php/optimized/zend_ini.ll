@@ -1328,26 +1328,28 @@ define ptr @zend_ini_str(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2) 
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %5, align 8, !nonnull !5, !noundef !5
-  br i1 %2, label %8, label %zend_ini_str_ex.exit.sink.split
+  br i1 %2, label %8, label %11
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds i8, ptr %7, i64 70
   %10 = load i8, ptr %9, align 2
   %.not28.i = icmp eq i8 %10, 0
-  %spec.select8 = select i1 %.not28.i, i64 40, i64 48
+  br i1 %.not28.i, label %11, label %zend_ini_str_ex.exit.sink.split
+
+11:                                               ; preds = %8, %6
   br label %zend_ini_str_ex.exit.sink.split
 
-zend_ini_str_ex.exit.sink.split:                  ; preds = %8, %6
-  %.sink7 = phi i64 [ 40, %6 ], [ %spec.select8, %8 ]
-  %11 = getelementptr inbounds i8, ptr %7, i64 %.sink7
-  %12 = load ptr, ptr %11, align 8
+zend_ini_str_ex.exit.sink.split:                  ; preds = %8, %11
+  %.sink7 = phi i64 [ 40, %11 ], [ 48, %8 ]
+  %12 = getelementptr inbounds i8, ptr %7, i64 %.sink7
+  %13 = load ptr, ptr %12, align 8
   br label %zend_ini_str_ex.exit
 
 zend_ini_str_ex.exit:                             ; preds = %zend_ini_str_ex.exit.sink.split, %3
-  %.020.i = phi ptr [ null, %3 ], [ %12, %zend_ini_str_ex.exit.sink.split ]
+  %.020.i = phi ptr [ null, %3 ], [ %13, %zend_ini_str_ex.exit.sink.split ]
   %.not = icmp eq ptr %.020.i, null
-  %13 = load ptr, ptr @zend_empty_string, align 8
-  %spec.select = select i1 %.not, ptr %13, ptr %.020.i
+  %14 = load ptr, ptr @zend_empty_string, align 8
+  %spec.select = select i1 %.not, ptr %14, ptr %.020.i
   %.05 = select i1 %.not.i.not, ptr null, ptr %spec.select
   ret ptr %.05
 }
@@ -2370,75 +2372,77 @@ define void @zend_ini_boolean_displayer_cb(ptr nocapture noundef readonly %0, i3
   %5 = getelementptr inbounds i8, ptr %0, i64 70
   %6 = load i8, ptr %5, align 2
   %.not = icmp eq i8 %6, 0
-  %spec.select = select i1 %.not, i64 40, i64 48
-  br label %7
+  br i1 %.not, label %7, label %8
 
 7:                                                ; preds = %4, %2
-  %.sink = phi i64 [ 40, %2 ], [ %spec.select, %4 ]
-  %8 = getelementptr inbounds i8, ptr %0, i64 %.sink
-  %.0 = load ptr, ptr %8, align 8
+  br label %8
+
+8:                                                ; preds = %4, %7
+  %.sink = phi i64 [ 40, %7 ], [ 48, %4 ]
+  %9 = getelementptr inbounds i8, ptr %0, i64 %.sink
+  %.0 = load ptr, ptr %9, align 8
   %.not13 = icmp eq ptr %.0, null
-  br i1 %.not13, label %.critedge, label %9
+  br i1 %.not13, label %.critedge, label %10
 
-9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %.0, i64 16
-  %11 = load i64, ptr %10, align 8
-  %12 = icmp eq i64 %11, 4
-  br i1 %12, label %13, label %16
+10:                                               ; preds = %8
+  %11 = getelementptr inbounds i8, ptr %.0, i64 16
+  %12 = load i64, ptr %11, align 8
+  %13 = icmp eq i64 %12, 4
+  br i1 %13, label %14, label %17
 
-13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %.0, i64 24
-  %15 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %14, i64 noundef 4, ptr noundef nonnull @.str.1, i64 noundef 4) #20
-  %.not.i = icmp eq i32 %15, 0
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds i8, ptr %.0, i64 24
+  %16 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %15, i64 noundef 4, ptr noundef nonnull @.str.1, i64 noundef 4) #20
+  %.not.i = icmp eq i32 %16, 0
   br i1 %.not.i, label %zend_ini_parse_bool.exit.thread, label %thread-pre-split.i
 
-thread-pre-split.i:                               ; preds = %13
-  %.pr.i = load i64, ptr %10, align 8
-  br label %16
+thread-pre-split.i:                               ; preds = %14
+  %.pr.i = load i64, ptr %11, align 8
+  br label %17
 
-16:                                               ; preds = %thread-pre-split.i, %9
-  %17 = phi i64 [ %.pr.i, %thread-pre-split.i ], [ %11, %9 ]
-  %18 = icmp eq i64 %17, 3
-  br i1 %18, label %19, label %22
+17:                                               ; preds = %thread-pre-split.i, %10
+  %18 = phi i64 [ %.pr.i, %thread-pre-split.i ], [ %12, %10 ]
+  %19 = icmp eq i64 %18, 3
+  br i1 %19, label %20, label %23
 
-19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %.0, i64 24
-  %21 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %20, i64 noundef 3, ptr noundef nonnull @.str.2, i64 noundef 3) #20
-  %.not14.i = icmp eq i32 %21, 0
+20:                                               ; preds = %17
+  %21 = getelementptr inbounds i8, ptr %.0, i64 24
+  %22 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %21, i64 noundef 3, ptr noundef nonnull @.str.2, i64 noundef 3) #20
+  %.not14.i = icmp eq i32 %22, 0
   br i1 %.not14.i, label %zend_ini_parse_bool.exit.thread, label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %19
-  %.pre.i = load i64, ptr %10, align 8
-  br label %22
+._crit_edge.i:                                    ; preds = %20
+  %.pre.i = load i64, ptr %11, align 8
+  br label %23
 
-22:                                               ; preds = %._crit_edge.i, %16
-  %23 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %17, %16 ]
-  %24 = icmp eq i64 %23, 2
-  br i1 %24, label %25, label %zend_ini_parse_bool.exit
+23:                                               ; preds = %._crit_edge.i, %17
+  %24 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %18, %17 ]
+  %25 = icmp eq i64 %24, 2
+  br i1 %25, label %26, label %zend_ini_parse_bool.exit
 
-25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %.0, i64 24
-  %27 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %26, i64 noundef 2, ptr noundef nonnull @.str.3, i64 noundef 2) #20
-  %.not15.i = icmp eq i32 %27, 0
+26:                                               ; preds = %23
+  %27 = getelementptr inbounds i8, ptr %.0, i64 24
+  %28 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %27, i64 noundef 2, ptr noundef nonnull @.str.3, i64 noundef 2) #20
+  %.not15.i = icmp eq i32 %28, 0
   br i1 %.not15.i, label %zend_ini_parse_bool.exit.thread, label %zend_ini_parse_bool.exit
 
-zend_ini_parse_bool.exit:                         ; preds = %22, %25
-  %28 = getelementptr inbounds i8, ptr %.0, i64 24
-  %29 = tail call i32 @atoi(ptr nocapture noundef nonnull %28) #22
-  %.not16 = icmp eq i32 %29, 0
+zend_ini_parse_bool.exit:                         ; preds = %23, %26
+  %29 = getelementptr inbounds i8, ptr %.0, i64 24
+  %30 = tail call i32 @atoi(ptr nocapture noundef nonnull %29) #22
+  %.not16 = icmp eq i32 %30, 0
   br i1 %.not16, label %.critedge, label %zend_ini_parse_bool.exit.thread
 
-zend_ini_parse_bool.exit.thread:                  ; preds = %13, %19, %25, %zend_ini_parse_bool.exit
-  %30 = load ptr, ptr @zend_write, align 8
-  %31 = tail call i64 %30(ptr noundef nonnull @.str.5, i64 noundef 2) #20
-  br label %34
+zend_ini_parse_bool.exit.thread:                  ; preds = %14, %20, %26, %zend_ini_parse_bool.exit
+  %31 = load ptr, ptr @zend_write, align 8
+  %32 = tail call i64 %31(ptr noundef nonnull @.str.5, i64 noundef 2) #20
+  br label %35
 
-.critedge:                                        ; preds = %7, %zend_ini_parse_bool.exit
-  %32 = load ptr, ptr @zend_write, align 8
-  %33 = tail call i64 %32(ptr noundef nonnull @.str.6, i64 noundef 3) #20
-  br label %34
+.critedge:                                        ; preds = %8, %zend_ini_parse_bool.exit
+  %33 = load ptr, ptr @zend_write, align 8
+  %34 = tail call i64 %33(ptr noundef nonnull @.str.6, i64 noundef 3) #20
+  br label %35
 
-34:                                               ; preds = %.critedge, %zend_ini_parse_bool.exit.thread
+35:                                               ; preds = %.critedge, %zend_ini_parse_bool.exit.thread
   ret void
 }
 

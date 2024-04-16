@@ -1122,7 +1122,7 @@ define internal fastcc i64 @boost_freq_mhz_store_common(ptr noundef %0, ptr noca
 
 8:                                                ; preds = %4
   %9 = sext i32 %6 to i64
-  br label %.thread
+  br label %35
 
 10:                                               ; preds = %4
   %11 = load i32, ptr %5, align 4
@@ -1150,7 +1150,7 @@ define internal fastcc i64 @boost_freq_mhz_store_common(ptr noundef %0, ptr noca
 
 .thread4:                                         ; preds = %22
   %26 = sext i32 %24 to i64
-  br label %.thread
+  br label %35
 
 27:                                               ; preds = %22, %16
   br i1 %17, label %16, label %.thread, !llvm.loop !12
@@ -1163,13 +1163,15 @@ define internal fastcc i64 @boost_freq_mhz_store_common(ptr noundef %0, ptr noca
   %.fr = freeze i32 %32
   %33 = icmp eq i32 %.fr, 0
   %34 = sext i32 %.fr to i64
-  %spec.select = select i1 %33, i64 %3, i64 %34
-  br label %.thread
+  br i1 %33, label %.thread, label %35
 
-.thread:                                          ; preds = %27, %28, %.thread4, %8
-  %35 = phi i64 [ %9, %8 ], [ %26, %.thread4 ], [ %spec.select, %28 ], [ %3, %27 ]
+.thread:                                          ; preds = %27, %28
+  br label %35
+
+35:                                               ; preds = %.thread, %28, %.thread4, %8
+  %36 = phi i64 [ %9, %8 ], [ %3, %.thread ], [ %34, %28 ], [ %26, %.thread4 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
-  ret i64 %35
+  ret i64 %36
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -1241,7 +1243,7 @@ define internal fastcc i64 @max_freq_mhz_store_common(ptr noundef %0, ptr nocapt
 
 8:                                                ; preds = %4
   %9 = sext i32 %6 to i64
-  br label %.thread
+  br label %35
 
 10:                                               ; preds = %4
   %11 = load i32, ptr %5, align 4
@@ -1269,7 +1271,7 @@ define internal fastcc i64 @max_freq_mhz_store_common(ptr noundef %0, ptr nocapt
 
 .thread4:                                         ; preds = %22
   %26 = sext i32 %24 to i64
-  br label %.thread
+  br label %35
 
 27:                                               ; preds = %22, %16
   br i1 %17, label %16, label %.thread, !llvm.loop !12
@@ -1282,13 +1284,15 @@ define internal fastcc i64 @max_freq_mhz_store_common(ptr noundef %0, ptr nocapt
   %.fr = freeze i32 %32
   %33 = icmp eq i32 %.fr, 0
   %34 = sext i32 %.fr to i64
-  %spec.select = select i1 %33, i64 %3, i64 %34
-  br label %.thread
+  br i1 %33, label %.thread, label %35
 
-.thread:                                          ; preds = %27, %28, %.thread4, %8
-  %35 = phi i64 [ %9, %8 ], [ %26, %.thread4 ], [ %spec.select, %28 ], [ %3, %27 ]
+.thread:                                          ; preds = %27, %28
+  br label %35
+
+35:                                               ; preds = %.thread, %28, %.thread4, %8
+  %36 = phi i64 [ %9, %8 ], [ %3, %.thread ], [ %34, %28 ], [ %26, %.thread4 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
-  ret i64 %35
+  ret i64 %36
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -1357,7 +1361,7 @@ define internal fastcc i64 @min_freq_mhz_store_common(ptr noundef %0, ptr nocapt
 
 8:                                                ; preds = %4
   %9 = sext i32 %6 to i64
-  br label %.thread
+  br label %35
 
 10:                                               ; preds = %4
   %11 = load i32, ptr %5, align 4
@@ -1385,7 +1389,7 @@ define internal fastcc i64 @min_freq_mhz_store_common(ptr noundef %0, ptr nocapt
 
 .thread4:                                         ; preds = %22
   %26 = sext i32 %24 to i64
-  br label %.thread
+  br label %35
 
 27:                                               ; preds = %22, %16
   br i1 %17, label %16, label %.thread, !llvm.loop !12
@@ -1398,13 +1402,15 @@ define internal fastcc i64 @min_freq_mhz_store_common(ptr noundef %0, ptr nocapt
   %.fr = freeze i32 %32
   %33 = icmp eq i32 %.fr, 0
   %34 = sext i32 %.fr to i64
-  %spec.select = select i1 %33, i64 %3, i64 %34
-  br label %.thread
+  br i1 %33, label %.thread, label %35
 
-.thread:                                          ; preds = %27, %28, %.thread4, %8
-  %35 = phi i64 [ %9, %8 ], [ %26, %.thread4 ], [ %spec.select, %28 ], [ %3, %27 ]
+.thread:                                          ; preds = %27, %28
+  br label %35
+
+35:                                               ; preds = %.thread, %28, %.thread4, %8
+  %36 = phi i64 [ %9, %8 ], [ %3, %.thread ], [ %34, %28 ], [ %26, %.thread4 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
-  ret i64 %35
+  ret i64 %36
 }
 
 ; Function Attrs: null_pointer_is_valid

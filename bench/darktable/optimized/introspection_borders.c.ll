@@ -161,7 +161,7 @@ define noundef i32 @dt_module_mod_version() local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
 define noundef i32 @legacy_params(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #1 {
-  switch i32 %2, label %42 [
+  switch i32 %2, label %43 [
     i32 1, label %7
     i32 2, label %23
     i32 3, label %26
@@ -189,14 +189,14 @@ define noundef i32 @legacy_params(ptr nocapture noundef readnone %0, ptr nocaptu
   store float %20, ptr %21, align 4, !tbaa !20
   %22 = getelementptr inbounds i8, ptr %8, i64 112
   store i32 0, ptr %22, align 4, !tbaa !21
-  br label %38
+  br label %39
 
 23:                                               ; preds = %6
   %24 = tail call noalias dereferenceable_or_null(116) ptr @malloc(i64 noundef 116) #21
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %24, ptr noundef nonnull align 4 dereferenceable(112) %1, i64 112, i1 false)
   %25 = getelementptr inbounds i8, ptr %24, i64 112
   store i32 0, ptr %25, align 4, !tbaa !21
-  br label %38
+  br label %39
 
 26:                                               ; preds = %6
   %27 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #21
@@ -210,27 +210,29 @@ define noundef i32 @legacy_params(ptr nocapture noundef readnone %0, ptr nocaptu
   %32 = getelementptr inbounds i8, ptr %27, i64 112
   %33 = load i32, ptr %32, align 4, !tbaa !24
   %34 = icmp eq i32 %33, 0
-  %spec.select = zext i1 %34 to i32
-  br label %35
+  br i1 %34, label %36, label %35
 
 35:                                               ; preds = %31, %26
-  %36 = phi i32 [ 0, %26 ], [ %spec.select, %31 ]
-  %37 = getelementptr inbounds i8, ptr %27, i64 116
-  store i32 %36, ptr %37, align 4, !tbaa !25
-  br label %38
+  br label %36
 
-38:                                               ; preds = %35, %23, %7
-  %39 = phi ptr [ %27, %35 ], [ %24, %23 ], [ %8, %7 ]
-  %40 = phi i32 [ 120, %35 ], [ 116, %23 ], [ 116, %7 ]
-  %41 = phi i32 [ 4, %35 ], [ 3, %23 ], [ 3, %7 ]
-  store ptr %39, ptr %3, align 8, !tbaa !26
-  store i32 %40, ptr %4, align 4, !tbaa !12
-  store i32 %41, ptr %5, align 4, !tbaa !12
-  br label %42
+36:                                               ; preds = %35, %31
+  %37 = phi i32 [ 0, %35 ], [ 1, %31 ]
+  %38 = getelementptr inbounds i8, ptr %27, i64 116
+  store i32 %37, ptr %38, align 4, !tbaa !25
+  br label %39
 
-42:                                               ; preds = %38, %6
-  %43 = phi i32 [ 1, %6 ], [ 0, %38 ]
-  ret i32 %43
+39:                                               ; preds = %36, %23, %7
+  %40 = phi ptr [ %27, %36 ], [ %24, %23 ], [ %8, %7 ]
+  %41 = phi i32 [ 120, %36 ], [ 116, %23 ], [ 116, %7 ]
+  %42 = phi i32 [ 4, %36 ], [ 3, %23 ], [ 3, %7 ]
+  store ptr %40, ptr %3, align 8, !tbaa !26
+  store i32 %41, ptr %4, align 4, !tbaa !12
+  store i32 %42, ptr %5, align 4, !tbaa !12
+  br label %43
+
+43:                                               ; preds = %39, %6
+  %44 = phi i32 [ 1, %6 ], [ 0, %39 ]
+  ret i32 %44
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

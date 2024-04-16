@@ -325,7 +325,7 @@ entry:
   %0 = load ptr, ptr %method.i, align 8
   %1 = load i8, ptr %0, align 8
   %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %DTLSv1_get_timeout.exit, label %if.end.i
+  br i1 %tobool.not.i, label %DTLSv1_get_timeout.exit.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %d1.i = getelementptr inbounds i8, ptr %ssl, i64 88
@@ -339,7 +339,7 @@ land.lhs.true.i:                                  ; preds = %if.end.i
   %tv_usec.i = getelementptr inbounds i8, ptr %2, i64 376
   %4 = load i64, ptr %tv_usec.i, align 8
   %cmp3.i = icmp eq i64 %4, 0
-  br i1 %cmp3.i, label %DTLSv1_get_timeout.exit, label %if.end5.i
+  br i1 %cmp3.i, label %DTLSv1_get_timeout.exit.thread, label %if.end5.i
 
 if.end5.i:                                        ; preds = %land.lhs.true.i, %if.end.i
   %ctx.i.i = getelementptr inbounds i8, ptr %ssl, i64 232
@@ -363,7 +363,7 @@ get_current_time.exit.i:                          ; preds = %if.end.i.i, %if.the
   %8 = load i64, ptr %next_timeout7.i, align 8
   %9 = load i64, ptr %timenow.i, align 8
   %cmp10.i = icmp slt i64 %8, %9
-  br i1 %cmp10.i, label %if.end, label %lor.lhs.false.i
+  br i1 %cmp10.i, label %return.sink.split.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %get_current_time.exit.i
   %cmp15.i = icmp eq i64 %8, %9
@@ -382,7 +382,7 @@ land.lhs.true16.i:                                ; preds = %lor.lhs.false.i
   %tv_usec20.i = getelementptr inbounds i8, ptr %timenow.i, i64 8
   %11 = load i64, ptr %tv_usec20.i, align 8
   %cmp21.not.i = icmp sgt i64 %10, %11
-  br i1 %cmp21.not.i, label %if.end23.i, label %if.end
+  br i1 %cmp21.not.i, label %if.end23.i, label %return.sink.split.i
 
 if.end23.i:                                       ; preds = %land.lhs.true16.i, %lor.lhs.false.if.end23_crit_edge.i
   %timeleft.sroa.6.0.copyload = phi i64 [ %timeleft.sroa.6.0.copyload.pre, %lor.lhs.false.if.end23_crit_edge.i ], [ %10, %land.lhs.true16.i ]
@@ -396,25 +396,28 @@ if.end23.i:                                       ; preds = %land.lhs.true16.i, 
   %timeleft.sroa.6.0 = select i1 %cmp32.i, i64 %add.i, i64 %sub30.i
   %cmp38.i = icmp eq i64 %timeleft.sroa.0.0, 0
   %cmp41.i = icmp slt i64 %timeleft.sroa.6.0, 15000
-  %or.cond.i.not.not14 = select i1 %cmp38.i, i1 %cmp41.i, i1 false
-  %13 = icmp slt i64 %timeleft.sroa.0.0, 1
-  %14 = icmp slt i64 %timeleft.sroa.6.0, 1
-  %.not13 = select i1 %or.cond.i.not.not14, i1 true, i1 %14
-  %.not12 = select i1 %13, i1 %.not13, i1 false
-  %15 = zext i1 %.not12 to i32
+  %or.cond.i = select i1 %cmp38.i, i1 %cmp41.i, i1 false
+  br i1 %or.cond.i, label %return.sink.split.i, label %if.end
+
+return.sink.split.i:                              ; preds = %if.end23.i, %land.lhs.true16.i, %get_current_time.exit.i
   br label %if.end
 
-DTLSv1_get_timeout.exit:                          ; preds = %entry, %land.lhs.true.i
+DTLSv1_get_timeout.exit.thread:                   ; preds = %entry, %land.lhs.true.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %timenow.i)
   br label %return
 
-if.end:                                           ; preds = %if.end23.i, %land.lhs.true16.i, %get_current_time.exit.i
-  %timeleft.sroa.0.2.ph = phi i32 [ 1, %get_current_time.exit.i ], [ 1, %land.lhs.true16.i ], [ %15, %if.end23.i ]
+if.end:                                           ; preds = %return.sink.split.i, %if.end23.i
+  %timeleft.sroa.0.2 = phi i64 [ 0, %return.sink.split.i ], [ %timeleft.sroa.0.0, %if.end23.i ]
+  %timeleft.sroa.6.2 = phi i64 [ 0, %return.sink.split.i ], [ %timeleft.sroa.6.0, %if.end23.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %timenow.i)
+  %cmp = icmp slt i64 %timeleft.sroa.0.2, 1
+  %cmp1 = icmp slt i64 %timeleft.sroa.6.2, 1
+  %or.cond.not = select i1 %cmp, i1 %cmp1, i1 false
+  %. = zext i1 %or.cond.not to i32
   br label %return
 
-return:                                           ; preds = %DTLSv1_get_timeout.exit, %if.end
-  %retval.0 = phi i32 [ 0, %DTLSv1_get_timeout.exit ], [ %timeleft.sroa.0.2.ph, %if.end ]
+return:                                           ; preds = %DTLSv1_get_timeout.exit.thread, %if.end
+  %retval.0 = phi i32 [ %., %if.end ], [ 0, %DTLSv1_get_timeout.exit.thread ]
   ret i32 %retval.0
 }
 
@@ -627,7 +630,7 @@ get_current_time.exit.i.i:                        ; preds = %if.end.i.i.i, %if.t
   %8 = load i64, ptr %next_timeout7.i.i, align 8
   %9 = load i64, ptr %timenow.i.i, align 8
   %cmp10.i.i = icmp slt i64 %8, %9
-  br i1 %cmp10.i.i, label %dtls1_is_timer_expired.exit.thread33, label %lor.lhs.false.i.i
+  br i1 %cmp10.i.i, label %return.sink.split.i.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %get_current_time.exit.i.i
   %cmp15.i.i = icmp eq i64 %8, %9
@@ -638,7 +641,7 @@ lor.lhs.false.if.end23_crit_edge.i.i:             ; preds = %lor.lhs.false.i.i
   %.pre.i.i = load i64, ptr %tv_usec28.phi.trans.insert.i.i, align 8
   %timeleft.sroa.6.0.next_timeout7.i.sroa_idx.phi.trans.insert.i = getelementptr inbounds i8, ptr %7, i64 376
   %timeleft.sroa.6.0.copyload.pre.i = load i64, ptr %timeleft.sroa.6.0.next_timeout7.i.sroa_idx.phi.trans.insert.i, align 8
-  br label %dtls1_is_timer_expired.exit
+  br label %if.end23.i.i
 
 land.lhs.true16.i.i:                              ; preds = %lor.lhs.false.i.i
   %tv_usec19.i.i = getelementptr inbounds i8, ptr %7, i64 376
@@ -646,17 +649,9 @@ land.lhs.true16.i.i:                              ; preds = %lor.lhs.false.i.i
   %tv_usec20.i.i = getelementptr inbounds i8, ptr %timenow.i.i, i64 8
   %11 = load i64, ptr %tv_usec20.i.i, align 8
   %cmp21.not.i.i = icmp sgt i64 %10, %11
-  br i1 %cmp21.not.i.i, label %dtls1_is_timer_expired.exit, label %dtls1_is_timer_expired.exit.thread33
+  br i1 %cmp21.not.i.i, label %if.end23.i.i, label %return.sink.split.i.i
 
-dtls1_is_timer_expired.exit.thread:               ; preds = %land.lhs.true.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %timenow.i.i)
-  br label %return
-
-dtls1_is_timer_expired.exit.thread33:             ; preds = %get_current_time.exit.i.i, %land.lhs.true16.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %timenow.i.i)
-  br label %if.end3
-
-dtls1_is_timer_expired.exit:                      ; preds = %lor.lhs.false.if.end23_crit_edge.i.i, %land.lhs.true16.i.i
+if.end23.i.i:                                     ; preds = %land.lhs.true16.i.i, %lor.lhs.false.if.end23_crit_edge.i.i
   %timeleft.sroa.6.0.copyload.i = phi i64 [ %timeleft.sroa.6.0.copyload.pre.i, %lor.lhs.false.if.end23_crit_edge.i.i ], [ %10, %land.lhs.true16.i.i ]
   %12 = phi i64 [ %.pre.i.i, %lor.lhs.false.if.end23_crit_edge.i.i ], [ %11, %land.lhs.true16.i.i ]
   %sub.i.i = sub nsw i64 %8, %9
@@ -666,133 +661,144 @@ dtls1_is_timer_expired.exit:                      ; preds = %lor.lhs.false.if.en
   %sub30.i.lobit.i = ashr i64 %sub30.i.i, 63
   %timeleft.sroa.0.0.i = add nsw i64 %sub30.i.lobit.i, %sub.i.i
   %timeleft.sroa.6.0.i = select i1 %cmp32.i.i, i64 %add.i.i, i64 %sub30.i.i
-  %cmp38.i.i = icmp ne i64 %timeleft.sroa.0.0.i, 0
-  %cmp41.i.i = icmp sgt i64 %timeleft.sroa.6.0.i, 14999
-  %or.cond.i.not.not14.i.not37 = select i1 %cmp38.i.i, i1 true, i1 %cmp41.i.i
-  %13 = icmp sgt i64 %timeleft.sroa.0.0.i, 0
-  %14 = icmp sgt i64 %timeleft.sroa.6.0.i, 0
-  %.not13.i.not36 = select i1 %or.cond.i.not.not14.i.not37, i1 %14, i1 false
-  %.not12.i.not = select i1 %13, i1 true, i1 %.not13.i.not36
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %timenow.i.i)
-  br i1 %.not12.i.not, label %return, label %if.end3
+  %cmp38.i.i = icmp eq i64 %timeleft.sroa.0.0.i, 0
+  %cmp41.i.i = icmp slt i64 %timeleft.sroa.6.0.i, 15000
+  %or.cond.i.i = select i1 %cmp38.i.i, i1 %cmp41.i.i, i1 false
+  br i1 %or.cond.i.i, label %return.sink.split.i.i, label %dtls1_is_timer_expired.exit
 
-if.end3:                                          ; preds = %dtls1_is_timer_expired.exit.thread33, %dtls1_is_timer_expired.exit
+return.sink.split.i.i:                            ; preds = %if.end23.i.i, %land.lhs.true16.i.i, %get_current_time.exit.i.i
+  br label %dtls1_is_timer_expired.exit
+
+dtls1_is_timer_expired.exit.thread:               ; preds = %land.lhs.true.i.i
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %timenow.i.i)
+  br label %return
+
+dtls1_is_timer_expired.exit:                      ; preds = %if.end23.i.i, %return.sink.split.i.i
+  %timeleft.sroa.0.2.i = phi i64 [ 0, %return.sink.split.i.i ], [ %timeleft.sroa.0.0.i, %if.end23.i.i ]
+  %timeleft.sroa.6.2.i = phi i64 [ 0, %return.sink.split.i.i ], [ %timeleft.sroa.6.0.i, %if.end23.i.i ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %timenow.i.i)
+  %cmp.i = icmp sgt i64 %timeleft.sroa.0.2.i, 0
+  %cmp1.i = icmp sgt i64 %timeleft.sroa.6.2.i, 0
+  %or.cond.not.i.not = select i1 %cmp.i, i1 true, i1 %cmp1.i
+  br i1 %or.cond.not.i.not, label %return, label %if.end3
+
+if.end3:                                          ; preds = %dtls1_is_timer_expired.exit
   %timeout_duration.i = getelementptr inbounds i8, ptr %7, i64 384
-  %15 = load i16, ptr %timeout_duration.i, align 8
-  %mul.i = shl i16 %15, 1
+  %13 = load i16, ptr %timeout_duration.i, align 8
+  %mul.i = shl i16 %13, 1
   store i16 %mul.i, ptr %timeout_duration.i, align 8
-  %16 = load ptr, ptr %d1.i.i, align 8
-  %timeout_duration3.i = getelementptr inbounds i8, ptr %16, i64 384
-  %17 = load i16, ptr %timeout_duration3.i, align 8
-  %cmp.i = icmp ugt i16 %17, 60
-  br i1 %cmp.i, label %if.then.i, label %if.end.i7
+  %14 = load ptr, ptr %d1.i.i, align 8
+  %timeout_duration3.i = getelementptr inbounds i8, ptr %14, i64 384
+  %15 = load i16, ptr %timeout_duration3.i, align 8
+  %cmp.i7 = icmp ugt i16 %15, 60
+  br i1 %cmp.i7, label %if.then.i, label %if.end.i8
 
 if.then.i:                                        ; preds = %if.end3
   store i16 60, ptr %timeout_duration3.i, align 8
   %.pre.i = load ptr, ptr %d1.i.i, align 8
-  br label %if.end.i7
+  br label %if.end.i8
 
-if.end.i7:                                        ; preds = %if.then.i, %if.end3
-  %18 = phi ptr [ %.pre.i, %if.then.i ], [ %16, %if.end3 ]
-  %next_timeout.i.i8 = getelementptr inbounds i8, ptr %18, i64 368
-  %19 = load i64, ptr %next_timeout.i.i8, align 8
-  %cmp.i.i9 = icmp eq i64 %19, 0
-  br i1 %cmp.i.i9, label %land.lhs.true.i.i18, label %if.end.i.i10
+if.end.i8:                                        ; preds = %if.then.i, %if.end3
+  %16 = phi ptr [ %.pre.i, %if.then.i ], [ %14, %if.end3 ]
+  %next_timeout.i.i9 = getelementptr inbounds i8, ptr %16, i64 368
+  %17 = load i64, ptr %next_timeout.i.i9, align 8
+  %cmp.i.i10 = icmp eq i64 %17, 0
+  br i1 %cmp.i.i10, label %land.lhs.true.i.i19, label %if.end.i.i11
 
-land.lhs.true.i.i18:                              ; preds = %if.end.i7
-  %tv_usec.i.i19 = getelementptr inbounds i8, ptr %18, i64 376
-  %20 = load i64, ptr %tv_usec.i.i19, align 8
-  %cmp3.i.i20 = icmp eq i64 %20, 0
-  br i1 %cmp3.i.i20, label %if.then.i.i, label %if.end.i.i10
+land.lhs.true.i.i19:                              ; preds = %if.end.i8
+  %tv_usec.i.i20 = getelementptr inbounds i8, ptr %16, i64 376
+  %18 = load i64, ptr %tv_usec.i.i20, align 8
+  %cmp3.i.i21 = icmp eq i64 %18, 0
+  br i1 %cmp3.i.i21, label %if.then.i.i, label %if.end.i.i11
 
-if.then.i.i:                                      ; preds = %land.lhs.true.i.i18
-  %timeout_duration.i.i = getelementptr inbounds i8, ptr %18, i64 384
+if.then.i.i:                                      ; preds = %land.lhs.true.i.i19
+  %timeout_duration.i.i = getelementptr inbounds i8, ptr %16, i64 384
   store i16 1, ptr %timeout_duration.i.i, align 8
-  %.pre.i.i21 = load ptr, ptr %d1.i.i, align 8
-  br label %if.end.i.i10
+  %.pre.i.i22 = load ptr, ptr %d1.i.i, align 8
+  br label %if.end.i.i11
 
-if.end.i.i10:                                     ; preds = %if.then.i.i, %land.lhs.true.i.i18, %if.end.i7
-  %21 = phi ptr [ %.pre.i.i21, %if.then.i.i ], [ %18, %land.lhs.true.i.i18 ], [ %18, %if.end.i7 ]
-  %next_timeout6.i.i = getelementptr inbounds i8, ptr %21, i64 368
-  %22 = load ptr, ptr %ctx.i.i.i, align 8
-  %current_time_cb.i.i.i12 = getelementptr inbounds i8, ptr %22, i64 640
-  %23 = load ptr, ptr %current_time_cb.i.i.i12, align 8
-  %cmp.not.i.i.i13 = icmp eq ptr %23, null
-  br i1 %cmp.not.i.i.i13, label %if.end.i.i.i16, label %if.then.i.i.i14
+if.end.i.i11:                                     ; preds = %if.then.i.i, %land.lhs.true.i.i19, %if.end.i8
+  %19 = phi ptr [ %.pre.i.i22, %if.then.i.i ], [ %16, %land.lhs.true.i.i19 ], [ %16, %if.end.i8 ]
+  %next_timeout6.i.i = getelementptr inbounds i8, ptr %19, i64 368
+  %20 = load ptr, ptr %ctx.i.i.i, align 8
+  %current_time_cb.i.i.i13 = getelementptr inbounds i8, ptr %20, i64 640
+  %21 = load ptr, ptr %current_time_cb.i.i.i13, align 8
+  %cmp.not.i.i.i14 = icmp eq ptr %21, null
+  br i1 %cmp.not.i.i.i14, label %if.end.i.i.i17, label %if.then.i.i.i15
 
-if.then.i.i.i14:                                  ; preds = %if.end.i.i10
-  call void %23(ptr noundef nonnull %ssl, ptr noundef nonnull %next_timeout6.i.i) #9
+if.then.i.i.i15:                                  ; preds = %if.end.i.i11
+  call void %21(ptr noundef nonnull %ssl, ptr noundef nonnull %next_timeout6.i.i) #9
   br label %dtls1_double_timeout.exit
 
-if.end.i.i.i16:                                   ; preds = %if.end.i.i10
-  %call.i.i.i17 = call i32 @gettimeofday(ptr noundef nonnull %next_timeout6.i.i, ptr noundef null) #9
+if.end.i.i.i17:                                   ; preds = %if.end.i.i11
+  %call.i.i.i18 = call i32 @gettimeofday(ptr noundef nonnull %next_timeout6.i.i, ptr noundef null) #9
   br label %dtls1_double_timeout.exit
 
-dtls1_double_timeout.exit:                        ; preds = %if.then.i.i.i14, %if.end.i.i.i16
-  %24 = load ptr, ptr %d1.i.i, align 8
-  %timeout_duration8.i.i = getelementptr inbounds i8, ptr %24, i64 384
-  %25 = load i16, ptr %timeout_duration8.i.i, align 8
-  %conv.i.i = zext i16 %25 to i64
-  %next_timeout10.i.i = getelementptr inbounds i8, ptr %24, i64 368
-  %26 = load i64, ptr %next_timeout10.i.i, align 8
-  %add.i.i15 = add nsw i64 %26, %conv.i.i
-  store i64 %add.i.i15, ptr %next_timeout10.i.i, align 8
+dtls1_double_timeout.exit:                        ; preds = %if.then.i.i.i15, %if.end.i.i.i17
+  %22 = load ptr, ptr %d1.i.i, align 8
+  %timeout_duration8.i.i = getelementptr inbounds i8, ptr %22, i64 384
+  %23 = load i16, ptr %timeout_duration8.i.i, align 8
+  %conv.i.i = zext i16 %23 to i64
+  %next_timeout10.i.i = getelementptr inbounds i8, ptr %22, i64 368
+  %24 = load i64, ptr %next_timeout10.i.i, align 8
+  %add.i.i16 = add nsw i64 %24, %conv.i.i
+  store i64 %add.i.i16, ptr %next_timeout10.i.i, align 8
   %call.i.i = call ptr @SSL_get_rbio(ptr noundef nonnull %ssl) #9
-  %27 = load ptr, ptr %d1.i.i, align 8
-  %next_timeout13.i.i = getelementptr inbounds i8, ptr %27, i64 368
+  %25 = load ptr, ptr %d1.i.i, align 8
+  %next_timeout13.i.i = getelementptr inbounds i8, ptr %25, i64 368
   %call14.i.i = call i64 @BIO_ctrl(ptr noundef %call.i.i, i32 noundef 45, i64 noundef 0, ptr noundef nonnull %next_timeout13.i.i) #9
   %call4 = call i32 @dtls1_check_timeout_num(ptr noundef nonnull %ssl), !range !10
   %cmp = icmp slt i32 %call4, 0
   br i1 %cmp, label %return, label %if.end6
 
 if.end6:                                          ; preds = %dtls1_double_timeout.exit
-  %28 = load ptr, ptr %d1.i.i, align 8
-  %next_timeout.i = getelementptr inbounds i8, ptr %28, i64 368
-  %29 = load i64, ptr %next_timeout.i, align 8
-  %cmp.i23 = icmp eq i64 %29, 0
-  br i1 %cmp.i23, label %land.lhs.true.i, label %if.end.i24
+  %26 = load ptr, ptr %d1.i.i, align 8
+  %next_timeout.i = getelementptr inbounds i8, ptr %26, i64 368
+  %27 = load i64, ptr %next_timeout.i, align 8
+  %cmp.i24 = icmp eq i64 %27, 0
+  br i1 %cmp.i24, label %land.lhs.true.i, label %if.end.i25
 
 land.lhs.true.i:                                  ; preds = %if.end6
-  %tv_usec.i = getelementptr inbounds i8, ptr %28, i64 376
-  %30 = load i64, ptr %tv_usec.i, align 8
-  %cmp3.i = icmp eq i64 %30, 0
-  br i1 %cmp3.i, label %if.then.i28, label %if.end.i24
+  %tv_usec.i = getelementptr inbounds i8, ptr %26, i64 376
+  %28 = load i64, ptr %tv_usec.i, align 8
+  %cmp3.i = icmp eq i64 %28, 0
+  br i1 %cmp3.i, label %if.then.i29, label %if.end.i25
 
-if.then.i28:                                      ; preds = %land.lhs.true.i
-  %timeout_duration.i29 = getelementptr inbounds i8, ptr %28, i64 384
-  store i16 1, ptr %timeout_duration.i29, align 8
-  %.pre.i30 = load ptr, ptr %d1.i.i, align 8
-  br label %if.end.i24
+if.then.i29:                                      ; preds = %land.lhs.true.i
+  %timeout_duration.i30 = getelementptr inbounds i8, ptr %26, i64 384
+  store i16 1, ptr %timeout_duration.i30, align 8
+  %.pre.i31 = load ptr, ptr %d1.i.i, align 8
+  br label %if.end.i25
 
-if.end.i24:                                       ; preds = %if.then.i28, %land.lhs.true.i, %if.end6
-  %31 = phi ptr [ %.pre.i30, %if.then.i28 ], [ %28, %land.lhs.true.i ], [ %28, %if.end6 ]
-  %next_timeout6.i = getelementptr inbounds i8, ptr %31, i64 368
-  %32 = load ptr, ptr %ctx.i.i.i, align 8
-  %current_time_cb.i.i = getelementptr inbounds i8, ptr %32, i64 640
-  %33 = load ptr, ptr %current_time_cb.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %33, null
-  br i1 %cmp.not.i.i, label %if.end.i.i26, label %if.then.i.i25
+if.end.i25:                                       ; preds = %if.then.i29, %land.lhs.true.i, %if.end6
+  %29 = phi ptr [ %.pre.i31, %if.then.i29 ], [ %26, %land.lhs.true.i ], [ %26, %if.end6 ]
+  %next_timeout6.i = getelementptr inbounds i8, ptr %29, i64 368
+  %30 = load ptr, ptr %ctx.i.i.i, align 8
+  %current_time_cb.i.i = getelementptr inbounds i8, ptr %30, i64 640
+  %31 = load ptr, ptr %current_time_cb.i.i, align 8
+  %cmp.not.i.i = icmp eq ptr %31, null
+  br i1 %cmp.not.i.i, label %if.end.i.i27, label %if.then.i.i26
 
-if.then.i.i25:                                    ; preds = %if.end.i24
-  call void %33(ptr noundef nonnull %ssl, ptr noundef nonnull %next_timeout6.i) #9
+if.then.i.i26:                                    ; preds = %if.end.i25
+  call void %31(ptr noundef nonnull %ssl, ptr noundef nonnull %next_timeout6.i) #9
   br label %dtls1_start_timer.exit
 
-if.end.i.i26:                                     ; preds = %if.end.i24
-  %call.i.i27 = call i32 @gettimeofday(ptr noundef nonnull %next_timeout6.i, ptr noundef null) #9
+if.end.i.i27:                                     ; preds = %if.end.i25
+  %call.i.i28 = call i32 @gettimeofday(ptr noundef nonnull %next_timeout6.i, ptr noundef null) #9
   br label %dtls1_start_timer.exit
 
-dtls1_start_timer.exit:                           ; preds = %if.then.i.i25, %if.end.i.i26
-  %34 = load ptr, ptr %d1.i.i, align 8
-  %timeout_duration8.i = getelementptr inbounds i8, ptr %34, i64 384
-  %35 = load i16, ptr %timeout_duration8.i, align 8
-  %conv.i = zext i16 %35 to i64
-  %next_timeout10.i = getelementptr inbounds i8, ptr %34, i64 368
-  %36 = load i64, ptr %next_timeout10.i, align 8
-  %add.i = add nsw i64 %36, %conv.i
+dtls1_start_timer.exit:                           ; preds = %if.then.i.i26, %if.end.i.i27
+  %32 = load ptr, ptr %d1.i.i, align 8
+  %timeout_duration8.i = getelementptr inbounds i8, ptr %32, i64 384
+  %33 = load i16, ptr %timeout_duration8.i, align 8
+  %conv.i = zext i16 %33 to i64
+  %next_timeout10.i = getelementptr inbounds i8, ptr %32, i64 368
+  %34 = load i64, ptr %next_timeout10.i, align 8
+  %add.i = add nsw i64 %34, %conv.i
   store i64 %add.i, ptr %next_timeout10.i, align 8
   %call.i = call ptr @SSL_get_rbio(ptr noundef nonnull %ssl) #9
-  %37 = load ptr, ptr %d1.i.i, align 8
-  %next_timeout13.i = getelementptr inbounds i8, ptr %37, i64 368
+  %35 = load ptr, ptr %d1.i.i, align 8
+  %next_timeout13.i = getelementptr inbounds i8, ptr %35, i64 368
   %call14.i = call i64 @BIO_ctrl(ptr noundef %call.i, i32 noundef 45, i64 noundef 0, ptr noundef nonnull %next_timeout13.i) #9
   %call7 = call i32 @dtls1_retransmit_buffered_messages(ptr noundef nonnull %ssl) #9
   br label %return

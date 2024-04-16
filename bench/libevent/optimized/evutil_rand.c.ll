@@ -198,16 +198,18 @@ for.body.i4.i:                                    ; preds = %5, %for.cond.i7.i
   %8 = load ptr, ptr %arrayidx.i5.i, align 8
   %call4.i.i = call fastcc i32 @arc4_seed_urandom_helper_(ptr noundef %8), !range !5
   %cmp.i6.i = icmp eq i32 %call4.i.i, 0
-  br i1 %cmp.i6.i, label %arc4_seed_urandom.exit.thread43.i, label %for.cond.i7.i
+  br i1 %cmp.i6.i, label %arc4_seed_urandom.exit.thread.i, label %for.cond.i7.i
 
 arc4_seed_urandom.exit.i:                         ; preds = %5
   %call.i2.i = call fastcc i32 @arc4_seed_urandom_helper_(ptr noundef nonnull %7), !range !5
   %cmp2.i = icmp eq i32 %call.i2.i, 0
-  %spec.select.i = select i1 %cmp2.i, i32 1, i32 %6
+  br i1 %cmp2.i, label %arc4_seed_urandom.exit.thread.i, label %arc4_seed_urandom.exit.thread43.i
+
+arc4_seed_urandom.exit.thread.i:                  ; preds = %for.body.i4.i, %arc4_seed_urandom.exit.i
   br label %arc4_seed_urandom.exit.thread43.i
 
-arc4_seed_urandom.exit.thread43.i:                ; preds = %for.body.i4.i, %for.cond.i7.i, %arc4_seed_urandom.exit.i
-  %9 = phi i32 [ %spec.select.i, %arc4_seed_urandom.exit.i ], [ %6, %for.cond.i7.i ], [ 1, %for.body.i4.i ]
+arc4_seed_urandom.exit.thread43.i:                ; preds = %for.cond.i7.i, %arc4_seed_urandom.exit.thread.i, %arc4_seed_urandom.exit.i
+  %9 = phi i32 [ 1, %arc4_seed_urandom.exit.thread.i ], [ %6, %arc4_seed_urandom.exit.i ], [ %6, %for.cond.i7.i ]
   %10 = load ptr, ptr @arc4random_urandom_filename, align 8
   %cmp5.i = icmp eq ptr %10, null
   br i1 %cmp5.i, label %land.lhs.true.i, label %arc4_seed.exit

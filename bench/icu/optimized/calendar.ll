@@ -7345,7 +7345,7 @@ dynamic_cast.notnull15.i:                         ; preds = %dynamic_cast.notnul
   %10 = icmp eq ptr %9, null
   br i1 %10, label %if.else11, label %if.then4
 
-if.then4:                                         ; preds = %dynamic_cast.notnull9.i, %dynamic_cast.notnull3.i, %dynamic_cast.notnull.i, %dynamic_cast.notnull15.i
+if.then4:                                         ; preds = %dynamic_cast.notnull15.i, %dynamic_cast.notnull9.i, %dynamic_cast.notnull3.i, %dynamic_cast.notnull.i
   call void @_ZN6icu_7518TimeZoneTransitionC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %trans)
   %vtable = load ptr, ptr %1, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 120
@@ -7354,16 +7354,12 @@ if.then4:                                         ; preds = %dynamic_cast.notnul
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then4
-  %tobool6.not.not = icmp ne i8 %call5, 0
-  br i1 %tobool6.not.not, label %if.then7, label %if.else
+  %tobool6.not.not = icmp eq i8 %call5, 0
+  br i1 %tobool6.not.not, label %cleanup.thread, label %if.then7
 
 if.then7:                                         ; preds = %invoke.cont
   %call9 = invoke noundef double @_ZNK6icu_7518TimeZoneTransition7getTimeEv(ptr noundef nonnull align 8 dereferenceable(32) %trans)
-          to label %invoke.cont8 unwind label %lpad
-
-invoke.cont8:                                     ; preds = %if.then7
-  store double %call9, ptr %transitionTime, align 8
-  br label %cleanup
+          to label %cleanup unwind label %lpad
 
 lpad:                                             ; preds = %if.then7, %if.then4
   %12 = landingpad { ptr, i32 }
@@ -7371,21 +7367,22 @@ lpad:                                             ; preds = %if.then7, %if.then4
   call void @_ZN6icu_7518TimeZoneTransitionD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %trans) #23
   resume { ptr, i32 } %12
 
-if.else:                                          ; preds = %invoke.cont
+cleanup.thread:                                   ; preds = %invoke.cont
   store i32 5, ptr %status, align 4
-  br label %cleanup
-
-cleanup:                                          ; preds = %if.else, %invoke.cont8
   call void @_ZN6icu_7518TimeZoneTransitionD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %trans) #23
-  %spec.select = zext i1 %tobool6.not.not to i8
+  br label %return
+
+cleanup:                                          ; preds = %if.then7
+  store double %call9, ptr %transitionTime, align 8
+  call void @_ZN6icu_7518TimeZoneTransitionD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %trans) #23
   br label %return
 
 if.else11:                                        ; preds = %dynamic_cast.notnull15.i, %if.end
   store i32 16, ptr %status, align 4
   br label %return
 
-return:                                           ; preds = %cleanup, %if.else11, %entry
-  %retval.1 = phi i8 [ 0, %entry ], [ 0, %if.else11 ], [ %spec.select, %cleanup ]
+return:                                           ; preds = %if.else11, %cleanup.thread, %cleanup, %entry
+  %retval.1 = phi i8 [ 1, %cleanup ], [ 0, %entry ], [ 0, %cleanup.thread ], [ 0, %if.else11 ]
   ret i8 %retval.1
 }
 
@@ -9364,8 +9361,8 @@ entry:
 define noundef i32 @_ZNK6icu_758Calendar13resolveFieldsEPA12_A8_Ki(ptr nocapture noundef nonnull readonly align 8 dereferenceable(618) %this, ptr nocapture noundef readonly %precedenceTable) local_unnamed_addr #15 align 2 {
 entry:
   %0 = load i32, ptr %precedenceTable, align 4
-  %cmp50.not = icmp eq i32 %0, -1
-  br i1 %cmp50.not, label %for.end69, label %for.cond5.preheader.lr.ph
+  %cmp48.not = icmp eq i32 %0, -1
+  br i1 %cmp48.not, label %for.end69, label %for.cond5.preheader.lr.ph
 
 for.cond5.preheader.lr.ph:                        ; preds = %entry
   %fStamp = getelementptr inbounds i8, ptr %this, i64 132
@@ -9378,16 +9375,16 @@ for.cond5.preheader.lr.ph:                        ; preds = %entry
   br i1 %cmp55.fr, label %for.cond5.preheader.us, label %for.cond5.preheader
 
 for.cond5.preheader.us:                           ; preds = %for.cond5.preheader.lr.ph, %for.inc67.us
-  %indvars.iv72 = phi i64 [ %indvars.iv.next73, %for.inc67.us ], [ 0, %for.cond5.preheader.lr.ph ]
-  %arrayidx943.us = getelementptr inbounds [12 x [8 x i32]], ptr %precedenceTable, i64 %indvars.iv72, i64 0
-  %3 = load i32, ptr %arrayidx943.us, align 4
-  %cmp11.not44.us = icmp eq i32 %3, -1
-  br i1 %cmp11.not44.us, label %for.inc67.us, label %for.body12.us.us
+  %indvars.iv68 = phi i64 [ %indvars.iv.next69, %for.inc67.us ], [ 0, %for.cond5.preheader.lr.ph ]
+  %arrayidx941.us = getelementptr inbounds [12 x [8 x i32]], ptr %precedenceTable, i64 %indvars.iv68, i64 0
+  %3 = load i32, ptr %arrayidx941.us, align 4
+  %cmp11.not42.us = icmp eq i32 %3, -1
+  br i1 %cmp11.not42.us, label %for.inc67.us, label %for.body12.us.us
 
 for.inc67.us:                                     ; preds = %for.inc64.us.us, %for.cond5.preheader.us
   %bestField.1.lcssa.us = phi i32 [ 24, %for.cond5.preheader.us ], [ %bestField.3.us.us, %for.inc64.us.us ]
-  %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
-  %arrayidx.us = getelementptr inbounds [12 x [8 x i32]], ptr %precedenceTable, i64 %indvars.iv.next73
+  %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
+  %arrayidx.us = getelementptr inbounds [12 x [8 x i32]], ptr %precedenceTable, i64 %indvars.iv.next69
   %4 = load i32, ptr %arrayidx.us, align 4
   %cmp.us = icmp ne i32 %4, -1
   %cmp4.us = icmp eq i32 %bestField.1.lcssa.us, 24
@@ -9395,21 +9392,21 @@ for.inc67.us:                                     ; preds = %for.inc64.us.us, %f
   br i1 %5, label %for.cond5.preheader.us, label %for.end69, !llvm.loop !20
 
 for.body12.us.us:                                 ; preds = %for.cond5.preheader.us, %for.inc64.us.us
-  %indvars.iv69 = phi i64 [ %indvars.iv.next70, %for.inc64.us.us ], [ 0, %for.cond5.preheader.us ]
+  %indvars.iv65 = phi i64 [ %indvars.iv.next66, %for.inc64.us.us ], [ 0, %for.cond5.preheader.us ]
   %6 = phi i32 [ %11, %for.inc64.us.us ], [ %3, %for.cond5.preheader.us ]
-  %bestField.147.us.us = phi i32 [ %bestField.3.us.us, %for.inc64.us.us ], [ 24, %for.cond5.preheader.us ]
-  %bestStamp.045.us.us = phi i32 [ %bestStamp.1.us.us, %for.inc64.us.us ], [ 0, %for.cond5.preheader.us ]
+  %bestField.145.us.us = phi i32 [ %bestField.3.us.us, %for.inc64.us.us ], [ 24, %for.cond5.preheader.us ]
+  %bestStamp.043.us.us = phi i32 [ %bestStamp.1.us.us, %for.inc64.us.us ], [ 0, %for.cond5.preheader.us ]
   %cmp18.us.us = icmp sgt i32 %6, 31
-  %idxprom2438.us.us = zext i1 %cmp18.us.us to i64
-  %arrayidx2539.us.us = getelementptr inbounds [12 x [8 x i32]], ptr %precedenceTable, i64 %indvars.iv72, i64 %indvars.iv69, i64 %idxprom2438.us.us
-  %7 = load i32, ptr %arrayidx2539.us.us, align 4
-  %cmp26.not40.us.us = icmp eq i32 %7, -1
-  br i1 %cmp26.not40.us.us, label %for.end.us.us, label %for.body27.us.us
+  %idxprom2436.us.us = zext i1 %cmp18.us.us to i64
+  %arrayidx2537.us.us = getelementptr inbounds [12 x [8 x i32]], ptr %precedenceTable, i64 %indvars.iv68, i64 %indvars.iv65, i64 %idxprom2436.us.us
+  %7 = load i32, ptr %arrayidx2537.us.us, align 4
+  %cmp26.not38.us.us = icmp eq i32 %7, -1
+  br i1 %cmp26.not38.us.us, label %for.end.us.us, label %for.body27.us.us
 
 for.body27.us.us:                                 ; preds = %for.body12.us.us, %if.else.us.us
-  %indvars.iv66 = phi i64 [ %indvars.iv.next67, %if.else.us.us ], [ %idxprom2438.us.us, %for.body12.us.us ]
+  %indvars.iv62 = phi i64 [ %indvars.iv.next63, %if.else.us.us ], [ %idxprom2436.us.us, %for.body12.us.us ]
   %8 = phi i32 [ %10, %if.else.us.us ], [ %7, %for.body12.us.us ]
-  %lineStamp.041.us.us = phi i32 [ %spec.select.us.us, %if.else.us.us ], [ 0, %for.body12.us.us ]
+  %lineStamp.039.us.us = phi i32 [ %spec.select.us.us, %if.else.us.us ], [ 0, %for.body12.us.us ]
   %idxprom34.us.us = sext i32 %8 to i64
   %arrayidx35.us.us = getelementptr inbounds [24 x i32], ptr %fStamp, i64 0, i64 %idxprom34.us.us
   %9 = load i32, ptr %arrayidx35.us.us, align 4
@@ -9417,55 +9414,55 @@ for.body27.us.us:                                 ; preds = %for.body12.us.us, %
   br i1 %cmp36.us.us, label %for.inc64.us.us, label %if.else.us.us
 
 if.else.us.us:                                    ; preds = %for.body27.us.us
-  %spec.select.us.us = tail call i32 @llvm.smax.i32(i32 %9, i32 %lineStamp.041.us.us)
-  %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
-  %arrayidx25.us.us = getelementptr inbounds [12 x [8 x i32]], ptr %precedenceTable, i64 %indvars.iv72, i64 %indvars.iv69, i64 %indvars.iv.next67
+  %spec.select.us.us = tail call i32 @llvm.smax.i32(i32 %9, i32 %lineStamp.039.us.us)
+  %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
+  %arrayidx25.us.us = getelementptr inbounds [12 x [8 x i32]], ptr %precedenceTable, i64 %indvars.iv68, i64 %indvars.iv65, i64 %indvars.iv.next63
   %10 = load i32, ptr %arrayidx25.us.us, align 4
   %cmp26.not.us.us = icmp eq i32 %10, -1
   br i1 %cmp26.not.us.us, label %for.end.us.us, label %for.body27.us.us, !llvm.loop !21
 
 for.end.us.us:                                    ; preds = %if.else.us.us, %for.body12.us.us
   %lineStamp.0.lcssa.us.us = phi i32 [ 0, %for.body12.us.us ], [ %spec.select.us.us, %if.else.us.us ]
-  %cmp40.us.us = icmp sgt i32 %lineStamp.0.lcssa.us.us, %bestStamp.045.us.us
+  %cmp40.us.us = icmp sgt i32 %lineStamp.0.lcssa.us.us, %bestStamp.043.us.us
   br i1 %cmp40.us.us, label %if.then41.us.us, label %for.inc64.us.us
 
 if.then41.us.us:                                  ; preds = %for.end.us.us
   %and.us.us = and i32 %6, 31
-  %bestField.2.us.us = select i1 %cmp18.us.us, i32 %and.us.us, i32 %6
+  %spec.select53 = select i1 %cmp18.us.us, i32 %and.us.us, i32 %6
   br label %for.inc64.us.us
 
 for.inc64.us.us:                                  ; preds = %for.body27.us.us, %if.then41.us.us, %for.end.us.us
-  %bestStamp.1.us.us = phi i32 [ %bestStamp.045.us.us, %for.end.us.us ], [ %lineStamp.0.lcssa.us.us, %if.then41.us.us ], [ %bestStamp.045.us.us, %for.body27.us.us ]
-  %bestField.3.us.us = phi i32 [ %bestField.147.us.us, %for.end.us.us ], [ %bestField.2.us.us, %if.then41.us.us ], [ %bestField.147.us.us, %for.body27.us.us ]
-  %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
-  %arrayidx9.us.us = getelementptr inbounds [12 x [8 x i32]], ptr %precedenceTable, i64 %indvars.iv72, i64 %indvars.iv.next70
+  %bestStamp.1.us.us = phi i32 [ %bestStamp.043.us.us, %for.end.us.us ], [ %lineStamp.0.lcssa.us.us, %if.then41.us.us ], [ %bestStamp.043.us.us, %for.body27.us.us ]
+  %bestField.3.us.us = phi i32 [ %bestField.145.us.us, %for.end.us.us ], [ %spec.select53, %if.then41.us.us ], [ %bestField.145.us.us, %for.body27.us.us ]
+  %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
+  %arrayidx9.us.us = getelementptr inbounds [12 x [8 x i32]], ptr %precedenceTable, i64 %indvars.iv68, i64 %indvars.iv.next66
   %11 = load i32, ptr %arrayidx9.us.us, align 4
   %cmp11.not.us.us = icmp eq i32 %11, -1
   br i1 %cmp11.not.us.us, label %for.inc67.us, label %for.body12.us.us, !llvm.loop !22
 
 for.cond5.preheader:                              ; preds = %for.cond5.preheader.lr.ph, %for.inc67
-  %indvars.iv63 = phi i64 [ %indvars.iv.next64, %for.inc67 ], [ 0, %for.cond5.preheader.lr.ph ]
-  %arrayidx943 = getelementptr inbounds [12 x [8 x i32]], ptr %precedenceTable, i64 %indvars.iv63, i64 0
-  %12 = load i32, ptr %arrayidx943, align 4
-  %cmp11.not44 = icmp eq i32 %12, -1
-  br i1 %cmp11.not44, label %for.inc67, label %for.body12
+  %indvars.iv59 = phi i64 [ %indvars.iv.next60, %for.inc67 ], [ 0, %for.cond5.preheader.lr.ph ]
+  %arrayidx941 = getelementptr inbounds [12 x [8 x i32]], ptr %precedenceTable, i64 %indvars.iv59, i64 0
+  %12 = load i32, ptr %arrayidx941, align 4
+  %cmp11.not42 = icmp eq i32 %12, -1
+  br i1 %cmp11.not42, label %for.inc67, label %for.body12
 
 for.body12:                                       ; preds = %for.cond5.preheader, %for.inc64
-  %indvars.iv60 = phi i64 [ %indvars.iv.next61, %for.inc64 ], [ 0, %for.cond5.preheader ]
+  %indvars.iv56 = phi i64 [ %indvars.iv.next57, %for.inc64 ], [ 0, %for.cond5.preheader ]
   %13 = phi i32 [ %19, %for.inc64 ], [ %12, %for.cond5.preheader ]
-  %bestField.147 = phi i32 [ %bestField.3, %for.inc64 ], [ 24, %for.cond5.preheader ]
-  %bestStamp.045 = phi i32 [ %bestStamp.1, %for.inc64 ], [ 0, %for.cond5.preheader ]
+  %bestField.145 = phi i32 [ %bestField.3, %for.inc64 ], [ 24, %for.cond5.preheader ]
+  %bestStamp.043 = phi i32 [ %bestStamp.1, %for.inc64 ], [ 0, %for.cond5.preheader ]
   %cmp18 = icmp sgt i32 %13, 31
-  %idxprom2438 = zext i1 %cmp18 to i64
-  %arrayidx2539 = getelementptr inbounds [12 x [8 x i32]], ptr %precedenceTable, i64 %indvars.iv63, i64 %indvars.iv60, i64 %idxprom2438
-  %14 = load i32, ptr %arrayidx2539, align 4
-  %cmp26.not40 = icmp eq i32 %14, -1
-  br i1 %cmp26.not40, label %for.end, label %for.body27
+  %idxprom2436 = zext i1 %cmp18 to i64
+  %arrayidx2537 = getelementptr inbounds [12 x [8 x i32]], ptr %precedenceTable, i64 %indvars.iv59, i64 %indvars.iv56, i64 %idxprom2436
+  %14 = load i32, ptr %arrayidx2537, align 4
+  %cmp26.not38 = icmp eq i32 %14, -1
+  br i1 %cmp26.not38, label %for.end, label %for.body27
 
 for.body27:                                       ; preds = %for.body12, %if.else
-  %indvars.iv = phi i64 [ %indvars.iv.next, %if.else ], [ %idxprom2438, %for.body12 ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %if.else ], [ %idxprom2436, %for.body12 ]
   %15 = phi i32 [ %17, %if.else ], [ %14, %for.body12 ]
-  %lineStamp.041 = phi i32 [ %spec.select, %if.else ], [ 0, %for.body12 ]
+  %lineStamp.039 = phi i32 [ %spec.select, %if.else ], [ 0, %for.body12 ]
   %idxprom34 = sext i32 %15 to i64
   %arrayidx35 = getelementptr inbounds [24 x i32], ptr %fStamp, i64 0, i64 %idxprom34
   %16 = load i32, ptr %arrayidx35, align 4
@@ -9473,41 +9470,41 @@ for.body27:                                       ; preds = %for.body12, %if.els
   br i1 %cmp36, label %for.inc64, label %if.else
 
 if.else:                                          ; preds = %for.body27
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %16, i32 %lineStamp.041)
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %16, i32 %lineStamp.039)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx25 = getelementptr inbounds [12 x [8 x i32]], ptr %precedenceTable, i64 %indvars.iv63, i64 %indvars.iv60, i64 %indvars.iv.next
+  %arrayidx25 = getelementptr inbounds [12 x [8 x i32]], ptr %precedenceTable, i64 %indvars.iv59, i64 %indvars.iv56, i64 %indvars.iv.next
   %17 = load i32, ptr %arrayidx25, align 4
   %cmp26.not = icmp eq i32 %17, -1
   br i1 %cmp26.not, label %for.end, label %for.body27, !llvm.loop !21
 
 for.end:                                          ; preds = %if.else, %for.body12
   %lineStamp.0.lcssa = phi i32 [ 0, %for.body12 ], [ %spec.select, %if.else ]
-  %cmp40 = icmp sgt i32 %lineStamp.0.lcssa, %bestStamp.045
+  %cmp40 = icmp sgt i32 %lineStamp.0.lcssa, %bestStamp.043
   br i1 %cmp40, label %if.then41, label %for.inc64
 
 if.then41:                                        ; preds = %for.end
   %and = and i32 %13, 31
   %cmp49.not = icmp eq i32 %and, 5
-  %spec.select57 = select i1 %cmp49.not, i32 %bestField.147, i32 %and
-  %bestField.2 = select i1 %cmp18, i32 %spec.select57, i32 %13
-  %18 = icmp ne i32 %spec.select57, %and
+  %bestField.145.and = select i1 %cmp49.not, i32 %bestField.145, i32 %and
+  %bestField.2 = select i1 %cmp18, i32 %bestField.145.and, i32 %13
+  %18 = icmp ne i32 %bestField.145.and, %and
   %cmp60.not = select i1 %cmp18, i1 %18, i1 false
-  %spec.select34 = select i1 %cmp60.not, i32 %bestStamp.045, i32 %lineStamp.0.lcssa
+  %spec.select34 = select i1 %cmp60.not, i32 %bestStamp.043, i32 %lineStamp.0.lcssa
   br label %for.inc64
 
 for.inc64:                                        ; preds = %for.body27, %if.then41, %for.end
-  %bestStamp.1 = phi i32 [ %bestStamp.045, %for.end ], [ %spec.select34, %if.then41 ], [ %bestStamp.045, %for.body27 ]
-  %bestField.3 = phi i32 [ %bestField.147, %for.end ], [ %bestField.2, %if.then41 ], [ %bestField.147, %for.body27 ]
-  %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
-  %arrayidx9 = getelementptr inbounds [12 x [8 x i32]], ptr %precedenceTable, i64 %indvars.iv63, i64 %indvars.iv.next61
+  %bestStamp.1 = phi i32 [ %bestStamp.043, %for.end ], [ %spec.select34, %if.then41 ], [ %bestStamp.043, %for.body27 ]
+  %bestField.3 = phi i32 [ %bestField.145, %for.end ], [ %bestField.2, %if.then41 ], [ %bestField.145, %for.body27 ]
+  %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
+  %arrayidx9 = getelementptr inbounds [12 x [8 x i32]], ptr %precedenceTable, i64 %indvars.iv59, i64 %indvars.iv.next57
   %19 = load i32, ptr %arrayidx9, align 4
   %cmp11.not = icmp eq i32 %19, -1
   br i1 %cmp11.not, label %for.inc67, label %for.body12, !llvm.loop !22
 
 for.inc67:                                        ; preds = %for.inc64, %for.cond5.preheader
   %bestField.1.lcssa = phi i32 [ 24, %for.cond5.preheader ], [ %bestField.3, %for.inc64 ]
-  %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
-  %arrayidx = getelementptr inbounds [12 x [8 x i32]], ptr %precedenceTable, i64 %indvars.iv.next64
+  %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
+  %arrayidx = getelementptr inbounds [12 x [8 x i32]], ptr %precedenceTable, i64 %indvars.iv.next60
   %20 = load i32, ptr %arrayidx, align 4
   %cmp = icmp ne i32 %20, -1
   %cmp4 = icmp eq i32 %bestField.1.lcssa, 24
@@ -9970,7 +9967,7 @@ dynamic_cast.notnull15.i:                         ; preds = %dynamic_cast.notnul
   %10 = icmp eq ptr %9, null
   br i1 %10, label %if.else, label %if.then4
 
-if.then4:                                         ; preds = %dynamic_cast.notnull9.i, %dynamic_cast.notnull3.i, %dynamic_cast.notnull.i, %dynamic_cast.notnull15.i
+if.then4:                                         ; preds = %dynamic_cast.notnull15.i, %dynamic_cast.notnull9.i, %dynamic_cast.notnull3.i, %dynamic_cast.notnull.i
   %fRepeatedWallTime = getelementptr inbounds i8, ptr %this, i64 256
   %11 = load i32, ptr %fRepeatedWallTime, align 8
   %cmp = icmp eq i32 %11, 1
@@ -10065,26 +10062,28 @@ entry:
 dynamic_cast.notnull:                             ; preds = %entry
   %2 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN6icu_758TimeZoneE, ptr nonnull @_ZTIN6icu_7513OlsonTimeZoneE, i64 0) #23
   %3 = icmp eq ptr %2, null
-  br i1 %3, label %dynamic_cast.notnull3, label %return
+  br i1 %3, label %dynamic_cast.notnull3, label %if.then
 
 dynamic_cast.notnull3:                            ; preds = %dynamic_cast.notnull
   %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN6icu_758TimeZoneE, ptr nonnull @_ZTIN6icu_7514SimpleTimeZoneE, i64 0) #23
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %dynamic_cast.notnull9, label %return
+  br i1 %5, label %dynamic_cast.notnull9, label %if.then
 
 dynamic_cast.notnull9:                            ; preds = %dynamic_cast.notnull3
   %6 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN6icu_758TimeZoneE, ptr nonnull @_ZTIN6icu_7517RuleBasedTimeZoneE, i64 0) #23
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %dynamic_cast.notnull15, label %return
+  br i1 %7, label %dynamic_cast.notnull15, label %if.then
 
 dynamic_cast.notnull15:                           ; preds = %dynamic_cast.notnull9
   %8 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN6icu_758TimeZoneE, ptr nonnull @_ZTIN6icu_759VTimeZoneE, i64 0) #23
   %9 = icmp eq ptr %8, null
-  %spec.select = select i1 %9, ptr null, ptr %0
+  br i1 %9, label %return, label %if.then
+
+if.then:                                          ; preds = %dynamic_cast.notnull15, %dynamic_cast.notnull9, %dynamic_cast.notnull3, %dynamic_cast.notnull
   br label %return
 
-return:                                           ; preds = %dynamic_cast.notnull15, %entry, %dynamic_cast.notnull, %dynamic_cast.notnull3, %dynamic_cast.notnull9
-  %retval.0 = phi ptr [ %0, %dynamic_cast.notnull9 ], [ %0, %dynamic_cast.notnull3 ], [ %0, %dynamic_cast.notnull ], [ null, %entry ], [ %spec.select, %dynamic_cast.notnull15 ]
+return:                                           ; preds = %entry, %dynamic_cast.notnull15, %if.then
+  %retval.0 = phi ptr [ %0, %if.then ], [ null, %dynamic_cast.notnull15 ], [ null, %entry ]
   ret ptr %retval.0
 }
 

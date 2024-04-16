@@ -486,7 +486,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @krb5kdf_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
+define internal noundef i32 @krb5kdf_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_ctx_get0_libctx(ptr noundef %0) #7
@@ -518,7 +518,7 @@ if.then7:                                         ; preds = %if.end4
 if.end12:                                         ; preds = %if.then7, %if.end4
   %call13 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %params, ptr noundef nonnull @.str.4) #7
   %cmp14.not = icmp eq ptr %call13, null
-  br i1 %cmp14.not, label %return, label %if.then15
+  br i1 %cmp14.not, label %if.end20, label %if.then15
 
 if.then15:                                        ; preds = %if.end12
   %constant = getelementptr inbounds i8, ptr %vctx, i64 48
@@ -528,12 +528,14 @@ if.then15:                                        ; preds = %if.end12
   tail call void @CRYPTO_clear_free(ptr noundef %3, i64 noundef %4, ptr noundef nonnull @.str, i32 noundef 98) #7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %constant, i8 0, i64 16, i1 false)
   %call.i10 = tail call i32 @OSSL_PARAM_get_octet_string(ptr noundef nonnull %call13, ptr noundef nonnull %constant, i64 noundef 0, ptr noundef nonnull %constant_len) #7
-  %tobool17.not = icmp ne i32 %call.i10, 0
-  %spec.select = zext i1 %tobool17.not to i32
+  %tobool17.not = icmp eq i32 %call.i10, 0
+  br i1 %tobool17.not, label %return, label %if.end20
+
+if.end20:                                         ; preds = %if.then15, %if.end12
   br label %return
 
-return:                                           ; preds = %if.then15, %if.end12, %if.then7, %if.end, %entry
-  %retval.0 = phi i32 [ 1, %entry ], [ 0, %if.end ], [ 0, %if.then7 ], [ 1, %if.end12 ], [ %spec.select, %if.then15 ]
+return:                                           ; preds = %if.then15, %if.then7, %if.end, %entry, %if.end20
+  %retval.0 = phi i32 [ 1, %if.end20 ], [ 1, %entry ], [ 0, %if.end ], [ 0, %if.then7 ], [ 0, %if.then15 ]
   ret i32 %retval.0
 }
 

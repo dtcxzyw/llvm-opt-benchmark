@@ -865,18 +865,20 @@ define dso_local noundef i32 @onigenc_not_support_get_ctype_code_range(i32 nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i32 @onigenc_is_mbc_newline_0x0a(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture noundef readnone %2) local_unnamed_addr #6 {
+define dso_local noundef i32 @onigenc_is_mbc_newline_0x0a(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture noundef readnone %2) local_unnamed_addr #6 {
   %4 = icmp ult ptr %0, %1
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %3
   %6 = load i8, ptr %0, align 1
   %7 = icmp eq i8 %6, 10
-  %spec.select = zext i1 %7 to i32
-  br label %8
+  br i1 %7, label %9, label %8
 
 8:                                                ; preds = %5, %3
-  %.0 = phi i32 [ 0, %3 ], [ %spec.select, %5 ]
+  br label %9
+
+9:                                                ; preds = %5, %8
+  %.0 = phi i32 [ 0, %8 ], [ 1, %5 ]
   ret i32 %.0
 }
 

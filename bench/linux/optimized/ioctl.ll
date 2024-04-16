@@ -730,12 +730,12 @@ define dso_local i64 @__ia32_compat_sys_ioctl(ptr nocapture noundef readonly %0)
   %16 = and i64 %15, -4
   %17 = inttoptr i64 %16 to ptr
   %18 = icmp eq i64 %16, 0
-  br i1 %18, label %141, label %19
+  br i1 %18, label %142, label %19
 
 19:                                               ; preds = %1
   %20 = tail call i32 @security_file_ioctl_compat(ptr noundef nonnull %17, i32 noundef %13, i64 noundef %11) #9
   %21 = icmp eq i32 %20, 0
-  br i1 %21, label %22, label %.thread
+  br i1 %21, label %22, label %135
 
 22:                                               ; preds = %19
   switch i32 %13, label %121 [
@@ -773,7 +773,7 @@ define dso_local i64 @__ia32_compat_sys_ioctl(ptr nocapture noundef readonly %0)
 37:                                               ; preds = %36, %28, %23
   %38 = phi i64 [ -9, %23 ], [ %33, %28 ], [ %33, %36 ]
   %39 = trunc nsw i64 %38 to i32
-  br label %.thread
+  br label %135
 
 40:                                               ; preds = %22, %22
   %41 = inttoptr i64 %11 to ptr
@@ -826,7 +826,7 @@ define dso_local i64 @__ia32_compat_sys_ioctl(ptr nocapture noundef readonly %0)
 64:                                               ; preds = %59, %46, %40
   %65 = phi i32 [ %63, %59 ], [ -14, %40 ], [ -22, %46 ]
   call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %4) #9
-  br label %.thread
+  br label %135
 
 66:                                               ; preds = %22, %22
   %67 = inttoptr i64 %11 to ptr
@@ -879,7 +879,7 @@ define dso_local i64 @__ia32_compat_sys_ioctl(ptr nocapture noundef readonly %0)
 90:                                               ; preds = %85, %72, %66
   %91 = phi i32 [ %89, %85 ], [ -14, %66 ], [ -22, %72 ]
   call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %3) #9
-  br label %.thread
+  br label %135
 
 92:                                               ; preds = %22
   %93 = inttoptr i64 %11 to ptr
@@ -932,7 +932,7 @@ define dso_local i64 @__ia32_compat_sys_ioctl(ptr nocapture noundef readonly %0)
 116:                                              ; preds = %111, %98, %92
   %117 = phi i32 [ %115, %111 ], [ -14, %92 ], [ -22, %98 ]
   call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %2) #9
-  br label %.thread
+  br label %135
 
 118:                                              ; preds = %22, %22
   %119 = icmp eq i32 %13, -2147195391
@@ -943,7 +943,7 @@ define dso_local i64 @__ia32_compat_sys_ioctl(ptr nocapture noundef readonly %0)
   %122 = phi i32 [ %13, %22 ], [ %120, %118 ]
   %123 = tail call fastcc i32 @do_vfs_ioctl(ptr noundef nonnull %17, i32 noundef %12, i32 noundef %122, i64 noundef %11)
   %124 = icmp eq i32 %123, -515
-  br i1 %124, label %125, label %.thread
+  br i1 %124, label %125, label %135
 
 125:                                              ; preds = %121
   %126 = getelementptr inbounds i8, ptr %17, i64 176
@@ -958,26 +958,28 @@ define dso_local i64 @__ia32_compat_sys_ioctl(ptr nocapture noundef readonly %0)
   %.fr4 = freeze i64 %132
   %133 = trunc i64 %.fr4 to i32
   %134 = icmp eq i32 %133, -515
-  %spec.select = select i1 %134, i32 -25, i32 %133
-  br label %.thread
+  br i1 %134, label %.thread, label %135
 
-.thread:                                          ; preds = %131, %125, %121, %116, %90, %64, %37, %19
-  %135 = phi i32 [ %20, %19 ], [ %123, %121 ], [ %117, %116 ], [ %91, %90 ], [ %65, %64 ], [ %39, %37 ], [ -25, %125 ], [ %spec.select, %131 ]
-  %136 = and i64 %15, 1
-  %137 = icmp eq i64 %136, 0
-  br i1 %137, label %139, label %138
+.thread:                                          ; preds = %125, %131
+  br label %135
 
-138:                                              ; preds = %.thread
+135:                                              ; preds = %.thread, %131, %121, %116, %90, %64, %37, %19
+  %136 = phi i32 [ %20, %19 ], [ %123, %121 ], [ %117, %116 ], [ %91, %90 ], [ %65, %64 ], [ %39, %37 ], [ -25, %.thread ], [ %133, %131 ]
+  %137 = and i64 %15, 1
+  %138 = icmp eq i64 %137, 0
+  br i1 %138, label %140, label %139
+
+139:                                              ; preds = %135
   call void @fput(ptr noundef nonnull %17) #9
-  br label %139
+  br label %140
 
-139:                                              ; preds = %138, %.thread
-  %140 = sext i32 %135 to i64
-  br label %141
+140:                                              ; preds = %139, %135
+  %141 = sext i32 %136 to i64
+  br label %142
 
-141:                                              ; preds = %139, %1
-  %142 = phi i64 [ %140, %139 ], [ -9, %1 ]
-  ret i64 %142
+142:                                              ; preds = %140, %1
+  %143 = phi i64 [ %141, %140 ], [ -9, %1 ]
+  ret i64 %143
 }
 
 ; Function Attrs: null_pointer_is_valid

@@ -172,7 +172,7 @@ if.then.i.i:                                      ; preds = %entry
   br label %ParseAlias.exit.i
 
 ParseAlias.exit.i:                                ; preds = %if.then.i.i, %entry
-  %retval.0.i.i = phi i32 [ 0, %entry ], [ %2, %if.then.i.i ]
+  %retval.0.i.i = phi i32 [ %2, %if.then.i.i ], [ 0, %entry ]
   %cmp795.i = icmp sgt i32 %argc, 1
   br i1 %cmp795.i, label %for.body.i, label %for.end559.i
 

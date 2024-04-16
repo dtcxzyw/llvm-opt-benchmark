@@ -2209,7 +2209,7 @@ if.end4.i:                                        ; preds = %sw.bb.i
 
 sw.bb10.i:                                        ; preds = %if.end.i
   %cmp11.i = icmp eq i32 %nargs, 2
-  br i1 %cmp11.i, label %if.then12.i, label %return.sink.split.i
+  br i1 %cmp11.i, label %if.then12.i, label %if.end20.i
 
 if.then12.i:                                      ; preds = %sw.bb10.i
   %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
@@ -2219,11 +2219,13 @@ if.then12.i:                                      ; preds = %sw.bb10.i
   %callable_cache15.i = getelementptr inbounds i8, ptr %10, i64 414888
   %11 = load ptr, ptr %callable_cache15.i, align 8
   %cmp16.i = icmp eq ptr %11, %callable
-  %spec.select.i = select i1 %cmp16.i, i8 -88, i8 -91
+  br i1 %cmp16.i, label %return.sink.split.i, label %if.end20.i
+
+if.end20.i:                                       ; preds = %if.then12.i, %sw.bb10.i
   br label %return.sink.split.i
 
-return.sink.split.i:                              ; preds = %if.then12.i, %sw.bb10.i, %if.end4.i, %if.end.i
-  %.sink.i = phi i8 [ %..i, %if.end4.i ], [ -91, %sw.bb10.i ], [ -90, %if.end.i ], [ %spec.select.i, %if.then12.i ]
+return.sink.split.i:                              ; preds = %if.end20.i, %if.then12.i, %if.end4.i, %if.end.i
+  %.sink.i = phi i8 [ -91, %if.end20.i ], [ %..i, %if.end4.i ], [ -88, %if.then12.i ], [ -90, %if.end.i ]
   store i8 %.sink.i, ptr %instr, align 2
   br label %if.end38
 
@@ -2286,9 +2288,9 @@ cond.end.i:                                       ; preds = %cond.false.i, %if.e
 if.end15.i:                                       ; preds = %cond.end.i
   %call16.i = tail call i32 @_PyFunction_GetVersionForCurrentState(ptr noundef nonnull %callable) #7
   %cmp17.i = icmp eq i32 %call16.i, 0
-  br i1 %cmp17.i, label %if.then32, label %if.end20.i
+  br i1 %cmp17.i, label %if.then32, label %if.end20.i33
 
-if.end20.i:                                       ; preds = %if.end15.i
+if.end20.i33:                                     ; preds = %if.end15.i
   %func_version.i = getelementptr i8, ptr %instr, i64 4
   store i32 %call16.i, ptr %func_version.i, align 2
   %cmp21.i = icmp eq i32 %20, %nargs
@@ -2299,42 +2301,42 @@ if.end20.i:                                       ; preds = %if.end15.i
 if.else6:                                         ; preds = %if.else
   %23 = getelementptr i8, ptr %callable.val26, i64 168
   %callable.val.val = load i64, ptr %23, align 8
-  %and.i.i33 = and i64 %callable.val.val, 2147483648
-  %cmp.i.i.not = icmp eq i64 %and.i.i33, 0
+  %and.i.i34 = and i64 %callable.val.val, 2147483648
+  %cmp.i.i.not = icmp eq i64 %and.i.i34, 0
   br i1 %cmp.i.i.not, label %if.else11, label %if.then9
 
 if.then9:                                         ; preds = %if.else6
   %tp_flags.i = getelementptr inbounds i8, ptr %callable, i64 168
   %24 = load i64, ptr %tp_flags.i, align 8
-  %and.i34 = and i64 %24, 256
-  %tobool.not.i35 = icmp eq i64 %and.i34, 0
-  br i1 %tobool.not.i35, label %if.end25.i, label %if.then.i
+  %and.i35 = and i64 %24, 256
+  %tobool.not.i36 = icmp eq i64 %and.i35, 0
+  br i1 %tobool.not.i36, label %if.end25.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then9
   %arg.i = getelementptr inbounds i8, ptr %instr, i64 1
   %25 = load i8, ptr %arg.i, align 1
-  %cmp.i36 = icmp eq i32 %nargs, 1
+  %cmp.i37 = icmp eq i32 %nargs, 1
   %cmp2.i = icmp eq i8 %25, 1
-  %or.cond.i37 = select i1 %cmp.i36, i1 %cmp2.i, i1 false
-  br i1 %or.cond.i37, label %if.then4.i, label %if.end19.i
+  %or.cond.i38 = select i1 %cmp.i37, i1 %cmp2.i, i1 false
+  br i1 %or.cond.i38, label %if.then4.i, label %if.end19.i
 
 if.then4.i:                                       ; preds = %if.then.i
   %cmp5.i = icmp eq ptr %callable, @PyUnicode_Type
-  br i1 %cmp5.i, label %return.sink.split.i38, label %if.else.i41
+  br i1 %cmp5.i, label %return.sink.split.i39, label %if.else.i42
 
-if.else.i41:                                      ; preds = %if.then4.i
+if.else.i42:                                      ; preds = %if.then4.i
   %cmp8.i = icmp eq ptr %callable, @PyType_Type
-  br i1 %cmp8.i, label %return.sink.split.i38, label %if.else12.i
+  br i1 %cmp8.i, label %return.sink.split.i39, label %if.else12.i
 
-if.else12.i:                                      ; preds = %if.else.i41
+if.else12.i:                                      ; preds = %if.else.i42
   %cmp13.i = icmp eq ptr %callable, @PyTuple_Type
-  br i1 %cmp13.i, label %return.sink.split.i38, label %if.end19.i
+  br i1 %cmp13.i, label %return.sink.split.i39, label %if.end19.i
 
 if.end19.i:                                       ; preds = %if.else12.i, %if.then.i
   %tp_vectorcall.i = getelementptr inbounds i8, ptr %callable, i64 400
   %26 = load ptr, ptr %tp_vectorcall.i, align 8
   %cmp20.not.i = icmp eq ptr %26, null
-  br i1 %cmp20.not.i, label %if.then32, label %return.sink.split.i38
+  br i1 %cmp20.not.i, label %if.then32, label %return.sink.split.i39
 
 if.end25.i:                                       ; preds = %if.then9
   %tp_new.i = getelementptr inbounds i8, ptr %callable, i64 312
@@ -2355,15 +2357,15 @@ if.then28.i:                                      ; preds = %if.end25.i
 if.end7.i.i:                                      ; preds = %if.then28.i
   %call.i.i = tail call ptr @_PyType_Lookup(ptr noundef nonnull %callable, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 80)) #7
   %cmp8.i.i = icmp eq ptr %call.i.i, null
-  br i1 %cmp8.i.i, label %if.then32, label %lor.lhs.false.i.i42
+  br i1 %cmp8.i.i, label %if.then32, label %lor.lhs.false.i.i43
 
-lor.lhs.false.i.i42:                              ; preds = %if.end7.i.i
+lor.lhs.false.i.i43:                              ; preds = %if.end7.i.i
   %31 = getelementptr i8, ptr %call.i.i, i64 8
   %call.val.i.i = load ptr, ptr %31, align 8
   %cmp.i.not.i.i = icmp eq ptr %call.val.i.i, @PyFunction_Type
   br i1 %cmp.i.not.i.i, label %if.end12.i.i, label %if.then32
 
-if.end12.i.i:                                     ; preds = %lor.lhs.false.i.i42
+if.end12.i.i:                                     ; preds = %lor.lhs.false.i.i43
   %32 = getelementptr i8, ptr %call.i.i, i64 48
   %call.val9.i.i = load ptr, ptr %32, align 8
   %co_flags.i.i.i = getelementptr inbounds i8, ptr %call.val9.i.i, i64 48
@@ -2385,76 +2387,78 @@ if.then31.i:                                      ; preds = %lor.lhs.false.i.i.i
   %init18.i.i = getelementptr inbounds i8, ptr %callable, i64 920
   store ptr %call.i.i, ptr %init18.i.i, align 8
   %36 = load ptr, ptr %32, align 8
-  %co_argcount.i43 = getelementptr inbounds i8, ptr %36, i64 52
-  %37 = load i32, ptr %co_argcount.i43, align 4
+  %co_argcount.i44 = getelementptr inbounds i8, ptr %36, i64 52
+  %37 = load i32, ptr %co_argcount.i44, align 4
   %add.i = add i32 %nargs, 1
   %cmp32.not.i = icmp eq i32 %37, %add.i
   br i1 %cmp32.not.i, label %if.end35.i, label %if.then32
 
 if.end35.i:                                       ; preds = %if.then31.i
-  %func_version.i44 = getelementptr i8, ptr %instr, i64 4
+  %func_version.i45 = getelementptr i8, ptr %instr, i64 4
   %tp_version_tag.i = getelementptr inbounds i8, ptr %callable, i64 384
   %38 = load i32, ptr %tp_version_tag.i, align 8
-  store i32 %38, ptr %func_version.i44, align 2
-  br label %return.sink.split.i38
+  store i32 %38, ptr %func_version.i45, align 2
+  br label %return.sink.split.i39
 
-return.sink.split.i38:                            ; preds = %if.end35.i, %if.end19.i, %if.else12.i, %if.else.i41, %if.then4.i
-  %.sink.i39 = phi i8 [ -94, %if.end35.i ], [ -79, %if.then4.i ], [ -77, %if.else.i41 ], [ -78, %if.else12.i ], [ -92, %if.end19.i ]
-  store i8 %.sink.i39, ptr %instr, align 2
+return.sink.split.i39:                            ; preds = %if.end35.i, %if.end19.i, %if.else12.i, %if.else.i42, %if.then4.i
+  %.sink.i40 = phi i8 [ -94, %if.end35.i ], [ -79, %if.then4.i ], [ -77, %if.else.i42 ], [ -78, %if.else12.i ], [ -92, %if.end19.i ]
+  store i8 %.sink.i40, ptr %instr, align 2
   br label %if.end38
 
 if.else11:                                        ; preds = %if.else6
-  %cmp.i45.not = icmp eq ptr %callable.val26, @PyMethodDescr_Type
-  br i1 %cmp.i45.not, label %if.then14, label %if.else16
+  %cmp.i46.not = icmp eq ptr %callable.val26, @PyMethodDescr_Type
+  br i1 %cmp.i46.not, label %if.then14, label %if.else16
 
 if.then14:                                        ; preds = %if.else11
   %d_method.i = getelementptr inbounds i8, ptr %callable, i64 40
   %39 = load ptr, ptr %d_method.i, align 8
   %ml_flags.i = getelementptr inbounds i8, ptr %39, i64 16
   %40 = load i32, ptr %ml_flags.i, align 8
-  %and.i47 = and i32 %40, 655
-  switch i32 %and.i47, label %if.then32 [
+  %and.i48 = and i32 %40, 655
+  switch i32 %and.i48, label %if.then32 [
     i32 4, label %sw.bb.i59
     i32 8, label %sw.bb1.i
-    i32 128, label %return.sink.split.i48
+    i32 128, label %return.sink.split.i49
     i32 130, label %sw.bb22.i
   ]
 
 sw.bb.i59:                                        ; preds = %if.then14
   %cmp.not.i60 = icmp eq i32 %nargs, 1
-  br i1 %cmp.not.i60, label %return.sink.split.i48, label %if.then32
+  br i1 %cmp.not.i60, label %return.sink.split.i49, label %if.then32
 
 sw.bb1.i:                                         ; preds = %if.then14
-  %cmp2.not.i51 = icmp eq i32 %nargs, 2
-  br i1 %cmp2.not.i51, label %if.end4.i52, label %if.then32
+  %cmp2.not.i52 = icmp eq i32 %nargs, 2
+  br i1 %cmp2.not.i52, label %if.end4.i53, label %if.then32
 
-if.end4.i52:                                      ; preds = %sw.bb1.i
+if.end4.i53:                                      ; preds = %sw.bb1.i
   %41 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %42 = load ptr, ptr %41, align 8
-  %interp.i.i53 = getelementptr inbounds i8, ptr %42, i64 16
-  %43 = load ptr, ptr %interp.i.i53, align 8
+  %interp.i.i54 = getelementptr inbounds i8, ptr %42, i64 16
+  %43 = load ptr, ptr %interp.i.i54, align 8
   %list_append5.i = getelementptr inbounds i8, ptr %43, i64 414904
   %44 = load ptr, ptr %list_append5.i, align 8
-  %arg.i54 = getelementptr inbounds i8, ptr %instr, i64 1
-  %45 = load i8, ptr %arg.i54, align 1
+  %arg.i55 = getelementptr inbounds i8, ptr %instr, i64 1
+  %45 = load i8, ptr %arg.i55, align 1
   %cmp10.i = icmp eq ptr %44, %callable
-  %cmp12.i55 = icmp eq i8 %45, 1
-  %or.cond.i56 = select i1 %cmp10.i, i1 %cmp12.i55, i1 false
-  br i1 %or.cond.i56, label %land.lhs.true14.i, label %return.sink.split.i48
+  %cmp12.i56 = icmp eq i8 %45, 1
+  %or.cond.i57 = select i1 %cmp10.i, i1 %cmp12.i56, i1 false
+  br i1 %or.cond.i57, label %land.lhs.true14.i, label %if.end18.i
 
-land.lhs.true14.i:                                ; preds = %if.end4.i52
+land.lhs.true14.i:                                ; preds = %if.end4.i53
   %arrayidx.i = getelementptr i8, ptr %instr, i64 8
   %next.sroa.0.0.copyload.i = load i8, ptr %arrayidx.i, align 2
-  %cmp7.i57 = icmp eq i8 %next.sroa.0.0.copyload.i, 32
-  %spec.select.i58 = select i1 %cmp7.i57, i8 -86, i8 -82
-  br label %return.sink.split.i48
+  %cmp7.i58 = icmp eq i8 %next.sroa.0.0.copyload.i, 32
+  br i1 %cmp7.i58, label %return.sink.split.i49, label %if.end18.i
+
+if.end18.i:                                       ; preds = %land.lhs.true14.i, %if.end4.i53
+  br label %return.sink.split.i49
 
 sw.bb22.i:                                        ; preds = %if.then14
-  br label %return.sink.split.i48
+  br label %return.sink.split.i49
 
-return.sink.split.i48:                            ; preds = %sw.bb22.i, %land.lhs.true14.i, %if.end4.i52, %sw.bb.i59, %if.then14
-  %.sink.i49 = phi i8 [ -84, %sw.bb22.i ], [ -83, %sw.bb.i59 ], [ -82, %if.end4.i52 ], [ -85, %if.then14 ], [ %spec.select.i58, %land.lhs.true14.i ]
-  store i8 %.sink.i49, ptr %instr, align 2
+return.sink.split.i49:                            ; preds = %sw.bb22.i, %if.end18.i, %land.lhs.true14.i, %sw.bb.i59, %if.then14
+  %.sink.i50 = phi i8 [ -84, %sw.bb22.i ], [ -82, %if.end18.i ], [ -83, %sw.bb.i59 ], [ -86, %land.lhs.true14.i ], [ -85, %if.then14 ]
+  store i8 %.sink.i50, ptr %instr, align 2
   br label %if.end38
 
 if.else16:                                        ; preds = %if.else11
@@ -2475,7 +2479,7 @@ if.end30:                                         ; preds = %if.then19
   %tobool31.not = icmp eq i32 %call23, 0
   br i1 %tobool31.not, label %if.end38, label %if.then32
 
-if.then32:                                        ; preds = %if.then14, %sw.bb1.i, %sw.bb.i59, %if.end12.i.i, %lor.lhs.false.i.i.i, %if.end7.i.i, %lor.lhs.false.i.i42, %if.then28.i, %if.end25.i, %if.then31.i, %if.end19.i, %if.then4, %lor.lhs.false.i.i, %if.end15.i, %cond.end.i, %function_kind.exit.i, %if.end.i, %sw.bb.i, %if.then, %if.else16, %if.then19, %if.end30
+if.then32:                                        ; preds = %if.then14, %sw.bb1.i, %sw.bb.i59, %if.end12.i.i, %lor.lhs.false.i.i.i, %if.end7.i.i, %lor.lhs.false.i.i43, %if.then28.i, %if.end25.i, %if.then31.i, %if.end19.i, %if.then4, %lor.lhs.false.i.i, %if.end15.i, %cond.end.i, %function_kind.exit.i, %if.end.i, %sw.bb.i, %if.then, %if.else16, %if.then19, %if.end30
   store i8 53, ptr %instr, align 2
   %48 = load i16, ptr %add.ptr, align 2
   %49 = and i16 %48, 15
@@ -2489,8 +2493,8 @@ if.then32:                                        ; preds = %if.then14, %sw.bb1.
   %or.i.i = add i16 %shl.i.i, %conv7.i
   br label %if.end38
 
-if.end38:                                         ; preds = %return.sink.split.i48, %return.sink.split.i38, %if.end20.i, %return.sink.split.i, %if.end30, %if.then32
-  %storemerge = phi i16 [ %or.i.i, %if.then32 ], [ 832, %if.end30 ], [ 832, %return.sink.split.i ], [ 832, %if.end20.i ], [ 832, %return.sink.split.i38 ], [ 832, %return.sink.split.i48 ]
+if.end38:                                         ; preds = %return.sink.split.i49, %return.sink.split.i39, %if.end20.i33, %return.sink.split.i, %if.end30, %if.then32
+  %storemerge = phi i16 [ %or.i.i, %if.then32 ], [ 832, %if.end30 ], [ 832, %return.sink.split.i ], [ 832, %if.end20.i33 ], [ 832, %return.sink.split.i39 ], [ 832, %return.sink.split.i49 ]
   store i16 %storemerge, ptr %add.ptr, align 2
   ret void
 }

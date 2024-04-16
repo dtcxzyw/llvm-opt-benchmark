@@ -1980,15 +1980,19 @@ define internal i32 @ieee80211_change_iface(ptr nocapture readnone %0, ptr nound
   %49 = getelementptr i8, ptr %1, i64 6360
   %50 = load i32, ptr %49, align 8
   %51 = icmp eq i32 %50, 6
-  br i1 %51, label %52, label %.thread
+  br i1 %51, label %52, label %55
 
 52:                                               ; preds = %48
   %53 = tail call fastcc i32 @ieee80211_set_mon_options(ptr noundef %5, ptr noundef %3), !range !80
+  %54 = icmp eq i32 %53, 0
+  br i1 %54, label %55, label %.thread
+
+55:                                               ; preds = %52, %48
   br label %.thread
 
-.thread:                                          ; preds = %30, %26, %21, %52, %48, %4
-  %54 = phi i32 [ %8, %4 ], [ 0, %48 ], [ %53, %52 ], [ 0, %30 ], [ -95, %26 ], [ 0, %21 ]
-  ret i32 %54
+.thread:                                          ; preds = %30, %26, %21, %55, %52, %4
+  %56 = phi i32 [ 0, %55 ], [ %8, %4 ], [ %53, %52 ], [ 0, %30 ], [ -95, %26 ], [ 0, %21 ]
+  ret i32 %56
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -11746,7 +11750,7 @@ define internal fastcc i32 @sta_apply_auth_flags(ptr noundef %0, i32 noundef %1,
 15:                                               ; preds = %10
   %16 = tail call i32 @sta_info_move_state(ptr noundef %0, i32 noundef 2) #15
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %72
+  br i1 %17, label %18, label %74
 
 18:                                               ; preds = %15, %10, %3
   %19 = and i64 %4, 128
@@ -11776,7 +11780,7 @@ define internal fastcc i32 @sta_apply_auth_flags(ptr noundef %0, i32 noundef %1,
 34:                                               ; preds = %33, %29
   %35 = tail call i32 @sta_info_move_state(ptr noundef %0, i32 noundef 3) #15
   %36 = icmp eq i32 %35, 0
-  br i1 %36, label %37, label %72
+  br i1 %36, label %37, label %74
 
 37:                                               ; preds = %34, %24, %18
   %38 = and i64 %4, 2
@@ -11799,7 +11803,7 @@ define internal fastcc i32 @sta_apply_auth_flags(ptr noundef %0, i32 noundef %1,
   %49 = phi i32 [ 4, %40 ], [ 3, %43 ]
   %50 = tail call i32 @sta_info_move_state(ptr noundef %0, i32 noundef %49) #15
   %51 = icmp eq i32 %50, 0
-  br i1 %51, label %.thread, label %72
+  br i1 %51, label %.thread, label %74
 
 .thread:                                          ; preds = %43, %48, %37
   %52 = xor i1 %20, true
@@ -11816,27 +11820,31 @@ define internal fastcc i32 @sta_apply_auth_flags(ptr noundef %0, i32 noundef %1,
 59:                                               ; preds = %54
   %60 = tail call i32 @sta_info_move_state(ptr noundef %0, i32 noundef 2) #15
   %61 = icmp eq i32 %60, 0
-  br i1 %61, label %62, label %72
+  br i1 %61, label %62, label %74
 
 62:                                               ; preds = %59, %54, %.thread
   %63 = xor i1 %6, true
   %64 = and i1 %8, %63
-  br i1 %64, label %65, label %72
+  br i1 %64, label %65, label %73
 
 65:                                               ; preds = %62
   %66 = getelementptr inbounds i8, ptr %0, i64 216
   %67 = load volatile i64, ptr %66, align 8
   %68 = and i64 %67, 1
   %69 = icmp eq i64 %68, 0
-  br i1 %69, label %72, label %70
+  br i1 %69, label %73, label %70
 
 70:                                               ; preds = %65
   %71 = tail call i32 @sta_info_move_state(ptr noundef %0, i32 noundef 1) #15
-  br label %72
+  %72 = icmp eq i32 %71, 0
+  br i1 %72, label %73, label %74
 
-72:                                               ; preds = %70, %62, %65, %59, %48, %34, %15
-  %73 = phi i32 [ %16, %15 ], [ %35, %34 ], [ %50, %48 ], [ %60, %59 ], [ 0, %65 ], [ 0, %62 ], [ %71, %70 ]
-  ret i32 %73
+73:                                               ; preds = %70, %65, %62
+  br label %74
+
+74:                                               ; preds = %73, %70, %59, %48, %34, %15
+  %75 = phi i32 [ 0, %73 ], [ %16, %15 ], [ %35, %34 ], [ %50, %48 ], [ %60, %59 ], [ %71, %70 ]
+  ret i32 %75
 }
 
 ; Function Attrs: null_pointer_is_valid

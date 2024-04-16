@@ -83,7 +83,7 @@ define dso_local ptr @Curl_checkheaders(ptr nocapture noundef readonly %0, ptr n
 declare i32 @curl_strnequal(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Curl_get_upload_buffer(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local noundef i32 @Curl_get_upload_buffer(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 3160
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -97,11 +97,13 @@ define dso_local i32 @Curl_get_upload_buffer(ptr nocapture noundef %0) local_unn
   %9 = tail call ptr %5(i64 noundef %8) #10
   store ptr %9, ptr %2, align 8
   %.not4 = icmp eq ptr %9, null
-  %spec.select = select i1 %.not4, i32 27, i32 0
-  br label %10
+  br i1 %.not4, label %11, label %10
 
 10:                                               ; preds = %4, %1
-  %.0 = phi i32 [ 0, %1 ], [ %spec.select, %4 ]
+  br label %11
+
+11:                                               ; preds = %4, %10
+  %.0 = phi i32 [ 0, %10 ], [ 27, %4 ]
   ret i32 %.0
 }
 
@@ -946,14 +948,14 @@ data_pending.exit.i:                              ; preds = %.sink.split.i.i, %1
   %179 = lshr i32 %178, 5
   %180 = zext nneg i32 %179 to i64
   %181 = icmp slt i64 %175, %180
-  br i1 %181, label %182, label %.thread221.i
+  br i1 %181, label %182, label %.thread219.i
 
 182:                                              ; preds = %176
   %183 = getelementptr inbounds i8, ptr %0, i64 403
   %184 = load i16, ptr %183, align 1
   %185 = and i16 %184, 528
   %or.cond189.i = icmp eq i16 %185, 0
-  br i1 %or.cond189.i, label %186, label %.thread221.i
+  br i1 %or.cond189.i, label %186, label %.thread219.i
 
 186:                                              ; preds = %182
   %187 = getelementptr inbounds i8, ptr %0, i64 240
@@ -965,7 +967,7 @@ data_pending.exit.i:                              ; preds = %.sink.split.i.i, %1
   %193 = getelementptr inbounds i8, ptr %0, i64 4472
   %194 = load i64, ptr %193, align 8
   %195 = icmp eq i64 %192, %194
-  br i1 %195, label %.thread221.i, label %.thread.i
+  br i1 %195, label %.thread219.i, label %.thread.i
 
 .thread.i:                                        ; preds = %186, %172
   %196 = getelementptr inbounds i8, ptr %0, i64 3160
@@ -1006,7 +1008,7 @@ data_pending.exit.i:                              ; preds = %.sink.split.i.i, %1
   %214 = load i16, ptr %213, align 1
   %215 = and i16 %214, 16
   %.not167.i = icmp eq i16 %215, 0
-  br i1 %.not167.i, label %216, label %.thread202.i
+  br i1 %.not167.i, label %216, label %.thread201.i
 
 216:                                              ; preds = %210
   %217 = getelementptr inbounds i8, ptr %0, i64 384
@@ -1075,24 +1077,24 @@ data_pending.exit.i:                              ; preds = %.sink.split.i.i, %1
   %257 = load i64, ptr %4, align 8
   %258 = add i64 %257, %175
   %.not170.i = icmp eq i64 %258, 0
-  br i1 %.not170.i, label %.thread202.i, label %261
+  br i1 %.not170.i, label %.thread201.i, label %261
 
-.thread202.i:                                     ; preds = %256, %210
+.thread201.i:                                     ; preds = %256, %210
   %259 = load i32, ptr %39, align 4
   %260 = and i32 %259, 32
   %.not171.i = icmp eq i32 %260, 0
-  br i1 %.not171.i, label %.thread210.i, label %readwrite_upload.exit.thread
+  br i1 %.not171.i, label %.thread209.i, label %readwrite_upload.exit.thread
 
 261:                                              ; preds = %256
   %262 = icmp slt i64 %258, 1
-  br i1 %262, label %..thread210_crit_edge.i, label %265
+  br i1 %262, label %..thread209_crit_edge.i, label %265
 
-..thread210_crit_edge.i:                          ; preds = %261
-  %.pre219.i = load i32, ptr %39, align 4
-  br label %.thread210.i
+..thread209_crit_edge.i:                          ; preds = %261
+  %.pre217.i = load i32, ptr %39, align 4
+  br label %.thread209.i
 
-.thread210.i:                                     ; preds = %..thread210_crit_edge.i, %.thread202.i
-  %263 = phi i32 [ %.pre219.i, %..thread210_crit_edge.i ], [ %259, %.thread202.i ]
+.thread209.i:                                     ; preds = %..thread209_crit_edge.i, %.thread201.i
+  %263 = phi i32 [ %.pre217.i, %..thread209_crit_edge.i ], [ %259, %.thread201.i ]
   %264 = and i32 %263, -3
   store i32 %264, ptr %39, align 4
   call void @Curl_conn_ev_data_done_send(ptr noundef nonnull %0) #10
@@ -1100,7 +1102,7 @@ data_pending.exit.i:                              ; preds = %.sink.split.i.i, %1
 
 265:                                              ; preds = %261
   store i64 %258, ptr %174, align 8
-  br i1 %.0146.i, label %.thread221.i, label %266
+  br i1 %.0146.i, label %.thread219.i, label %266
 
 266:                                              ; preds = %265
   %267 = getelementptr inbounds i8, ptr %0, i64 4940
@@ -1114,7 +1116,7 @@ data_pending.exit.i:                              ; preds = %.sink.split.i.i, %1
   %272 = load i64, ptr %271, align 2
   %273 = and i64 %272, 16
   %.not173.i = icmp eq i64 %273, 0
-  br i1 %.not173.i, label %.thread221.i, label %274
+  br i1 %.not173.i, label %.thread219.i, label %274
 
 274:                                              ; preds = %270, %266
   %275 = getelementptr inbounds i8, ptr %0, i64 3344
@@ -1155,18 +1157,18 @@ data_pending.exit.i:                              ; preds = %.sink.split.i.i, %1
   br label %292
 
 292:                                              ; preds = %311, %.lr.ph.i
-  %.0141217.i = phi i64 [ %175, %.lr.ph.i ], [ %312, %311 ]
-  %.0142216.i = phi i64 [ %175, %.lr.ph.i ], [ %313, %311 ]
+  %.0141215.i = phi i64 [ %175, %.lr.ph.i ], [ %312, %311 ]
+  %.0142214.i = phi i64 [ %175, %.lr.ph.i ], [ %313, %311 ]
   %293 = load ptr, ptr %212, align 8
-  %294 = getelementptr inbounds i8, ptr %293, i64 %.0141217.i
+  %294 = getelementptr inbounds i8, ptr %293, i64 %.0141215.i
   %295 = load i8, ptr %294, align 1
   %296 = icmp eq i8 %295, 10
   %297 = load ptr, ptr %275, align 8
   br i1 %296, label %298, label %309
 
 298:                                              ; preds = %292
-  %299 = add nsw i64 %.0142216.i, 1
-  %300 = getelementptr inbounds i8, ptr %297, i64 %.0142216.i
+  %299 = add nsw i64 %.0142214.i, 1
+  %300 = getelementptr inbounds i8, ptr %297, i64 %.0142214.i
   store i8 13, ptr %300, align 1
   %301 = load ptr, ptr %275, align 8
   %302 = getelementptr inbounds i8, ptr %301, i64 %299
@@ -1187,13 +1189,13 @@ data_pending.exit.i:                              ; preds = %.sink.split.i.i, %1
   br label %311
 
 309:                                              ; preds = %292
-  %310 = getelementptr inbounds i8, ptr %297, i64 %.0142216.i
+  %310 = getelementptr inbounds i8, ptr %297, i64 %.0142214.i
   store i8 %295, ptr %310, align 1
   br label %311
 
 311:                                              ; preds = %309, %307, %305, %298
-  %.1.i108 = phi i64 [ %299, %298 ], [ %299, %307 ], [ %299, %305 ], [ %.0142216.i, %309 ]
-  %312 = add nsw i64 %.0141217.i, 1
+  %.1.i108 = phi i64 [ %299, %298 ], [ %299, %307 ], [ %299, %305 ], [ %.0142214.i, %309 ]
+  %312 = add nsw i64 %.0141215.i, 1
   %313 = add nsw i64 %.1.i108, 1
   %exitcond.not.i = icmp eq i64 %312, %258
   br i1 %exitcond.not.i, label %._crit_edge.i, label %292, !llvm.loop !8
@@ -1204,17 +1206,17 @@ data_pending.exit.i:                              ; preds = %.sink.split.i.i, %1
   br i1 %.not176.i, label %._crit_edge._crit_edge.i, label %314
 
 ._crit_edge._crit_edge.i:                         ; preds = %._crit_edge.i
-  %.pre218.i = load i64, ptr %174, align 8
-  br label %.thread221.i
+  %.pre216.i = load i64, ptr %174, align 8
+  br label %.thread219.i
 
 314:                                              ; preds = %._crit_edge.i
   %315 = load ptr, ptr %275, align 8
   store ptr %315, ptr %212, align 8
   store i64 %.0142.lcssa.i, ptr %174, align 8
-  br label %.thread221.i
+  br label %.thread219.i
 
-.thread221.i:                                     ; preds = %314, %._crit_edge._crit_edge.i, %270, %265, %186, %182, %176
-  %316 = phi i64 [ %.pre218.i, %._crit_edge._crit_edge.i ], [ %258, %265 ], [ %258, %270 ], [ %.0142.lcssa.i, %314 ], [ %175, %182 ], [ %175, %176 ], [ %175, %186 ]
+.thread219.i:                                     ; preds = %314, %._crit_edge._crit_edge.i, %270, %265, %186, %182, %176
+  %316 = phi i64 [ %.pre216.i, %._crit_edge._crit_edge.i ], [ %258, %265 ], [ %258, %270 ], [ %.0142.lcssa.i, %314 ], [ %175, %182 ], [ %175, %176 ], [ %175, %186 ]
   %317 = getelementptr inbounds i8, ptr %8, i64 716
   %318 = load i32, ptr %317, align 4
   %319 = getelementptr inbounds i8, ptr %0, i64 376
@@ -1223,7 +1225,7 @@ data_pending.exit.i:                              ; preds = %.sink.split.i.i, %1
   %.not179.i = icmp eq i32 %321, 0
   br i1 %.not179.i, label %322, label %readwrite_upload.exit
 
-322:                                              ; preds = %.thread221.i
+322:                                              ; preds = %.thread219.i
   %323 = getelementptr inbounds i8, ptr %0, i64 248
   %324 = load i64, ptr %323, align 8
   %.not180.i = icmp eq i64 %324, 0
@@ -1333,14 +1335,14 @@ data_pending.exit.i:                              ; preds = %.sink.split.i.i, %1
   call void @Curl_conn_ev_data_done_send(ptr noundef nonnull %0) #10
   br label %readwrite_upload.exit.thread
 
-readwrite_upload.exit.thread:                     ; preds = %377, %.thread210.i, %360, %373, %.thread202.i, %226
-  %.8.ph = phi i32 [ %173, %360 ], [ %173, %377 ], [ %173, %373 ], [ %173, %.thread202.i ], [ %173, %.thread210.i ], [ %233, %226 ]
+readwrite_upload.exit.thread:                     ; preds = %377, %.thread209.i, %360, %373, %.thread201.i, %226
+  %.8.ph = phi i32 [ %173, %360 ], [ %173, %377 ], [ %173, %373 ], [ %173, %.thread201.i ], [ %173, %.thread209.i ], [ %233, %226 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %380
 
-readwrite_upload.exit:                            ; preds = %198, %246, %283, %.thread221.i, %367
-  %.0.i105 = phi i32 [ 27, %283 ], [ %252, %246 ], [ %321, %.thread221.i ], [ 27, %198 ], [ 27, %367 ]
+readwrite_upload.exit:                            ; preds = %198, %246, %283, %.thread219.i, %367
+  %.0.i105 = phi i32 [ 27, %283 ], [ %252, %246 ], [ %321, %.thread219.i ], [ 27, %198 ], [ 27, %367 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %readwrite_data.exit

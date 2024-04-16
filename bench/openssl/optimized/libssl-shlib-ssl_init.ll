@@ -14,7 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @ssl_base_inited = internal unnamed_addr global i1 false, align 4
 
 ; Function Attrs: nounwind uwtable
-define i32 @OPENSSL_init_ssl(i64 noundef %opts, ptr noundef %settings) local_unnamed_addr #0 {
+define noundef i32 @OPENSSL_init_ssl(i64 noundef %opts, ptr noundef %settings) local_unnamed_addr #0 {
 entry:
   %.b8 = load i1, ptr @stopped, align 4
   br i1 %.b8, label %if.then, label %if.end3
@@ -61,18 +61,20 @@ land.lhs.true:                                    ; preds = %if.end14
 if.end23:                                         ; preds = %land.lhs.true, %if.end14
   %and24 = and i64 %opts, 2097152
   %tobool25.not = icmp eq i64 %and24, 0
-  br i1 %tobool25.not, label %return, label %land.lhs.true26
+  br i1 %tobool25.not, label %if.end33, label %land.lhs.true26
 
 land.lhs.true26:                                  ; preds = %if.end23
   %call27 = tail call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @ssl_strings, ptr noundef nonnull @ossl_init_load_ssl_strings_ossl_) #3
   %tobool28 = icmp ne i32 %call27, 0
   %.b10 = load i1, ptr @ossl_init_load_ssl_strings_ossl_ret_, align 4
   %or.cond2 = select i1 %tobool28, i1 %.b10, i1 false
-  %spec.select12 = zext i1 %or.cond2 to i32
+  br i1 %or.cond2, label %if.end33, label %return
+
+if.end33:                                         ; preds = %land.lhs.true26, %if.end23
   br label %return
 
-return:                                           ; preds = %land.lhs.true26, %if.end23, %land.lhs.true, %if.end9, %if.end3, %if.then, %if.then2
-  %retval.0 = phi i32 [ 0, %if.then2 ], [ 0, %if.then ], [ 0, %if.end3 ], [ 0, %if.end9 ], [ 0, %land.lhs.true ], [ 1, %if.end23 ], [ %spec.select12, %land.lhs.true26 ]
+return:                                           ; preds = %land.lhs.true26, %land.lhs.true, %if.end9, %if.end3, %if.then, %if.then2, %if.end33
+  %retval.0 = phi i32 [ 1, %if.end33 ], [ 0, %if.then2 ], [ 0, %if.then ], [ 0, %if.end3 ], [ 0, %if.end9 ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true26 ]
   ret i32 %retval.0
 }
 

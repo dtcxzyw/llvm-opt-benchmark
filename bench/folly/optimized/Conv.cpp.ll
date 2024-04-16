@@ -334,42 +334,44 @@ land.lhs.true97:                                  ; preds = %land.lhs.true92
 
 if.then103:                                       ; preds = %land.lhs.true97
   %cmp104 = icmp ugt i64 %size.0, 7
-  br i1 %cmp104, label %land.lhs.true105, label %if.end168
+  br i1 %cmp104, label %land.lhs.true105, label %if.else
 
 land.lhs.true105:                                 ; preds = %if.then103
   %arrayidx106 = getelementptr inbounds i8, ptr %b.0, i64 3
   %22 = load i8, ptr %arrayidx106, align 1, !tbaa !21
   %23 = and i8 %22, -33
   %cmp110 = icmp eq i8 %23, 73
-  br i1 %cmp110, label %land.lhs.true111, label %if.end168
+  br i1 %cmp110, label %land.lhs.true111, label %if.else
 
 land.lhs.true111:                                 ; preds = %land.lhs.true105
   %arrayidx112 = getelementptr inbounds i8, ptr %b.0, i64 4
   %24 = load i8, ptr %arrayidx112, align 1, !tbaa !21
   %25 = and i8 %24, -33
   %cmp116 = icmp eq i8 %25, 78
-  br i1 %cmp116, label %land.lhs.true117, label %if.end168
+  br i1 %cmp116, label %land.lhs.true117, label %if.else
 
 land.lhs.true117:                                 ; preds = %land.lhs.true111
   %arrayidx118 = getelementptr inbounds i8, ptr %b.0, i64 5
   %26 = load i8, ptr %arrayidx118, align 1, !tbaa !21
   %27 = and i8 %26, -33
   %cmp122 = icmp eq i8 %27, 73
-  br i1 %cmp122, label %land.lhs.true123, label %if.end168
+  br i1 %cmp122, label %land.lhs.true123, label %if.else
 
 land.lhs.true123:                                 ; preds = %land.lhs.true117
   %arrayidx124 = getelementptr inbounds i8, ptr %b.0, i64 6
   %28 = load i8, ptr %arrayidx124, align 1, !tbaa !21
   %29 = and i8 %28, -33
   %cmp128 = icmp eq i8 %29, 84
-  br i1 %cmp128, label %land.lhs.true129, label %if.end168
+  br i1 %cmp128, label %land.lhs.true129, label %if.else
 
 land.lhs.true129:                                 ; preds = %land.lhs.true123
   %arrayidx130 = getelementptr inbounds i8, ptr %b.0, i64 7
   %30 = load i8, ptr %arrayidx130, align 1, !tbaa !21
   %31 = and i8 %30, -33
   %cmp134 = icmp eq i8 %31, 89
-  %spec.select = select i1 %cmp134, i64 8, i64 3
+  br i1 %cmp134, label %if.end168, label %if.else
+
+if.else:                                          ; preds = %land.lhs.true129, %land.lhs.true123, %land.lhs.true117, %land.lhs.true111, %land.lhs.true105, %if.then103
   br label %if.end168
 
 sw.bb141:                                         ; preds = %if.end87
@@ -390,9 +392,9 @@ land.lhs.true149:                                 ; preds = %land.lhs.true143
   %cmp154 = icmp eq i8 %35, 78
   br i1 %cmp154, label %if.end168, label %cleanup177
 
-if.end168:                                        ; preds = %land.lhs.true129, %if.then103, %land.lhs.true105, %land.lhs.true111, %land.lhs.true117, %land.lhs.true123, %land.lhs.true149
-  %.sink = phi i64 [ 3, %land.lhs.true149 ], [ 3, %land.lhs.true123 ], [ 3, %land.lhs.true117 ], [ 3, %land.lhs.true111 ], [ 3, %land.lhs.true105 ], [ 3, %if.then103 ], [ %spec.select, %land.lhs.true129 ]
-  %result.0 = phi float [ 0x7FF8000000000000, %land.lhs.true149 ], [ 0x7FF0000000000000, %land.lhs.true123 ], [ 0x7FF0000000000000, %land.lhs.true117 ], [ 0x7FF0000000000000, %land.lhs.true111 ], [ 0x7FF0000000000000, %land.lhs.true105 ], [ 0x7FF0000000000000, %if.then103 ], [ 0x7FF0000000000000, %land.lhs.true129 ]
+if.end168:                                        ; preds = %land.lhs.true149, %if.else, %land.lhs.true129
+  %.sink = phi i64 [ 3, %if.else ], [ 8, %land.lhs.true129 ], [ 3, %land.lhs.true149 ]
+  %result.0 = phi float [ 0x7FF0000000000000, %if.else ], [ 0x7FF0000000000000, %land.lhs.true129 ], [ 0x7FF8000000000000, %land.lhs.true149 ]
   %add.ptr156 = getelementptr inbounds i8, ptr %b.0, i64 %.sink
   %fneg = fneg float %result.0
   %result.1 = select i1 %cmp74, float %fneg, float %result.0
@@ -581,7 +583,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %sub.ptr.rhs.cast15.pre-phi = phi i64 [ %.pre, %for.end.loopexit ], [ %sub.ptr.rhs.cast, %entry ]
   %__first.addr.0.lcssa = phi ptr [ %scevgep, %for.end.loopexit ], [ %__first, %entry ]
   %sub.ptr.sub16 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast15.pre-phi
-  switch i64 %sub.ptr.sub16, label %cleanup [
+  switch i64 %sub.ptr.sub16, label %sw.default [
     i64 3, label %sw.bb
     i64 2, label %sw.bb21
     i64 1, label %sw.bb26
@@ -630,7 +632,7 @@ sw.bb26:                                          ; preds = %if.end24, %for.end
     i8 9, label %sw.default
   ]
 
-sw.default:                                       ; preds = %sw.bb26, %sw.bb26, %sw.bb26, %sw.bb26, %sw.bb26, %sw.bb26
+sw.default:                                       ; preds = %sw.bb26, %sw.bb26, %sw.bb26, %sw.bb26, %sw.bb26, %sw.bb26, %for.end
   br label %cleanup
 
 cleanup.loopexit.split.loop.exit:                 ; preds = %if.end
@@ -645,8 +647,8 @@ cleanup.loopexit.split.loop.exit15:               ; preds = %if.end8
   %incdec.ptr9.le = getelementptr inbounds i8, ptr %__first.addr.086, i64 3
   br label %cleanup
 
-cleanup:                                          ; preds = %for.body, %cleanup.loopexit.split.loop.exit, %cleanup.loopexit.split.loop.exit13, %cleanup.loopexit.split.loop.exit15, %for.end, %sw.default, %sw.bb26, %sw.bb21, %sw.bb
-  %retval.0 = phi ptr [ %__first.addr.0.lcssa, %sw.bb ], [ %__first.addr.1, %sw.bb21 ], [ %__first.addr.2, %sw.bb26 ], [ %__last, %for.end ], [ %__last, %sw.default ], [ %incdec.ptr.le, %cleanup.loopexit.split.loop.exit ], [ %incdec.ptr5.le, %cleanup.loopexit.split.loop.exit13 ], [ %incdec.ptr9.le, %cleanup.loopexit.split.loop.exit15 ], [ %__first.addr.086, %for.body ]
+cleanup:                                          ; preds = %for.body, %cleanup.loopexit.split.loop.exit, %cleanup.loopexit.split.loop.exit13, %cleanup.loopexit.split.loop.exit15, %sw.default, %sw.bb26, %sw.bb21, %sw.bb
+  %retval.0 = phi ptr [ %__last, %sw.default ], [ %__first.addr.0.lcssa, %sw.bb ], [ %__first.addr.1, %sw.bb21 ], [ %__first.addr.2, %sw.bb26 ], [ %incdec.ptr.le, %cleanup.loopexit.split.loop.exit ], [ %incdec.ptr5.le, %cleanup.loopexit.split.loop.exit13 ], [ %incdec.ptr9.le, %cleanup.loopexit.split.loop.exit15 ], [ %__first.addr.086, %for.body ]
   ret ptr %retval.0
 }
 
@@ -827,42 +829,44 @@ land.lhs.true86:                                  ; preds = %land.lhs.true82
 
 if.then91:                                        ; preds = %land.lhs.true86
   %cmp92 = icmp ugt i64 %size.0, 7
-  br i1 %cmp92, label %land.lhs.true93, label %if.end148
+  br i1 %cmp92, label %land.lhs.true93, label %if.else
 
 land.lhs.true93:                                  ; preds = %if.then91
   %arrayidx94 = getelementptr inbounds i8, ptr %b.0, i64 3
   %22 = load i8, ptr %arrayidx94, align 1, !tbaa !21
   %23 = and i8 %22, -33
   %cmp97 = icmp eq i8 %23, 73
-  br i1 %cmp97, label %land.lhs.true98, label %if.end148
+  br i1 %cmp97, label %land.lhs.true98, label %if.else
 
 land.lhs.true98:                                  ; preds = %land.lhs.true93
   %arrayidx99 = getelementptr inbounds i8, ptr %b.0, i64 4
   %24 = load i8, ptr %arrayidx99, align 1, !tbaa !21
   %25 = and i8 %24, -33
   %cmp102 = icmp eq i8 %25, 78
-  br i1 %cmp102, label %land.lhs.true103, label %if.end148
+  br i1 %cmp102, label %land.lhs.true103, label %if.else
 
 land.lhs.true103:                                 ; preds = %land.lhs.true98
   %arrayidx104 = getelementptr inbounds i8, ptr %b.0, i64 5
   %26 = load i8, ptr %arrayidx104, align 1, !tbaa !21
   %27 = and i8 %26, -33
   %cmp107 = icmp eq i8 %27, 73
-  br i1 %cmp107, label %land.lhs.true108, label %if.end148
+  br i1 %cmp107, label %land.lhs.true108, label %if.else
 
 land.lhs.true108:                                 ; preds = %land.lhs.true103
   %arrayidx109 = getelementptr inbounds i8, ptr %b.0, i64 6
   %28 = load i8, ptr %arrayidx109, align 1, !tbaa !21
   %29 = and i8 %28, -33
   %cmp112 = icmp eq i8 %29, 84
-  br i1 %cmp112, label %land.lhs.true113, label %if.end148
+  br i1 %cmp112, label %land.lhs.true113, label %if.else
 
 land.lhs.true113:                                 ; preds = %land.lhs.true108
   %arrayidx114 = getelementptr inbounds i8, ptr %b.0, i64 7
   %30 = load i8, ptr %arrayidx114, align 1, !tbaa !21
   %31 = and i8 %30, -33
   %cmp117 = icmp eq i8 %31, 89
-  %spec.select = select i1 %cmp117, i64 8, i64 3
+  br i1 %cmp117, label %if.end148, label %if.else
+
+if.else:                                          ; preds = %land.lhs.true113, %land.lhs.true108, %land.lhs.true103, %land.lhs.true98, %land.lhs.true93, %if.then91
   br label %if.end148
 
 sw.bb124:                                         ; preds = %if.end78
@@ -883,9 +887,9 @@ land.lhs.true131:                                 ; preds = %land.lhs.true126
   %cmp135 = icmp eq i8 %35, 78
   br i1 %cmp135, label %if.end148, label %cleanup156
 
-if.end148:                                        ; preds = %land.lhs.true113, %if.then91, %land.lhs.true93, %land.lhs.true98, %land.lhs.true103, %land.lhs.true108, %land.lhs.true131
-  %.sink = phi i64 [ 3, %land.lhs.true131 ], [ 3, %land.lhs.true108 ], [ 3, %land.lhs.true103 ], [ 3, %land.lhs.true98 ], [ 3, %land.lhs.true93 ], [ 3, %if.then91 ], [ %spec.select, %land.lhs.true113 ]
-  %result.0 = phi double [ 0x7FF8000000000000, %land.lhs.true131 ], [ 0x7FF0000000000000, %land.lhs.true108 ], [ 0x7FF0000000000000, %land.lhs.true103 ], [ 0x7FF0000000000000, %land.lhs.true98 ], [ 0x7FF0000000000000, %land.lhs.true93 ], [ 0x7FF0000000000000, %if.then91 ], [ 0x7FF0000000000000, %land.lhs.true113 ]
+if.end148:                                        ; preds = %land.lhs.true131, %if.else, %land.lhs.true113
+  %.sink = phi i64 [ 3, %if.else ], [ 8, %land.lhs.true113 ], [ 3, %land.lhs.true131 ]
+  %result.0 = phi double [ 0x7FF0000000000000, %if.else ], [ 0x7FF0000000000000, %land.lhs.true113 ], [ 0x7FF8000000000000, %land.lhs.true131 ]
   %add.ptr137 = getelementptr inbounds i8, ptr %b.0, i64 %.sink
   %fneg = fneg double %result.0
   %result.1 = select i1 %cmp65, double %fneg, double %result.0
@@ -996,7 +1000,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %sub.ptr.rhs.cast15.pre-phi = phi i64 [ %.pre, %for.end.loopexit ], [ %sub.ptr.rhs.cast, %entry ]
   %__first.addr.0.lcssa = phi ptr [ %scevgep, %for.end.loopexit ], [ %__first, %entry ]
   %sub.ptr.sub16 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast15.pre-phi
-  switch i64 %sub.ptr.sub16, label %cleanup [
+  switch i64 %sub.ptr.sub16, label %sw.default [
     i64 3, label %sw.bb
     i64 2, label %sw.bb21
     i64 1, label %sw.bb26
@@ -1045,7 +1049,7 @@ sw.bb26:                                          ; preds = %if.end24, %for.end
     i8 9, label %sw.default
   ]
 
-sw.default:                                       ; preds = %sw.bb26, %sw.bb26, %sw.bb26, %sw.bb26, %sw.bb26, %sw.bb26
+sw.default:                                       ; preds = %sw.bb26, %sw.bb26, %sw.bb26, %sw.bb26, %sw.bb26, %sw.bb26, %for.end
   br label %cleanup
 
 cleanup.loopexit.split.loop.exit:                 ; preds = %if.end
@@ -1060,8 +1064,8 @@ cleanup.loopexit.split.loop.exit15:               ; preds = %if.end8
   %incdec.ptr9.le = getelementptr inbounds i8, ptr %__first.addr.086, i64 3
   br label %cleanup
 
-cleanup:                                          ; preds = %for.body, %cleanup.loopexit.split.loop.exit, %cleanup.loopexit.split.loop.exit13, %cleanup.loopexit.split.loop.exit15, %for.end, %sw.default, %sw.bb26, %sw.bb21, %sw.bb
-  %retval.0 = phi ptr [ %__first.addr.0.lcssa, %sw.bb ], [ %__first.addr.1, %sw.bb21 ], [ %__first.addr.2, %sw.bb26 ], [ %__last, %for.end ], [ %__last, %sw.default ], [ %incdec.ptr.le, %cleanup.loopexit.split.loop.exit ], [ %incdec.ptr5.le, %cleanup.loopexit.split.loop.exit13 ], [ %incdec.ptr9.le, %cleanup.loopexit.split.loop.exit15 ], [ %__first.addr.086, %for.body ]
+cleanup:                                          ; preds = %for.body, %cleanup.loopexit.split.loop.exit, %cleanup.loopexit.split.loop.exit13, %cleanup.loopexit.split.loop.exit15, %sw.default, %sw.bb26, %sw.bb21, %sw.bb
+  %retval.0 = phi ptr [ %__last, %sw.default ], [ %__first.addr.0.lcssa, %sw.bb ], [ %__first.addr.1, %sw.bb21 ], [ %__first.addr.2, %sw.bb26 ], [ %incdec.ptr.le, %cleanup.loopexit.split.loop.exit ], [ %incdec.ptr5.le, %cleanup.loopexit.split.loop.exit13 ], [ %incdec.ptr9.le, %cleanup.loopexit.split.loop.exit15 ], [ %__first.addr.086, %for.body ]
   ret ptr %retval.0
 }
 

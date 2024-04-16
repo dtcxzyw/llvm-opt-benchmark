@@ -3342,14 +3342,18 @@ do.body116:                                       ; preds = %if.then107, %do.bod
   %st_mode = getelementptr inbounds i8, ptr %module.val, i64 96
   %12 = load ptr, ptr %st_mode, align 8
   %tobool117.not = icmp eq ptr %12, null
-  br i1 %tobool117.not, label %return, label %if.then118
+  br i1 %tobool117.not, label %do.end126, label %if.then118
 
 if.then118:                                       ; preds = %do.body116
   %call121 = tail call i32 %visit(ptr noundef nonnull %12, ptr noundef %arg) #22
+  %tobool122.not = icmp eq i32 %call121, 0
+  br i1 %tobool122.not, label %do.end126, label %return
+
+do.end126:                                        ; preds = %do.body116, %if.then118
   br label %return
 
-return:                                           ; preds = %if.then118, %do.body116, %if.then107, %if.then96, %if.then85, %if.then74, %if.then63, %if.then52, %if.then41, %if.then30, %if.then19, %if.then8, %if.then
-  %retval.0 = phi i32 [ %call2, %if.then ], [ %call11, %if.then8 ], [ %call22, %if.then19 ], [ %call33, %if.then30 ], [ %call44, %if.then41 ], [ %call55, %if.then52 ], [ %call66, %if.then63 ], [ %call77, %if.then74 ], [ %call88, %if.then85 ], [ %call99, %if.then96 ], [ %call110, %if.then107 ], [ 0, %do.body116 ], [ %call121, %if.then118 ]
+return:                                           ; preds = %if.then118, %if.then107, %if.then96, %if.then85, %if.then74, %if.then63, %if.then52, %if.then41, %if.then30, %if.then19, %if.then8, %if.then, %do.end126
+  %retval.0 = phi i32 [ 0, %do.end126 ], [ %call2, %if.then ], [ %call11, %if.then8 ], [ %call22, %if.then19 ], [ %call33, %if.then30 ], [ %call44, %if.then41 ], [ %call55, %if.then52 ], [ %call66, %if.then63 ], [ %call77, %if.then74 ], [ %call88, %if.then85 ], [ %call99, %if.then96 ], [ %call110, %if.then107 ], [ %call121, %if.then118 ]
   ret i32 %retval.0
 }
 
@@ -9922,7 +9926,7 @@ register_at_forker.exit31:                        ; preds = %if.end.i23, %if.the
 
 if.end20.i:                                       ; preds = %if.end16.i, %register_at_forker.exit31
   %after_forkers_parent.i = getelementptr inbounds i8, ptr %15, i64 4240
-  br i1 %tobool.not.i20.i, label %exit, label %if.end.i20
+  br i1 %tobool.not.i20.i, label %register_at_forker.exit.thread, label %if.end.i20
 
 if.end.i20:                                       ; preds = %if.end20.i
   %20 = load ptr, ptr %after_forkers_parent.i, align 8
@@ -9940,11 +9944,13 @@ register_at_forker.exit:                          ; preds = %if.end.i20, %if.the
   %call7.i = call i32 @PyList_Append(ptr noundef nonnull %21, ptr noundef nonnull %after_in_parent.05472) #22
   %call7.i.fr = freeze i32 %call7.i
   %tobool22.not.i = icmp eq i32 %call7.i.fr, 0
-  %spec.select = select i1 %tobool22.not.i, ptr @_Py_NoneStruct, ptr null
+  br i1 %tobool22.not.i, label %register_at_forker.exit.thread, label %exit
+
+register_at_forker.exit.thread:                   ; preds = %if.end20.i, %register_at_forker.exit
   br label %exit
 
-exit:                                             ; preds = %register_at_forker.exit, %if.then2.i, %if.end20.i, %if.then2.i28, %register_at_forker.exit31, %register_at_forker.exit.i, %if.then2.i.i, %check_null_or_callable.exit29.i, %check_null_or_callable.exit19.i, %check_null_or_callable.exit.i, %if.then.i, %cond.end9
-  %return_value.0 = phi ptr [ null, %cond.end9 ], [ null, %if.then.i ], [ null, %check_null_or_callable.exit29.i ], [ null, %check_null_or_callable.exit19.i ], [ null, %check_null_or_callable.exit.i ], [ null, %register_at_forker.exit.i ], [ null, %register_at_forker.exit31 ], [ null, %if.then2.i.i ], [ null, %if.then2.i28 ], [ @_Py_NoneStruct, %if.end20.i ], [ null, %if.then2.i ], [ %spec.select, %register_at_forker.exit ]
+exit:                                             ; preds = %if.then2.i, %if.then2.i28, %register_at_forker.exit31, %register_at_forker.exit.i, %if.then2.i.i, %check_null_or_callable.exit29.i, %check_null_or_callable.exit19.i, %check_null_or_callable.exit.i, %if.then.i, %register_at_forker.exit, %register_at_forker.exit.thread, %cond.end9
+  %return_value.0 = phi ptr [ null, %cond.end9 ], [ null, %if.then.i ], [ null, %check_null_or_callable.exit29.i ], [ null, %check_null_or_callable.exit19.i ], [ null, %check_null_or_callable.exit.i ], [ null, %register_at_forker.exit.i ], [ null, %register_at_forker.exit31 ], [ null, %if.then2.i.i ], [ @_Py_NoneStruct, %register_at_forker.exit.thread ], [ null, %register_at_forker.exit ], [ null, %if.then2.i28 ], [ null, %if.then2.i ]
   ret ptr %return_value.0
 }
 
@@ -22306,7 +22312,7 @@ declare i64 @PyTuple_Size(ptr noundef) local_unnamed_addr #1
 declare i32 @_PyTime_ObjectToTimespec(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @split_py_long_to_s_and_ns(ptr %module.32.val.0.val, ptr noundef %py_long, ptr nocapture noundef writeonly %s, ptr nocapture noundef writeonly %ns) unnamed_addr #0 {
+define internal fastcc noundef i32 @split_py_long_to_s_and_ns(ptr %module.32.val.0.val, ptr noundef %py_long, ptr nocapture noundef writeonly %s, ptr nocapture noundef writeonly %ns) unnamed_addr #0 {
 entry:
   %call1 = tail call ptr @PyNumber_Divmod(ptr noundef %py_long, ptr noundef %module.32.val.0.val) #22
   %tobool.not = icmp eq ptr %call1, null
@@ -22356,16 +22362,18 @@ if.end18:                                         ; preds = %land.lhs.true, %if.
   %call21 = tail call i64 @PyLong_AsLong(ptr noundef %7) #22
   store i64 %call21, ptr %ns, align 8
   %cmp22 = icmp eq i64 %call21, -1
-  br i1 %cmp22, label %land.lhs.true23, label %if.then.i
+  br i1 %cmp22, label %land.lhs.true23, label %if.end27
 
 land.lhs.true23:                                  ; preds = %if.end18
   %call24 = tail call ptr @PyErr_Occurred() #22
   %tobool25.not = icmp eq ptr %call24, null
-  %spec.select = zext i1 %tobool25.not to i32
+  br i1 %tobool25.not, label %if.end27, label %if.then.i
+
+if.end27:                                         ; preds = %land.lhs.true23, %if.end18
   br label %if.then.i
 
-if.then.i:                                        ; preds = %land.lhs.true23, %if.end18, %land.lhs.true, %if.then6
-  %result.0.ph = phi i32 [ %spec.select, %land.lhs.true23 ], [ 1, %if.end18 ], [ 0, %land.lhs.true ], [ 0, %if.then6 ]
+if.then.i:                                        ; preds = %land.lhs.true23, %land.lhs.true, %if.end27, %if.then6
+  %result.0.ph = phi i32 [ 1, %if.end27 ], [ 0, %land.lhs.true23 ], [ 0, %land.lhs.true ], [ 0, %if.then6 ]
   %8 = load i64, ptr %call1, align 8
   %9 = and i64 %8, 2147483648
   %cmp.i2.not.i = icmp eq i64 %9, 0

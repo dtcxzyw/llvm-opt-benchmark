@@ -573,37 +573,48 @@ define internal noundef i32 @ns2501_mode_valid(ptr nocapture readnone %0, ptr no
   %14 = zext i16 %13 to i32
   tail call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.6, i32 noundef %5, i32 noundef %8, i32 noundef %11, i32 noundef %14) #7
   %15 = load i16, ptr %3, align 4
-  switch i16 %15, label %27 [
+  switch i16 %15, label %34 [
     i16 640, label %16
-    i16 800, label %19
-    i16 1024, label %22
+    i16 800, label %22
+    i16 1024, label %28
   ]
 
 16:                                               ; preds = %2
   %17 = load i16, ptr %9, align 2
   %18 = icmp eq i16 %17, 480
-  br i1 %18, label %.sink.split, label %27
+  br i1 %18, label %19, label %34
 
-19:                                               ; preds = %2
-  %20 = load i16, ptr %9, align 2
-  %21 = icmp eq i16 %20, 600
-  br i1 %21, label %.sink.split, label %27
+19:                                               ; preds = %16
+  %20 = load i32, ptr %1, align 8
+  %21 = icmp eq i32 %20, 25175
+  br i1 %21, label %35, label %34
 
 22:                                               ; preds = %2
   %23 = load i16, ptr %9, align 2
-  %24 = icmp eq i16 %23, 768
-  br i1 %24, label %.sink.split, label %27
+  %24 = icmp eq i16 %23, 600
+  br i1 %24, label %25, label %34
 
-.sink.split:                                      ; preds = %22, %19, %16
-  %.sink4 = phi i32 [ 25175, %16 ], [ 40000, %19 ], [ 65000, %22 ]
-  %25 = load i32, ptr %1, align 8
-  %26 = icmp eq i32 %25, %.sink4
-  %spec.select2 = select i1 %26, i32 0, i32 33
-  br label %27
+25:                                               ; preds = %22
+  %26 = load i32, ptr %1, align 8
+  %27 = icmp eq i32 %26, 40000
+  br i1 %27, label %35, label %34
 
-27:                                               ; preds = %.sink.split, %19, %16, %2, %22
-  %28 = phi i32 [ 33, %22 ], [ 33, %2 ], [ 33, %16 ], [ 33, %19 ], [ %spec.select2, %.sink.split ]
-  ret i32 %28
+28:                                               ; preds = %2
+  %29 = load i16, ptr %9, align 2
+  %30 = icmp eq i16 %29, 768
+  br i1 %30, label %31, label %34
+
+31:                                               ; preds = %28
+  %32 = load i32, ptr %1, align 8
+  %33 = icmp eq i32 %32, 65000
+  br i1 %33, label %35, label %34
+
+34:                                               ; preds = %22, %25, %16, %19, %31, %28, %2
+  br label %35
+
+35:                                               ; preds = %34, %31, %25, %19
+  %36 = phi i32 [ 33, %34 ], [ 0, %31 ], [ 0, %25 ], [ 0, %19 ]
+  ret i32 %36
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

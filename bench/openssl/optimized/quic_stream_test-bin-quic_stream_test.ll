@@ -1194,7 +1194,7 @@ err:                                              ; preds = %lor.lhs.false254, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_rstream_random(i32 noundef %idx) #0 {
+define internal noundef i32 @test_rstream_random(i32 noundef %idx) #0 {
 entry:
   %record.i = alloca ptr, align 8
   %rec_len.i = alloca i64, align 8
@@ -1237,27 +1237,27 @@ for.cond13.preheader:                             ; preds = %for.body
   br label %for.cond17.preheader
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
-  %i.093 = phi i64 [ %inc, %for.body ], [ 0, %for.body.preheader ]
+  %i.092 = phi i64 [ %inc, %for.body ], [ 0, %for.body.preheader ]
   %call12 = tail call i32 @test_random() #7
   %conv = trunc i32 %call12 to i8
-  %arrayidx = getelementptr inbounds i8, ptr %call, i64 %i.093
+  %arrayidx = getelementptr inbounds i8, ptr %call, i64 %i.092
   store i8 %conv, ptr %arrayidx, align 1
-  %inc = add nuw nsw i64 %i.093, 1
+  %inc = add nuw nsw i64 %i.092, 1
   %exitcond.not = icmp eq i64 %inc, 10000
   br i1 %exitcond.not, label %for.cond13.preheader, label %for.body, !llvm.loop !15
 
 for.cond17.preheader:                             ; preds = %for.cond13.preheader, %for.inc175
-  %indvars.iv109 = phi i64 [ 0, %for.cond13.preheader ], [ %indvars.iv.next110, %for.inc175 ]
-  %fin_set.0100 = phi i32 [ 0, %for.cond13.preheader ], [ %fin_set.1, %for.inc175 ]
-  %queued_max.098 = phi i64 [ 0, %for.cond13.preheader ], [ %queued_max.3, %for.inc175 ]
-  %queued_min.097 = phi i64 [ 0, %for.cond13.preheader ], [ %add136, %for.inc175 ]
-  %1 = mul nuw nsw i64 %indvars.iv109, 10
+  %indvars.iv108 = phi i64 [ 0, %for.cond13.preheader ], [ %indvars.iv.next109, %for.inc175 ]
+  %fin_set.099 = phi i32 [ 0, %for.cond13.preheader ], [ %fin_set.1, %for.inc175 ]
+  %queued_max.097 = phi i64 [ 0, %for.cond13.preheader ], [ %queued_max.3, %for.inc175 ]
+  %queued_min.096 = phi i64 [ 0, %for.cond13.preheader ], [ %add136, %for.inc175 ]
+  %1 = mul nuw nsw i64 %indvars.iv108, 10
   br label %for.body20
 
 for.body20:                                       ; preds = %for.cond17.preheader, %for.inc97
   %indvars.iv = phi i64 [ 0, %for.cond17.preheader ], [ %indvars.iv.next, %for.inc97 ]
-  %queued_max.195 = phi i64 [ %queued_max.098, %for.cond17.preheader ], [ %queued_max.3, %for.inc97 ]
-  %queued_min.194 = phi i64 [ %queued_min.097, %for.cond17.preheader ], [ %queued_min.4, %for.inc97 ]
+  %queued_max.194 = phi i64 [ %queued_max.097, %for.cond17.preheader ], [ %queued_max.3, %for.inc97 ]
+  %queued_min.193 = phi i64 [ %queued_min.096, %for.cond17.preheader ], [ %queued_min.4, %for.inc97 ]
   %call23 = call i32 @test_random() #7
   %rem24 = urem i32 %call23, 10
   %cmp25 = icmp eq i32 %rem24, 0
@@ -1266,10 +1266,10 @@ for.body20:                                       ; preds = %for.cond17.preheade
 if.end28:                                         ; preds = %for.body20
   %2 = add nuw nsw i64 %indvars.iv, %1
   %3 = mul nuw nsw i64 %2, 10
-  %cmp29.not = icmp ult i64 %queued_min.194, %3
+  %cmp29.not = icmp ult i64 %queued_min.193, %3
   %add31 = add nuw nsw i64 %3, 10
-  %spec.select = call i64 @llvm.umax.i64(i64 %add31, i64 %queued_min.194)
-  %queued_min.2 = select i1 %cmp29.not, i64 %queued_min.194, i64 %spec.select
+  %spec.select = call i64 @llvm.umax.i64(i64 %add31, i64 %queued_min.193)
+  %queued_min.2 = select i1 %cmp29.not, i64 %queued_min.193, i64 %spec.select
   %add.ptr = getelementptr inbounds i8, ptr %call, i64 %3
   %call37 = call i32 @ossl_quic_rstream_queue_data(ptr noundef %call6, ptr noundef null, i64 noundef %3, ptr noundef %add.ptr, i64 noundef 10, i32 noundef 0) #7
   %cmp38 = icmp ne i32 %call37, 0
@@ -1279,7 +1279,7 @@ if.end28:                                         ; preds = %for.body20
   br i1 %tobool41.not, label %err, label %if.end43
 
 if.end43:                                         ; preds = %if.end28
-  %spec.select80 = call i64 @llvm.umax.i64(i64 %queued_max.195, i64 %add31)
+  %spec.select80 = call i64 @llvm.umax.i64(i64 %queued_max.194, i64 %add31)
   %call50 = call i32 @test_random() #7
   %rem51 = urem i32 %call50, 5
   %cmp52.not = icmp eq i32 %rem51, 0
@@ -1289,7 +1289,7 @@ if.end55:                                         ; preds = %if.end43
   %call56 = call i32 @test_random() #7
   %rem57 = urem i32 %call56, 50
   %conv58 = zext nneg i32 %rem57 to i64
-  %add59 = add i64 %queued_min.097, %conv58
+  %add59 = add i64 %queued_min.096, %conv58
   %cmp60 = icmp ugt i64 %add59, 50
   %sub = add i64 %add59, -50
   %spec.select81 = select i1 %cmp60, i64 %sub, i64 %add59
@@ -1318,11 +1318,11 @@ if.end90:                                         ; preds = %if.end55
   br label %for.inc97
 
 for.inc97:                                        ; preds = %if.end90, %if.end43, %for.body20
-  %queued_min.4 = phi i64 [ %queued_min.194, %for.body20 ], [ %queued_min.2, %if.end43 ], [ %queued_min.3, %if.end90 ]
-  %queued_max.3 = phi i64 [ %queued_max.195, %for.body20 ], [ %spec.select80, %if.end43 ], [ %spec.select83, %if.end90 ]
+  %queued_min.4 = phi i64 [ %queued_min.193, %for.body20 ], [ %queued_min.2, %if.end43 ], [ %queued_min.3, %if.end90 ]
+  %queued_max.3 = phi i64 [ %queued_max.194, %for.body20 ], [ %spec.select80, %if.end43 ], [ %spec.select83, %if.end90 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond108.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond108.not, label %for.end99, label %for.body20, !llvm.loop !16
+  %exitcond107.not = icmp eq i64 %indvars.iv.next, 10
+  br i1 %exitcond107.not, label %for.end99, label %for.body20, !llvm.loop !16
 
 for.end99:                                        ; preds = %for.inc97
   br i1 %cmp101, label %if.then103, label %if.else
@@ -1392,14 +1392,14 @@ if.else:                                          ; preds = %for.end99
 
 if.end118:                                        ; preds = %if.else, %test_single_copy_read.exit
   %9 = load i64, ptr %readbytes, align 8
-  %sub119 = sub i64 %queued_min.4, %queued_min.097
+  %sub119 = sub i64 %queued_min.4, %queued_min.096
   %call120 = call i32 @test_size_t_ge(ptr noundef nonnull @.str.4, i32 noundef 545, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.94, i64 noundef %9, i64 noundef %sub119) #7
   %tobool121.not = icmp eq i32 %call120, 0
   br i1 %tobool121.not, label %err, label %lor.lhs.false122
 
 lor.lhs.false122:                                 ; preds = %if.end118
   %10 = load i64, ptr %readbytes, align 8
-  %add123 = add i64 %10, %queued_min.097
+  %add123 = add i64 %10, %queued_min.096
   %call124 = call i32 @test_size_t_le(ptr noundef nonnull @.str.4, i32 noundef 546, ptr noundef nonnull @.str.95, ptr noundef nonnull @.str.96, i64 noundef %add123, i64 noundef 10000) #7
   %tobool125.not = icmp eq i32 %call124, 0
   br i1 %tobool125.not, label %err, label %lor.lhs.false126
@@ -1409,14 +1409,14 @@ lor.lhs.false126:                                 ; preds = %lor.lhs.false122
 
 land.lhs.true130:                                 ; preds = %lor.lhs.false126
   %11 = load i64, ptr %readbytes, align 8
-  %add.ptr131 = getelementptr inbounds i8, ptr %call, i64 %queued_min.097
+  %add.ptr131 = getelementptr inbounds i8, ptr %call, i64 %queued_min.096
   %call132 = call i32 @test_mem_eq(ptr noundef nonnull @.str.4, i32 noundef 549, ptr noundef nonnull @.str.97, ptr noundef nonnull @.str.98, ptr noundef %call2, i64 noundef %11, ptr noundef %add.ptr131, i64 noundef %11) #7
   %tobool133.not = icmp eq i32 %call132, 0
   br i1 %tobool133.not, label %err, label %if.end135
 
 if.end135:                                        ; preds = %land.lhs.true130, %lor.lhs.false126
   %12 = load i64, ptr %readbytes, align 8
-  %add136 = add i64 %12, %queued_min.097
+  %add136 = add i64 %12, %queued_min.096
   %call137 = call i32 @test_random() #7
   %rem138 = urem i32 %call137, 50
   %cmp139 = icmp eq i32 %rem138, 0
@@ -1441,7 +1441,7 @@ lor.lhs.false149:                                 ; preds = %if.then141
   br i1 %tobool154.not, label %err, label %if.end157
 
 if.end157:                                        ; preds = %lor.lhs.false149, %if.end135
-  %tobool158.not = icmp eq i32 %fin_set.0100, 0
+  %tobool158.not = icmp eq i32 %fin_set.099, 0
   br i1 %tobool158.not, label %land.lhs.true159, label %for.inc175
 
 land.lhs.true159:                                 ; preds = %if.end157
@@ -1463,25 +1463,25 @@ if.then166:                                       ; preds = %land.lhs.true159
 for.inc175:                                       ; preds = %if.end157, %land.lhs.true159, %if.then166
   %tobool198 = phi i1 [ false, %if.end157 ], [ false, %if.then166 ], [ true, %land.lhs.true159 ]
   %fin_set.1 = phi i32 [ 1, %if.end157 ], [ 1, %if.then166 ], [ 0, %land.lhs.true159 ]
-  %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
-  %exitcond113.not = icmp eq i64 %indvars.iv.next110, 100
-  br i1 %exitcond113.not, label %for.end177, label %for.cond17.preheader, !llvm.loop !17
+  %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
+  %exitcond112.not = icmp eq i64 %indvars.iv.next109, 100
+  br i1 %exitcond112.not, label %for.end177, label %for.cond17.preheader, !llvm.loop !17
 
 for.end177:                                       ; preds = %for.inc175
   %13 = load i32, ptr %fin, align 4
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.4, i32 noundef 567, ptr noundef nonnull @.str.101, i64 noundef %add136, i32 noundef %13) #7
-  %cmp183101 = icmp ne i64 %add136, 0
-  %or.cond = and i1 %cmp, %cmp183101
+  %cmp183100 = icmp ne i64 %add136, 0
+  %or.cond = and i1 %cmp, %cmp183100
   br i1 %or.cond, label %for.body185, label %if.end194
 
 for.cond182:                                      ; preds = %for.body185
-  %inc192 = add nuw i64 %i.1102, 1
-  %exitcond114.not = icmp eq i64 %inc192, %add136
-  br i1 %exitcond114.not, label %if.end194, label %for.body185, !llvm.loop !18
+  %inc192 = add nuw i64 %i.1101, 1
+  %exitcond113.not = icmp eq i64 %inc192, %add136
+  br i1 %exitcond113.not, label %if.end194, label %for.body185, !llvm.loop !18
 
 for.body185:                                      ; preds = %for.end177, %for.cond182
-  %i.1102 = phi i64 [ %inc192, %for.cond182 ], [ 0, %for.end177 ]
-  %arrayidx186 = getelementptr inbounds i8, ptr %call, i64 %i.1102
+  %i.1101 = phi i64 [ %inc192, %for.cond182 ], [ 0, %for.end177 ]
+  %arrayidx186 = getelementptr inbounds i8, ptr %call, i64 %i.1101
   %14 = load i8, ptr %arrayidx186, align 1
   %call187 = call i32 @test_uchar_eq(ptr noundef nonnull @.str.4, i32 noundef 571, ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.12, i8 noundef zeroext %14, i8 noundef zeroext 0) #7
   %tobool188.not = icmp eq i32 %call187, 0
@@ -1493,7 +1493,7 @@ if.end194:                                        ; preds = %for.cond182, %for.e
   %15 = load i32, ptr %fin, align 4
   %tobool200 = icmp ne i32 %15, 0
   %or.cond1 = select i1 %or.cond.not79, i1 true, i1 %tobool200
-  br i1 %or.cond1, label %err, label %if.then201
+  br i1 %or.cond1, label %if.end231, label %if.then201
 
 if.then201:                                       ; preds = %if.end194
   br i1 %cmp101, label %if.then205, label %if.else213
@@ -1523,14 +1523,16 @@ lor.lhs.false224:                                 ; preds = %if.end221
   %cmp225 = icmp ne i32 %17, 0
   %conv226 = zext i1 %cmp225 to i32
   %call227 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 585, ptr noundef nonnull @.str.61, i32 noundef %conv226) #7
-  %tobool228.not = icmp ne i32 %call227, 0
-  %spec.select84 = zext i1 %tobool228.not to i32
+  %tobool228.not = icmp eq i32 %call227, 0
+  br i1 %tobool228.not, label %err, label %if.end231
+
+if.end231:                                        ; preds = %lor.lhs.false224, %if.end194
   br label %err
 
-err:                                              ; preds = %if.then166, %if.then141, %lor.lhs.false149, %if.end118, %lor.lhs.false122, %land.lhs.true130, %if.else, %test_single_copy_read.exit, %if.end55, %if.end28, %for.body185, %lor.lhs.false224, %if.end194, %if.end221, %if.else213, %if.then205, %entry, %lor.lhs.false, %lor.lhs.false5
-  %read_buf.0 = phi ptr [ %call2, %if.end221 ], [ %call2, %if.then205 ], [ %call2, %if.else213 ], [ %call2, %lor.lhs.false5 ], [ %call2, %lor.lhs.false ], [ null, %entry ], [ %call2, %if.end194 ], [ %call2, %lor.lhs.false224 ], [ %call2, %for.body185 ], [ %call2, %if.end28 ], [ %call2, %if.end55 ], [ %call2, %test_single_copy_read.exit ], [ %call2, %if.else ], [ %call2, %land.lhs.true130 ], [ %call2, %lor.lhs.false122 ], [ %call2, %if.end118 ], [ %call2, %lor.lhs.false149 ], [ %call2, %if.then141 ], [ %call2, %if.then166 ]
-  %rstream.0 = phi ptr [ %call6, %if.end221 ], [ %call6, %if.then205 ], [ %call6, %if.else213 ], [ %call6, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call6, %if.end194 ], [ %call6, %lor.lhs.false224 ], [ %call6, %for.body185 ], [ %call6, %if.end28 ], [ %call6, %if.end55 ], [ %call6, %test_single_copy_read.exit ], [ %call6, %if.else ], [ %call6, %land.lhs.true130 ], [ %call6, %lor.lhs.false122 ], [ %call6, %if.end118 ], [ %call6, %lor.lhs.false149 ], [ %call6, %if.then141 ], [ %call6, %if.then166 ]
-  %ret.0 = phi i32 [ 0, %if.end221 ], [ 0, %if.then205 ], [ 0, %if.else213 ], [ 0, %lor.lhs.false5 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ 1, %if.end194 ], [ %spec.select84, %lor.lhs.false224 ], [ 0, %for.body185 ], [ 0, %if.end28 ], [ 0, %if.end55 ], [ 0, %test_single_copy_read.exit ], [ 0, %if.else ], [ 0, %land.lhs.true130 ], [ 0, %lor.lhs.false122 ], [ 0, %if.end118 ], [ 0, %lor.lhs.false149 ], [ 0, %if.then141 ], [ 0, %if.then166 ]
+err:                                              ; preds = %if.then166, %if.then141, %lor.lhs.false149, %if.end118, %lor.lhs.false122, %land.lhs.true130, %if.else, %test_single_copy_read.exit, %if.end55, %if.end28, %for.body185, %if.end221, %lor.lhs.false224, %if.else213, %if.then205, %entry, %lor.lhs.false, %lor.lhs.false5, %if.end231
+  %read_buf.0 = phi ptr [ %call2, %if.end231 ], [ %call2, %lor.lhs.false224 ], [ %call2, %if.end221 ], [ %call2, %if.then205 ], [ %call2, %if.else213 ], [ %call2, %lor.lhs.false5 ], [ %call2, %lor.lhs.false ], [ null, %entry ], [ %call2, %for.body185 ], [ %call2, %if.end28 ], [ %call2, %if.end55 ], [ %call2, %test_single_copy_read.exit ], [ %call2, %if.else ], [ %call2, %land.lhs.true130 ], [ %call2, %lor.lhs.false122 ], [ %call2, %if.end118 ], [ %call2, %lor.lhs.false149 ], [ %call2, %if.then141 ], [ %call2, %if.then166 ]
+  %rstream.0 = phi ptr [ %call6, %if.end231 ], [ %call6, %lor.lhs.false224 ], [ %call6, %if.end221 ], [ %call6, %if.then205 ], [ %call6, %if.else213 ], [ %call6, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call6, %for.body185 ], [ %call6, %if.end28 ], [ %call6, %if.end55 ], [ %call6, %test_single_copy_read.exit ], [ %call6, %if.else ], [ %call6, %land.lhs.true130 ], [ %call6, %lor.lhs.false122 ], [ %call6, %if.end118 ], [ %call6, %lor.lhs.false149 ], [ %call6, %if.then141 ], [ %call6, %if.then166 ]
+  %ret.0 = phi i32 [ 1, %if.end231 ], [ 0, %lor.lhs.false224 ], [ 0, %if.end221 ], [ 0, %if.then205 ], [ 0, %if.else213 ], [ 0, %lor.lhs.false5 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ 0, %for.body185 ], [ 0, %if.end28 ], [ 0, %if.end55 ], [ 0, %test_single_copy_read.exit ], [ 0, %if.else ], [ 0, %land.lhs.true130 ], [ 0, %lor.lhs.false122 ], [ 0, %if.end118 ], [ 0, %lor.lhs.false149 ], [ 0, %if.then141 ], [ 0, %if.then166 ]
   call void @ossl_quic_rstream_free(ptr noundef %rstream.0) #7
   call void @CRYPTO_free(ptr noundef %call, ptr noundef nonnull @.str.4, i32 noundef 593) #7
   call void @CRYPTO_free(ptr noundef %read_buf.0, ptr noundef nonnull @.str.4, i32 noundef 594) #7

@@ -2715,7 +2715,7 @@ define dso_local ptr @xas_find_marked(ptr nocapture noundef %0, i64 noundef %1, 
 
 18:                                               ; preds = %14
   %19 = icmp eq ptr %5, null
-  br i1 %19, label %165, label %20
+  br i1 %19, label %164, label %20
 
 20:                                               ; preds = %18
   %21 = icmp ugt ptr %5, inttoptr (i64 3 to ptr)
@@ -2750,15 +2750,15 @@ define dso_local ptr @xas_find_marked(ptr nocapture noundef %0, i64 noundef %1, 
 
 .thread:                                          ; preds = %22
   %.not = icmp eq i64 %16, 0
-  br i1 %.not, label %.thread10, label %.loopexit12
+  br i1 %.not, label %.thread9, label %.loopexit12
 
-.thread10:                                        ; preds = %.thread
+.thread9:                                         ; preds = %.thread
   %39 = getelementptr inbounds i8, ptr %23, i64 4
   %40 = load i32, ptr %39, align 4
   %41 = shl i32 67108864, %2
   %42 = and i32 %40, %41
   %43 = icmp eq i32 %42, 0
-  br i1 %43, label %165, label %.thread11
+  br i1 %43, label %164, label %.thread11
 
 44:                                               ; preds = %31
   store ptr %33, ptr %4, align 8
@@ -2779,12 +2779,12 @@ define dso_local ptr @xas_find_marked(ptr nocapture noundef %0, i64 noundef %1, 
   %56 = icmp eq i32 %2, 0
   br label %57
 
-57:                                               ; preds = %158, %50
-  %58 = phi ptr [ %51, %50 ], [ %159, %158 ]
-  %59 = phi ptr [ %51, %50 ], [ %160, %158 ]
-  %60 = phi i8 [ %52, %50 ], [ %161, %158 ]
-  %61 = phi i8 [ %53, %50 ], [ %163, %158 ]
-  %62 = phi i64 [ %16, %50 ], [ %162, %158 ]
+57:                                               ; preds = %157, %50
+  %58 = phi ptr [ %51, %50 ], [ %158, %157 ]
+  %59 = phi ptr [ %51, %50 ], [ %159, %157 ]
+  %60 = phi i8 [ %52, %50 ], [ %160, %157 ]
+  %61 = phi i8 [ %53, %50 ], [ %162, %157 ]
+  %62 = phi i64 [ %16, %50 ], [ %161, %157 ]
   %63 = icmp eq i8 %60, 64
   br i1 %63, label %64, label %71, !prof !29
 
@@ -2797,7 +2797,7 @@ define dso_local ptr @xas_find_marked(ptr nocapture noundef %0, i64 noundef %1, 
   %69 = load volatile ptr, ptr %68, align 8
   store ptr %69, ptr %4, align 8
   %70 = icmp eq ptr %69, null
-  br i1 %70, label %.loopexit12, label %158
+  br i1 %70, label %.loopexit12, label %157
 
 71:                                               ; preds = %57
   %72 = and i8 %61, 1
@@ -2837,7 +2837,7 @@ define dso_local ptr @xas_find_marked(ptr nocapture noundef %0, i64 noundef %1, 
   %98 = zext nneg i8 %72 to i32
   %99 = add nuw nsw i32 %97, %98
   %100 = icmp ult i32 %99, 64
-  br i1 %100, label %101, label %112
+  br i1 %100, label %101, label %.thread10
 
 101:                                              ; preds = %94
   %102 = getelementptr inbounds i8, ptr %59, i64 552
@@ -2847,103 +2847,105 @@ define dso_local ptr @xas_find_marked(ptr nocapture noundef %0, i64 noundef %1, 
   %106 = shl nsw i64 -1, %104
   %107 = and i64 %105, %106
   %108 = icmp eq i64 %107, 0
-  br i1 %108, label %112, label %109
+  br i1 %108, label %.thread10, label %109
 
 109:                                              ; preds = %101
   %110 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %107) #9, !srcloc !48
   %111 = trunc i64 %110 to i32
-  br label %112
+  br label %.thread10
 
-112:                                              ; preds = %101, %109, %94
-  %113 = phi i32 [ 64, %94 ], [ %111, %109 ], [ 64, %101 ]
-  %114 = icmp ugt i32 %113, %97
-  br i1 %114, label %115, label %128
+.thread10:                                        ; preds = %101, %94, %109
+  %112 = phi i32 [ %111, %109 ], [ 64, %94 ], [ 64, %101 ]
+  %113 = icmp ugt i32 %112, %97
+  br i1 %113, label %114, label %127
 
-115:                                              ; preds = %112
-  %116 = zext i32 %113 to i64
-  %117 = load i8, ptr %59, align 8
-  %118 = zext i8 %117 to i64
-  %119 = shl i64 -64, %118
-  %120 = and i64 %119, %96
-  %121 = shl i64 %116, %118
-  %122 = add i64 %120, %121
-  store i64 %122, ptr %15, align 8
-  %123 = add i64 %122, -1
-  %124 = icmp ult i64 %123, %1
-  br i1 %124, label %125, label %.loopexit
+114:                                              ; preds = %.thread10
+  %115 = zext i32 %112 to i64
+  %116 = load i8, ptr %59, align 8
+  %117 = zext i8 %116 to i64
+  %118 = shl i64 -64, %117
+  %119 = and i64 %118, %96
+  %120 = shl i64 %115, %117
+  %121 = add i64 %119, %120
+  store i64 %121, ptr %15, align 8
+  %122 = add i64 %121, -1
+  %123 = icmp ult i64 %122, %1
+  br i1 %123, label %124, label %.loopexit
 
-125:                                              ; preds = %115
-  %126 = trunc i32 %113 to i8
-  store i8 %126, ptr %54, align 2
-  %127 = icmp eq i32 %113, 64
-  br i1 %127, label %158, label %128
+124:                                              ; preds = %114
+  %125 = trunc i32 %112 to i8
+  store i8 %125, ptr %54, align 2
+  %126 = icmp eq i32 %112, 64
+  br i1 %126, label %157, label %127
 
-128:                                              ; preds = %125, %112
-  %129 = phi i8 [ %126, %125 ], [ %95, %112 ]
-  %130 = phi i64 [ %122, %125 ], [ %96, %112 ]
-  %131 = phi i8 [ 0, %125 ], [ %61, %112 ]
-  %132 = getelementptr inbounds i8, ptr %58, i64 40
-  %133 = zext i8 %129 to i64
-  %134 = getelementptr [64 x ptr], ptr %132, i64 0, i64 %133
-  %135 = load volatile ptr, ptr %134, align 8
-  %136 = icmp eq ptr %135, null
-  br i1 %136, label %137, label %144
+127:                                              ; preds = %124, %.thread10
+  %128 = phi i8 [ %125, %124 ], [ %95, %.thread10 ]
+  %129 = phi i64 [ %121, %124 ], [ %96, %.thread10 ]
+  %130 = phi i8 [ 0, %124 ], [ %61, %.thread10 ]
+  %131 = getelementptr inbounds i8, ptr %58, i64 40
+  %132 = zext i8 %128 to i64
+  %133 = getelementptr [64 x ptr], ptr %131, i64 0, i64 %132
+  %134 = load volatile ptr, ptr %133, align 8
+  %135 = icmp eq ptr %134, null
+  br i1 %135, label %136, label %143
 
-137:                                              ; preds = %128
-  %138 = load ptr, ptr %0, align 8
-  %139 = getelementptr inbounds i8, ptr %138, i64 4
-  %140 = load i32, ptr %139, align 4
-  %141 = and i32 %140, 4
-  %142 = icmp ne i32 %141, 0
-  %143 = and i1 %56, %142
-  br i1 %143, label %.thread11, label %158
+136:                                              ; preds = %127
+  %137 = load ptr, ptr %0, align 8
+  %138 = getelementptr inbounds i8, ptr %137, i64 4
+  %139 = load i32, ptr %138, align 4
+  %140 = and i32 %139, 4
+  %141 = icmp ne i32 %140, 0
+  %142 = and i1 %56, %141
+  br i1 %142, label %.thread11, label %157
 
-144:                                              ; preds = %128
-  %145 = ptrtoint ptr %135 to i64
-  %146 = and i64 %145, 3
-  %147 = icmp eq i64 %146, 2
-  %148 = icmp ugt ptr %135, inttoptr (i64 4096 to ptr)
-  %149 = and i1 %148, %147
-  br i1 %149, label %150, label %.thread11
+143:                                              ; preds = %127
+  %144 = ptrtoint ptr %134 to i64
+  %145 = and i64 %144, 3
+  %146 = icmp eq i64 %145, 2
+  %147 = icmp ugt ptr %134, inttoptr (i64 4096 to ptr)
+  %148 = and i1 %147, %146
+  br i1 %148, label %149, label %.thread11
 
-150:                                              ; preds = %144
-  %151 = add nsw i64 %145, -2
-  %152 = inttoptr i64 %151 to ptr
-  store ptr %152, ptr %4, align 8
-  %153 = load i8, ptr %152, align 8
-  %154 = zext nneg i8 %153 to i64
-  %155 = lshr i64 %130, %154
-  %156 = trunc i64 %155 to i8
-  %157 = and i8 %156, 63
-  store i8 %157, ptr %54, align 2
-  br label %158
+149:                                              ; preds = %143
+  %150 = add nsw i64 %144, -2
+  %151 = inttoptr i64 %150 to ptr
+  store ptr %151, ptr %4, align 8
+  %152 = load i8, ptr %151, align 8
+  %153 = zext nneg i8 %152 to i64
+  %154 = lshr i64 %129, %153
+  %155 = trunc i64 %154 to i8
+  %156 = and i8 %155, 63
+  store i8 %156, ptr %54, align 2
+  br label %157
 
-158:                                              ; preds = %150, %137, %125, %64
-  %159 = phi ptr [ %58, %125 ], [ %152, %150 ], [ %58, %137 ], [ %69, %64 ]
-  %160 = phi ptr [ %59, %125 ], [ %152, %150 ], [ %58, %137 ], [ %69, %64 ]
-  %161 = phi i8 [ 64, %125 ], [ %157, %150 ], [ %129, %137 ], [ %67, %64 ]
-  %162 = phi i64 [ %122, %125 ], [ %130, %150 ], [ %130, %137 ], [ %62, %64 ]
-  %163 = phi i8 [ 0, %125 ], [ %131, %150 ], [ %131, %137 ], [ 0, %64 ]
-  %164 = icmp ugt i64 %162, %1
-  br i1 %164, label %.loopexit12, label %57, !llvm.loop !49
+157:                                              ; preds = %149, %136, %124, %64
+  %158 = phi ptr [ %58, %124 ], [ %151, %149 ], [ %58, %136 ], [ %69, %64 ]
+  %159 = phi ptr [ %59, %124 ], [ %151, %149 ], [ %58, %136 ], [ %69, %64 ]
+  %160 = phi i8 [ 64, %124 ], [ %156, %149 ], [ %128, %136 ], [ %67, %64 ]
+  %161 = phi i64 [ %121, %124 ], [ %129, %149 ], [ %129, %136 ], [ %62, %64 ]
+  %162 = phi i8 [ 0, %124 ], [ %130, %149 ], [ %130, %136 ], [ 0, %64 ]
+  %163 = icmp ugt i64 %161, %1
+  br i1 %163, label %.loopexit12, label %57, !llvm.loop !49
 
-165:                                              ; preds = %.thread10, %18
+164:                                              ; preds = %.thread9, %18
   store i64 1, ptr %15, align 8
   br label %.loopexit12
 
-.loopexit12:                                      ; preds = %158, %64, %.thread, %165, %31
-  %166 = phi i64 [ %16, %.thread ], [ 1, %165 ], [ %16, %31 ], [ %162, %158 ], [ %62, %64 ]
-  %167 = icmp ugt i64 %166, %1
-  %spec.select1 = select i1 %167, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
-  br label %.loopexit
+.loopexit12:                                      ; preds = %157, %64, %.thread, %164, %31
+  %165 = phi i64 [ %16, %.thread ], [ 1, %164 ], [ %16, %31 ], [ %161, %157 ], [ %62, %64 ]
+  %166 = icmp ugt i64 %165, %1
+  br i1 %166, label %.loopexit, label %167
 
-.loopexit:                                        ; preds = %115, %.loopexit12, %14
-  %168 = phi ptr [ inttoptr (i64 3 to ptr), %14 ], [ %spec.select1, %.loopexit12 ], [ inttoptr (i64 3 to ptr), %115 ]
+.loopexit:                                        ; preds = %114, %.loopexit12, %14
+  br label %167
+
+167:                                              ; preds = %.loopexit, %.loopexit12
+  %168 = phi ptr [ inttoptr (i64 3 to ptr), %.loopexit ], [ inttoptr (i64 1 to ptr), %.loopexit12 ]
   store ptr %168, ptr %4, align 8
   br label %.thread11
 
-.thread11:                                        ; preds = %137, %144, %.loopexit, %.thread10, %3
-  %169 = phi ptr [ null, %3 ], [ %25, %.thread10 ], [ null, %.loopexit ], [ null, %137 ], [ %135, %144 ]
+.thread11:                                        ; preds = %136, %143, %167, %.thread9, %3
+  %169 = phi ptr [ null, %3 ], [ %25, %.thread9 ], [ null, %167 ], [ null, %136 ], [ %134, %143 ]
   ret ptr %169
 }
 
@@ -5101,27 +5103,27 @@ define dso_local i32 @xa_extract(ptr noundef %0, ptr nocapture noundef writeonly
   %11 = getelementptr inbounds i8, ptr %7, i64 32
   %12 = icmp eq i32 %4, 0
   call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
-  br i1 %12, label %139, label %13
+  br i1 %12, label %138, label %13
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds i8, ptr %7, i64 16
   store i64 0, ptr %14, align 8, !annotation !53
   %15 = icmp ult i32 %5, 3
   tail call void @__rcu_read_lock() #8
-  br i1 %15, label %16, label %77
+  br i1 %15, label %16, label %76
 
 16:                                               ; preds = %13
   %17 = call ptr @xas_find_marked(ptr noundef nonnull %7, i64 noundef %3, i32 noundef %5)
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %.thread, label %19
+  br i1 %18, label %.thread19, label %19
 
 19:                                               ; preds = %16
   %20 = zext nneg i32 %5 to i64
   br label %21
 
-21:                                               ; preds = %74, %19
-  %22 = phi i32 [ 0, %19 ], [ %32, %74 ]
-  %23 = phi ptr [ %17, %19 ], [ %75, %74 ]
+21:                                               ; preds = %73, %19
+  %22 = phi i32 [ 0, %19 ], [ %32, %73 ]
+  %23 = phi ptr [ %17, %19 ], [ %74, %73 ]
   %24 = ptrtoint ptr %23 to i64
   switch i64 %24, label %26 [
     i64 1030, label %31
@@ -5138,7 +5140,7 @@ define dso_local i32 @xa_extract(ptr noundef %0, ptr nocapture noundef writeonly
   %29 = getelementptr ptr, ptr %1, i64 %28
   store ptr %23, ptr %29, align 8
   %30 = icmp eq i32 %27, %4
-  br i1 %30, label %.thread, label %31
+  br i1 %30, label %.thread19, label %31
 
 31:                                               ; preds = %26, %25, %21
   %32 = phi i32 [ %27, %26 ], [ %22, %21 ], [ %22, %25 ]
@@ -5148,17 +5150,17 @@ define dso_local i32 @xa_extract(ptr noundef %0, ptr nocapture noundef writeonly
   %36 = icmp ne i64 %35, 0
   %37 = icmp eq ptr %33, null
   %38 = or i1 %37, %36
-  br i1 %38, label %72, label %39, !prof !29
+  br i1 %38, label %71, label %39, !prof !29
 
 39:                                               ; preds = %31
   %40 = load i8, ptr %33, align 8
   %41 = icmp eq i8 %40, 0
-  br i1 %41, label %42, label %72, !prof !79
+  br i1 %41, label %42, label %71, !prof !79
 
 42:                                               ; preds = %39
   %43 = load i8, ptr %9, align 2
   %44 = icmp ult i8 %43, 63
-  br i1 %44, label %45, label %57
+  br i1 %44, label %45, label %.thread
 
 45:                                               ; preds = %42
   %46 = add nuw nsw i8 %43, 1
@@ -5169,166 +5171,166 @@ define dso_local i32 @xa_extract(ptr noundef %0, ptr nocapture noundef writeonly
   %51 = shl nsw i64 -1, %47
   %52 = and i64 %50, %51
   %53 = icmp eq i64 %52, 0
-  br i1 %53, label %57, label %54
+  br i1 %53, label %.thread, label %54
 
 54:                                               ; preds = %45
   %55 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %52) #9, !srcloc !48
   %56 = trunc i64 %55 to i32
-  br label %57
+  br label %.thread
 
-57:                                               ; preds = %45, %54, %42
-  %58 = phi i32 [ 64, %42 ], [ %56, %54 ], [ 64, %45 ]
-  %59 = trunc i32 %58 to i8
-  store i8 %59, ptr %9, align 2
-  %60 = load i64, ptr %8, align 8
-  %61 = and i64 %60, -64
-  %62 = zext i32 %58 to i64
-  %63 = add i64 %61, %62
-  store i64 %63, ptr %8, align 8
-  %64 = icmp ugt i64 %63, %3
-  br i1 %64, label %.thread, label %65
+.thread:                                          ; preds = %45, %42, %54
+  %57 = phi i32 [ %56, %54 ], [ 64, %42 ], [ 64, %45 ]
+  %58 = trunc i32 %57 to i8
+  store i8 %58, ptr %9, align 2
+  %59 = load i64, ptr %8, align 8
+  %60 = and i64 %59, -64
+  %61 = zext i32 %57 to i64
+  %62 = add i64 %60, %61
+  store i64 %62, ptr %8, align 8
+  %63 = icmp ugt i64 %62, %3
+  br i1 %63, label %.thread19, label %64
 
-65:                                               ; preds = %57
-  %66 = icmp eq i32 %58, 64
-  br i1 %66, label %72, label %67
+64:                                               ; preds = %.thread
+  %65 = icmp eq i32 %57, 64
+  br i1 %65, label %71, label %66
 
-67:                                               ; preds = %65
-  %68 = getelementptr inbounds i8, ptr %33, i64 40
-  %69 = getelementptr [64 x ptr], ptr %68, i64 0, i64 %62
-  %70 = load volatile ptr, ptr %69, align 8
-  %71 = icmp eq ptr %70, null
-  br i1 %71, label %72, label %74
+66:                                               ; preds = %64
+  %67 = getelementptr inbounds i8, ptr %33, i64 40
+  %68 = getelementptr [64 x ptr], ptr %67, i64 0, i64 %61
+  %69 = load volatile ptr, ptr %68, align 8
+  %70 = icmp eq ptr %69, null
+  br i1 %70, label %71, label %73
 
-72:                                               ; preds = %67, %65, %39, %31
-  %73 = call ptr @xas_find_marked(ptr noundef nonnull %7, i64 noundef %3, i32 noundef %5)
-  br label %74
+71:                                               ; preds = %66, %64, %39, %31
+  %72 = call ptr @xas_find_marked(ptr noundef nonnull %7, i64 noundef %3, i32 noundef %5)
+  br label %73
 
-74:                                               ; preds = %72, %67
-  %75 = phi ptr [ %70, %67 ], [ %73, %72 ]
-  %76 = icmp eq ptr %75, null
-  br i1 %76, label %.thread, label %21, !llvm.loop !80
+73:                                               ; preds = %71, %66
+  %74 = phi ptr [ %69, %66 ], [ %72, %71 ]
+  %75 = icmp eq ptr %74, null
+  br i1 %75, label %.thread19, label %21, !llvm.loop !80
 
-77:                                               ; preds = %13
-  %78 = call ptr @xas_find(ptr noundef nonnull %7, i64 noundef %3)
-  %79 = icmp eq ptr %78, null
-  br i1 %79, label %.thread, label %.preheader
+76:                                               ; preds = %13
+  %77 = call ptr @xas_find(ptr noundef nonnull %7, i64 noundef %3)
+  %78 = icmp eq ptr %77, null
+  br i1 %78, label %.thread19, label %.preheader
 
-.preheader:                                       ; preds = %77, %135
-  %80 = phi i32 [ %90, %135 ], [ 0, %77 ]
-  %81 = phi ptr [ %136, %135 ], [ %78, %77 ]
-  %82 = ptrtoint ptr %81 to i64
-  switch i64 %82, label %84 [
-    i64 1030, label %89
-    i64 1026, label %83
+.preheader:                                       ; preds = %76, %134
+  %79 = phi i32 [ %89, %134 ], [ 0, %76 ]
+  %80 = phi ptr [ %135, %134 ], [ %77, %76 ]
+  %81 = ptrtoint ptr %80 to i64
+  switch i64 %81, label %83 [
+    i64 1030, label %88
+    i64 1026, label %82
   ]
 
-83:                                               ; preds = %.preheader
+82:                                               ; preds = %.preheader
   store ptr inttoptr (i64 3 to ptr), ptr %10, align 8
-  br label %89
+  br label %88
 
-84:                                               ; preds = %.preheader
-  %85 = add i32 %80, 1
-  %86 = zext i32 %80 to i64
-  %87 = getelementptr ptr, ptr %1, i64 %86
-  store ptr %81, ptr %87, align 8
-  %88 = icmp eq i32 %85, %4
-  br i1 %88, label %.thread, label %89
+83:                                               ; preds = %.preheader
+  %84 = add i32 %79, 1
+  %85 = zext i32 %79 to i64
+  %86 = getelementptr ptr, ptr %1, i64 %85
+  store ptr %80, ptr %86, align 8
+  %87 = icmp eq i32 %84, %4
+  br i1 %87, label %.thread19, label %88
 
-89:                                               ; preds = %84, %83, %.preheader
-  %90 = phi i32 [ %85, %84 ], [ %80, %.preheader ], [ %80, %83 ]
-  %91 = load ptr, ptr %10, align 8
-  %92 = ptrtoint ptr %91 to i64
-  %93 = and i64 %92, 3
-  %94 = icmp ne i64 %93, 0
-  %95 = icmp eq ptr %91, null
-  %96 = or i1 %95, %94
-  br i1 %96, label %108, label %97, !prof !29
+88:                                               ; preds = %83, %82, %.preheader
+  %89 = phi i32 [ %84, %83 ], [ %79, %.preheader ], [ %79, %82 ]
+  %90 = load ptr, ptr %10, align 8
+  %91 = ptrtoint ptr %90 to i64
+  %92 = and i64 %91, 3
+  %93 = icmp ne i64 %92, 0
+  %94 = icmp eq ptr %90, null
+  %95 = or i1 %94, %93
+  br i1 %95, label %107, label %96, !prof !29
 
-97:                                               ; preds = %89
-  %98 = load i8, ptr %91, align 8
-  %99 = icmp eq i8 %98, 0
-  br i1 %99, label %100, label %108, !prof !79
+96:                                               ; preds = %88
+  %97 = load i8, ptr %90, align 8
+  %98 = icmp eq i8 %97, 0
+  br i1 %98, label %99, label %107, !prof !79
 
-100:                                              ; preds = %97
-  %101 = load i8, ptr %9, align 2
-  %102 = zext i8 %101 to i64
-  %103 = load i64, ptr %8, align 8
-  %104 = and i64 %103, 63
-  %105 = icmp eq i64 %104, %102
-  br i1 %105, label %106, label %108, !prof !79
+99:                                               ; preds = %96
+  %100 = load i8, ptr %9, align 2
+  %101 = zext i8 %100 to i64
+  %102 = load i64, ptr %8, align 8
+  %103 = and i64 %102, 63
+  %104 = icmp eq i64 %103, %101
+  br i1 %104, label %105, label %107, !prof !79
 
-106:                                              ; preds = %100
-  %107 = getelementptr inbounds i8, ptr %91, i64 40
-  %umax = tail call i64 @llvm.umax.i64(i64 %103, i64 %3)
-  br label %110
+105:                                              ; preds = %99
+  %106 = getelementptr inbounds i8, ptr %90, i64 40
+  %umax = tail call i64 @llvm.umax.i64(i64 %102, i64 %3)
+  br label %109
 
-108:                                              ; preds = %100, %97, %89
-  %109 = call ptr @xas_find(ptr noundef nonnull %7, i64 noundef %3)
-  br label %135
+107:                                              ; preds = %99, %96, %88
+  %108 = call ptr @xas_find(ptr noundef nonnull %7, i64 noundef %3)
+  br label %134
 
-110:                                              ; preds = %130, %106
-  %111 = phi i8 [ %101, %106 ], [ %131, %130 ]
-  %112 = phi i64 [ %103, %106 ], [ %132, %130 ]
-  %113 = icmp ult i64 %112, %3
-  br i1 %113, label %116, label %114, !prof !79
+109:                                              ; preds = %129, %105
+  %110 = phi i8 [ %100, %105 ], [ %130, %129 ]
+  %111 = phi i64 [ %102, %105 ], [ %131, %129 ]
+  %112 = icmp ult i64 %111, %3
+  br i1 %112, label %115, label %113, !prof !79
 
-114:                                              ; preds = %110
-  store i8 %111, ptr %9, align 2
+113:                                              ; preds = %109
+  store i8 %110, ptr %9, align 2
   store i64 %umax, ptr %8, align 8
-  %115 = call ptr @xas_find(ptr noundef nonnull %7, i64 noundef %3)
-  br label %135
+  %114 = call ptr @xas_find(ptr noundef nonnull %7, i64 noundef %3)
+  br label %134
 
-116:                                              ; preds = %110
-  %117 = icmp eq i8 %111, 63
-  br i1 %117, label %118, label %120, !prof !29
+115:                                              ; preds = %109
+  %116 = icmp eq i8 %110, 63
+  br i1 %116, label %117, label %119, !prof !29
 
-118:                                              ; preds = %116
+117:                                              ; preds = %115
   store i8 63, ptr %9, align 2
-  store i64 %112, ptr %8, align 8
-  %119 = call ptr @xas_find(ptr noundef nonnull %7, i64 noundef %3)
-  br label %135
+  store i64 %111, ptr %8, align 8
+  %118 = call ptr @xas_find(ptr noundef nonnull %7, i64 noundef %3)
+  br label %134
 
-120:                                              ; preds = %116
-  %121 = zext i8 %111 to i64
-  %122 = add nuw nsw i64 %121, 1
-  %123 = getelementptr [64 x ptr], ptr %107, i64 0, i64 %122
-  %124 = load volatile ptr, ptr %123, align 8
-  %125 = ptrtoint ptr %124 to i64
-  %126 = and i64 %125, 3
-  %127 = icmp eq i64 %126, 2
-  br i1 %127, label %128, label %130, !prof !29
+119:                                              ; preds = %115
+  %120 = zext i8 %110 to i64
+  %121 = add nuw nsw i64 %120, 1
+  %122 = getelementptr [64 x ptr], ptr %106, i64 0, i64 %121
+  %123 = load volatile ptr, ptr %122, align 8
+  %124 = ptrtoint ptr %123 to i64
+  %125 = and i64 %124, 3
+  %126 = icmp eq i64 %125, 2
+  br i1 %126, label %127, label %129, !prof !29
 
-128:                                              ; preds = %120
-  store i8 %111, ptr %9, align 2
-  store i64 %112, ptr %8, align 8
-  %129 = call ptr @xas_find(ptr noundef nonnull %7, i64 noundef %3)
-  br label %135
+127:                                              ; preds = %119
+  store i8 %110, ptr %9, align 2
+  store i64 %111, ptr %8, align 8
+  %128 = call ptr @xas_find(ptr noundef nonnull %7, i64 noundef %3)
+  br label %134
 
-130:                                              ; preds = %120
-  %131 = add i8 %111, 1
-  %132 = add nuw i64 %112, 1
-  %133 = icmp eq ptr %124, null
-  br i1 %133, label %110, label %134, !llvm.loop !81
+129:                                              ; preds = %119
+  %130 = add i8 %110, 1
+  %131 = add nuw i64 %111, 1
+  %132 = icmp eq ptr %123, null
+  br i1 %132, label %109, label %133, !llvm.loop !81
 
-134:                                              ; preds = %130
-  store i8 %131, ptr %9, align 2
-  store i64 %132, ptr %8, align 8
-  br label %135
+133:                                              ; preds = %129
+  store i8 %130, ptr %9, align 2
+  store i64 %131, ptr %8, align 8
+  br label %134
 
-135:                                              ; preds = %134, %128, %118, %114, %108
-  %136 = phi ptr [ %109, %108 ], [ %115, %114 ], [ %119, %118 ], [ %129, %128 ], [ %124, %134 ]
-  %137 = icmp eq ptr %136, null
-  br i1 %137, label %.thread, label %.preheader, !llvm.loop !82
+134:                                              ; preds = %133, %127, %117, %113, %107
+  %135 = phi ptr [ %108, %107 ], [ %114, %113 ], [ %118, %117 ], [ %128, %127 ], [ %123, %133 ]
+  %136 = icmp eq ptr %135, null
+  br i1 %136, label %.thread19, label %.preheader, !llvm.loop !82
 
-.thread:                                          ; preds = %135, %84, %57, %74, %26, %77, %16
-  %138 = phi i32 [ 0, %16 ], [ 0, %77 ], [ %32, %57 ], [ %4, %26 ], [ %32, %74 ], [ %4, %84 ], [ %90, %135 ]
+.thread19:                                        ; preds = %134, %83, %.thread, %73, %26, %76, %16
+  %137 = phi i32 [ 0, %16 ], [ 0, %76 ], [ %32, %.thread ], [ %4, %26 ], [ %32, %73 ], [ %4, %83 ], [ %89, %134 ]
   tail call void @__rcu_read_unlock() #8
-  br label %139
+  br label %138
 
-139:                                              ; preds = %.thread, %6
-  %140 = phi i32 [ 0, %6 ], [ %138, %.thread ]
+138:                                              ; preds = %.thread19, %6
+  %139 = phi i32 [ 0, %6 ], [ %137, %.thread19 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #8
-  ret i32 %140
+  ret i32 %139
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -5043,7 +5043,7 @@ define nonnull ptr @print_bluetooth_uuid(ptr noundef %0, ptr noundef %1) local_u
   %5 = zext i16 %3 to i32
   %6 = tail call ptr @try_val_to_str_ext(i32 noundef %5, ptr noundef nonnull @bluetooth_uuid_vals_ext) #9
   %.not15 = icmp eq ptr %6, null
-  br i1 %.not15, label %7, label %12
+  br i1 %.not15, label %7, label %13
 
 7:                                                ; preds = %4, %2
   %8 = tail call ptr @print_numeric_bluetooth_uuid(ptr noundef %0, ptr noundef nonnull %1)
@@ -5054,11 +5054,13 @@ define nonnull ptr @print_bluetooth_uuid(ptr noundef %0, ptr noundef %1) local_u
   %10 = load ptr, ptr @bluetooth_uuids, align 8
   %11 = tail call ptr @wmem_tree_lookup_string(ptr noundef %10, ptr noundef nonnull %8, i32 noundef 0) #9
   %.not17 = icmp eq ptr %11, null
-  %spec.select = select i1 %.not17, ptr @.str.1251, ptr %11
-  br label %12
+  br i1 %.not17, label %12, label %13
 
-12:                                               ; preds = %9, %7, %4
-  %.0 = phi ptr [ %6, %4 ], [ @.str.1251, %7 ], [ %spec.select, %9 ]
+12:                                               ; preds = %9, %7
+  br label %13
+
+13:                                               ; preds = %9, %4, %12
+  %.0 = phi ptr [ @.str.1251, %12 ], [ %6, %4 ], [ %11, %9 ]
   ret ptr %.0
 }
 
@@ -6059,7 +6061,7 @@ define internal nonnull ptr @bluetooth_conv_get_filter_type(ptr nocapture nounde
   %switch.select = select i1 %switch.selectcmp, ptr @.str.1262, ptr @.str.4526
   %switch.selectcmp13 = icmp eq i32 %5, 1
   %switch.select14 = select i1 %switch.selectcmp13, ptr @.str.1257, ptr %switch.select
-  br label %.thread
+  br label %20
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 32
@@ -6068,7 +6070,7 @@ define internal nonnull ptr @bluetooth_conv_get_filter_type(ptr nocapture nounde
   %switch.select16 = select i1 %switch.selectcmp15, ptr @.str.1263, ptr @.str.4526
   %switch.selectcmp17 = icmp eq i32 %8, 1
   %switch.select18 = select i1 %switch.selectcmp17, ptr @.str.1259, ptr %switch.select16
-  br label %.thread
+  br label %20
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %0, i64 8
@@ -6082,18 +6084,19 @@ define internal nonnull ptr @bluetooth_conv_get_filter_type(ptr nocapture nounde
   %13 = getelementptr inbounds i8, ptr %0, i64 32
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, 1
-  %spec.select19 = select i1 %15, ptr @.str.1261, ptr @.str.4526
-  br label %.thread
+  br i1 %15, label %20, label %.thread
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %0, i64 32
   %18 = load i32, ptr %17, align 8
   %19 = icmp eq i32 %18, 7
-  %spec.select = select i1 %19, ptr @.str.1264, ptr @.str.4526
-  br label %.thread
+  br i1 %19, label %20, label %.thread
 
-.thread:                                          ; preds = %12, %9, %6, %3, %16, %2
-  %.0 = phi ptr [ @.str.4526, %2 ], [ %spec.select, %16 ], [ %switch.select14, %3 ], [ %switch.select18, %6 ], [ %spec.select19, %12 ], [ @.str.4526, %9 ]
+.thread:                                          ; preds = %9, %12, %2, %16
+  br label %20
+
+20:                                               ; preds = %6, %3, %16, %12, %.thread
+  %.0 = phi ptr [ @.str.4526, %.thread ], [ @.str.1261, %12 ], [ @.str.1264, %16 ], [ %switch.select14, %3 ], [ %switch.select18, %6 ]
   ret ptr %.0
 }
 
@@ -6113,8 +6116,8 @@ define internal nonnull ptr @bluetooth_endpoint_get_filter_type(ptr nocapture no
   %switch.select5 = select i1 %switch.selectcmp4, ptr @.str.1261, ptr %switch.select
   br label %7
 
-7:                                                ; preds = %4, %2
-  %.0 = phi ptr [ @.str.4526, %2 ], [ %switch.select5, %4 ]
+7:                                                ; preds = %2, %4
+  %.0 = phi ptr [ %switch.select5, %4 ], [ @.str.4526, %2 ]
   ret ptr %.0
 }
 

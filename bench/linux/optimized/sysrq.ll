@@ -1516,8 +1516,8 @@ define internal noundef i64 @write_sysrq_trigger(ptr nocapture readnone %0, ptr 
   %23 = icmp eq i64 %22, %2
   br i1 %23, label %.thread, label %.preheader, !llvm.loop !29
 
-.thread:                                          ; preds = %19, %.preheader, %.thread3, %4
-  %24 = phi i64 [ 0, %4 ], [ %2, %19 ], [ -14, %.preheader ], [ %2, %.thread3 ]
+.thread:                                          ; preds = %.thread3, %19, %.preheader, %4
+  %24 = phi i64 [ 0, %4 ], [ %2, %.thread3 ], [ %2, %19 ], [ -14, %.preheader ]
   ret i64 %24
 }
 

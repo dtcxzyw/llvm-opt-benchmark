@@ -4685,7 +4685,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @ucnv_MBCSGetType_75(ptr nocapture noundef readonly %converter) local_unnamed_addr #2 {
+define noundef i32 @ucnv_MBCSGetType_75(ptr nocapture noundef readonly %converter) local_unnamed_addr #2 {
 entry:
   %sharedData = getelementptr inbounds i8, ptr %converter, i64 48
   %0 = load ptr, ptr %sharedData, align 8
@@ -4706,17 +4706,19 @@ if.else6:                                         ; preds = %if.else
   %minBytesPerChar = getelementptr inbounds i8, ptr %3, i64 70
   %4 = load i8, ptr %minBytesPerChar, align 2
   %cmp9 = icmp eq i8 %4, 2
-  br i1 %cmp9, label %land.lhs.true, label %return
+  br i1 %cmp9, label %land.lhs.true, label %if.end16
 
 land.lhs.true:                                    ; preds = %if.else6
   %maxBytesPerChar = getelementptr inbounds i8, ptr %3, i64 71
   %5 = load i8, ptr %maxBytesPerChar, align 1
   %cmp13 = icmp eq i8 %5, 2
-  %spec.select = select i1 %cmp13, i32 1, i32 2
+  br i1 %cmp13, label %return, label %if.end16
+
+if.end16:                                         ; preds = %land.lhs.true, %if.else6
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %if.else6, %if.else, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 9, %if.else ], [ 2, %if.else6 ], [ %spec.select, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %if.else, %entry, %if.end16
+  %retval.0 = phi i32 [ 2, %if.end16 ], [ 0, %entry ], [ 9, %if.else ], [ 1, %land.lhs.true ]
   ret i32 %retval.0
 }
 

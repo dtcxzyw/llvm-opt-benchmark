@@ -138,7 +138,7 @@ define hidden noundef i32 @psa_its_set(i64 noundef %0, i32 noundef %1, ptr nocap
   %5 = alloca [25 x i8], align 16
   %6 = alloca %struct.psa_its_file_header_t, align 8
   %7 = icmp eq i64 %0, 0
-  br i1 %7, label %52, label %8
+  br i1 %7, label %50, label %8
 
 8:                                                ; preds = %4
   store i64 23455095580611408, ptr %6, align 8
@@ -178,54 +178,46 @@ define hidden noundef i32 @psa_its_set(i64 noundef %0, i32 noundef %1, ptr nocap
   %34 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 25, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef %32, i32 noundef %33, ptr noundef nonnull @.str.6) #3
   %35 = tail call noalias ptr @fopen(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2)
   %36 = icmp eq ptr %35, null
-  br i1 %36, label %.thread41, label %37
+  br i1 %36, label %.thread39, label %37
 
 37:                                               ; preds = %8
   tail call void @setbuf(ptr noundef nonnull %35, ptr noundef null) #3
   %38 = call i64 @fwrite(ptr noundef nonnull %6, i64 noundef 1, i64 noundef 16, ptr noundef nonnull %35)
   %.not = icmp eq i64 %38, 16
-  br i1 %.not, label %40, label %.thread47
+  br i1 %.not, label %39, label %45
 
-.thread47:                                        ; preds = %37
-  %39 = tail call i32 @fclose(ptr noundef nonnull %35)
-  br label %.thread41
-
-40:                                               ; preds = %37
+39:                                               ; preds = %37
   %.not32 = icmp eq i32 %1, 0
-  br i1 %.not32, label %44, label %41
+  br i1 %.not32, label %43, label %40
 
-41:                                               ; preds = %40
-  %42 = zext i32 %1 to i64
-  %43 = tail call i64 @fwrite(ptr noundef %2, i64 noundef 1, i64 noundef %42, ptr noundef nonnull %35)
-  %.not33 = icmp eq i64 %43, %42
-  %spec.select37 = select i1 %.not33, i32 0, i32 -142
-  br label %44
+40:                                               ; preds = %39
+  %41 = zext i32 %1 to i64
+  %42 = tail call i64 @fwrite(ptr noundef %2, i64 noundef 1, i64 noundef %41, ptr noundef nonnull %35)
+  %.not33 = icmp eq i64 %42, %41
+  br i1 %.not33, label %43, label %45
 
-44:                                               ; preds = %41, %40
-  %.ph = phi i1 [ %.not33, %41 ], [ true, %40 ]
-  %.027.ph = phi i32 [ %spec.select37, %41 ], [ 0, %40 ]
-  %45 = tail call i32 @fclose(ptr noundef nonnull %35)
-  %46 = icmp ne i32 %45, 0
-  %or.cond = and i1 %.ph, %46
-  br i1 %or.cond, label %.thread41, label %47
+43:                                               ; preds = %39, %40
+  %44 = tail call i32 @fclose(ptr noundef nonnull %35)
+  %.not48 = icmp eq i32 %44, 0
+  br i1 %.not48, label %47, label %.thread39
 
-47:                                               ; preds = %44
-  %48 = icmp eq i32 %.027.ph, 0
-  br i1 %48, label %49, label %.thread41
+45:                                               ; preds = %40, %37
+  %46 = tail call i32 @fclose(ptr noundef nonnull %35)
+  br label %.thread39
 
-49:                                               ; preds = %47
-  %50 = call i32 @rename(ptr noundef nonnull @.str.1, ptr noundef nonnull %5) #3
-  %.not35 = icmp eq i32 %50, 0
+47:                                               ; preds = %43
+  %48 = call i32 @rename(ptr noundef nonnull @.str.1, ptr noundef nonnull %5) #3
+  %.not35 = icmp eq i32 %48, 0
   %spec.select = select i1 %.not35, i32 0, i32 -146
-  br label %.thread41
+  br label %.thread39
 
-.thread41:                                        ; preds = %.thread47, %44, %8, %49, %47
-  %.2 = phi i32 [ %.027.ph, %47 ], [ %spec.select, %49 ], [ -146, %8 ], [ -142, %44 ], [ -142, %.thread47 ]
-  %51 = tail call i32 @remove(ptr noundef nonnull @.str.1) #3
-  br label %52
+.thread39:                                        ; preds = %45, %43, %8, %47
+  %.2 = phi i32 [ -142, %45 ], [ %spec.select, %47 ], [ -146, %8 ], [ -142, %43 ]
+  %49 = tail call i32 @remove(ptr noundef nonnull @.str.1) #3
+  br label %50
 
-52:                                               ; preds = %4, %.thread41
-  %.0 = phi i32 [ %.2, %.thread41 ], [ -136, %4 ]
+50:                                               ; preds = %4, %.thread39
+  %.0 = phi i32 [ %.2, %.thread39 ], [ -136, %4 ]
   ret i32 %.0
 }
 

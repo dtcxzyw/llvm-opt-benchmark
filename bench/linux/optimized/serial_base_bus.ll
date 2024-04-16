@@ -303,23 +303,30 @@ define internal noundef i32 @serial_base_match(ptr nocapture noundef readonly %0
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, @serial_ctrl_type
-  br i1 %5, label %.thread.sink.split, label %6
+  br i1 %5, label %6, label %10
 
 6:                                                ; preds = %2
-  %7 = icmp eq ptr %4, @serial_port_type
-  br i1 %7, label %.thread.sink.split, label %.thread
+  %7 = load ptr, ptr %1, align 8
+  %8 = tail call i32 @strncmp(ptr noundef %7, ptr noundef nonnull dereferenceable(5) @.str.4, i64 noundef 4) #5
+  %9 = icmp eq i32 %8, 0
+  br i1 %9, label %16, label %.thread
 
-.thread.sink.split:                               ; preds = %6, %2
-  %.str.4.sink = phi ptr [ @.str.4, %2 ], [ @.str.5, %6 ]
-  %8 = load ptr, ptr %1, align 8
-  %9 = tail call i32 @strncmp(ptr noundef %8, ptr noundef nonnull dereferenceable(5) %.str.4.sink, i64 noundef 4) #5
-  %10 = icmp eq i32 %9, 0
-  %11 = zext i1 %10 to i32
-  br label %.thread
+10:                                               ; preds = %2
+  %11 = icmp eq ptr %4, @serial_port_type
+  br i1 %11, label %12, label %.thread
 
-.thread:                                          ; preds = %.thread.sink.split, %6
-  %.shrunk = phi i32 [ 0, %6 ], [ %11, %.thread.sink.split ]
-  ret i32 %.shrunk
+12:                                               ; preds = %10
+  %13 = load ptr, ptr %1, align 8
+  %14 = tail call i32 @strncmp(ptr noundef %13, ptr noundef nonnull dereferenceable(5) @.str.5, i64 noundef 4) #5
+  %15 = icmp eq i32 %14, 0
+  br i1 %15, label %16, label %.thread
+
+.thread:                                          ; preds = %6, %12, %10
+  br label %16
+
+16:                                               ; preds = %.thread, %12, %6
+  %17 = phi i32 [ 0, %.thread ], [ 1, %6 ], [ 1, %12 ]
+  ret i32 %17
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)

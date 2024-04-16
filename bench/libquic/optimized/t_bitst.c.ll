@@ -59,7 +59,7 @@ declare i32 @ASN1_BIT_STRING_get_bit(ptr noundef, i32 noundef) local_unnamed_add
 declare i32 @BIO_puts(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ASN1_BIT_STRING_set_asc(ptr noundef %bs, ptr nocapture noundef readonly %name, i32 noundef %value, ptr nocapture noundef readonly %tbl) local_unnamed_addr #0 {
+define hidden noundef i32 @ASN1_BIT_STRING_set_asc(ptr noundef %bs, ptr nocapture noundef readonly %name, i32 noundef %value, ptr nocapture noundef readonly %tbl) local_unnamed_addr #0 {
 entry:
   %lname7.i = getelementptr inbounds i8, ptr %tbl, i64 8
   %0 = load ptr, ptr %lname7.i, align 8
@@ -94,16 +94,18 @@ ASN1_BIT_STRING_num_asc.exit:                     ; preds = %for.body.i, %lor.lh
 
 if.end:                                           ; preds = %ASN1_BIT_STRING_num_asc.exit
   %tobool.not = icmp eq ptr %bs, null
-  br i1 %tobool.not, label %return, label %if.then1
+  br i1 %tobool.not, label %if.end6, label %if.then1
 
 if.then1:                                         ; preds = %if.end
   %call2 = tail call i32 @ASN1_BIT_STRING_set_bit(ptr noundef nonnull %bs, i32 noundef %4, i32 noundef %value) #4
-  %tobool3.not = icmp ne i32 %call2, 0
-  %spec.select = zext i1 %tobool3.not to i32
+  %tobool3.not = icmp eq i32 %call2, 0
+  br i1 %tobool3.not, label %return, label %if.end6
+
+if.end6:                                          ; preds = %if.then1, %if.end
   br label %return
 
-return:                                           ; preds = %for.inc.i, %entry, %if.then1, %if.end, %ASN1_BIT_STRING_num_asc.exit
-  %retval.0 = phi i32 [ 0, %ASN1_BIT_STRING_num_asc.exit ], [ 1, %if.end ], [ %spec.select, %if.then1 ], [ 0, %entry ], [ 0, %for.inc.i ]
+return:                                           ; preds = %for.inc.i, %entry, %if.then1, %ASN1_BIT_STRING_num_asc.exit, %if.end6
+  %retval.0 = phi i32 [ 1, %if.end6 ], [ 0, %ASN1_BIT_STRING_num_asc.exit ], [ 0, %if.then1 ], [ 0, %entry ], [ 0, %for.inc.i ]
   ret i32 %retval.0
 }
 

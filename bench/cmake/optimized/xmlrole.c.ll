@@ -1342,9 +1342,9 @@ define internal noundef i32 @element5(ptr nocapture noundef writeonly %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @notation1(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #1 {
-  switch i32 %1, label %.sink.split [
-    i32 15, label %13
+define internal noundef i32 @notation1(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #1 {
+  switch i32 %1, label %13 [
+    i32 15, label %14
     i32 18, label %6
   ]
 
@@ -1359,17 +1359,18 @@ define internal i32 @notation1(ptr nocapture noundef writeonly %0, i32 noundef %
   %11 = load ptr, ptr %7, align 8
   %12 = tail call i32 %11(ptr noundef nonnull %4, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @KW_PUBLIC) #5
   %.not13 = icmp eq i32 %12, 0
-  %spec.select = select i1 %.not13, ptr @error, ptr @notation2
-  %spec.select14 = select i1 %.not13, i32 -1, i32 17
+  br i1 %.not13, label %13, label %.sink.split
+
+13:                                               ; preds = %10, %5
   br label %.sink.split
 
-.sink.split:                                      ; preds = %10, %5, %6
-  %error.sink = phi ptr [ @notation3, %6 ], [ @error, %5 ], [ %spec.select, %10 ]
-  %.0.ph = phi i32 [ 17, %6 ], [ -1, %5 ], [ %spec.select14, %10 ]
+.sink.split:                                      ; preds = %10, %6, %13
+  %error.sink = phi ptr [ @error, %13 ], [ @notation3, %6 ], [ @notation2, %10 ]
+  %.0.ph = phi i32 [ -1, %13 ], [ 17, %6 ], [ 17, %10 ]
   store ptr %error.sink, ptr %0, align 8
-  br label %13
+  br label %14
 
-13:                                               ; preds = %.sink.split, %5
+14:                                               ; preds = %.sink.split, %5
   %.0 = phi i32 [ 17, %5 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }

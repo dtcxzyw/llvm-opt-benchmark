@@ -10125,7 +10125,7 @@ invoke.cont62:                                    ; preds = %invoke.cont60
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #32
   %46 = load i32, ptr %status, align 4
   %cmp.i65 = icmp slt i32 %46, 1
-  br i1 %cmp.i65, label %if.end68, label %cleanup87
+  br i1 %cmp.i65, label %if.end68, label %cleanup87.thread107
 
 lpad61:                                           ; preds = %invoke.cont60
   %47 = landingpad { ptr, i32 }
@@ -10184,13 +10184,13 @@ if.then71:                                        ; preds = %if.then.i67, %invok
 invoke.cont74:                                    ; preds = %if.then71
   %56 = load i32, ptr %status, align 4
   %cmp.i77 = icmp slt i32 %56, 1
-  br i1 %cmp.i77, label %if.end80, label %cleanup87
+  br i1 %cmp.i77, label %if.end80, label %cleanup87.thread107
 
 if.end80:                                         ; preds = %if.else.i69, %if.then.i67, %invoke.cont74, %invoke.cont69
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %trial) #32
   br label %for.condthread-pre-split
 
-cleanup87:                                        ; preds = %invoke.cont62, %invoke.cont74
+cleanup87.thread107:                              ; preds = %invoke.cont62, %invoke.cont74
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %trial) #32
   br label %cleanup92
 
@@ -10203,7 +10203,7 @@ cleanup92.thread138:                              ; preds = %while.cond.preheade
   call void @_ZN6icu_7518PatternMapIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %it) #32
   br label %return
 
-cleanup92:                                        ; preds = %cleanup87.thread, %cleanup87
+cleanup92:                                        ; preds = %cleanup87.thread, %cleanup87.thread107
   call void @_ZN6icu_7515DateTimeMatcherD1Ev(ptr noundef nonnull align 8 dereferenceable(152) %current) #32
   br label %delete.notnull.i.sink.split
 
@@ -12771,7 +12771,7 @@ invoke.cont51:                                    ; preds = %call.i.noexc55
   %shr.i.i.i = sext i16 %23 to i32
   %24 = load i32, ptr %fLength.i.i, align 4
   %cond.i.i = select i1 %cmp.i.i.i, i32 %24, i32 %shr.i.i.i
-  switch i32 %cond.i.i, label %invoke.cont53 [
+  switch i32 %cond.i.i, label %if.end77.i [
     i32 1, label %_ZNK6icu_7513UnicodeStringixEi.exit.i
     i32 2, label %_ZNK6icu_7513UnicodeStringixEi.exit75.i
   ]
@@ -12795,7 +12795,7 @@ _ZNK6icu_7513UnicodeStringixEi.exit75.i:          ; preds = %invoke.cont51
   %29 = load ptr, ptr %fArray.i.i.i73.i, align 8
   %cond.i2.i.i74.i = select i1 %tobool.not.i.i.i71.i, ptr %29, ptr %fBuffer.i.i.i72.i
   %30 = load i16, ptr %cond.i2.i.i74.i, align 2
-  switch i16 %30, label %invoke.cont53 [
+  switch i16 %30, label %if.end77.i [
     i16 104, label %_ZNK6icu_7513UnicodeStringixEi.exit88.i
     i16 75, label %_ZNK6icu_7513UnicodeStringixEi.exit142.i
     i16 72, label %_ZNK6icu_7513UnicodeStringixEi.exit196.i
@@ -12831,7 +12831,7 @@ _ZNK6icu_7513UnicodeStringixEi.exit196.i:         ; preds = %_ZNK6icu_7513Unicod
   %switch.select138 = select i1 %switch.selectcmp137, i32 8, i32 %switch.select136
   br label %invoke.cont53
 
-if.end77.i:                                       ; preds = %_ZNK6icu_7513UnicodeStringixEi.exit.i
+if.end77.i:                                       ; preds = %_ZNK6icu_7513UnicodeStringixEi.exit75.i, %_ZNK6icu_7513UnicodeStringixEi.exit.i, %invoke.cont51
   br label %invoke.cont53
 
 return.fold.split.i:                              ; preds = %_ZNK6icu_7513UnicodeStringixEi.exit.i
@@ -12843,8 +12843,8 @@ return.fold.split11.i:                            ; preds = %_ZNK6icu_7513Unicod
 return.fold.split12.i:                            ; preds = %_ZNK6icu_7513UnicodeStringixEi.exit.i
   br label %invoke.cont53
 
-invoke.cont53:                                    ; preds = %invoke.cont51, %_ZNK6icu_7513UnicodeStringixEi.exit75.i, %_ZNK6icu_7513UnicodeStringixEi.exit196.i, %_ZNK6icu_7513UnicodeStringixEi.exit142.i, %_ZNK6icu_7513UnicodeStringixEi.exit88.i, %return.fold.split12.i, %return.fold.split11.i, %return.fold.split.i, %if.end77.i, %_ZNK6icu_7513UnicodeStringixEi.exit.i
-  %retval.0.i60 = phi i32 [ 0, %_ZNK6icu_7513UnicodeStringixEi.exit.i ], [ 1, %return.fold.split.i ], [ 2, %return.fold.split11.i ], [ 3, %return.fold.split12.i ], [ %switch.select130, %_ZNK6icu_7513UnicodeStringixEi.exit88.i ], [ %switch.select134, %_ZNK6icu_7513UnicodeStringixEi.exit142.i ], [ %switch.select138, %_ZNK6icu_7513UnicodeStringixEi.exit196.i ], [ -1, %_ZNK6icu_7513UnicodeStringixEi.exit75.i ], [ -1, %invoke.cont51 ], [ -1, %if.end77.i ]
+invoke.cont53:                                    ; preds = %_ZNK6icu_7513UnicodeStringixEi.exit196.i, %_ZNK6icu_7513UnicodeStringixEi.exit142.i, %_ZNK6icu_7513UnicodeStringixEi.exit88.i, %return.fold.split12.i, %return.fold.split11.i, %return.fold.split.i, %if.end77.i, %_ZNK6icu_7513UnicodeStringixEi.exit.i
+  %retval.0.i60 = phi i32 [ -1, %if.end77.i ], [ 0, %_ZNK6icu_7513UnicodeStringixEi.exit.i ], [ 1, %return.fold.split.i ], [ 2, %return.fold.split11.i ], [ 3, %return.fold.split12.i ], [ %switch.select130, %_ZNK6icu_7513UnicodeStringixEi.exit88.i ], [ %switch.select134, %_ZNK6icu_7513UnicodeStringixEi.exit142.i ], [ %switch.select138, %_ZNK6icu_7513UnicodeStringixEi.exit196.i ]
   %arrayidx.i61 = getelementptr inbounds i32, ptr %call.i47, i64 %indvars.iv
   store i32 %retval.0.i60, ptr %arrayidx.i61, align 4
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp50) #32

@@ -277,7 +277,7 @@ for.end:                                          ; preds = %for.body, %entry
 define dso_local zeroext i1 @qlist_is_equal(ptr noundef readonly %x, ptr noundef readonly %y) local_unnamed_addr #0 {
 entry:
   %tobool.not.i = icmp eq ptr %x, null
-  br i1 %tobool.not.i, label %qobject_check_type.exit, label %land.lhs.true.i
+  br i1 %tobool.not.i, label %if.else.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
   %obj.val.i = load i32, ptr %x, align 8
@@ -291,11 +291,13 @@ if.else.i.i:                                      ; preds = %land.lhs.true.i
 
 qobject_type.exit.i:                              ; preds = %land.lhs.true.i
   %cmp.i = icmp eq i32 %obj.val.i, 5
-  %spec.select.i = select i1 %cmp.i, ptr %x, ptr null
+  br i1 %cmp.i, label %qobject_check_type.exit, label %if.else.i
+
+if.else.i:                                        ; preds = %qobject_type.exit.i, %entry
   br label %qobject_check_type.exit
 
-qobject_check_type.exit:                          ; preds = %entry, %qobject_type.exit.i
-  %retval.0.i = phi ptr [ null, %entry ], [ %spec.select.i, %qobject_type.exit.i ]
+qobject_check_type.exit:                          ; preds = %qobject_type.exit.i, %if.else.i
+  %retval.0.i = phi ptr [ null, %if.else.i ], [ %x, %qobject_type.exit.i ]
   %tobool.not.i9 = icmp ne ptr %y, null
   tail call void @llvm.assume(i1 %tobool.not.i9)
   %obj.val.i11 = load i32, ptr %y, align 8
@@ -309,9 +311,9 @@ if.else.i.i13:                                    ; preds = %qobject_check_type.
 
 qobject_type.exit.i14:                            ; preds = %qobject_check_type.exit
   %cmp.i15 = icmp eq i32 %obj.val.i11, 5
-  %spec.select.i16 = select i1 %cmp.i15, ptr %y, ptr null
+  tail call void @llvm.assume(i1 %cmp.i15)
   %2 = getelementptr i8, ptr %retval.0.i, i64 16
-  %3 = getelementptr i8, ptr %spec.select.i16, i64 16
+  %3 = getelementptr i8, ptr %y, i64 16
   %entry_y.021 = load ptr, ptr %3, align 8
   %entry_x.022 = load ptr, ptr %2, align 8
   %tobool23 = icmp ne ptr %entry_x.022, null
@@ -365,30 +367,30 @@ land.lhs.true.i:                                  ; preds = %entry
   %obj.val.i = load i32, ptr %obj, align 8
   %0 = add i32 %obj.val.i, -1
   %or.cond.i.i = icmp ult i32 %0, 6
-  br i1 %or.cond.i.i, label %qobject_check_type.exit, label %if.else.i.i
+  br i1 %or.cond.i.i, label %qobject_type.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %land.lhs.true.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #11
   unreachable
 
-qobject_check_type.exit:                          ; preds = %land.lhs.true.i
+qobject_type.exit.i:                              ; preds = %land.lhs.true.i
   %cmp.i = icmp eq i32 %obj.val.i, 5
-  %spec.select.i = select i1 %cmp.i, ptr %obj, ptr null
-  %head = getelementptr inbounds i8, ptr %spec.select.i, i64 16
+  %spec.select = select i1 %cmp.i, ptr %obj, ptr null
+  %head = getelementptr inbounds i8, ptr %spec.select, i64 16
   %1 = load ptr, ptr %head, align 8
-  %tobool.not20 = icmp eq ptr %1, null
-  br i1 %tobool.not20, label %for.end, label %land.rhs.lr.ph
+  %tobool.not21 = icmp eq ptr %1, null
+  br i1 %tobool.not21, label %for.end, label %land.rhs.lr.ph
 
-land.rhs.lr.ph:                                   ; preds = %qobject_check_type.exit
-  %tql_prev13 = getelementptr inbounds i8, ptr %spec.select.i, i64 24
+land.rhs.lr.ph:                                   ; preds = %qobject_type.exit.i
+  %tql_prev13 = getelementptr inbounds i8, ptr %spec.select, i64 24
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %qobject_unref_impl.exit
-  %entry1.021 = phi ptr [ %1, %land.rhs.lr.ph ], [ %2, %qobject_unref_impl.exit ]
-  %next = getelementptr inbounds i8, ptr %entry1.021, i64 8
+  %entry1.022 = phi ptr [ %1, %land.rhs.lr.ph ], [ %2, %qobject_unref_impl.exit ]
+  %next = getelementptr inbounds i8, ptr %entry1.022, i64 8
   %2 = load ptr, ptr %next, align 8
   %cmp3.not = icmp eq ptr %2, null
-  %tql_prev11 = getelementptr inbounds i8, ptr %entry1.021, i64 16
+  %tql_prev11 = getelementptr inbounds i8, ptr %entry1.022, i64 16
   %3 = load ptr, ptr %tql_prev11, align 8
   %tql_prev8 = getelementptr inbounds i8, ptr %2, i64 16
   %tql_prev13.sink = select i1 %cmp3.not, ptr %tql_prev13, ptr %tql_prev8
@@ -396,7 +398,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %qo
   %4 = load ptr, ptr %next, align 8
   store ptr %4, ptr %3, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next, i8 0, i64 16, i1 false)
-  %5 = load ptr, ptr %entry1.021, align 8
+  %5 = load ptr, ptr %entry1.022, align 8
   %tobool23.not = icmp eq ptr %5, null
   br i1 %tobool23.not, label %qobject_unref_impl.exit, label %lor.lhs.false.i
 
@@ -404,9 +406,9 @@ lor.lhs.false.i:                                  ; preds = %land.rhs
   %refcnt.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %6, 0
-  br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i18
+  br i1 %tobool1.not.i, label %if.else.i20, label %land.lhs.true.i18
 
-if.else.i:                                        ; preds = %lor.lhs.false.i
+if.else.i20:                                      ; preds = %lor.lhs.false.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.5, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #11
   unreachable
 
@@ -421,11 +423,11 @@ if.then5.i:                                       ; preds = %land.lhs.true.i18
   br label %qobject_unref_impl.exit
 
 qobject_unref_impl.exit:                          ; preds = %land.rhs, %land.lhs.true.i18, %if.then5.i
-  tail call void @g_free(ptr noundef nonnull %entry1.021) #10
+  tail call void @g_free(ptr noundef nonnull %entry1.022) #10
   br i1 %cmp3.not, label %for.end, label %land.rhs, !llvm.loop !9
 
-for.end:                                          ; preds = %qobject_unref_impl.exit, %qobject_check_type.exit
-  tail call void @g_free(ptr noundef %spec.select.i) #10
+for.end:                                          ; preds = %qobject_unref_impl.exit, %qobject_type.exit.i
+  tail call void @g_free(ptr noundef %spec.select) #10
   ret void
 }
 

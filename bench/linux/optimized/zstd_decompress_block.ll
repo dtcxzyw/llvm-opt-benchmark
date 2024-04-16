@@ -3872,8 +3872,8 @@ thread-pre-split102:                              ; preds = %1297, %.loopexit126
   %1741 = icmp eq i64 %1740, 3
   br i1 %1741, label %1742, label %1734, !llvm.loop !40
 
-.thread117:                                       ; preds = %.loopexit152, %805, %.loopexit142, %891, %1026, %1155, %.loopexit, %.loopexit130, %1302, %1388, %1516, %1642, %106, %.thread91, %.thread93, %176, %117
-  %.ph114 = phi i64 [ -20, %.thread93 ], [ -20, %.thread91 ], [ -20, %176 ], [ -20, %117 ], [ -20, %106 ], [ -20, %1642 ], [ -20, %1516 ], [ -20, %1388 ], [ -70, %1302 ], [ %1476, %.loopexit ], [ %1730, %.loopexit130 ], [ -20, %1155 ], [ -20, %1026 ], [ -20, %891 ], [ %1243, %.loopexit152 ], [ -70, %805 ], [ %979, %.loopexit142 ]
+.thread117:                                       ; preds = %.loopexit152, %805, %.loopexit142, %891, %1026, %1155, %.loopexit, %.loopexit130, %1302, %1388, %1516, %1642, %106, %.thread91, %.thread93, %117, %176
+  %.ph114 = phi i64 [ -20, %.thread93 ], [ -20, %.thread91 ], [ -20, %117 ], [ -20, %176 ], [ -20, %106 ], [ -20, %1642 ], [ -20, %1516 ], [ -20, %1388 ], [ -70, %1302 ], [ %1476, %.loopexit ], [ %1730, %.loopexit130 ], [ -20, %1155 ], [ -20, %1026 ], [ -20, %891 ], [ %1243, %.loopexit152 ], [ -70, %805 ], [ %979, %.loopexit142 ]
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %10) #15
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %9) #15
   br label %.thread118
@@ -5966,8 +5966,8 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   %1351 = icmp eq i64 %1350, 3
   br i1 %1351, label %1352, label %1344, !llvm.loop !58
 
-.thread113:                                       ; preds = %.loopexit132, %.loopexit, %1337, %42, %._crit_edge, %.thread88, %.loopexit122, %786, %108, %49, %.thread82, %.thread101
-  %.ph110 = phi i64 [ -20, %.thread88 ], [ %965, %.loopexit122 ], [ -70, %786 ], [ -20, %108 ], [ -20, %49 ], [ -20, %.thread82 ], [ -20, %.thread101 ], [ -20, %._crit_edge ], [ -20, %42 ], [ -20, %1337 ], [ %1294, %.loopexit ], [ %572, %.loopexit132 ]
+.thread113:                                       ; preds = %.loopexit132, %.loopexit, %1337, %42, %._crit_edge, %.thread88, %.loopexit122, %786, %49, %108, %.thread82, %.thread101
+  %.ph110 = phi i64 [ -20, %.thread88 ], [ %965, %.loopexit122 ], [ -70, %786 ], [ -20, %49 ], [ -20, %108 ], [ -20, %.thread82 ], [ -20, %.thread101 ], [ -20, %._crit_edge ], [ -20, %42 ], [ -20, %1337 ], [ %1294, %.loopexit ], [ %572, %.loopexit132 ]
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %11) #15
   br label %.thread114
 
@@ -6977,8 +6977,8 @@ define internal fastcc i64 @ZSTD_decompressSequences(ptr nocapture noundef %0, p
   %632 = icmp eq i64 %631, 3
   br i1 %632, label %633, label %625, !llvm.loop !68
 
-.thread43:                                        ; preds = %.loopexit, %618, %50, %116, %57, %.thread36
-  %.ph41 = phi i64 [ -20, %116 ], [ -20, %57 ], [ -20, %.thread36 ], [ -20, %50 ], [ -20, %618 ], [ %575, %.loopexit ]
+.thread43:                                        ; preds = %.loopexit, %618, %50, %57, %116, %.thread36
+  %.ph41 = phi i64 [ -20, %57 ], [ -20, %116 ], [ -20, %.thread36 ], [ -20, %50 ], [ -20, %618 ], [ %575, %.loopexit ]
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %9) #15
   br label %652
 
@@ -9601,8 +9601,8 @@ thread-pre-split98:                               ; preds = %1230, %.loopexit122
   %1674 = icmp eq i64 %1673, 3
   br i1 %1674, label %1675, label %1667, !llvm.loop !40
 
-.thread113:                                       ; preds = %.loopexit148, %738, %.loopexit138, %824, %959, %1088, %.loopexit, %.loopexit126, %1235, %1321, %1449, %1575, %43, %.thread87, %.thread89, %113, %54
-  %.ph110 = phi i64 [ -20, %.thread89 ], [ -20, %.thread87 ], [ -20, %113 ], [ -20, %54 ], [ -20, %43 ], [ -20, %1575 ], [ -20, %1449 ], [ -20, %1321 ], [ -70, %1235 ], [ %1409, %.loopexit ], [ %1663, %.loopexit126 ], [ -20, %1088 ], [ -20, %959 ], [ -20, %824 ], [ %1176, %.loopexit148 ], [ -70, %738 ], [ %912, %.loopexit138 ]
+.thread113:                                       ; preds = %.loopexit148, %738, %.loopexit138, %824, %959, %1088, %.loopexit, %.loopexit126, %1235, %1321, %1449, %1575, %43, %.thread87, %.thread89, %54, %113
+  %.ph110 = phi i64 [ -20, %.thread89 ], [ -20, %.thread87 ], [ -20, %54 ], [ -20, %113 ], [ -20, %43 ], [ -20, %1575 ], [ -20, %1449 ], [ -20, %1321 ], [ -70, %1235 ], [ %1409, %.loopexit ], [ %1663, %.loopexit126 ], [ -20, %1088 ], [ -20, %959 ], [ -20, %824 ], [ %1176, %.loopexit148 ], [ -70, %738 ], [ %912, %.loopexit138 ]
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %9) #15
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %8) #15
   br label %.thread114
@@ -12205,8 +12205,8 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   %1340 = icmp eq i64 %1339, 3
   br i1 %1340, label %1341, label %1333, !llvm.loop !58
 
-.thread113:                                       ; preds = %.loopexit132, %.loopexit, %1326, %36, %._crit_edge, %.thread88, %.loopexit122, %777, %102, %43, %.thread82, %.thread101
-  %.ph110 = phi i64 [ -20, %.thread88 ], [ %956, %.loopexit122 ], [ -70, %777 ], [ -20, %102 ], [ -20, %43 ], [ -20, %.thread82 ], [ -20, %.thread101 ], [ -20, %._crit_edge ], [ -20, %36 ], [ -20, %1326 ], [ %1283, %.loopexit ], [ %565, %.loopexit132 ]
+.thread113:                                       ; preds = %.loopexit132, %.loopexit, %1326, %36, %._crit_edge, %.thread88, %.loopexit122, %777, %43, %102, %.thread82, %.thread101
+  %.ph110 = phi i64 [ -20, %.thread88 ], [ %956, %.loopexit122 ], [ -70, %777 ], [ -20, %43 ], [ -20, %102 ], [ -20, %.thread82 ], [ -20, %.thread101 ], [ -20, %._crit_edge ], [ -20, %36 ], [ -20, %1326 ], [ %1283, %.loopexit ], [ %565, %.loopexit132 ]
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %11) #15
   br label %.thread114
 
@@ -13202,8 +13202,8 @@ define internal fastcc i64 @ZSTD_decompressSequences_bmi2(ptr nocapture noundef 
   %624 = icmp eq i64 %623, 3
   br i1 %624, label %625, label %617, !llvm.loop !68
 
-.thread43:                                        ; preds = %.loopexit, %610, %44, %110, %51, %.thread36
-  %.ph41 = phi i64 [ -20, %110 ], [ -20, %51 ], [ -20, %.thread36 ], [ -20, %44 ], [ -20, %610 ], [ %567, %.loopexit ]
+.thread43:                                        ; preds = %.loopexit, %610, %44, %51, %110, %.thread36
+  %.ph41 = phi i64 [ -20, %51 ], [ -20, %110 ], [ -20, %.thread36 ], [ -20, %44 ], [ -20, %610 ], [ %567, %.loopexit ]
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %9) #15
   br label %644
 

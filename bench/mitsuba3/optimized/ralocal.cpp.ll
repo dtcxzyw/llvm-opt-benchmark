@@ -3605,7 +3605,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator11allocBranchEP
   %37 = phi ptr [ %35, %30 ], [ %26, %25 ]
   %38 = load i32, ptr %37, align 4, !tbaa !91
   %39 = icmp eq i32 %38, 0
-  br i1 %39, label %.loopexit10, label %40
+  br i1 %39, label %.loopexit11, label %40
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds i8, ptr %0, i64 88
@@ -3672,15 +3672,15 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator11allocBranchEP
   %87 = phi i32 [ %82, %74 ], [ %47, %46 ]
   %88 = phi ptr [ %80, %74 ], [ %48, %46 ]
   %89 = icmp eq i32 %52, 0
-  br i1 %89, label %.loopexit10, label %46, !llvm.loop !120
+  br i1 %89, label %.loopexit11, label %46, !llvm.loop !120
 
-.loopexit10:                                      ; preds = %86, %36
+.loopexit11:                                      ; preds = %86, %36
   %90 = load ptr, ptr %11, align 8, !tbaa !187
   %91 = icmp eq ptr %90, null
   %92 = load ptr, ptr %0, align 8, !tbaa !3
   br i1 %91, label %172, label %93
 
-93:                                               ; preds = %.loopexit10
+93:                                               ; preds = %.loopexit11
   %94 = getelementptr inbounds i8, ptr %92, i64 168
   %95 = load ptr, ptr %94, align 8, !tbaa !194
   %96 = load ptr, ptr %95, align 8, !tbaa !16
@@ -3740,7 +3740,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator11allocBranchEP
   %141 = getelementptr inbounds i8, ptr %140, i64 32
   %142 = load ptr, ptr %141, align 8
   invoke void %142(ptr dead_on_unwind nonnull writable sret(%"class.asmjit::_abi_1_10::Label") align 4 %5, ptr noundef nonnull align 8 dereferenceable(410) %124)
-          to label %143 unwind label %178
+          to label %143 unwind label %180
 
 143:                                              ; preds = %139
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #10
@@ -3766,7 +3766,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator11allocBranchEP
   %157 = getelementptr inbounds i8, ptr %156, i64 48
   %158 = load ptr, ptr %157, align 8
   %159 = invoke noundef i32 %158(ptr noundef nonnull align 8 dereferenceable(410) %154, ptr noundef nonnull align 4 dereferenceable(16) %5)
-          to label %160 unwind label %178
+          to label %160 unwind label %180
 
 160:                                              ; preds = %153
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #10
@@ -3793,24 +3793,28 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator11allocBranchEP
   %171 = load <2 x ptr>, ptr %168, align 8, !tbaa !24
   store <2 x ptr> %170, ptr %168, align 8, !tbaa !24
   store <2 x ptr> %171, ptr %169, align 8, !tbaa !24
-  br label %.loopexit
+  br label %178
 
-172:                                              ; preds = %.loopexit10
+172:                                              ; preds = %.loopexit11
   %173 = getelementptr inbounds i8, ptr %0, i64 200
   %174 = load ptr, ptr %173, align 8, !tbaa !196
   %175 = getelementptr inbounds i8, ptr %0, i64 56
   %176 = tail call noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass23setBlockEntryAssignmentEPNS0_7RABlockEPKS2_RKNS0_12RAAssignmentE(ptr noundef nonnull align 8 dereferenceable(944) %92, ptr noundef nonnull %2, ptr noundef %174, ptr noundef nonnull align 8 dereferenceable(72) %175) #10
+  %177 = icmp eq i32 %176, 0
+  br i1 %177, label %178, label %.loopexit
+
+178:                                              ; preds = %172, %163
   br label %.loopexit
 
-.loopexit:                                        ; preds = %66, %172, %163, %162, %128, %93, %22, %14
-  %177 = phi i32 [ %20, %14 ], [ %23, %22 ], [ %151, %162 ], [ %121, %93 ], [ 3, %128 ], [ 0, %163 ], [ %176, %172 ], [ %72, %66 ]
-  ret i32 %177
+.loopexit:                                        ; preds = %66, %178, %172, %162, %128, %93, %22, %14
+  %179 = phi i32 [ %20, %14 ], [ %23, %22 ], [ 0, %178 ], [ %176, %172 ], [ %151, %162 ], [ %121, %93 ], [ 3, %128 ], [ %72, %66 ]
+  ret i32 %179
 
-178:                                              ; preds = %153, %139
-  %179 = landingpad { ptr, i32 }
+180:                                              ; preds = %153, %139
+  %181 = landingpad { ptr, i32 }
           catch ptr null
-  %180 = extractvalue { ptr, i32 } %179, 0
-  call void @__clang_call_terminate(ptr %180) #11
+  %182 = extractvalue { ptr, i32 } %181, 0
+  call void @__clang_call_terminate(ptr %182) #11
   unreachable
 }
 
@@ -3880,7 +3884,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator14allocJumpTabl
   %45 = phi ptr [ %43, %38 ], [ %35, %34 ]
   %46 = load i32, ptr %45, align 4, !tbaa !91
   %47 = icmp eq i32 %46, 0
-  br i1 %47, label %.loopexit8, label %48
+  br i1 %47, label %.loopexit9, label %48
 
 48:                                               ; preds = %44
   %49 = getelementptr inbounds i8, ptr %0, i64 88
@@ -3947,24 +3951,28 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator14allocJumpTabl
   %95 = phi i32 [ %90, %82 ], [ %55, %54 ]
   %96 = phi ptr [ %88, %82 ], [ %56, %54 ]
   %97 = icmp eq i32 %60, 0
-  br i1 %97, label %.loopexit8, label %54, !llvm.loop !120
+  br i1 %97, label %.loopexit9, label %54, !llvm.loop !120
 
-.loopexit8:                                       ; preds = %94, %44
+.loopexit9:                                       ; preds = %94, %44
   %98 = load ptr, ptr %27, align 8, !tbaa !197
   %99 = icmp eq ptr %98, null
-  br i1 %99, label %100, label %.loopexit
+  br i1 %99, label %100, label %107
 
-100:                                              ; preds = %.loopexit8
+100:                                              ; preds = %.loopexit9
   %101 = load ptr, ptr %0, align 8, !tbaa !3
   %102 = getelementptr inbounds i8, ptr %0, i64 200
   %103 = load ptr, ptr %102, align 8, !tbaa !196
   %104 = getelementptr inbounds i8, ptr %0, i64 56
   %105 = tail call noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass23setBlockEntryAssignmentEPNS0_7RABlockEPKS2_RKNS0_12RAAssignmentE(ptr noundef nonnull align 8 dereferenceable(944) %101, ptr noundef nonnull %14, ptr noundef %103, ptr noundef nonnull align 8 dereferenceable(72) %104) #10
+  %106 = icmp eq i32 %105, 0
+  br i1 %106, label %107, label %.loopexit
+
+107:                                              ; preds = %100, %.loopexit9
   br label %.loopexit
 
-.loopexit:                                        ; preds = %74, %100, %.loopexit8, %30, %18, %8, %4
-  %106 = phi i32 [ %32, %30 ], [ %24, %18 ], [ 3, %4 ], [ 3, %8 ], [ 0, %.loopexit8 ], [ %105, %100 ], [ %80, %74 ]
-  ret i32 %106
+.loopexit:                                        ; preds = %74, %107, %100, %30, %18, %8, %4
+  %108 = phi i32 [ 0, %107 ], [ %105, %100 ], [ %32, %30 ], [ %24, %18 ], [ 3, %4 ], [ 3, %8 ], [ %80, %74 ]
+  ret i32 %108
 }
 
 ; Function Attrs: nounwind

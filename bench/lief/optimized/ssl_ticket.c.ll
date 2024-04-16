@@ -446,7 +446,7 @@ ssl_ticket_select_key.exit:                       ; preds = %.preheader
   %41 = getelementptr inbounds i8, ptr %1, i64 8
   %42 = load i64, ptr %41, align 8
   %43 = icmp slt i64 %40, %42
-  br i1 %43, label %ssl_ticket_select_key.exit.thread, label %44
+  br i1 %43, label %50, label %44
 
 44:                                               ; preds = %39
   %45 = sub nsw i64 %40, %42
@@ -454,11 +454,13 @@ ssl_ticket_select_key.exit:                       ; preds = %.preheader
   %47 = getelementptr inbounds i8, ptr %0, i64 212
   %48 = load i32, ptr %47, align 4
   %49 = icmp ult i32 %48, %46
-  %spec.select = select i1 %49, i32 -28032, i32 0
+  br i1 %49, label %50, label %ssl_ticket_select_key.exit.thread
+
+50:                                               ; preds = %44, %39
   br label %ssl_ticket_select_key.exit.thread
 
-ssl_ticket_select_key.exit.thread:                ; preds = %26, %44, %33, %15, %37, %17, %35, %39, %4, %10
-  %.0 = phi i32 [ -28928, %10 ], [ -28928, %4 ], [ %16, %15 ], [ %spec.store.select, %33 ], [ %38, %37 ], [ -28928, %17 ], [ -27648, %35 ], [ -28032, %39 ], [ %spec.select, %44 ], [ -28032, %26 ]
+ssl_ticket_select_key.exit.thread:                ; preds = %26, %33, %50, %15, %37, %44, %17, %35, %4, %10
+  %.0 = phi i32 [ -28928, %10 ], [ -28928, %4 ], [ %16, %15 ], [ %spec.store.select, %33 ], [ %38, %37 ], [ -28032, %50 ], [ 0, %44 ], [ -28928, %17 ], [ -27648, %35 ], [ -28032, %26 ]
   ret i32 %.0
 }
 

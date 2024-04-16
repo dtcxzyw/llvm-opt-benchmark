@@ -1349,17 +1349,15 @@ _ZNK6icu_7517GregorianCalendar10yearLengthEv.exit: ; preds = %land.rhs.i.i, %_ZN
 if.end35:                                         ; preds = %_ZNK6icu_7517GregorianCalendar10yearLengthEv.exit, %if.end24
   %call36 = tail call noundef signext i8 @_ZNK6icu_758Calendar5isSetE19UCalendarDateFields(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef 8)
   %tobool37.not = icmp eq i8 %call36, 0
-  br i1 %tobool37.not, label %return, label %land.lhs.true38
-
-land.lhs.true38:                                  ; preds = %if.end35
   %arrayidx.i14 = getelementptr inbounds i8, ptr %this, i64 44
   %14 = load i32, ptr %arrayidx.i14, align 4
   %cmp40 = icmp ne i32 %14, 0
-  %spec.select = zext i1 %cmp40 to i8
+  %or.cond18.not = select i1 %tobool37.not, i1 true, i1 %cmp40
+  %spec.select = zext i1 %or.cond18.not to i8
   br label %return
 
-return:                                           ; preds = %land.lhs.true5, %_ZNK6icu_7517GregorianCalendar11boundsCheckEi19UCalendarDateFields.exit, %land.lhs.true38, %if.end35, %if.then27, %_ZNK6icu_7517GregorianCalendar10yearLengthEv.exit, %if.then11, %lor.lhs.false
-  %retval.0 = phi i8 [ 0, %lor.lhs.false ], [ 0, %if.then11 ], [ 0, %_ZNK6icu_7517GregorianCalendar10yearLengthEv.exit ], [ 0, %if.then27 ], [ 1, %if.end35 ], [ %spec.select, %land.lhs.true38 ], [ 0, %_ZNK6icu_7517GregorianCalendar11boundsCheckEi19UCalendarDateFields.exit ], [ 0, %land.lhs.true5 ]
+return:                                           ; preds = %land.lhs.true5, %_ZNK6icu_7517GregorianCalendar11boundsCheckEi19UCalendarDateFields.exit, %if.end35, %if.then27, %_ZNK6icu_7517GregorianCalendar10yearLengthEv.exit, %if.then11, %lor.lhs.false
+  %retval.0 = phi i8 [ 0, %lor.lhs.false ], [ 0, %if.then11 ], [ 0, %_ZNK6icu_7517GregorianCalendar10yearLengthEv.exit ], [ 0, %if.then27 ], [ %spec.select, %if.end35 ], [ 0, %_ZNK6icu_7517GregorianCalendar11boundsCheckEi19UCalendarDateFields.exit ], [ 0, %land.lhs.true5 ]
   ret i8 %retval.0
 }
 

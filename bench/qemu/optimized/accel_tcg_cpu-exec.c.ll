@@ -1737,7 +1737,7 @@ return:                                           ; preds = %entry, %if.end
 declare ptr @qht_lookup_custom(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @tb_lookup_cmp(ptr nocapture noundef readonly %p, ptr nocapture noundef readonly %d) #2 {
+define internal noundef zeroext i1 @tb_lookup_cmp(ptr nocapture noundef readonly %p, ptr nocapture noundef readonly %d) #2 {
 entry:
   %cflags.i = getelementptr inbounds i8, ptr %p, i64 20
   %0 = load atomic i32, ptr %cflags.i monotonic, align 4
@@ -1749,7 +1749,7 @@ lor.lhs.false:                                    ; preds = %entry
   %1 = load i64, ptr %p, align 8
   %2 = load i64, ptr %d, align 8
   %cmp = icmp eq i64 %1, %2
-  br i1 %cmp, label %land.lhs.true, label %return
+  br i1 %cmp, label %land.lhs.true, label %if.end22
 
 land.lhs.true:                                    ; preds = %lor.lhs.false, %entry
   %3 = getelementptr i8, ptr %p, i64 72
@@ -1757,7 +1757,7 @@ land.lhs.true:                                    ; preds = %lor.lhs.false, %ent
   %page_addr0 = getelementptr inbounds i8, ptr %d, i64 24
   %4 = load i64, ptr %page_addr0, align 8
   %cmp3 = icmp eq i64 %p.val, %4
-  br i1 %cmp3, label %land.lhs.true4, label %return
+  br i1 %cmp3, label %land.lhs.true4, label %if.end22
 
 land.lhs.true4:                                   ; preds = %land.lhs.true
   %cs_base = getelementptr inbounds i8, ptr %p, i64 8
@@ -1765,7 +1765,7 @@ land.lhs.true4:                                   ; preds = %land.lhs.true
   %cs_base5 = getelementptr inbounds i8, ptr %d, i64 8
   %6 = load i64, ptr %cs_base5, align 8
   %cmp6 = icmp eq i64 %5, %6
-  br i1 %cmp6, label %land.lhs.true7, label %return
+  br i1 %cmp6, label %land.lhs.true7, label %if.end22
 
 land.lhs.true7:                                   ; preds = %land.lhs.true4
   %flags = getelementptr inbounds i8, ptr %p, i64 16
@@ -1773,14 +1773,14 @@ land.lhs.true7:                                   ; preds = %land.lhs.true4
   %flags8 = getelementptr inbounds i8, ptr %d, i64 32
   %8 = load i32, ptr %flags8, align 8
   %cmp9 = icmp eq i32 %7, %8
-  br i1 %cmp9, label %land.lhs.true10, label %return
+  br i1 %cmp9, label %land.lhs.true10, label %if.end22
 
 land.lhs.true10:                                  ; preds = %land.lhs.true7
   %9 = load atomic i32, ptr %cflags.i monotonic, align 4
   %cflags = getelementptr inbounds i8, ptr %d, i64 36
   %10 = load i32, ptr %cflags, align 4
   %cmp12 = icmp eq i32 %9, %10
-  br i1 %cmp12, label %if.then, label %return
+  br i1 %cmp12, label %if.then, label %if.end22
 
 if.then:                                          ; preds = %land.lhs.true10
   %11 = getelementptr i8, ptr %p, i64 80
@@ -1798,10 +1798,13 @@ if.else:                                          ; preds = %if.then
   %13 = load ptr, ptr %env, align 8
   %call.i = tail call i64 @get_page_addr_code_hostp(ptr noundef %13, i64 noundef %and17, ptr noundef null) #12
   %cmp19 = icmp eq i64 %and.i, %call.i
+  br i1 %cmp19, label %return, label %if.end22
+
+if.end22:                                         ; preds = %if.else, %land.lhs.true10, %land.lhs.true7, %land.lhs.true4, %land.lhs.true, %lor.lhs.false
   br label %return
 
-return:                                           ; preds = %if.else, %lor.lhs.false, %land.lhs.true, %land.lhs.true4, %land.lhs.true7, %land.lhs.true10, %if.then
-  %retval.0 = phi i1 [ true, %if.then ], [ false, %land.lhs.true10 ], [ false, %land.lhs.true7 ], [ false, %land.lhs.true4 ], [ false, %land.lhs.true ], [ false, %lor.lhs.false ], [ %cmp19, %if.else ]
+return:                                           ; preds = %if.else, %if.then, %if.end22
+  %retval.0 = phi i1 [ false, %if.end22 ], [ true, %if.then ], [ true, %if.else ]
   ret i1 %retval.0
 }
 

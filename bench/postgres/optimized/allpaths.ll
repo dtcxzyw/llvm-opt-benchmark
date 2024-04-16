@@ -3999,17 +3999,17 @@ declare void @set_baserel_size_estimates(ptr noundef, ptr noundef) local_unnamed
 declare ptr @copyObjectImpl(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @subquery_is_pushdown_safe(ptr noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @subquery_is_pushdown_safe(ptr noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 192
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %6, label %compare_tlist_datatypes.exit
+  br i1 %.not, label %6, label %185
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 200
   %8 = load ptr, ptr %7, align 8
   %.not26 = icmp eq ptr %8, null
-  br i1 %.not26, label %9, label %compare_tlist_datatypes.exit
+  br i1 %.not26, label %9, label %185
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds i8, ptr %0, i64 136
@@ -4021,7 +4021,7 @@ define internal fastcc zeroext i1 @subquery_is_pushdown_safe(ptr noundef readonl
   %13 = getelementptr inbounds i8, ptr %0, i64 152
   %14 = load ptr, ptr %13, align 8
   %.not28 = icmp eq ptr %14, null
-  br i1 %.not28, label %15, label %compare_tlist_datatypes.exit
+  br i1 %.not28, label %15, label %185
 
 15:                                               ; preds = %12, %9
   %16 = getelementptr inbounds i8, ptr %0, i64 176
@@ -4218,10 +4218,10 @@ check_output_expressions.exit:                    ; preds = %targetIsInAllPartit
 
 129:                                              ; preds = %128
   %130 = tail call fastcc zeroext i1 @recurse_pushdown_safe(ptr noundef nonnull %127, ptr noundef nonnull %0, ptr noundef %2)
-  br label %compare_tlist_datatypes.exit
+  br i1 %130, label %compare_tlist_datatypes.exit, label %185
 
 131:                                              ; preds = %check_output_expressions.exit
-  br i1 %.not31, label %132, label %compare_tlist_datatypes.exit
+  br i1 %.not31, label %132, label %185
 
 132:                                              ; preds = %131
   %133 = getelementptr inbounds i8, ptr %1, i64 224
@@ -4325,8 +4325,11 @@ list_head.exit.i:                                 ; preds = %139, %132
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3808, ptr noundef nonnull @__func__.compare_tlist_datatypes) #9
   unreachable
 
-compare_tlist_datatypes.exit:                     ; preds = %._crit_edge.i, %129, %128, %131, %12, %3, %6
-  %.0 = phi i1 [ false, %6 ], [ false, %3 ], [ false, %12 ], [ false, %131 ], [ true, %128 ], [ %130, %129 ], [ true, %._crit_edge.i ]
+compare_tlist_datatypes.exit:                     ; preds = %._crit_edge.i, %128, %129
+  br label %185
+
+185:                                              ; preds = %131, %129, %12, %3, %6, %compare_tlist_datatypes.exit
+  %.0 = phi i1 [ true, %compare_tlist_datatypes.exit ], [ false, %6 ], [ false, %3 ], [ false, %12 ], [ false, %129 ], [ false, %131 ]
   ret i1 %.0
 }
 
@@ -4406,7 +4409,7 @@ declare ptr @make_tlist_from_pathtarget(ptr noundef) local_unnamed_addr #1
 declare ptr @create_subqueryscan_path(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @recurse_pushdown_safe(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @recurse_pushdown_safe(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %26, %3

@@ -2439,7 +2439,7 @@ define dso_local noundef i32 @scontrol_callerid(i32 noundef %0, ptr nocapture no
 
 18:                                               ; preds = %16
   %19 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.51) #13
-  br label %76
+  br label %77
 
 20:                                               ; preds = %10, %16
   %21 = and i32 %14, -3
@@ -2448,108 +2448,110 @@ define dso_local noundef i32 @scontrol_callerid(i32 noundef %0, ptr nocapture no
 
 22:                                               ; preds = %20
   %23 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.52, i32 noundef %14) #13
-  br label %76
+  br label %77
 
 24:                                               ; preds = %20
   %25 = icmp eq i32 %14, 4
-  %spec.select = select i1 %25, i32 2, i32 10
-  br label %.thread34
+  br i1 %25, label %.thread34, label %26
 
-.thread34:                                        ; preds = %24, %2
-  %26 = phi i32 [ 2, %2 ], [ %spec.select, %24 ]
-  %27 = load ptr, ptr %1, align 8
-  %28 = call i32 @inet_pton(i32 noundef %26, ptr noundef %27, ptr noundef nonnull %3) #13
-  %.not24 = icmp eq i32 %28, 0
-  br i1 %.not24, label %29, label %32
+.thread34:                                        ; preds = %2, %24
+  br label %26
 
-29:                                               ; preds = %.thread34
-  %30 = load ptr, ptr %1, align 8
-  %31 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.53, ptr noundef %30) #13
-  br label %76
+26:                                               ; preds = %24, %.thread34
+  %27 = phi i32 [ 2, %.thread34 ], [ 10, %24 ]
+  %28 = load ptr, ptr %1, align 8
+  %29 = call i32 @inet_pton(i32 noundef %27, ptr noundef %28, ptr noundef nonnull %3) #13
+  %.not24 = icmp eq i32 %29, 0
+  br i1 %.not24, label %30, label %33
 
-32:                                               ; preds = %.thread34
-  %33 = getelementptr inbounds i8, ptr %1, i64 8
-  %34 = load ptr, ptr %33, align 8
-  %35 = call i64 @strtoul(ptr noundef %34, ptr noundef nonnull %8, i32 noundef 0) #13
-  %36 = trunc i64 %35 to i32
-  %37 = load ptr, ptr %8, align 8
-  %.not25 = icmp eq ptr %37, null
-  br i1 %.not25, label %42, label %38
+30:                                               ; preds = %26
+  %31 = load ptr, ptr %1, align 8
+  %32 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.53, ptr noundef %31) #13
+  br label %77
 
-38:                                               ; preds = %32
-  %39 = load i8, ptr %37, align 1
-  %.not26 = icmp eq i8 %39, 0
-  br i1 %.not26, label %42, label %40
+33:                                               ; preds = %26
+  %34 = getelementptr inbounds i8, ptr %1, i64 8
+  %35 = load ptr, ptr %34, align 8
+  %36 = call i64 @strtoul(ptr noundef %35, ptr noundef nonnull %8, i32 noundef 0) #13
+  %37 = trunc i64 %36 to i32
+  %38 = load ptr, ptr %8, align 8
+  %.not25 = icmp eq ptr %38, null
+  br i1 %.not25, label %43, label %39
 
-40:                                               ; preds = %38
-  %41 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.54) #13
-  br label %76
+39:                                               ; preds = %33
+  %40 = load i8, ptr %38, align 1
+  %.not26 = icmp eq i8 %40, 0
+  br i1 %.not26, label %43, label %41
 
-42:                                               ; preds = %38, %32
-  %43 = getelementptr inbounds i8, ptr %1, i64 16
-  %44 = load ptr, ptr %43, align 8
-  %45 = call i32 @inet_pton(i32 noundef %26, ptr noundef %44, ptr noundef nonnull %4) #13
-  %.not27 = icmp eq i32 %45, 0
-  br i1 %.not27, label %46, label %49
+41:                                               ; preds = %39
+  %42 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.54) #13
+  br label %77
 
-46:                                               ; preds = %42
-  %47 = load ptr, ptr %43, align 8
-  %48 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.55, ptr noundef %47) #13
-  br label %76
+43:                                               ; preds = %39, %33
+  %44 = getelementptr inbounds i8, ptr %1, i64 16
+  %45 = load ptr, ptr %44, align 8
+  %46 = call i32 @inet_pton(i32 noundef %27, ptr noundef %45, ptr noundef nonnull %4) #13
+  %.not27 = icmp eq i32 %46, 0
+  br i1 %.not27, label %47, label %50
 
-49:                                               ; preds = %42
-  %50 = getelementptr inbounds i8, ptr %1, i64 24
-  %51 = load ptr, ptr %50, align 8
-  %52 = call i64 @strtoul(ptr noundef %51, ptr noundef nonnull %8, i32 noundef 0) #13
-  %53 = trunc i64 %52 to i32
-  %54 = load ptr, ptr %8, align 8
-  %.not28 = icmp eq ptr %54, null
-  br i1 %.not28, label %59, label %55
+47:                                               ; preds = %43
+  %48 = load ptr, ptr %44, align 8
+  %49 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.55, ptr noundef %48) #13
+  br label %77
 
-55:                                               ; preds = %49
-  %56 = load i8, ptr %54, align 1
-  %.not29 = icmp eq i8 %56, 0
-  br i1 %.not29, label %59, label %57
+50:                                               ; preds = %43
+  %51 = getelementptr inbounds i8, ptr %1, i64 24
+  %52 = load ptr, ptr %51, align 8
+  %53 = call i64 @strtoul(ptr noundef %52, ptr noundef nonnull %8, i32 noundef 0) #13
+  %54 = trunc i64 %53 to i32
+  %55 = load ptr, ptr %8, align 8
+  %.not28 = icmp eq ptr %55, null
+  br i1 %.not28, label %60, label %56
 
-57:                                               ; preds = %55
-  %58 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.56) #13
-  br label %76
+56:                                               ; preds = %50
+  %57 = load i8, ptr %55, align 1
+  %.not29 = icmp eq i8 %57, 0
+  br i1 %.not29, label %60, label %58
 
-59:                                               ; preds = %55, %49
+58:                                               ; preds = %56
+  %59 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.56) #13
+  br label %77
+
+60:                                               ; preds = %56, %50
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 16 dereferenceable(16) %3, i64 16, i1 false)
-  %60 = getelementptr inbounds i8, ptr %6, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull align 16 dereferenceable(16) %4, i64 16, i1 false)
-  %61 = getelementptr inbounds i8, ptr %6, i64 32
-  store i32 %36, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %6, i64 36
-  store i32 %53, ptr %62, align 4
-  %63 = getelementptr inbounds i8, ptr %6, i64 40
-  store i32 %26, ptr %63, align 8
-  %64 = call i32 @slurm_network_callerid(ptr noundef nonnull byval(%struct.network_callerid_msg) align 8 %6, ptr noundef nonnull %5, ptr noundef nonnull %7, i32 noundef 64) #13
-  %.not30 = icmp eq i32 %64, 0
-  br i1 %.not30, label %68, label %65
+  %61 = getelementptr inbounds i8, ptr %6, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 16 dereferenceable(16) %4, i64 16, i1 false)
+  %62 = getelementptr inbounds i8, ptr %6, i64 32
+  store i32 %37, ptr %62, align 8
+  %63 = getelementptr inbounds i8, ptr %6, i64 36
+  store i32 %54, ptr %63, align 4
+  %64 = getelementptr inbounds i8, ptr %6, i64 40
+  store i32 %27, ptr %64, align 8
+  %65 = call i32 @slurm_network_callerid(ptr noundef nonnull byval(%struct.network_callerid_msg) align 8 %6, ptr noundef nonnull %5, ptr noundef nonnull %7, i32 noundef 64) #13
+  %.not30 = icmp eq i32 %65, 0
+  br i1 %.not30, label %69, label %66
 
-65:                                               ; preds = %59
-  %66 = load ptr, ptr @stderr, align 8
-  %67 = call i64 @fwrite(ptr nonnull @.str.57, i64 76, i64 1, ptr %66) #14
-  br label %76
+66:                                               ; preds = %60
+  %67 = load ptr, ptr @stderr, align 8
+  %68 = call i64 @fwrite(ptr nonnull @.str.57, i64 76, i64 1, ptr %67) #14
+  br label %77
 
-68:                                               ; preds = %59
-  %69 = load i32, ptr %5, align 4
-  %70 = icmp eq i32 %69, -2
-  br i1 %70, label %71, label %74
+69:                                               ; preds = %60
+  %70 = load i32, ptr %5, align 4
+  %71 = icmp eq i32 %70, -2
+  br i1 %71, label %72, label %75
 
-71:                                               ; preds = %68
-  %72 = load ptr, ptr @stderr, align 8
-  %73 = call i64 @fwrite(ptr nonnull @.str.58, i64 52, i64 1, ptr %72) #14
-  br label %76
+72:                                               ; preds = %69
+  %73 = load ptr, ptr @stderr, align 8
+  %74 = call i64 @fwrite(ptr nonnull @.str.58, i64 52, i64 1, ptr %73) #14
+  br label %77
 
-74:                                               ; preds = %68
-  %75 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.59, i32 noundef %69, ptr noundef nonnull %7)
-  br label %76
+75:                                               ; preds = %69
+  %76 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.59, i32 noundef %70, ptr noundef nonnull %7)
+  br label %77
 
-76:                                               ; preds = %74, %71, %65, %57, %46, %40, %29, %22, %18
-  %.0 = phi i32 [ -1, %18 ], [ -1, %22 ], [ -1, %40 ], [ -1, %57 ], [ -1, %65 ], [ -1, %71 ], [ 0, %74 ], [ -1, %46 ], [ -1, %29 ]
+77:                                               ; preds = %75, %72, %66, %58, %47, %41, %30, %22, %18
+  %.0 = phi i32 [ -1, %18 ], [ -1, %22 ], [ -1, %41 ], [ -1, %58 ], [ -1, %66 ], [ -1, %72 ], [ 0, %75 ], [ -1, %47 ], [ -1, %30 ]
   ret i32 %.0
 }
 

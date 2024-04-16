@@ -481,12 +481,12 @@ if.then.i:                                        ; preds = %if.end10
   tail call void @ERR_new() #3
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 21, ptr noundef nonnull @__func__.BN_nnmod) #3
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 3, i32 noundef 524550, ptr noundef null) #3
-  br label %err
+  br label %BN_nnmod.exit.thread
 
 if.end.i:                                         ; preds = %if.end10
   %call.i = tail call i32 @BN_div(ptr noundef null, ptr noundef %r, ptr noundef nonnull %call, ptr noundef %m, ptr noundef %ctx) #3
   %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %err, label %if.end2.i
+  br i1 %tobool.not.i, label %BN_nnmod.exit.thread, label %if.end2.i
 
 if.end2.i:                                        ; preds = %if.end.i
   %neg.i = getelementptr inbounds i8, ptr %r, i64 16
@@ -501,12 +501,14 @@ BN_nnmod.exit:                                    ; preds = %if.end2.i
   %cond.i = select i1 %tobool7.not.i, ptr @BN_add, ptr @BN_sub
   %call8.i = tail call i32 %cond.i(ptr noundef nonnull %r, ptr noundef nonnull %r, ptr noundef %m) #3, !callees !4
   %call8.i.fr = freeze i32 %call8.i
-  %tobool12.not = icmp ne i32 %call8.i.fr, 0
-  %spec.select = zext i1 %tobool12.not to i32
+  %tobool12.not = icmp eq i32 %call8.i.fr, 0
+  br i1 %tobool12.not, label %BN_nnmod.exit.thread, label %err
+
+BN_nnmod.exit.thread:                             ; preds = %if.end.i, %if.then.i, %BN_nnmod.exit
   br label %err
 
-err:                                              ; preds = %BN_nnmod.exit, %if.end.i, %if.then.i, %if.end2.i, %if.else, %if.then2, %entry
-  %ret.0 = phi i32 [ 0, %entry ], [ 0, %if.then2 ], [ 0, %if.else ], [ 1, %if.end2.i ], [ 0, %if.then.i ], [ 0, %if.end.i ], [ %spec.select, %BN_nnmod.exit ]
+err:                                              ; preds = %if.end2.i, %BN_nnmod.exit.thread, %BN_nnmod.exit, %if.else, %if.then2, %entry
+  %ret.0 = phi i32 [ 0, %entry ], [ 0, %if.then2 ], [ 0, %if.else ], [ 0, %BN_nnmod.exit.thread ], [ 1, %BN_nnmod.exit ], [ 1, %if.end2.i ]
   tail call void @BN_CTX_end(ptr noundef %ctx) #3
   ret i32 %ret.0
 }

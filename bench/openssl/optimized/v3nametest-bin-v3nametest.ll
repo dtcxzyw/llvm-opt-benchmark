@@ -156,8 +156,8 @@ entry:
 
 for.body:                                         ; preds = %entry, %if.end
   %1 = phi ptr [ @.str.13, %entry ], [ %21, %if.end ]
-  %pname.018 = phi ptr [ @names, %entry ], [ %incdec.ptr, %if.end ]
-  %failed.017 = phi i32 [ 0, %entry ], [ %failed.1, %if.end ]
+  %pname.017 = phi ptr [ @names, %entry ], [ %incdec.ptr, %if.end ]
+  %failed.016 = phi i32 [ 0, %entry ], [ %failed.1, %if.end ]
   %call.i = call ptr @X509_new() #7
   %call1.i = call i32 @test_ptr(ptr noundef nonnull @.str.2, i32 noundef 254, ptr noundef nonnull @.str.63, ptr noundef %call.i) #7
   %tobool.not.i = icmp eq i32 %call1.i, 0
@@ -179,7 +179,7 @@ make_cert.exit:                                   ; preds = %for.body, %if.end.i
   %retval.0.i = phi ptr [ null, %if.then5.i ], [ null, %for.body ], [ %call.i, %if.end.i ]
   %call1 = call i32 @test_ptr(ptr noundef nonnull @.str.2, i32 noundef 351, ptr noundef nonnull @.str.4, ptr noundef %retval.0.i) #7
   %tobool.not = icmp eq i32 %call1, 0
-  br i1 %tobool.not, label %if.end, label %lor.lhs.false
+  br i1 %tobool.not, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %make_cert.exit
   %2 = load ptr, ptr %arrayidx, align 8
@@ -188,12 +188,12 @@ lor.lhs.false:                                    ; preds = %make_cert.exit
   %conv = zext i1 %cmp3 to i32
   %call4 = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 352, ptr noundef nonnull @.str.5, i32 noundef %conv) #7
   %tobool5.not = icmp eq i32 %call4, 0
-  br i1 %tobool5.not, label %if.end, label %for.body.i
+  br i1 %tobool5.not, label %if.then, label %for.body.i
 
 for.body.i:                                       ; preds = %lor.lhs.false, %check_message.exit92.i
   %3 = phi ptr [ %20, %check_message.exit92.i ], [ @.str.13, %lor.lhs.false ]
   %pname.0128.i = phi ptr [ %incdec.ptr.i, %check_message.exit92.i ], [ @names, %lor.lhs.false ]
-  %failed.0127.i = phi i32 [ %spec.select56.i.fr, %check_message.exit92.i ], [ 0, %lor.lhs.false ]
+  %failed.0127.i = phi i32 [ %spec.select56.i, %check_message.exit92.i ], [ 0, %lor.lhs.false ]
   %call.i8 = call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %1, ptr noundef nonnull %3) #7
   %cmp1.i = icmp eq i32 %call.i8, 0
   %call2.i9 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #8
@@ -201,7 +201,7 @@ for.body.i:                                       ; preds = %lor.lhs.false, %che
   %call3.i10 = call noalias ptr @CRYPTO_malloc(i64 noundef %add.i, ptr noundef nonnull @.str.2, i32 noundef 288) #7
   %call4.i = call i32 @test_ptr(ptr noundef nonnull @.str.2, i32 noundef 291, ptr noundef nonnull @.str.65, ptr noundef %call3.i10) #7
   %tobool.not.i11 = icmp eq i32 %call4.i, 0
-  br i1 %tobool.not.i11, label %if.end, label %if.end.i12
+  br i1 %tobool.not.i11, label %if.then, label %if.end.i12
 
 if.end.i12:                                       ; preds = %for.body.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call3.i10, ptr nonnull align 1 %3, i64 %add.i, i1 false)
@@ -395,7 +395,6 @@ check_message.exit92.i:                           ; preds = %for.body.i.i83.i, %
   %tobool97.not.i = icmp eq i32 %call96.i, 0
   %19 = select i1 %tobool97.not.i, i1 true, i1 %tobool68.not.i
   %spec.select56.i = select i1 %19, i32 1, i32 %failed.3110.i
-  %spec.select56.i.fr = freeze i32 %spec.select56.i
   call void @CRYPTO_free(ptr noundef %call3.i10, ptr noundef nonnull @.str.2, i32 noundef 336) #7
   %incdec.ptr.i = getelementptr inbounds i8, ptr %pname.0128.i, i64 8
   %20 = load ptr, ptr %incdec.ptr.i, align 8
@@ -403,14 +402,16 @@ check_message.exit92.i:                           ; preds = %for.body.i.i83.i, %
   br i1 %cmp.not.i, label %run_cert.exit, label %for.body.i, !llvm.loop !7
 
 run_cert.exit:                                    ; preds = %check_message.exit92.i
-  %cmp100.i.not = icmp eq i32 %spec.select56.i.fr, 0
-  %spec.select = select i1 %cmp100.i.not, i32 %failed.017, i32 1
+  %cmp100.i.not = icmp eq i32 %spec.select56.i, 0
+  br i1 %cmp100.i.not, label %if.end, label %if.then
+
+if.then:                                          ; preds = %for.body.i, %run_cert.exit, %lor.lhs.false, %make_cert.exit
   br label %if.end
 
-if.end:                                           ; preds = %for.body.i, %run_cert.exit, %make_cert.exit, %lor.lhs.false
-  %failed.1 = phi i32 [ 1, %lor.lhs.false ], [ 1, %make_cert.exit ], [ %spec.select, %run_cert.exit ], [ 1, %for.body.i ]
+if.end:                                           ; preds = %if.then, %run_cert.exit
+  %failed.1 = phi i32 [ %failed.016, %run_cert.exit ], [ 1, %if.then ]
   call void @X509_free(ptr noundef %retval.0.i) #7
-  %incdec.ptr = getelementptr inbounds i8, ptr %pname.018, i64 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %pname.017, i64 8
   %21 = load ptr, ptr %incdec.ptr, align 8
   %cmp.not = icmp eq ptr %21, null
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !8

@@ -327,7 +327,7 @@ if.end:                                           ; preds = %land.rhs.i.i, %entr
   %t.addr.0 = phi ptr [ %5, %if.then ], [ %t, %_ZNK17arith_recognizers6is_addEPK4expr.exit ], [ %t, %entry ], [ %t, %land.rhs.i.i ]
   %bf.clear.i.i.i7 = and i32 %bf.load.i.i.i6, 65535
   %cmp.i.i8 = icmp eq i32 %bf.clear.i.i.i7, 0
-  br i1 %cmp.i.i8, label %land.rhs.i.i9, label %return
+  br i1 %cmp.i.i8, label %land.rhs.i.i9, label %if.end15
 
 land.rhs.i.i9:                                    ; preds = %if.end
   %m_decl.i.i.i10 = getelementptr inbounds i8, ptr %t.addr.0, i64 16
@@ -335,7 +335,7 @@ land.rhs.i.i9:                                    ; preds = %if.end
   %m_info.i.i.i.i11 = getelementptr inbounds i8, ptr %6, i64 24
   %7 = load ptr, ptr %m_info.i.i.i.i11, align 8
   %tobool.not.i.i.i.i12 = icmp eq ptr %7, null
-  br i1 %tobool.not.i.i.i.i12, label %return, label %_ZNK17arith_recognizers6is_mulEPK4expr.exit
+  br i1 %tobool.not.i.i.i.i12, label %if.end15, label %_ZNK17arith_recognizers6is_mulEPK4expr.exit
 
 _ZNK17arith_recognizers6is_mulEPK4expr.exit:      ; preds = %land.rhs.i.i9
   %8 = load i32, ptr %7, align 8
@@ -344,7 +344,7 @@ _ZNK17arith_recognizers6is_mulEPK4expr.exit:      ; preds = %land.rhs.i.i9
   %9 = load i32, ptr %m_kind.i.i.i.i.i15, align 4
   %cmp2.i.i.i.i.i16 = icmp eq i32 %9, 9
   %10 = select i1 %cmp.i.i.i.i.i14, i1 %cmp2.i.i.i.i.i16, i1 false
-  br i1 %10, label %if.then6, label %return
+  br i1 %10, label %if.then6, label %if.end15
 
 if.then6:                                         ; preds = %_ZNK17arith_recognizers6is_mulEPK4expr.exit
   %m_args.i17 = getelementptr inbounds i8, ptr %t.addr.0, i64 32
@@ -388,11 +388,13 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %invoke.c
   unreachable
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
-  %spec.select = select i1 %call10, i1 %cmp.i.i.i.i, i1 false
+  br i1 %call10, label %return, label %if.end15
+
+if.end15:                                         ; preds = %land.rhs.i.i9, %if.end, %_ZN8rationalD2Ev.exit, %_ZNK17arith_recognizers6is_mulEPK4expr.exit
   br label %return
 
-return:                                           ; preds = %land.rhs.i.i9, %if.end, %_ZN8rationalD2Ev.exit, %_ZNK17arith_recognizers6is_mulEPK4expr.exit
-  %retval.1 = phi i1 [ false, %_ZNK17arith_recognizers6is_mulEPK4expr.exit ], [ %spec.select, %_ZN8rationalD2Ev.exit ], [ false, %if.end ], [ false, %land.rhs.i.i9 ]
+return:                                           ; preds = %_ZN8rationalD2Ev.exit, %if.end15
+  %retval.1 = phi i1 [ %cmp.i.i.i.i, %_ZN8rationalD2Ev.exit ], [ false, %if.end15 ]
   ret i1 %retval.1
 }
 

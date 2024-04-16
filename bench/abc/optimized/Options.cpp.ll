@@ -510,9 +510,9 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
   %6 = trunc nuw nsw i64 %indvars.iv35.i to i32
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit.thread.i, %.lr.ph.preheader.i
-  %indvars.iv32.i = phi i64 [ %indvars.iv.i, %.lr.ph.preheader.i ], [ %indvars.iv.next33.i, %_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit.thread.i ]
-  %.02127.i = phi i32 [ %6, %.lr.ph.preheader.i ], [ %27, %_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit.thread.i ]
+.lr.ph.i:                                         ; preds = %_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit.thread24.i, %.lr.ph.preheader.i
+  %indvars.iv32.i = phi i64 [ %indvars.iv.i, %.lr.ph.preheader.i ], [ %indvars.iv.next33.i, %_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit.thread24.i ]
+  %.02127.i = phi i32 [ %6, %.lr.ph.preheader.i ], [ %27, %_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit.thread24.i ]
   %7 = getelementptr inbounds ptr, ptr %.tr.lcssa, i64 %indvars.iv32.i
   %8 = load ptr, ptr %7, align 8
   %9 = sext i32 %.02127.i to i64
@@ -524,31 +524,33 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %15) #14
   %17 = icmp slt i32 %16, 0
-  %18 = trunc nuw nsw i64 %indvars.iv32.i to i32
-  br i1 %17, label %_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit.thread.i, label %19
+  br i1 %17, label %_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit.thread.i, label %18
 
-19:                                               ; preds = %.lr.ph.i
-  %20 = icmp eq i32 %16, 0
-  br i1 %20, label %_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit.i, label %_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit.thread.i
+18:                                               ; preds = %.lr.ph.i
+  %19 = icmp eq i32 %16, 0
+  br i1 %19, label %_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit.i, label %_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit.thread24.i
 
-_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit.i:      ; preds = %19
-  %21 = getelementptr inbounds i8, ptr %8, i64 32
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %11, i64 32
-  %24 = load ptr, ptr %23, align 8
-  %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %24) #14
-  %.fr.i = freeze i32 %25
-  %26 = icmp slt i32 %.fr.i, 0
-  %spec.select.i = select i1 %26, i32 %18, i32 %.02127.i
-  br label %_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit.thread.i
+_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit.i:      ; preds = %18
+  %20 = getelementptr inbounds i8, ptr %8, i64 32
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %11, i64 32
+  %23 = load ptr, ptr %22, align 8
+  %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) %23) #14
+  %.fr.i = freeze i32 %24
+  %25 = icmp slt i32 %.fr.i, 0
+  br i1 %25, label %_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit.thread.i, label %_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit.thread24.i
 
-_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit.thread.i: ; preds = %_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit.i, %19, %.lr.ph.i
-  %27 = phi i32 [ %18, %.lr.ph.i ], [ %.02127.i, %19 ], [ %spec.select.i, %_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit.i ]
+_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit.thread.i: ; preds = %_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit.i, %.lr.ph.i
+  %26 = trunc nuw nsw i64 %indvars.iv32.i to i32
+  br label %_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit.thread24.i
+
+_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit.thread24.i: ; preds = %_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit.thread.i, %_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit.i, %18
+  %27 = phi i32 [ %26, %_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit.thread.i ], [ %.02127.i, %_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit.i ], [ %.02127.i, %18 ]
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next33.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !10
 
-._crit_edge.i:                                    ; preds = %_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit.thread.i
+._crit_edge.i:                                    ; preds = %_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit.thread24.i
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %28 = getelementptr inbounds ptr, ptr %.tr.lcssa, i64 %indvars.iv35.i
   %29 = load ptr, ptr %28, align 8

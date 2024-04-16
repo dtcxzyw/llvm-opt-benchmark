@@ -590,7 +590,7 @@ define noundef i32 @prte_ess_base_bootstrap() local_unnamed_addr #0 {
   %211 = ashr exact i64 %sext.i.i, 32
   %212 = getelementptr inbounds i8, ptr %197, i64 %211
   %213 = icmp ult ptr %.034.lcssa.i.i, %212
-  br i1 %213, label %214, label %regex_parse_value_ranges.exit.i
+  br i1 %213, label %214, label %226
 
 214:                                              ; preds = %._crit_edge.i136.i
   %215 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_ess_base_framework, i64 0, i32 11), align 4
@@ -620,11 +620,11 @@ define noundef i32 @prte_ess_base_bootstrap() local_unnamed_addr #0 {
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.26, ptr noundef %225, ptr noundef nonnull @.str.27, i32 noundef 446) #13
   br label %regex_parse_value_ranges.exit.i
 
-226:                                              ; preds = %222
+226:                                              ; preds = %222, %._crit_edge.i136.i
   br label %regex_parse_value_ranges.exit.i
 
-regex_parse_value_ranges.exit.i:                  ; preds = %204, %226, %224, %222, %._crit_edge.i136.i, %206
-  %.0.i137.i = phi i32 [ %205, %206 ], [ %223, %222 ], [ %223, %224 ], [ 0, %._crit_edge.i136.i ], [ 0, %226 ], [ %205, %204 ]
+regex_parse_value_ranges.exit.i:                  ; preds = %204, %226, %224, %222, %206
+  %.0.i137.i = phi i32 [ 0, %226 ], [ %205, %206 ], [ %223, %222 ], [ %223, %224 ], [ %205, %204 ]
   %.not133.i = icmp eq ptr %.0109.i, null
   br i1 %.not133.i, label %228, label %227
 

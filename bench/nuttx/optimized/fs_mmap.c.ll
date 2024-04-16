@@ -48,13 +48,13 @@ define i32 @file_mmap(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 nounde
   %or.cond.i = and i1 %25, %24
   %26 = and i32 %.pre.i, 1
   %27 = icmp eq i32 %26, 0
-  %or.cond34.i = select i1 %or.cond.i, i1 true, i1 %27
-  br i1 %or.cond34.i, label %file_mmap_.exit, label %29
+  %or.cond33.i = select i1 %or.cond.i, i1 true, i1 %27
+  br i1 %or.cond33.i, label %file_mmap_.exit, label %29
 
 28:                                               ; preds = %20
   %.old.i = and i32 %.pre.i, 1
-  %.old33.i = icmp eq i32 %.old.i, 0
-  br i1 %.old33.i, label %file_mmap_.exit, label %29
+  %.old32.i = icmp eq i32 %.old.i, 0
+  br i1 %.old32.i, label %file_mmap_.exit, label %29
 
 29:                                               ; preds = %28, %22
   %30 = getelementptr inbounds i8, ptr %0, i64 8
@@ -87,7 +87,7 @@ define i32 @file_mmap(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 nounde
   br label %file_mmap_.exit
 
 file_mmap_.exit:                                  ; preds = %18, %22, %28, %29, %32, %37, %40, %42
-  %.021.i = phi i32 [ -9, %18 ], [ -13, %22 ], [ -13, %28 ], [ %.1.i, %42 ], [ %.1.i, %40 ], [ -38, %32 ], [ -38, %29 ], [ -38, %37 ]
+  %.021.i = phi i32 [ -9, %18 ], [ -13, %22 ], [ -13, %28 ], [ %.1.i, %42 ], [ %.1.i, %40 ], [ -38, %37 ], [ -38, %32 ], [ -38, %29 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8)
   ret i32 %.021.i
 }
@@ -150,13 +150,13 @@ thread-pre-split:                                 ; preds = %9
   %or.cond.i = and i1 %30, %29
   %31 = and i32 %.pre.i, 1
   %32 = icmp eq i32 %31, 0
-  %or.cond34.i = select i1 %or.cond.i, i1 true, i1 %32
-  br i1 %or.cond34.i, label %file_mmap_.exit.thread, label %34
+  %or.cond33.i = select i1 %or.cond.i, i1 true, i1 %32
+  br i1 %or.cond33.i, label %file_mmap_.exit.thread, label %34
 
 33:                                               ; preds = %25
   %.old.i = and i32 %.pre.i, 1
-  %.old33.i = icmp eq i32 %.old.i, 0
-  br i1 %.old33.i, label %file_mmap_.exit.thread, label %34
+  %.old32.i = icmp eq i32 %.old.i, 0
+  br i1 %.old32.i, label %file_mmap_.exit.thread, label %34
 
 34:                                               ; preds = %33, %27
   %35 = getelementptr inbounds i8, ptr %13, i64 8
@@ -183,8 +183,8 @@ thread-pre-split:                                 ; preds = %9
   %46 = icmp sgt i32 %.1.i, -1
   br i1 %46, label %47, label %file_mmap_.exit.thread
 
-file_mmap_.exit.thread:                           ; preds = %23, %27, %33, %45, %37, %34, %42
-  %.021.i.ph = phi i32 [ -38, %42 ], [ -38, %34 ], [ -38, %37 ], [ %.1.i, %45 ], [ -13, %33 ], [ -13, %27 ], [ -9, %23 ]
+file_mmap_.exit.thread:                           ; preds = %23, %27, %33, %45, %42, %37, %34
+  %.021.i.ph = phi i32 [ -38, %34 ], [ -38, %37 ], [ -38, %42 ], [ %.1.i, %45 ], [ -13, %33 ], [ -13, %27 ], [ -9, %23 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7)
   br label %49
 

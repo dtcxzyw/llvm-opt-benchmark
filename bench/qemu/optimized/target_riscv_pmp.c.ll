@@ -250,38 +250,42 @@ for.body:                                         ; preds = %if.end9, %for.cond
   %arrayidx.i = getelementptr [16 x %struct.pmp_addr_t], ptr %addr1.i, i64 0, i64 %indvars.iv
   %6 = load i64, ptr %arrayidx.i, align 16
   %cmp.not.i = icmp ugt i64 %6, %addr
-  br i1 %cmp.not.i, label %pmp_is_in_range.exit, label %land.lhs.true.i
+  br i1 %cmp.not.i, label %if.else.i52, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body
   %ea.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %7 = load i64, ptr %ea.i, align 8
-  %cmp6.not.i = icmp uge i64 %7, %addr
-  %spec.select.i = zext i1 %cmp6.not.i to i32
+  %cmp6.not.i = icmp ult i64 %7, %addr
+  br i1 %cmp6.not.i, label %if.else.i52, label %pmp_is_in_range.exit
+
+if.else.i52:                                      ; preds = %land.lhs.true.i, %for.body
   br label %pmp_is_in_range.exit
 
-pmp_is_in_range.exit:                             ; preds = %for.body, %land.lhs.true.i
-  %result.0.i = phi i32 [ 0, %for.body ], [ %spec.select.i, %land.lhs.true.i ]
-  %cmp.not.i55 = icmp ugt i64 %6, %sub15
-  br i1 %cmp.not.i55, label %pmp_is_in_range.exit61, label %land.lhs.true.i56
+pmp_is_in_range.exit:                             ; preds = %land.lhs.true.i, %if.else.i52
+  %result.0.i = phi i32 [ 0, %if.else.i52 ], [ 1, %land.lhs.true.i ]
+  %cmp.not.i56 = icmp ugt i64 %6, %sub15
+  br i1 %cmp.not.i56, label %if.else.i61, label %land.lhs.true.i57
 
-land.lhs.true.i56:                                ; preds = %pmp_is_in_range.exit
-  %ea.i57 = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
-  %8 = load i64, ptr %ea.i57, align 8
-  %cmp6.not.i58 = icmp uge i64 %8, %sub15
-  %spec.select.i59 = zext i1 %cmp6.not.i58 to i32
-  br label %pmp_is_in_range.exit61
+land.lhs.true.i57:                                ; preds = %pmp_is_in_range.exit
+  %ea.i58 = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %8 = load i64, ptr %ea.i58, align 8
+  %cmp6.not.i59 = icmp ult i64 %8, %sub15
+  br i1 %cmp6.not.i59, label %if.else.i61, label %pmp_is_in_range.exit62
 
-pmp_is_in_range.exit61:                           ; preds = %pmp_is_in_range.exit, %land.lhs.true.i56
-  %result.0.i60 = phi i32 [ 0, %pmp_is_in_range.exit ], [ %spec.select.i59, %land.lhs.true.i56 ]
+if.else.i61:                                      ; preds = %land.lhs.true.i57, %pmp_is_in_range.exit
+  br label %pmp_is_in_range.exit62
+
+pmp_is_in_range.exit62:                           ; preds = %land.lhs.true.i57, %if.else.i61
+  %result.0.i60 = phi i32 [ 0, %if.else.i61 ], [ 1, %land.lhs.true.i57 ]
   %narrow = add nuw nsw i32 %result.0.i60, %result.0.i
   %cmp19 = icmp eq i32 %narrow, 1
   br i1 %cmp19, label %do.body, label %if.end28
 
-do.body:                                          ; preds = %pmp_is_in_range.exit61
+do.body:                                          ; preds = %pmp_is_in_range.exit62
   %9 = load i32, ptr @qemu_loglevel, align 4
   %and.i = and i32 %9, 2048
-  %cmp.i62.not = icmp eq i32 %and.i, 0
-  br i1 %cmp.i62.not, label %do.end, label %if.then26
+  %cmp.i63.not = icmp eq i32 %and.i, 0
+  br i1 %cmp.i63.not, label %do.end, label %if.then26
 
 if.then26:                                        ; preds = %do.body
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str) #10
@@ -291,7 +295,7 @@ do.end:                                           ; preds = %do.body, %if.then26
   store i32 0, ptr %allowed_privs, align 4
   br label %return
 
-if.end28:                                         ; preds = %pmp_is_in_range.exit61
+if.end28:                                         ; preds = %pmp_is_in_range.exit62
   %cfg_reg = getelementptr [16 x %struct.pmp_entry_t], ptr %pmp_state, i64 0, i64 %indvars.iv, i32 1
   %10 = load i8, ptr %cfg_reg, align 8
   %cmp63 = icmp eq i32 %narrow, 2
@@ -329,8 +333,8 @@ if.then71.if.then76_crit_edge:                    ; preds = %if.then71
 lor.lhs.false:                                    ; preds = %if.then71
   %14 = load i64, ptr %mseccfg, align 8
   %15 = and i64 %14, 4
-  %tobool.not.i64 = icmp eq i64 %15, 0
-  br i1 %tobool.not.i64, label %pmp_is_locked.exit, label %if.end109
+  %tobool.not.i65 = icmp eq i64 %15, 0
+  br i1 %tobool.not.i65, label %pmp_is_locked.exit, label %if.end109
 
 pmp_is_locked.exit:                               ; preds = %lor.lhs.false
   %16 = load i8, ptr %cfg_reg, align 8
@@ -500,8 +504,8 @@ pmp_is_locked.exit.i:                             ; preds = %land.lhs.true.i
   %idxprom.i.i = zext nneg i32 %add to i64
   %cfg_reg.i.i = getelementptr [16 x %struct.pmp_entry_t], ptr %pmp_state.i34.i, i64 0, i64 %idxprom.i.i, i32 1
   %12 = load i8, ptr %cfg_reg.i.i, align 8
-  %.fr65.i = freeze i8 %12
-  %tobool9.not.i = icmp sgt i8 %.fr65.i, -1
+  %.fr64.i = freeze i8 %12
+  %tobool9.not.i = icmp sgt i8 %.fr64.i, -1
   br i1 %tobool9.not.i, label %if.else52.i, label %do.body.i
 
 if.then16.i:                                      ; preds = %if.then1.i
@@ -512,8 +516,8 @@ if.then16.i:                                      ; preds = %if.then1.i
   %and33.i = and i32 %13, 7
   %cmp34.not.i = icmp eq i32 %and33.i, 6
   %14 = select i1 %cmp18.not.i, i1 %cmp23.not.not.i, i1 %cmp34.not.i
-  %narrow64.i = and i1 %14, %tobool2.not.i
-  br i1 %narrow64.i, label %do.body.i, label %if.else52.i
+  %narrow63.i = and i1 %14, %tobool2.not.i
+  br i1 %narrow63.i, label %do.body.i, label %if.else52.i
 
 if.else.i:                                        ; preds = %if.then.i
   br i1 %tobool2.not.i, label %pmp_is_locked.exit39.i, label %if.else52.i

@@ -804,11 +804,11 @@ define dso_local zeroext i1 @heap_attisnull(ptr nocapture noundef readonly %0, i
   %8 = and i16 %7, 2047
   %9 = zext nneg i16 %8 to i32
   %10 = icmp slt i32 %9, %1
-  br i1 %10, label %11, label %19
+  br i1 %10, label %11, label %20
 
 11:                                               ; preds = %3
   %.not13 = icmp eq ptr %2, null
-  br i1 %.not13, label %40, label %12
+  br i1 %.not13, label %19, label %12
 
 12:                                               ; preds = %11
   %13 = getelementptr inbounds i8, ptr %2, i64 24
@@ -817,47 +817,49 @@ define dso_local zeroext i1 @heap_attisnull(ptr nocapture noundef readonly %0, i
   %16 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %13, i64 0, i64 %15, i32 14
   %17 = load i8, ptr %16, align 4
   %18 = trunc i8 %17 to i1
-  %not. = xor i1 %18, true
-  br label %40
+  br i1 %18, label %41, label %19
 
-19:                                               ; preds = %3
-  %20 = icmp sgt i32 %1, 0
-  br i1 %20, label %21, label %36
+19:                                               ; preds = %12, %11
+  br label %41
 
-21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %5, i64 20
-  %23 = load i16, ptr %22, align 4
-  %24 = and i16 %23, 1
-  %.not = icmp eq i16 %24, 0
-  br i1 %.not, label %40, label %25
+20:                                               ; preds = %3
+  %21 = icmp sgt i32 %1, 0
+  br i1 %21, label %22, label %37
 
-25:                                               ; preds = %21
-  %26 = add nsw i32 %1, -1
-  %27 = getelementptr inbounds i8, ptr %5, i64 23
-  %28 = lshr i32 %26, 3
-  %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr i8, ptr %27, i64 %29
-  %31 = load i8, ptr %30, align 1
-  %32 = zext i8 %31 to i32
-  %33 = and i32 %26, 7
-  %34 = shl nuw nsw i32 1, %33
-  %35 = and i32 %34, %32
-  %.not.i = icmp eq i32 %35, 0
-  br label %40
+22:                                               ; preds = %20
+  %23 = getelementptr inbounds i8, ptr %5, i64 20
+  %24 = load i16, ptr %23, align 4
+  %25 = and i16 %24, 1
+  %.not = icmp eq i16 %25, 0
+  br i1 %.not, label %41, label %26
 
-36:                                               ; preds = %19
+26:                                               ; preds = %22
+  %27 = add nsw i32 %1, -1
+  %28 = getelementptr inbounds i8, ptr %5, i64 23
+  %29 = lshr i32 %27, 3
+  %30 = zext nneg i32 %29 to i64
+  %31 = getelementptr i8, ptr %28, i64 %30
+  %32 = load i8, ptr %31, align 1
+  %33 = zext i8 %32 to i32
+  %34 = and i32 %27, 7
+  %35 = shl nuw nsw i32 1, %34
+  %36 = and i32 %35, %33
+  %.not.i = icmp eq i32 %36, 0
+  br label %41
+
+37:                                               ; preds = %20
   %switch = icmp ugt i32 %1, -7
-  br i1 %switch, label %40, label %37
+  br i1 %switch, label %41, label %38
 
-37:                                               ; preds = %36
-  %38 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %38)
-  %39 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %1) #11
+38:                                               ; preds = %37
+  %39 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  tail call void @llvm.assume(i1 %39)
+  %40 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %1) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 490, ptr noundef nonnull @__func__.heap_attisnull) #11
   unreachable
 
-40:                                               ; preds = %12, %36, %21, %11, %25
-  %.0 = phi i1 [ %.not.i, %25 ], [ true, %11 ], [ false, %21 ], [ false, %36 ], [ %not., %12 ]
+41:                                               ; preds = %37, %22, %12, %26, %19
+  %.0 = phi i1 [ true, %19 ], [ %.not.i, %26 ], [ false, %12 ], [ false, %22 ], [ false, %37 ]
   ret i1 %.0
 }
 

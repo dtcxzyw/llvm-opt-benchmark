@@ -5163,7 +5163,7 @@ if.end12:                                         ; preds = %if.then.i.i.i.i18, 
   %m_upper.i = getelementptr inbounds i8, ptr %this, i64 48
   %14 = load i32, ptr %m_upper.i, align 8
   %cmp.i20.not = icmp eq i32 %14, 1
-  br i1 %cmp.i20.not, label %if.then15, label %return
+  br i1 %cmp.i20.not, label %if.then15, label %if.end28
 
 if.then15:                                        ; preds = %if.end12
   %m_value.i22 = getelementptr inbounds i8, ptr %this, i64 56
@@ -5237,12 +5237,12 @@ if.then.i.i.i.i59:                                ; preds = %land.lhs.true.i.i.i
   %23 = load i32, ptr %v, align 8
   %24 = load i32, ptr %m_value.i22, align 8
   %cmp.i.i.i.i60 = icmp eq i32 %23, %24
-  br i1 %cmp.i.i.i.i60, label %land.rhs.i.i37, label %return
+  br i1 %cmp.i.i.i.i60, label %land.rhs.i.i37, label %if.end28
 
 _ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i34:   ; preds = %land.lhs.true.i.i.i.i54, %if.end20
   %call4.i.i.i.i35 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(600) %22, ptr noundef nonnull align 8 dereferenceable(16) %v, ptr noundef nonnull align 8 dereferenceable(16) %m_value.i22)
   %cmp5.i.i.i.i36 = icmp eq i32 %call4.i.i.i.i35, 0
-  br i1 %cmp5.i.i.i.i36, label %land.rhs.i.i37, label %return
+  br i1 %cmp5.i.i.i.i36, label %land.rhs.i.i37, label %if.end28
 
 land.rhs.i.i37:                                   ; preds = %_ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i34, %if.then.i.i.i.i59
   %m_den.i.i38 = getelementptr inbounds i8, ptr %v, i64 16
@@ -5262,22 +5262,24 @@ if.then.i.i16.i.i52:                              ; preds = %land.lhs.true.i.i11
   %25 = load i32, ptr %m_den.i.i38, align 8
   %26 = load i32, ptr %m_den.i.i.i.i, align 8
   %cmp.i.i17.i.i53 = icmp eq i32 %25, %26
-  br i1 %cmp.i.i17.i.i53, label %land.lhs.true24, label %return
+  br i1 %cmp.i.i17.i.i53, label %land.lhs.true24, label %if.end28
 
 _ZeqRK8rationalS1_.exit61:                        ; preds = %land.rhs.i.i37, %land.lhs.true.i.i11.i.i47
   %call4.i.i8.i.i45 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(600) %22, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i.i38, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i.i.i.i)
   %cmp5.i.i9.i.i46 = icmp eq i32 %call4.i.i8.i.i45, 0
-  br i1 %cmp5.i.i9.i.i46, label %land.lhs.true24, label %return
+  br i1 %cmp5.i.i9.i.i46, label %land.lhs.true24, label %if.end28
 
 land.lhs.true24:                                  ; preds = %if.then.i.i16.i.i52, %_ZeqRK8rationalS1_.exit61
   %m_upper_open = getelementptr inbounds i8, ptr %this, i64 89
   %27 = load i8, ptr %m_upper_open, align 1
   %tobool25 = trunc i8 %27 to i1
-  %not.tobool25 = xor i1 %tobool25, true
+  br i1 %tobool25, label %return, label %if.end28
+
+if.end28:                                         ; preds = %if.then.i.i.i.i59, %_ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i34, %if.then.i.i16.i.i52, %_ZeqRK8rationalS1_.exit61, %land.lhs.true24, %if.end12
   br label %return
 
-return:                                           ; preds = %if.then.i.i.i.i59, %_ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i34, %if.then.i.i16.i.i52, %if.then.i.i.i.i.i, %if.else.i.i.i, %if.then.i.i.i.i, %if.else.i.i, %land.lhs.true24, %if.end12, %_ZeqRK8rationalS1_.exit61, %_ZgtRK8rationalS1_.exit, %land.lhs.true, %_ZltRK8rationalS1_.exit
-  %retval.0 = phi i1 [ false, %_ZltRK8rationalS1_.exit ], [ false, %land.lhs.true ], [ false, %_ZgtRK8rationalS1_.exit ], [ true, %_ZeqRK8rationalS1_.exit61 ], [ true, %if.end12 ], [ %not.tobool25, %land.lhs.true24 ], [ false, %if.else.i.i ], [ false, %if.then.i.i.i.i ], [ false, %if.else.i.i.i ], [ false, %if.then.i.i.i.i.i ], [ true, %if.then.i.i16.i.i52 ], [ true, %_ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i34 ], [ true, %if.then.i.i.i.i59 ]
+return:                                           ; preds = %if.then.i.i.i.i.i, %if.else.i.i.i, %if.then.i.i.i.i, %if.else.i.i, %land.lhs.true24, %_ZgtRK8rationalS1_.exit, %land.lhs.true, %_ZltRK8rationalS1_.exit, %if.end28
+  %retval.0 = phi i1 [ true, %if.end28 ], [ false, %_ZltRK8rationalS1_.exit ], [ false, %land.lhs.true ], [ false, %_ZgtRK8rationalS1_.exit ], [ false, %land.lhs.true24 ], [ false, %if.else.i.i ], [ false, %if.then.i.i.i.i ], [ false, %if.else.i.i.i ], [ false, %if.then.i.i.i.i.i ]
   ret i1 %retval.0
 }
 

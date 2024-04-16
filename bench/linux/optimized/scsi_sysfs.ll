@@ -1896,7 +1896,7 @@ define internal noundef zeroext i16 @scsi_sdev_bin_attr_is_visible(ptr nocapture
   %6 = getelementptr i8, ptr %0, i64 -184
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %41, label %.thread4.thread.thread11
+  br i1 %8, label %41, label %.thread7
 
 9:                                                ; preds = %3
   %10 = icmp eq ptr %1, @dev_attr_vpd_pg80
@@ -1906,7 +1906,7 @@ define internal noundef zeroext i16 @scsi_sdev_bin_attr_is_visible(ptr nocapture
   %12 = getelementptr i8, ptr %0, i64 -168
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %41, label %.thread4.thread.thread11
+  br i1 %14, label %41, label %.thread7
 
 15:                                               ; preds = %9
   %16 = icmp eq ptr %1, @dev_attr_vpd_pg83
@@ -1916,7 +1916,7 @@ define internal noundef zeroext i16 @scsi_sdev_bin_attr_is_visible(ptr nocapture
   %18 = getelementptr i8, ptr %0, i64 -176
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %41, label %.thread4.thread.thread
+  br i1 %20, label %41, label %.thread7
 
 .thread1:                                         ; preds = %15
   %21 = icmp eq ptr %1, @dev_attr_vpd_pg89
@@ -1926,7 +1926,7 @@ define internal noundef zeroext i16 @scsi_sdev_bin_attr_is_visible(ptr nocapture
   %23 = getelementptr i8, ptr %0, i64 -160
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
-  br i1 %25, label %41, label %.thread4.thread.thread
+  br i1 %25, label %41, label %.thread7
 
 .thread1.thread:                                  ; preds = %.thread1
   %26 = icmp eq ptr %1, @dev_attr_vpd_pgb0
@@ -1948,28 +1948,21 @@ define internal noundef zeroext i16 @scsi_sdev_bin_attr_is_visible(ptr nocapture
   %35 = icmp eq ptr %34, null
   br i1 %35, label %41, label %.thread7
 
-.thread7:                                         ; preds = %32, %27
-  br label %41
-
-.thread4.thread.thread:                           ; preds = %22, %17
-  br label %41
-
-.thread4.thread.thread11:                         ; preds = %11, %5
-  br label %41
-
 .thread4.thread:                                  ; preds = %.thread4
   %36 = icmp eq ptr %1, @dev_attr_vpd_pgb2
-  br i1 %36, label %37, label %41
+  br i1 %36, label %37, label %.thread7
 
 37:                                               ; preds = %.thread4.thread
   %38 = getelementptr i8, ptr %0, i64 -136
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, null
-  %spec.select = select i1 %40, i16 0, i16 292
+  br i1 %40, label %41, label %.thread7
+
+.thread7:                                         ; preds = %5, %11, %17, %22, %27, %32, %37, %.thread4.thread
   br label %41
 
-41:                                               ; preds = %.thread4.thread.thread11, %.thread4.thread.thread, %.thread7, %37, %.thread4.thread, %32, %27, %22, %17, %11, %5
-  %42 = phi i16 [ 0, %5 ], [ 0, %11 ], [ 0, %17 ], [ 0, %22 ], [ 0, %27 ], [ 0, %32 ], [ 292, %.thread4.thread ], [ %spec.select, %37 ], [ 292, %.thread7 ], [ 292, %.thread4.thread.thread ], [ 292, %.thread4.thread.thread11 ]
+41:                                               ; preds = %.thread7, %37, %32, %27, %22, %17, %11, %5
+  %42 = phi i16 [ 292, %.thread7 ], [ 0, %5 ], [ 0, %11 ], [ 0, %17 ], [ 0, %22 ], [ 0, %27 ], [ 0, %32 ], [ 0, %37 ]
   ret i16 %42
 }
 

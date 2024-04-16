@@ -19,14 +19,14 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.7 = private unnamed_addr constant [4 x i8] c"all\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Curl_setstropt(ptr nocapture noundef %charp, ptr noundef %s) local_unnamed_addr #0 {
+define hidden noundef i32 @Curl_setstropt(ptr nocapture noundef %charp, ptr noundef %s) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @Curl_cfree, align 8
   %1 = load ptr, ptr %charp, align 8
   tail call void %0(ptr noundef %1) #8
   store ptr null, ptr %charp, align 8
   %tobool.not = icmp eq ptr %s, null
-  br i1 %tobool.not, label %return, label %if.then
+  br i1 %tobool.not, label %if.end6, label %if.then
 
 if.then:                                          ; preds = %entry
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s) #9
@@ -38,11 +38,13 @@ if.end:                                           ; preds = %if.then
   %call2 = tail call ptr %2(ptr noundef nonnull %s) #8
   store ptr %call2, ptr %charp, align 8
   %tobool3.not = icmp eq ptr %call2, null
-  %spec.select = select i1 %tobool3.not, i32 27, i32 0
+  br i1 %tobool3.not, label %return, label %if.end6
+
+if.end6:                                          ; preds = %if.end, %entry
   br label %return
 
-return:                                           ; preds = %if.end, %entry, %if.then
-  %retval.0 = phi i32 [ 43, %if.then ], [ 0, %entry ], [ %spec.select, %if.end ]
+return:                                           ; preds = %if.end, %if.then, %if.end6
+  %retval.0 = phi i32 [ 0, %if.end6 ], [ 43, %if.then ], [ 27, %if.end ]
   ret i32 %retval.0
 }
 

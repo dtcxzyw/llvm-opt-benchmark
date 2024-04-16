@@ -1372,7 +1372,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare ptr @CRYPTO_realloc(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_property_parse_init(ptr noundef %ctx) local_unnamed_addr #0 {
+define noundef i32 @ossl_property_parse_init(ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   br label %for.body
 
@@ -1387,21 +1387,23 @@ for.body:                                         ; preds = %entry, %for.cond
   %0 = load ptr, ptr %arrayidx, align 8
   %call = tail call i32 @ossl_property_name(ptr noundef %ctx, ptr noundef %0, i32 noundef 1) #9
   %cmp1 = icmp eq i32 %call, 0
-  br i1 %cmp1, label %return, label %for.cond
+  br i1 %cmp1, label %err, label %for.cond
 
 for.end:                                          ; preds = %for.cond
   %call2 = tail call i32 @ossl_property_value(ptr noundef %ctx, ptr noundef nonnull @.str.10, i32 noundef 1) #9
   %cmp3.not = icmp eq i32 %call2, 1
-  br i1 %cmp3.not, label %lor.lhs.false, label %return
+  br i1 %cmp3.not, label %lor.lhs.false, label %err
 
 lor.lhs.false:                                    ; preds = %for.end
   %call4 = tail call i32 @ossl_property_value(ptr noundef %ctx, ptr noundef nonnull @.str.11, i32 noundef 1) #9
   %cmp5.not = icmp eq i32 %call4, 2
-  %spec.select = zext i1 %cmp5.not to i32
+  br i1 %cmp5.not, label %return, label %err
+
+err:                                              ; preds = %for.body, %for.end, %lor.lhs.false
   br label %return
 
-return:                                           ; preds = %for.body, %lor.lhs.false, %for.end
-  %retval.0 = phi i32 [ 0, %for.end ], [ %spec.select, %lor.lhs.false ], [ 0, %for.body ]
+return:                                           ; preds = %lor.lhs.false, %err
+  %retval.0 = phi i32 [ 0, %err ], [ 1, %lor.lhs.false ]
   ret i32 %retval.0
 }
 

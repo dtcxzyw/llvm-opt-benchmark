@@ -840,35 +840,37 @@ if.end4:                                          ; preds = %dirtylimit_vcpu_ind
   %state.i = getelementptr inbounds i8, ptr %call.i4, i64 776
   %2 = load i32, ptr %state.i, align 8
   %call1.i = tail call zeroext i1 @migration_is_running(i32 noundef %2) #10
-  br i1 %call1.i, label %land.lhs.true.i, label %if.end7
+  br i1 %call1.i, label %land.lhs.true.i, label %if.end7thread-pre-split
 
 land.lhs.true.i:                                  ; preds = %if.end4
   %thread.i = getelementptr inbounds i8, ptr %call.i4, i64 160
   %call2.i = tail call zeroext i1 @qemu_thread_is_self(ptr noundef nonnull %thread.i) #10
-  br i1 %call2.i, label %if.end7, label %land.lhs.true3.i
+  br i1 %call2.i, label %if.end7thread-pre-split, label %land.lhs.true3.i
 
 land.lhs.true3.i:                                 ; preds = %land.lhs.true.i
   %call4.i = tail call zeroext i1 @migrate_dirty_limit() #10
-  br i1 %call4.i, label %dirtylimit_is_allowed.exit, label %if.end7
-
-dirtylimit_is_allowed.exit:                       ; preds = %land.lhs.true3.i
   %3 = load ptr, ptr @dirtylimit_state, align 8
-  %tobool.i.not.i = icmp eq ptr %3, null
-  br i1 %tobool.i.not.i, label %return, label %if.then6
+  %tobool.i.i = icmp ne ptr %3, null
+  %or.cond.i = select i1 %call4.i, i1 %tobool.i.i, i1 false
+  br i1 %or.cond.i, label %if.then6, label %if.end7
 
-if.then6:                                         ; preds = %dirtylimit_is_allowed.exit
+if.then6:                                         ; preds = %land.lhs.true3.i
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 479, ptr noundef nonnull @__func__.qmp_cancel_vcpu_dirty_limit, ptr noundef nonnull @.str.3) #10
   br label %return
 
-if.end7:                                          ; preds = %land.lhs.true3.i, %land.lhs.true.i, %if.end4
+if.end7thread-pre-split:                          ; preds = %land.lhs.true.i, %if.end4
   %.pr = load ptr, ptr @dirtylimit_state, align 8
-  %tobool.i.not = icmp eq ptr %.pr, null
+  br label %if.end7
+
+if.end7:                                          ; preds = %if.end7thread-pre-split, %land.lhs.true3.i
+  %4 = phi ptr [ %.pr, %if.end7thread-pre-split ], [ %3, %land.lhs.true3.i ]
+  %tobool.i.not = icmp eq ptr %4, null
   br i1 %tobool.i.not, label %return, label %if.end10
 
 if.end10:                                         ; preds = %if.end7
-  %4 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  %5 = inttoptr i64 %4 to ptr
-  tail call void %5(ptr noundef nonnull @dirtylimit_mutex, ptr noundef nonnull @.str, i32 noundef 183) #10
+  %5 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  %6 = inttoptr i64 %5 to ptr
+  tail call void %6(ptr noundef nonnull @dirtylimit_mutex, ptr noundef nonnull @.str, i32 noundef 183) #10
   br i1 %has_cpu_index, label %if.then12, label %if.else
 
 if.then12:                                        ; preds = %if.end10
@@ -880,22 +882,22 @@ if.else:                                          ; preds = %if.end10
   %call.i5 = tail call ptr @qdev_get_machine() #10
   %call.i.i6 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i5, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #10
   %max_cpus2.i = getelementptr inbounds i8, ptr %call.i.i6, i64 320
-  %6 = load i32, ptr %max_cpus2.i, align 8
-  %cmp3.i = icmp sgt i32 %6, 0
+  %7 = load i32, ptr %max_cpus2.i, align 8
+  %cmp3.i = icmp sgt i32 %7, 0
   br i1 %cmp3.i, label %for.body.i, label %if.end14
 
 for.body.i:                                       ; preds = %if.else, %for.body.i
   %i.04.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %if.else ]
   tail call void @dirtylimit_set_vcpu(i32 noundef %i.04.i, i64 noundef 0, i1 noundef zeroext false)
   %inc.i = add nuw nsw i32 %i.04.i, 1
-  %exitcond.not.i = icmp eq i32 %inc.i, %6
+  %exitcond.not.i = icmp eq i32 %inc.i, %7
   br i1 %exitcond.not.i, label %if.end14, label %for.body.i, !llvm.loop !12
 
 if.end14:                                         ; preds = %for.body.i, %if.else, %if.then12
-  %7 = load ptr, ptr @dirtylimit_state, align 8
-  %limited_nvcpu = getelementptr inbounds i8, ptr %7, i64 12
-  %8 = load i32, ptr %limited_nvcpu, align 4
-  %tobool15.not = icmp eq i32 %8, 0
+  %8 = load ptr, ptr @dirtylimit_state, align 8
+  %limited_nvcpu = getelementptr inbounds i8, ptr %8, i64 12
+  %9 = load i32, ptr %limited_nvcpu, align 4
+  %tobool15.not = icmp eq i32 %9, 0
   br i1 %tobool15.not, label %if.then16, label %if.end17
 
 if.then16:                                        ; preds = %if.end14
@@ -906,7 +908,7 @@ if.end17:                                         ; preds = %if.then16, %if.end1
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @dirtylimit_mutex, ptr noundef nonnull @.str, i32 noundef 188) #10
   br label %return
 
-return:                                           ; preds = %dirtylimit_is_allowed.exit, %if.end7, %entry, %lor.lhs.false, %if.end17, %if.then6, %if.then3
+return:                                           ; preds = %if.end7, %entry, %lor.lhs.false, %if.end17, %if.then6, %if.then3
   ret void
 }
 
@@ -1023,9 +1025,9 @@ land.lhs.true.i:                                  ; preds = %if.end4
 land.lhs.true3.i:                                 ; preds = %land.lhs.true.i
   %call4.i = tail call zeroext i1 @migrate_dirty_limit() #10
   %3 = load ptr, ptr @dirtylimit_state, align 8
-  %tobool.i.not.i = icmp ne ptr %3, null
-  %or.cond.not = select i1 %call4.i, i1 %tobool.i.not.i, i1 false
-  br i1 %or.cond.not, label %if.then6, label %if.end7
+  %tobool.i.i = icmp ne ptr %3, null
+  %or.cond.i = select i1 %call4.i, i1 %tobool.i.i, i1 false
+  br i1 %or.cond.i, label %if.then6, label %if.end7
 
 if.then6:                                         ; preds = %land.lhs.true3.i
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 535, ptr noundef nonnull @__func__.qmp_set_vcpu_dirty_limit, ptr noundef nonnull @.str.7) #10
@@ -1065,8 +1067,8 @@ if.then13:                                        ; preds = %if.end11
   %running.i.i = getelementptr inbounds i8, ptr %8, i64 16
   store i8 0, ptr %running.i.i, align 8
   %9 = load atomic i8, ptr %running.i.i monotonic, align 8
-  %tobool.i.i = trunc i8 %9 to i1
-  br i1 %tobool.i.i, label %if.end14, label %while.end7.i.i
+  %tobool.i.i12 = trunc i8 %9 to i1
+  br i1 %tobool.i.i12, label %if.end14, label %while.end7.i.i
 
 while.end7.i.i:                                   ; preds = %if.then13
   store atomic i8 1, ptr %running.i.i monotonic, align 8
@@ -1083,9 +1085,9 @@ if.then16:                                        ; preds = %if.end14
   br label %if.end18
 
 if.else:                                          ; preds = %if.end14
-  %call.i12 = tail call ptr @qdev_get_machine() #10
-  %call.i.i13 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i12, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #10
-  %max_cpus2.i = getelementptr inbounds i8, ptr %call.i.i13, i64 320
+  %call.i13 = tail call ptr @qdev_get_machine() #10
+  %call.i.i14 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i13, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #10
+  %max_cpus2.i = getelementptr inbounds i8, ptr %call.i.i14, i64 320
   %10 = load i32, ptr %max_cpus2.i, align 8
   %cmp3.i = icmp sgt i32 %10, 0
   br i1 %cmp3.i, label %for.body.i, label %if.end18

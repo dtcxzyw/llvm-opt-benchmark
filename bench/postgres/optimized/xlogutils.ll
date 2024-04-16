@@ -51,7 +51,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.18 = private unnamed_addr constant [13 x i8] c"%08X%08X%08X\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @XLogHaveInvalidPages() local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @XLogHaveInvalidPages() local_unnamed_addr #0 {
   %1 = load ptr, ptr @invalid_page_tab, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %2
@@ -59,10 +59,13 @@ define dso_local zeroext i1 @XLogHaveInvalidPages() local_unnamed_addr #0 {
 2:                                                ; preds = %0
   %3 = tail call i64 @hash_get_num_entries(ptr noundef nonnull %1) #7
   %4 = icmp sgt i64 %3, 0
-  br label %5
+  br i1 %4, label %6, label %5
 
 5:                                                ; preds = %2, %0
-  %.0 = phi i1 [ false, %0 ], [ %4, %2 ]
+  br label %6
+
+6:                                                ; preds = %2, %5
+  %.0 = phi i1 [ false, %5 ], [ true, %2 ]
   ret i1 %.0
 }
 

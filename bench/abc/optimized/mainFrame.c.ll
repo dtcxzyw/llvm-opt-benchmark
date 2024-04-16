@@ -817,11 +817,11 @@ define void @Abc_FrameSetBoxes(ptr noundef %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abc_FrameIsFlagEnabled(ptr noundef %0) local_unnamed_addr #1 {
+define noundef i32 @Abc_FrameIsFlagEnabled(ptr noundef %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr @s_GlobalFrame, align 8
   %3 = tail call ptr @Cmd_FlagReadByName(ptr noundef %2, ptr noundef %0) #18
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %8, label %5
+  br i1 %4, label %9, label %5
 
 5:                                                ; preds = %1
   %strcmpload = load i8, ptr %3, align 1
@@ -831,11 +831,13 @@ define i32 @Abc_FrameIsFlagEnabled(ptr noundef %0) local_unnamed_addr #1 {
 6:                                                ; preds = %5
   %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(2) @.str.1) #19
   %.not5 = icmp eq i32 %7, 0
-  %spec.select = zext i1 %.not5 to i32
-  br label %8
+  br i1 %.not5, label %8, label %9
 
-8:                                                ; preds = %6, %5, %1
-  %.0 = phi i32 [ 0, %1 ], [ 1, %5 ], [ %spec.select, %6 ]
+8:                                                ; preds = %6, %5
+  br label %9
+
+9:                                                ; preds = %6, %1, %8
+  %.0 = phi i32 [ 1, %8 ], [ 0, %1 ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -1647,7 +1649,7 @@ define void @Abc_FrameClearVerifStatus(ptr nocapture noundef %0) local_unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abc_FrameShowProgress(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
+define noundef i32 @Abc_FrameShowProgress(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr @s_GlobalFrame, align 8
   %3 = tail call ptr @Cmd_FlagReadByName(ptr noundef %2, ptr noundef nonnull @.str.2) #18
   %4 = icmp eq ptr %3, null
@@ -1656,16 +1658,18 @@ define i32 @Abc_FrameShowProgress(ptr nocapture noundef readnone %0) local_unnam
 5:                                                ; preds = %1
   %strcmpload.i = load i8, ptr %3, align 1
   %.not.i = icmp eq i8 %strcmpload.i, 0
-  br i1 %.not.i, label %Abc_FrameIsFlagEnabled.exit, label %6
+  br i1 %.not.i, label %8, label %6
 
 6:                                                ; preds = %5
   %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(2) @.str.1) #19
   %.not5.i = icmp eq i32 %7, 0
-  %spec.select.i = zext i1 %.not5.i to i32
+  br i1 %.not5.i, label %8, label %Abc_FrameIsFlagEnabled.exit
+
+8:                                                ; preds = %6, %5
   br label %Abc_FrameIsFlagEnabled.exit
 
-Abc_FrameIsFlagEnabled.exit:                      ; preds = %1, %5, %6
-  %.0.i = phi i32 [ 0, %1 ], [ 1, %5 ], [ %spec.select.i, %6 ]
+Abc_FrameIsFlagEnabled.exit:                      ; preds = %1, %6, %8
+  %.0.i = phi i32 [ 1, %8 ], [ 0, %1 ], [ 0, %6 ]
   ret i32 %.0.i
 }
 
@@ -1825,7 +1829,7 @@ define void @Abc_FrameSwapCurrentAndBackup(ptr nocapture noundef %0) local_unnam
 ; Function Attrs: nounwind uwtable
 define void @Abc_FrameReplaceCurrentNetwork(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %1, null
-  br i1 %3, label %33, label %4
+  br i1 %3, label %34, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr i8, ptr %1, i64 48
@@ -1854,50 +1858,50 @@ define void @Abc_FrameReplaceCurrentNetwork(ptr nocapture noundef %0, ptr nounde
 16:                                               ; preds = %12
   %strcmpload.i = load i8, ptr %14, align 1
   %.not.i = icmp eq i8 %strcmpload.i, 0
-  br i1 %.not.i, label %Abc_FrameIsFlagEnabled.exit.thread22, label %Abc_FrameIsFlagEnabled.exit
+  br i1 %.not.i, label %Abc_FrameIsFlagEnabled.exit, label %17
 
-Abc_FrameIsFlagEnabled.exit:                      ; preds = %16
-  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(2) @.str.1) #19
-  %.not5.i.not = icmp eq i32 %17, 0
-  br i1 %.not5.i.not, label %Abc_FrameIsFlagEnabled.exit.thread22, label %Abc_FrameIsFlagEnabled.exit.thread
+17:                                               ; preds = %16
+  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(2) @.str.1) #19
+  %.not5.i = icmp eq i32 %18, 0
+  br i1 %.not5.i, label %Abc_FrameIsFlagEnabled.exit, label %Abc_FrameIsFlagEnabled.exit.thread
 
-Abc_FrameIsFlagEnabled.exit.thread22:             ; preds = %16, %Abc_FrameIsFlagEnabled.exit
-  %18 = load ptr, ptr %10, align 8
-  %19 = getelementptr i8, ptr %18, i64 160
-  %.val = load ptr, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 160
-  store ptr %.val, ptr %20, align 8
-  %21 = load ptr, ptr %10, align 8
-  %22 = getelementptr i8, ptr %21, i64 168
-  %.val18 = load i32, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 168
-  store i32 %.val18, ptr %23, align 8
-  %24 = load ptr, ptr %10, align 8
-  tail call void @Abc_NtkDelete(ptr noundef %24) #18
-  br label %32
-
-Abc_FrameIsFlagEnabled.exit.thread:               ; preds = %12, %Abc_FrameIsFlagEnabled.exit, %9
-  %25 = getelementptr inbounds i8, ptr %1, i64 160
-  store ptr null, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 80
-  %27 = load i32, ptr %26, align 8
-  %28 = add nsw i32 %27, 1
-  store i32 %28, ptr %26, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 168
-  store i32 %28, ptr %29, align 8
-  %30 = load ptr, ptr %10, align 8
-  %.not17 = icmp eq ptr %30, null
-  br i1 %.not17, label %32, label %31
-
-31:                                               ; preds = %Abc_FrameIsFlagEnabled.exit.thread
-  tail call void @Abc_NtkDelete(ptr noundef nonnull %30) #18
-  br label %32
-
-32:                                               ; preds = %Abc_FrameIsFlagEnabled.exit.thread, %31, %Abc_FrameIsFlagEnabled.exit.thread22
-  store ptr %1, ptr %10, align 8
+Abc_FrameIsFlagEnabled.exit:                      ; preds = %17, %16
+  %19 = load ptr, ptr %10, align 8
+  %20 = getelementptr i8, ptr %19, i64 160
+  %.val = load ptr, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %1, i64 160
+  store ptr %.val, ptr %21, align 8
+  %22 = load ptr, ptr %10, align 8
+  %23 = getelementptr i8, ptr %22, i64 168
+  %.val18 = load i32, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %1, i64 168
+  store i32 %.val18, ptr %24, align 8
+  %25 = load ptr, ptr %10, align 8
+  tail call void @Abc_NtkDelete(ptr noundef %25) #18
   br label %33
 
-33:                                               ; preds = %2, %32
+Abc_FrameIsFlagEnabled.exit.thread:               ; preds = %17, %12, %9
+  %26 = getelementptr inbounds i8, ptr %1, i64 160
+  store ptr null, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %0, i64 80
+  %28 = load i32, ptr %27, align 8
+  %29 = add nsw i32 %28, 1
+  store i32 %29, ptr %27, align 8
+  %30 = getelementptr inbounds i8, ptr %1, i64 168
+  store i32 %29, ptr %30, align 8
+  %31 = load ptr, ptr %10, align 8
+  %.not17 = icmp eq ptr %31, null
+  br i1 %.not17, label %33, label %32
+
+32:                                               ; preds = %Abc_FrameIsFlagEnabled.exit.thread
+  tail call void @Abc_NtkDelete(ptr noundef nonnull %31) #18
+  br label %33
+
+33:                                               ; preds = %Abc_FrameIsFlagEnabled.exit.thread, %32, %Abc_FrameIsFlagEnabled.exit
+  store ptr %1, ptr %10, align 8
+  br label %34
+
+34:                                               ; preds = %2, %33
   ret void
 }
 

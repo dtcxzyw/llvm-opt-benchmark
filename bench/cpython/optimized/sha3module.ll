@@ -155,14 +155,18 @@ do.body50:                                        ; preds = %if.then41, %do.body
   %shake_256_type = getelementptr inbounds i8, ptr %call.i, i64 40
   %5 = load ptr, ptr %shake_256_type, align 8
   %tobool51.not = icmp eq ptr %5, null
-  br i1 %tobool51.not, label %return, label %if.then52
+  br i1 %tobool51.not, label %do.end60, label %if.then52
 
 if.then52:                                        ; preds = %do.body50
   %call55 = tail call i32 %visit(ptr noundef nonnull %5, ptr noundef %arg) #4
+  %tobool56.not = icmp eq i32 %call55, 0
+  br i1 %tobool56.not, label %do.end60, label %return
+
+do.end60:                                         ; preds = %do.body50, %if.then52
   br label %return
 
-return:                                           ; preds = %if.then52, %do.body50, %if.then41, %if.then30, %if.then19, %if.then8, %if.then
-  %retval.0 = phi i32 [ %call2, %if.then ], [ %call11, %if.then8 ], [ %call22, %if.then19 ], [ %call33, %if.then30 ], [ %call44, %if.then41 ], [ 0, %do.body50 ], [ %call55, %if.then52 ]
+return:                                           ; preds = %if.then52, %if.then41, %if.then30, %if.then19, %if.then8, %if.then, %do.end60
+  %retval.0 = phi i32 [ 0, %do.end60 ], [ %call2, %if.then ], [ %call11, %if.then8 ], [ %call22, %if.then19 ], [ %call33, %if.then30 ], [ %call44, %if.then41 ], [ %call55, %if.then52 ]
   ret i32 %retval.0
 }
 

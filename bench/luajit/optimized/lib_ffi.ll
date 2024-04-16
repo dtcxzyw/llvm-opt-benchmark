@@ -2881,18 +2881,18 @@ ffi_checkctype.exit:                              ; preds = %if.end9.i, %cond.tr
   %12 = load i32, ptr %call3, align 8
   %shr.mask = and i32 %12, -268435456
   %cmp = icmp eq i32 %shr.mask, 268435456
-  br i1 %cmp, label %land.lhs.true, label %return
+  br i1 %cmp, label %land.lhs.true, label %if.end25
 
 land.lhs.true:                                    ; preds = %ffi_checkctype.exit
   %size = getelementptr inbounds i8, ptr %call3, i64 4
   %13 = load i32, ptr %size, align 4
   %cmp4.not = icmp eq i32 %13, -1
-  br i1 %cmp4.not, label %return, label %if.then
+  br i1 %cmp4.not, label %if.end25, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
   %call5 = call ptr @lj_ctype_getfieldq(ptr noundef nonnull %3, ptr noundef nonnull %call3, ptr noundef %call2, ptr noundef nonnull %ofs, ptr noundef null) #9
   %tobool.not = icmp eq ptr %call5, null
-  br i1 %tobool.not, label %return, label %if.then6
+  br i1 %tobool.not, label %if.end25, label %if.then6
 
 if.then6:                                         ; preds = %if.then
   %14 = load ptr, ptr %top.i, align 8
@@ -2925,11 +2925,11 @@ if.then14:                                        ; preds = %if.then6
   store double %conv.i, ptr %19, align 8
   br label %return
 
-if.end25:                                         ; preds = %if.then6
+if.end25:                                         ; preds = %if.then6, %if.then, %land.lhs.true, %ffi_checkctype.exit
   br label %return
 
-return:                                           ; preds = %ffi_checkctype.exit, %land.lhs.true, %if.then, %if.then6, %if.end25, %if.then14
-  %retval.0 = phi i32 [ 3, %if.then14 ], [ 1, %if.then6 ], [ 0, %if.then ], [ 0, %land.lhs.true ], [ 0, %ffi_checkctype.exit ], [ 0, %if.end25 ]
+return:                                           ; preds = %if.then6, %if.end25, %if.then14
+  %retval.0 = phi i32 [ 3, %if.then14 ], [ 0, %if.end25 ], [ 1, %if.then6 ]
   ret i32 %retval.0
 }
 

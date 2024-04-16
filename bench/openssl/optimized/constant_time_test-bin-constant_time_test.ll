@@ -93,14 +93,15 @@ entry:
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_is_zero(i32 noundef %i) #0 {
+define internal noundef i32 @test_is_zero(i32 noundef %i) #0 {
 entry:
   %cond = icmp eq i32 %i, 0
   br i1 %cond, label %land.lhs.true, label %land.lhs.true3
 
 land.lhs.true:                                    ; preds = %entry
   %call1 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 117, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef -1, i32 noundef -1) #2
-  br label %return
+  %tobool.not = icmp eq i32 %call1, 0
+  br i1 %tobool.not, label %return, label %if.end8
 
 land.lhs.true3:                                   ; preds = %entry
   %idxprom = sext i32 %i to i64
@@ -111,66 +112,75 @@ land.lhs.true3:                                   ; preds = %entry
   %and.i = and i32 %sub.i, %not.i
   %shr.neg.i.i = ashr i32 %and.i, 31
   %call5 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 119, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.17, i32 noundef %shr.neg.i.i, i32 noundef 0) #2
+  %tobool6.not = icmp eq i32 %call5, 0
+  br i1 %tobool6.not, label %return, label %if.end8
+
+if.end8:                                          ; preds = %land.lhs.true, %land.lhs.true3
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %land.lhs.true3
-  %retval.0.in.in = phi i32 [ %call5, %land.lhs.true3 ], [ %call1, %land.lhs.true ]
-  %retval.0.in = icmp ne i32 %retval.0.in.in, 0
-  %retval.0 = zext i1 %retval.0.in to i32
+return:                                           ; preds = %land.lhs.true3, %land.lhs.true, %if.end8
+  %retval.0 = phi i32 [ 1, %if.end8 ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true3 ]
   ret i32 %retval.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_is_zero_8(i32 noundef %i) #0 {
+define internal noundef i32 @test_is_zero_8(i32 noundef %i) #0 {
 entry:
   %cond = icmp eq i32 %i, 0
   br i1 %cond, label %land.lhs.true, label %land.lhs.true6
 
 land.lhs.true:                                    ; preds = %entry
   %call3 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 128, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef 255, i32 noundef 255) #2
-  br label %return
+  %tobool.not = icmp eq i32 %call3, 0
+  br i1 %tobool.not, label %return, label %if.end12
 
 land.lhs.true6:                                   ; preds = %entry
   %call9 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 130, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.20, i32 noundef 0, i32 noundef 0) #2
+  %tobool10.not = icmp eq i32 %call9, 0
+  br i1 %tobool10.not, label %return, label %if.end12
+
+if.end12:                                         ; preds = %land.lhs.true, %land.lhs.true6
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %land.lhs.true6
-  %retval.0.in.in = phi i32 [ %call9, %land.lhs.true6 ], [ %call3, %land.lhs.true ]
-  %retval.0.in = icmp ne i32 %retval.0.in.in, 0
-  %retval.0 = zext i1 %retval.0.in to i32
+return:                                           ; preds = %land.lhs.true6, %land.lhs.true, %if.end12
+  %retval.0 = phi i32 [ 1, %if.end12 ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true6 ]
   ret i32 %retval.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_is_zero_32(i32 noundef %i) #0 {
+define internal noundef i32 @test_is_zero_32(i32 noundef %i) #0 {
 entry:
   %cond = icmp eq i32 %i, 0
   br i1 %cond, label %land.lhs.true, label %land.lhs.true7
 
 land.lhs.true:                                    ; preds = %entry
   %call4 = tail call i32 @test_true(ptr noundef nonnull @.str.12, i32 noundef 139, ptr noundef nonnull @.str.21, i32 noundef 1) #2
-  br label %return
+  %tobool.not = icmp eq i32 %call4, 0
+  br i1 %tobool.not, label %return, label %if.end16
 
 land.lhs.true7:                                   ; preds = %entry
   %call13 = tail call i32 @test_true(ptr noundef nonnull @.str.12, i32 noundef 141, ptr noundef nonnull @.str.22, i32 noundef 1) #2
+  %tobool14.not = icmp eq i32 %call13, 0
+  br i1 %tobool14.not, label %return, label %if.end16
+
+if.end16:                                         ; preds = %land.lhs.true, %land.lhs.true7
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %land.lhs.true7
-  %retval.0.in.in = phi i32 [ %call13, %land.lhs.true7 ], [ %call4, %land.lhs.true ]
-  %retval.0.in = icmp ne i32 %retval.0.in.in, 0
-  %retval.0 = zext i1 %retval.0.in to i32
+return:                                           ; preds = %land.lhs.true7, %land.lhs.true, %if.end16
+  %retval.0 = phi i32 [ 1, %if.end16 ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true7 ]
   ret i32 %retval.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_is_zero_s(i32 noundef %i) #0 {
+define internal noundef i32 @test_is_zero_s(i32 noundef %i) #0 {
 entry:
   %cond = icmp eq i32 %i, 0
   br i1 %cond, label %land.lhs.true, label %land.lhs.true3
 
 land.lhs.true:                                    ; preds = %entry
   %call1 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.12, i32 noundef 150, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, i64 noundef -1, i64 noundef -1) #2
-  br label %return
+  %tobool.not = icmp eq i32 %call1, 0
+  br i1 %tobool.not, label %return, label %if.end8
 
 land.lhs.true3:                                   ; preds = %entry
   %idxprom = sext i32 %i to i64
@@ -182,12 +192,14 @@ land.lhs.true3:                                   ; preds = %entry
   %shr.neg.i.i = ashr i64 %and.i, 63
   %conv = trunc nsw i64 %shr.neg.i.i to i32
   %call5 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 152, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.25, i32 noundef %conv, i32 noundef 0) #2
+  %tobool6.not = icmp eq i32 %call5, 0
+  br i1 %tobool6.not, label %return, label %if.end8
+
+if.end8:                                          ; preds = %land.lhs.true, %land.lhs.true3
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %land.lhs.true3
-  %retval.0.in.in = phi i32 [ %call5, %land.lhs.true3 ], [ %call1, %land.lhs.true ]
-  %retval.0.in = icmp ne i32 %retval.0.in.in, 0
-  %retval.0 = zext i1 %retval.0.in to i32
+return:                                           ; preds = %land.lhs.true3, %land.lhs.true, %if.end8
+  %retval.0 = phi i32 [ 1, %if.end8 ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true3 ]
   ret i32 %retval.0
 }
 
@@ -205,7 +217,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %ret.0108 = phi i32 [ 1, %entry ], [ %ret.1, %for.inc ]
+  %ret.0121 = phi i32 [ 1, %entry ], [ %ret.1, %for.inc ]
   %arrayidx2 = getelementptr inbounds [10 x i32], ptr @test_values, i64 0, i64 %indvars.iv
   %3 = load i32, ptr %arrayidx2, align 4
   %and2.i.i = and i32 %2, %3
@@ -233,109 +245,96 @@ lor.lhs.false:                                    ; preds = %test_select.exit
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false
   %call1.i28 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 65, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.16, i32 noundef %shr.neg.i.i, i32 noundef -1) #2
-  br label %test_binary_op.exit
+  %tobool2.not.i = icmp eq i32 %call1.i28, 0
+  br i1 %tobool2.not.i, label %for.inc, label %lor.lhs.false6
 
 land.lhs.true4.i:                                 ; preds = %lor.lhs.false
   %call6.i = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 67, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.17, i32 noundef %shr.neg.i.i, i32 noundef 0) #2
-  br label %test_binary_op.exit
+  %tobool7.not.i = icmp eq i32 %call6.i, 0
+  br i1 %tobool7.not.i, label %for.inc, label %lor.lhs.false6
 
-test_binary_op.exit:                              ; preds = %land.lhs.true.i, %land.lhs.true4.i
-  %retval.0.in.in.i = phi i32 [ %call1.i28, %land.lhs.true.i ], [ %call6.i, %land.lhs.true4.i ]
-  %retval.0.in.i.not = icmp eq i32 %retval.0.in.in.i, 0
-  br i1 %retval.0.in.i.not, label %for.inc, label %lor.lhs.false6
-
-lor.lhs.false6:                                   ; preds = %test_binary_op.exit
+lor.lhs.false6:                                   ; preds = %land.lhs.true4.i, %land.lhs.true.i
   %cmp7.not = icmp ult i32 %3, %0
-  %sub.i81 = sub i32 %3, %0
-  %xor1.i82 = xor i32 %sub.i81, %0
-  %or.i83 = or i32 %xor1.i82, %xor.i
-  %xor2.i84 = xor i32 %or.i83, %3
-  %shr.neg.i.i85 = ashr i32 %xor2.i84, 31
+  %sub.i86 = sub i32 %3, %0
+  %xor1.i87 = xor i32 %sub.i86, %0
+  %or.i88 = or i32 %xor1.i87, %xor.i
+  %xor2.i89 = xor i32 %or.i88, %3
+  %shr.neg.i.i90 = ashr i32 %xor2.i89, 31
   br i1 %cmp7.not, label %land.lhs.true.i32, label %land.lhs.true4.i37
 
 land.lhs.true.i32:                                ; preds = %lor.lhs.false6
-  %call1.i33 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 65, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.16, i32 noundef %shr.neg.i.i85, i32 noundef -1) #2
-  br label %test_binary_op.exit39
+  %call1.i33 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 65, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.16, i32 noundef %shr.neg.i.i90, i32 noundef -1) #2
+  %tobool2.not.i34 = icmp eq i32 %call1.i33, 0
+  br i1 %tobool2.not.i34, label %for.inc, label %lor.lhs.false11
 
 land.lhs.true4.i37:                               ; preds = %lor.lhs.false6
-  %call6.i38 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 67, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.17, i32 noundef %shr.neg.i.i85, i32 noundef 0) #2
-  br label %test_binary_op.exit39
+  %call6.i38 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 67, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.17, i32 noundef %shr.neg.i.i90, i32 noundef 0) #2
+  %tobool7.not.i39 = icmp eq i32 %call6.i38, 0
+  br i1 %tobool7.not.i39, label %for.inc, label %lor.lhs.false11
 
-test_binary_op.exit39:                            ; preds = %land.lhs.true.i32, %land.lhs.true4.i37
-  %retval.0.in.in.i34 = phi i32 [ %call1.i33, %land.lhs.true.i32 ], [ %call6.i38, %land.lhs.true4.i37 ]
-  %retval.0.in.i35.not = icmp eq i32 %retval.0.in.in.i34, 0
-  br i1 %retval.0.in.i35.not, label %for.inc, label %lor.lhs.false11
-
-lor.lhs.false11:                                  ; preds = %test_binary_op.exit39
+lor.lhs.false11:                                  ; preds = %land.lhs.true4.i37, %land.lhs.true.i32
   %isnotneg.i = icmp sgt i32 %xor2.i, -1
   %not.i = sext i1 %isnotneg.i to i32
-  br i1 %cmp3.not, label %land.lhs.true4.i47, label %land.lhs.true.i42
+  br i1 %cmp3.not, label %land.lhs.true4.i48, label %land.lhs.true.i43
 
-land.lhs.true.i42:                                ; preds = %lor.lhs.false11
-  %call1.i43 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 65, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.16, i32 noundef %not.i, i32 noundef -1) #2
-  br label %test_binary_op.exit49
+land.lhs.true.i43:                                ; preds = %lor.lhs.false11
+  %call1.i44 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 65, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.16, i32 noundef %not.i, i32 noundef -1) #2
+  %tobool2.not.i45 = icmp eq i32 %call1.i44, 0
+  br i1 %tobool2.not.i45, label %for.inc, label %lor.lhs.false16
 
-land.lhs.true4.i47:                               ; preds = %lor.lhs.false11
-  %call6.i48 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 67, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.17, i32 noundef %not.i, i32 noundef 0) #2
-  br label %test_binary_op.exit49
+land.lhs.true4.i48:                               ; preds = %lor.lhs.false11
+  %call6.i49 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 67, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.17, i32 noundef %not.i, i32 noundef 0) #2
+  %tobool7.not.i50 = icmp eq i32 %call6.i49, 0
+  br i1 %tobool7.not.i50, label %for.inc, label %lor.lhs.false16
 
-test_binary_op.exit49:                            ; preds = %land.lhs.true.i42, %land.lhs.true4.i47
-  %retval.0.in.in.i44 = phi i32 [ %call1.i43, %land.lhs.true.i42 ], [ %call6.i48, %land.lhs.true4.i47 ]
-  %retval.0.in.i45.not = icmp eq i32 %retval.0.in.in.i44, 0
-  br i1 %retval.0.in.i45.not, label %for.inc, label %lor.lhs.false16
+lor.lhs.false16:                                  ; preds = %land.lhs.true4.i48, %land.lhs.true.i43
+  %isnotneg.i97 = icmp sgt i32 %xor2.i89, -1
+  %not.i98 = sext i1 %isnotneg.i97 to i32
+  br i1 %cmp7.not, label %land.lhs.true4.i59, label %land.lhs.true.i54
 
-lor.lhs.false16:                                  ; preds = %test_binary_op.exit49
-  %isnotneg.i92 = icmp sgt i32 %xor2.i84, -1
-  %not.i93 = sext i1 %isnotneg.i92 to i32
-  br i1 %cmp7.not, label %land.lhs.true4.i57, label %land.lhs.true.i52
+land.lhs.true.i54:                                ; preds = %lor.lhs.false16
+  %call1.i55 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 65, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.16, i32 noundef %not.i98, i32 noundef -1) #2
+  %tobool2.not.i56 = icmp eq i32 %call1.i55, 0
+  br i1 %tobool2.not.i56, label %for.inc, label %lor.lhs.false21
 
-land.lhs.true.i52:                                ; preds = %lor.lhs.false16
-  %call1.i53 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 65, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.16, i32 noundef %not.i93, i32 noundef -1) #2
-  br label %test_binary_op.exit59
+land.lhs.true4.i59:                               ; preds = %lor.lhs.false16
+  %call6.i60 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 67, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.17, i32 noundef %not.i98, i32 noundef 0) #2
+  %tobool7.not.i61 = icmp eq i32 %call6.i60, 0
+  br i1 %tobool7.not.i61, label %for.inc, label %lor.lhs.false21
 
-land.lhs.true4.i57:                               ; preds = %lor.lhs.false16
-  %call6.i58 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 67, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.17, i32 noundef %not.i93, i32 noundef 0) #2
-  br label %test_binary_op.exit59
-
-test_binary_op.exit59:                            ; preds = %land.lhs.true.i52, %land.lhs.true4.i57
-  %retval.0.in.in.i54 = phi i32 [ %call1.i53, %land.lhs.true.i52 ], [ %call6.i58, %land.lhs.true4.i57 ]
-  %retval.0.in.i55.not = icmp eq i32 %retval.0.in.in.i54, 0
-  br i1 %retval.0.in.i55.not, label %for.inc, label %lor.lhs.false21
-
-lor.lhs.false21:                                  ; preds = %test_binary_op.exit59
+lor.lhs.false21:                                  ; preds = %land.lhs.true4.i59, %land.lhs.true.i54
   %cmp22.not = icmp eq i32 %0, %3
   %not.i.i = xor i32 %xor.i, -1
-  %sub.i.i95 = add i32 %xor.i, -1
-  %and.i.i96 = and i32 %sub.i.i95, %not.i.i
-  %shr.neg.i.i.i = ashr i32 %and.i.i96, 31
-  br i1 %cmp22.not, label %test_binary_op.exit69.thread, label %test_binary_op.exit69
+  %sub.i.i100 = add i32 %xor.i, -1
+  %and.i.i101 = and i32 %sub.i.i100, %not.i.i
+  %shr.neg.i.i.i = ashr i32 %and.i.i101, 31
+  br i1 %cmp22.not, label %land.lhs.true.i65, label %land.lhs.true4.i70
 
-test_binary_op.exit69:                            ; preds = %lor.lhs.false21
-  %call6.i68 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 67, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.17, i32 noundef %shr.neg.i.i.i, i32 noundef 0) #2
-  %retval.0.in.i65.not = icmp eq i32 %call6.i68, 0
-  br i1 %retval.0.in.i65.not, label %for.inc, label %land.lhs.true4.i77
+land.lhs.true.i65:                                ; preds = %lor.lhs.false21
+  %call1.i66 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 65, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.16, i32 noundef %shr.neg.i.i.i, i32 noundef -1) #2
+  %tobool2.not.i67 = icmp eq i32 %call1.i66, 0
+  br i1 %tobool2.not.i67, label %for.inc, label %land.lhs.true.i76
 
-test_binary_op.exit69.thread:                     ; preds = %lor.lhs.false21
-  %call1.i63 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 65, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.16, i32 noundef %shr.neg.i.i.i, i32 noundef -1) #2
-  %retval.0.in.i65105.not = icmp eq i32 %call1.i63, 0
-  br i1 %retval.0.in.i65105.not, label %for.inc, label %land.lhs.true.i72
+land.lhs.true4.i70:                               ; preds = %lor.lhs.false21
+  %call6.i71 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 67, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.17, i32 noundef %shr.neg.i.i.i, i32 noundef 0) #2
+  %tobool7.not.i72 = icmp eq i32 %call6.i71, 0
+  br i1 %tobool7.not.i72, label %for.inc, label %land.lhs.true4.i81
 
-land.lhs.true.i72:                                ; preds = %test_binary_op.exit69.thread
-  %call1.i73 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 65, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.16, i32 noundef %shr.neg.i.i.i, i32 noundef -1) #2
-  br label %test_binary_op.exit79
+land.lhs.true.i76:                                ; preds = %land.lhs.true.i65
+  %call1.i77 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 65, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.16, i32 noundef %shr.neg.i.i.i, i32 noundef -1) #2
+  %tobool2.not.i78 = icmp eq i32 %call1.i77, 0
+  br i1 %tobool2.not.i78, label %test_binary_op.exit84.thread, label %for.inc
 
-land.lhs.true4.i77:                               ; preds = %test_binary_op.exit69
-  %call6.i78 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 67, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.17, i32 noundef %shr.neg.i.i.i, i32 noundef 0) #2
-  br label %test_binary_op.exit79
+land.lhs.true4.i81:                               ; preds = %land.lhs.true4.i70
+  %call6.i82 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 67, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.17, i32 noundef %shr.neg.i.i.i, i32 noundef 0) #2
+  %tobool7.not.i83 = icmp eq i32 %call6.i82, 0
+  br i1 %tobool7.not.i83, label %test_binary_op.exit84.thread, label %for.inc
 
-test_binary_op.exit79:                            ; preds = %land.lhs.true.i72, %land.lhs.true4.i77
-  %retval.0.in.in.i74 = phi i32 [ %call1.i73, %land.lhs.true.i72 ], [ %call6.i78, %land.lhs.true4.i77 ]
-  %retval.0.in.i75.not = icmp eq i32 %retval.0.in.in.i74, 0
-  %spec.select = select i1 %retval.0.in.i75.not, i32 0, i32 %ret.0108
+test_binary_op.exit84.thread:                     ; preds = %land.lhs.true.i76, %land.lhs.true4.i81
   br label %for.inc
 
-for.inc:                                          ; preds = %for.body, %test_binary_op.exit69.thread, %test_binary_op.exit79, %test_select.exit, %test_binary_op.exit, %test_binary_op.exit39, %test_binary_op.exit49, %test_binary_op.exit59, %test_binary_op.exit69
-  %ret.1 = phi i32 [ 0, %test_binary_op.exit69 ], [ 0, %test_binary_op.exit59 ], [ 0, %test_binary_op.exit49 ], [ 0, %test_binary_op.exit39 ], [ 0, %test_binary_op.exit ], [ 0, %test_select.exit ], [ %spec.select, %test_binary_op.exit79 ], [ 0, %test_binary_op.exit69.thread ], [ 0, %for.body ]
+for.inc:                                          ; preds = %land.lhs.true4.i70, %land.lhs.true.i65, %land.lhs.true4.i59, %land.lhs.true.i54, %land.lhs.true4.i48, %land.lhs.true.i43, %land.lhs.true4.i37, %land.lhs.true.i32, %land.lhs.true4.i, %land.lhs.true.i, %for.body, %test_select.exit, %test_binary_op.exit84.thread, %land.lhs.true4.i81, %land.lhs.true.i76
+  %ret.1 = phi i32 [ %ret.0121, %land.lhs.true.i76 ], [ %ret.0121, %land.lhs.true4.i81 ], [ 0, %test_binary_op.exit84.thread ], [ 0, %test_select.exit ], [ 0, %for.body ], [ 0, %land.lhs.true.i ], [ 0, %land.lhs.true4.i ], [ 0, %land.lhs.true.i32 ], [ 0, %land.lhs.true4.i37 ], [ 0, %land.lhs.true.i43 ], [ 0, %land.lhs.true4.i48 ], [ 0, %land.lhs.true.i54 ], [ 0, %land.lhs.true4.i59 ], [ 0, %land.lhs.true.i65 ], [ 0, %land.lhs.true4.i70 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
@@ -354,7 +353,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %ret.0110 = phi i32 [ 1, %entry ], [ %ret.1, %for.inc ]
+  %ret.0123 = phi i32 [ 1, %entry ], [ %ret.1, %for.inc ]
   %arrayidx3 = getelementptr inbounds [9 x i8], ptr @test_values_8, i64 0, i64 %indvars.iv
   %1 = load i8, ptr %arrayidx3, align 1
   %cmp5.not = icmp ult i8 %0, %1
@@ -364,100 +363,87 @@ for.body:                                         ; preds = %entry, %for.inc
 
 land.lhs.true.i:                                  ; preds = %for.body
   %call1.i = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 77, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.19, i32 noundef %conv6.i, i32 noundef 255) #2
-  br label %test_binary_op_8.exit
+  %tobool2.not.i = icmp eq i32 %call1.i, 0
+  br i1 %tobool2.not.i, label %for.inc, label %lor.lhs.false
 
 land.lhs.true4.i:                                 ; preds = %for.body
   %call7.i = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 79, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.20, i32 noundef %conv6.i, i32 noundef 0) #2
-  br label %test_binary_op_8.exit
+  %tobool8.not.i = icmp eq i32 %call7.i, 0
+  br i1 %tobool8.not.i, label %for.inc, label %lor.lhs.false
 
-test_binary_op_8.exit:                            ; preds = %land.lhs.true.i, %land.lhs.true4.i
-  %retval.0.in.in.i = phi i32 [ %call1.i, %land.lhs.true.i ], [ %call7.i, %land.lhs.true4.i ]
-  %retval.0.in.i.not = icmp eq i32 %retval.0.in.in.i, 0
-  br i1 %retval.0.in.i.not, label %for.inc, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %test_binary_op_8.exit
+lor.lhs.false:                                    ; preds = %land.lhs.true4.i, %land.lhs.true.i
   %cmp7.not = icmp ult i8 %1, %0
-  %isneg108 = icmp ult i8 %1, %0
-  %conv6.i27 = select i1 %isneg108, i32 255, i32 0
+  %isneg121 = icmp ult i8 %1, %0
+  %conv6.i27 = select i1 %isneg121, i32 255, i32 0
   br i1 %cmp7.not, label %land.lhs.true.i28, label %land.lhs.true4.i33
 
 land.lhs.true.i28:                                ; preds = %lor.lhs.false
   %call1.i29 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 77, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.19, i32 noundef %conv6.i27, i32 noundef 255) #2
-  br label %test_binary_op_8.exit35
+  %tobool2.not.i30 = icmp eq i32 %call1.i29, 0
+  br i1 %tobool2.not.i30, label %for.inc, label %lor.lhs.false11
 
 land.lhs.true4.i33:                               ; preds = %lor.lhs.false
   %call7.i34 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 79, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.20, i32 noundef %conv6.i27, i32 noundef 0) #2
-  br label %test_binary_op_8.exit35
+  %tobool8.not.i35 = icmp eq i32 %call7.i34, 0
+  br i1 %tobool8.not.i35, label %for.inc, label %lor.lhs.false11
 
-test_binary_op_8.exit35:                          ; preds = %land.lhs.true.i28, %land.lhs.true4.i33
-  %retval.0.in.in.i30 = phi i32 [ %call1.i29, %land.lhs.true.i28 ], [ %call7.i34, %land.lhs.true4.i33 ]
-  %retval.0.in.i31.not = icmp eq i32 %retval.0.in.in.i30, 0
-  br i1 %retval.0.in.i31.not, label %for.inc, label %lor.lhs.false11
+lor.lhs.false11:                                  ; preds = %land.lhs.true4.i33, %land.lhs.true.i28
+  %conv6.i39 = select i1 %isneg, i32 0, i32 255
+  br i1 %cmp5.not, label %land.lhs.true4.i45, label %land.lhs.true.i40
 
-lor.lhs.false11:                                  ; preds = %test_binary_op_8.exit35
-  %conv6.i38 = select i1 %isneg, i32 0, i32 255
-  br i1 %cmp5.not, label %land.lhs.true4.i44, label %land.lhs.true.i39
+land.lhs.true.i40:                                ; preds = %lor.lhs.false11
+  %call1.i41 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 77, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.19, i32 noundef %conv6.i39, i32 noundef 255) #2
+  %tobool2.not.i42 = icmp eq i32 %call1.i41, 0
+  br i1 %tobool2.not.i42, label %for.inc, label %lor.lhs.false16
 
-land.lhs.true.i39:                                ; preds = %lor.lhs.false11
-  %call1.i40 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 77, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.19, i32 noundef %conv6.i38, i32 noundef 255) #2
-  br label %test_binary_op_8.exit46
+land.lhs.true4.i45:                               ; preds = %lor.lhs.false11
+  %call7.i46 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 79, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.20, i32 noundef %conv6.i39, i32 noundef 0) #2
+  %tobool8.not.i47 = icmp eq i32 %call7.i46, 0
+  br i1 %tobool8.not.i47, label %for.inc, label %lor.lhs.false16
 
-land.lhs.true4.i44:                               ; preds = %lor.lhs.false11
-  %call7.i45 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 79, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.20, i32 noundef %conv6.i38, i32 noundef 0) #2
-  br label %test_binary_op_8.exit46
+lor.lhs.false16:                                  ; preds = %land.lhs.true4.i45, %land.lhs.true.i40
+  %conv6.i51 = select i1 %isneg121, i32 0, i32 255
+  br i1 %cmp7.not, label %land.lhs.true4.i57, label %land.lhs.true.i52
 
-test_binary_op_8.exit46:                          ; preds = %land.lhs.true.i39, %land.lhs.true4.i44
-  %retval.0.in.in.i41 = phi i32 [ %call1.i40, %land.lhs.true.i39 ], [ %call7.i45, %land.lhs.true4.i44 ]
-  %retval.0.in.i42.not = icmp eq i32 %retval.0.in.in.i41, 0
-  br i1 %retval.0.in.i42.not, label %for.inc, label %lor.lhs.false16
+land.lhs.true.i52:                                ; preds = %lor.lhs.false16
+  %call1.i53 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 77, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.19, i32 noundef %conv6.i51, i32 noundef 255) #2
+  %tobool2.not.i54 = icmp eq i32 %call1.i53, 0
+  br i1 %tobool2.not.i54, label %for.inc, label %lor.lhs.false21
 
-lor.lhs.false16:                                  ; preds = %test_binary_op_8.exit46
-  %conv6.i49 = select i1 %isneg108, i32 0, i32 255
-  br i1 %cmp7.not, label %land.lhs.true4.i55, label %land.lhs.true.i50
+land.lhs.true4.i57:                               ; preds = %lor.lhs.false16
+  %call7.i58 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 79, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.20, i32 noundef %conv6.i51, i32 noundef 0) #2
+  %tobool8.not.i59 = icmp eq i32 %call7.i58, 0
+  br i1 %tobool8.not.i59, label %for.inc, label %lor.lhs.false21
 
-land.lhs.true.i50:                                ; preds = %lor.lhs.false16
-  %call1.i51 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 77, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.19, i32 noundef %conv6.i49, i32 noundef 255) #2
-  br label %test_binary_op_8.exit57
-
-land.lhs.true4.i55:                               ; preds = %lor.lhs.false16
-  %call7.i56 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 79, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.20, i32 noundef %conv6.i49, i32 noundef 0) #2
-  br label %test_binary_op_8.exit57
-
-test_binary_op_8.exit57:                          ; preds = %land.lhs.true.i50, %land.lhs.true4.i55
-  %retval.0.in.in.i52 = phi i32 [ %call1.i51, %land.lhs.true.i50 ], [ %call7.i56, %land.lhs.true4.i55 ]
-  %retval.0.in.i53.not = icmp eq i32 %retval.0.in.in.i52, 0
-  br i1 %retval.0.in.i53.not, label %for.inc, label %lor.lhs.false21
-
-lor.lhs.false21:                                  ; preds = %test_binary_op_8.exit57
+lor.lhs.false21:                                  ; preds = %land.lhs.true4.i57, %land.lhs.true.i52
   %cmp22.not = icmp eq i8 %0, %1
-  br i1 %cmp22.not, label %test_binary_op_8.exit68.thread, label %test_binary_op_8.exit68
+  br i1 %cmp22.not, label %land.lhs.true.i64, label %land.lhs.true4.i69
 
-test_binary_op_8.exit68:                          ; preds = %lor.lhs.false21
-  %call7.i67 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 79, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.20, i32 noundef 0, i32 noundef 0) #2
-  %retval.0.in.i64.not = icmp eq i32 %call7.i67, 0
-  br i1 %retval.0.in.i64.not, label %for.inc, label %land.lhs.true4.i77
+land.lhs.true.i64:                                ; preds = %lor.lhs.false21
+  %call1.i65 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 77, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.19, i32 noundef 255, i32 noundef 255) #2
+  %tobool2.not.i66 = icmp eq i32 %call1.i65, 0
+  br i1 %tobool2.not.i66, label %for.inc, label %land.lhs.true.i76
 
-test_binary_op_8.exit68.thread:                   ; preds = %lor.lhs.false21
-  %call1.i62 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 77, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.19, i32 noundef 255, i32 noundef 255) #2
-  %retval.0.in.i64105.not = icmp eq i32 %call1.i62, 0
-  br i1 %retval.0.in.i64105.not, label %for.inc, label %land.lhs.true.i72
+land.lhs.true4.i69:                               ; preds = %lor.lhs.false21
+  %call7.i70 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 79, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.20, i32 noundef 0, i32 noundef 0) #2
+  %tobool8.not.i71 = icmp eq i32 %call7.i70, 0
+  br i1 %tobool8.not.i71, label %for.inc, label %land.lhs.true4.i81
 
-land.lhs.true.i72:                                ; preds = %test_binary_op_8.exit68.thread
-  %call1.i73 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 77, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.19, i32 noundef 255, i32 noundef 255) #2
-  br label %test_binary_op_8.exit79
+land.lhs.true.i76:                                ; preds = %land.lhs.true.i64
+  %call1.i77 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 77, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.19, i32 noundef 255, i32 noundef 255) #2
+  %tobool2.not.i78 = icmp eq i32 %call1.i77, 0
+  br i1 %tobool2.not.i78, label %test_binary_op_8.exit84.thread, label %for.inc
 
-land.lhs.true4.i77:                               ; preds = %test_binary_op_8.exit68
-  %call7.i78 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 79, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.20, i32 noundef 0, i32 noundef 0) #2
-  br label %test_binary_op_8.exit79
+land.lhs.true4.i81:                               ; preds = %land.lhs.true4.i69
+  %call7.i82 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 79, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.20, i32 noundef 0, i32 noundef 0) #2
+  %tobool8.not.i83 = icmp eq i32 %call7.i82, 0
+  br i1 %tobool8.not.i83, label %test_binary_op_8.exit84.thread, label %for.inc
 
-test_binary_op_8.exit79:                          ; preds = %land.lhs.true.i72, %land.lhs.true4.i77
-  %retval.0.in.in.i74 = phi i32 [ %call1.i73, %land.lhs.true.i72 ], [ %call7.i78, %land.lhs.true4.i77 ]
-  %retval.0.in.i75.not = icmp eq i32 %retval.0.in.in.i74, 0
-  %spec.select = select i1 %retval.0.in.i75.not, i32 0, i32 %ret.0110
+test_binary_op_8.exit84.thread:                   ; preds = %land.lhs.true.i76, %land.lhs.true4.i81
   br label %for.inc
 
-for.inc:                                          ; preds = %test_binary_op_8.exit68.thread, %test_binary_op_8.exit79, %test_binary_op_8.exit, %test_binary_op_8.exit35, %test_binary_op_8.exit46, %test_binary_op_8.exit57, %test_binary_op_8.exit68
-  %ret.1 = phi i32 [ 0, %test_binary_op_8.exit68 ], [ 0, %test_binary_op_8.exit57 ], [ 0, %test_binary_op_8.exit46 ], [ 0, %test_binary_op_8.exit35 ], [ 0, %test_binary_op_8.exit ], [ %spec.select, %test_binary_op_8.exit79 ], [ 0, %test_binary_op_8.exit68.thread ]
+for.inc:                                          ; preds = %land.lhs.true4.i69, %land.lhs.true.i64, %land.lhs.true4.i57, %land.lhs.true.i52, %land.lhs.true4.i45, %land.lhs.true.i40, %land.lhs.true4.i33, %land.lhs.true.i28, %land.lhs.true4.i, %land.lhs.true.i, %test_binary_op_8.exit84.thread, %land.lhs.true4.i81, %land.lhs.true.i76
+  %ret.1 = phi i32 [ %ret.0123, %land.lhs.true.i76 ], [ %ret.0123, %land.lhs.true4.i81 ], [ 0, %test_binary_op_8.exit84.thread ], [ 0, %land.lhs.true.i ], [ 0, %land.lhs.true4.i ], [ 0, %land.lhs.true.i28 ], [ 0, %land.lhs.true4.i33 ], [ 0, %land.lhs.true.i40 ], [ 0, %land.lhs.true4.i45 ], [ 0, %land.lhs.true.i52 ], [ 0, %land.lhs.true4.i57 ], [ 0, %land.lhs.true.i64 ], [ 0, %land.lhs.true4.i69 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
@@ -481,7 +467,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %ret.0123 = phi i32 [ 1, %entry ], [ %ret.1, %for.inc ]
+  %ret.0138 = phi i32 [ 1, %entry ], [ %ret.1, %for.inc ]
   %arrayidx2 = getelementptr inbounds [10 x i64], ptr @test_values_s, i64 0, i64 %indvars.iv
   %3 = load i64, ptr %arrayidx2, align 8
   %and2.i.i = and i64 %2, %3
@@ -506,7 +492,12 @@ lor.lhs.false:                                    ; preds = %test_select_s.exit
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false
   %call1.i = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.12, i32 noundef 230, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.24, i64 noundef -1, i64 noundef -1) #2
-  br label %test_eq_s.exit
+  %tobool.not.i31 = icmp eq i32 %call1.i, 0
+  br i1 %tobool.not.i31, label %for.inc, label %land.lhs.true.i.lor.lhs.false5_crit_edge
+
+land.lhs.true.i.lor.lhs.false5_crit_edge:         ; preds = %land.lhs.true.i
+  %.pre = xor i64 %3, %0
+  br label %lor.lhs.false5
 
 land.lhs.true3.i:                                 ; preds = %lor.lhs.false
   %xor.i7.i = xor i64 %3, %0
@@ -516,132 +507,115 @@ land.lhs.true3.i:                                 ; preds = %lor.lhs.false
   %shr.neg.i.i.i11.i = ashr i64 %and.i.i10.i, 63
   %conv.i29 = trunc nsw i64 %shr.neg.i.i.i11.i to i32
   %call5.i = tail call i32 @test_int_eq(ptr noundef nonnull @.str.12, i32 noundef 232, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.25, i32 noundef %conv.i29, i32 noundef 0) #2
-  br label %test_eq_s.exit
+  %tobool6.not.i = icmp eq i32 %call5.i, 0
+  br i1 %tobool6.not.i, label %for.inc, label %lor.lhs.false5
 
-test_eq_s.exit:                                   ; preds = %land.lhs.true.i, %land.lhs.true3.i
-  %retval.0.in.in.i = phi i32 [ %call5.i, %land.lhs.true3.i ], [ %call1.i, %land.lhs.true.i ]
-  %retval.0.in.i.not = icmp eq i32 %retval.0.in.in.i, 0
-  br i1 %retval.0.in.i.not, label %for.inc, label %lor.lhs.false5
-
-lor.lhs.false5:                                   ; preds = %test_eq_s.exit
+lor.lhs.false5:                                   ; preds = %land.lhs.true.i.lor.lhs.false5_crit_edge, %land.lhs.true3.i
+  %xor.i.pre-phi = phi i64 [ %.pre, %land.lhs.true.i.lor.lhs.false5_crit_edge ], [ %xor.i7.i, %land.lhs.true3.i ]
   %cmp6.not = icmp ult i64 %0, %3
-  %xor.i = xor i64 %3, %0
   %sub.i = sub i64 %0, %3
   %xor1.i = xor i64 %sub.i, %3
-  %or.i = or i64 %xor1.i, %xor.i
+  %or.i = or i64 %xor1.i, %xor.i.pre-phi
   %xor2.i = xor i64 %or.i, %0
   %shr.neg.i.i = ashr i64 %xor2.i, 63
-  br i1 %cmp6.not, label %land.lhs.true.i33, label %land.lhs.true4.i
+  br i1 %cmp6.not, label %land.lhs.true.i34, label %land.lhs.true4.i
 
-land.lhs.true.i33:                                ; preds = %lor.lhs.false5
-  %call1.i34 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.12, i32 noundef 88, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.24, i64 noundef %shr.neg.i.i, i64 noundef -1) #2
-  br label %test_binary_op_s.exit
+land.lhs.true.i34:                                ; preds = %lor.lhs.false5
+  %call1.i35 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.12, i32 noundef 88, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.24, i64 noundef %shr.neg.i.i, i64 noundef -1) #2
+  %tobool2.not.i = icmp eq i32 %call1.i35, 0
+  br i1 %tobool2.not.i, label %for.inc, label %lor.lhs.false9
 
 land.lhs.true4.i:                                 ; preds = %lor.lhs.false5
-  %conv.i38 = trunc nsw i64 %shr.neg.i.i to i32
-  %call6.i39 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 90, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.25, i32 noundef %conv.i38, i32 noundef 0) #2
-  br label %test_binary_op_s.exit
+  %conv.i37 = trunc nsw i64 %shr.neg.i.i to i32
+  %call6.i38 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 90, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.25, i32 noundef %conv.i37, i32 noundef 0) #2
+  %tobool7.not.i39 = icmp eq i32 %call6.i38, 0
+  br i1 %tobool7.not.i39, label %for.inc, label %lor.lhs.false9
 
-test_binary_op_s.exit:                            ; preds = %land.lhs.true.i33, %land.lhs.true4.i
-  %retval.0.in.in.i35 = phi i32 [ %call1.i34, %land.lhs.true.i33 ], [ %call6.i39, %land.lhs.true4.i ]
-  %retval.0.in.i36.not = icmp eq i32 %retval.0.in.in.i35, 0
-  br i1 %retval.0.in.i36.not, label %for.inc, label %lor.lhs.false9
-
-lor.lhs.false9:                                   ; preds = %test_binary_op_s.exit
+lor.lhs.false9:                                   ; preds = %land.lhs.true4.i, %land.lhs.true.i34
   %cmp10.not = icmp ult i64 %3, %0
-  %sub.i96 = sub i64 %3, %0
-  %xor1.i97 = xor i64 %sub.i96, %0
-  %or.i98 = or i64 %xor1.i97, %xor.i
-  %xor2.i99 = xor i64 %or.i98, %3
-  %shr.neg.i.i100 = ashr i64 %xor2.i99, 63
+  %sub.i101 = sub i64 %3, %0
+  %xor1.i102 = xor i64 %sub.i101, %0
+  %or.i103 = or i64 %xor1.i102, %xor.i.pre-phi
+  %xor2.i104 = xor i64 %or.i103, %3
+  %shr.neg.i.i105 = ashr i64 %xor2.i104, 63
   br i1 %cmp10.not, label %land.lhs.true.i42, label %land.lhs.true4.i47
 
 land.lhs.true.i42:                                ; preds = %lor.lhs.false9
-  %call1.i43 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.12, i32 noundef 88, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.24, i64 noundef %shr.neg.i.i100, i64 noundef -1) #2
-  br label %test_binary_op_s.exit50
+  %call1.i43 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.12, i32 noundef 88, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.24, i64 noundef %shr.neg.i.i105, i64 noundef -1) #2
+  %tobool2.not.i44 = icmp eq i32 %call1.i43, 0
+  br i1 %tobool2.not.i44, label %for.inc, label %lor.lhs.false14
 
 land.lhs.true4.i47:                               ; preds = %lor.lhs.false9
-  %conv.i48 = trunc nsw i64 %shr.neg.i.i100 to i32
+  %conv.i48 = trunc nsw i64 %shr.neg.i.i105 to i32
   %call6.i49 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 90, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.25, i32 noundef %conv.i48, i32 noundef 0) #2
-  br label %test_binary_op_s.exit50
+  %tobool7.not.i50 = icmp eq i32 %call6.i49, 0
+  br i1 %tobool7.not.i50, label %for.inc, label %lor.lhs.false14
 
-test_binary_op_s.exit50:                          ; preds = %land.lhs.true.i42, %land.lhs.true4.i47
-  %retval.0.in.in.i44 = phi i32 [ %call1.i43, %land.lhs.true.i42 ], [ %call6.i49, %land.lhs.true4.i47 ]
-  %retval.0.in.i45.not = icmp eq i32 %retval.0.in.in.i44, 0
-  br i1 %retval.0.in.i45.not, label %for.inc, label %lor.lhs.false14
-
-lor.lhs.false14:                                  ; preds = %test_binary_op_s.exit50
+lor.lhs.false14:                                  ; preds = %land.lhs.true4.i47, %land.lhs.true.i42
   %isnotneg.i = icmp sgt i64 %xor2.i, -1
-  br i1 %cmp6.not, label %land.lhs.true4.i58, label %land.lhs.true.i53
+  br i1 %cmp6.not, label %land.lhs.true4.i59, label %land.lhs.true.i54
 
-land.lhs.true.i53:                                ; preds = %lor.lhs.false14
+land.lhs.true.i54:                                ; preds = %lor.lhs.false14
   %not.i = sext i1 %isnotneg.i to i64
-  %call1.i54 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.12, i32 noundef 88, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.24, i64 noundef %not.i, i64 noundef -1) #2
-  br label %test_binary_op_s.exit61
+  %call1.i55 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.12, i32 noundef 88, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.24, i64 noundef %not.i, i64 noundef -1) #2
+  %tobool2.not.i56 = icmp eq i32 %call1.i55, 0
+  br i1 %tobool2.not.i56, label %for.inc, label %lor.lhs.false19
 
-land.lhs.true4.i58:                               ; preds = %lor.lhs.false14
-  %conv.i59 = sext i1 %isnotneg.i to i32
-  %call6.i60 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 90, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.25, i32 noundef %conv.i59, i32 noundef 0) #2
-  br label %test_binary_op_s.exit61
+land.lhs.true4.i59:                               ; preds = %lor.lhs.false14
+  %conv.i60 = sext i1 %isnotneg.i to i32
+  %call6.i61 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 90, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.25, i32 noundef %conv.i60, i32 noundef 0) #2
+  %tobool7.not.i62 = icmp eq i32 %call6.i61, 0
+  br i1 %tobool7.not.i62, label %for.inc, label %lor.lhs.false19
 
-test_binary_op_s.exit61:                          ; preds = %land.lhs.true.i53, %land.lhs.true4.i58
-  %retval.0.in.in.i55 = phi i32 [ %call1.i54, %land.lhs.true.i53 ], [ %call6.i60, %land.lhs.true4.i58 ]
-  %retval.0.in.i56.not = icmp eq i32 %retval.0.in.in.i55, 0
-  br i1 %retval.0.in.i56.not, label %for.inc, label %lor.lhs.false19
+lor.lhs.false19:                                  ; preds = %land.lhs.true4.i59, %land.lhs.true.i54
+  %isnotneg.i112 = icmp sgt i64 %xor2.i104, -1
+  br i1 %cmp10.not, label %land.lhs.true4.i71, label %land.lhs.true.i66
 
-lor.lhs.false19:                                  ; preds = %test_binary_op_s.exit61
-  %isnotneg.i107 = icmp sgt i64 %xor2.i99, -1
-  br i1 %cmp10.not, label %land.lhs.true4.i69, label %land.lhs.true.i64
+land.lhs.true.i66:                                ; preds = %lor.lhs.false19
+  %not.i113 = sext i1 %isnotneg.i112 to i64
+  %call1.i67 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.12, i32 noundef 88, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.24, i64 noundef %not.i113, i64 noundef -1) #2
+  %tobool2.not.i68 = icmp eq i32 %call1.i67, 0
+  br i1 %tobool2.not.i68, label %for.inc, label %lor.lhs.false24
 
-land.lhs.true.i64:                                ; preds = %lor.lhs.false19
-  %not.i108 = sext i1 %isnotneg.i107 to i64
-  %call1.i65 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.12, i32 noundef 88, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.24, i64 noundef %not.i108, i64 noundef -1) #2
-  br label %test_binary_op_s.exit72
+land.lhs.true4.i71:                               ; preds = %lor.lhs.false19
+  %conv.i72 = sext i1 %isnotneg.i112 to i32
+  %call6.i73 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 90, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.25, i32 noundef %conv.i72, i32 noundef 0) #2
+  %tobool7.not.i74 = icmp eq i32 %call6.i73, 0
+  br i1 %tobool7.not.i74, label %for.inc, label %lor.lhs.false24
 
-land.lhs.true4.i69:                               ; preds = %lor.lhs.false19
-  %conv.i70 = sext i1 %isnotneg.i107 to i32
-  %call6.i71 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 90, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.25, i32 noundef %conv.i70, i32 noundef 0) #2
-  br label %test_binary_op_s.exit72
+lor.lhs.false24:                                  ; preds = %land.lhs.true4.i71, %land.lhs.true.i66
+  %not.i.i = xor i64 %xor.i.pre-phi, -1
+  %sub.i.i115 = add i64 %xor.i.pre-phi, -1
+  %and.i.i116 = and i64 %sub.i.i115, %not.i.i
+  %shr.neg.i.i.i = ashr i64 %and.i.i116, 63
+  br i1 %cmp.i.not, label %land.lhs.true.i78, label %land.lhs.true4.i83
 
-test_binary_op_s.exit72:                          ; preds = %land.lhs.true.i64, %land.lhs.true4.i69
-  %retval.0.in.in.i66 = phi i32 [ %call1.i65, %land.lhs.true.i64 ], [ %call6.i71, %land.lhs.true4.i69 ]
-  %retval.0.in.i67.not = icmp eq i32 %retval.0.in.in.i66, 0
-  br i1 %retval.0.in.i67.not, label %for.inc, label %lor.lhs.false24
+land.lhs.true.i78:                                ; preds = %lor.lhs.false24
+  %call1.i79 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.12, i32 noundef 88, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.24, i64 noundef %shr.neg.i.i.i, i64 noundef -1) #2
+  %tobool2.not.i80 = icmp eq i32 %call1.i79, 0
+  br i1 %tobool2.not.i80, label %for.inc, label %land.lhs.true.i90
 
-lor.lhs.false24:                                  ; preds = %test_binary_op_s.exit72
-  %not.i.i = xor i64 %xor.i, -1
-  %sub.i.i110 = add i64 %xor.i, -1
-  %and.i.i111 = and i64 %sub.i.i110, %not.i.i
-  %shr.neg.i.i.i = ashr i64 %and.i.i111, 63
-  br i1 %cmp.i.not, label %test_binary_op_s.exit83.thread, label %test_binary_op_s.exit83
+land.lhs.true4.i83:                               ; preds = %lor.lhs.false24
+  %conv.i84 = trunc nsw i64 %shr.neg.i.i.i to i32
+  %call6.i85 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 90, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.25, i32 noundef %conv.i84, i32 noundef 0) #2
+  %tobool7.not.i86 = icmp eq i32 %call6.i85, 0
+  br i1 %tobool7.not.i86, label %for.inc, label %land.lhs.true4.i95
 
-test_binary_op_s.exit83:                          ; preds = %lor.lhs.false24
-  %conv.i81 = trunc nsw i64 %shr.neg.i.i.i to i32
-  %call6.i82 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 90, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.25, i32 noundef %conv.i81, i32 noundef 0) #2
-  %retval.0.in.i78.not = icmp eq i32 %call6.i82, 0
-  br i1 %retval.0.in.i78.not, label %for.inc, label %land.lhs.true4.i91
+land.lhs.true.i90:                                ; preds = %land.lhs.true.i78
+  %call1.i91 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.12, i32 noundef 88, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.24, i64 noundef %shr.neg.i.i.i, i64 noundef -1) #2
+  %tobool2.not.i92 = icmp eq i32 %call1.i91, 0
+  br i1 %tobool2.not.i92, label %test_binary_op_s.exit99.thread, label %for.inc
 
-test_binary_op_s.exit83.thread:                   ; preds = %lor.lhs.false24
-  %call1.i76 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.12, i32 noundef 88, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.24, i64 noundef %shr.neg.i.i.i, i64 noundef -1) #2
-  %retval.0.in.i78120.not = icmp eq i32 %call1.i76, 0
-  br i1 %retval.0.in.i78120.not, label %for.inc, label %land.lhs.true.i86
+land.lhs.true4.i95:                               ; preds = %land.lhs.true4.i83
+  %call6.i97 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 90, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.25, i32 noundef %conv.i84, i32 noundef 0) #2
+  %tobool7.not.i98 = icmp eq i32 %call6.i97, 0
+  br i1 %tobool7.not.i98, label %test_binary_op_s.exit99.thread, label %for.inc
 
-land.lhs.true.i86:                                ; preds = %test_binary_op_s.exit83.thread
-  %call1.i87 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.12, i32 noundef 88, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.24, i64 noundef %shr.neg.i.i.i, i64 noundef -1) #2
-  br label %test_binary_op_s.exit94
-
-land.lhs.true4.i91:                               ; preds = %test_binary_op_s.exit83
-  %call6.i93 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 90, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.25, i32 noundef %conv.i81, i32 noundef 0) #2
-  br label %test_binary_op_s.exit94
-
-test_binary_op_s.exit94:                          ; preds = %land.lhs.true.i86, %land.lhs.true4.i91
-  %retval.0.in.in.i88 = phi i32 [ %call1.i87, %land.lhs.true.i86 ], [ %call6.i93, %land.lhs.true4.i91 ]
-  %retval.0.in.i89.not = icmp eq i32 %retval.0.in.in.i88, 0
-  %spec.select = select i1 %retval.0.in.i89.not, i32 0, i32 %ret.0123
+test_binary_op_s.exit99.thread:                   ; preds = %land.lhs.true.i90, %land.lhs.true4.i95
   br label %for.inc
 
-for.inc:                                          ; preds = %for.body, %test_binary_op_s.exit83.thread, %test_binary_op_s.exit94, %test_select_s.exit, %test_eq_s.exit, %test_binary_op_s.exit, %test_binary_op_s.exit50, %test_binary_op_s.exit61, %test_binary_op_s.exit72, %test_binary_op_s.exit83
-  %ret.1 = phi i32 [ 0, %test_binary_op_s.exit83 ], [ 0, %test_binary_op_s.exit72 ], [ 0, %test_binary_op_s.exit61 ], [ 0, %test_binary_op_s.exit50 ], [ 0, %test_binary_op_s.exit ], [ 0, %test_eq_s.exit ], [ 0, %test_select_s.exit ], [ %spec.select, %test_binary_op_s.exit94 ], [ 0, %test_binary_op_s.exit83.thread ], [ 0, %for.body ]
+for.inc:                                          ; preds = %land.lhs.true4.i83, %land.lhs.true.i78, %land.lhs.true4.i71, %land.lhs.true.i66, %land.lhs.true4.i59, %land.lhs.true.i54, %land.lhs.true4.i47, %land.lhs.true.i42, %land.lhs.true4.i, %land.lhs.true.i34, %land.lhs.true3.i, %land.lhs.true.i, %for.body, %test_select_s.exit, %test_binary_op_s.exit99.thread, %land.lhs.true4.i95, %land.lhs.true.i90
+  %ret.1 = phi i32 [ %ret.0138, %land.lhs.true.i90 ], [ %ret.0138, %land.lhs.true4.i95 ], [ 0, %test_binary_op_s.exit99.thread ], [ 0, %test_select_s.exit ], [ 0, %for.body ], [ 0, %land.lhs.true.i ], [ 0, %land.lhs.true3.i ], [ 0, %land.lhs.true.i34 ], [ 0, %land.lhs.true4.i ], [ 0, %land.lhs.true.i42 ], [ 0, %land.lhs.true4.i47 ], [ 0, %land.lhs.true.i54 ], [ 0, %land.lhs.true4.i59 ], [ 0, %land.lhs.true.i66 ], [ 0, %land.lhs.true4.i71 ], [ 0, %land.lhs.true.i78 ], [ 0, %land.lhs.true4.i83 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
@@ -682,39 +656,38 @@ test_select_int.exit:                             ; preds = %for.body
 
 lor.lhs.false:                                    ; preds = %test_select_int.exit
   %cmp.i = icmp eq i32 %0, %3
-  br i1 %cmp.i, label %test_eq_int.exit, label %test_eq_int.exit.thread
+  br i1 %cmp.i, label %land.lhs.true.i, label %land.lhs.true3.i
 
-test_eq_int.exit:                                 ; preds = %lor.lhs.false
+land.lhs.true.i:                                  ; preds = %lor.lhs.false
   %call1.i8 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 239, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.16, i32 noundef -1, i32 noundef -1) #2
-  %retval.0.in.i.not = icmp eq i32 %call1.i8, 0
-  br i1 %retval.0.in.i.not, label %for.inc, label %land.lhs.true.i13
+  %tobool.not.i9 = icmp eq i32 %call1.i8, 0
+  br i1 %tobool.not.i9, label %for.inc, label %land.lhs.true.i12
 
-test_eq_int.exit.thread:                          ; preds = %lor.lhs.false
+land.lhs.true3.i:                                 ; preds = %lor.lhs.false
   %xor.i.i7.i = xor i32 %3, %0
   %not.i.i.i8.i = xor i32 %xor.i.i7.i, -1
   %sub.i.i.i9.i = add i32 %xor.i.i7.i, -1
   %and.i.i.i10.i = and i32 %sub.i.i.i9.i, %not.i.i.i8.i
   %shr.neg.i.i.i.i11.i = ashr i32 %and.i.i.i10.i, 31
   %call5.i = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 241, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.17, i32 noundef %shr.neg.i.i.i.i11.i, i32 noundef 0) #2
-  %retval.0.in.i18.not = icmp eq i32 %call5.i, 0
-  br i1 %retval.0.in.i18.not, label %for.inc, label %land.lhs.true4.i
+  %tobool6.not.i = icmp eq i32 %call5.i, 0
+  br i1 %tobool6.not.i, label %for.inc, label %land.lhs.true4.i
 
-land.lhs.true.i13:                                ; preds = %test_eq_int.exit
-  %call1.i14 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.12, i32 noundef 221, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.19, i32 noundef 255, i32 noundef 255) #2
-  br label %test_eq_int_8.exit
+land.lhs.true.i12:                                ; preds = %land.lhs.true.i
+  %call1.i13 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.12, i32 noundef 221, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.19, i32 noundef 255, i32 noundef 255) #2
+  %tobool.not.i14 = icmp eq i32 %call1.i13, 0
+  br i1 %tobool.not.i14, label %test_eq_int_8.exit.thread, label %for.inc
 
-land.lhs.true4.i:                                 ; preds = %test_eq_int.exit.thread
+land.lhs.true4.i:                                 ; preds = %land.lhs.true3.i
   %call7.i = tail call i32 @test_int_eq(ptr noundef nonnull @.str.12, i32 noundef 223, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.20, i32 noundef 0, i32 noundef 0) #2
-  br label %test_eq_int_8.exit
+  %tobool8.not.i = icmp eq i32 %call7.i, 0
+  br i1 %tobool8.not.i, label %test_eq_int_8.exit.thread, label %for.inc
 
-test_eq_int_8.exit:                               ; preds = %land.lhs.true.i13, %land.lhs.true4.i
-  %retval.0.in.in.i10 = phi i32 [ %call7.i, %land.lhs.true4.i ], [ %call1.i14, %land.lhs.true.i13 ]
-  %retval.0.in.i11.not = icmp eq i32 %retval.0.in.in.i10, 0
-  %spec.select = select i1 %retval.0.in.i11.not, i32 0, i32 %ret.021
+test_eq_int_8.exit.thread:                        ; preds = %land.lhs.true.i12, %land.lhs.true4.i
   br label %for.inc
 
-for.inc:                                          ; preds = %for.body, %test_eq_int.exit.thread, %test_eq_int_8.exit, %test_select_int.exit, %test_eq_int.exit
-  %ret.1 = phi i32 [ 0, %test_eq_int.exit ], [ 0, %test_select_int.exit ], [ %spec.select, %test_eq_int_8.exit ], [ 0, %test_eq_int.exit.thread ], [ 0, %for.body ]
+for.inc:                                          ; preds = %land.lhs.true3.i, %land.lhs.true.i, %for.body, %test_select_int.exit, %test_eq_int_8.exit.thread, %land.lhs.true4.i, %land.lhs.true.i12
+  %ret.1 = phi i32 [ %ret.021, %land.lhs.true.i12 ], [ %ret.021, %land.lhs.true4.i ], [ 0, %test_eq_int_8.exit.thread ], [ 0, %test_select_int.exit ], [ 0, %for.body ], [ 0, %land.lhs.true.i ], [ 0, %land.lhs.true3.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 13
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
@@ -735,9 +708,9 @@ entry:
   %2 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 -256) #3, !srcloc !5
   br label %for.body
 
-for.body:                                         ; preds = %entry, %test_select_8.exit.thread
-  %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %test_select_8.exit.thread ]
-  %ret.06 = phi i32 [ 1, %entry ], [ %6, %test_select_8.exit.thread ]
+for.body:                                         ; preds = %entry, %for.cond
+  %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.cond ]
+  %ret.06 = phi i32 [ 1, %entry ], [ %6, %for.cond ]
   %arrayidx3 = getelementptr inbounds [9 x i8], ptr @test_values_8, i64 0, i64 %indvars.iv
   %3 = load i8, ptr %arrayidx3, align 1
   %conv2.i.i = zext i8 %3 to i32
@@ -756,16 +729,18 @@ test_select_8.exit:                               ; preds = %for.body
   %call6.i = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 170, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.33, i32 noundef %or.i.i9.i, i32 noundef %conv2.i.i) #2
   %call6.i.fr = freeze i32 %call6.i
   %tobool7.not.i.not = icmp eq i32 %call6.i.fr, 0
-  %spec.select = select i1 %tobool7.not.i.not, i32 0, i32 %ret.06
-  br label %test_select_8.exit.thread
+  br i1 %tobool7.not.i.not, label %test_select_8.exit.thread, label %for.cond
 
-test_select_8.exit.thread:                        ; preds = %test_select_8.exit, %for.body
-  %6 = phi i32 [ 0, %for.body ], [ %spec.select, %test_select_8.exit ]
+test_select_8.exit.thread:                        ; preds = %for.body, %test_select_8.exit
+  br label %for.cond
+
+for.cond:                                         ; preds = %test_select_8.exit, %test_select_8.exit.thread
+  %6 = phi i32 [ 0, %test_select_8.exit.thread ], [ %ret.06, %test_select_8.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !12
 
-for.end:                                          ; preds = %test_select_8.exit.thread
+for.end:                                          ; preds = %for.cond
   ret i32 %6
 }
 
@@ -781,9 +756,9 @@ entry:
   %and.i5.i = and i32 %2, %0
   br label %for.body
 
-for.body:                                         ; preds = %entry, %test_select_32.exit.thread
-  %j.07 = phi i64 [ 0, %entry ], [ %inc, %test_select_32.exit.thread ]
-  %ret.06 = phi i32 [ 1, %entry ], [ %4, %test_select_32.exit.thread ]
+for.body:                                         ; preds = %entry, %for.cond
+  %j.07 = phi i64 [ 0, %entry ], [ %inc, %for.cond ]
+  %ret.06 = phi i32 [ 1, %entry ], [ %4, %for.cond ]
   %arrayidx1 = getelementptr inbounds [9 x i32], ptr @test_values_32, i64 0, i64 %j.07
   %3 = load i32, ptr %arrayidx1, align 4
   %and2.i.i = and i32 %2, %3
@@ -802,16 +777,18 @@ test_select_32.exit:                              ; preds = %for.body
   %call9.i = tail call i32 @test_true(ptr noundef nonnull @.str.12, i32 noundef 179, ptr noundef nonnull @.str.51, i32 noundef %conv6.i) #2
   %call9.i.fr = freeze i32 %call9.i
   %tobool10.not.i.not = icmp eq i32 %call9.i.fr, 0
-  %spec.select = select i1 %tobool10.not.i.not, i32 0, i32 %ret.06
-  br label %test_select_32.exit.thread
+  br i1 %tobool10.not.i.not, label %test_select_32.exit.thread, label %for.cond
 
-test_select_32.exit.thread:                       ; preds = %test_select_32.exit, %for.body
-  %4 = phi i32 [ 0, %for.body ], [ %spec.select, %test_select_32.exit ]
+test_select_32.exit.thread:                       ; preds = %for.body, %test_select_32.exit
+  br label %for.cond
+
+for.cond:                                         ; preds = %test_select_32.exit, %test_select_32.exit.thread
+  %4 = phi i32 [ 0, %test_select_32.exit.thread ], [ %ret.06, %test_select_32.exit ]
   %inc = add nuw nsw i64 %j.07, 1
   %exitcond.not = icmp eq i64 %inc, 9
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !14
 
-for.end:                                          ; preds = %test_select_32.exit.thread
+for.end:                                          ; preds = %for.cond
   ret i32 %4
 }
 

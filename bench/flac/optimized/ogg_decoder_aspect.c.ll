@@ -146,8 +146,8 @@ land.rhs.lr.ph:                                   ; preds = %entry
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.end124
-  %3 = phi i64 [ 0, %land.rhs.lr.ph ], [ %21, %if.end124 ]
   %buffer.addr.075 = phi ptr [ %buffer, %land.rhs.lr.ph ], [ %buffer.addr.1, %if.end124 ]
+  %3 = phi i64 [ 0, %land.rhs.lr.ph ], [ %.pr, %if.end124 ]
   %4 = load i32, ptr %end_of_stream, align 4
   %tobool.not = icmp eq i32 %4, 0
   br i1 %tobool.not, label %while.body, label %while.end.loopexit
@@ -306,26 +306,26 @@ sw.epilog:                                        ; preds = %if.else109, %sw.bb1
 
 if.end124:                                        ; preds = %if.then92, %if.end86, %sw.epilog, %if.else, %if.then6, %if.then24, %land.lhs.true, %if.end56, %if.then67
   %buffer.addr.1 = phi ptr [ %add.ptr, %if.then6 ], [ %add.ptr14, %if.else ], [ %buffer.addr.075, %if.end56 ], [ %buffer.addr.075, %land.lhs.true ], [ %buffer.addr.075, %if.then24 ], [ %buffer.addr.075, %if.then67 ], [ %buffer.addr.075, %if.then92 ], [ %buffer.addr.075, %if.end86 ], [ %buffer.addr.075, %sw.epilog ]
-  %21 = load i64, ptr %bytes, align 8
-  %cmp = icmp ult i64 %21, %0
+  %.pr = load i64, ptr %bytes, align 8
+  %cmp = icmp ult i64 %.pr, %0
   br i1 %cmp, label %land.rhs, label %while.end.loopexit, !llvm.loop !4
 
 while.end.loopexit:                               ; preds = %if.end124, %land.rhs
-  %.lcssa.ph = phi i64 [ %3, %land.rhs ], [ %21, %if.end124 ]
-  %22 = icmp eq i64 %.lcssa.ph, 0
-  %23 = zext i1 %22 to i32
+  %.lcssa.ph = phi i64 [ %3, %land.rhs ], [ %.pr, %if.end124 ]
+  %21 = icmp eq i64 %.lcssa.ph, 0
   br label %while.end
 
 while.end:                                        ; preds = %while.end.loopexit, %entry
-  %.lcssa = phi i32 [ 1, %entry ], [ %23, %while.end.loopexit ]
+  %.lcssa = phi i1 [ true, %entry ], [ %21, %while.end.loopexit ]
   %end_of_stream125 = getelementptr inbounds i8, ptr %aspect, i64 468
-  %24 = load i32, ptr %end_of_stream125, align 4
-  %tobool126.not = icmp eq i32 %24, 0
-  %spec.select77 = select i1 %tobool126.not, i32 0, i32 %.lcssa
+  %22 = load i32, ptr %end_of_stream125, align 4
+  %tobool126.not = icmp ne i32 %22, 0
+  %or.cond = and i1 %.lcssa, %tobool126.not
+  %spec.select72 = zext i1 %or.cond to i32
   br label %return
 
 return:                                           ; preds = %if.else96, %sw.epilog, %if.else109, %if.then99, %if.else64, %if.end47, %if.end42, %if.then34, %while.end
-  %retval.0 = phi i32 [ %spec.select77, %while.end ], [ 2, %if.else96 ], [ 6, %sw.epilog ], [ %call110, %if.else109 ], [ 7, %if.then99 ], [ 2, %if.else64 ], [ 4, %if.end47 ], [ 3, %if.end42 ], [ 3, %if.then34 ]
+  %retval.0 = phi i32 [ %spec.select72, %while.end ], [ 2, %if.else96 ], [ 6, %sw.epilog ], [ %call110, %if.else109 ], [ 7, %if.then99 ], [ 2, %if.else64 ], [ 4, %if.end47 ], [ 3, %if.end42 ], [ 3, %if.then34 ]
   ret i32 %retval.0
 }
 

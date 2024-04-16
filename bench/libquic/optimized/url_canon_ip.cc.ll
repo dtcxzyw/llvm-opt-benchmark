@@ -1975,17 +1975,20 @@ for.inc43.i:                                      ; preds = %_ZN3url12_GLOBAL__N
 
 for.end45.i:                                      ; preds = %for.inc43.us.i, %for.inc43.i, %for.cond.preheader.i
   %cur_index_in_address.0.lcssa.i = phi i32 [ 0, %for.cond.preheader.i ], [ %cur_index_in_address.3.i, %for.inc43.i ], [ %cur_index_in_address.3.us.i, %for.inc43.us.i ]
-  br i1 %cmp.i.not.i.i, label %_ZN3url12_GLOBAL__N_121DoIPv6AddressToNumberIchEEbPKT_RKNS_9ComponentEPh.exit, label %if.then47.i
+  br i1 %cmp.i.not.i.i, label %if.end55.i, label %if.then47.i
 
 if.then47.i:                                      ; preds = %for.end45.i
   %idxprom49.i = sext i32 %cur_index_in_address.0.lcssa.i to i64
   %arrayidx50.i = getelementptr inbounds i8, ptr %address, i64 %idxprom49.i
   %call51.i = call noundef i32 @_ZN3url19IPv4AddressToNumberEPKcRKNS_9ComponentEPhPi(ptr noundef %spec, ptr noundef nonnull align 4 dereferenceable(8) %ipv4_component.i.i, ptr noundef %arrayidx50.i, ptr noundef nonnull %ignored_num_ipv4_components.i)
   %cmp52.not.i = icmp eq i32 %call51.i, 2
+  br i1 %cmp52.not.i, label %if.end55.i, label %_ZN3url12_GLOBAL__N_121DoIPv6AddressToNumberIchEEbPKT_RKNS_9ComponentEPh.exit
+
+if.end55.i:                                       ; preds = %if.then47.i, %for.end45.i
   br label %_ZN3url12_GLOBAL__N_121DoIPv6AddressToNumberIchEEbPKT_RKNS_9ComponentEPh.exit
 
-_ZN3url12_GLOBAL__N_121DoIPv6AddressToNumberIchEEbPKT_RKNS_9ComponentEPh.exit: ; preds = %if.then11.i.i, %lor.lhs.false21.i.i, %land.lhs.true23.i.i, %if.then29.i.i, %if.then43.i.i, %if.else.i.i, %entry, %lor.lhs.false.i, %lor.lhs.false2.i, %_ZN3url12_GLOBAL__N_110IPv6ParsedC2Ev.exit.i, %if.then64.i.i, %if.end11.i, %for.end45.i, %if.then47.i
-  %retval.0.i = phi i1 [ false, %lor.lhs.false2.i ], [ false, %lor.lhs.false.i ], [ false, %entry ], [ false, %if.end11.i ], [ true, %for.end45.i ], [ %cmp52.not.i, %if.then47.i ], [ false, %_ZN3url12_GLOBAL__N_110IPv6ParsedC2Ev.exit.i ], [ false, %if.then64.i.i ], [ false, %if.else.i.i ], [ false, %if.then43.i.i ], [ false, %if.then29.i.i ], [ false, %land.lhs.true23.i.i ], [ false, %lor.lhs.false21.i.i ], [ false, %if.then11.i.i ]
+_ZN3url12_GLOBAL__N_121DoIPv6AddressToNumberIchEEbPKT_RKNS_9ComponentEPh.exit: ; preds = %if.then11.i.i, %lor.lhs.false21.i.i, %land.lhs.true23.i.i, %if.then29.i.i, %if.then43.i.i, %if.else.i.i, %entry, %lor.lhs.false.i, %lor.lhs.false2.i, %_ZN3url12_GLOBAL__N_110IPv6ParsedC2Ev.exit.i, %if.then64.i.i, %if.end11.i, %if.then47.i, %if.end55.i
+  %retval.0.i = phi i1 [ true, %if.end55.i ], [ false, %lor.lhs.false2.i ], [ false, %lor.lhs.false.i ], [ false, %entry ], [ false, %if.end11.i ], [ false, %if.then47.i ], [ false, %_ZN3url12_GLOBAL__N_110IPv6ParsedC2Ev.exit.i ], [ false, %if.then64.i.i ], [ false, %if.else.i.i ], [ false, %if.then43.i.i ], [ false, %if.then29.i.i ], [ false, %land.lhs.true23.i.i ], [ false, %lor.lhs.false21.i.i ], [ false, %if.then11.i.i ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %ipv6_parsed.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ignored_num_ipv4_components.i)
   ret i1 %retval.0.i
@@ -2354,17 +2357,20 @@ for.inc43.i:                                      ; preds = %_ZN3url12_GLOBAL__N
 
 for.end45.i:                                      ; preds = %for.inc43.us.i, %for.inc43.i, %for.cond.preheader.i
   %cur_index_in_address.0.lcssa.i = phi i32 [ 0, %for.cond.preheader.i ], [ %cur_index_in_address.3.i, %for.inc43.i ], [ %cur_index_in_address.3.us.i, %for.inc43.us.i ]
-  br i1 %cmp.i.not.i.i, label %_ZN3url12_GLOBAL__N_121DoIPv6AddressToNumberIttEEbPKT_RKNS_9ComponentEPh.exit, label %if.then47.i
+  br i1 %cmp.i.not.i.i, label %if.end55.i, label %if.then47.i
 
 if.then47.i:                                      ; preds = %for.end45.i
   %idxprom49.i = sext i32 %cur_index_in_address.0.lcssa.i to i64
   %arrayidx50.i = getelementptr inbounds i8, ptr %address, i64 %idxprom49.i
   %call51.i = call noundef i32 @_ZN3url19IPv4AddressToNumberEPKtRKNS_9ComponentEPhPi(ptr noundef %spec, ptr noundef nonnull align 4 dereferenceable(8) %ipv4_component.i.i, ptr noundef %arrayidx50.i, ptr noundef nonnull %ignored_num_ipv4_components.i)
   %cmp52.not.i = icmp eq i32 %call51.i, 2
+  br i1 %cmp52.not.i, label %if.end55.i, label %_ZN3url12_GLOBAL__N_121DoIPv6AddressToNumberIttEEbPKT_RKNS_9ComponentEPh.exit
+
+if.end55.i:                                       ; preds = %if.then47.i, %for.end45.i
   br label %_ZN3url12_GLOBAL__N_121DoIPv6AddressToNumberIttEEbPKT_RKNS_9ComponentEPh.exit
 
-_ZN3url12_GLOBAL__N_121DoIPv6AddressToNumberIttEEbPKT_RKNS_9ComponentEPh.exit: ; preds = %if.then11.i.i, %lor.lhs.false21.i.i, %land.lhs.true23.i.i, %if.then29.i.i, %if.then43.i.i, %if.else.i.i, %entry, %lor.lhs.false.i, %lor.lhs.false2.i, %_ZN3url12_GLOBAL__N_110IPv6ParsedC2Ev.exit.i, %if.then65.i.i, %if.end11.i, %for.end45.i, %if.then47.i
-  %retval.0.i = phi i1 [ false, %lor.lhs.false2.i ], [ false, %lor.lhs.false.i ], [ false, %entry ], [ false, %if.end11.i ], [ true, %for.end45.i ], [ %cmp52.not.i, %if.then47.i ], [ false, %_ZN3url12_GLOBAL__N_110IPv6ParsedC2Ev.exit.i ], [ false, %if.then65.i.i ], [ false, %if.else.i.i ], [ false, %if.then43.i.i ], [ false, %if.then29.i.i ], [ false, %land.lhs.true23.i.i ], [ false, %lor.lhs.false21.i.i ], [ false, %if.then11.i.i ]
+_ZN3url12_GLOBAL__N_121DoIPv6AddressToNumberIttEEbPKT_RKNS_9ComponentEPh.exit: ; preds = %if.then11.i.i, %lor.lhs.false21.i.i, %land.lhs.true23.i.i, %if.then29.i.i, %if.then43.i.i, %if.else.i.i, %entry, %lor.lhs.false.i, %lor.lhs.false2.i, %_ZN3url12_GLOBAL__N_110IPv6ParsedC2Ev.exit.i, %if.then65.i.i, %if.end11.i, %if.then47.i, %if.end55.i
+  %retval.0.i = phi i1 [ true, %if.end55.i ], [ false, %lor.lhs.false2.i ], [ false, %lor.lhs.false.i ], [ false, %entry ], [ false, %if.end11.i ], [ false, %if.then47.i ], [ false, %_ZN3url12_GLOBAL__N_110IPv6ParsedC2Ev.exit.i ], [ false, %if.then65.i.i ], [ false, %if.else.i.i ], [ false, %if.then43.i.i ], [ false, %if.then29.i.i ], [ false, %land.lhs.true23.i.i ], [ false, %lor.lhs.false21.i.i ], [ false, %if.then11.i.i ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %ipv6_parsed.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ignored_num_ipv4_components.i)
   ret i1 %retval.0.i

@@ -742,20 +742,22 @@ if.then77:                                        ; preds = %sw.bb73
   %len81 = getelementptr inbounds i8, ptr %37, i64 16
   %38 = load i64, ptr %len81, align 8
   %cmp82 = icmp eq i64 %38, 0
-  br i1 %cmp82, label %land.lhs.true, label %sw.epilog
+  br i1 %cmp82, label %land.lhs.true, label %if.else87
 
 land.lhs.true:                                    ; preds = %if.then77
   %closed84 = getelementptr inbounds i8, ptr %37, i64 8
   %39 = load i32, ptr %closed84, align 8
-  %tobool85.not = icmp ne i32 %39, 0
-  %spec.select = zext i1 %tobool85.not to i64
+  %tobool85.not = icmp eq i32 %39, 0
+  br i1 %tobool85.not, label %if.else87, label %sw.epilog
+
+if.else87:                                        ; preds = %land.lhs.true, %if.then77
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %if.end6.i57, %sw.bb37, %return.sink.split.i, %sw.bb33, %if.then2.i, %if.then.i45, %sw.bb17, %bio_make_pair.exit, %if.then.i, %if.then5.i, %if.then14.i, %land.lhs.true, %sw.bb73, %if.then77, %entry, %sw.bb59, %sw.bb49, %sw.bb39, %if.then42, %sw.bb18, %lor.lhs.false, %if.else3, %if.then5, %if.then63, %if.then53, %if.else23, %if.then, %if.then2, %sw.default, %sw.bb67, %sw.bb46, %sw.bb45, %sw.bb35, %sw.bb31, %sw.bb29, %sw.bb27, %sw.bb26, %sw.bb10
-  %ret.0 = phi i64 [ 0, %sw.default ], [ 1, %sw.bb67 ], [ %33, %if.then63 ], [ %31, %if.then53 ], [ 1, %sw.bb46 ], [ %conv, %sw.bb45 ], [ %call36, %sw.bb35 ], [ %call32, %sw.bb31 ], [ 1, %sw.bb29 ], [ 1, %sw.bb27 ], [ %18, %sw.bb26 ], [ %sub, %if.else23 ], [ %4, %sw.bb10 ], [ 0, %if.then ], [ 0, %if.then2 ], [ 1, %if.then5 ], [ 1, %if.else3 ], [ 0, %lor.lhs.false ], [ 0, %sw.bb18 ], [ 0, %if.then42 ], [ 0, %sw.bb39 ], [ 0, %sw.bb49 ], [ 0, %sw.bb59 ], [ 1, %entry ], [ 0, %if.then77 ], [ 1, %sw.bb73 ], [ %spec.select, %land.lhs.true ], [ 1, %bio_make_pair.exit ], [ 0, %if.then.i ], [ 0, %if.then5.i ], [ 0, %if.then14.i ], [ 1, %sw.bb17 ], [ 1, %if.then.i45 ], [ 1, %if.then2.i ], [ %num.1.i, %sw.bb33 ], [ %num.1.i, %return.sink.split.i ], [ %num.1.i55, %sw.bb37 ], [ %num.1.i55, %if.end6.i57 ]
+sw.epilog:                                        ; preds = %if.end6.i57, %sw.bb37, %return.sink.split.i, %sw.bb33, %if.then2.i, %if.then.i45, %sw.bb17, %bio_make_pair.exit, %if.then.i, %if.then5.i, %if.then14.i, %sw.bb73, %land.lhs.true, %entry, %sw.bb59, %sw.bb49, %sw.bb39, %if.then42, %sw.bb18, %lor.lhs.false, %if.else3, %if.then5, %if.else87, %if.then63, %if.then53, %if.else23, %if.then, %if.then2, %sw.default, %sw.bb67, %sw.bb46, %sw.bb45, %sw.bb35, %sw.bb31, %sw.bb29, %sw.bb27, %sw.bb26, %sw.bb10
+  %ret.0 = phi i64 [ 0, %sw.default ], [ 0, %if.else87 ], [ 1, %sw.bb67 ], [ %33, %if.then63 ], [ %31, %if.then53 ], [ 1, %sw.bb46 ], [ %conv, %sw.bb45 ], [ %call36, %sw.bb35 ], [ %call32, %sw.bb31 ], [ 1, %sw.bb29 ], [ 1, %sw.bb27 ], [ %18, %sw.bb26 ], [ %sub, %if.else23 ], [ %4, %sw.bb10 ], [ 0, %if.then ], [ 0, %if.then2 ], [ 1, %if.then5 ], [ 1, %if.else3 ], [ 0, %lor.lhs.false ], [ 0, %sw.bb18 ], [ 0, %if.then42 ], [ 0, %sw.bb39 ], [ 0, %sw.bb49 ], [ 0, %sw.bb59 ], [ 1, %entry ], [ 1, %land.lhs.true ], [ 1, %sw.bb73 ], [ 1, %bio_make_pair.exit ], [ 0, %if.then.i ], [ 0, %if.then5.i ], [ 0, %if.then14.i ], [ 1, %sw.bb17 ], [ 1, %if.then.i45 ], [ 1, %if.then2.i ], [ %num.1.i, %sw.bb33 ], [ %num.1.i, %return.sink.split.i ], [ %num.1.i55, %sw.bb37 ], [ %num.1.i55, %if.end6.i57 ]
   ret i64 %ret.0
 }
 

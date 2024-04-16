@@ -268,7 +268,7 @@ define dso_local noundef zeroext i1 @errstart(i32 noundef %0, ptr noundef %1) lo
   %.not = icmp eq i32 %5, 0
   %spec.select = select i1 %.not, i32 %0, i32 23
   %6 = icmp eq i32 %spec.select, 21
-  br i1 %6, label %7, label %16
+  br i1 %6, label %7, label %17
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr @PG_exception_stack, align 8
@@ -283,187 +283,189 @@ define dso_local noundef zeroext i1 @errstart(i32 noundef %0, ptr noundef %1) lo
 13:                                               ; preds = %10
   %14 = load i8, ptr @proc_exit_inprogress, align 1
   %15 = trunc i8 %14 to i1
-  %spec.select37 = select i1 %15, i32 22, i32 21
-  br label %16
+  br i1 %15, label %16, label %17
 
-16:                                               ; preds = %13, %7, %10, %4
-  %.1 = phi i32 [ %spec.select, %4 ], [ 22, %10 ], [ 22, %7 ], [ %spec.select37, %13 ]
-  %17 = load i32, ptr @errordata_stack_depth, align 4
-  %.not3438 = icmp slt i32 %17, 0
-  br i1 %.not3438, label %.loopexit, label %.lr.ph.preheader
+16:                                               ; preds = %13, %10, %7
+  br label %17
 
-.lr.ph.preheader:                                 ; preds = %16
-  %18 = add nuw i32 %17, 1
-  %smax = tail call i32 @llvm.smax.i32(i32 %18, i32 1)
+17:                                               ; preds = %13, %16, %4
+  %.1 = phi i32 [ 22, %16 ], [ 21, %13 ], [ %spec.select, %4 ]
+  %18 = load i32, ptr @errordata_stack_depth, align 4
+  %.not3437 = icmp slt i32 %18, 0
+  br i1 %.not3437, label %.loopexit, label %.lr.ph.preheader
+
+.lr.ph.preheader:                                 ; preds = %17
+  %19 = add nuw i32 %18, 1
+  %smax = tail call i32 @llvm.smax.i32(i32 %19, i32 1)
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.239 = phi i32 [ %.1, %.lr.ph.preheader ], [ %.2., %.lr.ph ]
-  %19 = getelementptr [5 x %struct.ErrorData], ptr @errordata, i64 0, i64 %indvars.iv
-  %20 = load i32, ptr %19, align 8
-  %.2. = tail call i32 @llvm.smax.i32(i32 %.239, i32 %20)
+  %.238 = phi i32 [ %.1, %.lr.ph.preheader ], [ %.2., %.lr.ph ]
+  %20 = getelementptr [5 x %struct.ErrorData], ptr @errordata, i64 0, i64 %indvars.iv
+  %21 = load i32, ptr %20, align 8
+  %.2. = tail call i32 @llvm.smax.i32(i32 %.238, i32 %21)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond, label %.loopexit, label %.lr.ph, !llvm.loop !5
 
-.loopexit:                                        ; preds = %.lr.ph, %16, %2
-  %.3 = phi i32 [ %0, %2 ], [ %.1, %16 ], [ %.2., %.lr.ph ]
-  %21 = load i32, ptr @log_min_messages, align 4
-  %22 = add i32 %.3, -15
-  %or.cond.i.i = icmp ult i32 %22, 2
-  br i1 %or.cond.i.i, label %23, label %25
+.loopexit:                                        ; preds = %.lr.ph, %17, %2
+  %.3 = phi i32 [ %0, %2 ], [ %.1, %17 ], [ %.2., %.lr.ph ]
+  %22 = load i32, ptr @log_min_messages, align 4
+  %23 = add i32 %.3, -15
+  %or.cond.i.i = icmp ult i32 %23, 2
+  br i1 %or.cond.i.i, label %24, label %26
 
-23:                                               ; preds = %.loopexit
-  %24 = icmp slt i32 %21, 22
-  br i1 %24, label %should_output_to_server.exit, label %32
+24:                                               ; preds = %.loopexit
+  %25 = icmp slt i32 %22, 22
+  br i1 %25, label %should_output_to_server.exit, label %33
 
-25:                                               ; preds = %.loopexit
-  %26 = icmp eq i32 %.3, 20
-  br i1 %26, label %should_output_to_server.exit, label %27
+26:                                               ; preds = %.loopexit
+  %27 = icmp eq i32 %.3, 20
+  br i1 %27, label %should_output_to_server.exit, label %28
 
-27:                                               ; preds = %25
-  %28 = icmp eq i32 %21, 15
-  br i1 %28, label %29, label %31
+28:                                               ; preds = %26
+  %29 = icmp eq i32 %22, 15
+  br i1 %29, label %30, label %32
 
-29:                                               ; preds = %27
-  %30 = icmp sgt i32 %.3, 21
-  br i1 %30, label %should_output_to_server.exit, label %32
+30:                                               ; preds = %28
+  %31 = icmp sgt i32 %.3, 21
+  br i1 %31, label %should_output_to_server.exit, label %33
 
-31:                                               ; preds = %27
-  %.not.i.i = icmp sgt i32 %21, %.3
-  br i1 %.not.i.i, label %32, label %should_output_to_server.exit
+32:                                               ; preds = %28
+  %.not.i.i = icmp sgt i32 %22, %.3
+  br i1 %.not.i.i, label %33, label %should_output_to_server.exit
 
-32:                                               ; preds = %31, %29, %23
+33:                                               ; preds = %32, %30, %24
   br label %should_output_to_server.exit
 
-should_output_to_server.exit:                     ; preds = %23, %25, %29, %31, %32
-  %.0.i.i = phi i1 [ false, %32 ], [ true, %23 ], [ false, %25 ], [ true, %29 ], [ true, %31 ]
-  %33 = zext i1 %.0.i.i to i8
-  %34 = load i32, ptr @whereToSendOutput, align 4
-  %35 = icmp eq i32 %34, 2
-  %36 = icmp ne i32 %.3, 16
-  %or.cond.i = and i1 %36, %35
-  br i1 %or.cond.i, label %37, label %should_output_to_client.exit
+should_output_to_server.exit:                     ; preds = %24, %26, %30, %32, %33
+  %.0.i.i = phi i1 [ false, %33 ], [ true, %24 ], [ false, %26 ], [ true, %30 ], [ true, %32 ]
+  %34 = zext i1 %.0.i.i to i8
+  %35 = load i32, ptr @whereToSendOutput, align 4
+  %36 = icmp eq i32 %35, 2
+  %37 = icmp ne i32 %.3, 16
+  %or.cond.i = and i1 %37, %36
+  br i1 %or.cond.i, label %38, label %should_output_to_client.exit
 
-37:                                               ; preds = %should_output_to_server.exit
-  %38 = load i8, ptr @ClientAuthInProgress, align 1
-  %39 = trunc i8 %38 to i1
-  br i1 %39, label %40, label %42
+38:                                               ; preds = %should_output_to_server.exit
+  %39 = load i8, ptr @ClientAuthInProgress, align 1
+  %40 = trunc i8 %39 to i1
+  br i1 %40, label %41, label %43
 
-40:                                               ; preds = %37
-  %41 = icmp sgt i32 %.3, 20
+41:                                               ; preds = %38
+  %42 = icmp sgt i32 %.3, 20
   br label %should_output_to_client.exit
 
-42:                                               ; preds = %37
-  %43 = load i32, ptr @client_min_messages, align 4
-  %44 = icmp sle i32 %43, %.3
-  %45 = icmp eq i32 %.3, 17
-  %46 = or i1 %45, %44
+43:                                               ; preds = %38
+  %44 = load i32, ptr @client_min_messages, align 4
+  %45 = icmp sle i32 %44, %.3
+  %46 = icmp eq i32 %.3, 17
+  %47 = or i1 %46, %45
   br label %should_output_to_client.exit
 
-should_output_to_client.exit:                     ; preds = %should_output_to_server.exit, %40, %42
-  %.0.i = phi i1 [ %41, %40 ], [ %46, %42 ], [ false, %should_output_to_server.exit ]
-  %47 = zext i1 %.0.i to i8
-  %48 = icmp sgt i32 %.3, 20
-  %brmerge = or i1 %48, %.0.i.i
+should_output_to_client.exit:                     ; preds = %should_output_to_server.exit, %41, %43
+  %.0.i = phi i1 [ %42, %41 ], [ %47, %43 ], [ false, %should_output_to_server.exit ]
+  %48 = zext i1 %.0.i to i8
+  %49 = icmp sgt i32 %.3, 20
+  %brmerge = or i1 %49, %.0.i.i
   %brmerge36 = select i1 %brmerge, i1 true, i1 %.0.i
-  br i1 %brmerge36, label %49, label %90
+  br i1 %brmerge36, label %50, label %91
 
-49:                                               ; preds = %should_output_to_client.exit
-  %50 = load ptr, ptr @ErrorContext, align 8
-  %51 = icmp eq ptr %50, null
-  br i1 %51, label %52, label %53
+50:                                               ; preds = %should_output_to_client.exit
+  %51 = load ptr, ptr @ErrorContext, align 8
+  %52 = icmp eq ptr %51, null
+  br i1 %52, label %53, label %54
 
-52:                                               ; preds = %49
+53:                                               ; preds = %50
   tail call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str)
   tail call void @exit(i32 noundef 2) #27
   unreachable
 
-53:                                               ; preds = %49
-  %54 = load i32, ptr @recursion_depth, align 4
-  %55 = add i32 %54, 1
-  store i32 %55, ptr @recursion_depth, align 4
-  %56 = icmp sgt i32 %54, 0
-  %or.cond = and i1 %48, %56
-  br i1 %or.cond, label %57, label %61
+54:                                               ; preds = %50
+  %55 = load i32, ptr @recursion_depth, align 4
+  %56 = add i32 %55, 1
+  store i32 %56, ptr @recursion_depth, align 4
+  %57 = icmp sgt i32 %55, 0
+  %or.cond = and i1 %49, %57
+  br i1 %or.cond, label %58, label %62
 
-57:                                               ; preds = %53
-  tail call void @MemoryContextReset(ptr noundef nonnull %50) #28
-  %58 = load i32, ptr @recursion_depth, align 4
-  %59 = icmp sgt i32 %58, 2
-  br i1 %59, label %60, label %61
+58:                                               ; preds = %54
+  tail call void @MemoryContextReset(ptr noundef nonnull %51) #28
+  %59 = load i32, ptr @recursion_depth, align 4
+  %60 = icmp sgt i32 %59, 2
+  br i1 %60, label %61, label %62
 
-60:                                               ; preds = %57
+61:                                               ; preds = %58
   store ptr null, ptr @error_context_stack, align 8
   store ptr null, ptr @debug_query_string, align 8
-  br label %61
+  br label %62
 
-61:                                               ; preds = %57, %60, %53
-  %62 = phi i32 [ %58, %57 ], [ %58, %60 ], [ %55, %53 ]
-  %63 = load i32, ptr @errordata_stack_depth, align 4
-  %64 = add i32 %63, 1
-  store i32 %64, ptr @errordata_stack_depth, align 4
-  %65 = icmp sgt i32 %64, 4
-  br i1 %65, label %66, label %get_error_stack_entry.exit
+62:                                               ; preds = %58, %61, %54
+  %63 = phi i32 [ %59, %58 ], [ %59, %61 ], [ %56, %54 ]
+  %64 = load i32, ptr @errordata_stack_depth, align 4
+  %65 = add i32 %64, 1
+  store i32 %65, ptr @errordata_stack_depth, align 4
+  %66 = icmp sgt i32 %65, 4
+  br i1 %66, label %67, label %get_error_stack_entry.exit
 
-66:                                               ; preds = %61
+67:                                               ; preds = %62
   store i32 -1, ptr @errordata_stack_depth, align 4
-  %67 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #29
-  tail call void @llvm.assume(i1 %67)
-  %68 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.46)
+  %68 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #29
+  tail call void @llvm.assume(i1 %68)
+  %69 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.46)
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 768, ptr noundef nonnull @__func__.get_error_stack_entry)
   unreachable
 
-get_error_stack_entry.exit:                       ; preds = %61
-  %69 = sext i32 %64 to i64
-  %70 = getelementptr [5 x %struct.ErrorData], ptr @errordata, i64 0, i64 %69
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %70, i8 0, i64 184, i1 false)
-  %71 = tail call ptr @__errno_location() #30
-  %72 = load i32, ptr %71, align 4
-  %73 = getelementptr inbounds i8, ptr %70, i64 168
-  store i32 %72, ptr %73, align 8
-  store i32 %.3, ptr %70, align 8
-  %74 = getelementptr inbounds i8, ptr %70, i64 4
-  store i8 %33, ptr %74, align 4
-  %75 = getelementptr inbounds i8, ptr %70, i64 5
-  store i8 %47, ptr %75, align 1
+get_error_stack_entry.exit:                       ; preds = %62
+  %70 = sext i32 %65 to i64
+  %71 = getelementptr [5 x %struct.ErrorData], ptr @errordata, i64 0, i64 %70
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %71, i8 0, i64 184, i1 false)
+  %72 = tail call ptr @__errno_location() #30
+  %73 = load i32, ptr %72, align 4
+  %74 = getelementptr inbounds i8, ptr %71, i64 168
+  store i32 %73, ptr %74, align 8
+  store i32 %.3, ptr %71, align 8
+  %75 = getelementptr inbounds i8, ptr %71, i64 4
+  store i8 %34, ptr %75, align 4
+  %76 = getelementptr inbounds i8, ptr %71, i64 5
+  store i8 %48, ptr %76, align 1
   %.not.i = icmp eq ptr %1, null
-  %76 = select i1 %.not.i, ptr @.str.3, ptr %1
-  %77 = getelementptr inbounds i8, ptr %70, i64 32
-  store ptr %76, ptr %77, align 8
-  %78 = getelementptr inbounds i8, ptr %70, i64 40
-  store ptr %76, ptr %78, align 8
-  br i1 %48, label %79, label %81
+  %77 = select i1 %.not.i, ptr @.str.3, ptr %1
+  %78 = getelementptr inbounds i8, ptr %71, i64 32
+  store ptr %77, ptr %78, align 8
+  %79 = getelementptr inbounds i8, ptr %71, i64 40
+  store ptr %77, ptr %79, align 8
+  br i1 %49, label %80, label %82
 
-79:                                               ; preds = %get_error_stack_entry.exit
-  %80 = getelementptr inbounds i8, ptr %70, i64 48
-  store i32 2600, ptr %80, align 8
-  br label %86
+80:                                               ; preds = %get_error_stack_entry.exit
+  %81 = getelementptr inbounds i8, ptr %71, i64 48
+  store i32 2600, ptr %81, align 8
+  br label %87
 
-81:                                               ; preds = %get_error_stack_entry.exit
-  %82 = icmp sgt i32 %.3, 18
-  %83 = getelementptr inbounds i8, ptr %70, i64 48
-  br i1 %82, label %84, label %85
+82:                                               ; preds = %get_error_stack_entry.exit
+  %83 = icmp sgt i32 %.3, 18
+  %84 = getelementptr inbounds i8, ptr %71, i64 48
+  br i1 %83, label %85, label %86
 
-84:                                               ; preds = %81
-  store i32 64, ptr %83, align 8
-  br label %86
+85:                                               ; preds = %82
+  store i32 64, ptr %84, align 8
+  br label %87
 
-85:                                               ; preds = %81
-  store i32 0, ptr %83, align 8
-  br label %86
+86:                                               ; preds = %82
+  store i32 0, ptr %84, align 8
+  br label %87
 
-86:                                               ; preds = %84, %85, %79
-  %87 = load ptr, ptr @ErrorContext, align 8
-  %88 = getelementptr inbounds i8, ptr %70, i64 176
-  store ptr %87, ptr %88, align 8
-  %89 = add i32 %62, -1
-  store i32 %89, ptr @recursion_depth, align 4
-  br label %90
+87:                                               ; preds = %85, %86, %80
+  %88 = load ptr, ptr @ErrorContext, align 8
+  %89 = getelementptr inbounds i8, ptr %71, i64 176
+  store ptr %88, ptr %89, align 8
+  %90 = add i32 %63, -1
+  store i32 %90, ptr @recursion_depth, align 4
+  br label %91
 
-90:                                               ; preds = %should_output_to_client.exit, %86
+91:                                               ; preds = %should_output_to_client.exit, %87
   ret i1 %brmerge36
 }
 
@@ -5364,8 +5366,8 @@ define dso_local void @log_status_format(ptr noundef %0, ptr noundef readonly %1
   %20 = getelementptr inbounds i8, ptr %2, i64 48
   br label %21
 
-21:                                               ; preds = %.preheader, %264
-  %.0 = phi ptr [ %265, %264 ], [ %1, %.preheader ]
+21:                                               ; preds = %.preheader, %267
+  %.0 = phi ptr [ %268, %267 ], [ %1, %.preheader ]
   %22 = load i8, ptr %.0, align 1
   switch i8 %22, label %23 [
     i8 0, label %process_log_prefix_padding.exit.thread
@@ -5374,7 +5376,7 @@ define dso_local void @log_status_format(ptr noundef %0, ptr noundef readonly %1
 
 23:                                               ; preds = %21
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext %22) #28
-  br label %264
+  br label %267
 
 24:                                               ; preds = %21
   %25 = getelementptr i8, ptr %.0, i64 1
@@ -5386,7 +5388,7 @@ define dso_local void @log_status_format(ptr noundef %0, ptr noundef readonly %1
 
 27:                                               ; preds = %24
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 37) #28
-  br label %264
+  br label %267
 
 28:                                               ; preds = %24
   %29 = icmp sgt i8 %26, 57
@@ -5439,33 +5441,33 @@ thread-pre-split:                                 ; preds = %.critedge.i
   %49 = phi i8 [ %.pr, %thread-pre-split ], [ %26, %28 ]
   %.2220 = phi i32 [ %47, %thread-pre-split ], [ 0, %28 ]
   %.1 = phi ptr [ %.1.lcssa.i, %thread-pre-split ], [ %25, %28 ]
-  switch i8 %49, label %264 [
+  switch i8 %49, label %267 [
     i8 97, label %50
-    i8 98, label %64
-    i8 117, label %78
-    i8 100, label %93
-    i8 99, label %108
-    i8 112, label %114
-    i8 80, label %118
-    i8 108, label %137
-    i8 109, label %141
-    i8 116, label %155
-    i8 110, label %162
-    i8 115, label %173
-    i8 105, label %182
-    i8 114, label %192
-    i8 104, label %216
-    i8 113, label %227
-    i8 118, label %230
-    i8 120, label %244
-    i8 101, label %248
-    i8 81, label %260
+    i8 98, label %65
+    i8 117, label %79
+    i8 100, label %95
+    i8 99, label %111
+    i8 112, label %117
+    i8 80, label %121
+    i8 108, label %140
+    i8 109, label %144
+    i8 116, label %158
+    i8 110, label %165
+    i8 115, label %176
+    i8 105, label %185
+    i8 114, label %195
+    i8 104, label %219
+    i8 113, label %230
+    i8 118, label %233
+    i8 120, label %247
+    i8 101, label %251
+    i8 81, label %263
   ]
 
 50:                                               ; preds = %48
   %51 = load ptr, ptr @MyProcPort, align 8
   %.not178 = icmp eq ptr %51, null
-  br i1 %.not178, label %61, label %52
+  br i1 %.not178, label %62, label %52
 
 52:                                               ; preds = %50
   %53 = load ptr, ptr @application_name, align 8
@@ -5475,569 +5477,575 @@ thread-pre-split:                                 ; preds = %.critedge.i
 55:                                               ; preds = %52
   %56 = load i8, ptr %53, align 1
   %57 = icmp eq i8 %56, 0
-  %spec.select = select i1 %57, ptr @.str.22, ptr %53
-  br label %58
+  br i1 %57, label %58, label %59
 
 58:                                               ; preds = %55, %52
-  %.089 = phi ptr [ @.str.22, %52 ], [ %spec.select, %55 ]
+  br label %59
+
+59:                                               ; preds = %58, %55
+  %.089 = phi ptr [ @.str.22, %58 ], [ %53, %55 ]
   %.not180 = icmp eq i32 %.2220, 0
-  br i1 %.not180, label %60, label %59
+  br i1 %.not180, label %61, label %60
 
-59:                                               ; preds = %58
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %.2220, ptr noundef %.089) #28
-  br label %264
+60:                                               ; preds = %59
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %.2220, ptr noundef nonnull %.089) #28
+  br label %267
 
-60:                                               ; preds = %58
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef %.089) #28
-  br label %264
+61:                                               ; preds = %59
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %.089) #28
+  br label %267
 
-61:                                               ; preds = %50
+62:                                               ; preds = %50
   %.not179 = icmp eq i32 %.2220, 0
-  br i1 %.not179, label %264, label %62
+  br i1 %.not179, label %267, label %63
 
-62:                                               ; preds = %61
-  %63 = call i32 @llvm.abs.i32(i32 %.2220, i1 false)
-  call void @appendStringInfoSpaces(ptr noundef %0, i32 noundef %63) #28
-  br label %264
+63:                                               ; preds = %62
+  %64 = call i32 @llvm.abs.i32(i32 %.2220, i1 false)
+  call void @appendStringInfoSpaces(ptr noundef %0, i32 noundef %64) #28
+  br label %267
 
-64:                                               ; preds = %48
-  %65 = load i32, ptr @MyProcPid, align 4
-  %66 = load i32, ptr @PostmasterPid, align 4
-  %67 = icmp eq i32 %65, %66
-  br i1 %67, label %get_backend_type_for_log.exit, label %68
+65:                                               ; preds = %48
+  %66 = load i32, ptr @MyProcPid, align 4
+  %67 = load i32, ptr @PostmasterPid, align 4
+  %68 = icmp eq i32 %66, %67
+  br i1 %68, label %get_backend_type_for_log.exit, label %69
 
-68:                                               ; preds = %64
-  %69 = load i32, ptr @MyBackendType, align 4
-  %70 = icmp eq i32 %69, 5
-  br i1 %70, label %71, label %74
+69:                                               ; preds = %65
+  %70 = load i32, ptr @MyBackendType, align 4
+  %71 = icmp eq i32 %70, 5
+  br i1 %71, label %72, label %75
 
-71:                                               ; preds = %68
-  %72 = load ptr, ptr @MyBgworkerEntry, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 96
+72:                                               ; preds = %69
+  %73 = load ptr, ptr @MyBgworkerEntry, align 8
+  %74 = getelementptr inbounds i8, ptr %73, i64 96
   br label %get_backend_type_for_log.exit
 
-74:                                               ; preds = %68
-  %75 = call ptr @GetBackendTypeDesc(i32 noundef %69) #28
+75:                                               ; preds = %69
+  %76 = call ptr @GetBackendTypeDesc(i32 noundef %70) #28
   br label %get_backend_type_for_log.exit
 
-get_backend_type_for_log.exit:                    ; preds = %64, %71, %74
-  %.0.i = phi ptr [ %73, %71 ], [ %75, %74 ], [ @.str.21, %64 ]
+get_backend_type_for_log.exit:                    ; preds = %65, %72, %75
+  %.0.i = phi ptr [ %74, %72 ], [ %76, %75 ], [ @.str.21, %65 ]
   %.not177 = icmp eq i32 %.2220, 0
-  br i1 %.not177, label %77, label %76
-
-76:                                               ; preds = %get_backend_type_for_log.exit
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %.2220, ptr noundef %.0.i) #28
-  br label %264
+  br i1 %.not177, label %78, label %77
 
 77:                                               ; preds = %get_backend_type_for_log.exit
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %.2220, ptr noundef %.0.i) #28
+  br label %267
+
+78:                                               ; preds = %get_backend_type_for_log.exit
   call void @appendStringInfoString(ptr noundef %0, ptr noundef %.0.i) #28
-  br label %264
+  br label %267
 
-78:                                               ; preds = %48
-  %79 = load ptr, ptr @MyProcPort, align 8
-  %.not174 = icmp eq ptr %79, null
-  br i1 %.not174, label %90, label %80
+79:                                               ; preds = %48
+  %80 = load ptr, ptr @MyProcPort, align 8
+  %.not174 = icmp eq ptr %80, null
+  br i1 %.not174, label %92, label %81
 
-80:                                               ; preds = %78
-  %81 = getelementptr inbounds i8, ptr %79, i64 336
-  %82 = load ptr, ptr %81, align 8
-  %83 = icmp eq ptr %82, null
-  br i1 %83, label %87, label %84
+81:                                               ; preds = %79
+  %82 = getelementptr inbounds i8, ptr %80, i64 336
+  %83 = load ptr, ptr %82, align 8
+  %84 = icmp eq ptr %83, null
+  br i1 %84, label %88, label %85
 
-84:                                               ; preds = %80
-  %85 = load i8, ptr %82, align 1
-  %86 = icmp eq i8 %85, 0
-  %spec.select223 = select i1 %86, ptr @.str.22, ptr %82
-  br label %87
+85:                                               ; preds = %81
+  %86 = load i8, ptr %83, align 1
+  %87 = icmp eq i8 %86, 0
+  br i1 %87, label %88, label %89
 
-87:                                               ; preds = %84, %80
-  %.090 = phi ptr [ @.str.22, %80 ], [ %spec.select223, %84 ]
+88:                                               ; preds = %85, %81
+  br label %89
+
+89:                                               ; preds = %88, %85
+  %.090 = phi ptr [ @.str.22, %88 ], [ %83, %85 ]
   %.not176 = icmp eq i32 %.2220, 0
-  br i1 %.not176, label %89, label %88
+  br i1 %.not176, label %91, label %90
 
-88:                                               ; preds = %87
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %.2220, ptr noundef %.090) #28
-  br label %264
+90:                                               ; preds = %89
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %.2220, ptr noundef nonnull %.090) #28
+  br label %267
 
-89:                                               ; preds = %87
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef %.090) #28
-  br label %264
+91:                                               ; preds = %89
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %.090) #28
+  br label %267
 
-90:                                               ; preds = %78
+92:                                               ; preds = %79
   %.not175 = icmp eq i32 %.2220, 0
-  br i1 %.not175, label %264, label %91
+  br i1 %.not175, label %267, label %93
 
-91:                                               ; preds = %90
-  %92 = call i32 @llvm.abs.i32(i32 %.2220, i1 false)
-  call void @appendStringInfoSpaces(ptr noundef %0, i32 noundef %92) #28
-  br label %264
+93:                                               ; preds = %92
+  %94 = call i32 @llvm.abs.i32(i32 %.2220, i1 false)
+  call void @appendStringInfoSpaces(ptr noundef %0, i32 noundef %94) #28
+  br label %267
 
-93:                                               ; preds = %48
-  %94 = load ptr, ptr @MyProcPort, align 8
-  %.not171 = icmp eq ptr %94, null
-  br i1 %.not171, label %105, label %95
+95:                                               ; preds = %48
+  %96 = load ptr, ptr @MyProcPort, align 8
+  %.not171 = icmp eq ptr %96, null
+  br i1 %.not171, label %108, label %97
 
-95:                                               ; preds = %93
-  %96 = getelementptr inbounds i8, ptr %94, i64 328
-  %97 = load ptr, ptr %96, align 8
-  %98 = icmp eq ptr %97, null
-  br i1 %98, label %102, label %99
+97:                                               ; preds = %95
+  %98 = getelementptr inbounds i8, ptr %96, i64 328
+  %99 = load ptr, ptr %98, align 8
+  %100 = icmp eq ptr %99, null
+  br i1 %100, label %104, label %101
 
-99:                                               ; preds = %95
-  %100 = load i8, ptr %97, align 1
-  %101 = icmp eq i8 %100, 0
-  %spec.select224 = select i1 %101, ptr @.str.22, ptr %97
-  br label %102
+101:                                              ; preds = %97
+  %102 = load i8, ptr %99, align 1
+  %103 = icmp eq i8 %102, 0
+  br i1 %103, label %104, label %105
 
-102:                                              ; preds = %99, %95
-  %.091 = phi ptr [ @.str.22, %95 ], [ %spec.select224, %99 ]
+104:                                              ; preds = %101, %97
+  br label %105
+
+105:                                              ; preds = %104, %101
+  %.091 = phi ptr [ @.str.22, %104 ], [ %99, %101 ]
   %.not173 = icmp eq i32 %.2220, 0
-  br i1 %.not173, label %104, label %103
-
-103:                                              ; preds = %102
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %.2220, ptr noundef %.091) #28
-  br label %264
-
-104:                                              ; preds = %102
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef %.091) #28
-  br label %264
-
-105:                                              ; preds = %93
-  %.not172 = icmp eq i32 %.2220, 0
-  br i1 %.not172, label %264, label %106
+  br i1 %.not173, label %107, label %106
 
 106:                                              ; preds = %105
-  %107 = call i32 @llvm.abs.i32(i32 %.2220, i1 false)
-  call void @appendStringInfoSpaces(ptr noundef %0, i32 noundef %107) #28
-  br label %264
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %.2220, ptr noundef nonnull %.091) #28
+  br label %267
 
-108:                                              ; preds = %48
+107:                                              ; preds = %105
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %.091) #28
+  br label %267
+
+108:                                              ; preds = %95
+  %.not172 = icmp eq i32 %.2220, 0
+  br i1 %.not172, label %267, label %109
+
+109:                                              ; preds = %108
+  %110 = call i32 @llvm.abs.i32(i32 %.2220, i1 false)
+  call void @appendStringInfoSpaces(ptr noundef %0, i32 noundef %110) #28
+  br label %267
+
+111:                                              ; preds = %48
   %.not170 = icmp eq i32 %.2220, 0
-  %109 = load i64, ptr @MyStartTime, align 8
-  %110 = load i32, ptr @MyProcPid, align 4
-  br i1 %.not170, label %113, label %111
+  %112 = load i64, ptr @MyStartTime, align 8
+  %113 = load i32, ptr @MyProcPid, align 4
+  br i1 %.not170, label %116, label %114
 
-111:                                              ; preds = %108
-  %112 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %7, i64 noundef 127, ptr noundef nonnull @.str.24, i64 noundef %109, i32 noundef %110) #28
+114:                                              ; preds = %111
+  %115 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %7, i64 noundef 127, ptr noundef nonnull @.str.24, i64 noundef %112, i32 noundef %113) #28
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %.2220, ptr noundef nonnull %7) #28
-  br label %264
+  br label %267
 
-113:                                              ; preds = %108
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.24, i64 noundef %109, i32 noundef %110) #28
-  br label %264
+116:                                              ; preds = %111
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.24, i64 noundef %112, i32 noundef %113) #28
+  br label %267
 
-114:                                              ; preds = %48
+117:                                              ; preds = %48
   %.not169 = icmp eq i32 %.2220, 0
-  %115 = load i32, ptr @MyProcPid, align 4
-  br i1 %.not169, label %117, label %116
+  %118 = load i32, ptr @MyProcPid, align 4
+  br i1 %.not169, label %120, label %119
 
-116:                                              ; preds = %114
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.25, i32 noundef %.2220, i32 noundef %115) #28
-  br label %264
+119:                                              ; preds = %117
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.25, i32 noundef %.2220, i32 noundef %118) #28
+  br label %267
 
-117:                                              ; preds = %114
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.26, i32 noundef %115) #28
-  br label %264
+120:                                              ; preds = %117
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.26, i32 noundef %118) #28
+  br label %267
 
-118:                                              ; preds = %48
-  %119 = load ptr, ptr @MyProc, align 8
-  %.not166 = icmp eq ptr %119, null
-  br i1 %.not166, label %134, label %120
+121:                                              ; preds = %48
+  %122 = load ptr, ptr @MyProc, align 8
+  %.not166 = icmp eq ptr %122, null
+  br i1 %.not166, label %137, label %123
 
-120:                                              ; preds = %118
-  %121 = getelementptr inbounds i8, ptr %119, i64 848
-  %122 = load ptr, ptr %121, align 8
-  %123 = icmp eq ptr %122, null
-  br i1 %123, label %129, label %124
+123:                                              ; preds = %121
+  %124 = getelementptr inbounds i8, ptr %122, i64 848
+  %125 = load ptr, ptr %124, align 8
+  %126 = icmp eq ptr %125, null
+  br i1 %126, label %132, label %127
 
-124:                                              ; preds = %120
-  %125 = getelementptr inbounds i8, ptr %122, i64 60
-  %126 = load i32, ptr %125, align 4
-  %127 = load i32, ptr @MyProcPid, align 4
-  %128 = icmp eq i32 %126, %127
-  br i1 %128, label %129, label %131
+127:                                              ; preds = %123
+  %128 = getelementptr inbounds i8, ptr %125, i64 60
+  %129 = load i32, ptr %128, align 4
+  %130 = load i32, ptr @MyProcPid, align 4
+  %131 = icmp eq i32 %129, %130
+  br i1 %131, label %132, label %134
 
-129:                                              ; preds = %124, %120
-  %130 = call i32 @llvm.abs.i32(i32 %.2220, i1 false)
-  call void @appendStringInfoSpaces(ptr noundef %0, i32 noundef %130) #28
-  br label %264
+132:                                              ; preds = %127, %123
+  %133 = call i32 @llvm.abs.i32(i32 %.2220, i1 false)
+  call void @appendStringInfoSpaces(ptr noundef %0, i32 noundef %133) #28
+  br label %267
 
-131:                                              ; preds = %124
+134:                                              ; preds = %127
   %.not168 = icmp eq i32 %.2220, 0
-  br i1 %.not168, label %133, label %132
-
-132:                                              ; preds = %131
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.25, i32 noundef %.2220, i32 noundef %126) #28
-  br label %264
-
-133:                                              ; preds = %131
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.26, i32 noundef %126) #28
-  br label %264
-
-134:                                              ; preds = %118
-  %.not167 = icmp eq i32 %.2220, 0
-  br i1 %.not167, label %264, label %135
+  br i1 %.not168, label %136, label %135
 
 135:                                              ; preds = %134
-  %136 = call i32 @llvm.abs.i32(i32 %.2220, i1 false)
-  call void @appendStringInfoSpaces(ptr noundef %0, i32 noundef %136) #28
-  br label %264
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.25, i32 noundef %.2220, i32 noundef %129) #28
+  br label %267
 
-137:                                              ; preds = %48
+136:                                              ; preds = %134
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.26, i32 noundef %129) #28
+  br label %267
+
+137:                                              ; preds = %121
+  %.not167 = icmp eq i32 %.2220, 0
+  br i1 %.not167, label %267, label %138
+
+138:                                              ; preds = %137
+  %139 = call i32 @llvm.abs.i32(i32 %.2220, i1 false)
+  call void @appendStringInfoSpaces(ptr noundef %0, i32 noundef %139) #28
+  br label %267
+
+140:                                              ; preds = %48
   %.not165 = icmp eq i32 %.2220, 0
-  %138 = load i64, ptr @log_status_format.log_line_number, align 8
-  br i1 %.not165, label %140, label %139
+  %141 = load i64, ptr @log_status_format.log_line_number, align 8
+  br i1 %.not165, label %143, label %142
 
-139:                                              ; preds = %137
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.27, i32 noundef %.2220, i64 noundef %138) #28
-  br label %264
+142:                                              ; preds = %140
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.27, i32 noundef %.2220, i64 noundef %141) #28
+  br label %267
 
-140:                                              ; preds = %137
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.28, i64 noundef %138) #28
-  br label %264
+143:                                              ; preds = %140
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.28, i64 noundef %141) #28
+  br label %267
 
-141:                                              ; preds = %48
+144:                                              ; preds = %48
   store i8 0, ptr @formatted_log_time, align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %6)
   %.b1.i = load i1, ptr @saved_timeval_set, align 1
-  br i1 %.b1.i, label %get_formatted_log_time.exit, label %142
+  br i1 %.b1.i, label %get_formatted_log_time.exit, label %145
 
-142:                                              ; preds = %141
-  %143 = call i32 @gettimeofday(ptr noundef nonnull @saved_timeval, ptr noundef null) #28
+145:                                              ; preds = %144
+  %146 = call i32 @gettimeofday(ptr noundef nonnull @saved_timeval, ptr noundef null) #28
   store i1 true, ptr @saved_timeval_set, align 1
   br label %get_formatted_log_time.exit
 
-get_formatted_log_time.exit:                      ; preds = %141, %142
-  %144 = load i64, ptr @saved_timeval, align 8
-  store i64 %144, ptr %5, align 8
-  %145 = load ptr, ptr @log_timezone, align 8
-  %146 = call ptr @pg_localtime(ptr noundef nonnull %5, ptr noundef %145) #28
-  %147 = call i64 @pg_strftime(ptr noundef nonnull @formatted_log_time, i64 noundef 128, ptr noundef nonnull @.str.18, ptr noundef %146) #28
-  %148 = load i64, ptr getelementptr inbounds (%struct.timeval, ptr @saved_timeval, i64 0, i32 1), align 8
-  %149 = sdiv i64 %148, 1000
-  %150 = trunc i64 %149 to i32
-  %151 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.19, i32 noundef %150) #28
-  %152 = load i32, ptr %6, align 4
-  store i32 %152, ptr getelementptr inbounds ([128 x i8], ptr @formatted_log_time, i64 0, i64 19), align 1
+get_formatted_log_time.exit:                      ; preds = %144, %145
+  %147 = load i64, ptr @saved_timeval, align 8
+  store i64 %147, ptr %5, align 8
+  %148 = load ptr, ptr @log_timezone, align 8
+  %149 = call ptr @pg_localtime(ptr noundef nonnull %5, ptr noundef %148) #28
+  %150 = call i64 @pg_strftime(ptr noundef nonnull @formatted_log_time, i64 noundef 128, ptr noundef nonnull @.str.18, ptr noundef %149) #28
+  %151 = load i64, ptr getelementptr inbounds (%struct.timeval, ptr @saved_timeval, i64 0, i32 1), align 8
+  %152 = sdiv i64 %151, 1000
+  %153 = trunc i64 %152 to i32
+  %154 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.19, i32 noundef %153) #28
+  %155 = load i32, ptr %6, align 4
+  store i32 %155, ptr getelementptr inbounds ([128 x i8], ptr @formatted_log_time, i64 0, i64 19), align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %6)
   %.not164 = icmp eq i32 %.2220, 0
-  br i1 %.not164, label %154, label %153
+  br i1 %.not164, label %157, label %156
 
-153:                                              ; preds = %get_formatted_log_time.exit
+156:                                              ; preds = %get_formatted_log_time.exit
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %.2220, ptr noundef nonnull @formatted_log_time) #28
-  br label %264
+  br label %267
 
-154:                                              ; preds = %get_formatted_log_time.exit
+157:                                              ; preds = %get_formatted_log_time.exit
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @formatted_log_time) #28
-  br label %264
+  br label %267
 
-155:                                              ; preds = %48
-  %156 = call i64 @time(ptr noundef null) #28
-  store i64 %156, ptr %8, align 8
-  %157 = load ptr, ptr @log_timezone, align 8
-  %158 = call ptr @pg_localtime(ptr noundef nonnull %8, ptr noundef %157) #28
-  %159 = call i64 @pg_strftime(ptr noundef nonnull %9, i64 noundef 128, ptr noundef nonnull @.str.20, ptr noundef %158) #28
+158:                                              ; preds = %48
+  %159 = call i64 @time(ptr noundef null) #28
+  store i64 %159, ptr %8, align 8
+  %160 = load ptr, ptr @log_timezone, align 8
+  %161 = call ptr @pg_localtime(ptr noundef nonnull %8, ptr noundef %160) #28
+  %162 = call i64 @pg_strftime(ptr noundef nonnull %9, i64 noundef 128, ptr noundef nonnull @.str.20, ptr noundef %161) #28
   %.not163 = icmp eq i32 %.2220, 0
-  br i1 %.not163, label %161, label %160
+  br i1 %.not163, label %164, label %163
 
-160:                                              ; preds = %155
+163:                                              ; preds = %158
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %.2220, ptr noundef nonnull %9) #28
-  br label %264
+  br label %267
 
-161:                                              ; preds = %155
+164:                                              ; preds = %158
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %9) #28
-  br label %264
+  br label %267
 
-162:                                              ; preds = %48
+165:                                              ; preds = %48
   %.b161 = load i1, ptr @saved_timeval_set, align 1
-  br i1 %.b161, label %165, label %163
+  br i1 %.b161, label %168, label %166
 
-163:                                              ; preds = %162
-  %164 = call i32 @gettimeofday(ptr noundef nonnull @saved_timeval, ptr noundef null) #28
+166:                                              ; preds = %165
+  %167 = call i32 @gettimeofday(ptr noundef nonnull @saved_timeval, ptr noundef null) #28
   store i1 true, ptr @saved_timeval_set, align 1
-  br label %165
+  br label %168
 
-165:                                              ; preds = %163, %162
-  %166 = load i64, ptr @saved_timeval, align 8
-  %167 = load i64, ptr getelementptr inbounds (%struct.timeval, ptr @saved_timeval, i64 0, i32 1), align 8
-  %168 = sdiv i64 %167, 1000
-  %169 = trunc i64 %168 to i32
-  %170 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %10, i64 noundef 128, ptr noundef nonnull @.str.29, i64 noundef %166, i32 noundef %169) #28
+168:                                              ; preds = %166, %165
+  %169 = load i64, ptr @saved_timeval, align 8
+  %170 = load i64, ptr getelementptr inbounds (%struct.timeval, ptr @saved_timeval, i64 0, i32 1), align 8
+  %171 = sdiv i64 %170, 1000
+  %172 = trunc i64 %171 to i32
+  %173 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %10, i64 noundef 128, ptr noundef nonnull @.str.29, i64 noundef %169, i32 noundef %172) #28
   %.not162 = icmp eq i32 %.2220, 0
-  br i1 %.not162, label %172, label %171
+  br i1 %.not162, label %175, label %174
 
-171:                                              ; preds = %165
+174:                                              ; preds = %168
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %.2220, ptr noundef nonnull %10) #28
-  br label %264
+  br label %267
 
-172:                                              ; preds = %165
+175:                                              ; preds = %168
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %10) #28
-  br label %264
+  br label %267
 
-173:                                              ; preds = %48
+176:                                              ; preds = %48
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %174 = load i64, ptr @MyStartTime, align 8
-  store i64 %174, ptr %4, align 8
-  %175 = load i8, ptr @formatted_start_time, align 16
-  %.not.i181 = icmp eq i8 %175, 0
-  br i1 %.not.i181, label %176, label %get_formatted_start_time.exit
+  %177 = load i64, ptr @MyStartTime, align 8
+  store i64 %177, ptr %4, align 8
+  %178 = load i8, ptr @formatted_start_time, align 16
+  %.not.i181 = icmp eq i8 %178, 0
+  br i1 %.not.i181, label %179, label %get_formatted_start_time.exit
 
-176:                                              ; preds = %173
-  %177 = load ptr, ptr @log_timezone, align 8
-  %178 = call ptr @pg_localtime(ptr noundef nonnull %4, ptr noundef %177) #28
-  %179 = call i64 @pg_strftime(ptr noundef nonnull @formatted_start_time, i64 noundef 128, ptr noundef nonnull @.str.20, ptr noundef %178) #28
+179:                                              ; preds = %176
+  %180 = load ptr, ptr @log_timezone, align 8
+  %181 = call ptr @pg_localtime(ptr noundef nonnull %4, ptr noundef %180) #28
+  %182 = call i64 @pg_strftime(ptr noundef nonnull @formatted_start_time, i64 noundef 128, ptr noundef nonnull @.str.20, ptr noundef %181) #28
   br label %get_formatted_start_time.exit
 
-get_formatted_start_time.exit:                    ; preds = %173, %176
+get_formatted_start_time.exit:                    ; preds = %176, %179
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %.not160 = icmp eq i32 %.2220, 0
-  br i1 %.not160, label %181, label %180
+  br i1 %.not160, label %184, label %183
 
-180:                                              ; preds = %get_formatted_start_time.exit
+183:                                              ; preds = %get_formatted_start_time.exit
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %.2220, ptr noundef nonnull @formatted_start_time) #28
-  br label %264
+  br label %267
 
-181:                                              ; preds = %get_formatted_start_time.exit
+184:                                              ; preds = %get_formatted_start_time.exit
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @formatted_start_time) #28
-  br label %264
+  br label %267
 
-182:                                              ; preds = %48
-  %183 = load ptr, ptr @MyProcPort, align 8
-  %.not157 = icmp eq ptr %183, null
-  br i1 %.not157, label %189, label %184
+185:                                              ; preds = %48
+  %186 = load ptr, ptr @MyProcPort, align 8
+  %.not157 = icmp eq ptr %186, null
+  br i1 %.not157, label %192, label %187
 
-184:                                              ; preds = %182
-  %185 = call ptr @get_ps_display(ptr noundef nonnull %11) #28
+187:                                              ; preds = %185
+  %188 = call ptr @get_ps_display(ptr noundef nonnull %11) #28
   %.not159 = icmp eq i32 %.2220, 0
-  br i1 %.not159, label %187, label %186
+  br i1 %.not159, label %190, label %189
 
-186:                                              ; preds = %184
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %.2220, ptr noundef %185) #28
-  br label %264
+189:                                              ; preds = %187
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %.2220, ptr noundef %188) #28
+  br label %267
 
-187:                                              ; preds = %184
-  %188 = load i32, ptr %11, align 4
-  call void @appendBinaryStringInfo(ptr noundef %0, ptr noundef %185, i32 noundef %188) #28
-  br label %264
+190:                                              ; preds = %187
+  %191 = load i32, ptr %11, align 4
+  call void @appendBinaryStringInfo(ptr noundef %0, ptr noundef %188, i32 noundef %191) #28
+  br label %267
 
-189:                                              ; preds = %182
+192:                                              ; preds = %185
   %.not158 = icmp eq i32 %.2220, 0
-  br i1 %.not158, label %264, label %190
+  br i1 %.not158, label %267, label %193
 
-190:                                              ; preds = %189
-  %191 = call i32 @llvm.abs.i32(i32 %.2220, i1 false)
-  call void @appendStringInfoSpaces(ptr noundef %0, i32 noundef %191) #28
-  br label %264
+193:                                              ; preds = %192
+  %194 = call i32 @llvm.abs.i32(i32 %.2220, i1 false)
+  call void @appendStringInfoSpaces(ptr noundef %0, i32 noundef %194) #28
+  br label %267
 
-192:                                              ; preds = %48
-  %193 = load ptr, ptr @MyProcPort, align 8
-  %.not149 = icmp eq ptr %193, null
-  br i1 %.not149, label %213, label %194
+195:                                              ; preds = %48
+  %196 = load ptr, ptr @MyProcPort, align 8
+  %.not149 = icmp eq ptr %196, null
+  br i1 %.not149, label %216, label %197
 
-194:                                              ; preds = %192
-  %195 = getelementptr inbounds i8, ptr %193, i64 288
-  %196 = load ptr, ptr %195, align 8
-  %.not150 = icmp eq ptr %196, null
-  br i1 %.not150, label %213, label %197
+197:                                              ; preds = %195
+  %198 = getelementptr inbounds i8, ptr %196, i64 288
+  %199 = load ptr, ptr %198, align 8
+  %.not150 = icmp eq ptr %199, null
+  br i1 %.not150, label %216, label %200
 
-197:                                              ; preds = %194
+200:                                              ; preds = %197
   %.not152 = icmp eq i32 %.2220, 0
-  br i1 %.not152, label %206, label %198
+  br i1 %.not152, label %209, label %201
 
-198:                                              ; preds = %197
-  %199 = getelementptr inbounds i8, ptr %193, i64 312
-  %200 = load ptr, ptr %199, align 8
-  %.not155 = icmp eq ptr %200, null
-  br i1 %.not155, label %205, label %201
+201:                                              ; preds = %200
+  %202 = getelementptr inbounds i8, ptr %196, i64 312
+  %203 = load ptr, ptr %202, align 8
+  %.not155 = icmp eq ptr %203, null
+  br i1 %.not155, label %208, label %204
 
-201:                                              ; preds = %198
-  %202 = load i8, ptr %200, align 1
-  %.not156 = icmp eq i8 %202, 0
-  br i1 %.not156, label %205, label %203
+204:                                              ; preds = %201
+  %205 = load i8, ptr %203, align 1
+  %.not156 = icmp eq i8 %205, 0
+  br i1 %.not156, label %208, label %206
 
-203:                                              ; preds = %201
-  %204 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.30, ptr noundef nonnull %196, ptr noundef nonnull %200) #28
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %.2220, ptr noundef %204) #28
-  call void @pfree(ptr noundef %204) #28
-  br label %264
+206:                                              ; preds = %204
+  %207 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.30, ptr noundef nonnull %199, ptr noundef nonnull %203) #28
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %.2220, ptr noundef %207) #28
+  call void @pfree(ptr noundef %207) #28
+  br label %267
 
-205:                                              ; preds = %201, %198
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %.2220, ptr noundef nonnull %196) #28
-  br label %264
+208:                                              ; preds = %204, %201
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %.2220, ptr noundef nonnull %199) #28
+  br label %267
 
-206:                                              ; preds = %197
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %196) #28
-  %207 = load ptr, ptr @MyProcPort, align 8
-  %208 = getelementptr inbounds i8, ptr %207, i64 312
-  %209 = load ptr, ptr %208, align 8
-  %.not153 = icmp eq ptr %209, null
-  br i1 %.not153, label %264, label %210
+209:                                              ; preds = %200
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %199) #28
+  %210 = load ptr, ptr @MyProcPort, align 8
+  %211 = getelementptr inbounds i8, ptr %210, i64 312
+  %212 = load ptr, ptr %211, align 8
+  %.not153 = icmp eq ptr %212, null
+  br i1 %.not153, label %267, label %213
 
-210:                                              ; preds = %206
-  %211 = load i8, ptr %209, align 1
-  %.not154 = icmp eq i8 %211, 0
-  br i1 %.not154, label %264, label %212
+213:                                              ; preds = %209
+  %214 = load i8, ptr %212, align 1
+  %.not154 = icmp eq i8 %214, 0
+  br i1 %.not154, label %267, label %215
 
-212:                                              ; preds = %210
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.31, ptr noundef nonnull %209) #28
-  br label %264
+215:                                              ; preds = %213
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.31, ptr noundef nonnull %212) #28
+  br label %267
 
-213:                                              ; preds = %194, %192
+216:                                              ; preds = %197, %195
   %.not151 = icmp eq i32 %.2220, 0
-  br i1 %.not151, label %264, label %214
+  br i1 %.not151, label %267, label %217
 
-214:                                              ; preds = %213
-  %215 = call i32 @llvm.abs.i32(i32 %.2220, i1 false)
-  call void @appendStringInfoSpaces(ptr noundef %0, i32 noundef %215) #28
-  br label %264
+217:                                              ; preds = %216
+  %218 = call i32 @llvm.abs.i32(i32 %.2220, i1 false)
+  call void @appendStringInfoSpaces(ptr noundef %0, i32 noundef %218) #28
+  br label %267
 
-216:                                              ; preds = %48
-  %217 = load ptr, ptr @MyProcPort, align 8
-  %.not145 = icmp eq ptr %217, null
-  br i1 %.not145, label %224, label %218
+219:                                              ; preds = %48
+  %220 = load ptr, ptr @MyProcPort, align 8
+  %.not145 = icmp eq ptr %220, null
+  br i1 %.not145, label %227, label %221
 
-218:                                              ; preds = %216
-  %219 = getelementptr inbounds i8, ptr %217, i64 288
-  %220 = load ptr, ptr %219, align 8
-  %.not146 = icmp eq ptr %220, null
-  br i1 %.not146, label %224, label %221
+221:                                              ; preds = %219
+  %222 = getelementptr inbounds i8, ptr %220, i64 288
+  %223 = load ptr, ptr %222, align 8
+  %.not146 = icmp eq ptr %223, null
+  br i1 %.not146, label %227, label %224
 
-221:                                              ; preds = %218
+224:                                              ; preds = %221
   %.not148 = icmp eq i32 %.2220, 0
-  br i1 %.not148, label %223, label %222
-
-222:                                              ; preds = %221
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %.2220, ptr noundef nonnull %220) #28
-  br label %264
-
-223:                                              ; preds = %221
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %220) #28
-  br label %264
-
-224:                                              ; preds = %218, %216
-  %.not147 = icmp eq i32 %.2220, 0
-  br i1 %.not147, label %264, label %225
+  br i1 %.not148, label %226, label %225
 
 225:                                              ; preds = %224
-  %226 = call i32 @llvm.abs.i32(i32 %.2220, i1 false)
-  call void @appendStringInfoSpaces(ptr noundef %0, i32 noundef %226) #28
-  br label %264
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %.2220, ptr noundef nonnull %223) #28
+  br label %267
 
-227:                                              ; preds = %48
-  %228 = load ptr, ptr @MyProcPort, align 8
-  %229 = icmp eq ptr %228, null
-  br i1 %229, label %process_log_prefix_padding.exit.thread, label %264
+226:                                              ; preds = %224
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %223) #28
+  br label %267
+
+227:                                              ; preds = %221, %219
+  %.not147 = icmp eq i32 %.2220, 0
+  br i1 %.not147, label %267, label %228
+
+228:                                              ; preds = %227
+  %229 = call i32 @llvm.abs.i32(i32 %.2220, i1 false)
+  call void @appendStringInfoSpaces(ptr noundef %0, i32 noundef %229) #28
+  br label %267
 
 230:                                              ; preds = %48
-  %231 = load ptr, ptr @MyProc, align 8
-  %.not141 = icmp eq ptr %231, null
-  br i1 %.not141, label %241, label %232
+  %231 = load ptr, ptr @MyProcPort, align 8
+  %232 = icmp eq ptr %231, null
+  br i1 %232, label %process_log_prefix_padding.exit.thread, label %267
 
-232:                                              ; preds = %230
-  %233 = getelementptr inbounds i8, ptr %231, i64 68
-  %234 = load i32, ptr %233, align 4
-  %.not142 = icmp eq i32 %234, -1
-  br i1 %.not142, label %241, label %235
+233:                                              ; preds = %48
+  %234 = load ptr, ptr @MyProc, align 8
+  %.not141 = icmp eq ptr %234, null
+  br i1 %.not141, label %244, label %235
 
-235:                                              ; preds = %232
-  %.not144 = icmp eq i32 %.2220, 0
-  %236 = getelementptr inbounds i8, ptr %231, i64 72
+235:                                              ; preds = %233
+  %236 = getelementptr inbounds i8, ptr %234, i64 68
   %237 = load i32, ptr %236, align 4
-  br i1 %.not144, label %240, label %238
+  %.not142 = icmp eq i32 %237, -1
+  br i1 %.not142, label %244, label %238
 
 238:                                              ; preds = %235
-  %239 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %12, i64 noundef 127, ptr noundef nonnull @.str.32, i32 noundef %234, i32 noundef %237) #28
+  %.not144 = icmp eq i32 %.2220, 0
+  %239 = getelementptr inbounds i8, ptr %234, i64 72
+  %240 = load i32, ptr %239, align 4
+  br i1 %.not144, label %243, label %241
+
+241:                                              ; preds = %238
+  %242 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %12, i64 noundef 127, ptr noundef nonnull @.str.32, i32 noundef %237, i32 noundef %240) #28
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %.2220, ptr noundef nonnull %12) #28
-  br label %264
+  br label %267
 
-240:                                              ; preds = %235
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.32, i32 noundef %234, i32 noundef %237) #28
-  br label %264
+243:                                              ; preds = %238
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.32, i32 noundef %237, i32 noundef %240) #28
+  br label %267
 
-241:                                              ; preds = %232, %230
+244:                                              ; preds = %235, %233
   %.not143 = icmp eq i32 %.2220, 0
-  br i1 %.not143, label %264, label %242
+  br i1 %.not143, label %267, label %245
 
-242:                                              ; preds = %241
-  %243 = call i32 @llvm.abs.i32(i32 %.2220, i1 false)
-  call void @appendStringInfoSpaces(ptr noundef %0, i32 noundef %243) #28
-  br label %264
+245:                                              ; preds = %244
+  %246 = call i32 @llvm.abs.i32(i32 %.2220, i1 false)
+  call void @appendStringInfoSpaces(ptr noundef %0, i32 noundef %246) #28
+  br label %267
 
-244:                                              ; preds = %48
+247:                                              ; preds = %48
   %.not140 = icmp eq i32 %.2220, 0
-  %245 = call i32 @GetTopTransactionIdIfAny() #28
-  br i1 %.not140, label %247, label %246
+  %248 = call i32 @GetTopTransactionIdIfAny() #28
+  br i1 %.not140, label %250, label %249
 
-246:                                              ; preds = %244
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.33, i32 noundef %.2220, i32 noundef %245) #28
-  br label %264
+249:                                              ; preds = %247
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.33, i32 noundef %.2220, i32 noundef %248) #28
+  br label %267
 
-247:                                              ; preds = %244
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.34, i32 noundef %245) #28
-  br label %264
+250:                                              ; preds = %247
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.34, i32 noundef %248) #28
+  br label %267
 
-248:                                              ; preds = %48
+251:                                              ; preds = %48
   %.not139 = icmp eq i32 %.2220, 0
-  %249 = load i32, ptr %20, align 8
-  br i1 %.not139, label %.preheader231, label %.preheader232
+  %252 = load i32, ptr %20, align 8
+  br i1 %.not139, label %.preheader229, label %.preheader230
 
-.preheader232:                                    ; preds = %248, %.preheader232
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader232 ], [ 0, %248 ]
-  %.067.i = phi i32 [ %254, %.preheader232 ], [ %249, %248 ]
-  %250 = trunc i32 %.067.i to i8
-  %251 = and i8 %250, 63
-  %252 = add nuw nsw i8 %251, 48
-  %253 = getelementptr [12 x i8], ptr @unpack_sql_state.buf, i64 0, i64 %indvars.iv.i
-  store i8 %252, ptr %253, align 1
-  %254 = ashr i32 %.067.i, 6
+.preheader230:                                    ; preds = %251, %.preheader230
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader230 ], [ 0, %251 ]
+  %.067.i = phi i32 [ %257, %.preheader230 ], [ %252, %251 ]
+  %253 = trunc i32 %.067.i to i8
+  %254 = and i8 %253, 63
+  %255 = add nuw nsw i8 %254, 48
+  %256 = getelementptr [12 x i8], ptr @unpack_sql_state.buf, i64 0, i64 %indvars.iv.i
+  store i8 %255, ptr %256, align 1
+  %257 = ashr i32 %.067.i, 6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 5
-  br i1 %exitcond.not.i, label %unpack_sql_state.exit, label %.preheader232, !llvm.loop !9
+  br i1 %exitcond.not.i, label %unpack_sql_state.exit, label %.preheader230, !llvm.loop !9
 
-unpack_sql_state.exit:                            ; preds = %.preheader232
+unpack_sql_state.exit:                            ; preds = %.preheader230
   store i8 0, ptr getelementptr inbounds ([12 x i8], ptr @unpack_sql_state.buf, i64 0, i64 5), align 1
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %.2220, ptr noundef nonnull @unpack_sql_state.buf) #28
-  br label %264
+  br label %267
 
-.preheader231:                                    ; preds = %248, %.preheader231
-  %indvars.iv.i182 = phi i64 [ %indvars.iv.next.i184, %.preheader231 ], [ 0, %248 ]
-  %.067.i183 = phi i32 [ %259, %.preheader231 ], [ %249, %248 ]
-  %255 = trunc i32 %.067.i183 to i8
-  %256 = and i8 %255, 63
-  %257 = add nuw nsw i8 %256, 48
-  %258 = getelementptr [12 x i8], ptr @unpack_sql_state.buf, i64 0, i64 %indvars.iv.i182
-  store i8 %257, ptr %258, align 1
-  %259 = ashr i32 %.067.i183, 6
+.preheader229:                                    ; preds = %251, %.preheader229
+  %indvars.iv.i182 = phi i64 [ %indvars.iv.next.i184, %.preheader229 ], [ 0, %251 ]
+  %.067.i183 = phi i32 [ %262, %.preheader229 ], [ %252, %251 ]
+  %258 = trunc i32 %.067.i183 to i8
+  %259 = and i8 %258, 63
+  %260 = add nuw nsw i8 %259, 48
+  %261 = getelementptr [12 x i8], ptr @unpack_sql_state.buf, i64 0, i64 %indvars.iv.i182
+  store i8 %260, ptr %261, align 1
+  %262 = ashr i32 %.067.i183, 6
   %indvars.iv.next.i184 = add nuw nsw i64 %indvars.iv.i182, 1
   %exitcond.not.i185 = icmp eq i64 %indvars.iv.next.i184, 5
-  br i1 %exitcond.not.i185, label %unpack_sql_state.exit186, label %.preheader231, !llvm.loop !9
+  br i1 %exitcond.not.i185, label %unpack_sql_state.exit186, label %.preheader229, !llvm.loop !9
 
-unpack_sql_state.exit186:                         ; preds = %.preheader231
+unpack_sql_state.exit186:                         ; preds = %.preheader229
   store i8 0, ptr getelementptr inbounds ([12 x i8], ptr @unpack_sql_state.buf, i64 0, i64 5), align 1
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @unpack_sql_state.buf) #28
-  br label %264
+  br label %267
 
-260:                                              ; preds = %48
+263:                                              ; preds = %48
   %.not138 = icmp eq i32 %.2220, 0
-  %261 = call i64 @pgstat_get_my_query_id() #28
-  br i1 %.not138, label %263, label %262
+  %264 = call i64 @pgstat_get_my_query_id() #28
+  br i1 %.not138, label %266, label %265
 
-262:                                              ; preds = %260
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.35, i32 noundef %.2220, i64 noundef %261) #28
-  br label %264
+265:                                              ; preds = %263
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.35, i32 noundef %.2220, i64 noundef %264) #28
+  br label %267
 
-263:                                              ; preds = %260
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.36, i64 noundef %261) #28
-  br label %264
+266:                                              ; preds = %263
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.36, i64 noundef %264) #28
+  br label %267
 
-264:                                              ; preds = %61, %62, %59, %60, %77, %76, %90, %91, %88, %89, %105, %106, %103, %104, %113, %111, %117, %116, %134, %135, %129, %133, %132, %140, %139, %154, %153, %161, %160, %172, %171, %181, %180, %189, %190, %186, %187, %213, %214, %205, %203, %212, %210, %206, %224, %225, %222, %223, %227, %241, %242, %238, %240, %247, %246, %unpack_sql_state.exit186, %unpack_sql_state.exit, %263, %262, %48, %27, %23
-  %.2 = phi ptr [ %.0, %23 ], [ %.1, %48 ], [ %.1, %263 ], [ %.1, %262 ], [ %.1, %unpack_sql_state.exit186 ], [ %.1, %unpack_sql_state.exit ], [ %.1, %247 ], [ %.1, %246 ], [ %.1, %241 ], [ %.1, %242 ], [ %.1, %240 ], [ %.1, %238 ], [ %.1, %227 ], [ %.1, %224 ], [ %.1, %225 ], [ %.1, %223 ], [ %.1, %222 ], [ %.1, %213 ], [ %.1, %214 ], [ %.1, %206 ], [ %.1, %210 ], [ %.1, %212 ], [ %.1, %205 ], [ %.1, %203 ], [ %.1, %189 ], [ %.1, %190 ], [ %.1, %187 ], [ %.1, %186 ], [ %.1, %181 ], [ %.1, %180 ], [ %.1, %172 ], [ %.1, %171 ], [ %.1, %161 ], [ %.1, %160 ], [ %.1, %154 ], [ %.1, %153 ], [ %.1, %140 ], [ %.1, %139 ], [ %.1, %134 ], [ %.1, %135 ], [ %.1, %129 ], [ %.1, %133 ], [ %.1, %132 ], [ %.1, %117 ], [ %.1, %116 ], [ %.1, %113 ], [ %.1, %111 ], [ %.1, %105 ], [ %.1, %106 ], [ %.1, %104 ], [ %.1, %103 ], [ %.1, %90 ], [ %.1, %91 ], [ %.1, %89 ], [ %.1, %88 ], [ %.1, %77 ], [ %.1, %76 ], [ %.1, %61 ], [ %.1, %62 ], [ %.1, %60 ], [ %.1, %59 ], [ %25, %27 ]
-  %265 = getelementptr i8, ptr %.2, i64 1
+267:                                              ; preds = %62, %63, %60, %61, %78, %77, %92, %93, %90, %91, %108, %109, %106, %107, %116, %114, %120, %119, %137, %138, %132, %136, %135, %143, %142, %157, %156, %164, %163, %175, %174, %184, %183, %192, %193, %189, %190, %216, %217, %208, %206, %215, %213, %209, %227, %228, %225, %226, %230, %244, %245, %241, %243, %250, %249, %unpack_sql_state.exit186, %unpack_sql_state.exit, %266, %265, %48, %27, %23
+  %.2 = phi ptr [ %.0, %23 ], [ %.1, %48 ], [ %.1, %266 ], [ %.1, %265 ], [ %.1, %unpack_sql_state.exit186 ], [ %.1, %unpack_sql_state.exit ], [ %.1, %250 ], [ %.1, %249 ], [ %.1, %244 ], [ %.1, %245 ], [ %.1, %243 ], [ %.1, %241 ], [ %.1, %230 ], [ %.1, %227 ], [ %.1, %228 ], [ %.1, %226 ], [ %.1, %225 ], [ %.1, %216 ], [ %.1, %217 ], [ %.1, %209 ], [ %.1, %213 ], [ %.1, %215 ], [ %.1, %208 ], [ %.1, %206 ], [ %.1, %192 ], [ %.1, %193 ], [ %.1, %190 ], [ %.1, %189 ], [ %.1, %184 ], [ %.1, %183 ], [ %.1, %175 ], [ %.1, %174 ], [ %.1, %164 ], [ %.1, %163 ], [ %.1, %157 ], [ %.1, %156 ], [ %.1, %143 ], [ %.1, %142 ], [ %.1, %137 ], [ %.1, %138 ], [ %.1, %132 ], [ %.1, %136 ], [ %.1, %135 ], [ %.1, %120 ], [ %.1, %119 ], [ %.1, %116 ], [ %.1, %114 ], [ %.1, %108 ], [ %.1, %109 ], [ %.1, %107 ], [ %.1, %106 ], [ %.1, %92 ], [ %.1, %93 ], [ %.1, %91 ], [ %.1, %90 ], [ %.1, %78 ], [ %.1, %77 ], [ %.1, %62 ], [ %.1, %63 ], [ %.1, %61 ], [ %.1, %60 ], [ %25, %27 ]
+  %268 = getelementptr i8, ptr %.2, i64 1
   br label %21, !llvm.loop !74
 
-process_log_prefix_padding.exit.thread:           ; preds = %.critedge.i, %32, %24, %21, %227, %17
+process_log_prefix_padding.exit.thread:           ; preds = %.critedge.i, %32, %24, %21, %230, %17
   ret void
 }
 

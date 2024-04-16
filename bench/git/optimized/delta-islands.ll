@@ -531,12 +531,7 @@ if.end11:                                         ; preds = %kh_get_oid_map.exit
   %a_bitmap.09095 = phi ptr [ %a_bitmap.090, %if.then7 ], [ %a_bitmap.090, %kh_get_oid_map.exit63 ], [ %a_bitmap.089, %kh_get_oid_map.exit63.thread ]
   %b_bitmap.0 = phi ptr [ %23, %if.then7 ], [ null, %kh_get_oid_map.exit63 ], [ null, %kh_get_oid_map.exit63.thread ]
   %tobool12.not = icmp eq ptr %a_bitmap.09095, null
-  br i1 %tobool12.not, label %if.end19.thread, label %if.then13
-
-if.end19.thread:                                  ; preds = %if.end11
-  %tobool20.not98 = icmp ne ptr %b_bitmap.0, null
-  %.mux100 = zext i1 %tobool20.not98 to i32
-  br label %return
+  br i1 %tobool12.not, label %if.end19, label %if.then13
 
 if.then13:                                        ; preds = %if.end11
   %tobool14.not = icmp eq ptr %b_bitmap.0, null
@@ -572,6 +567,11 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   %cmp8.not.i = icmp eq i32 %and.i66, %25
   br i1 %cmp8.not.i, label %for.cond.i, label %return
 
+if.end19:                                         ; preds = %if.end11
+  %tobool20.not = icmp ne ptr %b_bitmap.0, null
+  %spec.select = zext i1 %tobool20.not to i32
+  br label %return
+
 lor.lhs.false23:                                  ; preds = %for.cond.i
   br i1 %cmp.i64, label %return, label %for.cond.preheader.i69
 
@@ -601,8 +601,8 @@ for.body.i75:                                     ; preds = %for.cond.i82, %for.
   %cmp8.not.i80 = icmp eq i32 %and.i79, %27
   br i1 %cmp8.not.i80, label %for.cond.i82, label %return
 
-return:                                           ; preds = %for.body.i, %for.cond.i82, %for.body.i75, %for.cond.preheader.i, %lor.lhs.false, %for.cond.preheader.i69, %lor.lhs.false23, %if.end19.thread, %if.then13, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ -1, %if.then13 ], [ %.mux100, %if.end19.thread ], [ 0, %lor.lhs.false23 ], [ 0, %for.cond.preheader.i69 ], [ 0, %lor.lhs.false ], [ 0, %for.cond.preheader.i ], [ 0, %for.cond.i82 ], [ 1, %for.body.i75 ], [ -1, %for.body.i ]
+return:                                           ; preds = %for.body.i, %for.cond.i82, %for.body.i75, %for.cond.preheader.i, %lor.lhs.false, %if.end19, %for.cond.preheader.i69, %lor.lhs.false23, %if.then13, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ -1, %if.then13 ], [ 0, %lor.lhs.false23 ], [ 0, %for.cond.preheader.i69 ], [ %spec.select, %if.end19 ], [ 0, %lor.lhs.false ], [ 0, %for.cond.preheader.i ], [ 0, %for.cond.i82 ], [ 1, %for.body.i75 ], [ -1, %for.body.i ]
   ret i32 %retval.0
 }
 

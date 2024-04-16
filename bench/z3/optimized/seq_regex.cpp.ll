@@ -8830,7 +8830,7 @@ entry:
   %bf.load.i.i.i.i = load i32, ptr %m_kind.i.i.i.i, align 4
   %bf.clear.i.i.i.i = and i32 %bf.load.i.i.i.i, 65535
   %cmp.i.i.i = icmp eq i32 %bf.clear.i.i.i.i, 0
-  br i1 %cmp.i.i.i, label %land.rhs.i.i.i, label %return
+  br i1 %cmp.i.i.i, label %land.rhs.i.i.i, label %if.end13
 
 land.rhs.i.i.i:                                   ; preds = %entry
   %m_decl.i.i.i.i = getelementptr inbounds i8, ptr %n, i64 16
@@ -8838,7 +8838,7 @@ land.rhs.i.i.i:                                   ; preds = %entry
   %m_info.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load ptr, ptr %m_info.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %2, null
-  br i1 %tobool.not.i.i.i.i.i, label %return, label %_ZNK8seq_util3rex7is_plusEPK4expr.exit.i
+  br i1 %tobool.not.i.i.i.i.i, label %if.end13, label %_ZNK8seq_util3rex7is_plusEPK4expr.exit.i
 
 _ZNK8seq_util3rex7is_plusEPK4expr.exit.i:         ; preds = %land.rhs.i.i.i
   %3 = load i32, ptr %2, align 8
@@ -8888,13 +8888,13 @@ _ZNK8seq_util3rex9is_concatEPK4expr.exit.i:       ; preds = %_ZNK8seq_util3rex7i
   %14 = load i32, ptr %m_kind.i.i.i.i.i.i13, align 4
   %cmp2.i.i.i.i.i.i14 = icmp eq i32 %14, 28
   %15 = select i1 %cmp.i.i.i.i.i.i12, i1 %cmp2.i.i.i.i.i.i14, i1 false
-  br i1 %15, label %land.lhs.true.i15, label %return
+  br i1 %15, label %land.lhs.true.i15, label %if.end13
 
 land.lhs.true.i15:                                ; preds = %_ZNK8seq_util3rex9is_concatEPK4expr.exit.i
   %m_num_args.i.i16 = getelementptr inbounds i8, ptr %n, i64 24
   %16 = load i32, ptr %m_num_args.i.i16, align 8
   %cmp.i17 = icmp eq i32 %16, 2
-  br i1 %cmp.i17, label %if.then4, label %return
+  br i1 %cmp.i17, label %if.then4, label %if.end13
 
 if.then4:                                         ; preds = %land.lhs.true.i15
   %m_args.i.i19 = getelementptr inbounds i8, ptr %n, i64 32
@@ -8990,7 +8990,7 @@ lor.lhs.false:                                    ; preds = %land.rhs.i.i39, %la
   %bf.load.i.i.i59 = load i32, ptr %m_kind.i.i.i58, align 4
   %bf.clear.i.i.i60 = and i32 %bf.load.i.i.i59, 65535
   %cmp.i.i61 = icmp eq i32 %bf.clear.i.i.i60, 0
-  br i1 %cmp.i.i61, label %land.rhs.i.i63, label %return
+  br i1 %cmp.i.i61, label %land.rhs.i.i63, label %if.end13
 
 land.rhs.i.i63:                                   ; preds = %lor.lhs.false
   %m_decl.i.i.i64 = getelementptr inbounds i8, ptr %18, i64 16
@@ -8998,7 +8998,7 @@ land.rhs.i.i63:                                   ; preds = %lor.lhs.false
   %m_info.i.i.i.i65 = getelementptr inbounds i8, ptr %37, i64 24
   %38 = load ptr, ptr %m_info.i.i.i.i65, align 8
   %tobool.not.i.i.i.i66 = icmp eq ptr %38, null
-  br i1 %tobool.not.i.i.i.i66, label %return, label %_ZNK8seq_util3rex12is_full_charEPK4expr.exit71
+  br i1 %tobool.not.i.i.i.i66, label %if.end13, label %_ZNK8seq_util3rex12is_full_charEPK4expr.exit71
 
 _ZNK8seq_util3rex12is_full_charEPK4expr.exit71:   ; preds = %land.rhs.i.i63
   %39 = load i32, ptr %38, align 8
@@ -9006,9 +9006,9 @@ _ZNK8seq_util3rex12is_full_charEPK4expr.exit71:   ; preds = %land.rhs.i.i63
   %m_kind.i.i.i.i.i69 = getelementptr inbounds i8, ptr %38, i64 4
   %40 = load i32, ptr %m_kind.i.i.i.i.i69, align 4
   %cmp2.i.i.i.i.i70 = icmp ne i32 %40, 37
-  %.not122 = select i1 %cmp.i.i.i.i.i68, i1 true, i1 %cmp2.i.i.i.i.i70
-  %brmerge = or i1 %cmp.i.i24, %.not122
-  br i1 %brmerge, label %return, label %land.rhs.i.i77
+  %.not123 = select i1 %cmp.i.i.i.i.i68, i1 true, i1 %cmp2.i.i.i.i.i70
+  %brmerge = or i1 %cmp.i.i24, %.not123
+  br i1 %brmerge, label %if.end13, label %land.rhs.i.i77
 
 land.rhs.i.i77:                                   ; preds = %_ZNK8seq_util3rex12is_full_charEPK4expr.exit71
   %m_decl.i.i.i78 = getelementptr inbounds i8, ptr %17, i64 16
@@ -9016,7 +9016,7 @@ land.rhs.i.i77:                                   ; preds = %_ZNK8seq_util3rex12
   %m_info.i.i.i.i79 = getelementptr inbounds i8, ptr %41, i64 24
   %42 = load ptr, ptr %m_info.i.i.i.i79, align 8
   %tobool.not.i.i.i.i80 = icmp eq ptr %42, null
-  br i1 %tobool.not.i.i.i.i80, label %return, label %_Z9is_app_ofPK4exprii.exit.i81
+  br i1 %tobool.not.i.i.i.i80, label %if.end13, label %_Z9is_app_ofPK4exprii.exit.i81
 
 _Z9is_app_ofPK4exprii.exit.i81:                   ; preds = %land.rhs.i.i77
   %43 = load i32, ptr %42, align 8
@@ -9030,13 +9030,13 @@ _Z9is_app_ofPK4exprii.exit.i81:                   ; preds = %land.rhs.i.i77
 _ZNK8seq_util3rex7is_starEPK4expr.exit.i.i85:     ; preds = %_Z9is_app_ofPK4exprii.exit.i81
   %cmp2.i.i.i.i.i.i.i88 = icmp eq i32 %44, 25
   %46 = select i1 %cmp.i.i.i.i.i82, i1 %cmp2.i.i.i.i.i.i.i88, i1 false
-  br i1 %46, label %land.lhs.true.i.i89, label %return
+  br i1 %46, label %land.lhs.true.i.i89, label %if.end13
 
 land.lhs.true.i.i89:                              ; preds = %_ZNK8seq_util3rex7is_starEPK4expr.exit.i.i85
   %m_num_args.i.i.i90 = getelementptr inbounds i8, ptr %17, i64 24
   %47 = load i32, ptr %m_num_args.i.i.i90, align 8
   %cmp.i4.i91 = icmp eq i32 %47, 1
-  br i1 %cmp.i4.i91, label %land.rhs.i92, label %return
+  br i1 %cmp.i4.i91, label %land.rhs.i92, label %if.end13
 
 land.rhs.i92:                                     ; preds = %land.lhs.true.i.i89
   %m_args.i.i.i93 = getelementptr inbounds i8, ptr %17, i64 32
@@ -9045,7 +9045,7 @@ land.rhs.i92:                                     ; preds = %land.lhs.true.i.i89
   %bf.load.i.i.i.i95 = load i32, ptr %m_kind.i.i.i.i94, align 4
   %bf.clear.i.i.i.i96 = and i32 %bf.load.i.i.i.i95, 65535
   %cmp.i.i.i97 = icmp eq i32 %bf.clear.i.i.i.i96, 0
-  br i1 %cmp.i.i.i97, label %land.rhs.i.i.i98, label %return
+  br i1 %cmp.i.i.i97, label %land.rhs.i.i.i98, label %if.end13
 
 land.rhs.i.i.i98:                                 ; preds = %land.rhs.i92
   %m_decl.i.i.i.i99 = getelementptr inbounds i8, ptr %48, i64 16
@@ -9053,19 +9053,22 @@ land.rhs.i.i.i98:                                 ; preds = %land.rhs.i92
   %m_info.i.i.i.i.i100 = getelementptr inbounds i8, ptr %49, i64 24
   %50 = load ptr, ptr %m_info.i.i.i.i.i100, align 8
   %tobool.not.i.i.i.i.i101 = icmp eq ptr %50, null
-  br i1 %tobool.not.i.i.i.i.i101, label %return, label %land.rhs.i.i.i.i.i102
+  br i1 %tobool.not.i.i.i.i.i101, label %if.end13, label %_ZNK8seq_util3rex11is_full_seqEPK4expr.exit106
 
-land.rhs.i.i.i.i.i102:                            ; preds = %land.rhs.i.i.i98
+_ZNK8seq_util3rex11is_full_seqEPK4expr.exit106:   ; preds = %land.rhs.i.i.i98
   %51 = load i32, ptr %50, align 8
   %cmp.i.i.i.i.i.i103 = icmp eq i32 %51, %0
   %m_kind.i.i.i.i.i.i104 = getelementptr inbounds i8, ptr %50, i64 4
   %52 = load i32, ptr %m_kind.i.i.i.i.i.i104, align 4
   %cmp2.i.i.i.i.i.i105 = icmp eq i32 %52, 37
   %53 = select i1 %cmp.i.i.i.i.i.i103, i1 %cmp2.i.i.i.i.i.i105, i1 false
+  br i1 %53, label %return, label %if.end13
+
+if.end13:                                         ; preds = %land.rhs.i.i.i, %_ZNK8seq_util3rex12is_full_charEPK4expr.exit71, %land.rhs.i.i77, %_ZNK8seq_util3rex7is_starEPK4expr.exit.i.i85, %land.lhs.true.i.i89, %land.rhs.i.i.i98, %land.rhs.i92, %land.rhs.i.i63, %lor.lhs.false, %entry, %_ZNK8seq_util3rex9is_concatEPK4expr.exit.i, %land.lhs.true.i15, %_ZNK8seq_util3rex11is_full_seqEPK4expr.exit106
   br label %return
 
-return:                                           ; preds = %land.rhs.i.i.i, %_ZNK8seq_util3rex12is_full_charEPK4expr.exit71, %land.rhs.i.i63, %lor.lhs.false, %_Z9is_app_ofPK4exprii.exit.i, %entry, %_ZNK8seq_util3rex9is_concatEPK4expr.exit.i, %land.lhs.true.i15, %land.rhs.i.i.i.i.i102, %land.rhs.i.i.i98, %land.rhs.i92, %land.lhs.true.i.i89, %_ZNK8seq_util3rex7is_starEPK4expr.exit.i.i85, %_Z9is_app_ofPK4exprii.exit.i81, %land.rhs.i.i77, %_ZNK8seq_util3rex11is_full_seqEPK4expr.exit, %_ZNK8seq_util3rex12is_full_charEPK4expr.exit
-  %retval.0 = phi i1 [ true, %_ZNK8seq_util3rex12is_full_charEPK4expr.exit ], [ true, %_ZNK8seq_util3rex11is_full_seqEPK4expr.exit ], [ false, %_ZNK8seq_util3rex12is_full_charEPK4expr.exit71 ], [ true, %_Z9is_app_ofPK4exprii.exit.i81 ], [ false, %land.rhs.i92 ], [ false, %land.rhs.i.i.i98 ], [ %53, %land.rhs.i.i.i.i.i102 ], [ false, %land.lhs.true.i.i89 ], [ false, %_ZNK8seq_util3rex7is_starEPK4expr.exit.i.i85 ], [ false, %land.rhs.i.i77 ], [ false, %land.lhs.true.i15 ], [ false, %_ZNK8seq_util3rex9is_concatEPK4expr.exit.i ], [ false, %entry ], [ true, %_Z9is_app_ofPK4exprii.exit.i ], [ false, %lor.lhs.false ], [ false, %land.rhs.i.i63 ], [ false, %land.rhs.i.i.i ]
+return:                                           ; preds = %_Z9is_app_ofPK4exprii.exit.i81, %_Z9is_app_ofPK4exprii.exit.i, %_ZNK8seq_util3rex11is_full_seqEPK4expr.exit, %_ZNK8seq_util3rex11is_full_seqEPK4expr.exit106, %_ZNK8seq_util3rex12is_full_charEPK4expr.exit, %if.end13
+  %retval.0 = phi i1 [ false, %if.end13 ], [ true, %_ZNK8seq_util3rex12is_full_charEPK4expr.exit ], [ true, %_ZNK8seq_util3rex11is_full_seqEPK4expr.exit106 ], [ true, %_ZNK8seq_util3rex11is_full_seqEPK4expr.exit ], [ true, %_Z9is_app_ofPK4exprii.exit.i ], [ true, %_Z9is_app_ofPK4exprii.exit.i81 ]
   ret i1 %retval.0
 }
 

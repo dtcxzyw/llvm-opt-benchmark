@@ -2769,7 +2769,7 @@ sw.bb:                                            ; preds = %do.body
   br i1 %cmp13, label %if.then14, label %sw.bb.if.end29_crit_edge
 
 sw.bb.if.end29_crit_edge:                         ; preds = %sw.bb
-  %.pre70 = sext i32 %inc10 to i64
+  %.pre72 = sext i32 %inc10 to i64
   br label %if.end29
 
 if.then14:                                        ; preds = %sw.bb
@@ -2807,7 +2807,7 @@ if.end23:                                         ; preds = %if.end21, %if.then1
   br label %if.end29
 
 if.end29:                                         ; preds = %sw.bb.if.end29_crit_edge, %if.end23
-  %idxprom31.pre-phi = phi i64 [ %.pre70, %sw.bb.if.end29_crit_edge ], [ %idx.ext, %if.end23 ]
+  %idxprom31.pre-phi = phi i64 [ %.pre72, %sw.bb.if.end29_crit_edge ], [ %idx.ext, %if.end23 ]
   %s.2 = phi ptr [ %s.0, %sw.bb.if.end29_crit_edge ], [ %s.1, %if.end23 ]
   %capacity.2 = phi i32 [ %capacity.0, %sw.bb.if.end29_crit_edge ], [ %capacity.1, %if.end23 ]
   %readIndex.1 = phi i32 [ %inc, %sw.bb.if.end29_crit_edge ], [ %inc28, %if.end23 ]
@@ -2869,8 +2869,12 @@ invoke.cont:                                      ; preds = %if.then44
 invoke.cont46:                                    ; preds = %invoke.cont
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #10
   %18 = load i32, ptr %errorCode, align 4
-  %cmp.i58 = icmp sgt i32 %18, 0
-  br i1 %cmp.i58, label %cleanup, label %if.then51
+  %cmp.i58 = icmp slt i32 %18, 1
+  br i1 %cmp.i58, label %if.then51, label %cleanup.thread
+
+cleanup.thread:                                   ; preds = %invoke.cont46
+  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %normalized) #10
+  br label %return
 
 if.then51:                                        ; preds = %invoke.cont46
   %19 = load i16, ptr %fUnion2.i, align 8
@@ -2885,14 +2889,14 @@ if.then51:                                        ; preds = %invoke.cont46
 
 invoke.cont52:                                    ; preds = %if.then51
   %22 = load i16, ptr %fUnion.i.i, align 8
-  %conv2.i67 = and i16 %22, 1
-  %tobool56.not = icmp eq i16 %conv2.i67, 0
-  br i1 %tobool56.not, label %if.end58, label %if.then57
+  %conv2.i69 = and i16 %22, 1
+  %tobool56.not = icmp eq i16 %conv2.i69, 0
+  br i1 %tobool56.not, label %cleanup, label %if.then57
 
 if.then57:                                        ; preds = %invoke.cont52
   store i32 7, ptr %errorCode, align 4
   %.pre = load i16, ptr %fUnion.i.i, align 8
-  br label %if.end58
+  br label %cleanup
 
 lpad:                                             ; preds = %if.then51, %if.then44
   %23 = landingpad { ptr, i32 }
@@ -2905,17 +2909,13 @@ lpad45:                                           ; preds = %invoke.cont
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #10
   br label %ehcleanup
 
-if.end58:                                         ; preds = %if.then57, %invoke.cont52
-  %25 = phi i16 [ %.pre, %if.then57 ], [ %22, %invoke.cont52 ]
+cleanup:                                          ; preds = %invoke.cont52, %if.then57
+  %25 = phi i16 [ %22, %invoke.cont52 ], [ %.pre, %if.then57 ]
   %cmp.i.i63 = icmp slt i16 %25, 0
   %26 = ashr i16 %25, 5
   %shr.i.i64 = sext i16 %26 to i32
   %27 = load i32, ptr %fLength.i, align 4
   %cond.i66 = select i1 %cmp.i.i63, i32 %27, i32 %shr.i.i64
-  br label %cleanup
-
-cleanup:                                          ; preds = %if.end58, %invoke.cont46
-  %spec.select = phi i32 [ %cond.i66, %if.end58 ], [ %length.1, %invoke.cont46 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %normalized) #10
   br label %return
 
@@ -2924,8 +2924,8 @@ ehcleanup:                                        ; preds = %lpad45, %lpad
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %normalized) #10
   resume { ptr, i32 } %.pn
 
-return:                                           ; preds = %cleanup, %do.end, %entry, %if.then20, %if.then6
-  %retval.1 = phi i32 [ %cond.i, %if.then6 ], [ %length.0, %if.then20 ], [ 0, %entry ], [ %length.1, %do.end ], [ %spec.select, %cleanup ]
+return:                                           ; preds = %do.end, %cleanup.thread, %cleanup, %entry, %if.then20, %if.then6
+  %retval.1 = phi i32 [ %cond.i, %if.then6 ], [ %cond.i66, %cleanup ], [ %length.0, %if.then20 ], [ 0, %entry ], [ %length.1, %cleanup.thread ], [ %length.1, %do.end ]
   ret i32 %retval.1
 }
 

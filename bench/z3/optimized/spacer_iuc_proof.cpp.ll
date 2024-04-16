@@ -1675,7 +1675,7 @@ invoke.cont67:                                    ; preds = %call3.i.i.noexc, %i
   br i1 %cmp, label %if.then69, label %if.else100
 
 if.then69:                                        ; preds = %invoke.cont67
-  br i1 %cmp.i.i, label %if.else125.invoke, label %invoke.cont70
+  br i1 %cmp.i.i, label %sw.default, label %invoke.cont70
 
 invoke.cont70:                                    ; preds = %if.then69
   %m_kind.i.i.i = getelementptr inbounds i8, ptr %24, i64 4
@@ -1754,7 +1754,7 @@ invoke.cont88:                                    ; preds = %if.else86
   %.str.13..str.14 = select i1 %call89, ptr @.str.13, ptr @.str.14
   br label %if.else125.invoke
 
-sw.default:                                       ; preds = %invoke.cont70
+sw.default:                                       ; preds = %if.then69, %invoke.cont70
   br label %if.else125.invoke
 
 if.else100:                                       ; preds = %invoke.cont67
@@ -1785,9 +1785,9 @@ invoke.cont120:                                   ; preds = %if.else118
   %.str.18..str.19 = select i1 %call121, ptr @.str.18, ptr @.str.19
   br label %if.else125.invoke
 
-if.else125.invoke:                                ; preds = %invoke.cont120, %invoke.cont113, %invoke.cont101, %if.then69, %invoke.cont88, %invoke.cont81, %sw.bb74, %invoke.cont70, %sw.default
-  %35 = phi ptr [ %edge_label, %invoke.cont70 ], [ %color, %sw.bb74 ], [ %edge_label, %invoke.cont81 ], [ %edge_label, %invoke.cont88 ], [ %edge_label, %if.then69 ], [ %edge_label, %sw.default ], [ %edge_label, %invoke.cont101 ], [ %edge_label, %invoke.cont113 ], [ %edge_label, %invoke.cont120 ]
-  %36 = phi ptr [ @.str.9, %invoke.cont70 ], [ @.str.11, %sw.bb74 ], [ @.str.12, %invoke.cont81 ], [ %.str.13..str.14, %invoke.cont88 ], [ @.str.15, %if.then69 ], [ @.str.15, %sw.default ], [ @.str.16, %invoke.cont101 ], [ @.str.17, %invoke.cont113 ], [ %.str.18..str.19, %invoke.cont120 ]
+if.else125.invoke:                                ; preds = %invoke.cont120, %invoke.cont113, %invoke.cont101, %invoke.cont88, %invoke.cont81, %sw.bb74, %invoke.cont70, %sw.default
+  %35 = phi ptr [ %edge_label, %sw.default ], [ %edge_label, %invoke.cont70 ], [ %color, %sw.bb74 ], [ %edge_label, %invoke.cont81 ], [ %edge_label, %invoke.cont88 ], [ %edge_label, %invoke.cont101 ], [ %edge_label, %invoke.cont113 ], [ %edge_label, %invoke.cont120 ]
+  %36 = phi ptr [ @.str.15, %sw.default ], [ @.str.9, %invoke.cont70 ], [ @.str.11, %sw.bb74 ], [ @.str.12, %invoke.cont81 ], [ %.str.13..str.14, %invoke.cont88 ], [ @.str.16, %invoke.cont101 ], [ @.str.17, %invoke.cont113 ], [ %.str.18..str.19, %invoke.cont120 ]
   %37 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull %36)
           to label %if.end132 unwind label %lpad66.loopexit.split-lp.loopexit
 

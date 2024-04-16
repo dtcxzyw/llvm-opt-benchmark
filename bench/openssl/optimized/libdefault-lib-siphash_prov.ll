@@ -162,7 +162,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @siphash_get_ctx_params(ptr noundef %vmacctx, ptr noundef %params) #0 {
+define internal noundef i32 @siphash_get_ctx_params(ptr noundef %vmacctx, ptr noundef %params) #0 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str.1) #4
   %cmp.not = icmp eq ptr %call, null
@@ -192,7 +192,7 @@ land.lhs.true5:                                   ; preds = %if.end
 if.end10:                                         ; preds = %land.lhs.true5, %if.end
   %call11 = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str.3) #4
   %cmp12.not = icmp eq ptr %call11, null
-  br i1 %cmp12.not, label %return, label %land.lhs.true13
+  br i1 %cmp12.not, label %if.end18, label %land.lhs.true13
 
 land.lhs.true13:                                  ; preds = %if.end10
   %1 = getelementptr i8, ptr %vmacctx, i64 140
@@ -200,12 +200,14 @@ land.lhs.true13:                                  ; preds = %if.end10
   %cmp.not.i8 = icmp eq i32 %vmacctx.val7, 0
   %spec.select.i9 = select i1 %cmp.not.i8, i32 4, i32 %vmacctx.val7
   %call15 = tail call i32 @OSSL_PARAM_set_uint(ptr noundef nonnull %call11, i32 noundef %spec.select.i9) #4
-  %tobool16.not = icmp ne i32 %call15, 0
-  %spec.select = zext i1 %tobool16.not to i32
+  %tobool16.not = icmp eq i32 %call15, 0
+  br i1 %tobool16.not, label %return, label %if.end18
+
+if.end18:                                         ; preds = %land.lhs.true13, %if.end10
   br label %return
 
-return:                                           ; preds = %land.lhs.true13, %if.end10, %land.lhs.true5, %land.lhs.true
-  %retval.0 = phi i32 [ 0, %land.lhs.true ], [ 0, %land.lhs.true5 ], [ 1, %if.end10 ], [ %spec.select, %land.lhs.true13 ]
+return:                                           ; preds = %land.lhs.true13, %land.lhs.true5, %land.lhs.true, %if.end18
+  %retval.0 = phi i32 [ 1, %if.end18 ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true5 ], [ 0, %land.lhs.true13 ]
   ret i32 %retval.0
 }
 
@@ -306,8 +308,8 @@ siphash_setkey.exit:                              ; preds = %if.end.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %sipcopy.i, ptr noundef nonnull align 8 dereferenceable(64) %siphash.i, i64 64, i1 false)
   br label %return
 
-return:                                           ; preds = %siphash_setkey.exit, %lor.lhs.false29, %if.end.i, %if.end24, %if.then27, %land.lhs.true20, %land.lhs.true, %if.then2, %lor.lhs.false, %lor.lhs.false6, %entry
-  %retval.0 = phi i32 [ 1, %entry ], [ 0, %lor.lhs.false6 ], [ 0, %lor.lhs.false ], [ 0, %if.then2 ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true20 ], [ 0, %if.then27 ], [ 1, %if.end24 ], [ 1, %siphash_setkey.exit ], [ 0, %lor.lhs.false29 ], [ 0, %if.end.i ]
+return:                                           ; preds = %if.end.i, %lor.lhs.false29, %if.end24, %siphash_setkey.exit, %if.then27, %land.lhs.true20, %land.lhs.true, %if.then2, %lor.lhs.false, %lor.lhs.false6, %entry
+  %retval.0 = phi i32 [ 1, %entry ], [ 0, %lor.lhs.false6 ], [ 0, %lor.lhs.false ], [ 0, %if.then2 ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true20 ], [ 0, %if.then27 ], [ 1, %siphash_setkey.exit ], [ 1, %if.end24 ], [ 0, %lor.lhs.false29 ], [ 0, %if.end.i ]
   ret i32 %retval.0
 }
 

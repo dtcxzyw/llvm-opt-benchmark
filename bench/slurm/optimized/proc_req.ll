@@ -5170,7 +5170,7 @@ define internal fastcc noundef i32 @_register_ctld(ptr noundef %0, ptr nocapture
   %10 = getelementptr inbounds i8, ptr %.val, i64 60
   %11 = load i32, ptr %10, align 4
   %12 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.80, i32 noundef %11, ptr noundef nonnull @.str.118, i32 noundef %.val.val) #10
-  br label %.thread20
+  br label %.thread16
 
 13:                                               ; preds = %2
   %14 = tail call i32 @get_log_level() #10
@@ -5200,7 +5200,7 @@ define internal fastcc noundef i32 @_register_ctld(ptr noundef %0, ptr nocapture
   %30 = getelementptr inbounds i8, ptr %26, i64 60
   %31 = load i32, ptr %30, align 4
   %32 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.19, i32 noundef %31, ptr noundef nonnull @.str.120) #10
-  br label %.thread20
+  br label %.thread16
 
 33:                                               ; preds = %25
   %34 = tail call i32 @get_log_level() #10
@@ -5270,13 +5270,13 @@ define internal fastcc noundef i32 @_register_ctld(ptr noundef %0, ptr nocapture
   %75 = load i32, ptr %74, align 8
   %76 = call ptr @acct_storage_g_get_clusters(ptr noundef %73, i32 noundef %75, ptr noundef nonnull %3) #10
   %.not65 = icmp eq ptr %76, null
-  %.pre25 = tail call ptr @__errno_location() #12
-  %77 = load i32, ptr %.pre25, align 4
-  br i1 %.not65, label %.thread26, label %80
+  %.pre31 = tail call ptr @__errno_location() #12
+  %77 = load i32, ptr %.pre31, align 4
+  br i1 %.not65, label %.thread32, label %80
 
-.thread26:                                        ; preds = %70
+.thread32:                                        ; preds = %70
   %78 = call ptr @slurm_strerror(i32 noundef %77) #10
-  %79 = load i32, ptr %.pre25, align 4
+  %79 = load i32, ptr %.pre31, align 4
   br label %112
 
 80:                                               ; preds = %70
@@ -5336,9 +5336,9 @@ define internal fastcc noundef i32 @_register_ctld(ptr noundef %0, ptr nocapture
   br label %.thread
 
 108:                                              ; preds = %80
-  %109 = load i32, ptr %.pre25, align 4
+  %109 = load i32, ptr %.pre31, align 4
   %110 = call ptr @slurm_strerror(i32 noundef %109) #10
-  %111 = load i32, ptr %.pre25, align 4
+  %111 = load i32, ptr %.pre31, align 4
   br label %.thread
 
 .thread:                                          ; preds = %108, %98, %97, %83, %103
@@ -5347,11 +5347,11 @@ define internal fastcc noundef i32 @_register_ctld(ptr noundef %0, ptr nocapture
   call void @list_destroy(ptr noundef nonnull %76) #10
   br label %112
 
-112:                                              ; preds = %.thread26, %.thread
-  %.06 = phi i32 [ %.05, %.thread ], [ %79, %.thread26 ]
-  %.1524 = phi ptr [ %.1523, %.thread ], [ %78, %.thread26 ]
+112:                                              ; preds = %.thread32, %.thread
+  %.06 = phi i32 [ %.05, %.thread ], [ %79, %.thread32 ]
+  %.1524 = phi ptr [ %.1523, %.thread ], [ %78, %.thread32 ]
   %.not72 = icmp eq i32 %.06, 0
-  br i1 %.not72, label %113, label %.thread20
+  br i1 %.not72, label %113, label %.thread16
 
 113:                                              ; preds = %112
   %114 = load ptr, ptr %72, align 8
@@ -5362,57 +5362,57 @@ define internal fastcc noundef i32 @_register_ctld(ptr noundef %0, ptr nocapture
   %119 = tail call ptr @__errno_location() #12
   %120 = load i32, ptr %119, align 4
   switch i32 %120, label %125 [
-    i32 14, label %127
+    i32 14, label %128
     i32 2002, label %121
     i32 7000, label %122
   ]
 
 121:                                              ; preds = %113
-  br label %127
+  br label %128
 
 122:                                              ; preds = %113
   %123 = call ptr @slurm_strerror(i32 noundef 7000) #10
   %124 = load i32, ptr %119, align 4
-  br label %127
+  br label %128
 
 125:                                              ; preds = %113
   %.not73 = icmp eq ptr %118, null
-  br i1 %.not73, label %.thread7, label %.thread13
+  br i1 %.not73, label %.thread21, label %126
 
-.thread13:                                        ; preds = %125
-  %126 = call i32 @list_count(ptr noundef nonnull %118) #10
-  %.not74 = icmp eq i32 %126, 0
-  %spec.select80 = select i1 %.not74, ptr @.str.47, ptr %.1524
-  %spec.select81 = sext i1 %.not74 to i32
-  br label %128
+126:                                              ; preds = %125
+  %127 = call i32 @list_count(ptr noundef nonnull %118) #10
+  %.not74 = icmp eq i32 %127, 0
+  %spec.select29 = sext i1 %.not74 to i32
+  %spec.select30 = select i1 %.not74, ptr @.str.47, ptr %.1524
+  br label %.thread7
 
-127:                                              ; preds = %113, %122, %121
+128:                                              ; preds = %113, %122, %121
   %.253 = phi ptr [ @.str.13, %121 ], [ %123, %122 ], [ @.str.124, %113 ]
   %.1 = phi i32 [ 2002, %121 ], [ %124, %122 ], [ -1, %113 ]
   %.not75 = icmp eq ptr %118, null
-  br i1 %.not75, label %.thread7, label %128
+  br i1 %.not75, label %.thread21, label %.thread7
 
-128:                                              ; preds = %.thread13, %127
-  %.118 = phi i32 [ %spec.select81, %.thread13 ], [ %.1, %127 ]
-  %.25317 = phi ptr [ %spec.select80, %.thread13 ], [ %.253, %127 ]
+.thread7:                                         ; preds = %126, %128
+  %.113 = phi i32 [ %.1, %128 ], [ %spec.select29, %126 ]
+  %.25311 = phi ptr [ %.253, %128 ], [ %spec.select30, %126 ]
   call void @list_destroy(ptr noundef nonnull %118) #10
-  br label %.thread7
+  br label %.thread21
 
-.thread7:                                         ; preds = %125, %128, %127
-  %.112 = phi i32 [ %.118, %128 ], [ %.1, %127 ], [ -1, %125 ]
-  %.25311 = phi ptr [ %.25317, %128 ], [ %.253, %127 ], [ @.str.47, %125 ]
+.thread21:                                        ; preds = %125, %.thread7, %128
+  %.114 = phi i32 [ %.113, %.thread7 ], [ %.1, %128 ], [ -1, %125 ]
+  %.25312 = phi ptr [ %.25311, %.thread7 ], [ %.253, %128 ], [ @.str.47, %125 ]
   %129 = load ptr, ptr %45, align 8
   %.not76 = icmp eq ptr %129, null
   br i1 %.not76, label %131, label %130
 
-130:                                              ; preds = %.thread7
+130:                                              ; preds = %.thread21
   call void @list_destroy(ptr noundef nonnull %129) #10
   br label %131
 
-131:                                              ; preds = %.thread7, %130
+131:                                              ; preds = %.thread21, %130
   store ptr null, ptr %45, align 8
-  %132 = icmp eq i32 %.112, 0
-  br i1 %132, label %133, label %.thread20
+  %132 = icmp eq i32 %.114, 0
+  br i1 %132, label %133, label %.thread16
 
 133:                                              ; preds = %131
   %134 = load i16, ptr %53, align 4
@@ -5420,15 +5420,15 @@ define internal fastcc noundef i32 @_register_ctld(ptr noundef %0, ptr nocapture
   %136 = getelementptr inbounds i8, ptr %135, i64 88
   store i16 %134, ptr %136, align 8
   call fastcc void @_add_registered_cluster(ptr noundef nonnull %0)
-  br label %.thread20
+  br label %.thread16
 
-.thread20:                                        ; preds = %9, %29, %112, %133, %131
-  %.224 = phi i32 [ 0, %133 ], [ %.112, %131 ], [ 2002, %9 ], [ 7004, %29 ], [ %.06, %112 ]
-  %.323 = phi ptr [ %.25311, %133 ], [ %.25311, %131 ], [ @.str.118, %9 ], [ @.str.120, %29 ], [ %.1524, %112 ]
+.thread16:                                        ; preds = %9, %29, %112, %133, %131
+  %.220 = phi i32 [ 0, %133 ], [ %.114, %131 ], [ 2002, %9 ], [ 7004, %29 ], [ %.06, %112 ]
+  %.319 = phi ptr [ %.25312, %133 ], [ %.25312, %131 ], [ @.str.118, %9 ], [ @.str.120, %29 ], [ %.1524, %112 ]
   %137 = load ptr, ptr %0, align 8
-  %138 = call ptr @slurm_persist_make_rc_msg(ptr noundef %137, i32 noundef %.224, ptr noundef %.323, i16 noundef zeroext 1434) #10
+  %138 = call ptr @slurm_persist_make_rc_msg(ptr noundef %137, i32 noundef %.220, ptr noundef %.319, i16 noundef zeroext 1434) #10
   store ptr %138, ptr %1, align 8
-  ret i32 %.224
+  ret i32 %.220
 }
 
 ; Function Attrs: nounwind uwtable

@@ -300,7 +300,7 @@ define internal fastcc noundef i32 @drm_copy_field(ptr noundef %0, ptr nocapture
 
 8:                                                ; preds = %.thread, %7
   store i64 0, ptr %1, align 8
-  br label %22
+  br label %23
 
 9:                                                ; preds = %7
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #11
@@ -320,17 +320,19 @@ define internal fastcc noundef i32 @drm_copy_field(ptr noundef %0, ptr nocapture
   tail call void asm sideeffect "51: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 51b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 51) #11, !srcloc !6
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.5, i32 249, i32 2307, i64 12) #11, !srcloc !7
   tail call void asm sideeffect "52: nop\0A\09.pushsection .discard.instr_end\0A\09.long 52b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 52) #11, !srcloc !8
-  br label %22
+  br label %23
 
 19:                                               ; preds = %16
   %20 = tail call i64 @_copy_to_user(ptr noundef nonnull %0, ptr noundef nonnull %2, i64 noundef %12) #11
   %21 = icmp eq i64 %20, 0
-  %spec.select = select i1 %21, i32 0, i32 -14
-  br label %22
+  br i1 %21, label %22, label %23
 
-22:                                               ; preds = %19, %9, %18, %8
-  %23 = phi i32 [ 0, %8 ], [ -14, %18 ], [ 0, %9 ], [ %spec.select, %19 ]
-  ret i32 %23
+22:                                               ; preds = %19, %9
+  br label %23
+
+23:                                               ; preds = %22, %19, %18, %8
+  %24 = phi i32 [ 0, %8 ], [ 0, %22 ], [ -14, %19 ], [ -14, %18 ]
+  ret i32 %24
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -738,7 +740,7 @@ define internal i32 @drm_setversion(ptr noundef %0, ptr nocapture noundef %1, pt
   %4 = getelementptr inbounds i8, ptr %0, i64 160
   tail call void @mutex_lock(ptr noundef %4) #11
   %5 = load i32, ptr %1, align 4
-  switch i32 %5, label %68 [
+  switch i32 %5, label %69 [
     i32 -1, label %.thread
     i32 1, label %6
   ]
@@ -747,7 +749,7 @@ define internal i32 @drm_setversion(ptr noundef %0, ptr nocapture noundef %1, pt
   %7 = getelementptr inbounds i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = icmp ugt i32 %8, 4
-  br i1 %9, label %68, label %10
+  br i1 %9, label %69, label %10
 
 10:                                               ; preds = %6
   %11 = or disjoint i32 %8, 65536
@@ -824,13 +826,13 @@ define internal i32 @drm_setversion(ptr noundef %0, ptr nocapture noundef %1, pt
   store ptr null, ptr %19, align 8
   %50 = getelementptr inbounds i8, ptr %18, i64 24
   store i32 0, ptr %50, align 8
-  br label %68
+  br label %69
 
 .thread:                                          ; preds = %32, %40, %.thread7, %10, %3
   %51 = getelementptr inbounds i8, ptr %1, i64 8
   %52 = load i32, ptr %51, align 4
   %53 = icmp eq i32 %52, -1
-  br i1 %53, label %68, label %54
+  br i1 %53, label %69, label %54
 
 54:                                               ; preds = %.thread
   %55 = getelementptr inbounds i8, ptr %0, i64 48
@@ -850,27 +852,29 @@ define internal i32 @drm_setversion(ptr noundef %0, ptr nocapture noundef %1, pt
   %65 = getelementptr inbounds i8, ptr %56, i64 140
   %66 = load i32, ptr %65, align 4
   %67 = icmp sgt i32 %62, %66
-  %spec.select = select i1 %67, i32 -22, i32 0
-  br label %68
+  br i1 %67, label %68, label %69
 
-68:                                               ; preds = %48, %64, %54, %60, %.thread, %6, %3
-  %69 = phi i32 [ %33, %48 ], [ 0, %.thread ], [ -22, %3 ], [ -22, %6 ], [ -22, %60 ], [ -22, %54 ], [ %spec.select, %64 ]
+68:                                               ; preds = %64, %60, %54
+  br label %69
+
+69:                                               ; preds = %48, %68, %64, %.thread, %6, %3
+  %70 = phi i32 [ %33, %48 ], [ -22, %68 ], [ 0, %64 ], [ 0, %.thread ], [ -22, %3 ], [ -22, %6 ]
   store i32 1, ptr %1, align 4
-  %70 = getelementptr inbounds i8, ptr %1, i64 4
-  store i32 4, ptr %70, align 4
-  %71 = getelementptr inbounds i8, ptr %0, i64 48
-  %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 136
-  %74 = load i32, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 %74, ptr %75, align 4
-  %76 = load ptr, ptr %71, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 140
-  %78 = load i32, ptr %77, align 4
-  %79 = getelementptr inbounds i8, ptr %1, i64 12
-  store i32 %78, ptr %79, align 4
+  %71 = getelementptr inbounds i8, ptr %1, i64 4
+  store i32 4, ptr %71, align 4
+  %72 = getelementptr inbounds i8, ptr %0, i64 48
+  %73 = load ptr, ptr %72, align 8
+  %74 = getelementptr inbounds i8, ptr %73, i64 136
+  %75 = load i32, ptr %74, align 8
+  %76 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 %75, ptr %76, align 4
+  %77 = load ptr, ptr %72, align 8
+  %78 = getelementptr inbounds i8, ptr %77, i64 140
+  %79 = load i32, ptr %78, align 4
+  %80 = getelementptr inbounds i8, ptr %1, i64 12
+  store i32 %79, ptr %80, align 4
   tail call void @mutex_unlock(ptr noundef %4) #11
-  ret i32 %69
+  ret i32 %70
 }
 
 ; Function Attrs: null_pointer_is_valid

@@ -8147,7 +8147,7 @@ ExecReadyExpr.exit:                               ; preds = %239, %ExprEvalPushS
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @ExecComputeSlotInfo(ptr readonly %.64.val, ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @ExecComputeSlotInfo(ptr readonly %.64.val, ptr nocapture noundef %0) unnamed_addr #0 {
   %2 = alloca i8, align 1
   store i8 0, ptr %2, align 1
   %3 = load i64, ptr %0, align 8
@@ -8283,12 +8283,15 @@ define internal fastcc zeroext i1 @ExecComputeSlotInfo(ptr readonly %.64.val, pt
   store i8 1, ptr %72, align 4
   %73 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %.1, ptr %73, align 8
-  %74 = icmp ne ptr %.1, @TTSOpsVirtual
+  %74 = icmp eq ptr %.1, @TTSOpsVirtual
   store ptr %.050, ptr %5, align 8
-  br label %75
+  br i1 %74, label %76, label %75
 
 75:                                               ; preds = %69, %71
-  %.0 = phi i1 [ true, %69 ], [ %74, %71 ]
+  br label %76
+
+76:                                               ; preds = %71, %75
+  %.0 = phi i1 [ true, %75 ], [ false, %71 ]
   ret i1 %.0
 }
 

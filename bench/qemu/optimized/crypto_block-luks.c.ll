@@ -1742,24 +1742,27 @@ if.end5:                                          ; preds = %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @qcrypto_block_luks_has_format(ptr nocapture noundef readonly %buf, i64 noundef %buf_size) #2 {
+define internal noundef zeroext i1 @qcrypto_block_luks_has_format(ptr nocapture noundef readonly %buf, i64 noundef %buf_size) #2 {
 entry:
   %cmp = icmp ugt i64 %buf_size, 7
-  br i1 %cmp, label %land.lhs.true, label %return
+  br i1 %cmp, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %entry
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %buf, ptr noundef nonnull dereferenceable(6) @qcrypto_block_luks_magic, i64 6)
   %cmp1 = icmp eq i32 %bcmp, 0
-  br i1 %cmp1, label %land.lhs.true2, label %return
+  br i1 %cmp1, label %land.lhs.true2, label %if.else
 
 land.lhs.true2:                                   ; preds = %land.lhs.true
   %version = getelementptr inbounds i8, ptr %buf, i64 6
   %0 = load i16, ptr %version, align 2
   %cmp4 = icmp eq i16 %0, 256
+  br i1 %cmp4, label %return, label %if.else
+
+if.else:                                          ; preds = %land.lhs.true2, %land.lhs.true, %entry
   br label %return
 
-return:                                           ; preds = %land.lhs.true2, %entry, %land.lhs.true
-  %retval.0 = phi i1 [ false, %land.lhs.true ], [ false, %entry ], [ %cmp4, %land.lhs.true2 ]
+return:                                           ; preds = %land.lhs.true2, %if.else
+  %retval.0 = phi i1 [ false, %if.else ], [ true, %land.lhs.true2 ]
   ret i1 %retval.0
 }
 

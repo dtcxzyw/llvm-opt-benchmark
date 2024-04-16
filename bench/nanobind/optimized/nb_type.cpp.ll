@@ -2444,7 +2444,7 @@ define internal noundef i32 @_ZN8nanobind6detailL13inst_traverseEP7_objectPFiS2_
 11:                                               ; preds = %8
   %12 = tail call noundef i32 %1(ptr noundef nonnull %10, ptr noundef %2)
   %.not20 = icmp eq i32 %12, 0
-  br i1 %.not20, label %13, label %16
+  br i1 %.not20, label %13, label %17
 
 13:                                               ; preds = %11
   %.pre = load ptr, ptr %4, align 8
@@ -2454,10 +2454,14 @@ define internal noundef i32 @_ZN8nanobind6detailL13inst_traverseEP7_objectPFiS2_
 .thread:                                          ; preds = %8, %3, %13
   %14 = phi ptr [ %.pre, %13 ], [ %5, %3 ], [ %5, %8 ]
   %15 = tail call noundef i32 %1(ptr noundef nonnull %14, ptr noundef %2)
-  br label %16
+  %.not22 = icmp eq i32 %15, 0
+  br i1 %.not22, label %16, label %17
 
-16:                                               ; preds = %.thread, %13, %11
-  %.0 = phi i32 [ %12, %11 ], [ 0, %13 ], [ %15, %.thread ]
+16:                                               ; preds = %13, %.thread
+  br label %17
+
+17:                                               ; preds = %.thread, %11, %16
+  %.0 = phi i32 [ 0, %16 ], [ %12, %11 ], [ %15, %.thread ]
   ret i32 %.0
 }
 

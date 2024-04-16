@@ -49167,13 +49167,13 @@ entry:
   %m_im = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load float, ptr %m_im, align 8
   %cmp = fcmp ogt float %3, 0.000000e+00
-  br i1 %cmp, label %land.lhs.true, label %cond.end
+  br i1 %cmp, label %land.lhs.true, label %cond.false
 
 land.lhs.true:                                    ; preds = %entry
   %m_im6 = getelementptr inbounds i8, ptr %1, i64 112
   %4 = load float, ptr %m_im6, align 8
   %cmp7 = fcmp ogt float %4, 0.000000e+00
-  br i1 %cmp7, label %land.lhs.true8, label %cond.end
+  br i1 %cmp7, label %land.lhs.true8, label %cond.false
 
 land.lhs.true8:                                   ; preds = %land.lhs.true
   %m_im9 = getelementptr inbounds i8, ptr %2, i64 112
@@ -49181,11 +49181,11 @@ land.lhs.true8:                                   ; preds = %land.lhs.true
   %cmp10 = fcmp ogt float %5, 0.000000e+00
   br i1 %cmp10, label %cond.end, label %cond.false
 
-cond.false:                                       ; preds = %land.lhs.true8
+cond.false:                                       ; preds = %land.lhs.true8, %land.lhs.true, %entry
   br label %cond.end
 
-cond.end:                                         ; preds = %entry, %land.lhs.true, %land.lhs.true8, %cond.false
-  %.sink = phi i64 [ 32, %land.lhs.true8 ], [ 36, %land.lhs.true ], [ 36, %entry ], [ 36, %cond.false ]
+cond.end:                                         ; preds = %land.lhs.true8, %cond.false
+  %.sink = phi i64 [ 36, %cond.false ], [ 32, %land.lhs.true8 ]
   %stamargin = getelementptr inbounds i8, ptr %this, i64 %.sink
   %cond = load float, ptr %stamargin, align 4
   %m_impulse.i.i.i = getelementptr inbounds i8, ptr %c, i64 24
@@ -51034,34 +51034,26 @@ if.then23:                                        ; preds = %_ZL13ProjectOriginR
   %165 = load float, ptr %m_im, align 8
   %m_im43 = getelementptr inbounds i8, ptr %4, i64 112
   %m_im45 = getelementptr inbounds i8, ptr %6, i64 112
+  %m_im47 = getelementptr inbounds i8, ptr %8, i64 112
   %m_im43.val = load float, ptr %m_im43, align 4
   %m_im45.val = load float, ptr %m_im45, align 4
-  %cmp51 = fcmp ugt float %m_im43.val, 0.000000e+00
-  %cmp54 = fcmp ugt float %m_im45.val, 0.000000e+00
-  %or.cond = select i1 %cmp51, i1 %cmp54, i1 false
-  br i1 %or.cond, label %lor.lhs.false55, label %if.end60
-
-lor.lhs.false55:                                  ; preds = %if.then23
-  %m_im47 = getelementptr inbounds i8, ptr %8, i64 112
   %m_im47.val = load float, ptr %m_im47, align 4
   %166 = extractelement <2 x float> %163, i64 0
   %mul2.i = fmul float %166, %m_im45.val
   %167 = extractelement <2 x float> %163, i64 1
   %168 = tail call float @llvm.fmuladd.f32(float %m_im43.val, float %167, float %mul2.i)
   %169 = tail call noundef float @llvm.fmuladd.f32(float %m_im47.val, float %mul39.i, float %168)
+  %cmp51 = fcmp ugt float %m_im43.val, 0.000000e+00
+  %cmp54 = fcmp ugt float %m_im45.val, 0.000000e+00
+  %or.cond = select i1 %cmp51, i1 %cmp54, i1 false
   %cmp58 = fcmp ugt float %m_im47.val, 0.000000e+00
-  br i1 %cmp58, label %if.end60, label %if.then59
-
-if.then59:                                        ; preds = %lor.lhs.false55
-  br label %if.end60
-
-if.end60:                                         ; preds = %if.then23, %if.then59, %lor.lhs.false55
-  %mb.0 = phi float [ %169, %lor.lhs.false55 ], [ 0.000000e+00, %if.then23 ], [ 0.000000e+00, %if.then59 ]
+  %or.cond144 = select i1 %or.cond, i1 %cmp58, i1 false
+  %mb.0 = select i1 %or.cond144, float %169, float 0.000000e+00
   %add = fadd float %165, %mb.0
   %cmp61 = fcmp ogt float %add, 0.000000e+00
   br i1 %cmp61, label %if.then62, label %if.end90
 
-if.then62:                                        ; preds = %if.end60
+if.then62:                                        ; preds = %if.then23
   %call.i = tail call noundef float @sqrtf(float noundef %d.2) #39
   %div.i88 = fdiv float -1.000000e+00, %call.i
   %170 = insertelement <2 x float> poison, float %div.i88, i64 0
@@ -51189,7 +51181,7 @@ _ZN20btAlignedObjectArrayIN10btSoftBody8SContactEE9push_backERKS1_.exit: ; preds
   store i32 %inc.i, ptr %m_size.i.i, align 4
   br label %if.end90
 
-if.end90:                                         ; preds = %if.end60, %_ZN20btAlignedObjectArrayIN10btSoftBody8SContactEE9push_backERKS1_.exit, %_ZL13ProjectOriginRK9btVector3S1_S1_RS_Rf.exit
+if.end90:                                         ; preds = %if.then23, %_ZN20btAlignedObjectArrayIN10btSoftBody8SContactEE9push_backERKS1_.exit, %_ZL13ProjectOriginRK9btVector3S1_S1_RS_Rf.exit
   ret void
 }
 
@@ -51269,15 +51261,9 @@ if.then:                                          ; preds = %entry
   %11 = load float, ptr %m_im, align 8
   %m_im17 = getelementptr inbounds i8, ptr %7, i64 112
   %m_im19 = getelementptr inbounds i8, ptr %8, i64 112
+  %m_im21 = getelementptr inbounds i8, ptr %9, i64 112
   %m_im17.val = load float, ptr %m_im17, align 4
   %m_im19.val = load float, ptr %m_im19, align 4
-  %cmp = fcmp ugt float %m_im17.val, 0.000000e+00
-  %cmp27 = fcmp ugt float %m_im19.val, 0.000000e+00
-  %or.cond = select i1 %cmp, i1 %cmp27, i1 false
-  br i1 %or.cond, label %lor.lhs.false28, label %if.end
-
-lor.lhs.false28:                                  ; preds = %if.then
-  %m_im21 = getelementptr inbounds i8, ptr %9, i64 112
   %m_im21.val = load float, ptr %m_im21, align 4
   %12 = extractelement <4 x float> %10, i64 1
   %mul2.i = fmul float %12, %m_im19.val
@@ -51285,19 +51271,17 @@ lor.lhs.false28:                                  ; preds = %if.then
   %14 = tail call float @llvm.fmuladd.f32(float %m_im17.val, float %13, float %mul2.i)
   %15 = extractelement <4 x float> %10, i64 2
   %16 = tail call noundef float @llvm.fmuladd.f32(float %m_im21.val, float %15, float %14)
+  %cmp = fcmp ugt float %m_im17.val, 0.000000e+00
+  %cmp27 = fcmp ugt float %m_im19.val, 0.000000e+00
+  %or.cond = select i1 %cmp, i1 %cmp27, i1 false
   %cmp31 = fcmp ugt float %m_im21.val, 0.000000e+00
-  br i1 %cmp31, label %if.end, label %if.then32
-
-if.then32:                                        ; preds = %lor.lhs.false28
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %if.then32, %lor.lhs.false28
-  %mb.0 = phi float [ %16, %lor.lhs.false28 ], [ 0.000000e+00, %if.then ], [ 0.000000e+00, %if.then32 ]
+  %or.cond32 = select i1 %or.cond, i1 %cmp31, i1 false
+  %mb.0 = select i1 %or.cond32, float %16, float 0.000000e+00
   %add = fadd float %11, %mb.0
   %cmp33 = fcmp ogt float %add, 0.000000e+00
   br i1 %cmp33, label %if.then34, label %if.end67
 
-if.then34:                                        ; preds = %if.end
+if.then34:                                        ; preds = %if.then
   %c.sroa.8.48.copyload = load <2 x float>, ptr %m_normal, align 8
   %c.sroa.12.48.m_normal.sroa_idx = getelementptr inbounds i8, ptr %3, i64 48
   %c.sroa.12.48.copyload = load <2 x float>, ptr %c.sroa.12.48.m_normal.sroa_idx, align 8
@@ -51333,12 +51317,12 @@ land.rhs:                                         ; preds = %if.then34
 if.then45:                                        ; preds = %land.rhs
   %26 = fneg <2 x float> %c.sroa.8.48.copyload
   %27 = fneg <2 x float> %c.sroa.12.48.copyload
-  %retval.sroa.3.12.vec.insert.i2236 = insertelement <2 x float> %27, float 0.000000e+00, i64 1
+  %retval.sroa.3.12.vec.insert.i2237 = insertelement <2 x float> %27, float 0.000000e+00, i64 1
   br label %if.end51
 
 if.end51:                                         ; preds = %if.then34, %if.then45, %land.rhs
   %c.sroa.8.0 = phi <2 x float> [ %c.sroa.8.48.copyload, %if.then34 ], [ %26, %if.then45 ], [ %c.sroa.8.48.copyload, %land.rhs ]
-  %c.sroa.12.0 = phi <2 x float> [ %c.sroa.12.48.copyload, %if.then34 ], [ %retval.sroa.3.12.vec.insert.i2236, %if.then45 ], [ %c.sroa.12.48.copyload, %land.rhs ]
+  %c.sroa.12.0 = phi <2 x float> [ %c.sroa.12.48.copyload, %if.then34 ], [ %retval.sroa.3.12.vec.insert.i2237, %if.then45 ], [ %c.sroa.12.48.copyload, %land.rhs ]
   %28 = load float, ptr %mrg, align 8
   %psb = getelementptr inbounds i8, ptr %this, i64 8
   %29 = load ptr, ptr %psb, align 8
@@ -51449,7 +51433,7 @@ _ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE9push_backER
   store i32 %inc.i, ptr %m_size.i.i, align 4
   br label %if.end67
 
-if.end67:                                         ; preds = %if.end, %_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE9push_backERKS1_.exit, %entry
+if.end67:                                         ; preds = %if.then, %_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE9push_backERKS1_.exit, %entry
   ret void
 }
 

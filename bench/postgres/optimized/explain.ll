@@ -1502,7 +1502,7 @@ define dso_local void @ExplainOnePlan(ptr noundef %0, ptr noundef %1, ptr nounde
   call void @ExecutorStart(ptr noundef %44, i32 noundef %.1) #11
   %53 = load i8, ptr %17, align 1
   %54 = trunc i8 %53 to i1
-  br i1 %54, label %64, label %74
+  br i1 %54, label %63, label %74
 
 .thread:                                          ; preds = %42
   %55 = call i32 @GetIntoRelEFlags(ptr noundef nonnull %1) #11
@@ -1515,13 +1515,14 @@ define dso_local void @ExplainOnePlan(ptr noundef %0, ptr noundef %1, ptr nounde
 59:                                               ; preds = %.thread
   %60 = getelementptr inbounds i8, ptr %1, i64 64
   %61 = load i8, ptr %60, align 8
-  %62 = and i8 %61, 1
-  %63 = xor i8 %62, 1
-  %spec.select89 = zext nneg i8 %63 to i32
+  %62 = trunc i8 %61 to i1
+  br i1 %62, label %64, label %63
+
+63:                                               ; preds = %52, %59
   br label %64
 
-64:                                               ; preds = %52, %59
-  %.076 = phi i32 [ %spec.select89, %59 ], [ 1, %52 ]
+64:                                               ; preds = %59, %63
+  %.076 = phi i32 [ 1, %63 ], [ 0, %59 ]
   call void @ExecutorRun(ptr noundef %44, i32 noundef %.076, i64 noundef 0, i1 noundef zeroext true) #11
   call void @ExecutorFinish(ptr noundef %44) #11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15)
@@ -1839,8 +1840,8 @@ show_memory_counters.exit:                        ; preds = %206, %ExplainIndent
   %244 = getelementptr inbounds i8, ptr %243, i64 264
   %245 = load i32, ptr %244, align 8
   %246 = and i32 %245, 1
-  %.not.i90 = icmp eq i32 %246, 0
-  br i1 %.not.i90, label %ExplainPrintJITSummary.exit, label %247
+  %.not.i89 = icmp eq i32 %246, 0
+  br i1 %.not.i89, label %ExplainPrintJITSummary.exit, label %247
 
 247:                                              ; preds = %241
   %248 = getelementptr inbounds i8, ptr %243, i64 272
@@ -1851,11 +1852,11 @@ show_memory_counters.exit:                        ; preds = %206, %ExplainIndent
 250:                                              ; preds = %247
   %251 = getelementptr inbounds i8, ptr %249, i64 16
   call void @InstrJitAgg(ptr noundef nonnull %12, ptr noundef nonnull %251) #11
-  %.pre.i91 = load ptr, ptr %242, align 8
+  %.pre.i90 = load ptr, ptr %242, align 8
   br label %252
 
 252:                                              ; preds = %250, %247
-  %253 = phi ptr [ %.pre.i91, %250 ], [ %243, %247 ]
+  %253 = phi ptr [ %.pre.i90, %250 ], [ %243, %247 ]
   %254 = getelementptr inbounds i8, ptr %253, i64 280
   %255 = load ptr, ptr %254, align 8
   %.not9.i = icmp eq ptr %255, null
@@ -1902,10 +1903,10 @@ ExplainPrintJITSummary.exit:                      ; preds = %241, %257
   %272 = getelementptr inbounds i8, ptr %10, i64 8
   %273 = load i64, ptr %272, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  %reass.add102 = sub i64 %271, %263
-  %reass.mul103 = mul i64 %reass.add102, 1000000000
+  %reass.add101 = sub i64 %271, %263
+  %reass.mul102 = mul i64 %reass.add101, 1000000000
   %274 = sub i64 %273, %265
-  %275 = add i64 %274, %reass.mul103
+  %275 = add i64 %274, %reass.mul102
   %276 = sitofp i64 %275 to double
   %277 = fdiv double %276, 1.000000e+09
   %278 = fadd double %.075, %277

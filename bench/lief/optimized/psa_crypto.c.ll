@@ -1361,7 +1361,7 @@ define internal fastcc i32 @psa_validate_optional_attributes(ptr nocapture nound
 7:                                                ; preds = %2
   %8 = load i16, ptr %0, align 8
   %.not25 = icmp eq i16 %6, %8
-  br i1 %.not25, label %9, label %42
+  br i1 %.not25, label %9, label %43
 
 9:                                                ; preds = %7, %2
   %10 = getelementptr inbounds i8, ptr %1, i64 40
@@ -1373,7 +1373,7 @@ define internal fastcc i32 @psa_validate_optional_attributes(ptr nocapture nound
   %13 = load i16, ptr %0, align 8
   %14 = and i16 %13, -12289
   %15 = icmp eq i16 %14, 16385
-  br i1 %15, label %16, label %42
+  br i1 %15, label %16, label %43
 
 16:                                               ; preds = %12
   store ptr null, ptr %3, align 8
@@ -1383,7 +1383,7 @@ define internal fastcc i32 @psa_validate_optional_attributes(ptr nocapture nound
   %20 = load i64, ptr %19, align 8
   %21 = call i32 @mbedtls_psa_rsa_load_representation(i16 noundef zeroext %13, ptr noundef %18, i64 noundef %20, ptr noundef nonnull %3) #15
   %.not27 = icmp eq i32 %21, 0
-  br i1 %.not27, label %22, label %42
+  br i1 %.not27, label %22, label %43
 
 22:                                               ; preds = %16
   call void @mbedtls_mpi_init(ptr noundef nonnull %4) #15
@@ -1420,7 +1420,7 @@ select.unfold:                                    ; preds = %32, %27, %22
 
 34:                                               ; preds = %select.unfold
   %35 = call i32 @mbedtls_to_psa_error(i32 noundef %.019)
-  br label %42
+  br label %43
 
 36:                                               ; preds = %select.unfold, %9
   %37 = getelementptr inbounds i8, ptr %1, i64 2
@@ -1432,11 +1432,13 @@ select.unfold:                                    ; preds = %32, %27, %22
   %40 = getelementptr inbounds i8, ptr %0, i64 2
   %41 = load i16, ptr %40, align 2
   %.not33 = icmp eq i16 %38, %41
-  %spec.select34 = select i1 %.not33, i32 0, i32 -135
-  br label %42
+  br i1 %.not33, label %42, label %43
 
-42:                                               ; preds = %39, %36, %12, %16, %7, %34
-  %.0 = phi i32 [ %35, %34 ], [ -135, %7 ], [ %21, %16 ], [ -135, %12 ], [ 0, %36 ], [ %spec.select34, %39 ]
+42:                                               ; preds = %39, %36
+  br label %43
+
+43:                                               ; preds = %39, %12, %16, %7, %42, %34
+  %.0 = phi i32 [ %35, %34 ], [ 0, %42 ], [ -135, %7 ], [ %21, %16 ], [ -135, %12 ], [ -135, %39 ]
   ret i32 %.0
 }
 
@@ -1845,7 +1847,7 @@ mbedtls_psa_safer_memcmp.exit:                    ; preds = %.lr.ph.i
   %.not9 = icmp eq i8 %22, 0
   br i1 %.not9, label %mbedtls_psa_safer_memcmp.exit.thread, label %psa_hash_finish.exit.thread
 
-mbedtls_psa_safer_memcmp.exit.thread:             ; preds = %mbedtls_psa_safer_memcmp.exit, %16
+mbedtls_psa_safer_memcmp.exit.thread:             ; preds = %16, %mbedtls_psa_safer_memcmp.exit
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 64) #15
   br label %psa_hash_abort.exit
 
@@ -1890,17 +1892,17 @@ define hidden i32 @psa_hash_compare(i32 noundef %0, ptr noundef %1, i64 noundef 
   %7 = alloca i64, align 8
   %8 = and i32 %0, 2130706432
   %9 = icmp eq i32 %8, 33554432
-  br i1 %9, label %10, label %22
+  br i1 %9, label %10, label %23
 
 10:                                               ; preds = %5
   %11 = call i32 @psa_driver_wrapper_hash_compute(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %6, i64 noundef 64, ptr noundef nonnull %7) #15
   %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %12, label %mbedtls_psa_safer_memcmp.exit.thread
+  br i1 %.not, label %12, label %22
 
 12:                                               ; preds = %10
   %13 = load i64, ptr %7, align 8
   %.not11 = icmp eq i64 %13, %4
-  br i1 %.not11, label %14, label %mbedtls_psa_safer_memcmp.exit.thread
+  br i1 %.not11, label %14, label %22
 
 14:                                               ; preds = %12
   %.not.i = icmp eq i64 %4, 0
@@ -1922,16 +1924,18 @@ define hidden i32 @psa_hash_compare(i32 noundef %0, ptr noundef %1, i64 noundef 
 
 mbedtls_psa_safer_memcmp.exit:                    ; preds = %.lr.ph.i
   %.not12 = icmp eq i8 %20, 0
-  %spec.select = select i1 %.not12, i32 0, i32 -149
-  br label %mbedtls_psa_safer_memcmp.exit.thread
+  br i1 %.not12, label %mbedtls_psa_safer_memcmp.exit.thread, label %22
 
-mbedtls_psa_safer_memcmp.exit.thread:             ; preds = %mbedtls_psa_safer_memcmp.exit, %14, %12, %10
-  %.0 = phi i32 [ %11, %10 ], [ -149, %12 ], [ 0, %14 ], [ %spec.select, %mbedtls_psa_safer_memcmp.exit ]
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %6, i64 noundef 64) #15
+mbedtls_psa_safer_memcmp.exit.thread:             ; preds = %14, %mbedtls_psa_safer_memcmp.exit
   br label %22
 
-22:                                               ; preds = %5, %mbedtls_psa_safer_memcmp.exit.thread
-  %.08 = phi i32 [ %.0, %mbedtls_psa_safer_memcmp.exit.thread ], [ -135, %5 ]
+22:                                               ; preds = %mbedtls_psa_safer_memcmp.exit.thread, %mbedtls_psa_safer_memcmp.exit, %12, %10
+  %.0 = phi i32 [ %11, %10 ], [ -149, %12 ], [ 0, %mbedtls_psa_safer_memcmp.exit.thread ], [ -149, %mbedtls_psa_safer_memcmp.exit ]
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %6, i64 noundef 64) #15
+  br label %23
+
+23:                                               ; preds = %5, %22
+  %.08 = phi i32 [ %.0, %22 ], [ -135, %5 ]
   ret i32 %.08
 }
 
@@ -2335,12 +2339,12 @@ define hidden i32 @psa_mac_verify(i32 noundef %0, i32 noundef %1, ptr noundef %2
   %8 = alloca i64, align 8
   %9 = call fastcc i32 @psa_mac_compute_internal(i32 noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef nonnull %7, i64 noundef 64, ptr noundef nonnull %8, i32 noundef 0)
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %10, label %mbedtls_psa_safer_memcmp.exit.thread
+  br i1 %.not, label %10, label %20
 
 10:                                               ; preds = %6
   %11 = load i64, ptr %8, align 8
   %.not9 = icmp eq i64 %11, %5
-  br i1 %.not9, label %12, label %mbedtls_psa_safer_memcmp.exit.thread
+  br i1 %.not9, label %12, label %20
 
 12:                                               ; preds = %10
   %.not.i = icmp eq i64 %5, 0
@@ -2362,11 +2366,13 @@ define hidden i32 @psa_mac_verify(i32 noundef %0, i32 noundef %1, ptr noundef %2
 
 mbedtls_psa_safer_memcmp.exit:                    ; preds = %.lr.ph.i
   %.not10 = icmp eq i8 %18, 0
-  %spec.select = select i1 %.not10, i32 0, i32 -149
-  br label %mbedtls_psa_safer_memcmp.exit.thread
+  br i1 %.not10, label %mbedtls_psa_safer_memcmp.exit.thread, label %20
 
-mbedtls_psa_safer_memcmp.exit.thread:             ; preds = %mbedtls_psa_safer_memcmp.exit, %12, %10, %6
-  %.0 = phi i32 [ %9, %6 ], [ -149, %10 ], [ 0, %12 ], [ %spec.select, %mbedtls_psa_safer_memcmp.exit ]
+mbedtls_psa_safer_memcmp.exit.thread:             ; preds = %12, %mbedtls_psa_safer_memcmp.exit
+  br label %20
+
+20:                                               ; preds = %mbedtls_psa_safer_memcmp.exit.thread, %mbedtls_psa_safer_memcmp.exit, %10, %6
+  %.0 = phi i32 [ %9, %6 ], [ -149, %10 ], [ 0, %mbedtls_psa_safer_memcmp.exit.thread ], [ -149, %mbedtls_psa_safer_memcmp.exit ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %7, i64 noundef 64) #15
   ret i32 %.0
 }
@@ -2630,7 +2636,7 @@ switch.early.test.i:                              ; preds = %18
   %.not37.old.i = icmp eq i32 %.old.i, 0
   br i1 %.not37.old.i, label %psa_verify_internal.exit, label %psa_sign_verify_check_alg.exit
 
-psa_sign_verify_check_alg.exit:                   ; preds = %20, %23, %switch.early.test.i
+psa_sign_verify_check_alg.exit:                   ; preds = %23, %20, %switch.early.test.i
   %24 = call fastcc i32 @psa_get_and_lock_key_slot_with_policy(i32 noundef %0, ptr noundef nonnull %7, i32 noundef 2048, i32 noundef %1)
   %.not27.i = icmp eq i32 %24, 0
   br i1 %.not27.i, label %25, label %psa_verify_internal.exit
@@ -4360,8 +4366,8 @@ psa_aead_final_checks.exit:                       ; preds = %19, %14
   %24 = tail call i32 @psa_driver_wrapper_aead_finish(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %3, ptr noundef %4, i64 noundef %5, ptr noundef nonnull %6) #15
   br label %psa_aead_final_checks.exit.thread
 
-psa_aead_final_checks.exit.thread:                ; preds = %19, %16, %7, %10, %23
-  %.0 = phi i32 [ %24, %23 ], [ -135, %19 ], [ -135, %16 ], [ -137, %7 ], [ -137, %10 ]
+psa_aead_final_checks.exit.thread:                ; preds = %16, %19, %7, %10, %23
+  %.0 = phi i32 [ %24, %23 ], [ -135, %16 ], [ -135, %19 ], [ -137, %7 ], [ -137, %10 ]
   %.not29 = icmp eq ptr %4, null
   br i1 %.not29, label %32, label %25
 
@@ -4448,8 +4454,8 @@ psa_aead_final_checks.exit.thread:                ; preds = %psa_aead_final_chec
   %23 = icmp eq i32 %.pr.pre, 0
   br i1 %23, label %psa_aead_abort.exit, label %psa_aead_final_checks.exit.thread.thread
 
-psa_aead_final_checks.exit.thread.thread:         ; preds = %psa_aead_final_checks.exit, %18, %15, %9, %psa_aead_final_checks.exit.thread
-  %.0.ph21 = phi i32 [ %22, %psa_aead_final_checks.exit.thread ], [ -137, %psa_aead_final_checks.exit ], [ -135, %18 ], [ -135, %15 ], [ -137, %9 ]
+psa_aead_final_checks.exit.thread.thread:         ; preds = %psa_aead_final_checks.exit, %15, %18, %9, %psa_aead_final_checks.exit.thread
+  %.0.ph21 = phi i32 [ %22, %psa_aead_final_checks.exit.thread ], [ -137, %psa_aead_final_checks.exit ], [ -135, %15 ], [ -135, %18 ], [ -137, %9 ]
   %24 = tail call i32 @psa_driver_wrapper_aead_abort(ptr noundef nonnull %0) #15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(472) %0, i8 0, i64 472, i1 false)
   br label %psa_aead_abort.exit
@@ -7757,7 +7763,7 @@ switch.early.test215:                             ; preds = %.thread
   %30 = and i32 %1, -2050981889
   %31 = and i32 %2, -2050981889
   %32 = icmp eq i32 %30, %31
-  br i1 %32, label %33, label %psa_mac_key_can_do.exit
+  br i1 %32, label %33, label %.thread220
 
 33:                                               ; preds = %29
   %34 = lshr i32 %1, 16
@@ -7787,7 +7793,9 @@ switch.early.test215:                             ; preds = %.thread
 47:                                               ; preds = %46
   %.not147 = icmp ugt i32 %37, %35
   %or.cond187 = or i1 %.not144, %.not147
-  %spec.select = select i1 %or.cond187, i32 0, i32 %1
+  br i1 %or.cond187, label %.thread220, label %psa_mac_key_can_do.exit
+
+.thread220:                                       ; preds = %47, %29
   br label %psa_mac_key_can_do.exit
 
 48:                                               ; preds = %.thread218
@@ -7962,8 +7970,8 @@ switch.lookup231:                                 ; preds = %switch.hole_check23
   %129 = or disjoint i32 %128, %52
   br label %psa_mac_key_can_do.exit
 
-psa_mac_key_can_do.exit:                          ; preds = %47, %22, %18, %29, %59, %48, %51, %124, %46, %3, %126, %122, %119, %112, %41
-  %.0 = phi i32 [ %45, %41 ], [ %117, %112 ], [ %120, %119 ], [ %123, %122 ], [ %129, %126 ], [ %1, %3 ], [ %2, %46 ], [ 0, %124 ], [ 0, %51 ], [ 0, %48 ], [ 0, %59 ], [ 0, %29 ], [ %2, %18 ], [ %1, %22 ], [ %spec.select, %47 ]
+psa_mac_key_can_do.exit:                          ; preds = %22, %18, %59, %.thread220, %48, %51, %124, %47, %46, %3, %126, %122, %119, %112, %41
+  %.0 = phi i32 [ %45, %41 ], [ %117, %112 ], [ %120, %119 ], [ %123, %122 ], [ %129, %126 ], [ %1, %3 ], [ %2, %46 ], [ %1, %47 ], [ 0, %124 ], [ 0, %51 ], [ 0, %48 ], [ 0, %.thread220 ], [ 0, %59 ], [ %2, %18 ], [ %1, %22 ]
   ret i32 %.0
 }
 
@@ -8225,7 +8233,7 @@ define internal fastcc noundef i32 @psa_sign_verify_check_alg(i32 noundef %0, i3
   br i1 %8, label %15, label %switch.early.test
 
 switch.early.test:                                ; preds = %13
-  switch i32 %6, label %22 [
+  switch i32 %6, label %.critedge [
     i32 100664832, label %14
     i32 100664320, label %14
   ]
@@ -8250,15 +8258,12 @@ switch.early.test:                                ; preds = %13
   %.not37.old = icmp eq i32 %.old, 0
   br i1 %.not37.old, label %22, label %.critedge
 
-.critedge:                                        ; preds = %15, %18
-  br label %22
-
 19:                                               ; preds = %2
   switch i32 %3, label %switch.early.test54 [
-    i32 100664064, label %22
-    i32 100668160, label %22
-    i32 100663808, label %22
-    i32 100665600, label %22
+    i32 100664064, label %.critedge
+    i32 100668160, label %.critedge
+    i32 100663808, label %.critedge
+    i32 100665600, label %.critedge
   ]
 
 switch.early.test54:                              ; preds = %19
@@ -8267,8 +8272,11 @@ switch.early.test54:                              ; preds = %19
   %21 = select i1 %switch.selectcmp, i32 0, i32 -135
   br label %22
 
-22:                                               ; preds = %19, %19, %19, %19, %switch.early.test54, %switch.early.test, %.critedge, %15, %18, %9
-  %.0 = phi i32 [ -135, %9 ], [ -135, %18 ], [ -135, %15 ], [ 0, %19 ], [ 0, %19 ], [ 0, %19 ], [ 0, %.critedge ], [ 0, %switch.early.test ], [ %21, %switch.early.test54 ], [ 0, %19 ]
+.critedge:                                        ; preds = %19, %19, %19, %19, %18, %15, %switch.early.test
+  br label %22
+
+22:                                               ; preds = %switch.early.test54, %15, %18, %9, %.critedge
+  %.0 = phi i32 [ 0, %.critedge ], [ -135, %9 ], [ -135, %18 ], [ -135, %15 ], [ %21, %switch.early.test54 ]
   ret i32 %.0
 }
 

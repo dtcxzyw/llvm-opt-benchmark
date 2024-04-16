@@ -192,7 +192,7 @@ declare ptr @ossl_safe_getenv(ptr noundef) local_unnamed_addr #1
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @_CONF_new_data(ptr noundef %conf) local_unnamed_addr #0 {
+define noundef i32 @_CONF_new_data(ptr noundef %conf) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %conf, null
   br i1 %cmp, label %return, label %if.end
@@ -201,17 +201,19 @@ if.end:                                           ; preds = %entry
   %data = getelementptr inbounds i8, ptr %conf, i64 16
   %0 = load ptr, ptr %data, align 8
   %cmp1 = icmp eq ptr %0, null
-  br i1 %cmp1, label %if.then2, label %return
+  br i1 %cmp1, label %if.then2, label %if.end10
 
 if.then2:                                         ; preds = %if.end
   %call4 = tail call ptr @OPENSSL_LH_new(ptr noundef nonnull @conf_value_hash, ptr noundef nonnull @conf_value_cmp) #6
   store ptr %call4, ptr %data, align 8
-  %cmp7 = icmp ne ptr %call4, null
-  %spec.select = zext i1 %cmp7 to i32
+  %cmp7 = icmp eq ptr %call4, null
+  br i1 %cmp7, label %return, label %if.end10
+
+if.end10:                                         ; preds = %if.then2, %if.end
   br label %return
 
-return:                                           ; preds = %if.then2, %if.end, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 1, %if.end ], [ %spec.select, %if.then2 ]
+return:                                           ; preds = %if.then2, %entry, %if.end10
+  %retval.0 = phi i32 [ 1, %if.end10 ], [ 0, %entry ], [ 0, %if.then2 ]
   ret i32 %retval.0
 }
 

@@ -16610,20 +16610,21 @@ _ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit: ; preds = %if.then4.i4
   %m_baseCollider.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %14 = load ptr, ptr %m_baseCollider.i.i, align 8
   %tobool.not.i = icmp eq ptr %14, null
-  br i1 %tobool.not.i, label %if.end, label %_ZNK11btMultiBody15isBaseKinematicEv.exit
+  br i1 %tobool.not.i, label %if.else, label %_ZNK11btMultiBody15isBaseKinematicEv.exit
 
 _ZNK11btMultiBody15isBaseKinematicEv.exit:        ; preds = %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit
   %m_collisionFlags.i.i = getelementptr inbounds i8, ptr %14, i64 224
   %15 = load i32, ptr %m_collisionFlags.i.i, align 8
   %and.i.i = and i32 %15, 2
   %cmp.i.i79.not = icmp eq i32 %and.i.i, 0
-  %spec.select = select i1 %cmp.i.i79.not, i64 72, i64 56
-  %spec.select231 = select i1 %cmp.i.i79.not, i64 40, i64 24
+  br i1 %cmp.i.i79.not, label %if.else, label %if.end
+
+if.else:                                          ; preds = %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit, %_ZNK11btMultiBody15isBaseKinematicEv.exit
   br label %if.end
 
-if.end:                                           ; preds = %_ZNK11btMultiBody15isBaseKinematicEv.exit, %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit
-  %.sink230 = phi i64 [ 72, %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit ], [ %spec.select, %_ZNK11btMultiBody15isBaseKinematicEv.exit ]
-  %.sink = phi i64 [ 40, %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit ], [ %spec.select231, %_ZNK11btMultiBody15isBaseKinematicEv.exit ]
+if.end:                                           ; preds = %_ZNK11btMultiBody15isBaseKinematicEv.exit, %if.else
+  %.sink230 = phi i64 [ 72, %if.else ], [ 56, %_ZNK11btMultiBody15isBaseKinematicEv.exit ]
+  %.sink = phi i64 [ 40, %if.else ], [ 24, %_ZNK11btMultiBody15isBaseKinematicEv.exit ]
   %m_baseQuat_interpolate.i = getelementptr inbounds i8, ptr %this, i64 %.sink230
   %m_data.i81 = getelementptr inbounds i8, ptr %world_to_local, i64 16
   %16 = load ptr, ptr %m_data.i81, align 8

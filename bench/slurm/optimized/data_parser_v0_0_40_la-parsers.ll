@@ -7620,37 +7620,39 @@ define internal i32 @_v40_parse_QOS_ID_STRING(ptr noundef %0, ptr noundef %1, pt
   %10 = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load i32, ptr %10, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %1, ptr noundef nonnull @.str.738, i32 noundef %11) #18
-  br label %23
+  br label %24
 
 12:                                               ; preds = %5
   %13 = call i32 @data_get_type(ptr noundef %2) #18
   %14 = icmp eq i32 %13, 3
-  br i1 %14, label %15, label %19
+  br i1 %14, label %15, label %20
 
 15:                                               ; preds = %12
   %16 = call ptr @data_key_get(ptr noundef %2, ptr noundef nonnull @.str.852) #18
   %.not20 = icmp eq ptr %16, null
-  br i1 %.not20, label %23, label %17
+  br i1 %.not20, label %19, label %17
 
 17:                                               ; preds = %15
   %18 = call i32 @data_get_string_converted(ptr noundef nonnull %16, ptr noundef %1) #18
   %.not21 = icmp eq i32 %18, 0
-  %spec.select = select i1 %.not21, i32 0, i32 9202
-  br label %23
+  br i1 %.not21, label %24, label %19
 
-19:                                               ; preds = %12
-  %20 = call i32 @data_convert_type(ptr noundef %2, i32 noundef 4) #18
-  %.not18 = icmp eq i32 %20, 4
-  br i1 %.not18, label %21, label %23
+19:                                               ; preds = %17, %15
+  br label %24
 
-21:                                               ; preds = %19
-  %22 = call i32 @data_get_string_converted(ptr noundef %2, ptr noundef %1) #18
-  %.not19 = icmp eq i32 %22, 0
+20:                                               ; preds = %12
+  %21 = call i32 @data_convert_type(ptr noundef %2, i32 noundef 4) #18
+  %.not18 = icmp eq i32 %21, 4
+  br i1 %.not18, label %22, label %24
+
+22:                                               ; preds = %20
+  %23 = call i32 @data_get_string_converted(ptr noundef %2, ptr noundef %1) #18
+  %.not19 = icmp eq i32 %23, 0
   %. = select i1 %.not19, i32 0, i32 9202
-  br label %23
+  br label %24
 
-23:                                               ; preds = %17, %21, %19, %15, %8
-  %.0 = phi i32 [ 0, %8 ], [ 9202, %15 ], [ 9202, %19 ], [ %., %21 ], [ %spec.select, %17 ]
+24:                                               ; preds = %22, %20, %17, %19, %8
+  %.0 = phi i32 [ 9202, %19 ], [ 0, %8 ], [ 0, %17 ], [ 9202, %20 ], [ %., %22 ]
   ret i32 %.0
 }
 

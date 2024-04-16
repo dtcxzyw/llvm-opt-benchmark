@@ -8407,18 +8407,18 @@ debug_backtrace_get_args.exit:                    ; preds = %1050, %1003, %1018
   %1190 = icmp ne i32 %1189, 131072
   %1191 = or i1 %.011161228, %1190
   %or.cond1202 = or i1 %423, %1191
-  br i1 %or.cond1202, label %1203, label %1192
+  br i1 %or.cond1202, label %1202, label %1192
 
 1192:                                             ; preds = %1186
   %1193 = getelementptr inbounds i8, ptr %.01128, i64 24
   %1194 = load ptr, ptr %1193, align 8
   %.not = icmp eq ptr %1194, null
-  br i1 %.not, label %1203, label %1195
+  br i1 %.not, label %1202, label %1195
 
 1195:                                             ; preds = %1192
   %1196 = load i8, ptr %1194, align 8
   %.not1199 = icmp eq i8 %1196, 1
-  br i1 %.not1199, label %1203, label %1197
+  br i1 %.not1199, label %1202, label %1197
 
 1197:                                             ; preds = %1195
   %1198 = load ptr, ptr %.01128, align 8
@@ -8427,13 +8427,13 @@ debug_backtrace_get_args.exit:                    ; preds = %1050, %1003, %1018
   %1201 = icmp eq i8 %1200, 73
   br i1 %1201, label %1203, label %1202
 
-1202:                                             ; preds = %1197
+1202:                                             ; preds = %1197, %1195, %1192, %1186
   br label %1203
 
-1203:                                             ; preds = %1186, %1192, %1195, %1197, %1202
-  %.11124 = phi ptr [ %.011231224, %1197 ], [ %.01122, %1195 ], [ %.01122, %1192 ], [ %.01122, %1186 ], [ %.01122, %1202 ]
-  %.11117 = phi i1 [ true, %1197 ], [ false, %1195 ], [ false, %1192 ], [ false, %1186 ], [ false, %1202 ]
-  %.2 = phi ptr [ %.11229, %1197 ], [ %.01128, %1195 ], [ %.01128, %1192 ], [ %.01128, %1186 ], [ %.01128, %1202 ]
+1203:                                             ; preds = %1197, %1202
+  %.11124 = phi ptr [ %.01122, %1202 ], [ %.011231224, %1197 ]
+  %.11117 = phi i1 [ false, %1202 ], [ true, %1197 ]
+  %.2 = phi ptr [ %.01128, %1202 ], [ %.11229, %1197 ]
   %.not1157 = icmp eq ptr %.2, null
   br i1 %.not1157, label %.critedge4, label %150
 

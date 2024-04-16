@@ -5726,7 +5726,7 @@ Scl_LibertyItem.exit11:                           ; preds = %Scl_LibertyCompare.
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Scl_LibertyReadPinDirection(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
+define noundef i32 @Scl_LibertyReadPinDirection(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %1, i64 36
   %4 = load i32, ptr %3, align 4
   %5 = icmp slt i32 %4, 0
@@ -5770,18 +5770,17 @@ Scl_LibertyItem.exit:                             ; preds = %2
   %23 = tail call ptr @Scl_LibertyReadString(ptr noundef nonnull %0, i64 %22)
   %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(6) @.str.71) #30
   %.not14 = icmp eq i32 %24, 0
-  br i1 %.not14, label %.loopexit, label %25
+  br i1 %.not14, label %35, label %25
 
 25:                                               ; preds = %20
   %26 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(7) @.str.72) #30
   %.not15 = icmp eq i32 %26, 0
-  br i1 %.not15, label %.loopexit, label %27
+  br i1 %.not15, label %35, label %27
 
 27:                                               ; preds = %25
   %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(9) @.str.73) #30
   %.not16 = icmp eq i32 %28, 0
-  %spec.select = select i1 %.not16, i32 2, i32 -1
-  br label %.loopexit
+  br i1 %.not16, label %35, label %.loopexit
 
 Scl_LibertyCompare.exit.thread:                   ; preds = %12
   %29 = getelementptr inbounds i8, ptr %.01222, i64 32
@@ -5796,8 +5795,11 @@ Scl_LibertyItem.exit17:                           ; preds = %Scl_LibertyCompare.
   %.not = icmp eq ptr %32, null
   br i1 %.not, label %.loopexit, label %12, !llvm.loop !53
 
-.loopexit:                                        ; preds = %Scl_LibertyCompare.exit.thread, %Scl_LibertyItem.exit17, %2, %Scl_LibertyItem.exit, %27, %25, %20
-  %.0 = phi i32 [ 0, %20 ], [ 1, %25 ], [ %spec.select, %27 ], [ -1, %Scl_LibertyItem.exit ], [ -1, %2 ], [ -1, %Scl_LibertyItem.exit17 ], [ -1, %Scl_LibertyCompare.exit.thread ]
+.loopexit:                                        ; preds = %Scl_LibertyCompare.exit.thread, %Scl_LibertyItem.exit17, %2, %Scl_LibertyItem.exit, %27
+  br label %35
+
+35:                                               ; preds = %27, %25, %20, %.loopexit
+  %.0 = phi i32 [ -1, %.loopexit ], [ 0, %20 ], [ 1, %25 ], [ 2, %27 ]
   ret i32 %.0
 }
 

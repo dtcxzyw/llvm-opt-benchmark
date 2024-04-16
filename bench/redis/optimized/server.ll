@@ -8799,21 +8799,21 @@ if.end8.i:                                        ; preds = %if.end.i
 land.lhs.true.i:                                  ; preds = %if.end8.i
   %4 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 268), align 8
   %tobool13.not.i = icmp eq ptr %4, null
-  br i1 %tobool13.not.i, label %shouldPropagate.exit, label %if.end
+  br i1 %tobool13.not.i, label %lor.lhs.false14.i, label %if.end
 
-shouldPropagate.exit:                             ; preds = %land.lhs.true.i
+lor.lhs.false14.i:                                ; preds = %land.lhs.true.i
   %5 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 59), align 8
   %len.i = getelementptr inbounds i8, ptr %5, i64 40
   %6 = load i64, ptr %len.i, align 8
-  %cmp15.not.i.not = icmp eq i64 %6, 0
-  br i1 %cmp15.not.i.not, label %return, label %if.end
+  %cmp15.not.i = icmp eq i64 %6, 0
+  br i1 %cmp15.not.i, label %return, label %if.end
 
-if.end:                                           ; preds = %land.lhs.true.i, %if.end.i, %shouldPropagate.exit
+if.end:                                           ; preds = %lor.lhs.false14.i, %land.lhs.true.i, %if.end.i
   %conv = sext i32 %argc to i64
   %mul = shl nsw i64 %conv, 3
   %call1 = tail call noalias ptr @zmalloc(i64 noundef %mul) #42
-  %cmp17 = icmp sgt i32 %argc, 0
-  br i1 %cmp17, label %for.body.preheader, label %for.end
+  %cmp13 = icmp sgt i32 %argc, 0
+  br i1 %cmp13, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %if.end
   %wide.trip.count = zext nneg i32 %argc to i64
@@ -8880,7 +8880,7 @@ redisOpArrayAppend.exit:                          ; preds = %if.end7.thread.i, %
   store i32 %inc.i, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 248, i32 1), align 8
   br label %return
 
-return:                                           ; preds = %if.end8.i, %entry, %lor.lhs.false1.i, %shouldPropagate.exit, %redisOpArrayAppend.exit
+return:                                           ; preds = %if.end8.i, %lor.lhs.false14.i, %entry, %lor.lhs.false1.i, %redisOpArrayAppend.exit
   ret void
 }
 
@@ -17404,17 +17404,19 @@ sw.bb13.i:                                        ; preds = %if.end
 sdslen.exit:                                      ; preds = %sw.bb.i, %sw.bb3.i, %sw.bb5.i, %sw.bb9.i, %sw.bb13.i
   %retval.0.i3 = phi i64 [ %4, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ]
   %retval.0.i3.fr = freeze i64 %retval.0.i3
-  %cmp = icmp ne i64 %retval.0.i3.fr, 0
-  %spec.select = zext i1 %cmp to i32
-  br label %sdslen.exit.thread
+  %cmp = icmp eq i64 %retval.0.i3.fr, 0
+  br i1 %cmp, label %sdslen.exit.thread, label %5
 
-sdslen.exit.thread:                               ; preds = %sdslen.exit, %if.end
-  %5 = phi i32 [ 0, %if.end ], [ %spec.select, %sdslen.exit ]
+sdslen.exit.thread:                               ; preds = %if.end, %sdslen.exit
+  br label %5
+
+5:                                                ; preds = %sdslen.exit, %sdslen.exit.thread
+  %6 = phi i32 [ 0, %sdslen.exit.thread ], [ 1, %sdslen.exit ]
   tail call void @sdsfree(ptr noundef nonnull %call1.i) #38
   br label %return
 
-return:                                           ; preds = %entry, %expandProcTitleTemplate.exit, %sdslen.exit.thread
-  %retval.0 = phi i32 [ %5, %sdslen.exit.thread ], [ 0, %expandProcTitleTemplate.exit ], [ 0, %entry ]
+return:                                           ; preds = %entry, %expandProcTitleTemplate.exit, %5
+  %retval.0 = phi i32 [ %6, %5 ], [ 0, %expandProcTitleTemplate.exit ], [ 0, %entry ]
   ret i32 %retval.0
 }
 
@@ -18520,16 +18522,16 @@ if.end8.i:                                        ; preds = %if.end.i
 land.lhs.true.i:                                  ; preds = %if.end8.i
   %4 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 268), align 8
   %tobool13.not.i = icmp eq ptr %4, null
-  br i1 %tobool13.not.i, label %shouldPropagate.exit, label %if.end
+  br i1 %tobool13.not.i, label %lor.lhs.false14.i, label %if.end
 
-shouldPropagate.exit:                             ; preds = %land.lhs.true.i
+lor.lhs.false14.i:                                ; preds = %land.lhs.true.i
   %5 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 59), align 8
   %len.i = getelementptr inbounds i8, ptr %5, i64 40
   %6 = load i64, ptr %len.i, align 8
-  %cmp15.not.i.not = icmp eq i64 %6, 0
-  br i1 %cmp15.not.i.not, label %if.end15, label %if.end
+  %cmp15.not.i = icmp eq i64 %6, 0
+  br i1 %cmp15.not.i, label %if.end15, label %if.end
 
-if.end:                                           ; preds = %land.lhs.true.i, %if.end.i, %shouldPropagate.exit
+if.end:                                           ; preds = %lor.lhs.false14.i, %land.lhs.true.i, %if.end.i
   %call1 = tail call i32 @isPausedActions(i32 noundef 16) #38
   %tobool2 = icmp eq i32 %call1, 0
   %7 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 34), align 8
@@ -18563,7 +18565,7 @@ if.then14:                                        ; preds = %if.end11
   tail call void @replicationFeedSlaves(ptr noundef %9, i32 noundef %dbid, ptr noundef %argv, i32 noundef %argc) #38
   br label %if.end15
 
-if.end15:                                         ; preds = %if.end8.i, %entry, %lor.lhs.false1.i, %shouldPropagate.exit, %if.then14, %if.end11
+if.end15:                                         ; preds = %if.end8.i, %lor.lhs.false14.i, %entry, %lor.lhs.false1.i, %if.then14, %if.end11
   ret void
 }
 

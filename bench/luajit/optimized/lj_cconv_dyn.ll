@@ -1600,7 +1600,7 @@ sw.epilog:                                        ; preds = %if.end12, %sw.bb27,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @lj_cconv_multi_init(ptr noundef %cts, ptr noundef readonly %d, ptr nocapture noundef readonly %o) local_unnamed_addr #1 {
+define hidden noundef i32 @lj_cconv_multi_init(ptr noundef %cts, ptr noundef readonly %d, ptr nocapture noundef readonly %o) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %d, align 8
   %and = and i32 %0, -67108864
@@ -1625,7 +1625,7 @@ land.lhs.true:                                    ; preds = %if.end
 if.end16:                                         ; preds = %if.end, %land.lhs.true
   %2 = and i64 %shr3, 4294967295
   %cmp19 = icmp eq i64 %2, 4294967285
-  br i1 %cmp19, label %land.lhs.true21, label %return
+  br i1 %cmp19, label %land.lhs.true21, label %if.end27
 
 land.lhs.true21:                                  ; preds = %if.end16
   %and22 = and i64 %1, 140737488355327
@@ -1634,12 +1634,14 @@ land.lhs.true21:                                  ; preds = %if.end16
   %4 = load i16, ptr %ctypeid, align 2
   %conv23 = zext i16 %4 to i32
   %call = tail call ptr @lj_ctype_rawref(ptr noundef %cts, i32 noundef %conv23) #10
-  %cmp24 = icmp ne ptr %call, %d
-  %spec.select = zext i1 %cmp24 to i32
+  %cmp24 = icmp eq ptr %call, %d
+  br i1 %cmp24, label %return, label %if.end27
+
+if.end27:                                         ; preds = %land.lhs.true21, %if.end16
   br label %return
 
-return:                                           ; preds = %land.lhs.true21, %if.end16, %land.lhs.true, %if.end, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 0, %if.end ], [ 0, %land.lhs.true ], [ 1, %if.end16 ], [ %spec.select, %land.lhs.true21 ]
+return:                                           ; preds = %land.lhs.true21, %land.lhs.true, %if.end, %entry, %if.end27
+  %retval.0 = phi i32 [ 1, %if.end27 ], [ 0, %entry ], [ 0, %if.end ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true21 ]
   ret i32 %retval.0
 }
 
@@ -1683,23 +1685,23 @@ land.lhs.true.i:                                  ; preds = %if.end.i
 if.end16.i:                                       ; preds = %land.lhs.true.i, %if.end.i
   %2 = and i64 %shr3.i, 4294967295
   %cmp19.i = icmp eq i64 %2, 4294967285
-  br i1 %cmp19.i, label %lj_cconv_multi_init.exit, label %if.else4
+  br i1 %cmp19.i, label %land.lhs.true21.i, label %if.else4
 
-lj_cconv_multi_init.exit:                         ; preds = %if.end16.i
+land.lhs.true21.i:                                ; preds = %if.end16.i
   %and22.i = and i64 %1, 140737488355327
   %3 = inttoptr i64 %and22.i to ptr
   %ctypeid.i = getelementptr inbounds i8, ptr %3, i64 10
   %4 = load i16, ptr %ctypeid.i, align 2
   %conv23.i = zext i16 %4 to i32
   %call.i = tail call ptr @lj_ctype_rawref(ptr noundef %cts, i32 noundef %conv23.i) #10
-  %cmp24.i.not = icmp eq ptr %call.i, %d
-  br i1 %cmp24.i.not, label %if.then3, label %if.else4
+  %cmp24.i = icmp eq ptr %call.i, %d
+  br i1 %cmp24.i, label %if.then3, label %if.else4
 
-if.then3:                                         ; preds = %land.lhs.true.i, %if.end.i, %land.lhs.true, %lj_cconv_multi_init.exit
+if.then3:                                         ; preds = %land.lhs.true, %if.end.i, %land.lhs.true.i, %land.lhs.true21.i
   tail call void @lj_cconv_ct_tv(ptr noundef %cts, ptr noundef nonnull %d, ptr noundef %dp, ptr noundef %o, i32 noundef 0)
   br label %if.end17
 
-if.else4:                                         ; preds = %if.end16.i, %entry, %lj_cconv_multi_init.exit
+if.else4:                                         ; preds = %land.lhs.true21.i, %if.end16.i, %entry
   %5 = load i32, ptr %d, align 8
   %shr = lshr i32 %5, 28
   switch i32 %shr, label %if.else14 [

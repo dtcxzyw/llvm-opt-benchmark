@@ -763,17 +763,20 @@ if.end3:                                          ; preds = %invoke.cont, %if.en
   %7 = load i32, ptr @_ZN7logging12_GLOBAL__N_121g_logging_destinationE, align 4
   %and = and i32 %7, 1
   %cmp.not = icmp eq i32 %and, 0
-  br i1 %cmp.not, label %return, label %if.then4
+  br i1 %cmp.not, label %if.end10, label %if.then4
 
 if.then4:                                         ; preds = %if.end3
   %call5 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #20
   %call6 = call noalias ptr @fopen(ptr noundef %call5, ptr noundef nonnull @.str.16)
   store ptr %call6, ptr @_ZN7logging12_GLOBAL__N_110g_log_fileE, align 8
-  %cmp7 = icmp ne ptr %call6, null
+  %cmp7 = icmp eq ptr %call6, null
+  br i1 %cmp7, label %return, label %if.end10
+
+if.end10:                                         ; preds = %if.then4, %if.end3
   br label %return
 
-return:                                           ; preds = %if.then4, %if.end3, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ true, %if.end3 ], [ %cmp7, %if.then4 ]
+return:                                           ; preds = %if.then4, %entry, %if.end10
+  %retval.0 = phi i1 [ true, %if.end10 ], [ true, %entry ], [ false, %if.then4 ]
   ret i1 %retval.0
 }
 

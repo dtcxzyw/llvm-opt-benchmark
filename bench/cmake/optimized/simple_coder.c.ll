@@ -89,7 +89,7 @@ define dso_local i32 @lzma_simple_coder_init(ptr nocapture noundef %0, ptr nound
 declare noalias ptr @lzma_alloc(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @simple_code(ptr noundef %0, ptr noundef %1, ptr noalias noundef %2, ptr noalias noundef %3, i64 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6, i64 noundef %7, i32 noundef %8) #0 {
+define internal noundef i32 @simple_code(ptr noundef %0, ptr noundef %1, ptr noalias noundef %2, ptr noalias noundef %3, i64 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6, i64 noundef %7, i32 noundef %8) #0 {
   %10 = icmp eq i32 %8, 1
   br i1 %10, label %copy_or_code.exit, label %11
 
@@ -159,22 +159,22 @@ thread-pre-split:                                 ; preds = %23, %11
 51:                                               ; preds = %45
   %52 = load i64, ptr %3, align 8, !alias.scope !5, !noalias !12
   %53 = icmp eq i64 %52, %4
-  br i1 %53, label %.sink.split, label %58
+  br i1 %53, label %.sink.split.i, label %58
 
 54:                                               ; preds = %40
   %55 = load ptr, ptr %0, align 8, !noalias !8
   %56 = tail call i32 %43(ptr noundef %55, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef nonnull %6, i64 noundef %7, i32 noundef %8) #5
   switch i32 %56, label %copy_or_code.exit [
-    i32 1, label %.sink.split
+    i32 1, label %.sink.split.i
     i32 0, label %58
   ]
 
-.sink.split:                                      ; preds = %54, %51
+.sink.split.i:                                    ; preds = %54, %51
   %57 = getelementptr inbounds i8, ptr %0, i64 72
   store i8 1, ptr %57, align 8, !noalias !8
   br label %58
 
-58:                                               ; preds = %.sink.split, %54, %45, %51
+58:                                               ; preds = %45, %51, %54, %.sink.split.i
   %59 = load i64, ptr %6, align 8
   %60 = sub i64 %59, %28
   %61 = getelementptr inbounds i8, ptr %5, i64 %28
@@ -206,7 +206,7 @@ thread-pre-split:                                 ; preds = %23, %11
 
 79:                                               ; preds = %58
   %.not107 = icmp eq i64 %60, %71
-  br i1 %.not107, label %thread-pre-split115, label %80
+  br i1 %.not107, label %thread-pre-split116, label %80
 
 80:                                               ; preds = %79
   %81 = load i64, ptr %6, align 8
@@ -215,11 +215,11 @@ thread-pre-split:                                 ; preds = %23, %11
   %83 = getelementptr inbounds i8, ptr %0, i64 136
   %84 = getelementptr inbounds i8, ptr %5, i64 %82
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %83, ptr align 1 %84, i64 %75, i1 false)
-  br label %thread-pre-split115
+  br label %thread-pre-split116
 
 85:                                               ; preds = %thread-pre-split
   %.not = icmp eq i64 %27, 0
-  br i1 %.not, label %thread-pre-split115, label %86
+  br i1 %.not, label %thread-pre-split116, label %86
 
 86:                                               ; preds = %85
   %87 = getelementptr inbounds i8, ptr %0, i64 136
@@ -227,14 +227,14 @@ thread-pre-split:                                 ; preds = %23, %11
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %87, ptr nonnull align 1 %88, i64 %32, i1 false)
   store i64 %32, ptr %30, align 8
   store i64 0, ptr %12, align 8
-  br label %thread-pre-split115
+  br label %thread-pre-split116
 
-thread-pre-split115:                              ; preds = %85, %80, %79, %86
+thread-pre-split116:                              ; preds = %85, %80, %79, %86
   %89 = phi i64 [ %32, %86 ], [ %75, %79 ], [ %75, %80 ], [ %31, %85 ]
   %.not108 = icmp eq i64 %89, 0
   br i1 %.not108, label %133, label %90
 
-90:                                               ; preds = %thread-pre-split115
+90:                                               ; preds = %thread-pre-split116
   %91 = getelementptr inbounds i8, ptr %0, i64 136
   %92 = getelementptr inbounds i8, ptr %0, i64 104
   %93 = load i64, ptr %92, align 8
@@ -250,28 +250,28 @@ thread-pre-split115:                              ; preds = %85, %80, %79, %86
   %100 = load i8, ptr %99, align 1, !noalias !16
   %101 = trunc i8 %100 to i1
   %102 = icmp eq i32 %8, 3
-  %or.cond.i111 = and i1 %102, %101
-  br i1 %or.cond.i111, label %103, label %110
+  %or.cond.i112 = and i1 %102, %101
+  br i1 %or.cond.i112, label %103, label %110
 
 103:                                              ; preds = %97
   %104 = load i64, ptr %3, align 8, !alias.scope !13, !noalias !20
   %105 = icmp eq i64 %104, %4
-  br i1 %105, label %.sink.split121, label %110
+  br i1 %105, label %.sink.split.i111, label %110
 
 106:                                              ; preds = %90
   %107 = load ptr, ptr %0, align 8, !noalias !16
   %108 = tail call i32 %95(ptr noundef %107, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef nonnull %91, ptr noundef nonnull %30, i64 noundef %93, i32 noundef %8) #5
   switch i32 %108, label %copy_or_code.exit [
-    i32 1, label %.sink.split121
+    i32 1, label %.sink.split.i111
     i32 0, label %110
   ]
 
-.sink.split121:                                   ; preds = %106, %103
+.sink.split.i111:                                 ; preds = %106, %103
   %109 = getelementptr inbounds i8, ptr %0, i64 72
   store i8 1, ptr %109, align 8, !noalias !16
   br label %110
 
-110:                                              ; preds = %.sink.split121, %106, %97, %103
+110:                                              ; preds = %97, %103, %106, %.sink.split.i111
   %111 = load i64, ptr %30, align 8
   %112 = getelementptr inbounds i8, ptr %0, i64 80
   %113 = load ptr, ptr %112, align 8
@@ -303,21 +303,23 @@ thread-pre-split115:                              ; preds = %85, %80, %79, %86
   %132 = tail call i64 @lzma_bufcpy(ptr noundef nonnull %91, ptr noundef nonnull %12, i64 noundef %131, ptr noundef %5, ptr noundef nonnull %6, i64 noundef %7) #5
   br label %133
 
-133:                                              ; preds = %.thread, %130, %thread-pre-split115
+133:                                              ; preds = %.thread, %130, %thread-pre-split116
   %134 = getelementptr inbounds i8, ptr %0, i64 72
   %135 = load i8, ptr %134, align 8
   %136 = trunc i8 %135 to i1
-  br i1 %136, label %137, label %copy_or_code.exit
+  br i1 %136, label %137, label %141
 
 137:                                              ; preds = %133
   %138 = load i64, ptr %12, align 8
   %139 = load i64, ptr %30, align 8
   %140 = icmp eq i64 %138, %139
-  %spec.select = zext i1 %140 to i32
+  br i1 %140, label %copy_or_code.exit, label %141
+
+141:                                              ; preds = %137, %133
   br label %copy_or_code.exit
 
-copy_or_code.exit:                                ; preds = %106, %54, %137, %133, %23, %17, %9
-  %.0 = phi i32 [ 8, %9 ], [ 0, %17 ], [ 1, %23 ], [ 0, %133 ], [ %spec.select, %137 ], [ %56, %54 ], [ %108, %106 ]
+copy_or_code.exit:                                ; preds = %106, %54, %137, %23, %17, %9, %141
+  %.0 = phi i32 [ 0, %141 ], [ 8, %9 ], [ 0, %17 ], [ 1, %23 ], [ 1, %137 ], [ %56, %54 ], [ %108, %106 ]
   ret i32 %.0
 }
 

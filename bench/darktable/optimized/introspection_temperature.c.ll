@@ -257,12 +257,14 @@ define noundef i32 @default_colorspace(ptr nocapture noundef readnone %0, ptr no
   %6 = getelementptr inbounds i8, ptr %2, i64 336
   %7 = load i32, ptr %6, align 16, !tbaa !21
   %8 = icmp eq i32 %7, 0
-  %spec.select = select i1 %8, i32 0, i32 2
-  br label %9
+  br i1 %8, label %9, label %10
 
 9:                                                ; preds = %5, %3
-  %10 = phi i32 [ 0, %3 ], [ %spec.select, %5 ]
-  ret i32 %10
+  br label %10
+
+10:                                               ; preds = %9, %5
+  %11 = phi i32 [ 0, %9 ], [ 2, %5 ]
+  ret i32 %11
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable

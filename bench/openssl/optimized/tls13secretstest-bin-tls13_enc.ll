@@ -1336,13 +1336,13 @@ if.end:                                           ; preds = %lor.lhs.false
   %server = getelementptr inbounds i8, ptr %s, i64 112
   %0 = load i32, ptr %server, align 8
   %tobool2.not = icmp eq i32 %0, 0
-  br i1 %tobool2.not, label %land.lhs.true, label %if.end11
+  br i1 %tobool2.not, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %if.end
   %max_early_data = getelementptr inbounds i8, ptr %s, i64 5280
   %1 = load i32, ptr %max_early_data, align 8
   %cmp3.not = icmp eq i32 %1, 0
-  br i1 %cmp3.not, label %if.end11, label %land.lhs.true4
+  br i1 %cmp3.not, label %if.else, label %land.lhs.true4
 
 land.lhs.true4:                                   ; preds = %land.lhs.true
   %session = getelementptr inbounds i8, ptr %s, i64 2176
@@ -1350,11 +1350,13 @@ land.lhs.true4:                                   ; preds = %land.lhs.true
   %max_early_data5 = getelementptr inbounds i8, ptr %2, i64 860
   %3 = load i32, ptr %max_early_data5, align 4
   %cmp6 = icmp eq i32 %3, 0
-  %spec.select = select i1 %cmp6, i64 2184, i64 2176
+  br i1 %cmp6, label %if.end11, label %if.else
+
+if.else:                                          ; preds = %land.lhs.true4, %land.lhs.true, %if.end
   br label %if.end11
 
-if.end11:                                         ; preds = %land.lhs.true4, %if.end, %land.lhs.true
-  %.sink = phi i64 [ 2176, %land.lhs.true ], [ 2176, %if.end ], [ %spec.select, %land.lhs.true4 ]
+if.end11:                                         ; preds = %land.lhs.true4, %if.else
+  %.sink = phi i64 [ 2176, %if.else ], [ 2184, %land.lhs.true4 ]
   %session9 = getelementptr inbounds i8, ptr %s, i64 %.sink
   %4 = load ptr, ptr %session9, align 8
   %call10 = tail call ptr @SSL_SESSION_get0_cipher(ptr noundef %4) #3

@@ -94,7 +94,7 @@ declare void @ossl_policy_data_free(ptr noundef) #1
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509_policy_check(ptr nocapture noundef writeonly %ptree, ptr nocapture noundef writeonly %pexplicit_policy, ptr noundef %certs, ptr noundef %policy_oids, i32 noundef %flags) local_unnamed_addr #0 {
+define noundef i32 @X509_policy_check(ptr nocapture noundef writeonly %ptree, ptr nocapture noundef writeonly %pexplicit_policy, ptr noundef %certs, ptr noundef %policy_oids, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %auth_nodes = alloca ptr, align 8
   store ptr null, ptr %auth_nodes, align 8
@@ -340,8 +340,8 @@ if.then2:                                         ; preds = %if.end
   br i1 %tobool.not, label %if.end10, label %if.then4
 
 if.then4:                                         ; preds = %entry, %if.then2
-  %tree.0717987 = phi ptr [ %tree.0, %if.then2 ], [ null, %entry ]
-  tail call void @X509_policy_tree_free(ptr noundef %tree.0717987)
+  %tree.0748290 = phi ptr [ %tree.0, %if.then2 ], [ null, %entry ]
+  tail call void @X509_policy_tree_free(ptr noundef %tree.0748290)
   br label %return
 
 if.else:                                          ; preds = %if.end
@@ -354,31 +354,31 @@ if.end10:                                         ; preds = %if.else, %if.then2
   %levels.i11 = getelementptr inbounds i8, ptr %tree.0, i64 16
   %nlevel.i12 = getelementptr inbounds i8, ptr %tree.0, i64 24
   %12 = load i32, ptr %nlevel.i12, align 8
-  %cmp52.i = icmp sgt i32 %12, 1
+  %cmp50.i = icmp sgt i32 %12, 1
   %.pre = load ptr, ptr %levels.i11, align 8
-  br i1 %cmp52.i, label %for.body.i14, label %if.end21
+  br i1 %cmp50.i, label %for.body.i14, label %if.end21
 
 for.body.i14:                                     ; preds = %if.end10, %for.inc.i
-  %i.054.i = phi i32 [ %inc.i, %for.inc.i ], [ 1, %if.end10 ]
-  %.pn53.i = phi ptr [ %curr.055.i, %for.inc.i ], [ %.pre, %if.end10 ]
-  %curr.055.i = getelementptr inbounds i8, ptr %.pn53.i, i64 32
-  %13 = load ptr, ptr %curr.055.i, align 8
+  %i.052.i = phi i32 [ %inc.i, %for.inc.i ], [ 1, %if.end10 ]
+  %.pn51.i = phi ptr [ %curr.053.i, %for.inc.i ], [ %.pre, %if.end10 ]
+  %curr.053.i = getelementptr inbounds i8, ptr %.pn51.i, i64 32
+  %13 = load ptr, ptr %curr.053.i, align 8
   %call.i = tail call ptr @ossl_policy_cache_set(ptr noundef %13) #2
   %data.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %14 = load ptr, ptr %data.i.i, align 8
-  %call.i11.i.i = tail call i32 @OPENSSL_sk_num(ptr noundef %14) #2
-  %cmp12.i.i = icmp sgt i32 %call.i11.i.i, 0
-  br i1 %cmp12.i.i, label %for.body.lr.ph.i.i, label %if.end.i15
+  %call.i8.i.i = tail call i32 @OPENSSL_sk_num(ptr noundef %14) #2
+  %cmp9.i.i = icmp sgt i32 %call.i8.i.i, 0
+  br i1 %cmp9.i.i, label %for.body.lr.ph.i.i, label %if.end.i15
 
 for.body.lr.ph.i.i:                               ; preds = %for.body.i14
-  %nodes.i.i.i = getelementptr inbounds i8, ptr %.pn53.i, i64 8
-  %anyPolicy.i.i.i = getelementptr inbounds i8, ptr %.pn53.i, i64 16
+  %nodes.i.i.i = getelementptr inbounds i8, ptr %.pn51.i, i64 8
+  %anyPolicy.i.i.i = getelementptr inbounds i8, ptr %.pn51.i, i64 16
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.lr.ph.i.i
-  %i.013.i.i = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %inc.i.i, %for.inc.i.i ]
+  %i.010.i.i = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %inc.i.i, %for.inc.i.i ]
   %15 = load ptr, ptr %data.i.i, align 8
-  %call.i4.i.i = tail call ptr @OPENSSL_sk_value(ptr noundef %15, i32 noundef %i.013.i.i) #2
+  %call.i4.i.i = tail call ptr @OPENSSL_sk_value(ptr noundef %15, i32 noundef %i.010.i.i) #2
   %16 = load ptr, ptr %nodes.i.i.i, align 8
   %call114.i.i.i = tail call i32 @OPENSSL_sk_num(ptr noundef %16) #2
   %cmp16.i.i.i = icmp sgt i32 %call114.i.i.i, 0
@@ -394,12 +394,12 @@ for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %for
   %17 = load ptr, ptr %nodes.i.i.i, align 8
   %call4.i.i.i = tail call ptr @OPENSSL_sk_value(ptr noundef %17, i32 noundef %i.017.i.i.i) #2
   %18 = load ptr, ptr %valid_policy.i.i.i, align 8
-  %call5.i.i.i = tail call i32 @ossl_policy_node_match(ptr noundef nonnull %.pn53.i, ptr noundef %call4.i.i.i, ptr noundef %18) #2
+  %call5.i.i.i = tail call i32 @ossl_policy_node_match(ptr noundef nonnull %.pn51.i, ptr noundef %call4.i.i.i, ptr noundef %18) #2
   %tobool.not.i.i.i = icmp eq i32 %call5.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %for.inc.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body.i.i.i
-  %call6.i.i.i = tail call ptr @ossl_policy_level_add_node(ptr noundef nonnull %curr.055.i, ptr noundef nonnull %call.i4.i.i, ptr noundef %call4.i.i.i, ptr noundef %tree.0, i32 noundef 0) #2
+  %call6.i.i.i = tail call ptr @ossl_policy_level_add_node(ptr noundef nonnull %curr.053.i, ptr noundef nonnull %call.i4.i.i, ptr noundef %call4.i.i.i, ptr noundef %tree.0, i32 noundef 0) #2
   %cmp7.i.i.i = icmp eq ptr %call6.i.i.i, null
   br i1 %cmp7.i.i.i, label %error, label %for.inc.i.i.i
 
@@ -418,36 +418,36 @@ for.end.i.i.i:                                    ; preds = %for.inc.i.i.i
 land.lhs.true.i.i.i:                              ; preds = %for.end.i.i.i, %for.body.i.i
   %21 = load ptr, ptr %anyPolicy.i.i.i, align 8
   %tobool11.not.i.i.i = icmp eq ptr %21, null
-  br i1 %tobool11.not.i.i.i, label %for.inc.i.i, label %tree_link_matching_nodes.exit.i.i
+  br i1 %tobool11.not.i.i.i, label %for.inc.i.i, label %if.then12.i.i.i
 
-tree_link_matching_nodes.exit.i.i:                ; preds = %land.lhs.true.i.i.i
-  %call14.i.i.i = tail call ptr @ossl_policy_level_add_node(ptr noundef nonnull %curr.055.i, ptr noundef %call.i4.i.i, ptr noundef nonnull %21, ptr noundef %tree.0, i32 noundef 0) #2
-  %cmp15.i.not.i.i = icmp eq ptr %call14.i.i.i, null
-  br i1 %cmp15.i.not.i.i, label %error, label %for.inc.i.i
+if.then12.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
+  %call14.i.i.i = tail call ptr @ossl_policy_level_add_node(ptr noundef nonnull %curr.053.i, ptr noundef %call.i4.i.i, ptr noundef nonnull %21, ptr noundef %tree.0, i32 noundef 0) #2
+  %cmp15.i.i.i = icmp eq ptr %call14.i.i.i, null
+  br i1 %cmp15.i.i.i, label %error, label %for.inc.i.i
 
-for.inc.i.i:                                      ; preds = %tree_link_matching_nodes.exit.i.i, %land.lhs.true.i.i.i, %for.end.i.i.i
-  %inc.i.i = add nuw nsw i32 %i.013.i.i, 1
+for.inc.i.i:                                      ; preds = %if.then12.i.i.i, %land.lhs.true.i.i.i, %for.end.i.i.i
+  %inc.i.i = add nuw nsw i32 %i.010.i.i, 1
   %22 = load ptr, ptr %data.i.i, align 8
   %call.i.i.i = tail call i32 @OPENSSL_sk_num(ptr noundef %22) #2
   %cmp.i.i = icmp slt i32 %inc.i.i, %call.i.i.i
   br i1 %cmp.i.i, label %for.body.i.i, label %if.end.i15, !llvm.loop !10
 
 if.end.i15:                                       ; preds = %for.inc.i.i, %for.body.i14
-  %flags.i = getelementptr inbounds i8, ptr %.pn53.i, i64 56
+  %flags.i = getelementptr inbounds i8, ptr %.pn51.i, i64 56
   %23 = load i32, ptr %flags.i, align 8
   %and.i16 = and i32 %23, 512
   %tobool2.not.i = icmp eq i32 %and.i16, 0
   br i1 %tobool2.not.i, label %land.lhs.true.i18, label %do.body.i
 
 land.lhs.true.i18:                                ; preds = %if.end.i15
-  %nodes.i.i = getelementptr inbounds i8, ptr %.pn53.i, i64 8
+  %nodes.i.i = getelementptr inbounds i8, ptr %.pn51.i, i64 8
   %24 = load ptr, ptr %nodes.i.i, align 8
   %call116.i.i = tail call i32 @OPENSSL_sk_num(ptr noundef %24) #2
   %cmp17.i.i = icmp sgt i32 %call116.i.i, 0
   br i1 %cmp17.i.i, label %for.body.lr.ph.i14.i, label %for.end.i.i
 
 for.body.lr.ph.i14.i:                             ; preds = %land.lhs.true.i18
-  %flags.i.i.i = getelementptr inbounds i8, ptr %.pn53.i, i64 24
+  %flags.i.i.i = getelementptr inbounds i8, ptr %.pn51.i, i64 24
   br label %for.body.i15.i
 
 for.body.i15.i:                                   ; preds = %for.inc.i18.i, %for.body.lr.ph.i14.i
@@ -491,7 +491,7 @@ if.end5.i.i.i.i:                                  ; preds = %if.end.i.i.i
   %34 = load i32, ptr %call.i.i.i.i, align 8
   %or.i.i.i.i = or i32 %34, 4
   store i32 %or.i.i.i.i, ptr %call.i.i.i.i, align 8
-  %call8.i.i.i.i = tail call ptr @ossl_policy_level_add_node(ptr noundef nonnull %curr.055.i, ptr noundef nonnull %call.i.i.i.i, ptr noundef nonnull %call4.i.i, ptr noundef %tree.0, i32 noundef 1) #2
+  %call8.i.i.i.i = tail call ptr @ossl_policy_level_add_node(ptr noundef nonnull %curr.053.i, ptr noundef nonnull %call.i.i.i.i, ptr noundef nonnull %call4.i.i, ptr noundef %tree.0, i32 noundef 1) #2
   %cmp9.i.i.i.i = icmp eq ptr %call8.i.i.i.i, null
   br i1 %cmp9.i.i.i.i, label %return.sink.split.i.i.i, label %for.inc.i18.i
 
@@ -512,7 +512,7 @@ for.cond.preheader.i.i.i:                         ; preds = %if.else.i.i.i
 for.body.i.i22.i:                                 ; preds = %for.cond.preheader.i.i.i, %for.inc.i.i23.i
   %i.037.i.i.i = phi i32 [ %inc.i.i24.i, %for.inc.i.i23.i ], [ 0, %for.cond.preheader.i.i.i ]
   %call19.i.i.i = tail call ptr @OPENSSL_sk_value(ptr noundef %35, i32 noundef %i.037.i.i.i) #2
-  %call20.i.i.i = tail call ptr @ossl_policy_level_find_node(ptr noundef nonnull %curr.055.i, ptr noundef nonnull %call4.i.i, ptr noundef %call19.i.i.i) #2
+  %call20.i.i.i = tail call ptr @ossl_policy_level_find_node(ptr noundef nonnull %curr.053.i, ptr noundef nonnull %call4.i.i, ptr noundef %call19.i.i.i) #2
   %tobool21.not.i.i.i = icmp eq ptr %call20.i.i.i, null
   br i1 %tobool21.not.i.i.i, label %if.end23.i.i.i, label %for.inc.i.i23.i
 
@@ -543,7 +543,7 @@ if.end5.i21.i.i.i:                                ; preds = %if.end.i.i.i.i
   %41 = load i32, ptr %call.i19.i.i.i, align 8
   %or.i24.i.i.i = or i32 %41, 4
   store i32 %or.i24.i.i.i, ptr %call.i19.i.i.i, align 8
-  %call8.i25.i.i.i = tail call ptr @ossl_policy_level_add_node(ptr noundef nonnull %curr.055.i, ptr noundef nonnull %call.i19.i.i.i, ptr noundef nonnull %call4.i.i, ptr noundef %tree.0, i32 noundef 1) #2
+  %call8.i25.i.i.i = tail call ptr @ossl_policy_level_add_node(ptr noundef nonnull %curr.053.i, ptr noundef nonnull %call.i19.i.i.i, ptr noundef nonnull %call4.i.i, ptr noundef %tree.0, i32 noundef 1) #2
   %cmp9.i26.i.i.i = icmp eq ptr %call8.i25.i.i.i, null
   br i1 %cmp9.i26.i.i.i, label %return.sink.split.i.i.i, label %for.inc.i.i23.i
 
@@ -566,19 +566,19 @@ for.inc.i18.i:                                    ; preds = %for.inc.i.i23.i, %f
   br i1 %cmp.i20.i, label %for.body.i15.i, label %for.end.i.i, !llvm.loop !12
 
 for.end.i.i:                                      ; preds = %for.inc.i18.i, %land.lhs.true.i18
-  %anyPolicy.i.i = getelementptr inbounds i8, ptr %.pn53.i, i64 16
+  %anyPolicy.i.i = getelementptr inbounds i8, ptr %.pn51.i, i64 16
   %43 = load ptr, ptr %anyPolicy.i.i, align 8
   %tobool6.not.i.i = icmp eq ptr %43, null
-  br i1 %tobool6.not.i.i, label %do.body.i, label %tree_link_any.exit.i
+  br i1 %tobool6.not.i.i, label %do.body.i, label %land.lhs.true.i.i
 
-tree_link_any.exit.i:                             ; preds = %for.end.i.i
+land.lhs.true.i.i:                                ; preds = %for.end.i.i
   %44 = load ptr, ptr %call.i, align 8
-  %call9.i.i = tail call ptr @ossl_policy_level_add_node(ptr noundef nonnull %curr.055.i, ptr noundef %44, ptr noundef nonnull %43, ptr noundef %tree.0, i32 noundef 0) #2
-  %cmp10.i.not.i = icmp eq ptr %call9.i.i, null
-  br i1 %cmp10.i.not.i, label %error, label %do.body.i
+  %call9.i.i = tail call ptr @ossl_policy_level_add_node(ptr noundef nonnull %curr.053.i, ptr noundef %44, ptr noundef nonnull %43, ptr noundef %tree.0, i32 noundef 0) #2
+  %cmp10.i.i = icmp eq ptr %call9.i.i, null
+  br i1 %cmp10.i.i, label %error, label %do.body.i
 
-do.body.i:                                        ; preds = %tree_link_any.exit.i, %for.end.i.i, %if.end.i15
-  %nodes1.i.i = getelementptr inbounds i8, ptr %.pn53.i, i64 40
+do.body.i:                                        ; preds = %land.lhs.true.i.i, %for.end.i.i, %if.end.i15
+  %nodes1.i.i = getelementptr inbounds i8, ptr %.pn51.i, i64 40
   %45 = load ptr, ptr %nodes1.i.i, align 8
   %46 = load i32, ptr %flags.i, align 8
   %and.i.i = and i32 %46, 1024
@@ -588,38 +588,38 @@ do.body.i:                                        ; preds = %tree_link_any.exit.
 if.then.i.i:                                      ; preds = %do.body.i
   %call2.i.i = tail call i32 @OPENSSL_sk_num(ptr noundef %45) #2
   %cmp31.i.i = icmp sgt i32 %call2.i.i, 0
-  br i1 %cmp31.i.i, label %for.body.i27.i, label %for.cond13.i.i.preheader
+  br i1 %cmp31.i.i, label %for.body.i28.i, label %for.cond13.i.i.preheader
 
-for.body.i27.i:                                   ; preds = %if.then.i.i, %for.inc.i29.i
-  %i.032.in.i.i = phi i32 [ %i.032.i.i, %for.inc.i29.i ], [ %call2.i.i, %if.then.i.i ]
+for.body.i28.i:                                   ; preds = %if.then.i.i, %for.inc.i30.i
+  %i.032.in.i.i = phi i32 [ %i.032.i.i, %for.inc.i30.i ], [ %call2.i.i, %if.then.i.i ]
   %i.032.i.i = add nsw i32 %i.032.in.i.i, -1
-  %call4.i28.i = tail call ptr @OPENSSL_sk_value(ptr noundef %45, i32 noundef %i.032.i.i) #2
-  %47 = load ptr, ptr %call4.i28.i, align 8
+  %call4.i29.i = tail call ptr @OPENSSL_sk_value(ptr noundef %45, i32 noundef %i.032.i.i) #2
+  %47 = load ptr, ptr %call4.i29.i, align 8
   %48 = load i32, ptr %47, align 8
   %and6.i.i = and i32 %48, 3
   %tobool7.not.i.i = icmp eq i32 %and6.i.i, 0
-  br i1 %tobool7.not.i.i, label %for.inc.i29.i, label %if.then8.i.i
+  br i1 %tobool7.not.i.i, label %for.inc.i30.i, label %if.then8.i.i
 
-if.then8.i.i:                                     ; preds = %for.body.i27.i
-  %parent.i.i = getelementptr inbounds i8, ptr %call4.i28.i, i64 8
+if.then8.i.i:                                     ; preds = %for.body.i28.i
+  %parent.i.i = getelementptr inbounds i8, ptr %call4.i29.i, i64 8
   %49 = load ptr, ptr %parent.i.i, align 8
   %nchild.i.i = getelementptr inbounds i8, ptr %49, i64 16
   %50 = load i32, ptr %nchild.i.i, align 8
   %dec.i.i = add nsw i32 %50, -1
   store i32 %dec.i.i, ptr %nchild.i.i, align 8
-  tail call void @CRYPTO_free(ptr noundef nonnull %call4.i28.i, ptr noundef nonnull @.str, i32 noundef 415) #2
+  tail call void @CRYPTO_free(ptr noundef nonnull %call4.i29.i, ptr noundef nonnull @.str, i32 noundef 415) #2
   %call10.i.i = tail call ptr @OPENSSL_sk_delete(ptr noundef %45, i32 noundef %i.032.i.i) #2
-  br label %for.inc.i29.i
+  br label %for.inc.i30.i
 
-for.inc.i29.i:                                    ; preds = %if.then8.i.i, %for.body.i27.i
-  %cmp.i30.i = icmp ugt i32 %i.032.in.i.i, 1
-  br i1 %cmp.i30.i, label %for.body.i27.i, label %for.cond13.i.i.preheader, !llvm.loop !13
+for.inc.i30.i:                                    ; preds = %if.then8.i.i, %for.body.i28.i
+  %cmp.i31.i = icmp ugt i32 %i.032.in.i.i, 1
+  br i1 %cmp.i31.i, label %for.body.i28.i, label %for.cond13.i.i.preheader, !llvm.loop !13
 
-for.cond13.i.i.preheader:                         ; preds = %for.inc.i29.i, %if.then.i.i, %do.body.i
+for.cond13.i.i.preheader:                         ; preds = %for.inc.i30.i, %if.then.i.i, %do.body.i
   br label %for.cond13.i.i
 
 for.cond13.i.i:                                   ; preds = %for.cond13.i.i.backedge, %for.cond13.i.i.preheader
-  %curr.addr.0.i.i = phi ptr [ %curr.055.i, %for.cond13.i.i.preheader ], [ %incdec.ptr.i.i, %for.cond13.i.i.backedge ]
+  %curr.addr.0.i.i = phi ptr [ %curr.053.i, %for.cond13.i.i.preheader ], [ %incdec.ptr.i.i, %for.cond13.i.i.backedge ]
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %curr.addr.0.i.i, i64 -32
   %nodes14.i.i = getelementptr inbounds i8, ptr %curr.addr.0.i.i, i64 -24
   %51 = load ptr, ptr %nodes14.i.i, align 8
@@ -652,18 +652,18 @@ for.inc32.i.i:                                    ; preds = %if.then25.i.i, %for
   br i1 %cmp19.i.i, label %for.body20.i.i, label %for.end34.i.i, !llvm.loop !14
 
 for.end34.i.i:                                    ; preds = %for.inc32.i.i, %for.cond13.i.i
-  %anyPolicy.i25.i = getelementptr inbounds i8, ptr %curr.addr.0.i.i, i64 -16
-  %55 = load ptr, ptr %anyPolicy.i25.i, align 8
+  %anyPolicy.i26.i = getelementptr inbounds i8, ptr %curr.addr.0.i.i, i64 -16
+  %55 = load ptr, ptr %anyPolicy.i26.i, align 8
   %tobool35.not.i.i = icmp eq ptr %55, null
-  br i1 %tobool35.not.i.i, label %if.end51.i.i, label %land.lhs.true.i26.i
+  br i1 %tobool35.not.i.i, label %if.end51.i.i, label %land.lhs.true.i27.i
 
-land.lhs.true.i26.i:                              ; preds = %for.end34.i.i
+land.lhs.true.i27.i:                              ; preds = %for.end34.i.i
   %nchild37.i.i = getelementptr inbounds i8, ptr %55, i64 16
   %56 = load i32, ptr %nchild37.i.i, align 8
   %tobool38.not.i.i = icmp eq i32 %56, 0
   br i1 %tobool38.not.i.i, label %if.then39.i.i, label %if.end51.i.thread.i
 
-if.then39.i.i:                                    ; preds = %land.lhs.true.i26.i
+if.then39.i.i:                                    ; preds = %land.lhs.true.i27.i
   %parent41.i.i = getelementptr inbounds i8, ptr %55, i64 8
   %57 = load ptr, ptr %parent41.i.i, align 8
   %tobool42.not.i.i = icmp eq ptr %57, null
@@ -674,13 +674,13 @@ if.then43.i.i:                                    ; preds = %if.then39.i.i
   %58 = load i32, ptr %nchild46.i.i, align 8
   %dec47.i.i = add nsw i32 %58, -1
   store i32 %dec47.i.i, ptr %nchild46.i.i, align 8
-  %.pre.i.i = load ptr, ptr %anyPolicy.i25.i, align 8
+  %.pre.i.i = load ptr, ptr %anyPolicy.i26.i, align 8
   br label %if.end48.i.i
 
 if.end48.i.i:                                     ; preds = %if.then43.i.i, %if.then39.i.i
   %59 = phi ptr [ %.pre.i.i, %if.then43.i.i ], [ %55, %if.then39.i.i ]
   tail call void @CRYPTO_free(ptr noundef %59, ptr noundef nonnull @.str, i32 noundef 435) #2
-  store ptr null, ptr %anyPolicy.i25.i, align 8
+  store ptr null, ptr %anyPolicy.i26.i, align 8
   br label %if.end51.i.i
 
 if.end51.i.i:                                     ; preds = %if.end48.i.i, %for.end34.i.i
@@ -688,16 +688,16 @@ if.end51.i.i:                                     ; preds = %if.end48.i.i, %for.
   %cmp52.i.i = icmp eq ptr %incdec.ptr.i.i, %60
   br i1 %cmp52.i.i, label %if.then16, label %for.cond13.i.i.backedge
 
-if.end51.i.thread.i:                              ; preds = %land.lhs.true.i26.i
+if.end51.i.thread.i:                              ; preds = %land.lhs.true.i27.i
   %61 = load ptr, ptr %levels.i11, align 8
-  %cmp52.i39.i = icmp eq ptr %incdec.ptr.i.i, %61
-  br i1 %cmp52.i39.i, label %for.inc.i, label %for.cond13.i.i.backedge
+  %cmp52.i37.i = icmp eq ptr %incdec.ptr.i.i, %61
+  br i1 %cmp52.i37.i, label %for.inc.i, label %for.cond13.i.i.backedge
 
 for.cond13.i.i.backedge:                          ; preds = %if.end51.i.thread.i, %if.end51.i.i
   br label %for.cond13.i.i
 
 for.inc.i:                                        ; preds = %if.end51.i.thread.i
-  %inc.i = add nuw nsw i32 %i.054.i, 1
+  %inc.i = add nuw nsw i32 %i.052.i, 1
   %62 = load i32, ptr %nlevel.i12, align 8
   %cmp.i17 = icmp slt i32 %inc.i, %62
   br i1 %cmp.i17, label %for.body.i14, label %if.end21, !llvm.loop !15
@@ -721,16 +721,16 @@ if.end21:                                         ; preds = %for.inc.i, %if.end1
 if.then.i:                                        ; preds = %if.end21
   %66 = load ptr, ptr %auth_policies5.i, align 8
   %cmp.i.i22 = icmp eq ptr %66, null
-  br i1 %cmp.i.i22, label %land.lhs.true.i.i, label %if.end.i.i
+  br i1 %cmp.i.i22, label %land.lhs.true.i.i36, label %if.end.i.i
 
-land.lhs.true.i.i:                                ; preds = %if.then.i
+land.lhs.true.i.i36:                              ; preds = %if.then.i
   %call.i.i = tail call ptr @ossl_policy_node_cmp_new() #2
   store ptr %call.i.i, ptr %auth_policies5.i, align 8
   %cmp1.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp1.i.i, label %error, label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %land.lhs.true.i.i, %if.then.i
-  %67 = phi ptr [ %call.i.i, %land.lhs.true.i.i ], [ %66, %if.then.i ]
+if.end.i.i:                                       ; preds = %land.lhs.true.i.i36, %if.then.i
+  %67 = phi ptr [ %call.i.i, %land.lhs.true.i.i36 ], [ %66, %if.then.i ]
   %call4.i.i23 = tail call i32 @OPENSSL_sk_find(ptr noundef nonnull %67, ptr noundef nonnull %65) #2
   %cmp5.i.i = icmp sgt i32 %call4.i.i23, -1
   br i1 %cmp5.i.i, label %if.end6.i, label %tree_add_auth_node.exit.i
@@ -744,90 +744,90 @@ tree_add_auth_node.exit.i:                        ; preds = %if.end.i.i
 if.end6.i:                                        ; preds = %tree_add_auth_node.exit.i, %if.end.i.i, %if.end21
   %addnodes.0.i = phi ptr [ %auth_nodes, %tree_add_auth_node.exit.i ], [ %auth_nodes, %if.end.i.i ], [ %auth_policies5.i, %if.end21 ]
   %69 = load i32, ptr %nlevel.i12, align 8
-  %cmp50.i = icmp sgt i32 %69, 1
-  br i1 %cmp50.i, label %for.body.preheader.i26, label %for.end32.i
+  %cmp50.i25 = icmp sgt i32 %69, 1
+  br i1 %cmp50.i25, label %for.body.preheader.i27, label %for.end32.i
 
-for.body.preheader.i26:                           ; preds = %if.end6.i
+for.body.preheader.i27:                           ; preds = %if.end6.i
   %70 = load ptr, ptr %levels.i11, align 8
-  br label %for.body.i27
+  br label %for.body.i28
 
-for.body.i27:                                     ; preds = %for.inc30.i, %for.body.preheader.i26
-  %i.052.i = phi i32 [ %inc31.i, %for.inc30.i ], [ 1, %for.body.preheader.i26 ]
-  %curr.051.i = phi ptr [ %incdec.ptr.i28, %for.inc30.i ], [ %70, %for.body.preheader.i26 ]
+for.body.i28:                                     ; preds = %for.inc30.i, %for.body.preheader.i27
+  %i.052.i29 = phi i32 [ %inc31.i, %for.inc30.i ], [ 1, %for.body.preheader.i27 ]
+  %curr.051.i = phi ptr [ %incdec.ptr.i30, %for.inc30.i ], [ %70, %for.body.preheader.i27 ]
   %anyPolicy9.i = getelementptr inbounds i8, ptr %curr.051.i, i64 16
   %71 = load ptr, ptr %anyPolicy9.i, align 8
   %cmp10.i = icmp eq ptr %71, null
   br i1 %cmp10.i, label %for.end32.i, label %if.end12.i
 
-if.end12.i:                                       ; preds = %for.body.i27
-  %incdec.ptr.i28 = getelementptr inbounds i8, ptr %curr.051.i, i64 32
+if.end12.i:                                       ; preds = %for.body.i28
+  %incdec.ptr.i30 = getelementptr inbounds i8, ptr %curr.051.i, i64 32
   %nodes.i = getelementptr inbounds i8, ptr %curr.051.i, i64 40
   %72 = load ptr, ptr %nodes.i, align 8
   %call1547.i = tail call i32 @OPENSSL_sk_num(ptr noundef %72) #2
   %cmp1648.i = icmp sgt i32 %call1547.i, 0
   br i1 %cmp1648.i, label %for.body17.i, label %for.inc30.i
 
-for.body17.i:                                     ; preds = %if.end12.i, %for.inc.i31
-  %j.049.i = phi i32 [ %inc.i32, %for.inc.i31 ], [ 0, %if.end12.i ]
+for.body17.i:                                     ; preds = %if.end12.i, %for.inc.i33
+  %j.049.i = phi i32 [ %inc.i34, %for.inc.i33 ], [ 0, %if.end12.i ]
   %73 = load ptr, ptr %nodes.i, align 8
-  %call20.i30 = tail call ptr @OPENSSL_sk_value(ptr noundef %73, i32 noundef %j.049.i) #2
-  %parent.i = getelementptr inbounds i8, ptr %call20.i30, i64 8
+  %call20.i32 = tail call ptr @OPENSSL_sk_value(ptr noundef %73, i32 noundef %j.049.i) #2
+  %parent.i = getelementptr inbounds i8, ptr %call20.i32, i64 8
   %74 = load ptr, ptr %parent.i, align 8
   %cmp21.i = icmp eq ptr %74, %71
-  br i1 %cmp21.i, label %land.lhs.true.i33, label %for.inc.i31
+  br i1 %cmp21.i, label %land.lhs.true.i35, label %for.inc.i33
 
-land.lhs.true.i33:                                ; preds = %for.body17.i
+land.lhs.true.i35:                                ; preds = %for.body17.i
   %75 = load ptr, ptr %addnodes.0.i, align 8
   %cmp.i24.i = icmp eq ptr %75, null
   br i1 %cmp.i24.i, label %land.lhs.true.i33.i, label %if.end.i25.i
 
-land.lhs.true.i33.i:                              ; preds = %land.lhs.true.i33
+land.lhs.true.i33.i:                              ; preds = %land.lhs.true.i35
   %call.i34.i = tail call ptr @ossl_policy_node_cmp_new() #2
   store ptr %call.i34.i, ptr %addnodes.0.i, align 8
   %cmp1.i35.i = icmp eq ptr %call.i34.i, null
   br i1 %cmp1.i35.i, label %if.then24.i, label %if.end.i25.i
 
-if.end.i25.i:                                     ; preds = %land.lhs.true.i33.i, %land.lhs.true.i33
-  %76 = phi ptr [ %call.i34.i, %land.lhs.true.i33.i ], [ %75, %land.lhs.true.i33 ]
-  %call4.i26.i = tail call i32 @OPENSSL_sk_find(ptr noundef nonnull %76, ptr noundef nonnull %call20.i30) #2
+if.end.i25.i:                                     ; preds = %land.lhs.true.i33.i, %land.lhs.true.i35
+  %76 = phi ptr [ %call.i34.i, %land.lhs.true.i33.i ], [ %75, %land.lhs.true.i35 ]
+  %call4.i26.i = tail call i32 @OPENSSL_sk_find(ptr noundef nonnull %76, ptr noundef nonnull %call20.i32) #2
   %cmp5.i27.i = icmp sgt i32 %call4.i26.i, -1
-  br i1 %cmp5.i27.i, label %for.inc.i31, label %tree_add_auth_node.exit36.i
+  br i1 %cmp5.i27.i, label %for.inc.i33, label %tree_add_auth_node.exit36.i
 
 tree_add_auth_node.exit36.i:                      ; preds = %if.end.i25.i
   %77 = load ptr, ptr %addnodes.0.i, align 8
-  %call10.i29.i = tail call i32 @OPENSSL_sk_push(ptr noundef %77, ptr noundef nonnull %call20.i30) #2
+  %call10.i29.i = tail call i32 @OPENSSL_sk_push(ptr noundef %77, ptr noundef nonnull %call20.i32) #2
   %cmp11.i30.not.i = icmp eq i32 %call10.i29.i, 0
-  br i1 %cmp11.i30.not.i, label %if.then24.i, label %for.inc.i31
+  br i1 %cmp11.i30.not.i, label %if.then24.i, label %for.inc.i33
 
 if.then24.i:                                      ; preds = %tree_add_auth_node.exit36.i, %land.lhs.true.i33.i
   %cmp25.i = icmp eq ptr %addnodes.0.i, %auth_nodes
-  br i1 %cmp25.i, label %tree_calculate_authority_set.exit.thread102, label %error
+  br i1 %cmp25.i, label %tree_calculate_authority_set.exit.thread105, label %error
 
-tree_calculate_authority_set.exit.thread102:      ; preds = %if.then24.i
+tree_calculate_authority_set.exit.thread105:      ; preds = %if.then24.i
   %78 = load ptr, ptr %auth_nodes, align 8
   call void @OPENSSL_sk_free(ptr noundef %78) #2
   store ptr null, ptr %auth_nodes, align 8
   br label %error
 
-for.inc.i31:                                      ; preds = %tree_add_auth_node.exit36.i, %if.end.i25.i, %for.body17.i
-  %inc.i32 = add nuw nsw i32 %j.049.i, 1
+for.inc.i33:                                      ; preds = %tree_add_auth_node.exit36.i, %if.end.i25.i, %for.body17.i
+  %inc.i34 = add nuw nsw i32 %j.049.i, 1
   %79 = load ptr, ptr %nodes.i, align 8
   %call15.i = tail call i32 @OPENSSL_sk_num(ptr noundef %79) #2
-  %cmp16.i = icmp slt i32 %inc.i32, %call15.i
+  %cmp16.i = icmp slt i32 %inc.i34, %call15.i
   br i1 %cmp16.i, label %for.body17.i, label %for.inc30.i, !llvm.loop !16
 
-for.inc30.i:                                      ; preds = %for.inc.i31, %if.end12.i
-  %inc31.i = add nuw nsw i32 %i.052.i, 1
+for.inc30.i:                                      ; preds = %for.inc.i33, %if.end12.i
+  %inc31.i = add nuw nsw i32 %i.052.i29, 1
   %80 = load i32, ptr %nlevel.i12, align 8
-  %cmp.i29 = icmp slt i32 %inc31.i, %80
-  br i1 %cmp.i29, label %for.body.i27, label %for.end32.i, !llvm.loop !17
+  %cmp.i31 = icmp slt i32 %inc31.i, %80
+  br i1 %cmp.i31, label %for.body.i28, label %for.end32.i, !llvm.loop !17
 
-for.end32.i:                                      ; preds = %for.inc30.i, %for.body.i27, %if.end6.i
+for.end32.i:                                      ; preds = %for.inc30.i, %for.body.i28, %if.end6.i
   %cmp33.i = icmp eq ptr %addnodes.0.i, %auth_nodes
   br i1 %cmp33.i, label %for.end32.i.if.end25_crit_edge, label %tree_calculate_authority_set.exit
 
 for.end32.i.if.end25_crit_edge:                   ; preds = %for.end32.i
-  %.pre134 = load ptr, ptr %auth_nodes, align 8
+  %.pre137 = load ptr, ptr %auth_nodes, align 8
   br label %if.end25
 
 tree_calculate_authority_set.exit:                ; preds = %for.end32.i
@@ -836,14 +836,14 @@ tree_calculate_authority_set.exit:                ; preds = %for.end32.i
   br label %if.end25
 
 if.end25:                                         ; preds = %for.end32.i.if.end25_crit_edge, %tree_calculate_authority_set.exit
-  %82 = phi ptr [ %.pre134, %for.end32.i.if.end25_crit_edge ], [ %81, %tree_calculate_authority_set.exit ]
+  %82 = phi ptr [ %.pre137, %for.end32.i.if.end25_crit_edge ], [ %81, %tree_calculate_authority_set.exit ]
   call void @OPENSSL_sk_sort(ptr noundef %82) #2
   %83 = load ptr, ptr %auth_nodes, align 8
-  %call1.i34 = call i32 @OPENSSL_sk_num(ptr noundef %policy_oids) #2
-  %cmp.i35 = icmp slt i32 %call1.i34, 1
-  br i1 %cmp.i35, label %tree_calculate_user_set.exit, label %if.end.i36
+  %call1.i37 = call i32 @OPENSSL_sk_num(ptr noundef %policy_oids) #2
+  %cmp.i38 = icmp slt i32 %call1.i37, 1
+  br i1 %cmp.i38, label %tree_calculate_user_set.exit, label %if.end.i39
 
-if.end.i36:                                       ; preds = %if.end25
+if.end.i39:                                       ; preds = %if.end25
   %84 = load ptr, ptr %levels.i11, align 8
   %85 = load i32, ptr %nlevel.i12, align 8
   %86 = sext i32 %85 to i64
@@ -853,22 +853,22 @@ if.end.i36:                                       ; preds = %if.end25
   %.fr.i = freeze ptr %88
   %call437.i = call i32 @OPENSSL_sk_num(ptr noundef %policy_oids) #2
   %cmp538.i = icmp sgt i32 %call437.i, 0
-  br i1 %cmp538.i, label %for.body.i51, label %for.cond12.preheader.i
+  br i1 %cmp538.i, label %for.body.i54, label %for.cond12.preheader.i
 
-for.cond.i52:                                     ; preds = %for.body.i51
-  %inc.i53 = add nuw nsw i32 %i.039.i, 1
+for.cond.i55:                                     ; preds = %for.body.i54
+  %inc.i56 = add nuw nsw i32 %i.039.i, 1
   %call4.i = call i32 @OPENSSL_sk_num(ptr noundef %policy_oids) #2
-  %cmp5.i = icmp slt i32 %inc.i53, %call4.i
-  br i1 %cmp5.i, label %for.body.i51, label %for.cond12.preheader.i, !llvm.loop !18
+  %cmp5.i = icmp slt i32 %inc.i56, %call4.i
+  br i1 %cmp5.i, label %for.body.i54, label %for.cond12.preheader.i, !llvm.loop !18
 
-for.cond12.preheader.i:                           ; preds = %for.cond.i52, %if.end.i36
+for.cond12.preheader.i:                           ; preds = %for.cond.i55, %if.end.i39
   %call1440.i = call i32 @OPENSSL_sk_num(ptr noundef %policy_oids) #2
   %cmp1541.i = icmp sgt i32 %call1440.i, 0
   br i1 %cmp1541.i, label %for.body16.lr.ph.i, label %tree_calculate_user_set.exit
 
 for.body16.lr.ph.i:                               ; preds = %for.cond12.preheader.i
   %tobool21.not.i = icmp eq ptr %.fr.i, null
-  %parent.i40 = getelementptr inbounds i8, ptr %.fr.i, i64 8
+  %parent.i43 = getelementptr inbounds i8, ptr %.fr.i, i64 8
   %user_policies.i = getelementptr inbounds i8, ptr %tree.0, i64 48
   br i1 %tobool21.not.i, label %for.body16.us.i, label %for.body16.i
 
@@ -902,32 +902,32 @@ for.inc53.us.i:                                   ; preds = %if.end45.us.i, %for
   %cmp15.us.i = icmp slt i32 %inc54.us.i, %call14.us.i
   br i1 %cmp15.us.i, label %for.body16.us.i, label %tree_calculate_user_set.exit, !llvm.loop !19
 
-for.body.i51:                                     ; preds = %if.end.i36, %for.cond.i52
-  %i.039.i = phi i32 [ %inc.i53, %for.cond.i52 ], [ 0, %if.end.i36 ]
+for.body.i54:                                     ; preds = %if.end.i39, %for.cond.i55
+  %i.039.i = phi i32 [ %inc.i56, %for.cond.i55 ], [ 0, %if.end.i39 ]
   %call7.i = call ptr @OPENSSL_sk_value(ptr noundef %policy_oids, i32 noundef %i.039.i) #2
   %call8.i = call i32 @OBJ_obj2nid(ptr noundef %call7.i) #2
   %cmp9.i = icmp eq i32 %call8.i, 746
-  br i1 %cmp9.i, label %if.then10.i, label %for.cond.i52
+  br i1 %cmp9.i, label %if.then10.i, label %for.cond.i55
 
-if.then10.i:                                      ; preds = %for.body.i51
-  %flags.i54 = getelementptr inbounds i8, ptr %tree.0, i64 56
-  %91 = load i32, ptr %flags.i54, align 8
-  %or.i55 = or i32 %91, 2
-  store i32 %or.i55, ptr %flags.i54, align 8
+if.then10.i:                                      ; preds = %for.body.i54
+  %flags.i57 = getelementptr inbounds i8, ptr %tree.0, i64 56
+  %91 = load i32, ptr %flags.i57, align 8
+  %or.i58 = or i32 %91, 2
+  store i32 %or.i58, ptr %flags.i57, align 8
   br label %tree_calculate_user_set.exit
 
 for.body16.i:                                     ; preds = %for.body16.lr.ph.i, %for.inc53.i
   %i.142.i = phi i32 [ %inc54.i, %for.inc53.i ], [ 0, %for.body16.lr.ph.i ]
   %call18.i = call ptr @OPENSSL_sk_value(ptr noundef %policy_oids, i32 noundef %i.142.i) #2
-  %call19.i41 = call ptr @ossl_policy_tree_find_sk(ptr noundef %83, ptr noundef %call18.i) #2
-  %tobool.not.i42 = icmp eq ptr %call19.i41, null
-  br i1 %tobool.not.i42, label %if.then20.i, label %if.end36.i
+  %call19.i44 = call ptr @ossl_policy_tree_find_sk(ptr noundef %83, ptr noundef %call18.i) #2
+  %tobool.not.i45 = icmp eq ptr %call19.i44, null
+  br i1 %tobool.not.i45, label %if.then20.i, label %if.end36.i
 
 if.then20.i:                                      ; preds = %for.body16.i
   %92 = load ptr, ptr %.fr.i, align 8
   %93 = load i32, ptr %92, align 8
-  %and.i49 = and i32 %93, 16
-  %call25.i = call ptr @ossl_policy_data_new(ptr noundef null, ptr noundef %call18.i, i32 noundef %and.i49) #2
+  %and.i52 = and i32 %93, 16
+  %call25.i = call ptr @ossl_policy_data_new(ptr noundef null, ptr noundef %call18.i, i32 noundef %and.i52) #2
   %cmp26.i = icmp eq ptr %call25.i, null
   br i1 %cmp26.i, label %tree_calculate_user_set.exit, label %if.end28.i
 
@@ -938,40 +938,40 @@ if.end28.i:                                       ; preds = %if.then20.i
   %qualifier_set30.i = getelementptr inbounds i8, ptr %call25.i, i64 16
   store ptr %95, ptr %qualifier_set30.i, align 8
   store i32 12, ptr %call25.i, align 8
-  %96 = load ptr, ptr %parent.i40, align 8
+  %96 = load ptr, ptr %parent.i43, align 8
   %call32.i = call ptr @ossl_policy_level_add_node(ptr noundef null, ptr noundef nonnull %call25.i, ptr noundef %96, ptr noundef %tree.0, i32 noundef 1) #2
-  %cmp33.i50 = icmp eq ptr %call32.i, null
-  br i1 %cmp33.i50, label %if.then34.i, label %if.end36.i
+  %cmp33.i53 = icmp eq ptr %call32.i, null
+  br i1 %cmp33.i53, label %if.then34.i, label %if.end36.i
 
 if.then34.i:                                      ; preds = %if.end28.i
   call void @ossl_policy_data_free(ptr noundef nonnull %call25.i) #2
   br label %tree_calculate_user_set.exit
 
 if.end36.i:                                       ; preds = %if.end28.i, %for.body16.i
-  %node.0.i = phi ptr [ %call19.i41, %for.body16.i ], [ %call32.i, %if.end28.i ]
+  %node.0.i = phi ptr [ %call19.i44, %for.body16.i ], [ %call32.i, %if.end28.i ]
   %97 = load ptr, ptr %user_policies.i, align 8
-  %tobool37.not.i43 = icmp eq ptr %97, null
-  br i1 %tobool37.not.i43, label %if.then38.i, label %if.end45.i
+  %tobool37.not.i46 = icmp eq ptr %97, null
+  br i1 %tobool37.not.i46, label %if.then38.i, label %if.end45.i
 
 if.then38.i:                                      ; preds = %if.end36.i
   %call39.i = call ptr @OPENSSL_sk_new_null() #2
   store ptr %call39.i, ptr %user_policies.i, align 8
-  %tobool42.not.i44 = icmp eq ptr %call39.i, null
-  br i1 %tobool42.not.i44, label %if.then43.i, label %if.end45.i
+  %tobool42.not.i47 = icmp eq ptr %call39.i, null
+  br i1 %tobool42.not.i47, label %if.then43.i, label %if.end45.i
 
 if.then43.i:                                      ; preds = %if.then38.i, %if.then38.us.i
   %.us-phi.i = phi ptr [ %call19.us.i, %if.then38.us.i ], [ %node.0.i, %if.then38.i ]
   %98 = load ptr, ptr %.us-phi.i, align 8
-  %tobool.not.i.i45 = icmp eq ptr %98, null
-  br i1 %tobool.not.i.i45, label %tree_calculate_user_set.exit, label %land.lhs.true.i.i46
+  %tobool.not.i.i48 = icmp eq ptr %98, null
+  br i1 %tobool.not.i.i48, label %tree_calculate_user_set.exit, label %land.lhs.true.i.i49
 
-land.lhs.true.i.i46:                              ; preds = %if.then43.i
+land.lhs.true.i.i49:                              ; preds = %if.then43.i
   %99 = load i32, ptr %98, align 8
-  %and.i.i47 = and i32 %99, 8
-  %tobool2.not.i.i = icmp eq i32 %and.i.i47, 0
-  br i1 %tobool2.not.i.i, label %tree_calculate_user_set.exit, label %if.then.i.i48
+  %and.i.i50 = and i32 %99, 8
+  %tobool2.not.i.i = icmp eq i32 %and.i.i50, 0
+  br i1 %tobool2.not.i.i, label %tree_calculate_user_set.exit, label %if.then.i.i51
 
-if.then.i.i48:                                    ; preds = %land.lhs.true.i.i46
+if.then.i.i51:                                    ; preds = %land.lhs.true.i.i49
   call void @CRYPTO_free(ptr noundef nonnull %.us-phi.i, ptr noundef nonnull @.str, i32 noundef 623) #2
   br label %tree_calculate_user_set.exit
 
@@ -1003,8 +1003,8 @@ for.inc53.i:                                      ; preds = %if.end45.i
   %cmp15.i = icmp slt i32 %inc54.i, %call14.i
   br i1 %cmp15.i, label %for.body16.i, label %tree_calculate_user_set.exit, !llvm.loop !19
 
-tree_calculate_user_set.exit:                     ; preds = %if.then20.i, %for.inc53.i, %for.inc53.us.i, %if.end25, %for.cond12.preheader.i, %if.then10.i, %if.then34.i, %if.then43.i, %land.lhs.true.i.i46, %if.then.i.i48, %if.then51.i, %land.lhs.true.i31.i, %if.then.i34.i
-  %tobool32.not = phi i1 [ false, %if.then10.i ], [ true, %if.then34.i ], [ false, %if.end25 ], [ true, %if.then43.i ], [ true, %land.lhs.true.i.i46 ], [ true, %if.then.i.i48 ], [ true, %if.then51.i ], [ true, %land.lhs.true.i31.i ], [ true, %if.then.i34.i ], [ false, %for.cond12.preheader.i ], [ false, %for.inc53.us.i ], [ false, %for.inc53.i ], [ true, %if.then20.i ]
+tree_calculate_user_set.exit:                     ; preds = %if.then20.i, %for.inc53.i, %for.inc53.us.i, %if.end25, %for.cond12.preheader.i, %if.then10.i, %if.then34.i, %if.then43.i, %land.lhs.true.i.i49, %if.then.i.i51, %if.then51.i, %land.lhs.true.i31.i, %if.then.i34.i
+  %tobool32.not = phi i1 [ false, %if.then10.i ], [ true, %if.then34.i ], [ false, %if.end25 ], [ true, %if.then43.i ], [ true, %land.lhs.true.i.i49 ], [ true, %if.then.i.i51 ], [ true, %if.then51.i ], [ true, %land.lhs.true.i31.i ], [ true, %if.then.i34.i ], [ false, %for.cond12.preheader.i ], [ false, %for.inc53.us.i ], [ false, %for.inc53.i ], [ true, %if.then20.i ]
   br i1 %cmp33.i, label %if.then29, label %if.end31
 
 if.then29:                                        ; preds = %tree_calculate_user_set.exit
@@ -1017,21 +1017,23 @@ if.end31:                                         ; preds = %if.then29, %tree_ca
 
 if.end34:                                         ; preds = %if.end31
   store ptr %tree.0, ptr %ptree, align 8
-  br i1 %cmp1, label %return, label %if.then37
+  br i1 %cmp1, label %if.end44, label %if.then37
 
 if.then37:                                        ; preds = %if.end34
   %call38 = call ptr @X509_policy_tree_get0_user_policies(ptr noundef %tree.0) #2
   %call40 = call i32 @OPENSSL_sk_num(ptr noundef %call38) #2
   %cmp41 = icmp slt i32 %call40, 1
-  %spec.select = select i1 %cmp41, i32 -2, i32 1
+  br i1 %cmp41, label %return, label %if.end44
+
+if.end44:                                         ; preds = %if.then37, %if.end34
   br label %return
 
-error:                                            ; preds = %tree_link_any.exit.i, %tree_link_matching_nodes.exit.i.i, %if.end.i.i.i, %if.then.i.i.i, %if.end.i.i.i.i, %land.lhs.true.i.i, %if.then24.i, %tree_add_auth_node.exit.i, %return.sink.split.i.i.i, %tree_calculate_authority_set.exit.thread102, %if.end31
+error:                                            ; preds = %land.lhs.true.i.i, %if.then12.i.i.i, %if.end.i.i.i, %if.then.i.i.i, %if.end.i.i.i.i, %land.lhs.true.i.i36, %if.then24.i, %tree_add_auth_node.exit.i, %return.sink.split.i.i.i, %tree_calculate_authority_set.exit.thread105, %if.end31
   call void @X509_policy_tree_free(ptr noundef %tree.0)
   br label %return
 
-return:                                           ; preds = %for.body.i, %for.body31.i, %if.end75.i, %bad_tree.i, %if.then86.i, %if.then37, %if.end34, %if.then16, %if.else, %error, %if.then4
-  %retval.0 = phi i32 [ 1, %if.then4 ], [ 0, %error ], [ -2, %if.else ], [ %., %if.then16 ], [ 1, %if.end34 ], [ %spec.select, %if.then37 ], [ 0, %if.end75.i ], [ 0, %bad_tree.i ], [ 0, %if.then86.i ], [ -1, %for.body31.i ], [ 0, %for.body.i ]
+return:                                           ; preds = %for.body.i, %for.body31.i, %if.end75.i, %bad_tree.i, %if.then86.i, %if.then37, %if.then16, %if.else, %error, %if.end44, %if.then4
+  %retval.0 = phi i32 [ 1, %if.then4 ], [ 0, %error ], [ 1, %if.end44 ], [ -2, %if.else ], [ %., %if.then16 ], [ -2, %if.then37 ], [ 0, %if.end75.i ], [ 0, %bad_tree.i ], [ 0, %if.then86.i ], [ -1, %for.body31.i ], [ 0, %for.body.i ]
   ret i32 %retval.0
 }
 

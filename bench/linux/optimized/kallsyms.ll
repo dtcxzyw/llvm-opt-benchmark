@@ -1325,9 +1325,9 @@ define dso_local i32 @lookup_symbol_name(i64 noundef %0, ptr noundef %1) local_u
   %20 = getelementptr [0 x i8], ptr @kallsyms_names, i64 0, i64 %19
   %21 = and i64 %15, 255
   %22 = icmp eq i64 %21, 0
-  br i1 %22, label %.loopexit9, label %.preheader8
+  br i1 %22, label %.loopexit10, label %.preheader9
 
-.preheader8:                                      ; preds = %14, %36
+.preheader9:                                      ; preds = %14, %36
   %23 = phi i32 [ %41, %36 ], [ 0, %14 ]
   %24 = phi ptr [ %40, %36 ], [ %20, %14 ]
   %25 = load i8, ptr %24, align 1
@@ -1335,7 +1335,7 @@ define dso_local i32 @lookup_symbol_name(i64 noundef %0, ptr noundef %1) local_u
   %27 = icmp sgt i8 %25, -1
   br i1 %27, label %36, label %28
 
-28:                                               ; preds = %.preheader8
+28:                                               ; preds = %.preheader9
   %29 = and i32 %26, 127
   %30 = getelementptr i8, ptr %24, i64 1
   %31 = load i8, ptr %30, align 1
@@ -1345,17 +1345,17 @@ define dso_local i32 @lookup_symbol_name(i64 noundef %0, ptr noundef %1) local_u
   %35 = add nuw nsw i32 %34, %33
   br label %36
 
-36:                                               ; preds = %28, %.preheader8
-  %37 = phi i32 [ %35, %28 ], [ %26, %.preheader8 ]
+36:                                               ; preds = %28, %.preheader9
+  %37 = phi i32 [ %35, %28 ], [ %26, %.preheader9 ]
   %38 = zext nneg i32 %37 to i64
   %39 = getelementptr i8, ptr %24, i64 %38
   %40 = getelementptr i8, ptr %39, i64 1
   %41 = add i32 %23, 1
   %42 = sext i32 %41 to i64
   %43 = icmp ugt i64 %21, %42
-  br i1 %43, label %.preheader8, label %.loopexit9, !llvm.loop !10
+  br i1 %43, label %.preheader9, label %.loopexit10, !llvm.loop !10
 
-.loopexit9:                                       ; preds = %36, %14
+.loopexit10:                                      ; preds = %36, %14
   %44 = phi ptr [ %20, %14 ], [ %40, %36 ]
   %45 = ptrtoint ptr %44 to i64
   %46 = trunc i64 %45 to i32
@@ -1368,7 +1368,7 @@ define dso_local i32 @lookup_symbol_name(i64 noundef %0, ptr noundef %1) local_u
   %53 = icmp sgt i8 %50, -1
   br i1 %53, label %61, label %54
 
-54:                                               ; preds = %.loopexit9
+54:                                               ; preds = %.loopexit10
   %55 = and i32 %51, 127
   %56 = load i8, ptr %52, align 1
   %57 = zext i8 %56 to i32
@@ -1377,25 +1377,25 @@ define dso_local i32 @lookup_symbol_name(i64 noundef %0, ptr noundef %1) local_u
   %60 = getelementptr i8, ptr %49, i64 2
   br label %61
 
-61:                                               ; preds = %54, %.loopexit9
-  %62 = phi i32 [ %59, %54 ], [ %51, %.loopexit9 ]
-  %63 = phi ptr [ %60, %54 ], [ %52, %.loopexit9 ]
+61:                                               ; preds = %54, %.loopexit10
+  %62 = phi i32 [ %59, %54 ], [ %51, %.loopexit10 ]
+  %63 = phi ptr [ %60, %54 ], [ %52, %.loopexit10 ]
   %64 = icmp eq i32 %62, 0
-  br i1 %64, label %.thread, label %.preheader6
+  br i1 %64, label %.thread, label %.preheader7
 
-.loopexit5:                                       ; preds = %95, %.preheader6
-  %65 = phi ptr [ %73, %.preheader6 ], [ %96, %95 ]
-  %66 = phi i64 [ %72, %.preheader6 ], [ %97, %95 ]
-  %67 = phi i32 [ %70, %.preheader6 ], [ 1, %95 ]
+.loopexit6:                                       ; preds = %95, %.preheader7
+  %65 = phi ptr [ %73, %.preheader7 ], [ %96, %95 ]
+  %66 = phi i64 [ %72, %.preheader7 ], [ %97, %95 ]
+  %67 = phi i32 [ %70, %.preheader7 ], [ 1, %95 ]
   %68 = icmp eq i32 %81, 0
-  br i1 %68, label %.loopexit, label %.preheader6, !llvm.loop !11
+  br i1 %68, label %.loopexit, label %.preheader7, !llvm.loop !11
 
-.preheader6:                                      ; preds = %61, %.loopexit5
-  %69 = phi ptr [ %80, %.loopexit5 ], [ %63, %61 ]
-  %70 = phi i32 [ %67, %.loopexit5 ], [ 0, %61 ]
-  %71 = phi i32 [ %81, %.loopexit5 ], [ %62, %61 ]
-  %72 = phi i64 [ %66, %.loopexit5 ], [ 512, %61 ]
-  %73 = phi ptr [ %65, %.loopexit5 ], [ %1, %61 ]
+.preheader7:                                      ; preds = %61, %.loopexit6
+  %69 = phi ptr [ %80, %.loopexit6 ], [ %63, %61 ]
+  %70 = phi i32 [ %67, %.loopexit6 ], [ 0, %61 ]
+  %71 = phi i32 [ %81, %.loopexit6 ], [ %62, %61 ]
+  %72 = phi i64 [ %66, %.loopexit6 ], [ 512, %61 ]
+  %73 = phi ptr [ %65, %.loopexit6 ], [ %1, %61 ]
   %74 = load i8, ptr %69, align 1
   %75 = zext i8 %74 to i64
   %76 = getelementptr [0 x i16], ptr @kallsyms_token_index, i64 0, i64 %75
@@ -1406,14 +1406,14 @@ define dso_local i32 @lookup_symbol_name(i64 noundef %0, ptr noundef %1) local_u
   %81 = add nsw i32 %71, -1
   %82 = load i8, ptr %79, align 1
   %83 = icmp eq i8 %82, 0
-  br i1 %83, label %.loopexit5, label %.preheader
+  br i1 %83, label %.loopexit6, label %.preheader
 
-.preheader:                                       ; preds = %.preheader6, %95
-  %84 = phi i8 [ %99, %95 ], [ %82, %.preheader6 ]
-  %85 = phi ptr [ %98, %95 ], [ %79, %.preheader6 ]
-  %86 = phi i32 [ 1, %95 ], [ %70, %.preheader6 ]
-  %87 = phi i64 [ %97, %95 ], [ %72, %.preheader6 ]
-  %88 = phi ptr [ %96, %95 ], [ %73, %.preheader6 ]
+.preheader:                                       ; preds = %.preheader7, %95
+  %84 = phi i8 [ %99, %95 ], [ %82, %.preheader7 ]
+  %85 = phi ptr [ %98, %95 ], [ %79, %.preheader7 ]
+  %86 = phi i32 [ 1, %95 ], [ %70, %.preheader7 ]
+  %87 = phi i64 [ %97, %95 ], [ %72, %.preheader7 ]
+  %88 = phi ptr [ %96, %95 ], [ %73, %.preheader7 ]
   %89 = icmp eq i32 %86, 0
   br i1 %89, label %95, label %90
 
@@ -1433,26 +1433,30 @@ define dso_local i32 @lookup_symbol_name(i64 noundef %0, ptr noundef %1) local_u
   %98 = getelementptr i8, ptr %85, i64 1
   %99 = load i8, ptr %98, align 1
   %100 = icmp eq i8 %99, 0
-  br i1 %100, label %.loopexit5, label %.preheader, !llvm.loop !12
+  br i1 %100, label %.loopexit6, label %.preheader, !llvm.loop !12
 
-.loopexit:                                        ; preds = %.loopexit5, %90
-  %101 = phi ptr [ %88, %90 ], [ %65, %.loopexit5 ]
-  %102 = phi i64 [ %87, %90 ], [ %66, %.loopexit5 ]
+.loopexit:                                        ; preds = %.loopexit6, %90
+  %101 = phi ptr [ %88, %90 ], [ %65, %.loopexit6 ]
+  %102 = phi i64 [ %87, %90 ], [ %66, %.loopexit6 ]
   %103 = icmp eq i64 %102, 0
-  br i1 %103, label %107, label %.thread
+  br i1 %103, label %108, label %.thread
 
 .thread:                                          ; preds = %61, %.loopexit
   %104 = phi ptr [ %101, %.loopexit ], [ %1, %61 ]
   store i8 0, ptr %104, align 1
-  br label %107
+  br label %108
 
 105:                                              ; preds = %11
   %106 = tail call i32 @lookup_module_symbol_name(i64 noundef %0, ptr noundef %1) #11
-  br label %107
+  %107 = icmp eq i32 %106, 0
+  br i1 %107, label %108, label %109
 
-107:                                              ; preds = %105, %.loopexit, %.thread
-  %108 = phi i32 [ 0, %.thread ], [ 0, %.loopexit ], [ %106, %105 ]
-  ret i32 %108
+108:                                              ; preds = %105, %.thread, %.loopexit
+  br label %109
+
+109:                                              ; preds = %108, %105
+  %110 = phi i32 [ 0, %108 ], [ %106, %105 ]
+  ret i32 %110
 }
 
 ; Function Attrs: null_pointer_is_valid

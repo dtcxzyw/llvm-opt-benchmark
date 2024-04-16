@@ -1571,13 +1571,13 @@ define dso_local noundef zeroext i1 @function_parse_error_transpose(ptr noundef 
   %.010 = phi i32 [ %5, %4 ], [ %2, %1 ]
   %8 = load ptr, ptr @ActivePortal, align 8
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %.sink.split, label %9
+  br i1 %.not, label %match_prosrc_to_query.exit.thread, label %9
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds i8, ptr %8, i64 132
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 3
-  br i1 %12, label %13, label %.sink.split
+  br i1 %12, label %13, label %match_prosrc_to_query.exit.thread
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds i8, ptr %8, i64 56
@@ -1588,7 +1588,7 @@ define dso_local noundef zeroext i1 @function_parse_error_transpose(ptr noundef 
   %19 = trunc i64 %18 to i32
   %20 = sub i32 %19, %17
   %21 = icmp sgt i32 %20, 0
-  br i1 %21, label %.lr.ph.i, label %.sink.split
+  br i1 %21, label %.lr.ph.i, label %match_prosrc_to_query.exit.thread
 
 .lr.ph.i:                                         ; preds = %13
   %sext.i = shl i64 %16, 32
@@ -1625,7 +1625,7 @@ define dso_local noundef zeroext i1 @function_parse_error_transpose(ptr noundef 
 
 37:                                               ; preds = %30
   %.not31.i = icmp eq i32 %.02934.i, 0
-  br i1 %.not31.i, label %38, label %.sink.split
+  br i1 %.not31.i, label %38, label %match_prosrc_to_query.exit.thread
 
 38:                                               ; preds = %37
   %39 = tail call i32 @pg_mbstrlen_with_len(ptr noundef nonnull %15, i32 noundef %31) #7
@@ -1700,7 +1700,7 @@ match_prosrc_to_literal.exit.i:                   ; preds = %._crit_edge.i.i
 
 68:                                               ; preds = %match_prosrc_to_literal.exit.i
   %.not.i = icmp eq i32 %.02934.i, 0
-  br i1 %.not.i, label %69, label %.sink.split
+  br i1 %.not.i, label %69, label %match_prosrc_to_query.exit.thread
 
 69:                                               ; preds = %68
   %70 = trunc nuw nsw i64 %.pre.i to i32
@@ -1717,13 +1717,13 @@ match_prosrc_to_query.exit:                       ; preds = %.thread.i
   %73 = icmp sgt i32 %.1.i, 0
   br i1 %73, label %.sink.split, label %match_prosrc_to_query.exit.thread
 
-match_prosrc_to_query.exit.thread:                ; preds = %match_prosrc_to_query.exit
+match_prosrc_to_query.exit.thread:                ; preds = %37, %68, %13, %7, %9, %match_prosrc_to_query.exit
   br label %.sink.split
 
-.sink.split:                                      ; preds = %68, %37, %9, %7, %13, %match_prosrc_to_query.exit, %match_prosrc_to_query.exit.thread
-  %.1.i.lcssa.sink = phi i32 [ %.1.i, %match_prosrc_to_query.exit ], [ 0, %13 ], [ 0, %7 ], [ 0, %9 ], [ 0, %match_prosrc_to_query.exit.thread ], [ 0, %37 ], [ 0, %68 ]
-  %.sink15 = phi i32 [ 0, %match_prosrc_to_query.exit ], [ %.010, %13 ], [ %.010, %7 ], [ %.010, %9 ], [ %.010, %match_prosrc_to_query.exit.thread ], [ %.010, %37 ], [ %.010, %68 ]
-  %.sink = phi ptr [ null, %match_prosrc_to_query.exit ], [ %0, %13 ], [ %0, %7 ], [ %0, %9 ], [ %0, %match_prosrc_to_query.exit.thread ], [ %0, %37 ], [ %0, %68 ]
+.sink.split:                                      ; preds = %match_prosrc_to_query.exit, %match_prosrc_to_query.exit.thread
+  %.1.i.lcssa.sink = phi i32 [ 0, %match_prosrc_to_query.exit.thread ], [ %.1.i, %match_prosrc_to_query.exit ]
+  %.sink15 = phi i32 [ %.010, %match_prosrc_to_query.exit.thread ], [ 0, %match_prosrc_to_query.exit ]
+  %.sink = phi ptr [ %0, %match_prosrc_to_query.exit.thread ], [ null, %match_prosrc_to_query.exit ]
   %74 = tail call i32 @errposition(i32 noundef %.1.i.lcssa.sink) #7
   %75 = tail call i32 @internalerrposition(i32 noundef %.sink15) #7
   %76 = tail call i32 @internalerrquery(ptr noundef %.sink) #7

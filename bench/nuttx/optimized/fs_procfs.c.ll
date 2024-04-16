@@ -197,7 +197,7 @@ define internal i32 @procfs_opendir(ptr nocapture readnone %0, ptr noundef %1, p
 4:                                                ; preds = %3
   %5 = load i8, ptr %1, align 1
   %6 = icmp eq i8 %5, 0
-  br i1 %6, label %7, label %27
+  br i1 %6, label %7, label %25
 
 7:                                                ; preds = %4, %3
   %8 = tail call noalias dereferenceable_or_null(560) ptr @zalloc(i64 noundef 560) #13
@@ -256,83 +256,79 @@ define internal i32 @procfs_opendir(ptr nocapture readnone %0, ptr noundef %1, p
 
 procfs_sort_pid.exit:                             ; preds = %._crit_edge.i, %9
   %24 = getelementptr inbounds i8, ptr %8, i64 552
-  store ptr @.str.13, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %8, i64 32
-  store i8 0, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %8, i64 24
-  store ptr null, ptr %26, align 8
-  store ptr %8, ptr %2, align 8
-  br label %.loopexit
+  br label %56
 
-27:                                               ; preds = %4
-  %28 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #12
-  %sext = shl i64 %28, 32
-  %29 = ashr exact i64 %sext, 32
-  br label %30
+25:                                               ; preds = %4
+  %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #12
+  %sext = shl i64 %26, 32
+  %27 = ashr exact i64 %sext, 32
+  br label %28
 
-30:                                               ; preds = %27, %63
-  %indvars.iv = phi i64 [ 0, %27 ], [ %indvars.iv.next, %63 ]
-  %31 = getelementptr inbounds [13 x %struct.procfs_entry_s], ptr @g_procfs_entries, i64 0, i64 %indvars.iv
-  %32 = load ptr, ptr %31, align 8
-  %33 = tail call i32 @fnmatch(ptr noundef %32, ptr noundef nonnull %1, i32 noundef 0) #12
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %35, label %45
+28:                                               ; preds = %25, %55
+  %indvars.iv = phi i64 [ 0, %25 ], [ %indvars.iv.next, %55 ]
+  %29 = getelementptr inbounds [13 x %struct.procfs_entry_s], ptr @g_procfs_entries, i64 0, i64 %indvars.iv
+  %30 = load ptr, ptr %29, align 8
+  %31 = tail call i32 @fnmatch(ptr noundef %30, ptr noundef nonnull %1, i32 noundef 0) #12
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %33, label %43
 
-35:                                               ; preds = %30
-  %36 = getelementptr inbounds i8, ptr %31, i64 8
+33:                                               ; preds = %28
+  %34 = getelementptr inbounds i8, ptr %29, i64 8
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 48
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 48
-  %39 = load ptr, ptr %38, align 8
-  %40 = tail call i32 %39(ptr noundef nonnull %1, ptr noundef %2) #12
-  %41 = icmp eq i32 %40, 0
-  br i1 %41, label %42, label %.loopexit
+  %38 = tail call i32 %37(ptr noundef nonnull %1, ptr noundef %2) #12
+  %39 = icmp eq i32 %38, 0
+  br i1 %39, label %40, label %.loopexit
 
-42:                                               ; preds = %35
-  %43 = load ptr, ptr %2, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 24
-  store ptr %31, ptr %44, align 8
+40:                                               ; preds = %33
+  %41 = load ptr, ptr %2, align 8
+  %42 = getelementptr inbounds i8, ptr %41, i64 24
+  store ptr %29, ptr %42, align 8
   br label %.loopexit
 
-45:                                               ; preds = %30
-  %46 = tail call i32 @strncmp(ptr noundef %32, ptr noundef nonnull %1, i64 noundef %29) #12
-  %47 = icmp eq i32 %46, 0
-  br i1 %47, label %48, label %63
+43:                                               ; preds = %28
+  %44 = tail call i32 @strncmp(ptr noundef %30, ptr noundef nonnull %1, i64 noundef %27) #12
+  %45 = icmp eq i32 %44, 0
+  br i1 %45, label %46, label %55
 
-48:                                               ; preds = %45
-  %49 = tail call noalias dereferenceable_or_null(48) ptr @zalloc(i64 noundef 48) #13
-  %.not44 = icmp eq ptr %49, null
-  br i1 %.not44, label %.loopexit, label %50
+46:                                               ; preds = %43
+  %47 = tail call noalias dereferenceable_or_null(48) ptr @zalloc(i64 noundef 48) #13
+  %.not44 = icmp eq ptr %47, null
+  br i1 %.not44, label %.loopexit, label %.thread
 
-50:                                               ; preds = %48
-  %51 = getelementptr inbounds i8, ptr %49, i64 16
-  store i8 1, ptr %51, align 8
-  %52 = trunc i64 %indvars.iv to i16
-  %53 = getelementptr inbounds i8, ptr %49, i64 18
-  store i16 %52, ptr %53, align 2
-  %54 = getelementptr inbounds i8, ptr %49, i64 34
-  store i16 %52, ptr %54, align 2
-  %55 = trunc i64 %28 to i8
-  %56 = getelementptr inbounds i8, ptr %49, i64 33
-  store i8 %55, ptr %56, align 1
-  %57 = getelementptr inbounds i8, ptr %49, i64 40
-  store ptr @.str.13, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %49, i64 32
-  store i8 0, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %49, i64 24
-  store ptr null, ptr %59, align 8
-  store ptr %49, ptr %2, align 8
-  %60 = and i64 %indvars.iv, 4294967295
-  %61 = icmp eq i64 %60, 13
-  %62 = select i1 %61, i32 -2, i32 0
-  br label %.loopexit
+.thread:                                          ; preds = %46
+  %48 = getelementptr inbounds i8, ptr %47, i64 16
+  store i8 1, ptr %48, align 8
+  %49 = trunc i64 %indvars.iv to i16
+  %50 = getelementptr inbounds i8, ptr %47, i64 18
+  store i16 %49, ptr %50, align 2
+  %51 = getelementptr inbounds i8, ptr %47, i64 34
+  store i16 %49, ptr %51, align 2
+  %52 = trunc i64 %26 to i8
+  %53 = getelementptr inbounds i8, ptr %47, i64 33
+  store i8 %52, ptr %53, align 1
+  %54 = getelementptr inbounds i8, ptr %47, i64 40
+  br label %56
 
-63:                                               ; preds = %45
+55:                                               ; preds = %43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 13
-  br i1 %exitcond.not, label %.loopexit, label %30, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit, label %28, !llvm.loop !10
 
-.loopexit:                                        ; preds = %63, %50, %procfs_sort_pid.exit, %48, %35, %42, %7
-  %.0 = phi i32 [ -12, %7 ], [ 0, %42 ], [ %40, %35 ], [ -12, %48 ], [ 0, %procfs_sort_pid.exit ], [ %62, %50 ], [ -2, %63 ]
+56:                                               ; preds = %.thread, %procfs_sort_pid.exit
+  %.sink = phi ptr [ %54, %.thread ], [ %24, %procfs_sort_pid.exit ]
+  %.sink61 = phi ptr [ %47, %.thread ], [ %8, %procfs_sort_pid.exit ]
+  store ptr @.str.13, ptr %.sink, align 8
+  %57 = getelementptr inbounds i8, ptr %.sink61, i64 32
+  store i8 0, ptr %57, align 8
+  %58 = getelementptr inbounds i8, ptr %.sink61, i64 24
+  store ptr null, ptr %58, align 8
+  store ptr %.sink61, ptr %2, align 8
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %55, %46, %33, %40, %7, %56
+  %.0 = phi i32 [ 0, %56 ], [ -12, %7 ], [ 0, %40 ], [ %38, %33 ], [ -12, %46 ], [ -2, %55 ]
   ret i32 %.0
 }
 

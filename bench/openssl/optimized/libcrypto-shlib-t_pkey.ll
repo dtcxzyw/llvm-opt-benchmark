@@ -173,12 +173,12 @@ if.then.i:                                        ; preds = %for.body.i
 land.lhs.true.i:                                  ; preds = %if.then.i
   %call.i = tail call i32 @BIO_puts(ptr noundef %bp, ptr noundef nonnull @.str) #2
   %cmp3.i = icmp slt i32 %call.i, 1
-  br i1 %cmp3.i, label %err, label %if.end.i
+  br i1 %cmp3.i, label %ASN1_buf_print.exit.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %if.then.i
   %call5.i = tail call i32 @BIO_indent(ptr noundef %bp, i32 noundef %add51, i32 noundef 128) #2
   %tobool.not.i = icmp eq i32 %call5.i, 0
-  br i1 %tobool.not.i, label %err, label %if.end8.i
+  br i1 %tobool.not.i, label %ASN1_buf_print.exit.thread, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end.i, %for.body.i
   %arrayidx.i = getelementptr inbounds i8, ptr %tmp.0, i64 %i.011.i
@@ -188,17 +188,19 @@ if.end8.i:                                        ; preds = %if.end.i, %for.body
   %cond.i = select i1 %cmp9.i, ptr @.str.2, ptr @.str.3
   %call11.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bp, ptr noundef nonnull @.str.1, i32 noundef %conv.i, ptr noundef nonnull %cond.i) #2
   %cmp12.i = icmp slt i32 %call11.i, 1
-  br i1 %cmp12.i, label %err, label %for.cond.i
+  br i1 %cmp12.i, label %ASN1_buf_print.exit.thread, label %for.cond.i
 
 ASN1_buf_print.exit:                              ; preds = %for.cond.i, %if.end43
   %call16.i = tail call i32 @BIO_write(ptr noundef %bp, ptr noundef nonnull @.str, i32 noundef 1) #2
   %call16.i.fr = freeze i32 %call16.i
-  %cmp17.i = icmp sgt i32 %call16.i.fr, 0
-  %spec.select = zext i1 %cmp17.i to i32
+  %cmp17.i = icmp slt i32 %call16.i.fr, 1
+  br i1 %cmp17.i, label %ASN1_buf_print.exit.thread, label %err
+
+ASN1_buf_print.exit.thread:                       ; preds = %if.end8.i, %if.end.i, %land.lhs.true.i, %ASN1_buf_print.exit
   br label %err
 
-err:                                              ; preds = %if.end8.i, %if.end.i, %land.lhs.true.i, %ASN1_buf_print.exit, %if.end32, %if.end23
-  %rv.0 = phi i32 [ 0, %if.end23 ], [ 0, %if.end32 ], [ %spec.select, %ASN1_buf_print.exit ], [ 0, %land.lhs.true.i ], [ 0, %if.end.i ], [ 0, %if.end8.i ]
+err:                                              ; preds = %ASN1_buf_print.exit.thread, %ASN1_buf_print.exit, %if.end32, %if.end23
+  %rv.0 = phi i32 [ 0, %if.end23 ], [ 0, %if.end32 ], [ 0, %ASN1_buf_print.exit.thread ], [ 1, %ASN1_buf_print.exit ]
   tail call void @CRYPTO_clear_free(ptr noundef %call28, i64 noundef %conv, ptr noundef nonnull @.str.7, i32 noundef 91) #2
   br label %return
 

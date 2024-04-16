@@ -294,20 +294,20 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @HMAC_Final(ptr nocapture noundef readonly %ctx, ptr noundef %md, ptr noundef %len) local_unnamed_addr #0 {
+define noundef i32 @HMAC_Final(ptr nocapture noundef readonly %ctx, ptr noundef %md, ptr noundef %len) local_unnamed_addr #0 {
 entry:
   %i = alloca i32, align 4
   %buf = alloca [64 x i8], align 16
   %0 = load ptr, ptr %ctx, align 8
   %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %return, label %if.end
+  br i1 %tobool.not, label %err, label %if.end
 
 if.end:                                           ; preds = %entry
   %md_ctx = getelementptr inbounds i8, ptr %ctx, i64 8
   %1 = load ptr, ptr %md_ctx, align 8
   %call = call i32 @EVP_DigestFinal_ex(ptr noundef %1, ptr noundef nonnull %buf, ptr noundef nonnull %i) #6
   %tobool2.not = icmp eq i32 %call, 0
-  br i1 %tobool2.not, label %return, label %if.end4
+  br i1 %tobool2.not, label %err, label %if.end4
 
 if.end4:                                          ; preds = %if.end
   %2 = load ptr, ptr %md_ctx, align 8
@@ -315,7 +315,7 @@ if.end4:                                          ; preds = %if.end
   %3 = load ptr, ptr %o_ctx, align 8
   %call6 = call i32 @EVP_MD_CTX_copy_ex(ptr noundef %2, ptr noundef %3) #6
   %tobool7.not = icmp eq i32 %call6, 0
-  br i1 %tobool7.not, label %return, label %if.end9
+  br i1 %tobool7.not, label %err, label %if.end9
 
 if.end9:                                          ; preds = %if.end4
   %4 = load ptr, ptr %md_ctx, align 8
@@ -323,17 +323,19 @@ if.end9:                                          ; preds = %if.end4
   %conv = zext i32 %5 to i64
   %call12 = call i32 @EVP_DigestUpdate(ptr noundef %4, ptr noundef nonnull %buf, i64 noundef %conv) #6
   %tobool13.not = icmp eq i32 %call12, 0
-  br i1 %tobool13.not, label %return, label %if.end15
+  br i1 %tobool13.not, label %err, label %if.end15
 
 if.end15:                                         ; preds = %if.end9
   %6 = load ptr, ptr %md_ctx, align 8
   %call17 = call i32 @EVP_DigestFinal_ex(ptr noundef %6, ptr noundef %md, ptr noundef %len) #6
-  %tobool18.not = icmp ne i32 %call17, 0
-  %spec.select = zext i1 %tobool18.not to i32
+  %tobool18.not = icmp eq i32 %call17, 0
+  br i1 %tobool18.not, label %err, label %return
+
+err:                                              ; preds = %if.end15, %if.end9, %if.end4, %if.end, %entry
   br label %return
 
-return:                                           ; preds = %if.end15, %entry, %if.end, %if.end4, %if.end9
-  %retval.0 = phi i32 [ 0, %if.end9 ], [ 0, %if.end4 ], [ 0, %if.end ], [ 0, %entry ], [ %spec.select, %if.end15 ]
+return:                                           ; preds = %if.end15, %err
+  %retval.0 = phi i32 [ 0, %err ], [ 1, %if.end15 ]
   ret i32 %retval.0
 }
 

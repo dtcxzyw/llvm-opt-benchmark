@@ -3601,27 +3601,23 @@ define internal i32 @dissect_application_isup(ptr noundef %0, ptr noundef %1, pt
 45:                                               ; preds = %44
   %46 = tail call i32 @g_ascii_strcasecmp(ptr noundef nonnull %11, ptr noundef nonnull @.str.1871) #5
   %47 = icmp eq i32 %46, 0
-  %brmerge = or i1 %47, %.not65
-  %.str.1873.mux = select i1 %47, ptr @.str.1873, ptr @.str.1872
-  %french_isup_message_type_value_acro_ext.mux = select i1 %47, ptr @french_isup_message_type_value_acro_ext, ptr @isup_message_type_value_acro_ext
-  %.mux = zext i1 %47 to i8
-  br i1 %brmerge, label %53, label %49
+  br i1 %47, label %52, label %48
 
-48:                                               ; preds = %44
+48:                                               ; preds = %45, %44
   br i1 %.not65, label %53, label %49
 
-49:                                               ; preds = %45, %48
+49:                                               ; preds = %48
   %50 = tail call i32 @g_ascii_strcasecmp(ptr noundef nonnull %14, ptr noundef nonnull @.str.1871) #5
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %52, label %53
 
-52:                                               ; preds = %49
+52:                                               ; preds = %49, %45
   br label %53
 
-53:                                               ; preds = %45, %49, %48, %5, %4, %52
-  %.str.1873.sink = phi ptr [ @.str.1872, %4 ], [ @.str.1872, %5 ], [ @.str.1872, %48 ], [ @.str.1872, %49 ], [ %.str.1873.mux, %45 ], [ @.str.1873, %52 ]
-  %french_isup_message_type_value_acro_ext.sink = phi ptr [ @isup_message_type_value_acro_ext, %4 ], [ @isup_message_type_value_acro_ext, %5 ], [ @isup_message_type_value_acro_ext, %48 ], [ @isup_message_type_value_acro_ext, %49 ], [ %french_isup_message_type_value_acro_ext.mux, %45 ], [ @french_isup_message_type_value_acro_ext, %52 ]
-  %.05271 = phi i8 [ 0, %4 ], [ 0, %5 ], [ 0, %48 ], [ 0, %49 ], [ %.mux, %45 ], [ 1, %52 ]
+53:                                               ; preds = %49, %48, %5, %4, %52
+  %.str.1873.sink = phi ptr [ @.str.1873, %52 ], [ @.str.1872, %4 ], [ @.str.1872, %5 ], [ @.str.1872, %48 ], [ @.str.1872, %49 ]
+  %french_isup_message_type_value_acro_ext.sink = phi ptr [ @french_isup_message_type_value_acro_ext, %52 ], [ @isup_message_type_value_acro_ext, %4 ], [ @isup_message_type_value_acro_ext, %5 ], [ @isup_message_type_value_acro_ext, %48 ], [ @isup_message_type_value_acro_ext, %49 ]
+  %.05271 = phi i8 [ 1, %52 ], [ 0, %4 ], [ 0, %5 ], [ 0, %48 ], [ 0, %49 ]
   store i1 false, ptr @isup_standard, align 4
   %54 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #5
   %55 = getelementptr inbounds i8, ptr %1, i64 8

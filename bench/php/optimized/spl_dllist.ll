@@ -639,7 +639,7 @@ define hidden void @zim_SplDoublyLinkedList_isEmpty(ptr nocapture noundef readon
   %7 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
   %8 = icmp ne ptr %7, null
   tail call void @llvm.assume(i1 %8)
-  br label %34
+  br label %35
 
 .critedge:                                        ; preds = %2
   %9 = getelementptr inbounds i8, ptr %0, i64 32
@@ -691,16 +691,18 @@ spl_dllist_object_count_elements.exit:            ; preds = %23, %25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %.0.fr = freeze i64 %.0
   %30 = icmp eq i64 %.0.fr, 0
-  %spec.select = select i1 %30, i32 3, i32 2
-  br label %31
+  br i1 %30, label %31, label %32
 
-31:                                               ; preds = %spl_dllist_object_count_elements.exit, %spl_dllist_object_count_elements.exit.thread
-  %32 = phi i32 [ 3, %spl_dllist_object_count_elements.exit.thread ], [ %spec.select, %spl_dllist_object_count_elements.exit ]
-  %33 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 %32, ptr %33, align 8
-  br label %34
+31:                                               ; preds = %spl_dllist_object_count_elements.exit.thread, %spl_dllist_object_count_elements.exit
+  br label %32
 
-34:                                               ; preds = %31, %6
+32:                                               ; preds = %spl_dllist_object_count_elements.exit, %31
+  %33 = phi i32 [ 3, %31 ], [ 2, %spl_dllist_object_count_elements.exit ]
+  %34 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 %33, ptr %34, align 8
+  br label %35
+
+35:                                               ; preds = %32, %6
   ret void
 }
 

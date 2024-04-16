@@ -1001,7 +1001,7 @@ declare i32 @CBB_add_u16(ptr noundef, i16 noundef zeroext) local_unnamed_addr #2
 declare i32 @CBB_add_bytes(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @add_X509(ptr noundef %cbb, ptr noundef %x509) unnamed_addr #0 {
+define internal fastcc noundef i32 @add_X509(ptr noundef %cbb, ptr noundef %x509) unnamed_addr #0 {
 entry:
   %buf = alloca ptr, align 8
   %call = tail call i32 @i2d_X509(ptr noundef %x509, ptr noundef null) #6
@@ -1021,16 +1021,18 @@ if.then2:                                         ; preds = %if.end
 if.end3:                                          ; preds = %if.end
   %0 = load ptr, ptr %buf, align 8
   %cmp4.not = icmp eq ptr %0, null
-  br i1 %cmp4.not, label %return, label %land.lhs.true
+  br i1 %cmp4.not, label %if.end10, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end3
   %call6 = call i32 @i2d_X509(ptr noundef %x509, ptr noundef nonnull %buf) #6
-  %cmp7 = icmp sgt i32 %call6, -1
-  %spec.select = zext i1 %cmp7 to i32
+  %cmp7 = icmp slt i32 %call6, 0
+  br i1 %cmp7, label %return, label %if.end10
+
+if.end10:                                         ; preds = %land.lhs.true, %if.end3
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %if.end3, %entry, %if.then2
-  %retval.0 = phi i32 [ 0, %if.then2 ], [ 0, %entry ], [ 1, %if.end3 ], [ %spec.select, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %entry, %if.end10, %if.then2
+  %retval.0 = phi i32 [ 1, %if.end10 ], [ 0, %if.then2 ], [ 0, %entry ], [ 0, %land.lhs.true ]
   ret i32 %retval.0
 }
 

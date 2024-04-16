@@ -2903,7 +2903,7 @@ define internal fastcc i32 @do_mq_timedreceive(i32 noundef %0, ptr noundef %1, i
   call void @llvm.write_register.i64(metadata !0, i64 %137)
   %139 = and i64 %138, 4294967295
   %140 = icmp eq i64 %139, 0
-  br i1 %140, label %._crit_edge, label %147
+  br i1 %140, label %._crit_edge, label %145
 
 ._crit_edge:                                      ; preds = %130
   %.pre = load i64, ptr %127, align 8
@@ -2913,17 +2913,19 @@ define internal fastcc i32 @do_mq_timedreceive(i32 noundef %0, ptr noundef %1, i
   %142 = phi i64 [ %.pre, %._crit_edge ], [ %128, %125 ]
   %143 = call i32 @store_msg(ptr noundef %1, ptr noundef %126, i64 noundef %142) #15
   %144 = icmp eq i32 %143, 0
-  %145 = trunc i64 %128 to i32
-  %146 = select i1 %144, i32 %145, i32 -14
-  br label %147
+  br i1 %144, label %146, label %145
 
-147:                                              ; preds = %141, %130
-  %148 = phi i32 [ -14, %130 ], [ %146, %141 ]
+145:                                              ; preds = %141, %130
+  br label %146
+
+146:                                              ; preds = %145, %141
+  %147 = phi i64 [ -14, %145 ], [ %128, %141 ]
   call void @free_msg(ptr noundef %126) #15
+  %148 = trunc i64 %147 to i32
   br label %149
 
-149:                                              ; preds = %.thread9, %147, %119, %53, %48, %34
-  %150 = phi i32 [ %148, %147 ], [ %121, %119 ], [ -9, %34 ], [ -9, %48 ], [ -90, %53 ], [ -11, %.thread9 ]
+149:                                              ; preds = %.thread9, %146, %119, %53, %48, %34
+  %150 = phi i32 [ %148, %146 ], [ %121, %119 ], [ -9, %34 ], [ -9, %48 ], [ -90, %53 ], [ -11, %.thread9 ]
   %151 = and i64 %30, 1
   %152 = icmp eq i64 %151, 0
   br i1 %152, label %154, label %153

@@ -13,19 +13,19 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define noundef i32 @gzwrite(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
-  br i1 %4, label %.critedge, label %5
+  br i1 %4, label %gz_zero.exit.thread, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds i8, ptr %0, i64 120
   %7 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %7, 31153
-  br i1 %.not, label %8, label %.critedge
+  br i1 %.not, label %8, label %gz_zero.exit.thread
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %0, i64 108
   %10 = load i32, ptr %9, align 4
   %.not57 = icmp eq i32 %10, 0
-  br i1 %.not57, label %11, label %.critedge
+  br i1 %.not57, label %11, label %gz_zero.exit.thread
 
 11:                                               ; preds = %8
   %12 = icmp slt i32 %2, 0
@@ -33,11 +33,11 @@ define noundef i32 @gzwrite(ptr noundef %0, ptr noundef %1, i32 noundef %2) loca
 
 13:                                               ; preds = %11
   tail call void @gz_error(ptr noundef nonnull %0, i32 noundef -5, ptr noundef nonnull @.str) #13
-  br label %.critedge
+  br label %gz_zero.exit.thread
 
 14:                                               ; preds = %11
   %15 = icmp eq i32 %2, 0
-  br i1 %15, label %.critedge, label %16
+  br i1 %15, label %gz_zero.exit.thread, label %16
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds i8, ptr %0, i64 24
@@ -48,7 +48,7 @@ define noundef i32 @gzwrite(ptr noundef %0, ptr noundef %1, i32 noundef %2) loca
 20:                                               ; preds = %16
   %21 = tail call fastcc i32 @gz_init(ptr noundef nonnull %0), !range !4
   %22 = icmp eq i32 %21, -1
-  br i1 %22, label %.critedge, label %23
+  br i1 %22, label %gz_zero.exit.thread, label %23
 
 23:                                               ; preds = %20, %16
   %24 = getelementptr inbounds i8, ptr %0, i64 104
@@ -68,7 +68,7 @@ define noundef i32 @gzwrite(ptr noundef %0, ptr noundef %1, i32 noundef %2) loca
 31:                                               ; preds = %26
   %32 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef 0), !range !4
   %33 = icmp eq i32 %32, -1
-  br i1 %33, label %.critedge, label %34
+  br i1 %33, label %gz_zero.exit.thread, label %34
 
 34:                                               ; preds = %31, %26
   %.not2224.i = icmp eq i64 %28, 0
@@ -114,7 +114,7 @@ define noundef i32 @gzwrite(ptr noundef %0, ptr noundef %1, i32 noundef %2) loca
   store i64 %51, ptr %36, align 8
   %52 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef 0), !range !4
   %53 = icmp eq i32 %52, -1
-  br i1 %53, label %.critedge, label %37
+  br i1 %53, label %gz_zero.exit.thread, label %37
 
 gz_zero.exit:                                     ; preds = %37, %34, %23
   %54 = load i32, ptr %17, align 8
@@ -166,7 +166,7 @@ gz_zero.exit:                                     ; preds = %37, %34, %23
   %77 = getelementptr inbounds i8, ptr %.050, i64 %70
   %78 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef 0), !range !4
   %79 = icmp eq i32 %78, -1
-  br i1 %79, label %.critedge, label %59
+  br i1 %79, label %gz_zero.exit.thread, label %59, !llvm.loop !7
 
 80:                                               ; preds = %gz_zero.exit
   %81 = load i32, ptr %56, align 8
@@ -176,7 +176,7 @@ gz_zero.exit:                                     ; preds = %37, %34, %23
 82:                                               ; preds = %80
   %83 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef 0), !range !4
   %84 = icmp eq i32 %83, -1
-  br i1 %84, label %.critedge, label %85
+  br i1 %84, label %gz_zero.exit.thread, label %85
 
 85:                                               ; preds = %82, %80
   store i32 %2, ptr %56, align 8
@@ -188,11 +188,13 @@ gz_zero.exit:                                     ; preds = %37, %34, %23
   store i64 %89, ptr %87, align 8
   %90 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef 0), !range !4
   %91 = icmp eq i32 %90, -1
-  %spec.select61 = select i1 %91, i32 0, i32 %2
-  br label %.critedge
+  br i1 %91, label %gz_zero.exit.thread, label %.critedge
 
-.critedge:                                        ; preds = %48, %76, %64, %31, %85, %82, %20, %14, %5, %8, %3, %13
-  %.0 = phi i32 [ 0, %13 ], [ 0, %3 ], [ 0, %8 ], [ 0, %5 ], [ 0, %14 ], [ 0, %20 ], [ 0, %82 ], [ %spec.select61, %85 ], [ 0, %31 ], [ %2, %64 ], [ 0, %76 ], [ 0, %48 ]
+.critedge:                                        ; preds = %64, %85
+  br label %gz_zero.exit.thread
+
+gz_zero.exit.thread:                              ; preds = %48, %76, %31, %85, %82, %20, %14, %5, %8, %3, %.critedge, %13
+  %.0 = phi i32 [ 0, %13 ], [ %2, %.critedge ], [ 0, %3 ], [ 0, %8 ], [ 0, %5 ], [ 0, %14 ], [ 0, %20 ], [ 0, %82 ], [ 0, %85 ], [ 0, %31 ], [ 0, %76 ], [ 0, %48 ]
   ret i32 %.0
 }
 
@@ -359,7 +361,7 @@ define internal fastcc noundef i32 @gz_comp(ptr noundef %0, i32 noundef %1) unna
 42:                                               ; preds = %38
   %43 = load i32, ptr %11, align 8
   %.not41.us = icmp eq i32 %39, %43
-  br i1 %.not41.us, label %.split48.us, label %.split.us, !llvm.loop !7
+  br i1 %.not41.us, label %.split48.us, label %.split.us, !llvm.loop !8
 
 .split.split.us:                                  ; preds = %10, %67
   %44 = load ptr, ptr %12, align 8
@@ -408,7 +410,7 @@ define internal fastcc noundef i32 @gz_comp(ptr noundef %0, i32 noundef %1) unna
 67:                                               ; preds = %62
   %68 = load i32, ptr %11, align 8
   %.not41.us53 = icmp eq i32 %63, %68
-  br i1 %.not41.us53, label %.split48.us, label %.split.split.us, !llvm.loop !7
+  br i1 %.not41.us53, label %.split48.us, label %.split.split.us, !llvm.loop !8
 
 .split.split:                                     ; preds = %.split.split.preheader, %101
   %69 = phi i32 [ %102, %101 ], [ %.pre, %.split.split.preheader ]
@@ -484,7 +486,7 @@ define internal fastcc noundef i32 @gz_comp(ptr noundef %0, i32 noundef %1) unna
 101:                                              ; preds = %97
   %102 = load i32, ptr %11, align 8
   %.not41 = icmp eq i32 %98, %102
-  br i1 %.not41, label %.split48.us, label %.split.split, !llvm.loop !7
+  br i1 %.not41, label %.split48.us, label %.split.split, !llvm.loop !8
 
 .split48.us:                                      ; preds = %101, %42, %67
   %103 = icmp eq i32 %1, 4
@@ -623,7 +625,7 @@ gz_zero.exit:                                     ; preds = %26, %22, %11
 62:                                               ; preds = %gz_zero.exit
   %63 = trunc i32 %1 to i8
   store i8 %63, ptr %3, align 1
-  %64 = call i32 @gzwrite(ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef 1), !range !8
+  %64 = call i32 @gzwrite(ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef 1), !range !9
   %.not26 = icmp eq i32 %64, 1
   %. = select i1 %.not26, i32 %1, i32 -1
   br label %gz_zero.exit.thread
@@ -637,7 +639,7 @@ gz_zero.exit.thread:                              ; preds = %37, %19, %62, %5, %
 define noundef i32 @gzputs(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #16
   %4 = trunc i64 %3 to i32
-  %5 = tail call i32 @gzwrite(ptr noundef %0, ptr noundef %1, i32 noundef %4), !range !8
+  %5 = tail call i32 @gzwrite(ptr noundef %0, ptr noundef %1, i32 noundef %4), !range !9
   %6 = icmp eq i32 %5, 0
   %7 = icmp ne i32 %4, 0
   %or.cond = and i1 %6, %7
@@ -1200,4 +1202,5 @@ attributes #16 = { nounwind willreturn memory(read) }
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
-!8 = !{i32 0, i32 -2147483648}
+!8 = distinct !{!8, !6}
+!9 = !{i32 0, i32 -2147483648}

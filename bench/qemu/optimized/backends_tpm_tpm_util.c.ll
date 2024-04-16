@@ -161,7 +161,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @tpm_util_test_tpmdev(i32 noundef %tpm_fd, ptr nocapture noundef writeonly %tpm_version) local_unnamed_addr #0 {
+define dso_local noundef i32 @tpm_util_test_tpmdev(i32 noundef %tpm_fd, ptr nocapture noundef writeonly %tpm_version) local_unnamed_addr #0 {
 entry:
   %buf.i6 = alloca [1024 x i8], align 16
   %buf.i = alloca [1024 x i8], align 16
@@ -200,20 +200,20 @@ if.end:                                           ; preds = %tpm_util_test.exit.
 
 tpm_util_test.exit12.thread:                      ; preds = %if.end
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %buf.i6)
-  br label %return
+  br label %if.end18
 
 tpm_util_test.exit12:                             ; preds = %if.end
   %buf.val.i10 = load i16, ptr %buf.i6, align 16
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %buf.i6)
   %cmp15 = icmp eq i16 %buf.val.i10, -15360
-  %spec.select = zext i1 %cmp15 to i32
-  %not.cmp15 = xor i1 %cmp15, true
-  %spec.select25 = zext i1 %not.cmp15 to i32
+  br i1 %cmp15, label %return, label %if.end18
+
+if.end18:                                         ; preds = %tpm_util_test.exit12.thread, %tpm_util_test.exit12
   br label %return
 
-return:                                           ; preds = %tpm_util_test.exit12, %tpm_util_test.exit12.thread, %tpm_util_test.exit
-  %.sink = phi i32 [ 2, %tpm_util_test.exit ], [ 0, %tpm_util_test.exit12.thread ], [ %spec.select, %tpm_util_test.exit12 ]
-  %retval.0 = phi i32 [ 0, %tpm_util_test.exit ], [ 1, %tpm_util_test.exit12.thread ], [ %spec.select25, %tpm_util_test.exit12 ]
+return:                                           ; preds = %tpm_util_test.exit12, %tpm_util_test.exit, %if.end18
+  %.sink = phi i32 [ 0, %if.end18 ], [ 2, %tpm_util_test.exit ], [ 1, %tpm_util_test.exit12 ]
+  %retval.0 = phi i32 [ 1, %if.end18 ], [ 0, %tpm_util_test.exit ], [ 0, %tpm_util_test.exit12 ]
   store i32 %.sink, ptr %tpm_version, align 4
   ret i32 %retval.0
 }

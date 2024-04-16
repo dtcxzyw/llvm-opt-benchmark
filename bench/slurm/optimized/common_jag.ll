@@ -2335,7 +2335,7 @@ define internal noundef i32 @_reset_visited(ptr nocapture noundef writeonly %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @_list_find_prec_by_pid(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
+define internal noundef i32 @_list_find_prec_by_pid(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
   %3 = load i8, ptr %0, align 8
   %4 = trunc i8 %3 to i1
   br i1 %4, label %10, label %5
@@ -2345,11 +2345,13 @@ define internal i32 @_list_find_prec_by_pid(ptr nocapture noundef readonly %0, p
   %7 = getelementptr inbounds i8, ptr %0, i64 12
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, %6
-  %spec.select = zext i1 %9 to i32
-  br label %10
+  br i1 %9, label %11, label %10
 
 10:                                               ; preds = %5, %2
-  %.0 = phi i32 [ 0, %2 ], [ %spec.select, %5 ]
+  br label %11
+
+11:                                               ; preds = %5, %10
+  %.0 = phi i32 [ 0, %10 ], [ 1, %5 ]
   ret i32 %.0
 }
 
@@ -2358,7 +2360,7 @@ declare void @slurm_list_append(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @slurm_list_dequeue(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @_list_find_prec_by_ppid(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
+define internal noundef i32 @_list_find_prec_by_ppid(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
   %3 = load i8, ptr %0, align 8
   %4 = trunc i8 %3 to i1
   br i1 %4, label %10, label %5
@@ -2368,11 +2370,13 @@ define internal i32 @_list_find_prec_by_ppid(ptr nocapture noundef readonly %0, 
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, %6
-  %spec.select = zext i1 %9 to i32
-  br label %10
+  br i1 %9, label %11, label %10
 
 10:                                               ; preds = %5, %2
-  %.0 = phi i32 [ 0, %2 ], [ %spec.select, %5 ]
+  br label %11
+
+11:                                               ; preds = %5, %10
+  %.0 = phi i32 [ 0, %10 ], [ 1, %5 ]
   ret i32 %.0
 }
 

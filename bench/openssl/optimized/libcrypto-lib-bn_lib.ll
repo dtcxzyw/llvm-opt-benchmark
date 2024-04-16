@@ -1838,17 +1838,19 @@ return:                                           ; preds = %if.then8.i, %if.end
 define void @BN_set_negative(ptr nocapture noundef %a, i32 noundef %b) local_unnamed_addr #9 {
 entry:
   %tobool.not = icmp eq i32 %b, 0
-  br i1 %tobool.not, label %if.end, label %land.lhs.true
+  br i1 %tobool.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
   %top.i = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load i32, ptr %top.i, align 8
-  %cmp.i.not = icmp ne i32 %0, 0
-  %spec.select = zext i1 %cmp.i.not to i32
+  %cmp.i.not = icmp eq i32 %0, 0
+  br i1 %cmp.i.not, label %if.else, label %if.end
+
+if.else:                                          ; preds = %land.lhs.true, %entry
   br label %if.end
 
-if.end:                                           ; preds = %land.lhs.true, %entry
-  %.sink = phi i32 [ 0, %entry ], [ %spec.select, %land.lhs.true ]
+if.end:                                           ; preds = %land.lhs.true, %if.else
+  %.sink = phi i32 [ 0, %if.else ], [ 1, %land.lhs.true ]
   %neg2 = getelementptr inbounds i8, ptr %a, i64 16
   store i32 %.sink, ptr %neg2, align 8
   ret void

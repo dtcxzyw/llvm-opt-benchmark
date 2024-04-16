@@ -74,62 +74,62 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %arrayidx2 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %ycaOut, i64 %indvars.iv
   %1 = and i64 %0, 31744
   %cmp.i.not = icmp eq i64 %1, 31744
-  %.pre.pre.pre = load ptr, ptr @imath_half_to_float_table, align 8
-  br i1 %cmp.i.not, label %if.end, label %lor.lhs.false
+  %.pre.pre.pre.pre.pre.pre = load ptr, ptr @imath_half_to_float_table, align 8
+  br i1 %cmp.i.not, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.body
   %idxprom.i.i = and i64 %0, 65535
-  %arrayidx.i.i = getelementptr inbounds %union.imath_half_uif, ptr %.pre.pre.pre, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds %union.imath_half_uif, ptr %.pre.pre.pre.pre.pre.pre, i64 %idxprom.i.i
   %2 = load float, ptr %arrayidx.i.i, align 4
   %cmp5 = fcmp olt float %2, 0.000000e+00
   br i1 %cmp5, label %if.then, label %if.end
 
-if.then:                                          ; preds = %lor.lhs.false
+if.then:                                          ; preds = %lor.lhs.false, %for.body
   br label %if.end
 
-if.end:                                           ; preds = %for.body, %if.then, %lor.lhs.false
-  %in.sroa.0.0 = phi i64 [ %0, %lor.lhs.false ], [ 0, %for.body ], [ 0, %if.then ]
+if.end:                                           ; preds = %if.then, %lor.lhs.false
+  %in.sroa.0.0 = phi i64 [ 0, %if.then ], [ %0, %lor.lhs.false ]
   %3 = and i16 %in.sroa.8.0.extract.trunc, 31744
   %cmp.i23.not = icmp eq i16 %3, 31744
-  br i1 %cmp.i23.not, label %if.end16, label %lor.lhs.false9
+  br i1 %cmp.i23.not, label %if.then13, label %lor.lhs.false9
 
 lor.lhs.false9:                                   ; preds = %if.end
   %idxprom.i.i24 = and i64 %in.sroa.8.0.extract.shift, 65535
-  %arrayidx.i.i25 = getelementptr inbounds %union.imath_half_uif, ptr %.pre.pre.pre, i64 %idxprom.i.i24
+  %arrayidx.i.i25 = getelementptr inbounds %union.imath_half_uif, ptr %.pre.pre.pre.pre.pre.pre, i64 %idxprom.i.i24
   %4 = load float, ptr %arrayidx.i.i25, align 4
   %cmp12 = fcmp olt float %4, 0.000000e+00
   br i1 %cmp12, label %if.then13, label %if.end16
 
-if.then13:                                        ; preds = %lor.lhs.false9
+if.then13:                                        ; preds = %lor.lhs.false9, %if.end
   br label %if.end16
 
-if.end16:                                         ; preds = %if.end, %if.then13, %lor.lhs.false9
-  %in.sroa.8.0 = phi i16 [ %in.sroa.8.0.extract.trunc, %lor.lhs.false9 ], [ 0, %if.end ], [ 0, %if.then13 ]
+if.end16:                                         ; preds = %if.then13, %lor.lhs.false9
+  %in.sroa.8.0 = phi i16 [ 0, %if.then13 ], [ %in.sroa.8.0.extract.trunc, %lor.lhs.false9 ]
   %5 = and i64 %0, 136339441844224
   %cmp.i26.not = icmp eq i64 %5, 136339441844224
-  br i1 %cmp.i26.not, label %if.end25, label %lor.lhs.false18
+  br i1 %cmp.i26.not, label %if.then22, label %lor.lhs.false18
 
 lor.lhs.false18:                                  ; preds = %if.end16
   %idxprom.i.i27 = and i64 %in.sroa.15.0.extract.shift, 65535
-  %arrayidx.i.i28 = getelementptr inbounds %union.imath_half_uif, ptr %.pre.pre.pre, i64 %idxprom.i.i27
+  %arrayidx.i.i28 = getelementptr inbounds %union.imath_half_uif, ptr %.pre.pre.pre.pre.pre.pre, i64 %idxprom.i.i27
   %6 = load float, ptr %arrayidx.i.i28, align 4
   %cmp21 = fcmp olt float %6, 0.000000e+00
   br i1 %cmp21, label %if.then22, label %if.end25
 
-if.then22:                                        ; preds = %lor.lhs.false18
+if.then22:                                        ; preds = %lor.lhs.false18, %if.end16
   br label %if.end25
 
-if.end25:                                         ; preds = %if.end16, %if.then22, %lor.lhs.false18
-  %in.sroa.15.0 = phi i64 [ %in.sroa.15.0.extract.shift, %lor.lhs.false18 ], [ 0, %if.end16 ], [ 0, %if.then22 ]
+if.end25:                                         ; preds = %if.then22, %lor.lhs.false18
+  %in.sroa.15.0 = phi i64 [ 0, %if.then22 ], [ %in.sroa.15.0.extract.shift, %lor.lhs.false18 ]
   %idxprom.i.i29 = and i64 %in.sroa.0.0, 65535
-  %arrayidx.i.i30 = getelementptr inbounds %union.imath_half_uif, ptr %.pre.pre.pre, i64 %idxprom.i.i29
+  %arrayidx.i.i30 = getelementptr inbounds %union.imath_half_uif, ptr %.pre.pre.pre.pre.pre.pre, i64 %idxprom.i.i29
   %7 = load float, ptr %arrayidx.i.i30, align 4
   %idxprom.i.i31 = zext i16 %in.sroa.8.0 to i64
-  %arrayidx.i.i32 = getelementptr inbounds %union.imath_half_uif, ptr %.pre.pre.pre, i64 %idxprom.i.i31
+  %arrayidx.i.i32 = getelementptr inbounds %union.imath_half_uif, ptr %.pre.pre.pre.pre.pre.pre, i64 %idxprom.i.i31
   %8 = load float, ptr %arrayidx.i.i32, align 4
   %cmp30 = fcmp oeq float %7, %8
   %idxprom.i.i35 = and i64 %in.sroa.15.0, 65535
-  %arrayidx.i.i36 = getelementptr inbounds %union.imath_half_uif, ptr %.pre.pre.pre, i64 %idxprom.i.i35
+  %arrayidx.i.i36 = getelementptr inbounds %union.imath_half_uif, ptr %.pre.pre.pre.pre.pre.pre, i64 %idxprom.i.i35
   %9 = load float, ptr %arrayidx.i.i36, align 4
   %cmp35 = fcmp oeq float %8, %9
   %or.cond = select i1 %cmp30, i1 %cmp35, i1 false

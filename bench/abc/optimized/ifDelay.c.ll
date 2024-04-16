@@ -2242,8 +2242,8 @@ define i32 @If_CutLutBalancePinDelays(ptr nocapture noundef readonly %0, ptr noc
   %41 = getelementptr inbounds i8, ptr %1, i64 20
   br label %45
 
-.preheader:                                       ; preds = %53
-  %.not48 = icmp ult i32 %59, 16777216
+.preheader:                                       ; preds = %54
+  %.not48 = icmp ult i32 %60, 16777216
   br i1 %.not48, label %.loopexit, label %.lr.ph45
 
 .lr.ph45:                                         ; preds = %.preheader
@@ -2252,12 +2252,12 @@ define i32 @If_CutLutBalancePinDelays(ptr nocapture noundef readonly %0, ptr noc
   %43 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %1, i64 36
-  %wide.trip.count = zext nneg i32 %60 to i64
-  br label %63
+  %wide.trip.count = zext nneg i32 %61 to i64
+  br label %64
 
-45:                                               ; preds = %.lr.ph, %53
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %53 ]
-  %46 = phi i32 [ %28, %.lr.ph ], [ %60, %53 ]
+45:                                               ; preds = %.lr.ph, %54
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %54 ]
+  %46 = phi i32 [ %28, %.lr.ph ], [ %61, %54 ]
   %47 = icmp sgt i32 %46, %40
   br i1 %47, label %48, label %53
 
@@ -2268,47 +2268,49 @@ define i32 @If_CutLutBalancePinDelays(ptr nocapture noundef readonly %0, ptr noc
   %51 = shl nuw i32 1, %50
   %52 = and i32 %49, %51
   %.not = icmp eq i32 %52, 0
-  %spec.select = select i1 %.not, i8 1, i8 2
-  br label %53
+  br i1 %.not, label %53, label %54
 
 53:                                               ; preds = %48, %45
-  %.sink = phi i8 [ 1, %45 ], [ %spec.select, %48 ]
-  %54 = getelementptr inbounds i8, ptr %33, i64 %indvars.iv
-  %55 = load i8, ptr %54, align 1
-  %56 = ashr i8 %55, 1
-  %57 = sext i8 %56 to i64
-  %58 = getelementptr inbounds i8, ptr %2, i64 %57
-  store i8 %.sink, ptr %58, align 1
+  br label %54
+
+54:                                               ; preds = %48, %53
+  %.sink = phi i8 [ 1, %53 ], [ 2, %48 ]
+  %55 = getelementptr inbounds i8, ptr %33, i64 %indvars.iv
+  %56 = load i8, ptr %55, align 1
+  %57 = ashr i8 %56, 1
+  %58 = sext i8 %57 to i64
+  %59 = getelementptr inbounds i8, ptr %2, i64 %58
+  store i8 %.sink, ptr %59, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val38 = load i64, ptr %4, align 4
-  %59 = trunc i64 %.val38 to i32
-  %60 = lshr i32 %59, 24
-  %61 = zext nneg i32 %60 to i64
-  %62 = icmp ult i64 %indvars.iv.next, %61
-  br i1 %62, label %45, label %.preheader, !llvm.loop !25
+  %60 = trunc i64 %.val38 to i32
+  %61 = lshr i32 %60, 24
+  %62 = zext nneg i32 %61 to i64
+  %63 = icmp ult i64 %indvars.iv.next, %62
+  br i1 %63, label %45, label %.preheader, !llvm.loop !25
 
-63:                                               ; preds = %.lr.ph45, %63
-  %indvars.iv52 = phi i64 [ 0, %.lr.ph45 ], [ %indvars.iv.next53, %63 ]
-  %.044 = phi i32 [ -1, %.lr.ph45 ], [ %76, %63 ]
-  %64 = getelementptr inbounds [0 x i32], ptr %44, i64 0, i64 %indvars.iv52
-  %65 = load i32, ptr %64, align 4
-  %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds ptr, ptr %.val.val, i64 %66
-  %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 92
-  %70 = load float, ptr %69, align 4
-  %71 = fptosi float %70 to i32
-  %72 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv52
-  %73 = load i8, ptr %72, align 1
-  %74 = sext i8 %73 to i32
-  %75 = add nsw i32 %74, %71
-  %76 = tail call noundef i32 @llvm.smax.i32(i32 %.044, i32 %75)
+64:                                               ; preds = %.lr.ph45, %64
+  %indvars.iv52 = phi i64 [ 0, %.lr.ph45 ], [ %indvars.iv.next53, %64 ]
+  %.044 = phi i32 [ -1, %.lr.ph45 ], [ %77, %64 ]
+  %65 = getelementptr inbounds [0 x i32], ptr %44, i64 0, i64 %indvars.iv52
+  %66 = load i32, ptr %65, align 4
+  %67 = sext i32 %66 to i64
+  %68 = getelementptr inbounds ptr, ptr %.val.val, i64 %67
+  %69 = load ptr, ptr %68, align 8
+  %70 = getelementptr inbounds i8, ptr %69, i64 92
+  %71 = load float, ptr %70, align 4
+  %72 = fptosi float %71 to i32
+  %73 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv52
+  %74 = load i8, ptr %73, align 1
+  %75 = sext i8 %74 to i32
+  %76 = add nsw i32 %75, %72
+  %77 = tail call noundef i32 @llvm.smax.i32(i32 %.044, i32 %76)
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next53, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %63, !llvm.loop !26
+  br i1 %exitcond.not, label %.loopexit, label %64, !llvm.loop !26
 
-.loopexit:                                        ; preds = %63, %.preheader, %3, %10
-  %.032 = phi i32 [ %20, %10 ], [ 0, %3 ], [ -1, %.preheader ], [ %76, %63 ]
+.loopexit:                                        ; preds = %64, %.preheader, %3, %10
+  %.032 = phi i32 [ %20, %10 ], [ 0, %3 ], [ -1, %.preheader ], [ %77, %64 ]
   ret i32 %.032
 }
 

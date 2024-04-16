@@ -399,7 +399,7 @@ _print_job_steps.exit:                            ; preds = %.critedge44.i, %62,
   %.0.i = phi i32 [ -1, %.critedge44.i ], [ %56, %62 ], [ 0, %85 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
-  br label %336
+  br label %337
 
 92:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
@@ -413,532 +413,534 @@ _print_job_steps.exit:                            ; preds = %.critedge44.i, %62,
 95:                                               ; preds = %92
   %96 = load ptr, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 42), align 8
   %.not.i7 = icmp eq ptr %96, null
-  br i1 %.not.i7, label %99, label %97
+  br i1 %.not.i7, label %100, label %97
 
 97:                                               ; preds = %95
   %98 = tail call i32 @list_count(ptr noundef nonnull %96) #13
-  %.not50.i = icmp ne i32 %98, 0
-  %spec.select71.i = zext i1 %.not50.i to i16
-  br label %99
+  %.not50.i = icmp eq i32 %98, 0
+  br i1 %.not50.i, label %100, label %99
 
-99:                                               ; preds = %97, %95, %92
-  %.035.i = phi i16 [ 0, %95 ], [ 1, %92 ], [ %spec.select71.i, %97 ]
-  %100 = load i8, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 4), align 4
-  %101 = trunc i8 %100 to i1
-  %102 = or disjoint i16 %.035.i, 64
-  %spec.select.i8 = select i1 %101, i16 %102, i16 %.035.i
-  %103 = load i8, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 7), align 1
-  %104 = trunc i8 %103 to i1
-  %105 = or disjoint i16 %spec.select.i8, 16
-  %.2.i = select i1 %104, i16 %105, i16 %spec.select.i8
-  %106 = load i8, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 9), align 1
-  %107 = trunc i8 %106 to i1
-  %108 = or i16 %.2.i, 96
-  %.3.i = select i1 %107, i16 %108, i16 %.2.i
-  %109 = load ptr, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 21), align 8
-  %.not51.i = icmp eq ptr %109, null
-  br i1 %.not51.i, label %111, label %110
+99:                                               ; preds = %97, %92
+  br label %100
 
-110:                                              ; preds = %99
-  %strchr.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %109, i32 67)
+100:                                              ; preds = %99, %97, %95
+  %.035.i = phi i16 [ 1, %99 ], [ 0, %97 ], [ 0, %95 ]
+  %101 = load i8, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 4), align 4
+  %102 = trunc i8 %101 to i1
+  %103 = or disjoint i16 %.035.i, 64
+  %spec.select.i8 = select i1 %102, i16 %103, i16 %.035.i
+  %104 = load i8, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 7), align 1
+  %105 = trunc i8 %104 to i1
+  %106 = or disjoint i16 %spec.select.i8, 16
+  %.2.i = select i1 %105, i16 %106, i16 %spec.select.i8
+  %107 = load i8, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 9), align 1
+  %108 = trunc i8 %107 to i1
+  %109 = or i16 %.2.i, 96
+  %.3.i = select i1 %108, i16 %109, i16 %.2.i
+  %110 = load ptr, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 21), align 8
+  %.not51.i = icmp eq ptr %110, null
+  br i1 %.not51.i, label %112, label %111
+
+111:                                              ; preds = %100
+  %strchr.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %110, i32 67)
   %.not52.i = icmp eq ptr %strchr.i, null
-  br i1 %.not52.i, label %111, label %114
+  br i1 %.not52.i, label %112, label %115
 
-111:                                              ; preds = %110, %99
-  %112 = load i8, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 3), align 1
-  %113 = trunc i8 %112 to i1
-  br i1 %113, label %114, label %116
+112:                                              ; preds = %111, %100
+  %113 = load i8, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 3), align 1
+  %114 = trunc i8 %113 to i1
+  br i1 %114, label %115, label %117
 
-114:                                              ; preds = %111, %110
-  %115 = or i16 %.3.i, 2
-  br label %116
+115:                                              ; preds = %112, %111
+  %116 = or i16 %.3.i, 2
+  br label %117
 
-116:                                              ; preds = %114, %111
-  %.4.i = phi i16 [ %115, %114 ], [ %.3.i, %111 ]
-  %117 = load ptr, ptr @_print_job.old_job_ptr, align 8
-  %.not53.i = icmp eq ptr %117, null
-  br i1 %.not53.i, label %144, label %118
+117:                                              ; preds = %115, %112
+  %.4.i = phi i16 [ %116, %115 ], [ %.3.i, %112 ]
+  %118 = load ptr, ptr @_print_job.old_job_ptr, align 8
+  %.not53.i = icmp eq ptr %118, null
+  br i1 %.not53.i, label %145, label %119
 
-118:                                              ; preds = %116
-  br i1 %0, label %119, label %121
+119:                                              ; preds = %117
+  br i1 %0, label %120, label %122
 
-119:                                              ; preds = %118
-  %120 = getelementptr inbounds i8, ptr %117, i64 8
-  store i64 0, ptr %120, align 8
-  br label %121
+120:                                              ; preds = %119
+  %121 = getelementptr inbounds i8, ptr %118, i64 8
+  store i64 0, ptr %121, align 8
+  br label %122
 
-121:                                              ; preds = %119, %118
-  %122 = load i32, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 37), align 8
-  %.not56.i = icmp eq i32 %122, 0
-  br i1 %.not56.i, label %125, label %123
+122:                                              ; preds = %120, %119
+  %123 = load i32, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 37), align 8
+  %.not56.i = icmp eq i32 %123, 0
+  br i1 %.not56.i, label %126, label %124
 
-123:                                              ; preds = %121
-  %124 = call i32 @slurm_load_job(ptr noundef nonnull %9, i32 noundef %122, i16 noundef zeroext %.4.i) #13
-  br label %135
+124:                                              ; preds = %122
+  %125 = call i32 @slurm_load_job(ptr noundef nonnull %9, i32 noundef %123, i16 noundef zeroext %.4.i) #13
+  br label %136
 
-125:                                              ; preds = %121
-  %126 = load i32, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 38), align 4
-  %.not57.i = icmp eq i32 %126, 0
-  br i1 %.not57.i, label %129, label %127
+126:                                              ; preds = %122
+  %127 = load i32, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 38), align 4
+  %.not57.i = icmp eq i32 %127, 0
+  br i1 %.not57.i, label %130, label %128
 
-127:                                              ; preds = %125
-  %128 = call i32 @slurm_load_job_user(ptr noundef nonnull %9, i32 noundef %126, i16 noundef zeroext %.4.i) #13
-  br label %135
+128:                                              ; preds = %126
+  %129 = call i32 @slurm_load_job_user(ptr noundef nonnull %9, i32 noundef %127, i16 noundef zeroext %.4.i) #13
+  br label %136
 
-129:                                              ; preds = %125
-  %130 = load ptr, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 18), align 8
-  %.not58.i = icmp eq ptr %130, null
-  %131 = or i16 %.4.i, 16
-  %spec.select70.i = select i1 %.not58.i, i16 %.4.i, i16 %131
-  %132 = getelementptr inbounds i8, ptr %117, i64 8
-  %133 = load i64, ptr %132, align 8
-  %134 = call i32 @slurm_load_jobs(i64 noundef %133, ptr noundef nonnull %9, i16 noundef zeroext %spec.select70.i) #13
-  br label %135
+130:                                              ; preds = %126
+  %131 = load ptr, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 18), align 8
+  %.not58.i = icmp eq ptr %131, null
+  %132 = or i16 %.4.i, 16
+  %spec.select70.i = select i1 %.not58.i, i16 %.4.i, i16 %132
+  %133 = getelementptr inbounds i8, ptr %118, i64 8
+  %134 = load i64, ptr %133, align 8
+  %135 = call i32 @slurm_load_jobs(i64 noundef %134, ptr noundef nonnull %9, i16 noundef zeroext %spec.select70.i) #13
+  br label %136
 
-135:                                              ; preds = %129, %127, %123
-  %.034.i = phi i32 [ %124, %123 ], [ %128, %127 ], [ %134, %129 ]
-  %136 = icmp eq i32 %.034.i, 0
-  br i1 %136, label %137, label %139
+136:                                              ; preds = %130, %128, %124
+  %.034.i = phi i32 [ %125, %124 ], [ %129, %128 ], [ %135, %130 ]
+  %137 = icmp eq i32 %.034.i, 0
+  br i1 %137, label %138, label %140
 
-137:                                              ; preds = %135
-  %138 = load ptr, ptr @_print_job.old_job_ptr, align 8
-  call void @slurm_free_job_info_msg(ptr noundef %138) #13
+138:                                              ; preds = %136
+  %139 = load ptr, ptr @_print_job.old_job_ptr, align 8
+  call void @slurm_free_job_info_msg(ptr noundef %139) #13
   br label %.thread.i10
 
-139:                                              ; preds = %135
-  %140 = call i32 @slurm_get_errno() #13
-  %141 = icmp eq i32 %140, 1900
-  br i1 %141, label %142, label %.thread74.i
+140:                                              ; preds = %136
+  %141 = call i32 @slurm_get_errno() #13
+  %142 = icmp eq i32 %141, 1900
+  br i1 %142, label %143, label %.thread73.i
 
-142:                                              ; preds = %139
-  %143 = load ptr, ptr @_print_job.old_job_ptr, align 8
-  store ptr %143, ptr %9, align 8
+143:                                              ; preds = %140
+  %144 = load ptr, ptr @_print_job.old_job_ptr, align 8
+  store ptr %144, ptr %9, align 8
   br label %.thread.i10
 
-144:                                              ; preds = %116
-  %145 = load i8, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 28), align 8
-  %146 = trunc i8 %145 to i1
-  br i1 %146, label %147, label %255
+145:                                              ; preds = %117
+  %146 = load i8, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 28), align 8
+  %147 = trunc i8 %146 to i1
+  br i1 %147, label %148, label %256
 
-147:                                              ; preds = %144
+148:                                              ; preds = %145
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   store ptr null, ptr %5, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
-  %148 = load ptr, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 42), align 8
-  %.not.i.i = icmp eq ptr %148, null
-  br i1 %.not.i.i, label %158, label %149
+  %149 = load ptr, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 42), align 8
+  %.not.i.i = icmp eq ptr %149, null
+  br i1 %.not.i.i, label %159, label %150
 
-149:                                              ; preds = %147
-  %150 = tail call i32 @list_count(ptr noundef nonnull %148) #13
-  store i32 %150, ptr %6, align 8
-  %151 = sext i32 %150 to i64
-  %152 = tail call ptr @slurm_xcalloc(i64 noundef %151, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.10, i32 noundef 218, ptr noundef nonnull @__func__._query_job_states) #13
-  %153 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr %152, ptr %153, align 8
-  %154 = load ptr, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 42), align 8
-  %155 = call i32 @list_for_each_ro(ptr noundef %154, ptr noundef nonnull @_foreach_add_job, ptr noundef nonnull %6) #13
-  %156 = icmp slt i32 %155, 0
-  br i1 %156, label %157, label %._crit_edge68.i.i
+150:                                              ; preds = %148
+  %151 = tail call i32 @list_count(ptr noundef nonnull %149) #13
+  store i32 %151, ptr %6, align 8
+  %152 = sext i32 %151 to i64
+  %153 = tail call ptr @slurm_xcalloc(i64 noundef %152, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.10, i32 noundef 218, ptr noundef nonnull @__func__._query_job_states) #13
+  %154 = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr %153, ptr %154, align 8
+  %155 = load ptr, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 42), align 8
+  %156 = call i32 @list_for_each_ro(ptr noundef %155, ptr noundef nonnull @_foreach_add_job, ptr noundef nonnull %6) #13
+  %157 = icmp slt i32 %156, 0
+  br i1 %157, label %158, label %._crit_edge68.i.i
 
-._crit_edge68.i.i:                                ; preds = %149
+._crit_edge68.i.i:                                ; preds = %150
   %.pre.i.i = load i32, ptr %6, align 8
-  %.pre69.i.i = load ptr, ptr %153, align 8
-  br label %158
+  %.pre69.i.i = load ptr, ptr %154, align 8
+  br label %159
 
-157:                                              ; preds = %149
+158:                                              ; preds = %150
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.11) #14
   unreachable
 
-158:                                              ; preds = %._crit_edge68.i.i, %147
-  %159 = phi ptr [ %.pre69.i.i, %._crit_edge68.i.i ], [ null, %147 ]
-  %160 = phi i32 [ %.pre.i.i, %._crit_edge68.i.i ], [ 0, %147 ]
-  %161 = call i32 @slurm_load_job_state(i32 noundef %160, ptr noundef %159, ptr noundef nonnull %5) #13
-  %.not49.i.i = icmp eq i32 %161, 0
-  br i1 %.not49.i.i, label %162, label %_query_job_states.exit.i
+159:                                              ; preds = %._crit_edge68.i.i, %148
+  %160 = phi ptr [ %.pre69.i.i, %._crit_edge68.i.i ], [ null, %148 ]
+  %161 = phi i32 [ %.pre.i.i, %._crit_edge68.i.i ], [ 0, %148 ]
+  %162 = call i32 @slurm_load_job_state(i32 noundef %161, ptr noundef %160, ptr noundef nonnull %5) #13
+  %.not49.i.i = icmp eq i32 %162, 0
+  br i1 %.not49.i.i, label %163, label %_query_job_states.exit.i
 
-162:                                              ; preds = %158
-  %163 = load ptr, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 24), align 8
-  %.not50.i.i = icmp eq ptr %163, null
-  br i1 %.not50.i.i, label %188, label %164
+163:                                              ; preds = %159
+  %164 = load ptr, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 24), align 8
+  %.not50.i.i = icmp eq ptr %164, null
+  br i1 %.not50.i.i, label %189, label %165
 
-164:                                              ; preds = %162
-  %165 = getelementptr inbounds i8, ptr %7, i64 24
-  store i64 0, ptr %165, align 8
-  %166 = getelementptr inbounds i8, ptr %7, i64 32
-  %167 = load ptr, ptr %5, align 8
-  store ptr %167, ptr %166, align 8
+165:                                              ; preds = %163
+  %166 = getelementptr inbounds i8, ptr %7, i64 24
+  store i64 0, ptr %166, align 8
+  %167 = getelementptr inbounds i8, ptr %7, i64 32
+  %168 = load ptr, ptr %5, align 8
+  store ptr %168, ptr %167, align 8
   store i32 463606195, ptr %8, align 8
-  %168 = getelementptr inbounds i8, ptr %8, i64 4
-  %169 = getelementptr inbounds i8, ptr %8, i64 8
-  %170 = getelementptr inbounds i8, ptr %8, i64 16
-  %171 = getelementptr inbounds i8, ptr %8, i64 24
-  store i32 0, ptr %168, align 4
-  %172 = load ptr, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 25), align 8
-  store ptr %172, ptr %171, align 8
-  %173 = call ptr @data_parser_cli_meta(i32 noundef %2, ptr noundef %3, ptr noundef nonnull %163, ptr noundef %172) #13
-  store ptr %173, ptr %7, align 8
-  %174 = getelementptr inbounds i8, ptr %7, i64 8
-  %175 = call ptr @list_create(ptr noundef nonnull @free_openapi_resp_error) #13
-  store ptr %175, ptr %174, align 8
-  store ptr %175, ptr %169, align 8
-  %176 = getelementptr inbounds i8, ptr %7, i64 16
-  %177 = call ptr @list_create(ptr noundef nonnull @free_openapi_resp_warning) #13
-  store ptr %177, ptr %176, align 8
-  store ptr %177, ptr %170, align 8
-  %178 = load ptr, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 24), align 8
-  %179 = load ptr, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 25), align 8
-  %180 = call i32 @data_parser_dump_cli_stdout(i32 noundef 482, ptr noundef nonnull %7, i32 noundef 40, ptr noundef null, ptr noundef %178, ptr noundef %179, ptr noundef nonnull %8, ptr noundef %173) #13
-  %181 = load ptr, ptr %176, align 8
-  %.not60.i.i = icmp eq ptr %181, null
-  br i1 %.not60.i.i, label %183, label %182
+  %169 = getelementptr inbounds i8, ptr %8, i64 4
+  %170 = getelementptr inbounds i8, ptr %8, i64 8
+  %171 = getelementptr inbounds i8, ptr %8, i64 16
+  %172 = getelementptr inbounds i8, ptr %8, i64 24
+  store i32 0, ptr %169, align 4
+  %173 = load ptr, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 25), align 8
+  store ptr %173, ptr %172, align 8
+  %174 = call ptr @data_parser_cli_meta(i32 noundef %2, ptr noundef %3, ptr noundef nonnull %164, ptr noundef %173) #13
+  store ptr %174, ptr %7, align 8
+  %175 = getelementptr inbounds i8, ptr %7, i64 8
+  %176 = call ptr @list_create(ptr noundef nonnull @free_openapi_resp_error) #13
+  store ptr %176, ptr %175, align 8
+  store ptr %176, ptr %170, align 8
+  %177 = getelementptr inbounds i8, ptr %7, i64 16
+  %178 = call ptr @list_create(ptr noundef nonnull @free_openapi_resp_warning) #13
+  store ptr %178, ptr %177, align 8
+  store ptr %178, ptr %171, align 8
+  %179 = load ptr, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 24), align 8
+  %180 = load ptr, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 25), align 8
+  %181 = call i32 @data_parser_dump_cli_stdout(i32 noundef 482, ptr noundef nonnull %7, i32 noundef 40, ptr noundef null, ptr noundef %179, ptr noundef %180, ptr noundef nonnull %8, ptr noundef %174) #13
+  %182 = load ptr, ptr %177, align 8
+  %.not60.i.i = icmp eq ptr %182, null
+  br i1 %.not60.i.i, label %184, label %183
 
-182:                                              ; preds = %164
-  call void @list_destroy(ptr noundef nonnull %181) #13
-  br label %183
+183:                                              ; preds = %165
+  call void @list_destroy(ptr noundef nonnull %182) #13
+  br label %184
 
-183:                                              ; preds = %182, %164
-  store ptr null, ptr %176, align 8
-  %184 = load ptr, ptr %174, align 8
-  %.not61.i.i = icmp eq ptr %184, null
-  br i1 %.not61.i.i, label %186, label %185
+184:                                              ; preds = %183, %165
+  store ptr null, ptr %177, align 8
+  %185 = load ptr, ptr %175, align 8
+  %.not61.i.i = icmp eq ptr %185, null
+  br i1 %.not61.i.i, label %187, label %186
 
-185:                                              ; preds = %183
-  call void @list_destroy(ptr noundef nonnull %184) #13
-  br label %186
+186:                                              ; preds = %184
+  call void @list_destroy(ptr noundef nonnull %185) #13
+  br label %187
 
-186:                                              ; preds = %185, %183
-  store ptr null, ptr %174, align 8
-  %187 = load ptr, ptr %7, align 8
-  call void @free_openapi_resp_meta(ptr noundef %187) #13
+187:                                              ; preds = %186, %184
+  store ptr null, ptr %175, align 8
+  %188 = load ptr, ptr %7, align 8
+  call void @free_openapi_resp_meta(ptr noundef %188) #13
   br label %_query_job_states.exit.i
 
-188:                                              ; preds = %162
-  %189 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.10, i32 noundef 238, ptr noundef nonnull @__func__._query_job_states) #13
-  %190 = load ptr, ptr %5, align 8
-  %191 = load i32, ptr %190, align 8
-  %192 = getelementptr inbounds i8, ptr %189, i64 16
-  store i32 %191, ptr %192, align 8
-  %193 = zext i32 %191 to i64
-  %194 = call ptr @slurm_xcalloc(i64 noundef %193, i64 noundef 928, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.10, i32 noundef 241, ptr noundef nonnull @__func__._query_job_states) #13
-  %195 = getelementptr inbounds i8, ptr %189, i64 24
-  store ptr %194, ptr %195, align 8
-  %196 = load ptr, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 21), align 8
-  %197 = icmp ne ptr %196, null
-  %198 = load ptr, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 22), align 8
-  %199 = icmp ne ptr %198, null
-  %or.cond.i.i = select i1 %197, i1 true, i1 %199
-  br i1 %or.cond.i.i, label %200, label %.thread71.i.i
+189:                                              ; preds = %163
+  %190 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.10, i32 noundef 238, ptr noundef nonnull @__func__._query_job_states) #13
+  %191 = load ptr, ptr %5, align 8
+  %192 = load i32, ptr %191, align 8
+  %193 = getelementptr inbounds i8, ptr %190, i64 16
+  store i32 %192, ptr %193, align 8
+  %194 = zext i32 %192 to i64
+  %195 = call ptr @slurm_xcalloc(i64 noundef %194, i64 noundef 928, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.10, i32 noundef 241, ptr noundef nonnull @__func__._query_job_states) #13
+  %196 = getelementptr inbounds i8, ptr %190, i64 24
+  store ptr %195, ptr %196, align 8
+  %197 = load ptr, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 21), align 8
+  %198 = icmp ne ptr %197, null
+  %199 = load ptr, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 22), align 8
+  %200 = icmp ne ptr %199, null
+  %or.cond.i.i = select i1 %198, i1 true, i1 %200
+  br i1 %or.cond.i.i, label %201, label %.thread71.i.i
 
-200:                                              ; preds = %188
-  %201 = load ptr, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 41), align 8
-  %.not51.i.i = icmp eq ptr %201, null
-  br i1 %.not51.i.i, label %203, label %.thread.i.i
-
-.thread71.i.i:                                    ; preds = %188
-  store ptr @.str.12, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 21), align 8
+201:                                              ; preds = %189
   %202 = load ptr, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 41), align 8
-  %.not5172.i.i = icmp eq ptr %202, null
+  %.not51.i.i = icmp eq ptr %202, null
+  br i1 %.not51.i.i, label %204, label %.thread.i.i
+
+.thread71.i.i:                                    ; preds = %189
+  store ptr @.str.12, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 21), align 8
+  %203 = load ptr, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 41), align 8
+  %.not5172.i.i = icmp eq ptr %203, null
   br i1 %.not5172.i.i, label %.thread73.i.i, label %.thread.i.i
 
-203:                                              ; preds = %200
-  %.not52.i.i = icmp eq ptr %196, null
-  br i1 %.not52.i.i, label %206, label %.thread73.i.i
+204:                                              ; preds = %201
+  %.not52.i.i = icmp eq ptr %197, null
+  br i1 %.not52.i.i, label %207, label %.thread73.i.i
 
-.thread73.i.i:                                    ; preds = %203, %.thread71.i.i
-  %204 = phi ptr [ %196, %203 ], [ @.str.12, %.thread71.i.i ]
-  %205 = call i32 @parse_format(ptr noundef nonnull %204) #13
-  br label %209
+.thread73.i.i:                                    ; preds = %204, %.thread71.i.i
+  %205 = phi ptr [ %197, %204 ], [ @.str.12, %.thread71.i.i ]
+  %206 = call i32 @parse_format(ptr noundef nonnull %205) #13
+  br label %210
 
-206:                                              ; preds = %203
-  %.not53.i.i = icmp eq ptr %198, null
-  br i1 %.not53.i.i, label %.thread.i.i, label %207
+207:                                              ; preds = %204
+  %.not53.i.i = icmp eq ptr %199, null
+  br i1 %.not53.i.i, label %.thread.i.i, label %208
 
-207:                                              ; preds = %206
-  %208 = call i32 @parse_long_format(ptr noundef nonnull %198) #13
-  br label %209
+208:                                              ; preds = %207
+  %209 = call i32 @parse_long_format(ptr noundef nonnull %199) #13
+  br label %210
 
-209:                                              ; preds = %207, %.thread73.i.i
-  %.0.i.i = phi i32 [ %205, %.thread73.i.i ], [ %208, %207 ]
+210:                                              ; preds = %208, %.thread73.i.i
+  %.0.i.i = phi i32 [ %206, %.thread73.i.i ], [ %209, %208 ]
   %.not54.i.i = icmp eq i32 %.0.i.i, 0
   br i1 %.not54.i.i, label %.thread.i.i, label %_query_job_states.exit.i
 
-.thread.i.i:                                      ; preds = %209, %206, %.thread71.i.i, %200
-  %210 = load ptr, ptr %5, align 8
-  %211 = load i32, ptr %210, align 8
-  %.not65.i.i = icmp eq i32 %211, 0
+.thread.i.i:                                      ; preds = %210, %207, %.thread71.i.i, %201
+  %211 = load ptr, ptr %5, align 8
+  %212 = load i32, ptr %211, align 8
+  %.not65.i.i = icmp eq i32 %212, 0
   br i1 %.not65.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.thread.i.i, %_populate_array_job_states.exit.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %_populate_array_job_states.exit.i.i ], [ 0, %.thread.i.i ]
-  %212 = phi ptr [ %248, %_populate_array_job_states.exit.i.i ], [ %210, %.thread.i.i ]
-  %213 = getelementptr inbounds i8, ptr %212, i64 8
-  %214 = load ptr, ptr %213, align 8
-  %215 = getelementptr inbounds %struct.job_state_response_job_t, ptr %214, i64 %indvars.iv.i.i
-  %216 = load ptr, ptr %195, align 8
-  %217 = getelementptr inbounds %struct.job_info, ptr %216, i64 %indvars.iv.i.i
-  %218 = load i32, ptr %215, align 8
-  %219 = getelementptr inbounds i8, ptr %217, i64 412
-  store i32 %218, ptr %219, align 4
-  %220 = getelementptr inbounds i8, ptr %215, i64 4
-  %221 = load i32, ptr %220, align 4
-  %.not55.i.i = icmp eq i32 %221, 0
-  br i1 %.not55.i.i, label %234, label %222
+  %213 = phi ptr [ %249, %_populate_array_job_states.exit.i.i ], [ %211, %.thread.i.i ]
+  %214 = getelementptr inbounds i8, ptr %213, i64 8
+  %215 = load ptr, ptr %214, align 8
+  %216 = getelementptr inbounds %struct.job_state_response_job_t, ptr %215, i64 %indvars.iv.i.i
+  %217 = load ptr, ptr %196, align 8
+  %218 = getelementptr inbounds %struct.job_info, ptr %217, i64 %indvars.iv.i.i
+  %219 = load i32, ptr %216, align 8
+  %220 = getelementptr inbounds i8, ptr %218, i64 412
+  store i32 %219, ptr %220, align 4
+  %221 = getelementptr inbounds i8, ptr %216, i64 4
+  %222 = load i32, ptr %221, align 4
+  %.not55.i.i = icmp eq i32 %222, 0
+  br i1 %.not55.i.i, label %235, label %223
 
-222:                                              ; preds = %.lr.ph.i.i
-  %223 = getelementptr inbounds i8, ptr %217, i64 48
-  store i32 %221, ptr %223, align 8
-  %224 = getelementptr inbounds i8, ptr %215, i64 8
-  %225 = load i32, ptr %224, align 8
-  %226 = getelementptr inbounds i8, ptr %217, i64 52
-  store i32 %225, ptr %226, align 4
-  %227 = getelementptr inbounds i8, ptr %215, i64 16
-  %228 = load ptr, ptr %227, align 8
-  %.not.i.i.i = icmp eq ptr %228, null
-  br i1 %.not.i.i.i, label %_populate_array_job_states.exit.i.i, label %229
+223:                                              ; preds = %.lr.ph.i.i
+  %224 = getelementptr inbounds i8, ptr %218, i64 48
+  store i32 %222, ptr %224, align 8
+  %225 = getelementptr inbounds i8, ptr %216, i64 8
+  %226 = load i32, ptr %225, align 8
+  %227 = getelementptr inbounds i8, ptr %218, i64 52
+  store i32 %226, ptr %227, align 4
+  %228 = getelementptr inbounds i8, ptr %216, i64 16
+  %229 = load ptr, ptr %228, align 8
+  %.not.i.i.i = icmp eq ptr %229, null
+  br i1 %.not.i.i.i, label %_populate_array_job_states.exit.i.i, label %230
 
-229:                                              ; preds = %222
-  %230 = call ptr @bit_copy(ptr noundef nonnull %228) #13
-  %231 = getelementptr inbounds i8, ptr %217, i64 40
-  store ptr %230, ptr %231, align 8
-  %232 = call ptr @bit_fmt_full(ptr noundef %230) #13
-  %233 = getelementptr inbounds i8, ptr %217, i64 64
-  store ptr %232, ptr %233, align 8
+230:                                              ; preds = %223
+  %231 = call ptr @bit_copy(ptr noundef nonnull %229) #13
+  %232 = getelementptr inbounds i8, ptr %218, i64 40
+  store ptr %231, ptr %232, align 8
+  %233 = call ptr @bit_fmt_full(ptr noundef %231) #13
+  %234 = getelementptr inbounds i8, ptr %218, i64 64
+  store ptr %233, ptr %234, align 8
   br label %_populate_array_job_states.exit.i.i
 
-234:                                              ; preds = %.lr.ph.i.i
-  %235 = getelementptr inbounds i8, ptr %215, i64 24
-  %236 = load i32, ptr %235, align 8
-  %237 = getelementptr inbounds i8, ptr %217, i64 396
-  store i32 %236, ptr %237, align 4
-  %.not56.i.i = icmp eq i32 %236, 0
-  br i1 %.not56.i.i, label %243, label %238
+235:                                              ; preds = %.lr.ph.i.i
+  %236 = getelementptr inbounds i8, ptr %216, i64 24
+  %237 = load i32, ptr %236, align 8
+  %238 = getelementptr inbounds i8, ptr %218, i64 396
+  store i32 %237, ptr %238, align 4
+  %.not56.i.i = icmp eq i32 %237, 0
+  br i1 %.not56.i.i, label %244, label %239
 
-238:                                              ; preds = %234
-  %239 = load i32, ptr %215, align 8
-  %240 = sub i32 %239, %236
-  %241 = getelementptr inbounds i8, ptr %217, i64 408
-  store i32 %240, ptr %241, align 8
-  %242 = getelementptr inbounds i8, ptr %217, i64 52
-  store i32 -2, ptr %242, align 4
+239:                                              ; preds = %235
+  %240 = load i32, ptr %216, align 8
+  %241 = sub i32 %240, %237
+  %242 = getelementptr inbounds i8, ptr %218, i64 408
+  store i32 %241, ptr %242, align 8
+  %243 = getelementptr inbounds i8, ptr %218, i64 52
+  store i32 -2, ptr %243, align 4
   br label %_populate_array_job_states.exit.i.i
 
-243:                                              ; preds = %234
-  %244 = getelementptr inbounds i8, ptr %217, i64 52
-  store i32 -2, ptr %244, align 4
+244:                                              ; preds = %235
+  %245 = getelementptr inbounds i8, ptr %218, i64 52
+  store i32 -2, ptr %245, align 4
   br label %_populate_array_job_states.exit.i.i
 
-_populate_array_job_states.exit.i.i:              ; preds = %243, %238, %229, %222
-  %245 = getelementptr inbounds i8, ptr %215, i64 28
-  %246 = load i32, ptr %245, align 4
-  %247 = getelementptr inbounds i8, ptr %217, i64 432
-  store i32 %246, ptr %247, align 8
+_populate_array_job_states.exit.i.i:              ; preds = %244, %239, %230, %223
+  %246 = getelementptr inbounds i8, ptr %216, i64 28
+  %247 = load i32, ptr %246, align 4
+  %248 = getelementptr inbounds i8, ptr %218, i64 432
+  store i32 %247, ptr %248, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %248 = load ptr, ptr %5, align 8
-  %249 = load i32, ptr %248, align 8
-  %250 = zext i32 %249 to i64
-  %251 = icmp ult i64 %indvars.iv.next.i.i, %250
-  br i1 %251, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !9
+  %249 = load ptr, ptr %5, align 8
+  %250 = load i32, ptr %249, align 8
+  %251 = zext i32 %250 to i64
+  %252 = icmp ult i64 %indvars.iv.next.i.i, %251
+  br i1 %252, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !9
 
 ._crit_edge.i.i:                                  ; preds = %_populate_array_job_states.exit.i.i, %.thread.i.i
-  %252 = load ptr, ptr %195, align 8
-  %253 = load i32, ptr %192, align 8
-  %254 = load ptr, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 41), align 8
-  call void @print_jobs_array(ptr noundef %252, i32 noundef %253, ptr noundef %254) #13
+  %253 = load ptr, ptr %196, align 8
+  %254 = load i32, ptr %193, align 8
+  %255 = load ptr, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 41), align 8
+  call void @print_jobs_array(ptr noundef %253, i32 noundef %254, ptr noundef %255) #13
   br label %_query_job_states.exit.i
 
-_query_job_states.exit.i:                         ; preds = %._crit_edge.i.i, %209, %186, %158
-  %.2.i.i = phi i32 [ %161, %158 ], [ %180, %186 ], [ 0, %._crit_edge.i.i ], [ %.0.i.i, %209 ]
+_query_job_states.exit.i:                         ; preds = %._crit_edge.i.i, %210, %187, %159
+  %.2.i.i = phi i32 [ %162, %159 ], [ %181, %187 ], [ 0, %._crit_edge.i.i ], [ %.0.i.i, %210 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   br label %_print_job.exit
 
-255:                                              ; preds = %144
-  %256 = load i32, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 37), align 8
-  %.not54.i = icmp eq i32 %256, 0
-  br i1 %.not54.i, label %259, label %257
+256:                                              ; preds = %145
+  %257 = load i32, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 37), align 8
+  %.not54.i = icmp eq i32 %257, 0
+  br i1 %.not54.i, label %260, label %258
 
-257:                                              ; preds = %255
-  %258 = call i32 @slurm_load_job(ptr noundef nonnull %9, i32 noundef %256, i16 noundef zeroext %.4.i) #13
-  br label %265
+258:                                              ; preds = %256
+  %259 = call i32 @slurm_load_job(ptr noundef nonnull %9, i32 noundef %257, i16 noundef zeroext %.4.i) #13
+  br label %266
 
-259:                                              ; preds = %255
-  %260 = load i32, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 38), align 4
-  %.not55.i = icmp eq i32 %260, 0
-  br i1 %.not55.i, label %263, label %261
+260:                                              ; preds = %256
+  %261 = load i32, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 38), align 4
+  %.not55.i = icmp eq i32 %261, 0
+  br i1 %.not55.i, label %264, label %262
 
-261:                                              ; preds = %259
-  %262 = call i32 @slurm_load_job_user(ptr noundef nonnull %9, i32 noundef %260, i16 noundef zeroext %.4.i) #13
-  br label %265
+262:                                              ; preds = %260
+  %263 = call i32 @slurm_load_job_user(ptr noundef nonnull %9, i32 noundef %261, i16 noundef zeroext %.4.i) #13
+  br label %266
 
-263:                                              ; preds = %259
-  %264 = call i32 @slurm_load_jobs(i64 noundef 0, ptr noundef nonnull %9, i16 noundef zeroext %.4.i) #13
-  br label %265
+264:                                              ; preds = %260
+  %265 = call i32 @slurm_load_jobs(i64 noundef 0, ptr noundef nonnull %9, i16 noundef zeroext %.4.i) #13
+  br label %266
 
-265:                                              ; preds = %263, %261, %257
-  %.1.i12 = phi i32 [ %258, %257 ], [ %262, %261 ], [ %264, %263 ]
+266:                                              ; preds = %264, %262, %258
+  %.1.i12 = phi i32 [ %259, %258 ], [ %263, %262 ], [ %265, %264 ]
   %.not59.i = icmp eq i32 %.1.i12, 0
-  br i1 %.not59.i, label %.thread.i10, label %.thread74.i
+  br i1 %.not59.i, label %.thread.i10, label %.thread73.i
 
-.thread74.i:                                      ; preds = %265, %139
+.thread73.i:                                      ; preds = %266, %140
   call void @slurm_perror(ptr noundef nonnull @.str.6) #13
   br label %_print_job.exit
 
-.thread.i10:                                      ; preds = %265, %142, %137
-  %266 = load ptr, ptr %9, align 8
-  store ptr %266, ptr @_print_job.old_job_ptr, align 8
-  %267 = load ptr, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 24), align 8
-  %.not60.i = icmp eq ptr %267, null
-  br i1 %.not60.i, label %295, label %268
+.thread.i10:                                      ; preds = %266, %143, %138
+  %267 = load ptr, ptr %9, align 8
+  store ptr %267, ptr @_print_job.old_job_ptr, align 8
+  %268 = load ptr, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 24), align 8
+  %.not60.i = icmp eq ptr %268, null
+  br i1 %.not60.i, label %296, label %269
 
-268:                                              ; preds = %.thread.i10
-  %269 = getelementptr inbounds i8, ptr %10, i64 8
-  %270 = getelementptr inbounds i8, ptr %10, i64 16
-  %271 = getelementptr inbounds i8, ptr %10, i64 24
-  store ptr %266, ptr %271, align 8
-  %272 = getelementptr inbounds i8, ptr %10, i64 32
-  %273 = load i64, ptr %266, align 8
-  store i64 %273, ptr %272, align 8
-  %274 = getelementptr inbounds i8, ptr %10, i64 40
-  %275 = getelementptr inbounds i8, ptr %266, i64 8
-  %276 = load i64, ptr %275, align 8
-  store i64 %276, ptr %274, align 8
+269:                                              ; preds = %.thread.i10
+  %270 = getelementptr inbounds i8, ptr %10, i64 8
+  %271 = getelementptr inbounds i8, ptr %10, i64 16
+  %272 = getelementptr inbounds i8, ptr %10, i64 24
+  store ptr %267, ptr %272, align 8
+  %273 = getelementptr inbounds i8, ptr %10, i64 32
+  %274 = load i64, ptr %267, align 8
+  store i64 %274, ptr %273, align 8
+  %275 = getelementptr inbounds i8, ptr %10, i64 40
+  %276 = getelementptr inbounds i8, ptr %267, i64 8
+  %277 = load i64, ptr %276, align 8
+  store i64 %277, ptr %275, align 8
   store i32 463606195, ptr %11, align 8
-  %277 = getelementptr inbounds i8, ptr %11, i64 4
-  %278 = getelementptr inbounds i8, ptr %11, i64 8
-  %279 = getelementptr inbounds i8, ptr %11, i64 16
-  %280 = getelementptr inbounds i8, ptr %11, i64 24
-  store i32 0, ptr %277, align 4
-  %281 = load ptr, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 25), align 8
-  store ptr %281, ptr %280, align 8
-  %282 = call ptr @data_parser_cli_meta(i32 noundef %2, ptr noundef %3, ptr noundef nonnull %267, ptr noundef %281) #13
-  store ptr %282, ptr %10, align 8
-  %283 = call ptr @list_create(ptr noundef nonnull @free_openapi_resp_error) #13
-  store ptr %283, ptr %269, align 8
-  store ptr %283, ptr %278, align 8
-  %284 = call ptr @list_create(ptr noundef nonnull @free_openapi_resp_warning) #13
+  %278 = getelementptr inbounds i8, ptr %11, i64 4
+  %279 = getelementptr inbounds i8, ptr %11, i64 8
+  %280 = getelementptr inbounds i8, ptr %11, i64 16
+  %281 = getelementptr inbounds i8, ptr %11, i64 24
+  store i32 0, ptr %278, align 4
+  %282 = load ptr, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 25), align 8
+  store ptr %282, ptr %281, align 8
+  %283 = call ptr @data_parser_cli_meta(i32 noundef %2, ptr noundef %3, ptr noundef nonnull %268, ptr noundef %282) #13
+  store ptr %283, ptr %10, align 8
+  %284 = call ptr @list_create(ptr noundef nonnull @free_openapi_resp_error) #13
   store ptr %284, ptr %270, align 8
   store ptr %284, ptr %279, align 8
-  %285 = load ptr, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 24), align 8
-  %286 = load ptr, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 25), align 8
-  %287 = call i32 @data_parser_dump_cli_stdout(i32 noundef 311, ptr noundef nonnull %10, i32 noundef 48, ptr noundef null, ptr noundef %285, ptr noundef %286, ptr noundef nonnull %11, ptr noundef %282) #13
-  %288 = load ptr, ptr %270, align 8
-  %.not68.i = icmp eq ptr %288, null
-  br i1 %.not68.i, label %290, label %289
+  %285 = call ptr @list_create(ptr noundef nonnull @free_openapi_resp_warning) #13
+  store ptr %285, ptr %271, align 8
+  store ptr %285, ptr %280, align 8
+  %286 = load ptr, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 24), align 8
+  %287 = load ptr, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 25), align 8
+  %288 = call i32 @data_parser_dump_cli_stdout(i32 noundef 311, ptr noundef nonnull %10, i32 noundef 48, ptr noundef null, ptr noundef %286, ptr noundef %287, ptr noundef nonnull %11, ptr noundef %283) #13
+  %289 = load ptr, ptr %271, align 8
+  %.not68.i = icmp eq ptr %289, null
+  br i1 %.not68.i, label %291, label %290
 
-289:                                              ; preds = %268
-  call void @list_destroy(ptr noundef nonnull %288) #13
-  br label %290
+290:                                              ; preds = %269
+  call void @list_destroy(ptr noundef nonnull %289) #13
+  br label %291
 
-290:                                              ; preds = %289, %268
+291:                                              ; preds = %290, %269
+  store ptr null, ptr %271, align 8
+  %292 = load ptr, ptr %270, align 8
+  %.not69.i = icmp eq ptr %292, null
+  br i1 %.not69.i, label %294, label %293
+
+293:                                              ; preds = %291
+  call void @list_destroy(ptr noundef nonnull %292) #13
+  br label %294
+
+294:                                              ; preds = %293, %291
   store ptr null, ptr %270, align 8
-  %291 = load ptr, ptr %269, align 8
-  %.not69.i = icmp eq ptr %291, null
-  br i1 %.not69.i, label %293, label %292
-
-292:                                              ; preds = %290
-  call void @list_destroy(ptr noundef nonnull %291) #13
-  br label %293
-
-293:                                              ; preds = %292, %290
-  store ptr null, ptr %269, align 8
-  %294 = load ptr, ptr %10, align 8
-  call void @free_openapi_resp_meta(ptr noundef %294) #13
+  %295 = load ptr, ptr %10, align 8
+  call void @free_openapi_resp_meta(ptr noundef %295) #13
   br label %_print_job.exit
 
-295:                                              ; preds = %.thread.i10
-  %296 = load i32, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 37), align 8
-  %297 = icmp ne i32 %296, 0
-  %298 = load i32, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 38), align 4
-  %299 = icmp ne i32 %298, 0
-  %or.cond.i11 = select i1 %297, i1 true, i1 %299
-  br i1 %or.cond.i11, label %300, label %302
+296:                                              ; preds = %.thread.i10
+  %297 = load i32, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 37), align 8
+  %298 = icmp ne i32 %297, 0
+  %299 = load i32, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 38), align 4
+  %300 = icmp ne i32 %299, 0
+  %or.cond.i11 = select i1 %298, i1 true, i1 %300
+  br i1 %or.cond.i11, label %301, label %303
 
-300:                                              ; preds = %295
-  %301 = getelementptr inbounds i8, ptr %266, i64 8
-  store i64 0, ptr %301, align 8
-  br label %302
+301:                                              ; preds = %296
+  %302 = getelementptr inbounds i8, ptr %267, i64 8
+  store i64 0, ptr %302, align 8
+  br label %303
 
-302:                                              ; preds = %300, %295
-  %303 = load i32, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 16), align 8
-  %.not61.i = icmp eq i32 %303, 0
-  br i1 %.not61.i, label %310, label %304
+303:                                              ; preds = %301, %296
+  %304 = load i32, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 16), align 8
+  %.not61.i = icmp eq i32 %304, 0
+  br i1 %.not61.i, label %311, label %305
 
-304:                                              ; preds = %302
-  %305 = getelementptr inbounds i8, ptr %266, i64 8
-  %306 = load i64, ptr %305, align 8
-  %307 = getelementptr inbounds i8, ptr %266, i64 16
-  %308 = load i32, ptr %307, align 8
-  %309 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i64 noundef %306, i32 noundef %308)
-  br label %310
+305:                                              ; preds = %303
+  %306 = getelementptr inbounds i8, ptr %267, i64 8
+  %307 = load i64, ptr %306, align 8
+  %308 = getelementptr inbounds i8, ptr %267, i64 16
+  %309 = load i32, ptr %308, align 8
+  %310 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i64 noundef %307, i32 noundef %309)
+  br label %311
 
-310:                                              ; preds = %304, %302
-  %311 = load ptr, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 21), align 8
-  %312 = icmp ne ptr %311, null
-  %313 = load ptr, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 22), align 8
-  %314 = icmp ne ptr %313, null
-  %or.cond3.i = select i1 %312, i1 true, i1 %314
-  br i1 %or.cond3.i, label %319, label %315
+311:                                              ; preds = %305, %303
+  %312 = load ptr, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 21), align 8
+  %313 = icmp ne ptr %312, null
+  %314 = load ptr, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 22), align 8
+  %315 = icmp ne ptr %314, null
+  %or.cond3.i = select i1 %313, i1 true, i1 %315
+  br i1 %or.cond3.i, label %320, label %316
 
-315:                                              ; preds = %310
-  br i1 %1, label %316, label %.sink.split.i
+316:                                              ; preds = %311
+  br i1 %1, label %317, label %.sink.split.i
 
-316:                                              ; preds = %315
+317:                                              ; preds = %316
   call void @_xstrcat(ptr noundef nonnull getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 22), ptr noundef nonnull @.str.7) #13
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %316, %315
-  %317 = load i8, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 13), align 1
-  %318 = trunc i8 %317 to i1
-  %.str.8..str.9.i = select i1 %318, ptr @.str.8, ptr @.str.9
+.sink.split.i:                                    ; preds = %317, %316
+  %318 = load i8, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 13), align 1
+  %319 = trunc i8 %318 to i1
+  %.str.8..str.9.i = select i1 %319, ptr @.str.8, ptr @.str.9
   call void @_xstrcat(ptr noundef nonnull getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 22), ptr noundef nonnull %.str.8..str.9.i) #13
-  br label %319
+  br label %320
 
-319:                                              ; preds = %.sink.split.i, %310
-  %320 = load ptr, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 41), align 8
-  %.not62.i = icmp eq ptr %320, null
-  br i1 %.not62.i, label %321, label %329
+320:                                              ; preds = %.sink.split.i, %311
+  %321 = load ptr, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 41), align 8
+  %.not62.i = icmp eq ptr %321, null
+  br i1 %.not62.i, label %322, label %330
 
-321:                                              ; preds = %319
-  %322 = load ptr, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 21), align 8
-  %.not63.i = icmp eq ptr %322, null
-  br i1 %.not63.i, label %325, label %323
+322:                                              ; preds = %320
+  %323 = load ptr, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 21), align 8
+  %.not63.i = icmp eq ptr %323, null
+  br i1 %.not63.i, label %326, label %324
 
-323:                                              ; preds = %321
-  %324 = call i32 @parse_format(ptr noundef nonnull %322) #13
-  br label %329
+324:                                              ; preds = %322
+  %325 = call i32 @parse_format(ptr noundef nonnull %323) #13
+  br label %330
 
-325:                                              ; preds = %321
-  %326 = load ptr, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 22), align 8
-  %.not64.i = icmp eq ptr %326, null
-  br i1 %.not64.i, label %329, label %327
+326:                                              ; preds = %322
+  %327 = load ptr, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 22), align 8
+  %.not64.i = icmp eq ptr %327, null
+  br i1 %.not64.i, label %330, label %328
 
-327:                                              ; preds = %325
-  %328 = call i32 @parse_long_format(ptr noundef nonnull %326) #13
-  br label %329
+328:                                              ; preds = %326
+  %329 = call i32 @parse_long_format(ptr noundef nonnull %327) #13
+  br label %330
 
-329:                                              ; preds = %327, %325, %323, %319
-  %330 = load ptr, ptr %9, align 8
-  %331 = getelementptr inbounds i8, ptr %330, i64 24
-  %332 = load ptr, ptr %331, align 8
-  %333 = getelementptr inbounds i8, ptr %330, i64 16
-  %334 = load i32, ptr %333, align 8
-  %335 = load ptr, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 41), align 8
-  call void @print_jobs_array(ptr noundef %332, i32 noundef %334, ptr noundef %335) #13
+330:                                              ; preds = %328, %326, %324, %320
+  %331 = load ptr, ptr %9, align 8
+  %332 = getelementptr inbounds i8, ptr %331, i64 24
+  %333 = load ptr, ptr %332, align 8
+  %334 = getelementptr inbounds i8, ptr %331, i64 16
+  %335 = load i32, ptr %334, align 8
+  %336 = load ptr, ptr getelementptr inbounds (%struct.squeue_parameters, ptr @params, i64 0, i32 41), align 8
+  call void @print_jobs_array(ptr noundef %333, i32 noundef %335, ptr noundef %336) #13
   br label %_print_job.exit
 
-_print_job.exit:                                  ; preds = %_query_job_states.exit.i, %.thread74.i, %293, %329
-  %.0.i9 = phi i32 [ -1, %.thread74.i ], [ %287, %293 ], [ 0, %329 ], [ %.2.i.i, %_query_job_states.exit.i ]
+_print_job.exit:                                  ; preds = %_query_job_states.exit.i, %.thread73.i, %294, %330
+  %.0.i9 = phi i32 [ -1, %.thread73.i ], [ %288, %294 ], [ 0, %330 ], [ %.2.i.i, %_query_job_states.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
-  br label %336
+  br label %337
 
-336:                                              ; preds = %_print_job.exit, %_print_job_steps.exit
+337:                                              ; preds = %_print_job.exit, %_print_job_steps.exit
   %.0 = phi i32 [ %.0.i, %_print_job_steps.exit ], [ %.0.i9, %_print_job.exit ]
   ret i32 %.0
 }

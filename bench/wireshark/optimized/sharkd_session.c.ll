@@ -4650,7 +4650,7 @@ json_find_attr.exit56:                            ; preds = %55, %3, %48
 66:                                               ; preds = %61
   %67 = load i32, ptr @rpcid, align 4
   call void (i32, i32, ptr, ptr, ...) @sharkd_json_error(i32 noundef %67, i32 noundef -8001, ptr poison, ptr noundef nonnull @.str.396)
-  br label %175
+  br label %176
 
 68:                                               ; preds = %61, %json_find_attr.exit56
   %69 = phi i32 [ %64, %61 ], [ %59, %json_find_attr.exit56 ]
@@ -4669,7 +4669,7 @@ json_find_attr.exit56:                            ; preds = %55, %3, %48
 75:                                               ; preds = %71
   %76 = load i32, ptr @rpcid, align 4
   call void (i32, i32, ptr, ptr, ...) @sharkd_json_error(i32 noundef %76, i32 noundef -8002, ptr poison, ptr noundef nonnull @.str.397)
-  br label %175
+  br label %176
 
 77:                                               ; preds = %71, %68
   br i1 %12, label %.lr.ph.i58, label %json_find_attr.exit86
@@ -4794,79 +4794,81 @@ json_find_attr.exit80:                            ; preds = %.lr.ph.i76
   %140 = or disjoint i64 %139, 1
   %141 = getelementptr %struct.jsmntok_t, ptr %1, i64 %140, i32 1
   %142 = load i32, ptr %141, align 4
-  %.fr155 = freeze i32 %142
-  %143 = sext i32 %.fr155 to i64
+  %.fr154 = freeze i32 %142
+  %143 = sext i32 %.fr154 to i64
   %144 = getelementptr i8, ptr %0, i64 %143
   %145 = icmp eq ptr %144, null
   %146 = or disjoint i32 %129, 8
-  %spec.select151 = select i1 %145, i32 %129, i32 %146
-  br label %json_find_attr.exit80.thread
+  br i1 %145, label %json_find_attr.exit80.thread, label %147
 
 json_find_attr.exit80.thread:                     ; preds = %136, %json_find_attr.exit80
-  %147 = phi i32 [ %spec.select151, %json_find_attr.exit80 ], [ %129, %136 ]
+  br label %147
+
+147:                                              ; preds = %json_find_attr.exit80, %json_find_attr.exit80.thread
+  %148 = phi i32 [ %129, %json_find_attr.exit80.thread ], [ %146, %json_find_attr.exit80 ]
   br label %.lr.ph.i82
 
-.lr.ph.i82:                                       ; preds = %json_find_attr.exit80.thread, %162
-  %indvars.iv.i83 = phi i64 [ %indvars.iv.next.i85, %162 ], [ 0, %json_find_attr.exit80.thread ]
-  %148 = getelementptr %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i83, i32 1
-  %149 = load i32, ptr %148, align 4
-  %150 = sext i32 %149 to i64
-  %151 = getelementptr i8, ptr %0, i64 %150
-  %152 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %151, ptr noundef nonnull dereferenceable(2) @.str.398) #18
-  %.not.i84 = icmp eq i32 %152, 0
-  br i1 %.not.i84, label %153, label %162
+.lr.ph.i82:                                       ; preds = %147, %163
+  %indvars.iv.i83 = phi i64 [ %indvars.iv.next.i85, %163 ], [ 0, %147 ]
+  %149 = getelementptr %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i83, i32 1
+  %150 = load i32, ptr %149, align 4
+  %151 = sext i32 %150 to i64
+  %152 = getelementptr i8, ptr %0, i64 %151
+  %153 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %152, ptr noundef nonnull dereferenceable(2) @.str.398) #18
+  %.not.i84 = icmp eq i32 %153, 0
+  br i1 %.not.i84, label %154, label %163
 
-153:                                              ; preds = %.lr.ph.i82
-  %154 = and i64 %indvars.iv.i83, 4294967294
-  %155 = or disjoint i64 %154, 1
-  %156 = getelementptr %struct.jsmntok_t, ptr %1, i64 %155, i32 1
-  %157 = load i32, ptr %156, align 4
-  %158 = sext i32 %157 to i64
-  %159 = getelementptr i8, ptr %0, i64 %158
-  %160 = icmp ne ptr %159, null
-  %161 = zext i1 %160 to i32
+154:                                              ; preds = %.lr.ph.i82
+  %155 = and i64 %indvars.iv.i83, 4294967294
+  %156 = or disjoint i64 %155, 1
+  %157 = getelementptr %struct.jsmntok_t, ptr %1, i64 %156, i32 1
+  %158 = load i32, ptr %157, align 4
+  %159 = sext i32 %158 to i64
+  %160 = getelementptr i8, ptr %0, i64 %159
+  %161 = icmp ne ptr %160, null
+  %162 = zext i1 %161 to i32
   br label %json_find_attr.exit86
 
-162:                                              ; preds = %.lr.ph.i82
+163:                                              ; preds = %.lr.ph.i82
   %indvars.iv.next.i85 = add nuw nsw i64 %indvars.iv.i83, 2
-  %163 = trunc nuw i64 %indvars.iv.next.i85 to i32
-  %164 = icmp slt i32 %163, %2
-  br i1 %164, label %.lr.ph.i82, label %json_find_attr.exit86, !llvm.loop !8
+  %164 = trunc nuw i64 %indvars.iv.next.i85 to i32
+  %165 = icmp slt i32 %164, %2
+  br i1 %165, label %.lr.ph.i82, label %json_find_attr.exit86, !llvm.loop !8
 
-json_find_attr.exit86:                            ; preds = %162, %77, %153
-  %.3115 = phi i32 [ %147, %153 ], [ 0, %77 ], [ %147, %162 ]
-  %.0108114 = phi ptr [ %130, %153 ], [ null, %77 ], [ %130, %162 ]
-  %.0.i81 = phi i32 [ %161, %153 ], [ 0, %77 ], [ 0, %162 ]
+json_find_attr.exit86:                            ; preds = %163, %77, %154
+  %.3115 = phi i32 [ %148, %154 ], [ 0, %77 ], [ %148, %163 ]
+  %.0108114 = phi ptr [ %130, %154 ], [ null, %77 ], [ %130, %163 ]
+  %.0.i81 = phi i32 [ %162, %154 ], [ 0, %77 ], [ 0, %163 ]
   store i32 %.0.i81, ptr %7, align 4
   call void @wtap_rec_init(ptr noundef nonnull %8) #17
   call void @ws_buffer_init(ptr noundef nonnull %9, i64 noundef 1514) #17
-  %165 = load i32, ptr %4, align 4
-  %166 = load i32, ptr %5, align 4
-  %167 = load i32, ptr %6, align 4
-  %168 = call i32 @sharkd_dissect_request(i32 noundef %165, i32 noundef %166, i32 noundef %167, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %.0108114, i32 noundef %.3115, ptr noundef nonnull @sharkd_session_process_frame_cb, ptr noundef nonnull %7, ptr noundef nonnull %10, ptr noundef nonnull %11) #17
-  switch i32 %168, label %174 [
-    i32 2, label %171
-    i32 1, label %169
+  %166 = load i32, ptr %4, align 4
+  %167 = load i32, ptr %5, align 4
+  %168 = load i32, ptr %6, align 4
+  %169 = call i32 @sharkd_dissect_request(i32 noundef %166, i32 noundef %167, i32 noundef %168, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %.0108114, i32 noundef %.3115, ptr noundef nonnull @sharkd_session_process_frame_cb, ptr noundef nonnull %7, ptr noundef nonnull %10, ptr noundef nonnull %11) #17
+  switch i32 %169, label %175 [
+    i32 2, label %172
+    i32 1, label %170
   ]
 
-169:                                              ; preds = %json_find_attr.exit86
-  %170 = load i32, ptr @rpcid, align 4
-  call void (i32, i32, ptr, ptr, ...) @sharkd_json_error(i32 noundef %170, i32 noundef -8003, ptr poison, ptr noundef nonnull @.str.399)
-  br label %174
-
-171:                                              ; preds = %json_find_attr.exit86
-  %172 = load i32, ptr @rpcid, align 4
-  call void (i32, i32, ptr, ptr, ...) @sharkd_json_error(i32 noundef %172, i32 noundef -8003, ptr poison, ptr noundef nonnull @.str.400)
-  %173 = load ptr, ptr %11, align 8
-  call void @g_free(ptr noundef %173) #17
-  br label %174
-
-174:                                              ; preds = %171, %169, %json_find_attr.exit86
-  call void @wtap_rec_cleanup(ptr noundef nonnull %8) #17
-  call void @ws_buffer_free(ptr noundef nonnull %9) #17
+170:                                              ; preds = %json_find_attr.exit86
+  %171 = load i32, ptr @rpcid, align 4
+  call void (i32, i32, ptr, ptr, ...) @sharkd_json_error(i32 noundef %171, i32 noundef -8003, ptr poison, ptr noundef nonnull @.str.399)
   br label %175
 
-175:                                              ; preds = %174, %75, %66
+172:                                              ; preds = %json_find_attr.exit86
+  %173 = load i32, ptr @rpcid, align 4
+  call void (i32, i32, ptr, ptr, ...) @sharkd_json_error(i32 noundef %173, i32 noundef -8003, ptr poison, ptr noundef nonnull @.str.400)
+  %174 = load ptr, ptr %11, align 8
+  call void @g_free(ptr noundef %174) #17
+  br label %175
+
+175:                                              ; preds = %172, %170, %json_find_attr.exit86
+  call void @wtap_rec_cleanup(ptr noundef nonnull %8) #17
+  call void @ws_buffer_free(ptr noundef nonnull %9) #17
+  br label %176
+
+176:                                              ; preds = %175, %75, %66
   ret void
 }
 

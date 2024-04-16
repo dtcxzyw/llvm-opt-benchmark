@@ -704,7 +704,7 @@ define internal fastcc i32 @nlmsvc_retrieve_args(ptr noundef %0, ptr noundef %1,
 
 32:                                               ; preds = %25
   %33 = icmp eq i32 %26, 0
-  br i1 %33, label %34, label %.thread
+  br i1 %33, label %34, label %.thread.fold.split
 
 34:                                               ; preds = %30, %32
   %35 = load ptr, ptr %5, align 8
@@ -740,11 +740,11 @@ define internal fastcc i32 @nlmsvc_retrieve_args(ptr noundef %0, ptr noundef %1,
   call void @nlmsvc_release_host(ptr noundef nonnull %14) #7
   br label %59
 
-.thread.fold.split:                               ; preds = %30, %30, %30, %30, %30
+.thread.fold.split:                               ; preds = %30, %30, %30, %30, %30, %32
   br label %.thread
 
-.thread:                                          ; preds = %32, %30, %.thread.fold.split, %31
-  %57 = phi i32 [ 33554432, %31 ], [ 16777216, %30 ], [ %26, %32 ], [ %26, %.thread.fold.split ]
+.thread:                                          ; preds = %30, %.thread.fold.split, %31
+  %57 = phi i32 [ 33554432, %31 ], [ 16777216, %30 ], [ %26, %.thread.fold.split ]
   call void @nlmsvc_release_host(ptr noundef nonnull %14) #7
   br label %59
 

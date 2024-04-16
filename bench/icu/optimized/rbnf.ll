@@ -5475,8 +5475,8 @@ if.end:                                           ; preds = %entry
 invoke.cont5:                                     ; preds = %if.end
   %2 = load ptr, ptr %fRuleSets, align 8
   %3 = load ptr, ptr %2, align 8
-  %tobool7.not44 = icmp eq ptr %3, null
-  br i1 %tobool7.not44, label %for.end, label %for.body.lr.ph
+  %tobool7.not43 = icmp eq ptr %3, null
+  br i1 %tobool7.not43, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont5
   %index.i28 = getelementptr inbounds i8, ptr %working_pp, i64 8
@@ -5487,7 +5487,7 @@ for.body.lr.ph:                                   ; preds = %invoke.cont5
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %4 = phi ptr [ %3, %for.body.lr.ph ], [ %18, %for.inc ]
-  %p.045 = phi ptr [ %2, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
+  %p.044 = phi ptr [ %2, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
   %fIsPublic.i = getelementptr inbounds i8, ptr %4, i64 161
   %5 = load i8, ptr %fIsPublic.i, align 1
   %tobool11.not = icmp eq i8 %5, 0
@@ -5514,7 +5514,7 @@ invoke.cont20:                                    ; preds = %invoke.cont18
   %7 = load i32, ptr %index.i28, align 8
   %8 = load i32, ptr %index.i26, align 8
   %cmp = icmp sgt i32 %7, %8
-  br i1 %cmp, label %if.then26, label %cleanup
+  br i1 %cmp, label %if.then26, label %if.end38
 
 if.then26:                                        ; preds = %invoke.cont20
   store i32 %7, ptr %index.i26, align 8
@@ -5532,8 +5532,7 @@ invoke.cont33:                                    ; preds = %if.then26
   %13 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %13, i32 %shr.i.i
   %cmp35 = icmp eq i32 %10, %cond.i
-  %spec.select = select i1 %cmp35, i32 2, i32 0
-  br label %cleanup
+  br i1 %cmp35, label %cleanup, label %if.end38
 
 lpad4:                                            ; preds = %if.end
   %14 = landingpad { ptr, i32 }
@@ -5556,25 +5555,28 @@ lpad19:                                           ; preds = %if.then26, %invoke.
   call void @_ZN6icu_7511FormattableD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %working_result) #21
   br label %ehcleanup
 
-cleanup:                                          ; preds = %invoke.cont33, %invoke.cont20
-  %cleanup.dest.slot.0 = phi i32 [ 0, %invoke.cont20 ], [ %spec.select, %invoke.cont33 ]
+if.end38:                                         ; preds = %invoke.cont33, %invoke.cont20
   call void @_ZN6icu_7511FormattableD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %working_result) #21
   call void @_ZN6icu_7513ParsePositionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %working_pp) #21
-  %switch = icmp eq i32 %cleanup.dest.slot.0, 0
-  br i1 %switch, label %for.inc, label %for.end
+  br label %for.inc
+
+cleanup:                                          ; preds = %invoke.cont33
+  call void @_ZN6icu_7511FormattableD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %working_result) #21
+  call void @_ZN6icu_7513ParsePositionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %working_pp) #21
+  br label %for.end
 
 ehcleanup:                                        ; preds = %lpad19, %lpad17
   %.pn = phi { ptr, i32 } [ %17, %lpad19 ], [ %16, %lpad17 ]
   call void @_ZN6icu_7513ParsePositionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %working_pp) #21
   br label %ehcleanup82
 
-for.inc:                                          ; preds = %cleanup, %for.body, %land.lhs.true
-  %incdec.ptr = getelementptr inbounds i8, ptr %p.045, i64 8
+for.inc:                                          ; preds = %if.end38, %for.body, %land.lhs.true
+  %incdec.ptr = getelementptr inbounds i8, ptr %p.044, i64 8
   %18 = load ptr, ptr %incdec.ptr, align 8
   %tobool7.not = icmp eq ptr %18, null
   br i1 %tobool7.not, label %for.end, label %for.body, !llvm.loop !38
 
-for.end:                                          ; preds = %for.inc, %cleanup, %invoke.cont5
+for.end:                                          ; preds = %for.inc, %invoke.cont5, %cleanup
   %19 = load i32, ptr %index.i, align 8
   %20 = load i32, ptr %index.i26, align 8
   %add = add nsw i32 %20, %19
@@ -5584,8 +5586,8 @@ for.end:                                          ; preds = %for.inc, %cleanup, 
 
 if.else:                                          ; preds = %for.end
   %21 = load i32, ptr %errorIndex.i27, align 4
-  %spec.select43 = call i32 @llvm.smax.i32(i32 %21, i32 0)
-  %add56 = add nsw i32 %spec.select43, %19
+  %spec.select = call i32 @llvm.smax.i32(i32 %21, i32 0)
+  %add56 = add nsw i32 %spec.select, %19
   br label %if.end58
 
 if.end58:                                         ; preds = %for.end, %if.else

@@ -739,7 +739,7 @@ if.then24.i:                                      ; preds = %if.end22.i, %lor.lh
   br label %if.end31.i
 
 if.end31.i:                                       ; preds = %for.cond.i37.i, %if.then24.i, %if.end22.i, %lor.lhs.false.i, %segment_holding.exit.i, %if.then.i
-  %released.1.i = phi i64 [ %mul.i, %if.then24.i ], [ 0, %if.end22.i ], [ 0, %if.then.i ], [ 0, %segment_holding.exit.i ], [ 0, %lor.lhs.false.i ], [ 0, %for.cond.i37.i ]
+  %released.1.i = phi i64 [ %mul.i, %if.then24.i ], [ 0, %if.end22.i ], [ 0, %if.then.i ], [ 0, %lor.lhs.false.i ], [ 0, %segment_holding.exit.i ], [ 0, %for.cond.i37.i ]
   %call32.i = tail call fastcc i64 @release_unused_segments(ptr noundef %msp)
   %add33.i = sub i64 0, %call32.i
   %cmp34.i = icmp eq i64 %released.1.i, %add33.i

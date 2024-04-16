@@ -8089,7 +8089,7 @@ if.end4:                                          ; preds = %if.end
   %bf.load.i.i.i = load i32, ptr %m_kind.i.i.i, align 4
   %bf.clear.i.i.i = and i32 %bf.load.i.i.i, 65535
   %cmp.i.i = icmp eq i32 %bf.clear.i.i.i, 0
-  br i1 %cmp.i.i, label %_Z9is_groundPK4expr.exit, label %return
+  br i1 %cmp.i.i, label %_Z9is_groundPK4expr.exit, label %if.end10
 
 _Z9is_groundPK4expr.exit:                         ; preds = %if.end4
   %m_num_args.i.i.i = getelementptr inbounds i8, ptr %2, i64 24
@@ -8102,7 +8102,7 @@ _Z9is_groundPK4expr.exit:                         ; preds = %if.end4
   %bf.load.i.i = load i32, ptr %cond.i.i.i, align 4
   %4 = and i32 %bf.load.i.i, 65536
   %tobool.i.i.not = icmp eq i32 %4, 0
-  br i1 %tobool.i.i.not, label %return, label %land.lhs.true
+  br i1 %tobool.i.i.not, label %if.end10, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %_Z9is_groundPK4expr.exit
   %m_def.i6 = getelementptr inbounds i8, ptr %r2, i64 8
@@ -8122,13 +8122,15 @@ _Z9is_groundPK4expr.exit20:                       ; preds = %land.lhs.true
   %add.ptr.i.i.i16 = getelementptr inbounds ptr, ptr %m_args.i.i.i14, i64 %idx.ext.i.i.i15
   %cond.i.i.i17 = select i1 %cmp.i.i.i13, ptr @_ZN3app16g_constant_flagsE, ptr %add.ptr.i.i.i16
   %bf.load.i.i18 = load i32, ptr %cond.i.i.i17, align 4
-  %bf.load.i.i18.fr = freeze i32 %bf.load.i.i18
-  %7 = and i32 %bf.load.i.i18.fr, 65536
+  %7 = and i32 %bf.load.i.i18, 65536
   %tobool.i.i19.not = icmp eq i32 %7, 0
+  br i1 %tobool.i.i19.not, label %return, label %if.end10
+
+if.end10:                                         ; preds = %if.end4, %_Z9is_groundPK4expr.exit20, %_Z9is_groundPK4expr.exit
   br label %return
 
-return:                                           ; preds = %_Z9is_groundPK4expr.exit20, %land.lhs.true, %if.end4, %_Z9is_groundPK4expr.exit, %if.end, %entry, %lor.lhs.false
-  %retval.0 = phi i1 [ true, %lor.lhs.false ], [ true, %entry ], [ false, %if.end ], [ false, %_Z9is_groundPK4expr.exit ], [ false, %if.end4 ], [ true, %land.lhs.true ], [ %tobool.i.i19.not, %_Z9is_groundPK4expr.exit20 ]
+return:                                           ; preds = %land.lhs.true, %_Z9is_groundPK4expr.exit20, %if.end, %entry, %lor.lhs.false, %if.end10
+  %retval.0 = phi i1 [ false, %if.end10 ], [ true, %lor.lhs.false ], [ true, %entry ], [ false, %if.end ], [ true, %_Z9is_groundPK4expr.exit20 ], [ true, %land.lhs.true ]
   ret i1 %retval.0
 }
 

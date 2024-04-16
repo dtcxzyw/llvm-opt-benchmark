@@ -462,7 +462,7 @@ entry:
 declare void @bdrv_default_perms(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i32 @dmg_probe(ptr nocapture readnone %buf, i32 %buf_size, ptr noundef readonly %filename) #3 {
+define internal noundef i32 @dmg_probe(ptr nocapture readnone %buf, i32 %buf_size, ptr noundef readonly %filename) #3 {
 entry:
   %tobool.not = icmp eq ptr %filename, null
   br i1 %tobool.not, label %return, label %if.end
@@ -471,7 +471,7 @@ if.end:                                           ; preds = %entry
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %filename) #13
   %conv = trunc i64 %call to i32
   %cmp = icmp sgt i32 %conv, 4
-  br i1 %cmp, label %land.lhs.true, label %return
+  br i1 %cmp, label %land.lhs.true, label %if.end6
 
 land.lhs.true:                                    ; preds = %if.end
   %idx.ext = and i64 %call, 2147483647
@@ -479,11 +479,13 @@ land.lhs.true:                                    ; preds = %if.end
   %add.ptr2 = getelementptr i8, ptr %add.ptr, i64 -4
   %call3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr2, ptr noundef nonnull dereferenceable(5) @.str.21) #13
   %tobool4.not = icmp eq i32 %call3, 0
-  %spec.select = select i1 %tobool4.not, i32 2, i32 0
+  br i1 %tobool4.not, label %return, label %if.end6
+
+if.end6:                                          ; preds = %land.lhs.true, %if.end
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %if.end, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 0, %if.end ], [ %spec.select, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %entry, %if.end6
+  %retval.0 = phi i32 [ 0, %if.end6 ], [ 0, %entry ], [ 2, %land.lhs.true ]
   ret i32 %retval.0
 }
 

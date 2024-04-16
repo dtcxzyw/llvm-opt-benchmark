@@ -140,7 +140,7 @@ if.end24:                                         ; preds = %if.else
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %out.addr.047, ptr nonnull align 8 %V, i64 %outlen.addr.046, i1 false)
   %call.i25 = tail call fastcc i32 @do_hmac(ptr noundef nonnull %hmac, i8 noundef zeroext 0, ptr noundef %adin, i64 noundef %adin_len, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0), !range !4
   %tobool.not.i26 = icmp eq i32 %call.i25, 0
-  br i1 %tobool.not.i26, label %return, label %if.end.i27
+  br i1 %tobool.not.i26, label %drbg_hmac_update.exit32.thread, label %if.end.i27
 
 if.end.i27:                                       ; preds = %if.end24
   %or.cond1.i28 = icmp eq i64 %adin_len, 0
@@ -149,12 +149,14 @@ if.end.i27:                                       ; preds = %if.end24
 drbg_hmac_update.exit32:                          ; preds = %if.end.i27
   %call6.i30 = tail call fastcc i32 @do_hmac(ptr noundef nonnull %hmac, i8 noundef zeroext 1, ptr noundef %adin, i64 noundef %adin_len, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0), !range !4
   %call6.i30.fr = freeze i32 %call6.i30
-  %tobool31.not = icmp ne i32 %call6.i30.fr, 0
-  %spec.select = zext i1 %tobool31.not to i32
+  %tobool31.not = icmp eq i32 %call6.i30.fr, 0
+  br i1 %tobool31.not, label %drbg_hmac_update.exit32.thread, label %return
+
+drbg_hmac_update.exit32.thread:                   ; preds = %if.end24, %drbg_hmac_update.exit32
   br label %return
 
-return:                                           ; preds = %lor.lhs.false, %if.end18, %if.then14, %if.end, %drbg_hmac_update.exit32, %if.end.i27, %if.end24, %land.lhs.true3, %if.else, %drbg_hmac_update.exit
-  %retval.0 = phi i32 [ 0, %drbg_hmac_update.exit ], [ 0, %if.else ], [ 0, %land.lhs.true3 ], [ 0, %if.end24 ], [ 1, %if.end.i27 ], [ %spec.select, %drbg_hmac_update.exit32 ], [ 0, %if.end ], [ 0, %if.then14 ], [ 0, %if.end18 ], [ 0, %lor.lhs.false ]
+return:                                           ; preds = %lor.lhs.false, %if.end18, %if.then14, %if.end, %if.end.i27, %land.lhs.true3, %drbg_hmac_update.exit32.thread, %drbg_hmac_update.exit32, %if.else, %drbg_hmac_update.exit
+  %retval.0 = phi i32 [ 0, %drbg_hmac_update.exit ], [ 0, %if.else ], [ 0, %drbg_hmac_update.exit32.thread ], [ 1, %drbg_hmac_update.exit32 ], [ 0, %land.lhs.true3 ], [ 1, %if.end.i27 ], [ 0, %if.end ], [ 0, %if.then14 ], [ 0, %if.end18 ], [ 0, %lor.lhs.false ]
   ret i32 %retval.0
 }
 

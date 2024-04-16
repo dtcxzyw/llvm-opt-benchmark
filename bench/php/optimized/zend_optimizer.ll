@@ -2175,7 +2175,7 @@ zend_optimizer_add_literal_string.exit:           ; preds = %drop_leading_backsl
 declare void @zend_str_tolower(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @zend_optimizer_classify_function(ptr nocapture noundef readonly %0, i32 %1) local_unnamed_addr #6 {
+define hidden noundef i32 @zend_optimizer_classify_function(ptr nocapture noundef readonly %0, i32 %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   switch i64 %4, label %.critedge12 [
@@ -2190,50 +2190,47 @@ define hidden i32 @zend_optimizer_classify_function(ptr nocapture noundef readon
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %6, ptr noundef nonnull dereferenceable(7) @.str.6, i64 7)
   %.not = icmp eq i32 %bcmp, 0
-  br i1 %.not, label %.critedge12, label %7
+  br i1 %.not, label %17, label %7
 
 7:                                                ; preds = %5
   %bcmp54 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %6, ptr noundef nonnull dereferenceable(7) @.str.7, i64 7)
   %.not55 = icmp eq i32 %bcmp54, 0
-  br i1 %.not55, label %.critedge12, label %.critedge8.thread70
+  br i1 %.not55, label %17, label %.critedge12
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %0, i64 24
   %bcmp56 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %9, ptr noundef nonnull dereferenceable(16) @.str.8, i64 16)
   %.not57 = icmp eq i32 %bcmp56, 0
-  br i1 %.not57, label %.critedge12, label %.critedge8.thread70
+  br i1 %.not57, label %17, label %.critedge12
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds i8, ptr %0, i64 24
   %bcmp58 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %11, ptr noundef nonnull dereferenceable(11) @.str.9, i64 11)
   %.not59 = icmp eq i32 %bcmp58, 0
-  %spec.select71 = zext i1 %.not59 to i32
-  br label %.critedge12
+  br i1 %.not59, label %17, label %.critedge12
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds i8, ptr %0, i64 24
   %bcmp60 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(13) %13, ptr noundef nonnull dereferenceable(13) @.str.10, i64 13)
   %.not61 = icmp eq i32 %bcmp60, 0
-  br i1 %.not61, label %.critedge12, label %16
-
-.critedge8.thread70:                              ; preds = %8, %7
-  br label %.critedge12
+  br i1 %.not61, label %17, label %16
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds i8, ptr %0, i64 24
   %bcmp62 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %15, ptr noundef nonnull dereferenceable(12) @.str.11, i64 12)
   %.not63 = icmp eq i32 %bcmp62, 0
-  %spec.select72 = select i1 %.not63, i32 4, i32 0
-  br label %.critedge12
+  br i1 %.not63, label %17, label %.critedge12
 
 16:                                               ; preds = %12
   %bcmp64 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(13) %13, ptr noundef nonnull dereferenceable(13) @.str.12, i64 13)
   %.not65 = icmp eq i32 %bcmp64, 0
-  %spec.select = select i1 %.not65, i32 4, i32 0
-  br label %.critedge12
+  br i1 %.not65, label %17, label %.critedge12
 
-.critedge12:                                      ; preds = %14, %10, %2, %.critedge8.thread70, %16, %12, %8, %7, %5
-  %.0 = phi i32 [ 1, %5 ], [ 1, %7 ], [ 1, %8 ], [ 4, %12 ], [ %spec.select, %16 ], [ 0, %.critedge8.thread70 ], [ 0, %2 ], [ %spec.select72, %14 ], [ %spec.select71, %10 ]
+.critedge12:                                      ; preds = %2, %7, %8, %14, %10, %16
+  br label %17
+
+17:                                               ; preds = %16, %14, %12, %10, %8, %7, %5, %.critedge12
+  %.0 = phi i32 [ 0, %.critedge12 ], [ 1, %5 ], [ 1, %7 ], [ 1, %8 ], [ 1, %10 ], [ 4, %12 ], [ 4, %14 ], [ 4, %16 ]
   ret i32 %.0
 }
 

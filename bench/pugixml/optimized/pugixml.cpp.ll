@@ -8949,14 +8949,15 @@ if.then298.i.i:                                   ; preds = %while.end296.i.i
   %cmp300.i.i = icmp eq i8 %206, 0
   %cmp305.i.i = icmp eq i8 %210, %122
   %or.cond169.i.i = and i1 %cmp300.i.i, %cmp305.i.i
-  br i1 %or.cond169.i.i, label %land.lhs.true306.i.i, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
+  br i1 %or.cond169.i.i, label %land.lhs.true306.i.i, label %if.else313.i.i
 
 land.lhs.true306.i.i:                             ; preds = %if.then298.i.i
   %arrayidx307.i.i = getelementptr inbounds i8, ptr %name273.0.i.i, i64 1
   %211 = load i8, ptr %arrayidx307.i.i, align 1, !noalias !47
   %cmp309.i.i = icmp eq i8 %211, 0
-  %spec.select67.i = select i1 %cmp309.i.i, ptr %s.addr.12.i.i, ptr %incdec.ptr272.i.i
-  %spec.select68.i = select i1 %cmp309.i.i, i32 13, i32 14
+  br i1 %cmp309.i.i, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i, label %if.else313.i.i
+
+if.else313.i.i:                                   ; preds = %land.lhs.true306.i.i, %if.then298.i.i
   br label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
 
 if.end316.i.i:                                    ; preds = %while.end296.i.i
@@ -9934,7 +9935,7 @@ if.then234.i.i.i:                                 ; preds = %land.lhs.true224.i.
   %parent.i214.i.i = getelementptr inbounds i8, ptr %cursor.0.ph.i.i, i64 24
   %333 = load ptr, ptr %parent.i214.i.i, align 8, !noalias !47
   %tobool236.not.i.i.i = icmp eq ptr %333, null
-  br i1 %tobool236.not.i.i.i, label %if.end240.i.i.i, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.loopexit98.split.loop.exit361.i
+  br i1 %tobool236.not.i.i.i, label %if.end240.i.i.i, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.loopexit96.split.loop.exit359.i
 
 if.end240.i.i.i:                                  ; preds = %if.then234.i.i.i
   %add.ptr241.i.i.i = getelementptr inbounds i8, ptr %s.addr.1.i.i, i64 8
@@ -10188,14 +10189,14 @@ if.else270.i.i.i:                                 ; preds = %if.then361.i.i
 if.else279.i.i.i:                                 ; preds = %if.else270.i.i.i
   %cmp284.i.i.i = icmp eq i8 %122, 91
   %or.cond2.i.i.i = and i1 %cmp284.i.i.i, %cmp272.i.i.i
-  %spec.select69.i = select i1 %or.cond2.i.i.i, i32 8, i32 5
+  %spec.select67.i = select i1 %or.cond2.i.i.i, i32 8, i32 5
   br label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
 
 if.else366.i.i:                                   ; preds = %if.else268.i.i
   %cmp368.i.i = icmp eq i8 %132, 0
   %cmp371.i.i = icmp eq i8 %122, 63
   %or.cond3.i.i = and i1 %cmp371.i.i, %cmp368.i.i
-  %spec.select70.i = select i1 %or.cond3.i.i, i32 6, i32 5
+  %spec.select68.i = select i1 %or.cond3.i.i, i32 6, i32 5
   br label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
 
 while.body389.i.i:                                ; preds = %while.cond383.preheader.i.i, %while.body389.i.i
@@ -10397,7 +10398,7 @@ while.end492.i.i:                                 ; preds = %if.end472.i.i, %whi
   %spec.select1042 = select i1 %cmp493.not.i.i, i32 0, i32 14
   br label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
 
-_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.loopexit98.split.loop.exit361.i: ; preds = %if.then234.i.i.i
+_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.loopexit96.split.loop.exit359.i: ; preds = %if.then234.i.i.i
   %add.ptr235.i.i.le.i = getelementptr inbounds i8, ptr %s.addr.1.i.i, i64 -1
   br label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
 
@@ -10429,9 +10430,9 @@ _ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.e
   %incdec.ptr66.i.i.i.le = getelementptr inbounds i8, ptr %s.addr.1.i.i, i64 2
   br label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
 
-_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i: ; preds = %if.then.i.i.i.i298.i.i, %while.end260.i.i.i, %while.end.i47.i, %land.lhs.true224.i.i.i, %land.lhs.true220.i.i.i, %land.lhs.true216.i.i.i, %land.lhs.true212.i.i.i, %land.lhs.true208.i.i.i, %land.lhs.true204.i.i.i, %if.then93.i.i.i, %if.then.i.i.i.i.i260.i.i, %if.else71.i.i.i, %if.then54.i.i.i, %if.then.i.i.i.i95.i.i.i, %if.then.i.i.i.i.i.i.i, %if.then32.i.i.i, %while.end.i.i.i, %if.then348.i.i, %if.then329.i.i, %while.end326.i.i, %if.then271.i.i, %if.then253.i.i, %if.then232.i.i, %if.else229.i.i, %if.else217.i.i, %if.else202.i.i, %if.then.i.i.i.i.i.i, %land.lhs.true53.i.i.i, %while.end.i33.i.i, %land.lhs.true.i33.i, %while.cond113.us.i.i.i, %while.cond113.i.i.i, %while.cond152.us.i.i.i, %while.cond152.i.i.i, %while.cond.us.i.i.i, %while.cond.i253.i.i, %while.cond87.us.i.i.i, %while.cond87.i.i.i, %while.cond134.us.i.i.i, %while.cond134.i.i.i, %if.end175.i.i, %while.end162.i.i, %if.end150.i.i, %if.then.i.i.i.i201.i.i, %while.body286.i.i, %while.cond18.i.i.i, %while.cond.i.i35.i, %while.cond59.i.i.i, %while.end492.i.i, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit936, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit939, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit942, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit945, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit948, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit951, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.loopexit98.split.loop.exit361.i, %if.else366.i.i, %if.else279.i.i.i, %if.else270.i.i.i, %if.then107.i.i.i, %if.then18.i.i.i, %land.lhs.true306.i.i, %if.then298.i.i, %if.then171.i.i
-  %parser.sroa.9.3.i = phi ptr [ %319, %if.then107.i.i.i ], [ %301, %if.then18.i.i.i ], [ %197, %if.then171.i.i ], [ %incdec.ptr272.i.i, %if.then298.i.i ], [ %incdec.ptr.i.i.i, %if.else270.i.i.i ], [ %spec.select67.i, %land.lhs.true306.i.i ], [ %incdec.ptr.i.i.i, %if.else279.i.i.i ], [ %s.addr.1.i.i, %if.else366.i.i ], [ %add.ptr235.i.i.le.i, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.loopexit98.split.loop.exit361.i ], [ %spec.select, %while.end492.i.i ], [ %incdec.ptr2.i.i.i.le, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit ], [ %incdec.ptr86.i.i.i.le, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit936 ], [ %incdec.ptr82.i.i.i.le, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit939 ], [ %incdec.ptr78.i.i.i.le, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit942 ], [ %incdec.ptr74.i.i.i.le, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit945 ], [ %incdec.ptr70.i.i.i.le, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit948 ], [ %incdec.ptr66.i.i.i.le, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit951 ], [ %s.addr.2.i.i44.i, %while.cond59.i.i.i ], [ %s.addr.0.i.i36.i, %while.cond.i.i35.i ], [ %s.addr.1.i29.i.i, %while.cond18.i.i.i ], [ %incdec.ptr272.i.i, %while.body286.i.i ], [ %s.addr.6.i.i, %if.then.i.i.i.i201.i.i ], [ %call169.i.i72, %if.end175.i.i ], [ %s.addr.11.i.i, %while.end162.i.i ], [ %s.addr.10.i.i, %if.end150.i.i ], [ %s.addr.3.i.i.i, %while.cond134.i.i.i ], [ %s.addr.3.us.i.i.i, %while.cond134.us.i.i.i ], [ %s.addr.2.i.i.i, %while.cond87.i.i.i ], [ %s.addr.2.us.i.i.i, %while.cond87.us.i.i.i ], [ %s.addr.0.i.i.i, %while.cond.i253.i.i ], [ %s.addr.0.us.i.i.i, %while.cond.us.i.i.i ], [ %s.addr.2.i222.i.i, %while.cond152.i.i.i ], [ %s.addr.2.us.i221.i.i, %while.cond152.us.i.i.i ], [ %s.addr.1.i219.i.i, %while.cond113.i.i.i ], [ %s.addr.1.us.i.i.i, %while.cond113.us.i.i.i ], [ %s.addr.0.i28.i, %land.lhs.true53.i.i.i ], [ %s.addr.0.i28.i, %land.lhs.true.i33.i ], [ %s.addr.0.i32.i.i, %while.end.i33.i.i ], [ %call431.i.i78, %if.then.i.i.i.i298.i.i ], [ %s.addr.5.i.i.i, %while.end260.i.i.i ], [ %s.addr.0.i28.i, %while.end.i47.i ], [ %incdec.ptr.i.i.i, %land.lhs.true224.i.i.i ], [ %incdec.ptr.i.i.i, %land.lhs.true220.i.i.i ], [ %incdec.ptr.i.i.i, %land.lhs.true216.i.i.i ], [ %incdec.ptr.i.i.i, %land.lhs.true212.i.i.i ], [ %incdec.ptr.i.i.i, %land.lhs.true208.i.i.i ], [ %incdec.ptr.i.i.i, %land.lhs.true204.i.i.i ], [ %incdec.ptr90.i.i.i, %if.then93.i.i.i ], [ %incdec.ptr6.i.i.i, %if.then.i.i.i.i.i260.i.i ], [ %incdec.ptr51.i.i.i, %if.else71.i.i.i ], [ %incdec.ptr51.i.i.i, %if.then54.i.i.i ], [ %s.addr.0.ptr.i.i.i.le, %if.then.i.i.i.i95.i.i.i ], [ %s.addr.0.ptr.i.i.i.le, %if.then.i.i.i.i.i.i.i ], [ %s.addr.0.ptr.i.i.i.le, %if.then32.i.i.i ], [ %s.addr.0.ptr.i.i.i.le, %while.end.i.i.i ], [ %incdec.ptr.ptr.i.i.i, %if.then348.i.i ], [ %s.addr.13.i.i, %if.then329.i.i ], [ %s.addr.13.i.i, %while.end326.i.i ], [ %incdec.ptr272.i.i, %if.then271.i.i ], [ %s.addr.3.i.i, %if.then253.i.i ], [ %incdec.ptr52.i.i, %if.then232.i.i ], [ %incdec.ptr52.i.i, %if.else229.i.i ], [ %s.addr.6.i.i, %if.else217.i.i ], [ %incdec.ptr71.i.i, %if.else202.i.i ], [ %s.addr.1.i.i, %if.then.i.i.i.i.i.i ]
-  %parser.sroa.55.3.i = phi i32 [ 8, %if.then107.i.i.i ], [ 7, %if.then18.i.i.i ], [ 12, %if.then171.i.i ], [ 14, %if.then298.i.i ], [ 7, %if.else270.i.i.i ], [ %spec.select68.i, %land.lhs.true306.i.i ], [ %spec.select69.i, %if.else279.i.i.i ], [ %spec.select70.i, %if.else366.i.i ], [ 9, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.loopexit98.split.loop.exit361.i ], [ %spec.select1042, %while.end492.i.i ], [ 7, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit ], [ 8, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit936 ], [ 8, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit939 ], [ 8, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit942 ], [ 8, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit945 ], [ 8, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit948 ], [ 8, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit951 ], [ 9, %while.cond59.i.i.i ], [ 9, %while.cond.i.i35.i ], [ 9, %while.cond18.i.i.i ], [ 14, %while.body286.i.i ], [ 3, %if.then.i.i.i.i201.i.i ], [ 12, %if.end175.i.i ], [ 12, %while.end162.i.i ], [ 12, %if.end150.i.i ], [ 6, %while.cond134.i.i.i ], [ 6, %while.cond134.us.i.i.i ], [ 6, %while.cond87.i.i.i ], [ 6, %while.cond87.us.i.i.i ], [ 7, %while.cond.i253.i.i ], [ 7, %while.cond.us.i.i.i ], [ 8, %while.cond152.i.i.i ], [ 8, %while.cond152.us.i.i.i ], [ 8, %while.cond113.i.i.i ], [ 8, %while.cond113.us.i.i.i ], [ 9, %land.lhs.true.i33.i ], [ 9, %while.end.i33.i.i ], [ 9, %land.lhs.true53.i.i.i ], [ 3, %if.then.i.i.i.i298.i.i ], [ 3, %while.end260.i.i.i ], [ 9, %while.end.i47.i ], [ 5, %land.lhs.true224.i.i.i ], [ 5, %land.lhs.true220.i.i.i ], [ 5, %land.lhs.true216.i.i.i ], [ 5, %land.lhs.true212.i.i.i ], [ 5, %land.lhs.true208.i.i.i ], [ 5, %land.lhs.true204.i.i.i ], [ 3, %if.then93.i.i.i ], [ 3, %if.then.i.i.i.i.i260.i.i ], [ 6, %if.else71.i.i.i ], [ 6, %if.then54.i.i.i ], [ 3, %if.then.i.i.i.i95.i.i.i ], [ 3, %if.then.i.i.i.i.i.i.i ], [ 6, %if.then32.i.i.i ], [ 6, %while.end.i.i.i ], [ 6, %if.then348.i.i ], [ 13, %if.then329.i.i ], [ 13, %while.end326.i.i ], [ 14, %if.then271.i.i ], [ 11, %if.then253.i.i ], [ 11, %if.then232.i.i ], [ 11, %if.else229.i.i ], [ 11, %if.else217.i.i ], [ 11, %if.else202.i.i ], [ 3, %if.then.i.i.i.i.i.i ]
+_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i: ; preds = %if.then.i.i.i.i298.i.i, %while.end260.i.i.i, %while.end.i47.i, %land.lhs.true224.i.i.i, %land.lhs.true220.i.i.i, %land.lhs.true216.i.i.i, %land.lhs.true212.i.i.i, %land.lhs.true208.i.i.i, %land.lhs.true204.i.i.i, %if.then93.i.i.i, %if.then.i.i.i.i.i260.i.i, %if.else71.i.i.i, %if.then54.i.i.i, %if.then.i.i.i.i95.i.i.i, %if.then.i.i.i.i.i.i.i, %if.then32.i.i.i, %while.end.i.i.i, %if.then348.i.i, %if.then329.i.i, %while.end326.i.i, %if.then271.i.i, %if.then253.i.i, %if.then232.i.i, %if.else229.i.i, %if.else217.i.i, %if.else202.i.i, %if.then.i.i.i.i.i.i, %land.lhs.true53.i.i.i, %while.end.i33.i.i, %land.lhs.true.i33.i, %while.cond113.us.i.i.i, %while.cond113.i.i.i, %while.cond152.us.i.i.i, %while.cond152.i.i.i, %while.cond.us.i.i.i, %while.cond.i253.i.i, %while.cond87.us.i.i.i, %while.cond87.i.i.i, %while.cond134.us.i.i.i, %while.cond134.i.i.i, %if.end175.i.i, %while.end162.i.i, %if.end150.i.i, %if.then.i.i.i.i201.i.i, %while.body286.i.i, %while.cond18.i.i.i, %while.cond.i.i35.i, %while.cond59.i.i.i, %while.end492.i.i, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit936, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit939, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit942, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit945, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit948, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit951, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.loopexit96.split.loop.exit359.i, %if.else366.i.i, %if.else279.i.i.i, %if.else270.i.i.i, %if.then107.i.i.i, %if.then18.i.i.i, %if.else313.i.i, %land.lhs.true306.i.i, %if.then171.i.i
+  %parser.sroa.9.3.i = phi ptr [ %319, %if.then107.i.i.i ], [ %301, %if.then18.i.i.i ], [ %197, %if.then171.i.i ], [ %incdec.ptr272.i.i, %if.else313.i.i ], [ %s.addr.12.i.i, %land.lhs.true306.i.i ], [ %incdec.ptr.i.i.i, %if.else270.i.i.i ], [ %incdec.ptr.i.i.i, %if.else279.i.i.i ], [ %s.addr.1.i.i, %if.else366.i.i ], [ %add.ptr235.i.i.le.i, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.loopexit96.split.loop.exit359.i ], [ %spec.select, %while.end492.i.i ], [ %incdec.ptr2.i.i.i.le, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit ], [ %incdec.ptr86.i.i.i.le, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit936 ], [ %incdec.ptr82.i.i.i.le, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit939 ], [ %incdec.ptr78.i.i.i.le, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit942 ], [ %incdec.ptr74.i.i.i.le, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit945 ], [ %incdec.ptr70.i.i.i.le, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit948 ], [ %incdec.ptr66.i.i.i.le, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit951 ], [ %s.addr.2.i.i44.i, %while.cond59.i.i.i ], [ %s.addr.0.i.i36.i, %while.cond.i.i35.i ], [ %s.addr.1.i29.i.i, %while.cond18.i.i.i ], [ %incdec.ptr272.i.i, %while.body286.i.i ], [ %s.addr.6.i.i, %if.then.i.i.i.i201.i.i ], [ %call169.i.i72, %if.end175.i.i ], [ %s.addr.11.i.i, %while.end162.i.i ], [ %s.addr.10.i.i, %if.end150.i.i ], [ %s.addr.3.i.i.i, %while.cond134.i.i.i ], [ %s.addr.3.us.i.i.i, %while.cond134.us.i.i.i ], [ %s.addr.2.i.i.i, %while.cond87.i.i.i ], [ %s.addr.2.us.i.i.i, %while.cond87.us.i.i.i ], [ %s.addr.0.i.i.i, %while.cond.i253.i.i ], [ %s.addr.0.us.i.i.i, %while.cond.us.i.i.i ], [ %s.addr.2.i222.i.i, %while.cond152.i.i.i ], [ %s.addr.2.us.i221.i.i, %while.cond152.us.i.i.i ], [ %s.addr.1.i219.i.i, %while.cond113.i.i.i ], [ %s.addr.1.us.i.i.i, %while.cond113.us.i.i.i ], [ %s.addr.0.i28.i, %land.lhs.true53.i.i.i ], [ %s.addr.0.i28.i, %land.lhs.true.i33.i ], [ %s.addr.0.i32.i.i, %while.end.i33.i.i ], [ %call431.i.i78, %if.then.i.i.i.i298.i.i ], [ %s.addr.5.i.i.i, %while.end260.i.i.i ], [ %s.addr.0.i28.i, %while.end.i47.i ], [ %incdec.ptr.i.i.i, %land.lhs.true224.i.i.i ], [ %incdec.ptr.i.i.i, %land.lhs.true220.i.i.i ], [ %incdec.ptr.i.i.i, %land.lhs.true216.i.i.i ], [ %incdec.ptr.i.i.i, %land.lhs.true212.i.i.i ], [ %incdec.ptr.i.i.i, %land.lhs.true208.i.i.i ], [ %incdec.ptr.i.i.i, %land.lhs.true204.i.i.i ], [ %incdec.ptr90.i.i.i, %if.then93.i.i.i ], [ %incdec.ptr6.i.i.i, %if.then.i.i.i.i.i260.i.i ], [ %incdec.ptr51.i.i.i, %if.else71.i.i.i ], [ %incdec.ptr51.i.i.i, %if.then54.i.i.i ], [ %s.addr.0.ptr.i.i.i.le, %if.then.i.i.i.i95.i.i.i ], [ %s.addr.0.ptr.i.i.i.le, %if.then.i.i.i.i.i.i.i ], [ %s.addr.0.ptr.i.i.i.le, %if.then32.i.i.i ], [ %s.addr.0.ptr.i.i.i.le, %while.end.i.i.i ], [ %incdec.ptr.ptr.i.i.i, %if.then348.i.i ], [ %s.addr.13.i.i, %if.then329.i.i ], [ %s.addr.13.i.i, %while.end326.i.i ], [ %incdec.ptr272.i.i, %if.then271.i.i ], [ %s.addr.3.i.i, %if.then253.i.i ], [ %incdec.ptr52.i.i, %if.then232.i.i ], [ %incdec.ptr52.i.i, %if.else229.i.i ], [ %s.addr.6.i.i, %if.else217.i.i ], [ %incdec.ptr71.i.i, %if.else202.i.i ], [ %s.addr.1.i.i, %if.then.i.i.i.i.i.i ]
+  %parser.sroa.55.3.i = phi i32 [ 8, %if.then107.i.i.i ], [ 7, %if.then18.i.i.i ], [ 12, %if.then171.i.i ], [ 14, %if.else313.i.i ], [ 13, %land.lhs.true306.i.i ], [ 7, %if.else270.i.i.i ], [ %spec.select67.i, %if.else279.i.i.i ], [ %spec.select68.i, %if.else366.i.i ], [ 9, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.loopexit96.split.loop.exit359.i ], [ %spec.select1042, %while.end492.i.i ], [ 7, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit ], [ 8, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit936 ], [ 8, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit939 ], [ 8, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit942 ], [ 8, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit945 ], [ 8, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit948 ], [ 8, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit951 ], [ 9, %while.cond59.i.i.i ], [ 9, %while.cond.i.i35.i ], [ 9, %while.cond18.i.i.i ], [ 14, %while.body286.i.i ], [ 3, %if.then.i.i.i.i201.i.i ], [ 12, %if.end175.i.i ], [ 12, %while.end162.i.i ], [ 12, %if.end150.i.i ], [ 6, %while.cond134.i.i.i ], [ 6, %while.cond134.us.i.i.i ], [ 6, %while.cond87.i.i.i ], [ 6, %while.cond87.us.i.i.i ], [ 7, %while.cond.i253.i.i ], [ 7, %while.cond.us.i.i.i ], [ 8, %while.cond152.i.i.i ], [ 8, %while.cond152.us.i.i.i ], [ 8, %while.cond113.i.i.i ], [ 8, %while.cond113.us.i.i.i ], [ 9, %land.lhs.true.i33.i ], [ 9, %while.end.i33.i.i ], [ 9, %land.lhs.true53.i.i.i ], [ 3, %if.then.i.i.i.i298.i.i ], [ 3, %while.end260.i.i.i ], [ 9, %while.end.i47.i ], [ 5, %land.lhs.true224.i.i.i ], [ 5, %land.lhs.true220.i.i.i ], [ 5, %land.lhs.true216.i.i.i ], [ 5, %land.lhs.true212.i.i.i ], [ 5, %land.lhs.true208.i.i.i ], [ 5, %land.lhs.true204.i.i.i ], [ 3, %if.then93.i.i.i ], [ 3, %if.then.i.i.i.i.i260.i.i ], [ 6, %if.else71.i.i.i ], [ 6, %if.then54.i.i.i ], [ 3, %if.then.i.i.i.i95.i.i.i ], [ 3, %if.then.i.i.i.i.i.i.i ], [ 6, %if.then32.i.i.i ], [ 6, %while.end.i.i.i ], [ 6, %if.then348.i.i ], [ 13, %if.then329.i.i ], [ 13, %while.end326.i.i ], [ 14, %if.then271.i.i ], [ 11, %if.then253.i.i ], [ 11, %if.then232.i.i ], [ 11, %if.else229.i.i ], [ 11, %if.else217.i.i ], [ 11, %if.else202.i.i ], [ 3, %if.then.i.i.i.i.i.i ]
   %tobool8.not.i = icmp eq ptr %parser.sroa.9.3.i, null
   %sub.ptr.lhs.cast.i = ptrtoint ptr %parser.sroa.9.3.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %buffer.0 to i64
@@ -28779,15 +28780,15 @@ if.end117.i:                                      ; preds = %if.end90.i
   %or.cond25.i = select i1 %or.cond24.i, i1 %cmp125.i, i1 false
   %cmp128.i = icmp eq i8 %3, 109
   %or.cond26.i = select i1 %or.cond25.i, i1 %cmp128.i, i1 false
-  br i1 %or.cond26.i, label %land.lhs.true129.i, label %_ZN4pugi4impl12_GLOBAL__N_121guess_buffer_encodingEPKhm.exit
+  br i1 %or.cond26.i, label %land.lhs.true129.i, label %if.end208.i
 
 land.lhs.true129.i:                               ; preds = %if.end117.i
   %call.i = call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_126parse_declaration_encodingEPKhmRS3_Rm(ptr noundef nonnull %contents, i64 noundef %size, ptr noundef nonnull align 8 dereferenceable(8) %enc.i, ptr noundef nonnull align 8 dereferenceable(8) %enc_length.i)
-  br i1 %call.i, label %if.then130.i, label %_ZN4pugi4impl12_GLOBAL__N_121guess_buffer_encodingEPKhm.exit
+  br i1 %call.i, label %if.then130.i, label %if.end208.i
 
 if.then130.i:                                     ; preds = %land.lhs.true129.i
   %4 = load i64, ptr %enc_length.i, align 8
-  switch i64 %4, label %_ZN4pugi4impl12_GLOBAL__N_121guess_buffer_encodingEPKhm.exit [
+  switch i64 %4, label %if.end208.i [
     i64 10, label %land.lhs.true132.i
     i64 6, label %land.lhs.true177.i
   ]
@@ -28797,110 +28798,110 @@ land.lhs.true132.i:                               ; preds = %if.then130.i
   %6 = load i8, ptr %5, align 1
   %7 = and i8 %6, -33
   %cmp135.i = icmp eq i8 %7, 73
-  br i1 %cmp135.i, label %land.lhs.true136.i, label %_ZN4pugi4impl12_GLOBAL__N_121guess_buffer_encodingEPKhm.exit
+  br i1 %cmp135.i, label %land.lhs.true136.i, label %if.end208.i
 
 land.lhs.true136.i:                               ; preds = %land.lhs.true132.i
   %arrayidx137.i = getelementptr inbounds i8, ptr %5, i64 1
   %8 = load i8, ptr %arrayidx137.i, align 1
   %9 = and i8 %8, -33
   %cmp140.i = icmp eq i8 %9, 83
-  br i1 %cmp140.i, label %land.lhs.true141.i, label %_ZN4pugi4impl12_GLOBAL__N_121guess_buffer_encodingEPKhm.exit
+  br i1 %cmp140.i, label %land.lhs.true141.i, label %if.end208.i
 
 land.lhs.true141.i:                               ; preds = %land.lhs.true136.i
   %arrayidx142.i = getelementptr inbounds i8, ptr %5, i64 2
   %10 = load i8, ptr %arrayidx142.i, align 1
   %11 = and i8 %10, -33
   %cmp145.i = icmp eq i8 %11, 79
-  br i1 %cmp145.i, label %land.lhs.true146.i, label %_ZN4pugi4impl12_GLOBAL__N_121guess_buffer_encodingEPKhm.exit
+  br i1 %cmp145.i, label %land.lhs.true146.i, label %if.end208.i
 
 land.lhs.true146.i:                               ; preds = %land.lhs.true141.i
   %arrayidx147.i = getelementptr inbounds i8, ptr %5, i64 3
   %12 = load i8, ptr %arrayidx147.i, align 1
   %cmp149.i = icmp eq i8 %12, 45
-  br i1 %cmp149.i, label %land.lhs.true150.i, label %_ZN4pugi4impl12_GLOBAL__N_121guess_buffer_encodingEPKhm.exit
+  br i1 %cmp149.i, label %land.lhs.true150.i, label %if.end208.i
 
 land.lhs.true150.i:                               ; preds = %land.lhs.true146.i
   %arrayidx151.i = getelementptr inbounds i8, ptr %5, i64 4
   %13 = load i8, ptr %arrayidx151.i, align 1
   %cmp153.i = icmp eq i8 %13, 56
-  br i1 %cmp153.i, label %land.lhs.true154.i, label %_ZN4pugi4impl12_GLOBAL__N_121guess_buffer_encodingEPKhm.exit
+  br i1 %cmp153.i, label %land.lhs.true154.i, label %if.end208.i
 
 land.lhs.true154.i:                               ; preds = %land.lhs.true150.i
   %arrayidx155.i = getelementptr inbounds i8, ptr %5, i64 5
   %14 = load i8, ptr %arrayidx155.i, align 1
   %cmp157.i = icmp eq i8 %14, 56
-  br i1 %cmp157.i, label %land.lhs.true158.i, label %_ZN4pugi4impl12_GLOBAL__N_121guess_buffer_encodingEPKhm.exit
+  br i1 %cmp157.i, label %land.lhs.true158.i, label %if.end208.i
 
 land.lhs.true158.i:                               ; preds = %land.lhs.true154.i
   %arrayidx159.i = getelementptr inbounds i8, ptr %5, i64 6
   %15 = load i8, ptr %arrayidx159.i, align 1
   %cmp161.i = icmp eq i8 %15, 53
-  br i1 %cmp161.i, label %land.lhs.true162.i, label %_ZN4pugi4impl12_GLOBAL__N_121guess_buffer_encodingEPKhm.exit
+  br i1 %cmp161.i, label %land.lhs.true162.i, label %if.end208.i
 
 land.lhs.true162.i:                               ; preds = %land.lhs.true158.i
   %arrayidx163.i = getelementptr inbounds i8, ptr %5, i64 7
   %16 = load i8, ptr %arrayidx163.i, align 1
   %cmp165.i = icmp eq i8 %16, 57
-  br i1 %cmp165.i, label %land.lhs.true166.i, label %_ZN4pugi4impl12_GLOBAL__N_121guess_buffer_encodingEPKhm.exit
+  br i1 %cmp165.i, label %land.lhs.true166.i, label %if.end208.i
 
 land.lhs.true166.i:                               ; preds = %land.lhs.true162.i
   %arrayidx167.i = getelementptr inbounds i8, ptr %5, i64 8
   %17 = load i8, ptr %arrayidx167.i, align 1
   %cmp169.i = icmp eq i8 %17, 45
-  br i1 %cmp169.i, label %land.lhs.true170.i, label %_ZN4pugi4impl12_GLOBAL__N_121guess_buffer_encodingEPKhm.exit
+  br i1 %cmp169.i, label %land.lhs.true170.i, label %if.end208.i
 
 land.lhs.true170.i:                               ; preds = %land.lhs.true166.i
   %arrayidx171.i = getelementptr inbounds i8, ptr %5, i64 9
-  br label %return.sink.split.i
+  %18 = load i8, ptr %arrayidx171.i, align 1
+  %cmp173.i = icmp eq i8 %18, 49
+  br i1 %cmp173.i, label %_ZN4pugi4impl12_GLOBAL__N_121guess_buffer_encodingEPKhm.exit, label %if.end208.i
 
 land.lhs.true177.i:                               ; preds = %if.then130.i
-  %18 = load ptr, ptr %enc.i, align 8
-  %19 = load i8, ptr %18, align 1
-  %20 = and i8 %19, -33
-  %cmp181.i = icmp eq i8 %20, 76
-  br i1 %cmp181.i, label %land.lhs.true182.i, label %_ZN4pugi4impl12_GLOBAL__N_121guess_buffer_encodingEPKhm.exit
+  %19 = load ptr, ptr %enc.i, align 8
+  %20 = load i8, ptr %19, align 1
+  %21 = and i8 %20, -33
+  %cmp181.i = icmp eq i8 %21, 76
+  br i1 %cmp181.i, label %land.lhs.true182.i, label %if.end208.i
 
 land.lhs.true182.i:                               ; preds = %land.lhs.true177.i
-  %arrayidx183.i = getelementptr inbounds i8, ptr %18, i64 1
-  %21 = load i8, ptr %arrayidx183.i, align 1
-  %22 = and i8 %21, -33
-  %cmp186.i = icmp eq i8 %22, 65
-  br i1 %cmp186.i, label %land.lhs.true187.i, label %_ZN4pugi4impl12_GLOBAL__N_121guess_buffer_encodingEPKhm.exit
+  %arrayidx183.i = getelementptr inbounds i8, ptr %19, i64 1
+  %22 = load i8, ptr %arrayidx183.i, align 1
+  %23 = and i8 %22, -33
+  %cmp186.i = icmp eq i8 %23, 65
+  br i1 %cmp186.i, label %land.lhs.true187.i, label %if.end208.i
 
 land.lhs.true187.i:                               ; preds = %land.lhs.true182.i
-  %arrayidx188.i = getelementptr inbounds i8, ptr %18, i64 2
-  %23 = load i8, ptr %arrayidx188.i, align 1
-  %24 = and i8 %23, -33
-  %cmp191.i = icmp eq i8 %24, 84
-  br i1 %cmp191.i, label %land.lhs.true192.i, label %_ZN4pugi4impl12_GLOBAL__N_121guess_buffer_encodingEPKhm.exit
+  %arrayidx188.i = getelementptr inbounds i8, ptr %19, i64 2
+  %24 = load i8, ptr %arrayidx188.i, align 1
+  %25 = and i8 %24, -33
+  %cmp191.i = icmp eq i8 %25, 84
+  br i1 %cmp191.i, label %land.lhs.true192.i, label %if.end208.i
 
 land.lhs.true192.i:                               ; preds = %land.lhs.true187.i
-  %arrayidx193.i = getelementptr inbounds i8, ptr %18, i64 3
-  %25 = load i8, ptr %arrayidx193.i, align 1
-  %26 = and i8 %25, -33
-  %cmp196.i = icmp eq i8 %26, 73
-  br i1 %cmp196.i, label %land.lhs.true197.i, label %_ZN4pugi4impl12_GLOBAL__N_121guess_buffer_encodingEPKhm.exit
+  %arrayidx193.i = getelementptr inbounds i8, ptr %19, i64 3
+  %26 = load i8, ptr %arrayidx193.i, align 1
+  %27 = and i8 %26, -33
+  %cmp196.i = icmp eq i8 %27, 73
+  br i1 %cmp196.i, label %land.lhs.true197.i, label %if.end208.i
 
 land.lhs.true197.i:                               ; preds = %land.lhs.true192.i
-  %arrayidx198.i = getelementptr inbounds i8, ptr %18, i64 4
-  %27 = load i8, ptr %arrayidx198.i, align 1
-  %28 = and i8 %27, -33
-  %cmp201.i = icmp eq i8 %28, 78
-  br i1 %cmp201.i, label %land.lhs.true202.i, label %_ZN4pugi4impl12_GLOBAL__N_121guess_buffer_encodingEPKhm.exit
+  %arrayidx198.i = getelementptr inbounds i8, ptr %19, i64 4
+  %28 = load i8, ptr %arrayidx198.i, align 1
+  %29 = and i8 %28, -33
+  %cmp201.i = icmp eq i8 %29, 78
+  br i1 %cmp201.i, label %land.lhs.true202.i, label %if.end208.i
 
 land.lhs.true202.i:                               ; preds = %land.lhs.true197.i
-  %arrayidx203.i = getelementptr inbounds i8, ptr %18, i64 5
-  br label %return.sink.split.i
+  %arrayidx203.i = getelementptr inbounds i8, ptr %19, i64 5
+  %30 = load i8, ptr %arrayidx203.i, align 1
+  %cmp205.i = icmp eq i8 %30, 49
+  br i1 %cmp205.i, label %_ZN4pugi4impl12_GLOBAL__N_121guess_buffer_encodingEPKhm.exit, label %if.end208.i
 
-return.sink.split.i:                              ; preds = %land.lhs.true202.i, %land.lhs.true170.i
-  %arrayidx171.sink.i = phi ptr [ %arrayidx171.i, %land.lhs.true170.i ], [ %arrayidx203.i, %land.lhs.true202.i ]
-  %29 = load i8, ptr %arrayidx171.sink.i, align 1
-  %cmp173.i = icmp eq i8 %29, 49
-  %spec.select71.i = select i1 %cmp173.i, i32 9, i32 1
+if.end208.i:                                      ; preds = %land.lhs.true202.i, %land.lhs.true197.i, %land.lhs.true192.i, %land.lhs.true187.i, %land.lhs.true182.i, %land.lhs.true177.i, %land.lhs.true170.i, %land.lhs.true166.i, %land.lhs.true162.i, %land.lhs.true158.i, %land.lhs.true154.i, %land.lhs.true150.i, %land.lhs.true146.i, %land.lhs.true141.i, %land.lhs.true136.i, %land.lhs.true132.i, %if.then130.i, %land.lhs.true129.i, %if.end117.i
   br label %_ZN4pugi4impl12_GLOBAL__N_121guess_buffer_encodingEPKhm.exit
 
-_ZN4pugi4impl12_GLOBAL__N_121guess_buffer_encodingEPKhm.exit: ; preds = %if.end12, %if.end.i, %if.end14.i, %if.end27.i, %if.end41.i, %if.end51.i, %if.end64.i, %if.end77.i, %if.end90.i, %if.end117.i, %land.lhs.true129.i, %if.then130.i, %land.lhs.true132.i, %land.lhs.true136.i, %land.lhs.true141.i, %land.lhs.true146.i, %land.lhs.true150.i, %land.lhs.true154.i, %land.lhs.true158.i, %land.lhs.true162.i, %land.lhs.true166.i, %land.lhs.true177.i, %land.lhs.true182.i, %land.lhs.true187.i, %land.lhs.true192.i, %land.lhs.true197.i, %return.sink.split.i
-  %retval.0.i = phi i32 [ 1, %if.end12 ], [ 6, %if.end.i ], [ 5, %if.end14.i ], [ %.mux.i, %if.end27.i ], [ 1, %if.end41.i ], [ 6, %if.end51.i ], [ 5, %if.end64.i ], [ 3, %if.end77.i ], [ %.mux68.mux.i, %if.end90.i ], [ 1, %land.lhs.true177.i ], [ 1, %land.lhs.true182.i ], [ 1, %land.lhs.true187.i ], [ 1, %land.lhs.true192.i ], [ 1, %land.lhs.true197.i ], [ 1, %land.lhs.true129.i ], [ 1, %if.end117.i ], [ 1, %land.lhs.true166.i ], [ 1, %land.lhs.true162.i ], [ 1, %land.lhs.true158.i ], [ 1, %land.lhs.true154.i ], [ 1, %land.lhs.true150.i ], [ 1, %land.lhs.true146.i ], [ 1, %land.lhs.true141.i ], [ 1, %land.lhs.true136.i ], [ 1, %land.lhs.true132.i ], [ 1, %if.then130.i ], [ %spec.select71.i, %return.sink.split.i ]
+_ZN4pugi4impl12_GLOBAL__N_121guess_buffer_encodingEPKhm.exit: ; preds = %if.end12, %if.end.i, %if.end14.i, %if.end27.i, %if.end41.i, %if.end51.i, %if.end64.i, %if.end77.i, %if.end90.i, %land.lhs.true170.i, %land.lhs.true202.i, %if.end208.i
+  %retval.0.i = phi i32 [ 1, %if.end208.i ], [ 1, %if.end12 ], [ 6, %if.end.i ], [ 5, %if.end14.i ], [ %.mux.i, %if.end27.i ], [ 1, %if.end41.i ], [ 6, %if.end51.i ], [ 5, %if.end64.i ], [ 3, %if.end77.i ], [ %.mux68.mux.i, %if.end90.i ], [ 9, %land.lhs.true170.i ], [ 9, %land.lhs.true202.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %enc.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %enc_length.i)
   br label %return
@@ -34518,7 +34519,7 @@ if.then.i:                                        ; preds = %_ZNK4pugi10xpath_no
   %6 = load i64, ptr %sub.ptr.i.i, align 8
   %and.i = and i64 %6, 64
   %cmp.i = icmp eq i64 %and.i, 0
-  br i1 %cmp.i, label %if.then3.i, label %_ZN4pugi4impl12_GLOBAL__N_121document_buffer_orderERKNS_10xpath_nodeE.exit
+  br i1 %cmp.i, label %if.then3.i, label %if.end18.i
 
 if.then3.i:                                       ; preds = %if.then.i
   %name.i = getelementptr inbounds i8, ptr %3, i64 8
@@ -34532,13 +34533,13 @@ if.then3.i:                                       ; preds = %if.then.i
 if.end.i:                                         ; preds = %if.then3.i
   %value.i = getelementptr inbounds i8, ptr %3, i64 16
   %8 = load ptr, ptr %value.i, align 8
-  %tobool10.not.i = icmp eq ptr %8, null
-  br i1 %tobool10.not.i, label %_ZN4pugi4impl12_GLOBAL__N_121document_buffer_orderERKNS_10xpath_nodeE.exit, label %land.lhs.true11.i
-
-land.lhs.true11.i:                                ; preds = %if.end.i
+  %tobool10.not.i = icmp ne ptr %8, null
   %and13.i = and i64 %4, 80
   %cmp14.i = icmp eq i64 %and13.i, 0
-  %spec.select.i = select i1 %cmp14.i, ptr %8, ptr null
+  %or.cond20.i = and i1 %cmp14.i, %tobool10.not.i
+  br i1 %or.cond20.i, label %_ZN4pugi4impl12_GLOBAL__N_121document_buffer_orderERKNS_10xpath_nodeE.exit, label %if.end18.i
+
+if.end18.i:                                       ; preds = %if.end.i, %if.then.i
   br label %_ZN4pugi4impl12_GLOBAL__N_121document_buffer_orderERKNS_10xpath_nodeE.exit
 
 if.end19.i:                                       ; preds = %_ZNK4pugi10xpath_node4nodeEv.exit.i
@@ -34578,8 +34579,8 @@ if.then40.i:                                      ; preds = %if.end36.i
   %13 = load ptr, ptr %value41.i, align 8
   br label %_ZN4pugi4impl12_GLOBAL__N_121document_buffer_orderERKNS_10xpath_nodeE.exit
 
-_ZN4pugi4impl12_GLOBAL__N_121document_buffer_orderERKNS_10xpath_nodeE.exit: ; preds = %if.then.i, %if.then3.i, %if.end.i, %land.lhs.true11.i, %if.end19.i, %if.then25.i, %if.then34.i, %if.end36.i, %if.then40.i
-  %retval.0.i = phi ptr [ %12, %if.then34.i ], [ %13, %if.then40.i ], [ null, %if.end.i ], [ null, %if.then.i ], [ null, %if.end36.i ], [ null, %if.then25.i ], [ null, %if.end19.i ], [ %spec.select.i, %land.lhs.true11.i ], [ %7, %if.then3.i ]
+_ZN4pugi4impl12_GLOBAL__N_121document_buffer_orderERKNS_10xpath_nodeE.exit: ; preds = %if.then3.i, %if.end.i, %if.end18.i, %if.end19.i, %if.then25.i, %if.then34.i, %if.end36.i, %if.then40.i
+  %retval.0.i = phi ptr [ null, %if.end18.i ], [ %12, %if.then34.i ], [ %13, %if.then40.i ], [ null, %if.end36.i ], [ null, %if.then25.i ], [ null, %if.end19.i ], [ %7, %if.then3.i ], [ %8, %if.end.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i.i21)
   %_attribute.i.i22 = getelementptr inbounds i8, ptr %rhs, i64 8
   %14 = load ptr, ptr %_attribute.i.i22, align 8
@@ -34612,28 +34613,25 @@ if.then.i28:                                      ; preds = %_ZNK4pugi10xpath_no
   %20 = load i64, ptr %sub.ptr.i.i32, align 8
   %and.i33 = and i64 %20, 64
   %cmp.i34 = icmp eq i64 %and.i33, 0
-  br i1 %cmp.i34, label %if.then3.i36, label %if.end
+  br i1 %cmp.i34, label %if.then3.i37, label %if.end
 
-if.then3.i36:                                     ; preds = %if.then.i28
-  %name.i37 = getelementptr inbounds i8, ptr %17, i64 8
-  %21 = load ptr, ptr %name.i37, align 8
-  %tobool4.not.i38 = icmp ne ptr %21, null
-  %and6.i39 = and i64 %18, 96
-  %cmp7.i40 = icmp eq i64 %and6.i39, 0
-  %or.cond.i41 = and i1 %cmp7.i40, %tobool4.not.i38
-  br i1 %or.cond.i41, label %_ZN4pugi4impl12_GLOBAL__N_121document_buffer_orderERKNS_10xpath_nodeE.exit70, label %if.end.i42
+if.then3.i37:                                     ; preds = %if.then.i28
+  %name.i38 = getelementptr inbounds i8, ptr %17, i64 8
+  %21 = load ptr, ptr %name.i38, align 8
+  %tobool4.not.i39 = icmp ne ptr %21, null
+  %and6.i40 = and i64 %18, 96
+  %cmp7.i41 = icmp eq i64 %and6.i40, 0
+  %or.cond.i42 = and i1 %cmp7.i41, %tobool4.not.i39
+  br i1 %or.cond.i42, label %_ZN4pugi4impl12_GLOBAL__N_121document_buffer_orderERKNS_10xpath_nodeE.exit70, label %if.end.i43
 
-if.end.i42:                                       ; preds = %if.then3.i36
-  %value.i43 = getelementptr inbounds i8, ptr %17, i64 16
-  %22 = load ptr, ptr %value.i43, align 8
-  %tobool10.not.i44 = icmp eq ptr %22, null
-  br i1 %tobool10.not.i44, label %if.end, label %land.lhs.true11.i45
-
-land.lhs.true11.i45:                              ; preds = %if.end.i42
+if.end.i43:                                       ; preds = %if.then3.i37
+  %value.i44 = getelementptr inbounds i8, ptr %17, i64 16
+  %22 = load ptr, ptr %value.i44, align 8
+  %tobool10.not.i45 = icmp ne ptr %22, null
   %and13.i46 = and i64 %18, 80
   %cmp14.i47 = icmp eq i64 %and13.i46, 0
-  %spec.select.i48 = select i1 %cmp14.i47, ptr %22, ptr null
-  br label %_ZN4pugi4impl12_GLOBAL__N_121document_buffer_orderERKNS_10xpath_nodeE.exit70
+  %or.cond20.i48 = and i1 %cmp14.i47, %tobool10.not.i45
+  br i1 %or.cond20.i48, label %_ZN4pugi4impl12_GLOBAL__N_121document_buffer_orderERKNS_10xpath_nodeE.exit70, label %if.end
 
 if.end19.i49:                                     ; preds = %_ZNK4pugi10xpath_node4nodeEv.exit.i26
   %retval.sroa.0.0.copyload.i.i50 = load ptr, ptr %_attribute.i.i22, align 8
@@ -34655,38 +34653,34 @@ if.then25.i52:                                    ; preds = %if.end19.i49
 if.then30.i59:                                    ; preds = %if.then25.i52
   %and32.i60 = and i64 %23, 96
   %cmp33.i61 = icmp eq i64 %and32.i60, 0
-  br i1 %cmp33.i61, label %if.then34.i67, label %if.end36.i62
-
-if.then34.i67:                                    ; preds = %if.then30.i59
-  %name35.i68 = getelementptr inbounds i8, ptr %retval.sroa.0.0.copyload.i.i50, i64 8
-  %26 = load ptr, ptr %name35.i68, align 8
-  br label %_ZN4pugi4impl12_GLOBAL__N_121document_buffer_orderERKNS_10xpath_nodeE.exit70
+  br i1 %cmp33.i61, label %_ZN4pugi4impl12_GLOBAL__N_121document_buffer_orderERKNS_10xpath_nodeE.exit70.sink.split, label %if.end36.i62
 
 if.end36.i62:                                     ; preds = %if.then30.i59
   %and38.i63 = and i64 %23, 80
   %cmp39.i64 = icmp eq i64 %and38.i63, 0
-  br i1 %cmp39.i64, label %if.then40.i65, label %if.end
+  br i1 %cmp39.i64, label %_ZN4pugi4impl12_GLOBAL__N_121document_buffer_orderERKNS_10xpath_nodeE.exit70.sink.split, label %if.end
 
-if.then40.i65:                                    ; preds = %if.end36.i62
-  %value41.i66 = getelementptr inbounds i8, ptr %retval.sroa.0.0.copyload.i.i50, i64 16
-  %27 = load ptr, ptr %value41.i66, align 8
+_ZN4pugi4impl12_GLOBAL__N_121document_buffer_orderERKNS_10xpath_nodeE.exit70.sink.split: ; preds = %if.end36.i62, %if.then30.i59
+  %.sink = phi i64 [ 8, %if.then30.i59 ], [ 16, %if.end36.i62 ]
+  %name35.i68 = getelementptr inbounds i8, ptr %retval.sroa.0.0.copyload.i.i50, i64 %.sink
+  %26 = load ptr, ptr %name35.i68, align 8
   br label %_ZN4pugi4impl12_GLOBAL__N_121document_buffer_orderERKNS_10xpath_nodeE.exit70
 
-_ZN4pugi4impl12_GLOBAL__N_121document_buffer_orderERKNS_10xpath_nodeE.exit70: ; preds = %if.then3.i36, %land.lhs.true11.i45, %if.then34.i67, %if.then40.i65
-  %retval.0.i35 = phi ptr [ %26, %if.then34.i67 ], [ %27, %if.then40.i65 ], [ %spec.select.i48, %land.lhs.true11.i45 ], [ %21, %if.then3.i36 ]
+_ZN4pugi4impl12_GLOBAL__N_121document_buffer_orderERKNS_10xpath_nodeE.exit70: ; preds = %_ZN4pugi4impl12_GLOBAL__N_121document_buffer_orderERKNS_10xpath_nodeE.exit70.sink.split, %if.then3.i37, %if.end.i43
+  %retval.0.i36 = phi ptr [ %21, %if.then3.i37 ], [ %22, %if.end.i43 ], [ %26, %_ZN4pugi4impl12_GLOBAL__N_121document_buffer_orderERKNS_10xpath_nodeE.exit70.sink.split ]
   %tobool = icmp ne ptr %retval.0.i, null
-  %tobool3 = icmp ne ptr %retval.0.i35, null
+  %tobool3 = icmp ne ptr %retval.0.i36, null
   %or.cond = and i1 %tobool, %tobool3
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN4pugi4impl12_GLOBAL__N_121document_buffer_orderERKNS_10xpath_nodeE.exit70
-  %cmp = icmp ult ptr %retval.0.i, %retval.0.i35
+  %cmp = icmp ult ptr %retval.0.i, %retval.0.i36
   br label %return
 
-if.end:                                           ; preds = %if.end19.i49, %if.then25.i52, %if.end36.i62, %if.then.i28, %if.end.i42, %_ZN4pugi4impl12_GLOBAL__N_121document_buffer_orderERKNS_10xpath_nodeE.exit70
+if.end:                                           ; preds = %if.then.i28, %if.end.i43, %if.end19.i49, %if.then25.i52, %if.end36.i62, %_ZN4pugi4impl12_GLOBAL__N_121document_buffer_orderERKNS_10xpath_nodeE.exit70
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i)
-  %28 = load ptr, ptr %_attribute.i.i, align 8
-  %tobool.not.i.i = icmp eq ptr %28, null
+  %27 = load ptr, ptr %_attribute.i.i, align 8
+  %tobool.not.i.i = icmp eq ptr %27, null
   br i1 %tobool.not.i.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.end
@@ -34695,16 +34689,16 @@ cond.true.i:                                      ; preds = %if.end
   br label %_ZNK4pugi10xpath_node4nodeEv.exit
 
 cond.false.i:                                     ; preds = %if.end
-  %29 = load i64, ptr %lhs, align 8
-  %30 = inttoptr i64 %29 to ptr
+  %28 = load i64, ptr %lhs, align 8
+  %29 = inttoptr i64 %28 to ptr
   br label %_ZNK4pugi10xpath_node4nodeEv.exit
 
 _ZNK4pugi10xpath_node4nodeEv.exit:                ; preds = %cond.true.i, %cond.false.i
-  %31 = phi ptr [ %30, %cond.false.i ], [ %.pre.i, %cond.true.i ]
+  %30 = phi ptr [ %29, %cond.false.i ], [ %.pre.i, %cond.true.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i71)
-  %32 = load ptr, ptr %_attribute.i.i22, align 8
-  %tobool.not.i.i73 = icmp eq ptr %32, null
+  %31 = load ptr, ptr %_attribute.i.i22, align 8
+  %tobool.not.i.i73 = icmp eq ptr %31, null
   br i1 %tobool.not.i.i73, label %cond.false.i76, label %cond.true.i74
 
 cond.true.i74:                                    ; preds = %_ZNK4pugi10xpath_node4nodeEv.exit
@@ -34713,12 +34707,12 @@ cond.true.i74:                                    ; preds = %_ZNK4pugi10xpath_no
   br label %_ZNK4pugi10xpath_node4nodeEv.exit77
 
 cond.false.i76:                                   ; preds = %_ZNK4pugi10xpath_node4nodeEv.exit
-  %33 = load i64, ptr %rhs, align 8
-  %34 = inttoptr i64 %33 to ptr
+  %32 = load i64, ptr %rhs, align 8
+  %33 = inttoptr i64 %32 to ptr
   br label %_ZNK4pugi10xpath_node4nodeEv.exit77
 
 _ZNK4pugi10xpath_node4nodeEv.exit77:              ; preds = %cond.true.i74, %cond.false.i76
-  %35 = phi ptr [ %34, %cond.false.i76 ], [ %.pre.i75, %cond.true.i74 ]
+  %34 = phi ptr [ %33, %cond.false.i76 ], [ %.pre.i75, %cond.true.i74 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i71)
   %retval.sroa.0.0.copyload.i = load ptr, ptr %_attribute.i.i, align 8
   %tobool.not.i79 = icmp eq ptr %retval.sroa.0.0.copyload.i, null
@@ -34736,7 +34730,7 @@ _ZNK4pugi10xpath_node6parentEv.exit104:           ; preds = %land.rhs
   br i1 %cmp.i105, label %for.body, label %if.end84
 
 for.body:                                         ; preds = %_ZNK4pugi10xpath_node6parentEv.exit104, %_ZNK4pugi13xml_attribute14next_attributeEv.exit
-  %storemerge25 = phi ptr [ %37, %_ZNK4pugi13xml_attribute14next_attributeEv.exit ], [ %retval.sroa.0.0.copyload.i, %_ZNK4pugi10xpath_node6parentEv.exit104 ]
+  %storemerge25 = phi ptr [ %36, %_ZNK4pugi13xml_attribute14next_attributeEv.exit ], [ %retval.sroa.0.0.copyload.i, %_ZNK4pugi10xpath_node6parentEv.exit104 ]
   %retval.sroa.0.0.copyload.i111 = load ptr, ptr %_attribute.i.i22, align 8
   %cmp.i112 = icmp eq ptr %storemerge25, %retval.sroa.0.0.copyload.i111
   br i1 %cmp.i112, label %return, label %_ZNK4pugi13xml_attribute14next_attributeEv.exit
@@ -34744,17 +34738,17 @@ for.body:                                         ; preds = %_ZNK4pugi10xpath_no
 _ZNK4pugi13xml_attribute14next_attributeEv.exit:  ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i113)
   %next_attribute.i = getelementptr inbounds i8, ptr %storemerge25, i64 32
-  %36 = load ptr, ptr %next_attribute.i, align 8
-  call void @_ZN4pugi13xml_attributeC1EPNS_20xml_attribute_structE(ptr noundef nonnull align 8 dereferenceable(8) %retval.i113, ptr noundef %36)
-  %37 = load ptr, ptr %retval.i113, align 8
+  %35 = load ptr, ptr %next_attribute.i, align 8
+  call void @_ZN4pugi13xml_attributeC1EPNS_20xml_attribute_structE(ptr noundef nonnull align 8 dereferenceable(8) %retval.i113, ptr noundef %35)
+  %36 = load ptr, ptr %retval.i113, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i113)
-  %tobool.not.i108 = icmp eq ptr %37, null
+  %tobool.not.i108 = icmp eq ptr %36, null
   br i1 %tobool.not.i108, label %return, label %for.body, !llvm.loop !337
 
 _ZNK4pugi10xpath_node4nodeEv.exit166:             ; preds = %land.rhs
-  %38 = load i64, ptr %rhs, align 8
-  %39 = inttoptr i64 %38 to ptr
-  %cmp.i167 = icmp eq ptr %retval.sroa.0.0.copyload.i151, %39
+  %37 = load i64, ptr %rhs, align 8
+  %38 = inttoptr i64 %37 to ptr
+  %cmp.i167 = icmp eq ptr %retval.sroa.0.0.copyload.i151, %38
   br i1 %cmp.i167, label %return, label %if.end84
 
 if.else63:                                        ; preds = %_ZNK4pugi10xpath_node4nodeEv.exit77
@@ -34762,14 +34756,14 @@ if.else63:                                        ; preds = %_ZNK4pugi10xpath_no
 
 _ZNK4pugi10xpath_node4nodeEv.exit204:             ; preds = %if.else63
   %retval.sroa.0.0.copyload.i189 = load ptr, ptr %rhs, align 8
-  %40 = load i64, ptr %lhs, align 8
-  %41 = inttoptr i64 %40 to ptr
-  %cmp.i205 = icmp eq ptr %retval.sroa.0.0.copyload.i189, %41
+  %39 = load i64, ptr %lhs, align 8
+  %40 = inttoptr i64 %39 to ptr
+  %cmp.i205 = icmp eq ptr %retval.sroa.0.0.copyload.i189, %40
   br i1 %cmp.i205, label %return, label %if.end84
 
 if.end84:                                         ; preds = %_ZNK4pugi10xpath_node4nodeEv.exit204, %_ZNK4pugi10xpath_node4nodeEv.exit166, %_ZNK4pugi10xpath_node6parentEv.exit104, %if.else63
-  %rn.sroa.0.0 = phi ptr [ %35, %if.else63 ], [ %retval.sroa.0.0.copyload.i96, %_ZNK4pugi10xpath_node6parentEv.exit104 ], [ %35, %_ZNK4pugi10xpath_node4nodeEv.exit166 ], [ %retval.sroa.0.0.copyload.i189, %_ZNK4pugi10xpath_node4nodeEv.exit204 ]
-  %ln.sroa.0.0 = phi ptr [ %31, %if.else63 ], [ %retval.sroa.0.0.copyload.i151, %_ZNK4pugi10xpath_node6parentEv.exit104 ], [ %retval.sroa.0.0.copyload.i151, %_ZNK4pugi10xpath_node4nodeEv.exit166 ], [ %31, %_ZNK4pugi10xpath_node4nodeEv.exit204 ]
+  %rn.sroa.0.0 = phi ptr [ %34, %if.else63 ], [ %retval.sroa.0.0.copyload.i96, %_ZNK4pugi10xpath_node6parentEv.exit104 ], [ %34, %_ZNK4pugi10xpath_node4nodeEv.exit166 ], [ %retval.sroa.0.0.copyload.i189, %_ZNK4pugi10xpath_node4nodeEv.exit204 ]
+  %ln.sroa.0.0 = phi ptr [ %30, %if.else63 ], [ %retval.sroa.0.0.copyload.i151, %_ZNK4pugi10xpath_node6parentEv.exit104 ], [ %retval.sroa.0.0.copyload.i151, %_ZNK4pugi10xpath_node4nodeEv.exit166 ], [ %30, %_ZNK4pugi10xpath_node4nodeEv.exit204 ]
   %cmp.i219 = icmp eq ptr %ln.sroa.0.0, %rn.sroa.0.0
   br i1 %cmp.i219, label %return, label %if.end87
 
@@ -34784,8 +34778,8 @@ if.then90:                                        ; preds = %if.end87
   br label %return
 
 while.cond.i:                                     ; preds = %if.end87, %land.rhs.i
-  %lp.0.i = phi ptr [ %42, %land.rhs.i ], [ %ln.sroa.0.0, %if.end87 ]
-  %rp.0.i = phi ptr [ %43, %land.rhs.i ], [ %rn.sroa.0.0, %if.end87 ]
+  %lp.0.i = phi ptr [ %41, %land.rhs.i ], [ %ln.sroa.0.0, %if.end87 ]
+  %rp.0.i = phi ptr [ %42, %land.rhs.i ], [ %rn.sroa.0.0, %if.end87 ]
   %tobool.i = icmp ne ptr %lp.0.i, null
   %tobool1.i = icmp ne ptr %rp.0.i, null
   %or.cond.i223 = and i1 %tobool.i, %tobool1.i
@@ -34793,14 +34787,14 @@ while.cond.i:                                     ; preds = %if.end87, %land.rhs
 
 land.rhs.i:                                       ; preds = %while.cond.i
   %parent.i = getelementptr inbounds i8, ptr %lp.0.i, i64 24
-  %42 = load ptr, ptr %parent.i, align 8
+  %41 = load ptr, ptr %parent.i, align 8
   %parent2.i = getelementptr inbounds i8, ptr %rp.0.i, i64 24
-  %43 = load ptr, ptr %parent2.i, align 8
-  %cmp.not.i = icmp eq ptr %42, %43
+  %42 = load ptr, ptr %parent2.i, align 8
+  %cmp.not.i = icmp eq ptr %41, %42
   br i1 %cmp.not.i, label %if.then.i227, label %while.cond.i, !llvm.loop !338
 
 if.then.i227:                                     ; preds = %land.rhs.i
-  %tobool.not.i.i228 = icmp eq ptr %42, null
+  %tobool.not.i.i228 = icmp eq ptr %41, null
   br i1 %tobool.not.i.i228, label %if.then.i.i, label %while.body.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i227
@@ -34808,8 +34802,8 @@ if.then.i.i:                                      ; preds = %if.then.i227
   br label %return
 
 while.body.i.i:                                   ; preds = %if.then.i227, %if.end8.i.i
-  %rs.015.i.i = phi ptr [ %45, %if.end8.i.i ], [ %rp.0.i, %if.then.i227 ]
-  %ls.014.i.i = phi ptr [ %44, %if.end8.i.i ], [ %lp.0.i, %if.then.i227 ]
+  %rs.015.i.i = phi ptr [ %44, %if.end8.i.i ], [ %rp.0.i, %if.then.i227 ]
+  %ls.014.i.i = phi ptr [ %43, %if.end8.i.i ], [ %lp.0.i, %if.then.i227 ]
   %cmp3.i.i = icmp eq ptr %ls.014.i.i, %rp.0.i
   %cmp6.i.i = icmp eq ptr %rs.015.i.i, %lp.0.i
   %or.cond58 = select i1 %cmp3.i.i, i1 true, i1 %cmp6.i.i
@@ -34817,13 +34811,13 @@ while.body.i.i:                                   ; preds = %if.then.i227, %if.e
 
 if.end8.i.i:                                      ; preds = %while.body.i.i
   %next_sibling.i.i = getelementptr inbounds i8, ptr %ls.014.i.i, i64 48
-  %44 = load ptr, ptr %next_sibling.i.i, align 8
+  %43 = load ptr, ptr %next_sibling.i.i, align 8
   %next_sibling9.i.i = getelementptr inbounds i8, ptr %rs.015.i.i, i64 48
-  %45 = load ptr, ptr %next_sibling9.i.i, align 8
-  %tobool1.i.i = icmp ne ptr %44, null
-  %tobool2.i.i = icmp ne ptr %45, null
-  %46 = select i1 %tobool1.i.i, i1 %tobool2.i.i, i1 false
-  br i1 %46, label %while.body.i.i, label %while.end.i.i, !llvm.loop !339
+  %44 = load ptr, ptr %next_sibling9.i.i, align 8
+  %tobool1.i.i = icmp ne ptr %43, null
+  %tobool2.i.i = icmp ne ptr %44, null
+  %45 = select i1 %tobool1.i.i, i1 %tobool2.i.i, i1 false
+  br i1 %45, label %while.body.i.i, label %while.end.i.i, !llvm.loop !339
 
 while.end.i.i:                                    ; preds = %if.end8.i.i
   %lnot.i.i = xor i1 %tobool2.i.i, true
@@ -34835,47 +34829,47 @@ if.end.i224:                                      ; preds = %while.cond.i
   br i1 %tobool10.not56.i, label %while.cond15.preheader.i, label %while.body11.i
 
 while.cond15.preheader.i:                         ; preds = %while.body11.i, %if.end.i224
-  %ln.addr.0.lcssa.i = phi ptr [ %ln.sroa.0.0, %if.end.i224 ], [ %48, %while.body11.i ]
+  %ln.addr.0.lcssa.i = phi ptr [ %ln.sroa.0.0, %if.end.i224 ], [ %47, %while.body11.i ]
   %tobool16.not59.i = icmp eq ptr %rp.0.i, null
   br i1 %tobool16.not59.i, label %while.end20.i, label %while.body17.i
 
 while.body11.i:                                   ; preds = %if.end.i224, %while.body11.i
-  %lp.158.i = phi ptr [ %47, %while.body11.i ], [ %lp.0.i, %if.end.i224 ]
-  %ln.addr.057.i = phi ptr [ %48, %while.body11.i ], [ %ln.sroa.0.0, %if.end.i224 ]
+  %lp.158.i = phi ptr [ %46, %while.body11.i ], [ %lp.0.i, %if.end.i224 ]
+  %ln.addr.057.i = phi ptr [ %47, %while.body11.i ], [ %ln.sroa.0.0, %if.end.i224 ]
   %parent12.i = getelementptr inbounds i8, ptr %lp.158.i, i64 24
-  %47 = load ptr, ptr %parent12.i, align 8
+  %46 = load ptr, ptr %parent12.i, align 8
   %parent13.i = getelementptr inbounds i8, ptr %ln.addr.057.i, i64 24
-  %48 = load ptr, ptr %parent13.i, align 8
-  %tobool10.not.i225 = icmp eq ptr %47, null
+  %47 = load ptr, ptr %parent13.i, align 8
+  %tobool10.not.i225 = icmp eq ptr %46, null
   br i1 %tobool10.not.i225, label %while.cond15.preheader.i, label %while.body11.i, !llvm.loop !340
 
 while.body17.i:                                   ; preds = %while.cond15.preheader.i, %while.body17.i
-  %rp.161.i = phi ptr [ %49, %while.body17.i ], [ %rp.0.i, %while.cond15.preheader.i ]
-  %rn.addr.060.i = phi ptr [ %50, %while.body17.i ], [ %rn.sroa.0.0, %while.cond15.preheader.i ]
+  %rp.161.i = phi ptr [ %48, %while.body17.i ], [ %rp.0.i, %while.cond15.preheader.i ]
+  %rn.addr.060.i = phi ptr [ %49, %while.body17.i ], [ %rn.sroa.0.0, %while.cond15.preheader.i ]
   %parent18.i = getelementptr inbounds i8, ptr %rp.161.i, i64 24
-  %49 = load ptr, ptr %parent18.i, align 8
+  %48 = load ptr, ptr %parent18.i, align 8
   %parent19.i = getelementptr inbounds i8, ptr %rn.addr.060.i, i64 24
-  %50 = load ptr, ptr %parent19.i, align 8
-  %tobool16.not.i = icmp eq ptr %49, null
+  %49 = load ptr, ptr %parent19.i, align 8
+  %tobool16.not.i = icmp eq ptr %48, null
   br i1 %tobool16.not.i, label %while.end20.i, label %while.body17.i, !llvm.loop !341
 
 while.end20.i:                                    ; preds = %while.body17.i, %while.cond15.preheader.i
-  %rn.addr.0.lcssa.i = phi ptr [ %rn.sroa.0.0, %while.cond15.preheader.i ], [ %50, %while.body17.i ]
+  %rn.addr.0.lcssa.i = phi ptr [ %rn.sroa.0.0, %while.cond15.preheader.i ], [ %49, %while.body17.i ]
   %cmp21.i = icmp eq ptr %ln.addr.0.lcssa.i, %rn.addr.0.lcssa.i
   br i1 %cmp21.i, label %return, label %while.cond25.i
 
 while.cond25.i:                                   ; preds = %while.end20.i, %while.cond25.i
-  %ln.addr.1.i = phi ptr [ %51, %while.cond25.i ], [ %ln.addr.0.lcssa.i, %while.end20.i ]
-  %rn.addr.1.i = phi ptr [ %52, %while.cond25.i ], [ %rn.addr.0.lcssa.i, %while.end20.i ]
+  %ln.addr.1.i = phi ptr [ %50, %while.cond25.i ], [ %ln.addr.0.lcssa.i, %while.end20.i ]
+  %rn.addr.1.i = phi ptr [ %51, %while.cond25.i ], [ %rn.addr.0.lcssa.i, %while.end20.i ]
   %parent26.i = getelementptr inbounds i8, ptr %ln.addr.1.i, i64 24
-  %51 = load ptr, ptr %parent26.i, align 8
+  %50 = load ptr, ptr %parent26.i, align 8
   %parent27.i = getelementptr inbounds i8, ptr %rn.addr.1.i, i64 24
-  %52 = load ptr, ptr %parent27.i, align 8
-  %cmp28.not.i = icmp eq ptr %51, %52
+  %51 = load ptr, ptr %parent27.i, align 8
+  %cmp28.not.i = icmp eq ptr %50, %51
   br i1 %cmp28.not.i, label %while.end32.i, label %while.cond25.i, !llvm.loop !342
 
 while.end32.i:                                    ; preds = %while.cond25.i
-  %tobool.not.i29.i = icmp eq ptr %51, null
+  %tobool.not.i29.i = icmp eq ptr %50, null
   br i1 %tobool.not.i29.i, label %if.then.i47.i, label %while.body.i36.i
 
 if.then.i47.i:                                    ; preds = %while.end32.i
@@ -34883,8 +34877,8 @@ if.then.i47.i:                                    ; preds = %while.end32.i
   br label %return
 
 while.body.i36.i:                                 ; preds = %while.end32.i, %if.end8.i42.i
-  %rs.015.i37.i = phi ptr [ %54, %if.end8.i42.i ], [ %rn.addr.1.i, %while.end32.i ]
-  %ls.014.i38.i = phi ptr [ %53, %if.end8.i42.i ], [ %ln.addr.1.i, %while.end32.i ]
+  %rs.015.i37.i = phi ptr [ %53, %if.end8.i42.i ], [ %rn.addr.1.i, %while.end32.i ]
+  %ls.014.i38.i = phi ptr [ %52, %if.end8.i42.i ], [ %ln.addr.1.i, %while.end32.i ]
   %cmp3.i39.i = icmp eq ptr %ls.014.i38.i, %rn.addr.1.i
   %cmp6.i41.i = icmp eq ptr %rs.015.i37.i, %ln.addr.1.i
   %or.cond59 = select i1 %cmp3.i39.i, i1 true, i1 %cmp6.i41.i
@@ -34892,13 +34886,13 @@ while.body.i36.i:                                 ; preds = %while.end32.i, %if.
 
 if.end8.i42.i:                                    ; preds = %while.body.i36.i
   %next_sibling.i43.i = getelementptr inbounds i8, ptr %ls.014.i38.i, i64 48
-  %53 = load ptr, ptr %next_sibling.i43.i, align 8
+  %52 = load ptr, ptr %next_sibling.i43.i, align 8
   %next_sibling9.i44.i = getelementptr inbounds i8, ptr %rs.015.i37.i, i64 48
-  %54 = load ptr, ptr %next_sibling9.i44.i, align 8
-  %tobool1.i45.i = icmp ne ptr %53, null
-  %tobool2.i46.i = icmp ne ptr %54, null
-  %55 = select i1 %tobool1.i45.i, i1 %tobool2.i46.i, i1 false
-  br i1 %55, label %while.body.i36.i, label %while.end.i32.i, !llvm.loop !339
+  %53 = load ptr, ptr %next_sibling9.i44.i, align 8
+  %tobool1.i45.i = icmp ne ptr %52, null
+  %tobool2.i46.i = icmp ne ptr %53, null
+  %54 = select i1 %tobool1.i45.i, i1 %tobool2.i46.i, i1 false
+  br i1 %54, label %while.body.i36.i, label %while.end.i32.i, !llvm.loop !339
 
 while.end.i32.i:                                  ; preds = %if.end8.i42.i
   %lnot.i34.i = xor i1 %tobool2.i46.i, true
@@ -40241,7 +40235,7 @@ for.body.i.i54:                                   ; preds = %if.else10, %for.con
   %arrayidx1.i.i57 = getelementptr inbounds i8, ptr %call1.val, i64 %i.08.i.i55
   %12 = load i8, ptr %arrayidx1.i.i57, align 1
   %cmp3.not.i.i58 = icmp eq i8 %11, %12
-  br i1 %cmp3.not.i.i58, label %for.cond.i.i60, label %return
+  br i1 %cmp3.not.i.i58, label %for.cond.i.i60, label %if.else14
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit66: ; preds = %for.cond.i.i60, %if.else10
   %arrayidx4.i.i64 = getelementptr inbounds i8, ptr @.str.99, i64 %sub.ptr.sub.i
@@ -40249,7 +40243,7 @@ _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit66: ; preds = %for.co
   %cmp6.i.i65 = icmp eq i8 %13, 0
   br i1 %cmp6.i.i65, label %return, label %if.else14
 
-if.else14:                                        ; preds = %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit66
+if.else14:                                        ; preds = %for.body.i.i54, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit66
   br label %return
 
 sw.bb16:                                          ; preds = %entry
@@ -40282,10 +40276,10 @@ sw.bb24:                                          ; preds = %entry
 sw.default:                                       ; preds = %entry
   br label %return
 
-return:                                           ; preds = %for.body.i.i54, %entry, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit66, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit46, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit26, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit, %sw.default, %sw.bb24, %sw.bb23, %sw.bb22, %sw.bb21, %sw.bb20, %sw.bb19, %sw.bb18, %sw.bb17, %sw.bb16, %if.else14
-  %retval.sroa.33.0 = phi i32 [ 0, %sw.default ], [ 7, %sw.bb24 ], [ 6, %sw.bb23 ], [ 5, %sw.bb22 ], [ 5, %sw.bb21 ], [ 4, %sw.bb20 ], [ 4, %sw.bb19 ], [ 4, %sw.bb18 ], [ 4, %sw.bb17 ], [ 3, %sw.bb16 ], [ 1, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit ], [ 2, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit26 ], [ 6, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit46 ], [ 6, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit66 ], [ 0, %if.else14 ], [ 3, %entry ], [ 0, %for.body.i.i54 ]
-  %retval.sroa.17.0 = phi i64 [ 0, %sw.default ], [ 4294967296, %sw.bb24 ], [ 8589934592, %sw.bb23 ], [ 8589934592, %sw.bb22 ], [ 8589934592, %sw.bb21 ], [ 17179869184, %sw.bb20 ], [ 17179869184, %sw.bb19 ], [ 17179869184, %sw.bb18 ], [ 17179869184, %sw.bb17 ], [ 17179869184, %sw.bb16 ], [ 17179869184, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit ], [ 17179869184, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit26 ], [ 8589934592, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit46 ], [ 8589934592, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit66 ], [ 0, %if.else14 ], [ 17179869184, %entry ], [ 0, %for.body.i.i54 ]
-  %retval.sroa.0.0 = phi i64 [ 0, %sw.default ], [ 15, %sw.bb24 ], [ 11, %sw.bb23 ], [ 10, %sw.bb22 ], [ 9, %sw.bb21 ], [ 8, %sw.bb20 ], [ 7, %sw.bb19 ], [ 6, %sw.bb18 ], [ 5, %sw.bb17 ], [ 4, %sw.bb16 ], [ 1, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit ], [ 2, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit26 ], [ 12, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit46 ], [ 13, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit66 ], [ 0, %if.else14 ], [ 3, %entry ], [ 0, %for.body.i.i54 ]
+return:                                           ; preds = %entry, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit66, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit46, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit26, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit, %sw.default, %sw.bb24, %sw.bb23, %sw.bb22, %sw.bb21, %sw.bb20, %sw.bb19, %sw.bb18, %sw.bb17, %sw.bb16, %if.else14
+  %retval.sroa.33.0 = phi i32 [ 0, %sw.default ], [ 7, %sw.bb24 ], [ 6, %sw.bb23 ], [ 5, %sw.bb22 ], [ 5, %sw.bb21 ], [ 4, %sw.bb20 ], [ 4, %sw.bb19 ], [ 4, %sw.bb18 ], [ 4, %sw.bb17 ], [ 3, %sw.bb16 ], [ 0, %if.else14 ], [ 1, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit ], [ 2, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit26 ], [ 6, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit46 ], [ 6, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit66 ], [ 3, %entry ]
+  %retval.sroa.17.0 = phi i64 [ 0, %sw.default ], [ 4294967296, %sw.bb24 ], [ 8589934592, %sw.bb23 ], [ 8589934592, %sw.bb22 ], [ 8589934592, %sw.bb21 ], [ 17179869184, %sw.bb20 ], [ 17179869184, %sw.bb19 ], [ 17179869184, %sw.bb18 ], [ 17179869184, %sw.bb17 ], [ 17179869184, %sw.bb16 ], [ 0, %if.else14 ], [ 17179869184, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit ], [ 17179869184, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit26 ], [ 8589934592, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit46 ], [ 8589934592, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit66 ], [ 17179869184, %entry ]
+  %retval.sroa.0.0 = phi i64 [ 0, %sw.default ], [ 15, %sw.bb24 ], [ 11, %sw.bb23 ], [ 10, %sw.bb22 ], [ 9, %sw.bb21 ], [ 8, %sw.bb20 ], [ 7, %sw.bb19 ], [ 6, %sw.bb18 ], [ 5, %sw.bb17 ], [ 4, %sw.bb16 ], [ 0, %if.else14 ], [ 1, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit ], [ 2, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit26 ], [ 12, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit46 ], [ 13, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit66 ], [ 3, %entry ]
   %retval.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.0.0, %retval.sroa.17.0
   %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %retval.sroa.0.0.insert.insert, 0
   %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %retval.sroa.33.0, 1

@@ -172,7 +172,7 @@ define hidden void @zif_krsort(ptr noundef %0, ptr nocapture noundef writeonly %
 
 .thread:                                          ; preds = %20, %24, %29
   %33 = icmp eq i32 %5, 1
-  br i1 %33, label %php_get_key_compare_func.exit, label %34
+  br i1 %33, label %.thread148.thread, label %34
 
 34:                                               ; preds = %.thread
   %35 = getelementptr inbounds i8, ptr %0, i64 96
@@ -201,12 +201,12 @@ define hidden void @zif_krsort(ptr noundef %0, ptr nocapture noundef writeonly %
   %.0105135 = phi i32 [ 9, %40 ], [ 9, %29 ], [ 1, %7 ], [ 9, %16 ]
   %.0106134 = phi i32 [ 0, %40 ], [ 6, %29 ], [ 0, %7 ], [ 6, %16 ]
   call void @zend_wrong_parameter_error(i32 noundef %.0105135, i32 noundef %.0103137, ptr noundef null, i32 noundef %.0106134, ptr noundef %.1136) #18
-  br label %52
+  br label %51
 
 .thread148:                                       ; preds = %..thread148_crit_edge, %.thread123
   %42 = phi i64 [ %.pre, %..thread148_crit_edge ], [ %39, %.thread123 ]
   %43 = and i64 %42, -9
-  switch i64 %43, label %49 [
+  switch i64 %43, label %.thread148.thread [
     i64 1, label %php_get_key_compare_func.exit
     i64 2, label %44
     i64 6, label %46
@@ -228,18 +228,18 @@ define hidden void @zif_krsort(ptr noundef %0, ptr nocapture noundef writeonly %
 48:                                               ; preds = %.thread148
   br label %php_get_key_compare_func.exit
 
-49:                                               ; preds = %.thread148
+.thread148.thread:                                ; preds = %.thread, %.thread148
   br label %php_get_key_compare_func.exit
 
-php_get_key_compare_func.exit:                    ; preds = %.thread, %46, %44, %.thread148, %48, %49
-  %.0.i = phi ptr [ @php_array_reverse_key_compare_string_locale, %48 ], [ @php_array_reverse_key_compare_numeric, %.thread148 ], [ %spec.select, %44 ], [ %spec.select149, %46 ], [ @php_array_reverse_key_compare, %49 ], [ @php_array_reverse_key_compare, %.thread ]
-  %50 = load ptr, ptr %.0104, align 8
-  call void @zend_hash_sort_ex(ptr noundef %50, ptr noundef nonnull @zend_sort, ptr noundef nonnull %.0.i, i1 noundef zeroext false) #18
-  %51 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 3, ptr %51, align 8
-  br label %52
+php_get_key_compare_func.exit:                    ; preds = %46, %44, %.thread148, %48, %.thread148.thread
+  %.0.i = phi ptr [ @php_array_reverse_key_compare_string_locale, %48 ], [ @php_array_reverse_key_compare, %.thread148.thread ], [ @php_array_reverse_key_compare_numeric, %.thread148 ], [ %spec.select, %44 ], [ %spec.select149, %46 ]
+  %49 = load ptr, ptr %.0104, align 8
+  call void @zend_hash_sort_ex(ptr noundef %49, ptr noundef nonnull @zend_sort, ptr noundef nonnull %.0.i, i1 noundef zeroext false) #18
+  %50 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 3, ptr %50, align 8
+  br label %51
 
-52:                                               ; preds = %php_get_key_compare_func.exit, %.thread127
+51:                                               ; preds = %php_get_key_compare_func.exit, %.thread127
   ret void
 }
 
@@ -311,7 +311,7 @@ define hidden void @zif_ksort(ptr noundef %0, ptr nocapture noundef writeonly %1
 
 .thread:                                          ; preds = %20, %24, %29
   %33 = icmp eq i32 %5, 1
-  br i1 %33, label %php_get_key_compare_func.exit, label %34
+  br i1 %33, label %.thread148.thread, label %34
 
 34:                                               ; preds = %.thread
   %35 = getelementptr inbounds i8, ptr %0, i64 96
@@ -340,12 +340,12 @@ define hidden void @zif_ksort(ptr noundef %0, ptr nocapture noundef writeonly %1
   %.0105135 = phi i32 [ 9, %40 ], [ 9, %29 ], [ 1, %7 ], [ 9, %16 ]
   %.0106134 = phi i32 [ 0, %40 ], [ 6, %29 ], [ 0, %7 ], [ 6, %16 ]
   call void @zend_wrong_parameter_error(i32 noundef %.0105135, i32 noundef %.0103137, ptr noundef null, i32 noundef %.0106134, ptr noundef %.1136) #18
-  br label %52
+  br label %51
 
 .thread148:                                       ; preds = %..thread148_crit_edge, %.thread123
   %42 = phi i64 [ %.pre, %..thread148_crit_edge ], [ %39, %.thread123 ]
   %43 = and i64 %42, -9
-  switch i64 %43, label %49 [
+  switch i64 %43, label %.thread148.thread [
     i64 1, label %php_get_key_compare_func.exit
     i64 2, label %44
     i64 6, label %46
@@ -367,18 +367,18 @@ define hidden void @zif_ksort(ptr noundef %0, ptr nocapture noundef writeonly %1
 48:                                               ; preds = %.thread148
   br label %php_get_key_compare_func.exit
 
-49:                                               ; preds = %.thread148
+.thread148.thread:                                ; preds = %.thread, %.thread148
   br label %php_get_key_compare_func.exit
 
-php_get_key_compare_func.exit:                    ; preds = %.thread, %46, %44, %.thread148, %48, %49
-  %.0.i = phi ptr [ @php_array_key_compare_string_locale, %48 ], [ @php_array_key_compare_numeric, %.thread148 ], [ %spec.select, %44 ], [ %spec.select149, %46 ], [ @php_array_key_compare, %49 ], [ @php_array_key_compare, %.thread ]
-  %50 = load ptr, ptr %.0104, align 8
-  call void @zend_hash_sort_ex(ptr noundef %50, ptr noundef nonnull @zend_sort, ptr noundef nonnull %.0.i, i1 noundef zeroext false) #18
-  %51 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 3, ptr %51, align 8
-  br label %52
+php_get_key_compare_func.exit:                    ; preds = %46, %44, %.thread148, %48, %.thread148.thread
+  %.0.i = phi ptr [ @php_array_key_compare_string_locale, %48 ], [ @php_array_key_compare, %.thread148.thread ], [ @php_array_key_compare_numeric, %.thread148 ], [ %spec.select, %44 ], [ %spec.select149, %46 ]
+  %49 = load ptr, ptr %.0104, align 8
+  call void @zend_hash_sort_ex(ptr noundef %49, ptr noundef nonnull @zend_sort, ptr noundef nonnull %.0.i, i1 noundef zeroext false) #18
+  %50 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 3, ptr %50, align 8
+  br label %51
 
-52:                                               ; preds = %php_get_key_compare_func.exit, %.thread127
+51:                                               ; preds = %php_get_key_compare_func.exit, %.thread127
   ret void
 }
 
@@ -744,7 +744,7 @@ define internal fastcc void @php_natsort(ptr noundef %0, ptr nocapture noundef w
   tail call void @zend_wrong_parameter_error(i32 noundef %.070.ph, i32 noundef %.067.ph, ptr noundef null, i32 noundef %.069.ph, ptr noundef %.1.ph) #18
   br label %34
 
-.thread:                                          ; preds = %19, %28, %23
+.thread:                                          ; preds = %19, %23, %28
   %.not79 = icmp eq i32 %2, 0
   %32 = load ptr, ptr %.068, align 8
   %php_array_natural_compare.php_array_natural_case_compare = select i1 %.not79, ptr @php_array_natural_compare, ptr @php_array_natural_case_compare
@@ -822,7 +822,7 @@ define hidden void @zif_asort(ptr noundef %0, ptr nocapture noundef writeonly %1
 
 .thread:                                          ; preds = %20, %24, %29
   %33 = icmp eq i32 %5, 1
-  br i1 %33, label %php_get_data_compare_func.exit, label %34
+  br i1 %33, label %.thread148.thread, label %34
 
 34:                                               ; preds = %.thread
   %35 = getelementptr inbounds i8, ptr %0, i64 96
@@ -851,12 +851,12 @@ define hidden void @zif_asort(ptr noundef %0, ptr nocapture noundef writeonly %1
   %.0105135 = phi i32 [ 9, %40 ], [ 9, %29 ], [ 1, %7 ], [ 9, %16 ]
   %.0106134 = phi i32 [ 0, %40 ], [ 6, %29 ], [ 0, %7 ], [ 6, %16 ]
   call void @zend_wrong_parameter_error(i32 noundef %.0105135, i32 noundef %.0103137, ptr noundef null, i32 noundef %.0106134, ptr noundef %.1136) #18
-  br label %52
+  br label %51
 
 .thread148:                                       ; preds = %..thread148_crit_edge, %.thread123
   %42 = phi i64 [ %.pre, %..thread148_crit_edge ], [ %39, %.thread123 ]
   %43 = and i64 %42, -9
-  switch i64 %43, label %49 [
+  switch i64 %43, label %.thread148.thread [
     i64 1, label %php_get_data_compare_func.exit
     i64 2, label %44
     i64 6, label %46
@@ -878,18 +878,18 @@ define hidden void @zif_asort(ptr noundef %0, ptr nocapture noundef writeonly %1
 48:                                               ; preds = %.thread148
   br label %php_get_data_compare_func.exit
 
-49:                                               ; preds = %.thread148
+.thread148.thread:                                ; preds = %.thread, %.thread148
   br label %php_get_data_compare_func.exit
 
-php_get_data_compare_func.exit:                   ; preds = %.thread, %46, %44, %.thread148, %48, %49
-  %.0.i = phi ptr [ @php_array_data_compare_string_locale, %48 ], [ @php_array_data_compare_numeric, %.thread148 ], [ %spec.select, %44 ], [ %spec.select149, %46 ], [ @php_array_data_compare, %49 ], [ @php_array_data_compare, %.thread ]
-  %50 = load ptr, ptr %.0104, align 8
-  call void @zend_hash_sort_ex(ptr noundef %50, ptr noundef nonnull @zend_sort, ptr noundef nonnull %.0.i, i1 noundef zeroext false) #18
-  %51 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 3, ptr %51, align 8
-  br label %52
+php_get_data_compare_func.exit:                   ; preds = %46, %44, %.thread148, %48, %.thread148.thread
+  %.0.i = phi ptr [ @php_array_data_compare_string_locale, %48 ], [ @php_array_data_compare, %.thread148.thread ], [ @php_array_data_compare_numeric, %.thread148 ], [ %spec.select, %44 ], [ %spec.select149, %46 ]
+  %49 = load ptr, ptr %.0104, align 8
+  call void @zend_hash_sort_ex(ptr noundef %49, ptr noundef nonnull @zend_sort, ptr noundef nonnull %.0.i, i1 noundef zeroext false) #18
+  %50 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 3, ptr %50, align 8
+  br label %51
 
-52:                                               ; preds = %php_get_data_compare_func.exit, %.thread127
+51:                                               ; preds = %php_get_data_compare_func.exit, %.thread127
   ret void
 }
 
@@ -952,7 +952,7 @@ define hidden void @zif_arsort(ptr noundef %0, ptr nocapture noundef writeonly %
 
 .thread:                                          ; preds = %20, %24, %29
   %33 = icmp eq i32 %5, 1
-  br i1 %33, label %php_get_data_compare_func.exit, label %34
+  br i1 %33, label %.thread148.thread, label %34
 
 34:                                               ; preds = %.thread
   %35 = getelementptr inbounds i8, ptr %0, i64 96
@@ -981,12 +981,12 @@ define hidden void @zif_arsort(ptr noundef %0, ptr nocapture noundef writeonly %
   %.0105135 = phi i32 [ 9, %40 ], [ 9, %29 ], [ 1, %7 ], [ 9, %16 ]
   %.0106134 = phi i32 [ 0, %40 ], [ 6, %29 ], [ 0, %7 ], [ 6, %16 ]
   call void @zend_wrong_parameter_error(i32 noundef %.0105135, i32 noundef %.0103137, ptr noundef null, i32 noundef %.0106134, ptr noundef %.1136) #18
-  br label %52
+  br label %51
 
 .thread148:                                       ; preds = %..thread148_crit_edge, %.thread123
   %42 = phi i64 [ %.pre, %..thread148_crit_edge ], [ %39, %.thread123 ]
   %43 = and i64 %42, -9
-  switch i64 %43, label %49 [
+  switch i64 %43, label %.thread148.thread [
     i64 1, label %php_get_data_compare_func.exit
     i64 2, label %44
     i64 6, label %46
@@ -1008,18 +1008,18 @@ define hidden void @zif_arsort(ptr noundef %0, ptr nocapture noundef writeonly %
 48:                                               ; preds = %.thread148
   br label %php_get_data_compare_func.exit
 
-49:                                               ; preds = %.thread148
+.thread148.thread:                                ; preds = %.thread, %.thread148
   br label %php_get_data_compare_func.exit
 
-php_get_data_compare_func.exit:                   ; preds = %.thread, %46, %44, %.thread148, %48, %49
-  %.0.i = phi ptr [ @php_array_reverse_data_compare_string_locale, %48 ], [ @php_array_reverse_data_compare_numeric, %.thread148 ], [ %spec.select, %44 ], [ %spec.select149, %46 ], [ @php_array_reverse_data_compare, %49 ], [ @php_array_reverse_data_compare, %.thread ]
-  %50 = load ptr, ptr %.0104, align 8
-  call void @zend_hash_sort_ex(ptr noundef %50, ptr noundef nonnull @zend_sort, ptr noundef nonnull %.0.i, i1 noundef zeroext false) #18
-  %51 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 3, ptr %51, align 8
-  br label %52
+php_get_data_compare_func.exit:                   ; preds = %46, %44, %.thread148, %48, %.thread148.thread
+  %.0.i = phi ptr [ @php_array_reverse_data_compare_string_locale, %48 ], [ @php_array_reverse_data_compare, %.thread148.thread ], [ @php_array_reverse_data_compare_numeric, %.thread148 ], [ %spec.select, %44 ], [ %spec.select149, %46 ]
+  %49 = load ptr, ptr %.0104, align 8
+  call void @zend_hash_sort_ex(ptr noundef %49, ptr noundef nonnull @zend_sort, ptr noundef nonnull %.0.i, i1 noundef zeroext false) #18
+  %50 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 3, ptr %50, align 8
+  br label %51
 
-52:                                               ; preds = %php_get_data_compare_func.exit, %.thread127
+51:                                               ; preds = %php_get_data_compare_func.exit, %.thread127
   ret void
 }
 
@@ -1082,7 +1082,7 @@ define hidden void @zif_sort(ptr noundef %0, ptr nocapture noundef writeonly %1)
 
 .thread:                                          ; preds = %20, %24, %29
   %33 = icmp eq i32 %5, 1
-  br i1 %33, label %php_get_data_compare_func.exit, label %34
+  br i1 %33, label %.thread148.thread, label %34
 
 34:                                               ; preds = %.thread
   %35 = getelementptr inbounds i8, ptr %0, i64 96
@@ -1111,12 +1111,12 @@ define hidden void @zif_sort(ptr noundef %0, ptr nocapture noundef writeonly %1)
   %.0105135 = phi i32 [ 9, %40 ], [ 9, %29 ], [ 1, %7 ], [ 9, %16 ]
   %.0106134 = phi i32 [ 0, %40 ], [ 6, %29 ], [ 0, %7 ], [ 6, %16 ]
   call void @zend_wrong_parameter_error(i32 noundef %.0105135, i32 noundef %.0103137, ptr noundef null, i32 noundef %.0106134, ptr noundef %.1136) #18
-  br label %52
+  br label %51
 
 .thread148:                                       ; preds = %..thread148_crit_edge, %.thread123
   %42 = phi i64 [ %.pre, %..thread148_crit_edge ], [ %39, %.thread123 ]
   %43 = and i64 %42, -9
-  switch i64 %43, label %49 [
+  switch i64 %43, label %.thread148.thread [
     i64 1, label %php_get_data_compare_func.exit
     i64 2, label %44
     i64 6, label %46
@@ -1138,18 +1138,18 @@ define hidden void @zif_sort(ptr noundef %0, ptr nocapture noundef writeonly %1)
 48:                                               ; preds = %.thread148
   br label %php_get_data_compare_func.exit
 
-49:                                               ; preds = %.thread148
+.thread148.thread:                                ; preds = %.thread, %.thread148
   br label %php_get_data_compare_func.exit
 
-php_get_data_compare_func.exit:                   ; preds = %.thread, %46, %44, %.thread148, %48, %49
-  %.0.i = phi ptr [ @php_array_data_compare_string_locale, %48 ], [ @php_array_data_compare_numeric, %.thread148 ], [ %spec.select, %44 ], [ %spec.select149, %46 ], [ @php_array_data_compare, %49 ], [ @php_array_data_compare, %.thread ]
-  %50 = load ptr, ptr %.0104, align 8
-  call void @zend_hash_sort_ex(ptr noundef %50, ptr noundef nonnull @zend_sort, ptr noundef nonnull %.0.i, i1 noundef zeroext true) #18
-  %51 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 3, ptr %51, align 8
-  br label %52
+php_get_data_compare_func.exit:                   ; preds = %46, %44, %.thread148, %48, %.thread148.thread
+  %.0.i = phi ptr [ @php_array_data_compare_string_locale, %48 ], [ @php_array_data_compare, %.thread148.thread ], [ @php_array_data_compare_numeric, %.thread148 ], [ %spec.select, %44 ], [ %spec.select149, %46 ]
+  %49 = load ptr, ptr %.0104, align 8
+  call void @zend_hash_sort_ex(ptr noundef %49, ptr noundef nonnull @zend_sort, ptr noundef nonnull %.0.i, i1 noundef zeroext true) #18
+  %50 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 3, ptr %50, align 8
+  br label %51
 
-52:                                               ; preds = %php_get_data_compare_func.exit, %.thread127
+51:                                               ; preds = %php_get_data_compare_func.exit, %.thread127
   ret void
 }
 
@@ -1212,7 +1212,7 @@ define hidden void @zif_rsort(ptr noundef %0, ptr nocapture noundef writeonly %1
 
 .thread:                                          ; preds = %20, %24, %29
   %33 = icmp eq i32 %5, 1
-  br i1 %33, label %php_get_data_compare_func.exit, label %34
+  br i1 %33, label %.thread148.thread, label %34
 
 34:                                               ; preds = %.thread
   %35 = getelementptr inbounds i8, ptr %0, i64 96
@@ -1241,12 +1241,12 @@ define hidden void @zif_rsort(ptr noundef %0, ptr nocapture noundef writeonly %1
   %.0105135 = phi i32 [ 9, %40 ], [ 9, %29 ], [ 1, %7 ], [ 9, %16 ]
   %.0106134 = phi i32 [ 0, %40 ], [ 6, %29 ], [ 0, %7 ], [ 6, %16 ]
   call void @zend_wrong_parameter_error(i32 noundef %.0105135, i32 noundef %.0103137, ptr noundef null, i32 noundef %.0106134, ptr noundef %.1136) #18
-  br label %52
+  br label %51
 
 .thread148:                                       ; preds = %..thread148_crit_edge, %.thread123
   %42 = phi i64 [ %.pre, %..thread148_crit_edge ], [ %39, %.thread123 ]
   %43 = and i64 %42, -9
-  switch i64 %43, label %49 [
+  switch i64 %43, label %.thread148.thread [
     i64 1, label %php_get_data_compare_func.exit
     i64 2, label %44
     i64 6, label %46
@@ -1268,18 +1268,18 @@ define hidden void @zif_rsort(ptr noundef %0, ptr nocapture noundef writeonly %1
 48:                                               ; preds = %.thread148
   br label %php_get_data_compare_func.exit
 
-49:                                               ; preds = %.thread148
+.thread148.thread:                                ; preds = %.thread, %.thread148
   br label %php_get_data_compare_func.exit
 
-php_get_data_compare_func.exit:                   ; preds = %.thread, %46, %44, %.thread148, %48, %49
-  %.0.i = phi ptr [ @php_array_reverse_data_compare_string_locale, %48 ], [ @php_array_reverse_data_compare_numeric, %.thread148 ], [ %spec.select, %44 ], [ %spec.select149, %46 ], [ @php_array_reverse_data_compare, %49 ], [ @php_array_reverse_data_compare, %.thread ]
-  %50 = load ptr, ptr %.0104, align 8
-  call void @zend_hash_sort_ex(ptr noundef %50, ptr noundef nonnull @zend_sort, ptr noundef nonnull %.0.i, i1 noundef zeroext true) #18
-  %51 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 3, ptr %51, align 8
-  br label %52
+php_get_data_compare_func.exit:                   ; preds = %46, %44, %.thread148, %48, %.thread148.thread
+  %.0.i = phi ptr [ @php_array_reverse_data_compare_string_locale, %48 ], [ @php_array_reverse_data_compare, %.thread148.thread ], [ @php_array_reverse_data_compare_numeric, %.thread148 ], [ %spec.select, %44 ], [ %spec.select149, %46 ]
+  %49 = load ptr, ptr %.0104, align 8
+  call void @zend_hash_sort_ex(ptr noundef %49, ptr noundef nonnull @zend_sort, ptr noundef nonnull %.0.i, i1 noundef zeroext true) #18
+  %50 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 3, ptr %50, align 8
+  br label %51
 
-52:                                               ; preds = %php_get_data_compare_func.exit, %.thread127
+51:                                               ; preds = %php_get_data_compare_func.exit, %.thread127
   ret void
 }
 
@@ -11287,7 +11287,7 @@ define hidden void @zif_shuffle(ptr noundef %0, ptr nocapture noundef writeonly 
   tail call void @zend_wrong_parameter_error(i32 noundef %.063.ph, i32 noundef %.060.ph, ptr noundef null, i32 noundef %.062.ph, ptr noundef %.1.ph) #18
   br label %35
 
-.thread:                                          ; preds = %18, %27, %22
+.thread:                                          ; preds = %18, %22, %27
   %31 = tail call ptr @php_random_default_algo() #18
   %32 = tail call ptr @php_random_default_status() #18
   %33 = tail call zeroext i1 @php_array_data_shuffle(ptr %31, ptr %32, ptr noundef nonnull %.061)

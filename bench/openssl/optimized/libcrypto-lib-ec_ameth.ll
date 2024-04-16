@@ -374,7 +374,7 @@ return:                                           ; preds = %lor.lhs.false, %ent
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ec_copy_parameters(ptr nocapture noundef %to, ptr nocapture noundef readonly %from) #0 {
+define internal noundef i32 @ec_copy_parameters(ptr nocapture noundef %to, ptr nocapture noundef readonly %from) #0 {
 entry:
   %pkey = getelementptr inbounds i8, ptr %from, i64 32
   %0 = load ptr, ptr %pkey, align 8
@@ -393,17 +393,19 @@ if.then4:                                         ; preds = %if.end
   %call5 = tail call ptr @EC_KEY_new() #4
   store ptr %call5, ptr %pkey2, align 8
   %cmp8 = icmp eq ptr %call5, null
-  br i1 %cmp8, label %return.sink.split, label %if.end11
+  br i1 %cmp8, label %err, label %if.end11
 
 if.end11:                                         ; preds = %if.then4, %if.end
   %2 = phi ptr [ %call5, %if.then4 ], [ %1, %if.end ]
   %call13 = tail call i32 @EC_KEY_set_group(ptr noundef nonnull %2, ptr noundef nonnull %call1) #4
-  %cmp14 = icmp ne i32 %call13, 0
-  %spec.select = zext i1 %cmp14 to i32
+  %cmp14 = icmp eq i32 %call13, 0
+  br i1 %cmp14, label %err, label %return.sink.split
+
+err:                                              ; preds = %if.end11, %if.then4
   br label %return.sink.split
 
-return.sink.split:                                ; preds = %if.end11, %if.then4
-  %retval.0.ph = phi i32 [ 0, %if.then4 ], [ %spec.select, %if.end11 ]
+return.sink.split:                                ; preds = %if.end11, %err
+  %retval.0.ph = phi i32 [ 0, %err ], [ 1, %if.end11 ]
   tail call void @EC_GROUP_free(ptr noundef nonnull %call1) #4
   br label %return
 

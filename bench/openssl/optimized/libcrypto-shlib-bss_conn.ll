@@ -1042,7 +1042,7 @@ sw.epilog:                                        ; preds = %sw.bb9, %sw.bb12, %
   %9 = load i32, ptr %connect_sock_type.i68, align 8
   %call = tail call i32 @BIO_lookup(ptr noundef %7, ptr noundef %8, i32 noundef 0, i32 noundef %family.0, i32 noundef %9, ptr noundef nonnull %addr_first) #11
   %cmp15 = icmp eq i32 %call, 0
-  br i1 %cmp15, label %exit_loop, label %if.end17
+  br i1 %cmp15, label %exit_loop.loopexit, label %if.end17
 
 if.end17:                                         ; preds = %sw.epilog
   %10 = load ptr, ptr %addr_first, align 8
@@ -1239,11 +1239,11 @@ for.cond.backedge:                                ; preds = %if.then110, %sw.epi
   %ret.0.be = phi i32 [ %call112, %if.then110 ], [ %ret.1, %sw.epilog108 ]
   br label %for.cond
 
-exit_loop.loopexit:                               ; preds = %for.cond
+exit_loop.loopexit:                               ; preds = %for.cond, %sw.epilog
   br label %exit_loop
 
-exit_loop:                                        ; preds = %sw.epilog, %for.cond, %exit_loop.loopexit, %sw.bb105, %if.end95, %if.then48, %if.then33, %if.then20, %sw.default, %if.then4
-  %ret.3 = phi i32 [ 0, %sw.bb105 ], [ 0, %if.end95 ], [ 0, %if.then48 ], [ -1, %if.then33 ], [ %ret.0, %sw.default ], [ %ret.0, %if.then20 ], [ %ret.0, %if.then4 ], [ 1, %for.cond ], [ %ret.0, %sw.epilog ], [ %ret.0, %exit_loop.loopexit ]
+exit_loop:                                        ; preds = %for.cond, %exit_loop.loopexit, %sw.bb105, %if.end95, %if.then48, %if.then33, %if.then20, %sw.default, %if.then4
+  %ret.3 = phi i32 [ 0, %sw.bb105 ], [ 0, %if.end95 ], [ 0, %if.then48 ], [ -1, %if.then33 ], [ %ret.0, %sw.default ], [ %ret.0, %if.then20 ], [ %ret.0, %if.then4 ], [ %ret.0, %exit_loop.loopexit ], [ 1, %for.cond ]
   br i1 %cmp.not, label %end, label %if.then118
 
 if.then118:                                       ; preds = %exit_loop

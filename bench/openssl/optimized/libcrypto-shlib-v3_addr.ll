@@ -1695,13 +1695,13 @@ entry:
   %merged.i = alloca ptr, align 8
   %a_min79.i = alloca [16 x i8], align 16
   %a_max80.i = alloca [16 x i8], align 16
-  %call132 = tail call i32 @OPENSSL_sk_num(ptr noundef %addr) #15
-  %cmp33 = icmp sgt i32 %call132, 0
-  br i1 %cmp33, label %for.body, label %for.end
+  %call128 = tail call i32 @OPENSSL_sk_num(ptr noundef %addr) #15
+  %cmp29 = icmp sgt i32 %call128, 0
+  br i1 %cmp29, label %for.body, label %for.end
 
 for.body:                                         ; preds = %entry, %for.inc
-  %i.034 = phi i32 [ %inc, %for.inc ], [ 0, %entry ]
-  %call3 = call ptr @OPENSSL_sk_value(ptr noundef %addr, i32 noundef %i.034) #15
+  %i.030 = phi i32 [ %inc, %for.inc ], [ 0, %entry ]
+  %call3 = call ptr @OPENSSL_sk_value(ptr noundef %addr, i32 noundef %i.030) #15
   %call3.val = load ptr, ptr %call3, align 8
   %call3.val.val = load i32, ptr %call3.val, align 8
   %0 = and i32 %call3.val.val, -2
@@ -1752,11 +1752,11 @@ X509v3_addr_get_afi.exit:                         ; preds = %lor.lhs.false2.i
   %switch.selectcmp.i.i = icmp eq i32 %or.i.fr, 2
   %spec.select = select i1 %switch.selectcmp.i.i, i32 16, i32 0
   %switch.selectcmp1.i.i = icmp eq i32 %or.i.fr, 1
-  %spec.select30 = select i1 %switch.selectcmp1.i.i, i32 4, i32 %spec.select
+  %spec.select26 = select i1 %switch.selectcmp1.i.i, i32 4, i32 %spec.select
   br label %7
 
 7:                                                ; preds = %X509v3_addr_get_afi.exit, %.thread
-  %8 = phi i32 [ 0, %.thread ], [ %spec.select30, %X509v3_addr_get_afi.exit ]
+  %8 = phi i32 [ 0, %.thread ], [ %spec.select26, %X509v3_addr_get_afi.exit ]
   call void @OPENSSL_sk_sort(ptr noundef %3) #15
   %call330.i = call i32 @OPENSSL_sk_num(ptr noundef %3) #15
   %cmp33.i = icmp sgt i32 %call330.i, 1
@@ -1839,19 +1839,25 @@ for.end67.i:                                      ; preds = %for.inc66.i, %7
   %sub70.i = add nsw i32 %call69.i, -1
   %call73.i = call ptr @OPENSSL_sk_value(ptr noundef %3, i32 noundef %sub70.i) #15
   %cmp74.not.i = icmp eq ptr %call73.i, null
-  br i1 %cmp74.not.i, label %IPAddressOrRanges_canonize.exit.thread27, label %land.lhs.true.i
+  br i1 %cmp74.not.i, label %IPAddressOrRanges_canonize.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.end67.i
   %11 = load i32, ptr %call73.i, align 8
   %cmp76.i = icmp eq i32 %11, 1
-  br i1 %cmp76.i, label %if.then78.i, label %IPAddressOrRanges_canonize.exit.thread27
+  br i1 %cmp76.i, label %if.then78.i, label %IPAddressOrRanges_canonize.exit
 
 if.then78.i:                                      ; preds = %land.lhs.true.i
   %call83.i = call fastcc i32 @extract_min_max(ptr noundef nonnull %call73.i, ptr noundef nonnull %a_min79.i, ptr noundef nonnull %a_max80.i, i32 noundef %8), !range !6
   %tobool84.not.i = icmp eq i32 %call83.i, 0
-  br i1 %tobool84.not.i, label %IPAddressOrRanges_canonize.exit.thread, label %IPAddressOrRanges_canonize.exit
+  br i1 %tobool84.not.i, label %IPAddressOrRanges_canonize.exit.thread, label %if.end86.i
 
-IPAddressOrRanges_canonize.exit.thread:           ; preds = %if.then78.i, %lor.lhs.false.i13, %for.body.i, %lor.lhs.false19.i, %if.end.i14, %if.end27.i, %if.then51.i
+if.end86.i:                                       ; preds = %if.then78.i
+  %conv89.i = zext nneg i32 %8 to i64
+  %call90.i = call i32 @memcmp(ptr noundef nonnull %a_min79.i, ptr noundef nonnull %a_max80.i, i64 noundef %conv89.i) #16
+  %cmp91.i = icmp sgt i32 %call90.i, 0
+  br i1 %cmp91.i, label %IPAddressOrRanges_canonize.exit.thread, label %IPAddressOrRanges_canonize.exit
+
+IPAddressOrRanges_canonize.exit.thread:           ; preds = %if.then78.i, %if.end86.i, %lor.lhs.false.i13, %for.body.i, %lor.lhs.false19.i, %if.end.i14, %if.end27.i, %if.then51.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %a_min.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %a_max.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %b_min.i)
@@ -1861,7 +1867,7 @@ IPAddressOrRanges_canonize.exit.thread:           ; preds = %if.then78.i, %lor.l
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %a_max80.i)
   br label %return
 
-IPAddressOrRanges_canonize.exit.thread27:         ; preds = %land.lhs.true.i, %for.end67.i
+IPAddressOrRanges_canonize.exit:                  ; preds = %for.end67.i, %land.lhs.true.i, %if.end86.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %a_min.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %a_max.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %b_min.i)
@@ -1871,21 +1877,8 @@ IPAddressOrRanges_canonize.exit.thread27:         ; preds = %land.lhs.true.i, %f
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %a_max80.i)
   br label %for.inc
 
-IPAddressOrRanges_canonize.exit:                  ; preds = %if.then78.i
-  %conv89.i = zext nneg i32 %8 to i64
-  %call90.i = call i32 @memcmp(ptr noundef nonnull %a_min79.i, ptr noundef nonnull %a_max80.i, i64 noundef %conv89.i) #16
-  %cmp91.i = icmp sgt i32 %call90.i, 0
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %a_min.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %a_max.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %b_min.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %b_max.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %merged.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %a_min79.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %a_max80.i)
-  br i1 %cmp91.i, label %return, label %for.inc
-
-for.inc:                                          ; preds = %IPAddressOrRanges_canonize.exit.thread27, %if.end, %IPAddressOrRanges_canonize.exit
-  %inc = add nuw nsw i32 %i.034, 1
+for.inc:                                          ; preds = %IPAddressOrRanges_canonize.exit, %if.end
+  %inc = add nuw nsw i32 %i.030, 1
   %call1 = call i32 @OPENSSL_sk_num(ptr noundef %addr) #15
   %cmp = icmp slt i32 %inc, %call1
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !19
@@ -1896,8 +1889,8 @@ for.end:                                          ; preds = %for.inc, %entry
   %call16 = call i32 @X509v3_addr_is_canonical(ptr noundef %addr), !range !6
   br label %return
 
-return:                                           ; preds = %IPAddressOrRanges_canonize.exit, %for.body, %IPAddressOrRanges_canonize.exit.thread, %for.end
-  %retval.0 = phi i32 [ %call16, %for.end ], [ 0, %IPAddressOrRanges_canonize.exit.thread ], [ 0, %for.body ], [ 0, %IPAddressOrRanges_canonize.exit ]
+return:                                           ; preds = %for.body, %IPAddressOrRanges_canonize.exit.thread, %for.end
+  %retval.0 = phi i32 [ %call16, %for.end ], [ 0, %IPAddressOrRanges_canonize.exit.thread ], [ 0, %for.body ]
   ret i32 %retval.0
 }
 

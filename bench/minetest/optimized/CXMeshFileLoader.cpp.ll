@@ -7073,7 +7073,7 @@ entry:
   %0 = load ptr, ptr %nameOrBrace, align 8, !tbaa !29
   %call.i.i.i = call noundef i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(2) @.str.75) #24
   %tobool3.not.i.i.not = icmp eq i32 %call.i.i.i, 0
-  br i1 %tobool3.not.i.i.not, label %cleanup, label %if.then
+  br i1 %tobool3.not.i.i.not, label %if.end7, label %if.then
 
 if.then:                                          ; preds = %entry
   %tobool.not = icmp eq ptr %outname, null
@@ -7108,12 +7108,14 @@ if.then.i.i.i:                                    ; preds = %if.end
 
 _ZN3irr4core6stringIcED2Ev.exit:                  ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #22
-  %.pre = load ptr, ptr %nameOrBrace, align 8, !tbaa !29
+  br i1 %tobool3.not.i.i11.not, label %if.end7, label %cleanup
+
+if.end7:                                          ; preds = %_ZN3irr4core6stringIcED2Ev.exit, %entry
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZN3irr4core6stringIcED2Ev.exit, %entry
-  %4 = phi ptr [ %0, %entry ], [ %.pre, %_ZN3irr4core6stringIcED2Ev.exit ]
-  %retval.0 = phi i1 [ true, %entry ], [ %tobool3.not.i.i11.not, %_ZN3irr4core6stringIcED2Ev.exit ]
+cleanup:                                          ; preds = %if.end7, %_ZN3irr4core6stringIcED2Ev.exit
+  %retval.0 = phi i1 [ true, %if.end7 ], [ false, %_ZN3irr4core6stringIcED2Ev.exit ]
+  %4 = load ptr, ptr %nameOrBrace, align 8, !tbaa !29
   %5 = getelementptr inbounds i8, ptr %nameOrBrace, i64 16
   %cmp.i.i.i.i12 = icmp eq ptr %4, %5
   br i1 %cmp.i.i.i.i12, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i14, label %if.then.i.i.i13

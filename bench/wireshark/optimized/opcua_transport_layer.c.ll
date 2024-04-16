@@ -440,85 +440,84 @@ define hidden i32 @parseOpenSecureChannel(ptr noundef %0, ptr noundef %1, ptr no
   %29 = call ptr @parseByteString(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %28) #3
   %30 = load ptr, ptr %6, align 8
   %31 = load i32, ptr %7, align 4
-  switch i32 %31, label %opcua_string_compare.exit69.thread [
-    i32 47, label %opcua_string_compare.exit
-    i32 56, label %opcua_string_compare.exit49
-    i32 51, label %opcua_string_compare.exit54
-    i32 57, label %opcua_string_compare.exit59
-    i32 64, label %opcua_string_compare.exit64
-    i32 63, label %opcua_string_compare.exit69
+  switch i32 %31, label %opcua_string_compare.exit64 [
+    i32 47, label %32
+    i32 56, label %37
+    i32 51, label %39
+    i32 57, label %41
+    i32 64, label %43
+    i32 63, label %45
   ]
 
-opcua_string_compare.exit:                        ; preds = %5
+32:                                               ; preds = %5
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(47) %30, ptr noundef nonnull dereferenceable(47) @.str.38, i64 47)
-  %.not = icmp eq i32 %bcmp.i, 0
-  br i1 %.not, label %32, label %opcua_string_compare.exit69.thread
+  %33 = icmp eq i32 %bcmp.i, 0
+  br i1 %33, label %opcua_string_compare.exit, label %opcua_string_compare.exit64
 
-32:                                               ; preds = %opcua_string_compare.exit
-  %33 = call ptr @find_conversation_pinfo(ptr noundef %2, i32 noundef 0) #3
-  %.not.i = icmp eq ptr %33, null
-  br i1 %.not.i, label %41, label %34
+opcua_string_compare.exit:                        ; preds = %32
+  %34 = call ptr @find_conversation_pinfo(ptr noundef %2, i32 noundef 0) #3
+  %.not.i = icmp eq ptr %34, null
+  br i1 %.not.i, label %52, label %35
 
-34:                                               ; preds = %32
-  %35 = load i32, ptr @proto_opcua, align 4
-  call void @conversation_add_proto_data(ptr noundef nonnull %33, i32 noundef %35, ptr noundef nonnull inttoptr (i64 1 to ptr)) #3
-  br label %41
+35:                                               ; preds = %opcua_string_compare.exit
+  %36 = load i32, ptr @proto_opcua, align 4
+  call void @conversation_add_proto_data(ptr noundef nonnull %34, i32 noundef %36, ptr noundef nonnull inttoptr (i64 1 to ptr)) #3
+  br label %52
 
-opcua_string_compare.exit49:                      ; preds = %5
+37:                                               ; preds = %5
   %bcmp.i47 = call i32 @bcmp(ptr noundef nonnull dereferenceable(56) %30, ptr noundef nonnull dereferenceable(56) @.str.39, i64 56)
-  %.not79 = icmp eq i32 %bcmp.i47, 0
-  %spec.select = select i1 %.not79, i64 5124, i64 4
-  br label %opcua_string_compare.exit69.thread
+  %38 = icmp eq i32 %bcmp.i47, 0
+  %spec.select = select i1 %38, i64 5124, i64 4
+  br label %opcua_string_compare.exit64
 
-opcua_string_compare.exit54:                      ; preds = %5
-  %bcmp.i52 = call i32 @bcmp(ptr noundef nonnull dereferenceable(51) %30, ptr noundef nonnull dereferenceable(51) @.str.40, i64 51)
-  %.not80 = icmp eq i32 %bcmp.i52, 0
-  %spec.select84 = select i1 %.not80, i64 5124, i64 4
-  br label %opcua_string_compare.exit69.thread
+39:                                               ; preds = %5
+  %bcmp.i51 = call i32 @bcmp(ptr noundef nonnull dereferenceable(51) %30, ptr noundef nonnull dereferenceable(51) @.str.40, i64 51)
+  %40 = icmp eq i32 %bcmp.i51, 0
+  %spec.select73 = select i1 %40, i64 5124, i64 4
+  br label %opcua_string_compare.exit64
 
-opcua_string_compare.exit59:                      ; preds = %5
-  %bcmp.i57 = call i32 @bcmp(ptr noundef nonnull dereferenceable(57) %30, ptr noundef nonnull dereferenceable(57) @.str.41, i64 57)
-  %.not81 = icmp eq i32 %bcmp.i57, 0
-  %spec.select85 = select i1 %.not81, i64 8196, i64 4
-  br label %opcua_string_compare.exit69.thread
+41:                                               ; preds = %5
+  %bcmp.i55 = call i32 @bcmp(ptr noundef nonnull dereferenceable(57) %30, ptr noundef nonnull dereferenceable(57) @.str.41, i64 57)
+  %42 = icmp eq i32 %bcmp.i55, 0
+  %spec.select74 = select i1 %42, i64 8196, i64 4
+  br label %opcua_string_compare.exit64
 
-opcua_string_compare.exit64:                      ; preds = %5
-  %bcmp.i62 = call i32 @bcmp(ptr noundef nonnull dereferenceable(64) %30, ptr noundef nonnull dereferenceable(64) @.str.42, i64 64)
-  %.not82 = icmp eq i32 %bcmp.i62, 0
-  %spec.select86 = select i1 %.not82, i64 8196, i64 4
-  br label %opcua_string_compare.exit69.thread
+43:                                               ; preds = %5
+  %bcmp.i59 = call i32 @bcmp(ptr noundef nonnull dereferenceable(64) %30, ptr noundef nonnull dereferenceable(64) @.str.42, i64 64)
+  %44 = icmp eq i32 %bcmp.i59, 0
+  %spec.select75 = select i1 %44, i64 8196, i64 4
+  br label %opcua_string_compare.exit64
 
-opcua_string_compare.exit69:                      ; preds = %5
-  %bcmp.i67 = call i32 @bcmp(ptr noundef nonnull dereferenceable(63) %30, ptr noundef nonnull dereferenceable(63) @.str.43, i64 63)
-  %bcmp.i67.fr = freeze i32 %bcmp.i67
-  %.not83 = icmp eq i32 %bcmp.i67.fr, 0
-  %36 = select i1 %.not83, i64 8196, i64 4
-  br label %opcua_string_compare.exit69.thread
+45:                                               ; preds = %5
+  %bcmp.i63 = call i32 @bcmp(ptr noundef nonnull dereferenceable(63) %30, ptr noundef nonnull dereferenceable(63) @.str.43, i64 63)
+  %46 = icmp eq i32 %bcmp.i63, 0
+  %47 = select i1 %46, i64 8196, i64 4
+  br label %opcua_string_compare.exit64
 
-opcua_string_compare.exit69.thread:               ; preds = %opcua_string_compare.exit64, %opcua_string_compare.exit59, %opcua_string_compare.exit54, %opcua_string_compare.exit49, %opcua_string_compare.exit, %5, %opcua_string_compare.exit69
-  %.0 = phi i64 [ %36, %opcua_string_compare.exit69 ], [ 4, %5 ], [ 4, %opcua_string_compare.exit ], [ %spec.select, %opcua_string_compare.exit49 ], [ %spec.select84, %opcua_string_compare.exit54 ], [ %spec.select85, %opcua_string_compare.exit59 ], [ %spec.select86, %opcua_string_compare.exit64 ]
-  %37 = call ptr @find_conversation_pinfo(ptr noundef %2, i32 noundef 0) #3
-  %.not.i70 = icmp eq ptr %37, null
-  br i1 %.not.i70, label %store_encryption_info.exit.thread, label %38
+opcua_string_compare.exit64:                      ; preds = %43, %41, %39, %37, %32, %5, %45
+  %.0 = phi i64 [ %47, %45 ], [ 4, %5 ], [ 4, %32 ], [ %spec.select, %37 ], [ %spec.select73, %39 ], [ %spec.select74, %41 ], [ %spec.select75, %43 ]
+  %48 = call ptr @find_conversation_pinfo(ptr noundef %2, i32 noundef 0) #3
+  %.not.i65 = icmp eq ptr %48, null
+  br i1 %.not.i65, label %store_encryption_info.exit.thread, label %49
 
-38:                                               ; preds = %opcua_string_compare.exit69.thread
-  %39 = load i32, ptr @proto_opcua, align 4
-  %40 = inttoptr i64 %.0 to ptr
-  call void @conversation_add_proto_data(ptr noundef nonnull %37, i32 noundef %39, ptr noundef nonnull %40) #3
+49:                                               ; preds = %opcua_string_compare.exit64
+  %50 = load i32, ptr @proto_opcua, align 4
+  %51 = inttoptr i64 %.0 to ptr
+  call void @conversation_add_proto_data(ptr noundef nonnull %48, i32 noundef %50, ptr noundef nonnull %51) #3
   br label %store_encryption_info.exit.thread
 
-store_encryption_info.exit.thread:                ; preds = %opcua_string_compare.exit69.thread, %38
+store_encryption_info.exit.thread:                ; preds = %opcua_string_compare.exit64, %49
   store i8 1, ptr %4, align 1
-  br label %43
+  br label %54
 
-41:                                               ; preds = %32, %34
+52:                                               ; preds = %opcua_string_compare.exit, %35
   store i8 0, ptr %4, align 1
   call void @parseSequenceHeader(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %4) #3
-  %42 = call i32 @parseService(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr nonnull poison)
-  br label %43
+  %53 = call i32 @parseService(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr nonnull poison)
+  br label %54
 
-43:                                               ; preds = %store_encryption_info.exit.thread, %41
-  %.044 = phi i32 [ %42, %41 ], [ -1, %store_encryption_info.exit.thread ]
+54:                                               ; preds = %store_encryption_info.exit.thread, %52
+  %.044 = phi i32 [ %53, %52 ], [ -1, %store_encryption_info.exit.thread ]
   ret i32 %.044
 }
 

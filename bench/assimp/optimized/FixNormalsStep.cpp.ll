@@ -57,7 +57,7 @@ entry:
   %mNumMeshes = getelementptr inbounds i8, ptr %pScene, i64 16
   %0 = load i32, ptr %mNumMeshes, align 8
   %cmp5.not = icmp eq i32 %0, 0
-  br i1 %cmp5.not, label %if.end6, label %for.body.lr.ph
+  br i1 %cmp5.not, label %if.else, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %mMeshes = getelementptr inbounds i8, ptr %pScene, i64 24
@@ -79,11 +79,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %for.body
-  %spec.select8 = select i1 %spec.select, ptr @.str.1, ptr @.str.2
+  br i1 %spec.select, label %if.end6, label %if.else
+
+if.else:                                          ; preds = %entry, %for.end
   br label %if.end6
 
-if.end6:                                          ; preds = %for.end, %entry
-  %.str.2.sink = phi ptr [ @.str.2, %entry ], [ %spec.select8, %for.end ]
+if.end6:                                          ; preds = %for.end, %if.else
+  %.str.2.sink = phi ptr [ @.str.2, %if.else ], [ @.str.1, %for.end ]
   %call5 = tail call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
   tail call void @_ZN6Assimp6Logger5debugEPKc(ptr noundef nonnull align 8 dereferenceable(12) %call5, ptr noundef nonnull %.str.2.sink)
   ret void

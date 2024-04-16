@@ -4478,17 +4478,19 @@ land.lhs.true:                                    ; preds = %for.body
 
 if.then:                                          ; preds = %land.lhs.true
   %tobool.not = icmp eq ptr %eq.015, null
-  br i1 %tobool.not, label %for.inc, label %lor.lhs.false
+  br i1 %tobool.not, label %if.then12, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then
   %14 = load ptr, ptr %this, align 8
   %m_poly.i1.i = getelementptr inbounds i8, ptr %eq.015, i64 8
   %call3.i = tail call noundef zeroext i1 @_ZN2dd11pdd_manager5lm_ltERKNS_3pddES3_(ptr noundef nonnull align 8 dereferenceable(952) %14, ptr noundef nonnull align 8 dereferenceable(16) %m_poly.i, ptr noundef nonnull align 8 dereferenceable(16) %m_poly.i1.i)
-  %spec.select = select i1 %call3.i, ptr %7, ptr %eq.015
+  br i1 %call3.i, label %if.then12, label %for.inc
+
+if.then12:                                        ; preds = %lor.lhs.false, %if.then
   br label %for.inc
 
-for.inc:                                          ; preds = %lor.lhs.false, %if.then, %for.body, %land.lhs.true
-  %eq.1 = phi ptr [ %eq.015, %land.lhs.true ], [ %eq.015, %for.body ], [ %7, %if.then ], [ %spec.select, %lor.lhs.false ]
+for.inc:                                          ; preds = %for.body, %land.lhs.true, %if.then12, %lor.lhs.false
+  %eq.1 = phi ptr [ %7, %if.then12 ], [ %eq.015, %lor.lhs.false ], [ %eq.015, %land.lhs.true ], [ %eq.015, %for.body ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.014, i64 8
   %cmp5.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp5.not, label %for.end, label %for.body

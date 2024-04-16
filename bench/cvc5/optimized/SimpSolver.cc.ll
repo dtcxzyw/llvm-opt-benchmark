@@ -4730,7 +4730,7 @@ for.end:                                          ; preds = %for.inc, %_ZN4cvc58
   %call28 = tail call noundef i32 @_ZN4cvc58internal7Minisat6Solver9propagateENS2_15TheoryCheckTypeE(ptr noundef nonnull align 8 dereferenceable(850) %this, i32 noundef 0)
   %cmp29.not = icmp eq i32 %call28, -1
   tail call void @_ZN4cvc58internal7Minisat6Solver11cancelUntilEi(ptr noundef nonnull align 8 dereferenceable(850) %this, i32 noundef 0)
-  br i1 %cmp29.not, label %return, label %if.then30
+  br i1 %cmp29.not, label %if.end38, label %if.then30
 
 if.then30:                                        ; preds = %for.end
   %asymm_lits = getelementptr inbounds i8, ptr %this, i64 880
@@ -4738,10 +4738,13 @@ if.then30:                                        ; preds = %for.end
   %inc31 = add nsw i32 %18, 1
   store i32 %inc31, ptr %asymm_lits, align 8
   %call34 = tail call noundef zeroext i1 @_ZN4cvc58internal7Minisat10SimpSolver16strengthenClauseEjNS1_3LitE(ptr noundef nonnull align 8 dereferenceable(1108) %this, i32 noundef %cr, i32 %l.sroa.0.0.lcssa)
+  br i1 %call34, label %if.end38, label %return
+
+if.end38:                                         ; preds = %for.end, %if.then30
   br label %return
 
-return:                                           ; preds = %for.end, %if.then30, %entry, %lor.lhs.false
-  %retval.0 = phi i1 [ true, %lor.lhs.false ], [ true, %entry ], [ %call34, %if.then30 ], [ true, %for.end ]
+return:                                           ; preds = %if.then30, %entry, %lor.lhs.false, %if.end38
+  %retval.0 = phi i1 [ true, %if.end38 ], [ true, %lor.lhs.false ], [ true, %entry ], [ false, %if.then30 ]
   ret i1 %retval.0
 }
 
@@ -7402,115 +7405,128 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
-  %3 = phi i32 [ %2, %while.body.lr.ph ], [ %20, %if.end ]
+  %3 = phi i32 [ %2, %while.body.lr.ph ], [ %23, %if.end ]
   %add.i69 = phi i32 [ %add.i65, %while.body.lr.ph ], [ %add.i, %if.end ]
   %mul.i68 = phi i32 [ %mul.i64, %while.body.lr.ph ], [ %mul.i, %if.end ]
   %i.addr.067 = phi i32 [ %i, %while.body.lr.ph ], [ %cond, %if.end ]
   %mul.i17 = add i32 %mul.i68, 2
   %cmp8 = icmp slt i32 %mul.i17, %3
-  %.pre = load ptr, ptr %heap, align 8
-  %.pre71 = load ptr, ptr %this, align 8
-  %.pre72 = load ptr, ptr %.pre71, align 8
-  br i1 %cmp8, label %land.lhs.true, label %cond.end
+  %.pre.pre = load ptr, ptr %heap, align 8
+  br i1 %cmp8, label %land.lhs.true, label %while.body.cond.false_crit_edge
+
+while.body.cond.false_crit_edge:                  ; preds = %while.body
+  %.pre71.phi.trans.insert = sext i32 %add.i69 to i64
+  %arrayidx.i32.phi.trans.insert.phi.trans.insert = getelementptr inbounds i32, ptr %.pre.pre, i64 %.pre71.phi.trans.insert
+  %.pre72.pre = load i32, ptr %arrayidx.i32.phi.trans.insert.phi.trans.insert, align 4
+  %.pre73.pre = load ptr, ptr %this, align 8
+  %.pre74.pre = load ptr, ptr %.pre73.pre, align 8
+  %.pre84 = shl nsw i32 %.pre72.pre, 1
+  %.pre = sext i32 %.pre84 to i64
+  %.pre85 = or disjoint i32 %.pre84, 1
+  %.pre86 = sext i32 %.pre85 to i64
+  br label %cond.end
 
 land.lhs.true:                                    ; preds = %while.body
   %idxprom.i21 = sext i32 %mul.i17 to i64
-  %arrayidx.i22 = getelementptr inbounds i32, ptr %.pre, i64 %idxprom.i21
+  %arrayidx.i22 = getelementptr inbounds i32, ptr %.pre.pre, i64 %idxprom.i21
   %4 = load i32, ptr %arrayidx.i22, align 4
   %idxprom.i25 = sext i32 %add.i69 to i64
-  %arrayidx.i26 = getelementptr inbounds i32, ptr %.pre, i64 %idxprom.i25
+  %arrayidx.i26 = getelementptr inbounds i32, ptr %.pre.pre, i64 %idxprom.i25
   %5 = load i32, ptr %arrayidx.i26, align 4
+  %6 = load ptr, ptr %this, align 8
   %add.i.i.i = shl nsw i32 %4, 1
+  %7 = load ptr, ptr %6, align 8
   %idxprom.i.i.i = sext i32 %add.i.i.i to i64
-  %arrayidx.i.i.i = getelementptr inbounds i32, ptr %.pre72, i64 %idxprom.i.i.i
-  %6 = load i32, ptr %arrayidx.i.i.i, align 4
+  %arrayidx.i.i.i = getelementptr inbounds i32, ptr %7, i64 %idxprom.i.i.i
+  %8 = load i32, ptr %arrayidx.i.i.i, align 4
   %xor.i.i.i = or disjoint i32 %add.i.i.i, 1
   %idxprom.i3.i.i = sext i32 %xor.i.i.i to i64
-  %arrayidx.i4.i.i = getelementptr inbounds i32, ptr %.pre72, i64 %idxprom.i3.i.i
-  %7 = load i32, ptr %arrayidx.i4.i.i, align 4
-  %mul.i.i = mul i32 %7, %6
+  %arrayidx.i4.i.i = getelementptr inbounds i32, ptr %7, i64 %idxprom.i3.i.i
+  %9 = load i32, ptr %arrayidx.i4.i.i, align 4
+  %mul.i.i = mul i32 %9, %8
   %add.i.i5.i = shl nsw i32 %5, 1
   %idxprom.i.i6.i = sext i32 %add.i.i5.i to i64
-  %arrayidx.i.i7.i = getelementptr inbounds i32, ptr %.pre72, i64 %idxprom.i.i6.i
-  %8 = load i32, ptr %arrayidx.i.i7.i, align 4
+  %arrayidx.i.i7.i = getelementptr inbounds i32, ptr %7, i64 %idxprom.i.i6.i
+  %10 = load i32, ptr %arrayidx.i.i7.i, align 4
   %xor.i.i9.i = or disjoint i32 %add.i.i5.i, 1
   %idxprom.i3.i10.i = sext i32 %xor.i.i9.i to i64
-  %arrayidx.i4.i11.i = getelementptr inbounds i32, ptr %.pre72, i64 %idxprom.i3.i10.i
-  %9 = load i32, ptr %arrayidx.i4.i11.i, align 4
-  %mul.i13.i = mul i32 %9, %8
+  %arrayidx.i4.i11.i = getelementptr inbounds i32, ptr %7, i64 %idxprom.i3.i10.i
+  %11 = load i32, ptr %arrayidx.i4.i11.i, align 4
+  %mul.i13.i = mul i32 %11, %10
   %cmp.i = icmp slt i32 %mul.i.i, %mul.i13.i
   br i1 %cmp.i, label %cond.end, label %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit
 
 _ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit: ; preds = %land.lhs.true
   %cmp4.i = icmp eq i32 %mul.i.i, %mul.i13.i
   %cmp5.i = icmp slt i32 %4, %5
-  %10 = and i1 %cmp5.i, %cmp4.i
-  %spec.select = select i1 %10, i32 %mul.i17, i32 %add.i69
+  %12 = and i1 %cmp5.i, %cmp4.i
+  br i1 %12, label %cond.end, label %cond.false
+
+cond.false:                                       ; preds = %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit
   br label %cond.end
 
-cond.end:                                         ; preds = %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit, %land.lhs.true, %while.body
-  %cond = phi i32 [ %add.i69, %while.body ], [ %mul.i17, %land.lhs.true ], [ %spec.select, %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit ]
-  %idxprom.i31 = sext i32 %cond to i64
-  %arrayidx.i32 = getelementptr inbounds i32, ptr %.pre, i64 %idxprom.i31
-  %11 = load i32, ptr %arrayidx.i32, align 4
-  %add.i.i.i33 = shl nsw i32 %11, 1
-  %idxprom.i.i.i34 = sext i32 %add.i.i.i33 to i64
-  %arrayidx.i.i.i35 = getelementptr inbounds i32, ptr %.pre72, i64 %idxprom.i.i.i34
-  %12 = load i32, ptr %arrayidx.i.i.i35, align 4
-  %xor.i.i.i36 = or disjoint i32 %add.i.i.i33, 1
-  %idxprom.i3.i.i37 = sext i32 %xor.i.i.i36 to i64
-  %arrayidx.i4.i.i38 = getelementptr inbounds i32, ptr %.pre72, i64 %idxprom.i3.i.i37
-  %13 = load i32, ptr %arrayidx.i4.i.i38, align 4
-  %mul.i.i39 = mul i32 %13, %12
-  %arrayidx.i.i7.i42 = getelementptr inbounds i32, ptr %.pre72, i64 %idxprom.i.i6.i41
-  %14 = load i32, ptr %arrayidx.i.i7.i42, align 4
-  %arrayidx.i4.i11.i45 = getelementptr inbounds i32, ptr %.pre72, i64 %idxprom.i3.i10.i44
-  %15 = load i32, ptr %arrayidx.i4.i11.i45, align 4
-  %mul.i13.i46 = mul i32 %15, %14
+cond.end:                                         ; preds = %while.body.cond.false_crit_edge, %land.lhs.true, %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit, %cond.false
+  %idxprom.i3.i.i37.pre-phi = phi i64 [ %idxprom.i3.i.i, %land.lhs.true ], [ %idxprom.i3.i.i, %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit ], [ %.pre86, %while.body.cond.false_crit_edge ], [ %idxprom.i3.i10.i, %cond.false ]
+  %idxprom.i.i.i34.pre-phi = phi i64 [ %idxprom.i.i.i, %land.lhs.true ], [ %idxprom.i.i.i, %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit ], [ %.pre, %while.body.cond.false_crit_edge ], [ %idxprom.i.i6.i, %cond.false ]
+  %13 = phi ptr [ %7, %land.lhs.true ], [ %7, %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit ], [ %.pre74.pre, %while.body.cond.false_crit_edge ], [ %7, %cond.false ]
+  %14 = phi i32 [ %4, %land.lhs.true ], [ %4, %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit ], [ %.pre72.pre, %while.body.cond.false_crit_edge ], [ %5, %cond.false ]
+  %cond = phi i32 [ %mul.i17, %land.lhs.true ], [ %mul.i17, %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit ], [ %add.i69, %while.body.cond.false_crit_edge ], [ %add.i69, %cond.false ]
+  %arrayidx.i.i.i35 = getelementptr inbounds i32, ptr %13, i64 %idxprom.i.i.i34.pre-phi
+  %15 = load i32, ptr %arrayidx.i.i.i35, align 4
+  %arrayidx.i4.i.i38 = getelementptr inbounds i32, ptr %13, i64 %idxprom.i3.i.i37.pre-phi
+  %16 = load i32, ptr %arrayidx.i4.i.i38, align 4
+  %mul.i.i39 = mul i32 %16, %15
+  %arrayidx.i.i7.i42 = getelementptr inbounds i32, ptr %13, i64 %idxprom.i.i6.i41
+  %17 = load i32, ptr %arrayidx.i.i7.i42, align 4
+  %arrayidx.i4.i11.i45 = getelementptr inbounds i32, ptr %13, i64 %idxprom.i3.i10.i44
+  %18 = load i32, ptr %arrayidx.i4.i11.i45, align 4
+  %mul.i13.i46 = mul i32 %18, %17
   %cmp.i47 = icmp slt i32 %mul.i.i39, %mul.i13.i46
   br i1 %cmp.i47, label %if.end, label %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit51
 
 _ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit51: ; preds = %cond.end
   %cmp4.i49 = icmp eq i32 %mul.i.i39, %mul.i13.i46
-  %cmp5.i50 = icmp slt i32 %11, %1
-  %16 = and i1 %cmp5.i50, %cmp4.i49
-  br i1 %16, label %if.end, label %while.end.loopexitsplit
+  %cmp5.i50 = icmp slt i32 %14, %1
+  %19 = and i1 %cmp5.i50, %cmp4.i49
+  br i1 %19, label %if.end, label %while.end.loopexit
 
 if.end:                                           ; preds = %cond.end, %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit51
   %idxprom.i54 = sext i32 %i.addr.067 to i64
-  %arrayidx.i55 = getelementptr inbounds i32, ptr %.pre, i64 %idxprom.i54
-  store i32 %11, ptr %arrayidx.i55, align 4
-  %17 = load ptr, ptr %heap, align 8
-  %arrayidx.i57 = getelementptr inbounds i32, ptr %17, i64 %idxprom.i54
-  %18 = load i32, ptr %arrayidx.i57, align 4
-  %19 = load ptr, ptr %indices, align 8
-  %idxprom.i58 = sext i32 %18 to i64
-  %arrayidx.i59 = getelementptr inbounds i32, ptr %19, i64 %idxprom.i58
+  %arrayidx.i55 = getelementptr inbounds i32, ptr %.pre.pre, i64 %idxprom.i54
+  store i32 %14, ptr %arrayidx.i55, align 4
+  %20 = load ptr, ptr %heap, align 8
+  %arrayidx.i57 = getelementptr inbounds i32, ptr %20, i64 %idxprom.i54
+  %21 = load i32, ptr %arrayidx.i57, align 4
+  %22 = load ptr, ptr %indices, align 8
+  %idxprom.i58 = sext i32 %21 to i64
+  %arrayidx.i59 = getelementptr inbounds i32, ptr %22, i64 %idxprom.i58
   store i32 %i.addr.067, ptr %arrayidx.i59, align 4
   %mul.i = shl nsw i32 %cond, 1
   %add.i = or disjoint i32 %mul.i, 1
-  %20 = load i32, ptr %sz.i, align 8
-  %cmp = icmp slt i32 %add.i, %20
+  %23 = load i32, ptr %sz.i, align 8
+  %cmp = icmp slt i32 %add.i, %23
   br i1 %cmp, label %while.body, label %if.end.while.end.loopexit_crit_edge, !llvm.loop !63
 
 if.end.while.end.loopexit_crit_edge:              ; preds = %if.end
-  %.pre73.pre = load ptr, ptr %heap, align 8
+  %.pre75.pre = load ptr, ptr %heap, align 8
+  br label %while.end.loopexit
+
+while.end.loopexit:                               ; preds = %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit51, %if.end.while.end.loopexit_crit_edge
+  %.pre75 = phi ptr [ %.pre75.pre, %if.end.while.end.loopexit_crit_edge ], [ %.pre.pre, %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit51 ]
+  %i.addr.0.lcssa.ph = phi i32 [ %cond, %if.end.while.end.loopexit_crit_edge ], [ %i.addr.067, %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit51 ]
+  %.pre83 = sext i32 %i.addr.0.lcssa.ph to i64
   br label %while.end
 
-while.end.loopexitsplit:                          ; preds = %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit51
-  %.pre76 = sext i32 %i.addr.067 to i64
-  br label %while.end
-
-while.end:                                        ; preds = %if.end.while.end.loopexit_crit_edge, %while.end.loopexitsplit, %entry
-  %idxprom.i60.pre-phi = phi i64 [ %idxprom.i, %entry ], [ %.pre76, %while.end.loopexitsplit ], [ %idxprom.i31, %if.end.while.end.loopexit_crit_edge ]
-  %21 = phi ptr [ %0, %entry ], [ %.pre, %while.end.loopexitsplit ], [ %.pre73.pre, %if.end.while.end.loopexit_crit_edge ]
-  %i.addr.0.lcssa = phi i32 [ %i, %entry ], [ %i.addr.067, %while.end.loopexitsplit ], [ %cond, %if.end.while.end.loopexit_crit_edge ]
-  %arrayidx.i61 = getelementptr inbounds i32, ptr %21, i64 %idxprom.i60.pre-phi
+while.end:                                        ; preds = %while.end.loopexit, %entry
+  %idxprom.i60.pre-phi = phi i64 [ %.pre83, %while.end.loopexit ], [ %idxprom.i, %entry ]
+  %24 = phi ptr [ %.pre75, %while.end.loopexit ], [ %0, %entry ]
+  %i.addr.0.lcssa = phi i32 [ %i.addr.0.lcssa.ph, %while.end.loopexit ], [ %i, %entry ]
+  %arrayidx.i61 = getelementptr inbounds i32, ptr %24, i64 %idxprom.i60.pre-phi
   store i32 %1, ptr %arrayidx.i61, align 4
   %indices31 = getelementptr inbounds i8, ptr %this, i64 24
-  %22 = load ptr, ptr %indices31, align 8
+  %25 = load ptr, ptr %indices31, align 8
   %idxprom.i62 = sext i32 %1 to i64
-  %arrayidx.i63 = getelementptr inbounds i32, ptr %22, i64 %idxprom.i62
+  %arrayidx.i63 = getelementptr inbounds i32, ptr %25, i64 %idxprom.i62
   store i32 %i.addr.0.lcssa, ptr %arrayidx.i63, align 4
   ret void
 }

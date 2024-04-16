@@ -113,7 +113,7 @@ declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #1
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @row_security_active(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @row_security_active(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -149,23 +149,25 @@ define dso_local i64 @row_security_active(ptr nocapture noundef readonly %0) loc
 
 25:                                               ; preds = %23
   %26 = tail call zeroext i1 @object_ownercheck(i32 noundef 1259, i32 noundef %4, i32 noundef %5) #4
-  %.not = xor i1 %26, true
-  %27 = select i1 %26, i1 %22, i1 false
-  br i1 %27, label %28, label %check_enable_rls.exit
+  br i1 %26, label %27, label %30
 
-28:                                               ; preds = %25
+27:                                               ; preds = %25
+  br i1 %22, label %28, label %check_enable_rls.exit
+
+28:                                               ; preds = %27
   %29 = tail call zeroext i1 @InNoForceRLSOperation() #4
-  %not. = xor i1 %29, true
+  br i1 %29, label %check_enable_rls.exit, label %30
+
+30:                                               ; preds = %28, %25
   br label %check_enable_rls.exit
 
-check_enable_rls.exit:                            ; preds = %28, %25, %1, %7, %10, %23
-  %.shrunk = phi i1 [ false, %1 ], [ false, %7 ], [ false, %10 ], [ false, %23 ], [ %.not, %25 ], [ %not., %28 ]
-  %30 = zext i1 %.shrunk to i64
-  ret i64 %30
+check_enable_rls.exit:                            ; preds = %1, %7, %10, %23, %27, %28, %30
+  %31 = phi i64 [ 0, %1 ], [ 0, %7 ], [ 0, %10 ], [ 0, %23 ], [ 0, %28 ], [ 0, %27 ], [ 1, %30 ]
+  ret i64 %31
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @row_security_active_name(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @row_security_active_name(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -205,19 +207,21 @@ define dso_local i64 @row_security_active_name(ptr nocapture noundef readonly %0
 
 29:                                               ; preds = %27
   %30 = tail call zeroext i1 @object_ownercheck(i32 noundef 1259, i32 noundef %8, i32 noundef %9) #4
-  %.not = xor i1 %30, true
-  %31 = select i1 %30, i1 %26, i1 false
-  br i1 %31, label %32, label %check_enable_rls.exit
+  br i1 %30, label %31, label %34
 
-32:                                               ; preds = %29
+31:                                               ; preds = %29
+  br i1 %26, label %32, label %check_enable_rls.exit
+
+32:                                               ; preds = %31
   %33 = tail call zeroext i1 @InNoForceRLSOperation() #4
-  %not. = xor i1 %33, true
+  br i1 %33, label %check_enable_rls.exit, label %34
+
+34:                                               ; preds = %32, %29
   br label %check_enable_rls.exit
 
-check_enable_rls.exit:                            ; preds = %32, %29, %1, %11, %14, %27
-  %.shrunk = phi i1 [ false, %1 ], [ false, %11 ], [ false, %14 ], [ false, %27 ], [ %.not, %29 ], [ %not., %32 ]
-  %34 = zext i1 %.shrunk to i64
-  ret i64 %34
+check_enable_rls.exit:                            ; preds = %1, %11, %14, %27, %31, %32, %34
+  %35 = phi i64 [ 0, %1 ], [ 0, %11 ], [ 0, %14 ], [ 0, %27 ], [ 0, %32 ], [ 0, %31 ], [ 1, %34 ]
+  ret i64 %35
 }
 
 declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #1

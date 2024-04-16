@@ -4059,13 +4059,13 @@ do.body:                                          ; preds = %if.then40
 
 if.then67:                                        ; preds = %do.body
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.68, ptr noundef nonnull @__func__.sdhci_write, i32 noundef %or47, i32 noundef %18) #11
-  %.pre311 = load i16, ptr %blksize42, align 4
-  %.pre312 = load i32, ptr %buf_maxsz, align 8
+  %.pre310 = load i16, ptr %blksize42, align 4
+  %.pre311 = load i32, ptr %buf_maxsz, align 8
   br label %do.end
 
 do.end:                                           ; preds = %do.body, %if.then67
-  %20 = phi i32 [ %18, %do.body ], [ %.pre312, %if.then67 ]
-  %21 = phi i16 [ %conv48, %do.body ], [ %.pre311, %if.then67 ]
+  %20 = phi i32 [ %18, %do.body ], [ %.pre311, %if.then67 ]
+  %21 = phi i16 [ %conv48, %do.body ], [ %.pre310, %if.then67 ]
   %22 = and i16 %21, -4096
   %23 = trunc i32 %20 to i16
   %24 = and i16 %23, 4095
@@ -4141,9 +4141,9 @@ lor.lhs.false3.i:                                 ; preds = %lor.lhs.false.i
 land.lhs.true.i:                                  ; preds = %lor.lhs.false3.i, %lor.lhs.false.i
   %and7.i = and i32 %or108, 32
   %tobool8.not.i = icmp eq i32 %and7.i, 0
-  br i1 %tobool8.not.i, label %sdhci_can_issue_command.exit, label %sw.epilog
+  br i1 %tobool8.not.i, label %lor.lhs.false9.i, label %sw.epilog
 
-sdhci_can_issue_command.exit:                     ; preds = %land.lhs.true.i
+lor.lhs.false9.i:                                 ; preds = %land.lhs.true.i
   %and12.i = and i32 %or108, 3
   %cmp13.i = icmp ne i32 %and12.i, 3
   %and18.i = and i32 %or108, 192
@@ -4151,7 +4151,7 @@ sdhci_can_issue_command.exit:                     ; preds = %land.lhs.true.i
   %or.cond.i = or i1 %cmp13.i, %cmp19.i
   br i1 %or.cond.i, label %if.end115, label %sw.epilog
 
-if.end115:                                        ; preds = %lor.lhs.false3.i, %sdhci_can_issue_command.exit
+if.end115:                                        ; preds = %lor.lhs.false9.i, %lor.lhs.false3.i
   tail call fastcc void @sdhci_send_command(ptr noundef nonnull %opaque)
   br label %sw.epilog
 
@@ -4336,47 +4336,47 @@ if.then126:                                       ; preds = %sw.bb123
   %shr127 = lshr i32 %shl6, 16
   %and.i213 = and i32 %shr127, 1
   %tobool.not.i214 = icmp eq i32 %and.i213, 0
-  br i1 %tobool.not.i214, label %if.end.i, label %land.lhs.true.i215
+  br i1 %tobool.not.i214, label %if.end.i216, label %land.lhs.true.i215
 
 land.lhs.true.i215:                               ; preds = %if.then126
   %blkgap.i = getelementptr inbounds i8, ptr %opaque, i64 3182
   %62 = load i8, ptr %blkgap.i, align 2
   %63 = and i8 %62, 1
   %tobool3.not.i = icmp eq i8 %63, 0
-  br i1 %tobool3.not.i, label %if.end.i, label %if.end129
+  br i1 %tobool3.not.i, label %if.end.i216, label %if.end129
 
-if.end.i:                                         ; preds = %land.lhs.true.i215, %if.then126
-  %conv6.i216 = trunc nuw nsw i32 %and.i213 to i8
+if.end.i216:                                      ; preds = %land.lhs.true.i215, %if.then126
+  %conv6.i217 = trunc nuw nsw i32 %and.i213 to i8
   %blkgap7.i = getelementptr inbounds i8, ptr %opaque, i64 3182
-  store i8 %conv6.i216, ptr %blkgap7.i, align 2
+  store i8 %conv6.i217, ptr %blkgap7.i, align 2
   %64 = and i32 %shl6, 131072
   %tobool10.not.i = icmp ne i32 %64, 0
   %stopped_state30.phi.trans.insert.i = getelementptr inbounds i8, ptr %opaque, i64 3262
   %.pre.i = load i8, ptr %stopped_state30.phi.trans.insert.i, align 2
   %tobool13.not.i = icmp ne i8 %.pre.i, 0
-  %or.cond.i217 = and i1 %tobool.not.i214, %tobool13.not.i
-  %or.cond18.i = select i1 %tobool10.not.i, i1 %or.cond.i217, i1 false
+  %or.cond.i218 = and i1 %tobool.not.i214, %tobool13.not.i
+  %or.cond18.i = select i1 %tobool10.not.i, i1 %or.cond.i218, i1 false
   br i1 %or.cond18.i, label %if.then19.i, label %if.else29.i
 
-if.then19.i:                                      ; preds = %if.end.i
+if.then19.i:                                      ; preds = %if.end.i216
   %cmp22.i = icmp eq i8 %.pre.i, 1
-  %prnsts.i218 = getelementptr inbounds i8, ptr %opaque, i64 3176
-  %65 = load i32, ptr %prnsts.i218, align 8
+  %prnsts.i219 = getelementptr inbounds i8, ptr %opaque, i64 3176
+  %65 = load i32, ptr %prnsts.i219, align 8
   br i1 %cmp22.i, label %if.then24.i, label %if.else.i
 
 if.then24.i:                                      ; preds = %if.then19.i
-  %or.i219 = or i32 %65, 516
-  store i32 %or.i219, ptr %prnsts.i218, align 8
+  %or.i220 = or i32 %65, 516
+  store i32 %or.i220, ptr %prnsts.i219, align 8
   tail call fastcc void @sdhci_read_block_from_card(ptr noundef nonnull %opaque)
   br label %if.end129.sink.split
 
 if.else.i:                                        ; preds = %if.then19.i
   %or26.i = or i32 %65, 260
-  store i32 %or26.i, ptr %prnsts.i218, align 8
+  store i32 %or26.i, ptr %prnsts.i219, align 8
   tail call fastcc void @sdhci_write_block_to_card(ptr noundef nonnull %opaque)
   br label %if.end129.sink.split
 
-if.else29.i:                                      ; preds = %if.end.i
+if.else29.i:                                      ; preds = %if.end.i216
   %brmerge.i = or i1 %tobool.not.i214, %tobool13.not.i
   br i1 %brmerge.i, label %if.end129, label %if.then36.i
 
@@ -4492,10 +4492,10 @@ sw.bb.i:                                          ; preds = %if.then180
   br label %if.end183
 
 sw.bb1.i:                                         ; preds = %if.then180
-  %prnsts.i224 = getelementptr inbounds i8, ptr %opaque, i64 3176
-  %79 = load i32, ptr %prnsts.i224, align 8
-  %and.i225 = and i32 %79, -2
-  store i32 %and.i225, ptr %prnsts.i224, align 8
+  %prnsts.i225 = getelementptr inbounds i8, ptr %opaque, i64 3176
+  %79 = load i32, ptr %prnsts.i225, align 8
+  %and.i226 = and i32 %79, -2
+  store i32 %and.i226, ptr %prnsts.i225, align 8
   %norintsts.i = getelementptr inbounds i8, ptr %opaque, i64 3188
   %80 = load i16, ptr %norintsts.i, align 4
   %81 = and i16 %80, -2
@@ -4503,18 +4503,18 @@ sw.bb1.i:                                         ; preds = %if.then180
   br label %if.end183
 
 sw.bb5.i:                                         ; preds = %if.then180
-  %data_count.i220 = getelementptr inbounds i8, ptr %opaque, i64 3260
-  store i16 0, ptr %data_count.i220, align 4
+  %data_count.i221 = getelementptr inbounds i8, ptr %opaque, i64 3260
+  store i16 0, ptr %data_count.i221, align 4
   %prnsts6.i = getelementptr inbounds i8, ptr %opaque, i64 3176
   %82 = load i32, ptr %prnsts6.i, align 8
-  %and7.i221 = and i32 %82, -3847
-  store i32 %and7.i221, ptr %prnsts6.i, align 8
-  %blkgap.i222 = getelementptr inbounds i8, ptr %opaque, i64 3182
-  %83 = load i8, ptr %blkgap.i222, align 2
+  %and7.i222 = and i32 %82, -3847
+  store i32 %and7.i222, ptr %prnsts6.i, align 8
+  %blkgap.i223 = getelementptr inbounds i8, ptr %opaque, i64 3182
+  %83 = load i8, ptr %blkgap.i223, align 2
   %84 = and i8 %83, -4
-  store i8 %84, ptr %blkgap.i222, align 2
-  %stopped_state.i223 = getelementptr inbounds i8, ptr %opaque, i64 3262
-  store i8 0, ptr %stopped_state.i223, align 2
+  store i8 %84, ptr %blkgap.i223, align 2
+  %stopped_state.i224 = getelementptr inbounds i8, ptr %opaque, i64 3262
+  store i8 0, ptr %stopped_state.i224, align 2
   %norintsts11.i = getelementptr inbounds i8, ptr %opaque, i64 3188
   %85 = load i16, ptr %norintsts11.i, align 4
   %86 = and i16 %85, -63
@@ -4576,8 +4576,8 @@ sw.bb211:                                         ; preds = %if.end
   store i16 %conv229, ptr %errintsts, align 2
   %tobool231.not = icmp eq i16 %conv229, 0
   %96 = and i16 %conv222, 32767
-  %masksel310 = select i1 %tobool231.not, i16 0, i16 -32768
-  %storemerge186 = or disjoint i16 %masksel310, %96
+  %masksel309 = select i1 %tobool231.not, i16 0, i16 -32768
+  %storemerge186 = or disjoint i16 %masksel309, %96
   store i16 %storemerge186, ptr %norintsts, align 4
   %norintsigen.i.i = getelementptr inbounds i8, ptr %opaque, i64 3196
   %97 = load i16, ptr %norintsigen.i.i, align 4
@@ -4681,49 +4681,49 @@ if.end294:                                        ; preds = %if.then290
 
 if.end300:                                        ; preds = %if.end294, %land.lhs.true287, %sw.bb244
   %116 = phi i16 [ %115, %if.end294 ], [ %storemerge, %land.lhs.true287 ], [ %storemerge, %sw.bb244 ]
-  %norintsigen.i.i228 = getelementptr inbounds i8, ptr %opaque, i64 3196
-  %117 = load i16, ptr %norintsigen.i.i228, align 4
-  %and8.i.i229 = and i16 %117, %116
-  %tobool.not.i.i230 = icmp eq i16 %and8.i.i229, 0
-  br i1 %tobool.not.i.i230, label %lor.lhs.false.i.i235, label %sdhci_update_irq.exit250
+  %norintsigen.i.i229 = getelementptr inbounds i8, ptr %opaque, i64 3196
+  %117 = load i16, ptr %norintsigen.i.i229, align 4
+  %and8.i.i230 = and i16 %117, %116
+  %tobool.not.i.i231 = icmp eq i16 %and8.i.i230, 0
+  br i1 %tobool.not.i.i231, label %lor.lhs.false.i.i236, label %sdhci_update_irq.exit251
 
-lor.lhs.false.i.i235:                             ; preds = %if.end300
-  %errintsigen.i.i237 = getelementptr inbounds i8, ptr %opaque, i64 3198
-  %118 = load i16, ptr %errintsigen.i.i237, align 2
-  %and49.i.i238 = and i16 %118, %conv269
-  %tobool5.not.i.i239 = icmp eq i16 %and49.i.i238, 0
-  br i1 %tobool5.not.i.i239, label %lor.lhs.false6.i.i240, label %sdhci_update_irq.exit250
+lor.lhs.false.i.i236:                             ; preds = %if.end300
+  %errintsigen.i.i238 = getelementptr inbounds i8, ptr %opaque, i64 3198
+  %118 = load i16, ptr %errintsigen.i.i238, align 2
+  %and49.i.i239 = and i16 %118, %conv269
+  %tobool5.not.i.i240 = icmp eq i16 %and49.i.i239, 0
+  br i1 %tobool5.not.i.i240, label %lor.lhs.false6.i.i241, label %sdhci_update_irq.exit251
 
-lor.lhs.false6.i.i240:                            ; preds = %lor.lhs.false.i.i235
+lor.lhs.false6.i.i241:                            ; preds = %lor.lhs.false.i.i236
   %119 = and i16 %116, 64
-  %tobool10.not.i.i241 = icmp eq i16 %119, 0
-  br i1 %tobool10.not.i.i241, label %lor.rhs.i.i245, label %land.lhs.true.i.i242
+  %tobool10.not.i.i242 = icmp eq i16 %119, 0
+  br i1 %tobool10.not.i.i242, label %lor.rhs.i.i246, label %land.lhs.true.i.i243
 
-land.lhs.true.i.i242:                             ; preds = %lor.lhs.false6.i.i240
-  %wakcon.i.i243 = getelementptr inbounds i8, ptr %opaque, i64 3183
-  %120 = load i8, ptr %wakcon.i.i243, align 1
+land.lhs.true.i.i243:                             ; preds = %lor.lhs.false6.i.i241
+  %wakcon.i.i244 = getelementptr inbounds i8, ptr %opaque, i64 3183
+  %120 = load i8, ptr %wakcon.i.i244, align 1
   %121 = and i8 %120, 2
-  %tobool13.not.i.i244 = icmp eq i8 %121, 0
-  br i1 %tobool13.not.i.i244, label %lor.rhs.i.i245, label %sdhci_update_irq.exit250
+  %tobool13.not.i.i245 = icmp eq i8 %121, 0
+  br i1 %tobool13.not.i.i245, label %lor.rhs.i.i246, label %sdhci_update_irq.exit251
 
-lor.rhs.i.i245:                                   ; preds = %land.lhs.true.i.i242, %lor.lhs.false6.i.i240
+lor.rhs.i.i246:                                   ; preds = %land.lhs.true.i.i243, %lor.lhs.false6.i.i241
   %122 = and i16 %116, 128
-  %tobool17.not.i.i246 = icmp eq i16 %122, 0
-  br i1 %tobool17.not.i.i246, label %sdhci_update_irq.exit250, label %land.rhs.i.i247
+  %tobool17.not.i.i247 = icmp eq i16 %122, 0
+  br i1 %tobool17.not.i.i247, label %sdhci_update_irq.exit251, label %land.rhs.i.i248
 
-land.rhs.i.i247:                                  ; preds = %lor.rhs.i.i245
-  %wakcon18.i.i248 = getelementptr inbounds i8, ptr %opaque, i64 3183
-  %123 = load i8, ptr %wakcon18.i.i248, align 1
+land.rhs.i.i248:                                  ; preds = %lor.rhs.i.i246
+  %wakcon18.i.i249 = getelementptr inbounds i8, ptr %opaque, i64 3183
+  %123 = load i8, ptr %wakcon18.i.i249, align 1
   %124 = lshr i8 %123, 2
-  %.lobit.i.i249 = and i8 %124, 1
-  %125 = zext nneg i8 %.lobit.i.i249 to i32
-  br label %sdhci_update_irq.exit250
+  %.lobit.i.i250 = and i8 %124, 1
+  %125 = zext nneg i8 %.lobit.i.i250 to i32
+  br label %sdhci_update_irq.exit251
 
-sdhci_update_irq.exit250:                         ; preds = %if.end300, %lor.lhs.false.i.i235, %land.lhs.true.i.i242, %lor.rhs.i.i245, %land.rhs.i.i247
-  %conv22.i.i231 = phi i32 [ 1, %land.lhs.true.i.i242 ], [ 1, %lor.lhs.false.i.i235 ], [ 1, %if.end300 ], [ 0, %lor.rhs.i.i245 ], [ %125, %land.rhs.i.i247 ]
-  %irq.i233 = getelementptr inbounds i8, ptr %opaque, i64 3136
-  %126 = load ptr, ptr %irq.i233, align 16
-  tail call void @qemu_set_irq(ptr noundef %126, i32 noundef %conv22.i.i231) #11
+sdhci_update_irq.exit251:                         ; preds = %if.end300, %lor.lhs.false.i.i236, %land.lhs.true.i.i243, %lor.rhs.i.i246, %land.rhs.i.i248
+  %conv22.i.i232 = phi i32 [ 1, %land.lhs.true.i.i243 ], [ 1, %lor.lhs.false.i.i236 ], [ 1, %if.end300 ], [ 0, %lor.rhs.i.i246 ], [ %125, %land.rhs.i.i248 ]
+  %irq.i234 = getelementptr inbounds i8, ptr %opaque, i64 3136
+  %126 = load ptr, ptr %irq.i234, align 16
+  tail call void @qemu_set_irq(ptr noundef %126, i32 noundef %conv22.i.i232) #11
   br label %sw.epilog
 
 sw.bb302:                                         ; preds = %if.end
@@ -4743,49 +4743,49 @@ sw.bb302:                                         ; preds = %if.end
   %or312 = or i32 %and310, %shr311
   %conv313 = trunc nuw i32 %or312 to i16
   store i16 %conv313, ptr %errintsigen, align 2
-  %norintsts.i.i251 = getelementptr inbounds i8, ptr %opaque, i64 3188
-  %129 = load i16, ptr %norintsts.i.i251, align 4
-  %and8.i.i253 = and i16 %129, %conv306
-  %tobool.not.i.i254 = icmp eq i16 %and8.i.i253, 0
-  br i1 %tobool.not.i.i254, label %lor.lhs.false.i.i259, label %sdhci_update_irq.exit274
+  %norintsts.i.i252 = getelementptr inbounds i8, ptr %opaque, i64 3188
+  %129 = load i16, ptr %norintsts.i.i252, align 4
+  %and8.i.i254 = and i16 %129, %conv306
+  %tobool.not.i.i255 = icmp eq i16 %and8.i.i254, 0
+  br i1 %tobool.not.i.i255, label %lor.lhs.false.i.i260, label %sdhci_update_irq.exit275
 
-lor.lhs.false.i.i259:                             ; preds = %sw.bb302
-  %errintsts.i.i260 = getelementptr inbounds i8, ptr %opaque, i64 3190
-  %130 = load i16, ptr %errintsts.i.i260, align 2
-  %and49.i.i262 = and i16 %130, %conv313
-  %tobool5.not.i.i263 = icmp eq i16 %and49.i.i262, 0
-  br i1 %tobool5.not.i.i263, label %lor.lhs.false6.i.i264, label %sdhci_update_irq.exit274
+lor.lhs.false.i.i260:                             ; preds = %sw.bb302
+  %errintsts.i.i261 = getelementptr inbounds i8, ptr %opaque, i64 3190
+  %130 = load i16, ptr %errintsts.i.i261, align 2
+  %and49.i.i263 = and i16 %130, %conv313
+  %tobool5.not.i.i264 = icmp eq i16 %and49.i.i263, 0
+  br i1 %tobool5.not.i.i264, label %lor.lhs.false6.i.i265, label %sdhci_update_irq.exit275
 
-lor.lhs.false6.i.i264:                            ; preds = %lor.lhs.false.i.i259
+lor.lhs.false6.i.i265:                            ; preds = %lor.lhs.false.i.i260
   %131 = and i16 %129, 64
-  %tobool10.not.i.i265 = icmp eq i16 %131, 0
-  br i1 %tobool10.not.i.i265, label %lor.rhs.i.i269, label %land.lhs.true.i.i266
+  %tobool10.not.i.i266 = icmp eq i16 %131, 0
+  br i1 %tobool10.not.i.i266, label %lor.rhs.i.i270, label %land.lhs.true.i.i267
 
-land.lhs.true.i.i266:                             ; preds = %lor.lhs.false6.i.i264
-  %wakcon.i.i267 = getelementptr inbounds i8, ptr %opaque, i64 3183
-  %132 = load i8, ptr %wakcon.i.i267, align 1
+land.lhs.true.i.i267:                             ; preds = %lor.lhs.false6.i.i265
+  %wakcon.i.i268 = getelementptr inbounds i8, ptr %opaque, i64 3183
+  %132 = load i8, ptr %wakcon.i.i268, align 1
   %133 = and i8 %132, 2
-  %tobool13.not.i.i268 = icmp eq i8 %133, 0
-  br i1 %tobool13.not.i.i268, label %lor.rhs.i.i269, label %sdhci_update_irq.exit274
+  %tobool13.not.i.i269 = icmp eq i8 %133, 0
+  br i1 %tobool13.not.i.i269, label %lor.rhs.i.i270, label %sdhci_update_irq.exit275
 
-lor.rhs.i.i269:                                   ; preds = %land.lhs.true.i.i266, %lor.lhs.false6.i.i264
+lor.rhs.i.i270:                                   ; preds = %land.lhs.true.i.i267, %lor.lhs.false6.i.i265
   %134 = and i16 %129, 128
-  %tobool17.not.i.i270 = icmp eq i16 %134, 0
-  br i1 %tobool17.not.i.i270, label %sdhci_update_irq.exit274, label %land.rhs.i.i271
+  %tobool17.not.i.i271 = icmp eq i16 %134, 0
+  br i1 %tobool17.not.i.i271, label %sdhci_update_irq.exit275, label %land.rhs.i.i272
 
-land.rhs.i.i271:                                  ; preds = %lor.rhs.i.i269
-  %wakcon18.i.i272 = getelementptr inbounds i8, ptr %opaque, i64 3183
-  %135 = load i8, ptr %wakcon18.i.i272, align 1
+land.rhs.i.i272:                                  ; preds = %lor.rhs.i.i270
+  %wakcon18.i.i273 = getelementptr inbounds i8, ptr %opaque, i64 3183
+  %135 = load i8, ptr %wakcon18.i.i273, align 1
   %136 = lshr i8 %135, 2
-  %.lobit.i.i273 = and i8 %136, 1
-  %137 = zext nneg i8 %.lobit.i.i273 to i32
-  br label %sdhci_update_irq.exit274
+  %.lobit.i.i274 = and i8 %136, 1
+  %137 = zext nneg i8 %.lobit.i.i274 to i32
+  br label %sdhci_update_irq.exit275
 
-sdhci_update_irq.exit274:                         ; preds = %sw.bb302, %lor.lhs.false.i.i259, %land.lhs.true.i.i266, %lor.rhs.i.i269, %land.rhs.i.i271
-  %conv22.i.i255 = phi i32 [ 1, %land.lhs.true.i.i266 ], [ 1, %lor.lhs.false.i.i259 ], [ 1, %sw.bb302 ], [ 0, %lor.rhs.i.i269 ], [ %137, %land.rhs.i.i271 ]
-  %irq.i257 = getelementptr inbounds i8, ptr %opaque, i64 3136
-  %138 = load ptr, ptr %irq.i257, align 16
-  tail call void @qemu_set_irq(ptr noundef %138, i32 noundef %conv22.i.i255) #11
+sdhci_update_irq.exit275:                         ; preds = %sw.bb302, %lor.lhs.false.i.i260, %land.lhs.true.i.i267, %lor.rhs.i.i270, %land.rhs.i.i272
+  %conv22.i.i256 = phi i32 [ 1, %land.lhs.true.i.i267 ], [ 1, %lor.lhs.false.i.i260 ], [ 1, %sw.bb302 ], [ 0, %lor.rhs.i.i270 ], [ %137, %land.rhs.i.i272 ]
+  %irq.i258 = getelementptr inbounds i8, ptr %opaque, i64 3136
+  %138 = load ptr, ptr %irq.i258, align 16
+  tail call void @qemu_set_irq(ptr noundef %138, i32 noundef %conv22.i.i256) #11
   br label %sw.epilog
 
 sw.bb316:                                         ; preds = %if.end
@@ -4850,8 +4850,8 @@ if.end358:                                        ; preds = %sw.bb339
   br i1 %tobool360.not, label %if.end358.if.end366_crit_edge, label %if.then361
 
 if.end358.if.end366_crit_edge:                    ; preds = %if.end358
-  %norintsts.i.i275.phi.trans.insert = getelementptr inbounds i8, ptr %opaque, i64 3188
-  %.pre = load i16, ptr %norintsts.i.i275.phi.trans.insert, align 4
+  %norintsts.i.i276.phi.trans.insert = getelementptr inbounds i8, ptr %opaque, i64 3188
+  %.pre = load i16, ptr %norintsts.i.i276.phi.trans.insert, align 4
   br label %if.end366
 
 if.then361:                                       ; preds = %if.end358.thread, %if.end358
@@ -4865,49 +4865,49 @@ if.then361:                                       ; preds = %if.end358.thread, %
 if.end366:                                        ; preds = %if.end358.if.end366_crit_edge, %if.then361
   %152 = phi i16 [ %151, %if.then361 ], [ %.pre, %if.end358.if.end366_crit_edge ]
   %153 = phi i16 [ %149, %if.then361 ], [ 0, %if.end358.if.end366_crit_edge ]
-  %norintsigen.i.i276 = getelementptr inbounds i8, ptr %opaque, i64 3196
-  %154 = load i16, ptr %norintsigen.i.i276, align 4
-  %and8.i.i277 = and i16 %154, %152
-  %tobool.not.i.i278 = icmp eq i16 %and8.i.i277, 0
-  br i1 %tobool.not.i.i278, label %lor.lhs.false.i.i283, label %sdhci_update_irq.exit298
+  %norintsigen.i.i277 = getelementptr inbounds i8, ptr %opaque, i64 3196
+  %154 = load i16, ptr %norintsigen.i.i277, align 4
+  %and8.i.i278 = and i16 %154, %152
+  %tobool.not.i.i279 = icmp eq i16 %and8.i.i278, 0
+  br i1 %tobool.not.i.i279, label %lor.lhs.false.i.i284, label %sdhci_update_irq.exit299
 
-lor.lhs.false.i.i283:                             ; preds = %if.end366
-  %errintsigen.i.i285 = getelementptr inbounds i8, ptr %opaque, i64 3198
-  %155 = load i16, ptr %errintsigen.i.i285, align 2
-  %and49.i.i286 = and i16 %155, %153
-  %tobool5.not.i.i287 = icmp eq i16 %and49.i.i286, 0
-  br i1 %tobool5.not.i.i287, label %lor.lhs.false6.i.i288, label %sdhci_update_irq.exit298
+lor.lhs.false.i.i284:                             ; preds = %if.end366
+  %errintsigen.i.i286 = getelementptr inbounds i8, ptr %opaque, i64 3198
+  %155 = load i16, ptr %errintsigen.i.i286, align 2
+  %and49.i.i287 = and i16 %155, %153
+  %tobool5.not.i.i288 = icmp eq i16 %and49.i.i287, 0
+  br i1 %tobool5.not.i.i288, label %lor.lhs.false6.i.i289, label %sdhci_update_irq.exit299
 
-lor.lhs.false6.i.i288:                            ; preds = %lor.lhs.false.i.i283
+lor.lhs.false6.i.i289:                            ; preds = %lor.lhs.false.i.i284
   %156 = and i16 %152, 64
-  %tobool10.not.i.i289 = icmp eq i16 %156, 0
-  br i1 %tobool10.not.i.i289, label %lor.rhs.i.i293, label %land.lhs.true.i.i290
+  %tobool10.not.i.i290 = icmp eq i16 %156, 0
+  br i1 %tobool10.not.i.i290, label %lor.rhs.i.i294, label %land.lhs.true.i.i291
 
-land.lhs.true.i.i290:                             ; preds = %lor.lhs.false6.i.i288
-  %wakcon.i.i291 = getelementptr inbounds i8, ptr %opaque, i64 3183
-  %157 = load i8, ptr %wakcon.i.i291, align 1
+land.lhs.true.i.i291:                             ; preds = %lor.lhs.false6.i.i289
+  %wakcon.i.i292 = getelementptr inbounds i8, ptr %opaque, i64 3183
+  %157 = load i8, ptr %wakcon.i.i292, align 1
   %158 = and i8 %157, 2
-  %tobool13.not.i.i292 = icmp eq i8 %158, 0
-  br i1 %tobool13.not.i.i292, label %lor.rhs.i.i293, label %sdhci_update_irq.exit298
+  %tobool13.not.i.i293 = icmp eq i8 %158, 0
+  br i1 %tobool13.not.i.i293, label %lor.rhs.i.i294, label %sdhci_update_irq.exit299
 
-lor.rhs.i.i293:                                   ; preds = %land.lhs.true.i.i290, %lor.lhs.false6.i.i288
+lor.rhs.i.i294:                                   ; preds = %land.lhs.true.i.i291, %lor.lhs.false6.i.i289
   %159 = and i16 %152, 128
-  %tobool17.not.i.i294 = icmp eq i16 %159, 0
-  br i1 %tobool17.not.i.i294, label %sdhci_update_irq.exit298, label %land.rhs.i.i295
+  %tobool17.not.i.i295 = icmp eq i16 %159, 0
+  br i1 %tobool17.not.i.i295, label %sdhci_update_irq.exit299, label %land.rhs.i.i296
 
-land.rhs.i.i295:                                  ; preds = %lor.rhs.i.i293
-  %wakcon18.i.i296 = getelementptr inbounds i8, ptr %opaque, i64 3183
-  %160 = load i8, ptr %wakcon18.i.i296, align 1
+land.rhs.i.i296:                                  ; preds = %lor.rhs.i.i294
+  %wakcon18.i.i297 = getelementptr inbounds i8, ptr %opaque, i64 3183
+  %160 = load i8, ptr %wakcon18.i.i297, align 1
   %161 = lshr i8 %160, 2
-  %.lobit.i.i297 = and i8 %161, 1
-  %162 = zext nneg i8 %.lobit.i.i297 to i32
-  br label %sdhci_update_irq.exit298
+  %.lobit.i.i298 = and i8 %161, 1
+  %162 = zext nneg i8 %.lobit.i.i298 to i32
+  br label %sdhci_update_irq.exit299
 
-sdhci_update_irq.exit298:                         ; preds = %if.end366, %lor.lhs.false.i.i283, %land.lhs.true.i.i290, %lor.rhs.i.i293, %land.rhs.i.i295
-  %conv22.i.i279 = phi i32 [ 1, %land.lhs.true.i.i290 ], [ 1, %lor.lhs.false.i.i283 ], [ 1, %if.end366 ], [ 0, %lor.rhs.i.i293 ], [ %162, %land.rhs.i.i295 ]
-  %irq.i281 = getelementptr inbounds i8, ptr %opaque, i64 3136
-  %163 = load ptr, ptr %irq.i281, align 16
-  tail call void @qemu_set_irq(ptr noundef %163, i32 noundef %conv22.i.i279) #11
+sdhci_update_irq.exit299:                         ; preds = %if.end366, %lor.lhs.false.i.i284, %land.lhs.true.i.i291, %lor.rhs.i.i294, %land.rhs.i.i296
+  %conv22.i.i280 = phi i32 [ 1, %land.lhs.true.i.i291 ], [ 1, %lor.lhs.false.i.i284 ], [ 1, %if.end366 ], [ 0, %lor.rhs.i.i294 ], [ %162, %land.rhs.i.i296 ]
+  %irq.i282 = getelementptr inbounds i8, ptr %opaque, i64 3136
+  %163 = load ptr, ptr %irq.i282, align 16
+  tail call void @qemu_set_irq(ptr noundef %163, i32 noundef %conv22.i.i280) #11
   br label %sw.epilog
 
 sw.bb368:                                         ; preds = %if.end
@@ -4948,9 +4948,9 @@ if.else392:                                       ; preds = %if.then379
 
 do.body397:                                       ; preds = %if.end, %if.end, %if.end, %if.end
   %168 = load i32, ptr @qemu_loglevel, align 4
-  %and.i301 = and i32 %168, 2048
-  %cmp.i302.not = icmp eq i32 %and.i301, 0
-  br i1 %cmp.i302.not, label %sw.epilog, label %if.then405
+  %and.i302 = and i32 %168, 2048
+  %cmp.i303.not = icmp eq i32 %and.i302, 0
+  br i1 %cmp.i303.not, label %sw.epilog, label %if.then405
 
 if.then405:                                       ; preds = %do.body397
   %shr406 = lshr exact i32 %shl6, %conv
@@ -4959,17 +4959,17 @@ if.then405:                                       ; preds = %do.body397
 
 do.body409:                                       ; preds = %if.end
   %169 = load i32, ptr @qemu_loglevel, align 4
-  %and.i303 = and i32 %169, 1024
-  %cmp.i304.not = icmp eq i32 %and.i303, 0
-  br i1 %cmp.i304.not, label %sw.epilog, label %if.then417
+  %and.i304 = and i32 %169, 1024
+  %cmp.i305.not = icmp eq i32 %and.i304, 0
+  br i1 %cmp.i305.not, label %sw.epilog, label %if.then417
 
 if.then417:                                       ; preds = %do.body409
   %shr418 = lshr exact i32 %shl6, %conv
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.71, i32 noundef %size, i64 noundef %offset, i32 noundef %shr418) #11
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %for.inc.i, %lor.lhs.false, %land.lhs.true.i, %trace_sdhci_error.exit.i201, %for.cond.preheader.i, %sdhci_buff_access_is_sequential.exit, %if.then417, %do.body409, %if.then405, %do.body397, %sw.bb368, %if.else392, %if.then391, %if.then200, %if.else205, %lor.lhs.false160, %if.then171, %sw.bb91, %sdhci_can_issue_command.exit, %sw.bb36, %if.then84, %if.end78, %sw.bb, %if.then32, %if.else, %land.lhs.true24, %land.lhs.true20, %land.lhs.true, %if.then9, %sdhci_update_irq.exit298, %sw.bb329, %sw.bb322, %sw.bb316, %sdhci_update_irq.exit274, %sdhci_update_irq.exit250, %sdhci_update_irq.exit, %if.end115, %sw.bb87
-  %value.2 = phi i32 [ %shl6, %if.then417 ], [ %shl6, %do.body409 ], [ %shl6, %if.then405 ], [ %shl6, %do.body397 ], [ %shl6, %if.then391 ], [ %shl6, %if.else392 ], [ %shl6, %sw.bb368 ], [ %shl6, %sdhci_update_irq.exit298 ], [ %shl6, %sw.bb329 ], [ %shl6, %sw.bb322 ], [ %shl6, %sw.bb316 ], [ %shl6, %sdhci_update_irq.exit274 ], [ %shl6, %sdhci_update_irq.exit250 ], [ %spec.select187, %sdhci_update_irq.exit ], [ %shl6, %if.then200 ], [ %shl6, %if.else205 ], [ %shl6, %if.then171 ], [ %shl6, %lor.lhs.false160 ], [ %shl6, %sdhci_buff_access_is_sequential.exit ], [ %spec.select, %sw.bb91 ], [ %spec.select, %if.end115 ], [ %spec.select, %sdhci_can_issue_command.exit ], [ %shl6, %sw.bb87 ], [ %shl6, %sw.bb36 ], [ %shl6, %if.then84 ], [ %shl6, %if.end78 ], [ %shl6, %sw.bb ], [ %shl6, %if.then9 ], [ %shl6, %if.then32 ], [ %shl6, %if.else ], [ %shl6, %land.lhs.true24 ], [ %shl6, %land.lhs.true20 ], [ %shl6, %land.lhs.true ], [ %shl6, %for.cond.preheader.i ], [ %shl6, %trace_sdhci_error.exit.i201 ], [ %spec.select, %land.lhs.true.i ], [ %spec.select, %lor.lhs.false ], [ %shl6, %for.inc.i ]
+sw.epilog:                                        ; preds = %for.inc.i, %lor.lhs.false, %land.lhs.true.i, %lor.lhs.false9.i, %trace_sdhci_error.exit.i201, %for.cond.preheader.i, %sdhci_buff_access_is_sequential.exit, %if.then417, %do.body409, %if.then405, %do.body397, %sw.bb368, %if.else392, %if.then391, %if.then200, %if.else205, %lor.lhs.false160, %if.then171, %sw.bb91, %sw.bb36, %if.then84, %if.end78, %sw.bb, %if.then32, %if.else, %land.lhs.true24, %land.lhs.true20, %land.lhs.true, %if.then9, %sdhci_update_irq.exit299, %sw.bb329, %sw.bb322, %sw.bb316, %sdhci_update_irq.exit275, %sdhci_update_irq.exit251, %sdhci_update_irq.exit, %if.end115, %sw.bb87
+  %value.2 = phi i32 [ %shl6, %if.then417 ], [ %shl6, %do.body409 ], [ %shl6, %if.then405 ], [ %shl6, %do.body397 ], [ %shl6, %if.then391 ], [ %shl6, %if.else392 ], [ %shl6, %sw.bb368 ], [ %shl6, %sdhci_update_irq.exit299 ], [ %shl6, %sw.bb329 ], [ %shl6, %sw.bb322 ], [ %shl6, %sw.bb316 ], [ %shl6, %sdhci_update_irq.exit275 ], [ %shl6, %sdhci_update_irq.exit251 ], [ %spec.select187, %sdhci_update_irq.exit ], [ %shl6, %if.then200 ], [ %shl6, %if.else205 ], [ %shl6, %if.then171 ], [ %shl6, %lor.lhs.false160 ], [ %shl6, %sdhci_buff_access_is_sequential.exit ], [ %spec.select, %sw.bb91 ], [ %spec.select, %if.end115 ], [ %shl6, %sw.bb87 ], [ %shl6, %sw.bb36 ], [ %shl6, %if.then84 ], [ %shl6, %if.end78 ], [ %shl6, %sw.bb ], [ %shl6, %if.then9 ], [ %shl6, %if.then32 ], [ %shl6, %if.else ], [ %shl6, %land.lhs.true24 ], [ %shl6, %land.lhs.true20 ], [ %shl6, %land.lhs.true ], [ %shl6, %for.cond.preheader.i ], [ %shl6, %trace_sdhci_error.exit.i201 ], [ %spec.select, %lor.lhs.false9.i ], [ %spec.select, %land.lhs.true.i ], [ %spec.select, %lor.lhs.false ], [ %shl6, %for.inc.i ]
   %shr422 = lshr i32 %value.2, %conv
   %conv423 = zext i32 %shr422 to i64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -4982,8 +4982,8 @@ sw.epilog:                                        ; preds = %for.inc.i, %lor.lhs
 
 land.lhs.true5.i.i:                               ; preds = %sw.epilog
   %172 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i305 = and i32 %172, 32768
-  %cmp.i.not.i.i = icmp eq i32 %and.i.i.i305, 0
+  %and.i.i.i306 = and i32 %172, 32768
+  %cmp.i.not.i.i = icmp eq i32 %and.i.i.i306, 0
   br i1 %cmp.i.not.i.i, label %trace_sdhci_access.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i

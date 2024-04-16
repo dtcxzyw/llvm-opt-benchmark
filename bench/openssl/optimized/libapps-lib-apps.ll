@@ -439,7 +439,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ctx_set_verify_locations(ptr noundef %ctx, ptr noundef %CAfile, i32 noundef %noCAfile, ptr noundef %CApath, i32 noundef %noCApath, ptr noundef %CAstore, i32 noundef %noCAstore) local_unnamed_addr #0 {
+define noundef i32 @ctx_set_verify_locations(ptr noundef %ctx, ptr noundef %CAfile, i32 noundef %noCAfile, ptr noundef %CApath, i32 noundef %noCApath, ptr noundef %CAstore, i32 noundef %noCAstore) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %CAfile, null
   %cmp1 = icmp eq ptr %CApath, null
@@ -468,11 +468,14 @@ land.lhs.true8:                                   ; preds = %if.end
 
 if.end12:                                         ; preds = %land.lhs.true8, %if.end
   %tobool13.not = icmp eq i32 %noCAstore, 0
-  br i1 %tobool13.not, label %land.lhs.true14, label %return
+  br i1 %tobool13.not, label %land.lhs.true14, label %if.end18
 
 land.lhs.true14:                                  ; preds = %if.end12
   %call15 = tail call i32 @SSL_CTX_set_default_verify_store(ptr noundef %ctx) #28
-  %cmp16 = icmp sgt i32 %call15, 0
+  %cmp16 = icmp slt i32 %call15, 1
+  br i1 %cmp16, label %return, label %if.end18
+
+if.end18:                                         ; preds = %land.lhs.true14, %if.end12
   br label %return
 
 if.end19:                                         ; preds = %entry
@@ -489,21 +492,21 @@ if.end25:                                         ; preds = %land.lhs.true21, %i
 land.lhs.true27:                                  ; preds = %if.end25
   %call28 = tail call i32 @SSL_CTX_load_verify_dir(ptr noundef %ctx, ptr noundef nonnull %CApath) #28
   %tobool29.not = icmp eq i32 %call28, 0
-  %brmerge = or i1 %cmp3, %tobool29.not
-  %not.tobool29.not = xor i1 %tobool29.not, true
-  br i1 %brmerge, label %return, label %land.lhs.true33
+  br i1 %tobool29.not, label %return, label %if.end31
 
-if.end31:                                         ; preds = %if.end25
-  br i1 %cmp3, label %return, label %land.lhs.true33
+if.end31:                                         ; preds = %land.lhs.true27, %if.end25
+  br i1 %cmp3, label %if.end37, label %land.lhs.true33
 
-land.lhs.true33:                                  ; preds = %land.lhs.true27, %if.end31
+land.lhs.true33:                                  ; preds = %if.end31
   %call34 = tail call i32 @SSL_CTX_load_verify_store(ptr noundef %ctx, ptr noundef nonnull %CAstore) #28
-  %tobool35.not = icmp ne i32 %call34, 0
+  %tobool35.not = icmp eq i32 %call34, 0
+  br i1 %tobool35.not, label %return, label %if.end37
+
+if.end37:                                         ; preds = %land.lhs.true33, %if.end31
   br label %return
 
-return:                                           ; preds = %land.lhs.true27, %land.lhs.true33, %land.lhs.true14, %if.end31, %land.lhs.true21, %if.end12, %land.lhs.true8, %land.lhs.true4
-  %retval.0.shrunk = phi i1 [ false, %land.lhs.true4 ], [ false, %land.lhs.true8 ], [ true, %if.end12 ], [ false, %land.lhs.true21 ], [ %not.tobool29.not, %land.lhs.true27 ], [ true, %if.end31 ], [ %cmp16, %land.lhs.true14 ], [ %tobool35.not, %land.lhs.true33 ]
-  %retval.0 = zext i1 %retval.0.shrunk to i32
+return:                                           ; preds = %land.lhs.true33, %land.lhs.true27, %land.lhs.true21, %land.lhs.true14, %land.lhs.true8, %land.lhs.true4, %if.end37, %if.end18
+  %retval.0 = phi i32 [ 1, %if.end18 ], [ 1, %if.end37 ], [ 0, %land.lhs.true4 ], [ 0, %land.lhs.true8 ], [ 0, %land.lhs.true14 ], [ 0, %land.lhs.true21 ], [ 0, %land.lhs.true27 ], [ 0, %land.lhs.true33 ]
   ret i32 %retval.0
 }
 
@@ -708,7 +711,7 @@ if.end13:                                         ; preds = %if.then.i, %entry, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @app_passwd(ptr noundef %arg1, ptr noundef %arg2, ptr noundef writeonly %pass1, ptr noundef writeonly %pass2) local_unnamed_addr #0 {
+define noundef i32 @app_passwd(ptr noundef %arg1, ptr noundef %arg2, ptr noundef writeonly %pass1, ptr noundef writeonly %pass2) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ne ptr %arg1, null
   %cmp1 = icmp ne ptr %arg2, null
@@ -747,20 +750,22 @@ if.then12:                                        ; preds = %if.end10
   %cond = select i1 %1, i32 2, i32 0
   %call13 = tail call fastcc ptr @app_get_pass(ptr noundef nonnull %arg2, i32 noundef %cond)
   store ptr %call13, ptr %pass2, align 8
-  %cmp14 = icmp ne ptr %call13, null
-  %spec.select = zext i1 %cmp14 to i32
-  br label %return
+  %cmp14 = icmp eq ptr %call13, null
+  br i1 %cmp14, label %return, label %if.end21
 
 if.else17:                                        ; preds = %if.end10
   %cmp18.not = icmp eq ptr %pass2, null
-  br i1 %cmp18.not, label %return, label %if.then19
+  br i1 %cmp18.not, label %if.end21, label %if.then19
 
 if.then19:                                        ; preds = %if.else17
   store ptr null, ptr %pass2, align 8
+  br label %if.end21
+
+if.end21:                                         ; preds = %if.else17, %if.then19, %if.then12
   br label %return
 
-return:                                           ; preds = %if.then12, %if.then19, %if.else17, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ 1, %if.else17 ], [ 1, %if.then19 ], [ %spec.select, %if.then12 ]
+return:                                           ; preds = %if.then12, %if.then, %if.end21
+  %retval.0 = phi i32 [ 1, %if.end21 ], [ 0, %if.then ], [ 0, %if.then12 ]
   ret i32 %retval.0
 }
 
@@ -3635,7 +3640,7 @@ declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #13
 declare ptr @BN_new() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @rand_serial(ptr noundef %b, ptr noundef %ai) local_unnamed_addr #0 {
+define noundef i32 @rand_serial(ptr noundef %b, ptr noundef %ai) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %b, null
   br i1 %cmp, label %cond.end, label %if.end
@@ -3653,16 +3658,18 @@ if.end:                                           ; preds = %entry, %cond.end
 
 if.end4:                                          ; preds = %if.end
   %tobool5.not = icmp eq ptr %ai, null
-  br i1 %tobool5.not, label %error, label %land.lhs.true
+  br i1 %tobool5.not, label %if.end9, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end4
   %call6 = tail call ptr @BN_to_ASN1_INTEGER(ptr noundef nonnull %cond10, ptr noundef nonnull %ai) #28
-  %tobool7.not = icmp ne ptr %call6, null
-  %spec.select = zext i1 %tobool7.not to i32
+  %tobool7.not = icmp eq ptr %call6, null
+  br i1 %tobool7.not, label %error, label %if.end9
+
+if.end9:                                          ; preds = %land.lhs.true, %if.end4
   br label %error
 
-error:                                            ; preds = %land.lhs.true, %if.end4, %if.end
-  %ret.0 = phi i32 [ 0, %if.end ], [ 1, %if.end4 ], [ %spec.select, %land.lhs.true ]
+error:                                            ; preds = %land.lhs.true, %if.end, %if.end9
+  %ret.0 = phi i32 [ 1, %if.end9 ], [ 0, %land.lhs.true ], [ 0, %if.end ]
   %cmp10.not = icmp eq ptr %cond10, %b
   br i1 %cmp10.not, label %return, label %if.then11
 
@@ -3994,7 +4001,7 @@ declare ptr @TXT_DB_read(ptr noundef, i32 noundef) local_unnamed_addr #2
 define noundef i32 @parse_yesno(ptr noundef readonly %str, i32 noundef %def) local_unnamed_addr #14 {
 entry:
   %tobool.not = icmp eq ptr %str, null
-  br i1 %tobool.not, label %return, label %if.then
+  br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %0 = load i8, ptr %str, align 1
@@ -4014,11 +4021,11 @@ if.then:                                          ; preds = %entry
 sw.bb1:                                           ; preds = %if.then, %if.then, %if.then, %if.then, %if.then
   br label %return
 
-if.end:                                           ; preds = %if.then
+if.end:                                           ; preds = %if.then, %entry
   br label %return
 
-return:                                           ; preds = %entry, %if.then, %if.then, %if.then, %if.then, %if.then, %if.end, %sw.bb1
-  %retval.0 = phi i32 [ 1, %sw.bb1 ], [ 0, %if.then ], [ 0, %if.then ], [ 0, %if.then ], [ 0, %if.then ], [ 0, %if.then ], [ %def, %entry ], [ %def, %if.end ]
+return:                                           ; preds = %if.then, %if.then, %if.then, %if.then, %if.then, %if.end, %sw.bb1
+  %retval.0 = phi i32 [ %def, %if.end ], [ 1, %sw.bb1 ], [ 0, %if.then ], [ 0, %if.then ], [ 0, %if.then ], [ 0, %if.then ], [ 0, %if.then ]
   ret i32 %retval.0
 }
 

@@ -1015,9 +1015,9 @@ IDANewtonIC.exit.i:                               ; preds = %557, %.preheader86.
   store i64 %580, ptr %189, align 8
   br label %IDANlsIC.exit.thread324
 
-.loopexit357:                                     ; preds = %257, %IDANewtonIC.exit.i, %.loopexit.i, %274, %557, %297, %336, %.loopexit106.i.i.i, %501, %499, %412, %424, %451, %480
-  %.not279 = phi i1 [ false, %480 ], [ false, %451 ], [ false, %424 ], [ false, %412 ], [ false, %499 ], [ false, %501 ], [ false, %.loopexit106.i.i.i ], [ false, %336 ], [ false, %297 ], [ false, %257 ], [ true, %IDANewtonIC.exit.i ], [ true, %.loopexit.i ], [ false, %274 ], [ false, %557 ]
-  %.0.i.ph = phi i32 [ 1, %480 ], [ 3, %501 ], [ 3, %499 ], [ 1, %412 ], [ 1, %424 ], [ 1, %451 ], [ 2, %336 ], [ 3, %.loopexit106.i.i.i ], [ 1, %297 ], [ 1, %257 ], [ 5, %IDANewtonIC.exit.i ], [ 5, %.loopexit.i ], [ 1, %274 ], [ 4, %557 ]
+.loopexit357:                                     ; preds = %257, %.loopexit.i, %IDANewtonIC.exit.i, %274, %557, %297, %336, %.loopexit106.i.i.i, %501, %499, %412, %424, %451, %480
+  %.not279 = phi i1 [ false, %480 ], [ false, %451 ], [ false, %424 ], [ false, %412 ], [ false, %499 ], [ false, %501 ], [ false, %.loopexit106.i.i.i ], [ false, %336 ], [ false, %297 ], [ false, %257 ], [ true, %.loopexit.i ], [ true, %IDANewtonIC.exit.i ], [ false, %274 ], [ false, %557 ]
+  %.0.i.ph = phi i32 [ 1, %480 ], [ 3, %501 ], [ 3, %499 ], [ 1, %412 ], [ 1, %424 ], [ 1, %451 ], [ 2, %336 ], [ 3, %.loopexit106.i.i.i ], [ 1, %297 ], [ 1, %257 ], [ 5, %.loopexit.i ], [ 5, %IDANewtonIC.exit.i ], [ 1, %274 ], [ 4, %557 ]
   %581 = load i64, ptr %189, align 8
   %582 = add nsw i64 %581, 1
   store i64 %582, ptr %189, align 8

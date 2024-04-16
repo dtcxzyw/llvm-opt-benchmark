@@ -2113,8 +2113,8 @@ if.end86:                                         ; preds = %if.end61
   %.legacy_rsa_sigalg = select i1 %tobool88.not, ptr null, ptr @legacy_rsa_sigalg
   br label %return
 
-return:                                           ; preds = %for.inc, %for.inc.i, %for.cond.preheader, %if.then.i, %if.then68, %if.else.i, %if.end86, %if.end81, %if.end55
-  %retval.0 = phi ptr [ null, %if.end55 ], [ %.call71, %if.end81 ], [ %.legacy_rsa_sigalg, %if.end86 ], [ null, %if.else.i ], [ null, %if.then68 ], [ null, %if.then.i ], [ null, %for.cond.preheader ], [ null, %for.inc.i ], [ null, %for.inc ]
+return:                                           ; preds = %for.inc, %for.inc.i, %for.cond.preheader, %if.else.i, %if.then.i, %if.then68, %if.end86, %if.end81, %if.end55
+  %retval.0 = phi ptr [ null, %if.end55 ], [ %.call71, %if.end81 ], [ %.legacy_rsa_sigalg, %if.end86 ], [ null, %if.then68 ], [ null, %if.then.i ], [ null, %if.else.i ], [ null, %for.cond.preheader ], [ null, %for.inc.i ], [ null, %for.inc ]
   ret ptr %retval.0
 }
 
@@ -4918,8 +4918,8 @@ land.lhs.true24:                                  ; preds = %lor.lhs.false21
   %17 = zext i1 %switch.selectcmp.not to i32
   br label %for.inc
 
-for.inc:                                          ; preds = %for.inc.i, %if.then.i, %for.body, %land.lhs.true24, %land.lhs.true, %land.lhs.true10, %if.end6, %lor.lhs.false21, %lor.lhs.false
-  %rv.1 = phi i32 [ 0, %lor.lhs.false21 ], [ 1, %if.end6 ], [ %rv.022, %lor.lhs.false ], [ 1, %land.lhs.true10 ], [ 1, %land.lhs.true ], [ %17, %land.lhs.true24 ], [ %rv.022, %for.body ], [ %rv.022, %if.then.i ], [ %rv.022, %for.inc.i ]
+for.inc:                                          ; preds = %for.inc.i, %if.then.i, %for.body, %land.lhs.true, %land.lhs.true10, %land.lhs.true24, %if.end6, %lor.lhs.false21, %lor.lhs.false
+  %rv.1 = phi i32 [ 0, %lor.lhs.false21 ], [ 1, %if.end6 ], [ %rv.022, %lor.lhs.false ], [ %17, %land.lhs.true24 ], [ 1, %land.lhs.true10 ], [ 1, %land.lhs.true ], [ %rv.022, %for.body ], [ %rv.022, %if.then.i ], [ %rv.022, %for.inc.i ]
   %inc = add nuw i64 %i.021, 1
   %incdec.ptr = getelementptr inbounds i8, ptr %psig.addr.020, i64 2
   %exitcond.not = icmp eq i64 %inc, %psiglen
@@ -6537,8 +6537,8 @@ rsa_pss_check_min_key_size.exit:                  ; preds = %if.else.i.i
   %cmp6.i.not = icmp slt i32 %call4.i, %add.i
   br i1 %cmp6.i.not, label %for.inc, label %for.end.loopexit
 
-for.inc:                                          ; preds = %if.end.i.i46, %if.else.i.i, %if.then39, %if.end6.i.i, %land.lhs.true, %lor.lhs.false.i.i, %ssl_has_cert.exit.i, %is_cert_usable.exit.thread, %if.else.i, %if.end29, %lor.lhs.false4, %lor.lhs.false4, %for.body, %for.body, %rsa_pss_check_min_key_size.exit, %has_usable_cert.exit, %is_cert_usable.exit
-  %curve.2 = phi i32 [ %curve.060, %for.body ], [ %curve.060, %lor.lhs.false4 ], [ %curve.060, %rsa_pss_check_min_key_size.exit ], [ %curve.060, %is_cert_usable.exit ], [ %curve.060, %has_usable_cert.exit ], [ %curve.060, %for.body ], [ %curve.060, %lor.lhs.false4 ], [ %curve.1, %if.end29 ], [ %curve.060, %if.else.i ], [ %curve.060, %is_cert_usable.exit.thread ], [ %curve.060, %ssl_has_cert.exit.i ], [ %curve.060, %lor.lhs.false.i.i ], [ %curve.060, %land.lhs.true ], [ %curve.060, %if.end6.i.i ], [ %curve.060, %if.then39 ], [ %curve.060, %if.else.i.i ], [ %curve.060, %if.end.i.i46 ]
+for.inc:                                          ; preds = %if.end.i.i46, %if.else.i.i, %if.then39, %if.end6.i.i, %land.lhs.true, %lor.lhs.false.i.i, %ssl_has_cert.exit.i, %if.else.i, %is_cert_usable.exit.thread, %if.end29, %lor.lhs.false4, %lor.lhs.false4, %for.body, %for.body, %rsa_pss_check_min_key_size.exit, %has_usable_cert.exit, %is_cert_usable.exit
+  %curve.2 = phi i32 [ %curve.060, %for.body ], [ %curve.060, %lor.lhs.false4 ], [ %curve.060, %rsa_pss_check_min_key_size.exit ], [ %curve.060, %is_cert_usable.exit ], [ %curve.060, %has_usable_cert.exit ], [ %curve.060, %for.body ], [ %curve.060, %lor.lhs.false4 ], [ %curve.1, %if.end29 ], [ %curve.060, %is_cert_usable.exit.thread ], [ %curve.060, %if.else.i ], [ %curve.060, %ssl_has_cert.exit.i ], [ %curve.060, %lor.lhs.false.i.i ], [ %curve.060, %land.lhs.true ], [ %curve.060, %if.end6.i.i ], [ %curve.060, %if.then39 ], [ %curve.060, %if.else.i.i ], [ %curve.060, %if.end.i.i46 ]
   %inc = add nuw i64 %i.058, 1
   %29 = load i64, ptr %shared_sigalgslen, align 8
   %cmp = icmp ult i64 %inc, %29
@@ -7410,12 +7410,12 @@ if.end.i79:                                       ; preds = %land.lhs.true.i, %l
 land.lhs.true.i.i:                                ; preds = %if.end.i79
   %31 = load i8, ptr %server_cert_type.i.i, align 2
   %cmp.i.i82 = icmp eq i8 %31, 2
-  br i1 %cmp.i.i82, label %land.lhs.true9.i.i, label %return.sink.split.i83
+  br i1 %cmp.i.i82, label %land.lhs.true9.i.i, label %if.end20.i
 
 land.lhs.true4.i.i:                               ; preds = %if.end.i79
   %32 = load i8, ptr %client_cert_type.i.i, align 8
   %cmp7.i.i = icmp eq i8 %32, 2
-  br i1 %cmp7.i.i, label %land.lhs.true9.i.i, label %return.sink.split.i83
+  br i1 %cmp7.i.i, label %land.lhs.true9.i.i, label %if.end20.i
 
 land.lhs.true9.i.i:                               ; preds = %land.lhs.true4.i.i, %land.lhs.true.i.i
   %33 = load ptr, ptr %cert42, align 8
@@ -7425,16 +7425,18 @@ land.lhs.true9.i.i:                               ; preds = %land.lhs.true4.i.i,
   %privatekey.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   %35 = load ptr, ptr %privatekey.i.i, align 8
   %cmp10.not.i.i = icmp eq ptr %35, null
-  br i1 %cmp10.not.i.i, label %return.sink.split.i83, label %tls12_rpk_and_privkey.exit.i
+  br i1 %cmp10.not.i.i, label %if.end20.i, label %tls12_rpk_and_privkey.exit.i
 
 tls12_rpk_and_privkey.exit.i:                     ; preds = %land.lhs.true9.i.i
   %36 = load ptr, ptr %arrayidx.i.i, align 8
   %cmp16.i.not.i = icmp eq ptr %36, null
-  %spec.select.i = select i1 %cmp16.i.not.i, i32 4096, i32 1
+  br i1 %cmp16.i.not.i, label %return.sink.split.i83, label %if.end20.i
+
+if.end20.i:                                       ; preds = %tls12_rpk_and_privkey.exit.i, %land.lhs.true9.i.i, %land.lhs.true4.i.i, %land.lhs.true.i.i
   br label %return.sink.split.i83
 
-return.sink.split.i83:                            ; preds = %tls12_rpk_and_privkey.exit.i, %land.lhs.true9.i.i, %land.lhs.true4.i.i, %land.lhs.true.i.i
-  %.sink3.i = phi i32 [ 1, %land.lhs.true.i.i ], [ 1, %land.lhs.true4.i.i ], [ 1, %land.lhs.true9.i.i ], [ %spec.select.i, %tls12_rpk_and_privkey.exit.i ]
+return.sink.split.i83:                            ; preds = %if.end20.i, %tls12_rpk_and_privkey.exit.i
+  %.sink3.i = phi i32 [ 1, %if.end20.i ], [ 4096, %tls12_rpk_and_privkey.exit.i ]
   %37 = load ptr, ptr %valid_flags23.i, align 8
   %arrayidx25.i = getelementptr inbounds i32, ptr %37, i64 %conv.i75
   %38 = load i32, ptr %arrayidx25.i, align 4

@@ -2532,7 +2532,7 @@ if.end4.i:                                        ; preds = %if.end.i
   %interpid.i.i = getelementptr inbounds i8, ptr %.val6.i, i64 16
   %2 = load i64, ptr %interpid.i.i, align 8
   %cmp.i5 = icmp sgt i64 %ns.val, 1
-  br i1 %cmp.i5, label %if.then5.i, label %if.end4
+  br i1 %cmp.i5, label %if.then5.i, label %if.end17.i
 
 if.then5.i:                                       ; preds = %if.end4.i
   %3 = getelementptr %struct._sharednsitem, ptr %0, i64 %ns.val
@@ -2545,7 +2545,9 @@ if.end12.i:                                       ; preds = %if.then5.i
   %4 = getelementptr i8, ptr %3, i64 -8
   %arrayidx8.val7.i = load ptr, ptr %4, align 8
   %cmp.i10.i = icmp eq ptr %arrayidx8.val7.i, null
-  %spec.select = select i1 %cmp.i10.i, i64 -1, i64 %2
+  br i1 %cmp.i10.i, label %if.end4, label %if.end17.i
+
+if.end17.i:                                       ; preds = %if.end12.i, %if.end4.i
   br label %if.end4
 
 for.cond.preheader.i.i:                           ; preds = %if.end, %if.end.i
@@ -2572,8 +2574,8 @@ _sharednsitem_clear.exit.i.i:                     ; preds = %if.then.i.i.i, %for
   %cmp.i.i6 = icmp slt i64 %inc.i.i, %7
   br i1 %cmp.i.i6, label %for.body.i.i, label %if.end8.sink.split.sink.split.sink.split, !llvm.loop !7
 
-if.end4:                                          ; preds = %if.end12.i, %if.then5.i, %if.end4.i
-  %interpid.0.ph = phi i64 [ %2, %if.end4.i ], [ -1, %if.then5.i ], [ %spec.select, %if.end12.i ]
+if.end4:                                          ; preds = %if.end17.i, %if.then5.i, %if.end12.i
+  %interpid.0.ph = phi i64 [ %2, %if.end17.i ], [ -1, %if.end12.i ], [ -1, %if.then5.i ]
   %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %9 = load ptr, ptr %8, align 8
   %interp.i = getelementptr inbounds i8, ptr %9, i64 16

@@ -564,19 +564,21 @@ test_rand_reseed_on_fork.exit:                    ; preds = %test_drbg_reseed_in
   %call14 = call i32 @RAND_bytes(ptr noundef nonnull %random, i32 noundef 1) #14
   %call15 = call i32 @test_int_gt(ptr noundef nonnull @.str.4, i32 noundef 542, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.27, i32 noundef %call14, i32 noundef 0) #14
   %tobool16.not = icmp eq i32 %call15, 0
-  br i1 %tobool16.not, label %return, label %lor.lhs.false17
+  br i1 %tobool16.not, label %if.then22, label %lor.lhs.false17
 
 lor.lhs.false17:                                  ; preds = %test_rand_reseed_on_fork.exit
   %tobool11.not = icmp ne i32 %call10, 0
+  %spec.select = zext i1 %tobool11.not to i32
   %call19 = call i32 @RAND_priv_bytes(ptr noundef nonnull %random, i32 noundef 1) #14
   %call20 = call i32 @test_int_gt(ptr noundef nonnull @.str.4, i32 noundef 542, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.27, i32 noundef %call19, i32 noundef 0) #14
-  %tobool21.not = icmp ne i32 %call20, 0
-  %narrow = select i1 %tobool21.not, i1 %tobool11.not, i1 false
-  %spec.select1 = zext i1 %narrow to i32
+  %tobool21.not = icmp eq i32 %call20, 0
+  br i1 %tobool21.not, label %if.then22, label %return
+
+if.then22:                                        ; preds = %lor.lhs.false17, %test_rand_reseed_on_fork.exit
   br label %return
 
-return:                                           ; preds = %lor.lhs.false17, %test_rand_reseed_on_fork.exit, %entry, %lor.lhs.false, %lor.lhs.false5
-  %retval.0 = phi i32 [ 0, %lor.lhs.false5 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ 0, %test_rand_reseed_on_fork.exit ], [ %spec.select1, %lor.lhs.false17 ]
+return:                                           ; preds = %lor.lhs.false17, %if.then22, %entry, %lor.lhs.false, %lor.lhs.false5
+  %retval.0 = phi i32 [ 0, %lor.lhs.false5 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ %spec.select, %lor.lhs.false17 ], [ 0, %if.then22 ]
   ret i32 %retval.0
 }
 

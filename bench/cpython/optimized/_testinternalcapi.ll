@@ -1205,7 +1205,7 @@ if.then.i:                                        ; preds = %get_module_state.ex
   %call.i2 = tail call i32 %visit(ptr noundef nonnull %call.val, ptr noundef %arg) #9
   br label %traverse_module_state.exit
 
-traverse_module_state.exit:                       ; preds = %get_module_state.exit, %if.then.i
+traverse_module_state.exit:                       ; preds = %if.then.i, %get_module_state.exit
   ret i32 0
 }
 
@@ -1869,22 +1869,24 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @test_set_config(ptr nocapture readnone %_unused_self, ptr noundef %dict) #0 {
+define internal noundef ptr @test_set_config(ptr nocapture readnone %_unused_self, ptr noundef %dict) #0 {
 entry:
   %config = alloca %struct.PyConfig, align 8
   call void @PyConfig_InitIsolatedConfig(ptr noundef nonnull %config) #9
   %call = call i32 @_PyConfig_FromDict(ptr noundef nonnull %config, ptr noundef %dict) #9
   %cmp = icmp slt i32 %call, 0
-  br i1 %cmp, label %return, label %if.end
+  br i1 %cmp, label %error, label %if.end
 
 if.end:                                           ; preds = %entry
   %call1 = call i32 @_PyInterpreterState_SetConfig(ptr noundef nonnull %config) #9
   %cmp2 = icmp slt i32 %call1, 0
-  %spec.select = select i1 %cmp2, ptr null, ptr @_Py_NoneStruct
+  br i1 %cmp2, label %error, label %return
+
+error:                                            ; preds = %if.end, %entry
   br label %return
 
-return:                                           ; preds = %if.end, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ %spec.select, %if.end ]
+return:                                           ; preds = %if.end, %error
+  %retval.0 = phi ptr [ null, %error ], [ @_Py_NoneStruct, %if.end ]
   call void @PyConfig_Clear(ptr noundef nonnull %config) #9
   ret ptr %retval.0
 }

@@ -406,7 +406,7 @@ define internal noundef i32 @mca_common_monitoring_get_flush(ptr nocapture readn
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal i32 @mca_common_monitoring_set_flush(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #7 {
+define internal noundef i32 @mca_common_monitoring_set_flush(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #7 {
   %4 = load ptr, ptr @mca_common_monitoring_current_filename, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %6, label %5
@@ -430,11 +430,13 @@ define internal i32 @mca_common_monitoring_set_flush(ptr nocapture readnone %0, 
   %13 = tail call noalias ptr @strdup(ptr noundef nonnull %1) #19
   store ptr %13, ptr @mca_common_monitoring_current_filename, align 8
   %14 = icmp eq ptr %13, null
-  %spec.select = sext i1 %14 to i32
-  br label %15
+  br i1 %14, label %16, label %15
 
 15:                                               ; preds = %12, %11
-  %.0 = phi i32 [ 0, %11 ], [ %spec.select, %12 ]
+  br label %16
+
+16:                                               ; preds = %12, %15
+  %.0 = phi i32 [ 0, %15 ], [ -1, %12 ]
   ret i32 %.0
 }
 

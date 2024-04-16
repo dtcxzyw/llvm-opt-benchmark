@@ -63,13 +63,15 @@ notes_cache_match_validity.exit:                  ; preds = %if.end.i
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %oid.i)
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %pretty_ctx.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %msg.i)
-  %spec.select = select i1 %tobool5.not.i.not, i32 2, i32 3
-  br label %2
+  br i1 %tobool5.not.i.not, label %3, label %2
 
-2:                                                ; preds = %notes_cache_match_validity.exit, %notes_cache_match_validity.exit.thread
-  %3 = phi i32 [ 3, %notes_cache_match_validity.exit.thread ], [ %spec.select, %notes_cache_match_validity.exit ]
-  %4 = load ptr, ptr %buf, align 8
-  call void @init_notes(ptr noundef nonnull %c, ptr noundef %4, ptr noundef nonnull @combine_notes_overwrite, i32 noundef %3) #6
+2:                                                ; preds = %notes_cache_match_validity.exit.thread, %notes_cache_match_validity.exit
+  br label %3
+
+3:                                                ; preds = %notes_cache_match_validity.exit, %2
+  %4 = phi i32 [ 3, %2 ], [ 2, %notes_cache_match_validity.exit ]
+  %5 = load ptr, ptr %buf, align 8
+  call void @init_notes(ptr noundef nonnull %c, ptr noundef %5, ptr noundef nonnull @combine_notes_overwrite, i32 noundef %4) #6
   call void @strbuf_release(ptr noundef nonnull %ref) #6
   ret void
 }

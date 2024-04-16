@@ -2335,10 +2335,10 @@ define internal fastcc void @dissect_mgcp_params(ptr noundef %0, ptr noundef %1,
   br label %15
 
 15:                                               ; preds = %dissect_mgcp_connectionparams.exit, %3
-  %16 = phi i32 [ 0, %3 ], [ %905, %dissect_mgcp_connectionparams.exit ]
+  %16 = phi i32 [ 0, %3 ], [ %906, %dissect_mgcp_connectionparams.exit ]
   %17 = call i32 @tvb_offset_exists(ptr noundef %0, i32 noundef %16) #11
   %.not = icmp eq i32 %17, 0
-  br i1 %.not, label %906, label %18
+  br i1 %.not, label %907, label %18
 
 18:                                               ; preds = %15
   %19 = load i32, ptr %4, align 4
@@ -2361,14 +2361,14 @@ define internal fastcc void @dissect_mgcp_params(ptr noundef %0, ptr noundef %1,
     i8 82, label %94
     i8 83, label %101
     i8 68, label %104
-    i8 79, label %135
-    i8 80, label %138
-    i8 69, label %144
-    i8 90, label %150
-    i8 70, label %156
-    i8 81, label %159
-    i8 84, label %162
-    i8 65, label %165
+    i8 79, label %136
+    i8 80, label %139
+    i8 69, label %145
+    i8 90, label %151
+    i8 70, label %157
+    i8 81, label %160
+    i8 84, label %163
+    i8 65, label %166
   ]
 
 25:                                               ; preds = %22
@@ -2560,12 +2560,12 @@ define internal fastcc void @dissect_mgcp_params(ptr noundef %0, ptr noundef %1,
   %105 = add i32 %16, 1
   %106 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %105) #11
   %.not234.i = icmp eq i8 %106, 58
-  br i1 %.not234.i, label %134, label %107
+  br i1 %.not234.i, label %135, label %107
 
 107:                                              ; preds = %104
   %108 = add i32 %16, 5
   %109 = icmp ugt i32 %20, 5
-  br i1 %109, label %110, label %.critedge.i
+  br i1 %109, label %110, label %134
 
 110:                                              ; preds = %107
   %111 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %105) #11
@@ -2573,13 +2573,13 @@ define internal fastcc void @dissect_mgcp_params(ptr noundef %0, ptr noundef %1,
   %113 = zext i1 %112 to i8
   %114 = call signext i8 @g_ascii_toupper(i8 noundef signext %113) #12
   %.not235.i = icmp eq i8 %114, 0
-  br i1 %.not235.i, label %.critedge.i, label %115
+  br i1 %.not235.i, label %134, label %115
 
 115:                                              ; preds = %110
   %116 = add i32 %16, 2
   %117 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %116) #11
   %118 = icmp eq i8 %117, 45
-  br i1 %118, label %119, label %.critedge.i
+  br i1 %118, label %119, label %134
 
 119:                                              ; preds = %115
   %120 = add i32 %16, 3
@@ -2588,7 +2588,7 @@ define internal fastcc void @dissect_mgcp_params(ptr noundef %0, ptr noundef %1,
   %123 = zext i1 %122 to i8
   %124 = call signext i8 @g_ascii_toupper(i8 noundef signext %123) #12
   %.not236.i = icmp eq i8 %124, 0
-  br i1 %.not236.i, label %.critedge.i, label %125
+  br i1 %.not236.i, label %134, label %125
 
 125:                                              ; preds = %119
   %126 = add i32 %16, 4
@@ -2597,1357 +2597,1358 @@ define internal fastcc void @dissect_mgcp_params(ptr noundef %0, ptr noundef %1,
   %129 = zext i1 %128 to i8
   %130 = call signext i8 @g_ascii_toupper(i8 noundef signext %129) #12
   %.not237.i = icmp eq i8 %130, 0
-  br i1 %.not237.i, label %.critedge.i, label %131
+  br i1 %.not237.i, label %134, label %131
 
 131:                                              ; preds = %125
   %132 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %108) #11
   %133 = icmp eq i8 %132, 58
-  %spec.select155 = select i1 %133, ptr @hf_mgcp_param_resourceid, ptr @hf_mgcp_param_invalid
-  %spec.select156 = select i1 %133, i32 %126, i32 %16
+  br i1 %133, label %.critedge.i, label %134
+
+134:                                              ; preds = %131, %125, %119, %115, %110, %107
   br label %.critedge.i
 
-134:                                              ; preds = %104
+135:                                              ; preds = %104
   store i32 1, ptr %11, align 8
   br label %.critedge.i
 
-135:                                              ; preds = %22
-  %136 = add i32 %16, 1
-  %137 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %136) #11
-  %.not233.i = icmp eq i8 %137, 58
-  %spec.select157 = select i1 %.not233.i, ptr @hf_mgcp_param_observedevent, ptr @hf_mgcp_param_invalid
-  %spec.select158 = select i1 %.not233.i, ptr %10, ptr null
+136:                                              ; preds = %22
+  %137 = add i32 %16, 1
+  %138 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %137) #11
+  %.not233.i = icmp eq i8 %138, 58
+  %spec.select155 = select i1 %.not233.i, ptr @hf_mgcp_param_observedevent, ptr @hf_mgcp_param_invalid
+  %spec.select156 = select i1 %.not233.i, ptr %10, ptr null
   br label %.critedge.i
 
-138:                                              ; preds = %22
-  %139 = add i32 %16, 1
+139:                                              ; preds = %22
+  %140 = add i32 %16, 1
   %.not232.i = icmp eq i32 %20, 1
-  br i1 %.not232.i, label %tvb_parse_param.exit, label %140
+  br i1 %.not232.i, label %tvb_parse_param.exit, label %141
 
-140:                                              ; preds = %138
-  %141 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %139) #11
-  %142 = call signext i8 @g_ascii_toupper(i8 noundef signext %141) #12
-  switch i8 %142, label %tvb_parse_param.exit [
+141:                                              ; preds = %139
+  %142 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %140) #11
+  %143 = call signext i8 @g_ascii_toupper(i8 noundef signext %142) #12
+  switch i8 %143, label %tvb_parse_param.exit [
     i8 58, label %.critedge.i
-    i8 76, label %143
+    i8 76, label %144
   ]
 
-143:                                              ; preds = %140
+144:                                              ; preds = %141
   br label %.critedge.i
 
-144:                                              ; preds = %22
-  %145 = add i32 %16, 1
+145:                                              ; preds = %22
+  %146 = add i32 %16, 1
   %.not231.i = icmp eq i32 %20, 1
-  br i1 %.not231.i, label %tvb_parse_param.exit, label %146
+  br i1 %.not231.i, label %tvb_parse_param.exit, label %147
 
-146:                                              ; preds = %144
-  %147 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %145) #11
-  %148 = call signext i8 @g_ascii_toupper(i8 noundef signext %147) #12
-  switch i8 %148, label %tvb_parse_param.exit [
+147:                                              ; preds = %145
+  %148 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %146) #11
+  %149 = call signext i8 @g_ascii_toupper(i8 noundef signext %148) #12
+  switch i8 %149, label %tvb_parse_param.exit [
     i8 58, label %.critedge.i
-    i8 83, label %149
+    i8 83, label %150
   ]
 
-149:                                              ; preds = %146
+150:                                              ; preds = %147
   br label %.critedge.i
 
-150:                                              ; preds = %22
-  %151 = add i32 %16, 1
+151:                                              ; preds = %22
+  %152 = add i32 %16, 1
   %.not230.i = icmp eq i32 %20, 1
-  br i1 %.not230.i, label %tvb_parse_param.exit, label %152
+  br i1 %.not230.i, label %tvb_parse_param.exit, label %153
 
-152:                                              ; preds = %150
-  %153 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %151) #11
-  %154 = call signext i8 @g_ascii_toupper(i8 noundef signext %153) #12
-  switch i8 %154, label %tvb_parse_param.exit [
+153:                                              ; preds = %151
+  %154 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %152) #11
+  %155 = call signext i8 @g_ascii_toupper(i8 noundef signext %154) #12
+  switch i8 %155, label %tvb_parse_param.exit [
     i8 58, label %.critedge.i
-    i8 50, label %155
+    i8 50, label %156
   ]
 
-155:                                              ; preds = %152
+156:                                              ; preds = %153
   br label %.critedge.i
 
-156:                                              ; preds = %22
-  %157 = add i32 %16, 1
-  %158 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %157) #11
-  %.not229.i = icmp eq i8 %158, 58
-  %spec.select159 = select i1 %.not229.i, ptr @hf_mgcp_param_reqinfo, ptr @hf_mgcp_param_invalid
+157:                                              ; preds = %22
+  %158 = add i32 %16, 1
+  %159 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %158) #11
+  %.not229.i = icmp eq i8 %159, 58
+  %spec.select157 = select i1 %.not229.i, ptr @hf_mgcp_param_reqinfo, ptr @hf_mgcp_param_invalid
   br label %.critedge.i
 
-159:                                              ; preds = %22
-  %160 = add i32 %16, 1
-  %161 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %160) #11
-  %.not228.i = icmp eq i8 %161, 58
-  %spec.select160 = select i1 %.not228.i, ptr @hf_mgcp_param_quarantinehandling, ptr @hf_mgcp_param_invalid
+160:                                              ; preds = %22
+  %161 = add i32 %16, 1
+  %162 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %161) #11
+  %.not228.i = icmp eq i8 %162, 58
+  %spec.select158 = select i1 %.not228.i, ptr @hf_mgcp_param_quarantinehandling, ptr @hf_mgcp_param_invalid
   br label %.critedge.i
 
-162:                                              ; preds = %22
-  %163 = add i32 %16, 1
-  %164 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %163) #11
-  %.not227.i = icmp eq i8 %164, 58
-  %spec.select161 = select i1 %.not227.i, ptr @hf_mgcp_param_detectedevents, ptr @hf_mgcp_param_invalid
+163:                                              ; preds = %22
+  %164 = add i32 %16, 1
+  %165 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %164) #11
+  %.not227.i = icmp eq i8 %165, 58
+  %spec.select159 = select i1 %.not227.i, ptr @hf_mgcp_param_detectedevents, ptr @hf_mgcp_param_invalid
   br label %.critedge.i
 
-165:                                              ; preds = %22
-  %166 = add i32 %16, 1
-  %167 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %166) #11
-  %.not.i = icmp eq i8 %167, 58
-  %spec.select162 = select i1 %.not.i, ptr @hf_mgcp_param_capabilities, ptr @hf_mgcp_param_invalid
+166:                                              ; preds = %22
+  %167 = add i32 %16, 1
+  %168 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %167) #11
+  %.not.i = icmp eq i8 %168, 58
+  %spec.select160 = select i1 %.not.i, ptr @hf_mgcp_param_capabilities, ptr @hf_mgcp_param_invalid
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %165, %162, %159, %156, %135, %131, %101, %85, %39, %31, %28, %25, %152, %146, %140, %96, %90, %58, %36, %22, %107, %110, %115, %119, %125, %54, %44, %155, %149, %143, %134, %100, %99, %93, %83, %38
-  %.1 = phi ptr [ @hf_mgcp_param_secondendpointid, %155 ], [ @hf_mgcp_param_eventstates, %149 ], [ @hf_mgcp_param_packagelist, %143 ], [ @hf_mgcp_param_digitmap, %134 ], [ @hf_mgcp_param_restartdelay, %100 ], [ @hf_mgcp_param_restartmethod, %99 ], [ @hf_mgcp_param_maxmgcpdatagram, %93 ], [ %.0143, %83 ], [ @hf_mgcp_param_secondconnectionid, %38 ], [ @hf_mgcp_param_requestid, %44 ], [ @hf_mgcp_param_remotevoicemetrics, %54 ], [ @hf_mgcp_param_invalid, %125 ], [ @hf_mgcp_param_invalid, %119 ], [ @hf_mgcp_param_invalid, %115 ], [ @hf_mgcp_param_invalid, %110 ], [ @hf_mgcp_param_invalid, %107 ], [ @hf_mgcp_param_invalid, %22 ], [ @hf_mgcp_param_connectionid, %36 ], [ @hf_mgcp_param_localvoicemetrics, %58 ], [ @hf_mgcp_param_connectionmode, %90 ], [ @hf_mgcp_param_reqevents, %96 ], [ @hf_mgcp_param_connectionparam, %140 ], [ @hf_mgcp_param_reasoncode, %146 ], [ @hf_mgcp_param_specificendpoint, %152 ], [ %spec.select, %25 ], [ %spec.select149, %28 ], [ %spec.select150, %31 ], [ %spec.select151, %39 ], [ %spec.select152, %85 ], [ %spec.select153, %101 ], [ %spec.select155, %131 ], [ %spec.select157, %135 ], [ %spec.select159, %156 ], [ %spec.select160, %159 ], [ %spec.select161, %162 ], [ %spec.select162, %165 ]
-  %.0223.i = phi i32 [ %151, %155 ], [ %145, %149 ], [ %139, %143 ], [ %16, %134 ], [ %95, %100 ], [ %95, %99 ], [ %89, %93 ], [ %84, %83 ], [ %35, %38 ], [ %16, %44 ], [ %16, %54 ], [ %16, %125 ], [ %16, %119 ], [ %16, %115 ], [ %16, %110 ], [ %16, %107 ], [ %16, %22 ], [ %16, %36 ], [ %16, %58 ], [ %16, %90 ], [ %16, %96 ], [ %16, %140 ], [ %16, %146 ], [ %16, %152 ], [ %16, %25 ], [ %16, %28 ], [ %16, %31 ], [ %16, %39 ], [ %16, %85 ], [ %16, %101 ], [ %spec.select156, %131 ], [ %16, %135 ], [ %16, %156 ], [ %16, %159 ], [ %16, %162 ], [ %16, %165 ]
-  %.0.i = phi ptr [ null, %155 ], [ null, %149 ], [ null, %143 ], [ null, %134 ], [ null, %100 ], [ null, %99 ], [ null, %93 ], [ null, %83 ], [ null, %38 ], [ null, %44 ], [ null, %54 ], [ null, %125 ], [ null, %119 ], [ null, %115 ], [ null, %110 ], [ null, %107 ], [ null, %22 ], [ null, %36 ], [ null, %58 ], [ null, %90 ], [ null, %96 ], [ null, %140 ], [ null, %146 ], [ null, %152 ], [ null, %25 ], [ null, %28 ], [ null, %31 ], [ null, %39 ], [ null, %85 ], [ %spec.select154, %101 ], [ null, %131 ], [ %spec.select158, %135 ], [ null, %156 ], [ null, %159 ], [ null, %162 ], [ null, %165 ]
-  %168 = add i32 %.0223.i, 1
+.critedge.i:                                      ; preds = %166, %163, %160, %157, %136, %101, %85, %39, %31, %28, %25, %153, %147, %141, %96, %90, %58, %36, %22, %131, %54, %44, %156, %150, %144, %135, %134, %100, %99, %93, %83, %38
+  %.1 = phi ptr [ @hf_mgcp_param_secondendpointid, %156 ], [ @hf_mgcp_param_eventstates, %150 ], [ @hf_mgcp_param_packagelist, %144 ], [ @hf_mgcp_param_digitmap, %135 ], [ @hf_mgcp_param_invalid, %134 ], [ @hf_mgcp_param_restartdelay, %100 ], [ @hf_mgcp_param_restartmethod, %99 ], [ @hf_mgcp_param_maxmgcpdatagram, %93 ], [ %.0143, %83 ], [ @hf_mgcp_param_secondconnectionid, %38 ], [ @hf_mgcp_param_requestid, %44 ], [ @hf_mgcp_param_remotevoicemetrics, %54 ], [ @hf_mgcp_param_resourceid, %131 ], [ @hf_mgcp_param_invalid, %22 ], [ @hf_mgcp_param_connectionid, %36 ], [ @hf_mgcp_param_localvoicemetrics, %58 ], [ @hf_mgcp_param_connectionmode, %90 ], [ @hf_mgcp_param_reqevents, %96 ], [ @hf_mgcp_param_connectionparam, %141 ], [ @hf_mgcp_param_reasoncode, %147 ], [ @hf_mgcp_param_specificendpoint, %153 ], [ %spec.select, %25 ], [ %spec.select149, %28 ], [ %spec.select150, %31 ], [ %spec.select151, %39 ], [ %spec.select152, %85 ], [ %spec.select153, %101 ], [ %spec.select155, %136 ], [ %spec.select157, %157 ], [ %spec.select158, %160 ], [ %spec.select159, %163 ], [ %spec.select160, %166 ]
+  %.0223.i = phi i32 [ %152, %156 ], [ %146, %150 ], [ %140, %144 ], [ %16, %135 ], [ %16, %134 ], [ %95, %100 ], [ %95, %99 ], [ %89, %93 ], [ %84, %83 ], [ %35, %38 ], [ %16, %44 ], [ %16, %54 ], [ %126, %131 ], [ %16, %22 ], [ %16, %36 ], [ %16, %58 ], [ %16, %90 ], [ %16, %96 ], [ %16, %141 ], [ %16, %147 ], [ %16, %153 ], [ %16, %25 ], [ %16, %28 ], [ %16, %31 ], [ %16, %39 ], [ %16, %85 ], [ %16, %101 ], [ %16, %136 ], [ %16, %157 ], [ %16, %160 ], [ %16, %163 ], [ %16, %166 ]
+  %.0.i = phi ptr [ null, %156 ], [ null, %150 ], [ null, %144 ], [ null, %135 ], [ null, %134 ], [ null, %100 ], [ null, %99 ], [ null, %93 ], [ null, %83 ], [ null, %38 ], [ null, %44 ], [ null, %54 ], [ null, %131 ], [ null, %22 ], [ null, %36 ], [ null, %58 ], [ null, %90 ], [ null, %96 ], [ null, %141 ], [ null, %147 ], [ null, %153 ], [ null, %25 ], [ null, %28 ], [ null, %31 ], [ null, %39 ], [ null, %85 ], [ %spec.select154, %101 ], [ %spec.select156, %136 ], [ null, %157 ], [ null, %160 ], [ null, %163 ], [ null, %166 ]
+  %169 = add i32 %.0223.i, 1
   %.not250.i = icmp ne ptr %.1, null
-  %169 = sub i32 %168, %16
-  %170 = icmp slt i32 %169, %20
-  %or.cond254.i = and i1 %.not250.i, %170
-  br i1 %or.cond254.i, label %171, label %tvb_parse_param.exit
+  %170 = sub i32 %169, %16
+  %171 = icmp slt i32 %170, %20
+  %or.cond254.i = and i1 %.not250.i, %171
+  br i1 %or.cond254.i, label %172, label %tvb_parse_param.exit
 
-171:                                              ; preds = %.critedge.i
-  %172 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %168) #11
-  %173 = icmp eq i8 %172, 58
-  br i1 %173, label %174, label %tvb_parse_param.exit
+172:                                              ; preds = %.critedge.i
+  %173 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %169) #11
+  %174 = icmp eq i8 %173, 58
+  br i1 %174, label %175, label %tvb_parse_param.exit
 
-174:                                              ; preds = %171
-  %175 = add i32 %.0223.i, 2
-  %176 = add i32 %20, %16
-  %reass.sub.i = add i32 %176, -2
-  %177 = sub i32 %reass.sub.i, %.0223.i
-  %178 = call i32 @tvb_skip_wsp(ptr noundef %0, i32 noundef %175, i32 noundef %177) #11
+175:                                              ; preds = %172
+  %176 = add i32 %.0223.i, 2
+  %177 = add i32 %20, %16
+  %reass.sub.i = add i32 %177, -2
+  %178 = sub i32 %reass.sub.i, %.0223.i
+  %179 = call i32 @tvb_skip_wsp(ptr noundef %0, i32 noundef %176, i32 noundef %178) #11
   %.not251.i = icmp eq ptr %.0.i, null
-  br i1 %.not251.i, label %tvb_parse_param.exit, label %179
+  br i1 %.not251.i, label %tvb_parse_param.exit, label %180
 
-179:                                              ; preds = %174
-  %180 = call ptr @wmem_packet_scope() #11
-  %181 = sub i32 %176, %178
-  %182 = call ptr @tvb_get_string_enc(ptr noundef %180, ptr noundef %0, i32 noundef %178, i32 noundef %181, i32 noundef 0) #11
-  store ptr %182, ptr %.0.i, align 8
+180:                                              ; preds = %175
+  %181 = call ptr @wmem_packet_scope() #11
+  %182 = sub i32 %177, %179
+  %183 = call ptr @tvb_get_string_enc(ptr noundef %181, ptr noundef %0, i32 noundef %179, i32 noundef %182, i32 noundef 0) #11
+  store ptr %183, ptr %.0.i, align 8
   br label %tvb_parse_param.exit
 
-tvb_parse_param.exit:                             ; preds = %36, %34, %64, %._crit_edge.i, %62, %51, %58, %42, %90, %88, %96, %94, %140, %138, %146, %144, %152, %150, %18, %.critedge.i, %171, %174, %179
-  %.2 = phi ptr [ %.1, %174 ], [ %.1, %179 ], [ %.1, %171 ], [ %.1, %.critedge.i ], [ @hf_mgcp_param_invalid, %18 ], [ null, %150 ], [ null, %152 ], [ null, %144 ], [ null, %146 ], [ null, %138 ], [ null, %140 ], [ null, %94 ], [ null, %96 ], [ null, %88 ], [ null, %90 ], [ null, %42 ], [ null, %58 ], [ null, %51 ], [ null, %62 ], [ null, %._crit_edge.i ], [ null, %64 ], [ null, %34 ], [ null, %36 ]
-  %.0219.i = phi i32 [ %178, %174 ], [ %178, %179 ], [ -1, %171 ], [ -1, %.critedge.i ], [ -1, %18 ], [ -1, %150 ], [ -1, %152 ], [ -1, %144 ], [ -1, %146 ], [ -1, %138 ], [ -1, %140 ], [ -1, %94 ], [ -1, %96 ], [ -1, %88 ], [ -1, %90 ], [ -1, %42 ], [ -1, %58 ], [ -1, %51 ], [ -1, %62 ], [ -1, %._crit_edge.i ], [ -1, %64 ], [ -1, %34 ], [ -1, %36 ]
-  %183 = icmp eq ptr %.2, @hf_mgcp_param_invalid
-  %184 = icmp eq ptr %.2, @hf_mgcp_param_extension
-  %or.cond255.i = or i1 %183, %184
-  %185 = icmp eq ptr %.2, @hf_mgcp_param_extension_critical
-  %or.cond256.i = or i1 %185, %or.cond255.i
-  %186 = icmp eq ptr %.2, @hf_mgcp_param_localvoicemetrics
-  %or.cond257.i = or i1 %186, %or.cond256.i
-  %187 = icmp eq ptr %.2, @hf_mgcp_param_remotevoicemetrics
-  %or.cond258.i = or i1 %187, %or.cond257.i
+tvb_parse_param.exit:                             ; preds = %36, %34, %64, %._crit_edge.i, %62, %51, %58, %42, %90, %88, %96, %94, %141, %139, %147, %145, %153, %151, %18, %.critedge.i, %172, %175, %180
+  %.2 = phi ptr [ %.1, %175 ], [ %.1, %180 ], [ %.1, %172 ], [ %.1, %.critedge.i ], [ @hf_mgcp_param_invalid, %18 ], [ null, %151 ], [ null, %153 ], [ null, %145 ], [ null, %147 ], [ null, %139 ], [ null, %141 ], [ null, %94 ], [ null, %96 ], [ null, %88 ], [ null, %90 ], [ null, %42 ], [ null, %58 ], [ null, %51 ], [ null, %62 ], [ null, %._crit_edge.i ], [ null, %64 ], [ null, %34 ], [ null, %36 ]
+  %.0219.i = phi i32 [ %179, %175 ], [ %179, %180 ], [ -1, %172 ], [ -1, %.critedge.i ], [ -1, %18 ], [ -1, %151 ], [ -1, %153 ], [ -1, %145 ], [ -1, %147 ], [ -1, %139 ], [ -1, %141 ], [ -1, %94 ], [ -1, %96 ], [ -1, %88 ], [ -1, %90 ], [ -1, %42 ], [ -1, %58 ], [ -1, %51 ], [ -1, %62 ], [ -1, %._crit_edge.i ], [ -1, %64 ], [ -1, %34 ], [ -1, %36 ]
+  %184 = icmp eq ptr %.2, @hf_mgcp_param_invalid
+  %185 = icmp eq ptr %.2, @hf_mgcp_param_extension
+  %or.cond255.i = or i1 %184, %185
+  %186 = icmp eq ptr %.2, @hf_mgcp_param_extension_critical
+  %or.cond256.i = or i1 %186, %or.cond255.i
+  %187 = icmp eq ptr %.2, @hf_mgcp_param_localvoicemetrics
+  %or.cond257.i = or i1 %187, %or.cond256.i
+  %188 = icmp eq ptr %.2, @hf_mgcp_param_remotevoicemetrics
+  %or.cond258.i = or i1 %188, %or.cond257.i
   %.1.i = select i1 %or.cond258.i, i32 %16, i32 %.0219.i
   %.not58 = icmp eq ptr %.2, null
-  br i1 %.not58, label %dissect_mgcp_connectionparams.exit, label %188
+  br i1 %.not58, label %dissect_mgcp_connectionparams.exit, label %189
 
-188:                                              ; preds = %tvb_parse_param.exit
-  %189 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef %.1.i, i32 noundef -1, ptr noundef nonnull %4, i32 noundef 0) #11
-  %190 = load i32, ptr %.2, align 4
-  %191 = load i32, ptr @hf_mgcp_param_connectionparam, align 4
-  %192 = icmp eq i32 %190, %191
-  br i1 %192, label %193, label %302
+189:                                              ; preds = %tvb_parse_param.exit
+  %190 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef %.1.i, i32 noundef -1, ptr noundef nonnull %4, i32 noundef 0) #11
+  %191 = load i32, ptr %.2, align 4
+  %192 = load i32, ptr @hf_mgcp_param_connectionparam, align 4
+  %193 = icmp eq i32 %191, %192
+  br i1 %193, label %194, label %303
 
-193:                                              ; preds = %188
-  %194 = sub i32 %.1.i, %16
-  %195 = add i32 %194, %189
-  %196 = call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %190, ptr noundef %0, i32 noundef %16, i32 noundef %195, i32 noundef 0) #11
-  %197 = load i32, ptr @ett_mgcp_param_connectionparam, align 4
-  %198 = call ptr @proto_item_add_subtree(ptr noundef %196, i32 noundef %197) #11
-  %199 = call ptr @wmem_packet_scope() #11
-  %200 = call ptr @tvb_get_string_enc(ptr noundef %199, ptr noundef %0, i32 noundef %.1.i, i32 noundef %189, i32 noundef 0) #11
-  %201 = call ptr @wmem_packet_scope() #11
-  %202 = call ptr @wmem_strsplit(ptr noundef %201, ptr noundef %200, ptr noundef nonnull @.str.445, i32 noundef -1) #11
-  %203 = load ptr, ptr %202, align 8
-  %.not84.i = icmp eq ptr %203, null
+194:                                              ; preds = %189
+  %195 = sub i32 %.1.i, %16
+  %196 = add i32 %195, %190
+  %197 = call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %191, ptr noundef %0, i32 noundef %16, i32 noundef %196, i32 noundef 0) #11
+  %198 = load i32, ptr @ett_mgcp_param_connectionparam, align 4
+  %199 = call ptr @proto_item_add_subtree(ptr noundef %197, i32 noundef %198) #11
+  %200 = call ptr @wmem_packet_scope() #11
+  %201 = call ptr @tvb_get_string_enc(ptr noundef %200, ptr noundef %0, i32 noundef %.1.i, i32 noundef %190, i32 noundef 0) #11
+  %202 = call ptr @wmem_packet_scope() #11
+  %203 = call ptr @wmem_strsplit(ptr noundef %202, ptr noundef %201, ptr noundef nonnull @.str.445, i32 noundef -1) #11
+  %204 = load ptr, ptr %203, align 8
+  %.not84.i = icmp eq ptr %204, null
   br i1 %.not84.i, label %dissect_mgcp_connectionparams.exit, label %.lr.ph.i60
 
-.lr.ph.i60:                                       ; preds = %193, %295
-  %204 = phi ptr [ %301, %295 ], [ %203, %193 ]
-  %205 = phi ptr [ %300, %295 ], [ %202, %193 ]
-  %.06186.i = phi i32 [ %297, %295 ], [ %.1.i, %193 ]
-  %.06285.i = phi i32 [ %298, %295 ], [ 0, %193 ]
-  %206 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %204) #13
-  %207 = trunc i64 %206 to i32
-  %208 = call ptr @wmem_packet_scope() #11
-  %209 = load ptr, ptr %205, align 8
-  %210 = call ptr @wmem_strsplit(ptr noundef %208, ptr noundef %209, ptr noundef nonnull @.str.446, i32 noundef 2) #11
-  %211 = load ptr, ptr %210, align 8
-  %.not65.i = icmp eq ptr %211, null
-  br i1 %.not65.i, label %291, label %212
+.lr.ph.i60:                                       ; preds = %194, %296
+  %205 = phi ptr [ %302, %296 ], [ %204, %194 ]
+  %206 = phi ptr [ %301, %296 ], [ %203, %194 ]
+  %.06186.i = phi i32 [ %298, %296 ], [ %.1.i, %194 ]
+  %.06285.i = phi i32 [ %299, %296 ], [ 0, %194 ]
+  %207 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %205) #13
+  %208 = trunc i64 %207 to i32
+  %209 = call ptr @wmem_packet_scope() #11
+  %210 = load ptr, ptr %206, align 8
+  %211 = call ptr @wmem_strsplit(ptr noundef %209, ptr noundef %210, ptr noundef nonnull @.str.446, i32 noundef 2) #11
+  %212 = load ptr, ptr %211, align 8
+  %.not65.i = icmp eq ptr %212, null
+  br i1 %.not65.i, label %292, label %213
 
-212:                                              ; preds = %.lr.ph.i60
-  %213 = getelementptr i8, ptr %210, i64 8
-  %214 = load ptr, ptr %213, align 8
-  %.not66.i = icmp eq ptr %214, null
-  br i1 %.not66.i, label %291, label %215
+213:                                              ; preds = %.lr.ph.i60
+  %214 = getelementptr i8, ptr %211, i64 8
+  %215 = load ptr, ptr %214, align 8
+  %.not66.i = icmp eq ptr %215, null
+  br i1 %.not66.i, label %292, label %216
 
-215:                                              ; preds = %212
-  %216 = call ptr @g_strchug(ptr noundef nonnull %211) #11
-  %217 = call ptr @g_strchomp(ptr noundef %216) #11
-  %218 = call i32 @g_ascii_strcasecmp(ptr noundef %217, ptr noundef nonnull @.str.447) #11
-  %.not67.i = icmp eq i32 %218, 0
-  br i1 %.not67.i, label %269, label %219
+216:                                              ; preds = %213
+  %217 = call ptr @g_strchug(ptr noundef nonnull %212) #11
+  %218 = call ptr @g_strchomp(ptr noundef %217) #11
+  %219 = call i32 @g_ascii_strcasecmp(ptr noundef %218, ptr noundef nonnull @.str.447) #11
+  %.not67.i = icmp eq i32 %219, 0
+  br i1 %.not67.i, label %270, label %220
 
-219:                                              ; preds = %215
-  %220 = load ptr, ptr %210, align 8
-  %221 = call ptr @g_strchug(ptr noundef %220) #11
-  %222 = call ptr @g_strchomp(ptr noundef %221) #11
-  %223 = call i32 @g_ascii_strcasecmp(ptr noundef %222, ptr noundef nonnull @.str.448) #11
-  %.not68.i = icmp eq i32 %223, 0
-  br i1 %.not68.i, label %269, label %224
+220:                                              ; preds = %216
+  %221 = load ptr, ptr %211, align 8
+  %222 = call ptr @g_strchug(ptr noundef %221) #11
+  %223 = call ptr @g_strchomp(ptr noundef %222) #11
+  %224 = call i32 @g_ascii_strcasecmp(ptr noundef %223, ptr noundef nonnull @.str.448) #11
+  %.not68.i = icmp eq i32 %224, 0
+  br i1 %.not68.i, label %270, label %225
 
-224:                                              ; preds = %219
-  %225 = load ptr, ptr %210, align 8
-  %226 = call ptr @g_strchug(ptr noundef %225) #11
-  %227 = call ptr @g_strchomp(ptr noundef %226) #11
-  %228 = call i32 @g_ascii_strcasecmp(ptr noundef %227, ptr noundef nonnull @.str.449) #11
-  %.not69.i = icmp eq i32 %228, 0
-  br i1 %.not69.i, label %269, label %229
+225:                                              ; preds = %220
+  %226 = load ptr, ptr %211, align 8
+  %227 = call ptr @g_strchug(ptr noundef %226) #11
+  %228 = call ptr @g_strchomp(ptr noundef %227) #11
+  %229 = call i32 @g_ascii_strcasecmp(ptr noundef %228, ptr noundef nonnull @.str.449) #11
+  %.not69.i = icmp eq i32 %229, 0
+  br i1 %.not69.i, label %270, label %230
 
-229:                                              ; preds = %224
-  %230 = load ptr, ptr %210, align 8
-  %231 = call ptr @g_strchug(ptr noundef %230) #11
-  %232 = call ptr @g_strchomp(ptr noundef %231) #11
-  %233 = call i32 @g_ascii_strcasecmp(ptr noundef %232, ptr noundef nonnull @.str.450) #11
-  %.not70.i = icmp eq i32 %233, 0
-  br i1 %.not70.i, label %269, label %234
+230:                                              ; preds = %225
+  %231 = load ptr, ptr %211, align 8
+  %232 = call ptr @g_strchug(ptr noundef %231) #11
+  %233 = call ptr @g_strchomp(ptr noundef %232) #11
+  %234 = call i32 @g_ascii_strcasecmp(ptr noundef %233, ptr noundef nonnull @.str.450) #11
+  %.not70.i = icmp eq i32 %234, 0
+  br i1 %.not70.i, label %270, label %235
 
-234:                                              ; preds = %229
-  %235 = load ptr, ptr %210, align 8
-  %236 = call ptr @g_strchug(ptr noundef %235) #11
-  %237 = call ptr @g_strchomp(ptr noundef %236) #11
-  %238 = call i32 @g_ascii_strcasecmp(ptr noundef %237, ptr noundef nonnull @.str.451) #11
-  %.not71.i = icmp eq i32 %238, 0
-  br i1 %.not71.i, label %269, label %239
+235:                                              ; preds = %230
+  %236 = load ptr, ptr %211, align 8
+  %237 = call ptr @g_strchug(ptr noundef %236) #11
+  %238 = call ptr @g_strchomp(ptr noundef %237) #11
+  %239 = call i32 @g_ascii_strcasecmp(ptr noundef %238, ptr noundef nonnull @.str.451) #11
+  %.not71.i = icmp eq i32 %239, 0
+  br i1 %.not71.i, label %270, label %240
 
-239:                                              ; preds = %234
-  %240 = load ptr, ptr %210, align 8
-  %241 = call ptr @g_strchug(ptr noundef %240) #11
-  %242 = call ptr @g_strchomp(ptr noundef %241) #11
-  %243 = call i32 @g_ascii_strcasecmp(ptr noundef %242, ptr noundef nonnull @.str.452) #11
-  %.not72.i = icmp eq i32 %243, 0
-  br i1 %.not72.i, label %269, label %244
+240:                                              ; preds = %235
+  %241 = load ptr, ptr %211, align 8
+  %242 = call ptr @g_strchug(ptr noundef %241) #11
+  %243 = call ptr @g_strchomp(ptr noundef %242) #11
+  %244 = call i32 @g_ascii_strcasecmp(ptr noundef %243, ptr noundef nonnull @.str.452) #11
+  %.not72.i = icmp eq i32 %244, 0
+  br i1 %.not72.i, label %270, label %245
 
-244:                                              ; preds = %239
-  %245 = load ptr, ptr %210, align 8
-  %246 = call ptr @g_strchug(ptr noundef %245) #11
-  %247 = call ptr @g_strchomp(ptr noundef %246) #11
-  %248 = call i32 @g_ascii_strcasecmp(ptr noundef %247, ptr noundef nonnull @.str.453) #11
-  %.not73.i = icmp eq i32 %248, 0
-  br i1 %.not73.i, label %269, label %249
+245:                                              ; preds = %240
+  %246 = load ptr, ptr %211, align 8
+  %247 = call ptr @g_strchug(ptr noundef %246) #11
+  %248 = call ptr @g_strchomp(ptr noundef %247) #11
+  %249 = call i32 @g_ascii_strcasecmp(ptr noundef %248, ptr noundef nonnull @.str.453) #11
+  %.not73.i = icmp eq i32 %249, 0
+  br i1 %.not73.i, label %270, label %250
 
-249:                                              ; preds = %244
-  %250 = load ptr, ptr %210, align 8
-  %251 = call ptr @g_strchug(ptr noundef %250) #11
-  %252 = call ptr @g_strchomp(ptr noundef %251) #11
-  %253 = call i32 @g_ascii_strcasecmp(ptr noundef %252, ptr noundef nonnull @.str.454) #11
-  %.not74.i = icmp eq i32 %253, 0
-  br i1 %.not74.i, label %269, label %254
+250:                                              ; preds = %245
+  %251 = load ptr, ptr %211, align 8
+  %252 = call ptr @g_strchug(ptr noundef %251) #11
+  %253 = call ptr @g_strchomp(ptr noundef %252) #11
+  %254 = call i32 @g_ascii_strcasecmp(ptr noundef %253, ptr noundef nonnull @.str.454) #11
+  %.not74.i = icmp eq i32 %254, 0
+  br i1 %.not74.i, label %270, label %255
 
-254:                                              ; preds = %249
-  %255 = load ptr, ptr %210, align 8
-  %256 = call ptr @g_strchug(ptr noundef %255) #11
-  %257 = call ptr @g_strchomp(ptr noundef %256) #11
-  %258 = call i32 @g_ascii_strcasecmp(ptr noundef %257, ptr noundef nonnull @.str.455) #11
-  %.not75.i = icmp eq i32 %258, 0
-  br i1 %.not75.i, label %269, label %259
+255:                                              ; preds = %250
+  %256 = load ptr, ptr %211, align 8
+  %257 = call ptr @g_strchug(ptr noundef %256) #11
+  %258 = call ptr @g_strchomp(ptr noundef %257) #11
+  %259 = call i32 @g_ascii_strcasecmp(ptr noundef %258, ptr noundef nonnull @.str.455) #11
+  %.not75.i = icmp eq i32 %259, 0
+  br i1 %.not75.i, label %270, label %260
 
-259:                                              ; preds = %254
-  %260 = load ptr, ptr %210, align 8
-  %261 = call ptr @g_strchug(ptr noundef %260) #11
-  %262 = call ptr @g_strchomp(ptr noundef %261) #11
-  %263 = call i32 @g_ascii_strcasecmp(ptr noundef %262, ptr noundef nonnull @.str.456) #11
-  %.not76.i = icmp eq i32 %263, 0
-  br i1 %.not76.i, label %269, label %264
+260:                                              ; preds = %255
+  %261 = load ptr, ptr %211, align 8
+  %262 = call ptr @g_strchug(ptr noundef %261) #11
+  %263 = call ptr @g_strchomp(ptr noundef %262) #11
+  %264 = call i32 @g_ascii_strcasecmp(ptr noundef %263, ptr noundef nonnull @.str.456) #11
+  %.not76.i = icmp eq i32 %264, 0
+  br i1 %.not76.i, label %270, label %265
 
-264:                                              ; preds = %259
-  %265 = load ptr, ptr %210, align 8
-  %266 = call ptr @g_strchug(ptr noundef %265) #11
-  %267 = call ptr @g_strchomp(ptr noundef %266) #11
-  %268 = call i32 @g_ascii_strcasecmp(ptr noundef %267, ptr noundef nonnull @.str.457) #11
-  %.not77.i = icmp eq i32 %268, 0
-  br i1 %.not77.i, label %269, label %276
+265:                                              ; preds = %260
+  %266 = load ptr, ptr %211, align 8
+  %267 = call ptr @g_strchug(ptr noundef %266) #11
+  %268 = call ptr @g_strchomp(ptr noundef %267) #11
+  %269 = call i32 @g_ascii_strcasecmp(ptr noundef %268, ptr noundef nonnull @.str.457) #11
+  %.not77.i = icmp eq i32 %269, 0
+  br i1 %.not77.i, label %270, label %277
 
-269:                                              ; preds = %264, %259, %254, %249, %244, %239, %234, %229, %224, %219, %215
-  %.060.in.i = phi ptr [ @hf_mgcp_param_connectionparam_ps, %215 ], [ @hf_mgcp_param_connectionparam_os, %219 ], [ @hf_mgcp_param_connectionparam_pr, %224 ], [ @hf_mgcp_param_connectionparam_or, %229 ], [ @hf_mgcp_param_connectionparam_pl, %234 ], [ @hf_mgcp_param_connectionparam_ji, %239 ], [ @hf_mgcp_param_connectionparam_la, %244 ], [ @hf_mgcp_param_connectionparam_pcrps, %249 ], [ @hf_mgcp_param_connectionparam_pcros, %254 ], [ @hf_mgcp_param_connectionparam_pcrpl, %259 ], [ @hf_mgcp_param_connectionparam_pcrji, %264 ]
+270:                                              ; preds = %265, %260, %255, %250, %245, %240, %235, %230, %225, %220, %216
+  %.060.in.i = phi ptr [ @hf_mgcp_param_connectionparam_ps, %216 ], [ @hf_mgcp_param_connectionparam_os, %220 ], [ @hf_mgcp_param_connectionparam_pr, %225 ], [ @hf_mgcp_param_connectionparam_or, %230 ], [ @hf_mgcp_param_connectionparam_pl, %235 ], [ @hf_mgcp_param_connectionparam_ji, %240 ], [ @hf_mgcp_param_connectionparam_la, %245 ], [ @hf_mgcp_param_connectionparam_pcrps, %250 ], [ @hf_mgcp_param_connectionparam_pcros, %255 ], [ @hf_mgcp_param_connectionparam_pcrpl, %260 ], [ @hf_mgcp_param_connectionparam_pcrji, %265 ]
   %.060.i = load i32, ptr %.060.in.i, align 4
-  %270 = icmp sgt i32 %.060.i, 0
-  br i1 %270, label %271, label %.thread82.i
+  %271 = icmp sgt i32 %.060.i, 0
+  br i1 %271, label %272, label %.thread82.i
 
-271:                                              ; preds = %269
-  %272 = load ptr, ptr %213, align 8
-  %273 = call i64 @strtoul(ptr nocapture noundef %272, ptr noundef null, i32 noundef 10) #11
-  %274 = trunc i64 %273 to i32
-  %275 = call ptr @proto_tree_add_uint(ptr noundef %198, i32 noundef %.060.i, ptr noundef %0, i32 noundef %.06186.i, i32 noundef %207, i32 noundef %274) #11
-  br label %295
+272:                                              ; preds = %270
+  %273 = load ptr, ptr %214, align 8
+  %274 = call i64 @strtoul(ptr nocapture noundef %273, ptr noundef null, i32 noundef 10) #11
+  %275 = trunc i64 %274 to i32
+  %276 = call ptr @proto_tree_add_uint(ptr noundef %199, i32 noundef %.060.i, ptr noundef %0, i32 noundef %.06186.i, i32 noundef %208, i32 noundef %275) #11
+  br label %296
 
-276:                                              ; preds = %264
-  %277 = load ptr, ptr %210, align 8
-  %278 = call ptr @g_strchug(ptr noundef %277) #11
-  %279 = call ptr @g_strchomp(ptr noundef %278) #11
-  %280 = call i32 @g_ascii_strncasecmp(ptr noundef %279, ptr noundef nonnull @.str.458, i64 noundef 2) #11
-  %.not78.i = icmp eq i32 %280, 0
-  %281 = load i32, ptr @hf_mgcp_param_connectionparam_x, align 4
-  %spec.select.i = select i1 %.not78.i, i32 %281, i32 -1
-  %282 = icmp sgt i32 %spec.select.i, 0
-  br i1 %282, label %283, label %.thread82.i
+277:                                              ; preds = %265
+  %278 = load ptr, ptr %211, align 8
+  %279 = call ptr @g_strchug(ptr noundef %278) #11
+  %280 = call ptr @g_strchomp(ptr noundef %279) #11
+  %281 = call i32 @g_ascii_strncasecmp(ptr noundef %280, ptr noundef nonnull @.str.458, i64 noundef 2) #11
+  %.not78.i = icmp eq i32 %281, 0
+  %282 = load i32, ptr @hf_mgcp_param_connectionparam_x, align 4
+  %spec.select.i = select i1 %.not78.i, i32 %282, i32 -1
+  %283 = icmp sgt i32 %spec.select.i, 0
+  br i1 %283, label %284, label %.thread82.i
 
-283:                                              ; preds = %276
-  %284 = load ptr, ptr %213, align 8
-  %285 = call ptr @g_strchug(ptr noundef %284) #11
-  %286 = call ptr @g_strchomp(ptr noundef %285) #11
-  %287 = call ptr @proto_tree_add_string(ptr noundef %198, i32 noundef %spec.select.i, ptr noundef %0, i32 noundef %.06186.i, i32 noundef %207, ptr noundef %286) #11
-  br label %295
+284:                                              ; preds = %277
+  %285 = load ptr, ptr %214, align 8
+  %286 = call ptr @g_strchug(ptr noundef %285) #11
+  %287 = call ptr @g_strchomp(ptr noundef %286) #11
+  %288 = call ptr @proto_tree_add_string(ptr noundef %199, i32 noundef %spec.select.i, ptr noundef %0, i32 noundef %.06186.i, i32 noundef %208, ptr noundef %287) #11
+  br label %296
 
-.thread82.i:                                      ; preds = %276, %269
-  %288 = load i32, ptr @hf_mgcp_unknown_parameter, align 4
-  %289 = load ptr, ptr %205, align 8
-  %290 = call ptr @proto_tree_add_string(ptr noundef %198, i32 noundef %288, ptr noundef %0, i32 noundef %.06186.i, i32 noundef %207, ptr noundef %289) #11
-  br label %295
+.thread82.i:                                      ; preds = %277, %270
+  %289 = load i32, ptr @hf_mgcp_unknown_parameter, align 4
+  %290 = load ptr, ptr %206, align 8
+  %291 = call ptr @proto_tree_add_string(ptr noundef %199, i32 noundef %289, ptr noundef %0, i32 noundef %.06186.i, i32 noundef %208, ptr noundef %290) #11
+  br label %296
 
-291:                                              ; preds = %212, %.lr.ph.i60
-  %292 = load i32, ptr @hf_mgcp_malformed_parameter, align 4
-  %293 = load ptr, ptr %205, align 8
-  %294 = call ptr @proto_tree_add_string(ptr noundef %198, i32 noundef %292, ptr noundef %0, i32 noundef %.06186.i, i32 noundef %207, ptr noundef %293) #11
-  br label %295
+292:                                              ; preds = %213, %.lr.ph.i60
+  %293 = load i32, ptr @hf_mgcp_malformed_parameter, align 4
+  %294 = load ptr, ptr %206, align 8
+  %295 = call ptr @proto_tree_add_string(ptr noundef %199, i32 noundef %293, ptr noundef %0, i32 noundef %.06186.i, i32 noundef %208, ptr noundef %294) #11
+  br label %296
 
-295:                                              ; preds = %291, %.thread82.i, %283, %271
-  %296 = add i32 %.06186.i, 1
-  %297 = add i32 %296, %207
-  %298 = add i32 %.06285.i, 1
-  %299 = zext i32 %298 to i64
-  %300 = getelementptr ptr, ptr %202, i64 %299
-  %301 = load ptr, ptr %300, align 8
-  %.not.i61 = icmp eq ptr %301, null
+296:                                              ; preds = %292, %.thread82.i, %284, %272
+  %297 = add i32 %.06186.i, 1
+  %298 = add i32 %297, %208
+  %299 = add i32 %.06285.i, 1
+  %300 = zext i32 %299 to i64
+  %301 = getelementptr ptr, ptr %203, i64 %300
+  %302 = load ptr, ptr %301, align 8
+  %.not.i61 = icmp eq ptr %302, null
   br i1 %.not.i61, label %dissect_mgcp_connectionparams.exit, label %.lr.ph.i60, !llvm.loop !11
 
-302:                                              ; preds = %188
-  %303 = load i32, ptr @hf_mgcp_param_localconnoptions, align 4
-  %304 = icmp eq i32 %190, %303
-  br i1 %304, label %305, label %472
+303:                                              ; preds = %189
+  %304 = load i32, ptr @hf_mgcp_param_localconnoptions, align 4
+  %305 = icmp eq i32 %191, %304
+  br i1 %305, label %306, label %473
 
-305:                                              ; preds = %302
-  %306 = sub i32 %.1.i, %16
-  %307 = add i32 %306, %189
-  %308 = call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %190, ptr noundef %0, i32 noundef %16, i32 noundef %307, i32 noundef 0) #11
-  %309 = load i32, ptr @ett_mgcp_param_localconnectionoptions, align 4
-  %310 = call ptr @proto_item_add_subtree(ptr noundef %308, i32 noundef %309) #11
-  %311 = call ptr @wmem_packet_scope() #11
-  %312 = call ptr @tvb_get_string_enc(ptr noundef %311, ptr noundef %0, i32 noundef %.1.i, i32 noundef %189, i32 noundef 0) #11
-  %313 = call ptr @wmem_packet_scope() #11
-  %314 = call ptr @wmem_strsplit(ptr noundef %313, ptr noundef %312, ptr noundef nonnull @.str.445, i32 noundef -1) #11
-  %315 = load ptr, ptr %314, align 8
-  %.not103.i = icmp eq ptr %315, null
+306:                                              ; preds = %303
+  %307 = sub i32 %.1.i, %16
+  %308 = add i32 %307, %190
+  %309 = call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %191, ptr noundef %0, i32 noundef %16, i32 noundef %308, i32 noundef 0) #11
+  %310 = load i32, ptr @ett_mgcp_param_localconnectionoptions, align 4
+  %311 = call ptr @proto_item_add_subtree(ptr noundef %309, i32 noundef %310) #11
+  %312 = call ptr @wmem_packet_scope() #11
+  %313 = call ptr @tvb_get_string_enc(ptr noundef %312, ptr noundef %0, i32 noundef %.1.i, i32 noundef %190, i32 noundef 0) #11
+  %314 = call ptr @wmem_packet_scope() #11
+  %315 = call ptr @wmem_strsplit(ptr noundef %314, ptr noundef %313, ptr noundef nonnull @.str.445, i32 noundef -1) #11
+  %316 = load ptr, ptr %315, align 8
+  %.not103.i = icmp eq ptr %316, null
   br i1 %.not103.i, label %dissect_mgcp_connectionparams.exit, label %.lr.ph.i63
 
-.lr.ph.i63:                                       ; preds = %305, %467
-  %316 = phi ptr [ %471, %467 ], [ %315, %305 ]
-  %317 = phi ptr [ %470, %467 ], [ %314, %305 ]
-  %.066104.i = phi i32 [ %468, %467 ], [ 0, %305 ]
-  %318 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %316) #13
-  %319 = trunc i64 %318 to i32
-  %320 = call ptr @wmem_packet_scope() #11
-  %321 = load ptr, ptr %317, align 8
-  %322 = call ptr @wmem_strsplit(ptr noundef %320, ptr noundef %321, ptr noundef nonnull @.str.459, i32 noundef 2) #11
-  %323 = load ptr, ptr %322, align 8
-  %.not69.i64 = icmp eq ptr %323, null
-  br i1 %.not69.i64, label %467, label %324
+.lr.ph.i63:                                       ; preds = %306, %468
+  %317 = phi ptr [ %472, %468 ], [ %316, %306 ]
+  %318 = phi ptr [ %471, %468 ], [ %315, %306 ]
+  %.066104.i = phi i32 [ %469, %468 ], [ 0, %306 ]
+  %319 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %317) #13
+  %320 = trunc i64 %319 to i32
+  %321 = call ptr @wmem_packet_scope() #11
+  %322 = load ptr, ptr %318, align 8
+  %323 = call ptr @wmem_strsplit(ptr noundef %321, ptr noundef %322, ptr noundef nonnull @.str.459, i32 noundef 2) #11
+  %324 = load ptr, ptr %323, align 8
+  %.not69.i64 = icmp eq ptr %324, null
+  br i1 %.not69.i64, label %468, label %325
 
-324:                                              ; preds = %.lr.ph.i63
-  %325 = getelementptr i8, ptr %322, i64 8
-  %326 = load ptr, ptr %325, align 8
-  %.not70.i65 = icmp eq ptr %326, null
-  br i1 %.not70.i65, label %467, label %327
+325:                                              ; preds = %.lr.ph.i63
+  %326 = getelementptr i8, ptr %323, i64 8
+  %327 = load ptr, ptr %326, align 8
+  %.not70.i65 = icmp eq ptr %327, null
+  br i1 %.not70.i65, label %468, label %328
 
-327:                                              ; preds = %324
-  %328 = call ptr @g_strchug(ptr noundef nonnull %323) #11
-  %329 = call ptr @g_strchomp(ptr noundef %328) #11
-  %330 = call i32 @g_ascii_strcasecmp(ptr noundef %329, ptr noundef nonnull @.str.460) #11
-  %.not71.i66 = icmp eq i32 %330, 0
-  br i1 %.not71.i66, label %451, label %331
+328:                                              ; preds = %325
+  %329 = call ptr @g_strchug(ptr noundef nonnull %324) #11
+  %330 = call ptr @g_strchomp(ptr noundef %329) #11
+  %331 = call i32 @g_ascii_strcasecmp(ptr noundef %330, ptr noundef nonnull @.str.460) #11
+  %.not71.i66 = icmp eq i32 %331, 0
+  br i1 %.not71.i66, label %452, label %332
 
-331:                                              ; preds = %327
-  %332 = load ptr, ptr %322, align 8
-  %333 = call ptr @g_strchug(ptr noundef %332) #11
-  %334 = call ptr @g_strchomp(ptr noundef %333) #11
-  %335 = call i32 @g_ascii_strcasecmp(ptr noundef %334, ptr noundef nonnull @.str.461) #11
-  %.not72.i67 = icmp eq i32 %335, 0
-  br i1 %.not72.i67, label %select.unfold.i, label %336
+332:                                              ; preds = %328
+  %333 = load ptr, ptr %323, align 8
+  %334 = call ptr @g_strchug(ptr noundef %333) #11
+  %335 = call ptr @g_strchomp(ptr noundef %334) #11
+  %336 = call i32 @g_ascii_strcasecmp(ptr noundef %335, ptr noundef nonnull @.str.461) #11
+  %.not72.i67 = icmp eq i32 %336, 0
+  br i1 %.not72.i67, label %select.unfold.i, label %337
 
-336:                                              ; preds = %331
-  %337 = load ptr, ptr %322, align 8
-  %338 = call ptr @g_strchug(ptr noundef %337) #11
-  %339 = call ptr @g_strchomp(ptr noundef %338) #11
-  %340 = call i32 @g_ascii_strcasecmp(ptr noundef %339, ptr noundef nonnull @.str.462) #11
-  %.not73.i68 = icmp eq i32 %340, 0
-  br i1 %.not73.i68, label %select.unfold.i, label %341
+337:                                              ; preds = %332
+  %338 = load ptr, ptr %323, align 8
+  %339 = call ptr @g_strchug(ptr noundef %338) #11
+  %340 = call ptr @g_strchomp(ptr noundef %339) #11
+  %341 = call i32 @g_ascii_strcasecmp(ptr noundef %340, ptr noundef nonnull @.str.462) #11
+  %.not73.i68 = icmp eq i32 %341, 0
+  br i1 %.not73.i68, label %select.unfold.i, label %342
 
-341:                                              ; preds = %336
-  %342 = load ptr, ptr %322, align 8
-  %343 = call ptr @g_strchug(ptr noundef %342) #11
-  %344 = call ptr @g_strchomp(ptr noundef %343) #11
-  %345 = call i32 @g_ascii_strcasecmp(ptr noundef %344, ptr noundef nonnull @.str.463) #11
-  %.not74.i69 = icmp eq i32 %345, 0
-  br i1 %.not74.i69, label %select.unfold.i, label %346
+342:                                              ; preds = %337
+  %343 = load ptr, ptr %323, align 8
+  %344 = call ptr @g_strchug(ptr noundef %343) #11
+  %345 = call ptr @g_strchomp(ptr noundef %344) #11
+  %346 = call i32 @g_ascii_strcasecmp(ptr noundef %345, ptr noundef nonnull @.str.463) #11
+  %.not74.i69 = icmp eq i32 %346, 0
+  br i1 %.not74.i69, label %select.unfold.i, label %347
 
-346:                                              ; preds = %341
-  %347 = load ptr, ptr %322, align 8
-  %348 = call ptr @g_strchug(ptr noundef %347) #11
-  %349 = call ptr @g_strchomp(ptr noundef %348) #11
-  %350 = call i32 @g_ascii_strcasecmp(ptr noundef %349, ptr noundef nonnull @.str.464) #11
-  %.not75.i70 = icmp eq i32 %350, 0
-  br i1 %.not75.i70, label %select.unfold.i, label %351
+347:                                              ; preds = %342
+  %348 = load ptr, ptr %323, align 8
+  %349 = call ptr @g_strchug(ptr noundef %348) #11
+  %350 = call ptr @g_strchomp(ptr noundef %349) #11
+  %351 = call i32 @g_ascii_strcasecmp(ptr noundef %350, ptr noundef nonnull @.str.464) #11
+  %.not75.i70 = icmp eq i32 %351, 0
+  br i1 %.not75.i70, label %select.unfold.i, label %352
 
-351:                                              ; preds = %346
-  %352 = load ptr, ptr %322, align 8
-  %353 = call ptr @g_strchug(ptr noundef %352) #11
-  %354 = call ptr @g_strchomp(ptr noundef %353) #11
-  %355 = call i32 @g_ascii_strcasecmp(ptr noundef %354, ptr noundef nonnull @.str.465) #11
-  %.not76.i71 = icmp eq i32 %355, 0
-  br i1 %.not76.i71, label %select.unfold.i, label %356
+352:                                              ; preds = %347
+  %353 = load ptr, ptr %323, align 8
+  %354 = call ptr @g_strchug(ptr noundef %353) #11
+  %355 = call ptr @g_strchomp(ptr noundef %354) #11
+  %356 = call i32 @g_ascii_strcasecmp(ptr noundef %355, ptr noundef nonnull @.str.465) #11
+  %.not76.i71 = icmp eq i32 %356, 0
+  br i1 %.not76.i71, label %select.unfold.i, label %357
 
-356:                                              ; preds = %351
-  %357 = load ptr, ptr %322, align 8
-  %358 = call ptr @g_strchug(ptr noundef %357) #11
-  %359 = call ptr @g_strchomp(ptr noundef %358) #11
-  %360 = call i32 @g_ascii_strcasecmp(ptr noundef %359, ptr noundef nonnull @.str.466) #11
-  %.not77.i72 = icmp eq i32 %360, 0
-  br i1 %.not77.i72, label %select.unfold.i, label %361
+357:                                              ; preds = %352
+  %358 = load ptr, ptr %323, align 8
+  %359 = call ptr @g_strchug(ptr noundef %358) #11
+  %360 = call ptr @g_strchomp(ptr noundef %359) #11
+  %361 = call i32 @g_ascii_strcasecmp(ptr noundef %360, ptr noundef nonnull @.str.466) #11
+  %.not77.i72 = icmp eq i32 %361, 0
+  br i1 %.not77.i72, label %select.unfold.i, label %362
 
-361:                                              ; preds = %356
-  %362 = load ptr, ptr %322, align 8
-  %363 = call ptr @g_strchug(ptr noundef %362) #11
-  %364 = call ptr @g_strchomp(ptr noundef %363) #11
-  %365 = call i32 @g_ascii_strcasecmp(ptr noundef %364, ptr noundef nonnull @.str.467) #11
-  %.not78.i73 = icmp eq i32 %365, 0
-  br i1 %.not78.i73, label %select.unfold.i, label %366
+362:                                              ; preds = %357
+  %363 = load ptr, ptr %323, align 8
+  %364 = call ptr @g_strchug(ptr noundef %363) #11
+  %365 = call ptr @g_strchomp(ptr noundef %364) #11
+  %366 = call i32 @g_ascii_strcasecmp(ptr noundef %365, ptr noundef nonnull @.str.467) #11
+  %.not78.i73 = icmp eq i32 %366, 0
+  br i1 %.not78.i73, label %select.unfold.i, label %367
 
-366:                                              ; preds = %361
-  %367 = load ptr, ptr %322, align 8
-  %368 = call ptr @g_strchug(ptr noundef %367) #11
-  %369 = call ptr @g_strchomp(ptr noundef %368) #11
-  %370 = call i32 @g_ascii_strcasecmp(ptr noundef %369, ptr noundef nonnull @.str.468) #11
-  %.not79.i = icmp eq i32 %370, 0
-  br i1 %.not79.i, label %select.unfold.i, label %371
+367:                                              ; preds = %362
+  %368 = load ptr, ptr %323, align 8
+  %369 = call ptr @g_strchug(ptr noundef %368) #11
+  %370 = call ptr @g_strchomp(ptr noundef %369) #11
+  %371 = call i32 @g_ascii_strcasecmp(ptr noundef %370, ptr noundef nonnull @.str.468) #11
+  %.not79.i = icmp eq i32 %371, 0
+  br i1 %.not79.i, label %select.unfold.i, label %372
 
-371:                                              ; preds = %366
-  %372 = load ptr, ptr %322, align 8
-  %373 = call ptr @g_strchug(ptr noundef %372) #11
-  %374 = call ptr @g_strchomp(ptr noundef %373) #11
-  %375 = call i32 @g_ascii_strcasecmp(ptr noundef %374, ptr noundef nonnull @.str.469) #11
-  %.not80.i = icmp eq i32 %375, 0
-  br i1 %.not80.i, label %select.unfold.i, label %376
+372:                                              ; preds = %367
+  %373 = load ptr, ptr %323, align 8
+  %374 = call ptr @g_strchug(ptr noundef %373) #11
+  %375 = call ptr @g_strchomp(ptr noundef %374) #11
+  %376 = call i32 @g_ascii_strcasecmp(ptr noundef %375, ptr noundef nonnull @.str.469) #11
+  %.not80.i = icmp eq i32 %376, 0
+  br i1 %.not80.i, label %select.unfold.i, label %377
 
-376:                                              ; preds = %371
-  %377 = load ptr, ptr %322, align 8
-  %378 = call ptr @g_strchug(ptr noundef %377) #11
-  %379 = call ptr @g_strchomp(ptr noundef %378) #11
-  %380 = call i32 @g_ascii_strcasecmp(ptr noundef %379, ptr noundef nonnull @.str.470) #11
-  %.not81.i = icmp eq i32 %380, 0
-  br i1 %.not81.i, label %select.unfold.i, label %381
+377:                                              ; preds = %372
+  %378 = load ptr, ptr %323, align 8
+  %379 = call ptr @g_strchug(ptr noundef %378) #11
+  %380 = call ptr @g_strchomp(ptr noundef %379) #11
+  %381 = call i32 @g_ascii_strcasecmp(ptr noundef %380, ptr noundef nonnull @.str.470) #11
+  %.not81.i = icmp eq i32 %381, 0
+  br i1 %.not81.i, label %select.unfold.i, label %382
 
-381:                                              ; preds = %376
-  %382 = load ptr, ptr %322, align 8
-  %383 = call ptr @g_strchug(ptr noundef %382) #11
-  %384 = call ptr @g_strchomp(ptr noundef %383) #11
-  %385 = call i32 @g_ascii_strcasecmp(ptr noundef %384, ptr noundef nonnull @.str.471) #11
-  %.not82.i = icmp eq i32 %385, 0
-  br i1 %.not82.i, label %select.unfold.i, label %386
+382:                                              ; preds = %377
+  %383 = load ptr, ptr %323, align 8
+  %384 = call ptr @g_strchug(ptr noundef %383) #11
+  %385 = call ptr @g_strchomp(ptr noundef %384) #11
+  %386 = call i32 @g_ascii_strcasecmp(ptr noundef %385, ptr noundef nonnull @.str.471) #11
+  %.not82.i = icmp eq i32 %386, 0
+  br i1 %.not82.i, label %select.unfold.i, label %387
 
-386:                                              ; preds = %381
-  %387 = load ptr, ptr %322, align 8
-  %388 = call ptr @g_strchug(ptr noundef %387) #11
-  %389 = call ptr @g_strchomp(ptr noundef %388) #11
-  %390 = call i32 @g_ascii_strcasecmp(ptr noundef %389, ptr noundef nonnull @.str.472) #11
-  %.not83.i = icmp eq i32 %390, 0
-  br i1 %.not83.i, label %select.unfold.i, label %391
+387:                                              ; preds = %382
+  %388 = load ptr, ptr %323, align 8
+  %389 = call ptr @g_strchug(ptr noundef %388) #11
+  %390 = call ptr @g_strchomp(ptr noundef %389) #11
+  %391 = call i32 @g_ascii_strcasecmp(ptr noundef %390, ptr noundef nonnull @.str.472) #11
+  %.not83.i = icmp eq i32 %391, 0
+  br i1 %.not83.i, label %select.unfold.i, label %392
 
-391:                                              ; preds = %386
-  %392 = load ptr, ptr %322, align 8
-  %393 = call ptr @g_strchug(ptr noundef %392) #11
-  %394 = call ptr @g_strchomp(ptr noundef %393) #11
-  %395 = call i32 @g_ascii_strcasecmp(ptr noundef %394, ptr noundef nonnull @.str.473) #11
-  %.not84.i74 = icmp eq i32 %395, 0
-  br i1 %.not84.i74, label %select.unfold.i, label %396
+392:                                              ; preds = %387
+  %393 = load ptr, ptr %323, align 8
+  %394 = call ptr @g_strchug(ptr noundef %393) #11
+  %395 = call ptr @g_strchomp(ptr noundef %394) #11
+  %396 = call i32 @g_ascii_strcasecmp(ptr noundef %395, ptr noundef nonnull @.str.473) #11
+  %.not84.i74 = icmp eq i32 %396, 0
+  br i1 %.not84.i74, label %select.unfold.i, label %397
 
-396:                                              ; preds = %391
-  %397 = load ptr, ptr %322, align 8
-  %398 = call ptr @g_strchug(ptr noundef %397) #11
-  %399 = call ptr @g_strchomp(ptr noundef %398) #11
-  %400 = call i32 @g_ascii_strcasecmp(ptr noundef %399, ptr noundef nonnull @.str.474) #11
-  %.not85.i = icmp eq i32 %400, 0
-  br i1 %.not85.i, label %451, label %401
+397:                                              ; preds = %392
+  %398 = load ptr, ptr %323, align 8
+  %399 = call ptr @g_strchug(ptr noundef %398) #11
+  %400 = call ptr @g_strchomp(ptr noundef %399) #11
+  %401 = call i32 @g_ascii_strcasecmp(ptr noundef %400, ptr noundef nonnull @.str.474) #11
+  %.not85.i = icmp eq i32 %401, 0
+  br i1 %.not85.i, label %452, label %402
 
-401:                                              ; preds = %396
-  %402 = load ptr, ptr %322, align 8
-  %403 = call ptr @g_strchug(ptr noundef %402) #11
-  %404 = call ptr @g_strchomp(ptr noundef %403) #11
-  %405 = call i32 @g_ascii_strcasecmp(ptr noundef %404, ptr noundef nonnull @.str.475) #11
-  %.not86.i = icmp eq i32 %405, 0
-  br i1 %.not86.i, label %select.unfold.i, label %406
+402:                                              ; preds = %397
+  %403 = load ptr, ptr %323, align 8
+  %404 = call ptr @g_strchug(ptr noundef %403) #11
+  %405 = call ptr @g_strchomp(ptr noundef %404) #11
+  %406 = call i32 @g_ascii_strcasecmp(ptr noundef %405, ptr noundef nonnull @.str.475) #11
+  %.not86.i = icmp eq i32 %406, 0
+  br i1 %.not86.i, label %select.unfold.i, label %407
 
-406:                                              ; preds = %401
-  %407 = load ptr, ptr %322, align 8
-  %408 = call ptr @g_strchug(ptr noundef %407) #11
-  %409 = call ptr @g_strchomp(ptr noundef %408) #11
-  %410 = call i32 @g_ascii_strcasecmp(ptr noundef %409, ptr noundef nonnull @.str.476) #11
-  %.not87.i = icmp eq i32 %410, 0
-  br i1 %.not87.i, label %select.unfold.i, label %411
+407:                                              ; preds = %402
+  %408 = load ptr, ptr %323, align 8
+  %409 = call ptr @g_strchug(ptr noundef %408) #11
+  %410 = call ptr @g_strchomp(ptr noundef %409) #11
+  %411 = call i32 @g_ascii_strcasecmp(ptr noundef %410, ptr noundef nonnull @.str.476) #11
+  %.not87.i = icmp eq i32 %411, 0
+  br i1 %.not87.i, label %select.unfold.i, label %412
 
-411:                                              ; preds = %406
-  %412 = load ptr, ptr %322, align 8
-  %413 = call ptr @g_strchug(ptr noundef %412) #11
-  %414 = call ptr @g_strchomp(ptr noundef %413) #11
-  %415 = call i32 @g_ascii_strcasecmp(ptr noundef %414, ptr noundef nonnull @.str.477) #11
-  %.not88.i = icmp eq i32 %415, 0
-  br i1 %.not88.i, label %select.unfold.i, label %416
+412:                                              ; preds = %407
+  %413 = load ptr, ptr %323, align 8
+  %414 = call ptr @g_strchug(ptr noundef %413) #11
+  %415 = call ptr @g_strchomp(ptr noundef %414) #11
+  %416 = call i32 @g_ascii_strcasecmp(ptr noundef %415, ptr noundef nonnull @.str.477) #11
+  %.not88.i = icmp eq i32 %416, 0
+  br i1 %.not88.i, label %select.unfold.i, label %417
 
-416:                                              ; preds = %411
-  %417 = load ptr, ptr %322, align 8
-  %418 = call ptr @g_strchug(ptr noundef %417) #11
-  %419 = call ptr @g_strchomp(ptr noundef %418) #11
-  %420 = call i32 @g_ascii_strcasecmp(ptr noundef %419, ptr noundef nonnull @.str.478) #11
-  %.not89.i = icmp eq i32 %420, 0
-  br i1 %.not89.i, label %select.unfold.i, label %421
+417:                                              ; preds = %412
+  %418 = load ptr, ptr %323, align 8
+  %419 = call ptr @g_strchug(ptr noundef %418) #11
+  %420 = call ptr @g_strchomp(ptr noundef %419) #11
+  %421 = call i32 @g_ascii_strcasecmp(ptr noundef %420, ptr noundef nonnull @.str.478) #11
+  %.not89.i = icmp eq i32 %421, 0
+  br i1 %.not89.i, label %select.unfold.i, label %422
 
-421:                                              ; preds = %416
-  %422 = load ptr, ptr %322, align 8
-  %423 = call ptr @g_strchug(ptr noundef %422) #11
-  %424 = call ptr @g_strchomp(ptr noundef %423) #11
-  %425 = call i32 @g_ascii_strcasecmp(ptr noundef %424, ptr noundef nonnull @.str.479) #11
-  %.not90.i = icmp eq i32 %425, 0
-  br i1 %.not90.i, label %select.unfold.i, label %426
+422:                                              ; preds = %417
+  %423 = load ptr, ptr %323, align 8
+  %424 = call ptr @g_strchug(ptr noundef %423) #11
+  %425 = call ptr @g_strchomp(ptr noundef %424) #11
+  %426 = call i32 @g_ascii_strcasecmp(ptr noundef %425, ptr noundef nonnull @.str.479) #11
+  %.not90.i = icmp eq i32 %426, 0
+  br i1 %.not90.i, label %select.unfold.i, label %427
 
-426:                                              ; preds = %421
-  %427 = load ptr, ptr %322, align 8
-  %428 = call ptr @g_strchug(ptr noundef %427) #11
-  %429 = call ptr @g_strchomp(ptr noundef %428) #11
-  %430 = call i32 @g_ascii_strcasecmp(ptr noundef %429, ptr noundef nonnull @.str.480) #11
-  %.not91.i = icmp eq i32 %430, 0
-  br i1 %.not91.i, label %select.unfold.i, label %431
+427:                                              ; preds = %422
+  %428 = load ptr, ptr %323, align 8
+  %429 = call ptr @g_strchug(ptr noundef %428) #11
+  %430 = call ptr @g_strchomp(ptr noundef %429) #11
+  %431 = call i32 @g_ascii_strcasecmp(ptr noundef %430, ptr noundef nonnull @.str.480) #11
+  %.not91.i = icmp eq i32 %431, 0
+  br i1 %.not91.i, label %select.unfold.i, label %432
 
-431:                                              ; preds = %426
-  %432 = load ptr, ptr %322, align 8
-  %433 = call ptr @g_strchug(ptr noundef %432) #11
-  %434 = call ptr @g_strchomp(ptr noundef %433) #11
-  %435 = call i32 @g_ascii_strcasecmp(ptr noundef %434, ptr noundef nonnull @.str.481) #11
-  %.not92.i = icmp eq i32 %435, 0
-  br i1 %.not92.i, label %select.unfold.i, label %436
+432:                                              ; preds = %427
+  %433 = load ptr, ptr %323, align 8
+  %434 = call ptr @g_strchug(ptr noundef %433) #11
+  %435 = call ptr @g_strchomp(ptr noundef %434) #11
+  %436 = call i32 @g_ascii_strcasecmp(ptr noundef %435, ptr noundef nonnull @.str.481) #11
+  %.not92.i = icmp eq i32 %436, 0
+  br i1 %.not92.i, label %select.unfold.i, label %437
 
-436:                                              ; preds = %431
-  %437 = load ptr, ptr %322, align 8
-  %438 = call ptr @g_strchug(ptr noundef %437) #11
-  %439 = call ptr @g_strchomp(ptr noundef %438) #11
-  %440 = call i32 @g_ascii_strcasecmp(ptr noundef %439, ptr noundef nonnull @.str.482) #11
-  %.not93.i = icmp eq i32 %440, 0
-  br i1 %.not93.i, label %select.unfold.i, label %441
+437:                                              ; preds = %432
+  %438 = load ptr, ptr %323, align 8
+  %439 = call ptr @g_strchug(ptr noundef %438) #11
+  %440 = call ptr @g_strchomp(ptr noundef %439) #11
+  %441 = call i32 @g_ascii_strcasecmp(ptr noundef %440, ptr noundef nonnull @.str.482) #11
+  %.not93.i = icmp eq i32 %441, 0
+  br i1 %.not93.i, label %select.unfold.i, label %442
 
-441:                                              ; preds = %436
-  %442 = load ptr, ptr %322, align 8
-  %443 = call ptr @g_strchug(ptr noundef %442) #11
-  %444 = call ptr @g_strchomp(ptr noundef %443) #11
-  %445 = call i32 @g_ascii_strcasecmp(ptr noundef %444, ptr noundef nonnull @.str.483) #11
-  %.not94.i = icmp eq i32 %445, 0
-  br i1 %.not94.i, label %select.unfold.i, label %446
+442:                                              ; preds = %437
+  %443 = load ptr, ptr %323, align 8
+  %444 = call ptr @g_strchug(ptr noundef %443) #11
+  %445 = call ptr @g_strchomp(ptr noundef %444) #11
+  %446 = call i32 @g_ascii_strcasecmp(ptr noundef %445, ptr noundef nonnull @.str.483) #11
+  %.not94.i = icmp eq i32 %446, 0
+  br i1 %.not94.i, label %select.unfold.i, label %447
 
-446:                                              ; preds = %441
-  %447 = load ptr, ptr %322, align 8
-  %448 = call ptr @g_strchug(ptr noundef %447) #11
-  %449 = call ptr @g_strchomp(ptr noundef %448) #11
-  %450 = call i32 @g_ascii_strcasecmp(ptr noundef %449, ptr noundef nonnull @.str.484) #11
-  %.not95.i = icmp eq i32 %450, 0
+447:                                              ; preds = %442
+  %448 = load ptr, ptr %323, align 8
+  %449 = call ptr @g_strchug(ptr noundef %448) #11
+  %450 = call ptr @g_strchomp(ptr noundef %449) #11
+  %451 = call i32 @g_ascii_strcasecmp(ptr noundef %450, ptr noundef nonnull @.str.484) #11
+  %.not95.i = icmp eq i32 %451, 0
   br i1 %.not95.i, label %select.unfold.i, label %.thread101.i
 
-451:                                              ; preds = %396, %327
-  %.065.in.i = phi ptr [ @hf_mgcp_param_localconnoptions_p, %327 ], [ @hf_mgcp_param_localconnoptions_gc, %396 ]
+452:                                              ; preds = %397, %328
+  %.065.in.i = phi ptr [ @hf_mgcp_param_localconnoptions_p, %328 ], [ @hf_mgcp_param_localconnoptions_gc, %397 ]
   %.065.i = load i32, ptr %.065.in.i, align 4
-  %452 = icmp sgt i32 %.065.i, 0
-  br i1 %452, label %453, label %.thread101.i
+  %453 = icmp sgt i32 %.065.i, 0
+  br i1 %453, label %454, label %.thread101.i
 
-453:                                              ; preds = %451
-  %454 = load ptr, ptr %325, align 8
-  %455 = call i64 @strtoul(ptr nocapture noundef %454, ptr noundef null, i32 noundef 10) #11
-  %456 = trunc i64 %455 to i32
-  %457 = call ptr @proto_tree_add_uint(ptr noundef %310, i32 noundef %.065.i, ptr noundef %0, i32 noundef %.1.i, i32 noundef %319, i32 noundef %456) #11
-  br label %467
+454:                                              ; preds = %452
+  %455 = load ptr, ptr %326, align 8
+  %456 = call i64 @strtoul(ptr nocapture noundef %455, ptr noundef null, i32 noundef 10) #11
+  %457 = trunc i64 %456 to i32
+  %458 = call ptr @proto_tree_add_uint(ptr noundef %311, i32 noundef %.065.i, ptr noundef %0, i32 noundef %.1.i, i32 noundef %320, i32 noundef %457) #11
+  br label %468
 
-select.unfold.i:                                  ; preds = %446, %441, %436, %431, %426, %421, %416, %411, %406, %401, %391, %386, %381, %376, %371, %366, %361, %356, %351, %346, %341, %336, %331
-  %.0.ph.in.i = phi ptr [ @hf_mgcp_param_localconnoptions_fxr, %446 ], [ @hf_mgcp_param_localconnoptions_a, %331 ], [ @hf_mgcp_param_localconnoptions_s, %336 ], [ @hf_mgcp_param_localconnoptions_e, %341 ], [ @hf_mgcp_param_localconnoptions_scrtp, %346 ], [ @hf_mgcp_param_localconnoptions_scrtcp, %351 ], [ @hf_mgcp_param_localconnoptions_b, %356 ], [ @hf_mgcp_param_localconnoptions_esccd, %361 ], [ @hf_mgcp_param_localconnoptions_escci, %366 ], [ @hf_mgcp_param_localconnoptions_dqgi, %371 ], [ @hf_mgcp_param_localconnoptions_dqrd, %376 ], [ @hf_mgcp_param_localconnoptions_dqri, %381 ], [ @hf_mgcp_param_localconnoptions_dqrr, %386 ], [ @hf_mgcp_param_localconnoptions_k, %391 ], [ @hf_mgcp_param_localconnoptions_fmtp, %401 ], [ @hf_mgcp_param_localconnoptions_nt, %406 ], [ @hf_mgcp_param_localconnoptions_ofmtp, %411 ], [ @hf_mgcp_param_localconnoptions_r, %416 ], [ @hf_mgcp_param_localconnoptions_t, %421 ], [ @hf_mgcp_param_localconnoptions_rcnf, %426 ], [ @hf_mgcp_param_localconnoptions_rdir, %431 ], [ @hf_mgcp_param_localconnoptions_rsh, %436 ], [ @hf_mgcp_param_localconnoptions_mp, %441 ]
+select.unfold.i:                                  ; preds = %447, %442, %437, %432, %427, %422, %417, %412, %407, %402, %392, %387, %382, %377, %372, %367, %362, %357, %352, %347, %342, %337, %332
+  %.0.ph.in.i = phi ptr [ @hf_mgcp_param_localconnoptions_fxr, %447 ], [ @hf_mgcp_param_localconnoptions_a, %332 ], [ @hf_mgcp_param_localconnoptions_s, %337 ], [ @hf_mgcp_param_localconnoptions_e, %342 ], [ @hf_mgcp_param_localconnoptions_scrtp, %347 ], [ @hf_mgcp_param_localconnoptions_scrtcp, %352 ], [ @hf_mgcp_param_localconnoptions_b, %357 ], [ @hf_mgcp_param_localconnoptions_esccd, %362 ], [ @hf_mgcp_param_localconnoptions_escci, %367 ], [ @hf_mgcp_param_localconnoptions_dqgi, %372 ], [ @hf_mgcp_param_localconnoptions_dqrd, %377 ], [ @hf_mgcp_param_localconnoptions_dqri, %382 ], [ @hf_mgcp_param_localconnoptions_dqrr, %387 ], [ @hf_mgcp_param_localconnoptions_k, %392 ], [ @hf_mgcp_param_localconnoptions_fmtp, %402 ], [ @hf_mgcp_param_localconnoptions_nt, %407 ], [ @hf_mgcp_param_localconnoptions_ofmtp, %412 ], [ @hf_mgcp_param_localconnoptions_r, %417 ], [ @hf_mgcp_param_localconnoptions_t, %422 ], [ @hf_mgcp_param_localconnoptions_rcnf, %427 ], [ @hf_mgcp_param_localconnoptions_rdir, %432 ], [ @hf_mgcp_param_localconnoptions_rsh, %437 ], [ @hf_mgcp_param_localconnoptions_mp, %442 ]
   %.0.ph.i = load i32, ptr %.0.ph.in.i, align 4
-  %458 = icmp sgt i32 %.0.ph.i, 0
-  br i1 %458, label %459, label %.thread101.i
+  %459 = icmp sgt i32 %.0.ph.i, 0
+  br i1 %459, label %460, label %.thread101.i
 
-459:                                              ; preds = %select.unfold.i
-  %460 = load ptr, ptr %325, align 8
-  %461 = call ptr @g_strchug(ptr noundef %460) #11
-  %462 = call ptr @g_strchomp(ptr noundef %461) #11
-  %463 = call ptr @proto_tree_add_string(ptr noundef %310, i32 noundef %.0.ph.i, ptr noundef %0, i32 noundef %.1.i, i32 noundef %319, ptr noundef %462) #11
-  br label %467
+460:                                              ; preds = %select.unfold.i
+  %461 = load ptr, ptr %326, align 8
+  %462 = call ptr @g_strchug(ptr noundef %461) #11
+  %463 = call ptr @g_strchomp(ptr noundef %462) #11
+  %464 = call ptr @proto_tree_add_string(ptr noundef %311, i32 noundef %.0.ph.i, ptr noundef %0, i32 noundef %.1.i, i32 noundef %320, ptr noundef %463) #11
+  br label %468
 
-.thread101.i:                                     ; preds = %select.unfold.i, %451, %446
-  %464 = load i32, ptr @hf_mgcp_unknown_parameter, align 4
-  %465 = load ptr, ptr %317, align 8
-  %466 = call ptr @proto_tree_add_string(ptr noundef %310, i32 noundef %464, ptr noundef %0, i32 noundef %.1.i, i32 noundef %319, ptr noundef %465) #11
-  br label %467
+.thread101.i:                                     ; preds = %select.unfold.i, %452, %447
+  %465 = load i32, ptr @hf_mgcp_unknown_parameter, align 4
+  %466 = load ptr, ptr %318, align 8
+  %467 = call ptr @proto_tree_add_string(ptr noundef %311, i32 noundef %465, ptr noundef %0, i32 noundef %.1.i, i32 noundef %320, ptr noundef %466) #11
+  br label %468
 
-467:                                              ; preds = %.thread101.i, %459, %453, %324, %.lr.ph.i63
-  %468 = add i32 %.066104.i, 1
-  %469 = zext i32 %468 to i64
-  %470 = getelementptr ptr, ptr %314, i64 %469
-  %471 = load ptr, ptr %470, align 8
-  %.not.i75 = icmp eq ptr %471, null
+468:                                              ; preds = %.thread101.i, %460, %454, %325, %.lr.ph.i63
+  %469 = add i32 %.066104.i, 1
+  %470 = zext i32 %469 to i64
+  %471 = getelementptr ptr, ptr %315, i64 %470
+  %472 = load ptr, ptr %471, align 8
+  %.not.i75 = icmp eq ptr %472, null
   br i1 %.not.i75, label %dissect_mgcp_connectionparams.exit, label %.lr.ph.i63, !llvm.loop !12
 
-472:                                              ; preds = %302
-  %473 = load i32, ptr @hf_mgcp_param_localvoicemetrics, align 4
-  %474 = icmp eq i32 %190, %473
-  br i1 %474, label %475, label %685
+473:                                              ; preds = %303
+  %474 = load i32, ptr @hf_mgcp_param_localvoicemetrics, align 4
+  %475 = icmp eq i32 %191, %474
+  br i1 %475, label %476, label %686
 
-475:                                              ; preds = %472
-  br i1 %.not.i104, label %482, label %476
+476:                                              ; preds = %473
+  br i1 %.not.i104, label %483, label %477
 
-476:                                              ; preds = %475
-  %477 = sub i32 %.1.i, %16
-  %478 = add i32 %477, %189
-  %479 = call ptr @proto_tree_add_item(ptr noundef nonnull %9, i32 noundef %190, ptr noundef %0, i32 noundef %16, i32 noundef %478, i32 noundef 0) #11
-  %480 = load i32, ptr @ett_mgcp_param_localvoicemetrics, align 4
-  %481 = call ptr @proto_item_add_subtree(ptr noundef %479, i32 noundef %480) #11
-  br label %482
+477:                                              ; preds = %476
+  %478 = sub i32 %.1.i, %16
+  %479 = add i32 %478, %190
+  %480 = call ptr @proto_tree_add_item(ptr noundef nonnull %9, i32 noundef %191, ptr noundef %0, i32 noundef %16, i32 noundef %479, i32 noundef 0) #11
+  %481 = load i32, ptr @ett_mgcp_param_localvoicemetrics, align 4
+  %482 = call ptr @proto_item_add_subtree(ptr noundef %480, i32 noundef %481) #11
+  br label %483
 
-482:                                              ; preds = %476, %475
-  %.068.i = phi ptr [ %481, %476 ], [ null, %475 ]
-  %483 = add i32 %16, 9
-  %484 = call ptr @wmem_packet_scope() #11
-  %485 = add i32 %189, -9
-  %486 = call ptr @tvb_get_string_enc(ptr noundef %484, ptr noundef %0, i32 noundef %483, i32 noundef %485, i32 noundef 0) #11
-  %487 = call ptr @wmem_packet_scope() #11
-  %488 = call ptr @wmem_strsplit(ptr noundef %487, ptr noundef %486, ptr noundef nonnull @.str.445, i32 noundef -1) #11
-  %489 = load ptr, ptr %488, align 8
-  %.not73101.i = icmp eq ptr %489, null
+483:                                              ; preds = %477, %476
+  %.068.i = phi ptr [ %482, %477 ], [ null, %476 ]
+  %484 = add i32 %16, 9
+  %485 = call ptr @wmem_packet_scope() #11
+  %486 = add i32 %190, -9
+  %487 = call ptr @tvb_get_string_enc(ptr noundef %485, ptr noundef %0, i32 noundef %484, i32 noundef %486, i32 noundef 0) #11
+  %488 = call ptr @wmem_packet_scope() #11
+  %489 = call ptr @wmem_strsplit(ptr noundef %488, ptr noundef %487, ptr noundef nonnull @.str.445, i32 noundef -1) #11
+  %490 = load ptr, ptr %489, align 8
+  %.not73101.i = icmp eq ptr %490, null
   br i1 %.not73101.i, label %dissect_mgcp_connectionparams.exit, label %.lr.ph.i78
 
-.lr.ph.i78:                                       ; preds = %482
+.lr.ph.i78:                                       ; preds = %483
   %.not100.i = icmp eq ptr %.068.i, null
-  br label %490
+  br label %491
 
-490:                                              ; preds = %678, %.lr.ph.i78
-  %491 = phi ptr [ %489, %.lr.ph.i78 ], [ %684, %678 ]
-  %492 = phi ptr [ %488, %.lr.ph.i78 ], [ %683, %678 ]
-  %.067103.i = phi i32 [ 0, %.lr.ph.i78 ], [ %681, %678 ]
-  %.069102.i = phi i32 [ %483, %.lr.ph.i78 ], [ %680, %678 ]
-  %493 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %491) #13
-  %494 = trunc i64 %493 to i32
-  %495 = call ptr @wmem_packet_scope() #11
-  %496 = load ptr, ptr %492, align 8
-  %497 = call ptr @wmem_strsplit(ptr noundef %495, ptr noundef %496, ptr noundef nonnull @.str.446, i32 noundef 2) #11
-  %498 = load ptr, ptr %497, align 8
-  %.not74.i79 = icmp eq ptr %498, null
-  br i1 %.not74.i79, label %673, label %499
+491:                                              ; preds = %679, %.lr.ph.i78
+  %492 = phi ptr [ %490, %.lr.ph.i78 ], [ %685, %679 ]
+  %493 = phi ptr [ %489, %.lr.ph.i78 ], [ %684, %679 ]
+  %.067103.i = phi i32 [ 0, %.lr.ph.i78 ], [ %682, %679 ]
+  %.069102.i = phi i32 [ %484, %.lr.ph.i78 ], [ %681, %679 ]
+  %494 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %492) #13
+  %495 = trunc i64 %494 to i32
+  %496 = call ptr @wmem_packet_scope() #11
+  %497 = load ptr, ptr %493, align 8
+  %498 = call ptr @wmem_strsplit(ptr noundef %496, ptr noundef %497, ptr noundef nonnull @.str.446, i32 noundef 2) #11
+  %499 = load ptr, ptr %498, align 8
+  %.not74.i79 = icmp eq ptr %499, null
+  br i1 %.not74.i79, label %674, label %500
 
-499:                                              ; preds = %490
-  %500 = getelementptr i8, ptr %497, i64 8
-  %501 = load ptr, ptr %500, align 8
-  %.not75.i80 = icmp eq ptr %501, null
-  br i1 %.not75.i80, label %673, label %502
+500:                                              ; preds = %491
+  %501 = getelementptr i8, ptr %498, i64 8
+  %502 = load ptr, ptr %501, align 8
+  %.not75.i80 = icmp eq ptr %502, null
+  br i1 %.not75.i80, label %674, label %503
 
-502:                                              ; preds = %499
-  %503 = call ptr @g_strchug(ptr noundef nonnull %498) #11
-  %504 = call ptr @g_strchomp(ptr noundef %503) #11
-  %505 = call i32 @g_ascii_strcasecmp(ptr noundef %504, ptr noundef nonnull @.str.485) #11
-  %.not77.i81 = icmp eq i32 %505, 0
-  br i1 %.not77.i81, label %506, label %508
+503:                                              ; preds = %500
+  %504 = call ptr @g_strchug(ptr noundef nonnull %499) #11
+  %505 = call ptr @g_strchomp(ptr noundef %504) #11
+  %506 = call i32 @g_ascii_strcasecmp(ptr noundef %505, ptr noundef nonnull @.str.485) #11
+  %.not77.i81 = icmp eq i32 %506, 0
+  br i1 %.not77.i81, label %507, label %509
 
-506:                                              ; preds = %502
-  %507 = load i32, ptr @hf_mgcp_param_voicemetrics_nlr, align 4
-  br label %661
+507:                                              ; preds = %503
+  %508 = load i32, ptr @hf_mgcp_param_voicemetrics_nlr, align 4
+  br label %662
 
-508:                                              ; preds = %502
-  %509 = load ptr, ptr %497, align 8
-  %510 = call ptr @g_strchug(ptr noundef %509) #11
-  %511 = call ptr @g_strchomp(ptr noundef %510) #11
-  %512 = call i32 @g_ascii_strcasecmp(ptr noundef %511, ptr noundef nonnull @.str.486) #11
-  %.not78.i82 = icmp eq i32 %512, 0
-  br i1 %.not78.i82, label %513, label %515
+509:                                              ; preds = %503
+  %510 = load ptr, ptr %498, align 8
+  %511 = call ptr @g_strchug(ptr noundef %510) #11
+  %512 = call ptr @g_strchomp(ptr noundef %511) #11
+  %513 = call i32 @g_ascii_strcasecmp(ptr noundef %512, ptr noundef nonnull @.str.486) #11
+  %.not78.i82 = icmp eq i32 %513, 0
+  br i1 %.not78.i82, label %514, label %516
 
-513:                                              ; preds = %508
-  %514 = load i32, ptr @hf_mgcp_param_voicemetrics_jdr, align 4
-  br label %661
+514:                                              ; preds = %509
+  %515 = load i32, ptr @hf_mgcp_param_voicemetrics_jdr, align 4
+  br label %662
 
-515:                                              ; preds = %508
-  %516 = load ptr, ptr %497, align 8
-  %517 = call ptr @g_strchug(ptr noundef %516) #11
-  %518 = call ptr @g_strchomp(ptr noundef %517) #11
-  %519 = call i32 @g_ascii_strcasecmp(ptr noundef %518, ptr noundef nonnull @.str.487) #11
-  %.not79.i83 = icmp eq i32 %519, 0
-  br i1 %.not79.i83, label %520, label %522
+516:                                              ; preds = %509
+  %517 = load ptr, ptr %498, align 8
+  %518 = call ptr @g_strchug(ptr noundef %517) #11
+  %519 = call ptr @g_strchomp(ptr noundef %518) #11
+  %520 = call i32 @g_ascii_strcasecmp(ptr noundef %519, ptr noundef nonnull @.str.487) #11
+  %.not79.i83 = icmp eq i32 %520, 0
+  br i1 %.not79.i83, label %521, label %523
 
-520:                                              ; preds = %515
-  %521 = load i32, ptr @hf_mgcp_param_voicemetrics_bld, align 4
-  br label %661
+521:                                              ; preds = %516
+  %522 = load i32, ptr @hf_mgcp_param_voicemetrics_bld, align 4
+  br label %662
 
-522:                                              ; preds = %515
-  %523 = load ptr, ptr %497, align 8
-  %524 = call ptr @g_strchug(ptr noundef %523) #11
-  %525 = call ptr @g_strchomp(ptr noundef %524) #11
-  %526 = call i32 @g_ascii_strcasecmp(ptr noundef %525, ptr noundef nonnull @.str.488) #11
-  %.not80.i84 = icmp eq i32 %526, 0
-  br i1 %.not80.i84, label %527, label %529
+523:                                              ; preds = %516
+  %524 = load ptr, ptr %498, align 8
+  %525 = call ptr @g_strchug(ptr noundef %524) #11
+  %526 = call ptr @g_strchomp(ptr noundef %525) #11
+  %527 = call i32 @g_ascii_strcasecmp(ptr noundef %526, ptr noundef nonnull @.str.488) #11
+  %.not80.i84 = icmp eq i32 %527, 0
+  br i1 %.not80.i84, label %528, label %530
 
-527:                                              ; preds = %522
-  %528 = load i32, ptr @hf_mgcp_param_voicemetrics_gld, align 4
-  br label %661
+528:                                              ; preds = %523
+  %529 = load i32, ptr @hf_mgcp_param_voicemetrics_gld, align 4
+  br label %662
 
-529:                                              ; preds = %522
-  %530 = load ptr, ptr %497, align 8
-  %531 = call ptr @g_strchug(ptr noundef %530) #11
-  %532 = call ptr @g_strchomp(ptr noundef %531) #11
-  %533 = call i32 @g_ascii_strcasecmp(ptr noundef %532, ptr noundef nonnull @.str.489) #11
-  %.not81.i85 = icmp eq i32 %533, 0
-  br i1 %.not81.i85, label %534, label %536
+530:                                              ; preds = %523
+  %531 = load ptr, ptr %498, align 8
+  %532 = call ptr @g_strchug(ptr noundef %531) #11
+  %533 = call ptr @g_strchomp(ptr noundef %532) #11
+  %534 = call i32 @g_ascii_strcasecmp(ptr noundef %533, ptr noundef nonnull @.str.489) #11
+  %.not81.i85 = icmp eq i32 %534, 0
+  br i1 %.not81.i85, label %535, label %537
 
-534:                                              ; preds = %529
-  %535 = load i32, ptr @hf_mgcp_param_voicemetrics_bd, align 4
-  br label %661
+535:                                              ; preds = %530
+  %536 = load i32, ptr @hf_mgcp_param_voicemetrics_bd, align 4
+  br label %662
 
-536:                                              ; preds = %529
-  %537 = load ptr, ptr %497, align 8
-  %538 = call ptr @g_strchug(ptr noundef %537) #11
-  %539 = call ptr @g_strchomp(ptr noundef %538) #11
-  %540 = call i32 @g_ascii_strcasecmp(ptr noundef %539, ptr noundef nonnull @.str.490) #11
-  %.not82.i86 = icmp eq i32 %540, 0
-  br i1 %.not82.i86, label %541, label %543
+537:                                              ; preds = %530
+  %538 = load ptr, ptr %498, align 8
+  %539 = call ptr @g_strchug(ptr noundef %538) #11
+  %540 = call ptr @g_strchomp(ptr noundef %539) #11
+  %541 = call i32 @g_ascii_strcasecmp(ptr noundef %540, ptr noundef nonnull @.str.490) #11
+  %.not82.i86 = icmp eq i32 %541, 0
+  br i1 %.not82.i86, label %542, label %544
 
-541:                                              ; preds = %536
-  %542 = load i32, ptr @hf_mgcp_param_voicemetrics_gd, align 4
-  br label %661
+542:                                              ; preds = %537
+  %543 = load i32, ptr @hf_mgcp_param_voicemetrics_gd, align 4
+  br label %662
 
-543:                                              ; preds = %536
-  %544 = load ptr, ptr %497, align 8
-  %545 = call ptr @g_strchug(ptr noundef %544) #11
-  %546 = call ptr @g_strchomp(ptr noundef %545) #11
-  %547 = call i32 @g_ascii_strcasecmp(ptr noundef %546, ptr noundef nonnull @.str.491) #11
-  %.not83.i87 = icmp eq i32 %547, 0
-  br i1 %.not83.i87, label %548, label %550
+544:                                              ; preds = %537
+  %545 = load ptr, ptr %498, align 8
+  %546 = call ptr @g_strchug(ptr noundef %545) #11
+  %547 = call ptr @g_strchomp(ptr noundef %546) #11
+  %548 = call i32 @g_ascii_strcasecmp(ptr noundef %547, ptr noundef nonnull @.str.491) #11
+  %.not83.i87 = icmp eq i32 %548, 0
+  br i1 %.not83.i87, label %549, label %551
 
-548:                                              ; preds = %543
-  %549 = load i32, ptr @hf_mgcp_param_voicemetrics_rtd, align 4
-  br label %661
+549:                                              ; preds = %544
+  %550 = load i32, ptr @hf_mgcp_param_voicemetrics_rtd, align 4
+  br label %662
 
-550:                                              ; preds = %543
-  %551 = load ptr, ptr %497, align 8
-  %552 = call ptr @g_strchug(ptr noundef %551) #11
-  %553 = call ptr @g_strchomp(ptr noundef %552) #11
-  %554 = call i32 @g_ascii_strcasecmp(ptr noundef %553, ptr noundef nonnull @.str.492) #11
-  %.not84.i88 = icmp eq i32 %554, 0
-  br i1 %.not84.i88, label %555, label %557
+551:                                              ; preds = %544
+  %552 = load ptr, ptr %498, align 8
+  %553 = call ptr @g_strchug(ptr noundef %552) #11
+  %554 = call ptr @g_strchomp(ptr noundef %553) #11
+  %555 = call i32 @g_ascii_strcasecmp(ptr noundef %554, ptr noundef nonnull @.str.492) #11
+  %.not84.i88 = icmp eq i32 %555, 0
+  br i1 %.not84.i88, label %556, label %558
 
-555:                                              ; preds = %550
-  %556 = load i32, ptr @hf_mgcp_param_voicemetrics_esd, align 4
-  br label %661
+556:                                              ; preds = %551
+  %557 = load i32, ptr @hf_mgcp_param_voicemetrics_esd, align 4
+  br label %662
 
-557:                                              ; preds = %550
-  %558 = load ptr, ptr %497, align 8
-  %559 = call ptr @g_strchug(ptr noundef %558) #11
-  %560 = call ptr @g_strchomp(ptr noundef %559) #11
-  %561 = call i32 @g_ascii_strcasecmp(ptr noundef %560, ptr noundef nonnull @.str.493) #11
-  %.not85.i89 = icmp eq i32 %561, 0
-  br i1 %.not85.i89, label %562, label %564
+558:                                              ; preds = %551
+  %559 = load ptr, ptr %498, align 8
+  %560 = call ptr @g_strchug(ptr noundef %559) #11
+  %561 = call ptr @g_strchomp(ptr noundef %560) #11
+  %562 = call i32 @g_ascii_strcasecmp(ptr noundef %561, ptr noundef nonnull @.str.493) #11
+  %.not85.i89 = icmp eq i32 %562, 0
+  br i1 %.not85.i89, label %563, label %565
 
-562:                                              ; preds = %557
-  %563 = load i32, ptr @hf_mgcp_param_voicemetrics_sl, align 4
-  br label %661
+563:                                              ; preds = %558
+  %564 = load i32, ptr @hf_mgcp_param_voicemetrics_sl, align 4
+  br label %662
 
-564:                                              ; preds = %557
-  %565 = load ptr, ptr %497, align 8
-  %566 = call ptr @g_strchug(ptr noundef %565) #11
-  %567 = call ptr @g_strchomp(ptr noundef %566) #11
-  %568 = call i32 @g_ascii_strcasecmp(ptr noundef %567, ptr noundef nonnull @.str.494) #11
-  %.not86.i90 = icmp eq i32 %568, 0
-  br i1 %.not86.i90, label %569, label %571
+565:                                              ; preds = %558
+  %566 = load ptr, ptr %498, align 8
+  %567 = call ptr @g_strchug(ptr noundef %566) #11
+  %568 = call ptr @g_strchomp(ptr noundef %567) #11
+  %569 = call i32 @g_ascii_strcasecmp(ptr noundef %568, ptr noundef nonnull @.str.494) #11
+  %.not86.i90 = icmp eq i32 %569, 0
+  br i1 %.not86.i90, label %570, label %572
 
-569:                                              ; preds = %564
-  %570 = load i32, ptr @hf_mgcp_param_voicemetrics_nl, align 4
-  br label %661
+570:                                              ; preds = %565
+  %571 = load i32, ptr @hf_mgcp_param_voicemetrics_nl, align 4
+  br label %662
 
-571:                                              ; preds = %564
-  %572 = load ptr, ptr %497, align 8
-  %573 = call ptr @g_strchug(ptr noundef %572) #11
-  %574 = call ptr @g_strchomp(ptr noundef %573) #11
-  %575 = call i32 @g_ascii_strcasecmp(ptr noundef %574, ptr noundef nonnull @.str.495) #11
-  %.not87.i91 = icmp eq i32 %575, 0
-  br i1 %.not87.i91, label %576, label %578
+572:                                              ; preds = %565
+  %573 = load ptr, ptr %498, align 8
+  %574 = call ptr @g_strchug(ptr noundef %573) #11
+  %575 = call ptr @g_strchomp(ptr noundef %574) #11
+  %576 = call i32 @g_ascii_strcasecmp(ptr noundef %575, ptr noundef nonnull @.str.495) #11
+  %.not87.i91 = icmp eq i32 %576, 0
+  br i1 %.not87.i91, label %577, label %579
 
-576:                                              ; preds = %571
-  %577 = load i32, ptr @hf_mgcp_param_voicemetrics_rerl, align 4
-  br label %661
+577:                                              ; preds = %572
+  %578 = load i32, ptr @hf_mgcp_param_voicemetrics_rerl, align 4
+  br label %662
 
-578:                                              ; preds = %571
-  %579 = load ptr, ptr %497, align 8
-  %580 = call ptr @g_strchug(ptr noundef %579) #11
-  %581 = call ptr @g_strchomp(ptr noundef %580) #11
-  %582 = call i32 @g_ascii_strcasecmp(ptr noundef %581, ptr noundef nonnull @.str.496) #11
-  %.not88.i92 = icmp eq i32 %582, 0
-  br i1 %.not88.i92, label %583, label %585
+579:                                              ; preds = %572
+  %580 = load ptr, ptr %498, align 8
+  %581 = call ptr @g_strchug(ptr noundef %580) #11
+  %582 = call ptr @g_strchomp(ptr noundef %581) #11
+  %583 = call i32 @g_ascii_strcasecmp(ptr noundef %582, ptr noundef nonnull @.str.496) #11
+  %.not88.i92 = icmp eq i32 %583, 0
+  br i1 %.not88.i92, label %584, label %586
 
-583:                                              ; preds = %578
-  %584 = load i32, ptr @hf_mgcp_param_voicemetrics_gmn, align 4
-  br label %661
+584:                                              ; preds = %579
+  %585 = load i32, ptr @hf_mgcp_param_voicemetrics_gmn, align 4
+  br label %662
 
-585:                                              ; preds = %578
-  %586 = load ptr, ptr %497, align 8
-  %587 = call ptr @g_strchug(ptr noundef %586) #11
-  %588 = call ptr @g_strchomp(ptr noundef %587) #11
-  %589 = call i32 @g_ascii_strcasecmp(ptr noundef %588, ptr noundef nonnull @.str.497) #11
-  %.not89.i93 = icmp eq i32 %589, 0
-  br i1 %.not89.i93, label %590, label %592
+586:                                              ; preds = %579
+  %587 = load ptr, ptr %498, align 8
+  %588 = call ptr @g_strchug(ptr noundef %587) #11
+  %589 = call ptr @g_strchomp(ptr noundef %588) #11
+  %590 = call i32 @g_ascii_strcasecmp(ptr noundef %589, ptr noundef nonnull @.str.497) #11
+  %.not89.i93 = icmp eq i32 %590, 0
+  br i1 %.not89.i93, label %591, label %593
 
-590:                                              ; preds = %585
-  %591 = load i32, ptr @hf_mgcp_param_voicemetrics_nsr, align 4
-  br label %661
+591:                                              ; preds = %586
+  %592 = load i32, ptr @hf_mgcp_param_voicemetrics_nsr, align 4
+  br label %662
 
-592:                                              ; preds = %585
-  %593 = load ptr, ptr %497, align 8
-  %594 = call ptr @g_strchug(ptr noundef %593) #11
-  %595 = call ptr @g_strchomp(ptr noundef %594) #11
-  %596 = call i32 @g_ascii_strcasecmp(ptr noundef %595, ptr noundef nonnull @.str.498) #11
-  %.not90.i94 = icmp eq i32 %596, 0
-  br i1 %.not90.i94, label %597, label %599
+593:                                              ; preds = %586
+  %594 = load ptr, ptr %498, align 8
+  %595 = call ptr @g_strchug(ptr noundef %594) #11
+  %596 = call ptr @g_strchomp(ptr noundef %595) #11
+  %597 = call i32 @g_ascii_strcasecmp(ptr noundef %596, ptr noundef nonnull @.str.498) #11
+  %.not90.i94 = icmp eq i32 %597, 0
+  br i1 %.not90.i94, label %598, label %600
 
-597:                                              ; preds = %592
-  %598 = load i32, ptr @hf_mgcp_param_voicemetrics_xsr, align 4
-  br label %661
+598:                                              ; preds = %593
+  %599 = load i32, ptr @hf_mgcp_param_voicemetrics_xsr, align 4
+  br label %662
 
-599:                                              ; preds = %592
-  %600 = load ptr, ptr %497, align 8
-  %601 = call ptr @g_strchug(ptr noundef %600) #11
-  %602 = call ptr @g_strchomp(ptr noundef %601) #11
-  %603 = call i32 @g_ascii_strcasecmp(ptr noundef %602, ptr noundef nonnull @.str.499) #11
-  %.not91.i95 = icmp eq i32 %603, 0
-  br i1 %.not91.i95, label %604, label %606
+600:                                              ; preds = %593
+  %601 = load ptr, ptr %498, align 8
+  %602 = call ptr @g_strchug(ptr noundef %601) #11
+  %603 = call ptr @g_strchomp(ptr noundef %602) #11
+  %604 = call i32 @g_ascii_strcasecmp(ptr noundef %603, ptr noundef nonnull @.str.499) #11
+  %.not91.i95 = icmp eq i32 %604, 0
+  br i1 %.not91.i95, label %605, label %607
 
-604:                                              ; preds = %599
-  %605 = load i32, ptr @hf_mgcp_param_voicemetrics_mlq, align 4
-  br label %661
+605:                                              ; preds = %600
+  %606 = load i32, ptr @hf_mgcp_param_voicemetrics_mlq, align 4
+  br label %662
 
-606:                                              ; preds = %599
-  %607 = load ptr, ptr %497, align 8
-  %608 = call ptr @g_strchug(ptr noundef %607) #11
-  %609 = call ptr @g_strchomp(ptr noundef %608) #11
-  %610 = call i32 @g_ascii_strcasecmp(ptr noundef %609, ptr noundef nonnull @.str.500) #11
-  %.not92.i96 = icmp eq i32 %610, 0
-  br i1 %.not92.i96, label %611, label %613
+607:                                              ; preds = %600
+  %608 = load ptr, ptr %498, align 8
+  %609 = call ptr @g_strchug(ptr noundef %608) #11
+  %610 = call ptr @g_strchomp(ptr noundef %609) #11
+  %611 = call i32 @g_ascii_strcasecmp(ptr noundef %610, ptr noundef nonnull @.str.500) #11
+  %.not92.i96 = icmp eq i32 %611, 0
+  br i1 %.not92.i96, label %612, label %614
 
-611:                                              ; preds = %606
-  %612 = load i32, ptr @hf_mgcp_param_voicemetrics_mcq, align 4
-  br label %661
+612:                                              ; preds = %607
+  %613 = load i32, ptr @hf_mgcp_param_voicemetrics_mcq, align 4
+  br label %662
 
-613:                                              ; preds = %606
-  %614 = load ptr, ptr %497, align 8
-  %615 = call ptr @g_strchug(ptr noundef %614) #11
-  %616 = call ptr @g_strchomp(ptr noundef %615) #11
-  %617 = call i32 @g_ascii_strcasecmp(ptr noundef %616, ptr noundef nonnull @.str.501) #11
-  %.not93.i97 = icmp eq i32 %617, 0
-  br i1 %.not93.i97, label %618, label %620
+614:                                              ; preds = %607
+  %615 = load ptr, ptr %498, align 8
+  %616 = call ptr @g_strchug(ptr noundef %615) #11
+  %617 = call ptr @g_strchomp(ptr noundef %616) #11
+  %618 = call i32 @g_ascii_strcasecmp(ptr noundef %617, ptr noundef nonnull @.str.501) #11
+  %.not93.i97 = icmp eq i32 %618, 0
+  br i1 %.not93.i97, label %619, label %621
 
-618:                                              ; preds = %613
-  %619 = load i32, ptr @hf_mgcp_param_voicemetrics_plc, align 4
-  br label %661
+619:                                              ; preds = %614
+  %620 = load i32, ptr @hf_mgcp_param_voicemetrics_plc, align 4
+  br label %662
 
-620:                                              ; preds = %613
-  %621 = load ptr, ptr %497, align 8
-  %622 = call ptr @g_strchug(ptr noundef %621) #11
-  %623 = call ptr @g_strchomp(ptr noundef %622) #11
-  %624 = call i32 @g_ascii_strcasecmp(ptr noundef %623, ptr noundef nonnull @.str.502) #11
-  %.not94.i98 = icmp eq i32 %624, 0
-  br i1 %.not94.i98, label %625, label %627
+621:                                              ; preds = %614
+  %622 = load ptr, ptr %498, align 8
+  %623 = call ptr @g_strchug(ptr noundef %622) #11
+  %624 = call ptr @g_strchomp(ptr noundef %623) #11
+  %625 = call i32 @g_ascii_strcasecmp(ptr noundef %624, ptr noundef nonnull @.str.502) #11
+  %.not94.i98 = icmp eq i32 %625, 0
+  br i1 %.not94.i98, label %626, label %628
 
-625:                                              ; preds = %620
-  %626 = load i32, ptr @hf_mgcp_param_voicemetrics_jba, align 4
-  br label %661
+626:                                              ; preds = %621
+  %627 = load i32, ptr @hf_mgcp_param_voicemetrics_jba, align 4
+  br label %662
 
-627:                                              ; preds = %620
-  %628 = load ptr, ptr %497, align 8
-  %629 = call ptr @g_strchug(ptr noundef %628) #11
-  %630 = call ptr @g_strchomp(ptr noundef %629) #11
-  %631 = call i32 @g_ascii_strcasecmp(ptr noundef %630, ptr noundef nonnull @.str.503) #11
-  %.not95.i99 = icmp eq i32 %631, 0
-  br i1 %.not95.i99, label %632, label %634
+628:                                              ; preds = %621
+  %629 = load ptr, ptr %498, align 8
+  %630 = call ptr @g_strchug(ptr noundef %629) #11
+  %631 = call ptr @g_strchomp(ptr noundef %630) #11
+  %632 = call i32 @g_ascii_strcasecmp(ptr noundef %631, ptr noundef nonnull @.str.503) #11
+  %.not95.i99 = icmp eq i32 %632, 0
+  br i1 %.not95.i99, label %633, label %635
 
-632:                                              ; preds = %627
-  %633 = load i32, ptr @hf_mgcp_param_voicemetrics_jbr, align 4
-  br label %661
+633:                                              ; preds = %628
+  %634 = load i32, ptr @hf_mgcp_param_voicemetrics_jbr, align 4
+  br label %662
 
-634:                                              ; preds = %627
-  %635 = load ptr, ptr %497, align 8
-  %636 = call ptr @g_strchug(ptr noundef %635) #11
-  %637 = call ptr @g_strchomp(ptr noundef %636) #11
-  %638 = call i32 @g_ascii_strcasecmp(ptr noundef %637, ptr noundef nonnull @.str.504) #11
-  %.not96.i = icmp eq i32 %638, 0
-  br i1 %.not96.i, label %639, label %641
+635:                                              ; preds = %628
+  %636 = load ptr, ptr %498, align 8
+  %637 = call ptr @g_strchug(ptr noundef %636) #11
+  %638 = call ptr @g_strchomp(ptr noundef %637) #11
+  %639 = call i32 @g_ascii_strcasecmp(ptr noundef %638, ptr noundef nonnull @.str.504) #11
+  %.not96.i = icmp eq i32 %639, 0
+  br i1 %.not96.i, label %640, label %642
 
-639:                                              ; preds = %634
-  %640 = load i32, ptr @hf_mgcp_param_voicemetrics_jbn, align 4
-  br label %661
+640:                                              ; preds = %635
+  %641 = load i32, ptr @hf_mgcp_param_voicemetrics_jbn, align 4
+  br label %662
 
-641:                                              ; preds = %634
-  %642 = load ptr, ptr %497, align 8
-  %643 = call ptr @g_strchug(ptr noundef %642) #11
-  %644 = call ptr @g_strchomp(ptr noundef %643) #11
-  %645 = call i32 @g_ascii_strcasecmp(ptr noundef %644, ptr noundef nonnull @.str.505) #11
-  %.not97.i = icmp eq i32 %645, 0
-  br i1 %.not97.i, label %646, label %648
+642:                                              ; preds = %635
+  %643 = load ptr, ptr %498, align 8
+  %644 = call ptr @g_strchug(ptr noundef %643) #11
+  %645 = call ptr @g_strchomp(ptr noundef %644) #11
+  %646 = call i32 @g_ascii_strcasecmp(ptr noundef %645, ptr noundef nonnull @.str.505) #11
+  %.not97.i = icmp eq i32 %646, 0
+  br i1 %.not97.i, label %647, label %649
 
-646:                                              ; preds = %641
-  %647 = load i32, ptr @hf_mgcp_param_voicemetrics_jbm, align 4
-  br label %661
+647:                                              ; preds = %642
+  %648 = load i32, ptr @hf_mgcp_param_voicemetrics_jbm, align 4
+  br label %662
 
-648:                                              ; preds = %641
-  %649 = load ptr, ptr %497, align 8
-  %650 = call ptr @g_strchug(ptr noundef %649) #11
-  %651 = call ptr @g_strchomp(ptr noundef %650) #11
-  %652 = call i32 @g_ascii_strcasecmp(ptr noundef %651, ptr noundef nonnull @.str.506) #11
-  %.not98.i = icmp eq i32 %652, 0
-  br i1 %.not98.i, label %653, label %655
+649:                                              ; preds = %642
+  %650 = load ptr, ptr %498, align 8
+  %651 = call ptr @g_strchug(ptr noundef %650) #11
+  %652 = call ptr @g_strchomp(ptr noundef %651) #11
+  %653 = call i32 @g_ascii_strcasecmp(ptr noundef %652, ptr noundef nonnull @.str.506) #11
+  %.not98.i = icmp eq i32 %653, 0
+  br i1 %.not98.i, label %654, label %656
 
-653:                                              ; preds = %648
-  %654 = load i32, ptr @hf_mgcp_param_voicemetrics_jbs, align 4
-  br label %661
+654:                                              ; preds = %649
+  %655 = load i32, ptr @hf_mgcp_param_voicemetrics_jbs, align 4
+  br label %662
 
-655:                                              ; preds = %648
-  %656 = load ptr, ptr %497, align 8
-  %657 = call ptr @g_strchug(ptr noundef %656) #11
-  %658 = call ptr @g_strchomp(ptr noundef %657) #11
-  %659 = call i32 @g_ascii_strcasecmp(ptr noundef %658, ptr noundef nonnull @.str.507) #11
-  %.not99.i = icmp eq i32 %659, 0
-  %660 = load i32, ptr @hf_mgcp_param_voicemetrics_iaj, align 4
-  %spec.select.i100 = select i1 %.not99.i, i32 %660, i32 -1
-  br label %661
+656:                                              ; preds = %649
+  %657 = load ptr, ptr %498, align 8
+  %658 = call ptr @g_strchug(ptr noundef %657) #11
+  %659 = call ptr @g_strchomp(ptr noundef %658) #11
+  %660 = call i32 @g_ascii_strcasecmp(ptr noundef %659, ptr noundef nonnull @.str.507) #11
+  %.not99.i = icmp eq i32 %660, 0
+  %661 = load i32, ptr @hf_mgcp_param_voicemetrics_iaj, align 4
+  %spec.select.i100 = select i1 %.not99.i, i32 %661, i32 -1
+  br label %662
 
-661:                                              ; preds = %655, %653, %646, %639, %632, %625, %618, %611, %604, %597, %590, %583, %576, %569, %562, %555, %548, %541, %534, %527, %520, %513, %506
-  %.0.i101 = phi i32 [ %654, %653 ], [ %647, %646 ], [ %640, %639 ], [ %633, %632 ], [ %626, %625 ], [ %619, %618 ], [ %612, %611 ], [ %605, %604 ], [ %598, %597 ], [ %591, %590 ], [ %584, %583 ], [ %577, %576 ], [ %570, %569 ], [ %563, %562 ], [ %556, %555 ], [ %549, %548 ], [ %542, %541 ], [ %535, %534 ], [ %528, %527 ], [ %521, %520 ], [ %514, %513 ], [ %507, %506 ], [ %spec.select.i100, %655 ]
-  br i1 %.not100.i, label %678, label %662
+662:                                              ; preds = %656, %654, %647, %640, %633, %626, %619, %612, %605, %598, %591, %584, %577, %570, %563, %556, %549, %542, %535, %528, %521, %514, %507
+  %.0.i101 = phi i32 [ %655, %654 ], [ %648, %647 ], [ %641, %640 ], [ %634, %633 ], [ %627, %626 ], [ %620, %619 ], [ %613, %612 ], [ %606, %605 ], [ %599, %598 ], [ %592, %591 ], [ %585, %584 ], [ %578, %577 ], [ %571, %570 ], [ %564, %563 ], [ %557, %556 ], [ %550, %549 ], [ %543, %542 ], [ %536, %535 ], [ %529, %528 ], [ %522, %521 ], [ %515, %514 ], [ %508, %507 ], [ %spec.select.i100, %656 ]
+  br i1 %.not100.i, label %679, label %663
 
-662:                                              ; preds = %661
-  %663 = icmp sgt i32 %.0.i101, 0
-  br i1 %663, label %664, label %669
+663:                                              ; preds = %662
+  %664 = icmp sgt i32 %.0.i101, 0
+  br i1 %664, label %665, label %670
 
-664:                                              ; preds = %662
-  %665 = load ptr, ptr %500, align 8
-  %666 = call ptr @g_strchug(ptr noundef %665) #11
-  %667 = call ptr @g_strchomp(ptr noundef %666) #11
-  %668 = call ptr @proto_tree_add_string(ptr noundef nonnull %.068.i, i32 noundef %.0.i101, ptr noundef %0, i32 noundef %.069102.i, i32 noundef %494, ptr noundef %667) #11
-  br label %678
+665:                                              ; preds = %663
+  %666 = load ptr, ptr %501, align 8
+  %667 = call ptr @g_strchug(ptr noundef %666) #11
+  %668 = call ptr @g_strchomp(ptr noundef %667) #11
+  %669 = call ptr @proto_tree_add_string(ptr noundef nonnull %.068.i, i32 noundef %.0.i101, ptr noundef %0, i32 noundef %.069102.i, i32 noundef %495, ptr noundef %668) #11
+  br label %679
 
-669:                                              ; preds = %662
-  %670 = load i32, ptr @hf_mgcp_unknown_parameter, align 4
-  %671 = load ptr, ptr %492, align 8
-  %672 = call ptr @proto_tree_add_string(ptr noundef nonnull %.068.i, i32 noundef %670, ptr noundef %0, i32 noundef %.069102.i, i32 noundef %494, ptr noundef %671) #11
-  br label %678
+670:                                              ; preds = %663
+  %671 = load i32, ptr @hf_mgcp_unknown_parameter, align 4
+  %672 = load ptr, ptr %493, align 8
+  %673 = call ptr @proto_tree_add_string(ptr noundef nonnull %.068.i, i32 noundef %671, ptr noundef %0, i32 noundef %.069102.i, i32 noundef %495, ptr noundef %672) #11
+  br label %679
 
-673:                                              ; preds = %499, %490
-  br i1 %.not100.i, label %678, label %674
+674:                                              ; preds = %500, %491
+  br i1 %.not100.i, label %679, label %675
 
-674:                                              ; preds = %673
-  %675 = load i32, ptr @hf_mgcp_malformed_parameter, align 4
-  %676 = load ptr, ptr %492, align 8
-  %677 = call ptr @proto_tree_add_string(ptr noundef nonnull %.068.i, i32 noundef %675, ptr noundef %0, i32 noundef %.069102.i, i32 noundef %494, ptr noundef %676) #11
-  br label %678
+675:                                              ; preds = %674
+  %676 = load i32, ptr @hf_mgcp_malformed_parameter, align 4
+  %677 = load ptr, ptr %493, align 8
+  %678 = call ptr @proto_tree_add_string(ptr noundef nonnull %.068.i, i32 noundef %676, ptr noundef %0, i32 noundef %.069102.i, i32 noundef %495, ptr noundef %677) #11
+  br label %679
 
-678:                                              ; preds = %674, %673, %669, %664, %661
-  %679 = add i32 %.069102.i, 1
-  %680 = add i32 %679, %494
-  %681 = add i32 %.067103.i, 1
-  %682 = zext i32 %681 to i64
-  %683 = getelementptr ptr, ptr %488, i64 %682
-  %684 = load ptr, ptr %683, align 8
-  %.not73.i102 = icmp eq ptr %684, null
-  br i1 %.not73.i102, label %dissect_mgcp_connectionparams.exit, label %490, !llvm.loop !13
+679:                                              ; preds = %675, %674, %670, %665, %662
+  %680 = add i32 %.069102.i, 1
+  %681 = add i32 %680, %495
+  %682 = add i32 %.067103.i, 1
+  %683 = zext i32 %682 to i64
+  %684 = getelementptr ptr, ptr %489, i64 %683
+  %685 = load ptr, ptr %684, align 8
+  %.not73.i102 = icmp eq ptr %685, null
+  br i1 %.not73.i102, label %dissect_mgcp_connectionparams.exit, label %491, !llvm.loop !13
 
-685:                                              ; preds = %472
-  %686 = load i32, ptr @hf_mgcp_param_remotevoicemetrics, align 4
-  %687 = icmp eq i32 %190, %686
-  br i1 %687, label %688, label %898
+686:                                              ; preds = %473
+  %687 = load i32, ptr @hf_mgcp_param_remotevoicemetrics, align 4
+  %688 = icmp eq i32 %191, %687
+  br i1 %688, label %689, label %899
 
-688:                                              ; preds = %685
-  br i1 %.not.i104, label %695, label %689
+689:                                              ; preds = %686
+  br i1 %.not.i104, label %696, label %690
 
-689:                                              ; preds = %688
-  %690 = sub i32 %.1.i, %16
-  %691 = add i32 %690, %189
-  %692 = call ptr @proto_tree_add_item(ptr noundef nonnull %9, i32 noundef %190, ptr noundef %0, i32 noundef %16, i32 noundef %691, i32 noundef 0) #11
-  %693 = load i32, ptr @ett_mgcp_param_remotevoicemetrics, align 4
-  %694 = call ptr @proto_item_add_subtree(ptr noundef %692, i32 noundef %693) #11
-  br label %695
+690:                                              ; preds = %689
+  %691 = sub i32 %.1.i, %16
+  %692 = add i32 %691, %190
+  %693 = call ptr @proto_tree_add_item(ptr noundef nonnull %9, i32 noundef %191, ptr noundef %0, i32 noundef %16, i32 noundef %692, i32 noundef 0) #11
+  %694 = load i32, ptr @ett_mgcp_param_remotevoicemetrics, align 4
+  %695 = call ptr @proto_item_add_subtree(ptr noundef %693, i32 noundef %694) #11
+  br label %696
 
-695:                                              ; preds = %689, %688
-  %.068.i105 = phi ptr [ %694, %689 ], [ null, %688 ]
-  %696 = add i32 %16, 9
-  %697 = call ptr @wmem_packet_scope() #11
-  %698 = add i32 %189, -9
-  %699 = call ptr @tvb_get_string_enc(ptr noundef %697, ptr noundef %0, i32 noundef %696, i32 noundef %698, i32 noundef 0) #11
-  %700 = call ptr @wmem_packet_scope() #11
-  %701 = call ptr @wmem_strsplit(ptr noundef %700, ptr noundef %699, ptr noundef nonnull @.str.445, i32 noundef -1) #11
-  %702 = load ptr, ptr %701, align 8
-  %.not73101.i106 = icmp eq ptr %702, null
+696:                                              ; preds = %690, %689
+  %.068.i105 = phi ptr [ %695, %690 ], [ null, %689 ]
+  %697 = add i32 %16, 9
+  %698 = call ptr @wmem_packet_scope() #11
+  %699 = add i32 %190, -9
+  %700 = call ptr @tvb_get_string_enc(ptr noundef %698, ptr noundef %0, i32 noundef %697, i32 noundef %699, i32 noundef 0) #11
+  %701 = call ptr @wmem_packet_scope() #11
+  %702 = call ptr @wmem_strsplit(ptr noundef %701, ptr noundef %700, ptr noundef nonnull @.str.445, i32 noundef -1) #11
+  %703 = load ptr, ptr %702, align 8
+  %.not73101.i106 = icmp eq ptr %703, null
   br i1 %.not73101.i106, label %dissect_mgcp_connectionparams.exit, label %.lr.ph.i107
 
-.lr.ph.i107:                                      ; preds = %695
+.lr.ph.i107:                                      ; preds = %696
   %.not100.i108 = icmp eq ptr %.068.i105, null
-  br label %703
+  br label %704
 
-703:                                              ; preds = %891, %.lr.ph.i107
-  %704 = phi ptr [ %702, %.lr.ph.i107 ], [ %897, %891 ]
-  %705 = phi ptr [ %701, %.lr.ph.i107 ], [ %896, %891 ]
-  %.067103.i109 = phi i32 [ 0, %.lr.ph.i107 ], [ %894, %891 ]
-  %.069102.i110 = phi i32 [ %696, %.lr.ph.i107 ], [ %893, %891 ]
-  %706 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %704) #13
-  %707 = trunc i64 %706 to i32
-  %708 = call ptr @wmem_packet_scope() #11
-  %709 = load ptr, ptr %705, align 8
-  %710 = call ptr @wmem_strsplit(ptr noundef %708, ptr noundef %709, ptr noundef nonnull @.str.446, i32 noundef 2) #11
-  %711 = load ptr, ptr %710, align 8
-  %.not74.i111 = icmp eq ptr %711, null
-  br i1 %.not74.i111, label %886, label %712
+704:                                              ; preds = %892, %.lr.ph.i107
+  %705 = phi ptr [ %703, %.lr.ph.i107 ], [ %898, %892 ]
+  %706 = phi ptr [ %702, %.lr.ph.i107 ], [ %897, %892 ]
+  %.067103.i109 = phi i32 [ 0, %.lr.ph.i107 ], [ %895, %892 ]
+  %.069102.i110 = phi i32 [ %697, %.lr.ph.i107 ], [ %894, %892 ]
+  %707 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %705) #13
+  %708 = trunc i64 %707 to i32
+  %709 = call ptr @wmem_packet_scope() #11
+  %710 = load ptr, ptr %706, align 8
+  %711 = call ptr @wmem_strsplit(ptr noundef %709, ptr noundef %710, ptr noundef nonnull @.str.446, i32 noundef 2) #11
+  %712 = load ptr, ptr %711, align 8
+  %.not74.i111 = icmp eq ptr %712, null
+  br i1 %.not74.i111, label %887, label %713
 
-712:                                              ; preds = %703
-  %713 = getelementptr i8, ptr %710, i64 8
-  %714 = load ptr, ptr %713, align 8
-  %.not75.i112 = icmp eq ptr %714, null
-  br i1 %.not75.i112, label %886, label %715
+713:                                              ; preds = %704
+  %714 = getelementptr i8, ptr %711, i64 8
+  %715 = load ptr, ptr %714, align 8
+  %.not75.i112 = icmp eq ptr %715, null
+  br i1 %.not75.i112, label %887, label %716
 
-715:                                              ; preds = %712
-  %716 = call ptr @g_strchug(ptr noundef nonnull %711) #11
-  %717 = call ptr @g_strchomp(ptr noundef %716) #11
-  %718 = call i32 @g_ascii_strcasecmp(ptr noundef %717, ptr noundef nonnull @.str.485) #11
-  %.not77.i113 = icmp eq i32 %718, 0
-  br i1 %.not77.i113, label %719, label %721
+716:                                              ; preds = %713
+  %717 = call ptr @g_strchug(ptr noundef nonnull %712) #11
+  %718 = call ptr @g_strchomp(ptr noundef %717) #11
+  %719 = call i32 @g_ascii_strcasecmp(ptr noundef %718, ptr noundef nonnull @.str.485) #11
+  %.not77.i113 = icmp eq i32 %719, 0
+  br i1 %.not77.i113, label %720, label %722
 
-719:                                              ; preds = %715
-  %720 = load i32, ptr @hf_mgcp_param_voicemetrics_nlr, align 4
-  br label %874
+720:                                              ; preds = %716
+  %721 = load i32, ptr @hf_mgcp_param_voicemetrics_nlr, align 4
+  br label %875
 
-721:                                              ; preds = %715
-  %722 = load ptr, ptr %710, align 8
-  %723 = call ptr @g_strchug(ptr noundef %722) #11
-  %724 = call ptr @g_strchomp(ptr noundef %723) #11
-  %725 = call i32 @g_ascii_strcasecmp(ptr noundef %724, ptr noundef nonnull @.str.486) #11
-  %.not78.i114 = icmp eq i32 %725, 0
-  br i1 %.not78.i114, label %726, label %728
+722:                                              ; preds = %716
+  %723 = load ptr, ptr %711, align 8
+  %724 = call ptr @g_strchug(ptr noundef %723) #11
+  %725 = call ptr @g_strchomp(ptr noundef %724) #11
+  %726 = call i32 @g_ascii_strcasecmp(ptr noundef %725, ptr noundef nonnull @.str.486) #11
+  %.not78.i114 = icmp eq i32 %726, 0
+  br i1 %.not78.i114, label %727, label %729
 
-726:                                              ; preds = %721
-  %727 = load i32, ptr @hf_mgcp_param_voicemetrics_jdr, align 4
-  br label %874
+727:                                              ; preds = %722
+  %728 = load i32, ptr @hf_mgcp_param_voicemetrics_jdr, align 4
+  br label %875
 
-728:                                              ; preds = %721
-  %729 = load ptr, ptr %710, align 8
-  %730 = call ptr @g_strchug(ptr noundef %729) #11
-  %731 = call ptr @g_strchomp(ptr noundef %730) #11
-  %732 = call i32 @g_ascii_strcasecmp(ptr noundef %731, ptr noundef nonnull @.str.487) #11
-  %.not79.i115 = icmp eq i32 %732, 0
-  br i1 %.not79.i115, label %733, label %735
+729:                                              ; preds = %722
+  %730 = load ptr, ptr %711, align 8
+  %731 = call ptr @g_strchug(ptr noundef %730) #11
+  %732 = call ptr @g_strchomp(ptr noundef %731) #11
+  %733 = call i32 @g_ascii_strcasecmp(ptr noundef %732, ptr noundef nonnull @.str.487) #11
+  %.not79.i115 = icmp eq i32 %733, 0
+  br i1 %.not79.i115, label %734, label %736
 
-733:                                              ; preds = %728
-  %734 = load i32, ptr @hf_mgcp_param_voicemetrics_bld, align 4
-  br label %874
+734:                                              ; preds = %729
+  %735 = load i32, ptr @hf_mgcp_param_voicemetrics_bld, align 4
+  br label %875
 
-735:                                              ; preds = %728
-  %736 = load ptr, ptr %710, align 8
-  %737 = call ptr @g_strchug(ptr noundef %736) #11
-  %738 = call ptr @g_strchomp(ptr noundef %737) #11
-  %739 = call i32 @g_ascii_strcasecmp(ptr noundef %738, ptr noundef nonnull @.str.488) #11
-  %.not80.i116 = icmp eq i32 %739, 0
-  br i1 %.not80.i116, label %740, label %742
+736:                                              ; preds = %729
+  %737 = load ptr, ptr %711, align 8
+  %738 = call ptr @g_strchug(ptr noundef %737) #11
+  %739 = call ptr @g_strchomp(ptr noundef %738) #11
+  %740 = call i32 @g_ascii_strcasecmp(ptr noundef %739, ptr noundef nonnull @.str.488) #11
+  %.not80.i116 = icmp eq i32 %740, 0
+  br i1 %.not80.i116, label %741, label %743
 
-740:                                              ; preds = %735
-  %741 = load i32, ptr @hf_mgcp_param_voicemetrics_gld, align 4
-  br label %874
+741:                                              ; preds = %736
+  %742 = load i32, ptr @hf_mgcp_param_voicemetrics_gld, align 4
+  br label %875
 
-742:                                              ; preds = %735
-  %743 = load ptr, ptr %710, align 8
-  %744 = call ptr @g_strchug(ptr noundef %743) #11
-  %745 = call ptr @g_strchomp(ptr noundef %744) #11
-  %746 = call i32 @g_ascii_strcasecmp(ptr noundef %745, ptr noundef nonnull @.str.489) #11
-  %.not81.i117 = icmp eq i32 %746, 0
-  br i1 %.not81.i117, label %747, label %749
+743:                                              ; preds = %736
+  %744 = load ptr, ptr %711, align 8
+  %745 = call ptr @g_strchug(ptr noundef %744) #11
+  %746 = call ptr @g_strchomp(ptr noundef %745) #11
+  %747 = call i32 @g_ascii_strcasecmp(ptr noundef %746, ptr noundef nonnull @.str.489) #11
+  %.not81.i117 = icmp eq i32 %747, 0
+  br i1 %.not81.i117, label %748, label %750
 
-747:                                              ; preds = %742
-  %748 = load i32, ptr @hf_mgcp_param_voicemetrics_bd, align 4
-  br label %874
+748:                                              ; preds = %743
+  %749 = load i32, ptr @hf_mgcp_param_voicemetrics_bd, align 4
+  br label %875
 
-749:                                              ; preds = %742
-  %750 = load ptr, ptr %710, align 8
-  %751 = call ptr @g_strchug(ptr noundef %750) #11
-  %752 = call ptr @g_strchomp(ptr noundef %751) #11
-  %753 = call i32 @g_ascii_strcasecmp(ptr noundef %752, ptr noundef nonnull @.str.490) #11
-  %.not82.i118 = icmp eq i32 %753, 0
-  br i1 %.not82.i118, label %754, label %756
+750:                                              ; preds = %743
+  %751 = load ptr, ptr %711, align 8
+  %752 = call ptr @g_strchug(ptr noundef %751) #11
+  %753 = call ptr @g_strchomp(ptr noundef %752) #11
+  %754 = call i32 @g_ascii_strcasecmp(ptr noundef %753, ptr noundef nonnull @.str.490) #11
+  %.not82.i118 = icmp eq i32 %754, 0
+  br i1 %.not82.i118, label %755, label %757
 
-754:                                              ; preds = %749
-  %755 = load i32, ptr @hf_mgcp_param_voicemetrics_gd, align 4
-  br label %874
+755:                                              ; preds = %750
+  %756 = load i32, ptr @hf_mgcp_param_voicemetrics_gd, align 4
+  br label %875
 
-756:                                              ; preds = %749
-  %757 = load ptr, ptr %710, align 8
-  %758 = call ptr @g_strchug(ptr noundef %757) #11
-  %759 = call ptr @g_strchomp(ptr noundef %758) #11
-  %760 = call i32 @g_ascii_strcasecmp(ptr noundef %759, ptr noundef nonnull @.str.491) #11
-  %.not83.i119 = icmp eq i32 %760, 0
-  br i1 %.not83.i119, label %761, label %763
+757:                                              ; preds = %750
+  %758 = load ptr, ptr %711, align 8
+  %759 = call ptr @g_strchug(ptr noundef %758) #11
+  %760 = call ptr @g_strchomp(ptr noundef %759) #11
+  %761 = call i32 @g_ascii_strcasecmp(ptr noundef %760, ptr noundef nonnull @.str.491) #11
+  %.not83.i119 = icmp eq i32 %761, 0
+  br i1 %.not83.i119, label %762, label %764
 
-761:                                              ; preds = %756
-  %762 = load i32, ptr @hf_mgcp_param_voicemetrics_rtd, align 4
-  br label %874
+762:                                              ; preds = %757
+  %763 = load i32, ptr @hf_mgcp_param_voicemetrics_rtd, align 4
+  br label %875
 
-763:                                              ; preds = %756
-  %764 = load ptr, ptr %710, align 8
-  %765 = call ptr @g_strchug(ptr noundef %764) #11
-  %766 = call ptr @g_strchomp(ptr noundef %765) #11
-  %767 = call i32 @g_ascii_strcasecmp(ptr noundef %766, ptr noundef nonnull @.str.492) #11
-  %.not84.i120 = icmp eq i32 %767, 0
-  br i1 %.not84.i120, label %768, label %770
+764:                                              ; preds = %757
+  %765 = load ptr, ptr %711, align 8
+  %766 = call ptr @g_strchug(ptr noundef %765) #11
+  %767 = call ptr @g_strchomp(ptr noundef %766) #11
+  %768 = call i32 @g_ascii_strcasecmp(ptr noundef %767, ptr noundef nonnull @.str.492) #11
+  %.not84.i120 = icmp eq i32 %768, 0
+  br i1 %.not84.i120, label %769, label %771
 
-768:                                              ; preds = %763
-  %769 = load i32, ptr @hf_mgcp_param_voicemetrics_esd, align 4
-  br label %874
+769:                                              ; preds = %764
+  %770 = load i32, ptr @hf_mgcp_param_voicemetrics_esd, align 4
+  br label %875
 
-770:                                              ; preds = %763
-  %771 = load ptr, ptr %710, align 8
-  %772 = call ptr @g_strchug(ptr noundef %771) #11
-  %773 = call ptr @g_strchomp(ptr noundef %772) #11
-  %774 = call i32 @g_ascii_strcasecmp(ptr noundef %773, ptr noundef nonnull @.str.493) #11
-  %.not85.i121 = icmp eq i32 %774, 0
-  br i1 %.not85.i121, label %775, label %777
+771:                                              ; preds = %764
+  %772 = load ptr, ptr %711, align 8
+  %773 = call ptr @g_strchug(ptr noundef %772) #11
+  %774 = call ptr @g_strchomp(ptr noundef %773) #11
+  %775 = call i32 @g_ascii_strcasecmp(ptr noundef %774, ptr noundef nonnull @.str.493) #11
+  %.not85.i121 = icmp eq i32 %775, 0
+  br i1 %.not85.i121, label %776, label %778
 
-775:                                              ; preds = %770
-  %776 = load i32, ptr @hf_mgcp_param_voicemetrics_sl, align 4
-  br label %874
+776:                                              ; preds = %771
+  %777 = load i32, ptr @hf_mgcp_param_voicemetrics_sl, align 4
+  br label %875
 
-777:                                              ; preds = %770
-  %778 = load ptr, ptr %710, align 8
-  %779 = call ptr @g_strchug(ptr noundef %778) #11
-  %780 = call ptr @g_strchomp(ptr noundef %779) #11
-  %781 = call i32 @g_ascii_strcasecmp(ptr noundef %780, ptr noundef nonnull @.str.494) #11
-  %.not86.i122 = icmp eq i32 %781, 0
-  br i1 %.not86.i122, label %782, label %784
+778:                                              ; preds = %771
+  %779 = load ptr, ptr %711, align 8
+  %780 = call ptr @g_strchug(ptr noundef %779) #11
+  %781 = call ptr @g_strchomp(ptr noundef %780) #11
+  %782 = call i32 @g_ascii_strcasecmp(ptr noundef %781, ptr noundef nonnull @.str.494) #11
+  %.not86.i122 = icmp eq i32 %782, 0
+  br i1 %.not86.i122, label %783, label %785
 
-782:                                              ; preds = %777
-  %783 = load i32, ptr @hf_mgcp_param_voicemetrics_nl, align 4
-  br label %874
+783:                                              ; preds = %778
+  %784 = load i32, ptr @hf_mgcp_param_voicemetrics_nl, align 4
+  br label %875
 
-784:                                              ; preds = %777
-  %785 = load ptr, ptr %710, align 8
-  %786 = call ptr @g_strchug(ptr noundef %785) #11
-  %787 = call ptr @g_strchomp(ptr noundef %786) #11
-  %788 = call i32 @g_ascii_strcasecmp(ptr noundef %787, ptr noundef nonnull @.str.495) #11
-  %.not87.i123 = icmp eq i32 %788, 0
-  br i1 %.not87.i123, label %789, label %791
+785:                                              ; preds = %778
+  %786 = load ptr, ptr %711, align 8
+  %787 = call ptr @g_strchug(ptr noundef %786) #11
+  %788 = call ptr @g_strchomp(ptr noundef %787) #11
+  %789 = call i32 @g_ascii_strcasecmp(ptr noundef %788, ptr noundef nonnull @.str.495) #11
+  %.not87.i123 = icmp eq i32 %789, 0
+  br i1 %.not87.i123, label %790, label %792
 
-789:                                              ; preds = %784
-  %790 = load i32, ptr @hf_mgcp_param_voicemetrics_rerl, align 4
-  br label %874
+790:                                              ; preds = %785
+  %791 = load i32, ptr @hf_mgcp_param_voicemetrics_rerl, align 4
+  br label %875
 
-791:                                              ; preds = %784
-  %792 = load ptr, ptr %710, align 8
-  %793 = call ptr @g_strchug(ptr noundef %792) #11
-  %794 = call ptr @g_strchomp(ptr noundef %793) #11
-  %795 = call i32 @g_ascii_strcasecmp(ptr noundef %794, ptr noundef nonnull @.str.496) #11
-  %.not88.i124 = icmp eq i32 %795, 0
-  br i1 %.not88.i124, label %796, label %798
+792:                                              ; preds = %785
+  %793 = load ptr, ptr %711, align 8
+  %794 = call ptr @g_strchug(ptr noundef %793) #11
+  %795 = call ptr @g_strchomp(ptr noundef %794) #11
+  %796 = call i32 @g_ascii_strcasecmp(ptr noundef %795, ptr noundef nonnull @.str.496) #11
+  %.not88.i124 = icmp eq i32 %796, 0
+  br i1 %.not88.i124, label %797, label %799
 
-796:                                              ; preds = %791
-  %797 = load i32, ptr @hf_mgcp_param_voicemetrics_gmn, align 4
-  br label %874
+797:                                              ; preds = %792
+  %798 = load i32, ptr @hf_mgcp_param_voicemetrics_gmn, align 4
+  br label %875
 
-798:                                              ; preds = %791
-  %799 = load ptr, ptr %710, align 8
-  %800 = call ptr @g_strchug(ptr noundef %799) #11
-  %801 = call ptr @g_strchomp(ptr noundef %800) #11
-  %802 = call i32 @g_ascii_strcasecmp(ptr noundef %801, ptr noundef nonnull @.str.497) #11
-  %.not89.i125 = icmp eq i32 %802, 0
-  br i1 %.not89.i125, label %803, label %805
+799:                                              ; preds = %792
+  %800 = load ptr, ptr %711, align 8
+  %801 = call ptr @g_strchug(ptr noundef %800) #11
+  %802 = call ptr @g_strchomp(ptr noundef %801) #11
+  %803 = call i32 @g_ascii_strcasecmp(ptr noundef %802, ptr noundef nonnull @.str.497) #11
+  %.not89.i125 = icmp eq i32 %803, 0
+  br i1 %.not89.i125, label %804, label %806
 
-803:                                              ; preds = %798
-  %804 = load i32, ptr @hf_mgcp_param_voicemetrics_nsr, align 4
-  br label %874
+804:                                              ; preds = %799
+  %805 = load i32, ptr @hf_mgcp_param_voicemetrics_nsr, align 4
+  br label %875
 
-805:                                              ; preds = %798
-  %806 = load ptr, ptr %710, align 8
-  %807 = call ptr @g_strchug(ptr noundef %806) #11
-  %808 = call ptr @g_strchomp(ptr noundef %807) #11
-  %809 = call i32 @g_ascii_strcasecmp(ptr noundef %808, ptr noundef nonnull @.str.498) #11
-  %.not90.i126 = icmp eq i32 %809, 0
-  br i1 %.not90.i126, label %810, label %812
+806:                                              ; preds = %799
+  %807 = load ptr, ptr %711, align 8
+  %808 = call ptr @g_strchug(ptr noundef %807) #11
+  %809 = call ptr @g_strchomp(ptr noundef %808) #11
+  %810 = call i32 @g_ascii_strcasecmp(ptr noundef %809, ptr noundef nonnull @.str.498) #11
+  %.not90.i126 = icmp eq i32 %810, 0
+  br i1 %.not90.i126, label %811, label %813
 
-810:                                              ; preds = %805
-  %811 = load i32, ptr @hf_mgcp_param_voicemetrics_xsr, align 4
-  br label %874
+811:                                              ; preds = %806
+  %812 = load i32, ptr @hf_mgcp_param_voicemetrics_xsr, align 4
+  br label %875
 
-812:                                              ; preds = %805
-  %813 = load ptr, ptr %710, align 8
-  %814 = call ptr @g_strchug(ptr noundef %813) #11
-  %815 = call ptr @g_strchomp(ptr noundef %814) #11
-  %816 = call i32 @g_ascii_strcasecmp(ptr noundef %815, ptr noundef nonnull @.str.499) #11
-  %.not91.i127 = icmp eq i32 %816, 0
-  br i1 %.not91.i127, label %817, label %819
+813:                                              ; preds = %806
+  %814 = load ptr, ptr %711, align 8
+  %815 = call ptr @g_strchug(ptr noundef %814) #11
+  %816 = call ptr @g_strchomp(ptr noundef %815) #11
+  %817 = call i32 @g_ascii_strcasecmp(ptr noundef %816, ptr noundef nonnull @.str.499) #11
+  %.not91.i127 = icmp eq i32 %817, 0
+  br i1 %.not91.i127, label %818, label %820
 
-817:                                              ; preds = %812
-  %818 = load i32, ptr @hf_mgcp_param_voicemetrics_mlq, align 4
-  br label %874
+818:                                              ; preds = %813
+  %819 = load i32, ptr @hf_mgcp_param_voicemetrics_mlq, align 4
+  br label %875
 
-819:                                              ; preds = %812
-  %820 = load ptr, ptr %710, align 8
-  %821 = call ptr @g_strchug(ptr noundef %820) #11
-  %822 = call ptr @g_strchomp(ptr noundef %821) #11
-  %823 = call i32 @g_ascii_strcasecmp(ptr noundef %822, ptr noundef nonnull @.str.500) #11
-  %.not92.i128 = icmp eq i32 %823, 0
-  br i1 %.not92.i128, label %824, label %826
+820:                                              ; preds = %813
+  %821 = load ptr, ptr %711, align 8
+  %822 = call ptr @g_strchug(ptr noundef %821) #11
+  %823 = call ptr @g_strchomp(ptr noundef %822) #11
+  %824 = call i32 @g_ascii_strcasecmp(ptr noundef %823, ptr noundef nonnull @.str.500) #11
+  %.not92.i128 = icmp eq i32 %824, 0
+  br i1 %.not92.i128, label %825, label %827
 
-824:                                              ; preds = %819
-  %825 = load i32, ptr @hf_mgcp_param_voicemetrics_mcq, align 4
-  br label %874
+825:                                              ; preds = %820
+  %826 = load i32, ptr @hf_mgcp_param_voicemetrics_mcq, align 4
+  br label %875
 
-826:                                              ; preds = %819
-  %827 = load ptr, ptr %710, align 8
-  %828 = call ptr @g_strchug(ptr noundef %827) #11
-  %829 = call ptr @g_strchomp(ptr noundef %828) #11
-  %830 = call i32 @g_ascii_strcasecmp(ptr noundef %829, ptr noundef nonnull @.str.501) #11
-  %.not93.i129 = icmp eq i32 %830, 0
-  br i1 %.not93.i129, label %831, label %833
+827:                                              ; preds = %820
+  %828 = load ptr, ptr %711, align 8
+  %829 = call ptr @g_strchug(ptr noundef %828) #11
+  %830 = call ptr @g_strchomp(ptr noundef %829) #11
+  %831 = call i32 @g_ascii_strcasecmp(ptr noundef %830, ptr noundef nonnull @.str.501) #11
+  %.not93.i129 = icmp eq i32 %831, 0
+  br i1 %.not93.i129, label %832, label %834
 
-831:                                              ; preds = %826
-  %832 = load i32, ptr @hf_mgcp_param_voicemetrics_plc, align 4
-  br label %874
+832:                                              ; preds = %827
+  %833 = load i32, ptr @hf_mgcp_param_voicemetrics_plc, align 4
+  br label %875
 
-833:                                              ; preds = %826
-  %834 = load ptr, ptr %710, align 8
-  %835 = call ptr @g_strchug(ptr noundef %834) #11
-  %836 = call ptr @g_strchomp(ptr noundef %835) #11
-  %837 = call i32 @g_ascii_strcasecmp(ptr noundef %836, ptr noundef nonnull @.str.502) #11
-  %.not94.i130 = icmp eq i32 %837, 0
-  br i1 %.not94.i130, label %838, label %840
+834:                                              ; preds = %827
+  %835 = load ptr, ptr %711, align 8
+  %836 = call ptr @g_strchug(ptr noundef %835) #11
+  %837 = call ptr @g_strchomp(ptr noundef %836) #11
+  %838 = call i32 @g_ascii_strcasecmp(ptr noundef %837, ptr noundef nonnull @.str.502) #11
+  %.not94.i130 = icmp eq i32 %838, 0
+  br i1 %.not94.i130, label %839, label %841
 
-838:                                              ; preds = %833
-  %839 = load i32, ptr @hf_mgcp_param_voicemetrics_jba, align 4
-  br label %874
+839:                                              ; preds = %834
+  %840 = load i32, ptr @hf_mgcp_param_voicemetrics_jba, align 4
+  br label %875
 
-840:                                              ; preds = %833
-  %841 = load ptr, ptr %710, align 8
-  %842 = call ptr @g_strchug(ptr noundef %841) #11
-  %843 = call ptr @g_strchomp(ptr noundef %842) #11
-  %844 = call i32 @g_ascii_strcasecmp(ptr noundef %843, ptr noundef nonnull @.str.503) #11
-  %.not95.i131 = icmp eq i32 %844, 0
-  br i1 %.not95.i131, label %845, label %847
+841:                                              ; preds = %834
+  %842 = load ptr, ptr %711, align 8
+  %843 = call ptr @g_strchug(ptr noundef %842) #11
+  %844 = call ptr @g_strchomp(ptr noundef %843) #11
+  %845 = call i32 @g_ascii_strcasecmp(ptr noundef %844, ptr noundef nonnull @.str.503) #11
+  %.not95.i131 = icmp eq i32 %845, 0
+  br i1 %.not95.i131, label %846, label %848
 
-845:                                              ; preds = %840
-  %846 = load i32, ptr @hf_mgcp_param_voicemetrics_jbr, align 4
-  br label %874
+846:                                              ; preds = %841
+  %847 = load i32, ptr @hf_mgcp_param_voicemetrics_jbr, align 4
+  br label %875
 
-847:                                              ; preds = %840
-  %848 = load ptr, ptr %710, align 8
-  %849 = call ptr @g_strchug(ptr noundef %848) #11
-  %850 = call ptr @g_strchomp(ptr noundef %849) #11
-  %851 = call i32 @g_ascii_strcasecmp(ptr noundef %850, ptr noundef nonnull @.str.504) #11
-  %.not96.i132 = icmp eq i32 %851, 0
-  br i1 %.not96.i132, label %852, label %854
+848:                                              ; preds = %841
+  %849 = load ptr, ptr %711, align 8
+  %850 = call ptr @g_strchug(ptr noundef %849) #11
+  %851 = call ptr @g_strchomp(ptr noundef %850) #11
+  %852 = call i32 @g_ascii_strcasecmp(ptr noundef %851, ptr noundef nonnull @.str.504) #11
+  %.not96.i132 = icmp eq i32 %852, 0
+  br i1 %.not96.i132, label %853, label %855
 
-852:                                              ; preds = %847
-  %853 = load i32, ptr @hf_mgcp_param_voicemetrics_jbn, align 4
-  br label %874
+853:                                              ; preds = %848
+  %854 = load i32, ptr @hf_mgcp_param_voicemetrics_jbn, align 4
+  br label %875
 
-854:                                              ; preds = %847
-  %855 = load ptr, ptr %710, align 8
-  %856 = call ptr @g_strchug(ptr noundef %855) #11
-  %857 = call ptr @g_strchomp(ptr noundef %856) #11
-  %858 = call i32 @g_ascii_strcasecmp(ptr noundef %857, ptr noundef nonnull @.str.505) #11
-  %.not97.i133 = icmp eq i32 %858, 0
-  br i1 %.not97.i133, label %859, label %861
+855:                                              ; preds = %848
+  %856 = load ptr, ptr %711, align 8
+  %857 = call ptr @g_strchug(ptr noundef %856) #11
+  %858 = call ptr @g_strchomp(ptr noundef %857) #11
+  %859 = call i32 @g_ascii_strcasecmp(ptr noundef %858, ptr noundef nonnull @.str.505) #11
+  %.not97.i133 = icmp eq i32 %859, 0
+  br i1 %.not97.i133, label %860, label %862
 
-859:                                              ; preds = %854
-  %860 = load i32, ptr @hf_mgcp_param_voicemetrics_jbm, align 4
-  br label %874
+860:                                              ; preds = %855
+  %861 = load i32, ptr @hf_mgcp_param_voicemetrics_jbm, align 4
+  br label %875
 
-861:                                              ; preds = %854
-  %862 = load ptr, ptr %710, align 8
-  %863 = call ptr @g_strchug(ptr noundef %862) #11
-  %864 = call ptr @g_strchomp(ptr noundef %863) #11
-  %865 = call i32 @g_ascii_strcasecmp(ptr noundef %864, ptr noundef nonnull @.str.506) #11
-  %.not98.i134 = icmp eq i32 %865, 0
-  br i1 %.not98.i134, label %866, label %868
+862:                                              ; preds = %855
+  %863 = load ptr, ptr %711, align 8
+  %864 = call ptr @g_strchug(ptr noundef %863) #11
+  %865 = call ptr @g_strchomp(ptr noundef %864) #11
+  %866 = call i32 @g_ascii_strcasecmp(ptr noundef %865, ptr noundef nonnull @.str.506) #11
+  %.not98.i134 = icmp eq i32 %866, 0
+  br i1 %.not98.i134, label %867, label %869
 
-866:                                              ; preds = %861
-  %867 = load i32, ptr @hf_mgcp_param_voicemetrics_jbs, align 4
-  br label %874
+867:                                              ; preds = %862
+  %868 = load i32, ptr @hf_mgcp_param_voicemetrics_jbs, align 4
+  br label %875
 
-868:                                              ; preds = %861
-  %869 = load ptr, ptr %710, align 8
-  %870 = call ptr @g_strchug(ptr noundef %869) #11
-  %871 = call ptr @g_strchomp(ptr noundef %870) #11
-  %872 = call i32 @g_ascii_strcasecmp(ptr noundef %871, ptr noundef nonnull @.str.507) #11
-  %.not99.i135 = icmp eq i32 %872, 0
-  %873 = load i32, ptr @hf_mgcp_param_voicemetrics_iaj, align 4
-  %spec.select.i136 = select i1 %.not99.i135, i32 %873, i32 -1
-  br label %874
+869:                                              ; preds = %862
+  %870 = load ptr, ptr %711, align 8
+  %871 = call ptr @g_strchug(ptr noundef %870) #11
+  %872 = call ptr @g_strchomp(ptr noundef %871) #11
+  %873 = call i32 @g_ascii_strcasecmp(ptr noundef %872, ptr noundef nonnull @.str.507) #11
+  %.not99.i135 = icmp eq i32 %873, 0
+  %874 = load i32, ptr @hf_mgcp_param_voicemetrics_iaj, align 4
+  %spec.select.i136 = select i1 %.not99.i135, i32 %874, i32 -1
+  br label %875
 
-874:                                              ; preds = %868, %866, %859, %852, %845, %838, %831, %824, %817, %810, %803, %796, %789, %782, %775, %768, %761, %754, %747, %740, %733, %726, %719
-  %.0.i137 = phi i32 [ %867, %866 ], [ %860, %859 ], [ %853, %852 ], [ %846, %845 ], [ %839, %838 ], [ %832, %831 ], [ %825, %824 ], [ %818, %817 ], [ %811, %810 ], [ %804, %803 ], [ %797, %796 ], [ %790, %789 ], [ %783, %782 ], [ %776, %775 ], [ %769, %768 ], [ %762, %761 ], [ %755, %754 ], [ %748, %747 ], [ %741, %740 ], [ %734, %733 ], [ %727, %726 ], [ %720, %719 ], [ %spec.select.i136, %868 ]
-  br i1 %.not100.i108, label %891, label %875
+875:                                              ; preds = %869, %867, %860, %853, %846, %839, %832, %825, %818, %811, %804, %797, %790, %783, %776, %769, %762, %755, %748, %741, %734, %727, %720
+  %.0.i137 = phi i32 [ %868, %867 ], [ %861, %860 ], [ %854, %853 ], [ %847, %846 ], [ %840, %839 ], [ %833, %832 ], [ %826, %825 ], [ %819, %818 ], [ %812, %811 ], [ %805, %804 ], [ %798, %797 ], [ %791, %790 ], [ %784, %783 ], [ %777, %776 ], [ %770, %769 ], [ %763, %762 ], [ %756, %755 ], [ %749, %748 ], [ %742, %741 ], [ %735, %734 ], [ %728, %727 ], [ %721, %720 ], [ %spec.select.i136, %869 ]
+  br i1 %.not100.i108, label %892, label %876
 
-875:                                              ; preds = %874
-  %876 = icmp sgt i32 %.0.i137, 0
-  br i1 %876, label %877, label %882
+876:                                              ; preds = %875
+  %877 = icmp sgt i32 %.0.i137, 0
+  br i1 %877, label %878, label %883
 
-877:                                              ; preds = %875
-  %878 = load ptr, ptr %713, align 8
-  %879 = call ptr @g_strchug(ptr noundef %878) #11
-  %880 = call ptr @g_strchomp(ptr noundef %879) #11
-  %881 = call ptr @proto_tree_add_string(ptr noundef nonnull %.068.i105, i32 noundef %.0.i137, ptr noundef %0, i32 noundef %.069102.i110, i32 noundef %707, ptr noundef %880) #11
-  br label %891
+878:                                              ; preds = %876
+  %879 = load ptr, ptr %714, align 8
+  %880 = call ptr @g_strchug(ptr noundef %879) #11
+  %881 = call ptr @g_strchomp(ptr noundef %880) #11
+  %882 = call ptr @proto_tree_add_string(ptr noundef nonnull %.068.i105, i32 noundef %.0.i137, ptr noundef %0, i32 noundef %.069102.i110, i32 noundef %708, ptr noundef %881) #11
+  br label %892
 
-882:                                              ; preds = %875
-  %883 = load i32, ptr @hf_mgcp_unknown_parameter, align 4
-  %884 = load ptr, ptr %705, align 8
-  %885 = call ptr @proto_tree_add_string(ptr noundef nonnull %.068.i105, i32 noundef %883, ptr noundef %0, i32 noundef %.069102.i110, i32 noundef %707, ptr noundef %884) #11
-  br label %891
+883:                                              ; preds = %876
+  %884 = load i32, ptr @hf_mgcp_unknown_parameter, align 4
+  %885 = load ptr, ptr %706, align 8
+  %886 = call ptr @proto_tree_add_string(ptr noundef nonnull %.068.i105, i32 noundef %884, ptr noundef %0, i32 noundef %.069102.i110, i32 noundef %708, ptr noundef %885) #11
+  br label %892
 
-886:                                              ; preds = %712, %703
-  br i1 %.not100.i108, label %891, label %887
+887:                                              ; preds = %713, %704
+  br i1 %.not100.i108, label %892, label %888
 
-887:                                              ; preds = %886
-  %888 = load i32, ptr @hf_mgcp_malformed_parameter, align 4
-  %889 = load ptr, ptr %705, align 8
-  %890 = call ptr @proto_tree_add_string(ptr noundef nonnull %.068.i105, i32 noundef %888, ptr noundef %0, i32 noundef %.069102.i110, i32 noundef %707, ptr noundef %889) #11
-  br label %891
+888:                                              ; preds = %887
+  %889 = load i32, ptr @hf_mgcp_malformed_parameter, align 4
+  %890 = load ptr, ptr %706, align 8
+  %891 = call ptr @proto_tree_add_string(ptr noundef nonnull %.068.i105, i32 noundef %889, ptr noundef %0, i32 noundef %.069102.i110, i32 noundef %708, ptr noundef %890) #11
+  br label %892
 
-891:                                              ; preds = %887, %886, %882, %877, %874
-  %892 = add i32 %.069102.i110, 1
-  %893 = add i32 %892, %707
-  %894 = add i32 %.067103.i109, 1
-  %895 = zext i32 %894 to i64
-  %896 = getelementptr ptr, ptr %701, i64 %895
-  %897 = load ptr, ptr %896, align 8
-  %.not73.i138 = icmp eq ptr %897, null
-  br i1 %.not73.i138, label %dissect_mgcp_connectionparams.exit, label %703, !llvm.loop !14
+892:                                              ; preds = %888, %887, %883, %878, %875
+  %893 = add i32 %.069102.i110, 1
+  %894 = add i32 %893, %708
+  %895 = add i32 %.067103.i109, 1
+  %896 = zext i32 %895 to i64
+  %897 = getelementptr ptr, ptr %702, i64 %896
+  %898 = load ptr, ptr %897, align 8
+  %.not73.i138 = icmp eq ptr %898, null
+  br i1 %.not73.i138, label %dissect_mgcp_connectionparams.exit, label %704, !llvm.loop !14
 
-898:                                              ; preds = %685
-  %899 = load i32, ptr @hf_mgcp_param_x_osmux, align 4
-  %900 = icmp eq i32 %190, %899
-  %901 = call ptr @wmem_packet_scope() #11
-  %902 = call ptr @tvb_format_text(ptr noundef %901, ptr noundef %0, i32 noundef %.1.i, i32 noundef %189) #11
-  %903 = call ptr @proto_tree_add_string(ptr noundef %9, i32 noundef %190, ptr noundef %0, i32 noundef %16, i32 noundef %20, ptr noundef %902) #11
-  br i1 %900, label %904, label %dissect_mgcp_connectionparams.exit
+899:                                              ; preds = %686
+  %900 = load i32, ptr @hf_mgcp_param_x_osmux, align 4
+  %901 = icmp eq i32 %191, %900
+  %902 = call ptr @wmem_packet_scope() #11
+  %903 = call ptr @tvb_format_text(ptr noundef %902, ptr noundef %0, i32 noundef %.1.i, i32 noundef %190) #11
+  %904 = call ptr @proto_tree_add_string(ptr noundef %9, i32 noundef %191, ptr noundef %0, i32 noundef %16, i32 noundef %20, ptr noundef %903) #11
+  br i1 %901, label %905, label %dissect_mgcp_connectionparams.exit
 
-904:                                              ; preds = %898
+905:                                              ; preds = %899
   store i32 1, ptr %14, align 4
   br label %dissect_mgcp_connectionparams.exit
 
-dissect_mgcp_connectionparams.exit:               ; preds = %891, %678, %467, %295, %898, %695, %482, %305, %193, %904, %tvb_parse_param.exit
-  %905 = load i32, ptr %4, align 4
-  %.not59 = icmp slt i32 %19, %905
-  br i1 %.not59, label %15, label %906, !llvm.loop !15
+dissect_mgcp_connectionparams.exit:               ; preds = %892, %679, %468, %296, %899, %696, %483, %306, %194, %905, %tvb_parse_param.exit
+  %906 = load i32, ptr %4, align 4
+  %.not59 = icmp slt i32 %19, %906
+  br i1 %.not59, label %15, label %907, !llvm.loop !15
 
-906:                                              ; preds = %dissect_mgcp_connectionparams.exit, %15
+907:                                              ; preds = %dissect_mgcp_connectionparams.exit, %15
   ret void
 }
 

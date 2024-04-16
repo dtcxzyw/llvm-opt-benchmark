@@ -662,13 +662,13 @@ define internal noundef i32 @bts_event_add(ptr noundef %0, i32 noundef %1) #0 al
   %8 = load volatile i64, ptr %7, align 8
   %9 = and i64 %8, 140737488355328
   %10 = icmp eq i64 %9, 0
-  br i1 %10, label %11, label %22
+  br i1 %10, label %11, label %23
 
 11:                                               ; preds = %2
   %12 = inttoptr i64 %3 to ptr
   %13 = load ptr, ptr %12, align 4096
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %15, label %22
+  br i1 %14, label %15, label %23
 
 15:                                               ; preds = %11
   %16 = and i32 %1, 1
@@ -680,12 +680,14 @@ define internal noundef i32 @bts_event_add(ptr noundef %0, i32 noundef %1) #0 al
   %19 = load i32, ptr %5, align 8
   %20 = and i32 %19, 1
   %21 = icmp eq i32 %20, 0
-  %spec.select = select i1 %21, i32 0, i32 -22
-  br label %22
+  br i1 %21, label %22, label %23
 
-22:                                               ; preds = %18, %15, %11, %2
-  %23 = phi i32 [ -16, %2 ], [ -16, %11 ], [ 0, %15 ], [ %spec.select, %18 ]
-  ret i32 %23
+22:                                               ; preds = %18, %15
+  br label %23
+
+23:                                               ; preds = %22, %18, %11, %2
+  %24 = phi i32 [ 0, %22 ], [ -16, %2 ], [ -16, %11 ], [ -22, %18 ]
+  ret i32 %24
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

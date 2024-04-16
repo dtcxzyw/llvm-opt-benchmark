@@ -1828,7 +1828,7 @@ return:                                           ; preds = %trace_lsi_reg_read.
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @lsi_update_irq(ptr noundef %s) unnamed_addr #0 {
 entry:
-  %_now.i.i34 = alloca %struct.timeval, align 8
+  %_now.i.i33 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
   %dstat = getelementptr inbounds i8, ptr %s, i64 3763
   %0 = load i8, ptr %dstat, align 1
@@ -1871,7 +1871,7 @@ if.then16:                                        ; preds = %lor.lhs.false, %if.
   %9 = load i8, ptr %sien0, align 1
   %and2029 = and i8 %9, %7
   %tobool21.not = icmp eq i8 %and2029, 0
-  br i1 %tobool21.not, label %lor.lhs.false22, label %if.end29
+  br i1 %tobool21.not, label %lor.lhs.false22, label %if.then28
 
 lor.lhs.false22:                                  ; preds = %if.then16
   %sist123 = getelementptr inbounds i8, ptr %s, i64 3766
@@ -1880,11 +1880,13 @@ lor.lhs.false22:                                  ; preds = %if.then16
   %11 = load i8, ptr %sien1, align 8
   %and2630 = and i8 %11, %10
   %tobool27.not = icmp eq i8 %and2630, 0
-  %spec.select32 = select i1 %tobool27.not, i32 %level.1, i32 1
+  br i1 %tobool27.not, label %if.end29, label %if.then28
+
+if.then28:                                        ; preds = %lor.lhs.false22, %if.then16
   br label %if.end29
 
-if.end29:                                         ; preds = %lor.lhs.false22, %if.then16
-  %level.2 = phi i32 [ 1, %if.then16 ], [ %spec.select32, %lor.lhs.false22 ]
+if.end29:                                         ; preds = %if.then28, %lor.lhs.false22
+  %level.2 = phi i32 [ 1, %if.then28 ], [ %level.1, %lor.lhs.false22 ]
   %istat030 = getelementptr inbounds i8, ptr %s, i64 3760
   %12 = or i8 %6, 2
   store i8 %12, ptr %istat030, align 16
@@ -1979,8 +1981,8 @@ land.lhs.true54:                                  ; preds = %lsi_set_irq.exit
   %sien0.i = getelementptr inbounds i8, ptr %s, i64 3767
   %26 = load i8, ptr %sien0.i, align 1
   %27 = and i8 %26, 16
-  %tobool.not.i33 = icmp eq i8 %27, 0
-  br i1 %tobool.not.i33, label %if.end65, label %lsi_irq_on_rsl.exit
+  %tobool.not.i32 = icmp eq i8 %27, 0
+  br i1 %tobool.not.i32, label %if.end65, label %lsi_irq_on_rsl.exit
 
 lsi_irq_on_rsl.exit:                              ; preds = %land.lhs.true54
   %scid.i = getelementptr inbounds i8, ptr %s, i64 3796
@@ -1997,40 +1999,40 @@ land.lhs.true56:                                  ; preds = %lsi_irq_on_rsl.exit
   br i1 %tobool59.not, label %if.then60, label %if.end65
 
 if.then60:                                        ; preds = %land.lhs.true56
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i34)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i33)
   %32 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i35 = icmp ne i32 %32, 0
+  %tobool.i.i34 = icmp ne i32 %32, 0
   %33 = load i16, ptr @_TRACE_LSI_UPDATE_IRQ_DISCONNECTED_DSTATE, align 2
-  %tobool4.i.i36 = icmp ne i16 %33, 0
-  %or.cond.i.i37 = select i1 %tobool.i.i35, i1 %tobool4.i.i36, i1 false
-  br i1 %or.cond.i.i37, label %land.lhs.true5.i.i38, label %trace_lsi_update_irq_disconnected.exit
+  %tobool4.i.i35 = icmp ne i16 %33, 0
+  %or.cond.i.i36 = select i1 %tobool.i.i34, i1 %tobool4.i.i35, i1 false
+  br i1 %or.cond.i.i36, label %land.lhs.true5.i.i37, label %trace_lsi_update_irq_disconnected.exit
 
-land.lhs.true5.i.i38:                             ; preds = %if.then60
+land.lhs.true5.i.i37:                             ; preds = %if.then60
   %34 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i39 = and i32 %34, 32768
-  %cmp.i.not.i.i40 = icmp eq i32 %and.i.i.i39, 0
-  br i1 %cmp.i.not.i.i40, label %trace_lsi_update_irq_disconnected.exit, label %if.then.i.i41
+  %and.i.i.i38 = and i32 %34, 32768
+  %cmp.i.not.i.i39 = icmp eq i32 %and.i.i.i38, 0
+  br i1 %cmp.i.not.i.i39, label %trace_lsi_update_irq_disconnected.exit, label %if.then.i.i40
 
-if.then.i.i41:                                    ; preds = %land.lhs.true5.i.i38
+if.then.i.i40:                                    ; preds = %land.lhs.true5.i.i37
   %35 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i42 = trunc i8 %35 to i1
-  br i1 %tobool7.i.i42, label %if.then8.i.i44, label %if.else.i.i43
+  %tobool7.i.i41 = trunc i8 %35 to i1
+  br i1 %tobool7.i.i41, label %if.then8.i.i43, label %if.else.i.i42
 
-if.then8.i.i44:                                   ; preds = %if.then.i.i41
-  %call9.i.i45 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i34, ptr noundef null) #11
-  %call10.i.i46 = tail call i32 @qemu_get_thread_id() #11
-  %36 = load i64, ptr %_now.i.i34, align 8
-  %tv_usec.i.i47 = getelementptr inbounds i8, ptr %_now.i.i34, i64 8
-  %37 = load i64, ptr %tv_usec.i.i47, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, i32 noundef %call10.i.i46, i64 noundef %36, i64 noundef %37) #11
+if.then8.i.i43:                                   ; preds = %if.then.i.i40
+  %call9.i.i44 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i33, ptr noundef null) #11
+  %call10.i.i45 = tail call i32 @qemu_get_thread_id() #11
+  %36 = load i64, ptr %_now.i.i33, align 8
+  %tv_usec.i.i46 = getelementptr inbounds i8, ptr %_now.i.i33, i64 8
+  %37 = load i64, ptr %tv_usec.i.i46, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, i32 noundef %call10.i.i45, i64 noundef %36, i64 noundef %37) #11
   br label %trace_lsi_update_irq_disconnected.exit
 
-if.else.i.i43:                                    ; preds = %if.then.i.i41
+if.else.i.i42:                                    ; preds = %if.then.i.i40
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17) #11
   br label %trace_lsi_update_irq_disconnected.exit
 
-trace_lsi_update_irq_disconnected.exit:           ; preds = %if.then60, %land.lhs.true5.i.i38, %if.then8.i.i44, %if.else.i.i43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i34)
+trace_lsi_update_irq_disconnected.exit:           ; preds = %if.then60, %land.lhs.true5.i.i37, %if.then8.i.i43, %if.else.i.i42
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i33)
   %queue.i = getelementptr inbounds i8, ptr %s, i64 3720
   %p.04.i = load ptr, ptr %queue.i, align 8
   %tobool.not5.i = icmp eq ptr %p.04.i, null
@@ -2046,8 +2048,8 @@ for.body.i:                                       ; preds = %trace_lsi_update_ir
 for.inc.i:                                        ; preds = %for.body.i
   %next.i = getelementptr inbounds i8, ptr %p.06.i, i64 32
   %p.0.i = load ptr, ptr %next.i, align 8
-  %tobool.not.i48 = icmp eq ptr %p.0.i, null
-  br i1 %tobool.not.i48, label %if.end65, label %for.body.i, !llvm.loop !5
+  %tobool.not.i47 = icmp eq ptr %p.0.i, null
+  br i1 %tobool.not.i47, label %if.end65, label %for.body.i, !llvm.loop !5
 
 if.then63:                                        ; preds = %for.body.i
   tail call fastcc void @lsi_reselect(ptr noundef %s, ptr noundef nonnull %p.06.i)

@@ -1139,7 +1139,7 @@ define internal i32 @dissect_edonkey_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr
 26:                                               ; preds = %16, %4
   %.073 = phi ptr [ %21, %16 ], [ null, %4 ]
   %27 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 5) #7
-  switch i8 %11, label %41 [
+  switch i8 %11, label %40 [
     i8 -29, label %28
     i8 -59, label %31
     i8 -44, label %35
@@ -1164,14 +1164,14 @@ define internal i32 @dissect_edonkey_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr
   %.not78 = icmp eq ptr %39, null
   br i1 %.not78, label %40, label %41
 
-40:                                               ; preds = %35
+40:                                               ; preds = %35, %26
   br label %41
 
-41:                                               ; preds = %26, %35, %40, %31, %28
-  %.072 = phi ptr [ %34, %31 ], [ %30, %28 ], [ %37, %35 ], [ @.str.356, %26 ], [ @.str.356, %40 ]
-  %42 = phi i1 [ true, %31 ], [ true, %28 ], [ true, %35 ], [ false, %26 ], [ false, %40 ]
-  %.071 = phi ptr [ @dissect_emule_tcp_message, %31 ], [ @dissect_edonkey_tcp_message, %28 ], [ @dissect_edonkey_tcp_message, %35 ], [ null, %26 ], [ null, %40 ]
-  %.1 = phi ptr [ null, %31 ], [ null, %28 ], [ %39, %35 ], [ null, %26 ], [ null, %40 ]
+41:                                               ; preds = %35, %40, %31, %28
+  %.072 = phi ptr [ @.str.356, %40 ], [ %34, %31 ], [ %30, %28 ], [ %37, %35 ]
+  %42 = phi i1 [ false, %40 ], [ true, %31 ], [ true, %28 ], [ true, %35 ]
+  %.071 = phi ptr [ null, %40 ], [ @dissect_emule_tcp_message, %31 ], [ @dissect_edonkey_tcp_message, %28 ], [ @dissect_edonkey_tcp_message, %35 ]
+  %.1 = phi ptr [ null, %40 ], [ null, %31 ], [ null, %28 ], [ %39, %35 ]
   %43 = load ptr, ptr %5, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %43, i32 noundef 25, ptr noundef nonnull @.str.359, ptr noundef %.072) #7
   %.not79 = icmp eq ptr %.073, null

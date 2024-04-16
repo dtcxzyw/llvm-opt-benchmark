@@ -526,7 +526,7 @@ define ptr @ucnv_getAvailableName_75(i32 noundef %n) local_unnamed_addr #0 {
 entry:
   %err = alloca i32, align 4
   %or.cond = icmp ult i32 %n, 65536
-  br i1 %or.cond, label %if.then, label %return
+  br i1 %or.cond, label %if.then, label %if.end4
 
 if.then:                                          ; preds = %entry
   store i32 0, ptr %err, align 4
@@ -534,11 +534,13 @@ if.then:                                          ; preds = %entry
   %call = call ptr @ucnv_bld_getAvailableConverter_75(i16 noundef zeroext %conv, ptr noundef nonnull %err)
   %0 = load i32, ptr %err, align 4
   %cmp.i = icmp sgt i32 %0, 0
-  %spec.select = select i1 %cmp.i, ptr null, ptr %call
+  br i1 %cmp.i, label %if.end4, label %return
+
+if.end4:                                          ; preds = %if.then, %entry
   br label %return
 
-return:                                           ; preds = %if.then, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ %spec.select, %if.then ]
+return:                                           ; preds = %if.then, %if.end4
+  %retval.0 = phi ptr [ null, %if.end4 ], [ %call, %if.then ]
   ret ptr %retval.0
 }
 
@@ -3357,17 +3359,21 @@ if.else96:                                        ; preds = %if.end86, %land.lhs
   %conversionType99 = getelementptr inbounds i8, ptr %17, i64 69
   %18 = load i8, ptr %conversionType99, align 1
   %cmp101 = icmp eq i8 %18, 4
-  br i1 %cmp101, label %land.lhs.true102, label %if.end112
+  br i1 %cmp101, label %land.lhs.true102, label %if.else110
 
 land.lhs.true102:                                 ; preds = %if.else96
   %impl104 = getelementptr inbounds i8, ptr %11, i64 32
   %19 = load ptr, ptr %impl104, align 8
   %toUTF8 = getelementptr inbounds i8, ptr %19, i64 128
   %20 = load ptr, ptr %toUTF8, align 8
+  %cmp105.not = icmp eq ptr %20, null
+  br i1 %cmp105.not, label %if.else110, label %if.end112
+
+if.else110:                                       ; preds = %land.lhs.true102, %if.else96
   br label %if.end112
 
-if.end112:                                        ; preds = %land.lhs.true102, %if.else96, %land.lhs.true89
-  %convert.0 = phi ptr [ %16, %land.lhs.true89 ], [ null, %if.else96 ], [ %20, %land.lhs.true102 ]
+if.end112:                                        ; preds = %land.lhs.true102, %land.lhs.true89, %if.else110
+  %convert.0 = phi ptr [ null, %if.else110 ], [ %16, %land.lhs.true89 ], [ %20, %land.lhs.true102 ]
   %cmp113.not = icmp ne ptr %convert.0, null
   %sub.ptr.lhs.cast115 = ptrtoint ptr %pivotLimit.addr.0 to i64
   %sub.ptr.rhs.cast116 = ptrtoint ptr %pivotStart.addr.0 to i64

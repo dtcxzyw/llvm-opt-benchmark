@@ -1324,7 +1324,7 @@ define dso_local i32 @inet6_sk_rebuild_header(ptr noundef %0) #1 align 16 {
   %16 = load i32, ptr %15, align 8
   %17 = tail call ptr @__sk_dst_check(ptr noundef %0, i32 noundef %16) #14
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %19, label %89
+  br i1 %18, label %19, label %87
 
 19:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #14
@@ -1374,80 +1374,78 @@ define dso_local i32 @inet6_sk_rebuild_header(ptr noundef %0) #1 align 16 {
   %48 = load ptr, ptr %47, align 8
   %49 = call ptr @ip6_dst_lookup_flow(ptr noundef %48, ptr noundef %0, ptr noundef nonnull %3, ptr noundef %46) #14
   %50 = icmp ugt ptr %49, inttoptr (i64 -4096 to ptr)
-  br i1 %50, label %51, label %57
+  br i1 %50, label %.thread, label %56
 
-51:                                               ; preds = %19
-  %52 = getelementptr inbounds i8, ptr %0, i64 488
-  store i64 0, ptr %52, align 8
-  %53 = ptrtoint ptr %49 to i64
-  %54 = trunc i64 %53 to i32
-  %55 = sub i32 0, %54
-  %56 = getelementptr inbounds i8, ptr %0, i64 548
-  store volatile i32 %55, ptr %56, align 4
-  br label %88
-
-57:                                               ; preds = %19
-  %58 = load volatile i8, ptr %4, align 2
-  %59 = zext nneg i8 %58 to i32
-  %60 = shl nuw i32 1, %59
-  %61 = and i32 %60, -4161
-  %62 = icmp eq i32 %61, 0
-  br i1 %62, label %66, label %63
-
-63:                                               ; preds = %57
-  %64 = getelementptr inbounds i8, ptr %0, i64 744
-  %65 = load ptr, ptr %64, align 8
-  br label %66
-
-66:                                               ; preds = %63, %57
-  %67 = phi ptr [ %65, %63 ], [ null, %57 ]
-  %68 = getelementptr inbounds i8, ptr %49, i64 144
-  %69 = load i32, ptr %68, align 8
-  %70 = icmp eq i32 %69, 0
-  br i1 %70, label %71, label %84
-
-71:                                               ; preds = %66
-  call void @__rcu_read_lock() #14
-  %72 = getelementptr inbounds i8, ptr %49, i64 136
-  %73 = load volatile ptr, ptr %72, align 8
-  %74 = icmp eq ptr %73, null
-  br i1 %74, label %82, label %75
-
-75:                                               ; preds = %71
-  %76 = getelementptr inbounds i8, ptr %73, i64 16
-  %77 = load volatile ptr, ptr %76, align 8
-  %78 = icmp eq ptr %77, null
-  br i1 %78, label %82, label %79
-
-79:                                               ; preds = %75
-  %80 = getelementptr inbounds i8, ptr %77, i64 36
-  %81 = load volatile i32, ptr %80, align 4
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !27
-  br label %82
-
-82:                                               ; preds = %79, %75, %71
-  %83 = phi i32 [ 0, %71 ], [ %81, %79 ], [ 0, %75 ]
-  call void @__rcu_read_unlock() #14
-  br label %84
-
-84:                                               ; preds = %82, %66
-  %85 = phi i32 [ %83, %82 ], [ %69, %66 ]
-  %86 = getelementptr inbounds i8, ptr %67, i64 80
-  store i32 %85, ptr %86, align 8
-  call void @sk_setup_caps(ptr noundef %0, ptr noundef %49) #14
-  %87 = getelementptr inbounds i8, ptr %67, i64 40
-  store ptr null, ptr %87, align 8
-  br label %88
-
-88:                                               ; preds = %84, %51
-  %spec.select = phi i32 [ %54, %51 ], [ 0, %84 ]
+.thread:                                          ; preds = %19
+  %51 = getelementptr inbounds i8, ptr %0, i64 488
+  store i64 0, ptr %51, align 8
+  %52 = ptrtoint ptr %49 to i64
+  %53 = trunc i64 %52 to i32
+  %54 = sub i32 0, %53
+  %55 = getelementptr inbounds i8, ptr %0, i64 548
+  store volatile i32 %54, ptr %55, align 4
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %3) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #14
-  br label %89
+  br label %87
 
-89:                                               ; preds = %88, %13
-  %90 = phi i32 [ 0, %13 ], [ %spec.select, %88 ]
-  ret i32 %90
+56:                                               ; preds = %19
+  %57 = load volatile i8, ptr %4, align 2
+  %58 = zext nneg i8 %57 to i32
+  %59 = shl nuw i32 1, %58
+  %60 = and i32 %59, -4161
+  %61 = icmp eq i32 %60, 0
+  br i1 %61, label %65, label %62
+
+62:                                               ; preds = %56
+  %63 = getelementptr inbounds i8, ptr %0, i64 744
+  %64 = load ptr, ptr %63, align 8
+  br label %65
+
+65:                                               ; preds = %62, %56
+  %66 = phi ptr [ %64, %62 ], [ null, %56 ]
+  %67 = getelementptr inbounds i8, ptr %49, i64 144
+  %68 = load i32, ptr %67, align 8
+  %69 = icmp eq i32 %68, 0
+  br i1 %69, label %70, label %83
+
+70:                                               ; preds = %65
+  call void @__rcu_read_lock() #14
+  %71 = getelementptr inbounds i8, ptr %49, i64 136
+  %72 = load volatile ptr, ptr %71, align 8
+  %73 = icmp eq ptr %72, null
+  br i1 %73, label %81, label %74
+
+74:                                               ; preds = %70
+  %75 = getelementptr inbounds i8, ptr %72, i64 16
+  %76 = load volatile ptr, ptr %75, align 8
+  %77 = icmp eq ptr %76, null
+  br i1 %77, label %81, label %78
+
+78:                                               ; preds = %74
+  %79 = getelementptr inbounds i8, ptr %76, i64 36
+  %80 = load volatile i32, ptr %79, align 4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !27
+  br label %81
+
+81:                                               ; preds = %78, %74, %70
+  %82 = phi i32 [ 0, %70 ], [ %80, %78 ], [ 0, %74 ]
+  call void @__rcu_read_unlock() #14
+  br label %83
+
+83:                                               ; preds = %65, %81
+  %84 = phi i32 [ %82, %81 ], [ %68, %65 ]
+  %85 = getelementptr inbounds i8, ptr %66, i64 80
+  store i32 %84, ptr %85, align 8
+  call void @sk_setup_caps(ptr noundef %0, ptr noundef %49) #14
+  %86 = getelementptr inbounds i8, ptr %66, i64 40
+  store ptr null, ptr %86, align 8
+  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #14
+  br label %87
+
+87:                                               ; preds = %13, %83, %.thread
+  %88 = phi i32 [ %53, %.thread ], [ 0, %83 ], [ 0, %13 ]
+  ret i32 %88
 }
 
 ; Function Attrs: null_pointer_is_valid

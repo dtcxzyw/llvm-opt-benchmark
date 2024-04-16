@@ -6666,8 +6666,8 @@ entry:
   %cmp33 = icmp sgt i64 %div, %__holeIndex
   br i1 %cmp33, label %while.body, label %while.end
 
-while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit.thread
-  %__holeIndex.addr.034 = phi i64 [ %8, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit.thread ], [ %__holeIndex, %entry ]
+while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit.thread27
+  %__holeIndex.addr.034 = phi i64 [ %9, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit.thread27 ], [ %__holeIndex, %entry ]
   %add = shl i64 %__holeIndex.addr.034, 1
   %mul = add i64 %add, 2
   %add.ptr = getelementptr inbounds %class.aig_lit, ptr %__first, i64 %mul
@@ -6692,25 +6692,24 @@ if.end.i.i:                                       ; preds = %while.body
   %and.i.i.i = and i64 %1, 1
   %cmp.i.i.i = icmp ne i64 %and.i.i.i, 0
   %or.cond.i.i = and i1 %cmp.i.i.i, %cmp5.i.i
-  br i1 %or.cond.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit.thread
-
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit: ; preds = %if.end.i.i
   %and.i8.i.i = and i64 %5, 1
   %cmp.i9.not.i.i = icmp eq i64 %and.i8.i.i, 0
-  %spec.select = select i1 %cmp.i9.not.i.i, i64 %sub1, i64 %mul
-  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit.thread
+  %or.cond = and i1 %or.cond.i.i, %cmp.i9.not.i.i
+  br i1 %or.cond, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit.thread27
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit.thread: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit, %if.end.i.i, %while.body
-  %8 = phi i64 [ %sub1, %while.body ], [ %mul, %if.end.i.i ], [ %spec.select, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit ]
-  %add.ptr3 = getelementptr inbounds %class.aig_lit, ptr %__first, i64 %8
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit.thread: ; preds = %if.end.i.i, %while.body
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit.thread27
+
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit.thread27: ; preds = %if.end.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit.thread
+  %8 = phi ptr [ %.fr30, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit.thread ], [ %0, %if.end.i.i ]
+  %9 = phi i64 [ %sub1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit.thread ], [ %mul, %if.end.i.i ]
   %add.ptr4 = getelementptr inbounds %class.aig_lit, ptr %__first, i64 %__holeIndex.addr.034
-  %9 = load ptr, ptr %add.ptr3, align 8
-  store ptr %9, ptr %add.ptr4, align 8
-  %cmp = icmp slt i64 %8, %div
+  store ptr %8, ptr %add.ptr4, align 8
+  %cmp = icmp slt i64 %9, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !40
 
-while.end:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit.thread, %entry
-  %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %8, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit.thread ]
+while.end:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit.thread27, %entry
+  %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %9, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit.thread27 ]
   %and = and i64 %__len, 1
   %cmp6 = icmp eq i64 %and, 0
   br i1 %cmp6, label %land.lhs.true, label %if.end18
@@ -11833,7 +11832,7 @@ if.end.i:                                         ; preds = %init.end15
   %7 = ptrtoint ptr %6 to i64
   %and.i.i = and i64 %7, 1
   %cmp.i.not.i = icmp eq i64 %and.i.i, 0
-  br i1 %cmp.i.not.i, label %_ZNK11aig_manager3imp11is_ite_coreILb0EEEbP3aigR7aig_litS5_S5_.exit, label %land.lhs.true.i
+  br i1 %cmp.i.not.i, label %if.end36.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
   %arrayidx.i.i = getelementptr inbounds i8, ptr %n, i64 16
@@ -11841,7 +11840,7 @@ land.lhs.true.i:                                  ; preds = %if.end.i
   %8 = ptrtoint ptr %retval.sroa.0.0.copyload.i8.i to i64
   %and.i9.i = and i64 %8, 1
   %cmp.i10.not.i = icmp eq i64 %and.i9.i, 0
-  br i1 %cmp.i10.not.i, label %_ZNK11aig_manager3imp11is_ite_coreILb0EEEbP3aigR7aig_litS5_S5_.exit, label %if.then7.i
+  br i1 %cmp.i10.not.i, label %if.end36.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %land.lhs.true.i
   %and.i11.i = and i64 %7, -2
@@ -11913,18 +11912,21 @@ _ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit46.i: ; preds = %if.else26.i
 
 if.else29.i:                                      ; preds = %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit46.i, %if.else26.i
   %cmp.i49.i = icmp eq ptr %20, %18
-  br i1 %cmp.i49.i, label %land.rhs.i50.i, label %_ZNK11aig_manager3imp11is_ite_coreILb0EEEbP3aigR7aig_litS5_S5_.exit
+  br i1 %cmp.i49.i, label %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit56.i, label %if.end36.i
 
-land.rhs.i50.i:                                   ; preds = %if.else29.i
+_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit56.i: ; preds = %if.else29.i
   %and.i4.i51.i = and i64 %19, 1
   %cmp.i.i52.i = icmp ne i64 %and.i4.i51.i, 0
   %and.i5.i53.i = and i64 %17, 1
   %cmp.i6.i54.i = icmp ne i64 %and.i5.i53.i, 0
   %cmp6.i55.i = xor i1 %cmp.i.i52.i, %cmp.i6.i54.i
+  br i1 %cmp6.i55.i, label %_ZNK11aig_manager3imp11is_ite_coreILb0EEEbP3aigR7aig_litS5_S5_.exit, label %if.end36.i
+
+if.end36.i:                                       ; preds = %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit56.i, %if.else29.i, %land.lhs.true.i, %if.end.i
   br label %_ZNK11aig_manager3imp11is_ite_coreILb0EEEbP3aigR7aig_litS5_S5_.exit
 
-_ZNK11aig_manager3imp11is_ite_coreILb0EEEbP3aigR7aig_litS5_S5_.exit: ; preds = %init.end15, %if.end.i, %land.lhs.true.i, %if.then7.i, %lor.lhs.false.i, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit.i, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit36.i, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit46.i, %if.else29.i, %land.rhs.i50.i
-  %retval.0.i = phi i1 [ false, %init.end15 ], [ false, %lor.lhs.false.i ], [ false, %if.then7.i ], [ true, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit.i ], [ true, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit36.i ], [ true, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit46.i ], [ false, %land.lhs.true.i ], [ false, %if.end.i ], [ false, %if.else29.i ], [ %cmp6.i55.i, %land.rhs.i50.i ]
+_ZNK11aig_manager3imp11is_ite_coreILb0EEEbP3aigR7aig_litS5_S5_.exit: ; preds = %init.end15, %if.then7.i, %lor.lhs.false.i, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit.i, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit36.i, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit46.i, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit56.i, %if.end36.i
+  %retval.0.i = phi i1 [ false, %if.end36.i ], [ false, %init.end15 ], [ false, %lor.lhs.false.i ], [ false, %if.then7.i ], [ true, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit.i ], [ true, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit36.i ], [ true, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit46.i ], [ true, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit56.i ]
   ret i1 %retval.0.i
 }
 

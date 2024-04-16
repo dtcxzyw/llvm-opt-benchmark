@@ -11366,7 +11366,7 @@ _ZNK17arith_recognizers10is_numeralEPK4expr.exit: ; preds = %land.rhs.i.i
   %3 = load i32, ptr %m_kind.i.i.i.i.i, align 4
   %cmp2.i.i.i.i.i = icmp eq i32 %3, 0
   %4 = select i1 %cmp.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
-  br i1 %4, label %if.end, label %lor.lhs.false
+  br i1 %4, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.rhs.i.i, %entry, %_ZNK17arith_recognizers10is_numeralEPK4expr.exit
   %m_kind.i.i.i1 = getelementptr inbounds i8, ptr %rhs, i64 4
@@ -11396,14 +11396,15 @@ land.lhs.true:                                    ; preds = %land.rhs.i.i5, %lor
   %10 = load i32, ptr %lhs, align 4
   %11 = load i32, ptr %rhs, align 4
   %cmp = icmp ugt i32 %10, %11
-  %spec.select = select i1 %cmp, ptr %rhs, ptr %lhs
-  %spec.select48 = select i1 %cmp, ptr %lhs, ptr %rhs
+  br i1 %cmp, label %if.then, label %if.end
+
+if.then:                                          ; preds = %land.lhs.true, %_ZNK17arith_recognizers10is_numeralEPK4expr.exit
   br label %if.end
 
-if.end:                                           ; preds = %land.lhs.true, %_ZNK17arith_recognizers10is_numeralEPK4expr.exit, %_ZNK17arith_recognizers10is_numeralEPK4expr.exit13
-  %lhs.addr.0 = phi ptr [ %lhs, %_ZNK17arith_recognizers10is_numeralEPK4expr.exit13 ], [ %rhs, %_ZNK17arith_recognizers10is_numeralEPK4expr.exit ], [ %spec.select, %land.lhs.true ]
-  %rhs.addr.0 = phi ptr [ %rhs, %_ZNK17arith_recognizers10is_numeralEPK4expr.exit13 ], [ %lhs, %_ZNK17arith_recognizers10is_numeralEPK4expr.exit ], [ %spec.select48, %land.lhs.true ]
-  %cmp5 = icmp eq ptr %lhs.addr.0, %rhs.addr.0
+if.end:                                           ; preds = %if.then, %land.lhs.true, %_ZNK17arith_recognizers10is_numeralEPK4expr.exit13
+  %lhs.addr.0 = phi ptr [ %rhs, %if.then ], [ %lhs, %_ZNK17arith_recognizers10is_numeralEPK4expr.exit13 ], [ %lhs, %land.lhs.true ]
+  %rhs.addr.0 = phi ptr [ %lhs, %if.then ], [ %rhs, %_ZNK17arith_recognizers10is_numeralEPK4expr.exit13 ], [ %rhs, %land.lhs.true ]
+  %cmp5 = icmp eq ptr %rhs, %lhs
   br i1 %cmp5, label %if.then6, label %if.end8
 
 if.then6:                                         ; preds = %if.end
@@ -29834,14 +29835,16 @@ invoke.cont28:                                    ; preds = %.noexc93, %lor.lhs.
 land.lhs.true:                                    ; preds = %invoke.cont28
   %53 = load i8, ptr %m_reduce_all_selects.i, align 8
   %tobool.i = trunc i8 %53 to i1
-  br i1 %tobool.i, label %for.inc, label %if.end.i95
+  br i1 %tobool.i, label %invoke.cont34.thread, label %if.end.i95
 
 if.end.i95:                                       ; preds = %land.lhs.true
   %call.i97 = invoke noundef zeroext i1 @_ZNK8ast_mark9is_markedEP3ast(ptr noundef nonnull align 8 dereferenceable(56) %m_has_stores.i, ptr noundef %43)
           to label %invoke.cont34 unwind label %lpad21.loopexit
 
 invoke.cont34:                                    ; preds = %if.end.i95
-  %spec.select = select i1 %call.i97, i8 1, i8 %args_have_stores.0239
+  br i1 %call.i97, label %invoke.cont34.thread, label %for.inc
+
+invoke.cont34.thread:                             ; preds = %land.lhs.true, %invoke.cont34
   br label %for.inc
 
 if.else38:                                        ; preds = %for.body.i.i.i44, %for.body20.i.i.i52, %for.inc36.i.i.i55, %for.cond18.preheader.i.i.i50
@@ -29880,9 +29883,9 @@ _ZN6vectorIP3appLb0EjE9push_backEOS1_.exit113:    ; preds = %lor.lhs.false.i99, 
   store i32 %inc.i107, ptr %arrayidx10.i106, align 4
   br label %for.inc
 
-for.inc:                                          ; preds = %invoke.cont34, %land.lhs.true, %_ZN6vectorIP3appLb0EjE9push_backEOS1_.exit113, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit, %invoke.cont28
-  %dirty.1 = phi i1 [ %52, %invoke.cont28 ], [ %dirty.0237, %_ZN6vectorIP3appLb0EjE9push_backEOS1_.exit113 ], [ %dirty.0237, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ], [ %52, %land.lhs.true ], [ %52, %invoke.cont34 ]
-  %args_have_stores.1 = phi i8 [ %args_have_stores.0239, %invoke.cont28 ], [ %args_have_stores.0239, %_ZN6vectorIP3appLb0EjE9push_backEOS1_.exit113 ], [ %args_have_stores.0239, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ], [ 1, %land.lhs.true ], [ %spec.select, %invoke.cont34 ]
+for.inc:                                          ; preds = %invoke.cont34.thread, %invoke.cont34, %_ZN6vectorIP3appLb0EjE9push_backEOS1_.exit113, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit, %invoke.cont28
+  %dirty.1 = phi i1 [ %52, %invoke.cont28 ], [ %dirty.0237, %_ZN6vectorIP3appLb0EjE9push_backEOS1_.exit113 ], [ %dirty.0237, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ], [ %52, %invoke.cont34 ], [ %52, %invoke.cont34.thread ]
+  %args_have_stores.1 = phi i8 [ %args_have_stores.0239, %invoke.cont28 ], [ %args_have_stores.0239, %_ZN6vectorIP3appLb0EjE9push_backEOS1_.exit113 ], [ %args_have_stores.0239, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ], [ %args_have_stores.0239, %invoke.cont34 ], [ 1, %invoke.cont34.thread ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %61 = load i32, ptr %m_num_args.i, align 8
   %62 = zext i32 %61 to i64

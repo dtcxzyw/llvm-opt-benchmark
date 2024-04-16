@@ -257,7 +257,7 @@ if.end173:                                        ; preds = %if.end168
 land.rhs:                                         ; preds = %if.end173
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 82
-  br i1 %exitcond.not, label %if.then316.sink.split, label %do.body, !llvm.loop !7
+  br i1 %exitcond.not, label %if.then316.sink.split.loopexit251, label %do.body, !llvm.loop !7
 
 if.end186:                                        ; preds = %if.end173
   %call187 = tail call i32 @BN_rshift(ptr noundef %call50, ptr noundef %call50, i32 noundef %e.0) #2
@@ -411,12 +411,12 @@ land.lhs.true:                                    ; preds = %if.then303
   %cmp310.not = icmp eq i32 %call309, 0
   br i1 %cmp310.not, label %if.then323, label %if.then316.sink.split
 
-if.then316.sink.split.loopexit251:                ; preds = %if.end173
+if.then316.sink.split.loopexit251:                ; preds = %land.rhs, %if.end173
   br label %if.then316.sink.split
 
-if.then316.sink.split:                            ; preds = %land.rhs, %for.cond.preheader, %for.inc, %if.end173, %if.then316.sink.split.loopexit251, %land.lhs.true, %if.end194
-  %.sink237 = phi i32 [ 230, %if.end194 ], [ 353, %land.lhs.true ], [ 203, %if.end173 ], [ 322, %for.inc ], [ 322, %for.cond.preheader ], [ 215, %land.rhs ], [ 215, %if.then316.sink.split.loopexit251 ]
-  %.sink = phi i32 [ 112, %if.end194 ], [ 111, %land.lhs.true ], [ 112, %if.end173 ], [ 111, %for.inc ], [ 111, %for.cond.preheader ], [ 113, %land.rhs ], [ 113, %if.then316.sink.split.loopexit251 ]
+if.then316.sink.split:                            ; preds = %for.cond.preheader, %for.inc, %if.end173, %if.then316.sink.split.loopexit251, %land.lhs.true, %if.end194
+  %.sink237 = phi i32 [ 230, %if.end194 ], [ 353, %land.lhs.true ], [ 215, %if.then316.sink.split.loopexit251 ], [ 203, %if.end173 ], [ 322, %for.inc ], [ 322, %for.cond.preheader ]
+  %.sink = phi i32 [ 112, %if.end194 ], [ 111, %land.lhs.true ], [ 113, %if.then316.sink.split.loopexit251 ], [ 112, %if.end173 ], [ 111, %for.inc ], [ 111, %for.cond.preheader ]
   tail call void @ERR_new() #2
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink237, ptr noundef nonnull @__func__.BN_mod_sqrt) #2
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 3, i32 noundef %.sink, ptr noundef null) #2

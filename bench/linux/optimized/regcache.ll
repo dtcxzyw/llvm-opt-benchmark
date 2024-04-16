@@ -700,13 +700,13 @@ define dso_local i32 @regcache_write(ptr noundef %0, i32 noundef %1, i32 noundef
 define dso_local noundef zeroext i1 @regcache_reg_needs_sync(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = alloca %struct.reg_default, align 8
   %5 = tail call zeroext i1 @regmap_writeable(ptr noundef %0, i32 noundef %1) #12
-  br i1 %5, label %6, label %32
+  br i1 %5, label %6, label %33
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 577
   %8 = load i8, ptr %7, align 1, !range !13, !noundef !14
   %9 = icmp eq i8 %8, 0
-  br i1 %9, label %32, label %10
+  br i1 %9, label %33, label %10
 
 10:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
@@ -741,12 +741,15 @@ define dso_local noundef zeroext i1 @regcache_reg_needs_sync(ptr noundef %0, i32
   %28 = and i64 %27, 2147483647
   %29 = getelementptr %struct.reg_default, ptr %20, i64 %28, i32 1
   %30 = load i32, ptr %29, align 4
-  %31 = icmp ne i32 %30, %2
-  br label %32
+  %31 = icmp eq i32 %30, %2
+  br i1 %31, label %33, label %32
 
-32:                                               ; preds = %.thread, %26, %19, %6, %3
-  %33 = phi i1 [ false, %3 ], [ true, %6 ], [ true, %19 ], [ %31, %26 ], [ true, %.thread ]
-  ret i1 %33
+32:                                               ; preds = %.thread, %26, %19
+  br label %33
+
+33:                                               ; preds = %32, %26, %6, %3
+  %34 = phi i1 [ true, %32 ], [ false, %3 ], [ true, %6 ], [ false, %26 ]
+  ret i1 %34
 }
 
 ; Function Attrs: null_pointer_is_valid

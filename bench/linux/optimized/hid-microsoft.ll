@@ -791,25 +791,25 @@ define internal noundef i32 @ms_input_mapping(ptr nocapture noundef readonly %0,
 216:                                              ; preds = %213
   %217 = load i32, ptr %3, align 4
   %218 = and i32 %217, -65536
-  switch i32 %218, label %220 [
+  switch i32 %218, label %.thread51 [
     i32 -16318464, label %.thread37
     i32 851968, label %.thread37
     i32 65536, label %219
   ]
 
 219:                                              ; preds = %216
-  switch i32 %217, label %220 [
+  switch i32 %217, label %.thread51 [
     i32 65584, label %.thread37
     i32 65585, label %.thread37
     i32 65734, label %.thread37
   ]
 
-220:                                              ; preds = %219, %216
+.thread51:                                        ; preds = %219, %216
   br label %.thread37
 
-.thread37:                                        ; preds = %.thread33, %.thread29, %.thread27, %.thread25, %.thread, %102, %72, %58, %42, %28, %91, %123, %47, %.thread47, %.thread45, %.thread43, %.thread41, %.thread39, %216, %216, %219, %219, %219, %220, %213, %208, %193, %178, %163, %148
-  %221 = phi i32 [ 1, %148 ], [ 1, %163 ], [ 1, %178 ], [ 1, %193 ], [ 1, %208 ], [ 0, %213 ], [ 0, %220 ], [ -1, %216 ], [ -1, %216 ], [ -1, %219 ], [ -1, %219 ], [ -1, %219 ], [ 1, %.thread39 ], [ 1, %.thread41 ], [ 1, %.thread43 ], [ 1, %.thread45 ], [ 1, %.thread47 ], [ 1, %.thread33 ], [ 1, %.thread29 ], [ 1, %.thread27 ], [ 1, %.thread25 ], [ 1, %.thread ], [ 1, %102 ], [ 1, %72 ], [ 1, %58 ], [ 1, %42 ], [ 1, %28 ], [ 1, %91 ], [ 1, %123 ], [ -1, %47 ]
-  ret i32 %221
+.thread37:                                        ; preds = %.thread33, %.thread29, %.thread27, %.thread25, %.thread, %102, %72, %58, %42, %28, %91, %123, %47, %213, %.thread51, %219, %219, %219, %216, %216, %.thread47, %.thread45, %.thread43, %.thread41, %.thread39, %208, %193, %178, %163, %148
+  %220 = phi i32 [ 1, %148 ], [ 1, %163 ], [ 1, %178 ], [ 1, %193 ], [ 1, %208 ], [ 1, %.thread39 ], [ 1, %.thread41 ], [ 1, %.thread43 ], [ 1, %.thread45 ], [ 1, %.thread47 ], [ -1, %216 ], [ -1, %216 ], [ -1, %219 ], [ -1, %219 ], [ -1, %219 ], [ 0, %.thread51 ], [ 0, %213 ], [ 1, %.thread33 ], [ 1, %.thread29 ], [ 1, %.thread27 ], [ 1, %.thread25 ], [ 1, %.thread ], [ 1, %102 ], [ 1, %72 ], [ 1, %58 ], [ 1, %42 ], [ 1, %28 ], [ 1, %91 ], [ 1, %123 ], [ -1, %47 ]
+  ret i32 %220
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

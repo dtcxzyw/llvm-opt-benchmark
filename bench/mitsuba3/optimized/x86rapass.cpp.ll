@@ -102,7 +102,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8I
   %12 = getelementptr inbounds i8, ptr %1, i64 48
   %13 = load i32, ptr %12, align 4, !tbaa !3
   %14 = icmp ult i32 %13, 1663
-  br i1 %14, label %15, label %801
+  br i1 %14, label %15, label %802
 
 15:                                               ; preds = %4
   %16 = getelementptr inbounds i8, ptr %1, i64 18
@@ -114,7 +114,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8I
   %22 = zext i8 %17 to i64
   %23 = call noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal11queryRWInfoENS0_4ArchERKNS0_8BaseInstEPKNS0_8Operand_EmPNS0_10InstRWInfoE(i8 noundef zeroext %21, ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull %19, i64 noundef %22, ptr noundef nonnull %6) #15
   %24 = icmp eq i32 %23, 0
-  br i1 %24, label %25, label %801
+  br i1 %24, label %25, label %802
 
 25:                                               ; preds = %15
   %26 = zext nneg i32 %13 to i64
@@ -485,7 +485,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8I
 294:                                              ; preds = %272, %264, %262, %245, %243, %201, %199, %137, %121
   %295 = phi i32 [ 65, %264 ], [ 3, %262 ], [ 65, %245 ], [ 3, %243 ], [ 60, %201 ], [ 3, %199 ], [ %282, %272 ], [ %138, %137 ], [ 30, %121 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
-  br label %801
+  br label %802
 
 296:                                              ; preds = %291, %284
   %297 = phi i32 [ %293, %291 ], [ %86, %284 ]
@@ -671,7 +671,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8I
 426:                                              ; preds = %418, %373, %357
   %427 = phi i32 [ %374, %373 ], [ %424, %418 ], [ 30, %357 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
-  br label %801
+  br label %802
 
 428:                                              ; preds = %418
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
@@ -818,12 +818,12 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8I
 529:                                              ; preds = %322, %303
   %530 = phi i32 [ %323, %322 ], [ 30, %303 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
-  br label %801
+  br label %802
 
 531:                                              ; preds = %509, %454, %438
   %532 = phi i32 [ %455, %454 ], [ 30, %438 ], [ 3, %509 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #15
-  br label %801
+  br label %802
 
 533:                                              ; preds = %513, %494
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #15
@@ -925,7 +925,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8I
 600:                                              ; preds = %591, %588, %569, %553
   %601 = phi i32 [ %592, %591 ], [ %589, %588 ], [ %570, %569 ], [ 30, %553 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #15
-  br label %801
+  br label %802
 
 602:                                              ; preds = %591, %588
   %603 = phi i32 [ %543, %591 ], [ 0, %588 ]
@@ -1095,7 +1095,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8I
   %715 = sub i64 %713, %714
   %716 = and i64 %715, 137438953440
   %717 = icmp eq i64 %716, 32
-  br i1 %717, label %718, label %792
+  br i1 %717, label %718, label %793
 
 718:                                              ; preds = %.loopexit
   %719 = icmp eq i32 %605, %18
@@ -1110,18 +1110,18 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8I
   %726 = load i32, ptr %725, align 4
   %727 = lshr i32 %726, 30
   %728 = trunc nuw nsw i32 %727 to i8
-  br label %775
+  br label %776
 
 729:                                              ; preds = %718
   %730 = icmp eq i8 %17, 2
-  br i1 %730, label %731, label %792
+  br i1 %730, label %731, label %793
 
 731:                                              ; preds = %729
   %732 = getelementptr inbounds i8, ptr %1, i64 80
   %733 = load i32, ptr %732, align 4, !tbaa !37
   %734 = and i32 %733, 7
   %735 = icmp eq i32 %734, 3
-  br i1 %735, label %736, label %792
+  br i1 %735, label %736, label %793
 
 736:                                              ; preds = %731
   %737 = load ptr, ptr %0, align 8, !tbaa !46
@@ -1134,17 +1134,17 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8I
   %744 = getelementptr inbounds i8, ptr %743, i64 32
   %745 = load i32, ptr %744, align 8, !tbaa !85
   %746 = load i32, ptr %12, align 4, !tbaa !3
-  switch i32 %746, label %792 [
+  switch i32 %746, label %793 [
     i32 470, label %747
-    i32 7, label %764
-    i32 21, label %764
-    i32 671, label %764
-    i32 672, label %764
-    i32 684, label %764
-    i32 731, label %764
-    i32 734, label %764
-    i32 758, label %764
-    i32 1644, label %764
+    i32 7, label %765
+    i32 21, label %765
+    i32 671, label %765
+    i32 672, label %765
+    i32 684, label %765
+    i32 731, label %765
+    i32 734, label %765
+    i32 758, label %765
+    i32 1644, label %765
   ]
 
 747:                                              ; preds = %736
@@ -1154,7 +1154,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8I
   %751 = icmp ult i32 %749, 67108864
   %752 = icmp ult i32 %750, %748
   %753 = select i1 %751, i1 %752, i1 false
-  br i1 %753, label %764, label %754
+  br i1 %753, label %765, label %754
 
 754:                                              ; preds = %747
   %755 = getelementptr inbounds i8, ptr %1, i64 88
@@ -1168,69 +1168,71 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8I
   %761 = getelementptr inbounds [9 x i64], ptr @_ZZN6asmjit9_abi_1_103x86L17raImmMaskFromSizeEjE5masks, i64 0, i64 %760
   %762 = load i64, ptr %761, align 8, !tbaa !84
   %763 = icmp eq i64 %756, %762
-  %spec.select = select i1 %763, i8 2, i8 0
-  br label %764
+  br i1 %763, label %764, label %765
 
-764:                                              ; preds = %758, %754, %747, %736, %736, %736, %736, %736, %736, %736, %736, %736
-  %765 = phi i8 [ 0, %736 ], [ 0, %736 ], [ 0, %736 ], [ 0, %736 ], [ 0, %736 ], [ 0, %736 ], [ 0, %736 ], [ 0, %736 ], [ 0, %736 ], [ 0, %747 ], [ 2, %754 ], [ %spec.select, %758 ]
-  %766 = load i32, ptr %19, align 4, !tbaa !37
-  %767 = and i32 %766, -16777216
-  %768 = icmp eq i32 %767, 67108864
-  %769 = icmp ugt i32 %745, 83886079
-  %770 = select i1 %768, i1 %769, i1 false
-  br i1 %770, label %775, label %771
+764:                                              ; preds = %758, %754
+  br label %765
 
-771:                                              ; preds = %764
-  %772 = getelementptr inbounds i8, ptr %1, i64 88
-  %773 = load i64, ptr %772, align 4
-  %774 = icmp eq i64 %773, 0
-  br i1 %774, label %778, label %775
+765:                                              ; preds = %764, %758, %747, %736, %736, %736, %736, %736, %736, %736, %736, %736
+  %766 = phi i8 [ 0, %736 ], [ 0, %736 ], [ 0, %736 ], [ 0, %736 ], [ 0, %736 ], [ 0, %736 ], [ 0, %736 ], [ 0, %736 ], [ 0, %736 ], [ 2, %764 ], [ 0, %758 ], [ 0, %747 ]
+  %767 = load i32, ptr %19, align 4, !tbaa !37
+  %768 = and i32 %767, -16777216
+  %769 = icmp eq i32 %768, 67108864
+  %770 = icmp ugt i32 %745, 83886079
+  %771 = select i1 %769, i1 %770, i1 false
+  br i1 %771, label %776, label %772
 
-775:                                              ; preds = %771, %764, %720
-  %776 = phi i8 [ %728, %720 ], [ %765, %771 ], [ %765, %764 ]
-  switch i8 %776, label %792 [
-    i8 2, label %777
-    i8 1, label %778
+772:                                              ; preds = %765
+  %773 = getelementptr inbounds i8, ptr %1, i64 88
+  %774 = load i64, ptr %773, align 4
+  %775 = icmp eq i64 %774, 0
+  br i1 %775, label %779, label %776
+
+776:                                              ; preds = %772, %765, %720
+  %777 = phi i8 [ %728, %720 ], [ %766, %772 ], [ %766, %765 ]
+  switch i8 %777, label %793 [
+    i8 2, label %778
+    i8 1, label %779
   ]
 
-777:                                              ; preds = %775
-  br label %778
+778:                                              ; preds = %776
+  br label %779
 
-778:                                              ; preds = %777, %775, %771
-  %779 = phi i32 [ -14, %777 ], [ -15, %771 ], [ -15, %775 ]
-  %780 = phi i32 [ 8, %777 ], [ 4, %771 ], [ 4, %775 ]
-  %781 = phi i64 [ 88, %777 ], [ 92, %771 ], [ 92, %775 ]
-  %782 = phi i64 [ 92, %777 ], [ 88, %771 ], [ 88, %775 ]
-  %783 = getelementptr inbounds i8, ptr %3, i64 72
-  %784 = load i32, ptr %783, align 8, !tbaa !105
-  %785 = and i32 %784, %779
-  %786 = or disjoint i32 %785, %780
-  store i32 %786, ptr %783, align 8, !tbaa !105
-  %787 = getelementptr inbounds i8, ptr %3, i64 %781
-  %788 = load i32, ptr %787, align 4, !tbaa !85
-  %789 = getelementptr inbounds i8, ptr %3, i64 %782
-  %790 = load i32, ptr %789, align 4, !tbaa !85
-  %791 = or i32 %790, %788
-  store i32 %791, ptr %789, align 4, !tbaa !85
-  store i32 0, ptr %787, align 4, !tbaa !85
-  br label %792
+779:                                              ; preds = %778, %776, %772
+  %780 = phi i32 [ -14, %778 ], [ -15, %772 ], [ -15, %776 ]
+  %781 = phi i32 [ 8, %778 ], [ 4, %772 ], [ 4, %776 ]
+  %782 = phi i64 [ 88, %778 ], [ 92, %772 ], [ 92, %776 ]
+  %783 = phi i64 [ 92, %778 ], [ 88, %772 ], [ 88, %776 ]
+  %784 = getelementptr inbounds i8, ptr %3, i64 72
+  %785 = load i32, ptr %784, align 8, !tbaa !105
+  %786 = and i32 %785, %780
+  %787 = or disjoint i32 %786, %781
+  store i32 %787, ptr %784, align 8, !tbaa !105
+  %788 = getelementptr inbounds i8, ptr %3, i64 %782
+  %789 = load i32, ptr %788, align 4, !tbaa !85
+  %790 = getelementptr inbounds i8, ptr %3, i64 %783
+  %791 = load i32, ptr %790, align 4, !tbaa !85
+  %792 = or i32 %791, %789
+  store i32 %792, ptr %790, align 4, !tbaa !85
+  store i32 0, ptr %788, align 4, !tbaa !85
+  br label %793
 
-792:                                              ; preds = %778, %775, %736, %731, %729, %.loopexit
-  %793 = load i32, ptr %27, align 4
-  %794 = lshr i32 %793, 14
-  %795 = and i32 %794, 1023
-  %796 = zext nneg i32 %795 to i64
-  %797 = getelementptr inbounds [0 x %"struct.asmjit::_abi_1_10::x86::InstDB::CommonInfo"], ptr @_ZN6asmjit9_abi_1_103x866InstDB16_commonInfoTableE, i64 0, i64 %796, i32 1
-  %798 = load i32, ptr %797, align 4
-  %799 = lshr i32 %798, 27
-  %800 = and i32 %799, 7
-  store i32 %800, ptr %2, align 4, !tbaa !118
-  br label %801
+793:                                              ; preds = %779, %776, %736, %731, %729, %.loopexit
+  %794 = load i32, ptr %27, align 4
+  %795 = lshr i32 %794, 14
+  %796 = and i32 %795, 1023
+  %797 = zext nneg i32 %796 to i64
+  %798 = getelementptr inbounds [0 x %"struct.asmjit::_abi_1_10::x86::InstDB::CommonInfo"], ptr @_ZN6asmjit9_abi_1_103x866InstDB16_commonInfoTableE, i64 0, i64 %797, i32 1
+  %799 = load i32, ptr %798, align 4
+  %800 = lshr i32 %799, 27
+  %801 = and i32 %800, 7
+  store i32 %801, ptr %2, align 4, !tbaa !118
+  br label %802
 
-801:                                              ; preds = %792, %600, %531, %529, %426, %294, %15, %4
-  %802 = phi i32 [ 0, %792 ], [ 0, %4 ], [ %23, %15 ], [ %601, %600 ], [ %532, %531 ], [ %295, %294 ], [ %427, %426 ], [ %530, %529 ]
+802:                                              ; preds = %793, %600, %531, %529, %426, %294, %15, %4
+  %803 = phi i32 [ 0, %793 ], [ 0, %4 ], [ %23, %15 ], [ %601, %600 ], [ %532, %531 ], [ %295, %294 ], [ %427, %426 ], [ %530, %529 ]
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #15
-  ret i32 %802
+  ret i32 %803
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -1968,7 +1970,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder12moveVecToPtrE
   %13 = getelementptr inbounds %"struct.asmjit::_abi_1_10::TypeUtils::TypeData", ptr @_ZN6asmjit9_abi_1_109TypeUtils9_typeDataE, i64 0, i32 1, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !11
   %15 = icmp eq i8 %14, 0
-  br i1 %15, label %122, label %16
+  br i1 %15, label %124, label %16
 
 16:                                               ; preds = %5
   %17 = tail call i8 @llvm.umax.i8(i8 %14, i8 16)
@@ -2041,11 +2043,11 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder12moveVecToPtrE
   %70 = getelementptr inbounds [32 x i8], ptr %67, i64 0, i64 %69
   %71 = load i8, ptr %70, align 1, !tbaa !153
   %72 = invoke noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler7_newRegEPNS0_7BaseRegENS0_6TypeIdEPKc(ptr noundef nonnull align 8 dereferenceable(504) %60, ptr noundef %4, i8 noundef zeroext %71, ptr noundef null)
-          to label %73 unwind label %124
+          to label %73 unwind label %126
 
 73:                                               ; preds = %16
   %74 = icmp eq i32 %72, 0
-  br i1 %74, label %75, label %120
+  br i1 %74, label %75, label %122
 
 75:                                               ; preds = %73
   %76 = load ptr, ptr %59, align 8, !tbaa !69
@@ -2060,11 +2062,11 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder12moveVecToPtrE
   %85 = getelementptr inbounds i8, ptr %84, i64 14
   store i8 80, ptr %85, align 2, !tbaa !188
   %86 = invoke noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter6_emitIEjRKNS0_8Operand_ES4_(ptr noundef nonnull align 8 dereferenceable(144) %76, i32 noundef 382, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %7)
-          to label %87 unwind label %124
+          to label %87 unwind label %126
 
 87:                                               ; preds = %75
   %88 = icmp eq i32 %86, 0
-  br i1 %88, label %89, label %120
+  br i1 %88, label %89, label %122
 
 89:                                               ; preds = %87
   %90 = load ptr, ptr %59, align 8, !tbaa !69
@@ -2082,18 +2084,18 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder12moveVecToPtrE
   %97 = getelementptr inbounds i8, ptr %8, i64 12
   store i32 0, ptr %97, align 4, !tbaa !85, !alias.scope !189
   %98 = invoke noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter6_emitIEjRKNS0_8Operand_ES4_(ptr noundef nonnull align 8 dereferenceable(144) %90, i32 noundef %58, ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) %6)
-          to label %99 unwind label %124
+          to label %99 unwind label %126
 
 99:                                               ; preds = %89
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #15
   %100 = icmp eq i32 %98, 0
-  br i1 %100, label %101, label %120
+  br i1 %100, label %101, label %122
 
 101:                                              ; preds = %99
   %102 = load i32, ptr %2, align 4, !tbaa !137
   %103 = and i32 %102, 512
   %104 = icmp eq i32 %103, 0
-  br i1 %104, label %120, label %105
+  br i1 %104, label %121, label %105
 
 105:                                              ; preds = %101
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #15
@@ -2115,27 +2117,31 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder12moveVecToPtrE
   store i32 %108, ptr %116, align 4, !tbaa !85, !alias.scope !192
   %117 = load ptr, ptr %59, align 8, !tbaa !69
   %118 = invoke noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter6_emitIEjRKNS0_8Operand_ES4_(ptr noundef nonnull align 8 dereferenceable(144) %117, i32 noundef 418, ptr noundef nonnull align 4 dereferenceable(16) %9, ptr noundef nonnull align 4 dereferenceable(16) %4)
-          to label %119 unwind label %124
+          to label %119 unwind label %126
 
 119:                                              ; preds = %105
+  %120 = icmp eq i32 %118, 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #15
-  br label %120
+  br i1 %120, label %121, label %122
 
-120:                                              ; preds = %119, %101, %99, %87, %73
-  %121 = phi i32 [ %72, %73 ], [ %98, %99 ], [ %86, %87 ], [ 0, %101 ], [ %118, %119 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #15
+121:                                              ; preds = %119, %101
   br label %122
 
-122:                                              ; preds = %120, %5
-  %123 = phi i32 [ %121, %120 ], [ 3, %5 ]
-  ret i32 %123
+122:                                              ; preds = %121, %119, %99, %87, %73
+  %123 = phi i32 [ %72, %73 ], [ 0, %121 ], [ %118, %119 ], [ %98, %99 ], [ %86, %87 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #15
+  br label %124
 
-124:                                              ; preds = %105, %89, %75, %16
-  %125 = landingpad { ptr, i32 }
+124:                                              ; preds = %122, %5
+  %125 = phi i32 [ %123, %122 ], [ 3, %5 ]
+  ret i32 %125
+
+126:                                              ; preds = %105, %89, %75, %16
+  %127 = landingpad { ptr, i32 }
           catch ptr null
-  %126 = extractvalue { ptr, i32 } %125, 0
-  call void @__clang_call_terminate(ptr %126) #16
+  %128 = extractvalue { ptr, i32 } %127, 0
+  call void @__clang_call_terminate(ptr %128) #16
   unreachable
 }
 

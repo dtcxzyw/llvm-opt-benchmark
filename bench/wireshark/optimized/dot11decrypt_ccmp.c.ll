@@ -18,7 +18,7 @@ define hidden noundef i32 @Dot11DecryptCcmpDecrypt(ptr noundef %0, i32 noundef %
   %17 = sub i32 %15, %16
   %18 = sext i32 %17 to i64
   %19 = icmp slt i32 %17, 1
-  br i1 %19, label %84, label %20
+  br i1 %19, label %85, label %20
 
 20:                                               ; preds = %6
   %21 = sext i32 %2 to i64
@@ -80,20 +80,20 @@ ccmp_construct_nonce.exit:                        ; preds = %.sink.split.i, %20
   call void @dot11decrypt_construct_aad(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %10) #3
   %59 = call i32 @gcry_cipher_open(ptr noundef nonnull %11, i32 noundef 7, i32 noundef 8, i32 noundef 0) #3
   %.not = icmp eq i32 %59, 0
-  br i1 %.not, label %60, label %84
+  br i1 %.not, label %60, label %85
 
 60:                                               ; preds = %ccmp_construct_nonce.exit
   %61 = load ptr, ptr %11, align 8
   %62 = sext i32 %4 to i64
   %63 = call i32 @gcry_cipher_setkey(ptr noundef %61, ptr noundef %3, i64 noundef %62) #3
   %.not30 = icmp eq i32 %63, 0
-  br i1 %.not30, label %64, label %.sink.split
+  br i1 %.not30, label %64, label %84
 
 64:                                               ; preds = %60
   %65 = load ptr, ptr %11, align 8
   %66 = call i32 @gcry_cipher_setiv(ptr noundef %65, ptr noundef nonnull %8, i64 noundef 13) #3
   %.not31 = icmp eq i32 %66, 0
-  br i1 %.not31, label %67, label %.sink.split
+  br i1 %.not31, label %67, label %84
 
 67:                                               ; preds = %64
   store i64 %18, ptr %12, align 16
@@ -105,36 +105,38 @@ ccmp_construct_nonce.exit:                        ; preds = %.sink.split.i, %20
   %71 = load ptr, ptr %11, align 8
   %72 = call i32 @gcry_cipher_ctl(ptr noundef %71, i32 noundef 69, ptr noundef nonnull %12, i64 noundef 24) #3
   %.not32 = icmp eq i32 %72, 0
-  br i1 %.not32, label %73, label %.sink.split
+  br i1 %.not32, label %73, label %84
 
 73:                                               ; preds = %67
   %74 = load ptr, ptr %11, align 8
   %75 = load i64, ptr %10, align 8
   %76 = call i32 @gcry_cipher_authenticate(ptr noundef %74, ptr noundef nonnull %7, i64 noundef %75) #3
   %.not33 = icmp eq i32 %76, 0
-  br i1 %.not33, label %77, label %.sink.split
+  br i1 %.not33, label %77, label %84
 
 77:                                               ; preds = %73
   %78 = load ptr, ptr %11, align 8
   %79 = getelementptr i8, ptr %14, i64 8
   %80 = call i32 @gcry_cipher_decrypt(ptr noundef %78, ptr noundef %79, i64 noundef %18, ptr noundef null, i64 noundef 0) #3
   %.not34 = icmp eq i32 %80, 0
-  br i1 %.not34, label %81, label %.sink.split
+  br i1 %.not34, label %81, label %84
 
 81:                                               ; preds = %77
   %82 = load ptr, ptr %11, align 8
   %83 = call i32 @gcry_cipher_checktag(ptr noundef %82, ptr noundef nonnull %9, i64 noundef %23) #3
-  %.not35 = icmp ne i32 %83, 0
-  %spec.select39 = zext i1 %.not35 to i32
+  %.not35 = icmp eq i32 %83, 0
+  br i1 %.not35, label %.sink.split, label %84
+
+84:                                               ; preds = %81, %77, %73, %67, %64, %60
   br label %.sink.split
 
-.sink.split:                                      ; preds = %81, %60, %64, %67, %73, %77
-  %.0.ph = phi i32 [ 1, %77 ], [ 1, %73 ], [ 1, %67 ], [ 1, %64 ], [ 1, %60 ], [ %spec.select39, %81 ]
+.sink.split:                                      ; preds = %81, %84
+  %.0.ph = phi i32 [ 1, %84 ], [ 0, %81 ]
   %.sink = load ptr, ptr %11, align 8
   call void @gcry_cipher_close(ptr noundef %.sink) #3
-  br label %84
+  br label %85
 
-84:                                               ; preds = %.sink.split, %ccmp_construct_nonce.exit, %6
+85:                                               ; preds = %.sink.split, %ccmp_construct_nonce.exit, %6
   %.0 = phi i32 [ 0, %6 ], [ 1, %ccmp_construct_nonce.exit ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }

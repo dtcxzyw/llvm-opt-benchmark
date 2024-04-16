@@ -3537,7 +3537,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @streamRangeHasTombstones(ptr nocapture noundef readonly %s, ptr noundef readonly %start, ptr noundef readonly %end) local_unnamed_addr #7 {
+define dso_local noundef i32 @streamRangeHasTombstones(ptr nocapture noundef readonly %s, ptr noundef readonly %start, ptr noundef readonly %end) local_unnamed_addr #7 {
 entry:
   %length = getelementptr inbounds i8, ptr %s, i64 8
   %0 = load i64, ptr %length, align 8
@@ -3620,17 +3620,19 @@ land.lhs.true:                                    ; preds = %if.else.i10
 
 if.else.i22:                                      ; preds = %if.else6.i12, %land.lhs.true
   %cmp4.i23 = icmp ult i64 %1, %end_id.sroa.0.0
-  br i1 %cmp4.i23, label %return, label %if.else6.i24
+  br i1 %cmp4.i23, label %streamCompareID.exit32.thread, label %if.else6.i24
 
 if.else6.i24:                                     ; preds = %if.else.i22
   %seq.i25 = getelementptr inbounds i8, ptr %s, i64 56
   %7 = load i64, ptr %seq.i25, align 8
-  %cmp8.i27 = icmp ule i64 %7, %end_id.sroa.3.0
-  %spec.select = zext i1 %cmp8.i27 to i32
+  %cmp8.i27 = icmp ugt i64 %7, %end_id.sroa.3.0
+  br i1 %cmp8.i27, label %return, label %streamCompareID.exit32.thread
+
+streamCompareID.exit32.thread:                    ; preds = %if.else.i22, %if.else6.i24
   br label %return
 
-return:                                           ; preds = %if.else6.i24, %if.else6.i, %if.end, %land.lhs.true, %if.else.i22, %if.else6.i12, %if.end14, %entry, %streamIDEqZero.exit
-  %retval.0 = phi i32 [ 0, %streamIDEqZero.exit ], [ 0, %entry ], [ 0, %if.end14 ], [ 0, %if.else6.i12 ], [ 0, %land.lhs.true ], [ 1, %if.else.i22 ], [ 0, %if.end ], [ 0, %if.else6.i ], [ %spec.select, %if.else6.i24 ]
+return:                                           ; preds = %if.else6.i, %if.end, %if.end14, %if.else6.i12, %land.lhs.true, %if.else6.i24, %streamCompareID.exit32.thread, %entry, %streamIDEqZero.exit
+  %retval.0 = phi i32 [ 0, %streamIDEqZero.exit ], [ 0, %entry ], [ 1, %streamCompareID.exit32.thread ], [ 0, %if.else6.i24 ], [ 0, %land.lhs.true ], [ 0, %if.else6.i12 ], [ 0, %if.end14 ], [ 0, %if.end ], [ 0, %if.else6.i ]
   ret i32 %retval.0
 }
 
@@ -3701,7 +3703,7 @@ if.else6.i12.i:                                   ; preds = %if.else.i10.i
   %cmp8.i15.i = icmp ugt i64 %start_id.sroa.3.0.copyload.i, %8
   br i1 %cmp8.i15.i, label %if.then2, label %if.else5
 
-if.then2:                                         ; preds = %streamIDEqZero.exit.i, %land.lhs.true, %if.end8.i, %if.else6.i12.i, %if.end.i, %if.else6.i.i
+if.then2:                                         ; preds = %streamIDEqZero.exit.i, %land.lhs.true, %if.else6.i12.i, %if.end8.i, %if.end.i, %if.else6.i.i
   %sub = sub nsw i64 %0, %1
   br label %if.then16
 
@@ -4263,7 +4265,7 @@ if.else6.i12.i:                                   ; preds = %if.else.i10.i
   %cmp8.i15.i = icmp ugt i64 %start_id.sroa.3.0.copyload.i, %11
   br i1 %cmp8.i15.i, label %if.then18, label %if.else
 
-if.then18:                                        ; preds = %streamIDEqZero.exit.i, %land.lhs.true15, %if.end5.i, %if.else6.i12.i, %if.end.i, %if.else6.i.i
+if.then18:                                        ; preds = %streamIDEqZero.exit.i, %land.lhs.true15, %if.else6.i12.i, %if.end5.i, %if.end.i, %if.else6.i.i
   %inc = add nuw nsw i64 %4, 1
   br label %if.end25.sink.split
 

@@ -2587,21 +2587,23 @@ if.then.i.i6.i.i:                                 ; preds = %finally.i32.i
 
 extensions_lock_release.exit.i34.i:               ; preds = %if.then.i.i6.i.i, %finally.i32.i
   %cmp13.not.i.i = icmp eq ptr %key.0.i33.i, null
-  br i1 %cmp13.not.i.i, label %clear_singlephase_extension.exit.thread4, label %if.then14.i.i
+  br i1 %cmp13.not.i.i, label %clear_singlephase_extension.exit.thread, label %if.then14.i.i
 
 if.then14.i.i:                                    ; preds = %extensions_lock_release.exit.i34.i
   tail call void @PyMem_RawFree(ptr noundef nonnull %key.0.i33.i) #19
-  br label %clear_singlephase_extension.exit.thread4
+  br label %clear_singlephase_extension.exit.thread
 
 clear_singlephase_extension.exit:                 ; preds = %_extensions_cache_get.exit.i
   %call1.i = tail call ptr @PyErr_Occurred() #19
   %call1.i.fr = freeze ptr %call1.i
-  %tobool.not.i.not = icmp ne ptr %call1.i.fr, null
-  %spec.select = sext i1 %tobool.not.i.not to i32
-  br label %clear_singlephase_extension.exit.thread4
+  %tobool.not.i.not = icmp eq ptr %call1.i.fr, null
+  br i1 %tobool.not.i.not, label %clear_singlephase_extension.exit.thread, label %clear_singlephase_extension.exit.thread4
 
-clear_singlephase_extension.exit.thread4:         ; preds = %clear_singlephase_extension.exit, %if.then14.i.i, %extensions_lock_release.exit.i34.i, %_modules_by_index_clear_one.exit.i
-  %26 = phi i32 [ -1, %_modules_by_index_clear_one.exit.i ], [ 0, %extensions_lock_release.exit.i34.i ], [ 0, %if.then14.i.i ], [ %spec.select, %clear_singlephase_extension.exit ]
+clear_singlephase_extension.exit.thread4:         ; preds = %_modules_by_index_clear_one.exit.i, %clear_singlephase_extension.exit
+  br label %clear_singlephase_extension.exit.thread
+
+clear_singlephase_extension.exit.thread:          ; preds = %if.then14.i.i, %extensions_lock_release.exit.i34.i, %clear_singlephase_extension.exit, %clear_singlephase_extension.exit.thread4
+  %26 = phi i32 [ -1, %clear_singlephase_extension.exit.thread4 ], [ 0, %clear_singlephase_extension.exit ], [ 0, %extensions_lock_release.exit.i34.i ], [ 0, %if.then14.i.i ]
   ret i32 %26
 }
 
@@ -2746,19 +2748,19 @@ if.end9:                                          ; preds = %_modules_by_index_s
 
 if.then11:                                        ; preds = %if.end9
   %cmp.i23 = icmp eq ptr %filename, %name
-  br i1 %cmp.i23, label %if.then.i25, label %if.then15
+  br i1 %cmp.i23, label %if.then.i26, label %if.then15
 
-if.then.i25:                                      ; preds = %if.then11
-  %call.i26 = tail call i32 @PyUnicode_CompareWithASCIIString(ptr noundef %filename, ptr noundef nonnull @.str.49) #19
-  %cmp1.i = icmp eq i32 %call.i26, 0
-  br i1 %cmp1.i, label %if.end37, label %is_core_module.exit
+if.then.i26:                                      ; preds = %if.then11
+  %call.i27 = tail call i32 @PyUnicode_CompareWithASCIIString(ptr noundef %filename, ptr noundef nonnull @.str.49) #19
+  %cmp1.i = icmp eq i32 %call.i27, 0
+  br i1 %cmp1.i, label %if.end37, label %if.end.i28
 
-is_core_module.exit:                              ; preds = %if.then.i25
+if.end.i28:                                       ; preds = %if.then.i26
   %call3.i = tail call i32 @PyUnicode_CompareWithASCIIString(ptr noundef %filename, ptr noundef nonnull @.str.30) #19
-  %cmp4.i.not = icmp eq i32 %call3.i, 0
-  br i1 %cmp4.i.not, label %if.end37, label %if.then15
+  %cmp4.i = icmp eq i32 %call3.i, 0
+  br i1 %cmp4.i, label %if.end37, label %if.then15
 
-if.then15:                                        ; preds = %if.then11, %is_core_module.exit
+if.then15:                                        ; preds = %if.end.i28, %if.then11
   %m_copy = getelementptr inbounds i8, ptr %call1, i64 32
   %10 = load ptr, ptr %m_copy, align 8
   %tobool16.not = icmp eq ptr %10, null
@@ -2792,16 +2794,16 @@ if.end27:                                         ; preds = %if.end23
   %cmp33 = icmp eq ptr %call28, null
   br i1 %cmp33, label %return, label %if.end37
 
-if.end37:                                         ; preds = %if.then.i25, %is_core_module.exit, %if.end27, %if.end9
+if.end37:                                         ; preds = %if.end.i28, %if.then.i26, %if.end27, %if.end9
   %13 = load ptr, ptr %interp, align 8
   %14 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 8, i32 2), align 8
-  %cmp.i28.not = icmp eq ptr %14, %13
-  br i1 %cmp.i28.not, label %if.then44, label %lor.lhs.false41
+  %cmp.i29.not = icmp eq ptr %14, %13
+  br i1 %cmp.i29.not, label %if.then44, label %lor.lhs.false41
 
 lor.lhs.false41:                                  ; preds = %if.end37
   %15 = load i64, ptr %m_size, align 8
   %cmp43 = icmp eq i64 %15, -1
-  br i1 %cmp43, label %if.then44, label %return
+  br i1 %cmp43, label %if.then44, label %if.end49
 
 if.then44:                                        ; preds = %lor.lhs.false41, %if.end37
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %alloc.i)
@@ -2815,21 +2817,21 @@ if.then.i.i.i:                                    ; preds = %if.then44
 
 extensions_lock_acquire.exit.i:                   ; preds = %if.then.i.i.i, %if.then44
   %18 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 21, i32 2, i32 1), align 8
-  %cmp.i29 = icmp eq ptr %18, null
-  br i1 %cmp.i29, label %if.then.i30, label %if.end4.i
+  %cmp.i30 = icmp eq ptr %18, null
+  br i1 %cmp.i30, label %if.then.i31, label %if.end4.i
 
-if.then.i30:                                      ; preds = %extensions_lock_acquire.exit.i
+if.then.i31:                                      ; preds = %extensions_lock_acquire.exit.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %alloc.i, ptr noundef nonnull align 8 dereferenceable(16) @__const._extensions_cache_set.alloc, i64 16, i1 false)
-  %call.i31 = call ptr @_Py_hashtable_new_full(ptr noundef nonnull @hashtable_hash_str, ptr noundef nonnull @hashtable_compare_str, ptr noundef nonnull @hashtable_destroy_str, ptr noundef null, ptr noundef nonnull %alloc.i) #19
-  store ptr %call.i31, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 21, i32 2, i32 1), align 8
-  %cmp1.i32 = icmp eq ptr %call.i31, null
-  br i1 %cmp1.i32, label %if.then2.i, label %if.end4.i
+  %call.i32 = call ptr @_Py_hashtable_new_full(ptr noundef nonnull @hashtable_hash_str, ptr noundef nonnull @hashtable_compare_str, ptr noundef nonnull @hashtable_destroy_str, ptr noundef null, ptr noundef nonnull %alloc.i) #19
+  store ptr %call.i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 21, i32 2, i32 1), align 8
+  %cmp1.i33 = icmp eq ptr %call.i32, null
+  br i1 %cmp1.i33, label %if.then2.i, label %if.end4.i
 
-if.then2.i:                                       ; preds = %if.then.i30
-  %call3.i33 = call ptr @PyErr_NoMemory() #19
+if.then2.i:                                       ; preds = %if.then.i31
+  %call3.i34 = call ptr @PyErr_NoMemory() #19
   br label %finally.i
 
-if.end4.i:                                        ; preds = %if.then.i30, %extensions_lock_acquire.exit.i
+if.end4.i:                                        ; preds = %if.then.i31, %extensions_lock_acquire.exit.i
   %call5.i = call fastcc ptr @hashtable_key_from_2_strings(ptr noundef %filename, ptr noundef %name)
   %cmp6.i = icmp eq ptr %call5.i, null
   br i1 %cmp6.i, label %finally.i, label %if.end8.i
@@ -2873,7 +2875,7 @@ finally.critedge.i:                               ; preds = %if.else.i
   br label %finally.i
 
 finally.i:                                        ; preds = %finally.critedge.i, %if.then24.i, %if.then15.i, %if.end4.i, %if.then2.i
-  %cmp46 = phi i32 [ -1, %if.then2.i ], [ -1, %if.end4.i ], [ -1, %if.then15.i ], [ 0, %if.then24.i ], [ 0, %finally.critedge.i ]
+  %cmp46 = phi i1 [ true, %if.then2.i ], [ true, %if.end4.i ], [ true, %if.then15.i ], [ false, %if.then24.i ], [ false, %finally.critedge.i ]
   %23 = cmpxchg ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 21, i32 2), i8 1, i8 0 seq_cst seq_cst, align 1
   %24 = extractvalue { i8, i1 } %23, 1
   br i1 %24, label %_extensions_cache_set.exit, label %if.then.i.i9.i
@@ -2884,10 +2886,13 @@ if.then.i.i9.i:                                   ; preds = %finally.i
 
 _extensions_cache_set.exit:                       ; preds = %finally.i, %if.then.i.i9.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %alloc.i)
+  br i1 %cmp46, label %return, label %if.end49
+
+if.end49:                                         ; preds = %_extensions_cache_set.exit, %lor.lhs.false41
   br label %return
 
-return:                                           ; preds = %while.body.i, %if.then.i, %_extensions_cache_set.exit, %lor.lhs.false41, %if.end27, %if.end23, %_modules_by_index_set.exit, %if.then3, %if.then
-  %retval.0 = phi i32 [ -1, %if.then ], [ -1, %if.then3 ], [ -1, %_modules_by_index_set.exit ], [ -1, %if.end23 ], [ -1, %if.end27 ], [ 0, %lor.lhs.false41 ], [ %cmp46, %_extensions_cache_set.exit ], [ -1, %if.then.i ], [ -1, %while.body.i ]
+return:                                           ; preds = %while.body.i, %if.then.i, %_extensions_cache_set.exit, %if.end27, %if.end23, %_modules_by_index_set.exit, %if.end49, %if.then3, %if.then
+  %retval.0 = phi i32 [ -1, %if.then ], [ 0, %if.end49 ], [ -1, %if.then3 ], [ -1, %_modules_by_index_set.exit ], [ -1, %if.end23 ], [ -1, %if.end27 ], [ -1, %_extensions_cache_set.exit ], [ -1, %if.then.i ], [ -1, %while.body.i ]
   ret i32 %retval.0
 }
 

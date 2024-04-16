@@ -1062,7 +1062,7 @@ save_state_priority.exit.i:                       ; preds = %if.then.i.i, %if.th
 
 if.then.i:                                        ; preds = %save_state_priority.exit.i
   %cmp2.not.i = icmp eq ptr %2, null
-  br i1 %cmp2.not.i, label %do.body.sink.split.i, label %land.lhs.true.i
+  br i1 %cmp2.not.i, label %if.else.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then.i
   %7 = getelementptr i8, ptr %2, i64 304
@@ -1078,11 +1078,13 @@ if.then.i19.i:                                    ; preds = %land.lhs.true.i
 save_state_priority.exit22.i:                     ; preds = %if.then.i19.i, %land.lhs.true.i
   %retval.0.i21.i = phi i32 [ %8, %if.then.i19.i ], [ 0, %land.lhs.true.i ]
   %cmp4.i = icmp eq i32 %retval.0.i21.i, %retval.0.i.i
-  %spec.select.i = select i1 %cmp4.i, ptr %2, ptr null
+  br i1 %cmp4.i, label %do.body.sink.split.i, label %if.else.i
+
+if.else.i:                                        ; preds = %save_state_priority.exit22.i, %if.then.i
   br label %do.body.sink.split.i
 
-do.body.sink.split.i:                             ; preds = %save_state_priority.exit22.i, %if.then.i
-  %.sink.i = phi ptr [ null, %if.then.i ], [ %spec.select.i, %save_state_priority.exit22.i ]
+do.body.sink.split.i:                             ; preds = %if.else.i, %save_state_priority.exit22.i
+  %.sink.i = phi ptr [ null, %if.else.i ], [ %2, %save_state_priority.exit22.i ]
   store ptr %.sink.i, ptr %arrayidx.i, align 8
   %.pre = load ptr, ptr %se.011, align 8
   br label %savevm_state_handler_remove.exit
@@ -1204,7 +1206,7 @@ save_state_priority.exit.i:                       ; preds = %if.then.i.i, %if.th
 if.then.i:                                        ; preds = %save_state_priority.exit.i
   %9 = load ptr, ptr %se.019.i, align 8
   %cmp2.not.i = icmp eq ptr %9, null
-  br i1 %cmp2.not.i, label %do.body.sink.split.i, label %land.lhs.true.i5
+  br i1 %cmp2.not.i, label %if.else.i, label %land.lhs.true.i5
 
 land.lhs.true.i5:                                 ; preds = %if.then.i
   %10 = getelementptr i8, ptr %9, i64 304
@@ -1220,11 +1222,13 @@ if.then.i19.i:                                    ; preds = %land.lhs.true.i5
 save_state_priority.exit22.i:                     ; preds = %if.then.i19.i, %land.lhs.true.i5
   %retval.0.i21.i = phi i32 [ %11, %if.then.i19.i ], [ 0, %land.lhs.true.i5 ]
   %cmp4.i6 = icmp eq i32 %retval.0.i21.i, %retval.0.i.i
-  %spec.select.i = select i1 %cmp4.i6, ptr %9, ptr null
+  br i1 %cmp4.i6, label %do.body.sink.split.i, label %if.else.i
+
+if.else.i:                                        ; preds = %save_state_priority.exit22.i, %if.then.i
   br label %do.body.sink.split.i
 
-do.body.sink.split.i:                             ; preds = %save_state_priority.exit22.i, %if.then.i
-  %.sink.i = phi ptr [ null, %if.then.i ], [ %spec.select.i, %save_state_priority.exit22.i ]
+do.body.sink.split.i:                             ; preds = %if.else.i, %save_state_priority.exit22.i
+  %.sink.i = phi ptr [ null, %if.else.i ], [ %9, %save_state_priority.exit22.i ]
   store ptr %.sink.i, ptr %arrayidx.i, align 8
   br label %savevm_state_handler_remove.exit
 
@@ -1563,7 +1567,7 @@ save_state_priority.exit.i:                       ; preds = %if.then.i.i, %if.th
 
 if.then.i:                                        ; preds = %save_state_priority.exit.i
   %cmp2.not.i = icmp eq ptr %1, null
-  br i1 %cmp2.not.i, label %do.body.sink.split.i, label %land.lhs.true.i
+  br i1 %cmp2.not.i, label %if.else.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then.i
   %6 = getelementptr i8, ptr %1, i64 304
@@ -1579,11 +1583,13 @@ if.then.i19.i:                                    ; preds = %land.lhs.true.i
 save_state_priority.exit22.i:                     ; preds = %if.then.i19.i, %land.lhs.true.i
   %retval.0.i21.i = phi i32 [ %7, %if.then.i19.i ], [ 0, %land.lhs.true.i ]
   %cmp4.i = icmp eq i32 %retval.0.i21.i, %retval.0.i.i
-  %spec.select.i = select i1 %cmp4.i, ptr %1, ptr null
+  br i1 %cmp4.i, label %do.body.sink.split.i, label %if.else.i
+
+if.else.i:                                        ; preds = %save_state_priority.exit22.i, %if.then.i
   br label %do.body.sink.split.i
 
-do.body.sink.split.i:                             ; preds = %save_state_priority.exit22.i, %if.then.i
-  %.sink.i = phi ptr [ null, %if.then.i ], [ %spec.select.i, %save_state_priority.exit22.i ]
+do.body.sink.split.i:                             ; preds = %if.else.i, %save_state_priority.exit22.i
+  %.sink.i = phi ptr [ null, %if.else.i ], [ %1, %save_state_priority.exit22.i ]
   store ptr %.sink.i, ptr %arrayidx.i, align 8
   %.pre = load ptr, ptr %se.08, align 8
   br label %savevm_state_handler_remove.exit

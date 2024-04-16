@@ -3715,7 +3715,7 @@ define internal i32 @radius_call_hash(ptr nocapture noundef readonly %0) #9 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @radius_call_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define internal noundef i32 @radius_call_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 4
@@ -3735,7 +3735,7 @@ define internal i32 @radius_call_equal(ptr nocapture noundef readonly %0, ptr no
   %15 = load i32, ptr %0, align 8
   %16 = load i32, ptr %1, align 8
   %17 = icmp eq i32 %15, %16
-  br i1 %17, label %.thread124, label %18
+  br i1 %17, label %61, label %18
 
 18:                                               ; preds = %14
   %19 = icmp eq i32 %15, 1
@@ -3743,10 +3743,10 @@ define internal i32 @radius_call_equal(ptr nocapture noundef readonly %0, ptr no
 
 20:                                               ; preds = %18
   switch i32 %16, label %.thread100.thread [
-    i32 2, label %.thread124
-    i32 3, label %.thread124
-    i32 11, label %.thread124
-    i32 1, label %.thread124.fold.split
+    i32 2, label %61
+    i32 3, label %61
+    i32 11, label %61
+    i32 1, label %.thread124
     i32 23, label %43
   ]
 
@@ -3756,9 +3756,9 @@ define internal i32 @radius_call_equal(ptr nocapture noundef readonly %0, ptr no
 
 23:                                               ; preds = %21
   switch i32 %15, label %37 [
-    i32 2, label %.thread124
-    i32 3, label %.thread124
-    i32 11, label %.thread124
+    i32 2, label %61
+    i32 3, label %61
+    i32 11, label %61
     i32 21, label %36
   ]
 
@@ -3768,7 +3768,7 @@ define internal i32 @radius_call_equal(ptr nocapture noundef readonly %0, ptr no
 
 26:                                               ; preds = %24
   switch i32 %16, label %.thread100.thread [
-    i32 5, label %.thread124
+    i32 5, label %61
     i32 23, label %43
   ]
 
@@ -3776,14 +3776,14 @@ define internal i32 @radius_call_equal(ptr nocapture noundef readonly %0, ptr no
   %28 = icmp eq i32 %16, 4
   %29 = icmp eq i32 %15, 5
   %or.cond = and i1 %29, %28
-  br i1 %or.cond, label %.thread124, label %.thread88
+  br i1 %or.cond, label %61, label %.thread88
 
 .thread88:                                        ; preds = %27
   %30 = icmp eq i32 %15, 7
   %31 = and i32 %16, -2
   %switch = icmp eq i32 %31, 8
   %or.cond125 = and i1 %30, %switch
-  br i1 %or.cond125, label %.thread124, label %.thread92
+  br i1 %or.cond125, label %61, label %.thread92
 
 .thread92:                                        ; preds = %.thread88
   %32 = icmp eq i32 %16, 7
@@ -3792,119 +3792,109 @@ define internal i32 @radius_call_equal(ptr nocapture noundef readonly %0, ptr no
 33:                                               ; preds = %.thread92
   %34 = and i32 %15, -2
   %switch74 = icmp eq i32 %34, 8
-  br i1 %switch74, label %.thread124, label %.thread100.thread
+  br i1 %switch74, label %61, label %.thread100.thread
 
 .thread92.thread:                                 ; preds = %.thread92
   %35 = icmp eq i32 %15, 21
   br i1 %35, label %36, label %37
 
 36:                                               ; preds = %23, %.thread92.thread
-  switch i32 %16, label %.thread124.fold.split187 [
-    i32 22, label %.thread124
-    i32 129, label %61
-  ]
+  %cond191 = icmp eq i32 %16, 22
+  br i1 %cond191, label %61, label %.thread124
 
 37:                                               ; preds = %23, %.thread92.thread
   %38 = icmp eq i32 %16, 21
   %39 = icmp eq i32 %15, 22
   %or.cond126 = and i1 %39, %38
-  br i1 %or.cond126, label %.thread124, label %.thread96
+  br i1 %or.cond126, label %61, label %.thread96
 
 .thread96:                                        ; preds = %37
   %40 = icmp eq i32 %15, 23
   %41 = icmp eq i32 %16, 24
   %or.cond127 = and i1 %40, %41
-  br i1 %or.cond127, label %.thread124, label %.thread100
+  br i1 %or.cond127, label %61, label %.thread100
 
 .thread100:                                       ; preds = %.thread96
   %42 = icmp eq i32 %16, 23
   br i1 %42, label %43, label %.thread100.thread
 
 43:                                               ; preds = %26, %20, %.thread100
-  %switch.selectcmp185 = icmp eq i32 %15, 24
-  br label %.thread124
+  %cond190 = icmp eq i32 %15, 24
+  br i1 %cond190, label %61, label %.thread124
 
 .thread100.thread:                                ; preds = %26, %20, %33, %.thread100
   %44 = icmp eq i32 %15, 26
   br i1 %44, label %45, label %46
 
 45:                                               ; preds = %.thread100.thread
-  switch i32 %16, label %.thread124.fold.split187 [
-    i32 27, label %.thread124
-    i32 129, label %61
-  ]
+  %cond = icmp eq i32 %16, 27
+  br i1 %cond, label %61, label %.thread124
 
 46:                                               ; preds = %.thread100.thread
   %47 = icmp eq i32 %16, 26
   %48 = icmp eq i32 %15, 27
   %or.cond128 = and i1 %48, %47
-  br i1 %or.cond128, label %.thread124, label %.thread104
+  br i1 %or.cond128, label %61, label %.thread104
 
 .thread104:                                       ; preds = %46
   %49 = icmp eq i32 %15, 33
   %50 = icmp eq i32 %16, 34
   %or.cond129 = and i1 %49, %50
-  br i1 %or.cond129, label %.thread124, label %.thread108
+  br i1 %or.cond129, label %61, label %.thread108
 
 .thread108:                                       ; preds = %.thread104
   %51 = icmp eq i32 %16, 33
   %52 = icmp eq i32 %15, 34
   %or.cond130 = and i1 %52, %51
-  br i1 %or.cond130, label %.thread124, label %.thread108.thread
+  br i1 %or.cond130, label %61, label %.thread108.thread
 
 .thread108.thread:                                ; preds = %.thread108
   %53 = icmp eq i32 %15, 40
   %.off75 = add i32 %16, -41
   %switch76 = icmp ult i32 %.off75, 2
   %or.cond131 = and i1 %53, %switch76
-  br i1 %or.cond131, label %.thread124, label %.thread108.thread.thread
+  br i1 %or.cond131, label %61, label %.thread108.thread.thread
 
 .thread108.thread.thread:                         ; preds = %.thread108.thread
   %54 = icmp eq i32 %16, 40
   %.off77 = add i32 %15, -41
   %switch78 = icmp ult i32 %.off77, 2
   %or.cond132 = and i1 %54, %switch78
-  br i1 %or.cond132, label %.thread124, label %.thread108.thread.thread.thread
+  br i1 %or.cond132, label %61, label %.thread108.thread.thread.thread
 
 .thread108.thread.thread.thread:                  ; preds = %.thread108.thread.thread
   %55 = icmp eq i32 %15, 43
   %56 = and i32 %16, -2
   %switch80 = icmp eq i32 %56, 44
   %or.cond133 = and i1 %55, %switch80
-  br i1 %or.cond133, label %.thread124, label %.thread158
+  br i1 %or.cond133, label %61, label %.thread159
 
-.thread158:                                       ; preds = %.thread108.thread.thread.thread
+.thread159:                                       ; preds = %.thread108.thread.thread.thread
   %57 = icmp eq i32 %16, 43
   %58 = and i32 %15, -2
   %switch82 = icmp eq i32 %58, 44
   %or.cond134 = and i1 %57, %switch82
-  br i1 %or.cond134, label %.thread124, label %.thread158.thread176
+  br i1 %or.cond134, label %61, label %.thread159.thread181
 
-.thread158.thread176:                             ; preds = %.thread158
+.thread159.thread181:                             ; preds = %.thread159
   %59 = icmp eq i32 %15, 129
   %.off83 = add i32 %16, -130
   %switch84 = icmp ult i32 %.off83, 3
   %or.cond135 = and i1 %59, %switch84
-  br i1 %or.cond135, label %.thread124, label %.thread166
+  br i1 %or.cond135, label %61, label %.thread159.thread181.thread
 
-.thread166:                                       ; preds = %.thread158.thread176
+.thread159.thread181.thread:                      ; preds = %.thread159.thread181
   %60 = icmp eq i32 %16, 129
-  br i1 %60, label %61, label %.thread124.fold.split187
-
-61:                                               ; preds = %36, %45, %.thread166
   %.off85 = add i32 %15, -130
   %switch86 = icmp ult i32 %.off85, 3
-  br label %.thread124
+  %or.cond136 = and i1 %60, %switch86
+  br i1 %or.cond136, label %61, label %.thread124
 
-.thread124.fold.split:                            ; preds = %20
-  br label %.thread124
+.thread124:                                       ; preds = %20, %36, %43, %45, %.thread159.thread181.thread, %8, %2
+  br label %61
 
-.thread124.fold.split187:                         ; preds = %36, %45, %.thread166
-  br label %.thread124
-
-.thread124:                                       ; preds = %36, %45, %.thread124.fold.split187, %43, %26, %20, %20, %20, %23, %23, %23, %.thread158.thread176, %.thread158, %.thread108.thread.thread.thread, %.thread108.thread.thread, %.thread108.thread, %.thread108, %.thread104, %46, %.thread96, %37, %.thread88, %27, %.thread124.fold.split, %61, %33, %2, %8, %14
-  %.0.shrunk = phi i1 [ true, %14 ], [ true, %20 ], [ true, %20 ], [ true, %20 ], [ true, %23 ], [ true, %23 ], [ true, %23 ], [ true, %26 ], [ true, %33 ], [ true, %36 ], [ true, %45 ], [ false, %8 ], [ false, %2 ], [ %switch86, %61 ], [ false, %.thread124.fold.split ], [ true, %27 ], [ true, %.thread88 ], [ true, %37 ], [ true, %.thread96 ], [ true, %46 ], [ true, %.thread104 ], [ true, %.thread108 ], [ true, %.thread108.thread ], [ true, %.thread108.thread.thread ], [ true, %.thread108.thread.thread.thread ], [ true, %.thread158 ], [ true, %.thread158.thread176 ], [ %switch.selectcmp185, %43 ], [ false, %.thread124.fold.split187 ]
-  %.0 = zext i1 %.0.shrunk to i32
+61:                                               ; preds = %26, %20, %20, %20, %23, %23, %23, %36, %43, %45, %.thread159.thread181.thread, %.thread159.thread181, %.thread159, %.thread108.thread.thread.thread, %.thread108.thread.thread, %.thread108.thread, %.thread108, %.thread104, %46, %.thread96, %37, %.thread88, %27, %33, %14, %.thread124
+  %.0 = phi i32 [ 0, %.thread124 ], [ 1, %14 ], [ 1, %20 ], [ 1, %20 ], [ 1, %20 ], [ 1, %23 ], [ 1, %23 ], [ 1, %23 ], [ 1, %26 ], [ 1, %33 ], [ 1, %36 ], [ 1, %43 ], [ 1, %45 ], [ 1, %27 ], [ 1, %.thread88 ], [ 1, %37 ], [ 1, %.thread96 ], [ 1, %46 ], [ 1, %.thread104 ], [ 1, %.thread108 ], [ 1, %.thread108.thread ], [ 1, %.thread108.thread.thread ], [ 1, %.thread108.thread.thread.thread ], [ 1, %.thread159 ], [ 1, %.thread159.thread181 ], [ 1, %.thread159.thread181.thread ]
   ret i32 %.0
 }
 

@@ -87,7 +87,7 @@ define dso_local void @PageInit(ptr noundef %0, i64 noundef %1, i64 noundef %2) 
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @PageIsVerifiedExtended(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @PageIsVerifiedExtended(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr i8, ptr %0, i64 14
   %.val = load i16, ptr %4, align 2
   %5 = icmp eq i16 %.val, 0
@@ -159,7 +159,7 @@ define dso_local zeroext i1 @PageIsVerifiedExtended(ptr noundef %0, i32 noundef 
 
 35:                                               ; preds = %32
   %36 = trunc nuw i8 %.132 to i1
-  br i1 %36, label %37, label %.critedge
+  br i1 %36, label %37, label %55
 
 37:                                               ; preds = %35
   %38 = and i32 %2, 1
@@ -190,15 +190,18 @@ define dso_local zeroext i1 @PageIsVerifiedExtended(ptr noundef %0, i32 noundef 
   br label %51
 
 51:                                               ; preds = %50, %48
-  br i1 %.130.shrunk, label %52, label %.critedge
+  br i1 %.130.shrunk, label %52, label %55
 
 52:                                               ; preds = %51
   %53 = load i8, ptr @ignore_checksum_failure, align 1
   %54 = trunc i8 %53 to i1
+  br i1 %54, label %.critedge, label %55
+
+55:                                               ; preds = %51, %52, %35
   br label %.critedge
 
-.critedge:                                        ; preds = %31, %52, %35, %51, %29
-  %.034 = phi i1 [ true, %29 ], [ false, %51 ], [ false, %35 ], [ %54, %52 ], [ true, %31 ]
+.critedge:                                        ; preds = %31, %52, %29, %55
+  %.034 = phi i1 [ false, %55 ], [ true, %29 ], [ true, %52 ], [ true, %31 ]
   ret i1 %.034
 }
 

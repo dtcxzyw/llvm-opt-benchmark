@@ -673,7 +673,7 @@ cond.end.i:                                       ; preds = %if.then92.i
   br i1 %cmp98472.i, label %for.body.lr.ph.i, label %if.end292.i
 
 for.body.lr.ph.i:                                 ; preds = %cond.end.i, %if.then92.i
-  %cond533.i = phi i64 [ %72, %cond.end.i ], [ 1, %if.then92.i ]
+  %cond532.i = phi i64 [ %72, %cond.end.i ], [ 1, %if.then92.i ]
   %shr.i.i.i.i.i.i = ashr i64 %conv65.i, 2
   %cmp48.i.i.i.i.i.i = icmp sgt i64 %shr.i.i.i.i.i.i, 0
   %cmp.i305.i = icmp slt i32 %call18.i, 1
@@ -743,8 +743,7 @@ sw.bb25.i.i.i.i.i.us.i:                           ; preds = %for.end.i.i.i.i.i.l
   %__first.addr.2.i.i.i.i.i.us.i = phi ptr [ %incdec.ptr12.i.i.i.i.i.us.i, %for.end.i.i.i.i.i.loopexit.us.i ], [ %incdec.ptr24.i.i.i.i.i.us.i, %if.end23.i.i.i.i.i.us.i ]
   %79 = load i8, ptr %__first.addr.2.i.i.i.i.i.us.i, align 1
   %cmp.i454.not.us.i = icmp eq i8 %79, 0
-  %spec.select.i.i.i.i.i.us.i = select i1 %cmp.i454.not.us.i, ptr %add.ptr.us.i, ptr %__first.addr.2.i.i.i.i.i.us.i
-  br label %invoke.cont99.us.i
+  br i1 %cmp.i454.not.us.i, label %if.end108.us.i, label %invoke.cont99.us.i
 
 invoke.cont99.us.i.loopexit.split.loop.exit:      ; preds = %if.end7.i.i.i.i.i.us.i
   %incdec.ptr8.i.i.i.i.i.us.i.le = getelementptr inbounds i8, ptr %__first.addr.049.i.i.i.i.i.us.i, i64 3
@@ -759,7 +758,7 @@ invoke.cont99.us.i.loopexit.split.loop.exit207:   ; preds = %if.end.i.i.i.i.i.us
   br label %invoke.cont99.us.i
 
 invoke.cont99.us.i:                               ; preds = %for.body.i.i.i.i.i.us.i, %invoke.cont99.us.i.loopexit.split.loop.exit, %invoke.cont99.us.i.loopexit.split.loop.exit205, %invoke.cont99.us.i.loopexit.split.loop.exit207, %sw.bb25.i.i.i.i.i.us.i, %sw.bb20.i.i.i.i.i.us.i, %sw.bb.i.i.i.i.i.us.i
-  %retval.0.i.i.i.i.i.us.i = phi ptr [ %incdec.ptr12.i.i.i.i.i.us.i, %sw.bb.i.i.i.i.i.us.i ], [ %__first.addr.1.i.i.i.i.i.us.i, %sw.bb20.i.i.i.i.i.us.i ], [ %spec.select.i.i.i.i.i.us.i, %sw.bb25.i.i.i.i.i.us.i ], [ %incdec.ptr8.i.i.i.i.i.us.i.le, %invoke.cont99.us.i.loopexit.split.loop.exit ], [ %incdec.ptr4.i.i.i.i.i.us.i.le, %invoke.cont99.us.i.loopexit.split.loop.exit205 ], [ %incdec.ptr.i.i.i.i.i.us.i.le, %invoke.cont99.us.i.loopexit.split.loop.exit207 ], [ %__first.addr.049.i.i.i.i.i.us.i, %for.body.i.i.i.i.i.us.i ]
+  %retval.0.i.i.i.i.i.us.i = phi ptr [ %incdec.ptr12.i.i.i.i.i.us.i, %sw.bb.i.i.i.i.i.us.i ], [ %__first.addr.1.i.i.i.i.i.us.i, %sw.bb20.i.i.i.i.i.us.i ], [ %__first.addr.2.i.i.i.i.i.us.i, %sw.bb25.i.i.i.i.i.us.i ], [ %incdec.ptr8.i.i.i.i.i.us.i.le, %invoke.cont99.us.i.loopexit.split.loop.exit ], [ %incdec.ptr4.i.i.i.i.i.us.i.le, %invoke.cont99.us.i.loopexit.split.loop.exit205 ], [ %incdec.ptr.i.i.i.i.i.us.i.le, %invoke.cont99.us.i.loopexit.split.loop.exit207 ], [ %__first.addr.049.i.i.i.i.i.us.i, %for.body.i.i.i.i.i.us.i ]
   %cmp.i.i303.not.us.i = icmp eq ptr %retval.0.i.i.i.i.i.us.i, %add.ptr.us.i
   br i1 %cmp.i.i303.not.us.i, label %if.end108.us.i, label %if.then101.us.i
 
@@ -802,12 +801,12 @@ invoke.cont102.us.i:                              ; preds = %_ZSt8__copy_nIPKhiP
   %add.ptr107.us.i = getelementptr inbounds i8, ptr %values.0475.us.i, i64 %conv65.i
   br label %if.end108.us.i
 
-if.end108.us.i:                                   ; preds = %for.end.i.i.i.i.i.loopexit.us.i, %invoke.cont102.us.i, %invoke.cont99.us.i
-  %indices.1.us.i = phi ptr [ %add.ptr105.us.i, %invoke.cont102.us.i ], [ %indices.0473.us.i, %invoke.cont99.us.i ], [ %indices.0473.us.i, %for.end.i.i.i.i.i.loopexit.us.i ]
-  %values.1.us.i = phi ptr [ %add.ptr107.us.i, %invoke.cont102.us.i ], [ %values.0475.us.i, %invoke.cont99.us.i ], [ %values.0475.us.i, %for.end.i.i.i.i.i.loopexit.us.i ]
+if.end108.us.i:                                   ; preds = %for.end.i.i.i.i.i.loopexit.us.i, %invoke.cont102.us.i, %invoke.cont99.us.i, %sw.bb25.i.i.i.i.i.us.i
+  %indices.1.us.i = phi ptr [ %add.ptr105.us.i, %invoke.cont102.us.i ], [ %indices.0473.us.i, %invoke.cont99.us.i ], [ %indices.0473.us.i, %for.end.i.i.i.i.i.loopexit.us.i ], [ %indices.0473.us.i, %sw.bb25.i.i.i.i.i.us.i ]
+  %values.1.us.i = phi ptr [ %add.ptr107.us.i, %invoke.cont102.us.i ], [ %values.0475.us.i, %invoke.cont99.us.i ], [ %values.0475.us.i, %for.end.i.i.i.i.i.loopexit.us.i ], [ %values.0475.us.i, %sw.bb25.i.i.i.i.i.us.i ]
   %inc.us.i = add nuw nsw i64 %i.0479.us.i, 1
-  %exitcond530.not.i = icmp eq i64 %inc.us.i, %cond533.i
-  br i1 %exitcond530.not.i, label %if.end292.i, label %for.body.us.i, !llvm.loop !33
+  %exitcond529.not.i = icmp eq i64 %inc.us.i, %cond532.i
+  br i1 %exitcond529.not.i, label %if.end292.i, label %for.body.us.i, !llvm.loop !33
 
 for.end.i.i.i.i.i.loopexit.us.i:                  ; preds = %if.end11.i.i.i.i.i.us.i
   %sub.ptr.rhs.cast14.pre-phi.i.i.i.i.i.us.i = ptrtoint ptr %incdec.ptr12.i.i.i.i.i.us.i to i64
@@ -821,12 +820,12 @@ for.end.i.i.i.i.i.loopexit.us.i:                  ; preds = %if.end11.i.i.i.i.i.
 for.body.lr.ph.split.i:                           ; preds = %for.body.lr.ph.i
   br i1 %cmp.i305.i, label %for.body.us481.i, label %for.body.i
 
-for.body.us481.i:                                 ; preds = %for.body.lr.ph.split.i, %if.end108.us518.i
-  %i.0479.us482.i = phi i64 [ %inc.us521.i, %if.end108.us518.i ], [ 0, %for.body.lr.ph.split.i ]
-  %tensor_data.0477.us483.i = phi ptr [ %add.ptr.us486.i, %if.end108.us518.i ], [ %cond.i.i.i, %for.body.lr.ph.split.i ]
-  %indices.0473.us485.i = phi ptr [ %indices.1.us519.i, %if.end108.us518.i ], [ %cond.i270.i, %for.body.lr.ph.split.i ]
+for.body.us481.i:                                 ; preds = %for.body.lr.ph.split.i, %if.end108.us517.i
+  %i.0479.us482.i = phi i64 [ %inc.us520.i, %if.end108.us517.i ], [ 0, %for.body.lr.ph.split.i ]
+  %tensor_data.0477.us483.i = phi ptr [ %add.ptr.us486.i, %if.end108.us517.i ], [ %cond.i.i.i, %for.body.lr.ph.split.i ]
+  %indices.0473.us485.i = phi ptr [ %indices.1.us518.i, %if.end108.us517.i ], [ %cond.i270.i, %for.body.lr.ph.split.i ]
   %add.ptr.us486.i = getelementptr inbounds i8, ptr %tensor_data.0477.us483.i, i64 %conv65.i
-  switch i32 %call18.i, label %if.end108.us518.i [
+  switch i32 %call18.i, label %if.end108.us517.i [
     i32 3, label %sw.bb.i.i.i.i.i.us490.i
     i32 2, label %sw.bb20.i.i.i.i.i.us494.i
     i32 1, label %sw.bb25.i.i.i.i.i.us499.i
@@ -835,7 +834,7 @@ for.body.us481.i:                                 ; preds = %for.body.lr.ph.spli
 sw.bb.i.i.i.i.i.us490.i:                          ; preds = %for.body.us481.i
   %80 = load i8, ptr %tensor_data.0477.us483.i, align 1
   %cmp.i456.not.us491.i = icmp eq i8 %80, 0
-  br i1 %cmp.i456.not.us491.i, label %if.end18.i.i.i.i.i.us492.i, label %invoke.cont99.us503.i
+  br i1 %cmp.i456.not.us491.i, label %if.end18.i.i.i.i.i.us492.i, label %invoke.cont99.us502.i
 
 if.end18.i.i.i.i.i.us492.i:                       ; preds = %sw.bb.i.i.i.i.i.us490.i
   %incdec.ptr19.i.i.i.i.i.us493.i = getelementptr inbounds i8, ptr %tensor_data.0477.us483.i, i64 1
@@ -845,7 +844,7 @@ sw.bb20.i.i.i.i.i.us494.i:                        ; preds = %if.end18.i.i.i.i.i.
   %__first.addr.1.i.i.i.i.i.us495.i = phi ptr [ %tensor_data.0477.us483.i, %for.body.us481.i ], [ %incdec.ptr19.i.i.i.i.i.us493.i, %if.end18.i.i.i.i.i.us492.i ]
   %81 = load i8, ptr %__first.addr.1.i.i.i.i.i.us495.i, align 1
   %cmp.i455.not.us496.i = icmp eq i8 %81, 0
-  br i1 %cmp.i455.not.us496.i, label %if.end23.i.i.i.i.i.us497.i, label %invoke.cont99.us503.i
+  br i1 %cmp.i455.not.us496.i, label %if.end23.i.i.i.i.i.us497.i, label %invoke.cont99.us502.i
 
 if.end23.i.i.i.i.i.us497.i:                       ; preds = %sw.bb20.i.i.i.i.i.us494.i
   %incdec.ptr24.i.i.i.i.i.us498.i = getelementptr inbounds i8, ptr %__first.addr.1.i.i.i.i.i.us495.i, i64 1
@@ -855,50 +854,49 @@ sw.bb25.i.i.i.i.i.us499.i:                        ; preds = %if.end23.i.i.i.i.i.
   %__first.addr.2.i.i.i.i.i.us500.i = phi ptr [ %tensor_data.0477.us483.i, %for.body.us481.i ], [ %incdec.ptr24.i.i.i.i.i.us498.i, %if.end23.i.i.i.i.i.us497.i ]
   %82 = load i8, ptr %__first.addr.2.i.i.i.i.i.us500.i, align 1
   %cmp.i454.not.us501.i = icmp eq i8 %82, 0
-  %spec.select.i.i.i.i.i.us502.i = select i1 %cmp.i454.not.us501.i, ptr %add.ptr.us486.i, ptr %__first.addr.2.i.i.i.i.i.us500.i
-  br label %invoke.cont99.us503.i
+  br i1 %cmp.i454.not.us501.i, label %if.end108.us517.i, label %invoke.cont99.us502.i
 
-invoke.cont99.us503.i:                            ; preds = %sw.bb25.i.i.i.i.i.us499.i, %sw.bb20.i.i.i.i.i.us494.i, %sw.bb.i.i.i.i.i.us490.i
-  %retval.0.i.i.i.i.i.us504.i = phi ptr [ %tensor_data.0477.us483.i, %sw.bb.i.i.i.i.i.us490.i ], [ %__first.addr.1.i.i.i.i.i.us495.i, %sw.bb20.i.i.i.i.i.us494.i ], [ %spec.select.i.i.i.i.i.us502.i, %sw.bb25.i.i.i.i.i.us499.i ]
-  %cmp.i.i303.not.us505.i = icmp eq ptr %retval.0.i.i.i.i.i.us504.i, %add.ptr.us486.i
-  br i1 %cmp.i.i303.not.us505.i, label %if.end108.us518.i, label %if.then101.us506.i
+invoke.cont99.us502.i:                            ; preds = %sw.bb25.i.i.i.i.i.us499.i, %sw.bb20.i.i.i.i.i.us494.i, %sw.bb.i.i.i.i.i.us490.i
+  %retval.0.i.i.i.i.i.us503.i = phi ptr [ %tensor_data.0477.us483.i, %sw.bb.i.i.i.i.i.us490.i ], [ %__first.addr.1.i.i.i.i.i.us495.i, %sw.bb20.i.i.i.i.i.us494.i ], [ %__first.addr.2.i.i.i.i.i.us500.i, %sw.bb25.i.i.i.i.i.us499.i ]
+  %cmp.i.i303.not.us504.i = icmp eq ptr %retval.0.i.i.i.i.i.us503.i, %add.ptr.us486.i
+  br i1 %cmp.i.i303.not.us504.i, label %if.end108.us517.i, label %if.then101.us505.i
 
-if.then101.us506.i:                               ; preds = %invoke.cont99.us503.i
-  switch i32 %call10.i4, label %_ZN5arrow8internal26SparseTensorConverterMixin11AssignIndexEPhli.exit.us514.i [
-    i32 1, label %sw.bb.i.us512.i
-    i32 2, label %sw.bb1.i.us510.i
-    i32 4, label %sw.bb3.i.us508.i
-    i32 8, label %sw.bb5.i.us507.i
+if.then101.us505.i:                               ; preds = %invoke.cont99.us502.i
+  switch i32 %call10.i4, label %_ZN5arrow8internal26SparseTensorConverterMixin11AssignIndexEPhli.exit.us513.i [
+    i32 1, label %sw.bb.i.us511.i
+    i32 2, label %sw.bb1.i.us509.i
+    i32 4, label %sw.bb3.i.us507.i
+    i32 8, label %sw.bb5.i.us506.i
   ]
 
-sw.bb5.i.us507.i:                                 ; preds = %if.then101.us506.i
+sw.bb5.i.us506.i:                                 ; preds = %if.then101.us505.i
   store i64 %i.0479.us482.i, ptr %indices.0473.us485.i, align 8
-  br label %_ZN5arrow8internal26SparseTensorConverterMixin11AssignIndexEPhli.exit.us514.i
+  br label %_ZN5arrow8internal26SparseTensorConverterMixin11AssignIndexEPhli.exit.us513.i
 
-sw.bb3.i.us508.i:                                 ; preds = %if.then101.us506.i
-  %conv4.i.us509.i = trunc i64 %i.0479.us482.i to i32
-  store i32 %conv4.i.us509.i, ptr %indices.0473.us485.i, align 4
-  br label %_ZN5arrow8internal26SparseTensorConverterMixin11AssignIndexEPhli.exit.us514.i
+sw.bb3.i.us507.i:                                 ; preds = %if.then101.us505.i
+  %conv4.i.us508.i = trunc i64 %i.0479.us482.i to i32
+  store i32 %conv4.i.us508.i, ptr %indices.0473.us485.i, align 4
+  br label %_ZN5arrow8internal26SparseTensorConverterMixin11AssignIndexEPhli.exit.us513.i
 
-sw.bb1.i.us510.i:                                 ; preds = %if.then101.us506.i
-  %conv2.i.us511.i = trunc i64 %i.0479.us482.i to i16
-  store i16 %conv2.i.us511.i, ptr %indices.0473.us485.i, align 2
-  br label %_ZN5arrow8internal26SparseTensorConverterMixin11AssignIndexEPhli.exit.us514.i
+sw.bb1.i.us509.i:                                 ; preds = %if.then101.us505.i
+  %conv2.i.us510.i = trunc i64 %i.0479.us482.i to i16
+  store i16 %conv2.i.us510.i, ptr %indices.0473.us485.i, align 2
+  br label %_ZN5arrow8internal26SparseTensorConverterMixin11AssignIndexEPhli.exit.us513.i
 
-sw.bb.i.us512.i:                                  ; preds = %if.then101.us506.i
-  %conv.i304.us513.i = trunc i64 %i.0479.us482.i to i8
-  store i8 %conv.i304.us513.i, ptr %indices.0473.us485.i, align 1
-  br label %_ZN5arrow8internal26SparseTensorConverterMixin11AssignIndexEPhli.exit.us514.i
+sw.bb.i.us511.i:                                  ; preds = %if.then101.us505.i
+  %conv.i304.us512.i = trunc i64 %i.0479.us482.i to i8
+  store i8 %conv.i304.us512.i, ptr %indices.0473.us485.i, align 1
+  br label %_ZN5arrow8internal26SparseTensorConverterMixin11AssignIndexEPhli.exit.us513.i
 
-_ZN5arrow8internal26SparseTensorConverterMixin11AssignIndexEPhli.exit.us514.i: ; preds = %sw.bb.i.us512.i, %sw.bb1.i.us510.i, %sw.bb3.i.us508.i, %sw.bb5.i.us507.i, %if.then101.us506.i
-  %add.ptr105.us516.i = getelementptr inbounds i8, ptr %indices.0473.us485.i, i64 %conv41.i
-  br label %if.end108.us518.i
+_ZN5arrow8internal26SparseTensorConverterMixin11AssignIndexEPhli.exit.us513.i: ; preds = %sw.bb.i.us511.i, %sw.bb1.i.us509.i, %sw.bb3.i.us507.i, %sw.bb5.i.us506.i, %if.then101.us505.i
+  %add.ptr105.us515.i = getelementptr inbounds i8, ptr %indices.0473.us485.i, i64 %conv41.i
+  br label %if.end108.us517.i
 
-if.end108.us518.i:                                ; preds = %_ZN5arrow8internal26SparseTensorConverterMixin11AssignIndexEPhli.exit.us514.i, %invoke.cont99.us503.i, %for.body.us481.i
-  %indices.1.us519.i = phi ptr [ %add.ptr105.us516.i, %_ZN5arrow8internal26SparseTensorConverterMixin11AssignIndexEPhli.exit.us514.i ], [ %indices.0473.us485.i, %invoke.cont99.us503.i ], [ %indices.0473.us485.i, %for.body.us481.i ]
-  %inc.us521.i = add nuw nsw i64 %i.0479.us482.i, 1
-  %exitcond529.not.i = icmp eq i64 %inc.us521.i, %cond533.i
-  br i1 %exitcond529.not.i, label %if.end292.i, label %for.body.us481.i, !llvm.loop !33
+if.end108.us517.i:                                ; preds = %_ZN5arrow8internal26SparseTensorConverterMixin11AssignIndexEPhli.exit.us513.i, %invoke.cont99.us502.i, %sw.bb25.i.i.i.i.i.us499.i, %for.body.us481.i
+  %indices.1.us518.i = phi ptr [ %add.ptr105.us515.i, %_ZN5arrow8internal26SparseTensorConverterMixin11AssignIndexEPhli.exit.us513.i ], [ %indices.0473.us485.i, %invoke.cont99.us502.i ], [ %indices.0473.us485.i, %for.body.us481.i ], [ %indices.0473.us485.i, %sw.bb25.i.i.i.i.i.us499.i ]
+  %inc.us520.i = add nuw nsw i64 %i.0479.us482.i, 1
+  %exitcond528.not.i = icmp eq i64 %inc.us520.i, %cond532.i
+  br i1 %exitcond528.not.i, label %if.end292.i, label %for.body.us481.i, !llvm.loop !33
 
 for.body.i:                                       ; preds = %for.body.lr.ph.split.i, %if.end108.i
   %i.0479.i = phi i64 [ %inc.i, %if.end108.i ], [ 0, %for.body.lr.ph.split.i ]
@@ -935,11 +933,10 @@ sw.bb25.i.i.i.i.i.i:                              ; preds = %if.end23.i.i.i.i.i.
   %__first.addr.2.i.i.i.i.i.i = phi ptr [ %tensor_data.0477.i, %for.body.i ], [ %incdec.ptr24.i.i.i.i.i.i, %if.end23.i.i.i.i.i.i ]
   %85 = load i8, ptr %__first.addr.2.i.i.i.i.i.i, align 1
   %cmp.i454.not.i = icmp eq i8 %85, 0
-  %spec.select.i.i.i.i.i.i = select i1 %cmp.i454.not.i, ptr %add.ptr.i, ptr %__first.addr.2.i.i.i.i.i.i
-  br label %invoke.cont99.i
+  br i1 %cmp.i454.not.i, label %if.end108.i, label %invoke.cont99.i
 
 invoke.cont99.i:                                  ; preds = %sw.bb25.i.i.i.i.i.i, %sw.bb20.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i
-  %retval.0.i.i.i.i.i.i = phi ptr [ %tensor_data.0477.i, %sw.bb.i.i.i.i.i.i ], [ %__first.addr.1.i.i.i.i.i.i, %sw.bb20.i.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i, %sw.bb25.i.i.i.i.i.i ]
+  %retval.0.i.i.i.i.i.i = phi ptr [ %tensor_data.0477.i, %sw.bb.i.i.i.i.i.i ], [ %__first.addr.1.i.i.i.i.i.i, %sw.bb20.i.i.i.i.i.i ], [ %__first.addr.2.i.i.i.i.i.i, %sw.bb25.i.i.i.i.i.i ]
   %cmp.i.i303.not.i = icmp eq ptr %retval.0.i.i.i.i.i.i, %add.ptr.i
   br i1 %cmp.i.i303.not.i, label %if.end108.i, label %if.then101.i
 
@@ -981,11 +978,11 @@ lpad86.i:                                         ; preds = %sw.bb285.i, %sw.bb2
           cleanup
   br label %ehcleanup359.i
 
-if.end108.i:                                      ; preds = %_ZN5arrow8internal26SparseTensorConverterMixin11AssignIndexEPhli.exit.i, %invoke.cont99.i, %for.body.i
-  %indices.1.i = phi ptr [ %add.ptr105.i, %_ZN5arrow8internal26SparseTensorConverterMixin11AssignIndexEPhli.exit.i ], [ %indices.0473.i, %invoke.cont99.i ], [ %indices.0473.i, %for.body.i ]
-  %values.1.i = phi ptr [ %add.ptr107.i, %_ZN5arrow8internal26SparseTensorConverterMixin11AssignIndexEPhli.exit.i ], [ %values.0475.i, %invoke.cont99.i ], [ %values.0475.i, %for.body.i ]
+if.end108.i:                                      ; preds = %_ZN5arrow8internal26SparseTensorConverterMixin11AssignIndexEPhli.exit.i, %invoke.cont99.i, %sw.bb25.i.i.i.i.i.i, %for.body.i
+  %indices.1.i = phi ptr [ %add.ptr105.i, %_ZN5arrow8internal26SparseTensorConverterMixin11AssignIndexEPhli.exit.i ], [ %indices.0473.i, %invoke.cont99.i ], [ %indices.0473.i, %for.body.i ], [ %indices.0473.i, %sw.bb25.i.i.i.i.i.i ]
+  %values.1.i = phi ptr [ %add.ptr107.i, %_ZN5arrow8internal26SparseTensorConverterMixin11AssignIndexEPhli.exit.i ], [ %values.0475.i, %invoke.cont99.i ], [ %values.0475.i, %for.body.i ], [ %values.0475.i, %sw.bb25.i.i.i.i.i.i ]
   %inc.i = add nuw nsw i64 %i.0479.i, 1
-  %exitcond.not.i = icmp eq i64 %inc.i, %cond533.i
+  %exitcond.not.i = icmp eq i64 %inc.i, %cond532.i
   br i1 %exitcond.not.i, label %if.end292.i, label %for.body.i, !llvm.loop !33
 
 if.else.i:                                        ; preds = %invoke.cont90.i
@@ -1363,7 +1360,7 @@ sw.bb285.i:                                       ; preds = %sw.bb275.i
   invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorIlmEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %135, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
           to label %if.end292.i unwind label %lpad86.i
 
-if.end292.i:                                      ; preds = %if.end108.i, %if.end108.us518.i, %if.end108.us.i, %sw.bb285.i, %sw.bb282.i, %sw.bb279.i, %sw.bb276.i, %sw.bb271.i, %sw.bb268.i, %sw.bb265.i, %sw.bb262.i, %sw.bb257.i, %sw.bb254.i, %sw.bb251.i, %sw.bb248.i, %sw.bb243.i, %sw.bb240.i, %sw.bb237.i, %sw.bb234.i, %sw.bb165.i, %sw.bb162.i, %sw.bb159.i, %sw.bb156.i, %sw.bb151.i, %sw.bb148.i, %sw.bb145.i, %sw.bb142.i, %sw.bb137.i, %sw.bb134.i, %sw.bb131.i, %sw.bb128.i, %sw.bb124.i, %sw.bb121.i, %sw.bb118.i, %sw.bb115.i, %sw.bb275.i, %sw.bb261.i, %sw.bb247.i, %sw.bb233.i, %if.else232.i, %sw.bb227.i, %sw.bb224.i, %sw.bb221.i, %sw.bb218.i, %sw.bb217.i, %sw.bb213.i, %sw.bb210.i, %sw.bb207.i, %sw.bb204.i, %sw.bb203.i, %sw.bb199.i, %sw.bb196.i, %sw.bb193.i, %sw.bb190.i, %sw.bb189.i, %sw.bb185.i, %sw.bb182.i, %sw.bb179.i, %sw.bb176.i, %sw.bb175.i, %if.then174.i, %sw.bb155.i, %sw.bb141.i, %sw.bb127.i, %sw.bb.i, %if.then114.i, %cond.end.i
+if.end292.i:                                      ; preds = %if.end108.i, %if.end108.us517.i, %if.end108.us.i, %sw.bb285.i, %sw.bb282.i, %sw.bb279.i, %sw.bb276.i, %sw.bb271.i, %sw.bb268.i, %sw.bb265.i, %sw.bb262.i, %sw.bb257.i, %sw.bb254.i, %sw.bb251.i, %sw.bb248.i, %sw.bb243.i, %sw.bb240.i, %sw.bb237.i, %sw.bb234.i, %sw.bb165.i, %sw.bb162.i, %sw.bb159.i, %sw.bb156.i, %sw.bb151.i, %sw.bb148.i, %sw.bb145.i, %sw.bb142.i, %sw.bb137.i, %sw.bb134.i, %sw.bb131.i, %sw.bb128.i, %sw.bb124.i, %sw.bb121.i, %sw.bb118.i, %sw.bb115.i, %sw.bb275.i, %sw.bb261.i, %sw.bb247.i, %sw.bb233.i, %if.else232.i, %sw.bb227.i, %sw.bb224.i, %sw.bb221.i, %sw.bb218.i, %sw.bb217.i, %sw.bb213.i, %sw.bb210.i, %sw.bb207.i, %sw.bb204.i, %sw.bb203.i, %sw.bb199.i, %sw.bb196.i, %sw.bb193.i, %sw.bb190.i, %sw.bb189.i, %sw.bb185.i, %sw.bb182.i, %sw.bb179.i, %sw.bb176.i, %sw.bb175.i, %if.then174.i, %sw.bb155.i, %sw.bb141.i, %sw.bb127.i, %sw.bb.i, %if.then114.i, %cond.end.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %indices_shape.i, i8 0, i64 24, i1 false), !noalias !4
   %call5.i.i.i.i2.i.i = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #20
           to label %invoke.cont296.i unwind label %lpad.i.i
@@ -24253,7 +24250,7 @@ lor.lhs.false:                                    ; preds = %entry
   %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
-  br i1 %cmp.i, label %return, label %if.end.i
+  br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false
   %1 = load i8, ptr %0, align 1
@@ -24264,11 +24261,13 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #19
   %call6.i.fr = freeze i32 %call6.i
   %cmp7.i = icmp eq i32 %call6.i.fr, 0
-  %spec.select = select i1 %cmp7.i, ptr %_M_impl.i, ptr null
+  br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %return
+
+_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %lor.lhs.false, %_ZNKSt9type_infoeqERKS_.exit
   br label %return
 
-return:                                           ; preds = %_ZNKSt9type_infoeqERKS_.exit, %if.end.i, %lor.lhs.false, %entry
-  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %lor.lhs.false ], [ null, %if.end.i ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
+return:                                           ; preds = %if.end.i, %_ZNKSt9type_infoeqERKS_.exit.thread, %_ZNKSt9type_infoeqERKS_.exit, %entry
+  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %_ZNKSt9type_infoeqERKS_.exit ], [ null, %if.end.i ]
   ret ptr %retval.0
 }
 

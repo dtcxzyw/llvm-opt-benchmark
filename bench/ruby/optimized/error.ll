@@ -3906,7 +3906,7 @@ define internal i64 @exc_detailed_message(i32 noundef %0, ptr noundef %1, i64 no
   %5 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.278, ptr noundef nonnull %4) #27
   %6 = load i64, ptr %4, align 8
   %7 = icmp eq i64 %6, 4
-  br i1 %7, label %check_highlight_keyword.exit, label %8
+  br i1 %7, label %.thread.i, label %8
 
 8:                                                ; preds = %3
   %9 = load i64, ptr @sym_highlight, align 8
@@ -3921,11 +3921,11 @@ define internal i64 @exc_detailed_message(i32 noundef %0, ptr noundef %1, i64 no
   %12 = call i32 @rb_bool_expected(i64 noundef %10, ptr noundef nonnull @.str.83, i32 noundef 1) #27
   unreachable
 
-.thread.i:                                        ; preds = %8
+.thread.i:                                        ; preds = %8, %3
   br label %check_highlight_keyword.exit
 
-check_highlight_keyword.exit:                     ; preds = %3, %8, %8, %.thread.i
-  %.1.i = phi i64 [ %10, %8 ], [ %10, %8 ], [ 0, %3 ], [ 0, %.thread.i ]
+check_highlight_keyword.exit:                     ; preds = %8, %8, %.thread.i
+  %.1.i = phi i64 [ 0, %.thread.i ], [ %10, %8 ], [ %10, %8 ]
   %13 = and i64 %2, 7
   %14 = icmp ne i64 %13, 0
   %15 = icmp eq i64 %2, 0

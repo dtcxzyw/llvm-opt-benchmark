@@ -616,13 +616,13 @@ define dso_local noundef i32 @io_timeout_remove(ptr nocapture noundef %0, i32 no
   tail call void asm sideeffect "688: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 688b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 688) #8, !srcloc !24
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 367, i32 2307, i64 12) #8, !srcloc !25
   tail call void asm sideeffect "689: nop\0A\09.pushsection .discard.instr_end\0A\09.long 689b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 689) #8, !srcloc !26
+  br label %53
+
+53:                                               ; preds = %52, %47
   br label %54
 
-53:                                               ; preds = %47
-  br label %54
-
-54:                                               ; preds = %52, %53, %51, %47
-  %55 = phi i32 [ 0, %51 ], [ 7, %47 ], [ 1, %52 ], [ 1, %53 ]
+54:                                               ; preds = %53, %51, %47
+  %55 = phi i32 [ 1, %53 ], [ 0, %51 ], [ 7, %47 ]
   tail call void @hrtimer_init(ptr noundef %44, i32 noundef %55, i32 noundef %21) #8
   %56 = getelementptr inbounds i8, ptr %43, i64 48
   store ptr @io_link_timeout_fn, ptr %56, align 8
@@ -716,13 +716,13 @@ define dso_local noundef i32 @io_timeout_remove(ptr nocapture noundef %0, i32 no
   call void asm sideeffect "688: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 688b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 688) #8, !srcloc !24
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 367, i32 2307, i64 12) #8, !srcloc !25
   call void asm sideeffect "689: nop\0A\09.pushsection .discard.instr_end\0A\09.long 689b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 689) #8, !srcloc !26
+  br label %104
+
+104:                                              ; preds = %103, %93
   br label %105
 
-104:                                              ; preds = %93
-  br label %105
-
-105:                                              ; preds = %103, %104, %102, %93
-  %106 = phi i32 [ 0, %102 ], [ 7, %93 ], [ 1, %103 ], [ 1, %104 ]
+105:                                              ; preds = %104, %102, %93
+  %106 = phi i32 [ 1, %104 ], [ 0, %102 ], [ 7, %93 ]
   call void @hrtimer_init(ptr noundef %98, i32 noundef %106, i32 noundef %21) #8
   %107 = getelementptr inbounds i8, ptr %95, i64 48
   store ptr @io_timeout_fn, ptr %107, align 8
@@ -1424,13 +1424,13 @@ define internal fastcc noundef i32 @io_timeout_get_clock(i32 %.92.val) unnamed_a
   tail call void asm sideeffect "688: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 688b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 688) #8, !srcloc !24
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 367, i32 2307, i64 12) #8, !srcloc !25
   tail call void asm sideeffect "689: nop\0A\09.pushsection .discard.instr_end\0A\09.long 689b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 689) #8, !srcloc !26
+  br label %4
+
+4:                                                ; preds = %3, %0
   br label %5
 
-4:                                                ; preds = %0
-  br label %5
-
-5:                                                ; preds = %3, %4, %2, %0
-  %6 = phi i32 [ 0, %2 ], [ 7, %0 ], [ 1, %3 ], [ 1, %4 ]
+5:                                                ; preds = %4, %2, %0
+  %6 = phi i32 [ 1, %4 ], [ 0, %2 ], [ 7, %0 ]
   ret i32 %6
 }
 

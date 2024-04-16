@@ -5811,7 +5811,7 @@ sw.bb38:                                          ; preds = %if.end36, %for.end.
   %IsDirectory.i.i244 = getelementptr inbounds i8, ptr %__first.sroa.0.2, i64 76
   %71 = load i8, ptr %IsDirectory.i.i244, align 4, !tbaa !54, !range !43, !noundef !44
   %cmp.not.i.i246 = icmp eq i8 %71, %70
-  br i1 %cmp.not.i.i246, label %if.end.i.i248, label %cleanup
+  br i1 %cmp.not.i.i246, label %if.end.i.i248, label %if.end43
 
 if.end.i.i248:                                    ; preds = %sw.bb38
   %FullName.i.i249 = getelementptr inbounds i8, ptr %__first.sroa.0.2, i64 32
@@ -5854,7 +5854,7 @@ for.body.i.i.i258:                                ; preds = %land.rhs.i.i.i253
   %add.i24.i.i.i265 = add nsw i32 %conv8.i.i.i263, 32
   %cond.i25.i.i.i266 = select i1 %or.cond.i23.i.i.i264, i32 %add.i24.i.i.i265, i32 %conv8.i.i.i263
   %cmp.not.i.i.i267 = icmp eq i32 %cond.i.i.i.i262, %cond.i25.i.i.i266
-  br i1 %cmp.not.i.i.i267, label %for.cond.i.i.i268, label %cleanup
+  br i1 %cmp.not.i.i.i267, label %for.cond.i.i.i268, label %if.end43
 
 _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN3irr2io14SFileListEntryEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit279: ; preds = %land.rhs.i.i.i253, %for.cond.i.i.i268, %if.end.i.i248
   %_M_string_length.i.i.i.i.i274 = getelementptr inbounds i8, ptr %__first.sroa.0.2, i64 40
@@ -5864,7 +5864,9 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN3irr2io14SFileListEntryEEclINS_17__norma
   %81 = load i64, ptr %_M_string_length.i.i27.i.i.i276, align 8, !tbaa !10
   %conv.i28.i.i.i277 = trunc i64 %81 to i32
   %cmp12.i.i.i278 = icmp eq i32 %conv.i26.i.i.i275, %conv.i28.i.i.i277
-  %spec.select = select i1 %cmp12.i.i.i278, ptr %__first.sroa.0.2, ptr %__last.coerce
+  br i1 %cmp12.i.i.i278, label %cleanup, label %if.end43
+
+if.end43:                                         ; preds = %for.body.i.i.i258, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN3irr2io14SFileListEntryEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit279, %sw.bb38
   br label %cleanup
 
 cleanup.loopexit.split.loop.exit304:              ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN3irr2io14SFileListEntryEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit90
@@ -5879,8 +5881,8 @@ cleanup.loopexit.split.loop.exit308:              ; preds = %_ZN9__gnu_cxx5__ops
   %incdec.ptr.i128.le = getelementptr inbounds i8, ptr %__first.sroa.0.0314, i64 240
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN3irr2io14SFileListEntryEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit, %for.body.i.i.i258, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN3irr2io14SFileListEntryEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit279, %sw.bb38, %cleanup.loopexit.split.loop.exit308, %cleanup.loopexit.split.loop.exit306, %cleanup.loopexit.split.loop.exit304, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN3irr2io14SFileListEntryEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit242, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN3irr2io14SFileListEntryEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit205, %for.end
-  %retval.sroa.0.0.in.sroa.speculated = phi ptr [ %__first.sroa.0.0.lcssa, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN3irr2io14SFileListEntryEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit205 ], [ %__first.sroa.0.1, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN3irr2io14SFileListEntryEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit242 ], [ %__last.coerce, %for.end ], [ %incdec.ptr.i.le, %cleanup.loopexit.split.loop.exit304 ], [ %incdec.ptr.i91.le, %cleanup.loopexit.split.loop.exit306 ], [ %incdec.ptr.i128.le, %cleanup.loopexit.split.loop.exit308 ], [ %__last.coerce, %sw.bb38 ], [ %spec.select, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN3irr2io14SFileListEntryEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit279 ], [ %__last.coerce, %for.body.i.i.i258 ], [ %__first.sroa.0.0314, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN3irr2io14SFileListEntryEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit ]
+cleanup:                                          ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN3irr2io14SFileListEntryEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit, %cleanup.loopexit.split.loop.exit308, %cleanup.loopexit.split.loop.exit306, %cleanup.loopexit.split.loop.exit304, %if.end43, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN3irr2io14SFileListEntryEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit279, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN3irr2io14SFileListEntryEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit242, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN3irr2io14SFileListEntryEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit205, %for.end
+  %retval.sroa.0.0.in.sroa.speculated = phi ptr [ %__first.sroa.0.0.lcssa, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN3irr2io14SFileListEntryEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit205 ], [ %__first.sroa.0.1, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN3irr2io14SFileListEntryEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit242 ], [ %__first.sroa.0.2, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN3irr2io14SFileListEntryEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit279 ], [ %__last.coerce, %if.end43 ], [ %__last.coerce, %for.end ], [ %incdec.ptr.i.le, %cleanup.loopexit.split.loop.exit304 ], [ %incdec.ptr.i91.le, %cleanup.loopexit.split.loop.exit306 ], [ %incdec.ptr.i128.le, %cleanup.loopexit.split.loop.exit308 ], [ %__first.sroa.0.0314, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN3irr2io14SFileListEntryEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit ]
   ret ptr %retval.sroa.0.0.in.sroa.speculated
 }
 

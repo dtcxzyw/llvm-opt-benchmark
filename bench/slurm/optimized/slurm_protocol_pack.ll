@@ -15713,8 +15713,8 @@ define internal fastcc void @_pack_assoc_mgr_info_request_msg(ptr nocapture noun
   %8 = load ptr, ptr %0, align 8
   %9 = tail call ptr @list_iterator_create(ptr noundef %8) #8
   %10 = tail call ptr @list_next(ptr noundef %9) #8
-  %.not5477 = icmp eq ptr %10, null
-  br i1 %.not5477, label %._crit_edge, label %.lr.ph
+  %.not5471 = icmp eq ptr %10, null
+  br i1 %.not5471, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7, %.lr.ph
   %11 = phi ptr [ %15, %.lr.ph ], [ %10, %7 ]
@@ -15737,14 +15737,14 @@ define internal fastcc void @_pack_assoc_mgr_info_request_msg(ptr nocapture noun
   %19 = getelementptr inbounds i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8
   %.not55 = icmp eq ptr %20, null
-  br i1 %.not55, label %.thread69, label %21
+  br i1 %.not55, label %.thread65, label %21
 
 21:                                               ; preds = %16
   %22 = tail call i32 @list_count(ptr noundef nonnull %20) #8
   %.not56 = icmp eq i32 %22, 0
-  br i1 %.not56, label %.thread69, label %23
+  br i1 %.not56, label %.thread65, label %23
 
-.thread69:                                        ; preds = %16, %21
+.thread65:                                        ; preds = %16, %21
   tail call void @pack32(i32 noundef -2, ptr noundef %1) #8
   br label %33
 
@@ -15757,35 +15757,35 @@ define internal fastcc void @_pack_assoc_mgr_info_request_msg(ptr nocapture noun
   %25 = load ptr, ptr %19, align 8
   %26 = tail call ptr @list_iterator_create(ptr noundef %25) #8
   %27 = tail call ptr @list_next(ptr noundef %26) #8
-  %.not5878 = icmp eq ptr %27, null
-  br i1 %.not5878, label %._crit_edge81, label %.lr.ph80
+  %.not5872 = icmp eq ptr %27, null
+  br i1 %.not5872, label %._crit_edge75, label %.lr.ph74
 
-.lr.ph80:                                         ; preds = %24, %.lr.ph80
-  %28 = phi ptr [ %32, %.lr.ph80 ], [ %27, %24 ]
+.lr.ph74:                                         ; preds = %24, %.lr.ph74
+  %28 = phi ptr [ %32, %.lr.ph74 ], [ %27, %24 ]
   %29 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #9
   %30 = trunc i64 %29 to i32
   %31 = add i32 %30, 1
   tail call void @packmem(ptr noundef nonnull %28, i32 noundef %31, ptr noundef %1) #8
   %32 = tail call ptr @list_next(ptr noundef %26) #8
   %.not58 = icmp eq ptr %32, null
-  br i1 %.not58, label %._crit_edge81, label %.lr.ph80, !llvm.loop !51
+  br i1 %.not58, label %._crit_edge75, label %.lr.ph74, !llvm.loop !51
 
-._crit_edge81:                                    ; preds = %.lr.ph80, %24
+._crit_edge75:                                    ; preds = %.lr.ph74, %24
   tail call void @list_iterator_destroy(ptr noundef %26) #8
   br label %33
 
-33:                                               ; preds = %.thread69, %._crit_edge81, %23
+33:                                               ; preds = %.thread65, %._crit_edge75, %23
   %34 = getelementptr inbounds i8, ptr %0, i64 24
   %35 = load ptr, ptr %34, align 8
   %.not59 = icmp eq ptr %35, null
-  br i1 %.not59, label %.thread74, label %36
+  br i1 %.not59, label %.thread68, label %36
 
 36:                                               ; preds = %33
   %37 = tail call i32 @list_count(ptr noundef nonnull %35) #8
   %.not60 = icmp eq i32 %37, 0
-  br i1 %.not60, label %.thread74, label %38
+  br i1 %.not60, label %.thread68, label %38
 
-.thread74:                                        ; preds = %33, %36
+.thread68:                                        ; preds = %33, %36
   tail call void @pack32(i32 noundef -2, ptr noundef %1) #8
   br label %48
 
@@ -15798,24 +15798,24 @@ define internal fastcc void @_pack_assoc_mgr_info_request_msg(ptr nocapture noun
   %40 = load ptr, ptr %34, align 8
   %41 = tail call ptr @list_iterator_create(ptr noundef %40) #8
   %42 = tail call ptr @list_next(ptr noundef %41) #8
-  %.not6282 = icmp eq ptr %42, null
-  br i1 %.not6282, label %._crit_edge85, label %.lr.ph84
+  %.not6276 = icmp eq ptr %42, null
+  br i1 %.not6276, label %._crit_edge79, label %.lr.ph78
 
-.lr.ph84:                                         ; preds = %39, %.lr.ph84
-  %43 = phi ptr [ %47, %.lr.ph84 ], [ %42, %39 ]
+.lr.ph78:                                         ; preds = %39, %.lr.ph78
+  %43 = phi ptr [ %47, %.lr.ph78 ], [ %42, %39 ]
   %44 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #9
   %45 = trunc i64 %44 to i32
   %46 = add i32 %45, 1
   tail call void @packmem(ptr noundef nonnull %43, i32 noundef %46, ptr noundef %1) #8
   %47 = tail call ptr @list_next(ptr noundef %41) #8
   %.not62 = icmp eq ptr %47, null
-  br i1 %.not62, label %._crit_edge85, label %.lr.ph84, !llvm.loop !52
+  br i1 %.not62, label %._crit_edge79, label %.lr.ph78, !llvm.loop !52
 
-._crit_edge85:                                    ; preds = %.lr.ph84, %39
+._crit_edge79:                                    ; preds = %.lr.ph78, %39
   tail call void @list_iterator_destroy(ptr noundef %41) #8
   br label %48
 
-48:                                               ; preds = %.thread74, %._crit_edge85, %38
+48:                                               ; preds = %.thread68, %._crit_edge79, %38
   ret void
 }
 
@@ -20068,7 +20068,7 @@ define internal fastcc noundef i32 @_unpack_container_id_response_msg(ptr nocapt
   %6 = getelementptr inbounds i8, ptr %0, i64 206
   %7 = load i16, ptr %6, align 2
   %8 = icmp ugt i16 %7, 9983
-  br i1 %8, label %9, label %30
+  br i1 %8, label %9, label %31
 
 9:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
@@ -20089,7 +20089,7 @@ define internal fastcc noundef i32 @_unpack_container_id_response_msg(ptr nocapt
   br i1 %.not18.i, label %slurm_unpack_list.exit.thread, label %.preheader
 
 .preheader:                                       ; preds = %13, %_unpack_each_container_id.exit
-  %.017.i = phi i32 [ %24, %_unpack_each_container_id.exit ], [ 0, %13 ]
+  %.017.i = phi i32 [ %25, %_unpack_each_container_id.exit ], [ 0, %13 ]
   %16 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 12, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 10159, ptr noundef nonnull @__func__._unpack_each_container_id) #8
   %17 = call i32 @unpack32(ptr noundef %16, ptr noundef %1) #8
   %.not.i.i = icmp eq i32 %17, 0
@@ -20099,48 +20099,48 @@ define internal fastcc noundef i32 @_unpack_container_id_response_msg(ptr nocapt
   %19 = getelementptr inbounds i8, ptr %16, i64 8
   %20 = call i32 @unpack32(ptr noundef nonnull %19, ptr noundef %1) #8
   %.not9.i.i = icmp eq i32 %20, 0
-  br i1 %.not9.i.i, label %unpack_step_id_members.exit.i, label %_unpack_each_container_id.exit.thread
+  br i1 %.not9.i.i, label %21, label %_unpack_each_container_id.exit.thread
 
-unpack_step_id_members.exit.i:                    ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %16, i64 4
-  %22 = call i32 @unpack32(ptr noundef nonnull %21, ptr noundef %1) #8
-  %.not10.i.not.i = icmp eq i32 %22, 0
-  br i1 %.not10.i.not.i, label %_unpack_each_container_id.exit, label %_unpack_each_container_id.exit.thread
+21:                                               ; preds = %18
+  %22 = getelementptr inbounds i8, ptr %16, i64 4
+  %23 = call i32 @unpack32(ptr noundef nonnull %22, ptr noundef %1) #8
+  %.not10.i.i = icmp eq i32 %23, 0
+  br i1 %.not10.i.i, label %_unpack_each_container_id.exit, label %_unpack_each_container_id.exit.thread
 
-_unpack_each_container_id.exit.thread:            ; preds = %.preheader, %18, %unpack_step_id_members.exit.i
+_unpack_each_container_id.exit.thread:            ; preds = %.preheader, %18, %21
   call void @slurm_free_step_id(ptr noundef %16) #8
   br label %.loopexit16.i
 
-_unpack_each_container_id.exit:                   ; preds = %unpack_step_id_members.exit.i
-  %23 = load ptr, ptr %4, align 8
-  call void @list_append(ptr noundef %23, ptr noundef %16) #8
-  %24 = add nuw nsw i32 %.017.i, 1
-  %25 = load i32, ptr %3, align 4
-  %26 = icmp ult i32 %24, %25
-  br i1 %26, label %.preheader, label %slurm_unpack_list.exit.thread, !llvm.loop !13
+_unpack_each_container_id.exit:                   ; preds = %21
+  %24 = load ptr, ptr %4, align 8
+  call void @list_append(ptr noundef %24, ptr noundef %16) #8
+  %25 = add nuw nsw i32 %.017.i, 1
+  %26 = load i32, ptr %3, align 4
+  %27 = icmp ult i32 %25, %26
+  br i1 %27, label %.preheader, label %slurm_unpack_list.exit.thread, !llvm.loop !13
 
 .loopexit16.i:                                    ; preds = %_unpack_each_container_id.exit.thread, %9
-  %27 = load ptr, ptr %4, align 8
-  %.not15.i = icmp eq ptr %27, null
-  br i1 %.not15.i, label %29, label %28
+  %28 = load ptr, ptr %4, align 8
+  %.not15.i = icmp eq ptr %28, null
+  br i1 %.not15.i, label %30, label %29
 
-28:                                               ; preds = %.loopexit16.i
-  call void @list_destroy(ptr noundef nonnull %27) #8
-  br label %29
+29:                                               ; preds = %.loopexit16.i
+  call void @list_destroy(ptr noundef nonnull %28) #8
+  br label %30
 
 slurm_unpack_list.exit.thread:                    ; preds = %_unpack_each_container_id.exit, %11, %13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  br label %30
+  br label %31
 
-29:                                               ; preds = %28, %.loopexit16.i
+30:                                               ; preds = %29, %.loopexit16.i
   store ptr null, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @slurm_free_container_id_response_msg(ptr noundef nonnull %4) #8
   store ptr null, ptr %5, align 8
-  br label %30
+  br label %31
 
-30:                                               ; preds = %slurm_unpack_list.exit.thread, %2, %29
-  %.0 = phi i32 [ -1, %29 ], [ 0, %2 ], [ 0, %slurm_unpack_list.exit.thread ]
+31:                                               ; preds = %slurm_unpack_list.exit.thread, %2, %30
+  %.0 = phi i32 [ -1, %30 ], [ 0, %2 ], [ 0, %slurm_unpack_list.exit.thread ]
   ret i32 %.0
 }
 
@@ -26200,1427 +26200,1427 @@ define internal fastcc noundef i32 @_unpack_launch_tasks_request_msg(ptr nocaptu
   %45 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 656, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 6109, ptr noundef nonnull @__func__._unpack_launch_tasks_request_msg) #8
   store ptr %45, ptr %0, align 8
   %46 = icmp ugt i16 %2, 10239
-  br i1 %46, label %47, label %374
+  br i1 %46, label %47, label %375
 
 47:                                               ; preds = %3
   %48 = getelementptr inbounds i8, ptr %45, i64 104
   %49 = tail call i32 @unpack32(ptr noundef nonnull %48, ptr noundef %1) #8
   %.not.i = icmp eq i32 %49, 0
-  br i1 %.not.i, label %50, label %unpack_step_id_members.exit.thread
+  br i1 %.not.i, label %50, label %unpack_step_id_members.exit
 
 50:                                               ; preds = %47
   %51 = getelementptr inbounds i8, ptr %45, i64 112
   %52 = tail call i32 @unpack32(ptr noundef nonnull %51, ptr noundef %1) #8
   %.not9.i = icmp eq i32 %52, 0
-  br i1 %.not9.i, label %unpack_step_id_members.exit, label %unpack_step_id_members.exit.thread
+  br i1 %.not9.i, label %53, label %unpack_step_id_members.exit
 
-unpack_step_id_members.exit:                      ; preds = %50
-  %53 = getelementptr inbounds i8, ptr %45, i64 108
-  %54 = tail call i32 @unpack32(ptr noundef nonnull %53, ptr noundef %1) #8
-  %.not10.i.not = icmp eq i32 %54, 0
-  br i1 %.not10.i.not, label %55, label %unpack_step_id_members.exit.thread
+53:                                               ; preds = %50
+  %54 = getelementptr inbounds i8, ptr %45, i64 108
+  %55 = tail call i32 @unpack32(ptr noundef nonnull %54, ptr noundef %1) #8
+  %.not10.i = icmp eq i32 %55, 0
+  br i1 %.not10.i, label %56, label %unpack_step_id_members.exit
 
-55:                                               ; preds = %unpack_step_id_members.exit
-  %56 = getelementptr inbounds i8, ptr %45, i64 88
-  %57 = getelementptr inbounds i8, ptr %45, i64 84
-  %58 = tail call i32 @unpack32_array(ptr noundef nonnull %56, ptr noundef nonnull %57, ptr noundef %1) #8
-  %.not620 = icmp eq i32 %58, 0
-  br i1 %.not620, label %59, label %unpack_step_id_members.exit.thread
+56:                                               ; preds = %53
+  %57 = getelementptr inbounds i8, ptr %45, i64 88
+  %58 = getelementptr inbounds i8, ptr %45, i64 84
+  %59 = tail call i32 @unpack32_array(ptr noundef nonnull %57, ptr noundef nonnull %58, ptr noundef %1) #8
+  %.not620 = icmp eq i32 %59, 0
+  br i1 %.not620, label %60, label %unpack_step_id_members.exit
 
-59:                                               ; preds = %55
-  %60 = tail call i32 @unpack32(ptr noundef %45, ptr noundef %1) #8
-  %.not621 = icmp eq i32 %60, 0
-  br i1 %.not621, label %61, label %unpack_step_id_members.exit.thread
+60:                                               ; preds = %56
+  %61 = tail call i32 @unpack32(ptr noundef %45, ptr noundef %1) #8
+  %.not621 = icmp eq i32 %61, 0
+  br i1 %.not621, label %62, label %unpack_step_id_members.exit
 
-61:                                               ; preds = %59
-  %62 = getelementptr inbounds i8, ptr %45, i64 4
-  %63 = tail call i32 @unpack32(ptr noundef nonnull %62, ptr noundef %1) #8
-  %.not622 = icmp eq i32 %63, 0
-  br i1 %.not622, label %64, label %unpack_step_id_members.exit.thread
+62:                                               ; preds = %60
+  %63 = getelementptr inbounds i8, ptr %45, i64 4
+  %64 = tail call i32 @unpack32(ptr noundef nonnull %63, ptr noundef %1) #8
+  %.not622 = icmp eq i32 %64, 0
+  br i1 %.not622, label %65, label %unpack_step_id_members.exit
 
-64:                                               ; preds = %61
-  %65 = getelementptr inbounds i8, ptr %45, i64 8
-  %66 = tail call i32 @unpack32(ptr noundef nonnull %65, ptr noundef %1) #8
-  %.not623 = icmp eq i32 %66, 0
-  br i1 %.not623, label %67, label %unpack_step_id_members.exit.thread
+65:                                               ; preds = %62
+  %66 = getelementptr inbounds i8, ptr %45, i64 8
+  %67 = tail call i32 @unpack32(ptr noundef nonnull %66, ptr noundef %1) #8
+  %.not623 = icmp eq i32 %67, 0
+  br i1 %.not623, label %68, label %unpack_step_id_members.exit
 
-67:                                               ; preds = %64
-  %68 = load i32, ptr %65, align 8
-  switch i32 %68, label %70 [
-    i32 -2, label %.loopexit735
+68:                                               ; preds = %65
+  %69 = load i32, ptr %66, align 8
+  switch i32 %69, label %71 [
+    i32 -2, label %.loopexit734
     i32 0, label %.thread
   ]
 
-.thread:                                          ; preds = %67
-  %69 = getelementptr inbounds i8, ptr %45, i64 16
-  store ptr null, ptr %69, align 8
-  br label %.thread830
+.thread:                                          ; preds = %68
+  %70 = getelementptr inbounds i8, ptr %45, i64 16
+  store ptr null, ptr %70, align 8
+  br label %.thread829
 
-70:                                               ; preds = %67
-  %71 = zext i32 %68 to i64
-  %72 = tail call ptr @slurm_xcalloc(i64 noundef %71, i64 noundef 2, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 6125, ptr noundef nonnull @__func__._unpack_launch_tasks_request_msg) #8
-  %73 = getelementptr inbounds i8, ptr %45, i64 16
-  store ptr %72, ptr %73, align 8
-  %.not626 = icmp eq ptr %72, null
-  br i1 %.not626, label %unpack_step_id_members.exit.thread, label %74
+71:                                               ; preds = %68
+  %72 = zext i32 %69 to i64
+  %73 = tail call ptr @slurm_xcalloc(i64 noundef %72, i64 noundef 2, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 6125, ptr noundef nonnull @__func__._unpack_launch_tasks_request_msg) #8
+  %74 = getelementptr inbounds i8, ptr %45, i64 16
+  store ptr %73, ptr %74, align 8
+  %.not626 = icmp eq ptr %73, null
+  br i1 %.not626, label %unpack_step_id_members.exit, label %75
 
-74:                                               ; preds = %70
-  %.pr = load i32, ptr %65, align 8
+75:                                               ; preds = %71
+  %.pr = load i32, ptr %66, align 8
   %.not627 = icmp eq i32 %.pr, 0
-  br i1 %.not627, label %.thread830, label %76
+  br i1 %.not627, label %.thread829, label %77
 
-.thread830:                                       ; preds = %74, %.thread
-  %75 = getelementptr inbounds i8, ptr %45, i64 24
-  store ptr null, ptr %75, align 8
-  br label %.loopexit735
+.thread829:                                       ; preds = %75, %.thread
+  %76 = getelementptr inbounds i8, ptr %45, i64 24
+  store ptr null, ptr %76, align 8
+  br label %.loopexit734
 
-76:                                               ; preds = %74
-  %77 = zext i32 %.pr to i64
-  %78 = tail call ptr @slurm_xcalloc(i64 noundef %77, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 6127, ptr noundef nonnull @__func__._unpack_launch_tasks_request_msg) #8
-  %79 = getelementptr inbounds i8, ptr %45, i64 24
-  store ptr %78, ptr %79, align 8
-  %.not628 = icmp eq ptr %78, null
-  br i1 %.not628, label %unpack_step_id_members.exit.thread, label %80
+77:                                               ; preds = %75
+  %78 = zext i32 %.pr to i64
+  %79 = tail call ptr @slurm_xcalloc(i64 noundef %78, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 6127, ptr noundef nonnull @__func__._unpack_launch_tasks_request_msg) #8
+  %80 = getelementptr inbounds i8, ptr %45, i64 24
+  store ptr %79, ptr %80, align 8
+  %.not628 = icmp eq ptr %79, null
+  br i1 %.not628, label %unpack_step_id_members.exit, label %81
 
-80:                                               ; preds = %76
-  %.pre824 = load i32, ptr %65, align 8
-  %.not775 = icmp eq i32 %.pre824, 0
-  br i1 %.not775, label %.loopexit735, label %.lr.ph759
+81:                                               ; preds = %77
+  %.pre823 = load i32, ptr %66, align 8
+  %.not774 = icmp eq i32 %.pre823, 0
+  br i1 %.not774, label %.loopexit734, label %.lr.ph758
 
-.lr.ph759:                                        ; preds = %80
-  %81 = getelementptr inbounds i8, ptr %45, i64 24
-  %82 = getelementptr inbounds i8, ptr %45, i64 16
-  br label %83
+.lr.ph758:                                        ; preds = %81
+  %82 = getelementptr inbounds i8, ptr %45, i64 24
+  %83 = getelementptr inbounds i8, ptr %45, i64 16
+  br label %84
 
-83:                                               ; preds = %.lr.ph759, %87
-  %indvars.iv802 = phi i64 [ 0, %.lr.ph759 ], [ %indvars.iv.next803, %87 ]
-  %84 = load ptr, ptr %81, align 8
-  %85 = getelementptr inbounds ptr, ptr %84, i64 %indvars.iv802
-  %86 = call i32 @unpack32_array(ptr noundef %85, ptr noundef nonnull %4, ptr noundef %1) #8
-  %.not705 = icmp eq i32 %86, 0
-  br i1 %.not705, label %87, label %unpack_step_id_members.exit.thread
+84:                                               ; preds = %.lr.ph758, %88
+  %indvars.iv801 = phi i64 [ 0, %.lr.ph758 ], [ %indvars.iv.next802, %88 ]
+  %85 = load ptr, ptr %82, align 8
+  %86 = getelementptr inbounds ptr, ptr %85, i64 %indvars.iv801
+  %87 = call i32 @unpack32_array(ptr noundef %86, ptr noundef nonnull %4, ptr noundef %1) #8
+  %.not705 = icmp eq i32 %87, 0
+  br i1 %.not705, label %88, label %unpack_step_id_members.exit
 
-87:                                               ; preds = %83
-  %88 = load i32, ptr %4, align 4
-  %89 = trunc i32 %88 to i16
-  %90 = load ptr, ptr %82, align 8
-  %91 = getelementptr inbounds i16, ptr %90, i64 %indvars.iv802
-  store i16 %89, ptr %91, align 2
-  %indvars.iv.next803 = add nuw nsw i64 %indvars.iv802, 1
-  %92 = load i32, ptr %65, align 8
-  %93 = zext i32 %92 to i64
-  %94 = icmp ult i64 %indvars.iv.next803, %93
-  br i1 %94, label %83, label %.loopexit735, !llvm.loop !67
+88:                                               ; preds = %84
+  %89 = load i32, ptr %4, align 4
+  %90 = trunc i32 %89 to i16
+  %91 = load ptr, ptr %83, align 8
+  %92 = getelementptr inbounds i16, ptr %91, i64 %indvars.iv801
+  store i16 %90, ptr %92, align 2
+  %indvars.iv.next802 = add nuw nsw i64 %indvars.iv801, 1
+  %93 = load i32, ptr %66, align 8
+  %94 = zext i32 %93 to i64
+  %95 = icmp ult i64 %indvars.iv.next802, %94
+  br i1 %95, label %84, label %.loopexit734, !llvm.loop !67
 
-.loopexit735:                                     ; preds = %87, %.thread830, %80, %67
-  %95 = getelementptr inbounds i8, ptr %45, i64 12
-  %96 = call i32 @unpack32(ptr noundef nonnull %95, ptr noundef %1) #8
-  %.not629 = icmp eq i32 %96, 0
-  br i1 %.not629, label %97, label %unpack_step_id_members.exit.thread
+.loopexit734:                                     ; preds = %88, %.thread829, %81, %68
+  %96 = getelementptr inbounds i8, ptr %45, i64 12
+  %97 = call i32 @unpack32(ptr noundef nonnull %96, ptr noundef %1) #8
+  %.not629 = icmp eq i32 %97, 0
+  br i1 %.not629, label %98, label %unpack_step_id_members.exit
 
-97:                                               ; preds = %.loopexit735
-  %98 = load i32, ptr %95, align 4
-  switch i32 %98, label %100 [
-    i32 -2, label %.loopexit733
-    i32 0, label %.thread832
+98:                                               ; preds = %.loopexit734
+  %99 = load i32, ptr %96, align 4
+  switch i32 %99, label %101 [
+    i32 -2, label %.loopexit732
+    i32 0, label %.thread831
   ]
 
-.thread832:                                       ; preds = %97
-  %99 = getelementptr inbounds i8, ptr %45, i64 32
-  store ptr null, ptr %99, align 8
-  br label %.loopexit733
-
-100:                                              ; preds = %97
-  %101 = zext i32 %98 to i64
-  %102 = call ptr @slurm_xcalloc(i64 noundef %101, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 6139, ptr noundef nonnull @__func__._unpack_launch_tasks_request_msg) #8
-  %103 = getelementptr inbounds i8, ptr %45, i64 32
-  store ptr %102, ptr %103, align 8
-  %.not632 = icmp eq ptr %102, null
-  br i1 %.not632, label %unpack_step_id_members.exit.thread, label %104
-
-104:                                              ; preds = %100
-  %.pre826 = load i32, ptr %95, align 4
-  %.not776 = icmp eq i32 %.pre826, 0
-  br i1 %.not776, label %.loopexit733, label %.lr.ph762
-
-.lr.ph762:                                        ; preds = %104
-  %105 = getelementptr inbounds i8, ptr %45, i64 32
-  br label %110
-
-106:                                              ; preds = %110
-  %indvars.iv.next806 = add nuw nsw i64 %indvars.iv805, 1
-  %107 = load i32, ptr %95, align 4
-  %108 = zext i32 %107 to i64
-  %109 = icmp ult i64 %indvars.iv.next806, %108
-  br i1 %109, label %110, label %.loopexit733, !llvm.loop !68
-
-110:                                              ; preds = %.lr.ph762, %106
-  %indvars.iv805 = phi i64 [ 0, %.lr.ph762 ], [ %indvars.iv.next806, %106 ]
-  %111 = load ptr, ptr %105, align 8
-  %112 = getelementptr inbounds i32, ptr %111, i64 %indvars.iv805
-  %113 = call i32 @unpack32(ptr noundef %112, ptr noundef %1) #8
-  %.not704 = icmp eq i32 %113, 0
-  br i1 %.not704, label %106, label %unpack_step_id_members.exit.thread
-
-.loopexit733:                                     ; preds = %106, %.thread832, %104, %97
-  %114 = getelementptr inbounds i8, ptr %45, i64 40
-  %115 = call i32 @unpack32(ptr noundef nonnull %114, ptr noundef %1) #8
-  %.not633 = icmp eq i32 %115, 0
-  br i1 %.not633, label %116, label %unpack_step_id_members.exit.thread
-
-116:                                              ; preds = %.loopexit733
-  %117 = getelementptr inbounds i8, ptr %45, i64 44
-  %118 = call i32 @unpack32(ptr noundef nonnull %117, ptr noundef %1) #8
-  %.not634 = icmp eq i32 %118, 0
-  br i1 %.not634, label %119, label %unpack_step_id_members.exit.thread
-
-119:                                              ; preds = %116
-  %120 = getelementptr inbounds i8, ptr %45, i64 48
-  %121 = call i32 @unpack32(ptr noundef nonnull %120, ptr noundef %1) #8
-  %.not635 = icmp eq i32 %121, 0
-  br i1 %.not635, label %122, label %unpack_step_id_members.exit.thread
-
-122:                                              ; preds = %119
-  %123 = getelementptr inbounds i8, ptr %45, i64 56
-  %124 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %123, ptr noundef nonnull %5, ptr noundef %1) #8
-  %.not636 = icmp eq i32 %124, 0
-  br i1 %.not636, label %125, label %unpack_step_id_members.exit.thread
-
-125:                                              ; preds = %122
-  %126 = getelementptr inbounds i8, ptr %45, i64 64
-  %127 = call i32 @unpack32(ptr noundef nonnull %126, ptr noundef %1) #8
-  %.not637 = icmp eq i32 %127, 0
-  br i1 %.not637, label %128, label %unpack_step_id_members.exit.thread
-
-128:                                              ; preds = %125
-  %129 = getelementptr inbounds i8, ptr %45, i64 72
-  %130 = call i32 @unpack32(ptr noundef nonnull %129, ptr noundef %1) #8
-  %.not638 = icmp eq i32 %130, 0
-  br i1 %.not638, label %131, label %unpack_step_id_members.exit.thread
-
-131:                                              ; preds = %128
-  %132 = getelementptr inbounds i8, ptr %45, i64 76
-  %133 = call i32 @unpack16(ptr noundef nonnull %132, ptr noundef %1) #8
-  %.not639 = icmp eq i32 %133, 0
-  br i1 %.not639, label %134, label %unpack_step_id_members.exit.thread
-
-134:                                              ; preds = %131
-  %135 = getelementptr inbounds i8, ptr %45, i64 78
-  %136 = call i32 @unpack16(ptr noundef nonnull %135, ptr noundef %1) #8
-  %.not640 = icmp eq i32 %136, 0
-  br i1 %.not640, label %137, label %unpack_step_id_members.exit.thread
-
-137:                                              ; preds = %134
-  %138 = getelementptr inbounds i8, ptr %45, i64 80
-  %139 = call i32 @unpack16(ptr noundef nonnull %138, ptr noundef %1) #8
-  %.not641 = icmp eq i32 %139, 0
-  br i1 %.not641, label %140, label %unpack_step_id_members.exit.thread
-
-140:                                              ; preds = %137
-  %141 = getelementptr inbounds i8, ptr %45, i64 82
-  %142 = call i32 @unpack16(ptr noundef nonnull %141, ptr noundef %1) #8
-  %.not642 = icmp eq i32 %142, 0
-  br i1 %.not642, label %143, label %unpack_step_id_members.exit.thread
-
-143:                                              ; preds = %140
-  %144 = getelementptr inbounds i8, ptr %45, i64 96
-  %145 = call i32 @unpack64(ptr noundef nonnull %144, ptr noundef %1) #8
-  %.not643 = icmp eq i32 %145, 0
-  br i1 %.not643, label %146, label %unpack_step_id_members.exit.thread
-
-146:                                              ; preds = %143
-  %147 = getelementptr inbounds i8, ptr %45, i64 120
-  %148 = call i32 @unpack64(ptr noundef nonnull %147, ptr noundef %1) #8
-  %.not644 = icmp eq i32 %148, 0
-  br i1 %.not644, label %149, label %unpack_step_id_members.exit.thread
-
-149:                                              ; preds = %146
-  %150 = getelementptr inbounds i8, ptr %45, i64 68
-  %151 = call i32 @unpack32(ptr noundef nonnull %150, ptr noundef %1) #8
-  %.not645 = icmp eq i32 %151, 0
-  br i1 %.not645, label %152, label %unpack_step_id_members.exit.thread
-
-152:                                              ; preds = %149
-  %153 = load i32, ptr %150, align 4
-  %154 = icmp ugt i32 %153, -3
-  br i1 %154, label %unpack_step_id_members.exit.thread, label %155
-
-155:                                              ; preds = %152
-  %156 = getelementptr inbounds i8, ptr %45, i64 146
-  %157 = call i32 @unpack16(ptr noundef nonnull %156, ptr noundef %1) #8
-  %.not646 = icmp eq i32 %157, 0
-  br i1 %.not646, label %158, label %unpack_step_id_members.exit.thread
-
-158:                                              ; preds = %155
-  %159 = getelementptr inbounds i8, ptr %45, i64 152
-  %160 = getelementptr inbounds i8, ptr %45, i64 160
-  %161 = call i32 @unpack16_array(ptr noundef nonnull %159, ptr noundef nonnull %160, ptr noundef %1) #8
-  %.not647 = icmp eq i32 %161, 0
-  br i1 %.not647, label %162, label %unpack_step_id_members.exit.thread
-
-162:                                              ; preds = %158
-  %163 = getelementptr inbounds i8, ptr %45, i64 168
-  %164 = call i32 @unpack32_array(ptr noundef nonnull %163, ptr noundef nonnull %4, ptr noundef %1) #8
-  %.not648 = icmp eq i32 %164, 0
-  br i1 %.not648, label %165, label %unpack_step_id_members.exit.thread
-
-165:                                              ; preds = %162
-  %166 = getelementptr inbounds i8, ptr %45, i64 184
-  %167 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %166, ptr noundef nonnull %6, ptr noundef %1) #8
-  %.not649 = icmp eq i32 %167, 0
-  br i1 %.not649, label %168, label %unpack_step_id_members.exit.thread
-
-168:                                              ; preds = %165
-  %169 = getelementptr inbounds i8, ptr %45, i64 176
-  %170 = call i32 @unpack16(ptr noundef nonnull %169, ptr noundef %1) #8
-  %.not650 = icmp eq i32 %170, 0
-  br i1 %.not650, label %171, label %unpack_step_id_members.exit.thread
-
-171:                                              ; preds = %168
-  %172 = getelementptr inbounds i8, ptr %45, i64 296
-  %173 = call i32 @unpack32(ptr noundef nonnull %172, ptr noundef %1) #8
-  %.not651 = icmp eq i32 %173, 0
-  br i1 %.not651, label %174, label %unpack_step_id_members.exit.thread
-
-174:                                              ; preds = %171
-  %175 = getelementptr inbounds i8, ptr %45, i64 144
-  %176 = call i32 @unpack16(ptr noundef nonnull %175, ptr noundef %1) #8
-  %.not652 = icmp eq i32 %176, 0
-  br i1 %.not652, label %177, label %unpack_step_id_members.exit.thread
-
-177:                                              ; preds = %174
-  %178 = getelementptr inbounds i8, ptr %45, i64 468
-  %179 = call i32 @unpack16(ptr noundef nonnull %178, ptr noundef %1) #8
-  %.not653 = icmp eq i32 %179, 0
-  br i1 %.not653, label %180, label %unpack_step_id_members.exit.thread
-
-180:                                              ; preds = %177
-  %181 = getelementptr inbounds i8, ptr %45, i64 256
-  %182 = call i32 @unpack16(ptr noundef nonnull %181, ptr noundef %1) #8
-  %.not654 = icmp eq i32 %182, 0
-  br i1 %.not654, label %183, label %unpack_step_id_members.exit.thread
-
-183:                                              ; preds = %180
-  %184 = getelementptr inbounds i8, ptr %45, i64 538
-  %185 = call i32 @unpack16(ptr noundef nonnull %184, ptr noundef %1) #8
-  %.not655 = icmp eq i32 %185, 0
-  br i1 %.not655, label %186, label %unpack_step_id_members.exit.thread
-
-186:                                              ; preds = %183
-  %187 = load i16, ptr %184, align 2
-  %188 = call ptr @slurm_cred_unpack(ptr noundef %1, i16 noundef zeroext %187) #8
-  %189 = getelementptr inbounds i8, ptr %45, i64 544
-  store ptr %188, ptr %189, align 8
-  %.not656 = icmp eq ptr %188, null
-  br i1 %.not656, label %unpack_step_id_members.exit.thread, label %190
-
-190:                                              ; preds = %186
-  %191 = load i32, ptr %150, align 4
-  %.not657 = icmp eq i32 %191, 0
-  br i1 %.not657, label %.thread717, label %193
-
-.thread717:                                       ; preds = %190
-  %192 = getelementptr inbounds i8, ptr %45, i64 128
-  store ptr null, ptr %192, align 8
-  br label %.thread834
-
-193:                                              ; preds = %190
-  %194 = zext i32 %191 to i64
-  %195 = call ptr @slurm_xcalloc(i64 noundef %194, i64 noundef 2, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 6177, ptr noundef nonnull @__func__._unpack_launch_tasks_request_msg) #8
-  %196 = getelementptr inbounds i8, ptr %45, i64 128
-  store ptr %195, ptr %196, align 8
-  %.not658 = icmp eq ptr %195, null
-  br i1 %.not658, label %unpack_step_id_members.exit.thread, label %197
-
-197:                                              ; preds = %193
-  %.pr716 = load i32, ptr %150, align 4
-  %.not659 = icmp eq i32 %.pr716, 0
-  br i1 %.not659, label %.thread834, label %199
-
-.thread834:                                       ; preds = %197, %.thread717
-  %198 = getelementptr inbounds i8, ptr %45, i64 304
-  store ptr null, ptr %198, align 8
-  br label %._crit_edge766
-
-199:                                              ; preds = %197
-  %200 = zext i32 %.pr716 to i64
-  %201 = call ptr @slurm_xcalloc(i64 noundef %200, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 6179, ptr noundef nonnull @__func__._unpack_launch_tasks_request_msg) #8
-  %202 = getelementptr inbounds i8, ptr %45, i64 304
-  store ptr %201, ptr %202, align 8
-  %.not660 = icmp eq ptr %201, null
-  br i1 %.not660, label %unpack_step_id_members.exit.thread, label %203
-
-203:                                              ; preds = %199
-  %.pre828 = load i32, ptr %150, align 4
-  %.not777 = icmp eq i32 %.pre828, 0
-  br i1 %.not777, label %._crit_edge766, label %.lr.ph765
-
-.lr.ph765:                                        ; preds = %203
-  %204 = getelementptr inbounds i8, ptr %45, i64 128
-  %205 = getelementptr inbounds i8, ptr %45, i64 304
-  %.pre829 = load ptr, ptr %204, align 8
-  br label %210
-
-206:                                              ; preds = %218
-  %indvars.iv.next809 = add nuw nsw i64 %indvars.iv808, 1
-  %207 = load i32, ptr %150, align 4
-  %208 = zext i32 %207 to i64
-  %209 = icmp ult i64 %indvars.iv.next809, %208
-  br i1 %209, label %210, label %._crit_edge766, !llvm.loop !69
-
-210:                                              ; preds = %.lr.ph765, %206
-  %211 = phi ptr [ %.pre829, %.lr.ph765 ], [ %219, %206 ]
-  %indvars.iv808 = phi i64 [ 0, %.lr.ph765 ], [ %indvars.iv.next809, %206 ]
-  %212 = getelementptr inbounds i16, ptr %211, i64 %indvars.iv808
-  %213 = call i32 @unpack16(ptr noundef %212, ptr noundef %1) #8
-  %.not701 = icmp eq i32 %213, 0
-  br i1 %.not701, label %214, label %unpack_step_id_members.exit.thread
-
-214:                                              ; preds = %210
-  %215 = load ptr, ptr %205, align 8
-  %216 = getelementptr inbounds ptr, ptr %215, i64 %indvars.iv808
-  %217 = call i32 @unpack32_array(ptr noundef %216, ptr noundef nonnull %4, ptr noundef %1) #8
-  %.not702 = icmp eq i32 %217, 0
-  br i1 %.not702, label %218, label %unpack_step_id_members.exit.thread
-
-218:                                              ; preds = %214
-  %219 = load ptr, ptr %204, align 8
-  %220 = getelementptr inbounds i16, ptr %219, i64 %indvars.iv808
-  %221 = load i16, ptr %220, align 2
-  %222 = load i32, ptr %4, align 4
-  %223 = trunc i32 %222 to i16
-  %.not703 = icmp eq i16 %221, %223
-  br i1 %.not703, label %206, label %unpack_step_id_members.exit.thread
-
-._crit_edge766:                                   ; preds = %206, %.thread834, %203
-  %224 = getelementptr inbounds i8, ptr %45, i64 280
-  %225 = call i32 @unpack16(ptr noundef nonnull %224, ptr noundef %1) #8
-  %.not661 = icmp eq i32 %225, 0
-  br i1 %.not661, label %226, label %unpack_step_id_members.exit.thread
-
-226:                                              ; preds = %._crit_edge766
-  %227 = load i16, ptr %224, align 8
-  %228 = icmp ugt i16 %227, -3
-  br i1 %228, label %unpack_step_id_members.exit.thread, label %229
-
-229:                                              ; preds = %226
-  %.not662 = icmp eq i16 %227, 0
-  br i1 %.not662, label %.loopexit730, label %230
-
-230:                                              ; preds = %229
-  %231 = zext i16 %227 to i64
-  %232 = call ptr @slurm_xcalloc(i64 noundef %231, i64 noundef 2, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 6193, ptr noundef nonnull @__func__._unpack_launch_tasks_request_msg) #8
-  %233 = getelementptr inbounds i8, ptr %45, i64 288
-  store ptr %232, ptr %233, align 8
-  %.not663 = icmp eq ptr %232, null
-  br i1 %.not663, label %unpack_step_id_members.exit.thread, label %.preheader729
-
-.preheader729:                                    ; preds = %230
-  %234 = load i16, ptr %224, align 8
-  %.not778 = icmp eq i16 %234, 0
-  br i1 %.not778, label %.loopexit730, label %.lr.ph768
-
-235:                                              ; preds = %.lr.ph768
-  %indvars.iv.next812 = add nuw nsw i64 %indvars.iv811, 1
-  %236 = load i16, ptr %224, align 8
-  %237 = zext i16 %236 to i64
-  %238 = icmp ult i64 %indvars.iv.next812, %237
-  br i1 %238, label %.lr.ph768, label %.loopexit730, !llvm.loop !70
-
-.lr.ph768:                                        ; preds = %.preheader729, %235
-  %indvars.iv811 = phi i64 [ %indvars.iv.next812, %235 ], [ 0, %.preheader729 ]
-  %239 = load ptr, ptr %233, align 8
-  %240 = getelementptr inbounds i16, ptr %239, i64 %indvars.iv811
-  %241 = call i32 @unpack16(ptr noundef %240, ptr noundef %1) #8
-  %.not700 = icmp eq i32 %241, 0
-  br i1 %.not700, label %235, label %unpack_step_id_members.exit.thread
-
-.loopexit730:                                     ; preds = %235, %.preheader729, %229
-  %242 = getelementptr inbounds i8, ptr %45, i64 312
-  %243 = call i32 @slurm_unpack_addr_no_alloc(ptr noundef nonnull %242, ptr noundef %1) #8
-  %244 = getelementptr inbounds i8, ptr %45, i64 192
-  %245 = getelementptr inbounds i8, ptr %45, i64 136
-  %246 = call i32 @unpackstr_array(ptr noundef nonnull %244, ptr noundef nonnull %245, ptr noundef %1) #8
-  %.not664 = icmp eq i32 %246, 0
-  br i1 %.not664, label %247, label %unpack_step_id_members.exit.thread
-
-247:                                              ; preds = %.loopexit730
-  %248 = getelementptr inbounds i8, ptr %45, i64 576
-  %249 = getelementptr inbounds i8, ptr %45, i64 584
-  %250 = call i32 @unpackstr_array(ptr noundef nonnull %248, ptr noundef nonnull %249, ptr noundef %1) #8
-  %.not665 = icmp eq i32 %250, 0
-  br i1 %.not665, label %251, label %unpack_step_id_members.exit.thread
-
-251:                                              ; preds = %247
-  %252 = getelementptr inbounds i8, ptr %45, i64 208
-  %253 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %252, ptr noundef nonnull %7, ptr noundef %1) #8
-  %.not666 = icmp eq i32 %253, 0
-  br i1 %.not666, label %254, label %unpack_step_id_members.exit.thread
-
-254:                                              ; preds = %251
-  %255 = getelementptr inbounds i8, ptr %45, i64 216
-  %256 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %255, ptr noundef nonnull %8, ptr noundef %1) #8
-  %.not667 = icmp eq i32 %256, 0
-  br i1 %.not667, label %257, label %unpack_step_id_members.exit.thread
-
-257:                                              ; preds = %254
-  %258 = getelementptr inbounds i8, ptr %45, i64 224
-  %259 = call i32 @unpack16(ptr noundef nonnull %258, ptr noundef %1) #8
-  %.not668 = icmp eq i32 %259, 0
-  br i1 %.not668, label %260, label %unpack_step_id_members.exit.thread
-
-260:                                              ; preds = %257
-  %261 = getelementptr inbounds i8, ptr %45, i64 232
-  %262 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %261, ptr noundef nonnull %9, ptr noundef %1) #8
-  %.not669 = icmp eq i32 %262, 0
-  br i1 %.not669, label %263, label %unpack_step_id_members.exit.thread
-
-263:                                              ; preds = %260
-  %264 = getelementptr inbounds i8, ptr %45, i64 240
-  %265 = call i32 @unpack16(ptr noundef nonnull %264, ptr noundef %1) #8
-  %.not670 = icmp eq i32 %265, 0
-  br i1 %.not670, label %266, label %unpack_step_id_members.exit.thread
-
-266:                                              ; preds = %263
-  %267 = getelementptr inbounds i8, ptr %45, i64 248
-  %268 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %267, ptr noundef nonnull %10, ptr noundef %1) #8
-  %.not671 = icmp eq i32 %268, 0
-  br i1 %.not671, label %269, label %unpack_step_id_members.exit.thread
-
-269:                                              ; preds = %266
-  %270 = getelementptr inbounds i8, ptr %45, i64 200
-  %271 = getelementptr inbounds i8, ptr %45, i64 140
-  %272 = call i32 @unpackstr_array(ptr noundef nonnull %270, ptr noundef nonnull %271, ptr noundef %1) #8
-  %.not672 = icmp eq i32 %272, 0
-  br i1 %.not672, label %273, label %unpack_step_id_members.exit.thread
-
-273:                                              ; preds = %269
-  %274 = getelementptr inbounds i8, ptr %45, i64 300
-  %275 = call i32 @unpack32(ptr noundef nonnull %274, ptr noundef %1) #8
-  %.not673 = icmp eq i32 %275, 0
-  br i1 %.not673, label %276, label %unpack_step_id_members.exit.thread
-
-276:                                              ; preds = %273
-  %277 = getelementptr inbounds i8, ptr %45, i64 472
-  %278 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %277, ptr noundef nonnull %11, ptr noundef %1) #8
-  %.not674 = icmp eq i32 %278, 0
-  br i1 %.not674, label %279, label %unpack_step_id_members.exit.thread
-
-279:                                              ; preds = %276
-  %280 = getelementptr inbounds i8, ptr %45, i64 480
-  %281 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %280, ptr noundef nonnull %12, ptr noundef %1) #8
-  %.not675 = icmp eq i32 %281, 0
-  br i1 %.not675, label %282, label %unpack_step_id_members.exit.thread
-
-282:                                              ; preds = %279
-  %283 = getelementptr inbounds i8, ptr %45, i64 488
-  %284 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %283, ptr noundef nonnull %13, ptr noundef %1) #8
-  %.not676 = icmp eq i32 %284, 0
-  br i1 %.not676, label %285, label %unpack_step_id_members.exit.thread
-
-285:                                              ; preds = %282
-  %286 = getelementptr inbounds i8, ptr %45, i64 496
-  %287 = call i32 @unpack16(ptr noundef nonnull %286, ptr noundef %1) #8
-  %.not677 = icmp eq i32 %287, 0
-  br i1 %.not677, label %288, label %unpack_step_id_members.exit.thread
-
-288:                                              ; preds = %285
-  %289 = load i16, ptr %286, align 8
-  %290 = icmp ugt i16 %289, -3
-  br i1 %290, label %unpack_step_id_members.exit.thread, label %291
-
-291:                                              ; preds = %288
-  %.not678 = icmp eq i16 %289, 0
-  br i1 %.not678, label %.loopexit, label %292
-
-292:                                              ; preds = %291
-  %293 = zext i16 %289 to i64
-  %294 = call ptr @slurm_xcalloc(i64 noundef %293, i64 noundef 2, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 6217, ptr noundef nonnull @__func__._unpack_launch_tasks_request_msg) #8
-  %295 = getelementptr inbounds i8, ptr %45, i64 504
-  store ptr %294, ptr %295, align 8
-  %.not679 = icmp eq ptr %294, null
-  br i1 %.not679, label %unpack_step_id_members.exit.thread, label %.preheader
-
-.preheader:                                       ; preds = %292
-  %296 = load i16, ptr %286, align 8
-  %.not779 = icmp eq i16 %296, 0
-  br i1 %.not779, label %.loopexit, label %.lr.ph770
-
-297:                                              ; preds = %.lr.ph770
-  %indvars.iv.next815 = add nuw nsw i64 %indvars.iv814, 1
-  %298 = load i16, ptr %286, align 8
-  %299 = zext i16 %298 to i64
-  %300 = icmp ult i64 %indvars.iv.next815, %299
-  br i1 %300, label %.lr.ph770, label %.loopexit, !llvm.loop !71
-
-.lr.ph770:                                        ; preds = %.preheader, %297
-  %indvars.iv814 = phi i64 [ %indvars.iv.next815, %297 ], [ 0, %.preheader ]
-  %301 = load ptr, ptr %295, align 8
-  %302 = getelementptr inbounds i16, ptr %301, i64 %indvars.iv814
-  %303 = call i32 @unpack16(ptr noundef %302, ptr noundef %1) #8
-  %.not699 = icmp eq i32 %303, 0
-  br i1 %.not699, label %297, label %unpack_step_id_members.exit.thread
-
-.loopexit:                                        ; preds = %297, %.preheader, %291
-  %304 = getelementptr inbounds i8, ptr %45, i64 512
-  %305 = call i32 @unpack32(ptr noundef nonnull %304, ptr noundef %1) #8
-  %.not680 = icmp eq i32 %305, 0
-  br i1 %.not680, label %306, label %unpack_step_id_members.exit.thread
-
-306:                                              ; preds = %.loopexit
-  %307 = getelementptr inbounds i8, ptr %45, i64 520
-  %308 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %307, ptr noundef nonnull %14, ptr noundef %1) #8
-  %.not681 = icmp eq i32 %308, 0
-  br i1 %.not681, label %309, label %unpack_step_id_members.exit.thread
-
-309:                                              ; preds = %306
-  %310 = getelementptr inbounds i8, ptr %45, i64 528
-  %311 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %310, ptr noundef nonnull %15, ptr noundef %1) #8
-  %.not682 = icmp eq i32 %311, 0
-  br i1 %.not682, label %312, label %unpack_step_id_members.exit.thread
-
-312:                                              ; preds = %309
-  %313 = getelementptr inbounds i8, ptr %45, i64 536
-  %314 = call i32 @unpack16(ptr noundef nonnull %313, ptr noundef %1) #8
-  %.not683 = icmp eq i32 %314, 0
-  br i1 %.not683, label %315, label %unpack_step_id_members.exit.thread
-
-315:                                              ; preds = %312
-  %316 = getelementptr inbounds i8, ptr %45, i64 552
-  %317 = call i32 @switch_g_unpack_jobinfo(ptr noundef nonnull %316, ptr noundef %1, i16 noundef zeroext %2) #8
-  %318 = icmp slt i32 %317, 0
-  br i1 %318, label %319, label %322
-
-319:                                              ; preds = %315
-  %320 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.13) #8
-  %321 = load ptr, ptr %316, align 8
-  call void @switch_g_free_jobinfo(ptr noundef %321) #8
-  br label %unpack_step_id_members.exit.thread
-
-322:                                              ; preds = %315
-  %323 = call ptr @job_options_create() #8
-  %324 = getelementptr inbounds i8, ptr %45, i64 560
-  store ptr %323, ptr %324, align 8
-  %325 = call i32 @job_options_unpack(ptr noundef %323, ptr noundef %1) #8
-  %326 = icmp slt i32 %325, 0
-  br i1 %326, label %327, label %329
-
-327:                                              ; preds = %322
-  %328 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.14) #8
-  br label %unpack_step_id_members.exit.thread
-
-329:                                              ; preds = %322
-  %330 = getelementptr inbounds i8, ptr %45, i64 600
-  %331 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %330, ptr noundef nonnull %16, ptr noundef %1) #8
-  %.not684 = icmp eq i32 %331, 0
-  br i1 %.not684, label %332, label %unpack_step_id_members.exit.thread
-
-332:                                              ; preds = %329
-  %333 = getelementptr inbounds i8, ptr %45, i64 568
-  %334 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %333, ptr noundef nonnull %17, ptr noundef %1) #8
-  %.not685 = icmp eq i32 %334, 0
-  br i1 %.not685, label %335, label %unpack_step_id_members.exit.thread
-
-335:                                              ; preds = %332
-  %336 = getelementptr inbounds i8, ptr %45, i64 440
-  %337 = call i32 @unpack8(ptr noundef nonnull %336, ptr noundef %1) #8
-  %.not686 = icmp eq i32 %337, 0
-  br i1 %.not686, label %338, label %unpack_step_id_members.exit.thread
-
-338:                                              ; preds = %335
-  %339 = getelementptr inbounds i8, ptr %45, i64 448
-  %340 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %339, ptr noundef nonnull %18, ptr noundef %1) #8
-  %.not687 = icmp eq i32 %340, 0
-  br i1 %.not687, label %341, label %unpack_step_id_members.exit.thread
-
-341:                                              ; preds = %338
-  %342 = getelementptr inbounds i8, ptr %45, i64 456
-  %343 = call i32 @unpack32(ptr noundef nonnull %342, ptr noundef %1) #8
-  %.not688 = icmp eq i32 %343, 0
-  br i1 %.not688, label %344, label %unpack_step_id_members.exit.thread
-
-344:                                              ; preds = %341
-  %345 = getelementptr inbounds i8, ptr %45, i64 460
-  %346 = call i32 @unpack32(ptr noundef nonnull %345, ptr noundef %1) #8
-  %.not689 = icmp eq i32 %346, 0
-  br i1 %.not689, label %347, label %unpack_step_id_members.exit.thread
-
-347:                                              ; preds = %344
-  %348 = getelementptr inbounds i8, ptr %45, i64 464
-  %349 = call i32 @unpack32(ptr noundef nonnull %348, ptr noundef %1) #8
-  %.not690 = icmp eq i32 %349, 0
-  br i1 %.not690, label %350, label %unpack_step_id_members.exit.thread
-
-350:                                              ; preds = %347
-  %351 = getelementptr inbounds i8, ptr %45, i64 264
-  %352 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %351, ptr noundef nonnull %19, ptr noundef %1) #8
-  %.not691 = icmp eq i32 %352, 0
-  br i1 %.not691, label %353, label %unpack_step_id_members.exit.thread
-
-353:                                              ; preds = %350
-  %354 = getelementptr inbounds i8, ptr %45, i64 272
-  %355 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %354, ptr noundef nonnull %20, ptr noundef %1) #8
-  %.not692 = icmp eq i32 %355, 0
-  br i1 %.not692, label %356, label %unpack_step_id_members.exit.thread
-
-356:                                              ; preds = %353
-  %357 = getelementptr inbounds i8, ptr %45, i64 608
-  %358 = call i32 @unpack16(ptr noundef nonnull %357, ptr noundef %1) #8
-  %.not693 = icmp eq i32 %358, 0
-  br i1 %.not693, label %359, label %unpack_step_id_members.exit.thread
-
-359:                                              ; preds = %356
-  %360 = getelementptr inbounds i8, ptr %45, i64 616
-  %361 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %360, ptr noundef nonnull %21, ptr noundef %1) #8
-  %.not694 = icmp eq i32 %361, 0
-  br i1 %.not694, label %362, label %unpack_step_id_members.exit.thread
-
-362:                                              ; preds = %359
-  %363 = getelementptr inbounds i8, ptr %45, i64 624
-  %364 = call i32 @unpack16(ptr noundef nonnull %363, ptr noundef %1) #8
-  %.not695 = icmp eq i32 %364, 0
-  br i1 %.not695, label %365, label %unpack_step_id_members.exit.thread
-
-365:                                              ; preds = %362
-  %366 = getelementptr inbounds i8, ptr %45, i64 632
-  %367 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %366, ptr noundef nonnull %22, ptr noundef %1) #8
-  %.not696 = icmp eq i32 %367, 0
-  br i1 %.not696, label %368, label %unpack_step_id_members.exit.thread
-
-368:                                              ; preds = %365
-  %369 = getelementptr inbounds i8, ptr %45, i64 640
-  %370 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %369, ptr noundef nonnull %23, ptr noundef %1) #8
-  %.not697 = icmp eq i32 %370, 0
-  br i1 %.not697, label %371, label %unpack_step_id_members.exit.thread
-
-371:                                              ; preds = %368
-  %372 = getelementptr inbounds i8, ptr %45, i64 648
-  %373 = call i32 @unpack16(ptr noundef nonnull %372, ptr noundef %1) #8
-  %.not698 = icmp eq i32 %373, 0
-  br i1 %.not698, label %706, label %unpack_step_id_members.exit.thread
-
-374:                                              ; preds = %3
-  %375 = icmp ugt i16 %2, 9983
-  br i1 %375, label %376, label %706
-
-376:                                              ; preds = %374
-  %377 = getelementptr inbounds i8, ptr %45, i64 104
-  %378 = tail call i32 @unpack32(ptr noundef nonnull %377, ptr noundef %1) #8
-  %.not.i707 = icmp eq i32 %378, 0
-  br i1 %.not.i707, label %379, label %unpack_step_id_members.exit.thread
-
-379:                                              ; preds = %376
-  %380 = getelementptr inbounds i8, ptr %45, i64 112
-  %381 = tail call i32 @unpack32(ptr noundef nonnull %380, ptr noundef %1) #8
-  %.not9.i708 = icmp eq i32 %381, 0
-  br i1 %.not9.i708, label %unpack_step_id_members.exit711, label %unpack_step_id_members.exit.thread
-
-unpack_step_id_members.exit711:                   ; preds = %379
-  %382 = getelementptr inbounds i8, ptr %45, i64 108
-  %383 = tail call i32 @unpack32(ptr noundef nonnull %382, ptr noundef %1) #8
-  %.not10.i709.not = icmp eq i32 %383, 0
-  br i1 %.not10.i709.not, label %384, label %unpack_step_id_members.exit.thread
-
-384:                                              ; preds = %unpack_step_id_members.exit711
-  %385 = call i32 @unpack32(ptr noundef nonnull %4, ptr noundef %1) #8
-  %.not532 = icmp eq i32 %385, 0
-  br i1 %.not532, label %386, label %unpack_step_id_members.exit.thread
-
-386:                                              ; preds = %384
+.thread831:                                       ; preds = %98
+  %100 = getelementptr inbounds i8, ptr %45, i64 32
+  store ptr null, ptr %100, align 8
+  br label %.loopexit732
+
+101:                                              ; preds = %98
+  %102 = zext i32 %99 to i64
+  %103 = call ptr @slurm_xcalloc(i64 noundef %102, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 6139, ptr noundef nonnull @__func__._unpack_launch_tasks_request_msg) #8
+  %104 = getelementptr inbounds i8, ptr %45, i64 32
+  store ptr %103, ptr %104, align 8
+  %.not632 = icmp eq ptr %103, null
+  br i1 %.not632, label %unpack_step_id_members.exit, label %105
+
+105:                                              ; preds = %101
+  %.pre825 = load i32, ptr %96, align 4
+  %.not775 = icmp eq i32 %.pre825, 0
+  br i1 %.not775, label %.loopexit732, label %.lr.ph761
+
+.lr.ph761:                                        ; preds = %105
+  %106 = getelementptr inbounds i8, ptr %45, i64 32
+  br label %111
+
+107:                                              ; preds = %111
+  %indvars.iv.next805 = add nuw nsw i64 %indvars.iv804, 1
+  %108 = load i32, ptr %96, align 4
+  %109 = zext i32 %108 to i64
+  %110 = icmp ult i64 %indvars.iv.next805, %109
+  br i1 %110, label %111, label %.loopexit732, !llvm.loop !68
+
+111:                                              ; preds = %.lr.ph761, %107
+  %indvars.iv804 = phi i64 [ 0, %.lr.ph761 ], [ %indvars.iv.next805, %107 ]
+  %112 = load ptr, ptr %106, align 8
+  %113 = getelementptr inbounds i32, ptr %112, i64 %indvars.iv804
+  %114 = call i32 @unpack32(ptr noundef %113, ptr noundef %1) #8
+  %.not704 = icmp eq i32 %114, 0
+  br i1 %.not704, label %107, label %unpack_step_id_members.exit
+
+.loopexit732:                                     ; preds = %107, %.thread831, %105, %98
+  %115 = getelementptr inbounds i8, ptr %45, i64 40
+  %116 = call i32 @unpack32(ptr noundef nonnull %115, ptr noundef %1) #8
+  %.not633 = icmp eq i32 %116, 0
+  br i1 %.not633, label %117, label %unpack_step_id_members.exit
+
+117:                                              ; preds = %.loopexit732
+  %118 = getelementptr inbounds i8, ptr %45, i64 44
+  %119 = call i32 @unpack32(ptr noundef nonnull %118, ptr noundef %1) #8
+  %.not634 = icmp eq i32 %119, 0
+  br i1 %.not634, label %120, label %unpack_step_id_members.exit
+
+120:                                              ; preds = %117
+  %121 = getelementptr inbounds i8, ptr %45, i64 48
+  %122 = call i32 @unpack32(ptr noundef nonnull %121, ptr noundef %1) #8
+  %.not635 = icmp eq i32 %122, 0
+  br i1 %.not635, label %123, label %unpack_step_id_members.exit
+
+123:                                              ; preds = %120
+  %124 = getelementptr inbounds i8, ptr %45, i64 56
+  %125 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %124, ptr noundef nonnull %5, ptr noundef %1) #8
+  %.not636 = icmp eq i32 %125, 0
+  br i1 %.not636, label %126, label %unpack_step_id_members.exit
+
+126:                                              ; preds = %123
+  %127 = getelementptr inbounds i8, ptr %45, i64 64
+  %128 = call i32 @unpack32(ptr noundef nonnull %127, ptr noundef %1) #8
+  %.not637 = icmp eq i32 %128, 0
+  br i1 %.not637, label %129, label %unpack_step_id_members.exit
+
+129:                                              ; preds = %126
+  %130 = getelementptr inbounds i8, ptr %45, i64 72
+  %131 = call i32 @unpack32(ptr noundef nonnull %130, ptr noundef %1) #8
+  %.not638 = icmp eq i32 %131, 0
+  br i1 %.not638, label %132, label %unpack_step_id_members.exit
+
+132:                                              ; preds = %129
+  %133 = getelementptr inbounds i8, ptr %45, i64 76
+  %134 = call i32 @unpack16(ptr noundef nonnull %133, ptr noundef %1) #8
+  %.not639 = icmp eq i32 %134, 0
+  br i1 %.not639, label %135, label %unpack_step_id_members.exit
+
+135:                                              ; preds = %132
+  %136 = getelementptr inbounds i8, ptr %45, i64 78
+  %137 = call i32 @unpack16(ptr noundef nonnull %136, ptr noundef %1) #8
+  %.not640 = icmp eq i32 %137, 0
+  br i1 %.not640, label %138, label %unpack_step_id_members.exit
+
+138:                                              ; preds = %135
+  %139 = getelementptr inbounds i8, ptr %45, i64 80
+  %140 = call i32 @unpack16(ptr noundef nonnull %139, ptr noundef %1) #8
+  %.not641 = icmp eq i32 %140, 0
+  br i1 %.not641, label %141, label %unpack_step_id_members.exit
+
+141:                                              ; preds = %138
+  %142 = getelementptr inbounds i8, ptr %45, i64 82
+  %143 = call i32 @unpack16(ptr noundef nonnull %142, ptr noundef %1) #8
+  %.not642 = icmp eq i32 %143, 0
+  br i1 %.not642, label %144, label %unpack_step_id_members.exit
+
+144:                                              ; preds = %141
+  %145 = getelementptr inbounds i8, ptr %45, i64 96
+  %146 = call i32 @unpack64(ptr noundef nonnull %145, ptr noundef %1) #8
+  %.not643 = icmp eq i32 %146, 0
+  br i1 %.not643, label %147, label %unpack_step_id_members.exit
+
+147:                                              ; preds = %144
+  %148 = getelementptr inbounds i8, ptr %45, i64 120
+  %149 = call i32 @unpack64(ptr noundef nonnull %148, ptr noundef %1) #8
+  %.not644 = icmp eq i32 %149, 0
+  br i1 %.not644, label %150, label %unpack_step_id_members.exit
+
+150:                                              ; preds = %147
+  %151 = getelementptr inbounds i8, ptr %45, i64 68
+  %152 = call i32 @unpack32(ptr noundef nonnull %151, ptr noundef %1) #8
+  %.not645 = icmp eq i32 %152, 0
+  br i1 %.not645, label %153, label %unpack_step_id_members.exit
+
+153:                                              ; preds = %150
+  %154 = load i32, ptr %151, align 4
+  %155 = icmp ugt i32 %154, -3
+  br i1 %155, label %unpack_step_id_members.exit, label %156
+
+156:                                              ; preds = %153
+  %157 = getelementptr inbounds i8, ptr %45, i64 146
+  %158 = call i32 @unpack16(ptr noundef nonnull %157, ptr noundef %1) #8
+  %.not646 = icmp eq i32 %158, 0
+  br i1 %.not646, label %159, label %unpack_step_id_members.exit
+
+159:                                              ; preds = %156
+  %160 = getelementptr inbounds i8, ptr %45, i64 152
+  %161 = getelementptr inbounds i8, ptr %45, i64 160
+  %162 = call i32 @unpack16_array(ptr noundef nonnull %160, ptr noundef nonnull %161, ptr noundef %1) #8
+  %.not647 = icmp eq i32 %162, 0
+  br i1 %.not647, label %163, label %unpack_step_id_members.exit
+
+163:                                              ; preds = %159
+  %164 = getelementptr inbounds i8, ptr %45, i64 168
+  %165 = call i32 @unpack32_array(ptr noundef nonnull %164, ptr noundef nonnull %4, ptr noundef %1) #8
+  %.not648 = icmp eq i32 %165, 0
+  br i1 %.not648, label %166, label %unpack_step_id_members.exit
+
+166:                                              ; preds = %163
+  %167 = getelementptr inbounds i8, ptr %45, i64 184
+  %168 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %167, ptr noundef nonnull %6, ptr noundef %1) #8
+  %.not649 = icmp eq i32 %168, 0
+  br i1 %.not649, label %169, label %unpack_step_id_members.exit
+
+169:                                              ; preds = %166
+  %170 = getelementptr inbounds i8, ptr %45, i64 176
+  %171 = call i32 @unpack16(ptr noundef nonnull %170, ptr noundef %1) #8
+  %.not650 = icmp eq i32 %171, 0
+  br i1 %.not650, label %172, label %unpack_step_id_members.exit
+
+172:                                              ; preds = %169
+  %173 = getelementptr inbounds i8, ptr %45, i64 296
+  %174 = call i32 @unpack32(ptr noundef nonnull %173, ptr noundef %1) #8
+  %.not651 = icmp eq i32 %174, 0
+  br i1 %.not651, label %175, label %unpack_step_id_members.exit
+
+175:                                              ; preds = %172
+  %176 = getelementptr inbounds i8, ptr %45, i64 144
+  %177 = call i32 @unpack16(ptr noundef nonnull %176, ptr noundef %1) #8
+  %.not652 = icmp eq i32 %177, 0
+  br i1 %.not652, label %178, label %unpack_step_id_members.exit
+
+178:                                              ; preds = %175
+  %179 = getelementptr inbounds i8, ptr %45, i64 468
+  %180 = call i32 @unpack16(ptr noundef nonnull %179, ptr noundef %1) #8
+  %.not653 = icmp eq i32 %180, 0
+  br i1 %.not653, label %181, label %unpack_step_id_members.exit
+
+181:                                              ; preds = %178
+  %182 = getelementptr inbounds i8, ptr %45, i64 256
+  %183 = call i32 @unpack16(ptr noundef nonnull %182, ptr noundef %1) #8
+  %.not654 = icmp eq i32 %183, 0
+  br i1 %.not654, label %184, label %unpack_step_id_members.exit
+
+184:                                              ; preds = %181
+  %185 = getelementptr inbounds i8, ptr %45, i64 538
+  %186 = call i32 @unpack16(ptr noundef nonnull %185, ptr noundef %1) #8
+  %.not655 = icmp eq i32 %186, 0
+  br i1 %.not655, label %187, label %unpack_step_id_members.exit
+
+187:                                              ; preds = %184
+  %188 = load i16, ptr %185, align 2
+  %189 = call ptr @slurm_cred_unpack(ptr noundef %1, i16 noundef zeroext %188) #8
+  %190 = getelementptr inbounds i8, ptr %45, i64 544
+  store ptr %189, ptr %190, align 8
+  %.not656 = icmp eq ptr %189, null
+  br i1 %.not656, label %unpack_step_id_members.exit, label %191
+
+191:                                              ; preds = %187
+  %192 = load i32, ptr %151, align 4
+  %.not657 = icmp eq i32 %192, 0
+  br i1 %.not657, label %.thread716, label %194
+
+.thread716:                                       ; preds = %191
+  %193 = getelementptr inbounds i8, ptr %45, i64 128
+  store ptr null, ptr %193, align 8
+  br label %.thread833
+
+194:                                              ; preds = %191
+  %195 = zext i32 %192 to i64
+  %196 = call ptr @slurm_xcalloc(i64 noundef %195, i64 noundef 2, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 6177, ptr noundef nonnull @__func__._unpack_launch_tasks_request_msg) #8
+  %197 = getelementptr inbounds i8, ptr %45, i64 128
+  store ptr %196, ptr %197, align 8
+  %.not658 = icmp eq ptr %196, null
+  br i1 %.not658, label %unpack_step_id_members.exit, label %198
+
+198:                                              ; preds = %194
+  %.pr715 = load i32, ptr %151, align 4
+  %.not659 = icmp eq i32 %.pr715, 0
+  br i1 %.not659, label %.thread833, label %200
+
+.thread833:                                       ; preds = %198, %.thread716
+  %199 = getelementptr inbounds i8, ptr %45, i64 304
+  store ptr null, ptr %199, align 8
+  br label %._crit_edge765
+
+200:                                              ; preds = %198
+  %201 = zext i32 %.pr715 to i64
+  %202 = call ptr @slurm_xcalloc(i64 noundef %201, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 6179, ptr noundef nonnull @__func__._unpack_launch_tasks_request_msg) #8
+  %203 = getelementptr inbounds i8, ptr %45, i64 304
+  store ptr %202, ptr %203, align 8
+  %.not660 = icmp eq ptr %202, null
+  br i1 %.not660, label %unpack_step_id_members.exit, label %204
+
+204:                                              ; preds = %200
+  %.pre827 = load i32, ptr %151, align 4
+  %.not776 = icmp eq i32 %.pre827, 0
+  br i1 %.not776, label %._crit_edge765, label %.lr.ph764
+
+.lr.ph764:                                        ; preds = %204
+  %205 = getelementptr inbounds i8, ptr %45, i64 128
+  %206 = getelementptr inbounds i8, ptr %45, i64 304
+  %.pre828 = load ptr, ptr %205, align 8
+  br label %211
+
+207:                                              ; preds = %219
+  %indvars.iv.next808 = add nuw nsw i64 %indvars.iv807, 1
+  %208 = load i32, ptr %151, align 4
+  %209 = zext i32 %208 to i64
+  %210 = icmp ult i64 %indvars.iv.next808, %209
+  br i1 %210, label %211, label %._crit_edge765, !llvm.loop !69
+
+211:                                              ; preds = %.lr.ph764, %207
+  %212 = phi ptr [ %.pre828, %.lr.ph764 ], [ %220, %207 ]
+  %indvars.iv807 = phi i64 [ 0, %.lr.ph764 ], [ %indvars.iv.next808, %207 ]
+  %213 = getelementptr inbounds i16, ptr %212, i64 %indvars.iv807
+  %214 = call i32 @unpack16(ptr noundef %213, ptr noundef %1) #8
+  %.not701 = icmp eq i32 %214, 0
+  br i1 %.not701, label %215, label %unpack_step_id_members.exit
+
+215:                                              ; preds = %211
+  %216 = load ptr, ptr %206, align 8
+  %217 = getelementptr inbounds ptr, ptr %216, i64 %indvars.iv807
+  %218 = call i32 @unpack32_array(ptr noundef %217, ptr noundef nonnull %4, ptr noundef %1) #8
+  %.not702 = icmp eq i32 %218, 0
+  br i1 %.not702, label %219, label %unpack_step_id_members.exit
+
+219:                                              ; preds = %215
+  %220 = load ptr, ptr %205, align 8
+  %221 = getelementptr inbounds i16, ptr %220, i64 %indvars.iv807
+  %222 = load i16, ptr %221, align 2
+  %223 = load i32, ptr %4, align 4
+  %224 = trunc i32 %223 to i16
+  %.not703 = icmp eq i16 %222, %224
+  br i1 %.not703, label %207, label %unpack_step_id_members.exit
+
+._crit_edge765:                                   ; preds = %207, %.thread833, %204
+  %225 = getelementptr inbounds i8, ptr %45, i64 280
+  %226 = call i32 @unpack16(ptr noundef nonnull %225, ptr noundef %1) #8
+  %.not661 = icmp eq i32 %226, 0
+  br i1 %.not661, label %227, label %unpack_step_id_members.exit
+
+227:                                              ; preds = %._crit_edge765
+  %228 = load i16, ptr %225, align 8
+  %229 = icmp ugt i16 %228, -3
+  br i1 %229, label %unpack_step_id_members.exit, label %230
+
+230:                                              ; preds = %227
+  %.not662 = icmp eq i16 %228, 0
+  br i1 %.not662, label %.loopexit729, label %231
+
+231:                                              ; preds = %230
+  %232 = zext i16 %228 to i64
+  %233 = call ptr @slurm_xcalloc(i64 noundef %232, i64 noundef 2, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 6193, ptr noundef nonnull @__func__._unpack_launch_tasks_request_msg) #8
+  %234 = getelementptr inbounds i8, ptr %45, i64 288
+  store ptr %233, ptr %234, align 8
+  %.not663 = icmp eq ptr %233, null
+  br i1 %.not663, label %unpack_step_id_members.exit, label %.preheader728
+
+.preheader728:                                    ; preds = %231
+  %235 = load i16, ptr %225, align 8
+  %.not777 = icmp eq i16 %235, 0
+  br i1 %.not777, label %.loopexit729, label %.lr.ph767
+
+236:                                              ; preds = %.lr.ph767
+  %indvars.iv.next811 = add nuw nsw i64 %indvars.iv810, 1
+  %237 = load i16, ptr %225, align 8
+  %238 = zext i16 %237 to i64
+  %239 = icmp ult i64 %indvars.iv.next811, %238
+  br i1 %239, label %.lr.ph767, label %.loopexit729, !llvm.loop !70
+
+.lr.ph767:                                        ; preds = %.preheader728, %236
+  %indvars.iv810 = phi i64 [ %indvars.iv.next811, %236 ], [ 0, %.preheader728 ]
+  %240 = load ptr, ptr %234, align 8
+  %241 = getelementptr inbounds i16, ptr %240, i64 %indvars.iv810
+  %242 = call i32 @unpack16(ptr noundef %241, ptr noundef %1) #8
+  %.not700 = icmp eq i32 %242, 0
+  br i1 %.not700, label %236, label %unpack_step_id_members.exit
+
+.loopexit729:                                     ; preds = %236, %.preheader728, %230
+  %243 = getelementptr inbounds i8, ptr %45, i64 312
+  %244 = call i32 @slurm_unpack_addr_no_alloc(ptr noundef nonnull %243, ptr noundef %1) #8
+  %245 = getelementptr inbounds i8, ptr %45, i64 192
+  %246 = getelementptr inbounds i8, ptr %45, i64 136
+  %247 = call i32 @unpackstr_array(ptr noundef nonnull %245, ptr noundef nonnull %246, ptr noundef %1) #8
+  %.not664 = icmp eq i32 %247, 0
+  br i1 %.not664, label %248, label %unpack_step_id_members.exit
+
+248:                                              ; preds = %.loopexit729
+  %249 = getelementptr inbounds i8, ptr %45, i64 576
+  %250 = getelementptr inbounds i8, ptr %45, i64 584
+  %251 = call i32 @unpackstr_array(ptr noundef nonnull %249, ptr noundef nonnull %250, ptr noundef %1) #8
+  %.not665 = icmp eq i32 %251, 0
+  br i1 %.not665, label %252, label %unpack_step_id_members.exit
+
+252:                                              ; preds = %248
+  %253 = getelementptr inbounds i8, ptr %45, i64 208
+  %254 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %253, ptr noundef nonnull %7, ptr noundef %1) #8
+  %.not666 = icmp eq i32 %254, 0
+  br i1 %.not666, label %255, label %unpack_step_id_members.exit
+
+255:                                              ; preds = %252
+  %256 = getelementptr inbounds i8, ptr %45, i64 216
+  %257 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %256, ptr noundef nonnull %8, ptr noundef %1) #8
+  %.not667 = icmp eq i32 %257, 0
+  br i1 %.not667, label %258, label %unpack_step_id_members.exit
+
+258:                                              ; preds = %255
+  %259 = getelementptr inbounds i8, ptr %45, i64 224
+  %260 = call i32 @unpack16(ptr noundef nonnull %259, ptr noundef %1) #8
+  %.not668 = icmp eq i32 %260, 0
+  br i1 %.not668, label %261, label %unpack_step_id_members.exit
+
+261:                                              ; preds = %258
+  %262 = getelementptr inbounds i8, ptr %45, i64 232
+  %263 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %262, ptr noundef nonnull %9, ptr noundef %1) #8
+  %.not669 = icmp eq i32 %263, 0
+  br i1 %.not669, label %264, label %unpack_step_id_members.exit
+
+264:                                              ; preds = %261
+  %265 = getelementptr inbounds i8, ptr %45, i64 240
+  %266 = call i32 @unpack16(ptr noundef nonnull %265, ptr noundef %1) #8
+  %.not670 = icmp eq i32 %266, 0
+  br i1 %.not670, label %267, label %unpack_step_id_members.exit
+
+267:                                              ; preds = %264
+  %268 = getelementptr inbounds i8, ptr %45, i64 248
+  %269 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %268, ptr noundef nonnull %10, ptr noundef %1) #8
+  %.not671 = icmp eq i32 %269, 0
+  br i1 %.not671, label %270, label %unpack_step_id_members.exit
+
+270:                                              ; preds = %267
+  %271 = getelementptr inbounds i8, ptr %45, i64 200
+  %272 = getelementptr inbounds i8, ptr %45, i64 140
+  %273 = call i32 @unpackstr_array(ptr noundef nonnull %271, ptr noundef nonnull %272, ptr noundef %1) #8
+  %.not672 = icmp eq i32 %273, 0
+  br i1 %.not672, label %274, label %unpack_step_id_members.exit
+
+274:                                              ; preds = %270
+  %275 = getelementptr inbounds i8, ptr %45, i64 300
+  %276 = call i32 @unpack32(ptr noundef nonnull %275, ptr noundef %1) #8
+  %.not673 = icmp eq i32 %276, 0
+  br i1 %.not673, label %277, label %unpack_step_id_members.exit
+
+277:                                              ; preds = %274
+  %278 = getelementptr inbounds i8, ptr %45, i64 472
+  %279 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %278, ptr noundef nonnull %11, ptr noundef %1) #8
+  %.not674 = icmp eq i32 %279, 0
+  br i1 %.not674, label %280, label %unpack_step_id_members.exit
+
+280:                                              ; preds = %277
+  %281 = getelementptr inbounds i8, ptr %45, i64 480
+  %282 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %281, ptr noundef nonnull %12, ptr noundef %1) #8
+  %.not675 = icmp eq i32 %282, 0
+  br i1 %.not675, label %283, label %unpack_step_id_members.exit
+
+283:                                              ; preds = %280
+  %284 = getelementptr inbounds i8, ptr %45, i64 488
+  %285 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %284, ptr noundef nonnull %13, ptr noundef %1) #8
+  %.not676 = icmp eq i32 %285, 0
+  br i1 %.not676, label %286, label %unpack_step_id_members.exit
+
+286:                                              ; preds = %283
+  %287 = getelementptr inbounds i8, ptr %45, i64 496
+  %288 = call i32 @unpack16(ptr noundef nonnull %287, ptr noundef %1) #8
+  %.not677 = icmp eq i32 %288, 0
+  br i1 %.not677, label %289, label %unpack_step_id_members.exit
+
+289:                                              ; preds = %286
+  %290 = load i16, ptr %287, align 8
+  %291 = icmp ugt i16 %290, -3
+  br i1 %291, label %unpack_step_id_members.exit, label %292
+
+292:                                              ; preds = %289
+  %.not678 = icmp eq i16 %290, 0
+  br i1 %.not678, label %.loopexit, label %293
+
+293:                                              ; preds = %292
+  %294 = zext i16 %290 to i64
+  %295 = call ptr @slurm_xcalloc(i64 noundef %294, i64 noundef 2, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 6217, ptr noundef nonnull @__func__._unpack_launch_tasks_request_msg) #8
+  %296 = getelementptr inbounds i8, ptr %45, i64 504
+  store ptr %295, ptr %296, align 8
+  %.not679 = icmp eq ptr %295, null
+  br i1 %.not679, label %unpack_step_id_members.exit, label %.preheader
+
+.preheader:                                       ; preds = %293
+  %297 = load i16, ptr %287, align 8
+  %.not778 = icmp eq i16 %297, 0
+  br i1 %.not778, label %.loopexit, label %.lr.ph769
+
+298:                                              ; preds = %.lr.ph769
+  %indvars.iv.next814 = add nuw nsw i64 %indvars.iv813, 1
+  %299 = load i16, ptr %287, align 8
+  %300 = zext i16 %299 to i64
+  %301 = icmp ult i64 %indvars.iv.next814, %300
+  br i1 %301, label %.lr.ph769, label %.loopexit, !llvm.loop !71
+
+.lr.ph769:                                        ; preds = %.preheader, %298
+  %indvars.iv813 = phi i64 [ %indvars.iv.next814, %298 ], [ 0, %.preheader ]
+  %302 = load ptr, ptr %296, align 8
+  %303 = getelementptr inbounds i16, ptr %302, i64 %indvars.iv813
+  %304 = call i32 @unpack16(ptr noundef %303, ptr noundef %1) #8
+  %.not699 = icmp eq i32 %304, 0
+  br i1 %.not699, label %298, label %unpack_step_id_members.exit
+
+.loopexit:                                        ; preds = %298, %.preheader, %292
+  %305 = getelementptr inbounds i8, ptr %45, i64 512
+  %306 = call i32 @unpack32(ptr noundef nonnull %305, ptr noundef %1) #8
+  %.not680 = icmp eq i32 %306, 0
+  br i1 %.not680, label %307, label %unpack_step_id_members.exit
+
+307:                                              ; preds = %.loopexit
+  %308 = getelementptr inbounds i8, ptr %45, i64 520
+  %309 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %308, ptr noundef nonnull %14, ptr noundef %1) #8
+  %.not681 = icmp eq i32 %309, 0
+  br i1 %.not681, label %310, label %unpack_step_id_members.exit
+
+310:                                              ; preds = %307
+  %311 = getelementptr inbounds i8, ptr %45, i64 528
+  %312 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %311, ptr noundef nonnull %15, ptr noundef %1) #8
+  %.not682 = icmp eq i32 %312, 0
+  br i1 %.not682, label %313, label %unpack_step_id_members.exit
+
+313:                                              ; preds = %310
+  %314 = getelementptr inbounds i8, ptr %45, i64 536
+  %315 = call i32 @unpack16(ptr noundef nonnull %314, ptr noundef %1) #8
+  %.not683 = icmp eq i32 %315, 0
+  br i1 %.not683, label %316, label %unpack_step_id_members.exit
+
+316:                                              ; preds = %313
+  %317 = getelementptr inbounds i8, ptr %45, i64 552
+  %318 = call i32 @switch_g_unpack_jobinfo(ptr noundef nonnull %317, ptr noundef %1, i16 noundef zeroext %2) #8
+  %319 = icmp slt i32 %318, 0
+  br i1 %319, label %320, label %323
+
+320:                                              ; preds = %316
+  %321 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.13) #8
+  %322 = load ptr, ptr %317, align 8
+  call void @switch_g_free_jobinfo(ptr noundef %322) #8
+  br label %unpack_step_id_members.exit
+
+323:                                              ; preds = %316
+  %324 = call ptr @job_options_create() #8
+  %325 = getelementptr inbounds i8, ptr %45, i64 560
+  store ptr %324, ptr %325, align 8
+  %326 = call i32 @job_options_unpack(ptr noundef %324, ptr noundef %1) #8
+  %327 = icmp slt i32 %326, 0
+  br i1 %327, label %328, label %330
+
+328:                                              ; preds = %323
+  %329 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.14) #8
+  br label %unpack_step_id_members.exit
+
+330:                                              ; preds = %323
+  %331 = getelementptr inbounds i8, ptr %45, i64 600
+  %332 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %331, ptr noundef nonnull %16, ptr noundef %1) #8
+  %.not684 = icmp eq i32 %332, 0
+  br i1 %.not684, label %333, label %unpack_step_id_members.exit
+
+333:                                              ; preds = %330
+  %334 = getelementptr inbounds i8, ptr %45, i64 568
+  %335 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %334, ptr noundef nonnull %17, ptr noundef %1) #8
+  %.not685 = icmp eq i32 %335, 0
+  br i1 %.not685, label %336, label %unpack_step_id_members.exit
+
+336:                                              ; preds = %333
+  %337 = getelementptr inbounds i8, ptr %45, i64 440
+  %338 = call i32 @unpack8(ptr noundef nonnull %337, ptr noundef %1) #8
+  %.not686 = icmp eq i32 %338, 0
+  br i1 %.not686, label %339, label %unpack_step_id_members.exit
+
+339:                                              ; preds = %336
+  %340 = getelementptr inbounds i8, ptr %45, i64 448
+  %341 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %340, ptr noundef nonnull %18, ptr noundef %1) #8
+  %.not687 = icmp eq i32 %341, 0
+  br i1 %.not687, label %342, label %unpack_step_id_members.exit
+
+342:                                              ; preds = %339
+  %343 = getelementptr inbounds i8, ptr %45, i64 456
+  %344 = call i32 @unpack32(ptr noundef nonnull %343, ptr noundef %1) #8
+  %.not688 = icmp eq i32 %344, 0
+  br i1 %.not688, label %345, label %unpack_step_id_members.exit
+
+345:                                              ; preds = %342
+  %346 = getelementptr inbounds i8, ptr %45, i64 460
+  %347 = call i32 @unpack32(ptr noundef nonnull %346, ptr noundef %1) #8
+  %.not689 = icmp eq i32 %347, 0
+  br i1 %.not689, label %348, label %unpack_step_id_members.exit
+
+348:                                              ; preds = %345
+  %349 = getelementptr inbounds i8, ptr %45, i64 464
+  %350 = call i32 @unpack32(ptr noundef nonnull %349, ptr noundef %1) #8
+  %.not690 = icmp eq i32 %350, 0
+  br i1 %.not690, label %351, label %unpack_step_id_members.exit
+
+351:                                              ; preds = %348
+  %352 = getelementptr inbounds i8, ptr %45, i64 264
+  %353 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %352, ptr noundef nonnull %19, ptr noundef %1) #8
+  %.not691 = icmp eq i32 %353, 0
+  br i1 %.not691, label %354, label %unpack_step_id_members.exit
+
+354:                                              ; preds = %351
+  %355 = getelementptr inbounds i8, ptr %45, i64 272
+  %356 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %355, ptr noundef nonnull %20, ptr noundef %1) #8
+  %.not692 = icmp eq i32 %356, 0
+  br i1 %.not692, label %357, label %unpack_step_id_members.exit
+
+357:                                              ; preds = %354
+  %358 = getelementptr inbounds i8, ptr %45, i64 608
+  %359 = call i32 @unpack16(ptr noundef nonnull %358, ptr noundef %1) #8
+  %.not693 = icmp eq i32 %359, 0
+  br i1 %.not693, label %360, label %unpack_step_id_members.exit
+
+360:                                              ; preds = %357
+  %361 = getelementptr inbounds i8, ptr %45, i64 616
+  %362 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %361, ptr noundef nonnull %21, ptr noundef %1) #8
+  %.not694 = icmp eq i32 %362, 0
+  br i1 %.not694, label %363, label %unpack_step_id_members.exit
+
+363:                                              ; preds = %360
+  %364 = getelementptr inbounds i8, ptr %45, i64 624
+  %365 = call i32 @unpack16(ptr noundef nonnull %364, ptr noundef %1) #8
+  %.not695 = icmp eq i32 %365, 0
+  br i1 %.not695, label %366, label %unpack_step_id_members.exit
+
+366:                                              ; preds = %363
+  %367 = getelementptr inbounds i8, ptr %45, i64 632
+  %368 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %367, ptr noundef nonnull %22, ptr noundef %1) #8
+  %.not696 = icmp eq i32 %368, 0
+  br i1 %.not696, label %369, label %unpack_step_id_members.exit
+
+369:                                              ; preds = %366
+  %370 = getelementptr inbounds i8, ptr %45, i64 640
+  %371 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %370, ptr noundef nonnull %23, ptr noundef %1) #8
+  %.not697 = icmp eq i32 %371, 0
+  br i1 %.not697, label %372, label %unpack_step_id_members.exit
+
+372:                                              ; preds = %369
+  %373 = getelementptr inbounds i8, ptr %45, i64 648
+  %374 = call i32 @unpack16(ptr noundef nonnull %373, ptr noundef %1) #8
+  %.not698 = icmp eq i32 %374, 0
+  br i1 %.not698, label %708, label %unpack_step_id_members.exit
+
+375:                                              ; preds = %3
+  %376 = icmp ugt i16 %2, 9983
+  br i1 %376, label %377, label %708
+
+377:                                              ; preds = %375
+  %378 = getelementptr inbounds i8, ptr %45, i64 104
+  %379 = tail call i32 @unpack32(ptr noundef nonnull %378, ptr noundef %1) #8
+  %.not.i707 = icmp eq i32 %379, 0
+  br i1 %.not.i707, label %380, label %unpack_step_id_members.exit
+
+380:                                              ; preds = %377
+  %381 = getelementptr inbounds i8, ptr %45, i64 112
+  %382 = tail call i32 @unpack32(ptr noundef nonnull %381, ptr noundef %1) #8
+  %.not9.i708 = icmp eq i32 %382, 0
+  br i1 %.not9.i708, label %383, label %unpack_step_id_members.exit
+
+383:                                              ; preds = %380
+  %384 = getelementptr inbounds i8, ptr %45, i64 108
+  %385 = tail call i32 @unpack32(ptr noundef nonnull %384, ptr noundef %1) #8
+  %.not10.i709 = icmp eq i32 %385, 0
+  br i1 %.not10.i709, label %386, label %unpack_step_id_members.exit
+
+386:                                              ; preds = %383
   %387 = call i32 @unpack32(ptr noundef nonnull %4, ptr noundef %1) #8
-  %.not533 = icmp eq i32 %387, 0
-  br i1 %.not533, label %388, label %unpack_step_id_members.exit.thread
+  %.not532 = icmp eq i32 %387, 0
+  br i1 %.not532, label %388, label %unpack_step_id_members.exit
 
 388:                                              ; preds = %386
-  store ptr null, ptr %24, align 8
-  %389 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef %1) #8
-  %.not534 = icmp eq i32 %389, 0
-  br i1 %.not534, label %390, label %unpack_step_id_members.exit.thread
+  %389 = call i32 @unpack32(ptr noundef nonnull %4, ptr noundef %1) #8
+  %.not533 = icmp eq i32 %389, 0
+  br i1 %.not533, label %390, label %unpack_step_id_members.exit
 
 390:                                              ; preds = %388
+  store ptr null, ptr %24, align 8
+  %391 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef %1) #8
+  %.not534 = icmp eq i32 %391, 0
+  br i1 %.not534, label %392, label %unpack_step_id_members.exit
+
+392:                                              ; preds = %390
   call void @slurm_xfree(ptr noundef nonnull %24) #8
-  %391 = getelementptr inbounds i8, ptr %45, i64 88
-  %392 = getelementptr inbounds i8, ptr %45, i64 84
-  %393 = call i32 @unpack32_array(ptr noundef nonnull %391, ptr noundef nonnull %392, ptr noundef %1) #8
-  %.not535 = icmp eq i32 %393, 0
-  br i1 %.not535, label %394, label %unpack_step_id_members.exit.thread
+  %393 = getelementptr inbounds i8, ptr %45, i64 88
+  %394 = getelementptr inbounds i8, ptr %45, i64 84
+  %395 = call i32 @unpack32_array(ptr noundef nonnull %393, ptr noundef nonnull %394, ptr noundef %1) #8
+  %.not535 = icmp eq i32 %395, 0
+  br i1 %.not535, label %396, label %unpack_step_id_members.exit
 
-394:                                              ; preds = %390
-  %395 = call i32 @unpack32(ptr noundef %45, ptr noundef %1) #8
-  %.not536 = icmp eq i32 %395, 0
-  br i1 %.not536, label %396, label %unpack_step_id_members.exit.thread
+396:                                              ; preds = %392
+  %397 = call i32 @unpack32(ptr noundef %45, ptr noundef %1) #8
+  %.not536 = icmp eq i32 %397, 0
+  br i1 %.not536, label %398, label %unpack_step_id_members.exit
 
-396:                                              ; preds = %394
-  %397 = getelementptr inbounds i8, ptr %45, i64 4
-  %398 = call i32 @unpack32(ptr noundef nonnull %397, ptr noundef %1) #8
-  %.not537 = icmp eq i32 %398, 0
-  br i1 %.not537, label %399, label %unpack_step_id_members.exit.thread
+398:                                              ; preds = %396
+  %399 = getelementptr inbounds i8, ptr %45, i64 4
+  %400 = call i32 @unpack32(ptr noundef nonnull %399, ptr noundef %1) #8
+  %.not537 = icmp eq i32 %400, 0
+  br i1 %.not537, label %401, label %unpack_step_id_members.exit
 
-399:                                              ; preds = %396
-  %400 = getelementptr inbounds i8, ptr %45, i64 8
-  %401 = call i32 @unpack32(ptr noundef nonnull %400, ptr noundef %1) #8
-  %.not538 = icmp eq i32 %401, 0
-  br i1 %.not538, label %402, label %unpack_step_id_members.exit.thread
+401:                                              ; preds = %398
+  %402 = getelementptr inbounds i8, ptr %45, i64 8
+  %403 = call i32 @unpack32(ptr noundef nonnull %402, ptr noundef %1) #8
+  %.not538 = icmp eq i32 %403, 0
+  br i1 %.not538, label %404, label %unpack_step_id_members.exit
 
-402:                                              ; preds = %399
-  %403 = load i32, ptr %400, align 8
-  switch i32 %403, label %405 [
-    i32 -2, label %.loopexit746
-    i32 0, label %.thread723
+404:                                              ; preds = %401
+  %405 = load i32, ptr %402, align 8
+  switch i32 %405, label %407 [
+    i32 -2, label %.loopexit745
+    i32 0, label %.thread722
   ]
 
-.thread723:                                       ; preds = %402
-  %404 = getelementptr inbounds i8, ptr %45, i64 16
-  store ptr null, ptr %404, align 8
-  br label %.thread836
+.thread722:                                       ; preds = %404
+  %406 = getelementptr inbounds i8, ptr %45, i64 16
+  store ptr null, ptr %406, align 8
+  br label %.thread835
 
-405:                                              ; preds = %402
-  %406 = zext i32 %403 to i64
-  %407 = call ptr @slurm_xcalloc(i64 noundef %406, i64 noundef 2, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 6270, ptr noundef nonnull @__func__._unpack_launch_tasks_request_msg) #8
-  %408 = getelementptr inbounds i8, ptr %45, i64 16
-  store ptr %407, ptr %408, align 8
-  %.not541 = icmp eq ptr %407, null
-  br i1 %.not541, label %unpack_step_id_members.exit.thread, label %409
+407:                                              ; preds = %404
+  %408 = zext i32 %405 to i64
+  %409 = call ptr @slurm_xcalloc(i64 noundef %408, i64 noundef 2, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 6270, ptr noundef nonnull @__func__._unpack_launch_tasks_request_msg) #8
+  %410 = getelementptr inbounds i8, ptr %45, i64 16
+  store ptr %409, ptr %410, align 8
+  %.not541 = icmp eq ptr %409, null
+  br i1 %.not541, label %unpack_step_id_members.exit, label %411
 
-409:                                              ; preds = %405
-  %.pr722 = load i32, ptr %400, align 8
-  %.not542 = icmp eq i32 %.pr722, 0
-  br i1 %.not542, label %.thread836, label %411
+411:                                              ; preds = %407
+  %.pr721 = load i32, ptr %402, align 8
+  %.not542 = icmp eq i32 %.pr721, 0
+  br i1 %.not542, label %.thread835, label %413
 
-.thread836:                                       ; preds = %409, %.thread723
-  %410 = getelementptr inbounds i8, ptr %45, i64 24
-  store ptr null, ptr %410, align 8
-  br label %.loopexit746
+.thread835:                                       ; preds = %411, %.thread722
+  %412 = getelementptr inbounds i8, ptr %45, i64 24
+  store ptr null, ptr %412, align 8
+  br label %.loopexit745
 
-411:                                              ; preds = %409
-  %412 = zext i32 %.pr722 to i64
-  %413 = call ptr @slurm_xcalloc(i64 noundef %412, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 6272, ptr noundef nonnull @__func__._unpack_launch_tasks_request_msg) #8
-  %414 = getelementptr inbounds i8, ptr %45, i64 24
-  store ptr %413, ptr %414, align 8
-  %.not543 = icmp eq ptr %413, null
-  br i1 %.not543, label %unpack_step_id_members.exit.thread, label %415
-
-415:                                              ; preds = %411
-  %.pre = load i32, ptr %400, align 8
-  %.not = icmp eq i32 %.pre, 0
-  br i1 %.not, label %.loopexit746, label %.lr.ph
-
-.lr.ph:                                           ; preds = %415
+413:                                              ; preds = %411
+  %414 = zext i32 %.pr721 to i64
+  %415 = call ptr @slurm_xcalloc(i64 noundef %414, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 6272, ptr noundef nonnull @__func__._unpack_launch_tasks_request_msg) #8
   %416 = getelementptr inbounds i8, ptr %45, i64 24
-  %417 = getelementptr inbounds i8, ptr %45, i64 16
-  br label %418
+  store ptr %415, ptr %416, align 8
+  %.not543 = icmp eq ptr %415, null
+  br i1 %.not543, label %unpack_step_id_members.exit, label %417
 
-418:                                              ; preds = %.lr.ph, %422
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %422 ]
-  %419 = load ptr, ptr %416, align 8
-  %420 = getelementptr inbounds ptr, ptr %419, i64 %indvars.iv
-  %421 = call i32 @unpack32_array(ptr noundef %420, ptr noundef nonnull %4, ptr noundef %1) #8
-  %.not618 = icmp eq i32 %421, 0
-  br i1 %.not618, label %422, label %unpack_step_id_members.exit.thread
+417:                                              ; preds = %413
+  %.pre = load i32, ptr %402, align 8
+  %.not = icmp eq i32 %.pre, 0
+  br i1 %.not, label %.loopexit745, label %.lr.ph
 
-422:                                              ; preds = %418
-  %423 = load i32, ptr %4, align 4
-  %424 = trunc i32 %423 to i16
-  %425 = load ptr, ptr %417, align 8
-  %426 = getelementptr inbounds i16, ptr %425, i64 %indvars.iv
-  store i16 %424, ptr %426, align 2
+.lr.ph:                                           ; preds = %417
+  %418 = getelementptr inbounds i8, ptr %45, i64 24
+  %419 = getelementptr inbounds i8, ptr %45, i64 16
+  br label %420
+
+420:                                              ; preds = %.lr.ph, %424
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %424 ]
+  %421 = load ptr, ptr %418, align 8
+  %422 = getelementptr inbounds ptr, ptr %421, i64 %indvars.iv
+  %423 = call i32 @unpack32_array(ptr noundef %422, ptr noundef nonnull %4, ptr noundef %1) #8
+  %.not618 = icmp eq i32 %423, 0
+  br i1 %.not618, label %424, label %unpack_step_id_members.exit
+
+424:                                              ; preds = %420
+  %425 = load i32, ptr %4, align 4
+  %426 = trunc i32 %425 to i16
+  %427 = load ptr, ptr %419, align 8
+  %428 = getelementptr inbounds i16, ptr %427, i64 %indvars.iv
+  store i16 %426, ptr %428, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %427 = load i32, ptr %400, align 8
-  %428 = zext i32 %427 to i64
-  %429 = icmp ult i64 %indvars.iv.next, %428
-  br i1 %429, label %418, label %.loopexit746, !llvm.loop !72
+  %429 = load i32, ptr %402, align 8
+  %430 = zext i32 %429 to i64
+  %431 = icmp ult i64 %indvars.iv.next, %430
+  br i1 %431, label %420, label %.loopexit745, !llvm.loop !72
 
-.loopexit746:                                     ; preds = %422, %.thread836, %415, %402
-  %430 = getelementptr inbounds i8, ptr %45, i64 12
-  %431 = call i32 @unpack32(ptr noundef nonnull %430, ptr noundef %1) #8
-  %.not544 = icmp eq i32 %431, 0
-  br i1 %.not544, label %432, label %unpack_step_id_members.exit.thread
+.loopexit745:                                     ; preds = %424, %.thread835, %417, %404
+  %432 = getelementptr inbounds i8, ptr %45, i64 12
+  %433 = call i32 @unpack32(ptr noundef nonnull %432, ptr noundef %1) #8
+  %.not544 = icmp eq i32 %433, 0
+  br i1 %.not544, label %434, label %unpack_step_id_members.exit
 
-432:                                              ; preds = %.loopexit746
-  %433 = load i32, ptr %430, align 4
-  switch i32 %433, label %435 [
-    i32 -2, label %.loopexit744
-    i32 0, label %.thread838
+434:                                              ; preds = %.loopexit745
+  %435 = load i32, ptr %432, align 4
+  switch i32 %435, label %437 [
+    i32 -2, label %.loopexit743
+    i32 0, label %.thread837
   ]
 
-.thread838:                                       ; preds = %432
-  %434 = getelementptr inbounds i8, ptr %45, i64 32
-  store ptr null, ptr %434, align 8
-  br label %.loopexit744
+.thread837:                                       ; preds = %434
+  %436 = getelementptr inbounds i8, ptr %45, i64 32
+  store ptr null, ptr %436, align 8
+  br label %.loopexit743
 
-435:                                              ; preds = %432
-  %436 = zext i32 %433 to i64
-  %437 = call ptr @slurm_xcalloc(i64 noundef %436, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 6284, ptr noundef nonnull @__func__._unpack_launch_tasks_request_msg) #8
-  %438 = getelementptr inbounds i8, ptr %45, i64 32
-  store ptr %437, ptr %438, align 8
-  %.not547 = icmp eq ptr %437, null
-  br i1 %.not547, label %unpack_step_id_members.exit.thread, label %439
-
-439:                                              ; preds = %435
-  %.pre819 = load i32, ptr %430, align 4
-  %.not771 = icmp eq i32 %.pre819, 0
-  br i1 %.not771, label %.loopexit744, label %.lr.ph750
-
-.lr.ph750:                                        ; preds = %439
+437:                                              ; preds = %434
+  %438 = zext i32 %435 to i64
+  %439 = call ptr @slurm_xcalloc(i64 noundef %438, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 6284, ptr noundef nonnull @__func__._unpack_launch_tasks_request_msg) #8
   %440 = getelementptr inbounds i8, ptr %45, i64 32
-  br label %445
+  store ptr %439, ptr %440, align 8
+  %.not547 = icmp eq ptr %439, null
+  br i1 %.not547, label %unpack_step_id_members.exit, label %441
 
-441:                                              ; preds = %445
-  %indvars.iv.next791 = add nuw nsw i64 %indvars.iv790, 1
-  %442 = load i32, ptr %430, align 4
-  %443 = zext i32 %442 to i64
-  %444 = icmp ult i64 %indvars.iv.next791, %443
-  br i1 %444, label %445, label %.loopexit744, !llvm.loop !73
+441:                                              ; preds = %437
+  %.pre818 = load i32, ptr %432, align 4
+  %.not770 = icmp eq i32 %.pre818, 0
+  br i1 %.not770, label %.loopexit743, label %.lr.ph749
 
-445:                                              ; preds = %.lr.ph750, %441
-  %indvars.iv790 = phi i64 [ 0, %.lr.ph750 ], [ %indvars.iv.next791, %441 ]
-  %446 = load ptr, ptr %440, align 8
-  %447 = getelementptr inbounds i32, ptr %446, i64 %indvars.iv790
-  %448 = call i32 @unpack32(ptr noundef %447, ptr noundef %1) #8
-  %.not617 = icmp eq i32 %448, 0
-  br i1 %.not617, label %441, label %unpack_step_id_members.exit.thread
+.lr.ph749:                                        ; preds = %441
+  %442 = getelementptr inbounds i8, ptr %45, i64 32
+  br label %447
 
-.loopexit744:                                     ; preds = %441, %.thread838, %439, %432
-  %449 = getelementptr inbounds i8, ptr %45, i64 40
-  %450 = call i32 @unpack32(ptr noundef nonnull %449, ptr noundef %1) #8
-  %.not548 = icmp eq i32 %450, 0
-  br i1 %.not548, label %451, label %unpack_step_id_members.exit.thread
+443:                                              ; preds = %447
+  %indvars.iv.next790 = add nuw nsw i64 %indvars.iv789, 1
+  %444 = load i32, ptr %432, align 4
+  %445 = zext i32 %444 to i64
+  %446 = icmp ult i64 %indvars.iv.next790, %445
+  br i1 %446, label %447, label %.loopexit743, !llvm.loop !73
 
-451:                                              ; preds = %.loopexit744
-  %452 = getelementptr inbounds i8, ptr %45, i64 44
-  %453 = call i32 @unpack32(ptr noundef nonnull %452, ptr noundef %1) #8
-  %.not549 = icmp eq i32 %453, 0
-  br i1 %.not549, label %454, label %unpack_step_id_members.exit.thread
+447:                                              ; preds = %.lr.ph749, %443
+  %indvars.iv789 = phi i64 [ 0, %.lr.ph749 ], [ %indvars.iv.next790, %443 ]
+  %448 = load ptr, ptr %442, align 8
+  %449 = getelementptr inbounds i32, ptr %448, i64 %indvars.iv789
+  %450 = call i32 @unpack32(ptr noundef %449, ptr noundef %1) #8
+  %.not617 = icmp eq i32 %450, 0
+  br i1 %.not617, label %443, label %unpack_step_id_members.exit
 
-454:                                              ; preds = %451
-  %455 = getelementptr inbounds i8, ptr %45, i64 48
-  %456 = call i32 @unpack32(ptr noundef nonnull %455, ptr noundef %1) #8
-  %.not550 = icmp eq i32 %456, 0
-  br i1 %.not550, label %457, label %unpack_step_id_members.exit.thread
+.loopexit743:                                     ; preds = %443, %.thread837, %441, %434
+  %451 = getelementptr inbounds i8, ptr %45, i64 40
+  %452 = call i32 @unpack32(ptr noundef nonnull %451, ptr noundef %1) #8
+  %.not548 = icmp eq i32 %452, 0
+  br i1 %.not548, label %453, label %unpack_step_id_members.exit
 
-457:                                              ; preds = %454
-  %458 = getelementptr inbounds i8, ptr %45, i64 56
-  %459 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %458, ptr noundef nonnull %26, ptr noundef %1) #8
-  %.not551 = icmp eq i32 %459, 0
-  br i1 %.not551, label %460, label %unpack_step_id_members.exit.thread
+453:                                              ; preds = %.loopexit743
+  %454 = getelementptr inbounds i8, ptr %45, i64 44
+  %455 = call i32 @unpack32(ptr noundef nonnull %454, ptr noundef %1) #8
+  %.not549 = icmp eq i32 %455, 0
+  br i1 %.not549, label %456, label %unpack_step_id_members.exit
 
-460:                                              ; preds = %457
-  %461 = getelementptr inbounds i8, ptr %45, i64 64
-  %462 = call i32 @unpack32(ptr noundef nonnull %461, ptr noundef %1) #8
-  %.not552 = icmp eq i32 %462, 0
-  br i1 %.not552, label %463, label %unpack_step_id_members.exit.thread
+456:                                              ; preds = %453
+  %457 = getelementptr inbounds i8, ptr %45, i64 48
+  %458 = call i32 @unpack32(ptr noundef nonnull %457, ptr noundef %1) #8
+  %.not550 = icmp eq i32 %458, 0
+  br i1 %.not550, label %459, label %unpack_step_id_members.exit
 
-463:                                              ; preds = %460
-  %464 = load i32, ptr %461, align 8
-  %465 = icmp eq i32 %464, 101
-  br i1 %465, label %466, label %467
+459:                                              ; preds = %456
+  %460 = getelementptr inbounds i8, ptr %45, i64 56
+  %461 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %460, ptr noundef nonnull %26, ptr noundef %1) #8
+  %.not551 = icmp eq i32 %461, 0
+  br i1 %.not551, label %462, label %unpack_step_id_members.exit
 
-466:                                              ; preds = %463
-  store i32 -2, ptr %461, align 8
-  br label %467
+462:                                              ; preds = %459
+  %463 = getelementptr inbounds i8, ptr %45, i64 64
+  %464 = call i32 @unpack32(ptr noundef nonnull %463, ptr noundef %1) #8
+  %.not552 = icmp eq i32 %464, 0
+  br i1 %.not552, label %465, label %unpack_step_id_members.exit
 
-467:                                              ; preds = %463, %466
-  %468 = getelementptr inbounds i8, ptr %45, i64 72
-  %469 = call i32 @unpack32(ptr noundef nonnull %468, ptr noundef %1) #8
-  %.not553 = icmp eq i32 %469, 0
-  br i1 %.not553, label %470, label %unpack_step_id_members.exit.thread
+465:                                              ; preds = %462
+  %466 = load i32, ptr %463, align 8
+  %467 = icmp eq i32 %466, 101
+  br i1 %467, label %468, label %469
 
-470:                                              ; preds = %467
-  %471 = getelementptr inbounds i8, ptr %45, i64 76
-  %472 = call i32 @unpack16(ptr noundef nonnull %471, ptr noundef %1) #8
-  %.not554 = icmp eq i32 %472, 0
-  br i1 %.not554, label %473, label %unpack_step_id_members.exit.thread
+468:                                              ; preds = %465
+  store i32 -2, ptr %463, align 8
+  br label %469
 
-473:                                              ; preds = %470
-  %474 = getelementptr inbounds i8, ptr %45, i64 78
-  %475 = call i32 @unpack16(ptr noundef nonnull %474, ptr noundef %1) #8
-  %.not555 = icmp eq i32 %475, 0
-  br i1 %.not555, label %476, label %unpack_step_id_members.exit.thread
+469:                                              ; preds = %465, %468
+  %470 = getelementptr inbounds i8, ptr %45, i64 72
+  %471 = call i32 @unpack32(ptr noundef nonnull %470, ptr noundef %1) #8
+  %.not553 = icmp eq i32 %471, 0
+  br i1 %.not553, label %472, label %unpack_step_id_members.exit
 
-476:                                              ; preds = %473
-  %477 = getelementptr inbounds i8, ptr %45, i64 80
-  %478 = call i32 @unpack16(ptr noundef nonnull %477, ptr noundef %1) #8
-  %.not556 = icmp eq i32 %478, 0
-  br i1 %.not556, label %479, label %unpack_step_id_members.exit.thread
+472:                                              ; preds = %469
+  %473 = getelementptr inbounds i8, ptr %45, i64 76
+  %474 = call i32 @unpack16(ptr noundef nonnull %473, ptr noundef %1) #8
+  %.not554 = icmp eq i32 %474, 0
+  br i1 %.not554, label %475, label %unpack_step_id_members.exit
 
-479:                                              ; preds = %476
-  %480 = getelementptr inbounds i8, ptr %45, i64 82
-  %481 = call i32 @unpack16(ptr noundef nonnull %480, ptr noundef %1) #8
-  %.not557 = icmp eq i32 %481, 0
-  br i1 %.not557, label %482, label %unpack_step_id_members.exit.thread
+475:                                              ; preds = %472
+  %476 = getelementptr inbounds i8, ptr %45, i64 78
+  %477 = call i32 @unpack16(ptr noundef nonnull %476, ptr noundef %1) #8
+  %.not555 = icmp eq i32 %477, 0
+  br i1 %.not555, label %478, label %unpack_step_id_members.exit
 
-482:                                              ; preds = %479
-  %483 = getelementptr inbounds i8, ptr %45, i64 96
-  %484 = call i32 @unpack64(ptr noundef nonnull %483, ptr noundef %1) #8
-  %.not558 = icmp eq i32 %484, 0
-  br i1 %.not558, label %485, label %unpack_step_id_members.exit.thread
+478:                                              ; preds = %475
+  %479 = getelementptr inbounds i8, ptr %45, i64 80
+  %480 = call i32 @unpack16(ptr noundef nonnull %479, ptr noundef %1) #8
+  %.not556 = icmp eq i32 %480, 0
+  br i1 %.not556, label %481, label %unpack_step_id_members.exit
 
-485:                                              ; preds = %482
-  %486 = getelementptr inbounds i8, ptr %45, i64 120
-  %487 = call i32 @unpack64(ptr noundef nonnull %486, ptr noundef %1) #8
-  %.not559 = icmp eq i32 %487, 0
-  br i1 %.not559, label %488, label %unpack_step_id_members.exit.thread
+481:                                              ; preds = %478
+  %482 = getelementptr inbounds i8, ptr %45, i64 82
+  %483 = call i32 @unpack16(ptr noundef nonnull %482, ptr noundef %1) #8
+  %.not557 = icmp eq i32 %483, 0
+  br i1 %.not557, label %484, label %unpack_step_id_members.exit
 
-488:                                              ; preds = %485
-  %489 = getelementptr inbounds i8, ptr %45, i64 68
-  %490 = call i32 @unpack32(ptr noundef nonnull %489, ptr noundef %1) #8
-  %.not560 = icmp eq i32 %490, 0
-  br i1 %.not560, label %491, label %unpack_step_id_members.exit.thread
+484:                                              ; preds = %481
+  %485 = getelementptr inbounds i8, ptr %45, i64 96
+  %486 = call i32 @unpack64(ptr noundef nonnull %485, ptr noundef %1) #8
+  %.not558 = icmp eq i32 %486, 0
+  br i1 %.not558, label %487, label %unpack_step_id_members.exit
 
-491:                                              ; preds = %488
-  %492 = load i32, ptr %489, align 4
-  %493 = icmp ugt i32 %492, -3
-  br i1 %493, label %unpack_step_id_members.exit.thread, label %494
+487:                                              ; preds = %484
+  %488 = getelementptr inbounds i8, ptr %45, i64 120
+  %489 = call i32 @unpack64(ptr noundef nonnull %488, ptr noundef %1) #8
+  %.not559 = icmp eq i32 %489, 0
+  br i1 %.not559, label %490, label %unpack_step_id_members.exit
 
-494:                                              ; preds = %491
-  %495 = getelementptr inbounds i8, ptr %45, i64 146
-  %496 = call i32 @unpack16(ptr noundef nonnull %495, ptr noundef %1) #8
-  %.not561 = icmp eq i32 %496, 0
-  br i1 %.not561, label %497, label %unpack_step_id_members.exit.thread
+490:                                              ; preds = %487
+  %491 = getelementptr inbounds i8, ptr %45, i64 68
+  %492 = call i32 @unpack32(ptr noundef nonnull %491, ptr noundef %1) #8
+  %.not560 = icmp eq i32 %492, 0
+  br i1 %.not560, label %493, label %unpack_step_id_members.exit
 
-497:                                              ; preds = %494
-  %498 = getelementptr inbounds i8, ptr %45, i64 184
-  %499 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %498, ptr noundef nonnull %27, ptr noundef %1) #8
-  %.not562 = icmp eq i32 %499, 0
-  br i1 %.not562, label %500, label %unpack_step_id_members.exit.thread
+493:                                              ; preds = %490
+  %494 = load i32, ptr %491, align 4
+  %495 = icmp ugt i32 %494, -3
+  br i1 %495, label %unpack_step_id_members.exit, label %496
 
-500:                                              ; preds = %497
-  call void @_xstrsubstitute(ptr noundef nonnull %498, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i1 noundef zeroext true) #8
-  %501 = getelementptr inbounds i8, ptr %45, i64 176
-  %502 = call i32 @unpack16(ptr noundef nonnull %501, ptr noundef %1) #8
-  %.not563 = icmp eq i32 %502, 0
-  br i1 %.not563, label %503, label %unpack_step_id_members.exit.thread
+496:                                              ; preds = %493
+  %497 = getelementptr inbounds i8, ptr %45, i64 146
+  %498 = call i32 @unpack16(ptr noundef nonnull %497, ptr noundef %1) #8
+  %.not561 = icmp eq i32 %498, 0
+  br i1 %.not561, label %499, label %unpack_step_id_members.exit
 
-503:                                              ; preds = %500
-  %504 = getelementptr inbounds i8, ptr %45, i64 296
-  %505 = call i32 @unpack32(ptr noundef nonnull %504, ptr noundef %1) #8
-  %.not564 = icmp eq i32 %505, 0
-  br i1 %.not564, label %506, label %unpack_step_id_members.exit.thread
+499:                                              ; preds = %496
+  %500 = getelementptr inbounds i8, ptr %45, i64 184
+  %501 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %500, ptr noundef nonnull %27, ptr noundef %1) #8
+  %.not562 = icmp eq i32 %501, 0
+  br i1 %.not562, label %502, label %unpack_step_id_members.exit
 
-506:                                              ; preds = %503
-  %507 = getelementptr inbounds i8, ptr %45, i64 144
-  %508 = call i32 @unpack16(ptr noundef nonnull %507, ptr noundef %1) #8
-  %.not565 = icmp eq i32 %508, 0
-  br i1 %.not565, label %509, label %unpack_step_id_members.exit.thread
+502:                                              ; preds = %499
+  call void @_xstrsubstitute(ptr noundef nonnull %500, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i1 noundef zeroext true) #8
+  %503 = getelementptr inbounds i8, ptr %45, i64 176
+  %504 = call i32 @unpack16(ptr noundef nonnull %503, ptr noundef %1) #8
+  %.not563 = icmp eq i32 %504, 0
+  br i1 %.not563, label %505, label %unpack_step_id_members.exit
 
-509:                                              ; preds = %506
-  %510 = getelementptr inbounds i8, ptr %45, i64 468
-  %511 = call i32 @unpack16(ptr noundef nonnull %510, ptr noundef %1) #8
-  %.not566 = icmp eq i32 %511, 0
-  br i1 %.not566, label %512, label %unpack_step_id_members.exit.thread
+505:                                              ; preds = %502
+  %506 = getelementptr inbounds i8, ptr %45, i64 296
+  %507 = call i32 @unpack32(ptr noundef nonnull %506, ptr noundef %1) #8
+  %.not564 = icmp eq i32 %507, 0
+  br i1 %.not564, label %508, label %unpack_step_id_members.exit
 
-512:                                              ; preds = %509
-  %513 = getelementptr inbounds i8, ptr %45, i64 256
-  %514 = call i32 @unpack16(ptr noundef nonnull %513, ptr noundef %1) #8
-  %.not567 = icmp eq i32 %514, 0
-  br i1 %.not567, label %515, label %unpack_step_id_members.exit.thread
+508:                                              ; preds = %505
+  %509 = getelementptr inbounds i8, ptr %45, i64 144
+  %510 = call i32 @unpack16(ptr noundef nonnull %509, ptr noundef %1) #8
+  %.not565 = icmp eq i32 %510, 0
+  br i1 %.not565, label %511, label %unpack_step_id_members.exit
 
-515:                                              ; preds = %512
-  %516 = getelementptr inbounds i8, ptr %45, i64 538
-  %517 = call i32 @unpack16(ptr noundef nonnull %516, ptr noundef %1) #8
-  %.not568 = icmp eq i32 %517, 0
-  br i1 %.not568, label %518, label %unpack_step_id_members.exit.thread
+511:                                              ; preds = %508
+  %512 = getelementptr inbounds i8, ptr %45, i64 468
+  %513 = call i32 @unpack16(ptr noundef nonnull %512, ptr noundef %1) #8
+  %.not566 = icmp eq i32 %513, 0
+  br i1 %.not566, label %514, label %unpack_step_id_members.exit
 
-518:                                              ; preds = %515
-  %519 = load i16, ptr %516, align 2
-  %520 = call ptr @slurm_cred_unpack(ptr noundef %1, i16 noundef zeroext %519) #8
-  %521 = getelementptr inbounds i8, ptr %45, i64 544
-  store ptr %520, ptr %521, align 8
-  %.not569 = icmp eq ptr %520, null
-  br i1 %.not569, label %unpack_step_id_members.exit.thread, label %522
+514:                                              ; preds = %511
+  %515 = getelementptr inbounds i8, ptr %45, i64 256
+  %516 = call i32 @unpack16(ptr noundef nonnull %515, ptr noundef %1) #8
+  %.not567 = icmp eq i32 %516, 0
+  br i1 %.not567, label %517, label %unpack_step_id_members.exit
 
-522:                                              ; preds = %518
-  %523 = load i32, ptr %489, align 4
-  %.not570 = icmp eq i32 %523, 0
-  br i1 %.not570, label %.thread727, label %525
+517:                                              ; preds = %514
+  %518 = getelementptr inbounds i8, ptr %45, i64 538
+  %519 = call i32 @unpack16(ptr noundef nonnull %518, ptr noundef %1) #8
+  %.not568 = icmp eq i32 %519, 0
+  br i1 %.not568, label %520, label %unpack_step_id_members.exit
 
-.thread727:                                       ; preds = %522
-  %524 = getelementptr inbounds i8, ptr %45, i64 128
-  store ptr null, ptr %524, align 8
-  br label %.thread840
+520:                                              ; preds = %517
+  %521 = load i16, ptr %518, align 2
+  %522 = call ptr @slurm_cred_unpack(ptr noundef %1, i16 noundef zeroext %521) #8
+  %523 = getelementptr inbounds i8, ptr %45, i64 544
+  store ptr %522, ptr %523, align 8
+  %.not569 = icmp eq ptr %522, null
+  br i1 %.not569, label %unpack_step_id_members.exit, label %524
 
-525:                                              ; preds = %522
-  %526 = zext i32 %523 to i64
-  %527 = call ptr @slurm_xcalloc(i64 noundef %526, i64 noundef 2, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 6323, ptr noundef nonnull @__func__._unpack_launch_tasks_request_msg) #8
-  %528 = getelementptr inbounds i8, ptr %45, i64 128
-  store ptr %527, ptr %528, align 8
-  %.not571 = icmp eq ptr %527, null
-  br i1 %.not571, label %unpack_step_id_members.exit.thread, label %529
+524:                                              ; preds = %520
+  %525 = load i32, ptr %491, align 4
+  %.not570 = icmp eq i32 %525, 0
+  br i1 %.not570, label %.thread726, label %527
 
-529:                                              ; preds = %525
-  %.pr726 = load i32, ptr %489, align 4
-  %.not572 = icmp eq i32 %.pr726, 0
-  br i1 %.not572, label %.thread840, label %531
+.thread726:                                       ; preds = %524
+  %526 = getelementptr inbounds i8, ptr %45, i64 128
+  store ptr null, ptr %526, align 8
+  br label %.thread839
 
-.thread840:                                       ; preds = %529, %.thread727
-  %530 = getelementptr inbounds i8, ptr %45, i64 304
-  store ptr null, ptr %530, align 8
+527:                                              ; preds = %524
+  %528 = zext i32 %525 to i64
+  %529 = call ptr @slurm_xcalloc(i64 noundef %528, i64 noundef 2, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 6323, ptr noundef nonnull @__func__._unpack_launch_tasks_request_msg) #8
+  %530 = getelementptr inbounds i8, ptr %45, i64 128
+  store ptr %529, ptr %530, align 8
+  %.not571 = icmp eq ptr %529, null
+  br i1 %.not571, label %unpack_step_id_members.exit, label %531
+
+531:                                              ; preds = %527
+  %.pr725 = load i32, ptr %491, align 4
+  %.not572 = icmp eq i32 %.pr725, 0
+  br i1 %.not572, label %.thread839, label %533
+
+.thread839:                                       ; preds = %531, %.thread726
+  %532 = getelementptr inbounds i8, ptr %45, i64 304
+  store ptr null, ptr %532, align 8
   br label %._crit_edge
 
-531:                                              ; preds = %529
-  %532 = zext i32 %.pr726 to i64
-  %533 = call ptr @slurm_xcalloc(i64 noundef %532, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 6325, ptr noundef nonnull @__func__._unpack_launch_tasks_request_msg) #8
-  %534 = getelementptr inbounds i8, ptr %45, i64 304
-  store ptr %533, ptr %534, align 8
-  %.not573 = icmp eq ptr %533, null
-  br i1 %.not573, label %unpack_step_id_members.exit.thread, label %535
+533:                                              ; preds = %531
+  %534 = zext i32 %.pr725 to i64
+  %535 = call ptr @slurm_xcalloc(i64 noundef %534, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 6325, ptr noundef nonnull @__func__._unpack_launch_tasks_request_msg) #8
+  %536 = getelementptr inbounds i8, ptr %45, i64 304
+  store ptr %535, ptr %536, align 8
+  %.not573 = icmp eq ptr %535, null
+  br i1 %.not573, label %unpack_step_id_members.exit, label %537
 
-535:                                              ; preds = %531
-  %.pre821 = load i32, ptr %489, align 4
-  %.not772 = icmp eq i32 %.pre821, 0
-  br i1 %.not772, label %._crit_edge, label %.lr.ph752
+537:                                              ; preds = %533
+  %.pre820 = load i32, ptr %491, align 4
+  %.not771 = icmp eq i32 %.pre820, 0
+  br i1 %.not771, label %._crit_edge, label %.lr.ph751
 
-.lr.ph752:                                        ; preds = %535
-  %536 = getelementptr inbounds i8, ptr %45, i64 128
-  %537 = getelementptr inbounds i8, ptr %45, i64 304
-  %.pre822 = load ptr, ptr %536, align 8
-  br label %542
+.lr.ph751:                                        ; preds = %537
+  %538 = getelementptr inbounds i8, ptr %45, i64 128
+  %539 = getelementptr inbounds i8, ptr %45, i64 304
+  %.pre821 = load ptr, ptr %538, align 8
+  br label %544
 
-538:                                              ; preds = %550
-  %indvars.iv.next794 = add nuw nsw i64 %indvars.iv793, 1
-  %539 = load i32, ptr %489, align 4
-  %540 = zext i32 %539 to i64
-  %541 = icmp ult i64 %indvars.iv.next794, %540
-  br i1 %541, label %542, label %._crit_edge, !llvm.loop !74
+540:                                              ; preds = %552
+  %indvars.iv.next793 = add nuw nsw i64 %indvars.iv792, 1
+  %541 = load i32, ptr %491, align 4
+  %542 = zext i32 %541 to i64
+  %543 = icmp ult i64 %indvars.iv.next793, %542
+  br i1 %543, label %544, label %._crit_edge, !llvm.loop !74
 
-542:                                              ; preds = %.lr.ph752, %538
-  %543 = phi ptr [ %.pre822, %.lr.ph752 ], [ %551, %538 ]
-  %indvars.iv793 = phi i64 [ 0, %.lr.ph752 ], [ %indvars.iv.next794, %538 ]
-  %544 = getelementptr inbounds i16, ptr %543, i64 %indvars.iv793
-  %545 = call i32 @unpack16(ptr noundef %544, ptr noundef %1) #8
-  %.not614 = icmp eq i32 %545, 0
-  br i1 %.not614, label %546, label %unpack_step_id_members.exit.thread
+544:                                              ; preds = %.lr.ph751, %540
+  %545 = phi ptr [ %.pre821, %.lr.ph751 ], [ %553, %540 ]
+  %indvars.iv792 = phi i64 [ 0, %.lr.ph751 ], [ %indvars.iv.next793, %540 ]
+  %546 = getelementptr inbounds i16, ptr %545, i64 %indvars.iv792
+  %547 = call i32 @unpack16(ptr noundef %546, ptr noundef %1) #8
+  %.not614 = icmp eq i32 %547, 0
+  br i1 %.not614, label %548, label %unpack_step_id_members.exit
 
-546:                                              ; preds = %542
-  %547 = load ptr, ptr %537, align 8
-  %548 = getelementptr inbounds ptr, ptr %547, i64 %indvars.iv793
-  %549 = call i32 @unpack32_array(ptr noundef %548, ptr noundef nonnull %4, ptr noundef %1) #8
-  %.not615 = icmp eq i32 %549, 0
-  br i1 %.not615, label %550, label %unpack_step_id_members.exit.thread
+548:                                              ; preds = %544
+  %549 = load ptr, ptr %539, align 8
+  %550 = getelementptr inbounds ptr, ptr %549, i64 %indvars.iv792
+  %551 = call i32 @unpack32_array(ptr noundef %550, ptr noundef nonnull %4, ptr noundef %1) #8
+  %.not615 = icmp eq i32 %551, 0
+  br i1 %.not615, label %552, label %unpack_step_id_members.exit
 
-550:                                              ; preds = %546
-  %551 = load ptr, ptr %536, align 8
-  %552 = getelementptr inbounds i16, ptr %551, i64 %indvars.iv793
-  %553 = load i16, ptr %552, align 2
-  %554 = load i32, ptr %4, align 4
-  %555 = trunc i32 %554 to i16
-  %.not616 = icmp eq i16 %553, %555
-  br i1 %.not616, label %538, label %unpack_step_id_members.exit.thread
+552:                                              ; preds = %548
+  %553 = load ptr, ptr %538, align 8
+  %554 = getelementptr inbounds i16, ptr %553, i64 %indvars.iv792
+  %555 = load i16, ptr %554, align 2
+  %556 = load i32, ptr %4, align 4
+  %557 = trunc i32 %556 to i16
+  %.not616 = icmp eq i16 %555, %557
+  br i1 %.not616, label %540, label %unpack_step_id_members.exit
 
-._crit_edge:                                      ; preds = %538, %.thread840, %535
-  %556 = getelementptr inbounds i8, ptr %45, i64 280
-  %557 = call i32 @unpack16(ptr noundef nonnull %556, ptr noundef %1) #8
-  %.not574 = icmp eq i32 %557, 0
-  br i1 %.not574, label %558, label %unpack_step_id_members.exit.thread
+._crit_edge:                                      ; preds = %540, %.thread839, %537
+  %558 = getelementptr inbounds i8, ptr %45, i64 280
+  %559 = call i32 @unpack16(ptr noundef nonnull %558, ptr noundef %1) #8
+  %.not574 = icmp eq i32 %559, 0
+  br i1 %.not574, label %560, label %unpack_step_id_members.exit
 
-558:                                              ; preds = %._crit_edge
-  %559 = load i16, ptr %556, align 8
-  %560 = icmp ugt i16 %559, -3
-  br i1 %560, label %unpack_step_id_members.exit.thread, label %561
+560:                                              ; preds = %._crit_edge
+  %561 = load i16, ptr %558, align 8
+  %562 = icmp ugt i16 %561, -3
+  br i1 %562, label %unpack_step_id_members.exit, label %563
 
-561:                                              ; preds = %558
-  %.not575 = icmp eq i16 %559, 0
-  br i1 %.not575, label %.loopexit741, label %562
+563:                                              ; preds = %560
+  %.not575 = icmp eq i16 %561, 0
+  br i1 %.not575, label %.loopexit740, label %564
 
-562:                                              ; preds = %561
-  %563 = zext i16 %559 to i64
-  %564 = call ptr @slurm_xcalloc(i64 noundef %563, i64 noundef 2, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 6339, ptr noundef nonnull @__func__._unpack_launch_tasks_request_msg) #8
-  %565 = getelementptr inbounds i8, ptr %45, i64 288
-  store ptr %564, ptr %565, align 8
-  %.not576 = icmp eq ptr %564, null
-  br i1 %.not576, label %unpack_step_id_members.exit.thread, label %.preheader740
+564:                                              ; preds = %563
+  %565 = zext i16 %561 to i64
+  %566 = call ptr @slurm_xcalloc(i64 noundef %565, i64 noundef 2, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 6339, ptr noundef nonnull @__func__._unpack_launch_tasks_request_msg) #8
+  %567 = getelementptr inbounds i8, ptr %45, i64 288
+  store ptr %566, ptr %567, align 8
+  %.not576 = icmp eq ptr %566, null
+  br i1 %.not576, label %unpack_step_id_members.exit, label %.preheader739
 
-.preheader740:                                    ; preds = %562
-  %566 = load i16, ptr %556, align 8
-  %.not773 = icmp eq i16 %566, 0
-  br i1 %.not773, label %.loopexit741, label %.lr.ph754
+.preheader739:                                    ; preds = %564
+  %568 = load i16, ptr %558, align 8
+  %.not772 = icmp eq i16 %568, 0
+  br i1 %.not772, label %.loopexit740, label %.lr.ph753
 
-567:                                              ; preds = %.lr.ph754
-  %indvars.iv.next797 = add nuw nsw i64 %indvars.iv796, 1
-  %568 = load i16, ptr %556, align 8
-  %569 = zext i16 %568 to i64
-  %570 = icmp ult i64 %indvars.iv.next797, %569
-  br i1 %570, label %.lr.ph754, label %.loopexit741, !llvm.loop !75
+569:                                              ; preds = %.lr.ph753
+  %indvars.iv.next796 = add nuw nsw i64 %indvars.iv795, 1
+  %570 = load i16, ptr %558, align 8
+  %571 = zext i16 %570 to i64
+  %572 = icmp ult i64 %indvars.iv.next796, %571
+  br i1 %572, label %.lr.ph753, label %.loopexit740, !llvm.loop !75
 
-.lr.ph754:                                        ; preds = %.preheader740, %567
-  %indvars.iv796 = phi i64 [ %indvars.iv.next797, %567 ], [ 0, %.preheader740 ]
-  %571 = load ptr, ptr %565, align 8
-  %572 = getelementptr inbounds i16, ptr %571, i64 %indvars.iv796
-  %573 = call i32 @unpack16(ptr noundef %572, ptr noundef %1) #8
-  %.not613 = icmp eq i32 %573, 0
-  br i1 %.not613, label %567, label %unpack_step_id_members.exit.thread
+.lr.ph753:                                        ; preds = %.preheader739, %569
+  %indvars.iv795 = phi i64 [ %indvars.iv.next796, %569 ], [ 0, %.preheader739 ]
+  %573 = load ptr, ptr %567, align 8
+  %574 = getelementptr inbounds i16, ptr %573, i64 %indvars.iv795
+  %575 = call i32 @unpack16(ptr noundef %574, ptr noundef %1) #8
+  %.not613 = icmp eq i32 %575, 0
+  br i1 %.not613, label %569, label %unpack_step_id_members.exit
 
-.loopexit741:                                     ; preds = %567, %.preheader740, %561
-  %574 = getelementptr inbounds i8, ptr %45, i64 312
-  %575 = call i32 @slurm_unpack_addr_no_alloc(ptr noundef nonnull %574, ptr noundef %1) #8
-  %576 = getelementptr inbounds i8, ptr %45, i64 192
-  %577 = getelementptr inbounds i8, ptr %45, i64 136
-  %578 = call i32 @unpackstr_array(ptr noundef nonnull %576, ptr noundef nonnull %577, ptr noundef %1) #8
-  %.not577 = icmp eq i32 %578, 0
-  br i1 %.not577, label %579, label %unpack_step_id_members.exit.thread
+.loopexit740:                                     ; preds = %569, %.preheader739, %563
+  %576 = getelementptr inbounds i8, ptr %45, i64 312
+  %577 = call i32 @slurm_unpack_addr_no_alloc(ptr noundef nonnull %576, ptr noundef %1) #8
+  %578 = getelementptr inbounds i8, ptr %45, i64 192
+  %579 = getelementptr inbounds i8, ptr %45, i64 136
+  %580 = call i32 @unpackstr_array(ptr noundef nonnull %578, ptr noundef nonnull %579, ptr noundef %1) #8
+  %.not577 = icmp eq i32 %580, 0
+  br i1 %.not577, label %581, label %unpack_step_id_members.exit
 
-579:                                              ; preds = %.loopexit741
-  %580 = getelementptr inbounds i8, ptr %45, i64 576
-  %581 = getelementptr inbounds i8, ptr %45, i64 584
-  %582 = call i32 @unpackstr_array(ptr noundef nonnull %580, ptr noundef nonnull %581, ptr noundef %1) #8
-  %.not578 = icmp eq i32 %582, 0
-  br i1 %.not578, label %583, label %unpack_step_id_members.exit.thread
+581:                                              ; preds = %.loopexit740
+  %582 = getelementptr inbounds i8, ptr %45, i64 576
+  %583 = getelementptr inbounds i8, ptr %45, i64 584
+  %584 = call i32 @unpackstr_array(ptr noundef nonnull %582, ptr noundef nonnull %583, ptr noundef %1) #8
+  %.not578 = icmp eq i32 %584, 0
+  br i1 %.not578, label %585, label %unpack_step_id_members.exit
 
-583:                                              ; preds = %579
-  %584 = getelementptr inbounds i8, ptr %45, i64 208
-  %585 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %584, ptr noundef nonnull %28, ptr noundef %1) #8
-  %.not579 = icmp eq i32 %585, 0
-  br i1 %.not579, label %586, label %unpack_step_id_members.exit.thread
+585:                                              ; preds = %581
+  %586 = getelementptr inbounds i8, ptr %45, i64 208
+  %587 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %586, ptr noundef nonnull %28, ptr noundef %1) #8
+  %.not579 = icmp eq i32 %587, 0
+  br i1 %.not579, label %588, label %unpack_step_id_members.exit
 
-586:                                              ; preds = %583
-  %587 = getelementptr inbounds i8, ptr %45, i64 216
-  %588 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %587, ptr noundef nonnull %29, ptr noundef %1) #8
-  %.not580 = icmp eq i32 %588, 0
-  br i1 %.not580, label %589, label %unpack_step_id_members.exit.thread
+588:                                              ; preds = %585
+  %589 = getelementptr inbounds i8, ptr %45, i64 216
+  %590 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %589, ptr noundef nonnull %29, ptr noundef %1) #8
+  %.not580 = icmp eq i32 %590, 0
+  br i1 %.not580, label %591, label %unpack_step_id_members.exit
 
-589:                                              ; preds = %586
-  %590 = getelementptr inbounds i8, ptr %45, i64 224
-  %591 = call i32 @unpack16(ptr noundef nonnull %590, ptr noundef %1) #8
-  %.not581 = icmp eq i32 %591, 0
-  br i1 %.not581, label %592, label %unpack_step_id_members.exit.thread
+591:                                              ; preds = %588
+  %592 = getelementptr inbounds i8, ptr %45, i64 224
+  %593 = call i32 @unpack16(ptr noundef nonnull %592, ptr noundef %1) #8
+  %.not581 = icmp eq i32 %593, 0
+  br i1 %.not581, label %594, label %unpack_step_id_members.exit
 
-592:                                              ; preds = %589
-  %593 = getelementptr inbounds i8, ptr %45, i64 232
-  %594 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %593, ptr noundef nonnull %30, ptr noundef %1) #8
-  %.not582 = icmp eq i32 %594, 0
-  br i1 %.not582, label %595, label %unpack_step_id_members.exit.thread
+594:                                              ; preds = %591
+  %595 = getelementptr inbounds i8, ptr %45, i64 232
+  %596 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %595, ptr noundef nonnull %30, ptr noundef %1) #8
+  %.not582 = icmp eq i32 %596, 0
+  br i1 %.not582, label %597, label %unpack_step_id_members.exit
 
-595:                                              ; preds = %592
-  %596 = getelementptr inbounds i8, ptr %45, i64 240
-  %597 = call i32 @unpack16(ptr noundef nonnull %596, ptr noundef %1) #8
-  %.not583 = icmp eq i32 %597, 0
-  br i1 %.not583, label %598, label %unpack_step_id_members.exit.thread
+597:                                              ; preds = %594
+  %598 = getelementptr inbounds i8, ptr %45, i64 240
+  %599 = call i32 @unpack16(ptr noundef nonnull %598, ptr noundef %1) #8
+  %.not583 = icmp eq i32 %599, 0
+  br i1 %.not583, label %600, label %unpack_step_id_members.exit
 
-598:                                              ; preds = %595
-  %599 = getelementptr inbounds i8, ptr %45, i64 248
-  %600 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %599, ptr noundef nonnull %31, ptr noundef %1) #8
-  %.not584 = icmp eq i32 %600, 0
-  br i1 %.not584, label %601, label %unpack_step_id_members.exit.thread
+600:                                              ; preds = %597
+  %601 = getelementptr inbounds i8, ptr %45, i64 248
+  %602 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %601, ptr noundef nonnull %31, ptr noundef %1) #8
+  %.not584 = icmp eq i32 %602, 0
+  br i1 %.not584, label %603, label %unpack_step_id_members.exit
 
-601:                                              ; preds = %598
-  %602 = getelementptr inbounds i8, ptr %45, i64 200
-  %603 = getelementptr inbounds i8, ptr %45, i64 140
-  %604 = call i32 @unpackstr_array(ptr noundef nonnull %602, ptr noundef nonnull %603, ptr noundef %1) #8
-  %.not585 = icmp eq i32 %604, 0
-  br i1 %.not585, label %605, label %unpack_step_id_members.exit.thread
+603:                                              ; preds = %600
+  %604 = getelementptr inbounds i8, ptr %45, i64 200
+  %605 = getelementptr inbounds i8, ptr %45, i64 140
+  %606 = call i32 @unpackstr_array(ptr noundef nonnull %604, ptr noundef nonnull %605, ptr noundef %1) #8
+  %.not585 = icmp eq i32 %606, 0
+  br i1 %.not585, label %607, label %unpack_step_id_members.exit
 
-605:                                              ; preds = %601
-  %606 = getelementptr inbounds i8, ptr %45, i64 300
-  %607 = call i32 @unpack32(ptr noundef nonnull %606, ptr noundef %1) #8
-  %.not586 = icmp eq i32 %607, 0
-  br i1 %.not586, label %608, label %unpack_step_id_members.exit.thread
+607:                                              ; preds = %603
+  %608 = getelementptr inbounds i8, ptr %45, i64 300
+  %609 = call i32 @unpack32(ptr noundef nonnull %608, ptr noundef %1) #8
+  %.not586 = icmp eq i32 %609, 0
+  br i1 %.not586, label %610, label %unpack_step_id_members.exit
 
-608:                                              ; preds = %605
-  %609 = getelementptr inbounds i8, ptr %45, i64 472
-  %610 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %609, ptr noundef nonnull %32, ptr noundef %1) #8
-  %.not587 = icmp eq i32 %610, 0
-  br i1 %.not587, label %611, label %unpack_step_id_members.exit.thread
+610:                                              ; preds = %607
+  %611 = getelementptr inbounds i8, ptr %45, i64 472
+  %612 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %611, ptr noundef nonnull %32, ptr noundef %1) #8
+  %.not587 = icmp eq i32 %612, 0
+  br i1 %.not587, label %613, label %unpack_step_id_members.exit
 
-611:                                              ; preds = %608
-  %612 = getelementptr inbounds i8, ptr %45, i64 480
-  %613 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %612, ptr noundef nonnull %33, ptr noundef %1) #8
-  %.not588 = icmp eq i32 %613, 0
-  br i1 %.not588, label %614, label %unpack_step_id_members.exit.thread
+613:                                              ; preds = %610
+  %614 = getelementptr inbounds i8, ptr %45, i64 480
+  %615 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %614, ptr noundef nonnull %33, ptr noundef %1) #8
+  %.not588 = icmp eq i32 %615, 0
+  br i1 %.not588, label %616, label %unpack_step_id_members.exit
 
-614:                                              ; preds = %611
-  %615 = getelementptr inbounds i8, ptr %45, i64 488
-  %616 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %615, ptr noundef nonnull %34, ptr noundef %1) #8
-  %.not589 = icmp eq i32 %616, 0
-  br i1 %.not589, label %617, label %unpack_step_id_members.exit.thread
+616:                                              ; preds = %613
+  %617 = getelementptr inbounds i8, ptr %45, i64 488
+  %618 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %617, ptr noundef nonnull %34, ptr noundef %1) #8
+  %.not589 = icmp eq i32 %618, 0
+  br i1 %.not589, label %619, label %unpack_step_id_members.exit
 
-617:                                              ; preds = %614
-  %618 = getelementptr inbounds i8, ptr %45, i64 496
-  %619 = call i32 @unpack16(ptr noundef nonnull %618, ptr noundef %1) #8
-  %.not590 = icmp eq i32 %619, 0
-  br i1 %.not590, label %620, label %unpack_step_id_members.exit.thread
+619:                                              ; preds = %616
+  %620 = getelementptr inbounds i8, ptr %45, i64 496
+  %621 = call i32 @unpack16(ptr noundef nonnull %620, ptr noundef %1) #8
+  %.not590 = icmp eq i32 %621, 0
+  br i1 %.not590, label %622, label %unpack_step_id_members.exit
 
-620:                                              ; preds = %617
-  %621 = load i16, ptr %618, align 8
-  %622 = icmp ugt i16 %621, -3
-  br i1 %622, label %unpack_step_id_members.exit.thread, label %623
+622:                                              ; preds = %619
+  %623 = load i16, ptr %620, align 8
+  %624 = icmp ugt i16 %623, -3
+  br i1 %624, label %unpack_step_id_members.exit, label %625
 
-623:                                              ; preds = %620
-  %.not591 = icmp eq i16 %621, 0
-  br i1 %.not591, label %.loopexit738, label %624
+625:                                              ; preds = %622
+  %.not591 = icmp eq i16 %623, 0
+  br i1 %.not591, label %.loopexit737, label %626
 
-624:                                              ; preds = %623
-  %625 = zext i16 %621 to i64
-  %626 = call ptr @slurm_xcalloc(i64 noundef %625, i64 noundef 2, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 6363, ptr noundef nonnull @__func__._unpack_launch_tasks_request_msg) #8
-  %627 = getelementptr inbounds i8, ptr %45, i64 504
-  store ptr %626, ptr %627, align 8
-  %.not592 = icmp eq ptr %626, null
-  br i1 %.not592, label %unpack_step_id_members.exit.thread, label %.preheader737
+626:                                              ; preds = %625
+  %627 = zext i16 %623 to i64
+  %628 = call ptr @slurm_xcalloc(i64 noundef %627, i64 noundef 2, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 6363, ptr noundef nonnull @__func__._unpack_launch_tasks_request_msg) #8
+  %629 = getelementptr inbounds i8, ptr %45, i64 504
+  store ptr %628, ptr %629, align 8
+  %.not592 = icmp eq ptr %628, null
+  br i1 %.not592, label %unpack_step_id_members.exit, label %.preheader736
 
-.preheader737:                                    ; preds = %624
-  %628 = load i16, ptr %618, align 8
-  %.not774 = icmp eq i16 %628, 0
-  br i1 %.not774, label %.loopexit738, label %.lr.ph756
+.preheader736:                                    ; preds = %626
+  %630 = load i16, ptr %620, align 8
+  %.not773 = icmp eq i16 %630, 0
+  br i1 %.not773, label %.loopexit737, label %.lr.ph755
 
-629:                                              ; preds = %.lr.ph756
-  %indvars.iv.next800 = add nuw nsw i64 %indvars.iv799, 1
-  %630 = load i16, ptr %618, align 8
-  %631 = zext i16 %630 to i64
-  %632 = icmp ult i64 %indvars.iv.next800, %631
-  br i1 %632, label %.lr.ph756, label %.loopexit738, !llvm.loop !76
+631:                                              ; preds = %.lr.ph755
+  %indvars.iv.next799 = add nuw nsw i64 %indvars.iv798, 1
+  %632 = load i16, ptr %620, align 8
+  %633 = zext i16 %632 to i64
+  %634 = icmp ult i64 %indvars.iv.next799, %633
+  br i1 %634, label %.lr.ph755, label %.loopexit737, !llvm.loop !76
 
-.lr.ph756:                                        ; preds = %.preheader737, %629
-  %indvars.iv799 = phi i64 [ %indvars.iv.next800, %629 ], [ 0, %.preheader737 ]
-  %633 = load ptr, ptr %627, align 8
-  %634 = getelementptr inbounds i16, ptr %633, i64 %indvars.iv799
-  %635 = call i32 @unpack16(ptr noundef %634, ptr noundef %1) #8
-  %.not612 = icmp eq i32 %635, 0
-  br i1 %.not612, label %629, label %unpack_step_id_members.exit.thread
+.lr.ph755:                                        ; preds = %.preheader736, %631
+  %indvars.iv798 = phi i64 [ %indvars.iv.next799, %631 ], [ 0, %.preheader736 ]
+  %635 = load ptr, ptr %629, align 8
+  %636 = getelementptr inbounds i16, ptr %635, i64 %indvars.iv798
+  %637 = call i32 @unpack16(ptr noundef %636, ptr noundef %1) #8
+  %.not612 = icmp eq i32 %637, 0
+  br i1 %.not612, label %631, label %unpack_step_id_members.exit
 
-.loopexit738:                                     ; preds = %629, %.preheader737, %623
-  %636 = getelementptr inbounds i8, ptr %45, i64 512
-  %637 = call i32 @unpack32(ptr noundef nonnull %636, ptr noundef %1) #8
-  %.not593 = icmp eq i32 %637, 0
-  br i1 %.not593, label %638, label %unpack_step_id_members.exit.thread
+.loopexit737:                                     ; preds = %631, %.preheader736, %625
+  %638 = getelementptr inbounds i8, ptr %45, i64 512
+  %639 = call i32 @unpack32(ptr noundef nonnull %638, ptr noundef %1) #8
+  %.not593 = icmp eq i32 %639, 0
+  br i1 %.not593, label %640, label %unpack_step_id_members.exit
 
-638:                                              ; preds = %.loopexit738
-  %639 = getelementptr inbounds i8, ptr %45, i64 520
-  %640 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %639, ptr noundef nonnull %35, ptr noundef %1) #8
-  %.not594 = icmp eq i32 %640, 0
-  br i1 %.not594, label %641, label %unpack_step_id_members.exit.thread
+640:                                              ; preds = %.loopexit737
+  %641 = getelementptr inbounds i8, ptr %45, i64 520
+  %642 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %641, ptr noundef nonnull %35, ptr noundef %1) #8
+  %.not594 = icmp eq i32 %642, 0
+  br i1 %.not594, label %643, label %unpack_step_id_members.exit
 
-641:                                              ; preds = %638
-  %642 = getelementptr inbounds i8, ptr %45, i64 528
-  %643 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %642, ptr noundef nonnull %36, ptr noundef %1) #8
-  %.not595 = icmp eq i32 %643, 0
-  br i1 %.not595, label %644, label %unpack_step_id_members.exit.thread
+643:                                              ; preds = %640
+  %644 = getelementptr inbounds i8, ptr %45, i64 528
+  %645 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %644, ptr noundef nonnull %36, ptr noundef %1) #8
+  %.not595 = icmp eq i32 %645, 0
+  br i1 %.not595, label %646, label %unpack_step_id_members.exit
 
-644:                                              ; preds = %641
-  %645 = getelementptr inbounds i8, ptr %45, i64 536
-  %646 = call i32 @unpack16(ptr noundef nonnull %645, ptr noundef %1) #8
-  %.not596 = icmp eq i32 %646, 0
-  br i1 %.not596, label %647, label %unpack_step_id_members.exit.thread
+646:                                              ; preds = %643
+  %647 = getelementptr inbounds i8, ptr %45, i64 536
+  %648 = call i32 @unpack16(ptr noundef nonnull %647, ptr noundef %1) #8
+  %.not596 = icmp eq i32 %648, 0
+  br i1 %.not596, label %649, label %unpack_step_id_members.exit
 
-647:                                              ; preds = %644
-  %648 = getelementptr inbounds i8, ptr %45, i64 552
-  %649 = call i32 @switch_g_unpack_jobinfo(ptr noundef nonnull %648, ptr noundef %1, i16 noundef zeroext %2) #8
-  %650 = icmp slt i32 %649, 0
-  br i1 %650, label %651, label %654
+649:                                              ; preds = %646
+  %650 = getelementptr inbounds i8, ptr %45, i64 552
+  %651 = call i32 @switch_g_unpack_jobinfo(ptr noundef nonnull %650, ptr noundef %1, i16 noundef zeroext %2) #8
+  %652 = icmp slt i32 %651, 0
+  br i1 %652, label %653, label %656
 
-651:                                              ; preds = %647
-  %652 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.13) #8
-  %653 = load ptr, ptr %648, align 8
-  call void @switch_g_free_jobinfo(ptr noundef %653) #8
-  br label %unpack_step_id_members.exit.thread
+653:                                              ; preds = %649
+  %654 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.13) #8
+  %655 = load ptr, ptr %650, align 8
+  call void @switch_g_free_jobinfo(ptr noundef %655) #8
+  br label %unpack_step_id_members.exit
 
-654:                                              ; preds = %647
-  %655 = call ptr @job_options_create() #8
-  %656 = getelementptr inbounds i8, ptr %45, i64 560
-  store ptr %655, ptr %656, align 8
-  %657 = call i32 @job_options_unpack(ptr noundef %655, ptr noundef %1) #8
-  %658 = icmp slt i32 %657, 0
-  br i1 %658, label %659, label %661
+656:                                              ; preds = %649
+  %657 = call ptr @job_options_create() #8
+  %658 = getelementptr inbounds i8, ptr %45, i64 560
+  store ptr %657, ptr %658, align 8
+  %659 = call i32 @job_options_unpack(ptr noundef %657, ptr noundef %1) #8
+  %660 = icmp slt i32 %659, 0
+  br i1 %660, label %661, label %663
 
-659:                                              ; preds = %654
-  %660 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.14) #8
-  br label %unpack_step_id_members.exit.thread
+661:                                              ; preds = %656
+  %662 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.14) #8
+  br label %unpack_step_id_members.exit
 
-661:                                              ; preds = %654
-  %662 = getelementptr inbounds i8, ptr %45, i64 600
-  %663 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %662, ptr noundef nonnull %37, ptr noundef %1) #8
-  %.not597 = icmp eq i32 %663, 0
-  br i1 %.not597, label %664, label %unpack_step_id_members.exit.thread
+663:                                              ; preds = %656
+  %664 = getelementptr inbounds i8, ptr %45, i64 600
+  %665 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %664, ptr noundef nonnull %37, ptr noundef %1) #8
+  %.not597 = icmp eq i32 %665, 0
+  br i1 %.not597, label %666, label %unpack_step_id_members.exit
 
-664:                                              ; preds = %661
-  %665 = getelementptr inbounds i8, ptr %45, i64 568
-  %666 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %665, ptr noundef nonnull %38, ptr noundef %1) #8
-  %.not598 = icmp eq i32 %666, 0
-  br i1 %.not598, label %667, label %unpack_step_id_members.exit.thread
+666:                                              ; preds = %663
+  %667 = getelementptr inbounds i8, ptr %45, i64 568
+  %668 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %667, ptr noundef nonnull %38, ptr noundef %1) #8
+  %.not598 = icmp eq i32 %668, 0
+  br i1 %.not598, label %669, label %unpack_step_id_members.exit
 
-667:                                              ; preds = %664
-  %668 = getelementptr inbounds i8, ptr %45, i64 440
-  %669 = call i32 @unpack8(ptr noundef nonnull %668, ptr noundef %1) #8
-  %.not599 = icmp eq i32 %669, 0
-  br i1 %.not599, label %670, label %unpack_step_id_members.exit.thread
+669:                                              ; preds = %666
+  %670 = getelementptr inbounds i8, ptr %45, i64 440
+  %671 = call i32 @unpack8(ptr noundef nonnull %670, ptr noundef %1) #8
+  %.not599 = icmp eq i32 %671, 0
+  br i1 %.not599, label %672, label %unpack_step_id_members.exit
 
-670:                                              ; preds = %667
-  %671 = getelementptr inbounds i8, ptr %45, i64 448
-  %672 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %671, ptr noundef nonnull %39, ptr noundef %1) #8
-  %.not600 = icmp eq i32 %672, 0
-  br i1 %.not600, label %673, label %unpack_step_id_members.exit.thread
+672:                                              ; preds = %669
+  %673 = getelementptr inbounds i8, ptr %45, i64 448
+  %674 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %673, ptr noundef nonnull %39, ptr noundef %1) #8
+  %.not600 = icmp eq i32 %674, 0
+  br i1 %.not600, label %675, label %unpack_step_id_members.exit
 
-673:                                              ; preds = %670
-  %674 = getelementptr inbounds i8, ptr %45, i64 456
-  %675 = call i32 @unpack32(ptr noundef nonnull %674, ptr noundef %1) #8
-  %.not601 = icmp eq i32 %675, 0
-  br i1 %.not601, label %676, label %unpack_step_id_members.exit.thread
+675:                                              ; preds = %672
+  %676 = getelementptr inbounds i8, ptr %45, i64 456
+  %677 = call i32 @unpack32(ptr noundef nonnull %676, ptr noundef %1) #8
+  %.not601 = icmp eq i32 %677, 0
+  br i1 %.not601, label %678, label %unpack_step_id_members.exit
 
-676:                                              ; preds = %673
-  %677 = getelementptr inbounds i8, ptr %45, i64 460
-  %678 = call i32 @unpack32(ptr noundef nonnull %677, ptr noundef %1) #8
-  %.not602 = icmp eq i32 %678, 0
-  br i1 %.not602, label %679, label %unpack_step_id_members.exit.thread
+678:                                              ; preds = %675
+  %679 = getelementptr inbounds i8, ptr %45, i64 460
+  %680 = call i32 @unpack32(ptr noundef nonnull %679, ptr noundef %1) #8
+  %.not602 = icmp eq i32 %680, 0
+  br i1 %.not602, label %681, label %unpack_step_id_members.exit
 
-679:                                              ; preds = %676
-  %680 = getelementptr inbounds i8, ptr %45, i64 464
-  %681 = call i32 @unpack32(ptr noundef nonnull %680, ptr noundef %1) #8
-  %.not603 = icmp eq i32 %681, 0
-  br i1 %.not603, label %682, label %unpack_step_id_members.exit.thread
+681:                                              ; preds = %678
+  %682 = getelementptr inbounds i8, ptr %45, i64 464
+  %683 = call i32 @unpack32(ptr noundef nonnull %682, ptr noundef %1) #8
+  %.not603 = icmp eq i32 %683, 0
+  br i1 %.not603, label %684, label %unpack_step_id_members.exit
 
-682:                                              ; preds = %679
-  %683 = getelementptr inbounds i8, ptr %45, i64 264
-  %684 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %683, ptr noundef nonnull %40, ptr noundef %1) #8
-  %.not604 = icmp eq i32 %684, 0
-  br i1 %.not604, label %685, label %unpack_step_id_members.exit.thread
+684:                                              ; preds = %681
+  %685 = getelementptr inbounds i8, ptr %45, i64 264
+  %686 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %685, ptr noundef nonnull %40, ptr noundef %1) #8
+  %.not604 = icmp eq i32 %686, 0
+  br i1 %.not604, label %687, label %unpack_step_id_members.exit
 
-685:                                              ; preds = %682
-  %686 = getelementptr inbounds i8, ptr %45, i64 272
-  %687 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %686, ptr noundef nonnull %41, ptr noundef %1) #8
-  %.not605 = icmp eq i32 %687, 0
-  br i1 %.not605, label %688, label %unpack_step_id_members.exit.thread
+687:                                              ; preds = %684
+  %688 = getelementptr inbounds i8, ptr %45, i64 272
+  %689 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %688, ptr noundef nonnull %41, ptr noundef %1) #8
+  %.not605 = icmp eq i32 %689, 0
+  br i1 %.not605, label %690, label %unpack_step_id_members.exit
 
-688:                                              ; preds = %685
-  %689 = getelementptr inbounds i8, ptr %45, i64 608
-  %690 = call i32 @unpack16(ptr noundef nonnull %689, ptr noundef %1) #8
-  %.not606 = icmp eq i32 %690, 0
-  br i1 %.not606, label %691, label %unpack_step_id_members.exit.thread
+690:                                              ; preds = %687
+  %691 = getelementptr inbounds i8, ptr %45, i64 608
+  %692 = call i32 @unpack16(ptr noundef nonnull %691, ptr noundef %1) #8
+  %.not606 = icmp eq i32 %692, 0
+  br i1 %.not606, label %693, label %unpack_step_id_members.exit
 
-691:                                              ; preds = %688
-  %692 = getelementptr inbounds i8, ptr %45, i64 616
-  %693 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %692, ptr noundef nonnull %42, ptr noundef %1) #8
-  %.not607 = icmp eq i32 %693, 0
-  br i1 %.not607, label %694, label %unpack_step_id_members.exit.thread
+693:                                              ; preds = %690
+  %694 = getelementptr inbounds i8, ptr %45, i64 616
+  %695 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %694, ptr noundef nonnull %42, ptr noundef %1) #8
+  %.not607 = icmp eq i32 %695, 0
+  br i1 %.not607, label %696, label %unpack_step_id_members.exit
 
-694:                                              ; preds = %691
-  %695 = getelementptr inbounds i8, ptr %45, i64 624
-  %696 = call i32 @unpack16(ptr noundef nonnull %695, ptr noundef %1) #8
-  %.not608 = icmp eq i32 %696, 0
-  br i1 %.not608, label %697, label %unpack_step_id_members.exit.thread
+696:                                              ; preds = %693
+  %697 = getelementptr inbounds i8, ptr %45, i64 624
+  %698 = call i32 @unpack16(ptr noundef nonnull %697, ptr noundef %1) #8
+  %.not608 = icmp eq i32 %698, 0
+  br i1 %.not608, label %699, label %unpack_step_id_members.exit
 
-697:                                              ; preds = %694
-  %698 = getelementptr inbounds i8, ptr %45, i64 632
-  %699 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %698, ptr noundef nonnull %43, ptr noundef %1) #8
-  %.not609 = icmp eq i32 %699, 0
-  br i1 %.not609, label %700, label %unpack_step_id_members.exit.thread
+699:                                              ; preds = %696
+  %700 = getelementptr inbounds i8, ptr %45, i64 632
+  %701 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %700, ptr noundef nonnull %43, ptr noundef %1) #8
+  %.not609 = icmp eq i32 %701, 0
+  br i1 %.not609, label %702, label %unpack_step_id_members.exit
 
-700:                                              ; preds = %697
-  %701 = getelementptr inbounds i8, ptr %45, i64 640
-  %702 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %701, ptr noundef nonnull %44, ptr noundef %1) #8
-  %.not610 = icmp eq i32 %702, 0
-  br i1 %.not610, label %703, label %unpack_step_id_members.exit.thread
+702:                                              ; preds = %699
+  %703 = getelementptr inbounds i8, ptr %45, i64 640
+  %704 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %703, ptr noundef nonnull %44, ptr noundef %1) #8
+  %.not610 = icmp eq i32 %704, 0
+  br i1 %.not610, label %705, label %unpack_step_id_members.exit
 
-703:                                              ; preds = %700
-  %704 = getelementptr inbounds i8, ptr %45, i64 648
-  %705 = call i32 @unpack16(ptr noundef nonnull %704, ptr noundef %1) #8
-  %.not611 = icmp eq i32 %705, 0
-  br i1 %.not611, label %706, label %unpack_step_id_members.exit.thread
+705:                                              ; preds = %702
+  %706 = getelementptr inbounds i8, ptr %45, i64 648
+  %707 = call i32 @unpack16(ptr noundef nonnull %706, ptr noundef %1) #8
+  %.not611 = icmp eq i32 %707, 0
+  br i1 %.not611, label %708, label %unpack_step_id_members.exit
 
-unpack_step_id_members.exit.thread:               ; preds = %418, %445, %550, %546, %542, %.lr.ph754, %.lr.ph756, %83, %110, %218, %214, %210, %.lr.ph768, %.lr.ph770, %376, %379, %47, %50, %703, %700, %697, %694, %691, %688, %685, %682, %679, %676, %673, %670, %667, %664, %661, %644, %641, %638, %.loopexit738, %624, %620, %617, %614, %611, %608, %605, %601, %598, %595, %592, %589, %586, %583, %579, %.loopexit741, %562, %558, %._crit_edge, %531, %525, %518, %515, %512, %509, %506, %503, %500, %497, %494, %491, %488, %485, %482, %479, %476, %473, %470, %467, %460, %457, %454, %451, %.loopexit744, %435, %.loopexit746, %411, %405, %399, %396, %394, %390, %388, %386, %384, %unpack_step_id_members.exit711, %371, %368, %365, %362, %359, %356, %353, %350, %347, %344, %341, %338, %335, %332, %329, %312, %309, %306, %.loopexit, %292, %288, %285, %282, %279, %276, %273, %269, %266, %263, %260, %257, %254, %251, %247, %.loopexit730, %230, %226, %._crit_edge766, %199, %193, %186, %183, %180, %177, %174, %171, %168, %165, %162, %158, %155, %152, %149, %146, %143, %140, %137, %134, %131, %128, %125, %122, %119, %116, %.loopexit733, %100, %.loopexit735, %76, %70, %64, %61, %59, %55, %unpack_step_id_members.exit, %659, %651, %327, %319
+unpack_step_id_members.exit:                      ; preds = %420, %447, %552, %548, %544, %.lr.ph753, %.lr.ph755, %84, %111, %219, %215, %211, %.lr.ph767, %.lr.ph769, %383, %380, %377, %53, %50, %47, %705, %702, %699, %696, %693, %690, %687, %684, %681, %678, %675, %672, %669, %666, %663, %646, %643, %640, %.loopexit737, %626, %622, %619, %616, %613, %610, %607, %603, %600, %597, %594, %591, %588, %585, %581, %.loopexit740, %564, %560, %._crit_edge, %533, %527, %520, %517, %514, %511, %508, %505, %502, %499, %496, %493, %490, %487, %484, %481, %478, %475, %472, %469, %462, %459, %456, %453, %.loopexit743, %437, %.loopexit745, %413, %407, %401, %398, %396, %392, %390, %388, %386, %372, %369, %366, %363, %360, %357, %354, %351, %348, %345, %342, %339, %336, %333, %330, %313, %310, %307, %.loopexit, %293, %289, %286, %283, %280, %277, %274, %270, %267, %264, %261, %258, %255, %252, %248, %.loopexit729, %231, %227, %._crit_edge765, %200, %194, %187, %184, %181, %178, %175, %172, %169, %166, %163, %159, %156, %153, %150, %147, %144, %141, %138, %135, %132, %129, %126, %123, %120, %117, %.loopexit732, %101, %.loopexit734, %77, %71, %65, %62, %60, %56, %661, %653, %328, %320
   call void @slurm_free_launch_tasks_request_msg(ptr noundef %45) #8
   store ptr null, ptr %0, align 8
-  br label %706
+  br label %708
 
-706:                                              ; preds = %371, %703, %374, %unpack_step_id_members.exit.thread
-  %.0 = phi i32 [ -1, %unpack_step_id_members.exit.thread ], [ 0, %374 ], [ 0, %703 ], [ 0, %371 ]
+708:                                              ; preds = %372, %705, %375, %unpack_step_id_members.exit
+  %.0 = phi i32 [ -1, %unpack_step_id_members.exit ], [ 0, %375 ], [ 0, %705 ], [ 0, %372 ]
   ret i32 %.0
 }
 
@@ -27631,74 +27631,74 @@ define internal fastcc noundef i32 @_unpack_launch_tasks_response_msg(ptr nocapt
   %6 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 56, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 5858, ptr noundef nonnull @__func__._unpack_launch_tasks_response_msg) #8
   store ptr %6, ptr %0, align 8
   %7 = icmp ugt i16 %2, 9983
-  br i1 %7, label %8, label %36
+  br i1 %7, label %8, label %37
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %6, i64 32
   %10 = tail call i32 @unpack32(ptr noundef nonnull %9, ptr noundef %1) #8
   %.not.i = icmp eq i32 %10, 0
-  br i1 %.not.i, label %11, label %unpack_step_id_members.exit.thread
+  br i1 %.not.i, label %11, label %unpack_step_id_members.exit
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds i8, ptr %6, i64 40
   %13 = tail call i32 @unpack32(ptr noundef nonnull %12, ptr noundef %1) #8
   %.not9.i = icmp eq i32 %13, 0
-  br i1 %.not9.i, label %unpack_step_id_members.exit, label %unpack_step_id_members.exit.thread
+  br i1 %.not9.i, label %14, label %unpack_step_id_members.exit
 
-unpack_step_id_members.exit:                      ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %6, i64 36
-  %15 = tail call i32 @unpack32(ptr noundef nonnull %14, ptr noundef %1) #8
-  %.not10.i.not = icmp eq i32 %15, 0
-  br i1 %.not10.i.not, label %16, label %unpack_step_id_members.exit.thread
+14:                                               ; preds = %11
+  %15 = getelementptr inbounds i8, ptr %6, i64 36
+  %16 = tail call i32 @unpack32(ptr noundef nonnull %15, ptr noundef %1) #8
+  %.not10.i = icmp eq i32 %16, 0
+  br i1 %.not10.i, label %17, label %unpack_step_id_members.exit
 
-16:                                               ; preds = %unpack_step_id_members.exit
-  %17 = tail call i32 @unpack32(ptr noundef %6, ptr noundef %1) #8
-  %.not20 = icmp eq i32 %17, 0
-  br i1 %.not20, label %18, label %unpack_step_id_members.exit.thread
+17:                                               ; preds = %14
+  %18 = tail call i32 @unpack32(ptr noundef %6, ptr noundef %1) #8
+  %.not20 = icmp eq i32 %18, 0
+  br i1 %.not20, label %19, label %unpack_step_id_members.exit
 
-18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %6, i64 8
-  %20 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %19, ptr noundef nonnull %5, ptr noundef %1) #8
-  %.not21 = icmp eq i32 %20, 0
-  br i1 %.not21, label %21, label %unpack_step_id_members.exit.thread
+19:                                               ; preds = %17
+  %20 = getelementptr inbounds i8, ptr %6, i64 8
+  %21 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %20, ptr noundef nonnull %5, ptr noundef %1) #8
+  %.not21 = icmp eq i32 %21, 0
+  br i1 %.not21, label %22, label %unpack_step_id_members.exit
 
-21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %6, i64 20
-  %23 = call i32 @unpack32(ptr noundef nonnull %22, ptr noundef %1) #8
-  %.not22 = icmp eq i32 %23, 0
-  br i1 %.not22, label %24, label %unpack_step_id_members.exit.thread
+22:                                               ; preds = %19
+  %23 = getelementptr inbounds i8, ptr %6, i64 20
+  %24 = call i32 @unpack32(ptr noundef nonnull %23, ptr noundef %1) #8
+  %.not22 = icmp eq i32 %24, 0
+  br i1 %.not22, label %25, label %unpack_step_id_members.exit
 
-24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %6, i64 24
-  %26 = call i32 @unpack32_array(ptr noundef nonnull %25, ptr noundef nonnull %4, ptr noundef %1) #8
-  %.not23 = icmp eq i32 %26, 0
-  br i1 %.not23, label %27, label %unpack_step_id_members.exit.thread
+25:                                               ; preds = %22
+  %26 = getelementptr inbounds i8, ptr %6, i64 24
+  %27 = call i32 @unpack32_array(ptr noundef nonnull %26, ptr noundef nonnull %4, ptr noundef %1) #8
+  %.not23 = icmp eq i32 %27, 0
+  br i1 %.not23, label %28, label %unpack_step_id_members.exit
 
-27:                                               ; preds = %24
-  %28 = load i32, ptr %22, align 4
-  %29 = load i32, ptr %4, align 4
-  %.not24 = icmp eq i32 %28, %29
-  br i1 %.not24, label %30, label %unpack_step_id_members.exit.thread
+28:                                               ; preds = %25
+  %29 = load i32, ptr %23, align 4
+  %30 = load i32, ptr %4, align 4
+  %.not24 = icmp eq i32 %29, %30
+  br i1 %.not24, label %31, label %unpack_step_id_members.exit
 
-30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %6, i64 48
-  %32 = call i32 @unpack32_array(ptr noundef nonnull %31, ptr noundef nonnull %4, ptr noundef %1) #8
-  %.not25 = icmp eq i32 %32, 0
-  br i1 %.not25, label %33, label %unpack_step_id_members.exit.thread
+31:                                               ; preds = %28
+  %32 = getelementptr inbounds i8, ptr %6, i64 48
+  %33 = call i32 @unpack32_array(ptr noundef nonnull %32, ptr noundef nonnull %4, ptr noundef %1) #8
+  %.not25 = icmp eq i32 %33, 0
+  br i1 %.not25, label %34, label %unpack_step_id_members.exit
 
-33:                                               ; preds = %30
-  %34 = load i32, ptr %22, align 4
-  %35 = load i32, ptr %4, align 4
-  %.not26 = icmp eq i32 %34, %35
-  br i1 %.not26, label %36, label %unpack_step_id_members.exit.thread
+34:                                               ; preds = %31
+  %35 = load i32, ptr %23, align 4
+  %36 = load i32, ptr %4, align 4
+  %.not26 = icmp eq i32 %35, %36
+  br i1 %.not26, label %37, label %unpack_step_id_members.exit
 
-unpack_step_id_members.exit.thread:               ; preds = %8, %11, %33, %30, %27, %24, %21, %18, %16, %unpack_step_id_members.exit
+unpack_step_id_members.exit:                      ; preds = %14, %11, %8, %34, %31, %28, %25, %22, %19, %17
   call void @slurm_free_launch_tasks_response_msg(ptr noundef %6) #8
   store ptr null, ptr %0, align 8
-  br label %36
+  br label %37
 
-36:                                               ; preds = %3, %33, %unpack_step_id_members.exit.thread
-  %.0 = phi i32 [ -1, %unpack_step_id_members.exit.thread ], [ 0, %33 ], [ 0, %3 ]
+37:                                               ; preds = %3, %34, %unpack_step_id_members.exit
+  %.0 = phi i32 [ -1, %unpack_step_id_members.exit ], [ 0, %34 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -27707,125 +27707,125 @@ define internal fastcc noundef i32 @_unpack_reattach_tasks_request_msg(ptr nocap
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 56, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 5701, ptr noundef nonnull @__func__._unpack_reattach_tasks_request_msg) #8
   store ptr %4, ptr %0, align 8
   %5 = icmp ugt i16 %2, 9983
-  br i1 %5, label %6, label %52
+  br i1 %5, label %6, label %53
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   %8 = tail call i32 @unpack32(ptr noundef nonnull %7, ptr noundef %1) #8
   %.not.i = icmp eq i32 %8, 0
-  br i1 %.not.i, label %9, label %unpack_step_id_members.exit.thread
+  br i1 %.not.i, label %9, label %unpack_step_id_members.exit
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds i8, ptr %4, i64 48
   %11 = tail call i32 @unpack32(ptr noundef nonnull %10, ptr noundef %1) #8
   %.not9.i = icmp eq i32 %11, 0
-  br i1 %.not9.i, label %unpack_step_id_members.exit, label %unpack_step_id_members.exit.thread
+  br i1 %.not9.i, label %12, label %unpack_step_id_members.exit
 
-unpack_step_id_members.exit:                      ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %4, i64 44
-  %13 = tail call i32 @unpack32(ptr noundef nonnull %12, ptr noundef %1) #8
-  %.not10.i.not = icmp eq i32 %13, 0
-  br i1 %.not10.i.not, label %14, label %unpack_step_id_members.exit.thread
+12:                                               ; preds = %9
+  %13 = getelementptr inbounds i8, ptr %4, i64 44
+  %14 = tail call i32 @unpack32(ptr noundef nonnull %13, ptr noundef %1) #8
+  %.not10.i = icmp eq i32 %14, 0
+  br i1 %.not10.i, label %15, label %unpack_step_id_members.exit
 
-14:                                               ; preds = %unpack_step_id_members.exit
-  %15 = tail call i32 @unpack16(ptr noundef %4, ptr noundef %1) #8
-  %.not53 = icmp eq i32 %15, 0
-  br i1 %.not53, label %16, label %unpack_step_id_members.exit.thread
+15:                                               ; preds = %12
+  %16 = tail call i32 @unpack16(ptr noundef %4, ptr noundef %1) #8
+  %.not53 = icmp eq i32 %16, 0
+  br i1 %.not53, label %17, label %unpack_step_id_members.exit
 
-16:                                               ; preds = %14
-  %17 = load i16, ptr %4, align 8
-  %18 = icmp ugt i16 %17, -3
-  br i1 %18, label %unpack_step_id_members.exit.thread, label %19
+17:                                               ; preds = %15
+  %18 = load i16, ptr %4, align 8
+  %19 = icmp ugt i16 %18, -3
+  br i1 %19, label %unpack_step_id_members.exit, label %20
 
-19:                                               ; preds = %16
-  %.not54 = icmp eq i16 %17, 0
-  br i1 %.not54, label %.loopexit65, label %20
+20:                                               ; preds = %17
+  %.not54 = icmp eq i16 %18, 0
+  br i1 %.not54, label %.loopexit65, label %21
 
-20:                                               ; preds = %19
-  %21 = zext i16 %17 to i64
-  %22 = tail call ptr @slurm_xcalloc(i64 noundef %21, i64 noundef 2, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 5713, ptr noundef nonnull @__func__._unpack_reattach_tasks_request_msg) #8
-  %23 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr %22, ptr %23, align 8
-  %.not55 = icmp eq ptr %22, null
-  br i1 %.not55, label %unpack_step_id_members.exit.thread, label %.preheader64
+21:                                               ; preds = %20
+  %22 = zext i16 %18 to i64
+  %23 = tail call ptr @slurm_xcalloc(i64 noundef %22, i64 noundef 2, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 5713, ptr noundef nonnull @__func__._unpack_reattach_tasks_request_msg) #8
+  %24 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %23, ptr %24, align 8
+  %.not55 = icmp eq ptr %23, null
+  br i1 %.not55, label %unpack_step_id_members.exit, label %.preheader64
 
-.preheader64:                                     ; preds = %20
-  %24 = load i16, ptr %4, align 8
-  %.not = icmp eq i16 %24, 0
+.preheader64:                                     ; preds = %21
+  %25 = load i16, ptr %4, align 8
+  %.not = icmp eq i16 %25, 0
   br i1 %.not, label %.loopexit65, label %.lr.ph
 
-25:                                               ; preds = %.lr.ph
+26:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %26 = load i16, ptr %4, align 8
-  %27 = zext i16 %26 to i64
-  %28 = icmp ult i64 %indvars.iv.next, %27
-  br i1 %28, label %.lr.ph, label %.loopexit65, !llvm.loop !77
+  %27 = load i16, ptr %4, align 8
+  %28 = zext i16 %27 to i64
+  %29 = icmp ult i64 %indvars.iv.next, %28
+  br i1 %29, label %.lr.ph, label %.loopexit65, !llvm.loop !77
 
-.lr.ph:                                           ; preds = %.preheader64, %25
-  %indvars.iv = phi i64 [ %indvars.iv.next, %25 ], [ 0, %.preheader64 ]
-  %29 = load ptr, ptr %23, align 8
-  %30 = getelementptr inbounds i16, ptr %29, i64 %indvars.iv
-  %31 = tail call i32 @unpack16(ptr noundef %30, ptr noundef %1) #8
-  %.not61 = icmp eq i32 %31, 0
-  br i1 %.not61, label %25, label %unpack_step_id_members.exit.thread
+.lr.ph:                                           ; preds = %.preheader64, %26
+  %indvars.iv = phi i64 [ %indvars.iv.next, %26 ], [ 0, %.preheader64 ]
+  %30 = load ptr, ptr %24, align 8
+  %31 = getelementptr inbounds i16, ptr %30, i64 %indvars.iv
+  %32 = tail call i32 @unpack16(ptr noundef %31, ptr noundef %1) #8
+  %.not61 = icmp eq i32 %32, 0
+  br i1 %.not61, label %26, label %unpack_step_id_members.exit
 
-.loopexit65:                                      ; preds = %25, %.preheader64, %19
-  %32 = getelementptr inbounds i8, ptr %4, i64 16
-  %33 = tail call i32 @unpack16(ptr noundef nonnull %32, ptr noundef %1) #8
-  %.not56 = icmp eq i32 %33, 0
-  br i1 %.not56, label %34, label %unpack_step_id_members.exit.thread
+.loopexit65:                                      ; preds = %26, %.preheader64, %20
+  %33 = getelementptr inbounds i8, ptr %4, i64 16
+  %34 = tail call i32 @unpack16(ptr noundef nonnull %33, ptr noundef %1) #8
+  %.not56 = icmp eq i32 %34, 0
+  br i1 %.not56, label %35, label %unpack_step_id_members.exit
 
-34:                                               ; preds = %.loopexit65
-  %35 = load i16, ptr %32, align 8
-  %36 = icmp ugt i16 %35, -3
-  br i1 %36, label %unpack_step_id_members.exit.thread, label %37
+35:                                               ; preds = %.loopexit65
+  %36 = load i16, ptr %33, align 8
+  %37 = icmp ugt i16 %36, -3
+  br i1 %37, label %unpack_step_id_members.exit, label %38
 
-37:                                               ; preds = %34
-  %.not57 = icmp eq i16 %35, 0
-  br i1 %.not57, label %.loopexit, label %38
+38:                                               ; preds = %35
+  %.not57 = icmp eq i16 %36, 0
+  br i1 %.not57, label %.loopexit, label %39
 
-38:                                               ; preds = %37
-  %39 = zext i16 %35 to i64
-  %40 = tail call ptr @slurm_xcalloc(i64 noundef %39, i64 noundef 2, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 5722, ptr noundef nonnull @__func__._unpack_reattach_tasks_request_msg) #8
-  %41 = getelementptr inbounds i8, ptr %4, i64 24
-  store ptr %40, ptr %41, align 8
-  %.not58 = icmp eq ptr %40, null
-  br i1 %.not58, label %unpack_step_id_members.exit.thread, label %.preheader
+39:                                               ; preds = %38
+  %40 = zext i16 %36 to i64
+  %41 = tail call ptr @slurm_xcalloc(i64 noundef %40, i64 noundef 2, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 5722, ptr noundef nonnull @__func__._unpack_reattach_tasks_request_msg) #8
+  %42 = getelementptr inbounds i8, ptr %4, i64 24
+  store ptr %41, ptr %42, align 8
+  %.not58 = icmp eq ptr %41, null
+  br i1 %.not58, label %unpack_step_id_members.exit, label %.preheader
 
-.preheader:                                       ; preds = %38
-  %42 = load i16, ptr %32, align 8
-  %.not70 = icmp eq i16 %42, 0
+.preheader:                                       ; preds = %39
+  %43 = load i16, ptr %33, align 8
+  %.not70 = icmp eq i16 %43, 0
   br i1 %.not70, label %.loopexit, label %.lr.ph69
 
-43:                                               ; preds = %.lr.ph69
+44:                                               ; preds = %.lr.ph69
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
-  %44 = load i16, ptr %32, align 8
-  %45 = zext i16 %44 to i64
-  %46 = icmp ult i64 %indvars.iv.next74, %45
-  br i1 %46, label %.lr.ph69, label %.loopexit, !llvm.loop !78
+  %45 = load i16, ptr %33, align 8
+  %46 = zext i16 %45 to i64
+  %47 = icmp ult i64 %indvars.iv.next74, %46
+  br i1 %47, label %.lr.ph69, label %.loopexit, !llvm.loop !78
 
-.lr.ph69:                                         ; preds = %.preheader, %43
-  %indvars.iv73 = phi i64 [ %indvars.iv.next74, %43 ], [ 0, %.preheader ]
-  %47 = load ptr, ptr %41, align 8
-  %48 = getelementptr inbounds i16, ptr %47, i64 %indvars.iv73
-  %49 = tail call i32 @unpack16(ptr noundef %48, ptr noundef %1) #8
-  %.not60 = icmp eq i32 %49, 0
-  br i1 %.not60, label %43, label %unpack_step_id_members.exit.thread
+.lr.ph69:                                         ; preds = %.preheader, %44
+  %indvars.iv73 = phi i64 [ %indvars.iv.next74, %44 ], [ 0, %.preheader ]
+  %48 = load ptr, ptr %42, align 8
+  %49 = getelementptr inbounds i16, ptr %48, i64 %indvars.iv73
+  %50 = tail call i32 @unpack16(ptr noundef %49, ptr noundef %1) #8
+  %.not60 = icmp eq i32 %50, 0
+  br i1 %.not60, label %44, label %unpack_step_id_members.exit
 
-.loopexit:                                        ; preds = %43, %.preheader, %37
-  %50 = tail call ptr @slurm_cred_unpack(ptr noundef %1, i16 noundef zeroext %2) #8
-  %51 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr %50, ptr %51, align 8
-  %.not59 = icmp eq ptr %50, null
-  br i1 %.not59, label %unpack_step_id_members.exit.thread, label %52
+.loopexit:                                        ; preds = %44, %.preheader, %38
+  %51 = tail call ptr @slurm_cred_unpack(ptr noundef %1, i16 noundef zeroext %2) #8
+  %52 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr %51, ptr %52, align 8
+  %.not59 = icmp eq ptr %51, null
+  br i1 %.not59, label %unpack_step_id_members.exit, label %53
 
-unpack_step_id_members.exit.thread:               ; preds = %.lr.ph, %.lr.ph69, %6, %9, %.loopexit, %38, %34, %.loopexit65, %20, %16, %14, %unpack_step_id_members.exit
+unpack_step_id_members.exit:                      ; preds = %.lr.ph, %.lr.ph69, %12, %9, %6, %.loopexit, %39, %35, %.loopexit65, %21, %17, %15
   tail call void @slurm_free_reattach_tasks_request_msg(ptr noundef %4) #8
   store ptr null, ptr %0, align 8
-  br label %52
+  br label %53
 
-52:                                               ; preds = %3, %.loopexit, %unpack_step_id_members.exit.thread
-  %.0 = phi i32 [ -1, %unpack_step_id_members.exit.thread ], [ 0, %.loopexit ], [ 0, %3 ]
+53:                                               ; preds = %3, %.loopexit, %unpack_step_id_members.exit
+  %.0 = phi i32 [ -1, %unpack_step_id_members.exit ], [ 0, %.loopexit ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -27930,44 +27930,44 @@ define internal fastcc noundef i32 @_unpack_cancel_tasks_msg(ptr nocapture nound
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 6427, ptr noundef nonnull @__func__._unpack_cancel_tasks_msg) #8
   store ptr %4, ptr %0, align 8
   %5 = icmp ugt i16 %2, 9983
-  br i1 %5, label %6, label %19
+  br i1 %5, label %6, label %20
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %4, i64 4
   %8 = tail call i32 @unpack32(ptr noundef nonnull %7, ptr noundef %1) #8
   %.not.i = icmp eq i32 %8, 0
-  br i1 %.not.i, label %9, label %unpack_step_id_members.exit.thread
+  br i1 %.not.i, label %9, label %unpack_step_id_members.exit
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds i8, ptr %4, i64 12
   %11 = tail call i32 @unpack32(ptr noundef nonnull %10, ptr noundef %1) #8
   %.not9.i = icmp eq i32 %11, 0
-  br i1 %.not9.i, label %unpack_step_id_members.exit, label %unpack_step_id_members.exit.thread
+  br i1 %.not9.i, label %12, label %unpack_step_id_members.exit
 
-unpack_step_id_members.exit:                      ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
-  %13 = tail call i32 @unpack32(ptr noundef nonnull %12, ptr noundef %1) #8
-  %.not10.i.not = icmp eq i32 %13, 0
-  br i1 %.not10.i.not, label %14, label %unpack_step_id_members.exit.thread
+12:                                               ; preds = %9
+  %13 = getelementptr inbounds i8, ptr %4, i64 8
+  %14 = tail call i32 @unpack32(ptr noundef nonnull %13, ptr noundef %1) #8
+  %.not10.i = icmp eq i32 %14, 0
+  br i1 %.not10.i, label %15, label %unpack_step_id_members.exit
 
-14:                                               ; preds = %unpack_step_id_members.exit
-  %15 = tail call i32 @unpack16(ptr noundef %4, ptr noundef %1) #8
-  %.not12 = icmp eq i32 %15, 0
-  br i1 %.not12, label %16, label %unpack_step_id_members.exit.thread
+15:                                               ; preds = %12
+  %16 = tail call i32 @unpack16(ptr noundef %4, ptr noundef %1) #8
+  %.not12 = icmp eq i32 %16, 0
+  br i1 %.not12, label %17, label %unpack_step_id_members.exit
 
-16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %4, i64 2
-  %18 = tail call i32 @unpack16(ptr noundef nonnull %17, ptr noundef %1) #8
-  %.not13 = icmp eq i32 %18, 0
-  br i1 %.not13, label %19, label %unpack_step_id_members.exit.thread
+17:                                               ; preds = %15
+  %18 = getelementptr inbounds i8, ptr %4, i64 2
+  %19 = tail call i32 @unpack16(ptr noundef nonnull %18, ptr noundef %1) #8
+  %.not13 = icmp eq i32 %19, 0
+  br i1 %.not13, label %20, label %unpack_step_id_members.exit
 
-unpack_step_id_members.exit.thread:               ; preds = %6, %9, %16, %14, %unpack_step_id_members.exit
+unpack_step_id_members.exit:                      ; preds = %12, %9, %6, %17, %15
   tail call void @slurm_free_signal_tasks_msg(ptr noundef %4) #8
   store ptr null, ptr %0, align 8
-  br label %19
+  br label %20
 
-19:                                               ; preds = %3, %16, %unpack_step_id_members.exit.thread
-  %.0 = phi i32 [ -1, %unpack_step_id_members.exit.thread ], [ 0, %16 ], [ 0, %3 ]
+20:                                               ; preds = %3, %17, %unpack_step_id_members.exit
+  %.0 = phi i32 [ -1, %unpack_step_id_members.exit ], [ 0, %17 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -27976,44 +27976,44 @@ define internal fastcc noundef i32 @_unpack_job_step_info_req_msg(ptr nocapture 
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 7345, ptr noundef nonnull @__func__._unpack_job_step_info_req_msg) #8
   store ptr %4, ptr %0, align 8
   %5 = icmp ugt i16 %2, 9983
-  br i1 %5, label %6, label %19
+  br i1 %5, label %6, label %20
 
 6:                                                ; preds = %3
   %7 = tail call i32 @unpack_time(ptr noundef %4, ptr noundef %1) #8
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %8, label %unpack_step_id_members.exit.thread
+  br i1 %.not, label %8, label %unpack_step_id_members.exit
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds i8, ptr %4, i64 8
   %10 = tail call i32 @unpack32(ptr noundef nonnull %9, ptr noundef %1) #8
   %.not.i = icmp eq i32 %10, 0
-  br i1 %.not.i, label %11, label %unpack_step_id_members.exit.thread
+  br i1 %.not.i, label %11, label %unpack_step_id_members.exit
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds i8, ptr %4, i64 16
   %13 = tail call i32 @unpack32(ptr noundef nonnull %12, ptr noundef %1) #8
   %.not9.i = icmp eq i32 %13, 0
-  br i1 %.not9.i, label %unpack_step_id_members.exit, label %unpack_step_id_members.exit.thread
+  br i1 %.not9.i, label %14, label %unpack_step_id_members.exit
 
-unpack_step_id_members.exit:                      ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %4, i64 12
-  %15 = tail call i32 @unpack32(ptr noundef nonnull %14, ptr noundef %1) #8
-  %.not10.i.not = icmp eq i32 %15, 0
-  br i1 %.not10.i.not, label %16, label %unpack_step_id_members.exit.thread
+14:                                               ; preds = %11
+  %15 = getelementptr inbounds i8, ptr %4, i64 12
+  %16 = tail call i32 @unpack32(ptr noundef nonnull %15, ptr noundef %1) #8
+  %.not10.i = icmp eq i32 %16, 0
+  br i1 %.not10.i, label %17, label %unpack_step_id_members.exit
 
-16:                                               ; preds = %unpack_step_id_members.exit
-  %17 = getelementptr inbounds i8, ptr %4, i64 20
-  %18 = tail call i32 @unpack16(ptr noundef nonnull %17, ptr noundef %1) #8
-  %.not13 = icmp eq i32 %18, 0
-  br i1 %.not13, label %19, label %unpack_step_id_members.exit.thread
+17:                                               ; preds = %14
+  %18 = getelementptr inbounds i8, ptr %4, i64 20
+  %19 = tail call i32 @unpack16(ptr noundef nonnull %18, ptr noundef %1) #8
+  %.not13 = icmp eq i32 %19, 0
+  br i1 %.not13, label %20, label %unpack_step_id_members.exit
 
-unpack_step_id_members.exit.thread:               ; preds = %8, %11, %16, %unpack_step_id_members.exit, %6
+unpack_step_id_members.exit:                      ; preds = %14, %11, %8, %17, %6
   tail call void @slurm_free_job_step_info_request_msg(ptr noundef %4) #8
   store ptr null, ptr %0, align 8
-  br label %19
+  br label %20
 
-19:                                               ; preds = %3, %16, %unpack_step_id_members.exit.thread
-  %.0 = phi i32 [ -1, %unpack_step_id_members.exit.thread ], [ 0, %16 ], [ 0, %3 ]
+20:                                               ; preds = %3, %17, %unpack_step_id_members.exit
+  %.0 = phi i32 [ -1, %unpack_step_id_members.exit ], [ 0, %17 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -28322,56 +28322,56 @@ define internal fastcc noundef i32 @_unpack_job_step_kill_msg(ptr nocapture noun
   %6 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 6549, ptr noundef nonnull @__func__._unpack_job_step_kill_msg) #8
   store ptr %6, ptr %0, align 8
   %7 = icmp ugt i16 %2, 9983
-  br i1 %7, label %8, label %27
+  br i1 %7, label %8, label %28
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %6, i64 24
   %10 = tail call i32 @unpack32(ptr noundef nonnull %9, ptr noundef %1) #8
   %.not.i = icmp eq i32 %10, 0
-  br i1 %.not.i, label %11, label %unpack_step_id_members.exit.thread
+  br i1 %.not.i, label %11, label %unpack_step_id_members.exit
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds i8, ptr %6, i64 32
   %13 = tail call i32 @unpack32(ptr noundef nonnull %12, ptr noundef %1) #8
   %.not9.i = icmp eq i32 %13, 0
-  br i1 %.not9.i, label %unpack_step_id_members.exit, label %unpack_step_id_members.exit.thread
+  br i1 %.not9.i, label %14, label %unpack_step_id_members.exit
 
-unpack_step_id_members.exit:                      ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %6, i64 28
-  %15 = tail call i32 @unpack32(ptr noundef nonnull %14, ptr noundef %1) #8
-  %.not10.i.not = icmp eq i32 %15, 0
-  br i1 %.not10.i.not, label %16, label %unpack_step_id_members.exit.thread
+14:                                               ; preds = %11
+  %15 = getelementptr inbounds i8, ptr %6, i64 28
+  %16 = tail call i32 @unpack32(ptr noundef nonnull %15, ptr noundef %1) #8
+  %.not10.i = icmp eq i32 %16, 0
+  br i1 %.not10.i, label %17, label %unpack_step_id_members.exit
 
-16:                                               ; preds = %unpack_step_id_members.exit
-  %17 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %6, ptr noundef nonnull %4, ptr noundef %1) #8
-  %.not16 = icmp eq i32 %17, 0
-  br i1 %.not16, label %18, label %unpack_step_id_members.exit.thread
+17:                                               ; preds = %14
+  %18 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %6, ptr noundef nonnull %4, ptr noundef %1) #8
+  %.not16 = icmp eq i32 %18, 0
+  br i1 %.not16, label %19, label %unpack_step_id_members.exit
 
-18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %6, i64 16
-  %20 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %19, ptr noundef nonnull %5, ptr noundef %1) #8
-  %.not17 = icmp eq i32 %20, 0
-  br i1 %.not17, label %21, label %unpack_step_id_members.exit.thread
+19:                                               ; preds = %17
+  %20 = getelementptr inbounds i8, ptr %6, i64 16
+  %21 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %20, ptr noundef nonnull %5, ptr noundef %1) #8
+  %.not17 = icmp eq i32 %21, 0
+  br i1 %.not17, label %22, label %unpack_step_id_members.exit
 
-21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %6, i64 8
-  %23 = call i32 @unpack16(ptr noundef nonnull %22, ptr noundef %1) #8
-  %.not18 = icmp eq i32 %23, 0
-  br i1 %.not18, label %24, label %unpack_step_id_members.exit.thread
+22:                                               ; preds = %19
+  %23 = getelementptr inbounds i8, ptr %6, i64 8
+  %24 = call i32 @unpack16(ptr noundef nonnull %23, ptr noundef %1) #8
+  %.not18 = icmp eq i32 %24, 0
+  br i1 %.not18, label %25, label %unpack_step_id_members.exit
 
-24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %6, i64 10
-  %26 = call i32 @unpack16(ptr noundef nonnull %25, ptr noundef %1) #8
-  %.not19 = icmp eq i32 %26, 0
-  br i1 %.not19, label %27, label %unpack_step_id_members.exit.thread
+25:                                               ; preds = %22
+  %26 = getelementptr inbounds i8, ptr %6, i64 10
+  %27 = call i32 @unpack16(ptr noundef nonnull %26, ptr noundef %1) #8
+  %.not19 = icmp eq i32 %27, 0
+  br i1 %.not19, label %28, label %unpack_step_id_members.exit
 
-unpack_step_id_members.exit.thread:               ; preds = %8, %11, %24, %21, %18, %16, %unpack_step_id_members.exit
+unpack_step_id_members.exit:                      ; preds = %14, %11, %8, %25, %22, %19, %17
   call void @slurm_free_job_step_kill_msg(ptr noundef %6) #8
   store ptr null, ptr %0, align 8
-  br label %27
+  br label %28
 
-27:                                               ; preds = %3, %24, %unpack_step_id_members.exit.thread
-  %.0 = phi i32 [ -1, %unpack_step_id_members.exit.thread ], [ 0, %24 ], [ 0, %3 ]
+28:                                               ; preds = %3, %25, %unpack_step_id_members.exit
+  %.0 = phi i32 [ -1, %unpack_step_id_members.exit ], [ 0, %25 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -28492,56 +28492,56 @@ define internal fastcc noundef i32 @_unpack_step_complete_msg(ptr nocapture noun
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 6928, ptr noundef nonnull @__func__._unpack_step_complete_msg) #8
   store ptr %4, ptr %0, align 8
   %5 = icmp ugt i16 %2, 9983
-  br i1 %5, label %6, label %25
+  br i1 %5, label %6, label %26
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %4, i64 8
   %8 = tail call i32 @unpack32(ptr noundef nonnull %7, ptr noundef %1) #8
   %.not.i = icmp eq i32 %8, 0
-  br i1 %.not.i, label %9, label %unpack_step_id_members.exit.thread
+  br i1 %.not.i, label %9, label %unpack_step_id_members.exit
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds i8, ptr %4, i64 16
   %11 = tail call i32 @unpack32(ptr noundef nonnull %10, ptr noundef %1) #8
   %.not9.i = icmp eq i32 %11, 0
-  br i1 %.not9.i, label %unpack_step_id_members.exit, label %unpack_step_id_members.exit.thread
+  br i1 %.not9.i, label %12, label %unpack_step_id_members.exit
 
-unpack_step_id_members.exit:                      ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %4, i64 12
-  %13 = tail call i32 @unpack32(ptr noundef nonnull %12, ptr noundef %1) #8
-  %.not10.i.not = icmp eq i32 %13, 0
-  br i1 %.not10.i.not, label %14, label %unpack_step_id_members.exit.thread
+12:                                               ; preds = %9
+  %13 = getelementptr inbounds i8, ptr %4, i64 12
+  %14 = tail call i32 @unpack32(ptr noundef nonnull %13, ptr noundef %1) #8
+  %.not10.i = icmp eq i32 %14, 0
+  br i1 %.not10.i, label %15, label %unpack_step_id_members.exit
 
-14:                                               ; preds = %unpack_step_id_members.exit
-  %15 = tail call i32 @unpack32(ptr noundef %4, ptr noundef %1) #8
-  %.not17 = icmp eq i32 %15, 0
-  br i1 %.not17, label %16, label %unpack_step_id_members.exit.thread
+15:                                               ; preds = %12
+  %16 = tail call i32 @unpack32(ptr noundef %4, ptr noundef %1) #8
+  %.not17 = icmp eq i32 %16, 0
+  br i1 %.not17, label %17, label %unpack_step_id_members.exit
 
-16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %4, i64 4
-  %18 = tail call i32 @unpack32(ptr noundef nonnull %17, ptr noundef %1) #8
-  %.not18 = icmp eq i32 %18, 0
-  br i1 %.not18, label %19, label %unpack_step_id_members.exit.thread
+17:                                               ; preds = %15
+  %18 = getelementptr inbounds i8, ptr %4, i64 4
+  %19 = tail call i32 @unpack32(ptr noundef nonnull %18, ptr noundef %1) #8
+  %.not18 = icmp eq i32 %19, 0
+  br i1 %.not18, label %20, label %unpack_step_id_members.exit
 
-19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %4, i64 20
-  %21 = tail call i32 @unpack32(ptr noundef nonnull %20, ptr noundef %1) #8
-  %.not19 = icmp eq i32 %21, 0
-  br i1 %.not19, label %22, label %unpack_step_id_members.exit.thread
+20:                                               ; preds = %17
+  %21 = getelementptr inbounds i8, ptr %4, i64 20
+  %22 = tail call i32 @unpack32(ptr noundef nonnull %21, ptr noundef %1) #8
+  %.not19 = icmp eq i32 %22, 0
+  br i1 %.not19, label %23, label %unpack_step_id_members.exit
 
-22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %4, i64 24
-  %24 = tail call i32 @jobacctinfo_unpack(ptr noundef nonnull %23, i16 noundef zeroext %2, i16 noundef zeroext 0, ptr noundef %1, i1 noundef zeroext true) #8
-  %.not20 = icmp eq i32 %24, 0
-  br i1 %.not20, label %25, label %unpack_step_id_members.exit.thread
+23:                                               ; preds = %20
+  %24 = getelementptr inbounds i8, ptr %4, i64 24
+  %25 = tail call i32 @jobacctinfo_unpack(ptr noundef nonnull %24, i16 noundef zeroext %2, i16 noundef zeroext 0, ptr noundef %1, i1 noundef zeroext true) #8
+  %.not20 = icmp eq i32 %25, 0
+  br i1 %.not20, label %26, label %unpack_step_id_members.exit
 
-unpack_step_id_members.exit.thread:               ; preds = %6, %9, %22, %19, %16, %14, %unpack_step_id_members.exit
+unpack_step_id_members.exit:                      ; preds = %12, %9, %6, %23, %20, %17, %15
   tail call void @slurm_free_step_complete_msg(ptr noundef %4) #8
   store ptr null, ptr %0, align 8
-  br label %25
+  br label %26
 
-25:                                               ; preds = %3, %22, %unpack_step_id_members.exit.thread
-  %.0 = phi i32 [ -1, %unpack_step_id_members.exit.thread ], [ 0, %22 ], [ 0, %3 ]
+26:                                               ; preds = %3, %23, %unpack_step_id_members.exit
+  %.0 = phi i32 [ -1, %unpack_step_id_members.exit ], [ 0, %23 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -28607,37 +28607,37 @@ define noundef i32 @unpack_step_id(ptr nocapture noundef writeonly %0, ptr nound
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 12, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 11807, ptr noundef nonnull @__func__.unpack_step_id) #8
   store ptr %4, ptr %0, align 8
   %5 = icmp ugt i16 %2, 9983
-  br i1 %5, label %6, label %11
+  br i1 %5, label %6, label %14
 
 6:                                                ; preds = %3
   %7 = tail call i32 @unpack32(ptr noundef %4, ptr noundef %1) #8
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %8, label %unpack_step_id_members.exit.thread
+  br i1 %.not.i, label %8, label %unpack_step_id_members.exit
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds i8, ptr %4, i64 8
   %10 = tail call i32 @unpack32(ptr noundef nonnull %9, ptr noundef %1) #8
   %.not9.i = icmp eq i32 %10, 0
-  br i1 %.not9.i, label %unpack_step_id_members.exit, label %unpack_step_id_members.exit.thread
+  br i1 %.not9.i, label %11, label %unpack_step_id_members.exit
 
-11:                                               ; preds = %3
-  %12 = zext nneg i16 %2 to i32
-  %13 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.unpack_step_id_members, i32 noundef %12) #8
-  br label %unpack_step_id_members.exit.thread
+11:                                               ; preds = %8
+  %12 = getelementptr inbounds i8, ptr %4, i64 4
+  %13 = tail call i32 @unpack32(ptr noundef nonnull %12, ptr noundef %1) #8
+  %.not10.i = icmp eq i32 %13, 0
+  br i1 %.not10.i, label %unpack_step_id_members.exit.thread, label %unpack_step_id_members.exit
 
-unpack_step_id_members.exit:                      ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %4, i64 4
-  %15 = tail call i32 @unpack32(ptr noundef nonnull %14, ptr noundef %1) #8
-  %.not10.i.not = icmp eq i32 %15, 0
-  br i1 %.not10.i.not, label %16, label %unpack_step_id_members.exit.thread
+14:                                               ; preds = %3
+  %15 = zext nneg i16 %2 to i32
+  %16 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.unpack_step_id_members, i32 noundef %15) #8
+  br label %unpack_step_id_members.exit
 
-unpack_step_id_members.exit.thread:               ; preds = %11, %6, %8, %unpack_step_id_members.exit
+unpack_step_id_members.exit:                      ; preds = %14, %11, %8, %6
   tail call void @slurm_free_step_id(ptr noundef %4) #8
   store ptr null, ptr %0, align 8
-  br label %16
+  br label %unpack_step_id_members.exit.thread
 
-16:                                               ; preds = %unpack_step_id_members.exit, %unpack_step_id_members.exit.thread
-  %.0 = phi i32 [ -1, %unpack_step_id_members.exit.thread ], [ 0, %unpack_step_id_members.exit ]
+unpack_step_id_members.exit.thread:               ; preds = %11, %unpack_step_id_members.exit
+  %.0 = phi i32 [ -1, %unpack_step_id_members.exit ], [ 0, %11 ]
   ret i32 %.0
 }
 
@@ -28883,13 +28883,13 @@ define internal fastcc noundef i32 @_unpack_job_step_info_response_msg(ptr nocap
   %53 = getelementptr inbounds i8, ptr %50, i64 8
   %54 = tail call i32 @unpack32(ptr noundef nonnull %53, ptr noundef %1) #8
   %.not = icmp eq i32 %54, 0
-  br i1 %.not, label %55, label %.loopexit35
+  br i1 %.not, label %55, label %359
 
 55:                                               ; preds = %52
   %56 = load ptr, ptr %0, align 8
   %57 = tail call i32 @unpack_time(ptr noundef %56, ptr noundef %1) #8
   %.not26 = icmp eq i32 %57, 0
-  br i1 %.not26, label %58, label %.loopexit35
+  br i1 %.not26, label %58, label %359
 
 58:                                               ; preds = %55
   %59 = load ptr, ptr %0, align 8
@@ -28910,7 +28910,7 @@ define internal fastcc noundef i32 @_unpack_job_step_info_response_msg(ptr nocap
   %68 = getelementptr inbounds i8, ptr %67, i64 16
   store ptr %66, ptr %68, align 8
   %.not28 = icmp eq ptr %66, null
-  br i1 %.not28, label %.loopexit35, label %69
+  br i1 %.not28, label %359, label %69
 
 69:                                               ; preds = %62, %64
   %70 = load ptr, ptr %0, align 8
@@ -28918,16 +28918,16 @@ define internal fastcc noundef i32 @_unpack_job_step_info_response_msg(ptr nocap
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds i8, ptr %70, i64 8
   %74 = load i32, ptr %73, align 8
-  %.not37 = icmp eq i32 %74, 0
-  br i1 %.not37, label %.loopexit, label %.lr.ph
+  %.not33 = icmp eq i32 %74, 0
+  br i1 %.not33, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %69
   %75 = icmp ugt i16 %2, 10239
   br i1 %75, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %206
-  %indvars.iv41 = phi i64 [ %indvars.iv.next42, %206 ], [ 0, %.lr.ph ]
-  %76 = getelementptr inbounds %struct.job_step_info_t, ptr %72, i64 %indvars.iv41
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %208
+  %indvars.iv37 = phi i64 [ %indvars.iv.next38, %208 ], [ 0, %.lr.ph ]
+  %76 = getelementptr inbounds %struct.job_step_info_t, ptr %72, i64 %indvars.iv37
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
@@ -28976,280 +28976,283 @@ define internal fastcc noundef i32 @_unpack_job_step_info_response_msg(ptr nocap
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %49)
   %77 = call i32 @unpack32(ptr noundef %76, ptr noundef %1) #8
   %.not200.i.us = icmp eq i32 %77, 0
-  br i1 %.not200.i.us, label %78, label %_unpack_job_step_info_members.exit.thread
+  br i1 %.not200.i.us, label %78, label %_unpack_job_step_info_members.exit
 
 78:                                               ; preds = %.lr.ph.split.us
   %79 = getelementptr inbounds i8, ptr %76, i64 4
   %80 = call i32 @unpack32(ptr noundef nonnull %79, ptr noundef %1) #8
   %.not201.i.us = icmp eq i32 %80, 0
-  br i1 %.not201.i.us, label %81, label %_unpack_job_step_info_members.exit.thread
+  br i1 %.not201.i.us, label %81, label %_unpack_job_step_info_members.exit
 
 81:                                               ; preds = %78
   %82 = getelementptr inbounds i8, ptr %76, i64 160
   %83 = call i32 @unpack32(ptr noundef nonnull %82, ptr noundef %1) #8
   %.not.i.i.us = icmp eq i32 %83, 0
-  br i1 %.not.i.i.us, label %84, label %_unpack_job_step_info_members.exit.thread
+  br i1 %.not.i.i.us, label %84, label %_unpack_job_step_info_members.exit
 
 84:                                               ; preds = %81
   %85 = getelementptr inbounds i8, ptr %76, i64 168
   %86 = call i32 @unpack32(ptr noundef nonnull %85, ptr noundef %1) #8
   %.not9.i.i.us = icmp eq i32 %86, 0
-  br i1 %.not9.i.i.us, label %unpack_step_id_members.exit.i.us, label %_unpack_job_step_info_members.exit.thread
+  br i1 %.not9.i.i.us, label %87, label %_unpack_job_step_info_members.exit
 
-unpack_step_id_members.exit.i.us:                 ; preds = %84
-  %87 = getelementptr inbounds i8, ptr %76, i64 164
-  %88 = call i32 @unpack32(ptr noundef nonnull %87, ptr noundef %1) #8
-  %.not10.i.not.i.us = icmp eq i32 %88, 0
-  br i1 %.not10.i.not.i.us, label %89, label %_unpack_job_step_info_members.exit.thread
+87:                                               ; preds = %84
+  %88 = getelementptr inbounds i8, ptr %76, i64 164
+  %89 = call i32 @unpack32(ptr noundef nonnull %88, ptr noundef %1) #8
+  %.not10.i.i.us = icmp eq i32 %89, 0
+  br i1 %.not10.i.i.us, label %90, label %_unpack_job_step_info_members.exit
 
-89:                                               ; preds = %unpack_step_id_members.exit.i.us
-  %90 = getelementptr inbounds i8, ptr %76, i64 248
-  %91 = call i32 @unpack32(ptr noundef nonnull %90, ptr noundef %1) #8
-  %.not203.i.us = icmp eq i32 %91, 0
-  br i1 %.not203.i.us, label %92, label %_unpack_job_step_info_members.exit.thread
+90:                                               ; preds = %87
+  %91 = getelementptr inbounds i8, ptr %76, i64 248
+  %92 = call i32 @unpack32(ptr noundef nonnull %91, ptr noundef %1) #8
+  %.not203.i.us = icmp eq i32 %92, 0
+  br i1 %.not203.i.us, label %93, label %_unpack_job_step_info_members.exit
 
-92:                                               ; preds = %89
-  %93 = getelementptr inbounds i8, ptr %76, i64 96
-  %94 = call i32 @unpack32(ptr noundef nonnull %93, ptr noundef %1) #8
-  %.not204.i.us = icmp eq i32 %94, 0
-  br i1 %.not204.i.us, label %95, label %_unpack_job_step_info_members.exit.thread
+93:                                               ; preds = %90
+  %94 = getelementptr inbounds i8, ptr %76, i64 96
+  %95 = call i32 @unpack32(ptr noundef nonnull %94, ptr noundef %1) #8
+  %.not204.i.us = icmp eq i32 %95, 0
+  br i1 %.not204.i.us, label %96, label %_unpack_job_step_info_members.exit
 
-95:                                               ; preds = %92
-  %96 = getelementptr inbounds i8, ptr %76, i64 32
-  %97 = call i32 @unpack32(ptr noundef nonnull %96, ptr noundef %1) #8
-  %.not205.i.us = icmp eq i32 %97, 0
-  br i1 %.not205.i.us, label %98, label %_unpack_job_step_info_members.exit.thread
+96:                                               ; preds = %93
+  %97 = getelementptr inbounds i8, ptr %76, i64 32
+  %98 = call i32 @unpack32(ptr noundef nonnull %97, ptr noundef %1) #8
+  %.not205.i.us = icmp eq i32 %98, 0
+  br i1 %.not205.i.us, label %99, label %_unpack_job_step_info_members.exit
 
-98:                                               ; preds = %95
-  %99 = getelementptr inbounds i8, ptr %76, i64 36
-  %100 = call i32 @unpack32(ptr noundef nonnull %99, ptr noundef %1) #8
-  %.not206.i.us = icmp eq i32 %100, 0
-  br i1 %.not206.i.us, label %101, label %_unpack_job_step_info_members.exit.thread
+99:                                               ; preds = %96
+  %100 = getelementptr inbounds i8, ptr %76, i64 36
+  %101 = call i32 @unpack32(ptr noundef nonnull %100, ptr noundef %1) #8
+  %.not206.i.us = icmp eq i32 %101, 0
+  br i1 %.not206.i.us, label %102, label %_unpack_job_step_info_members.exit
 
-101:                                              ; preds = %98
-  %102 = getelementptr inbounds i8, ptr %76, i64 40
-  %103 = call i32 @unpack32(ptr noundef nonnull %102, ptr noundef %1) #8
-  %.not207.i.us = icmp eq i32 %103, 0
-  br i1 %.not207.i.us, label %104, label %_unpack_job_step_info_members.exit.thread
+102:                                              ; preds = %99
+  %103 = getelementptr inbounds i8, ptr %76, i64 40
+  %104 = call i32 @unpack32(ptr noundef nonnull %103, ptr noundef %1) #8
+  %.not207.i.us = icmp eq i32 %104, 0
+  br i1 %.not207.i.us, label %105, label %_unpack_job_step_info_members.exit
 
-104:                                              ; preds = %101
-  %105 = getelementptr inbounds i8, ptr %76, i64 100
-  %106 = call i32 @unpack32(ptr noundef nonnull %105, ptr noundef %1) #8
-  %.not208.i.us = icmp eq i32 %106, 0
-  br i1 %.not208.i.us, label %107, label %_unpack_job_step_info_members.exit.thread
+105:                                              ; preds = %102
+  %106 = getelementptr inbounds i8, ptr %76, i64 100
+  %107 = call i32 @unpack32(ptr noundef nonnull %106, ptr noundef %1) #8
+  %.not208.i.us = icmp eq i32 %107, 0
+  br i1 %.not208.i.us, label %108, label %_unpack_job_step_info_members.exit
 
-107:                                              ; preds = %104
-  %108 = getelementptr inbounds i8, ptr %76, i64 184
-  %109 = call i32 @unpack32(ptr noundef nonnull %108, ptr noundef %1) #8
-  %.not209.i.us = icmp eq i32 %109, 0
-  br i1 %.not209.i.us, label %110, label %_unpack_job_step_info_members.exit.thread
+108:                                              ; preds = %105
+  %109 = getelementptr inbounds i8, ptr %76, i64 184
+  %110 = call i32 @unpack32(ptr noundef nonnull %109, ptr noundef %1) #8
+  %.not209.i.us = icmp eq i32 %110, 0
+  br i1 %.not209.i.us, label %111, label %_unpack_job_step_info_members.exit
 
-110:                                              ; preds = %107
-  %111 = getelementptr inbounds i8, ptr %76, i64 188
-  %112 = call i32 @unpack32(ptr noundef nonnull %111, ptr noundef %1) #8
-  %.not210.i.us = icmp eq i32 %112, 0
-  br i1 %.not210.i.us, label %113, label %_unpack_job_step_info_members.exit.thread
+111:                                              ; preds = %108
+  %112 = getelementptr inbounds i8, ptr %76, i64 188
+  %113 = call i32 @unpack32(ptr noundef nonnull %112, ptr noundef %1) #8
+  %.not210.i.us = icmp eq i32 %113, 0
+  br i1 %.not210.i.us, label %114, label %_unpack_job_step_info_members.exit
 
-113:                                              ; preds = %110
-  %114 = getelementptr inbounds i8, ptr %76, i64 156
-  %115 = call i32 @unpack32(ptr noundef nonnull %114, ptr noundef %1) #8
-  %.not211.i.us = icmp eq i32 %115, 0
-  br i1 %.not211.i.us, label %116, label %_unpack_job_step_info_members.exit.thread
+114:                                              ; preds = %111
+  %115 = getelementptr inbounds i8, ptr %76, i64 156
+  %116 = call i32 @unpack32(ptr noundef nonnull %115, ptr noundef %1) #8
+  %.not211.i.us = icmp eq i32 %116, 0
+  br i1 %.not211.i.us, label %117, label %_unpack_job_step_info_members.exit
 
-116:                                              ; preds = %113
-  %117 = getelementptr inbounds i8, ptr %76, i64 136
-  %118 = call i32 @unpack32(ptr noundef nonnull %117, ptr noundef %1) #8
-  %.not212.i.us = icmp eq i32 %118, 0
-  br i1 %.not212.i.us, label %119, label %_unpack_job_step_info_members.exit.thread
+117:                                              ; preds = %114
+  %118 = getelementptr inbounds i8, ptr %76, i64 136
+  %119 = call i32 @unpack32(ptr noundef nonnull %118, ptr noundef %1) #8
+  %.not212.i.us = icmp eq i32 %119, 0
+  br i1 %.not212.i.us, label %120, label %_unpack_job_step_info_members.exit
 
-119:                                              ; preds = %116
-  %120 = getelementptr inbounds i8, ptr %76, i64 144
-  %121 = call i32 @unpack_time(ptr noundef nonnull %120, ptr noundef %1) #8
-  %.not213.i.us = icmp eq i32 %121, 0
-  br i1 %.not213.i.us, label %122, label %_unpack_job_step_info_members.exit.thread
+120:                                              ; preds = %117
+  %121 = getelementptr inbounds i8, ptr %76, i64 144
+  %122 = call i32 @unpack_time(ptr noundef nonnull %121, ptr noundef %1) #8
+  %.not213.i.us = icmp eq i32 %122, 0
+  br i1 %.not213.i.us, label %123, label %_unpack_job_step_info_members.exit
 
-122:                                              ; preds = %119
-  %123 = getelementptr inbounds i8, ptr %76, i64 120
-  %124 = call i32 @unpack_time(ptr noundef nonnull %123, ptr noundef %1) #8
-  %.not214.i.us = icmp eq i32 %124, 0
-  br i1 %.not214.i.us, label %125, label %_unpack_job_step_info_members.exit.thread
+123:                                              ; preds = %120
+  %124 = getelementptr inbounds i8, ptr %76, i64 120
+  %125 = call i32 @unpack_time(ptr noundef nonnull %124, ptr noundef %1) #8
+  %.not214.i.us = icmp eq i32 %125, 0
+  br i1 %.not214.i.us, label %126, label %_unpack_job_step_info_members.exit
 
-125:                                              ; preds = %122
-  %126 = getelementptr inbounds i8, ptr %76, i64 8
-  %127 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %126, ptr noundef nonnull %4, ptr noundef %1) #8
-  %.not215.i.us = icmp eq i32 %127, 0
-  br i1 %.not215.i.us, label %128, label %_unpack_job_step_info_members.exit.thread
+126:                                              ; preds = %123
+  %127 = getelementptr inbounds i8, ptr %76, i64 8
+  %128 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %127, ptr noundef nonnull %4, ptr noundef %1) #8
+  %.not215.i.us = icmp eq i32 %128, 0
+  br i1 %.not215.i.us, label %129, label %_unpack_job_step_info_members.exit
 
-128:                                              ; preds = %125
-  %129 = getelementptr inbounds i8, ptr %76, i64 16
-  %130 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %129, ptr noundef nonnull %5, ptr noundef %1) #8
-  %.not216.i.us = icmp eq i32 %130, 0
-  br i1 %.not216.i.us, label %131, label %_unpack_job_step_info_members.exit.thread
+129:                                              ; preds = %126
+  %130 = getelementptr inbounds i8, ptr %76, i64 16
+  %131 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %130, ptr noundef nonnull %5, ptr noundef %1) #8
+  %.not216.i.us = icmp eq i32 %131, 0
+  br i1 %.not216.i.us, label %132, label %_unpack_job_step_info_members.exit
 
-131:                                              ; preds = %128
-  %132 = getelementptr inbounds i8, ptr %76, i64 24
-  %133 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %132, ptr noundef nonnull %6, ptr noundef %1) #8
-  %.not217.i.us = icmp eq i32 %133, 0
-  br i1 %.not217.i.us, label %134, label %_unpack_job_step_info_members.exit.thread
+132:                                              ; preds = %129
+  %133 = getelementptr inbounds i8, ptr %76, i64 24
+  %134 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %133, ptr noundef nonnull %6, ptr noundef %1) #8
+  %.not217.i.us = icmp eq i32 %134, 0
+  br i1 %.not217.i.us, label %135, label %_unpack_job_step_info_members.exit
 
-134:                                              ; preds = %131
-  %135 = getelementptr inbounds i8, ptr %76, i64 104
-  %136 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %135, ptr noundef nonnull %7, ptr noundef %1) #8
-  %.not218.i.us = icmp eq i32 %136, 0
-  br i1 %.not218.i.us, label %137, label %_unpack_job_step_info_members.exit.thread
+135:                                              ; preds = %132
+  %136 = getelementptr inbounds i8, ptr %76, i64 104
+  %137 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %136, ptr noundef nonnull %7, ptr noundef %1) #8
+  %.not218.i.us = icmp eq i32 %137, 0
+  br i1 %.not218.i.us, label %138, label %_unpack_job_step_info_members.exit
 
-137:                                              ; preds = %134
-  %138 = getelementptr inbounds i8, ptr %76, i64 128
-  %139 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %138, ptr noundef nonnull %8, ptr noundef %1) #8
-  %.not219.i.us = icmp eq i32 %139, 0
-  br i1 %.not219.i.us, label %140, label %_unpack_job_step_info_members.exit.thread
+138:                                              ; preds = %135
+  %139 = getelementptr inbounds i8, ptr %76, i64 128
+  %140 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %139, ptr noundef nonnull %8, ptr noundef %1) #8
+  %.not219.i.us = icmp eq i32 %140, 0
+  br i1 %.not219.i.us, label %141, label %_unpack_job_step_info_members.exit
 
-140:                                              ; preds = %137
-  %141 = getelementptr inbounds i8, ptr %76, i64 112
-  %142 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %141, ptr noundef nonnull %9, ptr noundef %1) #8
-  %.not220.i.us = icmp eq i32 %142, 0
-  br i1 %.not220.i.us, label %143, label %_unpack_job_step_info_members.exit.thread
+141:                                              ; preds = %138
+  %142 = getelementptr inbounds i8, ptr %76, i64 112
+  %143 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %142, ptr noundef nonnull %9, ptr noundef %1) #8
+  %.not220.i.us = icmp eq i32 %143, 0
+  br i1 %.not220.i.us, label %144, label %_unpack_job_step_info_members.exit
 
-143:                                              ; preds = %140
-  %144 = getelementptr inbounds i8, ptr %76, i64 80
-  %145 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %144, ptr noundef nonnull %10, ptr noundef %1) #8
-  %.not221.i.us = icmp eq i32 %145, 0
-  br i1 %.not221.i.us, label %146, label %_unpack_job_step_info_members.exit.thread
+144:                                              ; preds = %141
+  %145 = getelementptr inbounds i8, ptr %76, i64 80
+  %146 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %145, ptr noundef nonnull %10, ptr noundef %1) #8
+  %.not221.i.us = icmp eq i32 %146, 0
+  br i1 %.not221.i.us, label %147, label %_unpack_job_step_info_members.exit
 
-146:                                              ; preds = %143
-  %147 = getelementptr inbounds i8, ptr %76, i64 64
-  %148 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %147, ptr noundef nonnull %11, ptr noundef %1) #8
-  %.not222.i.us = icmp eq i32 %148, 0
-  br i1 %.not222.i.us, label %149, label %_unpack_job_step_info_members.exit.thread
+147:                                              ; preds = %144
+  %148 = getelementptr inbounds i8, ptr %76, i64 64
+  %149 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %148, ptr noundef nonnull %11, ptr noundef %1) #8
+  %.not222.i.us = icmp eq i32 %149, 0
+  br i1 %.not222.i.us, label %150, label %_unpack_job_step_info_members.exit
 
-149:                                              ; preds = %146
-  %150 = getelementptr inbounds i8, ptr %76, i64 72
-  %151 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %150, ptr noundef nonnull %12, ptr noundef %1) #8
-  %.not223.i.us = icmp eq i32 %151, 0
-  br i1 %.not223.i.us, label %152, label %_unpack_job_step_info_members.exit.thread
+150:                                              ; preds = %147
+  %151 = getelementptr inbounds i8, ptr %76, i64 72
+  %152 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %151, ptr noundef nonnull %12, ptr noundef %1) #8
+  %.not223.i.us = icmp eq i32 %152, 0
+  br i1 %.not223.i.us, label %153, label %_unpack_job_step_info_members.exit
 
-152:                                              ; preds = %149
+153:                                              ; preds = %150
   store ptr null, ptr %13, align 8
   store ptr null, ptr %14, align 8
-  %153 = call i32 @unpack32(ptr noundef nonnull %15, ptr noundef %1) #8
-  %.not224.i.us = icmp eq i32 %153, 0
-  br i1 %.not224.i.us, label %154, label %_unpack_job_step_info_members.exit.thread
+  %154 = call i32 @unpack32(ptr noundef nonnull %15, ptr noundef %1) #8
+  %.not224.i.us = icmp eq i32 %154, 0
+  br i1 %.not224.i.us, label %155, label %_unpack_job_step_info_members.exit
 
-154:                                              ; preds = %152
-  %155 = load i32, ptr %15, align 4
-  %.not225.i.us = icmp eq i32 %155, -2
-  br i1 %.not225.i.us, label %167, label %156
+155:                                              ; preds = %153
+  %156 = load i32, ptr %15, align 4
+  %.not225.i.us = icmp eq i32 %156, -2
+  br i1 %.not225.i.us, label %168, label %157
 
-156:                                              ; preds = %154
-  %157 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %14, ptr noundef nonnull %16, ptr noundef %1) #8
-  %.not226.i.us = icmp eq i32 %157, 0
-  br i1 %.not226.i.us, label %158, label %_unpack_job_step_info_members.exit.thread
+157:                                              ; preds = %155
+  %158 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %14, ptr noundef nonnull %16, ptr noundef %1) #8
+  %.not226.i.us = icmp eq i32 %158, 0
+  br i1 %.not226.i.us, label %159, label %_unpack_job_step_info_members.exit
 
-158:                                              ; preds = %156
-  %159 = load i32, ptr %15, align 4
-  %.not227.i.us = icmp eq i32 %159, 0
-  br i1 %.not227.i.us, label %165, label %160
+159:                                              ; preds = %157
+  %160 = load i32, ptr %15, align 4
+  %.not227.i.us = icmp eq i32 %160, 0
+  br i1 %.not227.i.us, label %166, label %161
 
-160:                                              ; preds = %158
-  %161 = zext i32 %159 to i64
-  %162 = call ptr @bit_alloc(i64 noundef %161) #8
-  store ptr %162, ptr %13, align 8
-  %163 = load ptr, ptr %14, align 8
-  %164 = call i32 @bit_unfmt_hexmask(ptr noundef %162, ptr noundef %163) #8
-  %.not228.i.us = icmp eq i32 %164, 0
-  br i1 %.not228.i.us, label %166, label %.split.us
+161:                                              ; preds = %159
+  %162 = zext i32 %160 to i64
+  %163 = call ptr @bit_alloc(i64 noundef %162) #8
+  store ptr %163, ptr %13, align 8
+  %164 = load ptr, ptr %14, align 8
+  %165 = call i32 @bit_unfmt_hexmask(ptr noundef %163, ptr noundef %164) #8
+  %.not228.i.us = icmp eq i32 %165, 0
+  br i1 %.not228.i.us, label %167, label %.split.us
 
-165:                                              ; preds = %158
+166:                                              ; preds = %159
   store ptr null, ptr %13, align 8
-  br label %166
+  br label %167
 
-166:                                              ; preds = %165, %160
+167:                                              ; preds = %166, %161
   call void @slurm_xfree(ptr noundef nonnull %14) #8
-  %.pre252.i.us = load ptr, ptr %13, align 8
-  br label %168
+  %.pre251.i.us = load ptr, ptr %13, align 8
+  br label %169
 
-167:                                              ; preds = %154
+168:                                              ; preds = %155
   store ptr null, ptr %13, align 8
-  br label %168
+  br label %169
 
-168:                                              ; preds = %167, %166
-  %169 = phi ptr [ %.pre252.i.us, %166 ], [ null, %167 ]
-  %170 = call ptr @bitstr2inx(ptr noundef %169) #8
-  %171 = getelementptr inbounds i8, ptr %76, i64 88
-  store ptr %170, ptr %171, align 8
-  %172 = load ptr, ptr %13, align 8
-  %.not229.i.us = icmp eq ptr %172, null
-  br i1 %.not229.i.us, label %174, label %173
+169:                                              ; preds = %168, %167
+  %170 = phi ptr [ %.pre251.i.us, %167 ], [ null, %168 ]
+  %171 = call ptr @bitstr2inx(ptr noundef %170) #8
+  %172 = getelementptr inbounds i8, ptr %76, i64 88
+  store ptr %171, ptr %172, align 8
+  %173 = load ptr, ptr %13, align 8
+  %.not229.i.us = icmp eq ptr %173, null
+  br i1 %.not229.i.us, label %175, label %174
 
-173:                                              ; preds = %168
+174:                                              ; preds = %169
   call void @slurm_bit_free(ptr noundef nonnull %13) #8
-  br label %174
+  br label %175
 
-174:                                              ; preds = %173, %168
+175:                                              ; preds = %174, %169
   store ptr null, ptr %13, align 8
-  %175 = getelementptr inbounds i8, ptr %76, i64 192
-  %176 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %175, ptr noundef nonnull %17, ptr noundef %1) #8
-  %.not230.i.us = icmp eq i32 %176, 0
-  br i1 %.not230.i.us, label %177, label %_unpack_job_step_info_members.exit.thread
+  %176 = getelementptr inbounds i8, ptr %76, i64 192
+  %177 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %176, ptr noundef nonnull %17, ptr noundef %1) #8
+  %.not230.i.us = icmp eq i32 %177, 0
+  br i1 %.not230.i.us, label %178, label %_unpack_job_step_info_members.exit
 
-177:                                              ; preds = %174
-  %178 = getelementptr inbounds i8, ptr %76, i64 152
-  %179 = call i32 @unpack16(ptr noundef nonnull %178, ptr noundef %1) #8
-  %.not231.i.us = icmp eq i32 %179, 0
-  br i1 %.not231.i.us, label %180, label %_unpack_job_step_info_members.exit.thread
+178:                                              ; preds = %175
+  %179 = getelementptr inbounds i8, ptr %76, i64 152
+  %180 = call i32 @unpack16(ptr noundef nonnull %179, ptr noundef %1) #8
+  %.not231.i.us = icmp eq i32 %180, 0
+  br i1 %.not231.i.us, label %181, label %_unpack_job_step_info_members.exit
 
-180:                                              ; preds = %177
-  %181 = getelementptr inbounds i8, ptr %76, i64 48
-  %182 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %181, ptr noundef nonnull %18, ptr noundef %1) #8
-  %.not232.i.us = icmp eq i32 %182, 0
-  br i1 %.not232.i.us, label %183, label %_unpack_job_step_info_members.exit.thread
+181:                                              ; preds = %178
+  %182 = getelementptr inbounds i8, ptr %76, i64 48
+  %183 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %182, ptr noundef nonnull %18, ptr noundef %1) #8
+  %.not232.i.us = icmp eq i32 %183, 0
+  br i1 %.not232.i.us, label %184, label %_unpack_job_step_info_members.exit
 
-183:                                              ; preds = %180
-  %184 = getelementptr inbounds i8, ptr %76, i64 56
-  %185 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %184, ptr noundef nonnull %19, ptr noundef %1) #8
-  %.not233.i.us = icmp eq i32 %185, 0
-  br i1 %.not233.i.us, label %186, label %_unpack_job_step_info_members.exit.thread
+184:                                              ; preds = %181
+  %185 = getelementptr inbounds i8, ptr %76, i64 56
+  %186 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %185, ptr noundef nonnull %19, ptr noundef %1) #8
+  %.not233.i.us = icmp eq i32 %186, 0
+  br i1 %.not233.i.us, label %187, label %_unpack_job_step_info_members.exit
 
-186:                                              ; preds = %183
-  %187 = getelementptr inbounds i8, ptr %76, i64 176
-  %188 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %187, ptr noundef nonnull %20, ptr noundef %1) #8
-  %.not234.i.us = icmp eq i32 %188, 0
-  br i1 %.not234.i.us, label %189, label %_unpack_job_step_info_members.exit.thread
+187:                                              ; preds = %184
+  %188 = getelementptr inbounds i8, ptr %76, i64 176
+  %189 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %188, ptr noundef nonnull %20, ptr noundef %1) #8
+  %.not234.i.us = icmp eq i32 %189, 0
+  br i1 %.not234.i.us, label %190, label %_unpack_job_step_info_members.exit
 
-189:                                              ; preds = %186
-  %190 = getelementptr inbounds i8, ptr %76, i64 200
-  %191 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %190, ptr noundef nonnull %21, ptr noundef %1) #8
-  %.not235.i.us = icmp eq i32 %191, 0
-  br i1 %.not235.i.us, label %192, label %_unpack_job_step_info_members.exit.thread
+190:                                              ; preds = %187
+  %191 = getelementptr inbounds i8, ptr %76, i64 200
+  %192 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %191, ptr noundef nonnull %21, ptr noundef %1) #8
+  %.not235.i.us = icmp eq i32 %192, 0
+  br i1 %.not235.i.us, label %193, label %_unpack_job_step_info_members.exit
 
-192:                                              ; preds = %189
-  %193 = getelementptr inbounds i8, ptr %76, i64 208
-  %194 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %193, ptr noundef nonnull %22, ptr noundef %1) #8
-  %.not236.i.us = icmp eq i32 %194, 0
-  br i1 %.not236.i.us, label %195, label %_unpack_job_step_info_members.exit.thread
+193:                                              ; preds = %190
+  %194 = getelementptr inbounds i8, ptr %76, i64 208
+  %195 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %194, ptr noundef nonnull %22, ptr noundef %1) #8
+  %.not236.i.us = icmp eq i32 %195, 0
+  br i1 %.not236.i.us, label %196, label %_unpack_job_step_info_members.exit
 
-195:                                              ; preds = %192
-  %196 = getelementptr inbounds i8, ptr %76, i64 216
-  %197 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %196, ptr noundef nonnull %23, ptr noundef %1) #8
-  %.not237.i.us = icmp eq i32 %197, 0
-  br i1 %.not237.i.us, label %198, label %_unpack_job_step_info_members.exit.thread
+196:                                              ; preds = %193
+  %197 = getelementptr inbounds i8, ptr %76, i64 216
+  %198 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %197, ptr noundef nonnull %23, ptr noundef %1) #8
+  %.not237.i.us = icmp eq i32 %198, 0
+  br i1 %.not237.i.us, label %199, label %_unpack_job_step_info_members.exit
 
-198:                                              ; preds = %195
-  %199 = getelementptr inbounds i8, ptr %76, i64 224
-  %200 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %199, ptr noundef nonnull %24, ptr noundef %1) #8
-  %.not238.i.us = icmp eq i32 %200, 0
-  br i1 %.not238.i.us, label %201, label %_unpack_job_step_info_members.exit.thread
+199:                                              ; preds = %196
+  %200 = getelementptr inbounds i8, ptr %76, i64 224
+  %201 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %200, ptr noundef nonnull %24, ptr noundef %1) #8
+  %.not238.i.us = icmp eq i32 %201, 0
+  br i1 %.not238.i.us, label %202, label %_unpack_job_step_info_members.exit
 
-201:                                              ; preds = %198
-  %202 = getelementptr inbounds i8, ptr %76, i64 232
-  %203 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %202, ptr noundef nonnull %25, ptr noundef %1) #8
-  %.not239.i.us = icmp eq i32 %203, 0
-  br i1 %.not239.i.us, label %_unpack_job_step_info_members.exit.us, label %_unpack_job_step_info_members.exit.thread
+202:                                              ; preds = %199
+  %203 = getelementptr inbounds i8, ptr %76, i64 232
+  %204 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %203, ptr noundef nonnull %25, ptr noundef %1) #8
+  %.not239.i.us = icmp eq i32 %204, 0
+  br i1 %.not239.i.us, label %205, label %_unpack_job_step_info_members.exit
 
-_unpack_job_step_info_members.exit.us:            ; preds = %201
-  %204 = getelementptr inbounds i8, ptr %76, i64 240
-  %205 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %204, ptr noundef nonnull %26, ptr noundef %1) #8
-  %.not240.i.not.us = icmp eq i32 %205, 0
+205:                                              ; preds = %202
+  %206 = getelementptr inbounds i8, ptr %76, i64 240
+  %207 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %206, ptr noundef nonnull %26, ptr noundef %1) #8
+  %.not240.i.us = icmp eq i32 %207, 0
+  br i1 %.not240.i.us, label %208, label %_unpack_job_step_info_members.exit
+
+208:                                              ; preds = %205
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
@@ -29296,20 +29299,17 @@ _unpack_job_step_info_members.exit.us:            ; preds = %201
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %47)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %48)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %49)
-  br i1 %.not240.i.not.us, label %206, label %.loopexit35
+  %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
+  %209 = load ptr, ptr %0, align 8
+  %210 = getelementptr inbounds i8, ptr %209, i64 8
+  %211 = load i32, ptr %210, align 8
+  %212 = zext i32 %211 to i64
+  %213 = icmp ult i64 %indvars.iv.next38, %212
+  br i1 %213, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !83
 
-206:                                              ; preds = %_unpack_job_step_info_members.exit.us
-  %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
-  %207 = load ptr, ptr %0, align 8
-  %208 = getelementptr inbounds i8, ptr %207, i64 8
-  %209 = load i32, ptr %208, align 8
-  %210 = zext i32 %209 to i64
-  %211 = icmp ult i64 %indvars.iv.next42, %210
-  br i1 %211, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !83
-
-.lr.ph.split:                                     ; preds = %.lr.ph, %_unpack_job_step_info_members.exit.thread32
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_unpack_job_step_info_members.exit.thread32 ], [ 0, %.lr.ph ]
-  %212 = getelementptr inbounds %struct.job_step_info_t, ptr %72, i64 %indvars.iv
+.lr.ph.split:                                     ; preds = %.lr.ph, %353
+  %indvars.iv = phi i64 [ %indvars.iv.next, %353 ], [ 0, %.lr.ph ]
+  %214 = getelementptr inbounds %struct.job_step_info_t, ptr %72, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
@@ -29356,317 +29356,317 @@ _unpack_job_step_info_members.exit.us:            ; preds = %201
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %47)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %48)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %49)
-  %213 = call i32 @unpack32(ptr noundef %212, ptr noundef %1) #8
-  %.not.i = icmp eq i32 %213, 0
-  br i1 %.not.i, label %217, label %_unpack_job_step_info_members.exit.thread
+  %215 = call i32 @unpack32(ptr noundef %214, ptr noundef %1) #8
+  %.not.i = icmp eq i32 %215, 0
+  br i1 %.not.i, label %219, label %_unpack_job_step_info_members.exit
 
-.split.us:                                        ; preds = %160
-  %214 = load ptr, ptr %13, align 8
-  %.not241.i = icmp eq ptr %214, null
-  br i1 %.not241.i, label %216, label %215
+.split.us:                                        ; preds = %161
+  %216 = load ptr, ptr %13, align 8
+  %.not241.i = icmp eq ptr %216, null
+  br i1 %.not241.i, label %218, label %217
 
-215:                                              ; preds = %.split.us
+217:                                              ; preds = %.split.us
   call void @slurm_bit_free(ptr noundef nonnull %13) #8
-  br label %216
+  br label %218
 
-216:                                              ; preds = %215, %.split.us
+218:                                              ; preds = %217, %.split.us
   store ptr null, ptr %13, align 8
-  br label %_unpack_job_step_info_members.exit.thread.sink.split
+  br label %unpack_step_id_members.exit.sink.split.i
 
-217:                                              ; preds = %.lr.ph.split
-  %218 = getelementptr inbounds i8, ptr %212, i64 4
-  %219 = call i32 @unpack32(ptr noundef nonnull %218, ptr noundef %1) #8
-  %.not159.i = icmp eq i32 %219, 0
-  br i1 %.not159.i, label %220, label %_unpack_job_step_info_members.exit.thread
+219:                                              ; preds = %.lr.ph.split
+  %220 = getelementptr inbounds i8, ptr %214, i64 4
+  %221 = call i32 @unpack32(ptr noundef nonnull %220, ptr noundef %1) #8
+  %.not159.i = icmp eq i32 %221, 0
+  br i1 %.not159.i, label %222, label %_unpack_job_step_info_members.exit
 
-220:                                              ; preds = %217
-  %221 = getelementptr inbounds i8, ptr %212, i64 160
-  %222 = call i32 @unpack32(ptr noundef nonnull %221, ptr noundef %1) #8
-  %.not.i243.i = icmp eq i32 %222, 0
-  br i1 %.not.i243.i, label %223, label %_unpack_job_step_info_members.exit.thread
+222:                                              ; preds = %219
+  %223 = getelementptr inbounds i8, ptr %214, i64 160
+  %224 = call i32 @unpack32(ptr noundef nonnull %223, ptr noundef %1) #8
+  %.not.i243.i = icmp eq i32 %224, 0
+  br i1 %.not.i243.i, label %225, label %_unpack_job_step_info_members.exit
 
-223:                                              ; preds = %220
-  %224 = getelementptr inbounds i8, ptr %212, i64 168
-  %225 = call i32 @unpack32(ptr noundef nonnull %224, ptr noundef %1) #8
-  %.not9.i244.i = icmp eq i32 %225, 0
-  br i1 %.not9.i244.i, label %unpack_step_id_members.exit247.i, label %_unpack_job_step_info_members.exit.thread
-
-unpack_step_id_members.exit247.i:                 ; preds = %223
-  %226 = getelementptr inbounds i8, ptr %212, i64 164
+225:                                              ; preds = %222
+  %226 = getelementptr inbounds i8, ptr %214, i64 168
   %227 = call i32 @unpack32(ptr noundef nonnull %226, ptr noundef %1) #8
-  %.not10.i245.not.i = icmp eq i32 %227, 0
-  br i1 %.not10.i245.not.i, label %228, label %_unpack_job_step_info_members.exit.thread
+  %.not9.i244.i = icmp eq i32 %227, 0
+  br i1 %.not9.i244.i, label %228, label %_unpack_job_step_info_members.exit
 
-228:                                              ; preds = %unpack_step_id_members.exit247.i
-  %229 = getelementptr inbounds i8, ptr %212, i64 248
+228:                                              ; preds = %225
+  %229 = getelementptr inbounds i8, ptr %214, i64 164
   %230 = call i32 @unpack32(ptr noundef nonnull %229, ptr noundef %1) #8
-  %.not161.i = icmp eq i32 %230, 0
-  br i1 %.not161.i, label %231, label %_unpack_job_step_info_members.exit.thread
+  %.not10.i245.i = icmp eq i32 %230, 0
+  br i1 %.not10.i245.i, label %231, label %_unpack_job_step_info_members.exit
 
 231:                                              ; preds = %228
-  %232 = getelementptr inbounds i8, ptr %212, i64 96
+  %232 = getelementptr inbounds i8, ptr %214, i64 248
   %233 = call i32 @unpack32(ptr noundef nonnull %232, ptr noundef %1) #8
-  %.not162.i = icmp eq i32 %233, 0
-  br i1 %.not162.i, label %234, label %_unpack_job_step_info_members.exit.thread
+  %.not161.i = icmp eq i32 %233, 0
+  br i1 %.not161.i, label %234, label %_unpack_job_step_info_members.exit
 
 234:                                              ; preds = %231
-  %235 = getelementptr inbounds i8, ptr %212, i64 32
+  %235 = getelementptr inbounds i8, ptr %214, i64 96
   %236 = call i32 @unpack32(ptr noundef nonnull %235, ptr noundef %1) #8
-  %.not163.i = icmp eq i32 %236, 0
-  br i1 %.not163.i, label %237, label %_unpack_job_step_info_members.exit.thread
+  %.not162.i = icmp eq i32 %236, 0
+  br i1 %.not162.i, label %237, label %_unpack_job_step_info_members.exit
 
 237:                                              ; preds = %234
-  %238 = getelementptr inbounds i8, ptr %212, i64 36
+  %238 = getelementptr inbounds i8, ptr %214, i64 32
   %239 = call i32 @unpack32(ptr noundef nonnull %238, ptr noundef %1) #8
-  %.not164.i = icmp eq i32 %239, 0
-  br i1 %.not164.i, label %240, label %_unpack_job_step_info_members.exit.thread
+  %.not163.i = icmp eq i32 %239, 0
+  br i1 %.not163.i, label %240, label %_unpack_job_step_info_members.exit
 
 240:                                              ; preds = %237
-  %241 = getelementptr inbounds i8, ptr %212, i64 40
+  %241 = getelementptr inbounds i8, ptr %214, i64 36
   %242 = call i32 @unpack32(ptr noundef nonnull %241, ptr noundef %1) #8
-  %.not165.i = icmp eq i32 %242, 0
-  br i1 %.not165.i, label %243, label %_unpack_job_step_info_members.exit.thread
+  %.not164.i = icmp eq i32 %242, 0
+  br i1 %.not164.i, label %243, label %_unpack_job_step_info_members.exit
 
 243:                                              ; preds = %240
-  %244 = getelementptr inbounds i8, ptr %212, i64 100
+  %244 = getelementptr inbounds i8, ptr %214, i64 40
   %245 = call i32 @unpack32(ptr noundef nonnull %244, ptr noundef %1) #8
-  %.not166.i = icmp eq i32 %245, 0
-  br i1 %.not166.i, label %246, label %_unpack_job_step_info_members.exit.thread
+  %.not165.i = icmp eq i32 %245, 0
+  br i1 %.not165.i, label %246, label %_unpack_job_step_info_members.exit
 
 246:                                              ; preds = %243
-  %247 = getelementptr inbounds i8, ptr %212, i64 184
+  %247 = getelementptr inbounds i8, ptr %214, i64 100
   %248 = call i32 @unpack32(ptr noundef nonnull %247, ptr noundef %1) #8
-  %.not167.i = icmp eq i32 %248, 0
-  br i1 %.not167.i, label %249, label %_unpack_job_step_info_members.exit.thread
+  %.not166.i = icmp eq i32 %248, 0
+  br i1 %.not166.i, label %249, label %_unpack_job_step_info_members.exit
 
 249:                                              ; preds = %246
-  %250 = getelementptr inbounds i8, ptr %212, i64 188
+  %250 = getelementptr inbounds i8, ptr %214, i64 184
   %251 = call i32 @unpack32(ptr noundef nonnull %250, ptr noundef %1) #8
-  %.not168.i = icmp eq i32 %251, 0
-  br i1 %.not168.i, label %252, label %_unpack_job_step_info_members.exit.thread
+  %.not167.i = icmp eq i32 %251, 0
+  br i1 %.not167.i, label %252, label %_unpack_job_step_info_members.exit
 
 252:                                              ; preds = %249
-  %253 = getelementptr inbounds i8, ptr %212, i64 156
+  %253 = getelementptr inbounds i8, ptr %214, i64 188
   %254 = call i32 @unpack32(ptr noundef nonnull %253, ptr noundef %1) #8
-  %.not169.i = icmp eq i32 %254, 0
-  br i1 %.not169.i, label %255, label %_unpack_job_step_info_members.exit.thread
+  %.not168.i = icmp eq i32 %254, 0
+  br i1 %.not168.i, label %255, label %_unpack_job_step_info_members.exit
 
 255:                                              ; preds = %252
-  %256 = getelementptr inbounds i8, ptr %212, i64 136
+  %256 = getelementptr inbounds i8, ptr %214, i64 156
   %257 = call i32 @unpack32(ptr noundef nonnull %256, ptr noundef %1) #8
-  %.not170.i = icmp eq i32 %257, 0
-  br i1 %.not170.i, label %258, label %_unpack_job_step_info_members.exit.thread
+  %.not169.i = icmp eq i32 %257, 0
+  br i1 %.not169.i, label %258, label %_unpack_job_step_info_members.exit
 
 258:                                              ; preds = %255
-  %259 = getelementptr inbounds i8, ptr %212, i64 144
-  %260 = call i32 @unpack_time(ptr noundef nonnull %259, ptr noundef %1) #8
-  %.not171.i = icmp eq i32 %260, 0
-  br i1 %.not171.i, label %261, label %_unpack_job_step_info_members.exit.thread
+  %259 = getelementptr inbounds i8, ptr %214, i64 136
+  %260 = call i32 @unpack32(ptr noundef nonnull %259, ptr noundef %1) #8
+  %.not170.i = icmp eq i32 %260, 0
+  br i1 %.not170.i, label %261, label %_unpack_job_step_info_members.exit
 
 261:                                              ; preds = %258
-  %262 = getelementptr inbounds i8, ptr %212, i64 120
+  %262 = getelementptr inbounds i8, ptr %214, i64 144
   %263 = call i32 @unpack_time(ptr noundef nonnull %262, ptr noundef %1) #8
-  %.not172.i = icmp eq i32 %263, 0
-  br i1 %.not172.i, label %264, label %_unpack_job_step_info_members.exit.thread
+  %.not171.i = icmp eq i32 %263, 0
+  br i1 %.not171.i, label %264, label %_unpack_job_step_info_members.exit
 
 264:                                              ; preds = %261
-  %265 = getelementptr inbounds i8, ptr %212, i64 8
-  %266 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %265, ptr noundef nonnull %27, ptr noundef %1) #8
-  %.not173.i = icmp eq i32 %266, 0
-  br i1 %.not173.i, label %267, label %_unpack_job_step_info_members.exit.thread
+  %265 = getelementptr inbounds i8, ptr %214, i64 120
+  %266 = call i32 @unpack_time(ptr noundef nonnull %265, ptr noundef %1) #8
+  %.not172.i = icmp eq i32 %266, 0
+  br i1 %.not172.i, label %267, label %_unpack_job_step_info_members.exit
 
 267:                                              ; preds = %264
-  %268 = getelementptr inbounds i8, ptr %212, i64 16
-  %269 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %268, ptr noundef nonnull %28, ptr noundef %1) #8
-  %.not174.i = icmp eq i32 %269, 0
-  br i1 %.not174.i, label %270, label %_unpack_job_step_info_members.exit.thread
+  %268 = getelementptr inbounds i8, ptr %214, i64 8
+  %269 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %268, ptr noundef nonnull %27, ptr noundef %1) #8
+  %.not173.i = icmp eq i32 %269, 0
+  br i1 %.not173.i, label %270, label %_unpack_job_step_info_members.exit
 
 270:                                              ; preds = %267
-  %271 = getelementptr inbounds i8, ptr %212, i64 24
-  %272 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %271, ptr noundef nonnull %29, ptr noundef %1) #8
-  %.not175.i = icmp eq i32 %272, 0
-  br i1 %.not175.i, label %273, label %_unpack_job_step_info_members.exit.thread
+  %271 = getelementptr inbounds i8, ptr %214, i64 16
+  %272 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %271, ptr noundef nonnull %28, ptr noundef %1) #8
+  %.not174.i = icmp eq i32 %272, 0
+  br i1 %.not174.i, label %273, label %_unpack_job_step_info_members.exit
 
 273:                                              ; preds = %270
-  %274 = getelementptr inbounds i8, ptr %212, i64 104
-  %275 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %274, ptr noundef nonnull %30, ptr noundef %1) #8
-  %.not176.i = icmp eq i32 %275, 0
-  br i1 %.not176.i, label %276, label %_unpack_job_step_info_members.exit.thread
+  %274 = getelementptr inbounds i8, ptr %214, i64 24
+  %275 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %274, ptr noundef nonnull %29, ptr noundef %1) #8
+  %.not175.i = icmp eq i32 %275, 0
+  br i1 %.not175.i, label %276, label %_unpack_job_step_info_members.exit
 
 276:                                              ; preds = %273
-  %277 = getelementptr inbounds i8, ptr %212, i64 128
-  %278 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %277, ptr noundef nonnull %31, ptr noundef %1) #8
-  %.not177.i = icmp eq i32 %278, 0
-  br i1 %.not177.i, label %279, label %_unpack_job_step_info_members.exit.thread
+  %277 = getelementptr inbounds i8, ptr %214, i64 104
+  %278 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %277, ptr noundef nonnull %30, ptr noundef %1) #8
+  %.not176.i = icmp eq i32 %278, 0
+  br i1 %.not176.i, label %279, label %_unpack_job_step_info_members.exit
 
 279:                                              ; preds = %276
-  %280 = getelementptr inbounds i8, ptr %212, i64 112
-  %281 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %280, ptr noundef nonnull %32, ptr noundef %1) #8
-  %.not178.i = icmp eq i32 %281, 0
-  br i1 %.not178.i, label %282, label %_unpack_job_step_info_members.exit.thread
+  %280 = getelementptr inbounds i8, ptr %214, i64 128
+  %281 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %280, ptr noundef nonnull %31, ptr noundef %1) #8
+  %.not177.i = icmp eq i32 %281, 0
+  br i1 %.not177.i, label %282, label %_unpack_job_step_info_members.exit
 
 282:                                              ; preds = %279
-  %283 = getelementptr inbounds i8, ptr %212, i64 80
-  %284 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %283, ptr noundef nonnull %33, ptr noundef %1) #8
-  %.not179.i = icmp eq i32 %284, 0
-  br i1 %.not179.i, label %285, label %_unpack_job_step_info_members.exit.thread
+  %283 = getelementptr inbounds i8, ptr %214, i64 112
+  %284 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %283, ptr noundef nonnull %32, ptr noundef %1) #8
+  %.not178.i = icmp eq i32 %284, 0
+  br i1 %.not178.i, label %285, label %_unpack_job_step_info_members.exit
 
 285:                                              ; preds = %282
-  %286 = getelementptr inbounds i8, ptr %212, i64 64
-  %287 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %286, ptr noundef nonnull %34, ptr noundef %1) #8
-  %.not180.i = icmp eq i32 %287, 0
-  br i1 %.not180.i, label %288, label %_unpack_job_step_info_members.exit.thread
+  %286 = getelementptr inbounds i8, ptr %214, i64 80
+  %287 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %286, ptr noundef nonnull %33, ptr noundef %1) #8
+  %.not179.i = icmp eq i32 %287, 0
+  br i1 %.not179.i, label %288, label %_unpack_job_step_info_members.exit
 
 288:                                              ; preds = %285
-  %289 = getelementptr inbounds i8, ptr %212, i64 72
-  %290 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %289, ptr noundef nonnull %35, ptr noundef %1) #8
-  %.not181.i = icmp eq i32 %290, 0
-  br i1 %.not181.i, label %291, label %_unpack_job_step_info_members.exit.thread
+  %289 = getelementptr inbounds i8, ptr %214, i64 64
+  %290 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %289, ptr noundef nonnull %34, ptr noundef %1) #8
+  %.not180.i = icmp eq i32 %290, 0
+  br i1 %.not180.i, label %291, label %_unpack_job_step_info_members.exit
 
 291:                                              ; preds = %288
+  %292 = getelementptr inbounds i8, ptr %214, i64 72
+  %293 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %292, ptr noundef nonnull %35, ptr noundef %1) #8
+  %.not181.i = icmp eq i32 %293, 0
+  br i1 %.not181.i, label %294, label %_unpack_job_step_info_members.exit
+
+294:                                              ; preds = %291
   store ptr null, ptr %36, align 8
   store ptr null, ptr %37, align 8
-  %292 = call i32 @unpack32(ptr noundef nonnull %38, ptr noundef %1) #8
-  %.not182.i = icmp eq i32 %292, 0
-  br i1 %.not182.i, label %293, label %_unpack_job_step_info_members.exit.thread
+  %295 = call i32 @unpack32(ptr noundef nonnull %38, ptr noundef %1) #8
+  %.not182.i = icmp eq i32 %295, 0
+  br i1 %.not182.i, label %296, label %_unpack_job_step_info_members.exit
 
-293:                                              ; preds = %291
-  %294 = load i32, ptr %38, align 4
-  %.not183.i = icmp eq i32 %294, -2
-  br i1 %.not183.i, label %310, label %295
+296:                                              ; preds = %294
+  %297 = load i32, ptr %38, align 4
+  %.not183.i = icmp eq i32 %297, -2
+  br i1 %.not183.i, label %313, label %298
 
-295:                                              ; preds = %293
-  %296 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %37, ptr noundef nonnull %39, ptr noundef %1) #8
-  %.not184.i = icmp eq i32 %296, 0
-  br i1 %.not184.i, label %297, label %_unpack_job_step_info_members.exit.thread
+298:                                              ; preds = %296
+  %299 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %37, ptr noundef nonnull %39, ptr noundef %1) #8
+  %.not184.i = icmp eq i32 %299, 0
+  br i1 %.not184.i, label %300, label %_unpack_job_step_info_members.exit
 
-297:                                              ; preds = %295
-  %298 = load i32, ptr %38, align 4
-  %.not185.i = icmp eq i32 %298, 0
-  br i1 %.not185.i, label %308, label %299
+300:                                              ; preds = %298
+  %301 = load i32, ptr %38, align 4
+  %.not185.i = icmp eq i32 %301, 0
+  br i1 %.not185.i, label %311, label %302
 
-299:                                              ; preds = %297
-  %300 = zext i32 %298 to i64
-  %301 = call ptr @bit_alloc(i64 noundef %300) #8
-  store ptr %301, ptr %36, align 8
-  %302 = load ptr, ptr %37, align 8
-  %303 = call i32 @bit_unfmt_hexmask(ptr noundef %301, ptr noundef %302) #8
-  %.not186.i = icmp eq i32 %303, 0
-  br i1 %.not186.i, label %309, label %304
+302:                                              ; preds = %300
+  %303 = zext i32 %301 to i64
+  %304 = call ptr @bit_alloc(i64 noundef %303) #8
+  store ptr %304, ptr %36, align 8
+  %305 = load ptr, ptr %37, align 8
+  %306 = call i32 @bit_unfmt_hexmask(ptr noundef %304, ptr noundef %305) #8
+  %.not186.i = icmp eq i32 %306, 0
+  br i1 %.not186.i, label %312, label %307
 
-304:                                              ; preds = %299
-  %305 = load ptr, ptr %36, align 8
-  %.not199.i = icmp eq ptr %305, null
-  br i1 %.not199.i, label %307, label %306
+307:                                              ; preds = %302
+  %308 = load ptr, ptr %36, align 8
+  %.not199.i = icmp eq ptr %308, null
+  br i1 %.not199.i, label %310, label %309
 
-306:                                              ; preds = %304
+309:                                              ; preds = %307
   call void @slurm_bit_free(ptr noundef nonnull %36) #8
-  br label %307
+  br label %310
 
-307:                                              ; preds = %306, %304
+310:                                              ; preds = %309, %307
   store ptr null, ptr %36, align 8
-  br label %_unpack_job_step_info_members.exit.thread.sink.split
+  br label %unpack_step_id_members.exit.sink.split.i
 
-308:                                              ; preds = %297
+311:                                              ; preds = %300
   store ptr null, ptr %36, align 8
-  br label %309
+  br label %312
 
-309:                                              ; preds = %308, %299
+312:                                              ; preds = %311, %302
   call void @slurm_xfree(ptr noundef nonnull %37) #8
   %.pre.i = load ptr, ptr %36, align 8
-  br label %311
+  br label %314
 
-310:                                              ; preds = %293
+313:                                              ; preds = %296
   store ptr null, ptr %36, align 8
-  br label %311
+  br label %314
 
-311:                                              ; preds = %310, %309
-  %312 = phi ptr [ %.pre.i, %309 ], [ null, %310 ]
-  %313 = call ptr @bitstr2inx(ptr noundef %312) #8
-  %314 = getelementptr inbounds i8, ptr %212, i64 88
-  store ptr %313, ptr %314, align 8
-  %315 = load ptr, ptr %36, align 8
-  %.not187.i = icmp eq ptr %315, null
-  br i1 %.not187.i, label %317, label %316
+314:                                              ; preds = %313, %312
+  %315 = phi ptr [ %.pre.i, %312 ], [ null, %313 ]
+  %316 = call ptr @bitstr2inx(ptr noundef %315) #8
+  %317 = getelementptr inbounds i8, ptr %214, i64 88
+  store ptr %316, ptr %317, align 8
+  %318 = load ptr, ptr %36, align 8
+  %.not187.i = icmp eq ptr %318, null
+  br i1 %.not187.i, label %320, label %319
 
-316:                                              ; preds = %311
+319:                                              ; preds = %314
   call void @slurm_bit_free(ptr noundef nonnull %36) #8
-  br label %317
+  br label %320
 
-317:                                              ; preds = %316, %311
+320:                                              ; preds = %319, %314
   store ptr null, ptr %36, align 8
-  %318 = getelementptr inbounds i8, ptr %212, i64 192
-  %319 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %318, ptr noundef nonnull %40, ptr noundef %1) #8
-  %.not188.i = icmp eq i32 %319, 0
-  br i1 %.not188.i, label %320, label %_unpack_job_step_info_members.exit.thread
-
-320:                                              ; preds = %317
-  %321 = getelementptr inbounds i8, ptr %212, i64 152
-  %322 = call i32 @unpack16(ptr noundef nonnull %321, ptr noundef %1) #8
-  %.not189.i = icmp eq i32 %322, 0
-  br i1 %.not189.i, label %323, label %_unpack_job_step_info_members.exit.thread
+  %321 = getelementptr inbounds i8, ptr %214, i64 192
+  %322 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %321, ptr noundef nonnull %40, ptr noundef %1) #8
+  %.not188.i = icmp eq i32 %322, 0
+  br i1 %.not188.i, label %323, label %_unpack_job_step_info_members.exit
 
 323:                                              ; preds = %320
-  %324 = getelementptr inbounds i8, ptr %212, i64 48
-  %325 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %324, ptr noundef nonnull %41, ptr noundef %1) #8
-  %.not190.i = icmp eq i32 %325, 0
-  br i1 %.not190.i, label %326, label %_unpack_job_step_info_members.exit.thread
+  %324 = getelementptr inbounds i8, ptr %214, i64 152
+  %325 = call i32 @unpack16(ptr noundef nonnull %324, ptr noundef %1) #8
+  %.not189.i = icmp eq i32 %325, 0
+  br i1 %.not189.i, label %326, label %_unpack_job_step_info_members.exit
 
 326:                                              ; preds = %323
-  call void @_xstrsubstitute(ptr noundef nonnull %324, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i1 noundef zeroext true) #8
-  %327 = getelementptr inbounds i8, ptr %212, i64 56
-  %328 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %327, ptr noundef nonnull %42, ptr noundef %1) #8
-  %.not191.i = icmp eq i32 %328, 0
-  br i1 %.not191.i, label %329, label %_unpack_job_step_info_members.exit.thread
+  %327 = getelementptr inbounds i8, ptr %214, i64 48
+  %328 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %327, ptr noundef nonnull %41, ptr noundef %1) #8
+  %.not190.i = icmp eq i32 %328, 0
+  br i1 %.not190.i, label %329, label %_unpack_job_step_info_members.exit
 
 329:                                              ; preds = %326
   call void @_xstrsubstitute(ptr noundef nonnull %327, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i1 noundef zeroext true) #8
-  %330 = getelementptr inbounds i8, ptr %212, i64 176
-  %331 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %330, ptr noundef nonnull %43, ptr noundef %1) #8
-  %.not192.i = icmp eq i32 %331, 0
-  br i1 %.not192.i, label %332, label %_unpack_job_step_info_members.exit.thread
+  %330 = getelementptr inbounds i8, ptr %214, i64 56
+  %331 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %330, ptr noundef nonnull %42, ptr noundef %1) #8
+  %.not191.i = icmp eq i32 %331, 0
+  br i1 %.not191.i, label %332, label %_unpack_job_step_info_members.exit
 
 332:                                              ; preds = %329
-  %333 = getelementptr inbounds i8, ptr %212, i64 200
-  %334 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %333, ptr noundef nonnull %44, ptr noundef %1) #8
-  %.not193.i = icmp eq i32 %334, 0
-  br i1 %.not193.i, label %335, label %_unpack_job_step_info_members.exit.thread
+  call void @_xstrsubstitute(ptr noundef nonnull %330, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i1 noundef zeroext true) #8
+  %333 = getelementptr inbounds i8, ptr %214, i64 176
+  %334 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %333, ptr noundef nonnull %43, ptr noundef %1) #8
+  %.not192.i = icmp eq i32 %334, 0
+  br i1 %.not192.i, label %335, label %_unpack_job_step_info_members.exit
 
 335:                                              ; preds = %332
-  %336 = getelementptr inbounds i8, ptr %212, i64 208
-  %337 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %336, ptr noundef nonnull %45, ptr noundef %1) #8
-  %.not194.i = icmp eq i32 %337, 0
-  br i1 %.not194.i, label %338, label %_unpack_job_step_info_members.exit.thread
+  %336 = getelementptr inbounds i8, ptr %214, i64 200
+  %337 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %336, ptr noundef nonnull %44, ptr noundef %1) #8
+  %.not193.i = icmp eq i32 %337, 0
+  br i1 %.not193.i, label %338, label %_unpack_job_step_info_members.exit
 
 338:                                              ; preds = %335
-  %339 = getelementptr inbounds i8, ptr %212, i64 216
-  %340 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %339, ptr noundef nonnull %46, ptr noundef %1) #8
-  %.not195.i = icmp eq i32 %340, 0
-  br i1 %.not195.i, label %341, label %_unpack_job_step_info_members.exit.thread
+  %339 = getelementptr inbounds i8, ptr %214, i64 208
+  %340 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %339, ptr noundef nonnull %45, ptr noundef %1) #8
+  %.not194.i = icmp eq i32 %340, 0
+  br i1 %.not194.i, label %341, label %_unpack_job_step_info_members.exit
 
 341:                                              ; preds = %338
-  call void @_xstrsubstitute(ptr noundef nonnull %339, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i1 noundef zeroext true) #8
-  %342 = getelementptr inbounds i8, ptr %212, i64 224
-  %343 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %342, ptr noundef nonnull %47, ptr noundef %1) #8
-  %.not196.i = icmp eq i32 %343, 0
-  br i1 %.not196.i, label %344, label %_unpack_job_step_info_members.exit.thread
+  %342 = getelementptr inbounds i8, ptr %214, i64 216
+  %343 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %342, ptr noundef nonnull %46, ptr noundef %1) #8
+  %.not195.i = icmp eq i32 %343, 0
+  br i1 %.not195.i, label %344, label %_unpack_job_step_info_members.exit
 
 344:                                              ; preds = %341
   call void @_xstrsubstitute(ptr noundef nonnull %342, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i1 noundef zeroext true) #8
-  %345 = getelementptr inbounds i8, ptr %212, i64 232
-  %346 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %345, ptr noundef nonnull %48, ptr noundef %1) #8
-  %.not197.i = icmp eq i32 %346, 0
-  br i1 %.not197.i, label %347, label %_unpack_job_step_info_members.exit.thread
+  %345 = getelementptr inbounds i8, ptr %214, i64 224
+  %346 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %345, ptr noundef nonnull %47, ptr noundef %1) #8
+  %.not196.i = icmp eq i32 %346, 0
+  br i1 %.not196.i, label %347, label %_unpack_job_step_info_members.exit
 
 347:                                              ; preds = %344
   call void @_xstrsubstitute(ptr noundef nonnull %345, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i1 noundef zeroext true) #8
-  %348 = getelementptr inbounds i8, ptr %212, i64 240
-  %349 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %348, ptr noundef nonnull %49, ptr noundef %1) #8
-  %.not198.i = icmp eq i32 %349, 0
-  br i1 %.not198.i, label %_unpack_job_step_info_members.exit.thread32, label %_unpack_job_step_info_members.exit.thread
+  %348 = getelementptr inbounds i8, ptr %214, i64 232
+  %349 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %348, ptr noundef nonnull %48, ptr noundef %1) #8
+  %.not197.i = icmp eq i32 %349, 0
+  br i1 %.not197.i, label %350, label %_unpack_job_step_info_members.exit
 
-_unpack_job_step_info_members.exit.thread32:      ; preds = %347
+350:                                              ; preds = %347
   call void @_xstrsubstitute(ptr noundef nonnull %348, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i1 noundef zeroext true) #8
+  %351 = getelementptr inbounds i8, ptr %214, i64 240
+  %352 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %351, ptr noundef nonnull %49, ptr noundef %1) #8
+  %.not198.i = icmp eq i32 %352, 0
+  br i1 %.not198.i, label %353, label %_unpack_job_step_info_members.exit
+
+353:                                              ; preds = %350
+  call void @_xstrsubstitute(ptr noundef nonnull %351, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i1 noundef zeroext true) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
@@ -29714,19 +29714,19 @@ _unpack_job_step_info_members.exit.thread32:      ; preds = %347
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %48)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %49)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %350 = load ptr, ptr %0, align 8
-  %351 = getelementptr inbounds i8, ptr %350, i64 8
-  %352 = load i32, ptr %351, align 8
-  %353 = zext i32 %352 to i64
-  %354 = icmp ult i64 %indvars.iv.next, %353
-  br i1 %354, label %.lr.ph.split, label %.loopexit, !llvm.loop !83
+  %354 = load ptr, ptr %0, align 8
+  %355 = getelementptr inbounds i8, ptr %354, i64 8
+  %356 = load i32, ptr %355, align 8
+  %357 = zext i32 %356 to i64
+  %358 = icmp ult i64 %indvars.iv.next, %357
+  br i1 %358, label %.lr.ph.split, label %.loopexit, !llvm.loop !83
 
-_unpack_job_step_info_members.exit.thread.sink.split: ; preds = %216, %307
-  %.sink = phi ptr [ %37, %307 ], [ %14, %216 ]
-  call void @slurm_xfree(ptr noundef nonnull %.sink) #8
-  br label %_unpack_job_step_info_members.exit.thread
+unpack_step_id_members.exit.sink.split.i:         ; preds = %310, %218
+  %.sink.i = phi ptr [ %37, %310 ], [ %14, %218 ]
+  call void @slurm_xfree(ptr noundef nonnull %.sink.i) #8
+  br label %_unpack_job_step_info_members.exit
 
-_unpack_job_step_info_members.exit.thread:        ; preds = %220, %223, %.lr.ph.split, %217, %unpack_step_id_members.exit247.i, %228, %231, %234, %237, %240, %243, %246, %249, %252, %255, %258, %261, %264, %267, %270, %273, %276, %279, %282, %285, %288, %291, %295, %317, %320, %323, %326, %329, %332, %335, %338, %341, %344, %347, %201, %198, %195, %192, %189, %186, %183, %180, %177, %174, %156, %152, %149, %146, %143, %140, %137, %134, %131, %128, %125, %122, %119, %116, %113, %110, %107, %104, %101, %98, %95, %92, %89, %unpack_step_id_members.exit.i.us, %84, %81, %78, %.lr.ph.split.us, %_unpack_job_step_info_members.exit.thread.sink.split
+_unpack_job_step_info_members.exit:               ; preds = %350, %347, %344, %341, %338, %335, %332, %329, %326, %323, %320, %298, %294, %291, %288, %285, %282, %279, %276, %273, %270, %267, %264, %261, %258, %255, %252, %249, %246, %243, %240, %237, %234, %231, %228, %225, %222, %219, %.lr.ph.split, %205, %202, %199, %196, %193, %190, %187, %184, %181, %178, %175, %157, %153, %150, %147, %144, %141, %138, %135, %132, %129, %126, %123, %120, %117, %114, %111, %108, %105, %102, %99, %96, %93, %90, %87, %84, %81, %78, %.lr.ph.split.us, %unpack_step_id_members.exit.sink.split.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
@@ -29773,16 +29773,16 @@ _unpack_job_step_info_members.exit.thread:        ; preds = %220, %223, %.lr.ph.
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %47)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %48)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %49)
-  br label %.loopexit35
+  br label %359
 
-.loopexit35:                                      ; preds = %_unpack_job_step_info_members.exit.us, %_unpack_job_step_info_members.exit.thread, %64, %55, %52
-  %355 = load ptr, ptr %0, align 8
-  call void @slurm_free_job_step_info_response_msg(ptr noundef %355) #8
+359:                                              ; preds = %_unpack_job_step_info_members.exit, %64, %55, %52
+  %360 = load ptr, ptr %0, align 8
+  call void @slurm_free_job_step_info_response_msg(ptr noundef %360) #8
   store ptr null, ptr %0, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_unpack_job_step_info_members.exit.thread32, %206, %69, %3, %.loopexit35
-  %.0 = phi i32 [ -1, %.loopexit35 ], [ 0, %3 ], [ 0, %69 ], [ 0, %206 ], [ 0, %_unpack_job_step_info_members.exit.thread32 ]
+.loopexit:                                        ; preds = %353, %208, %69, %3, %359
+  %.0 = phi i32 [ -1, %359 ], [ 0, %3 ], [ 0, %69 ], [ 0, %208 ], [ 0, %353 ]
   ret i32 %.0
 }
 
@@ -30902,554 +30902,554 @@ define internal fastcc noundef i32 @_unpack_job_step_create_request_msg(ptr noca
   %40 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 264, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 2304, ptr noundef nonnull @__func__._unpack_job_step_create_request_msg) #8
   store ptr %40, ptr %0, align 8
   %41 = icmp ugt i16 %2, 10239
-  br i1 %41, label %42, label %172
+  br i1 %41, label %42, label %173
 
 42:                                               ; preds = %3
   %43 = getelementptr inbounds i8, ptr %40, i64 160
   %44 = tail call i32 @unpack32(ptr noundef nonnull %43, ptr noundef %1) #8
   %.not.i = icmp eq i32 %44, 0
-  br i1 %.not.i, label %45, label %unpack_step_id_members.exit.thread
+  br i1 %.not.i, label %45, label %unpack_step_id_members.exit
 
 45:                                               ; preds = %42
   %46 = getelementptr inbounds i8, ptr %40, i64 168
   %47 = tail call i32 @unpack32(ptr noundef nonnull %46, ptr noundef %1) #8
   %.not9.i = icmp eq i32 %47, 0
-  br i1 %.not9.i, label %unpack_step_id_members.exit, label %unpack_step_id_members.exit.thread
-
-unpack_step_id_members.exit:                      ; preds = %45
-  %48 = getelementptr inbounds i8, ptr %40, i64 164
-  %49 = tail call i32 @unpack32(ptr noundef nonnull %48, ptr noundef %1) #8
-  %.not10.i.not = icmp eq i32 %49, 0
-  br i1 %.not10.i.not, label %50, label %unpack_step_id_members.exit.thread
-
-50:                                               ; preds = %unpack_step_id_members.exit
-  %51 = getelementptr inbounds i8, ptr %40, i64 172
-  %52 = tail call i32 @unpack32(ptr noundef nonnull %51, ptr noundef %1) #8
-  %.not225 = icmp eq i32 %52, 0
-  br i1 %.not225, label %53, label %unpack_step_id_members.exit.thread
-
-53:                                               ; preds = %50
-  %54 = getelementptr inbounds i8, ptr %40, i64 256
-  %55 = tail call i32 @unpack32(ptr noundef nonnull %54, ptr noundef %1) #8
-  %.not226 = icmp eq i32 %55, 0
-  br i1 %.not226, label %56, label %unpack_step_id_members.exit.thread
-
-56:                                               ; preds = %53
-  %57 = getelementptr inbounds i8, ptr %40, i64 112
-  %58 = tail call i32 @unpack32(ptr noundef nonnull %57, ptr noundef %1) #8
-  %.not227 = icmp eq i32 %58, 0
-  br i1 %.not227, label %59, label %unpack_step_id_members.exit.thread
-
-59:                                               ; preds = %56
-  %60 = getelementptr inbounds i8, ptr %40, i64 116
-  %61 = tail call i32 @unpack32(ptr noundef nonnull %60, ptr noundef %1) #8
-  %.not228 = icmp eq i32 %61, 0
-  br i1 %.not228, label %62, label %unpack_step_id_members.exit.thread
-
-62:                                               ; preds = %59
-  %63 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %40, ptr noundef nonnull %4, ptr noundef %1) #8
-  %.not229 = icmp eq i32 %63, 0
-  br i1 %.not229, label %64, label %unpack_step_id_members.exit.thread
-
-64:                                               ; preds = %62
-  %65 = getelementptr inbounds i8, ptr %40, i64 8
-  %66 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %65, ptr noundef nonnull %5, ptr noundef %1) #8
-  %.not230 = icmp eq i32 %66, 0
-  br i1 %.not230, label %67, label %unpack_step_id_members.exit.thread
-
-67:                                               ; preds = %64
-  %68 = getelementptr inbounds i8, ptr %40, i64 16
-  %69 = call i32 @unpack32(ptr noundef nonnull %68, ptr noundef %1) #8
-  %.not231 = icmp eq i32 %69, 0
-  br i1 %.not231, label %70, label %unpack_step_id_members.exit.thread
-
-70:                                               ; preds = %67
-  %71 = getelementptr inbounds i8, ptr %40, i64 28
-  %72 = call i32 @unpack32(ptr noundef nonnull %71, ptr noundef %1) #8
-  %.not232 = icmp eq i32 %72, 0
-  br i1 %.not232, label %73, label %unpack_step_id_members.exit.thread
-
-73:                                               ; preds = %70
-  %74 = getelementptr inbounds i8, ptr %40, i64 24
-  %75 = call i32 @unpack32(ptr noundef nonnull %74, ptr noundef %1) #8
-  %.not233 = icmp eq i32 %75, 0
-  br i1 %.not233, label %76, label %unpack_step_id_members.exit.thread
-
-76:                                               ; preds = %73
-  %77 = getelementptr inbounds i8, ptr %40, i64 20
-  %78 = call i32 @unpack32(ptr noundef nonnull %77, ptr noundef %1) #8
-  %.not234 = icmp eq i32 %78, 0
-  br i1 %.not234, label %79, label %unpack_step_id_members.exit.thread
-
-79:                                               ; preds = %76
-  %80 = getelementptr inbounds i8, ptr %40, i64 136
-  %81 = call i32 @unpack32(ptr noundef nonnull %80, ptr noundef %1) #8
-  %.not235 = icmp eq i32 %81, 0
-  br i1 %.not235, label %82, label %unpack_step_id_members.exit.thread
-
-82:                                               ; preds = %79
-  %83 = getelementptr inbounds i8, ptr %40, i64 88
-  %84 = call i32 @unpack64(ptr noundef nonnull %83, ptr noundef %1) #8
-  %.not236 = icmp eq i32 %84, 0
-  br i1 %.not236, label %85, label %unpack_step_id_members.exit.thread
-
-85:                                               ; preds = %82
-  %86 = getelementptr inbounds i8, ptr %40, i64 196
-  %87 = call i32 @unpack32(ptr noundef nonnull %86, ptr noundef %1) #8
-  %.not237 = icmp eq i32 %87, 0
-  br i1 %.not237, label %88, label %unpack_step_id_members.exit.thread
-
-88:                                               ; preds = %85
-  %89 = getelementptr inbounds i8, ptr %40, i64 200
-  %90 = call i32 @unpack16(ptr noundef nonnull %89, ptr noundef %1) #8
-  %.not238 = icmp eq i32 %90, 0
-  br i1 %.not238, label %91, label %unpack_step_id_members.exit.thread
-
-91:                                               ; preds = %88
-  %92 = getelementptr inbounds i8, ptr %40, i64 40
-  %93 = call i32 @unpack16(ptr noundef nonnull %92, ptr noundef %1) #8
-  %.not239 = icmp eq i32 %93, 0
-  br i1 %.not239, label %94, label %unpack_step_id_members.exit.thread
-
-94:                                               ; preds = %91
-  %95 = getelementptr inbounds i8, ptr %40, i64 144
-  %96 = call i32 @unpack16(ptr noundef nonnull %95, ptr noundef %1) #8
-  %.not240 = icmp eq i32 %96, 0
-  br i1 %.not240, label %97, label %unpack_step_id_members.exit.thread
-
-97:                                               ; preds = %94
-  %98 = getelementptr inbounds i8, ptr %40, i64 192
-  %99 = call i32 @unpack32(ptr noundef nonnull %98, ptr noundef %1) #8
-  %.not241 = icmp eq i32 %99, 0
-  br i1 %.not241, label %100, label %unpack_step_id_members.exit.thread
-
-100:                                              ; preds = %97
-  %101 = getelementptr inbounds i8, ptr %40, i64 140
-  %102 = call i32 @unpack16(ptr noundef nonnull %101, ptr noundef %1) #8
-  %.not242 = icmp eq i32 %102, 0
-  br i1 %.not242, label %103, label %unpack_step_id_members.exit.thread
-
-103:                                              ; preds = %100
-  %104 = getelementptr inbounds i8, ptr %40, i64 142
-  %105 = call i32 @unpack16(ptr noundef nonnull %104, ptr noundef %1) #8
-  %.not243 = icmp eq i32 %105, 0
-  br i1 %.not243, label %106, label %unpack_step_id_members.exit.thread
-
-106:                                              ; preds = %103
-  %107 = getelementptr inbounds i8, ptr %40, i64 80
-  %108 = call i32 @unpack16(ptr noundef nonnull %107, ptr noundef %1) #8
-  %.not244 = icmp eq i32 %108, 0
-  br i1 %.not244, label %109, label %unpack_step_id_members.exit.thread
-
-109:                                              ; preds = %106
-  %110 = getelementptr inbounds i8, ptr %40, i64 146
-  %111 = call i32 @unpack16(ptr noundef nonnull %110, ptr noundef %1) #8
-  %.not245 = icmp eq i32 %111, 0
-  br i1 %.not245, label %112, label %unpack_step_id_members.exit.thread
-
-112:                                              ; preds = %109
-  %113 = getelementptr inbounds i8, ptr %40, i64 176
-  %114 = call i32 @unpack32(ptr noundef nonnull %113, ptr noundef %1) #8
-  %.not246 = icmp eq i32 %114, 0
-  br i1 %.not246, label %115, label %unpack_step_id_members.exit.thread
-
-115:                                              ; preds = %112
-  %116 = getelementptr inbounds i8, ptr %40, i64 64
-  %117 = call i32 @unpack32(ptr noundef nonnull %116, ptr noundef %1) #8
-  %.not247 = icmp eq i32 %117, 0
-  br i1 %.not247, label %118, label %unpack_step_id_members.exit.thread
-
-118:                                              ; preds = %115
-  %119 = getelementptr inbounds i8, ptr %40, i64 72
-  %120 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %119, ptr noundef nonnull %6, ptr noundef %1) #8
-  %.not248 = icmp eq i32 %120, 0
-  br i1 %.not248, label %121, label %unpack_step_id_members.exit.thread
-
-121:                                              ; preds = %118
-  %122 = getelementptr inbounds i8, ptr %40, i64 96
-  %123 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %122, ptr noundef nonnull %7, ptr noundef %1) #8
-  %.not249 = icmp eq i32 %123, 0
-  br i1 %.not249, label %124, label %unpack_step_id_members.exit.thread
-
-124:                                              ; preds = %121
-  %125 = getelementptr inbounds i8, ptr %40, i64 104
-  %126 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %125, ptr noundef nonnull %8, ptr noundef %1) #8
-  %.not250 = icmp eq i32 %126, 0
-  br i1 %.not250, label %127, label %unpack_step_id_members.exit.thread
-
-127:                                              ; preds = %124
-  %128 = getelementptr inbounds i8, ptr %40, i64 128
-  %129 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %128, ptr noundef nonnull %9, ptr noundef %1) #8
-  %.not251 = icmp eq i32 %129, 0
-  br i1 %.not251, label %130, label %unpack_step_id_members.exit.thread
-
-130:                                              ; preds = %127
-  %131 = getelementptr inbounds i8, ptr %40, i64 48
-  %132 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %131, ptr noundef nonnull %10, ptr noundef %1) #8
-  %.not252 = icmp eq i32 %132, 0
-  br i1 %.not252, label %133, label %unpack_step_id_members.exit.thread
-
-133:                                              ; preds = %130
-  %134 = getelementptr inbounds i8, ptr %40, i64 56
-  %135 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %134, ptr noundef nonnull %11, ptr noundef %1) #8
-  %.not253 = icmp eq i32 %135, 0
-  br i1 %.not253, label %136, label %unpack_step_id_members.exit.thread
-
-136:                                              ; preds = %133
-  %137 = getelementptr inbounds i8, ptr %40, i64 148
-  %138 = call i32 @unpack32(ptr noundef nonnull %137, ptr noundef %1) #8
-  %.not254 = icmp eq i32 %138, 0
-  br i1 %.not254, label %139, label %unpack_step_id_members.exit.thread
-
-139:                                              ; preds = %136
-  %140 = getelementptr inbounds i8, ptr %40, i64 152
-  %141 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %140, ptr noundef nonnull %12, ptr noundef %1) #8
-  %.not255 = icmp eq i32 %141, 0
-  br i1 %.not255, label %142, label %unpack_step_id_members.exit.thread
-
-142:                                              ; preds = %139
-  %143 = getelementptr inbounds i8, ptr %40, i64 32
-  %144 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %143, ptr noundef nonnull %13, ptr noundef %1) #8
-  %.not256 = icmp eq i32 %144, 0
-  br i1 %.not256, label %145, label %unpack_step_id_members.exit.thread
-
-145:                                              ; preds = %142
-  %146 = getelementptr inbounds i8, ptr %40, i64 120
-  %147 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %146, ptr noundef nonnull %14, ptr noundef %1) #8
-  %.not257 = icmp eq i32 %147, 0
-  br i1 %.not257, label %148, label %unpack_step_id_members.exit.thread
-
-148:                                              ; preds = %145
-  %149 = getelementptr inbounds i8, ptr %40, i64 42
-  %150 = call i32 @unpack16(ptr noundef nonnull %149, ptr noundef %1) #8
-  %.not258 = icmp eq i32 %150, 0
-  br i1 %.not258, label %151, label %unpack_step_id_members.exit.thread
-
-151:                                              ; preds = %148
-  %152 = getelementptr inbounds i8, ptr %40, i64 184
-  %153 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %152, ptr noundef nonnull %15, ptr noundef %1) #8
-  %.not259 = icmp eq i32 %153, 0
-  br i1 %.not259, label %154, label %unpack_step_id_members.exit.thread
-
-154:                                              ; preds = %151
-  %155 = getelementptr inbounds i8, ptr %40, i64 208
-  %156 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %155, ptr noundef nonnull %16, ptr noundef %1) #8
-  %.not260 = icmp eq i32 %156, 0
-  br i1 %.not260, label %157, label %unpack_step_id_members.exit.thread
-
-157:                                              ; preds = %154
-  %158 = getelementptr inbounds i8, ptr %40, i64 216
-  %159 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %158, ptr noundef nonnull %17, ptr noundef %1) #8
-  %.not261 = icmp eq i32 %159, 0
-  br i1 %.not261, label %160, label %unpack_step_id_members.exit.thread
-
-160:                                              ; preds = %157
-  %161 = getelementptr inbounds i8, ptr %40, i64 224
-  %162 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %161, ptr noundef nonnull %18, ptr noundef %1) #8
-  %.not262 = icmp eq i32 %162, 0
-  br i1 %.not262, label %163, label %unpack_step_id_members.exit.thread
-
-163:                                              ; preds = %160
-  %164 = getelementptr inbounds i8, ptr %40, i64 232
-  %165 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %164, ptr noundef nonnull %19, ptr noundef %1) #8
-  %.not263 = icmp eq i32 %165, 0
-  br i1 %.not263, label %166, label %unpack_step_id_members.exit.thread
-
-166:                                              ; preds = %163
-  %167 = getelementptr inbounds i8, ptr %40, i64 240
-  %168 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %167, ptr noundef nonnull %20, ptr noundef %1) #8
-  %.not264 = icmp eq i32 %168, 0
-  br i1 %.not264, label %169, label %unpack_step_id_members.exit.thread
-
-169:                                              ; preds = %166
-  %170 = getelementptr inbounds i8, ptr %40, i64 248
-  %171 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %170, ptr noundef nonnull %21, ptr noundef %1) #8
-  %.not265 = icmp eq i32 %171, 0
-  br i1 %.not265, label %305, label %unpack_step_id_members.exit.thread
-
-172:                                              ; preds = %3
-  %173 = icmp ugt i16 %2, 9983
-  br i1 %173, label %174, label %305
-
-174:                                              ; preds = %172
-  %175 = getelementptr inbounds i8, ptr %40, i64 160
-  %176 = tail call i32 @unpack32(ptr noundef nonnull %175, ptr noundef %1) #8
-  %.not.i267 = icmp eq i32 %176, 0
-  br i1 %.not.i267, label %177, label %unpack_step_id_members.exit.thread
-
-177:                                              ; preds = %174
-  %178 = getelementptr inbounds i8, ptr %40, i64 168
-  %179 = tail call i32 @unpack32(ptr noundef nonnull %178, ptr noundef %1) #8
-  %.not9.i268 = icmp eq i32 %179, 0
-  br i1 %.not9.i268, label %unpack_step_id_members.exit271, label %unpack_step_id_members.exit.thread
-
-unpack_step_id_members.exit271:                   ; preds = %177
-  %180 = getelementptr inbounds i8, ptr %40, i64 164
-  %181 = tail call i32 @unpack32(ptr noundef nonnull %180, ptr noundef %1) #8
-  %.not10.i269.not = icmp eq i32 %181, 0
-  br i1 %.not10.i269.not, label %182, label %unpack_step_id_members.exit.thread
-
-182:                                              ; preds = %unpack_step_id_members.exit271
-  %183 = getelementptr inbounds i8, ptr %40, i64 172
-  %184 = tail call i32 @unpack32(ptr noundef nonnull %183, ptr noundef %1) #8
-  %.not183 = icmp eq i32 %184, 0
-  br i1 %.not183, label %185, label %unpack_step_id_members.exit.thread
-
-185:                                              ; preds = %182
-  %186 = getelementptr inbounds i8, ptr %40, i64 256
-  %187 = tail call i32 @unpack32(ptr noundef nonnull %186, ptr noundef %1) #8
-  %.not184 = icmp eq i32 %187, 0
-  br i1 %.not184, label %188, label %unpack_step_id_members.exit.thread
-
-188:                                              ; preds = %185
-  %189 = getelementptr inbounds i8, ptr %40, i64 112
-  %190 = tail call i32 @unpack32(ptr noundef nonnull %189, ptr noundef %1) #8
-  %.not185 = icmp eq i32 %190, 0
-  br i1 %.not185, label %191, label %unpack_step_id_members.exit.thread
-
-191:                                              ; preds = %188
-  %192 = getelementptr inbounds i8, ptr %40, i64 116
-  %193 = tail call i32 @unpack32(ptr noundef nonnull %192, ptr noundef %1) #8
-  %.not186 = icmp eq i32 %193, 0
-  br i1 %.not186, label %194, label %unpack_step_id_members.exit.thread
-
-194:                                              ; preds = %191
-  %195 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %40, ptr noundef nonnull %22, ptr noundef %1) #8
-  %.not187 = icmp eq i32 %195, 0
-  br i1 %.not187, label %196, label %unpack_step_id_members.exit.thread
-
-196:                                              ; preds = %194
-  %197 = getelementptr inbounds i8, ptr %40, i64 8
-  %198 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %197, ptr noundef nonnull %23, ptr noundef %1) #8
-  %.not188 = icmp eq i32 %198, 0
-  br i1 %.not188, label %199, label %unpack_step_id_members.exit.thread
-
-199:                                              ; preds = %196
-  %200 = getelementptr inbounds i8, ptr %40, i64 16
-  %201 = call i32 @unpack32(ptr noundef nonnull %200, ptr noundef %1) #8
-  %.not189 = icmp eq i32 %201, 0
-  br i1 %.not189, label %202, label %unpack_step_id_members.exit.thread
-
-202:                                              ; preds = %199
-  %203 = getelementptr inbounds i8, ptr %40, i64 28
-  %204 = call i32 @unpack32(ptr noundef nonnull %203, ptr noundef %1) #8
-  %.not190 = icmp eq i32 %204, 0
-  br i1 %.not190, label %205, label %unpack_step_id_members.exit.thread
-
-205:                                              ; preds = %202
-  %206 = getelementptr inbounds i8, ptr %40, i64 24
-  %207 = call i32 @unpack32(ptr noundef nonnull %206, ptr noundef %1) #8
-  %.not191 = icmp eq i32 %207, 0
-  br i1 %.not191, label %208, label %unpack_step_id_members.exit.thread
-
-208:                                              ; preds = %205
-  %209 = getelementptr inbounds i8, ptr %40, i64 20
-  %210 = call i32 @unpack32(ptr noundef nonnull %209, ptr noundef %1) #8
-  %.not192 = icmp eq i32 %210, 0
-  br i1 %.not192, label %211, label %unpack_step_id_members.exit.thread
-
-211:                                              ; preds = %208
-  %212 = getelementptr inbounds i8, ptr %40, i64 136
-  %213 = call i32 @unpack32(ptr noundef nonnull %212, ptr noundef %1) #8
-  %.not193 = icmp eq i32 %213, 0
-  br i1 %.not193, label %214, label %unpack_step_id_members.exit.thread
-
-214:                                              ; preds = %211
-  %215 = getelementptr inbounds i8, ptr %40, i64 88
-  %216 = call i32 @unpack64(ptr noundef nonnull %215, ptr noundef %1) #8
-  %.not194 = icmp eq i32 %216, 0
-  br i1 %.not194, label %217, label %unpack_step_id_members.exit.thread
-
-217:                                              ; preds = %214
-  %218 = getelementptr inbounds i8, ptr %40, i64 196
-  %219 = call i32 @unpack32(ptr noundef nonnull %218, ptr noundef %1) #8
-  %.not195 = icmp eq i32 %219, 0
-  br i1 %.not195, label %220, label %unpack_step_id_members.exit.thread
-
-220:                                              ; preds = %217
-  %221 = getelementptr inbounds i8, ptr %40, i64 200
-  %222 = call i32 @unpack16(ptr noundef nonnull %221, ptr noundef %1) #8
-  %.not196 = icmp eq i32 %222, 0
-  br i1 %.not196, label %223, label %unpack_step_id_members.exit.thread
-
-223:                                              ; preds = %220
-  %224 = getelementptr inbounds i8, ptr %40, i64 40
-  %225 = call i32 @unpack16(ptr noundef nonnull %224, ptr noundef %1) #8
-  %.not197 = icmp eq i32 %225, 0
-  br i1 %.not197, label %226, label %unpack_step_id_members.exit.thread
-
-226:                                              ; preds = %223
-  %227 = getelementptr inbounds i8, ptr %40, i64 144
-  %228 = call i32 @unpack16(ptr noundef nonnull %227, ptr noundef %1) #8
-  %.not198 = icmp eq i32 %228, 0
-  br i1 %.not198, label %229, label %unpack_step_id_members.exit.thread
-
-229:                                              ; preds = %226
-  %230 = getelementptr inbounds i8, ptr %40, i64 192
-  %231 = call i32 @unpack32(ptr noundef nonnull %230, ptr noundef %1) #8
-  %.not199 = icmp eq i32 %231, 0
-  br i1 %.not199, label %232, label %unpack_step_id_members.exit.thread
-
-232:                                              ; preds = %229
-  %233 = getelementptr inbounds i8, ptr %40, i64 140
-  %234 = call i32 @unpack16(ptr noundef nonnull %233, ptr noundef %1) #8
-  %.not200 = icmp eq i32 %234, 0
-  br i1 %.not200, label %235, label %unpack_step_id_members.exit.thread
-
-235:                                              ; preds = %232
-  %236 = getelementptr inbounds i8, ptr %40, i64 142
-  %237 = call i32 @unpack16(ptr noundef nonnull %236, ptr noundef %1) #8
-  %.not201 = icmp eq i32 %237, 0
-  br i1 %.not201, label %238, label %unpack_step_id_members.exit.thread
-
-238:                                              ; preds = %235
-  %239 = getelementptr inbounds i8, ptr %40, i64 80
-  %240 = call i32 @unpack16(ptr noundef nonnull %239, ptr noundef %1) #8
-  %.not202 = icmp eq i32 %240, 0
-  br i1 %.not202, label %241, label %unpack_step_id_members.exit.thread
-
-241:                                              ; preds = %238
-  %242 = getelementptr inbounds i8, ptr %40, i64 146
-  %243 = call i32 @unpack16(ptr noundef nonnull %242, ptr noundef %1) #8
-  %.not203 = icmp eq i32 %243, 0
-  br i1 %.not203, label %244, label %unpack_step_id_members.exit.thread
-
-244:                                              ; preds = %241
-  %245 = getelementptr inbounds i8, ptr %40, i64 176
-  %246 = call i32 @unpack32(ptr noundef nonnull %245, ptr noundef %1) #8
-  %.not204 = icmp eq i32 %246, 0
-  br i1 %.not204, label %247, label %unpack_step_id_members.exit.thread
-
-247:                                              ; preds = %244
-  %248 = getelementptr inbounds i8, ptr %40, i64 64
-  %249 = call i32 @unpack32(ptr noundef nonnull %248, ptr noundef %1) #8
-  %.not205 = icmp eq i32 %249, 0
-  br i1 %.not205, label %250, label %unpack_step_id_members.exit.thread
-
-250:                                              ; preds = %247
-  %251 = getelementptr inbounds i8, ptr %40, i64 72
-  %252 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %251, ptr noundef nonnull %24, ptr noundef %1) #8
-  %.not206 = icmp eq i32 %252, 0
-  br i1 %.not206, label %253, label %unpack_step_id_members.exit.thread
-
-253:                                              ; preds = %250
-  %254 = getelementptr inbounds i8, ptr %40, i64 96
-  %255 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %254, ptr noundef nonnull %25, ptr noundef %1) #8
-  %.not207 = icmp eq i32 %255, 0
-  br i1 %.not207, label %256, label %unpack_step_id_members.exit.thread
-
-256:                                              ; preds = %253
-  %257 = getelementptr inbounds i8, ptr %40, i64 104
-  %258 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %257, ptr noundef nonnull %26, ptr noundef %1) #8
-  %.not208 = icmp eq i32 %258, 0
-  br i1 %.not208, label %259, label %unpack_step_id_members.exit.thread
-
-259:                                              ; preds = %256
-  %260 = getelementptr inbounds i8, ptr %40, i64 128
-  %261 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %260, ptr noundef nonnull %27, ptr noundef %1) #8
-  %.not209 = icmp eq i32 %261, 0
-  br i1 %.not209, label %262, label %unpack_step_id_members.exit.thread
-
-262:                                              ; preds = %259
-  %263 = getelementptr inbounds i8, ptr %40, i64 48
-  %264 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %263, ptr noundef nonnull %28, ptr noundef %1) #8
-  %.not210 = icmp eq i32 %264, 0
-  br i1 %.not210, label %265, label %unpack_step_id_members.exit.thread
-
-265:                                              ; preds = %262
-  %266 = getelementptr inbounds i8, ptr %40, i64 56
-  %267 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %266, ptr noundef nonnull %29, ptr noundef %1) #8
-  %.not211 = icmp eq i32 %267, 0
-  br i1 %.not211, label %268, label %unpack_step_id_members.exit.thread
-
-268:                                              ; preds = %265
-  %269 = getelementptr inbounds i8, ptr %40, i64 148
-  %270 = call i32 @unpack32(ptr noundef nonnull %269, ptr noundef %1) #8
-  %.not212 = icmp eq i32 %270, 0
-  br i1 %.not212, label %271, label %unpack_step_id_members.exit.thread
-
-271:                                              ; preds = %268
-  %272 = getelementptr inbounds i8, ptr %40, i64 152
-  %273 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %272, ptr noundef nonnull %30, ptr noundef %1) #8
-  %.not213 = icmp eq i32 %273, 0
-  br i1 %.not213, label %274, label %unpack_step_id_members.exit.thread
-
-274:                                              ; preds = %271
-  %275 = getelementptr inbounds i8, ptr %40, i64 32
-  %276 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %275, ptr noundef nonnull %31, ptr noundef %1) #8
-  %.not214 = icmp eq i32 %276, 0
-  br i1 %.not214, label %277, label %unpack_step_id_members.exit.thread
-
-277:                                              ; preds = %274
-  call void @_xstrsubstitute(ptr noundef nonnull %275, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i1 noundef zeroext true) #8
-  %278 = getelementptr inbounds i8, ptr %40, i64 120
-  %279 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %278, ptr noundef nonnull %32, ptr noundef %1) #8
-  %.not215 = icmp eq i32 %279, 0
-  br i1 %.not215, label %280, label %unpack_step_id_members.exit.thread
-
-280:                                              ; preds = %277
-  call void @_xstrsubstitute(ptr noundef nonnull %278, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i1 noundef zeroext true) #8
-  %281 = getelementptr inbounds i8, ptr %40, i64 42
-  %282 = call i32 @unpack16(ptr noundef nonnull %281, ptr noundef %1) #8
-  %.not216 = icmp eq i32 %282, 0
-  br i1 %.not216, label %283, label %unpack_step_id_members.exit.thread
-
-283:                                              ; preds = %280
-  %284 = getelementptr inbounds i8, ptr %40, i64 184
-  %285 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %284, ptr noundef nonnull %33, ptr noundef %1) #8
-  %.not217 = icmp eq i32 %285, 0
-  br i1 %.not217, label %286, label %unpack_step_id_members.exit.thread
-
-286:                                              ; preds = %283
-  %287 = getelementptr inbounds i8, ptr %40, i64 208
-  %288 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %287, ptr noundef nonnull %34, ptr noundef %1) #8
-  %.not218 = icmp eq i32 %288, 0
-  br i1 %.not218, label %289, label %unpack_step_id_members.exit.thread
-
-289:                                              ; preds = %286
-  %290 = getelementptr inbounds i8, ptr %40, i64 216
-  %291 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %290, ptr noundef nonnull %35, ptr noundef %1) #8
-  %.not219 = icmp eq i32 %291, 0
-  br i1 %.not219, label %292, label %unpack_step_id_members.exit.thread
-
-292:                                              ; preds = %289
-  %293 = getelementptr inbounds i8, ptr %40, i64 224
-  %294 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %293, ptr noundef nonnull %36, ptr noundef %1) #8
-  %.not220 = icmp eq i32 %294, 0
-  br i1 %.not220, label %295, label %unpack_step_id_members.exit.thread
-
-295:                                              ; preds = %292
-  call void @_xstrsubstitute(ptr noundef nonnull %293, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i1 noundef zeroext true) #8
-  %296 = getelementptr inbounds i8, ptr %40, i64 232
-  %297 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %296, ptr noundef nonnull %37, ptr noundef %1) #8
-  %.not221 = icmp eq i32 %297, 0
-  br i1 %.not221, label %298, label %unpack_step_id_members.exit.thread
-
-298:                                              ; preds = %295
-  call void @_xstrsubstitute(ptr noundef nonnull %296, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i1 noundef zeroext true) #8
-  %299 = getelementptr inbounds i8, ptr %40, i64 240
-  %300 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %299, ptr noundef nonnull %38, ptr noundef %1) #8
-  %.not222 = icmp eq i32 %300, 0
-  br i1 %.not222, label %301, label %unpack_step_id_members.exit.thread
-
-301:                                              ; preds = %298
-  call void @_xstrsubstitute(ptr noundef nonnull %299, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i1 noundef zeroext true) #8
-  %302 = getelementptr inbounds i8, ptr %40, i64 248
-  %303 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %302, ptr noundef nonnull %39, ptr noundef %1) #8
-  %.not223 = icmp eq i32 %303, 0
-  br i1 %.not223, label %304, label %unpack_step_id_members.exit.thread
-
-304:                                              ; preds = %301
-  call void @_xstrsubstitute(ptr noundef nonnull %302, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i1 noundef zeroext true) #8
-  br label %305
-
-unpack_step_id_members.exit.thread:               ; preds = %174, %177, %42, %45, %301, %298, %295, %292, %289, %286, %283, %280, %277, %274, %271, %268, %265, %262, %259, %256, %253, %250, %247, %244, %241, %238, %235, %232, %229, %226, %223, %220, %217, %214, %211, %208, %205, %202, %199, %196, %194, %191, %188, %185, %182, %unpack_step_id_members.exit271, %169, %166, %163, %160, %157, %154, %151, %148, %145, %142, %139, %136, %133, %130, %127, %124, %121, %118, %115, %112, %109, %106, %103, %100, %97, %94, %91, %88, %85, %82, %79, %76, %73, %70, %67, %64, %62, %59, %56, %53, %50, %unpack_step_id_members.exit
+  br i1 %.not9.i, label %48, label %unpack_step_id_members.exit
+
+48:                                               ; preds = %45
+  %49 = getelementptr inbounds i8, ptr %40, i64 164
+  %50 = tail call i32 @unpack32(ptr noundef nonnull %49, ptr noundef %1) #8
+  %.not10.i = icmp eq i32 %50, 0
+  br i1 %.not10.i, label %51, label %unpack_step_id_members.exit
+
+51:                                               ; preds = %48
+  %52 = getelementptr inbounds i8, ptr %40, i64 172
+  %53 = tail call i32 @unpack32(ptr noundef nonnull %52, ptr noundef %1) #8
+  %.not225 = icmp eq i32 %53, 0
+  br i1 %.not225, label %54, label %unpack_step_id_members.exit
+
+54:                                               ; preds = %51
+  %55 = getelementptr inbounds i8, ptr %40, i64 256
+  %56 = tail call i32 @unpack32(ptr noundef nonnull %55, ptr noundef %1) #8
+  %.not226 = icmp eq i32 %56, 0
+  br i1 %.not226, label %57, label %unpack_step_id_members.exit
+
+57:                                               ; preds = %54
+  %58 = getelementptr inbounds i8, ptr %40, i64 112
+  %59 = tail call i32 @unpack32(ptr noundef nonnull %58, ptr noundef %1) #8
+  %.not227 = icmp eq i32 %59, 0
+  br i1 %.not227, label %60, label %unpack_step_id_members.exit
+
+60:                                               ; preds = %57
+  %61 = getelementptr inbounds i8, ptr %40, i64 116
+  %62 = tail call i32 @unpack32(ptr noundef nonnull %61, ptr noundef %1) #8
+  %.not228 = icmp eq i32 %62, 0
+  br i1 %.not228, label %63, label %unpack_step_id_members.exit
+
+63:                                               ; preds = %60
+  %64 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %40, ptr noundef nonnull %4, ptr noundef %1) #8
+  %.not229 = icmp eq i32 %64, 0
+  br i1 %.not229, label %65, label %unpack_step_id_members.exit
+
+65:                                               ; preds = %63
+  %66 = getelementptr inbounds i8, ptr %40, i64 8
+  %67 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %66, ptr noundef nonnull %5, ptr noundef %1) #8
+  %.not230 = icmp eq i32 %67, 0
+  br i1 %.not230, label %68, label %unpack_step_id_members.exit
+
+68:                                               ; preds = %65
+  %69 = getelementptr inbounds i8, ptr %40, i64 16
+  %70 = call i32 @unpack32(ptr noundef nonnull %69, ptr noundef %1) #8
+  %.not231 = icmp eq i32 %70, 0
+  br i1 %.not231, label %71, label %unpack_step_id_members.exit
+
+71:                                               ; preds = %68
+  %72 = getelementptr inbounds i8, ptr %40, i64 28
+  %73 = call i32 @unpack32(ptr noundef nonnull %72, ptr noundef %1) #8
+  %.not232 = icmp eq i32 %73, 0
+  br i1 %.not232, label %74, label %unpack_step_id_members.exit
+
+74:                                               ; preds = %71
+  %75 = getelementptr inbounds i8, ptr %40, i64 24
+  %76 = call i32 @unpack32(ptr noundef nonnull %75, ptr noundef %1) #8
+  %.not233 = icmp eq i32 %76, 0
+  br i1 %.not233, label %77, label %unpack_step_id_members.exit
+
+77:                                               ; preds = %74
+  %78 = getelementptr inbounds i8, ptr %40, i64 20
+  %79 = call i32 @unpack32(ptr noundef nonnull %78, ptr noundef %1) #8
+  %.not234 = icmp eq i32 %79, 0
+  br i1 %.not234, label %80, label %unpack_step_id_members.exit
+
+80:                                               ; preds = %77
+  %81 = getelementptr inbounds i8, ptr %40, i64 136
+  %82 = call i32 @unpack32(ptr noundef nonnull %81, ptr noundef %1) #8
+  %.not235 = icmp eq i32 %82, 0
+  br i1 %.not235, label %83, label %unpack_step_id_members.exit
+
+83:                                               ; preds = %80
+  %84 = getelementptr inbounds i8, ptr %40, i64 88
+  %85 = call i32 @unpack64(ptr noundef nonnull %84, ptr noundef %1) #8
+  %.not236 = icmp eq i32 %85, 0
+  br i1 %.not236, label %86, label %unpack_step_id_members.exit
+
+86:                                               ; preds = %83
+  %87 = getelementptr inbounds i8, ptr %40, i64 196
+  %88 = call i32 @unpack32(ptr noundef nonnull %87, ptr noundef %1) #8
+  %.not237 = icmp eq i32 %88, 0
+  br i1 %.not237, label %89, label %unpack_step_id_members.exit
+
+89:                                               ; preds = %86
+  %90 = getelementptr inbounds i8, ptr %40, i64 200
+  %91 = call i32 @unpack16(ptr noundef nonnull %90, ptr noundef %1) #8
+  %.not238 = icmp eq i32 %91, 0
+  br i1 %.not238, label %92, label %unpack_step_id_members.exit
+
+92:                                               ; preds = %89
+  %93 = getelementptr inbounds i8, ptr %40, i64 40
+  %94 = call i32 @unpack16(ptr noundef nonnull %93, ptr noundef %1) #8
+  %.not239 = icmp eq i32 %94, 0
+  br i1 %.not239, label %95, label %unpack_step_id_members.exit
+
+95:                                               ; preds = %92
+  %96 = getelementptr inbounds i8, ptr %40, i64 144
+  %97 = call i32 @unpack16(ptr noundef nonnull %96, ptr noundef %1) #8
+  %.not240 = icmp eq i32 %97, 0
+  br i1 %.not240, label %98, label %unpack_step_id_members.exit
+
+98:                                               ; preds = %95
+  %99 = getelementptr inbounds i8, ptr %40, i64 192
+  %100 = call i32 @unpack32(ptr noundef nonnull %99, ptr noundef %1) #8
+  %.not241 = icmp eq i32 %100, 0
+  br i1 %.not241, label %101, label %unpack_step_id_members.exit
+
+101:                                              ; preds = %98
+  %102 = getelementptr inbounds i8, ptr %40, i64 140
+  %103 = call i32 @unpack16(ptr noundef nonnull %102, ptr noundef %1) #8
+  %.not242 = icmp eq i32 %103, 0
+  br i1 %.not242, label %104, label %unpack_step_id_members.exit
+
+104:                                              ; preds = %101
+  %105 = getelementptr inbounds i8, ptr %40, i64 142
+  %106 = call i32 @unpack16(ptr noundef nonnull %105, ptr noundef %1) #8
+  %.not243 = icmp eq i32 %106, 0
+  br i1 %.not243, label %107, label %unpack_step_id_members.exit
+
+107:                                              ; preds = %104
+  %108 = getelementptr inbounds i8, ptr %40, i64 80
+  %109 = call i32 @unpack16(ptr noundef nonnull %108, ptr noundef %1) #8
+  %.not244 = icmp eq i32 %109, 0
+  br i1 %.not244, label %110, label %unpack_step_id_members.exit
+
+110:                                              ; preds = %107
+  %111 = getelementptr inbounds i8, ptr %40, i64 146
+  %112 = call i32 @unpack16(ptr noundef nonnull %111, ptr noundef %1) #8
+  %.not245 = icmp eq i32 %112, 0
+  br i1 %.not245, label %113, label %unpack_step_id_members.exit
+
+113:                                              ; preds = %110
+  %114 = getelementptr inbounds i8, ptr %40, i64 176
+  %115 = call i32 @unpack32(ptr noundef nonnull %114, ptr noundef %1) #8
+  %.not246 = icmp eq i32 %115, 0
+  br i1 %.not246, label %116, label %unpack_step_id_members.exit
+
+116:                                              ; preds = %113
+  %117 = getelementptr inbounds i8, ptr %40, i64 64
+  %118 = call i32 @unpack32(ptr noundef nonnull %117, ptr noundef %1) #8
+  %.not247 = icmp eq i32 %118, 0
+  br i1 %.not247, label %119, label %unpack_step_id_members.exit
+
+119:                                              ; preds = %116
+  %120 = getelementptr inbounds i8, ptr %40, i64 72
+  %121 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %120, ptr noundef nonnull %6, ptr noundef %1) #8
+  %.not248 = icmp eq i32 %121, 0
+  br i1 %.not248, label %122, label %unpack_step_id_members.exit
+
+122:                                              ; preds = %119
+  %123 = getelementptr inbounds i8, ptr %40, i64 96
+  %124 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %123, ptr noundef nonnull %7, ptr noundef %1) #8
+  %.not249 = icmp eq i32 %124, 0
+  br i1 %.not249, label %125, label %unpack_step_id_members.exit
+
+125:                                              ; preds = %122
+  %126 = getelementptr inbounds i8, ptr %40, i64 104
+  %127 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %126, ptr noundef nonnull %8, ptr noundef %1) #8
+  %.not250 = icmp eq i32 %127, 0
+  br i1 %.not250, label %128, label %unpack_step_id_members.exit
+
+128:                                              ; preds = %125
+  %129 = getelementptr inbounds i8, ptr %40, i64 128
+  %130 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %129, ptr noundef nonnull %9, ptr noundef %1) #8
+  %.not251 = icmp eq i32 %130, 0
+  br i1 %.not251, label %131, label %unpack_step_id_members.exit
+
+131:                                              ; preds = %128
+  %132 = getelementptr inbounds i8, ptr %40, i64 48
+  %133 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %132, ptr noundef nonnull %10, ptr noundef %1) #8
+  %.not252 = icmp eq i32 %133, 0
+  br i1 %.not252, label %134, label %unpack_step_id_members.exit
+
+134:                                              ; preds = %131
+  %135 = getelementptr inbounds i8, ptr %40, i64 56
+  %136 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %135, ptr noundef nonnull %11, ptr noundef %1) #8
+  %.not253 = icmp eq i32 %136, 0
+  br i1 %.not253, label %137, label %unpack_step_id_members.exit
+
+137:                                              ; preds = %134
+  %138 = getelementptr inbounds i8, ptr %40, i64 148
+  %139 = call i32 @unpack32(ptr noundef nonnull %138, ptr noundef %1) #8
+  %.not254 = icmp eq i32 %139, 0
+  br i1 %.not254, label %140, label %unpack_step_id_members.exit
+
+140:                                              ; preds = %137
+  %141 = getelementptr inbounds i8, ptr %40, i64 152
+  %142 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %141, ptr noundef nonnull %12, ptr noundef %1) #8
+  %.not255 = icmp eq i32 %142, 0
+  br i1 %.not255, label %143, label %unpack_step_id_members.exit
+
+143:                                              ; preds = %140
+  %144 = getelementptr inbounds i8, ptr %40, i64 32
+  %145 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %144, ptr noundef nonnull %13, ptr noundef %1) #8
+  %.not256 = icmp eq i32 %145, 0
+  br i1 %.not256, label %146, label %unpack_step_id_members.exit
+
+146:                                              ; preds = %143
+  %147 = getelementptr inbounds i8, ptr %40, i64 120
+  %148 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %147, ptr noundef nonnull %14, ptr noundef %1) #8
+  %.not257 = icmp eq i32 %148, 0
+  br i1 %.not257, label %149, label %unpack_step_id_members.exit
+
+149:                                              ; preds = %146
+  %150 = getelementptr inbounds i8, ptr %40, i64 42
+  %151 = call i32 @unpack16(ptr noundef nonnull %150, ptr noundef %1) #8
+  %.not258 = icmp eq i32 %151, 0
+  br i1 %.not258, label %152, label %unpack_step_id_members.exit
+
+152:                                              ; preds = %149
+  %153 = getelementptr inbounds i8, ptr %40, i64 184
+  %154 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %153, ptr noundef nonnull %15, ptr noundef %1) #8
+  %.not259 = icmp eq i32 %154, 0
+  br i1 %.not259, label %155, label %unpack_step_id_members.exit
+
+155:                                              ; preds = %152
+  %156 = getelementptr inbounds i8, ptr %40, i64 208
+  %157 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %156, ptr noundef nonnull %16, ptr noundef %1) #8
+  %.not260 = icmp eq i32 %157, 0
+  br i1 %.not260, label %158, label %unpack_step_id_members.exit
+
+158:                                              ; preds = %155
+  %159 = getelementptr inbounds i8, ptr %40, i64 216
+  %160 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %159, ptr noundef nonnull %17, ptr noundef %1) #8
+  %.not261 = icmp eq i32 %160, 0
+  br i1 %.not261, label %161, label %unpack_step_id_members.exit
+
+161:                                              ; preds = %158
+  %162 = getelementptr inbounds i8, ptr %40, i64 224
+  %163 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %162, ptr noundef nonnull %18, ptr noundef %1) #8
+  %.not262 = icmp eq i32 %163, 0
+  br i1 %.not262, label %164, label %unpack_step_id_members.exit
+
+164:                                              ; preds = %161
+  %165 = getelementptr inbounds i8, ptr %40, i64 232
+  %166 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %165, ptr noundef nonnull %19, ptr noundef %1) #8
+  %.not263 = icmp eq i32 %166, 0
+  br i1 %.not263, label %167, label %unpack_step_id_members.exit
+
+167:                                              ; preds = %164
+  %168 = getelementptr inbounds i8, ptr %40, i64 240
+  %169 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %168, ptr noundef nonnull %20, ptr noundef %1) #8
+  %.not264 = icmp eq i32 %169, 0
+  br i1 %.not264, label %170, label %unpack_step_id_members.exit
+
+170:                                              ; preds = %167
+  %171 = getelementptr inbounds i8, ptr %40, i64 248
+  %172 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %171, ptr noundef nonnull %21, ptr noundef %1) #8
+  %.not265 = icmp eq i32 %172, 0
+  br i1 %.not265, label %307, label %unpack_step_id_members.exit
+
+173:                                              ; preds = %3
+  %174 = icmp ugt i16 %2, 9983
+  br i1 %174, label %175, label %307
+
+175:                                              ; preds = %173
+  %176 = getelementptr inbounds i8, ptr %40, i64 160
+  %177 = tail call i32 @unpack32(ptr noundef nonnull %176, ptr noundef %1) #8
+  %.not.i267 = icmp eq i32 %177, 0
+  br i1 %.not.i267, label %178, label %unpack_step_id_members.exit
+
+178:                                              ; preds = %175
+  %179 = getelementptr inbounds i8, ptr %40, i64 168
+  %180 = tail call i32 @unpack32(ptr noundef nonnull %179, ptr noundef %1) #8
+  %.not9.i268 = icmp eq i32 %180, 0
+  br i1 %.not9.i268, label %181, label %unpack_step_id_members.exit
+
+181:                                              ; preds = %178
+  %182 = getelementptr inbounds i8, ptr %40, i64 164
+  %183 = tail call i32 @unpack32(ptr noundef nonnull %182, ptr noundef %1) #8
+  %.not10.i269 = icmp eq i32 %183, 0
+  br i1 %.not10.i269, label %184, label %unpack_step_id_members.exit
+
+184:                                              ; preds = %181
+  %185 = getelementptr inbounds i8, ptr %40, i64 172
+  %186 = tail call i32 @unpack32(ptr noundef nonnull %185, ptr noundef %1) #8
+  %.not183 = icmp eq i32 %186, 0
+  br i1 %.not183, label %187, label %unpack_step_id_members.exit
+
+187:                                              ; preds = %184
+  %188 = getelementptr inbounds i8, ptr %40, i64 256
+  %189 = tail call i32 @unpack32(ptr noundef nonnull %188, ptr noundef %1) #8
+  %.not184 = icmp eq i32 %189, 0
+  br i1 %.not184, label %190, label %unpack_step_id_members.exit
+
+190:                                              ; preds = %187
+  %191 = getelementptr inbounds i8, ptr %40, i64 112
+  %192 = tail call i32 @unpack32(ptr noundef nonnull %191, ptr noundef %1) #8
+  %.not185 = icmp eq i32 %192, 0
+  br i1 %.not185, label %193, label %unpack_step_id_members.exit
+
+193:                                              ; preds = %190
+  %194 = getelementptr inbounds i8, ptr %40, i64 116
+  %195 = tail call i32 @unpack32(ptr noundef nonnull %194, ptr noundef %1) #8
+  %.not186 = icmp eq i32 %195, 0
+  br i1 %.not186, label %196, label %unpack_step_id_members.exit
+
+196:                                              ; preds = %193
+  %197 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %40, ptr noundef nonnull %22, ptr noundef %1) #8
+  %.not187 = icmp eq i32 %197, 0
+  br i1 %.not187, label %198, label %unpack_step_id_members.exit
+
+198:                                              ; preds = %196
+  %199 = getelementptr inbounds i8, ptr %40, i64 8
+  %200 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %199, ptr noundef nonnull %23, ptr noundef %1) #8
+  %.not188 = icmp eq i32 %200, 0
+  br i1 %.not188, label %201, label %unpack_step_id_members.exit
+
+201:                                              ; preds = %198
+  %202 = getelementptr inbounds i8, ptr %40, i64 16
+  %203 = call i32 @unpack32(ptr noundef nonnull %202, ptr noundef %1) #8
+  %.not189 = icmp eq i32 %203, 0
+  br i1 %.not189, label %204, label %unpack_step_id_members.exit
+
+204:                                              ; preds = %201
+  %205 = getelementptr inbounds i8, ptr %40, i64 28
+  %206 = call i32 @unpack32(ptr noundef nonnull %205, ptr noundef %1) #8
+  %.not190 = icmp eq i32 %206, 0
+  br i1 %.not190, label %207, label %unpack_step_id_members.exit
+
+207:                                              ; preds = %204
+  %208 = getelementptr inbounds i8, ptr %40, i64 24
+  %209 = call i32 @unpack32(ptr noundef nonnull %208, ptr noundef %1) #8
+  %.not191 = icmp eq i32 %209, 0
+  br i1 %.not191, label %210, label %unpack_step_id_members.exit
+
+210:                                              ; preds = %207
+  %211 = getelementptr inbounds i8, ptr %40, i64 20
+  %212 = call i32 @unpack32(ptr noundef nonnull %211, ptr noundef %1) #8
+  %.not192 = icmp eq i32 %212, 0
+  br i1 %.not192, label %213, label %unpack_step_id_members.exit
+
+213:                                              ; preds = %210
+  %214 = getelementptr inbounds i8, ptr %40, i64 136
+  %215 = call i32 @unpack32(ptr noundef nonnull %214, ptr noundef %1) #8
+  %.not193 = icmp eq i32 %215, 0
+  br i1 %.not193, label %216, label %unpack_step_id_members.exit
+
+216:                                              ; preds = %213
+  %217 = getelementptr inbounds i8, ptr %40, i64 88
+  %218 = call i32 @unpack64(ptr noundef nonnull %217, ptr noundef %1) #8
+  %.not194 = icmp eq i32 %218, 0
+  br i1 %.not194, label %219, label %unpack_step_id_members.exit
+
+219:                                              ; preds = %216
+  %220 = getelementptr inbounds i8, ptr %40, i64 196
+  %221 = call i32 @unpack32(ptr noundef nonnull %220, ptr noundef %1) #8
+  %.not195 = icmp eq i32 %221, 0
+  br i1 %.not195, label %222, label %unpack_step_id_members.exit
+
+222:                                              ; preds = %219
+  %223 = getelementptr inbounds i8, ptr %40, i64 200
+  %224 = call i32 @unpack16(ptr noundef nonnull %223, ptr noundef %1) #8
+  %.not196 = icmp eq i32 %224, 0
+  br i1 %.not196, label %225, label %unpack_step_id_members.exit
+
+225:                                              ; preds = %222
+  %226 = getelementptr inbounds i8, ptr %40, i64 40
+  %227 = call i32 @unpack16(ptr noundef nonnull %226, ptr noundef %1) #8
+  %.not197 = icmp eq i32 %227, 0
+  br i1 %.not197, label %228, label %unpack_step_id_members.exit
+
+228:                                              ; preds = %225
+  %229 = getelementptr inbounds i8, ptr %40, i64 144
+  %230 = call i32 @unpack16(ptr noundef nonnull %229, ptr noundef %1) #8
+  %.not198 = icmp eq i32 %230, 0
+  br i1 %.not198, label %231, label %unpack_step_id_members.exit
+
+231:                                              ; preds = %228
+  %232 = getelementptr inbounds i8, ptr %40, i64 192
+  %233 = call i32 @unpack32(ptr noundef nonnull %232, ptr noundef %1) #8
+  %.not199 = icmp eq i32 %233, 0
+  br i1 %.not199, label %234, label %unpack_step_id_members.exit
+
+234:                                              ; preds = %231
+  %235 = getelementptr inbounds i8, ptr %40, i64 140
+  %236 = call i32 @unpack16(ptr noundef nonnull %235, ptr noundef %1) #8
+  %.not200 = icmp eq i32 %236, 0
+  br i1 %.not200, label %237, label %unpack_step_id_members.exit
+
+237:                                              ; preds = %234
+  %238 = getelementptr inbounds i8, ptr %40, i64 142
+  %239 = call i32 @unpack16(ptr noundef nonnull %238, ptr noundef %1) #8
+  %.not201 = icmp eq i32 %239, 0
+  br i1 %.not201, label %240, label %unpack_step_id_members.exit
+
+240:                                              ; preds = %237
+  %241 = getelementptr inbounds i8, ptr %40, i64 80
+  %242 = call i32 @unpack16(ptr noundef nonnull %241, ptr noundef %1) #8
+  %.not202 = icmp eq i32 %242, 0
+  br i1 %.not202, label %243, label %unpack_step_id_members.exit
+
+243:                                              ; preds = %240
+  %244 = getelementptr inbounds i8, ptr %40, i64 146
+  %245 = call i32 @unpack16(ptr noundef nonnull %244, ptr noundef %1) #8
+  %.not203 = icmp eq i32 %245, 0
+  br i1 %.not203, label %246, label %unpack_step_id_members.exit
+
+246:                                              ; preds = %243
+  %247 = getelementptr inbounds i8, ptr %40, i64 176
+  %248 = call i32 @unpack32(ptr noundef nonnull %247, ptr noundef %1) #8
+  %.not204 = icmp eq i32 %248, 0
+  br i1 %.not204, label %249, label %unpack_step_id_members.exit
+
+249:                                              ; preds = %246
+  %250 = getelementptr inbounds i8, ptr %40, i64 64
+  %251 = call i32 @unpack32(ptr noundef nonnull %250, ptr noundef %1) #8
+  %.not205 = icmp eq i32 %251, 0
+  br i1 %.not205, label %252, label %unpack_step_id_members.exit
+
+252:                                              ; preds = %249
+  %253 = getelementptr inbounds i8, ptr %40, i64 72
+  %254 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %253, ptr noundef nonnull %24, ptr noundef %1) #8
+  %.not206 = icmp eq i32 %254, 0
+  br i1 %.not206, label %255, label %unpack_step_id_members.exit
+
+255:                                              ; preds = %252
+  %256 = getelementptr inbounds i8, ptr %40, i64 96
+  %257 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %256, ptr noundef nonnull %25, ptr noundef %1) #8
+  %.not207 = icmp eq i32 %257, 0
+  br i1 %.not207, label %258, label %unpack_step_id_members.exit
+
+258:                                              ; preds = %255
+  %259 = getelementptr inbounds i8, ptr %40, i64 104
+  %260 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %259, ptr noundef nonnull %26, ptr noundef %1) #8
+  %.not208 = icmp eq i32 %260, 0
+  br i1 %.not208, label %261, label %unpack_step_id_members.exit
+
+261:                                              ; preds = %258
+  %262 = getelementptr inbounds i8, ptr %40, i64 128
+  %263 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %262, ptr noundef nonnull %27, ptr noundef %1) #8
+  %.not209 = icmp eq i32 %263, 0
+  br i1 %.not209, label %264, label %unpack_step_id_members.exit
+
+264:                                              ; preds = %261
+  %265 = getelementptr inbounds i8, ptr %40, i64 48
+  %266 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %265, ptr noundef nonnull %28, ptr noundef %1) #8
+  %.not210 = icmp eq i32 %266, 0
+  br i1 %.not210, label %267, label %unpack_step_id_members.exit
+
+267:                                              ; preds = %264
+  %268 = getelementptr inbounds i8, ptr %40, i64 56
+  %269 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %268, ptr noundef nonnull %29, ptr noundef %1) #8
+  %.not211 = icmp eq i32 %269, 0
+  br i1 %.not211, label %270, label %unpack_step_id_members.exit
+
+270:                                              ; preds = %267
+  %271 = getelementptr inbounds i8, ptr %40, i64 148
+  %272 = call i32 @unpack32(ptr noundef nonnull %271, ptr noundef %1) #8
+  %.not212 = icmp eq i32 %272, 0
+  br i1 %.not212, label %273, label %unpack_step_id_members.exit
+
+273:                                              ; preds = %270
+  %274 = getelementptr inbounds i8, ptr %40, i64 152
+  %275 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %274, ptr noundef nonnull %30, ptr noundef %1) #8
+  %.not213 = icmp eq i32 %275, 0
+  br i1 %.not213, label %276, label %unpack_step_id_members.exit
+
+276:                                              ; preds = %273
+  %277 = getelementptr inbounds i8, ptr %40, i64 32
+  %278 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %277, ptr noundef nonnull %31, ptr noundef %1) #8
+  %.not214 = icmp eq i32 %278, 0
+  br i1 %.not214, label %279, label %unpack_step_id_members.exit
+
+279:                                              ; preds = %276
+  call void @_xstrsubstitute(ptr noundef nonnull %277, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i1 noundef zeroext true) #8
+  %280 = getelementptr inbounds i8, ptr %40, i64 120
+  %281 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %280, ptr noundef nonnull %32, ptr noundef %1) #8
+  %.not215 = icmp eq i32 %281, 0
+  br i1 %.not215, label %282, label %unpack_step_id_members.exit
+
+282:                                              ; preds = %279
+  call void @_xstrsubstitute(ptr noundef nonnull %280, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i1 noundef zeroext true) #8
+  %283 = getelementptr inbounds i8, ptr %40, i64 42
+  %284 = call i32 @unpack16(ptr noundef nonnull %283, ptr noundef %1) #8
+  %.not216 = icmp eq i32 %284, 0
+  br i1 %.not216, label %285, label %unpack_step_id_members.exit
+
+285:                                              ; preds = %282
+  %286 = getelementptr inbounds i8, ptr %40, i64 184
+  %287 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %286, ptr noundef nonnull %33, ptr noundef %1) #8
+  %.not217 = icmp eq i32 %287, 0
+  br i1 %.not217, label %288, label %unpack_step_id_members.exit
+
+288:                                              ; preds = %285
+  %289 = getelementptr inbounds i8, ptr %40, i64 208
+  %290 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %289, ptr noundef nonnull %34, ptr noundef %1) #8
+  %.not218 = icmp eq i32 %290, 0
+  br i1 %.not218, label %291, label %unpack_step_id_members.exit
+
+291:                                              ; preds = %288
+  %292 = getelementptr inbounds i8, ptr %40, i64 216
+  %293 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %292, ptr noundef nonnull %35, ptr noundef %1) #8
+  %.not219 = icmp eq i32 %293, 0
+  br i1 %.not219, label %294, label %unpack_step_id_members.exit
+
+294:                                              ; preds = %291
+  %295 = getelementptr inbounds i8, ptr %40, i64 224
+  %296 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %295, ptr noundef nonnull %36, ptr noundef %1) #8
+  %.not220 = icmp eq i32 %296, 0
+  br i1 %.not220, label %297, label %unpack_step_id_members.exit
+
+297:                                              ; preds = %294
+  call void @_xstrsubstitute(ptr noundef nonnull %295, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i1 noundef zeroext true) #8
+  %298 = getelementptr inbounds i8, ptr %40, i64 232
+  %299 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %298, ptr noundef nonnull %37, ptr noundef %1) #8
+  %.not221 = icmp eq i32 %299, 0
+  br i1 %.not221, label %300, label %unpack_step_id_members.exit
+
+300:                                              ; preds = %297
+  call void @_xstrsubstitute(ptr noundef nonnull %298, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i1 noundef zeroext true) #8
+  %301 = getelementptr inbounds i8, ptr %40, i64 240
+  %302 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %301, ptr noundef nonnull %38, ptr noundef %1) #8
+  %.not222 = icmp eq i32 %302, 0
+  br i1 %.not222, label %303, label %unpack_step_id_members.exit
+
+303:                                              ; preds = %300
+  call void @_xstrsubstitute(ptr noundef nonnull %301, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i1 noundef zeroext true) #8
+  %304 = getelementptr inbounds i8, ptr %40, i64 248
+  %305 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %304, ptr noundef nonnull %39, ptr noundef %1) #8
+  %.not223 = icmp eq i32 %305, 0
+  br i1 %.not223, label %306, label %unpack_step_id_members.exit
+
+306:                                              ; preds = %303
+  call void @_xstrsubstitute(ptr noundef nonnull %304, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i1 noundef zeroext true) #8
+  br label %307
+
+unpack_step_id_members.exit:                      ; preds = %181, %178, %175, %48, %45, %42, %303, %300, %297, %294, %291, %288, %285, %282, %279, %276, %273, %270, %267, %264, %261, %258, %255, %252, %249, %246, %243, %240, %237, %234, %231, %228, %225, %222, %219, %216, %213, %210, %207, %204, %201, %198, %196, %193, %190, %187, %184, %170, %167, %164, %161, %158, %155, %152, %149, %146, %143, %140, %137, %134, %131, %128, %125, %122, %119, %116, %113, %110, %107, %104, %101, %98, %95, %92, %89, %86, %83, %80, %77, %74, %71, %68, %65, %63, %60, %57, %54, %51
   call void @slurm_free_job_step_create_request_msg(ptr noundef %40) #8
   store ptr null, ptr %0, align 8
-  br label %305
+  br label %307
 
-305:                                              ; preds = %169, %304, %172, %unpack_step_id_members.exit.thread
-  %.0 = phi i32 [ -1, %unpack_step_id_members.exit.thread ], [ 0, %172 ], [ 0, %304 ], [ 0, %169 ]
+307:                                              ; preds = %170, %306, %173, %unpack_step_id_members.exit
+  %.0 = phi i32 [ -1, %unpack_step_id_members.exit ], [ 0, %173 ], [ 0, %306 ], [ 0, %170 ]
   ret i32 %.0
 }
 
@@ -31566,38 +31566,38 @@ define internal fastcc noundef i32 @_unpack_srun_node_fail_msg(ptr nocapture nou
   %6 = getelementptr inbounds i8, ptr %0, i64 206
   %7 = load i16, ptr %6, align 2
   %8 = icmp ugt i16 %7, 9983
-  br i1 %8, label %9, label %19
+  br i1 %8, label %9, label %20
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %4, i64 8
   %11 = tail call i32 @unpack32(ptr noundef nonnull %10, ptr noundef %1) #8
   %.not.i = icmp eq i32 %11, 0
-  br i1 %.not.i, label %12, label %unpack_step_id_members.exit.thread
+  br i1 %.not.i, label %12, label %unpack_step_id_members.exit
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds i8, ptr %4, i64 16
   %14 = tail call i32 @unpack32(ptr noundef nonnull %13, ptr noundef %1) #8
   %.not9.i = icmp eq i32 %14, 0
-  br i1 %.not9.i, label %unpack_step_id_members.exit, label %unpack_step_id_members.exit.thread
+  br i1 %.not9.i, label %15, label %unpack_step_id_members.exit
 
-unpack_step_id_members.exit:                      ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %4, i64 12
-  %16 = tail call i32 @unpack32(ptr noundef nonnull %15, ptr noundef %1) #8
-  %.not10.i.not = icmp eq i32 %16, 0
-  br i1 %.not10.i.not, label %17, label %unpack_step_id_members.exit.thread
+15:                                               ; preds = %12
+  %16 = getelementptr inbounds i8, ptr %4, i64 12
+  %17 = tail call i32 @unpack32(ptr noundef nonnull %16, ptr noundef %1) #8
+  %.not10.i = icmp eq i32 %17, 0
+  br i1 %.not10.i, label %18, label %unpack_step_id_members.exit
 
-17:                                               ; preds = %unpack_step_id_members.exit
-  %18 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %4, ptr noundef nonnull %3, ptr noundef %1) #8
-  %.not10 = icmp eq i32 %18, 0
-  br i1 %.not10, label %19, label %unpack_step_id_members.exit.thread
+18:                                               ; preds = %15
+  %19 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %4, ptr noundef nonnull %3, ptr noundef %1) #8
+  %.not10 = icmp eq i32 %19, 0
+  br i1 %.not10, label %20, label %unpack_step_id_members.exit
 
-unpack_step_id_members.exit.thread:               ; preds = %9, %12, %17, %unpack_step_id_members.exit
+unpack_step_id_members.exit:                      ; preds = %15, %12, %9, %18
   call void @slurm_free_srun_node_fail_msg(ptr noundef %4) #8
   store ptr null, ptr %5, align 8
-  br label %19
+  br label %20
 
-19:                                               ; preds = %2, %17, %unpack_step_id_members.exit.thread
-  %.0 = phi i32 [ -1, %unpack_step_id_members.exit.thread ], [ 0, %17 ], [ 0, %2 ]
+20:                                               ; preds = %2, %18, %unpack_step_id_members.exit
+  %.0 = phi i32 [ -1, %unpack_step_id_members.exit ], [ 0, %18 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -31607,38 +31607,38 @@ define internal fastcc noundef i32 @_unpack_srun_step_missing_msg(ptr nocapture 
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 8185, ptr noundef nonnull @__func__._unpack_srun_step_missing_msg) #8
   store ptr %5, ptr %0, align 8
   %6 = icmp ugt i16 %2, 9983
-  br i1 %6, label %7, label %17
+  br i1 %6, label %7, label %18
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %5, i64 8
   %9 = tail call i32 @unpack32(ptr noundef nonnull %8, ptr noundef %1) #8
   %.not.i = icmp eq i32 %9, 0
-  br i1 %.not.i, label %10, label %unpack_step_id_members.exit.thread
+  br i1 %.not.i, label %10, label %unpack_step_id_members.exit
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds i8, ptr %5, i64 16
   %12 = tail call i32 @unpack32(ptr noundef nonnull %11, ptr noundef %1) #8
   %.not9.i = icmp eq i32 %12, 0
-  br i1 %.not9.i, label %unpack_step_id_members.exit, label %unpack_step_id_members.exit.thread
+  br i1 %.not9.i, label %13, label %unpack_step_id_members.exit
 
-unpack_step_id_members.exit:                      ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %5, i64 12
-  %14 = tail call i32 @unpack32(ptr noundef nonnull %13, ptr noundef %1) #8
-  %.not10.i.not = icmp eq i32 %14, 0
-  br i1 %.not10.i.not, label %15, label %unpack_step_id_members.exit.thread
+13:                                               ; preds = %10
+  %14 = getelementptr inbounds i8, ptr %5, i64 12
+  %15 = tail call i32 @unpack32(ptr noundef nonnull %14, ptr noundef %1) #8
+  %.not10.i = icmp eq i32 %15, 0
+  br i1 %.not10.i, label %16, label %unpack_step_id_members.exit
 
-15:                                               ; preds = %unpack_step_id_members.exit
-  %16 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %5, ptr noundef nonnull %4, ptr noundef %1) #8
-  %.not10 = icmp eq i32 %16, 0
-  br i1 %.not10, label %17, label %unpack_step_id_members.exit.thread
+16:                                               ; preds = %13
+  %17 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %5, ptr noundef nonnull %4, ptr noundef %1) #8
+  %.not10 = icmp eq i32 %17, 0
+  br i1 %.not10, label %18, label %unpack_step_id_members.exit
 
-unpack_step_id_members.exit.thread:               ; preds = %7, %10, %15, %unpack_step_id_members.exit
+unpack_step_id_members.exit:                      ; preds = %13, %10, %7, %16
   call void @slurm_free_srun_step_missing_msg(ptr noundef %5) #8
   store ptr null, ptr %0, align 8
-  br label %17
+  br label %18
 
-17:                                               ; preds = %3, %15, %unpack_step_id_members.exit.thread
-  %.0 = phi i32 [ -1, %unpack_step_id_members.exit.thread ], [ 0, %15 ], [ 0, %3 ]
+18:                                               ; preds = %3, %16, %unpack_step_id_members.exit
+  %.0 = phi i32 [ -1, %unpack_step_id_members.exit ], [ 0, %16 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -31647,38 +31647,38 @@ define internal fastcc noundef i32 @_unpack_srun_timeout_msg(ptr nocapture nound
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 8313, ptr noundef nonnull @__func__._unpack_srun_timeout_msg) #8
   store ptr %4, ptr %0, align 8
   %5 = icmp ugt i16 %2, 9983
-  br i1 %5, label %6, label %16
+  br i1 %5, label %6, label %17
 
 6:                                                ; preds = %3
   %7 = tail call i32 @unpack32(ptr noundef %4, ptr noundef %1) #8
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %8, label %unpack_step_id_members.exit.thread
+  br i1 %.not.i, label %8, label %unpack_step_id_members.exit
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds i8, ptr %4, i64 8
   %10 = tail call i32 @unpack32(ptr noundef nonnull %9, ptr noundef %1) #8
   %.not9.i = icmp eq i32 %10, 0
-  br i1 %.not9.i, label %unpack_step_id_members.exit, label %unpack_step_id_members.exit.thread
+  br i1 %.not9.i, label %11, label %unpack_step_id_members.exit
 
-unpack_step_id_members.exit:                      ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %4, i64 4
-  %12 = tail call i32 @unpack32(ptr noundef nonnull %11, ptr noundef %1) #8
-  %.not10.i.not = icmp eq i32 %12, 0
-  br i1 %.not10.i.not, label %13, label %unpack_step_id_members.exit.thread
+11:                                               ; preds = %8
+  %12 = getelementptr inbounds i8, ptr %4, i64 4
+  %13 = tail call i32 @unpack32(ptr noundef nonnull %12, ptr noundef %1) #8
+  %.not10.i = icmp eq i32 %13, 0
+  br i1 %.not10.i, label %14, label %unpack_step_id_members.exit
 
-13:                                               ; preds = %unpack_step_id_members.exit
-  %14 = getelementptr inbounds i8, ptr %4, i64 16
-  %15 = tail call i32 @unpack_time(ptr noundef nonnull %14, ptr noundef %1) #8
-  %.not10 = icmp eq i32 %15, 0
-  br i1 %.not10, label %16, label %unpack_step_id_members.exit.thread
+14:                                               ; preds = %11
+  %15 = getelementptr inbounds i8, ptr %4, i64 16
+  %16 = tail call i32 @unpack_time(ptr noundef nonnull %15, ptr noundef %1) #8
+  %.not10 = icmp eq i32 %16, 0
+  br i1 %.not10, label %17, label %unpack_step_id_members.exit
 
-unpack_step_id_members.exit.thread:               ; preds = %6, %8, %13, %unpack_step_id_members.exit
+unpack_step_id_members.exit:                      ; preds = %11, %8, %6, %14
   store ptr null, ptr %0, align 8
   tail call void @slurm_free_srun_timeout_msg(ptr noundef %4) #8
-  br label %16
+  br label %17
 
-16:                                               ; preds = %3, %13, %unpack_step_id_members.exit.thread
-  %.0 = phi i32 [ -1, %unpack_step_id_members.exit.thread ], [ 0, %13 ], [ 0, %3 ]
+17:                                               ; preds = %3, %14, %unpack_step_id_members.exit
+  %.0 = phi i32 [ -1, %unpack_step_id_members.exit ], [ 0, %14 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -33531,12 +33531,12 @@ define internal fastcc noundef i32 @_unpack_kvs_data(ptr nocapture noundef write
   store ptr %8, ptr %0, align 8
   %9 = tail call i32 @unpack16(ptr noundef %8, ptr noundef %1) #8
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %10, label %.loopexit59
+  br i1 %.not, label %10, label %88
 
 10:                                               ; preds = %3
   %11 = load i16, ptr %8, align 8
   switch i16 %11, label %13 [
-    i16 -1, label %.loopexit59
+    i16 -1, label %88
     i16 0, label %.thread
   ]
 
@@ -33551,215 +33551,215 @@ define internal fastcc noundef i32 @_unpack_kvs_data(ptr nocapture noundef write
   %16 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %15, ptr %16, align 8
   %.not45 = icmp eq ptr %15, null
-  br i1 %.not45, label %.loopexit59, label %17
+  br i1 %.not45, label %88, label %17
 
 17:                                               ; preds = %13
   %.pre = load i16, ptr %8, align 8
-  %.not64 = icmp eq i16 %.pre, 0
-  br i1 %.not64, label %._crit_edge, label %.lr.ph
+  %.not63 = icmp eq i16 %.pre, 0
+  br i1 %.not63, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17
   %18 = getelementptr inbounds i8, ptr %8, i64 8
-  br label %23
+  br label %19
 
-19:                                               ; preds = %_unpack_kvs_host_rec.exit
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %20 = load i16, ptr %8, align 8
-  %21 = zext i16 %20 to i64
-  %22 = icmp ult i64 %indvars.iv.next, %21
-  br i1 %22, label %23, label %._crit_edge, !llvm.loop !94
-
-23:                                               ; preds = %.lr.ph, %19
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
-  %24 = load ptr, ptr %18, align 8
-  %25 = getelementptr inbounds %struct.kvs_hosts, ptr %24, i64 %indvars.iv
+19:                                               ; preds = %.lr.ph, %29
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
+  %20 = load ptr, ptr %18, align 8
+  %21 = getelementptr inbounds %struct.kvs_hosts, ptr %20, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  %26 = call i32 @unpack32(ptr noundef %25, ptr noundef %1) #8
-  %.not.i = icmp eq i32 %26, 0
-  br i1 %.not.i, label %27, label %_unpack_kvs_host_rec.exit.thread
+  %22 = call i32 @unpack32(ptr noundef %21, ptr noundef %1) #8
+  %.not.i = icmp eq i32 %22, 0
+  br i1 %.not.i, label %23, label %_unpack_kvs_host_rec.exit
 
-27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %25, i64 4
-  %29 = call i32 @unpack16(ptr noundef nonnull %28, ptr noundef %1) #8
-  %.not6.i = icmp eq i32 %29, 0
-  br i1 %.not6.i, label %_unpack_kvs_host_rec.exit, label %_unpack_kvs_host_rec.exit.thread
+23:                                               ; preds = %19
+  %24 = getelementptr inbounds i8, ptr %21, i64 4
+  %25 = call i32 @unpack16(ptr noundef nonnull %24, ptr noundef %1) #8
+  %.not6.i = icmp eq i32 %25, 0
+  br i1 %.not6.i, label %26, label %_unpack_kvs_host_rec.exit
 
-_unpack_kvs_host_rec.exit.thread:                 ; preds = %27, %23
+26:                                               ; preds = %23
+  %27 = getelementptr inbounds i8, ptr %21, i64 8
+  %28 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %27, ptr noundef nonnull %7, ptr noundef %1) #8
+  %.not7.i = icmp eq i32 %28, 0
+  br i1 %.not7.i, label %29, label %_unpack_kvs_host_rec.exit
+
+_unpack_kvs_host_rec.exit:                        ; preds = %19, %23, %26
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  br label %.loopexit59
+  br label %88
 
-_unpack_kvs_host_rec.exit:                        ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %25, i64 8
-  %31 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %30, ptr noundef nonnull %7, ptr noundef %1) #8
-  %.not7.i.not = icmp eq i32 %31, 0
+29:                                               ; preds = %26
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  br i1 %.not7.i.not, label %19, label %.loopexit59
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %30 = load i16, ptr %8, align 8
+  %31 = zext i16 %30 to i64
+  %32 = icmp ult i64 %indvars.iv.next, %31
+  br i1 %32, label %19, label %._crit_edge, !llvm.loop !94
 
-._crit_edge:                                      ; preds = %19, %.thread, %17
-  %32 = getelementptr inbounds i8, ptr %8, i64 16
-  %33 = call i32 @unpack16(ptr noundef nonnull %32, ptr noundef %1) #8
-  %.not46 = icmp eq i32 %33, 0
-  br i1 %.not46, label %34, label %.loopexit59
+._crit_edge:                                      ; preds = %29, %.thread, %17
+  %33 = getelementptr inbounds i8, ptr %8, i64 16
+  %34 = call i32 @unpack16(ptr noundef nonnull %33, ptr noundef %1) #8
+  %.not46 = icmp eq i32 %34, 0
+  br i1 %.not46, label %35, label %88
 
-34:                                               ; preds = %._crit_edge
-  %35 = load i16, ptr %32, align 8
-  switch i16 %35, label %37 [
-    i16 -1, label %.loopexit59
-    i16 0, label %.thread79
+35:                                               ; preds = %._crit_edge
+  %36 = load i16, ptr %33, align 8
+  switch i16 %36, label %38 [
+    i16 -1, label %88
+    i16 0, label %.thread78
   ]
 
-.thread79:                                        ; preds = %34
-  %36 = getelementptr inbounds i8, ptr %8, i64 24
+.thread78:                                        ; preds = %35
+  %37 = getelementptr inbounds i8, ptr %8, i64 24
   br label %.loopexit57.sink.split
 
-37:                                               ; preds = %34
-  %38 = zext i16 %35 to i64
-  %39 = call ptr @slurm_xcalloc(i64 noundef %38, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 8884, ptr noundef nonnull @__func__._unpack_kvs_data) #8
-  %40 = getelementptr inbounds i8, ptr %8, i64 24
-  store ptr %39, ptr %40, align 8
-  %.not48 = icmp eq ptr %39, null
-  br i1 %.not48, label %.loopexit59, label %41
+38:                                               ; preds = %35
+  %39 = zext i16 %36 to i64
+  %40 = call ptr @slurm_xcalloc(i64 noundef %39, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 8884, ptr noundef nonnull @__func__._unpack_kvs_data) #8
+  %41 = getelementptr inbounds i8, ptr %8, i64 24
+  store ptr %40, ptr %41, align 8
+  %.not48 = icmp eq ptr %40, null
+  br i1 %.not48, label %88, label %42
 
-41:                                               ; preds = %37
-  %.pre77 = load i16, ptr %32, align 8
-  %42 = icmp eq i16 %.pre77, 0
-  br i1 %42, label %.loopexit57, label %.lr.ph63
+42:                                               ; preds = %38
+  %.pre76 = load i16, ptr %33, align 8
+  %43 = icmp eq i16 %.pre76, 0
+  br i1 %43, label %.loopexit57, label %.lr.ph62
 
-.lr.ph63:                                         ; preds = %41
-  %43 = getelementptr inbounds i8, ptr %8, i64 24
-  %44 = icmp ugt i16 %2, 9983
-  br i1 %44, label %.lr.ph63.split.us, label %.lr.ph63.split
+.lr.ph62:                                         ; preds = %42
+  %44 = getelementptr inbounds i8, ptr %8, i64 24
+  %45 = icmp ugt i16 %2, 9983
+  br i1 %45, label %.lr.ph62.split.us, label %.lr.ph62.split
 
-.lr.ph63.split.us:                                ; preds = %.lr.ph63, %.loopexit.us
-  %indvars.iv72 = phi i64 [ %indvars.iv.next73, %.loopexit.us ], [ 0, %.lr.ph63 ]
-  %45 = load ptr, ptr %43, align 8
-  %46 = getelementptr inbounds ptr, ptr %45, i64 %indvars.iv72
+.lr.ph62.split.us:                                ; preds = %.lr.ph62, %.loopexit.us
+  %indvars.iv71 = phi i64 [ %indvars.iv.next72, %.loopexit.us ], [ 0, %.lr.ph62 ]
+  %46 = load ptr, ptr %44, align 8
+  %47 = getelementptr inbounds ptr, ptr %46, i64 %indvars.iv71
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  %47 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 8822, ptr noundef nonnull @__func__._unpack_kvs_rec) #8
-  store ptr %47, ptr %46, align 8
-  %48 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %47, ptr noundef nonnull %4, ptr noundef %1) #8
-  %.not.i52.us = icmp eq i32 %48, 0
-  br i1 %.not.i52.us, label %49, label %_unpack_kvs_rec.exit.thread
+  %48 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 8822, ptr noundef nonnull @__func__._unpack_kvs_rec) #8
+  store ptr %48, ptr %47, align 8
+  %49 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %48, ptr noundef nonnull %4, ptr noundef %1) #8
+  %.not.i52.us = icmp eq i32 %49, 0
+  br i1 %.not.i52.us, label %50, label %_unpack_kvs_rec.exit.thread
 
-49:                                               ; preds = %.lr.ph63.split.us
-  %50 = getelementptr inbounds i8, ptr %47, i64 8
-  %51 = call i32 @unpack32(ptr noundef nonnull %50, ptr noundef %1) #8
-  %.not38.i.us = icmp eq i32 %51, 0
-  br i1 %.not38.i.us, label %52, label %_unpack_kvs_rec.exit.thread
+50:                                               ; preds = %.lr.ph62.split.us
+  %51 = getelementptr inbounds i8, ptr %48, i64 8
+  %52 = call i32 @unpack32(ptr noundef nonnull %51, ptr noundef %1) #8
+  %.not38.i.us = icmp eq i32 %52, 0
+  br i1 %.not38.i.us, label %53, label %_unpack_kvs_rec.exit.thread
 
-52:                                               ; preds = %49
-  %53 = load i32, ptr %50, align 8
-  switch i32 %53, label %55 [
+53:                                               ; preds = %50
+  %54 = load i32, ptr %51, align 8
+  switch i32 %54, label %56 [
     i32 -1, label %_unpack_kvs_rec.exit.thread
     i32 0, label %.thread.i.us
   ]
 
-.thread.i.us:                                     ; preds = %52
-  %54 = getelementptr inbounds i8, ptr %47, i64 16
-  store ptr null, ptr %54, align 8
+.thread.i.us:                                     ; preds = %53
+  %55 = getelementptr inbounds i8, ptr %48, i64 16
+  store ptr null, ptr %55, align 8
   br label %.thread53.i.us
 
-55:                                               ; preds = %52
-  %56 = zext i32 %53 to i64
-  %57 = call ptr @slurm_xcalloc(i64 noundef %56, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 8829, ptr noundef nonnull @__func__._unpack_kvs_rec) #8
-  %58 = getelementptr inbounds i8, ptr %47, i64 16
-  store ptr %57, ptr %58, align 8
-  %.not40.i.us = icmp eq ptr %57, null
-  br i1 %.not40.i.us, label %_unpack_kvs_rec.exit.thread, label %59
+56:                                               ; preds = %53
+  %57 = zext i32 %54 to i64
+  %58 = call ptr @slurm_xcalloc(i64 noundef %57, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 8829, ptr noundef nonnull @__func__._unpack_kvs_rec) #8
+  %59 = getelementptr inbounds i8, ptr %48, i64 16
+  store ptr %58, ptr %59, align 8
+  %.not40.i.us = icmp eq ptr %58, null
+  br i1 %.not40.i.us, label %_unpack_kvs_rec.exit.thread, label %60
 
-59:                                               ; preds = %55
-  %.pr.i.us = load i32, ptr %50, align 8
+60:                                               ; preds = %56
+  %.pr.i.us = load i32, ptr %51, align 8
   %.not41.i.us = icmp eq i32 %.pr.i.us, 0
-  br i1 %.not41.i.us, label %.thread53.i.us, label %60
+  br i1 %.not41.i.us, label %.thread53.i.us, label %61
 
-60:                                               ; preds = %59
-  %61 = zext i32 %.pr.i.us to i64
-  %62 = call ptr @slurm_xcalloc(i64 noundef %61, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 8830, ptr noundef nonnull @__func__._unpack_kvs_rec) #8
-  %63 = getelementptr inbounds i8, ptr %47, i64 24
-  store ptr %62, ptr %63, align 8
-  %.not42.i.us = icmp eq ptr %62, null
-  br i1 %.not42.i.us, label %_unpack_kvs_rec.exit.thread, label %64
+61:                                               ; preds = %60
+  %62 = zext i32 %.pr.i.us to i64
+  %63 = call ptr @slurm_xcalloc(i64 noundef %62, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 8830, ptr noundef nonnull @__func__._unpack_kvs_rec) #8
+  %64 = getelementptr inbounds i8, ptr %48, i64 24
+  store ptr %63, ptr %64, align 8
+  %.not42.i.us = icmp eq ptr %63, null
+  br i1 %.not42.i.us, label %_unpack_kvs_rec.exit.thread, label %65
 
-64:                                               ; preds = %60
-  %.pre.i.us = load i32, ptr %50, align 8
-  %65 = icmp eq i32 %.pre.i.us, 0
-  br i1 %65, label %.loopexit.us, label %.lr.ph.i.us
+65:                                               ; preds = %61
+  %.pre.i.us = load i32, ptr %51, align 8
+  %66 = icmp eq i32 %.pre.i.us, 0
+  br i1 %66, label %.loopexit.us, label %.lr.ph.i.us
 
-.lr.ph.i.us:                                      ; preds = %64, %73
-  %indvars.iv.i.us = phi i64 [ %indvars.iv.next.i.us, %73 ], [ 0, %64 ]
-  %66 = load ptr, ptr %58, align 8
-  %67 = getelementptr inbounds ptr, ptr %66, i64 %indvars.iv.i.us
-  %68 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %67, ptr noundef nonnull %5, ptr noundef %1) #8
-  %.not43.i.us = icmp eq i32 %68, 0
-  br i1 %.not43.i.us, label %69, label %_unpack_kvs_rec.exit.thread
+.lr.ph.i.us:                                      ; preds = %65, %74
+  %indvars.iv.i.us = phi i64 [ %indvars.iv.next.i.us, %74 ], [ 0, %65 ]
+  %67 = load ptr, ptr %59, align 8
+  %68 = getelementptr inbounds ptr, ptr %67, i64 %indvars.iv.i.us
+  %69 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %68, ptr noundef nonnull %5, ptr noundef %1) #8
+  %.not43.i.us = icmp eq i32 %69, 0
+  br i1 %.not43.i.us, label %70, label %_unpack_kvs_rec.exit.thread
 
-69:                                               ; preds = %.lr.ph.i.us
-  %70 = load ptr, ptr %63, align 8
-  %71 = getelementptr inbounds ptr, ptr %70, i64 %indvars.iv.i.us
-  %72 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %71, ptr noundef nonnull %6, ptr noundef %1) #8
-  %.not44.i.us = icmp eq i32 %72, 0
-  br i1 %.not44.i.us, label %73, label %_unpack_kvs_rec.exit.thread
+70:                                               ; preds = %.lr.ph.i.us
+  %71 = load ptr, ptr %64, align 8
+  %72 = getelementptr inbounds ptr, ptr %71, i64 %indvars.iv.i.us
+  %73 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %72, ptr noundef nonnull %6, ptr noundef %1) #8
+  %.not44.i.us = icmp eq i32 %73, 0
+  br i1 %.not44.i.us, label %74, label %_unpack_kvs_rec.exit.thread
 
-73:                                               ; preds = %69
+74:                                               ; preds = %70
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
-  %74 = load i32, ptr %50, align 8
-  %75 = zext i32 %74 to i64
-  %76 = icmp ult i64 %indvars.iv.next.i.us, %75
-  br i1 %76, label %.lr.ph.i.us, label %.loopexit.us, !llvm.loop !95
+  %75 = load i32, ptr %51, align 8
+  %76 = zext i32 %75 to i64
+  %77 = icmp ult i64 %indvars.iv.next.i.us, %76
+  br i1 %77, label %.lr.ph.i.us, label %.loopexit.us, !llvm.loop !95
 
-.thread53.i.us:                                   ; preds = %59, %.thread.i.us
-  %77 = getelementptr inbounds i8, ptr %47, i64 24
-  store ptr null, ptr %77, align 8
+.thread53.i.us:                                   ; preds = %60, %.thread.i.us
+  %78 = getelementptr inbounds i8, ptr %48, i64 24
+  store ptr null, ptr %78, align 8
   br label %.loopexit.us
 
-.loopexit.us:                                     ; preds = %73, %.thread53.i.us, %64
+.loopexit.us:                                     ; preds = %74, %.thread53.i.us, %65
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
-  %78 = load i16, ptr %32, align 8
-  %79 = zext i16 %78 to i64
-  %80 = icmp ult i64 %indvars.iv.next73, %79
-  br i1 %80, label %.lr.ph63.split.us, label %.loopexit57, !llvm.loop !96
+  %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
+  %79 = load i16, ptr %33, align 8
+  %80 = zext i16 %79 to i64
+  %81 = icmp ult i64 %indvars.iv.next72, %80
+  br i1 %81, label %.lr.ph62.split.us, label %.loopexit57, !llvm.loop !96
 
-.lr.ph63.split:                                   ; preds = %.lr.ph63, %.lr.ph63.split
-  %indvars.iv69 = phi i64 [ %indvars.iv.next70, %.lr.ph63.split ], [ 0, %.lr.ph63 ]
-  %81 = load ptr, ptr %43, align 8
-  %82 = getelementptr inbounds ptr, ptr %81, i64 %indvars.iv69
+.lr.ph62.split:                                   ; preds = %.lr.ph62, %.lr.ph62.split
+  %indvars.iv68 = phi i64 [ %indvars.iv.next69, %.lr.ph62.split ], [ 0, %.lr.ph62 ]
+  %82 = load ptr, ptr %44, align 8
+  %83 = getelementptr inbounds ptr, ptr %82, i64 %indvars.iv68
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  %83 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 8822, ptr noundef nonnull @__func__._unpack_kvs_rec) #8
-  store ptr %83, ptr %82, align 8
+  %84 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 8822, ptr noundef nonnull @__func__._unpack_kvs_rec) #8
+  store ptr %84, ptr %83, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
-  %84 = load i16, ptr %32, align 8
-  %85 = zext i16 %84 to i64
-  %86 = icmp ult i64 %indvars.iv.next70, %85
-  br i1 %86, label %.lr.ph63.split, label %.loopexit57, !llvm.loop !96
+  %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
+  %85 = load i16, ptr %33, align 8
+  %86 = zext i16 %85 to i64
+  %87 = icmp ult i64 %indvars.iv.next69, %86
+  br i1 %87, label %.lr.ph62.split, label %.loopexit57, !llvm.loop !96
 
-_unpack_kvs_rec.exit.thread:                      ; preds = %60, %55, %52, %49, %.lr.ph63.split.us, %69, %.lr.ph.i.us
+_unpack_kvs_rec.exit.thread:                      ; preds = %61, %56, %53, %50, %.lr.ph62.split.us, %70, %.lr.ph.i.us
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  br label %.loopexit59
+  br label %88
 
-.loopexit59:                                      ; preds = %_unpack_kvs_host_rec.exit, %_unpack_kvs_rec.exit.thread, %_unpack_kvs_host_rec.exit.thread, %34, %10, %37, %._crit_edge, %13, %3
+88:                                               ; preds = %_unpack_kvs_rec.exit.thread, %_unpack_kvs_host_rec.exit, %35, %10, %38, %._crit_edge, %13, %3
   call void @slurm_free_kvs_comm_set(ptr noundef %8) #8
   br label %.loopexit57.sink.split
 
-.loopexit57.sink.split:                           ; preds = %.loopexit59, %.thread79
-  %.sink = phi ptr [ %36, %.thread79 ], [ %0, %.loopexit59 ]
-  %.0.ph = phi i32 [ 0, %.thread79 ], [ -1, %.loopexit59 ]
+.loopexit57.sink.split:                           ; preds = %88, %.thread78
+  %.sink = phi ptr [ %37, %.thread78 ], [ %0, %88 ]
+  %.0.ph = phi i32 [ 0, %.thread78 ], [ -1, %88 ]
   store ptr null, ptr %.sink, align 8
   br label %.loopexit57
 
-.loopexit57:                                      ; preds = %.lr.ph63.split, %.loopexit.us, %.loopexit57.sink.split, %41
-  %.0 = phi i32 [ 0, %41 ], [ %.0.ph, %.loopexit57.sink.split ], [ 0, %.loopexit.us ], [ 0, %.lr.ph63.split ]
+.loopexit57:                                      ; preds = %.lr.ph62.split, %.loopexit.us, %.loopexit57.sink.split, %42
+  %.0 = phi i32 [ 0, %42 ], [ %.0.ph, %.loopexit57.sink.split ], [ 0, %.loopexit.us ], [ 0, %.lr.ph62.split ]
   ret i32 %.0
 }
 
@@ -34037,38 +34037,38 @@ define internal fastcc noundef i32 @_unpack_job_notify(ptr nocapture noundef wri
   %4 = alloca i32, align 4
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 9071, ptr noundef nonnull @__func__._unpack_job_notify) #8
   %6 = icmp ugt i16 %2, 9983
-  br i1 %6, label %7, label %17
+  br i1 %6, label %7, label %18
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %5, i64 8
   %9 = tail call i32 @unpack32(ptr noundef nonnull %8, ptr noundef %1) #8
   %.not.i = icmp eq i32 %9, 0
-  br i1 %.not.i, label %10, label %unpack_step_id_members.exit.thread
+  br i1 %.not.i, label %10, label %unpack_step_id_members.exit
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds i8, ptr %5, i64 16
   %12 = tail call i32 @unpack32(ptr noundef nonnull %11, ptr noundef %1) #8
   %.not9.i = icmp eq i32 %12, 0
-  br i1 %.not9.i, label %unpack_step_id_members.exit, label %unpack_step_id_members.exit.thread
+  br i1 %.not9.i, label %13, label %unpack_step_id_members.exit
 
-unpack_step_id_members.exit:                      ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %5, i64 12
-  %14 = tail call i32 @unpack32(ptr noundef nonnull %13, ptr noundef %1) #8
-  %.not10.i.not = icmp eq i32 %14, 0
-  br i1 %.not10.i.not, label %15, label %unpack_step_id_members.exit.thread
+13:                                               ; preds = %10
+  %14 = getelementptr inbounds i8, ptr %5, i64 12
+  %15 = tail call i32 @unpack32(ptr noundef nonnull %14, ptr noundef %1) #8
+  %.not10.i = icmp eq i32 %15, 0
+  br i1 %.not10.i, label %16, label %unpack_step_id_members.exit
 
-15:                                               ; preds = %unpack_step_id_members.exit
-  %16 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %5, ptr noundef nonnull %4, ptr noundef %1) #8
-  %.not10 = icmp eq i32 %16, 0
-  br i1 %.not10, label %17, label %unpack_step_id_members.exit.thread
+16:                                               ; preds = %13
+  %17 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %5, ptr noundef nonnull %4, ptr noundef %1) #8
+  %.not10 = icmp eq i32 %17, 0
+  br i1 %.not10, label %18, label %unpack_step_id_members.exit
 
-unpack_step_id_members.exit.thread:               ; preds = %7, %10, %15, %unpack_step_id_members.exit
+unpack_step_id_members.exit:                      ; preds = %13, %10, %7, %16
   call void @slurm_free_job_notify_msg(ptr noundef %5) #8
-  br label %17
+  br label %18
 
-17:                                               ; preds = %3, %15, %unpack_step_id_members.exit.thread
-  %storemerge = phi ptr [ null, %unpack_step_id_members.exit.thread ], [ %5, %15 ], [ %5, %3 ]
-  %.0 = phi i32 [ -1, %unpack_step_id_members.exit.thread ], [ 0, %15 ], [ 0, %3 ]
+18:                                               ; preds = %3, %16, %unpack_step_id_members.exit
+  %storemerge = phi ptr [ null, %unpack_step_id_members.exit ], [ %5, %16 ], [ %5, %3 ]
+  %.0 = phi i32 [ -1, %unpack_step_id_members.exit ], [ 0, %16 ], [ 0, %3 ]
   store ptr %storemerge, ptr %0, align 8
   ret i32 %.0
 }
@@ -36297,48 +36297,48 @@ define internal fastcc noundef i32 @_unpack_container_started_msg(ptr nocapture 
   %6 = getelementptr inbounds i8, ptr %0, i64 206
   %7 = load i16, ptr %6, align 2
   %8 = icmp ugt i16 %7, 9983
-  br i1 %8, label %9, label %25
+  br i1 %8, label %9, label %unpack_step_id_members.exit.thread
 
 9:                                                ; preds = %2
   %10 = tail call i32 @unpack32(ptr noundef %4, ptr noundef %1) #8
   %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %11, label %unpack_step_id_members.exit.thread
+  br i1 %.not, label %11, label %unpack_step_id_members.exit
 
 11:                                               ; preds = %9
   %12 = load i16, ptr %6, align 2
   %13 = icmp ugt i16 %12, 9983
-  br i1 %13, label %14, label %20
+  br i1 %13, label %14, label %23
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds i8, ptr %4, i64 4
   %16 = tail call i32 @unpack32(ptr noundef nonnull %15, ptr noundef %1) #8
   %.not.i = icmp eq i32 %16, 0
-  br i1 %.not.i, label %17, label %unpack_step_id_members.exit.thread
+  br i1 %.not.i, label %17, label %unpack_step_id_members.exit
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds i8, ptr %4, i64 12
   %19 = tail call i32 @unpack32(ptr noundef nonnull %18, ptr noundef %1) #8
   %.not9.i = icmp eq i32 %19, 0
-  br i1 %.not9.i, label %unpack_step_id_members.exit, label %unpack_step_id_members.exit.thread
+  br i1 %.not9.i, label %20, label %unpack_step_id_members.exit
 
-20:                                               ; preds = %11
-  %21 = zext nneg i16 %12 to i32
-  %22 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.unpack_step_id_members, i32 noundef %21) #8
-  br label %unpack_step_id_members.exit.thread
+20:                                               ; preds = %17
+  %21 = getelementptr inbounds i8, ptr %4, i64 8
+  %22 = tail call i32 @unpack32(ptr noundef nonnull %21, ptr noundef %1) #8
+  %.not10.i = icmp eq i32 %22, 0
+  br i1 %.not10.i, label %unpack_step_id_members.exit.thread, label %unpack_step_id_members.exit
 
-unpack_step_id_members.exit:                      ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %4, i64 8
-  %24 = tail call i32 @unpack32(ptr noundef nonnull %23, ptr noundef %1) #8
-  %.not10.i.not = icmp eq i32 %24, 0
-  br i1 %.not10.i.not, label %25, label %unpack_step_id_members.exit.thread
+23:                                               ; preds = %11
+  %24 = zext nneg i16 %12 to i32
+  %25 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.unpack_step_id_members, i32 noundef %24) #8
+  br label %unpack_step_id_members.exit
 
-unpack_step_id_members.exit.thread:               ; preds = %20, %14, %17, %unpack_step_id_members.exit, %9
+unpack_step_id_members.exit:                      ; preds = %23, %20, %17, %14, %9
   call void @slurm_xfree(ptr noundef nonnull %3) #8
   store ptr null, ptr %5, align 8
-  br label %25
+  br label %unpack_step_id_members.exit.thread
 
-25:                                               ; preds = %2, %unpack_step_id_members.exit, %unpack_step_id_members.exit.thread
-  %.0 = phi i32 [ -1, %unpack_step_id_members.exit.thread ], [ 0, %unpack_step_id_members.exit ], [ 0, %2 ]
+unpack_step_id_members.exit.thread:               ; preds = %20, %2, %unpack_step_id_members.exit
+  %.0 = phi i32 [ -1, %unpack_step_id_members.exit ], [ 0, %2 ], [ 0, %20 ]
   ret i32 %.0
 }
 
@@ -36424,7 +36424,7 @@ define internal fastcc noundef i32 @_unpack_node_alias_addrs_resp_msg(ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @unpack_step_id_members(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define noundef i32 @unpack_step_id_members(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = icmp ugt i16 %2, 9983
   br i1 %4, label %5, label %13
 
@@ -36442,17 +36442,19 @@ define i32 @unpack_step_id_members(ptr noundef %0, ptr noundef %1, i16 noundef z
 10:                                               ; preds = %7
   %11 = getelementptr inbounds i8, ptr %0, i64 4
   %12 = tail call i32 @unpack32(ptr noundef nonnull %11, ptr noundef %1) #8
-  %.not10 = icmp ne i32 %12, 0
-  %spec.select = sext i1 %.not10 to i32
-  br label %16
+  %.not10 = icmp eq i32 %12, 0
+  br i1 %.not10, label %17, label %16
 
 13:                                               ; preds = %3
   %14 = zext nneg i16 %2 to i32
   %15 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.unpack_step_id_members, i32 noundef %14) #8
   br label %16
 
-16:                                               ; preds = %10, %13, %5, %7
-  %.0 = phi i32 [ -1, %7 ], [ -1, %5 ], [ -1, %13 ], [ %spec.select, %10 ]
+16:                                               ; preds = %10, %7, %5, %13
+  br label %17
+
+17:                                               ; preds = %10, %16
+  %.0 = phi i32 [ -1, %16 ], [ 0, %10 ]
   ret i32 %.0
 }
 
@@ -36490,44 +36492,44 @@ define noundef i32 @slurm_unpack_selected_step(ptr nocapture noundef writeonly %
   store ptr %4, ptr %0, align 8
   store i32 -2, ptr %4, align 4
   %5 = icmp ugt i16 %1, 9983
-  br i1 %5, label %6, label %unpack_step_id_members.exit.thread
+  br i1 %5, label %6, label %unpack_step_id_members.exit
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %4, i64 8
   %8 = tail call i32 @unpack32(ptr noundef nonnull %7, ptr noundef %2) #8
   %.not.i = icmp eq i32 %8, 0
-  br i1 %.not.i, label %9, label %unpack_step_id_members.exit.thread
+  br i1 %.not.i, label %9, label %unpack_step_id_members.exit
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds i8, ptr %4, i64 16
   %11 = tail call i32 @unpack32(ptr noundef nonnull %10, ptr noundef %2) #8
   %.not9.i = icmp eq i32 %11, 0
-  br i1 %.not9.i, label %unpack_step_id_members.exit, label %unpack_step_id_members.exit.thread
+  br i1 %.not9.i, label %12, label %unpack_step_id_members.exit
 
-unpack_step_id_members.exit:                      ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %4, i64 12
-  %13 = tail call i32 @unpack32(ptr noundef nonnull %12, ptr noundef %2) #8
-  %.not10.i.not = icmp eq i32 %13, 0
-  br i1 %.not10.i.not, label %14, label %unpack_step_id_members.exit.thread
+12:                                               ; preds = %9
+  %13 = getelementptr inbounds i8, ptr %4, i64 12
+  %14 = tail call i32 @unpack32(ptr noundef nonnull %13, ptr noundef %2) #8
+  %.not10.i = icmp eq i32 %14, 0
+  br i1 %.not10.i, label %15, label %unpack_step_id_members.exit
 
-14:                                               ; preds = %unpack_step_id_members.exit
-  %15 = tail call i32 @unpack32(ptr noundef nonnull %4, ptr noundef %2) #8
-  %.not13 = icmp eq i32 %15, 0
-  br i1 %.not13, label %16, label %unpack_step_id_members.exit.thread
+15:                                               ; preds = %12
+  %16 = tail call i32 @unpack32(ptr noundef nonnull %4, ptr noundef %2) #8
+  %.not13 = icmp eq i32 %16, 0
+  br i1 %.not13, label %17, label %unpack_step_id_members.exit
 
-16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %4, i64 4
-  %18 = tail call i32 @unpack32(ptr noundef nonnull %17, ptr noundef %2) #8
-  %.not14 = icmp eq i32 %18, 0
-  br i1 %.not14, label %19, label %unpack_step_id_members.exit.thread
+17:                                               ; preds = %15
+  %18 = getelementptr inbounds i8, ptr %4, i64 4
+  %19 = tail call i32 @unpack32(ptr noundef nonnull %18, ptr noundef %2) #8
+  %.not14 = icmp eq i32 %19, 0
+  br i1 %.not14, label %20, label %unpack_step_id_members.exit
 
-unpack_step_id_members.exit.thread:               ; preds = %6, %9, %3, %16, %14, %unpack_step_id_members.exit
+unpack_step_id_members.exit:                      ; preds = %12, %9, %6, %3, %17, %15
   tail call void @slurm_destroy_selected_step(ptr noundef nonnull %4) #8
   store ptr null, ptr %0, align 8
-  br label %19
+  br label %20
 
-19:                                               ; preds = %16, %unpack_step_id_members.exit.thread
-  %.0 = phi i32 [ -1, %unpack_step_id_members.exit.thread ], [ 0, %16 ]
+20:                                               ; preds = %17, %unpack_step_id_members.exit
+  %.0 = phi i32 [ -1, %unpack_step_id_members.exit ], [ 0, %17 ]
   ret i32 %.0
 }
 

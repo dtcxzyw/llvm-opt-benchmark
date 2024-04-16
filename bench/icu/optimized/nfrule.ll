@@ -1855,40 +1855,48 @@ land.lhs.true11:                                  ; preds = %if.then.i, %_ZNK6ic
   %14 = load ptr, ptr %sub112, align 8
   %tobool.not.i6 = icmp eq ptr %13, null
   %tobool3.not.i = icmp eq ptr %14, null
-  %brmerge.i = or i1 %tobool.not.i6, %tobool3.not.i
-  br i1 %brmerge.i, label %_ZN6icu_75L23util_equalSubstitutionsEPKNS_14NFSubstitutionES2_.exit, label %if.then2.i
+  br i1 %tobool.not.i6, label %if.else.i9, label %if.then.i7
 
-if.then2.i:                                       ; preds = %land.lhs.true11
+if.then.i7:                                       ; preds = %land.lhs.true11
+  br i1 %tobool3.not.i, label %land.end, label %_ZN6icu_75L23util_equalSubstitutionsEPKNS_14NFSubstitutionES2_.exit
+
+if.else.i9:                                       ; preds = %land.lhs.true11
+  br i1 %tobool3.not.i, label %land.rhs, label %land.end
+
+_ZN6icu_75L23util_equalSubstitutionsEPKNS_14NFSubstitutionES2_.exit: ; preds = %if.then.i7
   %vtable.i = load ptr, ptr %13, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %15 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %14)
   br i1 %call.i, label %land.rhs, label %land.end
 
-_ZN6icu_75L23util_equalSubstitutionsEPKNS_14NFSubstitutionES2_.exit: ; preds = %land.lhs.true11
-  %tobool3.not.mux.i = and i1 %tobool.not.i6, %tobool3.not.i
-  br i1 %tobool3.not.mux.i, label %land.rhs, label %land.end
-
-land.rhs:                                         ; preds = %if.then2.i, %_ZN6icu_75L23util_equalSubstitutionsEPKNS_14NFSubstitutionES2_.exit
+land.rhs:                                         ; preds = %if.else.i9, %_ZN6icu_75L23util_equalSubstitutionsEPKNS_14NFSubstitutionES2_.exit
   %sub2 = getelementptr inbounds i8, ptr %this, i64 88
   %16 = load ptr, ptr %sub2, align 8
   %sub214 = getelementptr inbounds i8, ptr %rhs, i64 88
   %17 = load ptr, ptr %sub214, align 8
-  %tobool.not.i8 = icmp eq ptr %16, null
-  %tobool3.not.i9 = icmp eq ptr %17, null
-  %brmerge.i10 = or i1 %tobool.not.i8, %tobool3.not.i9
-  %tobool3.not.mux.i11 = and i1 %tobool.not.i8, %tobool3.not.i9
-  br i1 %brmerge.i10, label %land.end, label %if.then2.i12
+  %tobool.not.i10 = icmp eq ptr %16, null
+  %tobool3.not.i11 = icmp eq ptr %17, null
+  br i1 %tobool.not.i10, label %if.else.i20, label %if.then.i12
 
-if.then2.i12:                                     ; preds = %land.rhs
-  %vtable.i13 = load ptr, ptr %16, align 8
-  %vfn.i14 = getelementptr inbounds i8, ptr %vtable.i13, i64 24
-  %18 = load ptr, ptr %vfn.i14, align 8
-  %call.i15 = tail call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %17)
+if.then.i12:                                      ; preds = %land.rhs
+  br i1 %tobool3.not.i11, label %if.end6.i19, label %if.then2.i13
+
+if.then2.i13:                                     ; preds = %if.then.i12
+  %vtable.i14 = load ptr, ptr %16, align 8
+  %vfn.i15 = getelementptr inbounds i8, ptr %vtable.i14, i64 24
+  %18 = load ptr, ptr %vfn.i15, align 8
+  %call.i16 = tail call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %17)
   br label %land.end
 
-land.end:                                         ; preds = %if.then2.i, %if.then2.i12, %land.rhs, %if.else.i, %if.then.i, %_ZN6icu_75L23util_equalSubstitutionsEPKNS_14NFSubstitutionES2_.exit, %_ZNK6icu_7513UnicodeStringeqERKS0_.exit, %land.lhs.true5, %land.lhs.true, %entry
-  %19 = phi i1 [ false, %_ZN6icu_75L23util_equalSubstitutionsEPKNS_14NFSubstitutionES2_.exit ], [ false, %_ZNK6icu_7513UnicodeStringeqERKS0_.exit ], [ false, %land.lhs.true5 ], [ false, %land.lhs.true ], [ false, %entry ], [ false, %if.then.i ], [ false, %if.else.i ], [ %call.i15, %if.then2.i12 ], [ %tobool3.not.mux.i11, %land.rhs ], [ false, %if.then2.i ]
+if.else.i20:                                      ; preds = %land.rhs
+  br i1 %tobool3.not.i11, label %land.end, label %if.end6.i19
+
+if.end6.i19:                                      ; preds = %if.else.i20, %if.then.i12
+  br label %land.end
+
+land.end:                                         ; preds = %if.end6.i19, %if.else.i20, %if.then2.i13, %if.else.i9, %if.then.i7, %if.else.i, %if.then.i, %_ZN6icu_75L23util_equalSubstitutionsEPKNS_14NFSubstitutionES2_.exit, %_ZNK6icu_7513UnicodeStringeqERKS0_.exit, %land.lhs.true5, %land.lhs.true, %entry
+  %19 = phi i1 [ false, %_ZN6icu_75L23util_equalSubstitutionsEPKNS_14NFSubstitutionES2_.exit ], [ false, %_ZNK6icu_7513UnicodeStringeqERKS0_.exit ], [ false, %land.lhs.true5 ], [ false, %land.lhs.true ], [ false, %entry ], [ false, %if.then.i ], [ false, %if.else.i ], [ false, %if.then.i7 ], [ false, %if.else.i9 ], [ %call.i16, %if.then2.i13 ], [ false, %if.end6.i19 ], [ true, %if.else.i20 ]
   ret i1 %19
 }
 

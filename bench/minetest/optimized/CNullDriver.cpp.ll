@@ -10563,17 +10563,20 @@ entry:
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(1164) %this, i32 noundef %0) #24
   %tobool.not = icmp eq ptr %call, null
-  br i1 %tobool.not, label %cleanup, label %land.lhs.true
+  br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
   %vtable2 = load ptr, ptr %call, align 8, !tbaa !3
   %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 24
   %2 = load ptr, ptr %vfn3, align 8
   %call4 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(8) %call) #24
+  br i1 %call4, label %cleanup, label %if.end
+
+if.end:                                           ; preds = %land.lhs.true, %entry
   br label %cleanup
 
-cleanup:                                          ; preds = %land.lhs.true, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ %call4, %land.lhs.true ]
+cleanup:                                          ; preds = %if.end, %land.lhs.true
+  %retval.0 = phi i1 [ false, %if.end ], [ true, %land.lhs.true ]
   ret i1 %retval.0
 }
 

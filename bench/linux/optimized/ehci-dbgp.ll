@@ -1073,8 +1073,8 @@ define internal fastcc noundef i32 @find_cap(i32 noundef %0, i32 noundef %1, i32
   %24 = select i1 %22, i1 %23, i1 false
   br i1 %24, label %.preheader, label %.loopexit, !llvm.loop !34
 
-.loopexit:                                        ; preds = %.preheader, %18, %.thread, %10, %3
-  %25 = phi i32 [ 0, %3 ], [ 0, %10 ], [ %17, %.thread ], [ 0, %18 ], [ 0, %.preheader ]
+.loopexit:                                        ; preds = %18, %.preheader, %.thread, %10, %3
+  %25 = phi i32 [ 0, %3 ], [ 0, %10 ], [ %17, %.thread ], [ 0, %.preheader ], [ 0, %18 ]
   ret i32 %25
 }
 

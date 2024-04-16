@@ -143,53 +143,55 @@ define internal fastcc i32 @_test_val(ptr noundef %0) unnamed_addr #4 {
   %2 = alloca ptr, align 8
   store ptr null, ptr %2, align 8
   %3 = icmp eq ptr %0, null
-  br i1 %3, label %22, label %4
+  br i1 %3, label %23, label %4
 
 4:                                                ; preds = %1
   %5 = load i8, ptr %0, align 1
   %6 = icmp eq i8 %5, 0
-  br i1 %6, label %22, label %7
+  br i1 %6, label %23, label %7
 
 7:                                                ; preds = %4
   %8 = add i8 %5, -48
   %or.cond20 = icmp ult i8 %8, 10
-  br i1 %or.cond20, label %9, label %14
+  br i1 %or.cond20, label %9, label %15
 
 9:                                                ; preds = %7
   %10 = call i64 @strtol(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 10) #6
   %or.cond = icmp ugt i64 %10, 9223372036854775806
-  br i1 %or.cond, label %22, label %11
+  br i1 %or.cond, label %14, label %11
 
 11:                                               ; preds = %9
   %12 = load ptr, ptr %2, align 8
   %13 = load i8, ptr %12, align 1
-  %.not19 = icmp ne i8 %13, 0
-  %spec.select21 = sext i1 %.not19 to i32
-  br label %22
+  %.not19 = icmp eq i8 %13, 0
+  br i1 %.not19, label %23, label %14
 
-14:                                               ; preds = %7
-  %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(4) @.str.5) #7
-  %.not = icmp eq i32 %15, 0
-  br i1 %.not, label %22, label %16
+14:                                               ; preds = %11, %9
+  br label %23
 
-16:                                               ; preds = %14
-  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.6) #7
-  %.not16 = icmp eq i32 %17, 0
-  br i1 %.not16, label %22, label %18
+15:                                               ; preds = %7
+  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(4) @.str.5) #7
+  %.not = icmp eq i32 %16, 0
+  br i1 %.not, label %23, label %17
 
-18:                                               ; preds = %16
-  %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.7) #7
-  %.not17 = icmp eq i32 %19, 0
-  br i1 %.not17, label %22, label %20
+17:                                               ; preds = %15
+  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.6) #7
+  %.not16 = icmp eq i32 %18, 0
+  br i1 %.not16, label %23, label %19
 
-20:                                               ; preds = %18
-  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.8) #7
-  %.not18 = icmp ne i32 %21, 0
+19:                                               ; preds = %17
+  %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.7) #7
+  %.not17 = icmp eq i32 %20, 0
+  br i1 %.not17, label %23, label %21
+
+21:                                               ; preds = %19
+  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.8) #7
+  %.not18 = icmp ne i32 %22, 0
   %spec.select = sext i1 %.not18 to i32
-  br label %22
+  br label %23
 
-22:                                               ; preds = %11, %20, %18, %16, %14, %9, %1, %4
-  %.013 = phi i32 [ -1, %4 ], [ -1, %1 ], [ 0, %18 ], [ 0, %16 ], [ 0, %14 ], [ -1, %9 ], [ %spec.select, %20 ], [ %spec.select21, %11 ]
+23:                                               ; preds = %21, %14, %11, %19, %17, %15, %1, %4
+  %.013 = phi i32 [ -1, %4 ], [ -1, %1 ], [ -1, %14 ], [ 0, %11 ], [ 0, %19 ], [ 0, %17 ], [ 0, %15 ], [ %spec.select, %21 ]
   ret i32 %.013
 }
 

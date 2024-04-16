@@ -1784,7 +1784,7 @@ lor.lhs.false6:                                   ; preds = %if.then
   %call7.val = load i64, ptr %4, align 8
   %5 = and i64 %call7.val, 268435456
   %tobool9.not = icmp eq i64 %5, 0
-  br i1 %tobool9.not, label %if.end111, label %if.then10
+  br i1 %tobool9.not, label %if.end21, label %if.then10
 
 if.then10:                                        ; preds = %lor.lhs.false6, %if.then
   %call11 = tail call ptr @_Py_GetConfig() #15
@@ -1794,13 +1794,15 @@ if.then10:                                        ; preds = %lor.lhs.false6, %if
   %7 = and i32 %op, -2
   %or.cond = icmp eq i32 %7, 2
   %or.cond34 = and i1 %or.cond, %tobool12.not
-  br i1 %or.cond34, label %if.then16, label %if.end111
+  br i1 %or.cond34, label %if.then16, label %if.end21
 
 if.then16:                                        ; preds = %if.then10
   %8 = load ptr, ptr @PyExc_BytesWarning, align 8
   %call17 = tail call i32 @PyErr_WarnEx(ptr noundef %8, ptr noundef nonnull @.str.18, i64 noundef 1) #15
   %tobool18.not = icmp eq i32 %call17, 0
-  %spec.select = select i1 %tobool18.not, ptr @_Py_NotImplementedStruct, ptr null
+  br i1 %tobool18.not, label %if.end21, label %if.end111
+
+if.end21:                                         ; preds = %if.then10, %if.then16, %lor.lhs.false6
   br label %if.end111
 
 if.end22:                                         ; preds = %lor.lhs.false
@@ -1927,8 +1929,8 @@ sw.bb104:                                         ; preds = %do.body78
 sw.default109:                                    ; preds = %do.body78
   unreachable
 
-if.end111:                                        ; preds = %if.then16, %sw.bb104, %sw.bb99, %sw.bb94, %sw.bb89, %sw.bb84, %sw.bb79, %sw.bb72, %sw.bb67, %sw.bb62, %sw.bb57, %do.body, %lor.lhs.false6, %if.then10, %if.then55, %if.then37, %if.then29, %if.then25
-  %retval.0 = phi ptr [ @_Py_NotImplementedStruct, %if.then25 ], [ @_Py_NotImplementedStruct, %if.then29 ], [ %call40, %if.then37 ], [ @_Py_TrueStruct, %if.then55 ], [ @_Py_NotImplementedStruct, %if.then10 ], [ @_Py_NotImplementedStruct, %lor.lhs.false6 ], [ @_Py_FalseStruct, %do.body ], [ %_Py_TrueStruct._Py_FalseStruct, %sw.bb57 ], [ %_Py_TrueStruct._Py_FalseStruct36, %sw.bb62 ], [ %_Py_TrueStruct._Py_FalseStruct37, %sw.bb67 ], [ %_Py_TrueStruct._Py_FalseStruct38, %sw.bb72 ], [ %_Py_TrueStruct._Py_FalseStruct39, %sw.bb79 ], [ %_Py_FalseStruct._Py_TrueStruct, %sw.bb84 ], [ %_Py_TrueStruct._Py_FalseStruct40, %sw.bb89 ], [ %_Py_TrueStruct._Py_FalseStruct41, %sw.bb94 ], [ %_Py_FalseStruct._Py_TrueStruct42, %sw.bb99 ], [ %_Py_FalseStruct._Py_TrueStruct43, %sw.bb104 ], [ %spec.select, %if.then16 ]
+if.end111:                                        ; preds = %sw.bb104, %sw.bb99, %sw.bb94, %sw.bb89, %sw.bb84, %sw.bb79, %sw.bb72, %sw.bb67, %sw.bb62, %sw.bb57, %do.body, %if.then16, %if.then55, %if.then37, %if.then29, %if.then25, %if.end21
+  %retval.0 = phi ptr [ @_Py_NotImplementedStruct, %if.then25 ], [ @_Py_NotImplementedStruct, %if.then29 ], [ %call40, %if.then37 ], [ @_Py_TrueStruct, %if.then55 ], [ @_Py_NotImplementedStruct, %if.end21 ], [ null, %if.then16 ], [ @_Py_FalseStruct, %do.body ], [ %_Py_TrueStruct._Py_FalseStruct, %sw.bb57 ], [ %_Py_TrueStruct._Py_FalseStruct36, %sw.bb62 ], [ %_Py_TrueStruct._Py_FalseStruct37, %sw.bb67 ], [ %_Py_TrueStruct._Py_FalseStruct38, %sw.bb72 ], [ %_Py_TrueStruct._Py_FalseStruct39, %sw.bb79 ], [ %_Py_FalseStruct._Py_TrueStruct, %sw.bb84 ], [ %_Py_TrueStruct._Py_FalseStruct40, %sw.bb89 ], [ %_Py_TrueStruct._Py_FalseStruct41, %sw.bb94 ], [ %_Py_FalseStruct._Py_TrueStruct42, %sw.bb99 ], [ %_Py_FalseStruct._Py_TrueStruct43, %sw.bb104 ]
   ret ptr %retval.0
 }
 
@@ -2660,14 +2662,18 @@ entry:
   %it_seq = getelementptr inbounds i8, ptr %it, i64 24
   %0 = load ptr, ptr %it_seq, align 8
   %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %return, label %if.then
+  br i1 %tobool.not, label %do.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %call = tail call i32 %visit(ptr noundef nonnull %0, ptr noundef %arg) #15
+  %tobool2.not = icmp eq i32 %call, 0
+  br i1 %tobool2.not, label %do.end, label %return
+
+do.end:                                           ; preds = %entry, %if.then
   br label %return
 
-return:                                           ; preds = %if.then, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ %call, %if.then ]
+return:                                           ; preds = %if.then, %do.end
+  %retval.0 = phi i32 [ 0, %do.end ], [ %call, %if.then ]
   ret i32 %retval.0
 }
 
@@ -10870,35 +10876,47 @@ for.body20.us.i84:                                ; preds = %for.cond17.preheade
 
 if.else60.us.i:                                   ; preds = %for.body20.us.i84
   %cmp61.not.us.i = icmp eq i64 %i.149.us.i, 0
-  br i1 %cmp61.not.us.i, label %return, label %for.inc76.us.sink.split.i
+  br i1 %cmp61.not.us.i, label %return, label %land.lhs.true63.us.i
+
+land.lhs.true63.us.i:                             ; preds = %if.else60.us.i
+  %arrayidx65.us.i = getelementptr i8, ptr %arrayidx21.us.i85, i64 -1
+  %18 = load i8, ptr %arrayidx65.us.i, align 1
+  %19 = and i8 %18, 63
+  %sh_prom68.us.i = zext nneg i8 %19 to i64
+  %shl69.us.i = shl nuw i64 1, %sh_prom68.us.i
+  %and70.us.i = and i64 %shl69.us.i, %or9.i
+  %tobool71.not.us.i = icmp eq i64 %and70.us.i, 0
+  %sub73.us.i = select i1 %tobool71.not.us.i, i64 %m, i64 0
+  br label %for.inc76.us.i
 
 for.body31.us.i:                                  ; preds = %for.body20.us.i84, %for.inc40.us.i
   %j.046.us.i = phi i64 [ %dec41.us.i, %for.inc40.us.i ], [ %sub.i76, %for.body20.us.i84 ]
   %arrayidx32.us.i = getelementptr i8, ptr %arrayidx21.us.i85, i64 %j.046.us.i
-  %18 = load i8, ptr %arrayidx32.us.i, align 1
+  %20 = load i8, ptr %arrayidx32.us.i, align 1
   %arrayidx34.us.i = getelementptr i8, ptr %p, i64 %j.046.us.i
-  %19 = load i8, ptr %arrayidx34.us.i, align 1
-  %cmp36.not.us.i = icmp eq i8 %18, %19
+  %21 = load i8, ptr %arrayidx34.us.i, align 1
+  %cmp36.not.us.i = icmp eq i8 %20, %21
   br i1 %cmp36.not.us.i, label %for.inc40.us.i, label %if.end46.us.i
 
 if.end46.us.i:                                    ; preds = %for.body31.us.i
   %cmp47.not.us.i = icmp eq i64 %i.149.us.i, 0
-  br i1 %cmp47.not.us.i, label %for.inc76.us.i, label %for.inc76.us.sink.split.i
+  br i1 %cmp47.not.us.i, label %if.else.us.i, label %land.lhs.true.us.i
 
-for.inc76.us.sink.split.i:                        ; preds = %if.end46.us.i, %if.else60.us.i
-  %spec.select.lcssa.sink98.i = phi i64 [ 0, %if.else60.us.i ], [ %spec.select.i, %if.end46.us.i ]
+land.lhs.true.us.i:                               ; preds = %if.end46.us.i
   %arrayidx50.us.i = getelementptr i8, ptr %arrayidx21.us.i85, i64 -1
-  %20 = load i8, ptr %arrayidx50.us.i, align 1
-  %21 = and i8 %20, 63
-  %sh_prom53.us.i = zext nneg i8 %21 to i64
+  %22 = load i8, ptr %arrayidx50.us.i, align 1
+  %23 = and i8 %22, 63
+  %sh_prom53.us.i = zext nneg i8 %23 to i64
   %shl54.us.i = shl nuw i64 1, %sh_prom53.us.i
   %and55.us.i = and i64 %shl54.us.i, %or9.i
   %tobool.not.us.i86 = icmp eq i64 %and55.us.i, 0
-  %spec.select97.i = select i1 %tobool.not.us.i86, i64 %m, i64 %spec.select.lcssa.sink98.i
+  br i1 %tobool.not.us.i86, label %for.inc76.us.i, label %if.else.us.i
+
+if.else.us.i:                                     ; preds = %land.lhs.true.us.i, %if.end46.us.i
   br label %for.inc76.us.i
 
-for.inc76.us.i:                                   ; preds = %for.inc76.us.sink.split.i, %if.end46.us.i
-  %spec.select.lcssa.sink.i = phi i64 [ %spec.select.i, %if.end46.us.i ], [ %spec.select97.i, %for.inc76.us.sink.split.i ]
+for.inc76.us.i:                                   ; preds = %if.else.us.i, %land.lhs.true.us.i, %land.lhs.true63.us.i
+  %spec.select.lcssa.sink.i = phi i64 [ %spec.select.i, %if.else.us.i ], [ %sub73.us.i, %land.lhs.true63.us.i ], [ %m, %land.lhs.true.us.i ]
   %sub58.us.i = sub nsw i64 %i.149.us.i, %spec.select.lcssa.sink.i
   %dec77.us.i = add nsw i64 %sub58.us.i, -1
   %cmp18.us.i = icmp sgt i64 %sub58.us.i, 0
@@ -10914,12 +10932,12 @@ for.body.i81:                                     ; preds = %if.else40, %for.bod
   %mask.042.i = phi i64 [ %or9.i, %for.body.i81 ], [ %shl.i78, %if.else40 ]
   %i.041.i = phi i64 [ %sub16.i, %for.body.i81 ], [ %sub.i76, %if.else40 ]
   %arrayidx4.i = getelementptr i8, ptr %p, i64 %i.041.i
-  %22 = load i8, ptr %arrayidx4.i, align 1
-  %23 = and i8 %22, 63
-  %sh_prom7.i = zext nneg i8 %23 to i64
+  %24 = load i8, ptr %arrayidx4.i, align 1
+  %25 = and i8 %24, 63
+  %sh_prom7.i = zext nneg i8 %25 to i64
   %shl8.i = shl nuw i64 1, %sh_prom7.i
   %or9.i = or i64 %shl8.i, %mask.042.i
-  %cmp14.i = icmp eq i8 %22, %15
+  %cmp14.i = icmp eq i8 %24, %15
   %sub16.i = add nsw i64 %i.041.i, -1
   %spec.select.i = select i1 %cmp14.i, i64 %sub16.i, i64 %skip.043.i
   %cmp.i82 = icmp ugt i64 %i.041.i, 1

@@ -327,7 +327,7 @@ err:                                              ; preds = %lor.lhs.false13, %i
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_d2i_AutoPrivateKey_ex(i32 noundef %i) #0 {
+define internal noundef i32 @test_d2i_AutoPrivateKey_ex(i32 noundef %i) #0 {
 entry:
   %p = alloca ptr, align 8
   %p_bn = alloca ptr, align 8
@@ -377,7 +377,7 @@ if.then9:                                         ; preds = %if.end
   %conv = zext i1 %cmp11 to i32
   %call12 = call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 558, ptr noundef nonnull @.str.36, i32 noundef %conv) #7
   %tobool13.not = icmp eq i32 %call12, 0
-  br i1 %tobool13.not, label %done, label %if.end36.thread
+  br i1 %tobool13.not, label %done, label %if.end54
 
 if.then19:                                        ; preds = %if.end
   %call20 = call i32 @EVP_PKEY_get_octet_string_param(ptr noundef %call, ptr noundef nonnull @.str.39, ptr noundef nonnull %buffer, i64 noundef 32, ptr noundef nonnull %len) #7
@@ -385,7 +385,7 @@ if.then19:                                        ; preds = %if.end
   %conv22 = zext i1 %cmp21 to i32
   %call23 = call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 567, ptr noundef nonnull @.str.38, i32 noundef %conv22) #7
   %tobool24.not = icmp eq i32 %call23, 0
-  br i1 %tobool24.not, label %done, label %if.end36.thread
+  br i1 %tobool24.not, label %done, label %if.end54
 
 if.else27:                                        ; preds = %if.end
   %call28 = call i32 @EVP_PKEY_get_bn_param(ptr noundef %call, ptr noundef nonnull @.str.39, ptr noundef nonnull %priv_bn) #7
@@ -395,12 +395,9 @@ if.else27:                                        ; preds = %if.end
   %tobool32.not = icmp eq i32 %call31, 0
   br i1 %tobool32.not, label %done, label %if.end36
 
-if.end36.thread:                                  ; preds = %if.then19, %if.then9
-  br label %done
-
 if.end36:                                         ; preds = %if.else27
   %cmp38 = icmp eq i32 %2, 28
-  br i1 %cmp38, label %if.then40, label %done
+  br i1 %cmp38, label %if.then40, label %if.end54
 
 if.then40:                                        ; preds = %if.end36
   %call41 = call i32 @EVP_PKEY_get_bn_param(ptr noundef %call, ptr noundef nonnull @.str.32, ptr noundef nonnull %p_bn) #7
@@ -415,12 +412,14 @@ lor.lhs.false46:                                  ; preds = %if.then40
   %cmp48 = icmp ne i32 %call47, 0
   %conv49 = zext i1 %cmp48 to i32
   %call50 = call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 578, ptr noundef nonnull @.str.42, i32 noundef %conv49) #7
-  %tobool51.not = icmp ne i32 %call50, 0
-  %spec.select = zext i1 %tobool51.not to i32
+  %tobool51.not = icmp eq i32 %call50, 0
+  br i1 %tobool51.not, label %done, label %if.end54
+
+if.end54:                                         ; preds = %if.then9, %if.then19, %lor.lhs.false46, %if.end36
   br label %done
 
-done:                                             ; preds = %if.end36.thread, %lor.lhs.false46, %if.end36, %if.then40, %if.else27, %if.then19, %if.then9, %entry, %lor.lhs.false, %lor.lhs.false4
-  %ret.0 = phi i32 [ 0, %if.then40 ], [ 0, %if.then9 ], [ 0, %if.then19 ], [ 0, %if.else27 ], [ 0, %lor.lhs.false4 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ 1, %if.end36 ], [ %spec.select, %lor.lhs.false46 ], [ 1, %if.end36.thread ]
+done:                                             ; preds = %if.then40, %lor.lhs.false46, %if.else27, %if.then19, %if.then9, %entry, %lor.lhs.false, %lor.lhs.false4, %if.end54
+  %ret.0 = phi i32 [ 1, %if.end54 ], [ 0, %lor.lhs.false46 ], [ 0, %if.then40 ], [ 0, %if.then9 ], [ 0, %if.then19 ], [ 0, %if.else27 ], [ 0, %lor.lhs.false4 ], [ 0, %lor.lhs.false ], [ 0, %entry ]
   %5 = load ptr, ptr %p_bn, align 8
   call void @BN_free(ptr noundef %5) #7
   %6 = load ptr, ptr %g_bn, align 8
@@ -1475,7 +1474,7 @@ entry:
   %call = call ptr @d2i_AutoPrivateKey_ex(ptr noundef null, ptr noundef nonnull %pdata, i64 noundef 608, ptr noundef %0, ptr noundef null) #7
   %call2 = call i32 @test_ptr(ptr noundef nonnull @.str.25, i32 noundef 1208, ptr noundef nonnull @.str.168, ptr noundef %call) #7
   %tobool.not = icmp eq i32 %call2, 0
-  br i1 %tobool.not, label %if.end, label %lor.lhs.false
+  br i1 %tobool.not, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
   %call3 = call i32 @EVP_PKEY_export(ptr noundef %call, i32 noundef 135, ptr noundef nonnull @test_pkey_export_cb, ptr noundef %call) #7
@@ -1483,19 +1482,21 @@ lor.lhs.false:                                    ; preds = %entry
   %conv4 = zext i1 %cmp to i32
   %call5 = call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 1210, ptr noundef nonnull @.str.169, i32 noundef %conv4) #7
   %tobool6.not = icmp eq i32 %call5, 0
-  br i1 %tobool6.not, label %if.end, label %lor.lhs.false7
+  br i1 %tobool6.not, label %if.then, label %lor.lhs.false7
 
 lor.lhs.false7:                                   ; preds = %lor.lhs.false
   %call8 = call i32 @EVP_PKEY_export(ptr noundef %call, i32 noundef 135, ptr noundef nonnull @test_pkey_export_cb, ptr noundef null) #7
   %cmp9 = icmp ne i32 %call8, 0
   %conv10 = zext i1 %cmp9 to i32
   %call11 = call i32 @test_false(ptr noundef nonnull @.str.25, i32 noundef 1212, ptr noundef nonnull @.str.170, i32 noundef %conv10) #7
-  %tobool12.not = icmp ne i32 %call11, 0
-  %spec.select = zext i1 %tobool12.not to i32
+  %tobool12.not = icmp eq i32 %call11, 0
+  br i1 %tobool12.not, label %if.then, label %if.end
+
+if.then:                                          ; preds = %lor.lhs.false7, %lor.lhs.false, %entry
   br label %if.end
 
-if.end:                                           ; preds = %lor.lhs.false7, %entry, %lor.lhs.false
-  %ret.0 = phi i32 [ 0, %lor.lhs.false ], [ 0, %entry ], [ %spec.select, %lor.lhs.false7 ]
+if.end:                                           ; preds = %if.then, %lor.lhs.false7
+  %ret.0 = phi i32 [ 1, %lor.lhs.false7 ], [ 0, %if.then ]
   call void @EVP_PKEY_free(ptr noundef %call) #7
   store ptr @kExampleRSAKeyDER, ptr %pdata, align 8
   %call15 = call ptr @d2i_RSAPrivateKey(ptr noundef null, ptr noundef nonnull %pdata, i64 noundef 608) #7
@@ -1531,12 +1532,12 @@ lor.lhs.false34:                                  ; preds = %lor.lhs.false28
   %conv37 = zext i1 %cmp36 to i32
   %call38 = call i32 @test_false(ptr noundef nonnull @.str.25, i32 noundef 1226, ptr noundef nonnull @.str.170, i32 noundef %conv37) #7
   %tobool39.not = icmp eq i32 %call38, 0
-  %spec.select10 = select i1 %tobool39.not, i32 0, i32 %ret.0
+  %spec.select = select i1 %tobool39.not, i32 0, i32 %ret.0
   br label %if.end41
 
 if.end41:                                         ; preds = %lor.lhs.false34, %if.end, %lor.lhs.false18, %lor.lhs.false22, %lor.lhs.false28
   %pkey.1 = phi ptr [ %call19, %lor.lhs.false28 ], [ %call19, %lor.lhs.false22 ], [ %call19, %lor.lhs.false18 ], [ %call, %if.end ], [ %call19, %lor.lhs.false34 ]
-  %ret.1 = phi i32 [ 0, %lor.lhs.false28 ], [ 0, %lor.lhs.false22 ], [ 0, %lor.lhs.false18 ], [ 0, %if.end ], [ %spec.select10, %lor.lhs.false34 ]
+  %ret.1 = phi i32 [ 0, %lor.lhs.false28 ], [ 0, %lor.lhs.false22 ], [ 0, %lor.lhs.false18 ], [ 0, %if.end ], [ %spec.select, %lor.lhs.false34 ]
   call void @EVP_PKEY_free(ptr noundef %pkey.1) #7
   ret i32 %ret.1
 }

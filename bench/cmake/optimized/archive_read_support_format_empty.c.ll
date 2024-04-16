@@ -27,18 +27,20 @@ declare i32 @__archive_check_magic(ptr noundef, i32 noundef, i32 noundef, ptr no
 declare i32 @__archive_read_register_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @archive_read_format_empty_bid(ptr noundef %0, i32 noundef %1) #0 {
+define internal noundef i32 @archive_read_format_empty_bid(ptr noundef %0, i32 noundef %1) #0 {
   %3 = icmp slt i32 %1, 1
   br i1 %3, label %4, label %7
 
 4:                                                ; preds = %2
   %5 = tail call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 1, ptr noundef null) #4
   %6 = icmp eq ptr %5, null
-  %spec.select = select i1 %6, i32 1, i32 -1
-  br label %7
+  br i1 %6, label %8, label %7
 
 7:                                                ; preds = %4, %2
-  %.0 = phi i32 [ -1, %2 ], [ %spec.select, %4 ]
+  br label %8
+
+8:                                                ; preds = %4, %7
+  %.0 = phi i32 [ -1, %7 ], [ 1, %4 ]
   ret i32 %.0
 }
 

@@ -4018,11 +4018,11 @@ define internal noundef i32 @rt_wdbar_draw(ptr noundef %0, ptr noundef %1, ptr n
   %77 = icmp sgt i32 %75, 0
   %78 = and i1 %76, %77
   %__const.rt_wdbar_draw.active. = select i1 %78, ptr %6, ptr @__const.rt_wdbar_draw.active
-  %spec.select4 = select i1 %.not, ptr %5, ptr %__const.rt_wdbar_draw.active.
+  %spec.select = select i1 %.not, ptr %5, ptr %__const.rt_wdbar_draw.active.
   br label %79
 
 79:                                               ; preds = %74, %70, %67
-  %.sink = phi ptr [ @__const.rt_wdbar_draw.original, %67 ], [ @__const.rt_wdbar_draw.residual, %70 ], [ %spec.select4, %74 ]
+  %.sink = phi ptr [ @__const.rt_wdbar_draw.original, %67 ], [ @__const.rt_wdbar_draw.residual, %70 ], [ %spec.select, %74 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %.sink, i64 32, i1 false)
   call void @gdk_cairo_set_source_rgba(ptr noundef %35, ptr noundef nonnull %8) #28
   %80 = sitofp i32 %68 to float
@@ -4116,160 +4116,162 @@ define internal noundef i32 @rt_wdbar_draw(ptr noundef %0, ptr noundef %1, ptr n
   %131 = icmp sle i32 %64, %130
   %132 = icmp sgt i32 %65, 0
   %133 = and i1 %132, %131
-  %spec.select = select i1 %133, ptr @__const.rt_wdbar_draw.active, ptr %6
-  br label %134
+  br i1 %133, label %135, label %134
 
 134:                                              ; preds = %129, %61
-  %135 = phi ptr [ %6, %61 ], [ %spec.select, %129 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %135, i64 32, i1 false)
-  %136 = icmp ult i32 %64, 17
-  br i1 %136, label %137, label %152
+  br label %135
 
-137:                                              ; preds = %134
-  %138 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !72
-  %139 = getelementptr inbounds i8, ptr %138, i64 1448
-  %140 = load double, ptr %139, align 8, !tbaa !174
-  call void @cairo_set_line_width(ptr noundef %35, double noundef %140) #28
+135:                                              ; preds = %134, %129
+  %136 = phi ptr [ %6, %134 ], [ @__const.rt_wdbar_draw.active, %129 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %136, i64 32, i1 false)
+  %137 = icmp ult i32 %64, 17
+  br i1 %137, label %138, label %153
+
+138:                                              ; preds = %135
+  %139 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !72
+  %140 = getelementptr inbounds i8, ptr %139, i64 1448
+  %141 = load double, ptr %140, align 8, !tbaa !174
+  call void @cairo_set_line_width(ptr noundef %35, double noundef %141) #28
   call void @gdk_cairo_set_source_rgba(ptr noundef %35, ptr noundef nonnull %8) #28
-  %141 = load i32, ptr %63, align 4, !tbaa !140
-  %142 = sitofp i32 %141 to float
-  %143 = fadd reassoc nsz arcp contract afn float %142, 5.000000e-01
-  %144 = fmul reassoc nsz arcp contract afn float %143, %53
-  %145 = fadd reassoc nsz arcp contract afn float %144, %50
-  %146 = fpext float %145 to double
-  %147 = fmul reassoc nsz arcp contract afn float %55, 5.000000e-01
-  %148 = fadd reassoc nsz arcp contract afn float %147, %47
-  %149 = fpext float %148 to double
-  %150 = fmul reassoc nsz arcp contract afn float %50, 5.000000e-01
-  %151 = fpext float %150 to double
-  call void @cairo_arc(ptr noundef %35, double noundef %146, double noundef %149, double noundef %151, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #28
+  %142 = load i32, ptr %63, align 4, !tbaa !140
+  %143 = sitofp i32 %142 to float
+  %144 = fadd reassoc nsz arcp contract afn float %143, 5.000000e-01
+  %145 = fmul reassoc nsz arcp contract afn float %144, %53
+  %146 = fadd reassoc nsz arcp contract afn float %145, %50
+  %147 = fpext float %146 to double
+  %148 = fmul reassoc nsz arcp contract afn float %55, 5.000000e-01
+  %149 = fadd reassoc nsz arcp contract afn float %148, %47
+  %150 = fpext float %149 to double
+  %151 = fmul reassoc nsz arcp contract afn float %50, 5.000000e-01
+  %152 = fpext float %151 to double
+  call void @cairo_arc(ptr noundef %35, double noundef %147, double noundef %150, double noundef %152, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #28
   call void @cairo_fill(ptr noundef %35) #28
   call void @cairo_stroke(ptr noundef %35) #28
-  br label %152
+  br label %153
 
-152:                                              ; preds = %137, %134
-  %153 = getelementptr inbounds i8, ptr %11, i64 184
-  %154 = load i32, ptr %153, align 8, !tbaa !173
-  %155 = icmp sgt i32 %154, -1
-  br i1 %155, label %156, label %180
+153:                                              ; preds = %138, %135
+  %154 = getelementptr inbounds i8, ptr %11, i64 184
+  %155 = load i32, ptr %154, align 8, !tbaa !173
+  %156 = icmp sgt i32 %155, -1
+  br i1 %156, label %157, label %181
 
-156:                                              ; preds = %152
-  %157 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !72
-  %158 = getelementptr inbounds i8, ptr %157, i64 1448
-  %159 = load double, ptr %158, align 8, !tbaa !174
-  call void @cairo_set_line_width(ptr noundef %35, double noundef %159) #28
-  %160 = load i32, ptr %153, align 8, !tbaa !173
-  %161 = load i32, ptr %56, align 4, !tbaa !147
-  %162 = add nsw i32 %161, 1
-  %163 = icmp eq i32 %160, %162
-  br i1 %163, label %164, label %165
+157:                                              ; preds = %153
+  %158 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !72
+  %159 = getelementptr inbounds i8, ptr %158, i64 1448
+  %160 = load double, ptr %159, align 8, !tbaa !174
+  call void @cairo_set_line_width(ptr noundef %35, double noundef %160) #28
+  %161 = load i32, ptr %154, align 8, !tbaa !173
+  %162 = load i32, ptr %56, align 4, !tbaa !147
+  %163 = add nsw i32 %162, 1
+  %164 = icmp eq i32 %161, %163
+  br i1 %164, label %165, label %166
 
-164:                                              ; preds = %156
+165:                                              ; preds = %157
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !tbaa.struct !198
-  br label %166
+  br label %167
 
-165:                                              ; preds = %156
+166:                                              ; preds = %157
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) @__const.rt_wdbar_draw.residual, i64 32, i1 false), !tbaa.struct !198
-  br label %166
+  br label %167
 
-166:                                              ; preds = %165, %164
+167:                                              ; preds = %166, %165
   call void @gdk_cairo_set_source_rgba(ptr noundef %35, ptr noundef nonnull %8) #28
-  %167 = load i32, ptr %153, align 8, !tbaa !173
-  %168 = sitofp i32 %167 to float
-  %169 = fmul reassoc nsz arcp contract afn float %53, %168
-  %170 = fadd reassoc nsz arcp contract afn float %169, %50
-  %171 = fpext float %170 to double
-  %172 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !72
-  %173 = getelementptr inbounds i8, ptr %172, i64 1448
-  %174 = load double, ptr %173, align 8, !tbaa !174
-  %175 = fadd reassoc nsz arcp contract afn double %174, %171
-  %176 = fadd reassoc nsz arcp contract afn double %174, %58
-  %177 = fmul reassoc nsz arcp contract afn double %174, 2.000000e+00
-  %178 = fsub reassoc nsz arcp contract afn double %59, %177
-  %179 = fsub reassoc nsz arcp contract afn double %60, %177
-  call void @cairo_rectangle(ptr noundef %35, double noundef %175, double noundef %176, double noundef %178, double noundef %179) #28
+  %168 = load i32, ptr %154, align 8, !tbaa !173
+  %169 = sitofp i32 %168 to float
+  %170 = fmul reassoc nsz arcp contract afn float %53, %169
+  %171 = fadd reassoc nsz arcp contract afn float %170, %50
+  %172 = fpext float %171 to double
+  %173 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !72
+  %174 = getelementptr inbounds i8, ptr %173, i64 1448
+  %175 = load double, ptr %174, align 8, !tbaa !174
+  %176 = fadd reassoc nsz arcp contract afn double %175, %172
+  %177 = fadd reassoc nsz arcp contract afn double %175, %58
+  %178 = fmul reassoc nsz arcp contract afn double %175, 2.000000e+00
+  %179 = fsub reassoc nsz arcp contract afn double %59, %178
+  %180 = fsub reassoc nsz arcp contract afn double %60, %178
+  call void @cairo_rectangle(ptr noundef %35, double noundef %176, double noundef %177, double noundef %179, double noundef %180) #28
   call void @cairo_stroke(ptr noundef %35) #28
-  br label %180
+  br label %181
 
-180:                                              ; preds = %166, %152
-  %181 = load i32, ptr %56, align 4, !tbaa !147
-  %182 = sitofp i32 %181 to float
-  %183 = fadd reassoc nsz arcp contract afn float %182, 5.000000e-01
-  %184 = fmul reassoc nsz arcp contract afn float %183, %53
-  %185 = getelementptr inbounds i8, ptr %11, i64 196
-  %186 = load i32, ptr %185, align 4, !tbaa !199
-  %187 = icmp eq i32 %186, 0
-  br i1 %187, label %188, label %192
+181:                                              ; preds = %167, %153
+  %182 = load i32, ptr %56, align 4, !tbaa !147
+  %183 = sitofp i32 %182 to float
+  %184 = fadd reassoc nsz arcp contract afn float %183, 5.000000e-01
+  %185 = fmul reassoc nsz arcp contract afn float %184, %53
+  %186 = getelementptr inbounds i8, ptr %11, i64 196
+  %187 = load i32, ptr %186, align 4, !tbaa !199
+  %188 = icmp eq i32 %187, 0
+  br i1 %188, label %189, label %193
 
-188:                                              ; preds = %180
-  %189 = getelementptr inbounds i8, ptr %11, i64 188
-  %190 = load i32, ptr %189, align 4, !tbaa !172
-  %191 = icmp eq i32 %190, 2
-  br i1 %191, label %192, label %200
+189:                                              ; preds = %181
+  %190 = getelementptr inbounds i8, ptr %11, i64 188
+  %191 = load i32, ptr %190, align 4, !tbaa !172
+  %192 = icmp eq i32 %191, 2
+  br i1 %192, label %193, label %201
 
-192:                                              ; preds = %188, %180
+193:                                              ; preds = %189, %181
   call void @cairo_set_source_rgb(ptr noundef %35, double noundef 6.700000e-01, double noundef 6.700000e-01, double noundef 6.700000e-01) #28
-  %193 = fptosi float %184 to i32
-  %194 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !72
-  %195 = getelementptr inbounds i8, ptr %194, i64 1448
-  %196 = load double, ptr %195, align 8, !tbaa !174
-  %197 = fmul reassoc nsz arcp contract afn double %196, 5.000000e+00
-  %198 = fadd reassoc nsz arcp contract afn double %197, %60
-  %199 = fptosi double %198 to i32
-  call void @dtgtk_cairo_paint_solid_triangle(ptr noundef %35, i32 noundef %193, i32 noundef %199, i32 noundef %62, i32 noundef %62, i32 noundef 1, ptr noundef null) #28
-  br label %208
+  %194 = fptosi float %185 to i32
+  %195 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !72
+  %196 = getelementptr inbounds i8, ptr %195, i64 1448
+  %197 = load double, ptr %196, align 8, !tbaa !174
+  %198 = fmul reassoc nsz arcp contract afn double %197, 5.000000e+00
+  %199 = fadd reassoc nsz arcp contract afn double %198, %60
+  %200 = fptosi double %199 to i32
+  call void @dtgtk_cairo_paint_solid_triangle(ptr noundef %35, i32 noundef %194, i32 noundef %200, i32 noundef %62, i32 noundef %62, i32 noundef 1, ptr noundef null) #28
+  br label %209
 
-200:                                              ; preds = %188
+201:                                              ; preds = %189
   call void @cairo_set_source_rgb(ptr noundef %35, double noundef 5.400000e-01, double noundef 5.400000e-01, double noundef 5.400000e-01) #28
-  %201 = fptosi float %184 to i32
-  %202 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !72
-  %203 = getelementptr inbounds i8, ptr %202, i64 1448
-  %204 = load double, ptr %203, align 8, !tbaa !174
-  %205 = fmul reassoc nsz arcp contract afn double %204, 5.000000e+00
-  %206 = fadd reassoc nsz arcp contract afn double %205, %60
-  %207 = fptosi double %206 to i32
-  call void @dtgtk_cairo_paint_triangle(ptr noundef %35, i32 noundef %201, i32 noundef %207, i32 noundef %62, i32 noundef %62, i32 noundef 1, ptr noundef null) #28
-  br label %208
+  %202 = fptosi float %185 to i32
+  %203 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !72
+  %204 = getelementptr inbounds i8, ptr %203, i64 1448
+  %205 = load double, ptr %204, align 8, !tbaa !174
+  %206 = fmul reassoc nsz arcp contract afn double %205, 5.000000e+00
+  %207 = fadd reassoc nsz arcp contract afn double %206, %60
+  %208 = fptosi double %207 to i32
+  call void @dtgtk_cairo_paint_triangle(ptr noundef %35, i32 noundef %202, i32 noundef %208, i32 noundef %62, i32 noundef %62, i32 noundef 1, ptr noundef null) #28
+  br label %209
 
-208:                                              ; preds = %200, %192
-  %209 = load i32, ptr %57, align 4, !tbaa !159
-  %210 = sitofp i32 %209 to float
-  %211 = fadd reassoc nsz arcp contract afn float %210, 5.000000e-01
-  %212 = fmul reassoc nsz arcp contract afn float %211, %53
-  %213 = getelementptr inbounds i8, ptr %11, i64 192
-  %214 = load i32, ptr %213, align 8, !tbaa !200
-  %215 = icmp eq i32 %214, 0
-  br i1 %215, label %216, label %220
+209:                                              ; preds = %201, %193
+  %210 = load i32, ptr %57, align 4, !tbaa !159
+  %211 = sitofp i32 %210 to float
+  %212 = fadd reassoc nsz arcp contract afn float %211, 5.000000e-01
+  %213 = fmul reassoc nsz arcp contract afn float %212, %53
+  %214 = getelementptr inbounds i8, ptr %11, i64 192
+  %215 = load i32, ptr %214, align 8, !tbaa !200
+  %216 = icmp eq i32 %215, 0
+  br i1 %216, label %217, label %221
 
-216:                                              ; preds = %208
-  %217 = getelementptr inbounds i8, ptr %11, i64 188
-  %218 = load i32, ptr %217, align 4, !tbaa !172
-  %219 = icmp eq i32 %218, 1
-  br i1 %219, label %220, label %227
+217:                                              ; preds = %209
+  %218 = getelementptr inbounds i8, ptr %11, i64 188
+  %219 = load i32, ptr %218, align 4, !tbaa !172
+  %220 = icmp eq i32 %219, 1
+  br i1 %220, label %221, label %228
 
-220:                                              ; preds = %216, %208
+221:                                              ; preds = %217, %209
   call void @cairo_set_source_rgb(ptr noundef %35, double noundef 6.700000e-01, double noundef 6.700000e-01, double noundef 6.700000e-01) #28
-  %221 = fptosi float %212 to i32
-  %222 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !72
-  %223 = getelementptr inbounds i8, ptr %222, i64 1448
-  %224 = load double, ptr %223, align 8, !tbaa !174
-  %225 = fmul reassoc nsz arcp contract afn double %224, 3.000000e+00
-  %226 = fptosi double %225 to i32
-  call void @dtgtk_cairo_paint_solid_triangle(ptr noundef %35, i32 noundef %221, i32 noundef %226, i32 noundef %62, i32 noundef %62, i32 noundef 2, ptr noundef null) #28
-  br label %234
+  %222 = fptosi float %213 to i32
+  %223 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !72
+  %224 = getelementptr inbounds i8, ptr %223, i64 1448
+  %225 = load double, ptr %224, align 8, !tbaa !174
+  %226 = fmul reassoc nsz arcp contract afn double %225, 3.000000e+00
+  %227 = fptosi double %226 to i32
+  call void @dtgtk_cairo_paint_solid_triangle(ptr noundef %35, i32 noundef %222, i32 noundef %227, i32 noundef %62, i32 noundef %62, i32 noundef 2, ptr noundef null) #28
+  br label %235
 
-227:                                              ; preds = %216
+228:                                              ; preds = %217
   call void @cairo_set_source_rgb(ptr noundef %35, double noundef 5.400000e-01, double noundef 5.400000e-01, double noundef 5.400000e-01) #28
-  %228 = fptosi float %212 to i32
-  %229 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !72
-  %230 = getelementptr inbounds i8, ptr %229, i64 1448
-  %231 = load double, ptr %230, align 8, !tbaa !174
-  %232 = fmul reassoc nsz arcp contract afn double %231, 3.000000e+00
-  %233 = fptosi double %232 to i32
-  call void @dtgtk_cairo_paint_triangle(ptr noundef %35, i32 noundef %228, i32 noundef %233, i32 noundef %62, i32 noundef %62, i32 noundef 2, ptr noundef null) #28
-  br label %234
+  %229 = fptosi float %213 to i32
+  %230 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !72
+  %231 = getelementptr inbounds i8, ptr %230, i64 1448
+  %232 = load double, ptr %231, align 8, !tbaa !174
+  %233 = fmul reassoc nsz arcp contract afn double %232, 3.000000e+00
+  %234 = fptosi double %233 to i32
+  call void @dtgtk_cairo_paint_triangle(ptr noundef %35, i32 noundef %229, i32 noundef %234, i32 noundef %62, i32 noundef %62, i32 noundef 2, ptr noundef null) #28
+  br label %235
 
-234:                                              ; preds = %227, %220
+235:                                              ; preds = %228, %221
   call void @cairo_destroy(ptr noundef %35) #28
   call void @cairo_set_source_surface(ptr noundef %1, ptr noundef %31, double noundef 0.000000e+00, double noundef 0.000000e+00) #28
   call void @cairo_paint(ptr noundef %1) #28

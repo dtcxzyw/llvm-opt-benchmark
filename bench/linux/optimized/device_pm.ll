@@ -321,9 +321,9 @@ define dso_local i32 @acpi_device_set_power(ptr noundef %0, i32 noundef %1) #1 a
   br i1 %51, label %.thread13, label %52
 
 52:                                               ; preds = %48, %41, %33
-  %.not17 = icmp eq i32 %35, 0
+  %.not15 = icmp eq i32 %35, 0
   %53 = load i32, ptr %36, align 8
-  br i1 %.not17, label %79, label %54
+  br i1 %.not15, label %81, label %54
 
 54:                                               ; preds = %52
   %55 = icmp slt i32 %35, %53
@@ -331,7 +331,7 @@ define dso_local i32 @acpi_device_set_power(ptr noundef %0, i32 noundef %1) #1 a
 
 56:                                               ; preds = %54
   %57 = icmp slt i32 %53, 3
-  br i1 %57, label %58, label %.thread9
+  br i1 %57, label %58, label %.thread7
 
 58:                                               ; preds = %56
   %59 = getelementptr inbounds i8, ptr %0, i64 248
@@ -340,7 +340,7 @@ define dso_local i32 @acpi_device_set_power(ptr noundef %0, i32 noundef %1) #1 a
   %62 = load i8, ptr %61, align 8
   %63 = and i8 %62, 2
   %64 = icmp eq i8 %63, 0
-  br i1 %64, label %.thread9, label %65
+  br i1 %64, label %.thread7, label %65
 
 65:                                               ; preds = %58
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %5) #6
@@ -360,88 +360,88 @@ define dso_local i32 @acpi_device_set_power(ptr noundef %0, i32 noundef %1) #1 a
   %74 = call i32 @acpi_evaluate_object(ptr noundef %73, ptr noundef nonnull %5, ptr noundef null, ptr noundef null) #6
   %75 = icmp eq i32 %74, 0
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %5) #6
-  br i1 %75, label %..thread9_crit_edge, label %.thread13
+  br i1 %75, label %..thread7_crit_edge, label %.thread13
 
-..thread9_crit_edge:                              ; preds = %65
+..thread7_crit_edge:                              ; preds = %65
   %.pre = load i32, ptr %37, align 4
-  br label %.thread9
+  br label %.thread7
 
-.thread9:                                         ; preds = %..thread9_crit_edge, %58, %56
-  %76 = phi i32 [ %.pre, %..thread9_crit_edge ], [ %38, %58 ], [ %38, %56 ]
+.thread7:                                         ; preds = %..thread7_crit_edge, %58, %56
+  %76 = phi i32 [ %.pre, %..thread7_crit_edge ], [ %38, %58 ], [ %38, %56 ]
   %77 = and i32 %76, 2
   %78 = icmp eq i32 %77, 0
-  br i1 %78, label %.thread14, label %.thread12
+  br i1 %78, label %.thread12, label %.thread10
 
-79:                                               ; preds = %52
-  %80 = and i32 %38, 2
-  %81 = icmp eq i32 %80, 0
-  br i1 %81, label %85, label %82
+.thread10:                                        ; preds = %.thread7
+  %79 = call i32 @acpi_power_transition(ptr noundef nonnull %0, i32 noundef %34) #6
+  %80 = icmp eq i32 %79, 0
+  br i1 %80, label %.thread12, label %.thread13
 
-82:                                               ; preds = %79
-  %83 = tail call i32 @acpi_power_transition(ptr noundef nonnull %0, i32 noundef 0) #6
-  %84 = icmp eq i32 %83, 0
-  br i1 %84, label %85, label %.thread13
+81:                                               ; preds = %52
+  %82 = and i32 %38, 2
+  %83 = icmp eq i32 %82, 0
+  br i1 %83, label %87, label %84
 
-85:                                               ; preds = %82, %79
-  %86 = icmp eq i32 %53, 0
-  br i1 %86, label %87, label %100
+84:                                               ; preds = %81
+  %85 = tail call i32 @acpi_power_transition(ptr noundef nonnull %0, i32 noundef 0) #6
+  %86 = icmp eq i32 %85, 0
+  br i1 %86, label %87, label %.thread13
 
-87:                                               ; preds = %85
-  %88 = load i32, ptr %37, align 4
-  %89 = and i32 %88, 1
-  %90 = icmp eq i32 %89, 0
-  br i1 %90, label %.thread13, label %91
+87:                                               ; preds = %84, %81
+  %88 = icmp eq i32 %53, 0
+  br i1 %88, label %89, label %102
 
-91:                                               ; preds = %87
+89:                                               ; preds = %87
+  %90 = load i32, ptr %37, align 4
+  %91 = and i32 %90, 1
+  %92 = icmp eq i32 %91, 0
+  br i1 %92, label %.thread13, label %93
+
+93:                                               ; preds = %89
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
   store i64 0, ptr %4, align 8, !annotation !5
-  %92 = getelementptr inbounds i8, ptr %0, i64 8
-  %93 = load ptr, ptr %92, align 8
-  %94 = call i32 @acpi_evaluate_integer(ptr noundef %93, ptr noundef nonnull @.str.8, ptr noundef null, ptr noundef nonnull %4) #6
-  %95 = icmp eq i32 %94, 0
-  %96 = load i64, ptr %4, align 8
+  %94 = getelementptr inbounds i8, ptr %0, i64 8
+  %95 = load ptr, ptr %94, align 8
+  %96 = call i32 @acpi_evaluate_integer(ptr noundef %95, ptr noundef nonnull @.str.8, ptr noundef null, ptr noundef nonnull %4) #6
+  %97 = icmp eq i32 %96, 0
+  %98 = load i64, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
-  %97 = and i64 %96, 4294967295
-  %98 = icmp ne i64 %97, 0
-  %99 = select i1 %95, i1 %98, i1 false
-  br i1 %99, label %100, label %.thread13
+  %99 = and i64 %98, 4294967295
+  %100 = icmp ne i64 %99, 0
+  %101 = select i1 %97, i1 %100, i1 false
+  br i1 %101, label %102, label %.thread13
 
-100:                                              ; preds = %91, %85
-  %101 = getelementptr inbounds i8, ptr %0, i64 248
-  %102 = load i8, ptr %101, align 8
-  %103 = and i8 %102, 2
-  %104 = icmp eq i8 %103, 0
-  br i1 %104, label %.thread14, label %105
+102:                                              ; preds = %93, %87
+  %103 = getelementptr inbounds i8, ptr %0, i64 248
+  %104 = load i8, ptr %103, align 8
+  %105 = and i8 %104, 2
+  %106 = icmp eq i8 %105, 0
+  br i1 %106, label %.thread12, label %107
 
-105:                                              ; preds = %100
+107:                                              ; preds = %102
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %3) #6
   store i8 95, ptr %3, align 1
-  %106 = getelementptr inbounds i8, ptr %3, i64 1
-  store i8 80, ptr %106, align 1
-  %107 = getelementptr inbounds i8, ptr %3, i64 2
-  store i8 83, ptr %107, align 1
-  %108 = getelementptr inbounds i8, ptr %3, i64 3
-  store i8 48, ptr %108, align 1
-  %109 = getelementptr inbounds i8, ptr %3, i64 4
-  store i8 0, ptr %109, align 1
-  %110 = getelementptr inbounds i8, ptr %0, i64 8
-  %111 = load ptr, ptr %110, align 8
-  %112 = call i32 @acpi_evaluate_object(ptr noundef %111, ptr noundef nonnull %3, ptr noundef null, ptr noundef null) #6
-  %113 = icmp eq i32 %112, 0
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %3) #6
-  br i1 %113, label %.thread14, label %.thread13
-
-.thread12:                                        ; preds = %.thread9
-  %114 = call i32 @acpi_power_transition(ptr noundef nonnull %0, i32 noundef %34) #6
+  %108 = getelementptr inbounds i8, ptr %3, i64 1
+  store i8 80, ptr %108, align 1
+  %109 = getelementptr inbounds i8, ptr %3, i64 2
+  store i8 83, ptr %109, align 1
+  %110 = getelementptr inbounds i8, ptr %3, i64 3
+  store i8 48, ptr %110, align 1
+  %111 = getelementptr inbounds i8, ptr %3, i64 4
+  store i8 0, ptr %111, align 1
+  %112 = getelementptr inbounds i8, ptr %0, i64 8
+  %113 = load ptr, ptr %112, align 8
+  %114 = call i32 @acpi_evaluate_object(ptr noundef %113, ptr noundef nonnull %3, ptr noundef null, ptr noundef null) #6
   %115 = icmp eq i32 %114, 0
-  br i1 %115, label %.thread14, label %.thread13
+  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %3) #6
+  br i1 %115, label %.thread12, label %.thread13
 
-.thread14:                                        ; preds = %105, %100, %.thread9, %.thread12
+.thread12:                                        ; preds = %107, %102, %.thread7, %.thread10
   store i32 %34, ptr %36, align 8
   br label %.thread13
 
-.thread13:                                        ; preds = %65, %91, %82, %105, %87, %15, %.thread14, %.thread12, %54, %48, %.thread, %7, %2
-  %116 = phi i32 [ -22, %7 ], [ -22, %2 ], [ -19, %.thread ], [ -19, %48 ], [ -19, %54 ], [ %114, %.thread12 ], [ 0, %.thread14 ], [ 0, %15 ], [ 0, %87 ], [ %83, %82 ], [ -19, %105 ], [ 0, %91 ], [ -19, %65 ]
+.thread13:                                        ; preds = %15, %89, %93, %84, %107, %65, %.thread12, %.thread10, %54, %48, %.thread, %7, %2
+  %116 = phi i32 [ -22, %7 ], [ -22, %2 ], [ -19, %.thread ], [ -19, %48 ], [ -19, %54 ], [ %79, %.thread10 ], [ 0, %.thread12 ], [ -19, %65 ], [ %85, %84 ], [ -19, %107 ], [ 0, %93 ], [ 0, %89 ], [ 0, %15 ]
   ret i32 %116
 }
 
@@ -470,12 +470,14 @@ define internal fastcc noundef i32 @acpi_dev_pm_explicit_set(ptr nocapture nound
   %14 = call i32 @acpi_evaluate_object(ptr noundef %13, ptr noundef nonnull %2, ptr noundef null, ptr noundef null) #6
   %15 = icmp eq i32 %14, 0
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %2) #6
-  %spec.select = select i1 %15, i32 0, i32 -19
-  br label %16
+  br i1 %15, label %16, label %17
 
 16:                                               ; preds = %7, %1
-  %17 = phi i32 [ 0, %1 ], [ %spec.select, %7 ]
-  ret i32 %17
+  br label %17
+
+17:                                               ; preds = %16, %7
+  %18 = phi i32 [ -19, %7 ], [ 0, %16 ]
+  ret i32 %18
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -585,13 +587,13 @@ define dso_local noundef i32 @acpi_device_fix_up_power(ptr nocapture noundef rea
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 3
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %7, label %25
+  br i1 %6, label %7, label %26
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %0, i64 240
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %11, label %25
+  br i1 %10, label %11, label %26
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds i8, ptr %0, i64 248
@@ -616,12 +618,14 @@ define dso_local noundef i32 @acpi_device_fix_up_power(ptr nocapture noundef rea
   %23 = call i32 @acpi_evaluate_object(ptr noundef %22, ptr noundef nonnull %2, ptr noundef null, ptr noundef null) #6
   %24 = icmp eq i32 %23, 0
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %2) #6
-  %spec.select = select i1 %24, i32 0, i32 -19
-  br label %25
+  br i1 %24, label %25, label %26
 
-25:                                               ; preds = %16, %11, %7, %1
-  %26 = phi i32 [ 0, %1 ], [ 0, %7 ], [ 0, %11 ], [ %spec.select, %16 ]
-  ret i32 %26
+25:                                               ; preds = %16, %11
+  br label %26
+
+26:                                               ; preds = %25, %16, %7, %1
+  %27 = phi i32 [ 0, %1 ], [ 0, %7 ], [ -19, %16 ], [ 0, %25 ]
+  ret i32 %27
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1677,115 +1681,115 @@ define dso_local i32 @acpi_subsys_prepare(ptr noundef %0) #1 align 16 {
   %8 = getelementptr inbounds i8, ptr %0, i64 104
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %.thread, label %11
+  br i1 %10, label %28, label %11
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds i8, ptr %9, i64 120
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %.thread, label %15
+  br i1 %14, label %28, label %15
 
 15:                                               ; preds = %11
   %16 = load ptr, ptr %13, align 8
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %.thread, label %18
+  br i1 %17, label %28, label %18
 
 18:                                               ; preds = %15
   %19 = tail call i32 %16(ptr noundef %0) #6
   %20 = icmp slt i32 %19, 0
-  br i1 %20, label %.thread5, label %21
+  br i1 %20, label %.thread, label %21
 
 21:                                               ; preds = %18
   %22 = icmp eq i32 %19, 0
-  br i1 %22, label %23, label %.thread
+  br i1 %22, label %23, label %28
 
 23:                                               ; preds = %21
   %24 = getelementptr inbounds i8, ptr %0, i64 224
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 2
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %.thread, label %.thread5
+  br i1 %27, label %28, label %.thread
 
-.thread:                                          ; preds = %21, %23, %15, %11, %1
-  %28 = tail call i32 @acpi_target_system_state() #6
+28:                                               ; preds = %23, %21, %15, %11, %1
+  %29 = tail call i32 @acpi_target_system_state() #6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #6
-  %29 = getelementptr inbounds i8, ptr %0, i64 452
-  %30 = load i32, ptr %29, align 4
-  %31 = icmp eq i32 %30, 2
-  br i1 %31, label %32, label %acpi_dev_needs_resume.exit
+  %30 = getelementptr inbounds i8, ptr %0, i64 452
+  %31 = load i32, ptr %30, align 4
+  %32 = icmp eq i32 %31, 2
+  br i1 %32, label %33, label %acpi_dev_needs_resume.exit
 
-32:                                               ; preds = %.thread
-  %33 = getelementptr inbounds i8, ptr %0, i64 440
-  %34 = load i16, ptr %33, align 8
-  %35 = and i16 %34, 7
-  %36 = icmp eq i16 %35, 0
-  %37 = icmp ne ptr %7, null
-  %38 = and i1 %37, %36
-  br i1 %38, label %39, label %acpi_dev_needs_resume.exit
+33:                                               ; preds = %28
+  %34 = getelementptr inbounds i8, ptr %0, i64 440
+  %35 = load i16, ptr %34, align 8
+  %36 = and i16 %35, 7
+  %37 = icmp eq i16 %36, 0
+  %38 = icmp ne ptr %7, null
+  %39 = and i1 %38, %37
+  br i1 %39, label %40, label %acpi_dev_needs_resume.exit
 
-39:                                               ; preds = %32
-  %40 = getelementptr inbounds i8, ptr %7, i64 456
-  %41 = load i8, ptr %40, align 8
-  %42 = and i8 %41, 1
-  %43 = icmp eq i8 %42, 0
-  br i1 %43, label %60, label %44
+40:                                               ; preds = %33
+  %41 = getelementptr inbounds i8, ptr %7, i64 456
+  %42 = load i8, ptr %41, align 8
+  %43 = and i8 %42, 1
+  %44 = icmp eq i8 %43, 0
+  br i1 %44, label %61, label %45
 
-44:                                               ; preds = %39
-  %45 = getelementptr inbounds i8, ptr %0, i64 220
-  %46 = load i16, ptr %45, align 4
-  %47 = and i16 %46, 1
-  %48 = icmp eq i16 %47, 0
-  br i1 %48, label %._crit_edge.i, label %52
+45:                                               ; preds = %40
+  %46 = getelementptr inbounds i8, ptr %0, i64 220
+  %47 = load i16, ptr %46, align 4
+  %48 = and i16 %47, 1
+  %49 = icmp eq i16 %48, 0
+  br i1 %49, label %._crit_edge.i, label %53
 
-._crit_edge.i:                                    ; preds = %44
-  %49 = getelementptr inbounds i8, ptr %7, i64 488
-  %50 = load i32, ptr %49, align 8
-  %51 = icmp eq i32 %50, 0
-  br i1 %51, label %60, label %acpi_dev_needs_resume.exit
+._crit_edge.i:                                    ; preds = %45
+  %50 = getelementptr inbounds i8, ptr %7, i64 488
+  %51 = load i32, ptr %50, align 8
+  %52 = icmp eq i32 %51, 0
+  br i1 %52, label %61, label %acpi_dev_needs_resume.exit
 
-52:                                               ; preds = %44
-  %53 = getelementptr inbounds i8, ptr %0, i64 280
-  %54 = load ptr, ptr %53, align 8
-  %55 = icmp ne ptr %54, null
-  %56 = getelementptr inbounds i8, ptr %7, i64 488
-  %57 = load i32, ptr %56, align 8
-  %58 = icmp eq i32 %57, 0
-  %59 = xor i1 %55, %58
-  br i1 %59, label %60, label %acpi_dev_needs_resume.exit
+53:                                               ; preds = %45
+  %54 = getelementptr inbounds i8, ptr %0, i64 280
+  %55 = load ptr, ptr %54, align 8
+  %56 = icmp ne ptr %55, null
+  %57 = getelementptr inbounds i8, ptr %7, i64 488
+  %58 = load i32, ptr %57, align 8
+  %59 = icmp eq i32 %58, 0
+  %60 = xor i1 %56, %59
+  br i1 %60, label %61, label %acpi_dev_needs_resume.exit
 
-60:                                               ; preds = %52, %._crit_edge.i, %39
-  %61 = icmp eq i32 %28, 0
-  br i1 %61, label %acpi_dev_needs_resume.exit, label %62
+61:                                               ; preds = %53, %._crit_edge.i, %40
+  %62 = icmp eq i32 %29, 0
+  br i1 %62, label %acpi_dev_needs_resume.exit, label %63
 
-62:                                               ; preds = %60
-  %63 = getelementptr inbounds i8, ptr %7, i64 240
-  %64 = getelementptr inbounds i8, ptr %7, i64 244
-  %65 = load i32, ptr %64, align 4
-  %66 = and i32 %65, 32
-  %67 = icmp eq i32 %66, 0
-  br i1 %67, label %68, label %acpi_dev_needs_resume.exit
+63:                                               ; preds = %61
+  %64 = getelementptr inbounds i8, ptr %7, i64 240
+  %65 = getelementptr inbounds i8, ptr %7, i64 244
+  %66 = load i32, ptr %65, align 4
+  %67 = and i32 %66, 32
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %69, label %acpi_dev_needs_resume.exit
 
-68:                                               ; preds = %62
+69:                                               ; preds = %63
   store i32 0, ptr %2, align 4, !annotation !5
-  %69 = call fastcc i32 @acpi_dev_pm_get_state(ptr noundef %0, ptr noundef nonnull %7, i32 noundef %28, ptr noundef null, ptr noundef nonnull %2), !range !6
-  %70 = icmp eq i32 %69, 0
-  br i1 %70, label %71, label %acpi_dev_needs_resume.exit
+  %70 = call fastcc i32 @acpi_dev_pm_get_state(ptr noundef %0, ptr noundef nonnull %7, i32 noundef %29, ptr noundef null, ptr noundef nonnull %2), !range !6
+  %71 = icmp eq i32 %70, 0
+  br i1 %71, label %72, label %acpi_dev_needs_resume.exit
 
-71:                                               ; preds = %68
-  %72 = load i32, ptr %2, align 4
-  %73 = load i32, ptr %63, align 8
-  %74 = icmp eq i32 %72, %73
-  %75 = zext i1 %74 to i32
+72:                                               ; preds = %69
+  %73 = load i32, ptr %2, align 4
+  %74 = load i32, ptr %64, align 8
+  %75 = icmp eq i32 %73, %74
+  %76 = zext i1 %75 to i32
   br label %acpi_dev_needs_resume.exit
 
-acpi_dev_needs_resume.exit:                       ; preds = %.thread, %32, %._crit_edge.i, %52, %60, %62, %68, %71
-  %76 = phi i32 [ %75, %71 ], [ 0, %52 ], [ 0, %32 ], [ 1, %60 ], [ 0, %62 ], [ 0, %68 ], [ 0, %._crit_edge.i ], [ 0, %.thread ]
+acpi_dev_needs_resume.exit:                       ; preds = %28, %33, %._crit_edge.i, %53, %61, %63, %69, %72
+  %77 = phi i32 [ %76, %72 ], [ 0, %53 ], [ 0, %33 ], [ 1, %61 ], [ 0, %63 ], [ 0, %69 ], [ 0, %._crit_edge.i ], [ 0, %28 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #6
-  br label %.thread5
+  br label %.thread
 
-.thread5:                                         ; preds = %18, %acpi_dev_needs_resume.exit, %23
-  %77 = phi i32 [ %76, %acpi_dev_needs_resume.exit ], [ 0, %23 ], [ %19, %18 ]
-  ret i32 %77
+.thread:                                          ; preds = %23, %18, %acpi_dev_needs_resume.exit
+  %78 = phi i32 [ %77, %acpi_dev_needs_resume.exit ], [ 0, %23 ], [ %19, %18 ]
+  ret i32 %78
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

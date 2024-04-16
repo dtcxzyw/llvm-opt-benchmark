@@ -1118,7 +1118,7 @@ entry:
   %0 = load ptr, ptr @the_repository, align 8
   tail call fastcc void @read_config(ptr noundef %0, i32 noundef 0)
   %tobool.not.i = icmp eq ptr %branch, null
-  br i1 %tobool.not.i, label %return, label %land.lhs.true.i
+  br i1 %tobool.not.i, label %if.end16, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
   %1 = load ptr, ptr @the_repository, align 8
@@ -1157,7 +1157,7 @@ if.then2:                                         ; preds = %if.then
   %merge_nr = getelementptr inbounds i8, ptr %branch, i64 64
   %5 = load i32, ptr %merge_nr, align 8
   %tobool3.not = icmp eq i32 %5, 0
-  br i1 %tobool3.not, label %return, label %if.then4
+  br i1 %tobool3.not, label %if.end16, label %if.then4
 
 if.then4:                                         ; preds = %if.then2
   %merge_name = getelementptr inbounds i8, ptr %branch, i64 48
@@ -1203,13 +1203,13 @@ remotes_pushremote_for_branch.exit:               ; preds = %land.lhs.true.i.i, 
   %retval.0.i = phi ptr [ @.str.66, %if.end5.i.i ], [ %.pre13.i, %if.then9.i.i ], [ %10, %land.lhs.true.i9 ], [ %11, %if.end5.thread.i ], [ %12, %land.lhs.true.i.i ]
   %call.i11 = call fastcc ptr @remotes_remote_get_1(ptr noundef %9, ptr noundef %retval.0.i, ptr noundef nonnull @remotes_remote_for_branch)
   %tobool7.not = icmp eq ptr %call.i11, null
-  br i1 %tobool7.not, label %return, label %land.lhs.true
+  br i1 %tobool7.not, label %if.end16, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %remotes_pushremote_for_branch.exit
   %nr = getelementptr inbounds i8, ptr %call.i11, i64 84
   %16 = load i32, ptr %nr, align 4
   %tobool8.not = icmp eq i32 %16, 0
-  br i1 %tobool8.not, label %return, label %land.lhs.true9
+  br i1 %tobool8.not, label %if.end16, label %land.lhs.true9
 
 land.lhs.true9:                                   ; preds = %land.lhs.true
   %push = getelementptr inbounds i8, ptr %call.i11, i64 72
@@ -1220,15 +1220,19 @@ land.lhs.true9:                                   ; preds = %land.lhs.true
   %src.i = getelementptr inbounds i8, ptr %query.i, i64 8
   store ptr %17, ptr %src.i, align 8
   %call.i12 = call i32 @query_refspecs(ptr noundef nonnull %push, ptr noundef nonnull %query.i), !range !12
-  %tobool.not.i13 = icmp eq i32 %call.i12, 0
+  %tobool.not.i13 = icmp ne i32 %call.i12, 0
   %dst.i = getelementptr inbounds i8, ptr %query.i, i64 16
   %18 = load ptr, ptr %dst.i, align 8
-  %retval.0.i14 = select i1 %tobool.not.i13, ptr %18, ptr null
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %query.i)
+  %tobool12.not15 = icmp eq ptr %18, null
+  %tobool12.not = select i1 %tobool.not.i13, i1 true, i1 %tobool12.not15
+  br i1 %tobool12.not, label %if.end16, label %return
+
+if.end16:                                         ; preds = %entry, %if.then2, %land.lhs.true9, %land.lhs.true, %remotes_pushremote_for_branch.exit
   br label %return
 
-return:                                           ; preds = %entry, %land.lhs.true9, %remotes_pushremote_for_branch.exit, %land.lhs.true, %if.then2, %if.then4
-  %retval.0 = phi ptr [ %7, %if.then4 ], [ null, %if.then2 ], [ null, %land.lhs.true ], [ null, %remotes_pushremote_for_branch.exit ], [ %retval.0.i14, %land.lhs.true9 ], [ null, %entry ]
+return:                                           ; preds = %land.lhs.true9, %if.end16, %if.then4
+  %retval.0 = phi ptr [ null, %if.end16 ], [ %7, %if.then4 ], [ %18, %land.lhs.true9 ]
   ret ptr %retval.0
 }
 

@@ -11545,17 +11545,19 @@ entry:
   %2 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %2, 2
   %tobool.not.i = icmp eq i32 %and.i, 0
-  br i1 %tobool.not.i, label %cond.end.i, label %land.lhs.true.i
+  br i1 %tobool.not.i, label %cond.false.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
   %slaveof.i = getelementptr inbounds i8, ptr %1, i64 2184
   %3 = load ptr, ptr %slaveof.i, align 8
   %tobool1.not.i = icmp eq ptr %3, null
-  %spec.select.i = select i1 %tobool1.not.i, ptr %1, ptr %3
+  br i1 %tobool1.not.i, label %cond.false.i, label %cond.end.i
+
+cond.false.i:                                     ; preds = %land.lhs.true.i, %entry
   br label %cond.end.i
 
-cond.end.i:                                       ; preds = %land.lhs.true.i, %entry
-  %cond.i = phi ptr [ %1, %entry ], [ %spec.select.i, %land.lhs.true.i ]
+cond.end.i:                                       ; preds = %cond.false.i, %land.lhs.true.i
+  %cond.i = phi ptr [ %1, %cond.false.i ], [ %3, %land.lhs.true.i ]
   %call.i = tail call zeroext i16 @htons(i16 noundef zeroext 1) #35
   %ver.i = getelementptr inbounds i8, ptr %call, i64 24
   store i16 %call.i, ptr %ver.i, align 8
@@ -16367,17 +16369,19 @@ for.end:                                          ; preds = %for.inc
   %4 = load i32, ptr %flags14, align 8
   %and15 = and i32 %4, 2
   %tobool16.not = icmp eq i32 %and15, 0
-  br i1 %tobool16.not, label %cond.end, label %land.lhs.true
+  br i1 %tobool16.not, label %cond.false, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.end
   %slaveof = getelementptr inbounds i8, ptr %3, i64 2184
   %5 = load ptr, ptr %slaveof, align 8
   %tobool17.not = icmp eq ptr %5, null
-  %spec.select = select i1 %tobool17.not, ptr %3, ptr %5
+  br i1 %tobool17.not, label %cond.false, label %cond.end
+
+cond.false:                                       ; preds = %land.lhs.true, %for.end
   br label %cond.end
 
-cond.end:                                         ; preds = %land.lhs.true, %for.end
-  %.pn = phi ptr [ %3, %for.end ], [ %spec.select, %land.lhs.true ]
+cond.end:                                         ; preds = %land.lhs.true, %cond.false
+  %.pn = phi ptr [ %3, %cond.false ], [ %5, %land.lhs.true ]
   %cond.in = getelementptr inbounds i8, ptr %.pn, i64 96
   %cond = load i64, ptr %cond.in, align 8
   %state = getelementptr inbounds i8, ptr %0, i64 16

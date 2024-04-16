@@ -1938,7 +1938,7 @@ entry:
   %2 = ptrtoint ptr %1 to i64
   %and.i = and i64 %2, 3
   %cmp.i = icmp eq i64 %and.i, 2
-  br i1 %cmp.i, label %if.then.i, label %note_tree_find.exit
+  br i1 %cmp.i, label %if.then.i, label %if.end4.i
 
 if.then.i:                                        ; preds = %entry
   %and1.i = and i64 %2, -4
@@ -1962,11 +1962,13 @@ if.end.i.i.i:                                     ; preds = %if.then.i
 hasheq.exit.i:                                    ; preds = %if.end.i.i.i, %if.then.i.i.i
   %retval.0.in.in.i.i.i = phi i32 [ %bcmp3.i.i.i, %if.then.i.i.i ], [ %bcmp.i.i.i, %if.end.i.i.i ]
   %retval.0.in.i.i.not.i = icmp eq i32 %retval.0.in.in.i.i.i, 0
-  %spec.select.i = select i1 %retval.0.in.i.i.not.i, ptr %3, ptr null
+  br i1 %retval.0.in.i.i.not.i, label %note_tree_find.exit, label %if.end4.i
+
+if.end4.i:                                        ; preds = %hasheq.exit.i, %entry
   br label %note_tree_find.exit
 
-note_tree_find.exit:                              ; preds = %entry, %hasheq.exit.i
-  %retval.0.i = phi ptr [ null, %entry ], [ %spec.select.i, %hasheq.exit.i ]
+note_tree_find.exit:                              ; preds = %hasheq.exit.i, %if.end4.i
+  %retval.0.i = phi ptr [ null, %if.end4.i ], [ %3, %hasheq.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tree.addr.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %n.addr.i)
   %tobool1.not = icmp eq ptr %retval.0.i, null
@@ -3173,7 +3175,7 @@ entry:
   %2 = ptrtoint ptr %1 to i64
   %and.i.i = and i64 %2, 3
   %cmp.i.i = icmp eq i64 %and.i.i, 2
-  br i1 %cmp.i.i, label %if.then.i.i, label %get_note.exit
+  br i1 %cmp.i.i, label %if.then.i.i, label %if.end4.i.i
 
 if.then.i.i:                                      ; preds = %entry
   %and1.i.i = and i64 %2, -4
@@ -3197,11 +3199,13 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i
 hasheq.exit.i.i:                                  ; preds = %if.end.i.i.i.i, %if.then.i.i.i.i
   %retval.0.in.in.i.i.i.i = phi i32 [ %bcmp3.i.i.i.i, %if.then.i.i.i.i ], [ %bcmp.i.i.i.i, %if.end.i.i.i.i ]
   %retval.0.in.i.i.not.i.i = icmp eq i32 %retval.0.in.in.i.i.i.i, 0
-  %spec.select.i.i = select i1 %retval.0.in.i.i.not.i.i, ptr %3, ptr null
+  br i1 %retval.0.in.i.i.not.i.i, label %get_note.exit, label %if.end4.i.i
+
+if.end4.i.i:                                      ; preds = %hasheq.exit.i.i, %entry
   br label %get_note.exit
 
-get_note.exit:                                    ; preds = %entry, %hasheq.exit.i.i
-  %retval.0.i.i = phi ptr [ null, %entry ], [ %spec.select.i.i, %hasheq.exit.i.i ]
+get_note.exit:                                    ; preds = %hasheq.exit.i.i, %if.end4.i.i
+  %retval.0.i.i = phi ptr [ null, %if.end4.i.i ], [ %3, %hasheq.exit.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tree.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %n.addr.i.i)
   %tobool1.not.i = icmp eq ptr %retval.0.i.i, null
@@ -3216,42 +3220,44 @@ get_note.exit:                                    ; preds = %entry, %hasheq.exit
   %9 = ptrtoint ptr %8 to i64
   %and.i.i14 = and i64 %9, 3
   %cmp.i.i15 = icmp eq i64 %and.i.i14, 2
-  br i1 %cmp.i.i15, label %if.then.i.i20, label %if.end.thread
+  br i1 %cmp.i.i15, label %if.then.i.i21, label %if.end.thread
 
-if.then.i.i20:                                    ; preds = %get_note.exit
-  %and1.i.i21 = and i64 %9, -4
-  %10 = inttoptr i64 %and1.i.i21 to ptr
+if.then.i.i21:                                    ; preds = %get_note.exit
+  %and1.i.i22 = and i64 %9, -4
+  %10 = inttoptr i64 %and1.i.i22 to ptr
   %11 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i.i22 = getelementptr inbounds i8, ptr %11, i64 256
-  %12 = load ptr, ptr %hash_algo.i.i.i22, align 8
+  %hash_algo.i.i.i23 = getelementptr inbounds i8, ptr %11, i64 256
+  %12 = load ptr, ptr %hash_algo.i.i.i23, align 8
   %13 = getelementptr i8, ptr %12, i64 16
-  %.val.i.i.i23 = load i64, ptr %13, align 8
-  %cmp.i.i.i.i24 = icmp eq i64 %.val.i.i.i23, 32
-  br i1 %cmp.i.i.i.i24, label %if.then.i.i.i.i31, label %if.end.i.i.i.i25
+  %.val.i.i.i24 = load i64, ptr %13, align 8
+  %cmp.i.i.i.i25 = icmp eq i64 %.val.i.i.i24, 32
+  br i1 %cmp.i.i.i.i25, label %if.then.i.i.i.i31, label %if.end.i.i.i.i26
 
-if.then.i.i.i.i31:                                ; preds = %if.then.i.i20
+if.then.i.i.i.i31:                                ; preds = %if.then.i.i21
   %bcmp3.i.i.i.i32 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %to_obj, ptr noundef nonnull dereferenceable(32) %10, i64 32)
-  br label %get_note.exit33
+  br label %hasheq.exit.i.i28
 
-if.end.i.i.i.i25:                                 ; preds = %if.then.i.i20
-  %bcmp.i.i.i.i26 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %to_obj, ptr noundef nonnull dereferenceable(20) %10, i64 20)
-  br label %get_note.exit33
+if.end.i.i.i.i26:                                 ; preds = %if.then.i.i21
+  %bcmp.i.i.i.i27 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %to_obj, ptr noundef nonnull dereferenceable(20) %10, i64 20)
+  br label %hasheq.exit.i.i28
 
-get_note.exit33:                                  ; preds = %if.then.i.i.i.i31, %if.end.i.i.i.i25
-  %retval.0.in.in.i.i.i.i28 = phi i32 [ %bcmp3.i.i.i.i32, %if.then.i.i.i.i31 ], [ %bcmp.i.i.i.i26, %if.end.i.i.i.i25 ]
-  %retval.0.in.i.i.not.i.i29 = icmp eq i32 %retval.0.in.in.i.i.i.i28, 0
-  %14 = icmp ne i64 %and1.i.i21, 0
-  %.not53 = and i1 %14, %retval.0.in.i.i.not.i.i29
+hasheq.exit.i.i28:                                ; preds = %if.end.i.i.i.i26, %if.then.i.i.i.i31
+  %retval.0.in.in.i.i.i.i29 = phi i32 [ %bcmp3.i.i.i.i32, %if.then.i.i.i.i31 ], [ %bcmp.i.i.i.i27, %if.end.i.i.i.i26 ]
+  %retval.0.in.i.i.not.i.i30 = icmp eq i32 %retval.0.in.in.i.i.i.i29, 0
+  br i1 %retval.0.in.i.i.not.i.i30, label %get_note.exit33, label %if.end.thread
+
+get_note.exit33:                                  ; preds = %hasheq.exit.i.i28
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tree.addr.i.i9)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %n.addr.i.i10)
+  %tobool1.not.i18 = icmp ne i64 %and1.i.i22, 0
   %tobool = icmp eq i32 %force, 0
-  %or.cond = select i1 %tobool, i1 %.not53, i1 false
+  %or.cond = and i1 %tobool, %tobool1.not.i18
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %get_note.exit33
   br i1 %tobool1.not.i, label %if.else, label %if.then4
 
-if.end.thread:                                    ; preds = %get_note.exit
+if.end.thread:                                    ; preds = %hasheq.exit.i.i28, %get_note.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tree.addr.i.i9)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %n.addr.i.i10)
   br i1 %tobool1.not.i, label %return, label %if.then4
@@ -3264,29 +3270,29 @@ if.then4:                                         ; preds = %if.end.thread, %if.
 
 if.then2.i:                                       ; preds = %if.then4
   %combine_notes3.i = getelementptr inbounds i8, ptr %spec.store.select.i, i64 40
-  %15 = load ptr, ptr %combine_notes3.i, align 8
+  %14 = load ptr, ptr %combine_notes3.i, align 8
   br label %add_note.exit
 
 add_note.exit:                                    ; preds = %if.then4, %if.then2.i
-  %combine_notes.addr.0.i = phi ptr [ %combine_notes, %if.then4 ], [ %15, %if.then2.i ]
+  %combine_notes.addr.0.i = phi ptr [ %combine_notes, %if.then4 ], [ %14, %if.then2.i ]
   %call.i = tail call ptr @xmalloc(i64 noundef 72) #16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %call.i, ptr noundef nonnull align 4 dereferenceable(32) %to_obj, i64 32, i1 false)
   %algo.i.i = getelementptr inbounds i8, ptr %to_obj, i64 32
-  %16 = load i32, ptr %algo.i.i, align 4
+  %15 = load i32, ptr %algo.i.i, align 4
   %algo3.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
-  store i32 %16, ptr %algo3.i.i, align 4
+  store i32 %15, ptr %algo3.i.i, align 4
   %val_oid.i37 = getelementptr inbounds i8, ptr %call.i, i64 36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %val_oid.i37, ptr noundef nonnull align 4 dereferenceable(32) %val_oid.i, i64 32, i1 false)
   %algo.i8.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 68
-  %17 = load i32, ptr %algo.i8.i, align 4
+  %16 = load i32, ptr %algo.i8.i, align 4
   %algo3.i9.i = getelementptr inbounds i8, ptr %call.i, i64 68
-  store i32 %17, ptr %algo3.i9.i, align 4
-  %18 = load ptr, ptr %spec.store.select.i, align 8
-  %call5.i = tail call fastcc i32 @note_tree_insert(ptr noundef nonnull %spec.store.select.i, ptr noundef %18, i8 noundef zeroext 0, ptr noundef %call.i, i8 noundef zeroext 2, ptr noundef %combine_notes.addr.0.i)
+  store i32 %16, ptr %algo3.i9.i, align 4
+  %17 = load ptr, ptr %spec.store.select.i, align 8
+  %call5.i = tail call fastcc i32 @note_tree_insert(ptr noundef nonnull %spec.store.select.i, ptr noundef %17, i8 noundef zeroext 0, ptr noundef %call.i, i8 noundef zeroext 2, ptr noundef %combine_notes.addr.0.i)
   br label %return
 
 if.else:                                          ; preds = %if.end
-  br i1 %.not53, label %if.then7, label %return
+  br i1 %tobool1.not.i18, label %if.then7, label %return
 
 if.then7:                                         ; preds = %if.else
   %call8 = tail call ptr @null_oid() #16
@@ -3297,25 +3303,25 @@ if.then7:                                         ; preds = %if.else
 
 if.then2.i50:                                     ; preds = %if.then7
   %combine_notes3.i51 = getelementptr inbounds i8, ptr %spec.store.select.i, i64 40
-  %19 = load ptr, ptr %combine_notes3.i51, align 8
+  %18 = load ptr, ptr %combine_notes3.i51, align 8
   br label %add_note.exit52
 
 add_note.exit52:                                  ; preds = %if.then7, %if.then2.i50
-  %combine_notes.addr.0.i42 = phi ptr [ %combine_notes, %if.then7 ], [ %19, %if.then2.i50 ]
+  %combine_notes.addr.0.i42 = phi ptr [ %combine_notes, %if.then7 ], [ %18, %if.then2.i50 ]
   %call.i43 = tail call ptr @xmalloc(i64 noundef 72) #16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %call.i43, ptr noundef nonnull align 4 dereferenceable(32) %to_obj, i64 32, i1 false)
   %algo.i.i44 = getelementptr inbounds i8, ptr %to_obj, i64 32
-  %20 = load i32, ptr %algo.i.i44, align 4
+  %19 = load i32, ptr %algo.i.i44, align 4
   %algo3.i.i45 = getelementptr inbounds i8, ptr %call.i43, i64 32
-  store i32 %20, ptr %algo3.i.i45, align 4
+  store i32 %19, ptr %algo3.i.i45, align 4
   %val_oid.i46 = getelementptr inbounds i8, ptr %call.i43, i64 36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %val_oid.i46, ptr noundef nonnull align 4 dereferenceable(32) %call8, i64 32, i1 false)
   %algo.i8.i47 = getelementptr inbounds i8, ptr %call8, i64 32
-  %21 = load i32, ptr %algo.i8.i47, align 4
+  %20 = load i32, ptr %algo.i8.i47, align 4
   %algo3.i9.i48 = getelementptr inbounds i8, ptr %call.i43, i64 68
-  store i32 %21, ptr %algo3.i9.i48, align 4
-  %22 = load ptr, ptr %spec.store.select.i, align 8
-  %call5.i49 = tail call fastcc i32 @note_tree_insert(ptr noundef nonnull %spec.store.select.i, ptr noundef %22, i8 noundef zeroext 0, ptr noundef %call.i43, i8 noundef zeroext 2, ptr noundef %combine_notes.addr.0.i42)
+  store i32 %20, ptr %algo3.i9.i48, align 4
+  %21 = load ptr, ptr %spec.store.select.i, align 8
+  %call5.i49 = tail call fastcc i32 @note_tree_insert(ptr noundef nonnull %spec.store.select.i, ptr noundef %21, i8 noundef zeroext 0, ptr noundef %call.i43, i8 noundef zeroext 2, ptr noundef %combine_notes.addr.0.i42)
   br label %return
 
 return:                                           ; preds = %if.end.thread, %if.else, %get_note.exit33, %add_note.exit52, %add_note.exit

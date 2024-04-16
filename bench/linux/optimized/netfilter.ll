@@ -189,7 +189,7 @@ define dso_local i32 @ip6_route_me_harder(ptr noundef %0, ptr noundef %1, ptr no
   %72 = getelementptr i8, ptr %71, i64 120
   call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %72, ptr elementtype(i64) %72) #7, !srcloc !7
   call void @dst_release(ptr noundef %56) #7
-  br label %136
+  br label %137
 
 73:                                               ; preds = %55
   %74 = load i64, ptr %21, align 8
@@ -241,7 +241,7 @@ define dso_local i32 @ip6_route_me_harder(ptr noundef %0, ptr noundef %1, ptr no
 101:                                              ; preds = %98
   %102 = ptrtoint ptr %99 to i64
   %103 = trunc i64 %102 to i32
-  br label %136
+  br label %137
 
 104:                                              ; preds = %98
   %105 = icmp ne ptr %99, null
@@ -281,13 +281,15 @@ define dso_local i32 @ip6_route_me_harder(ptr noundef %0, ptr noundef %1, ptr no
   %133 = and i32 %132, -16
   %134 = call i32 @pskb_expand_head(ptr noundef %2, i32 noundef %133, i32 noundef 0, i32 noundef 2080) #7
   %135 = icmp eq i32 %134, 0
-  %spec.select = select i1 %135, i32 0, i32 -12
-  br label %136
+  br i1 %135, label %136, label %137
 
-136:                                              ; preds = %130, %114, %101, %69
-  %137 = phi i32 [ %59, %69 ], [ %103, %101 ], [ 0, %114 ], [ %spec.select, %130 ]
+136:                                              ; preds = %130, %114
+  br label %137
+
+137:                                              ; preds = %136, %130, %101, %69
+  %138 = phi i32 [ %59, %69 ], [ 0, %136 ], [ %103, %101 ], [ -12, %130 ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4) #7
-  ret i32 %137
+  ret i32 %138
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -700,7 +702,7 @@ define internal i32 @nf_ip6_reroute(ptr noundef %0, ptr nocapture noundef readon
   %3 = getelementptr inbounds i8, ptr %1, i64 32
   %4 = load i8, ptr %3, align 8
   %5 = icmp eq i8 %4, 3
-  br i1 %5, label %6, label %48
+  br i1 %5, label %6, label %.thread
 
 6:                                                ; preds = %2
   %7 = getelementptr i8, ptr %1, i64 88
@@ -742,19 +744,19 @@ define internal i32 @nf_ip6_reroute(ptr noundef %0, ptr nocapture noundef readon
   %39 = getelementptr i8, ptr %1, i64 120
   %40 = load i32, ptr %39, align 4
   %41 = icmp eq i32 %38, %40
-  br i1 %41, label %48, label %42
+  br i1 %41, label %.thread, label %42
 
-42:                                               ; preds = %36, %24, %6
+42:                                               ; preds = %6, %24, %36
   %43 = getelementptr inbounds i8, ptr %1, i64 64
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds i8, ptr %1, i64 56
   %46 = load ptr, ptr %45, align 8
   %47 = tail call i32 @ip6_route_me_harder(ptr noundef %44, ptr noundef %46, ptr noundef %0)
-  br label %48
+  br label %.thread
 
-48:                                               ; preds = %36, %42, %2
-  %49 = phi i32 [ 0, %2 ], [ %47, %42 ], [ 0, %36 ]
-  ret i32 %49
+.thread:                                          ; preds = %36, %2, %42
+  %48 = phi i32 [ %47, %42 ], [ 0, %2 ], [ 0, %36 ]
+  ret i32 %48
 }
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }

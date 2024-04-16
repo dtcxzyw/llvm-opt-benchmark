@@ -289,7 +289,7 @@ for.body.lr.ph:                                   ; preds = %if.end49
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc210.us
   %r.0535.us = phi i32 [ %inc211.us, %for.inc210.us ], [ %cond53, %for.body.lr.ph ]
-  %addedLemmas.0534.us = phi i32 [ %addedLemmas.5.us, %for.inc210.us ], [ 0, %for.body.lr.ph ]
+  %addedLemmas.0534.us = phi i32 [ %addedLemmas.6.us, %for.inc210.us ], [ 0, %for.body.lr.ph ]
   %14 = load ptr, ptr %d_rd, align 8
   %tobool63.us = icmp ne ptr %14, null
   %cmp64.us = icmp ne i32 %r.0535.us, 0
@@ -309,7 +309,7 @@ for.body134.us.preheader:                         ; preds = %cond.true72.us, %if
 
 for.body134.us:                                   ; preds = %for.body134.us.preheader, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit330.us
   %i.0531.us = phi i32 [ %inc193.us, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit330.us ], [ 0, %for.body134.us.preheader ]
-  %addedLemmas.1530.us = phi i32 [ %addedLemmas.3.us, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit330.us ], [ %addedLemmas.0534.us, %for.body134.us.preheader ]
+  %addedLemmas.1530.us = phi i32 [ %addedLemmas.4.us, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit330.us ], [ %addedLemmas.0534.us, %for.body134.us.preheader ]
   invoke void @_ZN4cvc58internal6theory11quantifiers15FirstOrderModel21getAssertedQuantifierEjb(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %q, ptr noundef nonnull align 8 dereferenceable(656) %call59, i32 noundef %i.0531.us, i1 noundef zeroext true)
           to label %invoke.cont135.us unwind label %lpad69.loopexit.split.us
 
@@ -567,9 +567,9 @@ invoke.cont187.us:                                ; preds = %if.end185.us
   br label %cleanup.us
 
 cleanup.us:                                       ; preds = %invoke.cont187.us, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit.us
-  %36 = phi ptr [ %.pre, %invoke.cont187.us ], [ %.pre548, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit.us ]
-  %addedLemmas.3.us = phi i32 [ %addedLemmas.2.us, %invoke.cont187.us ], [ %addedLemmas.1530.us, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit.us ]
-  %cleanup.dest.slot.0.us = phi i32 [ %spec.select.us, %invoke.cont187.us ], [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit.us ]
+  %36 = phi ptr [ %.pre548, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit.us ], [ %.pre, %invoke.cont187.us ]
+  %addedLemmas.4.us = phi i32 [ %addedLemmas.1530.us, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit.us ], [ %addedLemmas.2.us, %invoke.cont187.us ]
+  %cleanup.dest.slot.0.us = phi i32 [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit.us ], [ %spec.select.us, %invoke.cont187.us ]
   %bf.load.i.i320.us = load i64, ptr %36, align 8
   %37 = and i64 %bf.load.i.i320.us, 1152920405095219200
   %cmp.not.i.i321.us = icmp eq i64 %37, 1152920405095219200
@@ -607,7 +607,7 @@ invoke.cont197.us:                                ; preds = %for.end.us
   br i1 %call198.us, label %if.end282, label %lor.lhs.false199.us
 
 lor.lhs.false199.us:                              ; preds = %invoke.cont197.us
-  %cmp200.not.us = icmp eq i32 %addedLemmas.3.us, 0
+  %cmp200.not.us = icmp eq i32 %addedLemmas.4.us, 0
   br i1 %cmp200.not.us, label %for.inc210.us, label %land.lhs.true201.us
 
 land.lhs.true201.us:                              ; preds = %lor.lhs.false199.us
@@ -623,7 +623,7 @@ invoke.cont202.us:                                ; preds = %land.lhs.true201.us
   br i1 %tobool206.us, label %if.end282, label %for.inc210.us
 
 for.inc210.us:                                    ; preds = %invoke.cont202.us, %lor.lhs.false199.us, %for.body.us
-  %addedLemmas.5.us = phi i32 [ 0, %lor.lhs.false199.us ], [ %addedLemmas.3.us, %invoke.cont202.us ], [ %addedLemmas.0534.us, %for.body.us ]
+  %addedLemmas.6.us = phi i32 [ 0, %lor.lhs.false199.us ], [ %addedLemmas.4.us, %invoke.cont202.us ], [ %addedLemmas.0534.us, %for.body.us ]
   %inc211.us = add nuw nsw i32 %r.0535.us, 1
   %exitcond.not = icmp eq i32 %r.0535.us, %cond58
   br i1 %exitcond.not, label %if.end282, label %for.body.us, !llvm.loop !7

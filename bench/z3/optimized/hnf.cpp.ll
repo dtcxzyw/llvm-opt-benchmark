@@ -2120,8 +2120,8 @@ _ZNK11ast_manager6is_andEPK4expr.exit:            ; preds = %land.rhs.i.i28
 for.cond.preheader:                               ; preds = %_ZNK11ast_manager6is_andEPK4expr.exit
   %m_num_args.i = getelementptr inbounds i8, ptr %8, i64 24
   %22 = load i32, ptr %m_num_args.i, align 8
-  %cmp77.not = icmp eq i32 %22, 0
-  br i1 %cmp77.not, label %return, label %for.body.lr.ph
+  %cmp76.not = icmp eq i32 %22, 0
+  br i1 %cmp76.not, label %if.end28, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %m_args.i = getelementptr inbounds i8, ptr %8, i64 32
@@ -2233,35 +2233,37 @@ for.inc:                                          ; preds = %land.rhs.i.i38, %_Z
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %44 = zext i32 %43 to i64
   %cmp = icmp ult i64 %indvars.iv.next, %44
-  br i1 %cmp, label %for.body, label %return, !llvm.loop !11
+  br i1 %cmp, label %for.body, label %if.end28, !llvm.loop !11
 
 land.rhs.i53:                                     ; preds = %land.rhs.i.i28
   %m_range.i.i.i55 = getelementptr inbounds i8, ptr %17, i64 40
   %45 = load ptr, ptr %m_range.i.i.i55, align 8
   %cmp.i.i.i57 = icmp eq ptr %12, %45
-  br i1 %cmp.i.i.i57, label %return, label %land.lhs.true24
+  br i1 %cmp.i.i.i57, label %if.end28, label %land.lhs.true24
 
 land.rhs.i53.thread:                              ; preds = %_ZNK11ast_manager6is_andEPK4expr.exit
-  %m_range.i.i.i5582 = getelementptr inbounds i8, ptr %17, i64 40
-  %46 = load ptr, ptr %m_range.i.i.i5582, align 8
-  %cmp.i.i.i5783 = icmp eq ptr %12, %46
-  br i1 %cmp.i.i.i5783, label %_ZNK3hnf3imp12is_predicateEP4expr.exit62, label %land.lhs.true24
+  %m_range.i.i.i5580 = getelementptr inbounds i8, ptr %17, i64 40
+  %46 = load ptr, ptr %m_range.i.i.i5580, align 8
+  %cmp.i.i.i5781 = icmp eq ptr %12, %46
+  br i1 %cmp.i.i.i5781, label %_ZNK3hnf3imp12is_predicateEP4expr.exit62, label %land.lhs.true24
 
 _ZNK3hnf3imp12is_predicateEP4expr.exit62:         ; preds = %land.rhs.i53.thread
   %47 = load i32, ptr %18, align 8
   %48 = icmp eq i32 %47, -1
-  br i1 %48, label %return, label %land.lhs.true24
+  br i1 %48, label %if.end28, label %land.lhs.true24
 
 land.lhs.true24:                                  ; preds = %land.rhs.i53.thread, %if.then, %land.rhs.i53, %_ZNK3hnf3imp12is_predicateEP4expr.exit62
   %call25 = tail call noundef zeroext i1 @_ZN3hnf3imp18contains_predicateEP4expr(ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef nonnull %8)
-  %not.call25 = xor i1 %call25, true
+  br i1 %call25, label %return, label %if.end28
+
+if.end28:                                         ; preds = %for.inc, %land.rhs.i53, %for.cond.preheader, %_ZNK3hnf3imp12is_predicateEP4expr.exit62, %land.lhs.true24
   br label %return
 
 return.fold.split:                                ; preds = %if.then
   br label %return
 
-return:                                           ; preds = %while.cond, %_Z9is_forallPK3ast.exit, %for.inc, %land.rhs.i53, %for.cond.preheader, %if.then, %return.fold.split, %land.rhs.i16, %land.lhs.true, %land.rhs.i.i.i, %_ZNK11ast_manager10is_impliesEPK4expr.exit.i, %land.lhs.true.i, %_ZN3hnf3imp18contains_predicateEP4expr.exit.thread, %land.lhs.true24, %_ZNK3hnf3imp12is_predicateEP4expr.exit, %_ZNK3hnf3imp12is_predicateEP4expr.exit62
-  %retval.0 = phi i1 [ true, %if.then ], [ true, %_ZNK3hnf3imp12is_predicateEP4expr.exit62 ], [ false, %_ZNK3hnf3imp12is_predicateEP4expr.exit ], [ %not.call25, %land.lhs.true24 ], [ false, %_ZN3hnf3imp18contains_predicateEP4expr.exit.thread ], [ false, %land.lhs.true.i ], [ false, %_ZNK11ast_manager10is_impliesEPK4expr.exit.i ], [ false, %land.rhs.i.i.i ], [ false, %land.lhs.true ], [ false, %land.rhs.i16 ], [ false, %return.fold.split ], [ true, %for.cond.preheader ], [ true, %land.rhs.i53 ], [ true, %for.inc ], [ false, %_Z9is_forallPK3ast.exit ], [ false, %while.cond ]
+return:                                           ; preds = %while.cond, %_Z9is_forallPK3ast.exit, %if.then, %return.fold.split, %land.rhs.i16, %land.lhs.true, %land.rhs.i.i.i, %_ZNK11ast_manager10is_impliesEPK4expr.exit.i, %land.lhs.true.i, %_ZN3hnf3imp18contains_predicateEP4expr.exit.thread, %_ZNK3hnf3imp12is_predicateEP4expr.exit, %land.lhs.true24, %if.end28
+  %retval.0 = phi i1 [ true, %if.end28 ], [ true, %if.then ], [ false, %land.lhs.true24 ], [ false, %_ZNK3hnf3imp12is_predicateEP4expr.exit ], [ false, %_ZN3hnf3imp18contains_predicateEP4expr.exit.thread ], [ false, %land.lhs.true.i ], [ false, %_ZNK11ast_manager10is_impliesEPK4expr.exit.i ], [ false, %land.rhs.i.i.i ], [ false, %land.lhs.true ], [ false, %land.rhs.i16 ], [ false, %return.fold.split ], [ false, %_Z9is_forallPK3ast.exit ], [ false, %while.cond ]
   ret i1 %retval.0
 }
 

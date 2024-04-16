@@ -9088,7 +9088,7 @@ entry:
   %call = tail call i64 @fread(ptr noundef %buffer, i64 noundef 1, i64 noundef %0, ptr noundef %2)
   store i64 %call, ptr %bytes, align 8
   %cmp = icmp eq i64 %call, 0
-  br i1 %cmp, label %if.then, label %return
+  br i1 %cmp, label %if.then, label %if.end11
 
 if.then:                                          ; preds = %entry
   %3 = load ptr, ptr %private_, align 8
@@ -9104,11 +9104,13 @@ if.else:                                          ; preds = %if.then
   %6 = load ptr, ptr %file6, align 8
   %call7 = tail call i32 @ferror(ptr noundef %6) #24
   %tobool8.not = icmp eq i32 %call7, 0
-  %spec.select = select i1 %tobool8.not, i32 0, i32 2
+  br i1 %tobool8.not, label %if.end11, label %return
+
+if.end11:                                         ; preds = %if.else, %entry
   br label %return
 
-return:                                           ; preds = %if.else, %entry, %if.then
-  %retval.0 = phi i32 [ 1, %if.then ], [ 0, %entry ], [ %spec.select, %if.else ]
+return:                                           ; preds = %if.else, %if.then, %if.end11
+  %retval.0 = phi i32 [ 0, %if.end11 ], [ 1, %if.then ], [ 2, %if.else ]
   ret i32 %retval.0
 }
 

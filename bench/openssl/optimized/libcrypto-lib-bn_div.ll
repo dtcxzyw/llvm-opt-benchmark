@@ -71,7 +71,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @bn_div_fixed_top(ptr noundef %dv, ptr noundef %rm, ptr noundef %num, ptr noundef %divisor, ptr noundef %ctx) local_unnamed_addr #0 {
+define noundef i32 @bn_div_fixed_top(ptr noundef %dv, ptr noundef %rm, ptr noundef %num, ptr noundef %divisor, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   tail call void @BN_CTX_start(ptr noundef %ctx) #3
   %cmp = icmp eq ptr %dv, null
@@ -87,12 +87,12 @@ cond.end:                                         ; preds = %entry, %cond.true
   %call2 = tail call ptr @BN_CTX_get(ptr noundef %ctx) #3
   %call3 = tail call ptr @BN_CTX_get(ptr noundef %ctx) #3
   %cmp4 = icmp eq ptr %call3, null
-  br i1 %cmp4, label %return, label %if.end
+  br i1 %cmp4, label %err, label %if.end
 
 if.end:                                           ; preds = %cond.end
   %call5 = tail call ptr @BN_copy(ptr noundef nonnull %call3, ptr noundef %divisor) #3
   %tobool.not = icmp eq ptr %call5, null
-  br i1 %tobool.not, label %return, label %if.end7
+  br i1 %tobool.not, label %err, label %if.end7
 
 if.end7:                                          ; preds = %if.end
   %call3.val = load ptr, ptr %call3, align 8
@@ -137,7 +137,7 @@ bn_left_align.exit:                               ; preds = %for.body.i, %if.end
   store i32 0, ptr %neg, align 8
   %call9 = tail call i32 @bn_lshift_fixed_top(ptr noundef %call2, ptr noundef %num, i32 noundef %sub3.i) #3
   %tobool10.not = icmp eq i32 %call9, 0
-  br i1 %tobool10.not, label %return, label %if.end12
+  br i1 %tobool10.not, label %err, label %if.end12
 
 if.end12:                                         ; preds = %bn_left_align.exit
   %5 = load i32, ptr %0, align 8
@@ -150,7 +150,7 @@ if.then15:                                        ; preds = %if.end12
   %add = add i32 %5, 1
   %call16 = tail call ptr @bn_wexpand(ptr noundef nonnull %call2, i32 noundef %add) #3
   %cmp17 = icmp eq ptr %call16, null
-  br i1 %cmp17, label %return, label %if.end19
+  br i1 %cmp17, label %err, label %if.end19
 
 if.end19:                                         ; preds = %if.then15
   %7 = load ptr, ptr %call2, align 8
@@ -189,7 +189,7 @@ cond.end44:                                       ; preds = %if.end23, %cond.fal
   %cond45 = phi i64 [ %15, %cond.false39 ], [ 0, %if.end23 ]
   %call46 = tail call ptr @bn_wexpand(ptr noundef %cond, i32 noundef %sub24) #3
   %tobool47.not = icmp eq ptr %call46, null
-  br i1 %tobool47.not, label %return, label %if.end49
+  br i1 %tobool47.not, label %err, label %if.end49
 
 if.end49:                                         ; preds = %cond.end44
   %neg50 = getelementptr inbounds i8, ptr %num, i64 16
@@ -205,7 +205,7 @@ if.end49:                                         ; preds = %cond.end44
   %add57 = add nsw i32 %5, 1
   %call58 = tail call ptr @bn_wexpand(ptr noundef %call1, i32 noundef %add57) #3
   %tobool59.not = icmp eq ptr %call58, null
-  br i1 %tobool59.not, label %return, label %if.end61
+  br i1 %tobool59.not, label %err, label %if.end61
 
 if.end61:                                         ; preds = %if.end49
   %cmp62113 = icmp sgt i32 %sub24, 0
@@ -327,12 +327,14 @@ for.end134:                                       ; preds = %for.end126, %if.end
 
 land.lhs.true141:                                 ; preds = %for.end134
   %call142 = tail call i32 @bn_rshift_fixed_top(ptr noundef nonnull %rm, ptr noundef nonnull %call2, i32 noundef %sub3.i) #3
-  %cmp143 = icmp ne i32 %call142, 0
-  %spec.select121 = zext i1 %cmp143 to i32
+  %cmp143 = icmp eq i32 %call142, 0
+  br i1 %cmp143, label %err, label %return
+
+err:                                              ; preds = %land.lhs.true141, %if.end49, %cond.end44, %if.then15, %bn_left_align.exit, %if.end, %cond.end
   br label %return
 
-return:                                           ; preds = %land.lhs.true141, %cond.end, %if.end, %bn_left_align.exit, %if.then15, %cond.end44, %if.end49, %for.end134
-  %retval.0 = phi i32 [ 1, %for.end134 ], [ 0, %if.end49 ], [ 0, %cond.end44 ], [ 0, %if.then15 ], [ 0, %bn_left_align.exit ], [ 0, %if.end ], [ 0, %cond.end ], [ %spec.select121, %land.lhs.true141 ]
+return:                                           ; preds = %for.end134, %land.lhs.true141, %err
+  %retval.0 = phi i32 [ 0, %err ], [ 1, %land.lhs.true141 ], [ 1, %for.end134 ]
   tail call void @BN_CTX_end(ptr noundef %ctx) #3
   ret i32 %retval.0
 }

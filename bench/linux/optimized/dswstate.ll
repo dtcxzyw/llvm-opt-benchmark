@@ -36,18 +36,18 @@ define dso_local noundef i32 @acpi_ds_result_pop(ptr nocapture noundef writeonly
 
 10:                                               ; preds = %9
   tail call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 52, ptr noundef nonnull @.str) #7
-  br label %37
+  br label %.thread
 
 11:                                               ; preds = %2
   br i1 %8, label %13, label %12
 
 12:                                               ; preds = %11
   tail call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 57, ptr noundef nonnull @.str.1) #7
-  br label %37
+  br label %.thread
 
 13:                                               ; preds = %11
   tail call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 64, ptr noundef nonnull @.str.2, ptr noundef %1) #7
-  br label %37
+  br label %.thread
 
 14:                                               ; preds = %9
   %15 = add i8 %7, -1
@@ -63,17 +63,17 @@ define dso_local noundef i32 @acpi_ds_result_pop(ptr nocapture noundef writeonly
 
 22:                                               ; preds = %14
   tail call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 76, ptr noundef nonnull @.str.3, ptr noundef %1) #7
-  br label %37
+  br label %.thread
 
 23:                                               ; preds = %14
   store ptr null, ptr %19, align 8
   %24 = icmp eq i8 %16, 0
-  br i1 %24, label %25, label %37
+  br i1 %24, label %25, label %.thread
 
 25:                                               ; preds = %23
   %26 = load ptr, ptr %3, align 8
   %27 = icmp eq ptr %26, null
-  br i1 %27, label %37, label %28
+  br i1 %27, label %.thread, label %28
 
 28:                                               ; preds = %25
   %29 = getelementptr inbounds i8, ptr %1, i64 24
@@ -83,7 +83,7 @@ define dso_local noundef i32 @acpi_ds_result_pop(ptr nocapture noundef writeonly
 
 32:                                               ; preds = %28
   tail call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 244, ptr noundef nonnull @.str.14) #7
-  br label %37
+  br label %.thread
 
 33:                                               ; preds = %28
   %34 = tail call ptr @acpi_ut_pop_generic_state(ptr noundef %3) #7
@@ -91,11 +91,11 @@ define dso_local noundef i32 @acpi_ds_result_pop(ptr nocapture noundef writeonly
   %35 = load i8, ptr %29, align 8
   %36 = add i8 %35, -8
   store i8 %36, ptr %29, align 8
-  br label %37
+  br label %.thread
 
-37:                                               ; preds = %25, %32, %33, %23, %22, %13, %12, %10
-  %38 = phi i32 [ 12306, %22 ], [ 12306, %13 ], [ 12303, %12 ], [ 12303, %10 ], [ 0, %23 ], [ 12303, %32 ], [ 0, %33 ], [ 12290, %25 ]
-  ret i32 %38
+.thread:                                          ; preds = %25, %32, %23, %33, %22, %13, %12, %10
+  %37 = phi i32 [ 12306, %22 ], [ 12306, %13 ], [ 12303, %12 ], [ 12303, %10 ], [ 0, %33 ], [ 0, %23 ], [ 12290, %25 ], [ 12303, %32 ]
+  ret i32 %37
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

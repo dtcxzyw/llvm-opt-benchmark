@@ -19734,7 +19734,7 @@ cond.end.thread23.i:                              ; preds = %_ZN4entt9basic_anyI
   store ptr null, ptr %node19.i, align 8, !tbaa !297
   %id.i = getelementptr inbounds i8, ptr %agg.result, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %id.i, i8 0, i64 104, i1 false)
-  br label %_ZN4entt8meta_anyC2ERKNS_8meta_ctxERKS0_NS_9basic_anyILm16ELm8EEE.exit
+  br label %17
 
 cond.end.thread.i:                                ; preds = %if.then.i.i.i.i.i.i.i, %cond.true.i
   %vtable821.i = getelementptr inbounds i8, ptr %this, i64 160
@@ -19748,29 +19748,31 @@ cond.end.i:                                       ; preds = %if.then.i.i.i.i.i
   %15 = icmp eq ptr %.pre15.fr.i, null
   %vtable8.i = getelementptr inbounds i8, ptr %this, i64 160
   %16 = load ptr, ptr %vtable8.i, align 8
-  %spec.select = select i1 %15, ptr @_ZN4entt8meta_any12basic_vtableIvEENSt9enable_ifIXsr3stdE9is_same_vINSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeES5_EEvE4typeENS_8internal11meta_traitsEbPKvPv, ptr %16
+  br i1 %15, label %17, label %_ZN4entt8meta_anyC2ERKNS_8meta_ctxERKS0_NS_9basic_anyILm16ELm8EEE.exit
+
+17:                                               ; preds = %cond.end.i, %cond.end.thread23.i
   br label %_ZN4entt8meta_anyC2ERKNS_8meta_ctxERKS0_NS_9basic_anyILm16ELm8EEE.exit
 
-_ZN4entt8meta_anyC2ERKNS_8meta_ctxERKS0_NS_9basic_anyILm16ELm8EEE.exit: ; preds = %cond.end.i, %cond.end.thread23.i, %cond.end.thread.i
-  %17 = phi ptr [ %13, %cond.end.thread.i ], [ @_ZN4entt8meta_any12basic_vtableIvEENSt9enable_ifIXsr3stdE9is_same_vINSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeES5_EEvE4typeENS_8internal11meta_traitsEbPKvPv, %cond.end.thread23.i ], [ %spec.select, %cond.end.i ]
+_ZN4entt8meta_anyC2ERKNS_8meta_ctxERKS0_NS_9basic_anyILm16ELm8EEE.exit: ; preds = %17, %cond.end.i, %cond.end.thread.i
+  %18 = phi ptr [ @_ZN4entt8meta_any12basic_vtableIvEENSt9enable_ifIXsr3stdE9is_same_vINSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeES5_EEvE4typeENS_8internal11meta_traitsEbPKvPv, %17 ], [ %16, %cond.end.i ], [ %13, %cond.end.thread.i ]
   %vtable.i = getelementptr inbounds i8, ptr %agg.result, i64 160
-  store ptr %17, ptr %vtable.i, align 8, !tbaa !35
-  %18 = load ptr, ptr %vtable.i.i, align 8, !tbaa !25
-  %tobool.not.i = icmp ne ptr %18, null
-  %19 = load i8, ptr %mode.i.i, align 8
-  %cmp.i = icmp eq i8 %19, 0
+  store ptr %18, ptr %vtable.i, align 8, !tbaa !35
+  %19 = load ptr, ptr %vtable.i.i, align 8, !tbaa !25
+  %tobool.not.i = icmp ne ptr %19, null
+  %20 = load i8, ptr %mode.i.i, align 8
+  %cmp.i = icmp eq i8 %20, 0
   %or.cond.i = select i1 %tobool.not.i, i1 %cmp.i, i1 false
   br i1 %or.cond.i, label %if.then.i, label %_ZN4entt9basic_anyILm16ELm8EED2Ev.exit
 
 if.then.i:                                        ; preds = %_ZN4entt8meta_anyC2ERKNS_8meta_ctxERKS0_NS_9basic_anyILm16ELm8EEE.exit
-  %call.i = invoke noundef ptr %18(i8 noundef zeroext 4, ptr noundef nonnull align 8 dereferenceable(33) %agg.tmp, ptr noundef null)
+  %call.i = invoke noundef ptr %19(i8 noundef zeroext 4, ptr noundef nonnull align 8 dereferenceable(33) %agg.tmp, ptr noundef null)
           to label %_ZN4entt9basic_anyILm16ELm8EED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
-  %20 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           catch ptr null
-  %21 = extractvalue { ptr, i32 } %20, 0
-  call void @__clang_call_terminate(ptr %21) #25
+  %22 = extractvalue { ptr, i32 } %21, 0
+  call void @__clang_call_terminate(ptr %22) #25
   unreachable
 
 _ZN4entt9basic_anyILm16ELm8EED2Ev.exit:           ; preds = %if.then.i, %_ZN4entt8meta_anyC2ERKNS_8meta_ctxERKS0_NS_9basic_anyILm16ELm8EEE.exit
@@ -100448,7 +100450,7 @@ lor.lhs.false:                                    ; preds = %entry
   %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8, !tbaa !1759
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
-  br i1 %cmp.i, label %cleanup, label %if.end.i
+  br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false
   %1 = load i8, ptr %0, align 1, !tbaa !20
@@ -100459,11 +100461,13 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #24
   %call6.i.fr = freeze i32 %call6.i
   %cmp7.i = icmp eq i32 %call6.i.fr, 0
-  %spec.select = select i1 %cmp7.i, ptr %_M_impl.i, ptr null
+  br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %cleanup
+
+_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false, %if.end.i, %entry
-  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ null, %if.end.i ], [ %_M_impl.i, %lor.lhs.false ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
+cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit.thread, %_ZNKSt9type_infoeqERKS_.exit, %if.end.i, %entry
+  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %_ZNKSt9type_infoeqERKS_.exit ], [ null, %if.end.i ]
   ret ptr %retval.0
 }
 
@@ -104538,7 +104542,7 @@ _ZN4entt9basic_anyILm16ELm8EE10initializeIiJRKiEEEvDpOT0_.exit: ; preds = %init.
   store ptr @_ZN4entt9basic_anyILm16ELm8EE12basic_vtableIiEEPKvNS_8internal13any_operationERKS1_S4_, ptr %vtable.i, align 8, !tbaa !25
   %6 = load i32, ptr %cond, align 4, !tbaa !26
   store i32 %6, ptr %other, align 8, !tbaa !26
-  br label %cleanup
+  br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
   br i1 %cmp, label %if.then, label %if.end
@@ -104569,11 +104573,11 @@ sw.bb7:                                           ; preds = %entry
   %cond12 = select i1 %cmp8, ptr %other, ptr null
   br label %cleanup
 
-sw.epilog:                                        ; preds = %entry
+sw.epilog:                                        ; preds = %_ZN4entt9basic_anyILm16ELm8EE10initializeIiJRKiEEEvDpOT0_.exit, %entry
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZN4entt9basic_anyILm16ELm8EE10initializeIiJRKiEEEvDpOT0_.exit, %sw.epilog, %sw.bb7, %sw.bb5, %sw.bb4, %if.end, %if.then, %entry
-  %retval.0 = phi ptr [ %cond12, %sw.bb7 ], [ %other, %sw.bb5 ], [ %other, %sw.bb4 ], [ %other, %if.then ], [ %1, %if.end ], [ %cond, %entry ], [ null, %_ZN4entt9basic_anyILm16ELm8EE10initializeIiJRKiEEEvDpOT0_.exit ], [ null, %sw.epilog ]
+cleanup:                                          ; preds = %sw.epilog, %sw.bb7, %sw.bb5, %sw.bb4, %if.end, %if.then, %entry
+  %retval.0 = phi ptr [ null, %sw.epilog ], [ %cond12, %sw.bb7 ], [ %other, %sw.bb5 ], [ %other, %sw.bb4 ], [ %other, %if.then ], [ %1, %if.end ], [ %cond, %entry ]
   ret ptr %retval.0
 }
 
@@ -104914,7 +104918,7 @@ entry:
 
 sw.bb:                                            ; preds = %entry
   tail call void @_ZN4entt9basic_anyILm16ELm8EE10initializeISt3mapIicSt4lessIiESaISt4pairIKicEEEJRKSA_EEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(33) %other, ptr noundef nonnull align 8 dereferenceable(48) %0)
-  br label %cleanup
+  br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
   store ptr null, ptr %value, align 8, !tbaa !55
@@ -104974,7 +104978,7 @@ sw.bb4:                                           ; preds = %entry
 
 sw.bb6:                                           ; preds = %entry
   %isnull = icmp eq ptr %0, null
-  br i1 %isnull, label %cleanup, label %delete.notnull
+  br i1 %isnull, label %sw.epilog, label %delete.notnull
 
 delete.notnull:                                   ; preds = %sw.bb6
   %_M_parent.i.i.i.i23 = getelementptr inbounds i8, ptr %0, i64 16
@@ -104991,7 +104995,7 @@ terminate.lpad.i.i:                               ; preds = %delete.notnull
 
 _ZNSt3mapIicSt4lessIiESaISt4pairIKicEEED2Ev.exit: ; preds = %delete.notnull
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
-  br label %cleanup
+  br label %sw.epilog
 
 sw.bb7:                                           ; preds = %entry
   %_M_node_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 40
@@ -105035,11 +105039,11 @@ for.inc.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i.i.i.
   %cmp.i.not.i.i.i.i.i.i = icmp eq ptr %call.i.i.i.i.i.i.i, %add.ptr.i.i.i
   br i1 %cmp.i.not.i.i.i.i.i.i, label %cleanup, label %for.body.i.i.i.i.i.i, !llvm.loop !1881
 
-sw.epilog:                                        ; preds = %entry
+sw.epilog:                                        ; preds = %_ZNSt3mapIicSt4lessIiESaISt4pairIKicEEED2Ev.exit, %sw.bb6, %sw.bb, %entry
   br label %cleanup
 
-cleanup:                                          ; preds = %for.inc.i.i.i.i.i.i, %for.body.i.i.i.i.i.i, %sw.bb, %sw.bb6, %_ZNSt3mapIicSt4lessIiESaISt4pairIKicEEED2Ev.exit, %sw.epilog, %land.rhs.i.i, %sw.bb7, %sw.bb4, %if.then.i.i.i, %_ZNSt8_Rb_treeIiSt4pairIKicESt10_Select1stIS2_ESt4lessIiESaIS2_EE5clearEv.exit.i.i.i, %sw.bb1, %entry
-  %retval.0 = phi ptr [ %other, %sw.bb4 ], [ %0, %sw.bb1 ], [ %0, %entry ], [ %other, %_ZNSt8_Rb_treeIiSt4pairIKicESt10_Select1stIS2_ESt4lessIiESaIS2_EE5clearEv.exit.i.i.i ], [ %other, %if.then.i.i.i ], [ null, %sw.bb7 ], [ %other, %land.rhs.i.i ], [ null, %_ZNSt3mapIicSt4lessIiESaISt4pairIKicEEED2Ev.exit ], [ null, %sw.bb6 ], [ null, %sw.bb ], [ null, %sw.epilog ], [ null, %for.body.i.i.i.i.i.i ], [ %other, %for.inc.i.i.i.i.i.i ]
+cleanup:                                          ; preds = %for.inc.i.i.i.i.i.i, %for.body.i.i.i.i.i.i, %sw.epilog, %land.rhs.i.i, %sw.bb7, %sw.bb4, %if.then.i.i.i, %_ZNSt8_Rb_treeIiSt4pairIKicESt10_Select1stIS2_ESt4lessIiESaIS2_EE5clearEv.exit.i.i.i, %sw.bb1, %entry
+  %retval.0 = phi ptr [ null, %sw.epilog ], [ %other, %sw.bb4 ], [ %0, %sw.bb1 ], [ %0, %entry ], [ %other, %_ZNSt8_Rb_treeIiSt4pairIKicESt10_Select1stIS2_ESt4lessIiESaIS2_EE5clearEv.exit.i.i.i ], [ %other, %if.then.i.i.i ], [ null, %sw.bb7 ], [ %other, %land.rhs.i.i ], [ null, %for.body.i.i.i.i.i.i ], [ %other, %for.inc.i.i.i.i.i.i ]
   ret ptr %retval.0
 }
 
@@ -106649,7 +106653,7 @@ _ZN4entt9basic_anyILm16ELm8EE10initializeISt4pairIKicEJRKS5_EEEvDpOT0_.exit: ; p
   store ptr @_ZN4entt9basic_anyILm16ELm8EE12basic_vtableISt4pairIKicEEEPKvNS_8internal13any_operationERKS1_S7_, ptr %vtable.i, align 8, !tbaa !25
   %5 = load i64, ptr %cond, align 4
   store i64 %5, ptr %other, align 8
-  br label %cleanup
+  br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
   br i1 %cmp, label %if.then, label %if.end
@@ -106676,11 +106680,11 @@ sw.bb7:                                           ; preds = %entry
   %cond12 = select i1 %10, ptr %other, ptr null
   br label %cleanup
 
-sw.epilog:                                        ; preds = %entry
+sw.epilog:                                        ; preds = %_ZN4entt9basic_anyILm16ELm8EE10initializeISt4pairIKicEJRKS5_EEEvDpOT0_.exit, %entry
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZN4entt9basic_anyILm16ELm8EE10initializeISt4pairIKicEJRKS5_EEEvDpOT0_.exit, %sw.epilog, %sw.bb7, %if.end, %if.then, %entry
-  %retval.0 = phi ptr [ %cond12, %sw.bb7 ], [ %other, %if.then ], [ %1, %if.end ], [ %cond, %entry ], [ null, %_ZN4entt9basic_anyILm16ELm8EE10initializeISt4pairIKicEJRKS5_EEEvDpOT0_.exit ], [ null, %sw.epilog ]
+cleanup:                                          ; preds = %sw.epilog, %sw.bb7, %if.end, %if.then, %entry
+  %retval.0 = phi ptr [ null, %sw.epilog ], [ %cond12, %sw.bb7 ], [ %other, %if.then ], [ %1, %if.end ], [ %cond, %entry ]
   ret ptr %retval.0
 }
 
@@ -106852,7 +106856,7 @@ _ZN4entt9basic_anyILm16ELm8EE10initializeIcJRKcEEEvDpOT0_.exit: ; preds = %init.
   store ptr @_ZN4entt9basic_anyILm16ELm8EE12basic_vtableIcEEPKvNS_8internal13any_operationERKS1_S4_, ptr %vtable.i, align 8, !tbaa !25
   %6 = load i8, ptr %cond, align 1, !tbaa !20
   store i8 %6, ptr %other, align 8, !tbaa !20
-  br label %cleanup
+  br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
   br i1 %cmp, label %if.then, label %if.end
@@ -106883,11 +106887,11 @@ sw.bb7:                                           ; preds = %entry
   %cond13 = select i1 %cmp9, ptr %other, ptr null
   br label %cleanup
 
-sw.epilog:                                        ; preds = %entry
+sw.epilog:                                        ; preds = %_ZN4entt9basic_anyILm16ELm8EE10initializeIcJRKcEEEvDpOT0_.exit, %entry
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZN4entt9basic_anyILm16ELm8EE10initializeIcJRKcEEEvDpOT0_.exit, %sw.epilog, %sw.bb7, %sw.bb5, %sw.bb4, %if.end, %if.then, %entry
-  %retval.0 = phi ptr [ %cond13, %sw.bb7 ], [ %other, %sw.bb5 ], [ %other, %sw.bb4 ], [ %other, %if.then ], [ %1, %if.end ], [ %cond, %entry ], [ null, %_ZN4entt9basic_anyILm16ELm8EE10initializeIcJRKcEEEvDpOT0_.exit ], [ null, %sw.epilog ]
+cleanup:                                          ; preds = %sw.epilog, %sw.bb7, %sw.bb5, %sw.bb4, %if.end, %if.then, %entry
+  %retval.0 = phi ptr [ null, %sw.epilog ], [ %cond13, %sw.bb7 ], [ %other, %sw.bb5 ], [ %other, %sw.bb4 ], [ %other, %if.then ], [ %1, %if.end ], [ %cond, %entry ]
   ret ptr %retval.0
 }
 
@@ -107458,7 +107462,7 @@ _ZN4entt9basic_anyILm16ELm8EE10initializeISt17_Rb_tree_iteratorISt4pairIKicEEJRK
   store ptr @_ZN4entt9basic_anyILm16ELm8EE12basic_vtableISt17_Rb_tree_iteratorISt4pairIKicEEEEPKvNS_8internal13any_operationERKS1_S9_, ptr %vtable.i, align 8, !tbaa !25
   %5 = load i64, ptr %cond, align 8, !tbaa !55
   store i64 %5, ptr %other, align 8, !tbaa !55
-  br label %cleanup
+  br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
   br i1 %cmp, label %if.then, label %if.end
@@ -107489,11 +107493,11 @@ sw.bb7:                                           ; preds = %entry
   %cond12 = select i1 %cmp.i, ptr %other, ptr null
   br label %cleanup
 
-sw.epilog:                                        ; preds = %entry
+sw.epilog:                                        ; preds = %_ZN4entt9basic_anyILm16ELm8EE10initializeISt17_Rb_tree_iteratorISt4pairIKicEEJRKS7_EEEvDpOT0_.exit, %entry
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZN4entt9basic_anyILm16ELm8EE10initializeISt17_Rb_tree_iteratorISt4pairIKicEEJRKS7_EEEvDpOT0_.exit, %sw.epilog, %sw.bb7, %sw.bb5, %sw.bb4, %if.end, %if.then, %entry
-  %retval.0 = phi ptr [ %cond12, %sw.bb7 ], [ %other, %sw.bb5 ], [ %other, %sw.bb4 ], [ %other, %if.then ], [ %1, %if.end ], [ %cond, %entry ], [ null, %_ZN4entt9basic_anyILm16ELm8EE10initializeISt17_Rb_tree_iteratorISt4pairIKicEEJRKS7_EEEvDpOT0_.exit ], [ null, %sw.epilog ]
+cleanup:                                          ; preds = %sw.epilog, %sw.bb7, %sw.bb5, %sw.bb4, %if.end, %if.then, %entry
+  %retval.0 = phi ptr [ null, %sw.epilog ], [ %cond12, %sw.bb7 ], [ %other, %sw.bb5 ], [ %other, %sw.bb4 ], [ %other, %if.then ], [ %1, %if.end ], [ %cond, %entry ]
   ret ptr %retval.0
 }
 
@@ -107807,7 +107811,7 @@ _ZN4entt9basic_anyILm16ELm8EE10initializeISt23_Rb_tree_const_iteratorISt4pairIKi
   store ptr @_ZN4entt9basic_anyILm16ELm8EE12basic_vtableISt23_Rb_tree_const_iteratorISt4pairIKicEEEEPKvNS_8internal13any_operationERKS1_S9_, ptr %vtable.i, align 8, !tbaa !25
   %5 = load i64, ptr %cond, align 8, !tbaa !55
   store i64 %5, ptr %other, align 8, !tbaa !55
-  br label %cleanup
+  br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
   br i1 %cmp, label %if.then, label %if.end
@@ -107838,11 +107842,11 @@ sw.bb7:                                           ; preds = %entry
   %cond12 = select i1 %cmp.i, ptr %other, ptr null
   br label %cleanup
 
-sw.epilog:                                        ; preds = %entry
+sw.epilog:                                        ; preds = %_ZN4entt9basic_anyILm16ELm8EE10initializeISt23_Rb_tree_const_iteratorISt4pairIKicEEJRKS7_EEEvDpOT0_.exit, %entry
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZN4entt9basic_anyILm16ELm8EE10initializeISt23_Rb_tree_const_iteratorISt4pairIKicEEJRKS7_EEEvDpOT0_.exit, %sw.epilog, %sw.bb7, %sw.bb5, %sw.bb4, %if.end, %if.then, %entry
-  %retval.0 = phi ptr [ %cond12, %sw.bb7 ], [ %other, %sw.bb5 ], [ %other, %sw.bb4 ], [ %other, %if.then ], [ %1, %if.end ], [ %cond, %entry ], [ null, %_ZN4entt9basic_anyILm16ELm8EE10initializeISt23_Rb_tree_const_iteratorISt4pairIKicEEJRKS7_EEEvDpOT0_.exit ], [ null, %sw.epilog ]
+cleanup:                                          ; preds = %sw.epilog, %sw.bb7, %sw.bb5, %sw.bb4, %if.end, %if.then, %entry
+  %retval.0 = phi ptr [ null, %sw.epilog ], [ %cond12, %sw.bb7 ], [ %other, %sw.bb5 ], [ %other, %sw.bb4 ], [ %other, %if.then ], [ %1, %if.end ], [ %cond, %entry ]
   ret ptr %retval.0
 }
 
@@ -108293,7 +108297,7 @@ entry:
 
 sw.bb:                                            ; preds = %entry
   tail call void @_ZN4entt9basic_anyILm16ELm8EE10initializeISt6vectorIiSaIiEEJRKS5_EEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(33) %other, ptr noundef nonnull align 8 dereferenceable(24) %0)
-  br label %cleanup
+  br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
   store ptr null, ptr %value, align 8, !tbaa !55
@@ -108322,7 +108326,7 @@ sw.bb4:                                           ; preds = %entry
 
 sw.bb6:                                           ; preds = %entry
   %isnull = icmp eq ptr %0, null
-  br i1 %isnull, label %cleanup, label %delete.notnull
+  br i1 %isnull, label %sw.epilog, label %delete.notnull
 
 delete.notnull:                                   ; preds = %sw.bb6
   %4 = load ptr, ptr %0, align 8, !tbaa !83
@@ -108335,7 +108339,7 @@ if.then.i.i.i:                                    ; preds = %delete.notnull
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %if.then.i.i.i, %delete.notnull
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
-  br label %cleanup
+  br label %sw.epilog
 
 sw.bb7:                                           ; preds = %entry
   %_M_finish.i.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -108355,20 +108359,22 @@ sw.bb7:                                           ; preds = %entry
 
 land.rhs.i:                                       ; preds = %sw.bb7
   %tobool.not.not.i.i.i.i.i = icmp eq ptr %5, %6
-  br i1 %tobool.not.not.i.i.i.i.i, label %cleanup, label %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit
+  br i1 %tobool.not.not.i.i.i.i.i, label %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread, label %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit
 
 _ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit:        ; preds = %land.rhs.i
   %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr %6, ptr %8, i64 %sub.ptr.sub.i.i)
   %bcmp.i.i.i.i.i.fr = freeze i32 %bcmp.i.i.i.i.i
   %tobool1.not.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.fr, 0
-  %spec.select = select i1 %tobool1.not.i.i.i.i.i, ptr %other, ptr null
+  br i1 %tobool1.not.i.i.i.i.i, label %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread, label %cleanup
+
+_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread: ; preds = %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit, %land.rhs.i
   br label %cleanup
 
-sw.epilog:                                        ; preds = %entry
+sw.epilog:                                        ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %sw.bb6, %sw.bb, %entry
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit, %sw.bb, %sw.bb6, %_ZNSt6vectorIiSaIiEED2Ev.exit, %land.rhs.i, %sw.epilog, %sw.bb7, %sw.bb4, %if.then.i.i.i.i.i, %sw.bb2, %sw.bb1, %entry
-  %retval.0 = phi ptr [ %other, %sw.bb4 ], [ %0, %sw.bb1 ], [ %0, %entry ], [ %other, %sw.bb2 ], [ %other, %if.then.i.i.i.i.i ], [ null, %sw.bb7 ], [ %other, %land.rhs.i ], [ null, %_ZNSt6vectorIiSaIiEED2Ev.exit ], [ null, %sw.bb6 ], [ null, %sw.bb ], [ null, %sw.epilog ], [ %spec.select, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit ]
+cleanup:                                          ; preds = %sw.epilog, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit, %sw.bb7, %sw.bb4, %if.then.i.i.i.i.i, %sw.bb2, %sw.bb1, %entry
+  %retval.0 = phi ptr [ null, %sw.epilog ], [ %other, %sw.bb4 ], [ %0, %sw.bb1 ], [ %0, %entry ], [ %other, %sw.bb2 ], [ %other, %if.then.i.i.i.i.i ], [ %other, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread ], [ null, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit ], [ null, %sw.bb7 ]
   ret ptr %retval.0
 }
 
@@ -109587,7 +109593,7 @@ _ZN4entt9basic_anyILm16ELm8EE10initializeIN9__gnu_cxx17__normal_iteratorIPiSt6ve
   store ptr @_ZN4entt9basic_anyILm16ELm8EE12basic_vtableIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEPKvNS_8internal13any_operationERKS1_SB_, ptr %vtable.i, align 8, !tbaa !25
   %5 = load i64, ptr %cond, align 8, !tbaa !55
   store i64 %5, ptr %other, align 8, !tbaa !55
-  br label %cleanup
+  br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
   br i1 %cmp, label %if.then, label %if.end
@@ -109618,11 +109624,11 @@ sw.bb7:                                           ; preds = %entry
   %cond12 = select i1 %cmp.i, ptr %other, ptr null
   br label %cleanup
 
-sw.epilog:                                        ; preds = %entry
+sw.epilog:                                        ; preds = %_ZN4entt9basic_anyILm16ELm8EE10initializeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEJRKS9_EEEvDpOT0_.exit, %entry
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZN4entt9basic_anyILm16ELm8EE10initializeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEJRKS9_EEEvDpOT0_.exit, %sw.epilog, %sw.bb7, %sw.bb5, %sw.bb4, %if.end, %if.then, %entry
-  %retval.0 = phi ptr [ %cond12, %sw.bb7 ], [ %other, %sw.bb5 ], [ %other, %sw.bb4 ], [ %other, %if.then ], [ %1, %if.end ], [ %cond, %entry ], [ null, %_ZN4entt9basic_anyILm16ELm8EE10initializeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEJRKS9_EEEvDpOT0_.exit ], [ null, %sw.epilog ]
+cleanup:                                          ; preds = %sw.epilog, %sw.bb7, %sw.bb5, %sw.bb4, %if.end, %if.then, %entry
+  %retval.0 = phi ptr [ null, %sw.epilog ], [ %cond12, %sw.bb7 ], [ %other, %sw.bb5 ], [ %other, %sw.bb4 ], [ %other, %if.then ], [ %1, %if.end ], [ %cond, %entry ]
   ret ptr %retval.0
 }
 
@@ -109719,7 +109725,7 @@ _ZN4entt9basic_anyILm16ELm8EE10initializeIN9__gnu_cxx17__normal_iteratorIPKiSt6v
   store ptr @_ZN4entt9basic_anyILm16ELm8EE12basic_vtableIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEEEPKvNS_8internal13any_operationERKS1_SC_, ptr %vtable.i, align 8, !tbaa !25
   %5 = load i64, ptr %cond, align 8, !tbaa !55
   store i64 %5, ptr %other, align 8, !tbaa !55
-  br label %cleanup
+  br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
   br i1 %cmp, label %if.then, label %if.end
@@ -109750,11 +109756,11 @@ sw.bb7:                                           ; preds = %entry
   %cond12 = select i1 %cmp.i, ptr %other, ptr null
   br label %cleanup
 
-sw.epilog:                                        ; preds = %entry
+sw.epilog:                                        ; preds = %_ZN4entt9basic_anyILm16ELm8EE10initializeIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEJRKSA_EEEvDpOT0_.exit, %entry
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZN4entt9basic_anyILm16ELm8EE10initializeIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEJRKSA_EEEvDpOT0_.exit, %sw.epilog, %sw.bb7, %sw.bb5, %sw.bb4, %if.end, %if.then, %entry
-  %retval.0 = phi ptr [ %cond12, %sw.bb7 ], [ %other, %sw.bb5 ], [ %other, %sw.bb4 ], [ %other, %if.then ], [ %1, %if.end ], [ %cond, %entry ], [ null, %_ZN4entt9basic_anyILm16ELm8EE10initializeIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEJRKSA_EEEvDpOT0_.exit ], [ null, %sw.epilog ]
+cleanup:                                          ; preds = %sw.epilog, %sw.bb7, %sw.bb5, %sw.bb4, %if.end, %if.then, %entry
+  %retval.0 = phi ptr [ null, %sw.epilog ], [ %cond12, %sw.bb7 ], [ %other, %sw.bb5 ], [ %other, %sw.bb4 ], [ %other, %if.then ], [ %1, %if.end ], [ %cond, %entry ]
   ret ptr %retval.0
 }
 
@@ -111964,7 +111970,7 @@ _ZN4entt9basic_anyILm16ELm8EE10initializeIN4test5emptyEJRKS4_EEEvDpOT0_.exit: ; 
   store ptr @_ZZN4entt7type_idIN4test5emptyEEERKNS_9type_infoEvE8instance, ptr %info.i, align 8, !tbaa !22
   %vtable.i = getelementptr inbounds i8, ptr %other, i64 24
   store ptr @_ZN4entt9basic_anyILm16ELm8EE12basic_vtableIN4test5emptyEEEPKvNS_8internal13any_operationERKS1_S6_, ptr %vtable.i, align 8, !tbaa !25
-  br label %cleanup
+  br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
   br i1 %cmp, label %cleanup, label %if.end
@@ -111982,11 +111988,11 @@ sw.bb7:                                           ; preds = %entry
 sw.bb13:                                          ; preds = %entry
   br label %cleanup
 
-sw.epilog:                                        ; preds = %entry
+sw.epilog:                                        ; preds = %_ZN4entt9basic_anyILm16ELm8EE10initializeIN4test5emptyEJRKS4_EEEvDpOT0_.exit, %entry
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZN4entt9basic_anyILm16ELm8EE10initializeIN4test5emptyEJRKS4_EEEvDpOT0_.exit, %sw.epilog, %sw.bb13, %sw.bb7, %if.end, %sw.bb1, %entry, %entry
-  %retval.0 = phi ptr [ %cond, %sw.bb13 ], [ %cond12, %sw.bb7 ], [ %1, %if.end ], [ %other, %sw.bb1 ], [ %other, %entry ], [ %other, %entry ], [ null, %_ZN4entt9basic_anyILm16ELm8EE10initializeIN4test5emptyEJRKS4_EEEvDpOT0_.exit ], [ null, %sw.epilog ]
+cleanup:                                          ; preds = %sw.epilog, %sw.bb13, %sw.bb7, %if.end, %sw.bb1, %entry, %entry
+  %retval.0 = phi ptr [ null, %sw.epilog ], [ %cond, %sw.bb13 ], [ %cond12, %sw.bb7 ], [ %1, %if.end ], [ %other, %sw.bb1 ], [ %other, %entry ], [ %other, %entry ]
   ret ptr %retval.0
 }
 
@@ -112296,7 +112302,7 @@ _ZN4entt9basic_anyILm16ELm8EE10initializeIdJRKdEEEvDpOT0_.exit: ; preds = %init.
   store ptr @_ZN4entt9basic_anyILm16ELm8EE12basic_vtableIdEEPKvNS_8internal13any_operationERKS1_S4_, ptr %vtable.i, align 8, !tbaa !25
   %5 = load double, ptr %cond, align 8, !tbaa !251
   store double %5, ptr %other, align 8, !tbaa !251
-  br label %cleanup
+  br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
   br i1 %cmp, label %if.then, label %if.end
@@ -112327,11 +112333,11 @@ sw.bb7:                                           ; preds = %entry
   %cond12 = select i1 %cmp8, ptr %other, ptr null
   br label %cleanup
 
-sw.epilog:                                        ; preds = %entry
+sw.epilog:                                        ; preds = %_ZN4entt9basic_anyILm16ELm8EE10initializeIdJRKdEEEvDpOT0_.exit, %entry
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZN4entt9basic_anyILm16ELm8EE10initializeIdJRKdEEEvDpOT0_.exit, %sw.epilog, %sw.bb7, %sw.bb5, %sw.bb4, %if.end, %if.then, %entry
-  %retval.0 = phi ptr [ %cond12, %sw.bb7 ], [ %other, %sw.bb5 ], [ %other, %sw.bb4 ], [ %other, %if.then ], [ %1, %if.end ], [ %cond, %entry ], [ null, %_ZN4entt9basic_anyILm16ELm8EE10initializeIdJRKdEEEvDpOT0_.exit ], [ null, %sw.epilog ]
+cleanup:                                          ; preds = %sw.epilog, %sw.bb7, %sw.bb5, %sw.bb4, %if.end, %if.then, %entry
+  %retval.0 = phi ptr [ null, %sw.epilog ], [ %cond12, %sw.bb7 ], [ %other, %sw.bb5 ], [ %other, %sw.bb4 ], [ %other, %if.then ], [ %1, %if.end ], [ %cond, %entry ]
   ret ptr %retval.0
 }
 
@@ -113063,7 +113069,7 @@ lpad.i:                                           ; preds = %_ZN4entt7type_idISt
 
 _ZN4entt9basic_anyILm16ELm8EE10initializeISt6vectorIbSaIbEEJRKS5_EEEvDpOT0_.exit: ; preds = %_ZN4entt7type_idISt6vectorIbSaIbEEEERKNS_9type_infoEv.exit.i
   store ptr %call2.i, ptr %other, align 8, !tbaa !20
-  br label %cleanup
+  br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
   store ptr null, ptr %value, align 8, !tbaa !55
@@ -113114,7 +113120,7 @@ sw.bb4:                                           ; preds = %entry
 
 sw.bb6:                                           ; preds = %entry
   %isnull = icmp eq ptr %0, null
-  br i1 %isnull, label %cleanup, label %delete.notnull
+  br i1 %isnull, label %sw.epilog, label %delete.notnull
 
 delete.notnull:                                   ; preds = %sw.bb6
   %6 = load ptr, ptr %0, align 8, !tbaa !402
@@ -113135,7 +113141,7 @@ if.then.i.i24:                                    ; preds = %delete.notnull
 
 _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %if.then.i.i24, %delete.notnull
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
-  br label %cleanup
+  br label %sw.epilog
 
 sw.bb7:                                           ; preds = %entry
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
@@ -113203,11 +113209,11 @@ for.inc.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
   %.not.i.not.i.i.i.i.i = and i1 %cmp3.i.i.i.i.i.i.i, %cmp.i.i.i.i.i.i.i
   br i1 %.not.i.not.i.i.i.i.i, label %cleanup, label %for.body.i.i.i.i.i, !llvm.loop !1988
 
-sw.epilog:                                        ; preds = %entry
+sw.epilog:                                        ; preds = %_ZNSt13_Bvector_baseISaIbEED2Ev.exit, %sw.bb6, %_ZN4entt9basic_anyILm16ELm8EE10initializeISt6vectorIbSaIbEEJRKS5_EEEvDpOT0_.exit, %entry
   br label %cleanup
 
-cleanup:                                          ; preds = %for.inc.i.i.i.i.i, %for.body.i.i.i.i.i, %_ZN4entt9basic_anyILm16ELm8EE10initializeISt6vectorIbSaIbEEJRKS5_EEEvDpOT0_.exit, %sw.bb6, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit, %sw.epilog, %land.rhs.i, %sw.bb7, %sw.bb4, %_ZNSt6vectorIbSaIbEEaSEOS1_.exit, %sw.bb1, %entry
-  %retval.0 = phi ptr [ %other, %sw.bb4 ], [ %other, %_ZNSt6vectorIbSaIbEEaSEOS1_.exit ], [ %0, %sw.bb1 ], [ %0, %entry ], [ null, %sw.bb7 ], [ %other, %land.rhs.i ], [ null, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit ], [ null, %sw.bb6 ], [ null, %_ZN4entt9basic_anyILm16ELm8EE10initializeISt6vectorIbSaIbEEJRKS5_EEEvDpOT0_.exit ], [ null, %sw.epilog ], [ null, %for.body.i.i.i.i.i ], [ %other, %for.inc.i.i.i.i.i ]
+cleanup:                                          ; preds = %for.inc.i.i.i.i.i, %for.body.i.i.i.i.i, %sw.epilog, %land.rhs.i, %sw.bb7, %sw.bb4, %_ZNSt6vectorIbSaIbEEaSEOS1_.exit, %sw.bb1, %entry
+  %retval.0 = phi ptr [ null, %sw.epilog ], [ %other, %sw.bb4 ], [ %other, %_ZNSt6vectorIbSaIbEEaSEOS1_.exit ], [ %0, %sw.bb1 ], [ %0, %entry ], [ null, %sw.bb7 ], [ %other, %land.rhs.i ], [ null, %for.body.i.i.i.i.i ], [ %other, %for.inc.i.i.i.i.i ]
   ret ptr %retval.0
 }
 
@@ -114521,7 +114527,7 @@ _ZN4entt9basic_anyILm16ELm8EE10initializeIbJRKbEEEvDpOT0_.exit: ; preds = %init.
   store ptr @_ZN4entt9basic_anyILm16ELm8EE12basic_vtableIbEEPKvNS_8internal13any_operationERKS1_S4_, ptr %vtable.i, align 8, !tbaa !25
   %6 = load i8, ptr %cond, align 1, !tbaa !364, !range !49, !noundef !50
   store i8 %6, ptr %other, align 8, !tbaa !364
-  br label %cleanup
+  br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
   br i1 %cmp, label %if.then, label %if.end
@@ -114552,11 +114558,11 @@ sw.bb11:                                          ; preds = %entry
   %cond19 = select i1 %cmp15, ptr %other, ptr null
   br label %cleanup
 
-sw.epilog:                                        ; preds = %entry
+sw.epilog:                                        ; preds = %_ZN4entt9basic_anyILm16ELm8EE10initializeIbJRKbEEEvDpOT0_.exit, %entry
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZN4entt9basic_anyILm16ELm8EE10initializeIbJRKbEEEvDpOT0_.exit, %sw.epilog, %sw.bb11, %sw.bb7, %sw.bb4, %if.end, %if.then, %entry
-  %retval.0 = phi ptr [ %cond19, %sw.bb11 ], [ %other, %sw.bb7 ], [ %other, %sw.bb4 ], [ %other, %if.then ], [ %1, %if.end ], [ %cond, %entry ], [ null, %_ZN4entt9basic_anyILm16ELm8EE10initializeIbJRKbEEEvDpOT0_.exit ], [ null, %sw.epilog ]
+cleanup:                                          ; preds = %sw.epilog, %sw.bb11, %sw.bb7, %sw.bb4, %if.end, %if.then, %entry
+  %retval.0 = phi ptr [ null, %sw.epilog ], [ %cond19, %sw.bb11 ], [ %other, %sw.bb7 ], [ %other, %sw.bb4 ], [ %other, %if.then ], [ %1, %if.end ], [ %cond, %entry ]
   ret ptr %retval.0
 }
 
@@ -115657,7 +115663,7 @@ _ZN4entt9basic_anyILm16ELm8EE10initializeISt14_Bit_referenceJRKS3_EEEvDpOT0_.exi
   %vtable.i = getelementptr inbounds i8, ptr %other, i64 24
   store ptr @_ZN4entt9basic_anyILm16ELm8EE12basic_vtableISt14_Bit_referenceEEPKvNS_8internal13any_operationERKS1_S5_, ptr %vtable.i, align 8, !tbaa !25
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %other, ptr noundef nonnull align 8 dereferenceable(16) %cond, i64 16, i1 false), !tbaa.struct !2004
-  br label %cleanup
+  br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
   br i1 %cmp, label %if.then, label %if.end
@@ -115740,11 +115746,11 @@ sw.bb9:                                           ; preds = %entry
   %cond14 = select i1 %cmp.i, ptr %other, ptr null
   br label %cleanup
 
-sw.epilog:                                        ; preds = %entry
+sw.epilog:                                        ; preds = %_ZN4entt9basic_anyILm16ELm8EE10initializeISt14_Bit_referenceJRKS3_EEEvDpOT0_.exit, %entry
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZN4entt9basic_anyILm16ELm8EE10initializeISt14_Bit_referenceJRKS3_EEEvDpOT0_.exit, %sw.epilog, %sw.bb9, %if.else.i.i40, %if.then.i.i38, %if.else.i.i, %if.then.i.i, %if.end, %if.then, %entry
-  %retval.0 = phi ptr [ %cond14, %sw.bb9 ], [ %other, %if.then ], [ %1, %if.end ], [ %cond, %entry ], [ %other, %if.then.i.i ], [ %other, %if.else.i.i ], [ %other, %if.then.i.i38 ], [ %other, %if.else.i.i40 ], [ null, %_ZN4entt9basic_anyILm16ELm8EE10initializeISt14_Bit_referenceJRKS3_EEEvDpOT0_.exit ], [ null, %sw.epilog ]
+cleanup:                                          ; preds = %sw.epilog, %sw.bb9, %if.else.i.i40, %if.then.i.i38, %if.else.i.i, %if.then.i.i, %if.end, %if.then, %entry
+  %retval.0 = phi ptr [ null, %sw.epilog ], [ %cond14, %sw.bb9 ], [ %other, %if.then ], [ %1, %if.end ], [ %cond, %entry ], [ %other, %if.then.i.i ], [ %other, %if.else.i.i ], [ %other, %if.then.i.i38 ], [ %other, %if.else.i.i40 ]
   ret ptr %retval.0
 }
 
@@ -115907,7 +115913,7 @@ _ZN4entt9basic_anyILm16ELm8EE10initializeISt13_Bit_iteratorJRKS3_EEEvDpOT0_.exit
   %vtable.i = getelementptr inbounds i8, ptr %other, i64 24
   store ptr @_ZN4entt9basic_anyILm16ELm8EE12basic_vtableISt13_Bit_iteratorEEPKvNS_8internal13any_operationERKS1_S5_, ptr %vtable.i, align 8, !tbaa !25
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %other, ptr noundef nonnull align 8 dereferenceable(16) %cond, i64 16, i1 false)
-  br label %cleanup
+  br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
   br i1 %cmp, label %if.then, label %if.end
@@ -115942,11 +115948,11 @@ sw.bb7:                                           ; preds = %entry
   %cond12 = select i1 %8, ptr %other, ptr null
   br label %cleanup
 
-sw.epilog:                                        ; preds = %entry
+sw.epilog:                                        ; preds = %_ZN4entt9basic_anyILm16ELm8EE10initializeISt13_Bit_iteratorJRKS3_EEEvDpOT0_.exit, %entry
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZN4entt9basic_anyILm16ELm8EE10initializeISt13_Bit_iteratorJRKS3_EEEvDpOT0_.exit, %sw.epilog, %sw.bb7, %sw.bb5, %sw.bb4, %if.end, %if.then, %entry
-  %retval.0 = phi ptr [ %cond12, %sw.bb7 ], [ %other, %sw.bb5 ], [ %other, %sw.bb4 ], [ %other, %if.then ], [ %1, %if.end ], [ %cond, %entry ], [ null, %_ZN4entt9basic_anyILm16ELm8EE10initializeISt13_Bit_iteratorJRKS3_EEEvDpOT0_.exit ], [ null, %sw.epilog ]
+cleanup:                                          ; preds = %sw.epilog, %sw.bb7, %sw.bb5, %sw.bb4, %if.end, %if.then, %entry
+  %retval.0 = phi ptr [ null, %sw.epilog ], [ %cond12, %sw.bb7 ], [ %other, %sw.bb5 ], [ %other, %sw.bb4 ], [ %other, %if.then ], [ %1, %if.end ], [ %cond, %entry ]
   ret ptr %retval.0
 }
 
@@ -116278,7 +116284,7 @@ _ZN4entt9basic_anyILm16ELm8EE10initializeISt19_Bit_const_iteratorJRKS3_EEEvDpOT0
   %vtable.i = getelementptr inbounds i8, ptr %other, i64 24
   store ptr @_ZN4entt9basic_anyILm16ELm8EE12basic_vtableISt19_Bit_const_iteratorEEPKvNS_8internal13any_operationERKS1_S5_, ptr %vtable.i, align 8, !tbaa !25
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %other, ptr noundef nonnull align 8 dereferenceable(16) %cond, i64 16, i1 false)
-  br label %cleanup
+  br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
   br i1 %cmp, label %if.then, label %if.end
@@ -116313,11 +116319,11 @@ sw.bb7:                                           ; preds = %entry
   %cond12 = select i1 %8, ptr %other, ptr null
   br label %cleanup
 
-sw.epilog:                                        ; preds = %entry
+sw.epilog:                                        ; preds = %_ZN4entt9basic_anyILm16ELm8EE10initializeISt19_Bit_const_iteratorJRKS3_EEEvDpOT0_.exit, %entry
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZN4entt9basic_anyILm16ELm8EE10initializeISt19_Bit_const_iteratorJRKS3_EEEvDpOT0_.exit, %sw.epilog, %sw.bb7, %sw.bb5, %sw.bb4, %if.end, %if.then, %entry
-  %retval.0 = phi ptr [ %cond12, %sw.bb7 ], [ %other, %sw.bb5 ], [ %other, %sw.bb4 ], [ %other, %if.then ], [ %1, %if.end ], [ %cond, %entry ], [ null, %_ZN4entt9basic_anyILm16ELm8EE10initializeISt19_Bit_const_iteratorJRKS3_EEEvDpOT0_.exit ], [ null, %sw.epilog ]
+cleanup:                                          ; preds = %sw.epilog, %sw.bb7, %sw.bb5, %sw.bb4, %if.end, %if.then, %entry
+  %retval.0 = phi ptr [ null, %sw.epilog ], [ %cond12, %sw.bb7 ], [ %other, %sw.bb5 ], [ %other, %sw.bb4 ], [ %other, %if.then ], [ %1, %if.end ], [ %cond, %entry ]
   ret ptr %retval.0
 }
 
@@ -117600,7 +117606,7 @@ _ZN4entt9basic_anyILm16ELm8EE10initializeISt5arrayIiLm3EEJRKS4_EEEvDpOT0_.exit: 
   %vtable.i = getelementptr inbounds i8, ptr %other, i64 24
   store ptr @_ZN4entt9basic_anyILm16ELm8EE12basic_vtableISt5arrayIiLm3EEEEPKvNS_8internal13any_operationERKS1_S6_, ptr %vtable.i, align 8, !tbaa !25
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %other, ptr noundef nonnull align 4 dereferenceable(12) %cond, i64 12, i1 false), !tbaa.struct !2025
-  br label %cleanup
+  br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
   br i1 %cmp, label %if.then, label %if.end
@@ -117628,11 +117634,11 @@ sw.bb7:                                           ; preds = %entry
   %cond12 = select i1 %tobool1.not.i.i.i.i.i, ptr %other, ptr null
   br label %cleanup
 
-sw.epilog:                                        ; preds = %entry
+sw.epilog:                                        ; preds = %_ZN4entt9basic_anyILm16ELm8EE10initializeISt5arrayIiLm3EEJRKS4_EEEvDpOT0_.exit, %entry
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZN4entt9basic_anyILm16ELm8EE10initializeISt5arrayIiLm3EEJRKS4_EEEvDpOT0_.exit, %sw.epilog, %sw.bb7, %sw.bb5, %sw.bb4, %if.end, %if.then, %entry
-  %retval.0 = phi ptr [ %cond12, %sw.bb7 ], [ %other, %sw.bb5 ], [ %other, %sw.bb4 ], [ %other, %if.then ], [ %1, %if.end ], [ %cond, %entry ], [ null, %_ZN4entt9basic_anyILm16ELm8EE10initializeISt5arrayIiLm3EEJRKS4_EEEvDpOT0_.exit ], [ null, %sw.epilog ]
+cleanup:                                          ; preds = %sw.epilog, %sw.bb7, %sw.bb5, %sw.bb4, %if.end, %if.then, %entry
+  %retval.0 = phi ptr [ null, %sw.epilog ], [ %cond12, %sw.bb7 ], [ %other, %sw.bb5 ], [ %other, %sw.bb4 ], [ %other, %if.then ], [ %1, %if.end ], [ %cond, %entry ]
   ret ptr %retval.0
 }
 
@@ -118022,7 +118028,7 @@ _ZN4entt9basic_anyILm16ELm8EE10initializeIPiJRKS3_EEEvDpOT0_.exit: ; preds = %in
   store ptr @_ZN4entt9basic_anyILm16ELm8EE12basic_vtableIPiEEPKvNS_8internal13any_operationERKS1_S5_, ptr %vtable.i, align 8, !tbaa !25
   %4 = load ptr, ptr %cond, align 8, !tbaa !55
   store ptr %4, ptr %other, align 8, !tbaa !55
-  br label %cleanup
+  br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
   br i1 %cmp, label %if.then, label %if.end
@@ -118053,11 +118059,11 @@ sw.bb7:                                           ; preds = %entry
   %cond12 = select i1 %cmp8, ptr %other, ptr null
   br label %cleanup
 
-sw.epilog:                                        ; preds = %entry
+sw.epilog:                                        ; preds = %_ZN4entt9basic_anyILm16ELm8EE10initializeIPiJRKS3_EEEvDpOT0_.exit, %entry
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZN4entt9basic_anyILm16ELm8EE10initializeIPiJRKS3_EEEvDpOT0_.exit, %sw.epilog, %sw.bb7, %sw.bb5, %sw.bb4, %if.end, %if.then, %entry
-  %retval.0 = phi ptr [ %cond12, %sw.bb7 ], [ %other, %sw.bb5 ], [ %other, %sw.bb4 ], [ %other, %if.then ], [ %1, %if.end ], [ %cond, %entry ], [ null, %_ZN4entt9basic_anyILm16ELm8EE10initializeIPiJRKS3_EEEvDpOT0_.exit ], [ null, %sw.epilog ]
+cleanup:                                          ; preds = %sw.epilog, %sw.bb7, %sw.bb5, %sw.bb4, %if.end, %if.then, %entry
+  %retval.0 = phi ptr [ null, %sw.epilog ], [ %cond12, %sw.bb7 ], [ %other, %sw.bb5 ], [ %other, %sw.bb4 ], [ %other, %if.then ], [ %1, %if.end ], [ %cond, %entry ]
   ret ptr %retval.0
 }
 
@@ -118153,7 +118159,7 @@ _ZN4entt9basic_anyILm16ELm8EE10initializeIPKiJRKS4_EEEvDpOT0_.exit: ; preds = %i
   store ptr @_ZN4entt9basic_anyILm16ELm8EE12basic_vtableIPKiEEPKvNS_8internal13any_operationERKS1_S6_, ptr %vtable.i, align 8, !tbaa !25
   %4 = load ptr, ptr %cond, align 8, !tbaa !55
   store ptr %4, ptr %other, align 8, !tbaa !55
-  br label %cleanup
+  br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
   br i1 %cmp, label %if.then, label %if.end
@@ -118184,11 +118190,11 @@ sw.bb7:                                           ; preds = %entry
   %cond12 = select i1 %cmp8, ptr %other, ptr null
   br label %cleanup
 
-sw.epilog:                                        ; preds = %entry
+sw.epilog:                                        ; preds = %_ZN4entt9basic_anyILm16ELm8EE10initializeIPKiJRKS4_EEEvDpOT0_.exit, %entry
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZN4entt9basic_anyILm16ELm8EE10initializeIPKiJRKS4_EEEvDpOT0_.exit, %sw.epilog, %sw.bb7, %sw.bb5, %sw.bb4, %if.end, %if.then, %entry
-  %retval.0 = phi ptr [ %cond12, %sw.bb7 ], [ %other, %sw.bb5 ], [ %other, %sw.bb4 ], [ %other, %if.then ], [ %1, %if.end ], [ %cond, %entry ], [ null, %_ZN4entt9basic_anyILm16ELm8EE10initializeIPKiJRKS4_EEEvDpOT0_.exit ], [ null, %sw.epilog ]
+cleanup:                                          ; preds = %sw.epilog, %sw.bb7, %sw.bb5, %sw.bb4, %if.end, %if.then, %entry
+  %retval.0 = phi ptr [ null, %sw.epilog ], [ %cond12, %sw.bb7 ], [ %other, %sw.bb5 ], [ %other, %sw.bb4 ], [ %other, %if.then ], [ %1, %if.end ], [ %cond, %entry ]
   ret ptr %retval.0
 }
 
@@ -118417,7 +118423,7 @@ entry:
 
 sw.bb:                                            ; preds = %entry
   tail call void @_ZN4entt9basic_anyILm16ELm8EE10initializeINSt7__cxx114listIiSaIiEEEJRKS6_EEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(33) %other, ptr noundef nonnull align 8 dereferenceable(24) %0)
-  br label %cleanup
+  br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
   store ptr null, ptr %value, align 8, !tbaa !55
@@ -118524,7 +118530,7 @@ if.else.i.i:                                      ; preds = %for.end.i.i
 
 sw.bb6:                                           ; preds = %entry
   %isnull = icmp eq ptr %0, null
-  br i1 %isnull, label %cleanup, label %delete.notnull
+  br i1 %isnull, label %sw.epilog, label %delete.notnull
 
 delete.notnull:                                   ; preds = %sw.bb6
   %12 = load ptr, ptr %0, align 8, !tbaa !510
@@ -118540,7 +118546,7 @@ while.body.i.i:                                   ; preds = %delete.notnull, %wh
 
 _ZNSt7__cxx1110_List_baseIiSaIiEED2Ev.exit:       ; preds = %while.body.i.i, %delete.notnull
   tail call void @_ZdlPv(ptr noundef %0) #26
-  br label %cleanup
+  br label %sw.epilog
 
 sw.bb7:                                           ; preds = %entry
   %_M_size.i.i.i.i23 = getelementptr inbounds i8, ptr %0, i64 16
@@ -118576,11 +118582,11 @@ _ZSteqIiSaIiEEbRKNSt7__cxx114listIT_T0_EES7_.exit: ; preds = %land.rhs.i, %while
   %spec.select = select i1 %cond.fr, ptr %other, ptr null
   br label %cleanup
 
-sw.epilog:                                        ; preds = %entry
+sw.epilog:                                        ; preds = %_ZNSt7__cxx1110_List_baseIiSaIiEED2Ev.exit, %sw.bb6, %sw.bb, %entry
   br label %cleanup
 
-cleanup:                                          ; preds = %while.body.i.i.i, %sw.bb, %sw.bb6, %_ZNSt7__cxx1110_List_baseIiSaIiEED2Ev.exit, %sw.epilog, %_ZSteqIiSaIiEEbRKNSt7__cxx114listIT_T0_EES7_.exit, %sw.bb7, %if.else.i.i, %if.then.i.i, %sw.bb4, %_ZNSt7__cxx114listIiSaIiEEaSEOS2_.exit, %sw.bb1, %entry
-  %retval.0 = phi ptr [ %other, %_ZNSt7__cxx114listIiSaIiEEaSEOS2_.exit ], [ %0, %sw.bb1 ], [ %0, %entry ], [ %other, %sw.bb4 ], [ %other, %if.then.i.i ], [ %other, %if.else.i.i ], [ null, %sw.bb7 ], [ %spec.select, %_ZSteqIiSaIiEEbRKNSt7__cxx114listIT_T0_EES7_.exit ], [ null, %_ZNSt7__cxx1110_List_baseIiSaIiEED2Ev.exit ], [ null, %sw.bb6 ], [ null, %sw.bb ], [ null, %sw.epilog ], [ %other, %while.body.i.i.i ]
+cleanup:                                          ; preds = %while.body.i.i.i, %sw.epilog, %_ZSteqIiSaIiEEbRKNSt7__cxx114listIT_T0_EES7_.exit, %sw.bb7, %if.else.i.i, %if.then.i.i, %sw.bb4, %_ZNSt7__cxx114listIiSaIiEEaSEOS2_.exit, %sw.bb1, %entry
+  %retval.0 = phi ptr [ null, %sw.epilog ], [ %other, %_ZNSt7__cxx114listIiSaIiEEaSEOS2_.exit ], [ %0, %sw.bb1 ], [ %0, %entry ], [ %other, %sw.bb4 ], [ %other, %if.then.i.i ], [ %other, %if.else.i.i ], [ null, %sw.bb7 ], [ %spec.select, %_ZSteqIiSaIiEEbRKNSt7__cxx114listIT_T0_EES7_.exit ], [ %other, %while.body.i.i.i ]
   ret ptr %retval.0
 }
 
@@ -119733,7 +119739,7 @@ _ZN4entt9basic_anyILm16ELm8EE10initializeISt14_List_iteratorIiEJRKS4_EEEvDpOT0_.
   store ptr @_ZN4entt9basic_anyILm16ELm8EE12basic_vtableISt14_List_iteratorIiEEEPKvNS_8internal13any_operationERKS1_S6_, ptr %vtable.i, align 8, !tbaa !25
   %5 = load i64, ptr %cond, align 8, !tbaa !55
   store i64 %5, ptr %other, align 8, !tbaa !55
-  br label %cleanup
+  br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
   br i1 %cmp, label %if.then, label %if.end
@@ -119764,11 +119770,11 @@ sw.bb7:                                           ; preds = %entry
   %cond12 = select i1 %cmp.i, ptr %other, ptr null
   br label %cleanup
 
-sw.epilog:                                        ; preds = %entry
+sw.epilog:                                        ; preds = %_ZN4entt9basic_anyILm16ELm8EE10initializeISt14_List_iteratorIiEJRKS4_EEEvDpOT0_.exit, %entry
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZN4entt9basic_anyILm16ELm8EE10initializeISt14_List_iteratorIiEJRKS4_EEEvDpOT0_.exit, %sw.epilog, %sw.bb7, %sw.bb5, %sw.bb4, %if.end, %if.then, %entry
-  %retval.0 = phi ptr [ %cond12, %sw.bb7 ], [ %other, %sw.bb5 ], [ %other, %sw.bb4 ], [ %other, %if.then ], [ %1, %if.end ], [ %cond, %entry ], [ null, %_ZN4entt9basic_anyILm16ELm8EE10initializeISt14_List_iteratorIiEJRKS4_EEEvDpOT0_.exit ], [ null, %sw.epilog ]
+cleanup:                                          ; preds = %sw.epilog, %sw.bb7, %sw.bb5, %sw.bb4, %if.end, %if.then, %entry
+  %retval.0 = phi ptr [ null, %sw.epilog ], [ %cond12, %sw.bb7 ], [ %other, %sw.bb5 ], [ %other, %sw.bb4 ], [ %other, %if.then ], [ %1, %if.end ], [ %cond, %entry ]
   ret ptr %retval.0
 }
 
@@ -119964,7 +119970,7 @@ _ZN4entt9basic_anyILm16ELm8EE10initializeISt20_List_const_iteratorIiEJRKS4_EEEvD
   store ptr @_ZN4entt9basic_anyILm16ELm8EE12basic_vtableISt20_List_const_iteratorIiEEEPKvNS_8internal13any_operationERKS1_S6_, ptr %vtable.i, align 8, !tbaa !25
   %5 = load i64, ptr %cond, align 8, !tbaa !55
   store i64 %5, ptr %other, align 8, !tbaa !55
-  br label %cleanup
+  br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
   br i1 %cmp, label %if.then, label %if.end
@@ -119995,11 +120001,11 @@ sw.bb7:                                           ; preds = %entry
   %cond12 = select i1 %cmp.i, ptr %other, ptr null
   br label %cleanup
 
-sw.epilog:                                        ; preds = %entry
+sw.epilog:                                        ; preds = %_ZN4entt9basic_anyILm16ELm8EE10initializeISt20_List_const_iteratorIiEJRKS4_EEEvDpOT0_.exit, %entry
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZN4entt9basic_anyILm16ELm8EE10initializeISt20_List_const_iteratorIiEJRKS4_EEEvDpOT0_.exit, %sw.epilog, %sw.bb7, %sw.bb5, %sw.bb4, %if.end, %if.then, %entry
-  %retval.0 = phi ptr [ %cond12, %sw.bb7 ], [ %other, %sw.bb5 ], [ %other, %sw.bb4 ], [ %other, %if.then ], [ %1, %if.end ], [ %cond, %entry ], [ null, %_ZN4entt9basic_anyILm16ELm8EE10initializeISt20_List_const_iteratorIiEJRKS4_EEEvDpOT0_.exit ], [ null, %sw.epilog ]
+cleanup:                                          ; preds = %sw.epilog, %sw.bb7, %sw.bb5, %sw.bb4, %if.end, %if.then, %entry
+  %retval.0 = phi ptr [ null, %sw.epilog ], [ %cond12, %sw.bb7 ], [ %other, %sw.bb5 ], [ %other, %sw.bb4 ], [ %other, %if.then ], [ %1, %if.end ], [ %cond, %entry ]
   ret ptr %retval.0
 }
 
@@ -120299,7 +120305,7 @@ lpad.i:                                           ; preds = %_ZN4entt7type_idISt
 
 _ZN4entt9basic_anyILm16ELm8EE10initializeISt5dequeIiSaIiEEJRKS5_EEEvDpOT0_.exit: ; preds = %_ZN4entt7type_idISt5dequeIiSaIiEEEERKNS_9type_infoEv.exit.i
   store ptr %call2.i, ptr %other, align 8, !tbaa !20
-  br label %cleanup
+  br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
   store ptr null, ptr %value, align 8, !tbaa !55
@@ -120366,7 +120372,7 @@ sw.bb4:                                           ; preds = %entry
 
 sw.bb6:                                           ; preds = %entry
   %isnull = icmp eq ptr %0, null
-  br i1 %isnull, label %cleanup, label %delete.notnull
+  br i1 %isnull, label %sw.epilog, label %delete.notnull
 
 delete.notnull:                                   ; preds = %sw.bb6
   %12 = load ptr, ptr %0, align 8, !tbaa !723
@@ -120401,7 +120407,7 @@ _ZNSt11_Deque_baseIiSaIiEE16_M_destroy_nodesEPPiS3_.exit.i.i: ; preds = %_ZNSt11
 
 _ZNSt5dequeIiSaIiEED2Ev.exit:                     ; preds = %_ZNSt11_Deque_baseIiSaIiEE16_M_destroy_nodesEPPiS3_.exit.i.i, %delete.notnull
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
-  br label %cleanup
+  br label %sw.epilog
 
 sw.bb7:                                           ; preds = %entry
   %_M_finish.i.i = getelementptr inbounds i8, ptr %0, i64 48
@@ -120505,11 +120511,11 @@ _ZSteqIiSaIiEEbRKSt5dequeIT_T0_ES6_.exit:         ; preds = %sw.bb7
   %spec.select = select i1 %call.i.i.i.i, ptr %other, ptr null
   br label %cleanup
 
-sw.epilog:                                        ; preds = %entry
+sw.epilog:                                        ; preds = %_ZNSt5dequeIiSaIiEED2Ev.exit, %sw.bb6, %_ZN4entt9basic_anyILm16ELm8EE10initializeISt5dequeIiSaIiEEJRKS5_EEEvDpOT0_.exit, %entry
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZN4entt9basic_anyILm16ELm8EE10initializeISt5dequeIiSaIiEEJRKS5_EEEvDpOT0_.exit, %sw.bb6, %_ZNSt5dequeIiSaIiEED2Ev.exit, %sw.epilog, %_ZSteqIiSaIiEEbRKSt5dequeIT_T0_ES6_.exit, %sw.bb7, %sw.bb4, %_ZNSt5dequeIiSaIiEEaSEOS1_.exit, %sw.bb1, %entry
-  %retval.0 = phi ptr [ %other, %sw.bb4 ], [ %other, %_ZNSt5dequeIiSaIiEEaSEOS1_.exit ], [ %0, %sw.bb1 ], [ %0, %entry ], [ null, %sw.bb7 ], [ %spec.select, %_ZSteqIiSaIiEEbRKSt5dequeIT_T0_ES6_.exit ], [ null, %_ZNSt5dequeIiSaIiEED2Ev.exit ], [ null, %sw.bb6 ], [ null, %_ZN4entt9basic_anyILm16ELm8EE10initializeISt5dequeIiSaIiEEJRKS5_EEEvDpOT0_.exit ], [ null, %sw.epilog ]
+cleanup:                                          ; preds = %sw.epilog, %_ZSteqIiSaIiEEbRKSt5dequeIT_T0_ES6_.exit, %sw.bb7, %sw.bb4, %_ZNSt5dequeIiSaIiEEaSEOS1_.exit, %sw.bb1, %entry
+  %retval.0 = phi ptr [ null, %sw.epilog ], [ %other, %sw.bb4 ], [ %other, %_ZNSt5dequeIiSaIiEEaSEOS1_.exit ], [ %0, %sw.bb1 ], [ %0, %entry ], [ null, %sw.bb7 ], [ %spec.select, %_ZSteqIiSaIiEEbRKSt5dequeIT_T0_ES6_.exit ]
   ret ptr %retval.0
 }
 
@@ -125411,7 +125417,7 @@ _ZN4entt9basic_anyILm16ELm8EE10initializeISt15_Deque_iteratorIiRiPiEJRKS6_EEEvDp
   %4 = load <2 x ptr>, ptr %_M_last4.i.i, align 8, !tbaa !55
   store <2 x ptr> %4, ptr %_M_last.i.i, align 8, !tbaa !55
   store ptr %call2.i, ptr %other, align 8, !tbaa !20
-  br label %cleanup
+  br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
   store ptr null, ptr %value, align 8, !tbaa !55
@@ -125428,11 +125434,11 @@ sw.bb3:                                           ; preds = %entry
 
 sw.bb4:                                           ; preds = %entry
   %isnull = icmp eq ptr %0, null
-  br i1 %isnull, label %cleanup, label %delete.notnull
+  br i1 %isnull, label %sw.epilog, label %delete.notnull
 
 delete.notnull:                                   ; preds = %sw.bb4
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
-  br label %cleanup
+  br label %sw.epilog
 
 sw.bb5:                                           ; preds = %entry
   %5 = load ptr, ptr %0, align 8, !tbaa !2063
@@ -125441,11 +125447,11 @@ sw.bb5:                                           ; preds = %entry
   %cond = select i1 %cmp.i, ptr %other, ptr null
   br label %cleanup
 
-sw.epilog:                                        ; preds = %entry
+sw.epilog:                                        ; preds = %delete.notnull, %sw.bb4, %_ZN4entt9basic_anyILm16ELm8EE10initializeISt15_Deque_iteratorIiRiPiEJRKS6_EEEvDpOT0_.exit, %entry
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZN4entt9basic_anyILm16ELm8EE10initializeISt15_Deque_iteratorIiRiPiEJRKS6_EEEvDpOT0_.exit, %sw.bb4, %delete.notnull, %sw.epilog, %sw.bb5, %sw.bb3, %sw.bb2, %sw.bb1, %entry
-  %retval.0 = phi ptr [ %cond, %sw.bb5 ], [ %other, %sw.bb3 ], [ %other, %sw.bb2 ], [ %0, %sw.bb1 ], [ %0, %entry ], [ null, %delete.notnull ], [ null, %sw.bb4 ], [ null, %_ZN4entt9basic_anyILm16ELm8EE10initializeISt15_Deque_iteratorIiRiPiEJRKS6_EEEvDpOT0_.exit ], [ null, %sw.epilog ]
+cleanup:                                          ; preds = %sw.epilog, %sw.bb5, %sw.bb3, %sw.bb2, %sw.bb1, %entry
+  %retval.0 = phi ptr [ null, %sw.epilog ], [ %cond, %sw.bb5 ], [ %other, %sw.bb3 ], [ %other, %sw.bb2 ], [ %0, %sw.bb1 ], [ %0, %entry ]
   ret ptr %retval.0
 }
 
@@ -125587,7 +125593,7 @@ _ZN4entt9basic_anyILm16ELm8EE10initializeISt15_Deque_iteratorIiRKiPS4_EJRKS7_EEE
   %4 = load <2 x ptr>, ptr %_M_last4.i.i, align 8, !tbaa !55
   store <2 x ptr> %4, ptr %_M_last.i.i, align 8, !tbaa !55
   store ptr %call2.i, ptr %other, align 8, !tbaa !20
-  br label %cleanup
+  br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
   store ptr null, ptr %value, align 8, !tbaa !55
@@ -125604,11 +125610,11 @@ sw.bb3:                                           ; preds = %entry
 
 sw.bb4:                                           ; preds = %entry
   %isnull = icmp eq ptr %0, null
-  br i1 %isnull, label %cleanup, label %delete.notnull
+  br i1 %isnull, label %sw.epilog, label %delete.notnull
 
 delete.notnull:                                   ; preds = %sw.bb4
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
-  br label %cleanup
+  br label %sw.epilog
 
 sw.bb5:                                           ; preds = %entry
   %5 = load ptr, ptr %0, align 8, !tbaa !2074
@@ -125617,11 +125623,11 @@ sw.bb5:                                           ; preds = %entry
   %cond = select i1 %cmp.i, ptr %other, ptr null
   br label %cleanup
 
-sw.epilog:                                        ; preds = %entry
+sw.epilog:                                        ; preds = %delete.notnull, %sw.bb4, %_ZN4entt9basic_anyILm16ELm8EE10initializeISt15_Deque_iteratorIiRKiPS4_EJRKS7_EEEvDpOT0_.exit, %entry
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZN4entt9basic_anyILm16ELm8EE10initializeISt15_Deque_iteratorIiRKiPS4_EJRKS7_EEEvDpOT0_.exit, %sw.bb4, %delete.notnull, %sw.epilog, %sw.bb5, %sw.bb3, %sw.bb2, %sw.bb1, %entry
-  %retval.0 = phi ptr [ %cond, %sw.bb5 ], [ %other, %sw.bb3 ], [ %other, %sw.bb2 ], [ %0, %sw.bb1 ], [ %0, %entry ], [ null, %delete.notnull ], [ null, %sw.bb4 ], [ null, %_ZN4entt9basic_anyILm16ELm8EE10initializeISt15_Deque_iteratorIiRKiPS4_EJRKS7_EEEvDpOT0_.exit ], [ null, %sw.epilog ]
+cleanup:                                          ; preds = %sw.epilog, %sw.bb5, %sw.bb3, %sw.bb2, %sw.bb1, %entry
+  %retval.0 = phi ptr [ null, %sw.epilog ], [ %cond, %sw.bb5 ], [ %other, %sw.bb3 ], [ %other, %sw.bb2 ], [ %0, %sw.bb1 ], [ %0, %entry ]
   ret ptr %retval.0
 }
 
@@ -126855,7 +126861,7 @@ entry:
 
 sw.bb:                                            ; preds = %entry
   tail call void @_ZN4entt9basic_anyILm16ELm8EE10initializeISt6vectorIN4test25non_default_constructibleESaIS5_EEJRKS7_EEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(33) %other, ptr noundef nonnull align 8 dereferenceable(24) %0)
-  br label %cleanup
+  br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
   store ptr null, ptr %value, align 8, !tbaa !55
@@ -126884,7 +126890,7 @@ sw.bb4:                                           ; preds = %entry
 
 sw.bb6:                                           ; preds = %entry
   %isnull = icmp eq ptr %0, null
-  br i1 %isnull, label %cleanup, label %delete.notnull
+  br i1 %isnull, label %sw.epilog, label %delete.notnull
 
 delete.notnull:                                   ; preds = %sw.bb6
   %4 = load ptr, ptr %0, align 8, !tbaa !739
@@ -126897,18 +126903,18 @@ if.then.i.i.i:                                    ; preds = %delete.notnull
 
 _ZNSt6vectorIN4test25non_default_constructibleESaIS1_EED2Ev.exit: ; preds = %if.then.i.i.i, %delete.notnull
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
-  br label %cleanup
+  br label %sw.epilog
 
 sw.bb7:                                           ; preds = %entry
   %cmp = icmp eq ptr %0, %other
   %cond = select i1 %cmp, ptr %other, ptr null
   br label %cleanup
 
-sw.epilog:                                        ; preds = %entry
+sw.epilog:                                        ; preds = %_ZNSt6vectorIN4test25non_default_constructibleESaIS1_EED2Ev.exit, %sw.bb6, %sw.bb, %entry
   br label %cleanup
 
-cleanup:                                          ; preds = %sw.bb, %sw.bb6, %_ZNSt6vectorIN4test25non_default_constructibleESaIS1_EED2Ev.exit, %sw.epilog, %sw.bb7, %sw.bb4, %if.then.i.i.i.i.i, %sw.bb2, %sw.bb1, %entry
-  %retval.0 = phi ptr [ %cond, %sw.bb7 ], [ %other, %sw.bb4 ], [ %0, %sw.bb1 ], [ %0, %entry ], [ %other, %sw.bb2 ], [ %other, %if.then.i.i.i.i.i ], [ null, %_ZNSt6vectorIN4test25non_default_constructibleESaIS1_EED2Ev.exit ], [ null, %sw.bb6 ], [ null, %sw.bb ], [ null, %sw.epilog ]
+cleanup:                                          ; preds = %sw.epilog, %sw.bb7, %sw.bb4, %if.then.i.i.i.i.i, %sw.bb2, %sw.bb1, %entry
+  %retval.0 = phi ptr [ null, %sw.epilog ], [ %cond, %sw.bb7 ], [ %other, %sw.bb4 ], [ %0, %sw.bb1 ], [ %0, %entry ], [ %other, %sw.bb2 ], [ %other, %if.then.i.i.i.i.i ]
   ret ptr %retval.0
 }
 
@@ -127995,7 +128001,7 @@ _ZN4entt9basic_anyILm16ELm8EE10initializeIN4test25non_default_constructibleEJRKS
   store ptr @_ZN4entt9basic_anyILm16ELm8EE12basic_vtableIN4test25non_default_constructibleEEEPKvNS_8internal13any_operationERKS1_S6_, ptr %vtable.i, align 8, !tbaa !25
   %6 = load i32, ptr %cond, align 4, !tbaa !26
   store i32 %6, ptr %other, align 8, !tbaa !26
-  br label %cleanup
+  br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
   br i1 %cmp, label %if.then, label %if.end
@@ -128024,11 +128030,11 @@ sw.bb7:                                           ; preds = %entry
   %cond12 = select i1 %cmp8, ptr %other, ptr null
   br label %cleanup
 
-sw.epilog:                                        ; preds = %entry
+sw.epilog:                                        ; preds = %_ZN4entt9basic_anyILm16ELm8EE10initializeIN4test25non_default_constructibleEJRKS4_EEEvDpOT0_.exit, %entry
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZN4entt9basic_anyILm16ELm8EE10initializeIN4test25non_default_constructibleEJRKS4_EEEvDpOT0_.exit, %sw.epilog, %sw.bb7, %sw.bb5, %sw.bb4, %if.end, %if.then, %entry
-  %retval.0 = phi ptr [ %cond12, %sw.bb7 ], [ %other, %sw.bb5 ], [ %other, %sw.bb4 ], [ %other, %if.then ], [ %1, %if.end ], [ %cond, %entry ], [ null, %_ZN4entt9basic_anyILm16ELm8EE10initializeIN4test25non_default_constructibleEJRKS4_EEEvDpOT0_.exit ], [ null, %sw.epilog ]
+cleanup:                                          ; preds = %sw.epilog, %sw.bb7, %sw.bb5, %sw.bb4, %if.end, %if.then, %entry
+  %retval.0 = phi ptr [ null, %sw.epilog ], [ %cond12, %sw.bb7 ], [ %other, %sw.bb5 ], [ %other, %sw.bb4 ], [ %other, %if.then ], [ %1, %if.end ], [ %cond, %entry ]
   ret ptr %retval.0
 }
 
@@ -128304,7 +128310,7 @@ _ZN4entt9basic_anyILm16ELm8EE10initializeIN9__gnu_cxx17__normal_iteratorIPN4test
   store ptr @_ZN4entt9basic_anyILm16ELm8EE12basic_vtableIN9__gnu_cxx17__normal_iteratorIPN4test25non_default_constructibleESt6vectorIS6_SaIS6_EEEEEEPKvNS_8internal13any_operationERKS1_SD_, ptr %vtable.i, align 8, !tbaa !25
   %5 = load i64, ptr %cond, align 8, !tbaa !55
   store i64 %5, ptr %other, align 8, !tbaa !55
-  br label %cleanup
+  br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
   br i1 %cmp, label %if.then, label %if.end
@@ -128335,11 +128341,11 @@ sw.bb7:                                           ; preds = %entry
   %cond12 = select i1 %cmp.i, ptr %other, ptr null
   br label %cleanup
 
-sw.epilog:                                        ; preds = %entry
+sw.epilog:                                        ; preds = %_ZN4entt9basic_anyILm16ELm8EE10initializeIN9__gnu_cxx17__normal_iteratorIPN4test25non_default_constructibleESt6vectorIS6_SaIS6_EEEEJRKSB_EEEvDpOT0_.exit, %entry
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZN4entt9basic_anyILm16ELm8EE10initializeIN9__gnu_cxx17__normal_iteratorIPN4test25non_default_constructibleESt6vectorIS6_SaIS6_EEEEJRKSB_EEEvDpOT0_.exit, %sw.epilog, %sw.bb7, %sw.bb5, %sw.bb4, %if.end, %if.then, %entry
-  %retval.0 = phi ptr [ %cond12, %sw.bb7 ], [ %other, %sw.bb5 ], [ %other, %sw.bb4 ], [ %other, %if.then ], [ %1, %if.end ], [ %cond, %entry ], [ null, %_ZN4entt9basic_anyILm16ELm8EE10initializeIN9__gnu_cxx17__normal_iteratorIPN4test25non_default_constructibleESt6vectorIS6_SaIS6_EEEEJRKSB_EEEvDpOT0_.exit ], [ null, %sw.epilog ]
+cleanup:                                          ; preds = %sw.epilog, %sw.bb7, %sw.bb5, %sw.bb4, %if.end, %if.then, %entry
+  %retval.0 = phi ptr [ null, %sw.epilog ], [ %cond12, %sw.bb7 ], [ %other, %sw.bb5 ], [ %other, %sw.bb4 ], [ %other, %if.then ], [ %1, %if.end ], [ %cond, %entry ]
   ret ptr %retval.0
 }
 
@@ -128648,7 +128654,7 @@ _ZN4entt9basic_anyILm16ELm8EE10initializeIN9__gnu_cxx17__normal_iteratorIPKN4tes
   store ptr @_ZN4entt9basic_anyILm16ELm8EE12basic_vtableIN9__gnu_cxx17__normal_iteratorIPKN4test25non_default_constructibleESt6vectorIS6_SaIS6_EEEEEEPKvNS_8internal13any_operationERKS1_SE_, ptr %vtable.i, align 8, !tbaa !25
   %5 = load i64, ptr %cond, align 8, !tbaa !55
   store i64 %5, ptr %other, align 8, !tbaa !55
-  br label %cleanup
+  br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
   br i1 %cmp, label %if.then, label %if.end
@@ -128679,11 +128685,11 @@ sw.bb7:                                           ; preds = %entry
   %cond12 = select i1 %cmp.i, ptr %other, ptr null
   br label %cleanup
 
-sw.epilog:                                        ; preds = %entry
+sw.epilog:                                        ; preds = %_ZN4entt9basic_anyILm16ELm8EE10initializeIN9__gnu_cxx17__normal_iteratorIPKN4test25non_default_constructibleESt6vectorIS6_SaIS6_EEEEJRKSC_EEEvDpOT0_.exit, %entry
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZN4entt9basic_anyILm16ELm8EE10initializeIN9__gnu_cxx17__normal_iteratorIPKN4test25non_default_constructibleESt6vectorIS6_SaIS6_EEEEJRKSC_EEEvDpOT0_.exit, %sw.epilog, %sw.bb7, %sw.bb5, %sw.bb4, %if.end, %if.then, %entry
-  %retval.0 = phi ptr [ %cond12, %sw.bb7 ], [ %other, %sw.bb5 ], [ %other, %sw.bb4 ], [ %other, %if.then ], [ %1, %if.end ], [ %cond, %entry ], [ null, %_ZN4entt9basic_anyILm16ELm8EE10initializeIN9__gnu_cxx17__normal_iteratorIPKN4test25non_default_constructibleESt6vectorIS6_SaIS6_EEEEJRKSC_EEEvDpOT0_.exit ], [ null, %sw.epilog ]
+cleanup:                                          ; preds = %sw.epilog, %sw.bb7, %sw.bb5, %sw.bb4, %if.end, %if.then, %entry
+  %retval.0 = phi ptr [ null, %sw.epilog ], [ %cond12, %sw.bb7 ], [ %other, %sw.bb5 ], [ %other, %sw.bb4 ], [ %other, %if.then ], [ %1, %if.end ], [ %cond, %entry ]
   ret ptr %retval.0
 }
 
@@ -130471,7 +130477,7 @@ _ZN4entt9basic_anyILm16ELm8EE10initializeIfJRKfEEEvDpOT0_.exit: ; preds = %init.
   store ptr @_ZN4entt9basic_anyILm16ELm8EE12basic_vtableIfEEPKvNS_8internal13any_operationERKS1_S4_, ptr %vtable.i, align 8, !tbaa !25
   %6 = load float, ptr %cond, align 4, !tbaa !1090
   store float %6, ptr %other, align 8, !tbaa !1090
-  br label %cleanup
+  br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
   br i1 %cmp, label %if.then, label %if.end
@@ -130502,11 +130508,11 @@ sw.bb7:                                           ; preds = %entry
   %cond12 = select i1 %cmp8, ptr %other, ptr null
   br label %cleanup
 
-sw.epilog:                                        ; preds = %entry
+sw.epilog:                                        ; preds = %_ZN4entt9basic_anyILm16ELm8EE10initializeIfJRKfEEEvDpOT0_.exit, %entry
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZN4entt9basic_anyILm16ELm8EE10initializeIfJRKfEEEvDpOT0_.exit, %sw.epilog, %sw.bb7, %sw.bb5, %sw.bb4, %if.end, %if.then, %entry
-  %retval.0 = phi ptr [ %cond12, %sw.bb7 ], [ %other, %sw.bb5 ], [ %other, %sw.bb4 ], [ %other, %if.then ], [ %1, %if.end ], [ %cond, %entry ], [ null, %_ZN4entt9basic_anyILm16ELm8EE10initializeIfJRKfEEEvDpOT0_.exit ], [ null, %sw.epilog ]
+cleanup:                                          ; preds = %sw.epilog, %sw.bb7, %sw.bb5, %sw.bb4, %if.end, %if.then, %entry
+  %retval.0 = phi ptr [ null, %sw.epilog ], [ %cond12, %sw.bb7 ], [ %other, %sw.bb5 ], [ %other, %sw.bb4 ], [ %other, %if.then ], [ %1, %if.end ], [ %cond, %entry ]
   ret ptr %retval.0
 }
 
@@ -130845,7 +130851,7 @@ entry:
 
 sw.bb:                                            ; preds = %entry
   tail call void @_ZN4entt9basic_anyILm16ELm8EE10initializeISt3setIiSt4lessIiESaIiEEJRKS7_EEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(33) %other, ptr noundef nonnull align 8 dereferenceable(48) %0)
-  br label %cleanup
+  br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
   store ptr null, ptr %value, align 8, !tbaa !55
@@ -130905,7 +130911,7 @@ sw.bb4:                                           ; preds = %entry
 
 sw.bb6:                                           ; preds = %entry
   %isnull = icmp eq ptr %0, null
-  br i1 %isnull, label %cleanup, label %delete.notnull
+  br i1 %isnull, label %sw.epilog, label %delete.notnull
 
 delete.notnull:                                   ; preds = %sw.bb6
   %_M_parent.i.i.i.i23 = getelementptr inbounds i8, ptr %0, i64 16
@@ -130922,7 +130928,7 @@ terminate.lpad.i.i:                               ; preds = %delete.notnull
 
 _ZNSt3setIiSt4lessIiESaIiEED2Ev.exit:             ; preds = %delete.notnull
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
-  br label %cleanup
+  br label %sw.epilog
 
 sw.bb7:                                           ; preds = %entry
   %_M_node_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 40
@@ -130960,11 +130966,11 @@ for.inc.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i.i.i.
   %cmp.i.not.i.i.i.i.i.i = icmp eq ptr %call.i.i.i.i.i.i.i, %add.ptr.i.i.i
   br i1 %cmp.i.not.i.i.i.i.i.i, label %cleanup, label %for.body.i.i.i.i.i.i, !llvm.loop !2553
 
-sw.epilog:                                        ; preds = %entry
+sw.epilog:                                        ; preds = %_ZNSt3setIiSt4lessIiESaIiEED2Ev.exit, %sw.bb6, %sw.bb, %entry
   br label %cleanup
 
-cleanup:                                          ; preds = %for.inc.i.i.i.i.i.i, %for.body.i.i.i.i.i.i, %sw.bb, %sw.bb6, %_ZNSt3setIiSt4lessIiESaIiEED2Ev.exit, %sw.epilog, %land.rhs.i.i, %sw.bb7, %sw.bb4, %if.then.i.i.i, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE5clearEv.exit.i.i.i, %sw.bb1, %entry
-  %retval.0 = phi ptr [ %other, %sw.bb4 ], [ %0, %sw.bb1 ], [ %0, %entry ], [ %other, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE5clearEv.exit.i.i.i ], [ %other, %if.then.i.i.i ], [ null, %sw.bb7 ], [ %other, %land.rhs.i.i ], [ null, %_ZNSt3setIiSt4lessIiESaIiEED2Ev.exit ], [ null, %sw.bb6 ], [ null, %sw.bb ], [ null, %sw.epilog ], [ null, %for.body.i.i.i.i.i.i ], [ %other, %for.inc.i.i.i.i.i.i ]
+cleanup:                                          ; preds = %for.inc.i.i.i.i.i.i, %for.body.i.i.i.i.i.i, %sw.epilog, %land.rhs.i.i, %sw.bb7, %sw.bb4, %if.then.i.i.i, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE5clearEv.exit.i.i.i, %sw.bb1, %entry
+  %retval.0 = phi ptr [ null, %sw.epilog ], [ %other, %sw.bb4 ], [ %0, %sw.bb1 ], [ %0, %entry ], [ %other, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE5clearEv.exit.i.i.i ], [ %other, %if.then.i.i.i ], [ null, %sw.bb7 ], [ %other, %land.rhs.i.i ], [ null, %for.body.i.i.i.i.i.i ], [ %other, %for.inc.i.i.i.i.i.i ]
   ret ptr %retval.0
 }
 
@@ -132181,7 +132187,7 @@ _ZN4entt9basic_anyILm16ELm8EE10initializeISt23_Rb_tree_const_iteratorIiEJRKS4_EE
   store ptr @_ZN4entt9basic_anyILm16ELm8EE12basic_vtableISt23_Rb_tree_const_iteratorIiEEEPKvNS_8internal13any_operationERKS1_S6_, ptr %vtable.i, align 8, !tbaa !25
   %5 = load i64, ptr %cond, align 8, !tbaa !55
   store i64 %5, ptr %other, align 8, !tbaa !55
-  br label %cleanup
+  br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
   br i1 %cmp, label %if.then, label %if.end
@@ -132212,11 +132218,11 @@ sw.bb7:                                           ; preds = %entry
   %cond12 = select i1 %cmp.i, ptr %other, ptr null
   br label %cleanup
 
-sw.epilog:                                        ; preds = %entry
+sw.epilog:                                        ; preds = %_ZN4entt9basic_anyILm16ELm8EE10initializeISt23_Rb_tree_const_iteratorIiEJRKS4_EEEvDpOT0_.exit, %entry
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZN4entt9basic_anyILm16ELm8EE10initializeISt23_Rb_tree_const_iteratorIiEJRKS4_EEEvDpOT0_.exit, %sw.epilog, %sw.bb7, %sw.bb5, %sw.bb4, %if.end, %if.then, %entry
-  %retval.0 = phi ptr [ %cond12, %sw.bb7 ], [ %other, %sw.bb5 ], [ %other, %sw.bb4 ], [ %other, %if.then ], [ %1, %if.end ], [ %cond, %entry ], [ null, %_ZN4entt9basic_anyILm16ELm8EE10initializeISt23_Rb_tree_const_iteratorIiEJRKS4_EEEvDpOT0_.exit ], [ null, %sw.epilog ]
+cleanup:                                          ; preds = %sw.epilog, %sw.bb7, %sw.bb5, %sw.bb4, %if.end, %if.then, %entry
+  %retval.0 = phi ptr [ null, %sw.epilog ], [ %cond12, %sw.bb7 ], [ %other, %sw.bb5 ], [ %other, %sw.bb4 ], [ %other, %if.then ], [ %1, %if.end ], [ %cond, %entry ]
   ret ptr %retval.0
 }
 
@@ -133859,7 +133865,7 @@ lpad.i:                                           ; preds = %_ZN4entt7type_idINS
 
 _ZN4entt9basic_anyILm16ELm8EE10initializeINS_9dense_mapIicSt4hashIiESt8equal_toIiESaISt4pairIKicEEEEJRKSC_EEEvDpOT0_.exit: ; preds = %_ZN4entt7type_idINS_9dense_mapIicSt4hashIiESt8equal_toIiESaISt4pairIKicEEEEEERKNS_9type_infoEv.exit.i
   store ptr %call2.i, ptr %other, align 8, !tbaa !20
-  br label %cleanup
+  br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
   store ptr null, ptr %value, align 8, !tbaa !55
@@ -133920,7 +133926,7 @@ sw.bb4:                                           ; preds = %entry
 
 sw.bb6:                                           ; preds = %entry
   %isnull = icmp eq ptr %0, null
-  br i1 %isnull, label %cleanup, label %delete.notnull
+  br i1 %isnull, label %sw.epilog, label %delete.notnull
 
 delete.notnull:                                   ; preds = %sw.bb6
   %packed.i26 = getelementptr inbounds i8, ptr %0, i64 24
@@ -133943,18 +133949,18 @@ if.then.i.i.i.i3.i:                               ; preds = %_ZN4entt8internal23
 
 _ZN4entt9dense_mapIicSt4hashIiESt8equal_toIiESaISt4pairIKicEEED2Ev.exit: ; preds = %if.then.i.i.i.i3.i, %_ZN4entt8internal23compressed_pair_elementISt6vectorINS0_14dense_map_nodeIicEESaIS4_EELm0EvED2Ev.exit.i
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
-  br label %cleanup
+  br label %sw.epilog
 
 sw.bb7:                                           ; preds = %entry
   %cmp = icmp eq ptr %0, %other
   %cond = select i1 %cmp, ptr %other, ptr null
   br label %cleanup
 
-sw.epilog:                                        ; preds = %entry
+sw.epilog:                                        ; preds = %_ZN4entt9dense_mapIicSt4hashIiESt8equal_toIiESaISt4pairIKicEEED2Ev.exit, %sw.bb6, %_ZN4entt9basic_anyILm16ELm8EE10initializeINS_9dense_mapIicSt4hashIiESt8equal_toIiESaISt4pairIKicEEEEJRKSC_EEEvDpOT0_.exit, %entry
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZN4entt9basic_anyILm16ELm8EE10initializeINS_9dense_mapIicSt4hashIiESt8equal_toIiESaISt4pairIKicEEEEJRKSC_EEEvDpOT0_.exit, %sw.bb6, %_ZN4entt9dense_mapIicSt4hashIiESt8equal_toIiESaISt4pairIKicEEED2Ev.exit, %sw.epilog, %sw.bb7, %sw.bb4, %_ZN4entt9dense_mapIicSt4hashIiESt8equal_toIiESaISt4pairIKicEEEaSEOS9_.exit, %sw.bb1, %entry
-  %retval.0 = phi ptr [ %cond, %sw.bb7 ], [ %other, %sw.bb4 ], [ %other, %_ZN4entt9dense_mapIicSt4hashIiESt8equal_toIiESaISt4pairIKicEEEaSEOS9_.exit ], [ %0, %sw.bb1 ], [ %0, %entry ], [ null, %_ZN4entt9dense_mapIicSt4hashIiESt8equal_toIiESaISt4pairIKicEEED2Ev.exit ], [ null, %sw.bb6 ], [ null, %_ZN4entt9basic_anyILm16ELm8EE10initializeINS_9dense_mapIicSt4hashIiESt8equal_toIiESaISt4pairIKicEEEEJRKSC_EEEvDpOT0_.exit ], [ null, %sw.epilog ]
+cleanup:                                          ; preds = %sw.epilog, %sw.bb7, %sw.bb4, %_ZN4entt9dense_mapIicSt4hashIiESt8equal_toIiESaISt4pairIKicEEEaSEOS9_.exit, %sw.bb1, %entry
+  %retval.0 = phi ptr [ null, %sw.epilog ], [ %cond, %sw.bb7 ], [ %other, %sw.bb4 ], [ %other, %_ZN4entt9dense_mapIicSt4hashIiESt8equal_toIiESaISt4pairIKicEEEaSEOS9_.exit ], [ %0, %sw.bb1 ], [ %0, %entry ]
   ret ptr %retval.0
 }
 
@@ -135140,7 +135146,7 @@ _ZN4entt9basic_anyILm16ELm8EE10initializeINS_8internal18dense_map_iteratorIN9__g
   store ptr @_ZN4entt9basic_anyILm16ELm8EE12basic_vtableINS_8internal18dense_map_iteratorIN9__gnu_cxx17__normal_iteratorIPNS3_14dense_map_nodeIicEESt6vectorIS8_SaIS8_EEEEEEEEPKvNS3_13any_operationERKS1_SG_, ptr %vtable.i, align 8, !tbaa !25
   %5 = load i64, ptr %cond, align 8, !tbaa !55
   store i64 %5, ptr %other, align 8, !tbaa !55
-  br label %cleanup
+  br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
   br i1 %cmp, label %if.then, label %if.end
@@ -135171,11 +135177,11 @@ sw.bb7:                                           ; preds = %entry
   %cond12 = select i1 %cmp.i.i, ptr %other, ptr null
   br label %cleanup
 
-sw.epilog:                                        ; preds = %entry
+sw.epilog:                                        ; preds = %_ZN4entt9basic_anyILm16ELm8EE10initializeINS_8internal18dense_map_iteratorIN9__gnu_cxx17__normal_iteratorIPNS3_14dense_map_nodeIicEESt6vectorIS8_SaIS8_EEEEEEJRKSE_EEEvDpOT0_.exit, %entry
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZN4entt9basic_anyILm16ELm8EE10initializeINS_8internal18dense_map_iteratorIN9__gnu_cxx17__normal_iteratorIPNS3_14dense_map_nodeIicEESt6vectorIS8_SaIS8_EEEEEEJRKSE_EEEvDpOT0_.exit, %sw.epilog, %sw.bb7, %sw.bb5, %sw.bb4, %if.end, %if.then, %entry
-  %retval.0 = phi ptr [ %cond12, %sw.bb7 ], [ %other, %sw.bb5 ], [ %other, %sw.bb4 ], [ %other, %if.then ], [ %1, %if.end ], [ %cond, %entry ], [ null, %_ZN4entt9basic_anyILm16ELm8EE10initializeINS_8internal18dense_map_iteratorIN9__gnu_cxx17__normal_iteratorIPNS3_14dense_map_nodeIicEESt6vectorIS8_SaIS8_EEEEEEJRKSE_EEEvDpOT0_.exit ], [ null, %sw.epilog ]
+cleanup:                                          ; preds = %sw.epilog, %sw.bb7, %sw.bb5, %sw.bb4, %if.end, %if.then, %entry
+  %retval.0 = phi ptr [ null, %sw.epilog ], [ %cond12, %sw.bb7 ], [ %other, %sw.bb5 ], [ %other, %sw.bb4 ], [ %other, %if.then ], [ %1, %if.end ], [ %cond, %entry ]
   ret ptr %retval.0
 }
 
@@ -135277,7 +135283,7 @@ _ZN4entt9basic_anyILm16ELm8EE10initializeINS_8internal18dense_map_iteratorIN9__g
   store ptr @_ZN4entt9basic_anyILm16ELm8EE12basic_vtableINS_8internal18dense_map_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS3_14dense_map_nodeIicEESt6vectorIS8_SaIS8_EEEEEEEEPKvNS3_13any_operationERKS1_SH_, ptr %vtable.i, align 8, !tbaa !25
   %5 = load i64, ptr %cond, align 8, !tbaa !55
   store i64 %5, ptr %other, align 8, !tbaa !55
-  br label %cleanup
+  br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
   br i1 %cmp, label %if.then, label %if.end
@@ -135308,11 +135314,11 @@ sw.bb7:                                           ; preds = %entry
   %cond12 = select i1 %cmp.i.i, ptr %other, ptr null
   br label %cleanup
 
-sw.epilog:                                        ; preds = %entry
+sw.epilog:                                        ; preds = %_ZN4entt9basic_anyILm16ELm8EE10initializeINS_8internal18dense_map_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS3_14dense_map_nodeIicEESt6vectorIS8_SaIS8_EEEEEEJRKSF_EEEvDpOT0_.exit, %entry
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZN4entt9basic_anyILm16ELm8EE10initializeINS_8internal18dense_map_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS3_14dense_map_nodeIicEESt6vectorIS8_SaIS8_EEEEEEJRKSF_EEEvDpOT0_.exit, %sw.epilog, %sw.bb7, %sw.bb5, %sw.bb4, %if.end, %if.then, %entry
-  %retval.0 = phi ptr [ %cond12, %sw.bb7 ], [ %other, %sw.bb5 ], [ %other, %sw.bb4 ], [ %other, %if.then ], [ %1, %if.end ], [ %cond, %entry ], [ null, %_ZN4entt9basic_anyILm16ELm8EE10initializeINS_8internal18dense_map_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS3_14dense_map_nodeIicEESt6vectorIS8_SaIS8_EEEEEEJRKSF_EEEvDpOT0_.exit ], [ null, %sw.epilog ]
+cleanup:                                          ; preds = %sw.epilog, %sw.bb7, %sw.bb5, %sw.bb4, %if.end, %if.then, %entry
+  %retval.0 = phi ptr [ null, %sw.epilog ], [ %cond12, %sw.bb7 ], [ %other, %sw.bb5 ], [ %other, %sw.bb4 ], [ %other, %if.then ], [ %1, %if.end ], [ %cond, %entry ]
   ret ptr %retval.0
 }
 
@@ -136073,7 +136079,7 @@ lpad.i:                                           ; preds = %_ZN4entt7type_idINS
 
 _ZN4entt9basic_anyILm16ELm8EE10initializeINS_9dense_setIiSt4hashIiESt8equal_toIiESaIiEEEJRKS9_EEEvDpOT0_.exit: ; preds = %_ZN4entt7type_idINS_9dense_setIiSt4hashIiESt8equal_toIiESaIiEEEEERKNS_9type_infoEv.exit.i
   store ptr %call2.i, ptr %other, align 8, !tbaa !20
-  br label %cleanup
+  br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
   store ptr null, ptr %value, align 8, !tbaa !55
@@ -136134,7 +136140,7 @@ sw.bb4:                                           ; preds = %entry
 
 sw.bb6:                                           ; preds = %entry
   %isnull = icmp eq ptr %0, null
-  br i1 %isnull, label %cleanup, label %delete.notnull
+  br i1 %isnull, label %sw.epilog, label %delete.notnull
 
 delete.notnull:                                   ; preds = %sw.bb6
   %packed.i26 = getelementptr inbounds i8, ptr %0, i64 24
@@ -136157,18 +136163,18 @@ if.then.i.i.i.i3.i:                               ; preds = %_ZN4entt8internal23
 
 _ZN4entt9dense_setIiSt4hashIiESt8equal_toIiESaIiEED2Ev.exit: ; preds = %if.then.i.i.i.i3.i, %_ZN4entt8internal23compressed_pair_elementISt6vectorISt4pairImiESaIS4_EELm0EvED2Ev.exit.i
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
-  br label %cleanup
+  br label %sw.epilog
 
 sw.bb7:                                           ; preds = %entry
   %cmp = icmp eq ptr %0, %other
   %cond = select i1 %cmp, ptr %other, ptr null
   br label %cleanup
 
-sw.epilog:                                        ; preds = %entry
+sw.epilog:                                        ; preds = %_ZN4entt9dense_setIiSt4hashIiESt8equal_toIiESaIiEED2Ev.exit, %sw.bb6, %_ZN4entt9basic_anyILm16ELm8EE10initializeINS_9dense_setIiSt4hashIiESt8equal_toIiESaIiEEEJRKS9_EEEvDpOT0_.exit, %entry
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZN4entt9basic_anyILm16ELm8EE10initializeINS_9dense_setIiSt4hashIiESt8equal_toIiESaIiEEEJRKS9_EEEvDpOT0_.exit, %sw.bb6, %_ZN4entt9dense_setIiSt4hashIiESt8equal_toIiESaIiEED2Ev.exit, %sw.epilog, %sw.bb7, %sw.bb4, %_ZN4entt9dense_setIiSt4hashIiESt8equal_toIiESaIiEEaSEOS6_.exit, %sw.bb1, %entry
-  %retval.0 = phi ptr [ %cond, %sw.bb7 ], [ %other, %sw.bb4 ], [ %other, %_ZN4entt9dense_setIiSt4hashIiESt8equal_toIiESaIiEEaSEOS6_.exit ], [ %0, %sw.bb1 ], [ %0, %entry ], [ null, %_ZN4entt9dense_setIiSt4hashIiESt8equal_toIiESaIiEED2Ev.exit ], [ null, %sw.bb6 ], [ null, %_ZN4entt9basic_anyILm16ELm8EE10initializeINS_9dense_setIiSt4hashIiESt8equal_toIiESaIiEEEJRKS9_EEEvDpOT0_.exit ], [ null, %sw.epilog ]
+cleanup:                                          ; preds = %sw.epilog, %sw.bb7, %sw.bb4, %_ZN4entt9dense_setIiSt4hashIiESt8equal_toIiESaIiEEaSEOS6_.exit, %sw.bb1, %entry
+  %retval.0 = phi ptr [ null, %sw.epilog ], [ %cond, %sw.bb7 ], [ %other, %sw.bb4 ], [ %other, %_ZN4entt9dense_setIiSt4hashIiESt8equal_toIiESaIiEEaSEOS6_.exit ], [ %0, %sw.bb1 ], [ %0, %entry ]
   ret ptr %retval.0
 }
 
@@ -137259,7 +137265,7 @@ _ZN4entt9basic_anyILm16ELm8EE10initializeINS_8internal18dense_set_iteratorIN9__g
   store ptr @_ZN4entt9basic_anyILm16ELm8EE12basic_vtableINS_8internal18dense_set_iteratorIN9__gnu_cxx17__normal_iteratorIPSt4pairImiESt6vectorIS8_SaIS8_EEEEEEEEPKvNS3_13any_operationERKS1_SG_, ptr %vtable.i, align 8, !tbaa !25
   %5 = load i64, ptr %cond, align 8, !tbaa !55
   store i64 %5, ptr %other, align 8, !tbaa !55
-  br label %cleanup
+  br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
   br i1 %cmp, label %if.then, label %if.end
@@ -137290,11 +137296,11 @@ sw.bb7:                                           ; preds = %entry
   %cond12 = select i1 %cmp.i.i, ptr %other, ptr null
   br label %cleanup
 
-sw.epilog:                                        ; preds = %entry
+sw.epilog:                                        ; preds = %_ZN4entt9basic_anyILm16ELm8EE10initializeINS_8internal18dense_set_iteratorIN9__gnu_cxx17__normal_iteratorIPSt4pairImiESt6vectorIS8_SaIS8_EEEEEEJRKSE_EEEvDpOT0_.exit, %entry
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZN4entt9basic_anyILm16ELm8EE10initializeINS_8internal18dense_set_iteratorIN9__gnu_cxx17__normal_iteratorIPSt4pairImiESt6vectorIS8_SaIS8_EEEEEEJRKSE_EEEvDpOT0_.exit, %sw.epilog, %sw.bb7, %sw.bb5, %sw.bb4, %if.end, %if.then, %entry
-  %retval.0 = phi ptr [ %cond12, %sw.bb7 ], [ %other, %sw.bb5 ], [ %other, %sw.bb4 ], [ %other, %if.then ], [ %1, %if.end ], [ %cond, %entry ], [ null, %_ZN4entt9basic_anyILm16ELm8EE10initializeINS_8internal18dense_set_iteratorIN9__gnu_cxx17__normal_iteratorIPSt4pairImiESt6vectorIS8_SaIS8_EEEEEEJRKSE_EEEvDpOT0_.exit ], [ null, %sw.epilog ]
+cleanup:                                          ; preds = %sw.epilog, %sw.bb7, %sw.bb5, %sw.bb4, %if.end, %if.then, %entry
+  %retval.0 = phi ptr [ null, %sw.epilog ], [ %cond12, %sw.bb7 ], [ %other, %sw.bb5 ], [ %other, %sw.bb4 ], [ %other, %if.then ], [ %1, %if.end ], [ %cond, %entry ]
   ret ptr %retval.0
 }
 
@@ -137392,7 +137398,7 @@ _ZN4entt9basic_anyILm16ELm8EE10initializeINS_8internal18dense_set_iteratorIN9__g
   store ptr @_ZN4entt9basic_anyILm16ELm8EE12basic_vtableINS_8internal18dense_set_iteratorIN9__gnu_cxx17__normal_iteratorIPKSt4pairImiESt6vectorIS8_SaIS8_EEEEEEEEPKvNS3_13any_operationERKS1_SH_, ptr %vtable.i, align 8, !tbaa !25
   %5 = load i64, ptr %cond, align 8, !tbaa !55
   store i64 %5, ptr %other, align 8, !tbaa !55
-  br label %cleanup
+  br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
   br i1 %cmp, label %if.then, label %if.end
@@ -137423,11 +137429,11 @@ sw.bb7:                                           ; preds = %entry
   %cond12 = select i1 %cmp.i.i, ptr %other, ptr null
   br label %cleanup
 
-sw.epilog:                                        ; preds = %entry
+sw.epilog:                                        ; preds = %_ZN4entt9basic_anyILm16ELm8EE10initializeINS_8internal18dense_set_iteratorIN9__gnu_cxx17__normal_iteratorIPKSt4pairImiESt6vectorIS8_SaIS8_EEEEEEJRKSF_EEEvDpOT0_.exit, %entry
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZN4entt9basic_anyILm16ELm8EE10initializeINS_8internal18dense_set_iteratorIN9__gnu_cxx17__normal_iteratorIPKSt4pairImiESt6vectorIS8_SaIS8_EEEEEEJRKSF_EEEvDpOT0_.exit, %sw.epilog, %sw.bb7, %sw.bb5, %sw.bb4, %if.end, %if.then, %entry
-  %retval.0 = phi ptr [ %cond12, %sw.bb7 ], [ %other, %sw.bb5 ], [ %other, %sw.bb4 ], [ %other, %if.then ], [ %1, %if.end ], [ %cond, %entry ], [ null, %_ZN4entt9basic_anyILm16ELm8EE10initializeINS_8internal18dense_set_iteratorIN9__gnu_cxx17__normal_iteratorIPKSt4pairImiESt6vectorIS8_SaIS8_EEEEEEJRKSF_EEEvDpOT0_.exit ], [ null, %sw.epilog ]
+cleanup:                                          ; preds = %sw.epilog, %sw.bb7, %sw.bb5, %sw.bb4, %if.end, %if.then, %entry
+  %retval.0 = phi ptr [ null, %sw.epilog ], [ %cond12, %sw.bb7 ], [ %other, %sw.bb5 ], [ %other, %sw.bb4 ], [ %other, %if.then ], [ %1, %if.end ], [ %cond, %entry ]
   ret ptr %retval.0
 }
 

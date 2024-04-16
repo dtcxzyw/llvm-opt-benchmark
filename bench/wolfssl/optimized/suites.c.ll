@@ -487,20 +487,19 @@ if.end97:                                         ; preds = %if.else92, %if.then
 lor.lhs.false100:                                 ; preds = %if.end97
   %21 = load i8, ptr %20, align 1
   %cmp102 = icmp eq i8 %21, 0
-  %spec.select = zext i1 %cmp102 to i32
-  br label %sw.epilog
+  br i1 %cmp102, label %sw.epilog.thread, label %sw.epilog
 
 sw.epilog:                                        ; preds = %lor.lhs.false100, %sw.bb85, %if.end84
-  %svrArgsSz.2 = phi i32 [ %svrArgsSz.094, %sw.bb85 ], [ %svrArgsSz.094, %if.end84 ], [ %svrArgsSz.1, %lor.lhs.false100 ]
-  %cliArgsSz.2 = phi i32 [ %cliArgsSz.095, %sw.bb85 ], [ %cliArgsSz.095, %if.end84 ], [ %cliArgsSz.1, %lor.lhs.false100 ]
-  %cliMode.2 = phi i32 [ %cliMode.096, %sw.bb85 ], [ %cliMode.1, %if.end84 ], [ %cliMode.096, %lor.lhs.false100 ]
-  %do_it.2 = phi i32 [ 0, %sw.bb85 ], [ %do_it.1, %if.end84 ], [ %spec.select, %lor.lhs.false100 ]
+  %svrArgsSz.2 = phi i32 [ %svrArgsSz.1, %lor.lhs.false100 ], [ %svrArgsSz.094, %sw.bb85 ], [ %svrArgsSz.094, %if.end84 ]
+  %cliArgsSz.2 = phi i32 [ %cliArgsSz.1, %lor.lhs.false100 ], [ %cliArgsSz.095, %sw.bb85 ], [ %cliArgsSz.095, %if.end84 ]
+  %cliMode.2 = phi i32 [ %cliMode.096, %lor.lhs.false100 ], [ %cliMode.096, %sw.bb85 ], [ %cliMode.1, %if.end84 ]
+  %do_it.2 = phi i32 [ 0, %lor.lhs.false100 ], [ 0, %sw.bb85 ], [ %do_it.1, %if.end84 ]
   %cmp106 = icmp eq i32 %svrArgsSz.2, 40
   %cmp109 = icmp eq i32 %cliArgsSz.2, 40
   %or.cond1 = select i1 %cmp106, i1 true, i1 %cmp109
   br i1 %or.cond1, label %if.end113.thread, label %if.end113
 
-sw.epilog.thread:                                 ; preds = %if.end97
+sw.epilog.thread:                                 ; preds = %if.end97, %lor.lhs.false100
   %cmp106108 = icmp eq i32 %svrArgsSz.1, 40
   %cmp109109 = icmp eq i32 %cliArgsSz.1, 40
   %or.cond1110 = select i1 %cmp106108, i1 true, i1 %cmp109109

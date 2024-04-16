@@ -600,9 +600,9 @@ define internal i64 @eventfd_read(ptr nocapture noundef readonly %0, ptr noundef
   %52 = load i32, ptr %51, align 8
   %53 = and i32 %52, 1
   %54 = icmp eq i32 %53, 0
-  %55 = icmp ne i64 %.pre, 0
-  %spec.select = zext i1 %55 to i64
-  %56 = select i1 %54, i64 %.pre, i64 %spec.select
+  %55 = icmp eq i64 %.pre, 0
+  %or.cond = select i1 %54, i1 true, i1 %55
+  %56 = select i1 %or.cond, i64 %.pre, i64 1
   store i64 %56, ptr %3, align 8
   %57 = sub i64 %.pre, %56
   store i64 %57, ptr %13, align 8

@@ -254,12 +254,11 @@ entry:
 
 if.then:                                          ; preds = %entry
   %or.cond = icmp ult i32 %which, 75
-  %spec.select = select i1 %or.cond, i32 1, i32 -1
-  br label %return
+  br i1 %or.cond, label %return, label %if.end7
 
 if.else:                                          ; preds = %entry
   %cmp4 = icmp ult i32 %which, 4121
-  br i1 %cmp4, label %if.then5, label %return
+  br i1 %cmp4, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %if.else
   %sub = add nsw i32 %which, -4096
@@ -270,8 +269,11 @@ if.then5:                                         ; preds = %if.else
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx, i32 noundef %which)
   br label %return
 
-return:                                           ; preds = %if.then, %if.else, %if.then5
-  %retval.0 = phi i32 [ %call, %if.then5 ], [ -1, %if.else ], [ %spec.select, %if.then ]
+if.end7:                                          ; preds = %if.else, %if.then
+  br label %return
+
+return:                                           ; preds = %if.then, %if.end7, %if.then5
+  %retval.0 = phi i32 [ -1, %if.end7 ], [ %call, %if.then5 ], [ 1, %if.then ]
   ret i32 %retval.0
 }
 

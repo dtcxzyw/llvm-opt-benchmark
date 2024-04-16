@@ -231,15 +231,17 @@ for.body:                                         ; preds = %entry, %if.end
   %vhost_backend_no_private_memslots = getelementptr inbounds i8, ptr %2, i64 32
   %3 = load ptr, ptr %vhost_backend_no_private_memslots, align 8
   %tobool2.not = icmp eq ptr %3, null
-  br i1 %tobool2.not, label %if.end, label %land.lhs.true
+  br i1 %tobool2.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
   %call5 = tail call zeroext i1 %3(ptr noundef nonnull %hdev.014) #18
-  %spec.select = select i1 %call5, ptr @used_shared_memslots, ptr @used_memslots
+  br i1 %call5, label %if.end, label %if.else
+
+if.else:                                          ; preds = %land.lhs.true, %for.body
   br label %if.end
 
-if.end:                                           ; preds = %land.lhs.true, %for.body
-  %.pn.in = phi ptr [ @used_memslots, %for.body ], [ %spec.select, %land.lhs.true ]
+if.end:                                           ; preds = %land.lhs.true, %if.else
+  %.pn.in = phi ptr [ @used_memslots, %if.else ], [ @used_shared_memslots, %land.lhs.true ]
   %.pn = load i32, ptr %.pn.in, align 4
   %cur_free.0 = sub i32 %call, %.pn
   %cond = tail call i32 @llvm.umin.i32(i32 %free.013, i32 %cur_free.0)
@@ -1676,15 +1678,17 @@ if.end102:                                        ; preds = %if.then98, %if.end9
   %vhost_backend_no_private_memslots = getelementptr inbounds i8, ptr %33, i64 32
   %34 = load ptr, ptr %vhost_backend_no_private_memslots, align 8
   %tobool106.not = icmp eq ptr %34, null
-  br i1 %tobool106.not, label %if.end113, label %land.lhs.true107
+  br i1 %tobool106.not, label %if.else112, label %land.lhs.true107
 
 land.lhs.true107:                                 ; preds = %if.end102
   %call110 = call zeroext i1 %34(ptr noundef nonnull %hdev) #18
-  %spec.select = select i1 %call110, ptr @used_shared_memslots, ptr @used_memslots
+  br i1 %call110, label %if.end113, label %if.else112
+
+if.else112:                                       ; preds = %land.lhs.true107, %if.end102
   br label %if.end113
 
-if.end113:                                        ; preds = %land.lhs.true107, %if.end102
-  %used.0.in = phi ptr [ @used_memslots, %if.end102 ], [ %spec.select, %land.lhs.true107 ]
+if.end113:                                        ; preds = %land.lhs.true107, %if.else112
+  %used.0.in = phi ptr [ @used_memslots, %if.else112 ], [ @used_shared_memslots, %land.lhs.true107 ]
   %used.0 = load i32, ptr %used.0.in, align 4
   %call114 = call i32 @memory_devices_get_reserved_memslots() #18
   %add115 = add i32 %call114, %used.0
@@ -1933,15 +1937,17 @@ if.end13:                                         ; preds = %trace_vhost_commit.
   %vhost_backend_no_private_memslots = getelementptr inbounds i8, ptr %33, i64 32
   %34 = load ptr, ptr %vhost_backend_no_private_memslots, align 8
   %tobool19.not = icmp eq ptr %34, null
-  br i1 %tobool19.not, label %if.end30, label %land.lhs.true
+  br i1 %tobool19.not, label %if.else27, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end13
   %call22 = tail call zeroext i1 %34(ptr noundef %add.ptr) #18
-  %spec.select = select i1 %call22, ptr @used_shared_memslots, ptr @used_memslots
+  br i1 %call22, label %if.end30, label %if.else27
+
+if.else27:                                        ; preds = %land.lhs.true, %if.end13
   br label %if.end30
 
-if.end30:                                         ; preds = %land.lhs.true, %if.end13
-  %used_memslots.sink = phi ptr [ @used_memslots, %if.end13 ], [ %spec.select, %land.lhs.true ]
+if.end30:                                         ; preds = %land.lhs.true, %if.else27
+  %used_memslots.sink = phi ptr [ @used_memslots, %if.else27 ], [ @used_shared_memslots, %land.lhs.true ]
   %35 = load ptr, ptr %mem, align 8
   %36 = load i32, ptr %35, align 8
   store i32 %36, ptr %used_memslots.sink, align 4

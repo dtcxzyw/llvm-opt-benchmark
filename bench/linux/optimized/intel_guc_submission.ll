@@ -3306,12 +3306,12 @@ define dso_local i32 @intel_guc_submission_enable(ptr noundef %0) local_unnamed_
   %162 = sext i32 %151 to i64
   %163 = inttoptr i64 %162 to ptr
   call void (ptr, ptr, ...) @_dev_err(ptr noundef %160, ptr noundef nonnull @.str.35, i32 noundef %161, ptr noundef nonnull %163) #24
-  br label %select.unfold26
+  br label %181
 
 164:                                              ; preds = %145
   %165 = load i32, ptr %140, align 4
   %166 = icmp eq i32 %151, %165
-  br i1 %166, label %.thread28, label %167
+  br i1 %166, label %178, label %167
 
 167:                                              ; preds = %164
   %168 = load ptr, ptr %4, align 8
@@ -3329,47 +3329,47 @@ define dso_local i32 @intel_guc_submission_enable(ptr noundef %0) local_unnamed_
   call void (ptr, ptr, ...) @_dev_warn(ptr noundef %174, ptr noundef nonnull @.str.36, i32 noundef %175, i32 noundef %151, i32 noundef %165) #24
   %176 = load i32, ptr %140, align 4
   %177 = icmp ugt i32 %151, %176
-  br i1 %177, label %select.unfold26, label %.thread28
+  br i1 %177, label %181, label %178
 
 .thread25:                                        ; preds = %.thread22, %138
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %2) #20
-  br label %194
+  br label %195
 
-.thread28:                                        ; preds = %164, %173
-  %178 = load ptr, ptr %4, align 8
-  %179 = getelementptr inbounds i8, ptr %178, i64 8928
-  call void @intel_runtime_pm_put_unchecked(ptr noundef %179) #20
+178:                                              ; preds = %164, %173
+  %179 = load ptr, ptr %4, align 8
+  %180 = getelementptr inbounds i8, ptr %179, i64 8928
+  call void @intel_runtime_pm_put_unchecked(ptr noundef %180) #20
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %2) #20
-  br label %194
+  br label %195
 
-select.unfold26:                                  ; preds = %173, %159
-  %180 = phi i32 [ %151, %159 ], [ -71, %173 ]
-  %181 = load ptr, ptr %4, align 8
-  %182 = getelementptr inbounds i8, ptr %181, i64 8928
-  call void @intel_runtime_pm_put_unchecked(ptr noundef %182) #20
+181:                                              ; preds = %159, %173
+  %.ph27 = phi i32 [ -71, %173 ], [ %151, %159 ]
+  %182 = load ptr, ptr %4, align 8
+  %183 = getelementptr inbounds i8, ptr %182, i64 8928
+  call void @intel_runtime_pm_put_unchecked(ptr noundef %183) #20
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %2) #20
-  %183 = call zeroext i1 @cancel_delayed_work_sync(ptr noundef %123) #20
+  %184 = call zeroext i1 @cancel_delayed_work_sync(ptr noundef %123) #20
   br label %.thread21
 
-.thread21:                                        ; preds = %38, %71, %75, %94, %116, %select.unfold26
-  %184 = phi i32 [ %106, %116 ], [ %180, %select.unfold26 ], [ %69, %94 ], [ %69, %75 ], [ %69, %71 ], [ %39, %38 ]
-  %185 = load ptr, ptr %4, align 8
-  %186 = getelementptr inbounds i8, ptr %185, i64 7176
-  %187 = load i8, ptr %186, align 8
-  %188 = icmp ult i8 %187, 12
-  br i1 %188, label %194, label %189
+.thread21:                                        ; preds = %38, %71, %75, %94, %116, %181
+  %185 = phi i32 [ %106, %116 ], [ %.ph27, %181 ], [ %69, %94 ], [ %69, %75 ], [ %69, %71 ], [ %39, %38 ]
+  %186 = load ptr, ptr %4, align 8
+  %187 = getelementptr inbounds i8, ptr %186, i64 7176
+  %188 = load i8, ptr %187, align 8
+  %189 = icmp ult i8 %188, 12
+  br i1 %189, label %195, label %190
 
-189:                                              ; preds = %.thread21
-  %190 = getelementptr i8, ptr %0, i64 -608
-  %191 = load ptr, ptr %190, align 8
-  %192 = getelementptr inbounds i8, ptr %191, i64 176
-  %193 = load ptr, ptr %192, align 8
-  call void %193(ptr noundef %191, i32 50972, i32 noundef 0, i1 noundef zeroext true) #20
-  br label %194
+190:                                              ; preds = %.thread21
+  %191 = getelementptr i8, ptr %0, i64 -608
+  %192 = load ptr, ptr %191, align 8
+  %193 = getelementptr inbounds i8, ptr %192, i64 176
+  %194 = load ptr, ptr %193, align 8
+  call void %194(ptr noundef %192, i32 50972, i32 noundef 0, i1 noundef zeroext true) #20
+  br label %195
 
-194:                                              ; preds = %.thread28, %.thread25, %189, %.thread21
-  %195 = phi i32 [ %184, %.thread21 ], [ %184, %189 ], [ 0, %.thread25 ], [ 0, %.thread28 ]
-  ret i32 %195
+195:                                              ; preds = %178, %.thread25, %190, %.thread21
+  %196 = phi i32 [ 0, %178 ], [ %185, %.thread21 ], [ %185, %190 ], [ 0, %.thread25 ]
+  ret i32 %196
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

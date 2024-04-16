@@ -785,46 +785,53 @@ for.body:                                         ; preds = %for.cond
   %sub.i.i.i = sub nsw i64 23, %conv.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i13, i64 %8, i64 %sub.i.i.i
   %cmp.i14.not = icmp eq i64 %cond.i.i, 0
-  %.pre = load ptr, ptr %mValue.i, align 8
-  %.pre125 = select i1 %tobool.i.i.i13, ptr %.pre, ptr %mValue.i
+  %.pre.pre = load ptr, ptr %mValue.i, align 8
+  %.pre126 = select i1 %tobool.i.i.i13, ptr %.pre.pre, ptr %mValue.i
   br i1 %cmp.i14.not, label %if.end, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %.pre, i64 %8
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %.pre.pre, i64 %8
   %add.ptr.i1.i.i = getelementptr inbounds i8, ptr %mValue.i, i64 %sub.i.i.i
   %cond.i8.i = select i1 %tobool.i.i.i13, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
-  %cmp.not4.i.i = icmp eq ptr %.pre125, %cond.i8.i
-  br i1 %cmp.not4.i.i, label %_ZN5eastl4findIPKccEET_S3_S3_RKT0_.exit.i, label %land.rhs.lr.ph.i.i
+  %cmp.not4.i.i = icmp eq ptr %.pre126, %cond.i8.i
+  br i1 %cmp.not4.i.i, label %if.then.i._ZN5eastl4findIPKccEET_S3_S3_RKT0_.exit.i_crit_edge, label %land.rhs.lr.ph.i.i
+
+if.then.i._ZN5eastl4findIPKccEET_S3_S3_RKT0_.exit.i_crit_edge: ; preds = %if.then.i
+  %.pre125 = ptrtoint ptr %.pre126 to i64
+  br label %_ZN5eastl4findIPKccEET_S3_S3_RKT0_.exit.i
 
 land.rhs.lr.ph.i.i:                               ; preds = %if.then.i
   %last7.i.i = ptrtoint ptr %cond.i8.i to i64
-  %first8.i.i = ptrtoint ptr %.pre125 to i64
+  %first8.i.i = ptrtoint ptr %.pre126 to i64
   %9 = sub i64 %last7.i.i, %first8.i.i
-  %scevgep.i.i = getelementptr i8, ptr %.pre125, i64 %9
+  %scevgep.i.i = getelementptr i8, ptr %.pre126, i64 %9
   br label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %while.body.i.i, %land.rhs.lr.ph.i.i
-  %first.addr.05.i.i = phi ptr [ %.pre125, %land.rhs.lr.ph.i.i ], [ %incdec.ptr.i.i, %while.body.i.i ]
+  %first.addr.05.i.i = phi ptr [ %.pre126, %land.rhs.lr.ph.i.i ], [ %incdec.ptr.i.i, %while.body.i.i ]
   %10 = load i8, ptr %first.addr.05.i.i, align 1
   %cmp2.not.i.i = icmp eq i8 %10, 47
-  br i1 %cmp2.not.i.i, label %_ZN5eastl4findIPKccEET_S3_S3_RKT0_.exit.i, label %while.body.i.i
+  br i1 %cmp2.not.i.i, label %_ZN5eastl4findIPKccEET_S3_S3_RKT0_.exit.i.loopexit, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %land.rhs.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %first.addr.05.i.i, i64 1
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %cond.i8.i
-  br i1 %cmp.not.i.i, label %_ZN5eastl4findIPKccEET_S3_S3_RKT0_.exit.i, label %land.rhs.i.i, !llvm.loop !7
+  br i1 %cmp.not.i.i, label %_ZN5eastl4findIPKccEET_S3_S3_RKT0_.exit.i.loopexit, label %land.rhs.i.i, !llvm.loop !7
 
-_ZN5eastl4findIPKccEET_S3_S3_RKT0_.exit.i:        ; preds = %while.body.i.i, %land.rhs.i.i, %if.then.i
-  %first.addr.0.lcssa.i.i = phi ptr [ %.pre125, %if.then.i ], [ %scevgep.i.i, %while.body.i.i ], [ %first.addr.05.i.i, %land.rhs.i.i ]
+_ZN5eastl4findIPKccEET_S3_S3_RKT0_.exit.i.loopexit: ; preds = %land.rhs.i.i, %while.body.i.i
+  %first.addr.0.lcssa.i.i.ph = phi ptr [ %first.addr.05.i.i, %land.rhs.i.i ], [ %scevgep.i.i, %while.body.i.i ]
+  %.pre = ptrtoint ptr %first.addr.0.lcssa.i.i.ph to i64
+  br label %_ZN5eastl4findIPKccEET_S3_S3_RKT0_.exit.i
+
+_ZN5eastl4findIPKccEET_S3_S3_RKT0_.exit.i:        ; preds = %if.then.i._ZN5eastl4findIPKccEET_S3_S3_RKT0_.exit.i_crit_edge, %_ZN5eastl4findIPKccEET_S3_S3_RKT0_.exit.i.loopexit
+  %sub.ptr.lhs.cast.i.pre-phi = phi i64 [ %.pre125, %if.then.i._ZN5eastl4findIPKccEET_S3_S3_RKT0_.exit.i_crit_edge ], [ %.pre, %_ZN5eastl4findIPKccEET_S3_S3_RKT0_.exit.i.loopexit ]
+  %sub.ptr.rhs.cast.i.pre-phi = phi i64 [ %.pre125, %if.then.i._ZN5eastl4findIPKccEET_S3_S3_RKT0_.exit.i_crit_edge ], [ %first8.i.i, %_ZN5eastl4findIPKccEET_S3_S3_RKT0_.exit.i.loopexit ]
+  %first.addr.0.lcssa.i.i = phi ptr [ %.pre126, %if.then.i._ZN5eastl4findIPKccEET_S3_S3_RKT0_.exit.i_crit_edge ], [ %first.addr.0.lcssa.i.i.ph, %_ZN5eastl4findIPKccEET_S3_S3_RKT0_.exit.i.loopexit ]
   %cmp11.not.i = icmp eq ptr %first.addr.0.lcssa.i.i, %cond.i8.i
-  br i1 %cmp11.not.i, label %if.end, label %_ZNK5eastl12basic_stringIcNS_9allocatorEE4findEcm.exit
-
-_ZNK5eastl12basic_stringIcNS_9allocatorEE4findEcm.exit: ; preds = %_ZN5eastl4findIPKccEET_S3_S3_RKT0_.exit.i
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %first.addr.0.lcssa.i.i to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %.pre125 to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
+  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i.pre-phi, %sub.ptr.rhs.cast.i.pre-phi
   %cmp = icmp eq i64 %sub.ptr.sub.i, -1
-  %spec.select = select i1 %cmp, i64 %cond.i.i, i64 %sub.ptr.sub.i
+  %or.cond = or i1 %cmp11.not.i, %cmp
+  %spec.select = select i1 %or.cond, i64 %cond.i.i, i64 %sub.ptr.sub.i
   br label %if.end
 
 lpad6:                                            ; preds = %for.inc, %if.else.i.i, %if.end30, %if.end27, %if.then25
@@ -832,8 +839,8 @@ lpad6:                                            ; preds = %for.inc, %if.else.i
           cleanup
   br label %ehcleanup
 
-if.end:                                           ; preds = %for.body, %_ZNK5eastl12basic_stringIcNS_9allocatorEE4findEcm.exit, %_ZN5eastl4findIPKccEET_S3_S3_RKT0_.exit.i
-  %n.0 = phi i64 [ %spec.select, %_ZNK5eastl12basic_stringIcNS_9allocatorEE4findEcm.exit ], [ %cond.i.i, %_ZN5eastl4findIPKccEET_S3_S3_RKT0_.exit.i ], [ 0, %for.body ]
+if.end:                                           ; preds = %_ZN5eastl4findIPKccEET_S3_S3_RKT0_.exit.i, %for.body
+  %n.0 = phi i64 [ 0, %for.body ], [ %spec.select, %_ZN5eastl4findIPKccEET_S3_S3_RKT0_.exit.i ]
   %cond.i10.i = call noundef i64 @llvm.umin.i64(i64 %cond.i.i, i64 %n.0)
   %12 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i12, align 1
   %tobool.i.i.i.i = icmp slt i8 %12, 0
@@ -851,7 +858,7 @@ if.then.i.i:                                      ; preds = %if.end
 if.then3.i.i:                                     ; preds = %if.then.i.i
   %14 = load ptr, ptr %sTestTypeTemp, align 8
   %spec.select.i.i.i = select i1 %tobool.i.i.i.i, ptr %14, ptr %sTestTypeTemp
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %spec.select.i.i.i, ptr align 1 %.pre125, i64 %cond.i10.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %spec.select.i.i.i, ptr align 1 %.pre126, i64 %cond.i10.i, i1 false)
   %.pre.i.i = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i12, align 1
   %.pre34.i.i = load i64, ptr %mnSize.i.i.i.i, align 8
   %.pre35.i.i = zext nneg i8 %.pre.i.i to i64
@@ -898,17 +905,17 @@ cond.false.i.i.i.i:                               ; preds = %if.then.i.i.i
   br label %invoke.cont15
 
 if.else.i.i:                                      ; preds = %if.end
-  %add.ptr9.i = getelementptr inbounds i8, ptr %.pre125, i64 %cond.i10.i
+  %add.ptr9.i = getelementptr inbounds i8, ptr %.pre126, i64 %cond.i10.i
   %22 = load ptr, ptr %sTestTypeTemp, align 8
   %spec.select.i21.i.i = select i1 %tobool.i.i.i.i, ptr %22, ptr %sTestTypeTemp
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %spec.select.i21.i.i, ptr align 1 %.pre125, i64 %cond.i.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %spec.select.i21.i.i, ptr align 1 %.pre126, i64 %cond.i.i.i, i1 false)
   %23 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i12, align 1
   %tobool.i.i29.i.i = icmp slt i8 %23, 0
   %24 = load i64, ptr %mnSize.i.i.i.i, align 8
   %conv.i.i31.i.i = zext nneg i8 %23 to i64
   %sub.i.i32.i.i = sub nsw i64 23, %conv.i.i31.i.i
   %cond.i33.i.i = select i1 %tobool.i.i29.i.i, i64 %24, i64 %sub.i.i32.i.i
-  %add.ptr18.i.i = getelementptr inbounds i8, ptr %.pre125, i64 %cond.i33.i.i
+  %add.ptr18.i.i = getelementptr inbounds i8, ptr %.pre126, i64 %cond.i33.i.i
   %call19.i.i30 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6appendEPKcS4_(ptr noundef nonnull align 8 dereferenceable(24) %sTestTypeTemp, ptr noundef %add.ptr18.i.i, ptr noundef nonnull %add.ptr9.i)
           to label %if.else.i.i.invoke.cont15_crit_edge unwind label %lpad6
 

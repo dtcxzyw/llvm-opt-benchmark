@@ -125,7 +125,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_JobInfo_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_JobInfo_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i18 = alloca i32, align 4
   %value.i = alloca i32, align 4
@@ -172,14 +172,17 @@ if.end10:                                         ; preds = %if.end7
 
 if.end13:                                         ; preds = %if.end10
   %call14 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.5, ptr noundef nonnull %has_error) #4
-  br i1 %call14, label %if.then15, label %return
+  br i1 %call14, label %if.then15, label %if.end20
 
 if.then15:                                        ; preds = %if.end13
   %call17 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.5, ptr noundef nonnull %error, ptr noundef %errp) #4
+  br i1 %call17, label %if.end20, label %return
+
+if.end20:                                         ; preds = %if.then15, %if.end13
   br label %return
 
-return:                                           ; preds = %if.then15, %if.end13, %if.end10, %if.end7, %if.end4, %if.end, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end ], [ false, %if.end4 ], [ false, %if.end7 ], [ false, %if.end10 ], [ true, %if.end13 ], [ %call17, %if.then15 ]
+return:                                           ; preds = %if.then15, %if.end10, %if.end7, %if.end4, %if.end, %entry, %if.end20
+  %retval.0 = phi i1 [ true, %if.end20 ], [ false, %entry ], [ false, %if.end ], [ false, %if.end4 ], [ false, %if.end7 ], [ false, %if.end10 ], [ false, %if.then15 ]
   ret i1 %retval.0
 }
 

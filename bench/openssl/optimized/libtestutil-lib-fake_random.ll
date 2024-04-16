@@ -329,7 +329,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fake_rand_get_ctx_params(ptr nocapture noundef readonly %vrng, ptr noundef %params) #0 {
+define internal noundef i32 @fake_rand_get_ctx_params(ptr nocapture noundef readonly %vrng, ptr noundef %params) #0 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str.15) #7
   %cmp.not = icmp eq ptr %call, null
@@ -355,16 +355,18 @@ land.lhs.true4:                                   ; preds = %if.end
 if.end8:                                          ; preds = %land.lhs.true4, %if.end
   %call9 = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str.17) #7
   %cmp10.not = icmp eq ptr %call9, null
-  br i1 %cmp10.not, label %return, label %land.lhs.true11
+  br i1 %cmp10.not, label %if.end15, label %land.lhs.true11
 
 land.lhs.true11:                                  ; preds = %if.end8
   %call12 = tail call i32 @OSSL_PARAM_set_size_t(ptr noundef nonnull %call9, i64 noundef 2147483647) #7
-  %tobool13.not = icmp ne i32 %call12, 0
-  %spec.select = zext i1 %tobool13.not to i32
+  %tobool13.not = icmp eq i32 %call12, 0
+  br i1 %tobool13.not, label %return, label %if.end15
+
+if.end15:                                         ; preds = %land.lhs.true11, %if.end8
   br label %return
 
-return:                                           ; preds = %land.lhs.true11, %if.end8, %land.lhs.true4, %land.lhs.true
-  %retval.0 = phi i32 [ 0, %land.lhs.true ], [ 0, %land.lhs.true4 ], [ 1, %if.end8 ], [ %spec.select, %land.lhs.true11 ]
+return:                                           ; preds = %land.lhs.true11, %land.lhs.true4, %land.lhs.true, %if.end15
+  %retval.0 = phi i32 [ 1, %if.end15 ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true4 ], [ 0, %land.lhs.true11 ]
   ret i32 %retval.0
 }
 

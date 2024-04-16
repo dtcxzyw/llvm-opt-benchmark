@@ -12499,17 +12499,17 @@ define i64 @suffix_mult(ptr noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @verify_step_id(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #18 {
+define noundef zeroext i1 @verify_step_id(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #18 {
   %3 = load i32, ptr %1, align 4
   %4 = load i32, ptr %0, align 4
   %.not = icmp eq i32 %3, %4
-  br i1 %.not, label %5, label %20
+  br i1 %.not, label %5, label %21
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, -2
-  br i1 %8, label %20, label %9
+  br i1 %8, label %21, label %9
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %0, i64 8
@@ -12525,10 +12525,13 @@ define zeroext i1 @verify_step_id(ptr nocapture noundef readonly %0, ptr nocaptu
   %18 = icmp eq i32 %15, %17
   %19 = icmp eq i32 %15, -2
   %or.cond = or i1 %19, %18
-  br label %20
+  br i1 %or.cond, label %21, label %20
 
-20:                                               ; preds = %13, %9, %5, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %5 ], [ false, %9 ], [ %or.cond, %13 ]
+20:                                               ; preds = %13, %9
+  br label %21
+
+21:                                               ; preds = %13, %5, %2, %20
+  %.0 = phi i1 [ false, %20 ], [ false, %2 ], [ true, %5 ], [ true, %13 ]
   ret i1 %.0
 }
 

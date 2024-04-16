@@ -34,7 +34,7 @@ define dso_local noundef i32 @input_event_from_user(ptr noundef %0, ptr noundef 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !6
   %11 = call i64 @_copy_from_user(ptr noundef nonnull %3, ptr noundef %0, i64 noundef 16) #5
   %12 = icmp eq i64 %11, 0
-  br i1 %12, label %13, label %32
+  br i1 %12, label %13, label %33
 
 13:                                               ; preds = %10
   %14 = load i32, ptr %3, align 4
@@ -58,21 +58,23 @@ define dso_local noundef i32 @input_event_from_user(ptr noundef %0, ptr noundef 
   %28 = getelementptr inbounds i8, ptr %1, i64 20
   store i32 %27, ptr %28, align 4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #5
-  br label %33
+  br label %32
 
 29:                                               ; preds = %2
   %30 = tail call i64 @_copy_from_user(ptr noundef %1, ptr noundef %0, i64 noundef 24) #5
   %31 = icmp eq i64 %30, 0
-  %spec.select = select i1 %31, i32 0, i32 -14
-  br label %33
+  br i1 %31, label %32, label %34
 
-32:                                               ; preds = %10
+32:                                               ; preds = %29, %13
+  br label %34
+
+33:                                               ; preds = %10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #5
-  br label %33
+  br label %34
 
-33:                                               ; preds = %29, %13, %32
-  %34 = phi i32 [ -14, %32 ], [ 0, %13 ], [ %spec.select, %29 ]
-  ret i32 %34
+34:                                               ; preds = %33, %32, %29
+  %35 = phi i32 [ 0, %32 ], [ -14, %29 ], [ -14, %33 ]
+  ret i32 %35
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -136,7 +138,7 @@ define dso_local noundef i32 @input_event_to_user(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @input_ff_effect_from_user(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local noundef i32 @input_ff_effect_from_user(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 align 16 {
   %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #4, !srcloc !5
   %5 = inttoptr i64 %4 to ptr
   %6 = getelementptr inbounds i8, ptr %5, i64 16
@@ -147,12 +149,12 @@ define dso_local i32 @input_ff_effect_from_user(ptr noundef %0, i64 noundef %1, 
 
 10:                                               ; preds = %3
   %11 = icmp eq i64 %1, 44
-  br i1 %11, label %12, label %.thread
+  br i1 %11, label %12, label %32
 
 12:                                               ; preds = %10
   %13 = tail call i64 @_copy_from_user(ptr noundef %2, ptr noundef %0, i64 noundef 44) #5
   %14 = icmp eq i64 %13, 0
-  br i1 %14, label %15, label %.thread
+  br i1 %14, label %15, label %32
 
 15:                                               ; preds = %12
   %16 = load i16, ptr %2, align 4
@@ -175,17 +177,19 @@ define dso_local i32 @input_ff_effect_from_user(ptr noundef %0, i64 noundef %1, 
 
 27:                                               ; preds = %3
   %28 = icmp eq i64 %1, 48
-  br i1 %28, label %29, label %.thread
+  br i1 %28, label %29, label %32
 
 29:                                               ; preds = %27
   %30 = tail call i64 @_copy_from_user(ptr noundef %2, ptr noundef %0, i64 noundef 48) #5
   %31 = icmp eq i64 %30, 0
-  %spec.select = select i1 %31, i32 0, i32 -14
-  br label %.thread
+  br i1 %31, label %.thread, label %32
 
-.thread:                                          ; preds = %29, %15, %18, %22, %10, %12, %27
-  %32 = phi i32 [ -22, %27 ], [ -22, %10 ], [ -14, %12 ], [ 0, %22 ], [ 0, %18 ], [ 0, %15 ], [ %spec.select, %29 ]
-  ret i32 %32
+.thread:                                          ; preds = %15, %18, %22, %29
+  br label %32
+
+32:                                               ; preds = %10, %12, %.thread, %29, %27
+  %33 = phi i32 [ 0, %.thread ], [ -22, %27 ], [ -14, %29 ], [ -22, %10 ], [ -14, %12 ]
+  ret i32 %33
 }
 
 ; Function Attrs: null_pointer_is_valid

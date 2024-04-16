@@ -1240,7 +1240,7 @@ define dso_local i32 @inet_select_addr(ptr noundef %0, i32 noundef %1, i32 nound
   %15 = getelementptr i8, ptr %14, i64 108
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %23, !prof !9
+  br i1 %17, label %18, label %22, !prof !9
 
 18:                                               ; preds = %9
   %19 = getelementptr i8, ptr %7, i64 300
@@ -1248,11 +1248,11 @@ define dso_local i32 @inet_select_addr(ptr noundef %0, i32 noundef %1, i32 nound
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %23, label %22, !prof !9
 
-22:                                               ; preds = %18
+22:                                               ; preds = %18, %9
   br label %23
 
-23:                                               ; preds = %9, %22, %18
-  %24 = phi i32 [ 254, %18 ], [ 253, %9 ], [ 253, %22 ]
+23:                                               ; preds = %22, %18
+  %24 = phi i32 [ 253, %22 ], [ 254, %18 ]
   %25 = getelementptr inbounds i8, ptr %7, i64 16
   %26 = load volatile ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
@@ -1450,7 +1450,7 @@ define internal fastcc i32 @confirm_addr_indev(ptr noundef %0, i32 noundef %1, i
   %10 = getelementptr i8, ptr %9, i64 108
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %13, label %18, !prof !9
+  br i1 %12, label %13, label %17, !prof !9
 
 13:                                               ; preds = %4
   %14 = getelementptr i8, ptr %0, i64 300
@@ -1458,11 +1458,11 @@ define internal fastcc i32 @confirm_addr_indev(ptr noundef %0, i32 noundef %1, i
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %18, label %17, !prof !9
 
-17:                                               ; preds = %13
+17:                                               ; preds = %13, %4
   br label %18
 
-18:                                               ; preds = %4, %17, %13
-  %19 = phi i32 [ 254, %13 ], [ 253, %4 ], [ 253, %17 ]
+18:                                               ; preds = %17, %13
+  %19 = phi i32 [ 253, %17 ], [ 254, %13 ]
   %20 = icmp ne i32 %2, 0
   %21 = icmp eq i32 %1, 0
   %22 = or i1 %21, %20
@@ -1572,13 +1572,13 @@ define internal fastcc i32 @confirm_addr_indev(ptr noundef %0, i32 noundef %1, i
 
 .thread.us32:                                     ; preds = %82
   %.not = icmp eq i32 %84, 0
-  br i1 %.not, label %.backedge.us34, label %.loopexit.thread100
+  br i1 %.not, label %.backedge.us34, label %.loopexit.thread
 
 .backedge.us34:                                   ; preds = %.lr.ph.split.split.us.split.preheader, %.thread.us32
   %85 = getelementptr inbounds i8, ptr %75, i64 16
   %86 = load volatile ptr, ptr %85, align 8
   %87 = icmp eq ptr %86, null
-  br i1 %87, label %.loopexit.thread100, label %.lr.ph.split.split.us.split.preheader, !llvm.loop !47
+  br i1 %87, label %.loopexit.thread, label %.lr.ph.split.split.us.split.preheader, !llvm.loop !47
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   br i1 %22, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
@@ -1703,11 +1703,13 @@ define internal fastcc i32 @confirm_addr_indev(ptr noundef %0, i32 noundef %1, i
   %160 = phi i32 [ %.ph7, %.thread8 ], [ %.be12.us, %.backedge.us ], [ %44, %67 ], [ %44, %.thread4.us ], [ %116, %.backedge.us54 ], [ %105, %104 ], [ %154, %.backedge ]
   %.fr = freeze i32 %159
   %161 = icmp eq i32 %.fr, 0
-  %spec.select = select i1 %161, i32 0, i32 %160
-  br label %.loopexit.thread100
+  br i1 %161, label %.loopexit.thread100, label %.loopexit.thread
 
-.loopexit.thread100:                              ; preds = %.backedge.us34, %.thread.us32, %.loopexit, %18
-  %162 = phi i32 [ 0, %18 ], [ %spec.select, %.loopexit ], [ %84, %.thread.us32 ], [ 0, %.backedge.us34 ]
+.loopexit.thread100:                              ; preds = %18, %.loopexit
+  br label %.loopexit.thread
+
+.loopexit.thread:                                 ; preds = %.backedge.us34, %.thread.us32, %.loopexit, %.loopexit.thread100
+  %162 = phi i32 [ 0, %.loopexit.thread100 ], [ %160, %.loopexit ], [ %84, %.thread.us32 ], [ 0, %.backedge.us34 ]
   ret i32 %162
 }
 

@@ -1244,8 +1244,8 @@ NBC_Copy.exit.thread:                             ; preds = %112, %NBC_Unpack.ex
   %172 = sext i1 %switch.selectcmp.not to i32
   br label %.loopexit189
 
-.loopexit189:                                     ; preds = %63, %29, %NBC_Copy.exit, %170, %._crit_edge, %159, %.loopexit, %84, %50
-  %.0 = phi i32 [ -1, %159 ], [ %.0.i.ph, %.loopexit ], [ %83, %84 ], [ %49, %50 ], [ %115, %NBC_Copy.exit ], [ 0, %._crit_edge ], [ %172, %170 ], [ -2, %29 ], [ -2, %63 ]
+.loopexit189:                                     ; preds = %63, %29, %NBC_Copy.exit, %._crit_edge, %170, %159, %.loopexit, %84, %50
+  %.0 = phi i32 [ -1, %159 ], [ %.0.i.ph, %.loopexit ], [ %83, %84 ], [ %49, %50 ], [ %115, %NBC_Copy.exit ], [ %172, %170 ], [ 0, %._crit_edge ], [ -2, %29 ], [ -2, %63 ]
   ret i32 %.0
 }
 

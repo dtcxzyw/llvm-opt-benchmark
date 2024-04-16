@@ -2539,8 +2539,8 @@ define dso_local ptr @task_get_cgroup1(ptr noundef %0, i32 noundef %1) local_unn
   %41 = icmp eq i64 %40, 0
   br i1 %41, label %.sink.split, label %.lr.ph, !prof !41, !llvm.loop !42
 
-.sink.split:                                      ; preds = %39, %.lr.ph, %28, %26
-  %.ph = phi ptr [ %14, %26 ], [ inttoptr (i64 -2 to ptr), %28 ], [ %14, %.lr.ph ], [ inttoptr (i64 -2 to ptr), %39 ]
+.sink.split:                                      ; preds = %.lr.ph, %39, %28, %26
+  %.ph = phi ptr [ %14, %26 ], [ inttoptr (i64 -2 to ptr), %28 ], [ inttoptr (i64 -2 to ptr), %39 ], [ %14, %.lr.ph ]
   tail call void @__rcu_read_unlock() #18
   br label %42
 

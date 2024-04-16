@@ -743,7 +743,7 @@ define internal noundef zeroext i1 @dns_resolver_cmp(ptr nocapture noundef reado
   %15 = icmp ne ptr %4, null
   %16 = icmp ne ptr %6, null
   %17 = select i1 %15, i1 %16, i1 false
-  br i1 %17, label %18, label %49
+  br i1 %17, label %18, label %50
 
 18:                                               ; preds = %14
   %19 = tail call i32 @strcasecmp(ptr noundef nonnull %4, ptr noundef nonnull %6)
@@ -758,7 +758,7 @@ define internal noundef zeroext i1 @dns_resolver_cmp(ptr nocapture noundef reado
   %26 = icmp slt i32 %23, 1
   %27 = icmp slt i32 %25, 1
   %28 = select i1 %26, i1 true, i1 %27
-  br i1 %28, label %49, label %29
+  br i1 %28, label %50, label %29
 
 29:                                               ; preds = %21
   %30 = add i64 %22, 4294967295
@@ -776,31 +776,33 @@ define internal noundef zeroext i1 @dns_resolver_cmp(ptr nocapture noundef reado
   %42 = sext i1 %41 to i32
   %43 = add nsw i32 %42, %25
   %44 = icmp eq i32 %36, %43
-  br i1 %44, label %45, label %49
+  br i1 %44, label %45, label %50
 
 45:                                               ; preds = %29
   %46 = zext nneg i32 %36 to i64
   %47 = tail call i32 @strncasecmp(ptr noundef nonnull %4, ptr noundef nonnull %6, i64 noundef %46)
   %48 = icmp eq i32 %47, 0
-  %spec.select1 = zext i1 %48 to i32
-  br label %49
+  br i1 %48, label %49, label %50
 
-49:                                               ; preds = %45, %18, %29, %21, %14
-  %50 = phi i1 [ false, %21 ], [ false, %29 ], [ false, %14 ], [ true, %18 ], [ %48, %45 ]
-  %51 = phi i32 [ 0, %21 ], [ 0, %29 ], [ 0, %14 ], [ 1, %18 ], [ %spec.select1, %45 ]
-  %52 = load i32, ptr @dns_resolver_debug, align 4
-  %53 = icmp eq i32 %52, 0
-  br i1 %53, label %59, label %54, !prof !6
+49:                                               ; preds = %45, %18
+  br label %50
 
-54:                                               ; preds = %49
-  %55 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #14, !srcloc !7
-  %56 = inttoptr i64 %55 to ptr
-  %57 = getelementptr inbounds i8, ptr %56, i64 1800
-  %58 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.22, ptr noundef %57, ptr noundef nonnull @__func__.dns_resolver_cmp, i32 noundef %51) #15
-  br label %59
+50:                                               ; preds = %49, %45, %29, %21, %14
+  %51 = phi i1 [ true, %49 ], [ false, %21 ], [ false, %29 ], [ false, %45 ], [ false, %14 ]
+  %52 = phi i32 [ 1, %49 ], [ 0, %21 ], [ 0, %29 ], [ 0, %45 ], [ 0, %14 ]
+  %53 = load i32, ptr @dns_resolver_debug, align 4
+  %54 = icmp eq i32 %53, 0
+  br i1 %54, label %60, label %55, !prof !6
 
-59:                                               ; preds = %54, %49
-  ret i1 %50
+55:                                               ; preds = %50
+  %56 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #14, !srcloc !7
+  %57 = inttoptr i64 %56 to ptr
+  %58 = getelementptr inbounds i8, ptr %57, i64 1800
+  %59 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.22, ptr noundef %58, ptr noundef nonnull @__func__.dns_resolver_cmp, i32 noundef %52) #15
+  br label %60
+
+60:                                               ; preds = %55, %50
+  ret i1 %51
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read)

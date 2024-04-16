@@ -1812,7 +1812,7 @@ define internal zeroext i16 @cache_private_attrs_is_visible(ptr nocapture nounde
   %8 = getelementptr inbounds i8, ptr %5, i64 64
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %21, label %11
+  br i1 %10, label %22, label %11
 
 11:                                               ; preds = %3
   %12 = icmp eq ptr %1, @dev_attr_subcaches
@@ -1820,7 +1820,7 @@ define internal zeroext i16 @cache_private_attrs_is_visible(ptr nocapture nounde
 
 13:                                               ; preds = %11
   %14 = tail call zeroext i1 @amd_nb_has_feature(i32 noundef 4) #13
-  br i1 %14, label %21, label %15
+  br i1 %14, label %22, label %15
 
 15:                                               ; preds = %13, %11
   %16 = icmp eq ptr %1, @dev_attr_cache_disable_0
@@ -1830,12 +1830,14 @@ define internal zeroext i16 @cache_private_attrs_is_visible(ptr nocapture nounde
 
 19:                                               ; preds = %15
   %20 = tail call zeroext i1 @amd_nb_has_feature(i32 noundef 2) #13
-  %spec.select = select i1 %20, i16 %7, i16 0
-  br label %21
+  br i1 %20, label %22, label %21
 
-21:                                               ; preds = %19, %15, %13, %3
-  %22 = phi i16 [ 0, %3 ], [ %7, %13 ], [ 0, %15 ], [ %spec.select, %19 ]
-  ret i16 %22
+21:                                               ; preds = %19, %15
+  br label %22
+
+22:                                               ; preds = %21, %19, %13, %3
+  %23 = phi i16 [ 0, %21 ], [ 0, %3 ], [ %7, %13 ], [ %7, %19 ]
+  ret i16 %23
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)

@@ -804,7 +804,7 @@ declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #3
 declare i32 @TS_RESP_CTX_set_accuracy(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @TS_CONF_set_clock_precision_digits(ptr noundef %conf, ptr noundef %section, ptr noundef %ctx) local_unnamed_addr #0 {
+define noundef i32 @TS_CONF_set_clock_precision_digits(ptr noundef %conf, ptr noundef %section, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @_CONF_get_number(ptr noundef %conf, ptr noundef %section, ptr noundef nonnull @.str.20) #4
   %or.cond = icmp ugt i64 %call, 6
@@ -814,17 +814,19 @@ if.then:                                          ; preds = %entry
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 120, ptr noundef nonnull @__func__.ts_CONF_invalid) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 47, i32 noundef 135, ptr noundef nonnull @.str.26, ptr noundef %section, ptr noundef nonnull @.str.20) #4
-  br label %return
+  br label %err
 
 if.end:                                           ; preds = %entry
   %conv = trunc nuw nsw i64 %call to i32
   %call2 = tail call i32 @TS_RESP_CTX_set_clock_precision_digits(ptr noundef %ctx, i32 noundef %conv) #4
-  %tobool.not = icmp ne i32 %call2, 0
-  %spec.select = zext i1 %tobool.not to i32
+  %tobool.not = icmp eq i32 %call2, 0
+  br i1 %tobool.not, label %err, label %return
+
+err:                                              ; preds = %if.end, %if.then
   br label %return
 
-return:                                           ; preds = %if.end, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ %spec.select, %if.end ]
+return:                                           ; preds = %if.end, %err
+  %retval.0 = phi i32 [ 0, %err ], [ 1, %if.end ]
   ret i32 %retval.0
 }
 

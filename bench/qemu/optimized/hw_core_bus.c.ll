@@ -166,14 +166,18 @@ while.end21.i.i.i.i:                              ; preds = %while.end.i.i.i.i
 
 for.end20:                                        ; preds = %while.end21.i.i, %while.end.i.i19, %if.end.i.i
   %tobool21.not = icmp eq ptr %post_busfn, null
-  br i1 %tobool21.not, label %return, label %if.then22
+  br i1 %tobool21.not, label %if.end27, label %if.then22
 
 if.then22:                                        ; preds = %for.end20
   %call23 = tail call i32 %post_busfn(ptr noundef %bus, ptr noundef %opaque) #5
+  %tobool24.not = icmp eq i32 %call23, 0
+  br i1 %tobool24.not, label %if.end27, label %return
+
+if.end27:                                         ; preds = %if.then22, %for.end20
   br label %return
 
-return:                                           ; preds = %while.end21.i.i.i.i, %while.end.i.i.i.i, %if.end.i.i.i.i, %if.then22, %for.end20, %if.then
-  %retval.1 = phi i32 [ %call, %if.then ], [ 0, %for.end20 ], [ %call23, %if.then22 ], [ %call9, %if.end.i.i.i.i ], [ %call9, %while.end.i.i.i.i ], [ %call9, %while.end21.i.i.i.i ]
+return:                                           ; preds = %while.end21.i.i.i.i, %while.end.i.i.i.i, %if.end.i.i.i.i, %if.then22, %if.then, %if.end27
+  %retval.1 = phi i32 [ 0, %if.end27 ], [ %call, %if.then ], [ %call23, %if.then22 ], [ %call9, %if.end.i.i.i.i ], [ %call9, %while.end.i.i.i.i ], [ %call9, %while.end21.i.i.i.i ]
   ret i32 %retval.1
 }
 

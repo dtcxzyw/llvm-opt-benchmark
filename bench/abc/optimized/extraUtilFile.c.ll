@@ -577,7 +577,7 @@ define noalias noundef ptr @Extra_FileReadContents2(ptr nocapture noundef readon
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define i32 @Extra_FileIsType(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3) local_unnamed_addr #13 {
+define noundef i32 @Extra_FileIsType(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3) local_unnamed_addr #13 {
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #23
   %6 = trunc i64 %5 to i32
   %.not = icmp eq ptr %1, null
@@ -601,7 +601,7 @@ define i32 @Extra_FileIsType(ptr nocapture noundef readonly %0, ptr noundef read
   %16 = getelementptr inbounds i8, ptr %13, i64 %15
   %17 = tail call i32 @strncmp(ptr noundef nonnull %16, ptr noundef nonnull %1, i64 noundef %14) #23
   %.not39 = icmp eq i32 %17, 0
-  br i1 %.not39, label %.thread55, label %.thread
+  br i1 %.not39, label %40, label %.thread
 
 .thread:                                          ; preds = %4, %11, %7
   %.not40 = icmp eq ptr %2, null
@@ -625,7 +625,7 @@ define i32 @Extra_FileIsType(ptr nocapture noundef readonly %0, ptr noundef read
   %27 = getelementptr inbounds i8, ptr %24, i64 %26
   %28 = tail call i32 @strncmp(ptr noundef nonnull %27, ptr noundef nonnull %2, i64 noundef %25) #23
   %.not43 = icmp eq i32 %28, 0
-  br i1 %.not43, label %.thread55, label %.thread52
+  br i1 %.not43, label %40, label %.thread52
 
 .thread52:                                        ; preds = %.thread, %22, %18
   %.not44 = icmp eq ptr %3, null
@@ -649,11 +649,13 @@ define i32 @Extra_FileIsType(ptr nocapture noundef readonly %0, ptr noundef read
   %38 = getelementptr inbounds i8, ptr %35, i64 %37
   %39 = tail call i32 @strncmp(ptr noundef nonnull %38, ptr noundef nonnull %3, i64 noundef %36) #23
   %.not47 = icmp eq i32 %39, 0
-  %spec.select = zext i1 %.not47 to i32
-  br label %.thread55
+  br i1 %.not47, label %40, label %.thread55
 
-.thread55:                                        ; preds = %.thread52, %33, %29, %22, %11
-  %.0 = phi i32 [ 1, %11 ], [ 1, %22 ], [ 0, %29 ], [ %spec.select, %33 ], [ 0, %.thread52 ]
+.thread55:                                        ; preds = %.thread52, %33, %29
+  br label %40
+
+40:                                               ; preds = %33, %22, %11, %.thread55
+  %.0 = phi i32 [ 0, %.thread55 ], [ 1, %11 ], [ 1, %22 ], [ 1, %33 ]
   ret i32 %.0
 }
 

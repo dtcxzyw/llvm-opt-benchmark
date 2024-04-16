@@ -253,7 +253,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare i32 @ossl_sframe_list_insert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_quic_rstream_read(ptr noundef %qrs, ptr nocapture noundef writeonly %buf, i64 noundef %size, ptr nocapture noundef %readbytes, ptr nocapture noundef writeonly %fin) local_unnamed_addr #0 {
+define noundef i32 @ossl_quic_rstream_read(ptr noundef %qrs, ptr nocapture noundef writeonly %buf, i64 noundef %size, ptr nocapture noundef %readbytes, ptr nocapture noundef writeonly %fin) local_unnamed_addr #0 {
 entry:
   %rtt_info.i = alloca %struct.ossl_rtt_info_st, align 8
   %0 = getelementptr i8, ptr %qrs, i64 56
@@ -278,17 +278,19 @@ if.end:                                           ; preds = %get_rtt.exit
   %rxfc = getelementptr inbounds i8, ptr %qrs, i64 48
   %1 = load ptr, ptr %rxfc, align 8
   %cmp.not = icmp eq ptr %1, null
-  br i1 %cmp.not, label %return, label %land.lhs.true
+  br i1 %cmp.not, label %if.end7, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
   %2 = load i64, ptr %readbytes, align 8
   %call4 = call i32 @ossl_quic_rxfc_on_retire(ptr noundef nonnull %1, i64 noundef %2, i64 %retval.sroa.0.0.i) #9
-  %tobool5.not = icmp ne i32 %call4, 0
-  %spec.select = zext i1 %tobool5.not to i32
+  %tobool5.not = icmp eq i32 %call4, 0
+  br i1 %tobool5.not, label %return, label %if.end7
+
+if.end7:                                          ; preds = %land.lhs.true, %if.end
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %if.end, %get_rtt.exit
-  %retval.0 = phi i32 [ 0, %get_rtt.exit ], [ 1, %if.end ], [ %spec.select, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %get_rtt.exit, %if.end7
+  %retval.0 = phi i32 [ 1, %if.end7 ], [ 0, %get_rtt.exit ], [ 0, %land.lhs.true ]
   ret i32 %retval.0
 }
 
@@ -639,7 +641,7 @@ declare i32 @ossl_sframe_list_lock_head(ptr noundef, ptr noundef, ptr noundef, p
 declare i32 @ossl_sframe_list_drop_frames(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_quic_rstream_release_record(ptr noundef %qrs, i64 noundef %read_len) local_unnamed_addr #0 {
+define noundef i32 @ossl_quic_rstream_release_record(ptr noundef %qrs, i64 noundef %read_len) local_unnamed_addr #0 {
 entry:
   %rtt_info.i = alloca %struct.ossl_rtt_info_st, align 8
   %call = tail call i32 @ossl_sframe_list_is_head_locked(ptr noundef %qrs) #9
@@ -742,7 +744,7 @@ if.end20:                                         ; preds = %if.then36.i, %if.en
   %rxfc = getelementptr inbounds i8, ptr %qrs, i64 48
   %10 = load ptr, ptr %rxfc, align 8
   %cmp21.not = icmp eq ptr %10, null
-  br i1 %cmp21.not, label %return, label %if.then22
+  br i1 %cmp21.not, label %if.end30, label %if.then22
 
 if.then22:                                        ; preds = %if.end20
   %11 = getelementptr i8, ptr %qrs, i64 56
@@ -762,12 +764,14 @@ get_rtt.exit:                                     ; preds = %if.then22, %if.then
   %retval.sroa.0.0.i = phi i64 [ %retval.sroa.0.0.copyload.i, %if.then.i ], [ 0, %if.then22 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %rtt_info.i)
   %call26 = call i32 @ossl_quic_rxfc_on_retire(ptr noundef %12, i64 noundef %offset.0, i64 %retval.sroa.0.0.i) #9
-  %tobool27.not = icmp ne i32 %call26, 0
-  %spec.select = zext i1 %tobool27.not to i32
+  %tobool27.not = icmp eq i32 %call26, 0
+  br i1 %tobool27.not, label %return, label %if.end30
+
+if.end30:                                         ; preds = %get_rtt.exit, %if.end20
   br label %return
 
-return:                                           ; preds = %get_rtt.exit, %if.end20, %if.end10, %if.then2, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 0, %if.then2 ], [ 0, %if.end10 ], [ 1, %if.end20 ], [ %spec.select, %get_rtt.exit ]
+return:                                           ; preds = %get_rtt.exit, %if.end10, %if.then2, %entry, %if.end30
+  %retval.0 = phi i32 [ 1, %if.end30 ], [ 0, %entry ], [ 0, %if.then2 ], [ 0, %if.end10 ], [ 0, %get_rtt.exit ]
   ret i32 %retval.0
 }
 

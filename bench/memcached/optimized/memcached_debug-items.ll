@@ -4157,8 +4157,8 @@ if.then14:                                        ; preds = %if.end10
 
 if.end16:                                         ; preds = %if.then14, %if.end10
   %9 = load volatile i32, ptr @do_run_lru_maintainer_thread, align 4
-  %tobool.not102 = icmp eq i32 %9, 0
-  br i1 %tobool.not102, label %while.end, label %while.body.lr.ph
+  %tobool.not101 = icmp eq i32 %9, 0
+  br i1 %tobool.not101, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end16
   %crawlerstats.i = getelementptr inbounds i8, ptr %call, i64 40
@@ -4166,22 +4166,22 @@ while.body.lr.ph:                                 ; preds = %if.end16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end139
-  %am.0107 = phi ptr [ %call11, %while.body.lr.ph ], [ %am.2, %if.end139 ]
-  %last_ratio.0106 = phi double [ %4, %while.body.lr.ph ], [ %last_ratio.2, %if.end139 ]
-  %to_sleep.0105 = phi i32 [ 1000, %while.body.lr.ph ], [ %to_sleep.4, %if.end139 ]
-  %last_automove_check.0104 = phi i32 [ 0, %while.body.lr.ph ], [ %last_automove_check.1, %if.end139 ]
-  %last_crawler_check.0103 = phi i32 [ 0, %while.body.lr.ph ], [ %last_crawler_check.1, %if.end139 ]
+  %am.0106 = phi ptr [ %call11, %while.body.lr.ph ], [ %am.2, %if.end139 ]
+  %last_ratio.0105 = phi double [ %4, %while.body.lr.ph ], [ %last_ratio.2, %if.end139 ]
+  %to_sleep.0104 = phi i32 [ 1000, %while.body.lr.ph ], [ %to_sleep.4, %if.end139 ]
+  %last_automove_check.0103 = phi i32 [ 0, %while.body.lr.ph ], [ %last_automove_check.1, %if.end139 ]
+  %last_crawler_check.0102 = phi i32 [ 0, %while.body.lr.ph ], [ %last_crawler_check.1, %if.end139 ]
   %call17 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @lru_maintainer_lock) #18
-  %tobool18.not = icmp eq i32 %to_sleep.0105, 0
+  %tobool18.not = icmp eq i32 %to_sleep.0104, 0
   br i1 %tobool18.not, label %if.end21, label %if.then19
 
 if.then19:                                        ; preds = %while.body
-  %call20 = call i32 @usleep(i32 noundef %to_sleep.0105) #18
+  %call20 = call i32 @usleep(i32 noundef %to_sleep.0104) #18
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then19, %while.body
   %call22 = call i32 @pthread_mutex_lock(ptr noundef nonnull @lru_maintainer_lock) #18
-  %cond = call i32 @llvm.umax.i32(i32 %to_sleep.0105, i32 1000)
+  %cond = call i32 @llvm.umax.i32(i32 %to_sleep.0104, i32 1000)
   call void @STATS_LOCK() #18
   %10 = load i64, ptr getelementptr inbounds (%struct.stats, ptr @stats, i64 0, i32 13), align 8
   %inc = add i64 %10, 1
@@ -4191,7 +4191,7 @@ if.end21:                                         ; preds = %if.then19, %while.b
 
 for.body:                                         ; preds = %if.end21, %for.inc
   %indvars.iv = phi i64 [ 1, %if.end21 ], [ %indvars.iv.next, %for.inc ]
-  %to_sleep.198 = phi i32 [ 1000000, %if.end21 ], [ %spec.select55, %for.inc ]
+  %to_sleep.197 = phi i32 [ 1000000, %if.end21 ], [ %spec.select55, %for.inc ]
   %arrayidx = getelementptr inbounds [64 x i32], ptr %next_juggles, i64 0, i64 %indvars.iv
   %11 = load i32, ptr %arrayidx, align 4
   %spec.select52 = call i32 @llvm.usub.sat.i32(i32 %11, i32 %cond)
@@ -4279,16 +4279,18 @@ for.body57.i:                                     ; preds = %if.end73.i, %if.end
   %did_moves.232.i = phi i32 [ %did_moves.1.i, %if.end53.i ], [ %inc74.i, %if.end73.i ]
   %call58.i = call i32 @lru_pull_tail(i32 noundef %12, i32 noundef 0, i64 noundef %total_bytes.0.i, i8 noundef zeroext 2, i32 noundef %hot_age.0.i, ptr noundef null)
   %tobool59.not.i = icmp eq i32 %call58.i, 0
-  br i1 %tobool59.not.i, label %lor.lhs.false.i, label %if.end64.i
+  br i1 %tobool59.not.i, label %lor.lhs.false.i, label %if.then62.i
 
 lor.lhs.false.i:                                  ; preds = %for.body57.i
   %call60.i = call i32 @lru_pull_tail(i32 noundef %12, i32 noundef 64, i64 noundef %total_bytes.0.i, i8 noundef zeroext 2, i32 noundef %warm_age.0.i, ptr noundef null)
-  %tobool61.not.i = icmp ne i32 %call60.i, 0
-  %spec.select.i = zext i1 %tobool61.not.i to i32
+  %tobool61.not.i = icmp eq i32 %call60.i, 0
+  br i1 %tobool61.not.i, label %if.end64.i, label %if.then62.i
+
+if.then62.i:                                      ; preds = %lor.lhs.false.i, %for.body57.i
   br label %if.end64.i
 
-if.end64.i:                                       ; preds = %lor.lhs.false.i, %for.body57.i
-  %do_more.0.i = phi i32 [ 1, %for.body57.i ], [ %spec.select.i, %lor.lhs.false.i ]
+if.end64.i:                                       ; preds = %if.then62.i, %lor.lhs.false.i
+  %do_more.0.i = phi i32 [ 1, %if.then62.i ], [ 0, %lor.lhs.false.i ]
   %27 = load i8, ptr getelementptr inbounds (%struct.settings, ptr @settings, i64 0, i32 30), align 8
   %tobool65.i = trunc i8 %27 to i1
   br i1 %tobool65.i, label %if.then66.i, label %if.end69.i
@@ -4348,7 +4350,7 @@ if.end83:                                         ; preds = %if.then48, %if.then
 
 for.inc:                                          ; preds = %for.body, %if.end83
   %.sink = phi i32 [ %31, %if.end83 ], [ %spec.select52, %for.body ]
-  %spec.select55 = call i32 @llvm.umin.i32(i32 %.sink, i32 %to_sleep.198)
+  %spec.select55 = call i32 @llvm.umin.i32(i32 %.sink, i32 %to_sleep.197)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !20
@@ -4366,7 +4368,7 @@ land.lhs.true:                                    ; preds = %for.end
   br i1 %cmp.not18.i, label %lru_maintainer_bumps.exit.thread, label %for.body.i58
 
 lru_maintainer_bumps.exit.thread:                 ; preds = %land.lhs.true
-  %call15.i77 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @bump_buf_lock) #18
+  %call15.i76 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @bump_buf_lock) #18
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %size.i)
   br label %if.end101
 
@@ -4457,18 +4459,18 @@ lru_maintainer_bumps.exit:                        ; preds = %for.inc.i
   %call15.i = call i32 @pthread_mutex_unlock(ptr noundef nonnull @bump_buf_lock) #18
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %size.i)
   %49 = call i32 @llvm.umin.i32(i32 %spec.select55, i32 1000)
-  %spec.select79 = select i1 %bumped.1.i, i32 %49, i32 %spec.select55
+  %spec.select78 = select i1 %bumped.1.i, i32 %49, i32 %spec.select55
   br label %if.end101
 
 if.end101:                                        ; preds = %lru_maintainer_bumps.exit, %lru_maintainer_bumps.exit.thread, %for.end
-  %to_sleep.3 = phi i32 [ %spec.select55, %for.end ], [ %spec.select55, %lru_maintainer_bumps.exit.thread ], [ %spec.select79, %lru_maintainer_bumps.exit ]
+  %to_sleep.3 = phi i32 [ %spec.select55, %for.end ], [ %spec.select55, %lru_maintainer_bumps.exit.thread ], [ %spec.select78, %lru_maintainer_bumps.exit ]
   %50 = load i8, ptr getelementptr inbounds (%struct.settings, ptr @settings, i64 0, i32 28), align 2
   %tobool102 = trunc i8 %50 to i1
   br i1 %tobool102, label %land.lhs.true103, label %if.end106
 
 land.lhs.true103:                                 ; preds = %if.end101
   %51 = load volatile i32, ptr @current_time, align 4
-  %cmp104.not = icmp eq i32 %last_crawler_check.0103, %51
+  %cmp104.not = icmp eq i32 %last_crawler_check.0102, %51
   br i1 %cmp104.not, label %if.end106, label %if.then105
 
 if.then105:                                       ; preds = %land.lhs.true103
@@ -4479,7 +4481,7 @@ if.then105:                                       ; preds = %land.lhs.true103
 for.body.outer.i:                                 ; preds = %for.inc93.thread.i, %if.then105
   %indvars.iv63.ph.i = phi i64 [ %indvars.iv.next6471.i, %for.inc93.thread.i ], [ 1, %if.then105 ]
   %do_run.057.ph.i = phi i1 [ true, %for.inc93.thread.i ], [ false, %if.then105 ]
-  %tocrawl_limit.056.ph.i = phi i32 [ %spec.select.i65, %for.inc93.thread.i ], [ 0, %if.then105 ]
+  %tocrawl_limit.056.ph.i = phi i32 [ %spec.select.i, %for.inc93.thread.i ], [ 0, %if.then105 ]
   br label %for.body.i61
 
 for.body.i61:                                     ; preds = %for.inc93.i, %for.body.outer.i
@@ -4491,13 +4493,13 @@ for.body.i61:                                     ; preds = %for.inc93.i, %for.b
   br i1 %tobool.i63, label %if.then.i, label %if.end67.i
 
 if.then.i:                                        ; preds = %for.body.i61
-  %call.i66 = call i32 @pthread_mutex_lock(ptr noundef nonnull %call) #18
+  %call.i65 = call i32 @pthread_mutex_lock(ptr noundef nonnull %call) #18
   %seen.i = getelementptr inbounds i8, ptr %arrayidx.i62, i64 512
   %53 = load i64, ptr %seen.i, align 8
   %noexp.i = getelementptr inbounds i8, ptr %arrayidx.i62, i64 496
   %54 = load i64, ptr %noexp.i, align 8
-  %sub.i67 = sub i64 %53, %54
-  %div.i = udiv i64 %sub.i67, 100
+  %sub.i66 = sub i64 %53, %54
+  %div.i = udiv i64 %sub.i66, 100
   %add.i = add nuw nsw i64 %div.i, 1
   %55 = load volatile i32, ptr @current_time, align 4
   %end_time.i = getelementptr inbounds i8, ptr %arrayidx.i62, i64 524
@@ -4505,43 +4507,43 @@ if.then.i:                                        ; preds = %for.body.i61
   %sub1.i = sub i32 %55, %56
   br label %for.body4.i
 
-for.body4.i:                                      ; preds = %for.inc.i68, %if.then.i
-  %indvars.iv.i = phi i64 [ 0, %if.then.i ], [ %indvars.iv.next.i, %for.inc.i68 ]
-  %available_reclaims.055.i = phi i64 [ 0, %if.then.i ], [ %add7.i, %for.inc.i68 ]
+for.body4.i:                                      ; preds = %for.inc.i67, %if.then.i
+  %indvars.iv.i = phi i64 [ 0, %if.then.i ], [ %indvars.iv.next.i, %for.inc.i67 ]
+  %available_reclaims.055.i = phi i64 [ 0, %if.then.i ], [ %add7.i, %for.inc.i67 ]
   %arrayidx6.i = getelementptr inbounds [61 x i64], ptr %arrayidx.i62, i64 0, i64 %indvars.iv.i
   %57 = load i64, ptr %arrayidx6.i, align 8
   %add7.i = add i64 %57, %available_reclaims.055.i
   %cmp8.i = icmp ugt i64 %add7.i, %add.i
-  br i1 %cmp8.i, label %if.then9.i, label %for.inc.i68
+  br i1 %cmp8.i, label %if.then9.i, label %for.inc.i67
 
 if.then9.i:                                       ; preds = %for.body4.i
   %58 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %arrayidx11.i70 = getelementptr inbounds [256 x i32], ptr @lru_maintainer_crawler_check.next_crawl_wait, i64 0, i64 %indvars.iv63.i
-  %59 = load i32, ptr %arrayidx11.i70, align 4
-  %mul.i71 = mul nuw nsw i32 %58, 60
-  %cmp12.i = icmp ult i32 %59, %mul.i71
-  br i1 %cmp12.i, label %if.then13.i73, label %if.else.i72
+  %arrayidx11.i69 = getelementptr inbounds [256 x i32], ptr @lru_maintainer_crawler_check.next_crawl_wait, i64 0, i64 %indvars.iv63.i
+  %59 = load i32, ptr %arrayidx11.i69, align 4
+  %mul.i70 = mul nuw nsw i32 %58, 60
+  %cmp12.i = icmp ult i32 %59, %mul.i70
+  br i1 %cmp12.i, label %if.then13.i72, label %if.else.i71
 
-if.then13.i73:                                    ; preds = %if.then9.i
+if.then13.i72:                                    ; preds = %if.then9.i
   %add16.i = add nuw nsw i32 %59, 60
-  store i32 %add16.i, ptr %arrayidx11.i70, align 4
+  store i32 %add16.i, ptr %arrayidx11.i69, align 4
   br label %if.end31.i
 
-if.else.i72:                                      ; preds = %if.then9.i
+if.else.i71:                                      ; preds = %if.then9.i
   %cmp19.i = icmp ugt i32 %59, 59
   br i1 %cmp19.i, label %if.then20.i, label %if.end38.i
 
-if.then20.i:                                      ; preds = %if.else.i72
+if.then20.i:                                      ; preds = %if.else.i71
   %sub23.i = add i32 %59, -60
-  store i32 %sub23.i, ptr %arrayidx11.i70, align 4
+  store i32 %sub23.i, ptr %arrayidx11.i69, align 4
   br label %if.end31.i
 
-for.inc.i68:                                      ; preds = %for.body4.i
+for.inc.i67:                                      ; preds = %for.body4.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i69 = icmp eq i64 %indvars.iv.next.i, 60
-  br i1 %exitcond.not.i69, label %for.end.i, label %for.body4.i, !llvm.loop !23
+  %exitcond.not.i68 = icmp eq i64 %indvars.iv.next.i, 60
+  br i1 %exitcond.not.i68, label %for.end.i, label %for.body4.i, !llvm.loop !23
 
-for.end.i:                                        ; preds = %for.inc.i68
+for.end.i:                                        ; preds = %for.inc.i67
   %cmp26.i = icmp eq i64 %add7.i, 0
   %arrayidx29.i = getelementptr inbounds [256 x i32], ptr @lru_maintainer_crawler_check.next_crawl_wait, i64 0, i64 %indvars.iv63.i
   %60 = load i32, ptr %arrayidx29.i, align 4
@@ -4552,8 +4554,8 @@ if.then27.i:                                      ; preds = %for.end.i
   store i32 %add30.i, ptr %arrayidx29.i, align 4
   br label %if.end31.i
 
-if.end31.i:                                       ; preds = %if.then27.i, %for.end.i, %if.then20.i, %if.then13.i73
-  %61 = phi i32 [ %add30.i, %if.then27.i ], [ %add16.i, %if.then13.i73 ], [ %sub23.i, %if.then20.i ], [ %60, %for.end.i ]
+if.end31.i:                                       ; preds = %if.then27.i, %for.end.i, %if.then20.i, %if.then13.i72
+  %61 = phi i32 [ %add30.i, %if.then27.i ], [ %add16.i, %if.then13.i72 ], [ %sub23.i, %if.then20.i ], [ %60, %for.end.i ]
   %cmp34.i = icmp ugt i32 %61, 3600
   br i1 %cmp34.i, label %if.then35.i, label %if.end38.i
 
@@ -4562,8 +4564,8 @@ if.then35.i:                                      ; preds = %if.end31.i
   store i32 3600, ptr %arrayidx33.i, align 4
   br label %if.end38.i
 
-if.end38.i:                                       ; preds = %if.then35.i, %if.end31.i, %if.else.i72
-  %62 = phi i32 [ 3600, %if.then35.i ], [ %61, %if.end31.i ], [ %59, %if.else.i72 ]
+if.end38.i:                                       ; preds = %if.then35.i, %if.end31.i, %if.else.i71
+  %62 = phi i32 [ 3600, %if.then35.i ], [ %61, %if.end31.i ], [ %59, %if.else.i71 ]
   %63 = load volatile i32, ptr @current_time, align 4
   %add41.i = add nuw nsw i32 %62, 5
   %add42.i = add i32 %add41.i, %63
@@ -4614,7 +4616,7 @@ for.inc93.thread.i:                               ; preds = %if.end67.i
   %call75.i = call i32 @pthread_mutex_lock(ptr noundef nonnull %arrayidx74.i) #18
   %arrayidx77.i = getelementptr inbounds [256 x i32], ptr @sizes, i64 0, i64 %indvars.iv63.i
   %74 = load i32, ptr %arrayidx77.i, align 4
-  %spec.select.i65 = call i32 @llvm.umax.i32(i32 %74, i32 %tocrawl_limit.056.ph.i)
+  %spec.select.i = call i32 @llvm.umax.i32(i32 %74, i32 %tocrawl_limit.056.ph.i)
   %call86.i = call i32 @pthread_mutex_unlock(ptr noundef nonnull %arrayidx74.i) #18
   %arrayidx88.i = getelementptr inbounds [256 x i8], ptr %todo.i, i64 0, i64 %indvars.iv63.i
   store i8 1, ptr %arrayidx88.i, align 1
@@ -4629,7 +4631,7 @@ for.end95.i:                                      ; preds = %for.inc93.i
   br i1 %do_run.057.ph.i, label %if.then97.i, label %lru_maintainer_crawler_check.exit
 
 if.then97.i:                                      ; preds = %for.inc93.thread.i, %for.end95.i
-  %tocrawl_limit.27377.i = phi i32 [ %tocrawl_limit.056.ph.i, %for.end95.i ], [ %spec.select.i65, %for.inc93.thread.i ]
+  %tocrawl_limit.27377.i = phi i32 [ %tocrawl_limit.056.ph.i, %for.end95.i ], [ %spec.select.i, %for.inc93.thread.i ]
   %76 = load i32, ptr getelementptr inbounds (%struct.settings, ptr @settings, i64 0, i32 42), align 4
   %tobool98.not.not.i = icmp eq i32 %76, 0
   %77 = call i32 @llvm.umin.i32(i32 %76, i32 %tocrawl_limit.27377.i)
@@ -4643,37 +4645,37 @@ lru_maintainer_crawler_check.exit:                ; preds = %for.end95.i, %if.th
   br label %if.end106
 
 if.end106:                                        ; preds = %lru_maintainer_crawler_check.exit, %land.lhs.true103, %if.end101
-  %last_crawler_check.1 = phi i32 [ %78, %lru_maintainer_crawler_check.exit ], [ %last_crawler_check.0103, %land.lhs.true103 ], [ %last_crawler_check.0103, %if.end101 ]
+  %last_crawler_check.1 = phi i32 [ %78, %lru_maintainer_crawler_check.exit ], [ %last_crawler_check.0102, %land.lhs.true103 ], [ %last_crawler_check.0102, %if.end101 ]
   %79 = load i32, ptr getelementptr inbounds (%struct.settings, ptr @settings, i64 0, i32 32), align 4
   %cmp107 = icmp eq i32 %79, 1
   br i1 %cmp107, label %land.lhs.true108, label %if.end139
 
 land.lhs.true108:                                 ; preds = %if.end106
   %80 = load volatile i32, ptr @current_time, align 4
-  %cmp109.not = icmp eq i32 %last_automove_check.0104, %80
+  %cmp109.not = icmp eq i32 %last_automove_check.0103, %80
   br i1 %cmp109.not, label %if.end139, label %if.then110
 
 if.then110:                                       ; preds = %land.lhs.true108
   %81 = load double, ptr getelementptr inbounds (%struct.settings, ptr @settings, i64 0, i32 33), align 8
-  %cmp111 = fcmp une double %last_ratio.0106, %81
+  %cmp111 = fcmp une double %last_ratio.0105, %81
   br i1 %cmp111, label %if.then112, label %if.end115
 
 if.then112:                                       ; preds = %if.then110
   %.val = load ptr, ptr getelementptr inbounds (%struct.slab_automove_reg_t, ptr @slab_automove_default, i64 0, i32 1), align 8
-  %.val80 = load ptr, ptr getelementptr inbounds (%struct.slab_automove_reg_t, ptr @slab_automove_extstore, i64 0, i32 1), align 8
-  %82 = select i1 %cmp.not, ptr %.val, ptr %.val80
-  call void %82(ptr noundef %am.0107) #18
+  %.val79 = load ptr, ptr getelementptr inbounds (%struct.slab_automove_reg_t, ptr @slab_automove_extstore, i64 0, i32 1), align 8
+  %82 = select i1 %cmp.not, ptr %.val, ptr %.val79
+  call void %82(ptr noundef %am.0106) #18
   %83 = load ptr, ptr %spec.select, align 8
   %call114 = call ptr %83(ptr noundef nonnull @settings) #18
   %84 = load double, ptr getelementptr inbounds (%struct.settings, ptr @settings, i64 0, i32 33), align 8
   br label %if.end115
 
 if.end115:                                        ; preds = %if.then112, %if.then110
-  %last_ratio.1 = phi double [ %84, %if.then112 ], [ %last_ratio.0106, %if.then110 ]
-  %am.1 = phi ptr [ %call114, %if.then112 ], [ %am.0107, %if.then110 ]
-  %.val81 = load ptr, ptr getelementptr inbounds (%struct.slab_automove_reg_t, ptr @slab_automove_default, i64 0, i32 2), align 8
-  %.val82 = load ptr, ptr getelementptr inbounds (%struct.slab_automove_reg_t, ptr @slab_automove_extstore, i64 0, i32 2), align 8
-  %85 = select i1 %cmp.not, ptr %.val81, ptr %.val82
+  %last_ratio.1 = phi double [ %84, %if.then112 ], [ %last_ratio.0105, %if.then110 ]
+  %am.1 = phi ptr [ %call114, %if.then112 ], [ %am.0106, %if.then110 ]
+  %.val80 = load ptr, ptr getelementptr inbounds (%struct.slab_automove_reg_t, ptr @slab_automove_default, i64 0, i32 2), align 8
+  %.val81 = load ptr, ptr getelementptr inbounds (%struct.slab_automove_reg_t, ptr @slab_automove_extstore, i64 0, i32 2), align 8
+  %85 = select i1 %cmp.not, ptr %.val80, ptr %.val81
   call void %85(ptr noundef %am.1, ptr noundef nonnull %src, ptr noundef nonnull %dst) #18
   %86 = load i32, ptr %src, align 4
   %cmp116 = icmp ne i32 %86, -1
@@ -4709,10 +4711,10 @@ if.then132:                                       ; preds = %if.end129
   br label %if.end139
 
 if.end139:                                        ; preds = %if.end129, %if.then132, %land.lhs.true108, %if.end106
-  %last_automove_check.1 = phi i32 [ %93, %if.then132 ], [ %last_automove_check.0104, %land.lhs.true108 ], [ %last_automove_check.0104, %if.end106 ], [ %last_automove_check.0104, %if.end129 ]
+  %last_automove_check.1 = phi i32 [ %93, %if.then132 ], [ %last_automove_check.0103, %land.lhs.true108 ], [ %last_automove_check.0103, %if.end106 ], [ %last_automove_check.0103, %if.end129 ]
   %to_sleep.4 = phi i32 [ %to_sleep.3, %if.then132 ], [ %to_sleep.3, %land.lhs.true108 ], [ %to_sleep.3, %if.end106 ], [ 1000, %if.end129 ]
-  %last_ratio.2 = phi double [ %last_ratio.1, %if.then132 ], [ %last_ratio.0106, %land.lhs.true108 ], [ %last_ratio.0106, %if.end106 ], [ %last_ratio.1, %if.end129 ]
-  %am.2 = phi ptr [ %am.1, %if.then132 ], [ %am.0107, %land.lhs.true108 ], [ %am.0107, %if.end106 ], [ %am.1, %if.end129 ]
+  %last_ratio.2 = phi double [ %last_ratio.1, %if.then132 ], [ %last_ratio.0105, %land.lhs.true108 ], [ %last_ratio.0105, %if.end106 ], [ %last_ratio.1, %if.end129 ]
+  %am.2 = phi ptr [ %am.1, %if.then132 ], [ %am.0106, %land.lhs.true108 ], [ %am.0106, %if.end106 ], [ %am.1, %if.end129 ]
   %94 = load volatile i32, ptr @do_run_lru_maintainer_thread, align 4
   %tobool.not = icmp eq i32 %94, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !25
@@ -4720,9 +4722,9 @@ if.end139:                                        ; preds = %if.end129, %if.then
 while.end:                                        ; preds = %if.end139, %if.end16
   %am.0.lcssa = phi ptr [ %call11, %if.end16 ], [ %am.2, %if.end139 ]
   %call140 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @lru_maintainer_lock) #18
-  %.val83 = load ptr, ptr getelementptr inbounds (%struct.slab_automove_reg_t, ptr @slab_automove_default, i64 0, i32 1), align 8
-  %.val84 = load ptr, ptr getelementptr inbounds (%struct.slab_automove_reg_t, ptr @slab_automove_extstore, i64 0, i32 1), align 8
-  %95 = select i1 %cmp.not, ptr %.val83, ptr %.val84
+  %.val82 = load ptr, ptr getelementptr inbounds (%struct.slab_automove_reg_t, ptr @slab_automove_default, i64 0, i32 1), align 8
+  %.val83 = load ptr, ptr getelementptr inbounds (%struct.slab_automove_reg_t, ptr @slab_automove_extstore, i64 0, i32 1), align 8
+  %95 = select i1 %cmp.not, ptr %.val82, ptr %.val83
   call void %95(ptr noundef %am.0.lcssa) #18
   call void @free(ptr noundef %call) #18
   %96 = load i32, ptr getelementptr inbounds (%struct.settings, ptr @settings, i64 0, i32 5), align 8

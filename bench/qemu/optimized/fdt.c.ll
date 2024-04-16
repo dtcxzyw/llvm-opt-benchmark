@@ -411,7 +411,7 @@ if.end67:                                         ; preds = %if.end.i, %if.then4
   %cmp.i.i251 = icmp ult i32 %or10.i237, %conv32
   %cmp1.i.i252 = icmp ugt i32 %or10.i237, %or10.i88
   %.not.i253 = or i1 %cmp.i.i251, %cmp1.i.i252
-  br i1 %.not.i253, label %return, label %if.end.i254
+  br i1 %.not.i253, label %check_block_.exit261.thread, label %if.end.i254
 
 if.end.i254:                                      ; preds = %if.end67
   %arrayidx1.i240 = getelementptr i8, ptr %fdt, i64 33
@@ -434,16 +434,18 @@ if.end.i254:                                      ; preds = %if.end67
   %or10.i250 = or disjoint i32 %or7.i247, %conv9.i249
   %add.i255 = add i32 %or10.i250, %or10.i237
   %cmp.i256 = icmp ult i32 %add.i255, %or10.i237
-  br i1 %cmp.i256, label %return, label %check_block_.exit261
+  br i1 %cmp.i256, label %check_block_.exit261.thread, label %check_block_.exit261
 
 check_block_.exit261:                             ; preds = %if.end.i254
   %cmp1.i8.i258.not = icmp ugt i32 %add.i255, %or10.i88
   %cond.fr = freeze i1 %cmp1.i8.i258.not
-  %spec.select = select i1 %cond.fr, i32 -8, i32 0
+  br i1 %cond.fr, label %check_block_.exit261.thread, label %return
+
+check_block_.exit261.thread:                      ; preds = %if.end.i254, %if.end67, %check_block_.exit261
   br label %return
 
-return:                                           ; preds = %check_block_.exit261, %if.end.i254, %if.end67, %if.end.i, %if.else, %if.then48, %if.end31, %fdt_header_size.exit, %if.end2, %lor.lhs.false, %if.end, %entry
-  %retval.0 = phi i32 [ -19, %entry ], [ -9, %if.end ], [ -10, %lor.lhs.false ], [ -10, %if.end2 ], [ -8, %fdt_header_size.exit ], [ -8, %if.end31 ], [ -8, %if.then48 ], [ -8, %if.else ], [ -8, %if.end.i ], [ -8, %if.end67 ], [ -8, %if.end.i254 ], [ %spec.select, %check_block_.exit261 ]
+return:                                           ; preds = %if.end.i, %if.else, %check_block_.exit261.thread, %check_block_.exit261, %if.then48, %if.end31, %fdt_header_size.exit, %if.end2, %lor.lhs.false, %if.end, %entry
+  %retval.0 = phi i32 [ -19, %entry ], [ -9, %if.end ], [ -10, %lor.lhs.false ], [ -10, %if.end2 ], [ -8, %fdt_header_size.exit ], [ -8, %if.end31 ], [ -8, %if.then48 ], [ -8, %check_block_.exit261.thread ], [ 0, %check_block_.exit261 ], [ -8, %if.else ], [ -8, %if.end.i ]
   ret i32 %retval.0
 }
 

@@ -630,7 +630,7 @@ for.end.i.i.i.i:                                  ; preds = %for.end.loopexit.i.
   %sub.ptr.sub16.pre-phi.i.i.i.i = phi i64 [ %.pre82.i.i.i.i, %for.end.loopexit.i.i.i.i ], [ %14, %while.exit16.i ]
   %__first.addr.0.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %for.end.loopexit.i.i.i.i ], [ %13, %while.exit16.i ]
   %sub.ptr.div17.i.i.i.i = ashr exact i64 %sub.ptr.sub16.pre-phi.i.i.i.i, 3
-  switch i64 %sub.ptr.div17.i.i.i.i, label %_ZN5folly6fibers12_GLOBAL__N_115nonMagicInBytesEPhm.exit [
+  switch i64 %sub.ptr.div17.i.i.i.i, label %sw.default.i.i.i.i [
     i64 3, label %sw.bb.i.i.i.i
     i64 2, label %sw.bb22.i.i.i.i
     i64 1, label %sw.bb27.i.i.i.i
@@ -659,7 +659,9 @@ sw.bb27.i.i.i.i:                                  ; preds = %if.end25.i.i.i.i, %
   %__first.addr.2.i.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i.i, %for.end.i.i.i.i ], [ %incdec.ptr26.i.i.i.i, %if.end25.i.i.i.i ]
   %__first.addr.2.val.i.i.i.i = load i64, ptr %__first.addr.2.i.i.i.i, align 8, !tbaa !30
   %cmp.i.i64.not.i.i.i.i = icmp eq i64 %__first.addr.2.val.i.i.i.i, -374168149231226868
-  %spec.select = select i1 %cmp.i.i64.not.i.i.i.i, ptr %add.ptr.i226, ptr %__first.addr.2.i.i.i.i
+  br i1 %cmp.i.i64.not.i.i.i.i, label %sw.default.i.i.i.i, label %_ZN5folly6fibers12_GLOBAL__N_115nonMagicInBytesEPhm.exit
+
+sw.default.i.i.i.i:                               ; preds = %sw.bb27.i.i.i.i, %for.end.i.i.i.i
   br label %_ZN5folly6fibers12_GLOBAL__N_115nonMagicInBytesEPhm.exit
 
 while.body17.i:                                   ; preds = %_ZN6google17MakeCheckOpStringImjEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit14
@@ -690,8 +692,8 @@ _ZN5folly6fibers12_GLOBAL__N_115nonMagicInBytesEPhm.exit.loopexit.split.loop.exi
   %incdec.ptr9.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.addr.076.i.i.i.i, i64 24
   br label %_ZN5folly6fibers12_GLOBAL__N_115nonMagicInBytesEPhm.exit
 
-_ZN5folly6fibers12_GLOBAL__N_115nonMagicInBytesEPhm.exit: ; preds = %for.body.i.i.i.i, %_ZN5folly6fibers12_GLOBAL__N_115nonMagicInBytesEPhm.exit.loopexit.split.loop.exit, %_ZN5folly6fibers12_GLOBAL__N_115nonMagicInBytesEPhm.exit.loopexit.split.loop.exit36, %_ZN5folly6fibers12_GLOBAL__N_115nonMagicInBytesEPhm.exit.loopexit.split.loop.exit38, %sw.bb27.i.i.i.i, %for.end.i.i.i.i, %sw.bb22.i.i.i.i, %sw.bb.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i.i, %sw.bb.i.i.i.i ], [ %__first.addr.1.i.i.i.i, %sw.bb22.i.i.i.i ], [ %add.ptr.i226, %for.end.i.i.i.i ], [ %spec.select, %sw.bb27.i.i.i.i ], [ %incdec.ptr.i.i.i.i.le, %_ZN5folly6fibers12_GLOBAL__N_115nonMagicInBytesEPhm.exit.loopexit.split.loop.exit ], [ %incdec.ptr5.i.i.i.i.le, %_ZN5folly6fibers12_GLOBAL__N_115nonMagicInBytesEPhm.exit.loopexit.split.loop.exit36 ], [ %incdec.ptr9.i.i.i.i.le, %_ZN5folly6fibers12_GLOBAL__N_115nonMagicInBytesEPhm.exit.loopexit.split.loop.exit38 ], [ %__first.addr.076.i.i.i.i, %for.body.i.i.i.i ]
+_ZN5folly6fibers12_GLOBAL__N_115nonMagicInBytesEPhm.exit: ; preds = %for.body.i.i.i.i, %_ZN5folly6fibers12_GLOBAL__N_115nonMagicInBytesEPhm.exit.loopexit.split.loop.exit, %_ZN5folly6fibers12_GLOBAL__N_115nonMagicInBytesEPhm.exit.loopexit.split.loop.exit36, %_ZN5folly6fibers12_GLOBAL__N_115nonMagicInBytesEPhm.exit.loopexit.split.loop.exit38, %sw.default.i.i.i.i, %sw.bb27.i.i.i.i, %sw.bb22.i.i.i.i, %sw.bb.i.i.i.i
+  %retval.0.i.i.i.i = phi ptr [ %add.ptr.i226, %sw.default.i.i.i.i ], [ %__first.addr.0.lcssa.i.i.i.i, %sw.bb.i.i.i.i ], [ %__first.addr.1.i.i.i.i, %sw.bb22.i.i.i.i ], [ %__first.addr.2.i.i.i.i, %sw.bb27.i.i.i.i ], [ %incdec.ptr.i.i.i.i.le, %_ZN5folly6fibers12_GLOBAL__N_115nonMagicInBytesEPhm.exit.loopexit.split.loop.exit ], [ %incdec.ptr5.i.i.i.i.le, %_ZN5folly6fibers12_GLOBAL__N_115nonMagicInBytesEPhm.exit.loopexit.split.loop.exit36 ], [ %incdec.ptr9.i.i.i.i.le, %_ZN5folly6fibers12_GLOBAL__N_115nonMagicInBytesEPhm.exit.loopexit.split.loop.exit38 ], [ %__first.addr.076.i.i.i.i, %for.body.i.i.i.i ]
   %sub.ptr.rhs.cast.i = ptrtoint ptr %retval.0.i.i.i.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i
   %23 = load i64, ptr %fiberStackHighWatermark_, align 8, !tbaa !30

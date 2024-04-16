@@ -1242,21 +1242,21 @@ define internal fastcc void @phpdbg_oplog_fill_executable(ptr nocapture noundef 
   %20 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 4, ptr %20, align 8
   %.not = icmp eq i32 %17, 0
-  br i1 %.not, label %37, label %21
+  br i1 %.not, label %38, label %21
 
 21:                                               ; preds = %3
   %22 = getelementptr inbounds i8, ptr %19, i64 -32
   %23 = getelementptr inbounds i8, ptr %19, i64 -4
   %24 = load i8, ptr %23, align 4
-  switch i8 %24, label %37 [
+  switch i8 %24, label %38 [
     i8 62, label %25
     i8 111, label %25
     i8 -95, label %25
   ]
 
 25:                                               ; preds = %21, %21, %21
-  %.not105 = icmp eq i32 %17, 1
-  br i1 %.not105, label %29, label %26
+  %.not104 = icmp eq i32 %17, 1
+  br i1 %.not104, label %29, label %26
 
 26:                                               ; preds = %25
   %27 = getelementptr inbounds i8, ptr %19, i64 -36
@@ -1278,22 +1278,24 @@ define internal fastcc void @phpdbg_oplog_fill_executable(ptr nocapture noundef 
   %34 = getelementptr inbounds i8, ptr %19, i64 -12
   %35 = load i32, ptr %34, align 4
   %36 = icmp eq i32 %35, -1
-  %spec.select104 = select i1 %36, ptr %22, ptr %19
-  br label %37
+  br i1 %36, label %37, label %38
 
-37:                                               ; preds = %33, %29, %26, %26, %26, %26, %21, %3
-  %.0100 = phi ptr [ %19, %3 ], [ %19, %21 ], [ %22, %26 ], [ %22, %26 ], [ %22, %26 ], [ %22, %26 ], [ %22, %29 ], [ %spec.select104, %33 ]
-  %38 = icmp ult ptr %15, %.0100
-  br i1 %38, label %.lr.ph, label %._crit_edge
+37:                                               ; preds = %26, %26, %26, %26, %33, %29
+  br label %38
 
-.lr.ph:                                           ; preds = %37
+38:                                               ; preds = %21, %37, %33, %3
+  %.0100 = phi ptr [ %22, %37 ], [ %19, %33 ], [ %19, %3 ], [ %19, %21 ]
+  %39 = icmp ult ptr %15, %.0100
+  br i1 %39, label %.lr.ph, label %._crit_edge
+
+.lr.ph:                                           ; preds = %38
   br i1 %2, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.critedge.us
-  %.0106.us = phi ptr [ %54, %.critedge.us ], [ %15, %.lr.ph ]
-  %39 = getelementptr inbounds i8, ptr %.0106.us, i64 28
-  %40 = load i8, ptr %39, align 4
-  switch i8 %40, label %41 [
+  %.0105.us = phi ptr [ %55, %.critedge.us ], [ %15, %.lr.ph ]
+  %40 = getelementptr inbounds i8, ptr %.0105.us, i64 28
+  %41 = load i8, ptr %40, align 4
+  switch i8 %41, label %42 [
     i8 -53, label %.critedge.us
     i8 -88, label %.critedge.us
     i8 -93, label %.critedge.us
@@ -1314,39 +1316,39 @@ define internal fastcc void @phpdbg_oplog_fill_executable(ptr nocapture noundef 
     i8 0, label %.critedge.us
   ]
 
-41:                                               ; preds = %.lr.ph.split.us
-  %42 = load ptr, ptr %5, align 8
-  %43 = ptrtoint ptr %.0106.us to i64
-  %44 = ptrtoint ptr %42 to i64
-  %45 = sub i64 %43, %44
-  %46 = ashr exact i64 %45, 5
-  %47 = icmp eq i8 %40, 68
-  br i1 %47, label %48, label %52
+42:                                               ; preds = %.lr.ph.split.us
+  %43 = load ptr, ptr %5, align 8
+  %44 = ptrtoint ptr %.0105.us to i64
+  %45 = ptrtoint ptr %43 to i64
+  %46 = sub i64 %44, %45
+  %47 = ashr exact i64 %46, 5
+  %48 = icmp eq i8 %41, 68
+  br i1 %48, label %49, label %53
 
-48:                                               ; preds = %41
-  %49 = getelementptr inbounds i8, ptr %.0106.us, i64 60
-  %50 = load i8, ptr %49, align 4
-  %51 = icmp eq i8 %50, 60
-  %spec.select.idx.us = select i1 %51, i64 32, i64 0
-  %spec.select.us = getelementptr inbounds i8, ptr %.0106.us, i64 %spec.select.idx.us
-  br label %52
+49:                                               ; preds = %42
+  %50 = getelementptr inbounds i8, ptr %.0105.us, i64 60
+  %51 = load i8, ptr %50, align 4
+  %52 = icmp eq i8 %51, 60
+  %spec.select.idx.us = select i1 %52, i64 32, i64 0
+  %spec.select.us = getelementptr inbounds i8, ptr %.0105.us, i64 %spec.select.idx.us
+  br label %53
 
-52:                                               ; preds = %48, %41
-  %.1.us = phi ptr [ %.0106.us, %41 ], [ %spec.select.us, %48 ]
-  %53 = call ptr @zend_hash_index_update(ptr noundef %1, i64 noundef %46, ptr noundef nonnull %4) #25
+53:                                               ; preds = %49, %42
+  %.1.us = phi ptr [ %.0105.us, %42 ], [ %spec.select.us, %49 ]
+  %54 = call ptr @zend_hash_index_update(ptr noundef %1, i64 noundef %47, ptr noundef nonnull %4) #25
   br label %.critedge.us
 
-.critedge.us:                                     ; preds = %52, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us
-  %.2.us = phi ptr [ %.0106.us, %.lr.ph.split.us ], [ %.1.us, %52 ], [ %.0106.us, %.lr.ph.split.us ], [ %.0106.us, %.lr.ph.split.us ], [ %.0106.us, %.lr.ph.split.us ], [ %.0106.us, %.lr.ph.split.us ], [ %.0106.us, %.lr.ph.split.us ], [ %.0106.us, %.lr.ph.split.us ], [ %.0106.us, %.lr.ph.split.us ], [ %.0106.us, %.lr.ph.split.us ], [ %.0106.us, %.lr.ph.split.us ], [ %.0106.us, %.lr.ph.split.us ], [ %.0106.us, %.lr.ph.split.us ], [ %.0106.us, %.lr.ph.split.us ], [ %.0106.us, %.lr.ph.split.us ], [ %.0106.us, %.lr.ph.split.us ], [ %.0106.us, %.lr.ph.split.us ], [ %.0106.us, %.lr.ph.split.us ], [ %.0106.us, %.lr.ph.split.us ]
-  %54 = getelementptr inbounds i8, ptr %.2.us, i64 32
-  %55 = icmp ult ptr %54, %.0100
-  br i1 %55, label %.lr.ph.split.us, label %._crit_edge
+.critedge.us:                                     ; preds = %53, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us
+  %.2.us = phi ptr [ %.0105.us, %.lr.ph.split.us ], [ %.1.us, %53 ], [ %.0105.us, %.lr.ph.split.us ], [ %.0105.us, %.lr.ph.split.us ], [ %.0105.us, %.lr.ph.split.us ], [ %.0105.us, %.lr.ph.split.us ], [ %.0105.us, %.lr.ph.split.us ], [ %.0105.us, %.lr.ph.split.us ], [ %.0105.us, %.lr.ph.split.us ], [ %.0105.us, %.lr.ph.split.us ], [ %.0105.us, %.lr.ph.split.us ], [ %.0105.us, %.lr.ph.split.us ], [ %.0105.us, %.lr.ph.split.us ], [ %.0105.us, %.lr.ph.split.us ], [ %.0105.us, %.lr.ph.split.us ], [ %.0105.us, %.lr.ph.split.us ], [ %.0105.us, %.lr.ph.split.us ], [ %.0105.us, %.lr.ph.split.us ], [ %.0105.us, %.lr.ph.split.us ]
+  %55 = getelementptr inbounds i8, ptr %.2.us, i64 32
+  %56 = icmp ult ptr %55, %.0100
+  br i1 %56, label %.lr.ph.split.us, label %._crit_edge
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.critedge
-  %.0106 = phi ptr [ %69, %.critedge ], [ %15, %.lr.ph ]
-  %56 = getelementptr inbounds i8, ptr %.0106, i64 28
-  %57 = load i8, ptr %56, align 4
-  switch i8 %57, label %58 [
+  %.0105 = phi ptr [ %70, %.critedge ], [ %15, %.lr.ph ]
+  %57 = getelementptr inbounds i8, ptr %.0105, i64 28
+  %58 = load i8, ptr %57, align 4
+  switch i8 %58, label %59 [
     i8 -53, label %.critedge
     i8 -88, label %.critedge
     i8 -93, label %.critedge
@@ -1367,33 +1369,33 @@ define internal fastcc void @phpdbg_oplog_fill_executable(ptr nocapture noundef 
     i8 0, label %.critedge
   ]
 
-58:                                               ; preds = %.lr.ph.split
-  %59 = getelementptr inbounds i8, ptr %.0106, i64 24
-  %60 = load i32, ptr %59, align 8
-  %61 = zext i32 %60 to i64
-  %62 = icmp eq i8 %57, 68
-  br i1 %62, label %63, label %67
+59:                                               ; preds = %.lr.ph.split
+  %60 = getelementptr inbounds i8, ptr %.0105, i64 24
+  %61 = load i32, ptr %60, align 8
+  %62 = zext i32 %61 to i64
+  %63 = icmp eq i8 %58, 68
+  br i1 %63, label %64, label %68
 
-63:                                               ; preds = %58
-  %64 = getelementptr inbounds i8, ptr %.0106, i64 60
-  %65 = load i8, ptr %64, align 4
-  %66 = icmp eq i8 %65, 60
-  %spec.select.idx = select i1 %66, i64 32, i64 0
-  %spec.select = getelementptr inbounds i8, ptr %.0106, i64 %spec.select.idx
-  br label %67
+64:                                               ; preds = %59
+  %65 = getelementptr inbounds i8, ptr %.0105, i64 60
+  %66 = load i8, ptr %65, align 4
+  %67 = icmp eq i8 %66, 60
+  %spec.select.idx = select i1 %67, i64 32, i64 0
+  %spec.select = getelementptr inbounds i8, ptr %.0105, i64 %spec.select.idx
+  br label %68
 
-67:                                               ; preds = %63, %58
-  %.1 = phi ptr [ %.0106, %58 ], [ %spec.select, %63 ]
-  %68 = call ptr @zend_hash_index_update(ptr noundef %1, i64 noundef %61, ptr noundef nonnull %4) #25
+68:                                               ; preds = %64, %59
+  %.1 = phi ptr [ %.0105, %59 ], [ %spec.select, %64 ]
+  %69 = call ptr @zend_hash_index_update(ptr noundef %1, i64 noundef %62, ptr noundef nonnull %4) #25
   br label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %67
-  %.2 = phi ptr [ %.0106, %.lr.ph.split ], [ %.1, %67 ], [ %.0106, %.lr.ph.split ], [ %.0106, %.lr.ph.split ], [ %.0106, %.lr.ph.split ], [ %.0106, %.lr.ph.split ], [ %.0106, %.lr.ph.split ], [ %.0106, %.lr.ph.split ], [ %.0106, %.lr.ph.split ], [ %.0106, %.lr.ph.split ], [ %.0106, %.lr.ph.split ], [ %.0106, %.lr.ph.split ], [ %.0106, %.lr.ph.split ], [ %.0106, %.lr.ph.split ], [ %.0106, %.lr.ph.split ], [ %.0106, %.lr.ph.split ], [ %.0106, %.lr.ph.split ], [ %.0106, %.lr.ph.split ], [ %.0106, %.lr.ph.split ]
-  %69 = getelementptr inbounds i8, ptr %.2, i64 32
-  %70 = icmp ult ptr %69, %.0100
-  br i1 %70, label %.lr.ph.split, label %._crit_edge
+.critedge:                                        ; preds = %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %68
+  %.2 = phi ptr [ %.0105, %.lr.ph.split ], [ %.1, %68 ], [ %.0105, %.lr.ph.split ], [ %.0105, %.lr.ph.split ], [ %.0105, %.lr.ph.split ], [ %.0105, %.lr.ph.split ], [ %.0105, %.lr.ph.split ], [ %.0105, %.lr.ph.split ], [ %.0105, %.lr.ph.split ], [ %.0105, %.lr.ph.split ], [ %.0105, %.lr.ph.split ], [ %.0105, %.lr.ph.split ], [ %.0105, %.lr.ph.split ], [ %.0105, %.lr.ph.split ], [ %.0105, %.lr.ph.split ], [ %.0105, %.lr.ph.split ], [ %.0105, %.lr.ph.split ], [ %.0105, %.lr.ph.split ], [ %.0105, %.lr.ph.split ]
+  %70 = getelementptr inbounds i8, ptr %.2, i64 32
+  %71 = icmp ult ptr %70, %.0100
+  br i1 %71, label %.lr.ph.split, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.critedge, %.critedge.us, %37
+._crit_edge:                                      ; preds = %.critedge, %.critedge.us, %38
   ret void
 }
 

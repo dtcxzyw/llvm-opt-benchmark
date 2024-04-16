@@ -222,8 +222,8 @@ _ZNKSt6vectorIN3url14SchemeWithTypeESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; pred
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %spec.select.i.i.i = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 576460752303423487)
-  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 576460752303423487, i64 %spec.select.i.i.i
+  %4 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 576460752303423487)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 576460752303423487, i64 %4
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
   br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIN3url14SchemeWithTypeESaIS1_EE11_M_allocateEm.exit.i.i, label %cond.true.i.i.i
 
@@ -814,21 +814,24 @@ if.end12:                                         ; preds = %if.end8
 if.end20:                                         ; preds = %if.end12
   %call21 = call noundef signext i8 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEixEm(ptr noundef nonnull align 8 dereferenceable(16) %lower_ascii_domain, i64 noundef 0)
   %cmp23.not = icmp eq i8 %call21, 46
-  br i1 %cmp23.not, label %return, label %land.lhs.true24
+  br i1 %cmp23.not, label %if.end32, label %land.lhs.true24
 
 land.lhs.true24:                                  ; preds = %if.end20
   %call25 = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(16) %lower_ascii_domain)
   %cmp26 = icmp ugt i64 %host_len.0, %call25
-  br i1 %cmp26, label %land.lhs.true27, label %return
+  br i1 %cmp26, label %land.lhs.true27, label %if.end32
 
 land.lhs.true27:                                  ; preds = %land.lhs.true24
   %add.ptr28 = getelementptr inbounds i8, ptr %add.ptr15, i64 -1
   %5 = load i8, ptr %add.ptr28, align 1
   %cmp30.not = icmp eq i8 %5, 46
+  br i1 %cmp30.not, label %if.end32, label %return
+
+if.end32:                                         ; preds = %land.lhs.true27, %land.lhs.true24, %if.end20
   br label %return
 
-return:                                           ; preds = %land.lhs.true27, %if.end20, %land.lhs.true24, %if.end12, %if.end8, %entry, %lor.lhs.false
-  %retval.0 = phi i1 [ false, %lor.lhs.false ], [ false, %entry ], [ false, %if.end8 ], [ false, %if.end12 ], [ true, %land.lhs.true24 ], [ true, %if.end20 ], [ %cmp30.not, %land.lhs.true27 ]
+return:                                           ; preds = %land.lhs.true27, %if.end12, %if.end8, %entry, %lor.lhs.false, %if.end32
+  %retval.0 = phi i1 [ true, %if.end32 ], [ false, %lor.lhs.false ], [ false, %entry ], [ false, %if.end8 ], [ false, %if.end12 ], [ false, %land.lhs.true27 ]
   ret i1 %retval.0
 }
 
@@ -3988,8 +3991,8 @@ _ZNKSt6vectorIN3url14SchemeWithTypeESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; pred
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %spec.select.i.i.i = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 576460752303423487)
-  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 576460752303423487, i64 %spec.select.i.i.i
+  %6 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 576460752303423487)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 576460752303423487, i64 %6
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
   br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIN3url14SchemeWithTypeESaIS1_EE11_M_allocateEm.exit.i.i, label %cond.true.i.i.i
 
@@ -4032,10 +4035,10 @@ _ZNSt6vectorIN3url14SchemeWithTypeESaIS1_EE9push_backERKS1_.exit: ; preds = %if.
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !15
 
 lpad:                                             ; preds = %if.then.i.i.i.i.i, %if.then.i.i
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %call) #13
-  resume { ptr, i32 } %6
+  resume { ptr, i32 } %7
 
 for.end:                                          ; preds = %_ZNSt6vectorIN3url14SchemeWithTypeESaIS1_EE9push_backERKS1_.exit, %invoke.cont.thread, %invoke.cont, %entry
   ret void

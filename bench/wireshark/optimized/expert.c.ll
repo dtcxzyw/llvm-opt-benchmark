@@ -1198,19 +1198,21 @@ proto_item_set_generated.exit92:                  ; preds = %proto_item_set_gene
   %157 = getelementptr inbounds i8, ptr %1, i64 32
   %158 = load ptr, ptr %157, align 8
   %.not80 = icmp eq ptr %158, null
-  %spec.select = select i1 %.not80, ptr null, ptr %1
-  br label %159
+  br i1 %.not80, label %159, label %160
 
 159:                                              ; preds = %156, %143
-  %.sink98 = phi ptr [ null, %143 ], [ %spec.select, %156 ]
-  %160 = getelementptr inbounds i8, ptr %146, i64 32
-  store ptr %.sink98, ptr %160, align 8
-  %161 = load i32, ptr @expert_tap, align 4
-  call void @tap_queue_packet(i32 noundef %161, ptr noundef nonnull %.068, ptr noundef nonnull %146) #12
+  br label %160
+
+160:                                              ; preds = %156, %159
+  %.sink98 = phi ptr [ null, %159 ], [ %1, %156 ]
+  %161 = getelementptr inbounds i8, ptr %146, i64 32
+  store ptr %.sink98, ptr %161, align 8
+  %162 = load i32, ptr @expert_tap, align 4
+  call void @tap_queue_packet(i32 noundef %162, ptr noundef nonnull %.068, ptr noundef nonnull %146) #12
   br label %.thread
 
-.thread:                                          ; preds = %12, %proto_item_set_generated.exit92, %18, %20, %159
-  %.0 = phi ptr [ %96, %159 ], [ null, %20 ], [ null, %18 ], [ %96, %proto_item_set_generated.exit92 ], [ null, %12 ]
+.thread:                                          ; preds = %12, %proto_item_set_generated.exit92, %18, %20, %160
+  %.0 = phi ptr [ %96, %160 ], [ null, %20 ], [ null, %18 ], [ %96, %proto_item_set_generated.exit92 ], [ null, %12 ]
   ret ptr %.0
 }
 

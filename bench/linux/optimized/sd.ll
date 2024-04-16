@@ -5063,29 +5063,29 @@ define internal fastcc i32 @sd_pr_out_command(ptr %.16.val.88.val.0.val, i32 %.1
 
 28:                                               ; preds = %5
   %29 = icmp slt i32 %20, 1
-  br i1 %29, label %50, label %.thread
+  br i1 %29, label %51, label %.thread
 
 .thread:                                          ; preds = %23, %27, %28
   %30 = lshr i32 %20, 16
   %31 = trunc i32 %30 to i8
   switch i8 %31, label %34 [
-    i8 20, label %50
-    i8 14, label %50
-    i8 2, label %50
+    i8 20, label %51
+    i8 14, label %51
+    i8 2, label %51
     i8 1, label %32
     i8 15, label %33
   ]
 
 32:                                               ; preds = %.thread
-  br label %50
+  br label %51
 
 33:                                               ; preds = %.thread
-  br label %50
+  br label %51
 
 34:                                               ; preds = %.thread
   %35 = trunc i32 %20 to i8
-  switch i8 %35, label %49 [
-    i8 24, label %50
+  switch i8 %35, label %50 [
+    i8 24, label %51
     i8 2, label %36
   ]
 
@@ -5093,30 +5093,32 @@ define internal fastcc i32 @sd_pr_out_command(ptr %.16.val.88.val.0.val, i32 %.1
   %37 = load i8, ptr %6, align 8
   %38 = and i8 %37, 112
   %39 = icmp eq i8 %38, 112
-  %40 = getelementptr inbounds i8, ptr %6, i64 1
-  %41 = load i8, ptr %40, align 1
-  %42 = icmp eq i8 %41, 5
-  %or.cond = select i1 %39, i1 %42, i1 false
-  br i1 %or.cond, label %43, label %50
+  br i1 %39, label %40, label %51
 
-43:                                               ; preds = %36
-  %44 = getelementptr inbounds i8, ptr %6, i64 2
-  %45 = load i8, ptr %44, align 2
-  %46 = and i8 %45, -3
-  %47 = icmp eq i8 %46, 36
-  %48 = select i1 %47, i32 -22, i32 2
-  br label %50
+40:                                               ; preds = %36
+  %41 = getelementptr inbounds i8, ptr %6, i64 1
+  %42 = load i8, ptr %41, align 1
+  %43 = icmp eq i8 %42, 5
+  br i1 %43, label %44, label %50
 
-49:                                               ; preds = %34
-  br label %50
+44:                                               ; preds = %40
+  %45 = getelementptr inbounds i8, ptr %6, i64 2
+  %46 = load i8, ptr %45, align 2
+  %47 = and i8 %46, -3
+  %48 = icmp eq i8 %47, 36
+  %49 = select i1 %48, i32 -22, i32 2
+  br label %51
 
-50:                                               ; preds = %49, %43, %36, %34, %33, %32, %.thread, %.thread, %.thread, %28
-  %51 = phi i32 [ %20, %28 ], [ 983040, %33 ], [ 65536, %32 ], [ 917504, %.thread ], [ 917504, %.thread ], [ 917504, %.thread ], [ 24, %34 ], [ 2, %36 ], [ %48, %43 ], [ 2, %49 ]
+50:                                               ; preds = %40, %34
+  br label %51
+
+51:                                               ; preds = %50, %44, %36, %34, %33, %32, %.thread, %.thread, %.thread, %28
+  %52 = phi i32 [ %20, %28 ], [ 2, %50 ], [ 983040, %33 ], [ 65536, %32 ], [ 917504, %.thread ], [ 917504, %.thread ], [ 917504, %.thread ], [ 24, %34 ], [ 2, %36 ], [ %49, %44 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #19
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19
-  ret i32 %51
+  ret i32 %52
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -5170,29 +5172,29 @@ define internal fastcc i32 @sd_pr_in_command(ptr %.16.val.88.val.0.val, i32 %.16
 
 21:                                               ; preds = %3
   %22 = icmp slt i32 %13, 1
-  br i1 %22, label %43, label %.thread
+  br i1 %22, label %44, label %.thread
 
 .thread:                                          ; preds = %16, %20, %21
   %23 = lshr i32 %13, 16
   %24 = trunc i32 %23 to i8
   switch i8 %24, label %27 [
-    i8 20, label %43
-    i8 14, label %43
-    i8 2, label %43
+    i8 20, label %44
+    i8 14, label %44
+    i8 2, label %44
     i8 1, label %25
     i8 15, label %26
   ]
 
 25:                                               ; preds = %.thread
-  br label %43
+  br label %44
 
 26:                                               ; preds = %.thread
-  br label %43
+  br label %44
 
 27:                                               ; preds = %.thread
   %28 = trunc i32 %13 to i8
-  switch i8 %28, label %42 [
-    i8 24, label %43
+  switch i8 %28, label %43 [
+    i8 24, label %44
     i8 2, label %29
   ]
 
@@ -5200,29 +5202,31 @@ define internal fastcc i32 @sd_pr_in_command(ptr %.16.val.88.val.0.val, i32 %.16
   %30 = load i8, ptr %4, align 8
   %31 = and i8 %30, 112
   %32 = icmp eq i8 %31, 112
-  %33 = getelementptr inbounds i8, ptr %4, i64 1
-  %34 = load i8, ptr %33, align 1
-  %35 = icmp eq i8 %34, 5
-  %or.cond = select i1 %32, i1 %35, i1 false
-  br i1 %or.cond, label %36, label %43
+  br i1 %32, label %33, label %44
 
-36:                                               ; preds = %29
-  %37 = getelementptr inbounds i8, ptr %4, i64 2
-  %38 = load i8, ptr %37, align 2
-  %39 = and i8 %38, -3
-  %40 = icmp eq i8 %39, 36
-  %41 = select i1 %40, i32 -22, i32 2
-  br label %43
+33:                                               ; preds = %29
+  %34 = getelementptr inbounds i8, ptr %4, i64 1
+  %35 = load i8, ptr %34, align 1
+  %36 = icmp eq i8 %35, 5
+  br i1 %36, label %37, label %43
 
-42:                                               ; preds = %27
-  br label %43
+37:                                               ; preds = %33
+  %38 = getelementptr inbounds i8, ptr %4, i64 2
+  %39 = load i8, ptr %38, align 2
+  %40 = and i8 %39, -3
+  %41 = icmp eq i8 %40, 36
+  %42 = select i1 %41, i32 -22, i32 2
+  br label %44
 
-43:                                               ; preds = %42, %36, %29, %27, %26, %25, %.thread, %.thread, %.thread, %21
-  %44 = phi i32 [ %13, %21 ], [ 983040, %26 ], [ 65536, %25 ], [ 917504, %.thread ], [ 917504, %.thread ], [ 917504, %.thread ], [ 24, %27 ], [ 2, %29 ], [ %41, %36 ], [ 2, %42 ]
+43:                                               ; preds = %33, %27
+  br label %44
+
+44:                                               ; preds = %43, %37, %29, %27, %26, %25, %.thread, %.thread, %.thread, %21
+  %45 = phi i32 [ %13, %21 ], [ 2, %43 ], [ 983040, %26 ], [ 65536, %25 ], [ 917504, %.thread ], [ 917504, %.thread ], [ 917504, %.thread ], [ 24, %27 ], [ 2, %29 ], [ %42, %37 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #19
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %5) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
-  ret i32 %44
+  ret i32 %45
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

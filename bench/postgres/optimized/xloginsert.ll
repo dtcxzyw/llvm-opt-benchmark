@@ -1110,7 +1110,7 @@ declare void @GetFullPageWriteInfo(ptr noundef, ptr noundef) local_unnamed_addr 
 declare i64 @XLogInsertRecord(ptr noundef, i64 noundef, i8 noundef zeroext, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @XLogCheckBufferNeedsBackup(i32 noundef %0) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @XLogCheckBufferNeedsBackup(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca i8, align 1
   call void @GetFullPageWriteInfo(ptr noundef nonnull %2, ptr noundef nonnull %3) #10
@@ -1143,11 +1143,14 @@ BufferGetPage.exit:                               ; preds = %5, %11
   %.val = load i64, ptr %.0.i.i, align 4
   %20 = call i64 @llvm.fshl.i64(i64 %.val, i64 %.val, i64 32)
   %21 = load i64, ptr %2, align 8
-  %.not = icmp ule i64 %20, %21
-  br label %22
+  %.not = icmp ugt i64 %20, %21
+  br i1 %.not, label %22, label %23
 
 22:                                               ; preds = %19, %BufferGetPage.exit
-  %.0 = phi i1 [ false, %BufferGetPage.exit ], [ %.not, %19 ]
+  br label %23
+
+23:                                               ; preds = %19, %22
+  %.0 = phi i1 [ false, %22 ], [ true, %19 ]
   ret i1 %.0
 }
 

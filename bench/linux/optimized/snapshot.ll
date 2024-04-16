@@ -8530,7 +8530,7 @@ define internal fastcc ptr @saveable_page(ptr noundef readnone %0, i64 noundef %
   %181 = load volatile i64, ptr %129, align 8
   %182 = and i64 %181, 16384
   %183 = icmp eq i64 %182, 0
-  br i1 %183, label %.thread, label %184
+  br i1 %183, label %189, label %184
 
 184:                                              ; preds = %180
   %185 = tail call zeroext i1 @kernel_page_present(ptr noundef nonnull %129) #19
@@ -8539,12 +8539,14 @@ define internal fastcc ptr @saveable_page(ptr noundef readnone %0, i64 noundef %
 186:                                              ; preds = %184
   %187 = tail call i32 @pfn_is_nosave(i64 noundef %1) #19
   %188 = icmp eq i32 %187, 0
-  %spec.select = select i1 %188, ptr %129, ptr null
+  br i1 %188, label %189, label %.thread
+
+189:                                              ; preds = %186, %180
   br label %.thread
 
-.thread:                                          ; preds = %124, %94, %71, %37, %11, %2, %186, %180, %184, %175, %168, %150, %131, %67
-  %189 = phi ptr [ null, %67 ], [ null, %131 ], [ null, %168 ], [ null, %150 ], [ null, %175 ], [ null, %184 ], [ %129, %180 ], [ %spec.select, %186 ], [ null, %2 ], [ null, %11 ], [ null, %37 ], [ null, %71 ], [ null, %94 ], [ null, %124 ]
-  ret ptr %189
+.thread:                                          ; preds = %124, %94, %71, %37, %11, %2, %189, %186, %184, %175, %168, %150, %131, %67
+  %190 = phi ptr [ %129, %189 ], [ null, %67 ], [ null, %131 ], [ null, %168 ], [ null, %150 ], [ null, %175 ], [ null, %186 ], [ null, %184 ], [ null, %2 ], [ null, %11 ], [ null, %37 ], [ null, %71 ], [ null, %94 ], [ null, %124 ]
+  ret ptr %190
 }
 
 ; Function Attrs: null_pointer_is_valid

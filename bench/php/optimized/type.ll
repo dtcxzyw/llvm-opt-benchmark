@@ -1434,21 +1434,23 @@ define hidden void @zif_is_numeric(ptr nocapture noundef readonly %0, ptr nocapt
   %12 = getelementptr inbounds i8, ptr %11, i64 24
   %13 = load i8, ptr %12, align 1
   %14 = icmp sgt i8 %13, 57
-  br i1 %14, label %_zend_is_numeric.exit, label %15
+  br i1 %14, label %.critedge.i, label %15
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds i8, ptr %11, i64 16
   %17 = load i64, ptr %16, align 8
   %18 = tail call zeroext i8 @_is_numeric_string_ex(ptr noundef nonnull %12, i64 noundef %17, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null, ptr noundef null) #8
   %19 = icmp eq i8 %18, 0
-  %spec.select.i = select i1 %19, i32 2, i32 3
+  br i1 %19, label %.critedge.i, label %_zend_is_numeric.exit
+
+.critedge.i:                                      ; preds = %15, %9
   br label %_zend_is_numeric.exit
 
 20:                                               ; preds = %6
   br label %_zend_is_numeric.exit
 
-_zend_is_numeric.exit:                            ; preds = %6, %6, %9, %15, %20
-  %.sink.i = phi i32 [ 2, %20 ], [ 3, %6 ], [ 3, %6 ], [ 2, %9 ], [ %spec.select.i, %15 ]
+_zend_is_numeric.exit:                            ; preds = %6, %6, %15, %.critedge.i, %20
+  %.sink.i = phi i32 [ 2, %20 ], [ 2, %.critedge.i ], [ 3, %6 ], [ 3, %6 ], [ 3, %15 ]
   %21 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 %.sink.i, ptr %21, align 8
   br label %22
@@ -1472,21 +1474,23 @@ define hidden void @zflf_is_numeric_1(ptr nocapture noundef writeonly %0, ptr no
   %7 = getelementptr inbounds i8, ptr %6, i64 24
   %8 = load i8, ptr %7, align 1
   %9 = icmp sgt i8 %8, 57
-  br i1 %9, label %_zend_is_numeric.exit, label %10
+  br i1 %9, label %.critedge.i, label %10
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds i8, ptr %6, i64 16
   %12 = load i64, ptr %11, align 8
   %13 = tail call zeroext i8 @_is_numeric_string_ex(ptr noundef nonnull %7, i64 noundef %12, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null, ptr noundef null) #8
   %14 = icmp eq i8 %13, 0
-  %spec.select.i = select i1 %14, i32 2, i32 3
+  br i1 %14, label %.critedge.i, label %_zend_is_numeric.exit
+
+.critedge.i:                                      ; preds = %10, %5
   br label %_zend_is_numeric.exit
 
 15:                                               ; preds = %2
   br label %_zend_is_numeric.exit
 
-_zend_is_numeric.exit:                            ; preds = %2, %2, %5, %10, %15
-  %.sink.i = phi i32 [ 2, %15 ], [ 3, %2 ], [ 3, %2 ], [ 2, %5 ], [ %spec.select.i, %10 ]
+_zend_is_numeric.exit:                            ; preds = %2, %2, %10, %.critedge.i, %15
+  %.sink.i = phi i32 [ 2, %15 ], [ 2, %.critedge.i ], [ 3, %2 ], [ 3, %2 ], [ 3, %10 ]
   %16 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %.sink.i, ptr %16, align 8
   ret void

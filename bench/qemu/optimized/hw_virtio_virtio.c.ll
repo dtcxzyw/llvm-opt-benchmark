@@ -2389,7 +2389,7 @@ if.else:                                          ; preds = %if.end18
   %flags.i30 = getelementptr inbounds i8, ptr %desc3.i, i64 12
   %len7.i = getelementptr inbounds i8, ptr %desc3.i, i64 8
   %dma_as.i31 = getelementptr inbounds i8, ptr %5, i64 472
-  %len1.i.i51.i = getelementptr inbounds i8, ptr %indirect_desc_cache.i23, i64 16
+  %len1.i.i50.i = getelementptr inbounds i8, ptr %indirect_desc_cache.i23, i64 16
   %next.i.i = getelementptr inbounds i8, ptr %desc3.i, i64 14
   br label %while.cond.i
 
@@ -2447,9 +2447,9 @@ cond.end.i.i:                                     ; preds = %virtio_lduw_phys_ca
   %conv8.i.i33 = zext i16 %conv7.i.i to i32
   %43 = load i32, ptr %vq, align 8
   %cmp9.i.i = icmp ult i32 %43, %conv8.i.i33
-  br i1 %cmp9.i.i, label %virtqueue_num_heads.exit.thread.i, label %if.end.i.i
+  br i1 %cmp9.i.i, label %while.end.thread.i, label %if.end.i.i
 
-virtqueue_num_heads.exit.thread.i:                ; preds = %cond.end.i.i
+while.end.thread.i:                               ; preds = %cond.end.i.i
   %44 = load ptr, ptr %vdev, align 8
   %45 = load i16, ptr %shadow_avail_idx.i.i, align 4
   %conv12.i.i = zext i16 %45 to i32
@@ -2467,79 +2467,79 @@ while.body.i:                                     ; preds = %if.end.i.i
   %inc.i34 = add i32 %idx.0.i, 1
   %47 = load atomic i64, ptr %caches.i monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !6
-  %tobool.not.i.i32.i = icmp eq i64 %47, 0
-  br i1 %tobool.not.i.i32.i, label %vring_avail_ring.exit.i.i, label %if.end.i.i33.i
+  %tobool.not.i.i31.i = icmp eq i64 %47, 0
+  br i1 %tobool.not.i.i31.i, label %vring_avail_ring.exit.i.i, label %if.end.i.i32.i
 
-if.end.i.i33.i:                                   ; preds = %while.body.i
+if.end.i.i32.i:                                   ; preds = %while.body.i
   %rem.i.i = urem i32 %idx.0.i, %46
   %48 = inttoptr i64 %47 to ptr
   %conv.i.i.i = sext i32 %rem.i.i to i64
   %49 = shl nsw i64 %conv.i.i.i, 1
   %50 = add nsw i64 %49, 4
-  %avail.i.i34.i = getelementptr inbounds i8, ptr %48, i64 128
-  %len.i.i.i.i.i35.i = getelementptr inbounds i8, ptr %48, i64 144
-  %51 = load i64, ptr %len.i.i.i.i.i35.i, align 16
+  %avail.i.i33.i = getelementptr inbounds i8, ptr %48, i64 128
+  %len.i.i.i.i.i34.i = getelementptr inbounds i8, ptr %48, i64 144
+  %51 = load i64, ptr %len.i.i.i.i.i34.i, align 16
   %cmp.i.i.i.i.i.i = icmp ugt i64 %51, %50
   %sub.i.i.i.i.i.i = sub i64 %51, %50
   %cmp2.i.i.i.i.i.i = icmp ugt i64 %sub.i.i.i.i.i.i, 1
   %or.cond.i.i.i.i.i.i = and i1 %cmp.i.i.i.i.i.i, %cmp2.i.i.i.i.i.i
-  br i1 %or.cond.i.i.i.i.i.i, label %if.end.i.i.i.i.i37.i, label %if.else.i.i.i.i.i36.i
+  br i1 %or.cond.i.i.i.i.i.i, label %if.end.i.i.i.i.i36.i, label %if.else.i.i.i.i.i35.i
 
-if.else.i.i.i.i.i36.i:                            ; preds = %if.end.i.i33.i
+if.else.i.i.i.i.i35.i:                            ; preds = %if.end.i.i32.i
   call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #22
   unreachable
 
-if.end.i.i.i.i.i37.i:                             ; preds = %if.end.i.i33.i
-  %52 = load ptr, ptr %avail.i.i34.i, align 16
-  %tobool.not.i.i.i.i.i38.i = icmp eq ptr %52, null
-  br i1 %tobool.not.i.i.i.i.i38.i, label %if.else8.i.i.i.i.i46.i, label %if.then5.i.i.i.i.i39.i
+if.end.i.i.i.i.i36.i:                             ; preds = %if.end.i.i32.i
+  %52 = load ptr, ptr %avail.i.i33.i, align 16
+  %tobool.not.i.i.i.i.i37.i = icmp eq ptr %52, null
+  br i1 %tobool.not.i.i.i.i.i37.i, label %if.else8.i.i.i.i.i45.i, label %if.then5.i.i.i.i.i38.i
 
-if.then5.i.i.i.i.i39.i:                           ; preds = %if.end.i.i.i.i.i37.i
-  %add.ptr.i.i.i.i.i40.i = getelementptr i8, ptr %52, i64 %50
-  %add.ptr.val.i.i.i.i.i41.i = load i16, ptr %add.ptr.i.i.i.i.i40.i, align 1
+if.then5.i.i.i.i.i38.i:                           ; preds = %if.end.i.i.i.i.i36.i
+  %add.ptr.i.i.i.i.i39.i = getelementptr i8, ptr %52, i64 %50
+  %add.ptr.val.i.i.i.i.i40.i = load i16, ptr %add.ptr.i.i.i.i.i39.i, align 1
   br label %vring_avail_ring.exit.i.i
 
-if.else8.i.i.i.i.i46.i:                           ; preds = %if.end.i.i.i.i.i37.i
-  %call10.i.i.i.i.i47.i = call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i.i34.i, i64 noundef %50, i32 1, ptr noundef null) #21
+if.else8.i.i.i.i.i45.i:                           ; preds = %if.end.i.i.i.i.i36.i
+  %call10.i.i.i.i.i46.i = call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i.i33.i, i64 noundef %50, i32 1, ptr noundef null) #21
   br label %vring_avail_ring.exit.i.i
 
-vring_avail_ring.exit.i.i:                        ; preds = %if.else8.i.i.i.i.i46.i, %if.then5.i.i.i.i.i39.i, %while.body.i
-  %retval.0.i.i.i = phi i16 [ 0, %while.body.i ], [ %add.ptr.val.i.i.i.i.i41.i, %if.then5.i.i.i.i.i39.i ], [ %call10.i.i.i.i.i47.i, %if.else8.i.i.i.i.i46.i ]
-  %conv.i42.i = zext i16 %retval.0.i.i.i to i32
+vring_avail_ring.exit.i.i:                        ; preds = %if.else8.i.i.i.i.i45.i, %if.then5.i.i.i.i.i38.i, %while.body.i
+  %retval.0.i.i.i = phi i16 [ 0, %while.body.i ], [ %add.ptr.val.i.i.i.i.i40.i, %if.then5.i.i.i.i.i38.i ], [ %call10.i.i.i.i.i46.i, %if.else8.i.i.i.i.i45.i ]
+  %conv.i41.i = zext i16 %retval.0.i.i.i to i32
   %53 = load i32, ptr %vq, align 8
-  %cmp.not.i43.i = icmp ugt i32 %53, %conv.i42.i
-  br i1 %cmp.not.i43.i, label %if.end.i38, label %virtqueue_get_head.exit.i
+  %cmp.not.i42.i = icmp ugt i32 %53, %conv.i41.i
+  br i1 %cmp.not.i42.i, label %if.end.i38, label %virtqueue_get_head.exit.i
 
 virtqueue_get_head.exit.i:                        ; preds = %vring_avail_ring.exit.i.i
   %54 = load ptr, ptr %vdev, align 8
-  call void (ptr, ptr, ...) @virtio_error(ptr noundef %54, ptr noundef nonnull @.str.79, i32 noundef %conv.i42.i)
+  call void (ptr, ptr, ...) @virtio_error(ptr noundef %54, ptr noundef nonnull @.str.79, i32 noundef %conv.i41.i)
   br label %done.i35
 
 if.end.i38:                                       ; preds = %vring_avail_ring.exit.i.i
-  %conv.i48.i = zext i16 %retval.0.i.i.i to i64
-  %mul.i.i = shl nuw nsw i64 %conv.i48.i, 4
+  %conv.i47.i = zext i16 %retval.0.i.i.i to i64
+  %mul.i.i = shl nuw nsw i64 %conv.i47.i, 4
   %55 = load i64, ptr %len, align 16
   %cmp.i.i.i = icmp ule i64 %55, %mul.i.i
   %sub.i.i.i = sub i64 %55, %mul.i.i
   %cmp3.not.i.i.i = icmp ult i64 %sub.i.i.i, 16
   %or.cond.i.i.i = or i1 %cmp.i.i.i, %cmp3.not.i.i.i
-  br i1 %or.cond.i.i.i, label %if.else.i.i.i, label %if.end.i.i49.i
+  br i1 %or.cond.i.i.i, label %if.else.i.i.i, label %if.end.i.i48.i
 
 if.else.i.i.i:                                    ; preds = %if.end.i38
   call void @__assert_fail(ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.72, i32 noundef 3023, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_read_cached) #22
   unreachable
 
-if.end.i.i49.i:                                   ; preds = %if.end.i38
+if.end.i.i48.i:                                   ; preds = %if.end.i38
   %56 = load ptr, ptr %desc.i29, align 16
-  %tobool.not.i.i50.i = icmp eq ptr %56, null
-  br i1 %tobool.not.i.i50.i, label %if.else8.i.i.i, label %if.then6.i.i.i
+  %tobool.not.i.i49.i = icmp eq ptr %56, null
+  br i1 %tobool.not.i.i49.i, label %if.else8.i.i.i, label %if.then6.i.i.i
 
-if.then6.i.i.i:                                   ; preds = %if.end.i.i49.i
+if.then6.i.i.i:                                   ; preds = %if.end.i.i48.i
   %add.ptr.i.i.i = getelementptr i8, ptr %56, i64 %mul.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %desc3.i, ptr noundef nonnull align 1 dereferenceable(16) %add.ptr.i.i.i, i64 16, i1 false)
   br label %vring_split_desc_read.exit.i
 
-if.else8.i.i.i:                                   ; preds = %if.end.i.i49.i
+if.else8.i.i.i:                                   ; preds = %if.end.i.i48.i
   %call.i.i.i = call i32 @address_space_read_cached_slow(ptr noundef nonnull %desc.i29, i64 noundef %mul.i.i, ptr noundef nonnull %desc3.i, i64 noundef 16) #21
   br label %vring_split_desc_read.exit.i
 
@@ -2587,34 +2587,34 @@ if.then25.i:                                      ; preds = %if.end17.i
 
 if.end26.i:                                       ; preds = %if.end17.i
   %div29.i = lshr i32 %62, 4
-  %63 = load i64, ptr %len1.i.i51.i, align 16
-  %cmp3.not.i.i53.i = icmp ult i64 %63, 16
-  br i1 %cmp3.not.i.i53.i, label %if.else.i.i59.i, label %if.end.i.i54.i
+  %63 = load i64, ptr %len1.i.i50.i, align 16
+  %cmp3.not.i.i52.i = icmp ult i64 %63, 16
+  br i1 %cmp3.not.i.i52.i, label %if.else.i.i58.i, label %if.end.i.i53.i
 
-if.else.i.i59.i:                                  ; preds = %if.end26.i
+if.else.i.i58.i:                                  ; preds = %if.end26.i
   call void @__assert_fail(ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.72, i32 noundef 3023, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_read_cached) #22
   unreachable
 
-if.end.i.i54.i:                                   ; preds = %if.end26.i
+if.end.i.i53.i:                                   ; preds = %if.end26.i
   %64 = load ptr, ptr %indirect_desc_cache.i23, align 16
-  %tobool.not.i.i55.i = icmp eq ptr %64, null
-  br i1 %tobool.not.i.i55.i, label %if.else8.i.i57.i, label %if.then6.i.i56.i
+  %tobool.not.i.i54.i = icmp eq ptr %64, null
+  br i1 %tobool.not.i.i54.i, label %if.else8.i.i56.i, label %if.then6.i.i55.i
 
-if.then6.i.i56.i:                                 ; preds = %if.end.i.i54.i
+if.then6.i.i55.i:                                 ; preds = %if.end.i.i53.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %desc3.i, ptr noundef nonnull align 1 dereferenceable(16) %64, i64 16, i1 false)
   br label %if.end30.i
 
-if.else8.i.i57.i:                                 ; preds = %if.end.i.i54.i
-  %call.i.i58.i = call i32 @address_space_read_cached_slow(ptr noundef nonnull %indirect_desc_cache.i23, i64 noundef 0, ptr noundef nonnull %desc3.i, i64 noundef 16) #21
+if.else8.i.i56.i:                                 ; preds = %if.end.i.i53.i
+  %call.i.i57.i = call i32 @address_space_read_cached_slow(ptr noundef nonnull %indirect_desc_cache.i23, i64 noundef 0, ptr noundef nonnull %desc3.i, i64 noundef 16) #21
   br label %if.end30.i
 
-if.end30.i:                                       ; preds = %if.else8.i.i57.i, %if.then6.i.i56.i, %vring_split_desc_read.exit.i
-  %desc_cache.0.i40 = phi ptr [ %desc.i29, %vring_split_desc_read.exit.i ], [ %indirect_desc_cache.i23, %if.then6.i.i56.i ], [ %indirect_desc_cache.i23, %if.else8.i.i57.i ]
-  %num_bufs.0.i41 = phi i32 [ %total_bufs.0.i, %vring_split_desc_read.exit.i ], [ 0, %if.then6.i.i56.i ], [ 0, %if.else8.i.i57.i ]
-  %max.0.i42 = phi i32 [ %46, %vring_split_desc_read.exit.i ], [ %div29.i, %if.then6.i.i56.i ], [ %div29.i, %if.else8.i.i57.i ]
-  %inc31145.i = add i32 %num_bufs.0.i41, 1
-  %cmp32146.i = icmp ugt i32 %inc31145.i, %max.0.i42
-  br i1 %cmp32146.i, label %if.then34.i, label %if.end35.lr.ph.i
+if.end30.i:                                       ; preds = %if.else8.i.i56.i, %if.then6.i.i55.i, %vring_split_desc_read.exit.i
+  %desc_cache.0.i40 = phi ptr [ %desc.i29, %vring_split_desc_read.exit.i ], [ %indirect_desc_cache.i23, %if.then6.i.i55.i ], [ %indirect_desc_cache.i23, %if.else8.i.i56.i ]
+  %num_bufs.0.i41 = phi i32 [ %total_bufs.0.i, %vring_split_desc_read.exit.i ], [ 0, %if.then6.i.i55.i ], [ 0, %if.else8.i.i56.i ]
+  %max.0.i42 = phi i32 [ %46, %vring_split_desc_read.exit.i ], [ %div29.i, %if.then6.i.i55.i ], [ %div29.i, %if.else8.i.i56.i ]
+  %inc31146.i = add i32 %num_bufs.0.i41, 1
+  %cmp32147.i = icmp ugt i32 %inc31146.i, %max.0.i42
+  br i1 %cmp32147.i, label %if.then34.i, label %if.end35.lr.ph.i
 
 if.end35.lr.ph.i:                                 ; preds = %if.end30.i
   %len1.i.i.i.i = getelementptr inbounds i8, ptr %desc_cache.0.i40, i64 16
@@ -2625,17 +2625,17 @@ if.then34.i:                                      ; preds = %if.end30.i, %virtqu
   br label %done.i35
 
 if.end35.i:                                       ; preds = %virtqueue_split_read_next_desc.exit.i, %if.end35.lr.ph.i
-  %inc31149.i = phi i32 [ %inc31145.i, %if.end35.lr.ph.i ], [ %inc31.i, %virtqueue_split_read_next_desc.exit.i ]
-  %out_total.1148.i = phi i32 [ %out_total.0.i, %if.end35.lr.ph.i ], [ %out_total.2.i45, %virtqueue_split_read_next_desc.exit.i ]
-  %in_total.1147.i = phi i32 [ %in_total.0.i, %if.end35.lr.ph.i ], [ %in_total.2.i44, %virtqueue_split_read_next_desc.exit.i ]
+  %inc31150.i = phi i32 [ %inc31146.i, %if.end35.lr.ph.i ], [ %inc31.i, %virtqueue_split_read_next_desc.exit.i ]
+  %out_total.1149.i = phi i32 [ %out_total.0.i, %if.end35.lr.ph.i ], [ %out_total.2.i45, %virtqueue_split_read_next_desc.exit.i ]
+  %in_total.1148.i = phi i32 [ %in_total.0.i, %if.end35.lr.ph.i ], [ %in_total.2.i44, %virtqueue_split_read_next_desc.exit.i ]
   %65 = load i16, ptr %flags.i30, align 4
   %66 = and i16 %65, 2
   %tobool39.not.i = icmp eq i16 %66, 0
   %67 = load i32, ptr %len7.i, align 8
   %add.i43 = select i1 %tobool39.not.i, i32 0, i32 %67
-  %in_total.2.i44 = add i32 %add.i43, %in_total.1147.i
+  %in_total.2.i44 = add i32 %add.i43, %in_total.1148.i
   %add43.i = select i1 %tobool39.not.i, i32 %67, i32 0
-  %out_total.2.i45 = add i32 %add43.i, %out_total.1148.i
+  %out_total.2.i45 = add i32 %add43.i, %out_total.1149.i
   %cmp45.not.i = icmp ult i32 %in_total.2.i44, %max_in_bytes
   %cmp47.not.i = icmp ult i32 %out_total.2.i45, %max_out_bytes
   %or.cond.i46 = select i1 %cmp45.not.i, i1 true, i1 %cmp47.not.i
@@ -2643,22 +2643,22 @@ if.end35.i:                                       ; preds = %virtqueue_split_rea
 
 if.end50.i:                                       ; preds = %if.end35.i
   %68 = and i16 %65, 1
-  %tobool.not.i61.i = icmp eq i16 %68, 0
-  br i1 %tobool.not.i61.i, label %if.end57.i, label %if.end.i62.i
+  %tobool.not.i60.i = icmp eq i16 %68, 0
+  br i1 %tobool.not.i60.i, label %if.end57.i, label %if.end.i61.i
 
-if.end.i62.i:                                     ; preds = %if.end50.i
+if.end.i61.i:                                     ; preds = %if.end50.i
   %69 = load i16, ptr %next.i.i, align 2
   %conv1.i.i = zext i16 %69 to i32
-  %cmp.not.i63.i = icmp ugt i32 %max.0.i42, %conv1.i.i
-  br i1 %cmp.not.i63.i, label %if.end6.i.i, label %virtqueue_split_read_next_desc.exit.thread70.i
+  %cmp.not.i62.i = icmp ugt i32 %max.0.i42, %conv1.i.i
+  br i1 %cmp.not.i62.i, label %if.end6.i.i, label %virtqueue_split_read_next_desc.exit.thread69.i
 
-virtqueue_split_read_next_desc.exit.thread70.i:   ; preds = %if.end.i62.i
+virtqueue_split_read_next_desc.exit.thread69.i:   ; preds = %if.end.i61.i
   call void (ptr, ptr, ...) @virtio_error(ptr noundef %5, ptr noundef nonnull @.str.160, i32 noundef %conv1.i.i)
   br label %done.i35
 
-if.end6.i.i:                                      ; preds = %if.end.i62.i
-  %conv.i.i65.i = zext i16 %69 to i64
-  %mul.i.i.i = shl nuw nsw i64 %conv.i.i65.i, 4
+if.end6.i.i:                                      ; preds = %if.end.i61.i
+  %conv.i.i64.i = zext i16 %69 to i64
+  %mul.i.i.i = shl nuw nsw i64 %conv.i.i64.i, 4
   %70 = load i64, ptr %len1.i.i.i.i, align 16
   %cmp.i.i.i.i = icmp ule i64 %70, %mul.i.i.i
   %sub.i.i.i.i = sub i64 %70, %mul.i.i.i
@@ -2685,7 +2685,7 @@ if.else8.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
   br label %virtqueue_split_read_next_desc.exit.i
 
 virtqueue_split_read_next_desc.exit.i:            ; preds = %if.else8.i.i.i.i, %if.then6.i.i.i.i
-  %inc31.i = add i32 %inc31149.i, 1
+  %inc31.i = add i32 %inc31150.i, 1
   %cmp32.i = icmp ugt i32 %inc31.i, %max.0.i42
   br i1 %cmp32.i, label %if.then34.i, label %if.end35.i
 
@@ -2699,12 +2699,12 @@ if.then60.i:                                      ; preds = %if.end57.i
   br label %while.cond.i.backedge
 
 while.cond.i.backedge:                            ; preds = %if.then60.i, %if.end57.i
-  %total_bufs.0.i.be = phi i32 [ %inc61.i, %if.then60.i ], [ %inc31149.i, %if.end57.i ]
+  %total_bufs.0.i.be = phi i32 [ %inc61.i, %if.then60.i ], [ %inc31150.i, %if.end57.i ]
   br label %while.cond.i, !llvm.loop !19
 
-done.i35:                                         ; preds = %if.end.i.i, %if.end35.i, %virtqueue_split_read_next_desc.exit.thread70.i, %if.then34.i, %if.then25.i, %if.then16.i, %if.then12.i, %virtqueue_get_head.exit.i, %virtqueue_num_heads.exit.thread.i
-  %in_total.3.i36 = phi i32 [ 0, %virtqueue_get_head.exit.i ], [ 0, %if.then34.i ], [ 0, %if.then25.i ], [ 0, %if.then16.i ], [ 0, %if.then12.i ], [ 0, %virtqueue_split_read_next_desc.exit.thread70.i ], [ 0, %virtqueue_num_heads.exit.thread.i ], [ %in_total.2.i44, %if.end35.i ], [ %in_total.0.i, %if.end.i.i ]
-  %out_total.3.i37 = phi i32 [ 0, %virtqueue_get_head.exit.i ], [ 0, %if.then34.i ], [ 0, %if.then25.i ], [ 0, %if.then16.i ], [ 0, %if.then12.i ], [ 0, %virtqueue_split_read_next_desc.exit.thread70.i ], [ 0, %virtqueue_num_heads.exit.thread.i ], [ %out_total.2.i45, %if.end35.i ], [ %out_total.0.i, %if.end.i.i ]
+done.i35:                                         ; preds = %if.end.i.i, %if.end35.i, %virtqueue_split_read_next_desc.exit.thread69.i, %if.then34.i, %if.then25.i, %if.then16.i, %if.then12.i, %virtqueue_get_head.exit.i, %while.end.thread.i
+  %in_total.3.i36 = phi i32 [ 0, %while.end.thread.i ], [ 0, %virtqueue_split_read_next_desc.exit.thread69.i ], [ 0, %virtqueue_get_head.exit.i ], [ 0, %if.then34.i ], [ 0, %if.then25.i ], [ 0, %if.then16.i ], [ 0, %if.then12.i ], [ %in_total.2.i44, %if.end35.i ], [ %in_total.0.i, %if.end.i.i ]
+  %out_total.3.i37 = phi i32 [ 0, %while.end.thread.i ], [ 0, %virtqueue_split_read_next_desc.exit.thread69.i ], [ 0, %virtqueue_get_head.exit.i ], [ 0, %if.then34.i ], [ 0, %if.then25.i ], [ 0, %if.then16.i ], [ 0, %if.then12.i ], [ %out_total.2.i45, %if.end35.i ], [ %out_total.0.i, %if.end.i.i ]
   call void @address_space_cache_destroy(ptr noundef nonnull %indirect_desc_cache.i23) #21
   %tobool68.not.i = icmp eq ptr %in_bytes, null
   br i1 %tobool68.not.i, label %if.end70.i, label %if.then69.i
@@ -7167,14 +7167,18 @@ for.end280:                                       ; preds = %for.inc278, %if.end
   %post_load = getelementptr inbounds i8, ptr %call1.i170, i64 328
   %82 = load ptr, ptr %post_load, align 8
   %tobool281.not = icmp eq ptr %82, null
-  br i1 %tobool281.not, label %cleanup, label %if.then282
+  br i1 %tobool281.not, label %if.end288, label %if.then282
 
 if.then282:                                       ; preds = %for.end280
   %call284 = tail call i32 %82(ptr noundef nonnull %vdev) #21
+  %tobool285.not = icmp eq i32 %call284, 0
+  br i1 %tobool285.not, label %if.end288, label %cleanup
+
+if.end288:                                        ; preds = %if.then282, %for.end280
   br label %cleanup
 
-cleanup:                                          ; preds = %if.then282, %for.end280, %if.then260
-  %retval.0 = phi i32 [ -1, %if.then260 ], [ 0, %for.end280 ], [ %call284, %if.then282 ]
+cleanup:                                          ; preds = %if.then282, %if.end288, %if.then260
+  %retval.0 = phi i32 [ -1, %if.then260 ], [ 0, %if.end288 ], [ %call284, %if.then282 ]
   tail call fastcc void @glib_autoptr_cleanup_RCUReadAuto(ptr nonnull inttoptr (i64 1 to ptr))
   br label %return
 

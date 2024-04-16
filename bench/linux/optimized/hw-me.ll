@@ -3567,7 +3567,7 @@ define internal noundef zeroext i1 @mei_me_pg_is_enabled(ptr nocapture noundef r
   %28 = getelementptr inbounds i8, ptr %0, i64 3744
   %29 = load i8, ptr %28, align 8, !range !6, !noundef !7
   %30 = icmp eq i8 %29, 0
-  br i1 %30, label %31, label %39
+  br i1 %30, label %31, label %40
 
 31:                                               ; preds = %27
   %32 = and i32 %5, 64
@@ -3578,12 +3578,15 @@ define internal noundef zeroext i1 @mei_me_pg_is_enabled(ptr nocapture noundef r
   %35 = getelementptr inbounds i8, ptr %0, i64 3322
   %36 = load i16, ptr %35, align 2
   %37 = and i16 %36, 1
-  %38 = icmp ne i16 %37, 0
-  br label %39
+  %38 = icmp eq i16 %37, 0
+  br i1 %38, label %39, label %40
 
-39:                                               ; preds = %34, %31, %27
-  %40 = phi i1 [ true, %27 ], [ false, %31 ], [ %38, %34 ]
-  ret i1 %40
+39:                                               ; preds = %34, %31
+  br label %40
+
+40:                                               ; preds = %39, %34, %27
+  %41 = phi i1 [ false, %39 ], [ true, %27 ], [ true, %34 ]
+  ret i1 %41
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

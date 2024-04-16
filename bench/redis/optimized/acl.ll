@@ -2661,7 +2661,7 @@ if.then:                                          ; preds = %while.body
   %id = getelementptr inbounds i8, ptr %call2, i64 208
   %1 = load i32, ptr %id, align 8
   %cmp.i.i = icmp ugt i32 %1, 1023
-  br i1 %cmp.i.i, label %if.end7.sink.split, label %ACLGetSelectorCommandBit.exit
+  br i1 %cmp.i.i, label %if.else, label %ACLGetSelectorCommandBit.exit
 
 ACLGetSelectorCommandBit.exit:                    ; preds = %if.then
   %conv = zext nneg i32 %1 to i64
@@ -2672,11 +2672,13 @@ ACLGetSelectorCommandBit.exit:                    ; preds = %if.then
   %2 = load i64, ptr %arrayidx.i, align 8
   %and.i = and i64 %2, %shl.i.i
   %cmp1.i.not = icmp eq i64 %and.i, 0
-  %spec.select = select i1 %cmp1.i.not, ptr %off, ptr %on
+  br i1 %cmp1.i.not, label %if.else, label %if.end7.sink.split
+
+if.else:                                          ; preds = %if.then, %ACLGetSelectorCommandBit.exit
   br label %if.end7.sink.split
 
-if.end7.sink.split:                               ; preds = %ACLGetSelectorCommandBit.exit, %if.then
-  %on.sink14 = phi ptr [ %off, %if.then ], [ %spec.select, %ACLGetSelectorCommandBit.exit ]
+if.end7.sink.split:                               ; preds = %ACLGetSelectorCommandBit.exit, %if.else
+  %on.sink14 = phi ptr [ %off, %if.else ], [ %on, %ACLGetSelectorCommandBit.exit ]
   %3 = load i64, ptr %on.sink14, align 8
   %inc = add i64 %3, 1
   store i64 %inc, ptr %on.sink14, align 8
@@ -3288,7 +3290,7 @@ if.then10:                                        ; preds = %if.end7
   %or = and i32 %1, -4
   %and = or disjoint i32 %or, 1
   store i32 %and, ptr %flags, align 8
-  br label %return
+  br label %if.end281
 
 if.else:                                          ; preds = %if.end7
   %call12 = tail call i32 @strcasecmp(ptr noundef %op, ptr noundef nonnull @.str.24) #27
@@ -3301,7 +3303,7 @@ if.then14:                                        ; preds = %if.else
   %or16 = and i32 %2, -4
   %and18 = or disjoint i32 %or16, 2
   store i32 %and18, ptr %flags15, align 8
-  br label %return
+  br label %if.end281
 
 if.else19:                                        ; preds = %if.else
   %call20 = tail call i32 @strcasecmp(ptr noundef %op, ptr noundef nonnull @.str.26) #27
@@ -3314,7 +3316,7 @@ if.then22:                                        ; preds = %if.else19
   %or24 = and i32 %3, -25
   %and26 = or disjoint i32 %or24, 16
   store i32 %and26, ptr %flags23, align 8
-  br label %return
+  br label %if.end281
 
 if.else27:                                        ; preds = %if.else19
   %call28 = tail call i32 @strcasecmp(ptr noundef %op, ptr noundef nonnull @.str.27) #27
@@ -3327,7 +3329,7 @@ if.then30:                                        ; preds = %if.else27
   %and32 = and i32 %4, -25
   %or34 = or disjoint i32 %and32, 8
   store i32 %or34, ptr %flags31, align 8
-  br label %return
+  br label %if.end281
 
 if.else35:                                        ; preds = %if.else27
   %call36 = tail call i32 @strcasecmp(ptr noundef %op, ptr noundef nonnull @.str.25) #27
@@ -3342,7 +3344,7 @@ if.then38:                                        ; preds = %if.else35
   %passwords = getelementptr inbounds i8, ptr %u, i64 16
   %6 = load ptr, ptr %passwords, align 8
   tail call void @listEmpty(ptr noundef %6) #23
-  br label %return
+  br label %if.end281
 
 if.else41:                                        ; preds = %if.else35
   %call42 = tail call i32 @strcasecmp(ptr noundef %op, ptr noundef nonnull @.str.67) #27
@@ -3357,7 +3359,7 @@ if.then44:                                        ; preds = %if.else41
   %passwords47 = getelementptr inbounds i8, ptr %u, i64 16
   %8 = load ptr, ptr %passwords47, align 8
   tail call void @listEmpty(ptr noundef %8) #23
-  br label %return
+  br label %if.end281
 
 if.else48:                                        ; preds = %if.else41
   %9 = load i8, ptr %op, align 1
@@ -3429,7 +3431,7 @@ if.end84:                                         ; preds = %if.else83, %if.then
   %16 = load i32, ptr %flags85, align 8
   %and86 = and i32 %16, -5
   store i32 %and86, ptr %flags85, align 8
-  br label %return
+  br label %if.end281
 
 if.then102:                                       ; preds = %if.else48
   %add.ptr103 = getelementptr inbounds i8, ptr %op, i64 1
@@ -3481,7 +3483,7 @@ if.end119:                                        ; preds = %if.end115, %if.then
 if.then124:                                       ; preds = %if.end119
   %22 = load ptr, ptr %passwords121, align 8
   tail call void @listDelNode(ptr noundef %22, ptr noundef nonnull %call122) #23
-  br label %return
+  br label %if.end281
 
 if.else126:                                       ; preds = %if.end119
   %call127 = tail call ptr @__errno_location() #26
@@ -3621,7 +3623,7 @@ cond.false249:                                    ; preds = %cond.end238
 cond.end250:                                      ; preds = %cond.end238
   %call251 = tail call i32 @ACLSetUser(ptr noundef nonnull %u, ptr noundef nonnull @.str.47, i64 noundef -1), !range !24
   %cmp252 = icmp eq i32 %call251, 0
-  br i1 %cmp252, label %return, label %cond.false261
+  br i1 %cmp252, label %if.end281, label %cond.false261
 
 cond.false261:                                    ; preds = %cond.end250
   tail call void @_serverAssert(ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.22, i32 noundef 1394) #23
@@ -3632,11 +3634,13 @@ if.else263:                                       ; preds = %if.else159
   %call265 = tail call ptr @ACLUserGetRootSelector(ptr noundef nonnull %u)
   %call266 = tail call i32 @ACLSetSelector(ptr noundef %call265, ptr noundef nonnull %op, i64 noundef %oplen.addr.0), !range !24
   %cmp267 = icmp eq i32 %call266, -1
-  %spec.select = sext i1 %cmp267 to i32
+  br i1 %cmp267, label %return, label %if.end281
+
+if.end281:                                        ; preds = %if.then14, %if.then30, %if.then44, %if.then124, %if.else263, %cond.end250, %if.end84, %if.then38, %if.then22, %if.then10
   br label %return
 
-return:                                           ; preds = %while.body, %while.cond.preheader, %if.else263, %if.then10, %if.then22, %if.then38, %if.end84, %cond.end250, %if.then124, %if.then44, %if.then30, %if.then14, %if.then139, %if.end4, %if.end143, %if.else126, %if.then113, %if.then69
-  %retval.0 = phi i32 [ -1, %if.then69 ], [ -1, %if.else126 ], [ -1, %if.then113 ], [ 0, %if.end143 ], [ 0, %if.end4 ], [ -1, %if.then139 ], [ 0, %if.then14 ], [ 0, %if.then30 ], [ 0, %if.then44 ], [ 0, %if.then124 ], [ 0, %cond.end250 ], [ 0, %if.end84 ], [ 0, %if.then38 ], [ 0, %if.then22 ], [ 0, %if.then10 ], [ %spec.select, %if.else263 ], [ 0, %while.cond.preheader ], [ 0, %while.body ]
+return:                                           ; preds = %while.body, %while.cond.preheader, %if.else263, %if.then139, %if.end4, %if.end281, %if.end143, %if.else126, %if.then113, %if.then69
+  %retval.0 = phi i32 [ 0, %if.end281 ], [ -1, %if.then69 ], [ -1, %if.else126 ], [ -1, %if.then113 ], [ 0, %if.end143 ], [ 0, %if.end4 ], [ -1, %if.then139 ], [ -1, %if.else263 ], [ 0, %while.cond.preheader ], [ 0, %while.body ]
   ret i32 %retval.0
 }
 
@@ -5249,19 +5253,20 @@ if.then.i:                                        ; preds = %if.then3
 if.end4:                                          ; preds = %while.body
   %cmp5 = icmp sgt i32 %call1, %relevant_error.017
   %.pre = load i32, ptr %local_idxptr, align 4
-  br i1 %cmp5, label %if.end9, label %lor.lhs.false
+  br i1 %cmp5, label %if.then8, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end4
   %cmp6 = icmp eq i32 %call1, %relevant_error.017
   %cmp7 = icmp sgt i32 %.pre, %last_idx.016
   %or.cond = select i1 %cmp6, i1 %cmp7, i1 false
-  %spec.select = select i1 %or.cond, i32 %.pre, i32 %last_idx.016
-  %spec.select24 = select i1 %or.cond, i32 %call1, i32 %relevant_error.017
+  br i1 %or.cond, label %if.then8, label %if.end9
+
+if.then8:                                         ; preds = %lor.lhs.false, %if.end4
   br label %if.end9
 
-if.end9:                                          ; preds = %lor.lhs.false, %if.end4
-  %last_idx.1 = phi i32 [ %.pre, %if.end4 ], [ %spec.select, %lor.lhs.false ]
-  %relevant_error.1 = phi i32 [ %call1, %if.end4 ], [ %spec.select24, %lor.lhs.false ]
+if.end9:                                          ; preds = %if.then8, %lor.lhs.false
+  %last_idx.1 = phi i32 [ %.pre, %if.then8 ], [ %last_idx.016, %lor.lhs.false ]
+  %relevant_error.1 = phi i32 [ %call1, %if.then8 ], [ %relevant_error.017, %lor.lhs.false ]
   %call = call ptr @listNext(ptr noundef nonnull %li) #23
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !51

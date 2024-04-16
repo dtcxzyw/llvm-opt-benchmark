@@ -3124,7 +3124,7 @@ frame2klass.exit:                                 ; preds = %8
 14:                                               ; preds = %frame2klass.exit
   %15 = and i64 %13, 7
   %.not = icmp eq i64 %15, 0
-  br i1 %.not, label %16, label %.thread
+  br i1 %.not, label %16, label %RB_FL_TEST.exit.thread
 
 16:                                               ; preds = %14
   %17 = inttoptr i64 %13 to ptr
@@ -3132,16 +3132,16 @@ frame2klass.exit:                                 ; preds = %8
   %.fr12 = freeze i64 %18
   %19 = and i64 %.fr12, 31
   %20 = icmp eq i64 %19, 27
-  br i1 %20, label %.thread, label %RB_FL_TEST.exit
-
-RB_FL_TEST.exit:                                  ; preds = %16
   %21 = and i64 %.fr12, 4096
   %.not4 = icmp eq i64 %21, 0
-  %spec.select = select i1 %.not4, i64 0, i64 20
+  %or.cond = or i1 %20, %.not4
+  br i1 %or.cond, label %RB_FL_TEST.exit.thread, label %.thread
+
+RB_FL_TEST.exit.thread:                           ; preds = %16, %14
   br label %.thread
 
-.thread:                                          ; preds = %RB_FL_TEST.exit, %frame2klass.exit, %frame2klass.exit, %16, %14, %1, %3, %8
-  %22 = phi i64 [ 0, %frame2klass.exit ], [ 0, %8 ], [ 0, %3 ], [ 0, %1 ], [ 0, %14 ], [ 0, %16 ], [ 0, %frame2klass.exit ], [ %spec.select, %RB_FL_TEST.exit ]
+.thread:                                          ; preds = %16, %frame2klass.exit, %frame2klass.exit, %1, %3, %8, %RB_FL_TEST.exit.thread
+  %22 = phi i64 [ 0, %frame2klass.exit ], [ 0, %RB_FL_TEST.exit.thread ], [ 0, %8 ], [ 0, %3 ], [ 0, %1 ], [ 0, %frame2klass.exit ], [ 20, %16 ]
   ret i64 %22
 }
 
@@ -3262,7 +3262,7 @@ frame2klass.exit.i.i:                             ; preds = %11
 17:                                               ; preds = %frame2klass.exit.i.i
   %18 = and i64 %16, 7
   %.not.i.i = icmp eq i64 %18, 0
-  br i1 %.not.i.i, label %19, label %rb_profile_frame_singleton_method_p.exit.i
+  br i1 %.not.i.i, label %19, label %RB_FL_TEST.exit.thread.i.i
 
 19:                                               ; preds = %17
   %20 = inttoptr i64 %16 to ptr
@@ -3270,25 +3270,25 @@ frame2klass.exit.i.i:                             ; preds = %11
   %.fr12.i.i = freeze i64 %21
   %22 = and i64 %.fr12.i.i, 31
   %23 = icmp eq i64 %22, 27
-  br i1 %23, label %rb_profile_frame_singleton_method_p.exit.i, label %RB_FL_TEST.exit.i.i
-
-RB_FL_TEST.exit.i.i:                              ; preds = %19
   %24 = and i64 %.fr12.i.i, 4096
-  %.not4.i.not.i = icmp eq i64 %24, 0
-  %25 = select i1 %.not4.i.not.i, ptr @.str.46, ptr @.str.45
+  %.not4.i.i = icmp eq i64 %24, 0
+  %or.cond.i.i = or i1 %23, %.not4.i.i
+  br i1 %or.cond.i.i, label %RB_FL_TEST.exit.thread.i.i, label %rb_profile_frame_singleton_method_p.exit.i
+
+RB_FL_TEST.exit.thread.i.i:                       ; preds = %19, %17
   br label %rb_profile_frame_singleton_method_p.exit.i
 
-rb_profile_frame_singleton_method_p.exit.i:       ; preds = %RB_FL_TEST.exit.i.i, %19, %17, %frame2klass.exit.i.i, %frame2klass.exit.i.i, %11, %6, %3
-  %26 = phi ptr [ @.str.46, %frame2klass.exit.i.i ], [ @.str.46, %11 ], [ @.str.46, %6 ], [ @.str.46, %3 ], [ @.str.46, %17 ], [ @.str.46, %19 ], [ @.str.46, %frame2klass.exit.i.i ], [ %25, %RB_FL_TEST.exit.i.i ]
+rb_profile_frame_singleton_method_p.exit.i:       ; preds = %RB_FL_TEST.exit.thread.i.i, %19, %frame2klass.exit.i.i, %frame2klass.exit.i.i, %11, %6, %3
+  %25 = phi ptr [ @.str.46, %frame2klass.exit.i.i ], [ @.str.46, %RB_FL_TEST.exit.thread.i.i ], [ @.str.46, %11 ], [ @.str.46, %6 ], [ @.str.46, %3 ], [ @.str.46, %frame2klass.exit.i.i ], [ @.str.45, %19 ]
   %.not11.i = icmp eq i64 %4, 4
-  br i1 %.not11.i, label %qualified_method_name.exit, label %27
+  br i1 %.not11.i, label %qualified_method_name.exit, label %26
 
-27:                                               ; preds = %rb_profile_frame_singleton_method_p.exit.i
-  %28 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str.44, i64 noundef %4, ptr noundef nonnull %26, i64 noundef %2) #4
+26:                                               ; preds = %rb_profile_frame_singleton_method_p.exit.i
+  %27 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str.44, i64 noundef %4, ptr noundef nonnull %25, i64 noundef %2) #4
   br label %qualified_method_name.exit
 
-qualified_method_name.exit:                       ; preds = %1, %rb_profile_frame_singleton_method_p.exit.i, %27
-  %.0.i = phi i64 [ %28, %27 ], [ %2, %rb_profile_frame_singleton_method_p.exit.i ], [ 4, %1 ]
+qualified_method_name.exit:                       ; preds = %1, %rb_profile_frame_singleton_method_p.exit.i, %26
+  %.0.i = phi i64 [ %27, %26 ], [ %2, %rb_profile_frame_singleton_method_p.exit.i ], [ 4, %1 ]
   ret i64 %.0.i
 }
 
@@ -3309,7 +3309,7 @@ define dso_local i64 @rb_profile_frame_full_label(i64 noundef %0) local_unnamed_
   %10 = load i64, ptr %9, align 8
   %11 = and i64 %10, 61471
   %or.cond.i = icmp eq i64 %11, 24602
-  br i1 %or.cond.i, label %12, label %39
+  br i1 %or.cond.i, label %12, label %38
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds i8, ptr %9, i64 16
@@ -3317,7 +3317,7 @@ define dso_local i64 @rb_profile_frame_full_label(i64 noundef %0) local_unnamed_
   %15 = load i8, ptr %14, align 8
   %16 = and i8 %15, 15
   %cond1.i = icmp eq i8 %16, 1
-  br i1 %cond1.i, label %cframe.exit, label %39
+  br i1 %cond1.i, label %cframe.exit, label %38
 
 cframe.exit:                                      ; preds = %12
   %17 = getelementptr inbounds i8, ptr %14, i64 32
@@ -3345,7 +3345,7 @@ frame2klass.exit.i.i:                             ; preds = %21
 27:                                               ; preds = %frame2klass.exit.i.i
   %28 = and i64 %26, 7
   %.not.i.i = icmp eq i64 %28, 0
-  br i1 %.not.i.i, label %29, label %rb_profile_frame_singleton_method_p.exit.i
+  br i1 %.not.i.i, label %29, label %RB_FL_TEST.exit.thread.i.i
 
 29:                                               ; preds = %27
   %30 = inttoptr i64 %26 to ptr
@@ -3353,146 +3353,146 @@ frame2klass.exit.i.i:                             ; preds = %21
   %.fr12.i.i = freeze i64 %31
   %32 = and i64 %.fr12.i.i, 31
   %33 = icmp eq i64 %32, 27
-  br i1 %33, label %rb_profile_frame_singleton_method_p.exit.i, label %RB_FL_TEST.exit.i.i
-
-RB_FL_TEST.exit.i.i:                              ; preds = %29
   %34 = and i64 %.fr12.i.i, 4096
-  %.not4.i.not.i = icmp eq i64 %34, 0
-  %35 = select i1 %.not4.i.not.i, ptr @.str.46, ptr @.str.45
+  %.not4.i.i = icmp eq i64 %34, 0
+  %or.cond.i.i = or i1 %33, %.not4.i.i
+  br i1 %or.cond.i.i, label %RB_FL_TEST.exit.thread.i.i, label %rb_profile_frame_singleton_method_p.exit.i
+
+RB_FL_TEST.exit.thread.i.i:                       ; preds = %29, %27
   br label %rb_profile_frame_singleton_method_p.exit.i
 
-rb_profile_frame_singleton_method_p.exit.i:       ; preds = %RB_FL_TEST.exit.i.i, %29, %27, %frame2klass.exit.i.i, %frame2klass.exit.i.i, %21
-  %36 = phi ptr [ @.str.46, %frame2klass.exit.i.i ], [ @.str.46, %21 ], [ @.str.46, %27 ], [ @.str.46, %29 ], [ @.str.46, %frame2klass.exit.i.i ], [ %35, %RB_FL_TEST.exit.i.i ]
+rb_profile_frame_singleton_method_p.exit.i:       ; preds = %RB_FL_TEST.exit.thread.i.i, %29, %frame2klass.exit.i.i, %frame2klass.exit.i.i, %21
+  %35 = phi ptr [ @.str.46, %frame2klass.exit.i.i ], [ @.str.46, %RB_FL_TEST.exit.thread.i.i ], [ @.str.46, %21 ], [ @.str.46, %frame2klass.exit.i.i ], [ @.str.45, %29 ]
   %.not11.i = icmp eq i64 %22, 4
-  br i1 %.not11.i, label %qualified_method_name.exit, label %37
+  br i1 %.not11.i, label %qualified_method_name.exit, label %36
 
-37:                                               ; preds = %rb_profile_frame_singleton_method_p.exit.i
-  %38 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str.44, i64 noundef %22, ptr noundef nonnull %36, i64 noundef %19) #4
+36:                                               ; preds = %rb_profile_frame_singleton_method_p.exit.i
+  %37 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str.44, i64 noundef %22, ptr noundef nonnull %35, i64 noundef %19) #4
   br label %qualified_method_name.exit
 
-39:                                               ; preds = %12, %8
-  %40 = inttoptr i64 %0 to ptr
-  %41 = load i64, ptr %40, align 8
-  %42 = trunc i64 %41 to i32
-  %43 = and i32 %42, 31
-  %44 = icmp eq i32 %43, 26
-  br i1 %44, label %45, label %.critedge.i.i
+38:                                               ; preds = %12, %8
+  %39 = inttoptr i64 %0 to ptr
+  %40 = load i64, ptr %39, align 8
+  %41 = trunc i64 %40 to i32
+  %42 = and i32 %41, 31
+  %43 = icmp eq i32 %42, 26
+  br i1 %43, label %44, label %.critedge.i.i
 
-45:                                               ; preds = %39
-  %46 = lshr i32 %42, 12
-  %47 = and i32 %46, 15
-  switch i32 %47, label %.critedge.i.i [
+44:                                               ; preds = %38
+  %45 = lshr i32 %41, 12
+  %46 = and i32 %45, 15
+  switch i32 %46, label %.critedge.i.i [
     i32 7, label %frame2iseq.exit.thread4.i
-    i32 6, label %48
+    i32 6, label %47
   ]
 
-48:                                               ; preds = %45
-  %49 = getelementptr inbounds i8, ptr %40, i64 16
-  %50 = load ptr, ptr %49, align 8
-  %51 = load i8, ptr %50, align 8
-  %52 = and i8 %51, 15
-  %cond.i.i = icmp eq i8 %52, 0
-  br i1 %cond.i.i, label %frame2iseq.exit.i, label %56
+47:                                               ; preds = %44
+  %48 = getelementptr inbounds i8, ptr %39, i64 16
+  %49 = load ptr, ptr %48, align 8
+  %50 = load i8, ptr %49, align 8
+  %51 = and i8 %50, 15
+  %cond.i.i = icmp eq i8 %51, 0
+  br i1 %cond.i.i, label %frame2iseq.exit.i, label %55
 
-.critedge.i.i:                                    ; preds = %3, %45, %39
+.critedge.i.i:                                    ; preds = %3, %44, %38
   tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.43) #21
   unreachable
 
-frame2iseq.exit.i:                                ; preds = %48
-  %53 = getelementptr inbounds i8, ptr %50, i64 8
-  %54 = load ptr, ptr %53, align 8
-  %.not.i24 = icmp eq ptr %54, null
-  br i1 %.not.i24, label %56, label %frame2iseq.exit.thread4.i
+frame2iseq.exit.i:                                ; preds = %47
+  %52 = getelementptr inbounds i8, ptr %49, i64 8
+  %53 = load ptr, ptr %52, align 8
+  %.not.i24 = icmp eq ptr %53, null
+  br i1 %.not.i24, label %55, label %frame2iseq.exit.thread4.i
 
-frame2iseq.exit.thread4.i:                        ; preds = %frame2iseq.exit.i, %45
-  %.025.i7.i = phi ptr [ %54, %frame2iseq.exit.i ], [ %40, %45 ]
-  %55 = tail call i64 @rb_iseq_label(ptr noundef nonnull %.025.i7.i) #4
-  %.pre = load i64, ptr %40, align 8
+frame2iseq.exit.thread4.i:                        ; preds = %frame2iseq.exit.i, %44
+  %.025.i7.i = phi ptr [ %53, %frame2iseq.exit.i ], [ %39, %44 ]
+  %54 = tail call i64 @rb_iseq_label(ptr noundef nonnull %.025.i7.i) #4
+  %.pre = load i64, ptr %39, align 8
   %.pre36 = trunc i64 %.pre to i32
-  br label %56
+  br label %55
 
-56:                                               ; preds = %frame2iseq.exit.thread4.i, %frame2iseq.exit.i, %48
-  %.pre-phi = phi i32 [ %.pre36, %frame2iseq.exit.thread4.i ], [ %42, %frame2iseq.exit.i ], [ %42, %48 ]
-  %.ph = phi i64 [ %55, %frame2iseq.exit.thread4.i ], [ 4, %frame2iseq.exit.i ], [ 4, %48 ]
-  %57 = and i32 %.pre-phi, 31
-  %58 = icmp eq i32 %57, 26
-  br i1 %58, label %59, label %.critedge.i.i25
+55:                                               ; preds = %frame2iseq.exit.thread4.i, %frame2iseq.exit.i, %47
+  %.pre-phi = phi i32 [ %.pre36, %frame2iseq.exit.thread4.i ], [ %41, %frame2iseq.exit.i ], [ %41, %47 ]
+  %.ph = phi i64 [ %54, %frame2iseq.exit.thread4.i ], [ 4, %frame2iseq.exit.i ], [ 4, %47 ]
+  %56 = and i32 %.pre-phi, 31
+  %57 = icmp eq i32 %56, 26
+  br i1 %57, label %58, label %.critedge.i.i25
 
-59:                                               ; preds = %56
-  %60 = lshr i32 %.pre-phi, 12
-  %61 = and i32 %60, 15
-  switch i32 %61, label %.critedge.i.i25 [
+58:                                               ; preds = %55
+  %59 = lshr i32 %.pre-phi, 12
+  %60 = and i32 %59, 15
+  switch i32 %60, label %.critedge.i.i25 [
     i32 7, label %frame2iseq.exit.thread4.i29
-    i32 6, label %62
+    i32 6, label %61
   ]
 
-62:                                               ; preds = %59
-  %63 = getelementptr inbounds i8, ptr %40, i64 16
-  %64 = load ptr, ptr %63, align 8
-  %65 = load i8, ptr %64, align 8
-  %66 = and i8 %65, 15
-  %cond.i.i26 = icmp eq i8 %66, 0
+61:                                               ; preds = %58
+  %62 = getelementptr inbounds i8, ptr %39, i64 16
+  %63 = load ptr, ptr %62, align 8
+  %64 = load i8, ptr %63, align 8
+  %65 = and i8 %64, 15
+  %cond.i.i26 = icmp eq i8 %65, 0
   br i1 %cond.i.i26, label %frame2iseq.exit.i27, label %rb_profile_frame_base_label.exit
 
-.critedge.i.i25:                                  ; preds = %59, %56
+.critedge.i.i25:                                  ; preds = %58, %55
   tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.43) #21
   unreachable
 
-frame2iseq.exit.i27:                              ; preds = %62
-  %67 = getelementptr inbounds i8, ptr %64, i64 8
-  %68 = load ptr, ptr %67, align 8
-  %.not.i28 = icmp eq ptr %68, null
+frame2iseq.exit.i27:                              ; preds = %61
+  %66 = getelementptr inbounds i8, ptr %63, i64 8
+  %67 = load ptr, ptr %66, align 8
+  %.not.i28 = icmp eq ptr %67, null
   br i1 %.not.i28, label %rb_profile_frame_base_label.exit, label %frame2iseq.exit.thread4.i29
 
-frame2iseq.exit.thread4.i29:                      ; preds = %frame2iseq.exit.i27, %59
-  %.025.i7.i30 = phi ptr [ %68, %frame2iseq.exit.i27 ], [ %40, %59 ]
-  %69 = tail call i64 @rb_iseq_base_label(ptr noundef nonnull %.025.i7.i30) #4
+frame2iseq.exit.thread4.i29:                      ; preds = %frame2iseq.exit.i27, %58
+  %.025.i7.i30 = phi ptr [ %67, %frame2iseq.exit.i27 ], [ %39, %58 ]
+  %68 = tail call i64 @rb_iseq_base_label(ptr noundef nonnull %.025.i7.i30) #4
   br label %rb_profile_frame_base_label.exit
 
-rb_profile_frame_base_label.exit:                 ; preds = %1, %62, %frame2iseq.exit.i27, %frame2iseq.exit.thread4.i29
-  %70 = phi i64 [ %.ph, %frame2iseq.exit.thread4.i29 ], [ %.ph, %frame2iseq.exit.i27 ], [ %.ph, %62 ], [ 4, %1 ]
-  %71 = phi i64 [ %69, %frame2iseq.exit.thread4.i29 ], [ 4, %frame2iseq.exit.i27 ], [ 4, %62 ], [ 4, %1 ]
-  %72 = tail call i64 @rb_profile_frame_qualified_method_name(i64 noundef %0)
-  %73 = icmp eq i64 %72, 4
-  %74 = icmp eq i64 %71, %72
-  %or.cond = select i1 %73, i1 true, i1 %74
-  br i1 %or.cond, label %qualified_method_name.exit, label %75
+rb_profile_frame_base_label.exit:                 ; preds = %1, %61, %frame2iseq.exit.i27, %frame2iseq.exit.thread4.i29
+  %69 = phi i64 [ %.ph, %frame2iseq.exit.thread4.i29 ], [ %.ph, %frame2iseq.exit.i27 ], [ %.ph, %61 ], [ 4, %1 ]
+  %70 = phi i64 [ %68, %frame2iseq.exit.thread4.i29 ], [ 4, %frame2iseq.exit.i27 ], [ 4, %61 ], [ 4, %1 ]
+  %71 = tail call i64 @rb_profile_frame_qualified_method_name(i64 noundef %0)
+  %72 = icmp eq i64 %71, 4
+  %73 = icmp eq i64 %70, %71
+  %or.cond = select i1 %72, i1 true, i1 %73
+  br i1 %or.cond, label %qualified_method_name.exit, label %74
 
-75:                                               ; preds = %rb_profile_frame_base_label.exit
-  %76 = inttoptr i64 %70 to ptr
-  %77 = getelementptr inbounds i8, ptr %76, i64 16
-  %78 = load i64, ptr %77, align 8
-  %79 = inttoptr i64 %71 to ptr
-  %80 = getelementptr inbounds i8, ptr %79, i64 16
-  %81 = load i64, ptr %80, align 8
-  %82 = sub i64 %78, %81
-  %83 = add i64 %82, 2147483648
-  %.not.i31 = icmp ult i64 %83, 4294967296
-  br i1 %.not.i31, label %rb_long2int_inline.exit, label %84
+74:                                               ; preds = %rb_profile_frame_base_label.exit
+  %75 = inttoptr i64 %69 to ptr
+  %76 = getelementptr inbounds i8, ptr %75, i64 16
+  %77 = load i64, ptr %76, align 8
+  %78 = inttoptr i64 %70 to ptr
+  %79 = getelementptr inbounds i8, ptr %78, i64 16
+  %80 = load i64, ptr %79, align 8
+  %81 = sub i64 %77, %80
+  %82 = add i64 %81, 2147483648
+  %.not.i31 = icmp ult i64 %82, 4294967296
+  br i1 %.not.i31, label %rb_long2int_inline.exit, label %83
 
-84:                                               ; preds = %75
-  tail call void @rb_out_of_int(i64 noundef %82) #21
+83:                                               ; preds = %74
+  tail call void @rb_out_of_int(i64 noundef %81) #21
   unreachable
 
-rb_long2int_inline.exit:                          ; preds = %75
-  %85 = trunc i64 %82 to i32
-  %86 = load i64, ptr %76, align 8, !noalias !43
-  %87 = and i64 %86, 8192
-  %.not.i.i32 = icmp eq i64 %87, 0
-  %88 = getelementptr inbounds i8, ptr %76, i64 24
-  br i1 %.not.i.i32, label %RSTRING_PTR.exit, label %89
+rb_long2int_inline.exit:                          ; preds = %74
+  %84 = trunc i64 %81 to i32
+  %85 = load i64, ptr %75, align 8, !noalias !43
+  %86 = and i64 %85, 8192
+  %.not.i.i32 = icmp eq i64 %86, 0
+  %87 = getelementptr inbounds i8, ptr %75, i64 24
+  br i1 %.not.i.i32, label %RSTRING_PTR.exit, label %88
 
-89:                                               ; preds = %rb_long2int_inline.exit
-  %.sroa.2.0.copyload.i = load ptr, ptr %88, align 8
+88:                                               ; preds = %rb_long2int_inline.exit
+  %.sroa.2.0.copyload.i = load ptr, ptr %87, align 8
   br label %RSTRING_PTR.exit
 
-RSTRING_PTR.exit:                                 ; preds = %rb_long2int_inline.exit, %89
-  %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %89 ], [ %88, %rb_long2int_inline.exit ]
-  %90 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str.17, i32 noundef %85, ptr noundef %.sroa.2.0.i, i64 noundef %72) #4
+RSTRING_PTR.exit:                                 ; preds = %rb_long2int_inline.exit, %88
+  %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %88 ], [ %87, %rb_long2int_inline.exit ]
+  %89 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str.17, i32 noundef %84, ptr noundef %.sroa.2.0.i, i64 noundef %71) #4
   br label %qualified_method_name.exit
 
-qualified_method_name.exit:                       ; preds = %37, %rb_profile_frame_singleton_method_p.exit.i, %cframe.exit, %rb_profile_frame_base_label.exit, %RSTRING_PTR.exit
-  %.0 = phi i64 [ %90, %RSTRING_PTR.exit ], [ %70, %rb_profile_frame_base_label.exit ], [ %38, %37 ], [ %19, %rb_profile_frame_singleton_method_p.exit.i ], [ 4, %cframe.exit ]
+qualified_method_name.exit:                       ; preds = %36, %rb_profile_frame_singleton_method_p.exit.i, %cframe.exit, %rb_profile_frame_base_label.exit, %RSTRING_PTR.exit
+  %.0 = phi i64 [ %89, %RSTRING_PTR.exit ], [ %69, %rb_profile_frame_base_label.exit ], [ %37, %36 ], [ %19, %rb_profile_frame_singleton_method_p.exit.i ], [ 4, %cframe.exit ]
   ret i64 %.0
 }
 

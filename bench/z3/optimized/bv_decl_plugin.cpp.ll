@@ -7761,10 +7761,10 @@ invoke.cont4:                                     ; preds = %invoke.cont3
   %2 = load ptr, ptr %a_term, align 8
   %3 = load ptr, ptr %b_term, align 8
   %cmp = icmp eq ptr %2, %3
-  %.pre20 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
-  br i1 %cmp, label %land.lhs.true, label %cleanup
+  br i1 %cmp, label %land.lhs.true, label %if.end8
 
 land.lhs.true:                                    ; preds = %invoke.cont4
+  %4 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   %bf.load.i.i.i.i.i.i = load i8, ptr %m_kind.i.i.i, align 4
   %bf.clear.i.i.i.i.i.i = and i8 %bf.load.i.i.i.i.i.i, 1
   %cmp.i.i.i.i.i.i = icmp eq i8 %bf.clear.i.i.i.i.i.i, 0
@@ -7777,18 +7777,18 @@ land.lhs.true.i.i.i.i.i:                          ; preds = %land.lhs.true
   br i1 %cmp.i8.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %land.lhs.true.i.i.i.i.i
-  %4 = load i32, ptr %a_offset, align 8
-  %5 = load i32, ptr %b_offset, align 8
-  %cmp.i.i.i.i.i = icmp eq i32 %4, %5
-  br i1 %cmp.i.i.i.i.i, label %land.rhs.i.i.i, label %invoke.cont5
+  %5 = load i32, ptr %a_offset, align 8
+  %6 = load i32, ptr %b_offset, align 8
+  %cmp.i.i.i.i.i = icmp eq i32 %5, %6
+  br i1 %cmp.i.i.i.i.i, label %land.rhs.i.i.i, label %cleanup
 
 _ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i.i:   ; preds = %land.lhs.true.i.i.i.i.i, %land.lhs.true
-  %call4.i.i.i.i.i13 = invoke noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(600) %.pre20, ptr noundef nonnull align 8 dereferenceable(16) %a_offset, ptr noundef nonnull align 8 dereferenceable(16) %b_offset)
+  %call4.i.i.i.i.i13 = invoke noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(600) %4, ptr noundef nonnull align 8 dereferenceable(16) %a_offset, ptr noundef nonnull align 8 dereferenceable(16) %b_offset)
           to label %call4.i.i.i.i.i.noexc unwind label %lpad2
 
 call4.i.i.i.i.i.noexc:                            ; preds = %_ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i.i
   %cmp5.i.i.i.i.i = icmp eq i32 %call4.i.i.i.i.i13, 0
-  br i1 %cmp5.i.i.i.i.i, label %land.rhs.i.i.i, label %invoke.cont5
+  br i1 %cmp5.i.i.i.i.i, label %land.rhs.i.i.i, label %cleanup
 
 land.rhs.i.i.i:                                   ; preds = %call4.i.i.i.i.i.noexc, %if.then.i.i.i.i.i
   %bf.load.i.i.i4.i.i.i = load i8, ptr %m_kind.i1.i.i, align 4
@@ -7803,24 +7803,18 @@ land.lhs.true.i.i11.i.i.i:                        ; preds = %land.rhs.i.i.i
   br i1 %cmp.i8.i.i15.i.i.i, label %if.then.i.i16.i.i.i, label %if.else.i.i7.i.i.i
 
 if.then.i.i16.i.i.i:                              ; preds = %land.lhs.true.i.i11.i.i.i
-  %6 = load i32, ptr %m_den.i.i, align 8
-  %7 = load i32, ptr %m_den.i.i8, align 8
-  %cmp.i.i17.i.i.i = icmp eq i32 %6, %7
-  br label %invoke.cont5
+  %7 = load i32, ptr %m_den.i.i, align 8
+  %8 = load i32, ptr %m_den.i.i8, align 8
+  %cmp.i.i17.i.i.i = icmp eq i32 %7, %8
+  br i1 %cmp.i.i17.i.i.i, label %if.end8, label %cleanup
 
 if.else.i.i7.i.i.i:                               ; preds = %land.lhs.true.i.i11.i.i.i, %land.rhs.i.i.i
-  %call4.i.i8.i.i.i14 = invoke noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(600) %.pre20, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i.i, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i.i8)
-          to label %call4.i.i8.i.i.i.noexc unwind label %lpad2
+  %call4.i.i8.i.i.i14 = invoke noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(600) %4, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i.i, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i.i8)
+          to label %invoke.cont5 unwind label %lpad2
 
-call4.i.i8.i.i.i.noexc:                           ; preds = %if.else.i.i7.i.i.i
+invoke.cont5:                                     ; preds = %if.else.i.i7.i.i.i
   %cmp5.i.i9.i.i.i = icmp eq i32 %call4.i.i8.i.i.i14, 0
-  br label %invoke.cont5
-
-invoke.cont5:                                     ; preds = %call4.i.i8.i.i.i.noexc, %if.then.i.i16.i.i.i, %call4.i.i.i.i.i.noexc, %if.then.i.i.i.i.i
-  %8 = phi i1 [ false, %call4.i.i.i.i.i.noexc ], [ false, %if.then.i.i.i.i.i ], [ %cmp.i.i17.i.i.i, %if.then.i.i16.i.i.i ], [ %cmp5.i.i9.i.i.i, %call4.i.i8.i.i.i.noexc ]
-  %lnot.i = xor i1 %8, true
-  %.pre = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
-  br label %cleanup
+  br i1 %cmp5.i.i9.i.i.i, label %if.end8, label %cleanup
 
 lpad2:                                            ; preds = %if.else.i.i7.i.i.i, %_ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i.i, %invoke.cont3, %invoke.cont
   %9 = landingpad { ptr, i32 }
@@ -7829,9 +7823,12 @@ lpad2:                                            ; preds = %if.else.i.i7.i.i.i,
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %a_offset) #18
   resume { ptr, i32 } %9
 
-cleanup:                                          ; preds = %invoke.cont5, %invoke.cont4
-  %10 = phi ptr [ %.pre20, %invoke.cont4 ], [ %.pre, %invoke.cont5 ]
-  %retval.0 = phi i1 [ false, %invoke.cont4 ], [ %lnot.i, %invoke.cont5 ]
+if.end8:                                          ; preds = %if.then.i.i16.i.i.i, %invoke.cont5, %invoke.cont4
+  br label %cleanup
+
+cleanup:                                          ; preds = %if.then.i.i16.i.i.i, %if.then.i.i.i.i.i, %call4.i.i.i.i.i.noexc, %invoke.cont5, %if.end8
+  %retval.0 = phi i1 [ false, %if.end8 ], [ true, %invoke.cont5 ], [ true, %call4.i.i.i.i.i.noexc ], [ true, %if.then.i.i.i.i.i ], [ true, %if.then.i.i16.i.i.i ]
+  %10 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(16) %b_offset)
           to label %.noexc.i unwind label %terminate.lpad.i
 

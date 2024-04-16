@@ -4091,7 +4091,7 @@ declare ptr @string_list_append(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @find_header_mem(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @unpack(i32 noundef %err_fd, ptr nocapture noundef readonly %si) unnamed_addr #0 {
+define internal fastcc noundef ptr @unpack(i32 noundef %err_fd, ptr nocapture noundef readonly %si) unnamed_addr #0 {
 entry:
   %hdr = alloca %struct.pack_header, align 4
   %child = alloca %struct.child_process, align 8
@@ -4219,8 +4219,7 @@ if.end47:                                         ; preds = %if.then44, %if.end4
   store i16 %bf.set50, ptr %no_stdout, align 8
   %call51 = call i32 @run_command(ptr noundef nonnull %child) #16
   %tobool52.not = icmp eq i32 %call51, 0
-  %spec.select = select i1 %tobool52.not, ptr null, ptr @.str.91
-  br label %return
+  br i1 %tobool52.not, label %if.end114, label %return
 
 if.else:                                          ; preds = %if.end25
   call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %child, ptr noundef nonnull @.str.92, ptr noundef nonnull @.str.93, ptr noundef null) #16
@@ -4321,10 +4320,13 @@ if.end107:                                        ; preds = %if.then105, %if.end
 if.end113:                                        ; preds = %if.end107
   %24 = load ptr, ptr @the_repository, align 8
   call void @reprepare_packed_git(ptr noundef %24) #16
+  br label %if.end114
+
+if.end114:                                        ; preds = %if.end47, %if.end113
   br label %return
 
-return:                                           ; preds = %if.end47, %if.end113, %if.end107, %if.end92, %if.then20, %if.then22, %if.then, %if.then7
-  %retval.0 = phi ptr [ %retval.0.i.ph, %if.then7 ], [ %retval.0.i.ph, %if.then ], [ @.str.86, %if.then22 ], [ @.str.86, %if.then20 ], [ @.str.99, %if.end92 ], [ @.str.100, %if.end107 ], [ null, %if.end113 ], [ %spec.select, %if.end47 ]
+return:                                           ; preds = %if.end107, %if.end92, %if.end47, %if.then20, %if.then22, %if.then, %if.then7, %if.end114
+  %retval.0 = phi ptr [ null, %if.end114 ], [ %retval.0.i.ph, %if.then7 ], [ %retval.0.i.ph, %if.then ], [ @.str.86, %if.then22 ], [ @.str.86, %if.then20 ], [ @.str.91, %if.end47 ], [ @.str.99, %if.end92 ], [ @.str.100, %if.end107 ]
   ret ptr %retval.0
 }
 

@@ -20,16 +20,19 @@ define dso_local noundef zeroext i1 @kallsyms_show_value(ptr noundef %0) local_u
 3:                                                ; preds = %1
   %4 = load i32, ptr @sysctl_perf_event_paranoid, align 4
   %5 = icmp sgt i32 %4, 1
-  br i1 %5, label %6, label %9
+  br i1 %5, label %6, label %10
 
 6:                                                ; preds = %3, %1
   %7 = tail call i32 @security_capable(ptr noundef %0, ptr noundef nonnull @init_user_ns, i32 noundef 34, i32 noundef 2) #2
   %8 = icmp eq i32 %7, 0
-  br label %9
+  br i1 %8, label %10, label %9
 
-9:                                                ; preds = %6, %1, %3
-  %10 = phi i1 [ true, %3 ], [ false, %1 ], [ %8, %6 ]
-  ret i1 %10
+9:                                                ; preds = %6, %1
+  br label %10
+
+10:                                               ; preds = %9, %6, %3
+  %11 = phi i1 [ false, %9 ], [ true, %3 ], [ true, %6 ]
+  ret i1 %11
 }
 
 ; Function Attrs: null_pointer_is_valid

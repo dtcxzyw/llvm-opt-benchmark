@@ -131,7 +131,7 @@ define internal i32 @virtio_gpu_probe(ptr noundef %0) #2 align 16 {
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %.thread, label %61
 
-.thread:                                          ; preds = %31, %41, %16
+.thread:                                          ; preds = %41, %31, %16
   %44 = getelementptr inbounds i8, ptr %11, i64 8
   %45 = load ptr, ptr %44, align 8
   %46 = tail call i64 @dma_max_mapping_size(ptr noundef %45) #4
@@ -161,8 +161,8 @@ define internal i32 @virtio_gpu_probe(ptr noundef %0) #2 align 16 {
   tail call void @virtio_gpu_deinit(ptr noundef %11) #4
   br label %61
 
-61:                                               ; preds = %60, %54, %41
-  %62 = phi i32 [ %42, %41 ], [ %55, %54 ], [ %58, %60 ]
+61:                                               ; preds = %41, %60, %54
+  %62 = phi i32 [ %55, %54 ], [ %58, %60 ], [ %42, %41 ]
   tail call void @drm_dev_put(ptr noundef %11) #4
   br label %63
 

@@ -3003,7 +3003,7 @@ for.body219:                                      ; preds = %for.body219.lr.ph, 
   %135 = load i32, ptr %endIndex_.i269, align 4
   %cmp2.i270 = icmp ugt i32 %135, %dec
   %or.cond.i271 = select i1 %cmp.not.i268, i1 %cmp2.i270, i1 false
-  br i1 %or.cond.i271, label %cond.true.i273, label %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit
+  br i1 %or.cond.i271, label %cond.true.i273, label %sw.bb36.i
 
 cond.true.i273:                                   ; preds = %for.body219
   %indexedStorage_.i.i274 = getelementptr inbounds i8, ptr %133, i64 28
@@ -3117,7 +3117,7 @@ sw.bb29.i:                                        ; preds = %_ZNK6hermes2vm9Arra
   %or.i.i14.i = or disjoint i64 %conv.i13.i, -1407374883553280
   br label %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit
 
-sw.bb36.i:                                        ; preds = %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit303
+sw.bb36.i:                                        ; preds = %for.body219, %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit303
   br label %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit
 
 sw.bb39.i:                                        ; preds = %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit303
@@ -3126,8 +3126,8 @@ sw.bb39.i:                                        ; preds = %_ZNK6hermes2vm9Arra
 default.unreachable:                              ; preds = %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit303
   unreachable
 
-_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit: ; preds = %for.body219, %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit303, %sw.bb.i, %sw.bb4.i, %sw.bb8.i, %sw.bb12.i, %sw.bb18.i, %sw.bb22.i, %sw.bb29.i, %sw.bb36.i, %sw.bb39.i
-  %retval.sroa.0.0.i305 = phi i64 [ -1548112371908608, %sw.bb39.i ], [ %or.i.i14.i, %sw.bb29.i ], [ %or.i.i.i307, %sw.bb22.i ], [ %145, %sw.bb18.i ], [ %retval.sroa.0.0.i.i311, %sw.bb12.i ], [ %or.i.i.i8.i, %sw.bb8.i ], [ %or.i.i.i4.i, %sw.bb4.i ], [ %or.i.i.i.i, %sw.bb.i ], [ -1688849860263936, %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit303 ], [ -1970324836974592, %sw.bb36.i ], [ -1970324836974592, %for.body219 ]
+_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit: ; preds = %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit303, %sw.bb.i, %sw.bb4.i, %sw.bb8.i, %sw.bb12.i, %sw.bb18.i, %sw.bb22.i, %sw.bb29.i, %sw.bb36.i, %sw.bb39.i
+  %retval.sroa.0.0.i305 = phi i64 [ -1548112371908608, %sw.bb39.i ], [ -1970324836974592, %sw.bb36.i ], [ %or.i.i14.i, %sw.bb29.i ], [ %or.i.i.i307, %sw.bb22.i ], [ %145, %sw.bb18.i ], [ %retval.sroa.0.0.i.i311, %sw.bb12.i ], [ %or.i.i.i8.i, %sw.bb8.i ], [ %or.i.i.i4.i, %sw.bb4.i ], [ %or.i.i.i.i, %sw.bb.i ], [ -1688849860263936, %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit303 ]
   store i64 %retval.sroa.0.0.i305, ptr %retval.0.i.i.i.i.i.i71, align 8
   %call.i316 = call i32 @_ZN6hermes2vm9ArrayImpl18_setOwnIndexedImplENS0_6HandleINS0_8JSObjectEEERNS0_7RuntimeEjNS2_INS0_11HermesValueEEE(ptr nonnull %call43, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %dec220, ptr nonnull %retval.0.i.i.i.i.i.i71) #17
   %cmp218.not = icmp eq i32 %dec, %numIndexed.0
@@ -3226,7 +3226,7 @@ _ZNK6hermes2vm13HermesValue329getNumberERNS0_11PointerBaseE.exit: ; preds = %if.
   %retval.0.i366 = phi double [ %conv.i369, %if.then.i367 ], [ %155, %if.end.i361 ]
   %conv255 = fptoui double %retval.0.i366 to i32
   %tobool256.not = icmp eq i32 %indexNamesLast.0460, 0
-  br i1 %tobool256.not, label %if.end286, label %land.lhs.true257
+  br i1 %tobool256.not, label %if.else, label %land.lhs.true257
 
 land.lhs.true257:                                 ; preds = %_ZNK6hermes2vm13HermesValue329getNumberERNS0_11PointerBaseE.exit
   %sub258 = add i32 %indexNamesLast.0460, -1
@@ -3237,7 +3237,7 @@ land.lhs.true257:                                 ; preds = %_ZNK6hermes2vm13Her
   %cmp261 = icmp ugt i32 %157, %conv255
   br i1 %cmp261, label %if.end286, label %if.else
 
-if.else:                                          ; preds = %land.lhs.true257
+if.else:                                          ; preds = %land.lhs.true257, %_ZNK6hermes2vm13HermesValue329getNumberERNS0_11PointerBaseE.exit
   br label %if.end286
 
 if.else276:                                       ; preds = %for.body246
@@ -3248,10 +3248,10 @@ if.else276:                                       ; preds = %for.body246
   %159 = load i32, ptr %arrayidx.i, align 4
   br label %if.end286
 
-if.end286:                                        ; preds = %_ZNK6hermes2vm13HermesValue329getNumberERNS0_11PointerBaseE.exit, %land.lhs.true257, %if.else, %if.else276
-  %.sink = phi i32 [ %159, %if.else276 ], [ %157, %land.lhs.true257 ], [ %conv255, %_ZNK6hermes2vm13HermesValue329getNumberERNS0_11PointerBaseE.exit ], [ %conv255, %if.else ]
-  %indexNamesLast.1 = phi i32 [ %sub278, %if.else276 ], [ %sub258, %land.lhs.true257 ], [ %indexNamesLast.0460, %_ZNK6hermes2vm13HermesValue329getNumberERNS0_11PointerBaseE.exit ], [ %indexNamesLast.0460, %if.else ]
-  %numIndexed.2 = phi i32 [ 0, %if.else276 ], [ %numIndexed.1461, %land.lhs.true257 ], [ %sub251, %_ZNK6hermes2vm13HermesValue329getNumberERNS0_11PointerBaseE.exit ], [ %sub251, %if.else ]
+if.end286:                                        ; preds = %land.lhs.true257, %if.else, %if.else276
+  %.sink = phi i32 [ %conv255, %if.else ], [ %159, %if.else276 ], [ %157, %land.lhs.true257 ]
+  %indexNamesLast.1 = phi i32 [ %indexNamesLast.0460, %if.else ], [ %sub278, %if.else276 ], [ %sub258, %land.lhs.true257 ]
+  %numIndexed.2 = phi i32 [ %sub251, %if.else ], [ 0, %if.else276 ], [ %numIndexed.1461, %land.lhs.true257 ]
   %conv.i370 = uitofp i32 %.sink to double
   store double %conv.i370, ptr %retval.0.i.i.i.i.i.i71, align 8
   %dec287 = add i32 %toLast237.0459, -1
@@ -12791,7 +12791,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %120 = load i32, ptr %endIndex_.i59.i, align 4
   %cmp2.i.i = icmp ugt i32 %120, %i.0286.i
   %or.cond.i.i = select i1 %cmp.not.i.i, i1 %cmp2.i.i, i1 false
-  br i1 %or.cond.i.i, label %cond.true.i.i, label %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit.thread.i
+  br i1 %or.cond.i.i, label %cond.true.i.i, label %sw.bb36.i.i
 
 cond.true.i.i:                                    ; preds = %for.body.i
   %indexedStorage_.i.i.i = getelementptr inbounds i8, ptr %118, i64 28
@@ -12905,7 +12905,7 @@ sw.bb29.i.i:                                      ; preds = %_ZNK6hermes2vm9Arra
   %or.i.i14.i.i = or disjoint i64 %conv.i13.i.i, -1407374883553280
   br label %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit.i
 
-sw.bb36.i.i:                                      ; preds = %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit.i
+sw.bb36.i.i:                                      ; preds = %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit.i, %for.body.i
   br label %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit.thread.i
 
 sw.bb39.i.i:                                      ; preds = %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit.i
@@ -12914,8 +12914,8 @@ sw.bb39.i.i:                                      ; preds = %_ZNK6hermes2vm9Arra
 default.unreachable:                              ; preds = %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit.i
   unreachable
 
-_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit.thread.i: ; preds = %sw.bb39.i.i, %sw.bb36.i.i, %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit.i, %for.body.i
-  %retval.sroa.0.0.i61.ph.i = phi i64 [ -1970324836974592, %sw.bb36.i.i ], [ -1688849860263936, %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit.i ], [ -1548112371908608, %sw.bb39.i.i ], [ -1970324836974592, %for.body.i ]
+_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit.thread.i: ; preds = %sw.bb39.i.i, %sw.bb36.i.i, %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit.i
+  %retval.sroa.0.0.i61.ph.i = phi i64 [ -1688849860263936, %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit.i ], [ -1970324836974592, %sw.bb36.i.i ], [ -1548112371908608, %sw.bb39.i.i ]
   store i64 %retval.sroa.0.0.i61.ph.i, ptr %retval.0.i.i.i.i.i.i.i127, align 8
   br label %if.end58.i
 

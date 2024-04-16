@@ -482,32 +482,32 @@ define internal i32 @pairingheap_GISTSearchItem_cmp(ptr nocapture noundef readon
   %16 = getelementptr [0 x %struct.IndexOrderByDistance], ptr %8, i64 0, i64 %indvars.iv, i32 1
   %17 = load i8, ptr %16, align 8
   %18 = trunc i8 %17 to i1
-  br i1 %18, label %30, label %.thread
+  br i1 %18, label %30, label %.loopexit
 
 19:                                               ; preds = %9
   %20 = getelementptr [0 x %struct.IndexOrderByDistance], ptr %8, i64 0, i64 %indvars.iv
   %21 = getelementptr inbounds i8, ptr %20, i64 8
   %22 = load i8, ptr %21, align 8
   %23 = trunc i8 %22 to i1
-  br i1 %23, label %.thread, label %24
+  br i1 %23, label %.loopexit, label %24
 
 24:                                               ; preds = %19
   %25 = load double, ptr %11, align 8
   %26 = load double, ptr %20, align 8
   %27 = tail call i32 @float8_cmp_internal(double noundef %25, double noundef %26) #6
   %.not = icmp eq i32 %27, 0
-  br i1 %.not, label %._crit_edge27, label %28
+  br i1 %.not, label %._crit_edge26, label %28
 
-._crit_edge27:                                    ; preds = %24
+._crit_edge26:                                    ; preds = %24
   %.pre = load i32, ptr %4, align 4
   br label %30
 
 28:                                               ; preds = %24
   %29 = sub i32 0, %27
-  br label %.thread
+  br label %.loopexit
 
-30:                                               ; preds = %._crit_edge27, %15
-  %31 = phi i32 [ %.pre, %._crit_edge27 ], [ %10, %15 ]
+30:                                               ; preds = %._crit_edge26, %15
+  %31 = phi i32 [ %.pre, %._crit_edge26 ], [ %10, %15 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %32 = sext i32 %31 to i64
   %33 = icmp slt i64 %indvars.iv.next, %32
@@ -519,20 +519,20 @@ define internal i32 @pairingheap_GISTSearchItem_cmp(ptr nocapture noundef readon
   %36 = icmp eq i32 %35, -1
   %37 = getelementptr inbounds i8, ptr %1, i64 24
   %38 = load i32, ptr %37, align 8
-  br i1 %36, label %39, label %41
+  %39 = icmp eq i32 %38, -1
+  br i1 %36, label %40, label %41
 
-39:                                               ; preds = %._crit_edge
-  %40 = icmp ne i32 %38, -1
-  %spec.select24 = zext i1 %40 to i32
-  br label %.thread
+40:                                               ; preds = %._crit_edge
+  br i1 %39, label %.thread, label %.loopexit
 
 41:                                               ; preds = %._crit_edge
-  %42 = icmp eq i32 %38, -1
-  %spec.select = sext i1 %42 to i32
-  br label %.thread
+  br i1 %39, label %.loopexit, label %.thread
 
-.thread:                                          ; preds = %19, %15, %39, %41, %28
-  %.0 = phi i32 [ %29, %28 ], [ %spec.select, %41 ], [ %spec.select24, %39 ], [ 1, %19 ], [ -1, %15 ]
+.thread:                                          ; preds = %40, %41
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %19, %15, %41, %40, %.thread, %28
+  %.0 = phi i32 [ %29, %28 ], [ 0, %.thread ], [ 1, %40 ], [ -1, %41 ], [ 1, %19 ], [ -1, %15 ]
   ret i32 %.0
 }
 

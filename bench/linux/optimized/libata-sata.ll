@@ -1798,7 +1798,7 @@ define dso_local noundef zeroext i1 @sata_lpm_ignore_phy_events(ptr nocapture no
   %4 = getelementptr inbounds i8, ptr %0, i64 772
   %5 = load i32, ptr %4, align 4
   %6 = icmp ugt i32 %5, 1
-  br i1 %6, label %16, label %7
+  br i1 %6, label %17, label %7
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %0, i64 752
@@ -1812,11 +1812,14 @@ define dso_local noundef zeroext i1 @sata_lpm_ignore_phy_events(ptr nocapture no
   %reass.sub = sub i64 %13, %3
   %14 = add i64 %reass.sub, -10000
   %15 = icmp slt i64 %14, 0
-  br label %16
+  br i1 %15, label %17, label %16
 
-16:                                               ; preds = %12, %7, %1
-  %17 = phi i1 [ true, %1 ], [ false, %7 ], [ %15, %12 ]
-  ret i1 %17
+16:                                               ; preds = %12, %7
+  br label %17
+
+17:                                               ; preds = %16, %12, %1
+  %18 = phi i1 [ false, %16 ], [ true, %1 ], [ true, %12 ]
+  ret i1 %18
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

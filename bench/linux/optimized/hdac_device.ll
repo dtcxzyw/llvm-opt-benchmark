@@ -1176,13 +1176,15 @@ define dso_local i32 @snd_hdac_keep_power_up(ptr noundef %0) local_unnamed_addr 
   %14 = tail call i32 @pm_runtime_get_if_active(ptr noundef %0, i1 noundef zeroext true) #9
   %15 = icmp eq i32 %14, 0
   %16 = sext i1 %15 to i32
-  %.inv = icmp slt i32 %14, 1
-  %spec.select = select i1 %.inv, i32 %16, i32 1
-  br label %.loopexit
+  %17 = icmp sgt i32 %14, 0
+  br i1 %17, label %.loopexit, label %18
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge
-  %17 = phi i32 [ %spec.select, %._crit_edge ], [ 1, %.lr.ph ]
-  ret i32 %17
+  br label %18
+
+18:                                               ; preds = %.loopexit, %._crit_edge
+  %19 = phi i32 [ 1, %.loopexit ], [ %16, %._crit_edge ]
+  ret i32 %19
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -1433,7 +1435,7 @@ define dso_local i32 @snd_hdac_spdif_stream_format(i32 noundef %0, i32 noundef %
   %38 = zext i16 %37 to i32
   %39 = or disjoint i32 %.sink, %38
   %40 = or i32 %39, %.fr
-  br label %.thread4
+  br label %47
 
 41:                                               ; preds = %28
   %42 = icmp eq i32 %.fr, 0
@@ -1441,12 +1443,14 @@ define dso_local i32 @snd_hdac_spdif_stream_format(i32 noundef %0, i32 noundef %
   %44 = and i16 %43, -32768
   %45 = zext i16 %44 to i32
   %46 = or i32 %.fr, %45
-  %spec.select = select i1 %42, i32 0, i32 %46
-  br label %.thread4
+  br i1 %42, label %.thread4, label %47
 
-.thread4:                                         ; preds = %41, %28, %22, %.thread
-  %47 = phi i32 [ %40, %.thread ], [ 0, %22 ], [ 0, %28 ], [ %spec.select, %41 ]
-  ret i32 %47
+.thread4:                                         ; preds = %28, %22, %41
+  br label %47
+
+47:                                               ; preds = %.thread, %41, %.thread4
+  %48 = phi i32 [ 0, %.thread4 ], [ %46, %41 ], [ %40, %.thread ]
+  ret i32 %48
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

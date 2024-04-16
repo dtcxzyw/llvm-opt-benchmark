@@ -581,13 +581,13 @@ sw.bb.i.i.i:                                      ; preds = %if.end8.i.i
   %rndis_state2.i.i.i = getelementptr inbounds i8, ptr %dev, i64 5864
   %..i.i = select i1 %tobool.not.i.i.i, i32 1, i32 2
   store i32 %..i.i, ptr %rndis_state2.i.i.i, align 8
+  br label %if.end17.i.i
+
+if.end17.i.i:                                     ; preds = %sw.bb.i.i.i, %if.end8.i.i
   br label %return.sink.split.i.i
 
-if.end17.i.i:                                     ; preds = %if.end8.i.i
-  br label %return.sink.split.i.i
-
-return.sink.split.i.i:                            ; preds = %if.end17.i.i, %sw.bb.i.i.i, %if.end8.i.i
-  %.sink25.i.i = phi i32 [ -1073741637, %if.end8.i.i ], [ 0, %sw.bb.i.i.i ], [ 0, %if.end17.i.i ]
+return.sink.split.i.i:                            ; preds = %if.end17.i.i, %if.end8.i.i
+  %.sink25.i.i = phi i32 [ 0, %if.end17.i.i ], [ -1073741637, %if.end8.i.i ]
   store i32 -2147483643, ptr %buf.i.i35.i, align 4
   %RequestID20.i.i = getelementptr inbounds i8, ptr %data, i64 8
   %31 = load i32, ptr %RequestID20.i.i, align 4

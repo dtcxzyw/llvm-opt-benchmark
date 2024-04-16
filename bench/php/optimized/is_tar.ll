@@ -103,7 +103,7 @@ define hidden i32 @file_is_tar(ptr noundef %0, ptr nocapture noundef readonly %1
   br label %from_oct.exit.i
 
 from_oct.exit.i:                                  ; preds = %29, %35, %41, %.critedge.i.i, %.preheader.i.i
-  %.017.i.i = phi i32 [ %.033.i.i, %.critedge.i.i ], [ %spec.select.i.i, %41 ], [ 0, %.preheader.i.i ], [ %39, %35 ], [ -1, %29 ]
+  %.017.i.i = phi i32 [ %.033.i.i, %.critedge.i.i ], [ 0, %.preheader.i.i ], [ %spec.select.i.i, %41 ], [ %39, %35 ], [ -1, %29 ]
   br label %46
 
 46:                                               ; preds = %46, %from_oct.exit.i

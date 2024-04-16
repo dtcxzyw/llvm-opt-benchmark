@@ -3579,14 +3579,14 @@ do.body:                                          ; preds = %if.else, %if.then
   br i1 %cmp.i.i, label %land.rhs.i.i, label %if.else
 
 land.rhs.i.i:                                     ; preds = %do.body
-  br i1 %cmp.i2.i.i.i, label %return, label %_ZN6google8protobuf8internal18TransparentSupportINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6EqualsIRKS8_RSt17basic_string_viewIcS6_EEEbOT_OT0_.exit
+  br i1 %cmp.i2.i.i.i, label %return, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
 
-_ZN6google8protobuf8internal18TransparentSupportINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6EqualsIRKS8_RSt17basic_string_viewIcS6_EEEbOT_OT0_.exit: ; preds = %land.rhs.i.i
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %land.rhs.i.i
   %bcmp.i.i = tail call i32 @bcmp(ptr %8, ptr %k.coerce1, i64 %k.coerce0)
   %cmp.i.i.i9 = icmp eq i32 %bcmp.i.i, 0
   br i1 %cmp.i.i.i9, label %return, label %if.else
 
-if.else:                                          ; preds = %do.body, %_ZN6google8protobuf8internal18TransparentSupportINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6EqualsIRKS8_RSt17basic_string_viewIcS6_EEEbOT_OT0_.exit
+if.else:                                          ; preds = %do.body, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
   %9 = load ptr, ptr %node.0, align 8
   %cmp.not = icmp eq ptr %9, null
   br i1 %cmp.not, label %return, label %do.body, !llvm.loop !27
@@ -3602,9 +3602,9 @@ if.then10:                                        ; preds = %if.else8
   %11 = extractvalue { ptr, i32 } %call13, 1
   br label %return
 
-return:                                           ; preds = %land.rhs.i.i, %if.else, %_ZN6google8protobuf8internal18TransparentSupportINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6EqualsIRKS8_RSt17basic_string_viewIcS6_EEEbOT_OT0_.exit, %if.else8, %if.then10
-  %retval.sroa.0.0 = phi ptr [ %10, %if.then10 ], [ null, %if.else8 ], [ %node.0, %land.rhs.i.i ], [ null, %if.else ], [ %node.0, %_ZN6google8protobuf8internal18TransparentSupportINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6EqualsIRKS8_RSt17basic_string_viewIcS6_EEEbOT_OT0_.exit ]
-  %retval.sroa.4.0 = phi i32 [ %11, %if.then10 ], [ %conv3.i.i, %if.else8 ], [ %conv3.i.i, %_ZN6google8protobuf8internal18TransparentSupportINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6EqualsIRKS8_RSt17basic_string_viewIcS6_EEEbOT_OT0_.exit ], [ %conv3.i.i, %if.else ], [ %conv3.i.i, %land.rhs.i.i ]
+return:                                           ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %land.rhs.i.i, %if.else, %if.else8, %if.then10
+  %retval.sroa.0.0 = phi ptr [ %10, %if.then10 ], [ null, %if.else8 ], [ %node.0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ], [ %node.0, %land.rhs.i.i ], [ null, %if.else ]
+  %retval.sroa.4.0 = phi i32 [ %11, %if.then10 ], [ %conv3.i.i, %if.else8 ], [ %conv3.i.i, %if.else ], [ %conv3.i.i, %land.rhs.i.i ], [ %conv3.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %retval.sroa.4.0, 1
   ret { ptr, i32 } %.fca.1.insert

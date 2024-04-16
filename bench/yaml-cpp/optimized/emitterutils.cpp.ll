@@ -925,7 +925,7 @@ for.end.i.i.i.i.i18:                              ; preds = %if.end23.i.i.i.i.i4
   %__first.sroa.0.0.lcssa.i.i.i.i.i19 = phi ptr [ %call.i12, %if.end.i11 ], [ %scevgep72.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i33 ], [ %scevgep72.i.i.i.i.i, %if.end23.i.i.i.i.i43 ]
   %sub.ptr.rhs.cast.i25.i.i.i.i.i = ptrtoint ptr %__first.sroa.0.0.lcssa.i.i.i.i.i19 to i64
   %sub.ptr.sub.i26.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i14, %sub.ptr.rhs.cast.i25.i.i.i.i.i
-  switch i64 %sub.ptr.sub.i26.i.i.i.i.i, label %return [
+  switch i64 %sub.ptr.sub.i26.i.i.i.i.i, label %_ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8FlowType5valueEb.exit.thread51 [
     i64 3, label %sw.bb.i.i.i.i.i30
     i64 2, label %sw.bb32.i.i.i.i.i26
     i64 1, label %sw.bb39.i.i.i.i.i20
@@ -976,11 +976,13 @@ _ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarERKNSt7__cxx1112basic_stringIc
   %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i23 = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i19, %sw.bb.i.i.i.i.i30 ], [ %__first.sroa.0.1.i.i.i.i.i27, %sw.bb32.i.i.i.i.i26 ], [ %spec.select.i.i.i.i.i22, %sw.bb39.i.i.i.i.i20 ], [ %incdec.ptr.i20.i.i.i.i.i41.le, %_ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8FlowType5valueEb.exit.loopexit.split.loop.exit ], [ %incdec.ptr.i17.i.i.i.i.i.le, %_ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8FlowType5valueEb.exit.loopexit.split.loop.exit85 ], [ %incdec.ptr.i.i.i.i.i.i37.le, %_ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8FlowType5valueEb.exit.loopexit.split.loop.exit87 ], [ %__first.sroa.0.062.i.i.i.i.i, %for.body.i.i.i.i.i34 ]
   %cmp.i.i.i24 = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i23, %call2.i13
   %cond.fr = freeze i1 %cmp.i.i.i24
-  %spec.select = select i1 %cond.fr, i32 3, i32 2
+  br i1 %cond.fr, label %_ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8FlowType5valueEb.exit.thread51, label %return
+
+_ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8FlowType5valueEb.exit.thread51: ; preds = %for.end.i.i.i.i.i18, %_ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8FlowType5valueEb.exit
   br label %return
 
-return:                                           ; preds = %_ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8FlowType5valueEb.exit, %for.end.i.i.i.i.i18, %sw.bb7, %.loopexit, %_ZN4YAML5Utils12_GLOBAL__N_118IsValidPlainScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8FlowType5valueEb.exit.thread, %entry, %_ZN4YAML5Utils12_GLOBAL__N_125IsValidSingleQuotedScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb.exit
-  %retval.0 = phi i32 [ %.6, %_ZN4YAML5Utils12_GLOBAL__N_125IsValidSingleQuotedScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb.exit ], [ 2, %entry ], [ 0, %.loopexit ], [ 2, %_ZN4YAML5Utils12_GLOBAL__N_118IsValidPlainScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8FlowType5valueEb.exit.thread ], [ 2, %sw.bb7 ], [ 3, %for.end.i.i.i.i.i18 ], [ %spec.select, %_ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8FlowType5valueEb.exit ]
+return:                                           ; preds = %sw.bb7, %_ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8FlowType5valueEb.exit.thread51, %_ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8FlowType5valueEb.exit, %.loopexit, %_ZN4YAML5Utils12_GLOBAL__N_118IsValidPlainScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8FlowType5valueEb.exit.thread, %entry, %_ZN4YAML5Utils12_GLOBAL__N_125IsValidSingleQuotedScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb.exit
+  %retval.0 = phi i32 [ %.6, %_ZN4YAML5Utils12_GLOBAL__N_125IsValidSingleQuotedScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb.exit ], [ 2, %entry ], [ 0, %.loopexit ], [ 2, %_ZN4YAML5Utils12_GLOBAL__N_118IsValidPlainScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8FlowType5valueEb.exit.thread ], [ 3, %_ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8FlowType5valueEb.exit.thread51 ], [ 2, %_ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8FlowType5valueEb.exit ], [ 2, %sw.bb7 ]
   ret i32 %retval.0
 }
 

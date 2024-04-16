@@ -455,7 +455,7 @@ define hidden i32 @psa_load_persistent_key(ptr nocapture noundef %0, ptr nocaptu
 
 psa_crypto_storage_get_data_length.exit:          ; preds = %3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  br label %70
+  br label %71
 
 11:                                               ; preds = %3
   %12 = load i32, ptr %6, align 4
@@ -463,7 +463,7 @@ psa_crypto_storage_get_data_length.exit:          ; preds = %3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %14 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %13) #10
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %70, label %16
+  br i1 %15, label %71, label %16
 
 16:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -565,21 +565,23 @@ psa_crypto_storage_load.exit:                     ; preds = %18
   store i32 %63, ptr %64, align 4
   %65 = load ptr, ptr %1, align 8
   %66 = icmp eq ptr %65, null
-  br i1 %66, label %psa_parse_key_data_from_storage.exit.thread, label %67
+  br i1 %66, label %70, label %67
 
 67:                                               ; preds = %53
   %68 = load i64, ptr %2, align 8
   %69 = icmp eq i64 %68, 0
-  %spec.select = select i1 %69, i32 -146, i32 0
+  br i1 %69, label %70, label %psa_parse_key_data_from_storage.exit.thread
+
+70:                                               ; preds = %67, %53
   br label %psa_parse_key_data_from_storage.exit.thread
 
-psa_parse_key_data_from_storage.exit.thread:      ; preds = %47, %27, %24, %23, %21, %psa_crypto_storage_load.exit.thread, %67, %53, %psa_crypto_storage_load.exit
-  %.018 = phi i32 [ %19, %psa_crypto_storage_load.exit ], [ -146, %53 ], [ %spec.select, %67 ], [ %.0.i.ph, %psa_crypto_storage_load.exit.thread ], [ -141, %47 ], [ -153, %27 ], [ -153, %24 ], [ -153, %23 ], [ -153, %21 ]
+psa_parse_key_data_from_storage.exit.thread:      ; preds = %47, %27, %24, %23, %21, %psa_crypto_storage_load.exit.thread, %67, %70, %psa_crypto_storage_load.exit
+  %.018 = phi i32 [ %19, %psa_crypto_storage_load.exit ], [ -146, %70 ], [ 0, %67 ], [ %.0.i.ph, %psa_crypto_storage_load.exit.thread ], [ -141, %47 ], [ -153, %27 ], [ -153, %24 ], [ -153, %23 ], [ -153, %21 ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %14, i64 noundef %13) #9
   call void @free(ptr noundef nonnull %14) #9
-  br label %70
+  br label %71
 
-70:                                               ; preds = %psa_crypto_storage_get_data_length.exit, %11, %psa_parse_key_data_from_storage.exit.thread
+71:                                               ; preds = %psa_crypto_storage_get_data_length.exit, %11, %psa_parse_key_data_from_storage.exit.thread
   %.0 = phi i32 [ %.018, %psa_parse_key_data_from_storage.exit.thread ], [ %10, %psa_crypto_storage_get_data_length.exit ], [ -141, %11 ]
   ret i32 %.0
 }

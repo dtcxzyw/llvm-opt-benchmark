@@ -100,7 +100,7 @@ define internal noundef i32 @pse_fill_reply(ptr noundef %0, ptr nocapture readno
   %10 = call i32 @nla_put(ptr noundef %0, i32 noundef 2, i32 noundef 4, ptr noundef nonnull %5) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %12, label %19
+  br i1 %11, label %12, label %20
 
 12:                                               ; preds = %9, %3
   %13 = getelementptr inbounds i8, ptr %2, i64 12
@@ -114,12 +114,14 @@ define internal noundef i32 @pse_fill_reply(ptr noundef %0, ptr nocapture readno
   %17 = call i32 @nla_put(ptr noundef %0, i32 noundef 4, i32 noundef 4, ptr noundef nonnull %4) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
   %18 = icmp eq i32 %17, 0
-  %spec.select = select i1 %18, i32 0, i32 -90
-  br label %19
+  br i1 %18, label %19, label %20
 
-19:                                               ; preds = %16, %12, %9
-  %20 = phi i32 [ -90, %9 ], [ 0, %12 ], [ %spec.select, %16 ]
-  ret i32 %20
+19:                                               ; preds = %16, %12
+  br label %20
+
+20:                                               ; preds = %19, %16, %9
+  %21 = phi i32 [ 0, %19 ], [ -90, %9 ], [ -90, %16 ]
+  ret i32 %21
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)

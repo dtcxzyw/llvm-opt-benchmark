@@ -472,7 +472,7 @@ define internal i32 @ext4_getfsmap_datadev(ptr noundef %0, ptr nocapture noundef
   %60 = getelementptr inbounds i8, ptr %59, i64 64
   %61 = load i32, ptr %60, align 64
   %62 = icmp eq i32 %61, 0
-  br i1 %62, label %.loopexit43, label %.preheader42
+  br i1 %62, label %.loopexit44, label %.preheader43
 
 63:                                               ; preds = %172
   %64 = getelementptr inbounds i8, ptr %185, i64 16
@@ -497,16 +497,16 @@ define internal i32 @ext4_getfsmap_datadev(ptr noundef %0, ptr nocapture noundef
   %74 = load i32, ptr %73, align 64
   %75 = zext i32 %74 to i64
   %76 = icmp ult i64 %71, %75
-  br i1 %76, label %.preheader42, label %.loopexit43, !llvm.loop !10
+  br i1 %76, label %.preheader43, label %.loopexit44, !llvm.loop !10
 
-.preheader42:                                     ; preds = %47, %63
+.preheader43:                                     ; preds = %47, %63
   %77 = phi i64 [ %71, %63 ], [ 0, %47 ]
   %78 = trunc i64 %77 to i32
   %79 = call ptr @ext4_get_group_desc(ptr noundef %0, i32 noundef %78, ptr noundef null) #11
   %80 = icmp eq ptr %79, null
   br i1 %80, label %.thread, label %81
 
-81:                                               ; preds = %.preheader42
+81:                                               ; preds = %.preheader43
   %82 = load ptr, ptr %8, align 8
   %83 = getelementptr inbounds i8, ptr %82, i64 16
   %84 = load i64, ptr %83, align 16
@@ -623,7 +623,7 @@ define internal i32 @ext4_getfsmap_datadev(ptr noundef %0, ptr nocapture noundef
   store volatile ptr %144, ptr %153, align 8
   br label %155
 
-155:                                              ; preds = %113, %121, %146
+155:                                              ; preds = %113, %146, %121
   %156 = call i64 @ext4_block_bitmap(ptr noundef %0, ptr noundef nonnull %79) #11
   %157 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
   %158 = call noalias align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %157, i32 noundef 3136, i64 noundef 48) #12
@@ -679,20 +679,20 @@ define internal i32 @ext4_getfsmap_datadev(ptr noundef %0, ptr nocapture noundef
   %186 = icmp eq ptr %185, null
   br i1 %186, label %.thread, label %63
 
-.loopexit43:                                      ; preds = %63, %47
+.loopexit44:                                      ; preds = %63, %47
   call void @list_sort(ptr noundef null, ptr noundef %57, ptr noundef nonnull @ext4_getfsmap_compare) #11
   %187 = load ptr, ptr %57, align 8
   %188 = icmp eq ptr %187, %57
-  br i1 %188, label %.loopexit39, label %.preheader38
+  br i1 %188, label %.loopexit40, label %.preheader39
 
-.preheader38:                                     ; preds = %.loopexit43, %216
-  %189 = phi ptr [ %191, %216 ], [ %187, %.loopexit43 ]
-  %190 = phi ptr [ %217, %216 ], [ null, %.loopexit43 ]
+.preheader39:                                     ; preds = %.loopexit44, %216
+  %189 = phi ptr [ %191, %216 ], [ %187, %.loopexit44 ]
+  %190 = phi ptr [ %217, %216 ], [ null, %.loopexit44 ]
   %191 = load ptr, ptr %189, align 8
   %192 = icmp eq ptr %190, null
   br i1 %192, label %216, label %193
 
-193:                                              ; preds = %.preheader38
+193:                                              ; preds = %.preheader39
   %194 = getelementptr inbounds i8, ptr %190, i64 32
   %195 = load i64, ptr %194, align 8
   %196 = getelementptr inbounds i8, ptr %189, i64 32
@@ -727,19 +727,19 @@ define internal i32 @ext4_getfsmap_datadev(ptr noundef %0, ptr nocapture noundef
   call void @kfree(ptr noundef %189) #11
   br label %216
 
-216:                                              ; preds = %208, %199, %193, %.preheader38
-  %217 = phi ptr [ %190, %208 ], [ %189, %.preheader38 ], [ %189, %199 ], [ %189, %193 ]
+216:                                              ; preds = %208, %199, %193, %.preheader39
+  %217 = phi ptr [ %190, %208 ], [ %189, %.preheader39 ], [ %189, %199 ], [ %189, %193 ]
   %218 = icmp eq ptr %191, %57
-  br i1 %218, label %.loopexit39, label %.preheader38, !llvm.loop !11
+  br i1 %218, label %.loopexit40, label %.preheader39, !llvm.loop !11
 
-.thread:                                          ; preds = %172, %160, %155, %117, %100, %139, %.preheader42
-  %219 = phi i32 [ -117, %.preheader42 ], [ -12, %139 ], [ -12, %100 ], [ -12, %117 ], [ -12, %155 ], [ -12, %160 ], [ -12, %172 ]
+.thread:                                          ; preds = %172, %160, %155, %139, %117, %100, %.preheader43
+  %219 = phi i32 [ -117, %.preheader43 ], [ -12, %100 ], [ -12, %117 ], [ -12, %139 ], [ -12, %155 ], [ -12, %160 ], [ -12, %172 ]
   %220 = load ptr, ptr %57, align 8
   %221 = icmp eq ptr %220, %57
-  br i1 %221, label %.loopexit36, label %.preheader40
+  br i1 %221, label %.loopexit37, label %.preheader41
 
-.preheader40:                                     ; preds = %.thread, %.preheader40
-  %222 = phi ptr [ %223, %.preheader40 ], [ %220, %.thread ]
+.preheader41:                                     ; preds = %.thread, %.preheader41
+  %222 = phi ptr [ %223, %.preheader41 ], [ %220, %.thread ]
   %223 = load ptr, ptr %222, align 8
   %224 = getelementptr inbounds i8, ptr %222, i64 8
   %225 = load ptr, ptr %224, align 8
@@ -750,17 +750,17 @@ define internal i32 @ext4_getfsmap_datadev(ptr noundef %0, ptr nocapture noundef
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %224, align 8
   call void @kfree(ptr noundef %222) #11
   %227 = icmp eq ptr %223, %57
-  br i1 %227, label %.loopexit36, label %.preheader40, !llvm.loop !12
+  br i1 %227, label %.loopexit37, label %.preheader41, !llvm.loop !12
 
-.loopexit39:                                      ; preds = %216, %.loopexit43
+.loopexit40:                                      ; preds = %216, %.loopexit44
   %228 = load i32, ptr %4, align 4
   %229 = getelementptr inbounds i8, ptr %2, i64 36
   store i32 %228, ptr %229, align 4
   %230 = load i32, ptr %5, align 4
   %231 = icmp ugt i32 %228, %230
-  br i1 %231, label %.loopexit37, label %232
+  br i1 %231, label %.loopexit38, label %232
 
-232:                                              ; preds = %.loopexit39
+232:                                              ; preds = %.loopexit40
   %233 = getelementptr inbounds i8, ptr %2, i64 112
   %234 = getelementptr inbounds i8, ptr %2, i64 128
   %235 = getelementptr inbounds i8, ptr %2, i64 32
@@ -885,7 +885,7 @@ define internal i32 @ext4_getfsmap_datadev(ptr noundef %0, ptr nocapture noundef
   %307 = trunc i64 %306 to i32
   %308 = call i32 @ext4_mballoc_query_range(ptr noundef %0, i32 noundef %299, i32 noundef %304, i32 noundef %307, ptr noundef nonnull @ext4_getfsmap_datadev_helper, ptr noundef %2) #11
   %309 = icmp eq i32 %308, 0
-  br i1 %309, label %310, label %.loopexit36
+  br i1 %309, label %310, label %.loopexit37
 
 310:                                              ; preds = %298
   %311 = load i32, ptr %229, align 4
@@ -902,41 +902,41 @@ define internal i32 @ext4_getfsmap_datadev(ptr noundef %0, ptr nocapture noundef
   store i32 %316, ptr %229, align 4
   %317 = load i32, ptr %5, align 4
   %318 = icmp ugt i32 %316, %317
-  br i1 %318, label %.loopexit37, label %238, !llvm.loop !26
+  br i1 %318, label %.loopexit38, label %238, !llvm.loop !26
 
-.loopexit37:                                      ; preds = %315, %.loopexit39
-  %319 = phi i32 [ %230, %.loopexit39 ], [ %317, %315 ]
+.loopexit38:                                      ; preds = %315, %.loopexit40
+  %319 = phi i32 [ %230, %.loopexit40 ], [ %317, %315 ]
   %320 = getelementptr inbounds i8, ptr %2, i64 168
   %321 = load i64, ptr %320, align 8
   %322 = icmp eq i64 %321, 0
   br i1 %322, label %327, label %323
 
-323:                                              ; preds = %.loopexit37
+323:                                              ; preds = %.loopexit38
   %324 = getelementptr inbounds i8, ptr %2, i64 136
   %325 = call fastcc i32 @ext4_getfsmap_helper(ptr noundef %0, ptr noundef %2, ptr noundef %324)
   %326 = icmp eq i32 %325, 0
-  br i1 %326, label %._crit_edge, label %.loopexit36
+  br i1 %326, label %._crit_edge, label %.loopexit37
 
 ._crit_edge:                                      ; preds = %323
   %.pre = load i32, ptr %5, align 4
   br label %327
 
-327:                                              ; preds = %._crit_edge, %.loopexit37
-  %328 = phi i32 [ %.pre, %._crit_edge ], [ %319, %.loopexit37 ]
+327:                                              ; preds = %._crit_edge, %.loopexit38
+  %328 = phi i32 [ %.pre, %._crit_edge ], [ %319, %.loopexit38 ]
   %329 = getelementptr inbounds i8, ptr %2, i64 200
   store i8 1, ptr %329, align 8
   %330 = load i32, ptr %7, align 4
   %331 = call i32 @ext4_getfsmap_datadev_helper(ptr noundef %0, i32 noundef %328, i32 noundef %330, i32 noundef 0, ptr noundef %2)
-  br label %.loopexit36
+  br label %.loopexit37
 
-.loopexit36:                                      ; preds = %.preheader40, %298, %.thread, %327, %323
-  %332 = phi i32 [ %325, %323 ], [ %331, %327 ], [ %219, %.thread ], [ %308, %298 ], [ %219, %.preheader40 ]
+.loopexit37:                                      ; preds = %.preheader41, %298, %.thread, %327, %323
+  %332 = phi i32 [ %325, %323 ], [ %331, %327 ], [ %219, %.thread ], [ %308, %298 ], [ %219, %.preheader41 ]
   %333 = load ptr, ptr %57, align 8
   %334 = icmp eq ptr %333, %57
   br i1 %334, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %.loopexit36, %.preheader
-  %335 = phi ptr [ %336, %.preheader ], [ %333, %.loopexit36 ]
+.preheader:                                       ; preds = %.loopexit37, %.preheader
+  %335 = phi ptr [ %336, %.preheader ], [ %333, %.loopexit37 ]
   %336 = load ptr, ptr %335, align 8
   %337 = getelementptr inbounds i8, ptr %335, i64 8
   %338 = load ptr, ptr %337, align 8
@@ -949,8 +949,8 @@ define internal i32 @ext4_getfsmap_datadev(ptr noundef %0, ptr nocapture noundef
   %340 = icmp eq ptr %336, %57
   br i1 %340, label %.loopexit, label %.preheader, !llvm.loop !12
 
-.loopexit:                                        ; preds = %.preheader, %.loopexit36, %44, %24
-  %341 = phi i32 [ 0, %24 ], [ 0, %44 ], [ %332, %.loopexit36 ], [ %332, %.preheader ]
+.loopexit:                                        ; preds = %.preheader, %.loopexit37, %44, %24
+  %341 = phi i32 [ 0, %24 ], [ 0, %44 ], [ %332, %.loopexit37 ], [ %332, %.preheader ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #11

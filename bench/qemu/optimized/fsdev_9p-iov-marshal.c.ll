@@ -243,13 +243,15 @@ for.inc.us.i.i101:                                ; preds = %if.else.us.i.i109, 
 
 v9fs_unpack.exit118:                              ; preds = %for.inc.us.i.i101
   %cmp25.i.i87 = icmp ult i64 %copied.1.us.i.i102.fr, 2
-  %spec.select = select i1 %cmp25.i.i87, i64 -105, i64 %copied.1.us.i.i102.fr
-  br label %v9fs_unpack.exit118.thread
+  br i1 %cmp25.i.i87, label %v9fs_unpack.exit118.thread, label %17
 
-v9fs_unpack.exit118.thread:                       ; preds = %v9fs_unpack.exit118, %vaarg.end14
-  %17 = phi i64 [ -105, %vaarg.end14 ], [ %spec.select, %v9fs_unpack.exit118 ]
-  %18 = load i16, ptr %val, align 2
-  store i16 %18, ptr %13, align 2
+v9fs_unpack.exit118.thread:                       ; preds = %vaarg.end14, %v9fs_unpack.exit118
+  br label %17
+
+17:                                               ; preds = %v9fs_unpack.exit118, %v9fs_unpack.exit118.thread
+  %18 = phi i64 [ -105, %v9fs_unpack.exit118.thread ], [ %copied.1.us.i.i102.fr, %v9fs_unpack.exit118 ]
+  %19 = load i16, ptr %val, align 2
+  store i16 %19, ptr %13, align 2
   br label %sw.epilog
 
 sw.bb19:                                          ; preds = %for.cond
@@ -259,10 +261,10 @@ sw.bb19:                                          ; preds = %for.cond
 
 vaarg.in_reg25:                                   ; preds = %sw.bb19
   %reg_save_area26 = load ptr, ptr %0, align 8
-  %19 = zext nneg i32 %gp_offset23 to i64
-  %20 = getelementptr i8, ptr %reg_save_area26, i64 %19
-  %21 = add nuw nsw i32 %gp_offset23, 8
-  store i32 %21, ptr %ap, align 8
+  %20 = zext nneg i32 %gp_offset23 to i64
+  %21 = getelementptr i8, ptr %reg_save_area26, i64 %20
+  %22 = add nuw nsw i32 %gp_offset23, 8
+  store i32 %22, ptr %ap, align 8
   br label %vaarg.end31
 
 vaarg.in_mem27:                                   ; preds = %sw.bb19
@@ -272,8 +274,8 @@ vaarg.in_mem27:                                   ; preds = %sw.bb19
   br label %vaarg.end31
 
 vaarg.end31:                                      ; preds = %vaarg.in_mem27, %vaarg.in_reg25
-  %vaarg.addr32 = phi ptr [ %20, %vaarg.in_reg25 ], [ %overflow_arg_area29, %vaarg.in_mem27 ]
-  %22 = load ptr, ptr %vaarg.addr32, align 8
+  %vaarg.addr32 = phi ptr [ %21, %vaarg.in_reg25 ], [ %overflow_arg_area29, %vaarg.in_mem27 ]
+  %23 = load ptr, ptr %vaarg.addr32, align 8
   br i1 %cmp31.i.i187, label %for.body.us.i.i124, label %v9fs_unpack.exit152.thread
 
 for.body.us.i.i124:                               ; preds = %vaarg.end31, %for.inc.us.i.i135
@@ -284,19 +286,19 @@ for.body.us.i.i124:                               ; preds = %vaarg.end31, %for.i
   %copied.032.us.i.i129 = phi i64 [ %copied.1.us.i.i136.fr, %for.inc.us.i.i135 ], [ 0, %vaarg.end31 ]
   %arrayidx.us.i.i130 = getelementptr %struct.iovec, ptr %out_sg, i64 %indvars.iv39.i.i125
   %iov_len.us.i.i131 = getelementptr inbounds i8, ptr %arrayidx.us.i.i130, i64 8
-  %23 = load i64, ptr %iov_len.us.i.i131, align 8
-  %cmp1.not.us.i.i132 = icmp ult i64 %offset.addr.035.us.i.i127, %23
+  %24 = load i64, ptr %iov_len.us.i.i131, align 8
+  %cmp1.not.us.i.i132 = icmp ult i64 %offset.addr.035.us.i.i127, %24
   br i1 %cmp1.not.us.i.i132, label %if.else.us.i.i143, label %if.then.us.i.i133
 
 if.then.us.i.i133:                                ; preds = %for.body.us.i.i124
-  %sub.us.i.i134 = sub i64 %offset.addr.035.us.i.i127, %23
+  %sub.us.i.i134 = sub i64 %offset.addr.035.us.i.i127, %24
   br label %for.inc.us.i.i135
 
 if.else.us.i.i143:                                ; preds = %for.body.us.i.i124
-  %sub8.us.i.i144 = sub i64 %23, %offset.addr.035.us.i.i127
+  %sub8.us.i.i144 = sub i64 %24, %offset.addr.035.us.i.i127
   %cond.us.i.i145 = tail call i64 @llvm.umin.i64(i64 %sub8.us.i.i144, i64 %size.addr.034.us.i.i128)
-  %24 = load ptr, ptr %arrayidx.us.i.i130, align 8
-  %add.ptr18.us.i.i146 = getelementptr i8, ptr %24, i64 %offset.addr.035.us.i.i127
+  %25 = load ptr, ptr %arrayidx.us.i.i130, align 8
+  %add.ptr18.us.i.i146 = getelementptr i8, ptr %25, i64 %offset.addr.035.us.i.i127
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %addr.addr.036.us.i.i126, ptr align 1 %add.ptr18.us.i.i146, i64 %cond.us.i.i145, i1 false)
   %sub19.us.i.i147 = sub i64 %size.addr.034.us.i.i128, %cond.us.i.i145
   %add.us.i.i148 = add i64 %cond.us.i.i145, %copied.032.us.i.i129
@@ -314,18 +316,20 @@ for.inc.us.i.i135:                                ; preds = %if.else.us.i.i143, 
   %indvars.iv.next40.i.i140 = add nuw nsw i64 %indvars.iv39.i.i125, 1
   %tobool.us.i.i141 = icmp ne i64 %size.addr.1.us.i.i137, 0
   %cmp.us.i.i142 = icmp ult i64 %indvars.iv.next40.i.i140, %1
-  %25 = select i1 %tobool.us.i.i141, i1 %cmp.us.i.i142, i1 false
-  br i1 %25, label %for.body.us.i.i124, label %v9fs_unpack.exit152, !llvm.loop !5
+  %26 = select i1 %tobool.us.i.i141, i1 %cmp.us.i.i142, i1 false
+  br i1 %26, label %for.body.us.i.i124, label %v9fs_unpack.exit152, !llvm.loop !5
 
 v9fs_unpack.exit152:                              ; preds = %for.inc.us.i.i135
   %cmp25.i.i121 = icmp ult i64 %copied.1.us.i.i136.fr, 4
-  %spec.select245 = select i1 %cmp25.i.i121, i64 -105, i64 %copied.1.us.i.i136.fr
-  br label %v9fs_unpack.exit152.thread
+  br i1 %cmp25.i.i121, label %v9fs_unpack.exit152.thread, label %27
 
-v9fs_unpack.exit152.thread:                       ; preds = %v9fs_unpack.exit152, %vaarg.end31
-  %26 = phi i64 [ -105, %vaarg.end31 ], [ %spec.select245, %v9fs_unpack.exit152 ]
-  %27 = load i32, ptr %val20, align 4
-  store i32 %27, ptr %22, align 4
+v9fs_unpack.exit152.thread:                       ; preds = %vaarg.end31, %v9fs_unpack.exit152
+  br label %27
+
+27:                                               ; preds = %v9fs_unpack.exit152, %v9fs_unpack.exit152.thread
+  %28 = phi i64 [ -105, %v9fs_unpack.exit152.thread ], [ %copied.1.us.i.i136.fr, %v9fs_unpack.exit152 ]
+  %29 = load i32, ptr %val20, align 4
+  store i32 %29, ptr %23, align 4
   br label %sw.epilog
 
 sw.bb39:                                          ; preds = %for.cond
@@ -335,10 +339,10 @@ sw.bb39:                                          ; preds = %for.cond
 
 vaarg.in_reg45:                                   ; preds = %sw.bb39
   %reg_save_area46 = load ptr, ptr %0, align 8
-  %28 = zext nneg i32 %gp_offset43 to i64
-  %29 = getelementptr i8, ptr %reg_save_area46, i64 %28
-  %30 = add nuw nsw i32 %gp_offset43, 8
-  store i32 %30, ptr %ap, align 8
+  %30 = zext nneg i32 %gp_offset43 to i64
+  %31 = getelementptr i8, ptr %reg_save_area46, i64 %30
+  %32 = add nuw nsw i32 %gp_offset43, 8
+  store i32 %32, ptr %ap, align 8
   br label %vaarg.end51
 
 vaarg.in_mem47:                                   ; preds = %sw.bb39
@@ -348,8 +352,8 @@ vaarg.in_mem47:                                   ; preds = %sw.bb39
   br label %vaarg.end51
 
 vaarg.end51:                                      ; preds = %vaarg.in_mem47, %vaarg.in_reg45
-  %vaarg.addr52 = phi ptr [ %29, %vaarg.in_reg45 ], [ %overflow_arg_area49, %vaarg.in_mem47 ]
-  %31 = load ptr, ptr %vaarg.addr52, align 8
+  %vaarg.addr52 = phi ptr [ %31, %vaarg.in_reg45 ], [ %overflow_arg_area49, %vaarg.in_mem47 ]
+  %33 = load ptr, ptr %vaarg.addr52, align 8
   br i1 %cmp31.i.i187, label %for.body.us.i.i158, label %v9fs_unpack.exit186.thread
 
 for.body.us.i.i158:                               ; preds = %vaarg.end51, %for.inc.us.i.i169
@@ -360,19 +364,19 @@ for.body.us.i.i158:                               ; preds = %vaarg.end51, %for.i
   %copied.032.us.i.i163 = phi i64 [ %copied.1.us.i.i170.fr, %for.inc.us.i.i169 ], [ 0, %vaarg.end51 ]
   %arrayidx.us.i.i164 = getelementptr %struct.iovec, ptr %out_sg, i64 %indvars.iv39.i.i159
   %iov_len.us.i.i165 = getelementptr inbounds i8, ptr %arrayidx.us.i.i164, i64 8
-  %32 = load i64, ptr %iov_len.us.i.i165, align 8
-  %cmp1.not.us.i.i166 = icmp ult i64 %offset.addr.035.us.i.i161, %32
+  %34 = load i64, ptr %iov_len.us.i.i165, align 8
+  %cmp1.not.us.i.i166 = icmp ult i64 %offset.addr.035.us.i.i161, %34
   br i1 %cmp1.not.us.i.i166, label %if.else.us.i.i177, label %if.then.us.i.i167
 
 if.then.us.i.i167:                                ; preds = %for.body.us.i.i158
-  %sub.us.i.i168 = sub i64 %offset.addr.035.us.i.i161, %32
+  %sub.us.i.i168 = sub i64 %offset.addr.035.us.i.i161, %34
   br label %for.inc.us.i.i169
 
 if.else.us.i.i177:                                ; preds = %for.body.us.i.i158
-  %sub8.us.i.i178 = sub i64 %32, %offset.addr.035.us.i.i161
+  %sub8.us.i.i178 = sub i64 %34, %offset.addr.035.us.i.i161
   %cond.us.i.i179 = tail call i64 @llvm.umin.i64(i64 %sub8.us.i.i178, i64 %size.addr.034.us.i.i162)
-  %33 = load ptr, ptr %arrayidx.us.i.i164, align 8
-  %add.ptr18.us.i.i180 = getelementptr i8, ptr %33, i64 %offset.addr.035.us.i.i161
+  %35 = load ptr, ptr %arrayidx.us.i.i164, align 8
+  %add.ptr18.us.i.i180 = getelementptr i8, ptr %35, i64 %offset.addr.035.us.i.i161
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %addr.addr.036.us.i.i160, ptr align 1 %add.ptr18.us.i.i180, i64 %cond.us.i.i179, i1 false)
   %sub19.us.i.i181 = sub i64 %size.addr.034.us.i.i162, %cond.us.i.i179
   %add.us.i.i182 = add i64 %cond.us.i.i179, %copied.032.us.i.i163
@@ -390,18 +394,20 @@ for.inc.us.i.i169:                                ; preds = %if.else.us.i.i177, 
   %indvars.iv.next40.i.i174 = add nuw nsw i64 %indvars.iv39.i.i159, 1
   %tobool.us.i.i175 = icmp ne i64 %size.addr.1.us.i.i171, 0
   %cmp.us.i.i176 = icmp ult i64 %indvars.iv.next40.i.i174, %1
-  %34 = select i1 %tobool.us.i.i175, i1 %cmp.us.i.i176, i1 false
-  br i1 %34, label %for.body.us.i.i158, label %v9fs_unpack.exit186, !llvm.loop !5
+  %36 = select i1 %tobool.us.i.i175, i1 %cmp.us.i.i176, i1 false
+  br i1 %36, label %for.body.us.i.i158, label %v9fs_unpack.exit186, !llvm.loop !5
 
 v9fs_unpack.exit186:                              ; preds = %for.inc.us.i.i169
   %cmp25.i.i155 = icmp ult i64 %copied.1.us.i.i170.fr, 8
-  %spec.select246 = select i1 %cmp25.i.i155, i64 -105, i64 %copied.1.us.i.i170.fr
-  br label %v9fs_unpack.exit186.thread
+  br i1 %cmp25.i.i155, label %v9fs_unpack.exit186.thread, label %37
 
-v9fs_unpack.exit186.thread:                       ; preds = %v9fs_unpack.exit186, %vaarg.end51
-  %35 = phi i64 [ -105, %vaarg.end51 ], [ %spec.select246, %v9fs_unpack.exit186 ]
-  %36 = load i64, ptr %val40, align 8
-  store i64 %36, ptr %31, align 8
+v9fs_unpack.exit186.thread:                       ; preds = %vaarg.end51, %v9fs_unpack.exit186
+  br label %37
+
+37:                                               ; preds = %v9fs_unpack.exit186, %v9fs_unpack.exit186.thread
+  %38 = phi i64 [ -105, %v9fs_unpack.exit186.thread ], [ %copied.1.us.i.i170.fr, %v9fs_unpack.exit186 ]
+  %39 = load i64, ptr %val40, align 8
+  store i64 %39, ptr %33, align 8
   br label %sw.epilog
 
 sw.bb59:                                          ; preds = %for.cond
@@ -411,10 +417,10 @@ sw.bb59:                                          ; preds = %for.cond
 
 vaarg.in_reg63:                                   ; preds = %sw.bb59
   %reg_save_area64 = load ptr, ptr %0, align 8
-  %37 = zext nneg i32 %gp_offset61 to i64
-  %38 = getelementptr i8, ptr %reg_save_area64, i64 %37
-  %39 = add nuw nsw i32 %gp_offset61, 8
-  store i32 %39, ptr %ap, align 8
+  %40 = zext nneg i32 %gp_offset61 to i64
+  %41 = getelementptr i8, ptr %reg_save_area64, i64 %40
+  %42 = add nuw nsw i32 %gp_offset61, 8
+  store i32 %42, ptr %ap, align 8
   br label %vaarg.end69
 
 vaarg.in_mem65:                                   ; preds = %sw.bb59
@@ -424,25 +430,25 @@ vaarg.in_mem65:                                   ; preds = %sw.bb59
   br label %vaarg.end69
 
 vaarg.end69:                                      ; preds = %vaarg.in_mem65, %vaarg.in_reg63
-  %vaarg.addr70 = phi ptr [ %38, %vaarg.in_reg63 ], [ %overflow_arg_area67, %vaarg.in_mem65 ]
-  %40 = load ptr, ptr %vaarg.addr70, align 8
-  %call71 = tail call i64 (ptr, i32, i64, i32, ptr, ...) @v9fs_iov_unmarshal(ptr noundef %out_sg, i32 noundef %out_num, i64 noundef %offset.addr.0, i32 noundef %bswap, ptr noundef nonnull @.str, ptr noundef %40)
+  %vaarg.addr70 = phi ptr [ %41, %vaarg.in_reg63 ], [ %overflow_arg_area67, %vaarg.in_mem65 ]
+  %43 = load ptr, ptr %vaarg.addr70, align 8
+  %call71 = tail call i64 (ptr, i32, i64, i32, ptr, ...) @v9fs_iov_unmarshal(ptr noundef %out_sg, i32 noundef %out_num, i64 noundef %offset.addr.0, i32 noundef %bswap, ptr noundef nonnull @.str, ptr noundef %43)
   %cmp = icmp sgt i64 %call71, 0
   br i1 %cmp, label %if.then73, label %sw.epilog
 
 if.then73:                                        ; preds = %vaarg.end69
   %add = add i64 %call71, %offset.addr.0
-  %41 = load i16, ptr %40, align 8
-  %conv75 = zext i16 %41 to i64
+  %44 = load i16, ptr %43, align 8
+  %conv75 = zext i16 %44 to i64
   %add76 = add nuw nsw i64 %conv75, 1
   %call78 = tail call noalias ptr @g_malloc(i64 noundef %add76) #8
-  %data = getelementptr inbounds i8, ptr %40, i64 8
+  %data = getelementptr inbounds i8, ptr %43, i64 8
   store ptr %call78, ptr %data, align 8
-  %42 = load i16, ptr %40, align 8
-  %conv81 = zext i16 %42 to i64
-  %tobool30.i.i = icmp ne i16 %42, 0
-  %43 = and i1 %cmp31.i.i187, %tobool30.i.i
-  br i1 %43, label %for.body.us.i.i192, label %v9fs_unpack.exit220
+  %45 = load i16, ptr %43, align 8
+  %conv81 = zext i16 %45 to i64
+  %tobool30.i.i = icmp ne i16 %45, 0
+  %46 = and i1 %cmp31.i.i187, %tobool30.i.i
+  br i1 %46, label %for.body.us.i.i192, label %v9fs_unpack.exit220
 
 for.body.us.i.i192:                               ; preds = %if.then73, %for.inc.us.i.i203
   %indvars.iv39.i.i193 = phi i64 [ %indvars.iv.next40.i.i208, %for.inc.us.i.i203 ], [ 0, %if.then73 ]
@@ -452,19 +458,19 @@ for.body.us.i.i192:                               ; preds = %if.then73, %for.inc
   %copied.032.us.i.i197 = phi i64 [ %copied.1.us.i.i204, %for.inc.us.i.i203 ], [ 0, %if.then73 ]
   %arrayidx.us.i.i198 = getelementptr %struct.iovec, ptr %out_sg, i64 %indvars.iv39.i.i193
   %iov_len.us.i.i199 = getelementptr inbounds i8, ptr %arrayidx.us.i.i198, i64 8
-  %44 = load i64, ptr %iov_len.us.i.i199, align 8
-  %cmp1.not.us.i.i200 = icmp ult i64 %offset.addr.035.us.i.i195, %44
+  %47 = load i64, ptr %iov_len.us.i.i199, align 8
+  %cmp1.not.us.i.i200 = icmp ult i64 %offset.addr.035.us.i.i195, %47
   br i1 %cmp1.not.us.i.i200, label %if.else.us.i.i211, label %if.then.us.i.i201
 
 if.then.us.i.i201:                                ; preds = %for.body.us.i.i192
-  %sub.us.i.i202 = sub i64 %offset.addr.035.us.i.i195, %44
+  %sub.us.i.i202 = sub i64 %offset.addr.035.us.i.i195, %47
   br label %for.inc.us.i.i203
 
 if.else.us.i.i211:                                ; preds = %for.body.us.i.i192
-  %sub8.us.i.i212 = sub i64 %44, %offset.addr.035.us.i.i195
+  %sub8.us.i.i212 = sub i64 %47, %offset.addr.035.us.i.i195
   %cond.us.i.i213 = tail call i64 @llvm.umin.i64(i64 %sub8.us.i.i212, i64 %size.addr.034.us.i.i196)
-  %45 = load ptr, ptr %arrayidx.us.i.i198, align 8
-  %add.ptr18.us.i.i214 = getelementptr i8, ptr %45, i64 %offset.addr.035.us.i.i195
+  %48 = load ptr, ptr %arrayidx.us.i.i198, align 8
+  %add.ptr18.us.i.i214 = getelementptr i8, ptr %48, i64 %offset.addr.035.us.i.i195
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %addr.addr.036.us.i.i194, ptr align 1 %add.ptr18.us.i.i214, i64 %cond.us.i.i213, i1 false)
   %sub19.us.i.i215 = sub i64 %size.addr.034.us.i.i196, %cond.us.i.i213
   %add.us.i.i216 = add i64 %cond.us.i.i213, %copied.032.us.i.i197
@@ -481,8 +487,8 @@ for.inc.us.i.i203:                                ; preds = %if.else.us.i.i211, 
   %indvars.iv.next40.i.i208 = add nuw nsw i64 %indvars.iv39.i.i193, 1
   %tobool.us.i.i209 = icmp ne i64 %size.addr.1.us.i.i205, 0
   %cmp.us.i.i210 = icmp ult i64 %indvars.iv.next40.i.i208, %1
-  %46 = select i1 %tobool.us.i.i209, i1 %cmp.us.i.i210, i1 false
-  br i1 %46, label %for.body.us.i.i192, label %v9fs_unpack.exit220, !llvm.loop !5
+  %49 = select i1 %tobool.us.i.i209, i1 %cmp.us.i.i210, i1 false
+  br i1 %49, label %for.body.us.i.i192, label %v9fs_unpack.exit220, !llvm.loop !5
 
 v9fs_unpack.exit220:                              ; preds = %for.inc.us.i.i203, %if.then73
   %copied.0.lcssa.i.i188 = phi i64 [ 0, %if.then73 ], [ %copied.1.us.i.i204, %for.inc.us.i.i203 ]
@@ -492,15 +498,15 @@ v9fs_unpack.exit220:                              ; preds = %for.inc.us.i.i203, 
   br i1 %cmp83, label %sw.epilog.thread239, label %if.else90
 
 sw.epilog.thread239:                              ; preds = %v9fs_unpack.exit220
-  %47 = load ptr, ptr %data, align 8
-  %48 = load i16, ptr %40, align 8
-  %idxprom88 = zext i16 %48 to i64
-  %arrayidx89 = getelementptr i8, ptr %47, i64 %idxprom88
+  %50 = load ptr, ptr %data, align 8
+  %51 = load i16, ptr %43, align 8
+  %idxprom88 = zext i16 %51 to i64
+  %arrayidx89 = getelementptr i8, ptr %50, i64 %idxprom88
   store i8 0, ptr %arrayidx89, align 1
   br label %if.end141
 
 if.else90:                                        ; preds = %v9fs_unpack.exit220
-  tail call void @v9fs_string_free(ptr noundef nonnull %40) #9
+  tail call void @v9fs_string_free(ptr noundef nonnull %43) #9
   br label %return
 
 sw.bb93:                                          ; preds = %for.cond
@@ -510,10 +516,10 @@ sw.bb93:                                          ; preds = %for.cond
 
 vaarg.in_reg97:                                   ; preds = %sw.bb93
   %reg_save_area98 = load ptr, ptr %0, align 8
-  %49 = zext nneg i32 %gp_offset95 to i64
-  %50 = getelementptr i8, ptr %reg_save_area98, i64 %49
-  %51 = add nuw nsw i32 %gp_offset95, 8
-  store i32 %51, ptr %ap, align 8
+  %52 = zext nneg i32 %gp_offset95 to i64
+  %53 = getelementptr i8, ptr %reg_save_area98, i64 %52
+  %54 = add nuw nsw i32 %gp_offset95, 8
+  store i32 %54, ptr %ap, align 8
   br label %vaarg.end103
 
 vaarg.in_mem99:                                   ; preds = %sw.bb93
@@ -523,11 +529,11 @@ vaarg.in_mem99:                                   ; preds = %sw.bb93
   br label %vaarg.end103
 
 vaarg.end103:                                     ; preds = %vaarg.in_mem99, %vaarg.in_reg97
-  %vaarg.addr104 = phi ptr [ %50, %vaarg.in_reg97 ], [ %overflow_arg_area101, %vaarg.in_mem99 ]
-  %52 = load ptr, ptr %vaarg.addr104, align 8
-  %version = getelementptr inbounds i8, ptr %52, i64 4
-  %path = getelementptr inbounds i8, ptr %52, i64 8
-  %call105 = tail call i64 (ptr, i32, i64, i32, ptr, ...) @v9fs_iov_unmarshal(ptr noundef %out_sg, i32 noundef %out_num, i64 noundef %offset.addr.0, i32 noundef %bswap, ptr noundef nonnull @.str.1, ptr noundef %52, ptr noundef nonnull %version, ptr noundef nonnull %path)
+  %vaarg.addr104 = phi ptr [ %53, %vaarg.in_reg97 ], [ %overflow_arg_area101, %vaarg.in_mem99 ]
+  %55 = load ptr, ptr %vaarg.addr104, align 8
+  %version = getelementptr inbounds i8, ptr %55, i64 4
+  %path = getelementptr inbounds i8, ptr %55, i64 8
+  %call105 = tail call i64 (ptr, i32, i64, i32, ptr, ...) @v9fs_iov_unmarshal(ptr noundef %out_sg, i32 noundef %out_num, i64 noundef %offset.addr.0, i32 noundef %bswap, ptr noundef nonnull @.str.1, ptr noundef %55, ptr noundef nonnull %version, ptr noundef nonnull %path)
   br label %sw.epilog
 
 sw.bb106:                                         ; preds = %for.cond
@@ -537,10 +543,10 @@ sw.bb106:                                         ; preds = %for.cond
 
 vaarg.in_reg110:                                  ; preds = %sw.bb106
   %reg_save_area111 = load ptr, ptr %0, align 8
-  %53 = zext nneg i32 %gp_offset108 to i64
-  %54 = getelementptr i8, ptr %reg_save_area111, i64 %53
-  %55 = add nuw nsw i32 %gp_offset108, 8
-  store i32 %55, ptr %ap, align 8
+  %56 = zext nneg i32 %gp_offset108 to i64
+  %57 = getelementptr i8, ptr %reg_save_area111, i64 %56
+  %58 = add nuw nsw i32 %gp_offset108, 8
+  store i32 %58, ptr %ap, align 8
   br label %vaarg.end116
 
 vaarg.in_mem112:                                  ; preds = %sw.bb106
@@ -550,24 +556,24 @@ vaarg.in_mem112:                                  ; preds = %sw.bb106
   br label %vaarg.end116
 
 vaarg.end116:                                     ; preds = %vaarg.in_mem112, %vaarg.in_reg110
-  %vaarg.addr117 = phi ptr [ %54, %vaarg.in_reg110 ], [ %overflow_arg_area114, %vaarg.in_mem112 ]
-  %56 = load ptr, ptr %vaarg.addr117, align 8
-  %type119 = getelementptr inbounds i8, ptr %56, i64 2
-  %dev = getelementptr inbounds i8, ptr %56, i64 4
-  %qid = getelementptr inbounds i8, ptr %56, i64 8
-  %mode = getelementptr inbounds i8, ptr %56, i64 24
-  %atime = getelementptr inbounds i8, ptr %56, i64 28
-  %mtime = getelementptr inbounds i8, ptr %56, i64 32
-  %length = getelementptr inbounds i8, ptr %56, i64 40
-  %name = getelementptr inbounds i8, ptr %56, i64 48
-  %uid = getelementptr inbounds i8, ptr %56, i64 64
-  %gid = getelementptr inbounds i8, ptr %56, i64 80
-  %muid = getelementptr inbounds i8, ptr %56, i64 96
-  %extension = getelementptr inbounds i8, ptr %56, i64 112
-  %n_uid = getelementptr inbounds i8, ptr %56, i64 128
-  %n_gid = getelementptr inbounds i8, ptr %56, i64 132
-  %n_muid = getelementptr inbounds i8, ptr %56, i64 136
-  %call120 = tail call i64 (ptr, i32, i64, i32, ptr, ...) @v9fs_iov_unmarshal(ptr noundef %out_sg, i32 noundef %out_num, i64 noundef %offset.addr.0, i32 noundef %bswap, ptr noundef nonnull @.str.2, ptr noundef %56, ptr noundef nonnull %type119, ptr noundef nonnull %dev, ptr noundef nonnull %qid, ptr noundef nonnull %mode, ptr noundef nonnull %atime, ptr noundef nonnull %mtime, ptr noundef nonnull %length, ptr noundef nonnull %name, ptr noundef nonnull %uid, ptr noundef nonnull %gid, ptr noundef nonnull %muid, ptr noundef nonnull %extension, ptr noundef nonnull %n_uid, ptr noundef nonnull %n_gid, ptr noundef nonnull %n_muid)
+  %vaarg.addr117 = phi ptr [ %57, %vaarg.in_reg110 ], [ %overflow_arg_area114, %vaarg.in_mem112 ]
+  %59 = load ptr, ptr %vaarg.addr117, align 8
+  %type119 = getelementptr inbounds i8, ptr %59, i64 2
+  %dev = getelementptr inbounds i8, ptr %59, i64 4
+  %qid = getelementptr inbounds i8, ptr %59, i64 8
+  %mode = getelementptr inbounds i8, ptr %59, i64 24
+  %atime = getelementptr inbounds i8, ptr %59, i64 28
+  %mtime = getelementptr inbounds i8, ptr %59, i64 32
+  %length = getelementptr inbounds i8, ptr %59, i64 40
+  %name = getelementptr inbounds i8, ptr %59, i64 48
+  %uid = getelementptr inbounds i8, ptr %59, i64 64
+  %gid = getelementptr inbounds i8, ptr %59, i64 80
+  %muid = getelementptr inbounds i8, ptr %59, i64 96
+  %extension = getelementptr inbounds i8, ptr %59, i64 112
+  %n_uid = getelementptr inbounds i8, ptr %59, i64 128
+  %n_gid = getelementptr inbounds i8, ptr %59, i64 132
+  %n_muid = getelementptr inbounds i8, ptr %59, i64 136
+  %call120 = tail call i64 (ptr, i32, i64, i32, ptr, ...) @v9fs_iov_unmarshal(ptr noundef %out_sg, i32 noundef %out_num, i64 noundef %offset.addr.0, i32 noundef %bswap, ptr noundef nonnull @.str.2, ptr noundef %59, ptr noundef nonnull %type119, ptr noundef nonnull %dev, ptr noundef nonnull %qid, ptr noundef nonnull %mode, ptr noundef nonnull %atime, ptr noundef nonnull %mtime, ptr noundef nonnull %length, ptr noundef nonnull %name, ptr noundef nonnull %uid, ptr noundef nonnull %gid, ptr noundef nonnull %muid, ptr noundef nonnull %extension, ptr noundef nonnull %n_uid, ptr noundef nonnull %n_gid, ptr noundef nonnull %n_muid)
   br label %sw.epilog
 
 sw.bb121:                                         ; preds = %for.cond
@@ -577,10 +583,10 @@ sw.bb121:                                         ; preds = %for.cond
 
 vaarg.in_reg125:                                  ; preds = %sw.bb121
   %reg_save_area126 = load ptr, ptr %0, align 8
-  %57 = zext nneg i32 %gp_offset123 to i64
-  %58 = getelementptr i8, ptr %reg_save_area126, i64 %57
-  %59 = add nuw nsw i32 %gp_offset123, 8
-  store i32 %59, ptr %ap, align 8
+  %60 = zext nneg i32 %gp_offset123 to i64
+  %61 = getelementptr i8, ptr %reg_save_area126, i64 %60
+  %62 = add nuw nsw i32 %gp_offset123, 8
+  store i32 %62, ptr %ap, align 8
   br label %vaarg.end131
 
 vaarg.in_mem127:                                  ; preds = %sw.bb121
@@ -590,25 +596,25 @@ vaarg.in_mem127:                                  ; preds = %sw.bb121
   br label %vaarg.end131
 
 vaarg.end131:                                     ; preds = %vaarg.in_mem127, %vaarg.in_reg125
-  %vaarg.addr132 = phi ptr [ %58, %vaarg.in_reg125 ], [ %overflow_arg_area129, %vaarg.in_mem127 ]
-  %60 = load ptr, ptr %vaarg.addr132, align 8
-  %mode133 = getelementptr inbounds i8, ptr %60, i64 4
-  %uid134 = getelementptr inbounds i8, ptr %60, i64 8
-  %gid135 = getelementptr inbounds i8, ptr %60, i64 12
-  %size136 = getelementptr inbounds i8, ptr %60, i64 16
-  %atime_sec = getelementptr inbounds i8, ptr %60, i64 24
-  %atime_nsec = getelementptr inbounds i8, ptr %60, i64 32
-  %mtime_sec = getelementptr inbounds i8, ptr %60, i64 40
-  %mtime_nsec = getelementptr inbounds i8, ptr %60, i64 48
-  %call137 = tail call i64 (ptr, i32, i64, i32, ptr, ...) @v9fs_iov_unmarshal(ptr noundef %out_sg, i32 noundef %out_num, i64 noundef %offset.addr.0, i32 noundef %bswap, ptr noundef nonnull @.str.3, ptr noundef %60, ptr noundef nonnull %mode133, ptr noundef nonnull %uid134, ptr noundef nonnull %gid135, ptr noundef nonnull %size136, ptr noundef nonnull %atime_sec, ptr noundef nonnull %atime_nsec, ptr noundef nonnull %mtime_sec, ptr noundef nonnull %mtime_nsec)
+  %vaarg.addr132 = phi ptr [ %61, %vaarg.in_reg125 ], [ %overflow_arg_area129, %vaarg.in_mem127 ]
+  %63 = load ptr, ptr %vaarg.addr132, align 8
+  %mode133 = getelementptr inbounds i8, ptr %63, i64 4
+  %uid134 = getelementptr inbounds i8, ptr %63, i64 8
+  %gid135 = getelementptr inbounds i8, ptr %63, i64 12
+  %size136 = getelementptr inbounds i8, ptr %63, i64 16
+  %atime_sec = getelementptr inbounds i8, ptr %63, i64 24
+  %atime_nsec = getelementptr inbounds i8, ptr %63, i64 32
+  %mtime_sec = getelementptr inbounds i8, ptr %63, i64 40
+  %mtime_nsec = getelementptr inbounds i8, ptr %63, i64 48
+  %call137 = tail call i64 (ptr, i32, i64, i32, ptr, ...) @v9fs_iov_unmarshal(ptr noundef %out_sg, i32 noundef %out_num, i64 noundef %offset.addr.0, i32 noundef %bswap, ptr noundef nonnull @.str.3, ptr noundef %63, ptr noundef nonnull %mode133, ptr noundef nonnull %uid134, ptr noundef nonnull %gid135, ptr noundef nonnull %size136, ptr noundef nonnull %atime_sec, ptr noundef nonnull %atime_nsec, ptr noundef nonnull %mtime_sec, ptr noundef nonnull %mtime_nsec)
   br label %sw.epilog
 
 do.body:                                          ; preds = %for.cond
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 171, ptr noundef nonnull @__func__.v9fs_iov_vunmarshal, ptr noundef null) #10
   unreachable
 
-sw.epilog:                                        ; preds = %v9fs_unpack.exit186.thread, %v9fs_unpack.exit152.thread, %v9fs_unpack.exit118.thread, %v9fs_unpack.exit, %vaarg.end69, %vaarg.end131, %vaarg.end116, %vaarg.end103
-  %copied.0 = phi i64 [ %call137, %vaarg.end131 ], [ %call120, %vaarg.end116 ], [ %call105, %vaarg.end103 ], [ %call71, %vaarg.end69 ], [ %copied.1.us.i.i.fr, %v9fs_unpack.exit ], [ %17, %v9fs_unpack.exit118.thread ], [ %26, %v9fs_unpack.exit152.thread ], [ %35, %v9fs_unpack.exit186.thread ]
+sw.epilog:                                        ; preds = %37, %27, %17, %v9fs_unpack.exit, %vaarg.end69, %vaarg.end131, %vaarg.end116, %vaarg.end103
+  %copied.0 = phi i64 [ %call137, %vaarg.end131 ], [ %call120, %vaarg.end116 ], [ %call105, %vaarg.end103 ], [ %call71, %vaarg.end69 ], [ %copied.1.us.i.i.fr, %v9fs_unpack.exit ], [ %18, %17 ], [ %28, %27 ], [ %38, %37 ]
   %cmp138 = icmp slt i64 %copied.0, 0
   br i1 %cmp138, label %return, label %if.end141
 

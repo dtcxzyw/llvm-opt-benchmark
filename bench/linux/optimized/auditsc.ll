@@ -646,7 +646,7 @@ define internal fastcc void @audit_log_exit() unnamed_addr #0 align 16 {
 20:                                               ; preds = %0
   %21 = tail call ptr @audit_log_start(ptr noundef %13, i32 noundef 3264, i32 noundef 1300) #12
   %22 = icmp eq ptr %21, null
-  br i1 %22, label %781, label %23
+  br i1 %22, label %779, label %23
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds i8, ptr %13, i64 792
@@ -1526,8 +1526,8 @@ define internal fastcc void @audit_log_exit() unnamed_addr #0 align 16 {
   %515 = icmp eq ptr %514, null
   br i1 %515, label %.loopexit66, label %.preheader65
 
-.loopexit64:                                      ; preds = %557, %.preheader65
-  %516 = phi i32 [ %520, %.preheader65 ], [ %558, %557 ]
+.loopexit64:                                      ; preds = %556, %.preheader65
+  %516 = phi i32 [ %520, %.preheader65 ], [ %557, %556 ]
   %517 = load ptr, ptr %519, align 8
   %518 = icmp eq ptr %517, null
   br i1 %518, label %.loopexit66, label %.preheader65, !llvm.loop !29
@@ -1549,9 +1549,9 @@ define internal fastcc void @audit_log_exit() unnamed_addr #0 align 16 {
   %530 = getelementptr inbounds i8, ptr %519, i64 336
   br label %531
 
-531:                                              ; preds = %557, %524
-  %532 = phi i64 [ 0, %524 ], [ %559, %557 ]
-  %533 = phi i32 [ %520, %524 ], [ %558, %557 ]
+531:                                              ; preds = %556, %524
+  %532 = phi i64 [ 0, %524 ], [ %558, %556 ]
+  %533 = phi i32 [ %520, %524 ], [ %557, %556 ]
   %534 = getelementptr [16 x i32], ptr %525, i64 0, i64 %532
   %535 = load i32, ptr %534, align 4
   %536 = getelementptr [16 x %struct.kuid_t], ptr %526, i64 0, i64 %532
@@ -1573,7 +1573,7 @@ define internal fastcc void @audit_log_exit() unnamed_addr #0 align 16 {
 audit_log_pid_context.exit.thread:                ; preds = %531
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
-  br label %557
+  br label %556
 
 547:                                              ; preds = %531
   store i32 0, ptr %4, align 4, !annotation !5
@@ -1584,456 +1584,464 @@ audit_log_pid_context.exit.thread:                ; preds = %531
 549:                                              ; preds = %547
   %550 = call i32 @security_secid_to_secctx(i32 noundef %541, ptr noundef nonnull %3, ptr noundef nonnull %4) #12
   %551 = icmp eq i32 %550, 0
-  br i1 %551, label %553, label %552
+  br i1 %551, label %552, label %.critedge
 
-552:                                              ; preds = %549
+.critedge:                                        ; preds = %549
   call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %545, ptr noundef nonnull @.str.73) #12
-  br label %audit_log_pid_context.exit
-
-553:                                              ; preds = %549
-  %554 = load ptr, ptr %3, align 8
-  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %545, ptr noundef nonnull @.str.43, ptr noundef %554) #12
-  %555 = load ptr, ptr %3, align 8
-  %556 = load i32, ptr %4, align 4
-  call void @security_release_secctx(ptr noundef %555, i32 noundef %556) #12
-  br label %audit_log_pid_context.exit
-
-audit_log_pid_context.exit:                       ; preds = %547, %552, %553
-  %spec.select = phi i32 [ 1, %552 ], [ %533, %553 ], [ %533, %547 ]
   call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %545, ptr noundef nonnull @.str.74) #12
   call void @audit_log_untrustedstring(ptr noundef nonnull %545, ptr noundef %542) #12
   call void @audit_log_end(ptr noundef nonnull %545) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
-  br label %557
+  br label %556
 
-557:                                              ; preds = %audit_log_pid_context.exit, %audit_log_pid_context.exit.thread
-  %558 = phi i32 [ %533, %audit_log_pid_context.exit.thread ], [ %spec.select, %audit_log_pid_context.exit ]
-  %559 = add nuw nsw i64 %532, 1
-  %560 = load i32, ptr %521, align 8
-  %561 = sext i32 %560 to i64
-  %562 = icmp slt i64 %559, %561
-  br i1 %562, label %531, label %.loopexit64, !llvm.loop !30
+552:                                              ; preds = %549
+  %553 = load ptr, ptr %3, align 8
+  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %545, ptr noundef nonnull @.str.43, ptr noundef %553) #12
+  %554 = load ptr, ptr %3, align 8
+  %555 = load i32, ptr %4, align 4
+  call void @security_release_secctx(ptr noundef %554, i32 noundef %555) #12
+  br label %audit_log_pid_context.exit
+
+audit_log_pid_context.exit:                       ; preds = %547, %552
+  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %545, ptr noundef nonnull @.str.74) #12
+  call void @audit_log_untrustedstring(ptr noundef nonnull %545, ptr noundef %542) #12
+  call void @audit_log_end(ptr noundef nonnull %545) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
+  br label %556
+
+556:                                              ; preds = %audit_log_pid_context.exit.thread, %audit_log_pid_context.exit, %.critedge
+  %557 = phi i32 [ 1, %.critedge ], [ %533, %audit_log_pid_context.exit ], [ %533, %audit_log_pid_context.exit.thread ]
+  %558 = add nuw nsw i64 %532, 1
+  %559 = load i32, ptr %521, align 8
+  %560 = sext i32 %559 to i64
+  %561 = icmp slt i64 %558, %560
+  br i1 %561, label %531, label %.loopexit64, !llvm.loop !30
 
 .loopexit66:                                      ; preds = %.loopexit64, %512
-  %563 = phi i32 [ %490, %512 ], [ %516, %.loopexit64 ]
-  %564 = getelementptr inbounds i8, ptr %13, i64 796
-  %565 = load i32, ptr %564, align 4
-  %566 = icmp eq i32 %565, 0
-  br i1 %566, label %589, label %567
+  %562 = phi i32 [ %490, %512 ], [ %516, %.loopexit64 ]
+  %563 = getelementptr inbounds i8, ptr %13, i64 796
+  %564 = load i32, ptr %563, align 4
+  %565 = icmp eq i32 %564, 0
+  br i1 %565, label %587, label %566
 
-567:                                              ; preds = %.loopexit66
-  %568 = getelementptr inbounds i8, ptr %13, i64 800
-  %569 = getelementptr inbounds i8, ptr %13, i64 804
-  %570 = getelementptr inbounds i8, ptr %13, i64 808
-  %571 = load i32, ptr %570, align 8
-  %572 = getelementptr inbounds i8, ptr %13, i64 812
-  %573 = load i32, ptr %572, align 4
-  %574 = getelementptr inbounds i8, ptr %13, i64 816
-  %575 = load i32, ptr %568, align 8
-  %576 = load i32, ptr %569, align 4
+566:                                              ; preds = %.loopexit66
+  %567 = getelementptr inbounds i8, ptr %13, i64 800
+  %568 = getelementptr inbounds i8, ptr %13, i64 804
+  %569 = getelementptr inbounds i8, ptr %13, i64 808
+  %570 = load i32, ptr %569, align 8
+  %571 = getelementptr inbounds i8, ptr %13, i64 812
+  %572 = load i32, ptr %571, align 4
+  %573 = getelementptr inbounds i8, ptr %13, i64 816
+  %574 = load i32, ptr %567, align 8
+  %575 = load i32, ptr %568, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #12
   store ptr null, ptr %1, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #12
-  %577 = call ptr @audit_log_start(ptr noundef %13, i32 noundef 3264, i32 noundef 1318) #12
-  %578 = icmp eq ptr %577, null
-  br i1 %578, label %audit_log_pid_context.exit62.thread, label %579
+  %576 = call ptr @audit_log_start(ptr noundef %13, i32 noundef 3264, i32 noundef 1318) #12
+  %577 = icmp eq ptr %576, null
+  br i1 %577, label %audit_log_pid_context.exit62.thread, label %578
 
-audit_log_pid_context.exit62.thread:              ; preds = %567
+audit_log_pid_context.exit62.thread:              ; preds = %566
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #12
-  br label %589
+  br label %587
 
-579:                                              ; preds = %567
+578:                                              ; preds = %566
   store i32 0, ptr %2, align 4, !annotation !5
-  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %577, ptr noundef nonnull @.str.72, i32 noundef %565, i32 noundef %575, i32 noundef %576, i32 noundef %571) #12
-  %580 = icmp eq i32 %573, 0
-  br i1 %580, label %audit_log_pid_context.exit62, label %581
+  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %576, ptr noundef nonnull @.str.72, i32 noundef %564, i32 noundef %574, i32 noundef %575, i32 noundef %570) #12
+  %579 = icmp eq i32 %572, 0
+  br i1 %579, label %audit_log_pid_context.exit62, label %580
 
-581:                                              ; preds = %579
-  %582 = call i32 @security_secid_to_secctx(i32 noundef %573, ptr noundef nonnull %1, ptr noundef nonnull %2) #12
-  %583 = icmp eq i32 %582, 0
-  br i1 %583, label %585, label %584
+580:                                              ; preds = %578
+  %581 = call i32 @security_secid_to_secctx(i32 noundef %572, ptr noundef nonnull %1, ptr noundef nonnull %2) #12
+  %582 = icmp eq i32 %581, 0
+  br i1 %582, label %583, label %.critedge63
 
-584:                                              ; preds = %581
-  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %577, ptr noundef nonnull @.str.73) #12
-  br label %audit_log_pid_context.exit62
-
-585:                                              ; preds = %581
-  %586 = load ptr, ptr %1, align 8
-  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %577, ptr noundef nonnull @.str.43, ptr noundef %586) #12
-  %587 = load ptr, ptr %1, align 8
-  %588 = load i32, ptr %2, align 4
-  call void @security_release_secctx(ptr noundef %587, i32 noundef %588) #12
-  br label %audit_log_pid_context.exit62
-
-audit_log_pid_context.exit62:                     ; preds = %579, %584, %585
-  %spec.select63 = phi i32 [ 1, %584 ], [ %563, %585 ], [ %563, %579 ]
-  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %577, ptr noundef nonnull @.str.74) #12
-  call void @audit_log_untrustedstring(ptr noundef nonnull %577, ptr noundef %574) #12
-  call void @audit_log_end(ptr noundef nonnull %577) #12
+.critedge63:                                      ; preds = %580
+  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %576, ptr noundef nonnull @.str.73) #12
+  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %576, ptr noundef nonnull @.str.74) #12
+  call void @audit_log_untrustedstring(ptr noundef nonnull %576, ptr noundef %573) #12
+  call void @audit_log_end(ptr noundef nonnull %576) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #12
-  br label %589
+  br label %587
 
-589:                                              ; preds = %audit_log_pid_context.exit62, %audit_log_pid_context.exit62.thread, %.loopexit66
-  %590 = phi i32 [ %563, %.loopexit66 ], [ %563, %audit_log_pid_context.exit62.thread ], [ %spec.select63, %audit_log_pid_context.exit62 ]
-  %591 = getelementptr inbounds i8, ptr %13, i64 696
-  %592 = getelementptr inbounds i8, ptr %13, i64 704
-  %593 = load ptr, ptr %592, align 8
-  %594 = icmp eq ptr %593, null
-  br i1 %594, label %602, label %595
+583:                                              ; preds = %580
+  %584 = load ptr, ptr %1, align 8
+  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %576, ptr noundef nonnull @.str.43, ptr noundef %584) #12
+  %585 = load ptr, ptr %1, align 8
+  %586 = load i32, ptr %2, align 4
+  call void @security_release_secctx(ptr noundef %585, i32 noundef %586) #12
+  br label %audit_log_pid_context.exit62
 
-595:                                              ; preds = %589
-  %596 = load ptr, ptr %591, align 8
-  %597 = icmp eq ptr %596, null
-  br i1 %597, label %602, label %598
+audit_log_pid_context.exit62:                     ; preds = %578, %583
+  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %576, ptr noundef nonnull @.str.74) #12
+  call void @audit_log_untrustedstring(ptr noundef nonnull %576, ptr noundef %573) #12
+  call void @audit_log_end(ptr noundef nonnull %576) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #12
+  br label %587
 
-598:                                              ; preds = %595
-  %599 = call ptr @audit_log_start(ptr noundef %13, i32 noundef 3264, i32 noundef 1307) #12
-  %600 = icmp eq ptr %599, null
-  br i1 %600, label %602, label %601
+587:                                              ; preds = %audit_log_pid_context.exit62.thread, %audit_log_pid_context.exit62, %.critedge63, %.loopexit66
+  %588 = phi i32 [ %562, %.loopexit66 ], [ 1, %.critedge63 ], [ %562, %audit_log_pid_context.exit62 ], [ %562, %audit_log_pid_context.exit62.thread ]
+  %589 = getelementptr inbounds i8, ptr %13, i64 696
+  %590 = getelementptr inbounds i8, ptr %13, i64 704
+  %591 = load ptr, ptr %590, align 8
+  %592 = icmp eq ptr %591, null
+  br i1 %592, label %600, label %593
 
-601:                                              ; preds = %598
-  call void @audit_log_d_path(ptr noundef nonnull %599, ptr noundef nonnull @.str.35, ptr noundef %591) #12
-  call void @audit_log_end(ptr noundef nonnull %599) #12
-  br label %602
+593:                                              ; preds = %587
+  %594 = load ptr, ptr %589, align 8
+  %595 = icmp eq ptr %594, null
+  br i1 %595, label %600, label %596
 
-602:                                              ; preds = %601, %598, %595, %589
-  %603 = getelementptr inbounds i8, ptr %13, i64 672
-  %604 = load ptr, ptr %603, align 8
-  %605 = icmp eq ptr %604, %603
-  br i1 %605, label %.loopexit, label %.preheader
+596:                                              ; preds = %593
+  %597 = call ptr @audit_log_start(ptr noundef %13, i32 noundef 3264, i32 noundef 1307) #12
+  %598 = icmp eq ptr %597, null
+  br i1 %598, label %600, label %599
 
-.preheader:                                       ; preds = %602, %708
-  %606 = phi ptr [ %711, %708 ], [ %604, %602 ]
-  %607 = phi i32 [ %710, %708 ], [ 0, %602 ]
-  %608 = phi i32 [ %709, %708 ], [ %590, %602 ]
-  %609 = getelementptr inbounds i8, ptr %606, i64 28
-  %610 = load i8, ptr %609, align 4, !range !11, !noundef !12
-  %611 = icmp eq i8 %610, 0
-  br i1 %611, label %612, label %708
+599:                                              ; preds = %596
+  call void @audit_log_d_path(ptr noundef nonnull %597, ptr noundef nonnull @.str.35, ptr noundef %589) #12
+  call void @audit_log_end(ptr noundef nonnull %597) #12
+  br label %600
 
-612:                                              ; preds = %.preheader
-  %613 = add i32 %607, 1
-  %614 = call ptr @audit_log_start(ptr noundef %13, i32 noundef 3264, i32 noundef 1302) #12
-  %615 = icmp eq ptr %614, null
-  br i1 %615, label %708, label %616
+600:                                              ; preds = %599, %596, %593, %587
+  %601 = getelementptr inbounds i8, ptr %13, i64 672
+  %602 = load ptr, ptr %601, align 8
+  %603 = icmp eq ptr %602, %601
+  br i1 %603, label %.loopexit, label %.preheader
 
-616:                                              ; preds = %612
-  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %614, ptr noundef nonnull @.str.75, i32 noundef %607) #12
-  %617 = getelementptr inbounds i8, ptr %606, i64 16
-  %618 = load ptr, ptr %617, align 8
-  %619 = icmp eq ptr %618, null
-  br i1 %619, label %639, label %620
+.preheader:                                       ; preds = %600, %706
+  %604 = phi ptr [ %709, %706 ], [ %602, %600 ]
+  %605 = phi i32 [ %708, %706 ], [ 0, %600 ]
+  %606 = phi i32 [ %707, %706 ], [ %588, %600 ]
+  %607 = getelementptr inbounds i8, ptr %604, i64 28
+  %608 = load i8, ptr %607, align 4, !range !11, !noundef !12
+  %609 = icmp eq i8 %608, 0
+  br i1 %609, label %610, label %706
 
-620:                                              ; preds = %616
-  %621 = getelementptr inbounds i8, ptr %606, i64 24
-  %622 = load i32, ptr %621, align 8
-  switch i32 %622, label %634 [
-    i32 -1, label %623
-    i32 0, label %626
+610:                                              ; preds = %.preheader
+  %611 = add i32 %605, 1
+  %612 = call ptr @audit_log_start(ptr noundef %13, i32 noundef 3264, i32 noundef 1302) #12
+  %613 = icmp eq ptr %612, null
+  br i1 %613, label %706, label %614
+
+614:                                              ; preds = %610
+  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %612, ptr noundef nonnull @.str.75, i32 noundef %605) #12
+  %615 = getelementptr inbounds i8, ptr %604, i64 16
+  %616 = load ptr, ptr %615, align 8
+  %617 = icmp eq ptr %616, null
+  br i1 %617, label %637, label %618
+
+618:                                              ; preds = %614
+  %619 = getelementptr inbounds i8, ptr %604, i64 24
+  %620 = load i32, ptr %619, align 8
+  switch i32 %620, label %632 [
+    i32 -1, label %621
+    i32 0, label %624
   ]
 
-623:                                              ; preds = %620
-  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %614, ptr noundef nonnull @.str.76) #12
-  %624 = load ptr, ptr %617, align 8
-  %625 = load ptr, ptr %624, align 8
-  call void @audit_log_untrustedstring(ptr noundef nonnull %614, ptr noundef %625) #12
-  br label %640
+621:                                              ; preds = %618
+  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %612, ptr noundef nonnull @.str.76) #12
+  %622 = load ptr, ptr %615, align 8
+  %623 = load ptr, ptr %622, align 8
+  call void @audit_log_untrustedstring(ptr noundef nonnull %612, ptr noundef %623) #12
+  br label %638
 
-626:                                              ; preds = %620
-  %627 = load ptr, ptr %592, align 8
-  %628 = icmp eq ptr %627, null
-  br i1 %628, label %633, label %629
+624:                                              ; preds = %618
+  %625 = load ptr, ptr %590, align 8
+  %626 = icmp eq ptr %625, null
+  br i1 %626, label %631, label %627
 
-629:                                              ; preds = %626
-  %630 = load ptr, ptr %591, align 8
-  %631 = icmp eq ptr %630, null
-  br i1 %631, label %633, label %632
+627:                                              ; preds = %624
+  %628 = load ptr, ptr %589, align 8
+  %629 = icmp eq ptr %628, null
+  br i1 %629, label %631, label %630
 
-632:                                              ; preds = %629
-  call void @audit_log_d_path(ptr noundef nonnull %614, ptr noundef nonnull @.str.76, ptr noundef %591) #12
-  br label %640
+630:                                              ; preds = %627
+  call void @audit_log_d_path(ptr noundef nonnull %612, ptr noundef nonnull @.str.76, ptr noundef %589) #12
+  br label %638
 
-633:                                              ; preds = %629, %626
-  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %614, ptr noundef nonnull @.str.77) #12
-  br label %640
+631:                                              ; preds = %627, %624
+  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %612, ptr noundef nonnull @.str.77) #12
+  br label %638
 
-634:                                              ; preds = %620
-  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %614, ptr noundef nonnull @.str.76) #12
-  %635 = load ptr, ptr %617, align 8
-  %636 = load ptr, ptr %635, align 8
-  %637 = load i32, ptr %621, align 8
-  %638 = sext i32 %637 to i64
-  call void @audit_log_n_untrustedstring(ptr noundef nonnull %614, ptr noundef %636, i64 noundef %638) #12
-  br label %640
+632:                                              ; preds = %618
+  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %612, ptr noundef nonnull @.str.76) #12
+  %633 = load ptr, ptr %615, align 8
+  %634 = load ptr, ptr %633, align 8
+  %635 = load i32, ptr %619, align 8
+  %636 = sext i32 %635 to i64
+  call void @audit_log_n_untrustedstring(ptr noundef nonnull %612, ptr noundef %634, i64 noundef %636) #12
+  br label %638
 
-639:                                              ; preds = %616
-  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %614, ptr noundef nonnull @.str.77) #12
-  br label %640
+637:                                              ; preds = %614
+  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %612, ptr noundef nonnull @.str.77) #12
+  br label %638
 
-640:                                              ; preds = %639, %634, %633, %632, %623
-  %641 = getelementptr inbounds i8, ptr %606, i64 32
-  %642 = load i64, ptr %641, align 8
-  %643 = icmp eq i64 %642, -1
-  br i1 %643, label %660, label %644
+638:                                              ; preds = %637, %632, %631, %630, %621
+  %639 = getelementptr inbounds i8, ptr %604, i64 32
+  %640 = load i64, ptr %639, align 8
+  %641 = icmp eq i64 %640, -1
+  br i1 %641, label %658, label %642
 
-644:                                              ; preds = %640
-  %645 = getelementptr inbounds i8, ptr %606, i64 40
-  %646 = load i32, ptr %645, align 8
-  %647 = lshr i32 %646, 20
-  %648 = and i32 %646, 1048575
-  %649 = getelementptr inbounds i8, ptr %606, i64 44
-  %650 = load i16, ptr %649, align 4
-  %651 = zext i16 %650 to i32
-  %652 = getelementptr inbounds i8, ptr %606, i64 48
-  %653 = load i32, ptr %652, align 8
-  %654 = getelementptr inbounds i8, ptr %606, i64 52
-  %655 = load i32, ptr %654, align 4
-  %656 = getelementptr inbounds i8, ptr %606, i64 56
-  %657 = load i32, ptr %656, align 8
-  %658 = lshr i32 %657, 20
-  %659 = and i32 %657, 1048575
-  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %614, ptr noundef nonnull @.str.78, i64 noundef %642, i32 noundef %647, i32 noundef %648, i32 noundef %651, i32 noundef %653, i32 noundef %655, i32 noundef %658, i32 noundef %659) #12
-  br label %660
+642:                                              ; preds = %638
+  %643 = getelementptr inbounds i8, ptr %604, i64 40
+  %644 = load i32, ptr %643, align 8
+  %645 = lshr i32 %644, 20
+  %646 = and i32 %644, 1048575
+  %647 = getelementptr inbounds i8, ptr %604, i64 44
+  %648 = load i16, ptr %647, align 4
+  %649 = zext i16 %648 to i32
+  %650 = getelementptr inbounds i8, ptr %604, i64 48
+  %651 = load i32, ptr %650, align 8
+  %652 = getelementptr inbounds i8, ptr %604, i64 52
+  %653 = load i32, ptr %652, align 4
+  %654 = getelementptr inbounds i8, ptr %604, i64 56
+  %655 = load i32, ptr %654, align 8
+  %656 = lshr i32 %655, 20
+  %657 = and i32 %655, 1048575
+  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %612, ptr noundef nonnull @.str.78, i64 noundef %640, i32 noundef %645, i32 noundef %646, i32 noundef %649, i32 noundef %651, i32 noundef %653, i32 noundef %656, i32 noundef %657) #12
+  br label %658
 
-660:                                              ; preds = %644, %640
-  %661 = getelementptr inbounds i8, ptr %606, i64 60
-  %662 = load i32, ptr %661, align 4
-  %663 = icmp eq i32 %662, 0
-  br i1 %663, label %675, label %664
+658:                                              ; preds = %642, %638
+  %659 = getelementptr inbounds i8, ptr %604, i64 60
+  %660 = load i32, ptr %659, align 4
+  %661 = icmp eq i32 %660, 0
+  br i1 %661, label %673, label %662
 
-664:                                              ; preds = %660
+662:                                              ; preds = %658
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
   store ptr null, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
   store i32 0, ptr %6, align 4, !annotation !5
-  %665 = call i32 @security_secid_to_secctx(i32 noundef %662, ptr noundef nonnull %5, ptr noundef nonnull %6) #12
-  %666 = icmp eq i32 %665, 0
-  br i1 %666, label %669, label %667
+  %663 = call i32 @security_secid_to_secctx(i32 noundef %660, ptr noundef nonnull %5, ptr noundef nonnull %6) #12
+  %664 = icmp eq i32 %663, 0
+  br i1 %664, label %667, label %665
 
-667:                                              ; preds = %664
-  %668 = load i32, ptr %661, align 4
-  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %614, ptr noundef nonnull @.str.42, i32 noundef %668) #12
-  br label %673
+665:                                              ; preds = %662
+  %666 = load i32, ptr %659, align 4
+  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %612, ptr noundef nonnull @.str.42, i32 noundef %666) #12
+  br label %671
 
-669:                                              ; preds = %664
-  %670 = load ptr, ptr %5, align 8
-  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %614, ptr noundef nonnull @.str.43, ptr noundef %670) #12
-  %671 = load ptr, ptr %5, align 8
-  %672 = load i32, ptr %6, align 4
-  call void @security_release_secctx(ptr noundef %671, i32 noundef %672) #12
-  br label %673
+667:                                              ; preds = %662
+  %668 = load ptr, ptr %5, align 8
+  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %612, ptr noundef nonnull @.str.43, ptr noundef %668) #12
+  %669 = load ptr, ptr %5, align 8
+  %670 = load i32, ptr %6, align 4
+  call void @security_release_secctx(ptr noundef %669, i32 noundef %670) #12
+  br label %671
 
-673:                                              ; preds = %669, %667
-  %674 = phi i32 [ %608, %669 ], [ 2, %667 ]
+671:                                              ; preds = %667, %665
+  %672 = phi i32 [ %606, %667 ], [ 2, %665 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
-  br label %675
+  br label %673
 
-675:                                              ; preds = %673, %660
-  %676 = phi i32 [ %608, %660 ], [ %674, %673 ]
-  %677 = getelementptr inbounds i8, ptr %606, i64 108
-  %678 = load i8, ptr %677, align 4
-  switch i8 %678, label %682 [
-    i8 1, label %683
-    i8 2, label %679
-    i8 3, label %680
-    i8 4, label %681
+673:                                              ; preds = %671, %658
+  %674 = phi i32 [ %606, %658 ], [ %672, %671 ]
+  %675 = getelementptr inbounds i8, ptr %604, i64 108
+  %676 = load i8, ptr %675, align 4
+  switch i8 %676, label %680 [
+    i8 1, label %681
+    i8 2, label %677
+    i8 3, label %678
+    i8 4, label %679
   ]
 
-679:                                              ; preds = %675
-  br label %683
+677:                                              ; preds = %673
+  br label %681
 
-680:                                              ; preds = %675
-  br label %683
+678:                                              ; preds = %673
+  br label %681
 
-681:                                              ; preds = %675
-  br label %683
+679:                                              ; preds = %673
+  br label %681
 
-682:                                              ; preds = %675
-  br label %683
+680:                                              ; preds = %673
+  br label %681
 
-683:                                              ; preds = %682, %681, %680, %679, %675
-  %684 = phi ptr [ @.str.83, %682 ], [ @.str.82, %681 ], [ @.str.81, %680 ], [ @.str.80, %679 ], [ @.str.79, %675 ]
-  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %614, ptr noundef nonnull %684) #12
-  %685 = getelementptr inbounds i8, ptr %606, i64 104
-  %686 = load i32, ptr %685, align 8
-  %687 = icmp eq i32 %686, -1
-  br i1 %687, label %688, label %689
+681:                                              ; preds = %680, %679, %678, %677, %673
+  %682 = phi ptr [ @.str.83, %680 ], [ @.str.82, %679 ], [ @.str.81, %678 ], [ @.str.80, %677 ], [ @.str.79, %673 ]
+  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %612, ptr noundef nonnull %682) #12
+  %683 = getelementptr inbounds i8, ptr %604, i64 104
+  %684 = load i32, ptr %683, align 8
+  %685 = icmp eq i32 %684, -1
+  br i1 %685, label %686, label %687
 
-688:                                              ; preds = %683
-  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %614, ptr noundef nonnull @.str.84) #12
-  br label %707
+686:                                              ; preds = %681
+  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %612, ptr noundef nonnull @.str.84) #12
+  br label %705
 
-689:                                              ; preds = %683
-  %690 = getelementptr inbounds i8, ptr %606, i64 64
-  %691 = load i64, ptr %690, align 8
-  %692 = icmp eq i64 %691, 0
-  br i1 %692, label %693, label %694
+687:                                              ; preds = %681
+  %688 = getelementptr inbounds i8, ptr %604, i64 64
+  %689 = load i64, ptr %688, align 8
+  %690 = icmp eq i64 %689, 0
+  br i1 %690, label %691, label %692
 
-693:                                              ; preds = %689
-  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %614, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.85) #12
-  br label %695
+691:                                              ; preds = %687
+  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %612, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.85) #12
+  br label %693
 
-694:                                              ; preds = %689
-  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %614, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.85, i64 noundef %691) #12
-  br label %695
+692:                                              ; preds = %687
+  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %612, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.85, i64 noundef %689) #12
+  br label %693
 
-695:                                              ; preds = %694, %693
-  %696 = getelementptr inbounds i8, ptr %606, i64 72
-  %697 = load i64, ptr %696, align 8
-  %698 = icmp eq i64 %697, 0
-  br i1 %698, label %699, label %700
+693:                                              ; preds = %692, %691
+  %694 = getelementptr inbounds i8, ptr %604, i64 72
+  %695 = load i64, ptr %694, align 8
+  %696 = icmp eq i64 %695, 0
+  br i1 %696, label %697, label %698
 
-699:                                              ; preds = %695
-  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %614, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.86) #12
-  br label %701
+697:                                              ; preds = %693
+  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %612, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.86) #12
+  br label %699
 
-700:                                              ; preds = %695
-  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %614, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.86, i64 noundef %697) #12
-  br label %701
+698:                                              ; preds = %693
+  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %612, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.86, i64 noundef %695) #12
+  br label %699
 
-701:                                              ; preds = %700, %699
-  %702 = getelementptr inbounds i8, ptr %606, i64 80
-  %703 = load i32, ptr %702, align 8
-  %704 = load i32, ptr %685, align 8
-  %705 = getelementptr inbounds i8, ptr %606, i64 96
-  %706 = load i32, ptr %705, align 8
-  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %614, ptr noundef nonnull @.str.87, i32 noundef %703, i32 noundef %704, i32 noundef %706) #12
-  br label %707
+699:                                              ; preds = %698, %697
+  %700 = getelementptr inbounds i8, ptr %604, i64 80
+  %701 = load i32, ptr %700, align 8
+  %702 = load i32, ptr %683, align 8
+  %703 = getelementptr inbounds i8, ptr %604, i64 96
+  %704 = load i32, ptr %703, align 8
+  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %612, ptr noundef nonnull @.str.87, i32 noundef %701, i32 noundef %702, i32 noundef %704) #12
+  br label %705
 
-707:                                              ; preds = %701, %688
-  call void @audit_log_end(ptr noundef nonnull %614) #12
-  br label %708
+705:                                              ; preds = %699, %686
+  call void @audit_log_end(ptr noundef nonnull %612) #12
+  br label %706
 
-708:                                              ; preds = %707, %612, %.preheader
-  %709 = phi i32 [ %608, %.preheader ], [ %608, %612 ], [ %676, %707 ]
-  %710 = phi i32 [ %607, %.preheader ], [ %613, %612 ], [ %613, %707 ]
-  %711 = load ptr, ptr %606, align 8
-  %712 = icmp eq ptr %711, %603
-  br i1 %712, label %.loopexit, label %.preheader, !llvm.loop !31
+706:                                              ; preds = %705, %610, %.preheader
+  %707 = phi i32 [ %606, %.preheader ], [ %606, %610 ], [ %674, %705 ]
+  %708 = phi i32 [ %605, %.preheader ], [ %611, %610 ], [ %611, %705 ]
+  %709 = load ptr, ptr %604, align 8
+  %710 = icmp eq ptr %709, %601
+  br i1 %710, label %.loopexit, label %.preheader, !llvm.loop !31
 
-.loopexit:                                        ; preds = %708, %602
-  %713 = phi i32 [ %590, %602 ], [ %709, %708 ]
-  %714 = load i32, ptr %18, align 4
-  %715 = icmp eq i32 %714, 1
-  br i1 %715, label %716, label %774
+.loopexit:                                        ; preds = %706, %600
+  %711 = phi i32 [ %588, %600 ], [ %707, %706 ]
+  %712 = load i32, ptr %18, align 4
+  %713 = icmp eq i32 %712, 1
+  br i1 %713, label %714, label %772
 
-716:                                              ; preds = %.loopexit
-  %717 = load ptr, ptr %12, align 8
-  %718 = call ptr @audit_log_start(ptr noundef %717, i32 noundef 3264, i32 noundef 1327) #12
-  %719 = icmp eq ptr %718, null
-  br i1 %719, label %774, label %720
+714:                                              ; preds = %.loopexit
+  %715 = load ptr, ptr %12, align 8
+  %716 = call ptr @audit_log_start(ptr noundef %715, i32 noundef 3264, i32 noundef 1327) #12
+  %717 = icmp eq ptr %716, null
+  br i1 %717, label %772, label %718
 
-720:                                              ; preds = %716
-  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %718, ptr noundef nonnull @.str.88) #12
-  %721 = getelementptr inbounds i8, ptr %717, i64 992
-  %722 = getelementptr inbounds i8, ptr %717, i64 1000
-  %723 = load ptr, ptr %722, align 8
-  %724 = icmp eq ptr %723, null
-  br i1 %724, label %725, label %._crit_edge90
+718:                                              ; preds = %714
+  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %716, ptr noundef nonnull @.str.88) #12
+  %719 = getelementptr inbounds i8, ptr %715, i64 992
+  %720 = getelementptr inbounds i8, ptr %715, i64 1000
+  %721 = load ptr, ptr %720, align 8
+  %722 = icmp eq ptr %721, null
+  br i1 %722, label %723, label %._crit_edge90
 
-._crit_edge90:                                    ; preds = %720
-  %.pre91 = load i32, ptr %721, align 8
-  br label %767
+._crit_edge90:                                    ; preds = %718
+  %.pre91 = load i32, ptr %719, align 8
+  br label %765
 
-725:                                              ; preds = %720
-  %726 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
-  %727 = call noalias align 8 dereferenceable_or_null(128) ptr @kmalloc_trace(ptr noundef %726, i32 noundef 3264, i64 noundef 128) #13
-  %728 = icmp eq ptr %727, null
-  br i1 %728, label %771, label %729
+723:                                              ; preds = %718
+  %724 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
+  %725 = call noalias align 8 dereferenceable_or_null(128) ptr @kmalloc_trace(ptr noundef %724, i32 noundef 3264, i64 noundef 128) #13
+  %726 = icmp eq ptr %725, null
+  br i1 %726, label %769, label %727
 
-729:                                              ; preds = %725
-  %730 = call i32 @get_cmdline(ptr noundef %11, ptr noundef nonnull %727, i32 noundef 128) #12
-  %731 = icmp eq i32 %730, 0
-  br i1 %731, label %732, label %733
+727:                                              ; preds = %723
+  %728 = call i32 @get_cmdline(ptr noundef %11, ptr noundef nonnull %725, i32 noundef 128) #12
+  %729 = icmp eq i32 %728, 0
+  br i1 %729, label %730, label %731
 
-732:                                              ; preds = %729
-  call void @kfree(ptr noundef nonnull %727) #12
-  br label %771
+730:                                              ; preds = %727
+  call void @kfree(ptr noundef nonnull %725) #12
+  br label %769
 
-733:                                              ; preds = %729
-  %734 = sext i32 %730 to i64
-  %735 = getelementptr i8, ptr %727, i64 %734
-  br label %736
+731:                                              ; preds = %727
+  %732 = sext i32 %728 to i64
+  %733 = getelementptr i8, ptr %725, i64 %732
+  br label %734
 
-736:                                              ; preds = %740, %733
-  %737 = phi ptr [ %735, %733 ], [ %738, %740 ]
-  %738 = getelementptr i8, ptr %737, i64 -1
-  %739 = icmp ugt ptr %738, %727
-  br i1 %739, label %740, label %747
+734:                                              ; preds = %738, %731
+  %735 = phi ptr [ %733, %731 ], [ %736, %738 ]
+  %736 = getelementptr i8, ptr %735, i64 -1
+  %737 = icmp ugt ptr %736, %725
+  br i1 %737, label %738, label %745
 
-740:                                              ; preds = %736
-  %741 = load i8, ptr %738, align 1
-  %742 = zext i8 %741 to i64
-  %743 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %742
-  %744 = load i8, ptr %743, align 1
-  %745 = and i8 %744, -105
-  %746 = icmp eq i8 %745, 0
-  br i1 %746, label %736, label %747, !llvm.loop !32
+738:                                              ; preds = %734
+  %739 = load i8, ptr %736, align 1
+  %740 = zext i8 %739 to i64
+  %741 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %740
+  %742 = load i8, ptr %741, align 1
+  %743 = and i8 %742, -105
+  %744 = icmp eq i8 %743, 0
+  br i1 %744, label %734, label %745, !llvm.loop !32
 
-747:                                              ; preds = %740, %736
-  %748 = ptrtoint ptr %738 to i64
-  %749 = ptrtoint ptr %727 to i64
-  %750 = sub i64 %748, %749
-  %751 = trunc i64 %750 to i32
-  %752 = add i32 %751, 1
-  %753 = shl i64 %750, 32
-  %754 = ashr exact i64 %753, 32
-  %755 = getelementptr i8, ptr %727, i64 %754
-  %756 = load i8, ptr %755, align 1
-  %757 = zext i8 %756 to i64
-  %758 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %757
-  %759 = load i8, ptr %758, align 1
-  %760 = and i8 %759, -105
-  %761 = icmp eq i8 %760, 0
-  %762 = sext i1 %761 to i32
-  %763 = add i32 %752, %762
-  %764 = icmp eq i32 %763, 0
-  br i1 %764, label %765, label %766
+745:                                              ; preds = %738, %734
+  %746 = ptrtoint ptr %736 to i64
+  %747 = ptrtoint ptr %725 to i64
+  %748 = sub i64 %746, %747
+  %749 = trunc i64 %748 to i32
+  %750 = add i32 %749, 1
+  %751 = shl i64 %748, 32
+  %752 = ashr exact i64 %751, 32
+  %753 = getelementptr i8, ptr %725, i64 %752
+  %754 = load i8, ptr %753, align 1
+  %755 = zext i8 %754 to i64
+  %756 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %755
+  %757 = load i8, ptr %756, align 1
+  %758 = and i8 %757, -105
+  %759 = icmp eq i8 %758, 0
+  %760 = sext i1 %759 to i32
+  %761 = add i32 %750, %760
+  %762 = icmp eq i32 %761, 0
+  br i1 %762, label %763, label %764
 
-765:                                              ; preds = %747
-  call void @kfree(ptr noundef nonnull %727) #12
-  br label %771
+763:                                              ; preds = %745
+  call void @kfree(ptr noundef nonnull %725) #12
+  br label %769
 
-766:                                              ; preds = %747
-  store ptr %727, ptr %722, align 8
-  store i32 %763, ptr %721, align 8
-  br label %767
+764:                                              ; preds = %745
+  store ptr %725, ptr %720, align 8
+  store i32 %761, ptr %719, align 8
+  br label %765
 
-767:                                              ; preds = %._crit_edge90, %766
-  %768 = phi i32 [ %763, %766 ], [ %.pre91, %._crit_edge90 ]
-  %769 = phi ptr [ %727, %766 ], [ %723, %._crit_edge90 ]
-  %770 = sext i32 %768 to i64
-  br label %771
+765:                                              ; preds = %._crit_edge90, %764
+  %766 = phi i32 [ %761, %764 ], [ %.pre91, %._crit_edge90 ]
+  %767 = phi ptr [ %725, %764 ], [ %721, %._crit_edge90 ]
+  %768 = sext i32 %766 to i64
+  br label %769
 
-771:                                              ; preds = %767, %765, %732, %725
-  %772 = phi ptr [ %769, %767 ], [ @.str.57, %732 ], [ @.str.57, %765 ], [ @.str.57, %725 ]
-  %773 = phi i64 [ %770, %767 ], [ 6, %732 ], [ 6, %765 ], [ 6, %725 ]
-  call void @audit_log_n_untrustedstring(ptr noundef nonnull %718, ptr noundef %772, i64 noundef %773) #12
-  call void @audit_log_end(ptr noundef nonnull %718) #12
-  br label %774
+769:                                              ; preds = %765, %763, %730, %723
+  %770 = phi ptr [ %767, %765 ], [ @.str.57, %730 ], [ @.str.57, %763 ], [ @.str.57, %723 ]
+  %771 = phi i64 [ %768, %765 ], [ 6, %730 ], [ 6, %763 ], [ 6, %723 ]
+  call void @audit_log_n_untrustedstring(ptr noundef nonnull %716, ptr noundef %770, i64 noundef %771) #12
+  call void @audit_log_end(ptr noundef nonnull %716) #12
+  br label %772
 
-774:                                              ; preds = %771, %716, %.loopexit
-  %775 = call ptr @audit_log_start(ptr noundef %13, i32 noundef 3264, i32 noundef 1320) #12
-  %776 = icmp eq ptr %775, null
-  br i1 %776, label %778, label %777
+772:                                              ; preds = %769, %714, %.loopexit
+  %773 = call ptr @audit_log_start(ptr noundef %13, i32 noundef 3264, i32 noundef 1320) #12
+  %774 = icmp eq ptr %773, null
+  br i1 %774, label %776, label %775
 
-777:                                              ; preds = %774
-  call void @audit_log_end(ptr noundef nonnull %775) #12
-  br label %778
+775:                                              ; preds = %772
+  call void @audit_log_end(ptr noundef nonnull %773) #12
+  br label %776
 
-778:                                              ; preds = %777, %774
-  %779 = icmp eq i32 %713, 0
-  br i1 %779, label %781, label %780
+776:                                              ; preds = %775, %772
+  %777 = icmp eq i32 %711, 0
+  br i1 %777, label %779, label %778
 
-780:                                              ; preds = %778
+778:                                              ; preds = %776
   call void @audit_panic(ptr noundef nonnull @.str.36) #12
-  br label %781
+  br label %779
 
-781:                                              ; preds = %780, %778, %20
+779:                                              ; preds = %778, %776, %20
   ret void
 }
 
@@ -2178,7 +2186,7 @@ define dso_local void @__audit_uring_exit(i32 noundef %0, i64 noundef %1) local_
   %13 = getelementptr inbounds i8, ptr %9, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, 2
-  br i1 %15, label %141, label %142
+  br i1 %15, label %142, label %143
 
 16:                                               ; preds = %2
   %17 = icmp slt i64 %1, -511
@@ -2188,243 +2196,245 @@ define dso_local void @__audit_uring_exit(i32 noundef %0, i64 noundef %1) local_
   %19 = icmp ugt i64 %1, -517
   %20 = icmp ne i64 %1, -515
   %21 = and i1 %19, %20
-  %spec.select = select i1 %21, i64 -4, i64 %1
-  br label %22
+  br i1 %21, label %23, label %22
 
 22:                                               ; preds = %18, %16
-  %23 = phi i64 [ %1, %16 ], [ %spec.select, %18 ]
-  %24 = getelementptr inbounds i8, ptr %9, i64 80
-  store i64 %23, ptr %24, align 8
-  %25 = icmp eq i32 %0, 0
-  %26 = select i1 %25, i32 2, i32 1
-  %27 = getelementptr inbounds i8, ptr %9, i64 96
-  store i32 %26, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %9, i64 4
-  %29 = load i32, ptr %28, align 4
-  %30 = icmp eq i32 %29, 1
-  br i1 %30, label %31, label %100
+  br label %23
 
-31:                                               ; preds = %22
-  %32 = tail call i32 @auditd_test_task(ptr noundef %7) #12
-  %33 = icmp eq i32 %32, 0
-  br i1 %33, label %34, label %audit_filter_syscall.exit
+23:                                               ; preds = %22, %18
+  %24 = phi i64 [ %1, %22 ], [ -4, %18 ]
+  %25 = getelementptr inbounds i8, ptr %9, i64 80
+  store i64 %24, ptr %25, align 8
+  %26 = icmp eq i32 %0, 0
+  %27 = select i1 %26, i32 2, i32 1
+  %28 = getelementptr inbounds i8, ptr %9, i64 96
+  store i32 %27, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %9, i64 4
+  %30 = load i32, ptr %29, align 4
+  %31 = icmp eq i32 %30, 1
+  br i1 %31, label %32, label %101
 
-34:                                               ; preds = %31
+32:                                               ; preds = %23
+  %33 = tail call i32 @auditd_test_task(ptr noundef %7) #12
+  %34 = icmp eq i32 %33, 0
+  br i1 %34, label %35, label %audit_filter_syscall.exit
+
+35:                                               ; preds = %32
   tail call void @__rcu_read_lock() #12
-  %35 = getelementptr inbounds i8, ptr %9, i64 20
-  %36 = load i32, ptr %35, align 4
+  %36 = getelementptr inbounds i8, ptr %9, i64 20
+  %37 = load i32, ptr %36, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
   store i32 0, ptr %5, align 4, !annotation !5
-  %37 = load volatile ptr, ptr getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 4), align 8
-  %38 = icmp eq ptr %37, getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 4)
-  br i1 %38, label %.loopexit.i, label %39
+  %38 = load volatile ptr, ptr getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 4), align 8
+  %39 = icmp eq ptr %38, getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 4)
+  br i1 %39, label %.loopexit.i, label %40
 
-39:                                               ; preds = %34
-  %40 = sext i32 %36 to i64
-  %41 = lshr i64 %40, 5
-  %42 = and i32 %36, 31
-  %43 = shl nuw i32 1, %42
-  %44 = icmp ugt i32 %36, 2047
-  br i1 %44, label %.thread.us.i, label %.split.i
+40:                                               ; preds = %35
+  %41 = sext i32 %37 to i64
+  %42 = lshr i64 %41, 5
+  %43 = and i32 %37, 31
+  %44 = shl nuw i32 1, %43
+  %45 = icmp ugt i32 %37, 2047
+  br i1 %45, label %.thread.us.i, label %.split.i
 
-.thread.us.i:                                     ; preds = %39, %.thread.us.i
-  %45 = phi ptr [ %46, %.thread.us.i ], [ %37, %39 ]
-  %46 = load volatile ptr, ptr %45, align 8
-  %47 = icmp eq ptr %46, getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 4)
-  br i1 %47, label %.loopexit.i, label %.thread.us.i, !llvm.loop !6
+.thread.us.i:                                     ; preds = %40, %.thread.us.i
+  %46 = phi ptr [ %47, %.thread.us.i ], [ %38, %40 ]
+  %47 = load volatile ptr, ptr %46, align 8
+  %48 = icmp eq ptr %47, getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 4)
+  br i1 %48, label %.loopexit.i, label %.thread.us.i, !llvm.loop !6
 
-.split.i:                                         ; preds = %39, %.thread.i
-  %48 = phi ptr [ %61, %.thread.i ], [ %37, %39 ]
-  %49 = getelementptr inbounds i8, ptr %48, i64 48
-  %50 = getelementptr [64 x i32], ptr %49, i64 0, i64 %41
-  %51 = load i32, ptr %50, align 4
-  %52 = and i32 %51, %43
-  %53 = icmp eq i32 %52, 0
-  br i1 %53, label %.thread.i, label %54
+.split.i:                                         ; preds = %40, %.thread.i
+  %49 = phi ptr [ %62, %.thread.i ], [ %38, %40 ]
+  %50 = getelementptr inbounds i8, ptr %49, i64 48
+  %51 = getelementptr [64 x i32], ptr %50, i64 0, i64 %42
+  %52 = load i32, ptr %51, align 4
+  %53 = and i32 %52, %44
+  %54 = icmp eq i32 %53, 0
+  br i1 %54, label %.thread.i, label %55
 
-54:                                               ; preds = %.split.i
-  %55 = getelementptr inbounds i8, ptr %48, i64 32
-  %56 = call fastcc i32 @audit_filter_rules(ptr noundef %7, ptr noundef %55, ptr noundef %9, ptr noundef null, ptr noundef nonnull %5), !range !9
-  %57 = icmp eq i32 %56, 0
-  br i1 %57, label %.thread.i, label %58
+55:                                               ; preds = %.split.i
+  %56 = getelementptr inbounds i8, ptr %49, i64 32
+  %57 = call fastcc i32 @audit_filter_rules(ptr noundef %7, ptr noundef %56, ptr noundef %9, ptr noundef null, ptr noundef nonnull %5), !range !9
+  %58 = icmp eq i32 %57, 0
+  br i1 %58, label %.thread.i, label %59
 
-58:                                               ; preds = %54
-  %59 = load i32, ptr %5, align 4
-  %60 = getelementptr inbounds i8, ptr %9, i64 12
-  store i32 %59, ptr %60, align 4
+59:                                               ; preds = %55
+  %60 = load i32, ptr %5, align 4
+  %61 = getelementptr inbounds i8, ptr %9, i64 12
+  store i32 %60, ptr %61, align 4
   br label %.loopexit.i
 
-.thread.i:                                        ; preds = %54, %.split.i
-  %61 = load volatile ptr, ptr %48, align 8
-  %62 = icmp eq ptr %61, getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 4)
-  br i1 %62, label %.loopexit.i, label %.split.i, !llvm.loop !6
+.thread.i:                                        ; preds = %55, %.split.i
+  %62 = load volatile ptr, ptr %49, align 8
+  %63 = icmp eq ptr %62, getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 4)
+  br i1 %63, label %.loopexit.i, label %.split.i, !llvm.loop !6
 
-.loopexit.i:                                      ; preds = %.thread.i, %.thread.us.i, %58, %34
+.loopexit.i:                                      ; preds = %.thread.i, %.thread.us.i, %59, %35
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
   tail call void @__rcu_read_unlock() #12
   br label %audit_filter_syscall.exit
 
-audit_filter_syscall.exit:                        ; preds = %31, %.loopexit.i
-  %63 = getelementptr inbounds i8, ptr %9, i64 12
-  %64 = load i32, ptr %63, align 4
-  %65 = icmp eq i32 %64, 2
-  br i1 %65, label %audit_filter_uring.exit, label %66
+audit_filter_syscall.exit:                        ; preds = %32, %.loopexit.i
+  %64 = getelementptr inbounds i8, ptr %9, i64 12
+  %65 = load i32, ptr %64, align 4
+  %66 = icmp eq i32 %65, 2
+  br i1 %66, label %audit_filter_uring.exit, label %67
 
-66:                                               ; preds = %audit_filter_syscall.exit
-  %67 = tail call i32 @auditd_test_task(ptr noundef %7) #12
-  %68 = icmp eq i32 %67, 0
-  br i1 %68, label %69, label %audit_filter_uring.exit
+67:                                               ; preds = %audit_filter_syscall.exit
+  %68 = tail call i32 @auditd_test_task(ptr noundef %7) #12
+  %69 = icmp eq i32 %68, 0
+  br i1 %69, label %70, label %audit_filter_uring.exit
 
-69:                                               ; preds = %66
+70:                                               ; preds = %67
   tail call void @__rcu_read_lock() #12
-  %70 = getelementptr inbounds i8, ptr %9, i64 24
-  %71 = load i32, ptr %70, align 8
+  %71 = getelementptr inbounds i8, ptr %9, i64 24
+  %72 = load i32, ptr %71, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
   store i32 0, ptr %4, align 4, !annotation !5
-  %72 = load volatile ptr, ptr getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 7), align 8
-  %73 = icmp eq ptr %72, getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 7)
-  br i1 %73, label %.loopexit.i2, label %74
+  %73 = load volatile ptr, ptr getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 7), align 8
+  %74 = icmp eq ptr %73, getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 7)
+  br i1 %74, label %.loopexit.i2, label %75
 
-74:                                               ; preds = %69
-  %75 = sext i32 %71 to i64
-  %76 = lshr i64 %75, 5
-  %77 = and i32 %71, 31
-  %78 = shl nuw i32 1, %77
-  %79 = icmp ugt i32 %71, 2047
-  br i1 %79, label %.thread.us.i4, label %.split.i1
+75:                                               ; preds = %70
+  %76 = sext i32 %72 to i64
+  %77 = lshr i64 %76, 5
+  %78 = and i32 %72, 31
+  %79 = shl nuw i32 1, %78
+  %80 = icmp ugt i32 %72, 2047
+  br i1 %80, label %.thread.us.i4, label %.split.i1
 
-.thread.us.i4:                                    ; preds = %74, %.thread.us.i4
-  %80 = phi ptr [ %81, %.thread.us.i4 ], [ %72, %74 ]
-  %81 = load volatile ptr, ptr %80, align 8
-  %82 = icmp eq ptr %81, getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 7)
-  br i1 %82, label %.loopexit.i2, label %.thread.us.i4, !llvm.loop !6
+.thread.us.i4:                                    ; preds = %75, %.thread.us.i4
+  %81 = phi ptr [ %82, %.thread.us.i4 ], [ %73, %75 ]
+  %82 = load volatile ptr, ptr %81, align 8
+  %83 = icmp eq ptr %82, getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 7)
+  br i1 %83, label %.loopexit.i2, label %.thread.us.i4, !llvm.loop !6
 
-.split.i1:                                        ; preds = %74, %.thread.i3
-  %83 = phi ptr [ %95, %.thread.i3 ], [ %72, %74 ]
-  %84 = getelementptr inbounds i8, ptr %83, i64 48
-  %85 = getelementptr [64 x i32], ptr %84, i64 0, i64 %76
-  %86 = load i32, ptr %85, align 4
-  %87 = and i32 %86, %78
-  %88 = icmp eq i32 %87, 0
-  br i1 %88, label %.thread.i3, label %89
+.split.i1:                                        ; preds = %75, %.thread.i3
+  %84 = phi ptr [ %96, %.thread.i3 ], [ %73, %75 ]
+  %85 = getelementptr inbounds i8, ptr %84, i64 48
+  %86 = getelementptr [64 x i32], ptr %85, i64 0, i64 %77
+  %87 = load i32, ptr %86, align 4
+  %88 = and i32 %87, %79
+  %89 = icmp eq i32 %88, 0
+  br i1 %89, label %.thread.i3, label %90
 
-89:                                               ; preds = %.split.i1
-  %90 = getelementptr inbounds i8, ptr %83, i64 32
-  %91 = call fastcc i32 @audit_filter_rules(ptr noundef %7, ptr noundef %90, ptr noundef %9, ptr noundef null, ptr noundef nonnull %4), !range !9
-  %92 = icmp eq i32 %91, 0
-  br i1 %92, label %.thread.i3, label %93
+90:                                               ; preds = %.split.i1
+  %91 = getelementptr inbounds i8, ptr %84, i64 32
+  %92 = call fastcc i32 @audit_filter_rules(ptr noundef %7, ptr noundef %91, ptr noundef %9, ptr noundef null, ptr noundef nonnull %4), !range !9
+  %93 = icmp eq i32 %92, 0
+  br i1 %93, label %.thread.i3, label %94
 
-93:                                               ; preds = %89
-  %94 = load i32, ptr %4, align 4
-  store i32 %94, ptr %63, align 4
+94:                                               ; preds = %90
+  %95 = load i32, ptr %4, align 4
+  store i32 %95, ptr %64, align 4
   br label %.loopexit.i2
 
-.thread.i3:                                       ; preds = %89, %.split.i1
-  %95 = load volatile ptr, ptr %83, align 8
-  %96 = icmp eq ptr %95, getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 7)
-  br i1 %96, label %.loopexit.i2, label %.split.i1, !llvm.loop !6
+.thread.i3:                                       ; preds = %90, %.split.i1
+  %96 = load volatile ptr, ptr %84, align 8
+  %97 = icmp eq ptr %96, getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 7)
+  br i1 %97, label %.loopexit.i2, label %.split.i1, !llvm.loop !6
 
-.loopexit.i2:                                     ; preds = %.thread.i3, %.thread.us.i4, %93, %69
+.loopexit.i2:                                     ; preds = %.thread.i3, %.thread.us.i4, %94, %70
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
   tail call void @__rcu_read_unlock() #12
   br label %audit_filter_uring.exit
 
-audit_filter_uring.exit:                          ; preds = %.loopexit.i2, %66, %audit_filter_syscall.exit
+audit_filter_uring.exit:                          ; preds = %.loopexit.i2, %67, %audit_filter_syscall.exit
   tail call void @audit_filter_inodes(ptr noundef %7, ptr noundef %9)
-  %97 = load i32, ptr %63, align 4
-  %98 = icmp eq i32 %97, 2
-  br i1 %98, label %99, label %142
+  %98 = load i32, ptr %64, align 4
+  %99 = icmp eq i32 %98, 2
+  br i1 %99, label %100, label %143
 
-99:                                               ; preds = %audit_filter_uring.exit
+100:                                              ; preds = %audit_filter_uring.exit
   tail call fastcc void @audit_log_uring(ptr noundef %9)
-  br label %142
+  br label %143
 
-100:                                              ; preds = %22
-  %101 = getelementptr inbounds i8, ptr %9, i64 848
-  %102 = load volatile ptr, ptr %101, align 8
-  %103 = icmp eq ptr %102, %101
-  br i1 %103, label %105, label %104
+101:                                              ; preds = %23
+  %102 = getelementptr inbounds i8, ptr %9, i64 848
+  %103 = load volatile ptr, ptr %102, align 8
+  %104 = icmp eq ptr %103, %102
+  br i1 %104, label %106, label %105
 
-104:                                              ; preds = %100
+105:                                              ; preds = %101
   tail call void @audit_kill_trees(ptr noundef %9) #12
-  br label %105
+  br label %106
 
-105:                                              ; preds = %104, %100
-  %106 = tail call i32 @auditd_test_task(ptr noundef %7) #12
-  %107 = icmp eq i32 %106, 0
-  br i1 %107, label %108, label %audit_filter_uring.exit9
+106:                                              ; preds = %105, %101
+  %107 = tail call i32 @auditd_test_task(ptr noundef %7) #12
+  %108 = icmp eq i32 %107, 0
+  br i1 %108, label %109, label %audit_filter_uring.exit9
 
-108:                                              ; preds = %105
+109:                                              ; preds = %106
   tail call void @__rcu_read_lock() #12
-  %109 = getelementptr inbounds i8, ptr %9, i64 24
-  %110 = load i32, ptr %109, align 8
+  %110 = getelementptr inbounds i8, ptr %9, i64 24
+  %111 = load i32, ptr %110, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #12
   store i32 0, ptr %3, align 4, !annotation !5
-  %111 = load volatile ptr, ptr getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 7), align 8
-  %112 = icmp eq ptr %111, getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 7)
-  br i1 %112, label %.loopexit.i6, label %113
+  %112 = load volatile ptr, ptr getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 7), align 8
+  %113 = icmp eq ptr %112, getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 7)
+  br i1 %113, label %.loopexit.i6, label %114
 
-113:                                              ; preds = %108
-  %114 = sext i32 %110 to i64
-  %115 = lshr i64 %114, 5
-  %116 = and i32 %110, 31
-  %117 = shl nuw i32 1, %116
-  %118 = icmp ugt i32 %110, 2047
-  br i1 %118, label %.thread.us.i8, label %.split.i5
+114:                                              ; preds = %109
+  %115 = sext i32 %111 to i64
+  %116 = lshr i64 %115, 5
+  %117 = and i32 %111, 31
+  %118 = shl nuw i32 1, %117
+  %119 = icmp ugt i32 %111, 2047
+  br i1 %119, label %.thread.us.i8, label %.split.i5
 
-.thread.us.i8:                                    ; preds = %113, %.thread.us.i8
-  %119 = phi ptr [ %120, %.thread.us.i8 ], [ %111, %113 ]
-  %120 = load volatile ptr, ptr %119, align 8
-  %121 = icmp eq ptr %120, getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 7)
-  br i1 %121, label %.loopexit.i6, label %.thread.us.i8, !llvm.loop !6
+.thread.us.i8:                                    ; preds = %114, %.thread.us.i8
+  %120 = phi ptr [ %121, %.thread.us.i8 ], [ %112, %114 ]
+  %121 = load volatile ptr, ptr %120, align 8
+  %122 = icmp eq ptr %121, getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 7)
+  br i1 %122, label %.loopexit.i6, label %.thread.us.i8, !llvm.loop !6
 
-.split.i5:                                        ; preds = %113, %.thread.i7
-  %122 = phi ptr [ %135, %.thread.i7 ], [ %111, %113 ]
-  %123 = getelementptr inbounds i8, ptr %122, i64 48
-  %124 = getelementptr [64 x i32], ptr %123, i64 0, i64 %115
-  %125 = load i32, ptr %124, align 4
-  %126 = and i32 %125, %117
-  %127 = icmp eq i32 %126, 0
-  br i1 %127, label %.thread.i7, label %128
+.split.i5:                                        ; preds = %114, %.thread.i7
+  %123 = phi ptr [ %136, %.thread.i7 ], [ %112, %114 ]
+  %124 = getelementptr inbounds i8, ptr %123, i64 48
+  %125 = getelementptr [64 x i32], ptr %124, i64 0, i64 %116
+  %126 = load i32, ptr %125, align 4
+  %127 = and i32 %126, %118
+  %128 = icmp eq i32 %127, 0
+  br i1 %128, label %.thread.i7, label %129
 
-128:                                              ; preds = %.split.i5
-  %129 = getelementptr inbounds i8, ptr %122, i64 32
-  %130 = call fastcc i32 @audit_filter_rules(ptr noundef %7, ptr noundef %129, ptr noundef %9, ptr noundef null, ptr noundef nonnull %3), !range !9
-  %131 = icmp eq i32 %130, 0
-  br i1 %131, label %.thread.i7, label %132
+129:                                              ; preds = %.split.i5
+  %130 = getelementptr inbounds i8, ptr %123, i64 32
+  %131 = call fastcc i32 @audit_filter_rules(ptr noundef %7, ptr noundef %130, ptr noundef %9, ptr noundef null, ptr noundef nonnull %3), !range !9
+  %132 = icmp eq i32 %131, 0
+  br i1 %132, label %.thread.i7, label %133
 
-132:                                              ; preds = %128
-  %133 = load i32, ptr %3, align 4
-  %134 = getelementptr inbounds i8, ptr %9, i64 12
-  store i32 %133, ptr %134, align 4
+133:                                              ; preds = %129
+  %134 = load i32, ptr %3, align 4
+  %135 = getelementptr inbounds i8, ptr %9, i64 12
+  store i32 %134, ptr %135, align 4
   br label %.loopexit.i6
 
-.thread.i7:                                       ; preds = %128, %.split.i5
-  %135 = load volatile ptr, ptr %122, align 8
-  %136 = icmp eq ptr %135, getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 7)
-  br i1 %136, label %.loopexit.i6, label %.split.i5, !llvm.loop !6
+.thread.i7:                                       ; preds = %129, %.split.i5
+  %136 = load volatile ptr, ptr %123, align 8
+  %137 = icmp eq ptr %136, getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 7)
+  br i1 %137, label %.loopexit.i6, label %.split.i5, !llvm.loop !6
 
-.loopexit.i6:                                     ; preds = %.thread.i7, %.thread.us.i8, %132, %108
+.loopexit.i6:                                     ; preds = %.thread.i7, %.thread.us.i8, %133, %109
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #12
   tail call void @__rcu_read_unlock() #12
   br label %audit_filter_uring.exit9
 
-audit_filter_uring.exit9:                         ; preds = %105, %.loopexit.i6
+audit_filter_uring.exit9:                         ; preds = %106, %.loopexit.i6
   tail call void @audit_filter_inodes(ptr noundef %7, ptr noundef %9)
-  %137 = getelementptr inbounds i8, ptr %9, i64 12
-  %138 = load i32, ptr %137, align 4
-  %139 = icmp eq i32 %138, 2
-  br i1 %139, label %140, label %141
+  %138 = getelementptr inbounds i8, ptr %9, i64 12
+  %139 = load i32, ptr %138, align 4
+  %140 = icmp eq i32 %139, 2
+  br i1 %140, label %141, label %142
 
-140:                                              ; preds = %audit_filter_uring.exit9
+141:                                              ; preds = %audit_filter_uring.exit9
   tail call fastcc void @audit_log_exit()
-  br label %141
-
-141:                                              ; preds = %140, %audit_filter_uring.exit9, %12
-  tail call fastcc void @audit_reset_context(ptr noundef %9)
   br label %142
 
-142:                                              ; preds = %141, %99, %audit_filter_uring.exit, %12
+142:                                              ; preds = %141, %audit_filter_uring.exit9, %12
+  tail call fastcc void @audit_reset_context(ptr noundef %9)
+  br label %143
+
+143:                                              ; preds = %142, %100, %audit_filter_uring.exit, %12
   ret void
 }
 
@@ -2761,18 +2771,18 @@ define dso_local void @__audit_syscall_exit(i32 noundef %0, i64 noundef %1) loca
   %6 = getelementptr inbounds i8, ptr %5, i64 1976
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %68, label %9
+  br i1 %8, label %69, label %9
 
 9:                                                ; preds = %2
   %10 = load i32, ptr %7, align 8
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %12, label %68
+  br i1 %11, label %12, label %69
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds i8, ptr %7, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, 1
-  br i1 %15, label %16, label %68
+  br i1 %15, label %16, label %69
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds i8, ptr %7, i64 848
@@ -2792,88 +2802,90 @@ define dso_local void @__audit_syscall_exit(i32 noundef %0, i64 noundef %1) loca
   %24 = icmp ugt i64 %1, -517
   %25 = icmp ne i64 %1, -515
   %26 = and i1 %24, %25
-  %spec.select = select i1 %26, i64 -4, i64 %1
-  br label %27
+  br i1 %26, label %28, label %27
 
 27:                                               ; preds = %23, %21
-  %28 = phi i64 [ %1, %21 ], [ %spec.select, %23 ]
-  %29 = getelementptr inbounds i8, ptr %7, i64 80
-  store i64 %28, ptr %29, align 8
-  %30 = icmp eq i32 %0, 0
-  %31 = select i1 %30, i32 2, i32 1
-  %32 = getelementptr inbounds i8, ptr %7, i64 96
-  store i32 %31, ptr %32, align 8
-  %33 = tail call i32 @auditd_test_task(ptr noundef %5) #12
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %35, label %audit_filter_syscall.exit
+  br label %28
 
-35:                                               ; preds = %27
+28:                                               ; preds = %27, %23
+  %29 = phi i64 [ %1, %27 ], [ -4, %23 ]
+  %30 = getelementptr inbounds i8, ptr %7, i64 80
+  store i64 %29, ptr %30, align 8
+  %31 = icmp eq i32 %0, 0
+  %32 = select i1 %31, i32 2, i32 1
+  %33 = getelementptr inbounds i8, ptr %7, i64 96
+  store i32 %32, ptr %33, align 8
+  %34 = tail call i32 @auditd_test_task(ptr noundef %5) #12
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %36, label %audit_filter_syscall.exit
+
+36:                                               ; preds = %28
   tail call void @__rcu_read_lock() #12
-  %36 = getelementptr inbounds i8, ptr %7, i64 20
-  %37 = load i32, ptr %36, align 4
+  %37 = getelementptr inbounds i8, ptr %7, i64 20
+  %38 = load i32, ptr %37, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #12
   store i32 0, ptr %3, align 4, !annotation !5
-  %38 = load volatile ptr, ptr getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 4), align 8
-  %39 = icmp eq ptr %38, getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 4)
-  br i1 %39, label %.loopexit.i, label %40
+  %39 = load volatile ptr, ptr getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 4), align 8
+  %40 = icmp eq ptr %39, getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 4)
+  br i1 %40, label %.loopexit.i, label %41
 
-40:                                               ; preds = %35
-  %41 = sext i32 %37 to i64
-  %42 = lshr i64 %41, 5
-  %43 = and i32 %37, 31
-  %44 = shl nuw i32 1, %43
-  %45 = icmp ugt i32 %37, 2047
-  br i1 %45, label %.thread.us.i, label %.split.i
+41:                                               ; preds = %36
+  %42 = sext i32 %38 to i64
+  %43 = lshr i64 %42, 5
+  %44 = and i32 %38, 31
+  %45 = shl nuw i32 1, %44
+  %46 = icmp ugt i32 %38, 2047
+  br i1 %46, label %.thread.us.i, label %.split.i
 
-.thread.us.i:                                     ; preds = %40, %.thread.us.i
-  %46 = phi ptr [ %47, %.thread.us.i ], [ %38, %40 ]
-  %47 = load volatile ptr, ptr %46, align 8
-  %48 = icmp eq ptr %47, getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 4)
-  br i1 %48, label %.loopexit.i, label %.thread.us.i, !llvm.loop !6
+.thread.us.i:                                     ; preds = %41, %.thread.us.i
+  %47 = phi ptr [ %48, %.thread.us.i ], [ %39, %41 ]
+  %48 = load volatile ptr, ptr %47, align 8
+  %49 = icmp eq ptr %48, getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 4)
+  br i1 %49, label %.loopexit.i, label %.thread.us.i, !llvm.loop !6
 
-.split.i:                                         ; preds = %40, %.thread.i
-  %49 = phi ptr [ %62, %.thread.i ], [ %38, %40 ]
-  %50 = getelementptr inbounds i8, ptr %49, i64 48
-  %51 = getelementptr [64 x i32], ptr %50, i64 0, i64 %42
-  %52 = load i32, ptr %51, align 4
-  %53 = and i32 %52, %44
-  %54 = icmp eq i32 %53, 0
-  br i1 %54, label %.thread.i, label %55
+.split.i:                                         ; preds = %41, %.thread.i
+  %50 = phi ptr [ %63, %.thread.i ], [ %39, %41 ]
+  %51 = getelementptr inbounds i8, ptr %50, i64 48
+  %52 = getelementptr [64 x i32], ptr %51, i64 0, i64 %43
+  %53 = load i32, ptr %52, align 4
+  %54 = and i32 %53, %45
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %.thread.i, label %56
 
-55:                                               ; preds = %.split.i
-  %56 = getelementptr inbounds i8, ptr %49, i64 32
-  %57 = call fastcc i32 @audit_filter_rules(ptr noundef %5, ptr noundef %56, ptr noundef nonnull %7, ptr noundef null, ptr noundef nonnull %3), !range !9
-  %58 = icmp eq i32 %57, 0
-  br i1 %58, label %.thread.i, label %59
+56:                                               ; preds = %.split.i
+  %57 = getelementptr inbounds i8, ptr %50, i64 32
+  %58 = call fastcc i32 @audit_filter_rules(ptr noundef %5, ptr noundef %57, ptr noundef nonnull %7, ptr noundef null, ptr noundef nonnull %3), !range !9
+  %59 = icmp eq i32 %58, 0
+  br i1 %59, label %.thread.i, label %60
 
-59:                                               ; preds = %55
-  %60 = load i32, ptr %3, align 4
-  %61 = getelementptr inbounds i8, ptr %7, i64 12
-  store i32 %60, ptr %61, align 4
+60:                                               ; preds = %56
+  %61 = load i32, ptr %3, align 4
+  %62 = getelementptr inbounds i8, ptr %7, i64 12
+  store i32 %61, ptr %62, align 4
   br label %.loopexit.i
 
-.thread.i:                                        ; preds = %55, %.split.i
-  %62 = load volatile ptr, ptr %49, align 8
-  %63 = icmp eq ptr %62, getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 4)
-  br i1 %63, label %.loopexit.i, label %.split.i, !llvm.loop !6
+.thread.i:                                        ; preds = %56, %.split.i
+  %63 = load volatile ptr, ptr %50, align 8
+  %64 = icmp eq ptr %63, getelementptr ([0 x %struct.list_head], ptr @audit_filter_list, i64 0, i64 4)
+  br i1 %64, label %.loopexit.i, label %.split.i, !llvm.loop !6
 
-.loopexit.i:                                      ; preds = %.thread.i, %.thread.us.i, %59, %35
+.loopexit.i:                                      ; preds = %.thread.i, %.thread.us.i, %60, %36
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #12
   tail call void @__rcu_read_unlock() #12
   br label %audit_filter_syscall.exit
 
-audit_filter_syscall.exit:                        ; preds = %27, %.loopexit.i
+audit_filter_syscall.exit:                        ; preds = %28, %.loopexit.i
   tail call void @audit_filter_inodes(ptr noundef %5, ptr noundef nonnull %7)
-  %64 = getelementptr inbounds i8, ptr %7, i64 12
-  %65 = load i32, ptr %64, align 4
-  %66 = icmp eq i32 %65, 2
-  br i1 %66, label %67, label %68
+  %65 = getelementptr inbounds i8, ptr %7, i64 12
+  %66 = load i32, ptr %65, align 4
+  %67 = icmp eq i32 %66, 2
+  br i1 %67, label %68, label %69
 
-67:                                               ; preds = %audit_filter_syscall.exit
+68:                                               ; preds = %audit_filter_syscall.exit
   tail call fastcc void @audit_log_exit()
-  br label %68
+  br label %69
 
-68:                                               ; preds = %67, %audit_filter_syscall.exit, %12, %9, %2
+69:                                               ; preds = %68, %audit_filter_syscall.exit, %12, %9, %2
   tail call fastcc void @audit_reset_context(ptr noundef %7)
   ret void
 }
@@ -5143,7 +5155,7 @@ define internal fastcc noundef i32 @audit_filter_rules(ptr noundef %0, ptr nocap
   %11 = getelementptr inbounds i8, ptr %2, i64 88
   %12 = load i64, ptr %11, align 8
   %13 = icmp ugt i64 %10, %12
-  br i1 %13, label %14, label %.thread47
+  br i1 %13, label %14, label %.thread44
 
 14:                                               ; preds = %8, %5
   %15 = getelementptr inbounds i8, ptr %0, i64 1784
@@ -5151,7 +5163,7 @@ define internal fastcc noundef i32 @audit_filter_rules(ptr noundef %0, ptr nocap
   %17 = getelementptr inbounds i8, ptr %1, i64 276
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, 0
-  br i1 %19, label %.loopexit83, label %20
+  br i1 %19, label %.loopexit80, label %20
 
 20:                                               ; preds = %14
   %21 = getelementptr inbounds i8, ptr %1, i64 288
@@ -5198,21 +5210,21 @@ define internal fastcc noundef i32 @audit_filter_rules(ptr noundef %0, ptr nocap
   %62 = getelementptr inbounds i8, ptr %0, i64 1324
   br label %67
 
-.thread49:                                        ; preds = %855, %833, %811, %789, %767, %745, %723, %701, %679, %395, %372, %348, %315, %323, %274, %282, %67, %291, %250, %146, %171, %958
-  %63 = phi i32 [ %960, %958 ], [ %69, %171 ], [ %69, %146 ], [ %69, %250 ], [ %69, %291 ], [ %69, %67 ], [ %69, %282 ], [ %69, %274 ], [ %69, %323 ], [ %69, %315 ], [ %69, %348 ], [ %69, %372 ], [ %69, %395 ], [ %69, %679 ], [ %69, %701 ], [ %69, %723 ], [ %69, %745 ], [ %69, %767 ], [ %69, %789 ], [ %69, %811 ], [ %69, %833 ], [ %69, %855 ]
+.thread46:                                        ; preds = %857, %835, %813, %791, %769, %747, %725, %703, %681, %395, %372, %348, %315, %323, %274, %282, %67, %291, %300, %250, %259, %146, %171, %960
+  %63 = phi i32 [ %962, %960 ], [ %69, %171 ], [ %69, %146 ], [ %69, %259 ], [ %69, %250 ], [ %69, %300 ], [ %69, %291 ], [ %69, %67 ], [ %69, %282 ], [ %69, %274 ], [ %69, %323 ], [ %69, %315 ], [ %69, %348 ], [ %69, %372 ], [ %69, %395 ], [ %69, %681 ], [ %69, %703 ], [ %69, %725 ], [ %69, %747 ], [ %69, %769 ], [ %69, %791 ], [ %69, %813 ], [ %69, %835 ], [ %69, %857 ]
   %64 = add nuw i32 %68, 1
   %65 = load i32, ptr %17, align 4
   %66 = icmp ult i32 %64, %65
-  br i1 %66, label %67, label %.loopexit83, !llvm.loop !64
+  br i1 %66, label %67, label %.loopexit80, !llvm.loop !64
 
-67:                                               ; preds = %.thread49, %20
-  %68 = phi i32 [ 0, %20 ], [ %64, %.thread49 ]
-  %69 = phi i32 [ 1, %20 ], [ %63, %.thread49 ]
+67:                                               ; preds = %.thread46, %20
+  %68 = phi i32 [ 0, %20 ], [ %64, %.thread46 ]
+  %69 = phi i32 [ 1, %20 ], [ %63, %.thread46 ]
   %70 = load ptr, ptr %21, align 8
   %71 = sext i32 %68 to i64
   %72 = getelementptr %struct.audit_field, ptr %70, i64 %71
   %73 = load i32, ptr %72, align 8
-  switch i32 %73, label %.thread47 [
+  switch i32 %73, label %.thread44 [
     i32 0, label %74
     i32 18, label %81
     i32 112, label %100
@@ -5253,10 +5265,10 @@ define internal fastcc noundef i32 @audit_filter_rules(ptr noundef %0, ptr nocap
     i32 201, label %540
     i32 202, label %540
     i32 203, label %540
-    i32 210, label %.thread49
+    i32 210, label %.thread46
     i32 106, label %552
-    i32 108, label %633
-    i32 111, label %660
+    i32 108, label %635
+    i32 111, label %662
   ]
 
 74:                                               ; preds = %67
@@ -5266,10 +5278,10 @@ define internal fastcc noundef i32 @audit_filter_rules(ptr noundef %0, ptr nocap
   %78 = getelementptr inbounds i8, ptr %72, i64 8
   %79 = load i32, ptr %78, align 8
   %80 = call i32 @audit_comparator(i32 noundef %75, i32 noundef %77, i32 noundef %79) #12
-  br label %958
+  br label %960
 
 81:                                               ; preds = %67
-  br i1 %7, label %.thread47, label %82
+  br i1 %7, label %.thread44, label %82
 
 82:                                               ; preds = %81
   %83 = load i32, ptr %59, align 8
@@ -5300,7 +5312,7 @@ define internal fastcc noundef i32 @audit_filter_rules(ptr noundef %0, ptr nocap
   %97 = getelementptr inbounds i8, ptr %72, i64 8
   %98 = load i32, ptr %97, align 8
   %99 = call i32 @audit_comparator(i32 noundef %94, i32 noundef %96, i32 noundef %98) #12
-  br label %958
+  br label %960
 
 100:                                              ; preds = %67
   %101 = load ptr, ptr %58, align 8
@@ -5308,12 +5320,12 @@ define internal fastcc noundef i32 @audit_filter_rules(ptr noundef %0, ptr nocap
   %103 = getelementptr inbounds i8, ptr %72, i64 24
   %104 = load i32, ptr %103, align 8
   %105 = icmp eq i32 %104, 1
-  br i1 %105, label %106, label %958
+  br i1 %105, label %106, label %960
 
 106:                                              ; preds = %100
   %107 = icmp eq i32 %102, 0
   %108 = zext i1 %107 to i32
-  br label %958
+  br label %960
 
 109:                                              ; preds = %67
   %110 = getelementptr inbounds i8, ptr %72, i64 24
@@ -5322,7 +5334,7 @@ define internal fastcc noundef i32 @audit_filter_rules(ptr noundef %0, ptr nocap
   %113 = load i32, ptr %30, align 8
   %114 = load i32, ptr %112, align 8
   %115 = call i32 @audit_uid_comparator(i32 %113, i32 noundef %111, i32 %114) #12
-  br label %958
+  br label %960
 
 116:                                              ; preds = %67
   %117 = getelementptr inbounds i8, ptr %72, i64 24
@@ -5331,7 +5343,7 @@ define internal fastcc noundef i32 @audit_filter_rules(ptr noundef %0, ptr nocap
   %120 = load i32, ptr %28, align 8
   %121 = load i32, ptr %119, align 8
   %122 = call i32 @audit_uid_comparator(i32 %120, i32 noundef %118, i32 %121) #12
-  br label %958
+  br label %960
 
 123:                                              ; preds = %67
   %124 = getelementptr inbounds i8, ptr %72, i64 24
@@ -5340,7 +5352,7 @@ define internal fastcc noundef i32 @audit_filter_rules(ptr noundef %0, ptr nocap
   %127 = load i32, ptr %26, align 8
   %128 = load i32, ptr %126, align 8
   %129 = call i32 @audit_uid_comparator(i32 %127, i32 noundef %125, i32 %128) #12
-  br label %958
+  br label %960
 
 130:                                              ; preds = %67
   %131 = getelementptr inbounds i8, ptr %72, i64 24
@@ -5349,7 +5361,7 @@ define internal fastcc noundef i32 @audit_filter_rules(ptr noundef %0, ptr nocap
   %134 = load i32, ptr %27, align 8
   %135 = load i32, ptr %133, align 8
   %136 = call i32 @audit_uid_comparator(i32 %134, i32 noundef %132, i32 %135) #12
-  br label %958
+  br label %960
 
 137:                                              ; preds = %67
   %138 = getelementptr inbounds i8, ptr %72, i64 24
@@ -5364,19 +5376,19 @@ define internal fastcc noundef i32 @audit_filter_rules(ptr noundef %0, ptr nocap
 
 146:                                              ; preds = %137
   %147 = icmp eq i32 %143, 0
-  br i1 %147, label %148, label %.thread49
+  br i1 %147, label %148, label %.thread46
 
 148:                                              ; preds = %146
   %149 = load ptr, ptr %57, align 8
   %150 = load i32, ptr %140, align 8
   %151 = call i32 @groups_search(ptr noundef %149, i32 %150) #12
-  br label %958
+  br label %960
 
 152:                                              ; preds = %137
   %153 = icmp eq i32 %144, 1
   %154 = icmp ne i32 %143, 0
   %155 = select i1 %153, i1 %154, i1 false
-  br i1 %155, label %156, label %958
+  br i1 %155, label %156, label %960
 
 156:                                              ; preds = %152
   %157 = load ptr, ptr %57, align 8
@@ -5384,7 +5396,7 @@ define internal fastcc noundef i32 @audit_filter_rules(ptr noundef %0, ptr nocap
   %159 = call i32 @groups_search(ptr noundef %157, i32 %158) #12
   %160 = icmp eq i32 %159, 0
   %161 = zext i1 %160 to i32
-  br label %958
+  br label %960
 
 162:                                              ; preds = %67
   %163 = getelementptr inbounds i8, ptr %72, i64 24
@@ -5399,19 +5411,19 @@ define internal fastcc noundef i32 @audit_filter_rules(ptr noundef %0, ptr nocap
 
 171:                                              ; preds = %162
   %172 = icmp eq i32 %168, 0
-  br i1 %172, label %173, label %.thread49
+  br i1 %172, label %173, label %.thread46
 
 173:                                              ; preds = %171
   %174 = load ptr, ptr %57, align 8
   %175 = load i32, ptr %165, align 8
   %176 = call i32 @groups_search(ptr noundef %174, i32 %175) #12
-  br label %958
+  br label %960
 
 177:                                              ; preds = %162
   %178 = icmp eq i32 %169, 1
   %179 = icmp ne i32 %168, 0
   %180 = select i1 %178, i1 %179, i1 false
-  br i1 %180, label %181, label %958
+  br i1 %180, label %181, label %960
 
 181:                                              ; preds = %177
   %182 = load ptr, ptr %57, align 8
@@ -5419,7 +5431,7 @@ define internal fastcc noundef i32 @audit_filter_rules(ptr noundef %0, ptr nocap
   %184 = call i32 @groups_search(ptr noundef %182, i32 %183) #12
   %185 = icmp eq i32 %184, 0
   %186 = zext i1 %185 to i32
-  br label %958
+  br label %960
 
 187:                                              ; preds = %67
   %188 = getelementptr inbounds i8, ptr %72, i64 24
@@ -5428,7 +5440,7 @@ define internal fastcc noundef i32 @audit_filter_rules(ptr noundef %0, ptr nocap
   %191 = load i32, ptr %22, align 4
   %192 = load i32, ptr %190, align 8
   %193 = call i32 @audit_gid_comparator(i32 %191, i32 noundef %189, i32 %192) #12
-  br label %958
+  br label %960
 
 194:                                              ; preds = %67
   %195 = getelementptr inbounds i8, ptr %72, i64 24
@@ -5437,7 +5449,7 @@ define internal fastcc noundef i32 @audit_filter_rules(ptr noundef %0, ptr nocap
   %198 = load i32, ptr %23, align 4
   %199 = load i32, ptr %197, align 8
   %200 = call i32 @audit_gid_comparator(i32 %198, i32 noundef %196, i32 %199) #12
-  br label %958
+  br label %960
 
 201:                                              ; preds = %67
   %202 = load i32, ptr %56, align 4
@@ -5446,7 +5458,7 @@ define internal fastcc noundef i32 @audit_filter_rules(ptr noundef %0, ptr nocap
   %205 = getelementptr inbounds i8, ptr %72, i64 8
   %206 = load i32, ptr %205, align 8
   %207 = call i32 @audit_comparator(i32 noundef %202, i32 noundef %204, i32 noundef %206) #12
-  br label %958
+  br label %960
 
 208:                                              ; preds = %67
   %209 = load i32, ptr %55, align 8
@@ -5455,10 +5467,10 @@ define internal fastcc noundef i32 @audit_filter_rules(ptr noundef %0, ptr nocap
   %212 = getelementptr inbounds i8, ptr %72, i64 8
   %213 = load i32, ptr %212, align 8
   %214 = call i32 @audit_comparator(i32 noundef %209, i32 noundef %211, i32 noundef %213) #12
-  br label %958
+  br label %960
 
 215:                                              ; preds = %67
-  br i1 %7, label %.thread47, label %216
+  br i1 %7, label %.thread44, label %216
 
 216:                                              ; preds = %215
   %217 = load i32, ptr %36, align 8
@@ -5467,15 +5479,15 @@ define internal fastcc noundef i32 @audit_filter_rules(ptr noundef %0, ptr nocap
   %220 = getelementptr inbounds i8, ptr %72, i64 8
   %221 = load i32, ptr %220, align 8
   %222 = call i32 @audit_comparator(i32 noundef %217, i32 noundef %219, i32 noundef %221) #12
-  br label %958
+  br label %960
 
 223:                                              ; preds = %67
-  br i1 %7, label %.thread47, label %224
+  br i1 %7, label %.thread44, label %224
 
 224:                                              ; preds = %223
   %225 = load i32, ptr %53, align 8
   %226 = icmp eq i32 %225, 0
-  br i1 %226, label %.thread47, label %227
+  br i1 %226, label %.thread44, label %227
 
 227:                                              ; preds = %224
   %228 = load i64, ptr %54, align 8
@@ -5485,15 +5497,15 @@ define internal fastcc noundef i32 @audit_filter_rules(ptr noundef %0, ptr nocap
   %232 = getelementptr inbounds i8, ptr %72, i64 8
   %233 = load i32, ptr %232, align 8
   %234 = call i32 @audit_comparator(i32 noundef %229, i32 noundef %231, i32 noundef %233) #12
-  br label %958
+  br label %960
 
 235:                                              ; preds = %67
-  br i1 %7, label %.thread47, label %236
+  br i1 %7, label %.thread44, label %236
 
 236:                                              ; preds = %235
   %237 = load i32, ptr %53, align 8
   %238 = icmp eq i32 %237, 0
-  br i1 %238, label %.thread47, label %239
+  br i1 %238, label %.thread44, label %239
 
 239:                                              ; preds = %236
   %240 = getelementptr inbounds i8, ptr %72, i64 8
@@ -5505,11 +5517,11 @@ define internal fastcc noundef i32 @audit_filter_rules(ptr noundef %0, ptr nocap
 
 245:                                              ; preds = %239
   %246 = call i32 @audit_comparator(i32 noundef %237, i32 noundef %244, i32 noundef 1) #12
-  br label %958
+  br label %960
 
 247:                                              ; preds = %239
   %248 = call i32 @audit_comparator(i32 noundef %237, i32 noundef %244, i32 noundef 2) #12
-  br label %958
+  br label %960
 
 249:                                              ; preds = %67
   br i1 %31, label %266, label %250
@@ -5523,7 +5535,7 @@ define internal fastcc noundef i32 @audit_filter_rules(ptr noundef %0, ptr nocap
   %256 = load i32, ptr %255, align 8
   %257 = call i32 @audit_comparator(i32 noundef %252, i32 noundef %254, i32 noundef %256) #12
   %258 = icmp eq i32 %257, 0
-  br i1 %258, label %259, label %.thread49
+  br i1 %258, label %259, label %.thread46
 
 259:                                              ; preds = %250
   %260 = load i32, ptr %52, align 8
@@ -5531,12 +5543,11 @@ define internal fastcc noundef i32 @audit_filter_rules(ptr noundef %0, ptr nocap
   %262 = load i32, ptr %253, align 8
   %263 = load i32, ptr %255, align 8
   %264 = call i32 @audit_comparator(i32 noundef %261, i32 noundef %262, i32 noundef %263) #12
-  %265 = icmp ne i32 %264, 0
-  %spec.select = zext i1 %265 to i32
-  br label %958
+  %265 = icmp eq i32 %264, 0
+  br i1 %265, label %.thread44, label %.thread46
 
 266:                                              ; preds = %249
-  br i1 %7, label %.thread47, label %267
+  br i1 %7, label %.thread44, label %267
 
 267:                                              ; preds = %266
   %268 = getelementptr inbounds i8, ptr %72, i64 24
@@ -5547,7 +5558,7 @@ define internal fastcc noundef i32 @audit_filter_rules(ptr noundef %0, ptr nocap
   %271 = phi ptr [ %33, %267 ], [ %272, %282 ]
   %272 = load ptr, ptr %271, align 8
   %273 = icmp eq ptr %272, %33
-  br i1 %273, label %.thread47, label %274
+  br i1 %273, label %.thread44, label %274
 
 274:                                              ; preds = %270
   %275 = getelementptr inbounds i8, ptr %272, i64 40
@@ -5557,7 +5568,7 @@ define internal fastcc noundef i32 @audit_filter_rules(ptr noundef %0, ptr nocap
   %279 = load i32, ptr %269, align 8
   %280 = call i32 @audit_comparator(i32 noundef %277, i32 noundef %278, i32 noundef %279) #12
   %281 = icmp eq i32 %280, 0
-  br i1 %281, label %282, label %.thread49
+  br i1 %281, label %282, label %.thread46
 
 282:                                              ; preds = %274
   %283 = getelementptr inbounds i8, ptr %272, i64 56
@@ -5567,7 +5578,7 @@ define internal fastcc noundef i32 @audit_filter_rules(ptr noundef %0, ptr nocap
   %287 = load i32, ptr %269, align 8
   %288 = call i32 @audit_comparator(i32 noundef %285, i32 noundef %286, i32 noundef %287) #12
   %289 = icmp eq i32 %288, 0
-  br i1 %289, label %270, label %.thread49, !llvm.loop !65
+  br i1 %289, label %270, label %.thread46, !llvm.loop !65
 
 290:                                              ; preds = %67
   br i1 %31, label %307, label %291
@@ -5581,7 +5592,7 @@ define internal fastcc noundef i32 @audit_filter_rules(ptr noundef %0, ptr nocap
   %297 = load i32, ptr %296, align 8
   %298 = call i32 @audit_comparator(i32 noundef %293, i32 noundef %295, i32 noundef %297) #12
   %299 = icmp eq i32 %298, 0
-  br i1 %299, label %300, label %.thread49
+  br i1 %299, label %300, label %.thread46
 
 300:                                              ; preds = %291
   %301 = load i32, ptr %52, align 8
@@ -5589,12 +5600,11 @@ define internal fastcc noundef i32 @audit_filter_rules(ptr noundef %0, ptr nocap
   %303 = load i32, ptr %294, align 8
   %304 = load i32, ptr %296, align 8
   %305 = call i32 @audit_comparator(i32 noundef %302, i32 noundef %303, i32 noundef %304) #12
-  %306 = icmp ne i32 %305, 0
-  %spec.select1 = zext i1 %306 to i32
-  br label %958
+  %306 = icmp eq i32 %305, 0
+  br i1 %306, label %.thread44, label %.thread46
 
 307:                                              ; preds = %290
-  br i1 %7, label %.thread47, label %308
+  br i1 %7, label %.thread44, label %308
 
 308:                                              ; preds = %307
   %309 = getelementptr inbounds i8, ptr %72, i64 24
@@ -5605,7 +5615,7 @@ define internal fastcc noundef i32 @audit_filter_rules(ptr noundef %0, ptr nocap
   %312 = phi ptr [ %33, %308 ], [ %313, %323 ]
   %313 = load ptr, ptr %312, align 8
   %314 = icmp eq ptr %313, %33
-  br i1 %314, label %.thread47, label %315
+  br i1 %314, label %.thread44, label %315
 
 315:                                              ; preds = %311
   %316 = getelementptr inbounds i8, ptr %313, i64 40
@@ -5615,7 +5625,7 @@ define internal fastcc noundef i32 @audit_filter_rules(ptr noundef %0, ptr nocap
   %320 = load i32, ptr %310, align 8
   %321 = call i32 @audit_comparator(i32 noundef %318, i32 noundef %319, i32 noundef %320) #12
   %322 = icmp eq i32 %321, 0
-  br i1 %322, label %323, label %.thread49
+  br i1 %322, label %323, label %.thread46
 
 323:                                              ; preds = %315
   %324 = getelementptr inbounds i8, ptr %313, i64 56
@@ -5625,7 +5635,7 @@ define internal fastcc noundef i32 @audit_filter_rules(ptr noundef %0, ptr nocap
   %328 = load i32, ptr %310, align 8
   %329 = call i32 @audit_comparator(i32 noundef %326, i32 noundef %327, i32 noundef %328) #12
   %330 = icmp eq i32 %329, 0
-  br i1 %330, label %311, label %.thread49, !llvm.loop !66
+  br i1 %330, label %311, label %.thread46, !llvm.loop !66
 
 331:                                              ; preds = %67
   br i1 %31, label %340, label %332
@@ -5638,10 +5648,10 @@ define internal fastcc noundef i32 @audit_filter_rules(ptr noundef %0, ptr nocap
   %337 = getelementptr inbounds i8, ptr %72, i64 8
   %338 = load i32, ptr %337, align 8
   %339 = call i32 @audit_comparator(i32 noundef %334, i32 noundef %336, i32 noundef %338) #12
-  br label %958
+  br label %960
 
 340:                                              ; preds = %331
-  br i1 %7, label %.thread47, label %341
+  br i1 %7, label %.thread44, label %341
 
 341:                                              ; preds = %340
   %342 = getelementptr inbounds i8, ptr %72, i64 24
@@ -5652,7 +5662,7 @@ define internal fastcc noundef i32 @audit_filter_rules(ptr noundef %0, ptr nocap
   %345 = phi ptr [ %33, %341 ], [ %346, %348 ]
   %346 = load ptr, ptr %345, align 8
   %347 = icmp eq ptr %346, %33
-  br i1 %347, label %.thread47, label %348
+  br i1 %347, label %.thread44, label %348
 
 348:                                              ; preds = %344
   %349 = getelementptr inbounds i8, ptr %346, i64 32
@@ -5662,7 +5672,7 @@ define internal fastcc noundef i32 @audit_filter_rules(ptr noundef %0, ptr nocap
   %353 = load i32, ptr %343, align 8
   %354 = call i32 @audit_comparator(i32 noundef %351, i32 noundef %352, i32 noundef %353) #12
   %355 = icmp eq i32 %354, 0
-  br i1 %355, label %344, label %.thread49, !llvm.loop !67
+  br i1 %355, label %344, label %.thread46, !llvm.loop !67
 
 356:                                              ; preds = %67
   br i1 %31, label %364, label %357
@@ -5674,10 +5684,10 @@ define internal fastcc noundef i32 @audit_filter_rules(ptr noundef %0, ptr nocap
   %361 = load i32, ptr %34, align 8
   %362 = load i32, ptr %360, align 8
   %363 = call i32 @audit_uid_comparator(i32 %361, i32 noundef %359, i32 %362) #12
-  br label %958
+  br label %960
 
 364:                                              ; preds = %356
-  br i1 %7, label %.thread47, label %365
+  br i1 %7, label %.thread44, label %365
 
 365:                                              ; preds = %364
   %366 = getelementptr inbounds i8, ptr %72, i64 24
@@ -5688,7 +5698,7 @@ define internal fastcc noundef i32 @audit_filter_rules(ptr noundef %0, ptr nocap
   %369 = phi ptr [ %33, %365 ], [ %370, %372 ]
   %370 = load ptr, ptr %369, align 8
   %371 = icmp eq ptr %370, %33
-  br i1 %371, label %.thread47, label %372
+  br i1 %371, label %.thread44, label %372
 
 372:                                              ; preds = %368
   %373 = getelementptr inbounds i8, ptr %370, i64 48
@@ -5697,7 +5707,7 @@ define internal fastcc noundef i32 @audit_filter_rules(ptr noundef %0, ptr nocap
   %376 = load i32, ptr %367, align 8
   %377 = call i32 @audit_uid_comparator(i32 %375, i32 noundef %374, i32 %376) #12
   %378 = icmp eq i32 %377, 0
-  br i1 %378, label %368, label %.thread49, !llvm.loop !68
+  br i1 %378, label %368, label %.thread46, !llvm.loop !68
 
 379:                                              ; preds = %67
   br i1 %31, label %387, label %380
@@ -5709,10 +5719,10 @@ define internal fastcc noundef i32 @audit_filter_rules(ptr noundef %0, ptr nocap
   %384 = load i32, ptr %32, align 4
   %385 = load i32, ptr %383, align 8
   %386 = call i32 @audit_gid_comparator(i32 %384, i32 noundef %382, i32 %385) #12
-  br label %958
+  br label %960
 
 387:                                              ; preds = %379
-  br i1 %7, label %.thread47, label %388
+  br i1 %7, label %.thread44, label %388
 
 388:                                              ; preds = %387
   %389 = getelementptr inbounds i8, ptr %72, i64 24
@@ -5723,7 +5733,7 @@ define internal fastcc noundef i32 @audit_filter_rules(ptr noundef %0, ptr nocap
   %392 = phi ptr [ %33, %388 ], [ %393, %395 ]
   %393 = load ptr, ptr %392, align 8
   %394 = icmp eq ptr %393, %33
-  br i1 %394, label %.thread47, label %395
+  br i1 %394, label %.thread44, label %395
 
 395:                                              ; preds = %391
   %396 = getelementptr inbounds i8, ptr %393, i64 52
@@ -5732,10 +5742,10 @@ define internal fastcc noundef i32 @audit_filter_rules(ptr noundef %0, ptr nocap
   %399 = load i32, ptr %390, align 8
   %400 = call i32 @audit_gid_comparator(i32 %398, i32 noundef %397, i32 %399) #12
   %401 = icmp eq i32 %400, 0
-  br i1 %401, label %391, label %.thread49, !llvm.loop !69
+  br i1 %401, label %391, label %.thread46, !llvm.loop !69
 
 402:                                              ; preds = %67
-  br i1 %31, label %.thread47, label %403
+  br i1 %31, label %.thread44, label %403
 
 403:                                              ; preds = %402
   %404 = load ptr, ptr %49, align 8
@@ -5745,15 +5755,15 @@ define internal fastcc noundef i32 @audit_filter_rules(ptr noundef %0, ptr nocap
   %408 = getelementptr inbounds i8, ptr %72, i64 24
   %409 = load i32, ptr %408, align 8
   %410 = icmp eq i32 %409, 1
-  br i1 %410, label %411, label %958
+  br i1 %410, label %411, label %960
 
 411:                                              ; preds = %403
   %412 = icmp eq i32 %407, 0
   %413 = zext i1 %412 to i32
-  br label %958
+  br label %960
 
 414:                                              ; preds = %67
-  br i1 %7, label %.thread47, label %415
+  br i1 %7, label %.thread44, label %415
 
 415:                                              ; preds = %414
   %416 = load ptr, ptr %45, align 8
@@ -5764,13 +5774,13 @@ define internal fastcc noundef i32 @audit_filter_rules(ptr noundef %0, ptr nocap
   %419 = load ptr, ptr %46, align 8
   %420 = load ptr, ptr %47, align 8
   %421 = icmp eq ptr %419, %420
-  br i1 %421, label %.loopexit59, label %.preheader
+  br i1 %421, label %.loopexit56, label %.preheader
 
 422:                                              ; preds = %428
   %423 = load ptr, ptr %426, align 8
   %424 = load ptr, ptr %47, align 8
   %425 = icmp eq ptr %423, %424
-  br i1 %425, label %.loopexit59, label %.preheader, !llvm.loop !70
+  br i1 %425, label %.loopexit56, label %.preheader, !llvm.loop !70
 
 .preheader:                                       ; preds = %418, %422
   %426 = phi ptr [ %423, %422 ], [ %419, %418 ]
@@ -5789,12 +5799,12 @@ define internal fastcc noundef i32 @audit_filter_rules(ptr noundef %0, ptr nocap
   %435 = call zeroext i1 @audit_tree_match(ptr noundef %434, ptr noundef nonnull %416) #12
   br i1 %435, label %.loopexit, label %428
 
-.loopexit59:                                      ; preds = %422, %418
+.loopexit56:                                      ; preds = %422, %418
   %436 = phi ptr [ %419, %418 ], [ %423, %422 ]
   %437 = icmp eq ptr %436, null
   br i1 %437, label %.loopexit, label %438
 
-438:                                              ; preds = %.loopexit59
+438:                                              ; preds = %.loopexit56
   %439 = load i32, ptr %48, align 8
   %440 = icmp slt i32 %439, 31
   br i1 %440, label %441, label %.loopexit
@@ -5817,14 +5827,14 @@ define internal fastcc noundef i32 @audit_filter_rules(ptr noundef %0, ptr nocap
   %452 = call zeroext i1 @audit_tree_match(ptr noundef %451, ptr noundef nonnull %416) #12
   br i1 %452, label %.loopexit, label %444
 
-.loopexit:                                        ; preds = %448, %444, %431, %438, %.loopexit59, %415
-  %453 = phi i32 [ 0, %415 ], [ 0, %.loopexit59 ], [ 0, %438 ], [ 1, %431 ], [ 1, %448 ], [ 0, %444 ]
+.loopexit:                                        ; preds = %448, %444, %431, %438, %.loopexit56, %415
+  %453 = phi i32 [ 0, %415 ], [ 0, %.loopexit56 ], [ 0, %438 ], [ 1, %431 ], [ 1, %448 ], [ 0, %444 ]
   %454 = getelementptr inbounds i8, ptr %72, i64 24
   %455 = load i32, ptr %454, align 8
   %456 = icmp eq i32 %455, 1
   %457 = zext i1 %456 to i32
   %458 = xor i32 %453, %457
-  br label %958
+  br label %960
 
 459:                                              ; preds = %67
   %460 = load i32, ptr %29, align 64
@@ -5833,7 +5843,7 @@ define internal fastcc noundef i32 @audit_filter_rules(ptr noundef %0, ptr nocap
   %463 = getelementptr inbounds i8, ptr %72, i64 8
   %464 = load i32, ptr %463, align 8
   %465 = call i32 @audit_uid_comparator(i32 %460, i32 noundef %462, i32 %464) #12
-  br label %958
+  br label %960
 
 466:                                              ; preds = %67
   %467 = load i32, ptr %29, align 64
@@ -5844,15 +5854,15 @@ define internal fastcc noundef i32 @audit_filter_rules(ptr noundef %0, ptr nocap
   %472 = getelementptr inbounds i8, ptr %72, i64 8
   %473 = load i32, ptr %472, align 8
   %474 = call i32 @audit_comparator(i32 noundef %469, i32 noundef %471, i32 noundef %473) #12
-  br label %958
+  br label %960
 
 475:                                              ; preds = %67
-  br i1 %7, label %.thread47, label %476
+  br i1 %7, label %.thread44, label %476
 
 476:                                              ; preds = %475
   %477 = load ptr, ptr %44, align 8
   %478 = icmp eq ptr %477, null
-  br i1 %478, label %.thread47, label %479
+  br i1 %478, label %.thread44, label %479
 
 479:                                              ; preds = %476
   %480 = load i16, ptr %477, align 8
@@ -5862,13 +5872,13 @@ define internal fastcc noundef i32 @audit_filter_rules(ptr noundef %0, ptr nocap
   %484 = getelementptr inbounds i8, ptr %72, i64 8
   %485 = load i32, ptr %484, align 8
   %486 = call i32 @audit_comparator(i32 noundef %481, i32 noundef %483, i32 noundef %485) #12
-  br label %958
+  br label %960
 
 487:                                              ; preds = %67, %67, %67, %67, %67
   %488 = getelementptr inbounds i8, ptr %72, i64 16
   %489 = load ptr, ptr %488, align 8
   %490 = icmp eq ptr %489, null
-  br i1 %490, label %.thread47, label %491
+  br i1 %490, label %.thread44, label %491
 
 491:                                              ; preds = %487
   %492 = icmp eq i32 %69, 0
@@ -5877,23 +5887,23 @@ define internal fastcc noundef i32 @audit_filter_rules(ptr noundef %0, ptr nocap
 493:                                              ; preds = %491
   call void @security_current_getsecid_subj(ptr noundef nonnull %6) #12
   %.pre = load i32, ptr %72, align 8
-  %.pre114 = load ptr, ptr %488, align 8
+  %.pre111 = load ptr, ptr %488, align 8
   br label %494
 
 494:                                              ; preds = %493, %491
-  %495 = phi ptr [ %.pre114, %493 ], [ %489, %491 ]
+  %495 = phi ptr [ %.pre111, %493 ], [ %489, %491 ]
   %496 = phi i32 [ %.pre, %493 ], [ %73, %491 ]
   %497 = load i32, ptr %6, align 4
   %498 = getelementptr inbounds i8, ptr %72, i64 24
   %499 = load i32, ptr %498, align 8
   %500 = call i32 @security_audit_rule_match(i32 noundef %497, i32 noundef %496, i32 noundef %499, ptr noundef %495) #12
-  br label %958
+  br label %960
 
 501:                                              ; preds = %67, %67, %67, %67, %67
   %502 = getelementptr inbounds i8, ptr %72, i64 16
   %503 = load ptr, ptr %502, align 8
   %504 = icmp eq ptr %503, null
-  br i1 %504, label %.thread47, label %505
+  br i1 %504, label %.thread44, label %505
 
 505:                                              ; preds = %501
   br i1 %31, label %511, label %506
@@ -5903,10 +5913,10 @@ define internal fastcc noundef i32 @audit_filter_rules(ptr noundef %0, ptr nocap
   %508 = getelementptr inbounds i8, ptr %72, i64 24
   %509 = load i32, ptr %508, align 8
   %510 = call i32 @security_audit_rule_match(i32 noundef %507, i32 noundef %73, i32 noundef %509, ptr noundef nonnull %503) #12
-  br label %.loopexit60
+  br label %.loopexit57
 
 511:                                              ; preds = %505
-  br i1 %7, label %.thread47, label %512
+  br i1 %7, label %.thread44, label %512
 
 512:                                              ; preds = %511
   %513 = getelementptr inbounds i8, ptr %72, i64 24
@@ -5916,7 +5926,7 @@ define internal fastcc noundef i32 @audit_filter_rules(ptr noundef %0, ptr nocap
   %515 = phi ptr [ %33, %512 ], [ %516, %518 ]
   %516 = load ptr, ptr %515, align 8
   %517 = icmp eq ptr %516, %33
-  br i1 %517, label %.loopexit60, label %518
+  br i1 %517, label %.loopexit57, label %518
 
 518:                                              ; preds = %514
   %519 = getelementptr inbounds i8, ptr %516, i64 60
@@ -5926,16 +5936,16 @@ define internal fastcc noundef i32 @audit_filter_rules(ptr noundef %0, ptr nocap
   %523 = load ptr, ptr %502, align 8
   %524 = call i32 @security_audit_rule_match(i32 noundef %520, i32 noundef %521, i32 noundef %522, ptr noundef %523) #12
   %525 = icmp eq i32 %524, 0
-  br i1 %525, label %514, label %.loopexit60, !llvm.loop !73
+  br i1 %525, label %514, label %.loopexit57, !llvm.loop !73
 
-.loopexit60:                                      ; preds = %518, %514, %506
+.loopexit57:                                      ; preds = %518, %514, %506
   %526 = phi i32 [ %510, %506 ], [ 1, %518 ], [ 0, %514 ]
-  br i1 %7, label %958, label %527
+  br i1 %7, label %960, label %527
 
-527:                                              ; preds = %.loopexit60
+527:                                              ; preds = %.loopexit57
   %528 = load i32, ptr %42, align 4
   %529 = icmp eq i32 %528, 1303
-  br i1 %529, label %530, label %958
+  br i1 %529, label %530, label %960
 
 530:                                              ; preds = %527
   %531 = load i32, ptr %43, align 4
@@ -5947,10 +5957,10 @@ define internal fastcc noundef i32 @audit_filter_rules(ptr noundef %0, ptr nocap
   %537 = icmp ne i32 %536, 0
   %538 = zext i1 %537 to i32
   %539 = add i32 %526, %538
-  br label %958
+  br label %960
 
 540:                                              ; preds = %67, %67, %67, %67
-  br i1 %7, label %.thread47, label %541
+  br i1 %7, label %.thread44, label %541
 
 541:                                              ; preds = %540
   %542 = add nsw i32 %73, -200
@@ -5963,25 +5973,25 @@ define internal fastcc noundef i32 @audit_filter_rules(ptr noundef %0, ptr nocap
   %549 = getelementptr inbounds i8, ptr %72, i64 8
   %550 = load i32, ptr %549, align 8
   %551 = call i32 @audit_comparator(i32 noundef %546, i32 noundef %548, i32 noundef %550) #12
-  br label %958
+  br label %960
 
 552:                                              ; preds = %67
   %553 = getelementptr inbounds i8, ptr %72, i64 8
   %554 = load i32, ptr %553, align 8
-  br i1 %7, label %625, label %555, !prof !23
+  br i1 %7, label %627, label %555, !prof !23
 
 555:                                              ; preds = %552
   %556 = load i32, ptr %35, align 4
   %557 = load i32, ptr %36, align 8
   %558 = call i32 @audit_classify_syscall(i32 noundef %557, i32 noundef %556) #12
-  switch i32 %558, label %625 [
+  switch i32 %558, label %627 [
     i32 0, label %559
-    i32 1, label %577
-    i32 2, label %595
-    i32 3, label %602
-    i32 4, label %609
-    i32 5, label %616
-    i32 6, label %618
+    i32 1, label %578
+    i32 2, label %597
+    i32 3, label %604
+    i32 4, label %611
+    i32 5, label %618
+    i32 6, label %620
   ]
 
 559:                                              ; preds = %555
@@ -5992,7 +6002,7 @@ define internal fastcc noundef i32 @audit_filter_rules(ptr noundef %0, ptr nocap
 562:                                              ; preds = %559
   %563 = call i32 @audit_match_class(i32 noundef 6, i32 noundef %556) #12
   %564 = icmp eq i32 %563, 0
-  br i1 %564, label %565, label %625
+  br i1 %564, label %565, label %627
 
 565:                                              ; preds = %562, %559
   %566 = and i32 %554, 4
@@ -6002,667 +6012,671 @@ define internal fastcc noundef i32 @audit_filter_rules(ptr noundef %0, ptr nocap
 568:                                              ; preds = %565
   %569 = call i32 @audit_match_class(i32 noundef 4, i32 noundef %556) #12
   %570 = icmp eq i32 %569, 0
-  br i1 %570, label %571, label %625
+  br i1 %570, label %571, label %627
 
 571:                                              ; preds = %568, %565
   %572 = and i32 %554, 8
   %573 = icmp eq i32 %572, 0
-  br i1 %573, label %625, label %574
+  br i1 %573, label %577, label %574
 
 574:                                              ; preds = %571
   %575 = call i32 @audit_match_class(i32 noundef 2, i32 noundef %556) #12
-  %576 = icmp ne i32 %575, 0
-  %spec.select2 = zext i1 %576 to i32
-  br label %625
+  %576 = icmp eq i32 %575, 0
+  br i1 %576, label %577, label %627
 
-577:                                              ; preds = %555
-  %578 = and i32 %554, 2
-  %579 = icmp eq i32 %578, 0
-  br i1 %579, label %583, label %580
+577:                                              ; preds = %574, %571
+  br label %627
 
-580:                                              ; preds = %577
-  %581 = call i32 @audit_match_class(i32 noundef 7, i32 noundef %556) #12
-  %582 = icmp eq i32 %581, 0
-  br i1 %582, label %583, label %625
+578:                                              ; preds = %555
+  %579 = and i32 %554, 2
+  %580 = icmp eq i32 %579, 0
+  br i1 %580, label %584, label %581
 
-583:                                              ; preds = %580, %577
-  %584 = and i32 %554, 4
-  %585 = icmp eq i32 %584, 0
-  br i1 %585, label %589, label %586
+581:                                              ; preds = %578
+  %582 = call i32 @audit_match_class(i32 noundef 7, i32 noundef %556) #12
+  %583 = icmp eq i32 %582, 0
+  br i1 %583, label %584, label %627
 
-586:                                              ; preds = %583
-  %587 = call i32 @audit_match_class(i32 noundef 5, i32 noundef %556) #12
-  %588 = icmp eq i32 %587, 0
-  br i1 %588, label %589, label %625
+584:                                              ; preds = %581, %578
+  %585 = and i32 %554, 4
+  %586 = icmp eq i32 %585, 0
+  br i1 %586, label %590, label %587
 
-589:                                              ; preds = %586, %583
-  %590 = and i32 %554, 8
-  %591 = icmp eq i32 %590, 0
-  br i1 %591, label %625, label %592
+587:                                              ; preds = %584
+  %588 = call i32 @audit_match_class(i32 noundef 5, i32 noundef %556) #12
+  %589 = icmp eq i32 %588, 0
+  br i1 %589, label %590, label %627
 
-592:                                              ; preds = %589
-  %593 = call i32 @audit_match_class(i32 noundef 3, i32 noundef %556) #12
-  %594 = icmp ne i32 %593, 0
-  %spec.select3 = zext i1 %594 to i32
-  br label %625
+590:                                              ; preds = %587, %584
+  %591 = and i32 %554, 8
+  %592 = icmp eq i32 %591, 0
+  br i1 %592, label %596, label %593
 
-595:                                              ; preds = %555
-  %596 = load i64, ptr %40, align 8
-  %597 = and i64 %596, 3
-  %598 = getelementptr [5 x i8], ptr @.str.12, i64 0, i64 %597
-  %599 = load i8, ptr %598, align 1
-  %600 = zext i8 %599 to i32
-  %601 = and i32 %554, %600
-  br label %625
+593:                                              ; preds = %590
+  %594 = call i32 @audit_match_class(i32 noundef 3, i32 noundef %556) #12
+  %595 = icmp eq i32 %594, 0
+  br i1 %595, label %596, label %627
 
-602:                                              ; preds = %555
-  %603 = load i64, ptr %39, align 8
-  %604 = and i64 %603, 3
-  %605 = getelementptr [5 x i8], ptr @.str.12, i64 0, i64 %604
-  %606 = load i8, ptr %605, align 1
-  %607 = zext i8 %606 to i32
-  %608 = and i32 %554, %607
-  br label %625
+596:                                              ; preds = %593, %590
+  br label %627
 
-609:                                              ; preds = %555
-  %610 = and i32 %554, 2
-  %611 = icmp eq i32 %610, 0
-  br i1 %611, label %625, label %612
+597:                                              ; preds = %555
+  %598 = load i64, ptr %40, align 8
+  %599 = and i64 %598, 3
+  %600 = getelementptr [5 x i8], ptr @.str.12, i64 0, i64 %599
+  %601 = load i8, ptr %600, align 1
+  %602 = zext i8 %601 to i32
+  %603 = and i32 %554, %602
+  br label %627
 
-612:                                              ; preds = %609
-  %613 = load i64, ptr %38, align 8
-  %614 = icmp eq i64 %613, 2
-  %615 = zext i1 %614 to i32
-  br label %625
+604:                                              ; preds = %555
+  %605 = load i64, ptr %39, align 8
+  %606 = and i64 %605, 3
+  %607 = getelementptr [5 x i8], ptr @.str.12, i64 0, i64 %606
+  %608 = load i8, ptr %607, align 1
+  %609 = zext i8 %608 to i32
+  %610 = and i32 %554, %609
+  br label %627
 
-616:                                              ; preds = %555
-  %617 = and i32 %554, 1
-  br label %625
+611:                                              ; preds = %555
+  %612 = and i32 %554, 2
+  %613 = icmp eq i32 %612, 0
+  br i1 %613, label %627, label %614
+
+614:                                              ; preds = %611
+  %615 = load i64, ptr %38, align 8
+  %616 = icmp eq i64 %615, 2
+  %617 = zext i1 %616 to i32
+  br label %627
 
 618:                                              ; preds = %555
-  %619 = load i64, ptr %37, align 8
-  %620 = and i64 %619, 3
-  %621 = getelementptr [5 x i8], ptr @.str.12, i64 0, i64 %620
-  %622 = load i8, ptr %621, align 1
-  %623 = zext i8 %622 to i32
-  %624 = and i32 %554, %623
-  br label %625
+  %619 = and i32 %554, 1
+  br label %627
 
-625:                                              ; preds = %592, %574, %589, %571, %618, %616, %612, %609, %602, %595, %586, %580, %568, %562, %555, %552
-  %626 = phi i32 [ %624, %618 ], [ %617, %616 ], [ %608, %602 ], [ %601, %595 ], [ 0, %552 ], [ 1, %562 ], [ 1, %568 ], [ 1, %580 ], [ 1, %586 ], [ 0, %609 ], [ %615, %612 ], [ 0, %555 ], [ 0, %571 ], [ 0, %589 ], [ %spec.select2, %574 ], [ %spec.select3, %592 ]
-  %627 = getelementptr inbounds i8, ptr %72, i64 24
-  %628 = load i32, ptr %627, align 8
-  %629 = icmp eq i32 %628, 1
-  br i1 %629, label %630, label %958
+620:                                              ; preds = %555
+  %621 = load i64, ptr %37, align 8
+  %622 = and i64 %621, 3
+  %623 = getelementptr [5 x i8], ptr @.str.12, i64 0, i64 %622
+  %624 = load i8, ptr %623, align 1
+  %625 = zext i8 %624 to i32
+  %626 = and i32 %554, %625
+  br label %627
 
-630:                                              ; preds = %625
-  %631 = icmp eq i32 %626, 0
-  %632 = zext i1 %631 to i32
-  br label %958
+627:                                              ; preds = %620, %618, %614, %611, %604, %597, %596, %593, %587, %581, %577, %574, %568, %562, %555, %552
+  %628 = phi i32 [ %626, %620 ], [ %619, %618 ], [ %610, %604 ], [ %603, %597 ], [ 0, %596 ], [ 0, %577 ], [ 0, %552 ], [ 1, %562 ], [ 1, %568 ], [ 1, %574 ], [ 1, %581 ], [ 1, %587 ], [ 1, %593 ], [ 0, %611 ], [ %617, %614 ], [ 0, %555 ]
+  %629 = getelementptr inbounds i8, ptr %72, i64 24
+  %630 = load i32, ptr %629, align 8
+  %631 = icmp eq i32 %630, 1
+  br i1 %631, label %632, label %960
 
-633:                                              ; preds = %67
-  %634 = getelementptr inbounds i8, ptr %72, i64 8
-  %635 = load i32, ptr %634, align 8
-  br i1 %7, label %.loopexit62, label %636, !prof !23
+632:                                              ; preds = %627
+  %633 = icmp eq i32 %628, 0
+  %634 = zext i1 %633 to i32
+  br label %960
 
-636:                                              ; preds = %633
-  %637 = load ptr, ptr %33, align 8
-  %638 = icmp eq ptr %637, %33
-  br i1 %638, label %.loopexit62, label %639
+635:                                              ; preds = %67
+  %636 = getelementptr inbounds i8, ptr %72, i64 8
+  %637 = load i32, ptr %636, align 8
+  br i1 %7, label %.loopexit59, label %638, !prof !23
 
-639:                                              ; preds = %636
-  %640 = trunc i32 %635 to i16
-  br label %641
+638:                                              ; preds = %635
+  %639 = load ptr, ptr %33, align 8
+  %640 = icmp eq ptr %639, %33
+  br i1 %640, label %.loopexit59, label %641
 
-641:                                              ; preds = %651, %639
-  %642 = phi ptr [ %637, %639 ], [ %652, %651 ]
-  %643 = getelementptr inbounds i8, ptr %642, i64 32
-  %644 = load i64, ptr %643, align 8
-  %645 = icmp eq i64 %644, -1
-  br i1 %645, label %651, label %646
+641:                                              ; preds = %638
+  %642 = trunc i32 %637 to i16
+  br label %643
 
-646:                                              ; preds = %641
-  %647 = getelementptr inbounds i8, ptr %642, i64 44
-  %648 = load i16, ptr %647, align 4
-  %649 = and i16 %648, -4096
-  %650 = icmp eq i16 %649, %640
-  br i1 %650, label %.loopexit62, label %651
+643:                                              ; preds = %653, %641
+  %644 = phi ptr [ %639, %641 ], [ %654, %653 ]
+  %645 = getelementptr inbounds i8, ptr %644, i64 32
+  %646 = load i64, ptr %645, align 8
+  %647 = icmp eq i64 %646, -1
+  br i1 %647, label %653, label %648
 
-651:                                              ; preds = %646, %641
-  %652 = load ptr, ptr %642, align 8
-  %653 = icmp eq ptr %652, %33
-  br i1 %653, label %.loopexit62, label %641, !llvm.loop !74
+648:                                              ; preds = %643
+  %649 = getelementptr inbounds i8, ptr %644, i64 44
+  %650 = load i16, ptr %649, align 4
+  %651 = and i16 %650, -4096
+  %652 = icmp eq i16 %651, %642
+  br i1 %652, label %.loopexit59, label %653
 
-.loopexit62:                                      ; preds = %651, %646, %636, %633
-  %654 = phi i32 [ 0, %633 ], [ 0, %636 ], [ 1, %646 ], [ 0, %651 ]
-  %655 = getelementptr inbounds i8, ptr %72, i64 24
-  %656 = load i32, ptr %655, align 8
-  %657 = icmp eq i32 %656, 1
-  %658 = zext i1 %657 to i32
-  %659 = xor i32 %654, %658
-  br label %958
+653:                                              ; preds = %648, %643
+  %654 = load ptr, ptr %644, align 8
+  %655 = icmp eq ptr %654, %33
+  br i1 %655, label %.loopexit59, label %643, !llvm.loop !74
 
-660:                                              ; preds = %67
-  %661 = getelementptr inbounds i8, ptr %72, i64 8
-  %662 = load i32, ptr %661, align 8
-  switch i32 %662, label %957 [
-    i32 1, label %663
-    i32 2, label %685
-    i32 3, label %707
-    i32 4, label %729
-    i32 5, label %751
-    i32 6, label %773
-    i32 7, label %795
-    i32 8, label %817
-    i32 9, label %839
-    i32 10, label %861
-    i32 11, label %867
-    i32 13, label %873
-    i32 12, label %879
-    i32 16, label %885
-    i32 15, label %891
-    i32 14, label %897
-    i32 17, label %903
-    i32 18, label %909
-    i32 19, label %915
-    i32 20, label %921
-    i32 22, label %927
-    i32 21, label %933
-    i32 24, label %939
-    i32 23, label %945
-    i32 25, label %951
+.loopexit59:                                      ; preds = %653, %648, %638, %635
+  %656 = phi i32 [ 0, %635 ], [ 0, %638 ], [ 1, %648 ], [ 0, %653 ]
+  %657 = getelementptr inbounds i8, ptr %72, i64 24
+  %658 = load i32, ptr %657, align 8
+  %659 = icmp eq i32 %658, 1
+  %660 = zext i1 %659 to i32
+  %661 = xor i32 %656, %660
+  br label %960
+
+662:                                              ; preds = %67
+  %663 = getelementptr inbounds i8, ptr %72, i64 8
+  %664 = load i32, ptr %663, align 8
+  switch i32 %664, label %959 [
+    i32 1, label %665
+    i32 2, label %687
+    i32 3, label %709
+    i32 4, label %731
+    i32 5, label %753
+    i32 6, label %775
+    i32 7, label %797
+    i32 8, label %819
+    i32 9, label %841
+    i32 10, label %863
+    i32 11, label %869
+    i32 13, label %875
+    i32 12, label %881
+    i32 16, label %887
+    i32 15, label %893
+    i32 14, label %899
+    i32 17, label %905
+    i32 18, label %911
+    i32 19, label %917
+    i32 20, label %923
+    i32 22, label %929
+    i32 21, label %935
+    i32 24, label %941
+    i32 23, label %947
+    i32 25, label %953
   ]
 
-663:                                              ; preds = %660
-  %664 = load i32, ptr %30, align 8
-  br i1 %31, label %672, label %665
-
-665:                                              ; preds = %663
-  %666 = getelementptr inbounds i8, ptr %72, i64 24
-  %667 = load i32, ptr %666, align 8
-  %668 = load i32, ptr %34, align 8
-  %669 = call i32 @audit_uid_comparator(i32 %664, i32 noundef %667, i32 %668) #12
-  %670 = icmp ne i32 %669, 0
-  %671 = or i1 %7, %670
-  br i1 %671, label %958, label %673
-
-672:                                              ; preds = %663
-  br i1 %7, label %.thread47, label %673
-
-673:                                              ; preds = %672, %665
-  %674 = getelementptr inbounds i8, ptr %72, i64 24
-  br label %675
-
-675:                                              ; preds = %679, %673
-  %676 = phi ptr [ %33, %673 ], [ %677, %679 ]
-  %677 = load ptr, ptr %676, align 8
-  %678 = icmp eq ptr %677, %33
-  br i1 %678, label %.thread47, label %679
-
-679:                                              ; preds = %675
-  %680 = load i32, ptr %674, align 8
-  %681 = getelementptr inbounds i8, ptr %677, i64 48
-  %682 = load i32, ptr %681, align 8
-  %683 = call i32 @audit_uid_comparator(i32 %664, i32 noundef %680, i32 %682) #12
-  %684 = icmp eq i32 %683, 0
-  br i1 %684, label %675, label %.thread49, !llvm.loop !75
-
-685:                                              ; preds = %660
-  %686 = load i32, ptr %25, align 4
-  br i1 %31, label %694, label %687
-
-687:                                              ; preds = %685
-  %688 = getelementptr inbounds i8, ptr %72, i64 24
-  %689 = load i32, ptr %688, align 8
-  %690 = load i32, ptr %32, align 4
-  %691 = call i32 @audit_gid_comparator(i32 %686, i32 noundef %689, i32 %690) #12
-  %692 = icmp ne i32 %691, 0
-  %693 = or i1 %7, %692
-  br i1 %693, label %958, label %695
-
-694:                                              ; preds = %685
-  br i1 %7, label %.thread47, label %695
-
-695:                                              ; preds = %694, %687
-  %696 = getelementptr inbounds i8, ptr %72, i64 24
-  br label %697
-
-697:                                              ; preds = %701, %695
-  %698 = phi ptr [ %33, %695 ], [ %699, %701 ]
-  %699 = load ptr, ptr %698, align 8
-  %700 = icmp eq ptr %699, %33
-  br i1 %700, label %.thread47, label %701
-
-701:                                              ; preds = %697
-  %702 = load i32, ptr %696, align 8
-  %703 = getelementptr inbounds i8, ptr %699, i64 52
-  %704 = load i32, ptr %703, align 4
-  %705 = call i32 @audit_gid_comparator(i32 %686, i32 noundef %702, i32 %704) #12
-  %706 = icmp eq i32 %705, 0
-  br i1 %706, label %697, label %.thread49, !llvm.loop !76
-
-707:                                              ; preds = %660
-  %708 = load i32, ptr %28, align 8
-  br i1 %31, label %716, label %709
-
-709:                                              ; preds = %707
-  %710 = getelementptr inbounds i8, ptr %72, i64 24
-  %711 = load i32, ptr %710, align 8
-  %712 = load i32, ptr %34, align 8
-  %713 = call i32 @audit_uid_comparator(i32 %708, i32 noundef %711, i32 %712) #12
-  %714 = icmp ne i32 %713, 0
-  %715 = or i1 %7, %714
-  br i1 %715, label %958, label %717
-
-716:                                              ; preds = %707
-  br i1 %7, label %.thread47, label %717
-
-717:                                              ; preds = %716, %709
-  %718 = getelementptr inbounds i8, ptr %72, i64 24
-  br label %719
-
-719:                                              ; preds = %723, %717
-  %720 = phi ptr [ %33, %717 ], [ %721, %723 ]
-  %721 = load ptr, ptr %720, align 8
-  %722 = icmp eq ptr %721, %33
-  br i1 %722, label %.thread47, label %723
-
-723:                                              ; preds = %719
-  %724 = load i32, ptr %718, align 8
-  %725 = getelementptr inbounds i8, ptr %721, i64 48
-  %726 = load i32, ptr %725, align 8
-  %727 = call i32 @audit_uid_comparator(i32 %708, i32 noundef %724, i32 %726) #12
-  %728 = icmp eq i32 %727, 0
-  br i1 %728, label %719, label %.thread49, !llvm.loop !75
-
-729:                                              ; preds = %660
-  %730 = load i32, ptr %24, align 4
-  br i1 %31, label %738, label %731
-
-731:                                              ; preds = %729
-  %732 = getelementptr inbounds i8, ptr %72, i64 24
-  %733 = load i32, ptr %732, align 8
-  %734 = load i32, ptr %32, align 4
-  %735 = call i32 @audit_gid_comparator(i32 %730, i32 noundef %733, i32 %734) #12
-  %736 = icmp ne i32 %735, 0
-  %737 = or i1 %7, %736
-  br i1 %737, label %958, label %739
-
-738:                                              ; preds = %729
-  br i1 %7, label %.thread47, label %739
-
-739:                                              ; preds = %738, %731
-  %740 = getelementptr inbounds i8, ptr %72, i64 24
-  br label %741
-
-741:                                              ; preds = %745, %739
-  %742 = phi ptr [ %33, %739 ], [ %743, %745 ]
-  %743 = load ptr, ptr %742, align 8
-  %744 = icmp eq ptr %743, %33
-  br i1 %744, label %.thread47, label %745
-
-745:                                              ; preds = %741
-  %746 = load i32, ptr %740, align 8
-  %747 = getelementptr inbounds i8, ptr %743, i64 52
-  %748 = load i32, ptr %747, align 4
-  %749 = call i32 @audit_gid_comparator(i32 %730, i32 noundef %746, i32 %748) #12
-  %750 = icmp eq i32 %749, 0
-  br i1 %750, label %741, label %.thread49, !llvm.loop !76
-
-751:                                              ; preds = %660
-  %752 = load i32, ptr %29, align 64
-  br i1 %31, label %760, label %753
-
-753:                                              ; preds = %751
-  %754 = getelementptr inbounds i8, ptr %72, i64 24
-  %755 = load i32, ptr %754, align 8
-  %756 = load i32, ptr %34, align 8
-  %757 = call i32 @audit_uid_comparator(i32 %752, i32 noundef %755, i32 %756) #12
-  %758 = icmp ne i32 %757, 0
-  %759 = or i1 %7, %758
-  br i1 %759, label %958, label %761
-
-760:                                              ; preds = %751
-  br i1 %7, label %.thread47, label %761
-
-761:                                              ; preds = %760, %753
-  %762 = getelementptr inbounds i8, ptr %72, i64 24
-  br label %763
-
-763:                                              ; preds = %767, %761
-  %764 = phi ptr [ %33, %761 ], [ %765, %767 ]
-  %765 = load ptr, ptr %764, align 8
-  %766 = icmp eq ptr %765, %33
-  br i1 %766, label %.thread47, label %767
-
-767:                                              ; preds = %763
-  %768 = load i32, ptr %762, align 8
-  %769 = getelementptr inbounds i8, ptr %765, i64 48
-  %770 = load i32, ptr %769, align 8
-  %771 = call i32 @audit_uid_comparator(i32 %752, i32 noundef %768, i32 %770) #12
-  %772 = icmp eq i32 %771, 0
-  br i1 %772, label %763, label %.thread49, !llvm.loop !75
-
-773:                                              ; preds = %660
-  %774 = load i32, ptr %26, align 8
-  br i1 %31, label %782, label %775
-
-775:                                              ; preds = %773
-  %776 = getelementptr inbounds i8, ptr %72, i64 24
-  %777 = load i32, ptr %776, align 8
-  %778 = load i32, ptr %34, align 8
-  %779 = call i32 @audit_uid_comparator(i32 %774, i32 noundef %777, i32 %778) #12
-  %780 = icmp ne i32 %779, 0
-  %781 = or i1 %7, %780
-  br i1 %781, label %958, label %783
-
-782:                                              ; preds = %773
-  br i1 %7, label %.thread47, label %783
-
-783:                                              ; preds = %782, %775
-  %784 = getelementptr inbounds i8, ptr %72, i64 24
-  br label %785
-
-785:                                              ; preds = %789, %783
-  %786 = phi ptr [ %33, %783 ], [ %787, %789 ]
-  %787 = load ptr, ptr %786, align 8
-  %788 = icmp eq ptr %787, %33
-  br i1 %788, label %.thread47, label %789
-
-789:                                              ; preds = %785
-  %790 = load i32, ptr %784, align 8
-  %791 = getelementptr inbounds i8, ptr %787, i64 48
-  %792 = load i32, ptr %791, align 8
-  %793 = call i32 @audit_uid_comparator(i32 %774, i32 noundef %790, i32 %792) #12
-  %794 = icmp eq i32 %793, 0
-  br i1 %794, label %785, label %.thread49, !llvm.loop !75
-
-795:                                              ; preds = %660
-  %796 = load i32, ptr %22, align 4
-  br i1 %31, label %804, label %797
-
-797:                                              ; preds = %795
-  %798 = getelementptr inbounds i8, ptr %72, i64 24
-  %799 = load i32, ptr %798, align 8
-  %800 = load i32, ptr %32, align 4
-  %801 = call i32 @audit_gid_comparator(i32 %796, i32 noundef %799, i32 %800) #12
-  %802 = icmp ne i32 %801, 0
-  %803 = or i1 %7, %802
-  br i1 %803, label %958, label %805
-
-804:                                              ; preds = %795
-  br i1 %7, label %.thread47, label %805
-
-805:                                              ; preds = %804, %797
-  %806 = getelementptr inbounds i8, ptr %72, i64 24
-  br label %807
-
-807:                                              ; preds = %811, %805
-  %808 = phi ptr [ %33, %805 ], [ %809, %811 ]
-  %809 = load ptr, ptr %808, align 8
-  %810 = icmp eq ptr %809, %33
-  br i1 %810, label %.thread47, label %811
-
-811:                                              ; preds = %807
-  %812 = load i32, ptr %806, align 8
-  %813 = getelementptr inbounds i8, ptr %809, i64 52
-  %814 = load i32, ptr %813, align 4
-  %815 = call i32 @audit_gid_comparator(i32 %796, i32 noundef %812, i32 %814) #12
-  %816 = icmp eq i32 %815, 0
-  br i1 %816, label %807, label %.thread49, !llvm.loop !76
-
-817:                                              ; preds = %660
-  %818 = load i32, ptr %27, align 8
-  br i1 %31, label %826, label %819
-
-819:                                              ; preds = %817
-  %820 = getelementptr inbounds i8, ptr %72, i64 24
-  %821 = load i32, ptr %820, align 8
-  %822 = load i32, ptr %34, align 8
-  %823 = call i32 @audit_uid_comparator(i32 %818, i32 noundef %821, i32 %822) #12
-  %824 = icmp ne i32 %823, 0
-  %825 = or i1 %7, %824
-  br i1 %825, label %958, label %827
-
-826:                                              ; preds = %817
-  br i1 %7, label %.thread47, label %827
-
-827:                                              ; preds = %826, %819
-  %828 = getelementptr inbounds i8, ptr %72, i64 24
-  br label %829
-
-829:                                              ; preds = %833, %827
-  %830 = phi ptr [ %33, %827 ], [ %831, %833 ]
-  %831 = load ptr, ptr %830, align 8
-  %832 = icmp eq ptr %831, %33
-  br i1 %832, label %.thread47, label %833
-
-833:                                              ; preds = %829
-  %834 = load i32, ptr %828, align 8
-  %835 = getelementptr inbounds i8, ptr %831, i64 48
-  %836 = load i32, ptr %835, align 8
-  %837 = call i32 @audit_uid_comparator(i32 %818, i32 noundef %834, i32 %836) #12
-  %838 = icmp eq i32 %837, 0
-  br i1 %838, label %829, label %.thread49, !llvm.loop !75
-
-839:                                              ; preds = %660
-  %840 = load i32, ptr %23, align 4
-  br i1 %31, label %848, label %841
-
-841:                                              ; preds = %839
-  %842 = getelementptr inbounds i8, ptr %72, i64 24
-  %843 = load i32, ptr %842, align 8
-  %844 = load i32, ptr %32, align 4
-  %845 = call i32 @audit_gid_comparator(i32 %840, i32 noundef %843, i32 %844) #12
-  %846 = icmp ne i32 %845, 0
-  %847 = or i1 %7, %846
-  br i1 %847, label %958, label %849
-
-848:                                              ; preds = %839
-  br i1 %7, label %.thread47, label %849
-
-849:                                              ; preds = %848, %841
-  %850 = getelementptr inbounds i8, ptr %72, i64 24
-  br label %851
-
-851:                                              ; preds = %855, %849
-  %852 = phi ptr [ %33, %849 ], [ %853, %855 ]
-  %853 = load ptr, ptr %852, align 8
-  %854 = icmp eq ptr %853, %33
-  br i1 %854, label %.thread47, label %855
-
-855:                                              ; preds = %851
-  %856 = load i32, ptr %850, align 8
-  %857 = getelementptr inbounds i8, ptr %853, i64 52
-  %858 = load i32, ptr %857, align 4
-  %859 = call i32 @audit_gid_comparator(i32 %840, i32 noundef %856, i32 %858) #12
-  %860 = icmp eq i32 %859, 0
-  br i1 %860, label %851, label %.thread49, !llvm.loop !76
-
-861:                                              ; preds = %660
-  %862 = getelementptr inbounds i8, ptr %72, i64 24
-  %863 = load i32, ptr %862, align 8
-  %864 = load i32, ptr %29, align 64
-  %865 = load i32, ptr %30, align 8
-  %866 = call i32 @audit_uid_comparator(i32 %865, i32 noundef %863, i32 %864) #12
-  br label %958
-
-867:                                              ; preds = %660
-  %868 = getelementptr inbounds i8, ptr %72, i64 24
-  %869 = load i32, ptr %868, align 8
-  %870 = load i32, ptr %30, align 8
-  %871 = load i32, ptr %28, align 8
-  %872 = call i32 @audit_uid_comparator(i32 %870, i32 noundef %869, i32 %871) #12
-  br label %958
-
-873:                                              ; preds = %660
-  %874 = getelementptr inbounds i8, ptr %72, i64 24
-  %875 = load i32, ptr %874, align 8
-  %876 = load i32, ptr %30, align 8
-  %877 = load i32, ptr %26, align 8
-  %878 = call i32 @audit_uid_comparator(i32 %876, i32 noundef %875, i32 %877) #12
-  br label %958
-
-879:                                              ; preds = %660
-  %880 = getelementptr inbounds i8, ptr %72, i64 24
-  %881 = load i32, ptr %880, align 8
-  %882 = load i32, ptr %30, align 8
-  %883 = load i32, ptr %27, align 8
-  %884 = call i32 @audit_uid_comparator(i32 %882, i32 noundef %881, i32 %883) #12
-  br label %958
-
-885:                                              ; preds = %660
-  %886 = load i32, ptr %29, align 64
-  %887 = getelementptr inbounds i8, ptr %72, i64 24
-  %888 = load i32, ptr %887, align 8
-  %889 = load i32, ptr %28, align 8
-  %890 = call i32 @audit_uid_comparator(i32 %886, i32 noundef %888, i32 %889) #12
-  br label %958
-
-891:                                              ; preds = %660
-  %892 = load i32, ptr %29, align 64
-  %893 = getelementptr inbounds i8, ptr %72, i64 24
-  %894 = load i32, ptr %893, align 8
-  %895 = load i32, ptr %26, align 8
-  %896 = call i32 @audit_uid_comparator(i32 %892, i32 noundef %894, i32 %895) #12
-  br label %958
-
-897:                                              ; preds = %660
-  %898 = load i32, ptr %29, align 64
-  %899 = getelementptr inbounds i8, ptr %72, i64 24
-  %900 = load i32, ptr %899, align 8
-  %901 = load i32, ptr %27, align 8
-  %902 = call i32 @audit_uid_comparator(i32 %898, i32 noundef %900, i32 %901) #12
-  br label %958
-
-903:                                              ; preds = %660
-  %904 = getelementptr inbounds i8, ptr %72, i64 24
-  %905 = load i32, ptr %904, align 8
-  %906 = load i32, ptr %28, align 8
-  %907 = load i32, ptr %26, align 8
-  %908 = call i32 @audit_uid_comparator(i32 %906, i32 noundef %905, i32 %907) #12
-  br label %958
-
-909:                                              ; preds = %660
-  %910 = getelementptr inbounds i8, ptr %72, i64 24
-  %911 = load i32, ptr %910, align 8
-  %912 = load i32, ptr %28, align 8
-  %913 = load i32, ptr %27, align 8
-  %914 = call i32 @audit_uid_comparator(i32 %912, i32 noundef %911, i32 %913) #12
-  br label %958
-
-915:                                              ; preds = %660
-  %916 = getelementptr inbounds i8, ptr %72, i64 24
-  %917 = load i32, ptr %916, align 8
-  %918 = load i32, ptr %26, align 8
-  %919 = load i32, ptr %27, align 8
-  %920 = call i32 @audit_uid_comparator(i32 %918, i32 noundef %917, i32 %919) #12
-  br label %958
-
-921:                                              ; preds = %660
-  %922 = getelementptr inbounds i8, ptr %72, i64 24
-  %923 = load i32, ptr %922, align 8
-  %924 = load i32, ptr %25, align 4
-  %925 = load i32, ptr %24, align 4
-  %926 = call i32 @audit_gid_comparator(i32 %924, i32 noundef %923, i32 %925) #12
-  br label %958
-
-927:                                              ; preds = %660
-  %928 = getelementptr inbounds i8, ptr %72, i64 24
-  %929 = load i32, ptr %928, align 8
-  %930 = load i32, ptr %25, align 4
-  %931 = load i32, ptr %22, align 4
-  %932 = call i32 @audit_gid_comparator(i32 %930, i32 noundef %929, i32 %931) #12
-  br label %958
-
-933:                                              ; preds = %660
-  %934 = getelementptr inbounds i8, ptr %72, i64 24
-  %935 = load i32, ptr %934, align 8
-  %936 = load i32, ptr %25, align 4
-  %937 = load i32, ptr %23, align 4
-  %938 = call i32 @audit_gid_comparator(i32 %936, i32 noundef %935, i32 %937) #12
-  br label %958
-
-939:                                              ; preds = %660
-  %940 = getelementptr inbounds i8, ptr %72, i64 24
-  %941 = load i32, ptr %940, align 8
-  %942 = load i32, ptr %24, align 4
-  %943 = load i32, ptr %22, align 4
-  %944 = call i32 @audit_gid_comparator(i32 %942, i32 noundef %941, i32 %943) #12
-  br label %958
-
-945:                                              ; preds = %660
-  %946 = getelementptr inbounds i8, ptr %72, i64 24
-  %947 = load i32, ptr %946, align 8
-  %948 = load i32, ptr %24, align 4
-  %949 = load i32, ptr %23, align 4
-  %950 = call i32 @audit_gid_comparator(i32 %948, i32 noundef %947, i32 %949) #12
-  br label %958
-
-951:                                              ; preds = %660
-  %952 = getelementptr inbounds i8, ptr %72, i64 24
-  %953 = load i32, ptr %952, align 8
-  %954 = load i32, ptr %22, align 4
-  %955 = load i32, ptr %23, align 4
-  %956 = call i32 @audit_gid_comparator(i32 %954, i32 noundef %953, i32 %955) #12
-  br label %958
-
-957:                                              ; preds = %660
+665:                                              ; preds = %662
+  %666 = load i32, ptr %30, align 8
+  br i1 %31, label %674, label %667
+
+667:                                              ; preds = %665
+  %668 = getelementptr inbounds i8, ptr %72, i64 24
+  %669 = load i32, ptr %668, align 8
+  %670 = load i32, ptr %34, align 8
+  %671 = call i32 @audit_uid_comparator(i32 %666, i32 noundef %669, i32 %670) #12
+  %672 = icmp ne i32 %671, 0
+  %673 = or i1 %7, %672
+  br i1 %673, label %960, label %675
+
+674:                                              ; preds = %665
+  br i1 %7, label %.thread44, label %675
+
+675:                                              ; preds = %674, %667
+  %676 = getelementptr inbounds i8, ptr %72, i64 24
+  br label %677
+
+677:                                              ; preds = %681, %675
+  %678 = phi ptr [ %33, %675 ], [ %679, %681 ]
+  %679 = load ptr, ptr %678, align 8
+  %680 = icmp eq ptr %679, %33
+  br i1 %680, label %.thread44, label %681
+
+681:                                              ; preds = %677
+  %682 = load i32, ptr %676, align 8
+  %683 = getelementptr inbounds i8, ptr %679, i64 48
+  %684 = load i32, ptr %683, align 8
+  %685 = call i32 @audit_uid_comparator(i32 %666, i32 noundef %682, i32 %684) #12
+  %686 = icmp eq i32 %685, 0
+  br i1 %686, label %677, label %.thread46, !llvm.loop !75
+
+687:                                              ; preds = %662
+  %688 = load i32, ptr %25, align 4
+  br i1 %31, label %696, label %689
+
+689:                                              ; preds = %687
+  %690 = getelementptr inbounds i8, ptr %72, i64 24
+  %691 = load i32, ptr %690, align 8
+  %692 = load i32, ptr %32, align 4
+  %693 = call i32 @audit_gid_comparator(i32 %688, i32 noundef %691, i32 %692) #12
+  %694 = icmp ne i32 %693, 0
+  %695 = or i1 %7, %694
+  br i1 %695, label %960, label %697
+
+696:                                              ; preds = %687
+  br i1 %7, label %.thread44, label %697
+
+697:                                              ; preds = %696, %689
+  %698 = getelementptr inbounds i8, ptr %72, i64 24
+  br label %699
+
+699:                                              ; preds = %703, %697
+  %700 = phi ptr [ %33, %697 ], [ %701, %703 ]
+  %701 = load ptr, ptr %700, align 8
+  %702 = icmp eq ptr %701, %33
+  br i1 %702, label %.thread44, label %703
+
+703:                                              ; preds = %699
+  %704 = load i32, ptr %698, align 8
+  %705 = getelementptr inbounds i8, ptr %701, i64 52
+  %706 = load i32, ptr %705, align 4
+  %707 = call i32 @audit_gid_comparator(i32 %688, i32 noundef %704, i32 %706) #12
+  %708 = icmp eq i32 %707, 0
+  br i1 %708, label %699, label %.thread46, !llvm.loop !76
+
+709:                                              ; preds = %662
+  %710 = load i32, ptr %28, align 8
+  br i1 %31, label %718, label %711
+
+711:                                              ; preds = %709
+  %712 = getelementptr inbounds i8, ptr %72, i64 24
+  %713 = load i32, ptr %712, align 8
+  %714 = load i32, ptr %34, align 8
+  %715 = call i32 @audit_uid_comparator(i32 %710, i32 noundef %713, i32 %714) #12
+  %716 = icmp ne i32 %715, 0
+  %717 = or i1 %7, %716
+  br i1 %717, label %960, label %719
+
+718:                                              ; preds = %709
+  br i1 %7, label %.thread44, label %719
+
+719:                                              ; preds = %718, %711
+  %720 = getelementptr inbounds i8, ptr %72, i64 24
+  br label %721
+
+721:                                              ; preds = %725, %719
+  %722 = phi ptr [ %33, %719 ], [ %723, %725 ]
+  %723 = load ptr, ptr %722, align 8
+  %724 = icmp eq ptr %723, %33
+  br i1 %724, label %.thread44, label %725
+
+725:                                              ; preds = %721
+  %726 = load i32, ptr %720, align 8
+  %727 = getelementptr inbounds i8, ptr %723, i64 48
+  %728 = load i32, ptr %727, align 8
+  %729 = call i32 @audit_uid_comparator(i32 %710, i32 noundef %726, i32 %728) #12
+  %730 = icmp eq i32 %729, 0
+  br i1 %730, label %721, label %.thread46, !llvm.loop !75
+
+731:                                              ; preds = %662
+  %732 = load i32, ptr %24, align 4
+  br i1 %31, label %740, label %733
+
+733:                                              ; preds = %731
+  %734 = getelementptr inbounds i8, ptr %72, i64 24
+  %735 = load i32, ptr %734, align 8
+  %736 = load i32, ptr %32, align 4
+  %737 = call i32 @audit_gid_comparator(i32 %732, i32 noundef %735, i32 %736) #12
+  %738 = icmp ne i32 %737, 0
+  %739 = or i1 %7, %738
+  br i1 %739, label %960, label %741
+
+740:                                              ; preds = %731
+  br i1 %7, label %.thread44, label %741
+
+741:                                              ; preds = %740, %733
+  %742 = getelementptr inbounds i8, ptr %72, i64 24
+  br label %743
+
+743:                                              ; preds = %747, %741
+  %744 = phi ptr [ %33, %741 ], [ %745, %747 ]
+  %745 = load ptr, ptr %744, align 8
+  %746 = icmp eq ptr %745, %33
+  br i1 %746, label %.thread44, label %747
+
+747:                                              ; preds = %743
+  %748 = load i32, ptr %742, align 8
+  %749 = getelementptr inbounds i8, ptr %745, i64 52
+  %750 = load i32, ptr %749, align 4
+  %751 = call i32 @audit_gid_comparator(i32 %732, i32 noundef %748, i32 %750) #12
+  %752 = icmp eq i32 %751, 0
+  br i1 %752, label %743, label %.thread46, !llvm.loop !76
+
+753:                                              ; preds = %662
+  %754 = load i32, ptr %29, align 64
+  br i1 %31, label %762, label %755
+
+755:                                              ; preds = %753
+  %756 = getelementptr inbounds i8, ptr %72, i64 24
+  %757 = load i32, ptr %756, align 8
+  %758 = load i32, ptr %34, align 8
+  %759 = call i32 @audit_uid_comparator(i32 %754, i32 noundef %757, i32 %758) #12
+  %760 = icmp ne i32 %759, 0
+  %761 = or i1 %7, %760
+  br i1 %761, label %960, label %763
+
+762:                                              ; preds = %753
+  br i1 %7, label %.thread44, label %763
+
+763:                                              ; preds = %762, %755
+  %764 = getelementptr inbounds i8, ptr %72, i64 24
+  br label %765
+
+765:                                              ; preds = %769, %763
+  %766 = phi ptr [ %33, %763 ], [ %767, %769 ]
+  %767 = load ptr, ptr %766, align 8
+  %768 = icmp eq ptr %767, %33
+  br i1 %768, label %.thread44, label %769
+
+769:                                              ; preds = %765
+  %770 = load i32, ptr %764, align 8
+  %771 = getelementptr inbounds i8, ptr %767, i64 48
+  %772 = load i32, ptr %771, align 8
+  %773 = call i32 @audit_uid_comparator(i32 %754, i32 noundef %770, i32 %772) #12
+  %774 = icmp eq i32 %773, 0
+  br i1 %774, label %765, label %.thread46, !llvm.loop !75
+
+775:                                              ; preds = %662
+  %776 = load i32, ptr %26, align 8
+  br i1 %31, label %784, label %777
+
+777:                                              ; preds = %775
+  %778 = getelementptr inbounds i8, ptr %72, i64 24
+  %779 = load i32, ptr %778, align 8
+  %780 = load i32, ptr %34, align 8
+  %781 = call i32 @audit_uid_comparator(i32 %776, i32 noundef %779, i32 %780) #12
+  %782 = icmp ne i32 %781, 0
+  %783 = or i1 %7, %782
+  br i1 %783, label %960, label %785
+
+784:                                              ; preds = %775
+  br i1 %7, label %.thread44, label %785
+
+785:                                              ; preds = %784, %777
+  %786 = getelementptr inbounds i8, ptr %72, i64 24
+  br label %787
+
+787:                                              ; preds = %791, %785
+  %788 = phi ptr [ %33, %785 ], [ %789, %791 ]
+  %789 = load ptr, ptr %788, align 8
+  %790 = icmp eq ptr %789, %33
+  br i1 %790, label %.thread44, label %791
+
+791:                                              ; preds = %787
+  %792 = load i32, ptr %786, align 8
+  %793 = getelementptr inbounds i8, ptr %789, i64 48
+  %794 = load i32, ptr %793, align 8
+  %795 = call i32 @audit_uid_comparator(i32 %776, i32 noundef %792, i32 %794) #12
+  %796 = icmp eq i32 %795, 0
+  br i1 %796, label %787, label %.thread46, !llvm.loop !75
+
+797:                                              ; preds = %662
+  %798 = load i32, ptr %22, align 4
+  br i1 %31, label %806, label %799
+
+799:                                              ; preds = %797
+  %800 = getelementptr inbounds i8, ptr %72, i64 24
+  %801 = load i32, ptr %800, align 8
+  %802 = load i32, ptr %32, align 4
+  %803 = call i32 @audit_gid_comparator(i32 %798, i32 noundef %801, i32 %802) #12
+  %804 = icmp ne i32 %803, 0
+  %805 = or i1 %7, %804
+  br i1 %805, label %960, label %807
+
+806:                                              ; preds = %797
+  br i1 %7, label %.thread44, label %807
+
+807:                                              ; preds = %806, %799
+  %808 = getelementptr inbounds i8, ptr %72, i64 24
+  br label %809
+
+809:                                              ; preds = %813, %807
+  %810 = phi ptr [ %33, %807 ], [ %811, %813 ]
+  %811 = load ptr, ptr %810, align 8
+  %812 = icmp eq ptr %811, %33
+  br i1 %812, label %.thread44, label %813
+
+813:                                              ; preds = %809
+  %814 = load i32, ptr %808, align 8
+  %815 = getelementptr inbounds i8, ptr %811, i64 52
+  %816 = load i32, ptr %815, align 4
+  %817 = call i32 @audit_gid_comparator(i32 %798, i32 noundef %814, i32 %816) #12
+  %818 = icmp eq i32 %817, 0
+  br i1 %818, label %809, label %.thread46, !llvm.loop !76
+
+819:                                              ; preds = %662
+  %820 = load i32, ptr %27, align 8
+  br i1 %31, label %828, label %821
+
+821:                                              ; preds = %819
+  %822 = getelementptr inbounds i8, ptr %72, i64 24
+  %823 = load i32, ptr %822, align 8
+  %824 = load i32, ptr %34, align 8
+  %825 = call i32 @audit_uid_comparator(i32 %820, i32 noundef %823, i32 %824) #12
+  %826 = icmp ne i32 %825, 0
+  %827 = or i1 %7, %826
+  br i1 %827, label %960, label %829
+
+828:                                              ; preds = %819
+  br i1 %7, label %.thread44, label %829
+
+829:                                              ; preds = %828, %821
+  %830 = getelementptr inbounds i8, ptr %72, i64 24
+  br label %831
+
+831:                                              ; preds = %835, %829
+  %832 = phi ptr [ %33, %829 ], [ %833, %835 ]
+  %833 = load ptr, ptr %832, align 8
+  %834 = icmp eq ptr %833, %33
+  br i1 %834, label %.thread44, label %835
+
+835:                                              ; preds = %831
+  %836 = load i32, ptr %830, align 8
+  %837 = getelementptr inbounds i8, ptr %833, i64 48
+  %838 = load i32, ptr %837, align 8
+  %839 = call i32 @audit_uid_comparator(i32 %820, i32 noundef %836, i32 %838) #12
+  %840 = icmp eq i32 %839, 0
+  br i1 %840, label %831, label %.thread46, !llvm.loop !75
+
+841:                                              ; preds = %662
+  %842 = load i32, ptr %23, align 4
+  br i1 %31, label %850, label %843
+
+843:                                              ; preds = %841
+  %844 = getelementptr inbounds i8, ptr %72, i64 24
+  %845 = load i32, ptr %844, align 8
+  %846 = load i32, ptr %32, align 4
+  %847 = call i32 @audit_gid_comparator(i32 %842, i32 noundef %845, i32 %846) #12
+  %848 = icmp ne i32 %847, 0
+  %849 = or i1 %7, %848
+  br i1 %849, label %960, label %851
+
+850:                                              ; preds = %841
+  br i1 %7, label %.thread44, label %851
+
+851:                                              ; preds = %850, %843
+  %852 = getelementptr inbounds i8, ptr %72, i64 24
+  br label %853
+
+853:                                              ; preds = %857, %851
+  %854 = phi ptr [ %33, %851 ], [ %855, %857 ]
+  %855 = load ptr, ptr %854, align 8
+  %856 = icmp eq ptr %855, %33
+  br i1 %856, label %.thread44, label %857
+
+857:                                              ; preds = %853
+  %858 = load i32, ptr %852, align 8
+  %859 = getelementptr inbounds i8, ptr %855, i64 52
+  %860 = load i32, ptr %859, align 4
+  %861 = call i32 @audit_gid_comparator(i32 %842, i32 noundef %858, i32 %860) #12
+  %862 = icmp eq i32 %861, 0
+  br i1 %862, label %853, label %.thread46, !llvm.loop !76
+
+863:                                              ; preds = %662
+  %864 = getelementptr inbounds i8, ptr %72, i64 24
+  %865 = load i32, ptr %864, align 8
+  %866 = load i32, ptr %29, align 64
+  %867 = load i32, ptr %30, align 8
+  %868 = call i32 @audit_uid_comparator(i32 %867, i32 noundef %865, i32 %866) #12
+  br label %960
+
+869:                                              ; preds = %662
+  %870 = getelementptr inbounds i8, ptr %72, i64 24
+  %871 = load i32, ptr %870, align 8
+  %872 = load i32, ptr %30, align 8
+  %873 = load i32, ptr %28, align 8
+  %874 = call i32 @audit_uid_comparator(i32 %872, i32 noundef %871, i32 %873) #12
+  br label %960
+
+875:                                              ; preds = %662
+  %876 = getelementptr inbounds i8, ptr %72, i64 24
+  %877 = load i32, ptr %876, align 8
+  %878 = load i32, ptr %30, align 8
+  %879 = load i32, ptr %26, align 8
+  %880 = call i32 @audit_uid_comparator(i32 %878, i32 noundef %877, i32 %879) #12
+  br label %960
+
+881:                                              ; preds = %662
+  %882 = getelementptr inbounds i8, ptr %72, i64 24
+  %883 = load i32, ptr %882, align 8
+  %884 = load i32, ptr %30, align 8
+  %885 = load i32, ptr %27, align 8
+  %886 = call i32 @audit_uid_comparator(i32 %884, i32 noundef %883, i32 %885) #12
+  br label %960
+
+887:                                              ; preds = %662
+  %888 = load i32, ptr %29, align 64
+  %889 = getelementptr inbounds i8, ptr %72, i64 24
+  %890 = load i32, ptr %889, align 8
+  %891 = load i32, ptr %28, align 8
+  %892 = call i32 @audit_uid_comparator(i32 %888, i32 noundef %890, i32 %891) #12
+  br label %960
+
+893:                                              ; preds = %662
+  %894 = load i32, ptr %29, align 64
+  %895 = getelementptr inbounds i8, ptr %72, i64 24
+  %896 = load i32, ptr %895, align 8
+  %897 = load i32, ptr %26, align 8
+  %898 = call i32 @audit_uid_comparator(i32 %894, i32 noundef %896, i32 %897) #12
+  br label %960
+
+899:                                              ; preds = %662
+  %900 = load i32, ptr %29, align 64
+  %901 = getelementptr inbounds i8, ptr %72, i64 24
+  %902 = load i32, ptr %901, align 8
+  %903 = load i32, ptr %27, align 8
+  %904 = call i32 @audit_uid_comparator(i32 %900, i32 noundef %902, i32 %903) #12
+  br label %960
+
+905:                                              ; preds = %662
+  %906 = getelementptr inbounds i8, ptr %72, i64 24
+  %907 = load i32, ptr %906, align 8
+  %908 = load i32, ptr %28, align 8
+  %909 = load i32, ptr %26, align 8
+  %910 = call i32 @audit_uid_comparator(i32 %908, i32 noundef %907, i32 %909) #12
+  br label %960
+
+911:                                              ; preds = %662
+  %912 = getelementptr inbounds i8, ptr %72, i64 24
+  %913 = load i32, ptr %912, align 8
+  %914 = load i32, ptr %28, align 8
+  %915 = load i32, ptr %27, align 8
+  %916 = call i32 @audit_uid_comparator(i32 %914, i32 noundef %913, i32 %915) #12
+  br label %960
+
+917:                                              ; preds = %662
+  %918 = getelementptr inbounds i8, ptr %72, i64 24
+  %919 = load i32, ptr %918, align 8
+  %920 = load i32, ptr %26, align 8
+  %921 = load i32, ptr %27, align 8
+  %922 = call i32 @audit_uid_comparator(i32 %920, i32 noundef %919, i32 %921) #12
+  br label %960
+
+923:                                              ; preds = %662
+  %924 = getelementptr inbounds i8, ptr %72, i64 24
+  %925 = load i32, ptr %924, align 8
+  %926 = load i32, ptr %25, align 4
+  %927 = load i32, ptr %24, align 4
+  %928 = call i32 @audit_gid_comparator(i32 %926, i32 noundef %925, i32 %927) #12
+  br label %960
+
+929:                                              ; preds = %662
+  %930 = getelementptr inbounds i8, ptr %72, i64 24
+  %931 = load i32, ptr %930, align 8
+  %932 = load i32, ptr %25, align 4
+  %933 = load i32, ptr %22, align 4
+  %934 = call i32 @audit_gid_comparator(i32 %932, i32 noundef %931, i32 %933) #12
+  br label %960
+
+935:                                              ; preds = %662
+  %936 = getelementptr inbounds i8, ptr %72, i64 24
+  %937 = load i32, ptr %936, align 8
+  %938 = load i32, ptr %25, align 4
+  %939 = load i32, ptr %23, align 4
+  %940 = call i32 @audit_gid_comparator(i32 %938, i32 noundef %937, i32 %939) #12
+  br label %960
+
+941:                                              ; preds = %662
+  %942 = getelementptr inbounds i8, ptr %72, i64 24
+  %943 = load i32, ptr %942, align 8
+  %944 = load i32, ptr %24, align 4
+  %945 = load i32, ptr %22, align 4
+  %946 = call i32 @audit_gid_comparator(i32 %944, i32 noundef %943, i32 %945) #12
+  br label %960
+
+947:                                              ; preds = %662
+  %948 = getelementptr inbounds i8, ptr %72, i64 24
+  %949 = load i32, ptr %948, align 8
+  %950 = load i32, ptr %24, align 4
+  %951 = load i32, ptr %23, align 4
+  %952 = call i32 @audit_gid_comparator(i32 %950, i32 noundef %949, i32 %951) #12
+  br label %960
+
+953:                                              ; preds = %662
+  %954 = getelementptr inbounds i8, ptr %72, i64 24
+  %955 = load i32, ptr %954, align 8
+  %956 = load i32, ptr %22, align 4
+  %957 = load i32, ptr %23, align 4
+  %958 = call i32 @audit_gid_comparator(i32 %956, i32 noundef %955, i32 %957) #12
+  br label %960
+
+959:                                              ; preds = %662
   call void asm sideeffect "483: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 483b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 483) #12, !srcloc !77
   call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.13) #12
   call void asm sideeffect "484: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 484b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 484) #12, !srcloc !78
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 450, i32 2313, i64 12) #12, !srcloc !79
   call void asm sideeffect "485: nop\0A\09.pushsection .discard.instr_end\0A\09.long 485b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 485) #12, !srcloc !80
   call void asm sideeffect "486: nop\0A\09.pushsection .discard.instr_end\0A\09.long 486b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 486) #12, !srcloc !81
-  br label %.thread47
+  br label %.thread44
 
-958:                                              ; preds = %300, %259, %951, %945, %939, %933, %927, %921, %915, %909, %903, %897, %891, %885, %879, %873, %867, %861, %841, %819, %797, %775, %753, %731, %709, %687, %665, %.loopexit62, %630, %625, %541, %530, %527, %.loopexit60, %494, %479, %466, %459, %.loopexit, %411, %403, %380, %357, %332, %247, %245, %227, %216, %208, %201, %194, %187, %181, %177, %173, %156, %152, %148, %130, %123, %116, %109, %106, %100, %93, %74
-  %959 = phi i32 [ %632, %630 ], [ %626, %625 ], [ %551, %541 ], [ %526, %527 ], [ %526, %.loopexit60 ], [ %500, %494 ], [ %486, %479 ], [ %474, %466 ], [ %465, %459 ], [ %413, %411 ], [ %407, %403 ], [ %386, %380 ], [ %363, %357 ], [ %339, %332 ], [ %246, %245 ], [ %248, %247 ], [ %234, %227 ], [ %222, %216 ], [ %214, %208 ], [ %207, %201 ], [ %200, %194 ], [ %193, %187 ], [ %176, %173 ], [ %186, %181 ], [ %168, %177 ], [ %151, %148 ], [ %161, %156 ], [ %143, %152 ], [ %136, %130 ], [ %129, %123 ], [ %122, %116 ], [ %115, %109 ], [ %108, %106 ], [ %102, %100 ], [ %99, %93 ], [ %80, %74 ], [ %458, %.loopexit ], [ %539, %530 ], [ %659, %.loopexit62 ], [ %956, %951 ], [ %950, %945 ], [ %944, %939 ], [ %938, %933 ], [ %932, %927 ], [ %926, %921 ], [ %920, %915 ], [ %914, %909 ], [ %908, %903 ], [ %902, %897 ], [ %896, %891 ], [ %890, %885 ], [ %884, %879 ], [ %878, %873 ], [ %872, %867 ], [ %866, %861 ], [ %669, %665 ], [ %691, %687 ], [ %713, %709 ], [ %735, %731 ], [ %757, %753 ], [ %779, %775 ], [ %801, %797 ], [ %823, %819 ], [ %845, %841 ], [ %spec.select, %259 ], [ %spec.select1, %300 ]
-  %960 = phi i32 [ %69, %630 ], [ %69, %625 ], [ %69, %541 ], [ %69, %527 ], [ %69, %.loopexit60 ], [ 0, %494 ], [ %69, %479 ], [ %69, %466 ], [ %69, %459 ], [ %69, %411 ], [ %69, %403 ], [ %69, %380 ], [ %69, %357 ], [ %69, %332 ], [ %69, %245 ], [ %69, %247 ], [ %69, %227 ], [ %69, %216 ], [ %69, %208 ], [ %69, %201 ], [ %69, %194 ], [ %69, %187 ], [ %69, %173 ], [ %69, %181 ], [ %69, %177 ], [ %69, %148 ], [ %69, %156 ], [ %69, %152 ], [ %69, %130 ], [ %69, %123 ], [ %69, %116 ], [ %69, %109 ], [ %69, %106 ], [ %69, %100 ], [ %69, %93 ], [ %69, %74 ], [ %69, %.loopexit ], [ %69, %530 ], [ %69, %.loopexit62 ], [ %69, %951 ], [ %69, %945 ], [ %69, %939 ], [ %69, %933 ], [ %69, %927 ], [ %69, %921 ], [ %69, %915 ], [ %69, %909 ], [ %69, %903 ], [ %69, %897 ], [ %69, %891 ], [ %69, %885 ], [ %69, %879 ], [ %69, %873 ], [ %69, %867 ], [ %69, %861 ], [ %69, %665 ], [ %69, %687 ], [ %69, %709 ], [ %69, %731 ], [ %69, %753 ], [ %69, %775 ], [ %69, %797 ], [ %69, %819 ], [ %69, %841 ], [ %69, %259 ], [ %69, %300 ]
-  %961 = icmp eq i32 %959, 0
-  br i1 %961, label %.thread47, label %.thread49
+960:                                              ; preds = %953, %947, %941, %935, %929, %923, %917, %911, %905, %899, %893, %887, %881, %875, %869, %863, %843, %821, %799, %777, %755, %733, %711, %689, %667, %.loopexit59, %632, %627, %541, %530, %527, %.loopexit57, %494, %479, %466, %459, %.loopexit, %411, %403, %380, %357, %332, %247, %245, %227, %216, %208, %201, %194, %187, %181, %177, %173, %156, %152, %148, %130, %123, %116, %109, %106, %100, %93, %74
+  %961 = phi i32 [ %634, %632 ], [ %628, %627 ], [ %551, %541 ], [ %526, %527 ], [ %526, %.loopexit57 ], [ %500, %494 ], [ %486, %479 ], [ %474, %466 ], [ %465, %459 ], [ %413, %411 ], [ %407, %403 ], [ %386, %380 ], [ %363, %357 ], [ %339, %332 ], [ %246, %245 ], [ %248, %247 ], [ %234, %227 ], [ %222, %216 ], [ %214, %208 ], [ %207, %201 ], [ %200, %194 ], [ %193, %187 ], [ %176, %173 ], [ %186, %181 ], [ %168, %177 ], [ %151, %148 ], [ %161, %156 ], [ %143, %152 ], [ %136, %130 ], [ %129, %123 ], [ %122, %116 ], [ %115, %109 ], [ %108, %106 ], [ %102, %100 ], [ %99, %93 ], [ %80, %74 ], [ %458, %.loopexit ], [ %539, %530 ], [ %661, %.loopexit59 ], [ %958, %953 ], [ %952, %947 ], [ %946, %941 ], [ %940, %935 ], [ %934, %929 ], [ %928, %923 ], [ %922, %917 ], [ %916, %911 ], [ %910, %905 ], [ %904, %899 ], [ %898, %893 ], [ %892, %887 ], [ %886, %881 ], [ %880, %875 ], [ %874, %869 ], [ %868, %863 ], [ %671, %667 ], [ %693, %689 ], [ %715, %711 ], [ %737, %733 ], [ %759, %755 ], [ %781, %777 ], [ %803, %799 ], [ %825, %821 ], [ %847, %843 ]
+  %962 = phi i32 [ %69, %632 ], [ %69, %627 ], [ %69, %541 ], [ %69, %527 ], [ %69, %.loopexit57 ], [ 0, %494 ], [ %69, %479 ], [ %69, %466 ], [ %69, %459 ], [ %69, %411 ], [ %69, %403 ], [ %69, %380 ], [ %69, %357 ], [ %69, %332 ], [ %69, %245 ], [ %69, %247 ], [ %69, %227 ], [ %69, %216 ], [ %69, %208 ], [ %69, %201 ], [ %69, %194 ], [ %69, %187 ], [ %69, %173 ], [ %69, %181 ], [ %69, %177 ], [ %69, %148 ], [ %69, %156 ], [ %69, %152 ], [ %69, %130 ], [ %69, %123 ], [ %69, %116 ], [ %69, %109 ], [ %69, %106 ], [ %69, %100 ], [ %69, %93 ], [ %69, %74 ], [ %69, %.loopexit ], [ %69, %530 ], [ %69, %.loopexit59 ], [ %69, %953 ], [ %69, %947 ], [ %69, %941 ], [ %69, %935 ], [ %69, %929 ], [ %69, %923 ], [ %69, %917 ], [ %69, %911 ], [ %69, %905 ], [ %69, %899 ], [ %69, %893 ], [ %69, %887 ], [ %69, %881 ], [ %69, %875 ], [ %69, %869 ], [ %69, %863 ], [ %69, %667 ], [ %69, %689 ], [ %69, %711 ], [ %69, %733 ], [ %69, %755 ], [ %69, %777 ], [ %69, %799 ], [ %69, %821 ], [ %69, %843 ]
+  %963 = icmp eq i32 %961, 0
+  br i1 %963, label %.thread44, label %.thread46
 
-.loopexit83:                                      ; preds = %.thread49, %14
-  br i1 %7, label %975, label %962
+.loopexit80:                                      ; preds = %.thread46, %14
+  br i1 %7, label %977, label %964
 
-962:                                              ; preds = %.loopexit83
-  %963 = getelementptr inbounds i8, ptr %1, i64 280
-  %964 = load ptr, ptr %963, align 8
-  %965 = icmp eq ptr %964, null
-  br i1 %965, label %971, label %966
+964:                                              ; preds = %.loopexit80
+  %965 = getelementptr inbounds i8, ptr %1, i64 280
+  %966 = load ptr, ptr %965, align 8
+  %967 = icmp eq ptr %966, null
+  br i1 %967, label %973, label %968
 
-966:                                              ; preds = %962
-  %967 = getelementptr inbounds i8, ptr %2, i64 688
-  %968 = load ptr, ptr %967, align 8
-  call void @kfree(ptr noundef %968) #12
-  %969 = load ptr, ptr %963, align 8
-  %970 = call noalias ptr @kstrdup(ptr noundef %969, i32 noundef 2080) #12
-  store ptr %970, ptr %967, align 8
-  br label %971
+968:                                              ; preds = %964
+  %969 = getelementptr inbounds i8, ptr %2, i64 688
+  %970 = load ptr, ptr %969, align 8
+  call void @kfree(ptr noundef %970) #12
+  %971 = load ptr, ptr %965, align 8
+  %972 = call noalias ptr @kstrdup(ptr noundef %971, i32 noundef 2080) #12
+  store ptr %972, ptr %969, align 8
+  br label %973
 
-971:                                              ; preds = %966, %962
-  %972 = getelementptr inbounds i8, ptr %1, i64 368
-  %973 = load i64, ptr %972, align 8
-  %974 = getelementptr inbounds i8, ptr %2, i64 88
-  store i64 %973, ptr %974, align 8
-  br label %975
+973:                                              ; preds = %968, %964
+  %974 = getelementptr inbounds i8, ptr %1, i64 368
+  %975 = load i64, ptr %974, align 8
+  %976 = getelementptr inbounds i8, ptr %2, i64 88
+  store i64 %975, ptr %976, align 8
+  br label %977
 
-975:                                              ; preds = %971, %.loopexit83
-  %976 = getelementptr inbounds i8, ptr %1, i64 12
-  %977 = load i32, ptr %976, align 4
-  switch i32 %977, label %.thread47 [
-    i32 0, label %978
-    i32 2, label %978
+977:                                              ; preds = %973, %.loopexit80
+  %978 = getelementptr inbounds i8, ptr %1, i64 12
+  %979 = load i32, ptr %978, align 4
+  switch i32 %979, label %.thread44 [
+    i32 0, label %980
+    i32 2, label %980
   ]
 
-978:                                              ; preds = %975, %975
-  store i32 %977, ptr %4, align 4
-  br label %.thread47
+980:                                              ; preds = %977, %977
+  store i32 %979, ptr %4, align 4
+  br label %.thread44
 
-.thread47:                                        ; preds = %511, %848, %826, %804, %782, %760, %738, %716, %694, %672, %81, %215, %223, %224, %235, %236, %266, %307, %340, %364, %387, %402, %414, %475, %476, %487, %501, %540, %67, %958, %851, %829, %807, %785, %763, %741, %719, %697, %675, %391, %368, %344, %311, %270, %957, %978, %975, %8
-  %979 = phi i32 [ 0, %8 ], [ 1, %975 ], [ 1, %978 ], [ 0, %957 ], [ 0, %270 ], [ 0, %311 ], [ 0, %344 ], [ 0, %368 ], [ 0, %391 ], [ 0, %675 ], [ 0, %697 ], [ 0, %719 ], [ 0, %741 ], [ 0, %763 ], [ 0, %785 ], [ 0, %807 ], [ 0, %829 ], [ 0, %851 ], [ 0, %958 ], [ 0, %67 ], [ 0, %540 ], [ 0, %501 ], [ 0, %487 ], [ 0, %476 ], [ 0, %475 ], [ 0, %414 ], [ 0, %402 ], [ 0, %387 ], [ 0, %364 ], [ 0, %340 ], [ 0, %307 ], [ 0, %266 ], [ 0, %236 ], [ 0, %235 ], [ 0, %224 ], [ 0, %223 ], [ 0, %215 ], [ 0, %81 ], [ 0, %672 ], [ 0, %694 ], [ 0, %716 ], [ 0, %738 ], [ 0, %760 ], [ 0, %782 ], [ 0, %804 ], [ 0, %826 ], [ 0, %848 ], [ 0, %511 ]
+.thread44:                                        ; preds = %511, %850, %828, %806, %784, %762, %740, %718, %696, %674, %81, %215, %223, %224, %235, %236, %266, %259, %307, %300, %340, %364, %387, %402, %414, %475, %476, %487, %501, %540, %67, %960, %853, %831, %809, %787, %765, %743, %721, %699, %677, %391, %368, %344, %311, %270, %959, %980, %977, %8
+  %981 = phi i32 [ 0, %8 ], [ 1, %977 ], [ 1, %980 ], [ 0, %959 ], [ 0, %270 ], [ 0, %311 ], [ 0, %344 ], [ 0, %368 ], [ 0, %391 ], [ 0, %677 ], [ 0, %699 ], [ 0, %721 ], [ 0, %743 ], [ 0, %765 ], [ 0, %787 ], [ 0, %809 ], [ 0, %831 ], [ 0, %853 ], [ 0, %960 ], [ 0, %67 ], [ 0, %540 ], [ 0, %501 ], [ 0, %487 ], [ 0, %476 ], [ 0, %475 ], [ 0, %414 ], [ 0, %402 ], [ 0, %387 ], [ 0, %364 ], [ 0, %340 ], [ 0, %300 ], [ 0, %307 ], [ 0, %259 ], [ 0, %266 ], [ 0, %236 ], [ 0, %235 ], [ 0, %224 ], [ 0, %223 ], [ 0, %215 ], [ 0, %81 ], [ 0, %674 ], [ 0, %696 ], [ 0, %718 ], [ 0, %740 ], [ 0, %762 ], [ 0, %784 ], [ 0, %806 ], [ 0, %828 ], [ 0, %850 ], [ 0, %511 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
-  ret i32 %979
+  ret i32 %981
 }
 
 ; Function Attrs: null_pointer_is_valid

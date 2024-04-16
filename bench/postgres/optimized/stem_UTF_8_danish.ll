@@ -209,7 +209,7 @@ r_mark_regions.exit:                              ; preds = %1, %13, %17, %20, %
   %81 = getelementptr i8, ptr %80, i64 4
   %82 = load i32, ptr %81, align 4
   %83 = icmp slt i32 %79, %82
-  br i1 %83, label %111, label %84
+  br i1 %83, label %r_other_suffix.exit, label %84
 
 84:                                               ; preds = %78
   %85 = load i32, ptr %31, align 8
@@ -217,7 +217,7 @@ r_mark_regions.exit:                              ; preds = %1, %13, %17, %20, %
   store i32 %79, ptr %69, align 8
   %86 = add i32 %79, -1
   %.not60.i = icmp sgt i32 %86, %82
-  br i1 %.not60.i, label %87, label %.sink.split59
+  br i1 %.not60.i, label %87, label %r_other_suffix.exit.sink.split
 
 87:                                               ; preds = %84
   %88 = load ptr, ptr %0, align 8
@@ -227,26 +227,26 @@ r_mark_regions.exit:                              ; preds = %1, %13, %17, %20, %
   %92 = zext i8 %91 to i32
   %.mask.i52 = and i32 %92, 224
   %.not61.i = icmp eq i32 %.mask.i52, 96
-  br i1 %.not61.i, label %93, label %.sink.split59
+  br i1 %.not61.i, label %93, label %r_other_suffix.exit.sink.split
 
 93:                                               ; preds = %87
   %94 = and i32 %92, 31
   %95 = lshr i32 1572992, %94
   %96 = and i32 %95, 1
   %.not62.i = icmp eq i32 %96, 0
-  br i1 %.not62.i, label %.sink.split59, label %97
+  br i1 %.not62.i, label %r_other_suffix.exit.sink.split, label %97
 
 97:                                               ; preds = %93
   %98 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_2, i32 noundef 5) #2
   %.not63.i = icmp eq i32 %98, 0
-  br i1 %.not63.i, label %.sink.split59, label %99
+  br i1 %.not63.i, label %r_other_suffix.exit.sink.split, label %99
 
 99:                                               ; preds = %97
   %100 = load i32, ptr %2, align 8
   %101 = getelementptr inbounds i8, ptr %0, i64 20
   store i32 %100, ptr %101, align 4
   store i32 %85, ptr %31, align 8
-  switch i32 %98, label %111 [
+  switch i32 %98, label %r_other_suffix.exit [
     i32 1, label %102
     i32 2, label %108
   ]
@@ -259,72 +259,72 @@ r_mark_regions.exit:                              ; preds = %1, %13, %17, %20, %
 105:                                              ; preds = %102
   %106 = tail call fastcc i32 @r_consonant_pair(ptr noundef nonnull %0), !range !4
   %107 = icmp slt i32 %106, 0
-  br i1 %107, label %r_main_suffix.exit, label %111
+  br i1 %107, label %r_main_suffix.exit, label %r_other_suffix.exit
 
 108:                                              ; preds = %99
   %109 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 4, ptr noundef nonnull @s_2) #2
   %110 = icmp slt i32 %109, 0
-  br i1 %110, label %r_main_suffix.exit, label %111
+  br i1 %110, label %r_main_suffix.exit, label %r_other_suffix.exit
 
-.sink.split59:                                    ; preds = %97, %84, %87, %93
+r_other_suffix.exit.sink.split:                   ; preds = %97, %84, %87, %93
   store i32 %85, ptr %31, align 8
-  br label %111
+  br label %r_other_suffix.exit
 
-111:                                              ; preds = %.sink.split59, %105, %78, %99, %108
-  %112 = load i32, ptr %4, align 4
-  store i32 %112, ptr %2, align 8
-  %113 = load ptr, ptr %6, align 8
-  %114 = getelementptr i8, ptr %113, i64 4
-  %115 = load i32, ptr %114, align 4
-  %116 = icmp slt i32 %112, %115
-  br i1 %116, label %138, label %117
+r_other_suffix.exit:                              ; preds = %r_other_suffix.exit.sink.split, %105, %99, %108, %78
+  %111 = load i32, ptr %4, align 4
+  store i32 %111, ptr %2, align 8
+  %112 = load ptr, ptr %6, align 8
+  %113 = getelementptr i8, ptr %112, i64 4
+  %114 = load i32, ptr %113, align 4
+  %115 = icmp slt i32 %111, %114
+  br i1 %115, label %137, label %116
 
-117:                                              ; preds = %111
-  %118 = load i32, ptr %31, align 8
-  store i32 %115, ptr %31, align 8
-  store i32 %112, ptr %69, align 8
-  %119 = tail call i32 @in_grouping_b_U(ptr noundef nonnull %0, ptr noundef nonnull @g_c, i32 noundef 98, i32 noundef 122, i32 noundef 0) #2
-  %.not.i53 = icmp eq i32 %119, 0
-  br i1 %.not.i53, label %121, label %120
+116:                                              ; preds = %r_other_suffix.exit
+  %117 = load i32, ptr %31, align 8
+  store i32 %114, ptr %31, align 8
+  store i32 %111, ptr %69, align 8
+  %118 = tail call i32 @in_grouping_b_U(ptr noundef nonnull %0, ptr noundef nonnull @g_c, i32 noundef 98, i32 noundef 122, i32 noundef 0) #2
+  %.not.i53 = icmp eq i32 %118, 0
+  br i1 %.not.i53, label %120, label %119
 
-120:                                              ; preds = %117
-  store i32 %118, ptr %31, align 8
-  br label %138
+119:                                              ; preds = %116
+  store i32 %117, ptr %31, align 8
+  br label %137
 
-121:                                              ; preds = %117
-  %122 = load i32, ptr %2, align 8
-  %123 = getelementptr inbounds i8, ptr %0, i64 20
-  store i32 %122, ptr %123, align 4
-  %124 = getelementptr inbounds i8, ptr %0, i64 32
+120:                                              ; preds = %116
+  %121 = load i32, ptr %2, align 8
+  %122 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 %121, ptr %122, align 4
+  %123 = getelementptr inbounds i8, ptr %0, i64 32
+  %124 = load ptr, ptr %123, align 8
   %125 = load ptr, ptr %124, align 8
-  %126 = load ptr, ptr %125, align 8
-  %127 = tail call ptr @slice_to(ptr noundef nonnull %0, ptr noundef %126) #2
-  %128 = load ptr, ptr %124, align 8
-  store ptr %127, ptr %128, align 8
-  %129 = load ptr, ptr %124, align 8
-  %130 = load ptr, ptr %129, align 8
-  %131 = icmp eq ptr %130, null
-  br i1 %131, label %r_main_suffix.exit, label %132
+  %126 = tail call ptr @slice_to(ptr noundef nonnull %0, ptr noundef %125) #2
+  %127 = load ptr, ptr %123, align 8
+  store ptr %126, ptr %127, align 8
+  %128 = load ptr, ptr %123, align 8
+  %129 = load ptr, ptr %128, align 8
+  %130 = icmp eq ptr %129, null
+  br i1 %130, label %r_main_suffix.exit, label %131
 
-132:                                              ; preds = %121
-  store i32 %118, ptr %31, align 8
-  %133 = load ptr, ptr %129, align 8
-  %134 = tail call i32 @eq_v_b(ptr noundef nonnull %0, ptr noundef %133) #2
-  %.not25.i = icmp eq i32 %134, 0
-  br i1 %.not25.i, label %138, label %135
+131:                                              ; preds = %120
+  store i32 %117, ptr %31, align 8
+  %132 = load ptr, ptr %128, align 8
+  %133 = tail call i32 @eq_v_b(ptr noundef nonnull %0, ptr noundef %132) #2
+  %.not25.i = icmp eq i32 %133, 0
+  br i1 %.not25.i, label %137, label %134
 
-135:                                              ; preds = %132
-  %136 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
-  %137 = icmp slt i32 %136, 0
-  br i1 %137, label %r_main_suffix.exit, label %138
+134:                                              ; preds = %131
+  %135 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
+  %136 = icmp slt i32 %135, 0
+  br i1 %136, label %r_main_suffix.exit, label %137
 
-138:                                              ; preds = %120, %111, %132, %135
-  %139 = load i32, ptr %31, align 8
-  store i32 %139, ptr %2, align 8
+137:                                              ; preds = %119, %r_other_suffix.exit, %131, %134
+  %138 = load i32, ptr %31, align 8
+  store i32 %138, ptr %2, align 8
   br label %r_main_suffix.exit
 
-r_main_suffix.exit:                               ; preds = %135, %108, %121, %105, %102, %75, %60, %55, %63, %138
-  %.0 = phi i32 [ 1, %138 ], [ %65, %63 ], [ %56, %55 ], [ %61, %60 ], [ %76, %75 ], [ %103, %102 ], [ %106, %105 ], [ -1, %121 ], [ %109, %108 ], [ %136, %135 ]
+r_main_suffix.exit:                               ; preds = %134, %108, %105, %102, %75, %120, %60, %55, %63, %137
+  %.0 = phi i32 [ 1, %137 ], [ %65, %63 ], [ %56, %55 ], [ %61, %60 ], [ -1, %120 ], [ %109, %108 ], [ %106, %105 ], [ %103, %102 ], [ %76, %75 ], [ %135, %134 ]
   ret i32 %.0
 }
 

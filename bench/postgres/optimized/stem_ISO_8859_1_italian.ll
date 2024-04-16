@@ -955,8 +955,8 @@ r_verb_suffix.exit.thread:                        ; preds = %192, %195, %236, %2
   %.val83.i = load ptr, ptr %72, align 8
   %315 = getelementptr i8, ptr %.val83.i, i64 8
   %.val83.val.i = load i32, ptr %315, align 4
-  %.not.i.not.i75 = icmp sgt i32 %.val83.val.i, %314
-  br i1 %.not.i.not.i75, label %316, label %318
+  %.not.i.not.i76 = icmp sgt i32 %.val83.val.i, %314
+  br i1 %.not.i.not.i76, label %316, label %318
 
 316:                                              ; preds = %313
   %317 = load i32, ptr %36, align 4
@@ -1006,20 +1006,20 @@ r_verb_suffix.exit.thread:                        ; preds = %192, %195, %236, %2
 336:                                              ; preds = %332
   %337 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
   %338 = icmp slt i32 %337, 0
-  br i1 %338, label %r_attached_pronoun.exit, label %._crit_edge.i76
+  br i1 %338, label %r_attached_pronoun.exit, label %._crit_edge.i77
 
-._crit_edge.i76:                                  ; preds = %336
-  %.pre.i77 = load i32, ptr %36, align 4
+._crit_edge.i77:                                  ; preds = %336
+  %.pre.i78 = load i32, ptr %36, align 4
   %.pre92.i = load i32, ptr %2, align 8
   br label %339
 
-339:                                              ; preds = %._crit_edge.i76, %334, %330, %316, %311
-  %340 = phi i32 [ %.pre92.i, %._crit_edge.i76 ], [ %335, %334 ], [ %331, %330 ], [ %317, %316 ], [ %312, %311 ]
-  %341 = phi i32 [ %.pre.i77, %._crit_edge.i76 ], [ %335, %334 ], [ %331, %330 ], [ %317, %316 ], [ %312, %311 ]
+339:                                              ; preds = %._crit_edge.i77, %334, %330, %316, %311
+  %340 = phi i32 [ %.pre92.i, %._crit_edge.i77 ], [ %335, %334 ], [ %331, %330 ], [ %317, %316 ], [ %312, %311 ]
+  %341 = phi i32 [ %.pre.i78, %._crit_edge.i77 ], [ %335, %334 ], [ %331, %330 ], [ %317, %316 ], [ %312, %311 ]
   store i32 %340, ptr %37, align 8
   %342 = load i32, ptr %144, align 8
   %.not80.i = icmp sgt i32 %340, %342
-  br i1 %.not80.i, label %343, label %356
+  br i1 %.not80.i, label %343, label %r_vowel_suffix.exit
 
 343:                                              ; preds = %339
   %344 = load ptr, ptr %0, align 8
@@ -1028,14 +1028,14 @@ r_verb_suffix.exit.thread:                        ; preds = %192, %195, %236, %2
   %347 = getelementptr i8, ptr %344, i64 %346
   %348 = load i8, ptr %347, align 1
   %.not81.i = icmp eq i8 %348, 104
-  br i1 %.not81.i, label %349, label %356
+  br i1 %.not81.i, label %349, label %r_vowel_suffix.exit
 
 349:                                              ; preds = %343
   store i32 %345, ptr %2, align 8
   store i32 %345, ptr %4, align 4
   %350 = tail call i32 @in_grouping_b(ptr noundef nonnull %0, ptr noundef nonnull @g_CG, i32 noundef 99, i32 noundef 103, i32 noundef 0) #2
   %.not82.i = icmp eq i32 %350, 0
-  br i1 %.not82.i, label %351, label %.sink.split
+  br i1 %.not82.i, label %351, label %r_vowel_suffix.exit.sink.split
 
 351:                                              ; preds = %349
   %.val86.i = load i32, ptr %2, align 8
@@ -1043,94 +1043,94 @@ r_verb_suffix.exit.thread:                        ; preds = %192, %195, %236, %2
   %352 = getelementptr i8, ptr %.val87.i, i64 8
   %.val87.val.i = load i32, ptr %352, align 4
   %.not.i90.not.i = icmp sgt i32 %.val87.val.i, %.val86.i
-  br i1 %.not.i90.not.i, label %.sink.split, label %353
+  br i1 %.not.i90.not.i, label %r_vowel_suffix.exit.sink.split, label %353
 
 353:                                              ; preds = %351
   %354 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
   %355 = icmp slt i32 %354, 0
-  br i1 %355, label %r_attached_pronoun.exit, label %.sink.split
+  br i1 %355, label %r_attached_pronoun.exit, label %r_vowel_suffix.exit.sink.split
 
-.sink.split:                                      ; preds = %353, %351, %349
-  %.pre104 = load i32, ptr %36, align 4
-  br label %356
+r_vowel_suffix.exit.sink.split:                   ; preds = %349, %351, %353
+  %.pre105 = load i32, ptr %36, align 4
+  br label %r_vowel_suffix.exit
 
-356:                                              ; preds = %.sink.split, %343, %339
-  %357 = phi i32 [ %341, %343 ], [ %341, %339 ], [ %.pre104, %.sink.split ]
-  %358 = load i32, ptr %144, align 8
-  store i32 %358, ptr %2, align 8
-  br label %359
+r_vowel_suffix.exit:                              ; preds = %r_vowel_suffix.exit.sink.split, %343, %339
+  %356 = phi i32 [ %341, %343 ], [ %341, %339 ], [ %.pre105, %r_vowel_suffix.exit.sink.split ]
+  %357 = load i32, ptr %144, align 8
+  store i32 %357, ptr %2, align 8
+  br label %358
 
-359:                                              ; preds = %382, %356
-  %360 = phi i32 [ %.pre106, %382 ], [ %357, %356 ]
-  %361 = phi i32 [ %.pre105, %382 ], [ %358, %356 ]
-  store i32 %361, ptr %4, align 4
-  %.not.i78 = icmp slt i32 %361, %360
-  br i1 %.not.i78, label %362, label %.thread38.i
+358:                                              ; preds = %381, %r_vowel_suffix.exit
+  %359 = phi i32 [ %.pre107, %381 ], [ %356, %r_vowel_suffix.exit ]
+  %360 = phi i32 [ %.pre106, %381 ], [ %357, %r_vowel_suffix.exit ]
+  store i32 %360, ptr %4, align 4
+  %.not.i79 = icmp slt i32 %360, %359
+  br i1 %.not.i79, label %361, label %.thread38.i
 
-362:                                              ; preds = %359
-  %363 = load ptr, ptr %0, align 8
-  %364 = sext i32 %361 to i64
-  %365 = getelementptr i8, ptr %363, i64 %364
-  %366 = load i8, ptr %365, align 1
-  switch i8 %366, label %.thread38.i [
-    i8 73, label %367
-    i8 85, label %367
+361:                                              ; preds = %358
+  %362 = load ptr, ptr %0, align 8
+  %363 = sext i32 %360 to i64
+  %364 = getelementptr i8, ptr %362, i64 %363
+  %365 = load i8, ptr %364, align 1
+  switch i8 %365, label %.thread38.i [
+    i8 73, label %366
+    i8 85, label %366
   ]
 
-.thread38.i:                                      ; preds = %362, %359
-  store i32 %361, ptr %37, align 8
-  br label %377
+.thread38.i:                                      ; preds = %361, %358
+  store i32 %360, ptr %37, align 8
+  br label %376
 
-367:                                              ; preds = %362, %362
-  %368 = tail call i32 @find_among(ptr noundef nonnull %0, ptr noundef nonnull @a_1, i32 noundef 3) #2
-  %.not33.i = icmp eq i32 %368, 0
-  br i1 %.not33.i, label %383, label %369
+366:                                              ; preds = %361, %361
+  %367 = tail call i32 @find_among(ptr noundef nonnull %0, ptr noundef nonnull @a_1, i32 noundef 3) #2
+  %.not33.i = icmp eq i32 %367, 0
+  br i1 %.not33.i, label %382, label %368
 
-369:                                              ; preds = %367
-  %370 = load i32, ptr %2, align 8
-  store i32 %370, ptr %37, align 8
-  switch i32 %368, label %382 [
-    i32 1, label %371
-    i32 2, label %374
-    i32 3, label %._crit_edge.i80
+368:                                              ; preds = %366
+  %369 = load i32, ptr %2, align 8
+  store i32 %369, ptr %37, align 8
+  switch i32 %367, label %381 [
+    i32 1, label %370
+    i32 2, label %373
+    i32 3, label %._crit_edge.i81
   ]
 
-._crit_edge.i80:                                  ; preds = %369
-  %.pre.i81 = load i32, ptr %36, align 4
-  br label %377
+._crit_edge.i81:                                  ; preds = %368
+  %.pre.i82 = load i32, ptr %36, align 4
+  br label %376
 
-371:                                              ; preds = %369
-  %372 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @s_8) #2
-  %373 = icmp slt i32 %372, 0
-  br i1 %373, label %r_attached_pronoun.exit, label %382
+370:                                              ; preds = %368
+  %371 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @s_8) #2
+  %372 = icmp slt i32 %371, 0
+  br i1 %372, label %r_attached_pronoun.exit, label %381
 
-374:                                              ; preds = %369
-  %375 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @s_9) #2
-  %376 = icmp slt i32 %375, 0
-  br i1 %376, label %r_attached_pronoun.exit, label %382
+373:                                              ; preds = %368
+  %374 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @s_9) #2
+  %375 = icmp slt i32 %374, 0
+  br i1 %375, label %r_attached_pronoun.exit, label %381
 
-377:                                              ; preds = %._crit_edge.i80, %.thread38.i
-  %378 = phi i32 [ %360, %.thread38.i ], [ %.pre.i81, %._crit_edge.i80 ]
-  %379 = phi i32 [ %361, %.thread38.i ], [ %370, %._crit_edge.i80 ]
-  %.not34.i = icmp slt i32 %379, %378
-  br i1 %.not34.i, label %380, label %383
+376:                                              ; preds = %._crit_edge.i81, %.thread38.i
+  %377 = phi i32 [ %359, %.thread38.i ], [ %.pre.i82, %._crit_edge.i81 ]
+  %378 = phi i32 [ %360, %.thread38.i ], [ %369, %._crit_edge.i81 ]
+  %.not34.i = icmp slt i32 %378, %377
+  br i1 %.not34.i, label %379, label %382
 
-380:                                              ; preds = %377
-  %381 = add nsw i32 %379, 1
-  store i32 %381, ptr %2, align 8
-  br label %382
+379:                                              ; preds = %376
+  %380 = add nsw i32 %378, 1
+  store i32 %380, ptr %2, align 8
+  br label %381
 
-382:                                              ; preds = %380, %374, %371, %369
-  %.pre105 = load i32, ptr %2, align 8
-  %.pre106 = load i32, ptr %36, align 4
-  br label %359
+381:                                              ; preds = %379, %373, %370, %368
+  %.pre106 = load i32, ptr %2, align 8
+  %.pre107 = load i32, ptr %36, align 4
+  br label %358
 
-383:                                              ; preds = %377, %367
-  store i32 %358, ptr %2, align 8
+382:                                              ; preds = %376, %366
+  store i32 %357, ptr %2, align 8
   br label %r_attached_pronoun.exit
 
-r_attached_pronoun.exit:                          ; preds = %11, %14, %17, %20, %23, %26, %51, %65, %371, %374, %353, %185, %189, %197, %201, %205, %209, %214, %219, %240, %249, %253, %274, %278, %286, %294, %336, %318, %305, %176, %173, %383
-  %.0 = phi i32 [ 1, %383 ], [ %174, %173 ], [ %177, %176 ], [ %307, %305 ], [ %319, %318 ], [ %337, %336 ], [ %186, %185 ], [ %190, %189 ], [ %198, %197 ], [ %202, %201 ], [ %206, %205 ], [ %210, %209 ], [ %215, %214 ], [ %220, %219 ], [ %241, %240 ], [ %250, %249 ], [ %254, %253 ], [ %275, %274 ], [ %279, %278 ], [ %287, %286 ], [ %295, %294 ], [ %354, %353 ], [ %375, %374 ], [ %372, %371 ], [ %66, %65 ], [ %52, %51 ], [ %27, %26 ], [ %24, %23 ], [ %21, %20 ], [ %18, %17 ], [ %15, %14 ], [ %12, %11 ]
+r_attached_pronoun.exit:                          ; preds = %11, %14, %17, %20, %23, %26, %51, %65, %370, %373, %353, %336, %318, %185, %189, %197, %201, %205, %209, %214, %219, %240, %249, %253, %274, %278, %286, %294, %305, %176, %173, %382
+  %.0 = phi i32 [ 1, %382 ], [ %174, %173 ], [ %177, %176 ], [ %307, %305 ], [ %186, %185 ], [ %190, %189 ], [ %198, %197 ], [ %202, %201 ], [ %206, %205 ], [ %210, %209 ], [ %215, %214 ], [ %220, %219 ], [ %241, %240 ], [ %250, %249 ], [ %254, %253 ], [ %275, %274 ], [ %279, %278 ], [ %287, %286 ], [ %295, %294 ], [ %354, %353 ], [ %337, %336 ], [ %319, %318 ], [ %374, %373 ], [ %371, %370 ], [ %66, %65 ], [ %52, %51 ], [ %27, %26 ], [ %24, %23 ], [ %21, %20 ], [ %18, %17 ], [ %15, %14 ], [ %12, %11 ]
   ret i32 %.0
 }
 

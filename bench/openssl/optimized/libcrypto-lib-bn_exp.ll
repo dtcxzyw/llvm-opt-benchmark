@@ -15,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.BN_mod_exp_simple = private unnamed_addr constant [18 x i8] c"BN_mod_exp_simple\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @BN_exp(ptr noundef %r, ptr noundef %a, ptr noundef %p, ptr noundef %ctx) local_unnamed_addr #0 {
+define noundef i32 @BN_exp(ptr noundef %r, ptr noundef %a, ptr noundef %p, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @BN_get_flags(ptr noundef %p, i32 noundef 4) #5
   %cmp.not = icmp eq i32 %call, 0
@@ -99,16 +99,18 @@ for.inc:                                          ; preds = %if.end33, %if.then3
 
 for.end:                                          ; preds = %for.inc, %if.end28
   %cmp42.not = icmp eq ptr %cond, %r
-  br i1 %cmp42.not, label %err, label %land.lhs.true
+  br i1 %cmp42.not, label %if.end46, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.end
   %call43 = tail call ptr @BN_copy(ptr noundef %r, ptr noundef %cond) #5
-  %cmp44 = icmp ne ptr %call43, null
-  %spec.select = zext i1 %cmp44 to i32
+  %cmp44 = icmp eq ptr %call43, null
+  br i1 %cmp44, label %err, label %if.end46
+
+if.end46:                                         ; preds = %land.lhs.true, %for.end
   br label %err
 
-err:                                              ; preds = %if.then36, %for.body, %land.lhs.true, %for.end, %if.else, %if.then19, %if.end12, %cond.end
-  %ret.0 = phi i32 [ 0, %cond.end ], [ 0, %if.end12 ], [ 0, %if.then19 ], [ 0, %if.else ], [ 1, %for.end ], [ %spec.select, %land.lhs.true ], [ 0, %for.body ], [ 0, %if.then36 ]
+err:                                              ; preds = %if.then36, %for.body, %land.lhs.true, %if.else, %if.then19, %if.end12, %cond.end, %if.end46
+  %ret.0 = phi i32 [ 0, %cond.end ], [ 0, %if.end12 ], [ 0, %if.then19 ], [ 0, %land.lhs.true ], [ 1, %if.end46 ], [ 0, %if.else ], [ 0, %for.body ], [ 0, %if.then36 ]
   tail call void @BN_CTX_end(ptr noundef %ctx) #5
   br label %return
 

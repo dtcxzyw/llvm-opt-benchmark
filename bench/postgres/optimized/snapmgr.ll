@@ -2652,7 +2652,7 @@ define dso_local zeroext i1 @ThereAreNoPriorRegisteredSnapshots() local_unnamed_
 define dso_local zeroext i1 @HaveRegisteredOrActiveSnapshot() local_unnamed_addr #5 {
   %1 = load ptr, ptr @ActiveSnapshot, align 8
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %2, label %10
+  br i1 %.not, label %2, label %11
 
 2:                                                ; preds = %0
   %3 = load ptr, ptr @CatalogSnapshot, align 8
@@ -2664,11 +2664,14 @@ define dso_local zeroext i1 @HaveRegisteredOrActiveSnapshot() local_unnamed_addr
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %5, align 8
-  %9 = icmp ne ptr %8, null
-  br label %10
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %11, label %10
 
-10:                                               ; preds = %7, %2, %0
-  %.0 = phi i1 [ true, %0 ], [ %6, %2 ], [ %9, %7 ]
+10:                                               ; preds = %7, %2
+  br label %11
+
+11:                                               ; preds = %7, %0, %10
+  %.0 = phi i1 [ %6, %10 ], [ true, %0 ], [ false, %7 ]
   ret i1 %.0
 }
 

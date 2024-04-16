@@ -4657,7 +4657,7 @@ terminate.lpad.i.i6.i:                            ; preds = %if.then.i.i4.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i)
   br label %for.inc190
 
-for.inc190:                                       ; preds = %invoke.cont175, %"_ZN4pbrt23WavefrontPathIntegrator11ParallelForIZNS0_6RenderEvE3$_5EEvPKciOT_.exit", %if.end138
+for.inc190:                                       ; preds = %if.end138, %invoke.cont175, %"_ZN4pbrt23WavefrontPathIntegrator11ParallelForIZNS0_6RenderEvE3$_5EEvPKciOT_.exit"
   call void @_ZN4pbrt18CheckCallbackScopeD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %_) #26
   %179 = load i32, ptr %sampleIndex, align 4
   %inc191 = add nsw i32 %179, 1
@@ -6186,7 +6186,7 @@ sw.bb7:                                           ; preds = %entry
   %11 = load i64, ptr %reflectance.i.i59, align 8
   %and.i16.i.i.i60 = and i64 %11, 144115188075855871
   %cmp.i17.not.i.i.i61 = icmp eq i64 %and.i16.i.i.i60, 0
-  br i1 %cmp.i17.not.i.i.i61, label %return, label %land.lhs.true20.i.i.i62
+  br i1 %cmp.i17.not.i.i.i61, label %for.inc30.i.i.i64, label %land.lhs.true20.i.i.i62
 
 land.lhs.true20.i.i.i62:                          ; preds = %sw.bb7
   %shr.i.mask.i18.i.i.i63 = and i64 %11, -144115188075855872
@@ -6197,7 +6197,7 @@ land.lhs.true20.i.i.i62:                          ; preds = %sw.bb7
     i64 288230376151711744, label %for.inc30.i.i.i64
   ]
 
-for.inc30.i.i.i64:                                ; preds = %land.lhs.true20.i.i.i62, %land.lhs.true20.i.i.i62, %land.lhs.true20.i.i.i62, %land.lhs.true20.i.i.i62
+for.inc30.i.i.i64:                                ; preds = %land.lhs.true20.i.i.i62, %land.lhs.true20.i.i.i62, %land.lhs.true20.i.i.i62, %land.lhs.true20.i.i.i62, %sw.bb7
   br label %return
 
 sw.bb9:                                           ; preds = %entry
@@ -6243,8 +6243,8 @@ sw.default:                                       ; preds = %entry
   %call15 = tail call noundef zeroext i1 @_ZN4pbrt6detail8DispatchIRZNKS_8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_EUlS5_E_bNS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEET0_OS5_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %func, ptr noundef %ptr, i32 noundef %sub)
   br label %return
 
-return:                                           ; preds = %entry, %for.inc30.i.i.i64, %land.lhs.true20.i.i.i62, %sw.bb7, %sw.default, %sw.bb11, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_27DiffuseTransmissionMaterialEEEDaS3_.exit, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_18DielectricMaterialEEEDaS3_.exit, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_17ConductorMaterialEEEDaS3_.exit, %sw.bb1, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_21CoatedDiffuseMaterialEEEDaS3_.exit
-  %retval.0 = phi i1 [ %call15, %sw.default ], [ %call.i80, %sw.bb11 ], [ %retval.0.i.i.i79, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_27DiffuseTransmissionMaterialEEEDaS3_.exit ], [ %retval.0.i.i.i58, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_18DielectricMaterialEEEDaS3_.exit ], [ %retval.0.i.i.i43, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_17ConductorMaterialEEEDaS3_.exit ], [ %call.i, %sw.bb1 ], [ %retval.0.i.i.i, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_21CoatedDiffuseMaterialEEEDaS3_.exit ], [ false, %land.lhs.true20.i.i.i62 ], [ true, %sw.bb7 ], [ true, %for.inc30.i.i.i64 ], [ true, %entry ]
+return:                                           ; preds = %entry, %for.inc30.i.i.i64, %land.lhs.true20.i.i.i62, %sw.default, %sw.bb11, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_27DiffuseTransmissionMaterialEEEDaS3_.exit, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_18DielectricMaterialEEEDaS3_.exit, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_17ConductorMaterialEEEDaS3_.exit, %sw.bb1, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_21CoatedDiffuseMaterialEEEDaS3_.exit
+  %retval.0 = phi i1 [ %call15, %sw.default ], [ %call.i80, %sw.bb11 ], [ %retval.0.i.i.i79, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_27DiffuseTransmissionMaterialEEEDaS3_.exit ], [ %retval.0.i.i.i58, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_18DielectricMaterialEEEDaS3_.exit ], [ %retval.0.i.i.i43, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_17ConductorMaterialEEEDaS3_.exit ], [ %call.i, %sw.bb1 ], [ %retval.0.i.i.i, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_21CoatedDiffuseMaterialEEEDaS3_.exit ], [ true, %for.inc30.i.i.i64 ], [ false, %land.lhs.true20.i.i.i62 ], [ true, %entry ]
   ret i1 %retval.0
 }
 
@@ -6323,7 +6323,7 @@ sw.default:                                       ; preds = %entry
   %4 = load i64, ptr %ptr, align 8
   %and.i.i.i.i5 = and i64 %4, 144115188075855871
   %cmp.i.not.i.i.i6 = icmp eq i64 %and.i.i.i.i5, 0
-  br i1 %cmp.i.not.i.i.i6, label %return, label %land.lhs.true.i.i.i7
+  br i1 %cmp.i.not.i.i.i6, label %for.inc.i.i.i9, label %land.lhs.true.i.i.i7
 
 land.lhs.true.i.i.i7:                             ; preds = %sw.default
   %shr.i.mask.i.i.i.i8 = and i64 %4, -144115188075855872
@@ -6334,11 +6334,11 @@ land.lhs.true.i.i.i7:                             ; preds = %sw.default
     i64 288230376151711744, label %for.inc.i.i.i9
   ]
 
-for.inc.i.i.i9:                                   ; preds = %land.lhs.true.i.i.i7, %land.lhs.true.i.i.i7, %land.lhs.true.i.i.i7, %land.lhs.true.i.i.i7
+for.inc.i.i.i9:                                   ; preds = %land.lhs.true.i.i.i7, %land.lhs.true.i.i.i7, %land.lhs.true.i.i.i7, %land.lhs.true.i.i.i7, %sw.default
   br label %return
 
-return:                                           ; preds = %for.inc.i.i.i9, %land.lhs.true.i.i.i7, %sw.default, %entry, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_18SubsurfaceMaterialEEEDaS3_.exit
-  %retval.0 = phi i1 [ %retval.0.i.i.i, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_18SubsurfaceMaterialEEEDaS3_.exit ], [ true, %entry ], [ false, %land.lhs.true.i.i.i7 ], [ true, %sw.default ], [ true, %for.inc.i.i.i9 ]
+return:                                           ; preds = %for.inc.i.i.i9, %land.lhs.true.i.i.i7, %entry, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_18SubsurfaceMaterialEEEDaS3_.exit
+  %retval.0 = phi i1 [ %retval.0.i.i.i, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_18SubsurfaceMaterialEEEDaS3_.exit ], [ true, %entry ], [ false, %land.lhs.true.i.i.i7 ], [ true, %for.inc.i.i.i9 ]
   ret i1 %retval.0
 }
 

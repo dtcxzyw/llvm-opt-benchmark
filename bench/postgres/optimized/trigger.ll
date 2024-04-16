@@ -3920,7 +3920,7 @@ GetAfterTriggersTableData.exit:                   ; preds = %53, %._crit_edge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @TriggerEnabled(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @TriggerEnabled(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca i8, align 1
   %9 = load i32, ptr @SessionReplicationRole, align 4
   %10 = icmp eq i32 %9, 1
@@ -3974,7 +3974,7 @@ define internal fastcc zeroext i1 @TriggerEnabled(ptr noundef %0, ptr nocapture 
   %33 = getelementptr inbounds i8, ptr %2, i64 64
   %34 = load ptr, ptr %33, align 8
   %.not = icmp eq ptr %34, null
-  br i1 %.not, label %.critedge, label %35
+  br i1 %.not, label %73, label %35
 
 35:                                               ; preds = %.loopexit
   %36 = getelementptr inbounds i8, ptr %1, i64 88
@@ -4026,27 +4026,30 @@ define internal fastcc zeroext i1 @TriggerEnabled(ptr noundef %0, ptr nocapture 
   %65 = load ptr, ptr %46, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
   %66 = icmp eq ptr %65, null
-  br i1 %66, label %ExecQual.exit, label %67
+  br i1 %66, label %ExecQual.exit.thread, label %ExecQual.exit
 
-67:                                               ; preds = %61
-  %68 = getelementptr inbounds i8, ptr %62, i64 40
-  %69 = load ptr, ptr %68, align 8
-  %70 = load ptr, ptr @CurrentMemoryContext, align 8
-  store ptr %69, ptr @CurrentMemoryContext, align 8
-  %71 = getelementptr inbounds i8, ptr %65, i64 32
-  %72 = load ptr, ptr %71, align 8
-  %73 = call i64 %72(ptr noundef nonnull %65, ptr noundef nonnull %62, ptr noundef nonnull %8) #15
-  store ptr %70, ptr @CurrentMemoryContext, align 8
-  %74 = icmp ne i64 %73, 0
-  br label %ExecQual.exit
-
-ExecQual.exit:                                    ; preds = %61, %67
-  %.0.i = phi i1 [ %74, %67 ], [ true, %61 ]
+ExecQual.exit.thread:                             ; preds = %61
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
+  br label %73
+
+ExecQual.exit:                                    ; preds = %61
+  %67 = getelementptr inbounds i8, ptr %62, i64 40
+  %68 = load ptr, ptr %67, align 8
+  %69 = load ptr, ptr @CurrentMemoryContext, align 8
+  store ptr %68, ptr @CurrentMemoryContext, align 8
+  %70 = getelementptr inbounds i8, ptr %65, i64 32
+  %71 = load ptr, ptr %70, align 8
+  %72 = call i64 %71(ptr noundef nonnull %65, ptr noundef nonnull %62, ptr noundef nonnull %8) #15
+  store ptr %69, ptr @CurrentMemoryContext, align 8
+  %.not45 = icmp eq i64 %72, 0
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
+  br i1 %.not45, label %.critedge, label %73
+
+73:                                               ; preds = %ExecQual.exit.thread, %ExecQual.exit, %.loopexit
   br label %.critedge
 
-.critedge:                                        ; preds = %22, %ExecQual.exit, %.loopexit, %14, %14, %13, %13
-  %.0 = phi i1 [ false, %13 ], [ false, %13 ], [ false, %14 ], [ false, %14 ], [ true, %.loopexit ], [ %.0.i, %ExecQual.exit ], [ false, %22 ]
+.critedge:                                        ; preds = %22, %ExecQual.exit, %14, %14, %13, %13, %73
+  %.0 = phi i1 [ true, %73 ], [ false, %13 ], [ false, %13 ], [ false, %14 ], [ false, %14 ], [ false, %ExecQual.exit ], [ false, %22 ]
   ret i1 %.0
 }
 

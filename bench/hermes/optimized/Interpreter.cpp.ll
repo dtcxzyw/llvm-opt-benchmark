@@ -1732,9 +1732,8 @@ _ZN6hermes2vm7Runtime10makeHandleINS0_8CallableEEENS0_6HandleIT_EERKNS0_9GCPoint
   %retval.sroa.0.0.copyload.i.i.i = load i64, ptr %value.coerce, align 8
   %call96 = call { i32, i64 } @_ZN6hermes2vm8Callable12executeCall1ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES6_b(ptr %retval.0.i.i.i.i.i.i52, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %base.coerce, i64 %retval.sroa.0.0.copyload.i.i.i, i1 noundef zeroext false) #10
   %56 = extractvalue { i32, i64 } %call96, 0
-  %cmp.i55 = icmp ne i32 %56, 0
-  %spec.select = zext i1 %cmp.i55 to i32
-  br label %return
+  %cmp.i55 = icmp eq i32 %56, 0
+  br i1 %cmp.i55, label %return, label %if.end126
 
 if.else:                                          ; preds = %if.end59
   %57 = ptrtoint ptr %call14.i to i64
@@ -1768,7 +1767,7 @@ if.end118:                                        ; preds = %_ZN6hermes2vm15Hand
   %61 = and i32 %call115, 256
   %bf.cast.i.i68 = icmp eq i32 %61, 0
   %brmerge.not = and i1 %bf.cast.i.i68, %strictMode
-  br i1 %brmerge.not, label %if.then122, label %return
+  br i1 %brmerge.not, label %if.then122, label %if.end126
 
 if.then122:                                       ; preds = %if.end118
   %rightKind_.i3.i70 = getelementptr inbounds i8, ptr %ref.tmp123, i64 24
@@ -1783,8 +1782,11 @@ if.then122:                                       ; preds = %if.end118
   %call124 = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp123) #10
   br label %return
 
-return:                                           ; preds = %_ZN6hermes2vm7Runtime10makeHandleINS0_8CallableEEENS0_6HandleIT_EERKNS0_9GCPointerIS5_EE.exit, %if.end118, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EEPS5_.exit, %if.then73, %if.then54, %if.then34, %if.then122, %if.then75, %if.then56, %_ZN6hermes2vmL30transientObjectPutErrorMessageERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEENS0_8SymbolIDE.exit, %_ZN4llvh9StringRefC2EPKc.exit
-  %retval.0 = phi i32 [ %call14, %_ZN4llvh9StringRefC2EPKc.exit ], [ %call77, %if.then75 ], [ %call124, %if.then122 ], [ %call57, %if.then56 ], [ %call81.i, %_ZN6hermes2vmL30transientObjectPutErrorMessageERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEENS0_8SymbolIDE.exit ], [ 1, %if.then34 ], [ 1, %if.then54 ], [ 1, %if.then73 ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EEPS5_.exit ], [ 1, %if.end118 ], [ %spec.select, %_ZN6hermes2vm7Runtime10makeHandleINS0_8CallableEEENS0_6HandleIT_EERKNS0_9GCPointerIS5_EE.exit ]
+if.end126:                                        ; preds = %if.end118, %_ZN6hermes2vm7Runtime10makeHandleINS0_8CallableEEENS0_6HandleIT_EERKNS0_9GCPointerIS5_EE.exit
+  br label %return
+
+return:                                           ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EEPS5_.exit, %_ZN6hermes2vm7Runtime10makeHandleINS0_8CallableEEENS0_6HandleIT_EERKNS0_9GCPointerIS5_EE.exit, %if.then73, %if.then54, %if.then34, %if.end126, %if.then122, %if.then75, %if.then56, %_ZN6hermes2vmL30transientObjectPutErrorMessageERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEENS0_8SymbolIDE.exit, %_ZN4llvh9StringRefC2EPKc.exit
+  %retval.0 = phi i32 [ %call14, %_ZN4llvh9StringRefC2EPKc.exit ], [ 1, %if.end126 ], [ %call77, %if.then75 ], [ %call124, %if.then122 ], [ %call57, %if.then56 ], [ %call81.i, %_ZN6hermes2vmL30transientObjectPutErrorMessageERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEENS0_8SymbolIDE.exit ], [ 1, %if.then34 ], [ 1, %if.then54 ], [ 1, %if.then73 ], [ 0, %_ZN6hermes2vm7Runtime10makeHandleINS0_8CallableEEENS0_6HandleIT_EERKNS0_9GCPointerIS5_EE.exit ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EEPS5_.exit ]
   ret i32 %retval.0
 }
 

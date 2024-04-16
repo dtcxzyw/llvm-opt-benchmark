@@ -2935,7 +2935,7 @@ Io_MvGetLine.exit89.i.i:                          ; preds = %1229, %.critedge.lo
   %1236 = tail call ptr @Io_ReadCreateLatch(ptr noundef %1235, ptr noundef nonnull %1234, ptr noundef nonnull %1233) #20
   %.val.i238.i = load i32, ptr %1179, align 4
   %1237 = icmp sgt i32 %.val.i238.i, 0
-  br i1 %1237, label %.lr.ph121.i.i, label %Io_MvParseLineFlop.exit.i
+  br i1 %1237, label %.lr.ph121.i.i, label %.loopexit.i239.i
 
 .lr.ph121.i.i:                                    ; preds = %1232
   %.val73.i.i = load ptr, ptr %1177, align 8
@@ -2945,7 +2945,7 @@ Io_MvGetLine.exit89.i.i:                          ; preds = %1229, %.critedge.lo
 1238:                                             ; preds = %1239
   %indvars.iv.next136.i.i = add nuw nsw i64 %indvars.iv135.i.i, 1
   %exitcond139.not.i.i = icmp eq i64 %indvars.iv.next136.i.i, %wide.trip.count138.i.i
-  br i1 %exitcond139.not.i.i, label %Io_MvParseLineFlop.exit.i, label %1239, !llvm.loop !34
+  br i1 %exitcond139.not.i.i, label %.loopexit.i239.i, label %1239, !llvm.loop !34
 
 1239:                                             ; preds = %1238, %.lr.ph121.i.i
   %indvars.iv135.i.i = phi i64 [ 0, %.lr.ph121.i.i ], [ %indvars.iv.next136.i.i, %1238 ]
@@ -3004,11 +3004,11 @@ Io_MvGetLine.exit99.i.i:                          ; preds = %1258, %.critedge.lo
 1261:                                             ; preds = %1243
   br label %Io_MvParseLineFlop.exit.i
 
-.loopexit.i239.i:                                 ; preds = %1243
+.loopexit.i239.i:                                 ; preds = %1238, %1243, %1232
   br label %Io_MvParseLineFlop.exit.i
 
-Io_MvParseLineFlop.exit.i:                        ; preds = %1238, %.loopexit.i239.i, %1261, %1243, %1232
-  %.sink.i138 = phi ptr [ inttoptr (i64 2 to ptr), %1261 ], [ inttoptr (i64 1 to ptr), %1243 ], [ inttoptr (i64 3 to ptr), %1232 ], [ inttoptr (i64 3 to ptr), %.loopexit.i239.i ], [ inttoptr (i64 3 to ptr), %1238 ]
+Io_MvParseLineFlop.exit.i:                        ; preds = %.loopexit.i239.i, %1261, %1243
+  %.sink.i138 = phi ptr [ inttoptr (i64 3 to ptr), %.loopexit.i239.i ], [ inttoptr (i64 2 to ptr), %1261 ], [ inttoptr (i64 1 to ptr), %1243 ]
   %1262 = getelementptr inbounds i8, ptr %1236, i64 56
   store ptr %.sink.i138, ptr %1262, align 8
   %indvars.iv.next972.i = add nuw nsw i64 %indvars.iv971.i, 1
@@ -3162,7 +3162,7 @@ Io_MvGetLine.exit62.i.i:                          ; preds = %1323, %.critedge.lo
 1326:                                             ; preds = %Io_MvGetLine.exit62.i.i, %1311
   %.val.i264.i = phi i32 [ %.val.pr.i.i, %Io_MvGetLine.exit62.i.i ], [ %.val42.i.i, %1311 ]
   %1327 = icmp sgt i32 %.val.i264.i, 3
-  br i1 %1327, label %1328, label %.critedge4.i134
+  br i1 %1327, label %1328, label %.thread76.i.i
 
 1328:                                             ; preds = %1326
   %.val51.i.i = load ptr, ptr %1280, align 8
@@ -3222,7 +3222,7 @@ Io_MvGetLine.exit72.i.i:                          ; preds = %1346, %.critedge.lo
 1352:                                             ; preds = %1351
   br label %.critedge4.i134
 
-.thread76.i.i:                                    ; preds = %1351
+.thread76.i.i:                                    ; preds = %1351, %1326
   br label %.critedge4.i134
 
 1353:                                             ; preds = %1299
@@ -3240,9 +3240,9 @@ Io_MvGetLine.exit72.i.i:                          ; preds = %1346, %.critedge.lo
   %1364 = tail call ptr @Io_ReadCreateLatch(ptr noundef %1360, ptr noundef %1362, ptr noundef %1363) #20
   br label %.critedge4.i134
 
-.critedge4.i134:                                  ; preds = %1353, %.thread76.i.i, %1352, %1351, %1326, %1303
-  %.sink1282.i = phi ptr [ %1308, %1352 ], [ %1364, %1353 ], [ %1308, %1303 ], [ %1308, %1351 ], [ %1308, %1326 ], [ %1308, %.thread76.i.i ]
-  %.sink1280.i = phi ptr [ inttoptr (i64 2 to ptr), %1352 ], [ inttoptr (i64 1 to ptr), %1353 ], [ inttoptr (i64 1 to ptr), %1303 ], [ inttoptr (i64 1 to ptr), %1351 ], [ inttoptr (i64 3 to ptr), %1326 ], [ inttoptr (i64 3 to ptr), %.thread76.i.i ]
+.critedge4.i134:                                  ; preds = %1353, %.thread76.i.i, %1352, %1351, %1303
+  %.sink1282.i = phi ptr [ %1308, %1352 ], [ %1308, %.thread76.i.i ], [ %1364, %1353 ], [ %1308, %1303 ], [ %1308, %1351 ]
+  %.sink1280.i = phi ptr [ inttoptr (i64 2 to ptr), %1352 ], [ inttoptr (i64 3 to ptr), %.thread76.i.i ], [ inttoptr (i64 1 to ptr), %1353 ], [ inttoptr (i64 1 to ptr), %1303 ], [ inttoptr (i64 1 to ptr), %1351 ]
   %1365 = getelementptr inbounds i8, ptr %.sink1282.i, i64 56
   store ptr %.sink1280.i, ptr %1365, align 8
   %indvars.iv.next975.i = add nuw nsw i64 %indvars.iv974.i, 1

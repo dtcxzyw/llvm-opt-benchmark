@@ -202,33 +202,35 @@ define internal fastcc noalias noundef ptr @print_stream_text_alloc(i32 noundef 
   store ptr %spec.select, ptr %12, align 8
   %13 = call ptr @getenv(ptr noundef nonnull @.str.1) #12
   %.not22 = icmp eq ptr %13, null
-  br i1 %.not22, label %21, label %14
+  br i1 %.not22, label %20, label %14
 
 14:                                               ; preds = %9
   %15 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(10) @.str.2) #14
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %21, label %17
+  br i1 %16, label %22, label %17
 
 17:                                               ; preds = %14
   %18 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(6) @.str.3) #14
   %19 = icmp eq i32 %18, 0
-  %spec.select26 = zext i1 %19 to i32
-  br label %21
+  br i1 %19, label %22, label %20
+
+20:                                               ; preds = %17, %9
+  br label %22
 
 .thread:                                          ; preds = %2
-  %20 = getelementptr inbounds i8, ptr %4, i64 24
-  store ptr null, ptr %20, align 8
-  br label %21
+  %21 = getelementptr inbounds i8, ptr %4, i64 24
+  store ptr null, ptr %21, align 8
+  br label %22
 
-21:                                               ; preds = %17, %9, %14, %.thread
-  %.sink = phi i32 [ 0, %.thread ], [ 1, %14 ], [ 0, %9 ], [ %spec.select26, %17 ]
-  %22 = getelementptr inbounds i8, ptr %4, i64 32
-  store i32 %.sink, ptr %22, align 8
-  %23 = call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #15
-  store ptr @print_text_ops, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
-  store ptr %4, ptr %24, align 8
-  ret ptr %23
+22:                                               ; preds = %14, %17, %20, %.thread
+  %.sink = phi i32 [ 0, %20 ], [ 0, %.thread ], [ 1, %17 ], [ 1, %14 ]
+  %23 = getelementptr inbounds i8, ptr %4, i64 32
+  store i32 %.sink, ptr %23, align 8
+  %24 = call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #15
+  store ptr @print_text_ops, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  store ptr %4, ptr %25, align 8
+  ret ptr %24
 }
 
 ; Function Attrs: nounwind uwtable

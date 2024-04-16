@@ -21736,7 +21736,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   %12 = load i32, ptr %arrayidx10.i.i, align 4
   %inc.i.i = add i32 %12, 1
   store i32 %inc.i.i, ptr %arrayidx10.i.i, align 4
-  br label %return
+  br label %if.end
 
 if.else:                                          ; preds = %entry
   %m_vars.i.i = getelementptr inbounds i8, ptr %s, i64 32
@@ -21822,13 +21822,13 @@ _ZN12substitution6insertEP3varjRK11expr_offset.exit: ; preds = %lor.lhs.false.i.
   store i32 %29, ptr %m_timestamp2.i.i.i14, align 8
   %m_state.i.i = getelementptr inbounds i8, ptr %s, i64 120
   store i32 2, ptr %m_state.i.i, align 8
+  br label %if.end
+
+if.end:                                           ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit, %if.then, %_ZN12substitution6insertEP3varjRK11expr_offset.exit
   br label %return
 
-if.end:                                           ; preds = %if.then
-  br label %return
-
-return:                                           ; preds = %_ZN12substitution6insertEP3varjRK11expr_offset.exit, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit, %if.then, %if.end
-  %retval.0 = phi i1 [ false, %if.then ], [ true, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ], [ true, %_ZN12substitution6insertEP3varjRK11expr_offset.exit ], [ true, %if.end ]
+return:                                           ; preds = %if.then, %if.end
+  %retval.0 = phi i1 [ true, %if.end ], [ false, %if.then ]
   ret i1 %retval.0
 }
 

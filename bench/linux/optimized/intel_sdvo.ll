@@ -5617,18 +5617,18 @@ define internal i32 @intel_sdvo_mode_valid(ptr noundef %0, ptr noundef %1) #0 al
   %24 = load i32, ptr %1, align 8
   %25 = tail call i32 @intel_cpu_transcoder_mode_valid(ptr noundef %3, ptr noundef %1) #13
   %26 = icmp eq i32 %25, 0
-  br i1 %26, label %27, label %56
+  br i1 %26, label %27, label %58
 
 27:                                               ; preds = %20
   %28 = getelementptr inbounds i8, ptr %1, i64 24
   %29 = load i32, ptr %28, align 8
   %30 = and i32 %29, 32
   %31 = icmp eq i32 %30, 0
-  br i1 %31, label %32, label %56
+  br i1 %31, label %32, label %58
 
 32:                                               ; preds = %27
   %33 = icmp sgt i32 %24, %23
-  br i1 %33, label %56, label %34
+  br i1 %33, label %58, label %34
 
 34:                                               ; preds = %32
   %35 = and i32 %29, 4096
@@ -5636,7 +5636,7 @@ define internal i32 @intel_sdvo_mode_valid(ptr noundef %0, ptr noundef %1) #0 al
   br i1 %36, label %40, label %37
 
 37:                                               ; preds = %34
-  br i1 %21, label %38, label %56
+  br i1 %21, label %38, label %58
 
 38:                                               ; preds = %37
   %39 = shl i32 %24, 1
@@ -5647,28 +5647,32 @@ define internal i32 @intel_sdvo_mode_valid(ptr noundef %0, ptr noundef %1) #0 al
   %42 = getelementptr inbounds i8, ptr %5, i64 3536
   %43 = load i32, ptr %42, align 8
   %44 = icmp sgt i32 %43, %41
-  br i1 %44, label %56, label %45
+  br i1 %44, label %58, label %45
 
 45:                                               ; preds = %40
   %46 = getelementptr inbounds i8, ptr %5, i64 3540
   %47 = load i32, ptr %46, align 4
   %48 = icmp slt i32 %47, %41
-  br i1 %48, label %56, label %49
+  br i1 %48, label %58, label %49
 
 49:                                               ; preds = %45
   %50 = getelementptr inbounds i8, ptr %0, i64 2720
   %51 = load i16, ptr %50, align 8
   %52 = and i16 %51, 16448
   %53 = icmp eq i16 %52, 0
-  br i1 %53, label %56, label %54
+  br i1 %53, label %57, label %54
 
 54:                                               ; preds = %49
   %55 = tail call i32 @intel_panel_mode_valid(ptr noundef %0, ptr noundef %1) #13
-  br label %56
+  %56 = icmp eq i32 %55, 0
+  br i1 %56, label %57, label %58
 
-56:                                               ; preds = %54, %49, %45, %40, %37, %32, %27, %20
-  %57 = phi i32 [ %25, %20 ], [ 8, %27 ], [ 15, %32 ], [ 16, %37 ], [ 16, %40 ], [ 15, %45 ], [ 0, %49 ], [ %55, %54 ]
-  ret i32 %57
+57:                                               ; preds = %54, %49
+  br label %58
+
+58:                                               ; preds = %57, %54, %45, %40, %37, %32, %27, %20
+  %59 = phi i32 [ 0, %57 ], [ %55, %54 ], [ %25, %20 ], [ 8, %27 ], [ 15, %32 ], [ 16, %37 ], [ 16, %40 ], [ 15, %45 ]
+  ret i32 %59
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

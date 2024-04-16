@@ -144,19 +144,19 @@ if.else:                                          ; preds = %entry
   %aead_write_ctx.i = getelementptr inbounds i8, ptr %4, i64 272
   %5 = load ptr, ptr %aead_write_ctx.i, align 8
   %cmp.not.i = icmp eq ptr %5, null
-  br i1 %cmp.not.i, label %return, label %land.lhs.true.i
+  br i1 %cmp.not.i, label %ssl_needs_record_splitting.exit.thread, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.else
   %call.i = tail call zeroext i16 @ssl3_protocol_version(ptr noundef nonnull %ssl) #3
   %cmp1.i = icmp ult i16 %call.i, 770
-  br i1 %cmp1.i, label %land.lhs.true3.i, label %return
+  br i1 %cmp1.i, label %land.lhs.true3.i, label %ssl_needs_record_splitting.exit.thread
 
 land.lhs.true3.i:                                 ; preds = %land.lhs.true.i
   %mode.i = getelementptr inbounds i8, ptr %ssl, i64 268
   %6 = load i32, ptr %mode.i, align 4
   %7 = and i32 %6, 256
   %cmp5.not.i = icmp eq i32 %7, 0
-  br i1 %cmp5.not.i, label %return, label %ssl_needs_record_splitting.exit
+  br i1 %cmp5.not.i, label %ssl_needs_record_splitting.exit.thread, label %ssl_needs_record_splitting.exit
 
 ssl_needs_record_splitting.exit:                  ; preds = %land.lhs.true3.i
   %8 = load ptr, ptr %s31, align 8
@@ -165,13 +165,15 @@ ssl_needs_record_splitting.exit:                  ; preds = %land.lhs.true3.i
   %10 = load ptr, ptr %9, align 8
   %call9.i = tail call i32 @SSL_CIPHER_is_block_cipher(ptr noundef %10) #3
   %call9.i.fr = freeze i32 %call9.i
-  %tobool.i.not = icmp ne i32 %call9.i.fr, 0
-  %mul = zext i1 %tobool.i.not to i64
-  %spec.select = shl i64 %add4, %mul
+  %tobool.i.not = icmp eq i32 %call9.i.fr, 0
+  %mul = shl i64 %add4, 1
+  br i1 %tobool.i.not, label %ssl_needs_record_splitting.exit.thread, label %return
+
+ssl_needs_record_splitting.exit.thread:           ; preds = %if.else, %land.lhs.true.i, %land.lhs.true3.i, %ssl_needs_record_splitting.exit
   br label %return
 
-return:                                           ; preds = %ssl_needs_record_splitting.exit, %if.else, %land.lhs.true.i, %land.lhs.true3.i, %if.then
-  %retval.0 = phi i64 [ %add, %if.then ], [ %add4, %land.lhs.true3.i ], [ %add4, %land.lhs.true.i ], [ %add4, %if.else ], [ %spec.select, %ssl_needs_record_splitting.exit ]
+return:                                           ; preds = %ssl_needs_record_splitting.exit.thread, %ssl_needs_record_splitting.exit, %if.then
+  %retval.0 = phi i64 [ %add, %if.then ], [ %add4, %ssl_needs_record_splitting.exit.thread ], [ %mul, %ssl_needs_record_splitting.exit ]
   ret i64 %retval.0
 }
 

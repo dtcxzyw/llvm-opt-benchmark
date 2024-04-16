@@ -326,7 +326,7 @@ land.lhs.true:                                    ; preds = %if.end
   %prefix_filtering.i.i = getelementptr inbounds i8, ptr %6, i64 514
   %7 = load i8, ptr %prefix_filtering.i.i, align 2
   %tobool.i.i = trunc i8 %7 to i1
-  br i1 %tobool.i.i, label %_ZNK7rocksdb23FilterBlockReaderCommonINS_27Block_kFilterPartitionIndexEE22table_prefix_extractorEv.exit.i, label %_ZNK7rocksdb23FilterBlockReaderCommonINS_27Block_kFilterPartitionIndexEE18IsFilterCompatibleEPKNS_5SliceERS4_PKNS_10ComparatorE.exit.thread
+  br i1 %tobool.i.i, label %_ZNK7rocksdb23FilterBlockReaderCommonINS_27Block_kFilterPartitionIndexEE22table_prefix_extractorEv.exit.i, label %if.then8
 
 _ZNK7rocksdb23FilterBlockReaderCommonINS_27Block_kFilterPartitionIndexEE22table_prefix_extractorEv.exit.i: ; preds = %land.lhs.true
   %table_prefix_extractor.i.i = getelementptr inbounds i8, ptr %6, i64 520
@@ -334,14 +334,14 @@ _ZNK7rocksdb23FilterBlockReaderCommonINS_27Block_kFilterPartitionIndexEE22table_
   %cmp.i = icmp ne ptr %iterate_upper_bound, null
   %tobool.i = icmp ne ptr %8, null
   %or.cond.i = and i1 %cmp.i, %tobool.i
-  br i1 %or.cond.i, label %if.then.i, label %_ZNK7rocksdb23FilterBlockReaderCommonINS_27Block_kFilterPartitionIndexEE18IsFilterCompatibleEPKNS_5SliceERS4_PKNS_10ComparatorE.exit.thread
+  br i1 %or.cond.i, label %if.then.i, label %if.then8
 
 if.then.i:                                        ; preds = %_ZNK7rocksdb23FilterBlockReaderCommonINS_27Block_kFilterPartitionIndexEE22table_prefix_extractorEv.exit.i
   %vtable.i = load ptr, ptr %8, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 160
   %9 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(16) %iterate_upper_bound)
-  br i1 %call2.i, label %if.end.i, label %_ZNK7rocksdb23FilterBlockReaderCommonINS_27Block_kFilterPartitionIndexEE18IsFilterCompatibleEPKNS_5SliceERS4_PKNS_10ComparatorE.exit.thread
+  br i1 %call2.i, label %if.end.i, label %if.then8
 
 if.end.i:                                         ; preds = %if.then.i
   %vtable4.i = load ptr, ptr %8, align 8
@@ -358,17 +358,13 @@ if.end.i:                                         ; preds = %if.then.i
   %14 = load ptr, ptr %vfn8.i, align 8
   %call9.i = call noundef i32 %14(ptr noundef nonnull align 8 dereferenceable(48) %comparator, ptr noundef nonnull align 8 dereferenceable(16) %prefix, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(16) %upper_bound_xform.i, i1 noundef zeroext false)
   %cmp10.not.i = icmp eq i32 %call9.i, 0
-  br i1 %cmp10.not.i, label %_ZNK7rocksdb23FilterBlockReaderCommonINS_27Block_kFilterPartitionIndexEE18IsFilterCompatibleEPKNS_5SliceERS4_PKNS_10ComparatorE.exit.thread7, label %if.then11.i
-
-_ZNK7rocksdb23FilterBlockReaderCommonINS_27Block_kFilterPartitionIndexEE18IsFilterCompatibleEPKNS_5SliceERS4_PKNS_10ComparatorE.exit.thread7: ; preds = %if.end.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %upper_bound_xform.i)
-  br label %if.else
+  br i1 %cmp10.not.i, label %_ZNK7rocksdb23FilterBlockReaderCommonINS_27Block_kFilterPartitionIndexEE18IsFilterCompatibleEPKNS_5SliceERS4_PKNS_10ComparatorE.exit, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.end.i
   %full_length_enabled_.i = getelementptr inbounds i8, ptr %this, i64 56
   %15 = load i8, ptr %full_length_enabled_.i, align 8
   %tobool12.i = trunc i8 %15 to i1
-  br i1 %tobool12.i, label %lor.lhs.false.i, label %_ZNK7rocksdb23FilterBlockReaderCommonINS_27Block_kFilterPartitionIndexEE18IsFilterCompatibleEPKNS_5SliceERS4_PKNS_10ComparatorE.exit.thread
+  br i1 %tobool12.i, label %lor.lhs.false.i, label %if.then8
 
 lor.lhs.false.i:                                  ; preds = %if.then11.i
   %size_.i.i = getelementptr inbounds i8, ptr %iterate_upper_bound, i64 8
@@ -376,25 +372,25 @@ lor.lhs.false.i:                                  ; preds = %if.then11.i
   %prefix_extractor_full_length_.i = getelementptr inbounds i8, ptr %this, i64 48
   %17 = load i64, ptr %prefix_extractor_full_length_.i, align 8
   %cmp14.not.i = icmp eq i64 %16, %17
-  br i1 %cmp14.not.i, label %_ZNK7rocksdb23FilterBlockReaderCommonINS_27Block_kFilterPartitionIndexEE18IsFilterCompatibleEPKNS_5SliceERS4_PKNS_10ComparatorE.exit, label %_ZNK7rocksdb23FilterBlockReaderCommonINS_27Block_kFilterPartitionIndexEE18IsFilterCompatibleEPKNS_5SliceERS4_PKNS_10ComparatorE.exit.thread
+  br i1 %cmp14.not.i, label %lor.lhs.false15.i, label %if.then8
 
-_ZNK7rocksdb23FilterBlockReaderCommonINS_27Block_kFilterPartitionIndexEE18IsFilterCompatibleEPKNS_5SliceERS4_PKNS_10ComparatorE.exit.thread: ; preds = %if.then.i, %lor.lhs.false.i, %if.then11.i, %_ZNK7rocksdb23FilterBlockReaderCommonINS_27Block_kFilterPartitionIndexEE22table_prefix_extractorEv.exit.i, %land.lhs.true
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %upper_bound_xform.i)
-  br label %if.then8
-
-_ZNK7rocksdb23FilterBlockReaderCommonINS_27Block_kFilterPartitionIndexEE18IsFilterCompatibleEPKNS_5SliceERS4_PKNS_10ComparatorE.exit: ; preds = %lor.lhs.false.i
+lor.lhs.false15.i:                                ; preds = %lor.lhs.false.i
   %vtable16.i = load ptr, ptr %comparator, align 8
   %vfn17.i = getelementptr inbounds i8, ptr %vtable16.i, i64 176
   %18 = load ptr, ptr %vfn17.i, align 8
   %call18.i = call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(48) %comparator, ptr noundef nonnull align 8 dereferenceable(16) %prefix, ptr noundef nonnull align 8 dereferenceable(16) %iterate_upper_bound)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %upper_bound_xform.i)
-  br i1 %call18.i, label %if.else, label %if.then8
+  br i1 %call18.i, label %_ZNK7rocksdb23FilterBlockReaderCommonINS_27Block_kFilterPartitionIndexEE18IsFilterCompatibleEPKNS_5SliceERS4_PKNS_10ComparatorE.exit, label %if.then8
 
-if.then8:                                         ; preds = %_ZNK7rocksdb23FilterBlockReaderCommonINS_27Block_kFilterPartitionIndexEE18IsFilterCompatibleEPKNS_5SliceERS4_PKNS_10ComparatorE.exit.thread, %_ZNK7rocksdb23FilterBlockReaderCommonINS_27Block_kFilterPartitionIndexEE18IsFilterCompatibleEPKNS_5SliceERS4_PKNS_10ComparatorE.exit
+_ZNK7rocksdb23FilterBlockReaderCommonINS_27Block_kFilterPartitionIndexEE18IsFilterCompatibleEPKNS_5SliceERS4_PKNS_10ComparatorE.exit: ; preds = %if.end.i, %lor.lhs.false15.i
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %upper_bound_xform.i)
+  br label %if.else
+
+if.then8:                                         ; preds = %if.then.i, %lor.lhs.false15.i, %lor.lhs.false.i, %if.then11.i, %_ZNK7rocksdb23FilterBlockReaderCommonINS_27Block_kFilterPartitionIndexEE22table_prefix_extractorEv.exit.i, %land.lhs.true
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %upper_bound_xform.i)
   store i8 0, ptr %filter_checked, align 1
   br label %return
 
-if.else:                                          ; preds = %_ZNK7rocksdb23FilterBlockReaderCommonINS_27Block_kFilterPartitionIndexEE18IsFilterCompatibleEPKNS_5SliceERS4_PKNS_10ComparatorE.exit.thread7, %_ZNK7rocksdb23FilterBlockReaderCommonINS_27Block_kFilterPartitionIndexEE18IsFilterCompatibleEPKNS_5SliceERS4_PKNS_10ComparatorE.exit, %if.end
+if.else:                                          ; preds = %_ZNK7rocksdb23FilterBlockReaderCommonINS_27Block_kFilterPartitionIndexEE18IsFilterCompatibleEPKNS_5SliceERS4_PKNS_10ComparatorE.exit, %if.end
   store i8 1, ptr %filter_checked, align 1
   %vtable10 = load ptr, ptr %this, align 8
   %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 32
@@ -450,7 +446,7 @@ if.end:                                           ; preds = %if.then
   %9 = load ptr, ptr %vfn8, align 8
   %call9 = call noundef i32 %9(ptr noundef nonnull align 8 dereferenceable(48) %comparator, ptr noundef nonnull align 8 dereferenceable(16) %prefix, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(16) %upper_bound_xform, i1 noundef zeroext false)
   %cmp10.not = icmp eq i32 %call9, 0
-  br i1 %cmp10.not, label %return, label %if.then11
+  br i1 %cmp10.not, label %if.end21, label %if.then11
 
 if.then11:                                        ; preds = %if.end
   %full_length_enabled_ = getelementptr inbounds i8, ptr %this, i64 56
@@ -471,10 +467,13 @@ lor.lhs.false15:                                  ; preds = %lor.lhs.false
   %vfn17 = getelementptr inbounds i8, ptr %vtable16, i64 176
   %13 = load ptr, ptr %vfn17, align 8
   %call18 = call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(48) %comparator, ptr noundef nonnull align 8 dereferenceable(16) %prefix, ptr noundef nonnull align 8 dereferenceable(16) %iterate_upper_bound)
+  br i1 %call18, label %if.end21, label %return
+
+if.end21:                                         ; preds = %lor.lhs.false15, %if.end
   br label %return
 
-return:                                           ; preds = %entry, %lor.lhs.false15, %_ZNK7rocksdb23FilterBlockReaderCommonINS_27Block_kFilterPartitionIndexEE22table_prefix_extractorEv.exit, %if.end, %if.then11, %lor.lhs.false, %if.then
-  %retval.0 = phi i1 [ false, %if.then ], [ false, %lor.lhs.false ], [ false, %if.then11 ], [ true, %if.end ], [ false, %_ZNK7rocksdb23FilterBlockReaderCommonINS_27Block_kFilterPartitionIndexEE22table_prefix_extractorEv.exit ], [ %call18, %lor.lhs.false15 ], [ false, %entry ]
+return:                                           ; preds = %entry, %_ZNK7rocksdb23FilterBlockReaderCommonINS_27Block_kFilterPartitionIndexEE22table_prefix_extractorEv.exit, %if.then11, %lor.lhs.false, %lor.lhs.false15, %if.then, %if.end21
+  %retval.0 = phi i1 [ true, %if.end21 ], [ false, %if.then ], [ false, %lor.lhs.false15 ], [ false, %lor.lhs.false ], [ false, %if.then11 ], [ false, %_ZNK7rocksdb23FilterBlockReaderCommonINS_27Block_kFilterPartitionIndexEE22table_prefix_extractorEv.exit ], [ false, %entry ]
   ret i1 %retval.0
 }
 
@@ -1114,7 +1113,7 @@ land.lhs.true:                                    ; preds = %if.end
   %prefix_filtering.i.i = getelementptr inbounds i8, ptr %6, i64 514
   %7 = load i8, ptr %prefix_filtering.i.i, align 2
   %tobool.i.i = trunc i8 %7 to i1
-  br i1 %tobool.i.i, label %_ZNK7rocksdb23FilterBlockReaderCommonINS_21ParsedFullFilterBlockEE22table_prefix_extractorEv.exit.i, label %_ZNK7rocksdb23FilterBlockReaderCommonINS_21ParsedFullFilterBlockEE18IsFilterCompatibleEPKNS_5SliceERS4_PKNS_10ComparatorE.exit.thread
+  br i1 %tobool.i.i, label %_ZNK7rocksdb23FilterBlockReaderCommonINS_21ParsedFullFilterBlockEE22table_prefix_extractorEv.exit.i, label %if.then8
 
 _ZNK7rocksdb23FilterBlockReaderCommonINS_21ParsedFullFilterBlockEE22table_prefix_extractorEv.exit.i: ; preds = %land.lhs.true
   %table_prefix_extractor.i.i = getelementptr inbounds i8, ptr %6, i64 520
@@ -1122,14 +1121,14 @@ _ZNK7rocksdb23FilterBlockReaderCommonINS_21ParsedFullFilterBlockEE22table_prefix
   %cmp.i = icmp ne ptr %iterate_upper_bound, null
   %tobool.i = icmp ne ptr %8, null
   %or.cond.i = and i1 %cmp.i, %tobool.i
-  br i1 %or.cond.i, label %if.then.i, label %_ZNK7rocksdb23FilterBlockReaderCommonINS_21ParsedFullFilterBlockEE18IsFilterCompatibleEPKNS_5SliceERS4_PKNS_10ComparatorE.exit.thread
+  br i1 %or.cond.i, label %if.then.i, label %if.then8
 
 if.then.i:                                        ; preds = %_ZNK7rocksdb23FilterBlockReaderCommonINS_21ParsedFullFilterBlockEE22table_prefix_extractorEv.exit.i
   %vtable.i = load ptr, ptr %8, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 160
   %9 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(16) %iterate_upper_bound)
-  br i1 %call2.i, label %if.end.i, label %_ZNK7rocksdb23FilterBlockReaderCommonINS_21ParsedFullFilterBlockEE18IsFilterCompatibleEPKNS_5SliceERS4_PKNS_10ComparatorE.exit.thread
+  br i1 %call2.i, label %if.end.i, label %if.then8
 
 if.end.i:                                         ; preds = %if.then.i
   %vtable4.i = load ptr, ptr %8, align 8
@@ -1146,17 +1145,13 @@ if.end.i:                                         ; preds = %if.then.i
   %14 = load ptr, ptr %vfn8.i, align 8
   %call9.i = call noundef i32 %14(ptr noundef nonnull align 8 dereferenceable(48) %comparator, ptr noundef nonnull align 8 dereferenceable(16) %prefix, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(16) %upper_bound_xform.i, i1 noundef zeroext false)
   %cmp10.not.i = icmp eq i32 %call9.i, 0
-  br i1 %cmp10.not.i, label %_ZNK7rocksdb23FilterBlockReaderCommonINS_21ParsedFullFilterBlockEE18IsFilterCompatibleEPKNS_5SliceERS4_PKNS_10ComparatorE.exit.thread7, label %if.then11.i
-
-_ZNK7rocksdb23FilterBlockReaderCommonINS_21ParsedFullFilterBlockEE18IsFilterCompatibleEPKNS_5SliceERS4_PKNS_10ComparatorE.exit.thread7: ; preds = %if.end.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %upper_bound_xform.i)
-  br label %if.else
+  br i1 %cmp10.not.i, label %_ZNK7rocksdb23FilterBlockReaderCommonINS_21ParsedFullFilterBlockEE18IsFilterCompatibleEPKNS_5SliceERS4_PKNS_10ComparatorE.exit, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.end.i
   %full_length_enabled_.i = getelementptr inbounds i8, ptr %this, i64 56
   %15 = load i8, ptr %full_length_enabled_.i, align 8
   %tobool12.i = trunc i8 %15 to i1
-  br i1 %tobool12.i, label %lor.lhs.false.i, label %_ZNK7rocksdb23FilterBlockReaderCommonINS_21ParsedFullFilterBlockEE18IsFilterCompatibleEPKNS_5SliceERS4_PKNS_10ComparatorE.exit.thread
+  br i1 %tobool12.i, label %lor.lhs.false.i, label %if.then8
 
 lor.lhs.false.i:                                  ; preds = %if.then11.i
   %size_.i.i = getelementptr inbounds i8, ptr %iterate_upper_bound, i64 8
@@ -1164,25 +1159,25 @@ lor.lhs.false.i:                                  ; preds = %if.then11.i
   %prefix_extractor_full_length_.i = getelementptr inbounds i8, ptr %this, i64 48
   %17 = load i64, ptr %prefix_extractor_full_length_.i, align 8
   %cmp14.not.i = icmp eq i64 %16, %17
-  br i1 %cmp14.not.i, label %_ZNK7rocksdb23FilterBlockReaderCommonINS_21ParsedFullFilterBlockEE18IsFilterCompatibleEPKNS_5SliceERS4_PKNS_10ComparatorE.exit, label %_ZNK7rocksdb23FilterBlockReaderCommonINS_21ParsedFullFilterBlockEE18IsFilterCompatibleEPKNS_5SliceERS4_PKNS_10ComparatorE.exit.thread
+  br i1 %cmp14.not.i, label %lor.lhs.false15.i, label %if.then8
 
-_ZNK7rocksdb23FilterBlockReaderCommonINS_21ParsedFullFilterBlockEE18IsFilterCompatibleEPKNS_5SliceERS4_PKNS_10ComparatorE.exit.thread: ; preds = %if.then.i, %lor.lhs.false.i, %if.then11.i, %_ZNK7rocksdb23FilterBlockReaderCommonINS_21ParsedFullFilterBlockEE22table_prefix_extractorEv.exit.i, %land.lhs.true
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %upper_bound_xform.i)
-  br label %if.then8
-
-_ZNK7rocksdb23FilterBlockReaderCommonINS_21ParsedFullFilterBlockEE18IsFilterCompatibleEPKNS_5SliceERS4_PKNS_10ComparatorE.exit: ; preds = %lor.lhs.false.i
+lor.lhs.false15.i:                                ; preds = %lor.lhs.false.i
   %vtable16.i = load ptr, ptr %comparator, align 8
   %vfn17.i = getelementptr inbounds i8, ptr %vtable16.i, i64 176
   %18 = load ptr, ptr %vfn17.i, align 8
   %call18.i = call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(48) %comparator, ptr noundef nonnull align 8 dereferenceable(16) %prefix, ptr noundef nonnull align 8 dereferenceable(16) %iterate_upper_bound)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %upper_bound_xform.i)
-  br i1 %call18.i, label %if.else, label %if.then8
+  br i1 %call18.i, label %_ZNK7rocksdb23FilterBlockReaderCommonINS_21ParsedFullFilterBlockEE18IsFilterCompatibleEPKNS_5SliceERS4_PKNS_10ComparatorE.exit, label %if.then8
 
-if.then8:                                         ; preds = %_ZNK7rocksdb23FilterBlockReaderCommonINS_21ParsedFullFilterBlockEE18IsFilterCompatibleEPKNS_5SliceERS4_PKNS_10ComparatorE.exit.thread, %_ZNK7rocksdb23FilterBlockReaderCommonINS_21ParsedFullFilterBlockEE18IsFilterCompatibleEPKNS_5SliceERS4_PKNS_10ComparatorE.exit
+_ZNK7rocksdb23FilterBlockReaderCommonINS_21ParsedFullFilterBlockEE18IsFilterCompatibleEPKNS_5SliceERS4_PKNS_10ComparatorE.exit: ; preds = %if.end.i, %lor.lhs.false15.i
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %upper_bound_xform.i)
+  br label %if.else
+
+if.then8:                                         ; preds = %if.then.i, %lor.lhs.false15.i, %lor.lhs.false.i, %if.then11.i, %_ZNK7rocksdb23FilterBlockReaderCommonINS_21ParsedFullFilterBlockEE22table_prefix_extractorEv.exit.i, %land.lhs.true
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %upper_bound_xform.i)
   store i8 0, ptr %filter_checked, align 1
   br label %return
 
-if.else:                                          ; preds = %_ZNK7rocksdb23FilterBlockReaderCommonINS_21ParsedFullFilterBlockEE18IsFilterCompatibleEPKNS_5SliceERS4_PKNS_10ComparatorE.exit.thread7, %_ZNK7rocksdb23FilterBlockReaderCommonINS_21ParsedFullFilterBlockEE18IsFilterCompatibleEPKNS_5SliceERS4_PKNS_10ComparatorE.exit, %if.end
+if.else:                                          ; preds = %_ZNK7rocksdb23FilterBlockReaderCommonINS_21ParsedFullFilterBlockEE18IsFilterCompatibleEPKNS_5SliceERS4_PKNS_10ComparatorE.exit, %if.end
   store i8 1, ptr %filter_checked, align 1
   %vtable10 = load ptr, ptr %this, align 8
   %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 32
@@ -1238,7 +1233,7 @@ if.end:                                           ; preds = %if.then
   %9 = load ptr, ptr %vfn8, align 8
   %call9 = call noundef i32 %9(ptr noundef nonnull align 8 dereferenceable(48) %comparator, ptr noundef nonnull align 8 dereferenceable(16) %prefix, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(16) %upper_bound_xform, i1 noundef zeroext false)
   %cmp10.not = icmp eq i32 %call9, 0
-  br i1 %cmp10.not, label %return, label %if.then11
+  br i1 %cmp10.not, label %if.end21, label %if.then11
 
 if.then11:                                        ; preds = %if.end
   %full_length_enabled_ = getelementptr inbounds i8, ptr %this, i64 56
@@ -1259,10 +1254,13 @@ lor.lhs.false15:                                  ; preds = %lor.lhs.false
   %vfn17 = getelementptr inbounds i8, ptr %vtable16, i64 176
   %13 = load ptr, ptr %vfn17, align 8
   %call18 = call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(48) %comparator, ptr noundef nonnull align 8 dereferenceable(16) %prefix, ptr noundef nonnull align 8 dereferenceable(16) %iterate_upper_bound)
+  br i1 %call18, label %if.end21, label %return
+
+if.end21:                                         ; preds = %lor.lhs.false15, %if.end
   br label %return
 
-return:                                           ; preds = %entry, %lor.lhs.false15, %_ZNK7rocksdb23FilterBlockReaderCommonINS_21ParsedFullFilterBlockEE22table_prefix_extractorEv.exit, %if.end, %if.then11, %lor.lhs.false, %if.then
-  %retval.0 = phi i1 [ false, %if.then ], [ false, %lor.lhs.false ], [ false, %if.then11 ], [ true, %if.end ], [ false, %_ZNK7rocksdb23FilterBlockReaderCommonINS_21ParsedFullFilterBlockEE22table_prefix_extractorEv.exit ], [ %call18, %lor.lhs.false15 ], [ false, %entry ]
+return:                                           ; preds = %entry, %_ZNK7rocksdb23FilterBlockReaderCommonINS_21ParsedFullFilterBlockEE22table_prefix_extractorEv.exit, %if.then11, %lor.lhs.false, %lor.lhs.false15, %if.then, %if.end21
+  %retval.0 = phi i1 [ true, %if.end21 ], [ false, %if.then ], [ false, %lor.lhs.false15 ], [ false, %lor.lhs.false ], [ false, %if.then11 ], [ false, %_ZNK7rocksdb23FilterBlockReaderCommonINS_21ParsedFullFilterBlockEE22table_prefix_extractorEv.exit ], [ false, %entry ]
   ret i1 %retval.0
 }
 

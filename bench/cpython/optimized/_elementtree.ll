@@ -351,14 +351,18 @@ do.body83:                                        ; preds = %if.then74, %do.body
   %XMLParser_Type = getelementptr inbounds i8, ptr %call.i, i64 128
   %8 = load ptr, ptr %XMLParser_Type, align 8
   %tobool84.not = icmp eq ptr %8, null
-  br i1 %tobool84.not, label %return, label %if.then85
+  br i1 %tobool84.not, label %do.end93, label %if.then85
 
 if.then85:                                        ; preds = %do.body83
   %call88 = tail call i32 %visit(ptr noundef nonnull %8, ptr noundef %arg) #11
+  %tobool89.not = icmp eq i32 %call88, 0
+  br i1 %tobool89.not, label %do.end93, label %return
+
+do.end93:                                         ; preds = %do.body83, %if.then85
   br label %return
 
-return:                                           ; preds = %if.then85, %do.body83, %if.then74, %if.then63, %if.then52, %if.then41, %if.then30, %if.then19, %if.then8, %if.then
-  %retval.0 = phi i32 [ %call2, %if.then ], [ %call11, %if.then8 ], [ %call22, %if.then19 ], [ %call33, %if.then30 ], [ %call44, %if.then41 ], [ %call55, %if.then52 ], [ %call66, %if.then63 ], [ %call77, %if.then74 ], [ 0, %do.body83 ], [ %call88, %if.then85 ]
+return:                                           ; preds = %if.then85, %if.then74, %if.then63, %if.then52, %if.then41, %if.then30, %if.then19, %if.then8, %if.then, %do.end93
+  %retval.0 = phi i32 [ 0, %do.end93 ], [ %call2, %if.then ], [ %call11, %if.then8 ], [ %call22, %if.then19 ], [ %call33, %if.then30 ], [ %call44, %if.then41 ], [ %call55, %if.then52 ], [ %call66, %if.then63 ], [ %call77, %if.then74 ], [ %call88, %if.then85 ]
   ret i32 %retval.0
 }
 
@@ -1907,14 +1911,18 @@ do.body30:                                        ; preds = %if.then21, %do.body
   %5 = getelementptr i8, ptr %it, i64 8
   %it.val23 = load ptr, ptr %5, align 8
   %tobool32.not = icmp eq ptr %it.val23, null
-  br i1 %tobool32.not, label %return, label %if.then33
+  br i1 %tobool32.not, label %do.end41, label %if.then33
 
 if.then33:                                        ; preds = %do.body30
   %call36 = tail call i32 %visit(ptr noundef nonnull %it.val23, ptr noundef %arg) #11
+  %tobool37.not = icmp eq i32 %call36, 0
+  br i1 %tobool37.not, label %do.end41, label %return
+
+do.end41:                                         ; preds = %do.body30, %if.then33
   br label %return
 
-return:                                           ; preds = %if.then, %if.then33, %do.body30, %if.then21, %if.then10
-  %retval.0 = phi i32 [ %call13, %if.then10 ], [ %call24, %if.then21 ], [ 0, %do.body30 ], [ %call36, %if.then33 ], [ %call, %if.then ]
+return:                                           ; preds = %if.then, %if.then33, %if.then21, %if.then10, %do.end41
+  %retval.0 = phi i32 [ 0, %do.end41 ], [ %call13, %if.then10 ], [ %call24, %if.then21 ], [ %call36, %if.then33 ], [ %call, %if.then ]
   ret i32 %retval.0
 }
 
@@ -2584,14 +2592,18 @@ do.body171:                                       ; preds = %if.then162, %do.bod
   %element_factory = getelementptr inbounds i8, ptr %self, i64 72
   %16 = load ptr, ptr %element_factory, align 8
   %tobool172.not = icmp eq ptr %16, null
-  br i1 %tobool172.not, label %return, label %if.then173
+  br i1 %tobool172.not, label %do.end181, label %if.then173
 
 if.then173:                                       ; preds = %do.body171
   %call176 = tail call i32 %visit(ptr noundef nonnull %16, ptr noundef %arg) #11
+  %tobool177.not = icmp eq i32 %call176, 0
+  br i1 %tobool177.not, label %do.end181, label %return
+
+do.end181:                                        ; preds = %do.body171, %if.then173
   br label %return
 
-return:                                           ; preds = %if.then173, %do.body171, %if.then162, %if.then151, %if.then140, %if.then129, %if.then118, %if.then107, %if.then96, %if.then85, %if.then74, %if.then63, %if.then52, %if.then41, %if.then30, %if.then19, %if.then8, %if.then
-  %retval.0 = phi i32 [ %call2, %if.then ], [ %call11, %if.then8 ], [ %call22, %if.then19 ], [ %call33, %if.then30 ], [ %call44, %if.then41 ], [ %call55, %if.then52 ], [ %call66, %if.then63 ], [ %call77, %if.then74 ], [ %call88, %if.then85 ], [ %call99, %if.then96 ], [ %call110, %if.then107 ], [ %call121, %if.then118 ], [ %call132, %if.then129 ], [ %call143, %if.then140 ], [ %call154, %if.then151 ], [ %call165, %if.then162 ], [ 0, %do.body171 ], [ %call176, %if.then173 ]
+return:                                           ; preds = %if.then173, %if.then162, %if.then151, %if.then140, %if.then129, %if.then118, %if.then107, %if.then96, %if.then85, %if.then74, %if.then63, %if.then52, %if.then41, %if.then30, %if.then19, %if.then8, %if.then, %do.end181
+  %retval.0 = phi i32 [ 0, %do.end181 ], [ %call2, %if.then ], [ %call11, %if.then8 ], [ %call22, %if.then19 ], [ %call33, %if.then30 ], [ %call44, %if.then41 ], [ %call55, %if.then52 ], [ %call66, %if.then63 ], [ %call77, %if.then74 ], [ %call88, %if.then85 ], [ %call99, %if.then96 ], [ %call110, %if.then107 ], [ %call121, %if.then118 ], [ %call132, %if.then129 ], [ %call143, %if.then140 ], [ %call154, %if.then151 ], [ %call165, %if.then162 ], [ %call176, %if.then173 ]
   ret i32 %retval.0
 }
 
@@ -3422,7 +3434,7 @@ return:                                           ; preds = %entry, %if.end, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_elementtree_TreeBuilder_data(ptr noundef %self, ptr noundef %data) #0 {
+define internal noundef ptr @_elementtree_TreeBuilder_data(ptr noundef %self, ptr noundef %data) #0 {
 entry:
   %call = tail call fastcc ptr @treebuilder_handle_data(ptr noundef %self, ptr noundef %data)
   ret ptr %call
@@ -3531,7 +3543,7 @@ _elementtree_TreeBuilder_close_impl.exit:         ; preds = %entry, %if.end.i.i.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @treebuilder_handle_data(ptr noundef %self, ptr noundef %data) unnamed_addr #0 {
+define internal fastcc noundef ptr @treebuilder_handle_data(ptr noundef %self, ptr noundef %data) unnamed_addr #0 {
 entry:
   %data1 = getelementptr inbounds i8, ptr %self, i64 48
   %0 = load ptr, ptr %data1, align 8
@@ -3556,7 +3568,7 @@ if.end.i.i:                                       ; preds = %if.end
 
 _Py_NewRef.exit:                                  ; preds = %if.end, %if.end.i.i
   store ptr %data, ptr %data1, align 8
-  br label %return
+  br label %if.end49
 
 if.else:                                          ; preds = %entry
   %3 = getelementptr i8, ptr %0, i64 8
@@ -3596,7 +3608,7 @@ if.end23:                                         ; preds = %if.then16
   %ob_sval.i32 = getelementptr inbounds i8, ptr %8, i64 32
   %arrayidx27 = getelementptr i8, ptr %ob_sval.i32, i64 %.val27
   store i8 %7, ptr %arrayidx27, align 1
-  br label %return
+  br label %if.end49
 
 if.else28:                                        ; preds = %if.else
   %cmp.i33.not = icmp eq ptr %.val24, @PyList_Type
@@ -3605,8 +3617,7 @@ if.else28:                                        ; preds = %if.else
 if.then32:                                        ; preds = %if.else28
   %call34 = tail call i32 @PyList_Append(ptr noundef nonnull %0, ptr noundef %data) #11
   %cmp35 = icmp slt i32 %call34, 0
-  %spec.select = select i1 %cmp35, ptr null, ptr @_Py_NoneStruct
-  br label %return
+  br i1 %cmp35, label %return, label %if.end49
 
 if.else38:                                        ; preds = %land.lhs.true, %land.lhs.true10, %land.lhs.true13, %if.else28
   %call39 = tail call ptr @PyList_New(i64 noundef 2) #11
@@ -3646,20 +3657,23 @@ _Py_NewRef.exit42:                                ; preds = %_Py_NewRef.exit38, 
   %14 = load i64, ptr %13, align 8
   %15 = and i64 %14, 2147483648
   %cmp.i51.not = icmp eq i64 %15, 0
-  br i1 %cmp.i51.not, label %if.end.i, label %return
+  br i1 %cmp.i51.not, label %if.end.i, label %if.end49
 
 if.end.i:                                         ; preds = %_Py_NewRef.exit42
   %dec.i = add i64 %14, -1
   store i64 %dec.i, ptr %13, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
-  br i1 %cmp.i, label %if.then1.i, label %return
+  br i1 %cmp.i, label %if.then1.i, label %if.end49
 
 if.then1.i:                                       ; preds = %if.end.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %13) #11
+  br label %if.end49
+
+if.end49:                                         ; preds = %if.end23, %_Py_NewRef.exit42, %if.then1.i, %if.end.i, %if.then32, %_Py_NewRef.exit
   br label %return
 
-return:                                           ; preds = %if.then32, %_Py_NewRef.exit, %if.end.i, %if.then1.i, %_Py_NewRef.exit42, %if.end23, %if.else38, %if.then16, %if.then
-  %retval.0 = phi ptr [ @_Py_NoneStruct, %if.then ], [ null, %if.then16 ], [ null, %if.else38 ], [ @_Py_NoneStruct, %if.end23 ], [ @_Py_NoneStruct, %_Py_NewRef.exit42 ], [ @_Py_NoneStruct, %if.then1.i ], [ @_Py_NoneStruct, %if.end.i ], [ @_Py_NoneStruct, %_Py_NewRef.exit ], [ %spec.select, %if.then32 ]
+return:                                           ; preds = %if.else38, %if.then32, %if.then16, %if.then, %if.end49
+  %retval.0 = phi ptr [ @_Py_NoneStruct, %if.end49 ], [ @_Py_NoneStruct, %if.then ], [ null, %if.then16 ], [ null, %if.then32 ], [ null, %if.else38 ]
   ret ptr %retval.0
 }
 
@@ -5661,7 +5675,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @element_bool(ptr nocapture noundef readonly %self_) #0 {
+define internal noundef i32 @element_bool(ptr nocapture noundef readonly %self_) #0 {
 entry:
   %0 = load ptr, ptr @PyExc_DeprecationWarning, align 8
   %call = tail call i32 @PyErr_WarnEx(ptr noundef %0, ptr noundef nonnull @.str.92, i64 noundef 1) #11
@@ -5672,17 +5686,19 @@ if.end:                                           ; preds = %entry
   %extra = getelementptr inbounds i8, ptr %self_, i64 40
   %1 = load ptr, ptr %extra, align 8
   %tobool.not = icmp eq ptr %1, null
-  br i1 %tobool.not, label %return, label %cond.true
+  br i1 %tobool.not, label %if.end4, label %cond.true
 
 cond.true:                                        ; preds = %if.end
   %length = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i64, ptr %length, align 8
-  %tobool2.not = icmp ne i64 %2, 0
-  %spec.select = zext i1 %tobool2.not to i32
+  %tobool2.not = icmp eq i64 %2, 0
+  br i1 %tobool2.not, label %if.end4, label %return
+
+if.end4:                                          ; preds = %if.end, %cond.true
   br label %return
 
-return:                                           ; preds = %cond.true, %if.end, %entry
-  %retval.0 = phi i32 [ -1, %entry ], [ 0, %if.end ], [ %spec.select, %cond.true ]
+return:                                           ; preds = %cond.true, %entry, %if.end4
+  %retval.0 = phi i32 [ 0, %if.end4 ], [ -1, %entry ], [ 1, %cond.true ]
   ret i32 %retval.0
 }
 
@@ -10405,14 +10421,18 @@ do.body127:                                       ; preds = %if.then118, %do.bod
   %names = getelementptr inbounds i8, ptr %self, i64 40
   %12 = load ptr, ptr %names, align 8
   %tobool128.not = icmp eq ptr %12, null
-  br i1 %tobool128.not, label %return, label %if.then129
+  br i1 %tobool128.not, label %do.end137, label %if.then129
 
 if.then129:                                       ; preds = %do.body127
   %call132 = tail call i32 %visit(ptr noundef nonnull %12, ptr noundef %arg) #11
+  %tobool133.not = icmp eq i32 %call132, 0
+  br i1 %tobool133.not, label %do.end137, label %return
+
+do.end137:                                        ; preds = %do.body127, %if.then129
   br label %return
 
-return:                                           ; preds = %if.then129, %do.body127, %if.then118, %if.then107, %if.then96, %if.then85, %if.then74, %if.then63, %if.then52, %if.then41, %if.then30, %if.then19, %if.then8, %if.then
-  %retval.0 = phi i32 [ %call2, %if.then ], [ %call11, %if.then8 ], [ %call22, %if.then19 ], [ %call33, %if.then30 ], [ %call44, %if.then41 ], [ %call55, %if.then52 ], [ %call66, %if.then63 ], [ %call77, %if.then74 ], [ %call88, %if.then85 ], [ %call99, %if.then96 ], [ %call110, %if.then107 ], [ %call121, %if.then118 ], [ 0, %do.body127 ], [ %call132, %if.then129 ]
+return:                                           ; preds = %if.then129, %if.then118, %if.then107, %if.then96, %if.then85, %if.then74, %if.then63, %if.then52, %if.then41, %if.then30, %if.then19, %if.then8, %if.then, %do.end137
+  %retval.0 = phi i32 [ 0, %do.end137 ], [ %call2, %if.then ], [ %call11, %if.then8 ], [ %call22, %if.then19 ], [ %call33, %if.then30 ], [ %call44, %if.then41 ], [ %call55, %if.then52 ], [ %call66, %if.then63 ], [ %call77, %if.then74 ], [ %call88, %if.then85 ], [ %call99, %if.then96 ], [ %call110, %if.then107 ], [ %call121, %if.then118 ], [ %call132, %if.then129 ]
   ret i32 %retval.0
 }
 
@@ -13074,7 +13094,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i15
   tail call void @_Py_Dealloc(ptr noundef nonnull %res.022) #11
   br label %return
 
-return:                                           ; preds = %if.then.i.i, %Py_DECREF.exit16.i.i, %if.else, %if.then6, %land.lhs.true, %if.then1.i.i, %if.end.i.i15, %if.then.i, %if.end24, %if.then15, %entry
+return:                                           ; preds = %Py_DECREF.exit16.i.i, %if.then.i.i, %if.else, %if.then6, %land.lhs.true, %if.then1.i.i, %if.end.i.i15, %if.then.i, %if.end24, %if.then15, %entry
   ret void
 }
 

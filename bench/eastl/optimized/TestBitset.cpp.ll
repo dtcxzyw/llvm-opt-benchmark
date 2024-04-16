@@ -10531,12 +10531,11 @@ _ZN5eastl10GetLastBitEj.exit.i:                   ; preds = %entry
   %tobool22.not.i.i = icmp ugt i32 %x.addr.3.i.i, 1
   %add24.i.i = zext i1 %tobool22.not.i.i to i32
   %n.4.i.i = add nuw nsw i32 %n.3.i.i, %add24.i.i
-  %n.4.i.i.fr = freeze i32 %n.4.i.i
-  %cmp.not.i = icmp eq i32 %n.4.i.i.fr, 32
+  %cmp.not.i = icmp eq i32 %n.4.i.i, 32
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN5eastl10GetLastBitEj.exit.i
-  %conv.i = zext i32 %n.4.i.i.fr to i64
+  %conv.i = zext nneg i32 %n.4.i.i to i64
   %add.i = add nuw nsw i64 %conv.i, 32
   br label %_ZNK5eastl10BitsetBaseILm2EjE10DoFindLastEv.exit
 
@@ -10570,17 +10569,17 @@ _ZN5eastl10GetLastBitEj.exit29.i:                 ; preds = %if.end.i
   %n.4.i27.i = add nuw nsw i32 %n.3.i24.i, %add24.i26.i
   %n.4.i27.fr.i = freeze i32 %n.4.i27.i
   %cmp6.not.i = icmp eq i32 %n.4.i27.fr.i, 32
-  %narrow.i = select i1 %cmp6.not.i, i32 64, i32 %n.4.i27.fr.i
-  %spec.select.i = zext i32 %narrow.i to i64
-  br label %_ZNK5eastl10BitsetBaseILm2EjE10DoFindLastEv.exit
+  %conv5.i = zext nneg i32 %n.4.i27.fr.i to i64
+  br i1 %cmp6.not.i, label %_ZNK5eastl10BitsetBaseILm2EjE10DoFindLastEv.exit.thread, label %_ZNK5eastl10BitsetBaseILm2EjE10DoFindLastEv.exit
 
 _ZNK5eastl10BitsetBaseILm2EjE10DoFindLastEv.exit: ; preds = %if.then.i, %_ZN5eastl10GetLastBitEj.exit29.i
-  %retval.0.i = phi i64 [ %add.i, %if.then.i ], [ %spec.select.i, %_ZN5eastl10GetLastBitEj.exit29.i ]
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %retval.0.i, i64 33)
+  %retval.0.i = phi i64 [ %add.i, %if.then.i ], [ %conv5.i, %_ZN5eastl10GetLastBitEj.exit29.i ]
+  %retval.0.i.fr = freeze i64 %retval.0.i
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %retval.0.i.fr, i64 33)
   br label %_ZNK5eastl10BitsetBaseILm2EjE10DoFindLastEv.exit.thread
 
-_ZNK5eastl10BitsetBaseILm2EjE10DoFindLastEv.exit.thread: ; preds = %_ZNK5eastl10BitsetBaseILm2EjE10DoFindLastEv.exit, %if.end.i
-  %2 = phi i64 [ 33, %if.end.i ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm2EjE10DoFindLastEv.exit ]
+_ZNK5eastl10BitsetBaseILm2EjE10DoFindLastEv.exit.thread: ; preds = %_ZNK5eastl10BitsetBaseILm2EjE10DoFindLastEv.exit, %_ZN5eastl10GetLastBitEj.exit29.i, %if.end.i
+  %2 = phi i64 [ 33, %if.end.i ], [ 33, %_ZN5eastl10GetLastBitEj.exit29.i ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm2EjE10DoFindLastEv.exit ]
   ret i64 %2
 }
 
@@ -10642,7 +10641,7 @@ if.then4:                                         ; preds = %_ZN5eastl10GetLastB
 if.end:                                           ; preds = %if.then, %_ZN5eastl10GetLastBitEj.exit
   %2 = load i32, ptr %this, align 4
   %tobool.not.i10 = icmp eq i32 %2, 0
-  br i1 %tobool.not.i10, label %return, label %_ZN5eastl10GetLastBitEj.exit35
+  br i1 %tobool.not.i10, label %_ZN5eastl10GetLastBitEj.exit35.thread, label %_ZN5eastl10GetLastBitEj.exit35
 
 _ZN5eastl10GetLastBitEj.exit35:                   ; preds = %if.end
   %tobool1.not.i12 = icmp ult i32 %2, 65536
@@ -10669,8 +10668,10 @@ _ZN5eastl10GetLastBitEj.exit35:                   ; preds = %if.end
   %n.4.i33 = add nuw nsw i32 %n.3.i30, %add24.i32
   %n.4.i33.fr = freeze i32 %n.4.i33
   %cmp9.not = icmp eq i32 %n.4.i33.fr, 32
-  %narrow74 = select i1 %cmp9.not, i32 64, i32 %n.4.i33.fr
-  %spec.select = zext i32 %narrow74 to i64
+  %conv8 = zext nneg i32 %n.4.i33.fr to i64
+  br i1 %cmp9.not, label %_ZN5eastl10GetLastBitEj.exit35.thread, label %return
+
+_ZN5eastl10GetLastBitEj.exit35.thread:            ; preds = %if.end, %_ZN5eastl10GetLastBitEj.exit35
   br label %return
 
 if.else:                                          ; preds = %entry
@@ -10684,7 +10685,7 @@ if.then13:                                        ; preds = %if.else
   %shr19 = lshr i32 -1, %sh_prom18
   %and20 = and i32 %3, %shr19
   %tobool.not.i36 = icmp eq i32 %and20, 0
-  br i1 %tobool.not.i36, label %return, label %_ZN5eastl10GetLastBitEj.exit61
+  br i1 %tobool.not.i36, label %_ZN5eastl10GetLastBitEj.exit61.thread, label %_ZN5eastl10GetLastBitEj.exit61
 
 _ZN5eastl10GetLastBitEj.exit61:                   ; preds = %if.then13
   %tobool1.not.i38 = icmp ult i32 %and20, 65536
@@ -10711,12 +10712,14 @@ _ZN5eastl10GetLastBitEj.exit61:                   ; preds = %if.then13
   %n.4.i59 = add nuw nsw i32 %n.3.i56, %add24.i58
   %n.4.i59.fr = freeze i32 %n.4.i59
   %cmp24.not = icmp eq i32 %n.4.i59.fr, 32
-  %narrow = select i1 %cmp24.not, i32 64, i32 %n.4.i59.fr
-  %spec.select73 = zext i32 %narrow to i64
+  %conv23 = zext nneg i32 %n.4.i59.fr to i64
+  br i1 %cmp24.not, label %_ZN5eastl10GetLastBitEj.exit61.thread, label %return
+
+_ZN5eastl10GetLastBitEj.exit61.thread:            ; preds = %if.then13, %_ZN5eastl10GetLastBitEj.exit61
   br label %return
 
-return:                                           ; preds = %_ZN5eastl10GetLastBitEj.exit61, %_ZN5eastl10GetLastBitEj.exit35, %if.then13, %if.end, %if.else, %if.then4
-  %retval.0 = phi i64 [ %add, %if.then4 ], [ 64, %if.else ], [ 64, %if.end ], [ 64, %if.then13 ], [ %spec.select, %_ZN5eastl10GetLastBitEj.exit35 ], [ %spec.select73, %_ZN5eastl10GetLastBitEj.exit61 ]
+return:                                           ; preds = %_ZN5eastl10GetLastBitEj.exit61.thread, %_ZN5eastl10GetLastBitEj.exit61, %_ZN5eastl10GetLastBitEj.exit35.thread, %_ZN5eastl10GetLastBitEj.exit35, %if.else, %if.then4
+  %retval.0 = phi i64 [ %add, %if.then4 ], [ 64, %if.else ], [ 64, %_ZN5eastl10GetLastBitEj.exit35.thread ], [ %conv8, %_ZN5eastl10GetLastBitEj.exit35 ], [ 64, %_ZN5eastl10GetLastBitEj.exit61.thread ], [ %conv23, %_ZN5eastl10GetLastBitEj.exit61 ]
   ret i64 %retval.0
 }
 
@@ -15954,7 +15957,7 @@ if.then:                                          ; preds = %_ZN5eastl10GetLastB
 if.end:                                           ; preds = %entry, %_ZN5eastl10GetLastBitEo.exit
   %1 = load i128, ptr %this, align 16
   %tobool.not.i8 = icmp eq i128 %1, 0
-  br i1 %tobool.not.i8, label %return, label %_ZN5eastl10GetLastBitEo.exit48
+  br i1 %tobool.not.i8, label %_ZN5eastl10GetLastBitEo.exit48.thread, label %_ZN5eastl10GetLastBitEo.exit48
 
 _ZN5eastl10GetLastBitEo.exit48:                   ; preds = %if.end
   %coerce4.sroa.2.0.extract.shift = lshr i128 %1, 64
@@ -15997,12 +16000,14 @@ _ZN5eastl10GetLastBitEo.exit48:                   ; preds = %if.end
   %n.6.i46 = add nuw nsw i32 %n.5.i42, %add37.i45
   %n.6.i46.fr = freeze i32 %n.6.i46
   %cmp7.not = icmp eq i32 %n.6.i46.fr, 128
-  %narrow = select i1 %cmp7.not, i32 256, i32 %n.6.i46.fr
-  %spec.select = zext i32 %narrow to i64
+  %conv6 = zext nneg i32 %n.6.i46.fr to i64
+  br i1 %cmp7.not, label %_ZN5eastl10GetLastBitEo.exit48.thread, label %return
+
+_ZN5eastl10GetLastBitEo.exit48.thread:            ; preds = %if.end, %_ZN5eastl10GetLastBitEo.exit48
   br label %return
 
-return:                                           ; preds = %_ZN5eastl10GetLastBitEo.exit48, %if.end, %if.then
-  %retval.0 = phi i64 [ %add, %if.then ], [ 256, %if.end ], [ %spec.select, %_ZN5eastl10GetLastBitEo.exit48 ]
+return:                                           ; preds = %_ZN5eastl10GetLastBitEo.exit48.thread, %_ZN5eastl10GetLastBitEo.exit48, %if.then
+  %retval.0 = phi i64 [ %add, %if.then ], [ 256, %_ZN5eastl10GetLastBitEo.exit48.thread ], [ %conv6, %_ZN5eastl10GetLastBitEo.exit48 ]
   ret i64 %retval.0
 }
 
@@ -16080,7 +16085,7 @@ if.then4:                                         ; preds = %_ZN5eastl10GetLastB
 if.end:                                           ; preds = %if.then, %_ZN5eastl10GetLastBitEo.exit
   %1 = load i128, ptr %this, align 16
   %tobool.not.i14 = icmp eq i128 %1, 0
-  br i1 %tobool.not.i14, label %return, label %_ZN5eastl10GetLastBitEo.exit54
+  br i1 %tobool.not.i14, label %_ZN5eastl10GetLastBitEo.exit54.thread, label %_ZN5eastl10GetLastBitEo.exit54
 
 _ZN5eastl10GetLastBitEo.exit54:                   ; preds = %if.end
   %coerce7.sroa.2.0.extract.shift = lshr i128 %1, 64
@@ -16123,8 +16128,10 @@ _ZN5eastl10GetLastBitEo.exit54:                   ; preds = %if.end
   %n.6.i52 = add nuw nsw i32 %n.5.i48, %add37.i51
   %n.6.i52.fr = freeze i32 %n.6.i52
   %cmp10.not = icmp eq i32 %n.6.i52.fr, 128
-  %narrow112 = select i1 %cmp10.not, i32 256, i32 %n.6.i52.fr
-  %spec.select = zext i32 %narrow112 to i64
+  %conv9 = zext nneg i32 %n.6.i52.fr to i64
+  br i1 %cmp10.not, label %_ZN5eastl10GetLastBitEo.exit54.thread, label %return
+
+_ZN5eastl10GetLastBitEo.exit54.thread:            ; preds = %if.end, %_ZN5eastl10GetLastBitEo.exit54
   br label %return
 
 if.else:                                          ; preds = %entry
@@ -16138,7 +16145,7 @@ if.then14:                                        ; preds = %if.else
   %shr20 = lshr i128 -1, %sh_prom19
   %and21 = and i128 %2, %shr20
   %tobool.not.i59 = icmp eq i128 %and21, 0
-  br i1 %tobool.not.i59, label %return, label %_ZN5eastl10GetLastBitEo.exit99
+  br i1 %tobool.not.i59, label %_ZN5eastl10GetLastBitEo.exit99.thread, label %_ZN5eastl10GetLastBitEo.exit99
 
 _ZN5eastl10GetLastBitEo.exit99:                   ; preds = %if.then14
   %coerce23.sroa.2.0.extract.shift = lshr i128 %and21, 64
@@ -16181,12 +16188,14 @@ _ZN5eastl10GetLastBitEo.exit99:                   ; preds = %if.then14
   %n.6.i97 = add nuw nsw i32 %n.5.i93, %add37.i96
   %n.6.i97.fr = freeze i32 %n.6.i97
   %cmp26.not = icmp eq i32 %n.6.i97.fr, 128
-  %narrow = select i1 %cmp26.not, i32 256, i32 %n.6.i97.fr
-  %spec.select111 = zext i32 %narrow to i64
+  %conv25 = zext nneg i32 %n.6.i97.fr to i64
+  br i1 %cmp26.not, label %_ZN5eastl10GetLastBitEo.exit99.thread, label %return
+
+_ZN5eastl10GetLastBitEo.exit99.thread:            ; preds = %if.then14, %_ZN5eastl10GetLastBitEo.exit99
   br label %return
 
-return:                                           ; preds = %_ZN5eastl10GetLastBitEo.exit99, %_ZN5eastl10GetLastBitEo.exit54, %if.then14, %if.end, %if.else, %if.then4
-  %retval.0 = phi i64 [ %add, %if.then4 ], [ 256, %if.else ], [ 256, %if.end ], [ 256, %if.then14 ], [ %spec.select, %_ZN5eastl10GetLastBitEo.exit54 ], [ %spec.select111, %_ZN5eastl10GetLastBitEo.exit99 ]
+return:                                           ; preds = %_ZN5eastl10GetLastBitEo.exit99.thread, %_ZN5eastl10GetLastBitEo.exit99, %_ZN5eastl10GetLastBitEo.exit54.thread, %_ZN5eastl10GetLastBitEo.exit54, %if.else, %if.then4
+  %retval.0 = phi i64 [ %add, %if.then4 ], [ 256, %if.else ], [ 256, %_ZN5eastl10GetLastBitEo.exit54.thread ], [ %conv9, %_ZN5eastl10GetLastBitEo.exit54 ], [ 256, %_ZN5eastl10GetLastBitEo.exit99.thread ], [ %conv25, %_ZN5eastl10GetLastBitEo.exit99 ]
   ret i64 %retval.0
 }
 
@@ -19789,7 +19798,7 @@ if.then:                                          ; preds = %_ZN5eastl10GetLastB
 if.end:                                           ; preds = %entry, %_ZN5eastl10GetLastBitEm.exit
   %1 = load i64, ptr %this, align 8
   %tobool.not.i4 = icmp eq i64 %1, 0
-  br i1 %tobool.not.i4, label %return, label %_ZN5eastl10GetLastBitEm.exit36
+  br i1 %tobool.not.i4, label %_ZN5eastl10GetLastBitEm.exit36.thread, label %_ZN5eastl10GetLastBitEm.exit36
 
 _ZN5eastl10GetLastBitEm.exit36:                   ; preds = %if.end
   %tobool1.not.i6 = icmp ult i64 %1, 4294967296
@@ -19823,12 +19832,14 @@ _ZN5eastl10GetLastBitEm.exit36:                   ; preds = %if.end
   %n.5.i34 = add nuw nsw i32 %n.4.i30, %add30.i33
   %n.5.i34.fr = freeze i32 %n.5.i34
   %cmp6.not = icmp eq i32 %n.5.i34.fr, 64
-  %narrow = select i1 %cmp6.not, i32 128, i32 %n.5.i34.fr
-  %spec.select = zext i32 %narrow to i64
+  %conv5 = zext nneg i32 %n.5.i34.fr to i64
+  br i1 %cmp6.not, label %_ZN5eastl10GetLastBitEm.exit36.thread, label %return
+
+_ZN5eastl10GetLastBitEm.exit36.thread:            ; preds = %if.end, %_ZN5eastl10GetLastBitEm.exit36
   br label %return
 
-return:                                           ; preds = %_ZN5eastl10GetLastBitEm.exit36, %if.end, %if.then
-  %retval.0 = phi i64 [ %add, %if.then ], [ 128, %if.end ], [ %spec.select, %_ZN5eastl10GetLastBitEm.exit36 ]
+return:                                           ; preds = %_ZN5eastl10GetLastBitEm.exit36.thread, %_ZN5eastl10GetLastBitEm.exit36, %if.then
+  %retval.0 = phi i64 [ %add, %if.then ], [ 128, %_ZN5eastl10GetLastBitEm.exit36.thread ], [ %conv5, %_ZN5eastl10GetLastBitEm.exit36 ]
   ret i64 %retval.0
 }
 
@@ -19888,7 +19899,7 @@ if.then4:                                         ; preds = %_ZN5eastl10GetLastB
 if.end:                                           ; preds = %if.then, %_ZN5eastl10GetLastBitEm.exit
   %1 = load i64, ptr %this, align 8
   %tobool.not.i10 = icmp eq i64 %1, 0
-  br i1 %tobool.not.i10, label %return, label %_ZN5eastl10GetLastBitEm.exit42
+  br i1 %tobool.not.i10, label %_ZN5eastl10GetLastBitEm.exit42.thread, label %_ZN5eastl10GetLastBitEm.exit42
 
 _ZN5eastl10GetLastBitEm.exit42:                   ; preds = %if.end
   %tobool1.not.i12 = icmp ult i64 %1, 4294967296
@@ -19922,8 +19933,10 @@ _ZN5eastl10GetLastBitEm.exit42:                   ; preds = %if.end
   %n.5.i40 = add nuw nsw i32 %n.4.i36, %add30.i39
   %n.5.i40.fr = freeze i32 %n.5.i40
   %cmp9.not = icmp eq i32 %n.5.i40.fr, 64
-  %narrow88 = select i1 %cmp9.not, i32 128, i32 %n.5.i40.fr
-  %spec.select = zext i32 %narrow88 to i64
+  %conv8 = zext nneg i32 %n.5.i40.fr to i64
+  br i1 %cmp9.not, label %_ZN5eastl10GetLastBitEm.exit42.thread, label %return
+
+_ZN5eastl10GetLastBitEm.exit42.thread:            ; preds = %if.end, %_ZN5eastl10GetLastBitEm.exit42
   br label %return
 
 if.else:                                          ; preds = %entry
@@ -19936,7 +19949,7 @@ if.then13:                                        ; preds = %if.else
   %shr18 = lshr i64 -1, %sub17
   %and19 = and i64 %2, %shr18
   %tobool.not.i43 = icmp eq i64 %and19, 0
-  br i1 %tobool.not.i43, label %return, label %_ZN5eastl10GetLastBitEm.exit75
+  br i1 %tobool.not.i43, label %_ZN5eastl10GetLastBitEm.exit75.thread, label %_ZN5eastl10GetLastBitEm.exit75
 
 _ZN5eastl10GetLastBitEm.exit75:                   ; preds = %if.then13
   %tobool1.not.i45 = icmp ult i64 %and19, 4294967296
@@ -19970,12 +19983,14 @@ _ZN5eastl10GetLastBitEm.exit75:                   ; preds = %if.then13
   %n.5.i73 = add nuw nsw i32 %n.4.i69, %add30.i72
   %n.5.i73.fr = freeze i32 %n.5.i73
   %cmp23.not = icmp eq i32 %n.5.i73.fr, 64
-  %narrow = select i1 %cmp23.not, i32 128, i32 %n.5.i73.fr
-  %spec.select87 = zext i32 %narrow to i64
+  %conv22 = zext nneg i32 %n.5.i73.fr to i64
+  br i1 %cmp23.not, label %_ZN5eastl10GetLastBitEm.exit75.thread, label %return
+
+_ZN5eastl10GetLastBitEm.exit75.thread:            ; preds = %if.then13, %_ZN5eastl10GetLastBitEm.exit75
   br label %return
 
-return:                                           ; preds = %_ZN5eastl10GetLastBitEm.exit75, %_ZN5eastl10GetLastBitEm.exit42, %if.then13, %if.end, %if.else, %if.then4
-  %retval.0 = phi i64 [ %add, %if.then4 ], [ 128, %if.else ], [ 128, %if.end ], [ 128, %if.then13 ], [ %spec.select, %_ZN5eastl10GetLastBitEm.exit42 ], [ %spec.select87, %_ZN5eastl10GetLastBitEm.exit75 ]
+return:                                           ; preds = %_ZN5eastl10GetLastBitEm.exit75.thread, %_ZN5eastl10GetLastBitEm.exit75, %_ZN5eastl10GetLastBitEm.exit42.thread, %_ZN5eastl10GetLastBitEm.exit42, %if.else, %if.then4
+  %retval.0 = phi i64 [ %add, %if.then4 ], [ 128, %if.else ], [ 128, %_ZN5eastl10GetLastBitEm.exit42.thread ], [ %conv8, %_ZN5eastl10GetLastBitEm.exit42 ], [ 128, %_ZN5eastl10GetLastBitEm.exit75.thread ], [ %conv22, %_ZN5eastl10GetLastBitEm.exit75 ]
   ret i64 %retval.0
 }
 

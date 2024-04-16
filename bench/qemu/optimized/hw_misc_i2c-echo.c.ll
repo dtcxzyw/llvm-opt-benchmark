@@ -82,12 +82,12 @@ entry:
 sw.bb:                                            ; preds = %entry
   %pos = getelementptr inbounds i8, ptr %call.i, i64 192
   store i32 0, ptr %pos, align 8
-  br label %return
+  br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
   %pos2 = getelementptr inbounds i8, ptr %call.i, i64 192
   store i32 0, ptr %pos2, align 8
-  br label %return
+  br label %sw.epilog
 
 sw.bb3:                                           ; preds = %entry
   %pos4 = getelementptr inbounds i8, ptr %call.i, i64 192
@@ -99,13 +99,13 @@ sw.bb3:                                           ; preds = %entry
   %bh = getelementptr inbounds i8, ptr %call.i, i64 184
   %1 = load ptr, ptr %bh, align 8
   tail call void @i2c_bus_master(ptr noundef %0, ptr noundef %1) #2
+  br label %sw.epilog
+
+sw.epilog:                                        ; preds = %entry, %sw.bb3, %sw.bb1, %sw.bb
   br label %return
 
-sw.epilog:                                        ; preds = %entry
-  br label %return
-
-return:                                           ; preds = %sw.bb, %sw.bb1, %sw.bb3, %entry, %sw.epilog
-  %retval.0 = phi i32 [ -1, %entry ], [ 0, %sw.bb3 ], [ 0, %sw.bb1 ], [ 0, %sw.bb ], [ 0, %sw.epilog ]
+return:                                           ; preds = %entry, %sw.epilog
+  %retval.0 = phi i32 [ 0, %sw.epilog ], [ -1, %entry ]
   ret i32 %retval.0
 }
 

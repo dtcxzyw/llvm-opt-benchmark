@@ -1098,7 +1098,7 @@ _ZN4cvc56parser7CommandD2Ev.exit:                 ; preds = %_ZN4cvc56parser7Com
           to label %invoke.cont256 unwind label %lpad253
 
 invoke.cont256:                                   ; preds = %_ZN4cvc56parser7CommandD2Ev.exit
-  br i1 %call257, label %cleanup338, label %if.end259
+  br i1 %call257, label %try.cont, label %if.end259
 
 lpad243:                                          ; preds = %invoke.cont242
   %76 = landingpad { ptr, i32 }
@@ -1194,7 +1194,11 @@ invoke.cont261:                                   ; preds = %if.end259
           to label %invoke.cont263 unwind label %lpad253
 
 invoke.cont263:                                   ; preds = %invoke.cont261
-  br i1 %call264, label %cleanup338.sink.split, label %if.end267
+  br i1 %call264, label %if.then265, label %if.end267
+
+if.then265:                                       ; preds = %invoke.cont263
+  store i8 1, ptr %d_quit, align 1
+  br label %cleanup338
 
 if.end267:                                        ; preds = %invoke.cont263
   %96 = load ptr, ptr %_M_finish.i, align 8
@@ -1223,7 +1227,11 @@ if.else.i:                                        ; preds = %if.end267
 dynamic_cast.end:                                 ; preds = %if.else.i, %if.then.i332
   %101 = call ptr @__dynamic_cast(ptr nonnull %94, ptr nonnull @_ZTIN4cvc56parser3CmdE, ptr nonnull @_ZTIN4cvc56parser11QuitCommandE, i64 0) #19
   %cmp270.not = icmp eq ptr %101, null
-  br i1 %cmp270.not, label %if.end274, label %cleanup338.sink.split
+  br i1 %cmp270.not, label %if.end274, label %if.then271
+
+if.then271:                                       ; preds = %dynamic_cast.end
+  store i8 1, ptr %d_quit, align 1
+  br label %try.cont
 
 if.end274:                                        ; preds = %dynamic_cast.end
   %102 = load ptr, ptr %d_symman, align 8
@@ -1273,8 +1281,12 @@ if.then313:                                       ; preds = %if.end310
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end310, %if.then313
+  %retval.1 = phi i1 [ false, %if.then313 ], [ %retval.0, %if.end310 ]
   invoke void @__cxa_end_catch()
-          to label %cleanup338 unwind label %lpad245
+          to label %invoke.cont316 unwind label %lpad245
+
+invoke.cont316:                                   ; preds = %cleanup
+  br i1 %tobool312, label %try.cont, label %cleanup338
 
 ehcleanup317:                                     ; preds = %lpad295, %ehcleanup292
   %.pn13 = phi { ptr, i32 } [ %105, %lpad295 ], [ %.pn11, %ehcleanup292 ]
@@ -1308,14 +1320,12 @@ invoke.cont332:                                   ; preds = %while.end331
   invoke void @__cxa_end_catch()
           to label %cleanup338 unwind label %lpad245
 
-cleanup338.sink.split:                            ; preds = %dynamic_cast.end, %invoke.cont263
-  %retval.2.ph = xor i1 %call264, true
-  store i8 1, ptr %d_quit, align 1
+try.cont:                                         ; preds = %invoke.cont256, %invoke.cont316, %if.then271
   br label %cleanup338
 
-cleanup338:                                       ; preds = %invoke.cont256, %cleanup338.sink.split, %cleanup, %invoke.cont332
-  %cleanup.dest.slot.1 = phi i32 [ 2, %invoke.cont332 ], [ 1, %cleanup ], [ 1, %cleanup338.sink.split ], [ 1, %invoke.cont256 ]
-  %retval.2 = phi i1 [ %retval.0, %invoke.cont332 ], [ %tobool312, %cleanup ], [ %retval.2.ph, %cleanup338.sink.split ], [ true, %invoke.cont256 ]
+cleanup338:                                       ; preds = %invoke.cont332, %invoke.cont316, %try.cont, %if.then265
+  %cleanup.dest.slot.1 = phi i32 [ 1, %try.cont ], [ 1, %if.then265 ], [ 2, %invoke.cont332 ], [ 1, %invoke.cont316 ]
+  %retval.2 = phi i1 [ true, %try.cont ], [ false, %if.then265 ], [ %retval.0, %invoke.cont332 ], [ %retval.1, %invoke.cont316 ]
   %112 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8
   %cmp.not.i.i.i.i340 = icmp eq ptr %112, null
   br i1 %cmp.not.i.i.i.i340, label %_ZN4cvc56parser7CommandD2Ev.exit370, label %if.then.i.i.i.i341
@@ -2126,8 +2136,8 @@ _ZNKSt6vectorIN4cvc56parser7CommandESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = 
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %add.i, i64 576460752303423487)
-  %cond.i = select i1 %cmp7.i, i64 576460752303423487, i64 %spec.select.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 576460752303423487)
+  %cond.i = select i1 %cmp7.i, i64 576460752303423487, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
@@ -2143,9 +2153,9 @@ _ZNSt12_Vector_baseIN4cvc56parser7CommandESaIS2_EE11_M_allocateEm.exit: ; preds 
   %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN4cvc56parser7CommandESaIS2_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.cvc5::parser::Command", ptr %cond.i10, i64 %sub.ptr.div.i
   %_M_refcount4.i.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
-  %2 = load <2 x ptr>, ptr %__args, align 8
+  %3 = load <2 x ptr>, ptr %__args, align 8
   store ptr null, ptr %_M_refcount4.i.i.i.i.i, align 8
-  store <2 x ptr> %2, ptr %add.ptr, align 8
+  store <2 x ptr> %3, ptr %add.ptr, align 8
   store ptr null, ptr %__args, align 8
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not5.i.i.i, label %_ZNSt6vectorIN4cvc56parser7CommandESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %for.body.i.i.i
@@ -2156,9 +2166,9 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
   %_M_refcount4.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 8
-  %3 = load <2 x ptr>, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !13, !noalias !10
+  %4 = load <2 x ptr>, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !13, !noalias !10
   store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !13, !noalias !10
-  store <2 x ptr> %3, ptr %__cur.07.i.i.i, align 8, !alias.scope !10, !noalias !13
+  store <2 x ptr> %4, ptr %__cur.07.i.i.i, align 8, !alias.scope !10, !noalias !13
   store ptr null, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !13, !noalias !10
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 16
   %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 16
@@ -2177,9 +2187,9 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN4cvc5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
   %_M_refcount4.i.i.i.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 8
-  %4 = load <2 x ptr>, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !19, !noalias !16
+  %5 = load <2 x ptr>, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !19, !noalias !16
   store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i16, align 8, !alias.scope !19, !noalias !16
-  store <2 x ptr> %4, ptr %__cur.07.i.i.i13, align 8, !alias.scope !16, !noalias !19
+  store <2 x ptr> %5, ptr %__cur.07.i.i.i13, align 8, !alias.scope !16, !noalias !19
   store ptr null, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !19, !noalias !16
   %incdec.ptr.i.i.i17 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 16
   %incdec.ptr1.i.i.i18 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 16

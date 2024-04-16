@@ -1770,8 +1770,8 @@ delete.notnull.i:                                 ; preds = %cleanup.done
   call void %11(ptr noundef nonnull align 8 dereferenceable(128) %call11) #19
   br label %cleanup36
 
-cleanup36:                                        ; preds = %cleanup.thread, %delete.notnull.i, %cleanup.done, %invoke.cont2, %invoke.cont7
-  %retval.1 = phi ptr [ null, %invoke.cont7 ], [ null, %invoke.cont2 ], [ %call11, %cleanup.done ], [ null, %delete.notnull.i ], [ null, %cleanup.thread ]
+cleanup36:                                        ; preds = %cleanup.thread, %delete.notnull.i, %invoke.cont2, %invoke.cont7, %cleanup.done
+  %retval.1 = phi ptr [ %call11, %cleanup.done ], [ null, %invoke.cont7 ], [ null, %invoke.cont2 ], [ null, %delete.notnull.i ], [ null, %cleanup.thread ]
   call void @_ZN6icu_7511FormattableD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %parseResult) #19
   ret ptr %retval.1
 

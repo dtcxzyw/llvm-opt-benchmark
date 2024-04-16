@@ -1839,21 +1839,21 @@ define internal fastcc noundef zeroext i1 @ip6_pkt_too_big(ptr noundef %0, i32 n
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   %4 = load i32, ptr %3, align 8
   %5 = icmp ugt i32 %4, %1
-  br i1 %5, label %6, label %28
+  br i1 %5, label %6, label %29
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 58
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = icmp ugt i32 %9, %1
-  br i1 %10, label %28, label %11
+  br i1 %10, label %29, label %11
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds i8, ptr %0, i64 128
   %13 = load i8, ptr %12, align 8
   %14 = and i8 %13, 8
   %15 = icmp eq i8 %14, 0
-  br i1 %15, label %16, label %28
+  br i1 %15, label %16, label %29
 
 16:                                               ; preds = %11
   %17 = getelementptr inbounds i8, ptr %0, i64 192
@@ -1869,12 +1869,14 @@ define internal fastcc noundef zeroext i1 @ip6_pkt_too_big(ptr noundef %0, i32 n
 
 26:                                               ; preds = %16
   %27 = tail call zeroext i1 @skb_gso_validate_network_len(ptr noundef %0, i32 noundef %1) #12
-  %not. = xor i1 %27, true
-  br label %28
+  br i1 %27, label %29, label %28
 
-28:                                               ; preds = %26, %16, %11, %6, %2
-  %29 = phi i1 [ false, %2 ], [ true, %6 ], [ false, %11 ], [ true, %16 ], [ %not., %26 ]
-  ret i1 %29
+28:                                               ; preds = %26, %16
+  br label %29
+
+29:                                               ; preds = %28, %26, %11, %6, %2
+  %30 = phi i1 [ true, %28 ], [ false, %2 ], [ true, %6 ], [ false, %11 ], [ false, %26 ]
+  ret i1 %30
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
@@ -7179,11 +7181,11 @@ define internal fastcc void @__skb_fill_page_desc(ptr nocapture noundef %0, i32 
 20:                                               ; preds = %4
   %21 = add nsw i64 %17, -1
   %22 = inttoptr i64 %21 to ptr
-  br label %39
+  br label %40
 
 23:                                               ; preds = %4
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hugetlb_optimize_vmemmap_key, i32 2) #12
-          to label %39 [label %24], !srcloc !9
+          to label %40 [label %24], !srcloc !9
 
 24:                                               ; preds = %23
   %25 = ptrtoint ptr %2 to i64
@@ -7204,26 +7206,28 @@ define internal fastcc void @__skb_fill_page_desc(ptr nocapture noundef %0, i32 
   %36 = icmp eq i64 %35, 0
   %37 = add nsw i64 %34, -1
   %38 = inttoptr i64 %37 to ptr
-  %spec.select = select i1 %36, ptr %2, ptr %38
-  br label %39
+  br i1 %36, label %39, label %40
 
-39:                                               ; preds = %32, %24, %28, %23, %20
-  %40 = phi ptr [ %22, %20 ], [ %2, %23 ], [ %2, %28 ], [ %2, %24 ], [ %spec.select, %32 ]
-  %41 = getelementptr inbounds i8, ptr %40, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = ptrtoint ptr %42 to i64
-  %44 = and i64 %43, 2
-  %45 = icmp eq i64 %44, 0
-  br i1 %45, label %50, label %46
+39:                                               ; preds = %32, %28, %24
+  br label %40
 
-46:                                               ; preds = %39
-  %47 = getelementptr inbounds i8, ptr %0, i64 126
-  %48 = load i8, ptr %47, align 2
-  %49 = or i8 %48, 64
-  store i8 %49, ptr %47, align 2
-  br label %50
+40:                                               ; preds = %39, %32, %23, %20
+  %41 = phi ptr [ %22, %20 ], [ %38, %32 ], [ %2, %39 ], [ %2, %23 ]
+  %42 = getelementptr inbounds i8, ptr %41, i64 8
+  %43 = load ptr, ptr %42, align 8
+  %44 = ptrtoint ptr %43 to i64
+  %45 = and i64 %44, 2
+  %46 = icmp eq i64 %45, 0
+  br i1 %46, label %51, label %47
 
-50:                                               ; preds = %46, %39
+47:                                               ; preds = %40
+  %48 = getelementptr inbounds i8, ptr %0, i64 126
+  %49 = load i8, ptr %48, align 2
+  %50 = or i8 %49, 64
+  store i8 %50, ptr %48, align 2
+  br label %51
+
+51:                                               ; preds = %47, %40
   ret void
 }
 
@@ -7238,11 +7242,11 @@ define internal fastcc void @get_page(ptr noundef %0) unnamed_addr #6 align 16 {
 6:                                                ; preds = %1
   %7 = add nsw i64 %3, -1
   %8 = inttoptr i64 %7 to ptr
-  br label %25
+  br label %26
 
 9:                                                ; preds = %1
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hugetlb_optimize_vmemmap_key, i32 2) #12
-          to label %25 [label %10], !srcloc !9
+          to label %26 [label %10], !srcloc !9
 
 10:                                               ; preds = %9
   %11 = ptrtoint ptr %0 to i64
@@ -7263,13 +7267,15 @@ define internal fastcc void @get_page(ptr noundef %0) unnamed_addr #6 align 16 {
   %22 = icmp eq i64 %21, 0
   %23 = add nsw i64 %20, -1
   %24 = inttoptr i64 %23 to ptr
-  %spec.select = select i1 %22, ptr %0, ptr %24
-  br label %25
+  br i1 %22, label %25, label %26
 
-25:                                               ; preds = %18, %10, %14, %9, %6
-  %26 = phi ptr [ %8, %6 ], [ %0, %9 ], [ %0, %14 ], [ %0, %10 ], [ %spec.select, %18 ]
-  %27 = getelementptr inbounds i8, ptr %26, i64 52
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %27, ptr elementtype(i32) %27) #12, !srcloc !129
+25:                                               ; preds = %18, %14, %10
+  br label %26
+
+26:                                               ; preds = %25, %18, %9, %6
+  %27 = phi ptr [ %8, %6 ], [ %24, %18 ], [ %0, %25 ], [ %0, %9 ]
+  %28 = getelementptr inbounds i8, ptr %27, i64 52
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %28, ptr elementtype(i32) %28) #12, !srcloc !129
   ret void
 }
 

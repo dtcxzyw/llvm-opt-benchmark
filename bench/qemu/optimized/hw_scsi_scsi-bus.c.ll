@@ -871,17 +871,19 @@ entry:
 if.else:                                          ; preds = %entry
   %call2 = tail call ptr @blk_legacy_dinfo(ptr noundef %blk) #15
   %tobool.not = icmp eq ptr %call2, null
-  br i1 %tobool.not, label %if.end6, label %land.lhs.true
+  br i1 %tobool.not, label %if.else5, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.else
   %media_cd = getelementptr inbounds i8, ptr %call2, i64 20
   %0 = load i32, ptr %media_cd, align 4
   %tobool3.not = icmp eq i32 %0, 0
-  %spec.select = select i1 %tobool3.not, ptr @.str.5, ptr @.str.4
+  br i1 %tobool3.not, label %if.else5, label %if.end6
+
+if.else5:                                         ; preds = %land.lhs.true, %if.else
   br label %if.end6
 
-if.end6:                                          ; preds = %land.lhs.true, %if.else, %entry
-  %driver.0 = phi ptr [ @.str.3, %entry ], [ @.str.5, %if.else ], [ %spec.select, %land.lhs.true ]
+if.end6:                                          ; preds = %land.lhs.true, %entry, %if.else5
+  %driver.0 = phi ptr [ @.str.5, %if.else5 ], [ @.str.3, %entry ], [ @.str.4, %land.lhs.true ]
   %call7 = tail call ptr @qdev_new(ptr noundef nonnull %driver.0) #15
   %call8 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.6, i32 noundef %unit) #15
   %call9 = tail call ptr @object_property_add_child(ptr noundef %bus, ptr noundef %call8, ptr noundef %call7) #15

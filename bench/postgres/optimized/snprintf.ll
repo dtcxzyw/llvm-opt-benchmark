@@ -1889,12 +1889,14 @@ define dso_local i32 @pg_strfromd(ptr noundef %0, i64 noundef %1, i32 noundef %2
   %40 = sub i64 %38, %39
   %41 = trunc i64 %40 to i32
   %42 = add i32 %.pre25, %41
-  %spec.select = select i1 %37, i32 -1, i32 %42
-  br label %43
+  br i1 %37, label %43, label %44
 
-43:                                               ; preds = %36, %.thread26
-  %44 = phi i32 [ -1, %.thread26 ], [ %spec.select, %36 ]
-  ret i32 %44
+43:                                               ; preds = %.thread26, %36
+  br label %44
+
+44:                                               ; preds = %36, %43
+  %45 = phi i32 [ -1, %43 ], [ %42, %36 ]
+  ret i32 %45
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

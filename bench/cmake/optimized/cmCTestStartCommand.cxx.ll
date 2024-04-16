@@ -1275,7 +1275,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit22: ; 
 .body:                                            ; preds = %22, %12, %24
   %.pn = phi { ptr, i32 } [ %25, %24 ], [ %23, %22 ], [ %13, %12 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #13
-  br label %39
+  br label %40
 
 26:                                               ; preds = %.noexc18, %16
   %27 = landingpad { ptr, i32 }
@@ -1291,7 +1291,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit22: ; 
 .body20:                                          ; preds = %26, %19, %28
   %.pn13 = phi { ptr, i32 } [ %29, %28 ], [ %27, %26 ], [ %20, %19 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #13
-  br label %39
+  br label %40
 
 30:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #13
@@ -1315,17 +1315,20 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit22: ; 
   %36 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN9cmCTestVCD1Ev(ptr noundef nonnull align 8 dereferenceable(388) %8) #13
-  br label %39
+  br label %40
 
 37:                                               ; preds = %33
   call void @_ZN9cmCTestVCD1Ev(ptr noundef nonnull align 8 dereferenceable(388) %8) #13
-  br label %38
+  br i1 %34, label %38, label %39
 
 38:                                               ; preds = %37, %30
-  %.1 = phi i1 [ true, %30 ], [ %34, %37 ]
+  br label %39
+
+39:                                               ; preds = %37, %38
+  %.1 = phi i1 [ false, %37 ], [ true, %38 ]
   ret i1 %.1
 
-39:                                               ; preds = %35, %.body20, %.body
+40:                                               ; preds = %35, %.body20, %.body
   %.pn15 = phi { ptr, i32 } [ %36, %35 ], [ %.pn13, %.body20 ], [ %.pn, %.body ]
   resume { ptr, i32 } %.pn15
 }

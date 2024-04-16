@@ -424,7 +424,7 @@ sw.bb22:                                          ; preds = %entry
 
 sw.bb26:                                          ; preds = %entry, %entry
   %cmp.i.i = icmp ugt i64 %0, -844424930131969
-  br i1 %cmp.i.i, label %_ZN6hermes2vm5vmisaINS0_8CallableEEEbNS0_11HermesValueE.exit, label %return
+  br i1 %cmp.i.i, label %_ZN6hermes2vm5vmisaINS0_8CallableEEEbNS0_11HermesValueE.exit, label %if.end
 
 _ZN6hermes2vm5vmisaINS0_8CallableEEEbNS0_11HermesValueE.exit: ; preds = %sw.bb26
   %and.i.i = and i64 %0, 281474976710655
@@ -432,14 +432,16 @@ _ZN6hermes2vm5vmisaINS0_8CallableEEEbNS0_11HermesValueE.exit: ; preds = %sw.bb26
   %bf.load.i.i.i.i.i.i.i.i.i = load i32, ptr %1, align 4
   %2 = add i32 %bf.load.i.i.i.i.i.i.i.i.i, -1140850688
   %3 = icmp ult i32 %2, 150994944
-  %spec.select = select i1 %3, i32 26, i32 25
+  br i1 %3, label %return, label %if.end
+
+if.end:                                           ; preds = %sw.bb26, %_ZN6hermes2vm5vmisaINS0_8CallableEEEbNS0_11HermesValueE.exit
   br label %return
 
 sw.default:                                       ; preds = %entry
   br label %return
 
-return:                                           ; preds = %_ZN6hermes2vm5vmisaINS0_8CallableEEEbNS0_11HermesValueE.exit, %sw.bb26, %entry, %sw.default, %sw.bb22, %sw.bb18, %sw.bb14, %sw.bb10, %sw.bb6
-  %.sink = phi i32 [ 19, %sw.default ], [ 24, %sw.bb22 ], [ 23, %sw.bb18 ], [ 20, %sw.bb14 ], [ 21, %sw.bb10 ], [ 25, %sw.bb6 ], [ 17, %entry ], [ 25, %sw.bb26 ], [ %spec.select, %_ZN6hermes2vm5vmisaINS0_8CallableEEEbNS0_11HermesValueE.exit ]
+return:                                           ; preds = %_ZN6hermes2vm5vmisaINS0_8CallableEEEbNS0_11HermesValueE.exit, %entry, %sw.default, %if.end, %sw.bb22, %sw.bb18, %sw.bb14, %sw.bb10, %sw.bb6
+  %.sink = phi i32 [ 19, %sw.default ], [ 25, %if.end ], [ 24, %sw.bb22 ], [ 23, %sw.bb18 ], [ 20, %sw.bb14 ], [ 21, %sw.bb10 ], [ 25, %sw.bb6 ], [ 17, %entry ], [ 26, %_ZN6hermes2vm5vmisaINS0_8CallableEEEbNS0_11HermesValueE.exit ]
   %identifierTable_.i.i30 = getelementptr inbounds i8, ptr %runtime, i64 9264
   %call.i.i31 = tail call noundef ptr @_ZN6hermes2vm15IdentifierTable13getStringPrimERNS0_7RuntimeENS0_8SymbolIDE(ptr noundef nonnull align 8 dereferenceable(84) %identifierTable_.i.i30, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 %.sink) #17
   %retval.sroa.0.0.in = ptrtoint ptr %call.i.i31 to i64

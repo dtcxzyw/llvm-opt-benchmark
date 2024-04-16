@@ -3695,7 +3695,7 @@ define noundef i32 @mouse_moved(ptr noundef %0, float noundef %1, float noundef 
   %24 = getelementptr inbounds i8, ptr %0, i64 712
   %25 = call i32 @pthread_mutex_lock(ptr noundef nonnull %24) #32
   %26 = icmp sgt i32 %20, -1
-  br i1 %26, label %27, label %38
+  br i1 %26, label %27, label %37
 
 27:                                               ; preds = %17
   %28 = sitofp i32 %20 to float
@@ -3703,7 +3703,7 @@ define noundef i32 @mouse_moved(ptr noundef %0, float noundef %1, float noundef 
   %30 = fcmp reassoc nsz arcp contract afn ogt float %29, %28
   %31 = icmp sgt i32 %23, -1
   %32 = select i1 %30, i1 %31, i1 false
-  br i1 %32, label %33, label %38
+  br i1 %32, label %33, label %37
 
 33:                                               ; preds = %27
   %34 = sitofp i32 %23 to float
@@ -3711,13 +3711,13 @@ define noundef i32 @mouse_moved(ptr noundef %0, float noundef %1, float noundef 
   %36 = fcmp reassoc nsz arcp contract afn ogt float %35, %34
   br i1 %36, label %38, label %37
 
-37:                                               ; preds = %33
+37:                                               ; preds = %33, %27, %17
   br label %38
 
-38:                                               ; preds = %17, %27, %37, %33
-  %39 = phi i32 [ 1, %33 ], [ 0, %27 ], [ 0, %17 ], [ 0, %37 ]
-  %40 = phi i32 [ %20, %33 ], [ 0, %27 ], [ 0, %17 ], [ 0, %37 ]
-  %41 = phi i32 [ %23, %33 ], [ 0, %27 ], [ 0, %17 ], [ 0, %37 ]
+38:                                               ; preds = %37, %33
+  %39 = phi i32 [ 0, %37 ], [ 1, %33 ]
+  %40 = phi i32 [ 0, %37 ], [ %20, %33 ]
+  %41 = phi i32 [ 0, %37 ], [ %23, %33 ]
   %42 = getelementptr inbounds i8, ptr %12, i64 2988
   store i32 %39, ptr %42, align 4, !tbaa !289
   %43 = getelementptr inbounds i8, ptr %12, i64 2492

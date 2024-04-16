@@ -556,7 +556,7 @@ evthread_debug_lock_mark_locked.exit:             ; preds = %evthread_debug_lock
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @evthread_is_debug_lock_held_(ptr nocapture noundef readonly %lock_) local_unnamed_addr #2 {
+define dso_local noundef i32 @evthread_is_debug_lock_held_(ptr nocapture noundef readonly %lock_) local_unnamed_addr #2 {
 entry:
   %count = getelementptr inbounds i8, ptr %lock_, i64 16
   %0 = load i32, ptr %count, align 8
@@ -566,18 +566,20 @@ entry:
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr @evthread_id_fn_, align 8
   %tobool1.not = icmp eq ptr %1, null
-  br i1 %tobool1.not, label %return, label %if.then2
+  br i1 %tobool1.not, label %if.end5, label %if.then2
 
 if.then2:                                         ; preds = %if.end
   %call = tail call i64 %1() #9
   %held_by = getelementptr inbounds i8, ptr %lock_, i64 8
   %2 = load i64, ptr %held_by, align 8
   %cmp.not = icmp eq i64 %2, %call
-  %spec.select = zext i1 %cmp.not to i32
+  br i1 %cmp.not, label %if.end5, label %return
+
+if.end5:                                          ; preds = %if.then2, %if.end
   br label %return
 
-return:                                           ; preds = %if.then2, %if.end, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 1, %if.end ], [ %spec.select, %if.then2 ]
+return:                                           ; preds = %if.then2, %entry, %if.end5
+  %retval.0 = phi i32 [ 1, %if.end5 ], [ 0, %entry ], [ 0, %if.then2 ]
   ret i32 %retval.0
 }
 

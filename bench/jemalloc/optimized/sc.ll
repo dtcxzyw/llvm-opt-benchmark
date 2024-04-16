@@ -98,8 +98,8 @@ while.body56.i:                                   ; preds = %size_class.exit134.
   %sext.i = shl i64 %index.3184.i, 32
   %3 = ashr exact i64 %sext.i, 32
   %wide.trip.count.i = select i1 %cmp58.i, i64 4, i64 5
-  %4 = trunc nuw nsw i64 %indvars.iv203.i to i32
-  %5 = trunc nuw nsw i64 %indvars.iv201.i to i32
+  %4 = trunc nuw nsw i64 %indvars.iv201.i to i32
+  %5 = trunc nuw nsw i64 %indvars.iv203.i to i32
   %6 = trunc nuw nsw i64 %indvars.iv.next204.i to i32
   br label %while.body64.i
 
@@ -116,9 +116,9 @@ while.body64.i:                                   ; preds = %size_class.exit163.
   %7 = trunc nsw i64 %indvars.iv193.i to i32
   store i32 %7, ptr %arrayidx68.i, align 4
   %lg_base2.i135.i = getelementptr inbounds i8, ptr %arrayidx68.i, i64 4
-  store i32 %4, ptr %lg_base2.i135.i, align 4
+  store i32 %5, ptr %lg_base2.i135.i, align 4
   %lg_delta3.i136.i = getelementptr inbounds i8, ptr %arrayidx68.i, i64 8
-  store i32 %5, ptr %lg_delta3.i136.i, align 4
+  store i32 %4, ptr %lg_delta3.i136.i, align 4
   %ndelta4.i137.i = getelementptr inbounds i8, ptr %arrayidx68.i, i64 12
   %8 = trunc nuw nsw i64 %indvars.iv195.i to i32
   store i32 %8, ptr %ndelta4.i137.i, align 4
@@ -131,18 +131,18 @@ while.body64.i:                                   ; preds = %size_class.exit163.
   store i8 %frombool.i145.i, ptr %psz.i144.i, align 4
   %cmp8.i146.i = icmp ult i64 %add.i.i141.i, 16384
   %bin.i147.i = getelementptr inbounds i8, ptr %arrayidx68.i, i64 17
-  br i1 %cmp8.i146.i, label %if.then9.i152.i, label %if.end13.thread.i148.i
+  br i1 %cmp8.i146.i, label %if.then9.i153.i, label %if.end13.thread.i148.i
 
-if.then9.i152.i:                                  ; preds = %while.body64.i
+if.then9.i153.i:                                  ; preds = %while.body64.i
   store i8 1, ptr %bin.i147.i, align 1
-  br label %while.body.i.i153.i
+  br label %while.body.i.i154.i
 
-while.body.i.i153.i:                              ; preds = %while.body.i.i153.i, %if.then9.i152.i
-  %try_slab_size.011.i.i154.i = phi i64 [ 4096, %if.then9.i152.i ], [ %add.i23.i155.i, %while.body.i.i153.i ]
-  %add.i23.i155.i = add i64 %try_slab_size.011.i.i154.i, 4096
-  %9 = urem i64 %try_slab_size.011.i.i154.i, %add.i.i141.i
-  %cmp.i.i156.i = icmp eq i64 %9, 0
-  br i1 %cmp.i.i156.i, label %if.end13.i157.i, label %while.body.i.i153.i, !llvm.loop !5
+while.body.i.i154.i:                              ; preds = %while.body.i.i154.i, %if.then9.i153.i
+  %try_slab_size.011.i.i155.i = phi i64 [ 4096, %if.then9.i153.i ], [ %add.i23.i156.i, %while.body.i.i154.i ]
+  %add.i23.i156.i = add i64 %try_slab_size.011.i.i155.i, 4096
+  %9 = urem i64 %try_slab_size.011.i.i155.i, %add.i.i141.i
+  %cmp.i.i157.i = icmp eq i64 %9, 0
+  br i1 %cmp.i.i157.i, label %if.end13.i158.i, label %while.body.i.i154.i, !llvm.loop !5
 
 if.end13.thread.i148.i:                           ; preds = %while.body64.i
   store i8 0, ptr %bin.i147.i, align 1
@@ -150,21 +150,21 @@ if.end13.thread.i148.i:                           ; preds = %while.body64.i
   store i32 0, ptr %pgs12.i149.i, align 4
   br label %size_class.exit163.i
 
-if.end13.i157.i:                                  ; preds = %while.body.i.i153.i
-  %div29.i.i158.i = lshr exact i64 %try_slab_size.011.i.i154.i, 12
-  %conv.i24.i159.i = trunc i64 %div29.i.i158.i to i32
-  %pgs.i160.i = getelementptr inbounds i8, ptr %arrayidx68.i, i64 20
-  store i32 %conv.i24.i159.i, ptr %pgs.i160.i, align 4
-  %cmp16.i161.i = icmp ult i64 %add.i.i141.i, 4097
-  %spec.select.i162.i = select i1 %cmp16.i161.i, i32 %5, i32 0
+if.end13.i158.i:                                  ; preds = %while.body.i.i154.i
+  %div29.i.i159.i = lshr exact i64 %try_slab_size.011.i.i155.i, 12
+  %conv.i24.i160.i = trunc i64 %div29.i.i159.i to i32
+  %pgs.i161.i = getelementptr inbounds i8, ptr %arrayidx68.i, i64 20
+  store i32 %conv.i24.i160.i, ptr %pgs.i161.i, align 4
+  %cmp16.i162.i = icmp ult i64 %add.i.i141.i, 4097
+  %spec.select.i = select i1 %cmp16.i162.i, i32 %4, i32 0
   br label %size_class.exit163.i
 
-size_class.exit163.i:                             ; preds = %if.end13.i157.i, %if.end13.thread.i148.i
-  %10 = phi i8 [ 0, %if.end13.thread.i148.i ], [ 1, %if.end13.i157.i ]
-  %.sink.i150.i = phi i32 [ 0, %if.end13.thread.i148.i ], [ %spec.select.i162.i, %if.end13.i157.i ]
-  %lg_delta_lookup19.i151.i = getelementptr inbounds i8, ptr %arrayidx68.i, i64 24
-  store i32 %.sink.i150.i, ptr %lg_delta_lookup19.i151.i, align 4
-  %cmp70.not.i = icmp eq i32 %.sink.i150.i, 0
+size_class.exit163.i:                             ; preds = %if.end13.i158.i, %if.end13.thread.i148.i
+  %10 = phi i8 [ 0, %if.end13.thread.i148.i ], [ 1, %if.end13.i158.i ]
+  %.sink.i151.i = phi i32 [ 0, %if.end13.thread.i148.i ], [ %spec.select.i, %if.end13.i158.i ]
+  %lg_delta_lookup19.i152.i = getelementptr inbounds i8, ptr %arrayidx68.i, i64 24
+  store i32 %.sink.i151.i, ptr %lg_delta_lookup19.i152.i, align 4
+  %cmp70.not.i = icmp eq i32 %.sink.i151.i, 0
   %indvars.iv.next194.i = add nsw i64 %indvars.iv193.i, 1
   %lookup_maxclass.2.i = select i1 %cmp70.not.i, i64 %lookup_maxclass.1172.i, i64 %add.i.i141.i
   %11 = trunc nsw i64 %indvars.iv.next194.i to i32

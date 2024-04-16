@@ -550,7 +550,7 @@ define dso_local i32 @scsi_ioctl(ptr noundef %0, i1 noundef zeroext %1, i32 noun
   br label %27
 
 27:                                               ; preds = %22, %4
-  switch i32 %2, label %484 [
+  switch i32 %2, label %485 [
     i32 8834, label %28
     i32 8705, label %35
     i32 8706, label %49
@@ -565,13 +565,13 @@ define dso_local i32 @scsi_ioctl(ptr noundef %0, i1 noundef zeroext %1, i32 noun
     i32 21378, label %353
     i32 21382, label %379
     i32 21381, label %389
-    i32 21376, label %428
-    i32 21377, label %443
-    i32 2, label %457
-    i32 5, label %459
-    i32 6, label %462
-    i32 21383, label %464
-    i32 8836, label %482
+    i32 21376, label %429
+    i32 21377, label %444
+    i32 2, label %458
+    i32 5, label %460
+    i32 6, label %463
+    i32 21383, label %465
+    i32 8836, label %483
   ]
 
 28:                                               ; preds = %27
@@ -582,7 +582,7 @@ define dso_local i32 @scsi_ioctl(ptr noundef %0, i1 noundef zeroext %1, i32 noun
   %33 = ptrtoint ptr %31 to i64
   %34 = trunc i64 %33 to i32
   tail call void @llvm.write_register.i64(metadata !0, i64 %32)
-  br label %506
+  br label %507
 
 35:                                               ; preds = %27
   %36 = tail call i64 @llvm.read_register.i64(metadata !0)
@@ -593,7 +593,7 @@ define dso_local i32 @scsi_ioctl(ptr noundef %0, i1 noundef zeroext %1, i32 noun
   %41 = trunc i64 %40 to i32
   tail call void @llvm.write_register.i64(metadata !0, i64 %39)
   %42 = icmp eq i32 %41, 0
-  br i1 %42, label %43, label %506
+  br i1 %42, label %43, label %507
 
 43:                                               ; preds = %35
   %44 = extractvalue { ptr, i32, i64 } %37, 1
@@ -602,7 +602,7 @@ define dso_local i32 @scsi_ioctl(ptr noundef %0, i1 noundef zeroext %1, i32 noun
   %47 = trunc i64 %46 to i32
   %48 = getelementptr inbounds i8, ptr %0, i64 1960
   store i32 %47, ptr %48, align 8
-  br label %506
+  br label %507
 
 49:                                               ; preds = %27
   %50 = getelementptr inbounds i8, ptr %0, i64 1960
@@ -610,7 +610,7 @@ define dso_local i32 @scsi_ioctl(ptr noundef %0, i1 noundef zeroext %1, i32 noun
   %52 = zext i32 %51 to i64
   %53 = tail call i64 @jiffies_to_clock_t(i64 noundef %52) #11
   %54 = trunc i64 %53 to i32
-  br label %506
+  br label %507
 
 55:                                               ; preds = %27
   %56 = getelementptr inbounds i8, ptr %0, i64 1964
@@ -628,7 +628,7 @@ define dso_local i32 @scsi_ioctl(ptr noundef %0, i1 noundef zeroext %1, i32 noun
   %68 = ptrtoint ptr %66 to i64
   %69 = trunc i64 %68 to i32
   tail call void @llvm.write_register.i64(metadata !0, i64 %67)
-  br label %506
+  br label %507
 
 70:                                               ; preds = %27
   %71 = tail call i64 @llvm.read_register.i64(metadata !0)
@@ -640,11 +640,11 @@ define dso_local i32 @scsi_ioctl(ptr noundef %0, i1 noundef zeroext %1, i32 noun
   %77 = trunc i64 %76 to i32
   tail call void @llvm.write_register.i64(metadata !0, i64 %75)
   %78 = icmp eq i32 %77, 0
-  br i1 %78, label %79, label %506
+  br i1 %78, label %79, label %507
 
 79:                                               ; preds = %70
   %80 = icmp slt i32 %74, 0
-  br i1 %80, label %506, label %81
+  br i1 %80, label %507, label %81
 
 81:                                               ; preds = %79
   %82 = load ptr, ptr %18, align 8
@@ -655,7 +655,7 @@ define dso_local i32 @scsi_ioctl(ptr noundef %0, i1 noundef zeroext %1, i32 noun
   %87 = tail call i32 @llvm.umin.i32(i32 %86, i32 %74)
   %88 = getelementptr inbounds i8, ptr %0, i64 1964
   store i32 %87, ptr %88, align 4
-  br label %506
+  br label %507
 
 89:                                               ; preds = %27
   %90 = tail call i64 @llvm.read_register.i64(metadata !0)
@@ -665,7 +665,7 @@ define dso_local i32 @scsi_ioctl(ptr noundef %0, i1 noundef zeroext %1, i32 noun
   %94 = ptrtoint ptr %92 to i64
   %95 = trunc i64 %94 to i32
   tail call void @llvm.write_register.i64(metadata !0, i64 %93)
-  br label %506
+  br label %507
 
 96:                                               ; preds = %27
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %16) #11
@@ -688,11 +688,11 @@ define dso_local i32 @scsi_ioctl(ptr noundef %0, i1 noundef zeroext %1, i32 noun
 106:                                              ; preds = %102, %99, %96
   %107 = phi i32 [ %97, %96 ], [ -14, %99 ], [ %105, %102 ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %16) #11
-  br label %506
+  br label %507
 
 108:                                              ; preds = %27
   %109 = icmp eq ptr %3, null
-  br i1 %109, label %506, label %110
+  br i1 %109, label %507, label %110
 
 110:                                              ; preds = %108
   %111 = tail call i64 @llvm.read_register.i64(metadata !0)
@@ -705,7 +705,7 @@ define dso_local i32 @scsi_ioctl(ptr noundef %0, i1 noundef zeroext %1, i32 noun
   %117 = zext i32 %114 to i64
   %118 = and i64 %116, 4294967295
   %119 = icmp eq i64 %118, 0
-  br i1 %119, label %120, label %506
+  br i1 %119, label %120, label %507
 
 120:                                              ; preds = %110
   %121 = tail call i64 @llvm.read_register.i64(metadata !0)
@@ -718,14 +718,14 @@ define dso_local i32 @scsi_ioctl(ptr noundef %0, i1 noundef zeroext %1, i32 noun
   tail call void @llvm.write_register.i64(metadata !0, i64 %126)
   %128 = and i64 %127, 4294967295
   %129 = icmp eq i64 %128, 0
-  br i1 %129, label %130, label %506
+  br i1 %129, label %130, label %507
 
 130:                                              ; preds = %120
   %131 = zext i32 %125 to i64
   %132 = icmp ugt i32 %114, 4096
   %133 = icmp ugt i32 %125, 4096
   %134 = select i1 %132, i1 true, i1 %133
-  br i1 %134, label %506, label %135
+  br i1 %134, label %507, label %135
 
 135:                                              ; preds = %130
   %136 = tail call i64 @llvm.read_register.i64(metadata !0)
@@ -738,7 +738,7 @@ define dso_local i32 @scsi_ioctl(ptr noundef %0, i1 noundef zeroext %1, i32 noun
   tail call void @llvm.write_register.i64(metadata !0, i64 %141)
   %143 = and i64 %142, 4294967295
   %144 = icmp eq i64 %143, 0
-  br i1 %144, label %145, label %506
+  br i1 %144, label %145, label %507
 
 145:                                              ; preds = %135
   %146 = tail call i32 @llvm.umax.i32(i32 %114, i32 %125)
@@ -749,7 +749,7 @@ define dso_local i32 @scsi_ioctl(ptr noundef %0, i1 noundef zeroext %1, i32 noun
   %149 = zext nneg i32 %146 to i64
   %150 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %149, i32 noundef 1060288) #14
   %151 = icmp eq ptr %150, null
-  br i1 %151, label %506, label %152
+  br i1 %151, label %507, label %152
 
 152:                                              ; preds = %148, %145
   %153 = phi ptr [ %150, %148 ], [ null, %145 ]
@@ -885,7 +885,7 @@ define dso_local i32 @scsi_ioctl(ptr noundef %0, i1 noundef zeroext %1, i32 noun
 223:                                              ; preds = %221, %158
   %224 = phi i32 [ %160, %158 ], [ %222, %221 ]
   tail call void @kfree(ptr noundef %153) #11
-  br label %506
+  br label %507
 
 225:                                              ; preds = %27
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %14) #11
@@ -1099,7 +1099,7 @@ define dso_local i32 @scsi_ioctl(ptr noundef %0, i1 noundef zeroext %1, i32 noun
   %346 = phi i32 [ -14, %268 ], [ -22, %.thread ], [ -14, %296 ], [ -5, %304 ], [ %345, %342 ], [ -14, %265 ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %15) #11
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14) #11
-  br label %506
+  br label %507
 
 347:                                              ; preds = %27
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #11
@@ -1109,7 +1109,7 @@ define dso_local i32 @scsi_ioctl(ptr noundef %0, i1 noundef zeroext %1, i32 noun
   store i8 3, ptr %348, align 4
   %349 = call fastcc i32 @ioctl_internal_command(ptr noundef %0, ptr noundef nonnull %11, i32 noundef 60000)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #11
-  br label %506
+  br label %507
 
 350:                                              ; preds = %27
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #11
@@ -1119,7 +1119,7 @@ define dso_local i32 @scsi_ioctl(ptr noundef %0, i1 noundef zeroext %1, i32 noun
   store i8 2, ptr %351, align 4
   %352 = call fastcc i32 @ioctl_internal_command(ptr noundef %0, ptr noundef nonnull %10, i32 noundef 60000)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #11
-  br label %506
+  br label %507
 
 353:                                              ; preds = %27
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #11
@@ -1151,7 +1151,7 @@ define dso_local i32 @scsi_ioctl(ptr noundef %0, i1 noundef zeroext %1, i32 noun
   %377 = icmp eq i64 %376, 0
   %378 = select i1 %377, i32 0, i32 -14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #11
-  br label %506
+  br label %507
 
 379:                                              ; preds = %27
   %380 = load ptr, ptr %0, align 8
@@ -1164,12 +1164,12 @@ define dso_local i32 @scsi_ioctl(ptr noundef %0, i1 noundef zeroext %1, i32 noun
   %387 = ptrtoint ptr %385 to i64
   %388 = trunc i64 %387 to i32
   tail call void @llvm.write_register.i64(metadata !0, i64 %386)
-  br label %506
+  br label %507
 
 389:                                              ; preds = %27
   %390 = load ptr, ptr %0, align 8
   %391 = icmp eq ptr %3, null
-  br i1 %391, label %506, label %392
+  br i1 %391, label %428, label %392
 
 392:                                              ; preds = %389
   %393 = tail call i64 @llvm.read_register.i64(metadata !0)
@@ -1182,7 +1182,7 @@ define dso_local i32 @scsi_ioctl(ptr noundef %0, i1 noundef zeroext %1, i32 noun
   %399 = zext i32 %396 to i64
   %400 = and i64 %398, 4294967295
   %401 = icmp eq i64 %400, 0
-  br i1 %401, label %402, label %506
+  br i1 %401, label %402, label %507
 
 402:                                              ; preds = %392
   %403 = getelementptr inbounds i8, ptr %390, i64 168
@@ -1204,7 +1204,7 @@ define dso_local i32 @scsi_ioctl(ptr noundef %0, i1 noundef zeroext %1, i32 noun
 413:                                              ; preds = %410, %408
   %414 = phi ptr [ %409, %408 ], [ %412, %410 ]
   %415 = icmp eq ptr %414, null
-  br i1 %415, label %506, label %416
+  br i1 %415, label %428, label %416
 
 416:                                              ; preds = %413
   %417 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %414) #11
@@ -1220,160 +1220,162 @@ define dso_local i32 @scsi_ioctl(ptr noundef %0, i1 noundef zeroext %1, i32 noun
   tail call void asm sideeffect "42: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 42b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 42) #11, !srcloc !20
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 249, i32 2307, i64 12) #11, !srcloc !21
   tail call void asm sideeffect "43: nop\0A\09.pushsection .discard.instr_end\0A\09.long 43b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 43) #11, !srcloc !22
-  br label %506
+  br label %507
 
 425:                                              ; preds = %416
   %426 = tail call i64 @_copy_to_user(ptr noundef nonnull %3, ptr noundef nonnull %414, i64 noundef %422) #11
   %427 = icmp eq i64 %426, 0
-  %spec.select = select i1 %427, i32 1, i32 -14
-  br label %506
+  br i1 %427, label %428, label %507
 
-428:                                              ; preds = %27
+428:                                              ; preds = %425, %413, %389
+  br label %507
+
+429:                                              ; preds = %27
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false), !annotation !6
-  %429 = getelementptr inbounds i8, ptr %0, i64 332
-  %430 = load i64, ptr %429, align 4
-  %431 = and i64 %430, 144
-  %432 = icmp eq i64 %431, 144
-  br i1 %432, label %433, label %441
+  %430 = getelementptr inbounds i8, ptr %0, i64 332
+  %431 = load i64, ptr %430, align 4
+  %432 = and i64 %431, 144
+  %433 = icmp eq i64 %432, 144
+  br i1 %433, label %434, label %442
 
-433:                                              ; preds = %428
+434:                                              ; preds = %429
   store i8 30, ptr %8, align 16
-  %434 = getelementptr inbounds i8, ptr %8, i64 2
-  store i8 0, ptr %434, align 2
-  %435 = getelementptr inbounds i8, ptr %8, i64 4
-  store i8 1, ptr %435, align 4
-  %436 = call fastcc i32 @ioctl_internal_command(ptr noundef %0, ptr noundef nonnull %8, i32 noundef 10000)
-  %437 = icmp eq i32 %436, 0
-  br i1 %437, label %438, label %441
+  %435 = getelementptr inbounds i8, ptr %8, i64 2
+  store i8 0, ptr %435, align 2
+  %436 = getelementptr inbounds i8, ptr %8, i64 4
+  store i8 1, ptr %436, align 4
+  %437 = call fastcc i32 @ioctl_internal_command(ptr noundef %0, ptr noundef nonnull %8, i32 noundef 10000)
+  %438 = icmp eq i32 %437, 0
+  br i1 %438, label %439, label %442
 
-438:                                              ; preds = %433
-  %439 = load i64, ptr %429, align 4
-  %440 = or i64 %439, 256
-  store i64 %440, ptr %429, align 4
-  br label %441
+439:                                              ; preds = %434
+  %440 = load i64, ptr %430, align 4
+  %441 = or i64 %440, 256
+  store i64 %441, ptr %430, align 4
+  br label %442
 
-441:                                              ; preds = %438, %433, %428
-  %442 = phi i32 [ 0, %428 ], [ 0, %438 ], [ %436, %433 ]
+442:                                              ; preds = %439, %434, %429
+  %443 = phi i32 [ 0, %429 ], [ 0, %439 ], [ %437, %434 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #11
-  br label %506
+  br label %507
 
-443:                                              ; preds = %27
+444:                                              ; preds = %27
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, i8 0, i64 16, i1 false), !annotation !6
-  %444 = getelementptr inbounds i8, ptr %0, i64 332
-  %445 = load i64, ptr %444, align 4
-  %446 = and i64 %445, 144
-  %447 = icmp eq i64 %446, 144
-  br i1 %447, label %448, label %455
+  %445 = getelementptr inbounds i8, ptr %0, i64 332
+  %446 = load i64, ptr %445, align 4
+  %447 = and i64 %446, 144
+  %448 = icmp eq i64 %447, 144
+  br i1 %448, label %449, label %456
 
-448:                                              ; preds = %443
+449:                                              ; preds = %444
   store i8 30, ptr %7, align 16
-  %449 = getelementptr inbounds i8, ptr %7, i64 1
-  call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(5) %449, i8 0, i64 5, i1 false)
-  %450 = call fastcc i32 @ioctl_internal_command(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 10000)
-  %451 = icmp eq i32 %450, 0
-  br i1 %451, label %452, label %455
+  %450 = getelementptr inbounds i8, ptr %7, i64 1
+  call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(5) %450, i8 0, i64 5, i1 false)
+  %451 = call fastcc i32 @ioctl_internal_command(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 10000)
+  %452 = icmp eq i32 %451, 0
+  br i1 %452, label %453, label %456
 
-452:                                              ; preds = %448
-  %453 = load i64, ptr %444, align 4
-  %454 = and i64 %453, -257
-  store i64 %454, ptr %444, align 4
-  br label %455
+453:                                              ; preds = %449
+  %454 = load i64, ptr %445, align 4
+  %455 = and i64 %454, -257
+  store i64 %455, ptr %445, align 4
+  br label %456
 
-455:                                              ; preds = %452, %448, %443
-  %456 = phi i32 [ 0, %443 ], [ 0, %452 ], [ %450, %448 ]
+456:                                              ; preds = %453, %449, %444
+  %457 = phi i32 [ 0, %444 ], [ 0, %453 ], [ %451, %449 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #11
-  br label %506
+  br label %507
 
-457:                                              ; preds = %27
-  %458 = call i32 @scsi_test_unit_ready(ptr noundef %0, i32 noundef 10000, i32 noundef 5, ptr noundef nonnull %17) #11
-  br label %506
+458:                                              ; preds = %27
+  %459 = call i32 @scsi_test_unit_ready(ptr noundef %0, i32 noundef 10000, i32 noundef 5, ptr noundef nonnull %17) #11
+  br label %507
 
-459:                                              ; preds = %27
+460:                                              ; preds = %27
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   store i8 27, ptr %6, align 16
-  %460 = getelementptr inbounds i8, ptr %6, i64 4
-  store i8 1, ptr %460, align 4
-  %461 = call fastcc i32 @ioctl_internal_command(ptr noundef %0, ptr noundef nonnull %6, i32 noundef 60000)
+  %461 = getelementptr inbounds i8, ptr %6, i64 4
+  store i8 1, ptr %461, align 4
+  %462 = call fastcc i32 @ioctl_internal_command(ptr noundef %0, ptr noundef nonnull %6, i32 noundef 60000)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
-  br label %506
+  br label %507
 
-462:                                              ; preds = %27
+463:                                              ; preds = %27
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   store i8 27, ptr %5, align 16
-  %463 = call fastcc i32 @ioctl_internal_command(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 60000)
+  %464 = call fastcc i32 @ioctl_internal_command(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 60000)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
-  br label %506
+  br label %507
 
-464:                                              ; preds = %27
-  %465 = load ptr, ptr %0, align 8
-  %466 = getelementptr inbounds i8, ptr %465, i64 656
-  %467 = load ptr, ptr %466, align 8
-  %468 = icmp eq ptr %467, null
-  br i1 %468, label %506, label %469
+465:                                              ; preds = %27
+  %466 = load ptr, ptr %0, align 8
+  %467 = getelementptr inbounds i8, ptr %466, i64 656
+  %468 = load ptr, ptr %467, align 8
+  %469 = icmp eq ptr %468, null
+  br i1 %469, label %507, label %470
 
-469:                                              ; preds = %464
-  %470 = getelementptr inbounds i8, ptr %467, i64 80
-  %471 = load ptr, ptr %470, align 8
-  %472 = icmp eq ptr %471, null
-  br i1 %472, label %473, label %475
+470:                                              ; preds = %465
+  %471 = getelementptr inbounds i8, ptr %468, i64 80
+  %472 = load ptr, ptr %471, align 8
+  %473 = icmp eq ptr %472, null
+  br i1 %473, label %474, label %476
 
-473:                                              ; preds = %469
-  %474 = load ptr, ptr %467, align 8
-  br label %475
+474:                                              ; preds = %470
+  %475 = load ptr, ptr %468, align 8
+  br label %476
 
-475:                                              ; preds = %473, %469
-  %476 = phi ptr [ %474, %473 ], [ %471, %469 ]
-  %477 = tail call i64 @strlen(ptr noundef %476) #11
-  %478 = tail call i64 @llvm.umin.i64(i64 %477, i64 20)
-  %479 = tail call i64 @_copy_to_user(ptr noundef %3, ptr noundef %476, i64 noundef %478) #11
-  %480 = icmp eq i64 %479, 0
-  %481 = select i1 %480, i32 0, i32 -14
-  br label %506
+476:                                              ; preds = %474, %470
+  %477 = phi ptr [ %475, %474 ], [ %472, %470 ]
+  %478 = tail call i64 @strlen(ptr noundef %477) #11
+  %479 = tail call i64 @llvm.umin.i64(i64 %478, i64 20)
+  %480 = tail call i64 @_copy_to_user(ptr noundef %3, ptr noundef %477, i64 noundef %479) #11
+  %481 = icmp eq i64 %480, 0
+  %482 = select i1 %481, i32 0, i32 -14
+  br label %507
 
-482:                                              ; preds = %27
-  %483 = tail call i32 @scsi_ioctl_reset(ptr noundef %0, ptr noundef %3) #11
-  br label %506
+483:                                              ; preds = %27
+  %484 = tail call i32 @scsi_ioctl_reset(ptr noundef %0, ptr noundef %3) #11
+  br label %507
 
-484:                                              ; preds = %27
-  %485 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #12, !srcloc !7
-  %486 = inttoptr i64 %485 to ptr
-  %487 = getelementptr inbounds i8, ptr %486, i64 16
-  %488 = load i32, ptr %487, align 8
-  %489 = and i32 %488, 2
-  %490 = icmp eq i32 %489, 0
-  %491 = load ptr, ptr %0, align 8
-  %492 = getelementptr inbounds i8, ptr %491, i64 168
-  %493 = load ptr, ptr %492, align 8
-  br i1 %490, label %500, label %494
+485:                                              ; preds = %27
+  %486 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #12, !srcloc !7
+  %487 = inttoptr i64 %486 to ptr
+  %488 = getelementptr inbounds i8, ptr %487, i64 16
+  %489 = load i32, ptr %488, align 8
+  %490 = and i32 %489, 2
+  %491 = icmp eq i32 %490, 0
+  %492 = load ptr, ptr %0, align 8
+  %493 = getelementptr inbounds i8, ptr %492, i64 168
+  %494 = load ptr, ptr %493, align 8
+  br i1 %491, label %501, label %495
 
-494:                                              ; preds = %484
-  %495 = getelementptr inbounds i8, ptr %493, i64 56
-  %496 = load ptr, ptr %495, align 8
-  %497 = icmp eq ptr %496, null
-  br i1 %497, label %506, label %498
+495:                                              ; preds = %485
+  %496 = getelementptr inbounds i8, ptr %494, i64 56
+  %497 = load ptr, ptr %496, align 8
+  %498 = icmp eq ptr %497, null
+  br i1 %498, label %507, label %499
 
-498:                                              ; preds = %494
-  %499 = tail call i32 %496(ptr noundef %0, i32 noundef %2, ptr noundef %3) #11
-  br label %506
+499:                                              ; preds = %495
+  %500 = tail call i32 %497(ptr noundef %0, i32 noundef %2, ptr noundef %3) #11
+  br label %507
 
-500:                                              ; preds = %484
-  %501 = getelementptr inbounds i8, ptr %493, i64 48
-  %502 = load ptr, ptr %501, align 8
-  %503 = icmp eq ptr %502, null
-  br i1 %503, label %506, label %504
+501:                                              ; preds = %485
+  %502 = getelementptr inbounds i8, ptr %494, i64 48
+  %503 = load ptr, ptr %502, align 8
+  %504 = icmp eq ptr %503, null
+  br i1 %504, label %507, label %505
 
-504:                                              ; preds = %500
-  %505 = tail call i32 %502(ptr noundef %0, i32 noundef %2, ptr noundef %3) #11
-  br label %506
+505:                                              ; preds = %501
+  %506 = tail call i32 %503(ptr noundef %0, i32 noundef %2, ptr noundef %3) #11
+  br label %507
 
-506:                                              ; preds = %425, %389, %413, %504, %500, %498, %494, %482, %475, %464, %462, %459, %457, %455, %441, %424, %392, %379, %353, %350, %347, %.thread31, %223, %148, %135, %130, %120, %110, %108, %106, %89, %81, %79, %70, %55, %49, %43, %35, %28
-  %507 = phi i32 [ %499, %498 ], [ %505, %504 ], [ %483, %482 ], [ %463, %462 ], [ %461, %459 ], [ %458, %457 ], [ %456, %455 ], [ %442, %441 ], [ %388, %379 ], [ %378, %353 ], [ %352, %350 ], [ %349, %347 ], [ %346, %.thread31 ], [ %107, %106 ], [ %95, %89 ], [ %69, %55 ], [ %54, %49 ], [ %34, %28 ], [ -22, %494 ], [ -22, %500 ], [ %41, %35 ], [ 0, %43 ], [ 0, %81 ], [ %77, %70 ], [ -22, %79 ], [ %224, %223 ], [ -22, %108 ], [ -14, %110 ], [ -14, %120 ], [ -22, %130 ], [ -14, %135 ], [ -12, %148 ], [ -14, %392 ], [ -14, %424 ], [ -6, %464 ], [ %481, %475 ], [ 1, %413 ], [ 1, %389 ], [ %spec.select, %425 ]
+507:                                              ; preds = %505, %501, %499, %495, %483, %476, %465, %463, %460, %458, %456, %442, %428, %425, %424, %392, %379, %353, %350, %347, %.thread31, %223, %148, %135, %130, %120, %110, %108, %106, %89, %81, %79, %70, %55, %49, %43, %35, %28
+  %508 = phi i32 [ %500, %499 ], [ %506, %505 ], [ %484, %483 ], [ %464, %463 ], [ %462, %460 ], [ %459, %458 ], [ %457, %456 ], [ %443, %442 ], [ %388, %379 ], [ %378, %353 ], [ %352, %350 ], [ %349, %347 ], [ %346, %.thread31 ], [ %107, %106 ], [ %95, %89 ], [ %69, %55 ], [ %54, %49 ], [ %34, %28 ], [ -22, %495 ], [ -22, %501 ], [ %41, %35 ], [ 0, %43 ], [ 0, %81 ], [ %77, %70 ], [ -22, %79 ], [ %224, %223 ], [ -22, %108 ], [ -14, %110 ], [ -14, %120 ], [ -22, %130 ], [ -14, %135 ], [ -12, %148 ], [ 1, %428 ], [ -14, %392 ], [ -14, %425 ], [ -14, %424 ], [ -6, %465 ], [ %482, %476 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #11
-  ret i32 %507
+  ret i32 %508
 }
 
 ; Function Attrs: cold null_pointer_is_valid

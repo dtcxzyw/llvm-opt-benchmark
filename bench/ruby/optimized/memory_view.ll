@@ -1887,7 +1887,7 @@ define internal noundef i32 @exported_object_add_ref(ptr nocapture readnone %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal i32 @exported_object_dec_ref(ptr nocapture readnone %0, ptr nocapture noundef %1, i64 %2, i32 noundef %3) #12 {
+define internal noundef i32 @exported_object_dec_ref(ptr nocapture readnone %0, ptr nocapture noundef %1, i64 %2, i32 noundef %3) #12 {
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %9, label %5
 
@@ -1896,11 +1896,13 @@ define internal i32 @exported_object_dec_ref(ptr nocapture readnone %0, ptr noca
   %7 = add i64 %6, -1
   store i64 %7, ptr %1, align 8
   %8 = icmp eq i64 %7, 0
-  %spec.select = select i1 %8, i32 2, i32 0
-  br label %9
+  br i1 %8, label %10, label %9
 
 9:                                                ; preds = %5, %4
-  %.0 = phi i32 [ 0, %4 ], [ %spec.select, %5 ]
+  br label %10
+
+10:                                               ; preds = %5, %9
+  %.0 = phi i32 [ 0, %9 ], [ 2, %5 ]
   ret i32 %.0
 }
 

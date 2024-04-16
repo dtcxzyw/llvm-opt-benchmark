@@ -1131,14 +1131,18 @@ entry:
   %d_type = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %d_type, align 8
   %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %return, label %if.then
+  br i1 %tobool.not, label %do.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %call = tail call i32 %visit(ptr noundef nonnull %0, ptr noundef %arg) #8
+  %tobool2.not = icmp eq i32 %call, 0
+  br i1 %tobool2.not, label %do.end, label %return
+
+do.end:                                           ; preds = %entry, %if.then
   br label %return
 
-return:                                           ; preds = %if.then, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ %call, %if.then ]
+return:                                           ; preds = %if.then, %do.end
+  %retval.0 = phi i32 [ 0, %do.end ], [ %call, %if.then ]
   ret i32 %retval.0
 }
 
@@ -3223,14 +3227,18 @@ do.body5:                                         ; preds = %if.then, %entry
   %self6 = getelementptr inbounds i8, ptr %self, i64 24
   %1 = load ptr, ptr %self6, align 8
   %tobool7.not = icmp eq ptr %1, null
-  br i1 %tobool7.not, label %return, label %if.then8
+  br i1 %tobool7.not, label %do.end16, label %if.then8
 
 if.then8:                                         ; preds = %do.body5
   %call11 = tail call i32 %visit(ptr noundef nonnull %1, ptr noundef %arg) #8
+  %tobool12.not = icmp eq i32 %call11, 0
+  br i1 %tobool12.not, label %do.end16, label %return
+
+do.end16:                                         ; preds = %do.body5, %if.then8
   br label %return
 
-return:                                           ; preds = %if.then8, %do.body5, %if.then
-  %retval.0 = phi i32 [ %call, %if.then ], [ 0, %do.body5 ], [ %call11, %if.then8 ]
+return:                                           ; preds = %if.then8, %if.then, %do.end16
+  %retval.0 = phi i32 [ 0, %do.end16 ], [ %call, %if.then ], [ %call11, %if.then8 ]
   ret i32 %retval.0
 }
 
@@ -3416,14 +3424,18 @@ entry:
   %mapping = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %mapping, align 8
   %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %return, label %if.then
+  br i1 %tobool.not, label %do.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %call = tail call i32 %visit(ptr noundef nonnull %0, ptr noundef %arg) #8
+  %tobool2.not = icmp eq i32 %call, 0
+  br i1 %tobool2.not, label %do.end, label %return
+
+do.end:                                           ; preds = %entry, %if.then
   br label %return
 
-return:                                           ; preds = %if.then, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ %call, %if.then ]
+return:                                           ; preds = %if.then, %do.end
+  %retval.0 = phi i32 [ 0, %do.end ], [ %call, %if.then ]
   ret i32 %retval.0
 }
 
@@ -3718,14 +3730,18 @@ do.body38:                                        ; preds = %if.then29, %do.body
   %prop_name = getelementptr inbounds i8, ptr %self, i64 48
   %4 = load ptr, ptr %prop_name, align 8
   %tobool39.not = icmp eq ptr %4, null
-  br i1 %tobool39.not, label %return, label %if.then40
+  br i1 %tobool39.not, label %do.end48, label %if.then40
 
 if.then40:                                        ; preds = %do.body38
   %call43 = tail call i32 %visit(ptr noundef nonnull %4, ptr noundef %arg) #8
+  %tobool44.not = icmp eq i32 %call43, 0
+  br i1 %tobool44.not, label %do.end48, label %return
+
+do.end48:                                         ; preds = %do.body38, %if.then40
   br label %return
 
-return:                                           ; preds = %if.then40, %do.body38, %if.then29, %if.then18, %if.then7, %if.then
-  %retval.0 = phi i32 [ %call, %if.then ], [ %call10, %if.then7 ], [ %call21, %if.then18 ], [ %call32, %if.then29 ], [ 0, %do.body38 ], [ %call43, %if.then40 ]
+return:                                           ; preds = %if.then40, %if.then29, %if.then18, %if.then7, %if.then, %do.end48
+  %retval.0 = phi i32 [ 0, %do.end48 ], [ %call, %if.then ], [ %call10, %if.then7 ], [ %call21, %if.then18 ], [ %call32, %if.then29 ], [ %call43, %if.then40 ]
   ret i32 %retval.0
 }
 

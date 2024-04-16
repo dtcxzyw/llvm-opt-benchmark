@@ -671,7 +671,7 @@ BTreeTupleGetHeapTID.exit:                        ; preds = %127, %135, %BTreeTu
   %146 = getelementptr inbounds i8, ptr %1, i64 8
   %147 = load ptr, ptr %146, align 8
   %148 = icmp eq ptr %147, null
-  br i1 %148, label %152, label %162
+  br i1 %148, label %152, label %163
 
 BTreeTupleGetHeapTID.exit.thread:                 ; preds = %133
   %149 = getelementptr inbounds i8, ptr %1, i64 8
@@ -684,63 +684,65 @@ BTreeTupleGetHeapTID.exit.thread:                 ; preds = %133
   %153 = getelementptr inbounds i8, ptr %1, i64 4
   %154 = load i8, ptr %153, align 4
   %155 = trunc i8 %154 to i1
-  br i1 %155, label %.thread, label %156
+  br i1 %155, label %162, label %156
 
 156:                                              ; preds = %152
   %157 = icmp eq i32 %125, %44
   %158 = icmp eq ptr %.0.i7391, null
   %or.cond = select i1 %157, i1 %158, i1 false
-  br i1 %or.cond, label %159, label %.thread
+  br i1 %or.cond, label %159, label %162
 
 159:                                              ; preds = %156
   %160 = load i8, ptr %1, align 8
-  %161 = and i8 %160, 1
-  %spec.select = zext nneg i8 %161 to i32
+  %161 = trunc i8 %160 to i1
+  br i1 %161, label %.thread, label %162
+
+162:                                              ; preds = %159, %156, %152
   br label %.thread
 
-162:                                              ; preds = %BTreeTupleGetHeapTID.exit
-  %163 = icmp eq ptr %.0.i73, null
-  br i1 %163, label %.thread, label %164
+163:                                              ; preds = %BTreeTupleGetHeapTID.exit
+  %164 = icmp eq ptr %.0.i73, null
+  br i1 %164, label %.thread, label %165
 
-164:                                              ; preds = %162
-  %165 = tail call i32 @ItemPointerCompare(ptr noundef nonnull %147, ptr noundef nonnull %.0.i73) #6
-  %166 = icmp slt i32 %165, 1
-  br i1 %166, label %.thread, label %167
+165:                                              ; preds = %163
+  %166 = tail call i32 @ItemPointerCompare(ptr noundef nonnull %147, ptr noundef nonnull %.0.i73) #6
+  %167 = icmp slt i32 %166, 1
+  br i1 %167, label %.thread, label %168
 
-167:                                              ; preds = %164
-  %168 = load i16, ptr %29, align 2
-  %169 = and i16 %168, 8192
-  %170 = icmp eq i16 %169, 0
-  br i1 %170, label %.thread, label %BTreeTupleIsPosting.exit
+168:                                              ; preds = %165
+  %169 = load i16, ptr %29, align 2
+  %170 = and i16 %169, 8192
+  %171 = icmp eq i16 %170, 0
+  br i1 %171, label %.thread, label %BTreeTupleIsPosting.exit
 
-BTreeTupleIsPosting.exit:                         ; preds = %167
-  %171 = getelementptr i8, ptr %28, i64 4
-  %.val.i75 = load i16, ptr %171, align 2
-  %172 = and i16 %.val.i75, 8192
-  %.not95 = icmp eq i16 %172, 0
+BTreeTupleIsPosting.exit:                         ; preds = %168
+  %172 = getelementptr i8, ptr %28, i64 4
+  %.val.i75 = load i16, ptr %172, align 2
+  %173 = and i16 %.val.i75, 8192
+  %.not95 = icmp eq i16 %173, 0
   br i1 %.not95, label %.thread, label %BTreeTupleGetMaxHeapTID.exit
 
 BTreeTupleGetMaxHeapTID.exit:                     ; preds = %BTreeTupleIsPosting.exit
-  %173 = load ptr, ptr %146, align 8
+  %174 = load ptr, ptr %146, align 8
   %.val.i.i.i = load i16, ptr %28, align 2
-  %174 = zext i16 %.val.i.i.i to i64
-  %175 = shl nuw nsw i64 %174, 16
-  %176 = getelementptr i8, ptr %28, i64 2
-  %.val2.i.i.i = load i16, ptr %176, align 2
-  %177 = zext i16 %.val2.i.i.i to i64
-  %178 = or disjoint i64 %175, %177
-  %179 = getelementptr i8, ptr %28, i64 %178
-  %180 = and i16 %.val.i75, 4095
-  %181 = zext nneg i16 %180 to i64
-  %182 = getelementptr %struct.ItemPointerData, ptr %179, i64 %181
-  %183 = getelementptr i8, ptr %182, i64 -6
-  %184 = tail call i32 @ItemPointerCompare(ptr noundef %173, ptr noundef %183) #6
-  %185 = icmp sgt i32 %184, 0
-  %.69 = zext i1 %185 to i32
+  %175 = zext i16 %.val.i.i.i to i64
+  %176 = shl nuw nsw i64 %175, 16
+  %177 = getelementptr i8, ptr %28, i64 2
+  %.val2.i.i.i = load i16, ptr %177, align 2
+  %178 = zext i16 %.val2.i.i.i to i64
+  %179 = or disjoint i64 %176, %178
+  %180 = getelementptr i8, ptr %28, i64 %179
+  %181 = and i16 %.val.i75, 4095
+  %182 = zext nneg i16 %181 to i64
+  %183 = getelementptr %struct.ItemPointerData, ptr %180, i64 %182
+  %184 = getelementptr i8, ptr %183, i64 -6
+  %185 = tail call i32 @ItemPointerCompare(ptr noundef %174, ptr noundef %184) #6
+  %186 = icmp sgt i32 %185, 0
+  %.69 = zext i1 %186 to i32
   br label %.thread
 
-.thread:                                          ; preds = %119, %122, %167, %BTreeTupleGetHeapTID.exit.thread, %107, %105, %159, %BTreeTupleGetMaxHeapTID.exit, %164, %BTreeTupleIsPosting.exit, %162, %152, %156, %._crit_edge, %14
-  %.0 = phi i32 [ 1, %14 ], [ 1, %._crit_edge ], [ 0, %156 ], [ 0, %152 ], [ 1, %162 ], [ %165, %BTreeTupleIsPosting.exit ], [ %165, %164 ], [ %.69, %BTreeTupleGetMaxHeapTID.exit ], [ %spec.select, %159 ], [ %.68, %107 ], [ %.67, %105 ], [ 1, %BTreeTupleGetHeapTID.exit.thread ], [ %165, %167 ], [ 1, %119 ], [ %.055, %122 ]
+.thread:                                          ; preds = %119, %122, %168, %BTreeTupleGetHeapTID.exit.thread, %107, %105, %BTreeTupleGetMaxHeapTID.exit, %165, %BTreeTupleIsPosting.exit, %163, %159, %._crit_edge, %14, %162
+  %.0 = phi i32 [ 0, %162 ], [ 1, %14 ], [ 1, %._crit_edge ], [ 1, %159 ], [ 1, %163 ], [ %166, %BTreeTupleIsPosting.exit ], [ %166, %165 ], [ %.69, %BTreeTupleGetMaxHeapTID.exit ], [ %.68, %107 ], [ %.67, %105 ], [ 1, %BTreeTupleGetHeapTID.exit.thread ], [ %166, %168 ], [ 1, %119 ], [ %.055, %122 ]
   ret i32 %.0
 }
 

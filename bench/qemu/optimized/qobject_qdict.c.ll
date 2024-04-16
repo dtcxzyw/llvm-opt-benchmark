@@ -361,7 +361,7 @@ tdb_hash.exit.i:                                  ; preds = %for.body.i.i, %entr
   %arrayidx.i4.i = getelementptr [512 x %struct.anon], ptr %table.i.i, i64 0, i64 %idxprom.i3.i
   %entry1.04.i.i = load ptr, ptr %arrayidx.i4.i, align 8
   %tobool.not5.i.i = icmp eq ptr %entry1.04.i.i, null
-  br i1 %tobool.not5.i.i, label %qobject_check_type.exit, label %for.body.i5.i
+  br i1 %tobool.not5.i.i, label %if.else.i, label %for.body.i5.i
 
 for.body.i5.i:                                    ; preds = %tdb_hash.exit.i, %for.inc.i.i
   %entry1.06.i.i = phi ptr [ %entry1.0.i.i, %for.inc.i.i ], [ %entry1.04.i.i, %tdb_hash.exit.i ]
@@ -374,13 +374,13 @@ for.inc.i.i:                                      ; preds = %for.body.i5.i
   %next.i.i = getelementptr inbounds i8, ptr %entry1.06.i.i, i64 16
   %entry1.0.i.i = load ptr, ptr %next.i.i, align 8
   %tobool.not.i7.i = icmp eq ptr %entry1.0.i.i, null
-  br i1 %tobool.not.i7.i, label %qobject_check_type.exit, label %for.body.i5.i, !llvm.loop !7
+  br i1 %tobool.not.i7.i, label %if.else.i, label %for.body.i5.i, !llvm.loop !7
 
 qdict_get.exit:                                   ; preds = %for.body.i5.i
   %value.i = getelementptr inbounds i8, ptr %entry1.06.i.i, i64 8
   %5 = load ptr, ptr %value.i, align 8
   %tobool.not.i = icmp eq ptr %5, null
-  br i1 %tobool.not.i, label %qobject_check_type.exit, label %land.lhs.true.i
+  br i1 %tobool.not.i, label %if.else.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %qdict_get.exit
   %obj.val.i = load i32, ptr %5, align 8
@@ -394,11 +394,13 @@ if.else.i.i:                                      ; preds = %land.lhs.true.i
 
 qobject_type.exit.i:                              ; preds = %land.lhs.true.i
   %cmp.i = icmp eq i32 %obj.val.i, 2
-  %spec.select.i = select i1 %cmp.i, ptr %5, ptr null
+  br i1 %cmp.i, label %qobject_check_type.exit, label %if.else.i
+
+if.else.i:                                        ; preds = %for.inc.i.i, %tdb_hash.exit.i, %qobject_type.exit.i, %qdict_get.exit
   br label %qobject_check_type.exit
 
-qobject_check_type.exit:                          ; preds = %for.inc.i.i, %tdb_hash.exit.i, %qdict_get.exit, %qobject_type.exit.i
-  %retval.0.i = phi ptr [ null, %qdict_get.exit ], [ %spec.select.i, %qobject_type.exit.i ], [ null, %tdb_hash.exit.i ], [ null, %for.inc.i.i ]
+qobject_check_type.exit:                          ; preds = %qobject_type.exit.i, %if.else.i
+  %retval.0.i = phi ptr [ null, %if.else.i ], [ %5, %qobject_type.exit.i ]
   %call2 = tail call double @qnum_get_double(ptr noundef %retval.0.i) #12
   ret double %call2
 }
@@ -441,7 +443,7 @@ tdb_hash.exit.i:                                  ; preds = %for.body.i.i, %entr
   %arrayidx.i4.i = getelementptr [512 x %struct.anon], ptr %table.i.i, i64 0, i64 %idxprom.i3.i
   %entry1.04.i.i = load ptr, ptr %arrayidx.i4.i, align 8
   %tobool.not5.i.i = icmp eq ptr %entry1.04.i.i, null
-  br i1 %tobool.not5.i.i, label %qobject_check_type.exit, label %for.body.i5.i
+  br i1 %tobool.not5.i.i, label %if.else.i, label %for.body.i5.i
 
 for.body.i5.i:                                    ; preds = %tdb_hash.exit.i, %for.inc.i.i
   %entry1.06.i.i = phi ptr [ %entry1.0.i.i, %for.inc.i.i ], [ %entry1.04.i.i, %tdb_hash.exit.i ]
@@ -454,13 +456,13 @@ for.inc.i.i:                                      ; preds = %for.body.i5.i
   %next.i.i = getelementptr inbounds i8, ptr %entry1.06.i.i, i64 16
   %entry1.0.i.i = load ptr, ptr %next.i.i, align 8
   %tobool.not.i7.i = icmp eq ptr %entry1.0.i.i, null
-  br i1 %tobool.not.i7.i, label %qobject_check_type.exit, label %for.body.i5.i, !llvm.loop !7
+  br i1 %tobool.not.i7.i, label %if.else.i, label %for.body.i5.i, !llvm.loop !7
 
 qdict_get.exit:                                   ; preds = %for.body.i5.i
   %value.i = getelementptr inbounds i8, ptr %entry1.06.i.i, i64 8
   %5 = load ptr, ptr %value.i, align 8
   %tobool.not.i = icmp eq ptr %5, null
-  br i1 %tobool.not.i, label %qobject_check_type.exit, label %land.lhs.true.i
+  br i1 %tobool.not.i, label %if.else.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %qdict_get.exit
   %obj.val.i = load i32, ptr %5, align 8
@@ -474,11 +476,13 @@ if.else.i.i:                                      ; preds = %land.lhs.true.i
 
 qobject_type.exit.i:                              ; preds = %land.lhs.true.i
   %cmp.i = icmp eq i32 %obj.val.i, 2
-  %spec.select.i = select i1 %cmp.i, ptr %5, ptr null
+  br i1 %cmp.i, label %qobject_check_type.exit, label %if.else.i
+
+if.else.i:                                        ; preds = %for.inc.i.i, %tdb_hash.exit.i, %qobject_type.exit.i, %qdict_get.exit
   br label %qobject_check_type.exit
 
-qobject_check_type.exit:                          ; preds = %for.inc.i.i, %tdb_hash.exit.i, %qdict_get.exit, %qobject_type.exit.i
-  %retval.0.i = phi ptr [ null, %qdict_get.exit ], [ %spec.select.i, %qobject_type.exit.i ], [ null, %tdb_hash.exit.i ], [ null, %for.inc.i.i ]
+qobject_check_type.exit:                          ; preds = %qobject_type.exit.i, %if.else.i
+  %retval.0.i = phi ptr [ null, %if.else.i ], [ %5, %qobject_type.exit.i ]
   %call2 = tail call i64 @qnum_get_int(ptr noundef %retval.0.i) #12
   ret i64 %call2
 }
@@ -521,7 +525,7 @@ tdb_hash.exit.i:                                  ; preds = %for.body.i.i, %entr
   %arrayidx.i4.i = getelementptr [512 x %struct.anon], ptr %table.i.i, i64 0, i64 %idxprom.i3.i
   %entry1.04.i.i = load ptr, ptr %arrayidx.i4.i, align 8
   %tobool.not5.i.i = icmp eq ptr %entry1.04.i.i, null
-  br i1 %tobool.not5.i.i, label %qobject_check_type.exit, label %for.body.i5.i
+  br i1 %tobool.not5.i.i, label %if.else.i, label %for.body.i5.i
 
 for.body.i5.i:                                    ; preds = %tdb_hash.exit.i, %for.inc.i.i
   %entry1.06.i.i = phi ptr [ %entry1.0.i.i, %for.inc.i.i ], [ %entry1.04.i.i, %tdb_hash.exit.i ]
@@ -534,13 +538,13 @@ for.inc.i.i:                                      ; preds = %for.body.i5.i
   %next.i.i = getelementptr inbounds i8, ptr %entry1.06.i.i, i64 16
   %entry1.0.i.i = load ptr, ptr %next.i.i, align 8
   %tobool.not.i7.i = icmp eq ptr %entry1.0.i.i, null
-  br i1 %tobool.not.i7.i, label %qobject_check_type.exit, label %for.body.i5.i, !llvm.loop !7
+  br i1 %tobool.not.i7.i, label %if.else.i, label %for.body.i5.i, !llvm.loop !7
 
 qdict_get.exit:                                   ; preds = %for.body.i5.i
   %value.i = getelementptr inbounds i8, ptr %entry1.06.i.i, i64 8
   %5 = load ptr, ptr %value.i, align 8
   %tobool.not.i = icmp eq ptr %5, null
-  br i1 %tobool.not.i, label %qobject_check_type.exit, label %land.lhs.true.i
+  br i1 %tobool.not.i, label %if.else.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %qdict_get.exit
   %obj.val.i = load i32, ptr %5, align 8
@@ -554,11 +558,13 @@ if.else.i.i:                                      ; preds = %land.lhs.true.i
 
 qobject_type.exit.i:                              ; preds = %land.lhs.true.i
   %cmp.i = icmp eq i32 %obj.val.i, 6
-  %spec.select.i = select i1 %cmp.i, ptr %5, ptr null
+  br i1 %cmp.i, label %qobject_check_type.exit, label %if.else.i
+
+if.else.i:                                        ; preds = %for.inc.i.i, %tdb_hash.exit.i, %qobject_type.exit.i, %qdict_get.exit
   br label %qobject_check_type.exit
 
-qobject_check_type.exit:                          ; preds = %for.inc.i.i, %tdb_hash.exit.i, %qdict_get.exit, %qobject_type.exit.i
-  %retval.0.i = phi ptr [ null, %qdict_get.exit ], [ %spec.select.i, %qobject_type.exit.i ], [ null, %tdb_hash.exit.i ], [ null, %for.inc.i.i ]
+qobject_check_type.exit:                          ; preds = %qobject_type.exit.i, %if.else.i
+  %retval.0.i = phi ptr [ null, %if.else.i ], [ %5, %qobject_type.exit.i ]
   %call2 = tail call zeroext i1 @qbool_get_bool(ptr noundef %retval.0.i) #12
   ret i1 %call2
 }
@@ -601,7 +607,7 @@ tdb_hash.exit.i:                                  ; preds = %for.body.i.i, %entr
   %arrayidx.i4.i = getelementptr [512 x %struct.anon], ptr %table.i.i, i64 0, i64 %idxprom.i3.i
   %entry1.04.i.i = load ptr, ptr %arrayidx.i4.i, align 8
   %tobool.not5.i.i = icmp eq ptr %entry1.04.i.i, null
-  br i1 %tobool.not5.i.i, label %qobject_check_type.exit, label %for.body.i5.i
+  br i1 %tobool.not5.i.i, label %if.else.i, label %for.body.i5.i
 
 for.body.i5.i:                                    ; preds = %tdb_hash.exit.i, %for.inc.i.i
   %entry1.06.i.i = phi ptr [ %entry1.0.i.i, %for.inc.i.i ], [ %entry1.04.i.i, %tdb_hash.exit.i ]
@@ -614,13 +620,13 @@ for.inc.i.i:                                      ; preds = %for.body.i5.i
   %next.i.i = getelementptr inbounds i8, ptr %entry1.06.i.i, i64 16
   %entry1.0.i.i = load ptr, ptr %next.i.i, align 8
   %tobool.not.i7.i = icmp eq ptr %entry1.0.i.i, null
-  br i1 %tobool.not.i7.i, label %qobject_check_type.exit, label %for.body.i5.i, !llvm.loop !7
+  br i1 %tobool.not.i7.i, label %if.else.i, label %for.body.i5.i, !llvm.loop !7
 
 qdict_get.exit:                                   ; preds = %for.body.i5.i
   %value.i = getelementptr inbounds i8, ptr %entry1.06.i.i, i64 8
   %5 = load ptr, ptr %value.i, align 8
   %tobool.not.i = icmp eq ptr %5, null
-  br i1 %tobool.not.i, label %qobject_check_type.exit, label %land.lhs.true.i
+  br i1 %tobool.not.i, label %if.else.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %qdict_get.exit
   %obj.val.i = load i32, ptr %5, align 8
@@ -634,11 +640,13 @@ if.else.i.i:                                      ; preds = %land.lhs.true.i
 
 qobject_type.exit.i:                              ; preds = %land.lhs.true.i
   %cmp.i = icmp eq i32 %obj.val.i, 5
-  %spec.select.i = select i1 %cmp.i, ptr %5, ptr null
+  br i1 %cmp.i, label %qobject_check_type.exit, label %if.else.i
+
+if.else.i:                                        ; preds = %for.inc.i.i, %tdb_hash.exit.i, %qobject_type.exit.i, %qdict_get.exit
   br label %qobject_check_type.exit
 
-qobject_check_type.exit:                          ; preds = %for.inc.i.i, %tdb_hash.exit.i, %qdict_get.exit, %qobject_type.exit.i
-  %retval.0.i = phi ptr [ null, %qdict_get.exit ], [ %spec.select.i, %qobject_type.exit.i ], [ null, %tdb_hash.exit.i ], [ null, %for.inc.i.i ]
+qobject_check_type.exit:                          ; preds = %qobject_type.exit.i, %if.else.i
+  %retval.0.i = phi ptr [ null, %if.else.i ], [ %5, %qobject_type.exit.i ]
   ret ptr %retval.0.i
 }
 
@@ -678,7 +686,7 @@ tdb_hash.exit.i:                                  ; preds = %for.body.i.i, %entr
   %arrayidx.i4.i = getelementptr [512 x %struct.anon], ptr %table.i.i, i64 0, i64 %idxprom.i3.i
   %entry1.04.i.i = load ptr, ptr %arrayidx.i4.i, align 8
   %tobool.not5.i.i = icmp eq ptr %entry1.04.i.i, null
-  br i1 %tobool.not5.i.i, label %qobject_check_type.exit, label %for.body.i5.i
+  br i1 %tobool.not5.i.i, label %if.else.i, label %for.body.i5.i
 
 for.body.i5.i:                                    ; preds = %tdb_hash.exit.i, %for.inc.i.i
   %entry1.06.i.i = phi ptr [ %entry1.0.i.i, %for.inc.i.i ], [ %entry1.04.i.i, %tdb_hash.exit.i ]
@@ -691,13 +699,13 @@ for.inc.i.i:                                      ; preds = %for.body.i5.i
   %next.i.i = getelementptr inbounds i8, ptr %entry1.06.i.i, i64 16
   %entry1.0.i.i = load ptr, ptr %next.i.i, align 8
   %tobool.not.i7.i = icmp eq ptr %entry1.0.i.i, null
-  br i1 %tobool.not.i7.i, label %qobject_check_type.exit, label %for.body.i5.i, !llvm.loop !7
+  br i1 %tobool.not.i7.i, label %if.else.i, label %for.body.i5.i, !llvm.loop !7
 
 qdict_get.exit:                                   ; preds = %for.body.i5.i
   %value.i = getelementptr inbounds i8, ptr %entry1.06.i.i, i64 8
   %5 = load ptr, ptr %value.i, align 8
   %tobool.not.i = icmp eq ptr %5, null
-  br i1 %tobool.not.i, label %qobject_check_type.exit, label %land.lhs.true.i
+  br i1 %tobool.not.i, label %if.else.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %qdict_get.exit
   %obj.val.i = load i32, ptr %5, align 8
@@ -711,11 +719,13 @@ if.else.i.i:                                      ; preds = %land.lhs.true.i
 
 qobject_type.exit.i:                              ; preds = %land.lhs.true.i
   %cmp.i = icmp eq i32 %obj.val.i, 4
-  %spec.select.i = select i1 %cmp.i, ptr %5, ptr null
+  br i1 %cmp.i, label %qobject_check_type.exit, label %if.else.i
+
+if.else.i:                                        ; preds = %for.inc.i.i, %tdb_hash.exit.i, %qobject_type.exit.i, %qdict_get.exit
   br label %qobject_check_type.exit
 
-qobject_check_type.exit:                          ; preds = %for.inc.i.i, %tdb_hash.exit.i, %qdict_get.exit, %qobject_type.exit.i
-  %retval.0.i = phi ptr [ null, %qdict_get.exit ], [ %spec.select.i, %qobject_type.exit.i ], [ null, %tdb_hash.exit.i ], [ null, %for.inc.i.i ]
+qobject_check_type.exit:                          ; preds = %qobject_type.exit.i, %if.else.i
+  %retval.0.i = phi ptr [ null, %if.else.i ], [ %5, %qobject_type.exit.i ]
   ret ptr %retval.0.i
 }
 
@@ -755,7 +765,7 @@ tdb_hash.exit.i:                                  ; preds = %for.body.i.i, %entr
   %arrayidx.i4.i = getelementptr [512 x %struct.anon], ptr %table.i.i, i64 0, i64 %idxprom.i3.i
   %entry1.04.i.i = load ptr, ptr %arrayidx.i4.i, align 8
   %tobool.not5.i.i = icmp eq ptr %entry1.04.i.i, null
-  br i1 %tobool.not5.i.i, label %qobject_check_type.exit, label %for.body.i5.i
+  br i1 %tobool.not5.i.i, label %if.else.i, label %for.body.i5.i
 
 for.body.i5.i:                                    ; preds = %tdb_hash.exit.i, %for.inc.i.i
   %entry1.06.i.i = phi ptr [ %entry1.0.i.i, %for.inc.i.i ], [ %entry1.04.i.i, %tdb_hash.exit.i ]
@@ -768,13 +778,13 @@ for.inc.i.i:                                      ; preds = %for.body.i5.i
   %next.i.i = getelementptr inbounds i8, ptr %entry1.06.i.i, i64 16
   %entry1.0.i.i = load ptr, ptr %next.i.i, align 8
   %tobool.not.i7.i = icmp eq ptr %entry1.0.i.i, null
-  br i1 %tobool.not.i7.i, label %qobject_check_type.exit, label %for.body.i5.i, !llvm.loop !7
+  br i1 %tobool.not.i7.i, label %if.else.i, label %for.body.i5.i, !llvm.loop !7
 
 qdict_get.exit:                                   ; preds = %for.body.i5.i
   %value.i = getelementptr inbounds i8, ptr %entry1.06.i.i, i64 8
   %5 = load ptr, ptr %value.i, align 8
   %tobool.not.i = icmp eq ptr %5, null
-  br i1 %tobool.not.i, label %qobject_check_type.exit, label %land.lhs.true.i
+  br i1 %tobool.not.i, label %if.else.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %qdict_get.exit
   %obj.val.i = load i32, ptr %5, align 8
@@ -788,11 +798,13 @@ if.else.i.i:                                      ; preds = %land.lhs.true.i
 
 qobject_type.exit.i:                              ; preds = %land.lhs.true.i
   %cmp.i = icmp eq i32 %obj.val.i, 3
-  %spec.select.i = select i1 %cmp.i, ptr %5, ptr null
+  br i1 %cmp.i, label %qobject_check_type.exit, label %if.else.i
+
+if.else.i:                                        ; preds = %for.inc.i.i, %tdb_hash.exit.i, %qobject_type.exit.i, %qdict_get.exit
   br label %qobject_check_type.exit
 
-qobject_check_type.exit:                          ; preds = %for.inc.i.i, %tdb_hash.exit.i, %qdict_get.exit, %qobject_type.exit.i
-  %retval.0.i = phi ptr [ null, %qdict_get.exit ], [ %spec.select.i, %qobject_type.exit.i ], [ null, %tdb_hash.exit.i ], [ null, %for.inc.i.i ]
+qobject_check_type.exit:                          ; preds = %qobject_type.exit.i, %if.else.i
+  %retval.0.i = phi ptr [ null, %if.else.i ], [ %5, %qobject_type.exit.i ]
   %call2 = tail call ptr @qstring_get_str(ptr noundef %retval.0.i) #12
   ret ptr %call2
 }
@@ -1512,7 +1524,7 @@ qobject_unref_impl.exit:                          ; preds = %land.lhs.true.i, %i
 define dso_local noundef zeroext i1 @qdict_is_equal(ptr noundef readonly %x, ptr noundef readonly %y) local_unnamed_addr #0 {
 entry:
   %tobool.not.i = icmp eq ptr %x, null
-  br i1 %tobool.not.i, label %qobject_check_type.exit, label %land.lhs.true.i
+  br i1 %tobool.not.i, label %if.else.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
   %obj.val.i = load i32, ptr %x, align 8
@@ -1526,13 +1538,15 @@ if.else.i.i:                                      ; preds = %land.lhs.true.i
 
 qobject_type.exit.i:                              ; preds = %land.lhs.true.i
   %cmp.i = icmp eq i32 %obj.val.i, 4
-  %spec.select.i = select i1 %cmp.i, ptr %x, ptr null
+  br i1 %cmp.i, label %qobject_check_type.exit, label %if.else.i
+
+if.else.i:                                        ; preds = %qobject_type.exit.i, %entry
   br label %qobject_check_type.exit
 
-qobject_check_type.exit:                          ; preds = %entry, %qobject_type.exit.i
-  %retval.0.i = phi ptr [ null, %entry ], [ %spec.select.i, %qobject_type.exit.i ]
+qobject_check_type.exit:                          ; preds = %qobject_type.exit.i, %if.else.i
+  %retval.0.i = phi ptr [ null, %if.else.i ], [ %x, %qobject_type.exit.i ]
   %tobool.not.i7 = icmp eq ptr %y, null
-  br i1 %tobool.not.i7, label %qobject_check_type.exit16, label %land.lhs.true.i8
+  br i1 %tobool.not.i7, label %if.else.i14, label %land.lhs.true.i8
 
 land.lhs.true.i8:                                 ; preds = %qobject_check_type.exit
   %obj.val.i9 = load i32, ptr %y, align 8
@@ -1546,11 +1560,13 @@ if.else.i.i11:                                    ; preds = %land.lhs.true.i8
 
 qobject_type.exit.i12:                            ; preds = %land.lhs.true.i8
   %cmp.i13 = icmp eq i32 %obj.val.i9, 4
-  %spec.select.i14 = select i1 %cmp.i13, ptr %y, ptr null
+  br i1 %cmp.i13, label %qobject_check_type.exit16, label %if.else.i14
+
+if.else.i14:                                      ; preds = %qobject_type.exit.i12, %qobject_check_type.exit
   br label %qobject_check_type.exit16
 
-qobject_check_type.exit16:                        ; preds = %qobject_check_type.exit, %qobject_type.exit.i12
-  %retval.0.i15 = phi ptr [ null, %qobject_check_type.exit ], [ %spec.select.i14, %qobject_type.exit.i12 ]
+qobject_check_type.exit16:                        ; preds = %qobject_type.exit.i12, %if.else.i14
+  %retval.0.i15 = phi ptr [ null, %if.else.i14 ], [ %y, %qobject_type.exit.i12 ]
   %size.i = getelementptr inbounds i8, ptr %retval.0.i, i64 16
   %2 = load i64, ptr %size.i, align 8
   %size.i17 = getelementptr inbounds i8, ptr %retval.0.i15, i64 16
@@ -1722,20 +1738,20 @@ land.lhs.true.i:                                  ; preds = %entry
   %obj.val.i = load i32, ptr %obj, align 8
   %0 = add i32 %obj.val.i, -1
   %or.cond.i.i = icmp ult i32 %0, 6
-  br i1 %or.cond.i.i, label %qobject_check_type.exit, label %if.else.i.i
+  br i1 %or.cond.i.i, label %qobject_type.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %land.lhs.true.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.5, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #11
   unreachable
 
-qobject_check_type.exit:                          ; preds = %land.lhs.true.i
+qobject_type.exit.i:                              ; preds = %land.lhs.true.i
   %cmp.i = icmp eq i32 %obj.val.i, 4
-  %spec.select.i = select i1 %cmp.i, ptr %obj, ptr null
-  %table = getelementptr inbounds i8, ptr %spec.select.i, i64 24
+  %spec.select = select i1 %cmp.i, ptr %obj, ptr null
+  %table = getelementptr inbounds i8, ptr %spec.select, i64 24
   br label %for.body
 
-for.body:                                         ; preds = %qobject_check_type.exit, %for.inc
-  %indvars.iv = phi i64 [ 0, %qobject_check_type.exit ], [ %indvars.iv.next, %for.inc ]
+for.body:                                         ; preds = %qobject_type.exit.i, %for.inc
+  %indvars.iv = phi i64 [ 0, %qobject_type.exit.i ], [ %indvars.iv.next, %for.inc ]
   %arrayidx = getelementptr [512 x %struct.anon], ptr %table, i64 0, i64 %indvars.iv
   %1 = load ptr, ptr %arrayidx, align 8
   %tobool.not15 = icmp eq ptr %1, null
@@ -1810,7 +1826,7 @@ for.inc:                                          ; preds = %qentry_destroy.exit
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !13
 
 for.end:                                          ; preds = %for.inc
-  tail call void @g_free(ptr noundef %spec.select.i) #12
+  tail call void @g_free(ptr noundef %spec.select) #12
   ret void
 }
 

@@ -263,24 +263,26 @@ ir_perf_timestamp.exit:                           ; preds = %8, %17
   %34 = load i32, ptr @jitdump_fd, align 4
   %35 = call i64 @write(i32 noundef %34, ptr noundef nonnull %5, i64 noundef 56) #7
   %.not = icmp eq i64 %35, 56
-  br i1 %.not, label %36, label %45
+  br i1 %.not, label %36, label %46
 
 36:                                               ; preds = %ir_perf_timestamp.exit
   %37 = load i32, ptr @jitdump_fd, align 4
   %38 = add i64 %9, 1
   %39 = call i64 @write(i32 noundef %37, ptr noundef %0, i64 noundef %38) #7
   %40 = icmp slt i64 %39, 0
-  br i1 %40, label %45, label %41
+  br i1 %40, label %46, label %41
 
 41:                                               ; preds = %36
   %42 = load i32, ptr @jitdump_fd, align 4
   %43 = call i64 @write(i32 noundef %42, ptr noundef %1, i64 noundef %2) #7
-  %44 = icmp sgt i64 %43, -1
-  %spec.select = zext i1 %44 to i32
-  br label %45
+  %44 = icmp slt i64 %43, 0
+  br i1 %44, label %46, label %45
 
-45:                                               ; preds = %41, %3, %ir_perf_timestamp.exit, %36
-  %.0 = phi i32 [ 0, %36 ], [ 0, %ir_perf_timestamp.exit ], [ 1, %3 ], [ %spec.select, %41 ]
+45:                                               ; preds = %41, %3
+  br label %46
+
+46:                                               ; preds = %ir_perf_timestamp.exit, %36, %41, %45
+  %.0 = phi i32 [ 1, %45 ], [ 0, %41 ], [ 0, %36 ], [ 0, %ir_perf_timestamp.exit ]
   ret i32 %.0
 }
 

@@ -9823,18 +9823,20 @@ if.else:                                          ; preds = %cleanup.done62
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 128
   %21 = load ptr, ptr %vfn.i, align 8
   %call.i60 = call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(8) %method)
-  br i1 %call.i60, label %if.end81, label %_Z19ServerOnlyStreamingPKN14grpc_generator6MethodE.exit
+  br i1 %call.i60, label %if.else78, label %_Z19ServerOnlyStreamingPKN14grpc_generator6MethodE.exit
 
 _Z19ServerOnlyStreamingPKN14grpc_generator6MethodE.exit: ; preds = %if.else
   %vtable1.i = load ptr, ptr %method, align 8
   %vfn2.i = getelementptr inbounds i8, ptr %vtable1.i, i64 136
   %22 = load ptr, ptr %vfn2.i, align 8
   %call3.i = call noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(8) %method)
-  %spec.select = select i1 %call3.i, ptr @.str.108, ptr @.str.109
+  br i1 %call3.i, label %if.end81, label %if.else78
+
+if.else78:                                        ; preds = %if.else, %_Z19ServerOnlyStreamingPKN14grpc_generator6MethodE.exit
   br label %if.end81
 
-if.end81:                                         ; preds = %_Z19ServerOnlyStreamingPKN14grpc_generator6MethodE.exit, %if.else, %cleanup.done62
-  %.str.108.sink = phi ptr [ @.str.107, %cleanup.done62 ], [ @.str.109, %if.else ], [ %spec.select, %_Z19ServerOnlyStreamingPKN14grpc_generator6MethodE.exit ]
+if.end81:                                         ; preds = %_Z19ServerOnlyStreamingPKN14grpc_generator6MethodE.exit, %cleanup.done62, %if.else78
+  %.str.108.sink = phi ptr [ @.str.109, %if.else78 ], [ @.str.107, %cleanup.done62 ], [ @.str.108, %_Z19ServerOnlyStreamingPKN14grpc_generator6MethodE.exit ]
   %vtable76 = load ptr, ptr %printer, align 8
   %vfn77 = getelementptr inbounds i8, ptr %vtable76, i64 16
   %23 = load ptr, ptr %vfn77, align 8

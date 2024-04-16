@@ -1428,12 +1428,12 @@ return:                                           ; preds = %entry, %if.end6, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @decode_contentinfo(ptr noundef %safes, i32 noundef %idx, ptr noundef readonly %enc) unnamed_addr #1 {
+define internal fastcc noundef ptr @decode_contentinfo(ptr noundef %safes, i32 noundef %idx, ptr noundef readonly %enc) unnamed_addr #1 {
 entry:
   %call1 = tail call ptr @OPENSSL_sk_value(ptr noundef %safes, i32 noundef %idx) #6
   %call2 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 315, ptr noundef nonnull @.str.50, ptr noundef %call1) #6
   %tobool.not = icmp eq i32 %call2, 0
-  br i1 %tobool.not, label %return, label %if.end
+  br i1 %tobool.not, label %err, label %if.end
 
 if.end:                                           ; preds = %entry
   %type = getelementptr inbounds i8, ptr %call1, i64 24
@@ -1445,7 +1445,7 @@ if.end:                                           ; preds = %entry
 if.then5:                                         ; preds = %if.end
   %call6 = tail call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 320, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.52, i32 noundef %call3, i32 noundef 26) #6
   %tobool7.not = icmp eq i32 %call6, 0
-  br i1 %tobool7.not, label %return, label %if.end9
+  br i1 %tobool7.not, label %err, label %if.end9
 
 if.end9:                                          ; preds = %if.then5
   %pass = getelementptr inbounds i8, ptr %enc, i64 8
@@ -1458,7 +1458,7 @@ if.end9:                                          ; preds = %if.then5
 if.else:                                          ; preds = %if.end
   %call13 = tail call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 324, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.53, i32 noundef %call3, i32 noundef 21) #6
   %tobool14.not = icmp eq i32 %call13, 0
-  br i1 %tobool14.not, label %return, label %if.end16
+  br i1 %tobool14.not, label %err, label %if.end16
 
 if.end16:                                         ; preds = %if.else
   %call17 = tail call ptr @PKCS12_unpack_p7data(ptr noundef nonnull %call1) #6
@@ -1468,11 +1468,13 @@ if.end18:                                         ; preds = %if.end16, %if.end9
   %bags.0 = phi ptr [ %call12, %if.end9 ], [ %call17, %if.end16 ]
   %call19 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 328, ptr noundef nonnull @.str.54, ptr noundef %bags.0) #6
   %tobool20.not = icmp eq i32 %call19, 0
-  %spec.select = select i1 %tobool20.not, ptr null, ptr %bags.0
+  br i1 %tobool20.not, label %err, label %return
+
+err:                                              ; preds = %if.end18, %if.else, %if.then5, %entry
   br label %return
 
-return:                                           ; preds = %if.end18, %entry, %if.then5, %if.else
-  %retval.0 = phi ptr [ null, %if.else ], [ null, %if.then5 ], [ null, %entry ], [ %spec.select, %if.end18 ]
+return:                                           ; preds = %if.end18, %err
+  %retval.0 = phi ptr [ null, %err ], [ %bags.0, %if.end18 ]
   ret ptr %retval.0
 }
 

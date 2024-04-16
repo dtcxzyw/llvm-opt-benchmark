@@ -618,7 +618,7 @@ remove_head_from_ordered_list.exit.preheader:     ; preds = %pml_ob1_frag_is_rev
 166:                                              ; preds = %161, %156
   %.val5.i66 = load i8, ptr %31, align 2
   %167 = trunc i8 %.val5.i66 to i1
-  br i1 %167, label %pml_ob1_frag_is_revoked.exit68, label %pml_ob1_frag_is_revoked.exit68.thread88
+  br i1 %167, label %pml_ob1_frag_is_revoked.exit68, label %pml_ob1_frag_is_revoked.exit68.thread
 
 pml_ob1_frag_is_revoked.exit68:                   ; preds = %166
   %168 = getelementptr inbounds i8, ptr %.val, i64 8
@@ -630,13 +630,13 @@ pml_ob1_frag_is_revoked.exit68:                   ; preds = %166
   %.not98 = or i1 %or.cond.i.i67, %172
   br i1 %.not98, label %pml_ob1_frag_is_revoked.exit68.thread, label %pml_ob1_frag_is_revoked.exit68.thread88
 
-pml_ob1_frag_is_revoked.exit68.thread:            ; preds = %pml_ob1_frag_is_revoked.exit68
+pml_ob1_frag_is_revoked.exit68.thread:            ; preds = %166, %pml_ob1_frag_is_revoked.exit68
   br label %pml_ob1_frag_is_revoked.exit68.thread88
 
-pml_ob1_frag_is_revoked.exit68.thread88:          ; preds = %166, %pml_ob1_frag_is_revoked.exit68, %161, %pml_ob1_frag_is_revoked.exit68.thread
-  %.sink119 = phi ptr [ %40, %161 ], [ %40, %pml_ob1_frag_is_revoked.exit68 ], [ %44, %166 ], [ %44, %pml_ob1_frag_is_revoked.exit68.thread ]
-  %.sink114 = phi ptr [ %39, %161 ], [ %39, %pml_ob1_frag_is_revoked.exit68 ], [ %43, %166 ], [ %43, %pml_ob1_frag_is_revoked.exit68.thread ]
-  %.sink = phi ptr [ %41, %161 ], [ %41, %pml_ob1_frag_is_revoked.exit68 ], [ %45, %166 ], [ %45, %pml_ob1_frag_is_revoked.exit68.thread ]
+pml_ob1_frag_is_revoked.exit68.thread88:          ; preds = %pml_ob1_frag_is_revoked.exit68, %161, %pml_ob1_frag_is_revoked.exit68.thread
+  %.sink119 = phi ptr [ %44, %pml_ob1_frag_is_revoked.exit68.thread ], [ %40, %161 ], [ %40, %pml_ob1_frag_is_revoked.exit68 ]
+  %.sink114 = phi ptr [ %43, %pml_ob1_frag_is_revoked.exit68.thread ], [ %39, %161 ], [ %39, %pml_ob1_frag_is_revoked.exit68 ]
+  %.sink = phi ptr [ %45, %pml_ob1_frag_is_revoked.exit68.thread ], [ %41, %161 ], [ %41, %pml_ob1_frag_is_revoked.exit68 ]
   %173 = load volatile ptr, ptr %.sink119, align 8
   store volatile ptr %173, ptr %158, align 8
   %174 = load volatile ptr, ptr %.sink119, align 8

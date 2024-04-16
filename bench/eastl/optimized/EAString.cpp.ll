@@ -708,10 +708,10 @@ land.end14:                                       ; preds = %if.then.i, %if.then
 while.end.loopexit:                               ; preds = %while.body
   br label %while.end
 
-while.end:                                        ; preds = %if.else57.i, %if.then33.i, %if.then12.i, %if.then2.i, %land.end14, %while.body, %while.end.loopexit, %if.end
-  %pDest.addr.0.lcssa = phi ptr [ %pDest, %if.end ], [ %pDest.addr.076, %while.body ], [ %pDest.addr.076, %if.else57.i ], [ %pDest.addr.076, %if.then33.i ], [ %pDest.addr.076, %if.then12.i ], [ %pDest.addr.076, %if.then2.i ], [ %pDest.addr.2, %land.end14 ], [ %pDest.addr.076, %while.end.loopexit ]
-  %bGood.0.lcssa = phi i1 [ true, %if.end ], [ false, %while.body ], [ false, %if.else57.i ], [ false, %if.then33.i ], [ false, %if.then12.i ], [ false, %if.then2.i ], [ true, %land.end14 ], [ true, %while.end.loopexit ]
-  %pSource.addr.1 = phi ptr [ %pSource, %if.end ], [ %incdec.ptr.i19, %while.body ], [ %incdec.ptr.i19, %if.else57.i ], [ %incdec.ptr.i19, %if.then33.i ], [ %incdec.ptr.i19, %if.then12.i ], [ %incdec.ptr.i19, %if.then2.i ], [ %incdec.ptr.i19, %land.end14 ], [ %spec.store.select, %while.end.loopexit ]
+while.end:                                        ; preds = %land.end14, %if.else57.i, %if.then33.i, %if.then12.i, %if.then2.i, %while.body, %while.end.loopexit, %if.end
+  %pDest.addr.0.lcssa = phi ptr [ %pDest, %if.end ], [ %pDest.addr.076, %while.body ], [ %pDest.addr.076, %if.then2.i ], [ %pDest.addr.076, %if.then12.i ], [ %pDest.addr.076, %if.then33.i ], [ %pDest.addr.076, %if.else57.i ], [ %pDest.addr.2, %land.end14 ], [ %pDest.addr.076, %while.end.loopexit ]
+  %bGood.0.lcssa = phi i1 [ true, %if.end ], [ false, %while.body ], [ false, %if.then2.i ], [ false, %if.then12.i ], [ false, %if.then33.i ], [ false, %if.else57.i ], [ true, %land.end14 ], [ true, %while.end.loopexit ]
+  %pSource.addr.1 = phi ptr [ %pSource, %if.end ], [ %incdec.ptr.i19, %while.body ], [ %incdec.ptr.i19, %if.then2.i ], [ %incdec.ptr.i19, %if.then12.i ], [ %incdec.ptr.i19, %if.then33.i ], [ %incdec.ptr.i19, %if.else57.i ], [ %incdec.ptr.i19, %land.end14 ], [ %spec.store.select, %while.end.loopexit ]
   store i8 0, ptr %pDest.addr.0.lcssa, align 1
   %sub.ptr.lhs.cast = ptrtoint ptr %pDest.addr.0.lcssa to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %pDest to i64
@@ -3910,7 +3910,7 @@ while.body:                                       ; preds = %entry, %for.end
   br i1 %bCapitalize.050, label %if.then, label %if.else9
 
 if.then:                                          ; preds = %while.body
-  br i1 %cmp.i, label %_ZN2EA4StdC7IslowerEDs.exit, label %if.end15
+  br i1 %cmp.i, label %_ZN2EA4StdC7IslowerEDs.exit, label %_ZN2EA4StdC7IsupperEDs.exit.thread
 
 _ZN2EA4StdC7IslowerEDs.exit:                      ; preds = %if.then
   %conv.i = zext nneg i16 %1 to i64
@@ -3928,7 +3928,10 @@ _ZN2EA4StdC7ToupperEDs.exit:                      ; preds = %_ZN2EA4StdC7Islower
   br label %if.end15
 
 _ZN2EA4StdC7IsupperEDs.exit:                      ; preds = %_ZN2EA4StdC7IslowerEDs.exit
-  %tobool6.not.inv = icmp sgt i8 %.fr, -1
+  %tobool6.not = icmp sgt i8 %.fr, -1
+  br i1 %tobool6.not, label %_ZN2EA4StdC7IsupperEDs.exit.thread, label %if.end15
+
+_ZN2EA4StdC7IsupperEDs.exit.thread:               ; preds = %if.then, %_ZN2EA4StdC7IsupperEDs.exit
   br label %if.end15
 
 if.else9:                                         ; preds = %while.body
@@ -3947,9 +3950,9 @@ _ZN2EA4StdC7TolowerEDs.exit:                      ; preds = %_ZN2EA4StdC7Isupper
   %conv1.i37 = zext i8 %6 to i16
   br label %if.end15
 
-if.end15:                                         ; preds = %_ZN2EA4StdC7IsupperEDs.exit, %if.else9, %if.then, %_ZN2EA4StdC7IsupperEDs.exit31, %_ZN2EA4StdC7TolowerEDs.exit, %_ZN2EA4StdC7ToupperEDs.exit
-  %bCapitalize.1 = phi i1 [ false, %_ZN2EA4StdC7ToupperEDs.exit ], [ false, %_ZN2EA4StdC7TolowerEDs.exit ], [ false, %_ZN2EA4StdC7IsupperEDs.exit31 ], [ true, %if.then ], [ false, %if.else9 ], [ %tobool6.not.inv, %_ZN2EA4StdC7IsupperEDs.exit ]
-  %c.0 = phi i16 [ %conv1.i, %_ZN2EA4StdC7ToupperEDs.exit ], [ %conv1.i37, %_ZN2EA4StdC7TolowerEDs.exit ], [ %1, %_ZN2EA4StdC7IsupperEDs.exit31 ], [ %1, %if.then ], [ %1, %if.else9 ], [ %1, %_ZN2EA4StdC7IsupperEDs.exit ]
+if.end15:                                         ; preds = %if.else9, %_ZN2EA4StdC7IsupperEDs.exit.thread, %_ZN2EA4StdC7IsupperEDs.exit, %_ZN2EA4StdC7IsupperEDs.exit31, %_ZN2EA4StdC7TolowerEDs.exit, %_ZN2EA4StdC7ToupperEDs.exit
+  %bCapitalize.1 = phi i1 [ false, %_ZN2EA4StdC7ToupperEDs.exit ], [ false, %_ZN2EA4StdC7TolowerEDs.exit ], [ false, %_ZN2EA4StdC7IsupperEDs.exit31 ], [ true, %_ZN2EA4StdC7IsupperEDs.exit.thread ], [ false, %_ZN2EA4StdC7IsupperEDs.exit ], [ false, %if.else9 ]
+  %c.0 = phi i16 [ %conv1.i, %_ZN2EA4StdC7ToupperEDs.exit ], [ %conv1.i37, %_ZN2EA4StdC7TolowerEDs.exit ], [ %1, %_ZN2EA4StdC7IsupperEDs.exit31 ], [ %1, %_ZN2EA4StdC7IsupperEDs.exit.thread ], [ %1, %_ZN2EA4StdC7IsupperEDs.exit ], [ %1, %if.else9 ]
   %7 = load i16, ptr %pDelimiters, align 2
   %tobool16.not45 = icmp eq i16 %7, 0
   br i1 %tobool16.not45, label %for.end, label %for.body
@@ -3996,7 +3999,7 @@ while.body:                                       ; preds = %entry, %for.end
   br i1 %bCapitalize.049, label %if.then, label %if.else9
 
 if.then:                                          ; preds = %while.body
-  br i1 %cmp.i, label %_ZN2EA4StdC7IslowerEDi.exit, label %if.end15
+  br i1 %cmp.i, label %_ZN2EA4StdC7IslowerEDi.exit, label %_ZN2EA4StdC7IsupperEDi.exit.thread
 
 _ZN2EA4StdC7IslowerEDi.exit:                      ; preds = %if.then
   %conv.i = zext nneg i32 %1 to i64
@@ -4014,7 +4017,10 @@ _ZN2EA4StdC7ToupperEDi.exit:                      ; preds = %_ZN2EA4StdC7Islower
   br label %if.end15
 
 _ZN2EA4StdC7IsupperEDi.exit:                      ; preds = %_ZN2EA4StdC7IslowerEDi.exit
-  %tobool6.not.inv = icmp sgt i8 %.fr, -1
+  %tobool6.not = icmp sgt i8 %.fr, -1
+  br i1 %tobool6.not, label %_ZN2EA4StdC7IsupperEDi.exit.thread, label %if.end15
+
+_ZN2EA4StdC7IsupperEDi.exit.thread:               ; preds = %if.then, %_ZN2EA4StdC7IsupperEDi.exit
   br label %if.end15
 
 if.else9:                                         ; preds = %while.body
@@ -4033,9 +4039,9 @@ _ZN2EA4StdC7TolowerEDi.exit:                      ; preds = %_ZN2EA4StdC7Isupper
   %conv2.i36 = zext i8 %6 to i32
   br label %if.end15
 
-if.end15:                                         ; preds = %_ZN2EA4StdC7IsupperEDi.exit, %if.else9, %if.then, %_ZN2EA4StdC7IsupperEDi.exit30, %_ZN2EA4StdC7TolowerEDi.exit, %_ZN2EA4StdC7ToupperEDi.exit
-  %bCapitalize.1 = phi i1 [ false, %_ZN2EA4StdC7ToupperEDi.exit ], [ false, %_ZN2EA4StdC7TolowerEDi.exit ], [ false, %_ZN2EA4StdC7IsupperEDi.exit30 ], [ true, %if.then ], [ false, %if.else9 ], [ %tobool6.not.inv, %_ZN2EA4StdC7IsupperEDi.exit ]
-  %c.0 = phi i32 [ %conv2.i, %_ZN2EA4StdC7ToupperEDi.exit ], [ %conv2.i36, %_ZN2EA4StdC7TolowerEDi.exit ], [ %1, %_ZN2EA4StdC7IsupperEDi.exit30 ], [ %1, %if.then ], [ %1, %if.else9 ], [ %1, %_ZN2EA4StdC7IsupperEDi.exit ]
+if.end15:                                         ; preds = %if.else9, %_ZN2EA4StdC7IsupperEDi.exit.thread, %_ZN2EA4StdC7IsupperEDi.exit, %_ZN2EA4StdC7IsupperEDi.exit30, %_ZN2EA4StdC7TolowerEDi.exit, %_ZN2EA4StdC7ToupperEDi.exit
+  %bCapitalize.1 = phi i1 [ false, %_ZN2EA4StdC7ToupperEDi.exit ], [ false, %_ZN2EA4StdC7TolowerEDi.exit ], [ false, %_ZN2EA4StdC7IsupperEDi.exit30 ], [ true, %_ZN2EA4StdC7IsupperEDi.exit.thread ], [ false, %_ZN2EA4StdC7IsupperEDi.exit ], [ false, %if.else9 ]
+  %c.0 = phi i32 [ %conv2.i, %_ZN2EA4StdC7ToupperEDi.exit ], [ %conv2.i36, %_ZN2EA4StdC7TolowerEDi.exit ], [ %1, %_ZN2EA4StdC7IsupperEDi.exit30 ], [ %1, %_ZN2EA4StdC7IsupperEDi.exit.thread ], [ %1, %_ZN2EA4StdC7IsupperEDi.exit ], [ %1, %if.else9 ]
   %7 = load i32, ptr %pDelimiters, align 4
   %tobool16.not44 = icmp eq i32 %7, 0
   br i1 %tobool16.not44, label %for.end, label %for.body

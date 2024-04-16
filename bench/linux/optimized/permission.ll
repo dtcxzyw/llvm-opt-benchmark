@@ -140,12 +140,12 @@ define dso_local noundef i32 @key_validate(ptr noundef %0) #0 align 16 {
   %5 = load volatile i64, ptr %4, align 8
   %6 = and i64 %3, 32
   %7 = icmp eq i64 %6, 0
-  br i1 %7, label %8, label %16
+  br i1 %7, label %8, label %17
 
 8:                                                ; preds = %1
   %9 = and i64 %3, 3
   %10 = icmp eq i64 %9, 0
-  br i1 %10, label %11, label %16
+  br i1 %10, label %11, label %17
 
 11:                                               ; preds = %8
   %12 = icmp eq i64 %5, 0
@@ -154,12 +154,14 @@ define dso_local noundef i32 @key_validate(ptr noundef %0) #0 align 16 {
 13:                                               ; preds = %11
   %14 = tail call i64 @ktime_get_real_seconds() #2
   %15 = icmp slt i64 %14, %5
-  %spec.select = select i1 %15, i32 0, i32 -127
-  br label %16
+  br i1 %15, label %16, label %17
 
-16:                                               ; preds = %13, %11, %8, %1
-  %17 = phi i32 [ -126, %1 ], [ -128, %8 ], [ 0, %11 ], [ %spec.select, %13 ]
-  ret i32 %17
+16:                                               ; preds = %13, %11
+  br label %17
+
+17:                                               ; preds = %16, %13, %8, %1
+  %18 = phi i32 [ 0, %16 ], [ -126, %1 ], [ -128, %8 ], [ -127, %13 ]
+  ret i32 %18
 }
 
 ; Function Attrs: null_pointer_is_valid

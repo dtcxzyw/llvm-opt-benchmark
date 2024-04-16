@@ -328,12 +328,14 @@ lor.rhs.i:                                        ; preds = %entry
   %.fr = freeze i32 %1
   %cmp2.i.not = icmp eq i32 %call1.i2, %.fr
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i)
-  %spec.select = select i1 %cmp2.i.not, i32 %tval, i32 1
-  br label %2
+  br i1 %cmp2.i.not, label %3, label %2
 
-2:                                                ; preds = %lor.rhs.i, %invoke.cont.thread
-  %3 = phi i32 [ 1, %invoke.cont.thread ], [ %spec.select, %lor.rhs.i ]
-  ret i32 %3
+2:                                                ; preds = %invoke.cont.thread, %lor.rhs.i
+  br label %3
+
+3:                                                ; preds = %lor.rhs.i, %2
+  %4 = phi i32 [ 1, %2 ], [ %tval, %lor.rhs.i ]
+  ret i32 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

@@ -107,15 +107,18 @@ declare void @qapi_free_QMPCapabilityList(ptr noundef) local_unnamed_addr #1
 define dso_local noundef zeroext i1 @visit_type_q_obj_qmp_capabilities_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str, ptr noundef %obj) #4
-  br i1 %call, label %if.then, label %return
+  br i1 %call, label %if.then, label %if.end3
 
 if.then:                                          ; preds = %entry
   %enable = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_QMPCapabilityList(ptr noundef %v, ptr noundef nonnull @.str, ptr noundef nonnull %enable, ptr noundef %errp)
+  br i1 %call1, label %if.end3, label %return
+
+if.end3:                                          ; preds = %if.then, %entry
   br label %return
 
-return:                                           ; preds = %if.then, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ %call1, %if.then ]
+return:                                           ; preds = %if.then, %if.end3
+  %retval.0 = phi i1 [ true, %if.end3 ], [ false, %if.then ]
   ret i1 %retval.0
 }
 

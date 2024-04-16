@@ -7047,8 +7047,8 @@ for.body.i.i:                                     ; preds = %for.cond.i.i, %for.
   %cmp4.i.i = icmp eq i32 %51, %report
   br i1 %cmp4.i.i, label %return, label %for.cond.i.i
 
-return:                                           ; preds = %for.body.i.i, %for.cond.i.i, %if.end.i.thread, %if.end.i, %land.lhs.true, %if.end.i134, %if.end.i.i, %nfaExecMcClellan8_Q2i.exit
-  %retval.0 = phi i8 [ 0, %nfaExecMcClellan8_Q2i.exit ], [ 1, %land.lhs.true ], [ 1, %if.end.i134 ], [ 1, %if.end.i.i ], [ 0, %if.end.i ], [ 0, %if.end.i.thread ], [ %conv156.i, %for.cond.i.i ], [ 2, %for.body.i.i ]
+return:                                           ; preds = %for.cond.i.i, %for.body.i.i, %if.end.i.i, %if.end.i134, %land.lhs.true, %if.end.i.thread, %if.end.i, %nfaExecMcClellan8_Q2i.exit
+  %retval.0 = phi i8 [ 0, %nfaExecMcClellan8_Q2i.exit ], [ 0, %if.end.i ], [ 0, %if.end.i.thread ], [ 1, %land.lhs.true ], [ 1, %if.end.i134 ], [ 1, %if.end.i.i ], [ %conv156.i, %for.cond.i.i ], [ 2, %for.body.i.i ]
   ret i8 %retval.0
 }
 
@@ -7191,11 +7191,11 @@ if.end11.i:                                       ; preds = %if.end.i.thread153,
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.backedge, %if.end11.i
-  %.pre.pre196 = phi i32 [ %inc.i, %if.end11.i ], [ %.pre.pre196.be, %while.body.i.backedge ]
+  %.pre.pre197 = phi i32 [ %inc.i, %if.end11.i ], [ %.pre.pre197.be, %while.body.i.backedge ]
   %s.i.0 = phi i32 [ %conv.i, %if.end11.i ], [ %s.i.0.be, %while.body.i.backedge ]
   %cur_buf.i.0 = phi ptr [ %cond.i, %if.end11.i ], [ %cur_buf.i.1, %while.body.i.backedge ]
   %sp.i.0 = phi i64 [ %20, %if.end11.i ], [ %local_ep.i.0, %while.body.i.backedge ]
-  %idxprom38.i = zext i32 %.pre.pre196 to i64
+  %idxprom38.i = zext i32 %.pre.pre197 to i64
   %location40.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i51, i64 0, i64 %idxprom38.i, i32 1
   %21 = load i64, ptr %location40.i, align 8
   %cmp51.i = icmp slt i64 %sp.i.0, 0
@@ -7376,7 +7376,7 @@ while.end.i350.i:                                 ; preds = %if.end42.i461.i, %i
   store <2 x i64> zeroinitializer, ptr %a.i757.i, align 16
   %conv.i759.i = zext nneg i16 %49 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %a.i757.i, ptr nonnull align 1 %sym.i310.0.lcssa.i, i64 %conv.i759.i, i1 false)
-  %a.i757.i.0.a.i757.i.0.a.i757.i.0.a.i757.0.a.i757.0.a.i757.0.712183.i160199245 = load <16 x i8>, ptr %a.i757.i, align 16
+  %a.i757.i.0.a.i757.i.0.a.i757.i.0.a.i757.0.a.i757.0.a.i757.0.712183.i161200246 = load <16 x i8>, ptr %a.i757.i, align 16
   %conv63.i362.i = zext nneg i32 %cond58.i359.i to i64
   %cmp64.i36329.not.i = icmp eq i32 %len_c.i305.0.lcssa.i, 0
   br i1 %cmp64.i36329.not.i, label %for.end73.i364.i, label %for.body66.i439.i
@@ -7397,8 +7397,8 @@ for.body66.i439.i:                                ; preds = %while.end.i350.i, %
 for.end73.i364.i:                                 ; preds = %for.body66.i439.i, %while.end.i350.i
   store <2 x i64> zeroinitializer, ptr %a.i.i, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %a.i.i, ptr nonnull align 16 %tmp.i311.i, i64 %conv63.i362.i, i1 false)
-  %a.i.i.0.a.i.i.0.a.i.i.0.a.i.0.a.i.0.a.i.0.713284.i161200246 = load <16 x i8>, ptr %a.i.i, align 16
-  %cmp.i735.i = icmp eq <16 x i8> %a.i757.i.0.a.i757.i.0.a.i757.i.0.a.i757.0.a.i757.0.a.i757.0.712183.i160199245, %a.i.i.0.a.i.i.0.a.i.i.0.a.i.0.a.i.0.a.i.0.713284.i161200246
+  %a.i.i.0.a.i.i.0.a.i.i.0.a.i.0.a.i.0.a.i.0.713284.i162201247 = load <16 x i8>, ptr %a.i.i, align 16
+  %cmp.i735.i = icmp eq <16 x i8> %a.i757.i.0.a.i757.i.0.a.i757.i.0.a.i757.0.a.i757.0.a.i757.0.712183.i161200246, %a.i.i.0.a.i.i.0.a.i.i.0.a.i.0.a.i.0.a.i.0.713284.i162201247
   %52 = bitcast <16 x i1> %cmp.i735.i to i16
   %53 = zext i16 %52 to i32
   %not80.i368.i = xor i32 %53, -1
@@ -7837,7 +7837,7 @@ while.end.i.i:                                    ; preds = %if.end42.i277.i, %i
   store <2 x i64> zeroinitializer, ptr %a.i767.i, align 16
   %conv.i769.i = zext nneg i16 %111 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %a.i767.i, ptr nonnull align 1 %sym.i.0.lcssa.i, i64 %conv.i769.i, i1 false)
-  %a.i767.i.0.a.i767.i.0.a.i767.i.0.a.i767.0.a.i767.0.a.i767.0.708386.i162201247 = load <16 x i8>, ptr %a.i767.i, align 16
+  %a.i767.i.0.a.i767.i.0.a.i767.i.0.a.i767.0.a.i767.0.a.i767.0.708386.i163202248 = load <16 x i8>, ptr %a.i767.i, align 16
   %conv63.i.i = zext nneg i32 %cond58.i.i to i64
   %cmp64.i61.not.i = icmp eq i32 %len_c.i.0.lcssa.i, 0
   br i1 %cmp64.i61.not.i, label %for.end73.i.i, label %for.body66.i.i
@@ -7858,8 +7858,8 @@ for.body66.i.i:                                   ; preds = %while.end.i.i, %for
 for.end73.i.i:                                    ; preds = %for.body66.i.i, %while.end.i.i
   store <2 x i64> zeroinitializer, ptr %a.i762.i, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %a.i762.i, ptr nonnull align 16 %tmp.i.i, i64 %conv63.i.i, i1 false)
-  %a.i762.i.0.a.i762.i.0.a.i762.i.0.a.i762.0.a.i762.0.a.i762.0.709487.i163202248 = load <16 x i8>, ptr %a.i762.i, align 16
-  %cmp.i743.i = icmp eq <16 x i8> %a.i767.i.0.a.i767.i.0.a.i767.i.0.a.i767.0.a.i767.0.a.i767.0.708386.i162201247, %a.i762.i.0.a.i762.i.0.a.i762.i.0.a.i762.0.a.i762.0.a.i762.0.709487.i163202248
+  %a.i762.i.0.a.i762.i.0.a.i762.i.0.a.i762.0.a.i762.0.a.i762.0.709487.i164203249 = load <16 x i8>, ptr %a.i762.i, align 16
+  %cmp.i743.i = icmp eq <16 x i8> %a.i767.i.0.a.i767.i.0.a.i767.i.0.a.i767.0.a.i767.0.a.i767.0.708386.i163202248, %a.i762.i.0.a.i762.i.0.a.i762.i.0.a.i762.0.a.i762.0.a.i762.0.709487.i164203249
   %114 = bitcast <16 x i1> %cmp.i743.i to i16
   %115 = zext i16 %114 to i32
   %not80.i.i = xor i32 %115, -1
@@ -8127,7 +8127,7 @@ if.end137.i.i:                                    ; preds = %do.body9.i.i, %if.e
   br label %mcclellanExec16_i_nm.exit
 
 mcclellanExec16_i_nm.exit:                        ; preds = %while.body.i, %if.end137.i.i
-  %.pre.pre = phi i32 [ %.pre.pre196, %while.body.i ], [ %.pre.pre.pre, %if.end137.i.i ]
+  %.pre.pre = phi i32 [ %.pre.pre197, %while.body.i ], [ %.pre.pre.pre, %if.end137.i.i ]
   %s.i.1 = phi i32 [ %s.i.0, %while.body.i ], [ %and133.i.i, %if.end137.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %a.i767.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %a.i762.i)
@@ -8174,7 +8174,7 @@ sw.epilog.i:                                      ; preds = %sw.epilog.i.sink.sp
   br label %while.body.i.backedge
 
 while.body.i.backedge:                            ; preds = %sw.epilog.i, %mcclellanExec16_i_nm.exit
-  %.pre.pre196.be = phi i32 [ %inc156.i, %sw.epilog.i ], [ %.pre.pre, %mcclellanExec16_i_nm.exit ]
+  %.pre.pre197.be = phi i32 [ %inc156.i, %sw.epilog.i ], [ %.pre.pre, %mcclellanExec16_i_nm.exit ]
   %s.i.0.be = phi i32 [ %s.i.2, %sw.epilog.i ], [ %s.i.1, %mcclellanExec16_i_nm.exit ]
   br label %while.body.i
 
@@ -8236,8 +8236,8 @@ for.body.i.i144:                                  ; preds = %for.cond.i.i, %for.
   %cmp4.i.i = icmp eq i32 %157, %report
   br i1 %cmp4.i.i, label %return, label %for.cond.i.i
 
-return:                                           ; preds = %for.body.i.i144, %for.cond.i.i, %if.end.i.thread, %if.end.i, %land.lhs.true.i, %cond.false.i, %if.end.i.i, %nfaExecMcClellan16_Q2i.exit
-  %retval.0 = phi i8 [ 0, %nfaExecMcClellan16_Q2i.exit ], [ 1, %land.lhs.true.i ], [ 1, %cond.false.i ], [ 1, %if.end.i.i ], [ 0, %if.end.i ], [ 0, %if.end.i.thread ], [ %conv154.i, %for.cond.i.i ], [ 2, %for.body.i.i144 ]
+return:                                           ; preds = %for.cond.i.i, %for.body.i.i144, %if.end.i.i, %cond.false.i, %land.lhs.true.i, %if.end.i.thread, %if.end.i, %nfaExecMcClellan16_Q2i.exit
+  %retval.0 = phi i8 [ 0, %nfaExecMcClellan16_Q2i.exit ], [ 0, %if.end.i ], [ 0, %if.end.i.thread ], [ 1, %land.lhs.true.i ], [ 1, %cond.false.i ], [ 1, %if.end.i.i ], [ %conv154.i, %for.cond.i.i ], [ 2, %for.body.i.i144 ]
   ret i8 %retval.0
 }
 

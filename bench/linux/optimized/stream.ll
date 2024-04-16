@@ -694,26 +694,28 @@ define dso_local noundef i32 @sk_stream_error(ptr noundef %0, i32 noundef %1, i3
   %.fr = freeze i32 %10
   %11 = sub i32 0, %.fr
   %12 = icmp eq i32 %.fr, 0
-  %spec.select = select i1 %12, i32 -32, i32 %11
-  br label %.thread
+  br i1 %12, label %.thread, label %13
 
-.thread:                                          ; preds = %9, %5
-  %13 = phi i32 [ -32, %5 ], [ %spec.select, %9 ]
-  %14 = icmp eq i32 %13, -32
-  %15 = and i32 %1, 16384
-  %16 = icmp eq i32 %15, 0
-  %17 = and i1 %16, %14
-  br i1 %17, label %18, label %.thread2
+.thread:                                          ; preds = %5, %9
+  br label %13
 
-18:                                               ; preds = %.thread
-  %19 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #6, !srcloc !8
-  %20 = inttoptr i64 %19 to ptr
-  %21 = tail call i32 @send_sig(i32 noundef 13, ptr noundef %20, i32 noundef 0) #5
+13:                                               ; preds = %.thread, %9
+  %14 = phi i32 [ -32, %.thread ], [ %11, %9 ]
+  %15 = icmp eq i32 %14, -32
+  %16 = and i32 %1, 16384
+  %17 = icmp eq i32 %16, 0
+  %18 = and i1 %17, %15
+  br i1 %18, label %19, label %.thread2
+
+19:                                               ; preds = %13
+  %20 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #6, !srcloc !8
+  %21 = inttoptr i64 %20 to ptr
+  %22 = tail call i32 @send_sig(i32 noundef 13, ptr noundef %21, i32 noundef 0) #5
   br label %.thread2
 
-.thread2:                                         ; preds = %3, %18, %.thread
-  %22 = phi i32 [ -32, %18 ], [ %13, %.thread ], [ %2, %3 ]
-  ret i32 %22
+.thread2:                                         ; preds = %3, %19, %13
+  %23 = phi i32 [ -32, %19 ], [ %14, %13 ], [ %2, %3 ]
+  ret i32 %23
 }
 
 ; Function Attrs: null_pointer_is_valid

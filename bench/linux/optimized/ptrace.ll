@@ -1702,69 +1702,69 @@ define internal fastcc i32 @putreg32(ptr noundef %0, i32 noundef %1, i32 noundef
   %90 = zext i32 %2 to i64
   %91 = getelementptr i8, ptr %8, i64 -128
   store i64 %90, ptr %91, align 8
-  br label %.thread
+  br label %152
 
 92:                                               ; preds = %3
   %93 = zext i32 %2 to i64
   %94 = getelementptr i8, ptr %8, i64 -80
   store i64 %93, ptr %94, align 8
-  br label %.thread
+  br label %152
 
 95:                                               ; preds = %3
   %96 = zext i32 %2 to i64
   %97 = getelementptr i8, ptr %8, i64 -72
   store i64 %96, ptr %97, align 8
-  br label %.thread
+  br label %152
 
 98:                                               ; preds = %3
   %99 = zext i32 %2 to i64
   %100 = getelementptr i8, ptr %8, i64 -56
   store i64 %99, ptr %100, align 8
-  br label %.thread
+  br label %152
 
 101:                                              ; preds = %3
   %102 = zext i32 %2 to i64
   %103 = getelementptr i8, ptr %8, i64 -64
   store i64 %102, ptr %103, align 8
-  br label %.thread
+  br label %152
 
 104:                                              ; preds = %3
   %105 = zext i32 %2 to i64
   %106 = getelementptr i8, ptr %8, i64 -136
   store i64 %105, ptr %106, align 8
-  br label %.thread
+  br label %152
 
 107:                                              ; preds = %3
   %108 = zext i32 %2 to i64
   %109 = getelementptr i8, ptr %8, i64 -88
   store i64 %108, ptr %109, align 8
-  br label %.thread
+  br label %152
 
 110:                                              ; preds = %3
   %111 = zext i32 %2 to i64
   %112 = getelementptr i8, ptr %8, i64 -40
   store i64 %111, ptr %112, align 8
-  br label %.thread
+  br label %152
 
 113:                                              ; preds = %3
   %114 = zext i32 %2 to i64
   %115 = getelementptr i8, ptr %8, i64 -16
   store i64 %114, ptr %115, align 8
-  br label %.thread
+  br label %152
 
 116:                                              ; preds = %3
   %117 = zext i32 %2 to i64
   %118 = getelementptr i8, ptr %8, i64 -48
   store i64 %117, ptr %118, align 8
   %119 = icmp eq i32 %2, -1
-  br i1 %119, label %.thread, label %120
+  br i1 %119, label %152, label %120
 
 120:                                              ; preds = %116
   %121 = getelementptr inbounds i8, ptr %0, i64 16
   %122 = load i32, ptr %121, align 16
   %123 = or i32 %122, 4
   store i32 %123, ptr %121, align 16
-  br label %.thread
+  br label %152
 
 124:                                              ; preds = %3
   %125 = zext i32 %2 to i64
@@ -1806,12 +1806,14 @@ define internal fastcc i32 @putreg32(ptr noundef %0, i32 noundef %1, i32 noundef
   %149 = and i32 %1, 3
   %150 = icmp eq i32 %149, 0
   %151 = and i1 %148, %150
-  %spec.select = select i1 %151, i32 0, i32 -5
+  br i1 %151, label %152, label %.thread
+
+152:                                              ; preds = %147, %120, %116, %113, %110, %107, %104, %101, %98, %95, %92, %89
   br label %.thread
 
-.thread:                                          ; preds = %68, %67, %53, %52, %147, %89, %92, %95, %98, %101, %104, %107, %110, %113, %116, %120, %142, %135, %85, %82, %81, %73, %58, %45, %40, %39, %32, %27, %26, %17, %14, %13
-  %152 = phi i32 [ %146, %142 ], [ 0, %135 ], [ 0, %58 ], [ 0, %73 ], [ -5, %13 ], [ -5, %14 ], [ 0, %17 ], [ -5, %26 ], [ -5, %27 ], [ 0, %32 ], [ -5, %39 ], [ -5, %40 ], [ 0, %45 ], [ -5, %81 ], [ -5, %82 ], [ 0, %85 ], [ 0, %120 ], [ 0, %116 ], [ 0, %113 ], [ 0, %110 ], [ 0, %107 ], [ 0, %104 ], [ 0, %101 ], [ 0, %98 ], [ 0, %95 ], [ 0, %92 ], [ 0, %89 ], [ %spec.select, %147 ], [ -5, %52 ], [ -5, %53 ], [ -5, %67 ], [ -5, %68 ]
-  ret i32 %152
+.thread:                                          ; preds = %68, %67, %53, %52, %152, %147, %142, %135, %85, %82, %81, %73, %58, %45, %40, %39, %32, %27, %26, %17, %14, %13
+  %153 = phi i32 [ 0, %152 ], [ %146, %142 ], [ 0, %135 ], [ 0, %58 ], [ 0, %73 ], [ -5, %147 ], [ -5, %13 ], [ -5, %14 ], [ 0, %17 ], [ -5, %26 ], [ -5, %27 ], [ 0, %32 ], [ -5, %39 ], [ -5, %40 ], [ 0, %45 ], [ -5, %81 ], [ -5, %82 ], [ 0, %85 ], [ -5, %52 ], [ -5, %53 ], [ -5, %67 ], [ -5, %68 ]
+  ret i32 %153
 }
 
 ; Function Attrs: null_pointer_is_valid

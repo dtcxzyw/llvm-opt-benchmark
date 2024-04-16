@@ -17326,7 +17326,7 @@ return:                                           ; preds = %entry, %moduleInvok
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @checkModuleAuthentication(ptr noundef %c, ptr noundef %username, ptr noundef %password, ptr noundef %err) local_unnamed_addr #0 {
+define dso_local noundef i32 @checkModuleAuthentication(ptr noundef %c, ptr noundef %username, ptr noundef %password, ptr noundef %err) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @moduleAuthCallbacks, align 8
   %len = getelementptr inbounds i8, ptr %0, i64 40
@@ -17374,7 +17374,7 @@ if.then12:                                        ; preds = %if.end9
 if.end15:                                         ; preds = %if.end9
   %and17 = and i64 %2, 140737488355328
   %tobool18.not = icmp eq i64 %and17, 0
-  br i1 %tobool18.not, label %return, label %if.then19
+  br i1 %tobool18.not, label %if.end25, label %if.then19
 
 if.then19:                                        ; preds = %if.end15
   %and21 = and i64 %2, -140737488355345
@@ -17382,11 +17382,13 @@ if.then19:                                        ; preds = %if.end15
   %authenticated = getelementptr inbounds i8, ptr %c, i64 256
   %3 = load i32, ptr %authenticated, align 8
   %tobool22.not = icmp eq i32 %3, 0
-  %spec.select = zext i1 %tobool22.not to i32
+  br i1 %tobool22.not, label %if.end25, label %return
+
+if.end25:                                         ; preds = %if.then19, %if.end15
   br label %return
 
-return:                                           ; preds = %if.then19, %if.end15, %if.then5, %entry, %if.then12
-  %retval.0 = phi i32 [ 2, %if.then12 ], [ 2, %entry ], [ 3, %if.then5 ], [ 1, %if.end15 ], [ %spec.select, %if.then19 ]
+return:                                           ; preds = %if.then19, %if.then5, %entry, %if.end25, %if.then12
+  %retval.0 = phi i32 [ 2, %if.then12 ], [ 1, %if.end25 ], [ 2, %entry ], [ 3, %if.then5 ], [ 0, %if.then19 ]
   ret i32 %retval.0
 }
 

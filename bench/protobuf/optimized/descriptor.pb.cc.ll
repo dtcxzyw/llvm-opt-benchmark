@@ -3922,8 +3922,8 @@ for.body.preheader.i:                             ; preds = %if.end10
   %25 = zext nneg i32 %24 to i64
   br label %for.body.i26
 
-for.body.i26:                                     ; preds = %for.cond.backedge.i, %for.body.preheader.i
-  %indvars.iv.i27 = phi i64 [ %25, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.cond.backedge.i ]
+for.body.i26:                                     ; preds = %_ZNK6google8protobuf20FieldDescriptorProto13IsInitializedEv.exit.i, %for.body.preheader.i
+  %indvars.iv.i27 = phi i64 [ %25, %for.body.preheader.i ], [ %indvars.iv.next.i, %_ZNK6google8protobuf20FieldDescriptorProto13IsInitializedEv.exit.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i27, -1
   %26 = load ptr, ptr %extension_.i, align 8
   %27 = ptrtoint ptr %26 to i64
@@ -3939,7 +3939,7 @@ for.body.i26:                                     ; preds = %for.cond.backedge.i
   %31 = load i32, ptr %30, align 4
   %and.i.i = and i32 %31, 32
   %cmp.not.i.i = icmp eq i32 %and.i.i, 0
-  br i1 %cmp.not.i.i, label %for.cond.backedge.i, label %if.then.i.i
+  br i1 %cmp.not.i.i, label %_ZNK6google8protobuf20FieldDescriptorProto13IsInitializedEv.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i26
   %options_.i.i = getelementptr inbounds i8, ptr %29, i64 64
@@ -3958,20 +3958,20 @@ if.end6.i.i.i:                                    ; preds = %if.end.i.i.i
   %34 = load i32, ptr %_has_bits_.i.i.i, align 4
   %and.i.i.i = and i32 %34, 1
   %cmp.not.i.i.i = icmp eq i32 %and.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %for.cond.backedge.i, label %if.then8.i.i.i
+  br i1 %cmp.not.i.i.i, label %_ZNK6google8protobuf20FieldDescriptorProto13IsInitializedEv.exit.i, label %if.then8.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.end6.i.i.i
   %features_.i.i.i = getelementptr inbounds i8, ptr %32, i64 112
   %35 = load ptr, ptr %features_.i.i.i, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 16
   %call2.i.i.i.i = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull @_ZN6google8protobuf29_FeatureSet_default_instance_E)
-  br i1 %call2.i.i.i.i, label %for.cond.backedge.i, label %return
+  br i1 %call2.i.i.i.i, label %_ZNK6google8protobuf20FieldDescriptorProto13IsInitializedEv.exit.i, label %return
 
-for.cond.backedge.i:                              ; preds = %if.then8.i.i.i, %if.end6.i.i.i, %for.body.i26
+_ZNK6google8protobuf20FieldDescriptorProto13IsInitializedEv.exit.i: ; preds = %if.then8.i.i.i, %if.end6.i.i.i, %for.body.i26
   %cmp.i34 = icmp ult i64 %indvars.iv.i27, 2
   br i1 %cmp.i34, label %if.end14, label %for.body.i26, !llvm.loop !39
 
-if.end14:                                         ; preds = %for.cond.backedge.i, %if.end10
+if.end14:                                         ; preds = %_ZNK6google8protobuf20FieldDescriptorProto13IsInitializedEv.exit.i, %if.end10
   %37 = getelementptr inbounds i8, ptr %this, i64 16
   %38 = load i32, ptr %37, align 8
   %and = and i32 %38, 8
@@ -3983,12 +3983,12 @@ if.then16:                                        ; preds = %if.end14
   %39 = load ptr, ptr %options_, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 16
   %call2.i35 = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr noundef nonnull @_ZN6google8protobuf30_FileOptions_default_instance_E)
-  br i1 %call2.i35, label %if.end.i, label %return
+  br i1 %call2.i35, label %if.end.i, label %_ZNK6google8protobuf11FileOptions13IsInitializedEv.exit.thread
 
 if.end.i:                                         ; preds = %if.then16
   %uninterpreted_option_.i.i = getelementptr inbounds i8, ptr %39, i64 48
   %call4.i = tail call noundef zeroext i1 @_ZN6google8protobuf8internal17AllAreInitializedINS0_19UninterpretedOptionEEEbRKNS0_16RepeatedPtrFieldIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %uninterpreted_option_.i.i)
-  br i1 %call4.i, label %if.end6.i, label %return
+  br i1 %call4.i, label %if.end6.i, label %_ZNK6google8protobuf11FileOptions13IsInitializedEv.exit.thread
 
 if.end6.i:                                        ; preds = %if.end.i
   %_has_bits_.i = getelementptr inbounds i8, ptr %39, i64 40
@@ -4002,10 +4002,13 @@ if.then8.i:                                       ; preds = %if.end6.i
   %42 = load ptr, ptr %features_.i, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 16
   %call2.i.i = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %43, ptr noundef nonnull @_ZN6google8protobuf29_FeatureSet_default_instance_E)
+  br i1 %call2.i.i, label %return, label %_ZNK6google8protobuf11FileOptions13IsInitializedEv.exit.thread
+
+_ZNK6google8protobuf11FileOptions13IsInitializedEv.exit.thread: ; preds = %if.then16, %if.end.i, %if.then8.i
   br label %return
 
-return:                                           ; preds = %for.body.i, %for.body.i5, %for.body.i17, %if.then8.i.i.i, %if.then.i.i, %if.end.i.i.i, %if.then8.i, %if.end6.i, %if.end.i, %if.then16, %if.end14
-  %retval.0 = phi i1 [ true, %if.end14 ], [ false, %if.then16 ], [ false, %if.end.i ], [ true, %if.end6.i ], [ %call2.i.i, %if.then8.i ], [ false, %if.end.i.i.i ], [ false, %if.then.i.i ], [ false, %if.then8.i.i.i ], [ false, %for.body.i17 ], [ false, %for.body.i5 ], [ false, %for.body.i ]
+return:                                           ; preds = %for.body.i, %for.body.i5, %for.body.i17, %if.then.i.i, %if.end.i.i.i, %if.then8.i.i.i, %if.end14, %if.end6.i, %if.then8.i, %_ZNK6google8protobuf11FileOptions13IsInitializedEv.exit.thread
+  %retval.0 = phi i1 [ false, %_ZNK6google8protobuf11FileOptions13IsInitializedEv.exit.thread ], [ true, %if.then8.i ], [ true, %if.end6.i ], [ true, %if.end14 ], [ false, %if.then8.i.i.i ], [ false, %if.end.i.i.i ], [ false, %if.then.i.i ], [ false, %for.body.i17 ], [ false, %for.body.i5 ], [ false, %for.body.i ]
   ret i1 %retval.0
 }
 
@@ -4026,17 +4029,20 @@ if.end6:                                          ; preds = %if.end
   %1 = load i32, ptr %_has_bits_, align 8
   %and = and i32 %1, 1024
   %cmp.not = icmp eq i32 %and, 0
-  br i1 %cmp.not, label %return, label %if.then8
+  br i1 %cmp.not, label %if.end12, label %if.then8
 
 if.then8:                                         ; preds = %if.end6
   %features_ = getelementptr inbounds i8, ptr %this, i64 152
   %2 = load ptr, ptr %features_, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %call2.i = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull @_ZN6google8protobuf29_FeatureSet_default_instance_E)
+  br i1 %call2.i, label %if.end12, label %return
+
+if.end12:                                         ; preds = %if.then8, %if.end6
   br label %return
 
-return:                                           ; preds = %if.then8, %if.end6, %if.end, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end ], [ true, %if.end6 ], [ %call2.i, %if.then8 ]
+return:                                           ; preds = %if.then8, %if.end, %entry, %if.end12
+  %retval.0 = phi i1 [ true, %if.end12 ], [ false, %entry ], [ false, %if.end ], [ false, %if.then8 ]
   ret i1 %retval.0
 }
 
@@ -4802,12 +4808,12 @@ if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %options_, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %call2.i = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull @_ZN6google8protobuf40_ExtensionRangeOptions_default_instance_E)
-  br i1 %call2.i, label %if.end.i, label %return
+  br i1 %call2.i, label %if.end.i, label %_ZNK6google8protobuf21ExtensionRangeOptions13IsInitializedEv.exit.thread
 
 if.end.i:                                         ; preds = %if.then
   %uninterpreted_option_.i.i = getelementptr inbounds i8, ptr %2, i64 72
   %call4.i = tail call noundef zeroext i1 @_ZN6google8protobuf8internal17AllAreInitializedINS0_19UninterpretedOptionEEEbRKNS0_16RepeatedPtrFieldIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %uninterpreted_option_.i.i)
-  br i1 %call4.i, label %if.end6.i, label %return
+  br i1 %call4.i, label %if.end6.i, label %_ZNK6google8protobuf21ExtensionRangeOptions13IsInitializedEv.exit.thread
 
 if.end6.i:                                        ; preds = %if.end.i
   %_has_bits_.i = getelementptr inbounds i8, ptr %2, i64 40
@@ -4821,10 +4827,13 @@ if.then8.i:                                       ; preds = %if.end6.i
   %5 = load ptr, ptr %features_.i, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %call2.i.i = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull @_ZN6google8protobuf29_FeatureSet_default_instance_E)
+  br i1 %call2.i.i, label %return, label %_ZNK6google8protobuf21ExtensionRangeOptions13IsInitializedEv.exit.thread
+
+_ZNK6google8protobuf21ExtensionRangeOptions13IsInitializedEv.exit.thread: ; preds = %if.then, %if.end.i, %if.then8.i
   br label %return
 
-return:                                           ; preds = %if.then8.i, %if.end6.i, %if.end.i, %if.then, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ false, %if.then ], [ false, %if.end.i ], [ true, %if.end6.i ], [ %call2.i.i, %if.then8.i ]
+return:                                           ; preds = %entry, %if.end6.i, %if.then8.i, %_ZNK6google8protobuf21ExtensionRangeOptions13IsInitializedEv.exit.thread
+  %retval.0 = phi i1 [ false, %_ZNK6google8protobuf21ExtensionRangeOptions13IsInitializedEv.exit.thread ], [ true, %if.then8.i ], [ true, %if.end6.i ], [ true, %entry ]
   ret i1 %retval.0
 }
 
@@ -4845,17 +4854,20 @@ if.end6:                                          ; preds = %if.end
   %1 = load i32, ptr %_has_bits_, align 8
   %and = and i32 %1, 1
   %cmp.not = icmp eq i32 %and, 0
-  br i1 %cmp.not, label %return, label %if.then8
+  br i1 %cmp.not, label %if.end12, label %if.then8
 
 if.then8:                                         ; preds = %if.end6
   %features_ = getelementptr inbounds i8, ptr %this, i64 96
   %2 = load ptr, ptr %features_, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %call2.i = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull @_ZN6google8protobuf29_FeatureSet_default_instance_E)
+  br i1 %call2.i, label %if.end12, label %return
+
+if.end12:                                         ; preds = %if.then8, %if.end6
   br label %return
 
-return:                                           ; preds = %if.then8, %if.end6, %if.end, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end ], [ true, %if.end6 ], [ %call2.i, %if.then8 ]
+return:                                           ; preds = %if.then8, %if.end, %entry, %if.end12
+  %retval.0 = phi i1 [ true, %if.end12 ], [ false, %entry ], [ false, %if.end ], [ false, %if.then8 ]
   ret i1 %retval.0
 }
 
@@ -7354,8 +7366,8 @@ for.body.preheader.i:                             ; preds = %entry
   %1 = zext nneg i32 %0 to i64
   br label %for.body.i
 
-for.body.i:                                       ; preds = %for.cond.backedge.i, %for.body.preheader.i
-  %indvars.iv.i = phi i64 [ %1, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.cond.backedge.i ]
+for.body.i:                                       ; preds = %_ZNK6google8protobuf20FieldDescriptorProto13IsInitializedEv.exit.i, %for.body.preheader.i
+  %indvars.iv.i = phi i64 [ %1, %for.body.preheader.i ], [ %indvars.iv.next.i, %_ZNK6google8protobuf20FieldDescriptorProto13IsInitializedEv.exit.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %2 = load ptr, ptr %field_.i, align 8
   %3 = ptrtoint ptr %2 to i64
@@ -7371,7 +7383,7 @@ for.body.i:                                       ; preds = %for.cond.backedge.i
   %7 = load i32, ptr %6, align 4
   %and.i.i = and i32 %7, 32
   %cmp.not.i.i = icmp eq i32 %and.i.i, 0
-  br i1 %cmp.not.i.i, label %for.cond.backedge.i, label %if.then.i.i
+  br i1 %cmp.not.i.i, label %_ZNK6google8protobuf20FieldDescriptorProto13IsInitializedEv.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i
   %options_.i.i = getelementptr inbounds i8, ptr %5, i64 64
@@ -7390,20 +7402,20 @@ if.end6.i.i.i:                                    ; preds = %if.end.i.i.i
   %10 = load i32, ptr %_has_bits_.i.i.i, align 4
   %and.i.i.i = and i32 %10, 1
   %cmp.not.i.i.i = icmp eq i32 %and.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %for.cond.backedge.i, label %if.then8.i.i.i
+  br i1 %cmp.not.i.i.i, label %_ZNK6google8protobuf20FieldDescriptorProto13IsInitializedEv.exit.i, label %if.then8.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.end6.i.i.i
   %features_.i.i.i = getelementptr inbounds i8, ptr %8, i64 112
   %11 = load ptr, ptr %features_.i.i.i, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 16
   %call2.i.i.i.i = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull @_ZN6google8protobuf29_FeatureSet_default_instance_E)
-  br i1 %call2.i.i.i.i, label %for.cond.backedge.i, label %return
+  br i1 %call2.i.i.i.i, label %_ZNK6google8protobuf20FieldDescriptorProto13IsInitializedEv.exit.i, label %return
 
-for.cond.backedge.i:                              ; preds = %if.then8.i.i.i, %if.end6.i.i.i, %for.body.i
+_ZNK6google8protobuf20FieldDescriptorProto13IsInitializedEv.exit.i: ; preds = %if.then8.i.i.i, %if.end6.i.i.i, %for.body.i
   %cmp.i = icmp ult i64 %indvars.iv.i, 2
   br i1 %cmp.i, label %if.end, label %for.body.i, !llvm.loop !39
 
-if.end:                                           ; preds = %for.cond.backedge.i, %entry
+if.end:                                           ; preds = %_ZNK6google8protobuf20FieldDescriptorProto13IsInitializedEv.exit.i, %entry
   %nested_type_.i = getelementptr inbounds i8, ptr %this, i64 48
   %current_size_.i.i.i1 = getelementptr inbounds i8, ptr %this, i64 56
   %13 = load i32, ptr %current_size_.i.i.i1, align 8
@@ -7470,8 +7482,8 @@ for.body.preheader.i24:                           ; preds = %if.end10
   %30 = zext nneg i32 %29 to i64
   br label %for.body.i25
 
-for.body.i25:                                     ; preds = %for.cond.backedge.i50, %for.body.preheader.i24
-  %indvars.iv.i26 = phi i64 [ %30, %for.body.preheader.i24 ], [ %indvars.iv.next.i27, %for.cond.backedge.i50 ]
+for.body.i25:                                     ; preds = %_ZNK6google8protobuf30DescriptorProto_ExtensionRange13IsInitializedEv.exit.i, %for.body.preheader.i24
+  %indvars.iv.i26 = phi i64 [ %30, %for.body.preheader.i24 ], [ %indvars.iv.next.i27, %_ZNK6google8protobuf30DescriptorProto_ExtensionRange13IsInitializedEv.exit.i ]
   %indvars.iv.next.i27 = add nsw i64 %indvars.iv.i26, -1
   %31 = load ptr, ptr %extension_range_.i, align 8
   %32 = ptrtoint ptr %31 to i64
@@ -7487,7 +7499,7 @@ for.body.i25:                                     ; preds = %for.cond.backedge.i
   %36 = load i32, ptr %35, align 4
   %and.i.i34 = and i32 %36, 1
   %cmp.not.i.i35 = icmp eq i32 %and.i.i34, 0
-  br i1 %cmp.not.i.i35, label %for.cond.backedge.i50, label %if.then.i.i36
+  br i1 %cmp.not.i.i35, label %_ZNK6google8protobuf30DescriptorProto_ExtensionRange13IsInitializedEv.exit.i, label %if.then.i.i36
 
 if.then.i.i36:                                    ; preds = %for.body.i25
   %options_.i.i37 = getelementptr inbounds i8, ptr %34, i64 24
@@ -7506,140 +7518,140 @@ if.end6.i.i.i43:                                  ; preds = %if.end.i.i.i40
   %39 = load i32, ptr %_has_bits_.i.i.i44, align 4
   %and.i.i.i45 = and i32 %39, 1
   %cmp.not.i.i.i46 = icmp eq i32 %and.i.i.i45, 0
-  br i1 %cmp.not.i.i.i46, label %for.cond.backedge.i50, label %if.then8.i.i.i47
+  br i1 %cmp.not.i.i.i46, label %_ZNK6google8protobuf30DescriptorProto_ExtensionRange13IsInitializedEv.exit.i, label %if.then8.i.i.i47
 
 if.then8.i.i.i47:                                 ; preds = %if.end6.i.i.i43
   %features_.i.i.i48 = getelementptr inbounds i8, ptr %37, i64 96
   %40 = load ptr, ptr %features_.i.i.i48, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 16
   %call2.i.i.i.i49 = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %41, ptr noundef nonnull @_ZN6google8protobuf29_FeatureSet_default_instance_E)
-  br i1 %call2.i.i.i.i49, label %for.cond.backedge.i50, label %return
+  br i1 %call2.i.i.i.i49, label %_ZNK6google8protobuf30DescriptorProto_ExtensionRange13IsInitializedEv.exit.i, label %return
 
-for.cond.backedge.i50:                            ; preds = %if.then8.i.i.i47, %if.end6.i.i.i43, %for.body.i25
-  %cmp.i51 = icmp ult i64 %indvars.iv.i26, 2
-  br i1 %cmp.i51, label %if.end14, label %for.body.i25, !llvm.loop !60
+_ZNK6google8protobuf30DescriptorProto_ExtensionRange13IsInitializedEv.exit.i: ; preds = %if.then8.i.i.i47, %if.end6.i.i.i43, %for.body.i25
+  %cmp.i50 = icmp ult i64 %indvars.iv.i26, 2
+  br i1 %cmp.i50, label %if.end14, label %for.body.i25, !llvm.loop !60
 
-if.end14:                                         ; preds = %for.cond.backedge.i50, %if.end10
+if.end14:                                         ; preds = %_ZNK6google8protobuf30DescriptorProto_ExtensionRange13IsInitializedEv.exit.i, %if.end10
   %extension_.i = getelementptr inbounds i8, ptr %this, i64 120
-  %current_size_.i.i.i52 = getelementptr inbounds i8, ptr %this, i64 128
-  %42 = load i32, ptr %current_size_.i.i.i52, align 8
-  %cmp4.i53 = icmp slt i32 %42, 1
-  br i1 %cmp4.i53, label %if.end18, label %for.body.preheader.i54
+  %current_size_.i.i.i51 = getelementptr inbounds i8, ptr %this, i64 128
+  %42 = load i32, ptr %current_size_.i.i.i51, align 8
+  %cmp4.i52 = icmp slt i32 %42, 1
+  br i1 %cmp4.i52, label %if.end18, label %for.body.preheader.i53
 
-for.body.preheader.i54:                           ; preds = %if.end14
+for.body.preheader.i53:                           ; preds = %if.end14
   %43 = zext nneg i32 %42 to i64
-  br label %for.body.i55
+  br label %for.body.i54
 
-for.body.i55:                                     ; preds = %for.cond.backedge.i80, %for.body.preheader.i54
-  %indvars.iv.i56 = phi i64 [ %43, %for.body.preheader.i54 ], [ %indvars.iv.next.i57, %for.cond.backedge.i80 ]
-  %indvars.iv.next.i57 = add nsw i64 %indvars.iv.i56, -1
+for.body.i54:                                     ; preds = %_ZNK6google8protobuf20FieldDescriptorProto13IsInitializedEv.exit.i79, %for.body.preheader.i53
+  %indvars.iv.i55 = phi i64 [ %43, %for.body.preheader.i53 ], [ %indvars.iv.next.i56, %_ZNK6google8protobuf20FieldDescriptorProto13IsInitializedEv.exit.i79 ]
+  %indvars.iv.next.i56 = add nsw i64 %indvars.iv.i55, -1
   %44 = load ptr, ptr %extension_.i, align 8
   %45 = ptrtoint ptr %44 to i64
-  %and.i.i.i.i.i.i58 = and i64 %45, 1
-  %cmp.i.i.i.i.i.i59 = icmp eq i64 %and.i.i.i.i.i.i58, 0
-  %sub.i.i.i.i.i.i60 = add i64 %45, -1
-  %46 = inttoptr i64 %sub.i.i.i.i.i.i60 to ptr
-  %elements.i.i.i.i.i61 = getelementptr inbounds i8, ptr %46, i64 8
-  %arrayidx.i.i.i.i.i62 = getelementptr inbounds [268435454 x ptr], ptr %elements.i.i.i.i.i61, i64 0, i64 %indvars.iv.next.i57
-  %retval.0.i.i.i.i.i63 = select i1 %cmp.i.i.i.i.i.i59, ptr %extension_.i, ptr %arrayidx.i.i.i.i.i62
-  %47 = load ptr, ptr %retval.0.i.i.i.i.i63, align 8
+  %and.i.i.i.i.i.i57 = and i64 %45, 1
+  %cmp.i.i.i.i.i.i58 = icmp eq i64 %and.i.i.i.i.i.i57, 0
+  %sub.i.i.i.i.i.i59 = add i64 %45, -1
+  %46 = inttoptr i64 %sub.i.i.i.i.i.i59 to ptr
+  %elements.i.i.i.i.i60 = getelementptr inbounds i8, ptr %46, i64 8
+  %arrayidx.i.i.i.i.i61 = getelementptr inbounds [268435454 x ptr], ptr %elements.i.i.i.i.i60, i64 0, i64 %indvars.iv.next.i56
+  %retval.0.i.i.i.i.i62 = select i1 %cmp.i.i.i.i.i.i58, ptr %extension_.i, ptr %arrayidx.i.i.i.i.i61
+  %47 = load ptr, ptr %retval.0.i.i.i.i.i62, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 16
   %49 = load i32, ptr %48, align 4
-  %and.i.i64 = and i32 %49, 32
-  %cmp.not.i.i65 = icmp eq i32 %and.i.i64, 0
-  br i1 %cmp.not.i.i65, label %for.cond.backedge.i80, label %if.then.i.i66
+  %and.i.i63 = and i32 %49, 32
+  %cmp.not.i.i64 = icmp eq i32 %and.i.i63, 0
+  br i1 %cmp.not.i.i64, label %_ZNK6google8protobuf20FieldDescriptorProto13IsInitializedEv.exit.i79, label %if.then.i.i65
 
-if.then.i.i66:                                    ; preds = %for.body.i55
-  %options_.i.i67 = getelementptr inbounds i8, ptr %47, i64 64
-  %50 = load ptr, ptr %options_.i.i67, align 8
+if.then.i.i65:                                    ; preds = %for.body.i54
+  %options_.i.i66 = getelementptr inbounds i8, ptr %47, i64 64
+  %50 = load ptr, ptr %options_.i.i66, align 8
   %51 = getelementptr inbounds i8, ptr %50, i64 16
-  %call2.i.i.i68 = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef nonnull @_ZN6google8protobuf31_FieldOptions_default_instance_E)
-  br i1 %call2.i.i.i68, label %if.end.i.i.i70, label %return
+  %call2.i.i.i67 = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef nonnull @_ZN6google8protobuf31_FieldOptions_default_instance_E)
+  br i1 %call2.i.i.i67, label %if.end.i.i.i69, label %return
 
-if.end.i.i.i70:                                   ; preds = %if.then.i.i66
-  %uninterpreted_option_.i.i.i.i71 = getelementptr inbounds i8, ptr %50, i64 88
-  %call4.i.i.i72 = tail call noundef zeroext i1 @_ZN6google8protobuf8internal17AllAreInitializedINS0_19UninterpretedOptionEEEbRKNS0_16RepeatedPtrFieldIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %uninterpreted_option_.i.i.i.i71)
-  br i1 %call4.i.i.i72, label %if.end6.i.i.i73, label %return
+if.end.i.i.i69:                                   ; preds = %if.then.i.i65
+  %uninterpreted_option_.i.i.i.i70 = getelementptr inbounds i8, ptr %50, i64 88
+  %call4.i.i.i71 = tail call noundef zeroext i1 @_ZN6google8protobuf8internal17AllAreInitializedINS0_19UninterpretedOptionEEEbRKNS0_16RepeatedPtrFieldIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %uninterpreted_option_.i.i.i.i70)
+  br i1 %call4.i.i.i71, label %if.end6.i.i.i72, label %return
 
-if.end6.i.i.i73:                                  ; preds = %if.end.i.i.i70
-  %_has_bits_.i.i.i74 = getelementptr inbounds i8, ptr %50, i64 40
-  %52 = load i32, ptr %_has_bits_.i.i.i74, align 4
-  %and.i.i.i75 = and i32 %52, 1
-  %cmp.not.i.i.i76 = icmp eq i32 %and.i.i.i75, 0
-  br i1 %cmp.not.i.i.i76, label %for.cond.backedge.i80, label %if.then8.i.i.i77
+if.end6.i.i.i72:                                  ; preds = %if.end.i.i.i69
+  %_has_bits_.i.i.i73 = getelementptr inbounds i8, ptr %50, i64 40
+  %52 = load i32, ptr %_has_bits_.i.i.i73, align 4
+  %and.i.i.i74 = and i32 %52, 1
+  %cmp.not.i.i.i75 = icmp eq i32 %and.i.i.i74, 0
+  br i1 %cmp.not.i.i.i75, label %_ZNK6google8protobuf20FieldDescriptorProto13IsInitializedEv.exit.i79, label %if.then8.i.i.i76
 
-if.then8.i.i.i77:                                 ; preds = %if.end6.i.i.i73
-  %features_.i.i.i78 = getelementptr inbounds i8, ptr %50, i64 112
-  %53 = load ptr, ptr %features_.i.i.i78, align 8
+if.then8.i.i.i76:                                 ; preds = %if.end6.i.i.i72
+  %features_.i.i.i77 = getelementptr inbounds i8, ptr %50, i64 112
+  %53 = load ptr, ptr %features_.i.i.i77, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 16
-  %call2.i.i.i.i79 = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %54, ptr noundef nonnull @_ZN6google8protobuf29_FeatureSet_default_instance_E)
-  br i1 %call2.i.i.i.i79, label %for.cond.backedge.i80, label %return
+  %call2.i.i.i.i78 = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %54, ptr noundef nonnull @_ZN6google8protobuf29_FeatureSet_default_instance_E)
+  br i1 %call2.i.i.i.i78, label %_ZNK6google8protobuf20FieldDescriptorProto13IsInitializedEv.exit.i79, label %return
 
-for.cond.backedge.i80:                            ; preds = %if.then8.i.i.i77, %if.end6.i.i.i73, %for.body.i55
-  %cmp.i81 = icmp ult i64 %indvars.iv.i56, 2
-  br i1 %cmp.i81, label %if.end18, label %for.body.i55, !llvm.loop !39
+_ZNK6google8protobuf20FieldDescriptorProto13IsInitializedEv.exit.i79: ; preds = %if.then8.i.i.i76, %if.end6.i.i.i72, %for.body.i54
+  %cmp.i80 = icmp ult i64 %indvars.iv.i55, 2
+  br i1 %cmp.i80, label %if.end18, label %for.body.i54, !llvm.loop !39
 
-if.end18:                                         ; preds = %for.cond.backedge.i80, %if.end14
+if.end18:                                         ; preds = %_ZNK6google8protobuf20FieldDescriptorProto13IsInitializedEv.exit.i79, %if.end14
   %oneof_decl_.i = getelementptr inbounds i8, ptr %this, i64 144
-  %current_size_.i.i.i83 = getelementptr inbounds i8, ptr %this, i64 152
-  %55 = load i32, ptr %current_size_.i.i.i83, align 8
-  %cmp4.i84 = icmp slt i32 %55, 1
-  br i1 %cmp4.i84, label %if.end22, label %for.body.preheader.i85
+  %current_size_.i.i.i82 = getelementptr inbounds i8, ptr %this, i64 152
+  %55 = load i32, ptr %current_size_.i.i.i82, align 8
+  %cmp4.i83 = icmp slt i32 %55, 1
+  br i1 %cmp4.i83, label %if.end22, label %for.body.preheader.i84
 
-for.body.preheader.i85:                           ; preds = %if.end18
+for.body.preheader.i84:                           ; preds = %if.end18
   %56 = zext nneg i32 %55 to i64
-  br label %for.body.i86
+  br label %for.body.i85
 
-for.body.i86:                                     ; preds = %for.cond.backedge.i111, %for.body.preheader.i85
-  %indvars.iv.i87 = phi i64 [ %56, %for.body.preheader.i85 ], [ %indvars.iv.next.i88, %for.cond.backedge.i111 ]
-  %indvars.iv.next.i88 = add nsw i64 %indvars.iv.i87, -1
+for.body.i85:                                     ; preds = %_ZNK6google8protobuf20OneofDescriptorProto13IsInitializedEv.exit.i, %for.body.preheader.i84
+  %indvars.iv.i86 = phi i64 [ %56, %for.body.preheader.i84 ], [ %indvars.iv.next.i87, %_ZNK6google8protobuf20OneofDescriptorProto13IsInitializedEv.exit.i ]
+  %indvars.iv.next.i87 = add nsw i64 %indvars.iv.i86, -1
   %57 = load ptr, ptr %oneof_decl_.i, align 8
   %58 = ptrtoint ptr %57 to i64
-  %and.i.i.i.i.i.i89 = and i64 %58, 1
-  %cmp.i.i.i.i.i.i90 = icmp eq i64 %and.i.i.i.i.i.i89, 0
-  %sub.i.i.i.i.i.i91 = add i64 %58, -1
-  %59 = inttoptr i64 %sub.i.i.i.i.i.i91 to ptr
-  %elements.i.i.i.i.i92 = getelementptr inbounds i8, ptr %59, i64 8
-  %arrayidx.i.i.i.i.i93 = getelementptr inbounds [268435454 x ptr], ptr %elements.i.i.i.i.i92, i64 0, i64 %indvars.iv.next.i88
-  %retval.0.i.i.i.i.i94 = select i1 %cmp.i.i.i.i.i.i90, ptr %oneof_decl_.i, ptr %arrayidx.i.i.i.i.i93
-  %60 = load ptr, ptr %retval.0.i.i.i.i.i94, align 8
+  %and.i.i.i.i.i.i88 = and i64 %58, 1
+  %cmp.i.i.i.i.i.i89 = icmp eq i64 %and.i.i.i.i.i.i88, 0
+  %sub.i.i.i.i.i.i90 = add i64 %58, -1
+  %59 = inttoptr i64 %sub.i.i.i.i.i.i90 to ptr
+  %elements.i.i.i.i.i91 = getelementptr inbounds i8, ptr %59, i64 8
+  %arrayidx.i.i.i.i.i92 = getelementptr inbounds [268435454 x ptr], ptr %elements.i.i.i.i.i91, i64 0, i64 %indvars.iv.next.i87
+  %retval.0.i.i.i.i.i93 = select i1 %cmp.i.i.i.i.i.i89, ptr %oneof_decl_.i, ptr %arrayidx.i.i.i.i.i92
+  %60 = load ptr, ptr %retval.0.i.i.i.i.i93, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 16
   %62 = load i32, ptr %61, align 4
-  %and.i.i95 = and i32 %62, 2
-  %cmp.not.i.i96 = icmp eq i32 %and.i.i95, 0
-  br i1 %cmp.not.i.i96, label %for.cond.backedge.i111, label %if.then.i.i97
+  %and.i.i94 = and i32 %62, 2
+  %cmp.not.i.i95 = icmp eq i32 %and.i.i94, 0
+  br i1 %cmp.not.i.i95, label %_ZNK6google8protobuf20OneofDescriptorProto13IsInitializedEv.exit.i, label %if.then.i.i96
 
-if.then.i.i97:                                    ; preds = %for.body.i86
-  %options_.i.i98 = getelementptr inbounds i8, ptr %60, i64 32
-  %63 = load ptr, ptr %options_.i.i98, align 8
+if.then.i.i96:                                    ; preds = %for.body.i85
+  %options_.i.i97 = getelementptr inbounds i8, ptr %60, i64 32
+  %63 = load ptr, ptr %options_.i.i97, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 16
-  %call2.i.i.i99 = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %64, ptr noundef nonnull @_ZN6google8protobuf31_OneofOptions_default_instance_E)
-  br i1 %call2.i.i.i99, label %if.end.i.i.i101, label %return
+  %call2.i.i.i98 = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %64, ptr noundef nonnull @_ZN6google8protobuf31_OneofOptions_default_instance_E)
+  br i1 %call2.i.i.i98, label %if.end.i.i.i100, label %return
 
-if.end.i.i.i101:                                  ; preds = %if.then.i.i97
-  %uninterpreted_option_.i.i.i.i102 = getelementptr inbounds i8, ptr %63, i64 48
-  %call4.i.i.i103 = tail call noundef zeroext i1 @_ZN6google8protobuf8internal17AllAreInitializedINS0_19UninterpretedOptionEEEbRKNS0_16RepeatedPtrFieldIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %uninterpreted_option_.i.i.i.i102)
-  br i1 %call4.i.i.i103, label %if.end6.i.i.i104, label %return
+if.end.i.i.i100:                                  ; preds = %if.then.i.i96
+  %uninterpreted_option_.i.i.i.i101 = getelementptr inbounds i8, ptr %63, i64 48
+  %call4.i.i.i102 = tail call noundef zeroext i1 @_ZN6google8protobuf8internal17AllAreInitializedINS0_19UninterpretedOptionEEEbRKNS0_16RepeatedPtrFieldIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %uninterpreted_option_.i.i.i.i101)
+  br i1 %call4.i.i.i102, label %if.end6.i.i.i103, label %return
 
-if.end6.i.i.i104:                                 ; preds = %if.end.i.i.i101
-  %_has_bits_.i.i.i105 = getelementptr inbounds i8, ptr %63, i64 40
-  %65 = load i32, ptr %_has_bits_.i.i.i105, align 4
-  %and.i.i.i106 = and i32 %65, 1
-  %cmp.not.i.i.i107 = icmp eq i32 %and.i.i.i106, 0
-  br i1 %cmp.not.i.i.i107, label %for.cond.backedge.i111, label %if.then8.i.i.i108
+if.end6.i.i.i103:                                 ; preds = %if.end.i.i.i100
+  %_has_bits_.i.i.i104 = getelementptr inbounds i8, ptr %63, i64 40
+  %65 = load i32, ptr %_has_bits_.i.i.i104, align 4
+  %and.i.i.i105 = and i32 %65, 1
+  %cmp.not.i.i.i106 = icmp eq i32 %and.i.i.i105, 0
+  br i1 %cmp.not.i.i.i106, label %_ZNK6google8protobuf20OneofDescriptorProto13IsInitializedEv.exit.i, label %if.then8.i.i.i107
 
-if.then8.i.i.i108:                                ; preds = %if.end6.i.i.i104
-  %features_.i.i.i109 = getelementptr inbounds i8, ptr %63, i64 72
-  %66 = load ptr, ptr %features_.i.i.i109, align 8
+if.then8.i.i.i107:                                ; preds = %if.end6.i.i.i103
+  %features_.i.i.i108 = getelementptr inbounds i8, ptr %63, i64 72
+  %66 = load ptr, ptr %features_.i.i.i108, align 8
   %67 = getelementptr inbounds i8, ptr %66, i64 16
-  %call2.i.i.i.i110 = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %67, ptr noundef nonnull @_ZN6google8protobuf29_FeatureSet_default_instance_E)
-  br i1 %call2.i.i.i.i110, label %for.cond.backedge.i111, label %return
+  %call2.i.i.i.i109 = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %67, ptr noundef nonnull @_ZN6google8protobuf29_FeatureSet_default_instance_E)
+  br i1 %call2.i.i.i.i109, label %_ZNK6google8protobuf20OneofDescriptorProto13IsInitializedEv.exit.i, label %return
 
-for.cond.backedge.i111:                           ; preds = %if.then8.i.i.i108, %if.end6.i.i.i104, %for.body.i86
-  %cmp.i112 = icmp ult i64 %indvars.iv.i87, 2
-  br i1 %cmp.i112, label %if.end22, label %for.body.i86, !llvm.loop !61
+_ZNK6google8protobuf20OneofDescriptorProto13IsInitializedEv.exit.i: ; preds = %if.then8.i.i.i107, %if.end6.i.i.i103, %for.body.i85
+  %cmp.i110 = icmp ult i64 %indvars.iv.i86, 2
+  br i1 %cmp.i110, label %if.end22, label %for.body.i85, !llvm.loop !61
 
-if.end22:                                         ; preds = %for.cond.backedge.i111, %if.end18
+if.end22:                                         ; preds = %_ZNK6google8protobuf20OneofDescriptorProto13IsInitializedEv.exit.i, %if.end18
   %68 = getelementptr inbounds i8, ptr %this, i64 16
   %69 = load i32, ptr %68, align 8
   %and = and i32 %69, 2
@@ -7650,13 +7662,13 @@ if.then24:                                        ; preds = %if.end22
   %options_ = getelementptr inbounds i8, ptr %this, i64 224
   %70 = load ptr, ptr %options_, align 8
   %71 = getelementptr inbounds i8, ptr %70, i64 16
-  %call2.i134 = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %71, ptr noundef nonnull @_ZN6google8protobuf33_MessageOptions_default_instance_E)
-  br i1 %call2.i134, label %if.end.i, label %return
+  %call2.i132 = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %71, ptr noundef nonnull @_ZN6google8protobuf33_MessageOptions_default_instance_E)
+  br i1 %call2.i132, label %if.end.i, label %_ZNK6google8protobuf14MessageOptions13IsInitializedEv.exit.thread
 
 if.end.i:                                         ; preds = %if.then24
   %uninterpreted_option_.i.i = getelementptr inbounds i8, ptr %70, i64 48
   %call4.i = tail call noundef zeroext i1 @_ZN6google8protobuf8internal17AllAreInitializedINS0_19UninterpretedOptionEEEbRKNS0_16RepeatedPtrFieldIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %uninterpreted_option_.i.i)
-  br i1 %call4.i, label %if.end6.i, label %return
+  br i1 %call4.i, label %if.end6.i, label %_ZNK6google8protobuf14MessageOptions13IsInitializedEv.exit.thread
 
 if.end6.i:                                        ; preds = %if.end.i
   %_has_bits_.i = getelementptr inbounds i8, ptr %70, i64 40
@@ -7670,10 +7682,13 @@ if.then8.i:                                       ; preds = %if.end6.i
   %73 = load ptr, ptr %features_.i, align 8
   %74 = getelementptr inbounds i8, ptr %73, i64 16
   %call2.i.i = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %74, ptr noundef nonnull @_ZN6google8protobuf29_FeatureSet_default_instance_E)
+  br i1 %call2.i.i, label %return, label %_ZNK6google8protobuf14MessageOptions13IsInitializedEv.exit.thread
+
+_ZNK6google8protobuf14MessageOptions13IsInitializedEv.exit.thread: ; preds = %if.then24, %if.end.i, %if.then8.i
   br label %return
 
-return:                                           ; preds = %if.then8.i.i.i, %if.then.i.i, %if.end.i.i.i, %for.body.i3, %for.body.i14, %if.then8.i.i.i47, %if.then.i.i36, %if.end.i.i.i40, %if.then8.i.i.i77, %if.then.i.i66, %if.end.i.i.i70, %if.then8.i.i.i108, %if.then.i.i97, %if.end.i.i.i101, %if.then8.i, %if.end6.i, %if.end.i, %if.then24, %if.end22
-  %retval.0 = phi i1 [ true, %if.end22 ], [ false, %if.then24 ], [ false, %if.end.i ], [ true, %if.end6.i ], [ %call2.i.i, %if.then8.i ], [ false, %if.end.i.i.i101 ], [ false, %if.then.i.i97 ], [ false, %if.then8.i.i.i108 ], [ false, %if.end.i.i.i70 ], [ false, %if.then.i.i66 ], [ false, %if.then8.i.i.i77 ], [ false, %if.end.i.i.i40 ], [ false, %if.then.i.i36 ], [ false, %if.then8.i.i.i47 ], [ false, %for.body.i14 ], [ false, %for.body.i3 ], [ false, %if.end.i.i.i ], [ false, %if.then.i.i ], [ false, %if.then8.i.i.i ]
+return:                                           ; preds = %if.then.i.i, %if.end.i.i.i, %if.then8.i.i.i, %for.body.i3, %for.body.i14, %if.then.i.i36, %if.end.i.i.i40, %if.then8.i.i.i47, %if.then.i.i65, %if.end.i.i.i69, %if.then8.i.i.i76, %if.then.i.i96, %if.end.i.i.i100, %if.then8.i.i.i107, %if.end22, %if.end6.i, %if.then8.i, %_ZNK6google8protobuf14MessageOptions13IsInitializedEv.exit.thread
+  %retval.0 = phi i1 [ false, %_ZNK6google8protobuf14MessageOptions13IsInitializedEv.exit.thread ], [ true, %if.then8.i ], [ true, %if.end6.i ], [ true, %if.end22 ], [ false, %if.then8.i.i.i107 ], [ false, %if.end.i.i.i100 ], [ false, %if.then.i.i96 ], [ false, %if.then8.i.i.i76 ], [ false, %if.end.i.i.i69 ], [ false, %if.then.i.i65 ], [ false, %if.then8.i.i.i47 ], [ false, %if.end.i.i.i40 ], [ false, %if.then.i.i36 ], [ false, %for.body.i14 ], [ false, %for.body.i3 ], [ false, %if.then8.i.i.i ], [ false, %if.end.i.i.i ], [ false, %if.then.i.i ]
   ret i1 %retval.0
 }
 
@@ -7694,17 +7709,20 @@ if.end6:                                          ; preds = %if.end
   %1 = load i32, ptr %_has_bits_, align 8
   %and = and i32 %1, 1
   %cmp.not = icmp eq i32 %and, 0
-  br i1 %cmp.not, label %return, label %if.then8
+  br i1 %cmp.not, label %if.end12, label %if.then8
 
 if.then8:                                         ; preds = %if.end6
   %features_ = getelementptr inbounds i8, ptr %this, i64 72
   %2 = load ptr, ptr %features_, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %call2.i = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull @_ZN6google8protobuf29_FeatureSet_default_instance_E)
+  br i1 %call2.i, label %if.end12, label %return
+
+if.end12:                                         ; preds = %if.then8, %if.end6
   br label %return
 
-return:                                           ; preds = %if.then8, %if.end6, %if.end, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end ], [ true, %if.end6 ], [ %call2.i, %if.then8 ]
+return:                                           ; preds = %if.then8, %if.end, %entry, %if.end12
+  %retval.0 = phi i1 [ true, %if.end12 ], [ false, %entry ], [ false, %if.end ], [ false, %if.then8 ]
   ret i1 %retval.0
 }
 
@@ -11053,12 +11071,12 @@ if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %options_, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %call2.i = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull @_ZN6google8protobuf31_FieldOptions_default_instance_E)
-  br i1 %call2.i, label %if.end.i, label %return
+  br i1 %call2.i, label %if.end.i, label %_ZNK6google8protobuf12FieldOptions13IsInitializedEv.exit.thread
 
 if.end.i:                                         ; preds = %if.then
   %uninterpreted_option_.i.i = getelementptr inbounds i8, ptr %2, i64 88
   %call4.i = tail call noundef zeroext i1 @_ZN6google8protobuf8internal17AllAreInitializedINS0_19UninterpretedOptionEEEbRKNS0_16RepeatedPtrFieldIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %uninterpreted_option_.i.i)
-  br i1 %call4.i, label %if.end6.i, label %return
+  br i1 %call4.i, label %if.end6.i, label %_ZNK6google8protobuf12FieldOptions13IsInitializedEv.exit.thread
 
 if.end6.i:                                        ; preds = %if.end.i
   %_has_bits_.i = getelementptr inbounds i8, ptr %2, i64 40
@@ -11072,10 +11090,13 @@ if.then8.i:                                       ; preds = %if.end6.i
   %5 = load ptr, ptr %features_.i, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %call2.i.i = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull @_ZN6google8protobuf29_FeatureSet_default_instance_E)
+  br i1 %call2.i.i, label %return, label %_ZNK6google8protobuf12FieldOptions13IsInitializedEv.exit.thread
+
+_ZNK6google8protobuf12FieldOptions13IsInitializedEv.exit.thread: ; preds = %if.then, %if.end.i, %if.then8.i
   br label %return
 
-return:                                           ; preds = %if.then8.i, %if.end6.i, %if.end.i, %if.then, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ false, %if.then ], [ false, %if.end.i ], [ true, %if.end6.i ], [ %call2.i.i, %if.then8.i ]
+return:                                           ; preds = %entry, %if.end6.i, %if.then8.i, %_ZNK6google8protobuf12FieldOptions13IsInitializedEv.exit.thread
+  %retval.0 = phi i1 [ false, %_ZNK6google8protobuf12FieldOptions13IsInitializedEv.exit.thread ], [ true, %if.then8.i ], [ true, %if.end6.i ], [ true, %entry ]
   ret i1 %retval.0
 }
 
@@ -11096,17 +11117,20 @@ if.end6:                                          ; preds = %if.end
   %1 = load i32, ptr %_has_bits_, align 8
   %and = and i32 %1, 1
   %cmp.not = icmp eq i32 %and, 0
-  br i1 %cmp.not, label %return, label %if.then8
+  br i1 %cmp.not, label %if.end12, label %if.then8
 
 if.then8:                                         ; preds = %if.end6
   %features_ = getelementptr inbounds i8, ptr %this, i64 112
   %2 = load ptr, ptr %features_, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %call2.i = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull @_ZN6google8protobuf29_FeatureSet_default_instance_E)
+  br i1 %call2.i, label %if.end12, label %return
+
+if.end12:                                         ; preds = %if.then8, %if.end6
   br label %return
 
-return:                                           ; preds = %if.then8, %if.end6, %if.end, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end ], [ true, %if.end6 ], [ %call2.i, %if.then8 ]
+return:                                           ; preds = %if.then8, %if.end, %entry, %if.end12
+  %retval.0 = phi i1 [ true, %if.end12 ], [ false, %entry ], [ false, %if.end ], [ false, %if.then8 ]
   ret i1 %retval.0
 }
 
@@ -11797,12 +11821,12 @@ if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %options_, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %call2.i = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull @_ZN6google8protobuf31_OneofOptions_default_instance_E)
-  br i1 %call2.i, label %if.end.i, label %return
+  br i1 %call2.i, label %if.end.i, label %_ZNK6google8protobuf12OneofOptions13IsInitializedEv.exit.thread
 
 if.end.i:                                         ; preds = %if.then
   %uninterpreted_option_.i.i = getelementptr inbounds i8, ptr %2, i64 48
   %call4.i = tail call noundef zeroext i1 @_ZN6google8protobuf8internal17AllAreInitializedINS0_19UninterpretedOptionEEEbRKNS0_16RepeatedPtrFieldIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %uninterpreted_option_.i.i)
-  br i1 %call4.i, label %if.end6.i, label %return
+  br i1 %call4.i, label %if.end6.i, label %_ZNK6google8protobuf12OneofOptions13IsInitializedEv.exit.thread
 
 if.end6.i:                                        ; preds = %if.end.i
   %_has_bits_.i = getelementptr inbounds i8, ptr %2, i64 40
@@ -11816,10 +11840,13 @@ if.then8.i:                                       ; preds = %if.end6.i
   %5 = load ptr, ptr %features_.i, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %call2.i.i = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull @_ZN6google8protobuf29_FeatureSet_default_instance_E)
+  br i1 %call2.i.i, label %return, label %_ZNK6google8protobuf12OneofOptions13IsInitializedEv.exit.thread
+
+_ZNK6google8protobuf12OneofOptions13IsInitializedEv.exit.thread: ; preds = %if.then, %if.end.i, %if.then8.i
   br label %return
 
-return:                                           ; preds = %if.then8.i, %if.end6.i, %if.end.i, %if.then, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ false, %if.then ], [ false, %if.end.i ], [ true, %if.end6.i ], [ %call2.i.i, %if.then8.i ]
+return:                                           ; preds = %entry, %if.end6.i, %if.then8.i, %_ZNK6google8protobuf12OneofOptions13IsInitializedEv.exit.thread
+  %retval.0 = phi i1 [ false, %_ZNK6google8protobuf12OneofOptions13IsInitializedEv.exit.thread ], [ true, %if.then8.i ], [ true, %if.end6.i ], [ true, %entry ]
   ret i1 %retval.0
 }
 
@@ -11840,17 +11867,20 @@ if.end6:                                          ; preds = %if.end
   %1 = load i32, ptr %_has_bits_, align 8
   %and = and i32 %1, 1
   %cmp.not = icmp eq i32 %and, 0
-  br i1 %cmp.not, label %return, label %if.then8
+  br i1 %cmp.not, label %if.end12, label %if.then8
 
 if.then8:                                         ; preds = %if.end6
   %features_ = getelementptr inbounds i8, ptr %this, i64 72
   %2 = load ptr, ptr %features_, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %call2.i = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull @_ZN6google8protobuf29_FeatureSet_default_instance_E)
+  br i1 %call2.i, label %if.end12, label %return
+
+if.end12:                                         ; preds = %if.then8, %if.end6
   br label %return
 
-return:                                           ; preds = %if.then8, %if.end6, %if.end, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end ], [ true, %if.end6 ], [ %call2.i, %if.then8 ]
+return:                                           ; preds = %if.then8, %if.end, %entry, %if.end12
+  %retval.0 = phi i1 [ true, %if.end12 ], [ false, %entry ], [ false, %if.end ], [ false, %if.then8 ]
   ret i1 %retval.0
 }
 
@@ -13478,8 +13508,8 @@ for.body.preheader.i:                             ; preds = %entry
   %1 = zext nneg i32 %0 to i64
   br label %for.body.i
 
-for.body.i:                                       ; preds = %for.cond.backedge.i, %for.body.preheader.i
-  %indvars.iv.i = phi i64 [ %1, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.cond.backedge.i ]
+for.body.i:                                       ; preds = %_ZNK6google8protobuf24EnumValueDescriptorProto13IsInitializedEv.exit.i, %for.body.preheader.i
+  %indvars.iv.i = phi i64 [ %1, %for.body.preheader.i ], [ %indvars.iv.next.i, %_ZNK6google8protobuf24EnumValueDescriptorProto13IsInitializedEv.exit.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %2 = load ptr, ptr %value_.i, align 8
   %3 = ptrtoint ptr %2 to i64
@@ -13495,7 +13525,7 @@ for.body.i:                                       ; preds = %for.cond.backedge.i
   %7 = load i32, ptr %6, align 4
   %and.i.i = and i32 %7, 2
   %cmp.not.i.i = icmp eq i32 %and.i.i, 0
-  br i1 %cmp.not.i.i, label %for.cond.backedge.i, label %if.then.i.i
+  br i1 %cmp.not.i.i, label %_ZNK6google8protobuf24EnumValueDescriptorProto13IsInitializedEv.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i
   %options_.i.i = getelementptr inbounds i8, ptr %5, i64 32
@@ -13514,20 +13544,20 @@ if.end6.i.i.i:                                    ; preds = %if.end.i.i.i
   %10 = load i32, ptr %_has_bits_.i.i.i, align 4
   %and.i.i.i = and i32 %10, 1
   %cmp.not.i.i.i = icmp eq i32 %and.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %for.cond.backedge.i, label %if.then8.i.i.i
+  br i1 %cmp.not.i.i.i, label %_ZNK6google8protobuf24EnumValueDescriptorProto13IsInitializedEv.exit.i, label %if.then8.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.end6.i.i.i
   %features_.i.i.i = getelementptr inbounds i8, ptr %8, i64 72
   %11 = load ptr, ptr %features_.i.i.i, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 16
   %call2.i.i.i.i = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull @_ZN6google8protobuf29_FeatureSet_default_instance_E)
-  br i1 %call2.i.i.i.i, label %for.cond.backedge.i, label %return
+  br i1 %call2.i.i.i.i, label %_ZNK6google8protobuf24EnumValueDescriptorProto13IsInitializedEv.exit.i, label %return
 
-for.cond.backedge.i:                              ; preds = %if.then8.i.i.i, %if.end6.i.i.i, %for.body.i
+_ZNK6google8protobuf24EnumValueDescriptorProto13IsInitializedEv.exit.i: ; preds = %if.then8.i.i.i, %if.end6.i.i.i, %for.body.i
   %cmp.i = icmp ult i64 %indvars.iv.i, 2
   br i1 %cmp.i, label %if.end, label %for.body.i, !llvm.loop !90
 
-if.end:                                           ; preds = %for.cond.backedge.i, %entry
+if.end:                                           ; preds = %_ZNK6google8protobuf24EnumValueDescriptorProto13IsInitializedEv.exit.i, %entry
   %13 = getelementptr inbounds i8, ptr %this, i64 16
   %14 = load i32, ptr %13, align 8
   %and = and i32 %14, 2
@@ -13539,12 +13569,12 @@ if.then4:                                         ; preds = %if.end
   %15 = load ptr, ptr %options_, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 16
   %call2.i = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull @_ZN6google8protobuf30_EnumOptions_default_instance_E)
-  br i1 %call2.i, label %if.end.i, label %return
+  br i1 %call2.i, label %if.end.i, label %_ZNK6google8protobuf11EnumOptions13IsInitializedEv.exit.thread
 
 if.end.i:                                         ; preds = %if.then4
   %uninterpreted_option_.i.i = getelementptr inbounds i8, ptr %15, i64 48
   %call4.i = tail call noundef zeroext i1 @_ZN6google8protobuf8internal17AllAreInitializedINS0_19UninterpretedOptionEEEbRKNS0_16RepeatedPtrFieldIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %uninterpreted_option_.i.i)
-  br i1 %call4.i, label %if.end6.i, label %return
+  br i1 %call4.i, label %if.end6.i, label %_ZNK6google8protobuf11EnumOptions13IsInitializedEv.exit.thread
 
 if.end6.i:                                        ; preds = %if.end.i
   %_has_bits_.i = getelementptr inbounds i8, ptr %15, i64 40
@@ -13558,10 +13588,13 @@ if.then8.i:                                       ; preds = %if.end6.i
   %18 = load ptr, ptr %features_.i, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 16
   %call2.i.i = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull @_ZN6google8protobuf29_FeatureSet_default_instance_E)
+  br i1 %call2.i.i, label %return, label %_ZNK6google8protobuf11EnumOptions13IsInitializedEv.exit.thread
+
+_ZNK6google8protobuf11EnumOptions13IsInitializedEv.exit.thread: ; preds = %if.then4, %if.end.i, %if.then8.i
   br label %return
 
-return:                                           ; preds = %if.then8.i.i.i, %if.then.i.i, %if.end.i.i.i, %if.then8.i, %if.end6.i, %if.end.i, %if.then4, %if.end
-  %retval.0 = phi i1 [ true, %if.end ], [ false, %if.then4 ], [ false, %if.end.i ], [ true, %if.end6.i ], [ %call2.i.i, %if.then8.i ], [ false, %if.end.i.i.i ], [ false, %if.then.i.i ], [ false, %if.then8.i.i.i ]
+return:                                           ; preds = %if.then.i.i, %if.end.i.i.i, %if.then8.i.i.i, %if.end, %if.end6.i, %if.then8.i, %_ZNK6google8protobuf11EnumOptions13IsInitializedEv.exit.thread
+  %retval.0 = phi i1 [ false, %_ZNK6google8protobuf11EnumOptions13IsInitializedEv.exit.thread ], [ true, %if.then8.i ], [ true, %if.end6.i ], [ true, %if.end ], [ false, %if.then8.i.i.i ], [ false, %if.end.i.i.i ], [ false, %if.then.i.i ]
   ret i1 %retval.0
 }
 
@@ -13582,17 +13615,20 @@ if.end6:                                          ; preds = %if.end
   %1 = load i32, ptr %_has_bits_, align 8
   %and = and i32 %1, 1
   %cmp.not = icmp eq i32 %and, 0
-  br i1 %cmp.not, label %return, label %if.then8
+  br i1 %cmp.not, label %if.end12, label %if.then8
 
 if.then8:                                         ; preds = %if.end6
   %features_ = getelementptr inbounds i8, ptr %this, i64 72
   %2 = load ptr, ptr %features_, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %call2.i = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull @_ZN6google8protobuf29_FeatureSet_default_instance_E)
+  br i1 %call2.i, label %if.end12, label %return
+
+if.end12:                                         ; preds = %if.then8, %if.end6
   br label %return
 
-return:                                           ; preds = %if.then8, %if.end6, %if.end, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end ], [ true, %if.end6 ], [ %call2.i, %if.then8 ]
+return:                                           ; preds = %if.then8, %if.end, %entry, %if.end12
+  %retval.0 = phi i1 [ true, %if.end12 ], [ false, %entry ], [ false, %if.end ], [ false, %if.then8 ]
   ret i1 %retval.0
 }
 
@@ -14349,12 +14385,12 @@ if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %options_, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %call2.i = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull @_ZN6google8protobuf35_EnumValueOptions_default_instance_E)
-  br i1 %call2.i, label %if.end.i, label %return
+  br i1 %call2.i, label %if.end.i, label %_ZNK6google8protobuf16EnumValueOptions13IsInitializedEv.exit.thread
 
 if.end.i:                                         ; preds = %if.then
   %uninterpreted_option_.i.i = getelementptr inbounds i8, ptr %2, i64 48
   %call4.i = tail call noundef zeroext i1 @_ZN6google8protobuf8internal17AllAreInitializedINS0_19UninterpretedOptionEEEbRKNS0_16RepeatedPtrFieldIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %uninterpreted_option_.i.i)
-  br i1 %call4.i, label %if.end6.i, label %return
+  br i1 %call4.i, label %if.end6.i, label %_ZNK6google8protobuf16EnumValueOptions13IsInitializedEv.exit.thread
 
 if.end6.i:                                        ; preds = %if.end.i
   %_has_bits_.i = getelementptr inbounds i8, ptr %2, i64 40
@@ -14368,10 +14404,13 @@ if.then8.i:                                       ; preds = %if.end6.i
   %5 = load ptr, ptr %features_.i, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %call2.i.i = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull @_ZN6google8protobuf29_FeatureSet_default_instance_E)
+  br i1 %call2.i.i, label %return, label %_ZNK6google8protobuf16EnumValueOptions13IsInitializedEv.exit.thread
+
+_ZNK6google8protobuf16EnumValueOptions13IsInitializedEv.exit.thread: ; preds = %if.then, %if.end.i, %if.then8.i
   br label %return
 
-return:                                           ; preds = %if.then8.i, %if.end6.i, %if.end.i, %if.then, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ false, %if.then ], [ false, %if.end.i ], [ true, %if.end6.i ], [ %call2.i.i, %if.then8.i ]
+return:                                           ; preds = %entry, %if.end6.i, %if.then8.i, %_ZNK6google8protobuf16EnumValueOptions13IsInitializedEv.exit.thread
+  %retval.0 = phi i1 [ false, %_ZNK6google8protobuf16EnumValueOptions13IsInitializedEv.exit.thread ], [ true, %if.then8.i ], [ true, %if.end6.i ], [ true, %entry ]
   ret i1 %retval.0
 }
 
@@ -14392,17 +14431,20 @@ if.end6:                                          ; preds = %if.end
   %1 = load i32, ptr %_has_bits_, align 8
   %and = and i32 %1, 1
   %cmp.not = icmp eq i32 %and, 0
-  br i1 %cmp.not, label %return, label %if.then8
+  br i1 %cmp.not, label %if.end12, label %if.then8
 
 if.then8:                                         ; preds = %if.end6
   %features_ = getelementptr inbounds i8, ptr %this, i64 72
   %2 = load ptr, ptr %features_, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %call2.i = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull @_ZN6google8protobuf29_FeatureSet_default_instance_E)
+  br i1 %call2.i, label %if.end12, label %return
+
+if.end12:                                         ; preds = %if.then8, %if.end6
   br label %return
 
-return:                                           ; preds = %if.then8, %if.end6, %if.end, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end ], [ true, %if.end6 ], [ %call2.i, %if.then8 ]
+return:                                           ; preds = %if.then8, %if.end, %entry, %if.end12
+  %retval.0 = phi i1 [ true, %if.end12 ], [ false, %entry ], [ false, %if.end ], [ false, %if.then8 ]
   ret i1 %retval.0
 }
 
@@ -15273,8 +15315,8 @@ for.body.preheader.i:                             ; preds = %entry
   %1 = zext nneg i32 %0 to i64
   br label %for.body.i
 
-for.body.i:                                       ; preds = %for.cond.backedge.i, %for.body.preheader.i
-  %indvars.iv.i = phi i64 [ %1, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.cond.backedge.i ]
+for.body.i:                                       ; preds = %_ZNK6google8protobuf21MethodDescriptorProto13IsInitializedEv.exit.i, %for.body.preheader.i
+  %indvars.iv.i = phi i64 [ %1, %for.body.preheader.i ], [ %indvars.iv.next.i, %_ZNK6google8protobuf21MethodDescriptorProto13IsInitializedEv.exit.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %2 = load ptr, ptr %method_.i, align 8
   %3 = ptrtoint ptr %2 to i64
@@ -15290,7 +15332,7 @@ for.body.i:                                       ; preds = %for.cond.backedge.i
   %7 = load i32, ptr %6, align 4
   %and.i.i = and i32 %7, 8
   %cmp.not.i.i = icmp eq i32 %and.i.i, 0
-  br i1 %cmp.not.i.i, label %for.cond.backedge.i, label %if.then.i.i
+  br i1 %cmp.not.i.i, label %_ZNK6google8protobuf21MethodDescriptorProto13IsInitializedEv.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i
   %options_.i.i = getelementptr inbounds i8, ptr %5, i64 48
@@ -15309,20 +15351,20 @@ if.end6.i.i.i:                                    ; preds = %if.end.i.i.i
   %10 = load i32, ptr %_has_bits_.i.i.i, align 4
   %and.i.i.i = and i32 %10, 1
   %cmp.not.i.i.i = icmp eq i32 %and.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %for.cond.backedge.i, label %if.then8.i.i.i
+  br i1 %cmp.not.i.i.i, label %_ZNK6google8protobuf21MethodDescriptorProto13IsInitializedEv.exit.i, label %if.then8.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.end6.i.i.i
   %features_.i.i.i = getelementptr inbounds i8, ptr %8, i64 72
   %11 = load ptr, ptr %features_.i.i.i, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 16
   %call2.i.i.i.i = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull @_ZN6google8protobuf29_FeatureSet_default_instance_E)
-  br i1 %call2.i.i.i.i, label %for.cond.backedge.i, label %return
+  br i1 %call2.i.i.i.i, label %_ZNK6google8protobuf21MethodDescriptorProto13IsInitializedEv.exit.i, label %return
 
-for.cond.backedge.i:                              ; preds = %if.then8.i.i.i, %if.end6.i.i.i, %for.body.i
+_ZNK6google8protobuf21MethodDescriptorProto13IsInitializedEv.exit.i: ; preds = %if.then8.i.i.i, %if.end6.i.i.i, %for.body.i
   %cmp.i = icmp ult i64 %indvars.iv.i, 2
   br i1 %cmp.i, label %if.end, label %for.body.i, !llvm.loop !97
 
-if.end:                                           ; preds = %for.cond.backedge.i, %entry
+if.end:                                           ; preds = %_ZNK6google8protobuf21MethodDescriptorProto13IsInitializedEv.exit.i, %entry
   %13 = getelementptr inbounds i8, ptr %this, i64 16
   %14 = load i32, ptr %13, align 8
   %and = and i32 %14, 2
@@ -15334,12 +15376,12 @@ if.then4:                                         ; preds = %if.end
   %15 = load ptr, ptr %options_, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 16
   %call2.i = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull @_ZN6google8protobuf33_ServiceOptions_default_instance_E)
-  br i1 %call2.i, label %if.end.i, label %return
+  br i1 %call2.i, label %if.end.i, label %_ZNK6google8protobuf14ServiceOptions13IsInitializedEv.exit.thread
 
 if.end.i:                                         ; preds = %if.then4
   %uninterpreted_option_.i.i = getelementptr inbounds i8, ptr %15, i64 48
   %call4.i = tail call noundef zeroext i1 @_ZN6google8protobuf8internal17AllAreInitializedINS0_19UninterpretedOptionEEEbRKNS0_16RepeatedPtrFieldIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %uninterpreted_option_.i.i)
-  br i1 %call4.i, label %if.end6.i, label %return
+  br i1 %call4.i, label %if.end6.i, label %_ZNK6google8protobuf14ServiceOptions13IsInitializedEv.exit.thread
 
 if.end6.i:                                        ; preds = %if.end.i
   %_has_bits_.i = getelementptr inbounds i8, ptr %15, i64 40
@@ -15353,10 +15395,13 @@ if.then8.i:                                       ; preds = %if.end6.i
   %18 = load ptr, ptr %features_.i, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 16
   %call2.i.i = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull @_ZN6google8protobuf29_FeatureSet_default_instance_E)
+  br i1 %call2.i.i, label %return, label %_ZNK6google8protobuf14ServiceOptions13IsInitializedEv.exit.thread
+
+_ZNK6google8protobuf14ServiceOptions13IsInitializedEv.exit.thread: ; preds = %if.then4, %if.end.i, %if.then8.i
   br label %return
 
-return:                                           ; preds = %if.then8.i.i.i, %if.then.i.i, %if.end.i.i.i, %if.then8.i, %if.end6.i, %if.end.i, %if.then4, %if.end
-  %retval.0 = phi i1 [ true, %if.end ], [ false, %if.then4 ], [ false, %if.end.i ], [ true, %if.end6.i ], [ %call2.i.i, %if.then8.i ], [ false, %if.end.i.i.i ], [ false, %if.then.i.i ], [ false, %if.then8.i.i.i ]
+return:                                           ; preds = %if.then.i.i, %if.end.i.i.i, %if.then8.i.i.i, %if.end, %if.end6.i, %if.then8.i, %_ZNK6google8protobuf14ServiceOptions13IsInitializedEv.exit.thread
+  %retval.0 = phi i1 [ false, %_ZNK6google8protobuf14ServiceOptions13IsInitializedEv.exit.thread ], [ true, %if.then8.i ], [ true, %if.end6.i ], [ true, %if.end ], [ false, %if.then8.i.i.i ], [ false, %if.end.i.i.i ], [ false, %if.then.i.i ]
   ret i1 %retval.0
 }
 
@@ -15377,17 +15422,20 @@ if.end6:                                          ; preds = %if.end
   %1 = load i32, ptr %_has_bits_, align 8
   %and = and i32 %1, 1
   %cmp.not = icmp eq i32 %and, 0
-  br i1 %cmp.not, label %return, label %if.then8
+  br i1 %cmp.not, label %if.end12, label %if.then8
 
 if.then8:                                         ; preds = %if.end6
   %features_ = getelementptr inbounds i8, ptr %this, i64 72
   %2 = load ptr, ptr %features_, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %call2.i = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull @_ZN6google8protobuf29_FeatureSet_default_instance_E)
+  br i1 %call2.i, label %if.end12, label %return
+
+if.end12:                                         ; preds = %if.then8, %if.end6
   br label %return
 
-return:                                           ; preds = %if.then8, %if.end6, %if.end, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end ], [ true, %if.end6 ], [ %call2.i, %if.then8 ]
+return:                                           ; preds = %if.then8, %if.end, %entry, %if.end12
+  %retval.0 = phi i1 [ true, %if.end12 ], [ false, %entry ], [ false, %if.end ], [ false, %if.then8 ]
   ret i1 %retval.0
 }
 
@@ -16394,12 +16442,12 @@ if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %options_, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %call2.i = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull @_ZN6google8protobuf32_MethodOptions_default_instance_E)
-  br i1 %call2.i, label %if.end.i, label %return
+  br i1 %call2.i, label %if.end.i, label %_ZNK6google8protobuf13MethodOptions13IsInitializedEv.exit.thread
 
 if.end.i:                                         ; preds = %if.then
   %uninterpreted_option_.i.i = getelementptr inbounds i8, ptr %2, i64 48
   %call4.i = tail call noundef zeroext i1 @_ZN6google8protobuf8internal17AllAreInitializedINS0_19UninterpretedOptionEEEbRKNS0_16RepeatedPtrFieldIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %uninterpreted_option_.i.i)
-  br i1 %call4.i, label %if.end6.i, label %return
+  br i1 %call4.i, label %if.end6.i, label %_ZNK6google8protobuf13MethodOptions13IsInitializedEv.exit.thread
 
 if.end6.i:                                        ; preds = %if.end.i
   %_has_bits_.i = getelementptr inbounds i8, ptr %2, i64 40
@@ -16413,10 +16461,13 @@ if.then8.i:                                       ; preds = %if.end6.i
   %5 = load ptr, ptr %features_.i, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %call2.i.i = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull @_ZN6google8protobuf29_FeatureSet_default_instance_E)
+  br i1 %call2.i.i, label %return, label %_ZNK6google8protobuf13MethodOptions13IsInitializedEv.exit.thread
+
+_ZNK6google8protobuf13MethodOptions13IsInitializedEv.exit.thread: ; preds = %if.then, %if.end.i, %if.then8.i
   br label %return
 
-return:                                           ; preds = %if.then8.i, %if.end6.i, %if.end.i, %if.then, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ false, %if.then ], [ false, %if.end.i ], [ true, %if.end6.i ], [ %call2.i.i, %if.then8.i ]
+return:                                           ; preds = %entry, %if.end6.i, %if.then8.i, %_ZNK6google8protobuf13MethodOptions13IsInitializedEv.exit.thread
+  %retval.0 = phi i1 [ false, %_ZNK6google8protobuf13MethodOptions13IsInitializedEv.exit.thread ], [ true, %if.then8.i ], [ true, %if.end6.i ], [ true, %entry ]
   ret i1 %retval.0
 }
 
@@ -16437,17 +16488,20 @@ if.end6:                                          ; preds = %if.end
   %1 = load i32, ptr %_has_bits_, align 8
   %and = and i32 %1, 1
   %cmp.not = icmp eq i32 %and, 0
-  br i1 %cmp.not, label %return, label %if.then8
+  br i1 %cmp.not, label %if.end12, label %if.then8
 
 if.then8:                                         ; preds = %if.end6
   %features_ = getelementptr inbounds i8, ptr %this, i64 72
   %2 = load ptr, ptr %features_, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %call2.i = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull @_ZN6google8protobuf29_FeatureSet_default_instance_E)
+  br i1 %call2.i, label %if.end12, label %return
+
+if.end12:                                         ; preds = %if.then8, %if.end6
   br label %return
 
-return:                                           ; preds = %if.then8, %if.end6, %if.end, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end ], [ true, %if.end6 ], [ %call2.i, %if.then8 ]
+return:                                           ; preds = %if.then8, %if.end, %entry, %if.end12
+  %retval.0 = phi i1 [ true, %if.end12 ], [ false, %entry ], [ false, %if.end ], [ false, %if.then8 ]
   ret i1 %retval.0
 }
 
@@ -27282,17 +27336,20 @@ entry:
   %1 = load i32, ptr %0, align 8
   %and = and i32 %1, 1
   %cmp.not = icmp eq i32 %and, 0
-  br i1 %cmp.not, label %return, label %if.then
+  br i1 %cmp.not, label %if.end4, label %if.then
 
 if.then:                                          ; preds = %entry
   %features_ = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %features_, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %call2.i = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull @_ZN6google8protobuf29_FeatureSet_default_instance_E)
+  br i1 %call2.i, label %if.end4, label %return
+
+if.end4:                                          ; preds = %if.then, %entry
   br label %return
 
-return:                                           ; preds = %if.then, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ %call2.i, %if.then ]
+return:                                           ; preds = %if.then, %if.end4
+  %retval.0 = phi i1 [ true, %if.end4 ], [ false, %if.then ]
   ret i1 %retval.0
 }
 
@@ -28020,15 +28077,15 @@ entry:
   %defaults_.i = getelementptr inbounds i8, ptr %this, i64 24
   %current_size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i32, ptr %current_size_.i.i.i, align 8
-  %cmp3.i = icmp slt i32 %0, 1
-  br i1 %cmp3.i, label %_ZN6google8protobuf8internal17AllAreInitializedINS0_43FeatureSetDefaults_FeatureSetEditionDefaultEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit, label %for.body.preheader.i
+  %cmp4.i = icmp slt i32 %0, 1
+  br i1 %cmp4.i, label %_ZN6google8protobuf8internal17AllAreInitializedINS0_43FeatureSetDefaults_FeatureSetEditionDefaultEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %entry
   %1 = zext nneg i32 %0 to i64
   br label %for.body.i
 
-for.body.i:                                       ; preds = %for.cond.backedge.i, %for.body.preheader.i
-  %indvars.iv.i = phi i64 [ %1, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.cond.backedge.i ]
+for.body.i:                                       ; preds = %_ZNK6google8protobuf43FeatureSetDefaults_FeatureSetEditionDefault13IsInitializedEv.exit.i, %for.body.preheader.i
+  %indvars.iv.i = phi i64 [ %1, %for.body.preheader.i ], [ %indvars.iv.next.i, %_ZNK6google8protobuf43FeatureSetDefaults_FeatureSetEditionDefault13IsInitializedEv.exit.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %2 = load ptr, ptr %defaults_.i, align 8
   %3 = ptrtoint ptr %2 to i64
@@ -28044,21 +28101,21 @@ for.body.i:                                       ; preds = %for.cond.backedge.i
   %7 = load i32, ptr %6, align 4
   %and.i.i = and i32 %7, 1
   %cmp.not.i.i = icmp eq i32 %and.i.i, 0
-  br i1 %cmp.not.i.i, label %for.cond.backedge.i, label %if.then.i.i
+  br i1 %cmp.not.i.i, label %_ZNK6google8protobuf43FeatureSetDefaults_FeatureSetEditionDefault13IsInitializedEv.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i
   %features_.i.i = getelementptr inbounds i8, ptr %5, i64 24
   %8 = load ptr, ptr %features_.i.i, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 16
   %call2.i.i.i = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull @_ZN6google8protobuf29_FeatureSet_default_instance_E)
-  br i1 %call2.i.i.i, label %for.cond.backedge.i, label %_ZN6google8protobuf8internal17AllAreInitializedINS0_43FeatureSetDefaults_FeatureSetEditionDefaultEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit
+  br i1 %call2.i.i.i, label %_ZNK6google8protobuf43FeatureSetDefaults_FeatureSetEditionDefault13IsInitializedEv.exit.i, label %_ZN6google8protobuf8internal17AllAreInitializedINS0_43FeatureSetDefaults_FeatureSetEditionDefaultEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit
 
-for.cond.backedge.i:                              ; preds = %if.then.i.i, %for.body.i
+_ZNK6google8protobuf43FeatureSetDefaults_FeatureSetEditionDefault13IsInitializedEv.exit.i: ; preds = %if.then.i.i, %for.body.i
   %cmp.i = icmp ult i64 %indvars.iv.i, 2
   br i1 %cmp.i, label %_ZN6google8protobuf8internal17AllAreInitializedINS0_43FeatureSetDefaults_FeatureSetEditionDefaultEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit, label %for.body.i, !llvm.loop !169
 
-_ZN6google8protobuf8internal17AllAreInitializedINS0_43FeatureSetDefaults_FeatureSetEditionDefaultEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit: ; preds = %if.then.i.i, %for.cond.backedge.i, %entry
-  %cmp.lcssa.i = phi i1 [ true, %entry ], [ true, %for.cond.backedge.i ], [ false, %if.then.i.i ]
+_ZN6google8protobuf8internal17AllAreInitializedINS0_43FeatureSetDefaults_FeatureSetEditionDefaultEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit: ; preds = %if.then.i.i, %_ZNK6google8protobuf43FeatureSetDefaults_FeatureSetEditionDefault13IsInitializedEv.exit.i, %entry
+  %cmp.lcssa.i = phi i1 [ true, %entry ], [ true, %_ZNK6google8protobuf43FeatureSetDefaults_FeatureSetEditionDefault13IsInitializedEv.exit.i ], [ false, %if.then.i.i ]
   ret i1 %cmp.lcssa.i
 }
 

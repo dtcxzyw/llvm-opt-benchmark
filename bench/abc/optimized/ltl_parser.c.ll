@@ -1553,7 +1553,7 @@ tailrecurse.backedge:                             ; preds = %3, %tailrecurse
   br label %.loopexit
 
 .loopexit:                                        ; preds = %3, %tailrecurse, %.loopexit.loopexit
-  %.0 = phi i32 [ 0, %tailrecurse ], [ 0, %3 ], [ 1, %.loopexit.loopexit ]
+  %.0 = phi i32 [ 1, %.loopexit.loopexit ], [ 0, %tailrecurse ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -1603,7 +1603,7 @@ tailrecurse.backedge:                             ; preds = %3, %tailrecurse
   br label %.loopexit
 
 .loopexit:                                        ; preds = %3, %tailrecurse, %.loopexit.loopexit, %8, %12
-  %.0 = phi i32 [ %15, %12 ], [ 0, %8 ], [ 0, %tailrecurse ], [ 0, %3 ], [ 1, %.loopexit.loopexit ]
+  %.0 = phi i32 [ %15, %12 ], [ 0, %8 ], [ 1, %.loopexit.loopexit ], [ 0, %tailrecurse ], [ 0, %3 ]
   ret i32 %.0
 }
 

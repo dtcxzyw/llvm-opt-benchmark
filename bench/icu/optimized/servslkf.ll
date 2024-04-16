@@ -682,8 +682,8 @@ lpad:                                             ; preds = %land.rhs.i, %if.the
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %keyID) #9
   resume { ptr, i32 } %13
 
-return.sink.split:                                ; preds = %if.then.i, %invoke.cont9, %if.else.i, %if.then11
-  %retval.1.ph = phi ptr [ %call15, %if.then11 ], [ null, %if.else.i ], [ null, %invoke.cont9 ], [ null, %if.then.i ]
+return.sink.split:                                ; preds = %if.then11, %if.else.i, %if.then.i, %invoke.cont9
+  %retval.1.ph = phi ptr [ null, %invoke.cont9 ], [ null, %if.then.i ], [ null, %if.else.i ], [ %call15, %if.then11 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %keyID) #9
   br label %return
 

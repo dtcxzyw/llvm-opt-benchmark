@@ -575,16 +575,18 @@ entry:
   %call1 = tail call ptr @luaL_checklstring(ptr noundef %L, i32 noundef 2, ptr noundef null)
   %call2 = tail call noundef ptr @_ZN6InvRef7getlistEP9lua_StatePS_PKc(ptr noundef %L, ptr noundef %0, ptr noundef %call1)
   %tobool.not = icmp eq ptr %call2, null
-  br i1 %tobool.not, label %if.end, label %land.lhs.true
+  br i1 %tobool.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
   %call3 = tail call noundef i32 @_ZNK13InventoryList12getUsedSlotsEv(ptr noundef nonnull align 8 dereferenceable(80) %call2)
   %cmp.not = icmp eq i32 %call3, 0
-  %spec.select = zext i1 %cmp.not to i32
+  br i1 %cmp.not, label %if.else, label %if.end
+
+if.else:                                          ; preds = %land.lhs.true, %entry
   br label %if.end
 
-if.end:                                           ; preds = %land.lhs.true, %entry
-  %.sink = phi i32 [ 1, %entry ], [ %spec.select, %land.lhs.true ]
+if.end:                                           ; preds = %if.else, %land.lhs.true
+  %.sink = phi i32 [ 1, %if.else ], [ 0, %land.lhs.true ]
   tail call void @lua_pushboolean(ptr noundef %L, i32 noundef %.sink)
   ret i32 1
 }

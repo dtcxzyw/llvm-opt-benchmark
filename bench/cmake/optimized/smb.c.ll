@@ -136,13 +136,13 @@ define internal i32 @smb_do(ptr nocapture noundef readonly %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @smb_connect(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define internal noundef i32 @smb_connect(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 4904
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %36, label %7
+  br i1 %.not, label %37, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %4, i64 824
@@ -152,7 +152,7 @@ define internal i32 @smb_connect(ptr nocapture noundef readonly %0, ptr nocaptur
   %11 = getelementptr inbounds i8, ptr %4, i64 872
   store ptr %10, ptr %11, align 8
   %.not27 = icmp eq ptr %10, null
-  br i1 %.not27, label %36, label %12
+  br i1 %.not27, label %37, label %12
 
 12:                                               ; preds = %7
   tail call void @Curl_conncontrol(ptr noundef nonnull %4, i32 noundef 0) #12
@@ -177,7 +177,7 @@ define internal i32 @smb_connect(ptr nocapture noundef readonly %0, ptr nocaptur
   %22 = getelementptr inbounds i8, ptr %4, i64 840
   store ptr %21, ptr %22, align 8
   %.not31 = icmp eq ptr %21, null
-  br i1 %.not31, label %36, label %23
+  br i1 %.not31, label %37, label %23
 
 23:                                               ; preds = %.thread
   %24 = load ptr, ptr %13, align 8
@@ -198,11 +198,13 @@ define internal i32 @smb_connect(ptr nocapture noundef readonly %0, ptr nocaptur
   %35 = getelementptr inbounds i8, ptr %4, i64 840
   store ptr %34, ptr %35, align 8
   %.not30 = icmp eq ptr %34, null
-  %spec.select = select i1 %.not30, i32 27, i32 0
-  br label %36
+  br i1 %.not30, label %37, label %36
 
-36:                                               ; preds = %29, %23, %.thread, %7, %2
-  %.024 = phi i32 [ 67, %2 ], [ 27, %7 ], [ 27, %.thread ], [ 0, %23 ], [ %spec.select, %29 ]
+36:                                               ; preds = %29, %23
+  br label %37
+
+37:                                               ; preds = %29, %.thread, %7, %2, %36
+  %.024 = phi i32 [ 0, %36 ], [ 67, %2 ], [ 27, %7 ], [ 27, %.thread ], [ 27, %29 ]
   ret i32 %.024
 }
 

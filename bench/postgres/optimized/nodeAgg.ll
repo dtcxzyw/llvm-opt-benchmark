@@ -1817,7 +1817,7 @@ switch.lookup:                                    ; preds = %847
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ExecAgg(ptr noundef %0) #1 {
+define internal noundef ptr @ExecAgg(ptr noundef %0) #1 {
   %2 = alloca i8, align 1
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
@@ -2609,7 +2609,7 @@ prepare_projection_slot.exit.i:                   ; preds = %400, %.lr.ph.i.i, %
 
 ExecQual.exit.thread.i.i:                         ; preds = %prepare_projection_slot.exit.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  br label %agg_retrieve_direct.exit.thread19
+  br label %.thread
 
 ExecQual.exit.i.i:                                ; preds = %prepare_projection_slot.exit.i
   %411 = getelementptr inbounds i8, ptr %408, i64 40
@@ -2622,9 +2622,9 @@ ExecQual.exit.i.i:                                ; preds = %prepare_projection_
   store ptr %413, ptr @CurrentMemoryContext, align 8
   %.not9.i.i = icmp eq i64 %416, 0
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  br i1 %.not9.i.i, label %442, label %agg_retrieve_direct.exit.thread19
+  br i1 %.not9.i.i, label %442, label %.thread
 
-agg_retrieve_direct.exit.thread19:                ; preds = %ExecQual.exit.i.i, %ExecQual.exit.thread.i.i
+.thread:                                          ; preds = %ExecQual.exit.i.i, %ExecQual.exit.thread.i.i
   %417 = getelementptr inbounds i8, ptr %0, i64 136
   %418 = load ptr, ptr %417, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
@@ -2657,7 +2657,7 @@ agg_retrieve_direct.exit.thread19:                ; preds = %ExecQual.exit.i.i, 
   %441 = getelementptr inbounds i8, ptr %423, i64 6
   store i16 %440, ptr %441, align 2
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
-  br label %agg_retrieve_direct.exit.thread
+  br label %453
 
 442:                                              ; preds = %ExecQual.exit.i.i
   %443 = load ptr, ptr %87, align 8
@@ -2674,18 +2674,20 @@ agg_retrieve_direct.exit.thread19:                ; preds = %ExecQual.exit.i.i, 
 agg_retrieve_direct.exit:                         ; preds = %14, %agg_fill_hash_table.exit, %18, %initialize_phase.exit.i
   %448 = call fastcc ptr @agg_retrieve_hash_table(ptr noundef nonnull %0)
   %449 = icmp eq ptr %448, null
-  br i1 %449, label %agg_retrieve_direct.exit.thread, label %agg_retrieve_direct.exit._crit_edge
+  br i1 %449, label %agg_retrieve_direct.exit.thread, label %450
 
-agg_retrieve_direct.exit._crit_edge:              ; preds = %agg_retrieve_direct.exit
+450:                                              ; preds = %agg_retrieve_direct.exit
   %.phi.trans.insert = getelementptr inbounds i8, ptr %448, i64 4
   %.pre = load i16, ptr %.phi.trans.insert, align 4
-  %450 = and i16 %.pre, 2
-  %451 = icmp eq i16 %450, 0
-  %452 = select i1 %451, ptr %448, ptr null
-  br label %agg_retrieve_direct.exit.thread
+  %451 = and i16 %.pre, 2
+  %452 = icmp eq i16 %451, 0
+  br i1 %452, label %453, label %agg_retrieve_direct.exit.thread
 
-agg_retrieve_direct.exit.thread:                  ; preds = %209, %.backedge.i, %agg_retrieve_direct.exit.thread19, %agg_retrieve_direct.exit._crit_edge, %132, %14, %10, %agg_retrieve_direct.exit
-  %.011 = phi ptr [ null, %agg_retrieve_direct.exit ], [ null, %10 ], [ null, %14 ], [ null, %132 ], [ %423, %agg_retrieve_direct.exit.thread19 ], [ %452, %agg_retrieve_direct.exit._crit_edge ], [ null, %.backedge.i ], [ null, %209 ]
+agg_retrieve_direct.exit.thread:                  ; preds = %209, %.backedge.i, %132, %14, %agg_retrieve_direct.exit, %450, %10
+  br label %453
+
+453:                                              ; preds = %.thread, %450, %agg_retrieve_direct.exit.thread
+  %.011 = phi ptr [ null, %agg_retrieve_direct.exit.thread ], [ %448, %450 ], [ %423, %.thread ]
   ret ptr %.011
 }
 

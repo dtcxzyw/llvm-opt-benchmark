@@ -457,13 +457,13 @@ define zeroext i1 @phpdbg_match_param(ptr noundef readonly %0, ptr noundef reado
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
-  br i1 %or.cond, label %5, label %87
+  br i1 %or.cond, label %5, label %86
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %0, align 8
   %7 = load i32, ptr %1, align 8
   %8 = icmp eq i32 %6, %7
-  br i1 %8, label %9, label %87
+  br i1 %8, label %9, label %86
 
 9:                                                ; preds = %5
   switch i32 %6, label %86 [
@@ -484,7 +484,7 @@ define zeroext i1 @phpdbg_match_param(ptr noundef readonly %0, ptr noundef reado
   %13 = getelementptr inbounds i8, ptr %1, i64 8
   %14 = load i64, ptr %13, align 8
   %.not55 = icmp eq i64 %12, %14
-  br i1 %.not55, label %15, label %87
+  br i1 %.not55, label %15, label %86
 
 15:                                               ; preds = %10, %9
   %16 = getelementptr inbounds i8, ptr %0, i64 64
@@ -525,7 +525,7 @@ define zeroext i1 @phpdbg_match_param(ptr noundef readonly %0, ptr noundef reado
   %42 = getelementptr inbounds i8, ptr %1, i64 32
   %43 = load i64, ptr %42, align 8
   %44 = icmp eq i64 %41, %43
-  br i1 %44, label %45, label %87
+  br i1 %44, label %45, label %86
 
 45:                                               ; preds = %39
   %46 = getelementptr inbounds i8, ptr %1, i64 24
@@ -535,7 +535,7 @@ define zeroext i1 @phpdbg_match_param(ptr noundef readonly %0, ptr noundef reado
   %50 = load ptr, ptr %46, align 8
   %51 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %50) #23
   %52 = icmp eq i64 %49, %51
-  br i1 %52, label %53, label %87
+  br i1 %52, label %53, label %86
 
 53:                                               ; preds = %45
   %54 = getelementptr inbounds i8, ptr %0, i64 8
@@ -547,7 +547,7 @@ define zeroext i1 @phpdbg_match_param(ptr noundef readonly %0, ptr noundef reado
   %or.cond57 = select i1 %.not52, i1 %.not53, i1 false
   %58 = icmp eq i64 %55, %57
   %or.cond58 = select i1 %or.cond57, i1 true, i1 %58
-  br i1 %or.cond58, label %59, label %87
+  br i1 %or.cond58, label %59, label %86
 
 59:                                               ; preds = %53
   %bcmp54 = tail call i32 @bcmp(ptr %48, ptr %50, i64 %49)
@@ -560,7 +560,7 @@ define zeroext i1 @phpdbg_match_param(ptr noundef readonly %0, ptr noundef reado
   %64 = getelementptr inbounds i8, ptr %1, i64 8
   %65 = load i64, ptr %64, align 8
   %.not = icmp eq i64 %63, %65
-  br i1 %.not, label %66, label %87
+  br i1 %.not, label %66, label %86
 
 66:                                               ; preds = %61, %9
   %67 = getelementptr inbounds i8, ptr %0, i64 40
@@ -570,12 +570,12 @@ define zeroext i1 @phpdbg_match_param(ptr noundef readonly %0, ptr noundef reado
   %71 = load ptr, ptr %70, align 8
   %72 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %71) #23
   %73 = icmp eq i64 %69, %72
-  br i1 %73, label %74, label %87
+  br i1 %73, label %74, label %86
 
 74:                                               ; preds = %66
   %bcmp = tail call i32 @bcmp(ptr %68, ptr %71, i64 %69)
   %75 = icmp eq i32 %bcmp, 0
-  br i1 %75, label %76, label %87
+  br i1 %75, label %76, label %86
 
 76:                                               ; preds = %74
   %77 = getelementptr inbounds i8, ptr %0, i64 48
@@ -585,18 +585,18 @@ define zeroext i1 @phpdbg_match_param(ptr noundef readonly %0, ptr noundef reado
   %81 = load ptr, ptr %80, align 8
   %82 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %81) #23
   %83 = icmp eq i64 %79, %82
-  br i1 %83, label %84, label %87
+  br i1 %83, label %84, label %86
 
 84:                                               ; preds = %76
   %bcmp51 = tail call i32 @bcmp(ptr %78, ptr %81, i64 %79)
   %85 = icmp eq i32 %bcmp51, 0
   br label %87
 
-86:                                               ; preds = %9
+86:                                               ; preds = %53, %5, %9, %66, %76, %74, %61, %39, %45, %10, %2
   br label %87
 
-87:                                               ; preds = %53, %2, %10, %45, %39, %61, %74, %76, %66, %5, %9, %15, %21, %9, %86, %84, %59, %33, %27
-  %.0 = phi i1 [ %85, %84 ], [ %60, %59 ], [ %38, %33 ], [ %32, %27 ], [ true, %9 ], [ false, %15 ], [ %26, %21 ], [ true, %9 ], [ false, %5 ], [ false, %66 ], [ false, %76 ], [ false, %74 ], [ false, %61 ], [ false, %39 ], [ false, %45 ], [ false, %10 ], [ false, %2 ], [ false, %86 ], [ false, %53 ]
+87:                                               ; preds = %9, %15, %21, %9, %86, %84, %59, %33, %27
+  %.0 = phi i1 [ false, %86 ], [ %85, %84 ], [ %60, %59 ], [ %38, %33 ], [ %32, %27 ], [ true, %9 ], [ false, %15 ], [ %26, %21 ], [ true, %9 ]
   ret i1 %.0
 }
 

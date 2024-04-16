@@ -4640,29 +4640,29 @@ define internal fastcc void @lbmr_tap_queue_packet(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @lbmr_match_packet(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #2 {
+define internal fastcc noundef i32 @lbmr_match_packet(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 232
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 2
-  br i1 %.not, label %5, label %100
+  br i1 %.not, label %5, label %102
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 236
   %7 = load i32, ptr %6, align 4
   %.not41 = icmp eq i32 %7, 4
-  br i1 %.not41, label %8, label %100
+  br i1 %.not41, label %8, label %102
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %0, i64 208
   %10 = load i32, ptr %9, align 8
   %.not42 = icmp eq i32 %10, 2
-  br i1 %.not42, label %11, label %100
+  br i1 %.not42, label %11, label %102
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds i8, ptr %0, i64 212
   %13 = load i32, ptr %12, align 4
   %.not43 = icmp eq i32 %13, 4
-  br i1 %.not43, label %14, label %100
+  br i1 %.not43, label %14, label %102
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds i8, ptr %0, i64 240
@@ -4686,7 +4686,7 @@ define internal fastcc i32 @lbmr_match_packet(ptr nocapture noundef readonly %0,
   %33 = or disjoint i32 %32, %27
   %34 = and i32 %18, 240
   %35 = icmp eq i32 %34, 224
-  br i1 %35, label %36, label %53
+  br i1 %35, label %36, label %54
 
 36:                                               ; preds = %14
   %37 = getelementptr inbounds i8, ptr %1, i64 24
@@ -4698,7 +4698,7 @@ define internal fastcc i32 @lbmr_match_packet(ptr nocapture noundef readonly %0,
   %40 = getelementptr inbounds i8, ptr %1, i64 40
   %41 = load i32, ptr %40, align 8
   %.not49 = icmp eq i32 %33, %41
-  br i1 %.not49, label %.thread, label %100
+  br i1 %.not49, label %.thread, label %102
 
 42:                                               ; preds = %36
   %43 = getelementptr inbounds i8, ptr %0, i64 288
@@ -4706,13 +4706,13 @@ define internal fastcc i32 @lbmr_match_packet(ptr nocapture noundef readonly %0,
   %45 = getelementptr inbounds i8, ptr %1, i64 12
   %46 = load i32, ptr %45, align 4
   %.not50 = icmp eq i32 %44, %46
-  br i1 %.not50, label %47, label %100
+  br i1 %.not50, label %47, label %102
 
 47:                                               ; preds = %42
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 40
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   %48 = icmp eq i32 %33, %.pre
-  br i1 %48, label %.thread, label %100
+  br i1 %48, label %.thread, label %53
 
 .thread:                                          ; preds = %39, %47
   %49 = getelementptr inbounds i8, ptr %0, i64 288
@@ -4720,78 +4720,83 @@ define internal fastcc i32 @lbmr_match_packet(ptr nocapture noundef readonly %0,
   %51 = getelementptr inbounds i8, ptr %1, i64 8
   %52 = load i32, ptr %51, align 8
   %.not51 = icmp eq i32 %50, %52
-  br label %100
+  br i1 %.not51, label %53, label %102
 
-53:                                               ; preds = %14
-  %54 = getelementptr inbounds i8, ptr %0, i64 216
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr i8, ptr %55, i64 1
-  %57 = load i8, ptr %56, align 1
-  %58 = zext i8 %57 to i32
-  %59 = shl nuw nsw i32 %58, 16
-  %60 = load i8, ptr %55, align 1
-  %61 = zext i8 %60 to i32
-  %62 = shl nuw i32 %61, 24
-  %63 = or disjoint i32 %62, %59
-  %64 = getelementptr i8, ptr %55, i64 2
-  %65 = load i8, ptr %64, align 1
-  %66 = zext i8 %65 to i32
-  %67 = shl nuw nsw i32 %66, 8
-  %68 = or disjoint i32 %63, %67
-  %69 = getelementptr i8, ptr %55, i64 3
-  %70 = load i8, ptr %69, align 1
-  %71 = zext i8 %70 to i32
-  %72 = or disjoint i32 %68, %71
-  %73 = getelementptr inbounds i8, ptr %1, i64 64
-  %74 = load i32, ptr %73, align 8
-  %75 = icmp eq i32 %74, 0
-  %76 = icmp eq i32 %74, %33
-  %or.cond = select i1 %75, i1 true, i1 %76
-  %77 = icmp eq i32 %74, %72
-  %or.cond52 = select i1 %or.cond, i1 true, i1 %77
-  br i1 %or.cond52, label %78, label %100
+53:                                               ; preds = %.thread, %47
+  br label %102
 
-78:                                               ; preds = %53
-  %79 = getelementptr inbounds i8, ptr %0, i64 288
-  %80 = load i32, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %1, i64 52
-  %82 = load i32, ptr %81, align 4
-  %83 = icmp eq i32 %80, %82
-  br i1 %83, label %88, label %84
+54:                                               ; preds = %14
+  %55 = getelementptr inbounds i8, ptr %0, i64 216
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr i8, ptr %56, i64 1
+  %58 = load i8, ptr %57, align 1
+  %59 = zext i8 %58 to i32
+  %60 = shl nuw nsw i32 %59, 16
+  %61 = load i8, ptr %56, align 1
+  %62 = zext i8 %61 to i32
+  %63 = shl nuw i32 %62, 24
+  %64 = or disjoint i32 %63, %60
+  %65 = getelementptr i8, ptr %56, i64 2
+  %66 = load i8, ptr %65, align 1
+  %67 = zext i8 %66 to i32
+  %68 = shl nuw nsw i32 %67, 8
+  %69 = or disjoint i32 %64, %68
+  %70 = getelementptr i8, ptr %56, i64 3
+  %71 = load i8, ptr %70, align 1
+  %72 = zext i8 %71 to i32
+  %73 = or disjoint i32 %69, %72
+  %74 = getelementptr inbounds i8, ptr %1, i64 64
+  %75 = load i32, ptr %74, align 8
+  %76 = icmp eq i32 %75, 0
+  %77 = icmp eq i32 %75, %33
+  %or.cond = select i1 %76, i1 true, i1 %77
+  %78 = icmp eq i32 %75, %73
+  %or.cond52 = select i1 %or.cond, i1 true, i1 %78
+  br i1 %or.cond52, label %79, label %101
 
-84:                                               ; preds = %78
-  %85 = getelementptr inbounds i8, ptr %0, i64 284
-  %86 = load i32, ptr %85, align 4
-  %87 = icmp eq i32 %86, %82
-  br i1 %87, label %88, label %100
+79:                                               ; preds = %54
+  %80 = getelementptr inbounds i8, ptr %0, i64 288
+  %81 = load i32, ptr %80, align 8
+  %82 = getelementptr inbounds i8, ptr %1, i64 52
+  %83 = load i32, ptr %82, align 4
+  %84 = icmp eq i32 %81, %83
+  br i1 %84, label %89, label %85
 
-88:                                               ; preds = %84, %78
-  %89 = getelementptr inbounds i8, ptr %1, i64 44
-  %90 = load i32, ptr %89, align 4
-  %.not44 = icmp ugt i32 %80, %90
-  br i1 %.not44, label %94, label %91
+85:                                               ; preds = %79
+  %86 = getelementptr inbounds i8, ptr %0, i64 284
+  %87 = load i32, ptr %86, align 4
+  %88 = icmp eq i32 %87, %83
+  br i1 %88, label %89, label %101
 
-91:                                               ; preds = %88
-  %92 = getelementptr inbounds i8, ptr %1, i64 48
-  %93 = load i32, ptr %92, align 8
-  %.not45 = icmp ult i32 %80, %93
-  br i1 %.not45, label %94, label %100
+89:                                               ; preds = %85, %79
+  %90 = getelementptr inbounds i8, ptr %1, i64 44
+  %91 = load i32, ptr %90, align 4
+  %.not44 = icmp ugt i32 %81, %91
+  br i1 %.not44, label %95, label %92
 
-94:                                               ; preds = %91, %88
-  %95 = getelementptr inbounds i8, ptr %0, i64 284
-  %96 = load i32, ptr %95, align 4
-  %.not46 = icmp ugt i32 %96, %90
-  br i1 %.not46, label %100, label %97
+92:                                               ; preds = %89
+  %93 = getelementptr inbounds i8, ptr %1, i64 48
+  %94 = load i32, ptr %93, align 8
+  %.not45 = icmp ult i32 %81, %94
+  br i1 %.not45, label %95, label %102
 
-97:                                               ; preds = %94
-  %98 = getelementptr inbounds i8, ptr %1, i64 48
-  %99 = load i32, ptr %98, align 8
-  %.not47 = icmp uge i32 %96, %99
-  br label %100
+95:                                               ; preds = %92, %89
+  %96 = getelementptr inbounds i8, ptr %0, i64 284
+  %97 = load i32, ptr %96, align 4
+  %.not46 = icmp ugt i32 %97, %91
+  br i1 %.not46, label %101, label %98
 
-100:                                              ; preds = %97, %.thread, %84, %94, %53, %91, %47, %42, %39, %2, %5, %8, %11
-  %.0.shrunk = phi i1 [ false, %11 ], [ false, %8 ], [ false, %5 ], [ false, %2 ], [ false, %39 ], [ false, %42 ], [ true, %47 ], [ true, %91 ], [ false, %53 ], [ false, %94 ], [ false, %84 ], [ %.not51, %.thread ], [ %.not47, %97 ]
-  %.0 = zext i1 %.0.shrunk to i32
+98:                                               ; preds = %95
+  %99 = getelementptr inbounds i8, ptr %1, i64 48
+  %100 = load i32, ptr %99, align 8
+  %.not47 = icmp ult i32 %97, %100
+  br i1 %.not47, label %101, label %102
+
+101:                                              ; preds = %54, %98, %95, %85
+  br label %102
+
+102:                                              ; preds = %92, %98, %.thread, %42, %39, %2, %5, %8, %11, %101, %53
+  %.0 = phi i32 [ 1, %53 ], [ 0, %101 ], [ 0, %11 ], [ 0, %8 ], [ 0, %5 ], [ 0, %2 ], [ 0, %39 ], [ 0, %42 ], [ 0, %.thread ], [ 1, %98 ], [ 1, %92 ]
   ret i32 %.0
 }
 

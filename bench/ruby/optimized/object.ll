@@ -1945,18 +1945,18 @@ define dso_local noundef i64 @rb_obj_frozen_p(i64 noundef %0) local_unnamed_addr
   %8 = load i64, ptr %7, align 8
   %.fr3 = freeze i64 %8
   %9 = and i64 %.fr3, 31
-  %10 = icmp eq i64 %9, 27
-  br i1 %10, label %RB_OBJ_FROZEN.exit.thread, label %RB_OBJ_FROZEN.exit
-
-RB_OBJ_FROZEN.exit:                               ; preds = %6
+  %10 = icmp ne i64 %9, 27
   %11 = and i64 %.fr3, 2048
   %.not = icmp eq i64 %11, 0
-  %spec.select = select i1 %.not, i64 0, i64 20
-  br label %RB_OBJ_FROZEN.exit.thread
+  %or.cond = and i1 %10, %.not
+  br i1 %or.cond, label %12, label %RB_OBJ_FROZEN.exit.thread
 
-RB_OBJ_FROZEN.exit.thread:                        ; preds = %RB_OBJ_FROZEN.exit, %6, %1
-  %12 = phi i64 [ 20, %1 ], [ 20, %6 ], [ %spec.select, %RB_OBJ_FROZEN.exit ]
-  ret i64 %12
+RB_OBJ_FROZEN.exit.thread:                        ; preds = %6, %1
+  br label %12
+
+12:                                               ; preds = %6, %RB_OBJ_FROZEN.exit.thread
+  %13 = phi i64 [ 20, %RB_OBJ_FROZEN.exit.thread ], [ 0, %6 ]
+  ret i64 %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
@@ -4447,11 +4447,11 @@ rb_float_new_inline.exit:                         ; preds = %19, %23, %25
 
 29:                                               ; preds = %27
   %.not = icmp eq i32 %1, 0
-  br i1 %.not, label %70, label %30
+  br i1 %.not, label %69, label %30
 
 30:                                               ; preds = %29
   tail call fastcc void @conversion_to_float(i64 noundef %3)
-  br label %70
+  br label %69
 
 31:                                               ; preds = %2
   %32 = inttoptr i64 %3 to ptr
@@ -4534,11 +4534,11 @@ rb_float_new_inline.exit21:                       ; preds = %60, %64, %66
 68:                                               ; preds = %31
   br label %70
 
-69:                                               ; preds = %31
+69:                                               ; preds = %31, %29, %30
   br label %70
 
-70:                                               ; preds = %30, %29, %31, %27, %69, %68, %rb_float_new_inline.exit21, %rb_float_new_inline.exit17, %rb_float_new_inline.exit
-  %.0 = phi i32 [ 4, %rb_float_new_inline.exit ], [ 5, %68 ], [ 4, %rb_float_new_inline.exit21 ], [ 4, %rb_float_new_inline.exit17 ], [ 4, %27 ], [ %35, %31 ], [ 0, %29 ], [ 0, %30 ], [ 0, %69 ]
+70:                                               ; preds = %31, %27, %69, %68, %rb_float_new_inline.exit21, %rb_float_new_inline.exit17, %rb_float_new_inline.exit
+  %.0 = phi i32 [ 4, %rb_float_new_inline.exit ], [ 0, %69 ], [ 5, %68 ], [ 4, %rb_float_new_inline.exit21 ], [ 4, %rb_float_new_inline.exit17 ], [ 4, %27 ], [ %35, %31 ]
   ret i32 %.0
 }
 
@@ -5679,9 +5679,9 @@ define internal i64 @rb_obj_not_match(i64 noundef %0, i64 noundef %1) #2 {
 declare i64 @rb_obj_hash(i64 noundef) #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @rb_obj_cmp(i64 noundef %0, i64 noundef %1) #2 {
+define internal noundef i64 @rb_obj_cmp(i64 noundef %0, i64 noundef %1) #2 {
   %3 = icmp eq i64 %0, %1
-  br i1 %3, label %rb_equal.exit, label %4
+  br i1 %3, label %rb_equal.exit.thread, label %4
 
 4:                                                ; preds = %2
   %5 = tail call i64 @rb_equal_opt(i64 noundef %0, i64 noundef %1) #20
@@ -5696,11 +5696,13 @@ define internal i64 @rb_obj_cmp(i64 noundef %0, i64 noundef %1) #2 {
   %.0.i = phi i64 [ %8, %7 ], [ %5, %4 ]
   %10 = and i64 %.0.i, -5
   %.not.i = icmp eq i64 %10, 0
-  %spec.select = select i1 %.not.i, i64 4, i64 1
+  br i1 %.not.i, label %rb_equal.exit, label %rb_equal.exit.thread
+
+rb_equal.exit.thread:                             ; preds = %9, %2
   br label %rb_equal.exit
 
-rb_equal.exit:                                    ; preds = %9, %2
-  %11 = phi i64 [ 1, %2 ], [ %spec.select, %9 ]
+rb_equal.exit:                                    ; preds = %9, %rb_equal.exit.thread
+  %11 = phi i64 [ 1, %rb_equal.exit.thread ], [ 4, %9 ]
   ret i64 %11
 }
 
@@ -7822,24 +7824,24 @@ define internal noundef i64 @builtin_inline_class_69(ptr nocapture readnone %0, 
   %4 = icmp ne i64 %3, 0
   %5 = icmp eq i64 %1, 0
   %6 = or i1 %5, %4
-  br i1 %6, label %rb_obj_frozen_p.exit, label %7
+  br i1 %6, label %RB_OBJ_FROZEN.exit.thread.i, label %7
 
 7:                                                ; preds = %2
   %8 = inttoptr i64 %1 to ptr
   %9 = load i64, ptr %8, align 8
   %.fr3.i = freeze i64 %9
   %10 = and i64 %.fr3.i, 31
-  %11 = icmp eq i64 %10, 27
-  br i1 %11, label %rb_obj_frozen_p.exit, label %RB_OBJ_FROZEN.exit.i
-
-RB_OBJ_FROZEN.exit.i:                             ; preds = %7
+  %11 = icmp ne i64 %10, 27
   %12 = and i64 %.fr3.i, 2048
   %.not.i = icmp eq i64 %12, 0
-  %spec.select.i = select i1 %.not.i, i64 0, i64 20
+  %or.cond.i = and i1 %11, %.not.i
+  br i1 %or.cond.i, label %rb_obj_frozen_p.exit, label %RB_OBJ_FROZEN.exit.thread.i
+
+RB_OBJ_FROZEN.exit.thread.i:                      ; preds = %7, %2
   br label %rb_obj_frozen_p.exit
 
-rb_obj_frozen_p.exit:                             ; preds = %2, %7, %RB_OBJ_FROZEN.exit.i
-  %13 = phi i64 [ 20, %2 ], [ 20, %7 ], [ %spec.select.i, %RB_OBJ_FROZEN.exit.i ]
+rb_obj_frozen_p.exit:                             ; preds = %7, %RB_OBJ_FROZEN.exit.thread.i
+  %13 = phi i64 [ 20, %RB_OBJ_FROZEN.exit.thread.i ], [ 0, %7 ]
   ret i64 %13
 }
 

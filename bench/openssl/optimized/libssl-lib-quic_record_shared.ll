@@ -28,18 +28,20 @@ if.end:                                           ; preds = %entry
   %idxprom = zext nneg i32 %enc_level to i64
   %arrayidx = getelementptr inbounds [4 x %struct.ossl_qrl_enc_level_st], ptr %els, i64 0, i64 %idxprom
   %tobool6.not = icmp eq i32 %require_prov, 0
-  br i1 %tobool6.not, label %return, label %if.then7
+  br i1 %tobool6.not, label %if.end9, label %if.then7
 
 if.then7:                                         ; preds = %if.end
   %state = getelementptr inbounds i8, ptr %arrayidx, i64 104
   %0 = load i8, ptr %state, align 8
   %.off = add i8 %0, -1
   %switch = icmp ult i8 %.off, 3
-  %spec.select = select i1 %switch, ptr %arrayidx, ptr null
+  br i1 %switch, label %if.end9, label %return
+
+if.end9:                                          ; preds = %if.then7, %if.end
   br label %return
 
-return:                                           ; preds = %if.then7, %if.end, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ %arrayidx, %if.end ], [ %spec.select, %if.then7 ]
+return:                                           ; preds = %if.then7, %entry, %if.end9
+  %retval.0 = phi ptr [ %arrayidx, %if.end9 ], [ null, %entry ], [ null, %if.then7 ]
   ret ptr %retval.0
 }
 

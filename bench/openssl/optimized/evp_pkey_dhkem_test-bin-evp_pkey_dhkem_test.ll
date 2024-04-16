@@ -971,7 +971,7 @@ err:                                              ; preds = %if.end34, %if.end24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_nopublic(i32 noundef %tstid) #0 {
+define internal noundef i32 @test_nopublic(i32 noundef %tstid) #0 {
 entry:
   %and = and i32 %tstid, 1
   %cmp = icmp eq i32 %and, 0
@@ -1005,19 +1005,18 @@ if.then14:                                        ; preds = %if.end12
   %call15 = tail call i32 @EVP_PKEY_encapsulate_init(ptr noundef %call8, ptr noundef nonnull @opparam) #5
   %call16 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.3, i32 noundef 411, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.97, i32 noundef %call15, i32 noundef %conv2) #5
   %tobool17.not = icmp eq i32 %call16, 0
-  %brmerge12 = or i1 %cmp1, %tobool17.not
-  %not.tobool17.not = xor i1 %tobool17.not, true
-  br i1 %brmerge12, label %err, label %land.lhs.true
+  br i1 %tobool17.not, label %err, label %if.end25
 
 if.else:                                          ; preds = %if.end12
   %call20 = tail call i32 @EVP_PKEY_decapsulate_init(ptr noundef %call8, ptr noundef nonnull @opparam) #5
   %call21 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.3, i32 noundef 414, ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.97, i32 noundef %call20, i32 noundef %conv2) #5
   %tobool22.not = icmp eq i32 %call21, 0
-  %brmerge = or i1 %cmp1, %tobool22.not
-  %not.tobool22.not = xor i1 %tobool22.not, true
-  br i1 %brmerge, label %err, label %land.lhs.true
+  br i1 %tobool22.not, label %err, label %if.end25
 
-land.lhs.true:                                    ; preds = %if.then14, %if.else
+if.end25:                                         ; preds = %if.else, %if.then14
+  br i1 %cmp1, label %if.end33, label %land.lhs.true
+
+land.lhs.true:                                    ; preds = %if.end25
   %call28 = tail call i64 @ERR_get_error() #5
   %and.i = and i64 %call28, 2147483648
   %cmp.not.i = icmp eq i64 %and.i, 0
@@ -1025,20 +1024,22 @@ land.lhs.true:                                    ; preds = %if.then14, %if.else
   %retval.0.v.i = select i1 %cmp.not.i, i32 8388607, i32 2147483647
   %retval.0.i = and i32 %retval.0.v.i, %4
   %call30 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.3, i32 noundef 418, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef %retval.0.i, i32 noundef 220) #5
-  %tobool31.not = icmp ne i32 %call30, 0
+  %tobool31.not = icmp eq i32 %call30, 0
+  br i1 %tobool31.not, label %err, label %if.end33
+
+if.end33:                                         ; preds = %land.lhs.true, %if.end25
   br label %err
 
-err:                                              ; preds = %land.lhs.true, %if.then14, %if.else, %if.end, %entry
-  %ctx.0 = phi ptr [ %call8, %if.then14 ], [ %call8, %if.else ], [ %call8, %if.end ], [ null, %entry ], [ %call8, %land.lhs.true ]
-  %ret.0.shrunk = phi i1 [ %not.tobool17.not, %if.then14 ], [ %not.tobool22.not, %if.else ], [ false, %if.end ], [ false, %entry ], [ %tobool31.not, %land.lhs.true ]
-  %ret.0 = zext i1 %ret.0.shrunk to i32
+err:                                              ; preds = %land.lhs.true, %if.else, %if.then14, %if.end, %entry, %if.end33
+  %ctx.0 = phi ptr [ %call8, %if.end33 ], [ %call8, %land.lhs.true ], [ %call8, %if.then14 ], [ %call8, %if.else ], [ %call8, %if.end ], [ null, %entry ]
+  %ret.0 = phi i32 [ 1, %if.end33 ], [ 0, %land.lhs.true ], [ 0, %if.then14 ], [ 0, %if.else ], [ 0, %if.end ], [ 0, %entry ]
   tail call void @EVP_PKEY_free(ptr noundef %call) #5
   tail call void @EVP_PKEY_CTX_free(ptr noundef %ctx.0) #5
   ret i32 %ret.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_noauthpublic(i32 noundef %tstid) #0 {
+define internal noundef i32 @test_noauthpublic(i32 noundef %tstid) #0 {
 entry:
   %and = and i32 %tstid, 1
   %cmp = icmp eq i32 %and, 0
@@ -1067,19 +1068,18 @@ if.then12:                                        ; preds = %if.end
   %call13 = tail call i32 @EVP_PKEY_auth_encapsulate_init(ptr noundef %0, ptr noundef %call, ptr noundef nonnull @opparam) #5
   %call14 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.3, i32 noundef 445, ptr noundef nonnull @.str.101, ptr noundef nonnull @.str.97, i32 noundef %call13, i32 noundef %conv2) #5
   %tobool15.not = icmp eq i32 %call14, 0
-  %brmerge14 = or i1 %cmp1, %tobool15.not
-  %not.tobool15.not = xor i1 %tobool15.not, true
-  br i1 %brmerge14, label %err, label %land.lhs.true
+  br i1 %tobool15.not, label %err, label %if.end23
 
 if.else:                                          ; preds = %if.end
   %call18 = tail call i32 @EVP_PKEY_auth_decapsulate_init(ptr noundef %0, ptr noundef %call, ptr noundef nonnull @opparam) #5
   %call19 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.3, i32 noundef 449, ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.97, i32 noundef %call18, i32 noundef %conv2) #5
   %tobool20.not = icmp eq i32 %call19, 0
-  %brmerge = or i1 %cmp1, %tobool20.not
-  %not.tobool20.not = xor i1 %tobool20.not, true
-  br i1 %brmerge, label %err, label %land.lhs.true
+  br i1 %tobool20.not, label %err, label %if.end23
 
-land.lhs.true:                                    ; preds = %if.then12, %if.else
+if.end23:                                         ; preds = %if.else, %if.then12
+  br i1 %cmp1, label %if.end31, label %land.lhs.true
+
+land.lhs.true:                                    ; preds = %if.end23
   %call26 = tail call i64 @ERR_get_error() #5
   %and.i = and i64 %call26, 2147483648
   %cmp.not.i = icmp eq i64 %and.i, 0
@@ -1087,12 +1087,14 @@ land.lhs.true:                                    ; preds = %if.then12, %if.else
   %retval.0.v.i = select i1 %cmp.not.i, i32 8388607, i32 2147483647
   %retval.0.i = and i32 %retval.0.v.i, %4
   %call28 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.3, i32 noundef 454, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef %retval.0.i, i32 noundef 220) #5
-  %tobool29.not = icmp ne i32 %call28, 0
+  %tobool29.not = icmp eq i32 %call28, 0
+  br i1 %tobool29.not, label %err, label %if.end31
+
+if.end31:                                         ; preds = %land.lhs.true, %if.end23
   br label %err
 
-err:                                              ; preds = %land.lhs.true, %if.then12, %if.else, %entry
-  %ret.0.shrunk = phi i1 [ %not.tobool15.not, %if.then12 ], [ %not.tobool20.not, %if.else ], [ false, %entry ], [ %tobool29.not, %land.lhs.true ]
-  %ret.0 = zext i1 %ret.0.shrunk to i32
+err:                                              ; preds = %land.lhs.true, %if.else, %if.then12, %entry, %if.end31
+  %ret.0 = phi i32 [ 1, %if.end31 ], [ 0, %land.lhs.true ], [ 0, %if.then12 ], [ 0, %if.else ], [ 0, %entry ]
   tail call void @EVP_PKEY_free(ptr noundef %call) #5
   ret i32 %ret.0
 }

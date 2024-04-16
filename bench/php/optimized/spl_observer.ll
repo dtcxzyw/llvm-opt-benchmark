@@ -3916,8 +3916,8 @@ define internal i32 @spl_object_storage_has_dimension(ptr noundef %0, ptr nounde
   %10 = getelementptr inbounds i8, ptr %0, i64 -16
   %11 = load i64, ptr %10, align 8
   %12 = and i64 %11, 1
-  %.not52 = icmp eq i64 %12, 0
-  br i1 %.not52, label %14, label %.critedge
+  %.not51 = icmp eq i64 %12, 0
+  br i1 %.not51, label %14, label %.critedge
 
 .critedge:                                        ; preds = %6, %3, %9
   %13 = tail call i32 @zend_std_has_dimension(ptr noundef %0, ptr noundef %1, i32 noundef %2) #10
@@ -3947,9 +3947,9 @@ define internal i32 @spl_object_storage_has_dimension(ptr noundef %0, ptr nounde
     i8 4, label %23
     i8 5, label %25
     i8 6, label %29
-    i8 7, label %38
-    i8 8, label %42
-    i8 9, label %52
+    i8 7, label %39
+    i8 8, label %43
+    i8 9, label %53
     i8 10, label %.preheader
   ]
 
@@ -3972,7 +3972,7 @@ define internal i32 @spl_object_storage_has_dimension(ptr noundef %0, ptr nounde
   %31 = getelementptr inbounds i8, ptr %30, i64 16
   %32 = load i64, ptr %31, align 8
   %33 = icmp ugt i64 %32, 1
-  br i1 %33, label %.thread, label %34
+  br i1 %33, label %38, label %34
 
 34:                                               ; preds = %29
   %.not44 = icmp eq i64 %32, 0
@@ -3981,45 +3981,47 @@ define internal i32 @spl_object_storage_has_dimension(ptr noundef %0, ptr nounde
 35:                                               ; preds = %34
   %36 = getelementptr inbounds i8, ptr %30, i64 24
   %37 = load i8, ptr %36, align 8
-  %.not45 = icmp ne i8 %37, 48
-  %spec.select49 = zext i1 %.not45 to i32
+  %.not45 = icmp eq i8 %37, 48
+  br i1 %.not45, label %.thread, label %38
+
+38:                                               ; preds = %35, %29
   br label %.thread
 
-38:                                               ; preds = %.preheader
-  %39 = load ptr, ptr %.0, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 28
-  %41 = load i32, ptr %40, align 4
-  %.not43 = icmp ne i32 %41, 0
+39:                                               ; preds = %.preheader
+  %40 = load ptr, ptr %.0, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 28
+  %42 = load i32, ptr %41, align 4
+  %.not43 = icmp ne i32 %42, 0
   %spec.select47 = zext i1 %.not43 to i32
   br label %.thread
 
-42:                                               ; preds = %.preheader
-  %43 = load ptr, ptr %.0, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 24
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 136
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %47, @zend_std_cast_object_tostring
-  br i1 %48, label %.thread, label %49
+43:                                               ; preds = %.preheader
+  %44 = load ptr, ptr %.0, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 24
+  %46 = load ptr, ptr %45, align 8
+  %47 = getelementptr inbounds i8, ptr %46, i64 136
+  %48 = load ptr, ptr %47, align 8
+  %49 = icmp eq ptr %48, @zend_std_cast_object_tostring
+  br i1 %49, label %.thread, label %50
 
-49:                                               ; preds = %42
-  %50 = tail call zeroext i1 @zend_object_is_true(ptr noundef nonnull %.0) #10
-  %51 = zext i1 %50 to i32
+50:                                               ; preds = %43
+  %51 = tail call zeroext i1 @zend_object_is_true(ptr noundef nonnull %.0) #10
+  %52 = zext i1 %51 to i32
   br label %.thread
 
-52:                                               ; preds = %.preheader
-  %53 = load ptr, ptr %.0, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 8
-  %55 = load i64, ptr %54, align 8
-  %.not42 = icmp ne i64 %55, 0
+53:                                               ; preds = %.preheader
+  %54 = load ptr, ptr %.0, align 8
+  %55 = getelementptr inbounds i8, ptr %54, i64 8
+  %56 = load i64, ptr %55, align 8
+  %.not42 = icmp ne i64 %56, 0
   %spec.select48 = zext i1 %.not42 to i32
   br label %.thread
 
 .thread.loopexit:                                 ; preds = %.preheader
   br label %.thread
 
-.thread:                                          ; preds = %.preheader, %.thread.loopexit, %14, %35, %52, %38, %23, %20, %28, %25, %34, %49, %29, %42, %.critedge
-  %.035 = phi i32 [ %13, %.critedge ], [ %51, %49 ], [ 0, %34 ], [ 1, %28 ], [ 0, %25 ], [ %spec.select, %23 ], [ 1, %29 ], [ %spec.select47, %38 ], [ 1, %42 ], [ %spec.select48, %52 ], [ 1, %20 ], [ %spec.select49, %35 ], [ 0, %14 ], [ 0, %.thread.loopexit ], [ 1, %.preheader ]
+.thread:                                          ; preds = %.preheader, %.thread.loopexit, %14, %53, %39, %23, %20, %28, %25, %38, %35, %34, %50, %43, %.critedge
+  %.035 = phi i32 [ %13, %.critedge ], [ %52, %50 ], [ 1, %38 ], [ 0, %35 ], [ 0, %34 ], [ 1, %28 ], [ 0, %25 ], [ %spec.select, %23 ], [ %spec.select47, %39 ], [ 1, %43 ], [ %spec.select48, %53 ], [ 1, %20 ], [ 0, %14 ], [ 0, %.thread.loopexit ], [ 1, %.preheader ]
   ret i32 %.035
 }
 

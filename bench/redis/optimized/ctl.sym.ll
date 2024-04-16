@@ -3036,7 +3036,7 @@ label_return:                                     ; preds = %if.else51, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @max_background_threads_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #0 {
+define internal noundef i32 @max_background_threads_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval = alloca i64, align 8
   tail call void @background_thread_ctl_init(ptr noundef %tsd) #14
@@ -3065,41 +3065,41 @@ if.then.i.i:                                      ; preds = %if.end.i
   br label %malloc_mutex_lock.exit
 
 malloc_mutex_lock.exit:                           ; preds = %if.end.i, %if.then.i.i
-  %call.i.i40 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
-  %cmp.i.not.i41 = icmp eq i32 %call.i.i40, 0
-  br i1 %cmp.i.not.i41, label %if.end.i43, label %if.then.i42
+  %call.i.i39 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
+  %cmp.i.not.i40 = icmp eq i32 %call.i.i39, 0
+  br i1 %cmp.i.not.i40, label %if.end.i42, label %if.then.i41
 
-if.then.i42:                                      ; preds = %malloc_mutex_lock.exit
+if.then.i41:                                      ; preds = %malloc_mutex_lock.exit
   tail call void @malloc_mutex_lock_slow(ptr noundef nonnull @background_thread_lock) #14
   store atomic i8 1, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 2, i32 0) monotonic, align 8
-  br label %if.end.i43
+  br label %if.end.i42
 
-if.end.i43:                                       ; preds = %if.then.i42, %malloc_mutex_lock.exit
+if.end.i42:                                       ; preds = %if.then.i41, %malloc_mutex_lock.exit
   %3 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 0, i32 8), align 8
-  %inc.i.i44 = add i64 %3, 1
-  store i64 %inc.i.i44, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 0, i32 8), align 8
+  %inc.i.i43 = add i64 %3, 1
+  store i64 %inc.i.i43, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 0, i32 8), align 8
   %4 = load ptr, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 0, i32 7), align 8
-  %cmp.not.i.i45 = icmp eq ptr %4, %tsd
-  br i1 %cmp.not.i.i45, label %malloc_mutex_lock.exit48, label %if.then.i.i46
+  %cmp.not.i.i44 = icmp eq ptr %4, %tsd
+  br i1 %cmp.not.i.i44, label %malloc_mutex_lock.exit47, label %if.then.i.i45
 
-if.then.i.i46:                                    ; preds = %if.end.i43
+if.then.i.i45:                                    ; preds = %if.end.i42
   store ptr %tsd, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 0, i32 7), align 8
   %5 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 0, i32 6), align 8
-  %inc2.i.i47 = add i64 %5, 1
-  store i64 %inc2.i.i47, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 0, i32 6), align 8
-  br label %malloc_mutex_lock.exit48
+  %inc2.i.i46 = add i64 %5, 1
+  store i64 %inc2.i.i46, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 0, i32 6), align 8
+  br label %malloc_mutex_lock.exit47
 
-malloc_mutex_lock.exit48:                         ; preds = %if.end.i43, %if.then.i.i46
+malloc_mutex_lock.exit47:                         ; preds = %if.end.i42, %if.then.i.i45
   %cmp = icmp eq ptr %newp, null
   br i1 %cmp, label %if.then, label %if.else
 
-if.then:                                          ; preds = %malloc_mutex_lock.exit48
+if.then:                                          ; preds = %malloc_mutex_lock.exit47
   %6 = load i64, ptr @max_background_threads, align 8
   store i64 %6, ptr %oldval, align 8
   %cmp3 = icmp ne ptr %oldp, null
   %cmp4 = icmp ne ptr %oldlenp, null
   %or.cond = and i1 %cmp3, %cmp4
-  br i1 %or.cond, label %if.then5, label %label_return
+  br i1 %or.cond, label %if.then5, label %if.end47
 
 if.then5:                                         ; preds = %if.then
   %7 = load i64, ptr %oldlenp, align 8
@@ -3114,9 +3114,9 @@ if.then7:                                         ; preds = %if.then5
 
 if.end:                                           ; preds = %if.then5
   store i64 %6, ptr %oldp, align 8
-  br label %label_return
+  br label %if.end47
 
-if.else:                                          ; preds = %malloc_mutex_lock.exit48
+if.else:                                          ; preds = %malloc_mutex_lock.exit47
   %cmp10.not = icmp eq i64 %newlen, 8
   br i1 %cmp10.not, label %if.end12, label %label_return
 
@@ -3167,19 +3167,21 @@ if.end40:                                         ; preds = %if.then36
   store i64 %10, ptr @max_background_threads, align 8
   store atomic i8 1, ptr @background_thread_enabled_state monotonic, align 1
   %call42 = tail call zeroext i1 @background_threads_enable(ptr noundef %tsd) #14
-  %spec.select39 = select i1 %call42, i32 14, i32 0
-  br label %label_return
+  br i1 %call42, label %label_return, label %if.end47
 
 if.else45:                                        ; preds = %monotonic.i
   store i64 %10, ptr @max_background_threads, align 8
+  br label %if.end47
+
+if.end47:                                         ; preds = %if.else45, %if.end40, %if.end, %if.then
   br label %label_return
 
-label_return:                                     ; preds = %if.end40, %if.then, %if.end, %if.else45, %if.then36, %if.end31, %do.end28, %if.else, %if.then19, %if.then7
-  %ret.0 = phi i32 [ 22, %if.then7 ], [ 22, %if.then19 ], [ 22, %if.else ], [ 0, %do.end28 ], [ 22, %if.end31 ], [ 14, %if.then36 ], [ 0, %if.else45 ], [ 0, %if.end ], [ 0, %if.then ], [ %spec.select39, %if.end40 ]
+label_return:                                     ; preds = %if.end40, %if.then36, %if.end31, %do.end28, %if.else, %if.end47, %if.then19, %if.then7
+  %ret.0 = phi i32 [ 22, %if.then7 ], [ 0, %if.end47 ], [ 22, %if.then19 ], [ 22, %if.else ], [ 0, %do.end28 ], [ 22, %if.end31 ], [ 14, %if.then36 ], [ 14, %if.end40 ]
   store atomic i8 0, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 2, i32 0) monotonic, align 8
   %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
   store atomic i8 0, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 2, i32 0) monotonic, align 8
-  %call1.i49 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
+  %call1.i48 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
   ret i32 %ret.0
 }
 
@@ -6309,7 +6311,7 @@ declare void @tcaches_flush(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @tcaches_destroy(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @arena_i_index(ptr noundef %tsdn, ptr nocapture readnone %mib, i64 %miblen, i64 noundef %i) #0 {
+define internal noundef ptr @arena_i_index(ptr noundef %tsdn, ptr nocapture readnone %mib, i64 %miblen, i64 noundef %i) #0 {
 entry:
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
   %cmp.i.not.i = icmp eq i32 %call.i.i, 0
@@ -6338,7 +6340,7 @@ if.then.i.i:                                      ; preds = %if.end.i
 malloc_mutex_lock.exit:                           ; preds = %if.end.i, %if.then.i.i
   %3 = and i64 %i, -2
   %switch = icmp eq i64 %3, 4096
-  br i1 %switch, label %label_return, label %sw.default
+  br i1 %switch, label %sw.epilog, label %sw.default
 
 sw.default:                                       ; preds = %malloc_mutex_lock.exit
   %4 = load ptr, ptr @ctl_arenas, align 8
@@ -6346,11 +6348,13 @@ sw.default:                                       ; preds = %malloc_mutex_lock.e
   %5 = load i32, ptr %narenas, align 8
   %conv = zext i32 %5 to i64
   %cmp = icmp ult i64 %conv, %i
-  %spec.select = select i1 %cmp, ptr null, ptr @super_arena_i_node
+  br i1 %cmp, label %label_return, label %sw.epilog
+
+sw.epilog:                                        ; preds = %malloc_mutex_lock.exit, %sw.default
   br label %label_return
 
-label_return:                                     ; preds = %sw.default, %malloc_mutex_lock.exit
-  %ret.0 = phi ptr [ @super_arena_i_node, %malloc_mutex_lock.exit ], [ %spec.select, %sw.default ]
+label_return:                                     ; preds = %sw.default, %sw.epilog
+  %ret.0 = phi ptr [ @super_arena_i_node, %sw.epilog ], [ null, %sw.default ]
   store atomic i8 0, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 2, i32 0) monotonic, align 8
   %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
   ret ptr %ret.0
@@ -7050,7 +7054,7 @@ label_return:                                     ; preds = %if.end28, %if.end35
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @arena_i_dirty_decay_ms_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #0 {
+define internal noundef i32 @arena_i_dirty_decay_ms_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval.i = alloca i64, align 8
   %0 = getelementptr i8, ptr %mib, i64 8
@@ -7092,7 +7096,7 @@ if.end27.i:                                       ; preds = %if.then12.i
 
 if.end30.i:                                       ; preds = %if.end27.i, %if.end6.i
   %cmp31.not.i = icmp eq ptr %newp, null
-  br i1 %cmp31.not.i, label %arena_i_decay_ms_ctl_impl.exit, label %if.then33.i
+  br i1 %cmp31.not.i, label %if.end52.i, label %if.then33.i
 
 if.then33.i:                                      ; preds = %if.end30.i
   %cmp34.not.i = icmp eq i64 %newlen, 8
@@ -7116,17 +7120,19 @@ if.then43.if.end47_crit_edge.i:                   ; preds = %if.then43.i
 if.end47.i:                                       ; preds = %if.then43.if.end47_crit_edge.i, %if.end37.i
   %4 = phi i64 [ %.pre.i, %if.then43.if.end47_crit_edge.i ], [ %.pre1.i, %if.end37.i ]
   %call49.i = tail call zeroext i1 @arena_decay_ms_set(ptr noundef %tsd, ptr noundef nonnull %2, i32 noundef 1, i64 noundef %4) #14
-  %spec.select22.i = select i1 %call49.i, i32 14, i32 0
+  br i1 %call49.i, label %arena_i_decay_ms_ctl_impl.exit, label %if.end52.i
+
+if.end52.i:                                       ; preds = %if.end47.i, %if.end30.i
   br label %arena_i_decay_ms_ctl_impl.exit
 
-arena_i_decay_ms_ctl_impl.exit:                   ; preds = %entry, %if.end.i, %if.then23.i, %if.end30.i, %if.then33.i, %if.then43.i, %if.end47.i
-  %ret.0.i = phi i32 [ 22, %if.then23.i ], [ 14, %entry ], [ 14, %if.end.i ], [ 22, %if.then33.i ], [ 14, %if.then43.i ], [ 0, %if.end30.i ], [ %spec.select22.i, %if.end47.i ]
+arena_i_decay_ms_ctl_impl.exit:                   ; preds = %entry, %if.end.i, %if.then23.i, %if.then33.i, %if.then43.i, %if.end47.i, %if.end52.i
+  %ret.0.i = phi i32 [ 22, %if.then23.i ], [ 0, %if.end52.i ], [ 14, %entry ], [ 14, %if.end.i ], [ 22, %if.then33.i ], [ 14, %if.then43.i ], [ 14, %if.end47.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %oldval.i)
   ret i32 %ret.0.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @arena_i_muzzy_decay_ms_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #0 {
+define internal noundef i32 @arena_i_muzzy_decay_ms_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval.i = alloca i64, align 8
   %0 = getelementptr i8, ptr %mib, i64 8
@@ -7168,7 +7174,7 @@ if.end27.i:                                       ; preds = %if.then12.i
 
 if.end30.i:                                       ; preds = %if.end27.i, %if.end6.i
   %cmp31.not.i = icmp eq ptr %newp, null
-  br i1 %cmp31.not.i, label %arena_i_decay_ms_ctl_impl.exit, label %if.then33.i
+  br i1 %cmp31.not.i, label %if.end52.i, label %if.then33.i
 
 if.then33.i:                                      ; preds = %if.end30.i
   %cmp34.not.i = icmp eq i64 %newlen, 8
@@ -7192,17 +7198,19 @@ if.then43.if.end47_crit_edge.i:                   ; preds = %if.then43.i
 if.end47.i:                                       ; preds = %if.then43.if.end47_crit_edge.i, %if.end37.i
   %4 = phi i64 [ %.pre.i, %if.then43.if.end47_crit_edge.i ], [ %.pre1.i, %if.end37.i ]
   %call49.i = tail call zeroext i1 @arena_decay_ms_set(ptr noundef %tsd, ptr noundef nonnull %2, i32 noundef 2, i64 noundef %4) #14
-  %spec.select22.i = select i1 %call49.i, i32 14, i32 0
+  br i1 %call49.i, label %arena_i_decay_ms_ctl_impl.exit, label %if.end52.i
+
+if.end52.i:                                       ; preds = %if.end47.i, %if.end30.i
   br label %arena_i_decay_ms_ctl_impl.exit
 
-arena_i_decay_ms_ctl_impl.exit:                   ; preds = %entry, %if.end.i, %if.then23.i, %if.end30.i, %if.then33.i, %if.then43.i, %if.end47.i
-  %ret.0.i = phi i32 [ 22, %if.then23.i ], [ 14, %entry ], [ 14, %if.end.i ], [ 22, %if.then33.i ], [ 14, %if.then43.i ], [ 0, %if.end30.i ], [ %spec.select22.i, %if.end47.i ]
+arena_i_decay_ms_ctl_impl.exit:                   ; preds = %entry, %if.end.i, %if.then23.i, %if.then33.i, %if.then43.i, %if.end47.i, %if.end52.i
+  %ret.0.i = phi i32 [ 22, %if.then23.i ], [ 0, %if.end52.i ], [ 14, %entry ], [ 14, %if.end.i ], [ 22, %if.then33.i ], [ 14, %if.then43.i ], [ 14, %if.end47.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %oldval.i)
   ret i32 %ret.0.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @arena_i_extent_hooks_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #0 {
+define internal noundef i32 @arena_i_extent_hooks_ctl(ptr noundef %tsd, ptr nocapture noundef readonly %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #0 {
 entry:
   %old_extent_hooks = alloca ptr, align 8
   %config = alloca %struct.arena_config_s, align 8
@@ -7278,7 +7286,7 @@ if.end26:                                         ; preds = %if.then20
 
 do.end28:                                         ; preds = %if.end14, %if.end26
   %cmp29.not = icmp eq ptr %newp, null
-  br i1 %cmp29.not, label %label_return, label %if.then35
+  br i1 %cmp29.not, label %if.end110, label %if.then35
 
 if.then35:                                        ; preds = %do.end28
   %cmp36.not = icmp eq i64 %newlen, 8
@@ -7290,8 +7298,7 @@ do.end41:                                         ; preds = %if.then35
   store ptr %8, ptr %config, align 8
   %call43 = call ptr @arena_init(ptr noundef %tsd, i32 noundef %conv, ptr noundef nonnull %config) #14
   %cmp44 = icmp eq ptr %call43, null
-  %spec.select52 = select i1 %cmp44, i32 14, i32 0
-  br label %label_return
+  br i1 %cmp44, label %label_return, label %if.end110
 
 if.else:                                          ; preds = %if.then5
   %cmp49.not = icmp eq ptr %newp, null
@@ -7308,21 +7315,17 @@ do.end62:                                         ; preds = %if.then56
   %cmp65 = icmp ne ptr %oldp, null
   %cmp68 = icmp ne ptr %oldlenp, null
   %or.cond1 = and i1 %cmp65, %cmp68
-  br i1 %or.cond1, label %if.then70, label %label_return
+  br i1 %or.cond1, label %if.then70, label %if.end110
 
 if.then70:                                        ; preds = %do.end62
   %10 = load i64, ptr %oldlenp, align 8
   %cmp71.not = icmp eq i64 %10, 8
-  br i1 %cmp71.not, label %if.end81, label %if.then73
+  br i1 %cmp71.not, label %if.end110.sink.split, label %if.then73
 
 if.then73:                                        ; preds = %if.then70
   %spec.select50 = tail call i64 @llvm.umin.i64(i64 %10, i64 8)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 8 %old_extent_hooks, i64 %spec.select50, i1 false)
   store i64 %spec.select50, ptr %oldlenp, align 8
-  br label %label_return
-
-if.end81:                                         ; preds = %if.then70
-  store ptr %call63, ptr %oldp, align 8
   br label %label_return
 
 if.else84:                                        ; preds = %if.else
@@ -7334,12 +7337,12 @@ if.else84:                                        ; preds = %if.else
   %cmp88 = icmp ne ptr %oldp, null
   %cmp91 = icmp ne ptr %oldlenp, null
   %or.cond2 = and i1 %cmp88, %cmp91
-  br i1 %or.cond2, label %if.then93, label %label_return
+  br i1 %or.cond2, label %if.then93, label %if.end110
 
 if.then93:                                        ; preds = %if.else84
   %13 = load i64, ptr %oldlenp, align 8
   %cmp94.not = icmp eq i64 %13, 8
-  br i1 %cmp94.not, label %if.end104, label %if.then96
+  br i1 %cmp94.not, label %if.end110.sink.split, label %if.then96
 
 if.then96:                                        ; preds = %if.then93
   %spec.select51 = tail call i64 @llvm.umin.i64(i64 %13, i64 8)
@@ -7347,12 +7350,16 @@ if.then96:                                        ; preds = %if.then93
   store i64 %spec.select51, ptr %oldlenp, align 8
   br label %label_return
 
-if.end104:                                        ; preds = %if.then93
-  store ptr %12, ptr %oldp, align 8
+if.end110.sink.split:                             ; preds = %if.then93, %if.then70
+  %.sink = phi ptr [ %call63, %if.then70 ], [ %12, %if.then93 ]
+  store ptr %.sink, ptr %oldp, align 8
+  br label %if.end110
+
+if.end110:                                        ; preds = %if.end110.sink.split, %do.end41, %do.end28, %if.else84, %do.end62
   br label %label_return
 
-label_return:                                     ; preds = %do.end41, %do.end62, %if.end81, %if.else84, %if.end104, %do.end28, %if.end, %if.then56, %if.then35, %if.then10, %malloc_mutex_lock.exit, %if.then96, %if.then73, %if.then23
-  %ret.0 = phi i32 [ 22, %if.then23 ], [ 22, %if.then73 ], [ 22, %if.then96 ], [ 14, %malloc_mutex_lock.exit ], [ 14, %if.then10 ], [ 22, %if.then35 ], [ 22, %if.then56 ], [ 14, %if.end ], [ 0, %do.end28 ], [ 0, %if.end104 ], [ 0, %if.else84 ], [ 0, %if.end81 ], [ 0, %do.end62 ], [ %spec.select52, %do.end41 ]
+label_return:                                     ; preds = %if.end, %if.then56, %do.end41, %if.then35, %if.then10, %malloc_mutex_lock.exit, %if.end110, %if.then96, %if.then73, %if.then23
+  %ret.0 = phi i32 [ 22, %if.then23 ], [ 0, %if.end110 ], [ 22, %if.then73 ], [ 22, %if.then96 ], [ 14, %malloc_mutex_lock.exit ], [ 14, %if.then10 ], [ 22, %if.then35 ], [ 14, %do.end41 ], [ 22, %if.then56 ], [ 14, %if.end ]
   store atomic i8 0, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 2, i32 0) monotonic, align 8
   %call1.i = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
   ret i32 %ret.0
@@ -7742,7 +7749,7 @@ label_return:                                     ; preds = %if.end10, %do.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @arenas_dirty_decay_ms_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #0 {
+define internal noundef i32 @arenas_dirty_decay_ms_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval.i = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %oldval.i)
@@ -7770,7 +7777,7 @@ if.end.i:                                         ; preds = %if.then.i
 
 if.end15.i:                                       ; preds = %if.end.i, %entry
   %cmp16.not.i = icmp eq ptr %newp, null
-  br i1 %cmp16.not.i, label %arenas_decay_ms_ctl_impl.exit, label %if.then17.i
+  br i1 %cmp16.not.i, label %if.end28.i, label %if.then17.i
 
 if.then17.i:                                      ; preds = %if.end15.i
   %cmp18.not.i = icmp eq i64 %newlen, 8
@@ -7779,17 +7786,19 @@ if.then17.i:                                      ; preds = %if.end15.i
 if.end20.i:                                       ; preds = %if.then17.i
   %1 = load i64, ptr %newp, align 8
   %call23.i = tail call zeroext i1 @arena_dirty_decay_ms_default_set(i64 noundef %1) #14
-  %spec.select = select i1 %call23.i, i32 14, i32 0
+  br i1 %call23.i, label %arenas_decay_ms_ctl_impl.exit, label %if.end28.i
+
+if.end28.i:                                       ; preds = %if.end20.i, %if.end15.i
   br label %arenas_decay_ms_ctl_impl.exit
 
-arenas_decay_ms_ctl_impl.exit:                    ; preds = %if.end20.i, %if.end15.i, %if.then8.i, %if.then17.i
-  %ret.0.i = phi i32 [ 22, %if.then8.i ], [ 22, %if.then17.i ], [ 0, %if.end15.i ], [ %spec.select, %if.end20.i ]
+arenas_decay_ms_ctl_impl.exit:                    ; preds = %if.then8.i, %if.then17.i, %if.end20.i, %if.end28.i
+  %ret.0.i = phi i32 [ 22, %if.then8.i ], [ 0, %if.end28.i ], [ 22, %if.then17.i ], [ 14, %if.end20.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %oldval.i)
   ret i32 %ret.0.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @arenas_muzzy_decay_ms_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #0 {
+define internal noundef i32 @arenas_muzzy_decay_ms_ctl(ptr nocapture readnone %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #0 {
 entry:
   %oldval.i = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %oldval.i)
@@ -7817,7 +7826,7 @@ if.end.i:                                         ; preds = %if.then.i
 
 if.end15.i:                                       ; preds = %if.end.i, %entry
   %cmp16.not.i = icmp eq ptr %newp, null
-  br i1 %cmp16.not.i, label %arenas_decay_ms_ctl_impl.exit, label %if.then17.i
+  br i1 %cmp16.not.i, label %if.end28.i, label %if.then17.i
 
 if.then17.i:                                      ; preds = %if.end15.i
   %cmp18.not.i = icmp eq i64 %newlen, 8
@@ -7826,11 +7835,13 @@ if.then17.i:                                      ; preds = %if.end15.i
 if.end20.i:                                       ; preds = %if.then17.i
   %1 = load i64, ptr %newp, align 8
   %call25.i = tail call zeroext i1 @arena_muzzy_decay_ms_default_set(i64 noundef %1) #14
-  %spec.select = select i1 %call25.i, i32 14, i32 0
+  br i1 %call25.i, label %arenas_decay_ms_ctl_impl.exit, label %if.end28.i
+
+if.end28.i:                                       ; preds = %if.end20.i, %if.end15.i
   br label %arenas_decay_ms_ctl_impl.exit
 
-arenas_decay_ms_ctl_impl.exit:                    ; preds = %if.end20.i, %if.end15.i, %if.then8.i, %if.then17.i
-  %ret.0.i = phi i32 [ 22, %if.then8.i ], [ 22, %if.then17.i ], [ 0, %if.end15.i ], [ %spec.select, %if.end20.i ]
+arenas_decay_ms_ctl_impl.exit:                    ; preds = %if.then8.i, %if.then17.i, %if.end20.i, %if.end28.i
+  %ret.0.i = phi i32 [ 22, %if.then8.i ], [ 0, %if.end28.i ], [ 22, %if.then17.i ], [ 14, %if.end20.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %oldval.i)
   ret i32 %ret.0.i
 }
@@ -14211,14 +14222,16 @@ ctl_arenas_i_verify.exit:                         ; preds = %malloc_mutex_lock.e
   %7 = load i8, ptr %initialized.i, align 4
   %.fr = freeze i8 %7
   %tobool.i = trunc i8 %.fr to i1
-  %spec.select = select i1 %tobool.i, ptr @super_stats_arenas_i_node, ptr null
-  br label %ctl_arenas_i_verify.exit.thread
+  br i1 %tobool.i, label %8, label %ctl_arenas_i_verify.exit.thread
 
-ctl_arenas_i_verify.exit.thread:                  ; preds = %ctl_arenas_i_verify.exit, %if.else.i.i
-  %8 = phi ptr [ null, %if.else.i.i ], [ %spec.select, %ctl_arenas_i_verify.exit ]
+ctl_arenas_i_verify.exit.thread:                  ; preds = %if.else.i.i, %ctl_arenas_i_verify.exit
+  br label %8
+
+8:                                                ; preds = %ctl_arenas_i_verify.exit, %ctl_arenas_i_verify.exit.thread
+  %9 = phi ptr [ null, %ctl_arenas_i_verify.exit.thread ], [ @super_stats_arenas_i_node, %ctl_arenas_i_verify.exit ]
   store atomic i8 0, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 2, i32 0) monotonic, align 8
   %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
-  ret ptr %8
+  ret ptr %9
 }
 
 ; Function Attrs: nounwind uwtable
@@ -32856,14 +32869,16 @@ ctl_arenas_i_verify.exit:                         ; preds = %malloc_mutex_lock.e
   %7 = load i8, ptr %initialized.i, align 4
   %.fr = freeze i8 %7
   %tobool.i = trunc i8 %.fr to i1
-  %spec.select = select i1 %tobool.i, ptr @super_experimental_arenas_i_node, ptr null
-  br label %ctl_arenas_i_verify.exit.thread
+  br i1 %tobool.i, label %8, label %ctl_arenas_i_verify.exit.thread
 
-ctl_arenas_i_verify.exit.thread:                  ; preds = %ctl_arenas_i_verify.exit, %if.else.i.i
-  %8 = phi ptr [ null, %if.else.i.i ], [ %spec.select, %ctl_arenas_i_verify.exit ]
+ctl_arenas_i_verify.exit.thread:                  ; preds = %if.else.i.i, %ctl_arenas_i_verify.exit
+  br label %8
+
+8:                                                ; preds = %ctl_arenas_i_verify.exit, %ctl_arenas_i_verify.exit.thread
+  %9 = phi ptr [ null, %ctl_arenas_i_verify.exit.thread ], [ @super_experimental_arenas_i_node, %ctl_arenas_i_verify.exit ]
   store atomic i8 0, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 2, i32 0) monotonic, align 8
   %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #14
-  ret ptr %8
+  ret ptr %9
 }
 
 ; Function Attrs: nounwind uwtable

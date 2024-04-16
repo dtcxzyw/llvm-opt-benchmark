@@ -52,7 +52,7 @@ define void @dlarrd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   store i32 0, ptr %24, align 4, !tbaa !3
   %46 = load i32, ptr %2, align 4, !tbaa !3
   %47 = icmp slt i32 %46, 1
-  br i1 %47, label %768, label %48
+  br i1 %47, label %770, label %48
 
 48:                                               ; preds = %25
   %49 = tail call i32 @lsame_(ptr noundef %0, ptr noundef nonnull @.str) #6
@@ -67,7 +67,7 @@ define void @dlarrd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
 54:                                               ; preds = %51
   %55 = tail call i32 @lsame_(ptr noundef %0, ptr noundef nonnull @.str.2) #6
   %56 = icmp eq i32 %55, 0
-  br i1 %56, label %.thread48, label %.thread
+  br i1 %56, label %.thread47, label %.thread
 
 .thread:                                          ; preds = %51, %48, %54
   %57 = phi i32 [ 3, %54 ], [ 2, %51 ], [ 1, %48 ]
@@ -80,12 +80,12 @@ define void @dlarrd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
 62:                                               ; preds = %.thread
   %63 = tail call i32 @lsame_(ptr noundef %1, ptr noundef nonnull @.str.4) #6
   %64 = icmp eq i32 %63, 0
-  br i1 %64, label %.thread48, label %65
+  br i1 %64, label %.thread47, label %65
 
 65:                                               ; preds = %62, %.thread
   %66 = load i32, ptr %2, align 4, !tbaa !3
   %67 = icmp slt i32 %66, 0
-  br i1 %67, label %.thread48, label %68
+  br i1 %67, label %.thread47, label %68
 
 68:                                               ; preds = %65
   br i1 %59, label %69, label %73
@@ -94,7 +94,7 @@ define void @dlarrd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   %70 = load double, ptr %3, align 8, !tbaa !7
   %71 = load double, ptr %4, align 8, !tbaa !7
   %72 = fcmp ult double %70, %71
-  br i1 %72, label %87, label %.thread48
+  br i1 %72, label %87, label %.thread47
 
 73:                                               ; preds = %68
   br i1 %58, label %74, label %87
@@ -105,7 +105,7 @@ define void @dlarrd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   %77 = tail call i32 @llvm.umax.i32(i32 %66, i32 1)
   %78 = icmp sgt i32 %75, %77
   %79 = or i1 %76, %78
-  br i1 %79, label %.thread48, label %80
+  br i1 %79, label %.thread47, label %80
 
 80:                                               ; preds = %74
   %81 = load i32, ptr %6, align 4, !tbaa !3
@@ -113,23 +113,23 @@ define void @dlarrd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   %83 = icmp slt i32 %81, %82
   %84 = icmp sgt i32 %81, %66
   %85 = or i1 %83, %84
-  br i1 %85, label %.thread48, label %87
+  br i1 %85, label %.thread47, label %87
 
-.thread48:                                        ; preds = %54, %62, %65, %69, %74, %80
+.thread47:                                        ; preds = %54, %62, %65, %69, %74, %80
   %86 = phi i32 [ -1, %54 ], [ -2, %62 ], [ -3, %65 ], [ -5, %69 ], [ -6, %74 ], [ -7, %80 ]
   store i32 %86, ptr %24, align 4, !tbaa !3
-  br label %768
+  br label %770
 
 87:                                               ; preds = %80, %73, %69
   %.pr = load i32, ptr %24, align 4, !tbaa !3
   %88 = icmp eq i32 %.pr, 0
-  br i1 %88, label %89, label %768
+  br i1 %88, label %89, label %770
 
 89:                                               ; preds = %87
   store i32 0, ptr %15, align 4, !tbaa !3
   %90 = load i32, ptr %2, align 4, !tbaa !3
   %91 = icmp eq i32 %90, 0
-  br i1 %91, label %768, label %92
+  br i1 %91, label %770, label %92
 
 92:                                               ; preds = %89
   br i1 %58, label %93, label %100
@@ -164,22 +164,22 @@ define void @dlarrd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   %108 = load double, ptr %9, align 8, !tbaa !7
   %109 = load double, ptr %3, align 8, !tbaa !7
   %110 = fcmp ogt double %108, %109
-  br i1 %110, label %111, label %768
+  br i1 %110, label %111, label %770
 
 111:                                              ; preds = %107
   %112 = load double, ptr %4, align 8, !tbaa !7
   %113 = fcmp ugt double %108, %112
-  br i1 %113, label %768, label %120
+  br i1 %113, label %770, label %120
 
 114:                                              ; preds = %106
   %115 = load i32, ptr %5, align 4, !tbaa !3
   %116 = icmp eq i32 %115, 1
-  br i1 %116, label %117, label %768
+  br i1 %116, label %117, label %770
 
 117:                                              ; preds = %114
   %118 = load i32, ptr %6, align 4, !tbaa !3
   %119 = icmp eq i32 %118, 1
-  br i1 %119, label %120, label %768
+  br i1 %119, label %120, label %770
 
 120:                                              ; preds = %117, %111, %106
   store i32 1, ptr %15, align 4, !tbaa !3
@@ -188,7 +188,7 @@ define void @dlarrd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   store double 0.000000e+00, ptr %17, align 8, !tbaa !7
   store i32 1, ptr %20, align 4, !tbaa !3
   store i32 1, ptr %21, align 4, !tbaa !3
-  br label %768
+  br label %770
 
 122:                                              ; preds = %100
   %123 = tail call i32 @ilaenv_(ptr noundef nonnull @c__1, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull %2, ptr noundef nonnull @c_n1, ptr noundef nonnull @c_n1, ptr noundef nonnull @c_n1, i32 noundef 6, i32 noundef 1) #6
@@ -309,7 +309,7 @@ define void @dlarrd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
 
 211:                                              ; preds = %174
   store i32 %209, ptr %24, align 4, !tbaa !3
-  br label %768
+  br label %770
 
 212:                                              ; preds = %174
   %213 = load i32, ptr %203, align 4, !tbaa !3
@@ -349,7 +349,7 @@ define void @dlarrd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
 
 242:                                              ; preds = %231, %212
   store i32 4, ptr %24, align 4, !tbaa !3
-  br label %768
+  br label %770
 
 243:                                              ; preds = %.loopexit66
   switch i32 %101, label %250 [
@@ -533,7 +533,7 @@ define void @dlarrd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
 
 371:                                              ; preds = %349
   store i32 %369, ptr %24, align 4, !tbaa !3
-  br label %768
+  br label %770
 
 372:                                              ; preds = %349
   %373 = load i32, ptr %23, align 4, !tbaa !3
@@ -576,7 +576,7 @@ define void @dlarrd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
 
 407:                                              ; preds = %372
   store i32 %405, ptr %24, align 4, !tbaa !3
-  br label %768
+  br label %770
 
 408:                                              ; preds = %372
   %409 = load i32, ptr %26, align 4, !tbaa !3
@@ -1026,14 +1026,13 @@ define void @dlarrd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   %698 = phi i32 [ %.pre105, %._crit_edge ], [ %696, %.loopexit54 ]
   %699 = icmp slt i32 %522, 0
   %700 = icmp slt i32 %588, 0
-  %701 = load i32, ptr %6, align 4, !tbaa !3
-  %702 = load i32, ptr %5, align 4, !tbaa !3
-  %703 = add i32 %701, 1
-  %704 = sub i32 %703, %702
-  %705 = icmp ne i32 %698, %704
-  %706 = select i1 %705, i1 true, i1 %699
-  %narrow = select i1 %706, i1 true, i1 %700
-  br label %.thread50
+  %701 = select i1 %699, i1 true, i1 %700
+  %702 = load i32, ptr %6, align 4, !tbaa !3
+  %703 = load i32, ptr %5, align 4, !tbaa !3
+  %704 = add i32 %702, 1
+  %705 = sub i32 %704, %703
+  %706 = icmp eq i32 %698, %705
+  br i1 %706, label %.thread50, label %712
 
 .thread49:                                        ; preds = %.loopexit65
   %707 = icmp eq i32 %101, 1
@@ -1042,108 +1041,111 @@ define void @dlarrd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
 708:                                              ; preds = %.thread49
   %709 = load i32, ptr %15, align 4, !tbaa !3
   %710 = load i32, ptr %2, align 4, !tbaa !3
-  %.not = icmp ne i32 %709, %710
+  %711 = icmp eq i32 %709, %710
+  br i1 %711, label %.thread50, label %712
+
+712:                                              ; preds = %697, %708
   br label %.thread50
 
-.thread50:                                        ; preds = %.thread49, %697, %708
-  %.shrunk = phi i1 [ %.not, %708 ], [ %narrow, %697 ], [ false, %.thread49 ]
-  %711 = call i32 @lsame_(ptr noundef %1, ptr noundef nonnull @.str.4) #6
-  %712 = icmp eq i32 %711, 0
-  br i1 %712, label %.loopexit, label %713
+.thread50:                                        ; preds = %708, %.thread49, %712, %697
+  %.shrunk = phi i1 [ true, %712 ], [ %701, %697 ], [ false, %.thread49 ], [ false, %708 ]
+  %713 = call i32 @lsame_(ptr noundef %1, ptr noundef nonnull @.str.4) #6
+  %714 = icmp eq i32 %713, 0
+  br i1 %714, label %.loopexit, label %715
 
-713:                                              ; preds = %.thread50
-  %714 = load i32, ptr %13, align 4, !tbaa !3
-  %715 = icmp sgt i32 %714, 1
-  br i1 %715, label %716, label %.loopexit
+715:                                              ; preds = %.thread50
+  %716 = load i32, ptr %13, align 4, !tbaa !3
+  %717 = icmp sgt i32 %716, 1
+  br i1 %717, label %718, label %.loopexit
 
-716:                                              ; preds = %713
-  %717 = load i32, ptr %15, align 4, !tbaa !3
-  %718 = icmp sgt i32 %717, 1
-  br i1 %718, label %719, label %.loopexit
+718:                                              ; preds = %715
+  %719 = load i32, ptr %15, align 4, !tbaa !3
+  %720 = icmp sgt i32 %719, 1
+  br i1 %720, label %721, label %.loopexit
 
-719:                                              ; preds = %716
-  %720 = zext nneg i32 %717 to i64
-  br label %721
+721:                                              ; preds = %718
+  %722 = zext nneg i32 %719 to i64
+  br label %723
 
-721:                                              ; preds = %.thread51, %719
-  %722 = phi i64 [ 1, %719 ], [ %727, %.thread51 ]
-  %723 = phi i64 [ 2, %719 ], [ %762, %.thread51 ]
-  %724 = getelementptr inbounds double, ptr %40, i64 %722
-  %725 = load double, ptr %724, align 8, !tbaa !7
-  %726 = load i32, ptr %15, align 4, !tbaa !3
-  %727 = add nuw nsw i64 %722, 1
-  %728 = sext i32 %726 to i64
-  %729 = icmp slt i64 %722, %728
-  br i1 %729, label %730, label %.thread51
+723:                                              ; preds = %.thread51, %721
+  %724 = phi i64 [ 1, %721 ], [ %729, %.thread51 ]
+  %725 = phi i64 [ 2, %721 ], [ %764, %.thread51 ]
+  %726 = getelementptr inbounds double, ptr %40, i64 %724
+  %727 = load double, ptr %726, align 8, !tbaa !7
+  %728 = load i32, ptr %15, align 4, !tbaa !3
+  %729 = add nuw nsw i64 %724, 1
+  %730 = sext i32 %728 to i64
+  %731 = icmp slt i64 %724, %730
+  br i1 %731, label %732, label %.thread51
 
-730:                                              ; preds = %721
-  %731 = add i32 %726, 1
-  %732 = zext i32 %731 to i64
-  br label %733
+732:                                              ; preds = %723
+  %733 = add i32 %728, 1
+  %734 = zext i32 %733 to i64
+  br label %735
 
-733:                                              ; preds = %733, %730
-  %734 = phi i64 [ %723, %730 ], [ %743, %733 ]
-  %735 = phi double [ %725, %730 ], [ %742, %733 ]
-  %736 = phi i32 [ 0, %730 ], [ %741, %733 ]
-  %737 = getelementptr inbounds double, ptr %40, i64 %734
-  %738 = load double, ptr %737, align 8, !tbaa !7
-  %739 = fcmp olt double %738, %735
-  %740 = trunc i64 %734 to i32
-  %741 = select i1 %739, i32 %740, i32 %736
-  %742 = select i1 %739, double %738, double %735
-  %743 = add nuw nsw i64 %734, 1
-  %744 = icmp eq i64 %743, %732
-  br i1 %744, label %745, label %733, !llvm.loop !24
+735:                                              ; preds = %735, %732
+  %736 = phi i64 [ %725, %732 ], [ %745, %735 ]
+  %737 = phi double [ %727, %732 ], [ %744, %735 ]
+  %738 = phi i32 [ 0, %732 ], [ %743, %735 ]
+  %739 = getelementptr inbounds double, ptr %40, i64 %736
+  %740 = load double, ptr %739, align 8, !tbaa !7
+  %741 = fcmp olt double %740, %737
+  %742 = trunc i64 %736 to i32
+  %743 = select i1 %741, i32 %742, i32 %738
+  %744 = select i1 %741, double %740, double %737
+  %745 = add nuw nsw i64 %736, 1
+  %746 = icmp eq i64 %745, %734
+  br i1 %746, label %747, label %735, !llvm.loop !24
 
-745:                                              ; preds = %733
-  %746 = icmp eq i32 %741, 0
-  br i1 %746, label %.thread51, label %747
+747:                                              ; preds = %735
+  %748 = icmp eq i32 %743, 0
+  br i1 %748, label %.thread51, label %749
 
-747:                                              ; preds = %745
-  %748 = sext i32 %741 to i64
-  %749 = getelementptr inbounds double, ptr %39, i64 %748
-  %750 = load double, ptr %749, align 8, !tbaa !7
-  %751 = getelementptr inbounds i32, ptr %38, i64 %748
-  %752 = load i32, ptr %751, align 4, !tbaa !3
-  %753 = getelementptr inbounds i32, ptr %37, i64 %748
+749:                                              ; preds = %747
+  %750 = sext i32 %743 to i64
+  %751 = getelementptr inbounds double, ptr %39, i64 %750
+  %752 = load double, ptr %751, align 8, !tbaa !7
+  %753 = getelementptr inbounds i32, ptr %38, i64 %750
   %754 = load i32, ptr %753, align 4, !tbaa !3
-  %755 = getelementptr inbounds double, ptr %40, i64 %748
-  store double %725, ptr %755, align 8, !tbaa !7
-  %756 = getelementptr inbounds double, ptr %39, i64 %722
-  %757 = load double, ptr %756, align 8, !tbaa !7
-  store double %757, ptr %749, align 8, !tbaa !7
-  %758 = getelementptr inbounds i32, ptr %38, i64 %722
-  %759 = load i32, ptr %758, align 4, !tbaa !3
-  store i32 %759, ptr %751, align 4, !tbaa !3
-  %760 = getelementptr inbounds i32, ptr %37, i64 %722
+  %755 = getelementptr inbounds i32, ptr %37, i64 %750
+  %756 = load i32, ptr %755, align 4, !tbaa !3
+  %757 = getelementptr inbounds double, ptr %40, i64 %750
+  store double %727, ptr %757, align 8, !tbaa !7
+  %758 = getelementptr inbounds double, ptr %39, i64 %724
+  %759 = load double, ptr %758, align 8, !tbaa !7
+  store double %759, ptr %751, align 8, !tbaa !7
+  %760 = getelementptr inbounds i32, ptr %38, i64 %724
   %761 = load i32, ptr %760, align 4, !tbaa !3
   store i32 %761, ptr %753, align 4, !tbaa !3
-  store double %742, ptr %724, align 8, !tbaa !7
-  store double %750, ptr %756, align 8, !tbaa !7
-  store i32 %752, ptr %758, align 4, !tbaa !3
+  %762 = getelementptr inbounds i32, ptr %37, i64 %724
+  %763 = load i32, ptr %762, align 4, !tbaa !3
+  store i32 %763, ptr %755, align 4, !tbaa !3
+  store double %744, ptr %726, align 8, !tbaa !7
+  store double %752, ptr %758, align 8, !tbaa !7
   store i32 %754, ptr %760, align 4, !tbaa !3
+  store i32 %756, ptr %762, align 4, !tbaa !3
   br label %.thread51
 
-.thread51:                                        ; preds = %721, %747, %745
-  %762 = add nuw nsw i64 %723, 1
-  %763 = icmp eq i64 %727, %720
-  br i1 %763, label %.loopexit, label %721, !llvm.loop !25
+.thread51:                                        ; preds = %723, %749, %747
+  %764 = add nuw nsw i64 %725, 1
+  %765 = icmp eq i64 %729, %722
+  br i1 %765, label %.loopexit, label %723, !llvm.loop !25
 
-.loopexit:                                        ; preds = %.thread51, %716, %713, %.thread50
-  %764 = icmp ne i32 %474, 0
-  %765 = zext i1 %764 to i32
-  store i32 %765, ptr %24, align 4, !tbaa !3
-  br i1 %.shrunk, label %766, label %768
-
-766:                                              ; preds = %.loopexit
-  %767 = select i1 %764, i32 3, i32 2
+.loopexit:                                        ; preds = %.thread51, %718, %715, %.thread50
+  %766 = icmp ne i32 %474, 0
+  %767 = zext i1 %766 to i32
   store i32 %767, ptr %24, align 4, !tbaa !3
-  br label %768
+  br i1 %.shrunk, label %768, label %770
+
+768:                                              ; preds = %.loopexit
+  %769 = select i1 %766, i32 3, i32 2
+  store i32 %769, ptr %24, align 4, !tbaa !3
+  br label %770
 
 default.unreachable:                              ; preds = %106
   unreachable
 
-768:                                              ; preds = %.thread48, %107, %111, %766, %.loopexit, %407, %371, %242, %211, %120, %117, %114, %89, %87, %25
+770:                                              ; preds = %.thread47, %107, %111, %768, %.loopexit, %407, %371, %242, %211, %120, %117, %114, %89, %87, %25
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %34) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %32) #6

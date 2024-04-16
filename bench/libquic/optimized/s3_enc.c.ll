@@ -155,8 +155,8 @@ init_digest_with_data.exit14:                     ; preds = %land.lhs.true
   %call1.i12 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %handshake_md5, ptr noundef %10, i64 noundef %11) #5
   br label %return
 
-return:                                           ; preds = %entry, %init_digest_with_data.exit14, %land.lhs.true, %if.end
-  %retval.0 = phi i32 [ 1, %if.end ], [ 1, %init_digest_with_data.exit14 ], [ 0, %land.lhs.true ], [ 0, %entry ]
+return:                                           ; preds = %land.lhs.true, %entry, %if.end, %init_digest_with_data.exit14
+  %retval.0 = phi i32 [ 1, %init_digest_with_data.exit14 ], [ 1, %if.end ], [ 0, %entry ], [ 0, %land.lhs.true ]
   ret i32 %retval.0
 }
 

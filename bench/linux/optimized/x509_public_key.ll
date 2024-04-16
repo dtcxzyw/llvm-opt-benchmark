@@ -170,7 +170,7 @@ define dso_local i32 @x509_check_for_self_signed(ptr nocapture noundef %0) local
   %4 = getelementptr inbounds i8, ptr %0, i64 116
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %3, %5
-  br i1 %6, label %7, label %.thread2
+  br i1 %6, label %7, label %.thread
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %0, i64 128
@@ -180,7 +180,7 @@ define dso_local i32 @x509_check_for_self_signed(ptr nocapture noundef %0) local
   %12 = zext i32 %3 to i64
   %13 = tail call i32 @bcmp(ptr %9, ptr %11, i64 %12)
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %15, label %.thread2
+  br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %7
   %16 = getelementptr inbounds i8, ptr %0, i64 24
@@ -191,7 +191,7 @@ define dso_local i32 @x509_check_for_self_signed(ptr nocapture noundef %0) local
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   %or.cond = select i1 %19, i1 %22, i1 false
-  br i1 %or.cond, label %.thread, label %._crit_edge
+  br i1 %or.cond, label %.thread2, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %15
   %23 = getelementptr inbounds i8, ptr %0, i64 56
@@ -203,31 +203,31 @@ define dso_local i32 @x509_check_for_self_signed(ptr nocapture noundef %0) local
   %29 = load ptr, ptr %28, align 8
   %30 = tail call zeroext i1 @asymmetric_key_id_same(ptr noundef %27, ptr noundef %29) #12
   %31 = select i1 %25, i1 true, i1 %30
-  br i1 %31, label %32, label %.thread2
+  br i1 %31, label %32, label %.thread
 
 32:                                               ; preds = %._crit_edge
   %33 = xor i1 %25, %30
-  br i1 %33, label %34, label %.thread
+  br i1 %33, label %34, label %.thread2
 
 34:                                               ; preds = %32
   %35 = load ptr, ptr %16, align 8
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
-  br i1 %37, label %.thread, label %38
+  br i1 %37, label %.thread2, label %38
 
 38:                                               ; preds = %34
   %39 = getelementptr i8, ptr %35, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
-  br i1 %41, label %.thread, label %.thread2
+  br i1 %41, label %.thread2, label %.thread
 
-.thread:                                          ; preds = %15, %38, %32, %34
+.thread2:                                         ; preds = %15, %38, %34, %32
   %42 = getelementptr inbounds i8, ptr %0, i64 159
   %43 = load i8, ptr %42, align 1, !range !5, !noundef !6
   %44 = icmp eq i8 %43, 0
-  br i1 %44, label %45, label %.thread2
+  br i1 %44, label %45, label %.thread
 
-45:                                               ; preds = %.thread
+45:                                               ; preds = %.thread2
   %46 = getelementptr inbounds i8, ptr %0, i64 16
   %47 = load ptr, ptr %46, align 8
   %48 = load ptr, ptr %16, align 8
@@ -237,19 +237,19 @@ define dso_local i32 @x509_check_for_self_signed(ptr nocapture noundef %0) local
 
 51:                                               ; preds = %45
   %52 = icmp eq i32 %49, -65
-  br i1 %52, label %53, label %.thread2
+  br i1 %52, label %53, label %.thread
 
 53:                                               ; preds = %51
   store i8 1, ptr %42, align 1
-  br label %.thread2
+  br label %.thread
 
 54:                                               ; preds = %45
   %55 = getelementptr inbounds i8, ptr %0, i64 158
   store i8 1, ptr %55, align 2
-  br label %.thread2
+  br label %.thread
 
-.thread2:                                         ; preds = %38, %._crit_edge, %1, %7, %54, %53, %51, %.thread
-  %56 = phi i32 [ 0, %53 ], [ %49, %51 ], [ %49, %54 ], [ 0, %.thread ], [ 0, %7 ], [ 0, %1 ], [ 0, %._crit_edge ], [ -129, %38 ]
+.thread:                                          ; preds = %38, %1, %7, %._crit_edge, %54, %53, %51, %.thread2
+  %56 = phi i32 [ 0, %53 ], [ %49, %51 ], [ %49, %54 ], [ 0, %.thread2 ], [ 0, %._crit_edge ], [ 0, %7 ], [ 0, %1 ], [ -129, %38 ]
   ret i32 %56
 }
 

@@ -3398,8 +3398,8 @@ define internal fastcc noundef i32 @_apply_new_usage(ptr noundef %0, i64 noundef
   %32 = icmp ult i32 %31, 3
   %33 = and i32 %30, 40960
   %or.cond178 = icmp eq i32 %33, 0
-  %or.cond185 = and i1 %32, %or.cond178
-  br i1 %or.cond185, label %36, label %34
+  %or.cond184 = and i1 %32, %or.cond178
+  br i1 %or.cond184, label %36, label %34
 
 34:                                               ; preds = %28
   %35 = sub i64 %27, %spec.select
@@ -3432,7 +3432,7 @@ define internal fastcc noundef i32 @_apply_new_usage(ptr noundef %0, i64 noundef
   %46 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
   %47 = and i64 %46, 2048
   %.not164 = icmp eq i64 %47, 0
-  br i1 %.not164, label %.loopexit187, label %48
+  br i1 %.not164, label %.loopexit186, label %48
 
 48:                                               ; preds = %45
   %49 = tail call i32 @get_log_level() #15
@@ -3449,15 +3449,15 @@ define internal fastcc noundef i32 @_apply_new_usage(ptr noundef %0, i64 noundef
   %55 = getelementptr inbounds i8, ptr %0, i64 1040
   %56 = load ptr, ptr %55, align 8
   %.not165 = icmp eq ptr %56, null
-  br i1 %.not165, label %76, label %.preheader186
+  br i1 %.not165, label %76, label %.preheader185
 
-.preheader186:                                    ; preds = %54
+.preheader185:                                    ; preds = %54
   %57 = load i32, ptr @slurmctld_tres_cnt, align 4
   %58 = icmp sgt i32 %57, 0
-  br i1 %58, label %.lr.ph, label %.loopexit187
+  br i1 %58, label %.lr.ph, label %.loopexit186
 
-.lr.ph:                                           ; preds = %.preheader186, %72
-  %indvars.iv = phi i64 [ %indvars.iv.next, %72 ], [ 0, %.preheader186 ]
+.lr.ph:                                           ; preds = %.preheader185, %72
+  %indvars.iv = phi i64 [ %indvars.iv.next, %72 ], [ 0, %.preheader185 ]
   %59 = load ptr, ptr %55, align 8
   %60 = getelementptr inbounds i64, ptr %59, i64 %indvars.iv
   %61 = load i64, ptr %60, align 8
@@ -3486,21 +3486,21 @@ define internal fastcc noundef i32 @_apply_new_usage(ptr noundef %0, i64 noundef
   %73 = load i32, ptr @slurmctld_tres_cnt, align 4
   %74 = sext i32 %73 to i64
   %75 = icmp slt i64 %indvars.iv.next, %74
-  br i1 %75, label %.lr.ph, label %.loopexit187, !llvm.loop !26
+  br i1 %75, label %.lr.ph, label %.loopexit186, !llvm.loop !26
 
 76:                                               ; preds = %54
   %77 = tail call i32 @get_log_level() #15
   %78 = icmp sgt i32 %77, 2
-  br i1 %78, label %79, label %.loopexit187
+  br i1 %78, label %79, label %.loopexit186
 
 79:                                               ; preds = %76
   %80 = getelementptr inbounds i8, ptr %0, i64 448
   %81 = load i32, ptr %80, align 8
   %82 = tail call ptr @job_state_string(i32 noundef %81) #15
   tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.71, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._apply_new_usage, ptr noundef %82) #15
-  br label %.loopexit187
+  br label %.loopexit186
 
-.loopexit187:                                     ; preds = %72, %.preheader186, %79, %76, %45
+.loopexit186:                                     ; preds = %72, %.preheader185, %79, %76, %45
   %83 = load double, ptr @decay_factor, align 8
   %84 = tail call double @pow(double noundef %83, double noundef %.0145) #15
   %85 = fmul double %.0145, %84
@@ -3518,7 +3518,7 @@ define internal fastcc noundef i32 @_apply_new_usage(ptr noundef %0, i64 noundef
   %.not166 = icmp eq ptr %92, null
   br i1 %.not166, label %105, label %93
 
-93:                                               ; preds = %.loopexit187
+93:                                               ; preds = %.loopexit186
   %94 = getelementptr inbounds i8, ptr %92, i64 312
   %95 = load double, ptr %94, align 8
   %96 = fcmp ult double %95, 0.000000e+00
@@ -3534,12 +3534,12 @@ define internal fastcc noundef i32 @_apply_new_usage(ptr noundef %0, i64 noundef
   %104 = fptoui double %103 to i64
   br label %105
 
-105:                                              ; preds = %97, %93, %.loopexit187
-  %.0144 = phi double [ %99, %97 ], [ %85, %93 ], [ %85, %.loopexit187 ]
-  %.0143 = phi double [ %101, %97 ], [ %.0145, %93 ], [ %.0145, %.loopexit187 ]
-  %.0142 = phi double [ %98, %97 ], [ %89, %93 ], [ %89, %.loopexit187 ]
-  %.0141 = phi double [ %100, %97 ], [ %90, %93 ], [ %90, %.loopexit187 ]
-  %.1136 = phi i64 [ %104, %97 ], [ %.0135, %93 ], [ %.0135, %.loopexit187 ]
+105:                                              ; preds = %97, %93, %.loopexit186
+  %.0144 = phi double [ %99, %97 ], [ %85, %93 ], [ %85, %.loopexit186 ]
+  %.0143 = phi double [ %101, %97 ], [ %.0145, %93 ], [ %.0145, %.loopexit186 ]
+  %.0142 = phi double [ %98, %97 ], [ %89, %93 ], [ %89, %.loopexit186 ]
+  %.0141 = phi double [ %100, %97 ], [ %90, %93 ], [ %90, %.loopexit186 ]
+  %.1136 = phi i64 [ %104, %97 ], [ %.0135, %93 ], [ %.0135, %.loopexit186 ]
   %106 = getelementptr inbounds i8, ptr %0, i64 1040
   %107 = load ptr, ptr %106, align 8
   %.not167 = icmp eq ptr %107, null
@@ -3548,17 +3548,17 @@ define internal fastcc noundef i32 @_apply_new_usage(ptr noundef %0, i64 noundef
 .preheader:                                       ; preds = %105
   %108 = load i32, ptr @slurmctld_tres_cnt, align 4
   %109 = icmp sgt i32 %108, 0
-  br i1 %109, label %.lr.ph190, label %.loopexit
+  br i1 %109, label %.lr.ph189, label %.loopexit
 
-.lr.ph190:                                        ; preds = %.preheader
+.lr.ph189:                                        ; preds = %.preheader
   %110 = fpext double %.0144 to x86_fp80
   %111 = fpext double %.0143 to x86_fp80
   %wide.trip.count = zext nneg i32 %108 to i64
   br label %112
 
-112:                                              ; preds = %.lr.ph190, %123
-  %indvars.iv195 = phi i64 [ 0, %.lr.ph190 ], [ %indvars.iv.next196, %123 ]
-  %113 = getelementptr inbounds i64, ptr %107, i64 %indvars.iv195
+112:                                              ; preds = %.lr.ph189, %123
+  %indvars.iv194 = phi i64 [ 0, %.lr.ph189 ], [ %indvars.iv.next195, %123 ]
+  %113 = getelementptr inbounds i64, ptr %107, i64 %indvars.iv194
   %114 = load i64, ptr %113, align 8
   switch i64 %114, label %115 [
     i64 0, label %123
@@ -3567,20 +3567,20 @@ define internal fastcc noundef i32 @_apply_new_usage(ptr noundef %0, i64 noundef
 
 115:                                              ; preds = %112
   %116 = mul i64 %114, %.1136
-  %117 = getelementptr inbounds i64, ptr %8, i64 %indvars.iv195
+  %117 = getelementptr inbounds i64, ptr %8, i64 %indvars.iv194
   store i64 %116, ptr %117, align 8
   %118 = uitofp i64 %114 to x86_fp80
   %119 = fmul x86_fp80 %110, %118
-  %120 = getelementptr inbounds x86_fp80, ptr %9, i64 %indvars.iv195
+  %120 = getelementptr inbounds x86_fp80, ptr %9, i64 %indvars.iv194
   store x86_fp80 %119, ptr %120, align 16
   %121 = fmul x86_fp80 %111, %118
-  %122 = getelementptr inbounds x86_fp80, ptr %10, i64 %indvars.iv195
+  %122 = getelementptr inbounds x86_fp80, ptr %10, i64 %indvars.iv194
   store x86_fp80 %121, ptr %122, align 16
   br label %123
 
 123:                                              ; preds = %112, %112, %115
-  %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next196, %wide.trip.count
+  %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next195, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %112, !llvm.loop !27
 
 .loopexit:                                        ; preds = %123, %.preheader, %105
@@ -3624,8 +3624,8 @@ define internal fastcc noundef i32 @_apply_new_usage(ptr noundef %0, i64 noundef
   %146 = load ptr, ptr %145, align 8
   %.not170 = icmp eq ptr %146, %92
   %.not171 = icmp eq ptr %146, null
-  %or.cond183 = or i1 %.not170, %.not171
-  br i1 %or.cond183, label %.thread, label %.thread.sink.split
+  %or.cond182 = or i1 %.not170, %.not171
+  br i1 %or.cond182, label %.thread, label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %144
   %147 = getelementptr inbounds i8, ptr %146, i64 12
@@ -3637,33 +3637,33 @@ define internal fastcc noundef i32 @_apply_new_usage(ptr noundef %0, i64 noundef
   %152 = getelementptr inbounds i8, ptr %151, i64 64
   %153 = load double, ptr %152, align 16
   %154 = getelementptr inbounds i8, ptr %0, i64 392
-  %.0144..0143217 = select i1 %.not172, double %.0144, double %.0143
-  %.0142..0141218 = select i1 %.not172, double %.0142, double %.0141
-  %.219 = select i1 %.not172, ptr %9, ptr %10
-  %155 = fadd double %.0144..0143217, %153
+  %.0144..0143216 = select i1 %.not172, double %.0144, double %.0143
+  %.0142..0141217 = select i1 %.not172, double %.0142, double %.0141
+  %.218 = select i1 %.not172, ptr %9, ptr %10
+  %155 = fadd double %.0144..0143216, %153
   store double %155, ptr %152, align 16
-  %156 = fpext double %.0142..0141218 to x86_fp80
+  %156 = fpext double %.0142..0141217 to x86_fp80
   %157 = load ptr, ptr %150, align 8
   %158 = getelementptr inbounds i8, ptr %157, i64 96
   %159 = load x86_fp80, ptr %158, align 16
   %160 = fadd x86_fp80 %159, %156
   store x86_fp80 %160, ptr %158, align 16
   %161 = load i32, ptr %154, align 8
-  call fastcc void @_handle_qos_tres_run_secs(ptr noundef nonnull %.219, ptr noundef nonnull %8, i32 noundef %161, ptr noundef nonnull %146)
+  call fastcc void @_handle_qos_tres_run_secs(ptr noundef nonnull %.218, ptr noundef nonnull %8, i32 noundef %161, ptr noundef nonnull %146)
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %144, %141
-  %.not173191 = icmp eq ptr %125, null
-  br i1 %.not173191, label %._crit_edge, label %.lr.ph193
+  %.not173190 = icmp eq ptr %125, null
+  br i1 %.not173190, label %._crit_edge, label %.lr.ph192
 
-.lr.ph193:                                        ; preds = %.thread
+.lr.ph192:                                        ; preds = %.thread
   %162 = fpext double %.0142 to x86_fp80
   %163 = getelementptr inbounds i8, ptr %0, i64 392
   br label %164
 
-164:                                              ; preds = %.lr.ph193, %193
-  %.0140192 = phi ptr [ %125, %.lr.ph193 ], [ %197, %193 ]
-  %165 = getelementptr inbounds i8, ptr %.0140192, i64 312
+164:                                              ; preds = %.lr.ph192, %193
+  %.0140191 = phi ptr [ %125, %.lr.ph192 ], [ %197, %193 ]
+  %165 = getelementptr inbounds i8, ptr %.0140191, i64 312
   %166 = load ptr, ptr %165, align 8
   %167 = getelementptr inbounds i8, ptr %166, i64 48
   %168 = load double, ptr %167, align 16
@@ -3685,13 +3685,13 @@ define internal fastcc noundef i32 @_apply_new_usage(ptr noundef %0, i64 noundef
   br i1 %178, label %179, label %193
 
 179:                                              ; preds = %176
-  %180 = getelementptr inbounds i8, ptr %.0140192, i64 132
+  %180 = getelementptr inbounds i8, ptr %.0140191, i64 132
   %181 = load i32, ptr %180, align 4
-  %182 = getelementptr inbounds i8, ptr %.0140192, i64 8
+  %182 = getelementptr inbounds i8, ptr %.0140191, i64 8
   %183 = load ptr, ptr %182, align 8
-  %184 = getelementptr inbounds i8, ptr %.0140192, i64 320
+  %184 = getelementptr inbounds i8, ptr %.0140191, i64 320
   %185 = load ptr, ptr %184, align 8
-  %186 = getelementptr inbounds i8, ptr %.0140192, i64 272
+  %186 = getelementptr inbounds i8, ptr %.0140191, i64 272
   %187 = load ptr, ptr %186, align 8
   %188 = load ptr, ptr %165, align 8
   %189 = getelementptr inbounds i8, ptr %188, i64 144
@@ -3703,7 +3703,7 @@ define internal fastcc noundef i32 @_apply_new_usage(ptr noundef %0, i64 noundef
 
 193:                                              ; preds = %176, %179, %164
   %194 = load i32, ptr %163, align 8
-  call fastcc void @_handle_assoc_tres_run_secs(ptr noundef nonnull %9, ptr noundef nonnull %8, i32 noundef %194, ptr noundef nonnull %.0140192)
+  call fastcc void @_handle_assoc_tres_run_secs(ptr noundef nonnull %9, ptr noundef nonnull %8, i32 noundef %194, ptr noundef nonnull %.0140191)
   %195 = load ptr, ptr %165, align 8
   %196 = getelementptr inbounds i8, ptr %195, i64 72
   %197 = load ptr, ptr %196, align 8
@@ -3728,7 +3728,7 @@ define noundef zeroext i1 @decay_apply_new_usage(ptr noundef %0, ptr nocapture n
   %7 = and i32 %4, 32768
   %.not = icmp eq i32 %7, 0
   %or.cond = and i1 %6, %.not
-  br i1 %or.cond, label %8, label %23
+  br i1 %or.cond, label %8, label %24
 
 8:                                                ; preds = %2
   %9 = load i32, ptr @flags, align 4
@@ -3756,11 +3756,14 @@ define noundef zeroext i1 @decay_apply_new_usage(ptr noundef %0, ptr nocapture n
   %20 = load i64, ptr @g_last_ran, align 8
   %21 = load i64, ptr %1, align 8
   %22 = tail call fastcc i32 @_apply_new_usage(ptr noundef nonnull %0, i64 noundef %20, i64 noundef %21, i1 noundef zeroext false), !range !25
-  %.not14 = icmp ne i32 %22, 0
-  br label %23
+  %.not14 = icmp eq i32 %22, 0
+  br i1 %.not14, label %24, label %23
 
-23:                                               ; preds = %19, %13, %16, %8, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %8 ], [ true, %16 ], [ true, %13 ], [ %.not14, %19 ]
+23:                                               ; preds = %8, %19, %16, %13
+  br label %24
+
+24:                                               ; preds = %19, %2, %23
+  %.0 = phi i1 [ true, %23 ], [ false, %2 ], [ false, %19 ]
   ret i1 %.0
 }
 
@@ -3856,7 +3859,7 @@ define internal noundef i32 @_decay_apply_new_usage_and_weighted_factors(ptr nou
   %7 = and i32 %4, 32768
   %.not.i = icmp eq i32 %7, 0
   %or.cond.i = and i1 %6, %.not.i
-  br i1 %or.cond.i, label %8, label %decay_apply_new_usage.exit.thread5
+  br i1 %or.cond.i, label %8, label %decay_apply_new_usage.exit.thread
 
 8:                                                ; preds = %2
   %9 = load i32, ptr @flags, align 4
@@ -3866,32 +3869,32 @@ define internal noundef i32 @_decay_apply_new_usage_and_weighted_factors(ptr nou
   %12 = and i32 %4, 262144
   %.not11.i = icmp eq i32 %12, 0
   %or.cond16.i = and i1 %.not11.i, %or.cond15.i
-  br i1 %or.cond16.i, label %13, label %decay_apply_new_usage.exit.thread
+  br i1 %or.cond16.i, label %13, label %decay_apply_new_usage.exit
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds i8, ptr %0, i64 888
   %15 = load i64, ptr %14, align 8
   %.not12.i = icmp eq i64 %15, 0
-  br i1 %.not12.i, label %decay_apply_new_usage.exit.thread, label %16
+  br i1 %.not12.i, label %decay_apply_new_usage.exit, label %16
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds i8, ptr %0, i64 72
   %18 = load ptr, ptr %17, align 8
   %.not13.i = icmp eq ptr %18, null
-  br i1 %.not13.i, label %decay_apply_new_usage.exit.thread, label %decay_apply_new_usage.exit
+  br i1 %.not13.i, label %decay_apply_new_usage.exit, label %19
 
-decay_apply_new_usage.exit:                       ; preds = %16
-  %19 = load i64, ptr @g_last_ran, align 8
-  %20 = load i64, ptr %1, align 8
-  %21 = tail call fastcc i32 @_apply_new_usage(ptr noundef nonnull %0, i64 noundef %19, i64 noundef %20, i1 noundef zeroext false), !range !25
-  %.not14.i.not = icmp eq i32 %21, 0
-  br i1 %.not14.i.not, label %decay_apply_new_usage.exit.thread5, label %decay_apply_new_usage.exit.thread
+19:                                               ; preds = %16
+  %20 = load i64, ptr @g_last_ran, align 8
+  %21 = load i64, ptr %1, align 8
+  %22 = tail call fastcc i32 @_apply_new_usage(ptr noundef nonnull %0, i64 noundef %20, i64 noundef %21, i1 noundef zeroext false), !range !25
+  %.not14.i = icmp eq i32 %22, 0
+  br i1 %.not14.i, label %decay_apply_new_usage.exit.thread, label %decay_apply_new_usage.exit
 
-decay_apply_new_usage.exit.thread:                ; preds = %13, %16, %8, %decay_apply_new_usage.exit
-  %22 = tail call i32 @decay_apply_weighted_factors(ptr noundef nonnull %0, ptr noundef %1)
-  br label %decay_apply_new_usage.exit.thread5
+decay_apply_new_usage.exit:                       ; preds = %19, %16, %13, %8
+  %23 = tail call i32 @decay_apply_weighted_factors(ptr noundef nonnull %0, ptr noundef %1)
+  br label %decay_apply_new_usage.exit.thread
 
-decay_apply_new_usage.exit.thread5:               ; preds = %2, %decay_apply_new_usage.exit, %decay_apply_new_usage.exit.thread
+decay_apply_new_usage.exit.thread:                ; preds = %19, %2, %decay_apply_new_usage.exit
   ret i32 0
 }
 

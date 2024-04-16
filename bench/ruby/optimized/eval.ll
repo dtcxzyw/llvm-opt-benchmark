@@ -1497,15 +1497,16 @@ define hidden void @rb_print_undef_str(i64 noundef %0, i64 noundef %1) local_unn
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 31
   %11 = icmp eq i64 %10, 3
-  %spec.select = select i1 %11, i64 41, i64 40
-  %spec.select21 = select i1 %11, ptr @.str.6, ptr @.str.7
-  br label %.critedge
+  br i1 %11, label %12, label %.critedge
 
-.critedge:                                        ; preds = %7, %2
-  %.sink = phi i64 [ 40, %2 ], [ %spec.select, %7 ]
-  %.str.7.sink = phi ptr [ @.str.7, %2 ], [ %spec.select21, %7 ]
-  %12 = tail call i64 @rb_fstring_new(ptr noundef nonnull %.str.7.sink, i64 noundef %.sink) #9
-  tail call fastcc void @rb_name_err_raise_str(i64 noundef %12, i64 noundef %0, i64 noundef %1) #29
+.critedge:                                        ; preds = %2, %7
+  br label %12
+
+12:                                               ; preds = %7, %.critedge
+  %.sink = phi i64 [ 40, %.critedge ], [ 41, %7 ]
+  %.str.7.sink = phi ptr [ @.str.7, %.critedge ], [ @.str.6, %7 ]
+  %13 = tail call i64 @rb_fstring_new(ptr noundef nonnull %.str.7.sink, i64 noundef %.sink) #9
+  tail call fastcc void @rb_name_err_raise_str(i64 noundef %13, i64 noundef %0, i64 noundef %1) #29
   unreachable
 }
 
@@ -5417,9 +5418,9 @@ define internal noundef i64 @rb_mod_refine(i64 noundef %0, i64 noundef %1) #0 {
 14:                                               ; preds = %2
   %15 = and i64 %10, 3
   %cond = icmp eq i64 %15, 1
-  br i1 %cond, label %vm_block_handler_type.exit, label %RB_SYMBOL_P.exit.i
+  br i1 %cond, label %vm_block_handler_type.exit, label %RB_SYMBOL_P.exit.thread.i
 
-RB_SYMBOL_P.exit.i:                               ; preds = %14
+RB_SYMBOL_P.exit.thread.i:                        ; preds = %14
   %16 = load i64, ptr @rb_eArgError, align 8
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %16, ptr noundef nonnull @.str.94) #22
   unreachable
@@ -6641,9 +6642,9 @@ declare void @rb_ec_vm_lock_rec_release(ptr noundef, i32 noundef, i32 noundef) l
 declare i32 @rb_ec_set_raised(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @exiting_split(i64 noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef i32 @exiting_split(i64 noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = icmp eq i64 %0, 4
-  br i1 %4, label %55, label %5
+  br i1 %4, label %.thread53, label %5
 
 5:                                                ; preds = %3
   %6 = and i64 %0, 7
@@ -6663,7 +6664,7 @@ imemo_throw_data_p.exit:                          ; preds = %5
   %15 = getelementptr inbounds i8, ptr %10, i64 32
   %16 = load i32, ptr %15, align 8
   %17 = and i32 %16, 255
-  br label %51
+  br label %50
 
 imemo_throw_data_p.exit.thread:                   ; preds = %5, %imemo_throw_data_p.exit
   %18 = load i64, ptr @rb_eSystemExit, align 8
@@ -6689,7 +6690,7 @@ imemo_throw_data_p.exit.thread:                   ; preds = %5, %imemo_throw_dat
 sysexit_status.exit:                              ; preds = %24, %26
   %.0.i.i = phi i64 [ %25, %24 ], [ %27, %26 ]
   %28 = trunc i64 %.0.i.i to i32
-  br label %51
+  br label %50
 
 29:                                               ; preds = %imemo_throw_data_p.exit.thread
   %30 = load i64, ptr @rb_eSignal, align 8
@@ -6701,64 +6702,58 @@ sysexit_status.exit:                              ; preds = %24, %26
   %33 = load i64, ptr @ruby_static_id_signo, align 8
   %34 = tail call i64 @rb_ivar_get(i64 noundef %0, i64 noundef %33) #9
   %35 = tail call i64 @rb_fix2int(i64 noundef %34) #9
-  %36 = trunc i64 %35 to i32
-  %37 = icmp eq i64 %34, 23
-  br i1 %37, label %.thread, label %38
+  %36 = icmp eq i64 %34, 23
+  br i1 %36, label %40, label %37
 
-38:                                               ; preds = %32
-  %39 = load i64, ptr @rb_eSignal, align 8
-  %40 = tail call i64 @rb_obj_is_instance_of(i64 noundef %0, i64 noundef %39) #9
-  %.not36 = icmp eq i64 %40, 0
-  %spec.select = select i1 %.not36, i32 5, i32 4
-  br label %51
+37:                                               ; preds = %32
+  %38 = load i64, ptr @rb_eSignal, align 8
+  %39 = tail call i64 @rb_obj_is_instance_of(i64 noundef %0, i64 noundef %38) #9
+  %.not36 = icmp eq i64 %39, 0
+  br i1 %.not36, label %40, label %52
+
+40:                                               ; preds = %37, %32
+  br label %52
 
 41:                                               ; preds = %29
   %42 = load i64, ptr @rb_eSystemCallError, align 8
   %43 = tail call i64 @rb_obj_is_kind_of(i64 noundef %0, i64 noundef %42) #9
   %.not35 = icmp eq i64 %43, 0
-  br i1 %.not35, label %51, label %44
+  br i1 %.not35, label %50, label %44
 
 44:                                               ; preds = %41
   %45 = load i64, ptr @ruby_static_id_signo, align 8
   %46 = tail call i64 @rb_attr_get(i64 noundef %0, i64 noundef %45) #9
   %47 = and i64 %46, 1
-  %.not52 = icmp eq i64 %47, 0
-  br i1 %.not52, label %51, label %48
+  %.not59 = icmp eq i64 %47, 0
+  br i1 %.not59, label %50, label %48
 
 48:                                               ; preds = %44
   %49 = tail call i64 @rb_fix2int(i64 noundef %46) #9
-  %50 = trunc i64 %49 to i32
-  br label %.thread
+  br label %52
 
-51:                                               ; preds = %38, %41, %44, %sysexit_status.exit, %14
-  %.031 = phi i32 [ %17, %14 ], [ %28, %sysexit_status.exit ], [ 1, %44 ], [ 1, %41 ], [ 0, %38 ]
-  %.030 = phi i32 [ 0, %14 ], [ 0, %sysexit_status.exit ], [ 0, %44 ], [ 0, %41 ], [ %36, %38 ]
-  %.not40 = phi i1 [ true, %14 ], [ true, %sysexit_status.exit ], [ true, %44 ], [ true, %41 ], [ false, %38 ]
-  %.029 = phi i32 [ 2, %14 ], [ 2, %sysexit_status.exit ], [ 3, %44 ], [ 3, %41 ], [ %spec.select, %38 ]
+50:                                               ; preds = %41, %44, %sysexit_status.exit, %14
+  %.031 = phi i32 [ %17, %14 ], [ %28, %sysexit_status.exit ], [ 1, %44 ], [ 1, %41 ]
+  %.029 = phi i32 [ 2, %14 ], [ 2, %sysexit_status.exit ], [ 3, %44 ], [ 3, %41 ]
   %.not37 = icmp eq ptr %1, null
-  %52 = and i32 %.029, 2
-  %.not38 = icmp eq i32 %52, 0
-  %or.cond = or i1 %.not37, %.not38
-  br i1 %or.cond, label %.thread, label %53
+  br i1 %.not37, label %.thread53, label %51
 
-53:                                               ; preds = %51
+51:                                               ; preds = %50
   store volatile i32 %.031, ptr %1, align 4
-  br label %.thread
+  br label %.thread53
 
-.thread:                                          ; preds = %32, %48, %53, %51
-  %.02951 = phi i32 [ %.029, %53 ], [ %.029, %51 ], [ 5, %32 ], [ 4, %48 ]
-  %.not4050 = phi i1 [ %.not40, %53 ], [ %.not40, %51 ], [ false, %32 ], [ false, %48 ]
-  %.03049 = phi i32 [ %.030, %53 ], [ %.030, %51 ], [ %36, %32 ], [ %50, %48 ]
+52:                                               ; preds = %40, %37, %48
+  %.030.ph.in = phi i64 [ %49, %48 ], [ %35, %37 ], [ %35, %40 ]
+  %.029.ph = phi i32 [ 4, %48 ], [ 4, %37 ], [ 5, %40 ]
   %.not39 = icmp eq ptr %2, null
-  %brmerge = or i1 %.not39, %.not4050
-  br i1 %brmerge, label %55, label %54
+  br i1 %.not39, label %.thread53, label %53
 
-54:                                               ; preds = %.thread
-  store volatile i32 %.03049, ptr %2, align 4
-  br label %55
+53:                                               ; preds = %52
+  %.030.ph = trunc i64 %.030.ph.in to i32
+  store volatile i32 %.030.ph, ptr %2, align 4
+  br label %.thread53
 
-55:                                               ; preds = %54, %.thread, %3
-  %.0 = phi i32 [ 0, %3 ], [ %.02951, %.thread ], [ %.02951, %54 ]
+.thread53:                                        ; preds = %50, %51, %53, %52, %3
+  %.0 = phi i32 [ 0, %3 ], [ %.029.ph, %52 ], [ %.029.ph, %53 ], [ %.029, %51 ], [ %.029, %50 ]
   ret i32 %.0
 }
 

@@ -561,17 +561,17 @@ define internal fastcc void @crypto_alg_finish_registration(ptr noundef %0, i1 n
   %10 = getelementptr inbounds i8, ptr %0, i64 48
   br label %11
 
-11:                                               ; preds = %57, %6
-  %12 = phi ptr [ %4, %6 ], [ %58, %57 ]
+11:                                               ; preds = %58, %6
+  %12 = phi ptr [ %4, %6 ], [ %59, %58 ]
   %13 = icmp eq ptr %12, %0
-  br i1 %13, label %57, label %14
+  br i1 %13, label %58, label %14
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds i8, ptr %12, i64 32
   %16 = load i32, ptr %15, align 8
   %17 = and i32 %16, 96
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %57
+  br i1 %18, label %19, label %58
 
 19:                                               ; preds = %14
   %20 = and i32 %16, 16
@@ -579,7 +579,7 @@ define internal fastcc void @crypto_alg_finish_registration(ptr noundef %0, i1 n
   %22 = getelementptr inbounds i8, ptr %12, i64 56
   %23 = tail call i32 @strcmp(ptr noundef %7, ptr noundef %22) #16
   %24 = icmp eq i32 %23, 0
-  br i1 %21, label %46, label %25
+  br i1 %21, label %47, label %25
 
 25:                                               ; preds = %19
   br i1 %24, label %29, label %26
@@ -587,13 +587,13 @@ define internal fastcc void @crypto_alg_finish_registration(ptr noundef %0, i1 n
 26:                                               ; preds = %25
   %27 = tail call i32 @strcmp(ptr noundef %8, ptr noundef %22) #16
   %28 = icmp eq i32 %27, 0
-  br i1 %28, label %29, label %57
+  br i1 %28, label %29, label %58
 
 29:                                               ; preds = %26, %25
   %30 = getelementptr inbounds i8, ptr %12, i64 384
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %33, label %57
+  br i1 %32, label %33, label %58
 
 33:                                               ; preds = %29
   %34 = load i32, ptr %9, align 8
@@ -602,7 +602,7 @@ define internal fastcc void @crypto_alg_finish_registration(ptr noundef %0, i1 n
   %37 = load i32, ptr %36, align 8
   %38 = and i32 %35, %37
   %39 = icmp eq i32 %38, 0
-  br i1 %39, label %40, label %57
+  br i1 %39, label %40, label %58
 
 40:                                               ; preds = %33
   br i1 %1, label %41, label %44
@@ -610,41 +610,43 @@ define internal fastcc void @crypto_alg_finish_registration(ptr noundef %0, i1 n
 41:                                               ; preds = %40
   %42 = tail call ptr @crypto_mod_get(ptr noundef %0) #16
   %43 = icmp eq ptr %42, null
-  %spec.select = select i1 %43, ptr inttoptr (i64 -11 to ptr), ptr %0
-  br label %44
+  br i1 %43, label %44, label %45
 
 44:                                               ; preds = %41, %40
-  %45 = phi ptr [ inttoptr (i64 -11 to ptr), %40 ], [ %spec.select, %41 ]
-  store ptr %45, ptr %30, align 8
-  br label %57
+  br label %45
 
-46:                                               ; preds = %19
-  br i1 %24, label %47, label %57
+45:                                               ; preds = %44, %41
+  %46 = phi ptr [ inttoptr (i64 -11 to ptr), %44 ], [ %0, %41 ]
+  store ptr %46, ptr %30, align 8
+  br label %58
 
-47:                                               ; preds = %46
-  %48 = getelementptr inbounds i8, ptr %12, i64 184
-  %49 = tail call i32 @strcmp(ptr noundef %8, ptr noundef %48) #16
-  %50 = icmp eq i32 %49, 0
-  br i1 %50, label %56, label %51
+47:                                               ; preds = %19
+  br i1 %24, label %48, label %58
 
-51:                                               ; preds = %47
-  %52 = getelementptr inbounds i8, ptr %12, i64 48
-  %53 = load i32, ptr %52, align 8
-  %54 = load i32, ptr %10, align 8
-  %55 = icmp sgt i32 %53, %54
-  br i1 %55, label %57, label %56
+48:                                               ; preds = %47
+  %49 = getelementptr inbounds i8, ptr %12, i64 184
+  %50 = tail call i32 @strcmp(ptr noundef %8, ptr noundef %49) #16
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %57, label %52
 
-56:                                               ; preds = %51, %47
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds i8, ptr %12, i64 48
+  %54 = load i32, ptr %53, align 8
+  %55 = load i32, ptr %10, align 8
+  %56 = icmp sgt i32 %54, %55
+  br i1 %56, label %58, label %57
+
+57:                                               ; preds = %52, %48
   tail call void @crypto_remove_spawns(ptr noundef %12, ptr noundef %2, ptr noundef %0)
-  br label %57
+  br label %58
 
-57:                                               ; preds = %56, %51, %46, %44, %33, %29, %26, %14, %11
-  %58 = load ptr, ptr %12, align 8
-  %59 = icmp eq ptr %58, @crypto_alg_list
-  br i1 %59, label %.loopexit, label %11, !llvm.loop !23
+58:                                               ; preds = %57, %52, %47, %45, %33, %29, %26, %14, %11
+  %59 = load ptr, ptr %12, align 8
+  %60 = icmp eq ptr %59, @crypto_alg_list
+  br i1 %60, label %.loopexit, label %11, !llvm.loop !23
 
-.loopexit:                                        ; preds = %57, %3
-  %60 = tail call i32 @blocking_notifier_call_chain(ptr noundef nonnull @crypto_chain, i64 noundef 2, ptr noundef %0) #16
+.loopexit:                                        ; preds = %58, %3
+  %61 = tail call i32 @blocking_notifier_call_chain(ptr noundef nonnull @crypto_chain, i64 noundef 2, ptr noundef %0) #16
   ret void
 }
 

@@ -124,7 +124,7 @@ define dso_local noundef zeroext i1 @_ZN7cmValue5IsOffESt17basic_string_viewIcSt
     i64 3, label %12
     i64 5, label %21
     i64 6, label %36
-    i64 8, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.i
+    i64 8, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
   ]
 
 3:                                                ; preds = %2
@@ -253,7 +253,7 @@ define dso_local noundef zeroext i1 @_ZN7cmValue5IsOffESt17basic_string_viewIcSt
   %spec.select38 = icmp eq i8 %53, 69
   br label %_ZN7cmValue10IsNOTFOUNDESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
-_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.i: ; preds = %2
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %2
   %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %1, ptr noundef nonnull dereferenceable(8) @.str, i64 8)
   %54 = icmp eq i32 %bcmp.i.i, 0
   br label %_ZN7cmValue10IsNOTFOUNDESt17basic_string_viewIcSt11char_traitsIcEE.exit
@@ -275,34 +275,34 @@ switch.lookup:                                    ; preds = %3
   %switch.masked = trunc i63 %switch.downshift to i1
   br label %_ZN7cmValue10IsNOTFOUNDESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
-_ZN7cmValue10IsNOTFOUNDESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %3, %switch.lookup, %50, %32, %17, %8, %2, %47, %44, %41, %38, %36, %29, %26, %23, %21, %14, %12, %6, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %55, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.i
-  %.0 = phi i1 [ true, %2 ], [ false, %55 ], [ %58, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ], [ %54, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.i ], [ false, %6 ], [ %spec.select, %8 ], [ false, %12 ], [ false, %14 ], [ %spec.select36, %17 ], [ false, %21 ], [ false, %23 ], [ false, %26 ], [ false, %29 ], [ %spec.select37, %32 ], [ false, %36 ], [ false, %38 ], [ false, %41 ], [ false, %44 ], [ false, %47 ], [ %spec.select38, %50 ], [ %switch.masked, %switch.lookup ], [ false, %3 ]
+_ZN7cmValue10IsNOTFOUNDESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %3, %switch.lookup, %50, %32, %17, %8, %2, %47, %44, %41, %38, %36, %29, %26, %23, %21, %14, %12, %6, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %55, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
+  %.0 = phi i1 [ true, %2 ], [ false, %55 ], [ %54, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ], [ %58, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ], [ false, %6 ], [ %spec.select, %8 ], [ false, %12 ], [ false, %14 ], [ %spec.select36, %17 ], [ false, %21 ], [ false, %23 ], [ false, %26 ], [ false, %29 ], [ %spec.select37, %32 ], [ false, %36 ], [ false, %38 ], [ false, %41 ], [ false, %44 ], [ false, %47 ], [ %spec.select38, %50 ], [ %switch.masked, %switch.lookup ], [ false, %3 ]
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZN7cmValue10IsNOTFOUNDESt17basic_string_viewIcSt11char_traitsIcEE(i64 %0, ptr nocapture readonly %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq i64 %0, 8
-  br i1 %3, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit, label %5
+  br i1 %3, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, label %5
 
-_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit: ; preds = %2
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %2
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %1, ptr noundef nonnull dereferenceable(8) @.str, i64 8)
   %4 = icmp eq i32 %bcmp.i, 0
-  br label %_Z11cmHasSuffixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit
+  br label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit
 
 5:                                                ; preds = %2
   %.not.i = icmp ult i64 %0, 9
-  br i1 %.not.i, label %_Z11cmHasSuffixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
+  br i1 %.not.i, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %5
   %6 = getelementptr i8, ptr %1, i64 %0
   %7 = getelementptr i8, ptr %6, i64 -9
   %bcmp.i13 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %7, ptr noundef nonnull dereferenceable(9) @.str.1, i64 9)
   %8 = icmp eq i32 %bcmp.i13, 0
-  br label %_Z11cmHasSuffixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit
+  br label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit
 
-_Z11cmHasSuffixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit: ; preds = %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %5
-  %9 = phi i1 [ false, %5 ], [ %8, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ], [ %4, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit ]
+_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %5
+  %9 = phi i1 [ false, %5 ], [ %4, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ %8, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ]
   ret i1 %9
 }
 

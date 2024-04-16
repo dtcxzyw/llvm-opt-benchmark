@@ -1298,7 +1298,7 @@ define dso_local i32 @ata_acpi_on_devcfg(ptr noundef %0) local_unnamed_addr #0 a
   %11 = load i64, ptr %10, align 16
   %12 = and i64 %11, 268435456
   %13 = icmp eq i64 %12, 0
-  br i1 %13, label %14, label %305
+  br i1 %13, label %14, label %306
 
 14:                                               ; preds = %1
   %15 = getelementptr inbounds i8, ptr %0, i64 688
@@ -1307,13 +1307,13 @@ define dso_local i32 @ata_acpi_on_devcfg(ptr noundef %0) local_unnamed_addr #0 a
   %18 = getelementptr i8, ptr %16, i64 -16
   %19 = icmp ne ptr %18, null
   %20 = and i1 %17, %19
-  br i1 %20, label %21, label %305
+  br i1 %20, label %21, label %306
 
 21:                                               ; preds = %14
   %22 = getelementptr i8, ptr %16, i64 -8
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
-  br i1 %24, label %305, label %25
+  br i1 %24, label %306, label %25
 
 25:                                               ; preds = %21
   %26 = load i64, ptr %10, align 16
@@ -1324,14 +1324,14 @@ define dso_local i32 @ata_acpi_on_devcfg(ptr noundef %0) local_unnamed_addr #0 a
   br i1 %28, label %31, label %37
 
 31:                                               ; preds = %25
-  br i1 %30, label %305, label %32
+  br i1 %30, label %306, label %32
 
 32:                                               ; preds = %31
   %33 = getelementptr inbounds i8, ptr %7, i64 9180
   %34 = load i32, ptr %33, align 4
   %35 = and i32 %34, 131072
   %36 = icmp eq i32 %35, 0
-  br i1 %36, label %305, label %.thread
+  br i1 %36, label %306, label %.thread
 
 37:                                               ; preds = %25
   br i1 %30, label %69, label %.thread
@@ -1709,12 +1709,12 @@ define dso_local i32 @ata_acpi_on_devcfg(ptr noundef %0) local_unnamed_addr #0 a
   %258 = and i64 %257, -33
   store i64 %258, ptr %10, align 16
   %259 = icmp eq i32 %251, 0
-  br i1 %259, label %305, label %260
+  br i1 %259, label %306, label %260
 
 260:                                              ; preds = %256
   %261 = call i32 @ata_dev_reread_id(ptr noundef %0, i32 noundef 0) #8
   %262 = icmp slt i32 %261, 0
-  br i1 %262, label %263, label %305
+  br i1 %262, label %263, label %306
 
 263:                                              ; preds = %260
   %264 = load ptr, ptr %0, align 64
@@ -1727,7 +1727,7 @@ define dso_local i32 @ata_acpi_on_devcfg(ptr noundef %0) local_unnamed_addr #0 a
   %271 = load i32, ptr %270, align 8
   %272 = add i32 %271, %269
   %273 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.6, i32 noundef %267, i32 noundef %272) #10
-  br label %305
+  br label %306
 
 274:                                              ; preds = %69
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
@@ -1739,7 +1739,7 @@ define dso_local i32 @ata_acpi_on_devcfg(ptr noundef %0) local_unnamed_addr #0 a
   %277 = load i32, ptr %276, align 32
   %278 = and i32 %277, 4
   %279 = icmp eq i32 %278, 0
-  br i1 %279, label %305, label %.thread30
+  br i1 %279, label %306, label %.thread30
 
 .thread30:                                        ; preds = %58, %.loopexit, %275, %274
   %280 = phi i32 [ -22, %275 ], [ %70, %274 ], [ -5, %58 ], [ %252, %.loopexit ]
@@ -1752,7 +1752,7 @@ define dso_local i32 @ata_acpi_on_devcfg(ptr noundef %0) local_unnamed_addr #0 a
 285:                                              ; preds = %.thread30
   %286 = or disjoint i64 %282, 64
   store i64 %286, ptr %10, align 16
-  br label %305
+  br label %306
 
 287:                                              ; preds = %.thread30
   %288 = or i64 %282, 268435456
@@ -1775,12 +1775,14 @@ define dso_local i32 @ata_acpi_on_devcfg(ptr noundef %0) local_unnamed_addr #0 a
   %302 = load i32, ptr %301, align 32
   %303 = and i32 %302, 4
   %304 = icmp eq i32 %303, 0
-  %spec.select = select i1 %304, i32 0, i32 %280
-  br label %305
+  br i1 %304, label %306, label %305
 
-305:                                              ; preds = %300, %287, %285, %275, %263, %260, %256, %32, %31, %21, %14, %1
-  %306 = phi i32 [ %280, %285 ], [ %261, %263 ], [ 0, %21 ], [ 0, %32 ], [ 0, %31 ], [ 0, %260 ], [ 0, %256 ], [ 0, %275 ], [ 0, %14 ], [ 0, %1 ], [ %280, %287 ], [ %spec.select, %300 ]
-  ret i32 %306
+305:                                              ; preds = %300, %287
+  br label %306
+
+306:                                              ; preds = %305, %300, %285, %275, %263, %260, %256, %32, %31, %21, %14, %1
+  %307 = phi i32 [ %280, %305 ], [ %280, %285 ], [ %261, %263 ], [ 0, %21 ], [ 0, %32 ], [ 0, %31 ], [ 0, %260 ], [ 0, %256 ], [ 0, %275 ], [ 0, %300 ], [ 0, %14 ], [ 0, %1 ]
+  ret i32 %307
 }
 
 ; Function Attrs: null_pointer_is_valid

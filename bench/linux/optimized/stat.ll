@@ -149,20 +149,20 @@ define internal noundef i32 @show_stat(ptr noundef %0, ptr nocapture readnone %1
   store i64 %23, ptr %14, align 8
   br label %24
 
-24:                                               ; preds = %2, %113
-  %25 = phi i64 [ 0, %2 ], [ %122, %113 ]
-  %26 = phi i64 [ 0, %2 ], [ %71, %113 ]
-  %27 = phi i64 [ 0, %2 ], [ %110, %113 ]
-  %28 = phi i64 [ 0, %2 ], [ %120, %113 ]
-  %29 = phi i64 [ 0, %2 ], [ %118, %113 ]
-  %30 = phi i64 [ 0, %2 ], [ %115, %113 ]
-  %31 = phi i64 [ 0, %2 ], [ %117, %113 ]
-  %32 = phi i64 [ 0, %2 ], [ %91, %113 ]
-  %33 = phi i64 [ 0, %2 ], [ %116, %113 ]
-  %34 = phi i64 [ 0, %2 ], [ %114, %113 ]
-  %35 = phi i64 [ 0, %2 ], [ %82, %113 ]
-  %36 = phi i64 [ 0, %2 ], [ %73, %113 ]
-  %37 = phi i64 [ 0, %2 ], [ %72, %113 ]
+24:                                               ; preds = %2, %115
+  %25 = phi i64 [ 0, %2 ], [ %124, %115 ]
+  %26 = phi i64 [ 0, %2 ], [ %71, %115 ]
+  %27 = phi i64 [ 0, %2 ], [ %112, %115 ]
+  %28 = phi i64 [ 0, %2 ], [ %122, %115 ]
+  %29 = phi i64 [ 0, %2 ], [ %120, %115 ]
+  %30 = phi i64 [ 0, %2 ], [ %117, %115 ]
+  %31 = phi i64 [ 0, %2 ], [ %119, %115 ]
+  %32 = phi i64 [ 0, %2 ], [ %93, %115 ]
+  %33 = phi i64 [ 0, %2 ], [ %118, %115 ]
+  %34 = phi i64 [ 0, %2 ], [ %116, %115 ]
+  %35 = phi i64 [ 0, %2 ], [ %83, %115 ]
+  %36 = phi i64 [ 0, %2 ], [ %73, %115 ]
+  %37 = phi i64 [ 0, %2 ], [ %72, %115 ]
   %38 = load i64, ptr @__cpu_possible_mask, align 8
   %39 = shl nsw i64 -1, %25
   %40 = and i64 %38, %39
@@ -214,276 +214,284 @@ define internal noundef i32 @show_stat(ptr noundef %0, ptr nocapture readnone %1
   %.fr = freeze i64 %78
   %79 = icmp eq i64 %.fr, -1
   %80 = mul i64 %.fr, 1000
-  %spec.select = select i1 %79, i64 %62, i64 %80
-  br label %.thread12
+  br i1 %79, label %.thread12, label %81
 
-.thread12:                                        ; preds = %77, %46
-  %81 = phi i64 [ %62, %46 ], [ %spec.select, %77 ]
-  %82 = add i64 %81, %35
-  %83 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %47) #7, !srcloc !5
-  %84 = icmp ult i8 %83, 2
-  call void @llvm.assume(i1 %84)
-  %85 = icmp eq i8 %83, 0
-  br i1 %85, label %.thread15, label %86
+.thread12:                                        ; preds = %46, %77
+  br label %81
 
-86:                                               ; preds = %.thread12
-  %87 = call i64 @get_cpu_iowait_time_us(i32 noundef %44, ptr noundef null) #7
-  %.fr28 = freeze i64 %87
-  %88 = icmp eq i64 %.fr28, -1
-  %89 = mul i64 %.fr28, 1000
-  %spec.select25 = select i1 %88, i64 %64, i64 %89
-  br label %.thread15
+81:                                               ; preds = %77, %.thread12
+  %82 = phi i64 [ %62, %.thread12 ], [ %80, %77 ]
+  %83 = add i64 %82, %35
+  %84 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %47) #7, !srcloc !5
+  %85 = icmp ult i8 %84, 2
+  call void @llvm.assume(i1 %85)
+  %86 = icmp eq i8 %84, 0
+  br i1 %86, label %.thread15, label %87
 
-.thread15:                                        ; preds = %86, %.thread12
-  %90 = phi i64 [ %64, %.thread12 ], [ %spec.select25, %86 ]
-  %91 = add i64 %58, %32
-  %92 = load i64, ptr %48, align 8
-  %93 = add i64 %92, ptrtoint (ptr @kstat to i64)
-  %94 = inttoptr i64 %93 to ptr
-  %95 = load i64, ptr %94, align 8
-  %96 = call i64 @arch_irq_stat_cpu(i32 noundef %44) #7
-  %97 = load i64, ptr %48, align 8
-  %98 = add i64 %97, ptrtoint (ptr @kstat to i64)
-  %99 = inttoptr i64 %98 to ptr
-  %100 = getelementptr inbounds i8, ptr %99, i64 8
-  br label %101
+87:                                               ; preds = %81
+  %88 = call i64 @get_cpu_iowait_time_us(i32 noundef %44, ptr noundef null) #7
+  %.fr25 = freeze i64 %88
+  %89 = icmp eq i64 %.fr25, -1
+  %90 = mul i64 %.fr25, 1000
+  br i1 %89, label %.thread15, label %91
 
-101:                                              ; preds = %101, %.thread15
-  %102 = phi i64 [ 0, %.thread15 ], [ %111, %101 ]
-  %103 = phi i64 [ %27, %.thread15 ], [ %110, %101 ]
-  %104 = getelementptr [10 x i32], ptr %100, i64 0, i64 %102
-  %105 = load i32, ptr %104, align 4
-  %106 = getelementptr [10 x i32], ptr %4, i64 0, i64 %102
+.thread15:                                        ; preds = %81, %87
+  br label %91
+
+91:                                               ; preds = %87, %.thread15
+  %92 = phi i64 [ %64, %.thread15 ], [ %90, %87 ]
+  %93 = add i64 %58, %32
+  %94 = load i64, ptr %48, align 8
+  %95 = add i64 %94, ptrtoint (ptr @kstat to i64)
+  %96 = inttoptr i64 %95 to ptr
+  %97 = load i64, ptr %96, align 8
+  %98 = call i64 @arch_irq_stat_cpu(i32 noundef %44) #7
+  %99 = load i64, ptr %48, align 8
+  %100 = add i64 %99, ptrtoint (ptr @kstat to i64)
+  %101 = inttoptr i64 %100 to ptr
+  %102 = getelementptr inbounds i8, ptr %101, i64 8
+  br label %103
+
+103:                                              ; preds = %103, %91
+  %104 = phi i64 [ 0, %91 ], [ %113, %103 ]
+  %105 = phi i64 [ %27, %91 ], [ %112, %103 ]
+  %106 = getelementptr [10 x i32], ptr %102, i64 0, i64 %104
   %107 = load i32, ptr %106, align 4
-  %108 = add i32 %107, %105
-  store i32 %108, ptr %106, align 4
-  %109 = zext i32 %105 to i64
-  %110 = add i64 %103, %109
-  %111 = add nuw nsw i64 %102, 1
-  %112 = icmp eq i64 %111, 10
-  br i1 %112, label %113, label %101, !llvm.loop !9
+  %108 = getelementptr [10 x i32], ptr %4, i64 0, i64 %104
+  %109 = load i32, ptr %108, align 4
+  %110 = add i32 %109, %107
+  store i32 %110, ptr %108, align 4
+  %111 = zext i32 %107 to i64
+  %112 = add i64 %105, %111
+  %113 = add nuw nsw i64 %104, 1
+  %114 = icmp eq i64 %113, 10
+  br i1 %114, label %115, label %103, !llvm.loop !9
 
-113:                                              ; preds = %101
-  %114 = add i64 %90, %34
-  %115 = add i64 %68, %30
-  %116 = add i64 %60, %33
-  %117 = add i64 %66, %31
-  %118 = add i64 %70, %29
-  %119 = add i64 %95, %28
-  %120 = add i64 %119, %96
-  %121 = add nuw nsw i64 %43, 1
-  %122 = and i64 %121, 127
-  %123 = icmp ugt i64 %122, 63
-  br i1 %123, label %.thread, label %24, !prof !12, !llvm.loop !13
+115:                                              ; preds = %103
+  %116 = add i64 %92, %34
+  %117 = add i64 %68, %30
+  %118 = add i64 %60, %33
+  %119 = add i64 %66, %31
+  %120 = add i64 %70, %29
+  %121 = add i64 %97, %28
+  %122 = add i64 %121, %98
+  %123 = add nuw nsw i64 %43, 1
+  %124 = and i64 %123, 127
+  %125 = icmp ugt i64 %124, 63
+  br i1 %125, label %.thread, label %24, !prof !12, !llvm.loop !13
 
-.thread:                                          ; preds = %24, %113, %42
-  %.lcssa48 = phi i64 [ %37, %24 ], [ %72, %113 ], [ %37, %42 ]
-  %.lcssa47 = phi i64 [ %36, %24 ], [ %73, %113 ], [ %36, %42 ]
-  %.lcssa46 = phi i64 [ %35, %24 ], [ %82, %113 ], [ %35, %42 ]
-  %.lcssa45 = phi i64 [ %34, %24 ], [ %114, %113 ], [ %34, %42 ]
-  %.lcssa44 = phi i64 [ %33, %24 ], [ %116, %113 ], [ %33, %42 ]
-  %.lcssa43 = phi i64 [ %32, %24 ], [ %91, %113 ], [ %32, %42 ]
-  %.lcssa42 = phi i64 [ %31, %24 ], [ %117, %113 ], [ %31, %42 ]
-  %.lcssa41 = phi i64 [ %30, %24 ], [ %115, %113 ], [ %30, %42 ]
-  %.lcssa40 = phi i64 [ %29, %24 ], [ %118, %113 ], [ %29, %42 ]
-  %.lcssa39 = phi i64 [ %28, %24 ], [ %120, %113 ], [ %28, %42 ]
-  %.lcssa38 = phi i64 [ %27, %24 ], [ %110, %113 ], [ %27, %42 ]
-  %.lcssa37 = phi i64 [ %26, %24 ], [ %71, %113 ], [ %26, %42 ]
-  %124 = call i64 @arch_irq_stat() #7
-  %125 = call i64 @nsec_to_clock_t(i64 noundef %.lcssa37) #7
-  call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef %125) #7
-  %126 = call i64 @nsec_to_clock_t(i64 noundef %.lcssa48) #7
-  call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.2, i64 noundef %126) #7
-  %127 = call i64 @nsec_to_clock_t(i64 noundef %.lcssa47) #7
-  call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.2, i64 noundef %127) #7
-  %128 = call i64 @nsec_to_clock_t(i64 noundef %.lcssa46) #7
+.thread:                                          ; preds = %24, %115, %42
+  %.lcssa45 = phi i64 [ %37, %24 ], [ %72, %115 ], [ %37, %42 ]
+  %.lcssa44 = phi i64 [ %36, %24 ], [ %73, %115 ], [ %36, %42 ]
+  %.lcssa43 = phi i64 [ %35, %24 ], [ %83, %115 ], [ %35, %42 ]
+  %.lcssa42 = phi i64 [ %34, %24 ], [ %116, %115 ], [ %34, %42 ]
+  %.lcssa41 = phi i64 [ %33, %24 ], [ %118, %115 ], [ %33, %42 ]
+  %.lcssa40 = phi i64 [ %32, %24 ], [ %93, %115 ], [ %32, %42 ]
+  %.lcssa39 = phi i64 [ %31, %24 ], [ %119, %115 ], [ %31, %42 ]
+  %.lcssa38 = phi i64 [ %30, %24 ], [ %117, %115 ], [ %30, %42 ]
+  %.lcssa37 = phi i64 [ %29, %24 ], [ %120, %115 ], [ %29, %42 ]
+  %.lcssa36 = phi i64 [ %28, %24 ], [ %122, %115 ], [ %28, %42 ]
+  %.lcssa35 = phi i64 [ %27, %24 ], [ %112, %115 ], [ %27, %42 ]
+  %.lcssa34 = phi i64 [ %26, %24 ], [ %71, %115 ], [ %26, %42 ]
+  %126 = call i64 @arch_irq_stat() #7
+  %127 = call i64 @nsec_to_clock_t(i64 noundef %.lcssa34) #7
+  call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef %127) #7
+  %128 = call i64 @nsec_to_clock_t(i64 noundef %.lcssa45) #7
   call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.2, i64 noundef %128) #7
-  %129 = call i64 @nsec_to_clock_t(i64 noundef %.lcssa45) #7
+  %129 = call i64 @nsec_to_clock_t(i64 noundef %.lcssa44) #7
   call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.2, i64 noundef %129) #7
-  %130 = call i64 @nsec_to_clock_t(i64 noundef %.lcssa44) #7
+  %130 = call i64 @nsec_to_clock_t(i64 noundef %.lcssa43) #7
   call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.2, i64 noundef %130) #7
-  %131 = call i64 @nsec_to_clock_t(i64 noundef %.lcssa43) #7
+  %131 = call i64 @nsec_to_clock_t(i64 noundef %.lcssa42) #7
   call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.2, i64 noundef %131) #7
-  %132 = call i64 @nsec_to_clock_t(i64 noundef %.lcssa42) #7
+  %132 = call i64 @nsec_to_clock_t(i64 noundef %.lcssa41) #7
   call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.2, i64 noundef %132) #7
-  %133 = call i64 @nsec_to_clock_t(i64 noundef %.lcssa41) #7
+  %133 = call i64 @nsec_to_clock_t(i64 noundef %.lcssa40) #7
   call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.2, i64 noundef %133) #7
-  %134 = call i64 @nsec_to_clock_t(i64 noundef %.lcssa40) #7
+  %134 = call i64 @nsec_to_clock_t(i64 noundef %.lcssa39) #7
   call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.2, i64 noundef %134) #7
+  %135 = call i64 @nsec_to_clock_t(i64 noundef %.lcssa38) #7
+  call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.2, i64 noundef %135) #7
+  %136 = call i64 @nsec_to_clock_t(i64 noundef %.lcssa37) #7
+  call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.2, i64 noundef %136) #7
   call void @seq_putc(ptr noundef %0, i8 noundef zeroext 10) #7
-  br label %135
+  br label %137
 
-135:                                              ; preds = %.thread, %.thread23
-  %136 = phi i64 [ 0, %.thread ], [ %197, %.thread23 ]
-  %137 = load i64, ptr @__cpu_online_mask, align 8
-  %138 = shl nsw i64 -1, %136
-  %139 = and i64 %137, %138
-  %140 = icmp eq i64 %139, 0
-  br i1 %140, label %.thread18, label %141
+137:                                              ; preds = %.thread, %188
+  %138 = phi i64 [ 0, %.thread ], [ %201, %188 ]
+  %139 = load i64, ptr @__cpu_online_mask, align 8
+  %140 = shl nsw i64 -1, %138
+  %141 = and i64 %139, %140
+  %142 = icmp eq i64 %141, 0
+  br i1 %142, label %.thread18, label %143
 
-141:                                              ; preds = %135
-  %142 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %139) #9, !srcloc !8
-  %143 = trunc i64 %142 to i32
-  %144 = icmp ult i32 %143, 64
-  br i1 %144, label %145, label %.thread18
+143:                                              ; preds = %137
+  %144 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %141) #9, !srcloc !8
+  %145 = trunc i64 %144 to i32
+  %146 = icmp ult i32 %145, 64
+  br i1 %146, label %147, label %.thread18
 
-145:                                              ; preds = %141
-  %146 = and i64 %142, 63
-  %147 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %146
-  %148 = load i64, ptr %147, align 8
-  %149 = add i64 %148, ptrtoint (ptr @kernel_cpustat to i64)
-  %150 = inttoptr i64 %149 to ptr
-  %151 = load i64, ptr %150, align 8
-  %152 = getelementptr inbounds i8, ptr %150, i64 8
+147:                                              ; preds = %143
+  %148 = and i64 %144, 63
+  %149 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %148
+  %150 = load i64, ptr %149, align 8
+  %151 = add i64 %150, ptrtoint (ptr @kernel_cpustat to i64)
+  %152 = inttoptr i64 %151 to ptr
   %153 = load i64, ptr %152, align 8
-  %154 = getelementptr inbounds i8, ptr %150, i64 16
+  %154 = getelementptr inbounds i8, ptr %152, i64 8
   %155 = load i64, ptr %154, align 8
-  %156 = getelementptr inbounds i8, ptr %150, i64 24
+  %156 = getelementptr inbounds i8, ptr %152, i64 16
   %157 = load i64, ptr %156, align 8
-  %158 = getelementptr inbounds i8, ptr %150, i64 32
+  %158 = getelementptr inbounds i8, ptr %152, i64 24
   %159 = load i64, ptr %158, align 8
-  %160 = getelementptr inbounds i8, ptr %150, i64 40
+  %160 = getelementptr inbounds i8, ptr %152, i64 32
   %161 = load i64, ptr %160, align 8
-  %162 = getelementptr inbounds i8, ptr %150, i64 48
+  %162 = getelementptr inbounds i8, ptr %152, i64 40
   %163 = load i64, ptr %162, align 8
-  %164 = getelementptr inbounds i8, ptr %150, i64 56
+  %164 = getelementptr inbounds i8, ptr %152, i64 48
   %165 = load i64, ptr %164, align 8
-  %166 = getelementptr inbounds i8, ptr %150, i64 64
+  %166 = getelementptr inbounds i8, ptr %152, i64 56
   %167 = load i64, ptr %166, align 8
-  %168 = getelementptr inbounds i8, ptr %150, i64 72
+  %168 = getelementptr inbounds i8, ptr %152, i64 64
   %169 = load i64, ptr %168, align 8
-  %170 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %146) #7, !srcloc !5
-  %171 = icmp ult i8 %170, 2
-  call void @llvm.assume(i1 %171)
-  %172 = icmp eq i8 %170, 0
-  br i1 %172, label %.thread20, label %173
+  %170 = getelementptr inbounds i8, ptr %152, i64 72
+  %171 = load i64, ptr %170, align 8
+  %172 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %148) #7, !srcloc !5
+  %173 = icmp ult i8 %172, 2
+  call void @llvm.assume(i1 %173)
+  %174 = icmp eq i8 %172, 0
+  br i1 %174, label %.thread20, label %175
 
-173:                                              ; preds = %145
-  %174 = call i64 @get_cpu_idle_time_us(i32 noundef %143, ptr noundef null) #7
-  %.fr29 = freeze i64 %174
-  %175 = icmp eq i64 %.fr29, -1
-  %176 = mul i64 %.fr29, 1000
-  %spec.select26 = select i1 %175, i64 %161, i64 %176
-  br label %.thread20
+175:                                              ; preds = %147
+  %176 = call i64 @get_cpu_idle_time_us(i32 noundef %145, ptr noundef null) #7
+  %.fr26 = freeze i64 %176
+  %177 = icmp eq i64 %.fr26, -1
+  %178 = mul i64 %.fr26, 1000
+  br i1 %177, label %.thread20, label %179
 
-.thread20:                                        ; preds = %173, %145
-  %177 = phi i64 [ %161, %145 ], [ %spec.select26, %173 ]
-  %178 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %146) #7, !srcloc !5
-  %179 = icmp ult i8 %178, 2
-  call void @llvm.assume(i1 %179)
-  %180 = icmp eq i8 %178, 0
-  br i1 %180, label %.thread23, label %181
+.thread20:                                        ; preds = %147, %175
+  br label %179
 
-181:                                              ; preds = %.thread20
-  %182 = call i64 @get_cpu_iowait_time_us(i32 noundef %143, ptr noundef null) #7
-  %.fr30 = freeze i64 %182
-  %183 = icmp eq i64 %.fr30, -1
-  %184 = mul i64 %.fr30, 1000
-  %spec.select27 = select i1 %183, i64 %163, i64 %184
-  br label %.thread23
+179:                                              ; preds = %175, %.thread20
+  %180 = phi i64 [ %163, %.thread20 ], [ %178, %175 ]
+  %181 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %148) #7, !srcloc !5
+  %182 = icmp ult i8 %181, 2
+  call void @llvm.assume(i1 %182)
+  %183 = icmp eq i8 %181, 0
+  br i1 %183, label %.thread23, label %184
 
-.thread23:                                        ; preds = %181, %.thread20
-  %185 = phi i64 [ %163, %.thread20 ], [ %spec.select27, %181 ]
-  call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.3, i32 noundef %143) #7
-  %186 = call i64 @nsec_to_clock_t(i64 noundef %151) #7
-  call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.2, i64 noundef %186) #7
-  %187 = call i64 @nsec_to_clock_t(i64 noundef %153) #7
-  call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.2, i64 noundef %187) #7
-  %188 = call i64 @nsec_to_clock_t(i64 noundef %155) #7
-  call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.2, i64 noundef %188) #7
-  %189 = call i64 @nsec_to_clock_t(i64 noundef %177) #7
-  call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.2, i64 noundef %189) #7
-  %190 = call i64 @nsec_to_clock_t(i64 noundef %185) #7
+184:                                              ; preds = %179
+  %185 = call i64 @get_cpu_iowait_time_us(i32 noundef %145, ptr noundef null) #7
+  %.fr27 = freeze i64 %185
+  %186 = icmp eq i64 %.fr27, -1
+  %187 = mul i64 %.fr27, 1000
+  br i1 %186, label %.thread23, label %188
+
+.thread23:                                        ; preds = %179, %184
+  br label %188
+
+188:                                              ; preds = %184, %.thread23
+  %189 = phi i64 [ %165, %.thread23 ], [ %187, %184 ]
+  call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.3, i32 noundef %145) #7
+  %190 = call i64 @nsec_to_clock_t(i64 noundef %153) #7
   call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.2, i64 noundef %190) #7
-  %191 = call i64 @nsec_to_clock_t(i64 noundef %159) #7
+  %191 = call i64 @nsec_to_clock_t(i64 noundef %155) #7
   call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.2, i64 noundef %191) #7
   %192 = call i64 @nsec_to_clock_t(i64 noundef %157) #7
   call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.2, i64 noundef %192) #7
-  %193 = call i64 @nsec_to_clock_t(i64 noundef %165) #7
+  %193 = call i64 @nsec_to_clock_t(i64 noundef %180) #7
   call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.2, i64 noundef %193) #7
-  %194 = call i64 @nsec_to_clock_t(i64 noundef %167) #7
+  %194 = call i64 @nsec_to_clock_t(i64 noundef %189) #7
   call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.2, i64 noundef %194) #7
-  %195 = call i64 @nsec_to_clock_t(i64 noundef %169) #7
+  %195 = call i64 @nsec_to_clock_t(i64 noundef %161) #7
   call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.2, i64 noundef %195) #7
+  %196 = call i64 @nsec_to_clock_t(i64 noundef %159) #7
+  call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.2, i64 noundef %196) #7
+  %197 = call i64 @nsec_to_clock_t(i64 noundef %167) #7
+  call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.2, i64 noundef %197) #7
+  %198 = call i64 @nsec_to_clock_t(i64 noundef %169) #7
+  call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.2, i64 noundef %198) #7
+  %199 = call i64 @nsec_to_clock_t(i64 noundef %171) #7
+  call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.2, i64 noundef %199) #7
   call void @seq_putc(ptr noundef %0, i8 noundef zeroext 10) #7
-  %196 = add nuw nsw i64 %142, 1
-  %197 = and i64 %196, 127
-  %198 = icmp ugt i64 %197, 63
-  br i1 %198, label %.thread18, label %135, !prof !12, !llvm.loop !14
+  %200 = add nuw nsw i64 %144, 1
+  %201 = and i64 %200, 127
+  %202 = icmp ugt i64 %201, 63
+  br i1 %202, label %.thread18, label %137, !prof !12, !llvm.loop !14
 
-.thread18:                                        ; preds = %135, %.thread23, %141
-  %199 = add i64 %124, %.lcssa39
-  call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.4, i64 noundef %199) #7
-  %200 = call i32 @irq_get_next_irq(i32 noundef 0) #7
-  %201 = load i32, ptr @nr_irqs, align 4
-  %202 = icmp ult i32 %200, %201
-  br i1 %202, label %.preheader33, label %.loopexit34
+.thread18:                                        ; preds = %137, %188, %143
+  %203 = add i64 %126, %.lcssa36
+  call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.4, i64 noundef %203) #7
+  %204 = call i32 @irq_get_next_irq(i32 noundef 0) #7
+  %205 = load i32, ptr @nr_irqs, align 4
+  %206 = icmp ult i32 %204, %205
+  br i1 %206, label %.preheader30, label %.loopexit31
 
-.preheader33:                                     ; preds = %.thread18, %.loopexit32
-  %203 = phi i32 [ %216, %.loopexit32 ], [ 0, %.thread18 ]
-  %204 = phi i32 [ %217, %.loopexit32 ], [ %200, %.thread18 ]
-  %205 = sub i32 %204, %203
-  %206 = icmp eq i32 %205, 0
-  br i1 %206, label %.loopexit32, label %.preheader31
+.preheader30:                                     ; preds = %.thread18, %.loopexit29
+  %207 = phi i32 [ %220, %.loopexit29 ], [ 0, %.thread18 ]
+  %208 = phi i32 [ %221, %.loopexit29 ], [ %204, %.thread18 ]
+  %209 = sub i32 %208, %207
+  %210 = icmp eq i32 %209, 0
+  br i1 %210, label %.loopexit29, label %.preheader28
 
-.preheader31:                                     ; preds = %.preheader33, %.preheader31
-  %207 = phi i32 [ %212, %.preheader31 ], [ %205, %.preheader33 ]
-  %208 = call i32 @llvm.umin.i32(i32 %207, i32 16)
-  %209 = shl nuw nsw i32 %208, 1
-  %210 = zext nneg i32 %209 to i64
-  %211 = call i32 @seq_write(ptr noundef %0, ptr noundef nonnull @show_irq_gap.zeros, i64 noundef %210) #7
-  %212 = sub i32 %207, %208
-  %213 = icmp eq i32 %212, 0
-  br i1 %213, label %.loopexit32, label %.preheader31, !llvm.loop !15
+.preheader28:                                     ; preds = %.preheader30, %.preheader28
+  %211 = phi i32 [ %216, %.preheader28 ], [ %209, %.preheader30 ]
+  %212 = call i32 @llvm.umin.i32(i32 %211, i32 16)
+  %213 = shl nuw nsw i32 %212, 1
+  %214 = zext nneg i32 %213 to i64
+  %215 = call i32 @seq_write(ptr noundef %0, ptr noundef nonnull @show_irq_gap.zeros, i64 noundef %214) #7
+  %216 = sub i32 %211, %212
+  %217 = icmp eq i32 %216, 0
+  br i1 %217, label %.loopexit29, label %.preheader28, !llvm.loop !15
 
-.loopexit32:                                      ; preds = %.preheader31, %.preheader33
-  %214 = call i32 @kstat_irqs_usr(i32 noundef %204) #7
-  %215 = zext i32 %214 to i64
-  call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.2, i64 noundef %215) #7
-  %216 = add i32 %204, 1
-  %217 = call i32 @irq_get_next_irq(i32 noundef %216) #7
-  %218 = load i32, ptr @nr_irqs, align 4
-  %219 = icmp ult i32 %217, %218
-  br i1 %219, label %.preheader33, label %.loopexit34, !llvm.loop !16
+.loopexit29:                                      ; preds = %.preheader28, %.preheader30
+  %218 = call i32 @kstat_irqs_usr(i32 noundef %208) #7
+  %219 = zext i32 %218 to i64
+  call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.2, i64 noundef %219) #7
+  %220 = add i32 %208, 1
+  %221 = call i32 @irq_get_next_irq(i32 noundef %220) #7
+  %222 = load i32, ptr @nr_irqs, align 4
+  %223 = icmp ult i32 %221, %222
+  br i1 %223, label %.preheader30, label %.loopexit31, !llvm.loop !16
 
-.loopexit34:                                      ; preds = %.loopexit32, %.thread18
-  %220 = phi i32 [ 0, %.thread18 ], [ %216, %.loopexit32 ]
-  %221 = phi i32 [ %201, %.thread18 ], [ %218, %.loopexit32 ]
-  %222 = sub i32 %221, %220
-  %223 = icmp eq i32 %222, 0
-  br i1 %223, label %.loopexit, label %.preheader
+.loopexit31:                                      ; preds = %.loopexit29, %.thread18
+  %224 = phi i32 [ 0, %.thread18 ], [ %220, %.loopexit29 ]
+  %225 = phi i32 [ %205, %.thread18 ], [ %222, %.loopexit29 ]
+  %226 = sub i32 %225, %224
+  %227 = icmp eq i32 %226, 0
+  br i1 %227, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %.loopexit34, %.preheader
-  %224 = phi i32 [ %229, %.preheader ], [ %222, %.loopexit34 ]
-  %225 = call i32 @llvm.umin.i32(i32 %224, i32 16)
-  %226 = shl nuw nsw i32 %225, 1
-  %227 = zext nneg i32 %226 to i64
-  %228 = call i32 @seq_write(ptr noundef %0, ptr noundef nonnull @show_irq_gap.zeros, i64 noundef %227) #7
-  %229 = sub i32 %224, %225
-  %230 = icmp eq i32 %229, 0
-  br i1 %230, label %.loopexit, label %.preheader, !llvm.loop !15
+.preheader:                                       ; preds = %.loopexit31, %.preheader
+  %228 = phi i32 [ %233, %.preheader ], [ %226, %.loopexit31 ]
+  %229 = call i32 @llvm.umin.i32(i32 %228, i32 16)
+  %230 = shl nuw nsw i32 %229, 1
+  %231 = zext nneg i32 %230 to i64
+  %232 = call i32 @seq_write(ptr noundef %0, ptr noundef nonnull @show_irq_gap.zeros, i64 noundef %231) #7
+  %233 = sub i32 %228, %229
+  %234 = icmp eq i32 %233, 0
+  br i1 %234, label %.loopexit, label %.preheader, !llvm.loop !15
 
-.loopexit:                                        ; preds = %.preheader, %.loopexit34
-  %231 = call i64 @nr_context_switches() #7
-  %232 = load i64, ptr %5, align 8
-  %233 = load i64, ptr @total_forks, align 8
-  %234 = call i32 @nr_running() #7
-  %235 = call i32 @nr_iowait() #7
-  call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.5, i64 noundef %231, i64 noundef %232, i64 noundef %233, i32 noundef %234, i32 noundef %235) #7
-  call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef %.lcssa38) #7
-  br label %236
+.loopexit:                                        ; preds = %.preheader, %.loopexit31
+  %235 = call i64 @nr_context_switches() #7
+  %236 = load i64, ptr %5, align 8
+  %237 = load i64, ptr @total_forks, align 8
+  %238 = call i32 @nr_running() #7
+  %239 = call i32 @nr_iowait() #7
+  call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.5, i64 noundef %235, i64 noundef %236, i64 noundef %237, i32 noundef %238, i32 noundef %239) #7
+  call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef %.lcssa35) #7
+  br label %240
 
-236:                                              ; preds = %236, %.loopexit
-  %237 = phi i64 [ 0, %.loopexit ], [ %241, %236 ]
-  %238 = getelementptr [10 x i32], ptr %4, i64 0, i64 %237
-  %239 = load i32, ptr %238, align 4
-  %240 = zext i32 %239 to i64
-  call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.2, i64 noundef %240) #7
-  %241 = add nuw nsw i64 %237, 1
-  %242 = icmp eq i64 %241, 10
-  br i1 %242, label %243, label %236, !llvm.loop !17
+240:                                              ; preds = %240, %.loopexit
+  %241 = phi i64 [ 0, %.loopexit ], [ %245, %240 ]
+  %242 = getelementptr [10 x i32], ptr %4, i64 0, i64 %241
+  %243 = load i32, ptr %242, align 4
+  %244 = zext i32 %243 to i64
+  call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.2, i64 noundef %244) #7
+  %245 = add nuw nsw i64 %241, 1
+  %246 = icmp eq i64 %245, 10
+  br i1 %246, label %247, label %240, !llvm.loop !17
 
-243:                                              ; preds = %236
+247:                                              ; preds = %240
   call void @seq_putc(ptr noundef %0, i8 noundef zeroext 10) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #7

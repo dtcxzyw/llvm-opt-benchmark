@@ -281,12 +281,12 @@ define noundef i32 @opal_info_init(i32 noundef %0, ptr noundef %1, ptr noundef %
   %33 = load ptr, ptr @opal_show_help, align 8
   %34 = call i32 (ptr, ptr, i32, ...) %33(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, i32 noundef 1, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.32, i32 noundef 184) #17
   %35 = call i32 @opal_finalize_util() #17
-  br label %115
+  br label %114
 
 36:                                               ; preds = %12
   %37 = call i32 @mca_base_cmd_line_setup(ptr noundef %2) #17
   %38 = call zeroext i1 @opal_output_init() #17
-  br i1 %38, label %39, label %115
+  br i1 %38, label %39, label %114
 
 39:                                               ; preds = %36
   %40 = load i32, ptr %4, align 4
@@ -294,7 +294,7 @@ define noundef i32 @opal_info_init(i32 noundef %0, ptr noundef %1, ptr noundef %
   %42 = call i32 @opal_cmd_line_parse(ptr noundef %2, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %40, ptr noundef %41) #17
   switch i32 %42, label %43 [
     i32 0, label %49
-    i32 -43, label %.thread87
+    i32 -43, label %.thread86
   ]
 
 43:                                               ; preds = %39
@@ -303,15 +303,15 @@ define noundef i32 @opal_info_init(i32 noundef %0, ptr noundef %1, ptr noundef %
   %46 = load ptr, ptr %45, align 8
   %47 = call ptr @opal_strerror(i32 noundef %42) #17
   %48 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %44, ptr noundef nonnull @.str.68, ptr noundef %46, ptr noundef %47) #19
-  br label %.thread87
+  br label %.thread86
 
 49:                                               ; preds = %39
   %50 = call zeroext i1 @opal_cmd_line_is_taken(ptr noundef %2, ptr noundef nonnull @.str.48) #17
-  br i1 %50, label %.thread77, label %51
+  br i1 %50, label %.thread74, label %51
 
 51:                                               ; preds = %49
   %52 = call zeroext i1 @opal_cmd_line_is_taken(ptr noundef %2, ptr noundef nonnull @.str.69) #17
-  br i1 %52, label %.thread77, label %53
+  br i1 %52, label %.thread74, label %53
 
 53:                                               ; preds = %51
   %54 = call zeroext i1 @opal_cmd_line_is_taken(ptr noundef %2, ptr noundef nonnull @.str.52) #17
@@ -331,130 +331,130 @@ define noundef i32 @opal_info_init(i32 noundef %0, ptr noundef %1, ptr noundef %
   %62 = call i32 @isatty(i32 noundef 1) #17
   %63 = icmp ne i32 %62, 0
   %64 = zext i1 %63 to i8
-  br label %102
+  br label %101
 
 65:                                               ; preds = %57
   %66 = call i32 @strcasecmp(ptr noundef %58, ptr noundef nonnull @.str.71) #20
   %67 = icmp eq i32 %66, 0
-  br i1 %67, label %102, label %68
+  br i1 %67, label %101, label %68
 
 68:                                               ; preds = %65
   %69 = call i32 @strcasecmp(ptr noundef %58, ptr noundef nonnull @.str.72) #20
   %70 = icmp eq i32 %69, 0
-  br i1 %70, label %102, label %71
+  br i1 %70, label %101, label %71
 
 71:                                               ; preds = %68
   %72 = load ptr, ptr @stderr, align 8
   %73 = load ptr, ptr %5, align 8
   %74 = load ptr, ptr %73, align 8
   %75 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %72, ptr noundef nonnull @.str.73, ptr noundef %74, ptr noundef %58) #19
-  br label %.thread77
+  br label %.thread74
 
-.thread77:                                        ; preds = %51, %49, %71
-  %.181 = phi i32 [ 1, %71 ], [ 0, %49 ], [ 0, %51 ]
+.thread74:                                        ; preds = %51, %49, %71
+  %.1 = phi i32 [ 1, %71 ], [ 0, %49 ], [ 0, %51 ]
   %76 = call noalias ptr @opal_cmd_line_get_usage_msg(ptr noundef %2) #17
   %77 = call ptr (ptr, ptr, i32, ...) @opal_show_help_string(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.74, i32 noundef 1, ptr noundef %76) #17
   %.not65 = icmp eq ptr %77, null
-  br i1 %.not65, label %80, label %78
+  br i1 %.not65, label %.thread81, label %78
 
-78:                                               ; preds = %.thread77
+78:                                               ; preds = %.thread74
   %79 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.75, ptr noundef nonnull %77)
   call void @free(ptr noundef nonnull %77) #17
-  br label %80
+  br label %.thread81
 
-80:                                               ; preds = %78, %.thread77
+.thread81:                                        ; preds = %.thread74, %78
   call void @free(ptr noundef %76) #17
-  br label %.thread87
+  br label %.thread86
 
-.thread87:                                        ; preds = %39, %43, %80
-  %.18090 = phi i32 [ %.181, %80 ], [ 1, %43 ], [ 1, %39 ]
+.thread86:                                        ; preds = %39, %43, %.thread81
+  %.18084 = phi i32 [ %.1, %.thread81 ], [ 1, %43 ], [ 1, %39 ]
   call void @mca_base_close() #17
-  %81 = getelementptr inbounds i8, ptr %2, i64 8
-  %82 = load i8, ptr @opal_uses_threads, align 1
-  %83 = trunc i8 %82 to i1
-  br i1 %83, label %84, label %87
+  %80 = getelementptr inbounds i8, ptr %2, i64 8
+  %81 = load i8, ptr @opal_uses_threads, align 1
+  %82 = trunc i8 %81 to i1
+  br i1 %82, label %83, label %86
 
-84:                                               ; preds = %.thread87
-  %85 = atomicrmw volatile add ptr %81, i32 -1 monotonic, align 4
-  %86 = add i32 %85, -1
+83:                                               ; preds = %.thread86
+  %84 = atomicrmw volatile add ptr %80, i32 -1 monotonic, align 4
+  %85 = add i32 %84, -1
   br label %opal_thread_add_fetch_32.exit
 
-87:                                               ; preds = %.thread87
-  %88 = load volatile i32, ptr %81, align 4
-  %89 = add nsw i32 %88, -1
-  store volatile i32 %89, ptr %81, align 4
-  %90 = load volatile i32, ptr %81, align 4
+86:                                               ; preds = %.thread86
+  %87 = load volatile i32, ptr %80, align 4
+  %88 = add nsw i32 %87, -1
+  store volatile i32 %88, ptr %80, align 4
+  %89 = load volatile i32, ptr %80, align 4
   br label %opal_thread_add_fetch_32.exit
 
-opal_thread_add_fetch_32.exit:                    ; preds = %84, %87
-  %.0.i = phi i32 [ %86, %84 ], [ %90, %87 ]
-  %91 = icmp eq i32 %.0.i, 0
-  br i1 %91, label %92, label %100
+opal_thread_add_fetch_32.exit:                    ; preds = %83, %86
+  %.0.i = phi i32 [ %85, %83 ], [ %89, %86 ]
+  %90 = icmp eq i32 %.0.i, 0
+  br i1 %90, label %91, label %99
 
-92:                                               ; preds = %opal_thread_add_fetch_32.exit
-  %93 = load ptr, ptr %2, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 48
+91:                                               ; preds = %opal_thread_add_fetch_32.exit
+  %92 = load ptr, ptr %2, align 8
+  %93 = getelementptr inbounds i8, ptr %92, i64 48
+  %94 = load ptr, ptr %93, align 8
   %95 = load ptr, ptr %94, align 8
-  %96 = load ptr, ptr %95, align 8
-  %.not6.i = icmp eq ptr %96, null
+  %.not6.i = icmp eq ptr %95, null
   br i1 %.not6.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %92, %.lr.ph.i
-  %97 = phi ptr [ %99, %.lr.ph.i ], [ %96, %92 ]
-  %.07.i = phi ptr [ %98, %.lr.ph.i ], [ %95, %92 ]
-  call void %97(ptr noundef nonnull %2) #17
-  %98 = getelementptr inbounds i8, ptr %.07.i, i64 8
-  %99 = load ptr, ptr %98, align 8
-  %.not.i = icmp eq ptr %99, null
+.lr.ph.i:                                         ; preds = %91, %.lr.ph.i
+  %96 = phi ptr [ %98, %.lr.ph.i ], [ %95, %91 ]
+  %.07.i = phi ptr [ %97, %.lr.ph.i ], [ %94, %91 ]
+  call void %96(ptr noundef nonnull %2) #17
+  %97 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %98 = load ptr, ptr %97, align 8
+  %.not.i = icmp eq ptr %98, null
   br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !4
 
-opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %92
+opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %91
   call void @free(ptr noundef %2) #17
-  br label %100
+  br label %99
 
-100:                                              ; preds = %opal_thread_add_fetch_32.exit, %opal_obj_run_destructors.exit
-  %101 = call i32 @opal_finalize_util() #17
-  call void @exit(i32 noundef %.18090) #18
+99:                                               ; preds = %opal_thread_add_fetch_32.exit, %opal_obj_run_destructors.exit
+  %100 = call i32 @opal_finalize_util() #17
+  call void @exit(i32 noundef %.18084) #18
   unreachable
 
-102:                                              ; preds = %68, %65, %61
+101:                                              ; preds = %68, %65, %61
   %.sink = phi i8 [ %64, %61 ], [ 1, %65 ], [ 0, %68 ]
   store i8 %.sink, ptr @opal_info_color, align 1
-  %103 = call i32 @mca_base_cmd_line_process_args(ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %7) #17
-  %104 = call zeroext i1 @opal_cmd_line_is_taken(ptr noundef %2, ptr noundef nonnull @.str.50) #17
-  br i1 %104, label %.sink.split, label %105
+  %102 = call i32 @mca_base_cmd_line_process_args(ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %7) #17
+  %103 = call zeroext i1 @opal_cmd_line_is_taken(ptr noundef %2, ptr noundef nonnull @.str.50) #17
+  br i1 %103, label %.sink.split, label %104
 
-105:                                              ; preds = %102
-  %106 = call zeroext i1 @opal_cmd_line_is_taken(ptr noundef %2, ptr noundef nonnull @.str.54) #17
-  br i1 %106, label %.sink.split, label %107
+104:                                              ; preds = %101
+  %105 = call zeroext i1 @opal_cmd_line_is_taken(ptr noundef %2, ptr noundef nonnull @.str.54) #17
+  br i1 %105, label %.sink.split, label %106
 
-107:                                              ; preds = %105
-  %108 = call zeroext i1 @opal_cmd_line_is_taken(ptr noundef %2, ptr noundef nonnull @.str.56) #17
-  br i1 %108, label %.sink.split, label %109
+106:                                              ; preds = %104
+  %107 = call zeroext i1 @opal_cmd_line_is_taken(ptr noundef %2, ptr noundef nonnull @.str.56) #17
+  br i1 %107, label %.sink.split, label %108
 
-.sink.split:                                      ; preds = %105, %107, %102
-  %.sink91 = phi i8 [ 1, %102 ], [ 0, %107 ], [ 0, %105 ]
-  store i8 %.sink91, ptr @opal_info_pretty, align 1
-  br label %109
+.sink.split:                                      ; preds = %104, %106, %101
+  %.sink90 = phi i8 [ 1, %101 ], [ 0, %106 ], [ 0, %104 ]
+  store i8 %.sink90, ptr @opal_info_pretty, align 1
+  br label %108
 
-109:                                              ; preds = %.sink.split, %107
-  %110 = call zeroext i1 @opal_cmd_line_is_taken(ptr noundef %2, ptr noundef nonnull @.str.63) #17
-  br i1 %110, label %111, label %112
+108:                                              ; preds = %.sink.split, %106
+  %109 = call zeroext i1 @opal_cmd_line_is_taken(ptr noundef %2, ptr noundef nonnull @.str.63) #17
+  br i1 %109, label %110, label %111
 
-111:                                              ; preds = %109
+110:                                              ; preds = %108
   store i32 0, ptr @opal_info_register_flags, align 4
-  br label %112
+  br label %111
 
-112:                                              ; preds = %111, %109
-  %113 = call zeroext i1 @opal_cmd_line_is_taken(ptr noundef %2, ptr noundef nonnull @.str.65) #17
-  br i1 %113, label %114, label %115
+111:                                              ; preds = %110, %108
+  %112 = call zeroext i1 @opal_cmd_line_is_taken(ptr noundef %2, ptr noundef nonnull @.str.65) #17
+  br i1 %112, label %113, label %114
 
-114:                                              ; preds = %112
+113:                                              ; preds = %111
   store i8 1, ptr @mca_base_component_track_load_errors, align 1
-  br label %115
+  br label %114
 
-115:                                              ; preds = %112, %114, %36, %32
-  %.0 = phi i32 [ -1, %32 ], [ -1, %36 ], [ 0, %114 ], [ 0, %112 ]
+114:                                              ; preds = %111, %113, %36, %32
+  %.0 = phi i32 [ -1, %32 ], [ -1, %36 ], [ 0, %113 ], [ 0, %111 ]
   ret i32 %.0
 }
 
@@ -3033,24 +3033,24 @@ define void @opal_info_show_mca_version(ptr noundef %0, ptr nocapture noundef re
   %7 = load ptr, ptr @opal_info_ver_all, align 8
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %7) #20
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %.thread57, label %10
+  br i1 %9, label %19, label %.thread
 
-10:                                               ; preds = %3
-  %11 = load ptr, ptr @opal_info_ver_mca, align 8
-  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %11) #20
-  %13 = icmp eq i32 %12, 0
-  %14 = load ptr, ptr @opal_info_ver_type, align 8
-  %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %14) #20
-  %16 = icmp eq i32 %15, 0
-  %17 = load ptr, ptr @opal_info_ver_component, align 8
-  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %17) #20
-  %19 = icmp eq i32 %18, 0
-  br label %.thread57
+.thread:                                          ; preds = %3
+  %10 = load ptr, ptr @opal_info_ver_mca, align 8
+  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %10) #20
+  %12 = icmp eq i32 %11, 0
+  %13 = load ptr, ptr @opal_info_ver_type, align 8
+  %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %13) #20
+  %15 = icmp eq i32 %14, 0
+  %16 = load ptr, ptr @opal_info_ver_component, align 8
+  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %16) #20
+  %18 = icmp eq i32 %17, 0
+  br label %19
 
-.thread57:                                        ; preds = %3, %10
-  %.04261 = phi i1 [ %16, %10 ], [ true, %3 ]
-  %.0415660 = phi i1 [ %13, %10 ], [ true, %3 ]
-  %.043 = phi i1 [ %19, %10 ], [ true, %3 ]
+19:                                               ; preds = %.thread, %3
+  %.04264 = phi i1 [ true, %3 ], [ %15, %.thread ]
+  %.0415461 = phi i1 [ true, %3 ], [ %12, %.thread ]
+  %.043 = phi i1 [ true, %3 ], [ %18, %.thread ]
   %20 = load i32, ptr %0, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 4
   %22 = load i32, ptr %21, align 4
@@ -3076,11 +3076,11 @@ define void @opal_info_show_mca_version(ptr noundef %0, ptr nocapture noundef re
   %42 = getelementptr inbounds i8, ptr %0, i64 40
   br i1 %41, label %43, label %88
 
-43:                                               ; preds = %.thread57
+43:                                               ; preds = %19
   %44 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.86, ptr noundef nonnull %42) #17
   %45 = getelementptr inbounds i8, ptr %0, i64 84
   %46 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.104, ptr noundef nonnull %45) #17
-  br i1 %.0415660, label %47, label %52
+  br i1 %.0415461, label %47, label %52
 
 47:                                               ; preds = %43
   %48 = load ptr, ptr %5, align 8
@@ -3093,7 +3093,7 @@ define void @opal_info_show_mca_version(ptr noundef %0, ptr nocapture noundef re
 
 52:                                               ; preds = %47, %43
   %.0 = phi i8 [ 1, %47 ], [ 0, %43 ]
-  br i1 %.04261, label %53, label %64
+  br i1 %.04264, label %53, label %64
 
 53:                                               ; preds = %52
   %54 = trunc nuw i8 %.0 to i1
@@ -3123,11 +3123,11 @@ define void @opal_info_show_mca_version(ptr noundef %0, ptr nocapture noundef re
 
 65:                                               ; preds = %64
   %66 = trunc nuw i8 %.1 to i1
-  %.pre62 = load ptr, ptr %5, align 8
+  %.pre68 = load ptr, ptr %5, align 8
   br i1 %66, label %67, label %71
 
 67:                                               ; preds = %65
-  %68 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.106, ptr noundef %.pre62) #17
+  %68 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.106, ptr noundef %.pre68) #17
   %69 = load ptr, ptr %5, align 8
   call void @free(ptr noundef %69) #17
   %70 = load ptr, ptr %6, align 8
@@ -3135,7 +3135,7 @@ define void @opal_info_show_mca_version(ptr noundef %0, ptr nocapture noundef re
   br label %71
 
 71:                                               ; preds = %67, %65
-  %72 = phi ptr [ %70, %67 ], [ %.pre62, %65 ]
+  %72 = phi ptr [ %70, %67 ], [ %.pre68, %65 ]
   %73 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.108, ptr noundef %72, ptr noundef %39) #17
   %74 = load ptr, ptr %5, align 8
   call void @free(ptr noundef %74) #17
@@ -3156,7 +3156,7 @@ thread-pre-split:                                 ; preds = %64
   %79 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.109, ptr noundef nonnull %77) #17
   %80 = load ptr, ptr %5, align 8
   call void @free(ptr noundef %80) #17
-  %.pre63 = load ptr, ptr %6, align 8
+  %.pre69 = load ptr, ptr %6, align 8
   br label %82
 
 81:                                               ; preds = %76
@@ -3164,7 +3164,7 @@ thread-pre-split:                                 ; preds = %64
   br label %82
 
 82:                                               ; preds = %81, %78
-  %83 = phi ptr [ null, %81 ], [ %.pre63, %78 ]
+  %83 = phi ptr [ null, %81 ], [ %.pre69, %78 ]
   %84 = load ptr, ptr %4, align 8
   call void @opal_info_out(ptr noundef %84, ptr noundef null, ptr noundef %83)
   %85 = load ptr, ptr %4, align 8
@@ -3177,10 +3177,10 @@ thread-pre-split:                                 ; preds = %64
   call void @free(ptr noundef nonnull %86) #17
   br label %110
 
-88:                                               ; preds = %.thread57
+88:                                               ; preds = %19
   %89 = getelementptr inbounds i8, ptr %0, i64 84
   %90 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.110, ptr noundef nonnull %42, ptr noundef nonnull %89) #17
-  br i1 %.0415660, label %91, label %96
+  br i1 %.0415461, label %91, label %96
 
 91:                                               ; preds = %88
   %92 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.111, ptr noundef %25) #17
@@ -3192,7 +3192,7 @@ thread-pre-split:                                 ; preds = %64
   br label %96
 
 96:                                               ; preds = %91, %88
-  br i1 %.04261, label %97, label %102
+  br i1 %.04264, label %97, label %102
 
 97:                                               ; preds = %96
   %98 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.112, ptr noundef %32) #17

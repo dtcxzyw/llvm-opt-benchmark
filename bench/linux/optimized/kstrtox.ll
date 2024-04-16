@@ -55,12 +55,12 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_kstrtos8_fro
 define dso_local ptr @_parse_integer_fixup_radix(ptr noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 16 {
   %3 = load i32, ptr %1, align 4
   %4 = icmp eq i32 %3, 0
-  br i1 %4, label %5, label %23
+  br i1 %4, label %5, label %24
 
 5:                                                ; preds = %2
   %6 = load i8, ptr %0, align 1
   %7 = icmp eq i8 %6, 48
-  br i1 %7, label %8, label %21
+  br i1 %7, label %8, label %22
 
 8:                                                ; preds = %5
   %9 = getelementptr i8, ptr %0, i64 1
@@ -77,36 +77,38 @@ define dso_local ptr @_parse_integer_fixup_radix(ptr noundef readonly %0, ptr no
   %18 = load i8, ptr %17, align 1
   %19 = and i8 %18, 68
   %20 = icmp eq i8 %19, 0
-  %spec.select = select i1 %20, i32 8, i32 16
-  br label %21
+  br i1 %20, label %21, label %22
 
-21:                                               ; preds = %13, %8, %5
-  %22 = phi i32 [ 10, %5 ], [ 8, %8 ], [ %spec.select, %13 ]
-  store i32 %22, ptr %1, align 4
-  br label %23
+21:                                               ; preds = %13, %8
+  br label %22
 
-23:                                               ; preds = %21, %2
-  %24 = phi i32 [ %22, %21 ], [ %3, %2 ]
-  %25 = icmp eq i32 %24, 16
-  br i1 %25, label %26, label %36
+22:                                               ; preds = %21, %13, %5
+  %23 = phi i32 [ 8, %21 ], [ 16, %13 ], [ 10, %5 ]
+  store i32 %23, ptr %1, align 4
+  br label %24
 
-26:                                               ; preds = %23
-  %27 = load i8, ptr %0, align 1
-  %28 = icmp eq i8 %27, 48
-  br i1 %28, label %29, label %36
+24:                                               ; preds = %22, %2
+  %25 = phi i32 [ %23, %22 ], [ %3, %2 ]
+  %26 = icmp eq i32 %25, 16
+  br i1 %26, label %27, label %37
 
-29:                                               ; preds = %26
-  %30 = getelementptr i8, ptr %0, i64 1
-  %31 = load i8, ptr %30, align 1
-  %32 = and i8 %31, -33
-  %33 = icmp eq i8 %32, 88
-  %34 = select i1 %33, i64 2, i64 0
-  %35 = getelementptr i8, ptr %0, i64 %34
-  br label %36
+27:                                               ; preds = %24
+  %28 = load i8, ptr %0, align 1
+  %29 = icmp eq i8 %28, 48
+  br i1 %29, label %30, label %37
 
-36:                                               ; preds = %29, %26, %23
-  %37 = phi ptr [ %0, %26 ], [ %0, %23 ], [ %35, %29 ]
-  ret ptr %37
+30:                                               ; preds = %27
+  %31 = getelementptr i8, ptr %0, i64 1
+  %32 = load i8, ptr %31, align 1
+  %33 = and i8 %32, -33
+  %34 = icmp eq i8 %33, 88
+  %35 = select i1 %34, i64 2, i64 0
+  %36 = getelementptr i8, ptr %0, i64 %35
+  br label %37
+
+37:                                               ; preds = %30, %27, %24
+  %38 = phi ptr [ %0, %27 ], [ %0, %24 ], [ %36, %30 ]
+  ret ptr %38
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
@@ -258,7 +260,7 @@ define dso_local noundef i32 @kstrtoull(ptr nocapture noundef readonly %0, i32 n
   %7 = getelementptr i8, ptr %0, i64 %6
   switch i32 %1, label %_parse_integer_fixup_radix.exit [
     i32 0, label %8
-    i32 16, label %.thread
+    i32 16, label %.thread5
   ]
 
 8:                                                ; preds = %3
@@ -281,111 +283,111 @@ define dso_local noundef i32 @kstrtoull(ptr nocapture noundef readonly %0, i32 n
   %21 = load i8, ptr %20, align 1
   %22 = and i8 %21, 68
   %23 = icmp eq i8 %22, 0
-  br i1 %23, label %_parse_integer_fixup_radix.exit, label %.thread
+  br i1 %23, label %_parse_integer_fixup_radix.exit, label %.thread5.thread
 
-.thread:                                          ; preds = %3, %16
-  %24 = load i8, ptr %7, align 1
-  %25 = icmp eq i8 %24, 48
-  br i1 %25, label %26, label %_parse_integer_fixup_radix.exit
+.thread5:                                         ; preds = %3
+  %.pre = load i8, ptr %7, align 1
+  %24 = icmp eq i8 %.pre, 48
+  br i1 %24, label %.thread5.thread, label %_parse_integer_fixup_radix.exit
 
-26:                                               ; preds = %.thread
-  %27 = getelementptr i8, ptr %7, i64 1
-  %28 = load i8, ptr %27, align 1
-  %29 = and i8 %28, -33
-  %30 = icmp eq i8 %29, 88
-  %31 = select i1 %30, i64 2, i64 0
-  %32 = getelementptr i8, ptr %7, i64 %31
+.thread5.thread:                                  ; preds = %16, %.thread5
+  %25 = getelementptr i8, ptr %7, i64 1
+  %26 = load i8, ptr %25, align 1
+  %27 = and i8 %26, -33
+  %28 = icmp eq i8 %27, 88
+  %29 = select i1 %28, i64 2, i64 0
+  %30 = getelementptr i8, ptr %7, i64 %29
   br label %_parse_integer_fixup_radix.exit
 
-_parse_integer_fixup_radix.exit:                  ; preds = %3, %16, %11, %8, %.thread, %26
-  %.04 = phi i32 [ 16, %.thread ], [ 16, %26 ], [ 8, %11 ], [ 10, %8 ], [ 8, %16 ], [ %1, %3 ]
-  %33 = phi ptr [ %7, %.thread ], [ %32, %26 ], [ %7, %11 ], [ %7, %8 ], [ %7, %16 ], [ %7, %3 ]
-  %34 = zext i32 %.04 to i64
+_parse_integer_fixup_radix.exit:                  ; preds = %3, %11, %16, %8, %.thread5, %.thread5.thread
+  %.04 = phi i32 [ 16, %.thread5 ], [ 16, %.thread5.thread ], [ 10, %8 ], [ 8, %16 ], [ 8, %11 ], [ %1, %3 ]
+  %31 = phi ptr [ %7, %.thread5 ], [ %30, %.thread5.thread ], [ %7, %8 ], [ %7, %16 ], [ %7, %11 ], [ %7, %3 ]
+  %32 = zext i32 %.04 to i64
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %64, %_parse_integer_fixup_radix.exit
-  %.in.i.i = phi i64 [ %38, %64 ], [ 2147483647, %_parse_integer_fixup_radix.exit ]
-  %35 = phi i32 [ %69, %64 ], [ 0, %_parse_integer_fixup_radix.exit ]
-  %36 = phi i64 [ %68, %64 ], [ 0, %_parse_integer_fixup_radix.exit ]
-  %37 = phi ptr [ %70, %64 ], [ %33, %_parse_integer_fixup_radix.exit ]
-  %38 = add nsw i64 %.in.i.i, -1
-  %39 = load i8, ptr %37, align 1
-  %40 = or i8 %39, 32
-  %41 = zext i8 %40 to i32
-  %42 = add i8 %39, -48
-  %43 = icmp ult i8 %42, 10
-  br i1 %43, label %44, label %47
+.lr.ph.i.i:                                       ; preds = %62, %_parse_integer_fixup_radix.exit
+  %.in.i.i = phi i64 [ %36, %62 ], [ 2147483647, %_parse_integer_fixup_radix.exit ]
+  %33 = phi i32 [ %67, %62 ], [ 0, %_parse_integer_fixup_radix.exit ]
+  %34 = phi i64 [ %66, %62 ], [ 0, %_parse_integer_fixup_radix.exit ]
+  %35 = phi ptr [ %68, %62 ], [ %31, %_parse_integer_fixup_radix.exit ]
+  %36 = add nsw i64 %.in.i.i, -1
+  %37 = load i8, ptr %35, align 1
+  %38 = or i8 %37, 32
+  %39 = zext i8 %38 to i32
+  %40 = add i8 %37, -48
+  %41 = icmp ult i8 %40, 10
+  br i1 %41, label %42, label %45
 
-44:                                               ; preds = %.lr.ph.i.i
-  %45 = zext nneg i8 %39 to i32
-  %46 = add nsw i32 %45, -48
-  br label %52
+42:                                               ; preds = %.lr.ph.i.i
+  %43 = zext nneg i8 %37 to i32
+  %44 = add nsw i32 %43, -48
+  br label %50
 
-47:                                               ; preds = %.lr.ph.i.i
-  %48 = add i8 %40, -97
-  %49 = icmp ult i8 %48, 6
-  br i1 %49, label %50, label %_parse_integer.exit
+45:                                               ; preds = %.lr.ph.i.i
+  %46 = add i8 %38, -97
+  %47 = icmp ult i8 %46, 6
+  br i1 %47, label %48, label %_parse_integer.exit
 
-50:                                               ; preds = %47
-  %51 = add nsw i32 %41, -87
-  br label %52
+48:                                               ; preds = %45
+  %49 = add nsw i32 %39, -87
+  br label %50
 
-52:                                               ; preds = %50, %44
-  %53 = phi i32 [ %46, %44 ], [ %51, %50 ]
-  %54 = icmp ult i32 %53, %.04
-  br i1 %54, label %55, label %_parse_integer.exit
+50:                                               ; preds = %48, %42
+  %51 = phi i32 [ %44, %42 ], [ %49, %48 ]
+  %52 = icmp ult i32 %51, %.04
+  br i1 %52, label %53, label %_parse_integer.exit
 
-55:                                               ; preds = %52
-  %56 = icmp ult i64 %36, 1152921504606846976
-  br i1 %56, label %64, label %57, !prof !5
+53:                                               ; preds = %50
+  %54 = icmp ult i64 %34, 1152921504606846976
+  br i1 %54, label %62, label %55, !prof !5
 
-57:                                               ; preds = %55
-  %58 = xor i32 %53, -1
-  %59 = sext i32 %58 to i64
-  %60 = udiv i64 %59, %34
-  %61 = icmp ugt i64 %36, %60
-  %62 = or i32 %35, -2147483648
-  %63 = select i1 %61, i32 %62, i32 %35
-  br label %64
+55:                                               ; preds = %53
+  %56 = xor i32 %51, -1
+  %57 = sext i32 %56 to i64
+  %58 = udiv i64 %57, %32
+  %59 = icmp ugt i64 %34, %58
+  %60 = or i32 %33, -2147483648
+  %61 = select i1 %59, i32 %60, i32 %33
+  br label %62
 
-64:                                               ; preds = %57, %55
-  %65 = phi i32 [ %35, %55 ], [ %63, %57 ]
-  %66 = mul i64 %36, %34
-  %67 = zext nneg i32 %53 to i64
-  %68 = add i64 %66, %67
-  %69 = add i32 %65, 1
-  %70 = getelementptr i8, ptr %37, i64 1
-  %71 = icmp eq i64 %38, 0
-  br i1 %71, label %_parse_integer.exit, label %.lr.ph.i.i
+62:                                               ; preds = %55, %53
+  %63 = phi i32 [ %33, %53 ], [ %61, %55 ]
+  %64 = mul i64 %34, %32
+  %65 = zext nneg i32 %51 to i64
+  %66 = add i64 %64, %65
+  %67 = add i32 %63, 1
+  %68 = getelementptr i8, ptr %35, i64 1
+  %69 = icmp eq i64 %36, 0
+  br i1 %69, label %_parse_integer.exit, label %.lr.ph.i.i
 
-_parse_integer.exit:                              ; preds = %47, %52, %64
-  %.lcssa2.i.i = phi i64 [ %36, %52 ], [ %36, %47 ], [ %68, %64 ]
-  %.lcssa.i.i = phi i32 [ %35, %52 ], [ %35, %47 ], [ %69, %64 ]
-  %72 = icmp sgt i32 %.lcssa.i.i, -1
-  br i1 %72, label %73, label %85
+_parse_integer.exit:                              ; preds = %45, %50, %62
+  %.lcssa2.i.i = phi i64 [ %34, %50 ], [ %34, %45 ], [ %66, %62 ]
+  %.lcssa.i.i = phi i32 [ %33, %50 ], [ %33, %45 ], [ %67, %62 ]
+  %70 = icmp sgt i32 %.lcssa.i.i, -1
+  br i1 %70, label %71, label %83
 
-73:                                               ; preds = %_parse_integer.exit
-  %74 = icmp eq i32 %.lcssa.i.i, 0
-  br i1 %74, label %85, label %75
+71:                                               ; preds = %_parse_integer.exit
+  %72 = icmp eq i32 %.lcssa.i.i, 0
+  br i1 %72, label %83, label %73
 
-75:                                               ; preds = %73
-  %76 = zext nneg i32 %.lcssa.i.i to i64
-  %77 = getelementptr i8, ptr %33, i64 %76
-  %78 = load i8, ptr %77, align 1
-  %79 = icmp eq i8 %78, 10
-  %80 = zext i1 %79 to i64
-  %81 = getelementptr i8, ptr %77, i64 %80
-  %82 = load i8, ptr %81, align 1
-  %83 = icmp eq i8 %82, 0
-  br i1 %83, label %84, label %85
+73:                                               ; preds = %71
+  %74 = zext nneg i32 %.lcssa.i.i to i64
+  %75 = getelementptr i8, ptr %31, i64 %74
+  %76 = load i8, ptr %75, align 1
+  %77 = icmp eq i8 %76, 10
+  %78 = zext i1 %77 to i64
+  %79 = getelementptr i8, ptr %75, i64 %78
+  %80 = load i8, ptr %79, align 1
+  %81 = icmp eq i8 %80, 0
+  br i1 %81, label %82, label %83
 
-84:                                               ; preds = %75
+82:                                               ; preds = %73
   store i64 %.lcssa2.i.i, ptr %2, align 8
-  br label %85
+  br label %83
 
-85:                                               ; preds = %84, %75, %73, %_parse_integer.exit
-  %86 = phi i32 [ 0, %84 ], [ -34, %_parse_integer.exit ], [ -22, %73 ], [ -22, %75 ]
-  ret i32 %86
+83:                                               ; preds = %82, %73, %71, %_parse_integer.exit
+  %84 = phi i32 [ 0, %82 ], [ -34, %_parse_integer.exit ], [ -22, %71 ], [ -22, %73 ]
+  ret i32 %84
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
@@ -394,13 +396,13 @@ define dso_local noundef i32 @kstrtoll(ptr nocapture noundef readonly %0, i32 no
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
   %5 = load i8, ptr %0, align 1
   %6 = icmp eq i8 %5, 45
-  br i1 %6, label %7, label %88
+  br i1 %6, label %7, label %86
 
 7:                                                ; preds = %3
   %8 = getelementptr i8, ptr %0, i64 1
   switch i32 %1, label %_parse_integer_fixup_radix.exit [
     i32 0, label %9
-    i32 16, label %.thread
+    i32 16, label %.thread8
   ]
 
 9:                                                ; preds = %7
@@ -423,129 +425,129 @@ define dso_local noundef i32 @kstrtoll(ptr nocapture noundef readonly %0, i32 no
   %22 = load i8, ptr %21, align 1
   %23 = and i8 %22, 68
   %24 = icmp eq i8 %23, 0
-  br i1 %24, label %_parse_integer_fixup_radix.exit, label %.thread
+  br i1 %24, label %_parse_integer_fixup_radix.exit, label %.thread8.thread
 
-.thread:                                          ; preds = %7, %17
-  %25 = load i8, ptr %8, align 1
-  %26 = icmp eq i8 %25, 48
-  br i1 %26, label %27, label %_parse_integer_fixup_radix.exit
+.thread8:                                         ; preds = %7
+  %.pre = load i8, ptr %8, align 1
+  %25 = icmp eq i8 %.pre, 48
+  br i1 %25, label %.thread8.thread, label %_parse_integer_fixup_radix.exit
 
-27:                                               ; preds = %.thread
-  %28 = getelementptr i8, ptr %0, i64 2
-  %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, -33
-  %31 = icmp eq i8 %30, 88
-  %32 = select i1 %31, i64 2, i64 0
-  %33 = getelementptr i8, ptr %8, i64 %32
+.thread8.thread:                                  ; preds = %17, %.thread8
+  %26 = getelementptr i8, ptr %0, i64 2
+  %27 = load i8, ptr %26, align 1
+  %28 = and i8 %27, -33
+  %29 = icmp eq i8 %28, 88
+  %30 = select i1 %29, i64 2, i64 0
+  %31 = getelementptr i8, ptr %8, i64 %30
   br label %_parse_integer_fixup_radix.exit
 
-_parse_integer_fixup_radix.exit:                  ; preds = %7, %17, %12, %9, %.thread, %27
-  %.07 = phi i32 [ 16, %.thread ], [ 16, %27 ], [ 8, %12 ], [ 10, %9 ], [ 8, %17 ], [ %1, %7 ]
-  %34 = phi ptr [ %8, %.thread ], [ %33, %27 ], [ %8, %12 ], [ %8, %9 ], [ %8, %17 ], [ %8, %7 ]
-  %35 = zext i32 %.07 to i64
+_parse_integer_fixup_radix.exit:                  ; preds = %7, %12, %17, %9, %.thread8, %.thread8.thread
+  %.07 = phi i32 [ 16, %.thread8 ], [ 16, %.thread8.thread ], [ 10, %9 ], [ 8, %17 ], [ 8, %12 ], [ %1, %7 ]
+  %32 = phi ptr [ %8, %.thread8 ], [ %31, %.thread8.thread ], [ %8, %9 ], [ %8, %17 ], [ %8, %12 ], [ %8, %7 ]
+  %33 = zext i32 %.07 to i64
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %65, %_parse_integer_fixup_radix.exit
-  %.in.i.i = phi i64 [ %39, %65 ], [ 2147483647, %_parse_integer_fixup_radix.exit ]
-  %36 = phi i32 [ %70, %65 ], [ 0, %_parse_integer_fixup_radix.exit ]
-  %37 = phi i64 [ %69, %65 ], [ 0, %_parse_integer_fixup_radix.exit ]
-  %38 = phi ptr [ %71, %65 ], [ %34, %_parse_integer_fixup_radix.exit ]
-  %39 = add nsw i64 %.in.i.i, -1
-  %40 = load i8, ptr %38, align 1
-  %41 = or i8 %40, 32
-  %42 = zext i8 %41 to i32
-  %43 = add i8 %40, -48
-  %44 = icmp ult i8 %43, 10
-  br i1 %44, label %45, label %48
+.lr.ph.i.i:                                       ; preds = %63, %_parse_integer_fixup_radix.exit
+  %.in.i.i = phi i64 [ %37, %63 ], [ 2147483647, %_parse_integer_fixup_radix.exit ]
+  %34 = phi i32 [ %68, %63 ], [ 0, %_parse_integer_fixup_radix.exit ]
+  %35 = phi i64 [ %67, %63 ], [ 0, %_parse_integer_fixup_radix.exit ]
+  %36 = phi ptr [ %69, %63 ], [ %32, %_parse_integer_fixup_radix.exit ]
+  %37 = add nsw i64 %.in.i.i, -1
+  %38 = load i8, ptr %36, align 1
+  %39 = or i8 %38, 32
+  %40 = zext i8 %39 to i32
+  %41 = add i8 %38, -48
+  %42 = icmp ult i8 %41, 10
+  br i1 %42, label %43, label %46
 
-45:                                               ; preds = %.lr.ph.i.i
-  %46 = zext nneg i8 %40 to i32
-  %47 = add nsw i32 %46, -48
-  br label %53
+43:                                               ; preds = %.lr.ph.i.i
+  %44 = zext nneg i8 %38 to i32
+  %45 = add nsw i32 %44, -48
+  br label %51
 
-48:                                               ; preds = %.lr.ph.i.i
-  %49 = add i8 %41, -97
-  %50 = icmp ult i8 %49, 6
-  br i1 %50, label %51, label %_parse_integer.exit
+46:                                               ; preds = %.lr.ph.i.i
+  %47 = add i8 %39, -97
+  %48 = icmp ult i8 %47, 6
+  br i1 %48, label %49, label %_parse_integer.exit
 
-51:                                               ; preds = %48
-  %52 = add nsw i32 %42, -87
-  br label %53
+49:                                               ; preds = %46
+  %50 = add nsw i32 %40, -87
+  br label %51
 
-53:                                               ; preds = %51, %45
-  %54 = phi i32 [ %47, %45 ], [ %52, %51 ]
-  %55 = icmp ult i32 %54, %.07
-  br i1 %55, label %56, label %_parse_integer.exit
+51:                                               ; preds = %49, %43
+  %52 = phi i32 [ %45, %43 ], [ %50, %49 ]
+  %53 = icmp ult i32 %52, %.07
+  br i1 %53, label %54, label %_parse_integer.exit
 
-56:                                               ; preds = %53
-  %57 = icmp ult i64 %37, 1152921504606846976
-  br i1 %57, label %65, label %58, !prof !5
+54:                                               ; preds = %51
+  %55 = icmp ult i64 %35, 1152921504606846976
+  br i1 %55, label %63, label %56, !prof !5
 
-58:                                               ; preds = %56
-  %59 = xor i32 %54, -1
-  %60 = sext i32 %59 to i64
-  %61 = udiv i64 %60, %35
-  %62 = icmp ugt i64 %37, %61
-  %63 = or i32 %36, -2147483648
-  %64 = select i1 %62, i32 %63, i32 %36
-  br label %65
+56:                                               ; preds = %54
+  %57 = xor i32 %52, -1
+  %58 = sext i32 %57 to i64
+  %59 = udiv i64 %58, %33
+  %60 = icmp ugt i64 %35, %59
+  %61 = or i32 %34, -2147483648
+  %62 = select i1 %60, i32 %61, i32 %34
+  br label %63
 
-65:                                               ; preds = %58, %56
-  %66 = phi i32 [ %36, %56 ], [ %64, %58 ]
-  %67 = mul i64 %37, %35
-  %68 = zext nneg i32 %54 to i64
-  %69 = add i64 %67, %68
-  %70 = add i32 %66, 1
-  %71 = getelementptr i8, ptr %38, i64 1
-  %72 = icmp eq i64 %39, 0
-  br i1 %72, label %_parse_integer.exit, label %.lr.ph.i.i
+63:                                               ; preds = %56, %54
+  %64 = phi i32 [ %34, %54 ], [ %62, %56 ]
+  %65 = mul i64 %35, %33
+  %66 = zext nneg i32 %52 to i64
+  %67 = add i64 %65, %66
+  %68 = add i32 %64, 1
+  %69 = getelementptr i8, ptr %36, i64 1
+  %70 = icmp eq i64 %37, 0
+  br i1 %70, label %_parse_integer.exit, label %.lr.ph.i.i
 
-_parse_integer.exit:                              ; preds = %48, %53, %65
-  %.lcssa2.i.i = phi i64 [ %37, %53 ], [ %37, %48 ], [ %69, %65 ]
-  %.lcssa.i.i = phi i32 [ %36, %53 ], [ %36, %48 ], [ %70, %65 ]
-  %73 = icmp sgt i32 %.lcssa.i.i, -1
-  br i1 %73, label %74, label %.thread9
+_parse_integer.exit:                              ; preds = %46, %51, %63
+  %.lcssa2.i.i = phi i64 [ %35, %51 ], [ %35, %46 ], [ %67, %63 ]
+  %.lcssa.i.i = phi i32 [ %34, %51 ], [ %34, %46 ], [ %68, %63 ]
+  %71 = icmp sgt i32 %.lcssa.i.i, -1
+  br i1 %71, label %72, label %.thread12
 
-74:                                               ; preds = %_parse_integer.exit
-  %75 = icmp eq i32 %.lcssa.i.i, 0
-  br i1 %75, label %.thread9, label %76
+72:                                               ; preds = %_parse_integer.exit
+  %73 = icmp eq i32 %.lcssa.i.i, 0
+  br i1 %73, label %.thread12, label %74
 
-76:                                               ; preds = %74
-  %77 = zext nneg i32 %.lcssa.i.i to i64
-  %78 = getelementptr i8, ptr %34, i64 %77
-  %79 = load i8, ptr %78, align 1
-  %80 = icmp eq i8 %79, 10
-  %81 = zext i1 %80 to i64
-  %82 = getelementptr i8, ptr %78, i64 %81
-  %83 = load i8, ptr %82, align 1
-  %84 = icmp eq i8 %83, 0
-  br i1 %84, label %85, label %.thread9
+74:                                               ; preds = %72
+  %75 = zext nneg i32 %.lcssa.i.i to i64
+  %76 = getelementptr i8, ptr %32, i64 %75
+  %77 = load i8, ptr %76, align 1
+  %78 = icmp eq i8 %77, 10
+  %79 = zext i1 %78 to i64
+  %80 = getelementptr i8, ptr %76, i64 %79
+  %81 = load i8, ptr %80, align 1
+  %82 = icmp eq i8 %81, 0
+  br i1 %82, label %83, label %.thread12
 
-85:                                               ; preds = %76
-  %86 = sub i64 0, %.lcssa2.i.i
-  %87 = icmp sgt i64 %86, 0
-  br i1 %87, label %.thread9, label %94
+83:                                               ; preds = %74
+  %84 = sub i64 0, %.lcssa2.i.i
+  %85 = icmp sgt i64 %84, 0
+  br i1 %85, label %.thread12, label %92
 
-88:                                               ; preds = %3
+86:                                               ; preds = %3
   store i64 0, ptr %4, align 8, !annotation !6
-  %89 = call i32 @kstrtoull(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %4), !range !7
-  %90 = icmp slt i32 %89, 0
-  br i1 %90, label %.thread9, label %91
+  %87 = call i32 @kstrtoull(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %4), !range !7
+  %88 = icmp slt i32 %87, 0
+  br i1 %88, label %.thread12, label %89
 
-91:                                               ; preds = %88
-  %92 = load i64, ptr %4, align 8
-  %93 = icmp slt i64 %92, 0
-  br i1 %93, label %.thread9, label %94
+89:                                               ; preds = %86
+  %90 = load i64, ptr %4, align 8
+  %91 = icmp slt i64 %90, 0
+  br i1 %91, label %.thread12, label %92
 
-94:                                               ; preds = %91, %85
-  %95 = phi i64 [ %86, %85 ], [ %92, %91 ]
-  store i64 %95, ptr %2, align 8
-  br label %.thread9
+92:                                               ; preds = %89, %83
+  %93 = phi i64 [ %84, %83 ], [ %90, %89 ]
+  store i64 %93, ptr %2, align 8
+  br label %.thread12
 
-.thread9:                                         ; preds = %76, %74, %_parse_integer.exit, %94, %91, %88, %85
-  %96 = phi i32 [ 0, %94 ], [ -34, %85 ], [ %89, %88 ], [ -34, %91 ], [ -22, %76 ], [ -22, %74 ], [ -34, %_parse_integer.exit ]
+.thread12:                                        ; preds = %74, %72, %_parse_integer.exit, %92, %89, %86, %83
+  %94 = phi i32 [ 0, %92 ], [ -34, %83 ], [ %87, %86 ], [ -34, %89 ], [ -22, %74 ], [ -22, %72 ], [ -34, %_parse_integer.exit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
-  ret i32 %96
+  ret i32 %94
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)

@@ -107,7 +107,7 @@ declare i32 @ossl_ec_GFp_simple_point_set_to_infinity(ptr noundef, ptr noundef) 
 declare i32 @ossl_ec_GFp_simple_point_set_affine_coordinates(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ecp_nistz256_get_affine(ptr noundef %group, ptr noundef %point, ptr noundef %x, ptr noundef %y, ptr nocapture readnone %ctx) #1 {
+define internal noundef i32 @ecp_nistz256_get_affine(ptr noundef %group, ptr noundef %point, ptr noundef %x, ptr noundef %y, ptr nocapture readnone %ctx) #1 {
 entry:
   %p2.i = alloca [4 x i64], align 16
   %p4.i = alloca [4 x i64], align 16
@@ -289,19 +289,21 @@ if.then19:                                        ; preds = %ecp_nistz256_mod_in
 
 if.end27:                                         ; preds = %if.then19, %ecp_nistz256_mod_inverse.exit
   %cmp28.not = icmp eq ptr %y, null
-  br i1 %cmp28.not, label %return, label %if.then29
+  br i1 %cmp28.not, label %if.end43, label %if.then29
 
 if.then29:                                        ; preds = %if.end27
   call void @ecp_nistz256_mul_mont(ptr noundef nonnull %z_inv3, ptr noundef nonnull %z_inv3, ptr noundef nonnull %z_inv2) #8
   call void @ecp_nistz256_mul_mont(ptr noundef nonnull %y_aff, ptr noundef nonnull %z_inv3, ptr noundef nonnull %point_y) #8
   call void @ecp_nistz256_from_mont(ptr noundef nonnull %y_ret, ptr noundef nonnull %y_aff) #8
   %call39 = call i32 @bn_set_words(ptr noundef nonnull %y, ptr noundef nonnull %y_ret, i32 noundef 4) #8
-  %tobool40.not = icmp ne i32 %call39, 0
-  %spec.select = zext i1 %tobool40.not to i32
+  %tobool40.not = icmp eq i32 %call39, 0
+  br i1 %tobool40.not, label %return, label %if.end43
+
+if.end43:                                         ; preds = %if.then29, %if.end27
   br label %return
 
-return:                                           ; preds = %if.then29, %if.end27, %if.then19, %if.then10, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.then10 ], [ 0, %if.then19 ], [ 1, %if.end27 ], [ %spec.select, %if.then29 ]
+return:                                           ; preds = %if.then29, %if.then19, %if.end43, %if.then10, %if.then
+  %retval.0 = phi i32 [ 0, %if.then ], [ 1, %if.end43 ], [ 0, %if.then10 ], [ 0, %if.then19 ], [ 0, %if.then29 ]
   ret i32 %retval.0
 }
 

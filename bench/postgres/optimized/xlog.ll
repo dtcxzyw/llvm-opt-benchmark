@@ -1850,7 +1850,7 @@ define dso_local void @XLogSetAsyncXactLSN(i64 noundef %0) local_unnamed_addr #0
   %16 = load ptr, ptr @XLogCtl, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 440
   store i8 0, ptr %17, align 8
-  br label %.critedge
+  br label %37
 
 18:                                               ; preds = %9
   %19 = getelementptr inbounds i8, ptr %10, i64 321
@@ -1861,12 +1861,12 @@ define dso_local void @XLogSetAsyncXactLSN(i64 noundef %0) local_unnamed_addr #0
   %22 = load ptr, ptr @XLogCtl, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 440
   store i8 0, ptr %23, align 8
-  br i1 %21, label %33, label %24
+  br i1 %21, label %.critedge, label %24
 
 24:                                               ; preds = %18
   %25 = load i32, ptr @WalWriterFlushAfter, align 4
   %26 = icmp eq i32 %25, 0
-  br i1 %26, label %33, label %27
+  br i1 %26, label %.critedge, label %27
 
 27:                                               ; preds = %24
   %28 = lshr i64 %0, 13
@@ -1875,20 +1875,20 @@ define dso_local void @XLogSetAsyncXactLSN(i64 noundef %0) local_unnamed_addr #0
   %31 = sub nsw i64 %28, %30
   %32 = trunc i64 %31 to i32
   %.not13 = icmp sgt i32 %25, %32
-  br i1 %.not13, label %.critedge, label %33
+  br i1 %.not13, label %37, label %.critedge
 
-33:                                               ; preds = %27, %18, %24
-  %34 = load ptr, ptr @ProcGlobal, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 112
-  %36 = load ptr, ptr %35, align 8
-  %.not14 = icmp eq ptr %36, null
-  br i1 %.not14, label %.critedge, label %37
+.critedge:                                        ; preds = %24, %27, %18
+  %33 = load ptr, ptr @ProcGlobal, align 8
+  %34 = getelementptr inbounds i8, ptr %33, i64 112
+  %35 = load ptr, ptr %34, align 8
+  %.not14 = icmp eq ptr %35, null
+  br i1 %.not14, label %37, label %36
 
-37:                                               ; preds = %33
-  tail call void @SetLatch(ptr noundef nonnull %36) #26
-  br label %.critedge
+36:                                               ; preds = %.critedge
+  tail call void @SetLatch(ptr noundef nonnull %35) #26
+  br label %37
 
-.critedge:                                        ; preds = %15, %27, %37, %33
+37:                                               ; preds = %15, %27, %36, %.critedge
   ret void
 }
 
@@ -2110,9 +2110,9 @@ XLogBytePosToEndRecPtr.exit:                      ; preds = %21, %30, %32
   %.0 = phi i64 [ %0, %XLogBytePosToEndRecPtr.exit ], [ %39, %41 ], [ %39, %43 ]
   br label %52
 
-52:                                               ; preds = %51, %63
-  %indvars.iv = phi i64 [ 0, %51 ], [ %indvars.iv.next, %63 ]
-  %.01927 = phi i64 [ %39, %51 ], [ %64, %63 ]
+52:                                               ; preds = %51, %64
+  %indvars.iv = phi i64 [ 0, %51 ], [ %indvars.iv.next, %64 ]
+  %.01927 = phi i64 [ %39, %51 ], [ %65, %64 ]
   store i64 0, ptr %2, align 8
   br label %53
 
@@ -2137,17 +2137,19 @@ XLogBytePosToEndRecPtr.exit:                      ; preds = %21, %30, %32
 .loopexit:                                        ; preds = %59
   %.not25.not = icmp eq i64 %.fr, 0
   %62 = call i64 @llvm.umin.i64(i64 %.fr, i64 %.01927)
-  %spec.select = select i1 %.not25.not, i64 %.01927, i64 %62
-  br label %63
+  br i1 %.not25.not, label %63, label %64
 
-63:                                               ; preds = %.loopexit, %.loopexit.thread
-  %64 = phi i64 [ %.01927, %.loopexit.thread ], [ %spec.select, %.loopexit ]
+63:                                               ; preds = %.loopexit.thread, %.loopexit
+  br label %64
+
+64:                                               ; preds = %.loopexit, %63
+  %65 = phi i64 [ %.01927, %63 ], [ %62, %.loopexit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %65, label %52, !llvm.loop !26
+  br i1 %exitcond.not, label %66, label %52, !llvm.loop !26
 
-65:                                               ; preds = %63
-  ret i64 %64
+66:                                               ; preds = %64
+  ret i64 %65
 }
 
 declare zeroext i1 @LWLockAcquireOrWait(ptr noundef, i32 noundef) local_unnamed_addr #3

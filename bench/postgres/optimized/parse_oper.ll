@@ -300,118 +300,124 @@ find_oper_cache_entry.exit:                       ; preds = %19
   %26 = zext i32 %24 to i64
   %27 = call ptr @SearchSysCache1(i32 noundef 38, i64 noundef %26) #10
   %.not43 = icmp eq ptr %27, null
-  br i1 %.not43, label %28, label %58
+  br i1 %.not43, label %28, label %62
 
 28:                                               ; preds = %find_oper_cache_entry.exit.thread, %find_oper_cache_entry.exit, %25, %6
-  %29 = icmp ne i32 %2, 705
-  %30 = icmp eq i32 %3, 0
-  %or.cond.not38.i = or i1 %29, %30
-  %31 = icmp ne i32 %3, 705
-  %32 = icmp eq i32 %2, 0
-  %or.cond3.not41.i = or i1 %32, %31
-  %spec.select.i = select i1 %or.cond3.not41.i, i32 %3, i32 %2
-  %.025.i = select i1 %or.cond.not38.i, i32 %2, i32 %3
-  %.024.i = select i1 %or.cond.not38.i, i32 %spec.select.i, i32 %3
-  %.023.not35.i = and i1 %or.cond.not38.i, %or.cond3.not41.i
-  %33 = call i32 @OpernameGetOprid(ptr noundef %1, i32 noundef %.025.i, i32 noundef %.024.i) #10
-  %.not.i = icmp ne i32 %33, 0
-  %brmerge.i = or i1 %.023.not35.i, %.not.i
-  br i1 %brmerge.i, label %binary_oper_exact.exit, label %34
+  %29 = icmp eq i32 %2, 705
+  %30 = icmp ne i32 %3, 0
+  %or.cond.i = and i1 %29, %30
+  br i1 %or.cond.i, label %.thread.i, label %31
 
-34:                                               ; preds = %28
-  %35 = call i32 @getBaseType(i32 noundef %.025.i) #10
-  %.not31.i = icmp eq i32 %35, %.025.i
-  br i1 %.not31.i, label %binary_oper_exact.exit.thread, label %36
+31:                                               ; preds = %28
+  %32 = icmp eq i32 %3, 705
+  %33 = icmp ne i32 %2, 0
+  %or.cond3.i = and i1 %33, %32
+  %spec.select.i = select i1 %or.cond3.i, i32 %2, i32 %3
+  %34 = call i32 @OpernameGetOprid(ptr noundef %1, i32 noundef %2, i32 noundef %spec.select.i) #10
+  %.not.i = icmp eq i32 %34, 0
+  br i1 %.not.i, label %36, label %.thread66
 
-36:                                               ; preds = %34
-  %37 = call i32 @OpernameGetOprid(ptr noundef %1, i32 noundef %35, i32 noundef %35) #10
-  br label %binary_oper_exact.exit
+.thread.i:                                        ; preds = %28
+  %35 = call i32 @OpernameGetOprid(ptr noundef %1, i32 noundef %3, i32 noundef %3) #10
+  %.not37.i = icmp eq i32 %35, 0
+  br i1 %.not37.i, label %.thread40.i, label %.thread66
 
-binary_oper_exact.exit:                           ; preds = %28, %36
-  %.0.i48 = phi i32 [ %33, %28 ], [ %37, %36 ]
-  %.not44 = icmp eq i32 %.0.i48, 0
-  br i1 %.not44, label %binary_oper_exact.exit.thread, label %.thread67
+36:                                               ; preds = %31
+  br i1 %or.cond3.i, label %.thread40.i, label %binary_oper_exact.exit
 
-binary_oper_exact.exit.thread:                    ; preds = %34, %binary_oper_exact.exit
-  %38 = call ptr @OpernameGetCandidates(ptr noundef %1, i8 noundef signext 98, i1 noundef zeroext false) #10
-  %.not45 = icmp eq ptr %38, null
-  br i1 %.not45, label %.thread82, label %39
+.thread40.i:                                      ; preds = %36, %.thread.i
+  %.0253843.i = phi i32 [ %2, %36 ], [ %3, %.thread.i ]
+  %37 = call i32 @getBaseType(i32 noundef %.0253843.i) #10
+  %.not31.i = icmp eq i32 %37, %.0253843.i
+  br i1 %.not31.i, label %binary_oper_exact.exit, label %38
 
-39:                                               ; preds = %binary_oper_exact.exit.thread
-  %spec.select = select i1 %32, i32 %3, i32 %2
-  %.034 = select i1 %30, i32 %2, i32 %3
-  %.032 = select i1 %30, i32 %2, i32 %spec.select
+38:                                               ; preds = %.thread40.i
+  %39 = call i32 @OpernameGetOprid(ptr noundef %1, i32 noundef %37, i32 noundef %37) #10
+  %.not32.i = icmp eq i32 %39, 0
+  br i1 %.not32.i, label %binary_oper_exact.exit, label %.thread66
+
+binary_oper_exact.exit:                           ; preds = %38, %.thread40.i, %36
+  %40 = call ptr @OpernameGetCandidates(ptr noundef %1, i8 noundef signext 98, i1 noundef zeroext false) #10
+  %.not45 = icmp eq ptr %40, null
+  br i1 %.not45, label %.thread81, label %41
+
+41:                                               ; preds = %binary_oper_exact.exit
+  %42 = icmp eq i32 %3, 0
+  %43 = icmp eq i32 %2, 0
+  %spec.select = select i1 %43, i32 %3, i32 %2
+  %.034 = select i1 %42, i32 %2, i32 %3
+  %.032 = select i1 %42, i32 %2, i32 %spec.select
   store i32 %.032, ptr %10, align 4
-  %40 = getelementptr inbounds i8, ptr %10, i64 4
-  store i32 %.034, ptr %40, align 4
+  %44 = getelementptr inbounds i8, ptr %10, i64 4
+  store i32 %.034, ptr %44, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  store ptr %38, ptr %7, align 8
-  %41 = call i32 @func_match_argtypes(i32 noundef 2, ptr noundef nonnull %10, ptr noundef nonnull %38, ptr noundef nonnull %7) #10
-  switch i32 %41, label %44 [
-    i32 0, label %.thread77
-    i32 1, label %42
+  store ptr %40, ptr %7, align 8
+  %45 = call i32 @func_match_argtypes(i32 noundef 2, ptr noundef nonnull %10, ptr noundef nonnull %40, ptr noundef nonnull %7) #10
+  switch i32 %45, label %48 [
+    i32 0, label %.thread76
+    i32 1, label %46
   ]
 
-42:                                               ; preds = %39
-  %43 = load ptr, ptr %7, align 8
-  br label %47
+46:                                               ; preds = %41
+  %47 = load ptr, ptr %7, align 8
+  br label %51
 
-44:                                               ; preds = %39
-  %45 = load ptr, ptr %7, align 8
-  %46 = call ptr @func_select_candidate(i32 noundef 2, ptr noundef nonnull %10, ptr noundef %45) #10
-  %.not.i50 = icmp eq ptr %46, null
-  br i1 %.not.i50, label %.thread77, label %47
+48:                                               ; preds = %41
+  %49 = load ptr, ptr %7, align 8
+  %50 = call ptr @func_select_candidate(i32 noundef 2, ptr noundef nonnull %10, ptr noundef %49) #10
+  %.not.i50 = icmp eq ptr %50, null
+  br i1 %.not.i50, label %.thread76, label %51
 
-.thread77:                                        ; preds = %39, %44
-  %.0.i49.ph = phi i32 [ 1, %44 ], [ %41, %39 ]
+.thread76:                                        ; preds = %41, %48
+  %.0.i49.ph = phi i32 [ 1, %48 ], [ %45, %41 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  br label %.thread82
+  br label %.thread81
 
-47:                                               ; preds = %42, %44
-  %.sink13.i = phi ptr [ %43, %42 ], [ %46, %44 ]
-  %48 = getelementptr inbounds i8, ptr %.sink13.i, i64 12
-  %49 = load i32, ptr %48, align 4
+51:                                               ; preds = %46, %48
+  %.sink13.i = phi ptr [ %47, %46 ], [ %50, %48 ]
+  %52 = getelementptr inbounds i8, ptr %.sink13.i, i64 12
+  %53 = load i32, ptr %52, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  %.not46 = icmp eq i32 %49, 0
-  br i1 %.not46, label %.thread82, label %.thread67
+  %.not46 = icmp eq i32 %53, 0
+  br i1 %.not46, label %.thread81, label %.thread66
 
-.thread67:                                        ; preds = %binary_oper_exact.exit, %47
-  %.03176 = phi i32 [ 2, %47 ], [ 0, %binary_oper_exact.exit ]
-  %.13375 = phi i32 [ %.032, %47 ], [ %2, %binary_oper_exact.exit ]
-  %.13574 = phi i32 [ %.034, %47 ], [ %3, %binary_oper_exact.exit ]
-  %.05273 = phi i32 [ %49, %47 ], [ %.0.i48, %binary_oper_exact.exit ]
-  %50 = zext i32 %.05273 to i64
-  %51 = call ptr @SearchSysCache1(i32 noundef 38, i64 noundef %50) #10
-  %.not47 = icmp eq ptr %51, null
-  br i1 %.not47, label %.thread82, label %52
+.thread66:                                        ; preds = %31, %38, %.thread.i, %51
+  %.03175 = phi i32 [ 2, %51 ], [ 0, %.thread.i ], [ 0, %38 ], [ 0, %31 ]
+  %.13374 = phi i32 [ %.032, %51 ], [ 705, %.thread.i ], [ %2, %38 ], [ %2, %31 ]
+  %.13573 = phi i32 [ %.034, %51 ], [ %3, %.thread.i ], [ %3, %38 ], [ %3, %31 ]
+  %.05272 = phi i32 [ %53, %51 ], [ %35, %.thread.i ], [ %39, %38 ], [ %34, %31 ]
+  %54 = zext i32 %.05272 to i64
+  %55 = call ptr @SearchSysCache1(i32 noundef 38, i64 noundef %54) #10
+  %.not47 = icmp eq ptr %55, null
+  br i1 %.not47, label %.thread81, label %56
 
-52:                                               ; preds = %.thread67
-  br i1 %11, label %53, label %58
+56:                                               ; preds = %.thread66
+  br i1 %11, label %57, label %62
 
-53:                                               ; preds = %52
-  %54 = load ptr, ptr @OprCacheHash, align 8
-  %55 = call ptr @hash_search(ptr noundef %54, ptr noundef nonnull %9, i32 noundef 1, ptr noundef null) #10
-  %56 = getelementptr inbounds i8, ptr %55, i64 136
-  store i32 %.05273, ptr %56, align 4
-  br label %58
+57:                                               ; preds = %56
+  %58 = load ptr, ptr @OprCacheHash, align 8
+  %59 = call ptr @hash_search(ptr noundef %58, ptr noundef nonnull %9, i32 noundef 1, ptr noundef null) #10
+  %60 = getelementptr inbounds i8, ptr %59, i64 136
+  store i32 %.05272, ptr %60, align 4
+  br label %62
 
-.thread82:                                        ; preds = %binary_oper_exact.exit.thread, %.thread77, %47, %.thread67
-  %.1356491 = phi i32 [ %.13574, %.thread67 ], [ %.034, %.thread77 ], [ %.034, %47 ], [ %3, %binary_oper_exact.exit.thread ]
-  %.1336590 = phi i32 [ %.13375, %.thread67 ], [ %.032, %.thread77 ], [ %.032, %47 ], [ %2, %binary_oper_exact.exit.thread ]
-  %.0316689 = phi i32 [ %.03176, %.thread67 ], [ %.0.i49.ph, %.thread77 ], [ 2, %47 ], [ 0, %binary_oper_exact.exit.thread ]
-  br i1 %4, label %58, label %57
+.thread81:                                        ; preds = %binary_oper_exact.exit, %.thread76, %51, %.thread66
+  %.1356390 = phi i32 [ %.13573, %.thread66 ], [ %.034, %.thread76 ], [ %.034, %51 ], [ %3, %binary_oper_exact.exit ]
+  %.1336489 = phi i32 [ %.13374, %.thread66 ], [ %.032, %.thread76 ], [ %.032, %51 ], [ %2, %binary_oper_exact.exit ]
+  %.0316588 = phi i32 [ %.03175, %.thread66 ], [ %.0.i49.ph, %.thread76 ], [ 2, %51 ], [ 0, %binary_oper_exact.exit ]
+  br i1 %4, label %62, label %61
 
-57:                                               ; preds = %.thread82
-  call fastcc void @op_error(ptr noundef %0, ptr noundef %1, i32 noundef %.1336590, i32 noundef %.1356491, i32 noundef %.0316689, i32 noundef %5)
+61:                                               ; preds = %.thread81
+  call fastcc void @op_error(ptr noundef %0, ptr noundef %1, i32 noundef %.1336489, i32 noundef %.1356390, i32 noundef %.0316588, i32 noundef %5)
   unreachable
 
-58:                                               ; preds = %53, %52, %.thread82, %25
-  %.0 = phi ptr [ %27, %25 ], [ null, %.thread82 ], [ %51, %52 ], [ %51, %53 ]
+62:                                               ; preds = %57, %56, %.thread81, %25
+  %.0 = phi ptr [ %27, %25 ], [ null, %.thread81 ], [ %55, %56 ], [ %55, %57 ]
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @make_oper_cache_key(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @make_oper_cache_key(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca %struct.ParseCallbackState, align 8
@@ -464,11 +470,14 @@ define internal fastcc zeroext i1 @make_oper_cache_key(ptr noundef %0, ptr nound
 32:                                               ; preds = %.loopexit
   %33 = getelementptr inbounds i8, ptr %1, i64 72
   %34 = call i32 @fetch_search_path_array(ptr noundef nonnull %33, i32 noundef 16) #10
-  %35 = icmp slt i32 %34, 17
-  br label %36
+  %35 = icmp sgt i32 %34, 16
+  br i1 %35, label %37, label %36
 
 36:                                               ; preds = %32, %28
-  %.0 = phi i1 [ true, %28 ], [ %35, %32 ]
+  br label %37
+
+37:                                               ; preds = %32, %36
+  %.0 = phi i1 [ true, %36 ], [ false, %32 ]
   ret i1 %.0
 }
 

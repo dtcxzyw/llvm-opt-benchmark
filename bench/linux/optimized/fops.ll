@@ -94,11 +94,11 @@ define internal i32 @blkdev_write_end(ptr noundef %0, ptr noundef %1, i64 nounde
 13:                                               ; preds = %7
   %14 = add nsw i64 %10, -1
   %15 = inttoptr i64 %14 to ptr
-  br label %32
+  br label %33
 
 16:                                               ; preds = %7
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hugetlb_optimize_vmemmap_key, i32 2) #9
-          to label %32 [label %17], !srcloc !7
+          to label %33 [label %17], !srcloc !7
 
 17:                                               ; preds = %16
   %18 = ptrtoint ptr %5 to i64
@@ -119,23 +119,25 @@ define internal i32 @blkdev_write_end(ptr noundef %0, ptr noundef %1, i64 nounde
   %29 = icmp eq i64 %28, 0
   %30 = add nsw i64 %27, -1
   %31 = inttoptr i64 %30 to ptr
-  %spec.select = select i1 %29, ptr %5, ptr %31
-  br label %32
+  br i1 %29, label %32, label %33
 
-32:                                               ; preds = %25, %17, %21, %16, %13
-  %33 = phi ptr [ %15, %13 ], [ %5, %16 ], [ %5, %21 ], [ %5, %17 ], [ %spec.select, %25 ]
-  %34 = getelementptr inbounds i8, ptr %33, i64 52
-  %35 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %34, ptr elementtype(i32) %34) #9, !srcloc !8
-  %36 = icmp ult i8 %35, 2
-  tail call void @llvm.assume(i1 %36)
-  %37 = icmp eq i8 %35, 0
-  br i1 %37, label %39, label %38
+32:                                               ; preds = %25, %21, %17
+  br label %33
 
-38:                                               ; preds = %32
-  tail call void @__folio_put(ptr noundef %33) #9
-  br label %39
+33:                                               ; preds = %32, %25, %16, %13
+  %34 = phi ptr [ %15, %13 ], [ %31, %25 ], [ %5, %32 ], [ %5, %16 ]
+  %35 = getelementptr inbounds i8, ptr %34, i64 52
+  %36 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %35, ptr elementtype(i32) %35) #9, !srcloc !8
+  %37 = icmp ult i8 %36, 2
+  tail call void @llvm.assume(i1 %37)
+  %38 = icmp eq i8 %36, 0
+  br i1 %38, label %40, label %39
 
-39:                                               ; preds = %38, %32
+39:                                               ; preds = %33
+  tail call void @__folio_put(ptr noundef %34) #9
+  br label %40
+
+40:                                               ; preds = %39, %33
   ret i32 %8
 }
 
@@ -1937,12 +1939,14 @@ define internal fastcc i64 @generic_write_sync(ptr nocapture noundef readonly %0
   %30 = tail call i32 @vfs_fsync_range(ptr noundef %.pre, i64 noundef %25, i64 noundef %26, i32 noundef %29) #9
   %31 = icmp eq i32 %30, 0
   %32 = sext i32 %30 to i64
-  %spec.select = select i1 %31, i64 %1, i64 %32
-  br label %33
+  br i1 %31, label %33, label %34
 
 33:                                               ; preds = %22, %17
-  %34 = phi i64 [ %1, %17 ], [ %spec.select, %22 ]
-  ret i64 %34
+  br label %34
+
+34:                                               ; preds = %33, %22
+  %35 = phi i64 [ %32, %22 ], [ %1, %33 ]
+  ret i64 %35
 }
 
 ; Function Attrs: null_pointer_is_valid

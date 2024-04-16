@@ -4302,9 +4302,9 @@ entry:
   %cmp40 = icmp sgt i32 %call39, 0
   br i1 %cmp40, label %for.body, label %for.end
 
-for.body:                                         ; preds = %entry, %isReplicaAvailable.exit.thread
-  %nested_elements.042 = phi i32 [ %0, %isReplicaAvailable.exit.thread ], [ 3, %entry ]
-  %i.041 = phi i32 [ %inc3, %isReplicaAvailable.exit.thread ], [ 0, %entry ]
+for.body:                                         ; preds = %entry, %for.cond
+  %nested_elements.042 = phi i32 [ %0, %for.cond ], [ 3, %entry ]
+  %i.041 = phi i32 [ %inc3, %for.cond ], [ 0, %entry ]
   %call1 = tail call ptr @clusterNodeGetSlave(ptr noundef %node, i32 noundef %i.041) #16
   %call.i = tail call i32 @clusterNodeIsFailing(ptr noundef %call1) #16
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -4323,20 +4323,22 @@ if.then4.i:                                       ; preds = %if.end.i
 isReplicaAvailable.exit:                          ; preds = %if.end.i, %if.then4.i
   %repl_offset.0.i = phi i64 [ %call5.i, %if.then4.i ], [ %call1.i, %if.end.i ]
   %repl_offset.0.i.fr = freeze i64 %repl_offset.0.i
-  %cmp.i.not = icmp ne i64 %repl_offset.0.i.fr, 0
-  %inc = zext i1 %cmp.i.not to i32
-  %spec.select = add nsw i32 %nested_elements.042, %inc
-  br label %isReplicaAvailable.exit.thread
+  %cmp.i.not = icmp eq i64 %repl_offset.0.i.fr, 0
+  %inc = add nsw i32 %nested_elements.042, 1
+  br i1 %cmp.i.not, label %isReplicaAvailable.exit.thread, label %for.cond
 
-isReplicaAvailable.exit.thread:                   ; preds = %isReplicaAvailable.exit, %for.body
-  %0 = phi i32 [ %nested_elements.042, %for.body ], [ %spec.select, %isReplicaAvailable.exit ]
+isReplicaAvailable.exit.thread:                   ; preds = %for.body, %isReplicaAvailable.exit
+  br label %for.cond
+
+for.cond:                                         ; preds = %isReplicaAvailable.exit, %isReplicaAvailable.exit.thread
+  %0 = phi i32 [ %nested_elements.042, %isReplicaAvailable.exit.thread ], [ %inc, %isReplicaAvailable.exit ]
   %inc3 = add nuw nsw i32 %i.041, 1
   %call = tail call i32 @clusterNodeNumSlaves(ptr noundef %node) #16
   %cmp = icmp slt i32 %inc3, %call
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !23
 
-for.end:                                          ; preds = %isReplicaAvailable.exit.thread, %entry
-  %nested_elements.0.lcssa = phi i32 [ 3, %entry ], [ %0, %isReplicaAvailable.exit.thread ]
+for.end:                                          ; preds = %for.cond, %entry
+  %nested_elements.0.lcssa = phi i32 [ 3, %entry ], [ %0, %for.cond ]
   %conv = sext i32 %nested_elements.0.lcssa to i64
   tail call void @addReplyArrayLen(ptr noundef %c, i64 noundef %conv) #16
   %conv4 = sext i32 %start_slot to i64

@@ -3336,7 +3336,7 @@ Abc_TtHasVar.exit.thread.i.us:                    ; preds = %._crit_edge.us.i.i.
 
 Abc_TtHasVar.exit.us.i.us:                        ; preds = %Abc_TtHasVar.exit.us.i.us, %.lr.ph.split.us.i.us
   %indvars.iv51.i.us = phi i64 [ %indvars.iv.next52.i.us, %Abc_TtHasVar.exit.us.i.us ], [ 0, %.lr.ph.split.us.i.us ]
-  %.022.us.i.us = phi i32 [ %spec.select.us.i.us, %Abc_TtHasVar.exit.us.i.us ], [ 0, %.lr.ph.split.us.i.us ]
+  %.022.us.i.us = phi i32 [ %spec.select.i.us, %Abc_TtHasVar.exit.us.i.us ], [ 0, %.lr.ph.split.us.i.us ]
   %74 = trunc nuw nsw i64 %indvars.iv51.i.us to i32
   %75 = shl nuw i32 1, %74
   %76 = zext nneg i32 %75 to i64
@@ -3348,13 +3348,13 @@ Abc_TtHasVar.exit.us.i.us:                        ; preds = %Abc_TtHasVar.exit.u
   %.fr.us.i.us = freeze i64 %81
   %.not17.us.i.us = icmp ne i64 %.fr.us.i.us, 0
   %82 = zext i1 %.not17.us.i.us to i32
-  %spec.select.us.i.us = add nuw nsw i32 %.022.us.i.us, %82
+  %spec.select.i.us = add nuw nsw i32 %.022.us.i.us, %82
   %indvars.iv.next52.i.us = add nuw nsw i64 %indvars.iv51.i.us, 1
   %exitcond55.not.i.us = icmp eq i64 %indvars.iv.next52.i.us, %wide.trip.count.i
   br i1 %exitcond55.not.i.us, label %Abc_TtSupportSize.exit.us, label %Abc_TtHasVar.exit.us.i.us, !llvm.loop !44
 
 Abc_TtSupportSize.exit.us:                        ; preds = %Abc_TtHasVar.exit.thread.i.us, %Abc_TtHasVar.exit.us.i.us, %.lr.ph.split.i.us
-  %.0.lcssa.i.us = phi i32 [ 0, %.lr.ph.split.i.us ], [ %spec.select.us.i.us, %Abc_TtHasVar.exit.us.i.us ], [ %72, %Abc_TtHasVar.exit.thread.i.us ]
+  %.0.lcssa.i.us = phi i32 [ 0, %.lr.ph.split.i.us ], [ %spec.select.i.us, %Abc_TtHasVar.exit.us.i.us ], [ %72, %Abc_TtHasVar.exit.thread.i.us ]
   %83 = sext i32 %.0.lcssa.i.us to i64
   %84 = getelementptr inbounds [15 x i32], ptr %3, i64 0, i64 %83
   %85 = load i32, ptr %84, align 4
@@ -3406,7 +3406,7 @@ Abc_TtSupportSize.exit.us:                        ; preds = %Abc_TtHasVar.exit.t
 
 Abc_TtHasVar.exit.us.i122:                        ; preds = %Abc_TtHasVar.exit.us.i122, %.lr.ph.split.us.i120
   %indvars.iv51.i123 = phi i64 [ %indvars.iv.next52.i128, %Abc_TtHasVar.exit.us.i122 ], [ 0, %.lr.ph.split.us.i120 ]
-  %.022.us.i124 = phi i32 [ %spec.select.us.i127, %Abc_TtHasVar.exit.us.i122 ], [ 0, %.lr.ph.split.us.i120 ]
+  %.022.us.i124 = phi i32 [ %spec.select.i127, %Abc_TtHasVar.exit.us.i122 ], [ 0, %.lr.ph.split.us.i120 ]
   %111 = trunc nuw nsw i64 %indvars.iv51.i123 to i32
   %112 = shl nuw i32 1, %111
   %113 = zext nneg i32 %112 to i64
@@ -3418,7 +3418,7 @@ Abc_TtHasVar.exit.us.i122:                        ; preds = %Abc_TtHasVar.exit.u
   %.fr.us.i125 = freeze i64 %118
   %.not17.us.i126 = icmp ne i64 %.fr.us.i125, 0
   %119 = zext i1 %.not17.us.i126 to i32
-  %spec.select.us.i127 = add nuw nsw i32 %.022.us.i124, %119
+  %spec.select.i127 = add nuw nsw i32 %.022.us.i124, %119
   %indvars.iv.next52.i128 = add nuw nsw i64 %indvars.iv51.i123, 1
   %exitcond55.not.i129 = icmp eq i64 %indvars.iv.next52.i128, %wide.trip.count.i
   br i1 %exitcond55.not.i129, label %Abc_TtSupportSize.exit130, label %Abc_TtHasVar.exit.us.i122, !llvm.loop !44
@@ -3505,7 +3505,7 @@ Abc_TtHasVar.exit.thread.i109:                    ; preds = %._crit_edge.us.i.i1
   br i1 %exitcond.not.i111, label %Abc_TtSupportSize.exit130, label %.lr.ph.split.split.split.i97, !llvm.loop !44
 
 Abc_TtSupportSize.exit130:                        ; preds = %Abc_TtHasVar.exit.thread.i109, %Abc_TtHasVar.exit.us.i122, %.lr.ph.split.i93
-  %.0.lcssa.i89 = phi i32 [ 0, %.lr.ph.split.i93 ], [ %spec.select.us.i127, %Abc_TtHasVar.exit.us.i122 ], [ %150, %Abc_TtHasVar.exit.thread.i109 ]
+  %.0.lcssa.i89 = phi i32 [ 0, %.lr.ph.split.i93 ], [ %spec.select.i127, %Abc_TtHasVar.exit.us.i122 ], [ %150, %Abc_TtHasVar.exit.thread.i109 ]
   %151 = sext i32 %.0.lcssa.i89 to i64
   %152 = getelementptr inbounds [15 x i32], ptr %4, i64 0, i64 %151
   %153 = load i32, ptr %152, align 4
@@ -8664,7 +8664,7 @@ tailrecurse:                                      ; preds = %21, %2
   %.val26 = load i32, ptr %8, align 4
   %9 = and i32 %.val26, 7
   switch i32 %9, label %.critedge [
-    i32 2, label %.critedge.loopexit64
+    i32 2, label %.critedge.loopexit63
     i32 5, label %17
     i32 4, label %.preheader
   ]
@@ -8708,11 +8708,11 @@ tailrecurse:                                      ; preds = %21, %2
   %23 = load i32, ptr %22, align 4
   br label %tailrecurse
 
-.critedge.loopexit64:                             ; preds = %tailrecurse
+.critedge.loopexit63:                             ; preds = %tailrecurse
   br label %.critedge
 
-.critedge:                                        ; preds = %17, %15, %12, %.lr.ph, %tailrecurse, %.critedge.loopexit64, %.preheader
-  %.0 = phi i32 [ 0, %.preheader ], [ 0, %tailrecurse ], [ 1, %15 ], [ 0, %12 ], [ 0, %.lr.ph ], [ 0, %17 ], [ 1, %.critedge.loopexit64 ]
+.critedge:                                        ; preds = %15, %12, %.lr.ph, %17, %tailrecurse, %.critedge.loopexit63, %.preheader
+  %.0 = phi i32 [ 0, %.preheader ], [ 1, %.critedge.loopexit63 ], [ 0, %tailrecurse ], [ 0, %17 ], [ 1, %15 ], [ 0, %12 ], [ 0, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -10921,7 +10921,7 @@ If_DsdManGetSuppSizes.exit:                       ; preds = %If_DsdManGetSuppSiz
 
 39:                                               ; preds = %If_DsdManGetSuppSizes.exit
   %.not38 = icmp eq i32 %6, 0
-  br i1 %.not38, label %120, label %40
+  br i1 %.not38, label %121, label %40
 
 40:                                               ; preds = %39
   %41 = getelementptr inbounds i8, ptr %3, i64 8
@@ -10989,7 +10989,7 @@ If_DsdManComputeFirst.exit:                       ; preds = %If_DsdManComputeFir
   %75 = or i32 %74, %64
   %76 = and i32 %75, %2
   %77 = icmp eq i32 %76, 0
-  br i1 %77, label %120, label %If_DsdManGetSuppSizes.exit._crit_edge
+  br i1 %77, label %121, label %If_DsdManGetSuppSizes.exit._crit_edge
 
 If_DsdManGetSuppSizes.exit._crit_edge:            ; preds = %If_DsdManGetSuppSizes.exit, %If_DsdManComputeFirst.exit
   %78 = phi i32 [ %57, %If_DsdManComputeFirst.exit ], [ undef, %If_DsdManGetSuppSizes.exit ]
@@ -11000,7 +11000,7 @@ If_DsdManGetSuppSizes.exit._crit_edge:            ; preds = %If_DsdManGetSuppSiz
 
 79:                                               ; preds = %If_DsdManGetSuppSizes.exit._crit_edge
   %.not41 = icmp eq i32 %6, 0
-  br i1 %.not41, label %120, label %80
+  br i1 %.not41, label %121, label %80
 
 80:                                               ; preds = %79
   %81 = getelementptr inbounds i8, ptr %3, i64 8
@@ -11069,11 +11069,13 @@ If_DsdManComputeFirst.exit54:                     ; preds = %If_DsdManComputeFir
   %117 = or i32 %116, %104
   %118 = and i32 %117, %2
   %119 = icmp eq i32 %118, 0
-  %spec.select = select i1 %119, i32 %117, i32 0
-  br label %120
+  br i1 %119, label %121, label %120
 
-120:                                              ; preds = %If_DsdManComputeFirst.exit54, %If_DsdManGetSuppSizes.exit._crit_edge, %79, %If_DsdManComputeFirst.exit, %39
-  %.0 = phi i32 [ -1, %39 ], [ %75, %If_DsdManComputeFirst.exit ], [ -1, %79 ], [ 0, %If_DsdManGetSuppSizes.exit._crit_edge ], [ %spec.select, %If_DsdManComputeFirst.exit54 ]
+120:                                              ; preds = %If_DsdManComputeFirst.exit54, %If_DsdManGetSuppSizes.exit._crit_edge
+  br label %121
+
+121:                                              ; preds = %If_DsdManComputeFirst.exit54, %79, %If_DsdManComputeFirst.exit, %39, %120
+  %.0 = phi i32 [ 0, %120 ], [ -1, %39 ], [ %75, %If_DsdManComputeFirst.exit ], [ -1, %79 ], [ %117, %If_DsdManComputeFirst.exit54 ]
   ret i32 %.0
 }
 

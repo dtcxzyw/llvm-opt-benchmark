@@ -124,7 +124,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dsa_gen_set_params(ptr noundef %genctx, ptr noundef %params) #0 {
+define internal noundef i32 @dsa_gen_set_params(ptr noundef %genctx, ptr noundef %params) #0 {
 entry:
   %cmp = icmp eq ptr %genctx, null
   br i1 %cmp, label %return, label %if.end
@@ -296,7 +296,7 @@ if.end66:                                         ; preds = %if.then62
 if.end74:                                         ; preds = %if.end66, %if.end59
   %call75 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %params, ptr noundef nonnull @.str.9) #6
   %cmp76.not = icmp eq ptr %call75, null
-  br i1 %cmp76.not, label %return, label %if.then77
+  br i1 %cmp76.not, label %if.end89, label %if.then77
 
 if.then77:                                        ; preds = %if.end74
   %data_type78 = getelementptr inbounds i8, ptr %call75, i64 8
@@ -312,12 +312,14 @@ if.end81:                                         ; preds = %if.then77
   %14 = load ptr, ptr %data82, align 8
   %call83 = tail call noalias ptr @CRYPTO_strdup(ptr noundef %14, ptr noundef nonnull @.str, i32 noundef 526) #6
   store ptr %call83, ptr %mdprops, align 8
-  %cmp86 = icmp ne ptr %call83, null
-  %spec.select = zext i1 %cmp86 to i32
+  %cmp86 = icmp eq ptr %call83, null
+  br i1 %cmp86, label %return, label %if.end89
+
+if.end89:                                         ; preds = %if.end81, %if.end74
   br label %return
 
-return:                                           ; preds = %if.then.i45, %if.end81, %if.end74, %if.then77, %if.end66, %if.then62, %land.lhs.true55, %land.lhs.true48, %land.lhs.true37, %land.lhs.true30, %land.lhs.true23, %land.lhs.true, %if.end, %entry, %if.then9
-  %retval.0 = phi i32 [ 0, %if.then9 ], [ 0, %entry ], [ 1, %if.end ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true23 ], [ 0, %land.lhs.true30 ], [ 0, %land.lhs.true37 ], [ 0, %land.lhs.true48 ], [ 0, %land.lhs.true55 ], [ 0, %if.then62 ], [ 0, %if.end66 ], [ 0, %if.then77 ], [ 1, %if.end74 ], [ %spec.select, %if.end81 ], [ 0, %if.then.i45 ]
+return:                                           ; preds = %if.then.i45, %if.end81, %if.then77, %if.end66, %if.then62, %land.lhs.true55, %land.lhs.true48, %land.lhs.true37, %land.lhs.true30, %land.lhs.true23, %land.lhs.true, %if.end, %entry, %if.end89, %if.then9
+  %retval.0 = phi i32 [ 0, %if.then9 ], [ 1, %if.end89 ], [ 0, %entry ], [ 1, %if.end ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true23 ], [ 0, %land.lhs.true30 ], [ 0, %land.lhs.true37 ], [ 0, %land.lhs.true48 ], [ 0, %land.lhs.true55 ], [ 0, %if.then62 ], [ 0, %if.end66 ], [ 0, %if.then77 ], [ 0, %if.end81 ], [ 0, %if.then.i45 ]
   ret i32 %retval.0
 }
 
@@ -499,8 +501,8 @@ if.then101.critedge:                              ; preds = %land.lhs.true, %lan
   tail call void @DSA_free(ptr noundef nonnull %call1) #6
   br label %if.end102
 
-if.end102:                                        ; preds = %if.end92, %if.end74, %if.then101.critedge
-  %dsa.0 = phi ptr [ null, %if.then101.critedge ], [ %call1, %if.end74 ], [ %call1, %if.end92 ]
+if.end102:                                        ; preds = %if.end74, %if.end92, %if.then101.critedge
+  %dsa.0 = phi ptr [ null, %if.then101.critedge ], [ %call1, %if.end92 ], [ %call1, %if.end74 ]
   tail call void @BN_GENCB_free(ptr noundef %call21) #6
   br label %return
 
@@ -561,7 +563,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dsa_get_params(ptr noundef %key, ptr noundef %params) #0 {
+define internal noundef i32 @dsa_get_params(ptr noundef %key, ptr noundef %params) #0 {
 entry:
   %priv.i = alloca ptr, align 8
   %pub.i = alloca ptr, align 8
@@ -635,16 +637,18 @@ land.lhs.true2.i:                                 ; preds = %if.end.i
 if.end5.i:                                        ; preds = %land.lhs.true2.i, %if.end.i
   %1 = load ptr, ptr %pub.i, align 8
   %cmp6.not.i = icmp eq ptr %1, null
-  br i1 %cmp6.not.i, label %dsa_key_todata.exit, label %land.lhs.true7.i
+  br i1 %cmp6.not.i, label %if.end11.i, label %land.lhs.true7.i
 
 land.lhs.true7.i:                                 ; preds = %if.end5.i
   %call8.i = call i32 @ossl_param_build_set_bn(ptr noundef null, ptr noundef %params, ptr noundef nonnull @.str.22, ptr noundef nonnull %1) #6
-  %tobool9.not.i = icmp ne i32 %call8.i, 0
-  %spec.select.i = zext i1 %tobool9.not.i to i32
+  %tobool9.not.i = icmp eq i32 %call8.i, 0
+  br i1 %tobool9.not.i, label %dsa_key_todata.exit, label %if.end11.i
+
+if.end11.i:                                       ; preds = %land.lhs.true7.i, %if.end5.i
   br label %dsa_key_todata.exit
 
-dsa_key_todata.exit:                              ; preds = %land.rhs, %land.lhs.true2.i, %if.end5.i, %land.lhs.true7.i
-  %retval.0.i = phi i32 [ 0, %land.rhs ], [ 0, %land.lhs.true2.i ], [ 1, %if.end5.i ], [ %spec.select.i, %land.lhs.true7.i ]
+dsa_key_todata.exit:                              ; preds = %land.rhs, %land.lhs.true2.i, %land.lhs.true7.i, %if.end11.i
+  %retval.0.i = phi i32 [ 1, %if.end11.i ], [ 0, %land.rhs ], [ 0, %land.lhs.true2.i ], [ 0, %land.lhs.true7.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %priv.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pub.i)
   br label %return
@@ -1038,16 +1042,18 @@ land.lhs.true2.i:                                 ; preds = %if.end.i
 if.end5.i:                                        ; preds = %land.lhs.true2.i, %if.end.i
   %1 = load ptr, ptr %pub.i, align 8
   %cmp6.not.i = icmp eq ptr %1, null
-  br i1 %cmp6.not.i, label %dsa_key_todata.exit, label %land.lhs.true7.i
+  br i1 %cmp6.not.i, label %if.end11.i, label %land.lhs.true7.i
 
 land.lhs.true7.i:                                 ; preds = %if.end5.i
   %call8.i = call i32 @ossl_param_build_set_bn(ptr noundef nonnull %call4, ptr noundef null, ptr noundef nonnull @.str.22, ptr noundef nonnull %1) #6
-  %tobool9.not.i = icmp ne i32 %call8.i, 0
-  %spec.select.i = zext i1 %tobool9.not.i to i32
+  %tobool9.not.i = icmp eq i32 %call8.i, 0
+  br i1 %tobool9.not.i, label %dsa_key_todata.exit, label %if.end11.i
+
+if.end11.i:                                       ; preds = %land.lhs.true7.i, %if.end5.i
   br label %dsa_key_todata.exit
 
-dsa_key_todata.exit:                              ; preds = %land.lhs.true2.i, %if.end5.i, %land.lhs.true7.i
-  %retval.0.i = phi i32 [ 0, %land.lhs.true2.i ], [ 1, %if.end5.i ], [ %spec.select.i, %land.lhs.true7.i ]
+dsa_key_todata.exit:                              ; preds = %land.lhs.true2.i, %land.lhs.true7.i, %if.end11.i
+  %retval.0.i = phi i32 [ 1, %if.end11.i ], [ 0, %land.lhs.true2.i ], [ 0, %land.lhs.true7.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %priv.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pub.i)
   br label %if.end27

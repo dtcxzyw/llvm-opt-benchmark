@@ -156,7 +156,7 @@ define noundef ptr @hintersect(ptr nocapture noundef readonly %0, ptr nocapture 
   %7 = icmp eq ptr %4, null
   %8 = icmp eq ptr %6, null
   %or.cond = select i1 %7, i1 true, i1 %8
-  br i1 %or.cond, label %71, label %9
+  br i1 %or.cond, label %70, label %9
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %4, i64 48
@@ -164,7 +164,7 @@ define noundef ptr @hintersect(ptr nocapture noundef readonly %0, ptr nocapture 
   %12 = getelementptr inbounds i8, ptr %6, i64 48
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %11, %13
-  br i1 %14, label %71, label %15
+  br i1 %14, label %70, label %15
 
 15:                                               ; preds = %9
   %16 = load double, ptr %4, align 8
@@ -178,7 +178,7 @@ define noundef ptr @hintersect(ptr nocapture noundef readonly %0, ptr nocapture 
   %24 = tail call double @llvm.fmuladd.f64(double %16, double %18, double %23)
   %25 = tail call double @llvm.fabs.f64(double %24)
   %or.cond3 = fcmp olt double %25, 1.000000e-10
-  br i1 %or.cond3, label %71, label %26
+  br i1 %or.cond3, label %70, label %26
 
 26:                                               ; preds = %15
   %27 = getelementptr inbounds i8, ptr %4, i64 16
@@ -208,7 +208,7 @@ define noundef ptr @hintersect(ptr nocapture noundef readonly %0, ptr nocapture 
 
 50:                                               ; preds = %26
   %51 = fcmp oeq double %46, %48
-  br i1 %51, label %52, label %57
+  br i1 %51, label %52, label %56
 
 52:                                               ; preds = %50
   %53 = load double, ptr %11, align 8
@@ -216,38 +216,36 @@ define noundef ptr @hintersect(ptr nocapture noundef readonly %0, ptr nocapture 
   %55 = fcmp olt double %53, %54
   br i1 %55, label %57, label %56
 
-56:                                               ; preds = %52
+56:                                               ; preds = %52, %50
   br label %57
 
-57:                                               ; preds = %50, %26, %52, %56
-  %.048 = phi ptr [ %0, %52 ], [ %0, %26 ], [ %1, %50 ], [ %1, %56 ]
-  %.047 = phi ptr [ %4, %52 ], [ %4, %26 ], [ %6, %50 ], [ %6, %56 ]
-  %58 = getelementptr inbounds i8, ptr %.047, i64 48
-  %59 = load ptr, ptr %58, align 8
-  %60 = load double, ptr %59, align 8
-  %61 = extractelement <2 x double> %44, i64 0
-  %62 = fcmp ult double %61, %60
-  %63 = getelementptr inbounds i8, ptr %.048, i64 28
-  %64 = load i8, ptr %63, align 4
-  br i1 %62, label %.critedge, label %65
+57:                                               ; preds = %26, %52, %56
+  %58 = phi ptr [ %13, %56 ], [ %11, %52 ], [ %11, %26 ]
+  %.048 = phi ptr [ %1, %56 ], [ %0, %52 ], [ %0, %26 ]
+  %59 = load double, ptr %58, align 8
+  %60 = extractelement <2 x double> %44, i64 0
+  %61 = fcmp ult double %60, %59
+  %62 = getelementptr inbounds i8, ptr %.048, i64 28
+  %63 = load i8, ptr %62, align 4
+  br i1 %61, label %.critedge, label %64
 
-65:                                               ; preds = %57
-  %66 = icmp eq i8 %64, 0
-  br i1 %66, label %71, label %68
+64:                                               ; preds = %57
+  %65 = icmp eq i8 %63, 0
+  br i1 %65, label %70, label %67
 
 .critedge:                                        ; preds = %57
-  %67 = icmp eq i8 %64, 1
-  br i1 %67, label %71, label %68
+  %66 = icmp eq i8 %63, 1
+  br i1 %66, label %70, label %67
 
-68:                                               ; preds = %65, %.critedge
-  %69 = tail call ptr @getsite() #13
-  %70 = getelementptr inbounds i8, ptr %69, i64 24
-  store i32 0, ptr %70, align 8
-  store <2 x double> %44, ptr %69, align 8
-  br label %71
+67:                                               ; preds = %64, %.critedge
+  %68 = tail call ptr @getsite() #13
+  %69 = getelementptr inbounds i8, ptr %68, i64 24
+  store i32 0, ptr %69, align 8
+  store <2 x double> %44, ptr %68, align 8
+  br label %70
 
-71:                                               ; preds = %65, %.critedge, %15, %9, %2, %68
-  %.0 = phi ptr [ %69, %68 ], [ null, %2 ], [ null, %9 ], [ null, %15 ], [ null, %.critedge ], [ null, %65 ]
+70:                                               ; preds = %64, %.critedge, %15, %9, %2, %67
+  %.0 = phi ptr [ %68, %67 ], [ null, %2 ], [ null, %9 ], [ null, %15 ], [ null, %.critedge ], [ null, %64 ]
   ret ptr %.0
 }
 

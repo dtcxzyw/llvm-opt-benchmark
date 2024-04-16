@@ -829,7 +829,7 @@ define dso_local noundef zeroext i1 @tcp_peer_is_proven(ptr nocapture noundef re
   %3 = alloca %struct.inetpeer_addr, align 4
   %4 = alloca %struct.inetpeer_addr, align 4
   %5 = icmp eq ptr %1, null
-  br i1 %5, label %100, label %6
+  br i1 %5, label %101, label %6
 
 6:                                                ; preds = %2
   tail call void @__rcu_read_lock() #11
@@ -979,17 +979,20 @@ define dso_local noundef zeroext i1 @tcp_peer_is_proven(ptr nocapture noundef re
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #11
   %95 = getelementptr inbounds i8, ptr %49, i64 68
   %96 = load volatile i32, ptr %95, align 4
-  %97 = icmp ne i32 %96, 0
-  br label %98
+  %97 = icmp eq i32 %96, 0
+  br i1 %97, label %98, label %99
 
 98:                                               ; preds = %.thread, %94
-  %99 = phi i1 [ %97, %94 ], [ false, %.thread ]
-  tail call void @__rcu_read_unlock() #11
-  br label %100
+  br label %99
 
-100:                                              ; preds = %98, %2
-  %101 = phi i1 [ %99, %98 ], [ false, %2 ]
-  ret i1 %101
+99:                                               ; preds = %98, %94
+  %100 = phi i1 [ false, %98 ], [ true, %94 ]
+  tail call void @__rcu_read_unlock() #11
+  br label %101
+
+101:                                              ; preds = %99, %2
+  %102 = phi i1 [ %100, %99 ], [ false, %2 ]
+  ret i1 %102
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -2449,7 +2452,7 @@ select.unfold:                                    ; preds = %73, %53
   %123 = call i32 @nla_put(ptr noundef %0, i32 noundef 7, i32 noundef 2, ptr noundef nonnull %4) #11
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #11
   %124 = icmp slt i32 %123, 0
-  br i1 %124, label %149, label %125
+  br i1 %124, label %150, label %125
 
 125:                                              ; preds = %122, %119
   %126 = getelementptr inbounds i8, ptr %11, i64 2
@@ -2464,7 +2467,7 @@ select.unfold:                                    ; preds = %73, %53
   %131 = call i32 @nla_put(ptr noundef %0, i32 noundef 8, i32 noundef 2, ptr noundef nonnull %3) #11
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #11
   %132 = icmp slt i32 %131, 0
-  br i1 %132, label %149, label %133
+  br i1 %132, label %150, label %133
 
 133:                                              ; preds = %130
   %134 = load volatile i64, ptr @jiffies, align 64
@@ -2473,7 +2476,7 @@ select.unfold:                                    ; preds = %73, %53
   %137 = sub i64 %134, %136
   %138 = call fastcc i32 @nla_put_msecs(ptr noundef %0, i64 noundef %137)
   %139 = icmp slt i32 %138, 0
-  br i1 %139, label %149, label %140
+  br i1 %139, label %150, label %140
 
 140:                                              ; preds = %133, %125
   %141 = getelementptr inbounds i8, ptr %11, i64 32
@@ -2486,17 +2489,19 @@ select.unfold:                                    ; preds = %73, %53
   %146 = getelementptr inbounds i8, ptr %11, i64 16
   %147 = call i32 @nla_put(ptr noundef %0, i32 noundef 10, i32 noundef %145, ptr noundef %146) #11
   %148 = icmp slt i32 %147, 0
-  %spec.select = select i1 %148, i32 -90, i32 0
-  br label %149
+  br i1 %148, label %150, label %149
 
-149:                                              ; preds = %144, %140, %133, %130, %122
-  %150 = phi i32 [ -90, %122 ], [ -90, %133 ], [ -90, %130 ], [ 0, %140 ], [ %spec.select, %144 ]
+149:                                              ; preds = %144, %140
+  br label %150
+
+150:                                              ; preds = %149, %144, %133, %130, %122
+  %151 = phi i32 [ 0, %149 ], [ -90, %122 ], [ -90, %133 ], [ -90, %130 ], [ -90, %144 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #11
   br label %.thread6
 
-.thread6:                                         ; preds = %73, %66, %60, %149, %40, %31, %27, %24, %19, %15, %2
-  %151 = phi i32 [ -97, %2 ], [ %150, %149 ], [ -90, %31 ], [ -90, %27 ], [ -90, %24 ], [ -90, %19 ], [ -90, %15 ], [ -90, %40 ], [ -90, %60 ], [ -90, %66 ], [ -90, %73 ]
-  ret i32 %151
+.thread6:                                         ; preds = %73, %66, %60, %150, %40, %31, %27, %24, %19, %15, %2
+  %152 = phi i32 [ -97, %2 ], [ %151, %150 ], [ -90, %31 ], [ -90, %27 ], [ -90, %24 ], [ -90, %19 ], [ -90, %15 ], [ -90, %40 ], [ -90, %60 ], [ -90, %66 ], [ -90, %73 ]
+  ret i32 %152
 }
 
 ; Function Attrs: null_pointer_is_valid

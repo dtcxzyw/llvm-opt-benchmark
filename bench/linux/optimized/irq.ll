@@ -1744,12 +1744,12 @@ define internal noundef i32 @ite_router_probe(ptr nocapture noundef writeonly %0
 define internal noundef i32 @via_router_probe(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2) #10 section ".init.text" align 16 {
   switch i16 %2, label %11 [
     i16 1414, label %4
-    i16 12839, label %.thread3
-    i16 1430, label %.thread3
-    i16 1670, label %.thread3
-    i16 -32207, label %.thread3
-    i16 12615, label %.thread3
-    i16 12663, label %.thread3
+    i16 12839, label %.thread
+    i16 1430, label %.thread
+    i16 1670, label %.thread
+    i16 -32207, label %.thread
+    i16 12615, label %.thread
+    i16 12663, label %.thread
   ]
 
 4:                                                ; preds = %3
@@ -1761,12 +1761,12 @@ define internal noundef i32 @via_router_probe(ptr nocapture noundef writeonly %0
     i16 12839, label %.thread
   ]
 
-.thread:                                          ; preds = %4, %4, %4
+.thread:                                          ; preds = %3, %3, %3, %3, %3, %3, %4, %4, %4
   br label %.thread3
 
-.thread3:                                         ; preds = %3, %3, %3, %3, %3, %3, %4, %.thread
-  %7 = phi ptr [ @pirq_via_get, %.thread ], [ @pirq_via586_get, %4 ], [ @pirq_via_get, %3 ], [ @pirq_via_get, %3 ], [ @pirq_via_get, %3 ], [ @pirq_via_get, %3 ], [ @pirq_via_get, %3 ], [ @pirq_via_get, %3 ]
-  %8 = phi ptr [ @pirq_via_set, %.thread ], [ @pirq_via586_set, %4 ], [ @pirq_via_set, %3 ], [ @pirq_via_set, %3 ], [ @pirq_via_set, %3 ], [ @pirq_via_set, %3 ], [ @pirq_via_set, %3 ], [ @pirq_via_set, %3 ]
+.thread3:                                         ; preds = %4, %.thread
+  %7 = phi ptr [ @pirq_via_get, %.thread ], [ @pirq_via586_get, %4 ]
+  %8 = phi ptr [ @pirq_via_set, %.thread ], [ @pirq_via586_set, %4 ]
   store ptr @.str.24, ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %7, ptr %9, align 8

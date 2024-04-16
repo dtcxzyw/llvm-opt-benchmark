@@ -20,13 +20,13 @@ define i32 @f32_rem(i32 %0, i32 %1) local_unnamed_addr #0 {
 
 14:                                               ; preds = %2
   %.not111 = icmp eq i64 %8, 0
-  br i1 %.not111, label %15, label %91
+  br i1 %.not111, label %15, label %92
 
 15:                                               ; preds = %14
   %16 = icmp eq i64 %11, 255
   %17 = icmp ne i64 %12, 0
   %or.cond = select i1 %16, i1 %17, i1 false
-  br i1 %or.cond, label %91, label %94
+  br i1 %or.cond, label %92, label %95
 
 18:                                               ; preds = %2
   %trunc = trunc i64 %10 to i8
@@ -37,11 +37,11 @@ define i32 @f32_rem(i32 %0, i32 %1) local_unnamed_addr #0 {
 
 19:                                               ; preds = %18
   %.not110 = icmp eq i64 %12, 0
-  br i1 %.not110, label %95, label %91
+  br i1 %.not110, label %96, label %92
 
 20:                                               ; preds = %18
   %.not102 = icmp eq i64 %12, 0
-  br i1 %.not102, label %94, label %21
+  br i1 %.not102, label %95, label %21
 
 21:                                               ; preds = %20
   %22 = tail call { i64, i64 } @softfloat_normSubnormalF32Sig(i64 noundef %12) #3
@@ -57,7 +57,7 @@ define i32 @f32_rem(i32 %0, i32 %1) local_unnamed_addr #0 {
 
 26:                                               ; preds = %25
   %.not104 = icmp eq i64 %8, 0
-  br i1 %.not104, label %95, label %27
+  br i1 %.not104, label %96, label %27
 
 27:                                               ; preds = %26
   %28 = tail call { i64, i64 } @softfloat_normSubnormalF32Sig(i64 noundef %8) #3
@@ -77,7 +77,7 @@ define i32 @f32_rem(i32 %0, i32 %1) local_unnamed_addr #0 {
 
 37:                                               ; preds = %31
   %38 = icmp slt i64 %35, -1
-  br i1 %38, label %95, label %39
+  br i1 %38, label %96, label %39
 
 39:                                               ; preds = %37
   %40 = shl i64 %34, 6
@@ -116,25 +116,25 @@ define i32 @f32_rem(i32 %0, i32 %1) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %49, %.lr.ph
   %61 = phi i32 [ %68, %.lr.ph ], [ %59, %49 ]
-  %.092116 = phi i64 [ %64, %.lr.ph ], [ %54, %49 ]
+  %.092115 = phi i64 [ %64, %.lr.ph ], [ %54, %49 ]
   %62 = mul i32 %61, %.pre
   %63 = sub i32 0, %62
-  %64 = add nsw i64 %.092116, -29
+  %64 = add nsw i64 %.092115, -29
   %65 = zext i32 %63 to i64
   %66 = mul nuw i64 %52, %65
   %67 = lshr i64 %66, 32
   %68 = trunc nuw i64 %67 to i32
-  %69 = icmp ult i64 %.092116, 29
+  %69 = icmp ult i64 %.092115, 29
   br i1 %69, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %49
   %.092.lcssa = phi i64 [ %54, %49 ], [ %64, %.lr.ph ]
   %.088.lcssa = phi i32 [ %53, %49 ], [ %63, %.lr.ph ]
-  %.lcssa115 = phi i32 [ %59, %49 ], [ %68, %.lr.ph ]
+  %.lcssa114 = phi i32 [ %59, %49 ], [ %68, %.lr.ph ]
   %70 = trunc i64 %.092.lcssa to i32
   %71 = and i32 %70, 31
   %72 = xor i32 %71, 31
-  %73 = lshr i32 %.lcssa115, %72
+  %73 = lshr i32 %.lcssa114, %72
   %74 = add nsw i32 %70, 30
   %75 = shl i32 %.088.lcssa, %74
   %76 = mul i32 %73, %.pre
@@ -166,29 +166,31 @@ define i32 @f32_rem(i32 %0, i32 %1) local_unnamed_addr #0 {
   %86 = and i32 %.191, 1
   %.not109.not = icmp eq i32 %86, 0
   %or.cond112 = select i1 %.not108, i1 %.not109.not, i1 false
-  %spec.select114 = select i1 %or.cond112, i32 %.2, i32 %82
-  br label %87
+  br i1 %or.cond112, label %87, label %88
 
 87:                                               ; preds = %85, %83
-  %.3 = phi i32 [ %.2, %83 ], [ %spec.select114, %85 ]
-  %88 = icmp slt i32 %.3, 0
+  br label %88
+
+88:                                               ; preds = %87, %85
+  %.3 = phi i32 [ %.2, %87 ], [ %82, %85 ]
+  %89 = icmp slt i32 %.3, 0
   %spec.select = tail call i32 @llvm.abs.i32(i32 %.3, i1 false)
-  %spec.select113 = select i1 %88, i1 %4, i1 %5
-  %89 = zext i32 %spec.select to i64
-  %90 = tail call i32 @softfloat_normRoundPackToF32(i1 noundef zeroext %spec.select113, i64 noundef %.084, i64 noundef %89) #3
-  br label %95
+  %spec.select113 = select i1 %89, i1 %4, i1 %5
+  %90 = zext i32 %spec.select to i64
+  %91 = tail call i32 @softfloat_normRoundPackToF32(i1 noundef zeroext %spec.select113, i64 noundef %.084, i64 noundef %90) #3
+  br label %96
 
-91:                                               ; preds = %19, %14, %15
-  %92 = tail call i64 @softfloat_propagateNaNF32UI(i64 noundef %3, i64 noundef %9) #3
-  %93 = trunc i64 %92 to i32
-  br label %95
+92:                                               ; preds = %19, %14, %15
+  %93 = tail call i64 @softfloat_propagateNaNF32UI(i64 noundef %3, i64 noundef %9) #3
+  %94 = trunc i64 %93 to i32
+  br label %96
 
-94:                                               ; preds = %20, %15
+95:                                               ; preds = %20, %15
   tail call void @softfloat_raiseFlags(i8 noundef zeroext 16) #3
-  br label %95
+  br label %96
 
-95:                                               ; preds = %91, %94, %37, %26, %19, %87
-  %.sroa.082.0 = phi i32 [ %90, %87 ], [ %0, %19 ], [ %0, %26 ], [ %0, %37 ], [ %93, %91 ], [ 2143289344, %94 ]
+96:                                               ; preds = %92, %95, %37, %26, %19, %88
+  %.sroa.082.0 = phi i32 [ %91, %88 ], [ %0, %19 ], [ %0, %26 ], [ %0, %37 ], [ %94, %92 ], [ 2143289344, %95 ]
   ret i32 %.sroa.082.0
 }
 

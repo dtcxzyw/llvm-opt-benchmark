@@ -2770,7 +2770,7 @@ define dso_local void @_Z24cmFortranParser_RuleElseP17cmFortranParser_s(ptr noca
   %2 = getelementptr inbounds i8, ptr %0, i64 328
   %3 = load i64, ptr %2, align 8
   %4 = icmp ugt i64 %3, 1
-  br i1 %4, label %25, label %5
+  br i1 %4, label %26, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 384
@@ -2778,7 +2778,7 @@ define dso_local void @_Z24cmFortranParser_RuleElseP17cmFortranParser_s(ptr noca
   %8 = load ptr, ptr %6, align 8
   %9 = load ptr, ptr %7, align 8
   %10 = icmp eq ptr %8, %9
-  br i1 %10, label %.sink.split, label %11
+  br i1 %10, label %25, label %11
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds i8, ptr %0, i64 392
@@ -2798,16 +2798,18 @@ _ZNSt5stackIbSt5dequeIbSaIbEEE3topEv.exit:        ; preds = %11, %15
   %21 = phi ptr [ %20, %15 ], [ %8, %11 ]
   %22 = getelementptr inbounds i8, ptr %21, i64 -1
   %23 = load i8, ptr %22, align 1
-  %24 = and i8 %23, 1
-  %spec.select = zext nneg i8 %24 to i64
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %.sink.split, label %25
+
+25:                                               ; preds = %_ZNSt5stackIbSt5dequeIbSaIbEEE3topEv.exit, %5
   br label %.sink.split
 
-.sink.split:                                      ; preds = %_ZNSt5stackIbSt5dequeIbSaIbEEE3topEv.exit, %5
-  %.sink = phi i64 [ 0, %5 ], [ %spec.select, %_ZNSt5stackIbSt5dequeIbSaIbEEE3topEv.exit ]
+.sink.split:                                      ; preds = %_ZNSt5stackIbSt5dequeIbSaIbEEE3topEv.exit, %25
+  %.sink = phi i64 [ 0, %25 ], [ 1, %_ZNSt5stackIbSt5dequeIbSaIbEEE3topEv.exit ]
   store i64 %.sink, ptr %2, align 8
-  br label %25
+  br label %26
 
-25:                                               ; preds = %.sink.split, %1
+26:                                               ; preds = %.sink.split, %1
   ret void
 }
 

@@ -31,7 +31,7 @@ entry:
 declare zeroext i1 @visit_type_enum(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_TraceEventInfo_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_TraceEventInfo_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i = alloca i32, align 4
   %call = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str, ptr noundef %obj, ptr noundef %errp) #4
@@ -54,15 +54,18 @@ if.end3:                                          ; preds = %if.end
 
 if.end6:                                          ; preds = %if.end3
   %call7 = call zeroext i1 @visit_policy_skip(ptr noundef %v, ptr noundef nonnull @.str.2, i32 noundef 1) #4
-  br i1 %call7, label %return, label %if.then8
+  br i1 %call7, label %if.end12, label %if.then8
 
 if.then8:                                         ; preds = %if.end6
   %vcpu = getelementptr inbounds i8, ptr %obj, i64 12
   %call9 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %vcpu, ptr noundef %errp) #4
+  br i1 %call9, label %if.end12, label %return
+
+if.end12:                                         ; preds = %if.then8, %if.end6
   br label %return
 
-return:                                           ; preds = %if.then8, %if.end6, %if.end3, %if.end, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end ], [ false, %if.end3 ], [ true, %if.end6 ], [ %call9, %if.then8 ]
+return:                                           ; preds = %if.then8, %if.end3, %if.end, %entry, %if.end12
+  %retval.0 = phi i1 [ true, %if.end12 ], [ false, %entry ], [ false, %if.end ], [ false, %if.end3 ], [ false, %if.then8 ]
   ret i1 %retval.0
 }
 
@@ -141,7 +144,7 @@ declare zeroext i1 @visit_is_input(ptr noundef) local_unnamed_addr #1
 declare void @qapi_free_TraceEventInfo(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_q_obj_trace_event_get_state_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_q_obj_trace_event_get_state_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str, ptr noundef %obj, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -149,7 +152,7 @@ entry:
 if.end:                                           ; preds = %entry
   %has_vcpu = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %has_vcpu) #4
-  br i1 %call1, label %if.then2, label %return
+  br i1 %call1, label %if.then2, label %if.end12
 
 if.then2:                                         ; preds = %if.end
   %call3 = tail call zeroext i1 @visit_policy_reject(ptr noundef %v, ptr noundef nonnull @.str.2, i32 noundef 1, ptr noundef %errp) #4
@@ -157,15 +160,18 @@ if.then2:                                         ; preds = %if.end
 
 if.end5:                                          ; preds = %if.then2
   %call6 = tail call zeroext i1 @visit_policy_skip(ptr noundef %v, ptr noundef nonnull @.str.2, i32 noundef 1) #4
-  br i1 %call6, label %return, label %if.then7
+  br i1 %call6, label %if.end12, label %if.then7
 
 if.then7:                                         ; preds = %if.end5
   %vcpu = getelementptr inbounds i8, ptr %obj, i64 16
   %call8 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %vcpu, ptr noundef %errp) #4
+  br i1 %call8, label %if.end12, label %return
+
+if.end12:                                         ; preds = %if.end5, %if.then7, %if.end
   br label %return
 
-return:                                           ; preds = %if.then7, %if.end, %if.end5, %if.then2, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %if.then2 ], [ true, %if.end5 ], [ true, %if.end ], [ %call8, %if.then7 ]
+return:                                           ; preds = %if.then7, %if.then2, %entry, %if.end12
+  %retval.0 = phi i1 [ true, %if.end12 ], [ false, %entry ], [ false, %if.then2 ], [ false, %if.then7 ]
   ret i1 %retval.0
 }
 
@@ -230,7 +236,7 @@ declare void @visit_end_list(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @qapi_free_TraceEventInfoList(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_q_obj_trace_event_set_state_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_q_obj_trace_event_set_state_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str, ptr noundef %obj, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -253,7 +259,7 @@ if.then5:                                         ; preds = %if.end3
 if.end9:                                          ; preds = %if.then5, %if.end3
   %has_vcpu = getelementptr inbounds i8, ptr %obj, i64 11
   %call10 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %has_vcpu) #4
-  br i1 %call10, label %if.then11, label %return
+  br i1 %call10, label %if.then11, label %if.end21
 
 if.then11:                                        ; preds = %if.end9
   %call12 = tail call zeroext i1 @visit_policy_reject(ptr noundef %v, ptr noundef nonnull @.str.2, i32 noundef 1, ptr noundef %errp) #4
@@ -261,15 +267,18 @@ if.then11:                                        ; preds = %if.end9
 
 if.end14:                                         ; preds = %if.then11
   %call15 = tail call zeroext i1 @visit_policy_skip(ptr noundef %v, ptr noundef nonnull @.str.2, i32 noundef 1) #4
-  br i1 %call15, label %return, label %if.then16
+  br i1 %call15, label %if.end21, label %if.then16
 
 if.then16:                                        ; preds = %if.end14
   %vcpu = getelementptr inbounds i8, ptr %obj, i64 16
   %call17 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %vcpu, ptr noundef %errp) #4
+  br i1 %call17, label %if.end21, label %return
+
+if.end21:                                         ; preds = %if.end14, %if.then16, %if.end9
   br label %return
 
-return:                                           ; preds = %if.then16, %if.end9, %if.end14, %if.then11, %if.then5, %if.end, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end ], [ false, %if.then5 ], [ false, %if.then11 ], [ true, %if.end14 ], [ true, %if.end9 ], [ %call17, %if.then16 ]
+return:                                           ; preds = %if.then16, %if.then11, %if.then5, %if.end, %entry, %if.end21
+  %retval.0 = phi i1 [ true, %if.end21 ], [ false, %entry ], [ false, %if.end ], [ false, %if.then5 ], [ false, %if.then11 ], [ false, %if.then16 ]
   ret i1 %retval.0
 }
 

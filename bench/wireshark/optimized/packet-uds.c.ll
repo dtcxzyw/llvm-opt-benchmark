@@ -1189,9 +1189,6 @@ define internal void @uds_sa_subfunction_format(ptr nocapture noundef writeonly 
     i8 96, label %uds_sa_subfunction_to_type.exit.thread9.i
   ]
 
-uds_sa_subfunction_to_type.exit.thread9.i:        ; preds = %9
-  br label %uds_sa_subfunction_to_string.exit
-
 10:                                               ; preds = %9
   %11 = icmp ugt i8 %4, 96
   br i1 %11, label %uds_sa_subfunction_to_string.exit, label %uds_sa_subfunction_to_type.exit.i
@@ -1202,8 +1199,11 @@ uds_sa_subfunction_to_type.exit.i:                ; preds = %10
   %switch.select13.i = select i1 %.not.i.not.i, ptr @.str.588, ptr @.str.587
   br label %uds_sa_subfunction_to_string.exit
 
-uds_sa_subfunction_to_string.exit:                ; preds = %2, %6, %9, %uds_sa_subfunction_to_type.exit.thread9.i, %10, %uds_sa_subfunction_to_type.exit.i
-  %.0.i5 = phi ptr [ @.str.590, %uds_sa_subfunction_to_type.exit.thread9.i ], [ @.str.589, %9 ], [ @.str.586, %10 ], [ @.str.422, %6 ], [ %switch.select13.i, %uds_sa_subfunction_to_type.exit.i ], [ @.str.422, %2 ]
+uds_sa_subfunction_to_type.exit.thread9.i:        ; preds = %9
+  br label %uds_sa_subfunction_to_string.exit
+
+uds_sa_subfunction_to_string.exit:                ; preds = %2, %6, %9, %10, %uds_sa_subfunction_to_type.exit.i, %uds_sa_subfunction_to_type.exit.thread9.i
+  %.0.i5 = phi ptr [ @.str.590, %uds_sa_subfunction_to_type.exit.thread9.i ], [ @.str.422, %6 ], [ %switch.select13.i, %uds_sa_subfunction_to_type.exit.i ], [ @.str.586, %10 ], [ @.str.589, %9 ], [ @.str.422, %2 ]
   %13 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.585, ptr noundef nonnull %.0.i5, i32 noundef %1) #9
   ret void
 }
@@ -2044,36 +2044,36 @@ declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 nound
 define internal fastcc noundef nonnull ptr @uds_sa_subfunction_to_string(i8 noundef zeroext %0) unnamed_addr #3 {
   %2 = and i8 %0, 127
   %3 = icmp eq i8 %2, 0
-  br i1 %3, label %uds_sa_subfunction_to_type.exit.thread6, label %4
+  br i1 %3, label %uds_sa_subfunction_to_type.exit.thread, label %4
 
 4:                                                ; preds = %1
   %5 = add nsw i8 %2, -67
   %or.cond.i = icmp ult i8 %5, 28
   %6 = icmp eq i8 %2, 127
   %or.cond5.i = or i1 %6, %or.cond.i
-  br i1 %or.cond5.i, label %uds_sa_subfunction_to_type.exit.thread6, label %7
+  br i1 %or.cond5.i, label %uds_sa_subfunction_to_type.exit.thread, label %7
 
 7:                                                ; preds = %4
   switch i8 %2, label %8 [
-    i8 95, label %uds_sa_subfunction_to_type.exit.thread6
+    i8 95, label %uds_sa_subfunction_to_type.exit.thread
     i8 96, label %uds_sa_subfunction_to_type.exit.thread9
   ]
 
-uds_sa_subfunction_to_type.exit.thread9:          ; preds = %7
-  br label %uds_sa_subfunction_to_type.exit.thread6
-
 8:                                                ; preds = %7
   %9 = icmp ugt i8 %2, 96
-  br i1 %9, label %uds_sa_subfunction_to_type.exit.thread6, label %uds_sa_subfunction_to_type.exit
+  br i1 %9, label %uds_sa_subfunction_to_type.exit.thread, label %uds_sa_subfunction_to_type.exit
 
 uds_sa_subfunction_to_type.exit:                  ; preds = %8
   %10 = and i8 %0, 1
   %.not.i.not = icmp eq i8 %10, 0
   %switch.select13 = select i1 %.not.i.not, ptr @.str.588, ptr @.str.587
-  br label %uds_sa_subfunction_to_type.exit.thread6
+  br label %uds_sa_subfunction_to_type.exit.thread
 
-uds_sa_subfunction_to_type.exit.thread6:          ; preds = %uds_sa_subfunction_to_type.exit, %1, %4, %8, %7, %uds_sa_subfunction_to_type.exit.thread9
-  %.0 = phi ptr [ @.str.590, %uds_sa_subfunction_to_type.exit.thread9 ], [ @.str.589, %7 ], [ @.str.586, %8 ], [ @.str.422, %4 ], [ @.str.422, %1 ], [ %switch.select13, %uds_sa_subfunction_to_type.exit ]
+uds_sa_subfunction_to_type.exit.thread9:          ; preds = %7
+  br label %uds_sa_subfunction_to_type.exit.thread
+
+uds_sa_subfunction_to_type.exit.thread:           ; preds = %7, %8, %uds_sa_subfunction_to_type.exit, %1, %4, %uds_sa_subfunction_to_type.exit.thread9
+  %.0 = phi ptr [ @.str.590, %uds_sa_subfunction_to_type.exit.thread9 ], [ @.str.422, %4 ], [ @.str.422, %1 ], [ %switch.select13, %uds_sa_subfunction_to_type.exit ], [ @.str.586, %8 ], [ @.str.589, %7 ]
   ret ptr %.0
 }
 

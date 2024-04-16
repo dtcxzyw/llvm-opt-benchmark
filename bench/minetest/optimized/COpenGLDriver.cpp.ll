@@ -3893,7 +3893,7 @@ if.end15:                                         ; preds = %if.then5, %lor.lhs.
   %Mapped_Index = getelementptr inbounds i8, ptr %HWBuffer, i64 28
   %7 = load i32, ptr %Mapped_Index, align 4, !tbaa !262
   %cmp16.not = icmp eq i32 %7, 0
-  br i1 %cmp16.not, label %return, label %if.then17
+  br i1 %cmp16.not, label %if.end35, label %if.then17
 
 if.then17:                                        ; preds = %if.end15
   %ChangedID_Index = getelementptr inbounds i8, ptr %HWBuffer, i64 20
@@ -3911,7 +3911,7 @@ lor.lhs.false23:                                  ; preds = %if.then17
   %vbo_indicesID = getelementptr inbounds i8, ptr %HWBuffer, i64 44
   %11 = load i32, ptr %vbo_indicesID, align 4, !tbaa !260
   %tobool24.not = icmp eq i32 %11, 0
-  br i1 %tobool24.not, label %if.then25, label %return
+  br i1 %tobool24.not, label %if.then25, label %if.end35
 
 if.then25:                                        ; preds = %lor.lhs.false23, %if.then17
   %12 = load ptr, ptr %MeshBuffer18, align 8, !tbaa !245
@@ -3921,10 +3921,13 @@ if.then25:                                        ; preds = %lor.lhs.false23, %i
   %call29 = tail call noundef i32 %13(ptr noundef nonnull align 8 dereferenceable(8) %12) #24
   store i32 %call29, ptr %ChangedID_Index, align 4, !tbaa !264
   %call31 = tail call noundef zeroext i1 @_ZN3irr5video13COpenGLDriver25updateIndexHardwareBufferEPNS1_20SHWBufferLink_openglE(ptr noundef nonnull align 8 dereferenceable(4344) %this, ptr noundef nonnull %HWBuffer)
+  br i1 %call31, label %if.end35, label %return
+
+if.end35:                                         ; preds = %if.then25, %lor.lhs.false23, %if.end15
   br label %return
 
-return:                                           ; preds = %if.then25, %if.end15, %lor.lhs.false23, %if.then5, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %if.then5 ], [ true, %lor.lhs.false23 ], [ true, %if.end15 ], [ %call31, %if.then25 ]
+return:                                           ; preds = %if.end35, %if.then25, %if.then5, %entry
+  %retval.0 = phi i1 [ true, %if.end35 ], [ false, %entry ], [ false, %if.then5 ], [ false, %if.then25 ]
   ret i1 %retval.0
 }
 
@@ -17103,13 +17106,13 @@ lor.rhs:                                          ; preds = %entry
   %bf.load.i = load i16, ptr %BlendOperation.i, align 2
   %0 = and i16 %bf.load.i, 1920
   %cmp.not.i = icmp eq i16 %0, 0
-  br i1 %cmp.not.i, label %lor.end, label %land.lhs.true.i
+  br i1 %cmp.not.i, label %if.end15.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %lor.rhs
   %BlendFactor.i = getelementptr inbounds i8, ptr %material, i64 164
   %1 = load float, ptr %BlendFactor.i, align 4, !tbaa !412
   %cmp2.i = fcmp une float %1, 0.000000e+00
-  br i1 %cmp2.i, label %if.then.i, label %lor.end
+  br i1 %cmp2.i, label %if.then.i, label %if.end15.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   %2 = bitcast float %1 to i32
@@ -17131,12 +17134,15 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 cleanup.i:                                        ; preds = %if.then.i
   %and5.i.i = lshr i32 %2, 8
   %shr6.i.i = and i32 %and5.i.i, 15
-  %3 = add nsw i32 %shr6.i.i, -6
-  %switch.i21.i = icmp ult i32 %3, 5
+  %3 = add nsw i32 %shr6.i.i, -11
+  %switch.i21.i = icmp ult i32 %3, -5
+  br i1 %switch.i21.i, label %if.end15.i, label %lor.end
+
+if.end15.i:                                       ; preds = %cleanup.i, %land.lhs.true.i, %lor.rhs
   br label %lor.end
 
-lor.end:                                          ; preds = %cleanup.i, %lor.rhs, %land.lhs.true.i, %if.then.i, %entry
-  %4 = phi i1 [ true, %entry ], [ true, %if.then.i ], [ false, %land.lhs.true.i ], [ false, %lor.rhs ], [ %switch.i21.i, %cleanup.i ]
+lor.end:                                          ; preds = %if.end15.i, %cleanup.i, %if.then.i, %entry
+  %4 = phi i1 [ true, %entry ], [ true, %cleanup.i ], [ false, %if.end15.i ], [ true, %if.then.i ]
   ret i1 %4
 }
 
@@ -25378,7 +25384,7 @@ sw.bb9:                                           ; preds = %entry
   %vfn12 = getelementptr inbounds i8, ptr %vtable11, i64 544
   %5 = load ptr, ptr %vfn12, align 8
   %call13 = tail call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(1164) %4, i32 noundef 1) #24
-  br i1 %call13, label %sw.epilog, label %lor.lhs.false
+  br i1 %call13, label %if.then18, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %sw.bb9
   %6 = load ptr, ptr %Driver10, align 8, !tbaa !368
@@ -25386,7 +25392,9 @@ lor.lhs.false:                                    ; preds = %sw.bb9
   %vfn16 = getelementptr inbounds i8, ptr %vtable15, i64 544
   %7 = load ptr, ptr %vfn16, align 8
   %call17 = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(1164) %6, i32 noundef 8) #24
-  %spec.select1 = select i1 %call17, i32 0, i32 %cond
+  br i1 %call17, label %if.then18, label %sw.epilog
+
+if.then18:                                        ; preds = %lor.lhs.false, %sw.bb9
   br label %sw.epilog
 
 sw.bb20:                                          ; preds = %entry
@@ -25396,7 +25404,7 @@ sw.bb20:                                          ; preds = %entry
   %vfn23 = getelementptr inbounds i8, ptr %vtable22, i64 544
   %9 = load ptr, ptr %vfn23, align 8
   %call24 = tail call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(1164) %8, i32 noundef 1) #24
-  br i1 %call24, label %sw.epilog, label %lor.lhs.false25
+  br i1 %call24, label %if.then30, label %lor.lhs.false25
 
 lor.lhs.false25:                                  ; preds = %sw.bb20
   %10 = load ptr, ptr %Driver21, align 8, !tbaa !368
@@ -25404,11 +25412,13 @@ lor.lhs.false25:                                  ; preds = %sw.bb20
   %vfn28 = getelementptr inbounds i8, ptr %vtable27, i64 544
   %11 = load ptr, ptr %vfn28, align 8
   %call29 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(1164) %10, i32 noundef 8) #24
-  %spec.select2 = select i1 %call29, i32 0, i32 %cond
+  br i1 %call29, label %if.then30, label %sw.epilog
+
+if.then30:                                        ; preds = %lor.lhs.false25, %sw.bb20
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %lor.lhs.false25, %lor.lhs.false, %sw.bb20, %sw.bb9, %sw.bb2, %sw.bb, %entry
-  %destFormat.0 = phi i32 [ %cond, %entry ], [ %spec.select, %sw.bb ], [ %spec.select45, %sw.bb2 ], [ 0, %sw.bb9 ], [ 0, %sw.bb20 ], [ %spec.select1, %lor.lhs.false ], [ %spec.select2, %lor.lhs.false25 ]
+sw.epilog:                                        ; preds = %if.then30, %lor.lhs.false25, %if.then18, %lor.lhs.false, %sw.bb2, %sw.bb, %entry
+  %destFormat.0 = phi i32 [ %cond, %entry ], [ 0, %if.then30 ], [ %cond, %lor.lhs.false25 ], [ 0, %if.then18 ], [ %cond, %lor.lhs.false ], [ %spec.select, %sw.bb ], [ %spec.select45, %sw.bb2 ]
   %Driver32 = getelementptr inbounds i8, ptr %this, i64 120
   %12 = load ptr, ptr %Driver32, align 8, !tbaa !368
   %vtable33 = load ptr, ptr %12, align 8, !tbaa !3

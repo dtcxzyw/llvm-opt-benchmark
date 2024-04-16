@@ -1458,8 +1458,8 @@ define internal fastcc noundef i32 @nf_log_dump_tcp_header(ptr noundef %0, ptr n
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #7
   br label %156
 
-156:                                              ; preds = %153, %108, %116, %.thread9, %.thread, %5
-  %157 = phi i32 [ 1, %.thread ], [ 0, %5 ], [ 1, %.thread9 ], [ 0, %116 ], [ 0, %108 ], [ 0, %153 ]
+156:                                              ; preds = %108, %116, %153, %.thread9, %.thread, %5
+  %157 = phi i32 [ 1, %.thread ], [ 0, %5 ], [ 1, %.thread9 ], [ 0, %153 ], [ 0, %116 ], [ 0, %108 ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #7
   ret i32 %157
 }

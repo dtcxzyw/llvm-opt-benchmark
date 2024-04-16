@@ -997,13 +997,13 @@ declare i32 @llvm.ctlz.i32(i32, i1 immarg) #2
 declare i64 @FSE_readNCount_bmi2(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc i64 @BIT_initDStream(ptr nocapture noundef writeonly %0, ptr noundef %1, i64 noundef %2) unnamed_addr #4 {
+define internal fastcc noundef i64 @BIT_initDStream(ptr nocapture noundef writeonly %0, ptr noundef %1, i64 noundef %2) unnamed_addr #4 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  br label %81
+  br label %82
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1012,7 +1012,7 @@ define internal fastcc i64 @BIT_initDStream(ptr nocapture noundef writeonly %0, 
   %9 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %8, ptr %9, align 8
   %10 = icmp ugt i64 %2, 7
-  br i1 %10, label %11, label %23
+  br i1 %10, label %11, label %24
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds i8, ptr %1, i64 %2
@@ -1024,115 +1024,121 @@ define internal fastcc i64 @BIT_initDStream(ptr nocapture noundef writeonly %0, 
   %15 = getelementptr i8, ptr %12, i64 -1
   %16 = load i8, ptr %15, align 1
   %.not47 = icmp eq i8 %16, 0
-  %17 = zext i8 %16 to i32
-  %18 = tail call i32 @llvm.ctlz.i32(i32 %17, i1 true), !range !14
-  %19 = xor i32 %18, 31
-  %20 = sub nuw nsw i32 8, %19
-  %21 = select i1 %.not47, i32 0, i32 %20
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %21, ptr %22, align 8
-  %spec.select = select i1 %.not47, i64 -1, i64 %2
-  br label %81
+  br i1 %.not47, label %.thread, label %18
 
-23:                                               ; preds = %6
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %1, ptr %24, align 8
-  %25 = load i8, ptr %1, align 1
-  %26 = zext i8 %25 to i64
-  store i64 %26, ptr %0, align 8
-  switch i64 %2, label %68 [
-    i64 7, label %27
-    i64 6, label %33
-    i64 5, label %40
-    i64 4, label %47
-    i64 3, label %54
-    i64 2, label %61
+.thread:                                          ; preds = %11
+  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 0, ptr %17, align 8
+  br label %82
+
+18:                                               ; preds = %11
+  %19 = zext i8 %16 to i32
+  %20 = tail call i32 @llvm.ctlz.i32(i32 %19, i1 true), !range !14
+  %21 = xor i32 %20, 31
+  %22 = sub nuw nsw i32 8, %21
+  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %22, ptr %23, align 8
+  br label %82
+
+24:                                               ; preds = %6
+  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %1, ptr %25, align 8
+  %26 = load i8, ptr %1, align 1
+  %27 = zext i8 %26 to i64
+  store i64 %27, ptr %0, align 8
+  switch i64 %2, label %69 [
+    i64 7, label %28
+    i64 6, label %34
+    i64 5, label %41
+    i64 4, label %48
+    i64 3, label %55
+    i64 2, label %62
   ]
 
-27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %1, i64 6
-  %29 = load i8, ptr %28, align 1
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, 48
-  %32 = or disjoint i64 %31, %26
-  store i64 %32, ptr %0, align 8
-  br label %33
+28:                                               ; preds = %24
+  %29 = getelementptr inbounds i8, ptr %1, i64 6
+  %30 = load i8, ptr %29, align 1
+  %31 = zext i8 %30 to i64
+  %32 = shl nuw nsw i64 %31, 48
+  %33 = or disjoint i64 %32, %27
+  store i64 %33, ptr %0, align 8
+  br label %34
 
-33:                                               ; preds = %27, %23
-  %34 = phi i64 [ %32, %27 ], [ %26, %23 ]
-  %35 = getelementptr inbounds i8, ptr %1, i64 5
-  %36 = load i8, ptr %35, align 1
-  %37 = zext i8 %36 to i64
-  %38 = shl nuw nsw i64 %37, 40
-  %39 = add nuw nsw i64 %38, %34
-  store i64 %39, ptr %0, align 8
-  br label %40
+34:                                               ; preds = %28, %24
+  %35 = phi i64 [ %33, %28 ], [ %27, %24 ]
+  %36 = getelementptr inbounds i8, ptr %1, i64 5
+  %37 = load i8, ptr %36, align 1
+  %38 = zext i8 %37 to i64
+  %39 = shl nuw nsw i64 %38, 40
+  %40 = add nuw nsw i64 %39, %35
+  store i64 %40, ptr %0, align 8
+  br label %41
 
-40:                                               ; preds = %33, %23
-  %41 = phi i64 [ %39, %33 ], [ %26, %23 ]
-  %42 = getelementptr inbounds i8, ptr %1, i64 4
-  %43 = load i8, ptr %42, align 1
-  %44 = zext i8 %43 to i64
-  %45 = shl nuw nsw i64 %44, 32
-  %46 = add nuw nsw i64 %45, %41
-  store i64 %46, ptr %0, align 8
-  br label %47
+41:                                               ; preds = %34, %24
+  %42 = phi i64 [ %40, %34 ], [ %27, %24 ]
+  %43 = getelementptr inbounds i8, ptr %1, i64 4
+  %44 = load i8, ptr %43, align 1
+  %45 = zext i8 %44 to i64
+  %46 = shl nuw nsw i64 %45, 32
+  %47 = add nuw nsw i64 %46, %42
+  store i64 %47, ptr %0, align 8
+  br label %48
 
-47:                                               ; preds = %40, %23
-  %48 = phi i64 [ %46, %40 ], [ %26, %23 ]
-  %49 = getelementptr inbounds i8, ptr %1, i64 3
-  %50 = load i8, ptr %49, align 1
-  %51 = zext i8 %50 to i64
-  %52 = shl nuw nsw i64 %51, 24
-  %53 = add nuw nsw i64 %52, %48
-  store i64 %53, ptr %0, align 8
-  br label %54
+48:                                               ; preds = %41, %24
+  %49 = phi i64 [ %47, %41 ], [ %27, %24 ]
+  %50 = getelementptr inbounds i8, ptr %1, i64 3
+  %51 = load i8, ptr %50, align 1
+  %52 = zext i8 %51 to i64
+  %53 = shl nuw nsw i64 %52, 24
+  %54 = add nuw nsw i64 %53, %49
+  store i64 %54, ptr %0, align 8
+  br label %55
 
-54:                                               ; preds = %47, %23
-  %55 = phi i64 [ %53, %47 ], [ %26, %23 ]
-  %56 = getelementptr inbounds i8, ptr %1, i64 2
-  %57 = load i8, ptr %56, align 1
-  %58 = zext i8 %57 to i64
-  %59 = shl nuw nsw i64 %58, 16
-  %60 = add nuw nsw i64 %59, %55
-  store i64 %60, ptr %0, align 8
-  br label %61
+55:                                               ; preds = %48, %24
+  %56 = phi i64 [ %54, %48 ], [ %27, %24 ]
+  %57 = getelementptr inbounds i8, ptr %1, i64 2
+  %58 = load i8, ptr %57, align 1
+  %59 = zext i8 %58 to i64
+  %60 = shl nuw nsw i64 %59, 16
+  %61 = add nuw nsw i64 %60, %56
+  store i64 %61, ptr %0, align 8
+  br label %62
 
-61:                                               ; preds = %54, %23
-  %62 = phi i64 [ %60, %54 ], [ %26, %23 ]
-  %63 = getelementptr inbounds i8, ptr %1, i64 1
-  %64 = load i8, ptr %63, align 1
-  %65 = zext i8 %64 to i64
-  %66 = shl nuw nsw i64 %65, 8
-  %67 = add nuw nsw i64 %66, %62
-  store i64 %67, ptr %0, align 8
-  br label %68
+62:                                               ; preds = %55, %24
+  %63 = phi i64 [ %61, %55 ], [ %27, %24 ]
+  %64 = getelementptr inbounds i8, ptr %1, i64 1
+  %65 = load i8, ptr %64, align 1
+  %66 = zext i8 %65 to i64
+  %67 = shl nuw nsw i64 %66, 8
+  %68 = add nuw nsw i64 %67, %63
+  store i64 %68, ptr %0, align 8
+  br label %69
 
-68:                                               ; preds = %23, %61
-  %69 = getelementptr i8, ptr %1, i64 %2
-  %70 = getelementptr i8, ptr %69, i64 -1
-  %71 = load i8, ptr %70, align 1
-  %.not = icmp eq i8 %71, 0
-  br i1 %.not, label %.thread, label %73
+69:                                               ; preds = %24, %62
+  %70 = getelementptr i8, ptr %1, i64 %2
+  %71 = getelementptr i8, ptr %70, i64 -1
+  %72 = load i8, ptr %71, align 1
+  %.not = icmp eq i8 %72, 0
+  br i1 %.not, label %.thread48, label %74
 
-.thread:                                          ; preds = %68
-  %72 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 0, ptr %72, align 8
-  br label %81
+.thread48:                                        ; preds = %69
+  %73 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 0, ptr %73, align 8
+  br label %82
 
-73:                                               ; preds = %68
-  %74 = zext i8 %71 to i32
-  %75 = tail call i32 @llvm.ctlz.i32(i32 %74, i1 true), !range !14
-  %76 = getelementptr inbounds i8, ptr %0, i64 8
-  %77 = trunc nuw i64 %2 to i32
-  %78 = shl nuw nsw i32 %77, 3
-  %79 = sub nsw i32 %75, %78
-  %80 = add nsw i32 %79, 41
-  store i32 %80, ptr %76, align 8
-  br label %81
+74:                                               ; preds = %69
+  %75 = zext i8 %72 to i32
+  %76 = tail call i32 @llvm.ctlz.i32(i32 %75, i1 true), !range !14
+  %77 = getelementptr inbounds i8, ptr %0, i64 8
+  %78 = trunc nuw i64 %2 to i32
+  %79 = shl nuw nsw i32 %78, 3
+  %80 = sub nsw i32 %76, %79
+  %81 = add nsw i32 %80, 41
+  store i32 %81, ptr %77, align 8
+  br label %82
 
-81:                                               ; preds = %.thread, %11, %73, %5
-  %.0 = phi i64 [ -72, %5 ], [ %2, %73 ], [ %spec.select, %11 ], [ -20, %.thread ]
+82:                                               ; preds = %74, %18, %.thread48, %.thread, %5
+  %.0 = phi i64 [ -72, %5 ], [ -1, %.thread ], [ -20, %.thread48 ], [ %2, %18 ], [ %2, %74 ]
   ret i64 %.0
 }
 
